@@ -233,7 +233,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %31 = add nuw i64 %.013, 1
   %32 = add i64 %30, 1
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !23
+  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, %.lr.ph, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -274,7 +274,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare !callback !25 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
+declare !callback !24 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 comdat align 2 {
@@ -286,7 +286,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml(ptr nounde
   %12 = alloca i32, align 4
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %7, align 8, !tbaa !15
-  store ptr %2, ptr %8, align 8, !tbaa !27
+  store ptr %2, ptr %8, align 8, !tbaa !26
   store i64 %3, ptr %9, align 8, !tbaa !15
   store i64 %4, ptr %10, align 8, !tbaa !15
   store i64 %5, ptr %11, align 8, !tbaa !15
@@ -357,7 +357,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml.omp_outlin
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !13
-  %30 = load ptr, ptr %5, align 8, !tbaa !27
+  %30 = load ptr, ptr %5, align 8, !tbaa !26
   %31 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge38, label %.lr.ph37.split
@@ -395,7 +395,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml.omp_outlin
   %49 = add nuw i64 %.035, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !28
+  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !27
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %33, %.lr.ph ], [ %100, %99 ]
@@ -480,7 +480,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i, %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %86 ]
@@ -495,7 +495,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03234, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !30
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -529,8 +529,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE13addn_with_idsEmPKfPKll
   %14 = alloca i32, align 4
   %15 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !27
-  store ptr %3, ptr %10, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !26
+  store ptr %3, ptr %10, align 8, !tbaa !30
   store i64 %4, ptr %11, align 8, !tbaa !15
   store i64 %5, ptr %12, align 8, !tbaa !15
   store i64 %6, ptr %13, align 8, !tbaa !15
@@ -609,8 +609,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE13addn_with_idsEmPKfPKll
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !13
-  %31 = load ptr, ptr %5, align 8, !tbaa !27
-  %32 = load ptr, ptr %7, align 8, !tbaa !31
+  %31 = load ptr, ptr %5, align 8, !tbaa !26
+  %32 = load ptr, ptr %7, align 8, !tbaa !30
   %33 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %33, 0
   br i1 %.not, label %._crit_edge41, label %.lr.ph40.split
@@ -651,7 +651,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE13addn_with_idsEmPKfPKll
   %54 = add nuw i64 %.038, 1
   %55 = add i64 %51, 1
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !32
+  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !31
 
 57:                                               ; preds = %.lr.ph, %104
   %58 = phi i64 [ %35, %.lr.ph ], [ %105, %104 ]
@@ -736,7 +736,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i:            ; preds = %91
   %99 = shl i64 %.1.i, 1
   %100 = or disjoint i64 %99, 1
   %101 = icmp ugt i64 %99, %64
-  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i, %91, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i, %96, %63
   %.0.lcssa.i = phi i64 [ 1, %63 ], [ %.1.i, %96 ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %91 ]
@@ -751,7 +751,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %105 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %58, %57 ]
   %106 = add nuw i64 %.03537, 1
   %107 = icmp ult i64 %106, %105
-  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !33
+  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %.lr.ph40, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -777,10 +777,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
   %15 = alloca i32, align 4
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !30
   store i64 %3, ptr %10, align 8, !tbaa !15
-  store ptr %4, ptr %11, align 8, !tbaa !27
-  store ptr %5, ptr %12, align 8, !tbaa !31
+  store ptr %4, ptr %11, align 8, !tbaa !26
+  store ptr %5, ptr %12, align 8, !tbaa !30
   store i64 %6, ptr %13, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %39
@@ -788,10 +788,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %18, ptr %14, align 8, !tbaa !34
+  store ptr %18, ptr %14, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !37
-  store i8 0, ptr %18, align 8, !tbaa !39
+  store i64 0, ptr %19, align 8, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !38
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -799,8 +799,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
-  %23 = load ptr, ptr %14, align 8, !tbaa !40
-  %24 = load i64, ptr %19, align 8, !tbaa !37
+  %23 = load ptr, ptr %14, align 8, !tbaa !39
+  %24 = load i64, ptr %19, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %26 = call ptr @__cxa_allocate_exception(i64 40) #3
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with_idsEmPKlmPKfS5_l, ptr noundef nonnull @.str.2, i32 noundef 90)
@@ -823,18 +823,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %33 = load ptr, ptr %14, align 8, !tbaa !40
+  %33 = load ptr, ptr %14, align 8, !tbaa !39
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !37
+  %35 = load i64, ptr %19, align 8, !tbaa !36
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
-  %37 = load i64, ptr %18, align 8, !tbaa !39
+  %37 = load i64, ptr %18, align 8, !tbaa !38
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -885,22 +885,22 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8, !tbaa !41
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !37
+  %7 = load i64, ptr %6, align 8, !tbaa !36
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !39
+  %9 = load i64, ptr %4, align 8, !tbaa !38
   %10 = add i64 %9, 1
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -943,14 +943,14 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
   br i1 %.not42, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !31
+  %21 = load ptr, ptr %3, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !13
-  %27 = load ptr, ptr %5, align 8, !tbaa !27
-  %28 = load ptr, ptr %7, align 8, !tbaa !31
+  %27 = load ptr, ptr %5, align 8, !tbaa !26
+  %28 = load ptr, ptr %7, align 8, !tbaa !30
   %29 = load i64, ptr %6, align 8, !tbaa !15
   %.not38 = icmp eq i64 %29, 0
   br i1 %.not38, label %._crit_edge37, label %.lr.ph36.split
@@ -990,7 +990,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
   %49 = add nuw i64 %.034, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !43
+  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !42
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
@@ -1075,7 +1075,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i, %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %86 ]
@@ -1090,7 +1090,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03233, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !44
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %.lr.ph36, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -1245,7 +1245,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i:          ; preds = %59
   %67 = shl i64 %.1.i.i, 1
   %68 = or disjoint i64 %67, 1
   %69 = icmp ugt i64 %67, %30
-  br i1 %69, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %69, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i: ; preds = %64, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i, %59, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %64 ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i ], [ %.062.i.i, %59 ]
@@ -1272,7 +1272,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %78
   %79 = add nuw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %79, %19
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !46
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i, %18
   %.037.lcssa.i = phi i64 [ 0, %18 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -1296,14 +1296,14 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i64 -1, ptr %89, align 8, !tbaa !15
   %90 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %90, %19
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !47
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !46
 
 _ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i, %._crit_edge.i
   %91 = add nuw i64 %.012, 1
   %92 = load i64, ptr %5, align 8, !tbaa !15
   %93 = add i64 %92, 1
   %94 = icmp ult i64 %91, %93
-  br i1 %94, label %18, label %._crit_edge, !llvm.loop !48
+  br i1 %94, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -1326,8 +1326,8 @@ define weak_odr void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %1, ptr %4, align 8, !tbaa !27
-  store ptr %2, ptr %5, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  store ptr %2, ptr %5, align 8, !tbaa !30
   %8 = load i64, ptr %0, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !12
@@ -1383,9 +1383,9 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load ptr, ptr %3, align 8, !tbaa !27
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
   %.not37 = icmp eq ptr %20, null
-  %21 = load ptr, ptr %4, align 8, !tbaa !31
+  %21 = load ptr, ptr %4, align 8, !tbaa !30
   %.not38 = icmp eq ptr %21, null
   br i1 %.not38, label %.lr.ph45.split.us, label %.lr.ph45.split
 
@@ -1412,7 +1412,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
 28:                                               ; preds = %26, %._crit_edge.us
   %29 = add nuw i64 %.03043.us, 1
   %30 = icmp ult i64 %.03043.us, %15
-  br i1 %30, label %23, label %._crit_edge46, !llvm.loop !49
+  br i1 %30, label %23, label %._crit_edge46, !llvm.loop !47
 
 .lr.ph.us:                                        ; preds = %23, %.lr.ph.us
   %.041.us = phi i64 [ %34, %.lr.ph.us ], [ 0, %23 ]
@@ -1423,7 +1423,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %.1.us = select i1 %33, float %32, float %.03140.us
   %34 = add nuw i64 %.041.us, 1
   %exitcond84.not = icmp eq i64 %34, %22
-  br i1 %exitcond84.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !51
+  br i1 %exitcond84.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !49
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1457,7 +1457,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %45 = load i64, ptr %7, align 8, !tbaa !15
   %46 = add i64 %45, 1
   %47 = icmp ult i64 %44, %46
-  br i1 %47, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !52
+  br i1 %47, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !50
 
 .lr.ph.us55:                                      ; preds = %.lr.ph45.split.split.us, %.lr.ph.us55
   %.041.us50 = phi i64 [ %51, %.lr.ph.us55 ], [ 0, %.lr.ph45.split.split.us ]
@@ -1470,7 +1470,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %.1.us54 = select i1 %50, float %49, float %.03140.us51
   %51 = add nuw i64 %.041.us50, 1
   %exitcond83.not = icmp eq i64 %51, %37
-  br i1 %exitcond83.not, label %._crit_edge.us56, label %.lr.ph.us55, !llvm.loop !51
+  br i1 %exitcond83.not, label %._crit_edge.us56, label %.lr.ph.us55, !llvm.loop !49
 
 .lr.ph45.split.split:                             ; preds = %.lr.ph45.split
   br i1 %.not37, label %.lr.ph45.split.split.split.us, label %.lr.ph45.split.split.split
@@ -1501,7 +1501,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %61 = load i64, ptr %7, align 8, !tbaa !15
   %62 = add i64 %61, 1
   %63 = icmp ult i64 %60, %62
-  br i1 %63, label %.lr.ph45.split.split.split.us, label %._crit_edge46, !llvm.loop !53
+  br i1 %63, label %.lr.ph45.split.split.split.us, label %._crit_edge46, !llvm.loop !51
 
 .lr.ph.us67:                                      ; preds = %.lr.ph45.split.split.split.us, %.lr.ph.us67
   %.041.us62 = phi i64 [ %67, %.lr.ph.us67 ], [ 0, %.lr.ph45.split.split.split.us ]
@@ -1514,7 +1514,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %.1.us66 = select i1 %66, float %65, float %.03140.us63
   %67 = add nuw i64 %.041.us62, 1
   %exitcond82.not = icmp eq i64 %67, %52
-  br i1 %exitcond82.not, label %._crit_edge.us68, label %.lr.ph.us67, !llvm.loop !51
+  br i1 %exitcond82.not, label %._crit_edge.us68, label %.lr.ph.us67, !llvm.loop !49
 
 .lr.ph45.split.split.split:                       ; preds = %.lr.ph45.split.split, %81
   %.03043 = phi i64 [ %83, %81 ], [ %16, %.lr.ph45.split.split ]
@@ -1546,7 +1546,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %.1 = select i1 %75, float %74, float %.03140
   %76 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %76, %68
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr i64, ptr %.fr71, i64 %69
@@ -1562,7 +1562,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   %84 = load i64, ptr %7, align 8, !tbaa !15
   %85 = add i64 %84, 1
   %86 = icmp ult i64 %83, %85
-  br i1 %86, label %.lr.ph45.split.split.split, label %._crit_edge46, !llvm.loop !54
+  br i1 %86, label %.lr.ph45.split.split.split, label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %81, %._crit_edge.us68.thread, %42, %28, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -1579,9 +1579,9 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7get_valEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !57
+  %6 = load i64, ptr %5, align 8, !tbaa !54
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw float, ptr %4, i64 %7
   ret ptr %8
@@ -1590,9 +1590,9 @@ define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7get_valEm(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7get_idsEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !57
+  %6 = load i64, ptr %5, align 8, !tbaa !54
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
   ret ptr %8
@@ -1610,7 +1610,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7heapifyEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !59
+  %8 = load i64, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %34, label %9
 
@@ -1636,15 +1636,15 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7heapifyEv.omp_outlined(
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !58
-  %20 = load i64, ptr %15, align 8, !tbaa !57
+  %19 = load ptr, ptr %18, align 8, !tbaa !55
+  %20 = load i64, ptr %15, align 8, !tbaa !54
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
-  %.pr = load i64, ptr %15, align 8, !tbaa !57
+  %.pr = load i64, ptr %15, align 8, !tbaa !54
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
@@ -1665,7 +1665,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7heapifyEv.omp_outlined(
   store i64 -1, ptr %28, align 8, !tbaa !15
   %29 = add nuw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %29, %22
-  br i1 %exitcond51.not.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph46.i, !llvm.loop !60
+  br i1 %exitcond51.not.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph46.i, !llvm.loop !57
 
 _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit: ; preds = %.lr.ph46.i
   %.pre = load i64, ptr %5, align 8, !tbaa !15
@@ -1676,7 +1676,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %31 = add nuw i64 %.013, 1
   %32 = add i64 %30, 1
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !61
+  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, %.lr.ph, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -1700,7 +1700,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml(ptr nounde
   %12 = alloca i32, align 4
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %7, align 8, !tbaa !15
-  store ptr %2, ptr %8, align 8, !tbaa !27
+  store ptr %2, ptr %8, align 8, !tbaa !26
   store i64 %3, ptr %9, align 8, !tbaa !15
   store i64 %4, ptr %10, align 8, !tbaa !15
   store i64 %5, ptr %11, align 8, !tbaa !15
@@ -1708,7 +1708,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml(ptr nounde
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = load i64, ptr %0, align 8, !tbaa !59
+  %16 = load i64, ptr %0, align 8, !tbaa !56
   store i64 %16, ptr %11, align 8, !tbaa !15
   br label %17
 
@@ -1767,11 +1767,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
 
 .lr.ph37:                                         ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !52
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !58
-  %30 = load ptr, ptr %5, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
+  %30 = load ptr, ptr %5, align 8, !tbaa !26
   %31 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge38, label %.lr.ph37.split
@@ -1782,7 +1782,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
   %34 = phi i64 [ %48, %._crit_edge ], [ %31, %.lr.ph37 ]
   %.035 = phi i64 [ %49, %._crit_edge ], [ %22, %.lr.ph37 ]
   %35 = add i64 %.035, %13
-  %36 = load i64, ptr %27, align 8, !tbaa !57
+  %36 = load i64, ptr %27, align 8, !tbaa !54
   %37 = mul i64 %36, %35
   %38 = getelementptr inbounds nuw float, ptr %26, i64 %37
   %39 = getelementptr inbounds nuw i64, ptr %29, i64 %37
@@ -1809,7 +1809,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
   %49 = add nuw i64 %.035, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !62
+  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !59
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %33, %.lr.ph ], [ %100, %99 ]
@@ -1821,7 +1821,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
   br i1 %57, label %58, label %99
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %27, align 8, !tbaa !57
+  %59 = load i64, ptr %27, align 8, !tbaa !54
   %60 = load i64, ptr %7, align 8, !tbaa !15
   %61 = add i64 %60, %.03234
   %62 = icmp ult i64 %59, 2
@@ -1894,7 +1894,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !60
 
 _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i, %86, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %86 ]
@@ -1909,7 +1909,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03234, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !64
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !61
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -1934,8 +1934,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
   %14 = alloca i32, align 4
   %15 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !27
-  store ptr %3, ptr %10, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !26
+  store ptr %3, ptr %10, align 8, !tbaa !30
   store i64 %4, ptr %11, align 8, !tbaa !15
   store i64 %5, ptr %12, align 8, !tbaa !15
   store i64 %6, ptr %13, align 8, !tbaa !15
@@ -1951,7 +1951,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8, !tbaa !59
+  %21 = load i64, ptr %0, align 8, !tbaa !56
   store i64 %21, ptr %13, align 8, !tbaa !15
   br label %22
 
@@ -2010,12 +2010,12 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
 
 .lr.ph40:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %27 = load ptr, ptr %26, align 8, !tbaa !52
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !58
-  %31 = load ptr, ptr %5, align 8, !tbaa !27
-  %32 = load ptr, ptr %7, align 8, !tbaa !31
+  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  %31 = load ptr, ptr %5, align 8, !tbaa !26
+  %32 = load ptr, ptr %7, align 8, !tbaa !30
   %33 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %33, 0
   br i1 %.not, label %._crit_edge41, label %.lr.ph40.split
@@ -2026,7 +2026,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
   %36 = phi i64 [ %53, %._crit_edge ], [ %33, %.lr.ph40 ]
   %.038 = phi i64 [ %54, %._crit_edge ], [ %23, %.lr.ph40 ]
   %37 = add i64 %.038, %14
-  %38 = load i64, ptr %28, align 8, !tbaa !57
+  %38 = load i64, ptr %28, align 8, !tbaa !54
   %39 = mul i64 %38, %37
   %40 = getelementptr inbounds nuw float, ptr %27, i64 %39
   %41 = getelementptr inbounds nuw i64, ptr %30, i64 %39
@@ -2056,7 +2056,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
   %54 = add nuw i64 %.038, 1
   %55 = add i64 %51, 1
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !65
+  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !62
 
 57:                                               ; preds = %.lr.ph, %104
   %58 = phi i64 [ %35, %.lr.ph ], [ %105, %104 ]
@@ -2068,7 +2068,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
   br i1 %62, label %63, label %104
 
 63:                                               ; preds = %57
-  %64 = load i64, ptr %28, align 8, !tbaa !57
+  %64 = load i64, ptr %28, align 8, !tbaa !54
   %65 = getelementptr inbounds nuw i64, ptr %48, i64 %.03537
   %66 = load i64, ptr %65, align 8, !tbaa !15
   %67 = icmp ult i64 %64, 2
@@ -2141,7 +2141,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %91
   %99 = shl i64 %.1.i, 1
   %100 = or disjoint i64 %99, 1
   %101 = icmp ugt i64 %99, %64
-  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !60
 
 _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i, %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i, %96, %63
   %.0.lcssa.i = phi i64 [ 1, %63 ], [ %.1.i, %96 ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %91 ]
@@ -2156,7 +2156,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %105 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %58, %57 ]
   %106 = add nuw i64 %.03537, 1
   %107 = icmp ult i64 %106, %105
-  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !66
+  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !63
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %.lr.ph40, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -2182,10 +2182,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   %15 = alloca i32, align 4
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !30
   store i64 %3, ptr %10, align 8, !tbaa !15
-  store ptr %4, ptr %11, align 8, !tbaa !27
-  store ptr %5, ptr %12, align 8, !tbaa !31
+  store ptr %4, ptr %11, align 8, !tbaa !26
+  store ptr %5, ptr %12, align 8, !tbaa !30
   store i64 %6, ptr %13, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %39
@@ -2193,10 +2193,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %18, ptr %14, align 8, !tbaa !34
+  store ptr %18, ptr %14, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !37
-  store i8 0, ptr %18, align 8, !tbaa !39
+  store i64 0, ptr %19, align 8, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !38
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -2204,8 +2204,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
-  %23 = load ptr, ptr %14, align 8, !tbaa !40
-  %24 = load i64, ptr %19, align 8, !tbaa !37
+  %23 = load ptr, ptr %14, align 8, !tbaa !39
+  %24 = load i64, ptr %19, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %26 = call ptr @__cxa_allocate_exception(i64 40) #3
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with_idsEmPKlmPKfS5_l, ptr noundef nonnull @.str.2, i32 noundef 90)
@@ -2228,18 +2228,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %33 = load ptr, ptr %14, align 8, !tbaa !40
+  %33 = load ptr, ptr %14, align 8, !tbaa !39
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !37
+  %35 = load i64, ptr %19, align 8, !tbaa !36
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
-  %37 = load i64, ptr %18, align 8, !tbaa !39
+  %37 = load i64, ptr %18, align 8, !tbaa !38
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2309,14 +2309,14 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   br i1 %.not42, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !31
+  %21 = load ptr, ptr %3, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !55
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !58
-  %27 = load ptr, ptr %5, align 8, !tbaa !27
-  %28 = load ptr, ptr %7, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %27 = load ptr, ptr %5, align 8, !tbaa !26
+  %28 = load ptr, ptr %7, align 8, !tbaa !30
   %29 = load i64, ptr %6, align 8, !tbaa !15
   %.not38 = icmp eq i64 %29, 0
   br i1 %.not38, label %._crit_edge37, label %.lr.ph36.split
@@ -2328,7 +2328,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   %.034 = phi i64 [ %49, %._crit_edge ], [ %20, %.lr.ph36 ]
   %33 = getelementptr inbounds i64, ptr %21, i64 %.034
   %34 = load i64, ptr %33, align 8, !tbaa !15
-  %35 = load i64, ptr %24, align 8, !tbaa !57
+  %35 = load i64, ptr %24, align 8, !tbaa !54
   %36 = mul i64 %35, %34
   %37 = getelementptr inbounds nuw float, ptr %23, i64 %36
   %38 = getelementptr inbounds nuw i64, ptr %26, i64 %36
@@ -2356,7 +2356,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   %49 = add nuw i64 %.034, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !67
+  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !64
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
@@ -2368,7 +2368,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   br i1 %57, label %58, label %99
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %24, align 8, !tbaa !57
+  %59 = load i64, ptr %24, align 8, !tbaa !54
   %60 = getelementptr inbounds nuw i64, ptr %43, i64 %.03233
   %61 = load i64, ptr %60, align 8, !tbaa !15
   %62 = icmp ult i64 %59, 2
@@ -2441,7 +2441,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !60
 
 _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i, %86, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %86 ]
@@ -2456,7 +2456,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03233, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !68
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !65
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %.lr.ph36, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -2482,7 +2482,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7reorderEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !59
+  %8 = load i64, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %95, label %9
 
@@ -2513,11 +2513,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7reorderEv.omp_outlined(
 
 18:                                               ; preds = %.lr.ph, %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit
   %.012 = phi i64 [ %14, %.lr.ph ], [ %91, %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit ]
-  %19 = load i64, ptr %15, align 8, !tbaa !57
-  %20 = load ptr, ptr %16, align 8, !tbaa !55
+  %19 = load i64, ptr %15, align 8, !tbaa !54
+  %20 = load ptr, ptr %16, align 8, !tbaa !52
   %21 = mul i64 %19, %.012
   %22 = getelementptr inbounds nuw float, ptr %20, i64 %21
-  %23 = load ptr, ptr %17, align 8, !tbaa !58
+  %23 = load ptr, ptr %17, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %21
   %.not46.i = icmp eq i64 %19, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2603,7 +2603,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i:          ; preds = %59
   %67 = shl i64 %.1.i.i, 1
   %68 = or disjoint i64 %67, 1
   %69 = icmp ugt i64 %67, %30
-  br i1 %69, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !69
+  br i1 %69, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !66
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i: ; preds = %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i, %59, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %64 ], [ %.062.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i ], [ %.062.i.i, %59 ]
@@ -2630,7 +2630,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %78
   %79 = add nuw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %79, %19
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !70
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !67
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i, %18
   %.037.lcssa.i = phi i64 [ 0, %18 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -2654,14 +2654,14 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i64 -1, ptr %89, align 8, !tbaa !15
   %90 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %90, %19
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !71
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !68
 
 _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i, %._crit_edge.i
   %91 = add nuw i64 %.012, 1
   %92 = load i64, ptr %5, align 8, !tbaa !15
   %93 = add i64 %92, 1
   %94 = icmp ult i64 %91, %93
-  br i1 %94, label %18, label %._crit_edge, !llvm.loop !72
+  br i1 %94, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -2681,11 +2681,11 @@ define weak_odr void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %1, ptr %4, align 8, !tbaa !27
-  store ptr %2, ptr %5, align 8, !tbaa !31
-  %8 = load i64, ptr %0, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  store ptr %2, ptr %5, align 8, !tbaa !30
+  %8 = load i64, ptr %0, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !57
+  %10 = load i64, ptr %9, align 8, !tbaa !54
   %11 = mul i64 %10, %8
   %12 = icmp ugt i64 %11, 100000
   br i1 %12, label %13, label %14
@@ -2711,7 +2711,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  %10 = load i64, ptr %2, align 8, !tbaa !59
+  %10 = load i64, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %87, label %11
 
@@ -2736,16 +2736,16 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
 
 .lr.ph45:                                         ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load ptr, ptr %3, align 8, !tbaa !27
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
   %.not37 = icmp eq ptr %20, null
-  %21 = load ptr, ptr %4, align 8, !tbaa !31
+  %21 = load ptr, ptr %4, align 8, !tbaa !30
   %.not38 = icmp eq ptr %21, null
   br i1 %.not38, label %.lr.ph45.split.us, label %.lr.ph45.split
 
 .lr.ph45.split.us:                                ; preds = %.lr.ph45
-  %22 = load i64, ptr %19, align 8, !tbaa !57
+  %22 = load i64, ptr %19, align 8, !tbaa !54
   %.not78 = icmp eq i64 %22, 0
   br label %23
 
@@ -2767,7 +2767,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
 28:                                               ; preds = %26, %._crit_edge.us
   %29 = add nuw i64 %.03043.us, 1
   %30 = icmp ult i64 %.03043.us, %15
-  br i1 %30, label %23, label %._crit_edge46, !llvm.loop !73
+  br i1 %30, label %23, label %._crit_edge46, !llvm.loop !69
 
 .lr.ph.us:                                        ; preds = %23, %.lr.ph.us
   %.041.us = phi i64 [ %34, %.lr.ph.us ], [ 0, %23 ]
@@ -2778,18 +2778,18 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %.1.us = select i1 %33, float %32, float %.03140.us
   %34 = add nuw i64 %.041.us, 1
   %exitcond84.not = icmp eq i64 %34, %22
-  br i1 %exitcond84.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !74
+  br i1 %exitcond84.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !70
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !58
+  %36 = load ptr, ptr %35, align 8, !tbaa !55
   %.fr71 = freeze ptr %36
   %.not72 = icmp eq ptr %.fr71, null
   br i1 %.not72, label %.lr.ph45.split.split.us, label %.lr.ph45.split.split
 
 .lr.ph45.split.split.us:                          ; preds = %.lr.ph45.split, %42
   %.03043.us47 = phi i64 [ %44, %42 ], [ %16, %.lr.ph45.split ]
-  %37 = load i64, ptr %19, align 8, !tbaa !57
+  %37 = load i64, ptr %19, align 8, !tbaa !54
   %38 = mul i64 %37, %.03043.us47
   %39 = getelementptr inbounds nuw float, ptr %18, i64 %38
   %.not73 = icmp eq i64 %37, 0
@@ -2812,7 +2812,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %45 = load i64, ptr %7, align 8, !tbaa !15
   %46 = add i64 %45, 1
   %47 = icmp ult i64 %44, %46
-  br i1 %47, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !75
+  br i1 %47, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !71
 
 .lr.ph.us55:                                      ; preds = %.lr.ph45.split.split.us, %.lr.ph.us55
   %.041.us50 = phi i64 [ %51, %.lr.ph.us55 ], [ 0, %.lr.ph45.split.split.us ]
@@ -2825,14 +2825,14 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %.1.us54 = select i1 %50, float %49, float %.03140.us51
   %51 = add nuw i64 %.041.us50, 1
   %exitcond83.not = icmp eq i64 %51, %37
-  br i1 %exitcond83.not, label %._crit_edge.us56, label %.lr.ph.us55, !llvm.loop !74
+  br i1 %exitcond83.not, label %._crit_edge.us56, label %.lr.ph.us55, !llvm.loop !70
 
 .lr.ph45.split.split:                             ; preds = %.lr.ph45.split
   br i1 %.not37, label %.lr.ph45.split.split.split.us, label %.lr.ph45.split.split.split
 
 .lr.ph45.split.split.split.us:                    ; preds = %.lr.ph45.split.split, %._crit_edge.us68.thread
   %.03043.us59 = phi i64 [ %60, %._crit_edge.us68.thread ], [ %16, %.lr.ph45.split.split ]
-  %52 = load i64, ptr %19, align 8, !tbaa !57
+  %52 = load i64, ptr %19, align 8, !tbaa !54
   %53 = mul i64 %52, %.03043.us59
   %54 = getelementptr inbounds nuw float, ptr %18, i64 %53
   %.not76 = icmp eq i64 %52, 0
@@ -2856,7 +2856,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %61 = load i64, ptr %7, align 8, !tbaa !15
   %62 = add i64 %61, 1
   %63 = icmp ult i64 %60, %62
-  br i1 %63, label %.lr.ph45.split.split.split.us, label %._crit_edge46, !llvm.loop !76
+  br i1 %63, label %.lr.ph45.split.split.split.us, label %._crit_edge46, !llvm.loop !72
 
 .lr.ph.us67:                                      ; preds = %.lr.ph45.split.split.split.us, %.lr.ph.us67
   %.041.us62 = phi i64 [ %67, %.lr.ph.us67 ], [ 0, %.lr.ph45.split.split.split.us ]
@@ -2869,11 +2869,11 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %.1.us66 = select i1 %66, float %65, float %.03140.us63
   %67 = add nuw i64 %.041.us62, 1
   %exitcond82.not = icmp eq i64 %67, %52
-  br i1 %exitcond82.not, label %._crit_edge.us68, label %.lr.ph.us67, !llvm.loop !74
+  br i1 %exitcond82.not, label %._crit_edge.us68, label %.lr.ph.us67, !llvm.loop !70
 
 .lr.ph45.split.split.split:                       ; preds = %.lr.ph45.split.split, %81
   %.03043 = phi i64 [ %83, %81 ], [ %16, %.lr.ph45.split.split ]
-  %68 = load i64, ptr %19, align 8, !tbaa !57
+  %68 = load i64, ptr %19, align 8, !tbaa !54
   %69 = mul i64 %68, %.03043
   %70 = getelementptr inbounds nuw float, ptr %18, i64 %69
   %.not74 = icmp eq i64 %68, 0
@@ -2901,7 +2901,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %.1 = select i1 %75, float %74, float %.03140
   %76 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %76, %68
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr i64, ptr %.fr71, i64 %69
@@ -2917,7 +2917,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   %84 = load i64, ptr %7, align 8, !tbaa !15
   %85 = add i64 %84, 1
   %86 = icmp ult i64 %83, %85
-  br i1 %86, label %.lr.ph45.split.split.split, label %._crit_edge46, !llvm.loop !77
+  br i1 %86, label %.lr.ph45.split.split.split, label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %81, %._crit_edge.us68.thread, %42, %28, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -2934,9 +2934,9 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7get_valEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !81
+  %6 = load i64, ptr %5, align 8, !tbaa !76
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw float, ptr %4, i64 %7
   ret ptr %8
@@ -2945,9 +2945,9 @@ define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7get_valEm(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7get_idsEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !82
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !81
+  %6 = load i64, ptr %5, align 8, !tbaa !76
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   ret ptr %8
@@ -2965,7 +2965,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7heapifyEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !83
+  %8 = load i64, ptr %2, align 8, !tbaa !78
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %28, label %9
 
@@ -2990,11 +2990,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7heapifyEv.omp_outlined(
 
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !81
+  %16 = load i64, ptr %15, align 8, !tbaa !76
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !78
+  %18 = load ptr, ptr %17, align 8, !tbaa !73
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !77
   %.not13 = icmp eq i64 %16, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph45.i.preheader
 
@@ -3013,12 +3013,12 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7heapifyEv.omp_outlined(
   store i32 -1, ptr %25, align 4, !tbaa !16
   %26 = add nuw i64 %.044.i, 1
   %exitcond50.not.i = icmp eq i64 %26, %16
-  br i1 %exitcond50.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph45.i, !llvm.loop !84
+  br i1 %exitcond50.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph45.i, !llvm.loop !79
 
 _ZN5faiss12heap_heapifyINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit: ; preds = %.lr.ph45.i
   %27 = add i64 %.015, 1
   %exitcond.not = icmp eq i64 %.015, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45.i.preheader, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45.i.preheader
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_heapifyINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, %.lr.ph, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -3042,7 +3042,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE4addnEmPKfiml(ptr nounde
   %12 = alloca i32, align 4
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %7, align 8, !tbaa !15
-  store ptr %2, ptr %8, align 8, !tbaa !27
+  store ptr %2, ptr %8, align 8, !tbaa !26
   store i32 %3, ptr %9, align 4, !tbaa !16
   store i64 %4, ptr %10, align 8, !tbaa !15
   store i64 %5, ptr %11, align 8, !tbaa !15
@@ -3050,7 +3050,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE4addnEmPKfiml(ptr nounde
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = load i64, ptr %0, align 8, !tbaa !83
+  %16 = load i64, ptr %0, align 8, !tbaa !78
   store i64 %16, ptr %11, align 8, !tbaa !15
   br label %17
 
@@ -3109,13 +3109,13 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE4addnEmPKfiml.omp_outlin
 
 .lr.ph37:                                         ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !78
+  %26 = load ptr, ptr %25, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !81
+  %28 = load i64, ptr %27, align 8, !tbaa !76
   %.fr42 = freeze i64 %28
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !82
-  %31 = load ptr, ptr %5, align 8, !tbaa !27
+  %30 = load ptr, ptr %29, align 8, !tbaa !77
+  %31 = load ptr, ptr %5, align 8, !tbaa !26
   %32 = load i64, ptr %2, align 8, !tbaa !15
   %33 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %33, 0
@@ -3213,12 +3213,12 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us:         ; preds = %_ZN5faiss4CMinIfiE4
   %82 = shl i64 %.1.i.us, 1
   %83 = or disjoint i64 %82, 1
   %84 = icmp ugt i64 %82, %.fr42
-  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !86
+  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !80
 
 85:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, %.lr.ph.split.us41
   %86 = add nuw i64 %.03234.us39, 1
   %exitcond.not = icmp eq i64 %86, %33
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us41, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us41, !llvm.loop !81
 
 _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us: ; preds = %79, %_ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit55.i.us, %67
   %.0.lcssa.i.ph.us = phi i64 [ %.1.i.us, %79 ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit55.i.us ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.us ], [ %.056.i.us, %67 ]
@@ -3231,7 +3231,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 ._crit_edge.us:                                   ; preds = %85, %98
   %89 = add nuw i64 %.035.us, 1
   %exitcond46.not = icmp eq i64 %.035.us, %21
-  br i1 %exitcond46.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !88
+  br i1 %exitcond46.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !82
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %.promoted.us = load float, ptr %37, align 4, !tbaa !18
@@ -3257,7 +3257,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us: 
   %99 = phi float [ %93, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us ], [ %91, %90 ]
   %100 = add nuw i64 %.03234.us.us, 1
   %exitcond45.not = icmp eq i64 %100, %33
-  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !89
+  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !83
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.lr.ph37, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -3282,8 +3282,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE13addn_with_idsEmPKfPKil
   %14 = alloca i32, align 4
   %15 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !27
-  store ptr %3, ptr %10, align 8, !tbaa !90
+  store ptr %2, ptr %9, align 8, !tbaa !26
+  store ptr %3, ptr %10, align 8, !tbaa !84
   store i64 %4, ptr %11, align 8, !tbaa !15
   store i64 %5, ptr %12, align 8, !tbaa !15
   store i64 %6, ptr %13, align 8, !tbaa !15
@@ -3299,7 +3299,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE13addn_with_idsEmPKfPKil
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8, !tbaa !83
+  %21 = load i64, ptr %0, align 8, !tbaa !78
   store i64 %21, ptr %13, align 8, !tbaa !15
   br label %22
 
@@ -3358,16 +3358,16 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE13addn_with_idsEmPKfPKil
 
 .lr.ph40:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !78
+  %27 = load ptr, ptr %26, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !81
+  %29 = load i64, ptr %28, align 8, !tbaa !76
   %.fr45 = freeze i64 %29
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !82
-  %32 = load ptr, ptr %5, align 8, !tbaa !27
+  %31 = load ptr, ptr %30, align 8, !tbaa !77
+  %32 = load ptr, ptr %5, align 8, !tbaa !26
   %33 = load i64, ptr %2, align 8, !tbaa !15
   %34 = load i64, ptr %6, align 8, !tbaa !15
-  %35 = load ptr, ptr %7, align 8, !tbaa !90
+  %35 = load ptr, ptr %7, align 8, !tbaa !84
   %36 = load i64, ptr %8, align 8, !tbaa !15
   %.not = icmp eq i64 %34, 0
   %37 = icmp ult i64 %.fr45, 2
@@ -3465,12 +3465,12 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us:         ; preds = %_ZN5faiss4CMinIfiE4
   %86 = shl i64 %.1.i.us, 1
   %87 = or disjoint i64 %86, 1
   %88 = icmp ugt i64 %86, %.fr45
-  br i1 %88, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !86
+  br i1 %88, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !80
 
 89:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, %.lr.ph.split.us44
   %90 = add nuw i64 %.03537.us42, 1
   %exitcond.not = icmp eq i64 %90, %34
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us44, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us44, !llvm.loop !85
 
 _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us: ; preds = %83, %_ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit55.i.us, %71
   %.0.lcssa.i.ph.us = phi i64 [ %.1.i.us, %83 ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit55.i.us ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.us ], [ %.056.i.us, %71 ]
@@ -3483,7 +3483,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 ._crit_edge.us:                                   ; preds = %89, %101
   %93 = add nuw i64 %.038.us, 1
   %exitcond49.not = icmp eq i64 %.038.us, %22
-  br i1 %exitcond49.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !92
+  br i1 %exitcond49.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !86
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %.promoted.us = load float, ptr %40, align 4, !tbaa !18
@@ -3508,7 +3508,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us: 
   %102 = phi float [ %97, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us ], [ %95, %94 ]
   %103 = add nuw i64 %.03537.us.us, 1
   %exitcond48.not = icmp eq i64 %103, %34
-  br i1 %exitcond48.not, label %._crit_edge.us, label %94, !llvm.loop !93
+  br i1 %exitcond48.not, label %._crit_edge.us, label %94, !llvm.loop !87
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.lr.ph40, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -3534,10 +3534,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
   %15 = alloca i32, align 4
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !90
+  store ptr %2, ptr %9, align 8, !tbaa !84
   store i64 %3, ptr %10, align 8, !tbaa !15
-  store ptr %4, ptr %11, align 8, !tbaa !27
-  store ptr %5, ptr %12, align 8, !tbaa !90
+  store ptr %4, ptr %11, align 8, !tbaa !26
+  store ptr %5, ptr %12, align 8, !tbaa !84
   store i64 %6, ptr %13, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %39
@@ -3545,10 +3545,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %18, ptr %14, align 8, !tbaa !34
+  store ptr %18, ptr %14, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !37
-  store i8 0, ptr %18, align 8, !tbaa !39
+  store i64 0, ptr %19, align 8, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !38
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -3556,8 +3556,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
-  %23 = load ptr, ptr %14, align 8, !tbaa !40
-  %24 = load i64, ptr %19, align 8, !tbaa !37
+  %23 = load ptr, ptr %14, align 8, !tbaa !39
+  %24 = load i64, ptr %19, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %26 = call ptr @__cxa_allocate_exception(i64 40) #3
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with_idsEmPKimPKfS5_l, ptr noundef nonnull @.str.2, i32 noundef 90)
@@ -3580,18 +3580,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %33 = load ptr, ptr %14, align 8, !tbaa !40
+  %33 = load ptr, ptr %14, align 8, !tbaa !39
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !37
+  %35 = load i64, ptr %19, align 8, !tbaa !36
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
-  %37 = load i64, ptr %18, align 8, !tbaa !39
+  %37 = load i64, ptr %18, align 8, !tbaa !38
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -3661,17 +3661,17 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
   br i1 %.not48, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !90
+  %21 = load ptr, ptr %3, align 8, !tbaa !84
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !78
+  %23 = load ptr, ptr %22, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !81
+  %25 = load i64, ptr %24, align 8, !tbaa !76
   %.fr42 = freeze i64 %25
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !82
-  %28 = load ptr, ptr %5, align 8, !tbaa !27
+  %27 = load ptr, ptr %26, align 8, !tbaa !77
+  %28 = load ptr, ptr %5, align 8, !tbaa !26
   %29 = load i64, ptr %6, align 8, !tbaa !15
-  %30 = load ptr, ptr %7, align 8, !tbaa !90
+  %30 = load ptr, ptr %7, align 8, !tbaa !84
   %31 = load i64, ptr %8, align 8, !tbaa !15
   %.not41 = icmp eq i64 %29, 0
   %32 = icmp ult i64 %.fr42, 2
@@ -3770,12 +3770,12 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us:         ; preds = %_ZN5faiss4CMinIfiE4
   %82 = shl i64 %.1.i.us, 1
   %83 = or disjoint i64 %82, 1
   %84 = icmp ugt i64 %82, %.fr42
-  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !86
+  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !80
 
 85:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, %.lr.ph.split.us40
   %86 = add nuw i64 %.03233.us38, 1
   %exitcond.not = icmp eq i64 %86, %29
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us40, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us40, !llvm.loop !88
 
 _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us: ; preds = %79, %_ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit55.i.us, %67
   %.0.lcssa.i.ph.us = phi i64 [ %.1.i.us, %79 ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit54.i.us ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit55.i.us ], [ %.056.i.us, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.us ], [ %.056.i.us, %67 ]
@@ -3788,7 +3788,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 ._crit_edge.us:                                   ; preds = %85, %97
   %89 = add nuw i64 %.034.us, 1
   %exitcond46.not = icmp eq i64 %.034.us, %19
-  br i1 %exitcond46.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !95
+  br i1 %exitcond46.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !89
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %.promoted.us = load float, ptr %37, align 4, !tbaa !18
@@ -3813,7 +3813,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us: 
   %98 = phi float [ %93, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us ], [ %91, %90 ]
   %99 = add nuw i64 %.03233.us.us, 1
   %exitcond45.not = icmp eq i64 %99, %29
-  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !96
+  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !90
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.lr.ph36, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -3839,7 +3839,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7reorderEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !83
+  %8 = load i64, ptr %2, align 8, !tbaa !78
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %94, label %9
 
@@ -3870,11 +3870,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7reorderEv.omp_outlined(
 
 18:                                               ; preds = %.lr.ph, %_ZN5faiss12heap_reorderINS_4CMinIfiEEEEmmPNT_1TEPNS3_2TIE.exit
   %.012 = phi i64 [ %14, %.lr.ph ], [ %90, %_ZN5faiss12heap_reorderINS_4CMinIfiEEEEmmPNT_1TEPNS3_2TIE.exit ]
-  %19 = load i64, ptr %15, align 8, !tbaa !81
-  %20 = load ptr, ptr %16, align 8, !tbaa !78
+  %19 = load i64, ptr %15, align 8, !tbaa !76
+  %20 = load ptr, ptr %16, align 8, !tbaa !73
   %21 = mul i64 %19, %.012
   %22 = getelementptr inbounds nuw float, ptr %20, i64 %21
-  %23 = load ptr, ptr %17, align 8, !tbaa !82
+  %23 = load ptr, ptr %17, align 8, !tbaa !77
   %24 = getelementptr inbounds nuw i32, ptr %23, i64 %21
   %.not46.i = icmp eq i64 %19, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3960,7 +3960,7 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit61.i.i:          ; preds = %59
   %67 = shl i64 %.1.i.i, 1
   %68 = or disjoint i64 %67, 1
   %69 = icmp ugt i64 %67, %30
-  br i1 %69, label %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !97
+  br i1 %69, label %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !91
 
 _ZN5faiss4CMinIfiE4cmp2Effii.exit60.thread.loopexit.i.i: ; preds = %64, %_ZN5faiss4CMinIfiE4cmp2Effii.exit61.i.i, %59, %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.i.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.i
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %64 ], [ %.062.i.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i.i ], [ %.062.i.i, %59 ]
@@ -3987,7 +3987,7 @@ _ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %78
   %79 = add nuw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %79, %19
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !98
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !92
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i, %18
   %.037.lcssa.i = phi i64 [ 0, %18 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -4010,14 +4010,14 @@ _ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i32 -1, ptr %88, align 4, !tbaa !16
   %89 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %89, %19
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIfiEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !99
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIfiEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !93
 
 _ZN5faiss12heap_reorderINS_4CMinIfiEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i, %._crit_edge.i
   %90 = add nuw i64 %.012, 1
   %91 = load i64, ptr %5, align 8, !tbaa !15
   %92 = add i64 %91, 1
   %93 = icmp ult i64 %90, %92
-  br i1 %93, label %18, label %._crit_edge, !llvm.loop !100
+  br i1 %93, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_reorderINS_4CMinIfiEEEEmmPNT_1TEPNS3_2TIE.exit, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -4037,11 +4037,11 @@ define weak_odr void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %1, ptr %4, align 8, !tbaa !27
-  store ptr %2, ptr %5, align 8, !tbaa !90
-  %8 = load i64, ptr %0, align 8, !tbaa !83
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  store ptr %2, ptr %5, align 8, !tbaa !84
+  %8 = load i64, ptr %0, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !81
+  %10 = load i64, ptr %9, align 8, !tbaa !76
   %11 = mul i64 %10, %8
   %12 = icmp ugt i64 %11, 100000
   br i1 %12, label %13, label %14
@@ -4067,7 +4067,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  %10 = load i64, ptr %2, align 8, !tbaa !83
+  %10 = load i64, ptr %2, align 8, !tbaa !78
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %63, label %11
 
@@ -4093,13 +4093,13 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
 
 .lr.ph45:                                         ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  %19 = load ptr, ptr %18, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !81
+  %21 = load i64, ptr %20, align 8, !tbaa !76
   %.not60 = icmp eq i64 %21, 0
-  %22 = load ptr, ptr %3, align 8, !tbaa !27
+  %22 = load ptr, ptr %3, align 8, !tbaa !26
   %.not37 = icmp eq ptr %22, null
-  %23 = load ptr, ptr %4, align 8, !tbaa !90
+  %23 = load ptr, ptr %4, align 8, !tbaa !84
   %.not38 = icmp eq ptr %23, null
   br i1 %.not38, label %.lr.ph45.split.us, label %.lr.ph45.split
 
@@ -4121,7 +4121,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
 28:                                               ; preds = %26, %._crit_edge.us
   %29 = add nuw i64 %.03043.us, 1
   %exitcond67.not = icmp eq i64 %.03043.us, %15
-  br i1 %exitcond67.not, label %._crit_edge46, label %.lr.ph45.split.us, !llvm.loop !101
+  br i1 %exitcond67.not, label %._crit_edge46, label %.lr.ph45.split.us, !llvm.loop !94
 
 .lr.ph.us:                                        ; preds = %.lr.ph45.split.us, %.lr.ph.us
   %.041.us = phi i64 [ %33, %.lr.ph.us ], [ 0, %.lr.ph45.split.us ]
@@ -4132,11 +4132,11 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   %.1.us = select i1 %32, float %31, float %.03140.us
   %33 = add nuw i64 %.041.us, 1
   %exitcond66.not = icmp eq i64 %33, %21
-  br i1 %exitcond66.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !102
+  br i1 %exitcond66.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !95
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !82
+  %35 = load ptr, ptr %34, align 8, !tbaa !77
   %36 = icmp ne ptr %35, null
   br i1 %.not60, label %.lr.ph45.split.split, label %.lr.ph.us55
 
@@ -4172,7 +4172,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   store i32 %.sink, ptr %50, align 4, !tbaa !16
   %51 = add nuw i64 %.03043.us47, 1
   %exitcond64.not = icmp eq i64 %.03043.us47, %15
-  br i1 %exitcond64.not, label %._crit_edge46, label %.lr.ph.us55, !llvm.loop !103
+  br i1 %exitcond64.not, label %._crit_edge46, label %.lr.ph.us55, !llvm.loop !96
 
 52:                                               ; preds = %.lr.ph.us55, %52
   %.041.us50 = phi i64 [ 0, %.lr.ph.us55 ], [ %56, %52 ]
@@ -4185,7 +4185,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   %.1.us54 = select i1 %55, float %54, float %.03140.us51
   %56 = add nuw i64 %.041.us50, 1
   %exitcond.not = icmp eq i64 %56, %21
-  br i1 %exitcond.not, label %._crit_edge.us56, label %52, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge.us56, label %52, !llvm.loop !95
 
 ._crit_edge.us56:                                 ; preds = %52
   br i1 %.not37, label %41, label %39
@@ -4209,7 +4209,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   store i32 -1, ptr %61, align 4, !tbaa !16
   %62 = add nuw i64 %.03043, 1
   %exitcond65.not = icmp eq i64 %.03043, %15
-  br i1 %exitcond65.not, label %._crit_edge46, label %.lr.ph45.split.split.split, !llvm.loop !104
+  br i1 %exitcond65.not, label %._crit_edge46, label %.lr.ph45.split.split.split
 
 ._crit_edge46:                                    ; preds = %49, %.lr.ph45.split.split.split, %28, %.lr.ph45.split.split.split.us.preheader, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -4226,9 +4226,9 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7get_valEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !105
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !107
+  %6 = load i64, ptr %5, align 8, !tbaa !99
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw float, ptr %4, i64 %7
   ret ptr %8
@@ -4237,9 +4237,9 @@ define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7get_valEm(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7get_idsEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !108
+  %4 = load ptr, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !107
+  %6 = load i64, ptr %5, align 8, !tbaa !99
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   ret ptr %8
@@ -4257,7 +4257,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7heapifyEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !109
+  %8 = load i64, ptr %2, align 8, !tbaa !101
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %28, label %9
 
@@ -4282,11 +4282,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7heapifyEv.omp_outlined(
 
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !107
+  %16 = load i64, ptr %15, align 8, !tbaa !99
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
+  %18 = load ptr, ptr %17, align 8, !tbaa !97
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !108
+  %20 = load ptr, ptr %19, align 8, !tbaa !100
   %.not13 = icmp eq i64 %16, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph45.i.preheader
 
@@ -4305,12 +4305,12 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7heapifyEv.omp_outlined(
   store i32 -1, ptr %25, align 4, !tbaa !16
   %26 = add nuw i64 %.044.i, 1
   %exitcond50.not.i = icmp eq i64 %26, %16
-  br i1 %exitcond50.not.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph45.i, !llvm.loop !110
+  br i1 %exitcond50.not.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph45.i, !llvm.loop !102
 
 _ZN5faiss12heap_heapifyINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit: ; preds = %.lr.ph45.i
   %27 = add i64 %.015, 1
   %exitcond.not = icmp eq i64 %.015, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45.i.preheader, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45.i.preheader
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, %.lr.ph, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -4334,7 +4334,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE4addnEmPKfiml(ptr nounde
   %12 = alloca i32, align 4
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %7, align 8, !tbaa !15
-  store ptr %2, ptr %8, align 8, !tbaa !27
+  store ptr %2, ptr %8, align 8, !tbaa !26
   store i32 %3, ptr %9, align 4, !tbaa !16
   store i64 %4, ptr %10, align 8, !tbaa !15
   store i64 %5, ptr %11, align 8, !tbaa !15
@@ -4342,7 +4342,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE4addnEmPKfiml(ptr nounde
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = load i64, ptr %0, align 8, !tbaa !109
+  %16 = load i64, ptr %0, align 8, !tbaa !101
   store i64 %16, ptr %11, align 8, !tbaa !15
   br label %17
 
@@ -4401,13 +4401,13 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE4addnEmPKfiml.omp_outlin
 
 .lr.ph37:                                         ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
+  %26 = load ptr, ptr %25, align 8, !tbaa !97
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !107
+  %28 = load i64, ptr %27, align 8, !tbaa !99
   %.fr42 = freeze i64 %28
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !108
-  %31 = load ptr, ptr %5, align 8, !tbaa !27
+  %30 = load ptr, ptr %29, align 8, !tbaa !100
+  %31 = load ptr, ptr %5, align 8, !tbaa !26
   %32 = load i64, ptr %2, align 8, !tbaa !15
   %33 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %33, 0
@@ -4505,12 +4505,12 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us:         ; preds = %_ZN5faiss4CMaxIfiE4
   %82 = shl i64 %.1.i.us, 1
   %83 = or disjoint i64 %82, 1
   %84 = icmp ugt i64 %82, %.fr42
-  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !112
+  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !103
 
 85:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, %.lr.ph.split.us41
   %86 = add nuw i64 %.03234.us39, 1
   %exitcond.not = icmp eq i64 %86, %33
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us41, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us41, !llvm.loop !104
 
 _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us: ; preds = %79, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit55.i.us, %67
   %.0.lcssa.i.ph.us = phi i64 [ %.1.i.us, %79 ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit55.i.us ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.us ], [ %.056.i.us, %67 ]
@@ -4523,7 +4523,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 ._crit_edge.us:                                   ; preds = %85, %98
   %89 = add nuw i64 %.035.us, 1
   %exitcond46.not = icmp eq i64 %.035.us, %21
-  br i1 %exitcond46.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !114
+  br i1 %exitcond46.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !105
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %.promoted.us = load float, ptr %37, align 4, !tbaa !18
@@ -4549,7 +4549,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us: 
   %99 = phi float [ %93, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us ], [ %91, %90 ]
   %100 = add nuw i64 %.03234.us.us, 1
   %exitcond45.not = icmp eq i64 %100, %33
-  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !115
+  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !106
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.lr.ph37, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -4574,8 +4574,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE13addn_with_idsEmPKfPKil
   %14 = alloca i32, align 4
   %15 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !27
-  store ptr %3, ptr %10, align 8, !tbaa !90
+  store ptr %2, ptr %9, align 8, !tbaa !26
+  store ptr %3, ptr %10, align 8, !tbaa !84
   store i64 %4, ptr %11, align 8, !tbaa !15
   store i64 %5, ptr %12, align 8, !tbaa !15
   store i64 %6, ptr %13, align 8, !tbaa !15
@@ -4591,7 +4591,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE13addn_with_idsEmPKfPKil
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8, !tbaa !109
+  %21 = load i64, ptr %0, align 8, !tbaa !101
   store i64 %21, ptr %13, align 8, !tbaa !15
   br label %22
 
@@ -4650,16 +4650,16 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE13addn_with_idsEmPKfPKil
 
 .lr.ph40:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !105
+  %27 = load ptr, ptr %26, align 8, !tbaa !97
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !107
+  %29 = load i64, ptr %28, align 8, !tbaa !99
   %.fr45 = freeze i64 %29
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !108
-  %32 = load ptr, ptr %5, align 8, !tbaa !27
+  %31 = load ptr, ptr %30, align 8, !tbaa !100
+  %32 = load ptr, ptr %5, align 8, !tbaa !26
   %33 = load i64, ptr %2, align 8, !tbaa !15
   %34 = load i64, ptr %6, align 8, !tbaa !15
-  %35 = load ptr, ptr %7, align 8, !tbaa !90
+  %35 = load ptr, ptr %7, align 8, !tbaa !84
   %36 = load i64, ptr %8, align 8, !tbaa !15
   %.not = icmp eq i64 %34, 0
   %37 = icmp ult i64 %.fr45, 2
@@ -4757,12 +4757,12 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us:         ; preds = %_ZN5faiss4CMaxIfiE4
   %86 = shl i64 %.1.i.us, 1
   %87 = or disjoint i64 %86, 1
   %88 = icmp ugt i64 %86, %.fr45
-  br i1 %88, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !112
+  br i1 %88, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !103
 
 89:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, %.lr.ph.split.us44
   %90 = add nuw i64 %.03537.us42, 1
   %exitcond.not = icmp eq i64 %90, %34
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us44, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us44, !llvm.loop !107
 
 _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us: ; preds = %83, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit55.i.us, %71
   %.0.lcssa.i.ph.us = phi i64 [ %.1.i.us, %83 ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit55.i.us ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.us ], [ %.056.i.us, %71 ]
@@ -4775,7 +4775,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 ._crit_edge.us:                                   ; preds = %89, %101
   %93 = add nuw i64 %.038.us, 1
   %exitcond49.not = icmp eq i64 %.038.us, %22
-  br i1 %exitcond49.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !117
+  br i1 %exitcond49.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !108
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %.promoted.us = load float, ptr %40, align 4, !tbaa !18
@@ -4800,7 +4800,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us: 
   %102 = phi float [ %97, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us ], [ %95, %94 ]
   %103 = add nuw i64 %.03537.us.us, 1
   %exitcond48.not = icmp eq i64 %103, %34
-  br i1 %exitcond48.not, label %._crit_edge.us, label %94, !llvm.loop !118
+  br i1 %exitcond48.not, label %._crit_edge.us, label %94, !llvm.loop !109
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.lr.ph40, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -4826,10 +4826,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
   %15 = alloca i32, align 4
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !90
+  store ptr %2, ptr %9, align 8, !tbaa !84
   store i64 %3, ptr %10, align 8, !tbaa !15
-  store ptr %4, ptr %11, align 8, !tbaa !27
-  store ptr %5, ptr %12, align 8, !tbaa !90
+  store ptr %4, ptr %11, align 8, !tbaa !26
+  store ptr %5, ptr %12, align 8, !tbaa !84
   store i64 %6, ptr %13, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %39
@@ -4837,10 +4837,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %18, ptr %14, align 8, !tbaa !34
+  store ptr %18, ptr %14, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !37
-  store i8 0, ptr %18, align 8, !tbaa !39
+  store i64 0, ptr %19, align 8, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !38
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -4848,8 +4848,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
-  %23 = load ptr, ptr %14, align 8, !tbaa !40
-  %24 = load i64, ptr %19, align 8, !tbaa !37
+  %23 = load ptr, ptr %14, align 8, !tbaa !39
+  %24 = load i64, ptr %19, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %26 = call ptr @__cxa_allocate_exception(i64 40) #3
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with_idsEmPKimPKfS5_l, ptr noundef nonnull @.str.2, i32 noundef 90)
@@ -4872,18 +4872,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %33 = load ptr, ptr %14, align 8, !tbaa !40
+  %33 = load ptr, ptr %14, align 8, !tbaa !39
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !37
+  %35 = load i64, ptr %19, align 8, !tbaa !36
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
-  %37 = load i64, ptr %18, align 8, !tbaa !39
+  %37 = load i64, ptr %18, align 8, !tbaa !38
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -4953,17 +4953,17 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
   br i1 %.not48, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !90
+  %21 = load ptr, ptr %3, align 8, !tbaa !84
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !105
+  %23 = load ptr, ptr %22, align 8, !tbaa !97
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !107
+  %25 = load i64, ptr %24, align 8, !tbaa !99
   %.fr42 = freeze i64 %25
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !108
-  %28 = load ptr, ptr %5, align 8, !tbaa !27
+  %27 = load ptr, ptr %26, align 8, !tbaa !100
+  %28 = load ptr, ptr %5, align 8, !tbaa !26
   %29 = load i64, ptr %6, align 8, !tbaa !15
-  %30 = load ptr, ptr %7, align 8, !tbaa !90
+  %30 = load ptr, ptr %7, align 8, !tbaa !84
   %31 = load i64, ptr %8, align 8, !tbaa !15
   %.not41 = icmp eq i64 %29, 0
   %32 = icmp ult i64 %.fr42, 2
@@ -5062,12 +5062,12 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us:         ; preds = %_ZN5faiss4CMaxIfiE4
   %82 = shl i64 %.1.i.us, 1
   %83 = or disjoint i64 %82, 1
   %84 = icmp ugt i64 %82, %.fr42
-  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !112
+  br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !103
 
 85:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us, %.lr.ph.split.us40
   %86 = add nuw i64 %.03233.us38, 1
   %exitcond.not = icmp eq i64 %86, %29
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us40, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us40, !llvm.loop !110
 
 _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us: ; preds = %79, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit55.i.us, %67
   %.0.lcssa.i.ph.us = phi i64 [ %.1.i.us, %79 ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit54.i.us ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit55.i.us ], [ %.056.i.us, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.us ], [ %.056.i.us, %67 ]
@@ -5080,7 +5080,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 ._crit_edge.us:                                   ; preds = %85, %97
   %89 = add nuw i64 %.034.us, 1
   %exitcond46.not = icmp eq i64 %.034.us, %19
-  br i1 %exitcond46.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !120
+  br i1 %exitcond46.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !111
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
   %.promoted.us = load float, ptr %37, align 4, !tbaa !18
@@ -5105,7 +5105,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us: 
   %98 = phi float [ %93, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us ], [ %91, %90 ]
   %99 = add nuw i64 %.03233.us.us, 1
   %exitcond45.not = icmp eq i64 %99, %29
-  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !121
+  br i1 %exitcond45.not, label %._crit_edge.us, label %90, !llvm.loop !112
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.lr.ph36, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -5131,7 +5131,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7reorderEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !109
+  %8 = load i64, ptr %2, align 8, !tbaa !101
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %94, label %9
 
@@ -5162,11 +5162,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7reorderEv.omp_outlined(
 
 18:                                               ; preds = %.lr.ph, %_ZN5faiss12heap_reorderINS_4CMaxIfiEEEEmmPNT_1TEPNS3_2TIE.exit
   %.012 = phi i64 [ %14, %.lr.ph ], [ %90, %_ZN5faiss12heap_reorderINS_4CMaxIfiEEEEmmPNT_1TEPNS3_2TIE.exit ]
-  %19 = load i64, ptr %15, align 8, !tbaa !107
-  %20 = load ptr, ptr %16, align 8, !tbaa !105
+  %19 = load i64, ptr %15, align 8, !tbaa !99
+  %20 = load ptr, ptr %16, align 8, !tbaa !97
   %21 = mul i64 %19, %.012
   %22 = getelementptr inbounds nuw float, ptr %20, i64 %21
-  %23 = load ptr, ptr %17, align 8, !tbaa !108
+  %23 = load ptr, ptr %17, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i32, ptr %23, i64 %21
   %.not46.i = icmp eq i64 %19, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
@@ -5252,7 +5252,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit61.i.i:          ; preds = %59
   %67 = shl i64 %.1.i.i, 1
   %68 = or disjoint i64 %67, 1
   %69 = icmp ugt i64 %67, %30
-  br i1 %69, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !122
+  br i1 %69, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !113
 
 _ZN5faiss4CMaxIfiE4cmp2Effii.exit60.thread.loopexit.i.i: ; preds = %64, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit61.i.i, %59, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.i.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.i
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %64 ], [ %.062.i.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i.i ], [ %.062.i.i, %59 ]
@@ -5279,7 +5279,7 @@ _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %78
   %79 = add nuw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %79, %19
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !123
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !114
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i, %18
   %.037.lcssa.i = phi i64 [ 0, %18 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -5302,14 +5302,14 @@ _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i32 -1, ptr %88, align 4, !tbaa !16
   %89 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %89, %19
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMaxIfiEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !124
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMaxIfiEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !115
 
 _ZN5faiss12heap_reorderINS_4CMaxIfiEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i, %._crit_edge.i
   %90 = add nuw i64 %.012, 1
   %91 = load i64, ptr %5, align 8, !tbaa !15
   %92 = add i64 %91, 1
   %93 = icmp ult i64 %90, %92
-  br i1 %93, label %18, label %._crit_edge, !llvm.loop !125
+  br i1 %93, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIfiEEEEmmPNT_1TEPNS3_2TIE.exit, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -5329,11 +5329,11 @@ define weak_odr void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %1, ptr %4, align 8, !tbaa !27
-  store ptr %2, ptr %5, align 8, !tbaa !90
-  %8 = load i64, ptr %0, align 8, !tbaa !109
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  store ptr %2, ptr %5, align 8, !tbaa !84
+  %8 = load i64, ptr %0, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !107
+  %10 = load i64, ptr %9, align 8, !tbaa !99
   %11 = mul i64 %10, %8
   %12 = icmp ugt i64 %11, 100000
   br i1 %12, label %13, label %14
@@ -5359,7 +5359,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  %10 = load i64, ptr %2, align 8, !tbaa !109
+  %10 = load i64, ptr %2, align 8, !tbaa !101
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %63, label %11
 
@@ -5385,13 +5385,13 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
 
 .lr.ph45:                                         ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !105
+  %19 = load ptr, ptr %18, align 8, !tbaa !97
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !107
+  %21 = load i64, ptr %20, align 8, !tbaa !99
   %.not60 = icmp eq i64 %21, 0
-  %22 = load ptr, ptr %3, align 8, !tbaa !27
+  %22 = load ptr, ptr %3, align 8, !tbaa !26
   %.not37 = icmp eq ptr %22, null
-  %23 = load ptr, ptr %4, align 8, !tbaa !90
+  %23 = load ptr, ptr %4, align 8, !tbaa !84
   %.not38 = icmp eq ptr %23, null
   br i1 %.not38, label %.lr.ph45.split.us, label %.lr.ph45.split
 
@@ -5413,7 +5413,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
 28:                                               ; preds = %26, %._crit_edge.us
   %29 = add nuw i64 %.03043.us, 1
   %exitcond67.not = icmp eq i64 %.03043.us, %15
-  br i1 %exitcond67.not, label %._crit_edge46, label %.lr.ph45.split.us, !llvm.loop !126
+  br i1 %exitcond67.not, label %._crit_edge46, label %.lr.ph45.split.us, !llvm.loop !116
 
 .lr.ph.us:                                        ; preds = %.lr.ph45.split.us, %.lr.ph.us
   %.041.us = phi i64 [ %33, %.lr.ph.us ], [ 0, %.lr.ph45.split.us ]
@@ -5424,11 +5424,11 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   %.1.us = select i1 %32, float %31, float %.03140.us
   %33 = add nuw i64 %.041.us, 1
   %exitcond66.not = icmp eq i64 %33, %21
-  br i1 %exitcond66.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !127
+  br i1 %exitcond66.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !117
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !108
+  %35 = load ptr, ptr %34, align 8, !tbaa !100
   %36 = icmp ne ptr %35, null
   br i1 %.not60, label %.lr.ph45.split.split, label %.lr.ph.us55
 
@@ -5464,7 +5464,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   store i32 %.sink, ptr %50, align 4, !tbaa !16
   %51 = add nuw i64 %.03043.us47, 1
   %exitcond64.not = icmp eq i64 %.03043.us47, %15
-  br i1 %exitcond64.not, label %._crit_edge46, label %.lr.ph.us55, !llvm.loop !128
+  br i1 %exitcond64.not, label %._crit_edge46, label %.lr.ph.us55, !llvm.loop !118
 
 52:                                               ; preds = %.lr.ph.us55, %52
   %.041.us50 = phi i64 [ 0, %.lr.ph.us55 ], [ %56, %52 ]
@@ -5477,7 +5477,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   %.1.us54 = select i1 %55, float %54, float %.03140.us51
   %56 = add nuw i64 %.041.us50, 1
   %exitcond.not = icmp eq i64 %56, %21
-  br i1 %exitcond.not, label %._crit_edge.us56, label %52, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge.us56, label %52, !llvm.loop !117
 
 ._crit_edge.us56:                                 ; preds = %52
   br i1 %.not37, label %41, label %39
@@ -5501,7 +5501,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   store i32 -1, ptr %61, align 4, !tbaa !16
   %62 = add nuw i64 %.03043, 1
   %exitcond65.not = icmp eq i64 %.03043, %15
-  br i1 %exitcond65.not, label %._crit_edge46, label %.lr.ph45.split.split.split, !llvm.loop !129
+  br i1 %exitcond65.not, label %._crit_edge46, label %.lr.ph45.split.split.split
 
 ._crit_edge46:                                    ; preds = %49, %.lr.ph45.split.split.split, %28, %.lr.ph45.split.split.split.us.preheader, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -5518,9 +5518,9 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMinIilEEE7get_valEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !130
+  %4 = load ptr, ptr %3, align 8, !tbaa !119
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !132
+  %6 = load i64, ptr %5, align 8, !tbaa !121
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   ret ptr %8
@@ -5529,9 +5529,9 @@ define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMinIilEEE7get_valEm(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMinIilEEE7get_idsEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !133
+  %4 = load ptr, ptr %3, align 8, !tbaa !122
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !132
+  %6 = load i64, ptr %5, align 8, !tbaa !121
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
   ret ptr %8
@@ -5549,7 +5549,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE7heapifyEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !134
+  %8 = load i64, ptr %2, align 8, !tbaa !123
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %34, label %9
 
@@ -5575,15 +5575,15 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE7heapifyEv.omp_outlined(
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !130
+  %17 = load ptr, ptr %16, align 8, !tbaa !119
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !133
-  %20 = load i64, ptr %15, align 8, !tbaa !132
+  %19 = load ptr, ptr %18, align 8, !tbaa !122
+  %20 = load i64, ptr %15, align 8, !tbaa !121
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
-  %.pr = load i64, ptr %15, align 8, !tbaa !132
+  %.pr = load i64, ptr %15, align 8, !tbaa !121
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
@@ -5604,7 +5604,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE7heapifyEv.omp_outlined(
   store i64 -1, ptr %28, align 8, !tbaa !15
   %29 = add nuw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %29, %22
-  br i1 %exitcond51.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph46.i, !llvm.loop !135
+  br i1 %exitcond51.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph46.i, !llvm.loop !124
 
 _ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit: ; preds = %.lr.ph46.i
   %.pre = load i64, ptr %5, align 8, !tbaa !15
@@ -5615,7 +5615,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %31 = add nuw i64 %.013, 1
   %32 = add i64 %30, 1
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !136
+  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, %.lr.ph, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -5639,7 +5639,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml(ptr nounde
   %12 = alloca i32, align 4
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %7, align 8, !tbaa !15
-  store ptr %2, ptr %8, align 8, !tbaa !90
+  store ptr %2, ptr %8, align 8, !tbaa !84
   store i64 %3, ptr %9, align 8, !tbaa !15
   store i64 %4, ptr %10, align 8, !tbaa !15
   store i64 %5, ptr %11, align 8, !tbaa !15
@@ -5647,7 +5647,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml(ptr nounde
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = load i64, ptr %0, align 8, !tbaa !134
+  %16 = load i64, ptr %0, align 8, !tbaa !123
   store i64 %16, ptr %11, align 8, !tbaa !15
   br label %17
 
@@ -5706,11 +5706,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
 
 .lr.ph37:                                         ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !130
+  %26 = load ptr, ptr %25, align 8, !tbaa !119
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !133
-  %30 = load ptr, ptr %5, align 8, !tbaa !90
+  %29 = load ptr, ptr %28, align 8, !tbaa !122
+  %30 = load ptr, ptr %5, align 8, !tbaa !84
   %31 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge38, label %.lr.ph37.split
@@ -5721,7 +5721,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
   %34 = phi i64 [ %48, %._crit_edge ], [ %31, %.lr.ph37 ]
   %.035 = phi i64 [ %49, %._crit_edge ], [ %22, %.lr.ph37 ]
   %35 = add i64 %.035, %13
-  %36 = load i64, ptr %27, align 8, !tbaa !132
+  %36 = load i64, ptr %27, align 8, !tbaa !121
   %37 = mul i64 %36, %35
   %38 = getelementptr inbounds nuw i32, ptr %26, i64 %37
   %39 = getelementptr inbounds nuw i64, ptr %29, i64 %37
@@ -5748,7 +5748,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
   %49 = add nuw i64 %.035, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !137
+  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !126
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %33, %.lr.ph ], [ %100, %99 ]
@@ -5760,7 +5760,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
   br i1 %57, label %58, label %99
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %27, align 8, !tbaa !132
+  %59 = load i64, ptr %27, align 8, !tbaa !121
   %60 = load i64, ptr %7, align 8, !tbaa !15
   %61 = add i64 %60, %.03234
   %62 = icmp ult i64 %59, 2
@@ -5833,7 +5833,7 @@ _ZN5faiss4CMinIilE4cmp2Eiill.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !138
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !127
 
 _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit54.i, %86, %_ZN5faiss4CMinIilE4cmp2Eiill.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i ], [ %.056.i, %86 ]
@@ -5848,7 +5848,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03234, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !139
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !128
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -5873,8 +5873,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
   %14 = alloca i32, align 4
   %15 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !90
-  store ptr %3, ptr %10, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !84
+  store ptr %3, ptr %10, align 8, !tbaa !30
   store i64 %4, ptr %11, align 8, !tbaa !15
   store i64 %5, ptr %12, align 8, !tbaa !15
   store i64 %6, ptr %13, align 8, !tbaa !15
@@ -5890,7 +5890,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8, !tbaa !134
+  %21 = load i64, ptr %0, align 8, !tbaa !123
   store i64 %21, ptr %13, align 8, !tbaa !15
   br label %22
 
@@ -5949,12 +5949,12 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
 
 .lr.ph40:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !130
+  %27 = load ptr, ptr %26, align 8, !tbaa !119
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !133
-  %31 = load ptr, ptr %5, align 8, !tbaa !90
-  %32 = load ptr, ptr %7, align 8, !tbaa !31
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
+  %31 = load ptr, ptr %5, align 8, !tbaa !84
+  %32 = load ptr, ptr %7, align 8, !tbaa !30
   %33 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %33, 0
   br i1 %.not, label %._crit_edge41, label %.lr.ph40.split
@@ -5965,7 +5965,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
   %36 = phi i64 [ %53, %._crit_edge ], [ %33, %.lr.ph40 ]
   %.038 = phi i64 [ %54, %._crit_edge ], [ %23, %.lr.ph40 ]
   %37 = add i64 %.038, %14
-  %38 = load i64, ptr %28, align 8, !tbaa !132
+  %38 = load i64, ptr %28, align 8, !tbaa !121
   %39 = mul i64 %38, %37
   %40 = getelementptr inbounds nuw i32, ptr %27, i64 %39
   %41 = getelementptr inbounds nuw i64, ptr %30, i64 %39
@@ -5995,7 +5995,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
   %54 = add nuw i64 %.038, 1
   %55 = add i64 %51, 1
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !140
+  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !129
 
 57:                                               ; preds = %.lr.ph, %104
   %58 = phi i64 [ %35, %.lr.ph ], [ %105, %104 ]
@@ -6007,7 +6007,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
   br i1 %62, label %63, label %104
 
 63:                                               ; preds = %57
-  %64 = load i64, ptr %28, align 8, !tbaa !132
+  %64 = load i64, ptr %28, align 8, !tbaa !121
   %65 = getelementptr inbounds nuw i64, ptr %48, i64 %.03537
   %66 = load i64, ptr %65, align 8, !tbaa !15
   %67 = icmp ult i64 %64, 2
@@ -6080,7 +6080,7 @@ _ZN5faiss4CMinIilE4cmp2Eiill.exit55.i:            ; preds = %91
   %99 = shl i64 %.1.i, 1
   %100 = or disjoint i64 %99, 1
   %101 = icmp ugt i64 %99, %64
-  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !138
+  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !127
 
 _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit54.i, %91, %_ZN5faiss4CMinIilE4cmp2Eiill.exit55.i, %96, %63
   %.0.lcssa.i = phi i64 [ 1, %63 ], [ %.1.i, %96 ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i ], [ %.056.i, %91 ]
@@ -6095,7 +6095,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %105 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %58, %57 ]
   %106 = add nuw i64 %.03537, 1
   %107 = icmp ult i64 %106, %105
-  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !141
+  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !130
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %.lr.ph40, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -6121,10 +6121,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   %15 = alloca i32, align 4
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !30
   store i64 %3, ptr %10, align 8, !tbaa !15
-  store ptr %4, ptr %11, align 8, !tbaa !90
-  store ptr %5, ptr %12, align 8, !tbaa !31
+  store ptr %4, ptr %11, align 8, !tbaa !84
+  store ptr %5, ptr %12, align 8, !tbaa !30
   store i64 %6, ptr %13, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %39
@@ -6132,10 +6132,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %18, ptr %14, align 8, !tbaa !34
+  store ptr %18, ptr %14, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !37
-  store i8 0, ptr %18, align 8, !tbaa !39
+  store i64 0, ptr %19, align 8, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !38
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -6143,8 +6143,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
-  %23 = load ptr, ptr %14, align 8, !tbaa !40
-  %24 = load i64, ptr %19, align 8, !tbaa !37
+  %23 = load ptr, ptr %14, align 8, !tbaa !39
+  %24 = load i64, ptr %19, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %26 = call ptr @__cxa_allocate_exception(i64 40) #3
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with_idsEmPKlmPKiS5_l, ptr noundef nonnull @.str.2, i32 noundef 90)
@@ -6167,18 +6167,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %33 = load ptr, ptr %14, align 8, !tbaa !40
+  %33 = load ptr, ptr %14, align 8, !tbaa !39
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !37
+  %35 = load i64, ptr %19, align 8, !tbaa !36
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
-  %37 = load i64, ptr %18, align 8, !tbaa !39
+  %37 = load i64, ptr %18, align 8, !tbaa !38
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -6248,14 +6248,14 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   br i1 %.not42, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !31
+  %21 = load ptr, ptr %3, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !130
+  %23 = load ptr, ptr %22, align 8, !tbaa !119
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !133
-  %27 = load ptr, ptr %5, align 8, !tbaa !90
-  %28 = load ptr, ptr %7, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !122
+  %27 = load ptr, ptr %5, align 8, !tbaa !84
+  %28 = load ptr, ptr %7, align 8, !tbaa !30
   %29 = load i64, ptr %6, align 8, !tbaa !15
   %.not38 = icmp eq i64 %29, 0
   br i1 %.not38, label %._crit_edge37, label %.lr.ph36.split
@@ -6267,7 +6267,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   %.034 = phi i64 [ %49, %._crit_edge ], [ %20, %.lr.ph36 ]
   %33 = getelementptr inbounds i64, ptr %21, i64 %.034
   %34 = load i64, ptr %33, align 8, !tbaa !15
-  %35 = load i64, ptr %24, align 8, !tbaa !132
+  %35 = load i64, ptr %24, align 8, !tbaa !121
   %36 = mul i64 %35, %34
   %37 = getelementptr inbounds nuw i32, ptr %23, i64 %36
   %38 = getelementptr inbounds nuw i64, ptr %26, i64 %36
@@ -6295,7 +6295,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   %49 = add nuw i64 %.034, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !142
+  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !131
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
@@ -6307,7 +6307,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   br i1 %57, label %58, label %99
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %24, align 8, !tbaa !132
+  %59 = load i64, ptr %24, align 8, !tbaa !121
   %60 = getelementptr inbounds nuw i64, ptr %43, i64 %.03233
   %61 = load i64, ptr %60, align 8, !tbaa !15
   %62 = icmp ult i64 %59, 2
@@ -6380,7 +6380,7 @@ _ZN5faiss4CMinIilE4cmp2Eiill.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !138
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !127
 
 _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit54.i, %86, %_ZN5faiss4CMinIilE4cmp2Eiill.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i ], [ %.056.i, %86 ]
@@ -6395,7 +6395,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03233, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !143
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !132
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %.lr.ph36, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -6421,7 +6421,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE7reorderEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !134
+  %8 = load i64, ptr %2, align 8, !tbaa !123
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %95, label %9
 
@@ -6452,11 +6452,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE7reorderEv.omp_outlined(
 
 18:                                               ; preds = %.lr.ph, %_ZN5faiss12heap_reorderINS_4CMinIilEEEEmmPNT_1TEPNS3_2TIE.exit
   %.012 = phi i64 [ %14, %.lr.ph ], [ %91, %_ZN5faiss12heap_reorderINS_4CMinIilEEEEmmPNT_1TEPNS3_2TIE.exit ]
-  %19 = load i64, ptr %15, align 8, !tbaa !132
-  %20 = load ptr, ptr %16, align 8, !tbaa !130
+  %19 = load i64, ptr %15, align 8, !tbaa !121
+  %20 = load ptr, ptr %16, align 8, !tbaa !119
   %21 = mul i64 %19, %.012
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  %23 = load ptr, ptr %17, align 8, !tbaa !133
+  %23 = load ptr, ptr %17, align 8, !tbaa !122
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %21
   %.not46.i = icmp eq i64 %19, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
@@ -6542,7 +6542,7 @@ _ZN5faiss4CMinIilE4cmp2Eiill.exit61.i.i:          ; preds = %59
   %67 = shl i64 %.1.i.i, 1
   %68 = or disjoint i64 %67, 1
   %69 = icmp ugt i64 %67, %30
-  br i1 %69, label %_ZN5faiss4CMinIilE4cmp2Eiill.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !144
+  br i1 %69, label %_ZN5faiss4CMinIilE4cmp2Eiill.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !133
 
 _ZN5faiss4CMinIilE4cmp2Eiill.exit60.thread.loopexit.i.i: ; preds = %64, %_ZN5faiss4CMinIilE4cmp2Eiill.exit61.i.i, %59, %_ZN5faiss4CMinIilE4cmp2Eiill.exit60.i.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i.i
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %64 ], [ %.062.i.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIilE4cmp2Eiill.exit.thread.i.i ], [ %.062.i.i, %59 ]
@@ -6569,7 +6569,7 @@ _ZN5faiss8heap_popINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %78
   %79 = add nuw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %79, %19
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !145
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !134
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIE.exit.i, %18
   %.037.lcssa.i = phi i64 [ 0, %18 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -6593,14 +6593,14 @@ _ZN5faiss8heap_popINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i64 -1, ptr %89, align 8, !tbaa !15
   %90 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %90, %19
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIilEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !146
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIilEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !135
 
 _ZN5faiss12heap_reorderINS_4CMinIilEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i, %._crit_edge.i
   %91 = add nuw i64 %.012, 1
   %92 = load i64, ptr %5, align 8, !tbaa !15
   %93 = add i64 %92, 1
   %94 = icmp ult i64 %91, %93
-  br i1 %94, label %18, label %._crit_edge, !llvm.loop !147
+  br i1 %94, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_reorderINS_4CMinIilEEEEmmPNT_1TEPNS3_2TIE.exit, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -6620,11 +6620,11 @@ define weak_odr void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %1, ptr %4, align 8, !tbaa !90
-  store ptr %2, ptr %5, align 8, !tbaa !31
-  %8 = load i64, ptr %0, align 8, !tbaa !134
+  store ptr %1, ptr %4, align 8, !tbaa !84
+  store ptr %2, ptr %5, align 8, !tbaa !30
+  %8 = load i64, ptr %0, align 8, !tbaa !123
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !132
+  %10 = load i64, ptr %9, align 8, !tbaa !121
   %11 = mul i64 %10, %8
   %12 = icmp ugt i64 %11, 100000
   br i1 %12, label %13, label %14
@@ -6650,7 +6650,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  %10 = load i64, ptr %2, align 8, !tbaa !134
+  %10 = load i64, ptr %2, align 8, !tbaa !123
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %86, label %11
 
@@ -6675,16 +6675,16 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
 
 .lr.ph46:                                         ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !130
+  %18 = load ptr, ptr %17, align 8, !tbaa !119
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load ptr, ptr %3, align 8, !tbaa !90
+  %20 = load ptr, ptr %3, align 8, !tbaa !84
   %.not37 = icmp eq ptr %20, null
-  %21 = load ptr, ptr %4, align 8, !tbaa !31
+  %21 = load ptr, ptr %4, align 8, !tbaa !30
   %.not38 = icmp eq ptr %21, null
   br i1 %.not38, label %.lr.ph46.split.us, label %.lr.ph46.split
 
 .lr.ph46.split.us:                                ; preds = %.lr.ph46
-  %22 = load i64, ptr %19, align 8, !tbaa !132
+  %22 = load i64, ptr %19, align 8, !tbaa !121
   %.not79 = icmp eq i64 %22, 0
   br label %23
 
@@ -6706,7 +6706,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
 28:                                               ; preds = %26, %._crit_edge.us
   %29 = add nuw i64 %.03044.us, 1
   %30 = icmp ult i64 %.03044.us, %15
-  br i1 %30, label %23, label %._crit_edge47, !llvm.loop !148
+  br i1 %30, label %23, label %._crit_edge47, !llvm.loop !136
 
 .lr.ph.us:                                        ; preds = %23, %.lr.ph.us
   %.042.us = phi i64 [ %33, %.lr.ph.us ], [ 0, %23 ]
@@ -6716,18 +6716,18 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %spec.select39.us = call i32 @llvm.smin.i32(i32 %32, i32 %.03141.us)
   %33 = add nuw i64 %.042.us, 1
   %exitcond85.not = icmp eq i64 %33, %22
-  br i1 %exitcond85.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !149
+  br i1 %exitcond85.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !137
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !133
+  %35 = load ptr, ptr %34, align 8, !tbaa !122
   %.fr72 = freeze ptr %35
   %.not73 = icmp eq ptr %.fr72, null
   br i1 %.not73, label %.lr.ph46.split.split.us, label %.lr.ph46.split.split
 
 .lr.ph46.split.split.us:                          ; preds = %.lr.ph46.split, %41
   %.03044.us48 = phi i64 [ %43, %41 ], [ %16, %.lr.ph46.split ]
-  %36 = load i64, ptr %19, align 8, !tbaa !132
+  %36 = load i64, ptr %19, align 8, !tbaa !121
   %37 = mul i64 %36, %.03044.us48
   %38 = getelementptr inbounds nuw i32, ptr %18, i64 %37
   %.not74 = icmp eq i64 %36, 0
@@ -6750,7 +6750,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %44 = load i64, ptr %7, align 8, !tbaa !15
   %45 = add i64 %44, 1
   %46 = icmp ult i64 %43, %45
-  br i1 %46, label %.lr.ph46.split.split.us, label %._crit_edge47, !llvm.loop !150
+  br i1 %46, label %.lr.ph46.split.split.us, label %._crit_edge47, !llvm.loop !138
 
 .lr.ph.us56:                                      ; preds = %.lr.ph46.split.split.us, %.lr.ph.us56
   %.042.us51 = phi i64 [ %50, %.lr.ph.us56 ], [ 0, %.lr.ph46.split.split.us ]
@@ -6763,14 +6763,14 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %spec.select39.us55 = call i32 @llvm.smin.i32(i32 %48, i32 %.03141.us52)
   %50 = add nuw i64 %.042.us51, 1
   %exitcond84.not = icmp eq i64 %50, %36
-  br i1 %exitcond84.not, label %._crit_edge.us57, label %.lr.ph.us56, !llvm.loop !149
+  br i1 %exitcond84.not, label %._crit_edge.us57, label %.lr.ph.us56, !llvm.loop !137
 
 .lr.ph46.split.split:                             ; preds = %.lr.ph46.split
   br i1 %.not37, label %.lr.ph46.split.split.split.us, label %.lr.ph46.split.split.split
 
 .lr.ph46.split.split.split.us:                    ; preds = %.lr.ph46.split.split, %._crit_edge.us69.thread
   %.03044.us60 = phi i64 [ %59, %._crit_edge.us69.thread ], [ %16, %.lr.ph46.split.split ]
-  %51 = load i64, ptr %19, align 8, !tbaa !132
+  %51 = load i64, ptr %19, align 8, !tbaa !121
   %52 = mul i64 %51, %.03044.us60
   %53 = getelementptr inbounds nuw i32, ptr %18, i64 %52
   %.not77 = icmp eq i64 %51, 0
@@ -6794,7 +6794,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %60 = load i64, ptr %7, align 8, !tbaa !15
   %61 = add i64 %60, 1
   %62 = icmp ult i64 %59, %61
-  br i1 %62, label %.lr.ph46.split.split.split.us, label %._crit_edge47, !llvm.loop !151
+  br i1 %62, label %.lr.ph46.split.split.split.us, label %._crit_edge47, !llvm.loop !139
 
 .lr.ph.us68:                                      ; preds = %.lr.ph46.split.split.split.us, %.lr.ph.us68
   %.042.us63 = phi i64 [ %66, %.lr.ph.us68 ], [ 0, %.lr.ph46.split.split.split.us ]
@@ -6807,11 +6807,11 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %spec.select39.us67 = call i32 @llvm.smin.i32(i32 %64, i32 %.03141.us64)
   %66 = add nuw i64 %.042.us63, 1
   %exitcond83.not = icmp eq i64 %66, %51
-  br i1 %exitcond83.not, label %._crit_edge.us69, label %.lr.ph.us68, !llvm.loop !149
+  br i1 %exitcond83.not, label %._crit_edge.us69, label %.lr.ph.us68, !llvm.loop !137
 
 .lr.ph46.split.split.split:                       ; preds = %.lr.ph46.split.split, %80
   %.03044 = phi i64 [ %82, %80 ], [ %16, %.lr.ph46.split.split ]
-  %67 = load i64, ptr %19, align 8, !tbaa !132
+  %67 = load i64, ptr %19, align 8, !tbaa !121
   %68 = mul i64 %67, %.03044
   %69 = getelementptr inbounds nuw i32, ptr %18, i64 %68
   %.not75 = icmp eq i64 %67, 0
@@ -6839,7 +6839,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %spec.select39 = call i32 @llvm.smin.i32(i32 %73, i32 %.03141)
   %75 = add nuw i64 %.042, 1
   %exitcond.not = icmp eq i64 %75, %67
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 
 76:                                               ; preds = %._crit_edge
   %77 = getelementptr i64, ptr %.fr72, i64 %68
@@ -6855,7 +6855,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   %83 = load i64, ptr %7, align 8, !tbaa !15
   %84 = add i64 %83, 1
   %85 = icmp ult i64 %82, %84
-  br i1 %85, label %.lr.ph46.split.split.split, label %._crit_edge47, !llvm.loop !152
+  br i1 %85, label %.lr.ph46.split.split.split, label %._crit_edge47
 
 ._crit_edge47:                                    ; preds = %80, %._crit_edge.us69.thread, %41, %28, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -6872,9 +6872,9 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7get_valEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !153
+  %4 = load ptr, ptr %3, align 8, !tbaa !140
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !155
+  %6 = load i64, ptr %5, align 8, !tbaa !142
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   ret ptr %8
@@ -6883,9 +6883,9 @@ define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7get_valEm(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7get_idsEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !156
+  %4 = load ptr, ptr %3, align 8, !tbaa !143
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !155
+  %6 = load i64, ptr %5, align 8, !tbaa !142
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
   ret ptr %8
@@ -6903,7 +6903,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7heapifyEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !157
+  %8 = load i64, ptr %2, align 8, !tbaa !144
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %34, label %9
 
@@ -6929,15 +6929,15 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7heapifyEv.omp_outlined(
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !153
+  %17 = load ptr, ptr %16, align 8, !tbaa !140
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !156
-  %20 = load i64, ptr %15, align 8, !tbaa !155
+  %19 = load ptr, ptr %18, align 8, !tbaa !143
+  %20 = load i64, ptr %15, align 8, !tbaa !142
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
-  %.pr = load i64, ptr %15, align 8, !tbaa !155
+  %.pr = load i64, ptr %15, align 8, !tbaa !142
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
@@ -6958,7 +6958,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7heapifyEv.omp_outlined(
   store i64 -1, ptr %28, align 8, !tbaa !15
   %29 = add nuw i64 %.045.i, 1
   %exitcond51.not.i = icmp eq i64 %29, %22
-  br i1 %exitcond51.not.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph46.i, !llvm.loop !158
+  br i1 %exitcond51.not.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit, label %.lr.ph46.i, !llvm.loop !145
 
 _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.loopexit: ; preds = %.lr.ph46.i
   %.pre = load i64, ptr %5, align 8, !tbaa !15
@@ -6969,7 +6969,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %31 = add nuw i64 %.013, 1
   %32 = add i64 %30, 1
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !159
+  br i1 %33, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, %.lr.ph, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -6993,7 +6993,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml(ptr nounde
   %12 = alloca i32, align 4
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %7, align 8, !tbaa !15
-  store ptr %2, ptr %8, align 8, !tbaa !90
+  store ptr %2, ptr %8, align 8, !tbaa !84
   store i64 %3, ptr %9, align 8, !tbaa !15
   store i64 %4, ptr %10, align 8, !tbaa !15
   store i64 %5, ptr %11, align 8, !tbaa !15
@@ -7001,7 +7001,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml(ptr nounde
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = load i64, ptr %0, align 8, !tbaa !157
+  %16 = load i64, ptr %0, align 8, !tbaa !144
   store i64 %16, ptr %11, align 8, !tbaa !15
   br label %17
 
@@ -7060,11 +7060,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
 
 .lr.ph37:                                         ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !153
+  %26 = load ptr, ptr %25, align 8, !tbaa !140
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !156
-  %30 = load ptr, ptr %5, align 8, !tbaa !90
+  %29 = load ptr, ptr %28, align 8, !tbaa !143
+  %30 = load ptr, ptr %5, align 8, !tbaa !84
   %31 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge38, label %.lr.ph37.split
@@ -7075,7 +7075,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
   %34 = phi i64 [ %48, %._crit_edge ], [ %31, %.lr.ph37 ]
   %.035 = phi i64 [ %49, %._crit_edge ], [ %22, %.lr.ph37 ]
   %35 = add i64 %.035, %13
-  %36 = load i64, ptr %27, align 8, !tbaa !155
+  %36 = load i64, ptr %27, align 8, !tbaa !142
   %37 = mul i64 %36, %35
   %38 = getelementptr inbounds nuw i32, ptr %26, i64 %37
   %39 = getelementptr inbounds nuw i64, ptr %29, i64 %37
@@ -7102,7 +7102,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
   %49 = add nuw i64 %.035, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !160
+  br i1 %51, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !147
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %33, %.lr.ph ], [ %100, %99 ]
@@ -7114,7 +7114,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
   br i1 %57, label %58, label %99
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %27, align 8, !tbaa !155
+  %59 = load i64, ptr %27, align 8, !tbaa !142
   %60 = load i64, ptr %7, align 8, !tbaa !15
   %61 = add i64 %60, %.03234
   %62 = icmp ult i64 %59, 2
@@ -7187,7 +7187,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !161
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !148
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i, %86, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i ], [ %.056.i, %86 ]
@@ -7202,7 +7202,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03234, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !162
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !149
 
 ._crit_edge38:                                    ; preds = %._crit_edge, %.lr.ph37, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -7227,8 +7227,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
   %14 = alloca i32, align 4
   %15 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !90
-  store ptr %3, ptr %10, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !84
+  store ptr %3, ptr %10, align 8, !tbaa !30
   store i64 %4, ptr %11, align 8, !tbaa !15
   store i64 %5, ptr %12, align 8, !tbaa !15
   store i64 %6, ptr %13, align 8, !tbaa !15
@@ -7244,7 +7244,7 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8, !tbaa !157
+  %21 = load i64, ptr %0, align 8, !tbaa !144
   store i64 %21, ptr %13, align 8, !tbaa !15
   br label %22
 
@@ -7303,12 +7303,12 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
 
 .lr.ph40:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !153
+  %27 = load ptr, ptr %26, align 8, !tbaa !140
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !156
-  %31 = load ptr, ptr %5, align 8, !tbaa !90
-  %32 = load ptr, ptr %7, align 8, !tbaa !31
+  %30 = load ptr, ptr %29, align 8, !tbaa !143
+  %31 = load ptr, ptr %5, align 8, !tbaa !84
+  %32 = load ptr, ptr %7, align 8, !tbaa !30
   %33 = load i64, ptr %6, align 8, !tbaa !15
   %.not = icmp eq i64 %33, 0
   br i1 %.not, label %._crit_edge41, label %.lr.ph40.split
@@ -7319,7 +7319,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
   %36 = phi i64 [ %53, %._crit_edge ], [ %33, %.lr.ph40 ]
   %.038 = phi i64 [ %54, %._crit_edge ], [ %23, %.lr.ph40 ]
   %37 = add i64 %.038, %14
-  %38 = load i64, ptr %28, align 8, !tbaa !155
+  %38 = load i64, ptr %28, align 8, !tbaa !142
   %39 = mul i64 %38, %37
   %40 = getelementptr inbounds nuw i32, ptr %27, i64 %39
   %41 = getelementptr inbounds nuw i64, ptr %30, i64 %39
@@ -7349,7 +7349,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
   %54 = add nuw i64 %.038, 1
   %55 = add i64 %51, 1
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !163
+  br i1 %56, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !150
 
 57:                                               ; preds = %.lr.ph, %104
   %58 = phi i64 [ %35, %.lr.ph ], [ %105, %104 ]
@@ -7361,7 +7361,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
   br i1 %62, label %63, label %104
 
 63:                                               ; preds = %57
-  %64 = load i64, ptr %28, align 8, !tbaa !155
+  %64 = load i64, ptr %28, align 8, !tbaa !142
   %65 = getelementptr inbounds nuw i64, ptr %48, i64 %.03537
   %66 = load i64, ptr %65, align 8, !tbaa !15
   %67 = icmp ult i64 %64, 2
@@ -7434,7 +7434,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i:            ; preds = %91
   %99 = shl i64 %.1.i, 1
   %100 = or disjoint i64 %99, 1
   %101 = icmp ugt i64 %99, %64
-  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !161
+  br i1 %101, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !148
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i, %91, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i, %96, %63
   %.0.lcssa.i = phi i64 [ 1, %63 ], [ %.1.i, %96 ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i ], [ %.056.i, %91 ]
@@ -7449,7 +7449,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %105 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %58, %57 ]
   %106 = add nuw i64 %.03537, 1
   %107 = icmp ult i64 %106, %105
-  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !164
+  br i1 %107, label %57, label %._crit_edge.loopexit, !llvm.loop !151
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %.lr.ph40, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -7475,10 +7475,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   %15 = alloca i32, align 4
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store i64 %1, ptr %8, align 8, !tbaa !15
-  store ptr %2, ptr %9, align 8, !tbaa !31
+  store ptr %2, ptr %9, align 8, !tbaa !30
   store i64 %3, ptr %10, align 8, !tbaa !15
-  store ptr %4, ptr %11, align 8, !tbaa !90
-  store ptr %5, ptr %12, align 8, !tbaa !31
+  store ptr %4, ptr %11, align 8, !tbaa !84
+  store ptr %5, ptr %12, align 8, !tbaa !30
   store i64 %6, ptr %13, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %39
@@ -7486,10 +7486,10 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
 17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %18, ptr %14, align 8, !tbaa !34
+  store ptr %18, ptr %14, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !37
-  store i8 0, ptr %18, align 8, !tbaa !39
+  store i64 0, ptr %19, align 8, !tbaa !36
+  store i8 0, ptr %18, align 8, !tbaa !38
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -7497,8 +7497,8 @@ define weak_odr void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %17
-  %23 = load ptr, ptr %14, align 8, !tbaa !40
-  %24 = load i64, ptr %19, align 8, !tbaa !37
+  %23 = load ptr, ptr %14, align 8, !tbaa !39
+  %24 = load i64, ptr %19, align 8, !tbaa !36
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   %26 = call ptr @__cxa_allocate_exception(i64 40) #3
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with_idsEmPKlmPKiS5_l, ptr noundef nonnull @.str.2, i32 noundef 90)
@@ -7521,18 +7521,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 32:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %33 = load ptr, ptr %14, align 8, !tbaa !40
+  %33 = load ptr, ptr %14, align 8, !tbaa !39
   %34 = icmp eq ptr %33, %18
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %35 = load i64, ptr %19, align 8, !tbaa !37
+  %35 = load i64, ptr %19, align 8, !tbaa !36
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %32
-  %37 = load i64, ptr %18, align 8, !tbaa !39
+  %37 = load i64, ptr %18, align 8, !tbaa !38
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -7602,14 +7602,14 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   br i1 %.not42, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !31
+  %21 = load ptr, ptr %3, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !153
+  %23 = load ptr, ptr %22, align 8, !tbaa !140
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !156
-  %27 = load ptr, ptr %5, align 8, !tbaa !90
-  %28 = load ptr, ptr %7, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !143
+  %27 = load ptr, ptr %5, align 8, !tbaa !84
+  %28 = load ptr, ptr %7, align 8, !tbaa !30
   %29 = load i64, ptr %6, align 8, !tbaa !15
   %.not38 = icmp eq i64 %29, 0
   br i1 %.not38, label %._crit_edge37, label %.lr.ph36.split
@@ -7621,7 +7621,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   %.034 = phi i64 [ %49, %._crit_edge ], [ %20, %.lr.ph36 ]
   %33 = getelementptr inbounds i64, ptr %21, i64 %.034
   %34 = load i64, ptr %33, align 8, !tbaa !15
-  %35 = load i64, ptr %24, align 8, !tbaa !155
+  %35 = load i64, ptr %24, align 8, !tbaa !142
   %36 = mul i64 %35, %34
   %37 = getelementptr inbounds nuw i32, ptr %23, i64 %36
   %38 = getelementptr inbounds nuw i64, ptr %26, i64 %36
@@ -7649,7 +7649,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   %49 = add nuw i64 %.034, 1
   %50 = add i64 %46, 1
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !165
+  br i1 %51, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !152
 
 52:                                               ; preds = %.lr.ph, %99
   %53 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
@@ -7661,7 +7661,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   br i1 %57, label %58, label %99
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %24, align 8, !tbaa !155
+  %59 = load i64, ptr %24, align 8, !tbaa !142
   %60 = getelementptr inbounds nuw i64, ptr %43, i64 %.03233
   %61 = load i64, ptr %60, align 8, !tbaa !15
   %62 = icmp ult i64 %59, 2
@@ -7734,7 +7734,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i:            ; preds = %86
   %94 = shl i64 %.1.i, 1
   %95 = or disjoint i64 %94, 1
   %96 = icmp ugt i64 %94, %59
-  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !161
+  br i1 %96, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.i, !llvm.loop !148
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i, %86, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i, %91, %58
   %.0.lcssa.i = phi i64 [ 1, %58 ], [ %.1.i, %91 ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i ], [ %.056.i, %86 ]
@@ -7749,7 +7749,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %100 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %53, %52 ]
   %101 = add nuw i64 %.03233, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !166
+  br i1 %102, label %52, label %._crit_edge.loopexit, !llvm.loop !153
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %.lr.ph36, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -7775,7 +7775,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv.omp_outlined(
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = load i64, ptr %2, align 8, !tbaa !157
+  %8 = load i64, ptr %2, align 8, !tbaa !144
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %95, label %9
 
@@ -7806,11 +7806,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv.omp_outlined(
 
 18:                                               ; preds = %.lr.ph, %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit
   %.012 = phi i64 [ %14, %.lr.ph ], [ %91, %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit ]
-  %19 = load i64, ptr %15, align 8, !tbaa !155
-  %20 = load ptr, ptr %16, align 8, !tbaa !153
+  %19 = load i64, ptr %15, align 8, !tbaa !142
+  %20 = load ptr, ptr %16, align 8, !tbaa !140
   %21 = mul i64 %19, %.012
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  %23 = load ptr, ptr %17, align 8, !tbaa !156
+  %23 = load ptr, ptr %17, align 8, !tbaa !143
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %21
   %.not46.i = icmp eq i64 %19, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
@@ -7896,7 +7896,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i:          ; preds = %59
   %67 = shl i64 %.1.i.i, 1
   %68 = or disjoint i64 %67, 1
   %69 = icmp ugt i64 %67, %30
-  br i1 %69, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !167
+  br i1 %69, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.thread.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !154
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit60.thread.loopexit.i.i: ; preds = %64, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i, %59, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %64 ], [ %.062.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i ], [ %.062.i.i, %59 ]
@@ -7923,7 +7923,7 @@ _ZN5faiss8heap_popINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %78
   %79 = add nuw i64 %.041.i, 1
   %exitcond.not.i = icmp eq i64 %79, %19
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !168
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !155
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIE.exit.i, %18
   %.037.lcssa.i = phi i64 [ 0, %18 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -7947,14 +7947,14 @@ _ZN5faiss8heap_popINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i64 -1, ptr %89, align 8, !tbaa !15
   %90 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %90, %19
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !169
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i, !llvm.loop !156
 
 _ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i, %._crit_edge.i
   %91 = add nuw i64 %.012, 1
   %92 = load i64, ptr %5, align 8, !tbaa !15
   %93 = add i64 %92, 1
   %94 = icmp ult i64 %91, %93
-  br i1 %94, label %18, label %._crit_edge, !llvm.loop !170
+  br i1 %94, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit, %9
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %11)
@@ -7974,11 +7974,11 @@ define weak_odr void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %1, ptr %4, align 8, !tbaa !90
-  store ptr %2, ptr %5, align 8, !tbaa !31
-  %8 = load i64, ptr %0, align 8, !tbaa !157
+  store ptr %1, ptr %4, align 8, !tbaa !84
+  store ptr %2, ptr %5, align 8, !tbaa !30
+  %8 = load i64, ptr %0, align 8, !tbaa !144
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !155
+  %10 = load i64, ptr %9, align 8, !tbaa !142
   %11 = mul i64 %10, %8
   %12 = icmp ugt i64 %11, 100000
   br i1 %12, label %13, label %14
@@ -8004,7 +8004,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  %10 = load i64, ptr %2, align 8, !tbaa !157
+  %10 = load i64, ptr %2, align 8, !tbaa !144
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %86, label %11
 
@@ -8029,16 +8029,16 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
 
 .lr.ph46:                                         ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !153
+  %18 = load ptr, ptr %17, align 8, !tbaa !140
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load ptr, ptr %3, align 8, !tbaa !90
+  %20 = load ptr, ptr %3, align 8, !tbaa !84
   %.not37 = icmp eq ptr %20, null
-  %21 = load ptr, ptr %4, align 8, !tbaa !31
+  %21 = load ptr, ptr %4, align 8, !tbaa !30
   %.not38 = icmp eq ptr %21, null
   br i1 %.not38, label %.lr.ph46.split.us, label %.lr.ph46.split
 
 .lr.ph46.split.us:                                ; preds = %.lr.ph46
-  %22 = load i64, ptr %19, align 8, !tbaa !155
+  %22 = load i64, ptr %19, align 8, !tbaa !142
   %.not79 = icmp eq i64 %22, 0
   br label %23
 
@@ -8060,7 +8060,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
 28:                                               ; preds = %26, %._crit_edge.us
   %29 = add nuw i64 %.03044.us, 1
   %30 = icmp ult i64 %.03044.us, %15
-  br i1 %30, label %23, label %._crit_edge47, !llvm.loop !171
+  br i1 %30, label %23, label %._crit_edge47, !llvm.loop !157
 
 .lr.ph.us:                                        ; preds = %23, %.lr.ph.us
   %.042.us = phi i64 [ %33, %.lr.ph.us ], [ 0, %23 ]
@@ -8070,18 +8070,18 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %spec.select39.us = call i32 @llvm.smax.i32(i32 %32, i32 %.03141.us)
   %33 = add nuw i64 %.042.us, 1
   %exitcond85.not = icmp eq i64 %33, %22
-  br i1 %exitcond85.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !172
+  br i1 %exitcond85.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !158
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !156
+  %35 = load ptr, ptr %34, align 8, !tbaa !143
   %.fr72 = freeze ptr %35
   %.not73 = icmp eq ptr %.fr72, null
   br i1 %.not73, label %.lr.ph46.split.split.us, label %.lr.ph46.split.split
 
 .lr.ph46.split.split.us:                          ; preds = %.lr.ph46.split, %41
   %.03044.us48 = phi i64 [ %43, %41 ], [ %16, %.lr.ph46.split ]
-  %36 = load i64, ptr %19, align 8, !tbaa !155
+  %36 = load i64, ptr %19, align 8, !tbaa !142
   %37 = mul i64 %36, %.03044.us48
   %38 = getelementptr inbounds nuw i32, ptr %18, i64 %37
   %.not74 = icmp eq i64 %36, 0
@@ -8104,7 +8104,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %44 = load i64, ptr %7, align 8, !tbaa !15
   %45 = add i64 %44, 1
   %46 = icmp ult i64 %43, %45
-  br i1 %46, label %.lr.ph46.split.split.us, label %._crit_edge47, !llvm.loop !173
+  br i1 %46, label %.lr.ph46.split.split.us, label %._crit_edge47, !llvm.loop !159
 
 .lr.ph.us56:                                      ; preds = %.lr.ph46.split.split.us, %.lr.ph.us56
   %.042.us51 = phi i64 [ %50, %.lr.ph.us56 ], [ 0, %.lr.ph46.split.split.us ]
@@ -8117,14 +8117,14 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %spec.select39.us55 = call i32 @llvm.smax.i32(i32 %48, i32 %.03141.us52)
   %50 = add nuw i64 %.042.us51, 1
   %exitcond84.not = icmp eq i64 %50, %36
-  br i1 %exitcond84.not, label %._crit_edge.us57, label %.lr.ph.us56, !llvm.loop !172
+  br i1 %exitcond84.not, label %._crit_edge.us57, label %.lr.ph.us56, !llvm.loop !158
 
 .lr.ph46.split.split:                             ; preds = %.lr.ph46.split
   br i1 %.not37, label %.lr.ph46.split.split.split.us, label %.lr.ph46.split.split.split
 
 .lr.ph46.split.split.split.us:                    ; preds = %.lr.ph46.split.split, %._crit_edge.us69.thread
   %.03044.us60 = phi i64 [ %59, %._crit_edge.us69.thread ], [ %16, %.lr.ph46.split.split ]
-  %51 = load i64, ptr %19, align 8, !tbaa !155
+  %51 = load i64, ptr %19, align 8, !tbaa !142
   %52 = mul i64 %51, %.03044.us60
   %53 = getelementptr inbounds nuw i32, ptr %18, i64 %52
   %.not77 = icmp eq i64 %51, 0
@@ -8148,7 +8148,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %60 = load i64, ptr %7, align 8, !tbaa !15
   %61 = add i64 %60, 1
   %62 = icmp ult i64 %59, %61
-  br i1 %62, label %.lr.ph46.split.split.split.us, label %._crit_edge47, !llvm.loop !174
+  br i1 %62, label %.lr.ph46.split.split.split.us, label %._crit_edge47, !llvm.loop !160
 
 .lr.ph.us68:                                      ; preds = %.lr.ph46.split.split.split.us, %.lr.ph.us68
   %.042.us63 = phi i64 [ %66, %.lr.ph.us68 ], [ 0, %.lr.ph46.split.split.split.us ]
@@ -8161,11 +8161,11 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %spec.select39.us67 = call i32 @llvm.smax.i32(i32 %64, i32 %.03141.us64)
   %66 = add nuw i64 %.042.us63, 1
   %exitcond83.not = icmp eq i64 %66, %51
-  br i1 %exitcond83.not, label %._crit_edge.us69, label %.lr.ph.us68, !llvm.loop !172
+  br i1 %exitcond83.not, label %._crit_edge.us69, label %.lr.ph.us68, !llvm.loop !158
 
 .lr.ph46.split.split.split:                       ; preds = %.lr.ph46.split.split, %80
   %.03044 = phi i64 [ %82, %80 ], [ %16, %.lr.ph46.split.split ]
-  %67 = load i64, ptr %19, align 8, !tbaa !155
+  %67 = load i64, ptr %19, align 8, !tbaa !142
   %68 = mul i64 %67, %.03044
   %69 = getelementptr inbounds nuw i32, ptr %18, i64 %68
   %.not75 = icmp eq i64 %67, 0
@@ -8193,7 +8193,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %spec.select39 = call i32 @llvm.smax.i32(i32 %73, i32 %.03141)
   %75 = add nuw i64 %.042, 1
   %exitcond.not = icmp eq i64 %75, %67
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !172
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !158
 
 76:                                               ; preds = %._crit_edge
   %77 = getelementptr i64, ptr %.fr72, i64 %68
@@ -8209,7 +8209,7 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   %83 = load i64, ptr %7, align 8, !tbaa !15
   %84 = add i64 %83, 1
   %85 = icmp ult i64 %82, %84
-  br i1 %85, label %.lr.ph46.split.split.split, label %._crit_edge47, !llvm.loop !175
+  br i1 %85, label %.lr.ph46.split.split.split, label %._crit_edge47
 
 ._crit_edge47:                                    ; preds = %80, %._crit_edge.us69.thread, %41, %28, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
@@ -8238,10 +8238,10 @@ define weak_odr void @_ZN5faiss17merge_knn_resultsIlNS_4CMinIfiEEEEvmmNT0_2TIEPK
   store i64 %0, ptr %8, align 8, !tbaa !15
   store i64 %1, ptr %9, align 8, !tbaa !15
   store i32 %2, ptr %10, align 4, !tbaa !16
-  store ptr %3, ptr %11, align 8, !tbaa !27
-  store ptr %4, ptr %12, align 8, !tbaa !31
-  store ptr %5, ptr %13, align 8, !tbaa !27
-  store ptr %6, ptr %14, align 8, !tbaa !31
+  store ptr %3, ptr %11, align 8, !tbaa !26
+  store ptr %4, ptr %12, align 8, !tbaa !30
+  store ptr %5, ptr %13, align 8, !tbaa !26
+  store ptr %6, ptr %14, align 8, !tbaa !30
   %18 = icmp eq i64 %1, 0
   br i1 %18, label %27, label %19
 
@@ -8361,15 +8361,15 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not133, label %._crit_edge120, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %40
-  %45 = load ptr, ptr %4, align 8, !tbaa !27
-  %46 = load ptr, ptr %6, align 8, !tbaa !31
+  %45 = load ptr, ptr %4, align 8, !tbaa !26
+  %46 = load ptr, ptr %6, align 8, !tbaa !30
   %47 = load i32, ptr %2, align 4, !tbaa !16
   %48 = sext i32 %47 to i64
   %49 = icmp sgt i32 %47, 0
   %50 = getelementptr inbounds i8, ptr %.sroa.094.0, i64 -4
   %51 = getelementptr inbounds i8, ptr %38, i64 -4
-  %52 = load ptr, ptr %8, align 8, !tbaa !27
-  %53 = load ptr, ptr %9, align 8, !tbaa !31
+  %52 = load ptr, ptr %8, align 8, !tbaa !26
+  %53 = load ptr, ptr %9, align 8, !tbaa !30
   %.pre = load i64, ptr %5, align 8, !tbaa !15
   br label %54
 
@@ -8435,7 +8435,7 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i:       ; preds = %_ZN5faiss4CMinIfiE4
   %88 = getelementptr inbounds nuw i32, ptr %51, i64 %.025.i
   store i32 %82, ptr %88, align 4, !tbaa !16
   %89 = icmp ugt i64 %.025.i, 3
-  br i1 %89, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !176
+  br i1 %89, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !161
 
 _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIfiE4cmp2Effii.exit.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i, %71
   %.0.lcssa.i = phi i64 [ %73, %71 ], [ %78, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i ], [ %.025.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.i ]
@@ -8449,7 +8449,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %.1 = phi i32 [ %72, %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070108, %65 ]
   %93 = add nuw nsw i64 %.073107, 1
   %exitcond.not = icmp eq i64 %93, %48
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !177
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !162
 
 .preheader.loopexit:                              ; preds = %187
   %94 = and i64 %indvars.iv.next, 4294967295
@@ -8556,7 +8556,7 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit61.i:            ; preds = %142
   %150 = shl i64 %.1.i, 1
   %151 = or disjoint i64 %150, 1
   %152 = icmp ugt i64 %150, %113
-  br i1 %152, label %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.thread.loopexit.i, label %.lr.ph.i83, !llvm.loop !97
+  br i1 %152, label %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.thread.loopexit.i, label %.lr.ph.i83, !llvm.loop !91
 
 _ZN5faiss4CMinIfiE4cmp2Effii.exit60.thread.loopexit.i: ; preds = %147, %_ZN5faiss4CMinIfiE4cmp2Effii.exit61.i, %142, %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i86
   %.0.lcssa.ph.i = phi i64 [ %.1.i, %147 ], [ %.062.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit60.i ], [ %.062.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit61.i ], [ %.062.i, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i86 ], [ %.062.i, %142 ]
@@ -8617,7 +8617,7 @@ _ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i91:     ; preds = %_ZN5faiss4CMinIfiE4
   %183 = getelementptr inbounds nuw i32, ptr %51, i64 %.025.i89
   store i32 %177, ptr %183, align 4, !tbaa !16
   %184 = icmp samesign ugt i64 %.025.i89, 3
-  br i1 %184, label %.lr.ph.i88, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92, !llvm.loop !176
+  br i1 %184, label %.lr.ph.i88, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92, !llvm.loop !161
 
 _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_ZN5faiss4CMinIfiE4cmp2Effii.exit.i90, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i91, %169
   %.0.lcssa.i87 = phi i64 [ %113, %169 ], [ %173, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i91 ], [ %.025.i89, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.i90 ]
@@ -8633,7 +8633,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_
   %188 = icmp ugt i64 %160, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
   %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph112, label %.preheader.loopexit, !llvm.loop !178
+  br i1 %190, label %.lr.ph112, label %.preheader.loopexit, !llvm.loop !163
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph115 ], [ %.071.lcssa, %.lr.ph115.preheader ]
@@ -8644,7 +8644,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %193 = load i64, ptr %5, align 8, !tbaa !15
   %194 = icmp ugt i64 %193, %indvars.iv.next123
-  br i1 %194, label %.lr.ph115, label %._crit_edge116, !llvm.loop !179
+  br i1 %194, label %.lr.ph115, label %._crit_edge116, !llvm.loop !164
 
 ._crit_edge116:                                   ; preds = %.lr.ph115, %.preheader
   %195 = phi i64 [ %95, %.preheader ], [ %193, %.lr.ph115 ]
@@ -8652,7 +8652,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_
   %197 = load i64, ptr %12, align 8, !tbaa !15
   %198 = add i64 %197, 1
   %199 = icmp ult i64 %196, %198
-  br i1 %199, label %54, label %._crit_edge120, !llvm.loop !180
+  br i1 %199, label %54, label %._crit_edge120
 
 ._crit_edge120:                                   ; preds = %._crit_edge116, %40
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre125)
@@ -8719,10 +8719,10 @@ define weak_odr void @_ZN5faiss17merge_knn_resultsIlNS_4CMaxIfiEEEEvmmNT0_2TIEPK
   store i64 %0, ptr %8, align 8, !tbaa !15
   store i64 %1, ptr %9, align 8, !tbaa !15
   store i32 %2, ptr %10, align 4, !tbaa !16
-  store ptr %3, ptr %11, align 8, !tbaa !27
-  store ptr %4, ptr %12, align 8, !tbaa !31
-  store ptr %5, ptr %13, align 8, !tbaa !27
-  store ptr %6, ptr %14, align 8, !tbaa !31
+  store ptr %3, ptr %11, align 8, !tbaa !26
+  store ptr %4, ptr %12, align 8, !tbaa !30
+  store ptr %5, ptr %13, align 8, !tbaa !26
+  store ptr %6, ptr %14, align 8, !tbaa !30
   %18 = icmp eq i64 %1, 0
   br i1 %18, label %27, label %19
 
@@ -8842,15 +8842,15 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not133, label %._crit_edge120, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %40
-  %45 = load ptr, ptr %4, align 8, !tbaa !27
-  %46 = load ptr, ptr %6, align 8, !tbaa !31
+  %45 = load ptr, ptr %4, align 8, !tbaa !26
+  %46 = load ptr, ptr %6, align 8, !tbaa !30
   %47 = load i32, ptr %2, align 4, !tbaa !16
   %48 = sext i32 %47 to i64
   %49 = icmp sgt i32 %47, 0
   %50 = getelementptr inbounds i8, ptr %.sroa.094.0, i64 -4
   %51 = getelementptr inbounds i8, ptr %38, i64 -4
-  %52 = load ptr, ptr %8, align 8, !tbaa !27
-  %53 = load ptr, ptr %9, align 8, !tbaa !31
+  %52 = load ptr, ptr %8, align 8, !tbaa !26
+  %53 = load ptr, ptr %9, align 8, !tbaa !30
   %.pre = load i64, ptr %5, align 8, !tbaa !15
   br label %54
 
@@ -8916,7 +8916,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIfiE4
   %88 = getelementptr inbounds nuw i32, ptr %51, i64 %.025.i
   store i32 %82, ptr %88, align 4, !tbaa !16
   %89 = icmp ugt i64 %.025.i, 3
-  br i1 %89, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !181
+  br i1 %89, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !165
 
 _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i, %71
   %.0.lcssa.i = phi i64 [ %73, %71 ], [ %78, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i ], [ %.025.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i ]
@@ -8930,7 +8930,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %.1 = phi i32 [ %72, %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070108, %65 ]
   %93 = add nuw nsw i64 %.073107, 1
   %exitcond.not = icmp eq i64 %93, %48
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !182
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !166
 
 .preheader.loopexit:                              ; preds = %187
   %94 = and i64 %indvars.iv.next, 4294967295
@@ -9037,7 +9037,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit61.i:            ; preds = %142
   %150 = shl i64 %.1.i, 1
   %151 = or disjoint i64 %150, 1
   %152 = icmp ugt i64 %150, %113
-  br i1 %152, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.thread.loopexit.i, label %.lr.ph.i83, !llvm.loop !122
+  br i1 %152, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.thread.loopexit.i, label %.lr.ph.i83, !llvm.loop !113
 
 _ZN5faiss4CMaxIfiE4cmp2Effii.exit60.thread.loopexit.i: ; preds = %147, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit61.i, %142, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i86
   %.0.lcssa.ph.i = phi i64 [ %.1.i, %147 ], [ %.062.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit60.i ], [ %.062.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit61.i ], [ %.062.i, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i86 ], [ %.062.i, %142 ]
@@ -9098,7 +9098,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i91:     ; preds = %_ZN5faiss4CMaxIfiE4
   %183 = getelementptr inbounds nuw i32, ptr %51, i64 %.025.i89
   store i32 %177, ptr %183, align 4, !tbaa !16
   %184 = icmp samesign ugt i64 %.025.i89, 3
-  br i1 %184, label %.lr.ph.i88, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92, !llvm.loop !181
+  br i1 %184, label %.lr.ph.i88, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92, !llvm.loop !165
 
 _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i90, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i91, %169
   %.0.lcssa.i87 = phi i64 [ %113, %169 ], [ %173, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i91 ], [ %.025.i89, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.i90 ]
@@ -9114,7 +9114,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_
   %188 = icmp ugt i64 %160, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
   %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph112, label %.preheader.loopexit, !llvm.loop !183
+  br i1 %190, label %.lr.ph112, label %.preheader.loopexit, !llvm.loop !167
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph115 ], [ %.071.lcssa, %.lr.ph115.preheader ]
@@ -9125,7 +9125,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %193 = load i64, ptr %5, align 8, !tbaa !15
   %194 = icmp ugt i64 %193, %indvars.iv.next123
-  br i1 %194, label %.lr.ph115, label %._crit_edge116, !llvm.loop !184
+  br i1 %194, label %.lr.ph115, label %._crit_edge116, !llvm.loop !168
 
 ._crit_edge116:                                   ; preds = %.lr.ph115, %.preheader
   %195 = phi i64 [ %95, %.preheader ], [ %193, %.lr.ph115 ]
@@ -9133,7 +9133,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit92: ; preds = %_
   %197 = load i64, ptr %12, align 8, !tbaa !15
   %198 = add i64 %197, 1
   %199 = icmp ult i64 %196, %198
-  br i1 %199, label %54, label %._crit_edge120, !llvm.loop !185
+  br i1 %199, label %54, label %._crit_edge120
 
 ._crit_edge120:                                   ; preds = %._crit_edge116, %40
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre125)
@@ -9191,10 +9191,10 @@ define weak_odr void @_ZN5faiss17merge_knn_resultsIlNS_4CMinIiiEEEEvmmNT0_2TIEPK
   store i64 %0, ptr %8, align 8, !tbaa !15
   store i64 %1, ptr %9, align 8, !tbaa !15
   store i32 %2, ptr %10, align 4, !tbaa !16
-  store ptr %3, ptr %11, align 8, !tbaa !90
-  store ptr %4, ptr %12, align 8, !tbaa !31
-  store ptr %5, ptr %13, align 8, !tbaa !90
-  store ptr %6, ptr %14, align 8, !tbaa !31
+  store ptr %3, ptr %11, align 8, !tbaa !84
+  store ptr %4, ptr %12, align 8, !tbaa !30
+  store ptr %5, ptr %13, align 8, !tbaa !84
+  store ptr %6, ptr %14, align 8, !tbaa !30
   %18 = icmp eq i64 %1, 0
   br i1 %18, label %27, label %19
 
@@ -9314,12 +9314,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit85:             ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not142, label %._crit_edge124, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %40
-  %45 = load ptr, ptr %4, align 8, !tbaa !90
-  %46 = load ptr, ptr %6, align 8, !tbaa !31
+  %45 = load ptr, ptr %4, align 8, !tbaa !84
+  %46 = load ptr, ptr %6, align 8, !tbaa !30
   %47 = getelementptr inbounds i8, ptr %.sroa.098.0, i64 -4
   %48 = getelementptr inbounds i8, ptr %38, i64 -4
-  %49 = load ptr, ptr %8, align 8, !tbaa !90
-  %50 = load ptr, ptr %9, align 8, !tbaa !31
+  %49 = load ptr, ptr %8, align 8, !tbaa !84
+  %50 = load ptr, ptr %9, align 8, !tbaa !30
   %.pre = load i64, ptr %5, align 8, !tbaa !15
   br label %51
 
@@ -9388,7 +9388,7 @@ _ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i:       ; preds = %_ZN5faiss4CMinIiiE4
   %87 = getelementptr inbounds nuw i32, ptr %48, i64 %.025.i
   store i32 %.pre129, ptr %87, align 4, !tbaa !16
   %88 = icmp ugt i64 %.025.i, 3
-  br i1 %88, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !186
+  br i1 %88, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !169
 
 _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.i, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i, %71
   %.0.lcssa.i = phi i64 [ %73, %71 ], [ %78, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i ], [ %.025.i, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.i ]
@@ -9402,7 +9402,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %.1 = phi i32 [ %72, %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070112, %65 ]
   %92 = add nuw nsw i64 %.073111, 1
   %exitcond.not = icmp eq i64 %92, %57
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !187
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !170
 
 .preheader.loopexit:                              ; preds = %185
   %93 = and i64 %indvars.iv.next, 4294967295
@@ -9509,7 +9509,7 @@ _ZN5faiss4CMinIiiE4cmp2Eiiii.exit61.i:            ; preds = %141
   %149 = shl i64 %.1.i, 1
   %150 = or disjoint i64 %149, 1
   %151 = icmp ugt i64 %149, %112
-  br i1 %151, label %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit60.thread.loopexit.i, label %.lr.ph.i86, !llvm.loop !188
+  br i1 %151, label %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit60.thread.loopexit.i, label %.lr.ph.i86, !llvm.loop !171
 
 _ZN5faiss4CMinIiiE4cmp2Eiiii.exit60.thread.loopexit.i: ; preds = %146, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit61.i, %141, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit60.i, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i89
   %.0.lcssa.ph.i = phi i64 [ %.1.i, %146 ], [ %.062.i, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit60.i ], [ %.062.i, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit61.i ], [ %.062.i, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i89 ], [ %.062.i, %141 ]
@@ -9570,7 +9570,7 @@ _ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i94:     ; preds = %_ZN5faiss4CMinIiiE4
   %181 = getelementptr inbounds nuw i32, ptr %48, i64 %.025.i92
   store i32 %.pre132, ptr %181, align 4, !tbaa !16
   %182 = icmp samesign ugt i64 %.025.i92, 3
-  br i1 %182, label %.lr.ph.i91, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95, !llvm.loop !186
+  br i1 %182, label %.lr.ph.i91, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95, !llvm.loop !169
 
 _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.i93, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i94, %168
   %.0.lcssa.i90 = phi i64 [ %112, %168 ], [ %172, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i94 ], [ %.025.i92, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.i93 ]
@@ -9586,7 +9586,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_
   %186 = icmp ugt i64 %159, %indvars.iv.next
   %187 = icmp sgt i32 %.3, 0
   %188 = select i1 %186, i1 %187, i1 false
-  br i1 %188, label %.lr.ph116, label %.preheader.loopexit, !llvm.loop !189
+  br i1 %188, label %.lr.ph116, label %.preheader.loopexit, !llvm.loop !172
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph119 ], [ %.071.lcssa, %.lr.ph119.preheader ]
@@ -9597,7 +9597,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %191 = load i64, ptr %5, align 8, !tbaa !15
   %192 = icmp ugt i64 %191, %indvars.iv.next127
-  br i1 %192, label %.lr.ph119, label %._crit_edge120, !llvm.loop !190
+  br i1 %192, label %.lr.ph119, label %._crit_edge120, !llvm.loop !173
 
 ._crit_edge120:                                   ; preds = %.lr.ph119, %.preheader
   %193 = phi i64 [ %94, %.preheader ], [ %191, %.lr.ph119 ]
@@ -9605,7 +9605,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_
   %195 = load i64, ptr %12, align 8, !tbaa !15
   %196 = add i64 %195, 1
   %197 = icmp ult i64 %194, %196
-  br i1 %197, label %51, label %._crit_edge124, !llvm.loop !191
+  br i1 %197, label %51, label %._crit_edge124
 
 ._crit_edge124:                                   ; preds = %._crit_edge120, %40
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre133)
@@ -9663,10 +9663,10 @@ define weak_odr void @_ZN5faiss17merge_knn_resultsIlNS_4CMaxIiiEEEEvmmNT0_2TIEPK
   store i64 %0, ptr %8, align 8, !tbaa !15
   store i64 %1, ptr %9, align 8, !tbaa !15
   store i32 %2, ptr %10, align 4, !tbaa !16
-  store ptr %3, ptr %11, align 8, !tbaa !90
-  store ptr %4, ptr %12, align 8, !tbaa !31
-  store ptr %5, ptr %13, align 8, !tbaa !90
-  store ptr %6, ptr %14, align 8, !tbaa !31
+  store ptr %3, ptr %11, align 8, !tbaa !84
+  store ptr %4, ptr %12, align 8, !tbaa !30
+  store ptr %5, ptr %13, align 8, !tbaa !84
+  store ptr %6, ptr %14, align 8, !tbaa !30
   %18 = icmp eq i64 %1, 0
   br i1 %18, label %27, label %19
 
@@ -9786,12 +9786,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit85:             ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not142, label %._crit_edge124, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %40
-  %45 = load ptr, ptr %4, align 8, !tbaa !90
-  %46 = load ptr, ptr %6, align 8, !tbaa !31
+  %45 = load ptr, ptr %4, align 8, !tbaa !84
+  %46 = load ptr, ptr %6, align 8, !tbaa !30
   %47 = getelementptr inbounds i8, ptr %.sroa.098.0, i64 -4
   %48 = getelementptr inbounds i8, ptr %38, i64 -4
-  %49 = load ptr, ptr %8, align 8, !tbaa !90
-  %50 = load ptr, ptr %9, align 8, !tbaa !31
+  %49 = load ptr, ptr %8, align 8, !tbaa !84
+  %50 = load ptr, ptr %9, align 8, !tbaa !30
   %.pre = load i64, ptr %5, align 8, !tbaa !15
   br label %51
 
@@ -9860,7 +9860,7 @@ _ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i:       ; preds = %_ZN5faiss4CMaxIiiE4
   %87 = getelementptr inbounds nuw i32, ptr %48, i64 %.025.i
   store i32 %.pre129, ptr %87, align 4, !tbaa !16
   %88 = icmp ugt i64 %.025.i, 3
-  br i1 %88, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !192
+  br i1 %88, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, !llvm.loop !174
 
 _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.i, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i, %71
   %.0.lcssa.i = phi i64 [ %73, %71 ], [ %78, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i ], [ %.025.i, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.i ]
@@ -9874,7 +9874,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %.1 = phi i32 [ %72, %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070112, %65 ]
   %92 = add nuw nsw i64 %.073111, 1
   %exitcond.not = icmp eq i64 %92, %57
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !193
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !175
 
 .preheader.loopexit:                              ; preds = %185
   %93 = and i64 %indvars.iv.next, 4294967295
@@ -9981,7 +9981,7 @@ _ZN5faiss4CMaxIiiE4cmp2Eiiii.exit61.i:            ; preds = %141
   %149 = shl i64 %.1.i, 1
   %150 = or disjoint i64 %149, 1
   %151 = icmp ugt i64 %149, %112
-  br i1 %151, label %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit60.thread.loopexit.i, label %.lr.ph.i86, !llvm.loop !194
+  br i1 %151, label %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit60.thread.loopexit.i, label %.lr.ph.i86, !llvm.loop !176
 
 _ZN5faiss4CMaxIiiE4cmp2Eiiii.exit60.thread.loopexit.i: ; preds = %146, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit61.i, %141, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit60.i, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i89
   %.0.lcssa.ph.i = phi i64 [ %.1.i, %146 ], [ %.062.i, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit60.i ], [ %.062.i, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit61.i ], [ %.062.i, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i89 ], [ %.062.i, %141 ]
@@ -10042,7 +10042,7 @@ _ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i94:     ; preds = %_ZN5faiss4CMaxIiiE4
   %181 = getelementptr inbounds nuw i32, ptr %48, i64 %.025.i92
   store i32 %.pre132, ptr %181, align 4, !tbaa !16
   %182 = icmp samesign ugt i64 %.025.i92, 3
-  br i1 %182, label %.lr.ph.i91, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95, !llvm.loop !192
+  br i1 %182, label %.lr.ph.i91, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95, !llvm.loop !174
 
 _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.i93, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i94, %168
   %.0.lcssa.i90 = phi i64 [ %112, %168 ], [ %172, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i94 ], [ %.025.i92, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.i93 ]
@@ -10058,7 +10058,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_
   %186 = icmp ugt i64 %159, %indvars.iv.next
   %187 = icmp sgt i32 %.3, 0
   %188 = select i1 %186, i1 %187, i1 false
-  br i1 %188, label %.lr.ph116, label %.preheader.loopexit, !llvm.loop !195
+  br i1 %188, label %.lr.ph116, label %.preheader.loopexit, !llvm.loop !177
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph119 ], [ %.071.lcssa, %.lr.ph119.preheader ]
@@ -10069,7 +10069,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %191 = load i64, ptr %5, align 8, !tbaa !15
   %192 = icmp ugt i64 %191, %indvars.iv.next127
-  br i1 %192, label %.lr.ph119, label %._crit_edge120, !llvm.loop !196
+  br i1 %192, label %.lr.ph119, label %._crit_edge120, !llvm.loop !178
 
 ._crit_edge120:                                   ; preds = %.lr.ph119, %.preheader
   %193 = phi i64 [ %94, %.preheader ], [ %191, %.lr.ph119 ]
@@ -10077,7 +10077,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit95: ; preds = %_
   %195 = load i64, ptr %12, align 8, !tbaa !15
   %196 = add i64 %195, 1
   %197 = icmp ult i64 %194, %196
-  br i1 %197, label %51, label %._crit_edge124, !llvm.loop !197
+  br i1 %197, label %51, label %._crit_edge124
 
 ._crit_edge124:                                   ; preds = %._crit_edge120, %40
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre133)
@@ -10183,181 +10183,162 @@ attributes #24 = { builtin allocsize(0) }
 !17 = !{!"int", !7, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"float", !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !22, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = !{!26}
-!26 = !{i64 2, i64 -1, i64 -1, i1 true}
-!27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !22, !24}
-!29 = distinct !{!29, !21, !22}
-!30 = distinct !{!30, !21, !22}
-!31 = !{!9, !9, i64 0}
-!32 = distinct !{!32, !22, !24}
-!33 = distinct !{!33, !21, !22}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
-!36 = !{!"p1 omnipotent char", !10, i64 0}
-!37 = !{!38, !6, i64 8}
-!38 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !6, i64 8, !7, i64 16}
-!39 = !{!7, !7, i64 0}
-!40 = !{!38, !36, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"vtable pointer", !8, i64 0}
-!43 = distinct !{!43, !22, !24}
-!44 = distinct !{!44, !21, !22}
-!45 = distinct !{!45, !21, !22}
-!46 = distinct !{!46, !21, !22}
-!47 = distinct !{!47, !21, !22}
-!48 = distinct !{!48, !22}
-!49 = distinct !{!49, !22, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !21, !22}
-!52 = distinct !{!52, !22, !50}
-!53 = distinct !{!53, !22, !50}
-!54 = distinct !{!54, !22}
-!55 = !{!56, !11, i64 24}
-!56 = !{!"_ZTSN5faiss9HeapArrayINS_4CMaxIflEEEE", !6, i64 0, !6, i64 8, !9, i64 16, !11, i64 24}
-!57 = !{!56, !6, i64 8}
-!58 = !{!56, !9, i64 16}
-!59 = !{!56, !6, i64 0}
-!60 = distinct !{!60, !21, !22}
-!61 = distinct !{!61, !22, !24}
-!62 = distinct !{!62, !22, !24}
-!63 = distinct !{!63, !21, !22}
-!64 = distinct !{!64, !21, !22}
-!65 = distinct !{!65, !22, !24}
-!66 = distinct !{!66, !21, !22}
-!67 = distinct !{!67, !22, !24}
-!68 = distinct !{!68, !21, !22}
-!69 = distinct !{!69, !21, !22}
-!70 = distinct !{!70, !21, !22}
-!71 = distinct !{!71, !21, !22}
-!72 = distinct !{!72, !22}
-!73 = distinct !{!73, !22, !50}
-!74 = distinct !{!74, !21, !22}
-!75 = distinct !{!75, !22, !50}
-!76 = distinct !{!76, !22, !50}
-!77 = distinct !{!77, !22}
-!78 = !{!79, !11, i64 24}
-!79 = !{!"_ZTSN5faiss9HeapArrayINS_4CMinIfiEEEE", !6, i64 0, !6, i64 8, !80, i64 16, !11, i64 24}
-!80 = !{!"p1 int", !10, i64 0}
-!81 = !{!79, !6, i64 8}
-!82 = !{!79, !80, i64 16}
-!83 = !{!79, !6, i64 0}
-!84 = distinct !{!84, !21, !22}
-!85 = distinct !{!85, !22}
-!86 = distinct !{!86, !21, !22}
-!87 = distinct !{!87, !21, !22}
-!88 = distinct !{!88, !22, !50}
-!89 = distinct !{!89, !21, !22, !50}
-!90 = !{!80, !80, i64 0}
-!91 = distinct !{!91, !21, !22}
-!92 = distinct !{!92, !22, !50}
-!93 = distinct !{!93, !21, !22, !50}
-!94 = distinct !{!94, !21, !22}
-!95 = distinct !{!95, !22, !50}
-!96 = distinct !{!96, !21, !22, !50}
-!97 = distinct !{!97, !21, !22}
-!98 = distinct !{!98, !21, !22}
-!99 = distinct !{!99, !21, !22}
-!100 = distinct !{!100, !22}
-!101 = distinct !{!101, !22, !50}
-!102 = distinct !{!102, !21, !22}
-!103 = distinct !{!103, !22, !50}
-!104 = distinct !{!104, !22}
-!105 = !{!106, !11, i64 24}
-!106 = !{!"_ZTSN5faiss9HeapArrayINS_4CMaxIfiEEEE", !6, i64 0, !6, i64 8, !80, i64 16, !11, i64 24}
-!107 = !{!106, !6, i64 8}
-!108 = !{!106, !80, i64 16}
-!109 = !{!106, !6, i64 0}
-!110 = distinct !{!110, !21, !22}
-!111 = distinct !{!111, !22}
-!112 = distinct !{!112, !21, !22}
-!113 = distinct !{!113, !21, !22}
-!114 = distinct !{!114, !22, !50}
-!115 = distinct !{!115, !21, !22, !50}
-!116 = distinct !{!116, !21, !22}
-!117 = distinct !{!117, !22, !50}
-!118 = distinct !{!118, !21, !22, !50}
-!119 = distinct !{!119, !21, !22}
-!120 = distinct !{!120, !22, !50}
-!121 = distinct !{!121, !21, !22, !50}
-!122 = distinct !{!122, !21, !22}
-!123 = distinct !{!123, !21, !22}
-!124 = distinct !{!124, !21, !22}
-!125 = distinct !{!125, !22}
-!126 = distinct !{!126, !22, !50}
-!127 = distinct !{!127, !21, !22}
-!128 = distinct !{!128, !22, !50}
-!129 = distinct !{!129, !22}
-!130 = !{!131, !80, i64 24}
-!131 = !{!"_ZTSN5faiss9HeapArrayINS_4CMinIilEEEE", !6, i64 0, !6, i64 8, !9, i64 16, !80, i64 24}
-!132 = !{!131, !6, i64 8}
-!133 = !{!131, !9, i64 16}
-!134 = !{!131, !6, i64 0}
-!135 = distinct !{!135, !21, !22}
-!136 = distinct !{!136, !22, !24}
-!137 = distinct !{!137, !22, !24}
-!138 = distinct !{!138, !21, !22}
-!139 = distinct !{!139, !21, !22}
-!140 = distinct !{!140, !22, !24}
-!141 = distinct !{!141, !21, !22}
-!142 = distinct !{!142, !22, !24}
-!143 = distinct !{!143, !21, !22}
-!144 = distinct !{!144, !21, !22}
-!145 = distinct !{!145, !21, !22}
-!146 = distinct !{!146, !21, !22}
-!147 = distinct !{!147, !22}
-!148 = distinct !{!148, !22, !50}
-!149 = distinct !{!149, !21, !22}
-!150 = distinct !{!150, !22, !50}
-!151 = distinct !{!151, !22, !50}
-!152 = distinct !{!152, !22}
-!153 = !{!154, !80, i64 24}
-!154 = !{!"_ZTSN5faiss9HeapArrayINS_4CMaxIilEEEE", !6, i64 0, !6, i64 8, !9, i64 16, !80, i64 24}
-!155 = !{!154, !6, i64 8}
-!156 = !{!154, !9, i64 16}
-!157 = !{!154, !6, i64 0}
-!158 = distinct !{!158, !21, !22}
-!159 = distinct !{!159, !22, !24}
-!160 = distinct !{!160, !22, !24}
-!161 = distinct !{!161, !21, !22}
-!162 = distinct !{!162, !21, !22}
-!163 = distinct !{!163, !22, !24}
-!164 = distinct !{!164, !21, !22}
-!165 = distinct !{!165, !22, !24}
-!166 = distinct !{!166, !21, !22}
-!167 = distinct !{!167, !21, !22}
-!168 = distinct !{!168, !21, !22}
-!169 = distinct !{!169, !21, !22}
-!170 = distinct !{!170, !22}
-!171 = distinct !{!171, !22, !50}
-!172 = distinct !{!172, !21, !22}
-!173 = distinct !{!173, !22, !50}
-!174 = distinct !{!174, !22, !50}
-!175 = distinct !{!175, !22}
-!176 = distinct !{!176, !21, !22}
-!177 = distinct !{!177, !21, !22}
-!178 = distinct !{!178, !21, !22}
-!179 = distinct !{!179, !21, !22}
-!180 = distinct !{!180, !22}
-!181 = distinct !{!181, !21, !22}
-!182 = distinct !{!182, !21, !22}
-!183 = distinct !{!183, !21, !22}
-!184 = distinct !{!184, !21, !22}
-!185 = distinct !{!185, !22}
-!186 = distinct !{!186, !21, !22}
-!187 = distinct !{!187, !21, !22}
-!188 = distinct !{!188, !21, !22}
-!189 = distinct !{!189, !21, !22}
-!190 = distinct !{!190, !21, !22}
-!191 = distinct !{!191, !22}
-!192 = distinct !{!192, !21, !22}
-!193 = distinct !{!193, !21, !22}
-!194 = distinct !{!194, !21, !22}
-!195 = distinct !{!195, !21, !22}
-!196 = distinct !{!196, !21, !22}
-!197 = distinct !{!197, !22}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = !{!25}
+!25 = !{i64 2, i64 -1, i64 -1, i1 true}
+!26 = !{!11, !11, i64 0}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !21}
+!29 = distinct !{!29, !21}
+!30 = !{!9, !9, i64 0}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !21}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !35, i64 0}
+!35 = !{!"p1 omnipotent char", !10, i64 0}
+!36 = !{!37, !6, i64 8}
+!37 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !34, i64 0, !6, i64 8, !7, i64 16}
+!38 = !{!7, !7, i64 0}
+!39 = !{!37, !35, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"vtable pointer", !8, i64 0}
+!42 = distinct !{!42, !23}
+!43 = distinct !{!43, !21}
+!44 = distinct !{!44, !21}
+!45 = distinct !{!45, !21}
+!46 = distinct !{!46, !21}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !21}
+!50 = distinct !{!50, !48}
+!51 = distinct !{!51, !48}
+!52 = !{!53, !11, i64 24}
+!53 = !{!"_ZTSN5faiss9HeapArrayINS_4CMaxIflEEEE", !6, i64 0, !6, i64 8, !9, i64 16, !11, i64 24}
+!54 = !{!53, !6, i64 8}
+!55 = !{!53, !9, i64 16}
+!56 = !{!53, !6, i64 0}
+!57 = distinct !{!57, !21}
+!58 = distinct !{!58, !23}
+!59 = distinct !{!59, !23}
+!60 = distinct !{!60, !21}
+!61 = distinct !{!61, !21}
+!62 = distinct !{!62, !23}
+!63 = distinct !{!63, !21}
+!64 = distinct !{!64, !23}
+!65 = distinct !{!65, !21}
+!66 = distinct !{!66, !21}
+!67 = distinct !{!67, !21}
+!68 = distinct !{!68, !21}
+!69 = distinct !{!69, !48}
+!70 = distinct !{!70, !21}
+!71 = distinct !{!71, !48}
+!72 = distinct !{!72, !48}
+!73 = !{!74, !11, i64 24}
+!74 = !{!"_ZTSN5faiss9HeapArrayINS_4CMinIfiEEEE", !6, i64 0, !6, i64 8, !75, i64 16, !11, i64 24}
+!75 = !{!"p1 int", !10, i64 0}
+!76 = !{!74, !6, i64 8}
+!77 = !{!74, !75, i64 16}
+!78 = !{!74, !6, i64 0}
+!79 = distinct !{!79, !21}
+!80 = distinct !{!80, !21}
+!81 = distinct !{!81, !21}
+!82 = distinct !{!82, !48}
+!83 = distinct !{!83, !21, !48}
+!84 = !{!75, !75, i64 0}
+!85 = distinct !{!85, !21}
+!86 = distinct !{!86, !48}
+!87 = distinct !{!87, !21, !48}
+!88 = distinct !{!88, !21}
+!89 = distinct !{!89, !48}
+!90 = distinct !{!90, !21, !48}
+!91 = distinct !{!91, !21}
+!92 = distinct !{!92, !21}
+!93 = distinct !{!93, !21}
+!94 = distinct !{!94, !48}
+!95 = distinct !{!95, !21}
+!96 = distinct !{!96, !48}
+!97 = !{!98, !11, i64 24}
+!98 = !{!"_ZTSN5faiss9HeapArrayINS_4CMaxIfiEEEE", !6, i64 0, !6, i64 8, !75, i64 16, !11, i64 24}
+!99 = !{!98, !6, i64 8}
+!100 = !{!98, !75, i64 16}
+!101 = !{!98, !6, i64 0}
+!102 = distinct !{!102, !21}
+!103 = distinct !{!103, !21}
+!104 = distinct !{!104, !21}
+!105 = distinct !{!105, !48}
+!106 = distinct !{!106, !21, !48}
+!107 = distinct !{!107, !21}
+!108 = distinct !{!108, !48}
+!109 = distinct !{!109, !21, !48}
+!110 = distinct !{!110, !21}
+!111 = distinct !{!111, !48}
+!112 = distinct !{!112, !21, !48}
+!113 = distinct !{!113, !21}
+!114 = distinct !{!114, !21}
+!115 = distinct !{!115, !21}
+!116 = distinct !{!116, !48}
+!117 = distinct !{!117, !21}
+!118 = distinct !{!118, !48}
+!119 = !{!120, !75, i64 24}
+!120 = !{!"_ZTSN5faiss9HeapArrayINS_4CMinIilEEEE", !6, i64 0, !6, i64 8, !9, i64 16, !75, i64 24}
+!121 = !{!120, !6, i64 8}
+!122 = !{!120, !9, i64 16}
+!123 = !{!120, !6, i64 0}
+!124 = distinct !{!124, !21}
+!125 = distinct !{!125, !23}
+!126 = distinct !{!126, !23}
+!127 = distinct !{!127, !21}
+!128 = distinct !{!128, !21}
+!129 = distinct !{!129, !23}
+!130 = distinct !{!130, !21}
+!131 = distinct !{!131, !23}
+!132 = distinct !{!132, !21}
+!133 = distinct !{!133, !21}
+!134 = distinct !{!134, !21}
+!135 = distinct !{!135, !21}
+!136 = distinct !{!136, !48}
+!137 = distinct !{!137, !21}
+!138 = distinct !{!138, !48}
+!139 = distinct !{!139, !48}
+!140 = !{!141, !75, i64 24}
+!141 = !{!"_ZTSN5faiss9HeapArrayINS_4CMaxIilEEEE", !6, i64 0, !6, i64 8, !9, i64 16, !75, i64 24}
+!142 = !{!141, !6, i64 8}
+!143 = !{!141, !9, i64 16}
+!144 = !{!141, !6, i64 0}
+!145 = distinct !{!145, !21}
+!146 = distinct !{!146, !23}
+!147 = distinct !{!147, !23}
+!148 = distinct !{!148, !21}
+!149 = distinct !{!149, !21}
+!150 = distinct !{!150, !23}
+!151 = distinct !{!151, !21}
+!152 = distinct !{!152, !23}
+!153 = distinct !{!153, !21}
+!154 = distinct !{!154, !21}
+!155 = distinct !{!155, !21}
+!156 = distinct !{!156, !21}
+!157 = distinct !{!157, !48}
+!158 = distinct !{!158, !21}
+!159 = distinct !{!159, !48}
+!160 = distinct !{!160, !48}
+!161 = distinct !{!161, !21}
+!162 = distinct !{!162, !21}
+!163 = distinct !{!163, !21}
+!164 = distinct !{!164, !21}
+!165 = distinct !{!165, !21}
+!166 = distinct !{!166, !21}
+!167 = distinct !{!167, !21}
+!168 = distinct !{!168, !21}
+!169 = distinct !{!169, !21}
+!170 = distinct !{!170, !21}
+!171 = distinct !{!171, !21}
+!172 = distinct !{!172, !21}
+!173 = distinct !{!173, !21}
+!174 = distinct !{!174, !21}
+!175 = distinct !{!175, !21}
+!176 = distinct !{!176, !21}
+!177 = distinct !{!177, !21}
+!178 = distinct !{!178, !21}

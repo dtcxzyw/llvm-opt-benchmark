@@ -317,7 +317,7 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
   %54 = load i32, ptr %5, align 4
   %55 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %54, i32 noundef -1, ptr noundef nonnull %5, i1 noundef zeroext false)
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.preheader.i, label %dissect_management_packet.exit, !llvm.loop !11
+  br i1 %56, label %.preheader.i, label %dissect_management_packet.exit, !llvm.loop !10
 
 dissect_management_packet.exit:                   ; preds = %53, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
@@ -861,7 +861,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

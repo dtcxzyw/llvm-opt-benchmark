@@ -4531,7 +4531,7 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %42, label %43, label %parse_VENDOR_MANAGEMENT.exit
 
 43:                                               ; preds = %41, %38, %32
-  %44 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %45 = trunc nuw i8 %44 to i1
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %47 = load i16, ptr %46, align 4
@@ -4572,7 +4572,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %30, %41, %.sink.spl
   br i1 %64, label %65, label %parse_APPLICATION_MANAGEMENT.exit
 
 65:                                               ; preds = %63
-  %66 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %66 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %67 = trunc nuw i8 %66 to i1
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %69 = load i16, ptr %68, align 4
@@ -4612,7 +4612,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %63, %.sink.split.i6
   br i1 %86, label %87, label %parse_RESERVED_MANAGEMENT.exit
 
 87:                                               ; preds = %85
-  %88 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %88 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %89 = trunc nuw i8 %88 to i1
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %91 = load i16, ptr %90, align 4
@@ -4821,7 +4821,7 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef %
   %26 = load ptr, ptr %20, align 8
   call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef %25)
   store i32 %16, ptr %3, align 4
-  %27 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %27 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %28 = trunc nuw i8 %27 to i1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %30 = load i16, ptr %29, align 4
@@ -4914,7 +4914,7 @@ define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nound
   %41 = add i32 %9, 152
   store i32 %41, ptr %6, align 4
   store i32 %41, ptr %3, align 4
-  %42 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %42 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %51, label %44
 
@@ -5013,7 +5013,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %45 = load ptr, ptr %39, align 8
   call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef %44)
   store i32 %35, ptr %3, align 4
-  %46 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %46 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %47 = trunc nuw i8 %46 to i1
   %.not = xor i1 %47, true
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -5032,7 +5032,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
 
 56:                                               ; preds = %14
   %.not8 = xor i1 %10, true
-  %57 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9
+  %57 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8
   %58 = trunc nuw i8 %57 to i1
   %or.cond10 = select i1 %.not8, i1 %58, i1 false
   br i1 %or.cond10, label %59, label %88
@@ -5128,7 +5128,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond.i, label %405, label %112
 
 112:                                              ; preds = %108
-  %113 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %113 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %114 = trunc nuw i8 %113 to i1
   %.not2.i = xor i1 %111, true
   %brmerge.i = or i1 %.not2.i, %114
@@ -5648,7 +5648,7 @@ parse_RID.exit.i:                                 ; preds = %285, %116
   store i32 %406, ptr %3, align 4
   %407 = add nuw i32 %.06583, 1
   %exitcond.not = icmp eq i32 %407, %94
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %54, %400
   %.sink94 = phi i32 [ %404, %400 ], [ %55, %54 ]
@@ -5718,7 +5718,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   %44 = load ptr, ptr %38, align 8
   call void @col_append_str(ptr noundef %44, i32 noundef 25, ptr noundef %43)
   store i32 %34, ptr %3, align 4
-  %45 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %45 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %46 = trunc nuw i8 %45 to i1
   %.not = xor i1 %46, true
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5737,7 +5737,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
 
 55:                                               ; preds = %13
   %.not8 = xor i1 %9, true
-  %56 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9
+  %56 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8
   %57 = trunc nuw i8 %56 to i1
   %or.cond10 = select i1 %.not8, i1 %57, i1 false
   br i1 %or.cond10, label %58, label %87
@@ -5847,7 +5847,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.2299, ptr noundef %21)
   %22 = load ptr, ptr %16, align 8
   call void @col_append_str(ptr noundef %22, i32 noundef 25, ptr noundef %21)
-  %23 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %23 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %26 = load i16, ptr %25, align 4
@@ -5897,7 +5897,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %44 = icmp ugt i32 %.0239.i.i, 1
   %45 = icmp samesign ult i32 %.0228237.i.i, 31
   %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !12
+  br i1 %46, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %47 = mul i32 %41, 112
@@ -6088,7 +6088,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %206 = icmp ugt i32 %.1242.i.i, 1
   %207 = icmp samesign ult i32 %.1229241.i.i, 31
   %208 = select i1 %206, i1 %207, i1 false
-  br i1 %208, label %.lr.ph244.i.i, label %.sink.split, !llvm.loop !13
+  br i1 %208, label %.lr.ph244.i.i, label %.sink.split, !llvm.loop !12
 
 209:                                              ; preds = %33
   %.not.i24.i = icmp eq ptr %12, null
@@ -6140,7 +6140,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %235 = icmp ugt i32 %.0202210.i.i, 1
   %236 = icmp samesign ult i32 %.0200212.i.i, 31
   %237 = select i1 %235, i1 %236, i1 false
-  br i1 %237, label %.lr.ph.i26.i, label %._crit_edge.loopexit.i27.i, !llvm.loop !14
+  br i1 %237, label %.lr.ph.i26.i, label %._crit_edge.loopexit.i27.i, !llvm.loop !13
 
 ._crit_edge.loopexit.i27.i:                       ; preds = %.lr.ph.i26.i
   %238 = mul i32 %232, 104
@@ -6316,13 +6316,13 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %375 = icmp ugt i32 %.1203214.i.i, 1
   %376 = icmp samesign ult i32 %.1215.i.i, 31
   %377 = select i1 %375, i1 %376, i1 false
-  br i1 %377, label %.lr.ph217.i.i, label %._crit_edge218.i.i, !llvm.loop !15
+  br i1 %377, label %.lr.ph217.i.i, label %._crit_edge218.i.i, !llvm.loop !14
 
 ._crit_edge218.i.i:                               ; preds = %372, %.lr.ph222.i.i
   %.1206.lcssa.i.i = phi i32 [ %328, %.lr.ph222.i.i ], [ %.2.i.i, %372 ]
   %378 = add nuw nsw i32 %.0199221.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %378, %227
-  br i1 %exitcond.not.i.i, label %.sink.split, label %.lr.ph222.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %.sink.split, label %.lr.ph222.i.i, !llvm.loop !15
 
 379:                                              ; preds = %33
   %380 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -6348,7 +6348,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %390 = icmp ugt i32 %.0135143.i.i, 1
   %391 = icmp samesign ult i32 %.0133145.i.i, 31
   %392 = select i1 %390, i1 %391, i1 false
-  br i1 %392, label %.lr.ph.i31.i, label %._crit_edge.loopexit.i32.i, !llvm.loop !17
+  br i1 %392, label %.lr.ph.i31.i, label %._crit_edge.loopexit.i32.i, !llvm.loop !16
 
 ._crit_edge.loopexit.i32.i:                       ; preds = %.lr.ph.i31.i
   %393 = shl i32 %387, 3
@@ -6475,13 +6475,13 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %480 = icmp ugt i32 %.1136147.i.i, 1
   %481 = icmp samesign ult i32 %.1148.i.i, 31
   %482 = select i1 %480, i1 %481, i1 false
-  br i1 %482, label %.lr.ph150.i.i, label %._crit_edge151.i.i, !llvm.loop !18
+  br i1 %482, label %.lr.ph150.i.i, label %._crit_edge151.i.i, !llvm.loop !17
 
 ._crit_edge151.i.i:                               ; preds = %477, %.lr.ph155.i.i
   %.1139.lcssa.i.i = phi i32 [ %471, %.lr.ph155.i.i ], [ %.2.i36.i, %477 ]
   %483 = add nuw nsw i32 %.0132154.i.i, 1
   %exitcond.not.i37.i = icmp eq i32 %483, %382
-  br i1 %exitcond.not.i37.i, label %.sink.split, label %.lr.ph155.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i37.i, label %.sink.split, label %.lr.ph155.i.i, !llvm.loop !18
 
 484:                                              ; preds = %33
   %485 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -6745,7 +6745,7 @@ switch.lookup:                                    ; preds = %652
   %683 = add i32 %.02971.i.i, 72
   %684 = add nuw nsw i32 %.02962.i.i, 1
   %exitcond.not.i42.i = icmp eq i32 %684, %487
-  br i1 %exitcond.not.i42.i, label %.sink.split, label %.lr.ph.i40.i, !llvm.loop !20
+  br i1 %exitcond.not.i42.i, label %.sink.split, label %.lr.ph.i40.i, !llvm.loop !19
 
 parse_PM_Attribute.exit:                          ; preds = %33
   %685 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2274, i32 noundef %19)
@@ -6773,7 +6773,7 @@ define internal fastcc void @parse_UNKNOWN_MANAGEMENT(ptr noundef %0, ptr nounde
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %4
-  %8 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !9, !noundef !10
+  %8 = load i8, ptr @pref_parse_on_mad_status_error, align 1, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i16, ptr %10, align 4
@@ -7040,7 +7040,7 @@ define internal fastcc noundef zeroext i1 @parse_RMPP(ptr noundef %0, ptr nounde
   %61 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %38)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %61, ptr %62, align 4
-  %63 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %63 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %64 = trunc nuw i8 %63 to i1
   %65 = icmp ult i32 %61, 2
   %or.cond.not = select i1 %64, i1 true, i1 %65
@@ -7407,7 +7407,7 @@ define internal fastcc noundef zeroext i1 @parse_SUBM_Attribute(ptr noundef %0, 
 63:                                               ; preds = %60, %57
   %64 = phi i32 [ %62, %60 ], [ %56, %57 ]
   %exitcond.not.i = icmp eq i32 %42, %14
-  br i1 %exitcond.not.i, label %parse_Aggregate.exit, label %17, !llvm.loop !21
+  br i1 %exitcond.not.i, label %parse_Aggregate.exit, label %17, !llvm.loop !20
 
 parse_Aggregate.exit:                             ; preds = %63, %10, %11
   %.0.i = phi i32 [ %6, %10 ], [ %6, %11 ], [ %64, %63 ]
@@ -8570,7 +8570,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %296, ptr noundef nonnull @.str.2329, i32 noundef %298)
   %299 = add nuw nsw i32 %.0513527, 1
   %exitcond.not = icmp eq i32 %299, 16
-  br i1 %exitcond.not, label %300, label %291, !llvm.loop !22
+  br i1 %exitcond.not, label %300, label %291, !llvm.loop !21
 
 300:                                              ; preds = %291
   %301 = load i32, ptr @ett_portinfo_xmitq, align 4
@@ -8589,7 +8589,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %307, ptr noundef nonnull @.str.2331)
   %309 = add nuw nsw i32 %.1514529, 1
   %exitcond535.not = icmp eq i32 %309, 32
-  br i1 %exitcond535.not, label %310, label %303, !llvm.loop !23
+  br i1 %exitcond535.not, label %310, label %303, !llvm.loop !22
 
 310:                                              ; preds = %303
   %311 = load i32, ptr @hf_opa_PortInfo_IPAddrIPv6, align 4
@@ -8667,7 +8667,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
   %383 = icmp samesign ult i32 %382, %22
   %spec.select.v = select i1 %383, i32 72, i32 66
   %spec.select = add i32 %308, %spec.select.v
-  br i1 %383, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %383, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %310, %.preheader, %23
   %.0 = phi i32 [ %24, %23 ], [ %5, %.preheader ], [ %spec.select, %310 ]
@@ -8737,12 +8737,12 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %33, ptr noundef nonnull @.str.2331)
   %35 = add nuw nsw i32 %.0392, 1
   %exitcond.not = icmp eq i32 %35, 32
-  br i1 %exitcond.not, label %36, label %29, !llvm.loop !25
+  br i1 %exitcond.not, label %36, label %29, !llvm.loop !24
 
 36:                                               ; preds = %29
   %37 = add nuw nsw i32 %.0384, 1
   %38 = icmp samesign ult i32 %37, %26
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %36, %20, %3, %4, %4
   %.040 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %20 ], [ %34, %36 ]
@@ -8781,7 +8781,7 @@ define internal fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %0, ptr noundef
   %17 = add i32 %.0231, 1
   %18 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %18, 32
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !26
 
 .loopexit:                                        ; preds = %12, %3, %4, %4
   %.022 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %17, %12 ]
@@ -8866,12 +8866,12 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %43, ptr noundef nonnull @.str.2331)
   %45 = add nuw nsw i32 %.0636.us, 1
   %exitcond19.not = icmp eq i32 %45, 128
-  br i1 %exitcond19.not, label %.loopexit.us, label %36, !llvm.loop !28
+  br i1 %exitcond19.not, label %.loopexit.us, label %36, !llvm.loop !27
 
 .loopexit.us:                                     ; preds = %36
   %46 = add nuw nsw i32 %.0628.us, 1
   %47 = icmp samesign ult i32 %46, %32
-  br i1 %47, label %.preheader.us, label %.loopexit2, !llvm.loop !29
+  br i1 %47, label %.preheader.us, label %.loopexit2, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %48 = icmp eq i32 %.061, 3
@@ -8888,7 +8888,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   %52 = add i32 %.23.us, 132
   %53 = add nuw nsw i32 %.0628.us9, 1
   %54 = icmp samesign ult i32 %53, %32
-  br i1 %54, label %.preheader1.us, label %.loopexit2, !llvm.loop !31
+  br i1 %54, label %.preheader1.us, label %.loopexit2, !llvm.loop !30
 
 55:                                               ; preds = %.preheader1.us, %55
   %.14.us = phi i32 [ 0, %.preheader1.us ], [ %59, %55 ]
@@ -8899,7 +8899,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %57, ptr noundef nonnull @.str.2329, i32 noundef %.14.us)
   %59 = add nuw nsw i32 %.14.us, 1
   %exitcond.not = icmp eq i32 %59, 32
-  br i1 %exitcond.not, label %51, label %55, !llvm.loop !32
+  br i1 %exitcond.not, label %51, label %55, !llvm.loop !31
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.0628 = phi i32 [ %63, %.lr.ph.split.split ], [ %.059, %.lr.ph.split ]
@@ -8909,7 +8909,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   %62 = add i32 %.0647, 256
   %63 = add nuw nsw i32 %.0628, 1
   %64 = icmp samesign ult i32 %63, %32
-  br i1 %64, label %.lr.ph.split.split, label %.loopexit2, !llvm.loop !33
+  br i1 %64, label %.lr.ph.split.split, label %.loopexit2, !llvm.loop !32
 
 .loopexit2:                                       ; preds = %.lr.ph.split.split, %51, %.loopexit.us, %25, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %25 ], [ %44, %.loopexit.us ], [ %52, %51 ], [ %62, %.lr.ph.split.split ]
@@ -8975,12 +8975,12 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %29, ptr noundef nonnull @.str.2329, i32 noundef %.0342)
   %31 = add nuw nsw i32 %.0342, 1
   %exitcond.not = icmp eq i32 %31, 64
-  br i1 %exitcond.not, label %32, label %27, !llvm.loop !34
+  br i1 %exitcond.not, label %32, label %27, !llvm.loop !33
 
 32:                                               ; preds = %27
   %33 = add nuw nsw i32 %.0354, 1
   %34 = icmp samesign ult i32 %33, %24
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %32, %18, %3, %4, %4
   %.036 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %18 ], [ %30, %32 ]
@@ -9051,12 +9051,12 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %34, ptr noundef nonnull @.str.2329, i32 noundef %.0392)
   %36 = add nuw nsw i32 %.0392, 1
   %exitcond.not = icmp eq i32 %36, 8
-  br i1 %exitcond.not, label %37, label %32, !llvm.loop !36
+  br i1 %exitcond.not, label %37, label %32, !llvm.loop !35
 
 37:                                               ; preds = %32
   %38 = add nuw nsw i32 %.0404, 1
   %39 = icmp samesign ult i32 %38, %29
-  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !37
+  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %37, %22, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %22 ], [ %35, %37 ]
@@ -9151,7 +9151,7 @@ define internal fastcc i32 @parse_LedInfo(ptr noundef %0, ptr noundef %1, i32 %.
   %25 = add i32 %.0322, 8
   %26 = add nuw nsw i32 %.0331, 1
   %27 = icmp samesign ult i32 %26, %17
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !38
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %7 ], [ %25, %.lr.ph ]
@@ -9199,7 +9199,7 @@ define internal fastcc i32 @parse_CableInfo(ptr noundef %0, ptr noundef %1, i32 
   %26 = add i32 %.0302, 1
   %27 = add nuw nsw i32 %.0311, 1
   %exitcond.not = icmp eq i32 %.0311, %14
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !38
 
 .loopexit:                                        ; preds = %22, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %26, %22 ]
@@ -9276,7 +9276,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
 37:                                               ; preds = %40
   %38 = add nuw nsw i32 %.0544.us, 1
   %39 = icmp ult i32 %38, %34
-  br i1 %39, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !40
+  br i1 %39, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !39
 
 40:                                               ; preds = %.lr.ph.split.us, %40
   %.0552.us = phi i32 [ 0, %.lr.ph.split.us ], [ %46, %40 ]
@@ -9290,7 +9290,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   %45 = add i32 %.11.us, 1
   %46 = add nuw nsw i32 %.0552.us, 1
   %exitcond9.not = icmp eq i32 %46, 32
-  br i1 %exitcond9.not, label %37, label %40, !llvm.loop !41
+  br i1 %exitcond9.not, label %37, label %40, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %56
   %.0544 = phi i32 [ %57, %56 ], [ %.050, %.lr.ph ]
@@ -9311,12 +9311,12 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   %54 = add i32 %.11, 1
   %55 = add nuw nsw i32 %.0552, 1
   %exitcond.not = icmp eq i32 %55, 32
-  br i1 %exitcond.not, label %56, label %49, !llvm.loop !41
+  br i1 %exitcond.not, label %56, label %49, !llvm.loop !40
 
 56:                                               ; preds = %49
   %57 = add nuw nsw i32 %.0544, 1
   %58 = icmp ult i32 %57, %34
-  br i1 %58, label %.lr.ph.split, label %.loopexit, !llvm.loop !42
+  br i1 %58, label %.lr.ph.split, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %56, %37, %28, %3, %4, %4
   %.056 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %28 ], [ %45, %37 ], [ %54, %56 ]
@@ -9355,7 +9355,7 @@ define internal fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %0, ptr noundef
   %17 = add i32 %.0231, 1
   %18 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %18, 32
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !42
 
 .loopexit:                                        ; preds = %12, %3, %4, %4
   %.022 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %17, %12 ]
@@ -9431,12 +9431,12 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
   %38 = add i32 %.11, 1
   %39 = add nuw nsw i32 %.0442, 1
   %exitcond.not = icmp eq i32 %39, 32
-  br i1 %exitcond.not, label %40, label %33, !llvm.loop !44
+  br i1 %exitcond.not, label %40, label %33, !llvm.loop !43
 
 40:                                               ; preds = %33
   %41 = add nuw nsw i32 %.0454, 1
   %42 = icmp samesign ult i32 %41, %30
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !45
+  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %40, %20, %3, %4, %4
   %.046 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %20 ], [ %38, %40 ]
@@ -9483,7 +9483,7 @@ define internal fastcc i32 @parse_PortStateInfo(ptr noundef %0, ptr noundef %1, 
   %23 = add i32 %.0312, 8
   %24 = add nuw nsw i32 %.0321, 1
   %25 = icmp samesign ult i32 %24, %12
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !46
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %7 ], [ %23, %.lr.ph ]
@@ -9549,12 +9549,12 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %29, ptr noundef nonnull @.str.2329, i32 noundef %.0342)
   %31 = add nuw nsw i32 %.0342, 1
   %exitcond.not = icmp eq i32 %31, 64
-  br i1 %exitcond.not, label %32, label %27, !llvm.loop !47
+  br i1 %exitcond.not, label %32, label %27, !llvm.loop !46
 
 32:                                               ; preds = %27
   %33 = add nuw nsw i32 %.0354, 1
   %34 = icmp samesign ult i32 %33, %24
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !48
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %32, %18, %3, %4, %4
   %.036 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %18 ], [ %30, %32 ]
@@ -9626,12 +9626,12 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %35, ptr noundef nonnull @.str.2329, i32 noundef %.0392)
   %37 = add nuw nsw i32 %.0392, 1
   %exitcond.not = icmp eq i32 %37, 8
-  br i1 %exitcond.not, label %38, label %33, !llvm.loop !49
+  br i1 %exitcond.not, label %38, label %33, !llvm.loop !48
 
 38:                                               ; preds = %33
   %39 = add nuw nsw i32 %.0404, 1
   %40 = icmp samesign ult i32 %39, %30
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !50
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %38, %23, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %23 ], [ %36, %38 ]
@@ -9708,13 +9708,13 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
   %37 = add nuw nsw i32 %.0522, 1
   %.1 = add i32 %.14, 4
   %exitcond.not = icmp eq i32 %37, 32
-  br i1 %exitcond.not, label %38, label %31, !llvm.loop !51
+  br i1 %exitcond.not, label %38, label %31, !llvm.loop !50
 
 38:                                               ; preds = %31
   %39 = add nuw nsw i32 %.0535, 1
   %40 = icmp samesign ult i32 %39, %21
   %41 = add i32 %.14, 8
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !52
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %38, %15, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %15 ], [ %.1, %38 ]
@@ -9814,7 +9814,7 @@ define internal fastcc i32 @parse_SwitchCongestionLog(ptr noundef %0, ptr nounde
   %46 = add i32 %.0601, 16
   %47 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %47, 96
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !52
 
 .loopexit:                                        ; preds = %27, %3, %4, %4
   %.059 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %46, %27 ]
@@ -9943,7 +9943,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
   %43 = add i32 %.0491, 4
   %44 = add nuw nsw i32 %.0472, 1
   %45 = icmp samesign ult i32 %44, %26
-  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !54
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %3, %4, %4
   %.048 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %20 ], [ %43, %.lr.ph ]
@@ -10012,7 +10012,7 @@ define internal fastcc i32 @parse_HFICongestionLog(ptr noundef %0, ptr noundef %
   %49 = add i32 %.0641, 16
   %50 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %50, 96
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !54
 
 .loopexit:                                        ; preds = %27, %3, %4, %4
   %.063 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %49, %27 ]
@@ -10071,7 +10071,7 @@ define internal fastcc i32 @parse_HFICongestionSetting(ptr noundef %0, ptr nound
   %32 = add nuw nsw i32 %.0463, 1
   %.047 = add i32 %.0474, 6
   %exitcond.not = icmp eq i32 %32, 32
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !55
 
 .loopexit:                                        ; preds = %17, %3, %4, %4
   %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.047, %17 ]
@@ -10145,12 +10145,12 @@ define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr 
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %37, ptr noundef nonnull @.str.2331)
   %39 = add nuw nsw i32 %.0422, 1
   %exitcond.not = icmp eq i32 %39, 64
-  br i1 %exitcond.not, label %40, label %33, !llvm.loop !57
+  br i1 %exitcond.not, label %40, label %33, !llvm.loop !56
 
 40:                                               ; preds = %33
   %41 = add nuw nsw i32 %.0434, 1
   %42 = icmp samesign ult i32 %41, %30
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !58
+  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %40, %20, %3, %4, %4
   %.044 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %29, %20 ], [ %38, %40 ]
@@ -10276,7 +10276,7 @@ define internal fastcc void @parse_PortInfoRecord(ptr noundef %0, ptr noundef %1
   %25 = add i32 %.0.val12, 16
   %26 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %26, 8
-  br i1 %exitcond.not, label %27, label %8, !llvm.loop !59
+  br i1 %exitcond.not, label %27, label %8, !llvm.loop !58
 
 27:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
@@ -10659,7 +10659,7 @@ define internal fastcc void @parse_MultiPathRecord_GID(ptr noundef %0, ptr nound
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %91, ptr noundef nonnull @.str.2431, i32 noundef %.02)
   %93 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %93, %9
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !59
 
 .lr.ph5:                                          ; preds = %.preheader, %.lr.ph5
   %.14 = phi i32 [ %97, %.lr.ph5 ], [ 0, %.preheader ]
@@ -10670,7 +10670,7 @@ define internal fastcc void @parse_MultiPathRecord_GID(ptr noundef %0, ptr nound
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %95, ptr noundef nonnull @.str.2431, i32 noundef %.14)
   %97 = add nuw nsw i32 %.14, 1
   %exitcond10.not = icmp eq i32 %97, %10
-  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph5, !llvm.loop !61
+  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph5, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph5, %.preheader, %2
   ret void
@@ -10789,7 +10789,7 @@ define internal fastcc void @parse_MultiPathRecord_GUID(ptr noundef %0, ptr noun
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %94, ptr noundef nonnull @.str.2431, i32 noundef %.02)
   %96 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %96, %9
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !61
 
 .lr.ph5:                                          ; preds = %.preheader, %.lr.ph5
   %.14 = phi i32 [ %100, %.lr.ph5 ], [ 0, %.preheader ]
@@ -10800,7 +10800,7 @@ define internal fastcc void @parse_MultiPathRecord_GUID(ptr noundef %0, ptr noun
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %98, ptr noundef nonnull @.str.2431, i32 noundef %.14)
   %100 = add nuw nsw i32 %.14, 1
   %exitcond10.not = icmp eq i32 %100, %10
-  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph5, !llvm.loop !63
+  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph5, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.lr.ph5, %.preheader, %2
   ret void
@@ -10918,7 +10918,7 @@ define internal fastcc void @parse_MultiPathRecord_lid(ptr noundef %0, ptr nound
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %94, ptr noundef nonnull @.str.2431, i32 noundef %.02)
   %96 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %96, %9
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !63
 
 .lr.ph5:                                          ; preds = %.preheader, %.lr.ph5
   %.14 = phi i32 [ %100, %.lr.ph5 ], [ 0, %.preheader ]
@@ -10929,7 +10929,7 @@ define internal fastcc void @parse_MultiPathRecord_lid(ptr noundef %0, ptr nound
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %98, ptr noundef nonnull @.str.2431, i32 noundef %.14)
   %100 = add nuw nsw i32 %.14, 1
   %exitcond10.not = icmp eq i32 %100, %10
-  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph5, !llvm.loop !65
+  br i1 %exitcond10.not, label %.loopexit, label %.lr.ph5, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph5, %.preheader, %2
   ret void
@@ -11273,7 +11273,7 @@ define internal fastcc noundef zeroext i1 @parse_PA_Attribute(ptr noundef %0, pt
   %34 = add nuw i32 %.03240.i, 1
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %32, ptr noundef nonnull @.str.2329, i32 noundef %34)
   %exitcond.not.i = icmp eq i32 %34, %20
-  br i1 %exitcond.not.i, label %parse_GetGroupList.exit, label %.lr.ph.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %parse_GetGroupList.exit, label %.lr.ph.i, !llvm.loop !65
 
 35:                                               ; preds = %4
   %36 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8)
@@ -11292,7 +11292,7 @@ define internal fastcc noundef zeroext i1 @parse_PA_Attribute(ptr noundef %0, pt
   br i1 %.not299.i, label %parse_GetGroupList.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %44 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %45 = trunc nuw i8 %44 to i1
   %46 = icmp ne i8 %.1.val, 1
   %or.cond62.not91 = select i1 %45, i1 true, i1 %46
@@ -11409,7 +11409,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   %122 = add i32 %.1422426.i, 4
   %123 = add nuw nsw i32 %.0295427.i, 1
   %exitcond.not.i85 = icmp eq i32 %123, 10
-  br i1 %exitcond.not.i85, label %124, label %117, !llvm.loop !67
+  br i1 %exitcond.not.i85, label %124, label %117, !llvm.loop !66
 
 124:                                              ; preds = %117
   %125 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
@@ -11462,7 +11462,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   %167 = add i32 %.2423428.i, 4
   %168 = add nuw nsw i32 %.1429.i, 1
   %exitcond444.not.i = icmp eq i32 %168, 10
-  br i1 %exitcond444.not.i, label %169, label %162, !llvm.loop !68
+  br i1 %exitcond444.not.i, label %169, label %162, !llvm.loop !67
 
 169:                                              ; preds = %162
   %170 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
@@ -11515,7 +11515,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   %212 = add i32 %.3424430.i, 4
   %213 = add nuw nsw i32 %.2431.i, 1
   %exitcond445.not.i = icmp eq i32 %213, 10
-  br i1 %exitcond445.not.i, label %214, label %207, !llvm.loop !69
+  br i1 %exitcond445.not.i, label %214, label %207, !llvm.loop !68
 
 214:                                              ; preds = %207
   %215 = load i32, ptr @hf_opa_GetGroupInfo_avgKPps, align 4
@@ -11615,7 +11615,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   %299 = add i32 %.4425432.i, 24
   %300 = add nuw nsw i32 %.3433.i, 1
   %exitcond446.not.i = icmp eq i32 %300, 5
-  br i1 %exitcond446.not.i, label %301, label %274, !llvm.loop !70
+  br i1 %exitcond446.not.i, label %301, label %274, !llvm.loop !69
 
 301:                                              ; preds = %274
   %302 = load i32, ptr @ett_getgroupinfoerrorsummary, align 4
@@ -11700,7 +11700,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   %371 = add i32 %.5434.i, 24
   %372 = add nuw nsw i32 %.4435.i, 1
   %exitcond447.not.i = icmp eq i32 %372, 5
-  br i1 %exitcond447.not.i, label %373, label %346, !llvm.loop !71
+  br i1 %exitcond447.not.i, label %373, label %346, !llvm.loop !70
 
 373:                                              ; preds = %346
   %374 = load i32, ptr @hf_opa_GetGroupInfo_maxInternalRate, align 4
@@ -11723,7 +11723,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   %391 = add i32 %.5434.i, 36
   %392 = add nuw i32 %.0294437.i, 1
   %exitcond448.not.i = icmp eq i32 %392, %42
-  br i1 %exitcond448.not.i, label %parse_GetGroupList.exit, label %.lr.ph.i84, !llvm.loop !72
+  br i1 %exitcond448.not.i, label %parse_GetGroupList.exit, label %.lr.ph.i84, !llvm.loop !71
 
 393:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
@@ -11743,7 +11743,7 @@ parse_Image.exit304.i:                            ; preds = %79, %.lr.ph.i84
   br i1 %.not53.i, label %parse_GetGroupConfig.exit, label %401
 
 401:                                              ; preds = %399
-  %402 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %402 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %403 = trunc nuw i8 %402 to i1
   %404 = icmp ne i8 %.1.val, 1
   %or.cond65.not89 = select i1 %403, i1 true, i1 %404
@@ -11842,7 +11842,7 @@ parse_Image.exit58.i:                             ; preds = %439, %.lr.ph.i87
   %467 = add i32 %.0.i57.i, 80
   %468 = add nuw i32 %.04971.i, 1
   %exitcond.not.i88 = icmp eq i32 %468, %400
-  br i1 %exitcond.not.i88, label %parse_GetGroupConfig.exit, label %.lr.ph.i87, !llvm.loop !73
+  br i1 %exitcond.not.i88, label %parse_GetGroupConfig.exit, label %.lr.ph.i87, !llvm.loop !72
 
 parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit58.i, %401, %408, %418, %428, %399, %405
   %.0.in.i.sroa.speculated = phi i32 [ %8, %399 ], [ %8, %405 ], [ %427, %418 ], [ %417, %408 ], [ %8, %428 ], [ %8, %401 ], [ %467, %parse_Image.exit58.i ]
@@ -12246,7 +12246,7 @@ parse_Image.exit.i:                               ; preds = %496, %470
   br i1 %.not78.i, label %parse_GetFocusPorts.exit, label %804
 
 804:                                              ; preds = %802
-  %805 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %805 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %806 = trunc nuw i8 %805 to i1
   %807 = icmp ne i8 %.1.val, 1
   %or.cond68.not87 = select i1 %806, i1 true, i1 %807
@@ -12387,7 +12387,7 @@ parse_Image.exit83.i:                             ; preds = %851, %.lr.ph.i109
   %908 = add i32 %.0.i82.i, 176
   %909 = add nuw i32 %.074109.i, 1
   %exitcond.not.i110 = icmp eq i32 %909, %803
-  br i1 %exitcond.not.i110, label %parse_GetFocusPorts.exit, label %.lr.ph.i109, !llvm.loop !74
+  br i1 %exitcond.not.i110, label %parse_GetFocusPorts.exit, label %.lr.ph.i109, !llvm.loop !73
 
 parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit83.i, %804, %parse_Image.exit.i116, %840, %802, %808
   %.0.in.i113.sroa.speculated = phi i32 [ %8, %802 ], [ %8, %808 ], [ %839, %parse_Image.exit.i116 ], [ %8, %840 ], [ %8, %804 ], [ %908, %parse_Image.exit83.i ]
@@ -12608,7 +12608,7 @@ parse_Image.exit.i125:                            ; preds = %1023, %1018
   %1068 = add nuw i32 %.03240.i135, 1
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1066, ptr noundef nonnull @.str.2329, i32 noundef %1068)
   %exitcond.not.i136 = icmp eq i32 %1068, %1054
-  br i1 %exitcond.not.i136, label %parse_GetGroupList.exit, label %.lr.ph.i133, !llvm.loop !75
+  br i1 %exitcond.not.i136, label %parse_GetGroupList.exit, label %.lr.ph.i133, !llvm.loop !74
 
 1069:                                             ; preds = %4
   %1070 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %8)
@@ -12627,7 +12627,7 @@ parse_Image.exit.i125:                            ; preds = %1023, %1018
   br i1 %.not157.i, label %parse_GetGroupList.exit, label %1077
 
 1077:                                             ; preds = %1075
-  %1078 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %1078 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %1079 = trunc nuw i8 %1078 to i1
   %1080 = icmp ne i8 %.1.val, 1
   %or.cond72.not85 = select i1 %1079, i1 true, i1 %1080
@@ -12752,7 +12752,7 @@ parse_Image.exit162.i:                            ; preds = %1122, %.lr.ph.i142
   %1162 = add i32 %.1221223.i, 4
   %1163 = add nuw nsw i32 %.1224.i, 1
   %exitcond.not.i143 = icmp eq i32 %1163, 10
-  br i1 %exitcond.not.i143, label %1164, label %1157, !llvm.loop !76
+  br i1 %exitcond.not.i143, label %1164, label %1157, !llvm.loop !75
 
 1164:                                             ; preds = %1157
   %1165 = load i32, ptr @hf_opa_GetVFInfo_avgKPps, align 4
@@ -12852,7 +12852,7 @@ parse_Image.exit162.i:                            ; preds = %1122, %.lr.ph.i142
   %1249 = add i32 %.2222225.i, 24
   %1250 = add nuw nsw i32 %.2226.i, 1
   %exitcond231.not.i = icmp eq i32 %1250, 5
-  br i1 %exitcond231.not.i, label %1251, label %1224, !llvm.loop !77
+  br i1 %exitcond231.not.i, label %1251, label %1224, !llvm.loop !76
 
 1251:                                             ; preds = %1224
   %1252 = load i32, ptr @hf_opa_GetVFInfo_maxInternalRate, align 4
@@ -12864,7 +12864,7 @@ parse_Image.exit162.i:                            ; preds = %1122, %.lr.ph.i142
   %1258 = load i32, ptr @hf_opa_GetVFInfo_maxInternalMBps, align 4
   %1259 = tail call ptr @proto_tree_add_item(ptr noundef %1115, i32 noundef %1258, ptr noundef %1, i32 noundef %1257, i32 noundef 4, i32 noundef 0)
   %1260 = add i32 %.2222225.i, 30
-  br i1 %1084, label %.lr.ph.i142, label %parse_GetGroupList.exit, !llvm.loop !78
+  br i1 %1084, label %.lr.ph.i142, label %parse_GetGroupList.exit, !llvm.loop !77
 
 1261:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
@@ -12884,7 +12884,7 @@ parse_Image.exit162.i:                            ; preds = %1122, %.lr.ph.i142
   br i1 %.not54.i145, label %parse_GetVFConfig.exit, label %1269
 
 1269:                                             ; preds = %1267
-  %1270 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %1270 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %1271 = trunc nuw i8 %1270 to i1
   %1272 = icmp ne i8 %.1.val, 1
   %or.cond75.not83 = select i1 %1271, i1 true, i1 %1272
@@ -12985,7 +12985,7 @@ parse_Image.exit59.i:                             ; preds = %1308, %.lr.ph.i146
   %1336 = add i32 %.0.i58.i, 80
   %1337 = add nuw i32 %.05072.i, 1
   %exitcond.not.i147 = icmp eq i32 %1337, %1268
-  br i1 %exitcond.not.i147, label %parse_GetVFConfig.exit, label %.lr.ph.i146, !llvm.loop !79
+  br i1 %exitcond.not.i147, label %parse_GetVFConfig.exit, label %.lr.ph.i146, !llvm.loop !78
 
 parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit59.i, %1269, %1276, %1287, %1297, %1267, %1273
   %.0.in.i150.sroa.speculated = phi i32 [ %8, %1267 ], [ %8, %1273 ], [ %1296, %1287 ], [ %1286, %1276 ], [ %8, %1297 ], [ %8, %1269 ], [ %1336, %parse_Image.exit59.i ]
@@ -13148,7 +13148,7 @@ parse_Image.exit.i155:                            ; preds = %1368, %1339
   br i1 %.not76.i, label %parse_GetGroupList.exit, label %1461
 
 1461:                                             ; preds = %1459
-  %1462 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !9, !noundef !10
+  %1462 = load i8, ptr @pref_attempt_rmpp_defragment, align 1, !range !8, !noundef !9
   %1463 = trunc nuw i8 %1462 to i1
   %1464 = icmp ne i8 %.1.val, 1
   %or.cond78.not81 = select i1 %1463, i1 true, i1 %1464
@@ -13270,7 +13270,7 @@ parse_Image.exit.i168:                            ; preds = %1479, %1468
   %1555 = add i32 %1506, 176
   %1556 = add nuw i32 %.072103.i, 1
   %exitcond.not.i162 = icmp eq i32 %1556, %1460
-  br i1 %exitcond.not.i162, label %parse_GetGroupList.exit, label %.lr.ph.i161, !llvm.loop !80
+  br i1 %exitcond.not.i162, label %parse_GetGroupList.exit, label %.lr.ph.i161, !llvm.loop !79
 
 parse_GetGroupList.exit:                          ; preds = %.lr.ph.i161, %1251, %.lr.ph.i133, %373, %.lr.ph.i, %1461, %1077, %43, %1465, %1459, %1498, %parse_Image.exit.i168, %1426, %1425, %1423, %1380, %1338, %1100, %1087, %.preheader.i141, %1075, %1058, %1055, %1053, %1037, %parse_Image.exit.i125, %1017, %1014, %992, %910, %786, %785, %775, %774, %764, %763, %641, %640, %631, %630, %606, %605, %603, %508, %469, %60, %50, %.preheader.i, %41, %24, %21, %19, %parse_GetVFConfig.exit, %parse_GetFocusPorts.exit, %parse_GetGroupConfig.exit, %11
   %.061 = phi i32 [ %12, %11 ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %.0.in.i113.sroa.speculated, %parse_GetFocusPorts.exit ], [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %8, %24 ], [ %8, %21 ], [ %8, %19 ], [ %69, %60 ], [ %59, %50 ], [ %8, %.preheader.i ], [ %8, %41 ], [ %8, %469 ], [ %604, %603 ], [ %602, %508 ], [ %629, %606 ], [ %8, %605 ], [ %639, %631 ], [ %8, %630 ], [ %762, %641 ], [ %8, %640 ], [ %773, %764 ], [ %8, %763 ], [ %784, %775 ], [ %8, %774 ], [ %795, %786 ], [ %8, %785 ], [ %8, %910 ], [ %1016, %1014 ], [ %1013, %992 ], [ %8, %1017 ], [ %1046, %1037 ], [ %.0.i.i126, %parse_Image.exit.i125 ], [ %8, %1058 ], [ %8, %1055 ], [ %8, %1053 ], [ %1109, %1100 ], [ %1099, %1087 ], [ %8, %.preheader.i141 ], [ %8, %1075 ], [ %8, %1338 ], [ %1424, %1423 ], [ %1422, %1380 ], [ %1452, %1426 ], [ %8, %1425 ], [ %8, %1459 ], [ %8, %1465 ], [ %1497, %parse_Image.exit.i168 ], [ %8, %1498 ], [ %8, %43 ], [ %8, %1077 ], [ %8, %1461 ], [ %33, %.lr.ph.i ], [ %391, %373 ], [ %1067, %.lr.ph.i133 ], [ %1260, %1251 ], [ %1555, %.lr.ph.i161 ]
@@ -13375,14 +13375,14 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   %40 = icmp ugt i64 %.0575, 1
   %41 = icmp samesign ult i32 %.0671, 63
   %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %23, label %._crit_edge, !llvm.loop !81
+  br i1 %42, label %23, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %37, %18
   %.163.lcssa = phi i32 [ %.0629, %18 ], [ %.264, %37 ]
   %.160.lcssa = phi i32 [ %.05910, %18 ], [ %.261, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %43, label %18, !llvm.loop !82
+  br i1 %exitcond.not, label %43, label %18, !llvm.loop !81
 
 43:                                               ; preds = %._crit_edge
   %44 = icmp ne i32 %.160.lcssa, %.163.lcssa
@@ -13455,80 +13455,79 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !7, !8, !30}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8, !30}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = distinct !{!53, !7, !8}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
-!59 = distinct !{!59, !7, !8}
-!60 = distinct !{!60, !7, !8}
-!61 = distinct !{!61, !7, !8}
-!62 = distinct !{!62, !7, !8}
-!63 = distinct !{!63, !7, !8}
-!64 = distinct !{!64, !7, !8}
-!65 = distinct !{!65, !7, !8}
-!66 = distinct !{!66, !7, !8}
-!67 = distinct !{!67, !7, !8}
-!68 = distinct !{!68, !7, !8}
-!69 = distinct !{!69, !7, !8}
-!70 = distinct !{!70, !7, !8}
-!71 = distinct !{!71, !7, !8}
-!72 = distinct !{!72, !7, !8}
-!73 = distinct !{!73, !7, !8}
-!74 = distinct !{!74, !7, !8}
-!75 = distinct !{!75, !7, !8}
-!76 = distinct !{!76, !7, !8}
-!77 = distinct !{!77, !7, !8}
-!78 = distinct !{!78, !7, !8}
-!79 = distinct !{!79, !7, !8}
-!80 = distinct !{!80, !7, !8}
-!81 = distinct !{!81, !7, !8}
-!82 = distinct !{!82, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !7, !29}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7, !29}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !7}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7}
+!63 = distinct !{!63, !7}
+!64 = distinct !{!64, !7}
+!65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7}
+!70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7}
+!72 = distinct !{!72, !7}
+!73 = distinct !{!73, !7}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !7}
+!77 = distinct !{!77, !7}
+!78 = distinct !{!78, !7}
+!79 = distinct !{!79, !7}
+!80 = distinct !{!80, !7}
+!81 = distinct !{!81, !7}

@@ -505,7 +505,7 @@ define internal fastcc noundef zeroext i1 @communityid_calc(i8 noundef zeroext %
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #10
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %16, label %17, !prof !11
+  br i1 %.not, label %16, label %17, !prof !10
 
 16:                                               ; preds = %7
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.17)
@@ -525,7 +525,7 @@ define internal fastcc noundef zeroext i1 @communityid_calc(i8 noundef zeroext %
   %20 = icmp eq ptr %2, null
   %21 = icmp eq ptr %3, null
   %or.cond4.not = or i1 %20, %21
-  br i1 %or.cond4.not, label %22, label %23, !prof !11
+  br i1 %or.cond4.not, label %22, label %23, !prof !10
 
 22:                                               ; preds = %19
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.19)
@@ -692,7 +692,7 @@ communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
   %81 = add nuw nsw i64 %80, 3
   %82 = call noalias ptr @g_malloc(i64 noundef %81) #12
   store ptr %82, ptr %6, align 8
-  %83 = call ptr @__memcpy_chk(ptr noundef %82, ptr noundef nonnull @.str.21, i64 noundef 2, i64 noundef %81) #10, !alias.scope !12
+  %83 = call ptr @__memcpy_chk(ptr noundef %82, ptr noundef nonnull @.str.21, i64 noundef 2, i64 noundef %81) #10, !alias.scope !11
   %.not17 = icmp eq i32 %14, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -706,7 +706,7 @@ communityid_tuple_lt.exit.thread:                 ; preds = %45, %31, %34, %50
   %87 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.079, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.22, i32 noundef %86)
   %88 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %88, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %79, %72
   call void @g_free(ptr noundef %66)
@@ -791,12 +791,11 @@ attributes #12 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !9, !10}
+!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !9}

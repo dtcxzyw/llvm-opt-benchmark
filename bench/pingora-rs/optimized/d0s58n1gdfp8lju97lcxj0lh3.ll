@@ -173,14 +173,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5da5ab96391a
   store i16 %3, ptr %25, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 4
   %exitcond.not = icmp eq i64 %24, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hea619b30527f3ba2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %0, align 8, !range !18, !alias.scope !22, !noalias !25, !noundef !5
+  %3 = load i64, ptr %0, align 8, !range !18, !alias.scope !20, !noalias !23, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !alias.scope !22, !noalias !25, !noundef !5
+  %5 = load i64, ptr %4, align 8, !alias.scope !20, !noalias !23, !noundef !5
   %6 = icmp ugt i64 %3, %5
   br i1 %6, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hc1a2a4b207126e94E.exit.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E.exit"
 
@@ -390,28 +390,28 @@ define noundef range(i8 0, 2) i8 @_ZN13pingora_proxy12proxy_common22DownstreamSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13pingora_proxy12proxy_common22DownstreamStateMachine8can_poll17ha63d093353e7356cE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !range !27, !noundef !5
+  %2 = load i8, ptr %0, align 1, !range !25, !noundef !5
   %3 = icmp ne i8 %2, 2
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13pingora_proxy12proxy_common22DownstreamStateMachine10is_reading17h1ec9b987a707725bE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !range !27, !noundef !5
+  %2 = load i8, ptr %0, align 1, !range !25, !noundef !5
   %3 = icmp eq i8 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13pingora_proxy12proxy_common22DownstreamStateMachine7is_done17h8e70851ceefc8d99E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !range !27, !noundef !5
+  %2 = load i8, ptr %0, align 1, !range !25, !noundef !5
   %3 = icmp ne i8 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13pingora_proxy12proxy_common22DownstreamStateMachine10is_errored17hd55058d719f23d7dE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !range !27, !noundef !5
+  %2 = load i8, ptr %0, align 1, !range !25, !noundef !5
   %3 = icmp eq i8 %2, 2
   ret i1 %3
 }
@@ -606,11 +606,9 @@ attributes #15 = { cold noreturn nounwind }
 !17 = distinct !{!17, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd26093d026dcb58bE"}
 !18 = !{i64 0, i64 -9223372036854775808}
 !19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E: argument 0"}
-!24 = distinct !{!24, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E"}
-!25 = !{!26}
-!26 = distinct !{!26, !24, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E: argument 1"}
-!27 = !{i8 0, i8 3}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E: argument 0"}
+!22 = distinct !{!22, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E"}
+!23 = !{!24}
+!24 = distinct !{!24, !22, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hcd80d9bd094bc754E: argument 1"}
+!25 = !{i8 0, i8 3}

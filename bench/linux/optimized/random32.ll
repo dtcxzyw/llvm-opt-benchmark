@@ -168,7 +168,7 @@ define dso_local void @prandom_bytes_state(ptr noundef captures(none) %0, ptr no
   %88 = add i64 %84, -1
   %89 = lshr i32 %85, 8
   %90 = icmp eq i64 %88, 0
-  br i1 %90, label %.loopexit, label %82, !llvm.loop !9
+  br i1 %90, label %.loopexit, label %82, !llvm.loop !8
 
 .loopexit:                                        ; preds = %82, %.loopexit3
   ret void
@@ -198,7 +198,7 @@ define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %11) #6, !srcloc !10
+  %14 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %11) #6, !srcloc !9
   %15 = and i64 %14, 4294967232
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %.thread
@@ -210,7 +210,7 @@ define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
   %21 = add i64 %20, %3
   %22 = inttoptr i64 %21 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10
   call void @get_random_bytes(ptr noundef nonnull %2, i64 noundef 16) #7
   %23 = load i32, ptr %2, align 16
   %24 = icmp ult i32 %23, 2
@@ -472,7 +472,7 @@ define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
   %272 = add nuw nsw i64 %14, 1
   %273 = and i64 %272, 127
   %274 = icmp samesign ugt i64 %273, 63
-  br i1 %274, label %.thread, label %7, !prof !12, !llvm.loop !13
+  br i1 %274, label %.thread, label %7, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %7, %17, %13
   ret void
@@ -500,12 +500,11 @@ attributes #7 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{i64 711484}
-!11 = !{!"auto-init"}
-!12 = !{!"branch_weights", i32 1, i32 1999}
-!13 = distinct !{!13, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i64 711484}
+!10 = !{!"auto-init"}
+!11 = !{!"branch_weights", i32 1, i32 1999}
+!12 = distinct !{!12, !6, !7}

@@ -373,7 +373,7 @@ retry_list_size.exit:                             ; preds = %18, %27
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %76 = load i8, ptr %75, align 4, !range !11, !noundef !12
+  %76 = load i8, ptr %75, align 4, !range !10, !noundef !11
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %_valid_agent_arg.exit, label %78
 
@@ -708,7 +708,7 @@ _reboot_from_ctld.exit:                           ; preds = %88, %94, %124
   %235 = load i32, ptr %137, align 8
   %236 = zext i32 %235 to i64
   %237 = icmp samesign ult i64 %indvars.iv.next.i, %236
-  br i1 %237, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !13
+  br i1 %237, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !12
 
 .loopexit.loopexit.i:                             ; preds = %234
   %238 = trunc nuw i64 %indvars.iv.next.i to i32
@@ -797,7 +797,7 @@ _make_agent_info.exit:                            ; preds = %135, %.sink.split.i
   %.not129 = icmp eq i16 %271, 0
   %272 = select i1 %.not129, i32 70, i32 84
   %273 = getelementptr inbounds nuw i8, ptr %126, i64 112
-  %274 = load i8, ptr %273, align 8, !range !11, !noundef !12
+  %274 = load i8, ptr %273, align 8, !range !10, !noundef !11
   %275 = trunc nuw i8 %274 to i1
   %276 = select i1 %275, i32 84, i32 70
   %277 = load i32, ptr %147, align 4
@@ -820,7 +820,7 @@ _make_agent_info.exit:                            ; preds = %135, %.sink.split.i
   %287 = load i32, ptr %286, align 8
   %288 = zext i32 %287 to i64
   %289 = icmp samesign ult i64 %indvars.iv.next, %288
-  br i1 %289, label %.lr.ph189, label %._crit_edge190, !llvm.loop !15
+  br i1 %289, label %.lr.ph189, label %._crit_edge190, !llvm.loop !14
 
 .lr.ph189:                                        ; preds = %283, %285
   %indvars.iv = phi i64 [ %indvars.iv.next, %285 ], [ 0, %283 ]
@@ -859,7 +859,7 @@ _make_agent_info.exit:                            ; preds = %135, %.sink.split.i
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 92
   %306 = load i32, ptr %305, align 4
   %307 = icmp ugt i32 %306, 9
-  br i1 %307, label %.lr.ph184, label %._crit_edge185, !llvm.loop !16
+  br i1 %307, label %.lr.ph184, label %._crit_edge185, !llvm.loop !15
 
 ._crit_edge185:                                   ; preds = %303, %.preheader167
   %.lcssa183 = phi ptr [ %290, %.preheader167 ], [ %304, %303 ]
@@ -877,7 +877,7 @@ _make_agent_info.exit:                            ; preds = %135, %.sink.split.i
   %316 = getelementptr inbounds nuw i8, ptr %309, i64 24
   store ptr %315, ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %.lcssa183, i64 112
-  %318 = load i8, ptr %317, align 8, !range !11, !noundef !12
+  %318 = load i8, ptr %317, align 8, !range !10, !noundef !11
   %319 = getelementptr inbounds nuw i8, ptr %309, i64 32
   store i8 %318, ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %.lcssa183, i64 116
@@ -1056,7 +1056,7 @@ _make_agent_info.exit:                            ; preds = %135, %.sink.split.i
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 92
   %406 = load i32, ptr %405, align 4
   %.not133 = icmp eq i32 %406, 0
-  br i1 %.not133, label %.preheader, label %.lr.ph192, !llvm.loop !17
+  br i1 %.not133, label %.preheader, label %.lr.ph192, !llvm.loop !16
 
 .lr.ph194:                                        ; preds = %.preheader, %.thread163
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.thread163 ], [ 0, %.preheader ]
@@ -1082,7 +1082,7 @@ _make_agent_info.exit:                            ; preds = %135, %.sink.split.i
   %414 = load i32, ptr %395, align 8
   %415 = zext i32 %414 to i64
   %416 = icmp samesign ult i64 %indvars.iv.next218, %415
-  br i1 %416, label %.lr.ph194, label %._crit_edge195, !llvm.loop !18
+  br i1 %416, label %.lr.ph194, label %._crit_edge195, !llvm.loop !17
 
 ._crit_edge195:                                   ; preds = %.thread163, %.preheader
   %417 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %394) #14
@@ -1121,7 +1121,7 @@ _valid_agent_arg.exit.thread.thread223:           ; preds = %423
   %.not136 = icmp eq i16 %431, 0
   %432 = select i1 %.not136, i32 70, i32 84
   %433 = getelementptr inbounds nuw i8, ptr %.pre221, i64 112
-  %434 = load i8, ptr %433, align 8, !range !11, !noundef !12
+  %434 = load i8, ptr %433, align 8, !range !10, !noundef !11
   %435 = trunc nuw i8 %434 to i1
   %436 = select i1 %435, i32 84, i32 70
   %437 = load i32, ptr %148, align 4
@@ -1493,7 +1493,7 @@ _update_wdog_state.exit80:                        ; preds = %77, %56, %59, %69, 
   %.sroa.0.4 = phi i1 [ false, %59 ], [ false, %69 ], [ false, %76 ], [ %.sroa.0.1113, %80 ], [ %.sroa.0.1113, %77 ], [ %.sroa.0.1113, %56 ]
   %83 = tail call ptr @list_next(ptr noundef %53) #14
   %.not76 = icmp eq ptr %83, null
-  br i1 %.not76, label %._crit_edge, label %56, !llvm.loop !19
+  br i1 %.not76, label %._crit_edge, label %56, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_update_wdog_state.exit80, %52
   %.sroa.19.1.lcssa = phi i32 [ %.sroa.19.0118, %52 ], [ %.sroa.19.4, %_update_wdog_state.exit80 ]
@@ -1512,7 +1512,7 @@ _update_wdog_state.exit:                          ; preds = %45, %49, %44, %37, 
   %84 = load i32, ptr %10, align 8
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph124, label %._crit_edge125, !llvm.loop !20
+  br i1 %86, label %.lr.ph124, label %._crit_edge125, !llvm.loop !19
 
 ._crit_edge125:                                   ; preds = %_update_wdog_state.exit
   br i1 %.sroa.0.2, label %._crit_edge125.thread.split.loop.exit162, label %87
@@ -1520,7 +1520,7 @@ _update_wdog_state.exit:                          ; preds = %45, %49, %44, %37, 
 87:                                               ; preds = %._crit_edge125
   %88 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   %.not68 = icmp eq i32 %88, 0
-  br i1 %.not68, label %11, label %89, !llvm.loop !21
+  br i1 %.not68, label %11, label %89, !llvm.loop !20
 
 89:                                               ; preds = %87
   %90 = tail call ptr @__errno_location() #15
@@ -1809,7 +1809,7 @@ _notify_slurmctld_jobs.exit:                      ; preds = %99, %99, %99, %99, 
   %.5.i.i = phi i32 [ %.6.i.i, %241 ], [ %.4.i.i, %215 ]
   %218 = tail call ptr @list_next(ptr noundef %204) #14
   %.not.i.i.i = icmp eq ptr %218, null
-  br i1 %.not.i.i.i, label %_setup_requeue.exit.thread.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i, label %_setup_requeue.exit.thread.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !21
 
 219:                                              ; preds = %215
   %220 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -1872,7 +1872,7 @@ _setup_requeue.exit.i.i:                          ; preds = %241
   %244 = load i32, ptr %10, align 8
   %245 = zext i32 %244 to i64
   %246 = icmp samesign ult i64 %indvars.iv.next.i.i, %245
-  br i1 %246, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !23
+  br i1 %246, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %243, %201, %_setup_requeue.exit.i.i
   %.164.i.i = phi i32 [ %.669.i.i, %_setup_requeue.exit.i.i ], [ %.265.i.i, %243 ], [ %.366.i.i, %201 ]
@@ -2125,7 +2125,7 @@ _queue_update_node.exit.i:                        ; preds = %337
 
 345:                                              ; preds = %342, %_queue_update_node.exit.i, %328, %319, %310, %303
   %.5.i = phi i8 [ %.161.i, %342 ], [ 1, %303 ], [ 1, %310 ], [ 1, %319 ], [ 1, %328 ], [ 0, %_queue_update_node.exit.i ]
-  br i1 %.not78.i, label %347, label %287, !llvm.loop !24
+  br i1 %.not78.i, label %347, label %287, !llvm.loop !23
 
 346:                                              ; preds = %287
   call void @list_iterator_destroy(ptr noundef %.256.i) #14
@@ -2139,7 +2139,7 @@ _queue_update_node.exit.i:                        ; preds = %337
   %348 = load i32, ptr %10, align 8
   %349 = zext i32 %348 to i64
   %350 = icmp samesign ult i64 %indvars.iv.next.i, %349
-  br i1 %350, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %350, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %347
   %351 = trunc nuw i8 %.363.i to i1
@@ -2196,7 +2196,7 @@ _notify_slurmctld_nodes.exit:                     ; preds = %356, %354, %_notify
   %364 = load i32, ptr %10, align 8
   %365 = zext i32 %364 to i64
   %366 = icmp samesign ult i64 %indvars.iv.next146, %365
-  br i1 %366, label %.lr.ph131, label %._crit_edge132, !llvm.loop !26
+  br i1 %366, label %.lr.ph131, label %._crit_edge132, !llvm.loop !25
 
 ._crit_edge132:                                   ; preds = %362, %_notify_slurmctld_nodes.exit
   %.not71 = icmp eq i32 %.sroa.25.1.lcssa154, 0
@@ -2386,7 +2386,7 @@ switch.edge249:                                   ; preds = %switch.edge, %switc
 
 75:                                               ; preds = %64, %74, %57, %61, %58
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %77 = load i8, ptr %76, align 8, !range !11, !noundef !12
+  %77 = load i8, ptr %76, align 8, !range !10, !noundef !11
   %78 = trunc nuw i8 %77 to i1
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %80 = load ptr, ptr %79, align 8
@@ -2636,7 +2636,7 @@ _wif_status.exit:                                 ; preds = %187, %.loopexit.loo
   %.1198.be = phi i32 [ 2, %_wif_status.exit ], [ 4, %_wif_status.exit258 ], [ %.3, %.critedge ], [ 4, %_wif_status.exit264 ], [ %.1198286, %210 ], [ %.1198286, %208 ]
   %192 = call ptr @list_next(ptr noundef %136) #14
   %.not238 = icmp eq ptr %192, null
-  br i1 %.not238, label %._crit_edge, label %142, !llvm.loop !27
+  br i1 %.not238, label %._crit_edge, label %142, !llvm.loop !26
 
 193:                                              ; preds = %176
   %194 = icmp eq i32 %.0, 1001
@@ -2680,12 +2680,12 @@ _wif_status.exit258:                              ; preds = %203, %.loopexit.loo
 208:                                              ; preds = %207
   %209 = load ptr, ptr %43, align 8
   %.not248 = icmp eq ptr %209, null
-  br i1 %.not248, label %.backedge, label %210, !llvm.loop !28
+  br i1 %.not248, label %.backedge, label %210, !llvm.loop !26
 
 210:                                              ; preds = %208
   %211 = call i32 @list_count(ptr noundef nonnull %209) #14
   %212 = icmp eq i32 %211, 0
-  br i1 %212, label %.backedge, label %213, !llvm.loop !28
+  br i1 %212, label %.backedge, label %213, !llvm.loop !26
 
 213:                                              ; preds = %210
   %214 = call ptr @list_peek(ptr noundef nonnull %209) #14
@@ -2715,7 +2715,7 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   %.03.i260 = phi i32 [ %223, %221 ], [ 256, %.loopexit.loopexit.i263 ]
   %224 = call i32 @job_complete(i32 noundef %216, i32 noundef %222, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.03.i260) #14
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._thread_per_group_rpc.job_write_lock) #14
-  br label %.backedge, !llvm.loop !28
+  br label %.backedge, !llvm.loop !26
 
 225:                                              ; preds = %207
   br i1 %140, label %226, label %.thread269
@@ -2981,7 +2981,7 @@ define dso_local void @agent_trigger(i32 noundef %0, i1 noundef zeroext %1, i1 n
 11:                                               ; preds = %8
   %12 = load i32, ptr @pending_wait_time, align 4
   %13 = select i1 %1, i32 84, i32 70
-  %14 = load i8, ptr @pending_mail, align 1, !range !11, !noundef !12
+  %14 = load i8, ptr @pending_mail, align 1, !range !10, !noundef !11
   %15 = trunc nuw i8 %14 to i1
   %16 = select i1 %15, i32 84, i32 70
   %17 = load i32, ptr @agent_cnt, align 4
@@ -3287,10 +3287,10 @@ define internal noalias noundef ptr @_agent_init(ptr readnone captures(none) %0)
   %.0198 = phi i64 [ 0, %.preheader.lr.ph ], [ %.1, %_agent_retry.exit ]
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
   %18 = icmp ne i64 %17, 0
-  %19 = load i8, ptr @pending_mail, align 1, !range !11
+  %19 = load i8, ptr @pending_mail, align 1, !range !10
   %20 = trunc nuw i8 %19 to i1
   %or.cond194 = select i1 %18, i1 true, i1 %20
-  %21 = load i8, ptr @pending_check_defer, align 1, !range !11
+  %21 = load i8, ptr @pending_check_defer, align 1, !range !10
   %22 = trunc nuw i8 %21 to i1
   %or.cond3195 = select i1 %or.cond194, i1 true, i1 %22
   %23 = load i32, ptr @pending_wait_time, align 4
@@ -3324,16 +3324,16 @@ define internal noalias noundef ptr @_agent_init(ptr readnone captures(none) %0)
 32:                                               ; preds = %.lr.ph, %.lr.ph, %29
   %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
   %34 = icmp ne i64 %33, 0
-  %35 = load i8, ptr @pending_mail, align 1, !range !11
+  %35 = load i8, ptr @pending_mail, align 1, !range !10
   %36 = trunc nuw i8 %35 to i1
   %or.cond = select i1 %34, i1 true, i1 %36
-  %37 = load i8, ptr @pending_check_defer, align 1, !range !11
+  %37 = load i8, ptr @pending_check_defer, align 1, !range !10
   %38 = trunc nuw i8 %37 to i1
   %or.cond3 = select i1 %or.cond, i1 true, i1 %38
   %39 = load i32, ptr @pending_wait_time, align 4
   %40 = icmp ne i32 %39, 65534
   %or.cond9.not = select i1 %or.cond3, i1 true, i1 %40
-  br i1 %or.cond9.not, label %.critedge, label %.lr.ph, !llvm.loop !29
+  br i1 %or.cond9.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
 .critedge:                                        ; preds = %32, %.preheader
   %41 = phi i32 [ %23, %.preheader ], [ %39, %32 ]
@@ -3359,7 +3359,7 @@ retry_list_size.exit:                             ; preds = %43
   br i1 %51, label %retry_list_size.exit.thread, label %._crit_edge327
 
 ._crit_edge327:                                   ; preds = %47
-  %.pre = load i8, ptr @pending_mail, align 1, !range !11
+  %.pre = load i8, ptr @pending_mail, align 1, !range !10
   %.pre328 = load i32, ptr @pending_wait_time, align 4
   br label %56
 
@@ -3398,7 +3398,7 @@ retry_list_size.exit.thread:                      ; preds = %43, %retry_list_siz
   %64 = add nsw i64 %.0198, 2
   %65 = load i64, ptr @last_job_update, align 8
   %66 = icmp slt i64 %64, %65
-  %67 = load i8, ptr @pending_check_defer, align 1, !range !11
+  %67 = load i8, ptr @pending_check_defer, align 1, !range !10
   %68 = trunc nuw i8 %67 to i1
   %or.cond7 = select i1 %66, i1 true, i1 %68
   br i1 %or.cond7, label %69, label %146
@@ -3568,7 +3568,7 @@ _signal_defer.exit.thread41:                      ; preds = %102, %103, %_signal
   %139 = call ptr @list_pop(ptr noundef %138) #14
   store ptr %139, ptr %10, align 8
   %.not27.i = icmp eq ptr %139, null
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %137
   %.not28.i = icmp eq ptr %.1.i, null
@@ -3668,7 +3668,7 @@ _agent_defer.exit:                                ; preds = %._crit_edge.thread.
   %175 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
   store i32 %174, ptr %175, align 4
   %176 = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %176, label %177, label %169, !llvm.loop !31
+  br i1 %176, label %177, label %169, !llvm.loop !29
 
 177:                                              ; preds = %171, %169
   call void @list_iterator_destroy(ptr noundef %168) #14
@@ -3931,7 +3931,7 @@ get_agent_count.exit.i:                           ; preds = %273
 286:                                              ; preds = %285, %282, %279
   %287 = call i32 @pthread_mutex_lock(ptr noundef nonnull @retry_mutex) #14
   %.not.i33 = icmp eq i32 %287, 0
-  br i1 %.not.i33, label %151, label %._crit_edge.i30, !llvm.loop !32
+  br i1 %.not.i33, label %151, label %._crit_edge.i30
 
 288:                                              ; preds = %224
   br i1 %59, label %289, label %_agent_retry.exit
@@ -4060,7 +4060,7 @@ get_agent_count.exit.i:                           ; preds = %273
   %341 = load i32, ptr @mail_thread_cnt, align 4
   %342 = icmp slt i32 %341, 64
   %or.cond7.i = select i1 %or.cond5.i, i1 %342, i1 false
-  br i1 %or.cond7.i, label %.lr.ph182.i, label %.critedge.i, !llvm.loop !33
+  br i1 %or.cond7.i, label %.lr.ph182.i, label %.critedge.i, !llvm.loop !30
 
 .critedge.i:                                      ; preds = %336, %.lr.ph182.i, %.preheader.i34
   %343 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mail_mutex) #14
@@ -4088,7 +4088,7 @@ _agent_retry.exit:                                ; preds = %267, %get_agent_cou
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   %350 = call i32 @pthread_mutex_lock(ptr noundef nonnull @pending_mutex) #14
   %.not = icmp eq i32 %350, 0
-  br i1 %.not, label %.preheader, label %._crit_edge, !llvm.loop !34
+  br i1 %.not, label %.preheader, label %._crit_edge, !llvm.loop !31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4156,7 +4156,7 @@ define internal noalias noundef ptr @_agent_nodes_update(ptr readnone captures(n
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %22, %19
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4209,7 +4209,7 @@ define internal noalias noundef ptr @_agent_srun_update(ptr readnone captures(no
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %17, %14
-  br label %.preheader, !llvm.loop !36
+  br label %.preheader, !llvm.loop !33
 
 20:                                               ; preds = %12
   %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @update_srun_mutex) #14
@@ -4385,7 +4385,7 @@ define dso_local void @agent_fini() local_unnamed_addr #0 {
 58:                                               ; preds = %56
   %59 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @agent_cnt_cond, ptr noundef nonnull @agent_cnt_mutex, ptr noundef nonnull %1) #14
   %60 = icmp eq i32 %59, 110
-  br i1 %60, label %61, label %56, !llvm.loop !37
+  br i1 %60, label %61, label %56, !llvm.loop !34
 
 61:                                               ; preds = %58
   %62 = load i32, ptr @agent_thread_cnt, align 4
@@ -4465,7 +4465,7 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
   store ptr %15, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %18, label %14, !llvm.loop !38
+  br i1 %exitcond.not, label %18, label %14, !llvm.loop !35
 
 18:                                               ; preds = %14
   %19 = tail call ptr @slurm_xcalloc(i64 noundef 25, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 1715, ptr noundef nonnull @__func__.agent_pack_pending_rpc_stats) #14
@@ -4527,7 +4527,7 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
 50:                                               ; preds = %60
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 100
-  br i1 %exitcond51.not, label %.loopexit, label %51, !llvm.loop !39
+  br i1 %exitcond51.not, label %.loopexit, label %51, !llvm.loop !36
 
 51:                                               ; preds = %47, %50
   %indvars.iv48 = phi i64 [ 0, %47 ], [ %indvars.iv.next49, %50 ]
@@ -4561,7 +4561,7 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
 .loopexit:                                        ; preds = %50, %.loopexit36
   %66 = tail call ptr @list_next(ptr noundef %27) #14
   %.not33 = icmp eq ptr %66, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %26
   tail call void @list_iterator_destroy(ptr noundef %27) #14
@@ -5236,7 +5236,7 @@ define dso_local void @agent_purge() local_unnamed_addr #0 {
   tail call void @slurm_xfree(ptr noundef %47) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %48, label %.preheader, !llvm.loop !41
+  br i1 %exitcond.not, label %48, label %.preheader, !llvm.loop !38
 
 48:                                               ; preds = %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull @rpc_host_list) #14
@@ -6315,37 +6315,34 @@ attributes #17 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !14, !9, !10}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14, !9, !10}
-!16 = distinct !{!16, !14, !9, !10}
-!17 = distinct !{!17, !14, !9, !10}
-!18 = distinct !{!18, !14, !9, !10}
-!19 = distinct !{!19, !14, !9, !10}
-!20 = distinct !{!20, !14, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !14, !9, !10}
-!23 = distinct !{!23, !14, !9, !10}
-!24 = distinct !{!24, !14, !9}
-!25 = distinct !{!25, !14, !9, !10}
-!26 = distinct !{!26, !14, !9, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !14, !9}
-!29 = distinct !{!29, !14, !9, !10}
-!30 = distinct !{!30, !14, !9, !10}
-!31 = distinct !{!31, !14, !9, !10}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !14, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !14, !9, !10}
-!38 = distinct !{!38, !14, !9, !10}
-!39 = distinct !{!39, !14, !9, !10}
-!40 = distinct !{!40, !14, !9, !10}
-!41 = distinct !{!41, !14, !9, !10}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !13, !9}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13, !9}
+!15 = distinct !{!15, !13, !9}
+!16 = distinct !{!16, !13, !9}
+!17 = distinct !{!17, !13, !9}
+!18 = distinct !{!18, !13, !9}
+!19 = distinct !{!19, !13, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !13, !9}
+!22 = distinct !{!22, !13, !9}
+!23 = distinct !{!23, !13, !9}
+!24 = distinct !{!24, !13, !9}
+!25 = distinct !{!25, !13, !9}
+!26 = distinct !{!26, !13, !9}
+!27 = distinct !{!27, !13, !9}
+!28 = distinct !{!28, !13, !9}
+!29 = distinct !{!29, !13, !9}
+!30 = distinct !{!30, !13, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !13, !9}
+!35 = distinct !{!35, !13, !9}
+!36 = distinct !{!36, !13, !9}
+!37 = distinct !{!37, !13, !9}
+!38 = distinct !{!38, !13, !9}

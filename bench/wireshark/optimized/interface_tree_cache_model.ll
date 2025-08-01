@@ -467,13 +467,13 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) dereferenceable_or_null(16) %5, i8 0, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %56, align 8, !noalias !9
+  %57 = load ptr, ptr %56, align 8, !noalias !8
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %60 = load ptr, ptr %59, align 8, !noalias !9
+  %60 = load ptr, ptr %59, align 8, !noalias !8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %.not10.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not10.i.i.i.i, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %.lr.ph.i.i.i.i
@@ -482,14 +482,14 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %60, %58 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %61, %58 ]
   %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %63 = load i32, ptr %62, align 4, !noalias !9
+  %63 = load i32, ptr %62, align 4, !noalias !8
   %64 = icmp slt i32 %63, %8
   %.19.i.i.i.i = select i1 %64, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %64, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !9
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %65 = icmp eq ptr %.19.i.i.i.i, %61
@@ -497,15 +497,15 @@ _ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVarian
 
 _ZNKSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %67 = load i32, ptr %66, align 4, !noalias !9
+  %67 = load i32, ptr %66, align 4, !noalias !8
   %68 = icmp slt i32 %8, %67
   br i1 %68, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %69
 
 69:                                               ; preds = %_ZNKSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.i
   %70 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %71 = load ptr, ptr %70, align 8, !noalias !9
+  %71 = load ptr, ptr %70, align 8, !noalias !8
   %72 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
-  %73 = load ptr, ptr %72, align 8, !noalias !9
+  %73 = load ptr, ptr %72, align 8, !noalias !8
   %.not.i4.i = icmp eq ptr %73, null
   br i1 %.not.i4.i, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit
 
@@ -516,9 +516,9 @@ _ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_
   br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit31
 
 _ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit: ; preds = %69
-  %75 = atomicrmw add ptr %73, i32 1 seq_cst, align 4, !noalias !9
+  %75 = atomicrmw add ptr %73, i32 1 seq_cst, align 4, !noalias !8
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %77 = atomicrmw add ptr %76, i32 1 seq_cst, align 4, !noalias !9
+  %77 = atomicrmw add ptr %76, i32 1 seq_cst, align 4, !noalias !8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -588,7 +588,7 @@ _ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit31: ; preds 
   %.1.in.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i35, i64 %.1.in.v.i.i.i.i38
   %.1.i.i.i.i40 = load ptr, ptr %.1.in.i.i.i.i39, align 8
   %.not.i.i.i.i41 = icmp eq ptr %.1.i.i.i.i40, null
-  br i1 %.not.i.i.i.i41, label %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, label %.lr.ph.i.i.i.i34, !llvm.loop !13
+  br i1 %.not.i.i.i.i41, label %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, label %.lr.ph.i.i.i.i34, !llvm.loop !12
 
 _ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i34
   %101 = icmp eq ptr %.19.i.i.i.i37, %97
@@ -605,13 +605,13 @@ _ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit: ; preds = %_ZNKS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %105, align 8
-  %106 = load ptr, ptr %91, align 8, !noalias !14
+  %106 = load ptr, ptr %91, align 8, !noalias !13
   %.not.i42 = icmp eq ptr %106, null
   br i1 %.not.i42, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %109 = load ptr, ptr %108, align 8, !noalias !14
+  %109 = load ptr, ptr %108, align 8, !noalias !13
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %.not10.i.i.i.i43 = icmp eq ptr %109, null
   br i1 %.not10.i.i.i.i43, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %.lr.ph.i.i.i.i44
@@ -620,14 +620,14 @@ _ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit: ; preds = %_ZNKS
   %.012.i.i.i.i45 = phi ptr [ %.1.i.i.i.i50, %.lr.ph.i.i.i.i44 ], [ %109, %107 ]
   %.0811.i.i.i.i46 = phi ptr [ %.19.i.i.i.i47, %.lr.ph.i.i.i.i44 ], [ %110, %107 ]
   %111 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i45, i64 32
-  %112 = load i32, ptr %111, align 4, !noalias !14
+  %112 = load i32, ptr %111, align 4, !noalias !13
   %113 = icmp slt i32 %112, %11
   %.19.i.i.i.i47 = select i1 %113, ptr %.0811.i.i.i.i46, ptr %.012.i.i.i.i45
   %.1.in.v.i.i.i.i48 = select i1 %113, i64 24, i64 16
   %.1.in.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i45, i64 %.1.in.v.i.i.i.i48
-  %.1.i.i.i.i50 = load ptr, ptr %.1.in.i.i.i.i49, align 8, !noalias !14
+  %.1.i.i.i.i50 = load ptr, ptr %.1.in.i.i.i.i49, align 8, !noalias !13
   %.not.i.i.i.i51 = icmp eq ptr %.1.i.i.i.i50, null
-  br i1 %.not.i.i.i.i51, label %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52, label %.lr.ph.i.i.i.i44, !llvm.loop !13
+  br i1 %.not.i.i.i.i51, label %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52, label %.lr.ph.i.i.i.i44, !llvm.loop !12
 
 _ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52: ; preds = %.lr.ph.i.i.i.i44
   %114 = icmp eq ptr %.19.i.i.i.i47, %110
@@ -635,7 +635,7 @@ _ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ES
 
 _ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i: ; preds = %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52
   %115 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i47, i64 32
-  %116 = load i32, ptr %115, align 4, !noalias !14
+  %116 = load i32, ptr %115, align 4, !noalias !13
   %117 = icmp slt i32 %11, %116
   %118 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i47, i64 40
   %spec.select.i = select i1 %117, ptr %6, ptr %118
@@ -1076,13 +1076,13 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.threa
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) dereferenceable_or_null(16) %8, i8 0, i64 16, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %53, align 8, !noalias !17
+  %54 = load ptr, ptr %53, align 8, !noalias !16
   %.not.i15 = icmp eq ptr %54, null
   br i1 %.not.i15, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %55
 
 55:                                               ; preds = %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread46
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %57 = load ptr, ptr %56, align 8, !noalias !17
+  %57 = load ptr, ptr %56, align 8, !noalias !16
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %.not10.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not10.i.i.i.i, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %.lr.ph.i.i.i.i
@@ -1091,14 +1091,14 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.threa
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %57, %55 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %58, %55 ]
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %60 = load i32, ptr %59, align 4, !noalias !17
+  %60 = load i32, ptr %59, align 4, !noalias !16
   %61 = icmp slt i32 %60, %9
   %.19.i.i.i.i = select i1 %61, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %61, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !17
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !16
   %.not.i.i.i.i16 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i16, label %_ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i16, label %_ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %62 = icmp eq ptr %.19.i.i.i.i, %58
@@ -1106,15 +1106,15 @@ _ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVarian
 
 _ZNKSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %64 = load i32, ptr %63, align 4, !noalias !17
+  %64 = load i32, ptr %63, align 4, !noalias !16
   %65 = icmp slt i32 %9, %64
   br i1 %65, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %66
 
 66:                                               ; preds = %_ZNKSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.i
   %67 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %68 = load ptr, ptr %67, align 8, !noalias !17
+  %68 = load ptr, ptr %67, align 8, !noalias !16
   %69 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
-  %70 = load ptr, ptr %69, align 8, !noalias !17
+  %70 = load ptr, ptr %69, align 8, !noalias !16
   %.not.i4.i = icmp eq ptr %70, null
   br i1 %.not.i4.i, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread, label %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit
 
@@ -1125,9 +1125,9 @@ _ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_
   br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit22
 
 _ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit: ; preds = %66
-  %72 = atomicrmw add ptr %70, i32 1 seq_cst, align 4, !noalias !17
+  %72 = atomicrmw add ptr %70, i32 1 seq_cst, align 4, !noalias !16
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %74 = atomicrmw add ptr %73, i32 1 seq_cst, align 4, !noalias !17
+  %74 = atomicrmw add ptr %73, i32 1 seq_cst, align 4, !noalias !16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1450,7 +1450,7 @@ _ZN4QMapI20InterfaceTreeColumns8QVariantE6detachEv.exit: ; preds = %7, %8, %15
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boundERS5_.exit.i, label %23, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boundERS5_.exit.i, label %23, !llvm.loop !19
 
 _ZNSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boundERS5_.exit.i: ; preds = %23
   %27 = icmp eq ptr %.19.i.i.i.i, %21
@@ -1465,9 +1465,9 @@ _ZNSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lowe
 .critedge.i:                                      ; preds = %28, %_ZNSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boundERS5_.exit.i, %_ZN4QMapI20InterfaceTreeColumns8QVariantE6detachEv.exit
   %.08.lcssa.i.i.i16.i = phi ptr [ %.19.i.i.i.i, %28 ], [ %.19.i.i.i.i, %_ZNSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boundERS5_.exit.i ], [ %21, %_ZN4QMapI20InterfaceTreeColumns8QVariantE6detachEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store ptr %1, ptr %4, align 8, !alias.scope !21
+  store ptr %1, ptr %4, align 8, !alias.scope !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store ptr %2, ptr %5, align 8, !alias.scope !24
+  store ptr %2, ptr %5, align 8, !alias.scope !23
   %32 = call ptr @_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS2_EESF_IJRKS3_EEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %18, ptr %.08.lcssa.i.i.i16.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
@@ -1537,7 +1537,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i.i.i.i.i: ; pre
 _ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %.lr.ph, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i.i.i.i.i, %16
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 56) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
@@ -2274,7 +2274,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVar
   tail call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %7) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2305,7 +2305,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTr
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit, label %10, !llvm.loop !29
+  br i1 %.not.i.i.i, label %_ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit, label %10, !llvm.loop !28
 
 _ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit: ; preds = %10
   %14 = icmp eq ptr %.19.i.i.i, %8
@@ -2320,9 +2320,9 @@ _ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaI
 .critedge:                                        ; preds = %3, %_ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit, %15
   %.08.lcssa.i.i.i16 = phi ptr [ %.19.i.i.i, %15 ], [ %.19.i.i.i, %_ZNSt3mapIi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEESt4lessIiESaISt4pairIKiS5_EEE11lower_boundERS9_.exit ], [ %8, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store ptr %1, ptr %4, align 8, !alias.scope !30
+  store ptr %1, ptr %4, align 8, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store ptr %2, ptr %5, align 8, !alias.scope !33
+  store ptr %2, ptr %5, align 8, !alias.scope !32
   %19 = call ptr @_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESJ_IJRKS7_EEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef align 8 dereferenceable_or_null(48) %0, ptr %.08.lcssa.i.i.i16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
@@ -2445,7 +2445,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !35
 
 _ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i: ; preds = %.noexc.i.i.i
   store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8
@@ -2456,7 +2456,7 @@ _ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariant
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i8.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !37
+  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !36
 
 31:                                               ; preds = %28
   store ptr %.0.i.i7.i.i.i.i.i, ptr %19, align 8
@@ -2643,7 +2643,7 @@ _ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariant
   %.0.in = getelementptr inbounds nuw i8, ptr %.041, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 64:                                               ; preds = %62, %60
   %65 = landingpad { ptr, i32 }
@@ -2832,7 +2832,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QM
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !39
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -2904,7 +2904,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QM
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !39
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !38
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -2969,7 +2969,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi14QSharedPointerI4QM
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !39
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !38
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3121,7 +3121,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !35
 
 _ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i: ; preds = %.noexc.i.i.i
   store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8
@@ -3132,7 +3132,7 @@ _ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i8.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !37
+  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !36
 
 31:                                               ; preds = %28
   store ptr %.0.i.i7.i.i.i.i.i, ptr %19, align 8
@@ -3347,7 +3347,7 @@ _ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt
   %.0.in = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 65:                                               ; preds = %63, %.body
   %66 = landingpad { ptr, i32 }
@@ -3515,7 +3515,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIK
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !41
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -3587,7 +3587,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIK
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !41
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !40
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3652,7 +3652,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIK
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !41
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !40
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3753,39 +3753,38 @@ attributes #27 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_: argument 0"}
-!11 = distinct !{!11, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK4QMapI20InterfaceTreeColumns8QVariantE5valueERKS0_RKS1_: argument 0"}
-!16 = distinct !{!16, !"_ZNK4QMapI20InterfaceTreeColumns8QVariantE5valueERKS0_RKS1_"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_: argument 0"}
-!19 = distinct !{!19, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_"}
-!20 = distinct !{!20, !7, !8}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt16forward_as_tupleIJRK20InterfaceTreeColumnsEESt5tupleIJDpOT_EES6_: argument 0"}
-!23 = distinct !{!23, !"_ZSt16forward_as_tupleIJRK20InterfaceTreeColumnsEESt5tupleIJDpOT_EES6_"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZSt16forward_as_tupleIJRK8QVariantEESt5tupleIJDpOT_EES6_: argument 0"}
-!26 = distinct !{!26, !"_ZSt16forward_as_tupleIJRK8QVariantEESt5tupleIJDpOT_EES6_"}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_: argument 0"}
-!32 = distinct !{!32, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZSt16forward_as_tupleIJRK14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEEESt5tupleIJDpOT_EESB_: argument 0"}
-!35 = distinct !{!35, !"_ZSt16forward_as_tupleIJRK14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEEESt5tupleIJDpOT_EESB_"}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_: argument 0"}
+!10 = distinct !{!10, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK4QMapI20InterfaceTreeColumns8QVariantE5valueERKS0_RKS1_: argument 0"}
+!15 = distinct !{!15, !"_ZNK4QMapI20InterfaceTreeColumns8QVariantE5valueERKS0_RKS1_"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_: argument 0"}
+!18 = distinct !{!18, !"_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_"}
+!19 = distinct !{!19, !7}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZSt16forward_as_tupleIJRK20InterfaceTreeColumnsEESt5tupleIJDpOT_EES6_: argument 0"}
+!22 = distinct !{!22, !"_ZSt16forward_as_tupleIJRK20InterfaceTreeColumnsEESt5tupleIJDpOT_EES6_"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZSt16forward_as_tupleIJRK8QVariantEESt5tupleIJDpOT_EES6_: argument 0"}
+!25 = distinct !{!25, !"_ZSt16forward_as_tupleIJRK8QVariantEESt5tupleIJDpOT_EES6_"}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_: argument 0"}
+!31 = distinct !{!31, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZSt16forward_as_tupleIJRK14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEEESt5tupleIJDpOT_EESB_: argument 0"}
+!34 = distinct !{!34, !"_ZSt16forward_as_tupleIJRK14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEEEESt5tupleIJDpOT_EESB_"}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}

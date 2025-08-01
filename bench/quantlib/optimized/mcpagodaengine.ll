@@ -96,7 +96,7 @@ for.body6.us:                                     ; preds = %for.cond3.preheader
 for.cond3.for.cond.cleanup5_crit_edge.us:         ; preds = %for.body6.us
   %inc15.us = add nuw i64 %i.028.us, 1
   %exitcond31.not = icmp eq i64 %inc15.us, %sub.ptr.div.i.i.i.i
-  br i1 %exitcond31.not, label %for.cond.cleanup, label %for.cond3.preheader.us, !llvm.loop !25
+  br i1 %exitcond31.not, label %for.cond.cleanup, label %for.cond3.preheader.us, !llvm.loop !24
 
 for.cond.cleanup:                                 ; preds = %for.cond3.for.cond.cleanup5_crit_edge.us, %entry
   %averagePerformance.0.lcssa = phi double [ 0.000000e+00, %entry ], [ %8, %for.cond3.for.cond.cleanup5_crit_edge.us ]
@@ -168,8 +168,7 @@ attributes #6 = { builtin nounwind }
 !19 = !{!18, !15, i64 0}
 !20 = !{!15, !15, i64 0}
 !21 = !{!9, !9, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !23, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -574,7 +574,7 @@ lean_obj_tag.exit114:                             ; preds = %107, %110
 .backedge.backedge:                               ; preds = %127, %101, %63, %82, %lean_int_dec_eq.exit118
   %.077.be = phi ptr [ %71, %63 ], [ %90, %82 ], [ %105, %101 ], [ %122, %lean_int_dec_eq.exit118 ], [ %122, %127 ]
   %.073.be = phi ptr [ %67, %63 ], [ %86, %82 ], [ %103, %101 ], [ %118, %lean_int_dec_eq.exit118 ], [ %118, %127 ]
-  br label %.backedge, !llvm.loop !15
+  br label %.backedge
 
 lean_int_dec_eq.exit118:                          ; preds = %114
   %129 = tail call zeroext i1 @lean_int_big_eq(ptr noundef %116, ptr noundef %120) #5
@@ -1290,7 +1290,7 @@ lean_int_dec_eq.exit47:                           ; preds = %43
   br i1 %73, label %.backedge.backedge, label %.thread
 
 .backedge.backedge:                               ; preds = %72, %70
-  br label %.backedge, !llvm.loop !17
+  br label %.backedge
 
 .thread:                                          ; preds = %lean_int_dec_eq.exit47, %72, %lean_obj_tag.exit43, %60, %70, %lean_obj_tag.exit39, %lean_int_dec_eq.exit
   %.1 = phi i8 [ %34, %lean_int_dec_eq.exit ], [ 0, %lean_obj_tag.exit39 ], [ 0, %70 ], [ 0, %60 ], [ 0, %lean_obj_tag.exit43 ], [ 0, %72 ], [ 0, %lean_int_dec_eq.exit47 ]
@@ -1916,7 +1916,7 @@ lean_int_add.exit73.thread113:                    ; preds = %134
 
 lean_dec.exit39.backedge:                         ; preds = %144, %149, %107, %112, %lean_dec.exit38, %162, %164, %165, %lean_dec.exit40, %125, %127, %128
   %.035.be = phi ptr [ %148, %144 ], [ %150, %149 ], [ %111, %107 ], [ %113, %112 ], [ %153, %lean_dec.exit38 ], [ %.0.i71112116, %162 ], [ %.0.i71112116, %164 ], [ %.0.i71112116, %165 ], [ %116, %lean_dec.exit40 ], [ %.0.i66103107, %125 ], [ %.0.i66103107, %127 ], [ %.0.i66103107, %128 ]
-  br label %lean_dec.exit39, !llvm.loop !18
+  br label %lean_dec.exit39
 
 149:                                              ; preds = %136
   %150 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %141) #5
@@ -2668,9 +2668,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_denote_x27_go_match__1_splitter___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !19
+  store i16 5, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -2956,9 +2956,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_denote_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !19
+  store i16 3, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -3322,9 +3322,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_denote_x27_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !19
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -7515,7 +7515,7 @@ lean_inc.exit:                                    ; preds = %97, %96, %94, %87
 
 .outer.backedge:                                  ; preds = %lean_inc.exit, %lean_int_neg.exit
   %.076.ph.be = phi ptr [ %119, %lean_int_neg.exit ], [ %98, %lean_inc.exit ]
-  br label %.outer, !llvm.loop !21
+  br label %.outer
 
 99:                                               ; preds = %lean_obj_tag.exit
   %100 = getelementptr inbounds nuw i8, ptr %.073, i64 16
@@ -7770,7 +7770,7 @@ lean_int_mul.exit133.thread150:                   ; preds = %207
 .backedge.backedge:                               ; preds = %231, %230, %228, %lean_int_mul.exit133.thread150, %217, %222, %182, %181, %179, %lean_int_mul.exit124.thread141, %168, %173, %140, %142, %143, %129, %134
   %.073.be = phi ptr [ %13, %134 ], [ %13, %129 ], [ %13, %143 ], [ %13, %142 ], [ %13, %140 ], [ %146, %173 ], [ %146, %168 ], [ %146, %lean_int_mul.exit124.thread141 ], [ %146, %179 ], [ %146, %181 ], [ %146, %182 ], [ %13, %222 ], [ %13, %217 ], [ %13, %lean_int_mul.exit133.thread150 ], [ %13, %228 ], [ %13, %230 ], [ %13, %231 ]
   %.070.be = phi ptr [ %135, %134 ], [ %133, %129 ], [ %137, %143 ], [ %137, %142 ], [ %137, %140 ], [ %174, %173 ], [ %172, %168 ], [ %159, %lean_int_mul.exit124.thread141 ], [ %176, %179 ], [ %176, %181 ], [ %176, %182 ], [ %223, %222 ], [ %221, %217 ], [ %208, %lean_int_mul.exit133.thread150 ], [ %225, %228 ], [ %225, %230 ], [ %225, %231 ]
-  br label %.backedge, !llvm.loop !21
+  br label %.backedge
 
 232:                                              ; preds = %201, %lean_int_dec_eq.exit128
   %233 = ptrtoint ptr %.070 to i64
@@ -8374,7 +8374,7 @@ lean_inc.exit:                                    ; preds = %22, %21, %19, %12
 23:                                               ; preds = %lean_obj_tag.exit
   %24 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !11
-  br label %2, !llvm.loop !22
+  br label %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8433,7 +8433,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 23:                                               ; preds = %lean_obj_tag.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !11
-  br label %2, !llvm.loop !22
+  br label %2
 
 l_Int_Linear_Poly_getConst.exit:                  ; preds = %12, %19, %21, %22
   %26 = ptrtoint ptr %0 to i64
@@ -8987,7 +8987,7 @@ lean_int_dec_eq.exit38.us:                        ; preds = %.critedge.i.i37.us,
   br label %lean_dec.exit.us
 
 lean_dec.exit.us:                                 ; preds = %34, %33, %32, %lean_int_dec_eq.exit38.us
-  br i1 %.0.i.i36.us, label %.split.us, label %lean_dec.exit22, !llvm.loop !23
+  br i1 %.0.i.i36.us, label %.split.us, label %lean_dec.exit22, !llvm.loop !17
 
 .split:                                           ; preds = %2
   %36 = icmp ult i64 %5, 4294967296
@@ -9073,7 +9073,7 @@ lean_int_dec_eq.exit38.us54:                      ; preds = %.critedge.i.i37.us5
   br label %lean_dec.exit.us58
 
 lean_dec.exit.us58:                               ; preds = %66, %65, %64, %lean_int_dec_eq.exit38.us54
-  br i1 %.0.i.i36.us55, label %.split.split.us, label %lean_dec.exit22, !llvm.loop !25
+  br i1 %.0.i.i36.us55, label %.split.split.us, label %lean_dec.exit22, !llvm.loop !19
 
 .split.split:                                     ; preds = %.split, %lean_dec.exit
   %.020 = phi ptr [ %119, %lean_dec.exit ], [ %1, %.split ]
@@ -9257,7 +9257,7 @@ lean_int_dec_eq.exit38:                           ; preds = %143, %.critedge.i.i
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %152, %151, %149, %lean_int_dec_eq.exit38
-  br i1 %.0.i.i36, label %.split.split, label %lean_dec.exit22, !llvm.loop !26
+  br i1 %.0.i.i36, label %.split.split, label %lean_dec.exit22
 
 lean_dec.exit22:                                  ; preds = %lean_dec.exit, %lean_dec.exit.us58, %lean_dec.exit.us, %lean_int_dec_eq.exit, %111, %113, %114
   %.1.shrunk = phi i1 [ %.0.i.i, %114 ], [ %.0.i.i, %113 ], [ %.0.i.i, %111 ], [ %.0.i.i, %lean_int_dec_eq.exit ], [ false, %lean_dec.exit.us ], [ false, %lean_dec.exit.us58 ], [ false, %lean_dec.exit ]
@@ -9402,7 +9402,7 @@ lean_int_dec_eq.exit.us:                          ; preds = %.critedge.i.i.us, %
   br label %lean_dec.exit.us
 
 lean_dec.exit.us:                                 ; preds = %34, %33, %32, %lean_int_dec_eq.exit.us
-  br i1 %.0.i.i.us, label %.split.us, label %.split20.us, !llvm.loop !27
+  br i1 %.0.i.i.us, label %.split.us, label %.split20.us, !llvm.loop !20
 
 .split:                                           ; preds = %2
   %36 = icmp ult i64 %5, 4294967296
@@ -9488,7 +9488,7 @@ lean_int_dec_eq.exit.us32:                        ; preds = %.critedge.i.i.us31,
   br label %lean_dec.exit.us36
 
 lean_dec.exit.us36:                               ; preds = %66, %65, %64, %lean_int_dec_eq.exit.us32
-  br i1 %.0.i.i.us33, label %.split.split.us, label %.split20.us, !llvm.loop !28
+  br i1 %.0.i.i.us33, label %.split.split.us, label %.split20.us, !llvm.loop !21
 
 .split.split:                                     ; preds = %.split, %lean_dec.exit
   %.014 = phi ptr [ %81, %lean_dec.exit ], [ %1, %.split ]
@@ -9591,7 +9591,7 @@ lean_int_dec_eq.exit:                             ; preds = %105, %.critedge.i.i
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %114, %113, %111, %lean_int_dec_eq.exit
-  br i1 %.0.i.i, label %.split.split, label %.split20.us, !llvm.loop !29
+  br i1 %.0.i.i, label %.split.split, label %.split20.us
 
 .split20.us:                                      ; preds = %lean_dec.exit, %lean_obj_tag.exit, %lean_dec.exit.us36, %lean_obj_tag.exit.us24, %lean_obj_tag.exit.us, %lean_dec.exit.us
   %.us-phi = phi i8 [ 0, %lean_dec.exit.us ], [ 1, %lean_obj_tag.exit.us ], [ 0, %lean_dec.exit.us36 ], [ 1, %lean_obj_tag.exit.us24 ], [ 0, %lean_dec.exit ], [ 1, %lean_obj_tag.exit ]
@@ -10393,9 +10393,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_combine_x27_match__3_splitter___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !19
+  store i16 3, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -11337,9 +11337,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_combine_x27_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !19
+  store i16 6, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -12864,9 +12864,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Expr_denote_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !19
+  store i16 8, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -14391,9 +14391,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Expr_toPoly_x27_go_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !19
+  store i16 8, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -15681,9 +15681,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_isUnsatEq_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !19
+  store i16 3, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -16150,7 +16150,7 @@ lean_obj_tag.exit.i:                              ; preds = %64, %61
 79:                                               ; preds = %lean_obj_tag.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !11
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 l_Int_Linear_Poly_getConst.exit:                  ; preds = %68, %75, %77, %78
   %82 = ptrtoint ptr %13 to i64
@@ -16443,7 +16443,7 @@ l___private_Init_Data_Int_Linear_0__Int_Linear_gcd.exit: ; preds = %13, %22
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %33, %32, %30, %l___private_Init_Data_Int_Linear_0__Int_Linear_gcd.exit
-  br label %lean_dec.exit, !llvm.loop !30
+  br label %lean_dec.exit
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16518,7 +16518,7 @@ l___private_Init_Data_Int_Linear_0__Int_Linear_gcd.exit.i: ; preds = %21, %12
   br label %lean_dec.exit.i.backedge
 
 lean_dec.exit.i.backedge:                         ; preds = %32, %31, %29, %l___private_Init_Data_Int_Linear_0__Int_Linear_gcd.exit.i
-  br label %lean_dec.exit.i, !llvm.loop !30
+  br label %lean_dec.exit.i
 
 l_Int_Linear_Poly_gcdCoeffs.exit:                 ; preds = %lean_obj_tag.exit.i
   %33 = ptrtoint ptr %0 to i64
@@ -16796,9 +16796,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_gcdCoeffs_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !19
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -16861,7 +16861,7 @@ l_Int_Linear_Poly_getConst.exit.preheader:        ; preds = %13, %20, %22, %23
 24:                                               ; preds = %lean_obj_tag.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !11
-  br label %3, !llvm.loop !22
+  br label %3
 
 l_Int_Linear_Poly_getConst.exit:                  ; preds = %l_Int_Linear_Poly_getConst.exit.backedge, %l_Int_Linear_Poly_getConst.exit.preheader
   %.09.i = phi ptr [ %0, %l_Int_Linear_Poly_getConst.exit.preheader ], [ %.1.i.i.i, %l_Int_Linear_Poly_getConst.exit.backedge ]
@@ -16931,7 +16931,7 @@ l___private_Init_Data_Int_Linear_0__Int_Linear_gcd.exit.i: ; preds = %45, %36
   br label %l_Int_Linear_Poly_getConst.exit.backedge
 
 l_Int_Linear_Poly_getConst.exit.backedge:         ; preds = %56, %55, %53, %l___private_Init_Data_Int_Linear_0__Int_Linear_gcd.exit.i
-  br label %l_Int_Linear_Poly_getConst.exit, !llvm.loop !30
+  br label %l_Int_Linear_Poly_getConst.exit
 
 l_Int_Linear_Poly_gcdCoeffs.exit:                 ; preds = %lean_obj_tag.exit.i21
   %.pre33 = ptrtoint ptr %.09.i to i64
@@ -17998,9 +17998,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_dvd__elim__cert_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !19
+  store i16 3, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -20948,9 +20948,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_dvd__solve__combine__cert_match__1_splitter___rarg, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !19
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -23819,7 +23819,7 @@ lean_obj_tag.exit.i:                              ; preds = %24, %21
 39:                                               ; preds = %lean_obj_tag.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !11
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 l_Int_Linear_Poly_getConst.exit:                  ; preds = %28
   %42 = tail call ptr @l_Int_Linear_cmod(ptr noundef %30, ptr noundef %1)
@@ -23987,7 +23987,7 @@ lean_obj_tag.exit.us:                             ; preds = %10, %7
   %18 = getelementptr inbounds nuw i8, ptr %.013.us, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %1, ptr noundef %17) #5
-  br i1 %20, label %.split28.us, label %lean_inc.exit.us, !llvm.loop !31
+  br i1 %20, label %.split28.us, label %lean_inc.exit.us, !llvm.loop !22
 
 lean_inc.exit:                                    ; preds = %2, %lean_inc.exit.backedge
   %.013 = phi ptr [ %37, %lean_inc.exit.backedge ], [ %0, %2 ]
@@ -26570,9 +26570,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Int_Linear_0__Int_Linear_Poly_isUnsatDiseq_match__1_splitter___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !19
+  store i16 3, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -28244,7 +28244,7 @@ l_Int_Linear_Poly_tail.exit.thread:               ; preds = %l_Int_Linear_Poly_t
   %24 = phi i32 [ %.pr, %l_Int_Linear_Poly_tail.exit.threadthread-pre-split ], [ %10, %9 ]
   %.0.i5 = phi ptr [ %.0.i5.ph, %l_Int_Linear_Poly_tail.exit.threadthread-pre-split ], [ %0, %9 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !32
+  br i1 %25, label %26, label %28, !prof !23
 
 26:                                               ; preds = %l_Int_Linear_Poly_tail.exit.thread
   %27 = add nsw i32 %24, -1
@@ -36327,7 +36327,7 @@ l_Int_Linear_Poly_getConst.exit.preheader:        ; preds = %15, %22, %24, %25
 26:                                               ; preds = %lean_obj_tag.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !11
-  br label %5, !llvm.loop !22
+  br label %5
 
 l_Int_Linear_Poly_getConst.exit:                  ; preds = %l_Int_Linear_Poly_getConst.exit.preheader, %49
   %.0.i87 = phi ptr [ %51, %49 ], [ %2, %l_Int_Linear_Poly_getConst.exit.preheader ]
@@ -36381,7 +36381,7 @@ lean_obj_tag.exit.i89:                            ; preds = %34, %31
 49:                                               ; preds = %lean_obj_tag.exit.i89
   %50 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !11
-  br label %l_Int_Linear_Poly_getConst.exit, !llvm.loop !22
+  br label %l_Int_Linear_Poly_getConst.exit
 
 l_Int_Linear_Poly_getConst.exit95:                ; preds = %38, %45, %47, %48
   br i1 %.not.i86, label %65, label %52, !prof !4
@@ -37104,7 +37104,7 @@ l_Int_Linear_Poly_getConst.exit.preheader:        ; preds = %15, %22, %24, %25
 26:                                               ; preds = %lean_obj_tag.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !11
-  br label %5, !llvm.loop !22
+  br label %5
 
 l_Int_Linear_Poly_getConst.exit:                  ; preds = %l_Int_Linear_Poly_getConst.exit.preheader, %49
   %.0.i89 = phi ptr [ %51, %49 ], [ %2, %l_Int_Linear_Poly_getConst.exit.preheader ]
@@ -37158,7 +37158,7 @@ lean_obj_tag.exit.i91:                            ; preds = %34, %31
 49:                                               ; preds = %lean_obj_tag.exit.i91
   %50 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !11
-  br label %l_Int_Linear_Poly_getConst.exit, !llvm.loop !22
+  br label %l_Int_Linear_Poly_getConst.exit
 
 l_Int_Linear_Poly_getConst.exit97:                ; preds = %38, %45, %47, %48
   br i1 %.not.i88, label %65, label %52, !prof !4
@@ -39061,9 +39061,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Int_Linear_beqExpr____x40_Init_Data_Int_Linear___hyg_133____boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !19
+  store i16 2, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !15
   ret ptr %1
 }
 
@@ -39085,9 +39085,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Int_Linear_beqPoly____x40_Init_Data_Int_Linear___hyg_596____boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !19
+  store i16 2, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !15
   ret ptr %1
 }
 
@@ -39176,21 +39176,12 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!"any pointer", !9, i64 0}
 !13 = !{!"branch_weights", i32 4001, i32 4000000}
 !14 = !{!"branch_weights", i32 4000000, i32 4001}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !9, i64 0}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !16, !24}
-!26 = distinct !{!26, !16}
-!27 = distinct !{!27, !16, !24}
-!28 = distinct !{!28, !16, !24}
-!29 = distinct !{!29, !16}
-!30 = distinct !{!30, !16}
-!31 = distinct !{!31, !24}
-!32 = !{!"branch_weights", !"expected", i32 2146599755, i32 883893}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !9, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = !{!"branch_weights", !"expected", i32 2146599755, i32 883893}

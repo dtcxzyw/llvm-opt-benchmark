@@ -157,7 +157,7 @@ acpi_get_entry_type.exit:                         ; preds = %29, %30, %33, %36, 
   %81 = add i64 %75, %27
   %82 = add i64 %81, %19
   %83 = icmp ult i64 %82, %14
-  br i1 %83, label %26, label %84, !llvm.loop !10
+  br i1 %83, label %26, label %84, !llvm.loop !9
 
 84:                                               ; preds = %80
   %85 = icmp ne i32 %5, 0
@@ -264,7 +264,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local i32 @cdat_table_parse(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 section ".init.text" align 16 {
   %5 = alloca %struct.acpi_subtable_proc, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !10
   store i32 %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %6, align 8
@@ -305,9 +305,8 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 0, i32 5}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = !{!"auto-init"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!"auto-init"}

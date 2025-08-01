@@ -1813,7 +1813,7 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
   %53 = load i32, ptr @dynamic_hf_size, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 56:                                               ; preds = %._crit_edge, %deregister_attribute_types.exit
   ret void
@@ -1942,7 +1942,7 @@ define internal void @ldapstat_init(ptr readnone captures(none) %0, ptr noundef 
   tail call void @init_srt_table_row(ptr noundef %3, i32 noundef %.05, ptr noundef %5)
   %6 = add nuw nsw i32 %.05, 1
   %exitcond.not = icmp eq i32 %6, 24
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !12
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !11
 
 7:                                                ; preds = %4
   ret void
@@ -3203,7 +3203,7 @@ define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1
   %43 = call ptr @tvb_new_subset_remaining(ptr noundef %.03339, i32 noundef %39)
   %44 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %43, i32 noundef 0)
   %45 = icmp ult i32 %44, 6
-  br i1 %45, label %.loopexit, label %17, !llvm.loop !13
+  br i1 %45, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %42, %17, %33, %5, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
@@ -6194,9 +6194,7 @@ attributes #19 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

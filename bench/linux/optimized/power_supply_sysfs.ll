@@ -239,7 +239,7 @@ define dso_local void @power_supply_init_attrs(ptr noundef writeonly captures(no
   store ptr %26, ptr %30, align 8
   %31 = add nuw nsw i64 %4, 1
   %32 = icmp eq i64 %31, 76
-  br i1 %32, label %33, label %3, !llvm.loop !9
+  br i1 %32, label %33, label %3, !llvm.loop !8
 
 33:                                               ; preds = %.loopexit
   ret void
@@ -265,7 +265,7 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   %10 = sdiv exact i64 %9, 88
   %11 = trunc i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store i64 0, ptr %4, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !9
   %12 = icmp eq i32 %11, 64
   br i1 %12, label %13, label %17
 
@@ -362,7 +362,7 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   %70 = sext i32 %69 to i64
   %71 = load i64, ptr %45, align 8
   %72 = icmp ugt i64 %71, %70
-  br i1 %72, label %50, label %73, !llvm.loop !11
+  br i1 %72, label %50, label %73, !llvm.loop !10
 
 73:                                               ; preds = %50
   %74 = icmp eq i8 %65, 0
@@ -412,7 +412,7 @@ define internal i64 @power_supply_store_property(ptr noundef readonly captures(n
   %12 = sdiv exact i64 %11, 88
   %13 = trunc i64 %12 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !9
   %14 = getelementptr i8, ptr %1, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
@@ -429,7 +429,7 @@ define internal i64 @power_supply_store_property(ptr noundef readonly captures(n
 
 .thread:                                          ; preds = %4, %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store i64 0, ptr %6, align 8, !annotation !10
+  store i64 0, ptr %6, align 8, !annotation !9
   %24 = call i32 @kstrtoll(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #9
   %25 = sext i32 %24 to i64
   %26 = icmp sgt i32 %24, -1
@@ -479,7 +479,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 910
-  %16 = load i8, ptr %15, align 2, !range !12, !noundef !13
+  %16 = load i8, ptr %15, align 2, !range !11, !noundef !12
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %124
 
@@ -552,7 +552,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i64, ptr %58, align 8
   %60 = icmp ugt i64 %59, %56
-  br i1 %60, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %60, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread19, %.thread
   %61 = load i64, ptr @power_supply_battery_info_properties_size, align 8
@@ -572,7 +572,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %70 = getelementptr i32, ptr %69, i64 %66
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %72) #9, !srcloc !15
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %72) #9, !srcloc !14
   %73 = load ptr, ptr %5, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
@@ -613,7 +613,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %96 = getelementptr i32, ptr @power_supply_battery_info_properties, i64 %94
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
-  %99 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %98) #9, !srcloc !16
+  %99 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %98) #9, !srcloc !15
   %100 = icmp ult i8 %99, 2
   call void @llvm.assume(i1 %100)
   %101 = icmp eq i8 %99, 0
@@ -657,7 +657,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %120 = add i32 %95, 1
   %121 = sext i32 %120 to i64
   %122 = icmp ugt i64 %61, %121
-  br i1 %122, label %93, label %.thread17, !llvm.loop !17
+  br i1 %122, label %93, label %.thread17, !llvm.loop !16
 
 .thread17:                                        ; preds = %83, %89, %110, %.thread22, %116, %41, %.loopexit, %47
   %123 = phi i32 [ %49, %47 ], [ 0, %.loopexit ], [ %40, %41 ], [ %109, %110 ], [ %118, %116 ], [ 0, %.thread22 ], [ %82, %83 ], [ %91, %89 ]
@@ -717,7 +717,7 @@ define dso_local i64 @power_supply_charge_behaviour_show(ptr noundef %0, i32 nou
   %26 = phi i64 [ %23, %14 ], [ %9, %7 ]
   %27 = add nuw nsw i64 %8, 1
   %28 = icmp eq i64 %27, 3
-  br i1 %28, label %29, label %7, !llvm.loop !18
+  br i1 %28, label %29, label %7, !llvm.loop !17
 
 29:                                               ; preds = %24
   %30 = icmp eq i8 %25, 0
@@ -795,7 +795,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
   %18 = add i32 %22, 1
   %19 = sext i32 %18 to i64
   %20 = icmp ugt i64 %15, %19
-  br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %21 = phi i64 [ %19, %17 ], [ 0, %.preheader.preheader ]
@@ -871,18 +871,17 @@ attributes #9 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = !{i64 2148391240, i64 2148391279, i64 2148391300, i64 2148391337, i64 2148391360, i64 2148391230}
-!16 = !{i64 2148404567, i64 2148404641}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !6, !7}
+!14 = !{i64 2148391240, i64 2148391279, i64 2148391300, i64 2148391337, i64 2148391360, i64 2148391230}
+!15 = !{i64 2148404567, i64 2148404641}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}

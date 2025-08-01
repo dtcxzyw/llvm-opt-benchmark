@@ -43,7 +43,7 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_8(ptr nound
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next44, 8
-  br i1 %exitcond48.not, label %.preheader29, label %.preheader30, !llvm.loop !12
+  br i1 %exitcond48.not, label %.preheader29, label %.preheader30, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader.preheader, %28
   %indvars.iv53 = phi i64 [ 8, %.preheader.preheader ], [ %indvars.iv.next54, %28 ]
@@ -64,12 +64,12 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_8(ptr nound
   store double %27, ptr %25, align 8, !tbaa !3
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 8
-  br i1 %exitcond52.not, label %28, label %20, !llvm.loop !13
+  br i1 %exitcond52.not, label %28, label %20, !llvm.loop !12
 
 28:                                               ; preds = %20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond56.not, label %._crit_edge, label %.preheader, !llvm.loop !14
+  br i1 %exitcond56.not, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %28, %.preheader29
   ret void
@@ -112,13 +112,13 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_12(ptr noun
   store double %15, ptr %13, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv41
-  br i1 %exitcond.not, label %16, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %16, label %8, !llvm.loop !14
 
 16:                                               ; preds = %8
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next44, 12
-  br i1 %exitcond48.not, label %.preheader29, label %.preheader30, !llvm.loop !16
+  br i1 %exitcond48.not, label %.preheader29, label %.preheader30, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader.preheader, %28
   %indvars.iv53 = phi i64 [ 12, %.preheader.preheader ], [ %indvars.iv.next54, %28 ]
@@ -139,12 +139,12 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_12(ptr noun
   store double %27, ptr %25, align 8, !tbaa !3
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 12
-  br i1 %exitcond52.not, label %28, label %20, !llvm.loop !17
+  br i1 %exitcond52.not, label %28, label %20, !llvm.loop !16
 
 28:                                               ; preds = %20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond56.not, label %._crit_edge, label %.preheader, !llvm.loop !18
+  br i1 %exitcond56.not, label %._crit_edge, label %.preheader, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %28, %.preheader29
   ret void
@@ -184,13 +184,13 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_16(ptr noun
   store double %15, ptr %13, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv41
-  br i1 %exitcond.not, label %16, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %16, label %8, !llvm.loop !18
 
 16:                                               ; preds = %8
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next44, 16
-  br i1 %exitcond48.not, label %.preheader29, label %.preheader30, !llvm.loop !20
+  br i1 %exitcond48.not, label %.preheader29, label %.preheader30, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.preheader, %28
   %indvars.iv53 = phi i64 [ 16, %.preheader.preheader ], [ %indvars.iv.next54, %28 ]
@@ -211,12 +211,12 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_16(ptr noun
   store double %27, ptr %25, align 8, !tbaa !3
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 16
-  br i1 %exitcond52.not, label %28, label %20, !llvm.loop !21
+  br i1 %exitcond52.not, label %28, label %20, !llvm.loop !20
 
 28:                                               ; preds = %20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond56.not, label %._crit_edge, label %.preheader, !llvm.loop !22
+  br i1 %exitcond56.not, label %._crit_edge, label %.preheader, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %28, %.preheader29
   ret void
@@ -240,17 +240,16 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"float", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}

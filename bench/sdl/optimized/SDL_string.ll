@@ -479,7 +479,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 31:                                               ; preds = %32
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %._crit_edge146, label %32, !llvm.loop !6
+  br i1 %exitcond171.not, label %._crit_edge146, label %32, !llvm.loop !5
 
 32:                                               ; preds = %.lr.ph, %31
   %indvars.iv167 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next168, %31 ]
@@ -518,7 +518,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 49:                                               ; preds = %50
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %.thread129, label %50, !llvm.loop !7
+  br i1 %exitcond176.not, label %.thread129, label %50, !llvm.loop !6
 
 50:                                               ; preds = %.lr.ph152, %49
   %indvars.iv172 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next173, %49 ]
@@ -563,7 +563,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 73:                                               ; preds = %.critedge114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread129, label %.critedge114, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread129, label %.critedge114, !llvm.loop !7
 
 .critedge114:                                     ; preds = %.critedge114.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.critedge114.lr.ph ], [ %indvars.iv.next, %73 ]
@@ -787,7 +787,7 @@ define hidden range(i32 0, 1966080) i32 @SDL_StepBackUTF8_REAL(ptr noundef readn
   %14 = getelementptr inbounds i8, ptr %11, i64 -1
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, -64
-  br i1 %16, label %10, label %17, !llvm.loop !9
+  br i1 %16, label %10, label %17, !llvm.loop !8
 
 17:                                               ; preds = %10, %13
   %18 = phi ptr [ %scevgep, %10 ], [ %14, %13 ]
@@ -915,7 +915,7 @@ define hidden noundef ptr @SDL_wcsnstr_REAL(ptr noundef readonly %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %.01519, i64 4
   %12 = add i64 %.01420, -1
   %.not = icmp ult i64 %12, %4
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %7, %10, %.lr.ph, %.preheader, %3
   %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ %.01519, %7 ], [ null, %10 ], [ null, %.lr.ph ]
@@ -1223,7 +1223,7 @@ select.unfold:                                    ; preds = %19, %.lr.ph, %17
 UTF8_GetTrailingBytes.exit:                       ; preds = %19
   %22 = add i64 %.049, -1
   %.not41 = icmp eq i64 %22, 0
-  br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %UTF8_GetTrailingBytes.exit, %8, %select.unfold, %13
   %.2 = phi i64 [ %7, %13 ], [ %spec.select, %select.unfold ], [ %9, %8 ], [ %7, %UTF8_GetTrailingBytes.exit ]
@@ -1252,7 +1252,7 @@ define hidden i64 @SDL_utf8strlen_REAL(ptr noundef %0) local_unnamed_addr #13 {
   %4 = call fastcc i32 @StepUTF8(ptr noundef nonnull %2, i64 noundef 4)
   %.not = icmp eq i32 %4, 0
   %5 = add i64 %.0, 1
-  br i1 %.not, label %6, label %3, !llvm.loop !12
+  br i1 %.not, label %6, label %3, !llvm.loop !11
 
 6:                                                ; preds = %3
   ret i64 %.0
@@ -1278,7 +1278,7 @@ define hidden i64 @SDL_utf8strnlen_REAL(ptr noundef %0, i64 noundef %1) local_un
   %10 = add i64 %.06, 1
   %11 = call fastcc i32 @StepUTF8(ptr noundef nonnull %3, i64 noundef %9)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %10, %.lr.ph ]
@@ -1351,7 +1351,7 @@ define hidden noundef ptr @SDL_strrev_REAL(ptr noundef returned captures(ret: ad
   store i8 %7, ptr %.01214, align 1
   store i8 %6, ptr %.011, align 1
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %0
@@ -1373,7 +1373,7 @@ define hidden noundef ptr @SDL_strupr_REAL(ptr noundef returned captures(ret: ad
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %8 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %0
@@ -1397,7 +1397,7 @@ define hidden noundef ptr @SDL_strlwr_REAL(ptr noundef returned captures(ret: ad
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %8 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %0
@@ -1449,7 +1449,7 @@ define hidden noundef ptr @SDL_strnstr_REAL(ptr noundef readonly captures(ret: a
   %11 = getelementptr inbounds nuw i8, ptr %.01317, i64 1
   %12 = add i64 %.01218, -1
   %.not = icmp ult i64 %12, %4
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %7, %10, %.lr.ph, %.preheader, %3
   %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ %.01317, %7 ], [ null, %10 ], [ null, %.lr.ph ]
@@ -1487,7 +1487,7 @@ define hidden noundef ptr @SDL_strcasestr_REAL(ptr noundef %0, ptr noundef reado
 9:                                                ; preds = %5
   %10 = call fastcc i32 @StepUTF8(ptr noundef nonnull %3, i64 noundef 4)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %5, !llvm.loop !18
+  br i1 %.not, label %11, label %5, !llvm.loop !17
 
 11:                                               ; preds = %5, %9
   %.0 = phi ptr [ null, %9 ], [ %6, %5 ]
@@ -1608,7 +1608,7 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   store i8 %12, ptr %.015.i.i, align 1
   %14 = udiv i64 %.01114.i.i, %8
   %.not13.i.i = icmp ult i64 %.01114.i.i, %8
-  br i1 %.not13.i.i, label %.loopexit.i.i, label %9, !llvm.loop !19
+  br i1 %.not13.i.i, label %.loopexit.i.i, label %9, !llvm.loop !18
 
 .loopexit.i.i:                                    ; preds = %9
   store i8 0, ptr %13, align 1
@@ -1633,7 +1633,7 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   store i8 %20, ptr %.01214.i.i.i, align 1
   store i8 %19, ptr %.011.i.i.i, align 1
   %.not.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i, label %SDL_ltoa_REAL.exit, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %SDL_ltoa_REAL.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 22:                                               ; preds = %3
   %.not.i9.i = icmp eq i32 %0, 0
@@ -1653,7 +1653,7 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   store i8 %27, ptr %.015.i11.i, align 1
   %29 = udiv i64 %.01114.i12.i, %23
   %.not13.i13.i = icmp ult i64 %.01114.i12.i, %23
-  br i1 %.not13.i13.i, label %.loopexit.i14.i, label %24, !llvm.loop !19
+  br i1 %.not13.i13.i, label %.loopexit.i14.i, label %24, !llvm.loop !18
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1684,7 +1684,7 @@ define hidden noundef ptr @SDL_itoa_REAL(i32 noundef %0, ptr noundef returned ca
   store i8 %37, ptr %.01214.i.i21.i, align 1
   store i8 %36, ptr %.011.i.i22.i, align 1
   %.not.i.i23.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i23.i, label %SDL_ltoa_REAL.exit, label %.lr.ph.i.i18.i, !llvm.loop !14
+  br i1 %.not.i.i23.i, label %SDL_ltoa_REAL.exit, label %.lr.ph.i.i18.i, !llvm.loop !13
 
 SDL_ltoa_REAL.exit:                               ; preds = %.lr.ph.i.i18.i, %.lr.ph.i.i.i, %.loopexit.i.i, %.loopexit.i14.i
   ret ptr %1
@@ -1712,7 +1712,7 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   store i8 %11, ptr %.015.i, align 1
   %13 = udiv i64 %.01114.i, %7
   %.not13.i = icmp ult i64 %.01114.i, %7
-  br i1 %.not13.i, label %.loopexit.i, label %8, !llvm.loop !19
+  br i1 %.not13.i, label %.loopexit.i, label %8, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %8
   store i8 0, ptr %12, align 1
@@ -1737,7 +1737,224 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   store i8 %19, ptr %.01214.i.i, align 1
   store i8 %18, ptr %.011.i.i, align 1
   %.not.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.i.i, !llvm.loop !13
+
+21:                                               ; preds = %3
+  %.not.i9 = icmp eq i64 %0, 0
+  br i1 %.not.i9, label %29, label %.preheader.i10
+
+.preheader.i10:                                   ; preds = %21
+  %22 = sext i32 %2 to i64
+  br label %23
+
+23:                                               ; preds = %23, %.preheader.i10
+  %.015.i11 = phi ptr [ %1, %.preheader.i10 ], [ %27, %23 ]
+  %.01114.i12 = phi i64 [ %0, %.preheader.i10 ], [ %28, %23 ]
+  %24 = urem i64 %.01114.i12, %22
+  %25 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1
+  %27 = getelementptr inbounds nuw i8, ptr %.015.i11, i64 1
+  store i8 %26, ptr %.015.i11, align 1
+  %28 = udiv i64 %.01114.i12, %22
+  %.not13.i13 = icmp ult i64 %.01114.i12, %22
+  br i1 %.not13.i13, label %.loopexit.i14, label %23, !llvm.loop !18
+
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 48, ptr %1, align 1
+  br label %.loopexit.i14
+
+.loopexit.i14:                                    ; preds = %23, %29
+  %.1.i15 = phi ptr [ %30, %29 ], [ %27, %23 ]
+  store i8 0, ptr %.1.i15, align 1
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
+  %.not13.i.i16 = icmp ult i64 %31, 2
+  br i1 %.not13.i.i16, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i17
+
+.lr.ph.preheader.i.i17:                           ; preds = %.loopexit.i14
+  %32 = lshr i64 %31, 1
+  %33 = getelementptr i8, ptr %1, i64 %31
+  br label %.lr.ph.i.i18
+
+.lr.ph.i.i18:                                     ; preds = %.lr.ph.i.i18, %.lr.ph.preheader.i.i17
+  %.016.i.i19 = phi i64 [ %34, %.lr.ph.i.i18 ], [ %32, %.lr.ph.preheader.i.i17 ]
+  %.pn15.i.i20 = phi ptr [ %.011.i.i22, %.lr.ph.i.i18 ], [ %33, %.lr.ph.preheader.i.i17 ]
+  %.01214.i.i21 = phi ptr [ %37, %.lr.ph.i.i18 ], [ %1, %.lr.ph.preheader.i.i17 ]
+  %.011.i.i22 = getelementptr i8, ptr %.pn15.i.i20, i64 -1
+  %34 = add nsw i64 %.016.i.i19, -1
+  %35 = load i8, ptr %.01214.i.i21, align 1
+  %36 = load i8, ptr %.011.i.i22, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %.01214.i.i21, i64 1
+  store i8 %36, ptr %.01214.i.i21, align 1
+  store i8 %35, ptr %.011.i.i22, align 1
+  %.not.i.i23 = icmp eq i64 %34, 0
+  br i1 %.not.i.i23, label %SDL_ultoa_REAL.exit, label %.lr.ph.i.i18, !llvm.loop !13
+
+SDL_ultoa_REAL.exit:                              ; preds = %.lr.ph.i.i18, %.lr.ph.i.i, %.loopexit.i14, %.loopexit.i
+  ret ptr %1
+}
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden noundef ptr @SDL_uitoa_REAL(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
+  %.not.i = icmp eq i32 %0, 0
+  br i1 %.not.i, label %12, label %.preheader.i
+
+.preheader.i:                                     ; preds = %3
+  %4 = zext i32 %0 to i64
+  %5 = sext i32 %2 to i64
+  br label %6
+
+6:                                                ; preds = %6, %.preheader.i
+  %.015.i = phi ptr [ %1, %.preheader.i ], [ %10, %6 ]
+  %.01114.i = phi i64 [ %4, %.preheader.i ], [ %11, %6 ]
+  %7 = urem i64 %.01114.i, %5
+  %8 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %7
+  %9 = load i8, ptr %8, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
+  store i8 %9, ptr %.015.i, align 1
+  %11 = udiv i64 %.01114.i, %5
+  %.not13.i = icmp ult i64 %.01114.i, %5
+  br i1 %.not13.i, label %.loopexit.i, label %6, !llvm.loop !18
+
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 48, ptr %1, align 1
+  br label %.loopexit.i
+
+.loopexit.i:                                      ; preds = %6, %12
+  %.1.i = phi ptr [ %13, %12 ], [ %10, %6 ]
+  store i8 0, ptr %.1.i, align 1
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
+  %.not13.i.i = icmp ult i64 %14, 2
+  br i1 %.not13.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
+  %15 = lshr i64 %14, 1
+  %16 = getelementptr i8, ptr %1, i64 %14
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.016.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %15, %.lr.ph.preheader.i.i ]
+  %.pn15.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
+  %.01214.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %1, %.lr.ph.preheader.i.i ]
+  %.011.i.i = getelementptr i8, ptr %.pn15.i.i, i64 -1
+  %17 = add nsw i64 %.016.i.i, -1
+  %18 = load i8, ptr %.01214.i.i, align 1
+  %19 = load i8, ptr %.011.i.i, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 1
+  store i8 %19, ptr %.01214.i.i, align 1
+  store i8 %18, ptr %.011.i.i, align 1
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.i.i, !llvm.loop !13
+
+SDL_ultoa_REAL.exit:                              ; preds = %.lr.ph.i.i, %.loopexit.i
+  ret ptr %1
+}
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden noundef ptr @SDL_ultoa_REAL(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
+  %.not = icmp eq i64 %0, 0
+  br i1 %.not, label %11, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %4 = sext i32 %2 to i64
+  br label %5
+
+5:                                                ; preds = %.preheader, %5
+  %.015 = phi ptr [ %1, %.preheader ], [ %9, %5 ]
+  %.01114 = phi i64 [ %0, %.preheader ], [ %10, %5 ]
+  %6 = urem i64 %.01114, %4
+  %7 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
+  store i8 %8, ptr %.015, align 1
+  %10 = udiv i64 %.01114, %4
+  %.not13 = icmp ult i64 %.01114, %4
+  br i1 %.not13, label %.loopexit, label %5, !llvm.loop !18
+
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 48, ptr %1, align 1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %5, %11
+  %.1 = phi ptr [ %12, %11 ], [ %9, %5 ]
+  store i8 0, ptr %.1, align 1
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
+  %.not13.i = icmp ult i64 %13, 2
+  br i1 %.not13.i, label %SDL_strrev_REAL.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %.loopexit
+  %14 = lshr i64 %13, 1
+  %15 = getelementptr i8, ptr %1, i64 %13
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.016.i = phi i64 [ %16, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
+  %.pn15.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %15, %.lr.ph.preheader.i ]
+  %.01214.i = phi ptr [ %19, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
+  %.011.i = getelementptr i8, ptr %.pn15.i, i64 -1
+  %16 = add nsw i64 %.016.i, -1
+  %17 = load i8, ptr %.01214.i, align 1
+  %18 = load i8, ptr %.011.i, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01214.i, i64 1
+  store i8 %18, ptr %.01214.i, align 1
+  store i8 %17, ptr %.011.i, align 1
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %SDL_strrev_REAL.exit, label %.lr.ph.i, !llvm.loop !13
+
+SDL_strrev_REAL.exit:                             ; preds = %.lr.ph.i, %.loopexit
+  ret ptr %1
+}
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden noundef ptr @SDL_lltoa_REAL(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
+  %4 = icmp slt i64 %0, 0
+  br i1 %4, label %.preheader.i, label %21
+
+.preheader.i:                                     ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 45, ptr %1, align 1
+  %6 = sub nsw i64 0, %0
+  %7 = sext i32 %2 to i64
+  br label %8
+
+8:                                                ; preds = %8, %.preheader.i
+  %.015.i = phi ptr [ %5, %.preheader.i ], [ %12, %8 ]
+  %.01114.i = phi i64 [ %6, %.preheader.i ], [ %13, %8 ]
+  %9 = urem i64 %.01114.i, %7
+  %10 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
+  store i8 %11, ptr %.015.i, align 1
+  %13 = udiv i64 %.01114.i, %7
+  %.not13.i = icmp ult i64 %.01114.i, %7
+  br i1 %.not13.i, label %.loopexit.i, label %8, !llvm.loop !19
+
+.loopexit.i:                                      ; preds = %8
+  store i8 0, ptr %12, align 1
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #25
+  %.not13.i.i = icmp ult i64 %14, 2
+  br i1 %.not13.i.i, label %SDL_ulltoa_REAL.exit, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
+  %15 = lshr i64 %14, 1
+  %16 = getelementptr i8, ptr %5, i64 %14
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.016.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %15, %.lr.ph.preheader.i.i ]
+  %.pn15.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
+  %.01214.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %5, %.lr.ph.preheader.i.i ]
+  %.011.i.i = getelementptr i8, ptr %.pn15.i.i, i64 -1
+  %17 = add nsw i64 %.016.i.i, -1
+  %18 = load i8, ptr %.01214.i.i, align 1
+  %19 = load i8, ptr %.011.i.i, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 1
+  store i8 %19, ptr %.01214.i.i, align 1
+  store i8 %18, ptr %.011.i.i, align 1
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %SDL_ulltoa_REAL.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 21:                                               ; preds = %3
   %.not.i9 = icmp eq i64 %0, 0
@@ -1769,7 +1986,7 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   store i8 0, ptr %.1.i15, align 1
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
   %.not13.i.i16 = icmp ult i64 %31, 2
-  br i1 %.not13.i.i16, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i17
+  br i1 %.not13.i.i16, label %SDL_ulltoa_REAL.exit, label %.lr.ph.preheader.i.i17
 
 .lr.ph.preheader.i.i17:                           ; preds = %.loopexit.i14
   %32 = lshr i64 %31, 1
@@ -1788,71 +2005,14 @@ define hidden noundef ptr @SDL_ltoa_REAL(i64 noundef %0, ptr noundef returned ca
   store i8 %36, ptr %.01214.i.i21, align 1
   store i8 %35, ptr %.011.i.i22, align 1
   %.not.i.i23 = icmp eq i64 %34, 0
-  br i1 %.not.i.i23, label %SDL_ultoa_REAL.exit, label %.lr.ph.i.i18, !llvm.loop !14
+  br i1 %.not.i.i23, label %SDL_ulltoa_REAL.exit, label %.lr.ph.i.i18, !llvm.loop !13
 
-SDL_ultoa_REAL.exit:                              ; preds = %.lr.ph.i.i18, %.lr.ph.i.i, %.loopexit.i14, %.loopexit.i
+SDL_ulltoa_REAL.exit:                             ; preds = %.lr.ph.i.i18, %.lr.ph.i.i, %.loopexit.i14, %.loopexit.i
   ret ptr %1
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @SDL_uitoa_REAL(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
-  %.not.i = icmp eq i32 %0, 0
-  br i1 %.not.i, label %12, label %.preheader.i
-
-.preheader.i:                                     ; preds = %3
-  %4 = zext i32 %0 to i64
-  %5 = sext i32 %2 to i64
-  br label %6
-
-6:                                                ; preds = %6, %.preheader.i
-  %.015.i = phi ptr [ %1, %.preheader.i ], [ %10, %6 ]
-  %.01114.i = phi i64 [ %4, %.preheader.i ], [ %11, %6 ]
-  %7 = urem i64 %.01114.i, %5
-  %8 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
-  store i8 %9, ptr %.015.i, align 1
-  %11 = udiv i64 %.01114.i, %5
-  %.not13.i = icmp ult i64 %.01114.i, %5
-  br i1 %.not13.i, label %.loopexit.i, label %6, !llvm.loop !19
-
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 48, ptr %1, align 1
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %6, %12
-  %.1.i = phi ptr [ %13, %12 ], [ %10, %6 ]
-  store i8 0, ptr %.1.i, align 1
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
-  %.not13.i.i = icmp ult i64 %14, 2
-  br i1 %.not13.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
-  %15 = lshr i64 %14, 1
-  %16 = getelementptr i8, ptr %1, i64 %14
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.016.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %15, %.lr.ph.preheader.i.i ]
-  %.pn15.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
-  %.01214.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %1, %.lr.ph.preheader.i.i ]
-  %.011.i.i = getelementptr i8, ptr %.pn15.i.i, i64 -1
-  %17 = add nsw i64 %.016.i.i, -1
-  %18 = load i8, ptr %.01214.i.i, align 1
-  %19 = load i8, ptr %.011.i.i, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 1
-  store i8 %19, ptr %.01214.i.i, align 1
-  store i8 %18, ptr %.011.i.i, align 1
-  %.not.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i, label %SDL_ultoa_REAL.exit, label %.lr.ph.i.i, !llvm.loop !14
-
-SDL_ultoa_REAL.exit:                              ; preds = %.lr.ph.i.i, %.loopexit.i
-  ret ptr %1
-}
-
-; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @SDL_ultoa_REAL(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
+define hidden noundef ptr @SDL_ulltoa_REAL(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %11, label %.preheader
 
@@ -1901,167 +2061,7 @@ define hidden noundef ptr @SDL_ultoa_REAL(i64 noundef %0, ptr noundef returned c
   store i8 %18, ptr %.01214.i, align 1
   store i8 %17, ptr %.011.i, align 1
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %SDL_strrev_REAL.exit, label %.lr.ph.i, !llvm.loop !14
-
-SDL_strrev_REAL.exit:                             ; preds = %.lr.ph.i, %.loopexit
-  ret ptr %1
-}
-
-; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @SDL_lltoa_REAL(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
-  %4 = icmp slt i64 %0, 0
-  br i1 %4, label %.preheader.i, label %21
-
-.preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 45, ptr %1, align 1
-  %6 = sub nsw i64 0, %0
-  %7 = sext i32 %2 to i64
-  br label %8
-
-8:                                                ; preds = %8, %.preheader.i
-  %.015.i = phi ptr [ %5, %.preheader.i ], [ %12, %8 ]
-  %.01114.i = phi i64 [ %6, %.preheader.i ], [ %13, %8 ]
-  %9 = urem i64 %.01114.i, %7
-  %10 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
-  store i8 %11, ptr %.015.i, align 1
-  %13 = udiv i64 %.01114.i, %7
-  %.not13.i = icmp ult i64 %.01114.i, %7
-  br i1 %.not13.i, label %.loopexit.i, label %8, !llvm.loop !20
-
-.loopexit.i:                                      ; preds = %8
-  store i8 0, ptr %12, align 1
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #25
-  %.not13.i.i = icmp ult i64 %14, 2
-  br i1 %.not13.i.i, label %SDL_ulltoa_REAL.exit, label %.lr.ph.preheader.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %.loopexit.i
-  %15 = lshr i64 %14, 1
-  %16 = getelementptr i8, ptr %5, i64 %14
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.016.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %15, %.lr.ph.preheader.i.i ]
-  %.pn15.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
-  %.01214.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %5, %.lr.ph.preheader.i.i ]
-  %.011.i.i = getelementptr i8, ptr %.pn15.i.i, i64 -1
-  %17 = add nsw i64 %.016.i.i, -1
-  %18 = load i8, ptr %.01214.i.i, align 1
-  %19 = load i8, ptr %.011.i.i, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 1
-  store i8 %19, ptr %.01214.i.i, align 1
-  store i8 %18, ptr %.011.i.i, align 1
-  %.not.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i, label %SDL_ulltoa_REAL.exit, label %.lr.ph.i.i, !llvm.loop !14
-
-21:                                               ; preds = %3
-  %.not.i9 = icmp eq i64 %0, 0
-  br i1 %.not.i9, label %29, label %.preheader.i10
-
-.preheader.i10:                                   ; preds = %21
-  %22 = sext i32 %2 to i64
-  br label %23
-
-23:                                               ; preds = %23, %.preheader.i10
-  %.015.i11 = phi ptr [ %1, %.preheader.i10 ], [ %27, %23 ]
-  %.01114.i12 = phi i64 [ %0, %.preheader.i10 ], [ %28, %23 ]
-  %24 = urem i64 %.01114.i12, %22
-  %25 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %.015.i11, i64 1
-  store i8 %26, ptr %.015.i11, align 1
-  %28 = udiv i64 %.01114.i12, %22
-  %.not13.i13 = icmp ult i64 %.01114.i12, %22
-  br i1 %.not13.i13, label %.loopexit.i14, label %23, !llvm.loop !20
-
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 48, ptr %1, align 1
-  br label %.loopexit.i14
-
-.loopexit.i14:                                    ; preds = %23, %29
-  %.1.i15 = phi ptr [ %30, %29 ], [ %27, %23 ]
-  store i8 0, ptr %.1.i15, align 1
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
-  %.not13.i.i16 = icmp ult i64 %31, 2
-  br i1 %.not13.i.i16, label %SDL_ulltoa_REAL.exit, label %.lr.ph.preheader.i.i17
-
-.lr.ph.preheader.i.i17:                           ; preds = %.loopexit.i14
-  %32 = lshr i64 %31, 1
-  %33 = getelementptr i8, ptr %1, i64 %31
-  br label %.lr.ph.i.i18
-
-.lr.ph.i.i18:                                     ; preds = %.lr.ph.i.i18, %.lr.ph.preheader.i.i17
-  %.016.i.i19 = phi i64 [ %34, %.lr.ph.i.i18 ], [ %32, %.lr.ph.preheader.i.i17 ]
-  %.pn15.i.i20 = phi ptr [ %.011.i.i22, %.lr.ph.i.i18 ], [ %33, %.lr.ph.preheader.i.i17 ]
-  %.01214.i.i21 = phi ptr [ %37, %.lr.ph.i.i18 ], [ %1, %.lr.ph.preheader.i.i17 ]
-  %.011.i.i22 = getelementptr i8, ptr %.pn15.i.i20, i64 -1
-  %34 = add nsw i64 %.016.i.i19, -1
-  %35 = load i8, ptr %.01214.i.i21, align 1
-  %36 = load i8, ptr %.011.i.i22, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %.01214.i.i21, i64 1
-  store i8 %36, ptr %.01214.i.i21, align 1
-  store i8 %35, ptr %.011.i.i22, align 1
-  %.not.i.i23 = icmp eq i64 %34, 0
-  br i1 %.not.i.i23, label %SDL_ulltoa_REAL.exit, label %.lr.ph.i.i18, !llvm.loop !14
-
-SDL_ulltoa_REAL.exit:                             ; preds = %.lr.ph.i.i18, %.lr.ph.i.i, %.loopexit.i14, %.loopexit.i
-  ret ptr %1
-}
-
-; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @SDL_ulltoa_REAL(i64 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #16 {
-  %.not = icmp eq i64 %0, 0
-  br i1 %.not, label %11, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %4 = sext i32 %2 to i64
-  br label %5
-
-5:                                                ; preds = %.preheader, %5
-  %.015 = phi ptr [ %1, %.preheader ], [ %9, %5 ]
-  %.01114 = phi i64 [ %0, %.preheader ], [ %10, %5 ]
-  %6 = urem i64 %.01114, %4
-  %7 = getelementptr inbounds nuw [36 x i8], ptr @ntoa_table, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
-  store i8 %8, ptr %.015, align 1
-  %10 = udiv i64 %.01114, %4
-  %.not13 = icmp ult i64 %.01114, %4
-  br i1 %.not13, label %.loopexit, label %5, !llvm.loop !20
-
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 48, ptr %1, align 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %5, %11
-  %.1 = phi ptr [ %12, %11 ], [ %9, %5 ]
-  store i8 0, ptr %.1, align 1
-  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
-  %.not13.i = icmp ult i64 %13, 2
-  br i1 %.not13.i, label %SDL_strrev_REAL.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %.loopexit
-  %14 = lshr i64 %13, 1
-  %15 = getelementptr i8, ptr %1, i64 %13
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.016.i = phi i64 [ %16, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
-  %.pn15.i = phi ptr [ %.011.i, %.lr.ph.i ], [ %15, %.lr.ph.preheader.i ]
-  %.01214.i = phi ptr [ %19, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %.011.i = getelementptr i8, ptr %.pn15.i, i64 -1
-  %16 = add nsw i64 %.016.i, -1
-  %17 = load i8, ptr %.01214.i, align 1
-  %18 = load i8, ptr %.011.i, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %.01214.i, i64 1
-  store i8 %18, ptr %.01214.i, align 1
-  store i8 %17, ptr %.011.i, align 1
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %SDL_strrev_REAL.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %SDL_strrev_REAL.exit, label %.lr.ph.i, !llvm.loop !13
 
 SDL_strrev_REAL.exit:                             ; preds = %.lr.ph.i, %.loopexit
   ret ptr %1
@@ -2434,7 +2434,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @SDL_asprintf_REAL(ptr noun
   %16 = zext nneg i32 %15 to i64
   %17 = call ptr @SDL_realloc_REAL(ptr noundef nonnull %.021.i, i64 noundef %16) #26
   %.not26.i = icmp eq ptr %17, null
-  br i1 %.not26.i, label %18, label %6, !llvm.loop !21
+  br i1 %.not26.i, label %18, label %6
 
 18:                                               ; preds = %14
   call void @SDL_free_REAL(ptr noundef nonnull %.021.i) #24
@@ -2489,7 +2489,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @SDL_vasprintf_REAL(ptr nou
   %16 = zext nneg i32 %15 to i64
   %17 = call ptr @SDL_realloc_REAL(ptr noundef nonnull %.021, i64 noundef %16) #26
   %.not26 = icmp eq ptr %17, null
-  br i1 %.not26, label %18, label %6, !llvm.loop !21
+  br i1 %.not26, label %18, label %6
 
 18:                                               ; preds = %14
   call void @SDL_free_REAL(ptr noundef nonnull %.021) #24
@@ -2549,22 +2549,20 @@ attributes #26 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}

@@ -64,14 +64,14 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
   %30 = tail call ptr @__errno_location() #9
   %31 = load i32, ptr %30, align 4, !tbaa !47
   %32 = icmp eq i32 %31, 11
-  br i1 %32, label %25, label %33, !llvm.loop !48
+  br i1 %32, label %25, label %33
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %2, align 4, !tbaa !47
   %35 = call i32 @close(i32 noundef %34) #8
-  %36 = load ptr, ptr %3, align 8, !tbaa !50
+  %36 = load ptr, ptr %3, align 8, !tbaa !48
   %37 = call i32 @cli_unlink(ptr noundef %36) #8
-  %38 = load ptr, ptr %3, align 8, !tbaa !50
+  %38 = load ptr, ptr %3, align 8, !tbaa !48
   call void @free(ptr noundef %38) #8
   br label %dump_xdp.exit.thread
 
@@ -79,7 +79,7 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
   %39 = add i64 %27, %.010.ph2.i
   %40 = icmp ult i64 %39, %20
   %41 = sub nuw i64 %20, %39
-  br i1 %40, label %.outer.split.i, label %dump_xdp.exit, !llvm.loop !48
+  br i1 %40, label %.outer.split.i, label %dump_xdp.exit
 
 dump_xdp.exit.thread:                             ; preds = %33, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
@@ -87,11 +87,11 @@ dump_xdp.exit.thread:                             ; preds = %33, %17
   br label %47
 
 dump_xdp.exit:                                    ; preds = %.outer.i, %.preheader.i
-  %42 = load ptr, ptr %3, align 8, !tbaa !50
+  %42 = load ptr, ptr %3, align 8, !tbaa !48
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef %42) #8
   %43 = load i32, ptr %2, align 4, !tbaa !47
   %44 = call i32 @close(i32 noundef %43) #8
-  %45 = load ptr, ptr %3, align 8, !tbaa !50
+  %45 = load ptr, ptr %3, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   %.not67 = icmp eq ptr %45, null
@@ -142,7 +142,7 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   br i1 %.not72, label %90, label %66
 
 66:                                               ; preds = %63
-  %67 = load i64, ptr %4, align 8, !tbaa !51
+  %67 = load i64, ptr %4, align 8, !tbaa !49
   %68 = icmp ugt i64 %67, 5
   br i1 %68, label %.lr.ph.preheader, label %.critedge
 
@@ -154,13 +154,13 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
   %.05391 = phi i64 [ %87, %86 ], [ 0, %.lr.ph.preheader ]
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.05391
-  %72 = load i8, ptr %71, align 1, !tbaa !52
+  %72 = load i8, ptr %71, align 1, !tbaa !50
   %.not73 = icmp eq i8 %72, 37
   br i1 %.not73, label %73, label %86
 
 73:                                               ; preds = %.lr.ph
   %74 = getelementptr i8, ptr %71, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !52
+  %75 = load i8, ptr %74, align 1, !tbaa !50
   switch i8 %75, label %86 [
     i8 80, label %76
     i8 112, label %76
@@ -168,7 +168,7 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
 
 76:                                               ; preds = %73, %73
   %77 = getelementptr i8, ptr %71, i64 2
-  %78 = load i8, ptr %77, align 1, !tbaa !52
+  %78 = load i8, ptr %77, align 1, !tbaa !50
   switch i8 %78, label %86 [
     i8 68, label %79
     i8 100, label %79
@@ -176,7 +176,7 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
 
 79:                                               ; preds = %76, %76
   %80 = getelementptr i8, ptr %71, i64 3
-  %81 = load i8, ptr %80, align 1, !tbaa !52
+  %81 = load i8, ptr %80, align 1, !tbaa !50
   switch i8 %81, label %86 [
     i8 70, label %82
     i8 102, label %82
@@ -184,14 +184,14 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
 
 82:                                               ; preds = %79, %79
   %83 = getelementptr i8, ptr %71, i64 4
-  %84 = load i8, ptr %83, align 1, !tbaa !52
+  %84 = load i8, ptr %83, align 1, !tbaa !50
   %85 = icmp eq i8 %84, 45
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %79, %76, %73, %82, %.lr.ph
   %87 = add nuw nsw i64 %.05391, 1
   %exitcond.not = icmp eq i64 %87, %70
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %66, %86
   call void @free(ptr noundef nonnull %65) #8
@@ -204,18 +204,18 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   br i1 %.not75, label %90, label %.thread.sink.split
 
 90:                                               ; preds = %88, %63
-  %91 = load ptr, ptr @xmlFree, align 8, !tbaa !54
+  %91 = load ptr, ptr @xmlFree, align 8, !tbaa !51
   call void %91(ptr noundef nonnull %62) #8
   br label %.backedge
 
 .backedge:                                        ; preds = %56, %58, %90, %61, %.lr.ph95
   %92 = call i32 @xmlTextReaderRead(ptr noundef nonnull %52) #8
   %93 = icmp eq i32 %92, 1
-  br i1 %93, label %.lr.ph95, label %.thread, !llvm.loop !55
+  br i1 %93, label %.lr.ph95, label %.thread
 
 .thread.sink.split:                               ; preds = %88, %.critedge
   %.1.ph = phi i32 [ 0, %.critedge ], [ %89, %88 ]
-  %94 = load ptr, ptr @xmlFree, align 8, !tbaa !54
+  %94 = load ptr, ptr @xmlFree, align 8, !tbaa !51
   call void %94(ptr noundef nonnull %62) #8
   br label %.thread
 
@@ -340,11 +340,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !45 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
 !46 = !{!4, !5, i64 16}
 !47 = !{!14, !14, i64 0}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!5, !5, i64 0}
-!51 = !{!12, !12, i64 0}
-!52 = !{!7, !7, i64 0}
-!53 = distinct !{!53, !49}
-!54 = !{!6, !6, i64 0}
-!55 = distinct !{!55, !49}
+!48 = !{!5, !5, i64 0}
+!49 = !{!12, !12, i64 0}
+!50 = !{!7, !7, i64 0}
+!51 = !{!6, !6, i64 0}

@@ -274,12 +274,12 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
   %.165 = phi i32 [ %25, %.loopexit ], [ 0, %52 ], [ 0, %47 ]
   %.163 = phi i32 [ %26, %.loopexit ], [ 0, %52 ], [ 0, %47 ]
   %56 = icmp ult ptr %11, %6
-  br i1 %56, label %.outer, label %._crit_edge, !llvm.loop !6
+  br i1 %56, label %.outer, label %._crit_edge, !llvm.loop !5
 
 .thread99:                                        ; preds = %14
   %57 = shl i32 %.06490, 6
   %58 = icmp ult ptr %11, %6
-  br i1 %58, label %10, label %._crit_edge..thread_crit_edge, !llvm.loop !6
+  br i1 %58, label %10, label %._crit_edge..thread_crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %55
   %59 = icmp eq i32 %.163, 0
@@ -331,7 +331,6 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

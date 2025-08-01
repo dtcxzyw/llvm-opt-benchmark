@@ -109,7 +109,7 @@ poly_encode_10_bits.exit.thread:                  ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %56 = add nuw i64 %.02131, 1
   %exitcond.not = icmp eq i64 %56, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %55, %.preheader
   %57 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %4, ptr noundef nonnull %3) #9
@@ -121,9 +121,9 @@ poly_encode_10_bits.exit.thread:                  ; preds = %.lr.ph
 
 59:                                               ; preds = %._crit_edge
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %61 = load ptr, ptr %60, align 8, !tbaa !28
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
   call void @CRYPTO_free(ptr noundef %61, ptr noundef nonnull @.str, i32 noundef 642) #9
-  store ptr %13, ptr %60, align 8, !tbaa !28
+  store ptr %13, ptr %60, align 8, !tbaa !27
   %62 = call i32 @WPACKET_finish(ptr noundef nonnull %4) #9
   br label %65
 
@@ -160,13 +160,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ml_dsa_pk_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %58
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %.not29 = icmp eq ptr %8, null
   br i1 %.not29, label %9, label %58
 
@@ -244,16 +244,16 @@ PACKET_copy_bytes.exit:                           ; preds = %16
   %.013.add.i = add nuw nsw i64 %.013.idx.i, 16
   store i32 %47, ptr %46, align 4, !tbaa !21
   %48 = icmp samesign ult i64 %.013.idx.i, 1008
-  br i1 %48, label %30, label %poly_decode_10_bits.exit, !llvm.loop !30
+  br i1 %48, label %30, label %poly_decode_10_bits.exit, !llvm.loop !29
 
 poly_decode_10_bits.exit:                         ; preds = %33
   %49 = add nuw i64 %.02556, 1
   %exitcond.not = icmp eq i64 %49, %23
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %poly_decode_10_bits.exit, %PACKET_copy_bytes.exit
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !32
+  %51 = load ptr, ptr %50, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = tail call fastcc i32 @shake_xof(ptr noundef %17, ptr noundef %51, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %52)
   %.not34 = icmp eq i32 %53, 0
@@ -261,7 +261,7 @@ poly_decode_10_bits.exit:                         ; preds = %33
 
 54:                                               ; preds = %._crit_edge
   %55 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 690) #9
-  store ptr %55, ptr %7, align 8, !tbaa !28
+  store ptr %55, ptr %7, align 8, !tbaa !27
   %56 = icmp ne ptr %55, null
   %57 = zext i1 %56 to i32
   br label %PACKET_buf_init.exit.thread
@@ -316,13 +316,13 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !33
+  %8 = load i64, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %10 = load i64, ptr %9, align 8, !tbaa !34
+  %10 = load i64, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %12 = load i64, ptr %11, align 8, !tbaa !35
+  %12 = load i64, ptr %11, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %14 = load ptr, ptr %13, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #9
   %15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 714) #9
   %16 = icmp eq ptr %15, null
@@ -330,7 +330,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %19 = load i32, ptr %18, align 8, !tbaa !37
+  %19 = load i32, ptr %18, align 8, !tbaa !36
   %20 = icmp eq i32 %19, 4
   %poly_encode_signed_4.poly_encode_signed_2 = select i1 %20, ptr @poly_encode_signed_4, ptr @poly_encode_signed_2
   %21 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %4, ptr noundef nonnull %15, i64 noundef %12, i64 noundef 0) #9
@@ -366,7 +366,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
 32:                                               ; preds = %35
   %33 = add nuw i64 %.04161, 1
   %exitcond.not = icmp eq i64 %33, %10
-  br i1 %exitcond.not, label %.preheader58, label %35, !llvm.loop !38
+  br i1 %exitcond.not, label %.preheader58, label %35, !llvm.loop !37
 
 .preheader58:                                     ; preds = %32, %.preheader59
   %.not67 = icmp eq i64 %8, 0
@@ -378,22 +378,22 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
 
 35:                                               ; preds = %.lr.ph, %32
   %.04161 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
-  %36 = load ptr, ptr %31, align 8, !tbaa !39
+  %36 = load ptr, ptr %31, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw %struct.poly_st, ptr %36, i64 %.04161
-  %38 = call i32 %poly_encode_signed_4.poly_encode_signed_2(ptr noundef %37, ptr noundef nonnull %4) #9, !callees !40
+  %38 = call i32 %poly_encode_signed_4.poly_encode_signed_2(ptr noundef %37, ptr noundef nonnull %4) #9, !callees !39
   %.not52 = icmp eq i32 %38, 0
   br i1 %.not52, label %.loopexit, label %32
 
 39:                                               ; preds = %41
   %40 = add nuw i64 %.162, 1
   %exitcond70.not = icmp eq i64 %40, %8
-  br i1 %exitcond70.not, label %.preheader, label %41, !llvm.loop !41
+  br i1 %exitcond70.not, label %.preheader, label %41, !llvm.loop !40
 
 41:                                               ; preds = %.lr.ph63, %39
   %.162 = phi i64 [ 0, %.lr.ph63 ], [ %40, %39 ]
-  %42 = load ptr, ptr %34, align 8, !tbaa !42
+  %42 = load ptr, ptr %34, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw %struct.poly_st, ptr %42, i64 %.162
-  %44 = call i32 %poly_encode_signed_4.poly_encode_signed_2(ptr noundef %43, ptr noundef nonnull %4) #9, !callees !40
+  %44 = call i32 %poly_encode_signed_4.poly_encode_signed_2(ptr noundef %43, ptr noundef nonnull %4) #9, !callees !39
   %.not51 = icmp eq i32 %44, 0
   br i1 %.not51, label %.loopexit, label %39
 
@@ -418,10 +418,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %52 = add i32 %49, -8384514
   %53 = and i32 %51, %52
   %.neg.i.i.i.i.i = ashr i32 %53, 31
-  %54 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !43
+  %54 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !42
   %55 = and i32 %54, %50
   %56 = xor i32 %.neg.i.i.i.i.i, -1
-  %57 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %56) #10, !srcloc !43
+  %57 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %56) #10, !srcloc !42
   %58 = and i32 %57, %51
   %59 = or i32 %58, %55
   %60 = zext i32 %59 to i64
@@ -432,10 +432,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %65 = add i32 %62, -8384514
   %66 = and i32 %64, %65
   %.neg.i.i.i.i27.i = ashr i32 %66, 31
-  %67 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27.i) #10, !srcloc !43
+  %67 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27.i) #10, !srcloc !42
   %68 = and i32 %67, %63
   %69 = xor i32 %.neg.i.i.i.i27.i, -1
-  %70 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %69) #10, !srcloc !43
+  %70 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %69) #10, !srcloc !42
   %71 = and i32 %70, %64
   %72 = or i32 %71, %68
   %73 = zext i32 %72 to i64
@@ -448,10 +448,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %80 = add i32 %77, -8384514
   %81 = and i32 %79, %80
   %.neg.i.i.i.i28.i = ashr i32 %81, 31
-  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i28.i) #10, !srcloc !43
+  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i28.i) #10, !srcloc !42
   %83 = and i32 %82, %78
   %84 = xor i32 %.neg.i.i.i.i28.i, -1
-  %85 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %84) #10, !srcloc !43
+  %85 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %84) #10, !srcloc !42
   %86 = and i32 %85, %79
   %87 = or i32 %86, %83
   %88 = zext i32 %87 to i64
@@ -464,10 +464,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %95 = add i32 %92, -8384514
   %96 = and i32 %94, %95
   %.neg.i.i.i.i29.i = ashr i32 %96, 31
-  %97 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i29.i) #10, !srcloc !43
+  %97 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i29.i) #10, !srcloc !42
   %98 = and i32 %97, %93
   %99 = xor i32 %.neg.i.i.i.i29.i, -1
-  %100 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %99) #10, !srcloc !43
+  %100 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %99) #10, !srcloc !42
   %101 = and i32 %100, %94
   %102 = or i32 %101, %98
   %103 = zext i32 %102 to i64
@@ -480,10 +480,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %110 = add i32 %107, -8384514
   %111 = and i32 %109, %110
   %.neg.i.i.i.i30.i = ashr i32 %111, 31
-  %112 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i30.i) #10, !srcloc !43
+  %112 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i30.i) #10, !srcloc !42
   %113 = and i32 %112, %108
   %114 = xor i32 %.neg.i.i.i.i30.i, -1
-  %115 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %114) #10, !srcloc !43
+  %115 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %114) #10, !srcloc !42
   %116 = and i32 %115, %109
   %117 = or i32 %116, %113
   %118 = zext i32 %117 to i64
@@ -497,10 +497,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %126 = add i32 %123, -8384514
   %127 = and i32 %125, %126
   %.neg.i.i.i.i31.i = ashr i32 %127, 31
-  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i31.i) #10, !srcloc !43
+  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i31.i) #10, !srcloc !42
   %129 = and i32 %128, %124
   %130 = xor i32 %.neg.i.i.i.i31.i, -1
-  %131 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %130) #10, !srcloc !43
+  %131 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %130) #10, !srcloc !42
   %132 = and i32 %131, %125
   %133 = or i32 %132, %129
   %134 = zext i32 %133 to i64
@@ -513,10 +513,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %141 = add i32 %138, -8384514
   %142 = and i32 %140, %141
   %.neg.i.i.i.i32.i = ashr i32 %142, 31
-  %143 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i32.i) #10, !srcloc !43
+  %143 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i32.i) #10, !srcloc !42
   %144 = and i32 %143, %139
   %145 = xor i32 %.neg.i.i.i.i32.i, -1
-  %146 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %145) #10, !srcloc !43
+  %146 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %145) #10, !srcloc !42
   %147 = and i32 %146, %140
   %148 = or i32 %147, %144
   %149 = zext i32 %148 to i64
@@ -529,10 +529,10 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %155 = add i32 %152, -8384514
   %156 = and i32 %154, %155
   %.neg.i.i.i.i33.i = ashr i32 %156, 31
-  %157 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i33.i) #10, !srcloc !43
+  %157 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i33.i) #10, !srcloc !42
   %158 = and i32 %157, %153
   %159 = xor i32 %.neg.i.i.i.i33.i, -1
-  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %159) #10, !srcloc !43
+  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %159) #10, !srcloc !42
   %161 = and i32 %160, %154
   %162 = or i32 %161, %158
   %163 = zext i32 %162 to i64
@@ -549,7 +549,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   store i8 %171, ptr %169, align 1, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %172 = icmp samesign ult i64 %.025.idx.i, 992
-  br i1 %172, label %45, label %poly_encode_signed_two_to_power_12.exit, !llvm.loop !44
+  br i1 %172, label %45, label %poly_encode_signed_two_to_power_12.exit, !llvm.loop !43
 
 poly_encode_signed_two_to_power_12.exit.thread:   ; preds = %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
@@ -559,7 +559,7 @@ poly_encode_signed_two_to_power_12.exit:          ; preds = %47
   %173 = getelementptr inbounds nuw i8, ptr %.03865, i64 1024
   %174 = add nuw i64 %.264, 1
   %exitcond71.not = icmp eq i64 %174, %8
-  br i1 %exitcond71.not, label %._crit_edge, label %.preheader, !llvm.loop !45
+  br i1 %exitcond71.not, label %._crit_edge, label %.preheader, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %poly_encode_signed_two_to_power_12.exit, %.preheader58
   %175 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %4, ptr noundef nonnull %3) #9
@@ -571,9 +571,9 @@ poly_encode_signed_two_to_power_12.exit:          ; preds = %47
 
 177:                                              ; preds = %._crit_edge
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %179 = load ptr, ptr %178, align 8, !tbaa !29
+  %179 = load ptr, ptr %178, align 8, !tbaa !28
   call void @CRYPTO_clear_free(ptr noundef %179, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 742) #9
-  store ptr %15, ptr %178, align 8, !tbaa !29
+  store ptr %15, ptr %178, align 8, !tbaa !28
   %180 = call i32 @WPACKET_finish(ptr noundef nonnull %4) #9
   br label %182
 
@@ -607,10 +607,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_4(ptr noundef readonly c
   %9 = add i32 %6, -8380422
   %10 = and i32 %8, %9
   %.neg.i.i.i.i = ashr i32 %10, 31
-  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %12 = and i32 %11, %7
   %13 = xor i32 %.neg.i.i.i.i, -1
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %13) #10, !srcloc !43
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %13) #10, !srcloc !42
   %15 = and i32 %14, %8
   %16 = or i32 %15, %12
   %.08.add = add nuw nsw i64 %.08.idx, 8
@@ -620,10 +620,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_4(ptr noundef readonly c
   %20 = add i32 %17, -8380422
   %21 = and i32 %19, %20
   %.neg.i.i.i.i9 = ashr i32 %21, 31
-  %22 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i9) #10, !srcloc !43
+  %22 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i9) #10, !srcloc !42
   %23 = and i32 %22, %18
   %24 = xor i32 %.neg.i.i.i.i9, -1
-  %25 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %24) #10, !srcloc !43
+  %25 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %24) #10, !srcloc !42
   %26 = and i32 %25, %19
   %27 = or i32 %26, %23
   %28 = shl i32 %27, 4
@@ -634,7 +634,7 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_4(ptr noundef readonly c
   store ptr %32, ptr %3, align 8, !tbaa !22
   store i8 %30, ptr %31, align 1, !tbaa !23
   %33 = icmp samesign ult i64 %.08.idx, 1016
-  br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !46
+  br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %.preheader ]
@@ -660,10 +660,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %9 = add i32 %6, -8380420
   %10 = and i32 %8, %9
   %.neg.i.i.i.i = ashr i32 %10, 31
-  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %12 = and i32 %11, %7
   %13 = xor i32 %.neg.i.i.i.i, -1
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %13) #10, !srcloc !43
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %13) #10, !srcloc !42
   %15 = and i32 %14, %8
   %16 = or i32 %15, %12
   %17 = getelementptr inbounds nuw i8, ptr %.022.ptr, i64 8
@@ -673,10 +673,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %21 = add i32 %18, -8380420
   %22 = and i32 %20, %21
   %.neg.i.i.i.i23 = ashr i32 %22, 31
-  %23 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23) #10, !srcloc !43
+  %23 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23) #10, !srcloc !42
   %24 = and i32 %23, %19
   %25 = xor i32 %.neg.i.i.i.i23, -1
-  %26 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %25) #10, !srcloc !43
+  %26 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %25) #10, !srcloc !42
   %27 = and i32 %26, %20
   %28 = or i32 %27, %24
   %29 = shl i32 %28, 3
@@ -688,10 +688,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %35 = add i32 %32, -8380420
   %36 = and i32 %34, %35
   %.neg.i.i.i.i24 = ashr i32 %36, 31
-  %37 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24) #10, !srcloc !43
+  %37 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24) #10, !srcloc !42
   %38 = and i32 %37, %33
   %39 = xor i32 %.neg.i.i.i.i24, -1
-  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %39) #10, !srcloc !43
+  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %39) #10, !srcloc !42
   %41 = and i32 %40, %34
   %42 = or i32 %41, %38
   %43 = shl i32 %42, 6
@@ -703,10 +703,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %49 = add i32 %46, -8380420
   %50 = and i32 %48, %49
   %.neg.i.i.i.i25 = ashr i32 %50, 31
-  %51 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25) #10, !srcloc !43
+  %51 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25) #10, !srcloc !42
   %52 = and i32 %51, %47
   %53 = xor i32 %.neg.i.i.i.i25, -1
-  %54 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %53) #10, !srcloc !43
+  %54 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %53) #10, !srcloc !42
   %55 = and i32 %54, %48
   %56 = or i32 %55, %52
   %57 = shl i32 %56, 9
@@ -718,10 +718,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %63 = add i32 %60, -8380420
   %64 = and i32 %62, %63
   %.neg.i.i.i.i26 = ashr i32 %64, 31
-  %65 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26) #10, !srcloc !43
+  %65 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26) #10, !srcloc !42
   %66 = and i32 %65, %61
   %67 = xor i32 %.neg.i.i.i.i26, -1
-  %68 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %67) #10, !srcloc !43
+  %68 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %67) #10, !srcloc !42
   %69 = and i32 %68, %62
   %70 = or i32 %69, %66
   %71 = shl i32 %70, 12
@@ -733,10 +733,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %77 = add i32 %74, -8380420
   %78 = and i32 %76, %77
   %.neg.i.i.i.i27 = ashr i32 %78, 31
-  %79 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27) #10, !srcloc !43
+  %79 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27) #10, !srcloc !42
   %80 = and i32 %79, %75
   %81 = xor i32 %.neg.i.i.i.i27, -1
-  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %81) #10, !srcloc !43
+  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %81) #10, !srcloc !42
   %83 = and i32 %82, %76
   %84 = or i32 %83, %80
   %85 = shl i32 %84, 15
@@ -748,10 +748,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %91 = add i32 %88, -8380420
   %92 = and i32 %90, %91
   %.neg.i.i.i.i28 = ashr i32 %92, 31
-  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i28) #10, !srcloc !43
+  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i28) #10, !srcloc !42
   %94 = and i32 %93, %89
   %95 = xor i32 %.neg.i.i.i.i28, -1
-  %96 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %95) #10, !srcloc !43
+  %96 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %95) #10, !srcloc !42
   %97 = and i32 %96, %90
   %98 = or i32 %97, %94
   %99 = shl i32 %98, 18
@@ -762,10 +762,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   %103 = add i32 %100, -8380420
   %104 = and i32 %102, %103
   %.neg.i.i.i.i29 = ashr i32 %104, 31
-  %105 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i29) #10, !srcloc !43
+  %105 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i29) #10, !srcloc !42
   %106 = and i32 %105, %101
   %107 = xor i32 %.neg.i.i.i.i29, -1
-  %108 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %107) #10, !srcloc !43
+  %108 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %107) #10, !srcloc !42
   %109 = and i32 %108, %102
   %110 = or i32 %109, %106
   %111 = shl i32 %110, 21
@@ -781,7 +781,7 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_2(ptr noundef readonly c
   store ptr %119, ptr %3, align 8, !tbaa !22
   store i8 %118, ptr %116, align 1, !tbaa !23
   %120 = icmp samesign ult i64 %.022.idx, 992
-  br i1 %120, label %.preheader, label %.loopexit, !llvm.loop !47
+  br i1 %120, label %.preheader, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %.preheader ]
@@ -798,17 +798,17 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_decode(ptr noundef %0, ptr noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !33
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %11 = load i64, ptr %10, align 8, !tbaa !34
+  %11 = load i64, ptr %10, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %13 = load ptr, ptr %12, align 8, !tbaa !48
+  %13 = load ptr, ptr %12, align 8, !tbaa !47
   tail call void @CRYPTO_clear_free(ptr noundef %13, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 771) #9
-  store ptr null, ptr %12, align 8, !tbaa !48
+  store ptr null, ptr %12, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
   %.not = icmp eq ptr %15, null
   %.not45 = icmp eq ptr %15, %1
   %or.cond = or i1 %.not, %.not45
@@ -816,14 +816,14 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_decode(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !27
   %.not46 = icmp eq ptr %18, null
   br i1 %.not46, label %19, label %PACKET_buf_init.exit.thread
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %6, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %22 = load i64, ptr %21, align 8, !tbaa !35
+  %22 = load i64, ptr %21, align 8, !tbaa !34
   %.not47 = icmp eq i64 %2, %22
   br i1 %.not47, label %23, label %PACKET_buf_init.exit.thread
 
@@ -834,7 +834,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_decode(ptr noundef %0, ptr noundef %1
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %27 = load i32, ptr %26, align 8, !tbaa !37
+  %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = icmp eq i32 %27, 4
   %poly_decode_signed_4.poly_decode_signed_2 = select i1 %28, ptr @poly_decode_signed_4, ptr @poly_decode_signed_2
   %29 = icmp slt i64 %2, 0
@@ -864,9 +864,9 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %42, i64 64, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr %43, ptr %5, align 8, !tbaa !49
+  store ptr %43, ptr %5, align 8, !tbaa !48
   %44 = add nsw i64 %2, -128
-  store i64 %44, ptr %31, align 8, !tbaa !51
+  store i64 %44, ptr %31, align 8, !tbaa !50
   %.not85 = icmp eq i64 %11, 0
   br i1 %.not85, label %.preheader76, label %.lr.ph
 
@@ -877,7 +877,7 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
 46:                                               ; preds = %49
   %47 = add nuw i64 %.04179, 1
   %exitcond.not = icmp eq i64 %47, %11
-  br i1 %exitcond.not, label %.preheader76, label %49, !llvm.loop !52
+  br i1 %exitcond.not, label %.preheader76, label %49, !llvm.loop !51
 
 .preheader76:                                     ; preds = %46, %PACKET_copy_bytes.exit65
   %.not86 = icmp eq i64 %9, 0
@@ -889,28 +889,28 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
 
 49:                                               ; preds = %.lr.ph, %46
   %.04179 = phi i64 [ 0, %.lr.ph ], [ %47, %46 ]
-  %50 = load ptr, ptr %45, align 8, !tbaa !39
+  %50 = load ptr, ptr %45, align 8, !tbaa !38
   %51 = getelementptr inbounds nuw %struct.poly_st, ptr %50, i64 %.04179
-  %52 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %51, ptr noundef nonnull %5) #9, !callees !53
+  %52 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %51, ptr noundef nonnull %5) #9, !callees !52
   %.not58 = icmp eq i32 %52, 0
   br i1 %.not58, label %poly_decode_signed_two_to_power_12.exit.thread, label %46
 
 53:                                               ; preds = %57
   %54 = add nuw i64 %.180, 1
   %exitcond90.not = icmp eq i64 %54, %9
-  br i1 %exitcond90.not, label %.lr.ph84, label %57, !llvm.loop !54
+  br i1 %exitcond90.not, label %.lr.ph84, label %57, !llvm.loop !53
 
 .lr.ph84:                                         ; preds = %53
   %.promoted82 = load i64, ptr %31, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  %56 = load ptr, ptr %55, align 8, !tbaa !35
   br label %61
 
 57:                                               ; preds = %.lr.ph81, %53
   %.180 = phi i64 [ 0, %.lr.ph81 ], [ %54, %53 ]
-  %58 = load ptr, ptr %48, align 8, !tbaa !42
+  %58 = load ptr, ptr %48, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw %struct.poly_st, ptr %58, i64 %.180
-  %60 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %59, ptr noundef nonnull %5) #9, !callees !53
+  %60 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %59, ptr noundef nonnull %5) #9, !callees !52
   %.not57 = icmp eq i32 %60, 0
   br i1 %.not57, label %poly_decode_signed_two_to_power_12.exit.thread, label %53
 
@@ -931,9 +931,9 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 13
-  store ptr %69, ptr %5, align 8, !tbaa !49
+  store ptr %69, ptr %5, align 8, !tbaa !48
   %70 = add i64 %66, -13
-  store i64 %70, ptr %31, align 8, !tbaa !51
+  store i64 %70, ptr %31, align 8, !tbaa !50
   %.0.copyload.i.i = load i64, ptr %65, align 1
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.0.copyload.i19.i = load i32, ptr %71, align 1
@@ -945,10 +945,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %77 = sub nuw nsw i32 8384513, %76
   %78 = sub nsw i32 4096, %76
   %.neg.i.i.i.i.i = ashr i32 %78, 31
-  %79 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !43
+  %79 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !42
   %80 = and i32 %79, %77
   %81 = xor i32 %.neg.i.i.i.i.i, -1
-  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %81) #10, !srcloc !43
+  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %81) #10, !srcloc !42
   %83 = and i32 %82, %78
   %84 = or i32 %83, %80
   %85 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 4
@@ -958,10 +958,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %88 = sub nuw nsw i32 8384513, %87
   %89 = sub nsw i32 4096, %87
   %.neg.i.i.i.i20.i = ashr i32 %89, 31
-  %90 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20.i) #10, !srcloc !43
+  %90 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20.i) #10, !srcloc !42
   %91 = and i32 %90, %88
   %92 = xor i32 %.neg.i.i.i.i20.i, -1
-  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %92) #10, !srcloc !43
+  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %92) #10, !srcloc !42
   %94 = and i32 %93, %89
   %95 = or i32 %94, %91
   %96 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 8
@@ -972,10 +972,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %100 = sub nuw nsw i32 8384513, %99
   %101 = sub nsw i32 4096, %99
   %.neg.i.i.i.i21.i = ashr i32 %101, 31
-  %102 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21.i) #10, !srcloc !43
+  %102 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21.i) #10, !srcloc !42
   %103 = and i32 %102, %100
   %104 = xor i32 %.neg.i.i.i.i21.i, -1
-  %105 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %104) #10, !srcloc !43
+  %105 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %104) #10, !srcloc !42
   %106 = and i32 %105, %101
   %107 = or i32 %106, %103
   %108 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 12
@@ -986,10 +986,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %112 = sub nuw nsw i32 8384513, %111
   %113 = sub nsw i32 4096, %111
   %.neg.i.i.i.i22.i = ashr i32 %113, 31
-  %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22.i) #10, !srcloc !43
+  %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22.i) #10, !srcloc !42
   %115 = and i32 %114, %112
   %116 = xor i32 %.neg.i.i.i.i22.i, -1
-  %117 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %116) #10, !srcloc !43
+  %117 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %116) #10, !srcloc !42
   %118 = and i32 %117, %113
   %119 = or i32 %118, %115
   %120 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 16
@@ -1002,10 +1002,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %126 = sub nuw nsw i32 8384513, %125
   %127 = sub nsw i32 4096, %125
   %.neg.i.i.i.i23.i = ashr i32 %127, 31
-  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23.i) #10, !srcloc !43
+  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23.i) #10, !srcloc !42
   %129 = and i32 %128, %126
   %130 = xor i32 %.neg.i.i.i.i23.i, -1
-  %131 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %130) #10, !srcloc !43
+  %131 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %130) #10, !srcloc !42
   %132 = and i32 %131, %127
   %133 = or i32 %132, %129
   %134 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 20
@@ -1015,10 +1015,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %137 = sub nuw nsw i32 8384513, %136
   %138 = sub nsw i32 4096, %136
   %.neg.i.i.i.i24.i = ashr i32 %138, 31
-  %139 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24.i) #10, !srcloc !43
+  %139 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24.i) #10, !srcloc !42
   %140 = and i32 %139, %137
   %141 = xor i32 %.neg.i.i.i.i24.i, -1
-  %142 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %141) #10, !srcloc !43
+  %142 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %141) #10, !srcloc !42
   %143 = and i32 %142, %138
   %144 = or i32 %143, %140
   %145 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 24
@@ -1028,10 +1028,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %148 = sub nuw nsw i32 8384513, %147
   %149 = sub nsw i32 4096, %147
   %.neg.i.i.i.i25.i = ashr i32 %149, 31
-  %150 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25.i) #10, !srcloc !43
+  %150 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25.i) #10, !srcloc !42
   %151 = and i32 %150, %148
   %152 = xor i32 %.neg.i.i.i.i25.i, -1
-  %153 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %152) #10, !srcloc !43
+  %153 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %152) #10, !srcloc !42
   %154 = and i32 %153, %149
   %155 = or i32 %154, %151
   %156 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 28
@@ -1040,36 +1040,36 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %158 = sub nuw nsw i32 8384513, %157
   %159 = sub nsw i32 4096, %157
   %.neg.i.i.i.i26.i = ashr i32 %159, 31
-  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26.i) #10, !srcloc !43
+  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26.i) #10, !srcloc !42
   %161 = and i32 %160, %158
   %162 = xor i32 %.neg.i.i.i.i26.i, -1
-  %163 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %162) #10, !srcloc !43
+  %163 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %162) #10, !srcloc !42
   %164 = and i32 %163, %159
   %165 = or i32 %164, %161
   %166 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 32
   store i32 %165, ptr %156, align 4, !tbaa !21
   %167 = add nuw nsw i32 %.01846.i, 1
   %exitcond.not.i = icmp eq i32 %167, 32
-  br i1 %exitcond.not.i, label %poly_decode_signed_two_to_power_12.exit, label %64, !llvm.loop !55
+  br i1 %exitcond.not.i, label %poly_decode_signed_two_to_power_12.exit, label %64, !llvm.loop !54
 
 poly_decode_signed_two_to_power_12.exit:          ; preds = %68
   %168 = add nuw i64 %.283, 1
   %exitcond91.not = icmp eq i64 %168, %9
-  br i1 %exitcond91.not, label %._crit_edge, label %61, !llvm.loop !56
+  br i1 %exitcond91.not, label %._crit_edge, label %61, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %poly_decode_signed_two_to_power_12.exit, %.preheader76
-  %.val = load i64, ptr %31, align 8, !tbaa !51
+  %.val = load i64, ptr %31, align 8, !tbaa !50
   %.not53 = icmp eq i64 %.val, 0
   br i1 %.not53, label %169, label %poly_decode_signed_two_to_power_12.exit.thread
 
 169:                                              ; preds = %._crit_edge
-  %170 = load ptr, ptr %14, align 8, !tbaa !29
+  %170 = load ptr, ptr %14, align 8, !tbaa !28
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %175
 
 172:                                              ; preds = %169
   %173 = call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 807) #9
-  store ptr %173, ptr %14, align 8, !tbaa !29
+  store ptr %173, ptr %14, align 8, !tbaa !28
   %174 = icmp eq ptr %173, null
   br i1 %174, label %poly_decode_signed_two_to_power_12.exit.thread, label %175
 
@@ -1099,7 +1099,7 @@ declare i32 @ossl_ml_dsa_key_priv_alloc(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.promoted = load i64, ptr %3, align 8, !tbaa !51
+  %.promoted = load i64, ptr %3, align 8, !tbaa !50
   br label %4
 
 4:                                                ; preds = %2, %21
@@ -1110,11 +1110,11 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   br i1 %6, label %PACKET_get_bytes.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !49
+  %8 = load ptr, ptr %1, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store ptr %9, ptr %1, align 8, !tbaa !49
+  store ptr %9, ptr %1, align 8, !tbaa !48
   %10 = add i64 %5, -4
-  store i64 %10, ptr %3, align 8, !tbaa !51
+  store i64 %10, ptr %3, align 8, !tbaa !50
   %.0.copyload.i = load i32, ptr %8, align 1
   %11 = and i32 %.0.copyload.i, -2004318072
   %12 = lshr exact i32 %11, 1
@@ -1125,7 +1125,7 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %17 = and i32 %16, %.0.copyload.i
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i32
-  %20 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %19) #10, !srcloc !43
+  %20 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %19) #10, !srcloc !42
   %.not18 = icmp eq i32 %20, 0
   br i1 %.not18, label %21, label %PACKET_get_bytes.exit.thread
 
@@ -1134,10 +1134,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %23 = sub nuw nsw i32 8380421, %22
   %24 = sub nsw i32 4, %22
   %.neg.i.i.i.i = ashr i32 %24, 31
-  %25 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %25 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %26 = and i32 %25, %23
   %27 = xor i32 %.neg.i.i.i.i, -1
-  %28 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %27) #10, !srcloc !43
+  %28 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %27) #10, !srcloc !42
   %29 = and i32 %28, %24
   %30 = or i32 %29, %26
   %31 = getelementptr inbounds nuw i8, ptr %.01738, i64 4
@@ -1147,10 +1147,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %34 = sub nuw nsw i32 8380421, %33
   %35 = sub nsw i32 4, %33
   %.neg.i.i.i.i19 = ashr i32 %35, 31
-  %36 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !43
+  %36 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !42
   %37 = and i32 %36, %34
   %38 = xor i32 %.neg.i.i.i.i19, -1
-  %39 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %38) #10, !srcloc !43
+  %39 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %38) #10, !srcloc !42
   %40 = and i32 %39, %35
   %41 = or i32 %40, %37
   %42 = getelementptr inbounds nuw i8, ptr %.01738, i64 8
@@ -1160,10 +1160,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %45 = sub nuw nsw i32 8380421, %44
   %46 = sub nsw i32 4, %44
   %.neg.i.i.i.i20 = ashr i32 %46, 31
-  %47 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !43
+  %47 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !42
   %48 = and i32 %47, %45
   %49 = xor i32 %.neg.i.i.i.i20, -1
-  %50 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %49) #10, !srcloc !43
+  %50 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %49) #10, !srcloc !42
   %51 = and i32 %50, %46
   %52 = or i32 %51, %48
   %53 = getelementptr inbounds nuw i8, ptr %.01738, i64 12
@@ -1173,10 +1173,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %56 = sub nuw nsw i32 8380421, %55
   %57 = sub nsw i32 4, %55
   %.neg.i.i.i.i21 = ashr i32 %57, 31
-  %58 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !43
+  %58 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !42
   %59 = and i32 %58, %56
   %60 = xor i32 %.neg.i.i.i.i21, -1
-  %61 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %60) #10, !srcloc !43
+  %61 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %60) #10, !srcloc !42
   %62 = and i32 %61, %57
   %63 = or i32 %62, %59
   %64 = getelementptr inbounds nuw i8, ptr %.01738, i64 16
@@ -1186,10 +1186,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %67 = sub nuw nsw i32 8380421, %66
   %68 = sub nsw i32 4, %66
   %.neg.i.i.i.i22 = ashr i32 %68, 31
-  %69 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22) #10, !srcloc !43
+  %69 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22) #10, !srcloc !42
   %70 = and i32 %69, %67
   %71 = xor i32 %.neg.i.i.i.i22, -1
-  %72 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %71) #10, !srcloc !43
+  %72 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %71) #10, !srcloc !42
   %73 = and i32 %72, %68
   %74 = or i32 %73, %70
   %75 = getelementptr inbounds nuw i8, ptr %.01738, i64 20
@@ -1199,10 +1199,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %78 = sub nuw nsw i32 8380421, %77
   %79 = sub nsw i32 4, %77
   %.neg.i.i.i.i23 = ashr i32 %79, 31
-  %80 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23) #10, !srcloc !43
+  %80 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23) #10, !srcloc !42
   %81 = and i32 %80, %78
   %82 = xor i32 %.neg.i.i.i.i23, -1
-  %83 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %82) #10, !srcloc !43
+  %83 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %82) #10, !srcloc !42
   %84 = and i32 %83, %79
   %85 = or i32 %84, %81
   %86 = getelementptr inbounds nuw i8, ptr %.01738, i64 24
@@ -1212,10 +1212,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %89 = sub nuw nsw i32 8380421, %88
   %90 = sub nsw i32 4, %88
   %.neg.i.i.i.i24 = ashr i32 %90, 31
-  %91 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24) #10, !srcloc !43
+  %91 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24) #10, !srcloc !42
   %92 = and i32 %91, %89
   %93 = xor i32 %.neg.i.i.i.i24, -1
-  %94 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %93) #10, !srcloc !43
+  %94 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %93) #10, !srcloc !42
   %95 = and i32 %94, %90
   %96 = or i32 %95, %92
   %97 = getelementptr inbounds nuw i8, ptr %.01738, i64 28
@@ -1224,17 +1224,17 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_4(ptr noundef writeonly 
   %99 = sub nuw nsw i32 8380421, %98
   %100 = sub nsw i32 4, %98
   %.neg.i.i.i.i25 = ashr i32 %100, 31
-  %101 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25) #10, !srcloc !43
+  %101 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25) #10, !srcloc !42
   %102 = and i32 %101, %99
   %103 = xor i32 %.neg.i.i.i.i25, -1
-  %104 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %103) #10, !srcloc !43
+  %104 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %103) #10, !srcloc !42
   %105 = and i32 %104, %100
   %106 = or i32 %105, %102
   %107 = getelementptr inbounds nuw i8, ptr %.01738, i64 32
   store i32 %106, ptr %97, align 4, !tbaa !21
   %108 = add nuw nsw i32 %.039, 1
   %exitcond.not = icmp eq i32 %108, 32
-  br i1 %exitcond.not, label %PACKET_get_bytes.exit.thread, label %4, !llvm.loop !57
+  br i1 %exitcond.not, label %PACKET_get_bytes.exit.thread, label %4, !llvm.loop !56
 
 PACKET_get_bytes.exit.thread:                     ; preds = %4, %21, %7
   %.016 = phi i32 [ 0, %7 ], [ 1, %21 ], [ 0, %4 ]
@@ -1244,7 +1244,7 @@ PACKET_get_bytes.exit.thread:                     ; preds = %4, %21, %7
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.promoted = load i64, ptr %3, align 8, !tbaa !51
+  %.promoted = load i64, ptr %3, align 8, !tbaa !50
   br label %4
 
 4:                                                ; preds = %2, %19
@@ -1255,11 +1255,11 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   br i1 %6, label %PACKET_get_bytes.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !49
+  %8 = load ptr, ptr %1, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store ptr %9, ptr %1, align 8, !tbaa !49
+  store ptr %9, ptr %1, align 8, !tbaa !48
   %10 = add i64 %5, -3
-  store i64 %10, ptr %3, align 8, !tbaa !51
+  store i64 %10, ptr %3, align 8, !tbaa !50
   %.0.copyload = load i24, ptr %8, align 1
   %.0.insert.ext = zext i24 %.0.copyload to i32
   %11 = and i32 %.0.insert.ext, 9586980
@@ -1269,7 +1269,7 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %15 = and i32 %14, %.0.insert.ext
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
-  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %17) #10, !srcloc !43
+  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %17) #10, !srcloc !42
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %19, label %PACKET_get_bytes.exit.thread
 
@@ -1278,10 +1278,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %21 = sub nuw nsw i32 8380419, %20
   %22 = sub nsw i32 2, %20
   %.neg.i.i.i.i = ashr i32 %22, 31
-  %23 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %23 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %24 = and i32 %23, %21
   %25 = xor i32 %.neg.i.i.i.i, -1
-  %26 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %25) #10, !srcloc !43
+  %26 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %25) #10, !srcloc !42
   %27 = and i32 %26, %22
   %28 = or i32 %27, %24
   %29 = getelementptr inbounds nuw i8, ptr %.01640, i64 4
@@ -1291,10 +1291,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %32 = sub nuw nsw i32 8380419, %31
   %33 = sub nsw i32 2, %31
   %.neg.i.i.i.i18 = ashr i32 %33, 31
-  %34 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i18) #10, !srcloc !43
+  %34 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i18) #10, !srcloc !42
   %35 = and i32 %34, %32
   %36 = xor i32 %.neg.i.i.i.i18, -1
-  %37 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %36) #10, !srcloc !43
+  %37 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %36) #10, !srcloc !42
   %38 = and i32 %37, %33
   %39 = or i32 %38, %35
   %40 = getelementptr inbounds nuw i8, ptr %.01640, i64 8
@@ -1304,10 +1304,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %43 = sub nuw nsw i32 8380419, %42
   %44 = sub nsw i32 2, %42
   %.neg.i.i.i.i19 = ashr i32 %44, 31
-  %45 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !43
+  %45 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !42
   %46 = and i32 %45, %43
   %47 = xor i32 %.neg.i.i.i.i19, -1
-  %48 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %47) #10, !srcloc !43
+  %48 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %47) #10, !srcloc !42
   %49 = and i32 %48, %44
   %50 = or i32 %49, %46
   %51 = getelementptr inbounds nuw i8, ptr %.01640, i64 12
@@ -1317,10 +1317,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %54 = sub nuw nsw i32 8380419, %53
   %55 = sub nsw i32 2, %53
   %.neg.i.i.i.i20 = ashr i32 %55, 31
-  %56 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !43
+  %56 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !42
   %57 = and i32 %56, %54
   %58 = xor i32 %.neg.i.i.i.i20, -1
-  %59 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %58) #10, !srcloc !43
+  %59 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %58) #10, !srcloc !42
   %60 = and i32 %59, %55
   %61 = or i32 %60, %57
   %62 = getelementptr inbounds nuw i8, ptr %.01640, i64 16
@@ -1330,10 +1330,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %65 = sub nuw nsw i32 8380419, %64
   %66 = sub nsw i32 2, %64
   %.neg.i.i.i.i21 = ashr i32 %66, 31
-  %67 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !43
+  %67 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !42
   %68 = and i32 %67, %65
   %69 = xor i32 %.neg.i.i.i.i21, -1
-  %70 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %69) #10, !srcloc !43
+  %70 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %69) #10, !srcloc !42
   %71 = and i32 %70, %66
   %72 = or i32 %71, %68
   %73 = getelementptr inbounds nuw i8, ptr %.01640, i64 20
@@ -1343,10 +1343,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %76 = sub nuw nsw i32 8380419, %75
   %77 = sub nsw i32 2, %75
   %.neg.i.i.i.i22 = ashr i32 %77, 31
-  %78 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22) #10, !srcloc !43
+  %78 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22) #10, !srcloc !42
   %79 = and i32 %78, %76
   %80 = xor i32 %.neg.i.i.i.i22, -1
-  %81 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %80) #10, !srcloc !43
+  %81 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %80) #10, !srcloc !42
   %82 = and i32 %81, %77
   %83 = or i32 %82, %79
   %84 = getelementptr inbounds nuw i8, ptr %.01640, i64 24
@@ -1356,10 +1356,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %87 = sub nuw nsw i32 8380419, %86
   %88 = sub nsw i32 2, %86
   %.neg.i.i.i.i23 = ashr i32 %88, 31
-  %89 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23) #10, !srcloc !43
+  %89 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23) #10, !srcloc !42
   %90 = and i32 %89, %87
   %91 = xor i32 %.neg.i.i.i.i23, -1
-  %92 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %91) #10, !srcloc !43
+  %92 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %91) #10, !srcloc !42
   %93 = and i32 %92, %88
   %94 = or i32 %93, %90
   %95 = getelementptr inbounds nuw i8, ptr %.01640, i64 28
@@ -1368,17 +1368,17 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_2(ptr noundef writeonly 
   %97 = sub nuw nsw i32 8380419, %96
   %98 = sub nsw i32 2, %96
   %.neg.i.i.i.i24 = ashr i32 %98, 31
-  %99 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24) #10, !srcloc !43
+  %99 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24) #10, !srcloc !42
   %100 = and i32 %99, %97
   %101 = xor i32 %.neg.i.i.i.i24, -1
-  %102 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %101) #10, !srcloc !43
+  %102 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %101) #10, !srcloc !42
   %103 = and i32 %102, %98
   %104 = or i32 %103, %100
   %105 = getelementptr inbounds nuw i8, ptr %.01640, i64 32
   store i32 %104, ptr %95, align 4, !tbaa !21
   %106 = add nuw nsw i32 %.041, 1
   %exitcond.not = icmp eq i32 %106, 32
-  br i1 %exitcond.not, label %PACKET_get_bytes.exit.thread, label %4, !llvm.loop !58
+  br i1 %exitcond.not, label %PACKET_get_bytes.exit.thread, label %4, !llvm.loop !57
 
 PACKET_get_bytes.exit.thread:                     ; preds = %4, %19, %7
   %.015 = phi i32 [ 0, %7 ], [ 1, %19 ], [ 0, %4 ]
@@ -1397,51 +1397,51 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !59
+  %9 = load i32, ptr %8, align 4, !tbaa !58
   %10 = icmp eq i32 %9, 524288
   %poly_encode_signed_two_to_power_19.poly_encode_signed_two_to_power_17 = select i1 %10, ptr @poly_encode_signed_two_to_power_19, ptr @poly_encode_signed_two_to_power_17
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %12 = load i64, ptr %11, align 8, !tbaa !60
+  %12 = load i64, ptr %11, align 8, !tbaa !59
   %13 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %12, i64 noundef 0) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.loopexit, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !61
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !63
+  %18 = load i64, ptr %17, align 8, !tbaa !62
   %19 = call i32 @WPACKET_memcpy(ptr noundef nonnull %5, ptr noundef %16, i64 noundef %18) #9
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !64
+  %21 = load i64, ptr %20, align 8, !tbaa !63
   %.not26 = icmp eq i64 %21, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 22:                                               ; preds = %.lr.ph
   %23 = add nuw i64 %.01525, 1
-  %24 = load i64, ptr %20, align 8, !tbaa !64
+  %24 = load i64, ptr %20, align 8, !tbaa !63
   %25 = icmp ult i64 %23, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %.preheader, %22
   %.01525 = phi i64 [ %23, %22 ], [ 0, %.preheader ]
-  %26 = load ptr, ptr %0, align 8, !tbaa !66
+  %26 = load ptr, ptr %0, align 8, !tbaa !65
   %27 = getelementptr inbounds nuw %struct.poly_st, ptr %26, i64 %.01525
-  %28 = call i32 %poly_encode_signed_two_to_power_19.poly_encode_signed_two_to_power_17(ptr noundef %27, ptr noundef nonnull %5) #9, !callees !67
+  %28 = call i32 %poly_encode_signed_two_to_power_19.poly_encode_signed_two_to_power_17(ptr noundef %27, ptr noundef nonnull %5) #9, !callees !66
   %.not21 = icmp eq i32 %28, 0
   br i1 %.not21, label %.loopexit, label %22
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %31 = load i32, ptr %30, align 8, !tbaa !68
-  %.val = load ptr, ptr %29, align 8, !tbaa !69
+  %31 = load i32, ptr %30, align 8, !tbaa !67
+  %.val = load ptr, ptr %29, align 8, !tbaa !68
   %32 = getelementptr i8, ptr %0, i64 24
-  %.val22 = load i64, ptr %32, align 8, !tbaa !70
+  %.val22 = load i64, ptr %32, align 8, !tbaa !69
   %33 = trunc i64 %.val22 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %34 = add i32 %31, %33
@@ -1486,7 +1486,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
   %.2.i = phi i64 [ %46, %43 ], [ %.12.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %49, label %40, !llvm.loop !71
+  br i1 %exitcond.not.i, label %49, label %40, !llvm.loop !70
 
 49:                                               ; preds = %48
   %50 = trunc i64 %.2.i to i8
@@ -1499,7 +1499,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %56 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1024
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, %wide.trip.count.i
-  br i1 %exitcond10.not.i, label %.loopexit.sink.split, label %.preheader.i, !llvm.loop !72
+  br i1 %exitcond10.not.i, label %.loopexit.sink.split, label %.preheader.i, !llvm.loop !71
 
 .loopexit.sink.split:                             ; preds = %49, %._crit_edge, %37
   %.016.ph = phi i32 [ 1, %37 ], [ 0, %._crit_edge ], [ 1, %49 ]
@@ -1538,10 +1538,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   %11 = add i32 %8, -8904706
   %12 = and i32 %10, %11
   %.neg.i.i.i.i = ashr i32 %12, 31
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %14 = and i32 %13, %9
   %15 = xor i32 %.neg.i.i.i.i, -1
-  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %15) #10, !srcloc !43
+  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %15) #10, !srcloc !42
   %17 = and i32 %16, %10
   %18 = or i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %.017.ptr, i64 8
@@ -1551,10 +1551,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   %23 = add i32 %20, -8904706
   %24 = and i32 %22, %23
   %.neg.i.i.i.i19 = ashr i32 %24, 31
-  %25 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !43
+  %25 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !42
   %26 = and i32 %25, %21
   %27 = xor i32 %.neg.i.i.i.i19, -1
-  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %27) #10, !srcloc !43
+  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %27) #10, !srcloc !42
   %29 = and i32 %28, %22
   %30 = or i32 %29, %26
   %31 = shl i32 %30, 20
@@ -1567,10 +1567,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   %38 = add i32 %35, -8904706
   %39 = and i32 %37, %38
   %.neg.i.i.i.i20 = ashr i32 %39, 31
-  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !43
+  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !42
   %41 = and i32 %40, %36
   %42 = xor i32 %.neg.i.i.i.i20, -1
-  %43 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !43
+  %43 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !42
   %44 = and i32 %43, %37
   %45 = or i32 %44, %41
   %46 = shl i32 %45, 8
@@ -1582,10 +1582,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   %51 = add i32 %48, -8904706
   %52 = and i32 %50, %51
   %.neg.i.i.i.i21 = ashr i32 %52, 31
-  %53 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !43
+  %53 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !42
   %54 = and i32 %53, %49
   %55 = xor i32 %.neg.i.i.i.i21, -1
-  %56 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %55) #10, !srcloc !43
+  %56 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %55) #10, !srcloc !42
   %57 = and i32 %56, %50
   %58 = or i32 %57, %54
   %59 = shl i32 %58, 28
@@ -1600,7 +1600,7 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   store i16 %65, ptr %63, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %66 = icmp samesign ult i64 %.017.idx, 1008
-  br i1 %66, label %4, label %.loopexit, !llvm.loop !73
+  br i1 %66, label %4, label %.loopexit, !llvm.loop !72
 
 .critedge:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
@@ -1632,10 +1632,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   %11 = add i32 %8, -8511490
   %12 = and i32 %10, %11
   %.neg.i.i.i.i = ashr i32 %12, 31
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %14 = and i32 %13, %9
   %15 = xor i32 %.neg.i.i.i.i, -1
-  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %15) #10, !srcloc !43
+  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %15) #10, !srcloc !42
   %17 = and i32 %16, %10
   %18 = or i32 %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %.017.ptr, i64 8
@@ -1645,10 +1645,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   %23 = add i32 %20, -8511490
   %24 = and i32 %22, %23
   %.neg.i.i.i.i19 = ashr i32 %24, 31
-  %25 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !43
+  %25 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !42
   %26 = and i32 %25, %21
   %27 = xor i32 %.neg.i.i.i.i19, -1
-  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %27) #10, !srcloc !43
+  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %27) #10, !srcloc !42
   %29 = and i32 %28, %22
   %30 = or i32 %29, %26
   %31 = shl i32 %30, 18
@@ -1661,10 +1661,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   %38 = add i32 %35, -8511490
   %39 = and i32 %37, %38
   %.neg.i.i.i.i20 = ashr i32 %39, 31
-  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !43
+  %40 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20) #10, !srcloc !42
   %41 = and i32 %40, %36
   %42 = xor i32 %.neg.i.i.i.i20, -1
-  %43 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !43
+  %43 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !42
   %44 = and i32 %43, %37
   %45 = or i32 %44, %41
   %46 = shl i32 %45, 4
@@ -1676,10 +1676,10 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   %51 = add i32 %48, -8511490
   %52 = and i32 %50, %51
   %.neg.i.i.i.i21 = ashr i32 %52, 31
-  %53 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !43
+  %53 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21) #10, !srcloc !42
   %54 = and i32 %53, %49
   %55 = xor i32 %.neg.i.i.i.i21, -1
-  %56 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %55) #10, !srcloc !43
+  %56 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %55) #10, !srcloc !42
   %57 = and i32 %56, %50
   %58 = or i32 %57, %54
   %59 = shl i32 %58, 22
@@ -1694,7 +1694,7 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   store i8 %65, ptr %63, align 1, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %66 = icmp samesign ult i64 %.017.idx, 1008
-  br i1 %66, label %4, label %.loopexit, !llvm.loop !74
+  br i1 %66, label %4, label %.loopexit, !llvm.loop !73
 
 .critedge:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
@@ -1710,7 +1710,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_decode(ptr noundef readonly captures
   %5 = alloca %struct.PACKET, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !59
+  %7 = load i32, ptr %6, align 4, !tbaa !58
   %8 = icmp eq i32 %7, 524288
   %poly_decode_signed_two_to_power_19.poly_decode_signed_two_to_power_17 = select i1 %8, ptr @poly_decode_signed_two_to_power_19, ptr @poly_decode_signed_two_to_power_17
   %9 = icmp slt i64 %2, 0
@@ -1719,56 +1719,56 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_decode(ptr noundef readonly captures
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i64, ptr %12, align 8, !tbaa !63
+  %13 = load i64, ptr %12, align 8, !tbaa !62
   %14 = icmp ult i64 %2, %13
   br i1 %14, label %PACKET_buf_init.exit.thread, label %PACKET_copy_bytes.exit
 
 PACKET_copy_bytes.exit:                           ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !61
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %1, i64 %13, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  store ptr %17, ptr %5, align 8, !tbaa !49
+  store ptr %17, ptr %5, align 8, !tbaa !48
   %18 = sub nuw nsw i64 %2, %13
-  store i64 %18, ptr %11, align 8, !tbaa !51
+  store i64 %18, ptr %11, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !64
+  %20 = load i64, ptr %19, align 8, !tbaa !63
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = add nuw i64 %.01332, 1
-  %23 = load i64, ptr %19, align 8, !tbaa !64
+  %23 = load i64, ptr %19, align 8, !tbaa !63
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !75
+  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !74
 
 .lr.ph:                                           ; preds = %PACKET_copy_bytes.exit, %21
   %.01332 = phi i64 [ %22, %21 ], [ 0, %PACKET_copy_bytes.exit ]
-  %25 = load ptr, ptr %0, align 8, !tbaa !66
+  %25 = load ptr, ptr %0, align 8, !tbaa !65
   %26 = getelementptr inbounds nuw %struct.poly_st, ptr %25, i64 %.01332
-  %27 = call i32 %poly_decode_signed_two_to_power_19.poly_decode_signed_two_to_power_17(ptr noundef %26, ptr noundef nonnull %5) #9, !callees !76
+  %27 = call i32 %poly_decode_signed_two_to_power_19.poly_decode_signed_two_to_power_17(ptr noundef %26, ptr noundef nonnull %5) #9, !callees !75
   %.not18 = icmp eq i32 %27, 0
   br i1 %.not18, label %PACKET_buf_init.exit.thread, label %21
 
 ._crit_edge.loopexit:                             ; preds = %21
-  %.val.i.i.i.pre = load i64, ptr %11, align 8, !tbaa !51
+  %.val.i.i.i.pre = load i64, ptr %11, align 8, !tbaa !50
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %PACKET_copy_bytes.exit
   %.val.i.i.i = phi i64 [ %.val.i.i.i.pre, %._crit_edge.loopexit ], [ %18, %PACKET_copy_bytes.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %30 = load i32, ptr %29, align 8, !tbaa !68
-  %.val19 = load ptr, ptr %28, align 8, !tbaa !69
+  %30 = load i32, ptr %29, align 8, !tbaa !67
+  %.val19 = load ptr, ptr %28, align 8, !tbaa !68
   %31 = getelementptr i8, ptr %0, i64 24
-  %.val20 = load i64, ptr %31, align 8, !tbaa !70
+  %.val20 = load i64, ptr %31, align 8, !tbaa !69
   %32 = getelementptr inbounds nuw %struct.poly_st, ptr %.val19, i64 %.val20
   %33 = zext i32 %30 to i64
   %34 = icmp ult i64 %.val.i.i.i, %33
   br i1 %34, label %PACKET_buf_init.exit.thread, label %35
 
 35:                                               ; preds = %._crit_edge
-  %36 = load ptr, ptr %5, align 8, !tbaa !49
+  %36 = load ptr, ptr %5, align 8, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %33
   %38 = sub nuw i64 %.val.i.i.i, %33
   %39 = icmp ult i64 %38, %.val20
@@ -1776,9 +1776,9 @@ PACKET_copy_bytes.exit:                           ; preds = %10
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.val20
-  store ptr %41, ptr %5, align 8, !tbaa !49
+  store ptr %41, ptr %5, align 8, !tbaa !48
   %42 = sub nuw i64 %38, %.val20
-  store i64 %42, ptr %11, align 8, !tbaa !51
+  store i64 %42, ptr %11, align 8, !tbaa !50
   %.not.i.i = icmp eq ptr %.val19, null
   br i1 %.not.i.i, label %vector_zero.exit.i.preheader, label %43
 
@@ -1824,13 +1824,13 @@ vector_zero.exit.i:                               ; preds = %vector_zero.exit.i.
   %59 = getelementptr inbounds nuw [256 x i32], ptr %.039.i, i64 0, i64 %58
   store i32 1, ptr %59, align 4, !tbaa !21
   %exitcond.not.i = icmp eq i64 %57, %47
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !76
 
 ._crit_edge.i:                                    ; preds = %56, %.preheader11.i
   %.235.lcssa.i = phi i64 [ %.033.i, %.preheader11.i ], [ %47, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %.039.i, i64 1024
   %61 = icmp ult ptr %60, %32
-  br i1 %61, label %vector_zero.exit.i, label %.preheader.i, !llvm.loop !78
+  br i1 %61, label %vector_zero.exit.i, label %.preheader.i, !llvm.loop !77
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %62 = icmp samesign ult i64 %.235.lcssa.i, %33
@@ -1839,7 +1839,7 @@ vector_zero.exit.i:                               ; preds = %vector_zero.exit.i.
 63:                                               ; preds = %.lr.ph18.i
   %64 = add i64 %.33617.i, 1
   %exitcond24.not.i = icmp eq i64 %64, %33
-  br i1 %exitcond24.not.i, label %hint_bits_decode.exit, label %.lr.ph18.i, !llvm.loop !79
+  br i1 %exitcond24.not.i, label %hint_bits_decode.exit, label %.lr.ph18.i, !llvm.loop !78
 
 .lr.ph18.i:                                       ; preds = %.preheader.i, %63
   %.33617.i = phi i64 [ %64, %63 ], [ %.235.lcssa.i, %.preheader.i ]
@@ -1849,7 +1849,7 @@ vector_zero.exit.i:                               ; preds = %vector_zero.exit.i.
   br i1 %.not44.i, label %63, label %PACKET_buf_init.exit.thread
 
 hint_bits_decode.exit:                            ; preds = %63, %.preheader.i
-  %.val = load i64, ptr %11, align 8, !tbaa !51
+  %.val = load i64, ptr %11, align 8, !tbaa !50
   %.not17 = icmp eq i64 %.val, 0
   %spec.select = zext i1 %.not17 to i32
   br label %PACKET_buf_init.exit.thread
@@ -1863,7 +1863,7 @@ PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zer
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.promoted = load i64, ptr %3, align 8, !tbaa !51
+  %.promoted = load i64, ptr %3, align 8, !tbaa !50
   br label %4
 
 4:                                                ; preds = %2, %7
@@ -1874,11 +1874,11 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   br i1 %6, label %59, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !49
+  %8 = load ptr, ptr %1, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store ptr %9, ptr %1, align 8, !tbaa !49
+  store ptr %9, ptr %1, align 8, !tbaa !48
   %10 = add i64 %5, -10
-  store i64 %10, ptr %3, align 8, !tbaa !51
+  store i64 %10, ptr %3, align 8, !tbaa !50
   %.0.copyload.i = load i32, ptr %8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.0.copyload.i14 = load i32, ptr %11, align 1
@@ -1888,10 +1888,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   %14 = sub nuw nsw i32 8904705, %13
   %15 = sub nsw i32 524288, %13
   %.neg.i.i.i.i = ashr i32 %15, 31
-  %16 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %16 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %17 = and i32 %16, %14
   %18 = xor i32 %.neg.i.i.i.i, -1
-  %19 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %18) #10, !srcloc !43
+  %19 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %18) #10, !srcloc !42
   %20 = and i32 %19, %15
   %21 = or i32 %20, %17
   %22 = getelementptr inbounds nuw i8, ptr %.01036, i64 4
@@ -1903,10 +1903,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   %27 = sub nuw nsw i32 8904705, %26
   %28 = sub nsw i32 524288, %26
   %.neg.i.i.i.i16 = ashr i32 %28, 31
-  %29 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i16) #10, !srcloc !43
+  %29 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i16) #10, !srcloc !42
   %30 = and i32 %29, %27
   %31 = xor i32 %.neg.i.i.i.i16, -1
-  %32 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %31) #10, !srcloc !43
+  %32 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %31) #10, !srcloc !42
   %33 = and i32 %32, %28
   %34 = or i32 %33, %30
   %35 = getelementptr inbounds nuw i8, ptr %.01036, i64 8
@@ -1916,10 +1916,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   %38 = sub nuw nsw i32 8904705, %37
   %39 = sub nsw i32 524288, %37
   %.neg.i.i.i.i17 = ashr i32 %39, 31
-  %40 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i17) #10, !srcloc !43
+  %40 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i17) #10, !srcloc !42
   %41 = and i32 %40, %38
   %42 = xor i32 %.neg.i.i.i.i17, -1
-  %43 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !43
+  %43 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !42
   %44 = and i32 %43, %39
   %45 = or i32 %44, %41
   %46 = getelementptr inbounds nuw i8, ptr %.01036, i64 12
@@ -1929,17 +1929,17 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   %49 = sub nuw nsw i32 8904705, %48
   %50 = sub nsw i32 524288, %48
   %.neg.i.i.i.i18 = ashr i32 %50, 31
-  %51 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i18) #10, !srcloc !43
+  %51 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i18) #10, !srcloc !42
   %52 = and i32 %51, %49
   %53 = xor i32 %.neg.i.i.i.i18, -1
-  %54 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %53) #10, !srcloc !43
+  %54 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %53) #10, !srcloc !42
   %55 = and i32 %54, %50
   %56 = or i32 %55, %52
   %57 = getelementptr inbounds nuw i8, ptr %.01036, i64 16
   store i32 %56, ptr %46, align 4, !tbaa !21
   %58 = add nuw nsw i32 %.01235, 1
   %exitcond.not = icmp eq i32 %58, 64
-  br i1 %exitcond.not, label %59, label %4, !llvm.loop !80
+  br i1 %exitcond.not, label %59, label %4, !llvm.loop !79
 
 59:                                               ; preds = %4, %7
   %.013 = phi i32 [ 1, %7 ], [ 0, %4 ]
@@ -1949,7 +1949,7 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.promoted = load i64, ptr %3, align 8, !tbaa !51
+  %.promoted = load i64, ptr %3, align 8, !tbaa !50
   br label %4
 
 4:                                                ; preds = %7, %2
@@ -1959,11 +1959,11 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !49
+  %8 = load ptr, ptr %1, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store ptr %9, ptr %1, align 8, !tbaa !49
+  store ptr %9, ptr %1, align 8, !tbaa !48
   %10 = add i64 %5, -9
-  store i64 %10, ptr %3, align 8, !tbaa !51
+  store i64 %10, ptr %3, align 8, !tbaa !50
   %.012.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.012.idx
   %.0.copyload.i = load i32, ptr %8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1975,10 +1975,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   %16 = sub nuw nsw i32 8511489, %15
   %17 = sub nsw i32 131072, %15
   %.neg.i.i.i.i = ashr i32 %17, 31
-  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !43
+  %18 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #10, !srcloc !42
   %19 = and i32 %18, %16
   %20 = xor i32 %.neg.i.i.i.i, -1
-  %21 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %20) #10, !srcloc !43
+  %21 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %20) #10, !srcloc !42
   %22 = and i32 %21, %17
   %23 = or i32 %22, %19
   %24 = getelementptr inbounds nuw i8, ptr %.012.ptr, i64 4
@@ -1990,10 +1990,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   %29 = sub nuw nsw i32 8511489, %28
   %30 = sub nsw i32 131072, %28
   %.neg.i.i.i.i15 = ashr i32 %30, 31
-  %31 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i15) #10, !srcloc !43
+  %31 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i15) #10, !srcloc !42
   %32 = and i32 %31, %29
   %33 = xor i32 %.neg.i.i.i.i15, -1
-  %34 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %33) #10, !srcloc !43
+  %34 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %33) #10, !srcloc !42
   %35 = and i32 %34, %30
   %36 = or i32 %35, %32
   %37 = getelementptr inbounds nuw i8, ptr %.012.ptr, i64 8
@@ -2003,10 +2003,10 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   %40 = sub nuw nsw i32 8511489, %39
   %41 = sub nsw i32 131072, %39
   %.neg.i.i.i.i16 = ashr i32 %41, 31
-  %42 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i16) #10, !srcloc !43
+  %42 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i16) #10, !srcloc !42
   %43 = and i32 %42, %40
   %44 = xor i32 %.neg.i.i.i.i16, -1
-  %45 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %44) #10, !srcloc !43
+  %45 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %44) #10, !srcloc !42
   %46 = and i32 %45, %41
   %47 = or i32 %46, %43
   %48 = getelementptr inbounds nuw i8, ptr %.012.ptr, i64 12
@@ -2015,16 +2015,16 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   %50 = sub nuw nsw i32 8511489, %49
   %51 = sub nsw i32 131072, %49
   %.neg.i.i.i.i17 = ashr i32 %51, 31
-  %52 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i17) #10, !srcloc !43
+  %52 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i17) #10, !srcloc !42
   %53 = and i32 %52, %50
   %54 = xor i32 %.neg.i.i.i.i17, -1
-  %55 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %54) #10, !srcloc !43
+  %55 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %54) #10, !srcloc !42
   %56 = and i32 %55, %51
   %57 = or i32 %56, %53
   %.012.add = add nuw nsw i64 %.012.idx, 16
   store i32 %57, ptr %48, align 4, !tbaa !21
   %58 = icmp samesign ult i64 %.012.idx, 1008
-  br i1 %58, label %4, label %.critedge, !llvm.loop !81
+  br i1 %58, label %4, label %.critedge, !llvm.loop !80
 
 .critedge:                                        ; preds = %4, %7
   %.2 = phi i32 [ 1, %7 ], [ 0, %4 ]
@@ -2039,9 +2039,9 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_poly_decode_expand_mask(ptr noundef writ
   br i1 %6, label %PACKET_buf_init.exit.thread, label %7
 
 7:                                                ; preds = %4
-  store ptr %1, ptr %5, align 8, !tbaa !49
+  store ptr %1, ptr %5, align 8, !tbaa !48
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %2, ptr %8, align 8, !tbaa !51
+  store i64 %2, ptr %8, align 8, !tbaa !50
   %9 = icmp eq i32 %3, 524288
   br i1 %9, label %10, label %12
 
@@ -2071,21 +2071,21 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_w1_encode(ptr noundef readonly captures(
   %8 = icmp eq i32 %1, 261888
   %poly_encode_4_bits.poly_encode_6_bits = select i1 %8, ptr @poly_encode_4_bits, ptr @poly_encode_6_bits
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !70
+  %10 = load i64, ptr %9, align 8, !tbaa !69
   %.not17 = icmp eq i64 %10, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
   %12 = add nuw i64 %.014, 1
-  %13 = load i64, ptr %9, align 8, !tbaa !70
+  %13 = load i64, ptr %9, align 8, !tbaa !69
   %14 = icmp ult i64 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !82
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 .lr.ph:                                           ; preds = %7, %11
   %.014 = phi i64 [ %12, %11 ], [ 0, %7 ]
-  %15 = load ptr, ptr %0, align 8, !tbaa !69
+  %15 = load ptr, ptr %0, align 8, !tbaa !68
   %16 = getelementptr inbounds nuw %struct.poly_st, ptr %15, i64 %.014
-  %17 = call i32 %poly_encode_4_bits.poly_encode_6_bits(ptr noundef %16, ptr noundef nonnull %5) #9, !callees !83
+  %17 = call i32 %poly_encode_4_bits.poly_encode_6_bits(ptr noundef %16, ptr noundef nonnull %5) #9, !callees !82
   %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %._crit_edge, label %11
 
@@ -2123,7 +2123,7 @@ define internal range(i32 0, 2) i32 @poly_encode_4_bits(ptr noundef readonly cap
   store ptr %12, ptr %3, align 8, !tbaa !22
   store i8 %10, ptr %11, align 1, !tbaa !23
   %13 = icmp samesign ult i64 %.09.idx, 1016
-  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !84
+  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %.preheader ]
@@ -2174,7 +2174,7 @@ define internal range(i32 0, 2) i32 @poly_encode_6_bits(ptr noundef readonly cap
   store ptr %28, ptr %3, align 8, !tbaa !22
   store i8 %26, ptr %27, align 1, !tbaa !23
   %29 = icmp samesign ult i64 %.015.idx, 1008
-  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !85
+  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %.preheader ]
@@ -2240,65 +2240,64 @@ attributes #10 = { nounwind memory(none) }
 !21 = !{!14, !14, i64 0}
 !22 = !{!13, !13, i64 0}
 !23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = !{!8, !13, i64 160}
-!29 = !{!8, !13, i64 168}
-!30 = distinct !{!30, !25, !26}
-!31 = distinct !{!31, !25, !26}
-!32 = !{!8, !12, i64 24}
-!33 = !{!20, !4, i64 32}
-!34 = !{!20, !4, i64 40}
-!35 = !{!20, !4, i64 64}
-!36 = !{!8, !16, i64 208}
-!37 = !{!20, !14, i64 48}
-!38 = distinct !{!38, !25, !26}
-!39 = !{!8, !16, i64 240}
-!40 = !{ptr @poly_encode_signed_2, ptr @poly_encode_signed_4}
-!41 = distinct !{!41, !25, !26}
-!42 = !{!8, !16, i64 224}
-!43 = !{i64 1782043}
-!44 = distinct !{!44, !25, !26}
-!45 = distinct !{!45, !25, !26}
-!46 = distinct !{!46, !25, !26}
-!47 = distinct !{!47, !25, !26}
-!48 = !{!8, !13, i64 176}
-!49 = !{!50, !13, i64 0}
-!50 = !{!"", !13, i64 0, !4, i64 8}
-!51 = !{!50, !4, i64 8}
-!52 = distinct !{!52, !25, !26}
-!53 = !{ptr @poly_decode_signed_2, ptr @poly_decode_signed_4}
-!54 = distinct !{!54, !25, !26}
-!55 = distinct !{!55, !25, !26}
-!56 = distinct !{!56, !25, !26}
-!57 = distinct !{!57, !25, !26}
-!58 = distinct !{!58, !25, !26}
-!59 = !{!20, !14, i64 20}
-!60 = !{!20, !4, i64 80}
-!61 = !{!62, !13, i64 32}
-!62 = !{!"ml_dsa_sig_st", !15, i64 0, !15, i64 16, !13, i64 32, !4, i64 40}
-!63 = !{!62, !4, i64 40}
-!64 = !{!62, !4, i64 8}
-!65 = distinct !{!65, !25, !26}
-!66 = !{!62, !16, i64 0}
-!67 = !{ptr @poly_encode_signed_two_to_power_17, ptr @poly_encode_signed_two_to_power_19}
-!68 = !{!20, !14, i64 56}
-!69 = !{!15, !16, i64 0}
-!70 = !{!15, !4, i64 8}
-!71 = distinct !{!71, !25, !26}
-!72 = distinct !{!72, !25, !26}
-!73 = distinct !{!73, !25, !26}
-!74 = distinct !{!74, !25, !26}
-!75 = distinct !{!75, !25, !26}
-!76 = !{ptr @poly_decode_signed_two_to_power_17, ptr @poly_decode_signed_two_to_power_19}
-!77 = distinct !{!77, !25, !26}
-!78 = distinct !{!78, !25, !26}
-!79 = distinct !{!79, !25, !26}
-!80 = distinct !{!80, !25, !26}
-!81 = distinct !{!81, !25, !26}
-!82 = distinct !{!82, !25, !26}
-!83 = !{ptr @poly_encode_4_bits, ptr @poly_encode_6_bits}
-!84 = distinct !{!84, !25, !26}
-!85 = distinct !{!85, !25, !26}
+!26 = distinct !{!26, !25}
+!27 = !{!8, !13, i64 160}
+!28 = !{!8, !13, i64 168}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}
+!31 = !{!8, !12, i64 24}
+!32 = !{!20, !4, i64 32}
+!33 = !{!20, !4, i64 40}
+!34 = !{!20, !4, i64 64}
+!35 = !{!8, !16, i64 208}
+!36 = !{!20, !14, i64 48}
+!37 = distinct !{!37, !25}
+!38 = !{!8, !16, i64 240}
+!39 = !{ptr @poly_encode_signed_2, ptr @poly_encode_signed_4}
+!40 = distinct !{!40, !25}
+!41 = !{!8, !16, i64 224}
+!42 = !{i64 1782043}
+!43 = distinct !{!43, !25}
+!44 = distinct !{!44, !25}
+!45 = distinct !{!45, !25}
+!46 = distinct !{!46, !25}
+!47 = !{!8, !13, i64 176}
+!48 = !{!49, !13, i64 0}
+!49 = !{!"", !13, i64 0, !4, i64 8}
+!50 = !{!49, !4, i64 8}
+!51 = distinct !{!51, !25}
+!52 = !{ptr @poly_decode_signed_2, ptr @poly_decode_signed_4}
+!53 = distinct !{!53, !25}
+!54 = distinct !{!54, !25}
+!55 = distinct !{!55, !25}
+!56 = distinct !{!56, !25}
+!57 = distinct !{!57, !25}
+!58 = !{!20, !14, i64 20}
+!59 = !{!20, !4, i64 80}
+!60 = !{!61, !13, i64 32}
+!61 = !{!"ml_dsa_sig_st", !15, i64 0, !15, i64 16, !13, i64 32, !4, i64 40}
+!62 = !{!61, !4, i64 40}
+!63 = !{!61, !4, i64 8}
+!64 = distinct !{!64, !25}
+!65 = !{!61, !16, i64 0}
+!66 = !{ptr @poly_encode_signed_two_to_power_17, ptr @poly_encode_signed_two_to_power_19}
+!67 = !{!20, !14, i64 56}
+!68 = !{!15, !16, i64 0}
+!69 = !{!15, !4, i64 8}
+!70 = distinct !{!70, !25}
+!71 = distinct !{!71, !25}
+!72 = distinct !{!72, !25}
+!73 = distinct !{!73, !25}
+!74 = distinct !{!74, !25}
+!75 = !{ptr @poly_decode_signed_two_to_power_17, ptr @poly_decode_signed_two_to_power_19}
+!76 = distinct !{!76, !25}
+!77 = distinct !{!77, !25}
+!78 = distinct !{!78, !25}
+!79 = distinct !{!79, !25}
+!80 = distinct !{!80, !25}
+!81 = distinct !{!81, !25}
+!82 = !{ptr @poly_encode_4_bits, ptr @poly_encode_6_bits}
+!83 = distinct !{!83, !25}
+!84 = distinct !{!84, !25}

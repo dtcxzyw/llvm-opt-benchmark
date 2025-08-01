@@ -220,12 +220,12 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %82 = lshr i8 %.01213.i.i, 1
   %83 = add nuw nsw i8 %.01114.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %83, 8
-  br i1 %exitcond.not.i.i, label %calc_data_crc32.exit.i, label %76, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %calc_data_crc32.exit.i, label %76, !llvm.loop !8
 
 calc_data_crc32.exit.i:                           ; preds = %76
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %.lr.ph38.i.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond163.not, label %.lr.ph38.i.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph38.i.i:                                     ; preds = %calc_data_crc32.exit.i, %104
   %.02436.i.i = phi i64 [ %.2.i.i, %104 ], [ 0, %calc_data_crc32.exit.i ]
@@ -261,7 +261,7 @@ calc_data_crc32.exit.i:                           ; preds = %76
   %.126.i.i = add i64 %.12633.i.i, 1
   %99 = add i8 %93, -1
   %.not.i33.i = icmp eq i8 %99, 0
-  br i1 %.not.i33.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i33.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i64 [ %.02436.i.i, %.preheader.i.i ], [ %97, %.lr.ph.i.i ]
@@ -279,7 +279,7 @@ calc_data_crc32.exit.i:                           ; preds = %76
 
 104:                                              ; preds = %101, %._crit_edge.i.i
   %.2.i.i = phi i64 [ %102, %101 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
-  br i1 %100, label %.lr.ph38.i.i, label %cobs_decode.exit.i, !llvm.loop !12
+  br i1 %100, label %.lr.ph38.i.i, label %cobs_decode.exit.i, !llvm.loop !11
 
 cobs_decode.exit.i:                               ; preds = %104, %87, %.lr.ph38.i.i, %72
   %.025.lcssa71.i = phi i32 [ -1, %72 ], [ %.1.i.i, %.lr.ph38.i.i ], [ %.1.i.i, %87 ], [ %.1.i.i, %104 ]
@@ -323,7 +323,7 @@ cobs_decode.exit.i:                               ; preds = %104, %87, %.lr.ph38
   %.126.i43.i = add nuw nsw i64 %.12633.i41.i, 1
   %123 = add i8 %117, -1
   %.not.i44.i = icmp eq i8 %123, 0
-  br i1 %.not.i44.i, label %._crit_edge.i45.i, label %.lr.ph.i40.i, !llvm.loop !11
+  br i1 %.not.i44.i, label %._crit_edge.i45.i, label %.lr.ph.i40.i, !llvm.loop !10
 
 ._crit_edge.i45.i:                                ; preds = %.lr.ph.i40.i, %.preheader.i37.i
   %.1.lcssa.i46.i = phi i64 [ %.02436.i35.i, %.preheader.i37.i ], [ %121, %.lr.ph.i40.i ]
@@ -341,7 +341,7 @@ cobs_decode.exit.i:                               ; preds = %104, %87, %.lr.ph38
 
 128:                                              ; preds = %125, %._crit_edge.i45.i
   %.2.i50.i = phi i64 [ %126, %125 ], [ %.1.lcssa.i46.i, %._crit_edge.i45.i ]
-  br i1 %124, label %.lr.ph38.i34.i, label %cobs_decode.exit52.i, !llvm.loop !12
+  br i1 %124, label %.lr.ph38.i34.i, label %cobs_decode.exit52.i, !llvm.loop !11
 
 cobs_decode.exit52.i:                             ; preds = %128
   %.not.i = icmp eq i64 %.2.i50.i, 4
@@ -368,12 +368,12 @@ cobs_decode.exit52.i:                             ; preds = %128
   %137 = lshr i8 %.01213.i55.i, 1
   %138 = add nuw nsw i8 %.01114.i54.i, 1
   %exitcond.not.i58.i = icmp eq i8 %138, 8
-  br i1 %exitcond.not.i58.i, label %calc_data_crc32.exit59.i, label %131, !llvm.loop !9
+  br i1 %exitcond.not.i58.i, label %calc_data_crc32.exit59.i, label %131, !llvm.loop !8
 
 calc_data_crc32.exit59.i:                         ; preds = %131
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %cobs_frame_decode.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %cobs_frame_decode.exit, label %.preheader.i, !llvm.loop !12
 
 cobs_frame_decode.exit:                           ; preds = %calc_data_crc32.exit59.i
   %139 = icmp ne i32 %.1.i57.i, 138621499
@@ -483,7 +483,7 @@ cobs_frame_decode.exit.thread:                    ; preds = %111, %.lr.ph38.i34.
   %202 = xor i16 %201, %196
   %indvars.iv.next156 = add nuw nsw i32 %indvars.iv155, 1
   %exitcond158.not = icmp eq i32 %indvars.iv.next156, %wide.trip.count
-  br i1 %exitcond158.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond158.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %203 = xor i16 %202, -1
@@ -739,12 +739,11 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

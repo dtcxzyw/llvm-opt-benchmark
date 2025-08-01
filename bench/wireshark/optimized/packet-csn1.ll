@@ -855,7 +855,7 @@ ProcessError.exit1683:                            ; preds = %434, %438
   %483 = load i32, ptr %45, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   %exitcond = icmp eq i32 %475, %wide.trip.count
-  br i1 %exitcond, label %.thread1770, label %465, !llvm.loop !11
+  br i1 %exitcond, label %.thread1770, label %465, !llvm.loop !10
 
 .thread1770:                                      ; preds = %474, %459
   %.71412.lcssa = phi i32 [ %.01405, %459 ], [ %483, %474 ]
@@ -1151,7 +1151,7 @@ ProcessError.exit1689:                            ; preds = %562, %566
   switch i32 %.111524, label %.thread [
     i32 0, label %571
     i32 10, label %622
-  ], !llvm.loop !12
+  ], !llvm.loop !11
 
 622:                                              ; preds = %621, %571
   %.11554 = phi i16 [ %.21555, %621 ], [ %.01553, %571 ]
@@ -1345,7 +1345,7 @@ tvb_get_masked_bits8.exit1695:                    ; preds = %714, %724
   %727 = add i32 %.2414292213, 1
   %728 = add nsw i16 %.015802212, -1
   %729 = icmp sgt i16 %.015802212, 1
-  br i1 %729, label %.lr.ph2216, label %._crit_edge2217, !llvm.loop !13
+  br i1 %729, label %.lr.ph2216, label %._crit_edge2217, !llvm.loop !12
 
 ._crit_edge2217:                                  ; preds = %tvb_get_masked_bits8.exit1695
   %730 = getelementptr inbounds nuw i8, ptr %.01333, i64 16
@@ -1647,7 +1647,7 @@ tvb_get_masked_bits8.exit1695:                    ; preds = %714, %724
   %910 = add i32 %.2914342245, %890
   %911 = add i16 %902, -1
   %.not1647 = icmp eq i16 %911, 0
-  br i1 %.not1647, label %.thread1851, label %901, !llvm.loop !14
+  br i1 %.not1647, label %.thread1851, label %901, !llvm.loop !13
 
 912:                                              ; preds = %893
   %913 = icmp samesign ult i16 %889, 17
@@ -1680,7 +1680,7 @@ tvb_get_masked_bits8.exit1695:                    ; preds = %714, %724
   %928 = add i32 %.3014352235, %890
   %929 = add i16 %920, -1
   %.not1646 = icmp eq i16 %929, 0
-  br i1 %.not1646, label %.thread1851, label %919, !llvm.loop !15
+  br i1 %.not1646, label %.thread1851, label %919, !llvm.loop !14
 
 930:                                              ; preds = %912
   %931 = icmp samesign ult i16 %889, 33
@@ -1780,7 +1780,7 @@ tvb_get_masked_bits8.exit1695:                    ; preds = %714, %724
   %981 = load i32, ptr %36, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
   %.not1643 = icmp eq i16 %972, 0
-  br i1 %.not1643, label %.thread1835, label %962, !llvm.loop !16
+  br i1 %.not1643, label %.thread1835, label %962, !llvm.loop !15
 
 .thread1835:                                      ; preds = %971, %957
   %.331438.lcssa = phi i32 [ %727, %957 ], [ %981, %971 ]
@@ -2009,7 +2009,7 @@ tvb_get_masked_bits8.exit1699:                    ; preds = %1038
   %1101 = add i8 %.015622207, 1
   %1102 = zext i8 %1101 to i32
   %1103 = icmp slt i32 %1102, %1093
-  br i1 %1103, label %.lr.ph2208, label %._crit_edge2209, !llvm.loop !17
+  br i1 %1103, label %.lr.ph2208, label %._crit_edge2209, !llvm.loop !16
 
 ._crit_edge2209:                                  ; preds = %.lr.ph2208
   %1104 = icmp eq i8 %spec.select, 0
@@ -2109,7 +2109,7 @@ tvb_get_masked_bits8.exit1701:                    ; preds = %1115
   %1154 = add i8 %.015572201, 1
   %1155 = zext i8 %1154 to i32
   %1156 = icmp slt i32 %1155, %1146
-  br i1 %1156, label %.lr.ph2202, label %._crit_edge2203, !llvm.loop !18
+  br i1 %1156, label %.lr.ph2202, label %._crit_edge2203, !llvm.loop !17
 
 ._crit_edge2203:                                  ; preds = %.lr.ph2202
   %1157 = icmp eq i8 %spec.select1669, 0
@@ -2175,7 +2175,7 @@ tvb_get_masked_bits8.exit1701:                    ; preds = %1115
   %1194 = add nsw i16 %.01556, -1
   %1195 = add nsw i32 %.381403, -1
   %1196 = icmp slt i32 %.381403, 1
-  br i1 %1196, label %1197, label %1187, !llvm.loop !19
+  br i1 %1196, label %1197, label %1187, !llvm.loop !18
 
 1197:                                             ; preds = %1189
   %1198 = load ptr, ptr %29, align 8
@@ -2311,7 +2311,7 @@ tvb_get_masked_bits8.exit1701:                    ; preds = %1115
   %1277 = add i32 %.01552, %.4714522192
   %1278 = sub nsw i32 %.432193, %.01552
   %1279 = icmp sgt i32 %1278, 0
-  br i1 %1279, label %1269, label %._crit_edge2196, !llvm.loop !20
+  br i1 %1279, label %1269, label %._crit_edge2196, !llvm.loop !19
 
 ._crit_edge2196:                                  ; preds = %1269
   %1280 = icmp eq i32 %1278, 0
@@ -2368,7 +2368,7 @@ tvb_get_masked_bits8.exit1701:                    ; preds = %1115
   %1310 = add nsw i16 %.01551, -1
   %1311 = add nsw i32 %.45, -8
   %1312 = icmp slt i32 %.45, 8
-  br i1 %1312, label %1313, label %1301, !llvm.loop !21
+  br i1 %1312, label %1313, label %1301, !llvm.loop !20
 
 1313:                                             ; preds = %1303
   %1314 = load ptr, ptr %29, align 8
@@ -2451,7 +2451,7 @@ tvb_get_masked_bits8.exit1701:                    ; preds = %1115
   %1358 = sub i32 %1339, %1332
   %1359 = call zeroext i8 @tvb_get_bits8(ptr noundef %3, i32 noundef %1357, i32 noundef 1)
   %.not1929 = icmp eq i8 %1359, 0
-  br i1 %.not1929, label %._crit_edge, label %1334, !llvm.loop !22
+  br i1 %.not1929, label %._crit_edge, label %1334, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %1351, %1324
   %.01549.lcssa = phi i8 [ 0, %1324 ], [ %1353, %1351 ]
@@ -2558,7 +2558,7 @@ ProcessError.exit1714:                            ; preds = %1391, %1395
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
   %1420 = icmp slt i32 %1418, 0
-  br i1 %1420, label %1421, label %1381, !llvm.loop !23
+  br i1 %1420, label %1421, label %1381, !llvm.loop !22
 
 1421:                                             ; preds = %1412
   %1422 = load ptr, ptr %29, align 8
@@ -2692,7 +2692,7 @@ ProcessError.exit1720:                            ; preds = %1479, %1483
   %.0.i1722 = xor i1 %.not.i1721, %1497
   %1498 = add i32 %1477, 1
   %1499 = add nsw i32 %1476, -1
-  br i1 %.0.i1722, label %1447, label %1500, !llvm.loop !24
+  br i1 %.0.i1722, label %1447, label %1500, !llvm.loop !23
 
 .thread1913:                                      ; preds = %1458, %ProcessError.exit1718, %ProcessError.exit1720
   %.37.ph = phi i16 [ -5, %ProcessError.exit1720 ], [ -8, %ProcessError.exit1718 ], [ %1467, %1458 ]
@@ -2834,7 +2834,7 @@ ProcessError.exit1726:                            ; preds = %1537, %1541
   %.301363 = phi ptr [ %85, %84 ], [ %93, %88 ], [ %168, %167 ], [ %243, %240 ], [ %311, %301 ], [ %377, %365 ], [ %444, %443 ], [ %521, %520 ], [ %632, %631 ], [ %.191352, %1114 ], [ %.211354, %1167 ], [ %1283, %.thread1879 ], [ %1371, %._crit_edge ], [ %1436, %1429 ], [ %1505, %1500 ], [ %1553, %1546 ], [ %1569, %1554 ], [ %352, %.thread1751 ], [ %484, %.thread1770 ], [ %552, %.thread1780 ], [ %681, %.thread1794 ], [ %1066, %1063 ], [ %1204, %.thread1868 ], [ %1261, %.thread1873 ], [ %1320, %.thread1883 ], [ %689, %.thread1844 ], [ %689, %.thread1835 ], [ %689, %872 ], [ %689, %850 ], [ %689, %787 ], [ %689, %752 ], [ %689, %749 ], [ %689, %983 ], [ %689, %987 ], [ %689, %896 ], [ %689, %914 ], [ %689, %901 ], [ %689, %919 ]
   %.39 = phi i16 [ %.1, %84 ], [ %.1, %88 ], [ %.1, %167 ], [ %.1, %240 ], [ %.1, %301 ], [ %.1, %365 ], [ %.1, %443 ], [ %.1, %520 ], [ %.14, %631 ], [ %.1, %1114 ], [ %.1, %1167 ], [ %.1, %.thread1879 ], [ %.1, %._crit_edge ], [ %.1, %1429 ], [ %.1, %1500 ], [ %.1, %1546 ], [ %.1, %1554 ], [ %.1, %.thread1751 ], [ %.1, %.thread1770 ], [ %.1, %.thread1780 ], [ %.1, %.thread1794 ], [ %.1, %1063 ], [ %.1, %.thread1868 ], [ %.1, %.thread1873 ], [ %.1, %.thread1883 ], [ %.1, %.thread1844 ], [ %.1, %.thread1835 ], [ %.1, %872 ], [ %.1, %850 ], [ %.1, %787 ], [ %.1, %752 ], [ %.1, %749 ], [ %.1, %983 ], [ %.1, %987 ], [ %.1, %896 ], [ %.1, %914 ], [ %.1, %901 ], [ %.1, %919 ]
   %1577 = icmp sgt i32 %.55, -1
-  br i1 %1577, label %56, label %1578, !llvm.loop !25
+  br i1 %1577, label %56, label %1578, !llvm.loop !24
 
 1578:                                             ; preds = %.thread1851
   %1579 = load ptr, ptr %29, align 8
@@ -3051,21 +3051,20 @@ attributes #9 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}

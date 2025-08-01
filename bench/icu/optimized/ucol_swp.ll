@@ -724,7 +724,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UD
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %89 = load ptr, ptr %88, align 8, !tbaa !45
+  %89 = load ptr, ptr %88, align 8, !tbaa !44
   %90 = sext i32 %78 to i64
   %91 = getelementptr inbounds i8, ptr %1, i64 %90
   %92 = getelementptr inbounds i8, ptr %3, i64 %90
@@ -942,7 +942,7 @@ define i32 @ucol_swapInverseUCA_77(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %53
-  %57 = load i32, ptr %50, align 4, !tbaa !46
+  %57 = load i32, ptr %50, align 4, !tbaa !45
   %58 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %57)
   %59 = icmp ult i32 %54, %58
   br i1 %59, label %60, label %64
@@ -953,7 +953,7 @@ define i32 @ucol_swapInverseUCA_77(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %103
 
 61:                                               ; preds = %48
-  %62 = load i32, ptr %50, align 4, !tbaa !46
+  %62 = load i32, ptr %50, align 4, !tbaa !45
   %63 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %62)
   br label %101
 
@@ -970,19 +970,19 @@ define i32 @ucol_swapInverseUCA_77(ptr noundef %0, ptr noundef %1, i32 noundef %
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !48
+  %71 = load i32, ptr %70, align 4, !tbaa !47
   %72 = tail call noundef i32 %69(i32 noundef %71)
   %73 = load ptr, ptr %68, align 8, !tbaa !11
   %74 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %75 = load i32, ptr %74, align 4, !tbaa !49
+  %75 = load i32, ptr %74, align 4, !tbaa !48
   %76 = tail call noundef i32 %73(i32 noundef %75)
   %77 = load ptr, ptr %68, align 8, !tbaa !11
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  %79 = load i32, ptr %78, align 4, !tbaa !50
+  %79 = load i32, ptr %78, align 4, !tbaa !49
   %80 = tail call noundef i32 %77(i32 noundef %79)
   %81 = load ptr, ptr %68, align 8, !tbaa !11
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %83 = load i32, ptr %82, align 4, !tbaa !51
+  %83 = load i32, ptr %82, align 4, !tbaa !50
   %84 = tail call noundef i32 %81(i32 noundef %83)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %86 = load ptr, ptr %85, align 8, !tbaa !33
@@ -1074,13 +1074,12 @@ attributes #6 = { nounwind }
 !39 = !{!40, !40, i64 0}
 !40 = !{!"short", !5, i64 0}
 !41 = !{!10, !10, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!12, !13, i64 64}
-!46 = !{!47, !10, i64 0}
-!47 = !{!"_ZTS21InverseUCATableHeader", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !5, i64 20, !5, i64 24}
-!48 = !{!47, !10, i64 4}
-!49 = !{!47, !10, i64 8}
-!50 = !{!47, !10, i64 12}
-!51 = !{!47, !10, i64 16}
+!44 = !{!12, !13, i64 64}
+!45 = !{!46, !10, i64 0}
+!46 = !{!"_ZTS21InverseUCATableHeader", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !5, i64 20, !5, i64 24}
+!47 = !{!46, !10, i64 4}
+!48 = !{!46, !10, i64 8}
+!49 = !{!46, !10, i64 12}
+!50 = !{!46, !10, i64 16}

@@ -537,7 +537,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   %201 = load i32, ptr %5, align 4
   %202 = sub i32 %201, %200
   %203 = icmp ugt i32 %202, 2
-  br i1 %203, label %.lr.ph254.i.i.i, label %._crit_edge255.i.i.i, !llvm.loop !9
+  br i1 %203, label %.lr.ph254.i.i.i, label %._crit_edge255.i.i.i, !llvm.loop !8
 
 ._crit_edge255.i.i.i:                             ; preds = %.lr.ph254.i.i.i, %189
   %.3.lcssa.i.i.i = phi i32 [ %193, %189 ], [ %200, %.lr.ph254.i.i.i ]
@@ -574,7 +574,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   %219 = load i32, ptr %5, align 4
   %220 = sub i32 %219, %218
   %221 = icmp ugt i32 %220, 3
-  br i1 %221, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !10
+  br i1 %221, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !9
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader247.i.i.i
   %.4.lcssa.i.i.i = phi i32 [ %.0219267.i.i.i, %.preheader247.i.i.i ], [ %218, %.lr.ph.i.i.i ]
@@ -626,7 +626,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   %.not.i.i.i = icmp eq i32 %246, 0
-  br i1 %.not.i.i.i, label %._crit_edge272.i.i.i, label %.lr.ph271.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %._crit_edge272.i.i.i, label %.lr.ph271.i.i.i, !llvm.loop !10
 
 ._crit_edge272.i.i.i:                             ; preds = %245, %50
   %.0220.lcssa.i.i.i = phi i32 [ 0, %50 ], [ %.1221246.i.i.i, %245 ]
@@ -655,7 +655,7 @@ dissect_fb_zero_tag.exit.i.i:                     ; preds = %252, %248, %._crit_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   %258 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.i)
   %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %41, label %dissect_fb_zero_common.exit, !llvm.loop !12
+  br i1 %259, label %41, label %dissect_fb_zero_common.exit, !llvm.loop !11
 
 260:                                              ; preds = %34
   %261 = load ptr, ptr %12, align 8
@@ -809,10 +809,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

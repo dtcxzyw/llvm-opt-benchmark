@@ -1394,7 +1394,7 @@ if.end41:                                         ; preds = %if.end41.sink.split
   %inc43 = add i16 %i22.0163, 1
   %conv24 = zext i16 %inc43 to i64
   %cmp26 = icmp ugt i64 %src.coerce0, %conv24
-  br i1 %cmp26, label %for.body28, label %for.cond.cleanup27, !llvm.loop !40
+  br i1 %cmp26, label %for.body28, label %for.cond.cleanup27, !llvm.loop !39
 
 if.then46:                                        ; preds = %for.cond.cleanup27
   %exception47 = tail call ptr @__cxa_allocate_exception(i64 40) #24
@@ -1776,7 +1776,7 @@ define linkonce_odr dso_local void @_Z8writeF32Phf(ptr noundef %data, float noun
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
-  %.pre = load i32, ptr @g_serialize_f32_type, align 4, !tbaa !41
+  %.pre = load i32, ptr @g_serialize_f32_type, align 4, !tbaa !40
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %sw.bb2, %entry
@@ -1797,8 +1797,8 @@ sw.bb1:                                           ; preds = %tailrecurse
 
 sw.bb2:                                           ; preds = %tailrecurse
   %call3 = tail call noundef i32 @_Z25getFloatSerializationTypev()
-  store i32 %call3, ptr @g_serialize_f32_type, align 4, !tbaa !41
-  br label %tailrecurse, !llvm.loop !43
+  store i32 %call3, ptr @g_serialize_f32_type, align 4, !tbaa !40
+  br label %tailrecurse
 
 sw.epilog:                                        ; preds = %tailrecurse
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #24
@@ -1871,7 +1871,7 @@ entry:
   %3 = load i8, ptr %add.ptr.i, align 1, !tbaa !13
   %cmp = icmp ne i8 %3, 0
   %frombool = zext i1 %cmp to i8
-  store i8 %frombool, ptr %dst, align 1, !tbaa !44
+  store i8 %frombool, ptr %dst, align 1, !tbaa !42
   %add = add i32 %1, 1
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
   ret ptr %this
@@ -1938,7 +1938,7 @@ entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i)
-  store i16 %rev.i.i, ptr %dst, align 2, !tbaa !46
+  store i16 %rev.i.i, ptr %dst, align 2, !tbaa !44
   %add = add i32 %1, 2
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
   ret ptr %this
@@ -1968,7 +1968,7 @@ entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i)
-  store i32 %or7.i.i, ptr %dst, align 4, !tbaa !47
+  store i32 %or7.i.i, ptr %dst, align 4, !tbaa !45
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 4
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2004,7 +2004,7 @@ entry:
   %2 = load ptr, ptr %this, align 8, !tbaa !27
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %call3 = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %add.ptr.i)
-  store float %call3, ptr %dst, align 4, !tbaa !48
+  store float %call3, ptr %dst, align 4, !tbaa !46
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 4
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2016,7 +2016,7 @@ define linkonce_odr dso_local noundef float @_Z7readF32PKh(ptr noundef %data) lo
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
-  %.pre = load i32, ptr @g_serialize_f32_type, align 4, !tbaa !41
+  %.pre = load i32, ptr @g_serialize_f32_type, align 4, !tbaa !40
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %sw.bb3, %entry
@@ -2040,8 +2040,8 @@ sw.bb1:                                           ; preds = %tailrecurse
 
 sw.bb3:                                           ; preds = %tailrecurse
   %call4 = tail call noundef i32 @_Z25getFloatSerializationTypev()
-  store i32 %call4, ptr @g_serialize_f32_type, align 4, !tbaa !41
-  br label %tailrecurse, !llvm.loop !50
+  store i32 %call4, ptr @g_serialize_f32_type, align 4, !tbaa !40
+  br label %tailrecurse
 
 sw.epilog:                                        ; preds = %tailrecurse
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #24
@@ -2114,7 +2114,7 @@ entry:
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %call2.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i)
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dst, align 4, !tbaa.struct !51
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dst, align 4, !tbaa.struct !48
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 8
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2138,9 +2138,9 @@ entry:
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %call4.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i)
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dst, align 4, !tbaa.struct !52
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dst, align 4, !tbaa.struct !49
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store float %call4.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !48
+  store float %call4.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !46
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 12
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2159,7 +2159,7 @@ entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  store i16 %rev.i.i.i, ptr %dst, align 2, !tbaa !46
+  store i16 %rev.i.i.i, ptr %dst, align 2, !tbaa !44
   %add = add i32 %1, 2
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
   ret ptr %this
@@ -2208,7 +2208,7 @@ entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i)
-  store i32 %or7.i.i.i, ptr %dst, align 4, !tbaa !47
+  store i32 %or7.i.i.i, ptr %dst, align 4, !tbaa !45
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 4
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2271,7 +2271,7 @@ entry:
   %retval.sroa.3.0.insert.insert.i = or disjoint i48 %retval.sroa.5.0.insert.shift.i, %retval.sroa.3.0.insert.shift.i
   %retval.sroa.0.0.insert.ext.i = zext i16 %rev.i.i.i.i to i48
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.3.0.insert.insert.i, %retval.sroa.0.0.insert.ext.i
-  store i48 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 2, !tbaa.struct !53
+  store i48 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 2, !tbaa.struct !50
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 6
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2296,7 +2296,7 @@ entry:
   %5 = shl nuw i64 %4, 32
   %6 = or disjoint i64 %5, %3
   %retval.sroa.0.0.insert.insert.i = tail call i64 @llvm.bswap.i64(i64 %6)
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 4, !tbaa.struct !54
+  store i64 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 4, !tbaa.struct !51
   %7 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %7, 8
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2324,9 +2324,9 @@ entry:
   %5 = shl nuw i64 %4, 32
   %6 = or disjoint i64 %5, %3
   %retval.sroa.0.0.insert.insert.i = tail call i64 @llvm.bswap.i64(i64 %6)
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 4, !tbaa.struct !55
+  store i64 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 4, !tbaa.struct !52
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 8
-  store i32 %or7.i.i.i10.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !47
+  store i32 %or7.i.i.i10.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !45
   %7 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %7, 12
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2686,7 +2686,7 @@ entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i)
-  store i32 %or7.i.i.i, ptr %dst, align 4, !tbaa !47
+  store i32 %or7.i.i.i, ptr %dst, align 4, !tbaa !45
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 4
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
@@ -2734,8 +2734,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %m_size.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 0, ptr %m_size.i, align 8, !tbaa !56
-  store ptr null, ptr %agg.result, align 8, !tbaa !58
+  store i32 0, ptr %m_size.i, align 8, !tbaa !53
+  store ptr null, ptr %agg.result, align 8, !tbaa !55
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2743,12 +2743,12 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %m_datasize, align 8, !tbaa !15
   %add = add i32 %1, 2
   %m_size.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 %add, ptr %m_size.i14, align 8, !tbaa !56
+  store i32 %add, ptr %m_size.i14, align 8, !tbaa !53
   %cmp.not.i = icmp ne i32 %add, 0
   tail call void @llvm.assume(i1 %cmp.not.i)
   %conv.i = zext i32 %add to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #27
-  store ptr %call.i, ptr %agg.result, align 8, !tbaa !58
+  store ptr %call.i, ptr %agg.result, align 8, !tbaa !55
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %0)
   store i16 %rev.i.i, ptr %call.i, align 1
   %cmp5.not = icmp eq i32 %1, 0
@@ -3258,7 +3258,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !59
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -3363,26 +3363,22 @@ attributes #27 = { builtin allocsize(0) }
 !34 = !{!32, !6, i64 0}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"wchar_t", !7, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = distinct !{!40, !38, !39}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"_ZTS9FloatType", !7, i64 0}
-!43 = distinct !{!43, !39}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"bool", !7, i64 0}
-!46 = !{!22, !22, i64 0}
-!47 = !{!21, !21, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"float", !7, i64 0}
-!50 = distinct !{!50, !39}
-!51 = !{i64 0, i64 4, !48, i64 4, i64 4, !48}
-!52 = !{i64 0, i64 4, !48, i64 4, i64 4, !48, i64 8, i64 4, !48}
-!53 = !{i64 0, i64 2, !46, i64 2, i64 2, !46, i64 4, i64 2, !46}
-!54 = !{i64 0, i64 4, !47, i64 4, i64 4, !47}
-!55 = !{i64 0, i64 4, !47, i64 4, i64 4, !47, i64 8, i64 4, !47}
-!56 = !{!57, !21, i64 8}
-!57 = !{!"_ZTS6BufferIhE", !6, i64 0, !21, i64 8}
-!58 = !{!57, !6, i64 0}
-!59 = distinct !{!59, !39}
+!39 = distinct !{!39, !38}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"_ZTS9FloatType", !7, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"bool", !7, i64 0}
+!44 = !{!22, !22, i64 0}
+!45 = !{!21, !21, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"float", !7, i64 0}
+!48 = !{i64 0, i64 4, !46, i64 4, i64 4, !46}
+!49 = !{i64 0, i64 4, !46, i64 4, i64 4, !46, i64 8, i64 4, !46}
+!50 = !{i64 0, i64 2, !44, i64 2, i64 2, !44, i64 4, i64 2, !44}
+!51 = !{i64 0, i64 4, !45, i64 4, i64 4, !45}
+!52 = !{i64 0, i64 4, !45, i64 4, i64 4, !45, i64 8, i64 4, !45}
+!53 = !{!54, !21, i64 8}
+!54 = !{!"_ZTS6BufferIhE", !6, i64 0, !21, i64 8}
+!55 = !{!54, !6, i64 0}

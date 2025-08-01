@@ -79,7 +79,7 @@ poly_add.exit:                                    ; preds = %21
   %37 = add nuw i64 %.01416, 1
   %38 = load i64, ptr %13, align 8, !tbaa !14
   %39 = icmp ult i64 %37, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
+  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %poly_add.exit
   %.pre = load i64, ptr %11, align 8, !tbaa !13
@@ -91,7 +91,7 @@ poly_add.exit:                                    ; preds = %21
   %.1.lcssa = phi ptr [ %.019, %.preheader ], [ %36, %._crit_edge.loopexit ]
   %42 = add nuw i64 %.01518, 1
   %43 = icmp ult i64 %42, %40
-  br i1 %43, label %.preheader, label %._crit_edge20, !llvm.loop !22
+  br i1 %43, label %.preheader, label %._crit_edge20, !llvm.loop !21
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %vector_zero.exit
   ret void
@@ -135,9 +135,8 @@ attributes #5 = { nounwind memory(none) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"int", !7, i64 0}
 !17 = !{i64 313244}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20, !23}
-!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19, !22}
+!22 = !{!"llvm.loop.unswitch.partial.disable"}

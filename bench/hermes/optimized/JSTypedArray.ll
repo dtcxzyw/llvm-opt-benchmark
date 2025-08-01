@@ -7563,7 +7563,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add i32 %dstIndex.addr.028, 1
   %inc40 = add i32 %k.027, 1
   %exitcond.not = icmp eq i32 %inc40, %add
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 return:                                           ; preds = %for.body, %for.inc, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.then8, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.then8 ], [ 1, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ 0, %for.body ], [ 1, %for.inc ]
@@ -8145,7 +8145,6 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

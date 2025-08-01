@@ -114,7 +114,7 @@ _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; pre
   call void @_ZN17AbstractAssembler10end_a_stubEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   %47 = load i32, ptr %1, align 4
   %48 = icmp sgt i32 %47, %46
-  br i1 %48, label %20, label %.loopexit, !llvm.loop !14
+  br i1 %48, label %20, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %.critedge, %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit, %2
   %.0 = phi i1 [ true, %2 ], [ true, %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit ], [ %.not.not, %.critedge ], [ %.not.not, %20 ]
@@ -169,7 +169,6 @@ attributes #3 = { nounwind }
 !8 = distinct !{!8, !"_ZN16RelocationHolder9constructI22static_stub_RelocationJPhEEES_DpRKT0_"}
 !9 = distinct !{!9, !10, !"_ZN22static_stub_Relocation4specEPh: argument 0"}
 !10 = distinct !{!10, !"_ZN22static_stub_Relocation4specEPh"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

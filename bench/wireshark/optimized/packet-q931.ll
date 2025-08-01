@@ -1922,7 +1922,7 @@ define hidden void @proto_register_q931() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !10
+  br i1 %exitcond.not, label %4, label %1, !llvm.loop !9
 
 4:                                                ; preds = %1
   %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.364)
@@ -2100,7 +2100,7 @@ define internal noundef zeroext i1 @dissect_q931_tpkt_heur(ptr noundef %0, ptr n
   br i1 %.not12, label %.sink.split, label %19
 
 .sink.split:                                      ; preds = %12, %14, %7
-  %16 = load i8, ptr @q931_desegment, align 1, !range !6, !noundef !11
+  %16 = load i8, ptr @q931_desegment, align 1, !range !6, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   %18 = load ptr, ptr @q931_tpkt_pdu_handle, align 8
   tail call void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %17, ptr noundef %18)
@@ -2271,7 +2271,7 @@ dissect_q931_protocol_discriminator.exit:         ; preds = %46, %44, %38, %32, 
 82:                                               ; preds = %79, %70
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %84 = call i64 @llvm.umin.i64(i64 %68, i64 4)
-  %85 = call ptr @__memcpy_chk(ptr noundef nonnull %83, ptr noundef nonnull %5, i64 noundef range(i64 0, 16) %84, i64 noundef 12) #7, !alias.scope !12
+  %85 = call ptr @__memcpy_chk(ptr noundef nonnull %83, ptr noundef nonnull %5, i64 noundef range(i64 0, 16) %84, i64 noundef 12) #7, !alias.scope !11
   %86 = add nuw nsw i32 %56, 2
   br label %87
 
@@ -2549,7 +2549,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
   %33 = add i32 %.0472, 1
   %34 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %33)
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %35, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !15
 
 36:                                               ; preds = %20
   br i1 %.not, label %37, label %76
@@ -2595,7 +2595,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
   %.0.be = phi i32 [ %53, %52 ], [ %75, %74 ], [ %158, %157 ]
   %54 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.be)
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %20, label %.loopexit, !llvm.loop !16
+  br i1 %55, label %20, label %.loopexit, !llvm.loop !15
 
 56:                                               ; preds = %49, %40
   %.pre-phi518 = phi i32 [ %.pre-phi529, %49 ], [ %43, %40 ]
@@ -2991,7 +2991,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
   %254 = icmp slt i8 %246, 0
   %255 = icmp eq i32 %248, 0
   %or.cond.i = select i1 %254, i1 true, i1 %255
-  br i1 %or.cond.i, label %256, label %.preheader125.i, !llvm.loop !17
+  br i1 %or.cond.i, label %256, label %.preheader125.i, !llvm.loop !16
 
 256:                                              ; preds = %.preheader125.i
   %257 = load i32, ptr @hf_q931_channel_interface_id, align 4
@@ -3044,7 +3044,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
   %282 = add i32 %.3131.i, 1
   %283 = add i32 %.3100130.i, -1
   %.not112.i = icmp eq i32 %283, 0
-  br i1 %.not112.i, label %dissect_q931_change_status_ie.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not112.i, label %dissect_q931_change_status_ie.exit, label %.lr.ph.i, !llvm.loop !17
 
 284:                                              ; preds = %272
   br i1 %.old4.i, label %dissect_q931_change_status_ie.exit, label %.preheader.i
@@ -3062,7 +3062,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
   %292 = icmp slt i8 %285, 0
   %293 = icmp eq i32 %291, 0
   %or.cond5.i = select i1 %292, i1 true, i1 %293
-  br i1 %or.cond5.i, label %dissect_q931_change_status_ie.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %or.cond5.i, label %dissect_q931_change_status_ie.exit, label %.preheader.i, !llvm.loop !18
 
 294:                                              ; preds = %split
   br i1 %.not370, label %dissect_q931_change_status_ie.exit, label %295
@@ -3514,7 +3514,7 @@ dissect_q931_change_status_ie.exit:               ; preds = %.lr.ph.i, %.prehead
   %.1 = add i32 %.pn, %.0472
   %553 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %554 = icmp sgt i32 %553, 0
-  br i1 %554, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %554, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.outer, %.outer433, %.backedge, %8, %138
   %.not393 = icmp eq ptr %7, null
@@ -3826,16 +3826,15 @@ attributes #8 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}

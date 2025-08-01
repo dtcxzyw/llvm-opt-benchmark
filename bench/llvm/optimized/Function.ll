@@ -320,15 +320,15 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIN5clang6interp8PrimTypeEPNS4_10Des
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @_ZNK5clang6interp8Function9getSourceENS0_7CodePtrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !114
+  %4 = load ptr, ptr %3, align 8, !tbaa !113
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !115
+  %10 = load ptr, ptr %9, align 8, !tbaa !114
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load ptr, ptr %11, align 8, !tbaa !115
+  %12 = load ptr, ptr %11, align 8, !tbaa !114
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
@@ -349,7 +349,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN5clang6interp10SourceInf
   %.sroa.011.1.i.i.i = select i1 %21, ptr %22, ptr %.sroa.011.012.i.i.i
   %.1.i.i.i = select i1 %21, i64 %24, i64 %18
   %25 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %25, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN5clang6interp10SourceInfoEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS6_EES6_NS_10less_firstEEEDaOT_OT0_T1_.exit, !llvm.loop !116
+  br i1 %25, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN5clang6interp10SourceInfoEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS6_EES6_NS_10less_firstEEEDaOT_OT0_T1_.exit, !llvm.loop !115
 
 _ZN4llvm11lower_boundIRKSt6vectorISt4pairIjN5clang6interp10SourceInfoEESaIS6_EES6_NS_10less_firstEEEDaOT_OT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN5clang6interp10SourceInfoEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i, %2
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %10, %2 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN5clang6interp10SourceInfoEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ]
@@ -743,9 +743,8 @@ attributes #7 = { nounwind }
 !108 = !{!"branch_weights", i32 1999, i32 1}
 !109 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !110 = !{!"branch_weights", i32 1, i32 0}
-!111 = distinct !{!111, !112, !113}
+!111 = distinct !{!111, !112}
 !112 = !{!"llvm.loop.mustprogress"}
-!113 = !{!"llvm.loop.estimated_trip_count"}
-!114 = !{!21, !5, i64 0}
-!115 = !{!26, !26, i64 0}
-!116 = distinct !{!116, !112, !113}
+!113 = !{!21, !5, i64 0}
+!114 = !{!26, !26, i64 0}
+!115 = distinct !{!115, !112}

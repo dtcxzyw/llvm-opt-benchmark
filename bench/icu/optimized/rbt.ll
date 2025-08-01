@@ -515,6 +515,5 @@ attributes #9 = { noreturn nounwind }
 !25 = !{!24, !13, i64 8}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 _ZTSN6icu_7711ReplaceableE", !12, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}

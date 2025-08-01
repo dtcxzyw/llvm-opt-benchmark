@@ -2015,7 +2015,7 @@ define i32 @fvalue_contains(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %7 = call i32 %6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %.not = icmp eq i32 %7, 0
   %8 = sub i32 0, %7
-  %9 = load i8, ptr %3, align 1, !range !9
+  %9 = load i8, ptr %3, align 1, !range !8
   %10 = zext nneg i8 %9 to i32
   %.0 = select i1 %.not, i32 %10, i32 %8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
@@ -2032,7 +2032,7 @@ define i32 @fvalue_matches(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %7 = call i32 %6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %.not = icmp eq i32 %7, 0
   %8 = sub i32 0, %7
-  %9 = load i8, ptr %3, align 1, !range !9
+  %9 = load i8, ptr %3, align 1, !range !8
   %10 = zext nneg i8 %9 to i32
   %.0 = select i1 %.not, i32 %10, i32 %8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
@@ -2407,7 +2407,7 @@ declare void @drange_foreach_drange_node(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @slice_func(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
+  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %52, label %6
 
@@ -2553,8 +2553,7 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}

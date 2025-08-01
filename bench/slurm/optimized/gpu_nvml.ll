@@ -559,7 +559,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   %121 = load i16, ptr %120, align 8
   %122 = zext i16 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next152.i, %122
-  br i1 %123, label %.lr.ph111.i, label %.loopexit95.i, !llvm.loop !12
+  br i1 %123, label %.lr.ph111.i, label %.loopexit95.i, !llvm.loop !11
 
 .loopexit95.i:                                    ; preds = %.lr.ph111.i, %108, %._crit_edge.i
   %124 = phi ptr [ %109, %108 ], [ null, %._crit_edge.i ], [ %109, %.lr.ph111.i ]
@@ -830,7 +830,7 @@ _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %225, %223
 234:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %197
-  br i1 %exitcond.not.i.i.i, label %_get_index_from_str_arr.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %_get_index_from_str_arr.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _get_index_from_str_arr.exit.i.i:                 ; preds = %.lr.ph.i.i.i
   %235 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -863,7 +863,7 @@ _get_index_from_str_arr.exit.thread.i.i:          ; preds = %234, %236, %_get_in
 245:                                              ; preds = %244, %241, %_get_index_from_str_arr.exit.thread.i.i, %208, %205
   %246 = add nuw nsw i32 %.035.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %246, 18
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %202, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %202, !llvm.loop !13
 
 .loopexit.i.i:                                    ; preds = %245, %212, %209
   %.not39.i.i = icmp eq i32 %196, 0
@@ -877,7 +877,7 @@ _get_index_from_str_arr.exit.thread.i.i:          ; preds = %234, %236, %_get_in
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %28, ptr noundef nonnull @.str.65, ptr noundef nonnull %.02737.i.i, i32 noundef %248) #12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %197
-  br i1 %exitcond43.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond43.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.loopexit.i.i
   call void @slurm_xfree(ptr noundef nonnull %27) #12
@@ -1075,7 +1075,7 @@ _nvml_get_max_mig_device_count.exit.i:            ; preds = %317
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #12
   %328 = load i32, ptr %46, align 4
   %329 = icmp ult i32 %327, %328
-  br i1 %329, label %.lr.ph114.i, label %.loopexit.i, !llvm.loop !16
+  br i1 %329, label %.lr.ph114.i, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %326, %.loopexit94.i, %_nvml_get_max_mig_device_count.exit.i, %_nvml_get_max_mig_device_count.exit.thread.i
   %.041102.i = phi i32 [ %.039113.i, %.loopexit94.i ], [ 0, %_nvml_get_max_mig_device_count.exit.i ], [ 0, %_nvml_get_max_mig_device_count.exit.thread.i ], [ %327, %326 ]
@@ -1253,7 +1253,7 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
   %.not45.i.i.i = icmp eq i32 %.312.i.i, 0
   %.not46.i.i.i = icmp eq i32 %.2.i.i, 0
   %or.cond.i.i = select i1 %.not45.i.i.i, i1 true, i1 %.not46.i.i.i
-  br i1 %or.cond.i.i, label %363, label %382, !llvm.loop !17
+  br i1 %or.cond.i.i, label %363, label %382
 
 382:                                              ; preds = %.thread60.i.i.i
   %383 = call i32 @slurm_get_log_level() #12
@@ -1507,7 +1507,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #12
   %474 = add nuw i32 %.0116.i, 1
   %exitcond.not.i = icmp eq i32 %474, %.041102.i
-  br i1 %exitcond.not.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !16
 
 .thread162.i:                                     ; preds = %471, %468
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #12
@@ -1532,7 +1532,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #12
   %480 = add nuw i32 %.0116.i, 1
   %exitcond.not164.i = icmp eq i32 %480, %.041102.i
-  br i1 %exitcond.not164.i, label %._crit_edge120.thread.i, label %.lr.ph119.outer.i, !llvm.loop !18
+  br i1 %exitcond.not164.i, label %._crit_edge120.thread.i, label %.lr.ph119.outer.i, !llvm.loop !16
 
 ._crit_edge120.thread.i:                          ; preds = %.thread162.i
   call void @slurm_xfree(ptr noundef nonnull %47) #12
@@ -1694,7 +1694,7 @@ _nvml_print_gfx_freqs.exit42.i.i:                 ; preds = %534, %.lr.ph.i86.i
   %536 = load i32, ptr %8, align 4
   %537 = zext i32 %536 to i64
   %538 = icmp samesign ult i64 %indvars.iv.next.i88.i, %537
-  br i1 %538, label %.lr.ph.i86.i, label %_nvml_print_freqs.exit.i, !llvm.loop !19
+  br i1 %538, label %.lr.ph.i86.i, label %_nvml_print_freqs.exit.i, !llvm.loop !17
 
 _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_freqs.exit42.i.i, %_nvml_print_gfx_freqs.exit41.i.i, %.preheader.i.i, %484
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %10) #12
@@ -1728,7 +1728,7 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
   %543 = add nuw i32 %.2122.i, 1
   %544 = load i32, ptr %31, align 4
   %545 = icmp ult i32 %543, %544
-  br i1 %545, label %151, label %._crit_edge126.i.loopexit, !llvm.loop !20
+  br i1 %545, label %151, label %._crit_edge126.i.loopexit, !llvm.loop !18
 
 ._crit_edge126.i.loopexit:                        ; preds = %542
   %.pre = load ptr, ptr %30, align 8
@@ -1763,7 +1763,7 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
   %552 = load i32, ptr %31, align 4
   %553 = zext i32 %552 to i64
   %554 = icmp samesign ult i64 %indvars.iv.next155.i, %553
-  br i1 %554, label %.lr.ph129.i, label %._crit_edge130.i, !llvm.loop !21
+  br i1 %554, label %.lr.ph129.i, label %._crit_edge130.i, !llvm.loop !19
 
 ._crit_edge130.i:                                 ; preds = %.lr.ph129.i, %549
   call void @slurm_xfree(ptr noundef nonnull %34) #12
@@ -1866,7 +1866,7 @@ define dso_local void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) 
 
 34:                                               ; preds = %33, %29
   call void @gpu_common_parse_gpu_freq(ptr noundef nonnull %23, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #12
-  %35 = load i8, ptr %11, align 1, !range !22, !noundef !23
+  %35 = load i8, ptr %11, align 1, !range !20, !noundef !21
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %41
 
@@ -1926,7 +1926,7 @@ define dso_local void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) 
 
 64:                                               ; preds = %55
   %65 = call i32 @slurm_cgroup_conf_init() #12
-  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 64), align 8, !range !22, !noundef !23
+  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 64), align 8, !range !20, !noundef !21
   %67 = trunc nuw i8 %66 to i1
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
   %69 = call ptr @slurm_xstrstr(ptr noundef %68, ptr noundef nonnull @.str.121) #12
@@ -2172,7 +2172,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %129, %128
 
 164:                                              ; preds = %162, %159, %158, %156
   %.239.i = phi i32 [ %157, %156 ], [ %.03759.i, %162 ], [ %.03759.i, %159 ], [ %.03759.i, %158 ]
-  %165 = load i8, ptr %11, align 1, !range !22, !noundef !23
+  %165 = load i8, ptr %11, align 1, !range !20, !noundef !21
   %166 = trunc nuw i8 %165 to i1
   %.not.i = xor i1 %166, true
   %or.cond5.i = select i1 %.not.i, i1 true, i1 %.03660.i
@@ -2198,7 +2198,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %129, %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %172
   %.not47.i = icmp eq i32 %.138.i, %.141.i
@@ -2477,7 +2477,7 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %65
   %.not.i = icmp eq i32 %.1.i, %.118.i
@@ -2660,7 +2660,7 @@ define dso_local ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 
 61:                                               ; preds = %54, %59, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %62, label %.loopexit, !llvm.loop !26
+  br i1 %exitcond.not, label %62, label %.loopexit, !llvm.loop !24
 
 62:                                               ; preds = %61
   %putchar = tail call i32 @putchar(i32 10)
@@ -2743,7 +2743,7 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr noundef non
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = add nuw nsw i32 %.02633, 1
   %exitcond.not = icmp eq i32 %19, 8
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %17
   %20 = trunc nsw i64 %indvars.iv.next to i32
@@ -2753,12 +2753,12 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr noundef non
   %.2 = phi i32 [ %14, %13 ], [ %20, %.loopexit.loopexit ]
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
   %.not46 = icmp eq i64 %indvars.iv40, 0
-  br i1 %.not46, label %21, label %7, !llvm.loop !28
+  br i1 %.not46, label %21, label %7, !llvm.loop !26
 
 21:                                               ; preds = %.loopexit
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
   %.not47 = icmp eq i64 %indvars.iv43, 0
-  br i1 %.not47, label %22, label %.preheader31, !llvm.loop !29
+  br i1 %.not47, label %22, label %.preheader31, !llvm.loop !27
 
 22:                                               ; preds = %21
   %23 = tail call i32 @slurm_bit_set_count(ptr noundef %0) #12
@@ -2860,7 +2860,7 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   store i32 0, ptr %8, align 4
-  %42 = call i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %8, ptr noundef null) #12, !callees !30
+  %42 = call i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %8, ptr noundef null) #12, !callees !28
   switch i32 %42, label %43 [
     i32 7, label %46
     i32 0, label %46
@@ -2880,7 +2880,7 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
   %49 = zext i32 %47 to i64
   %50 = call ptr @slurm_xcalloc(i64 noundef %49, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 1588, ptr noundef nonnull @__func__._get_nvml_process_info) #12
   store ptr %50, ptr %7, align 8
-  %51 = call i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %8, ptr noundef %50) #12, !callees !30
+  %51 = call i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %8, ptr noundef %50) #12, !callees !28
   switch i32 %51, label %61 [
     i32 0, label %.preheader.i.i
     i32 7, label %53
@@ -2923,7 +2923,7 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
 65:                                               ; preds = %66
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %66, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %66, !llvm.loop !29
 
 66:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
@@ -2979,7 +2979,7 @@ _get_nvml_process_info.exit.i:                    ; preds = %64, %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4
-  %93 = call i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %6, ptr noundef null) #12, !callees !30
+  %93 = call i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %6, ptr noundef null) #12, !callees !28
   switch i32 %93, label %94 [
     i32 7, label %97
     i32 0, label %97
@@ -2999,7 +2999,7 @@ _get_nvml_process_info.exit.i:                    ; preds = %64, %43
   %100 = zext i32 %98 to i64
   %101 = call ptr @slurm_xcalloc(i64 noundef %100, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 1588, ptr noundef nonnull @__func__._get_nvml_process_info) #12
   store ptr %101, ptr %5, align 8
-  %102 = call i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %6, ptr noundef %101) #12, !callees !30
+  %102 = call i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %6, ptr noundef %101) #12, !callees !28
   switch i32 %102, label %112 [
     i32 0, label %.preheader.i10.i
     i32 7, label %104
@@ -3042,7 +3042,7 @@ _get_nvml_process_info.exit.i:                    ; preds = %64, %43
 116:                                              ; preds = %117
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i17.i = icmp eq i64 %indvars.iv.next.i16.i, %wide.trip.count.i13.i
-  br i1 %exitcond.not.i17.i, label %.loopexit.i18.i, label %117, !llvm.loop !31
+  br i1 %exitcond.not.i17.i, label %.loopexit.i18.i, label %117, !llvm.loop !29
 
 117:                                              ; preds = %116, %.lr.ph.i12.i
   %indvars.iv.i14.i = phi i64 [ 0, %.lr.ph.i12.i ], [ %indvars.iv.next.i16.i, %116 ]
@@ -3185,7 +3185,7 @@ _get_gpumem.exit:                                 ; preds = %143, %_get_nvml_pro
 183:                                              ; preds = %184
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %184, !llvm.loop !32
+  br i1 %exitcond.not.i, label %.loopexit.i, label %184, !llvm.loop !30
 
 184:                                              ; preds = %183, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %183 ]
@@ -3248,7 +3248,7 @@ _get_gpuutil.exit:                                ; preds = %144, %155, %170, %1
   %216 = add nuw nsw i32 %.026, 1
   %217 = load i32, ptr %9, align 4
   %218 = icmp ult i32 %216, %217
-  br i1 %218, label %.lr.ph, label %.loopexit, !llvm.loop !33
+  br i1 %218, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %215, %gpu_p_get_device_count.exit.thread, %gpu_p_get_device_count.exit, %15, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
@@ -3661,29 +3661,27 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = !{ptr @nvmlDeviceGetComputeRunningProcesses_v3, ptr @nvmlDeviceGetGraphicsRunningProcesses_v3}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
-!33 = distinct !{!33, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = !{ptr @nvmlDeviceGetComputeRunningProcesses_v3, ptr @nvmlDeviceGetGraphicsRunningProcesses_v3}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}

@@ -124,7 +124,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br i1 %37, label %38, label %._crit_edge.thread
 
 38:                                               ; preds = %._crit_edge
-  store i32 1, ptr %1, align 4, !tbaa !9
+  store i32 1, ptr %1, align 4, !tbaa !8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %38
@@ -148,7 +148,7 @@ define void @_ZN6icu_776number4impl10AffixUtils6escapeERKNS_13UnicodeStringE(ptr
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 2, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -193,13 +193,13 @@ define void @_ZN6icu_776number4impl10AffixUtils6escapeERKNS_13UnicodeStringE(ptr
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %24
 
 _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %22
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str) #11, !srcloc !13
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str) #11, !srcloc !12
   br label %39
 
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str) #11, !srcloc !13
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str) #11, !srcloc !12
   br label %52
 
 26:                                               ; preds = %17, %17, %17, %17, %17
@@ -208,7 +208,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %22
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  store i16 39, ptr %5, align 2, !tbaa !14
+  store i16 39, ptr %5, align 2, !tbaa !13
   %29 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
           to label %30 unwind label %20
 
@@ -223,7 +223,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %22
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  store i16 39, ptr %4, align 2, !tbaa !14
+  store i16 39, ptr %4, align 2, !tbaa !13
   %35 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
           to label %36 unwind label %20
 
@@ -248,7 +248,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %22
   %47 = load i32, ptr %8, align 4
   %48 = select i1 %44, i32 %47, i32 %46
   %49 = icmp slt i32 %42, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %39
   %.not = icmp eq i32 %.1, 0
@@ -256,7 +256,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %22
 
 50:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  store i16 39, ptr %3, align 2, !tbaa !14
+  store i16 39, ptr %3, align 2, !tbaa !13
   %51 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
           to label %_ZN6icu_7713UnicodeString6appendEDs.exit24 unwind label %18
 
@@ -355,7 +355,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %23
   %35 = select i1 %.not.i.i.i.i, ptr %34, ptr %10
   %36 = and i64 %.sroa.029.044, 2147483647
   %37 = getelementptr inbounds nuw i16, ptr %35, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !14
+  %38 = load i16, ptr %37, align 2, !tbaa !13
   %39 = icmp eq i16 %38, 39
   br i1 %39, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread40, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -373,7 +373,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %47 = call { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %.sroa.029.044, i64 %.sroa.8.045, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
-  %50 = load i32, ptr %5, align 4, !tbaa !9
+  %50 = load i32, ptr %5, align 4, !tbaa !8
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %52, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread40
 
@@ -394,7 +394,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
-  %60 = load ptr, ptr %3, align 8, !tbaa !11
+  %60 = load ptr, ptr %3, align 8, !tbaa !10
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %.sroa.8.12.extract.trunc37)
@@ -442,7 +442,7 @@ switch.lookup:                                    ; preds = %59
   %.1 = add nsw i32 %.pn, %.02846
   %.sroa.029.0.extract.trunc = trunc i64 %48 to i32
   %75 = icmp slt i32 %.sroa.029.0.extract.trunc, 0
-  br i1 %75, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread40, label %12, !llvm.loop !17
+  br i1 %75, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread40, label %12, !llvm.loop !16
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread40: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %74, %14, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
   %.028.lcssa = phi i32 [ %.02846, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %.1, %74 ], [ %.02846, %14 ], [ %.02846, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ %.02846, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread ]
@@ -451,7 +451,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #9 align 2 {
-  %3 = load i32, ptr %0, align 4, !tbaa !18
+  %3 = load i32, ptr %0, align 4, !tbaa !17
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %51, label %5
 
@@ -473,7 +473,7 @@ define noundef zeroext i1 @_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8Aff
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 4, !tbaa !23
+  %19 = load i32, ptr %18, align 4, !tbaa !22
   switch i32 %19, label %51 [
     i32 2, label %20
     i32 0, label %41
@@ -503,7 +503,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %20
   %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
   %37 = zext nneg i32 %3 to i64
   %38 = getelementptr inbounds nuw i16, ptr %36, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !14
+  %39 = load i16, ptr %38, align 2, !tbaa !13
   %40 = icmp eq i16 %39, 39
   br i1 %40, label %51, label %.thread
 
@@ -702,7 +702,7 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
   %84 = load i32, ptr %6, align 4
   %85 = select i1 %81, i32 %84, i32 %83
   %86 = icmp slt i32 %.1, %85
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %79, %4
   %.075.lcssa = phi i32 [ %.sroa.273.8.extract.trunc, %4 ], [ %.176, %79 ]
@@ -721,7 +721,7 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
   ]
 
 87:                                               ; preds = %._crit_edge, %._crit_edge
-  store i32 1, ptr %3, align 4, !tbaa !9
+  store i32 1, ptr %3, align 4, !tbaa !8
   br label %.critedge
 
 88:                                               ; preds = %._crit_edge
@@ -819,7 +819,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %22
   %34 = select i1 %.not.i.i.i.i, ptr %33, ptr %7
   %35 = and i64 %.sroa.0.024, 2147483647
   %36 = getelementptr inbounds nuw i16, ptr %34, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !14
+  %37 = load i16, ptr %36, align 2, !tbaa !13
   %38 = icmp eq i16 %37, 39
   br i1 %38, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread21, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -837,7 +837,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %46 = call { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %.sroa.0.024, i64 %.sroa.8.023, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %47 = extractvalue { i64, i64 } %46, 0
   %48 = extractvalue { i64, i64 } %46, 1
-  %49 = load i32, ptr %2, align 4, !tbaa !9
+  %49 = load i32, ptr %2, align 4, !tbaa !8
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %51, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread21
 
@@ -857,7 +857,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 
 57:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
-  %58 = load ptr, ptr %1, align 8, !tbaa !11
+  %58 = load ptr, ptr %1, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.sroa.8.12.extract.trunc18)
@@ -882,7 +882,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %.1 = phi i32 [ %54, %53 ], [ %67, %57 ], [ %71, %68 ]
   %.sroa.0.0.extract.trunc = trunc i64 %47 to i32
   %73 = icmp slt i32 %.sroa.0.0.extract.trunc, 0
-  br i1 %73, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread21, label %11, !llvm.loop !25
+  br i1 %73, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread21, label %11, !llvm.loop !24
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread21: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %72, %13, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
   %.013.lcssa = phi i32 [ %.01325, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %.1, %72 ], [ %.01325, %13 ], [ %.01325, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ %.01325, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread ]
@@ -955,7 +955,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %28
   %40 = select i1 %.not.i.i.i.i, ptr %39, ptr %13
   %41 = and i64 %.sroa.0.0, 2147483647
   %42 = getelementptr inbounds nuw i16, ptr %40, i64 %41
-  %43 = load i16, ptr %42, align 2, !tbaa !14
+  %43 = load i16, ptr %42, align 2, !tbaa !13
   %44 = icmp eq i16 %43, 39
   br i1 %44, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread11, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -971,7 +971,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread: ; preds = %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %27, %19, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
   %52 = tail call { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %.sroa.0.0, i64 %.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %53 = load i32, ptr %2, align 4, !tbaa !9
+  %53 = load i32, ptr %2, align 4, !tbaa !8
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %55, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread11
 
@@ -981,7 +981,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %.sroa.6.12.extract.shift = lshr i64 %56, 32
   %.sroa.6.12.extract.trunc = trunc nuw i64 %.sroa.6.12.extract.shift to i32
   %58 = icmp eq i32 %1, %.sroa.6.12.extract.trunc
-  br i1 %58, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread11, label %15, !llvm.loop !26
+  br i1 %58, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread11, label %15, !llvm.loop !25
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread11: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %15, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread, %55, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %19, %3
   %.0 = phi i1 [ false, %3 ], [ false, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ false, %15 ], [ false, %19 ], [ false, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ true, %55 ], [ false, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread ]
@@ -1050,7 +1050,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %25
   %37 = select i1 %.not.i.i.i.i, ptr %36, ptr %12
   %38 = and i64 %.sroa.08.019, 2147483647
   %39 = getelementptr inbounds nuw i16, ptr %37, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !14
+  %40 = load i16, ptr %39, align 2, !tbaa !13
   %41 = icmp eq i16 %40, 39
   br i1 %41, label %_ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE.exit, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -1068,7 +1068,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %49 = tail call { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %.sroa.08.019, i64 %.sroa.6.020, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %50 = extractvalue { i64, i64 } %49, 0
   %51 = extractvalue { i64, i64 } %49, 1
-  %52 = load i32, ptr %1, align 4, !tbaa !9
+  %52 = load i32, ptr %1, align 4, !tbaa !8
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %_ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE.exit
 
@@ -1100,7 +1100,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 .critedge:                                        ; preds = %56, %56, %56, %56, %56, %54
   %.sroa.08.0.extract.trunc = trunc i64 %50 to i32
   %58 = icmp slt i32 %.sroa.08.0.extract.trunc, 0
-  br i1 %58, label %_ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE.exit, label %14, !llvm.loop !27
+  br i1 %58, label %_ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE.exit, label %14, !llvm.loop !26
 
 _ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %.critedge, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %16, %56, %56, %56, %56, %56, %56, %2
   %.0 = phi i1 [ false, %2 ], [ false, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ false, %.critedge ], [ true, %56 ], [ true, %56 ], [ true, %56 ], [ true, %56 ], [ true, %56 ], [ true, %56 ], [ false, %16 ], [ false, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread ]
@@ -1171,7 +1171,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %29
   %41 = select i1 %.not.i.i.i.i, ptr %40, ptr %16
   %42 = and i64 %.sroa.0.026, 2147483647
   %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !14
+  %44 = load i16, ptr %43, align 2, !tbaa !13
   %45 = icmp eq i16 %44, 39
   br i1 %45, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread23, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -1192,7 +1192,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 54:                                               ; preds = %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
   %55 = extractvalue { i64, i64 } %53, 0
   %56 = extractvalue { i64, i64 } %53, 1
-  %57 = load i32, ptr %4, align 4, !tbaa !9
+  %57 = load i32, ptr %4, align 4, !tbaa !8
   %58 = icmp slt i32 %57, 1
   br i1 %58, label %63, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread23
 
@@ -1216,7 +1216,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 65:                                               ; preds = %63
   %66 = add nsw i32 %.sroa.0.0.extract.trunc, -1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  store i16 %3, ptr %6, align 2, !tbaa !14
+  store i16 %3, ptr %6, align 2, !tbaa !13
   %67 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %66, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1)
           to label %_ZN6icu_7713UnicodeString7replaceEiiDs.exit unwind label %59
 
@@ -1226,7 +1226,7 @@ _ZN6icu_7713UnicodeString7replaceEiiDs.exit:      ; preds = %65
 
 ._crit_edge:                                      ; preds = %63, %_ZN6icu_7713UnicodeString7replaceEiiDs.exit
   %68 = icmp slt i32 %.sroa.0.0.extract.trunc, 0
-  br i1 %68, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread23, label %18, !llvm.loop !28
+  br i1 %68, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread23, label %18, !llvm.loop !27
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread23: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %._crit_edge, %54, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %20, %5
   ret void
@@ -1301,7 +1301,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %26
   %38 = select i1 %.not.i.i.i.i, ptr %37, ptr %13
   %39 = and i64 %.sroa.0.018, 2147483647
   %40 = getelementptr inbounds nuw i16, ptr %38, i64 %39
-  %41 = load i16, ptr %40, align 2, !tbaa !14
+  %41 = load i16, ptr %40, align 2, !tbaa !13
   %42 = icmp eq i16 %41, 39
   br i1 %42, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread15, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -1319,7 +1319,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %50 = tail call { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %.sroa.0.018, i64 %.sroa.7.017, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %51 = extractvalue { i64, i64 } %50, 0
   %52 = extractvalue { i64, i64 } %50, 1
-  %53 = load i32, ptr %2, align 4, !tbaa !9
+  %53 = load i32, ptr %2, align 4, !tbaa !8
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %55, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread15
 
@@ -1337,7 +1337,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 59:                                               ; preds = %57, %55
   %.sroa.0.0.extract.trunc = trunc i64 %51 to i32
   %60 = icmp slt i32 %.sroa.0.0.extract.trunc, 0
-  br i1 %60, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread15, label %15, !llvm.loop !29
+  br i1 %60, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread15, label %15, !llvm.loop !28
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread15: ; preds = %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread, %57, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %17, %59, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %3
   %.0 = phi i1 [ true, %3 ], [ true, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ true, %59 ], [ true, %17 ], [ false, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread ], [ false, %57 ], [ true, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ]
@@ -1412,7 +1412,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %28
   %40 = select i1 %.not.i.i.i.i, ptr %39, ptr %13
   %41 = and i64 %.sroa.0.0, 2147483647
   %42 = getelementptr inbounds nuw i16, ptr %40, i64 %41
-  %43 = load i16, ptr %42, align 2, !tbaa !14
+  %43 = load i16, ptr %42, align 2, !tbaa !13
   %44 = icmp eq i16 %43, 39
   br i1 %44, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread14, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread
 
@@ -1428,7 +1428,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread: ; preds = %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %27, %19, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
   %52 = tail call { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %.sroa.0.0, i64 %.sroa.7.0, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %53 = load i32, ptr %2, align 4, !tbaa !9
+  %53 = load i32, ptr %2, align 4, !tbaa !8
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %55, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread14
 
@@ -1439,13 +1439,13 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %.sroa.7.12.extract.trunc = trunc nuw i64 %.sroa.7.12.extract.shift to i32
   %.sroa.0.4.extract.shift = lshr i64 %57, 32
   %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  %58 = load ptr, ptr %1, align 8, !tbaa !11
+  %58 = load ptr, ptr %1, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.sroa.7.12.extract.trunc, i32 noundef %.sroa.0.4.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %61 = load i32, ptr %2, align 4, !tbaa !9
+  %61 = load i32, ptr %2, align 4, !tbaa !8
   %62 = icmp slt i32 %61, 1
-  br i1 %62, label %15, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread14, !llvm.loop !30
+  br i1 %62, label %15, label %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread14, !llvm.loop !29
 
 _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread14: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %15, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit.thread, %55, %_ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %19, %3
   ret void
@@ -1478,28 +1478,27 @@ attributes #11 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"_ZTS10UErrorCode", !4, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"vtable pointer", !5, i64 0}
-!13 = !{i64 2150505353}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"char16_t", !4, i64 0}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"_ZTSN6icu_776number4impl8AffixTagE", !20, i64 0, !20, i64 4, !21, i64 8, !22, i64 12}
-!20 = !{!"int", !4, i64 0}
-!21 = !{!"_ZTSN6icu_776number4impl17AffixPatternStateE", !4, i64 0}
-!22 = !{!"_ZTSN6icu_776number4impl16AffixPatternTypeE", !4, i64 0}
-!23 = !{!19, !21, i64 8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_ZTS10UErrorCode", !4, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"vtable pointer", !5, i64 0}
+!12 = !{i64 2150505353}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"char16_t", !4, i64 0}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTSN6icu_776number4impl8AffixTagE", !19, i64 0, !19, i64 4, !20, i64 8, !21, i64 12}
+!19 = !{!"int", !4, i64 0}
+!20 = !{!"_ZTSN6icu_776number4impl17AffixPatternStateE", !4, i64 0}
+!21 = !{!"_ZTSN6icu_776number4impl16AffixPatternTypeE", !4, i64 0}
+!22 = !{!18, !20, i64 8}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

@@ -210,7 +210,7 @@ define void @Mtr_MakeLastChild(ptr noundef %0, ptr noundef initializes((40, 48))
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %.preheader, !llvm.loop !20
+  br i1 %.not, label %10, label %.preheader, !llvm.loop !19
 
 10:                                               ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -285,7 +285,7 @@ define noundef ptr @Mtr_CreateLastChild(ptr noundef %0) local_unnamed_addr #9 {
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !20
+  br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !19
 
 13:                                               ; preds = %.preheader.i
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
@@ -335,7 +335,7 @@ define void @Mtr_PrintTree(ptr noundef %0) local_unnamed_addr #9 {
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %.tr12 = phi ptr [ %27, %tailrecurse ], [ %0, %1 ]
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !21
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !20
   %4 = ptrtoint ptr %.tr12 to i64
   %5 = getelementptr inbounds nuw i8, ptr %.tr12, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !10
@@ -414,9 +414,8 @@ attributes #13 = { nounwind }
 !14 = !{!4, !5, i64 12}
 !15 = !{!4, !8, i64 32}
 !16 = !{!4, !8, i64 16}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}

@@ -106,13 +106,10 @@ entry:
   %ref.tmp278 = alloca %"class.msdfgen::EdgeHolder", align 8
   br label %lor.rhs
 
-lor.rhs.loopexit:                                 ; preds = %if.end284
-  br label %lor.rhs, !llvm.loop !5
-
-lor.rhs:                                          ; preds = %lor.rhs.loopexit, %entry
-  %prevNode.sroa.25.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.5.0739, %lor.rhs.loopexit ]
-  %prevNode.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.0.0697, %lor.rhs.loopexit ]
-  %pathDef.addr.0 = phi ptr [ %pathDef, %entry ], [ %pathDef.addr.2614, %lor.rhs.loopexit ]
+lor.rhs:                                          ; preds = %if.end284, %entry
+  %prevNode.sroa.25.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.5.0739, %if.end284 ]
+  %prevNode.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %startPoint.sroa.0.0697, %if.end284 ]
+  %pathDef.addr.0 = phi ptr [ %pathDef, %entry ], [ %pathDef.addr.2614, %if.end284 ]
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %lor.rhs
@@ -132,7 +129,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %lo
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %while.cond.i.i, !llvm.loop !7
+  br label %while.cond.i.i, !llvm.loop !5
 
 land.lhs.true10.i:                                ; preds = %while.cond.i.i
   %2 = add i8 %1, -58
@@ -213,7 +210,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %pathDef.addr.6, i64 1
   %.pre1148 = load i8, ptr %incdec.ptr.i.i.i, align 1
-  br label %while.cond.i.i.i, !llvm.loop !7
+  br label %while.cond.i.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
@@ -240,7 +237,7 @@ while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, 
 
 while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i
   %incdec.ptr.i.i7.i = getelementptr inbounds nuw i8, ptr %pathDef.addr.7, i64 1
-  br label %while.cond.i.i5.i, !llvm.loop !7
+  br label %while.cond.i.i5.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
@@ -280,7 +277,7 @@ while.cond.i.i.i37:                               ; preds = %while.body.i.i.i38,
 while.body.i.i.i38:                               ; preds = %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37
   %incdec.ptr.i.i.i39 = getelementptr inbounds nuw i8, ptr %pathDef.addr.10, i64 1
   %.pre1147 = load i8, ptr %incdec.ptr.i.i.i39, align 1
-  br label %while.cond.i.i.i37, !llvm.loop !7
+  br label %while.cond.i.i.i37, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40:     ; preds = %while.cond.i.i.i37
   store ptr null, ptr %end.i.i35, align 8
@@ -307,7 +304,7 @@ while.cond.i.i5.i45:                              ; preds = %while.body.i.i6.i46
 
 while.body.i.i6.i46:                              ; preds = %while.cond.i.i5.i45, %while.cond.i.i5.i45, %while.cond.i.i5.i45, %while.cond.i.i5.i45, %while.cond.i.i5.i45
   %incdec.ptr.i.i7.i47 = getelementptr inbounds nuw i8, ptr %pathDef.addr.11, i64 1
-  br label %while.cond.i.i5.i45, !llvm.loop !7
+  br label %while.cond.i.i5.i45, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48:    ; preds = %while.cond.i.i5.i45
   store ptr null, ptr %end.i3.i34, align 8
@@ -355,7 +352,7 @@ while.cond.i.i59:                                 ; preds = %while.body.i.i60, %
 while.body.i.i60:                                 ; preds = %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59
   %incdec.ptr.i.i61 = getelementptr inbounds nuw i8, ptr %pathDef.addr.14, i64 1
   %.pre1146 = load i8, ptr %incdec.ptr.i.i61, align 1
-  br label %while.cond.i.i59, !llvm.loop !7
+  br label %while.cond.i.i59, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i62:       ; preds = %while.cond.i.i59
   store ptr null, ptr %end.i, align 8
@@ -401,7 +398,7 @@ while.cond.i.i68:                                 ; preds = %while.body.i.i69, %
 while.body.i.i69:                                 ; preds = %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68
   %incdec.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %pathDef.addr.16, i64 1
   %.pre1145 = load i8, ptr %incdec.ptr.i.i70, align 1
-  br label %while.cond.i.i68, !llvm.loop !7
+  br label %while.cond.i.i68, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i71:       ; preds = %while.cond.i.i68
   store ptr null, ptr %end.i66, align 8
@@ -447,7 +444,7 @@ while.cond.i.i.i80:                               ; preds = %while.body.i.i.i81,
 while.body.i.i.i81:                               ; preds = %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80
   %incdec.ptr.i.i.i82 = getelementptr inbounds nuw i8, ptr %pathDef.addr.18, i64 1
   %.pre1144 = load i8, ptr %incdec.ptr.i.i.i82, align 1
-  br label %while.cond.i.i.i80, !llvm.loop !7
+  br label %while.cond.i.i.i80, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83:     ; preds = %while.cond.i.i.i80
   store ptr null, ptr %end.i.i78, align 8
@@ -474,7 +471,7 @@ while.cond.i.i5.i88:                              ; preds = %while.body.i.i6.i89
 
 while.body.i.i6.i89:                              ; preds = %while.cond.i.i5.i88, %while.cond.i.i5.i88, %while.cond.i.i5.i88, %while.cond.i.i5.i88, %while.cond.i.i5.i88
   %incdec.ptr.i.i7.i90 = getelementptr inbounds nuw i8, ptr %pathDef.addr.19, i64 1
-  br label %while.cond.i.i5.i88, !llvm.loop !7
+  br label %while.cond.i.i5.i88, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91:    ; preds = %while.cond.i.i5.i88
   store ptr null, ptr %end.i3.i77, align 8
@@ -501,7 +498,7 @@ while.cond.i.i.i101:                              ; preds = %while.body.i.i.i102
 
 while.body.i.i.i102:                              ; preds = %while.cond.i.i.i101, %while.cond.i.i.i101, %while.cond.i.i.i101, %while.cond.i.i.i101, %while.cond.i.i.i101
   %incdec.ptr.i.i.i103 = getelementptr inbounds nuw i8, ptr %pathDef.addr.22, i64 1
-  br label %while.cond.i.i.i101, !llvm.loop !7
+  br label %while.cond.i.i.i101, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104:    ; preds = %while.cond.i.i.i101
   store ptr null, ptr %end.i.i99, align 8
@@ -528,7 +525,7 @@ while.cond.i.i5.i109:                             ; preds = %while.body.i.i6.i11
 
 while.body.i.i6.i110:                             ; preds = %while.cond.i.i5.i109, %while.cond.i.i5.i109, %while.cond.i.i5.i109, %while.cond.i.i5.i109, %while.cond.i.i5.i109
   %incdec.ptr.i.i7.i111 = getelementptr inbounds nuw i8, ptr %pathDef.addr.23, i64 1
-  br label %while.cond.i.i5.i109, !llvm.loop !7
+  br label %while.cond.i.i5.i109, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112:   ; preds = %while.cond.i.i5.i109
   store ptr null, ptr %end.i3.i98, align 8
@@ -603,7 +600,7 @@ while.cond.i.i.i132:                              ; preds = %while.body.i.i.i133
 while.body.i.i.i133:                              ; preds = %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132
   %incdec.ptr.i.i.i134 = getelementptr inbounds nuw i8, ptr %pathDef.addr.26, i64 1
   %.pre1143 = load i8, ptr %incdec.ptr.i.i.i134, align 1
-  br label %while.cond.i.i.i132, !llvm.loop !7
+  br label %while.cond.i.i.i132, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135:    ; preds = %while.cond.i.i.i132
   store ptr null, ptr %end.i.i130, align 8
@@ -630,7 +627,7 @@ while.cond.i.i5.i140:                             ; preds = %while.body.i.i6.i14
 
 while.body.i.i6.i141:                             ; preds = %while.cond.i.i5.i140, %while.cond.i.i5.i140, %while.cond.i.i5.i140, %while.cond.i.i5.i140, %while.cond.i.i5.i140
   %incdec.ptr.i.i7.i142 = getelementptr inbounds nuw i8, ptr %pathDef.addr.27, i64 1
-  br label %while.cond.i.i5.i140, !llvm.loop !7
+  br label %while.cond.i.i5.i140, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143:   ; preds = %while.cond.i.i5.i140
   store ptr null, ptr %end.i3.i129, align 8
@@ -678,7 +675,7 @@ while.cond.i.i.i157:                              ; preds = %while.body.i.i.i158
 while.body.i.i.i158:                              ; preds = %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157
   %incdec.ptr.i.i.i159 = getelementptr inbounds nuw i8, ptr %pathDef.addr.30, i64 1
   %.pre1142 = load i8, ptr %incdec.ptr.i.i.i159, align 1
-  br label %while.cond.i.i.i157, !llvm.loop !7
+  br label %while.cond.i.i.i157, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160:    ; preds = %while.cond.i.i.i157
   store ptr null, ptr %end.i.i155, align 8
@@ -705,7 +702,7 @@ while.cond.i.i5.i165:                             ; preds = %while.body.i.i6.i16
 
 while.body.i.i6.i166:                             ; preds = %while.cond.i.i5.i165, %while.cond.i.i5.i165, %while.cond.i.i5.i165, %while.cond.i.i5.i165, %while.cond.i.i5.i165
   %incdec.ptr.i.i7.i167 = getelementptr inbounds nuw i8, ptr %pathDef.addr.31, i64 1
-  br label %while.cond.i.i5.i165, !llvm.loop !7
+  br label %while.cond.i.i5.i165, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168:   ; preds = %while.cond.i.i5.i165
   store ptr null, ptr %end.i3.i154, align 8
@@ -732,7 +729,7 @@ while.cond.i.i.i178:                              ; preds = %while.body.i.i.i179
 
 while.body.i.i.i179:                              ; preds = %while.cond.i.i.i178, %while.cond.i.i.i178, %while.cond.i.i.i178, %while.cond.i.i.i178, %while.cond.i.i.i178
   %incdec.ptr.i.i.i180 = getelementptr inbounds nuw i8, ptr %pathDef.addr.34, i64 1
-  br label %while.cond.i.i.i178, !llvm.loop !7
+  br label %while.cond.i.i.i178, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181:    ; preds = %while.cond.i.i.i178
   store ptr null, ptr %end.i.i176, align 8
@@ -759,7 +756,7 @@ while.cond.i.i5.i186:                             ; preds = %while.body.i.i6.i18
 
 while.body.i.i6.i187:                             ; preds = %while.cond.i.i5.i186, %while.cond.i.i5.i186, %while.cond.i.i5.i186, %while.cond.i.i5.i186, %while.cond.i.i5.i186
   %incdec.ptr.i.i7.i188 = getelementptr inbounds nuw i8, ptr %pathDef.addr.35, i64 1
-  br label %while.cond.i.i5.i186, !llvm.loop !7
+  br label %while.cond.i.i5.i186, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189:   ; preds = %while.cond.i.i5.i186
   store ptr null, ptr %end.i3.i175, align 8
@@ -786,7 +783,7 @@ while.cond.i.i.i199:                              ; preds = %while.body.i.i.i200
 
 while.body.i.i.i200:                              ; preds = %while.cond.i.i.i199, %while.cond.i.i.i199, %while.cond.i.i.i199, %while.cond.i.i.i199, %while.cond.i.i.i199
   %incdec.ptr.i.i.i201 = getelementptr inbounds nuw i8, ptr %pathDef.addr.38, i64 1
-  br label %while.cond.i.i.i199, !llvm.loop !7
+  br label %while.cond.i.i.i199, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202:    ; preds = %while.cond.i.i.i199
   store ptr null, ptr %end.i.i197, align 8
@@ -813,7 +810,7 @@ while.cond.i.i5.i207:                             ; preds = %while.body.i.i6.i20
 
 while.body.i.i6.i208:                             ; preds = %while.cond.i.i5.i207, %while.cond.i.i5.i207, %while.cond.i.i5.i207, %while.cond.i.i5.i207, %while.cond.i.i5.i207
   %incdec.ptr.i.i7.i209 = getelementptr inbounds nuw i8, ptr %pathDef.addr.39, i64 1
-  br label %while.cond.i.i5.i207, !llvm.loop !7
+  br label %while.cond.i.i5.i207, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210:   ; preds = %while.cond.i.i5.i207
   store ptr null, ptr %end.i3.i196, align 8
@@ -884,7 +881,7 @@ while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239
 while.body.i.i.i239:                              ; preds = %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238
   %incdec.ptr.i.i.i240 = getelementptr inbounds nuw i8, ptr %pathDef.addr.42, i64 1
   %.pre1141 = load i8, ptr %incdec.ptr.i.i.i240, align 1
-  br label %while.cond.i.i.i238, !llvm.loop !7
+  br label %while.cond.i.i.i238, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
   store ptr null, ptr %end.i.i236, align 8
@@ -911,7 +908,7 @@ while.cond.i.i5.i246:                             ; preds = %while.body.i.i6.i24
 
 while.body.i.i6.i247:                             ; preds = %while.cond.i.i5.i246, %while.cond.i.i5.i246, %while.cond.i.i5.i246, %while.cond.i.i5.i246, %while.cond.i.i5.i246
   %incdec.ptr.i.i7.i248 = getelementptr inbounds nuw i8, ptr %pathDef.addr.43, i64 1
-  br label %while.cond.i.i5.i246, !llvm.loop !7
+  br label %while.cond.i.i5.i246, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249:   ; preds = %while.cond.i.i5.i246
   store ptr null, ptr %end.i3.i235, align 8
@@ -938,7 +935,7 @@ while.cond.i.i.i259:                              ; preds = %while.body.i.i.i260
 
 while.body.i.i.i260:                              ; preds = %while.cond.i.i.i259, %while.cond.i.i.i259, %while.cond.i.i.i259, %while.cond.i.i.i259, %while.cond.i.i.i259
   %incdec.ptr.i.i.i261 = getelementptr inbounds nuw i8, ptr %pathDef.addr.46, i64 1
-  br label %while.cond.i.i.i259, !llvm.loop !7
+  br label %while.cond.i.i.i259, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262:    ; preds = %while.cond.i.i.i259
   store ptr null, ptr %end.i.i257, align 8
@@ -965,7 +962,7 @@ while.cond.i.i5.i267:                             ; preds = %while.body.i.i6.i26
 
 while.body.i.i6.i268:                             ; preds = %while.cond.i.i5.i267, %while.cond.i.i5.i267, %while.cond.i.i5.i267, %while.cond.i.i5.i267, %while.cond.i.i5.i267
   %incdec.ptr.i.i7.i269 = getelementptr inbounds nuw i8, ptr %pathDef.addr.47, i64 1
-  br label %while.cond.i.i5.i267, !llvm.loop !7
+  br label %while.cond.i.i5.i267, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270:   ; preds = %while.cond.i.i5.i267
   store ptr null, ptr %end.i3.i256, align 8
@@ -1023,7 +1020,7 @@ while.cond.i.i.i288:                              ; preds = %while.body.i.i.i289
 while.body.i.i.i289:                              ; preds = %while.cond.i.i.i288, %while.cond.i.i.i288, %while.cond.i.i.i288, %while.cond.i.i.i288, %while.cond.i.i.i288
   %incdec.ptr.i.i.i290 = getelementptr inbounds nuw i8, ptr %pathDef.addr.50, i64 1
   %.pre = load i8, ptr %incdec.ptr.i.i.i290, align 1
-  br label %while.cond.i.i.i288, !llvm.loop !7
+  br label %while.cond.i.i.i288, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291:    ; preds = %while.cond.i.i.i288
   store ptr null, ptr %end.i.i286, align 8
@@ -1050,7 +1047,7 @@ while.cond.i.i5.i296:                             ; preds = %while.body.i.i6.i29
 
 while.body.i.i6.i297:                             ; preds = %while.cond.i.i5.i296, %while.cond.i.i5.i296, %while.cond.i.i5.i296, %while.cond.i.i5.i296, %while.cond.i.i5.i296
   %incdec.ptr.i.i7.i298 = getelementptr inbounds nuw i8, ptr %pathDef.addr.51, i64 1
-  br label %while.cond.i.i5.i296, !llvm.loop !7
+  br label %while.cond.i.i5.i296, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299:   ; preds = %while.cond.i.i5.i296
   store ptr null, ptr %end.i3.i285, align 8
@@ -1077,7 +1074,7 @@ while.cond.i.i308:                                ; preds = %while.body.i.i309, 
 
 while.body.i.i309:                                ; preds = %while.cond.i.i308, %while.cond.i.i308, %while.cond.i.i308, %while.cond.i.i308, %while.cond.i.i308
   %incdec.ptr.i.i310 = getelementptr inbounds nuw i8, ptr %pathDef.addr.54, i64 1
-  br label %while.cond.i.i308, !llvm.loop !7
+  br label %while.cond.i.i308, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i311:      ; preds = %while.cond.i.i308
   store ptr null, ptr %end.i306, align 8
@@ -1104,7 +1101,7 @@ while.cond.i.i318:                                ; preds = %while.body.i.i319, 
 
 while.body.i.i319:                                ; preds = %while.cond.i.i318, %while.cond.i.i318, %while.cond.i.i318, %while.cond.i.i318, %while.cond.i.i318
   %incdec.ptr.i.i320 = getelementptr inbounds nuw i8, ptr %pathDef.addr.56, i64 1
-  br label %while.cond.i.i318, !llvm.loop !7
+  br label %while.cond.i.i318, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i321:      ; preds = %while.cond.i.i318
   store ptr null, ptr %end.i316, align 8
@@ -1131,7 +1128,7 @@ while.cond.i.i327:                                ; preds = %while.body.i.i328, 
 
 while.body.i.i328:                                ; preds = %while.cond.i.i327, %while.cond.i.i327, %while.cond.i.i327, %while.cond.i.i327, %while.cond.i.i327
   %incdec.ptr.i.i329 = getelementptr inbounds nuw i8, ptr %pathDef.addr.58, i64 1
-  br label %while.cond.i.i327, !llvm.loop !7
+  br label %while.cond.i.i327, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i330:      ; preds = %while.cond.i.i327
   %cmp1.i = icmp ne i64 %call.i322, 0
@@ -1159,7 +1156,7 @@ while.cond.i.i.i340:                              ; preds = %while.body.i.i.i341
 
 while.body.i.i.i341:                              ; preds = %while.cond.i.i.i340, %while.cond.i.i.i340, %while.cond.i.i.i340, %while.cond.i.i.i340, %while.cond.i.i.i340
   %incdec.ptr.i.i.i342 = getelementptr inbounds nuw i8, ptr %pathDef.addr.60, i64 1
-  br label %while.cond.i.i.i340, !llvm.loop !7
+  br label %while.cond.i.i.i340, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343:    ; preds = %while.cond.i.i.i340
   %cmp1.i334 = icmp ne i64 %call.i331, 0
@@ -1187,7 +1184,7 @@ while.cond.i.i5.i348:                             ; preds = %while.body.i.i6.i34
 
 while.body.i.i6.i349:                             ; preds = %while.cond.i.i5.i348, %while.cond.i.i5.i348, %while.cond.i.i5.i348, %while.cond.i.i5.i348, %while.cond.i.i5.i348
   %incdec.ptr.i.i7.i350 = getelementptr inbounds nuw i8, ptr %pathDef.addr.61, i64 1
-  br label %while.cond.i.i5.i348, !llvm.loop !7
+  br label %while.cond.i.i5.i348, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351:   ; preds = %while.cond.i.i5.i348
   store ptr null, ptr %end.i3.i337, align 8
@@ -1441,7 +1438,7 @@ invoke.cont190.i:                                 ; preds = %cond.end.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182.i) #16
   %inc.i = add nuw nsw i32 %i.0162.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv121.i
-  br i1 %exitcond.not.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %arrayctor.loop.preheader.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %arrayctor.loop.preheader.i, !llvm.loop !7
 
 lpad189.i:                                        ; preds = %cond.end.i
   %109 = landingpad { ptr, i32 }
@@ -1492,7 +1489,7 @@ while.cond.i.i367:                                ; preds = %while.body.i.i368, 
 
 while.body.i.i368:                                ; preds = %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367
   %incdec.ptr.i.i369 = getelementptr inbounds nuw i8, ptr %pathDef.addr.64, i64 1
-  br label %while.cond.i.i367, !llvm.loop !7
+  br label %while.cond.i.i367, !llvm.loop !5
 
 land.lhs.true10.i372:                             ; preds = %while.cond.i.i367
   %113 = add i8 %112, -58
@@ -1508,7 +1505,7 @@ _ZN7msdfgenL12readNodeTypeERcRPKc.exit376:        ; preds = %while.cond.i.i367, 
   %nodeType.5 = phi i8 [ %spec.select, %land.lhs.true10.i372 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ]
   %pathDef.addr.65 = phi ptr [ %spec.select524, %land.lhs.true10.i372 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ]
   %tobool3.not = icmp eq i8 %114, 0
-  br i1 %tobool3.not, label %NEXT_CONTOUR, label %while.body4, !llvm.loop !10
+  br i1 %tobool3.not, label %NEXT_CONTOUR, label %while.body4, !llvm.loop !8
 
 NEXT_CONTOUR:                                     ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376, %sw.bb, %while.body, %sw.bb13
   %prevNode.sroa.25.2822 = phi double [ %prevNode.sroa.25.2824, %sw.bb13 ], [ %prevNode.sroa.25.1, %while.body ], [ %node.sroa.39.2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %prevNode.sroa.25.2824, %sw.bb ]
@@ -1589,7 +1586,7 @@ lpad281:                                          ; preds = %if.else277
   br label %common.resume
 
 if.end284:                                        ; preds = %if.then264, %invoke.cont282, %land.lhs.true, %NEXT_CONTOUR
-  br i1 %nodeTypePreread.1, label %while.body, label %lor.rhs.loopexit, !llvm.loop !5
+  br i1 %nodeTypePreread.1, label %while.body, label %lor.rhs
 
 return:                                           ; preds = %land.lhs.true10.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %sw.bb13, %while.body4, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i
   %retval.0 = phi i1 [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343 ], [ false, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351 ], [ false, %while.body4 ], [ false, %sw.bb13 ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %while.cond.i.i ], [ true, %land.lhs.true10.i ]
@@ -1629,7 +1626,7 @@ while.cond.i:                                     ; preds = %while.body.i, %entr
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %incdec.ptr.i, ptr %pathDef, align 8
-  br label %while.cond.i, !llvm.loop !7
+  br label %while.cond.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit:           ; preds = %while.cond.i
   store ptr null, ptr %end, align 8
@@ -1751,7 +1748,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i24, i64 1
-  br label %while.cond.i.i, !llvm.loop !7
+  br label %while.cond.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
@@ -1778,7 +1775,7 @@ while.cond.i.i15:                                 ; preds = %while.body.i.i16, %
 
 while.body.i.i16:                                 ; preds = %while.cond.i.i15, %while.cond.i.i15, %while.cond.i.i15, %while.cond.i.i15, %while.cond.i.i15
   %incdec.ptr.i.i17 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  br label %while.cond.i.i15, !llvm.loop !7
+  br label %while.cond.i.i15, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i18:       ; preds = %while.cond.i.i15
   store ptr null, ptr %end.i13, align 8
@@ -1829,7 +1826,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i,
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #16
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %11
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !9
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i.i:      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
@@ -1847,7 +1844,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %9
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   store ptr %8, ptr %_M_finish.i.i, align 8
@@ -2014,7 +2011,7 @@ if.then51:                                        ; preds = %lor.lhs.false47, %i
 for.inc:                                          ; preds = %if.else, %if.then13, %lor.lhs.false, %if.then9, %if.then41, %if.then51, %lor.lhs.false47, %lor.end
   %call.i32 = tail call noundef ptr @_ZNK8tinyxml27XMLNode18NextSiblingElementEPKc(ptr noundef nonnull align 8 dereferenceable(104) %cur.034, ptr noundef null)
   %tobool.not = icmp eq ptr %call.i32, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !13
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !11
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   ret void
@@ -2156,7 +2153,7 @@ if.then51:                                        ; preds = %lor.lhs.false47, %i
 for.inc:                                          ; preds = %if.else, %if.then13, %lor.lhs.false, %if.then9, %if.then41, %if.then51, %lor.lhs.false47, %lor.end
   %call.i32 = tail call noundef ptr @_ZNK8tinyxml27XMLNode22PreviousSiblingElementEPKc(ptr noundef nonnull align 8 dereferenceable(104) %cur.034, ptr noundef null)
   %tobool.not = icmp eq ptr %call.i32, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !14
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !12
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   ret void
@@ -2295,7 +2292,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i16, i64 1
-  br label %while.cond.i.i, !llvm.loop !7
+  br label %while.cond.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
@@ -2670,7 +2667,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %pd133.1, i64 1
-  br label %while.cond.i.i.i, !llvm.loop !7
+  br label %while.cond.i.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
@@ -2697,7 +2694,7 @@ while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, 
 
 while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i
   %incdec.ptr.i.i7.i = getelementptr inbounds nuw i8, ptr %pd133.2, i64 1
-  br label %while.cond.i.i5.i, !llvm.loop !7
+  br label %while.cond.i.i5.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
@@ -2730,7 +2727,7 @@ while.cond.i.i.i94:                               ; preds = %while.body.i.i.i95,
 
 while.body.i.i.i95:                               ; preds = %while.cond.i.i.i94, %while.cond.i.i.i94, %while.cond.i.i.i94, %while.cond.i.i.i94, %while.cond.i.i.i94
   %incdec.ptr.i.i.i96 = getelementptr inbounds nuw i8, ptr %pd133.5, i64 1
-  br label %while.cond.i.i.i94, !llvm.loop !7
+  br label %while.cond.i.i.i94, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97:     ; preds = %while.cond.i.i.i94
   store ptr null, ptr %end.i.i92, align 8
@@ -2757,7 +2754,7 @@ while.cond.i.i5.i102:                             ; preds = %while.body.i.i6.i10
 
 while.body.i.i6.i103:                             ; preds = %while.cond.i.i5.i102, %while.cond.i.i5.i102, %while.cond.i.i5.i102, %while.cond.i.i5.i102, %while.cond.i.i5.i102
   %incdec.ptr.i.i7.i104 = getelementptr inbounds nuw i8, ptr %pd133.6, i64 1
-  br label %while.cond.i.i5.i102, !llvm.loop !7
+  br label %while.cond.i.i5.i102, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105:   ; preds = %while.cond.i.i5.i102
   store ptr null, ptr %end.i3.i91, align 8
@@ -2793,7 +2790,7 @@ while.cond.i.i.i115:                              ; preds = %while.body.i.i.i116
 
 while.body.i.i.i116:                              ; preds = %while.cond.i.i.i115, %while.cond.i.i.i115, %while.cond.i.i.i115, %while.cond.i.i.i115, %while.cond.i.i.i115
   %incdec.ptr.i.i.i117 = getelementptr inbounds nuw i8, ptr %pd133.9, i64 1
-  br label %while.cond.i.i.i115, !llvm.loop !7
+  br label %while.cond.i.i.i115, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118:    ; preds = %while.cond.i.i.i115
   store ptr null, ptr %end.i.i113, align 8
@@ -2820,7 +2817,7 @@ while.cond.i.i5.i123:                             ; preds = %while.body.i.i6.i12
 
 while.body.i.i6.i124:                             ; preds = %while.cond.i.i5.i123, %while.cond.i.i5.i123, %while.cond.i.i5.i123, %while.cond.i.i5.i123, %while.cond.i.i5.i123
   %incdec.ptr.i.i7.i125 = getelementptr inbounds nuw i8, ptr %pd133.10, i64 1
-  br label %while.cond.i.i5.i123, !llvm.loop !7
+  br label %while.cond.i.i5.i123, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126:   ; preds = %while.cond.i.i5.i123
   store ptr null, ptr %end.i3.i112, align 8
@@ -2892,7 +2889,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 for.inc:                                          ; preds = %cleanup, %if.then, %if.then12
   %call.i133 = call noundef ptr @_ZNK8tinyxml27XMLNode18NextSiblingElementEPKc(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157, ptr noundef null)
   %tobool.not = icmp eq ptr %call.i133, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !15
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !13
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   ret void
@@ -2969,36 +2966,36 @@ entry:
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.addr.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %values.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %partial.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
-  store float 1.000000e+00, ptr %transformation, align 4, !alias.scope !16
+  store float 1.000000e+00, ptr %transformation, align 4, !alias.scope !14
   %arrayinit.element.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 4
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i, align 4, !alias.scope !16
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i, align 4, !alias.scope !14
   %arrayinit.element2.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 8
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i, align 4, !alias.scope !16
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i, align 4, !alias.scope !14
   %arrayinit.element3.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 12
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i, align 4, !alias.scope !16
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i, align 4, !alias.scope !14
   %arrayinit.element4.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i, align 4, !alias.scope !16
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i, align 4, !alias.scope !14
   %arrayinit.element5.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 20
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i, align 4, !alias.scope !16
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i, align 4, !alias.scope !14
   %arrayinit.element6.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 24
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i, align 4, !alias.scope !16
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i, align 4, !alias.scope !14
   %arrayinit.element7.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 28
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i, align 4, !alias.scope !16
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i, align 4, !alias.scope !14
   %arrayinit.element8.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 32
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i, align 4, !alias.scope !16
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i, align 4, !alias.scope !14
   %fTypeMask.i.i.i = getelementptr inbounds nuw i8, ptr %transformation, i64 36
-  store i32 16, ptr %fTypeMask.i.i.i, align 4, !alias.scope !16
+  store i32 16, ptr %fTypeMask.i.i.i, align 4, !alias.scope !14
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.then
   %incdec.ptr.i23.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %transformationString, %if.then ]
-  %0 = load i8, ptr %incdec.ptr.i23.i, align 1, !noalias !16
+  %0 = load i8, ptr %incdec.ptr.i23.i, align 1, !noalias !14
   switch i8 %0, label %while.cond.preheader.i [
     i8 44, label %while.body.i.i
     i8 32, label %while.body.i.i
@@ -3008,7 +3005,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   ]
 
 while.cond.preheader.i:                           ; preds = %while.cond.i.i
-  store ptr %incdec.ptr.i23.i, ptr %str.addr.i, align 8, !noalias !16
+  store ptr %incdec.ptr.i23.i, ptr %str.addr.i, align 8, !noalias !14
   %tobool.not26.i = icmp eq i8 %0, 0
   br i1 %tobool.not26.i, label %_ZN7msdfgenL19parseTransformationERiPKc.exit, label %while.body.lr.ph.i
 
@@ -3040,47 +3037,47 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i23.i, i64 1
-  br label %while.cond.i.i, !llvm.loop !7
+  br label %while.cond.i.i, !llvm.loop !5
 
 while.cond.loopexit.i:                            ; preds = %while.cond.i19.i
-  store ptr %25, ptr %str.addr.i, align 8, !noalias !16
+  store ptr %25, ptr %str.addr.i, align 8, !noalias !14
   %tobool.not.i = icmp eq i8 %26, 0
-  br i1 %tobool.not.i, label %_ZN7msdfgenL19parseTransformationERiPKc.exit, label %while.body.i, !llvm.loop !19
+  br i1 %tobool.not.i, label %_ZN7msdfgenL19parseTransformationERiPKc.exit, label %while.body.i, !llvm.loop !17
 
 while.body.i:                                     ; preds = %while.cond.loopexit.i, %while.body.lr.ph.i
-  store float 1.000000e+00, ptr %partial.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element.i.i6.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i7.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i9.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i10.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i11.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i12.i, align 4, !noalias !16
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i13.i, align 4, !noalias !16
-  store i32 16, ptr %fTypeMask.i.i14.i, align 4, !noalias !16
+  store float 1.000000e+00, ptr %partial.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element.i.i6.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i7.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i9.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i10.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i11.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i12.i, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i13.i, align 4, !noalias !14
+  store i32 16, ptr %fTypeMask.i.i14.i, align 4, !noalias !14
   %call.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.25)
-  %1 = load i32, ptr %count.i, align 4, !noalias !16
+  %1 = load i32, ptr %count.i, align 4, !noalias !14
   %cmp.i = icmp eq i32 %1, 6
   %or.cond.i = select i1 %call.i, i1 %cmp.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %2 = load float, ptr %values.i, align 16, !noalias !16
-  %3 = load float, ptr %arrayidx47.i, align 8, !noalias !16
-  %4 = load float, ptr %arrayidx2.i, align 16, !noalias !16
-  %5 = load float, ptr %arrayidx46.i, align 4, !noalias !16
-  %6 = load float, ptr %arrayidx4.i, align 4, !noalias !16
-  %7 = load float, ptr %arrayidx5.i, align 4, !noalias !16
-  store float %2, ptr %partial.i, align 4, !noalias !16
-  store float %3, ptr %arrayinit.element.i.i6.i, align 4, !noalias !16
-  store float %4, ptr %arrayinit.element2.i.i7.i, align 4, !noalias !16
-  store float %5, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !16
-  store float %6, ptr %arrayinit.element4.i.i9.i, align 4, !noalias !16
-  store float %7, ptr %arrayinit.element5.i.i10.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i11.i, align 4, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i12.i, align 4, !noalias !16
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i13.i, align 4, !noalias !16
-  store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !16
+  %2 = load float, ptr %values.i, align 16, !noalias !14
+  %3 = load float, ptr %arrayidx47.i, align 8, !noalias !14
+  %4 = load float, ptr %arrayidx2.i, align 16, !noalias !14
+  %5 = load float, ptr %arrayidx46.i, align 4, !noalias !14
+  %6 = load float, ptr %arrayidx4.i, align 4, !noalias !14
+  %7 = load float, ptr %arrayidx5.i, align 4, !noalias !14
+  store float %2, ptr %partial.i, align 4, !noalias !14
+  store float %3, ptr %arrayinit.element.i.i6.i, align 4, !noalias !14
+  store float %4, ptr %arrayinit.element2.i.i7.i, align 4, !noalias !14
+  store float %5, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !14
+  store float %6, ptr %arrayinit.element4.i.i9.i, align 4, !noalias !14
+  store float %7, ptr %arrayinit.element5.i.i10.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i11.i, align 4, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i12.i, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i13.i, align 4, !noalias !14
+  store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !14
   br label %if.end81.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -3088,7 +3085,7 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %call8.i, label %land.lhs.true9.i, label %if.else19.i
 
 land.lhs.true9.i:                                 ; preds = %if.else.i
-  %8 = load i32, ptr %count.i, align 4, !noalias !16
+  %8 = load i32, ptr %count.i, align 4, !noalias !14
   %9 = add i32 %8, -1
   %or.cond1.i = icmp ult i32 %9, 2
   br i1 %or.cond1.i, label %if.then12.i, label %if.else19.i
@@ -3098,16 +3095,16 @@ if.then12.i:                                      ; preds = %land.lhs.true9.i
   br i1 %cmp10.i, label %if.then14.i, label %if.then12.if.end_crit_edge.i
 
 if.then12.if.end_crit_edge.i:                     ; preds = %if.then12.i
-  %.pre28.i = load float, ptr %arrayidx46.i, align 4, !noalias !16
+  %.pre28.i = load float, ptr %arrayidx46.i, align 4, !noalias !14
   br label %if.end.i
 
 if.then14.i:                                      ; preds = %if.then12.i
-  store float 0.000000e+00, ptr %arrayidx46.i, align 4, !noalias !16
+  store float 0.000000e+00, ptr %arrayidx46.i, align 4, !noalias !14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.then12.if.end_crit_edge.i
   %10 = phi float [ %.pre28.i, %if.then12.if.end_crit_edge.i ], [ 0.000000e+00, %if.then14.i ]
-  %11 = load float, ptr %values.i, align 16, !noalias !16
+  %11 = load float, ptr %values.i, align 16, !noalias !14
   %call18.i = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix12setTranslateEff(ptr noundef nonnull align 4 dereferenceable(40) %partial.i, float noundef %11, float noundef %10)
   br label %if.end81.i
 
@@ -3116,22 +3113,22 @@ if.else19.i:                                      ; preds = %land.lhs.true9.i, %
   br i1 %call21.i, label %land.lhs.true22.i, label %if.else35.i
 
 land.lhs.true22.i:                                ; preds = %if.else19.i
-  %12 = load i32, ptr %count.i, align 4, !noalias !16
+  %12 = load i32, ptr %count.i, align 4, !noalias !14
   %13 = add i32 %12, -1
   %or.cond2.i = icmp ult i32 %13, 2
   br i1 %or.cond2.i, label %if.then26.i, label %if.else35.i
 
 if.then26.i:                                      ; preds = %land.lhs.true22.i
   %cmp23.i = icmp eq i32 %12, 1
-  %.pre.i = load float, ptr %values.i, align 16, !noalias !16
+  %.pre.i = load float, ptr %values.i, align 16, !noalias !14
   br i1 %cmp23.i, label %if.then28.i, label %if.then26.if.end31_crit_edge.i
 
 if.then26.if.end31_crit_edge.i:                   ; preds = %if.then26.i
-  %.pre27.i = load float, ptr %arrayidx46.i, align 4, !noalias !16
+  %.pre27.i = load float, ptr %arrayidx46.i, align 4, !noalias !14
   br label %if.end31.i
 
 if.then28.i:                                      ; preds = %if.then26.i
-  store float %.pre.i, ptr %arrayidx46.i, align 4, !noalias !16
+  store float %.pre.i, ptr %arrayidx46.i, align 4, !noalias !14
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then28.i, %if.then26.if.end31_crit_edge.i
@@ -3144,78 +3141,78 @@ if.else35.i:                                      ; preds = %land.lhs.true22.i, 
   br i1 %call37.i, label %land.lhs.true38.i, label %if.else53.i
 
 land.lhs.true38.i:                                ; preds = %if.else35.i
-  %15 = load i32, ptr %count.i, align 4, !noalias !16
+  %15 = load i32, ptr %count.i, align 4, !noalias !14
   switch i32 %15, label %if.else53.i [
     i32 3, label %if.then44.i
     i32 1, label %if.else49.i
   ]
 
 if.then44.i:                                      ; preds = %land.lhs.true38.i
-  %16 = load float, ptr %values.i, align 16, !noalias !16
-  %17 = load float, ptr %arrayidx46.i, align 4, !noalias !16
-  %18 = load float, ptr %arrayidx47.i, align 8, !noalias !16
+  %16 = load float, ptr %values.i, align 16, !noalias !14
+  %17 = load float, ptr %arrayidx46.i, align 4, !noalias !14
+  %18 = load float, ptr %arrayidx47.i, align 8, !noalias !14
   %call48.i = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setRotateEfff(ptr noundef nonnull align 4 dereferenceable(40) %partial.i, float noundef %16, float noundef %17, float noundef %18)
   br label %if.end81.i
 
 if.else49.i:                                      ; preds = %land.lhs.true38.i
-  %19 = load float, ptr %values.i, align 16, !noalias !16
+  %19 = load float, ptr %values.i, align 16, !noalias !14
   %call51.i = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setRotateEf(ptr noundef nonnull align 4 dereferenceable(40) %partial.i, float noundef %19)
   br label %if.end81.i
 
 if.else53.i:                                      ; preds = %land.lhs.true38.i, %if.else35.i
   %call55.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.29)
-  %20 = load i32, ptr %count.i, align 4, !noalias !16
+  %20 = load i32, ptr %count.i, align 4, !noalias !14
   %cmp57.i = icmp eq i32 %20, 1
   %or.cond4.i = select i1 %call55.i, i1 %cmp57.i, i1 false
   br i1 %or.cond4.i, label %if.then58.i, label %if.else63.i
 
 if.then58.i:                                      ; preds = %if.else53.i
-  %21 = load float, ptr %values.i, align 16, !noalias !16
+  %21 = load float, ptr %values.i, align 16, !noalias !14
   %conv.i = fpext float %21 to double
   %mul.i = fmul double %conv.i, 0x3F91DF46A2529D39
   %call60.i = call double @tan(double noundef %mul.i) #16
   %conv61.i = fptrunc double %call60.i to float
-  store float %conv61.i, ptr %arrayinit.element.i.i6.i, align 4, !noalias !16
-  store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !16
+  store float %conv61.i, ptr %arrayinit.element.i.i6.i, align 4, !noalias !14
+  store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !14
   br label %if.end81.i
 
 if.else63.i:                                      ; preds = %if.else53.i
   %call65.i = call fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef %values.i, ptr noundef nonnull align 4 dereferenceable(4) %count.i, ptr noundef nonnull align 8 dereferenceable(8) %str.addr.i, ptr noundef nonnull @.str.30)
-  %22 = load i32, ptr %count.i, align 4, !noalias !16
+  %22 = load i32, ptr %count.i, align 4, !noalias !14
   %cmp67.i = icmp eq i32 %22, 1
   %or.cond5.i = select i1 %call65.i, i1 %cmp67.i, i1 false
   br i1 %or.cond5.i, label %if.then68.i, label %if.else75.i
 
 if.then68.i:                                      ; preds = %if.else63.i
-  %23 = load float, ptr %values.i, align 16, !noalias !16
+  %23 = load float, ptr %values.i, align 16, !noalias !14
   %conv70.i = fpext float %23 to double
   %mul71.i = fmul double %conv70.i, 0x3F91DF46A2529D39
   %call72.i = call double @tan(double noundef %mul71.i) #16
   %conv73.i = fptrunc double %call72.i to float
-  store float %conv73.i, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !16
-  store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !16
+  store float %conv73.i, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !14
+  store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !14
   br label %if.end81.i
 
 if.else75.i:                                      ; preds = %if.else63.i
-  %24 = load i32, ptr %flags, align 4, !noalias !16
+  %24 = load i32, ptr %flags, align 4, !noalias !14
   %or.i = or i32 %24, 2
-  store i32 %or.i, ptr %flags, align 4, !noalias !16
+  store i32 %or.i, ptr %flags, align 4, !noalias !14
   br label %_ZN7msdfgenL19parseTransformationERiPKc.exit
 
 if.end81.i:                                       ; preds = %if.then68.i, %if.then58.i, %if.else49.i, %if.then44.i, %if.end31.i, %if.end.i, %if.then.i
-  store float 1.000000e+00, ptr %ref.tmp.i, align 4, !alias.scope !20, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
-  store i32 16, ptr %fTypeMask.i.i.i.i.i, align 4, !alias.scope !20, !noalias !16
+  store float 1.000000e+00, ptr %ref.tmp.i, align 4, !alias.scope !18, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
+  store i32 16, ptr %fTypeMask.i.i.i.i.i, align 4, !alias.scope !18, !noalias !14
   %call.i.i.i = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef nonnull align 4 dereferenceable(40) %partial.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp.i, i64 40, i1 false)
-  %pathDef.promoted.i18.i = load ptr, ptr %str.addr.i, align 8, !noalias !16
+  %pathDef.promoted.i18.i = load ptr, ptr %str.addr.i, align 8, !noalias !14
   br label %while.cond.i19.i
 
 while.cond.i19.i:                                 ; preds = %while.body.i20.i, %if.end81.i
@@ -3231,7 +3228,7 @@ while.cond.i19.i:                                 ; preds = %while.body.i20.i, %
 
 while.body.i20.i:                                 ; preds = %while.cond.i19.i, %while.cond.i19.i, %while.cond.i19.i, %while.cond.i19.i, %while.cond.i19.i
   %incdec.ptr.i21.i = getelementptr inbounds nuw i8, ptr %25, i64 1
-  br label %while.cond.i19.i, !llvm.loop !7
+  br label %while.cond.i19.i, !llvm.loop !5
 
 _ZN7msdfgenL19parseTransformationERiPKc.exit:     ; preds = %while.cond.loopexit.i, %while.cond.preheader.i, %if.else75.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.addr.i)
@@ -3259,7 +3256,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %transformationOriginString.addr.0, i64 1
-  br label %while.cond.i.i.i, !llvm.loop !7
+  br label %while.cond.i.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
@@ -3286,7 +3283,7 @@ while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, 
 
 while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i
   %incdec.ptr.i.i7.i = getelementptr inbounds nuw i8, ptr %transformationOriginString.addr.1, i64 1
-  br label %while.cond.i.i5.i, !llvm.loop !7
+  br label %while.cond.i.i5.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
@@ -3299,87 +3296,87 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
 if.then3:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i
   %conv = fptrunc double %call.i.i to float
   %conv6 = fptrunc double %call.i9.i to float
-  store float 1.000000e+00, ptr %ref.tmp5, align 4, !alias.scope !25
+  store float 1.000000e+00, ptr %ref.tmp5, align 4, !alias.scope !23
   %arrayinit.element.i.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 4
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i5, align 4, !alias.scope !25
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i5, align 4, !alias.scope !23
   %arrayinit.element2.i.i.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i6, align 4, !alias.scope !25
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i6, align 4, !alias.scope !23
   %arrayinit.element3.i.i.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 12
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i7, align 4, !alias.scope !25
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i7, align 4, !alias.scope !23
   %arrayinit.element4.i.i.i8 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i8, align 4, !alias.scope !25
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i8, align 4, !alias.scope !23
   %arrayinit.element5.i.i.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 20
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i9, align 4, !alias.scope !25
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i9, align 4, !alias.scope !23
   %arrayinit.element6.i.i.i10 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 24
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i10, align 4, !alias.scope !25
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i10, align 4, !alias.scope !23
   %arrayinit.element7.i.i.i11 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 28
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i11, align 4, !alias.scope !25
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i11, align 4, !alias.scope !23
   %arrayinit.element8.i.i.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 32
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i12, align 4, !alias.scope !25
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i12, align 4, !alias.scope !23
   %fTypeMask.i.i.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 36
-  store i32 16, ptr %fTypeMask.i.i.i13, align 4, !alias.scope !25
+  store i32 16, ptr %fTypeMask.i.i.i13, align 4, !alias.scope !23
   %call.i14 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix12setTranslateEff(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp5, float noundef %conv, float noundef %conv6)
-  store float 1.000000e+00, ptr %ref.tmp4, align 4, !alias.scope !28
+  store float 1.000000e+00, ptr %ref.tmp4, align 4, !alias.scope !26
   %arrayinit.element.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 4
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element2.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element4.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i, align 4, !alias.scope !28
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element5.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 20
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element6.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 24
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element7.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 28
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i, align 4, !alias.scope !26
   %arrayinit.element8.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 32
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i, align 4, !alias.scope !28
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i, align 4, !alias.scope !26
   %fTypeMask.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 36
-  store i32 16, ptr %fTypeMask.i.i.i.i, align 4, !alias.scope !28
+  store i32 16, ptr %fTypeMask.i.i.i.i, align 4, !alias.scope !26
   %call.i.i15 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp5, ptr noundef nonnull align 4 dereferenceable(40) %transformation)
   %conv9 = fneg float %conv
   %conv12 = fneg float %conv6
-  store float 1.000000e+00, ptr %ref.tmp7, align 4, !alias.scope !33
+  store float 1.000000e+00, ptr %ref.tmp7, align 4, !alias.scope !31
   %arrayinit.element.i.i.i16 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 4
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i16, align 4, !alias.scope !33
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i16, align 4, !alias.scope !31
   %arrayinit.element2.i.i.i17 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i17, align 4, !alias.scope !33
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i17, align 4, !alias.scope !31
   %arrayinit.element3.i.i.i18 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 12
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i18, align 4, !alias.scope !33
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i18, align 4, !alias.scope !31
   %arrayinit.element4.i.i.i19 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i19, align 4, !alias.scope !33
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i19, align 4, !alias.scope !31
   %arrayinit.element5.i.i.i20 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 20
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i20, align 4, !alias.scope !33
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i20, align 4, !alias.scope !31
   %arrayinit.element6.i.i.i21 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 24
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i21, align 4, !alias.scope !33
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i21, align 4, !alias.scope !31
   %arrayinit.element7.i.i.i22 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 28
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i22, align 4, !alias.scope !33
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i22, align 4, !alias.scope !31
   %arrayinit.element8.i.i.i23 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 32
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i23, align 4, !alias.scope !33
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i23, align 4, !alias.scope !31
   %fTypeMask.i.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 36
-  store i32 16, ptr %fTypeMask.i.i.i24, align 4, !alias.scope !33
+  store i32 16, ptr %fTypeMask.i.i.i24, align 4, !alias.scope !31
   %call.i25 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix12setTranslateEff(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp7, float noundef %conv9, float noundef %conv12)
-  store float 1.000000e+00, ptr %ref.tmp, align 4, !alias.scope !36
+  store float 1.000000e+00, ptr %ref.tmp, align 4, !alias.scope !34
   %arrayinit.element.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i26, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i26, align 4, !alias.scope !34
   %arrayinit.element2.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i27, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i27, align 4, !alias.scope !34
   %arrayinit.element3.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i28, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i28, align 4, !alias.scope !34
   %arrayinit.element4.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i29, align 4, !alias.scope !36
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i29, align 4, !alias.scope !34
   %arrayinit.element5.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 20
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i30, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i30, align 4, !alias.scope !34
   %arrayinit.element6.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i31, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i31, align 4, !alias.scope !34
   %arrayinit.element7.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 28
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i32, align 4, !alias.scope !36
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i32, align 4, !alias.scope !34
   %arrayinit.element8.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i33, align 4, !alias.scope !36
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i33, align 4, !alias.scope !34
   %fTypeMask.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 36
-  store i32 16, ptr %fTypeMask.i.i.i.i34, align 4, !alias.scope !36
+  store i32 16, ptr %fTypeMask.i.i.i.i34, align 4, !alias.scope !34
   %call.i.i35 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %transformation, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp, i64 40, i1 false)
   br label %if.end13
@@ -3391,25 +3388,25 @@ if.else:                                          ; preds = %_ZN7msdfgenL14skipE
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then3, %if.else, %_ZN7msdfgenL19parseTransformationERiPKc.exit
-  store float 1.000000e+00, ptr %agg.result, align 4, !alias.scope !41
+  store float 1.000000e+00, ptr %agg.result, align 4, !alias.scope !39
   %arrayinit.element.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i36, align 4, !alias.scope !41
+  store float 0.000000e+00, ptr %arrayinit.element.i.i.i.i36, align 4, !alias.scope !39
   %arrayinit.element2.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i37, align 4, !alias.scope !41
+  store float 0.000000e+00, ptr %arrayinit.element2.i.i.i.i37, align 4, !alias.scope !39
   %arrayinit.element3.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
-  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i38, align 4, !alias.scope !41
+  store float 0.000000e+00, ptr %arrayinit.element3.i.i.i.i38, align 4, !alias.scope !39
   %arrayinit.element4.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i39, align 4, !alias.scope !41
+  store float 1.000000e+00, ptr %arrayinit.element4.i.i.i.i39, align 4, !alias.scope !39
   %arrayinit.element5.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
-  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i40, align 4, !alias.scope !41
+  store float 0.000000e+00, ptr %arrayinit.element5.i.i.i.i40, align 4, !alias.scope !39
   %arrayinit.element6.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i41, align 4, !alias.scope !41
+  store float 0.000000e+00, ptr %arrayinit.element6.i.i.i.i41, align 4, !alias.scope !39
   %arrayinit.element7.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
-  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i42, align 4, !alias.scope !41
+  store float 0.000000e+00, ptr %arrayinit.element7.i.i.i.i42, align 4, !alias.scope !39
   %arrayinit.element8.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i43, align 4, !alias.scope !41
+  store float 1.000000e+00, ptr %arrayinit.element8.i.i.i.i43, align 4, !alias.scope !39
   %fTypeMask.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
-  store i32 16, ptr %fTypeMask.i.i.i.i44, align 4, !alias.scope !41
+  store i32 16, ptr %fTypeMask.i.i.i.i44, align 4, !alias.scope !39
   %call.i.i45 = call noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40) %agg.result, ptr noundef nonnull align 4 dereferenceable(40) %parentTransformation, ptr noundef nonnull align 4 dereferenceable(40) %transformation)
   br label %return
 
@@ -3467,7 +3464,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.t
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %curStr.1, i64 1
-  br label %while.cond.i, !llvm.loop !7
+  br label %while.cond.i, !llvm.loop !5
 
 while.cond.i8:                                    ; preds = %while.cond.i, %while.cond.i8.backedge
   %curStr.1.pn = phi ptr [ %curStr.2, %while.cond.i8.backedge ], [ %curStr.1, %while.cond.i ]
@@ -3482,7 +3479,7 @@ while.cond.i8:                                    ; preds = %while.cond.i, %whil
   ]
 
 while.cond.i8.backedge:                           ; preds = %while.cond.i8, %while.cond.i8, %while.cond.i8, %while.cond.i8, %while.cond.i8
-  br label %while.cond.i8, !llvm.loop !7
+  br label %while.cond.i8, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit11:         ; preds = %while.cond.i8
   store i32 0, ptr %count, align 4
@@ -3520,7 +3517,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %la
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %curStr.3, i64 1
   %.pre26 = load i8, ptr %incdec.ptr.i.i, align 1
-  br label %while.cond.i.i, !llvm.loop !7
+  br label %while.cond.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
@@ -3549,11 +3546,11 @@ while.cond.i13:                                   ; preds = %while.body.i14, %if
     i8 9, label %while.body.i14
     i8 13, label %while.body.i14
     i8 10, label %while.body.i14
-  ], !llvm.loop !46
+  ], !llvm.loop !44
 
 while.body.i14:                                   ; preds = %while.cond.i13, %while.cond.i13, %while.cond.i13, %while.cond.i13, %while.cond.i13
   %incdec.ptr.i15 = getelementptr inbounds nuw i8, ptr %curStr.5, i64 1
-  br label %while.cond.i13, !llvm.loop !7
+  br label %while.cond.i13, !llvm.loop !5
 
 if.then14:                                        ; preds = %while.cond
   %add.ptr15 = getelementptr inbounds nuw i8, ptr %curStr.0, i64 1
@@ -3637,44 +3634,42 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
-!10 = distinct !{!10, !8, !6}
-!11 = distinct !{!11, !8, !6}
-!12 = distinct !{!12, !8, !6}
-!13 = distinct !{!13, !8, !6}
-!14 = distinct !{!14, !8, !6}
-!15 = distinct !{!15, !8, !6}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN7msdfgenL19parseTransformationERiPKc: %agg.result"}
-!18 = distinct !{!18, !"_ZN7msdfgenL19parseTransformationERiPKc"}
-!19 = distinct !{!19, !8, !6}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
-!22 = distinct !{!22, !"_ZN8SkMatrix6ConcatERKS_S1_"}
-!23 = distinct !{!23, !24, !"_ZmlRK8SkMatrixS1_: %agg.result"}
-!24 = distinct !{!24, !"_ZmlRK8SkMatrixS1_"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN8SkMatrix9TranslateEff: %agg.result"}
-!27 = distinct !{!27, !"_ZN8SkMatrix9TranslateEff"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
-!30 = distinct !{!30, !"_ZN8SkMatrix6ConcatERKS_S1_"}
-!31 = distinct !{!31, !32, !"_ZmlRK8SkMatrixS1_: %agg.result"}
-!32 = distinct !{!32, !"_ZmlRK8SkMatrixS1_"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN8SkMatrix9TranslateEff: %agg.result"}
-!35 = distinct !{!35, !"_ZN8SkMatrix9TranslateEff"}
-!36 = !{!37, !39}
-!37 = distinct !{!37, !38, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
-!38 = distinct !{!38, !"_ZN8SkMatrix6ConcatERKS_S1_"}
-!39 = distinct !{!39, !40, !"_ZmlRK8SkMatrixS1_: %agg.result"}
-!40 = distinct !{!40, !"_ZmlRK8SkMatrixS1_"}
-!41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
-!43 = distinct !{!43, !"_ZN8SkMatrix6ConcatERKS_S1_"}
-!44 = distinct !{!44, !45, !"_ZmlRK8SkMatrixS1_: %agg.result"}
-!45 = distinct !{!45, !"_ZmlRK8SkMatrixS1_"}
-!46 = distinct !{!46, !8, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN7msdfgenL19parseTransformationERiPKc: %agg.result"}
+!16 = distinct !{!16, !"_ZN7msdfgenL19parseTransformationERiPKc"}
+!17 = distinct !{!17, !6}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
+!20 = distinct !{!20, !"_ZN8SkMatrix6ConcatERKS_S1_"}
+!21 = distinct !{!21, !22, !"_ZmlRK8SkMatrixS1_: %agg.result"}
+!22 = distinct !{!22, !"_ZmlRK8SkMatrixS1_"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN8SkMatrix9TranslateEff: %agg.result"}
+!25 = distinct !{!25, !"_ZN8SkMatrix9TranslateEff"}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
+!28 = distinct !{!28, !"_ZN8SkMatrix6ConcatERKS_S1_"}
+!29 = distinct !{!29, !30, !"_ZmlRK8SkMatrixS1_: %agg.result"}
+!30 = distinct !{!30, !"_ZmlRK8SkMatrixS1_"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN8SkMatrix9TranslateEff: %agg.result"}
+!33 = distinct !{!33, !"_ZN8SkMatrix9TranslateEff"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
+!36 = distinct !{!36, !"_ZN8SkMatrix6ConcatERKS_S1_"}
+!37 = distinct !{!37, !38, !"_ZmlRK8SkMatrixS1_: %agg.result"}
+!38 = distinct !{!38, !"_ZmlRK8SkMatrixS1_"}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"_ZN8SkMatrix6ConcatERKS_S1_: %agg.result"}
+!41 = distinct !{!41, !"_ZN8SkMatrix6ConcatERKS_S1_"}
+!42 = distinct !{!42, !43, !"_ZmlRK8SkMatrixS1_: %agg.result"}
+!43 = distinct !{!43, !"_ZmlRK8SkMatrixS1_"}
+!44 = distinct !{!44, !6}

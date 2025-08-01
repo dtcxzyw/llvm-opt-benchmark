@@ -235,7 +235,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %.1102.i = phi i32 [ %101, %98 ], [ 0, %105 ], [ %.0101140.i, %103 ], [ 0, %102 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %107 = icmp samesign ult i64 %indvars.iv.next.i, %90
-  br i1 %107, label %.lr.ph.i12, label %._crit_edge.i13, !llvm.loop !7
+  br i1 %107, label %.lr.ph.i12, label %._crit_edge.i13, !llvm.loop !6
 
 ._crit_edge.i13:                                  ; preds = %106
   %.not116.i = icmp ne i32 %.1102.i, 0
@@ -339,7 +339,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %.1.us.i = getelementptr inbounds nuw i8, ptr %.0147.us.i, i64 2
   %149 = add nuw nsw i32 %.0112145.us.i, 1
   %exitcond.not.i = icmp eq i32 %149, %spec.store.select.i
-  br i1 %exitcond.not.i, label %.loopexit.i14, label %.lr.ph149.split.us.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i14, label %.lr.ph149.split.us.i, !llvm.loop !7
 
 .lr.ph149.split.split.preheader.i:                ; preds = %119, %112, %111
   %150 = icmp sgt i32 %2, 120
@@ -436,7 +436,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %.1.i = phi ptr [ %162, %161 ], [ %178, %176 ], [ %169, %165 ], [ %198, %187 ]
   %200 = add nuw nsw i32 %.0112145.i, 1
   %exitcond168.not.i = icmp eq i32 %200, %spec.store.select.i
-  br i1 %exitcond168.not.i, label %.loopexit.i14, label %.lr.ph149.split.split.i, !llvm.loop !10
+  br i1 %exitcond168.not.i, label %.loopexit.i14, label %.lr.ph149.split.split.i, !llvm.loop !9
 
 .loopexit.i14:                                    ; preds = %199, %148, %66
   %.097.i = phi ptr [ %68, %66 ], [ %.4.us.i, %148 ], [ %.4.i15, %199 ]
@@ -512,10 +512,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}

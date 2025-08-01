@@ -4894,7 +4894,7 @@ av_ripemd_update.exit18:                          ; preds = %29, %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %.0.i17, i64 %.028.i16, i1 false)
   %35 = and i64 %32, 63
   %.not = icmp eq i64 %35, 56
-  br i1 %.not, label %av_ripemd_update.exit26, label %23, !llvm.loop !18
+  br i1 %.not, label %av_ripemd_update.exit26, label %23, !llvm.loop !17
 
 av_ripemd_update.exit26:                          ; preds = %av_ripemd_update.exit18, %av_ripemd_update.exit
   %.lcssa27 = phi i64 [ %16, %av_ripemd_update.exit ], [ %32, %av_ripemd_update.exit18 ]
@@ -4921,7 +4921,7 @@ av_ripemd_update.exit26:                          ; preds = %av_ripemd_update.ex
   %46 = load i8, ptr %0, align 8, !tbaa !4
   %47 = zext i8 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph31, label %._crit_edge, !llvm.loop !19
+  br i1 %48, label %.lr.ph31, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %av_ripemd_update.exit26
   ret void
@@ -4955,8 +4955,7 @@ attributes #6 = { nounwind }
 !12 = !{!5, !9, i64 120}
 !13 = !{!5, !8, i64 8}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}

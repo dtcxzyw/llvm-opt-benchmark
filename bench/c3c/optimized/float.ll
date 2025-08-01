@@ -117,7 +117,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %23 = load i8, ptr %17, align 1
   %.not72 = icmp eq i8 %23, 0
-  br i1 %.not72, label %.critedge10.thread, label %.lr.ph107, !llvm.loop !10
+  br i1 %.not72, label %.critedge10.thread, label %.lr.ph107, !llvm.loop !9
 
 .critedge4:                                       ; preds = %.lr.ph107, %.critedge
   %.061 = phi i8 [ %5, %.critedge ], [ %16, %.lr.ph107 ]
@@ -159,7 +159,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %39 = load i8, ptr %37, align 1
   %40 = add i8 %39, -48
   %41 = icmp ult i8 %40, 10
-  br i1 %41, label %.lr.ph108, label %.critedge10, !llvm.loop !11
+  br i1 %41, label %.lr.ph108, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %.lr.ph108, %31, %.critedge4
   %.162 = phi i8 [ %.061, %.critedge4 ], [ %33, %31 ], [ %39, %.lr.ph108 ]
@@ -193,7 +193,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %54 = load i8, ptr %49, align 1
   %55 = add i8 %54, -48
   %56 = icmp ult i8 %55, 10
-  br i1 %56, label %.lr.ph111, label %.critedge12, !llvm.loop !12
+  br i1 %56, label %.lr.ph111, label %.critedge12, !llvm.loop !11
 
 .critedge12:                                      ; preds = %48
   %57 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 28)
@@ -303,7 +303,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   br label %.critedge77.backedge
 
 .critedge77.backedge:                             ; preds = %.critedge2, %.critedge77
-  br label %.critedge77, !llvm.loop !13
+  br label %.critedge77, !llvm.loop !12
 
 .critedge:                                        ; preds = %7
   %11 = icmp eq i8 %6, 46
@@ -322,14 +322,14 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   switch i8 %13, label %14 [
     i8 0, label %.critedge10.thread
     i8 95, label %.critedge78
-  ], !llvm.loop !14
+  ], !llvm.loop !13
 
 14:                                               ; preds = %.critedge78
   %15 = zext i8 %13 to i64
   %16 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %.not88 = icmp eq i8 %17, 0
-  br i1 %.not88, label %.critedge4, label %.critedge78.sink.split, !llvm.loop !14
+  br i1 %.not88, label %.critedge4, label %.critedge78.sink.split, !llvm.loop !13
 
 .critedge4:                                       ; preds = %14, %.critedge
   %.159 = phi ptr [ %5, %.critedge ], [ %12, %14 ]
@@ -371,7 +371,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   %33 = load i8, ptr %31, align 1
   %34 = add i8 %33, -48
   %35 = icmp ult i8 %34, 10
-  br i1 %35, label %.lr.ph, label %.critedge10, !llvm.loop !15
+  br i1 %35, label %.lr.ph, label %.critedge10, !llvm.loop !14
 
 .critedge10:                                      ; preds = %.lr.ph, %25, %.critedge4
   %.3 = phi ptr [ %.159, %.critedge4 ], [ %26, %25 ], [ %32, %.lr.ph ]
@@ -405,7 +405,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   %48 = load i8, ptr %43, align 1
   %49 = add i8 %48, -48
   %50 = icmp ult i8 %49, 10
-  br i1 %50, label %.lr.ph102, label %.critedge12, !llvm.loop !16
+  br i1 %50, label %.lr.ph102, label %.critedge12, !llvm.loop !15
 
 .critedge12:                                      ; preds = %42
   %51 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 28)
@@ -497,13 +497,12 @@ attributes #7 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

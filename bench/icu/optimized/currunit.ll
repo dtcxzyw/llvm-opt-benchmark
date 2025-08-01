@@ -655,22 +655,22 @@ define void @_ZN6icu_7712CurrencyUnitC2ENS_11StringPieceER10UErrorCode(ptr nound
 
 16:                                               ; preds = %21
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 0, ptr %17, align 1, !tbaa !25
+  store i8 0, ptr %17, align 1, !tbaa !24
   br label %25
 
 .preheader:                                       ; preds = %14, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !tbaa !25
+  %19 = load i8, ptr %18, align 1, !tbaa !24
   %20 = invoke signext i8 @uprv_toupper_77(i8 noundef signext %19)
           to label %21 unwind label %23
 
 21:                                               ; preds = %.preheader
   %22 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
-  store i8 %20, ptr %22, align 1, !tbaa !25
+  store i8 %20, ptr %22, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !25
 
 23:                                               ; preds = %.preheader
   %24 = landingpad { ptr, i32 }
@@ -948,8 +948,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !19 = !{!"p1 char16_t", !6, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"char16_t", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!7, !7, i64 0}
-!26 = distinct !{!26, !23, !24}
+!24 = !{!7, !7, i64 0}
+!25 = distinct !{!25, !23}

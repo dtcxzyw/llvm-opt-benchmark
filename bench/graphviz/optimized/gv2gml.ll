@@ -228,7 +228,7 @@ openFile.exit.i:                                  ; preds = %43
 76:                                               ; preds = %74
   %77 = sext i32 %75 to i64
   %78 = getelementptr inbounds ptr, ptr %1, i64 %77
-  store ptr %78, ptr @Files, align 8, !tbaa !16
+  store ptr %78, ptr @Files, align 8, !tbaa !15
   br label %79
 
 79:                                               ; preds = %76, %74
@@ -242,7 +242,7 @@ openFile.exit.i:                                  ; preds = %43
   br label %initargs.exit
 
 initargs.exit:                                    ; preds = %79, %81
-  %83 = load ptr, ptr @Files, align 8, !tbaa !16
+  %83 = load ptr, ptr @Files, align 8, !tbaa !15
   %84 = call ptr @newIngraph(ptr noundef nonnull %33, ptr noundef %83) #14
   %85 = call ptr @nextGraph(ptr noundef nonnull %33) #14
   %.not112 = icmp eq ptr %85, null
@@ -255,7 +255,7 @@ initargs.exit:                                    ; preds = %79, %81
   br i1 %.not7, label %89, label %87
 
 87:                                               ; preds = %.lr.ph
-  store i64 0, ptr @id, align 8, !tbaa !18
+  store i64 0, ptr @id, align 8, !tbaa !17
   %88 = call i32 @agclose(ptr noundef nonnull %.0113) #14
   br label %89
 
@@ -274,13 +274,13 @@ initargs.exit:                                    ; preds = %79, %81
 .lr.ph.i.i:                                       ; preds = %89, %emitAttr.exit95
   %.010.i.i = phi ptr [ %117, %emitAttr.exit95 ], [ %95, %89 ]
   %96 = call ptr @agxget(ptr noundef nonnull %86, ptr noundef nonnull %.010.i.i) #14
-  %97 = load i8, ptr %96, align 1, !tbaa !20
+  %97 = load i8, ptr %96, align 1, !tbaa !19
   %.not8.i.i = icmp eq i8 %97, 0
   br i1 %.not8.i.i, label %emitAttr.exit95, label %indent.exit.i91
 
 indent.exit.i91:                                  ; preds = %.lr.ph.i.i
   %98 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !21
+  %99 = load ptr, ptr %98, align 8, !tbaa !20
   %100 = load ptr, ptr @outFile, align 8, !tbaa !11
   %101 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %100)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
@@ -292,7 +292,7 @@ indent.exit.i91:                                  ; preds = %.lr.ph.i.i
 
 .preheader.i.i93:                                 ; preds = %indent.exit.i91, %106
   %104 = phi ptr [ %107, %106 ], [ %103, %indent.exit.i91 ]
-  %105 = load i8, ptr %104, align 1, !tbaa !20
+  %105 = load i8, ptr %104, align 1, !tbaa !19
   switch i8 %105, label %.loopexit.i94 [
     i8 9, label %106
     i8 10, label %106
@@ -305,7 +305,7 @@ indent.exit.i91:                                  ; preds = %.lr.ph.i.i
 
 106:                                              ; preds = %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  br label %.preheader.i.i93, !llvm.loop !25
+  br label %.preheader.i.i93, !llvm.loop !24
 
 108:                                              ; preds = %.preheader.i.i93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
@@ -326,7 +326,7 @@ indent.exit.i91:                                  ; preds = %.lr.ph.i.i
 emitAttr.exit95:                                  ; preds = %.loopexit.i94, %108, %.lr.ph.i.i
   %117 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 0, ptr noundef nonnull %.010.i.i) #14
   %.not.i.i8 = icmp eq ptr %117, null
-  br i1 %.not.i.i8, label %emitGraphAttrs.exit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not.i.i8, label %emitGraphAttrs.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit95, %89
   %118 = call ptr @agfstnode(ptr noundef nonnull %86) #14
@@ -337,16 +337,16 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit95, %8
   %.019204.i = phi ptr [ %527, %emitNode.exit.i ], [ %118, %emitGraphAttrs.exit.i ]
   %119 = call ptr @agbindrec(ptr noundef nonnull %.019204.i, ptr noundef nonnull @.str.19, i32 noundef 24, i32 noundef 1) #14
   %120 = load ptr, ptr @outFile, align 8, !tbaa !11
-  %121 = load i64, ptr @id, align 8, !tbaa !18
+  %121 = load i64, ptr @id, align 8, !tbaa !17
   %122 = call ptr @agnameof(ptr noundef nonnull %.019204.i) #14
   %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.20, i64 noundef %121, ptr noundef %122) #14
-  %124 = load i64, ptr @id, align 8, !tbaa !18
+  %124 = load i64, ptr @id, align 8, !tbaa !17
   %125 = add i64 %124, 1
-  store i64 %125, ptr @id, align 8, !tbaa !18
+  store i64 %125, ptr @id, align 8, !tbaa !17
   %126 = getelementptr inbounds nuw i8, ptr %.019204.i, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !27
+  %127 = load ptr, ptr %126, align 8, !tbaa !26
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store i64 %124, ptr %128, align 8, !tbaa !35
+  store i64 %124, ptr %128, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
   %129 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 1, ptr noundef null) #14
@@ -372,14 +372,14 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit95, %8
   %.sroa.1819.0198.i.i.i = phi double [ %.sroa.1819.1.i.i.i, %emitAttr.exit88 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.0.0197.i.i.i = phi i32 [ %.sroa.0.3.i.i.i, %emitAttr.exit88 ], [ 0, %.lr.ph.i ]
   %130 = getelementptr inbounds nuw i8, ptr %.0213.i.i.i, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !21
+  %131 = load ptr, ptr %130, align 8, !tbaa !20
   %132 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.22) #15
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %143
 
 134:                                              ; preds = %.lr.ph.i.i.i
   %135 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %136 = load i8, ptr %135, align 1, !tbaa !20
+  %136 = load i8, ptr %135, align 1, !tbaa !19
   %.not158.i.i.i = icmp eq i8 %136, 0
   br i1 %.not158.i.i.i, label %emitAttr.exit88, label %137
 
@@ -433,7 +433,7 @@ sub_2.i.i.i:                                      ; preds = %sub_1.i.i.i
 
 160:                                              ; preds = %.tail.i.i.i
   %161 = call ptr @agnameof(ptr noundef nonnull %.019204.i) #14
-  %162 = load ptr, ptr %130, align 8, !tbaa !21
+  %162 = load ptr, ptr %130, align 8, !tbaa !20
   br label %163
 
 163:                                              ; preds = %163, %160
@@ -442,7 +442,7 @@ sub_2.i.i.i:                                      ; preds = %sub_1.i.i.i
   %165 = load ptr, ptr @outFile, align 8, !tbaa !11
   %166 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %165)
   %.not.i.i83 = icmp eq i32 %164, 0
-  br i1 %.not.i.i83, label %indent.exit.i84, label %163, !llvm.loop !38
+  br i1 %.not.i.i83, label %indent.exit.i84, label %163, !llvm.loop !37
 
 indent.exit.i84:                                  ; preds = %163
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
@@ -454,7 +454,7 @@ indent.exit.i84:                                  ; preds = %163
 
 .preheader.i.i86:                                 ; preds = %indent.exit.i84, %171
   %169 = phi ptr [ %172, %171 ], [ %168, %indent.exit.i84 ]
-  %170 = load i8, ptr %169, align 1, !tbaa !20
+  %170 = load i8, ptr %169, align 1, !tbaa !19
   switch i8 %170, label %.loopexit.i87 [
     i8 9, label %171
     i8 10, label %171
@@ -467,7 +467,7 @@ indent.exit.i84:                                  ; preds = %163
 
 171:                                              ; preds = %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 1
-  br label %.preheader.i.i86, !llvm.loop !25
+  br label %.preheader.i.i86, !llvm.loop !24
 
 173:                                              ; preds = %.preheader.i.i86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
@@ -490,7 +490,7 @@ indent.exit.i84:                                  ; preds = %163
   br i1 %.not157.i.i.i, label %emitAttr.exit88, label %183
 
 183:                                              ; preds = %182
-  %184 = load ptr, ptr %130, align 8, !tbaa !21
+  %184 = load ptr, ptr %130, align 8, !tbaa !20
   br label %185
 
 185:                                              ; preds = %185, %183
@@ -499,7 +499,7 @@ indent.exit.i84:                                  ; preds = %163
   %187 = load ptr, ptr @outFile, align 8, !tbaa !11
   %188 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %187)
   %.not.i.i76 = icmp eq i32 %186, 0
-  br i1 %.not.i.i76, label %indent.exit.i77, label %185, !llvm.loop !38
+  br i1 %.not.i.i76, label %indent.exit.i77, label %185, !llvm.loop !37
 
 indent.exit.i77:                                  ; preds = %185
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
@@ -511,7 +511,7 @@ indent.exit.i77:                                  ; preds = %185
 
 .preheader.i.i79:                                 ; preds = %indent.exit.i77, %193
   %191 = phi ptr [ %194, %193 ], [ %190, %indent.exit.i77 ]
-  %192 = load i8, ptr %191, align 1, !tbaa !20
+  %192 = load i8, ptr %191, align 1, !tbaa !19
   switch i8 %192, label %.loopexit.i80 [
     i8 9, label %193
     i8 10, label %193
@@ -524,7 +524,7 @@ indent.exit.i77:                                  ; preds = %185
 
 193:                                              ; preds = %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 1
-  br label %.preheader.i.i79, !llvm.loop !25
+  br label %.preheader.i.i79, !llvm.loop !24
 
 195:                                              ; preds = %.preheader.i.i79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
@@ -549,7 +549,7 @@ indent.exit.i77:                                  ; preds = %185
 
 207:                                              ; preds = %204
   %208 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %209 = load i8, ptr %208, align 1, !tbaa !20
+  %209 = load i8, ptr %208, align 1, !tbaa !19
   %.not156.i.i.i = icmp eq i8 %209, 0
   %spec.select164.i.i.i = select i1 %.not156.i.i.i, ptr %.sroa.39.0205.i.i.i, ptr %208
   %spec.select165.i.i.i = select i1 %.not156.i.i.i, i32 %.0128210.i.i.i, i32 1
@@ -562,7 +562,7 @@ indent.exit.i77:                                  ; preds = %185
 
 213:                                              ; preds = %210
   %214 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %215 = load i8, ptr %214, align 1, !tbaa !20
+  %215 = load i8, ptr %214, align 1, !tbaa !19
   %.not155.i.i.i = icmp eq i8 %215, 0
   br i1 %.not155.i.i.i, label %emitAttr.exit88, label %216
 
@@ -579,7 +579,7 @@ indent.exit.i77:                                  ; preds = %185
 
 223:                                              ; preds = %220
   %224 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %225 = load i8, ptr %224, align 1, !tbaa !20
+  %225 = load i8, ptr %224, align 1, !tbaa !19
   %.not154.i.i.i = icmp eq i8 %225, 0
   br i1 %.not154.i.i.i, label %emitAttr.exit88, label %226
 
@@ -601,8 +601,8 @@ indent.exit.i77:                                  ; preds = %185
   br i1 %236, label %237, label %emitAttr.exit88
 
 237:                                              ; preds = %233
-  %238 = load double, ptr %31, align 8, !tbaa !39
-  %239 = load double, ptr %32, align 8, !tbaa !39
+  %238 = load double, ptr %31, align 8, !tbaa !38
+  %239 = load double, ptr %32, align 8, !tbaa !38
   %240 = or i32 %.sroa.0.0197.i.i.i, 1
   br label %emitAttr.exit88
 
@@ -613,7 +613,7 @@ indent.exit.i77:                                  ; preds = %185
 
 244:                                              ; preds = %241
   %245 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %246 = load i8, ptr %245, align 1, !tbaa !20
+  %246 = load i8, ptr %245, align 1, !tbaa !19
   %.not153.i.i.i = icmp eq i8 %246, 0
   %spec.select166.i.i.i = select i1 %.not153.i.i.i, ptr %.sroa.26.0202.i.i.i, ptr %245
   %spec.select167.i.i.i = select i1 %.not153.i.i.i, i32 %.0128210.i.i.i, i32 1
@@ -626,7 +626,7 @@ indent.exit.i77:                                  ; preds = %185
 
 250:                                              ; preds = %247
   %251 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %252 = load i8, ptr %251, align 1, !tbaa !20
+  %252 = load i8, ptr %251, align 1, !tbaa !19
   %.not152.i.i.i = icmp eq i8 %252, 0
   br i1 %.not152.i.i.i, label %emitAttr.exit88, label %253
 
@@ -640,7 +640,7 @@ indent.exit.i77:                                  ; preds = %185
 
 257:                                              ; preds = %254
   %258 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %259 = load i8, ptr %258, align 1, !tbaa !20
+  %259 = load i8, ptr %258, align 1, !tbaa !19
   %.not151.i.i.i = icmp eq i8 %259, 0
   %spec.select168.i.i.i = select i1 %.not151.i.i.i, ptr %.sroa.31.0203.i.i.i, ptr %258
   %spec.select169.i.i.i = select i1 %.not151.i.i.i, i32 %.0128210.i.i.i, i32 1
@@ -653,7 +653,7 @@ indent.exit.i77:                                  ; preds = %185
 
 263:                                              ; preds = %260
   %264 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %265 = load i8, ptr %264, align 1, !tbaa !20
+  %265 = load i8, ptr %264, align 1, !tbaa !19
   %.not150.i.i.i = icmp eq i8 %265, 0
   %spec.select170.i.i.i = select i1 %.not150.i.i.i, ptr %.sroa.35.0204.i.i.i, ptr %264
   %spec.select171.i.i.i = select i1 %.not150.i.i.i, i32 %.0128210.i.i.i, i32 1
@@ -666,7 +666,7 @@ indent.exit.i77:                                  ; preds = %185
 
 269:                                              ; preds = %266
   %270 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %271 = load i8, ptr %270, align 1, !tbaa !20
+  %271 = load i8, ptr %270, align 1, !tbaa !19
   %.not149.i.i.i = icmp eq i8 %271, 0
   %spec.select172.i.i.i = select i1 %.not149.i.i.i, ptr %.sroa.53.0209.i.i.i, ptr %270
   %spec.select173.i.i.i = select i1 %.not149.i.i.i, i32 %.0126211.i.i.i, i32 1
@@ -679,7 +679,7 @@ indent.exit.i77:                                  ; preds = %185
 
 275:                                              ; preds = %272
   %276 = call ptr @agxget(ptr noundef nonnull %.019204.i, ptr noundef nonnull %.0213.i.i.i) #14
-  %277 = load i8, ptr %276, align 1, !tbaa !20
+  %277 = load i8, ptr %276, align 1, !tbaa !19
   %.not148.i.i.i = icmp eq i8 %277, 0
   %spec.select174.i.i.i = select i1 %.not148.i.i.i, ptr %.sroa.50.0208.i.i.i, ptr %276
   %spec.select175.i.i.i = select i1 %.not148.i.i.i, i32 %.0126211.i.i.i, i32 1
@@ -692,14 +692,14 @@ indent.exit.i77:                                  ; preds = %185
   br i1 %280, label %282, label %284
 
 282:                                              ; preds = %278
-  %283 = load i8, ptr %281, align 1, !tbaa !20
+  %283 = load i8, ptr %281, align 1, !tbaa !19
   %.not147.i.i.i = icmp eq i8 %283, 0
   %spec.select176.i.i.i = select i1 %.not147.i.i.i, ptr %.sroa.47.0207.i.i.i, ptr %281
   %spec.select177.i.i.i = select i1 %.not147.i.i.i, i32 %.0126211.i.i.i, i32 1
   br label %emitAttr.exit88
 
 284:                                              ; preds = %278
-  %285 = load ptr, ptr %130, align 8, !tbaa !21
+  %285 = load ptr, ptr %130, align 8, !tbaa !20
   br label %286
 
 286:                                              ; preds = %286, %284
@@ -708,7 +708,7 @@ indent.exit.i77:                                  ; preds = %185
   %288 = load ptr, ptr @outFile, align 8, !tbaa !11
   %289 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %288)
   %.not.i.i69 = icmp eq i32 %287, 0
-  br i1 %.not.i.i69, label %indent.exit.i70, label %286, !llvm.loop !38
+  br i1 %.not.i.i69, label %indent.exit.i70, label %286, !llvm.loop !37
 
 indent.exit.i70:                                  ; preds = %286
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
@@ -720,7 +720,7 @@ indent.exit.i70:                                  ; preds = %286
 
 .preheader.i.i72:                                 ; preds = %indent.exit.i70, %294
   %292 = phi ptr [ %295, %294 ], [ %291, %indent.exit.i70 ]
-  %293 = load i8, ptr %292, align 1, !tbaa !20
+  %293 = load i8, ptr %292, align 1, !tbaa !19
   switch i8 %293, label %.loopexit.i73 [
     i8 9, label %294
     i8 10, label %294
@@ -733,7 +733,7 @@ indent.exit.i70:                                  ; preds = %286
 
 294:                                              ; preds = %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72
   %295 = getelementptr inbounds nuw i8, ptr %292, i64 1
-  br label %.preheader.i.i72, !llvm.loop !25
+  br label %.preheader.i.i72, !llvm.loop !24
 
 296:                                              ; preds = %.preheader.i.i72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
@@ -770,7 +770,7 @@ emitAttr.exit88:                                  ; preds = %.loopexit.i73, %296
   %.1.i.i.i = phi ptr [ %.0125212.i.i.i, %137 ], [ %.0125212.i.i.i, %134 ], [ %.0125212.i.i.i, %182 ], [ %.0125212.i.i.i, %216 ], [ %.0125212.i.i.i, %213 ], [ %.0125212.i.i.i, %226 ], [ %.0125212.i.i.i, %223 ], [ %.0125212.i.i.i, %237 ], [ %.0125212.i.i.i, %233 ], [ %.0125212.i.i.i, %253 ], [ %.0125212.i.i.i, %250 ], [ %.0125212.i.i.i, %207 ], [ %.0125212.i.i.i, %244 ], [ %.0125212.i.i.i, %257 ], [ %.0125212.i.i.i, %263 ], [ %.0125212.i.i.i, %269 ], [ %.0125212.i.i.i, %275 ], [ %.0125212.i.i.i, %282 ], [ %161, %173 ], [ %161, %.loopexit.i87 ], [ %146, %195 ], [ %146, %.loopexit.i80 ], [ %.0125212.i.i.i, %296 ], [ %.0125212.i.i.i, %.loopexit.i73 ]
   %305 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 1, ptr noundef nonnull %.0213.i.i.i) #14
   %.not.i.i.i = icmp eq ptr %305, null
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !40
 
 ._crit_edge.i.i.i:                                ; preds = %emitAttr.exit88
   %306 = icmp eq i32 %.1129.i.i.i, 0
@@ -790,7 +790,7 @@ emitAttr.exit88:                                  ; preds = %.loopexit.i73, %296
   %313 = load ptr, ptr @outFile, align 8, !tbaa !11
   %314 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %313)
   %.not.i.i.i.i.i = icmp eq i32 %312, 0
-  br i1 %.not.i.i.i.i.i, label %emitReal.exit.i.i.i, label %.preheader195.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i.i.i.i, label %emitReal.exit.i.i.i, label %.preheader195.i.i.i, !llvm.loop !37
 
 emitReal.exit.i.i.i:                              ; preds = %.preheader195.i.i.i
   %315 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -803,7 +803,7 @@ emitReal.exit.i.i.i:                              ; preds = %.preheader195.i.i.i
   %319 = load ptr, ptr @outFile, align 8, !tbaa !11
   %320 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %319)
   %.not.i.i179.i.i.i = icmp eq i32 %318, 0
-  br i1 %.not.i.i179.i.i.i, label %emitReal.exit180.i.i.i, label %317, !llvm.loop !38
+  br i1 %.not.i.i179.i.i.i, label %emitReal.exit180.i.i.i, label %317, !llvm.loop !37
 
 emitReal.exit180.i.i.i:                           ; preds = %317
   %321 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -821,7 +821,7 @@ emitReal.exit180.i.i.i:                           ; preds = %317
   %326 = load ptr, ptr @outFile, align 8, !tbaa !11
   %327 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %326)
   %.not.i.i182.i.i.i = icmp eq i32 %325, 0
-  br i1 %.not.i.i182.i.i.i, label %emitReal.exit183.i.i.i, label %.preheader194.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i182.i.i.i, label %emitReal.exit183.i.i.i, label %.preheader194.i.i.i, !llvm.loop !37
 
 emitReal.exit183.i.i.i:                           ; preds = %.preheader194.i.i.i
   %328 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -839,7 +839,7 @@ emitReal.exit183.i.i.i:                           ; preds = %.preheader194.i.i.i
   %333 = load ptr, ptr @outFile, align 8, !tbaa !11
   %334 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %333)
   %.not.i.i185.i.i.i = icmp eq i32 %332, 0
-  br i1 %.not.i.i185.i.i.i, label %emitReal.exit186.i.i.i, label %.preheader193.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i185.i.i.i, label %emitReal.exit186.i.i.i, label %.preheader193.i.i.i, !llvm.loop !37
 
 emitReal.exit186.i.i.i:                           ; preds = %.preheader193.i.i.i
   %335 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -857,7 +857,7 @@ emitReal.exit186.i.i.i:                           ; preds = %.preheader193.i.i.i
   %340 = load ptr, ptr @outFile, align 8, !tbaa !11
   %341 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %340)
   %.not.i.i188.i.i.i = icmp eq i32 %339, 0
-  br i1 %.not.i.i188.i.i.i, label %emitInt.exit.i.i.i, label %.preheader192.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i188.i.i.i, label %emitInt.exit.i.i.i, label %.preheader192.i.i.i, !llvm.loop !37
 
 emitInt.exit.i.i.i:                               ; preds = %.preheader192.i.i.i
   %342 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -875,7 +875,7 @@ emitInt.exit.i.i.i:                               ; preds = %.preheader192.i.i.i
   %347 = load ptr, ptr @outFile, align 8, !tbaa !11
   %348 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %347)
   %.not.i.i190.i.i.i = icmp eq i32 %346, 0
-  br i1 %.not.i.i190.i.i.i, label %emitInt.exit191.i.i.i, label %.preheader.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i190.i.i.i, label %emitInt.exit191.i.i.i, label %.preheader.i.i.i, !llvm.loop !37
 
 emitInt.exit191.i.i.i:                            ; preds = %.preheader.i.i.i
   %349 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -892,7 +892,7 @@ emitInt.exit191.i.i.i:                            ; preds = %.preheader.i.i.i
   %353 = load ptr, ptr @outFile, align 8, !tbaa !11
   %354 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %353)
   %.not.i.i62 = icmp eq i32 %352, 0
-  br i1 %.not.i.i62, label %indent.exit.i63, label %.preheader102, !llvm.loop !38
+  br i1 %.not.i.i62, label %indent.exit.i63, label %.preheader102, !llvm.loop !37
 
 indent.exit.i63:                                  ; preds = %.preheader102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
@@ -904,7 +904,7 @@ indent.exit.i63:                                  ; preds = %.preheader102
 
 .preheader.i.i65:                                 ; preds = %indent.exit.i63, %359
   %357 = phi ptr [ %360, %359 ], [ %356, %indent.exit.i63 ]
-  %358 = load i8, ptr %357, align 1, !tbaa !20
+  %358 = load i8, ptr %357, align 1, !tbaa !19
   switch i8 %358, label %.loopexit.i66 [
     i8 9, label %359
     i8 10, label %359
@@ -917,7 +917,7 @@ indent.exit.i63:                                  ; preds = %.preheader102
 
 359:                                              ; preds = %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 1
-  br label %.preheader.i.i65, !llvm.loop !25
+  br label %.preheader.i.i65, !llvm.loop !24
 
 361:                                              ; preds = %.preheader.i.i65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
@@ -945,7 +945,7 @@ emitAttr.exit67:                                  ; preds = %.loopexit.i66, %361
   %371 = load ptr, ptr @outFile, align 8, !tbaa !11
   %372 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %371)
   %.not.i.i55 = icmp eq i32 %370, 0
-  br i1 %.not.i.i55, label %indent.exit.i56, label %.preheader101, !llvm.loop !38
+  br i1 %.not.i.i55, label %indent.exit.i56, label %.preheader101, !llvm.loop !37
 
 indent.exit.i56:                                  ; preds = %.preheader101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
@@ -957,7 +957,7 @@ indent.exit.i56:                                  ; preds = %.preheader101
 
 .preheader.i.i58:                                 ; preds = %indent.exit.i56, %377
   %375 = phi ptr [ %378, %377 ], [ %374, %indent.exit.i56 ]
-  %376 = load i8, ptr %375, align 1, !tbaa !20
+  %376 = load i8, ptr %375, align 1, !tbaa !19
   switch i8 %376, label %.loopexit.i59 [
     i8 9, label %377
     i8 10, label %377
@@ -970,7 +970,7 @@ indent.exit.i56:                                  ; preds = %.preheader101
 
 377:                                              ; preds = %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 1
-  br label %.preheader.i.i58, !llvm.loop !25
+  br label %.preheader.i.i58, !llvm.loop !24
 
 379:                                              ; preds = %.preheader.i.i58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
@@ -998,7 +998,7 @@ emitAttr.exit60:                                  ; preds = %.loopexit.i59, %379
   %389 = load ptr, ptr @outFile, align 8, !tbaa !11
   %390 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %389)
   %.not.i.i48 = icmp eq i32 %388, 0
-  br i1 %.not.i.i48, label %indent.exit.i49, label %.preheader100, !llvm.loop !38
+  br i1 %.not.i.i48, label %indent.exit.i49, label %.preheader100, !llvm.loop !37
 
 indent.exit.i49:                                  ; preds = %.preheader100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
@@ -1010,7 +1010,7 @@ indent.exit.i49:                                  ; preds = %.preheader100
 
 .preheader.i.i51:                                 ; preds = %indent.exit.i49, %395
   %393 = phi ptr [ %396, %395 ], [ %392, %indent.exit.i49 ]
-  %394 = load i8, ptr %393, align 1, !tbaa !20
+  %394 = load i8, ptr %393, align 1, !tbaa !19
   switch i8 %394, label %.loopexit.i52 [
     i8 9, label %395
     i8 10, label %395
@@ -1023,7 +1023,7 @@ indent.exit.i49:                                  ; preds = %.preheader100
 
 395:                                              ; preds = %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51
   %396 = getelementptr inbounds nuw i8, ptr %393, i64 1
-  br label %.preheader.i.i51, !llvm.loop !25
+  br label %.preheader.i.i51, !llvm.loop !24
 
 397:                                              ; preds = %.preheader.i.i51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
@@ -1051,7 +1051,7 @@ emitAttr.exit53:                                  ; preds = %.loopexit.i52, %397
   %407 = load ptr, ptr @outFile, align 8, !tbaa !11
   %408 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %407)
   %.not.i.i41 = icmp eq i32 %406, 0
-  br i1 %.not.i.i41, label %indent.exit.i42, label %.preheader99, !llvm.loop !38
+  br i1 %.not.i.i41, label %indent.exit.i42, label %.preheader99, !llvm.loop !37
 
 indent.exit.i42:                                  ; preds = %.preheader99
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
@@ -1063,7 +1063,7 @@ indent.exit.i42:                                  ; preds = %.preheader99
 
 .preheader.i.i44:                                 ; preds = %indent.exit.i42, %413
   %411 = phi ptr [ %414, %413 ], [ %410, %indent.exit.i42 ]
-  %412 = load i8, ptr %411, align 1, !tbaa !20
+  %412 = load i8, ptr %411, align 1, !tbaa !19
   switch i8 %412, label %.loopexit.i45 [
     i8 9, label %413
     i8 10, label %413
@@ -1076,7 +1076,7 @@ indent.exit.i42:                                  ; preds = %.preheader99
 
 413:                                              ; preds = %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44
   %414 = getelementptr inbounds nuw i8, ptr %411, i64 1
-  br label %.preheader.i.i44, !llvm.loop !25
+  br label %.preheader.i.i44, !llvm.loop !24
 
 415:                                              ; preds = %.preheader.i.i44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
@@ -1104,7 +1104,7 @@ emitAttr.exit46:                                  ; preds = %.loopexit.i45, %415
   %425 = load ptr, ptr @outFile, align 8, !tbaa !11
   %426 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %425)
   %.not.i.i34 = icmp eq i32 %424, 0
-  br i1 %.not.i.i34, label %indent.exit.i35, label %.preheader98, !llvm.loop !38
+  br i1 %.not.i.i34, label %indent.exit.i35, label %.preheader98, !llvm.loop !37
 
 indent.exit.i35:                                  ; preds = %.preheader98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
@@ -1116,7 +1116,7 @@ indent.exit.i35:                                  ; preds = %.preheader98
 
 .preheader.i.i37:                                 ; preds = %indent.exit.i35, %431
   %429 = phi ptr [ %432, %431 ], [ %428, %indent.exit.i35 ]
-  %430 = load i8, ptr %429, align 1, !tbaa !20
+  %430 = load i8, ptr %429, align 1, !tbaa !19
   switch i8 %430, label %.loopexit.i38 [
     i8 9, label %431
     i8 10, label %431
@@ -1129,7 +1129,7 @@ indent.exit.i35:                                  ; preds = %.preheader98
 
 431:                                              ; preds = %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37
   %432 = getelementptr inbounds nuw i8, ptr %429, i64 1
-  br label %.preheader.i.i37, !llvm.loop !25
+  br label %.preheader.i.i37, !llvm.loop !24
 
 433:                                              ; preds = %.preheader.i.i37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
@@ -1167,7 +1167,7 @@ emitAttr.exit39:                                  ; preds = %.loopexit.i38, %433
   %449 = load ptr, ptr @outFile, align 8, !tbaa !11
   %450 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %449)
   %.not.i.i27 = icmp eq i32 %448, 0
-  br i1 %.not.i.i27, label %indent.exit.i28, label %.preheader97, !llvm.loop !38
+  br i1 %.not.i.i27, label %indent.exit.i28, label %.preheader97, !llvm.loop !37
 
 indent.exit.i28:                                  ; preds = %.preheader97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
@@ -1179,7 +1179,7 @@ indent.exit.i28:                                  ; preds = %.preheader97
 
 .preheader.i.i30:                                 ; preds = %indent.exit.i28, %455
   %453 = phi ptr [ %456, %455 ], [ %452, %indent.exit.i28 ]
-  %454 = load i8, ptr %453, align 1, !tbaa !20
+  %454 = load i8, ptr %453, align 1, !tbaa !19
   switch i8 %454, label %.loopexit.i31 [
     i8 9, label %455
     i8 10, label %455
@@ -1192,7 +1192,7 @@ indent.exit.i28:                                  ; preds = %.preheader97
 
 455:                                              ; preds = %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30
   %456 = getelementptr inbounds nuw i8, ptr %453, i64 1
-  br label %.preheader.i.i30, !llvm.loop !25
+  br label %.preheader.i.i30, !llvm.loop !24
 
 457:                                              ; preds = %.preheader.i.i30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
@@ -1224,7 +1224,7 @@ emitAttr.exit32:                                  ; preds = %.loopexit.i31, %457
   %469 = load ptr, ptr @outFile, align 8, !tbaa !11
   %470 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %469)
   %.not.i.i20 = icmp eq i32 %468, 0
-  br i1 %.not.i.i20, label %indent.exit.i21, label %467, !llvm.loop !38
+  br i1 %.not.i.i20, label %indent.exit.i21, label %467, !llvm.loop !37
 
 indent.exit.i21:                                  ; preds = %467
   %471 = select i1 %.b144.i.i.i, ptr @.str.34, ptr @.str.54
@@ -1237,7 +1237,7 @@ indent.exit.i21:                                  ; preds = %467
 
 .preheader.i.i23:                                 ; preds = %indent.exit.i21, %476
   %474 = phi ptr [ %477, %476 ], [ %473, %indent.exit.i21 ]
-  %475 = load i8, ptr %474, align 1, !tbaa !20
+  %475 = load i8, ptr %474, align 1, !tbaa !19
   switch i8 %475, label %.loopexit.i24 [
     i8 9, label %476
     i8 10, label %476
@@ -1250,7 +1250,7 @@ indent.exit.i21:                                  ; preds = %467
 
 476:                                              ; preds = %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23
   %477 = getelementptr inbounds nuw i8, ptr %474, i64 1
-  br label %.preheader.i.i23, !llvm.loop !25
+  br label %.preheader.i.i23, !llvm.loop !24
 
 478:                                              ; preds = %.preheader.i.i23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
@@ -1278,7 +1278,7 @@ emitAttr.exit25:                                  ; preds = %.loopexit.i24, %478
   %488 = load ptr, ptr @outFile, align 8, !tbaa !11
   %489 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %488)
   %.not.i.i13 = icmp eq i32 %487, 0
-  br i1 %.not.i.i13, label %indent.exit.i14, label %.preheader96, !llvm.loop !38
+  br i1 %.not.i.i13, label %indent.exit.i14, label %.preheader96, !llvm.loop !37
 
 indent.exit.i14:                                  ; preds = %.preheader96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
@@ -1290,7 +1290,7 @@ indent.exit.i14:                                  ; preds = %.preheader96
 
 .preheader.i.i16:                                 ; preds = %indent.exit.i14, %494
   %492 = phi ptr [ %495, %494 ], [ %491, %indent.exit.i14 ]
-  %493 = load i8, ptr %492, align 1, !tbaa !20
+  %493 = load i8, ptr %492, align 1, !tbaa !19
   switch i8 %493, label %.loopexit.i17 [
     i8 9, label %494
     i8 10, label %494
@@ -1303,7 +1303,7 @@ indent.exit.i14:                                  ; preds = %.preheader96
 
 494:                                              ; preds = %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 1
-  br label %.preheader.i.i16, !llvm.loop !25
+  br label %.preheader.i.i16, !llvm.loop !24
 
 496:                                              ; preds = %.preheader.i.i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
@@ -1331,7 +1331,7 @@ emitAttr.exit18:                                  ; preds = %.loopexit.i17, %496
   %506 = load ptr, ptr @outFile, align 8, !tbaa !11
   %507 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %506)
   %.not.i.i10 = icmp eq i32 %505, 0
-  br i1 %.not.i.i10, label %indent.exit.i, label %.preheader, !llvm.loop !38
+  br i1 %.not.i.i10, label %indent.exit.i, label %.preheader, !llvm.loop !37
 
 indent.exit.i:                                    ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
@@ -1343,7 +1343,7 @@ indent.exit.i:                                    ; preds = %.preheader
 
 .preheader.i.i:                                   ; preds = %indent.exit.i, %512
   %510 = phi ptr [ %513, %512 ], [ %509, %indent.exit.i ]
-  %511 = load i8, ptr %510, align 1, !tbaa !20
+  %511 = load i8, ptr %510, align 1, !tbaa !19
   switch i8 %511, label %.loopexit.i11 [
     i8 9, label %512
     i8 10, label %512
@@ -1356,7 +1356,7 @@ indent.exit.i:                                    ; preds = %.preheader
 
 512:                                              ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
   %513 = getelementptr inbounds nuw i8, ptr %510, i64 1
-  br label %.preheader.i.i, !llvm.loop !25
+  br label %.preheader.i.i, !llvm.loop !24
 
 514:                                              ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
@@ -1386,7 +1386,7 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %526 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %525)
   %527 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.019204.i) #14
   %.not20.i = icmp eq ptr %527, null
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %emitNode.exit.i, %emitGraphAttrs.exit.i
   %528 = call ptr @agfstnode(ptr noundef nonnull %86) #14
@@ -1421,11 +1421,11 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %.idx.i.i = select i1 %538, i64 0, i64 64
   %539 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 %.idx.i.i
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 56
-  %541 = load ptr, ptr %540, align 8, !tbaa !43
+  %541 = load ptr, ptr %540, align 8, !tbaa !42
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 16
-  %543 = load ptr, ptr %542, align 8, !tbaa !27
+  %543 = load ptr, ptr %542, align 8, !tbaa !26
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 16
-  %545 = load i64, ptr %544, align 8, !tbaa !35
+  %545 = load i64, ptr %544, align 8, !tbaa !34
   %546 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %535, ptr noundef nonnull @.str.65, i64 noundef %545) #14
   %547 = load ptr, ptr @outFile, align 8, !tbaa !11
   %548 = load i32, ptr %.0210.i, align 8
@@ -1434,11 +1434,11 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %.idx9.i.i = select i1 %550, i64 0, i64 -64
   %551 = getelementptr inbounds i8, ptr %.0210.i, i64 %.idx9.i.i
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 56
-  %553 = load ptr, ptr %552, align 8, !tbaa !43
+  %553 = load ptr, ptr %552, align 8, !tbaa !42
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 16
-  %555 = load ptr, ptr %554, align 8, !tbaa !27
+  %555 = load ptr, ptr %554, align 8, !tbaa !26
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 16
-  %557 = load i64, ptr %556, align 8, !tbaa !35
+  %557 = load i64, ptr %556, align 8, !tbaa !34
   %558 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %547, ptr noundef nonnull @.str.66, i64 noundef %557) #14
   %559 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef null) #14
   %.not174.i.i.i = icmp eq ptr %559, null
@@ -1460,14 +1460,14 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %.sroa.1516.0176.i.i.i = phi ptr [ %.sroa.1516.2.i.i.i, %emitAttr.exit141.i ], [ null, %.lr.ph212.i ]
   %.sroa.0.0175.i.i.i = phi i32 [ %.sroa.0.5.i.i.i, %emitAttr.exit141.i ], [ 0, %.lr.ph212.i ]
   %560 = getelementptr inbounds nuw i8, ptr %.0188.i.i.i, i64 16
-  %561 = load ptr, ptr %560, align 8, !tbaa !21
+  %561 = load ptr, ptr %560, align 8, !tbaa !20
   %562 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %561, ptr noundef nonnull dereferenceable(6) @.str.22) #15
   %563 = icmp eq i32 %562, 0
   br i1 %563, label %564, label %569
 
 564:                                              ; preds = %.lr.ph.i.i23.i
   %565 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %566 = load i8, ptr %565, align 1, !tbaa !20
+  %566 = load i8, ptr %565, align 1, !tbaa !19
   %.not145.i.i50.i = icmp eq i8 %566, 0
   br i1 %.not145.i.i50.i, label %emitAttr.exit141.i, label %567
 
@@ -1485,12 +1485,12 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
 
 572:                                              ; preds = %569
   %573 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %574 = load i8, ptr %573, align 1, !tbaa !20
+  %574 = load i8, ptr %573, align 1, !tbaa !19
   %.not144.i.i.i = icmp eq i8 %574, 0
   br i1 %.not144.i.i.i, label %emitAttr.exit141.i, label %575
 
 575:                                              ; preds = %572
-  %576 = load ptr, ptr %560, align 8, !tbaa !21
+  %576 = load ptr, ptr %560, align 8, !tbaa !20
   br label %577
 
 577:                                              ; preds = %577, %575
@@ -1499,7 +1499,7 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %579 = load ptr, ptr @outFile, align 8, !tbaa !11
   %580 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %579)
   %.not.i.i136.i = icmp eq i32 %578, 0
-  br i1 %.not.i.i136.i, label %indent.exit.i137.i, label %577, !llvm.loop !38
+  br i1 %.not.i.i136.i, label %indent.exit.i137.i, label %577, !llvm.loop !37
 
 indent.exit.i137.i:                               ; preds = %577
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
@@ -1511,7 +1511,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 .preheader.i.i139.i:                              ; preds = %indent.exit.i137.i, %585
   %583 = phi ptr [ %586, %585 ], [ %582, %indent.exit.i137.i ]
-  %584 = load i8, ptr %583, align 1, !tbaa !20
+  %584 = load i8, ptr %583, align 1, !tbaa !19
   switch i8 %584, label %.loopexit.i140.i [
     i8 9, label %585
     i8 10, label %585
@@ -1524,7 +1524,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 585:                                              ; preds = %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i
   %586 = getelementptr inbounds nuw i8, ptr %583, i64 1
-  br label %.preheader.i.i139.i, !llvm.loop !25
+  br label %.preheader.i.i139.i, !llvm.loop !24
 
 587:                                              ; preds = %.preheader.i.i139.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
@@ -1549,7 +1549,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 599:                                              ; preds = %596
   %600 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %601 = load i8, ptr %600, align 1, !tbaa !20
+  %601 = load i8, ptr %600, align 1, !tbaa !19
   %.not143.i.i49.i = icmp eq i8 %601, 0
   %spec.select151.i.i.i = select i1 %.not143.i.i49.i, ptr %.sroa.1516.0176.i.i.i, ptr %600
   %spec.select152.i.i.i = select i1 %.not143.i.i49.i, i32 %.0115185.i.i.i, i32 1
@@ -1562,7 +1562,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 605:                                              ; preds = %602
   %606 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %607 = load i8, ptr %606, align 1, !tbaa !20
+  %607 = load i8, ptr %606, align 1, !tbaa !19
   %.not142.i.i48.i = icmp eq i8 %607, 0
   %spec.select153.i.i.i = select i1 %.not142.i.i48.i, ptr %.sroa.35.0181.i.i.i, ptr %606
   %spec.select154.i.i.i = select i1 %.not142.i.i48.i, i32 %.0115185.i.i.i, i32 1
@@ -1575,7 +1575,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 611:                                              ; preds = %608
   %612 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %613 = load i8, ptr %612, align 1, !tbaa !20
+  %613 = load i8, ptr %612, align 1, !tbaa !19
   %.not141.i.i.i = icmp eq i8 %613, 0
   %spec.select155.i.i.i = select i1 %.not141.i.i.i, ptr %.sroa.23.0178.i.i.i, ptr %612
   %spec.select156.i.i.i = select i1 %.not141.i.i.i, i32 %.0115185.i.i.i, i32 1
@@ -1588,7 +1588,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 617:                                              ; preds = %614
   %618 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %619 = load i8, ptr %618, align 1, !tbaa !20
+  %619 = load i8, ptr %618, align 1, !tbaa !19
   %.not140.i.i47.i = icmp eq i8 %619, 0
   %spec.select157.i.i.i = select i1 %.not140.i.i47.i, ptr %.sroa.19.0177.i.i.i, ptr %618
   %spec.select158.i.i.i = select i1 %.not140.i.i47.i, i32 %.0115185.i.i.i, i32 1
@@ -1601,7 +1601,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 623:                                              ; preds = %620
   %624 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %625 = load i8, ptr %624, align 1, !tbaa !20
+  %625 = load i8, ptr %624, align 1, !tbaa !19
   %.not139.i.i46.i = icmp eq i8 %625, 0
   %spec.select159.i.i.i = select i1 %.not139.i.i46.i, ptr %.sroa.19.0177.i.i.i, ptr %624
   %spec.select160.i.i.i = select i1 %.not139.i.i46.i, i32 %.0115185.i.i.i, i32 1
@@ -1614,7 +1614,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 629:                                              ; preds = %626
   %630 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %631 = load i8, ptr %630, align 1, !tbaa !20
+  %631 = load i8, ptr %630, align 1, !tbaa !19
   %.not138.i.i45.i = icmp eq i8 %631, 0
   %spec.select161.i.i.i = select i1 %.not138.i.i45.i, ptr %.sroa.29.0179.i.i.i, ptr %630
   %spec.select162.i.i.i = select i1 %.not138.i.i45.i, i32 %.0115185.i.i.i, i32 1
@@ -1627,7 +1627,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 635:                                              ; preds = %632
   %636 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %637 = load i8, ptr %636, align 1, !tbaa !20
+  %637 = load i8, ptr %636, align 1, !tbaa !19
   %.not137.i.i43.i = icmp eq i8 %637, 0
   %spec.select163.i.i.i = select i1 %.not137.i.i43.i, ptr %.sroa.32.0180.i.i.i, ptr %636
   %spec.select164.i.i44.i = select i1 %.not137.i.i43.i, i32 %.0115185.i.i.i, i32 1
@@ -1640,7 +1640,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 641:                                              ; preds = %638
   %642 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %643 = load i8, ptr %642, align 1, !tbaa !20
+  %643 = load i8, ptr %642, align 1, !tbaa !19
   %.not136.i.i40.i = icmp eq i8 %643, 0
   %spec.select165.i.i41.i = select i1 %.not136.i.i40.i, ptr %.sroa.44.0184.i.i.i, ptr %642
   %spec.select166.i.i42.i = select i1 %.not136.i.i40.i, i32 %.0113186.i.i.i, i32 1
@@ -1653,7 +1653,7 @@ indent.exit.i137.i:                               ; preds = %577
 
 647:                                              ; preds = %644
   %648 = call ptr @agxget(ptr noundef nonnull %.0210.i, ptr noundef nonnull %.0188.i.i.i) #14
-  %649 = load i8, ptr %648, align 1, !tbaa !20
+  %649 = load i8, ptr %648, align 1, !tbaa !19
   %.not135.i.i37.i = icmp eq i8 %649, 0
   %spec.select167.i.i38.i = select i1 %.not135.i.i37.i, ptr %.sroa.41.0183.i.i.i, ptr %648
   %spec.select168.i.i39.i = select i1 %.not135.i.i37.i, i32 %.0113186.i.i.i, i32 1
@@ -1666,14 +1666,14 @@ indent.exit.i137.i:                               ; preds = %577
   br i1 %652, label %654, label %656
 
 654:                                              ; preds = %650
-  %655 = load i8, ptr %653, align 1, !tbaa !20
+  %655 = load i8, ptr %653, align 1, !tbaa !19
   %.not134.i.i34.i = icmp eq i8 %655, 0
   %spec.select169.i.i35.i = select i1 %.not134.i.i34.i, ptr %.sroa.38.0182.i.i.i, ptr %653
   %spec.select170.i.i36.i = select i1 %.not134.i.i34.i, i32 %.0113186.i.i.i, i32 1
   br label %emitAttr.exit141.i
 
 656:                                              ; preds = %650
-  %657 = load ptr, ptr %560, align 8, !tbaa !21
+  %657 = load ptr, ptr %560, align 8, !tbaa !20
   br label %658
 
 658:                                              ; preds = %658, %656
@@ -1682,7 +1682,7 @@ indent.exit.i137.i:                               ; preds = %577
   %660 = load ptr, ptr @outFile, align 8, !tbaa !11
   %661 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %660)
   %.not.i.i129.i = icmp eq i32 %659, 0
-  br i1 %.not.i.i129.i, label %indent.exit.i130.i, label %658, !llvm.loop !38
+  br i1 %.not.i.i129.i, label %indent.exit.i130.i, label %658, !llvm.loop !37
 
 indent.exit.i130.i:                               ; preds = %658
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
@@ -1694,7 +1694,7 @@ indent.exit.i130.i:                               ; preds = %658
 
 .preheader.i.i132.i:                              ; preds = %indent.exit.i130.i, %666
   %664 = phi ptr [ %667, %666 ], [ %663, %indent.exit.i130.i ]
-  %665 = load i8, ptr %664, align 1, !tbaa !20
+  %665 = load i8, ptr %664, align 1, !tbaa !19
   switch i8 %665, label %.loopexit.i133.i [
     i8 9, label %666
     i8 10, label %666
@@ -1707,7 +1707,7 @@ indent.exit.i130.i:                               ; preds = %658
 
 666:                                              ; preds = %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i
   %667 = getelementptr inbounds nuw i8, ptr %664, i64 1
-  br label %.preheader.i.i132.i, !llvm.loop !25
+  br label %.preheader.i.i132.i, !llvm.loop !24
 
 668:                                              ; preds = %.preheader.i.i132.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
@@ -1741,7 +1741,7 @@ emitAttr.exit141.i:                               ; preds = %.loopexit.i133.i, %
   %.1.i.i25.i = phi ptr [ %.0112187.i.i.i, %567 ], [ %.0112187.i.i.i, %564 ], [ %.0112187.i.i.i, %572 ], [ %.0112187.i.i.i, %599 ], [ %.0112187.i.i.i, %605 ], [ %.0112187.i.i.i, %611 ], [ %.0112187.i.i.i, %617 ], [ %.0112187.i.i.i, %623 ], [ %.0112187.i.i.i, %629 ], [ %.0112187.i.i.i, %635 ], [ %.0112187.i.i.i, %641 ], [ %.0112187.i.i.i, %647 ], [ %.0112187.i.i.i, %654 ], [ %573, %587 ], [ %573, %.loopexit.i140.i ], [ %.0112187.i.i.i, %668 ], [ %.0112187.i.i.i, %.loopexit.i133.i ]
   %677 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0188.i.i.i) #14
   %.not.i.i26.i = icmp eq ptr %677, null
-  br i1 %.not.i.i26.i, label %._crit_edge.i.i27.i, label %.lr.ph.i.i23.i, !llvm.loop !45
+  br i1 %.not.i.i26.i, label %._crit_edge.i.i27.i, label %.lr.ph.i.i23.i, !llvm.loop !44
 
 ._crit_edge.i.i27.i:                              ; preds = %emitAttr.exit141.i
   %678 = icmp eq i32 %.1116.i.i.i, 0
@@ -1756,7 +1756,7 @@ emitAttr.exit141.i:                               ; preds = %.loopexit.i133.i, %
 
 .preheader179.i:                                  ; preds = %680, %684
   %.0.i.i119.i = phi ptr [ %685, %684 ], [ %.sroa.35.1.i.i24.i, %680 ]
-  %683 = load i8, ptr %.0.i.i119.i, align 1, !tbaa !20
+  %683 = load i8, ptr %.0.i.i119.i, align 1, !tbaa !19
   switch i8 %683, label %arrowEnd.exit127.i [
     i8 9, label %684
     i8 10, label %684
@@ -1769,7 +1769,7 @@ emitAttr.exit141.i:                               ; preds = %.loopexit.i133.i, %
 
 684:                                              ; preds = %.preheader179.i, %.preheader179.i, %.preheader179.i, %.preheader179.i, %.preheader179.i, %.preheader179.i
   %685 = getelementptr inbounds nuw i8, ptr %.0.i.i119.i, i64 1
-  br label %.preheader179.i, !llvm.loop !46
+  br label %.preheader179.i, !llvm.loop !45
 
 skipWS.exit.i120.tail.i:                          ; preds = %.preheader179.i
   %686 = getelementptr inbounds nuw i8, ptr %.0.i.i119.i, i64 1
@@ -1784,7 +1784,7 @@ skipWS.exit.i120.tail.i:                          ; preds = %.preheader179.i
 
 691:                                              ; preds = %693, %689
   %.0.i.i.i123.i = phi ptr [ %690, %689 ], [ %694, %693 ]
-  %692 = load i8, ptr %.0.i.i.i123.i, align 1, !tbaa !20
+  %692 = load i8, ptr %.0.i.i.i123.i, align 1, !tbaa !19
   switch i8 %692, label %skipWS.exit.i.i124.i [
     i8 9, label %693
     i8 10, label %693
@@ -1796,7 +1796,7 @@ skipWS.exit.i120.tail.i:                          ; preds = %.preheader179.i
 
 693:                                              ; preds = %691, %691, %691, %691, %691, %691
   %694 = getelementptr inbounds nuw i8, ptr %.0.i.i.i123.i, i64 1
-  br label %691, !llvm.loop !46
+  br label %691, !llvm.loop !45
 
 skipWS.exit.i.i124.i:                             ; preds = %691
   %695 = call double @strtod(ptr noundef nonnull %.0.i.i.i123.i, ptr noundef nonnull %18) #14
@@ -1836,7 +1836,7 @@ arrowEnd.exit127.i:                               ; preds = %.preheader179.i, %r
 
 706:                                              ; preds = %708, %arrowEnd.exit127.i
   %.0.i.i.i = phi ptr [ %.0.i122.i, %arrowEnd.exit127.i ], [ %709, %708 ]
-  %707 = load i8, ptr %.0.i.i.i, align 1, !tbaa !20
+  %707 = load i8, ptr %.0.i.i.i, align 1, !tbaa !19
   switch i8 %707, label %arrowEnd.exit.i [
     i8 9, label %708
     i8 10, label %708
@@ -1849,7 +1849,7 @@ arrowEnd.exit127.i:                               ; preds = %.preheader179.i, %r
 
 708:                                              ; preds = %706, %706, %706, %706, %706, %706
   %709 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
-  br label %706, !llvm.loop !46
+  br label %706, !llvm.loop !45
 
 skipWS.exit.i.tail.i:                             ; preds = %706
   %710 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
@@ -1864,7 +1864,7 @@ skipWS.exit.i.tail.i:                             ; preds = %706
 
 715:                                              ; preds = %717, %713
   %.0.i.i.i118.i = phi ptr [ %714, %713 ], [ %718, %717 ]
-  %716 = load i8, ptr %.0.i.i.i118.i, align 1, !tbaa !20
+  %716 = load i8, ptr %.0.i.i.i118.i, align 1, !tbaa !19
   switch i8 %716, label %skipWS.exit.i.i.i [
     i8 9, label %717
     i8 10, label %717
@@ -1876,7 +1876,7 @@ skipWS.exit.i.tail.i:                             ; preds = %706
 
 717:                                              ; preds = %715, %715, %715, %715, %715, %715
   %718 = getelementptr inbounds nuw i8, ptr %.0.i.i.i118.i, i64 1
-  br label %715, !llvm.loop !46
+  br label %715, !llvm.loop !45
 
 skipWS.exit.i.i.i:                                ; preds = %715
   %719 = call double @strtod(ptr noundef nonnull %.0.i.i.i118.i, ptr noundef nonnull %19) #14
@@ -1920,7 +1920,7 @@ arrowEnd.exit.i:                                  ; preds = %706, %readPoint.exi
   %732 = load ptr, ptr @outFile, align 8, !tbaa !11
   %733 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %732)
   %.not.i.i.i.i29.i = icmp eq i32 %731, 0
-  br i1 %.not.i.i.i.i29.i, label %indent.exit.i.i.i.i, label %730, !llvm.loop !38
+  br i1 %.not.i.i.i.i29.i, label %indent.exit.i.i.i.i, label %730, !llvm.loop !37
 
 indent.exit.i.i.i.i:                              ; preds = %730
   %734 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -1933,7 +1933,7 @@ indent.exit.i.i.i.i:                              ; preds = %730
   %737 = load ptr, ptr @outFile, align 8, !tbaa !11
   %738 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %737)
   %.not.i.i.i.i.i.i = icmp eq i32 %736, 0
-  br i1 %.not.i.i.i.i.i.i, label %emitPoint.exit.i.i.i.i, label %.preheader178.i, !llvm.loop !38
+  br i1 %.not.i.i.i.i.i.i, label %emitPoint.exit.i.i.i.i, label %.preheader178.i, !llvm.loop !37
 
 emitPoint.exit.i.i.i.i:                           ; preds = %.preheader178.i
   %739 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -1950,7 +1950,7 @@ indent.exit._crit_edge.i.i.i.i:                   ; preds = %indent.exit._crit_e
 
 741:                                              ; preds = %743, %indent.exit._crit_edge.i.i.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i, %indent.exit._crit_edge.i.i.i.i ], [ %744, %743 ]
-  %742 = load i8, ptr %.0.i.i.i.i.i.i, align 1, !tbaa !20
+  %742 = load i8, ptr %.0.i.i.i.i.i.i, align 1, !tbaa !19
   switch i8 %742, label %skipWS.exit.i.i.i.i.i [
     i8 9, label %743
     i8 10, label %743
@@ -1962,7 +1962,7 @@ indent.exit._crit_edge.i.i.i.i:                   ; preds = %indent.exit._crit_e
 
 743:                                              ; preds = %741, %741, %741, %741, %741, %741
   %744 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
-  br label %741, !llvm.loop !46
+  br label %741, !llvm.loop !45
 
 skipWS.exit.i.i.i.i.i:                            ; preds = %741
   %745 = call double @strtod(ptr noundef nonnull %.0.i.i.i.i.i.i, ptr noundef nonnull %30) #14
@@ -1993,12 +1993,12 @@ readPoint.exit.i.i.i.i:                           ; preds = %748
   %754 = load ptr, ptr @outFile, align 8, !tbaa !11
   %755 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %754)
   %.not.i.i11.i.i.i.i = icmp eq i32 %753, 0
-  br i1 %.not.i.i11.i.i.i.i, label %emitPoint.exit12.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i11.i.i.i.i, label %emitPoint.exit12.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !37
 
 emitPoint.exit12.i.i.i.i:                         ; preds = %.preheader.i.i.i.i
   %756 = load ptr, ptr @outFile, align 8, !tbaa !11
   %757 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %756, ptr noundef nonnull @.str.84, double noundef %745, double noundef %750) #14
-  br label %indent.exit._crit_edge.i.i.i.i, !llvm.loop !47
+  br label %indent.exit._crit_edge.i.i.i.i, !llvm.loop !46
 
 .loopexit.i.i.i.i:                                ; preds = %readPoint.exit.i.i.i.i, %readPoint.exit.thread.i.i.i.i
   br i1 %.not.i121.not235.i, label %.preheader177.i, label %.preheader141
@@ -2009,7 +2009,7 @@ emitPoint.exit12.i.i.i.i:                         ; preds = %.preheader.i.i.i.i
   %759 = load ptr, ptr @outFile, align 8, !tbaa !11
   %760 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %759)
   %.not.i.i14.i.i.i.i = icmp eq i32 %758, 0
-  br i1 %.not.i.i14.i.i.i.i, label %emitPoint.exit15.i.i.i.i, label %.preheader177.i, !llvm.loop !38
+  br i1 %.not.i.i14.i.i.i.i, label %emitPoint.exit15.i.i.i.i, label %.preheader177.i, !llvm.loop !37
 
 emitPoint.exit15.i.i.i.i:                         ; preds = %.preheader177.i
   %761 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -2025,7 +2025,7 @@ emitPoint.exit15.i.i.i.i:                         ; preds = %.preheader177.i
   %765 = load ptr, ptr @outFile, align 8, !tbaa !11
   %766 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %765)
   %.not.i17.i.i.i.i = icmp eq i32 %764, 0
-  br i1 %.not.i17.i.i.i.i, label %emitSpline.exit.i.i.i, label %763, !llvm.loop !38
+  br i1 %.not.i17.i.i.i.i, label %emitSpline.exit.i.i.i, label %763, !llvm.loop !37
 
 emitSpline.exit.i.i.i:                            ; preds = %763
   %767 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -2047,7 +2047,7 @@ emitSpline.exit.i.i.i:                            ; preds = %763
   %772 = load ptr, ptr @outFile, align 8, !tbaa !11
   %773 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %772)
   %.not.i.i172.i.i.i = icmp eq i32 %771, 0
-  br i1 %.not.i.i172.i.i.i, label %emitInt.exit.i.i31.i, label %.preheader.i.i30.i, !llvm.loop !38
+  br i1 %.not.i.i172.i.i.i, label %emitInt.exit.i.i31.i, label %.preheader.i.i30.i, !llvm.loop !37
 
 emitInt.exit.i.i31.i:                             ; preds = %.preheader.i.i30.i
   %774 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -2064,7 +2064,7 @@ emitInt.exit.i.i31.i:                             ; preds = %.preheader.i.i30.i
   %778 = load ptr, ptr @outFile, align 8, !tbaa !11
   %779 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %778)
   %.not.i.i111.i = icmp eq i32 %777, 0
-  br i1 %.not.i.i111.i, label %indent.exit.i112.i, label %.preheader176.i, !llvm.loop !38
+  br i1 %.not.i.i111.i, label %indent.exit.i112.i, label %.preheader176.i, !llvm.loop !37
 
 indent.exit.i112.i:                               ; preds = %.preheader176.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
@@ -2076,7 +2076,7 @@ indent.exit.i112.i:                               ; preds = %.preheader176.i
 
 .preheader.i.i114.i:                              ; preds = %indent.exit.i112.i, %784
   %782 = phi ptr [ %785, %784 ], [ %781, %indent.exit.i112.i ]
-  %783 = load i8, ptr %782, align 1, !tbaa !20
+  %783 = load i8, ptr %782, align 1, !tbaa !19
   switch i8 %783, label %.loopexit.i115.i [
     i8 9, label %784
     i8 10, label %784
@@ -2089,7 +2089,7 @@ indent.exit.i112.i:                               ; preds = %.preheader176.i
 
 784:                                              ; preds = %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i
   %785 = getelementptr inbounds nuw i8, ptr %782, i64 1
-  br label %.preheader.i.i114.i, !llvm.loop !25
+  br label %.preheader.i.i114.i, !llvm.loop !24
 
 786:                                              ; preds = %.preheader.i.i114.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
@@ -2117,7 +2117,7 @@ emitAttr.exit116.i:                               ; preds = %.loopexit.i115.i, %
   %796 = load ptr, ptr @outFile, align 8, !tbaa !11
   %797 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %796)
   %.not.i.i104.i = icmp eq i32 %795, 0
-  br i1 %.not.i.i104.i, label %indent.exit.i105.i, label %.preheader175.i, !llvm.loop !38
+  br i1 %.not.i.i104.i, label %indent.exit.i105.i, label %.preheader175.i, !llvm.loop !37
 
 indent.exit.i105.i:                               ; preds = %.preheader175.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
@@ -2129,7 +2129,7 @@ indent.exit.i105.i:                               ; preds = %.preheader175.i
 
 .preheader.i.i107.i:                              ; preds = %indent.exit.i105.i, %802
   %800 = phi ptr [ %803, %802 ], [ %799, %indent.exit.i105.i ]
-  %801 = load i8, ptr %800, align 1, !tbaa !20
+  %801 = load i8, ptr %800, align 1, !tbaa !19
   switch i8 %801, label %.loopexit.i108.i [
     i8 9, label %802
     i8 10, label %802
@@ -2142,7 +2142,7 @@ indent.exit.i105.i:                               ; preds = %.preheader175.i
 
 802:                                              ; preds = %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i
   %803 = getelementptr inbounds nuw i8, ptr %800, i64 1
-  br label %.preheader.i.i107.i, !llvm.loop !25
+  br label %.preheader.i.i107.i, !llvm.loop !24
 
 804:                                              ; preds = %.preheader.i.i107.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
@@ -2170,7 +2170,7 @@ emitAttr.exit109.i:                               ; preds = %.loopexit.i108.i, %
   %814 = load ptr, ptr @outFile, align 8, !tbaa !11
   %815 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %814)
   %.not.i.i97.i = icmp eq i32 %813, 0
-  br i1 %.not.i.i97.i, label %indent.exit.i98.i, label %.preheader174.i, !llvm.loop !38
+  br i1 %.not.i.i97.i, label %indent.exit.i98.i, label %.preheader174.i, !llvm.loop !37
 
 indent.exit.i98.i:                                ; preds = %.preheader174.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
@@ -2182,7 +2182,7 @@ indent.exit.i98.i:                                ; preds = %.preheader174.i
 
 .preheader.i.i100.i:                              ; preds = %indent.exit.i98.i, %820
   %818 = phi ptr [ %821, %820 ], [ %817, %indent.exit.i98.i ]
-  %819 = load i8, ptr %818, align 1, !tbaa !20
+  %819 = load i8, ptr %818, align 1, !tbaa !19
   switch i8 %819, label %.loopexit.i101.i [
     i8 9, label %820
     i8 10, label %820
@@ -2195,7 +2195,7 @@ indent.exit.i98.i:                                ; preds = %.preheader174.i
 
 820:                                              ; preds = %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 1
-  br label %.preheader.i.i100.i, !llvm.loop !25
+  br label %.preheader.i.i100.i, !llvm.loop !24
 
 822:                                              ; preds = %.preheader.i.i100.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
@@ -2223,7 +2223,7 @@ emitAttr.exit102.i:                               ; preds = %.loopexit.i101.i, %
   %832 = load ptr, ptr @outFile, align 8, !tbaa !11
   %833 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %832)
   %.not.i.i90.i = icmp eq i32 %831, 0
-  br i1 %.not.i.i90.i, label %indent.exit.i91.i, label %.preheader173.i, !llvm.loop !38
+  br i1 %.not.i.i90.i, label %indent.exit.i91.i, label %.preheader173.i, !llvm.loop !37
 
 indent.exit.i91.i:                                ; preds = %.preheader173.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
@@ -2235,7 +2235,7 @@ indent.exit.i91.i:                                ; preds = %.preheader173.i
 
 .preheader.i.i93.i:                               ; preds = %indent.exit.i91.i, %838
   %836 = phi ptr [ %839, %838 ], [ %835, %indent.exit.i91.i ]
-  %837 = load i8, ptr %836, align 1, !tbaa !20
+  %837 = load i8, ptr %836, align 1, !tbaa !19
   switch i8 %837, label %.loopexit.i94.i [
     i8 9, label %838
     i8 10, label %838
@@ -2248,7 +2248,7 @@ indent.exit.i91.i:                                ; preds = %.preheader173.i
 
 838:                                              ; preds = %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i
   %839 = getelementptr inbounds nuw i8, ptr %836, i64 1
-  br label %.preheader.i.i93.i, !llvm.loop !25
+  br label %.preheader.i.i93.i, !llvm.loop !24
 
 840:                                              ; preds = %.preheader.i.i93.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
@@ -2291,7 +2291,7 @@ emitAttr.exit95.i:                                ; preds = %.loopexit.i94.i, %8
   %856 = load ptr, ptr @outFile, align 8, !tbaa !11
   %857 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %856)
   %.not.i.i83.i = icmp eq i32 %855, 0
-  br i1 %.not.i.i83.i, label %indent.exit.i84.i, label %854, !llvm.loop !38
+  br i1 %.not.i.i83.i, label %indent.exit.i84.i, label %854, !llvm.loop !37
 
 indent.exit.i84.i:                                ; preds = %854
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
@@ -2303,7 +2303,7 @@ indent.exit.i84.i:                                ; preds = %854
 
 .preheader.i.i86.i:                               ; preds = %indent.exit.i84.i, %862
   %860 = phi ptr [ %863, %862 ], [ %859, %indent.exit.i84.i ]
-  %861 = load i8, ptr %860, align 1, !tbaa !20
+  %861 = load i8, ptr %860, align 1, !tbaa !19
   switch i8 %861, label %.loopexit.i87.i [
     i8 9, label %862
     i8 10, label %862
@@ -2316,7 +2316,7 @@ indent.exit.i84.i:                                ; preds = %854
 
 862:                                              ; preds = %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i
   %863 = getelementptr inbounds nuw i8, ptr %860, i64 1
-  br label %.preheader.i.i86.i, !llvm.loop !25
+  br label %.preheader.i.i86.i, !llvm.loop !24
 
 864:                                              ; preds = %.preheader.i.i86.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
@@ -2368,7 +2368,7 @@ emitAttr.exit88.i:                                ; preds = %.loopexit.i87.i, %8
   %887 = load ptr, ptr @outFile, align 8, !tbaa !11
   %888 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %887)
   %.not.i.i76.i = icmp eq i32 %886, 0
-  br i1 %.not.i.i76.i, label %indent.exit.i77.i, label %885, !llvm.loop !38
+  br i1 %.not.i.i76.i, label %indent.exit.i77.i, label %885, !llvm.loop !37
 
 indent.exit.i77.i:                                ; preds = %885
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
@@ -2380,7 +2380,7 @@ indent.exit.i77.i:                                ; preds = %885
 
 .preheader.i.i79.i:                               ; preds = %indent.exit.i77.i, %893
   %891 = phi ptr [ %894, %893 ], [ %890, %indent.exit.i77.i ]
-  %892 = load i8, ptr %891, align 1, !tbaa !20
+  %892 = load i8, ptr %891, align 1, !tbaa !19
   switch i8 %892, label %.loopexit.i80.i [
     i8 9, label %893
     i8 10, label %893
@@ -2393,7 +2393,7 @@ indent.exit.i77.i:                                ; preds = %885
 
 893:                                              ; preds = %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i
   %894 = getelementptr inbounds nuw i8, ptr %891, i64 1
-  br label %.preheader.i.i79.i, !llvm.loop !25
+  br label %.preheader.i.i79.i, !llvm.loop !24
 
 895:                                              ; preds = %.preheader.i.i79.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
@@ -2435,7 +2435,7 @@ emitAttr.exit81.i:                                ; preds = %.loopexit.i80.i, %8
   %911 = load ptr, ptr @outFile, align 8, !tbaa !11
   %912 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %911)
   %.not.i.i69.i = icmp eq i32 %910, 0
-  br i1 %.not.i.i69.i, label %indent.exit.i70.i, label %.preheader172.i, !llvm.loop !38
+  br i1 %.not.i.i69.i, label %indent.exit.i70.i, label %.preheader172.i, !llvm.loop !37
 
 indent.exit.i70.i:                                ; preds = %.preheader172.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
@@ -2447,7 +2447,7 @@ indent.exit.i70.i:                                ; preds = %.preheader172.i
 
 .preheader.i.i72.i:                               ; preds = %indent.exit.i70.i, %917
   %915 = phi ptr [ %918, %917 ], [ %914, %indent.exit.i70.i ]
-  %916 = load i8, ptr %915, align 1, !tbaa !20
+  %916 = load i8, ptr %915, align 1, !tbaa !19
   switch i8 %916, label %.loopexit.i73.i [
     i8 9, label %917
     i8 10, label %917
@@ -2460,7 +2460,7 @@ indent.exit.i70.i:                                ; preds = %.preheader172.i
 
 917:                                              ; preds = %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i
   %918 = getelementptr inbounds nuw i8, ptr %915, i64 1
-  br label %.preheader.i.i72.i, !llvm.loop !25
+  br label %.preheader.i.i72.i, !llvm.loop !24
 
 919:                                              ; preds = %.preheader.i.i72.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
@@ -2492,7 +2492,7 @@ emitAttr.exit74.i:                                ; preds = %.loopexit.i73.i, %9
   %931 = load ptr, ptr @outFile, align 8, !tbaa !11
   %932 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %931)
   %.not.i.i62.i = icmp eq i32 %930, 0
-  br i1 %.not.i.i62.i, label %indent.exit.i63.i, label %929, !llvm.loop !38
+  br i1 %.not.i.i62.i, label %indent.exit.i63.i, label %929, !llvm.loop !37
 
 indent.exit.i63.i:                                ; preds = %929
   %933 = select i1 %.b131.i.i.i, ptr @.str.34, ptr @.str.54
@@ -2505,7 +2505,7 @@ indent.exit.i63.i:                                ; preds = %929
 
 .preheader.i.i65.i:                               ; preds = %indent.exit.i63.i, %938
   %936 = phi ptr [ %939, %938 ], [ %935, %indent.exit.i63.i ]
-  %937 = load i8, ptr %936, align 1, !tbaa !20
+  %937 = load i8, ptr %936, align 1, !tbaa !19
   switch i8 %937, label %.loopexit.i66.i [
     i8 9, label %938
     i8 10, label %938
@@ -2518,7 +2518,7 @@ indent.exit.i63.i:                                ; preds = %929
 
 938:                                              ; preds = %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i
   %939 = getelementptr inbounds nuw i8, ptr %936, i64 1
-  br label %.preheader.i.i65.i, !llvm.loop !25
+  br label %.preheader.i.i65.i, !llvm.loop !24
 
 940:                                              ; preds = %.preheader.i.i65.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
@@ -2546,7 +2546,7 @@ emitAttr.exit67.i:                                ; preds = %.loopexit.i66.i, %9
   %950 = load ptr, ptr @outFile, align 8, !tbaa !11
   %951 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %950)
   %.not.i.i55.i = icmp eq i32 %949, 0
-  br i1 %.not.i.i55.i, label %indent.exit.i56.i, label %.preheader171.i, !llvm.loop !38
+  br i1 %.not.i.i55.i, label %indent.exit.i56.i, label %.preheader171.i, !llvm.loop !37
 
 indent.exit.i56.i:                                ; preds = %.preheader171.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
@@ -2558,7 +2558,7 @@ indent.exit.i56.i:                                ; preds = %.preheader171.i
 
 .preheader.i.i58.i:                               ; preds = %indent.exit.i56.i, %956
   %954 = phi ptr [ %957, %956 ], [ %953, %indent.exit.i56.i ]
-  %955 = load i8, ptr %954, align 1, !tbaa !20
+  %955 = load i8, ptr %954, align 1, !tbaa !19
   switch i8 %955, label %.loopexit.i59.i [
     i8 9, label %956
     i8 10, label %956
@@ -2571,7 +2571,7 @@ indent.exit.i56.i:                                ; preds = %.preheader171.i
 
 956:                                              ; preds = %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i
   %957 = getelementptr inbounds nuw i8, ptr %954, i64 1
-  br label %.preheader.i.i58.i, !llvm.loop !25
+  br label %.preheader.i.i58.i, !llvm.loop !24
 
 958:                                              ; preds = %.preheader.i.i58.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
@@ -2599,7 +2599,7 @@ emitAttr.exit60.i:                                ; preds = %.loopexit.i59.i, %9
   %968 = load ptr, ptr @outFile, align 8, !tbaa !11
   %969 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %968)
   %.not.i.i52.i = icmp eq i32 %967, 0
-  br i1 %.not.i.i52.i, label %indent.exit.i.i, label %.preheader.i, !llvm.loop !38
+  br i1 %.not.i.i52.i, label %indent.exit.i.i, label %.preheader.i, !llvm.loop !37
 
 indent.exit.i.i:                                  ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
@@ -2611,7 +2611,7 @@ indent.exit.i.i:                                  ; preds = %.preheader.i
 
 .preheader.i.i53.i:                               ; preds = %indent.exit.i.i, %974
   %972 = phi ptr [ %975, %974 ], [ %971, %indent.exit.i.i ]
-  %973 = load i8, ptr %972, align 1, !tbaa !20
+  %973 = load i8, ptr %972, align 1, !tbaa !19
   switch i8 %973, label %.loopexit.i.i [
     i8 9, label %974
     i8 10, label %974
@@ -2624,7 +2624,7 @@ indent.exit.i.i:                                  ; preds = %.preheader.i
 
 974:                                              ; preds = %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i
   %975 = getelementptr inbounds nuw i8, ptr %972, i64 1
-  br label %.preheader.i.i53.i, !llvm.loop !25
+  br label %.preheader.i.i53.i, !llvm.loop !24
 
 976:                                              ; preds = %.preheader.i.i53.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
@@ -2656,7 +2656,7 @@ emitEdge.exit.i:                                  ; preds = %emitAttr.exit.i, %9
   %988 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %987)
   %989 = call ptr @agnxtout(ptr noundef nonnull %86, ptr noundef nonnull %.0210.i) #14
   %.not22.i = icmp eq ptr %989, null
-  br i1 %.not22.i, label %._crit_edge213.i, label %.lr.ph212.i, !llvm.loop !48
+  br i1 %.not22.i, label %._crit_edge213.i, label %.lr.ph212.i, !llvm.loop !47
 
 ._crit_edge213.i:                                 ; preds = %emitEdge.exit.i, %.lr.ph224.i
   %.1163.lcssa.i = phi double [ %.0162218.i, %.lr.ph224.i ], [ %.4166.i, %emitEdge.exit.i ]
@@ -2665,7 +2665,7 @@ emitEdge.exit.i:                                  ; preds = %emitAttr.exit.i, %9
   %.1149.lcssa.i = phi double [ %.0148221.i, %.lr.ph224.i ], [ %.4.i, %emitEdge.exit.i ]
   %990 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.1222.i) #14
   %.not21.i = icmp eq ptr %990, null
-  br i1 %.not21.i, label %gv_to_gml.exit, label %.lr.ph224.i, !llvm.loop !49
+  br i1 %.not21.i, label %gv_to_gml.exit, label %.lr.ph224.i, !llvm.loop !48
 
 gv_to_gml.exit:                                   ; preds = %._crit_edge213.i, %._crit_edge.i
   %991 = load ptr, ptr @outFile, align 8, !tbaa !11
@@ -2674,7 +2674,7 @@ gv_to_gml.exit:                                   ; preds = %._crit_edge213.i, %
   %994 = call i32 @fflush(ptr noundef %993)
   %995 = call ptr @nextGraph(ptr noundef nonnull %33) #14
   %.not = icmp eq ptr %995, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %gv_to_gml.exit, %initargs.exit
   call fastcc void @graphviz_exit(i32 noundef 0) #18
@@ -2767,7 +2767,7 @@ define internal fastcc range(i32 0, 512) i32 @parseStyle(ptr noundef readonly ca
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = tail call i64 @strcspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #15, !noalias !51
+  %3 = tail call i64 @strcspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #15, !noalias !50
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   br label %6
@@ -2853,7 +2853,7 @@ tok_next.exit:                                    ; preds = %35
   %38 = tail call i64 @strspn(ptr noundef nonnull %36, ptr noundef nonnull @.str.57) #15
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
   %40 = tail call i64 @strcspn(ptr noundef nonnull %39, ptr noundef nonnull @.str.57) #15
-  br label %6, !llvm.loop !54
+  br label %6, !llvm.loop !53
 }
 
 ; Function Attrs: nofree nounwind
@@ -2916,45 +2916,44 @@ attributes #19 = { noreturn nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p2 omnipotent char", !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !7, i64 0}
-!20 = !{!7, !7, i64 0}
-!21 = !{!22, !5, i64 16}
-!22 = !{!"Agsym_s", !23, i64 0, !5, i64 16, !5, i64 24, !10, i64 32, !7, i64 36, !7, i64 37, !7, i64 38}
-!23 = !{!"dtlink_s_", !24, i64 0, !7, i64 8}
-!24 = !{!"p1 _ZTS9dtlink_s_", !6, i64 0}
-!25 = distinct !{!25, !14, !15}
-!26 = distinct !{!26, !14, !15}
-!27 = !{!28, !31, i64 16}
-!28 = !{!"Agnode_s", !29, i64 0, !32, i64 24, !33, i64 32}
-!29 = !{!"Agobj_s", !30, i64 0, !31, i64 16}
-!30 = !{!"Agtag_s", !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !19, i64 8}
-!31 = !{!"p1 _ZTS7Agrec_s", !6, i64 0}
-!32 = !{!"p1 _ZTS8Agraph_s", !6, i64 0}
-!33 = !{!"Agsubnode_s", !23, i64 0, !23, i64 16, !34, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64}
-!34 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
-!35 = !{!36, !19, i64 16}
-!36 = !{!"", !37, i64 0, !19, i64 16}
-!37 = !{!"Agrec_s", !5, i64 0, !31, i64 8}
-!38 = distinct !{!38, !14, !15}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"double", !7, i64 0}
-!41 = distinct !{!41, !14, !15}
-!42 = distinct !{!42, !14, !15}
-!43 = !{!44, !34, i64 56}
-!44 = !{!"Agedge_s", !29, i64 0, !23, i64 24, !23, i64 40, !34, i64 56}
-!45 = distinct !{!45, !14, !15}
-!46 = distinct !{!46, !14, !15}
-!47 = distinct !{!47, !14, !15}
-!48 = distinct !{!48, !14, !15}
-!49 = distinct !{!49, !14, !15}
-!50 = distinct !{!50, !14, !15}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"tok: argument 0"}
-!53 = distinct !{!53, !"tok"}
-!54 = distinct !{!54, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p2 omnipotent char", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!7, !7, i64 0}
+!20 = !{!21, !5, i64 16}
+!21 = !{!"Agsym_s", !22, i64 0, !5, i64 16, !5, i64 24, !10, i64 32, !7, i64 36, !7, i64 37, !7, i64 38}
+!22 = !{!"dtlink_s_", !23, i64 0, !7, i64 8}
+!23 = !{!"p1 _ZTS9dtlink_s_", !6, i64 0}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}
+!26 = !{!27, !30, i64 16}
+!27 = !{!"Agnode_s", !28, i64 0, !31, i64 24, !32, i64 32}
+!28 = !{!"Agobj_s", !29, i64 0, !30, i64 16}
+!29 = !{!"Agtag_s", !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !18, i64 8}
+!30 = !{!"p1 _ZTS7Agrec_s", !6, i64 0}
+!31 = !{!"p1 _ZTS8Agraph_s", !6, i64 0}
+!32 = !{!"Agsubnode_s", !22, i64 0, !22, i64 16, !33, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64}
+!33 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
+!34 = !{!35, !18, i64 16}
+!35 = !{!"", !36, i64 0, !18, i64 16}
+!36 = !{!"Agrec_s", !5, i64 0, !30, i64 8}
+!37 = distinct !{!37, !14}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"double", !7, i64 0}
+!40 = distinct !{!40, !14}
+!41 = distinct !{!41, !14}
+!42 = !{!43, !33, i64 56}
+!43 = !{!"Agedge_s", !28, i64 0, !22, i64 24, !22, i64 40, !33, i64 56}
+!44 = distinct !{!44, !14}
+!45 = distinct !{!45, !14}
+!46 = distinct !{!46, !14}
+!47 = distinct !{!47, !14}
+!48 = distinct !{!48, !14}
+!49 = distinct !{!49, !14}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"tok: argument 0"}
+!52 = distinct !{!52, !"tok"}
+!53 = distinct !{!53, !14}

@@ -145,7 +145,7 @@ define internal fastcc nonnull ptr @dln_open(ptr noundef %0) unnamed_addr #0 {
   br label %dln_incompatible_library_p.exit
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %2, align 8, !tbaa !13
+  %13 = load ptr, ptr %2, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %dln_incompatible_library_p.exit, label %14
@@ -274,10 +274,9 @@ attributes #12 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"", !15, i64 0, !16, i64 8, !15, i64 16, !16, i64 24}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !8, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"", !14, i64 0, !15, i64 8, !14, i64 16, !15, i64 24}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !8, i64 0}

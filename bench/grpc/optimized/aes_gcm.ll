@@ -1193,7 +1193,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
 
 87:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #18
-  store i32 0, ptr %13, align 4, !tbaa !59
+  store i32 0, ptr %13, align 4, !tbaa !58
   %88 = trunc i64 %79 to i32
   %89 = load ptr, ptr %52, align 8, !tbaa !45
   %90 = call i32 @EVP_EncryptUpdate(ptr noundef %89, ptr noundef %.089150, ptr noundef nonnull %13, ptr noundef nonnull %77, i32 noundef %88)
@@ -1201,7 +1201,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
   br i1 %.not107, label %.thread135, label %91
 
 91:                                               ; preds = %87
-  %92 = load i32, ptr %13, align 4, !tbaa !59
+  %92 = load i32, ptr %13, align 4, !tbaa !58
   %93 = icmp sgt i32 %92, %88
   br i1 %93, label %.thread135, label %94
 
@@ -1223,13 +1223,13 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
   %.190131 = phi ptr [ %96, %94 ], [ %.089150, %81 ]
   %98 = add nuw i64 %.193149, 1
   %exitcond158.not = icmp eq i64 %98, %6
-  br i1 %exitcond158.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !61
+  br i1 %exitcond158.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !60
 
 ._crit_edge154:                                   ; preds = %.thread126, %74
   %.089.lcssa = phi ptr [ %70, %74 ], [ %.190131, %.thread126 ]
   %.086.lcssa = phi i64 [ %75, %74 ], [ %.187132, %.thread126 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #18
-  store i32 0, ptr %14, align 4, !tbaa !59
+  store i32 0, ptr %14, align 4, !tbaa !58
   %99 = load ptr, ptr %52, align 8, !tbaa !45
   %100 = call i32 @EVP_EncryptFinal_ex(ptr noundef %99, ptr noundef null, ptr noundef nonnull %14)
   %.not104 = icmp eq i32 %100, 0
@@ -1240,7 +1240,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_enc
   br label %115
 
 102:                                              ; preds = %._crit_edge154
-  %103 = load i32, ptr %14, align 4, !tbaa !59
+  %103 = load i32, ptr %14, align 4, !tbaa !58
   %.not105 = icmp eq i32 %103, 0
   br i1 %.not105, label %105, label %104
 
@@ -1342,7 +1342,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   %30 = add i64 %29, %.0146223
   %31 = add nuw i64 %.0142224, 1
   %exitcond.not = icmp eq i64 %31, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = icmp ult i64 %30, 16
@@ -1455,7 +1455,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 .thread:                                          ; preds = %.lr.ph226, %75
   %76 = add nuw i64 %.1143225, 1
   %exitcond251.not = icmp eq i64 %76, %4
-  br i1 %exitcond251.not, label %._crit_edge227, label %.lr.ph226, !llvm.loop !63
+  br i1 %exitcond251.not, label %._crit_edge227, label %.lr.ph226, !llvm.loop !62
 
 ._crit_edge227:                                   ; preds = %.thread, %.preheader197
   %77 = load ptr, ptr %7, align 8, !tbaa !53
@@ -1560,7 +1560,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   %120 = icmp ult i64 %119, %6
   %121 = icmp ugt i64 %.2148, 16
   %122 = select i1 %120, i1 %121, i1 false
-  br i1 %122, label %.lr.ph232, label %._crit_edge233, !llvm.loop !64
+  br i1 %122, label %.lr.ph232, label %._crit_edge233, !llvm.loop !63
 
 ._crit_edge233:                                   ; preds = %118
   br i1 %121, label %123, label %126
@@ -1626,7 +1626,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   %.2 = phi ptr [ %.1242, %136 ], [ %142, %141 ]
   %144 = add i64 %.3145241, 1
   %exitcond252.not = icmp eq i64 %144, %6
-  br i1 %exitcond252.not, label %._crit_edge245, label %.lr.ph244, !llvm.loop !65
+  br i1 %exitcond252.not, label %._crit_edge245, label %.lr.ph244, !llvm.loop !64
 
 ._crit_edge245:                                   ; preds = %143, %129
   %145 = load ptr, ptr %59, align 8, !tbaa !45
@@ -1643,7 +1643,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
 
 150:                                              ; preds = %._crit_edge245
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #18
-  store i32 0, ptr %15, align 4, !tbaa !59
+  store i32 0, ptr %15, align 4, !tbaa !58
   %151 = load ptr, ptr %59, align 8, !tbaa !45
   %152 = call i32 @EVP_DecryptFinal_ex(ptr noundef %151, ptr noundef null, ptr noundef nonnull %15)
   %.not172 = icmp eq i32 %152, 0
@@ -1661,7 +1661,7 @@ define internal noundef range(i32 0, 14) i32 @_ZL39gsec_aes_gcm_aead_crypter_dec
   br label %165
 
 157:                                              ; preds = %150
-  %158 = load i32, ptr %15, align 4, !tbaa !59
+  %158 = load i32, ptr %15, align 4, !tbaa !58
   %.not174 = icmp eq i32 %158, 0
   br i1 %.not174, label %162, label %159
 
@@ -2237,13 +2237,12 @@ attributes #19 = { nounwind willreturn memory(read) }
 !53 = !{!54, !9, i64 0}
 !54 = !{!"_ZTS5iovec", !9, i64 0, !40, i64 8}
 !55 = !{!54, !40, i64 8}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"int", !10, i64 0}
-!61 = distinct !{!61, !57, !58}
-!62 = distinct !{!62, !57, !58}
-!63 = distinct !{!63, !57, !58}
-!64 = distinct !{!64, !57, !58}
-!65 = distinct !{!65, !57, !58}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"int", !10, i64 0}
+!60 = distinct !{!60, !57}
+!61 = distinct !{!61, !57}
+!62 = distinct !{!62, !57}
+!63 = distinct !{!63, !57}
+!64 = distinct !{!64, !57}

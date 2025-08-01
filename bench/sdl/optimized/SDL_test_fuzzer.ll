@@ -575,7 +575,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
   %15 = add nuw i8 %.0.i, 1
   %16 = zext i8 %15 to i64
   %17 = icmp sgt i64 %10, %16
-  br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !7
+  br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !6
 
 18:                                               ; preds = %9
   store i64 %..i, ptr %4, align 16
@@ -667,7 +667,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
   %17 = icmp sgt i64 %10, %16
-  br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !7
+  br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !6
 
 18:                                               ; preds = %9
   store i64 %..i, ptr %4, align 16
@@ -761,7 +761,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
   %15 = add i8 %.0.i, 1
   %16 = zext i8 %15 to i64
   %17 = icmp sgt i64 %10, %16
-  br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !7
+  br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !6
 
 18:                                               ; preds = %9
   store i64 %..i, ptr %4, align 16
@@ -853,7 +853,7 @@ define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noun
   %13 = add i8 %.0.i, 1
   %14 = zext i8 %13 to i64
   %15 = icmp sgt i64 %8, %14
-  br i1 %15, label %.preheader.i, label %.loopexit.i, !llvm.loop !7
+  br i1 %15, label %.preheader.i, label %.loopexit.i, !llvm.loop !6
 
 16:                                               ; preds = %7
   store i64 %..i, ptr %4, align 16
@@ -946,7 +946,7 @@ define dso_local noundef float @SDLTest_RandomFloat() local_unnamed_addr #2 {
   br i1 %.not3, label %8, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %6, %.critedge
-  br label %.critedge, !llvm.loop !8
+  br label %.critedge, !llvm.loop !7
 
 8:                                                ; preds = %6
   ret float %4
@@ -1004,7 +1004,7 @@ define dso_local noundef double @SDLTest_RandomDouble() local_unnamed_addr #2 {
   br i1 %.not3, label %11, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %9, %.critedge
-  br label %.critedge, !llvm.loop !9
+  br label %.critedge, !llvm.loop !8
 
 11:                                               ; preds = %9
   ret double %7
@@ -1044,7 +1044,7 @@ define dso_local noalias ptr @SDLTest_RandomAsciiString() local_unnamed_addr #2 
   store i8 %12, ptr %13, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %wide.trip.count.i.i
@@ -1097,7 +1097,7 @@ define dso_local noalias ptr @SDLTest_RandomAsciiStringWithMaximumLength(i32 nou
   store i8 %18, ptr %19, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 %wide.trip.count.i
@@ -1146,7 +1146,7 @@ define dso_local noalias ptr @SDLTest_RandomAsciiStringOfSize(i32 noundef %0) lo
   store i8 %13, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 %wide.trip.count
@@ -1198,10 +1198,9 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

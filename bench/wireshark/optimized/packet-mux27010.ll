@@ -705,7 +705,7 @@ getFrameControlData.exit:                         ; preds = %.thread, %172, %.th
   %228 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.reass.i)
   %229 = and i8 %228, 1
   %230 = icmp eq i8 %229, 0
-  br i1 %230, label %.lr.ph.i175, label %getControlChannelFrameType.exit, !llvm.loop !9
+  br i1 %230, label %.lr.ph.i175, label %getControlChannelFrameType.exit, !llvm.loop !8
 
 getControlChannelFrameType.exit:                  ; preds = %.lr.ph.i175, %215
   %.sroa.8189.1 = phi i32 [ %spec.select.i, %215 ], [ %227, %.lr.ph.i175 ]
@@ -747,7 +747,7 @@ getControlChannelFrameType.exit:                  ; preds = %.lr.ph.i175, %215
   %254 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.reass.i179)
   %255 = and i8 %254, 1
   %256 = icmp eq i8 %255, 0
-  br i1 %256, label %.lr.ph.i178, label %getControlChannelLength.exit, !llvm.loop !10
+  br i1 %256, label %.lr.ph.i178, label %getControlChannelLength.exit, !llvm.loop !9
 
 getControlChannelLength.exit:                     ; preds = %.lr.ph.i178, %getControlChannelFrameType.exit
   %.sroa.5182.1 = phi i32 [ %spec.select.i176, %getControlChannelFrameType.exit ], [ %253, %.lr.ph.i178 ]
@@ -920,7 +920,7 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
 363:                                              ; preds = %349
   %364 = zext i8 %356 to i32
   %365 = add nuw nsw i32 %.pre243, %364
-  %366 = load i8, ptr %348, align 8, !range !11, !noundef !12
+  %366 = load i8, ptr %348, align 8, !range !10, !noundef !11
   store i8 1, ptr %348, align 8
   %367 = zext i16 %352 to i32
   %368 = zext i16 %354 to i32
@@ -955,7 +955,7 @@ getControlChannelValues.exit:                     ; preds = %264, %276, %.thread
 382:                                              ; preds = %381, %361
   %383 = add nuw nsw i32 %.0237, 1
   %exitcond240.not = icmp eq i32 %383, %347
-  br i1 %exitcond240.not, label %.loopexit, label %349, !llvm.loop !13
+  br i1 %exitcond240.not, label %.loopexit, label %349, !llvm.loop !12
 
 .loopexit:                                        ; preds = %382, %.preheader, %341
   %384 = load i32, ptr %5, align 4
@@ -1123,11 +1123,10 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}

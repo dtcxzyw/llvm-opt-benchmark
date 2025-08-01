@@ -163,12 +163,12 @@ define dso_local ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef 
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not144 = icmp eq ptr %81, null
-  br i1 %.not144, label %177, label %82, !llvm.loop !12
+  br i1 %.not144, label %177, label %82, !llvm.loop !11
 
 82:                                               ; preds = %.lr.ph183
   %83 = call i32 @list_count(ptr noundef nonnull %81) #6
   %.not145 = icmp eq i32 %83, 0
-  br i1 %.not145, label %177, label %84, !llvm.loop !12
+  br i1 %.not145, label %177, label %84, !llvm.loop !11
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 56
@@ -210,7 +210,7 @@ define dso_local ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef 
 .backedge:                                        ; preds = %.lr.ph179, %98, %174
   %101 = call ptr @list_next(ptr noundef %94) #6
   %.not147 = icmp eq ptr %101, null
-  br i1 %.not147, label %._crit_edge180, label %.lr.ph179, !llvm.loop !13
+  br i1 %.not147, label %._crit_edge180, label %.lr.ph179, !llvm.loop !12
 
 102:                                              ; preds = %.preheader, %104
   %103 = call ptr @list_next(ptr noundef %77) #6
@@ -223,7 +223,7 @@ define dso_local ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef 
   %107 = load ptr, ptr %100, align 8
   %108 = call i32 @xstrcmp(ptr noundef %106, ptr noundef %107) #6
   %.not151 = icmp eq i32 %108, 0
-  br i1 %.not151, label %109, label %102, !llvm.loop !14
+  br i1 %.not151, label %109, label %102, !llvm.loop !13
 
 109:                                              ; preds = %104
   br i1 %2, label %110, label %.thread167
@@ -263,7 +263,7 @@ define dso_local ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef 
 127:                                              ; preds = %121, %124, %118
   %128 = call ptr @list_next(ptr noundef %113) #6
   %.not152 = icmp eq ptr %128, null
-  br i1 %.not152, label %._crit_edge176, label %.lr.ph175, !llvm.loop !15
+  br i1 %.not152, label %._crit_edge176, label %.lr.ph175, !llvm.loop !14
 
 ._crit_edge176:                                   ; preds = %127, %110
   call void @list_iterator_destroy(ptr noundef %113) #6
@@ -337,7 +337,7 @@ define dso_local ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef 
   %167 = load ptr, ptr %163, align 8
   %168 = call i32 @xstrcmp(ptr noundef nonnull %165, ptr noundef %167) #6
   %.not158 = icmp eq i32 %168, 0
-  br i1 %.not158, label %169, label %164, !llvm.loop !16
+  br i1 %.not158, label %169, label %164, !llvm.loop !15
 
 169:                                              ; preds = %166
   call void @list_iterator_destroy(ptr noundef %162) #6
@@ -364,7 +364,7 @@ define dso_local ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef 
 177:                                              ; preds = %.lr.ph183, %82, %._crit_edge180
   %178 = call ptr @list_next(ptr noundef %76) #6
   %.not140 = icmp eq ptr %178, null
-  br i1 %.not140, label %._crit_edge184, label %.lr.ph183, !llvm.loop !17
+  br i1 %.not140, label %._crit_edge184, label %.lr.ph183
 
 ._crit_edge184:                                   ; preds = %177, %._crit_edge
   call void @list_iterator_destroy(ptr noundef %76) #6
@@ -521,13 +521,11 @@ attributes #7 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
 !12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !11}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

@@ -512,7 +512,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %220 = load i8, ptr %190, align 1
   %221 = zext i8 %220 to i64
   %222 = icmp samesign ult i64 %indvars.iv.next.i, %221
-  br i1 %222, label %209, label %._crit_edge.i, !llvm.loop !9
+  br i1 %222, label %209, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %217, %204
   %.0110.lcssa.i = phi ptr [ %206, %204 ], [ %219, %217 ]
@@ -602,7 +602,7 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %.1.i = phi i64 [ %.0453.i, %.lr.ph.i48 ], [ %263, %250 ]
   %267 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %267, %232
-  br i1 %exitcond.not.i, label %proc_groupfd.exit, label %.lr.ph.i48, !llvm.loop !10
+  br i1 %exitcond.not.i, label %proc_groupfd.exit, label %.lr.ph.i48, !llvm.loop !9
 
 proc_groupfd.exit:                                ; preds = %250, %266, %227, %234
   %.044.i = phi i64 [ 0, %227 ], [ %238, %234 ], [ %.1.i, %266 ], [ %263, %250 ]
@@ -1052,7 +1052,7 @@ define internal range(i32 0, 2) i32 @proc_groupenv_callback(ptr noundef %0, ptr 
   %.130 = phi ptr [ %9, %8 ], [ %.029, %6 ]
   %.1 = phi i32 [ %10, %8 ], [ %.0, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %.028, i64 1
-  br label %4, !llvm.loop !11
+  br label %4, !llvm.loop !10
 
 .critedge:                                        ; preds = %4, %4
   store i8 0, ptr %.029, align 1
@@ -1131,9 +1131,8 @@ attributes #17 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

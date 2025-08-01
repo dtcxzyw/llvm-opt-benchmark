@@ -221,12 +221,12 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   %70 = fsub float %69, %.098166
   %71 = load float, ptr %67, align 4, !tbaa !14
   %72 = fsub float %71, %.0100165
-  %73 = tail call noundef float @atan2f(float noundef %70, float noundef %72) #12, !tbaa !19
+  %73 = tail call noundef float @atan2f(float noundef %70, float noundef %72) #12, !tbaa !18
   %74 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %indvars.iv145
   store float %73, ptr %74, align 4, !tbaa !14
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !21
+  br i1 %exitcond149.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !20
 
 ._crit_edge125:                                   ; preds = %.lr.ph124
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
@@ -236,17 +236,17 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
 .lr.ph128:                                        ; preds = %._crit_edge125, %.lr.ph128
   %indvars.iv150 = phi i64 [ 0, %._crit_edge125 ], [ %indvars.iv.next151, %.lr.ph128 ]
   %75 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv150
-  store i32 1, ptr %75, align 4, !tbaa !19
+  store i32 1, ptr %75, align 4, !tbaa !18
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !22
+  br i1 %exitcond154.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !21
 
 ._crit_edge129:                                   ; preds = %.lr.ph128, %._crit_edge125.thread
   %76 = phi i1 [ false, %._crit_edge125.thread ], [ true, %.lr.ph128 ]
   %77 = sext i32 %3 to i64
   %78 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %77
-  store i32 0, ptr %78, align 4, !tbaa !19
-  store i32 %3, ptr %4, align 4, !tbaa !19
+  store i32 0, ptr %78, align 4, !tbaa !18
+  store i32 %3, ptr %4, align 4, !tbaa !18
   %79 = icmp sgt i32 %2, 1
   br i1 %79, label %.lr.ph139, label %._crit_edge140
 
@@ -270,7 +270,7 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   %86 = fcmp ogt float %85, 0x400921FB60000000
   %87 = fadd float %85, 0xC01921FB60000000
   %.2.us = select i1 %86, float %87, float %85
-  store i32 %3, ptr %.0108137.us, align 4, !tbaa !19
+  store i32 %3, ptr %.0108137.us, align 4, !tbaa !18
   br label %88
 
 88:                                               ; preds = %.lr.ph133.us, %102
@@ -278,7 +278,7 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   %indvars.iv156 = phi i64 [ 0, %.lr.ph133.us ], [ %indvars.iv.next157, %102 ]
   %.097131.us = phi float [ 1.000000e+09, %.lr.ph133.us ], [ %.1.us, %102 ]
   %90 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv156
-  %91 = load i32, ptr %90, align 4, !tbaa !19
+  %91 = load i32, ptr %90, align 4, !tbaa !18
   %.not.us = icmp eq i32 %91, 0
   br i1 %.not.us, label %102, label %92
 
@@ -295,7 +295,7 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
 
 100:                                              ; preds = %92
   %101 = trunc nuw nsw i64 %indvars.iv156 to i32
-  store i32 %101, ptr %.0108137.us, align 4, !tbaa !19
+  store i32 %101, ptr %.0108137.us, align 4, !tbaa !18
   br label %102
 
 102:                                              ; preds = %100, %92, %88
@@ -303,25 +303,25 @@ define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %0, ptr noundef readon
   %.1.us = phi float [ %.0.us, %100 ], [ %.097131.us, %92 ], [ %.097131.us, %88 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %._crit_edge134.us, label %88, !llvm.loop !23
+  br i1 %exitcond160.not, label %._crit_edge134.us, label %88, !llvm.loop !22
 
 ._crit_edge134.us:                                ; preds = %102
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %104
-  store i32 0, ptr %105, align 4, !tbaa !19
+  store i32 0, ptr %105, align 4, !tbaa !18
   %106 = add nuw nsw i32 %.0104136.us, 1
   %.0108.us = getelementptr inbounds nuw i8, ptr %.0108137.us, i64 4
   %exitcond161.not = icmp eq i32 %106, %2
-  br i1 %exitcond161.not, label %._crit_edge140, label %.lr.ph133.us, !llvm.loop !24
+  br i1 %exitcond161.not, label %._crit_edge140, label %.lr.ph133.us, !llvm.loop !23
 
 .lr.ph139.split:                                  ; preds = %.lr.ph139, %.lr.ph139.split
   %.0108137 = phi ptr [ %.0108, %.lr.ph139.split ], [ %.0108135, %.lr.ph139 ]
   %.0104136 = phi i32 [ %107, %.lr.ph139.split ], [ 1, %.lr.ph139 ]
-  store i32 %3, ptr %.0108137, align 4, !tbaa !19
+  store i32 %3, ptr %.0108137, align 4, !tbaa !18
   %107 = add nuw nsw i32 %.0104136, 1
   %.0108 = getelementptr inbounds nuw i8, ptr %.0108137, i64 4
   %exitcond155.not = icmp eq i32 %107, %2
-  br i1 %exitcond155.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !26
+  br i1 %exitcond155.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !25
 
 ._crit_edge140:                                   ; preds = %.lr.ph139.split, %._crit_edge134.us, %._crit_edge129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
@@ -1102,12 +1102,12 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %527, ptr %525, align 4, !tbaa !14
   %indvars.iv.next1064 = add nuw nsw i64 %indvars.iv1063, 1
   %exitcond1066.not = icmp eq i64 %indvars.iv.next1064, 3
-  br i1 %exitcond1066.not, label %528, label %523, !llvm.loop !27
+  br i1 %exitcond1066.not, label %528, label %523, !llvm.loop !26
 
 528:                                              ; preds = %523
   %indvars.iv.next1068 = add nuw nsw i64 %indvars.iv1067, 1
   %exitcond1070.not = icmp eq i64 %indvars.iv.next1068, 3
-  br i1 %exitcond1070.not, label %.preheader976, label %508, !llvm.loop !28
+  br i1 %exitcond1070.not, label %.preheader976, label %508, !llvm.loop !27
 
 .preheader976:                                    ; preds = %528
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #12
@@ -1144,12 +1144,12 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %548, ptr %546, align 4, !tbaa !14
   %indvars.iv.next1075 = add nuw nsw i64 %indvars.iv1074, 1
   %exitcond1077.not = icmp eq i64 %indvars.iv.next1075, 3
-  br i1 %exitcond1077.not, label %549, label %544, !llvm.loop !29
+  br i1 %exitcond1077.not, label %549, label %544, !llvm.loop !28
 
 549:                                              ; preds = %544
   %indvars.iv.next1079 = add nuw nsw i64 %indvars.iv1078, 1
   %exitcond1081.not = icmp eq i64 %indvars.iv.next1079, 3
-  br i1 %exitcond1081.not, label %550, label %529, !llvm.loop !30
+  br i1 %exitcond1081.not, label %550, label %529, !llvm.loop !29
 
 550:                                              ; preds = %549
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
@@ -1177,7 +1177,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %557, ptr %558, align 4, !tbaa !14
   %indvars.iv.next1083 = add nuw nsw i64 %indvars.iv1082, 1
   %exitcond1085.not = icmp eq i64 %indvars.iv.next1083, 3
-  br i1 %exitcond1085.not, label %.preheader975, label %556, !llvm.loop !31
+  br i1 %exitcond1085.not, label %.preheader975, label %556, !llvm.loop !30
 
 559:                                              ; preds = %.preheader975, %559
   %indvars.iv1086 = phi i64 [ 0, %.preheader975 ], [ %indvars.iv.next1087, %559 ]
@@ -1188,7 +1188,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %560, ptr %561, align 4, !tbaa !14
   %indvars.iv.next1087 = add nuw nsw i64 %indvars.iv1086, 1
   %exitcond1089.not = icmp eq i64 %indvars.iv.next1087, 3
-  br i1 %exitcond1089.not, label %562, label %559, !llvm.loop !32
+  br i1 %exitcond1089.not, label %562, label %559, !llvm.loop !31
 
 562:                                              ; preds = %559
   call void @_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull %18, ptr noundef nonnull %19)
@@ -1209,7 +1209,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %570, ptr %568, align 4, !tbaa !14
   %indvars.iv.next1091 = add nuw nsw i64 %indvars.iv1090, 1
   %exitcond1093.not = icmp eq i64 %indvars.iv.next1091, 3
-  br i1 %exitcond1093.not, label %.preheader, label %565, !llvm.loop !33
+  br i1 %exitcond1093.not, label %.preheader, label %565, !llvm.loop !32
 
 571:                                              ; preds = %.preheader, %571
   %indvars.iv1094 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1095, %571 ]
@@ -1221,7 +1221,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %576, ptr %574, align 4, !tbaa !14
   %indvars.iv.next1095 = add nuw nsw i64 %indvars.iv1094, 1
   %exitcond1097.not = icmp eq i64 %indvars.iv.next1095, 3
-  br i1 %exitcond1097.not, label %577, label %571, !llvm.loop !34
+  br i1 %exitcond1097.not, label %577, label %571, !llvm.loop !33
 
 577:                                              ; preds = %571
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #12
@@ -1239,7 +1239,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %584 = load ptr, ptr %583, align 8
   call void %584(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %17, float noundef %.14679928939)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #12
-  store i32 %.14694927941, ptr %8, align 4, !tbaa !19
+  store i32 %.14694927941, ptr %8, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
@@ -1367,7 +1367,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %653, ptr %654, align 4, !tbaa !14
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1016.not = icmp eq i64 %indvars.iv.next1014, 3
-  br i1 %exitcond1016.not, label %.loopexit982, label %646, !llvm.loop !35
+  br i1 %exitcond1016.not, label %.loopexit982, label %646, !llvm.loop !34
 
 655:                                              ; preds = %.preheader983, %655
   %indvars.iv = phi i64 [ 0, %.preheader983 ], [ %indvars.iv.next, %655 ]
@@ -1384,7 +1384,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %662, ptr %663, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit982, label %655, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit982, label %655, !llvm.loop !35
 
 .loopexit982:                                     ; preds = %655, %646
   %.0655.v = select i1 %586, i32 -1, i32 -4
@@ -1557,7 +1557,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %786, ptr %788, align 4, !tbaa !14
   %indvars.iv.next1018 = add nuw nsw i64 %indvars.iv1017, 1
   %exitcond1020.not = icmp eq i64 %indvars.iv.next1018, 3
-  br i1 %exitcond1020.not, label %789, label %779, !llvm.loop !37
+  br i1 %exitcond1020.not, label %789, label %779, !llvm.loop !36
 
 789:                                              ; preds = %779
   %790 = getelementptr inbounds float, ptr %28, i64 %778
@@ -1592,7 +1592,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %.1647 = phi i32 [ %810, %803 ], [ %.0646989, %789 ]
   %indvars.iv.next1022 = add nuw nsw i64 %indvars.iv1021, 1
   %exitcond1024.not = icmp eq i64 %indvars.iv.next1022, %wide.trip.count
-  br i1 %exitcond1024.not, label %812, label %763, !llvm.loop !38
+  br i1 %exitcond1024.not, label %812, label %763, !llvm.loop !37
 
 812:                                              ; preds = %811
   %813 = icmp slt i32 %.1647, 1
@@ -1636,7 +1636,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %828, ptr %829, align 4, !tbaa !14
   %indvars.iv.next1036 = add nuw nsw i64 %indvars.iv1035, 1
   %exitcond1038.not = icmp eq i64 %indvars.iv.next1036, 3
-  br i1 %exitcond1038.not, label %830, label %822, !llvm.loop !39
+  br i1 %exitcond1038.not, label %830, label %822, !llvm.loop !38
 
 830:                                              ; preds = %822
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #12
@@ -1662,7 +1662,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #12
   %indvars.iv.next1040 = add nuw nsw i64 %indvars.iv1039, 1
   %exitcond1044.not = icmp eq i64 %indvars.iv.next1040, %wide.trip.count1043
-  br i1 %exitcond1044.not, label %.loopexit, label %820, !llvm.loop !40
+  br i1 %exitcond1044.not, label %.loopexit, label %820, !llvm.loop !39
 
 843:                                              ; preds = %.lr.ph, %859
   %indvars.iv1029 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next1030, %859 ]
@@ -1688,7 +1688,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %857, ptr %858, align 4, !tbaa !14
   %indvars.iv.next1026 = add nuw nsw i64 %indvars.iv1025, 1
   %exitcond1028.not = icmp eq i64 %indvars.iv.next1026, 3
-  br i1 %exitcond1028.not, label %859, label %847, !llvm.loop !41
+  br i1 %exitcond1028.not, label %859, label %847, !llvm.loop !40
 
 859:                                              ; preds = %847
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #12
@@ -1712,7 +1712,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #12
   %indvars.iv.next1030 = add nuw nsw i64 %indvars.iv1029, 1
   %exitcond1034.not = icmp eq i64 %indvars.iv.next1030, %wide.trip.count1043
-  br i1 %exitcond1034.not, label %.loopexit, label %843, !llvm.loop !42
+  br i1 %exitcond1034.not, label %.loopexit, label %843, !llvm.loop !41
 
 870:                                              ; preds = %814
   %871 = load float, ptr %29, align 16, !tbaa !14
@@ -1731,7 +1731,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %.1 = select i1 %875, float %874, float %.0997
   %indvars.iv.next1046 = add nuw nsw i64 %indvars.iv1045, 1
   %exitcond1050.not = icmp eq i64 %indvars.iv.next1046, %wide.trip.count1049
-  br i1 %exitcond1050.not, label %877, label %872, !llvm.loop !43
+  br i1 %exitcond1050.not, label %877, label %872, !llvm.loop !42
 
 877:                                              ; preds = %872
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #12
@@ -1750,7 +1750,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   %indvars.iv1055 = phi i64 [ 0, %877 ], [ %indvars.iv.next1056, %936 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #12
   %886 = getelementptr inbounds nuw [8 x i32], ptr %34, i64 0, i64 %indvars.iv1055
-  %887 = load i32, ptr %886, align 4, !tbaa !19
+  %887 = load i32, ptr %886, align 4, !tbaa !18
   %888 = mul nsw i32 %887, 3
   %889 = sext i32 %888 to i64
   br label %890
@@ -1767,7 +1767,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   store float %896, ptr %897, align 4, !tbaa !14
   %indvars.iv.next1052 = add nuw nsw i64 %indvars.iv1051, 1
   %exitcond1054.not = icmp eq i64 %indvars.iv.next1052, 3
-  br i1 %exitcond1054.not, label %898, label %890, !llvm.loop !44
+  br i1 %exitcond1054.not, label %898, label %890, !llvm.loop !43
 
 898:                                              ; preds = %890
   br i1 %586, label %899, label %913
@@ -1840,7 +1840,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #12
   %indvars.iv.next1056 = add nuw nsw i64 %indvars.iv1055, 1
   %exitcond1059.not = icmp eq i64 %indvars.iv.next1056, %wide.trip.count1058
-  br i1 %exitcond1059.not, label %937, label %885, !llvm.loop !45
+  br i1 %exitcond1059.not, label %937, label %885, !llvm.loop !44
 
 937:                                              ; preds = %936
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #12
@@ -1848,7 +1848,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 .loopexit:                                        ; preds = %859, %830, %937
   %.2648 = phi i32 [ %spec.store.select, %937 ], [ %.1647, %830 ], [ %.1647, %859 ]
-  store i32 %.14694927941, ptr %8, align 4, !tbaa !19
+  store i32 %.14694927941, ptr %8, align 4, !tbaa !18
   br label %938
 
 938:                                              ; preds = %812, %.loopexit
@@ -1980,7 +1980,7 @@ define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef no
   %.3.ph = phi ptr [ %.1, %24 ], [ %50, %35 ]
   %54 = add nsw i32 %.083164, -1
   %55 = icmp sgt i32 %.083164, 1
-  br i1 %55, label %10, label %._crit_edge, !llvm.loop !46
+  br i1 %55, label %10, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %53, %.preheader
   %.4106.lcssa = phi i32 [ 0, %.preheader ], [ %.8.ph, %53 ]
@@ -1988,10 +1988,10 @@ define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef no
   %57 = select i1 %56, ptr %4, ptr %2
   %58 = add nsw i32 %.087168, 2
   %59 = icmp slt i32 %.087168, 0
-  br i1 %59, label %.preheader, label %60, !llvm.loop !47
+  br i1 %59, label %.preheader, label %60, !llvm.loop !46
 
 60:                                               ; preds = %._crit_edge
-  br i1 %5, label %.preheader152, label %.thread145, !llvm.loop !48
+  br i1 %5, label %.preheader152, label %.thread145, !llvm.loop !47
 
 .thread145:                                       ; preds = %60, %35, %16
   %.1103 = phi i32 [ %51, %35 ], [ %21, %16 ], [ %.4106.lcssa, %60 ]
@@ -2035,7 +2035,7 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %.sroa.03.0.copyload.i = load <2 x float>, ptr %18, align 4
   %.sroa.67.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %.sroa.67.0.copyload.i = load <2 x float>, ptr %.sroa.67.0..sroa_idx.i, align 4, !tbaa !49
+  %.sroa.67.0.copyload.i = load <2 x float>, ptr %.sroa.67.0..sroa_idx.i, align 4, !tbaa !48
   %19 = load ptr, ptr %17, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = load ptr, ptr %20, align 8
@@ -2070,7 +2070,7 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %.sroa.03.0.copyload.i28 = load <2 x float>, ptr %41, align 4
   %.sroa.67.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %.sroa.67.0.copyload.i30 = load <2 x float>, ptr %.sroa.67.0..sroa_idx.i29, align 4, !tbaa !49
+  %.sroa.67.0.copyload.i30 = load <2 x float>, ptr %.sroa.67.0..sroa_idx.i29, align 4, !tbaa !48
   %42 = load ptr, ptr %40, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load ptr, ptr %43, align 8
@@ -2139,7 +2139,7 @@ define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCo
   store float %82, ptr %83, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %14, label %62, !llvm.loop !50
+  br i1 %exitcond.not, label %14, label %62, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2204,38 +2204,37 @@ attributes #13 = { builtin nounwind }
 !13 = !{!8, !10, i64 16}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"float", !12, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !12, i64 0}
-!21 = distinct !{!21, !17, !18}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17, !18}
-!24 = distinct !{!24, !17, !18, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !17, !18}
-!27 = distinct !{!27, !17, !18}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
-!30 = distinct !{!30, !17, !18}
-!31 = distinct !{!31, !17, !18}
-!32 = distinct !{!32, !17, !18}
-!33 = distinct !{!33, !17, !18}
-!34 = distinct !{!34, !17, !18}
-!35 = distinct !{!35, !17, !18}
-!36 = distinct !{!36, !17, !18}
-!37 = distinct !{!37, !17, !18}
-!38 = distinct !{!38, !17, !18}
-!39 = distinct !{!39, !17, !18}
-!40 = distinct !{!40, !17, !18}
-!41 = distinct !{!41, !17, !18}
-!42 = distinct !{!42, !17, !18}
-!43 = distinct !{!43, !17, !18}
-!44 = distinct !{!44, !17, !18}
-!45 = distinct !{!45, !17, !18}
-!46 = distinct !{!46, !17, !18}
-!47 = distinct !{!47, !17, !18}
-!48 = distinct !{!48, !17, !18}
-!49 = !{!12, !12, i64 0}
-!50 = distinct !{!50, !17, !18}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !12, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = distinct !{!32, !17}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17}
+!35 = distinct !{!35, !17}
+!36 = distinct !{!36, !17}
+!37 = distinct !{!37, !17}
+!38 = distinct !{!38, !17}
+!39 = distinct !{!39, !17}
+!40 = distinct !{!40, !17}
+!41 = distinct !{!41, !17}
+!42 = distinct !{!42, !17}
+!43 = distinct !{!43, !17}
+!44 = distinct !{!44, !17}
+!45 = distinct !{!45, !17}
+!46 = distinct !{!46, !17}
+!47 = distinct !{!47, !17}
+!48 = !{!12, !12, i64 0}
+!49 = distinct !{!49, !17}

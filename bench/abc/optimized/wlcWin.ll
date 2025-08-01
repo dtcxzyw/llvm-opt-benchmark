@@ -125,7 +125,7 @@ tailrecurse:                                      ; preds = %Wlc_ObjFanin0.exit,
 
 6:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   %7 = getelementptr inbounds nuw i8, ptr %.tr13, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !24
+  %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = icmp ugt i32 %8, 2
   %cond = icmp eq i16 %5, 22
   %or.cond = or i1 %cond, %9
@@ -133,7 +133,7 @@ tailrecurse:                                      ; preds = %Wlc_ObjFanin0.exit,
   br i1 %or.cond, label %Wlc_ObjHasArray.exit.thread.i.i.i, label %Wlc_ObjFanin0.exit
 
 Wlc_ObjHasArray.exit.thread.i.i.i:                ; preds = %6
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
   br label %Wlc_ObjFanin0.exit
 
 Wlc_ObjFanin0.exit:                               ; preds = %6, %Wlc_ObjHasArray.exit.thread.i.i.i
@@ -160,7 +160,7 @@ Wlc_ObjFanin0.exit:                               ; preds = %6, %Wlc_ObjHasArray
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Wlc_ObjHasArithmFanins(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val9 = load i32, ptr %3, align 4, !tbaa !24
+  %.val9 = load i32, ptr %3, align 4, !tbaa !23
   %4 = icmp sgt i32 %.val9, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
@@ -172,7 +172,7 @@ define range(i32 0, 2) i32 @Wlc_ObjHasArithmFanins(ptr noundef readonly captures
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %8 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %6, align 8, !tbaa !25
   %wide.trip.count44 = zext nneg i32 %.val9 to i64
   br label %Wlc_ObjHasArray.exit.thread.i.i.us
 
@@ -201,7 +201,7 @@ tailrecurse.i.us:                                 ; preds = %tailrecurse.i.us.ba
 
 12:                                               ; preds = %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us
   %13 = getelementptr inbounds nuw i8, ptr %.tr13.i.us, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !24
+  %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp ugt i32 %14, 2
   %cond.i.us = icmp eq i16 %11, 22
   %or.cond.i.us = or i1 %cond.i.us, %15
@@ -209,7 +209,7 @@ tailrecurse.i.us:                                 ; preds = %tailrecurse.i.us.ba
   br i1 %or.cond.i.us, label %Wlc_ObjHasArray.exit.thread.i.i.i.i.us, label %tailrecurse.i.us.backedge
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i.us:           ; preds = %12
-  %17 = load ptr, ptr %16, align 8, !tbaa !26
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
   br label %tailrecurse.i.us.backedge
 
 tailrecurse.i.us.backedge:                        ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i.us, %12
@@ -219,7 +219,7 @@ tailrecurse.i.us.backedge:                        ; preds = %Wlc_ObjHasArray.exi
 Wlc_ObjHasArithm_rec.exit.thread.us:              ; preds = %tailrecurse.i.us
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us, !llvm.loop !27
+  br i1 %exitcond45.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %18 = load i16, ptr %1, align 8
@@ -234,7 +234,7 @@ Wlc_ObjFaninId.exit.preheader:                    ; preds = %.lr.ph.split
   br label %Wlc_ObjFaninId.exit
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split
-  %20 = load ptr, ptr %6, align 8, !tbaa !26
+  %20 = load ptr, ptr %6, align 8, !tbaa !25
   %wide.trip.count = zext nneg i32 %.val9 to i64
   br label %Wlc_ObjHasArray.exit.thread.i.i.us18
 
@@ -263,7 +263,7 @@ tailrecurse.i.us20:                               ; preds = %tailrecurse.i.us20.
 
 24:                                               ; preds = %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20
   %25 = getelementptr inbounds nuw i8, ptr %.tr13.i.us24, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !24
+  %26 = load i32, ptr %25, align 4, !tbaa !23
   %27 = icmp ugt i32 %26, 2
   %cond.i.us25 = icmp eq i16 %23, 22
   %or.cond.i.us26 = or i1 %cond.i.us25, %27
@@ -271,7 +271,7 @@ tailrecurse.i.us20:                               ; preds = %tailrecurse.i.us20.
   br i1 %or.cond.i.us26, label %Wlc_ObjHasArray.exit.thread.i.i.i.i.us27, label %tailrecurse.i.us20.backedge
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i.us27:         ; preds = %24
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   br label %tailrecurse.i.us20.backedge
 
 tailrecurse.i.us20.backedge:                      ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i.us27, %24
@@ -281,7 +281,7 @@ tailrecurse.i.us20.backedge:                      ; preds = %Wlc_ObjHasArray.exi
 Wlc_ObjHasArithm_rec.exit.thread.us29:            ; preds = %tailrecurse.i.us20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us18, !llvm.loop !29
+  br i1 %exitcond.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us18, !llvm.loop !28
 
 Wlc_ObjFaninId.exit:                              ; preds = %Wlc_ObjFaninId.exit.preheader, %Wlc_ObjHasArithm_rec.exit.thread
   %indvars.iv36 = phi i64 [ 0, %Wlc_ObjFaninId.exit.preheader ], [ %indvars.iv.next37, %Wlc_ObjHasArithm_rec.exit.thread ]
@@ -308,7 +308,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
 
 33:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %34 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !24
+  %35 = load i32, ptr %34, align 4, !tbaa !23
   %36 = icmp ugt i32 %35, 2
   %cond.i = icmp eq i16 %32, 22
   %or.cond.i = or i1 %cond.i, %36
@@ -316,7 +316,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
   br i1 %or.cond.i, label %Wlc_ObjHasArray.exit.thread.i.i.i.i, label %tailrecurse.i.backedge
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i:              ; preds = %33
-  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %38 = load ptr, ptr %37, align 8, !tbaa !25
   br label %tailrecurse.i.backedge
 
 tailrecurse.i.backedge:                           ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i, %33
@@ -326,7 +326,7 @@ tailrecurse.i.backedge:                           ; preds = %Wlc_ObjHasArray.exi
 Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !30
+  br i1 %exitcond40.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !29
 
 .critedge:                                        ; preds = %Wlc_ObjHasArithm_rec.exit.thread.us29, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %Wlc_ObjHasArithm_rec.exit.thread, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %Wlc_ObjHasArithm_rec.exit.thread.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %2
   %.08 = phi i32 [ 0, %2 ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us29 ]
@@ -364,7 +364,7 @@ Wlc_ObjIsArithm.exit:                             ; preds = %7
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = load i32, ptr %2, align 8, !tbaa !31
+  %16 = load i32, ptr %2, align 8, !tbaa !30
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %18, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -394,7 +394,7 @@ Wlc_ObjIsArithm.exit:                             ; preds = %7
 Vec_IntGrow.exit.i:                               ; preds = %25, %23
   %27 = phi ptr [ %24, %23 ], [ %26, %25 ]
   store ptr %27, ptr %21, align 8, !tbaa !10
-  store i32 16, ptr %2, align 8, !tbaa !31
+  store i32 16, ptr %2, align 8, !tbaa !30
   br label %Vec_IntPush.exit
 
 28:                                               ; preds = %18
@@ -417,7 +417,7 @@ Vec_IntGrow.exit.i:                               ; preds = %25, %23
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
   store ptr %39, ptr %30, align 8, !tbaa !10
-  store i32 %29, ptr %2, align 8, !tbaa !31
+  store i32 %29, ptr %2, align 8, !tbaa !30
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %38
@@ -429,7 +429,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .critedge29:                                      ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7
   %43 = getelementptr i8, ptr %1, i64 4
-  %.val1930 = load i32, ptr %43, align 4, !tbaa !24
+  %.val1930 = load i32, ptr %43, align 4, !tbaa !23
   %44 = icmp sgt i32 %.val1930, 0
   br i1 %44, label %.lr.ph, label %.critedge
 
@@ -453,7 +453,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   ]
 
 Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %49, %49, %47
-  %52 = load ptr, ptr %45, align 8, !tbaa !26
+  %52 = load ptr, ptr %45, align 8, !tbaa !25
   br label %Wlc_ObjFaninId.exit
 
 Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArray.exit.thread.i.i
@@ -465,10 +465,10 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
   %57 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %56
   tail call void @Wlc_WinCompute_rec(ptr noundef %0, ptr noundef %57, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val19 = load i32, ptr %43, align 4, !tbaa !24
+  %.val19 = load i32, ptr %43, align 4, !tbaa !23
   %58 = sext i32 %.val19 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %47, label %.critedge, !llvm.loop !32
+  br i1 %59, label %47, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %Wlc_ObjFaninId.exit, %.critedge29
   %60 = getelementptr i8, ptr %0, i64 640
@@ -478,7 +478,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
   %63 = sub i64 %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !3
-  %66 = load i32, ptr %3, align 8, !tbaa !31
+  %66 = load i32, ptr %3, align 8, !tbaa !30
   %67 = icmp eq i32 %65, %66
   br i1 %67, label %68, label %.Vec_IntGrow.exit10_crit_edge.i22
 
@@ -508,7 +508,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
 Vec_IntGrow.exit.i27:                             ; preds = %75, %73
   %77 = phi ptr [ %74, %73 ], [ %76, %75 ]
   store ptr %77, ptr %71, align 8, !tbaa !10
-  store i32 16, ptr %3, align 8, !tbaa !31
+  store i32 16, ptr %3, align 8, !tbaa !30
   br label %Vec_IntPush.exit28
 
 78:                                               ; preds = %68
@@ -531,7 +531,7 @@ Vec_IntGrow.exit.i27:                             ; preds = %75, %73
 88:                                               ; preds = %86, %84
   %89 = phi ptr [ %85, %84 ], [ %87, %86 ]
   store ptr %89, ptr %80, align 8, !tbaa !10
-  store i32 %79, ptr %3, align 8, !tbaa !31
+  store i32 %79, ptr %3, align 8, !tbaa !30
   br label %Vec_IntPush.exit28
 
 Vec_IntPush.exit28:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i22, %Vec_IntGrow.exit.i27, %88
@@ -567,7 +567,7 @@ define void @Wlc_WinCleanMark_rec(ptr noundef readonly captures(none) %0, ptr no
   %6 = and i16 %3, -129
   store i16 %6, ptr %1, align 8
   %7 = getelementptr i8, ptr %1, i64 4
-  %.val910 = load i32, ptr %7, align 4, !tbaa !24
+  %.val910 = load i32, ptr %7, align 4, !tbaa !23
   %8 = icmp sgt i32 %.val910, 0
   br i1 %8, label %.lr.ph, label %.critedge
 
@@ -591,7 +591,7 @@ define void @Wlc_WinCleanMark_rec(ptr noundef readonly captures(none) %0, ptr no
   ]
 
 Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %13, %13, %11
-  %16 = load ptr, ptr %9, align 8, !tbaa !26
+  %16 = load ptr, ptr %9, align 8, !tbaa !25
   br label %Wlc_ObjFaninId.exit
 
 Wlc_ObjFaninId.exit:                              ; preds = %13, %Wlc_ObjHasArray.exit.thread.i.i
@@ -603,10 +603,10 @@ Wlc_ObjFaninId.exit:                              ; preds = %13, %Wlc_ObjHasArra
   %21 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %20
   tail call void @Wlc_WinCleanMark_rec(ptr noundef %0, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val9 = load i32, ptr %7, align 4, !tbaa !24
+  %.val9 = load i32, ptr %7, align 4, !tbaa !23
   %22 = sext i32 %.val9 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %11, label %.critedge, !llvm.loop !33
+  br i1 %23, label %11, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %Wlc_ObjFaninId.exit, %5, %2
   ret void
@@ -638,7 +638,7 @@ tailrecurse.i:                                    ; preds = %Wlc_ObjFanin0.exit.
 
 10:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %11 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !24
+  %12 = load i32, ptr %11, align 4, !tbaa !23
   %13 = icmp ugt i32 %12, 2
   %cond.i = icmp eq i16 %9, 22
   %or.cond.i = or i1 %cond.i, %13
@@ -646,7 +646,7 @@ tailrecurse.i:                                    ; preds = %Wlc_ObjFanin0.exit.
   br i1 %or.cond.i, label %Wlc_ObjHasArray.exit.thread.i.i.i.i, label %Wlc_ObjFanin0.exit.i
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i:              ; preds = %10
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
   br label %Wlc_ObjFanin0.exit.i
 
 Wlc_ObjFanin0.exit.i:                             ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i, %10
@@ -669,7 +669,7 @@ Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
 
 .preheader:                                       ; preds = %Wlc_ObjHasArithm_rec.exit.thread
   %21 = getelementptr i8, ptr %1, i64 4
-  %.val4080 = load i32, ptr %21, align 4, !tbaa !24
+  %.val4080 = load i32, ptr %21, align 4, !tbaa !23
   %22 = icmp sgt i32 %.val4080, 0
   br i1 %22, label %.lr.ph, label %.critedge2
 
@@ -700,7 +700,7 @@ Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
   ]
 
 Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %28, %28, %26
-  %31 = load ptr, ptr %23, align 8, !tbaa !26
+  %31 = load ptr, ptr %23, align 8, !tbaa !25
   br label %Wlc_ObjFaninId.exit
 
 Wlc_ObjFaninId.exit:                              ; preds = %28, %Wlc_ObjHasArray.exit.thread.i.i
@@ -729,7 +729,7 @@ tailrecurse.i41:                                  ; preds = %Wlc_ObjFanin0.exit.
 
 39:                                               ; preds = %tailrecurse.i41, %tailrecurse.i41, %tailrecurse.i41, %tailrecurse.i41
   %40 = getelementptr inbounds nuw i8, ptr %.tr13.i42, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !24
+  %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = icmp ugt i32 %41, 2
   %cond.i44 = icmp eq i16 %38, 22
   %or.cond.i45 = or i1 %cond.i44, %42
@@ -737,7 +737,7 @@ tailrecurse.i41:                                  ; preds = %Wlc_ObjFanin0.exit.
   br i1 %or.cond.i45, label %Wlc_ObjHasArray.exit.thread.i.i.i.i48, label %Wlc_ObjFanin0.exit.i46
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i48:            ; preds = %39
-  %44 = load ptr, ptr %43, align 8, !tbaa !26
+  %44 = load ptr, ptr %43, align 8, !tbaa !25
   br label %Wlc_ObjFanin0.exit.i46
 
 Wlc_ObjFanin0.exit.i46:                           ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i48, %39
@@ -749,7 +749,7 @@ Wlc_ObjFanin0.exit.i46:                           ; preds = %Wlc_ObjHasArray.exi
 
 Wlc_ObjHasArithm_rec.exit50.thread70:             ; preds = %tailrecurse.i41, %tailrecurse.i41, %tailrecurse.i41, %tailrecurse.i41
   tail call void @Wlc_WinCompute_rec(ptr noundef %0, ptr noundef %36, ptr noundef %2, ptr noundef %3)
-  %.val40.pre = load i32, ptr %21, align 4, !tbaa !24
+  %.val40.pre = load i32, ptr %21, align 4, !tbaa !23
   br label %Wlc_ObjHasArithm_rec.exit50.thread
 
 Wlc_ObjHasArithm_rec.exit50.thread:               ; preds = %tailrecurse.i41, %Wlc_ObjHasArithm_rec.exit50.thread70
@@ -757,7 +757,7 @@ Wlc_ObjHasArithm_rec.exit50.thread:               ; preds = %tailrecurse.i41, %W
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %.val40 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %26, label %.critedge.preheader, !llvm.loop !34
+  br i1 %50, label %26, label %.critedge.preheader, !llvm.loop !33
 
 51:                                               ; preds = %.lr.ph85, %Wlc_ObjHasArithm_rec.exit62.thread
   %.val39.pr93 = phi i32 [ %.val40, %.lr.ph85 ], [ %.val39.pr, %Wlc_ObjHasArithm_rec.exit62.thread ]
@@ -774,7 +774,7 @@ Wlc_ObjHasArithm_rec.exit50.thread:               ; preds = %tailrecurse.i41, %W
   ]
 
 Wlc_ObjHasArray.exit.thread.i.i51:                ; preds = %53, %53, %51
-  %56 = load ptr, ptr %25, align 8, !tbaa !26
+  %56 = load ptr, ptr %25, align 8, !tbaa !25
   br label %Wlc_ObjFaninId.exit52
 
 Wlc_ObjFaninId.exit52:                            ; preds = %53, %Wlc_ObjHasArray.exit.thread.i.i51
@@ -803,7 +803,7 @@ tailrecurse.i53:                                  ; preds = %Wlc_ObjFanin0.exit.
 
 64:                                               ; preds = %tailrecurse.i53, %tailrecurse.i53, %tailrecurse.i53, %tailrecurse.i53
   %65 = getelementptr inbounds nuw i8, ptr %.tr13.i54, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !24
+  %66 = load i32, ptr %65, align 4, !tbaa !23
   %67 = icmp ugt i32 %66, 2
   %cond.i56 = icmp eq i16 %63, 22
   %or.cond.i57 = or i1 %cond.i56, %67
@@ -811,7 +811,7 @@ tailrecurse.i53:                                  ; preds = %Wlc_ObjFanin0.exit.
   br i1 %or.cond.i57, label %Wlc_ObjHasArray.exit.thread.i.i.i.i60, label %Wlc_ObjFanin0.exit.i58
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i60:            ; preds = %64
-  %69 = load ptr, ptr %68, align 8, !tbaa !26
+  %69 = load ptr, ptr %68, align 8, !tbaa !25
   br label %Wlc_ObjFanin0.exit.i58
 
 Wlc_ObjFanin0.exit.i58:                           ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i60, %64
@@ -823,7 +823,7 @@ Wlc_ObjFanin0.exit.i58:                           ; preds = %Wlc_ObjHasArray.exi
 
 Wlc_ObjHasArithm_rec.exit62.thread75:             ; preds = %tailrecurse.i53, %tailrecurse.i53, %tailrecurse.i53, %tailrecurse.i53
   tail call void @Wlc_WinCleanMark_rec(ptr noundef %0, ptr noundef %61)
-  %.val39.pr.pre = load i32, ptr %21, align 4, !tbaa !24
+  %.val39.pr.pre = load i32, ptr %21, align 4, !tbaa !23
   br label %Wlc_ObjHasArithm_rec.exit62.thread
 
 Wlc_ObjHasArithm_rec.exit62.thread:               ; preds = %tailrecurse.i53, %Wlc_ObjHasArithm_rec.exit62.thread75
@@ -831,7 +831,7 @@ Wlc_ObjHasArithm_rec.exit62.thread:               ; preds = %tailrecurse.i53, %W
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %74 = sext i32 %.val39.pr to i64
   %75 = icmp slt i64 %indvars.iv.next89, %74
-  br i1 %75, label %51, label %.critedge2, !llvm.loop !35
+  br i1 %75, label %51, label %.critedge2, !llvm.loop !34
 
 .critedge2:                                       ; preds = %Wlc_ObjHasArithm_rec.exit62.thread, %.preheader, %.critedge.preheader, %Wlc_ObjHasArithm_rec.exit.thread, %Wlc_ObjHasArithm_rec.exit.thread65
   ret void
@@ -842,19 +842,19 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !3
-  store i32 1000, ptr %2, align 8, !tbaa !31
+  store i32 1000, ptr %2, align 8, !tbaa !30
   %4 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #11
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !10
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4, !tbaa !3
-  store i32 1000, ptr %6, align 8, !tbaa !31
+  store i32 1000, ptr %6, align 8, !tbaa !30
   %8 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !10
   %10 = getelementptr i8, ptr %0, i64 648
-  %.val5269 = load i32, ptr %10, align 8, !tbaa !36
+  %.val5269 = load i32, ptr %10, align 8, !tbaa !35
   %11 = icmp sgt i32 %.val5269, 1
   br i1 %11, label %.lr.ph, label %.critedge2.preheader
 
@@ -878,10 +878,10 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #2 {
   %18 = and i16 %17, -129
   store i16 %18, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val52 = load i32, ptr %10, align 8, !tbaa !36
+  %.val52 = load i32, ptr %10, align 8, !tbaa !35
   %19 = sext i32 %.val52 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %15, label %.critedge.preheader, !llvm.loop !37
+  br i1 %20, label %15, label %.critedge.preheader, !llvm.loop !36
 
 .critedge2.preheader:                             ; preds = %Wlc_ManCountArithmReal.exit.thread, %1, %.critedge.preheader
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.1, %Wlc_ManCountArithmReal.exit.thread ]
@@ -914,7 +914,7 @@ tailrecurse.i:                                    ; preds = %Wlc_ObjFanin0.exit.
 
 27:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %28 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !24
+  %29 = load i32, ptr %28, align 4, !tbaa !23
   %30 = icmp ugt i32 %29, 2
   %cond.i = icmp eq i16 %26, 22
   %or.cond.i = or i1 %cond.i, %30
@@ -922,7 +922,7 @@ tailrecurse.i:                                    ; preds = %Wlc_ObjFanin0.exit.
   br i1 %or.cond.i, label %Wlc_ObjHasArray.exit.thread.i.i.i.i, label %Wlc_ObjFanin0.exit.i
 
 Wlc_ObjHasArray.exit.thread.i.i.i.i:              ; preds = %27
-  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %32 = load ptr, ptr %31, align 8, !tbaa !25
   br label %Wlc_ObjFanin0.exit.i
 
 Wlc_ObjFanin0.exit.i:                             ; preds = %Wlc_ObjHasArray.exit.thread.i.i.i.i, %27
@@ -1026,7 +1026,7 @@ Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal
   %80 = sdiv i32 %79, 2
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next.i58, %81
-  br i1 %82, label %65, label %Vec_IntReverseOrder.exit, !llvm.loop !38
+  br i1 %82, label %65, label %Vec_IntReverseOrder.exit, !llvm.loop !37
 
 Vec_IntReverseOrder.exit:                         ; preds = %65, %54
   tail call void @Wlc_NtkPrintNodeArray(ptr noundef nonnull %0, ptr noundef nonnull %6) #12
@@ -1037,10 +1037,10 @@ Vec_IntReverseOrder.exit:                         ; preds = %65, %54
 Wlc_ManCountArithmReal.exit.thread:               ; preds = %39, %Wlc_ObjHasArithm_rec.exit.thread63, %Wlc_ObjHasArithm_rec.exit.thread, %Vec_IntReverseOrder.exit, %Wlc_ManCountArithmReal.exit
   %.1 = phi i32 [ %.073, %Wlc_ManCountArithmReal.exit ], [ %83, %Vec_IntReverseOrder.exit ], [ %.073, %Wlc_ObjHasArithm_rec.exit.thread63 ], [ %.073, %Wlc_ObjHasArithm_rec.exit.thread ], [ %.073, %39 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %.val53 = load i32, ptr %10, align 8, !tbaa !36
+  %.val53 = load i32, ptr %10, align 8, !tbaa !35
   %84 = sext i32 %.val53 to i64
   %85 = icmp slt i64 %indvars.iv.next79, %84
-  br i1 %85, label %23, label %.critedge2.preheader, !llvm.loop !39
+  br i1 %85, label %23, label %.critedge2.preheader, !llvm.loop !38
 
 86:                                               ; preds = %.critedge2.preheader
   tail call void @free(ptr noundef nonnull %22) #12
@@ -1119,22 +1119,21 @@ attributes #12 = { nounwind }
 !18 = !{!"p1 _ZTS10Vec_Wrd_t_", !9, i64 0}
 !19 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
 !20 = !{!5, !5, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!25, !5, i64 4}
-!25 = !{!"Wlc_Obj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16}
-!26 = !{!6, !6, i64 0}
-!27 = distinct !{!27, !22, !23, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !22, !23, !28}
-!30 = distinct !{!30, !22, !23}
-!31 = !{!4, !5, i64 0}
-!32 = distinct !{!32, !22, !23}
-!33 = distinct !{!33, !22, !23}
-!34 = distinct !{!34, !22, !23}
-!35 = distinct !{!35, !22, !23}
-!36 = !{!12, !5, i64 648}
-!37 = distinct !{!37, !22, !23}
-!38 = distinct !{!38, !22, !23}
-!39 = distinct !{!39, !22, !23}
+!23 = !{!24, !5, i64 4}
+!24 = !{!"Wlc_Obj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !22, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !22, !27}
+!29 = distinct !{!29, !22}
+!30 = !{!4, !5, i64 0}
+!31 = distinct !{!31, !22}
+!32 = distinct !{!32, !22}
+!33 = distinct !{!33, !22}
+!34 = distinct !{!34, !22}
+!35 = !{!12, !5, i64 648}
+!36 = distinct !{!36, !22}
+!37 = distinct !{!37, !22}
+!38 = distinct !{!38, !22}

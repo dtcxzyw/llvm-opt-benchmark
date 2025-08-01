@@ -1295,7 +1295,7 @@ define hidden void @_ZNK12ZStatCounter16sample_and_resetEv(ptr noundef nonnull a
   %15 = add i64 %14, %.09
   %16 = add nuw i32 %.078, 1
   %exitcond.not = icmp eq i32 %16, %2
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %4, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %15, %4 ]
@@ -1327,9 +1327,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %27, %._crit_edge
   %36 = zext i32 %35 to i64
   %37 = add i64 %33, %36
   %38 = inttoptr i64 %37 to ptr
-  %39 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %38) #20, !srcloc !11
+  %39 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %38) #20, !srcloc !10
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.lcssa, ptr nonnull %40) #20, !srcloc !11
+  %41 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.lcssa, ptr nonnull %40) #20, !srcloc !10
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %43 = load i64, ptr %42, align 8
   br label %44
@@ -1340,9 +1340,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %27, %._crit_edge
   br i1 %.not.i, label %45, label %48
 
 45:                                               ; preds = %44
-  %46 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.lcssa, i64 %.0.i, ptr nonnull %42) #20, !srcloc !12
+  %46 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.lcssa, i64 %.0.i, ptr nonnull %42) #20, !srcloc !11
   %47 = icmp eq i64 %46, %.0.i
-  br i1 %47, label %48, label %44, !llvm.loop !13
+  br i1 %47, label %48, label %44, !llvm.loop !12
 
 48:                                               ; preds = %45, %44
   %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -1386,9 +1386,9 @@ _ZNK12ZStatSampler3getEv.exit:                    ; preds = %2, %12
   %21 = zext i32 %20 to i64
   %22 = add i64 %18, %21
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %23) #20, !srcloc !11
+  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %23) #20, !srcloc !10
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %25) #20, !srcloc !11
+  %26 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %25) #20, !srcloc !10
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %28 = load i64, ptr %27, align 8
   br label %29
@@ -1399,9 +1399,9 @@ _ZNK12ZStatSampler3getEv.exit:                    ; preds = %2, %12
   br i1 %.not, label %30, label %33
 
 30:                                               ; preds = %29
-  %31 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %.0, ptr nonnull %27) #20, !srcloc !12
+  %31 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %.0, ptr nonnull %27) #20, !srcloc !11
   %32 = icmp eq i64 %31, %.0
-  br i1 %32, label %33, label %29, !llvm.loop !13
+  br i1 %32, label %33, label %29, !llvm.loop !12
 
 33:                                               ; preds = %30, %29
   %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -1496,7 +1496,7 @@ define hidden i64 @_ZNK21ZStatUnsampledCounter17collect_and_resetEv(ptr noundef 
   %15 = add i64 %14, %.sroa.0.06
   %16 = add nuw i32 %.07, 1
   %exitcond.not = icmp eq i32 %16, %2
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %4, %1
   %.sroa.0.0.lcssa = phi i64 [ 0, %1 ], [ %15, %4 ]
@@ -1589,7 +1589,7 @@ define hidden noundef double @_ZN8ZStatMMU13calculate_mmuEd(double noundef %0) l
   %24 = fadd double %.016, %.0.i
   %25 = add nuw i64 %.01315, 1
   %exitcond.not = icmp eq i64 %25, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.016, %.lr.ph ], [ %24, %23 ]
@@ -1653,7 +1653,7 @@ define hidden void @_ZN8ZStatMMU14register_pauseERK11TimeInstantI30CompositeCoun
   %36 = fadd double %.016.i, %.0.i.i
   %37 = add nuw nsw i64 %.01315.i, 1
   %exitcond.not.i = icmp eq i64 %37, %13
-  br i1 %exitcond.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN8ZStatMMU13calculate_mmuEd.exit:               ; preds = %.lr.ph.i, %35, %2
   %.0.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %36, %35 ], [ %.016.i, %.lr.ph.i ]
@@ -1691,7 +1691,7 @@ _ZN8ZStatMMU13calculate_mmuEd.exit:               ; preds = %.lr.ph.i, %35, %2
   %60 = fadd double %.016.i4, %.0.i.i6
   %61 = add nuw nsw i64 %.01315.i5, 1
   %exitcond.not.i7 = icmp eq i64 %61, %13
-  br i1 %exitcond.not.i7, label %_ZN8ZStatMMU13calculate_mmuEd.exit9, label %.lr.ph.i3, !llvm.loop !15
+  br i1 %exitcond.not.i7, label %_ZN8ZStatMMU13calculate_mmuEd.exit9, label %.lr.ph.i3, !llvm.loop !14
 
 _ZN8ZStatMMU13calculate_mmuEd.exit9:              ; preds = %.lr.ph.i3, %59, %_ZN8ZStatMMU13calculate_mmuEd.exit
   %.0.lcssa.i8 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit ], [ %60, %59 ], [ %.016.i4, %.lr.ph.i3 ]
@@ -1729,7 +1729,7 @@ _ZN8ZStatMMU13calculate_mmuEd.exit9:              ; preds = %.lr.ph.i3, %59, %_Z
   %84 = fadd double %.016.i12, %.0.i.i14
   %85 = add nuw nsw i64 %.01315.i13, 1
   %exitcond.not.i15 = icmp eq i64 %85, %13
-  br i1 %exitcond.not.i15, label %_ZN8ZStatMMU13calculate_mmuEd.exit17, label %.lr.ph.i11, !llvm.loop !15
+  br i1 %exitcond.not.i15, label %_ZN8ZStatMMU13calculate_mmuEd.exit17, label %.lr.ph.i11, !llvm.loop !14
 
 _ZN8ZStatMMU13calculate_mmuEd.exit17:             ; preds = %.lr.ph.i11, %83, %_ZN8ZStatMMU13calculate_mmuEd.exit9
   %.0.lcssa.i16 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ], [ %84, %83 ], [ %.016.i12, %.lr.ph.i11 ]
@@ -1767,7 +1767,7 @@ _ZN8ZStatMMU13calculate_mmuEd.exit17:             ; preds = %.lr.ph.i11, %83, %_
   %108 = fadd double %.016.i20, %.0.i.i22
   %109 = add nuw nsw i64 %.01315.i21, 1
   %exitcond.not.i23 = icmp eq i64 %109, %13
-  br i1 %exitcond.not.i23, label %_ZN8ZStatMMU13calculate_mmuEd.exit25, label %.lr.ph.i19, !llvm.loop !15
+  br i1 %exitcond.not.i23, label %_ZN8ZStatMMU13calculate_mmuEd.exit25, label %.lr.ph.i19, !llvm.loop !14
 
 _ZN8ZStatMMU13calculate_mmuEd.exit25:             ; preds = %.lr.ph.i19, %107, %_ZN8ZStatMMU13calculate_mmuEd.exit17
   %.0.lcssa.i24 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ], [ %108, %107 ], [ %.016.i20, %.lr.ph.i19 ]
@@ -1805,7 +1805,7 @@ _ZN8ZStatMMU13calculate_mmuEd.exit25:             ; preds = %.lr.ph.i19, %107, %
   %132 = fadd double %.016.i28, %.0.i.i30
   %133 = add nuw nsw i64 %.01315.i29, 1
   %exitcond.not.i31 = icmp eq i64 %133, %13
-  br i1 %exitcond.not.i31, label %_ZN8ZStatMMU13calculate_mmuEd.exit33, label %.lr.ph.i27, !llvm.loop !15
+  br i1 %exitcond.not.i31, label %_ZN8ZStatMMU13calculate_mmuEd.exit33, label %.lr.ph.i27, !llvm.loop !14
 
 _ZN8ZStatMMU13calculate_mmuEd.exit33:             ; preds = %.lr.ph.i27, %131, %_ZN8ZStatMMU13calculate_mmuEd.exit25
   %.0.lcssa.i32 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ], [ %132, %131 ], [ %.016.i28, %.lr.ph.i27 ]
@@ -1843,7 +1843,7 @@ _ZN8ZStatMMU13calculate_mmuEd.exit33:             ; preds = %.lr.ph.i27, %131, %
   %156 = fadd double %.016.i36, %.0.i.i38
   %157 = add nuw nsw i64 %.01315.i37, 1
   %exitcond.not.i39 = icmp eq i64 %157, %13
-  br i1 %exitcond.not.i39, label %_ZN8ZStatMMU13calculate_mmuEd.exit41, label %.lr.ph.i35, !llvm.loop !15
+  br i1 %exitcond.not.i39, label %_ZN8ZStatMMU13calculate_mmuEd.exit41, label %.lr.ph.i35, !llvm.loop !14
 
 _ZN8ZStatMMU13calculate_mmuEd.exit41:             ; preds = %.lr.ph.i35, %155, %_ZN8ZStatMMU13calculate_mmuEd.exit33
   %.0.lcssa.i40 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ], [ %156, %155 ], [ %.016.i36, %.lr.ph.i35 ]
@@ -2388,9 +2388,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %61, %_ZNK20ZStatPha
   %70 = zext i32 %69 to i64
   %71 = add i64 %67, %70
   %72 = inttoptr i64 %71 to ptr
-  %73 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %72) #20, !srcloc !11
+  %73 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %72) #20, !srcloc !10
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %75 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %47, ptr nonnull %74) #20, !srcloc !11
+  %75 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %47, ptr nonnull %74) #20, !srcloc !10
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %77 = load i64, ptr %76, align 8
   br label %78
@@ -2401,9 +2401,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %61, %_ZNK20ZStatPha
   br i1 %.not.i, label %79, label %82
 
 79:                                               ; preds = %78
-  %80 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %47, i64 %.0.i, ptr nonnull %76) #20, !srcloc !12
+  %80 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %47, i64 %.0.i, ptr nonnull %76) #20, !srcloc !11
   %81 = icmp eq i64 %80, %.0.i
-  br i1 %81, label %82, label %78, !llvm.loop !13
+  br i1 %81, label %82, label %78, !llvm.loop !12
 
 82:                                               ; preds = %79, %78
   %83 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -2671,9 +2671,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %43, %_ZNK20ZStatPha
   %52 = zext i32 %51 to i64
   %53 = add i64 %49, %52
   %54 = inttoptr i64 %53 to ptr
-  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %54) #20, !srcloc !11
+  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %54) #20, !srcloc !10
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %57 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, ptr nonnull %56) #20, !srcloc !11
+  %57 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, ptr nonnull %56) #20, !srcloc !10
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %59 = load i64, ptr %58, align 8
   br label %60
@@ -2684,9 +2684,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %43, %_ZNK20ZStatPha
   br i1 %.not.i, label %61, label %64
 
 61:                                               ; preds = %60
-  %62 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, i64 %.0.i, ptr nonnull %58) #20, !srcloc !12
+  %62 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, i64 %.0.i, ptr nonnull %58) #20, !srcloc !11
   %63 = icmp eq i64 %62, %.0.i
-  br i1 %63, label %64, label %60, !llvm.loop !13
+  br i1 %63, label %64, label %60, !llvm.loop !12
 
 64:                                               ; preds = %61, %60
   %65 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -2892,13 +2892,13 @@ define hidden void @_ZNK9ZStatHeap12print_stallsEv(ptr noundef nonnull readonly 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %17, i8 32, i64 21, i1 false)
-  store ptr %17, ptr %7, align 8, !alias.scope !16
+  store ptr %17, ptr %7, align 8, !alias.scope !15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 21, ptr %18, align 8, !alias.scope !16
+  store i64 21, ptr %18, align 8, !alias.scope !15
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 16, ptr %19, align 8, !alias.scope !16
+  store i64 16, ptr %19, align 8, !alias.scope !15
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 16, ptr %20, align 8, !alias.scope !16
+  store i64 16, ptr %20, align 8, !alias.scope !15
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.74)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.75)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.76)
@@ -2918,17 +2918,17 @@ define hidden void @_ZNK9ZStatHeap12print_stallsEv(ptr noundef nonnull readonly 
   br i1 %.not7, label %48, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %30 = load i64, ptr %2, align 8, !noalias !21
-  %31 = load i64, ptr %14, align 8, !noalias !21
-  store ptr %29, ptr %13, align 8, !alias.scope !21
+  %30 = load i64, ptr %2, align 8, !noalias !20
+  %31 = load i64, ptr %14, align 8, !noalias !20
+  store ptr %29, ptr %13, align 8, !alias.scope !20
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 0, ptr %32, align 8, !alias.scope !21
+  store i64 0, ptr %32, align 8, !alias.scope !20
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i64 %30, ptr %33, align 8, !alias.scope !21
+  store i64 %30, ptr %33, align 8, !alias.scope !20
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 %31, ptr %34, align 8, !alias.scope !21
+  store i64 %31, ptr %34, align 8, !alias.scope !20
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.94)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load i64, ptr %35, align 8
@@ -3101,13 +3101,13 @@ define hidden void @_ZN15ZStatReferences5printEv() local_unnamed_addr #0 align 2
   store i64 12, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %29, i8 32, i64 21, i1 false)
-  store ptr %29, ptr %25, align 8, !alias.scope !24
+  store ptr %29, ptr %25, align 8, !alias.scope !23
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 21, ptr %30, align 8, !alias.scope !24
+  store i64 21, ptr %30, align 8, !alias.scope !23
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 12, ptr %31, align 8, !alias.scope !24
+  store i64 12, ptr %31, align 8, !alias.scope !23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 12, ptr %32, align 8, !alias.scope !24
+  store i64 12, ptr %32, align 8, !alias.scope !23
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.63)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.64)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.65)
@@ -3123,16 +3123,16 @@ define hidden void @_ZN15ZStatReferences5printEv() local_unnamed_addr #0 align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %38 = load i64, ptr %21, align 8, !noalias !29
-  %39 = load i64, ptr %28, align 8, !noalias !29
-  store ptr %29, ptr %20, align 8, !alias.scope !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  %38 = load i64, ptr %21, align 8, !noalias !28
+  %39 = load i64, ptr %28, align 8, !noalias !28
+  store ptr %29, ptr %20, align 8, !alias.scope !28
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 0, ptr %40, align 8, !alias.scope !29
+  store i64 0, ptr %40, align 8, !alias.scope !28
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 %38, ptr %41, align 8, !alias.scope !29
+  store i64 %38, ptr %41, align 8, !alias.scope !28
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 %39, ptr %42, align 8, !alias.scope !29
+  store i64 %39, ptr %42, align 8, !alias.scope !28
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.66)
   %43 = load i64, ptr @_ZN15ZStatReferences5_softE, align 8
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.95, i64 noundef %43)
@@ -3157,16 +3157,16 @@ define hidden void @_ZN15ZStatReferences5printEv() local_unnamed_addr #0 align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %51 = load i64, ptr %21, align 8, !noalias !32
-  %52 = load i64, ptr %28, align 8, !noalias !32
-  store ptr %29, ptr %15, align 8, !alias.scope !32
+  call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %51 = load i64, ptr %21, align 8, !noalias !31
+  %52 = load i64, ptr %28, align 8, !noalias !31
+  store ptr %29, ptr %15, align 8, !alias.scope !31
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 0, ptr %53, align 8, !alias.scope !32
+  store i64 0, ptr %53, align 8, !alias.scope !31
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %51, ptr %54, align 8, !alias.scope !32
+  store i64 %51, ptr %54, align 8, !alias.scope !31
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i64 %52, ptr %55, align 8, !alias.scope !32
+  store i64 %52, ptr %55, align 8, !alias.scope !31
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.67)
   %56 = load i64, ptr @_ZN15ZStatReferences5_weakE, align 8
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.95, i64 noundef %56)
@@ -3191,16 +3191,16 @@ define hidden void @_ZN15ZStatReferences5printEv() local_unnamed_addr #0 align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %64 = load i64, ptr %21, align 8, !noalias !35
-  %65 = load i64, ptr %28, align 8, !noalias !35
-  store ptr %29, ptr %10, align 8, !alias.scope !35
+  call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %64 = load i64, ptr %21, align 8, !noalias !34
+  %65 = load i64, ptr %28, align 8, !noalias !34
+  store ptr %29, ptr %10, align 8, !alias.scope !34
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %66, align 8, !alias.scope !35
+  store i64 0, ptr %66, align 8, !alias.scope !34
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %64, ptr %67, align 8, !alias.scope !35
+  store i64 %64, ptr %67, align 8, !alias.scope !34
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %65, ptr %68, align 8, !alias.scope !35
+  store i64 %65, ptr %68, align 8, !alias.scope !34
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.68)
   %69 = load i64, ptr @_ZN15ZStatReferences6_finalE, align 8
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.95, i64 noundef %69)
@@ -3225,16 +3225,16 @@ define hidden void @_ZN15ZStatReferences5printEv() local_unnamed_addr #0 align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %77 = load i64, ptr %21, align 8, !noalias !38
-  %78 = load i64, ptr %28, align 8, !noalias !38
-  store ptr %29, ptr %5, align 8, !alias.scope !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %77 = load i64, ptr %21, align 8, !noalias !37
+  %78 = load i64, ptr %28, align 8, !noalias !37
+  store ptr %29, ptr %5, align 8, !alias.scope !37
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %79, align 8, !alias.scope !38
+  store i64 0, ptr %79, align 8, !alias.scope !37
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %77, ptr %80, align 8, !alias.scope !38
+  store i64 %77, ptr %80, align 8, !alias.scope !37
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %78, ptr %81, align 8, !alias.scope !38
+  store i64 %78, ptr %81, align 8, !alias.scope !37
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.69)
   %82 = load i64, ptr @_ZN15ZStatReferences8_phantomE, align 8
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.95, i64 noundef %82)
@@ -3370,7 +3370,7 @@ define hidden void @_ZN15ZStatRelocation18print_page_summaryEv(ptr noundef nonnu
   %95 = add i64 %50, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %96, label %35, !llvm.loop !41
+  br i1 %exitcond.not, label %96, label %35, !llvm.loop !40
 
 96:                                               ; preds = %35
   store i64 %53, ptr %2, align 8
@@ -3393,13 +3393,13 @@ define hidden void @_ZN15ZStatRelocation18print_page_summaryEv(ptr noundef nonnu
   store i64 12, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %98, i8 32, i64 21, i1 false)
-  store ptr %98, ptr %12, align 8, !alias.scope !42
+  store ptr %98, ptr %12, align 8, !alias.scope !41
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 21, ptr %99, align 8, !alias.scope !42
+  store i64 21, ptr %99, align 8, !alias.scope !41
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 12, ptr %100, align 8, !alias.scope !42
+  store i64 12, ptr %100, align 8, !alias.scope !41
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 12, ptr %101, align 8, !alias.scope !42
+  store i64 12, ptr %101, align 8, !alias.scope !41
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.43)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.44)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.45)
@@ -3476,13 +3476,13 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr noundef nonnull 
   tail call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_129ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.53)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, i8 32, i64 12, i1 false)
-  store ptr %27, ptr %12, align 8, !alias.scope !47
+  store ptr %27, ptr %12, align 8, !alias.scope !46
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 12, ptr %28, align 8, !alias.scope !47
+  store i64 12, ptr %28, align 8, !alias.scope !46
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 18, ptr %29, align 8, !alias.scope !47
+  store i64 18, ptr %29, align 8, !alias.scope !46
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 18, ptr %30, align 8, !alias.scope !47
+  store i64 18, ptr %30, align 8, !alias.scope !46
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.54)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.55)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.49)
@@ -3546,7 +3546,7 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr noundef nonnull 
   %spec.select = select i1 %.not17, i32 %.055, i32 %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %45, !llvm.loop !52
+  br i1 %exitcond.not, label %.preheader, label %45, !llvm.loop !51
 
 72:                                               ; preds = %.preheader, %"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv.exit"
   %storemerge1556 = phi i32 [ 0, %.preheader ], [ %123, %"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv.exit" ]
@@ -3572,35 +3572,35 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr noundef nonnull 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %77 = zext i32 %storemerge1556 to i64
   %78 = getelementptr inbounds nuw [16 x i64], ptr %13, i64 0, i64 %77
-  %79 = load i64, ptr %78, align 8, !noalias !53
+  %79 = load i64, ptr %78, align 8, !noalias !52
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %76
-  call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %82 = load i64, ptr %6, align 8, !noalias !59
-  %83 = load i64, ptr %26, align 8, !noalias !59
-  store ptr %27, ptr %3, align 8, !alias.scope !56, !noalias !53
-  store i64 0, ptr %41, align 8, !alias.scope !56, !noalias !53
-  store i64 %82, ptr %42, align 8, !alias.scope !56, !noalias !53
-  store i64 %83, ptr %43, align 8, !alias.scope !56, !noalias !53
-  %84 = load ptr, ptr %15, align 8, !noalias !53
-  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12, ptr noundef %84), !noalias !53
+  call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  %82 = load i64, ptr %6, align 8, !noalias !58
+  %83 = load i64, ptr %26, align 8, !noalias !58
+  store ptr %27, ptr %3, align 8, !alias.scope !55, !noalias !52
+  store i64 0, ptr %41, align 8, !alias.scope !55, !noalias !52
+  store i64 %82, ptr %42, align 8, !alias.scope !55, !noalias !52
+  store i64 %83, ptr %43, align 8, !alias.scope !55, !noalias !52
+  %84 = load ptr, ptr %15, align 8, !noalias !52
+  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.12, ptr noundef %84), !noalias !52
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   br label %"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv.exit"
 
 85:                                               ; preds = %76
-  call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %86 = load i64, ptr %6, align 8, !noalias !63
-  %87 = load i64, ptr %26, align 8, !noalias !63
-  store ptr %27, ptr %5, align 8, !alias.scope !60, !noalias !53
-  store i64 0, ptr %38, align 8, !alias.scope !60, !noalias !53
-  store i64 %86, ptr %39, align 8, !alias.scope !60, !noalias !53
-  store i64 %87, ptr %40, align 8, !alias.scope !60, !noalias !53
-  %88 = load ptr, ptr %15, align 8, !noalias !53
-  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12, ptr noundef %88), !noalias !53
+  call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  %86 = load i64, ptr %6, align 8, !noalias !62
+  %87 = load i64, ptr %26, align 8, !noalias !62
+  store ptr %27, ptr %5, align 8, !alias.scope !59, !noalias !52
+  store i64 0, ptr %38, align 8, !alias.scope !59, !noalias !52
+  store i64 %86, ptr %39, align 8, !alias.scope !59, !noalias !52
+  store i64 %87, ptr %40, align 8, !alias.scope !59, !noalias !52
+  %88 = load ptr, ptr %15, align 8, !noalias !52
+  call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12, ptr noundef %88), !noalias !52
   %89 = lshr i64 %79, 20
-  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8, !noalias !53
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8, !noalias !52
   %.not.i.i = icmp eq i64 %90, 0
   %91 = uitofp i64 %79 to double
   %92 = uitofp i64 %90 to double
@@ -3652,7 +3652,7 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr noundef nonnull 
   call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_129ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.12, ptr noundef %122)
   %123 = add i32 %storemerge1556, 1
   %.not = icmp ugt i32 %123, %spec.select
-  br i1 %.not, label %.loopexit, label %72, !llvm.loop !64
+  br i1 %.not, label %.loopexit, label %72, !llvm.loop !63
 
 .loopexit:                                        ; preds = %"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv.exit", %1, %23
   ret void
@@ -3812,13 +3812,13 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %121, i8 32, i64 11, i1 false)
-  store ptr %121, ptr %10, align 8, !alias.scope !65
+  store ptr %121, ptr %10, align 8, !alias.scope !64
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 11, ptr %122, align 8, !alias.scope !65
+  store i64 11, ptr %122, align 8, !alias.scope !64
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 18, ptr %123, align 8, !alias.scope !65
+  store i64 18, ptr %123, align 8, !alias.scope !64
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 18, ptr %124, align 8, !alias.scope !65
+  store i64 18, ptr %124, align 8, !alias.scope !64
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.74)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.75)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.76)
@@ -3840,17 +3840,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not61, label %198, label %132
 
 132:                                              ; preds = %130
-  call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %134 = load i64, ptr %3, align 8, !noalias !70
-  %135 = load i64, ptr %118, align 8, !noalias !70
-  store ptr %133, ptr %18, align 8, !alias.scope !70
+  %134 = load i64, ptr %3, align 8, !noalias !69
+  %135 = load i64, ptr %118, align 8, !noalias !69
+  store ptr %133, ptr %18, align 8, !alias.scope !69
   %136 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %136, align 8, !alias.scope !70
+  store i64 0, ptr %136, align 8, !alias.scope !69
   %137 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %134, ptr %137, align 8, !alias.scope !70
+  store i64 %134, ptr %137, align 8, !alias.scope !69
   %138 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 %135, ptr %138, align 8, !alias.scope !70
+  store i64 %135, ptr %138, align 8, !alias.scope !69
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.80)
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %140 = load i64, ptr %139, align 8
@@ -3933,17 +3933,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not62, label %266, label %200
 
 200:                                              ; preds = %198
-  call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %202 = load i64, ptr %3, align 8, !noalias !73
-  %203 = load i64, ptr %118, align 8, !noalias !73
-  store ptr %201, ptr %26, align 8, !alias.scope !73
+  %202 = load i64, ptr %3, align 8, !noalias !72
+  %203 = load i64, ptr %118, align 8, !noalias !72
+  store ptr %201, ptr %26, align 8, !alias.scope !72
   %204 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 0, ptr %204, align 8, !alias.scope !73
+  store i64 0, ptr %204, align 8, !alias.scope !72
   %205 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i64 %202, ptr %205, align 8, !alias.scope !73
+  store i64 %202, ptr %205, align 8, !alias.scope !72
   %206 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i64 %203, ptr %206, align 8, !alias.scope !73
+  store i64 %203, ptr %206, align 8, !alias.scope !72
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.81)
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %208 = load i64, ptr %207, align 8
@@ -4026,17 +4026,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not63, label %334, label %268
 
 268:                                              ; preds = %266
-  call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %270 = load i64, ptr %3, align 8, !noalias !76
-  %271 = load i64, ptr %118, align 8, !noalias !76
-  store ptr %269, ptr %34, align 8, !alias.scope !76
+  %270 = load i64, ptr %3, align 8, !noalias !75
+  %271 = load i64, ptr %118, align 8, !noalias !75
+  store ptr %269, ptr %34, align 8, !alias.scope !75
   %272 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 0, ptr %272, align 8, !alias.scope !76
+  store i64 0, ptr %272, align 8, !alias.scope !75
   %273 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i64 %270, ptr %273, align 8, !alias.scope !76
+  store i64 %270, ptr %273, align 8, !alias.scope !75
   %274 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i64 %271, ptr %274, align 8, !alias.scope !76
+  store i64 %271, ptr %274, align 8, !alias.scope !75
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.82)
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %276 = load i64, ptr %275, align 8
@@ -4137,13 +4137,13 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
 344:                                              ; preds = %341
   %345 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %345, i8 32, i64 11, i1 false)
-  store ptr %345, ptr %40, align 8, !alias.scope !79
+  store ptr %345, ptr %40, align 8, !alias.scope !78
   %346 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 11, ptr %346, align 8, !alias.scope !79
+  store i64 11, ptr %346, align 8, !alias.scope !78
   %347 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i64 18, ptr %347, align 8, !alias.scope !79
+  store i64 18, ptr %347, align 8, !alias.scope !78
   %348 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i64 18, ptr %348, align 8, !alias.scope !79
+  store i64 18, ptr %348, align 8, !alias.scope !78
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.74)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.75)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %37, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.76)
@@ -4163,17 +4163,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not66, label %404, label %356
 
 356:                                              ; preds = %354
-  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %357 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %358 = load i64, ptr %35, align 8, !noalias !84
-  %359 = load i64, ptr %342, align 8, !noalias !84
-  store ptr %357, ptr %46, align 8, !alias.scope !84
+  %358 = load i64, ptr %35, align 8, !noalias !83
+  %359 = load i64, ptr %342, align 8, !noalias !83
+  store ptr %357, ptr %46, align 8, !alias.scope !83
   %360 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i64 0, ptr %360, align 8, !alias.scope !84
+  store i64 0, ptr %360, align 8, !alias.scope !83
   %361 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i64 %358, ptr %361, align 8, !alias.scope !84
+  store i64 %358, ptr %361, align 8, !alias.scope !83
   %362 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store i64 %359, ptr %362, align 8, !alias.scope !84
+  store i64 %359, ptr %362, align 8, !alias.scope !83
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.82)
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %364 = load i64, ptr %363, align 8
@@ -4234,17 +4234,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not67, label %445, label %406
 
 406:                                              ; preds = %404
-  call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %407 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %408 = load i64, ptr %35, align 8, !noalias !87
-  %409 = load i64, ptr %342, align 8, !noalias !87
-  store ptr %407, ptr %52, align 8, !alias.scope !87
+  %408 = load i64, ptr %35, align 8, !noalias !86
+  %409 = load i64, ptr %342, align 8, !noalias !86
+  store ptr %407, ptr %52, align 8, !alias.scope !86
   %410 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 0, ptr %410, align 8, !alias.scope !87
+  store i64 0, ptr %410, align 8, !alias.scope !86
   %411 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i64 %408, ptr %411, align 8, !alias.scope !87
+  store i64 %408, ptr %411, align 8, !alias.scope !86
   %412 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store i64 %409, ptr %412, align 8, !alias.scope !87
+  store i64 %409, ptr %412, align 8, !alias.scope !86
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.86)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %50, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4295,17 +4295,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not68, label %486, label %447
 
 447:                                              ; preds = %445
-  call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %448 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %449 = load i64, ptr %35, align 8, !noalias !90
-  %450 = load i64, ptr %342, align 8, !noalias !90
-  store ptr %448, ptr %58, align 8, !alias.scope !90
+  %449 = load i64, ptr %35, align 8, !noalias !89
+  %450 = load i64, ptr %342, align 8, !noalias !89
+  store ptr %448, ptr %58, align 8, !alias.scope !89
   %451 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store i64 0, ptr %451, align 8, !alias.scope !90
+  store i64 0, ptr %451, align 8, !alias.scope !89
   %452 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i64 %449, ptr %452, align 8, !alias.scope !90
+  store i64 %449, ptr %452, align 8, !alias.scope !89
   %453 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store i64 %450, ptr %453, align 8, !alias.scope !90
+  store i64 %450, ptr %453, align 8, !alias.scope !89
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %57, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.89)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %56, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -4356,17 +4356,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not69, label %527, label %488
 
 488:                                              ; preds = %486
-  call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %489 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %490 = load i64, ptr %35, align 8, !noalias !93
-  %491 = load i64, ptr %342, align 8, !noalias !93
-  store ptr %489, ptr %64, align 8, !alias.scope !93
+  %490 = load i64, ptr %35, align 8, !noalias !92
+  %491 = load i64, ptr %342, align 8, !noalias !92
+  store ptr %489, ptr %64, align 8, !alias.scope !92
   %492 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i64 0, ptr %492, align 8, !alias.scope !93
+  store i64 0, ptr %492, align 8, !alias.scope !92
   %493 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i64 %490, ptr %493, align 8, !alias.scope !93
+  store i64 %490, ptr %493, align 8, !alias.scope !92
   %494 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store i64 %491, ptr %494, align 8, !alias.scope !93
+  store i64 %491, ptr %494, align 8, !alias.scope !92
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %63, ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull @.str.90)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %62, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -4417,17 +4417,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not70, label %559, label %529
 
 529:                                              ; preds = %527
-  call void @llvm.experimental.noalias.scope.decl(metadata !96)
+  call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %530 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %531 = load i64, ptr %35, align 8, !noalias !96
-  %532 = load i64, ptr %342, align 8, !noalias !96
-  store ptr %530, ptr %70, align 8, !alias.scope !96
+  %531 = load i64, ptr %35, align 8, !noalias !95
+  %532 = load i64, ptr %342, align 8, !noalias !95
+  store ptr %530, ptr %70, align 8, !alias.scope !95
   %533 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 0, ptr %533, align 8, !alias.scope !96
+  store i64 0, ptr %533, align 8, !alias.scope !95
   %534 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i64 %531, ptr %534, align 8, !alias.scope !96
+  store i64 %531, ptr %534, align 8, !alias.scope !95
   %535 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i64 %532, ptr %535, align 8, !alias.scope !96
+  store i64 %532, ptr %535, align 8, !alias.scope !95
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %69, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull @.str.91)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %68, ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %67, ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
@@ -4474,17 +4474,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not71, label %595, label %565
 
 565:                                              ; preds = %563
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %566 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %567 = load i64, ptr %35, align 8, !noalias !99
-  %568 = load i64, ptr %342, align 8, !noalias !99
-  store ptr %566, ptr %76, align 8, !alias.scope !99
+  %567 = load i64, ptr %35, align 8, !noalias !98
+  %568 = load i64, ptr %342, align 8, !noalias !98
+  store ptr %566, ptr %76, align 8, !alias.scope !98
   %569 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 0, ptr %569, align 8, !alias.scope !99
+  store i64 0, ptr %569, align 8, !alias.scope !98
   %570 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i64 %567, ptr %570, align 8, !alias.scope !99
+  store i64 %567, ptr %570, align 8, !alias.scope !98
   %571 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store i64 %568, ptr %571, align 8, !alias.scope !99
+  store i64 %568, ptr %571, align 8, !alias.scope !98
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %75, ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull @.str.92)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %74, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %73, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
@@ -4525,17 +4525,17 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr noundef nonnull rea
   br i1 %.not72, label %618, label %597
 
 597:                                              ; preds = %595
-  call void @llvm.experimental.noalias.scope.decl(metadata !102)
+  call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %598 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %599 = load i64, ptr %35, align 8, !noalias !102
-  %600 = load i64, ptr %342, align 8, !noalias !102
-  store ptr %598, ptr %82, align 8, !alias.scope !102
+  %599 = load i64, ptr %35, align 8, !noalias !101
+  %600 = load i64, ptr %342, align 8, !noalias !101
+  store ptr %598, ptr %82, align 8, !alias.scope !101
   %601 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i64 0, ptr %601, align 8, !alias.scope !102
+  store i64 0, ptr %601, align 8, !alias.scope !101
   %602 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store i64 %599, ptr %602, align 8, !alias.scope !102
+  store i64 %599, ptr %602, align 8, !alias.scope !101
   %603 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store i64 %600, ptr %603, align 8, !alias.scope !102
+  store i64 %600, ptr %603, align 8, !alias.scope !101
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %81, ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull @.str.93)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %80, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %79, ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88)
@@ -4677,9 +4677,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %21, %4
   %30 = zext i32 %29 to i64
   %31 = add i64 %27, %30
   %32 = inttoptr i64 %31 to ptr
-  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %32) #20, !srcloc !11
+  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %32) #20, !srcloc !10
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %34) #20, !srcloc !11
+  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %34) #20, !srcloc !10
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = load i64, ptr %36, align 8
   br label %38
@@ -4690,9 +4690,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %21, %4
   br i1 %.not.i, label %39, label %42
 
 39:                                               ; preds = %38
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %.0.i, ptr nonnull %36) #20, !srcloc !12
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %.0.i, ptr nonnull %36) #20, !srcloc !11
   %41 = icmp eq i64 %40, %.0.i
-  br i1 %41, label %42, label %38, !llvm.loop !13
+  br i1 %41, label %42, label %38, !llvm.loop !12
 
 42:                                               ; preds = %39, %38
   %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -4831,9 +4831,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %21, %8
   %30 = zext i32 %29 to i64
   %31 = add i64 %27, %30
   %32 = inttoptr i64 %31 to ptr
-  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %32) #20, !srcloc !11
+  %33 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %32) #20, !srcloc !10
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull %34) #20, !srcloc !11
+  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull %34) #20, !srcloc !10
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = load i64, ptr %36, align 8
   br label %38
@@ -4844,9 +4844,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %21, %8
   br i1 %.not.i, label %39, label %42
 
 39:                                               ; preds = %38
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %.0.i, ptr nonnull %36) #20, !srcloc !12
+  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %.0.i, ptr nonnull %36) #20, !srcloc !11
   %41 = icmp eq i64 %40, %.0.i
-  br i1 %41, label %42, label %38, !llvm.loop !13
+  br i1 %41, label %42, label %38, !llvm.loop !12
 
 42:                                               ; preds = %39, %38
   %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -5074,9 +5074,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %28, %_ZN7ZTracer19r
   %37 = zext i32 %36 to i64
   %38 = add i64 %34, %37
   %39 = inttoptr i64 %38 to ptr
-  %40 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %39) #20, !srcloc !11
+  %40 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %39) #20, !srcloc !10
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, ptr nonnull %41) #20, !srcloc !11
+  %42 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, ptr nonnull %41) #20, !srcloc !10
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = load i64, ptr %43, align 8
   br label %45
@@ -5087,9 +5087,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %28, %_ZN7ZTracer19r
   br i1 %.not.i8, label %46, label %49
 
 46:                                               ; preds = %45
-  %47 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %.0.i, ptr nonnull %43) #20, !srcloc !12
+  %47 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %.0.i, ptr nonnull %43) #20, !srcloc !11
   %48 = icmp eq i64 %47, %.0.i
-  br i1 %48, label %49, label %45, !llvm.loop !13
+  br i1 %48, label %49, label %45, !llvm.loop !12
 
 49:                                               ; preds = %46, %45
   %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -5296,9 +5296,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %23, %_ZN7ZTracer19r
   %32 = zext i32 %31 to i64
   %33 = add i64 %29, %32
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %34) #20, !srcloc !11
+  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %34) #20, !srcloc !10
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %36) #20, !srcloc !11
+  %37 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %36) #20, !srcloc !10
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %39 = load i64, ptr %38, align 8
   br label %40
@@ -5309,9 +5309,9 @@ _ZNK12ZStatSampler3getEv.exit.i:                  ; preds = %23, %_ZN7ZTracer19r
   br i1 %.not.i5, label %41, label %44
 
 41:                                               ; preds = %40
-  %42 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %.0.i, ptr nonnull %38) #20, !srcloc !12
+  %42 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, i64 %.0.i, ptr nonnull %38) #20, !srcloc !11
   %43 = icmp eq i64 %42, %.0.i
-  br i1 %43, label %44, label %40, !llvm.loop !13
+  br i1 %43, label %44, label %40, !llvm.loop !12
 
 44:                                               ; preds = %41, %40
   %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3641), align 1
@@ -5349,7 +5349,7 @@ _ZNK12ZStatCounter3getEv.exit.i:                  ; preds = %55, %_Z11ZStatSampl
   %64 = zext i32 %63 to i64
   %65 = add i64 %61, %64
   %66 = inttoptr i64 %65 to ptr
-  %67 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %66) #20, !srcloc !11
+  %67 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %66) #20, !srcloc !10
   %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3617), align 1
   %.not.i.i7 = icmp eq i8 %68, 0
   br i1 %.not.i.i7, label %_Z8ZStatIncRK12ZStatCounterm.exit, label %69
@@ -5504,7 +5504,7 @@ _ZNK12ZStatCounter3getEv.exit:                    ; preds = %2, %12
   %21 = zext i32 %20 to i64
   %22 = add i64 %18, %21
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr %23) #20, !srcloc !11
+  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr %23) #20, !srcloc !10
   %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3617), align 1
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %_ZN7ZTracer19report_stat_counterERK12ZStatCountermm.exit, label %26
@@ -5613,7 +5613,7 @@ _ZNK21ZStatUnsampledCounter3getEv.exit:           ; preds = %2, %12
   %21 = zext i32 %20 to i64
   %22 = add i64 %18, %21
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr %23) #20, !srcloc !11
+  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr %23) #20, !srcloc !10
   ret void
 }
 
@@ -5662,7 +5662,7 @@ declare noundef i64 @_ZNK5ZHeap17soft_max_capacityEv(ptr noundef nonnull align 6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ZStatMutatorAllocRate17sample_allocationEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr nonnull @_ZN21ZStatMutatorAllocRate23_allocated_since_sampleE) #20, !srcloc !11
+  %2 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr nonnull @_ZN21ZStatMutatorAllocRate23_allocated_since_sampleE) #20, !srcloc !10
   %3 = add i64 %2, %0
   %4 = load volatile i64, ptr @_ZN21ZStatMutatorAllocRate17_sampling_granuleE, align 8
   %5 = icmp ult i64 %3, %4
@@ -5699,7 +5699,7 @@ define hidden void @_ZN21ZStatMutatorAllocRate17sample_allocationEm(i64 noundef 
 
 25:                                               ; preds = %17
   %26 = sub i64 0, %11
-  %27 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %26, ptr nonnull @_ZN21ZStatMutatorAllocRate23_allocated_since_sampleE) #20, !srcloc !11
+  %27 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %26, ptr nonnull @_ZN21ZStatMutatorAllocRate23_allocated_since_sampleE) #20, !srcloc !10
   %28 = uitofp nneg i64 %20 to double
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) @_ZN21ZStatMutatorAllocRate13_samples_timeE, double noundef %28) #20
   %29 = uitofp i64 %11 to double
@@ -5848,7 +5848,7 @@ define hidden void @_ZNK5ZStat18sample_and_collectEP19ZStatSamplerHistory(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !105
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !104
 
 7:                                                ; preds = %.lr.ph19, %_ZNK12ZStatSampler17collect_and_resetEv.exit
   %.0918 = phi ptr [ %.0916, %.lr.ph19 ], [ %.09, %_ZNK12ZStatSampler17collect_and_resetEv.exit ]
@@ -5856,16 +5856,16 @@ define hidden void @_ZNK5ZStat18sample_and_collectEP19ZStatSamplerHistory(ptr no
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %class.ZStatSamplerHistory, ptr %1, i64 %10
-  call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !106
-  %12 = load i32, ptr @_ZN2os16_processor_countE, align 4, !noalias !106
+  call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !105
+  %12 = load i32, ptr @_ZN2os16_processor_countE, align 4, !noalias !105
   %.not18.i = icmp eq i32 %12, 0
   br i1 %.not18.i, label %_ZNK12ZStatSampler17collect_and_resetEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %.0918, i64 20
-  %.pre22.i = load i64, ptr @_ZN10ZStatValue5_baseE, align 8, !noalias !106
-  %.pre24.i = load i32, ptr @_ZN10ZStatValue11_cpu_offsetE, align 4, !noalias !106
+  %.pre22.i = load i64, ptr @_ZN10ZStatValue5_baseE, align 8, !noalias !105
+  %.pre24.i = load i32, ptr @_ZN10ZStatValue11_cpu_offsetE, align 4, !noalias !105
   br label %14
 
 14:                                               ; preds = %36, %.lr.ph.i
@@ -5878,25 +5878,25 @@ define hidden void @_ZNK5ZStat18sample_and_collectEP19ZStatSamplerHistory(ptr no
   %20 = mul i32 %.013.i, %15
   %21 = zext i32 %20 to i64
   %22 = add i64 %16, %21
-  %23 = load i32, ptr %13, align 4, !noalias !106
+  %23 = load i32, ptr %13, align 4, !noalias !105
   %24 = zext i32 %23 to i64
   %25 = add i64 %22, %24
   %26 = inttoptr i64 %25 to ptr
-  %27 = load i64, ptr %26, align 8, !noalias !106
+  %27 = load i64, ptr %26, align 8, !noalias !105
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %36, label %28
 
 28:                                               ; preds = %14
-  %29 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %26) #20, !noalias !106, !srcloc !6
+  %29 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %26) #20, !noalias !105, !srcloc !6
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %31 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %30) #20, !noalias !106, !srcloc !6
+  %31 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %30) #20, !noalias !105, !srcloc !6
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %33 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %32) #20, !noalias !106, !srcloc !6
+  %33 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %32) #20, !noalias !105, !srcloc !6
   %34 = add i64 %29, %19
   %35 = add i64 %31, %18
   %spec.store.select.i = call i64 @llvm.umax.i64(i64 %17, i64 %33)
-  %.pre.i = load i64, ptr @_ZN10ZStatValue5_baseE, align 8, !noalias !106
-  %.pre23.i = load i32, ptr @_ZN10ZStatValue11_cpu_offsetE, align 4, !noalias !106
+  %.pre.i = load i64, ptr @_ZN10ZStatValue5_baseE, align 8, !noalias !105
+  %.pre23.i = load i32, ptr @_ZN10ZStatValue11_cpu_offsetE, align 4, !noalias !105
   br label %36
 
 36:                                               ; preds = %28, %14
@@ -5910,18 +5910,18 @@ define hidden void @_ZNK5ZStat18sample_and_collectEP19ZStatSamplerHistory(ptr no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %36
-  store i64 %40, ptr %4, align 8, !alias.scope !106
-  store i64 %39, ptr %5, align 8, !alias.scope !106
+  store i64 %40, ptr %4, align 8, !alias.scope !105
+  store i64 %39, ptr %5, align 8, !alias.scope !105
   br label %_ZNK12ZStatSampler17collect_and_resetEv.exit
 
 _ZNK12ZStatSampler17collect_and_resetEv.exit:     ; preds = %7, %._crit_edge.i
   %.lcssa.i = phi i64 [ %41, %._crit_edge.i ], [ 0, %7 ]
-  store i64 %.lcssa.i, ptr %3, align 8, !alias.scope !106
+  store i64 %.lcssa.i, ptr %3, align 8, !alias.scope !105
   call void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerData(ptr noundef nonnull align 8 dereferenceable(3312) %11, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %43 = getelementptr inbounds nuw i8, ptr %.0918, i64 24
   %.09 = load ptr, ptr %43, align 8
   %.not10 = icmp eq ptr %.09, null
-  br i1 %.not10, label %._crit_edge, label %7, !llvm.loop !109
+  br i1 %.not10, label %._crit_edge, label %7, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %_ZNK12ZStatSampler17collect_and_resetEv.exit, %.preheader
   ret void
@@ -5985,218 +5985,218 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
 
 37:                                               ; preds = %35
   store i64 0, ptr %30, align 8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %38
 
-38:                                               ; preds = %43, %37
-  %.017.i = phi i64 [ 0, %37 ], [ %45, %43 ]
-  %39 = phi i64 [ 0, %37 ], [ %44, %43 ]
+38:                                               ; preds = %45, %37
+  %.017.i = phi i64 [ 0, %37 ], [ %47, %45 ]
+  %39 = phi i64 [ 0, %37 ], [ %46, %45 ]
   %.idx.i = mul nuw nsw i64 %.017.i, 24
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
-  %40 = load i64, ptr %gep.i, align 8
-  %41 = icmp ult i64 %39, %40
-  br i1 %41, label %42, label %43
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp ult i64 %39, %42
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %38
-  store i64 %40, ptr %30, align 8
-  br label %43
+44:                                               ; preds = %38
+  store i64 %42, ptr %30, align 8
+  br label %45
 
-43:                                               ; preds = %42, %38
-  %44 = phi i64 [ %39, %38 ], [ %40, %42 ]
-  %45 = add nuw nsw i64 %.017.i, 1
-  %exitcond.not.i = icmp eq i64 %45, 10
-  br i1 %exitcond.not.i, label %.loopexit.i, label %38, !llvm.loop !110
+45:                                               ; preds = %44, %38
+  %46 = phi i64 [ %39, %38 ], [ %42, %44 ]
+  %47 = add nuw nsw i64 %.017.i, 1
+  %exitcond.not.i = icmp eq i64 %47, 10
+  br i1 %exitcond.not.i, label %.loopexit.i, label %38, !llvm.loop !109
 
-.loopexit.i:                                      ; preds = %43, %35, %34
-  %46 = load i64, ptr %0, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %0, align 8
-  %48 = icmp eq i64 %47, 10
-  br i1 %48, label %49, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
+.loopexit.i:                                      ; preds = %45, %35, %34
+  %48 = load i64, ptr %0, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %0, align 8
+  %50 = icmp eq i64 %49, 10
+  br i1 %50, label %51, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
 
-49:                                               ; preds = %.loopexit.i
+51:                                               ; preds = %.loopexit.i
   store i64 0, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %52 = load i64, ptr %50, align 8
-  %53 = getelementptr inbounds [60 x %struct.ZStatSamplerData], ptr %51, i64 0, i64 %52
-  %.sroa.0.0.copyload.i2 = load i64, ptr %53, align 8
-  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %54 = load i64, ptr %52, align 8
+  %55 = getelementptr inbounds [60 x %struct.ZStatSamplerData], ptr %53, i64 0, i64 %54
+  %.sroa.0.0.copyload.i2 = load i64, ptr %55, align 8
+  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.2.0.copyload.i4 = load i64, ptr %.sroa.2.0..sroa_idx.i3, align 8
-  %.sroa.3.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %.sroa.3.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %.sroa.3.0.copyload.i6 = load i64, ptr %.sroa.3.0..sroa_idx.i5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  %54 = load i64, ptr %20, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %56 = load i64, ptr %55, align 8
-  %57 = add i64 %56, %54
-  store i64 %57, ptr %55, align 8
-  %58 = load i64, ptr %23, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %58
-  store i64 %61, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  %63 = load i64, ptr %62, align 8
-  %64 = load i64, ptr %30, align 8
-  %65 = tail call noundef i64 @llvm.umax.i64(i64 %63, i64 %64)
-  store i64 %65, ptr %62, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %67 = load i64, ptr %66, align 8
-  %68 = sub i64 %67, %.sroa.0.0.copyload.i2
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  %70 = load i64, ptr %69, align 8
-  %71 = sub i64 %70, %.sroa.2.0.copyload.i4
-  %72 = add i64 %68, %54
-  store i64 %72, ptr %66, align 8
-  %73 = add i64 %71, %58
-  store i64 %73, ptr %69, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp ult i64 %75, %64
-  br i1 %76, label %77, label %78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
+  %56 = load i64, ptr %20, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %58, %56
+  store i64 %59, ptr %57, align 8
+  %60 = load i64, ptr %23, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1752
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, %60
+  store i64 %63, ptr %61, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  %65 = load i64, ptr %64, align 8
+  %66 = load i64, ptr %30, align 8
+  %67 = tail call noundef i64 @llvm.umax.i64(i64 %65, i64 %66)
+  store i64 %67, ptr %64, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %69 = load i64, ptr %68, align 8
+  %70 = sub i64 %69, %.sroa.0.0.copyload.i2
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  %72 = load i64, ptr %71, align 8
+  %73 = sub i64 %72, %.sroa.2.0.copyload.i4
+  %74 = add i64 %70, %56
+  store i64 %74, ptr %68, align 8
+  %75 = add i64 %73, %60
+  store i64 %75, ptr %71, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1784
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp ult i64 %77, %66
+  br i1 %78, label %79, label %80
 
-77:                                               ; preds = %49
-  store i64 %64, ptr %74, align 8
+79:                                               ; preds = %51
+  store i64 %66, ptr %76, align 8
   br label %.loopexit.i7
 
-78:                                               ; preds = %49
-  %79 = icmp eq i64 %75, %.sroa.3.0.copyload.i6
-  br i1 %79, label %80, label %.loopexit.i7
+80:                                               ; preds = %51
+  %81 = icmp eq i64 %77, %.sroa.3.0.copyload.i6
+  br i1 %81, label %82, label %.loopexit.i7
 
-80:                                               ; preds = %78
-  store i64 0, ptr %74, align 8
-  %invariant.gep.i8 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  br label %81
+82:                                               ; preds = %80
+  store i64 0, ptr %76, align 8
+  br label %83
 
-81:                                               ; preds = %86, %80
-  %.017.i9 = phi i64 [ 0, %80 ], [ %88, %86 ]
-  %82 = phi i64 [ 0, %80 ], [ %87, %86 ]
-  %.idx.i10 = mul nuw nsw i64 %.017.i9, 24
-  %gep.i11 = getelementptr inbounds nuw i8, ptr %invariant.gep.i8, i64 %.idx.i10
-  %83 = load i64, ptr %gep.i11, align 8
-  %84 = icmp ult i64 %82, %83
-  br i1 %84, label %85, label %86
+83:                                               ; preds = %90, %82
+  %.017.i8 = phi i64 [ 0, %82 ], [ %92, %90 ]
+  %84 = phi i64 [ 0, %82 ], [ %91, %90 ]
+  %.idx.i9 = mul nuw nsw i64 %.017.i8, 24
+  %85 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i9
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = load i64, ptr %86, align 8
+  %88 = icmp ult i64 %84, %87
+  br i1 %88, label %89, label %90
 
-85:                                               ; preds = %81
-  store i64 %83, ptr %74, align 8
-  br label %86
+89:                                               ; preds = %83
+  store i64 %87, ptr %76, align 8
+  br label %90
 
-86:                                               ; preds = %85, %81
-  %87 = phi i64 [ %82, %81 ], [ %83, %85 ]
-  %88 = add nuw nsw i64 %.017.i9, 1
-  %exitcond.not.i12 = icmp eq i64 %88, 60
-  br i1 %exitcond.not.i12, label %.loopexit.i7, label %81, !llvm.loop !111
+90:                                               ; preds = %89, %83
+  %91 = phi i64 [ %84, %83 ], [ %87, %89 ]
+  %92 = add nuw nsw i64 %.017.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %92, 60
+  br i1 %exitcond.not.i10, label %.loopexit.i7, label %83, !llvm.loop !110
 
-.loopexit.i7:                                     ; preds = %86, %78, %77
-  %89 = load i64, ptr %50, align 8
-  %90 = add i64 %89, 1
-  store i64 %90, ptr %50, align 8
-  %91 = icmp eq i64 %90, 60
-  br i1 %91, label %92, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
+.loopexit.i7:                                     ; preds = %90, %80, %79
+  %93 = load i64, ptr %52, align 8
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %52, align 8
+  %95 = icmp eq i64 %94, 60
+  br i1 %95, label %96, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
 
-92:                                               ; preds = %.loopexit.i7
-  store i64 0, ptr %50, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %95 = load i64, ptr %93, align 8
-  %96 = getelementptr inbounds [60 x %struct.ZStatSamplerData], ptr %94, i64 0, i64 %95
-  %.sroa.0.0.copyload.i13 = load i64, ptr %96, align 8
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %.sroa.2.0.copyload.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i14, align 8
-  %.sroa.3.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %.sroa.3.0.copyload.i17 = load i64, ptr %.sroa.3.0..sroa_idx.i16, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
-  %97 = load i64, ptr %66, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 3240
-  %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, %97
-  store i64 %100, ptr %98, align 8
-  %101 = load i64, ptr %69, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3248
+96:                                               ; preds = %.loopexit.i7
+  store i64 0, ptr %52, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %99 = load i64, ptr %97, align 8
+  %100 = getelementptr inbounds [60 x %struct.ZStatSamplerData], ptr %98, i64 0, i64 %99
+  %.sroa.0.0.copyload.i11 = load i64, ptr %100, align 8
+  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %.sroa.2.0.copyload.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i12, align 8
+  %.sroa.3.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %.sroa.3.0.copyload.i15 = load i64, ptr %.sroa.3.0..sroa_idx.i14, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
+  %101 = load i64, ptr %68, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %101
   store i64 %104, ptr %102, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 3256
-  %106 = load i64, ptr %105, align 8
-  %107 = load i64, ptr %74, align 8
-  %108 = tail call noundef i64 @llvm.umax.i64(i64 %106, i64 %107)
-  store i64 %108, ptr %105, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3264
+  %105 = load i64, ptr %71, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 3248
+  %107 = load i64, ptr %106, align 8
+  %108 = add i64 %107, %105
+  store i64 %108, ptr %106, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3256
   %110 = load i64, ptr %109, align 8
-  %111 = sub i64 %110, %.sroa.0.0.copyload.i13
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 3272
-  %113 = load i64, ptr %112, align 8
-  %114 = sub i64 %113, %.sroa.2.0.copyload.i15
-  %115 = add i64 %111, %97
-  store i64 %115, ptr %109, align 8
-  %116 = add i64 %114, %101
-  store i64 %116, ptr %112, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 3280
-  %118 = load i64, ptr %117, align 8
-  %119 = icmp ult i64 %118, %107
-  br i1 %119, label %120, label %121
+  %111 = load i64, ptr %76, align 8
+  %112 = tail call noundef i64 @llvm.umax.i64(i64 %110, i64 %111)
+  store i64 %112, ptr %109, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 3264
+  %114 = load i64, ptr %113, align 8
+  %115 = sub i64 %114, %.sroa.0.0.copyload.i11
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3272
+  %117 = load i64, ptr %116, align 8
+  %118 = sub i64 %117, %.sroa.2.0.copyload.i13
+  %119 = add i64 %115, %101
+  store i64 %119, ptr %113, align 8
+  %120 = add i64 %118, %105
+  store i64 %120, ptr %116, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3280
+  %122 = load i64, ptr %121, align 8
+  %123 = icmp ult i64 %122, %111
+  br i1 %123, label %124, label %125
 
-120:                                              ; preds = %92
-  store i64 %107, ptr %117, align 8
-  br label %.loopexit.i18
+124:                                              ; preds = %96
+  store i64 %111, ptr %121, align 8
+  br label %.loopexit.i16
 
-121:                                              ; preds = %92
-  %122 = icmp eq i64 %118, %.sroa.3.0.copyload.i17
-  br i1 %122, label %123, label %.loopexit.i18
+125:                                              ; preds = %96
+  %126 = icmp eq i64 %122, %.sroa.3.0.copyload.i15
+  br i1 %126, label %127, label %.loopexit.i16
 
-123:                                              ; preds = %121
-  store i64 0, ptr %117, align 8
-  %invariant.gep.i19 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  br label %124
+127:                                              ; preds = %125
+  store i64 0, ptr %121, align 8
+  br label %128
 
-124:                                              ; preds = %129, %123
-  %.017.i20 = phi i64 [ 0, %123 ], [ %131, %129 ]
-  %125 = phi i64 [ 0, %123 ], [ %130, %129 ]
-  %.idx.i21 = mul nuw nsw i64 %.017.i20, 24
-  %gep.i22 = getelementptr inbounds nuw i8, ptr %invariant.gep.i19, i64 %.idx.i21
-  %126 = load i64, ptr %gep.i22, align 8
-  %127 = icmp ult i64 %125, %126
-  br i1 %127, label %128, label %129
+128:                                              ; preds = %135, %127
+  %.017.i17 = phi i64 [ 0, %127 ], [ %137, %135 ]
+  %129 = phi i64 [ 0, %127 ], [ %136, %135 ]
+  %.idx.i18 = mul nuw nsw i64 %.017.i17, 24
+  %130 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i18
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp ult i64 %129, %132
+  br i1 %133, label %134, label %135
 
-128:                                              ; preds = %124
-  store i64 %126, ptr %117, align 8
-  br label %129
+134:                                              ; preds = %128
+  store i64 %132, ptr %121, align 8
+  br label %135
 
-129:                                              ; preds = %128, %124
-  %130 = phi i64 [ %125, %124 ], [ %126, %128 ]
-  %131 = add nuw nsw i64 %.017.i20, 1
-  %exitcond.not.i23 = icmp eq i64 %131, 60
-  br i1 %exitcond.not.i23, label %.loopexit.i18, label %124, !llvm.loop !111
+135:                                              ; preds = %134, %128
+  %136 = phi i64 [ %129, %128 ], [ %132, %134 ]
+  %137 = add nuw nsw i64 %.017.i17, 1
+  %exitcond.not.i19 = icmp eq i64 %137, 60
+  br i1 %exitcond.not.i19, label %.loopexit.i16, label %128, !llvm.loop !110
 
-.loopexit.i18:                                    ; preds = %129, %121, %120
-  %132 = phi i64 [ %118, %121 ], [ %107, %120 ], [ %130, %129 ]
-  %133 = load i64, ptr %93, align 8
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %93, align 8
-  %135 = icmp eq i64 %134, 60
-  br i1 %135, label %136, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
+.loopexit.i16:                                    ; preds = %135, %125, %124
+  %138 = phi i64 [ %122, %125 ], [ %111, %124 ], [ %136, %135 ]
+  %139 = load i64, ptr %97, align 8
+  %140 = add i64 %139, 1
+  store i64 %140, ptr %97, align 8
+  %141 = icmp eq i64 %140, 60
+  br i1 %141, label %142, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
 
-136:                                              ; preds = %.loopexit.i18
-  store i64 0, ptr %93, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 3288
-  %138 = load i64, ptr %137, align 8
-  %139 = add i64 %138, %115
-  store i64 %139, ptr %137, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 3296
-  %141 = load i64, ptr %140, align 8
-  %142 = add i64 %141, %116
-  store i64 %142, ptr %140, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 3304
+142:                                              ; preds = %.loopexit.i16
+  store i64 0, ptr %97, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 3288
   %144 = load i64, ptr %143, align 8
-  %145 = tail call noundef i64 @llvm.umax.i64(i64 %144, i64 %132)
+  %145 = add i64 %144, %119
   store i64 %145, ptr %143, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 3296
+  %147 = load i64, ptr %146, align 8
+  %148 = add i64 %147, %120
+  store i64 %148, ptr %146, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 3304
+  %150 = load i64, ptr %149, align 8
+  %151 = tail call noundef i64 @llvm.umax.i64(i64 %150, i64 %138)
+  store i64 %151, ptr %149, align 8
   br label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
 
-_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit: ; preds = %.loopexit.i18, %.loopexit.i7, %.loopexit.i, %136
+_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit: ; preds = %.loopexit.i16, %.loopexit.i7, %.loopexit.i, %142
   ret void
 }
 
@@ -6204,7 +6204,7 @@ _ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit: ; preds =
 define hidden noundef zeroext i1 @_ZNK5ZStat12should_printE15LogTargetHandle(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1056) %0, i32 %1, ptr %2) local_unnamed_addr #0 align 2 {
   %4 = load atomic i8, ptr @_ZGVZNK5ZStat12should_printE15LogTargetHandleE8print_at acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %11, !prof !112
+  br i1 %5, label %6, label %11, !prof !111
 
 6:                                                ; preds = %3
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK5ZStat12should_printE15LogTargetHandleE8print_at) #20
@@ -6280,7 +6280,7 @@ define hidden void @_ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory(pt
   %13 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %.0 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.39)
@@ -6337,7 +6337,7 @@ define hidden void @_ZN5ZStat10run_threadEv(ptr noundef nonnull align 8 derefere
   %23 = load ptr, ptr %37, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %17) #21
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %._crit_edge.i, label %.lr.ph, !llvm.loop !114
+  br i1 %25, label %._crit_edge.i, label %.lr.ph, !llvm.loop !113
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %22
   %26 = phi i32 [ %24, %22 ], [ %20, %.lr.ph.i ]
@@ -6358,10 +6358,10 @@ define hidden void @_ZN5ZStat10run_threadEv(ptr noundef nonnull align 8 derefere
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load ptr, ptr %36, align 8
   %.not18.i = icmp eq ptr %37, null
-  br i1 %.not18.i, label %.._crit_edge.i.loopexit_crit_edge34, label %22, !llvm.loop !114
+  br i1 %.not18.i, label %.._crit_edge.i.loopexit_crit_edge34, label %22, !llvm.loop !113
 
 .._crit_edge.i.loopexit_crit_edge34:              ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !114
+  br label %._crit_edge.i, !llvm.loop !113
 
 ._crit_edge.i:                                    ; preds = %22, %29, %.lr.ph.i, %.._crit_edge.i.loopexit_crit_edge34, %.lr.ph31.i
   %.015.lcssa.i = phi ptr [ @_ZN18ZStatIterableValueI12ZStatSamplerE6_firstE, %.lr.ph31.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge34 ], [ @_ZN18ZStatIterableValueI12ZStatSamplerE6_firstE, %.lr.ph.i ], [ %36, %22 ], [ %.01520.i29, %29 ]
@@ -6369,7 +6369,7 @@ define hidden void @_ZN5ZStat10run_threadEv(ptr noundef nonnull align 8 derefere
   store ptr %.lcssa.i, ptr %15, align 8
   store ptr %.029.i, ptr %.015.lcssa.i, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %_ZN18ZStatIterableValueI12ZStatSamplerE4sortEv.exit, label %.lr.ph31thread-pre-split.i, !llvm.loop !115
+  br i1 %.not.i, label %_ZN18ZStatIterableValueI12ZStatSamplerE4sortEv.exit, label %.lr.ph31thread-pre-split.i, !llvm.loop !114
 
 _ZN18ZStatIterableValueI12ZStatSamplerE4sortEv.exit: ; preds = %._crit_edge.i, %.loopexit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -6384,7 +6384,7 @@ _ZN18ZStatIterableValueI12ZStatSamplerE4sortEv.exit: ; preds = %._crit_edge.i, %
   call void @_ZNK5ZStat18sample_and_collectEP19ZStatSamplerHistory(ptr nonnull align 8 poison, ptr noundef %7)
   %42 = load atomic i8, ptr @_ZGVZNK5ZStat12should_printE15LogTargetHandleE8print_at acquire, align 8
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %44, label %49, !prof !112
+  br i1 %43, label %44, label %49, !prof !111
 
 44:                                               ; preds = %41
   %45 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK5ZStat12should_printE15LogTargetHandleE8print_at) #20
@@ -6442,7 +6442,7 @@ _ZNK5ZStat12should_printE15LogTargetHandle.exit:  ; preds = %49
   %67 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %.0.i10 = load ptr, ptr %67, align 8
   %.not.i11 = icmp eq ptr %.0.i10, null
-  br i1 %.not.i11, label %_ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit, label %.lr.ph.i9, !llvm.loop !113
+  br i1 %.not.i11, label %_ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit, label %.lr.ph.i9, !llvm.loop !112
 
 _ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit: ; preds = %.lr.ph.i9, %60
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.39)
@@ -6451,7 +6451,7 @@ _ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit: ; preds = %.lr.p
 
 _ZNK5ZStat12should_printE15LogTargetHandle.exit.thread: ; preds = %49, %_ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit, %_ZNK5ZStat12should_printE15LogTargetHandle.exit
   %68 = call noundef zeroext i1 @_ZN10ZMetronome13wait_for_tickEv(ptr noundef nonnull align 8 dereferenceable(129) %38) #20
-  br i1 %68, label %41, label %._crit_edge, !llvm.loop !116
+  br i1 %68, label %41, label %._crit_edge, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %_ZNK5ZStat12should_printE15LogTargetHandle.exit.thread, %_ZN18ZStatIterableValueI12ZStatSamplerE4sortEv.exit
   %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -6484,7 +6484,7 @@ _ZNK5ZStat12should_printE15LogTargetHandle.exit.thread: ; preds = %49, %_ZNK5ZSt
   %78 = getelementptr inbounds nuw i8, ptr %.011.i16, i64 24
   %.0.i19 = load ptr, ptr %78, align 8
   %.not.i20 = icmp eq ptr %.0.i19, null
-  br i1 %.not.i20, label %_ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit22, label %.lr.ph.i15, !llvm.loop !113
+  br i1 %.not.i20, label %_ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit22, label %.lr.ph.i15, !llvm.loop !112
 
 _ZNK5ZStat5printE15LogTargetHandlePK19ZStatSamplerHistory.exit22: ; preds = %.lr.ph.i15, %70
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.39)
@@ -7135,7 +7135,7 @@ define hidden void @_ZN15ZStatRelocationC2Ev(ptr noundef nonnull align 8 derefer
   tail call void @_ZN32ZRelocationSetSelectorGroupStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr.i) #20
   %.add.i = add nuw nsw i64 %.idx.i, 48
   %3 = icmp eq i64 %.add.i, 768
-  br i1 %3, label %.preheader12.i, label %2, !llvm.loop !117
+  br i1 %3, label %.preheader12.i, label %2
 
 .preheader12.i:                                   ; preds = %2, %.preheader12.i
   %.idx2.i = phi i64 [ %.add3.i, %.preheader12.i ], [ 768, %2 ]
@@ -7143,7 +7143,7 @@ define hidden void @_ZN15ZStatRelocationC2Ev(ptr noundef nonnull align 8 derefer
   tail call void @_ZN32ZRelocationSetSelectorGroupStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr4.i) #20
   %.add3.i = add nuw nsw i64 %.idx2.i, 48
   %4 = icmp eq i64 %.add3.i, 1536
-  br i1 %4, label %.preheader.i, label %.preheader12.i, !llvm.loop !118
+  br i1 %4, label %.preheader.i, label %.preheader12.i
 
 .preheader.i:                                     ; preds = %.preheader12.i, %.preheader.i
   %.idx7.i = phi i64 [ %.add8.i, %.preheader.i ], [ 1536, %.preheader12.i ]
@@ -7151,7 +7151,7 @@ define hidden void @_ZN15ZStatRelocationC2Ev(ptr noundef nonnull align 8 derefer
   tail call void @_ZN32ZRelocationSetSelectorGroupStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.ptr9.i) #20
   %.add8.i = add nuw nsw i64 %.idx7.i, 48
   %5 = icmp eq i64 %.add8.i, 2304
-  br i1 %5, label %_ZN27ZRelocationSetSelectorStatsC2Ev.exit, label %.preheader.i, !llvm.loop !119
+  br i1 %5, label %_ZN27ZRelocationSetSelectorStatsC2Ev.exit, label %.preheader.i
 
 _ZN27ZRelocationSetSelectorStatsC2Ev.exit:        ; preds = %.preheader.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2312
@@ -7209,16 +7209,16 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr d
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %1, align 8, !noalias !120
-  %16 = load i64, ptr %5, align 8, !noalias !120
+  %15 = load ptr, ptr %1, align 8, !noalias !116
+  %16 = load i64, ptr %5, align 8, !noalias !116
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 63, i64 %12, i1 false), !noalias !120
-  %18 = load ptr, ptr %1, align 8, !noalias !123
-  %19 = load i64, ptr %5, align 8, !noalias !123
-  %20 = load i64, ptr %11, align 8, !noalias !123
+  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 63, i64 %12, i1 false), !noalias !116
+  %18 = load ptr, ptr %1, align 8, !noalias !119
+  %19 = load i64, ptr %5, align 8, !noalias !119
+  %20 = load i64, ptr %11, align 8, !noalias !119
   %21 = getelementptr i8, ptr %18, i64 %19
   %22 = getelementptr i8, ptr %21, i64 %20
-  store i8 32, ptr %22, align 1, !noalias !123
+  store i8 32, ptr %22, align 1, !noalias !119
   br label %43
 
 23:                                               ; preds = %3
@@ -7239,26 +7239,26 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr d
   %35 = load i64, ptr %11, align 8
   %36 = sub i64 %35, %.0.i
   call void @llvm.memset.p0.i64(ptr align 1 %34, i8 32, i64 %36, i1 false)
-  %.pre = load i64, ptr %11, align 8, !noalias !126
+  %.pre = load i64, ptr %11, align 8, !noalias !122
   br label %37
 
 37:                                               ; preds = %25, %23
   %38 = phi i64 [ %.pre, %25 ], [ %12, %23 ]
-  %39 = load ptr, ptr %1, align 8, !noalias !126
-  %40 = load i64, ptr %5, align 8, !noalias !126
+  %39 = load ptr, ptr %1, align 8, !noalias !122
+  %40 = load i64, ptr %5, align 8, !noalias !122
   %41 = getelementptr i8, ptr %39, i64 %40
   %42 = getelementptr i8, ptr %41, i64 %38
-  store i8 32, ptr %42, align 1, !noalias !126
+  store i8 32, ptr %42, align 1, !noalias !122
   br label %43
 
 43:                                               ; preds = %37, %14
-  %44 = load ptr, ptr %1, align 8, !noalias !129
-  %45 = load i64, ptr %5, align 8, !noalias !129
-  %46 = load i64, ptr %11, align 8, !noalias !129
+  %44 = load ptr, ptr %1, align 8, !noalias !125
+  %45 = load i64, ptr %5, align 8, !noalias !125
+  %46 = load i64, ptr %11, align 8, !noalias !125
   %47 = add i64 %45, 1
   %48 = add i64 %47, %46
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load i64, ptr %49, align 8, !noalias !129
+  %50 = load i64, ptr %49, align 8, !noalias !125
   store ptr %44, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %48, ptr %51, align 8
@@ -7279,18 +7279,18 @@ define internal fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1
   %9 = alloca %"class.ZStatTablePrinter::ZColumn", align 8
   %10 = alloca %"class.ZStatTablePrinter::ZColumn", align 8
   %11 = alloca %"class.ZStatTablePrinter::ZColumn", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %12 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %13 = load i64, ptr %.8.val, align 8, !noalias !130
+  %13 = load i64, ptr %.8.val, align 8, !noalias !126
   %14 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %15 = load i64, ptr %14, align 8, !noalias !130
-  store ptr %12, ptr %11, align 8, !alias.scope !130
+  %15 = load i64, ptr %14, align 8, !noalias !126
+  store ptr %12, ptr %11, align 8, !alias.scope !126
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %16, align 8, !alias.scope !130
+  store i64 0, ptr %16, align 8, !alias.scope !126
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %13, ptr %17, align 8, !alias.scope !130
+  store i64 %13, ptr %17, align 8, !alias.scope !126
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %15, ptr %18, align 8, !alias.scope !130
+  store i64 %15, ptr %18, align 8, !alias.scope !126
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.111, ptr noundef %0)
   %19 = load i64, ptr %1, align 8
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn5rightEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.95, i64 noundef %19)
@@ -7339,16 +7339,16 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr 
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %1, align 8, !noalias !133
-  %16 = load i64, ptr %5, align 8, !noalias !133
+  %15 = load ptr, ptr %1, align 8, !noalias !129
+  %16 = load i64, ptr %5, align 8, !noalias !129
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 63, i64 %12, i1 false), !noalias !133
-  %18 = load ptr, ptr %1, align 8, !noalias !136
-  %19 = load i64, ptr %5, align 8, !noalias !136
-  %20 = load i64, ptr %11, align 8, !noalias !136
+  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 63, i64 %12, i1 false), !noalias !129
+  %18 = load ptr, ptr %1, align 8, !noalias !132
+  %19 = load i64, ptr %5, align 8, !noalias !132
+  %20 = load i64, ptr %11, align 8, !noalias !132
   %21 = getelementptr i8, ptr %18, i64 %19
   %22 = getelementptr i8, ptr %21, i64 %20
-  store i8 32, ptr %22, align 1, !noalias !136
+  store i8 32, ptr %22, align 1, !noalias !132
   br label %47
 
 23:                                               ; preds = %3
@@ -7374,26 +7374,26 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn6centerEPKcz(ptr 
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %27
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.0.i
   call void @llvm.memset.p0.i64(ptr align 1 %40, i8 32, i64 %28, i1 false)
-  %.pre = load i64, ptr %11, align 8, !noalias !139
+  %.pre = load i64, ptr %11, align 8, !noalias !135
   br label %41
 
 41:                                               ; preds = %25, %23
   %42 = phi i64 [ %.pre, %25 ], [ %12, %23 ]
-  %43 = load ptr, ptr %1, align 8, !noalias !139
-  %44 = load i64, ptr %5, align 8, !noalias !139
+  %43 = load ptr, ptr %1, align 8, !noalias !135
+  %44 = load i64, ptr %5, align 8, !noalias !135
   %45 = getelementptr i8, ptr %43, i64 %44
   %46 = getelementptr i8, ptr %45, i64 %42
-  store i8 32, ptr %46, align 1, !noalias !139
+  store i8 32, ptr %46, align 1, !noalias !135
   br label %47
 
 47:                                               ; preds = %41, %14
-  %48 = load ptr, ptr %1, align 8, !noalias !129
-  %49 = load i64, ptr %5, align 8, !noalias !129
-  %50 = load i64, ptr %11, align 8, !noalias !129
+  %48 = load ptr, ptr %1, align 8, !noalias !125
+  %49 = load i64, ptr %5, align 8, !noalias !125
+  %50 = load i64, ptr %11, align 8, !noalias !125
   %51 = add i64 %49, 1
   %52 = add i64 %51, %50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = load i64, ptr %53, align 8, !noalias !129
+  %54 = load i64, ptr %53, align 8, !noalias !125
   store ptr %48, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %52, ptr %55, align 8
@@ -7454,31 +7454,31 @@ define linkonce_odr hidden void @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr de
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.0.i
   %19 = sub nuw i64 %12, %.0.i
   call void @llvm.memset.p0.i64(ptr align 1 %18, i8 32, i64 %19, i1 false)
-  %.pre = load i64, ptr %11, align 8, !noalias !142
+  %.pre = load i64, ptr %11, align 8, !noalias !138
   br label %20
 
 20:                                               ; preds = %14, %3
   %21 = phi i64 [ %.pre, %14 ], [ %12, %3 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %22 = load ptr, ptr %1, align 8, !noalias !142
-  %23 = load i64, ptr %5, align 8, !noalias !142
+  call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  %22 = load ptr, ptr %1, align 8, !noalias !138
+  %23 = load i64, ptr %5, align 8, !noalias !138
   %24 = getelementptr i8, ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 %21
-  store i8 32, ptr %25, align 1, !noalias !142
-  %26 = load ptr, ptr %1, align 8, !noalias !142
-  %27 = load i64, ptr %5, align 8, !noalias !142
-  %28 = load i64, ptr %11, align 8, !noalias !142
+  store i8 32, ptr %25, align 1, !noalias !138
+  %26 = load ptr, ptr %1, align 8, !noalias !138
+  %27 = load i64, ptr %5, align 8, !noalias !138
+  %28 = load i64, ptr %11, align 8, !noalias !138
   %29 = add i64 %27, 1
   %30 = add i64 %29, %28
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load i64, ptr %31, align 8, !noalias !142
-  store ptr %26, ptr %0, align 8, !alias.scope !142
+  %32 = load i64, ptr %31, align 8, !noalias !138
+  store ptr %26, ptr %0, align 8, !alias.scope !138
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %33, align 8, !alias.scope !142
+  store i64 %30, ptr %33, align 8, !alias.scope !138
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %32, ptr %34, align 8, !alias.scope !142
+  store i64 %32, ptr %34, align 8, !alias.scope !138
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %32, ptr %35, align 8, !alias.scope !142
+  store i64 %32, ptr %35, align 8, !alias.scope !138
   ret void
 }
 
@@ -7753,16 +7753,16 @@ define hidden void @_ZN9ZStatHeap24at_select_relocation_setERK27ZRelocationSetSe
   %7 = getelementptr inbounds nuw [16 x %class.ZRelocationSetSelectorGroupStats], ptr %1, i64 0, i64 %indvars.iv, i32 2
   %8 = load i64, ptr %7, align 8
   %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %9 = getelementptr i8, ptr %4, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr i8, ptr %5, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %8, %.015
   %14 = add i64 %13, %10
   %15 = add i64 %14, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %_ZN7ZLockerI5ZLockED2Ev.exit, label %6, !llvm.loop !145
+  br i1 %exitcond.not, label %_ZN7ZLockerI5ZLockED2Ev.exit, label %6, !llvm.loop !141
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -8656,142 +8656,138 @@ attributes #21 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145412131}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i64 2145411697}
-!12 = !{i64 2145412694}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!18 = distinct !{!18, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!19 = distinct !{!19, !20, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!20 = distinct !{!20, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!23 = distinct !{!23, !"_ZN17ZStatTablePrinterclEv"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!26 = distinct !{!26, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!27 = distinct !{!27, !28, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!28 = distinct !{!28, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!31 = distinct !{!31, !"_ZN17ZStatTablePrinterclEv"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!34 = distinct !{!34, !"_ZN17ZStatTablePrinterclEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!37 = distinct !{!37, !"_ZN17ZStatTablePrinterclEv"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!40 = distinct !{!40, !"_ZN17ZStatTablePrinterclEv"}
-!41 = distinct !{!41, !8, !9}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!45 = distinct !{!45, !46, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!46 = distinct !{!46, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!49 = distinct !{!49, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!50 = distinct !{!50, !51, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!51 = distinct !{!51, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!52 = distinct !{!52, !8, !9}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv: argument 0"}
-!55 = distinct !{!55, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!58 = distinct !{!58, !"_ZN17ZStatTablePrinterclEv"}
-!59 = !{!57, !54}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!62 = distinct !{!62, !"_ZN17ZStatTablePrinterclEv"}
-!63 = !{!61, !54}
-!64 = distinct !{!64, !8, !9}
-!65 = !{!66, !68}
-!66 = distinct !{!66, !67, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!67 = distinct !{!67, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!68 = distinct !{!68, !69, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!69 = distinct !{!69, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!72 = distinct !{!72, !"_ZN17ZStatTablePrinterclEv"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!75 = distinct !{!75, !"_ZN17ZStatTablePrinterclEv"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!78 = distinct !{!78, !"_ZN17ZStatTablePrinterclEv"}
-!79 = !{!80, !82}
-!80 = distinct !{!80, !81, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!81 = distinct !{!81, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!82 = distinct !{!82, !83, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!83 = distinct !{!83, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!86 = distinct !{!86, !"_ZN17ZStatTablePrinterclEv"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!89 = distinct !{!89, !"_ZN17ZStatTablePrinterclEv"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!92 = distinct !{!92, !"_ZN17ZStatTablePrinterclEv"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!95 = distinct !{!95, !"_ZN17ZStatTablePrinterclEv"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!98 = distinct !{!98, !"_ZN17ZStatTablePrinterclEv"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!101 = distinct !{!101, !"_ZN17ZStatTablePrinterclEv"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!104 = distinct !{!104, !"_ZN17ZStatTablePrinterclEv"}
-!105 = distinct !{!105, !8, !9}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZNK12ZStatSampler17collect_and_resetEv: argument 0"}
-!108 = distinct !{!108, !"_ZNK12ZStatSampler17collect_and_resetEv"}
-!109 = distinct !{!109, !8, !9}
-!110 = distinct !{!110, !8, !9}
-!111 = distinct !{!111, !8, !9}
-!112 = !{!"branch_weights", i32 1, i32 1048575}
-!113 = distinct !{!113, !8, !9}
-!114 = distinct !{!114, !8, !9}
-!115 = distinct !{!115, !8, !9}
-!116 = distinct !{!116, !8, !9}
-!117 = distinct !{!117, !9}
-!118 = distinct !{!118, !9}
-!119 = distinct !{!119, !9}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!122 = distinct !{!122, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!123 = !{!124, !121}
-!124 = distinct !{!124, !125, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!125 = distinct !{!125, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!9 = distinct !{!9, !8}
+!10 = !{i64 2145411697}
+!11 = !{i64 2145412694}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!18 = distinct !{!18, !19, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!19 = distinct !{!19, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!22 = distinct !{!22, !"_ZN17ZStatTablePrinterclEv"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!25 = distinct !{!25, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!26 = distinct !{!26, !27, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!27 = distinct !{!27, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!30 = distinct !{!30, !"_ZN17ZStatTablePrinterclEv"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!33 = distinct !{!33, !"_ZN17ZStatTablePrinterclEv"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!36 = distinct !{!36, !"_ZN17ZStatTablePrinterclEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!39 = distinct !{!39, !"_ZN17ZStatTablePrinterclEv"}
+!40 = distinct !{!40, !8}
+!41 = !{!42, !44}
+!42 = distinct !{!42, !43, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!44 = distinct !{!44, !45, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!45 = distinct !{!45, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!48 = distinct !{!48, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!49 = distinct !{!49, !50, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!50 = distinct !{!50, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!51 = distinct !{!51, !8}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv: argument 0"}
+!54 = distinct !{!54, !"_ZZN15ZStatRelocation15print_age_tableEvENK3$_1clEv"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!57 = distinct !{!57, !"_ZN17ZStatTablePrinterclEv"}
+!58 = !{!56, !53}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!61 = distinct !{!61, !"_ZN17ZStatTablePrinterclEv"}
+!62 = !{!60, !53}
+!63 = distinct !{!63, !8}
+!64 = !{!65, !67}
+!65 = distinct !{!65, !66, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!66 = distinct !{!66, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!67 = distinct !{!67, !68, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!68 = distinct !{!68, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!71 = distinct !{!71, !"_ZN17ZStatTablePrinterclEv"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!74 = distinct !{!74, !"_ZN17ZStatTablePrinterclEv"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!77 = distinct !{!77, !"_ZN17ZStatTablePrinterclEv"}
+!78 = !{!79, !81}
+!79 = distinct !{!79, !80, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!80 = distinct !{!80, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!81 = distinct !{!81, !82, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!82 = distinct !{!82, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!85 = distinct !{!85, !"_ZN17ZStatTablePrinterclEv"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!88 = distinct !{!88, !"_ZN17ZStatTablePrinterclEv"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!91 = distinct !{!91, !"_ZN17ZStatTablePrinterclEv"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!94 = distinct !{!94, !"_ZN17ZStatTablePrinterclEv"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!97 = distinct !{!97, !"_ZN17ZStatTablePrinterclEv"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!100 = distinct !{!100, !"_ZN17ZStatTablePrinterclEv"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!103 = distinct !{!103, !"_ZN17ZStatTablePrinterclEv"}
+!104 = distinct !{!104, !8}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZNK12ZStatSampler17collect_and_resetEv: argument 0"}
+!107 = distinct !{!107, !"_ZNK12ZStatSampler17collect_and_resetEv"}
+!108 = distinct !{!108, !8}
+!109 = distinct !{!109, !8}
+!110 = distinct !{!110, !8}
+!111 = !{!"branch_weights", i32 1, i32 1048575}
+!112 = distinct !{!112, !8}
+!113 = distinct !{!113, !8}
+!114 = distinct !{!114, !8}
+!115 = distinct !{!115, !8}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!118 = distinct !{!118, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!119 = !{!120, !117}
+!120 = distinct !{!120, !121, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!121 = distinct !{!121, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!124 = distinct !{!124, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!125 = !{}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!128 = distinct !{!128, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!129 = !{}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN17ZStatTablePrinterclEv: argument 0"}
-!132 = distinct !{!132, !"_ZN17ZStatTablePrinterclEv"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
-!135 = distinct !{!135, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
-!136 = !{!137, !134}
-!137 = distinct !{!137, !138, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!138 = distinct !{!138, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!141 = distinct !{!141, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
-!144 = distinct !{!144, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
-!145 = distinct !{!145, !8, !9}
+!127 = distinct !{!127, !128, !"_ZN17ZStatTablePrinterclEv: argument 0"}
+!128 = distinct !{!128, !"_ZN17ZStatTablePrinterclEv"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZN17ZStatTablePrinter7ZColumn4fillEc: argument 0"}
+!131 = distinct !{!131, !"_ZN17ZStatTablePrinter7ZColumn4fillEc"}
+!132 = !{!133, !130}
+!133 = distinct !{!133, !134, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!134 = distinct !{!134, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!137 = distinct !{!137, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv: argument 0"}
+!140 = distinct !{!140, !"_ZNK17ZStatTablePrinter7ZColumn4nextEv"}
+!141 = distinct !{!141, !8}

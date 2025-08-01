@@ -304,24 +304,24 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %0, p
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %10, align 8, !tbaa !21
-  %13 = load i64, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %10, align 8, !tbaa !20
+  %13 = load i64, ptr %11, align 8, !tbaa !21
   tail call void @CRYPTO_clear_free(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @.str, i32 noundef 163) #6
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %15 = load i64, ptr %14, align 8, !tbaa !23
+  %15 = load i64, ptr %14, align 8, !tbaa !22
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %9
   %18 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 168) #6
-  store ptr %18, ptr %10, align 8, !tbaa !21
+  store ptr %18, ptr %10, align 8, !tbaa !20
   %19 = icmp eq ptr %18, null
   br i1 %19, label %kdf_pbkdf1_set_membuf.exit.thread, label %kdf_pbkdf1_set_membuf.exit
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !26
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %kdf_pbkdf1_set_membuf.exit, label %23
 
@@ -338,24 +338,24 @@ kdf_pbkdf1_set_membuf.exit:                       ; preds = %23, %20, %17, %7
 26:                                               ; preds = %kdf_pbkdf1_set_membuf.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load ptr, ptr %27, align 8, !tbaa !21
-  %30 = load i64, ptr %28, align 8, !tbaa !22
+  %29 = load ptr, ptr %27, align 8, !tbaa !20
+  %30 = load i64, ptr %28, align 8, !tbaa !21
   tail call void @CRYPTO_clear_free(ptr noundef %29, i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 163) #6
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %32 = load i64, ptr %31, align 8, !tbaa !23
+  %32 = load i64, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %26
   %35 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 168) #6
-  store ptr %35, ptr %27, align 8, !tbaa !21
+  store ptr %35, ptr %27, align 8, !tbaa !20
   %36 = icmp eq ptr %35, null
   br i1 %36, label %kdf_pbkdf1_set_membuf.exit.thread, label %kdf_pbkdf1_set_membuf.exit28
 
 37:                                               ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !26
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   %.not.i25 = icmp eq ptr %39, null
   br i1 %.not.i25, label %kdf_pbkdf1_set_membuf.exit28, label %40
 
@@ -495,12 +495,11 @@ attributes #6 = { nounwind }
 !15 = !{!4, !11, i64 32}
 !16 = !{!4, !12, i64 40}
 !17 = !{!4, !12, i64 64}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!11, !11, i64 0}
-!22 = !{!12, !12, i64 0}
-!23 = !{!24, !12, i64 24}
-!24 = !{!"ossl_param_st", !11, i64 0, !25, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
-!25 = !{!"int", !6, i64 0}
-!26 = !{!24, !5, i64 16}
+!20 = !{!11, !11, i64 0}
+!21 = !{!12, !12, i64 0}
+!22 = !{!23, !12, i64 24}
+!23 = !{!"ossl_param_st", !11, i64 0, !24, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
+!24 = !{!"int", !6, i64 0}
+!25 = !{!23, !5, i64 16}

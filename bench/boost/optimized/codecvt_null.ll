@@ -44,8 +44,8 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE6do_outER
   %.016.lcssa = phi ptr [ %5, %8 ], [ %16, %13 ], [ %.01618, %.lr.ph ]
   %.015.lcssa = phi ptr [ %2, %8 ], [ %14, %13 ], [ %.01519, %.lr.ph ]
   %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 1, %.lr.ph ]
-  store ptr %.015.lcssa, ptr %4, align 8, !tbaa !10
-  store ptr %.016.lcssa, ptr %7, align 8, !tbaa !10
+  store ptr %.015.lcssa, ptr %4, align 8, !tbaa !9
+  store ptr %.016.lcssa, ptr %7, align 8, !tbaa !9
   ret i32 %.0
 }
 
@@ -73,21 +73,21 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE5do_inER1
   %.not = icmp eq ptr %16, %6
   %18 = icmp eq ptr %17, %3
   %or.cond = select i1 %.not, i1 true, i1 %18
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14, %8
   %.018.lcssa = phi ptr [ %5, %8 ], [ %16, %14 ], [ %.01822, %.lr.ph ]
   %.017.lcssa = phi ptr [ %2, %8 ], [ %17, %14 ], [ %.01723, %.lr.ph ]
   %.0 = phi i32 [ 0, %8 ], [ 0, %14 ], [ 1, %.lr.ph ]
-  store ptr %.017.lcssa, ptr %4, align 8, !tbaa !10
-  store ptr %.018.lcssa, ptr %7, align 8, !tbaa !10
+  store ptr %.017.lcssa, ptr %4, align 8, !tbaa !9
+  store ptr %.018.lcssa, ptr %7, align 8, !tbaa !9
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost7archive12codecvt_nullIwEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZNSt7codecvtIwc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost7archive12codecvt_nullIwEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN5boost7archive12codecvt_nullIwEE, i64 16), ptr %0, align 8, !tbaa !12
   ret void
 }
 
@@ -128,7 +128,7 @@ declare noundef i32 @_ZNKSt7codecvtIwc11__mbstate_tE9do_lengthERS0_PKcS4_m(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK5boost7archive12codecvt_nullIwE13do_max_lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(24) %0) #6
@@ -153,11 +153,10 @@ attributes #7 = { builtin nounwind }
 !4 = !{!"wchar_t", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"vtable pointer", !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"vtable pointer", !6, i64 0}

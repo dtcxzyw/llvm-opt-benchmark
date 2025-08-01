@@ -1042,7 +1042,7 @@ for.body45:                                       ; preds = %for.cond42
   %cmp49 = fcmp ult double %36, %31
   %cmp52 = fcmp ugt double %36, %32
   %or.cond34 = select i1 %cmp49, i1 %cmp52, i1 false
-  br i1 %or.cond34, label %for.cond42, label %if.then100.critedge, !llvm.loop !54
+  br i1 %or.cond34, label %for.cond42, label %if.then100.critedge, !llvm.loop !53
 
 do.body62:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream63) #16
@@ -1557,7 +1557,6 @@ attributes #19 = { builtin nounwind }
 !48 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
 !49 = !{!5, !5, i64 0}
 !50 = !{!22, !22, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = distinct !{!54, !52, !53}
+!53 = distinct !{!53, !52}

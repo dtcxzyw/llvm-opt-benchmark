@@ -115,6 +115,5 @@ attributes #4 = { nounwind }
 !7 = !{!8, !9, i64 4}
 !8 = !{!"ThreadProgress", !5, i64 0, !9, i64 4, !5, i64 8, !5, i64 48}
 !9 = !{!"int", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}

@@ -485,7 +485,7 @@ define internal void @snd_minor_info_read(ptr readnone captures(none) %0, ptr no
 56:                                               ; preds = %53, %39, %27, %3
   %57 = add nuw nsw i64 %4, 1
   %58 = icmp eq i64 %57, 256
-  br i1 %58, label %59, label %3, !llvm.loop !9
+  br i1 %58, label %59, label %3, !llvm.loop !8
 
 59:                                               ; preds = %56
   tail call void @mutex_unlock(ptr noundef nonnull @sound_mutex) #5
@@ -710,8 +710,7 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}

@@ -50,14 +50,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !10
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.1, i32 noundef %8) #10
   %puts.i9.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call fastcc void @graphviz_exit(i32 noundef 1) #9
   unreachable
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !10
   %15 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %14) #11
   tail call fastcc void @graphviz_exit(i32 noundef 1) #9
   unreachable
@@ -68,13 +68,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not8.i, label %.init.exit_crit_edge, label %18
 
 .init.exit_crit_edge:                             ; preds = %16
-  %.pre = load ptr, ptr @Files, align 8, !tbaa !14
+  %.pre = load ptr, ptr @Files, align 8, !tbaa !13
   br label %init.exit
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %1, i64 %19
-  store ptr %20, ptr @Files, align 8, !tbaa !14
+  store ptr %20, ptr @Files, align 8, !tbaa !13
   br label %init.exit
 
 init.exit:                                        ; preds = %.init.exit_crit_edge, %18
@@ -90,7 +90,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br i1 %.b4, label %28, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %26 = load ptr, ptr @stdout, align 8, !tbaa !10
   %27 = call i32 @agwrite(ptr noundef nonnull %24, ptr noundef %26) #8
   br label %28
 
@@ -98,11 +98,11 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   %29 = call i32 @agclose(ptr noundef nonnull %24) #8
   %30 = call ptr @nextGraph(ptr noundef nonnull %3) #8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %28, %init.exit
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %32 = load i32, ptr %31, align 4, !tbaa !17
+  %32 = load i32, ptr %31, align 4, !tbaa !16
   %.not3 = icmp eq i32 %32, 0
   br i1 %.not3, label %33, label %37
 
@@ -176,15 +176,14 @@ attributes #12 = { noreturn nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!13 = !{!"any pointer", !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p2 omnipotent char", !13, i64 0}
-!16 = distinct !{!16, !9, !10}
-!17 = !{!18, !5, i64 36}
-!18 = !{!"", !6, i64 0, !5, i64 8, !5, i64 12, !13, i64 16, !13, i64 24, !19, i64 32, !5, i64 36}
-!19 = !{!"_Bool", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p2 omnipotent char", !12, i64 0}
+!15 = distinct !{!15, !9}
+!16 = !{!17, !5, i64 36}
+!17 = !{!"", !6, i64 0, !5, i64 8, !5, i64 12, !12, i64 16, !12, i64 24, !18, i64 32, !5, i64 36}
+!18 = !{!"_Bool", !6, i64 0}

@@ -144,7 +144,7 @@ dt_util_localize_string.exit46:                   ; preds = %.lr.ph, %18
   %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !6
   %.not42 = icmp eq ptr %25, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %dt_util_localize_string.exit46, %dt_util_localize_string.exit
   %.036.lcssa = phi i64 [ %12, %dt_util_localize_string.exit ], [ %23, %dt_util_localize_string.exit46 ]
@@ -196,7 +196,7 @@ dt_util_localize_string.exit52:                   ; preds = %.lr.ph59, %39, %42
   %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next62
   %47 = load ptr, ptr %46, align 8, !tbaa !6
   %.not43 = icmp eq ptr %47, null
-  br i1 %.not43, label %.loopexit, label %.lr.ph59, !llvm.loop !13
+  br i1 %.not43, label %.loopexit, label %.lr.ph59
 
 .loopexit:                                        ; preds = %dt_util_localize_string.exit52, %dt_util_localize_string.exit49, %3, %1
   %.034 = phi ptr [ null, %3 ], [ null, %1 ], [ %26, %dt_util_localize_string.exit49 ], [ %26, %dt_util_localize_string.exit52 ]
@@ -263,7 +263,7 @@ define void @dt_util_str_cat(ptr noundef captures(address_is_null) %0, ptr nound
   %22 = load ptr, ptr %0, align 8, !tbaa !6
   %23 = sext i32 %12 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  store i8 0, ptr %24, align 1, !tbaa !14
+  store i8 0, ptr %24, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
   br label %25
 
@@ -302,7 +302,7 @@ define i32 @dt_util_str_occurence(ptr noundef %0, ptr noundef %1) local_unnamed_
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #27
   %11 = tail call ptr @g_strstr_len(ptr noundef nonnull %9, i64 noundef %10, ptr noundef nonnull %1) #28
   %.not15 = icmp eq ptr %11, null
-  br i1 %.not15, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %.not15, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %5, %2
   %.011 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %8, %.preheader ]
@@ -353,7 +353,7 @@ define noalias ptr @dt_util_str_replace(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #27
   %12 = tail call ptr @g_strstr_len(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %1) #28
   %.not15.i = icmp eq ptr %12, null
-  br i1 %.not15.i, label %dt_util_str_occurence.exit, label %.preheader.i, !llvm.loop !15
+  br i1 %.not15.i, label %dt_util_str_occurence.exit, label %.preheader.i
 
 dt_util_str_occurence.exit:                       ; preds = %.preheader.i
   %.not = icmp eq i32 %9, 0
@@ -392,7 +392,7 @@ dt_util_str_occurence.exit:                       ; preds = %.preheader.i
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #27
   %35 = tail call ptr @g_strstr_len(ptr noundef nonnull %33, i64 noundef %34, ptr noundef nonnull %1) #28
   %.not46 = icmp eq ptr %35, null
-  br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not46, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %13
   %.039 = phi ptr [ %0, %13 ], [ %32, %.preheader ]
@@ -402,7 +402,7 @@ dt_util_str_occurence.exit:                       ; preds = %.preheader.i
   %38 = sub i64 %36, %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr nonnull align 1 %.039, i64 %38, i1 false)
   %39 = getelementptr inbounds i8, ptr %.0, i64 %38
-  store i8 0, ptr %39, align 1, !tbaa !14
+  store i8 0, ptr %39, align 1, !tbaa !11
   br label %41
 
 dt_util_str_occurence.exit.thread:                ; preds = %6, %3, %dt_util_str_occurence.exit
@@ -437,14 +437,14 @@ define noalias ptr @dt_util_glist_to_str(ptr noundef %0, ptr noundef %1) local_u
 9:                                                ; preds = %4, %9
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
   %.01517 = phi ptr [ %1, %4 ], [ %13, %9 ]
-  %10 = load ptr, ptr %.01517, align 8, !tbaa !17
+  %10 = load ptr, ptr %.01517, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %.01517, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %9, !llvm.loop !21
+  br i1 %.not, label %14, label %9
 
 14:                                               ; preds = %9
   %15 = tail call noalias ptr @g_strjoinv(ptr noundef %0, ptr noundef nonnull %8) #28
@@ -477,7 +477,7 @@ define ptr @dt_util_glist_uniq(ptr noundef %0) local_unnamed_addr #0 {
   %.01841 = phi ptr [ %.136, %8 ], [ null, %2 ]
   %.02040 = phi ptr [ %.12134, %8 ], [ null, %2 ]
   %.02239 = phi ptr [ %.12332, %8 ], [ %3, %2 ]
-  %4 = load ptr, ptr %.01742, align 8, !tbaa !17
+  %4 = load ptr, ptr %.01742, align 8, !tbaa !12
   %5 = tail call i32 @g_strcmp0(ptr noundef %.02040, ptr noundef %4) #28
   %.not26 = icmp eq i32 %5, 0
   br i1 %.not26, label %6, label %8
@@ -493,9 +493,9 @@ define ptr @dt_util_glist_uniq(ptr noundef %0) local_unnamed_addr #0 {
   %.12134 = phi ptr [ %.02040, %6 ], [ %4, %.lr.ph ]
   %.12332 = phi ptr [ %7, %6 ], [ %.02239, %.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %.136, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
   %.not25 = icmp eq ptr %10, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %6, %8, %2, %1
   %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %7, %6 ], [ %.12332, %8 ]
@@ -514,7 +514,7 @@ define noalias ptr @dt_util_fix_path(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %25, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr %0, align 1, !tbaa !14
+  %4 = load i8, ptr %0, align 1, !tbaa !11
   switch i8 %4, label %23 [
     i8 0, label %25
     i8 126, label %5
@@ -527,7 +527,7 @@ define noalias ptr @dt_util_fix_path(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !14
+  %10 = load i8, ptr %9, align 1, !tbaa !11
   %.not = icmp eq i8 %10, 47
   br i1 %.not, label %16, label %.preheader
 
@@ -542,8 +542,8 @@ define noalias ptr @dt_util_fix_path(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !14
-  br label %.preheader, !llvm.loop !23
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !11
+  br label %.preheader
 
 .critedge:                                        ; preds = %.preheader, %.preheader
   %13 = shl i64 %indvars.iv, 32
@@ -593,27 +593,27 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .lr.ph:                                           ; preds = %3
   %5 = load ptr, ptr @g_utf8_skip, align 8
-  %6 = load i8, ptr %1, align 1, !tbaa !14
+  %6 = load i8, ptr %1, align 1, !tbaa !11
   %.not56 = icmp eq i8 %6, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph58
 
 7:                                                ; preds = %.lr.ph58
-  %8 = load i8, ptr %14, align 1, !tbaa !14
+  %8 = load i8, ptr %14, align 1, !tbaa !11
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph, %7
   %9 = phi i8 [ %8, %7 ], [ %6, %.lr.ph ]
   %.03757 = phi ptr [ %14, %7 ], [ %1, %.lr.ph ]
   %10 = zext i8 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !14
+  %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = sext i8 %12 to i64
   %14 = getelementptr inbounds i8, ptr %.03757, i64 %13
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %4
   %17 = icmp ult i64 %16, %2
-  br i1 %17, label %7, label %.critedge, !llvm.loop !24
+  br i1 %17, label %7, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph58, %3
   %.0.lcssa = phi ptr [ %1, %3 ], [ %14, %.lr.ph58 ]
@@ -622,8 +622,8 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
   %20 = sub i64 %19, %4
   %21 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %20) #28
   %22 = getelementptr inbounds i8, ptr %0, i64 %20
-  store i8 0, ptr %22, align 1, !tbaa !14
-  %23 = load i8, ptr %18, align 1, !tbaa !14
+  store i8 0, ptr %22, align 1, !tbaa !11
+  %23 = load i8, ptr %18, align 1, !tbaa !11
   %.not3239 = icmp eq i8 %23, 0
   br i1 %.not3239, label %.loopexit, label %.lr.ph41
 
@@ -636,19 +636,19 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.140 = phi ptr [ %18, %.lr.ph41 ], [ %31, %25 ]
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !14
+  %29 = load i8, ptr %28, align 1, !tbaa !11
   %30 = sext i8 %29 to i64
   %31 = getelementptr inbounds i8, ptr %.140, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !14
+  %32 = load i8, ptr %31, align 1, !tbaa !11
   %.not32 = icmp eq i8 %32, 0
-  br i1 %.not32, label %.loopexit, label %25, !llvm.loop !25
+  br i1 %.not32, label %.loopexit, label %25
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph
   %.lcssa53 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
   %.037.lcssa = phi ptr [ %1, %.lr.ph ], [ %14, %7 ]
   %33 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.lcssa53) #28
   %34 = getelementptr inbounds i8, ptr %0, i64 %.lcssa53
-  store i8 0, ptr %34, align 1, !tbaa !14
+  store i8 0, ptr %34, align 1, !tbaa !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.critedge, %._crit_edge
@@ -679,11 +679,11 @@ define range(i32 0, 2) i32 @dt_util_test_image_file(ptr noundef %0) local_unname
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 8, !tbaa !16
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 32768
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %12 = load i64, ptr %11, align 8, !tbaa !31
+  %12 = load i64, ptr %11, align 8, !tbaa !21
   %13 = icmp sgt i64 %12, 0
   %14 = select i1 %10, i1 %13, i1 false
   %15 = zext i1 %14 to i32
@@ -718,7 +718,7 @@ define range(i32 0, 2) i32 @dt_util_test_writable_dir(ptr noundef %0) local_unna
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 8, !tbaa !16
   %9 = and i32 %8, 61440
   %.not4 = icmp eq i32 %9, 16384
   br i1 %.not4, label %10, label %12
@@ -751,7 +751,7 @@ define range(i32 0, 2) i32 @dt_util_is_dir_empty(ptr noundef %0) local_unnamed_a
   %6 = tail call ptr @g_dir_read_name(ptr noundef nonnull %2) #28
   %.not = icmp eq ptr %6, null
   %brmerge = or i1 %4, %.not
-  br i1 %brmerge, label %7, label %.preheader, !llvm.loop !32
+  br i1 %brmerge, label %7, label %.preheader
 
 7:                                                ; preds = %.preheader
   tail call void @g_dir_close(ptr noundef nonnull %2) #28
@@ -791,7 +791,7 @@ define ptr @dt_util_foo_to_utf8(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %7
   %9 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
-  %10 = load i8, ptr %9, align 1, !tbaa !14
+  %10 = load i8, ptr %9, align 1, !tbaa !11
   %.not1617 = icmp eq i8 %10, 0
   br i1 %.not1617, label %.loopexit, label %.lr.ph
 
@@ -803,14 +803,14 @@ define ptr @dt_util_foo_to_utf8(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %.lr.ph
-  store i8 63, ptr %.018, align 1, !tbaa !14
+  store i8 63, ptr %.018, align 1, !tbaa !11
   br label %14
 
 14:                                               ; preds = %.lr.ph, %13
   %15 = getelementptr inbounds nuw i8, ptr %.018, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !14
+  %16 = load i8, ptr %15, align 1, !tbaa !11
   %.not16 = icmp eq i8 %16, 0
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %14, %8, %7
   %.1 = phi ptr [ %.012, %7 ], [ %9, %8 ], [ %9, %14 ]
@@ -831,7 +831,7 @@ define range(i32 0, 4) i32 @dt_util_get_logo_season() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #28
   %5 = call ptr @localtime_r(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !34
+  %7 = load i32, ptr %6, align 8, !tbaa !22
   %8 = icmp eq i32 %7, 9
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4
@@ -853,9 +853,9 @@ define range(i32 0, 4) i32 @dt_util_get_logo_season() local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false), !tbaa.struct !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false), !tbaa.struct !24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !39
+  %20 = load i32, ptr %19, align 4, !tbaa !27
   %21 = add nsw i32 %20, 1900
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -905,18 +905,18 @@ define range(i32 0, 4) i32 @dt_util_get_logo_season() local_unnamed_addr #0 {
   %54 = urem i8 %.lhs.trunc37.i, 31
   %narrow40.i = add nuw nsw i8 %54, 1
   %55 = zext nneg i8 %narrow40.i to i32
-  store i32 %55, ptr %23, align 4, !tbaa !37
+  store i32 %55, ptr %23, align 4, !tbaa !25
   %56 = add nsw i32 %.zext.i, -1
-  store i32 %56, ptr %22, align 8, !tbaa !34
-  store i32 0, ptr %3, align 8, !tbaa !40
+  store i32 %56, ptr %22, align 8, !tbaa !22
+  store i32 0, ptr %3, align 8, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %57, align 4, !tbaa !41
+  store i32 0, ptr %57, align 4, !tbaa !29
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %58, align 8, !tbaa !42
+  store i32 0, ptr %58, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 -1, ptr %59, align 8, !tbaa !43
+  store i32 -1, ptr %59, align 8, !tbaa !31
   %60 = call i64 @mktime(ptr noundef nonnull %3) #28
-  %61 = load i64, ptr %1, align 8, !tbaa !38
+  %61 = load i64, ptr %1, align 8, !tbaa !26
   %62 = sub nsw i64 %60, %61
   %63 = call i64 @llvm.abs.i64(i64 %62, i1 true)
   %64 = icmp samesign ugt i64 %63, 172800
@@ -973,7 +973,7 @@ define internal fastcc ptr @_util_get_svg_img(ptr noundef %0, float noundef %1) 
   %8 = alloca ptr, align 8
   %9 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
-  store ptr null, ptr %8, align 8, !tbaa !44
+  store ptr null, ptr %8, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %9) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %9, i8 0, i64 4096, i1 false)
   call void @dt_loc_get_datadir(ptr noundef nonnull %9, i64 noundef 4096) #28
@@ -983,32 +983,32 @@ define internal fastcc ptr @_util_get_svg_img(ptr noundef %0, float noundef %1) 
   br i1 %.not, label %75, label %12
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28, !noalias !46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28, !noalias !46
-  %13 = call i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #28, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28, !noalias !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28, !noalias !34
+  %13 = call i32 @rsvg_handle_get_intrinsic_size_in_pixels(ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #28, !noalias !34
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %19, label %14
 
 14:                                               ; preds = %12
-  %15 = load double, ptr %4, align 8, !tbaa !49, !noalias !46
+  %15 = load double, ptr %4, align 8, !tbaa !37, !noalias !34
   %16 = call i64 @llvm.lround.i64.f64(double %15)
-  %17 = load double, ptr %5, align 8, !tbaa !49, !noalias !46
+  %17 = load double, ptr %5, align 8, !tbaa !37, !noalias !34
   %18 = call i64 @llvm.lround.i64.f64(double %17)
   br label %dt_get_svg_dimension.exit
 
 19:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @__const.dt_get_svg_dimension.viewport, i64 32, i1 false), !noalias !46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #28, !noalias !46
-  %20 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7, ptr noundef null) #28, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @__const.dt_get_svg_dimension.viewport, i64 32, i1 false), !noalias !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #28, !noalias !34
+  %20 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7, ptr noundef null) #28, !noalias !34
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load double, ptr %21, align 8, !tbaa !51, !noalias !46
+  %22 = load double, ptr %21, align 8, !tbaa !39, !noalias !34
   %23 = call i64 @llvm.lround.i64.f64(double %22)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %25 = load double, ptr %24, align 8, !tbaa !53, !noalias !46
+  %25 = load double, ptr %24, align 8, !tbaa !41, !noalias !34
   %26 = call i64 @llvm.lround.i64.f64(double %25)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #28, !noalias !46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !46
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #28, !noalias !34
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !34
   br label %dt_get_svg_dimension.exit
 
 dt_get_svg_dimension.exit:                        ; preds = %14, %19
@@ -1016,15 +1016,15 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
   %.sink.in.i = phi i64 [ %26, %19 ], [ %18, %14 ]
   %.sink.i = trunc i64 %.sink.in.i to i32
   %.sink2.i = trunc i64 %.sink2.in.i to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28, !noalias !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28, !noalias !46
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !54
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28, !noalias !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28, !noalias !34
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !42
   %.not58 = icmp eq ptr %27, null
   br i1 %.not58, label %32, label %28
 
 28:                                               ; preds = %dt_get_svg_dimension.exit
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 1432
-  %30 = load double, ptr %29, align 8, !tbaa !88
+  %30 = load double, ptr %29, align 8, !tbaa !76
   %31 = fptrunc reassoc nsz arcp contract afn double %30 to float
   br label %32
 
@@ -1068,16 +1068,16 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
   br label %81
 
 55:                                               ; preds = %41
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !54
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !42
   %.not60 = icmp eq ptr %56, null
   %57 = fptosi float %48 to i32
   %58 = call ptr @cairo_image_surface_create_for_data(ptr noundef nonnull %54, i32 noundef 0, i32 noundef %49, i32 noundef %57, i32 noundef %50) #28
   br i1 %.not60, label %63, label %59
 
 59:                                               ; preds = %55
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !54
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !42
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1432
-  %62 = load double, ptr %61, align 8, !tbaa !88
+  %62 = load double, ptr %61, align 8, !tbaa !76
   call void @cairo_surface_set_device_scale(ptr noundef %58, double noundef %62, double noundef %62) #28
   br label %63
 
@@ -1101,9 +1101,9 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store double %69, ptr %71, align 8, !tbaa !51
+  store double %69, ptr %71, align 8, !tbaa !39
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %70, ptr %72, align 8, !tbaa !53
+  store double %70, ptr %72, align 8, !tbaa !41
   %73 = call i32 @rsvg_handle_render_document(ptr noundef nonnull %11, ptr noundef %67, ptr noundef nonnull %3, ptr noundef null) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
   call void @cairo_destroy(ptr noundef %67) #28
@@ -1116,11 +1116,11 @@ dt_get_svg_dimension.exit:                        ; preds = %14, %19
   br label %80
 
 75:                                               ; preds = %2
-  %76 = load ptr, ptr %8, align 8, !tbaa !44
+  %76 = load ptr, ptr %8, align 8, !tbaa !32
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !94
+  %78 = load ptr, ptr %77, align 8, !tbaa !82
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.36, ptr noundef %10, ptr noundef %78) #28
-  %79 = load ptr, ptr %8, align 8, !tbaa !44
+  %79 = load ptr, ptr %8, align 8, !tbaa !32
   call void @g_error_free(ptr noundef %79) #28
   br label %80
 
@@ -1157,7 +1157,7 @@ define noalias ptr @dt_util_latitude_str(float noundef %0) local_unnamed_addr #0
   %.08 = select nsz i1 %5, float %6, float %0
   %.07 = select i1 %5, ptr @.str.9, ptr @.str.8
   %7 = call reassoc nsz arcp contract afn float @modff(float noundef %.08, ptr noundef nonnull %2) #28
-  %8 = load float, ptr %2, align 4, !tbaa !96
+  %8 = load float, ptr %2, align 4, !tbaa !84
   %9 = fptosi float %8 to i32
   %10 = fpext reassoc nsz arcp contract afn float %7 to double
   %11 = fmul reassoc nsz arcp contract afn double %10, 6.000000e+01
@@ -1189,7 +1189,7 @@ define noalias ptr @dt_util_longitude_str(float noundef %0) local_unnamed_addr #
   %.08 = select nsz i1 %5, float %6, float %0
   %.07 = select i1 %5, ptr @.str.12, ptr @.str.11
   %7 = call reassoc nsz arcp contract afn float @modff(float noundef %.08, ptr noundef nonnull %2) #28
-  %8 = load float, ptr %2, align 4, !tbaa !96
+  %8 = load float, ptr %2, align 4, !tbaa !84
   %9 = fptosi float %8 to i32
   %10 = fpext reassoc nsz arcp contract afn float %7 to double
   %11 = fmul reassoc nsz arcp contract afn double %10, 6.000000e+01
@@ -1226,14 +1226,14 @@ define noalias ptr @dt_util_elevation_str(float noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__ctype_toupper_loc() #31
-  %3 = load ptr, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8, !tbaa !86
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -1
-  %7 = load i8, ptr %6, align 1, !tbaa !14
+  %7 = load i8, ptr %6, align 1, !tbaa !11
   %8 = sext i8 %7 to i64
   %9 = getelementptr inbounds i32, ptr %3, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !37
+  %10 = load i32, ptr %9, align 4, !tbaa !25
   %11 = tail call ptr @g_strsplit(ptr noundef nonnull %0, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter, i32 noundef 0) #28
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %52, label %12
@@ -1342,7 +1342,7 @@ define range(i32 0, 2) i32 @dt_util_gps_rationale_to_number(double noundef %0, d
   %or.cond = icmp eq i8 %25, 83
   %26 = fneg reassoc nsz arcp contract afn double %.131
   %.2 = select nsz i1 %or.cond, double %26, double %.131
-  store double %.2, ptr %7, align 8, !tbaa !49
+  store double %.2, ptr %7, align 8, !tbaa !37
   br label %27
 
 27:                                               ; preds = %20, %18, %8
@@ -1362,7 +1362,7 @@ define range(i32 0, 2) i32 @dt_util_gps_elevation_to_number(double noundef %0, d
   %.not13 = icmp eq i8 %2, 48
   %8 = fneg reassoc nsz arcp contract afn double %7
   %spec.select = select i1 %.not13, double %7, double %8
-  store double %spec.select, ptr %3, align 8, !tbaa !49
+  store double %spec.select, ptr %3, align 8, !tbaa !37
   br label %9
 
 9:                                                ; preds = %6, %4
@@ -1408,9 +1408,9 @@ define ptr @dt_util_normalize_path(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %18, label %g_realpath.exit
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !99
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !87
   %20 = tail call ptr @__errno_location() #31
-  %21 = load i32, ptr %20, align 4, !tbaa !37
+  %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = call ptr @strerror(i32 noundef %21) #28
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.39, ptr noundef %16, ptr noundef %22) #32
   call void @exit(i32 noundef 1) #33
@@ -1446,7 +1446,7 @@ declare ptr @g_get_current_dir() local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @dt_util_path_get_dirname(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #28
-  %3 = load i8, ptr %2, align 1, !tbaa !14
+  %3 = load i8, ptr %2, align 1, !tbaa !11
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %11, label %4
 
@@ -1456,7 +1456,7 @@ define noalias noundef ptr @dt_util_path_get_dirname(ptr noundef %0) local_unnam
   %sext = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext, 32
   %8 = getelementptr inbounds i8, ptr %2, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !14
+  %9 = load i8, ptr %8, align 1, !tbaa !11
   %10 = icmp eq i8 %9, 47
   %spec.store.select = select i1 %10, i8 0, i8 %9
   store i8 %spec.store.select, ptr %8, align 1
@@ -1470,7 +1470,7 @@ declare noalias ptr @g_path_get_dirname(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @dt_util_string_count_char(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #18 {
-  %3 = load i8, ptr %0, align 1, !tbaa !14
+  %3 = load i8, ptr %0, align 1, !tbaa !11
   %.not7 = icmp eq i8 %3, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -1482,9 +1482,9 @@ define i32 @dt_util_string_count_char(ptr noundef readonly captures(none) %0, i8
   %6 = zext i1 %5 to i32
   %spec.select = add i32 %.09, %6
   %7 = getelementptr inbounds nuw i8, ptr %.058, i64 1
-  %8 = load i8, ptr %7, align 1, !tbaa !14
+  %8 = load i8, ptr %7, align 1, !tbaa !11
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %.lr.ph ]
@@ -1494,8 +1494,8 @@ define i32 @dt_util_string_count_char(ptr noundef readonly captures(none) %0, i8
 ; Function Attrs: nounwind uwtable
 define void @dt_util_str_to_loc_numbers_format(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @localeconv() #28
-  %3 = load ptr, ptr %2, align 8, !tbaa !102
-  %4 = load i8, ptr %3, align 1, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %4 = load i8, ptr %3, align 1, !tbaa !11
   %5 = tail call ptr @g_strdelimit(ptr noundef %0, ptr noundef nonnull @.str.18, i8 noundef signext %4) #28
   ret void
 }
@@ -1525,17 +1525,17 @@ define ptr @dt_util_str_to_glist(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not33, label %._crit_edge.sink.split, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = load i8, ptr %8, align 1, !tbaa !14
-  store i8 0, ptr %8, align 1, !tbaa !14
+  %10 = load i8, ptr %8, align 1, !tbaa !11
+  store i8 0, ptr %8, align 1, !tbaa !11
   %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.02936) #28
-  store i8 %10, ptr %8, align 1, !tbaa !14
+  store i8 %10, ptr %8, align 1, !tbaa !11
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #27
   %15 = tail call ptr @g_list_prepend(ptr noundef %.02637, ptr noundef %11) #28
   %16 = and i64 %14, 4294967295
   %.not34 = icmp eq i64 %16, 0
-  br i1 %.not34, label %._crit_edge.sink.split, label %.lr.ph, !llvm.loop !104
+  br i1 %.not34, label %._crit_edge.sink.split, label %.lr.ph
 
 ._crit_edge.sink.split:                           ; preds = %.lr.ph, %9
   %.str.19.sink = phi ptr [ @.str.19, %9 ], [ %.02936, %.lr.ph ]
@@ -1633,7 +1633,7 @@ define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %2
-  store i64 0, ptr %1, align 8, !tbaa !38
+  store i64 0, ptr %1, align 8, !tbaa !26
   br label %4
 
 4:                                                ; preds = %3, %2
@@ -1659,7 +1659,7 @@ define noalias noundef ptr @dt_read_file(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %14
-  store i64 %8, ptr %1, align 8, !tbaa !38
+  store i64 %8, ptr %1, align 8, !tbaa !26
   br label %17
 
 16:                                               ; preds = %10
@@ -1794,9 +1794,9 @@ define void @dt_get_svg_dimension(ptr dead_on_unwind noalias writable writeonly 
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
-  %9 = load double, ptr %3, align 8, !tbaa !49
+  %9 = load double, ptr %3, align 8, !tbaa !37
   %10 = call i64 @llvm.lround.i64.f64(double %9)
-  %11 = load double, ptr %4, align 8, !tbaa !49
+  %11 = load double, ptr %4, align 8, !tbaa !37
   %12 = call i64 @llvm.lround.i64.f64(double %11)
   br label %21
 
@@ -1806,10 +1806,10 @@ define void @dt_get_svg_dimension(ptr dead_on_unwind noalias writable writeonly 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
   %14 = call i32 @rsvg_handle_get_geometry_for_layer(ptr noundef %1, ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #28
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = load double, ptr %15, align 8, !tbaa !51
+  %16 = load double, ptr %15, align 8, !tbaa !39
   %17 = call i64 @llvm.lround.i64.f64(double %16)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = load double, ptr %18, align 8, !tbaa !53
+  %19 = load double, ptr %18, align 8, !tbaa !41
   %20 = call i64 @llvm.lround.i64.f64(double %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
@@ -1820,9 +1820,9 @@ define void @dt_get_svg_dimension(ptr dead_on_unwind noalias writable writeonly 
   %.sink.in = phi i64 [ %20, %13 ], [ %12, %8 ]
   %.sink = trunc i64 %.sink.in to i32
   %.sink2 = trunc i64 %.sink2.in to i32
-  store i32 %.sink2, ptr %0, align 8, !tbaa !105
+  store i32 %.sink2, ptr %0, align 8, !tbaa !91
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %22, align 4, !tbaa !107
+  store i32 %.sink, ptr %22, align 4, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
   ret void
@@ -1839,13 +1839,13 @@ declare i32 @rsvg_handle_get_geometry_for_layer(ptr noundef, ptr noundef, ptr no
 define void @dt_render_svg(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct._RsvgRectangle, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #28
-  store double %4, ptr %7, align 8, !tbaa !108
+  store double %4, ptr %7, align 8, !tbaa !94
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %5, ptr %8, align 8, !tbaa !109
+  store double %5, ptr %8, align 8, !tbaa !95
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double %2, ptr %9, align 8, !tbaa !51
+  store double %2, ptr %9, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %3, ptr %10, align 8, !tbaa !53
+  store double %3, ptr %10, align 8, !tbaa !41
   %11 = call i32 @rsvg_handle_render_document(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef null) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #28
   ret void
@@ -1895,11 +1895,11 @@ define range(i32 0, 2) i32 @dt_has_same_path_basename(ptr noundef %0, ptr nounde
 21:                                               ; preds = %.preheader
   %22 = add nsw i64 %indvars.iv, -1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !14
+  %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %22
-  %26 = load i8, ptr %25, align 1, !tbaa !14
+  %26 = load i8, ptr %25, align 1, !tbaa !11
   %.not30 = icmp eq i8 %24, %26
-  br i1 %.not30, label %.preheader, label %27, !llvm.loop !110
+  br i1 %.not30, label %.preheader, label %27
 
 27:                                               ; preds = %21, %.preheader
   %spec.select = zext i1 %20 to i32
@@ -2036,7 +2036,7 @@ define range(i32 0, 2) i32 @dt_str_commasubstring(ptr noundef %0, ptr noundef %1
 9:                                                ; preds = %.lr.ph
   %10 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.dt_str_commasubstring.delimiter) #28
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !111
+  br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %9, %.lr.ph, %4
   %.08.ph = phi i32 [ 0, %4 ], [ 1, %.lr.ph ], [ 0, %9 ]
@@ -2169,104 +2169,88 @@ attributes #33 = { cold noreturn nounwind }
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = !{!9, !9, i64 0}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = !{!18, !8, i64 0}
-!18 = !{!"_GList", !8, i64 0, !19, i64 8, !19, i64 16}
-!19 = !{!"p1 _ZTS6_GList", !8, i64 0}
-!20 = !{!18, !19, i64 8}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = !{!27, !29, i64 24}
-!27 = !{!"stat", !28, i64 0, !28, i64 8, !28, i64 16, !29, i64 24, !29, i64 28, !29, i64 32, !29, i64 36, !28, i64 40, !28, i64 48, !28, i64 56, !28, i64 64, !30, i64 72, !30, i64 88, !30, i64 104, !9, i64 120}
-!28 = !{!"long", !9, i64 0}
-!29 = !{!"int", !9, i64 0}
-!30 = !{!"timespec", !28, i64 0, !28, i64 8}
-!31 = !{!27, !28, i64 48}
-!32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12}
-!34 = !{!35, !29, i64 16}
-!35 = !{!"tm", !29, i64 0, !29, i64 4, !29, i64 8, !29, i64 12, !29, i64 16, !29, i64 20, !29, i64 24, !29, i64 28, !29, i64 32, !28, i64 40, !7, i64 48}
-!36 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 4, !37, i64 12, i64 4, !37, i64 16, i64 4, !37, i64 20, i64 4, !37, i64 24, i64 4, !37, i64 28, i64 4, !37, i64 32, i64 4, !37, i64 40, i64 8, !38, i64 48, i64 8, !6}
-!37 = !{!29, !29, i64 0}
-!38 = !{!28, !28, i64 0}
-!39 = !{!35, !29, i64 20}
-!40 = !{!35, !29, i64 0}
-!41 = !{!35, !29, i64 4}
-!42 = !{!35, !29, i64 8}
-!43 = !{!35, !29, i64 32}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS7_GError", !8, i64 0}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"dt_get_svg_dimension: argument 0"}
-!48 = distinct !{!48, !"dt_get_svg_dimension"}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"double", !9, i64 0}
-!51 = !{!52, !50, i64 16}
-!52 = !{!"_RsvgRectangle", !50, i64 0, !50, i64 8, !50, i64 16, !50, i64 24}
-!53 = !{!52, !50, i64 24}
-!54 = !{!55, !64, i64 104}
-!55 = !{!"darktable_t", !56, i64 0, !29, i64 4, !29, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !57, i64 48, !58, i64 56, !59, i64 64, !60, i64 72, !61, i64 80, !62, i64 88, !63, i64 96, !64, i64 104, !65, i64 112, !66, i64 120, !67, i64 128, !68, i64 136, !69, i64 144, !70, i64 152, !71, i64 160, !72, i64 168, !73, i64 176, !74, i64 184, !75, i64 192, !76, i64 200, !77, i64 208, !78, i64 216, !79, i64 224, !9, i64 232, !80, i64 2792, !80, i64 2832, !80, i64 2872, !80, i64 2912, !80, i64 2952, !7, i64 2992, !7, i64 3000, !7, i64 3008, !7, i64 3016, !7, i64 3024, !7, i64 3032, !7, i64 3040, !7, i64 3048, !7, i64 3056, !7, i64 3064, !7, i64 3072, !7, i64 3080, !7, i64 3088, !81, i64 3096, !19, i64 3104, !50, i64 3112, !19, i64 3120, !29, i64 3128, !9, i64 3132, !29, i64 3320, !29, i64 3324, !82, i64 3328, !83, i64 3336, !84, i64 3344, !86, i64 3384, !87, i64 3416}
-!56 = !{!"dt_codepath_t", !29, i64 0}
-!57 = !{!"p1 _ZTS11_JsonParser", !8, i64 0}
-!58 = !{!"p1 _ZTS9dt_conf_t", !8, i64 0}
-!59 = !{!"p1 _ZTS12dt_develop_t", !8, i64 0}
-!60 = !{!"p1 _ZTS8dt_lib_t", !8, i64 0}
-!61 = !{!"p1 _ZTS17dt_view_manager_t", !8, i64 0}
-!62 = !{!"p1 _ZTS12dt_control_t", !8, i64 0}
-!63 = !{!"p1 _ZTS19dt_control_signal_t", !8, i64 0}
-!64 = !{!"p1 _ZTS12dt_gui_gtk_t", !8, i64 0}
-!65 = !{!"p1 _ZTS17dt_mipmap_cache_t", !8, i64 0}
-!66 = !{!"p1 _ZTS16dt_image_cache_t", !8, i64 0}
-!67 = !{!"p1 _ZTS12dt_bauhaus_t", !8, i64 0}
-!68 = !{!"p1 _ZTS13dt_database_t", !8, i64 0}
-!69 = !{!"p1 _ZTS14dt_pwstorage_t", !8, i64 0}
-!70 = !{!"p1 _ZTS11dt_camctl_t", !8, i64 0}
-!71 = !{!"p1 _ZTS15dt_collection_t", !8, i64 0}
-!72 = !{!"p1 _ZTS14dt_selection_t", !8, i64 0}
-!73 = !{!"p1 _ZTS11dt_points_t", !8, i64 0}
-!74 = !{!"p1 _ZTS12dt_imageio_t", !8, i64 0}
-!75 = !{!"p1 _ZTS11dt_opencl_t", !8, i64 0}
-!76 = !{!"p1 _ZTS9dt_dbus_t", !8, i64 0}
-!77 = !{!"p1 _ZTS9dt_undo_t", !8, i64 0}
-!78 = !{!"p1 _ZTS16dt_colorspaces_t", !8, i64 0}
-!79 = !{!"p1 _ZTS9dt_l10n_t", !8, i64 0}
-!80 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!81 = !{!"", !29, i64 0}
-!82 = !{!"p1 _ZTS10_GTimeZone", !8, i64 0}
-!83 = !{!"p1 _ZTS10_GDateTime", !8, i64 0}
-!84 = !{!"dt_sys_resources_t", !28, i64 0, !28, i64 8, !85, i64 16, !85, i64 24, !29, i64 32}
-!85 = !{!"p1 int", !8, i64 0}
-!86 = !{!"dt_backthumb_t", !50, i64 0, !50, i64 8, !29, i64 16, !29, i64 20, !29, i64 24, !29, i64 28}
-!87 = !{!"dt_gimp_t", !29, i64 0, !7, i64 8, !7, i64 16, !29, i64 24, !29, i64 28}
-!88 = !{!89, !50, i64 1432}
-!89 = !{!"dt_gui_gtk_t", !90, i64 0, !91, i64 8, !93, i64 56, !29, i64 80, !7, i64 88, !29, i64 96, !9, i64 104, !29, i64 1352, !29, i64 1356, !29, i64 1360, !29, i64 1364, !29, i64 1368, !50, i64 1376, !50, i64 1384, !50, i64 1392, !50, i64 1400, !92, i64 1408, !50, i64 1416, !50, i64 1424, !50, i64 1432, !50, i64 1440, !29, i64 1448, !29, i64 1452, !9, i64 1456, !29, i64 5552, !29, i64 5556, !29, i64 5560, !80, i64 5568}
-!90 = !{!"p1 _ZTS7dt_ui_t", !8, i64 0}
-!91 = !{!"dt_gui_widgets_t", !92, i64 0, !92, i64 8, !92, i64 16, !92, i64 24, !29, i64 32, !29, i64 36, !29, i64 40}
-!92 = !{!"p1 _ZTS10_GtkWidget", !8, i64 0}
-!93 = !{!"dt_gui_scrollbars_t", !92, i64 0, !92, i64 8, !29, i64 16}
-!94 = !{!95, !7, i64 8}
-!95 = !{!"_GError", !29, i64 0, !29, i64 4, !7, i64 8}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"float", !9, i64 0}
-!98 = !{!85, !85, i64 0}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!101 = distinct !{!101, !12}
-!102 = !{!103, !7, i64 0}
-!103 = !{!"lconv", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !9, i64 80, !9, i64 81, !9, i64 82, !9, i64 83, !9, i64 84, !9, i64 85, !9, i64 86, !9, i64 87, !9, i64 88, !9, i64 89, !9, i64 90, !9, i64 91, !9, i64 92, !9, i64 93}
-!104 = distinct !{!104, !12}
-!105 = !{!106, !29, i64 0}
-!106 = !{!"_RsvgDimensionData", !29, i64 0, !29, i64 4, !50, i64 8, !50, i64 16}
-!107 = !{!106, !29, i64 4}
-!108 = !{!52, !50, i64 0}
-!109 = !{!52, !50, i64 8}
-!110 = distinct !{!110, !12}
-!111 = distinct !{!111, !12}
+!11 = !{!9, !9, i64 0}
+!12 = !{!13, !8, i64 0}
+!13 = !{!"_GList", !8, i64 0, !14, i64 8, !14, i64 16}
+!14 = !{!"p1 _ZTS6_GList", !8, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = !{!17, !19, i64 24}
+!17 = !{!"stat", !18, i64 0, !18, i64 8, !18, i64 16, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !20, i64 72, !20, i64 88, !20, i64 104, !9, i64 120}
+!18 = !{!"long", !9, i64 0}
+!19 = !{!"int", !9, i64 0}
+!20 = !{!"timespec", !18, i64 0, !18, i64 8}
+!21 = !{!17, !18, i64 48}
+!22 = !{!23, !19, i64 16}
+!23 = !{!"tm", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !18, i64 40, !7, i64 48}
+!24 = !{i64 0, i64 4, !25, i64 4, i64 4, !25, i64 8, i64 4, !25, i64 12, i64 4, !25, i64 16, i64 4, !25, i64 20, i64 4, !25, i64 24, i64 4, !25, i64 28, i64 4, !25, i64 32, i64 4, !25, i64 40, i64 8, !26, i64 48, i64 8, !6}
+!25 = !{!19, !19, i64 0}
+!26 = !{!18, !18, i64 0}
+!27 = !{!23, !19, i64 20}
+!28 = !{!23, !19, i64 0}
+!29 = !{!23, !19, i64 4}
+!30 = !{!23, !19, i64 8}
+!31 = !{!23, !19, i64 32}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS7_GError", !8, i64 0}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"dt_get_svg_dimension: argument 0"}
+!36 = distinct !{!36, !"dt_get_svg_dimension"}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"double", !9, i64 0}
+!39 = !{!40, !38, i64 16}
+!40 = !{!"_RsvgRectangle", !38, i64 0, !38, i64 8, !38, i64 16, !38, i64 24}
+!41 = !{!40, !38, i64 24}
+!42 = !{!43, !52, i64 104}
+!43 = !{!"darktable_t", !44, i64 0, !19, i64 4, !19, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !45, i64 48, !46, i64 56, !47, i64 64, !48, i64 72, !49, i64 80, !50, i64 88, !51, i64 96, !52, i64 104, !53, i64 112, !54, i64 120, !55, i64 128, !56, i64 136, !57, i64 144, !58, i64 152, !59, i64 160, !60, i64 168, !61, i64 176, !62, i64 184, !63, i64 192, !64, i64 200, !65, i64 208, !66, i64 216, !67, i64 224, !9, i64 232, !68, i64 2792, !68, i64 2832, !68, i64 2872, !68, i64 2912, !68, i64 2952, !7, i64 2992, !7, i64 3000, !7, i64 3008, !7, i64 3016, !7, i64 3024, !7, i64 3032, !7, i64 3040, !7, i64 3048, !7, i64 3056, !7, i64 3064, !7, i64 3072, !7, i64 3080, !7, i64 3088, !69, i64 3096, !14, i64 3104, !38, i64 3112, !14, i64 3120, !19, i64 3128, !9, i64 3132, !19, i64 3320, !19, i64 3324, !70, i64 3328, !71, i64 3336, !72, i64 3344, !74, i64 3384, !75, i64 3416}
+!44 = !{!"dt_codepath_t", !19, i64 0}
+!45 = !{!"p1 _ZTS11_JsonParser", !8, i64 0}
+!46 = !{!"p1 _ZTS9dt_conf_t", !8, i64 0}
+!47 = !{!"p1 _ZTS12dt_develop_t", !8, i64 0}
+!48 = !{!"p1 _ZTS8dt_lib_t", !8, i64 0}
+!49 = !{!"p1 _ZTS17dt_view_manager_t", !8, i64 0}
+!50 = !{!"p1 _ZTS12dt_control_t", !8, i64 0}
+!51 = !{!"p1 _ZTS19dt_control_signal_t", !8, i64 0}
+!52 = !{!"p1 _ZTS12dt_gui_gtk_t", !8, i64 0}
+!53 = !{!"p1 _ZTS17dt_mipmap_cache_t", !8, i64 0}
+!54 = !{!"p1 _ZTS16dt_image_cache_t", !8, i64 0}
+!55 = !{!"p1 _ZTS12dt_bauhaus_t", !8, i64 0}
+!56 = !{!"p1 _ZTS13dt_database_t", !8, i64 0}
+!57 = !{!"p1 _ZTS14dt_pwstorage_t", !8, i64 0}
+!58 = !{!"p1 _ZTS11dt_camctl_t", !8, i64 0}
+!59 = !{!"p1 _ZTS15dt_collection_t", !8, i64 0}
+!60 = !{!"p1 _ZTS14dt_selection_t", !8, i64 0}
+!61 = !{!"p1 _ZTS11dt_points_t", !8, i64 0}
+!62 = !{!"p1 _ZTS12dt_imageio_t", !8, i64 0}
+!63 = !{!"p1 _ZTS11dt_opencl_t", !8, i64 0}
+!64 = !{!"p1 _ZTS9dt_dbus_t", !8, i64 0}
+!65 = !{!"p1 _ZTS9dt_undo_t", !8, i64 0}
+!66 = !{!"p1 _ZTS16dt_colorspaces_t", !8, i64 0}
+!67 = !{!"p1 _ZTS9dt_l10n_t", !8, i64 0}
+!68 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!69 = !{!"", !19, i64 0}
+!70 = !{!"p1 _ZTS10_GTimeZone", !8, i64 0}
+!71 = !{!"p1 _ZTS10_GDateTime", !8, i64 0}
+!72 = !{!"dt_sys_resources_t", !18, i64 0, !18, i64 8, !73, i64 16, !73, i64 24, !19, i64 32}
+!73 = !{!"p1 int", !8, i64 0}
+!74 = !{!"dt_backthumb_t", !38, i64 0, !38, i64 8, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28}
+!75 = !{!"dt_gimp_t", !19, i64 0, !7, i64 8, !7, i64 16, !19, i64 24, !19, i64 28}
+!76 = !{!77, !38, i64 1432}
+!77 = !{!"dt_gui_gtk_t", !78, i64 0, !79, i64 8, !81, i64 56, !19, i64 80, !7, i64 88, !19, i64 96, !9, i64 104, !19, i64 1352, !19, i64 1356, !19, i64 1360, !19, i64 1364, !19, i64 1368, !38, i64 1376, !38, i64 1384, !38, i64 1392, !38, i64 1400, !80, i64 1408, !38, i64 1416, !38, i64 1424, !38, i64 1432, !38, i64 1440, !19, i64 1448, !19, i64 1452, !9, i64 1456, !19, i64 5552, !19, i64 5556, !19, i64 5560, !68, i64 5568}
+!78 = !{!"p1 _ZTS7dt_ui_t", !8, i64 0}
+!79 = !{!"dt_gui_widgets_t", !80, i64 0, !80, i64 8, !80, i64 16, !80, i64 24, !19, i64 32, !19, i64 36, !19, i64 40}
+!80 = !{!"p1 _ZTS10_GtkWidget", !8, i64 0}
+!81 = !{!"dt_gui_scrollbars_t", !80, i64 0, !80, i64 8, !19, i64 16}
+!82 = !{!83, !7, i64 8}
+!83 = !{!"_GError", !19, i64 0, !19, i64 4, !7, i64 8}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"float", !9, i64 0}
+!86 = !{!73, !73, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!89 = !{!90, !7, i64 0}
+!90 = !{!"lconv", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !9, i64 80, !9, i64 81, !9, i64 82, !9, i64 83, !9, i64 84, !9, i64 85, !9, i64 86, !9, i64 87, !9, i64 88, !9, i64 89, !9, i64 90, !9, i64 91, !9, i64 92, !9, i64 93}
+!91 = !{!92, !19, i64 0}
+!92 = !{!"_RsvgDimensionData", !19, i64 0, !19, i64 4, !38, i64 8, !38, i64 16}
+!93 = !{!92, !19, i64 4}
+!94 = !{!40, !38, i64 0}
+!95 = !{!40, !38, i64 8}

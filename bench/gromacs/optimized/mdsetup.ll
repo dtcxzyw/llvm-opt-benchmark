@@ -173,38 +173,38 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   tail call void @_ZN12ListedForces5setupERK22InteractionDefinitionsibN3gmx8ArrayRefIKtEEi(ptr noundef nonnull align 8 dereferenceable(2912) %.sroa.087.0102, ptr noundef nonnull align 8 dereferenceable(2760) %3, i32 noundef %92, i1 noundef zeroext %94, ptr %95, ptr %100, i32 noundef %107)
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.087.0102, i64 2912
   %.not100 = icmp eq ptr %108, %82
-  br i1 %.not100, label %._crit_edge, label %91, !llvm.loop !315
+  br i1 %.not100, label %._crit_edge, label %91
 
 _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %._crit_edge
-  %.val79 = load i32, ptr %89, align 4, !tbaa !317
+  %.val79 = load i32, ptr %89, align 4, !tbaa !315
   %109 = icmp eq i32 %.val79, 5
   br i1 %109, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, label %135
 
 _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %_ZL8usingPmeRK22CoulombInteractionType.exit
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %111 = load i32, ptr %110, align 8, !tbaa !318
+  %111 = load i32, ptr %110, align 8, !tbaa !316
   %112 = and i32 %111, 2
   %.not = icmp eq i32 %112, 0
   br i1 %.not, label %135, label %113
 
 113:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 412
-  %115 = load i32, ptr %114, align 4, !tbaa !319
+  %115 = load i32, ptr %114, align 4, !tbaa !317
   %116 = sub nsw i32 %.068, %115
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 328
-  %118 = load ptr, ptr %117, align 8, !tbaa !320
+  %118 = load ptr, ptr %117, align 8, !tbaa !318
   %119 = getelementptr inbounds nuw i8, ptr %58, i64 176
-  %120 = load ptr, ptr %119, align 8, !tbaa !321
+  %120 = load ptr, ptr %119, align 8, !tbaa !319
   %121 = getelementptr inbounds nuw i8, ptr %58, i64 184
-  %122 = load ptr, ptr %121, align 8, !tbaa !321
+  %122 = load ptr, ptr %121, align 8, !tbaa !319
   %123 = ptrtoint ptr %122 to i64
   %124 = ptrtoint ptr %120 to i64
   %125 = sub i64 %123, %124
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %58, i64 192
-  %128 = load ptr, ptr %127, align 8, !tbaa !321
+  %128 = load ptr, ptr %127, align 8, !tbaa !319
   %129 = getelementptr inbounds nuw i8, ptr %58, i64 200
-  %130 = load ptr, ptr %129, align 8, !tbaa !321
+  %130 = load ptr, ptr %129, align 8, !tbaa !319
   %131 = ptrtoint ptr %130 to i64
   %132 = ptrtoint ptr %128 to i64
   %133 = sub i64 %131, %132
@@ -222,32 +222,32 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %._crit_edge, %._c
   %139 = getelementptr inbounds nuw i8, ptr %58, i64 640
   %140 = load i32, ptr %139, align 8, !tbaa !209
   %141 = getelementptr inbounds nuw i8, ptr %58, i64 96
-  %142 = load ptr, ptr %141, align 8, !tbaa !322
+  %142 = load ptr, ptr %141, align 8, !tbaa !320
   %143 = getelementptr inbounds nuw i8, ptr %58, i64 104
-  %144 = load ptr, ptr %143, align 8, !tbaa !323
+  %144 = load ptr, ptr %143, align 8, !tbaa !321
   %145 = ptrtoint ptr %144 to i64
   %146 = ptrtoint ptr %142 to i64
   %147 = sub i64 %145, %146
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %58, i64 120
-  %150 = load ptr, ptr %149, align 8, !tbaa !324
-  store ptr %150, ptr %12, align 8, !tbaa !325
+  %150 = load ptr, ptr %149, align 8, !tbaa !322
+  store ptr %150, ptr %12, align 8, !tbaa !323
   %151 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %58, i64 144
-  %153 = load ptr, ptr %152, align 8, !tbaa !327
+  %153 = load ptr, ptr %152, align 8, !tbaa !325
   %154 = ptrtoint ptr %153 to i64
   %155 = ptrtoint ptr %150 to i64
   %156 = sub i64 %154, %155
   %157 = getelementptr inbounds i8, ptr %150, i64 %156
-  store ptr %157, ptr %151, align 8, !tbaa !325
+  store ptr %157, ptr %151, align 8, !tbaa !323
   %158 = getelementptr inbounds nuw i8, ptr %58, i64 28
-  %159 = load i32, ptr %158, align 4, !tbaa !328
+  %159 = load i32, ptr %158, align 4, !tbaa !326
   %160 = icmp ne i32 %159, 0
   %161 = getelementptr inbounds nuw i8, ptr %58, i64 644
-  %162 = load float, ptr %161, align 4, !tbaa !329
+  %162 = load float, ptr %161, align 4, !tbaa !327
   %163 = getelementptr inbounds nuw i8, ptr %58, i64 520
   %164 = load ptr, ptr %163, align 8, !tbaa !311
-  store ptr %164, ptr %13, align 8, !tbaa !330
+  store ptr %164, ptr %13, align 8, !tbaa !328
   %165 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %58, i64 528
   %167 = load ptr, ptr %166, align 8, !tbaa !312
@@ -255,7 +255,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %._crit_edge, %._c
   %169 = ptrtoint ptr %164 to i64
   %170 = sub i64 %168, %169
   %171 = getelementptr inbounds nuw i8, ptr %164, i64 %170
-  store ptr %171, ptr %165, align 8, !tbaa !330
+  store ptr %171, ptr %165, align 8, !tbaa !328
   tail call void @_ZN3gmx11Constraints14setConstraintsEP14gmx_localtop_tiiNS_8ArrayRefIKfEES5_bfNS3_IKtEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %3, i32 noundef %138, i32 noundef %140, ptr %142, ptr %148, ptr noundef nonnull byval(%"class.gmx::ArrayRef.424") align 8 %12, i1 noundef zeroext %160, float noundef %162, ptr noundef nonnull byval(%"class.gmx::ArrayRef.405") align 8 %13)
   br label %172
 
@@ -605,20 +605,18 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !312 = !{!207, !208, i64 8}
 !313 = !{!108, !109, i64 8}
 !314 = !{!108, !109, i64 0}
-!315 = distinct !{!315, !316}
-!316 = !{!"llvm.loop.estimated_trip_count"}
-!317 = !{!112, !112, i64 0}
-!318 = !{!5, !9, i64 128}
-!319 = !{!220, !9, i64 412}
-!320 = !{!220, !272, i64 328}
-!321 = !{!194, !165, i64 0}
-!322 = !{!186, !165, i64 0}
-!323 = !{!186, !165, i64 8}
-!324 = !{!191, !165, i64 0}
-!325 = !{!326, !165, i64 0}
-!326 = !{!"_ZTSN3gmx12ArrayRefIterIKfEE", !165, i64 0}
-!327 = !{!165, !165, i64 0}
-!328 = !{!182, !9, i64 28}
-!329 = !{!182, !43, i64 644}
-!330 = !{!331, !208, i64 0}
-!331 = !{!"_ZTSN3gmx12ArrayRefIterIKtEE", !208, i64 0}
+!315 = !{!112, !112, i64 0}
+!316 = !{!5, !9, i64 128}
+!317 = !{!220, !9, i64 412}
+!318 = !{!220, !272, i64 328}
+!319 = !{!194, !165, i64 0}
+!320 = !{!186, !165, i64 0}
+!321 = !{!186, !165, i64 8}
+!322 = !{!191, !165, i64 0}
+!323 = !{!324, !165, i64 0}
+!324 = !{!"_ZTSN3gmx12ArrayRefIterIKfEE", !165, i64 0}
+!325 = !{!165, !165, i64 0}
+!326 = !{!182, !9, i64 28}
+!327 = !{!182, !43, i64 644}
+!328 = !{!329, !208, i64 0}
+!329 = !{!"_ZTSN3gmx12ArrayRefIterIKtEE", !208, i64 0}

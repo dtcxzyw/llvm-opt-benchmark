@@ -75,7 +75,7 @@ define void @Abc_NodeBddReorder(ptr noundef %0, ptr noundef captures(none) %1) l
   %.val40 = load i32, ptr %3, align 4, !tbaa !3
   %32 = sext i32 %.val40 to i64
   %33 = icmp slt i64 %indvars.iv.next55, %32
-  br i1 %33, label %.critedge, label %.critedge2.thread, !llvm.loop !34
+  br i1 %33, label %.critedge, label %.critedge2.thread, !llvm.loop !33
 
 .critedge2:                                       ; preds = %._crit_edge
   %.not = icmp eq ptr %6, null
@@ -107,9 +107,9 @@ define void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %4 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #7
   %5 = tail call ptr @Extra_ReorderInit(i32 noundef %4, i32 noundef 100) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr i8, ptr %7, i64 4
-  %.val2326 = load i32, ptr %8, align 4, !tbaa !36
+  %.val2326 = load i32, ptr %8, align 4, !tbaa !35
   %9 = icmp sgt i32 %.val2326, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
@@ -121,9 +121,9 @@ define void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %10 = phi ptr [ %22, %21 ], [ %7, %.lr.ph ]
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %21 ], [ 0, %.lr.ph ]
   %11 = getelementptr i8, ptr %10, i64 8
-  %.val24.val.us = load ptr, ptr %11, align 8, !tbaa !38
+  %.val24.val.us = load ptr, ptr %11, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw ptr, ptr %.val24.val.us, i64 %indvars.iv30
-  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  %13 = load ptr, ptr %12, align 8, !tbaa !38
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
 
@@ -142,25 +142,25 @@ define void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 .critedge22.us:                                   ; preds = %18
   tail call void @Abc_NodeBddReorder(ptr noundef %5, ptr noundef nonnull %13)
-  %.pre33 = load ptr, ptr %6, align 8, !tbaa !35
+  %.pre33 = load ptr, ptr %6, align 8, !tbaa !34
   br label %21
 
 21:                                               ; preds = %.critedge22.us, %18, %15, %.lr.ph.split.us
   %22 = phi ptr [ %.pre33, %.critedge22.us ], [ %10, %18 ], [ %10, %15 ], [ %10, %.lr.ph.split.us ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %23 = getelementptr i8, ptr %22, i64 4
-  %.val23.us = load i32, ptr %23, align 4, !tbaa !36
+  %.val23.us = load i32, ptr %23, align 4, !tbaa !35
   %24 = sext i32 %.val23.us to i64
   %25 = icmp slt i64 %indvars.iv.next31, %24
-  br i1 %25, label %.lr.ph.split.us, label %.critedge, !llvm.loop !40
+  br i1 %25, label %.lr.ph.split.us, label %.critedge, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
   %26 = phi ptr [ %50, %49 ], [ %7, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph ]
   %27 = getelementptr i8, ptr %26, i64 8
-  %.val24.val = load ptr, ptr %27, align 8, !tbaa !38
+  %.val24.val = load ptr, ptr %27, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw ptr, ptr %.val24.val, i64 %indvars.iv
-  %29 = load ptr, ptr %28, align 8, !tbaa !39
+  %29 = load ptr, ptr %28, align 8, !tbaa !38
   %30 = icmp eq ptr %29, null
   br i1 %30, label %49, label %31
 
@@ -178,30 +178,30 @@ define void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %36, label %49, label %.critedge21
 
 .critedge21:                                      ; preds = %34
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !41
   %38 = tail call ptr @Abc_ObjName(ptr noundef nonnull %29) #7
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, ptr noundef %38) #7
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = tail call i32 @Cudd_DagSize(ptr noundef %42) #7
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef %43) #7
   tail call void @Abc_NodeBddReorder(ptr noundef %5, ptr noundef nonnull %29)
-  %45 = load ptr, ptr @stdout, align 8, !tbaa !42
+  %45 = load ptr, ptr @stdout, align 8, !tbaa !41
   %46 = load ptr, ptr %41, align 8, !tbaa !29
   %47 = tail call i32 @Cudd_DagSize(ptr noundef %46) #7
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.2, i32 noundef %47) #7
-  %.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %.pre = load ptr, ptr %6, align 8, !tbaa !34
   br label %49
 
 49:                                               ; preds = %31, %.lr.ph.split, %.critedge21, %34
   %50 = phi ptr [ %26, %31 ], [ %26, %.lr.ph.split ], [ %.pre, %.critedge21 ], [ %26, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = getelementptr i8, ptr %50, i64 4
-  %.val23 = load i32, ptr %51, align 4, !tbaa !36
+  %.val23 = load i32, ptr %51, align 4, !tbaa !35
   %52 = sext i32 %.val23 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph.split, label %.critedge, !llvm.loop !44
+  br i1 %53, label %.lr.ph.split, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %49, %21, %2
   tail call void @Extra_ReorderQuit(ptr noundef %5) #7
@@ -268,17 +268,16 @@ attributes #7 = { nounwind }
 !28 = !{!"p1 float", !6, i64 0}
 !29 = !{!7, !7, i64 0}
 !30 = !{!4, !12, i64 32}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = !{!16, !19, i64 32}
-!36 = !{!37, !10, i64 4}
-!37 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
-!38 = !{!37, !6, i64 8}
-!39 = !{!6, !6, i64 0}
-!40 = distinct !{!40, !32, !33, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!44 = distinct !{!44, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = !{!16, !19, i64 32}
+!35 = !{!36, !10, i64 4}
+!36 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
+!37 = !{!36, !6, i64 8}
+!38 = !{!6, !6, i64 0}
+!39 = distinct !{!39, !32, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!43 = distinct !{!43, !32}

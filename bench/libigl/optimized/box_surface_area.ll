@@ -75,7 +75,7 @@ define weak_odr dso_local noundef double @_ZN3igl16box_surface_areaIdLi3EEET_RKN
   %21 = tail call double @llvm.fmuladd.f64(double %17, double %20, double %.117.i)
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, 3
-  br i1 %exitcond.not.i, label %.loopexit.i, label %18, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.loopexit.i, label %18, !llvm.loop !17
 
 _ZN3igl16box_surface_areaIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEENT_6ScalarERKNS1_10MatrixBaseIS4_EES9_.exit: ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #4
@@ -119,7 +119,6 @@ attributes #4 = { nounwind }
 !12 = distinct !{!12, !"_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES7_EEE4evalEv"}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"double", !5, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
+!17 = distinct !{!17, !16}

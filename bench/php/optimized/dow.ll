@@ -543,7 +543,7 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %55 = phi i64 [ 365, %.lr.ph ], [ 366, %49 ], [ %spec.select41, %51 ]
   %56 = add nsw i64 %55, %.03244
   %57 = icmp slt i64 %56, 1
-  br i1 %57, label %.lr.ph, label %..preheader_crit_edge, !llvm.loop !10
+  br i1 %57, label %.lr.ph, label %..preheader_crit_edge
 
 .lr.ph47:                                         ; preds = %.preheader, %.thread69
   %58 = phi i64 [ %61, %.thread69 ], [ %.promoted50, %.preheader ]
@@ -570,7 +570,7 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %69 = phi i1 [ false, %.lr.ph47 ], [ true, %64 ], [ %68, %66 ]
   %70 = phi i64 [ 365, %.lr.ph47 ], [ 366, %64 ], [ %spec.select78, %66 ]
   %71 = icmp sgt i64 %60, %70
-  br i1 %71, label %.lr.ph47, label %._crit_edge, !llvm.loop !12
+  br i1 %71, label %.lr.ph47, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread69
   store i64 %61, ptr %3, align 8, !tbaa !8
@@ -593,7 +593,7 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = sext i32 %79 to i64
   %81 = icmp sgt i64 %76, %80
-  br i1 %81, label %.lr.ph55, label %._crit_edge56, !llvm.loop !13
+  br i1 %81, label %.lr.ph55, label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %72
   %storemerge.lcssa = phi i64 [ 1, %72 ], [ %77, %.lr.ph55 ]
@@ -668,7 +668,3 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"long long", !6, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}

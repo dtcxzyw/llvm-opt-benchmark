@@ -230,13 +230,13 @@ declare void @av_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ff_format_output_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %8 = load i32, ptr %7, align 4, !tbaa !42
+  %8 = load i32, ptr %7, align 4, !tbaa !41
   %9 = and i32 %8, 1
   %.not8 = icmp eq i32 %9, 0
   br i1 %.not8, label %10, label %15
@@ -258,28 +258,28 @@ define range(i32 -2147483648, 2) i32 @ff_parse_creation_time_metadata(ptr nounde
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = tail call ptr @av_dict_get(ptr noundef %6, ptr noundef nonnull @.str.1, ptr noundef null, i32 noundef 0) #3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !44
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = call i32 @av_parse_time(ptr noundef nonnull %4, ptr noundef %10, i32 noundef 0) #3
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
   %.not9 = icmp eq i32 %2, 0
-  %14 = load i64, ptr %4, align 8, !tbaa !46
+  %14 = load i64, ptr %4, align 8, !tbaa !45
   %15 = sdiv i64 %14, 1000000
   %16 = select i1 %.not9, i64 %14, i64 %15
-  store i64 %16, ptr %1, align 8, !tbaa !46
+  store i64 %16, ptr %1, align 8, !tbaa !45
   br label %19
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr %9, align 8, !tbaa !44
+  %18 = load ptr, ptr %9, align 8, !tbaa !43
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.2, ptr noundef %18) #3
   br label %19
 
@@ -298,20 +298,20 @@ define i32 @ff_standardize_creation_time(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !43
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = tail call ptr @av_dict_get(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef null, i32 noundef 0) #3
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %ff_parse_creation_time_metadata.exit.thread, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !44
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = call i32 @av_parse_time(ptr noundef nonnull %2, ptr noundef %8, i32 noundef 0) #3
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %7, align 8, !tbaa !44
+  %12 = load ptr, ptr %7, align 8, !tbaa !43
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.2, ptr noundef %12) #3
   br label %ff_parse_creation_time_metadata.exit.thread
 
@@ -321,7 +321,7 @@ ff_parse_creation_time_metadata.exit.thread:      ; preds = %11, %1
   br label %16
 
 13:                                               ; preds = %6
-  %14 = load i64, ptr %2, align 8, !tbaa !46
+  %14 = load i64, ptr %2, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
   %15 = call i32 @ff_dict_set_timestamp(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, i64 noundef %14) #3
   br label %16
@@ -378,12 +378,11 @@ attributes #3 = { nounwind }
 !35 = !{!22, !7, i64 88}
 !36 = !{!25, !25, i64 0}
 !37 = !{!11, !11, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!22, !24, i64 16}
-!42 = !{!6, !11, i64 44}
-!43 = !{!22, !31, i64 192}
-!44 = !{!45, !7, i64 8}
-!45 = !{!"AVDictionaryEntry", !7, i64 0, !7, i64 8}
-!46 = !{!29, !29, i64 0}
+!40 = !{!22, !24, i64 16}
+!41 = !{!6, !11, i64 44}
+!42 = !{!22, !31, i64 192}
+!43 = !{!44, !7, i64 8}
+!44 = !{!"AVDictionaryEntry", !7, i64 0, !7, i64 8}
+!45 = !{!29, !29, i64 0}

@@ -469,7 +469,7 @@ g_string_append_c_inline.exit222:                 ; preds = %200, %206
   tail call void @g_free(ptr noundef %216)
   %217 = load i32, ptr %214, align 8
   %.not201 = icmp eq i32 %217, 0
-  br i1 %.not201, label %._crit_edge295, label %.lr.ph294, !llvm.loop !9
+  br i1 %.not201, label %._crit_edge295, label %.lr.ph294, !llvm.loop !8
 
 ._crit_edge295:                                   ; preds = %.lr.ph294, %.preheader243
   %218 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1)
@@ -642,7 +642,7 @@ close_char.exit:                                  ; preds = %250, %251
   tail call void @g_free(ptr noundef %291)
   %292 = load i32, ptr %289, align 8
   %.not196 = icmp eq i32 %292, 0
-  br i1 %.not196, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not196, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader244
   %293 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1)
@@ -680,7 +680,7 @@ g_string_append_c_inline.exit.backedge:           ; preds = %307, %301, %266, %2
   %.0165.be = phi ptr [ %.0165, %g_string_append_c_inline.exit ], [ %.0165, %45 ], [ %48, %start_is_field_reference.exit.thread ], [ %230, %228 ], [ %.0165, %17 ], [ %.0165, %135 ], [ null, %._crit_edge298 ], [ null, %150 ], [ %.0165, %180 ], [ %.0165, %180 ], [ null, %219 ], [ null, %._crit_edge ], [ null, %288 ], [ %.0165, %23 ], [ %.0165, %29 ], [ %72, %80 ], [ %72, %86 ], [ %.0165, %105 ], [ %.0165, %111 ], [ %.0165, %127 ], [ %.0165, %133 ], [ %.0165, %172 ], [ %.0165, %178 ], [ %.0165, %241 ], [ %.0165, %247 ], [ %.0165, %260 ], [ %.0165, %266 ], [ %.0165, %301 ], [ %.0165, %307 ]
   %.0163.be = phi ptr [ %.0163, %g_string_append_c_inline.exit ], [ %.0163, %45 ], [ %49, %start_is_field_reference.exit.thread ], [ %.0163, %228 ], [ %.0163, %17 ], [ %.0163, %135 ], [ null, %._crit_edge298 ], [ null, %150 ], [ %.0163, %180 ], [ %.0163, %180 ], [ null, %219 ], [ null, %._crit_edge ], [ null, %288 ], [ %.0163, %23 ], [ %.0163, %29 ], [ %73, %80 ], [ %73, %86 ], [ %.0163, %105 ], [ %.0163, %111 ], [ %.0163, %127 ], [ %.0163, %133 ], [ %.0163, %172 ], [ %.0163, %178 ], [ %.0163, %241 ], [ %.0163, %247 ], [ %.0163, %260 ], [ %.0163, %266 ], [ %.0163, %301 ], [ %.0163, %307 ]
   %.0162.be = phi i32 [ %.0162, %g_string_append_c_inline.exit ], [ 0, %45 ], [ 2, %start_is_field_reference.exit.thread ], [ 4, %228 ], [ 1, %17 ], [ 4, %135 ], [ 0, %._crit_edge298 ], [ 0, %150 ], [ 4, %180 ], [ 4, %180 ], [ 0, %219 ], [ 0, %._crit_edge ], [ 0, %288 ], [ 0, %23 ], [ 0, %29 ], [ 3, %80 ], [ 3, %86 ], [ 0, %105 ], [ 0, %111 ], [ 2, %127 ], [ 2, %133 ], [ 3, %172 ], [ 3, %178 ], [ 4, %241 ], [ 4, %247 ], [ 4, %260 ], [ 4, %266 ], [ 4, %301 ], [ 4, %307 ]
-  br label %g_string_append_c_inline.exit, !llvm.loop !11
+  br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit215:                 ; preds = %17, %61, %55
   %.not210 = icmp eq ptr %.0163, null
@@ -713,7 +713,7 @@ g_string_append_c_inline.exit215:                 ; preds = %17, %61, %55
   tail call void @g_free(ptr noundef %317)
   %318 = load i32, ptr %315, align 8
   %.not213 = icmp eq i32 %318, 0
-  br i1 %.not213, label %._crit_edge304, label %.lr.ph303, !llvm.loop !12
+  br i1 %.not213, label %._crit_edge304, label %.lr.ph303, !llvm.loop !10
 
 ._crit_edge304:                                   ; preds = %.lr.ph303, %.preheader
   %319 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1)
@@ -776,7 +776,7 @@ common.ret549:                                    ; preds = %5, %6, %346, %325, 
   tail call void @g_free(ptr noundef %337)
   %338 = load i32, ptr %335, align 8
   %.not209 = icmp eq i32 %338, 0
-  br i1 %.not209, label %._crit_edge301, label %.lr.ph300, !llvm.loop !13
+  br i1 %.not209, label %._crit_edge301, label %.lr.ph300, !llvm.loop !11
 
 ._crit_edge301:                                   ; preds = %.lr.ph300, %.preheader241
   %339 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1)
@@ -873,7 +873,7 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   store i32 %33, ptr %2, align 4
   %34 = load i8, ptr %23, align 1
   %.not62 = icmp eq i8 %34, 0
-  br i1 %.not62, label %35, label %22, !llvm.loop !14
+  br i1 %.not62, label %35, label %22, !llvm.loop !12
 
 35:                                               ; preds = %22, %26
   %.375 = phi ptr [ %23, %26 ], [ %.2, %22 ]
@@ -911,7 +911,7 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   %.151 = phi i32 [ %.05078, %11 ], [ %.05078, %18 ], [ %.05078, %14 ], [ %.252, %45 ]
   %.1 = phi ptr [ %12, %11 ], [ %19, %18 ], [ %15, %14 ], [ %.4, %45 ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %46, %.lr.ph, %1
   %.050.lcssa = phi i32 [ 0, %1 ], [ %.05078, %.lr.ph ], [ %.151, %46 ]
@@ -1065,7 +1065,7 @@ define void @dfilter_macro_reload() local_unnamed_addr #0 {
   %21 = getelementptr i8, ptr %.01321.i, i64 1
   %.pr.i = load i8, ptr %21, align 1
   %.not.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i, label %22, label %.preheader.i, !llvm.loop !16
+  br i1 %.not.i, label %22, label %.preheader.i, !llvm.loop !14
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @macros_table, align 8
@@ -1103,7 +1103,7 @@ check_macro.exit:                                 ; preds = %22
   %.0.in = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !15
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1213,7 +1213,7 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load i8, ptr %7, align 8, !range !18, !noundef !19
+  %8 = load i8, ptr %7, align 8, !range !16, !noundef !17
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %13, label %10
 
@@ -1237,7 +1237,7 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
   %16 = load ptr, ptr %15, align 8
   %.not39 = icmp eq ptr %16, null
   %17 = add i32 %.1, 1
-  br i1 %.not39, label %.loopexit44, label %.preheader43, !llvm.loop !20
+  br i1 %.not39, label %.loopexit44, label %.preheader43, !llvm.loop !18
 
 .loopexit44:                                      ; preds = %.preheader43, %13
   %.031 = phi i32 [ 0, %13 ], [ %.1, %.preheader43 ]
@@ -1283,7 +1283,7 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
   %.029 = getelementptr i8, ptr %.02948, i64 8
   %37 = load ptr, ptr %.029, align 8
   %.not41 = icmp eq ptr %37, null
-  br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %23
   %38 = load ptr, ptr %29, align 8
@@ -1355,19 +1355,17 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

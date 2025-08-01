@@ -611,7 +611,7 @@ switch.early.test.i:                              ; preds = %114
   %145 = add i8 %.04448.i.i, 1
   %146 = zext i8 %145 to i16
   %147 = icmp ugt i16 %137, %146
-  br i1 %147, label %.lr.ph50.i.i, label %copy_request_frame.exit.i, !llvm.loop !10
+  br i1 %147, label %.lr.ph50.i.i, label %copy_request_frame.exit.i, !llvm.loop !9
 
 148:                                              ; preds = %119
   %149 = tail call ptr @wmem_file_scope()
@@ -633,7 +633,7 @@ switch.early.test.i:                              ; preds = %114
   %157 = add i8 %.146.i.i, 1
   %158 = zext i8 %157 to i16
   %159 = icmp ugt i16 %128, %158
-  br i1 %159, label %.lr.ph.i.i, label %copy_request_frame.exit.i, !llvm.loop !11
+  br i1 %159, label %.lr.ph.i.i, label %copy_request_frame.exit.i, !llvm.loop !10
 
 copy_request_frame.exit.i:                        ; preds = %.lr.ph.i.i, %.lr.ph50.i.i, %148, %131
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -745,7 +745,7 @@ copy_request_frame.exit.i:                        ; preds = %.lr.ph.i.i, %.lr.ph
   %209 = add i32 %.1.i.i, 1
   %210 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %209)
   %211 = icmp sgt i32 %210, 2
-  br i1 %211, label %.preheader.i.i, label %dissect_request_frame.exit.i, !llvm.loop !12
+  br i1 %211, label %.preheader.i.i, label %dissect_request_frame.exit.i, !llvm.loop !11
 
 .preheader82.i.i:                                 ; preds = %205, %.preheader82.i.i
   %.2.i.i = phi i32 [ %217, %.preheader82.i.i ], [ 6, %205 ]
@@ -757,7 +757,7 @@ copy_request_frame.exit.i:                        ; preds = %.lr.ph.i.i, %.lr.ph
   %217 = add i32 %.2.i.i, 2
   %218 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %217)
   %219 = icmp sgt i32 %218, 2
-  br i1 %219, label %.preheader82.i.i, label %dissect_request_frame.exit.i, !llvm.loop !13
+  br i1 %219, label %.preheader82.i.i, label %dissect_request_frame.exit.i, !llvm.loop !12
 
 .loopexit.sink.split.i.i:                         ; preds = %206, %205
   %hf_cp2179_sbo_request_point.sink.i.i = phi ptr [ @hf_cp2179_resetacc_request_point, %206 ], [ @hf_cp2179_sbo_request_point, %205 ]
@@ -859,7 +859,7 @@ dissect_request_frame.exit.i:                     ; preds = %.preheader82.i.i, %
 proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %287 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.0290.i.i)
   %288 = icmp eq ptr %287, null
-  br i1 %288, label %.thread265.i.i, label %266, !llvm.loop !14
+  br i1 %288, label %.thread265.i.i, label %266, !llvm.loop !13
 
 289:                                              ; preds = %283, %280, %277
   %290 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.0290.i.i)
@@ -911,7 +911,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %304 = add i32 %.2252.i.i, 4
   %305 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %304)
   %306 = icmp sgt i32 %305, 2
-  br i1 %306, label %.preheader.i71.i, label %.thread270.i.i, !llvm.loop !15
+  br i1 %306, label %.preheader.i71.i, label %.thread270.i.i, !llvm.loop !14
 
 307:                                              ; preds = %307, %.preheader272.i.i
   %.3.i70.i = phi i32 [ %318, %307 ], [ 7, %.preheader272.i.i ]
@@ -929,7 +929,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %318 = add i32 %.3.i70.i, 4
   %319 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %318)
   %320 = icmp sgt i32 %319, 2
-  br i1 %320, label %307, label %.thread270.i.i, !llvm.loop !16
+  br i1 %320, label %307, label %.thread270.i.i, !llvm.loop !15
 
 321:                                              ; preds = %289
   %322 = zext i16 %255 to i32
@@ -958,7 +958,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %340 = add i32 %.4.i68.i, 2
   %341 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %340)
   %342 = icmp sgt i32 %341, 2
-  br i1 %342, label %329, label %.thread270.i.i, !llvm.loop !17
+  br i1 %342, label %329, label %.thread270.i.i, !llvm.loop !16
 
 343:                                              ; preds = %289
   %344 = zext i16 %255 to i32
@@ -986,7 +986,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %355 = add i32 %.5.i.i, 2
   %356 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %355)
   %357 = icmp sgt i32 %356, 2
-  br i1 %357, label %.preheader275.i.i, label %.thread270.i.i, !llvm.loop !18
+  br i1 %357, label %.preheader275.i.i, label %.thread270.i.i, !llvm.loop !17
 
 .preheader277.i.i:                                ; preds = %343, %.preheader277.i.i
   %.6.i.i = phi i32 [ %363, %.preheader277.i.i ], [ 7, %343 ]
@@ -999,7 +999,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %363 = add i32 %.6.i.i, 2
   %364 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %363)
   %365 = icmp sgt i32 %364, 2
-  br i1 %365, label %.preheader277.i.i, label %.thread270.i.i, !llvm.loop !19
+  br i1 %365, label %.preheader277.i.i, label %.thread270.i.i, !llvm.loop !18
 
 .preheader279.i.i:                                ; preds = %343, %.preheader279.i.i
   %.7.i.i = phi i32 [ %370, %.preheader279.i.i ], [ 7, %343 ]
@@ -1012,7 +1012,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %370 = add i32 %.7.i.i, 2
   %371 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %370)
   %372 = icmp sgt i32 %371, 2
-  br i1 %372, label %.preheader279.i.i, label %.thread270.i.i, !llvm.loop !20
+  br i1 %372, label %.preheader279.i.i, label %.thread270.i.i, !llvm.loop !19
 
 .preheader281.i.i:                                ; preds = %343, %.preheader281.i.i
   %.8.i.i = phi i32 [ %377, %.preheader281.i.i ], [ 7, %343 ]
@@ -1025,7 +1025,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %377 = add i32 %.8.i.i, 2
   %378 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.014, i32 noundef %377)
   %379 = icmp sgt i32 %378, 2
-  br i1 %379, label %.preheader281.i.i, label %.thread270.i.i, !llvm.loop !21
+  br i1 %379, label %.preheader281.i.i, label %.thread270.i.i, !llvm.loop !20
 
 380:                                              ; preds = %289
   %381 = load i32, ptr @hf_cp2179_timetag_moredata, align 4
@@ -1054,7 +1054,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
 .loopexit.i.i:                                    ; preds = %.lr.ph297.i.i, %395
   %.10.lcssa.i.i = phi i32 [ %416, %395 ], [ %422, %.lr.ph297.i.i ]
   %exitcond316.not.i.i = icmp eq i32 %397, %387
-  br i1 %exitcond316.not.i.i, label %.thread270.i.i, label %395, !llvm.loop !22
+  br i1 %exitcond316.not.i.i, label %.thread270.i.i, label %395, !llvm.loop !21
 
 395:                                              ; preds = %.loopexit.i.i, %390
   %.0238300.i.i = phi i32 [ 0, %390 ], [ %397, %.loopexit.i.i ]
@@ -1092,7 +1092,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   %421 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %398, i32 noundef %419, ptr noundef %.014, i32 noundef %.10294.i.i, i32 noundef 2, i32 noundef %418, ptr noundef nonnull @.str.205, i32 noundef %420, i32 noundef %418)
   %422 = add i32 %.10294.i.i, 2
   %exitcond.not.i.i = icmp eq i32 %420, %smax.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph297.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph297.i.i, !llvm.loop !22
 
 .thread270.sink.split.i.i:                        ; preds = %293, %292
   %hf_cp2179_resetacc_request_point.sink.i.i = phi ptr [ @hf_cp2179_resetacc_request_point, %293 ], [ @hf_cp2179_sbo_request_point, %292 ]
@@ -1282,20 +1282,19 @@ attributes #4 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

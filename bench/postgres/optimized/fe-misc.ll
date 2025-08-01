@@ -118,7 +118,7 @@ define internal fastcc range(i32 -1, 1) i32 @pqPutMsgBytes(ptr noundef readonly 
   %25 = sext i32 %23 to i64
   %26 = icmp ugt i64 %7, %25
   %27 = and i1 %24, %26
-  br i1 %27, label %22, label %28, !llvm.loop !6
+  br i1 %27, label %22, label %28, !llvm.loop !5
 
 28:                                               ; preds = %22
   %.not45.i = xor i1 %24, true
@@ -185,7 +185,7 @@ define range(i32 -1, 1) i32 @pqGets(ptr noundef %0, ptr noundef captures(none) %
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %8, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %pqGets_internal.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %pqGets_internal.exit, label %.lr.ph.i, !llvm.loop !6
 
 14:                                               ; preds = %.lr.ph.i
   %15 = trunc nsw i64 %indvars.iv.i to i32
@@ -231,7 +231,7 @@ define range(i32 -1, 1) i32 @pqGets_append(ptr noundef %0, ptr noundef captures(
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %8, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %pqGets_internal.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %pqGets_internal.exit, label %.lr.ph.i, !llvm.loop !6
 
 14:                                               ; preds = %.lr.ph.i
   %15 = trunc nsw i64 %indvars.iv.i to i32
@@ -487,7 +487,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   %20 = sext i32 %18 to i64
   %21 = icmp ugt i64 %0, %20
   %22 = and i1 %19, %21
-  br i1 %22, label %17, label %23, !llvm.loop !6
+  br i1 %22, label %17, label %23, !llvm.loop !5
 
 23:                                               ; preds = %17
   %.not45 = xor i1 %19, true
@@ -581,7 +581,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   %33 = sext i32 %31 to i64
   %34 = icmp ugt i64 %10, %33
   %35 = and i1 %32, %34
-  br i1 %35, label %.preheader, label %36, !llvm.loop !8
+  br i1 %35, label %.preheader, label %36, !llvm.loop !7
 
 36:                                               ; preds = %.preheader
   %.not69 = xor i1 %32, true
@@ -611,7 +611,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   %47 = sext i32 %45 to i64
   %48 = icmp ugt i64 %10, %47
   %49 = and i1 %46, %48
-  br i1 %49, label %44, label %50, !llvm.loop !9
+  br i1 %49, label %44, label %50, !llvm.loop !8
 
 50:                                               ; preds = %44
   %.not70 = xor i1 %46, true
@@ -720,7 +720,7 @@ define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1
   %22 = icmp sgt i32 %21, 0
   %23 = icmp ugt i32 %6, %21
   %24 = and i1 %22, %23
-  br i1 %24, label %20, label %25, !llvm.loop !6
+  br i1 %24, label %20, label %25, !llvm.loop !5
 
 25:                                               ; preds = %20
   %.not45.i = xor i1 %22, true
@@ -849,7 +849,7 @@ define internal fastcc range(i32 -1, 2) i32 @pqSendSome(ptr noundef %0, i32 noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 813
-  %6 = load i8, ptr %5, align 1, !range !10, !noundef !11
+  %6 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %15
 
@@ -911,7 +911,7 @@ pqWait.exit:                                      ; preds = %pqWait.exit.outer, 
   switch i32 %32, label %33 [
     i32 11, label %.thread
     i32 4, label %pqWait.exit
-  ], !llvm.loop !12
+  ], !llvm.loop !11
 
 33:                                               ; preds = %30
   store i32 0, ptr %4, align 4
@@ -925,7 +925,7 @@ pqWait.exit:                                      ; preds = %pqWait.exit.outer, 
   br i1 %37, label %pqWait.exit.thread74, label %38
 
 38:                                               ; preds = %35, %33
-  %39 = load i8, ptr %5, align 1, !range !10, !noundef !11
+  %39 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %40 = xor i8 %39, 1
   %41 = zext nneg i8 %40 to i32
   %. = sub nsw i32 0, %41
@@ -948,7 +948,7 @@ pqWait.exit:                                      ; preds = %pqWait.exit.outer, 
   br i1 %49, label %pqWait.exit.thread66, label %50
 
 50:                                               ; preds = %.thread
-  %51 = load i8, ptr %22, align 1, !range !10, !noundef !11
+  %51 = load i8, ptr %22, align 1, !range !9, !noundef !10
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %pqWait.exit.thread66, label %53
 
@@ -1098,7 +1098,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
     i32 102, label %.loopexit60
     i32 101, label %.loopexit60
     i32 110, label %.loopexit60
-  ], !llvm.loop !13
+  ]
 
 60:                                               ; preds = %46
   %.not57 = icmp eq i32 %55, 0
@@ -1115,7 +1115,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   %66 = load i32, ptr %31, align 8
   %67 = sub i32 %66, %63
   %68 = icmp sgt i32 %67, 8191
-  br i1 %68, label %.outer, label %.loopexit, !llvm.loop !13
+  br i1 %68, label %.outer, label %.loopexit
 
 69:                                               ; preds = %60
   br i1 %.not58, label %70, label %.loopexit
@@ -1155,7 +1155,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
     i32 102, label %.loopexit60
     i32 101, label %.loopexit60
     i32 110, label %.loopexit60
-  ], !llvm.loop !14
+  ]
 
 85:                                               ; preds = %.preheader
   %.not59 = icmp eq i32 %80, 0
@@ -1205,7 +1205,7 @@ define void @libpq_append_conn_error(ptr noundef %0, ptr noundef %1, ...) local_
   call void @llvm.va_start.p0(ptr nonnull %3)
   %10 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %3) #19
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br i1 %10, label %11, label %.preheader, !llvm.loop !15
+  br i1 %10, label %11, label %.preheader, !llvm.loop !12
 
 11:                                               ; preds = %.preheader
   call void @appendPQExpBufferChar(ptr noundef nonnull %6, i8 noundef signext 10) #19
@@ -1355,7 +1355,7 @@ PQsocketPoll.exit.us:                             ; preds = %.split, %24
   %25 = tail call ptr @__errno_location() #21
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 4
-  br i1 %27, label %PQsocketPoll.exit.us, label %.critedge, !llvm.loop !16
+  br i1 %27, label %PQsocketPoll.exit.us, label %.critedge, !llvm.loop !13
 
 PQsocketPoll.exit.us26:                           ; preds = %.split, %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
@@ -1371,7 +1371,7 @@ PQsocketPoll.exit.us26:                           ; preds = %.split, %30
   %31 = tail call ptr @__errno_location() #21
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 4
-  br i1 %33, label %PQsocketPoll.exit.us26, label %.critedge, !llvm.loop !18
+  br i1 %33, label %PQsocketPoll.exit.us26, label %.critedge, !llvm.loop !15
 
 .split.split:                                     ; preds = %.split, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
@@ -1405,7 +1405,7 @@ PQsocketPoll.exit:                                ; preds = %.split.split, %40
   %47 = tail call ptr @__errno_location() #21
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.split.split, label %.critedge, !llvm.loop !19
+  br i1 %49, label %.split.split, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %30, %24, %46
   %50 = phi i32 [ %48, %46 ], [ %26, %24 ], [ %32, %30 ]
@@ -1585,7 +1585,7 @@ define void @libpq_append_error(ptr noundef %0, ptr noundef %1, ...) local_unnam
   call void @llvm.va_start.p0(ptr nonnull %3)
   %11 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #19
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br i1 %11, label %12, label %.preheader, !llvm.loop !20
+  br i1 %11, label %12, label %.preheader, !llvm.loop !17
 
 12:                                               ; preds = %.preheader
   call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 10) #19
@@ -1648,21 +1648,18 @@ attributes #21 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !4, !5, !17}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
+!13 = distinct !{!13, !4, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !4, !14}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}

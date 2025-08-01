@@ -154,7 +154,7 @@ define internal range(i32 0, 2) i32 @fake_cipher(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12, %10
-  store i64 %5, ptr %2, align 8, !tbaa !16
+  store i64 %5, ptr %2, align 8, !tbaa !15
   br label %20
 
 20:                                               ; preds = %6, %._crit_edge
@@ -164,7 +164,7 @@ define internal range(i32 0, 2) i32 @fake_cipher(ptr noundef readonly captures(n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @fake_final(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i64 %3) #3 {
-  store i64 0, ptr %2, align 8, !tbaa !16
+  store i64 0, ptr %2, align 8, !tbaa !15
   ret i32 1
 }
 
@@ -305,7 +305,7 @@ define internal noundef ptr @fake_skeymgmt_import(ptr readnone captures(none) %0
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr %4, ptr %5, align 8, !tbaa !18
+  store ptr %4, ptr %5, align 8, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %9 = call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.13) #11
   %.not.i = icmp eq ptr %9, null
@@ -327,11 +327,11 @@ define internal noundef ptr @fake_skeymgmt_import(ptr readnone captures(none) %0
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !20
+  %17 = load i64, ptr %16, align 8, !tbaa !19
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %17, i64 16)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %20, i64 %spec.store.select.i, i1 false)
   br label %ctx_from_key_params.exit.thread
 
@@ -380,7 +380,7 @@ define internal i32 @fake_skeymgmt_export(ptr noundef %0, i32 noundef %1, ptr no
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %15, i64 noundef 16) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #11
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   br label %17
@@ -389,7 +389,7 @@ define internal i32 @fake_skeymgmt_export(ptr noundef %0, i32 noundef %1, ptr no
   %.1 = phi ptr [ %16, %14 ], [ %.0, %12 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #11
   %18 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #11
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #11
@@ -444,14 +444,13 @@ attributes #12 = { nounwind willreturn memory(read) }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !6, i64 0}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !5, i64 0}
-!20 = !{!21, !17, i64 24}
-!21 = !{!"ossl_param_st", !19, i64 0, !11, i64 8, !5, i64 16, !17, i64 24, !17, i64 32}
-!22 = !{!21, !5, i64 16}
-!23 = !{i64 0, i64 8, !18, i64 8, i64 4, !10, i64 16, i64 8, !4, i64 24, i64 8, !16, i64 32, i64 8, !16}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{!20, !16, i64 24}
+!20 = !{!"ossl_param_st", !18, i64 0, !11, i64 8, !5, i64 16, !16, i64 24, !16, i64 32}
+!21 = !{!20, !5, i64 16}
+!22 = !{i64 0, i64 8, !17, i64 8, i64 4, !10, i64 16, i64 8, !4, i64 24, i64 8, !15, i64 32, i64 8, !15}

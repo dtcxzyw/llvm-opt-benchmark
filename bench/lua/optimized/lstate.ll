@@ -95,7 +95,7 @@ define hidden void @luaE_shrinkCI(ptr noundef %0) local_unnamed_addr #2 {
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.thread, label %10, !llvm.loop !32
+  br i1 %.not, label %.thread, label %10
 
 .thread:                                          ; preds = %18, %10, %.preheader, %1
   ret void
@@ -106,7 +106,7 @@ declare hidden void @luaM_free_(ptr noundef, ptr noundef, i64 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden void @luaE_checkcstack(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = and i32 %3, 65535
   %5 = icmp eq i32 %4, 200
   br i1 %5, label %6, label %7
@@ -136,12 +136,12 @@ declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden void @luaE_incCstack(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = add i32 %3, 1
-  store i32 %4, ptr %2, align 8, !tbaa !34
+  store i32 %4, ptr %2, align 8, !tbaa !32
   %5 = and i32 %4, 65528
   %6 = icmp samesign ugt i32 %5, 199
-  br i1 %6, label %7, label %8, !prof !35
+  br i1 %6, label %7, label %8, !prof !33
 
 7:                                                ; preds = %1
   tail call void @luaE_checkcstack(ptr noundef nonnull %0)
@@ -182,7 +182,7 @@ define hidden range(i64 216, 68723671177) i64 @luaE_threadsize(ptr noundef reado
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp slt i64 %5, 1
@@ -198,12 +198,12 @@ define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #2 {
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   store ptr %9, ptr %11, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 72, ptr %12, align 8, !tbaa !37
+  store i8 72, ptr %12, align 8, !tbaa !35
   %13 = load ptr, ptr %10, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %10, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %3, ptr %15, align 8, !tbaa !36
+  store ptr %3, ptr %15, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr null, ptr %16, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -211,41 +211,41 @@ define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #2 {
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i16 0, ptr %18, align 4, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store ptr %9, ptr %19, align 8, !tbaa !38
+  store ptr %9, ptr %19, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 176
-  store i32 0, ptr %20, align 8, !tbaa !34
+  store i32 0, ptr %20, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store ptr null, ptr %21, align 8, !tbaa !39
+  store ptr null, ptr %21, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  store volatile ptr null, ptr %22, align 8, !tbaa !40
+  store volatile ptr null, ptr %22, align 8, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  store volatile i32 0, ptr %23, align 8, !tbaa !41
+  store volatile i32 0, ptr %23, align 8, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 184
-  store i32 0, ptr %24, align 8, !tbaa !42
+  store i32 0, ptr %24, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  store i8 1, ptr %25, align 1, !tbaa !43
+  store i8 1, ptr %25, align 1, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 188
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr null, ptr %27, align 8, !tbaa !44
+  store ptr null, ptr %27, align 8, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 0, ptr %28, align 2, !tbaa !45
+  store i8 0, ptr %28, align 2, !tbaa !43
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  store i64 0, ptr %29, align 8, !tbaa !46
+  store i64 0, ptr %29, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 180
-  store i32 0, ptr %30, align 4, !tbaa !47
+  store i32 0, ptr %30, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %32 = load volatile i32, ptr %31, align 8, !tbaa !41
-  store volatile i32 %32, ptr %23, align 8, !tbaa !41
+  %32 = load volatile i32, ptr %31, align 8, !tbaa !39
+  store volatile i32 %32, ptr %23, align 8, !tbaa !39
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %34 = load i32, ptr %33, align 8, !tbaa !42
-  store i32 %34, ptr %24, align 8, !tbaa !42
+  %34 = load i32, ptr %33, align 8, !tbaa !40
+  store i32 %34, ptr %24, align 8, !tbaa !40
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %36 = load volatile ptr, ptr %35, align 8, !tbaa !40
-  store volatile ptr %36, ptr %22, align 8, !tbaa !40
-  store i32 %34, ptr %26, align 4, !tbaa !48
+  %36 = load volatile ptr, ptr %35, align 8, !tbaa !38
+  store volatile ptr %36, ptr %22, align 8, !tbaa !38
+  store i32 %34, ptr %26, align 4, !tbaa !46
   %37 = getelementptr inbounds i8, ptr %9, i64 -8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  %39 = load ptr, ptr %38, align 8, !tbaa !49
+  %39 = load ptr, ptr %38, align 8, !tbaa !47
   %40 = getelementptr inbounds i8, ptr %39, i64 -8
   %41 = load i64, ptr %40, align 1
   store i64 %41, ptr %37, align 1
@@ -262,7 +262,7 @@ define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #2 {
   store i8 0, ptr %46, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 45
-  br i1 %exitcond.not.i, label %stack_init.exit, label %44, !llvm.loop !50
+  br i1 %exitcond.not.i, label %stack_init.exit, label %44
 
 stack_init.exit:                                  ; preds = %44
   %47 = load ptr, ptr %16, align 8, !tbaa !30
@@ -275,7 +275,7 @@ stack_init.exit:                                  ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 156
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  store i32 32768, ptr %53, align 4, !tbaa !51
+  store i32 32768, ptr %53, align 4, !tbaa !48
   store ptr %47, ptr %51, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr null, ptr %54, align 8, !tbaa !30
@@ -327,7 +327,7 @@ define hidden void @luaE_freethread(ptr noundef %0, ptr noundef %1) local_unname
   %17 = add i16 %16, -1
   store i16 %17, ptr %12, align 4, !tbaa !31
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %freeCI.exit.loopexit.i, label %13, !llvm.loop !52
+  br i1 %.not.i.i, label %freeCI.exit.loopexit.i, label %13
 
 freeCI.exit.loopexit.i:                           ; preds = %13
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !30
@@ -367,11 +367,11 @@ define hidden i32 @luaE_resetthread(ptr noundef %0, i32 noundef %1) local_unname
   %8 = load ptr, ptr %5, align 8, !tbaa !30
   store ptr %8, ptr %3, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 32768, ptr %9, align 4, !tbaa !51
+  store i32 32768, ptr %9, align 4, !tbaa !48
   %10 = icmp eq i32 %1, 1
   %spec.store.select = select i1 %10, i32 0, i32 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 0, ptr %11, align 2, !tbaa !45
+  store i8 0, ptr %11, align 2, !tbaa !43
   %12 = tail call i32 @luaD_closeprotected(ptr noundef %0, i64 noundef 1, i32 noundef %spec.store.select) #8
   %.not = icmp eq i32 %12, 0
   %13 = load ptr, ptr %5, align 8, !tbaa !30
@@ -418,16 +418,16 @@ define dso_local i32 @lua_closethread(ptr noundef initializes((176, 180)) %0, pt
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %5 = load i32, ptr %4, align 8, !tbaa !32
   %6 = and i32 %5, 65535
   br label %7
 
 7:                                                ; preds = %2, %3
   %8 = phi i32 [ %6, %3 ], [ 0, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %8, ptr %9, align 8, !tbaa !34
+  store i32 %8, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %11 = load i8, ptr %10, align 2, !tbaa !45
+  %11 = load i8, ptr %10, align 2, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8, !tbaa !19
@@ -438,11 +438,11 @@ define dso_local i32 @lua_closethread(ptr noundef initializes((176, 180)) %0, pt
   %17 = load ptr, ptr %14, align 8, !tbaa !30
   store ptr %17, ptr %12, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 32768, ptr %18, align 4, !tbaa !51
+  store i32 32768, ptr %18, align 4, !tbaa !48
   %19 = icmp eq i8 %11, 1
   %narrow = select i1 %19, i8 0, i8 %11
   %spec.store.select.i = zext i8 %narrow to i32
-  store i8 0, ptr %10, align 2, !tbaa !45
+  store i8 0, ptr %10, align 2, !tbaa !43
   %20 = tail call i32 @luaD_closeprotected(ptr noundef %0, i64 noundef 1, i32 noundef %spec.store.select.i) #8
   %.not.i = icmp eq i32 %20, 0
   %21 = load ptr, ptr %14, align 8, !tbaa !30
@@ -486,13 +486,13 @@ define dso_local ptr @lua_newstate(ptr noundef %0, ptr noundef %1, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 8, ptr %9, align 8, !tbaa !53
+  store i8 8, ptr %9, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 322
-  store i8 8, ptr %10, align 2, !tbaa !54
+  store i8 8, ptr %10, align 2, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  store i8 8, ptr %11, align 1, !tbaa !55
+  store i8 8, ptr %11, align 1, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %8, ptr %12, align 8, !tbaa !36
+  store ptr %8, ptr %12, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr null, ptr %13, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -500,57 +500,57 @@ define dso_local ptr @lua_newstate(ptr noundef %0, ptr noundef %1, i32 noundef %
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 0, ptr %15, align 4, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %7, ptr %16, align 8, !tbaa !38
+  store ptr %7, ptr %16, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr null, ptr %18, align 8, !tbaa !39
+  store ptr null, ptr %18, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  store volatile ptr null, ptr %19, align 8, !tbaa !40
+  store volatile ptr null, ptr %19, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  store volatile i32 0, ptr %20, align 8, !tbaa !41
+  store volatile i32 0, ptr %20, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  store i32 0, ptr %21, align 8, !tbaa !42
+  store i32 0, ptr %21, align 8, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  store i8 1, ptr %22, align 1, !tbaa !43
+  store i8 1, ptr %22, align 1, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 196
-  store i32 0, ptr %23, align 4, !tbaa !48
+  store i32 0, ptr %23, align 4, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr null, ptr %24, align 8, !tbaa !44
+  store ptr null, ptr %24, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i8 0, ptr %25, align 2, !tbaa !45
+  store i8 0, ptr %25, align 2, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store i64 0, ptr %26, align 8, !tbaa !46
+  store i64 0, ptr %26, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 188
-  store i32 0, ptr %27, align 4, !tbaa !47
+  store i32 0, ptr %27, align 4, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 328
-  store ptr %7, ptr %28, align 8, !tbaa !56
-  store ptr null, ptr %7, align 8, !tbaa !57
-  store i32 65536, ptr %17, align 8, !tbaa !34
-  store ptr %0, ptr %8, align 8, !tbaa !58
+  store ptr %7, ptr %28, align 8, !tbaa !52
+  store ptr null, ptr %7, align 8, !tbaa !53
+  store i32 65536, ptr %17, align 8, !tbaa !32
+  store ptr %0, ptr %8, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr %1, ptr %29, align 8, !tbaa !59
+  store ptr %1, ptr %29, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 1616
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  store ptr %7, ptr %31, align 8, !tbaa !49
+  store ptr %7, ptr %31, align 8, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 312
-  store i32 %2, ptr %32, align 8, !tbaa !60
+  store i32 %2, ptr %32, align 8, !tbaa !56
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 326
-  store i8 2, ptr %33, align 2, !tbaa !61
+  store i8 2, ptr %33, align 2, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  store i8 0, ptr %35, align 8, !tbaa !62
+  store i8 0, ptr %35, align 8, !tbaa !58
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 472
-  store ptr null, ptr %36, align 8, !tbaa !63
+  store ptr null, ptr %36, align 8, !tbaa !59
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 323
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  store i8 8, ptr %37, align 1, !tbaa !64
+  store i8 8, ptr %37, align 1, !tbaa !60
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 324
-  store i8 0, ptr %38, align 4, !tbaa !65
+  store i8 0, ptr %38, align 4, !tbaa !61
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 325
-  store i8 0, ptr %39, align 1, !tbaa !66
+  store i8 0, ptr %39, align 1, !tbaa !62
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 327
-  store i8 0, ptr %40, align 1, !tbaa !67
+  store i8 0, ptr %40, align 1, !tbaa !63
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %41, i8 0, i64 136, i1 false)
@@ -560,7 +560,7 @@ define dso_local ptr @lua_newstate(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i64 0, ptr %44, align 8, !tbaa !30
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  store i8 3, ptr %45, align 8, !tbaa !37
+  store i8 3, ptr %45, align 8, !tbaa !35
   %46 = tail call zeroext i8 @luaO_codeparam(i32 noundef 250) #8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 316
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 319
@@ -580,7 +580,7 @@ define dso_local ptr @lua_newstate(ptr noundef %0, ptr noundef %1, i32 noundef %
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 317
   store i8 %56, ptr %57, align 1, !tbaa !30
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 696
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %58, i8 0, i64 72, i1 false), !tbaa !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %58, i8 0, i64 72, i1 false), !tbaa !64
   %59 = tail call i32 @luaD_rawrunprotected(ptr noundef nonnull %7, ptr noundef nonnull @f_luaopen, ptr noundef null) #8
   %.not = icmp eq i32 %59, 0
   br i1 %.not, label %61, label %60
@@ -602,7 +602,7 @@ declare hidden i32 @luaD_rawrunprotected(ptr noundef, ptr noundef, ptr noundef) 
 define internal void @f_luaopen(ptr noundef %0, ptr readnone captures(none) %1) #2 {
   %3 = alloca %struct.TValue, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = tail call ptr @luaM_malloc_(ptr noundef %0, i64 noundef 720, i32 noundef 0) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %6, ptr %7, align 8, !tbaa !30
@@ -617,7 +617,7 @@ define internal void @f_luaopen(ptr noundef %0, ptr readnone captures(none) %1) 
   store i8 0, ptr %11, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 45
-  br i1 %exitcond.not.i, label %stack_init.exit, label %9, !llvm.loop !50
+  br i1 %exitcond.not.i, label %stack_init.exit, label %9
 
 stack_init.exit:                                  ; preds = %9
   %12 = load ptr, ptr %7, align 8, !tbaa !30
@@ -630,7 +630,7 @@ stack_init.exit:                                  ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 156
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i32 32768, ptr %18, align 4, !tbaa !51
+  store i32 32768, ptr %18, align 4, !tbaa !48
   store ptr %12, ptr %16, align 8, !tbaa !30
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %19, align 8, !tbaa !30
@@ -649,35 +649,35 @@ stack_init.exit:                                  ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %26, ptr %27, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i8 69, ptr %28, align 8, !tbaa !37
+  store i8 69, ptr %28, align 8, !tbaa !35
   tail call void @luaH_resize(ptr noundef nonnull %0, ptr noundef %26, i32 noundef 3, i32 noundef 0) #8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 1, ptr %29, align 8, !tbaa !37
+  store i8 1, ptr %29, align 8, !tbaa !35
   call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %26, i64 noundef 1, ptr noundef nonnull %3) #8
   store ptr %0, ptr %3, align 8, !tbaa !30
-  store i8 72, ptr %29, align 8, !tbaa !37
+  store i8 72, ptr %29, align 8, !tbaa !35
   call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %26, i64 noundef 3, ptr noundef nonnull %3) #8
   %30 = call ptr @luaH_new(ptr noundef nonnull %0) #8
   store ptr %30, ptr %3, align 8, !tbaa !30
-  store i8 69, ptr %29, align 8, !tbaa !37
+  store i8 69, ptr %29, align 8, !tbaa !35
   call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %26, i64 noundef 2, ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   call void @luaS_init(ptr noundef nonnull %0) #8
   call void @luaT_init(ptr noundef nonnull %0) #8
   call void @luaX_init(ptr noundef nonnull %0) #8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 110
-  store i8 0, ptr %31, align 2, !tbaa !61
+  store i8 0, ptr %31, align 2, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i8 0, ptr %32, align 8, !tbaa !70
+  store i8 0, ptr %32, align 8, !tbaa !66
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @close_state(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %5 = load i8, ptr %4, align 8, !tbaa !70
+  %5 = load i8, ptr %4, align 8, !tbaa !66
   %6 = and i8 %5, 15
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %12
@@ -691,11 +691,11 @@ define internal fastcc void @close_state(ptr noundef %0) unnamed_addr #2 {
 
 12:                                               ; preds = %1, %8
   tail call void @luaC_freeallobjects(ptr noundef nonnull %0) #8
-  %13 = load ptr, ptr %2, align 8, !tbaa !36
+  %13 = load ptr, ptr %2, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !71
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  %17 = load i32, ptr %16, align 4, !tbaa !72
+  %17 = load i32, ptr %16, align 4, !tbaa !68
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 3
   tail call void @luaM_free_(ptr noundef nonnull %0, ptr noundef %15, i64 noundef %19) #8
@@ -727,7 +727,7 @@ define internal fastcc void @close_state(ptr noundef %0) unnamed_addr #2 {
   %33 = add i16 %32, -1
   store i16 %33, ptr %28, align 4, !tbaa !31
   %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %freeCI.exit.loopexit.i, label %29, !llvm.loop !52
+  br i1 %.not.i.i, label %freeCI.exit.loopexit.i, label %29
 
 freeCI.exit.loopexit.i:                           ; preds = %29
   %.pre.i = load ptr, ptr %20, align 8, !tbaa !30
@@ -748,9 +748,9 @@ freeCI.exit.i:                                    ; preds = %freeCI.exit.loopexi
   br label %freestack.exit
 
 freestack.exit:                                   ; preds = %12, %freeCI.exit.i
-  %43 = load ptr, ptr %3, align 8, !tbaa !58
+  %43 = load ptr, ptr %3, align 8, !tbaa !54
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !59
+  %45 = load ptr, ptr %44, align 8, !tbaa !55
   %46 = getelementptr inbounds i8, ptr %0, i64 -8
   %47 = tail call ptr %43(ptr noundef %45, ptr noundef nonnull %46, i64 noundef 1632, i64 noundef 0) #8
   ret void
@@ -759,9 +759,9 @@ freestack.exit:                                   ; preds = %12, %freeCI.exit.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @lua_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   tail call fastcc void @close_state(ptr noundef %5)
   ret void
 }
@@ -769,15 +769,15 @@ define dso_local void @lua_close(ptr noundef readonly captures(none) %0) local_u
 ; Function Attrs: nounwind uwtable
 define hidden void @luaE_warning(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1400
-  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1408
-  %10 = load ptr, ptr %9, align 8, !tbaa !74
+  %10 = load ptr, ptr %9, align 8, !tbaa !70
   tail call void %7(ptr noundef %10, ptr noundef %1, i32 noundef %2) #8
   br label %11
 
@@ -790,7 +790,7 @@ define hidden void @luaE_warnerror(ptr noundef readonly captures(none) %0, ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
-  %6 = load i8, ptr %5, align 8, !tbaa !37
+  %6 = load i8, ptr %5, align 8, !tbaa !35
   %7 = and i8 %6, 15
   %8 = icmp eq i8 %7, 4
   br i1 %8, label %9, label %18
@@ -799,67 +799,67 @@ define hidden void @luaE_warnerror(ptr noundef readonly captures(none) %0, ptr n
   %10 = getelementptr inbounds i8, ptr %4, i64 -16
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 11
-  %13 = load i8, ptr %12, align 1, !tbaa !75
+  %13 = load i8, ptr %12, align 1, !tbaa !71
   %14 = icmp sgt i8 %13, -1
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %14, label %18, label %16
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr %15, align 8, !tbaa !78
+  %17 = load ptr, ptr %15, align 8, !tbaa !74
   br label %18
 
 18:                                               ; preds = %9, %2, %16
   %19 = phi ptr [ %17, %16 ], [ @.str.1, %2 ], [ %15, %9 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1400
-  %23 = load ptr, ptr %22, align 8, !tbaa !73
+  %23 = load ptr, ptr %22, align 8, !tbaa !69
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %luaE_warning.exit19, label %luaE_warning.exit
 
 luaE_warning.exit:                                ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 1408
-  %25 = load ptr, ptr %24, align 8, !tbaa !74
+  %25 = load ptr, ptr %24, align 8, !tbaa !70
   tail call void %23(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 1) #8
-  %.pre = load ptr, ptr %20, align 8, !tbaa !36
+  %.pre = load ptr, ptr %20, align 8, !tbaa !34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1400
-  %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !73
+  %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !69
   %.not.i12 = icmp eq ptr %.pre20, null
   br i1 %.not.i12, label %luaE_warning.exit19, label %luaE_warning.exit13
 
 luaE_warning.exit13:                              ; preds = %luaE_warning.exit
   %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 1408
-  %27 = load ptr, ptr %26, align 8, !tbaa !74
+  %27 = load ptr, ptr %26, align 8, !tbaa !70
   tail call void %.pre20(ptr noundef %27, ptr noundef %1, i32 noundef 1) #8
-  %.pre21 = load ptr, ptr %20, align 8, !tbaa !36
+  %.pre21 = load ptr, ptr %20, align 8, !tbaa !34
   %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %.pre21, i64 1400
-  %.pre23 = load ptr, ptr %.phi.trans.insert22, align 8, !tbaa !73
+  %.pre23 = load ptr, ptr %.phi.trans.insert22, align 8, !tbaa !69
   %.not.i14 = icmp eq ptr %.pre23, null
   br i1 %.not.i14, label %luaE_warning.exit19, label %luaE_warning.exit15
 
 luaE_warning.exit15:                              ; preds = %luaE_warning.exit13
   %28 = getelementptr inbounds nuw i8, ptr %.pre21, i64 1408
-  %29 = load ptr, ptr %28, align 8, !tbaa !74
+  %29 = load ptr, ptr %28, align 8, !tbaa !70
   tail call void %.pre23(ptr noundef %29, ptr noundef nonnull @.str.3, i32 noundef 1) #8
-  %.pre24 = load ptr, ptr %20, align 8, !tbaa !36
+  %.pre24 = load ptr, ptr %20, align 8, !tbaa !34
   %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %.pre24, i64 1400
-  %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8, !tbaa !73
+  %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8, !tbaa !69
   %.not.i16 = icmp eq ptr %.pre26, null
   br i1 %.not.i16, label %luaE_warning.exit19, label %luaE_warning.exit17
 
 luaE_warning.exit17:                              ; preds = %luaE_warning.exit15
   %30 = getelementptr inbounds nuw i8, ptr %.pre24, i64 1408
-  %31 = load ptr, ptr %30, align 8, !tbaa !74
+  %31 = load ptr, ptr %30, align 8, !tbaa !70
   tail call void %.pre26(ptr noundef %31, ptr noundef %19, i32 noundef 1) #8
-  %.pre27 = load ptr, ptr %20, align 8, !tbaa !36
+  %.pre27 = load ptr, ptr %20, align 8, !tbaa !34
   %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %.pre27, i64 1400
-  %.pre29 = load ptr, ptr %.phi.trans.insert28, align 8, !tbaa !73
+  %.pre29 = load ptr, ptr %.phi.trans.insert28, align 8, !tbaa !69
   %.not.i18 = icmp eq ptr %.pre29, null
   br i1 %.not.i18, label %luaE_warning.exit19, label %32
 
 32:                                               ; preds = %luaE_warning.exit17
   %33 = getelementptr inbounds nuw i8, ptr %.pre27, i64 1408
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = load ptr, ptr %33, align 8, !tbaa !70
   tail call void %.pre29(ptr noundef %34, ptr noundef nonnull @.str.4, i32 noundef 0) #8
   br label %luaE_warning.exit19
 
@@ -932,50 +932,46 @@ attributes #9 = { noreturn nounwind }
 !29 = !{!26, !23, i64 16}
 !30 = !{!7, !7, i64 0}
 !31 = !{!20, !21, i64 12}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!20, !12, i64 176}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = !{!20, !22, i64 24}
-!37 = !{!13, !7, i64 8}
-!38 = !{!20, !16, i64 80}
-!39 = !{!20, !25, i64 88}
-!40 = !{!20, !6, i64 160}
-!41 = !{!20, !12, i64 192}
-!42 = !{!20, !12, i64 184}
-!43 = !{!20, !7, i64 11}
-!44 = !{!20, !24, i64 56}
-!45 = !{!20, !7, i64 10}
-!46 = !{!20, !9, i64 168}
-!47 = !{!20, !12, i64 180}
-!48 = !{!20, !12, i64 188}
-!49 = !{!5, !16, i64 264}
-!50 = distinct !{!50, !33}
-!51 = !{!26, !12, i64 60}
-!52 = distinct !{!52, !33}
-!53 = !{!20, !7, i64 8}
-!54 = !{!5, !7, i64 106}
-!55 = !{!20, !7, i64 9}
-!56 = !{!5, !14, i64 112}
-!57 = !{!20, !14, i64 0}
-!58 = !{!5, !6, i64 0}
-!59 = !{!5, !6, i64 8}
-!60 = !{!5, !12, i64 96}
-!61 = !{!5, !7, i64 110}
-!62 = !{!5, !7, i64 72}
-!63 = !{!5, !6, i64 256}
-!64 = !{!5, !7, i64 107}
-!65 = !{!5, !7, i64 108}
-!66 = !{!5, !7, i64 109}
-!67 = !{!5, !7, i64 111}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"p1 _ZTS5Table", !6, i64 0}
-!70 = !{!5, !7, i64 88}
-!71 = !{!5, !11, i64 48}
-!72 = !{!5, !12, i64 60}
-!73 = !{!5, !6, i64 1400}
-!74 = !{!5, !6, i64 1408}
-!75 = !{!76, !7, i64 11}
-!76 = !{!"TString", !14, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !12, i64 12, !7, i64 16, !77, i64 24, !6, i64 32, !6, i64 40}
-!77 = !{!"p1 omnipotent char", !6, i64 0}
-!78 = !{!76, !77, i64 24}
+!32 = !{!20, !12, i64 176}
+!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = !{!20, !22, i64 24}
+!35 = !{!13, !7, i64 8}
+!36 = !{!20, !16, i64 80}
+!37 = !{!20, !25, i64 88}
+!38 = !{!20, !6, i64 160}
+!39 = !{!20, !12, i64 192}
+!40 = !{!20, !12, i64 184}
+!41 = !{!20, !7, i64 11}
+!42 = !{!20, !24, i64 56}
+!43 = !{!20, !7, i64 10}
+!44 = !{!20, !9, i64 168}
+!45 = !{!20, !12, i64 180}
+!46 = !{!20, !12, i64 188}
+!47 = !{!5, !16, i64 264}
+!48 = !{!26, !12, i64 60}
+!49 = !{!20, !7, i64 8}
+!50 = !{!5, !7, i64 106}
+!51 = !{!20, !7, i64 9}
+!52 = !{!5, !14, i64 112}
+!53 = !{!20, !14, i64 0}
+!54 = !{!5, !6, i64 0}
+!55 = !{!5, !6, i64 8}
+!56 = !{!5, !12, i64 96}
+!57 = !{!5, !7, i64 110}
+!58 = !{!5, !7, i64 72}
+!59 = !{!5, !6, i64 256}
+!60 = !{!5, !7, i64 107}
+!61 = !{!5, !7, i64 108}
+!62 = !{!5, !7, i64 109}
+!63 = !{!5, !7, i64 111}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS5Table", !6, i64 0}
+!66 = !{!5, !7, i64 88}
+!67 = !{!5, !11, i64 48}
+!68 = !{!5, !12, i64 60}
+!69 = !{!5, !6, i64 1400}
+!70 = !{!5, !6, i64 1408}
+!71 = !{!72, !7, i64 11}
+!72 = !{!"TString", !14, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !12, i64 12, !7, i64 16, !73, i64 24, !6, i64 32, !6, i64 40}
+!73 = !{!"p1 omnipotent char", !6, i64 0}
+!74 = !{!72, !73, i64 24}

@@ -114,7 +114,7 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.add = add nuw nsw i64 %.idx, 40
   %9 = icmp eq i64 %.add, 200
-  br i1 %9, label %10, label %3, !llvm.loop !6
+  br i1 %9, label %10, label %3
 
 10:                                               ; preds = %3
   store i8 6, ptr %2, align 1
@@ -198,7 +198,7 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   call void @_ZN2os4freeEPv(ptr noundef %58) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %50, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %50, !llvm.loop !6
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %59 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #14
@@ -392,7 +392,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %.1 = phi ptr [ %81, %80 ], [ %.069113, %94 ], [ %.069113, %106 ], [ %.069113, %119 ], [ %.069113, %131 ], [ %.069113, %128 ], [ %.069113, %142 ], [ %.069113, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader, label %.preheader107, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %.preheader107, !llvm.loop !8
 
 .preheader:                                       ; preds = %145, %.preheader
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.preheader ], [ 0, %145 ]
@@ -410,7 +410,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   call void @_ZN2os4freeEPv(ptr noundef %153) #14
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 5
-  br i1 %exitcond.not.i82, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not.i82, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83, label %.preheader, !llvm.loop !6
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83: ; preds = %.preheader
   %154 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #14
@@ -606,7 +606,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   %91 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 4096, ptr noundef nonnull %24)
   store ptr %91, ptr %13, align 8
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.backedge237, %.preheader236
   %92 = call i32 @fclose(ptr noundef nonnull %24)
@@ -667,7 +667,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 118:                                              ; preds = %107, %109, %113, %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %119, label %93, !llvm.loop !12
+  br i1 %exitcond.not, label %119, label %93, !llvm.loop !10
 
 119:                                              ; preds = %118
   %120 = trunc i8 %.1131 to i1
@@ -701,7 +701,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   call void @_ZN2os4freeEPv(ptr noundef %132) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %124, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %124, !llvm.loop !6
 
 133:                                              ; preds = %119
   %134 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %2, ptr noundef nonnull @.str.15) #14
@@ -754,7 +754,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   call void @_ZN2os4freeEPv(ptr noundef %157) #14
   %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i161, 1
   %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, 5
-  br i1 %exitcond.not.i163, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %149, !llvm.loop !8
+  br i1 %exitcond.not.i163, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %149, !llvm.loop !6
 
 158:                                              ; preds = %.lr.ph245, %.backedge235
   %159 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #14
@@ -841,13 +841,13 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   store ptr %192, ptr %193, align 8
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next284, 5
-  br i1 %exitcond286.not, label %.backedge235, label %.preheader231, !llvm.loop !13
+  br i1 %exitcond286.not, label %.backedge235, label %.preheader231, !llvm.loop !11
 
 .backedge235:                                     ; preds = %.lr.ph242, %.preheader231, %.lr.ph242.preheader, %158, %.critedge160
   %194 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 4096, ptr noundef nonnull %134)
   store ptr %194, ptr %13, align 8
   %.not142 = icmp eq ptr %194, null
-  br i1 %.not142, label %._crit_edge246, label %158, !llvm.loop !14
+  br i1 %.not142, label %._crit_edge246, label %158, !llvm.loop !12
 
 ._crit_edge246:                                   ; preds = %.backedge235, %.preheader234
   %195 = call i32 @fclose(ptr noundef nonnull %134)
@@ -901,7 +901,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   call void @_ZN2os4freeEPv(ptr noundef %219) #14
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, 5
-  br i1 %exitcond.not.i167, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %211, !llvm.loop !8
+  br i1 %exitcond.not.i167, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %211, !llvm.loop !6
 
 220:                                              ; preds = %.lr.ph278, %.backedge
   %221 = phi ptr [ %198, %.lr.ph278 ], [ %309, %.backedge ]
@@ -946,7 +946,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 .backedge.i:                                      ; preds = %sub_2.i, %sub_1.i, %sub_0.i
   %234 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i.not = icmp eq ptr %234, null
-  br i1 %.not.not.not.not.i.not, label %_ZL11find_ro_optPc.exit, label %sub_0.i, !llvm.loop !15
+  br i1 %.not.not.not.not.i.not, label %_ZL11find_ro_optPc.exit, label %sub_0.i, !llvm.loop !13
 
 _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge.i, %225
   %.not.not.not.not.i.lcssa = phi i1 [ false, %225 ], [ false, %.backedge.i ], [ true, %sub_2.i ]
@@ -958,7 +958,7 @@ _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge
   call void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef %0, i32 noundef %.0129250, ptr noundef nonnull @.str.25, ptr noundef nonnull %20, ptr noundef nonnull %19, i1 noundef zeroext %.not.not.not.not.i.lcssa)
   %236 = add nuw nsw i32 %.0129250, 1
   %exitcond287.not = icmp eq i32 %236, 5
-  br i1 %exitcond287.not, label %.loopexit229, label %235, !llvm.loop !16
+  br i1 %exitcond287.not, label %.loopexit229, label %235, !llvm.loop !14
 
 .loopexit229:                                     ; preds = %235, %222, %220
   %.1136 = phi i1 [ %.0135276, %222 ], [ %.0135276, %220 ], [ true, %235 ]
@@ -1013,7 +1013,7 @@ sub_2.i175:                                       ; preds = %sub_1.i173
 .backedge.i172:                                   ; preds = %sub_2.i175, %sub_1.i173, %sub_0.i170
   %254 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i169.not = icmp eq ptr %254, null
-  br i1 %.not.not.not.not.i169.not, label %_ZL11find_ro_optPc.exit176, label %sub_0.i170, !llvm.loop !15
+  br i1 %.not.not.not.not.i169.not, label %_ZL11find_ro_optPc.exit176, label %sub_0.i170, !llvm.loop !13
 
 _ZL11find_ro_optPc.exit176:                       ; preds = %sub_2.i175, %.backedge.i172, %245
   %.not.not.not.not.i169.lcssa = phi i1 [ false, %245 ], [ false, %.backedge.i172 ], [ true, %sub_2.i175 ]
@@ -1055,7 +1055,7 @@ sub_2.i183:                                       ; preds = %sub_1.i181
 .backedge.i180:                                   ; preds = %sub_2.i183, %sub_1.i181, %sub_0.i178
   %267 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i177.not = icmp eq ptr %267, null
-  br i1 %.not.not.not.not.i177.not, label %_ZL11find_ro_optPc.exit184, label %sub_0.i178, !llvm.loop !15
+  br i1 %.not.not.not.not.i177.not, label %_ZL11find_ro_optPc.exit184, label %sub_0.i178, !llvm.loop !13
 
 _ZL11find_ro_optPc.exit184:                       ; preds = %sub_2.i183, %.backedge.i180, %258
   %.not.not.not.not.i177.lcssa = phi i1 [ false, %258 ], [ false, %.backedge.i180 ], [ true, %sub_2.i183 ]
@@ -1097,7 +1097,7 @@ sub_2.i191:                                       ; preds = %sub_1.i189
 .backedge.i188:                                   ; preds = %sub_2.i191, %sub_1.i189, %sub_0.i186
   %280 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i185.not = icmp eq ptr %280, null
-  br i1 %.not.not.not.not.i185.not, label %_ZL11find_ro_optPc.exit192, label %sub_0.i186, !llvm.loop !15
+  br i1 %.not.not.not.not.i185.not, label %_ZL11find_ro_optPc.exit192, label %sub_0.i186, !llvm.loop !13
 
 _ZL11find_ro_optPc.exit192:                       ; preds = %sub_2.i191, %.backedge.i188, %271
   %.not.not.not.not.i185.lcssa = phi i1 [ false, %271 ], [ false, %.backedge.i188 ], [ true, %sub_2.i191 ]
@@ -1139,7 +1139,7 @@ sub_2.i199:                                       ; preds = %sub_1.i197
 .backedge.i196:                                   ; preds = %sub_2.i199, %sub_1.i197, %sub_0.i194
   %293 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i193.not = icmp eq ptr %293, null
-  br i1 %.not.not.not.not.i193.not, label %_ZL11find_ro_optPc.exit200, label %sub_0.i194, !llvm.loop !15
+  br i1 %.not.not.not.not.i193.not, label %_ZL11find_ro_optPc.exit200, label %sub_0.i194, !llvm.loop !13
 
 _ZL11find_ro_optPc.exit200:                       ; preds = %sub_2.i199, %.backedge.i196, %284
   %.not.not.not.not.i193.lcssa = phi i1 [ false, %284 ], [ false, %.backedge.i196 ], [ true, %sub_2.i199 ]
@@ -1181,7 +1181,7 @@ sub_2.i207:                                       ; preds = %sub_1.i205
 .backedge.i204:                                   ; preds = %sub_2.i207, %sub_1.i205, %sub_0.i202
   %306 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i201.not = icmp eq ptr %306, null
-  br i1 %.not.not.not.not.i201.not, label %_ZL11find_ro_optPc.exit208, label %sub_0.i202, !llvm.loop !15
+  br i1 %.not.not.not.not.i201.not, label %_ZL11find_ro_optPc.exit208, label %sub_0.i202, !llvm.loop !13
 
 _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backedge.i204, %297
   %.not.not.not.not.i201.lcssa = phi i1 [ false, %297 ], [ false, %.backedge.i204 ], [ true, %sub_2.i207 ]
@@ -1194,14 +1194,14 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
   %.4 = phi i1 [ true, %_ZL11find_ro_optPc.exit176 ], [ true, %_ZL11find_ro_optPc.exit184 ], [ true, %_ZL11find_ro_optPc.exit192 ], [ true, %_ZL11find_ro_optPc.exit200 ], [ true, %_ZL11find_ro_optPc.exit208 ], [ %.3272, %294 ]
   %308 = call ptr @strsep(ptr noundef nonnull %23, ptr noundef nonnull @.str.23) #14
   %.not147 = icmp eq ptr %308, null
-  br i1 %.not147, label %.backedge, label %.lr.ph273, !llvm.loop !17
+  br i1 %.not147, label %.backedge, label %.lr.ph273, !llvm.loop !15
 
 .backedge:                                        ; preds = %307, %.loopexit229, %.preheader, %240
   %.0133.be = phi i1 [ %.1134, %240 ], [ %.1134, %.loopexit229 ], [ %.1134, %.preheader ], [ %.4, %307 ]
   %309 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 4096, ptr noundef nonnull %196)
   store ptr %309, ptr %13, align 8
   %.not143 = icmp eq ptr %309, null
-  br i1 %.not143, label %._crit_edge279, label %220, !llvm.loop !18
+  br i1 %.not143, label %._crit_edge279, label %220, !llvm.loop !16
 
 ._crit_edge279:                                   ; preds = %.backedge
   %310 = call i32 @fclose(ptr noundef nonnull %196)
@@ -1239,7 +1239,7 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
   call void @_ZN2os4freeEPv(ptr noundef %323) #14
   %indvars.iv.next.i210 = add nuw nsw i64 %indvars.iv.i209, 1
   %exitcond.not.i211 = icmp eq i64 %indvars.iv.next.i210, 5
-  br i1 %exitcond.not.i211, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %315, !llvm.loop !8
+  br i1 %exitcond.not.i211, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %315, !llvm.loop !6
 
 324:                                              ; preds = %._crit_edge279
   br i1 %199, label %325, label %330
@@ -1394,7 +1394,7 @@ define hidden void @_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo(ptr nounde
   tail call void @_ZN2os4freeEPv(ptr noundef %10) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %11, label %2, !llvm.loop !8
+  br i1 %exitcond.not, label %11, label %2, !llvm.loop !6
 
 11:                                               ; preds = %2
   ret void
@@ -1890,7 +1890,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
 56:                                               ; preds = %.lr.ph, %45, %51
   %57 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 4097, ptr noundef nonnull %31)
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %56, %39
   %58 = call i32 @fclose(ptr noundef nonnull %31)
@@ -2235,16 +2235,14 @@ attributes #16 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

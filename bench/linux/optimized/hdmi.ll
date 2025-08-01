@@ -514,7 +514,7 @@ define dso_local range(i64 -28, 18) i64 @hdmi_avi_infoframe_pack(ptr noundef rea
   br i1 %17, label %select.unfold, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i64 @hdmi_avi_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %19 = tail call i64 @hdmi_avi_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %select.unfold
 
 select.unfold:                                    ; preds = %3, %6, %10, %14, %18
@@ -629,7 +629,7 @@ define dso_local range(i64 -28, 30) i64 @hdmi_spd_infoframe_pack_only(ptr nounde
   %38 = add i8 %37, %35
   %39 = add nuw nsw i64 %34, 1
   %40 = icmp eq i64 %39, 29
-  br i1 %40, label %41, label %33, !llvm.loop !12
+  br i1 %40, label %41, label %33, !llvm.loop !7
 
 41:                                               ; preds = %33
   %42 = sub i8 0, %38
@@ -698,7 +698,7 @@ define dso_local range(i64 -28, 30) i64 @hdmi_spd_infoframe_pack(ptr noundef rea
   %38 = add i8 %37, %35
   %39 = add nuw nsw i64 %34, 1
   %40 = icmp eq i64 %39, 29
-  br i1 %40, label %41, label %33, !llvm.loop !13
+  br i1 %40, label %41, label %33, !llvm.loop !7
 
 41:                                               ; preds = %33
   %42 = sub i8 0, %38
@@ -842,7 +842,7 @@ define dso_local range(i64 -28, 15) i64 @hdmi_audio_infoframe_pack_only(ptr noun
   %69 = add i8 %68, %66
   %70 = add nuw nsw i64 %65, 1
   %71 = icmp eq i64 %70, 14
-  br i1 %71, label %72, label %64, !llvm.loop !14
+  br i1 %71, label %72, label %64, !llvm.loop !7
 
 72:                                               ; preds = %64
   %73 = sub i8 0, %69
@@ -950,7 +950,7 @@ define dso_local range(i64 -28, 15) i64 @hdmi_audio_infoframe_pack(ptr noundef r
   %69 = add i8 %68, %66
   %70 = add nuw nsw i64 %65, 1
   %71 = icmp eq i64 %70, 14
-  br i1 %71, label %72, label %64, !llvm.loop !14
+  br i1 %71, label %72, label %64, !llvm.loop !7
 
 72:                                               ; preds = %64
   %73 = sub i8 0, %69
@@ -1252,7 +1252,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack_only(ptr no
   %74 = add i8 %73, %71
   %75 = add nuw nsw i64 %70, 1
   %76 = icmp eq i64 %75, %32
-  br i1 %76, label %77, label %69, !llvm.loop !15
+  br i1 %76, label %77, label %69, !llvm.loop !7
 
 77:                                               ; preds = %69
   %78 = sub i8 0, %74
@@ -1317,7 +1317,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack(ptr noundef
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %33
-  %40 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %40 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %41
 
 41:                                               ; preds = %27, %33, %14, %19, %23, %39
@@ -1423,7 +1423,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nound
   store i8 %45, ptr %42, align 1
   %47 = add nuw nsw i64 %29, 1
   %48 = icmp eq i64 %47, 3
-  br i1 %48, label %49, label %28, !llvm.loop !16
+  br i1 %48, label %49, label %28, !llvm.loop !11
 
 49:                                               ; preds = %28
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1495,7 +1495,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nound
   %102 = add i8 %101, %99
   %103 = add nuw nsw i64 %98, 1
   %104 = icmp eq i64 %103, %7
-  br i1 %104, label %105, label %97, !llvm.loop !17
+  br i1 %104, label %105, label %97, !llvm.loop !7
 
 105:                                              ; preds = %97
   %106 = sub i8 0, %102
@@ -1526,7 +1526,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack(ptr noundef re
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i64 @hdmi_drm_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %15 = tail call i64 @hdmi_drm_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %16
 
 16:                                               ; preds = %10, %3, %6, %14
@@ -1629,13 +1629,13 @@ define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr noundef capture
   br label %63
 
 61:                                               ; preds = %1
-  tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #15, !srcloc !18
+  tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #15, !srcloc !12
   %62 = load i32, ptr %0, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %62) #15
-  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #15, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 919, i32 2313, i64 12) #15, !srcloc !20
-  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #15, !srcloc !21
-  tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #15, !srcloc !22
+  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #15, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 919, i32 2313, i64 12) #15, !srcloc !14
+  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #15, !srcloc !15
+  tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #15, !srcloc !16
   br label %63
 
 63:                                               ; preds = %61, %54, %._crit_edge, %38, %34, %29, %25, %20, %16, %11, %7, %3
@@ -1658,11 +1658,11 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack_only(ptr noundef r
   ]
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @hdmi_avi_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %6 = tail call i64 @hdmi_avi_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @hdmi_drm_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %8 = tail call i64 @hdmi_drm_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
 9:                                                ; preds = %3
@@ -1716,7 +1716,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack_only(ptr noundef r
   %41 = add i8 %40, %38
   %42 = add nuw nsw i64 %37, 1
   %43 = icmp eq i64 %42, 29
-  br i1 %43, label %44, label %36, !llvm.loop !23
+  br i1 %43, label %44, label %36, !llvm.loop !7
 
 44:                                               ; preds = %36
   %45 = sub i8 0, %41
@@ -1813,7 +1813,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack_only(ptr noundef r
   %109 = add i8 %108, %106
   %110 = add nuw nsw i64 %105, 1
   %111 = icmp eq i64 %110, 14
-  br i1 %111, label %112, label %104, !llvm.loop !14
+  br i1 %111, label %112, label %104, !llvm.loop !7
 
 112:                                              ; preds = %104
   %113 = sub i8 0, %109
@@ -1833,17 +1833,17 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack_only(ptr noundef r
   br i1 %121, label %122, label %hdmi_audio_infoframe_pack_only.exit
 
 122:                                              ; preds = %118
-  %123 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %123 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
 124:                                              ; preds = %3
-  tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #15, !srcloc !24
+  tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #15, !srcloc !17
   %125 = load i32, ptr %0, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %125) #15
-  tail call void asm sideeffect "342: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 342b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 342) #15, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 966, i32 2313, i64 12) #15, !srcloc !26
-  tail call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_end\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #15, !srcloc !27
-  tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #15, !srcloc !28
+  tail call void asm sideeffect "342: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 342b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 342) #15, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 966, i32 2313, i64 12) #15, !srcloc !19
+  tail call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_end\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #15, !srcloc !20
+  tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #15, !srcloc !21
   br label %hdmi_audio_infoframe_pack_only.exit
 
 hdmi_audio_infoframe_pack_only.exit:              ; preds = %13, %9, %112, %54, %50, %46, %124, %122, %118, %114, %44, %17, %7, %5
@@ -1881,7 +1881,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captur
   br i1 %16, label %hdmi_audio_infoframe_pack_only.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i64 @hdmi_avi_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %18 = tail call i64 @hdmi_avi_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
 19:                                               ; preds = %3
@@ -1897,7 +1897,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captur
   br i1 %26, label %27, label %hdmi_audio_infoframe_pack_only.exit
 
 27:                                               ; preds = %23
-  %28 = tail call i64 @hdmi_drm_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %28 = tail call i64 @hdmi_drm_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
 29:                                               ; preds = %3
@@ -1951,7 +1951,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captur
   %61 = add i8 %60, %58
   %62 = add nuw nsw i64 %57, 1
   %63 = icmp eq i64 %62, 29
-  br i1 %63, label %64, label %56, !llvm.loop !29
+  br i1 %63, label %64, label %56, !llvm.loop !7
 
 64:                                               ; preds = %56
   %65 = sub i8 0, %61
@@ -2048,7 +2048,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captur
   %129 = add i8 %128, %126
   %130 = add nuw nsw i64 %125, 1
   %131 = icmp eq i64 %130, 14
-  br i1 %131, label %132, label %124, !llvm.loop !14
+  br i1 %131, label %132, label %124, !llvm.loop !7
 
 132:                                              ; preds = %124
   %133 = sub i8 0, %129
@@ -2094,17 +2094,17 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captur
   br i1 %159, label %160, label %hdmi_audio_infoframe_pack_only.exit
 
 160:                                              ; preds = %154
-  %161 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !11
+  %161 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
 162:                                              ; preds = %3
-  tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #15, !srcloc !30
+  tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #15, !srcloc !22
   %163 = load i32, ptr %0, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %163) #15
-  tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #15, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1015, i32 2313, i64 12) #15, !srcloc !32
-  tail call void asm sideeffect "348: nop\0A\09.pushsection .discard.instr_end\0A\09.long 348b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 348) #15, !srcloc !33
-  tail call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_end\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #15, !srcloc !34
+  tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #15, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1015, i32 2313, i64 12) #15, !srcloc !24
+  tail call void asm sideeffect "348: nop\0A\09.pushsection .discard.instr_end\0A\09.long 348b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 348) #15, !srcloc !25
+  tail call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_end\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #15, !srcloc !26
   br label %hdmi_audio_infoframe_pack_only.exit
 
 hdmi_audio_infoframe_pack_only.exit:              ; preds = %138, %154, %._crit_edge, %134, %70, %66, %33, %29, %23, %19, %5, %9, %13, %132, %74, %162, %160, %64, %37, %27, %17
@@ -2895,7 +2895,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.149, i32 noundef %305, i32 noundef %308) #16
   %309 = add nuw nsw i64 %301, 1
   %310 = icmp eq i64 %309, 3
-  br i1 %310, label %311, label %300, !llvm.loop !35
+  br i1 %310, label %311, label %300, !llvm.loop !27
 
 311:                                              ; preds = %300
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2969,7 +2969,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_drm_infoframe_unpack_only(p
   store i16 %26, ptr %28, align 2
   %29 = add nuw nsw i64 %21, 1
   %30 = icmp eq i64 %29, 3
-  br i1 %30, label %31, label %20, !llvm.loop !36
+  br i1 %30, label %31, label %20, !llvm.loop !28
 
 31:                                               ; preds = %20
   %32 = getelementptr i8, ptr %1, i64 14
@@ -3042,7 +3042,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
   %21 = add i8 %20, %18
   %22 = add nuw nsw i64 %17, 1
   %23 = icmp eq i64 %22, 17
-  br i1 %23, label %24, label %.preheader, !llvm.loop !37
+  br i1 %23, label %24, label %.preheader, !llvm.loop !7
 
 24:                                               ; preds = %.preheader
   %25 = icmp eq i8 %21, 0
@@ -3206,7 +3206,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
   %135 = add i8 %134, %132
   %136 = add nuw nsw i64 %131, 1
   %137 = icmp eq i64 %136, 30
-  br i1 %137, label %138, label %.preheader3, !llvm.loop !38
+  br i1 %137, label %138, label %.preheader3, !llvm.loop !7
 
 138:                                              ; preds = %.preheader3
   %139 = icmp eq i8 %135, 0
@@ -3215,7 +3215,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
 140:                                              ; preds = %138
   %141 = getelementptr i8, ptr %1, i64 4
   %142 = add i64 %2, -4
-  %143 = tail call i32 @hdmi_drm_infoframe_unpack_only(ptr noundef %0, ptr noundef %141, i64 noundef %142), !range !39
+  %143 = tail call i32 @hdmi_drm_infoframe_unpack_only(ptr noundef %0, ptr noundef %141, i64 noundef %142), !range !29
   br label %306
 
 144:                                              ; preds = %5
@@ -3242,7 +3242,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
   %158 = add i8 %157, %155
   %159 = add nuw nsw i64 %154, 1
   %160 = icmp eq i64 %159, 29
-  br i1 %160, label %161, label %.preheader4, !llvm.loop !40
+  br i1 %160, label %161, label %.preheader4, !llvm.loop !7
 
 161:                                              ; preds = %.preheader4
   %162 = icmp eq i8 %158, 0
@@ -3297,7 +3297,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
   %193 = add i8 %192, %190
   %194 = add nuw nsw i64 %189, 1
   %195 = icmp eq i64 %194, 14
-  br i1 %195, label %196, label %.preheader5, !llvm.loop !41
+  br i1 %195, label %196, label %.preheader5, !llvm.loop !7
 
 196:                                              ; preds = %.preheader5
   %197 = icmp eq i8 %193, 0
@@ -3382,7 +3382,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nounde
   %253 = add i8 %252, %250
   %254 = add nuw nsw i64 %249, 1
   %255 = icmp eq i64 %254, %247
-  br i1 %255, label %256, label %.preheader6, !llvm.loop !42
+  br i1 %255, label %256, label %.preheader6, !llvm.loop !7
 
 256:                                              ; preds = %.preheader6
   %257 = icmp eq i8 %253, 0
@@ -3515,39 +3515,26 @@ attributes #16 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 -28, i64 260}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = !{i64 2154222373, i64 2154222182, i64 2154222234, i64 2154222280, i64 2154222308}
-!19 = !{i64 2154222931, i64 2154222740, i64 2154222792, i64 2154222838, i64 2154222866}
-!20 = !{i64 2154223005, i64 2154223034, i64 2154223080, i64 2154223138, i64 2154223192, i64 2154223246, i64 2154223301, i64 2154223332, i64 2154223640, i64 2154223646, i64 2154223693, i64 2154223716, i64 2154223742}
-!21 = !{i64 2154224195, i64 2154224006, i64 2154224056, i64 2154224102, i64 2154224130}
-!22 = !{i64 2154224501, i64 2154224312, i64 2154224362, i64 2154224408, i64 2154224436}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = !{i64 2154227177, i64 2154226986, i64 2154227038, i64 2154227084, i64 2154227112}
-!25 = !{i64 2154227735, i64 2154227544, i64 2154227596, i64 2154227642, i64 2154227670}
-!26 = !{i64 2154227809, i64 2154227838, i64 2154227884, i64 2154227942, i64 2154227996, i64 2154228050, i64 2154228105, i64 2154228136, i64 2154228444, i64 2154228450, i64 2154228497, i64 2154228520, i64 2154228546}
-!27 = !{i64 2154228999, i64 2154228810, i64 2154228860, i64 2154228906, i64 2154228934}
-!28 = !{i64 2154229305, i64 2154229116, i64 2154229166, i64 2154229212, i64 2154229240}
-!29 = distinct !{!29, !8, !9, !10}
-!30 = !{i64 2154232089, i64 2154231898, i64 2154231950, i64 2154231996, i64 2154232024}
-!31 = !{i64 2154232647, i64 2154232456, i64 2154232508, i64 2154232554, i64 2154232582}
-!32 = !{i64 2154232721, i64 2154232750, i64 2154232796, i64 2154232854, i64 2154232908, i64 2154232962, i64 2154233017, i64 2154233048, i64 2154233356, i64 2154233362, i64 2154233409, i64 2154233432, i64 2154233458}
-!33 = !{i64 2154233912, i64 2154233723, i64 2154233773, i64 2154233819, i64 2154233847}
-!34 = !{i64 2154234218, i64 2154234029, i64 2154234079, i64 2154234125, i64 2154234153}
-!35 = distinct !{!35, !8, !9, !10}
-!36 = distinct !{!36, !8, !9, !10}
-!37 = distinct !{!37, !8, !9, !10}
-!38 = distinct !{!38, !8, !9, !10}
-!39 = !{i32 -22, i32 1}
-!40 = distinct !{!40, !8, !9, !10}
-!41 = distinct !{!41, !8, !9, !10}
-!42 = distinct !{!42, !8, !9, !10}
+!10 = !{i64 -28, i64 260}
+!11 = distinct !{!11, !8, !9}
+!12 = !{i64 2154222373, i64 2154222182, i64 2154222234, i64 2154222280, i64 2154222308}
+!13 = !{i64 2154222931, i64 2154222740, i64 2154222792, i64 2154222838, i64 2154222866}
+!14 = !{i64 2154223005, i64 2154223034, i64 2154223080, i64 2154223138, i64 2154223192, i64 2154223246, i64 2154223301, i64 2154223332, i64 2154223640, i64 2154223646, i64 2154223693, i64 2154223716, i64 2154223742}
+!15 = !{i64 2154224195, i64 2154224006, i64 2154224056, i64 2154224102, i64 2154224130}
+!16 = !{i64 2154224501, i64 2154224312, i64 2154224362, i64 2154224408, i64 2154224436}
+!17 = !{i64 2154227177, i64 2154226986, i64 2154227038, i64 2154227084, i64 2154227112}
+!18 = !{i64 2154227735, i64 2154227544, i64 2154227596, i64 2154227642, i64 2154227670}
+!19 = !{i64 2154227809, i64 2154227838, i64 2154227884, i64 2154227942, i64 2154227996, i64 2154228050, i64 2154228105, i64 2154228136, i64 2154228444, i64 2154228450, i64 2154228497, i64 2154228520, i64 2154228546}
+!20 = !{i64 2154228999, i64 2154228810, i64 2154228860, i64 2154228906, i64 2154228934}
+!21 = !{i64 2154229305, i64 2154229116, i64 2154229166, i64 2154229212, i64 2154229240}
+!22 = !{i64 2154232089, i64 2154231898, i64 2154231950, i64 2154231996, i64 2154232024}
+!23 = !{i64 2154232647, i64 2154232456, i64 2154232508, i64 2154232554, i64 2154232582}
+!24 = !{i64 2154232721, i64 2154232750, i64 2154232796, i64 2154232854, i64 2154232908, i64 2154232962, i64 2154233017, i64 2154233048, i64 2154233356, i64 2154233362, i64 2154233409, i64 2154233432, i64 2154233458}
+!25 = !{i64 2154233912, i64 2154233723, i64 2154233773, i64 2154233819, i64 2154233847}
+!26 = !{i64 2154234218, i64 2154234029, i64 2154234079, i64 2154234125, i64 2154234153}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = !{i32 -22, i32 1}

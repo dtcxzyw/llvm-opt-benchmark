@@ -964,7 +964,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 290:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %291 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %292 = load ptr, ptr %291, align 8, !tbaa !57
+  %292 = load ptr, ptr %291, align 8, !tbaa !56
   %293 = ptrtoint ptr %292 to i64
   %294 = ptrtoint ptr %289 to i64
   %295 = sub i64 %293, %294
@@ -1123,7 +1123,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !57
+  %17 = load ptr, ptr %16, align 8, !tbaa !56
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1325,19 +1325,19 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 define internal void @_GLOBAL__sub_I_cmCursesPathWidget.cxx() #11 section ".text.startup" {
   %1 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #18
-  store i32 0, ptr %1, align 4, !tbaa !58
+  store i32 0, ptr %1, align 4, !tbaa !57
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %2, align 4, !tbaa !58
+  store i32 1, ptr %2, align 4, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %3, align 4, !tbaa !58
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !60
+  store i32 2, ptr %3, align 4, !tbaa !57
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !59
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %4 = phi i64 [ %10, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %5 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !58
+  %5 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !57
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i32 %5, 31
   br i1 %7, label %8, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -1352,7 +1352,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %10, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !31
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.exit, label %.lr.ph.i.i.i, !llvm.loop !62
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #18
@@ -1454,12 +1454,10 @@ attributes #19 = { noreturn }
 !51 = !{!"p1 _ZTS7_win_st", !10, i64 0}
 !52 = !{!"_ZTSN7_win_st4pdatE", !49, i64 0, !49, i64 2, !49, i64 4, !49, i64 6, !49, i64 8, !49, i64 10}
 !53 = !{!"_ZTS7cchar_t", !20, i64 0, !11, i64 4, !20, i64 24}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!41, !42, i64 16}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !11, i64 0}
-!60 = !{!61, !14, i64 0}
-!61 = !{!"_ZTSSt12_Base_bitsetILm1EE", !14, i64 0}
-!62 = distinct !{!62, !56}
+!56 = !{!41, !42, i64 16}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !11, i64 0}
+!59 = !{!60, !14, i64 0}
+!60 = !{!"_ZTSSt12_Base_bitsetILm1EE", !14, i64 0}

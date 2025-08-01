@@ -1661,7 +1661,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %305 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %303, ptr noundef %0, i32 noundef %304, i32 noundef 1, i32 noundef 0)
   %306 = add nuw i32 %.1615677, 1
   %exitcond700.not = icmp eq i32 %306, %.0619
-  br i1 %exitcond700.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph678, !llvm.loop !11
+  br i1 %exitcond700.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph678, !llvm.loop !10
 
 307:                                              ; preds = %73
   %308 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
@@ -1854,7 +1854,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %453 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %451, ptr noundef %0, i32 noundef %452, i32 noundef 1, i32 noundef 0)
   %454 = add nuw i32 %.2616675, 1
   %exitcond699.not = icmp eq i32 %454, %.0619
-  br i1 %exitcond699.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph676, !llvm.loop !12
+  br i1 %exitcond699.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph676, !llvm.loop !11
 
 455:                                              ; preds = %73
   %456 = load i32, ptr @hf_ctlv_bearer_descr, align 4
@@ -2008,7 +2008,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %567 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %565, ptr noundef %0, i32 noundef %566, i32 noundef 1, i32 noundef 0)
   %568 = add nuw i32 %.3617673, 1
   %exitcond.not = icmp eq i32 %568, %.0619
-  br i1 %exitcond.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph674, !llvm.loop !13
+  br i1 %exitcond.not, label %dissect_cat_efadn_coding.exit, label %.lr.ph674, !llvm.loop !12
 
 569:                                              ; preds = %73
   br i1 %.0606683, label %570, label %dissect_cat_efadn_coding.exit
@@ -2119,7 +2119,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %626 = add i32 %.4618670, 2
   %627 = add i32 %626, %625
   %628 = icmp ult i32 %627, %.0619
-  br i1 %628, label %.lr.ph671, label %dissect_cat_efadn_coding.exit, !llvm.loop !14
+  br i1 %628, label %.lr.ph671, label %dissect_cat_efadn_coding.exit, !llvm.loop !13
 
 629:                                              ; preds = %73
   %630 = trunc i8 %.0603684 to i1
@@ -2140,7 +2140,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %639 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %77, i32 noundef %638, i32 noundef 0, i1 noundef zeroext true)
   %640 = add i32 %.5669, 3
   %641 = icmp ult i32 %640, %.0619
-  br i1 %641, label %.lr.ph, label %dissect_cat_efadn_coding.exit, !llvm.loop !15
+  br i1 %641, label %.lr.ph, label %dissect_cat_efadn_coding.exit, !llvm.loop !14
 
 642:                                              ; preds = %73
   %643 = load i32, ptr @hf_ctlv_broadcast_nw_tech, align 4
@@ -2169,7 +2169,7 @@ dissect_cat_efadn_coding.exit:                    ; preds = %.lr.ph, %618, %.lr.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   %653 = icmp ult i32 %652, %12
-  br i1 %653, label %41, label %._crit_edge, !llvm.loop !16
+  br i1 %653, label %41, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_cat_efadn_coding.exit, %22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
@@ -2328,12 +2328,11 @@ attributes #5 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

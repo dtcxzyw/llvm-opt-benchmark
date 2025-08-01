@@ -87,7 +87,7 @@ define hidden ptr @lj_lightud_intern(ptr noundef %0, ptr noundef %1) local_unnam
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %17 ]
   %18 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !42
+  %19 = load i32, ptr %18, align 4, !tbaa !41
   %20 = icmp eq i32 %19, %9
   br i1 %20, label %.loopexit, label %17
 
@@ -125,7 +125,7 @@ define hidden ptr @lj_lightud_intern(ptr noundef %0, ptr noundef %1) local_unnam
   %36 = trunc nuw i32 %.037 to i8
   store i8 %36, ptr %13, align 1, !tbaa !38
   %37 = getelementptr inbounds nuw i32, ptr %.038, i64 %27
-  store i32 %9, ptr %37, align 4, !tbaa !42
+  store i32 %9, ptr %37, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
@@ -191,7 +191,6 @@ attributes #5 = { noreturn nounwind }
 !36 = !{!15, !12, i64 8}
 !37 = !{!15, !7, i64 112}
 !38 = !{!15, !8, i64 35}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!13, !13, i64 0}
+!41 = !{!13, !13, i64 0}

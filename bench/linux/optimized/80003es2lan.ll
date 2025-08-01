@@ -255,7 +255,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003
 28:                                               ; preds = %28, %20
   %29 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %28, !llvm.loop !12
+  br i1 %30, label %31, label %28, !llvm.loop !11
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %4, align 8
@@ -295,7 +295,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003e
   tail call void @__const_udelay(i64 noundef 21475000) #4
   %16 = add nuw nsw i32 %6, 1
   %17 = icmp eq i32 %16, 50
-  br i1 %17, label %.thread1, label %5, !llvm.loop !13
+  br i1 %17, label %.thread1, label %5, !llvm.loop !8
 
 18:                                               ; preds = %9
   %19 = icmp eq i32 %6, 50
@@ -322,7 +322,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003e
 31:                                               ; preds = %31, %20
   %32 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %31, !llvm.loop !14
+  br i1 %33, label %34, label %31, !llvm.loop !11
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %4, align 8
@@ -388,7 +388,7 @@ define internal fastcc i32 @e1000_copper_link_setup_gg82563_80003es2lan(ptr noun
   %29 = and i16 %28, -3
   store i16 %29, ptr %2, align 2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1051
-  %31 = load i8, ptr %30, align 1, !range !15, !noundef !16
+  %31 = load i8, ptr %30, align 1, !range !12, !noundef !13
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %35, label %33
 
@@ -741,7 +741,7 @@ define internal i32 @e1000_reset_hw_80003es2lan(ptr noundef %0) #0 align 16 {
   tail call void @__const_udelay(i64 noundef 21475000) #4
   %26 = add nuw nsw i32 %16, 1
   %27 = icmp eq i32 %26, 50
-  br i1 %27, label %e1000_acquire_phy_80003es2lan.exit.thread, label %15, !llvm.loop !17
+  br i1 %27, label %e1000_acquire_phy_80003es2lan.exit.thread, label %15, !llvm.loop !8
 
 28:                                               ; preds = %19
   %29 = icmp eq i32 %16, 50
@@ -759,7 +759,7 @@ define internal i32 @e1000_reset_hw_80003es2lan(ptr noundef %0) #0 align 16 {
 34:                                               ; preds = %34, %30
   %35 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %34, !llvm.loop !18
+  br i1 %36, label %37, label %34, !llvm.loop !11
 
 37:                                               ; preds = %34
   store i16 0, ptr %2, align 2, !annotation !7
@@ -865,7 +865,7 @@ define internal i32 @e1000_init_hw_80003es2lan(ptr noundef %0) #0 align 16 {
   %49 = load i16, ptr %42, align 2
   %50 = zext i16 %49 to i64
   %51 = icmp samesign ult i64 %48, %50
-  br i1 %51, label %.preheader, label %52, !llvm.loop !19
+  br i1 %51, label %.preheader, label %52, !llvm.loop !14
 
 52:                                               ; preds = %.preheader
   %53 = trunc nuw i64 %48 to i16
@@ -1028,7 +1028,7 @@ define internal noundef range(i32 -13, 1) i32 @e1000_acquire_phy_80003es2lan(ptr
   tail call void @__const_udelay(i64 noundef 21475000) #4
   %19 = add nuw nsw i32 %9, 1
   %20 = icmp eq i32 %19, 50
-  br i1 %20, label %.thread, label %8, !llvm.loop !17
+  br i1 %20, label %.thread, label %8, !llvm.loop !8
 
 21:                                               ; preds = %12
   %22 = icmp eq i32 %9, 50
@@ -1054,7 +1054,7 @@ define internal void @e1000_release_phy_80003es2lan(ptr noundef %0) #0 align 16 
 4:                                                ; preds = %4, %1
   %5 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %4, !llvm.loop !20
+  br i1 %6, label %7, label %4, !llvm.loop !11
 
 7:                                                ; preds = %4
   %8 = icmp eq i16 %3, 0
@@ -1151,7 +1151,7 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
   %41 = icmp ne i16 %39, %40
   %42 = icmp samesign ult i32 %29, 4
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %28, label %44, !llvm.loop !21
+  br i1 %43, label %28, label %44, !llvm.loop !15
 
 44:                                               ; preds = %37
   %45 = and i16 %39, -2049
@@ -1208,7 +1208,7 @@ define internal i32 @e1000_cfg_on_link_up_80003es2lan(ptr noundef %0) #0 align 1
   %75 = icmp ne i16 %73, %74
   %76 = icmp samesign ult i32 %63, 4
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %62, label %78, !llvm.loop !22
+  br i1 %77, label %62, label %78, !llvm.loop !16
 
 78:                                               ; preds = %71
   %79 = icmp eq i16 %51, 1
@@ -1286,7 +1286,7 @@ define internal i32 @e1000_phy_force_speed_duplex_80003es2lan(ptr noundef %0) #0
 25:                                               ; preds = %19
   call void @__const_udelay(i64 noundef 4295) #4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1055
-  %27 = load i8, ptr %26, align 1, !range !15, !noundef !16
+  %27 = load i8, ptr %26, align 1, !range !12, !noundef !13
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %41, label %29
 
@@ -1296,7 +1296,7 @@ define internal i32 @e1000_phy_force_speed_duplex_80003es2lan(ptr noundef %0) #0
   br i1 %31, label %32, label %57
 
 32:                                               ; preds = %29
-  %33 = load i8, ptr %3, align 1, !range !15, !noundef !16
+  %33 = load i8, ptr %3, align 1, !range !12, !noundef !13
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %38
 
@@ -1360,7 +1360,7 @@ define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_80003es2lan(ptr
   tail call void @usleep_range_state(i64 noundef 1000, i64 noundef 2000, i32 noundef 2) #4
   %15 = add nsw i32 %8, -1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %7, !llvm.loop !23
+  br i1 %16, label %17, label %7, !llvm.loop !17
 
 17:                                               ; preds = %14, %7
   %18 = phi i32 [ 0, %7 ], [ -9, %14 ]
@@ -1445,7 +1445,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
   tail call void @__const_udelay(i64 noundef 21475000) #4
   %22 = add nuw nsw i32 %12, 1
   %23 = icmp eq i32 %22, 50
-  br i1 %23, label %e1000_acquire_phy_80003es2lan.exit.thread, label %11, !llvm.loop !17
+  br i1 %23, label %e1000_acquire_phy_80003es2lan.exit.thread, label %11, !llvm.loop !8
 
 24:                                               ; preds = %15
   %25 = icmp eq i32 %12, 50
@@ -1473,7 +1473,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
 38:                                               ; preds = %38, %36
   %39 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %38, !llvm.loop !24
+  br i1 %40, label %41, label %38, !llvm.loop !11
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %9, align 8
@@ -1483,7 +1483,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
 
 45:                                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %47 = load i8, ptr %46, align 8, !range !15, !noundef !16
+  %47 = load i8, ptr %46, align 8, !range !12, !noundef !13
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %65, label %49
 
@@ -1502,7 +1502,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
 56:                                               ; preds = %56, %54
   %57 = call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %56, !llvm.loop !25
+  br i1 %58, label %59, label %56, !llvm.loop !11
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %9, align 8
@@ -1528,7 +1528,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
 70:                                               ; preds = %70, %67
   %71 = call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %70, !llvm.loop !26
+  br i1 %72, label %73, label %70, !llvm.loop !11
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %9, align 8
@@ -1590,7 +1590,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
   tail call void @__const_udelay(i64 noundef 21475000) #4
   %22 = add nuw nsw i32 %12, 1
   %23 = icmp eq i32 %22, 50
-  br i1 %23, label %e1000_acquire_phy_80003es2lan.exit.thread, label %11, !llvm.loop !17
+  br i1 %23, label %e1000_acquire_phy_80003es2lan.exit.thread, label %11, !llvm.loop !8
 
 24:                                               ; preds = %15
   %25 = icmp eq i32 %12, 50
@@ -1618,7 +1618,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
 38:                                               ; preds = %38, %36
   %39 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %38, !llvm.loop !27
+  br i1 %40, label %41, label %38, !llvm.loop !11
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %9, align 8
@@ -1628,7 +1628,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
 
 45:                                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %47 = load i8, ptr %46, align 8, !range !15, !noundef !16
+  %47 = load i8, ptr %46, align 8, !range !12, !noundef !13
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %65, label %49
 
@@ -1647,7 +1647,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
 56:                                               ; preds = %56, %54
   %57 = call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %56, !llvm.loop !28
+  br i1 %58, label %59, label %56, !llvm.loop !11
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %9, align 8
@@ -1673,7 +1673,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
 70:                                               ; preds = %70, %67
   %71 = call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %70, !llvm.loop !29
+  br i1 %72, label %73, label %70, !llvm.loop !11
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %9, align 8
@@ -1737,7 +1737,7 @@ define internal i32 @e1000_acquire_nvm_80003es2lan(ptr noundef %0) #0 align 16 {
   tail call void @__const_udelay(i64 noundef 21475000) #4
   %14 = add nuw nsw i32 %4, 1
   %15 = icmp eq i32 %14, 50
-  br i1 %15, label %.thread2, label %3, !llvm.loop !30
+  br i1 %15, label %.thread2, label %3, !llvm.loop !8
 
 16:                                               ; preds = %7
   %17 = icmp eq i32 %4, 50
@@ -1754,7 +1754,7 @@ define internal i32 @e1000_acquire_nvm_80003es2lan(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %18, %.preheader
   %22 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.preheader, !llvm.loop !31
+  br i1 %23, label %24, label %.preheader, !llvm.loop !11
 
 24:                                               ; preds = %.preheader
   %25 = load ptr, ptr %2, align 8
@@ -1781,7 +1781,7 @@ define internal void @e1000_release_nvm_80003es2lan(ptr noundef %0) #0 align 16 
 2:                                                ; preds = %2, %1
   %3 = tail call i32 @e1000e_get_hw_semaphore(ptr noundef %0) #4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %2, !llvm.loop !32
+  br i1 %4, label %5, label %2, !llvm.loop !11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1840,28 +1840,13 @@ attributes #4 = { nounwind }
 !5 = !{i64 2150091447}
 !6 = !{i32 -13, i32 1}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

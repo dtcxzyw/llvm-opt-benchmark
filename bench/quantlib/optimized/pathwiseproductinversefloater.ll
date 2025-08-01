@@ -3441,7 +3441,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i40, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !59
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !58
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i41, %invoke.cont.i40 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -3736,7 +3736,6 @@ attributes #25 = { noreturn nounwind }
 !53 = !{!15, !21, i64 320}
 !54 = !{!55, !21, i64 0}
 !55 = !{!"_ZTSN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowE", !21, i64 0, !17, i64 8}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = distinct !{!59, !57, !58}
+!58 = distinct !{!58, !57}

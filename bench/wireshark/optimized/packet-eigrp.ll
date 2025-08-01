@@ -974,7 +974,7 @@ define internal i32 @dissect_eigrp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %199 = add nuw nsw i32 %.02022.i.i, 2
   %200 = add nsw i16 %.023.i.i, -1
   %.not.i28.i = icmp eq i16 %200, 0
-  br i1 %.not.i28.i, label %dissect_eigrp_general_tlv.exit, label %.lr.ph.i27.i, !llvm.loop !9
+  br i1 %.not.i28.i, label %dissect_eigrp_general_tlv.exit, label %.lr.ph.i27.i, !llvm.loop !8
 
 201:                                              ; preds = %71
   %202 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %70, ptr noundef nonnull @ei_eigrp_tlv_type, ptr noundef nonnull @.str.406, i32 noundef %63)
@@ -1283,7 +1283,7 @@ dissect_eigrp_ipv6_tlv.exit:                      ; preds = %262, %270
   %397 = add nsw i32 %.070.i.i.i.i, -8
   %398 = icmp sgt i32 %.070.i.i.i.i, 8
   %or.cond.i.i.i.i = and i1 %353, %398
-  br i1 %or.cond.i.i.i.i, label %354, label %dissect_eigrp_metric_comm.exit.i.i.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i.i, label %354, label %dissect_eigrp_metric_comm.exit.i.i.i, !llvm.loop !9
 
 399:                                              ; preds = %338
   br label %dissect_eigrp_metric_comm.exit.sink.split.i.i.i
@@ -1305,7 +1305,7 @@ dissect_eigrp_metric_comm.exit.i.i.i:             ; preds = %395, %dissect_eigrp
   %.neg49.i.i.i = add nsw i32 %.04850.i.i.i, -2
   %405 = sub i32 %.neg49.i.i.i, %345
   %406 = icmp sgt i32 %405, 0
-  br i1 %406, label %338, label %dissect_eigrp_wide_metric_attr.exit.i.i, !llvm.loop !11
+  br i1 %406, label %338, label %dissect_eigrp_wide_metric_attr.exit.i.i, !llvm.loop !10
 
 dissect_eigrp_wide_metric_attr.exit.i.i:          ; preds = %dissect_eigrp_metric_comm.exit.i.i.i
   %407 = add i32 %404, 32
@@ -1443,7 +1443,7 @@ dissect_eigrp_general_tlv.exit:                   ; preds = %.lr.ph.i27.i, %159,
   %464 = add i32 %.0119, %57
   %465 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %464)
   %466 = icmp sgt i32 %465, 0
-  br i1 %466, label %52, label %.loopexit, !llvm.loop !12
+  br i1 %466, label %52, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %dissect_eigrp_general_tlv.exit, %48, %.preheader, %59
   %467 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1689,7 +1689,7 @@ define internal fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %0, ptr nounde
   %33 = add i32 %32, %18
   %34 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %33)
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %14, label %.loopexit, !llvm.loop !13
+  br i1 %35, label %14, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %24, %5, %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
@@ -1828,7 +1828,7 @@ define internal fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %0, ptr nounde
   %34 = add i32 %33, %.034
   %35 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %34)
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %14, label %.loopexit, !llvm.loop !14
+  br i1 %36, label %14, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %24, %5, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
@@ -1954,7 +1954,7 @@ define internal fastcc void @dissect_eigrp_services(ptr noundef %0, ptr noundef 
   %79 = add i32 %65, %36
   %80 = call i32 @tvb_reported_length_remaining(ptr noundef %10, i32 noundef %79)
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %14, label %._crit_edge, !llvm.loop !15
+  br i1 %81, label %14, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %78, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -2008,13 +2008,12 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

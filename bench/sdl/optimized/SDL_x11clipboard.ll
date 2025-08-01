@@ -438,7 +438,7 @@ AppendDataBuffer.exit:                            ; preds = %129, %131, %135
 CloneDataBuffer.exit82:                           ; preds = %127, %AppendDataBuffer.exit
   %.5 = phi ptr [ %.0.i84, %AppendDataBuffer.exit ], [ %126, %127 ]
   %141 = icmp eq ptr %.5, null
-  br i1 %141, label %CloneDataBuffer.exit82.thread, label %95, !llvm.loop !8
+  br i1 %141, label %CloneDataBuffer.exit82.thread, label %95
 
 CloneDataBuffer.exit82.thread:                    ; preds = %122, %124, %110, %CloneDataBuffer.exit82, %WaitForSelection.exit78
   %.4.ph = phi ptr [ %.3, %WaitForSelection.exit78 ], [ null, %122 ], [ null, %124 ], [ %.3, %110 ], [ null, %CloneDataBuffer.exit82 ]
@@ -612,7 +612,5 @@ attributes #7 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}

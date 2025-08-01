@@ -520,7 +520,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store double %30, ptr %31, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load i32, ptr %32, align 8, !tbaa !71
+  %33 = load i32, ptr %32, align 8, !tbaa !70
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %39, label %34
 
@@ -542,14 +542,14 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store double %42, ptr %43, align 8, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %45 = load i8, ptr %44, align 1, !tbaa !72
+  %45 = load i8, ptr %44, align 1, !tbaa !71
   %46 = zext nneg i8 %45 to i32
   %47 = shl nuw i32 1, %46
   %48 = sitofp i32 %47 to double
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store double %48, ptr %49, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %51 = load i8, ptr %50, align 2, !tbaa !73
+  %51 = load i8, ptr %50, align 2, !tbaa !72
   %52 = zext nneg i8 %51 to i32
   %53 = shl nuw i32 1, %52
   %54 = sitofp i32 %53 to double
@@ -580,9 +580,9 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br i1 %.not126, label %68, label %73
 
 68:                                               ; preds = %39
-  %69 = load i8, ptr %44, align 1, !tbaa !72
+  %69 = load i8, ptr %44, align 1, !tbaa !71
   %70 = zext i8 %69 to i32
-  %71 = load i8, ptr %50, align 2, !tbaa !73
+  %71 = load i8, ptr %50, align 2, !tbaa !72
   %72 = zext i8 %71 to i32
   br label %73
 
@@ -594,13 +594,13 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %.sink, ptr %75, align 4, !tbaa !60
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %77 = load ptr, ptr %76, align 8, !tbaa !74
+  %77 = load ptr, ptr %76, align 8, !tbaa !73
   %78 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %2, ptr noundef %77, ptr noundef nonnull @var_names, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #8
   %79 = load double, ptr %2, align 8, !tbaa !50
   store double %79, ptr %58, align 8, !tbaa !50
   store double %79, ptr %59, align 8, !tbaa !50
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %81 = load ptr, ptr %80, align 8, !tbaa !75
+  %81 = load ptr, ptr %80, align 8, !tbaa !74
   %82 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %2, ptr noundef %81, ptr noundef nonnull @var_names, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #8
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %185, label %84
@@ -609,7 +609,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %85 = load double, ptr %2, align 8, !tbaa !50
   store double %85, ptr %60, align 8, !tbaa !50
   store double %85, ptr %61, align 8, !tbaa !50
-  %86 = load ptr, ptr %76, align 8, !tbaa !74
+  %86 = load ptr, ptr %76, align 8, !tbaa !73
   %87 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %2, ptr noundef %86, ptr noundef nonnull @var_names, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #8
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %185, label %89
@@ -651,8 +651,8 @@ normalize_double.exit:                            ; preds = %.sink.split.i
   br i1 %or.cond.i135, label %normalize_double.exit.thread, label %normalize_double.exit139
 
 normalize_double.exit.thread:                     ; preds = %.sink.split.i134, %normalize_double.exit, %.sink.split.i, %89
-  %106 = load ptr, ptr %76, align 8, !tbaa !74
-  %107 = load ptr, ptr %80, align 8, !tbaa !75
+  %106 = load ptr, ptr %76, align 8, !tbaa !73
+  %107 = load ptr, ptr %80, align 8, !tbaa !74
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %4, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef %106, ptr noundef %107) #8
   br label %186
 
@@ -682,21 +682,21 @@ normalize_double.exit139:                         ; preds = %.sink.split.i134
   call void @av_expr_free(ptr noundef %119) #8
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
-  %121 = load ptr, ptr %120, align 8, !tbaa !76
+  %121 = load ptr, ptr %120, align 8, !tbaa !75
   %122 = call i32 @av_expr_parse(ptr noundef nonnull %116, ptr noundef %121, ptr noundef nonnull @var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #8
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %186, label %124
 
 124:                                              ; preds = %115
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %126 = load ptr, ptr %125, align 8, !tbaa !77
+  %126 = load ptr, ptr %125, align 8, !tbaa !76
   %127 = call i32 @av_expr_parse(ptr noundef nonnull %118, ptr noundef %126, ptr noundef nonnull @var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #8
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %186, label %129
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %131 = load i32, ptr %130, align 8, !tbaa !78
+  %131 = load i32, ptr %130, align 8, !tbaa !77
   %.not129 = icmp eq i32 %131, 0
   %132 = load i64, ptr %32, align 8
   br i1 %.not129, label %147, label %133
@@ -716,8 +716,8 @@ normalize_double.exit139:                         ; preds = %.sink.split.i134
   %144 = sext i32 %143 to i64
   %145 = mul nsw i64 %142, %144
   %146 = call i32 @av_reduce(ptr noundef nonnull %136, ptr noundef nonnull %137, i64 noundef %141, i64 noundef %145, i64 noundef 2147483647) #8
-  %.pre = load i32, ptr %136, align 8, !tbaa !79
-  %.pre145 = load i32, ptr %137, align 4, !tbaa !80
+  %.pre = load i32, ptr %136, align 8, !tbaa !78
+  %.pre145 = load i32, ptr %137, align 4, !tbaa !79
   br label %152
 
 147:                                              ; preds = %129
@@ -733,9 +733,9 @@ normalize_double.exit139:                         ; preds = %.sink.split.i134
   %154 = phi i32 [ %149, %147 ], [ %.pre, %133 ]
   %155 = load i32, ptr %23, align 8, !tbaa !45
   %156 = load i32, ptr %26, align 4, !tbaa !46
-  %157 = load i32, ptr %32, align 8, !tbaa !71
+  %157 = load i32, ptr %32, align 8, !tbaa !70
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %159 = load i32, ptr %158, align 4, !tbaa !81
+  %159 = load i32, ptr %158, align 4, !tbaa !80
   %160 = load i32, ptr %91, align 8, !tbaa !27
   %161 = load i32, ptr %98, align 4, !tbaa !28
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %4, i32 noundef 40, ptr noundef nonnull @.str.5, i32 noundef %155, i32 noundef %156, i32 noundef %157, i32 noundef %159, i32 noundef %160, i32 noundef %161, i32 noundef %154, i32 noundef %153) #8
@@ -955,17 +955,16 @@ attributes #10 = { nounwind willreturn memory(none) }
 !65 = !{!53, !15, i64 104}
 !66 = !{!53, !44, i64 368}
 !67 = !{!11, !11, i64 0}
-!68 = distinct !{!68, !69, !70}
+!68 = distinct !{!68, !69}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = !{!34, !15, i64 48}
-!72 = !{!43, !8, i64 9}
-!73 = !{!43, !8, i64 10}
-!74 = !{!21, !11, i64 80}
-!75 = !{!21, !11, i64 88}
-!76 = !{!21, !11, i64 64}
-!77 = !{!21, !11, i64 72}
-!78 = !{!21, !15, i64 32}
-!79 = !{!21, !15, i64 24}
-!80 = !{!21, !15, i64 28}
-!81 = !{!34, !15, i64 52}
+!70 = !{!34, !15, i64 48}
+!71 = !{!43, !8, i64 9}
+!72 = !{!43, !8, i64 10}
+!73 = !{!21, !11, i64 80}
+!74 = !{!21, !11, i64 88}
+!75 = !{!21, !11, i64 64}
+!76 = !{!21, !11, i64 72}
+!77 = !{!21, !15, i64 32}
+!78 = !{!21, !15, i64 24}
+!79 = !{!21, !15, i64 28}
+!80 = !{!34, !15, i64 52}

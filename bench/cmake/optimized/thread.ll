@@ -848,7 +848,7 @@ uv_mutex_lock.exit.i:                             ; preds = %10, %uv_mutex_lock.
   %19 = tail call ptr @__errno_location() #12
   %20 = load i32, ptr %19, align 4, !tbaa !14
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.preheader, label %.critedge.i, !llvm.loop !24
+  br i1 %21, label %.preheader, label %.critedge.i, !llvm.loop !23
 
 .critedge.i:                                      ; preds = %18, %.preheader
   tail call void @abort() #11
@@ -919,7 +919,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   %19 = tail call ptr @__errno_location() #12
   %20 = load i32, ptr %19, align 4, !tbaa !14
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %.preheader, label %.critedge.i, !llvm.loop !25
+  br i1 %21, label %.preheader, label %.critedge.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %18, %..critedge_crit_edge.i
   %22 = phi i32 [ %.pr.i, %..critedge_crit_edge.i ], [ %20, %18 ]
@@ -1064,10 +1064,10 @@ define dso_local range(i32 -110, 1) i32 @uv_cond_timedwait(ptr noundef %0, ptr n
   %5 = tail call i64 @uv__hrtime(i32 noundef 0) #10
   %6 = add i64 %5, %2
   %7 = udiv i64 %6, 1000000000
-  store i64 %7, ptr %4, align 8, !tbaa !26
+  store i64 %7, ptr %4, align 8, !tbaa !25
   %8 = urem i64 %6, 1000000000
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %8, ptr %9, align 8, !tbaa !28
+  store i64 %8, ptr %9, align 8, !tbaa !27
   %10 = call i32 @pthread_cond_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #10
   switch i32 %10, label %12 [
     i32 0, label %13
@@ -1217,11 +1217,10 @@ attributes #12 = { nounwind willreturn memory(none) }
 !18 = !{!"p1 _ZTS14uv_semaphore_s", !19, i64 0}
 !19 = !{!"any pointer", !7, i64 0}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = distinct !{!25, !22, !23}
-!26 = !{!27, !6, i64 0}
-!27 = !{!"timespec", !6, i64 0, !6, i64 8}
-!28 = !{!27, !6, i64 8}
+!23 = distinct !{!23, !22}
+!24 = distinct !{!24, !22}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"timespec", !6, i64 0, !6, i64 8}
+!27 = !{!26, !6, i64 8}

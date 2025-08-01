@@ -2185,7 +2185,7 @@ while.cond:                                       ; preds = %if.end6
   %call3 = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1)
   %cmp4 = icmp eq i32 %call3, 0
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
-  br i1 %cmp4, label %while.end, label %if.end6, !llvm.loop !39
+  br i1 %cmp4, label %while.end, label %if.end6
 
 if.end6:                                          ; preds = %if.end, %while.cond
   %tries.043 = phi i32 [ %dec, %while.cond ], [ 100, %if.end ]
@@ -2210,26 +2210,26 @@ while.end:                                        ; preds = %while.cond, %if.end
 
 _ZTW13verbosestream.exit:                         ; preds = %0, %while.end
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @verbosestream)
-  %2 = load ptr, ptr %1, align 8, !tbaa !40
+  %2 = load ptr, ptr %1, align 8, !tbaa !38
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %vtable.i, align 8
   %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %cond-lvalue.v.i = select i1 %call.i, i64 976, i64 984
   %cond-lvalue.i = getelementptr inbounds nuw i8, ptr %1, i64 %cond-lvalue.v.i
-  %4 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %4 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %_ZN9LogStreamlsIRA34_KcEER11StreamProxyOT_.exit
 
 _ZN9LogStreamlsIRA34_KcEER11StreamProxyOT_.exit:  ; preds = %_ZTW13verbosestream.exit
   %call1.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.23, i64 noundef 33)
-  %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %_ZN11StreamProxylsIRjEERS_OT_.exit
 
 _ZN11StreamProxylsIRjEERS_OT_.exit:               ; preds = %_ZN9LogStreamlsIRA34_KcEER11StreamProxyOT_.exit
   %conv.i.i = zext i32 %call2.lcssa to i64
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr, i64 noundef %conv.i.i)
-  %.pr37 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %.pr37 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i26 = icmp eq ptr %.pr37, null
   br i1 %tobool.not.i26, label %_ZN11StreamProxylsEPFRSoS0_E.exit, label %if.then.i27
 
@@ -2239,7 +2239,7 @@ if.then.i27:                                      ; preds = %_ZN11StreamProxylsI
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %.pr37, i64 %vbase.offset.i
   %_M_ctype.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 240
-  %5 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !51
+  %5 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !49
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -2249,7 +2249,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i27
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i27
   %_M_widen_ok.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %6 = load i8, ptr %_M_widen_ok.i.i.i, align 8, !tbaa !57
+  %6 = load i8, ptr %_M_widen_ok.i.i.i, align 8, !tbaa !55
   %tobool.not.i3.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
 
@@ -2350,7 +2350,7 @@ invoke.cont23:                                    ; preds = %invoke.cont15
 
 _ZTW13verbosestream.exit:                         ; preds = %2, %invoke.cont23
   %3 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @verbosestream)
-  %4 = load ptr, ptr %3, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !38
   %vtable.i = load ptr, ptr %4, align 8, !tbaa !4
   %5 = load ptr, ptr %vtable.i, align 8
   %call.i54 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -2359,7 +2359,7 @@ _ZTW13verbosestream.exit:                         ; preds = %2, %invoke.cont23
 call.i.noexc:                                     ; preds = %_ZTW13verbosestream.exit
   %cond-lvalue.v.i = select i1 %call.i54, i64 976, i64 984
   %cond-lvalue.i = getelementptr inbounds nuw i8, ptr %3, i64 %cond-lvalue.v.i
-  %6 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %6 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %invoke.cont31, label %if.then.i.i
 
@@ -2368,7 +2368,7 @@ if.then.i.i:                                      ; preds = %call.i.noexc
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.then.i.i
-  %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i, label %invoke.cont31, label %if.then.i
 
@@ -2378,7 +2378,7 @@ if.then.i:                                        ; preds = %invoke.cont25
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %if.then.i
-  %.pr92 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %.pr92 = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i58 = icmp eq ptr %.pr92, null
   br i1 %tobool.not.i58, label %invoke.cont31, label %if.then.i59
 
@@ -2387,7 +2387,7 @@ if.then.i59:                                      ; preds = %invoke.cont27
           to label %invoke.cont29 unwind label %lpad24
 
 invoke.cont29:                                    ; preds = %if.then.i59
-  %.pr94.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !50
+  %.pr94.pr = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !48
   %tobool.not.i61 = icmp eq ptr %.pr94.pr, null
   br i1 %tobool.not.i61, label %invoke.cont31, label %if.then.i62
 
@@ -2397,7 +2397,7 @@ if.then.i62:                                      ; preds = %invoke.cont29
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %.pr94.pr, i64 %vbase.offset.i
   %_M_ctype.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 240
-  %7 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !51
+  %7 = load ptr, ptr %_M_ctype.i.i, align 8, !tbaa !49
   %tobool.not.i.i.i78 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i78, label %if.then.i.i.i81, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -2410,7 +2410,7 @@ if.then.i.i.i81:                                  ; preds = %if.then.i62
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %if.then.i62
   %_M_widen_ok.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %8 = load i8, ptr %_M_widen_ok.i.i.i, align 8, !tbaa !57
+  %8 = load i8, ptr %_M_widen_ok.i.i.i, align 8, !tbaa !55
   %tobool.not.i3.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
 
@@ -2800,10 +2800,10 @@ entry:
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit
   %__x.addr.07 = phi ptr [ %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.07, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !60
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !58
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.07, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !61
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !59
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !25
   %3 = getelementptr inbounds nuw i8, ptr %__x.addr.07, i64 48
@@ -2824,7 +2824,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #24
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !62
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
 
 while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %entry
   ret void
@@ -2899,7 +2899,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
 entry:
   %_M_parent.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %__x.055 = load ptr, ptr %_M_parent.i.i, align 8, !tbaa !63
+  %__x.055 = load ptr, ptr %_M_parent.i.i, align 8, !tbaa !61
   %cmp.not56 = icmp eq ptr %__x.055, null
   br i1 %cmp.not56, label %if.then, label %while.body.lr.ph
 
@@ -2936,9 +2936,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %cmp.i.i = icmp slt i32 %__r.0.i.i.i, 0
   %cond.in.v = select i1 %cmp.i.i, i64 16, i64 24
   %cond.in = getelementptr inbounds nuw i8, ptr %__x.057, i64 %cond.in.v
-  %__x.0 = load ptr, ptr %cond.in, align 8, !tbaa !63
+  %__x.0 = load ptr, ptr %cond.in, align 8, !tbaa !61
   %cmp.not = icmp eq ptr %__x.0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !64
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !62
 
 while.end:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   br i1 %cmp.i.i, label %if.then, label %if.end12
@@ -3190,32 +3190,30 @@ attributes #27 = { nounwind willreturn memory(read) }
 !33 = !{!30, !18, i64 16}
 !34 = !{!30, !18, i64 24}
 !35 = !{!30, !11, i64 32}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !38}
-!40 = !{!41, !18, i64 0}
-!41 = !{!"_ZTS9LogStream", !18, i64 0, !42, i64 8, !47, i64 368, !48, i64 432, !48, i64 704, !49, i64 976, !49, i64 984}
-!42 = !{!"_ZTS18StringStreamBufferILi256ESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !43, i64 0, !45, i64 64, !9, i64 96, !8, i64 352}
-!43 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !44, i64 56}
-!44 = !{!"_ZTSSt6locale", !18, i64 0}
-!45 = !{!"_ZTSSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !46, i64 0, !18, i64 24}
-!46 = !{!"_ZTSSt14_Function_base", !9, i64 0, !18, i64 16}
-!47 = !{!"_ZTS17DummyStreamBuffer", !43, i64 0}
-!48 = !{!"_ZTSSo"}
-!49 = !{!"_ZTS11StreamProxy", !18, i64 0}
-!50 = !{!49, !18, i64 0}
-!51 = !{!52, !18, i64 240}
-!52 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !53, i64 0, !18, i64 216, !9, i64 224, !19, i64 225, !18, i64 232, !18, i64 240, !18, i64 248, !18, i64 256}
-!53 = !{!"_ZTSSt8ios_base", !11, i64 8, !11, i64 16, !54, i64 24, !55, i64 28, !55, i64 32, !18, i64 40, !56, i64 48, !9, i64 64, !8, i64 192, !18, i64 200, !44, i64 208}
-!54 = !{!"_ZTSSt13_Ios_Fmtflags", !9, i64 0}
-!55 = !{!"_ZTSSt12_Ios_Iostate", !9, i64 0}
-!56 = !{!"_ZTSNSt8ios_base6_WordsE", !18, i64 0, !11, i64 8}
-!57 = !{!58, !9, i64 56}
-!58 = !{!"_ZTSSt5ctypeIcE", !59, i64 0, !18, i64 16, !19, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !9, i64 56, !9, i64 57, !9, i64 313, !9, i64 569}
-!59 = !{!"_ZTSNSt6locale5facetE", !8, i64 8}
-!60 = !{!31, !18, i64 24}
-!61 = !{!31, !18, i64 16}
-!62 = distinct !{!62, !37, !38}
-!63 = !{!18, !18, i64 0}
-!64 = distinct !{!64, !37, !38}
+!38 = !{!39, !18, i64 0}
+!39 = !{!"_ZTS9LogStream", !18, i64 0, !40, i64 8, !45, i64 368, !46, i64 432, !46, i64 704, !47, i64 976, !47, i64 984}
+!40 = !{!"_ZTS18StringStreamBufferILi256ESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !41, i64 0, !43, i64 64, !9, i64 96, !8, i64 352}
+!41 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !42, i64 56}
+!42 = !{!"_ZTSSt6locale", !18, i64 0}
+!43 = !{!"_ZTSSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !44, i64 0, !18, i64 24}
+!44 = !{!"_ZTSSt14_Function_base", !9, i64 0, !18, i64 16}
+!45 = !{!"_ZTS17DummyStreamBuffer", !41, i64 0}
+!46 = !{!"_ZTSSo"}
+!47 = !{!"_ZTS11StreamProxy", !18, i64 0}
+!48 = !{!47, !18, i64 0}
+!49 = !{!50, !18, i64 240}
+!50 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !51, i64 0, !18, i64 216, !9, i64 224, !19, i64 225, !18, i64 232, !18, i64 240, !18, i64 248, !18, i64 256}
+!51 = !{!"_ZTSSt8ios_base", !11, i64 8, !11, i64 16, !52, i64 24, !53, i64 28, !53, i64 32, !18, i64 40, !54, i64 48, !9, i64 64, !8, i64 192, !18, i64 200, !42, i64 208}
+!52 = !{!"_ZTSSt13_Ios_Fmtflags", !9, i64 0}
+!53 = !{!"_ZTSSt12_Ios_Iostate", !9, i64 0}
+!54 = !{!"_ZTSNSt8ios_base6_WordsE", !18, i64 0, !11, i64 8}
+!55 = !{!56, !9, i64 56}
+!56 = !{!"_ZTSSt5ctypeIcE", !57, i64 0, !18, i64 16, !19, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !9, i64 56, !9, i64 57, !9, i64 313, !9, i64 569}
+!57 = !{!"_ZTSNSt6locale5facetE", !8, i64 8}
+!58 = !{!31, !18, i64 24}
+!59 = !{!31, !18, i64 16}
+!60 = distinct !{!60, !37}
+!61 = !{!18, !18, i64 0}
+!62 = distinct !{!62, !37}

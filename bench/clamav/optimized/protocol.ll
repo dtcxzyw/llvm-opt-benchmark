@@ -582,7 +582,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br i1 %.not190, label %.thread220.backedge, label %.thread220.sink.split
 
 .thread220.backedge:                              ; preds = %220, %.thread218, %253, %242, %151
-  br label %.thread220, !llvm.loop !31
+  br label %.thread220
 
 221:                                              ; preds = %202
   %222 = icmp samesign ugt i32 %144, 21
@@ -681,7 +681,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
 
 .thread220.outer.backedge:                        ; preds = %.thread220.sink.split, %.thread208
   %.1.ph.be = phi i32 [ %.4207, %.thread208 ], [ %.2.ph, %.thread220.sink.split ]
-  br label %.thread220.outer, !llvm.loop !31
+  br label %.thread220.outer
 
 254:                                              ; preds = %.thread220
   br i1 %.not155, label %255, label %276
@@ -876,5 +876,3 @@ attributes #18 = { nounwind willreturn memory(none) }
 !28 = !{ptr @onas_fd_recvln, ptr @onas_recvln}
 !29 = !{!6, !6, i64 0}
 !30 = !{!9, !9, i64 0}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}

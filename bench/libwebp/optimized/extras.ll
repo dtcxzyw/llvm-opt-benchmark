@@ -105,7 +105,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %6, align 4, !tbaa !4
-  store i32 1, ptr %1, align 8, !tbaa !23
+  store i32 1, ptr %1, align 8, !tbaa !22
   %7 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %8
@@ -125,11 +125,11 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
 
 .lr.ph49.split.preheader:                         ; preds = %.lr.ph49
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
   br label %.lr.ph49.split
 
 .lr.ph49.splitthread-pre-split:                   ; preds = %._crit_edge
-  %18 = load i32, ptr %13, align 8, !tbaa !25
+  %18 = load i32, ptr %13, align 8, !tbaa !24
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %.04045, i64 %19
   %21 = shl nsw i32 %24, 1
@@ -155,10 +155,10 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = shl nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds nuw i8, ptr %.03747, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %32 = load i8, ptr %31, align 1, !tbaa !26
+  %32 = load i8, ptr %31, align 1, !tbaa !25
   %33 = zext i8 %32 to i32
   %34 = and i32 %30, 248
   %35 = shl nuw nsw i32 %30, 5
@@ -177,10 +177,10 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
   %48 = or i32 %47, %33
   %49 = or i32 %48, -16777216
   %50 = getelementptr inbounds nuw i32, ptr %.04045, i64 %indvars.iv
-  store i32 %49, ptr %50, align 4, !tbaa !27
+  store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %9, align 4, !tbaa !13
@@ -190,7 +190,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
   %51 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph49.split ]
   %52 = add nuw nsw i32 %.03946, 1
   %53 = icmp slt i32 %52, %51
-  br i1 %53, label %.lr.ph49.splitthread-pre-split, label %.loopexit, !llvm.loop !29
+  br i1 %53, label %.lr.ph49.splitthread-pre-split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph49, %8, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %.lr.ph49 ], [ 1, %._crit_edge ]
@@ -207,7 +207,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %6, align 4, !tbaa !4
-  store i32 1, ptr %1, align 8, !tbaa !23
+  store i32 1, ptr %1, align 8, !tbaa !22
   %7 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %8
@@ -227,11 +227,11 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
 
 .lr.ph52.split.preheader:                         ; preds = %.lr.ph52
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
   br label %.lr.ph52.split
 
 .lr.ph52.splitthread-pre-split:                   ; preds = %._crit_edge
-  %18 = load i32, ptr %13, align 8, !tbaa !25
+  %18 = load i32, ptr %13, align 8, !tbaa !24
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %.04348, i64 %19
   %21 = shl nsw i32 %24, 1
@@ -257,10 +257,10 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = shl nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds nuw i8, ptr %.04050, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %32 = load i8, ptr %31, align 1, !tbaa !26
+  %32 = load i8, ptr %31, align 1, !tbaa !25
   %33 = zext i8 %32 to i32
   %34 = and i32 %30, 240
   %35 = and i32 %33, 240
@@ -279,10 +279,10 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
   %48 = or disjoint i32 %47, %35
   %49 = or i32 %48, %43
   %50 = getelementptr inbounds nuw i32, ptr %.04348, i64 %indvars.iv
-  store i32 %49, ptr %50, align 4, !tbaa !27
+  store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %9, align 4, !tbaa !13
@@ -292,7 +292,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
   %51 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph52.split ]
   %52 = add nuw nsw i32 %.04249, 1
   %53 = icmp slt i32 %52, %51
-  br i1 %53, label %.lr.ph52.splitthread-pre-split, label %.loopexit, !llvm.loop !32
+  br i1 %53, label %.lr.ph52.splitthread-pre-split, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph52, %8, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %.lr.ph52 ], [ 1, %._crit_edge ]
@@ -318,7 +318,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   br i1 %or.cond7, label %.loopexit, label %15
 
 15:                                               ; preds = %8
-  store i32 1, ptr %4, align 8, !tbaa !23
+  store i32 1, ptr %4, align 8, !tbaa !22
   %16 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.loopexit, label %17
@@ -338,7 +338,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  %26 = load ptr, ptr %25, align 8, !tbaa !23
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
@@ -353,7 +353,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 .lr.ph:                                           ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %.03947, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !26
+  %31 = load i8, ptr %30, align 1, !tbaa !25
   %32 = zext i8 %31 to i32
   %.not45 = icmp sgt i32 %3, %32
   br i1 %.not45, label %34, label %33
@@ -365,14 +365,14 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 34:                                               ; preds = %.lr.ph
   %35 = zext i8 %31 to i64
   %36 = getelementptr inbounds nuw i32, ptr %2, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !27
+  %37 = load i32, ptr %36, align 4, !tbaa !26
   %38 = getelementptr inbounds nuw i32, ptr %.049, i64 %indvars.iv
-  store i32 %37, ptr %38, align 4, !tbaa !27
+  store i32 %37, ptr %38, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %9, align 8, !tbaa !14
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+  br i1 %41, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %34
   %.pre = load i32, ptr %18, align 4, !tbaa !13
@@ -382,12 +382,12 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   %42 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %27, %.preheader ]
   %43 = phi i32 [ %39, %._crit_edge.loopexit ], [ %28, %.preheader ]
   %44 = getelementptr inbounds i8, ptr %.03947, i64 %21
-  %45 = load i32, ptr %22, align 8, !tbaa !25
+  %45 = load i32, ptr %22, align 8, !tbaa !24
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %.049, i64 %46
   %48 = add nuw nsw i32 %.03648, 1
   %49 = icmp slt i32 %48, %42
-  br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !34
+  br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %17, %15, %5, %8, %33
   %.038 = phi i32 [ 0, %33 ], [ 0, %8 ], [ 0, %5 ], [ 0, %15 ], [ 1, %17 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
@@ -402,13 +402,13 @@ define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly ca
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !23
+  %4 = load i32, ptr %0, align 8, !tbaa !22
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
 
@@ -420,7 +420,7 @@ define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly ca
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9
-  %13 = load ptr, ptr %6, align 8, !tbaa !24
+  %13 = load ptr, ptr %6, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %16
@@ -428,16 +428,16 @@ define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly ca
 16:                                               ; preds = %.lr.ph, %16
   %.015 = phi ptr [ %13, %.lr.ph ], [ %21, %16 ]
   %.01114 = phi i32 [ 0, %.lr.ph ], [ %22, %16 ]
-  %17 = load ptr, ptr @WebPMultARGBRow, align 8, !tbaa !35
+  %17 = load ptr, ptr @WebPMultARGBRow, align 8, !tbaa !34
   %18 = load i32, ptr %14, align 8, !tbaa !14
   tail call void %17(ptr noundef %.015, i32 noundef %18, i32 noundef 1) #6
-  %19 = load i32, ptr %15, align 8, !tbaa !25
+  %19 = load i32, ptr %15, align 8, !tbaa !24
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %.015, i64 %20
   %22 = add nuw nsw i32 %.01114, 1
   %23 = load i32, ptr %10, align 4, !tbaa !13
   %24 = icmp slt i32 %22, %23
-  br i1 %24, label %16, label %.loopexit, !llvm.loop !36
+  br i1 %24, label %16, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %16, %9, %1, %3, %5
   %.012 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %1 ], [ 1, %9 ], [ 1, %16 ]
@@ -474,11 +474,11 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   br i1 %or.cond17, label %23, label %24
 
 23:                                               ; preds = %20
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !37
+  store float 0.000000e+00, ptr %9, align 4, !tbaa !36
   br label %DoEstimateRisk.exit
 
 24:                                               ; preds = %20
-  %25 = load i32, ptr @kSharpYuvPrecomputedRiskYuvSampling, align 4, !tbaa !27
+  %25 = load i32, ptr @kSharpYuvPrecomputedRiskYuvSampling, align 4, !tbaa !26
   %26 = mul nsw i32 %25, %25
   %27 = mul nsw i32 %26, %25
   %28 = zext nneg i32 %6 to i64
@@ -495,31 +495,31 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   br label %DoEstimateRisk.exit
 
 34:                                               ; preds = %24
-  %35 = load ptr, ptr %8, align 8, !tbaa !39
-  %36 = load i32, ptr %35, align 4, !tbaa !27
+  %35 = load ptr, ptr %8, align 8, !tbaa !38
+  %36 = load i32, ptr %35, align 4, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !27
+  %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !27
+  %40 = load i32, ptr %39, align 4, !tbaa !26
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !27
+  %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = add nsw i32 %25, -1
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !27
+  %45 = load i32, ptr %44, align 4, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  %47 = load i32, ptr %46, align 4, !tbaa !27
+  %47 = load i32, ptr %46, align 4, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %49 = load i32, ptr %48, align 4, !tbaa !27
+  %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %51 = load i32, ptr %50, align 4, !tbaa !27
+  %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %53 = load i32, ptr %52, align 4, !tbaa !27
+  %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %55 = load i32, ptr %54, align 4, !tbaa !27
+  %55 = load i32, ptr %54, align 4, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %57 = load i32, ptr %56, align 4, !tbaa !27
+  %57 = load i32, ptr %56, align 4, !tbaa !26
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  %59 = load i32, ptr %58, align 4, !tbaa !27
+  %59 = load i32, ptr %58, align 4, !tbaa !26
   %60 = sext i32 %3 to i64
   %61 = add i32 %42, 32768
   %62 = add i32 %51, 32768
@@ -531,11 +531,11 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %.01520.i.i = phi ptr [ %0, %34 ], [ %108, %64 ]
   %.01619.i.i = phi ptr [ %1, %34 ], [ %109, %64 ]
   %.01718.i.i = phi ptr [ %2, %34 ], [ %110, %64 ]
-  %65 = load i8, ptr %.01520.i.i, align 1, !tbaa !26
+  %65 = load i8, ptr %.01520.i.i, align 1, !tbaa !25
   %66 = zext i8 %65 to i32
-  %67 = load i8, ptr %.01619.i.i, align 1, !tbaa !26
+  %67 = load i8, ptr %.01619.i.i, align 1, !tbaa !25
   %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %.01718.i.i, align 1, !tbaa !26
+  %69 = load i8, ptr %.01718.i.i, align 1, !tbaa !25
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %36, %66
   %72 = mul nsw i32 %38, %68
@@ -576,13 +576,13 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %105 = add i32 %reass.mul.i.i.i, %81
   %106 = trunc i32 %105 to i16
   %107 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv.i.i
-  store i16 %106, ptr %107, align 2, !tbaa !41
+  store i16 %106, ptr %107, align 2, !tbaa !40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %108 = getelementptr inbounds i8, ptr %.01520.i.i, i64 %60
   %109 = getelementptr inbounds i8, ptr %.01619.i.i, i64 %60
   %110 = getelementptr inbounds i8, ptr %.01718.i.i, i64 %60
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %28
-  br i1 %exitcond.not.i.i, label %SharpYuvRowToYuvSharpnessIndex.exit.preheader.i, label %64, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %SharpYuvRowToYuvSharpnessIndex.exit.preheader.i, label %64, !llvm.loop !42
 
 SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %64
   %111 = sext i32 %4 to i64
@@ -608,11 +608,11 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %64
   %.01520.i94.i = phi ptr [ %113, %112 ], [ %160, %116 ]
   %.01619.i95.i = phi ptr [ %114, %112 ], [ %161, %116 ]
   %.01718.i96.i = phi ptr [ %115, %112 ], [ %162, %116 ]
-  %117 = load i8, ptr %.01520.i94.i, align 1, !tbaa !26
+  %117 = load i8, ptr %.01520.i94.i, align 1, !tbaa !25
   %118 = zext i8 %117 to i32
-  %119 = load i8, ptr %.01619.i95.i, align 1, !tbaa !26
+  %119 = load i8, ptr %.01619.i95.i, align 1, !tbaa !25
   %120 = zext i8 %119 to i32
-  %121 = load i8, ptr %.01718.i96.i, align 1, !tbaa !26
+  %121 = load i8, ptr %.01718.i96.i, align 1, !tbaa !25
   %122 = zext i8 %121 to i32
   %123 = mul nsw i32 %36, %118
   %124 = mul nsw i32 %38, %120
@@ -653,16 +653,16 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %64
   %157 = add i32 %reass.mul.i.i98.i, %133
   %158 = trunc i32 %157 to i16
   %159 = getelementptr inbounds nuw i16, ptr %.0846.i, i64 %indvars.iv.i93.i
-  store i16 %158, ptr %159, align 2, !tbaa !41
+  store i16 %158, ptr %159, align 2, !tbaa !40
   %indvars.iv.next.i99.i = add nuw nsw i64 %indvars.iv.i93.i, 1
   %160 = getelementptr inbounds i8, ptr %.01520.i94.i, i64 %60
   %161 = getelementptr inbounds i8, ptr %.01619.i95.i, i64 %60
   %162 = getelementptr inbounds i8, ptr %.01718.i96.i, i64 %60
   %exitcond.not.i100.i = icmp eq i64 %indvars.iv.next.i99.i, %28
-  br i1 %exitcond.not.i100.i, label %SharpYuvRowToYuvSharpnessIndex.exit101.preheader13.i, label %116, !llvm.loop !43
+  br i1 %exitcond.not.i100.i, label %SharpYuvRowToYuvSharpnessIndex.exit101.preheader13.i, label %116, !llvm.loop !42
 
 SharpYuvRowToYuvSharpnessIndex.exit101.preheader13.i: ; preds = %116
-  %.pre.i = load i16, ptr %.0837.i, align 2, !tbaa !41
+  %.pre.i = load i16, ptr %.0837.i, align 2, !tbaa !40
   br label %SharpYuvRowToYuvSharpnessIndex.exit101.i
 
 SharpYuvRowToYuvSharpnessIndex.exit101.i:         ; preds = %SharpYuvRowToYuvSharpnessIndex.exit101.i, %SharpYuvRowToYuvSharpnessIndex.exit101.preheader13.i
@@ -673,28 +673,28 @@ SharpYuvRowToYuvSharpnessIndex.exit101.i:         ; preds = %SharpYuvRowToYuvSha
   %164 = zext i16 %163 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %165 = getelementptr inbounds nuw i16, ptr %.0837.i, i64 %indvars.iv.next.i
-  %166 = load i16, ptr %165, align 2, !tbaa !41
+  %166 = load i16, ptr %165, align 2, !tbaa !40
   %167 = zext i16 %166 to i32
   %168 = getelementptr inbounds nuw i16, ptr %.0846.i, i64 %indvars.iv.i
-  %169 = load i16, ptr %168, align 2, !tbaa !41
+  %169 = load i16, ptr %168, align 2, !tbaa !40
   %170 = zext i16 %169 to i32
   %171 = mul nsw i32 %27, %167
   %172 = add nsw i32 %171, %164
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr @kSharpYuvPrecomputedRisk, i64 %173
-  %175 = load i8, ptr %174, align 1, !tbaa !26
+  %175 = load i8, ptr %174, align 1, !tbaa !25
   %176 = zext i8 %175 to i32
   %177 = mul nsw i32 %27, %170
   %178 = add nsw i32 %177, %164
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds i8, ptr @kSharpYuvPrecomputedRisk, i64 %179
-  %181 = load i8, ptr %180, align 1, !tbaa !26
+  %181 = load i8, ptr %180, align 1, !tbaa !25
   %182 = zext i8 %181 to i32
   %183 = add nuw nsw i32 %182, %176
   %184 = add nsw i32 %177, %167
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds i8, ptr @kSharpYuvPrecomputedRisk, i64 %185
-  %187 = load i8, ptr %186, align 1, !tbaa !26
+  %187 = load i8, ptr %186, align 1, !tbaa !25
   %188 = zext i8 %187 to i32
   %189 = add nuw nsw i32 %183, %188
   %190 = icmp samesign ugt i32 %189, 4
@@ -704,12 +704,12 @@ SharpYuvRowToYuvSharpnessIndex.exit101.i:         ; preds = %SharpYuvRowToYuvSha
   %.287.i = select i1 %190, double %193, double %.1861.i
   %.2.i = select i1 %190, double %192, double %.12.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SharpYuvRowToYuvSharpnessIndex.exit.i, label %SharpYuvRowToYuvSharpnessIndex.exit101.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %SharpYuvRowToYuvSharpnessIndex.exit.i, label %SharpYuvRowToYuvSharpnessIndex.exit101.i, !llvm.loop !43
 
 SharpYuvRowToYuvSharpnessIndex.exit.i:            ; preds = %SharpYuvRowToYuvSharpnessIndex.exit101.i
   %194 = add nuw nsw i32 %.0809.i, 1
   %exitcond15.not.i = icmp eq i32 %194, %7
-  br i1 %exitcond15.not.i, label %195, label %112, !llvm.loop !45
+  br i1 %exitcond15.not.i, label %195, label %112, !llvm.loop !44
 
 195:                                              ; preds = %SharpYuvRowToYuvSharpnessIndex.exit.i
   %196 = fcmp ogt double %.287.i, 0.000000e+00
@@ -728,7 +728,7 @@ SharpYuvRowToYuvSharpnessIndex.exit.i:            ; preds = %SharpYuvRowToYuvSha
   tail call void @WebPFree(ptr noundef nonnull %.0837.i) #6
   tail call void @WebPFree(ptr noundef nonnull %.0846.i) #6
   %207 = fptrunc double %206 to float
-  store float %207, ptr %9, align 4, !tbaa !37
+  store float %207, ptr %9, align 4, !tbaa !36
   br label %DoEstimateRisk.exit
 
 DoEstimateRisk.exit:                              ; preds = %195, %33, %10, %23
@@ -776,29 +776,28 @@ attributes #6 = { nounwind }
 !17 = !{!5, !9, i64 24}
 !18 = !{!5, !6, i64 44}
 !19 = !{!5, !9, i64 32}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!5, !6, i64 0}
-!24 = !{!5, !11, i64 72}
-!25 = !{!5, !6, i64 80}
-!26 = !{!7, !7, i64 0}
-!27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !21, !22}
-!29 = distinct !{!29, !21, !22, !30}
-!30 = !{!"llvm.loop.unswitch.partial.disable"}
-!31 = distinct !{!31, !21, !22}
-!32 = distinct !{!32, !21, !22, !30}
-!33 = distinct !{!33, !21, !22}
-!34 = distinct !{!34, !21, !22, !30}
-!35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !21, !22}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"float", !7, i64 0}
-!39 = !{!40, !10, i64 0}
-!40 = !{!"SharpYuvOptions", !10, i64 0, !6, i64 8}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"short", !7, i64 0}
-!43 = distinct !{!43, !21, !22}
-!44 = distinct !{!44, !21, !22}
-!45 = distinct !{!45, !21, !22}
+!22 = !{!5, !6, i64 0}
+!23 = !{!5, !11, i64 72}
+!24 = !{!5, !6, i64 80}
+!25 = !{!7, !7, i64 0}
+!26 = !{!6, !6, i64 0}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21, !29}
+!29 = !{!"llvm.loop.unswitch.partial.disable"}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21, !29}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21, !29}
+!34 = !{!10, !10, i64 0}
+!35 = distinct !{!35, !21}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"float", !7, i64 0}
+!38 = !{!39, !10, i64 0}
+!39 = !{!"SharpYuvOptions", !10, i64 0, !6, i64 8}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"short", !7, i64 0}
+!42 = distinct !{!42, !21}
+!43 = distinct !{!43, !21}
+!44 = distinct !{!44, !21}

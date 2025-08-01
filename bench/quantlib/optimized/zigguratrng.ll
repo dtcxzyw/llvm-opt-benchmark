@@ -125,7 +125,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %if.then10, 
   %mul19 = fmul double %mul7, %mul18
   %call20 = tail call double @exp(double noundef %mul19) #4, !tbaa !9
   %cmp21 = fcmp olt double %10, %call20
-  br i1 %cmp21, label %for.end, label %for.cond, !llvm.loop !13
+  br i1 %cmp21, label %for.end, label %for.cond
 
 if.else:                                          ; preds = %if.end
   %conv26 = sitofp i32 %3 to double
@@ -237,5 +237,3 @@ attributes #4 = { nounwind }
 !10 = !{!"int", !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"double", !5, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}

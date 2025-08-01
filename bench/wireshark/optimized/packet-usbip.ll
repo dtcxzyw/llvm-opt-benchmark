@@ -530,7 +530,7 @@ usbip_get_usbip_conv.exit:                        ; preds = %4, %18
   %.1.lcssa.i.i = phi i32 [ %69, %proto_item_set_generated.exit.i.i ], [ %86, %.lr.ph.i.i ]
   %50 = load i32, ptr %9, align 4
   %51 = icmp ult i32 %58, %50
-  br i1 %51, label %.lr.ph5.i.i, label %dissect_device_list_response.exit.i, !llvm.loop !9
+  br i1 %51, label %.lr.ph5.i.i, label %dissect_device_list_response.exit.i, !llvm.loop !8
 
 .lr.ph5.i.i:                                      ; preds = %46, %.loopexit.i.i
   %.0434.i.i = phi i32 [ %.1.lcssa.i.i, %.loopexit.i.i ], [ 12, %46 ]
@@ -587,7 +587,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %63, %60, %.lr.ph5.i
   %85 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %84, ptr noundef %0, i32 noundef %83, i32 noundef 1, i32 noundef 0)
   %86 = add i32 %.11.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %71, %55
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
   %.043.lcssa.i.i = phi i32 [ 12, %46 ], [ %.1.lcssa.i.i, %.loopexit.i.i ]
@@ -1149,8 +1149,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

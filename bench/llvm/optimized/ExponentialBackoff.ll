@@ -128,7 +128,7 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt13random
   %24 = mul nuw i64 %23, %15
   %25 = trunc i64 %24 to i32
   %26 = icmp ugt i32 %20, %25
-  br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit, !llvm.loop !23
+  br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit, !llvm.loop !22
 
 _ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit: ; preds = %.lr.ph.i, %10, %18
   %.0.i = phi i64 [ %16, %10 ], [ %16, %18 ], [ %24, %.lr.ph.i ]
@@ -155,7 +155,7 @@ _ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit: ;
   %35 = zext i32 %34 to i64
   %36 = or disjoint i64 %33, %35
   %37 = icmp ugt i64 %36, %8
-  br i1 %37, label %31, label %.loopexit, !llvm.loop !24
+  br i1 %37, label %31, label %.loopexit, !llvm.loop !23
 
 38:                                               ; preds = %28
   %39 = tail call noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %1) #6
@@ -210,8 +210,7 @@ attributes #7 = { nounwind willreturn memory(none) }
 !17 = !{!16, !4, i64 8}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"int", !5, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = distinct !{!24, !21, !22}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}

@@ -48,32 +48,32 @@ define void @av_blowfish_init(ptr noundef captures(none) initializes((72, 4168))
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw [18 x i32], ptr @orig_p, i64 0, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = xor i32 %18, %13
   %20 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond47.not, label %21, label %.preheader37, !llvm.loop !12
+  br i1 %exitcond47.not, label %21, label %.preheader37, !llvm.loop !11
 
 21:                                               ; preds = %16
-  store i32 0, ptr %5, align 4, !tbaa !10
-  store i32 0, ptr %4, align 4, !tbaa !10
+  store i32 0, ptr %5, align 4, !tbaa !9
+  store i32 0, ptr %4, align 4, !tbaa !9
   br label %22
 
 22:                                               ; preds = %21, %22
   %indvars.iv48 = phi i64 [ 0, %21 ], [ %indvars.iv.next49, %22 ]
   call void @av_blowfish_crypt_ecb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
-  %23 = load i32, ptr %4, align 4, !tbaa !10
+  %23 = load i32, ptr %4, align 4, !tbaa !9
   %24 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv48
-  store i32 %23, ptr %24, align 4, !tbaa !10
-  %25 = load i32, ptr %5, align 4, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !9
+  %25 = load i32, ptr %5, align 4, !tbaa !9
   %26 = or disjoint i64 %indvars.iv48, 1
   %27 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %26
-  store i32 %25, ptr %27, align 4, !tbaa !10
+  store i32 %25, ptr %27, align 4, !tbaa !9
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 2
   %28 = icmp samesign ult i64 %indvars.iv48, 16
-  br i1 %28, label %22, label %.preheader, !llvm.loop !13
+  br i1 %28, label %22, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %22, %37
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %37 ], [ 0, %22 ]
@@ -83,21 +83,21 @@ define void @av_blowfish_init(ptr noundef captures(none) initializes((72, 4168))
 30:                                               ; preds = %.preheader, %30
   %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %30 ]
   call void @av_blowfish_crypt_ecb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
-  %31 = load i32, ptr %4, align 4, !tbaa !10
+  %31 = load i32, ptr %4, align 4, !tbaa !9
   %32 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %indvars.iv51
-  store i32 %31, ptr %32, align 4, !tbaa !10
-  %33 = load i32, ptr %5, align 4, !tbaa !10
+  store i32 %31, ptr %32, align 4, !tbaa !9
+  %33 = load i32, ptr %5, align 4, !tbaa !9
   %34 = or disjoint i64 %indvars.iv51, 1
   %35 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %34
-  store i32 %33, ptr %35, align 4, !tbaa !10
+  store i32 %33, ptr %35, align 4, !tbaa !9
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 2
   %36 = icmp samesign ult i64 %indvars.iv51, 254
-  br i1 %36, label %30, label %37, !llvm.loop !14
+  br i1 %36, label %30, label %37, !llvm.loop !13
 
 37:                                               ; preds = %30
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %38, label %.preheader, !llvm.loop !15
+  br i1 %exitcond57.not, label %38, label %.preheader, !llvm.loop !14
 
 38:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
@@ -113,14 +113,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @av_blowfish_crypt_ecb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
-  %5 = load i32, ptr %1, align 4, !tbaa !10
-  %6 = load i32, ptr %2, align 4, !tbaa !10
+  %5 = load i32, ptr %1, align 4, !tbaa !9
+  %6 = load i32, ptr %2, align 4, !tbaa !9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %71, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %9 = load i32, ptr %8, align 4, !tbaa !10
+  %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = xor i32 %9, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -135,65 +135,65 @@ define void @av_blowfish_crypt_ecb(ptr noundef readonly captures(none) %0, ptr n
   %16 = lshr i32 %.06467, 24
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !10
+  %19 = load i32, ptr %18, align 4, !tbaa !9
   %20 = lshr i32 %.06467, 16
   %21 = and i32 %20, 255
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = add i32 %24, %19
   %26 = lshr i32 %.06467, 8
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !10
+  %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = xor i32 %25, %30
   %32 = and i32 %.06467, 255
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = add i32 %31, %35
   %37 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv
-  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %38 = load i32, ptr %37, align 4, !tbaa !9
   %39 = xor i32 %38, %.06268
   %40 = xor i32 %39, %36
   %41 = lshr i32 %40, 24
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = lshr i32 %40, 16
   %46 = and i32 %45, 255
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !10
+  %49 = load i32, ptr %48, align 4, !tbaa !9
   %50 = add i32 %49, %44
   %51 = lshr i32 %40, 8
   %52 = and i32 %51, 255
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !10
+  %55 = load i32, ptr %54, align 4, !tbaa !9
   %56 = xor i32 %50, %55
   %57 = and i32 %40, 255
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = add i32 %56, %60
   %62 = add nsw i64 %indvars.iv, -1
   %63 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %64 = load i32, ptr %63, align 4, !tbaa !9
   %65 = xor i32 %64, %61
   %66 = xor i32 %65, %.06467
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
   %67 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %67, label %15, label %68, !llvm.loop !16
+  br i1 %67, label %15, label %68, !llvm.loop !15
 
 68:                                               ; preds = %15
-  %69 = load i32, ptr %0, align 4, !tbaa !10
+  %69 = load i32, ptr %0, align 4, !tbaa !9
   %70 = xor i32 %69, %40
   br label %135
 
 71:                                               ; preds = %4
-  %72 = load i32, ptr %0, align 4, !tbaa !10
+  %72 = load i32, ptr %0, align 4, !tbaa !9
   %73 = xor i32 %72, %5
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -208,69 +208,69 @@ define void @av_blowfish_crypt_ecb(ptr noundef readonly captures(none) %0, ptr n
   %79 = lshr i32 %.26670, 24
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw [256 x i32], ptr %74, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !10
+  %82 = load i32, ptr %81, align 4, !tbaa !9
   %83 = lshr i32 %.26670, 16
   %84 = and i32 %83, 255
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw [256 x i32], ptr %75, i64 0, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !10
+  %87 = load i32, ptr %86, align 4, !tbaa !9
   %88 = add i32 %87, %82
   %89 = lshr i32 %.26670, 8
   %90 = and i32 %89, 255
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw [256 x i32], ptr %76, i64 0, i64 %91
-  %93 = load i32, ptr %92, align 4, !tbaa !10
+  %93 = load i32, ptr %92, align 4, !tbaa !9
   %94 = xor i32 %88, %93
   %95 = and i32 %.26670, 255
   %96 = zext nneg i32 %95 to i64
   %97 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !10
+  %98 = load i32, ptr %97, align 4, !tbaa !9
   %99 = add i32 %94, %98
   %100 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv77
-  %101 = load i32, ptr %100, align 4, !tbaa !10
+  %101 = load i32, ptr %100, align 4, !tbaa !9
   %102 = xor i32 %101, %.271
   %103 = xor i32 %102, %99
   %104 = lshr i32 %103, 24
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw [256 x i32], ptr %74, i64 0, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !10
+  %107 = load i32, ptr %106, align 4, !tbaa !9
   %108 = lshr i32 %103, 16
   %109 = and i32 %108, 255
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds nuw [256 x i32], ptr %75, i64 0, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !10
+  %112 = load i32, ptr %111, align 4, !tbaa !9
   %113 = add i32 %112, %107
   %114 = lshr i32 %103, 8
   %115 = and i32 %114, 255
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw [256 x i32], ptr %76, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !10
+  %118 = load i32, ptr %117, align 4, !tbaa !9
   %119 = xor i32 %113, %118
   %120 = and i32 %103, 255
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %121
-  %123 = load i32, ptr %122, align 4, !tbaa !10
+  %123 = load i32, ptr %122, align 4, !tbaa !9
   %124 = add i32 %119, %123
   %125 = add nuw nsw i64 %indvars.iv77, 1
   %126 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !10
+  %127 = load i32, ptr %126, align 4, !tbaa !9
   %128 = xor i32 %127, %124
   %129 = xor i32 %128, %.26670
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 2
   %130 = icmp samesign ult i64 %indvars.iv77, 15
-  br i1 %130, label %78, label %131, !llvm.loop !17
+  br i1 %130, label %78, label %131, !llvm.loop !16
 
 131:                                              ; preds = %78
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %133 = load i32, ptr %132, align 4, !tbaa !10
+  %133 = load i32, ptr %132, align 4, !tbaa !9
   %134 = xor i32 %133, %103
   br label %135
 
 135:                                              ; preds = %131, %68
   %.165 = phi i32 [ %66, %68 ], [ %129, %131 ]
   %.163 = phi i32 [ %70, %68 ], [ %134, %131 ]
-  store i32 %.163, ptr %1, align 4, !tbaa !10
-  store i32 %.165, ptr %2, align 4, !tbaa !10
+  store i32 %.163, ptr %1, align 4, !tbaa !9
+  store i32 %.165, ptr %2, align 4, !tbaa !9
   ret void
 }
 
@@ -302,16 +302,16 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %.03852.us = phi ptr [ %22, %.lr.ph.split.us ], [ %2, %.lr.ph ]
   %12 = load i32, ptr %.03852.us, align 1, !tbaa !4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  store i32 %13, ptr %7, align 4, !tbaa !10
+  store i32 %13, ptr %7, align 4, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %.03852.us, i64 4
   %15 = load i32, ptr %14, align 1, !tbaa !4
   %16 = tail call i32 @llvm.bswap.i32(i32 %15)
-  store i32 %16, ptr %8, align 4, !tbaa !10
+  store i32 %16, ptr %8, align 4, !tbaa !9
   call void @av_blowfish_crypt_ecb(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %5)
-  %17 = load i32, ptr %7, align 4, !tbaa !10
+  %17 = load i32, ptr %7, align 4, !tbaa !9
   %18 = tail call i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %.03753.us, align 1, !tbaa !4
-  %19 = load i32, ptr %8, align 4, !tbaa !10
+  %19 = load i32, ptr %8, align 4, !tbaa !9
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
   %21 = getelementptr inbounds nuw i8, ptr %.03753.us, i64 4
   store i32 %20, ptr %21, align 1, !tbaa !4
@@ -319,7 +319,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %.03753.us, i64 8
   %24 = add nsw i32 %11, -1
   %.not46.us = icmp eq i32 %11, 0
-  br i1 %.not46.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not46.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
 
 .preheader48:                                     ; preds = %6
   br i1 %.not4455, label %.loopexit, label %.lr.ph58
@@ -335,16 +335,16 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %.13956.us = phi ptr [ %37, %.lr.ph58.split.us ], [ %2, %.lr.ph58 ]
   %27 = load i32, ptr %.13956.us, align 1, !tbaa !4
   %28 = tail call i32 @llvm.bswap.i32(i32 %27)
-  store i32 %28, ptr %7, align 4, !tbaa !10
+  store i32 %28, ptr %7, align 4, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %.13956.us, i64 4
   %30 = load i32, ptr %29, align 1, !tbaa !4
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
-  store i32 %31, ptr %8, align 4, !tbaa !10
+  store i32 %31, ptr %8, align 4, !tbaa !9
   call void @av_blowfish_crypt_ecb(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
-  %32 = load i32, ptr %7, align 4, !tbaa !10
+  %32 = load i32, ptr %7, align 4, !tbaa !9
   %33 = tail call i32 @llvm.bswap.i32(i32 %32)
   store i32 %33, ptr %.157.us, align 1, !tbaa !4
-  %34 = load i32, ptr %8, align 4, !tbaa !10
+  %34 = load i32, ptr %8, align 4, !tbaa !9
   %35 = tail call i32 @llvm.bswap.i32(i32 %34)
   %36 = getelementptr inbounds nuw i8, ptr %.157.us, i64 4
   store i32 %35, ptr %36, align 1, !tbaa !4
@@ -352,7 +352,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %.157.us, i64 8
   %39 = add nsw i32 %26, -1
   %.not44.us = icmp eq i32 %26, 0
-  br i1 %.not44.us, label %.loopexit, label %.lr.ph58.split.us, !llvm.loop !20
+  br i1 %.not44.us, label %.loopexit, label %.lr.ph58.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %40 = phi i32 [ %60, %.lr.ph.split ], [ %9, %.lr.ph ]
@@ -360,22 +360,22 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %.03852 = phi ptr [ %58, %.lr.ph.split ], [ %2, %.lr.ph ]
   %41 = load i32, ptr %.03852, align 1, !tbaa !4
   %42 = tail call i32 @llvm.bswap.i32(i32 %41)
-  store i32 %42, ptr %7, align 4, !tbaa !10
+  store i32 %42, ptr %7, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.03852, i64 4
   %44 = load i32, ptr %43, align 1, !tbaa !4
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
-  store i32 %45, ptr %8, align 4, !tbaa !10
+  store i32 %45, ptr %8, align 4, !tbaa !9
   call void @av_blowfish_crypt_ecb(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %5)
   %46 = load i32, ptr %4, align 1, !tbaa !4
   %47 = tail call i32 @llvm.bswap.i32(i32 %46)
-  %48 = load i32, ptr %7, align 4, !tbaa !10
+  %48 = load i32, ptr %7, align 4, !tbaa !9
   %49 = xor i32 %48, %47
-  store i32 %49, ptr %7, align 4, !tbaa !10
+  store i32 %49, ptr %7, align 4, !tbaa !9
   %50 = load i32, ptr %10, align 1, !tbaa !4
   %51 = tail call i32 @llvm.bswap.i32(i32 %50)
-  %52 = load i32, ptr %8, align 4, !tbaa !10
+  %52 = load i32, ptr %8, align 4, !tbaa !9
   %53 = xor i32 %52, %51
-  store i32 %53, ptr %8, align 4, !tbaa !10
+  store i32 %53, ptr %8, align 4, !tbaa !9
   %54 = load i64, ptr %.03852, align 1
   store i64 %54, ptr %4, align 1
   %55 = tail call i32 @llvm.bswap.i32(i32 %49)
@@ -387,7 +387,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %59 = getelementptr inbounds nuw i8, ptr %.03753, i64 8
   %60 = add nsw i32 %40, -1
   %.not46 = icmp eq i32 %40, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not46, label %.loopexit, label %.lr.ph.split, !llvm.loop !20
 
 .preheader:                                       ; preds = %.lr.ph58, %69
   %61 = phi i32 [ %82, %69 ], [ %25, %.lr.ph58 ]
@@ -406,21 +406,21 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %67, ptr %68, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %69, label %62, !llvm.loop !22
+  br i1 %exitcond.not, label %69, label %62, !llvm.loop !21
 
 69:                                               ; preds = %62
   %70 = load i32, ptr %.157, align 1, !tbaa !4
   %71 = tail call i32 @llvm.bswap.i32(i32 %70)
-  store i32 %71, ptr %7, align 4, !tbaa !10
+  store i32 %71, ptr %7, align 4, !tbaa !9
   %72 = getelementptr inbounds nuw i8, ptr %.157, i64 4
   %73 = load i32, ptr %72, align 1, !tbaa !4
   %74 = tail call i32 @llvm.bswap.i32(i32 %73)
-  store i32 %74, ptr %8, align 4, !tbaa !10
+  store i32 %74, ptr %8, align 4, !tbaa !9
   call void @av_blowfish_crypt_ecb(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
-  %75 = load i32, ptr %7, align 4, !tbaa !10
+  %75 = load i32, ptr %7, align 4, !tbaa !9
   %76 = tail call i32 @llvm.bswap.i32(i32 %75)
   store i32 %76, ptr %.157, align 1, !tbaa !4
-  %77 = load i32, ptr %8, align 4, !tbaa !10
+  %77 = load i32, ptr %8, align 4, !tbaa !9
   %78 = tail call i32 @llvm.bswap.i32(i32 %77)
   store i32 %78, ptr %72, align 1, !tbaa !4
   %79 = load i64, ptr %.157, align 1
@@ -429,7 +429,7 @@ define void @av_blowfish_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %81 = getelementptr inbounds nuw i8, ptr %.157, i64 8
   %82 = add nsw i32 %61, -1
   %.not44 = icmp eq i32 %61, 0
-  br i1 %.not44, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %.not44, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %69, %.lr.ph58.split.us, %.preheader49, %.preheader48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
@@ -458,20 +458,19 @@ attributes #7 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !8, !9, !19}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !8, !18}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

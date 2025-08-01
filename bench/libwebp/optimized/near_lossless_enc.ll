@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr noundef readonly cap
   tail call fastcc void @NearLossless(i32 noundef %5, i32 noundef %7, ptr noundef %2, i32 noundef %5, i32 noundef %.146, ptr noundef %12, ptr noundef %2)
   %.1 = add nsw i32 %.146, -1
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !17
 
 .sink.split:                                      ; preds = %.lr.ph, %23, %31, %.preheader
   tail call void @WebPSafeFree(ptr noundef nonnull %12) #4
@@ -123,20 +123,20 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef range(i32 
 .lr.ph.us:                                        ; preds = %.split.us
   %24 = getelementptr inbounds i32, ptr %.074.us, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05673.us, ptr align 4 %24, i64 %12, i1 false)
-  %25 = load i32, ptr %.074.us, align 4, !tbaa !19
-  store i32 %25, ptr %.05969.us, align 4, !tbaa !19
+  %25 = load i32, ptr %.074.us, align 4, !tbaa !18
+  store i32 %25, ptr %.05969.us, align 4, !tbaa !18
   %26 = getelementptr inbounds i32, ptr %.074.us, i64 %17
-  %27 = load i32, ptr %26, align 4, !tbaa !19
+  %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = getelementptr inbounds i32, ptr %.05969.us, i64 %17
-  store i32 %27, ptr %28, align 4, !tbaa !19
+  store i32 %27, ptr %28, align 4, !tbaa !18
   br label %29
 
 29:                                               ; preds = %.lr.ph.us, %110
   %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %110 ]
   %30 = getelementptr inbounds nuw i32, ptr %.05772.us, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4, !tbaa !19
+  %31 = load i32, ptr %30, align 4, !tbaa !18
   %32 = getelementptr i8, ptr %30, i64 -4
-  %33 = load i32, ptr %32, align 4, !tbaa !19
+  %33 = load i32, ptr %32, align 4, !tbaa !18
   br label %.critedge.i.i.us
 
 .critedge.i.i.us:                                 ; preds = %40, %29
@@ -155,11 +155,11 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef range(i32 
 40:                                               ; preds = %.critedge.i.i.us
   %41 = add nuw nsw i32 %.01317.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %41, 4
-  br i1 %exitcond.not.i.i.us, label %IsNear.exit.i.us, label %.critedge.i.i.us, !llvm.loop !20
+  br i1 %exitcond.not.i.i.us, label %IsNear.exit.i.us, label %.critedge.i.i.us, !llvm.loop !19
 
 IsNear.exit.i.us:                                 ; preds = %40
   %42 = getelementptr i8, ptr %30, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !19
+  %43 = load i32, ptr %42, align 4, !tbaa !18
   br label %.critedge.i21.i.us
 
 .critedge.i21.i.us:                               ; preds = %50, %IsNear.exit.i.us
@@ -178,11 +178,11 @@ IsNear.exit.i.us:                                 ; preds = %40
 50:                                               ; preds = %.critedge.i21.i.us
   %51 = add nuw nsw i32 %.01317.i22.i.us, 1
   %exitcond.not.i27.i.us = icmp eq i32 %51, 4
-  br i1 %exitcond.not.i27.i.us, label %IsNear.exit28.i.us, label %.critedge.i21.i.us, !llvm.loop !20
+  br i1 %exitcond.not.i27.i.us, label %IsNear.exit28.i.us, label %.critedge.i21.i.us, !llvm.loop !19
 
 IsNear.exit28.i.us:                               ; preds = %50
   %52 = getelementptr inbounds nuw i32, ptr %.05871.us, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 4, !tbaa !19
+  %53 = load i32, ptr %52, align 4, !tbaa !18
   br label %.critedge.i29.i.us
 
 .critedge.i29.i.us:                               ; preds = %60, %IsNear.exit28.i.us
@@ -201,11 +201,11 @@ IsNear.exit28.i.us:                               ; preds = %50
 60:                                               ; preds = %.critedge.i29.i.us
   %61 = add nuw nsw i32 %.01317.i30.i.us, 1
   %exitcond.not.i35.i.us = icmp eq i32 %61, 4
-  br i1 %exitcond.not.i35.i.us, label %IsNear.exit36.i.us, label %.critedge.i29.i.us, !llvm.loop !20
+  br i1 %exitcond.not.i35.i.us, label %IsNear.exit36.i.us, label %.critedge.i29.i.us, !llvm.loop !19
 
 IsNear.exit36.i.us:                               ; preds = %60
   %62 = getelementptr inbounds nuw i32, ptr %.05673.us, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 4, !tbaa !19
+  %63 = load i32, ptr %62, align 4, !tbaa !18
   br label %.critedge.i37.i.us
 
 .critedge.i37.i.us:                               ; preds = %.critedge.i37.i.us, %IsNear.exit36.i.us
@@ -222,7 +222,7 @@ IsNear.exit36.i.us:                               ; preds = %60
   %70 = add nuw nsw i32 %.01317.i38.i.us, 1
   %exitcond.not.i43.i.us = icmp ne i32 %70, 4
   %or.cond.not.i.us = select i1 %or.cond.i41.i.us, i1 %exitcond.not.i43.i.us, i1 false
-  br i1 %or.cond.not.i.us, label %.critedge.i37.i.us, label %IsSmooth.exit.us, !llvm.loop !20
+  br i1 %or.cond.not.i.us, label %.critedge.i37.i.us, label %IsSmooth.exit.us, !llvm.loop !19
 
 IsSmooth.exit.us:                                 ; preds = %.critedge.i37.i.us
   br i1 %or.cond.i41.i.us, label %110, label %IsSmooth.exit.thread.us
@@ -273,10 +273,10 @@ IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %
 110:                                              ; preds = %IsSmooth.exit.us, %IsSmooth.exit.thread.us
   %.sink = phi i32 [ %109, %IsSmooth.exit.thread.us ], [ %31, %IsSmooth.exit.us ]
   %111 = getelementptr inbounds nuw i32, ptr %.05969.us, i64 %indvars.iv
-  store i32 %.sink, ptr %111, align 4, !tbaa !19
+  store i32 %.sink, ptr %111, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond81.not, label %..loopexit_crit_edge.us, label %29, !llvm.loop !21
+  br i1 %exitcond81.not, label %..loopexit_crit_edge.us, label %29, !llvm.loop !20
 
 112:                                              ; preds = %.split.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05969.us, ptr align 4 %.074.us, i64 %12, i1 false)
@@ -287,7 +287,7 @@ IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %
   %114 = getelementptr inbounds i32, ptr %.074.us, i64 %13
   %115 = getelementptr inbounds nuw i32, ptr %.05969.us, i64 %9
   %exitcond82.not = icmp eq i32 %113, %1
-  br i1 %exitcond82.not, label %.split76.us, label %.split.us, !llvm.loop !22
+  br i1 %exitcond82.not, label %.split76.us, label %.split.us, !llvm.loop !21
 
 .split:                                           ; preds = %7, %124
   %.074 = phi ptr [ %126, %124 ], [ %2, %7 ]
@@ -308,12 +308,12 @@ IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %
 .loopexit:                                        ; preds = %.split
   %119 = getelementptr inbounds i32, ptr %.074, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05673, ptr align 4 %119, i64 %12, i1 false)
-  %120 = load i32, ptr %.074, align 4, !tbaa !19
-  store i32 %120, ptr %.05969, align 4, !tbaa !19
+  %120 = load i32, ptr %.074, align 4, !tbaa !18
+  store i32 %120, ptr %.05969, align 4, !tbaa !18
   %121 = getelementptr inbounds i32, ptr %.074, i64 %17
-  %122 = load i32, ptr %121, align 4, !tbaa !19
+  %122 = load i32, ptr %121, align 4, !tbaa !18
   %123 = getelementptr inbounds i32, ptr %.05969, i64 %17
-  store i32 %122, ptr %123, align 4, !tbaa !19
+  store i32 %122, ptr %123, align 4, !tbaa !18
   br label %124
 
 124:                                              ; preds = %.loopexit, %118
@@ -321,7 +321,7 @@ IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %
   %126 = getelementptr inbounds i32, ptr %.074, i64 %13
   %127 = getelementptr inbounds i32, ptr %.05969, i64 %9
   %exitcond.not = icmp eq i32 %125, %1
-  br i1 %exitcond.not, label %.split76.us, label %.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.split76.us, label %.split, !llvm.loop !23
 
 .split76.us:                                      ; preds = %124, %..loopexit_crit_edge.us
   ret void
@@ -350,13 +350,12 @@ attributes #4 = { nounwind }
 !12 = !{!4, !5, i64 12}
 !13 = !{!4, !5, i64 80}
 !14 = !{!4, !10, i64 72}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !16, !17}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !16, !17, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !16}

@@ -135,7 +135,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.1.i = phi i32 [ %12, %11 ], [ %21, %20 ], [ %29, %28 ], [ %37, %36 ], [ %.050.i, %43 ], [ %.050.i, %45 ]
   %53 = add nsw i32 %.1.i, 1
   %54 = icmp slt i32 %53, %0
-  br i1 %54, label %.lr.ph.i, label %.loopexit80.loopexit, !llvm.loop !13
+  br i1 %54, label %.lr.ph.i, label %.loopexit80.loopexit
 
 ParseArgs.exit:                                   ; preds = %47, %49
   tail call fastcc void @PrintHelp()
@@ -168,12 +168,12 @@ check_retval.exit:                                ; preds = %.loopexit80
   %63 = load ptr, ptr %3, align 8, !tbaa !4
   %64 = call ptr @N_VNew_Serial(i64 noundef 2, ptr noundef %63) #10
   %65 = call ptr @N_VGetArrayPointer(ptr noundef %64) #10
-  store double 0.000000e+00, ptr %65, align 8, !tbaa !15
+  store double 0.000000e+00, ptr %65, align 8, !tbaa !13
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store double 1.000000e+00, ptr %66, align 8, !tbaa !15
+  store double 1.000000e+00, ptr %66, align 8, !tbaa !13
   %67 = load ptr, ptr %3, align 8, !tbaa !4
   %68 = call ptr @SPRKStepCreate(ptr noundef nonnull @qdot, ptr noundef nonnull @pdot, double noundef 0.000000e+00, ptr noundef %64, ptr noundef %67) #10
-  store ptr %68, ptr %5, align 8, !tbaa !17
+  store ptr %68, ptr %5, align 8, !tbaa !15
   %69 = call i32 @ARKodeSetOrder(ptr noundef %68, i32 noundef %.sroa.0.2.ph) #10
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %check_retval.exit44, label %73
@@ -218,9 +218,9 @@ check_retval.exit50:                              ; preds = %83
   br label %148
 
 92:                                               ; preds = %83
-  store double 0.000000e+00, ptr %4, align 8, !tbaa !15
+  store double 0.000000e+00, ptr %4, align 8, !tbaa !13
   %93 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %94 = load double, ptr %66, align 8, !tbaa !15
+  %94 = load double, ptr %66, align 8, !tbaa !13
   %95 = fpext double %94 to x86_fp80
   %96 = call fastcc double @Hamiltonian(ptr noundef %64, double noundef 0.000000e+00)
   %97 = fpext double %96 to x86_fp80
@@ -244,29 +244,29 @@ check_retval.exit50:                              ; preds = %83
 104:                                              ; preds = %102, %101
   %105 = call i32 @ARKodeEvolve(ptr noundef %68, double noundef %.03282, ptr noundef %64, ptr noundef nonnull %4, i32 noundef 1) #10
   %106 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %107 = load double, ptr %4, align 8, !tbaa !15
+  %107 = load double, ptr %4, align 8, !tbaa !13
   %108 = fpext double %107 to x86_fp80
-  %109 = load double, ptr %66, align 8, !tbaa !15
+  %109 = load double, ptr %66, align 8, !tbaa !13
   %110 = fpext double %109 to x86_fp80
   %111 = call ptr @N_VGetArrayPointer(ptr noundef %64) #10
-  %112 = load double, ptr %111, align 8, !tbaa !15
+  %112 = load double, ptr %111, align 8, !tbaa !13
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %114 = load double, ptr %113, align 8, !tbaa !15
+  %114 = load double, ptr %113, align 8, !tbaa !13
   %115 = fmul double %112, %112
   %116 = fdiv double %107, 0x400921FB54442D18
-  %117 = call double @sin(double noundef %116) #10, !tbaa !18
+  %117 = call double @sin(double noundef %116) #10, !tbaa !16
   %118 = fmul double %117, -1.800000e-02
-  %119 = call double @exp(double noundef %118) #10, !tbaa !18
+  %119 = call double @exp(double noundef %118) #10, !tbaa !16
   %120 = fmul double %115, %119
   %121 = fmul double %120, 5.000000e-01
   %122 = fmul double %107, 5.000000e-01
-  %123 = call double @cos(double noundef %122) #10, !tbaa !18
+  %123 = call double @cos(double noundef %122) #10, !tbaa !16
   %124 = fmul double %123, %123
   %125 = fmul double %114, %124
   %126 = fmul double %114, %125
-  %127 = call double @sin(double noundef %116) #10, !tbaa !18
+  %127 = call double @sin(double noundef %116) #10, !tbaa !16
   %128 = fmul double %127, 1.800000e-02
-  %129 = call double @exp(double noundef %128) #10, !tbaa !18
+  %129 = call double @exp(double noundef %128) #10, !tbaa !16
   %130 = fmul double %129, %126
   %131 = fmul double %130, 5.000000e-01
   %132 = fadd double %121, %131
@@ -281,7 +281,7 @@ check_retval.exit50:                              ; preds = %83
   %139 = select i1 %138, double %.sroa.14.2.ph, double %137
   %140 = add nuw nsw i32 %.03183, 1
   %exitcond.not = icmp eq i32 %140, %.sroa.5.2.ph
-  br i1 %exitcond.not, label %.loopexit, label %101, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %101
 
 141:                                              ; preds = %104
   %142 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -321,14 +321,14 @@ declare ptr @SPRKStepCreate(ptr noundef, ptr noundef, double noundef, ptr nounde
 define internal noundef i32 @qdot(double noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #10
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #10
-  %7 = load double, ptr %5, align 8, !tbaa !15
+  %7 = load double, ptr %5, align 8, !tbaa !13
   %8 = fdiv double %0, 0x400921FB54442D18
-  %9 = tail call double @sin(double noundef %8) #10, !tbaa !18
+  %9 = tail call double @sin(double noundef %8) #10, !tbaa !16
   %10 = fmul double %9, -1.800000e-02
-  %11 = tail call double @exp(double noundef %10) #10, !tbaa !18
+  %11 = tail call double @exp(double noundef %10) #10, !tbaa !16
   %12 = fmul double %7, %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %12, ptr %13, align 8, !tbaa !15
+  store double %12, ptr %13, align 8, !tbaa !13
   ret i32 0
 }
 
@@ -336,19 +336,19 @@ define internal noundef i32 @qdot(double noundef %0, ptr noundef %1, ptr noundef
 define internal noundef i32 @pdot(double noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #10
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #10
-  %7 = load double, ptr %5, align 8, !tbaa !15
+  %7 = load double, ptr %5, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load double, ptr %8, align 8, !tbaa !15
+  %9 = load double, ptr %8, align 8, !tbaa !13
   %10 = fdiv double %0, 0x400921FB54442D18
-  %11 = tail call double @sin(double noundef %10) #10, !tbaa !18
+  %11 = tail call double @sin(double noundef %10) #10, !tbaa !16
   %12 = fmul double %11, 1.800000e-02
   %13 = fmul double %0, 5.000000e-01
-  %14 = tail call double @cos(double noundef %13) #10, !tbaa !18
+  %14 = tail call double @cos(double noundef %13) #10, !tbaa !16
   %15 = fmul double %14, %14
   %16 = fmul double %9, %15
   %17 = tail call double @llvm.fmuladd.f64(double %12, double %7, double %16)
   %18 = fneg double %17
-  store double %18, ptr %6, align 8, !tbaa !15
+  store double %18, ptr %6, align 8, !tbaa !13
   ret i32 0
 }
 
@@ -369,24 +369,24 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @Hamiltonian(ptr noundef %0, double noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #10
-  %4 = load double, ptr %3, align 8, !tbaa !15
+  %4 = load double, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load double, ptr %5, align 8, !tbaa !15
+  %6 = load double, ptr %5, align 8, !tbaa !13
   %7 = fmul double %4, %4
   %8 = fdiv double %1, 0x400921FB54442D18
-  %9 = tail call double @sin(double noundef %8) #10, !tbaa !18
+  %9 = tail call double @sin(double noundef %8) #10, !tbaa !16
   %10 = fmul double %9, -1.800000e-02
-  %11 = tail call double @exp(double noundef %10) #10, !tbaa !18
+  %11 = tail call double @exp(double noundef %10) #10, !tbaa !16
   %12 = fmul double %7, %11
   %13 = fmul double %12, 5.000000e-01
   %14 = fmul double %1, 5.000000e-01
-  %15 = tail call double @cos(double noundef %14) #10, !tbaa !18
+  %15 = tail call double @cos(double noundef %14) #10, !tbaa !16
   %16 = fmul double %15, %15
   %17 = fmul double %6, %16
   %18 = fmul double %6, %17
-  %19 = tail call double @sin(double noundef %8) #10, !tbaa !18
+  %19 = tail call double @sin(double noundef %8) #10, !tbaa !16
   %20 = fmul double %19, 1.800000e-02
-  %21 = tail call double @exp(double noundef %20) #10, !tbaa !18
+  %21 = tail call double @exp(double noundef %20) #10, !tbaa !16
   %22 = fmul double %21, %18
   %23 = fmul double %22, 5.000000e-01
   %24 = fadd double %13, %23
@@ -485,11 +485,8 @@ attributes #13 = { cold }
 !10 = !{!"p1 omnipotent char", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"double", !7, i64 0}
-!17 = !{!6, !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !7, i64 0}
-!20 = distinct !{!20, !14}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"double", !7, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !7, i64 0}

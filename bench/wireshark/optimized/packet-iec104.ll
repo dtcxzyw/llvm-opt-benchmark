@@ -1425,7 +1425,7 @@ get_TypeIdLength.exit:                            ; preds = %31, %28
   call void @wmem_strbuf_append(ptr noundef %20, ptr noundef nonnull @.str.722)
   %103 = add i64 %.0303416, 1
   %exitcond.not = icmp eq i64 %103, 7
-  br i1 %exitcond.not, label %.loopexit413, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit413, label %.lr.ph, !llvm.loop !8
 
 .loopexit413:                                     ; preds = %.lr.ph, %100, %97
   %104 = load i8, ptr %39, align 4
@@ -2465,7 +2465,7 @@ proto_item_set_generated.exit:                    ; preds = %183, %180, %175, %1
   %760 = add nuw i8 %.0302417, 1
   %761 = load i8, ptr %39, align 4
   %762 = icmp ult i8 %760, %761
-  br i1 %762, label %.lr.ph419, label %.loopexit, !llvm.loop !10
+  br i1 %762, label %.lr.ph419, label %.loopexit, !llvm.loop !9
 
 763:                                              ; preds = %136, %136, %136, %136, %136, %136
   %764 = load i8, ptr %8, align 1
@@ -3052,7 +3052,7 @@ define internal i32 @get_iec104apdu_len(ptr readnone captures(none) %0, ptr noun
   %18 = tail call i32 @tvb_reported_length(ptr noundef %1)
   %19 = add i32 %18, -2
   %.not = icmp ugt i32 %17, %19
-  br i1 %.not, label %20, label %6, !llvm.loop !11
+  br i1 %.not, label %20, label %6, !llvm.loop !10
 
 20:                                               ; preds = %16
   %21 = tail call i32 @tvb_reported_length(ptr noundef %1)
@@ -3216,7 +3216,7 @@ default.unreachable:                              ; preds = %59
 89:                                               ; preds = %20
   %90 = add i32 %.08897, 1
   %.not = icmp ugt i32 %90, %19
-  br i1 %.not, label %91, label %20, !llvm.loop !12
+  br i1 %.not, label %91, label %20, !llvm.loop !11
 
 91:                                               ; preds = %89
   %92 = load i32, ptr @hf_apcidata, align 4
@@ -4206,7 +4206,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
 178:                                              ; preds = %135, %121, %120, %114, %103, %88, %.lr.ph.split.us
   %179 = add nuw nsw i32 %.0113.us, 1
   %exitcond133.not = icmp eq i32 %179, %80
-  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i8 %61, label %.loopexit [
@@ -4225,7 +4225,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %14)
   %180 = add nuw nsw i32 %.0113.us114, 1
   %exitcond132.not = icmp eq i32 %180, %80
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !15
+  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !14
 
 .lr.ph.split.split.us115:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us115
   %181 = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %79, %.lr.ph.split ]
@@ -4236,7 +4236,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %185 = add i8 %181, 1
   %186 = add nuw nsw i32 %.0113.us116, 1
   %exitcond131.not = icmp eq i32 %186, %80
-  br i1 %exitcond131.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us115, !llvm.loop !16
+  br i1 %exitcond131.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us115, !llvm.loop !15
 
 .lr.ph.split.split.us117:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us117
   %187 = phi i8 [ %194, %.lr.ph.split.split.us117 ], [ %79, %.lr.ph.split ]
@@ -4250,7 +4250,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %194 = add i8 %187, 2
   %195 = add nuw nsw i32 %.0113.us118, 1
   %exitcond130.not = icmp eq i32 %195, %80
-  br i1 %exitcond130.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us117, !llvm.loop !17
+  br i1 %exitcond130.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us117, !llvm.loop !16
 
 .lr.ph.split.split.us119:                         ; preds = %.lr.ph.split.split.us119.preheader, %.lr.ph.split.split.us119
   %196 = phi i8 [ %200, %.lr.ph.split.split.us119 ], [ %79, %.lr.ph.split.split.us119.preheader ]
@@ -4261,7 +4261,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %200 = add i8 %196, 1
   %201 = add nuw nsw i32 %.0113.us120, 1
   %exitcond.not = icmp eq i32 %201, %80
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !17
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.split.split.us119, %.lr.ph.split.split.us117, %.lr.ph.split.split.us115
   %.lcssa135.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %200, %.lr.ph.split.split.us119 ]
@@ -4303,16 +4303,15 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8, !14}
-!16 = distinct !{!16, !7, !8, !14}
-!17 = distinct !{!17, !7, !8, !14}
-!18 = distinct !{!18, !7, !8, !14}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !13}
+!15 = distinct !{!15, !7, !13}
+!16 = distinct !{!16, !7, !13}
+!17 = distinct !{!17, !7, !13}

@@ -55,7 +55,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C2ERNS1_13IrRegAllo
   store i8 1, ptr %18, align 4, !tbaa !28
   %.add.i = add nuw nsw i64 %.idx.i, 28
   %19 = icmp eq i64 %.add.i, 168
-  br i1 %19, label %_ZNSt5arrayIN4Luau7CodeGen3X6412CallArgumentELm6EEC2Ev.exit, label %8, !llvm.loop !29
+  br i1 %19, label %_ZNSt5arrayIN4Luau7CodeGen3X6412CallArgumentELm6EEC2Ev.exit, label %8
 
 _ZNSt5arrayIN4Luau7CodeGen3X6412CallArgumentELm6EEC2Ev.exit: ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -81,18 +81,18 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7SizeX64ENS1_10OperandX64ENS0_4IrOpE(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %0, i8 noundef zeroext %1, i64 %2, i32 %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %7 = load i32, ptr %6, align 4, !tbaa !31
+  %7 = load i32, ptr %6, align 4, !tbaa !29
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr %6, align 4, !tbaa !31
+  store i32 %8, ptr %6, align 4, !tbaa !29
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %9
-  store i8 %1, ptr %10, align 4, !tbaa !32
+  store i8 %1, ptr %10, align 4, !tbaa !30
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i64 %2, ptr %.sroa.48.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %3, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !26
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !33
+  store i8 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !31
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 17
   store i8 -128, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !26
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 18
@@ -100,32 +100,32 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 19
   store i8 16, ptr %.sroa.9.0..sroa_idx, align 1, !tbaa !26
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i8 1, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !34
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !32
   %11 = icmp eq i8 %1, 5
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %14 = load i32, ptr %13, align 4, !tbaa !35
+  %14 = load i32, ptr %13, align 4, !tbaa !33
   %15 = sext i32 %14 to i64
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %15, i32 2
   %.sroa.59.0.copyload.i = load i8, ptr %.sroa.59.0..sroa_idx.i, align 2, !tbaa !26
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !36
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34
   br label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %18 = load ptr, ptr %17, align 8, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 84
-  %20 = load i32, ptr %19, align 4, !tbaa !37
+  %20 = load i32, ptr %19, align 4, !tbaa !35
   %21 = icmp eq i32 %20, 0
   %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i = select i1 %21, ptr @_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE, ptr @_ZN4Luau7CodeGen3X64L16kSystemvGprOrderE
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %23 = load i32, ptr %22, align 8, !tbaa !68
+  %23 = load i32, ptr %22, align 8, !tbaa !66
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i, i64 0, i64 %24
-  %.sroa.0.0.copyload5.i = load i8, ptr %25, align 4, !tbaa !33
+  %.sroa.0.0.copyload5.i = load i8, ptr %25, align 4, !tbaa !31
   %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %25, i64 1
   %.sroa.5.0.copyload8.i = load i8, ptr %.sroa.5.0..sroa_idx7.i, align 1, !tbaa !26
   %.sroa.59.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %25, i64 2
@@ -133,7 +133,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %.sroa.7.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %25, i64 3
   %.sroa.7.0.copyload13.i = load i8, ptr %.sroa.7.0..sroa_idx12.i, align 1, !tbaa !26
   %.sroa.9.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %.sroa.9.0.copyload15.i = load i32, ptr %.sroa.9.0..sroa_idx14.i, align 4, !tbaa !69
+  %.sroa.9.0.copyload15.i = load i32, ptr %.sroa.9.0..sroa_idx14.i, align 4, !tbaa !67
   switch i8 %.sroa.0.0.copyload5.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit [
     i8 0, label %26
     i8 1, label %30
@@ -173,19 +173,19 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exi
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.0..sroa_idx, align 4
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 84
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !35
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %40 = load i32, ptr %39, align 8, !tbaa !68
+  %40 = load i32, ptr %39, align 8, !tbaa !66
   %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %39, align 8, !tbaa !68
+  store i32 %41, ptr %39, align 8, !tbaa !66
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %43 = load i32, ptr %42, align 4, !tbaa !35
+  %43 = load i32, ptr %42, align 4, !tbaa !33
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !35
+  store i32 %44, ptr %42, align 4, !tbaa !33
   br label %54
 
 45:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
@@ -193,16 +193,16 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exi
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %48 = load i32, ptr %47, align 4, !tbaa !35
+  %48 = load i32, ptr %47, align 4, !tbaa !33
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 4, !tbaa !35
+  store i32 %49, ptr %47, align 4, !tbaa !33
   br label %54
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %52 = load i32, ptr %51, align 8, !tbaa !68
+  %52 = load i32, ptr %51, align 8, !tbaa !66
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 8, !tbaa !68
+  store i32 %53, ptr %51, align 8, !tbaa !66
   br label %54
 
 54:                                               ; preds = %46, %50, %38
@@ -216,7 +216,7 @@ define dso_local i64 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTa
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %6 = load i32, ptr %5, align 4, !tbaa !35
+  %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = sext i32 %6 to i64
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %7, i32 2
   %.sroa.59.0.copyload = load i8, ptr %.sroa.59.0..sroa_idx, align 2, !tbaa !26
@@ -224,16 +224,16 @@ define dso_local i64 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTa
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %12 = load i32, ptr %11, align 4, !tbaa !37
+  %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = icmp eq i32 %12, 0
   %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE = select i1 %13, ptr @_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE, ptr @_ZN4Luau7CodeGen3X64L16kSystemvGprOrderE
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %15 = load i32, ptr %14, align 8, !tbaa !68
+  %15 = load i32, ptr %14, align 8, !tbaa !66
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE, i64 0, i64 %16
-  %.sroa.0.0.copyload5 = load i8, ptr %17, align 4, !tbaa !33
+  %.sroa.0.0.copyload5 = load i8, ptr %17, align 4, !tbaa !31
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %.sroa.5.0.copyload8 = load i8, ptr %.sroa.5.0..sroa_idx7, align 1, !tbaa !26
   %.sroa.59.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %17, i64 2
@@ -241,7 +241,7 @@ define dso_local i64 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTa
   %.sroa.7.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %.sroa.7.0.copyload13 = load i8, ptr %.sroa.7.0..sroa_idx12, align 1, !tbaa !26
   %.sroa.9.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %.sroa.9.0.copyload15 = load i32, ptr %.sroa.9.0..sroa_idx14, align 4, !tbaa !69
+  %.sroa.9.0.copyload15 = load i32, ptr %.sroa.9.0..sroa_idx14, align 4, !tbaa !67
   switch i8 %.sroa.0.0.copyload5, label %26 [
     i8 0, label %18
     i8 1, label %22
@@ -300,7 +300,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX644callERKNS1_10Opera
   %5 = load i64, ptr %1, align 4
   store i64 %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %7 = load i32, ptr %6, align 4, !tbaa !31
+  %7 = load i32, ptr %6, align 4, !tbaa !29
   %8 = icmp sgt i32 %7, 0
   %9 = lshr i64 %5, 16
   %10 = trunc i64 %9 to i8
@@ -413,7 +413,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit12
 _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit15.i: ; preds = %.sink.split.i13.i, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %30, !llvm.loop !70
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %30, !llvm.loop !68
 
 _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit.i, %.sink.split.i7.i
   br i1 %8, label %.lr.ph, label %.preheader129
@@ -440,9 +440,9 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
   br i1 %.not95, label %85, label %60
 
 60:                                               ; preds = %55
-  %61 = load ptr, ptr %0, align 8, !tbaa !72
+  %61 = load ptr, ptr %0, align 8, !tbaa !70
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !73
+  %63 = load ptr, ptr %62, align 8, !tbaa !71
   %64 = icmp ne i32 %59, 4
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %66 = load ptr, ptr %65, align 8
@@ -470,7 +470,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %0, align 8, !tbaa !72
+  %80 = load ptr, ptr %0, align 8, !tbaa !70
   %81 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %80, i8 %76)
   br i1 %81, label %._crit_edge151, label %85
 
@@ -480,19 +480,19 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
 
 82:                                               ; preds = %._crit_edge151, %75
   %.sroa.050.0.copyload = phi i8 [ %.sroa.050.0.copyload.pre, %._crit_edge151 ], [ %76, %75 ]
-  %83 = load ptr, ptr %0, align 8, !tbaa !72
+  %83 = load ptr, ptr %0, align 8, !tbaa !70
   %84 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %83, i8 %.sroa.050.0.copyload, i32 noundef -1)
   br label %85
 
 85:                                               ; preds = %60, %79, %82, %74, %55
   %86 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %87 = load i8, ptr %86, align 4, !tbaa !86
+  %87 = load i8, ptr %86, align 4, !tbaa !84
   %88 = icmp eq i8 %87, 2
   br i1 %88, label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.sink.split, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %91 = load i8, ptr %90, align 4, !tbaa !87
+  %91 = load i8, ptr %90, align 4, !tbaa !85
   %92 = icmp eq i8 %91, 1
   br i1 %92, label %93, label %115
 
@@ -502,7 +502,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
 
 95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  %96 = load ptr, ptr %0, align 8, !tbaa !72
+  %96 = load ptr, ptr %0, align 8, !tbaa !70
   %97 = getelementptr inbounds nuw i8, ptr %56, i64 19
   %98 = load i8, ptr %97, align 1
   %99 = and i8 %98, 15
@@ -515,7 +515,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
   %102 = load i8, ptr %101, align 1
   %103 = and i8 %102, 15
   %104 = icmp eq i8 %103, 0
-  %105 = load ptr, ptr %52, align 8, !tbaa !36
+  %105 = load ptr, ptr %52, align 8, !tbaa !34
   %.sroa.046.0.copyload = load i8, ptr %53, align 8, !tbaa !26
   %.sroa.045.0.copyload = load i64, ptr %86, align 4
   %.sroa.3116.0.insert.ext = zext i8 %.sroa.046.0.copyload to i64
@@ -539,7 +539,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
           to label %110 unwind label %107
 
 110:                                              ; preds = %109, %106
-  %111 = load ptr, ptr %52, align 8, !tbaa !36
+  %111 = load ptr, ptr %52, align 8, !tbaa !34
   %.sroa.042.0.copyload = load i64, ptr %90, align 4
   %.sroa.041.0.copyload = load i8, ptr %53, align 8, !tbaa !26
   %.sroa.3.0.insert.ext = zext i8 %.sroa.041.0.copyload to i64
@@ -555,7 +555,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
 
 113:                                              ; preds = %93
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6419freeSourceRegistersERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %56)
-  %114 = load ptr, ptr %52, align 8, !tbaa !36
+  %114 = load ptr, ptr %52, align 8, !tbaa !34
   %.sroa.040.0.copyload = load i64, ptr %90, align 4
   %.sroa.039.0.copyload = load i64, ptr %86, align 4
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %114, i64 %.sroa.040.0.copyload, i64 %.sroa.039.0.copyload)
@@ -603,7 +603,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6415getRegisterUsesENS1_11RegisterX64E.exit
   br i1 %134, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6415getRegisterUsesENS1_11RegisterX64E.exit.thread, label %.sink.split.i97
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6415getRegisterUsesENS1_11RegisterX64E.exit.thread: ; preds = %126, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6415getRegisterUsesENS1_11RegisterX64E.exit
-  %135 = load ptr, ptr %0, align 8, !tbaa !72
+  %135 = load ptr, ptr %0, align 8, !tbaa !70
   %136 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %135, i8 %.sroa.036.0.copyload, i32 noundef -1)
   br label %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.sink.split
 
@@ -624,13 +624,13 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.
 
 _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.sink.split, %117, %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %142 = load i32, ptr %6, align 4, !tbaa !31
+  %142 = load i32, ptr %6, align 4, !tbaa !29
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next, %143
-  br i1 %144, label %55, label %.preheader129, !llvm.loop !88
+  br i1 %144, label %55, label %.preheader129, !llvm.loop !86
 
 thread-pre-split:                                 ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit, %.thread
-  %.pr = load i32, ptr %6, align 4, !tbaa !31
+  %.pr = load i32, ptr %6, align 4, !tbaa !29
   br label %145
 
 145:                                              ; preds = %.preheader129, %thread-pre-split
@@ -652,7 +652,7 @@ thread-pre-split:                                 ; preds = %_ZN4Luau7CodeGen3X6
   %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next.i100, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i ]
   %151 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv.i99
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
-  %153 = load i8, ptr %152, align 4, !tbaa !28, !range !89, !noundef !90
+  %153 = load i8, ptr %152, align 4, !tbaa !28, !range !87, !noundef !88
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %.lr.ph.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i
 
@@ -667,7 +667,7 @@ thread-pre-split:                                 ; preds = %_ZN4Luau7CodeGen3X6
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.i.us.i ], [ %indvars.iv.next.i.us.i, %.critedge.i.us.i ]
   %159 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv.i.us.i
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %161 = load i8, ptr %160, align 4, !tbaa !28, !range !89, !noundef !90
+  %161 = load i8, ptr %160, align 4, !tbaa !28, !range !87, !noundef !88
   %162 = trunc nuw i8 %161 to i1
   %.not.i.us.i = icmp ne i64 %indvars.iv.i.us.i, %indvars.iv.i99
   %or.cond.not.i.us.i = and i1 %.not.i.us.i, %162
@@ -698,7 +698,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.
 .critedge.i.us.i:                                 ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i, %158
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i, label %158, !llvm.loop !91
+  br i1 %exitcond.not.i.us.i, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i, label %158, !llvm.loop !89
 
 _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i
   %174 = xor i1 %150, %157
@@ -710,7 +710,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i: ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us.i, %163, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us.i, %.lr.ph.split.us.i
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i.i
-  br i1 %exitcond.not.i101, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !92
+  br i1 %exitcond.not.i101, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !90
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us.i: ; preds = %.critedge.i.us.i
   %176 = xor i1 %148, %157
@@ -723,7 +723,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit: ; pre
   %178 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %179 = getelementptr inbounds nuw i8, ptr %151, i64 18
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6419freeSourceRegistersERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %151)
-  %180 = load ptr, ptr %0, align 8, !tbaa !72
+  %180 = load ptr, ptr %0, align 8, !tbaa !70
   %.sroa.027.0.copyload = load i8, ptr %179, align 2, !tbaa !26
   %181 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %180, i8 %.sroa.027.0.copyload, i32 noundef -1)
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %151)
@@ -776,12 +776,12 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit: ; pre
   br i1 %201, label %202, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
 202:                                              ; preds = %194
-  %203 = load ptr, ptr %0, align 8, !tbaa !72
+  %203 = load ptr, ptr %0, align 8, !tbaa !70
   %204 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %203, i8 %.sroa.06.0.copyload)
   br i1 %204, label %.sink.split.i102, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
 .sink.split.i102:                                 ; preds = %202, %186
-  %205 = load ptr, ptr %0, align 8, !tbaa !72
+  %205 = load ptr, ptr %0, align 8, !tbaa !70
   call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %205, i8 %.sroa.06.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
@@ -816,17 +816,17 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   br i1 %222, label %223, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104
 
 223:                                              ; preds = %215
-  %224 = load ptr, ptr %0, align 8, !tbaa !72
+  %224 = load ptr, ptr %0, align 8, !tbaa !70
   %225 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %224, i8 %.sroa.05.0.copyload)
   br i1 %225, label %.sink.split.i103, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104
 
 .sink.split.i103:                                 ; preds = %223, %207
-  %226 = load ptr, ptr %0, align 8, !tbaa !72
+  %226 = load ptr, ptr %0, align 8, !tbaa !70
   call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %226, i8 %.sroa.05.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104
 
 _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104: ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit, %207, %215, %223, %.sink.split.i103
-  %227 = load i32, ptr %6, align 4, !tbaa !31
+  %227 = load i32, ptr %6, align 4, !tbaa !29
   %228 = icmp sgt i32 %227, 0
   br i1 %228, label %.lr.ph138, label %._crit_edge139
 
@@ -835,7 +835,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %247 ], [ 0, %.loopexit ]
   %230 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv144
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  %232 = load i8, ptr %231, align 4, !tbaa !86
+  %232 = load i8, ptr %231, align 4, !tbaa !84
   %233 = icmp eq i8 %232, 2
   br i1 %233, label %234, label %247
 
@@ -852,12 +852,12 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
 
 238:                                              ; preds = %237, %234
   %239 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %240 = load i8, ptr %239, align 4, !tbaa !87
+  %240 = load i8, ptr %239, align 4, !tbaa !85
   %241 = icmp eq i8 %240, 0
   br i1 %241, label %242, label %246
 
 242:                                              ; preds = %238
-  %243 = load ptr, ptr %0, align 8, !tbaa !72
+  %243 = load ptr, ptr %0, align 8, !tbaa !70
   %244 = getelementptr inbounds nuw i8, ptr %230, i64 18
   %.sroa.08.0.copyload = load i8, ptr %244, align 2, !tbaa !26
   %245 = call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %243, i8 %.sroa.08.0.copyload, i32 noundef -1)
@@ -866,7 +866,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
 246:                                              ; preds = %242, %238
   call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 4 dereferenceable(25) %230)
   store i8 0, ptr %235, align 4, !tbaa !28
-  %.pre = load i32, ptr %6, align 4, !tbaa !31
+  %.pre = load i32, ptr %6, align 4, !tbaa !29
   br label %247
 
 247:                                              ; preds = %246, %.lr.ph136
@@ -874,15 +874,15 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %249 = sext i32 %248 to i64
   %250 = icmp slt i64 %indvars.iv.next145, %249
-  br i1 %250, label %.lr.ph136, label %._crit_edge, !llvm.loop !94
+  br i1 %250, label %.lr.ph136, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge139:                                   ; preds = %263, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104
-  %251 = load ptr, ptr %0, align 8, !tbaa !72
+  %251 = load ptr, ptr %0, align 8, !tbaa !70
   call void @_ZN4Luau7CodeGen3X6413IrRegAllocX6425preserveAndFreeInstValuesEv(ptr noundef nonnull align 8 dereferenceable(256) %251)
-  %252 = load ptr, ptr %0, align 8, !tbaa !72
+  %252 = load ptr, ptr %0, align 8, !tbaa !70
   call void @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413assertAllFreeEv(ptr noundef nonnull align 8 dereferenceable(256) %252)
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %254 = load ptr, ptr %253, align 8, !tbaa !36
+  %254 = load ptr, ptr %253, align 8, !tbaa !34
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644callENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %254, i64 %.sroa.0.0.copyload)
   ret void
@@ -892,16 +892,16 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %263 ], [ 0, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104 ]
   %256 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %54, i64 0, i64 %indvars.iv147
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %258 = load i8, ptr %257, align 4, !tbaa !87
+  %258 = load i8, ptr %257, align 4, !tbaa !85
   %259 = icmp eq i8 %258, 0
   br i1 %259, label %260, label %263
 
 260:                                              ; preds = %.lr.ph138
-  %261 = load ptr, ptr %0, align 8, !tbaa !72
+  %261 = load ptr, ptr %0, align 8, !tbaa !70
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 18
   %.sroa.01.0.copyload = load i8, ptr %262, align 2, !tbaa !26
   call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %261, i8 %.sroa.01.0.copyload)
-  %.pre153 = load i32, ptr %6, align 4, !tbaa !31
+  %.pre153 = load i32, ptr %6, align 4, !tbaa !29
   br label %263
 
 263:                                              ; preds = %260, %.lr.ph138
@@ -909,13 +909,13 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %265 = sext i32 %264 to i64
   %266 = icmp slt i64 %indvars.iv.next148, %265
-  br i1 %266, label %.lr.ph138, label %._crit_edge139, !llvm.loop !95
+  br i1 %266, label %.lr.ph138, label %._crit_edge139, !llvm.loop !93
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %3 = load i32, ptr %2, align 4, !tbaa !31
+  %3 = load i32, ptr %2, align 4, !tbaa !29
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1024,7 +1024,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit12
 _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit15: ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit12, %.sink.split.i13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !68
 }
 
 declare noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6412isLastUseRegERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 4 dereferenceable(43), i32 noundef) local_unnamed_addr #5
@@ -1068,12 +1068,12 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6419freeSourceRegiste
   br i1 %20, label %21, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr %0, align 8, !tbaa !72
+  %22 = load ptr, ptr %0, align 8, !tbaa !70
   %23 = tail call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %22, i8 %.sroa.01.0.copyload)
   br i1 %23, label %.sink.split.i, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
 .sink.split.i:                                    ; preds = %21, %5
-  %24 = load ptr, ptr %0, align 8, !tbaa !72
+  %24 = load ptr, ptr %0, align 8, !tbaa !70
   tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %24, i8 %.sroa.01.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
@@ -1109,12 +1109,12 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   br i1 %42, label %43, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit5
 
 43:                                               ; preds = %35
-  %44 = load ptr, ptr %0, align 8, !tbaa !72
+  %44 = load ptr, ptr %0, align 8, !tbaa !70
   %45 = tail call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %44, i8 %.sroa.0.0.copyload)
   br i1 %45, label %.sink.split.i4, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit5
 
 .sink.split.i4:                                   ; preds = %43, %27
-  %46 = load ptr, ptr %0, align 8, !tbaa !72
+  %46 = load ptr, ptr %0, align 8, !tbaa !70
   tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %46, i8 %.sroa.0.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit5
 
@@ -1186,7 +1186,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %3 = load i32, ptr %2, align 4, !tbaa !31
+  %3 = load i32, ptr %2, align 4, !tbaa !29
   %.not18 = icmp sgt i32 %3, 0
   br i1 %.not18, label %.lr.ph.split.us.preheader, label %.thread
 
@@ -1207,7 +1207,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInt
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us ]
   %11 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %4, i64 0, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load i8, ptr %12, align 4, !tbaa !28, !range !89, !noundef !90
+  %13 = load i8, ptr %12, align 4, !tbaa !28, !range !87, !noundef !88
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %.lr.ph.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us
 
@@ -1222,7 +1222,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInt
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %.critedge.i.us ]
   %19 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %4, i64 0, i64 %indvars.iv.i.us
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load i8, ptr %20, align 4, !tbaa !28, !range !89, !noundef !90
+  %21 = load i8, ptr %20, align 4, !tbaa !28, !range !87, !noundef !88
   %22 = trunc nuw i8 %21 to i1
   %.not.i.us = icmp ne i64 %indvars.iv.i.us, %indvars.iv
   %or.cond.not.i.us = and i1 %.not.i.us, %22
@@ -1253,7 +1253,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.
 .critedge.i.us:                                   ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us, %18
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us, label %18, !llvm.loop !91
+  br i1 %exitcond.not.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us, label %18, !llvm.loop !89
 
 _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us: ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us
   %34 = xor i1 %17, %10
@@ -1265,7 +1265,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us: ; preds = %23, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.i.us, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i.us, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !92
+  br i1 %exitcond.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !90
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.loopexit.us: ; preds = %.critedge.i.us
   %36 = xor i1 %17, %7
@@ -1282,7 +1282,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12Cal
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1_12CallArgumentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(25) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i8, ptr %3, align 4, !tbaa !86
+  %4 = load i8, ptr %3, align 4, !tbaa !84
   switch i8 %4, label %18 [
     i8 0, label %5
     i8 2, label %14
@@ -1294,7 +1294,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1
   %7 = and i8 %.sroa.015.0.copyload, 7
   %8 = icmp eq i8 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.014.0.copyload = load i64, ptr %11, align 4
   %.sroa.346.0.insert.ext = zext i8 %.sroa.015.0.copyload to i64
@@ -1312,7 +1312,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.09.0.copyload = load i64, ptr %17, align 4
   %.sroa.08.0.copyload = load i64, ptr %3, align 4
@@ -1328,7 +1328,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !36
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.07.0.copyload = load i64, ptr %26, align 4
   %.sroa.06.0.copyload = load i64, ptr %3, align 4
@@ -1344,7 +1344,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1
   %33 = icmp eq i8 %21, 5
   %or.cond = and i1 %33, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !36
+  %35 = load ptr, ptr %34, align 8, !tbaa !34
   %.sroa.05.0.copyload = load i64, ptr %28, align 4
   %.sroa.04.0.copyload = load i64, ptr %3, align 4
   br i1 %or.cond, label %36, label %37
@@ -1371,7 +1371,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6412moveToTargetERNS1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %3 = load i32, ptr %2, align 4, !tbaa !31
+  %3 = load i32, ptr %2, align 4, !tbaa !29
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.split.us.preheader, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42
 
@@ -1384,7 +1384,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us ]
   %6 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i8, ptr %7, align 4, !tbaa !28, !range !89, !noundef !90
+  %8 = load i8, ptr %7, align 4, !tbaa !28, !range !87, !noundef !88
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %.lr.ph.i.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us
 
@@ -1399,7 +1399,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %.critedge.i.us ]
   %14 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i.us
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load i8, ptr %15, align 4, !tbaa !28, !range !89, !noundef !90
+  %16 = load i8, ptr %15, align 4, !tbaa !28, !range !87, !noundef !88
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %.critedge.i.us
 
@@ -1417,7 +1417,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 .critedge.i.us:                                   ; preds = %18, %13
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %.lr.ph.i21.us, label %13, !llvm.loop !96
+  br i1 %exitcond.not.i.us, label %.lr.ph.i21.us, label %13, !llvm.loop !94
 
 .lr.ph.i21.us:                                    ; preds = %.critedge.i.us
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 5
@@ -1430,7 +1430,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
   %indvars.iv.i23.us = phi i64 [ 0, %.lr.ph.i21.us ], [ %indvars.iv.next.i25.us, %.critedge.i24.us ]
   %28 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv.i23.us
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load i8, ptr %29, align 4, !tbaa !28, !range !89, !noundef !90
+  %30 = load i8, ptr %29, align 4, !tbaa !28, !range !87, !noundef !88
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %.critedge.i24.us
 
@@ -1448,12 +1448,12 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 .critedge.i24.us:                                 ; preds = %32, %27
   %indvars.iv.next.i25.us = add nuw nsw i64 %indvars.iv.i23.us, 1
   %exitcond.not.i26.us = icmp eq i64 %indvars.iv.next.i25.us, %wide.trip.count.i
-  br i1 %exitcond.not.i26.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us, label %27, !llvm.loop !96
+  br i1 %exitcond.not.i26.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us, label %27, !llvm.loop !94
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us: ; preds = %.critedge.i24.us, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -1468,7 +1468,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
   %indvars.iv.i35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i37, %.critedge.i36 ]
   %43 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %39, i64 0, i64 %indvars.iv.i35
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load i8, ptr %44, align 4, !tbaa !28, !range !89, !noundef !90
+  %45 = load i8, ptr %44, align 4, !tbaa !28, !range !87, !noundef !88
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %.critedge.i36
 
@@ -1486,7 +1486,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 .critedge.i36:                                    ; preds = %47, %42
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
-  br i1 %exitcond.not.i38, label %.lr.ph.i45, label %42, !llvm.loop !96
+  br i1 %exitcond.not.i38, label %.lr.ph.i45, label %42, !llvm.loop !94
 
 .lr.ph.i45:                                       ; preds = %.critedge.i36
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 201
@@ -1499,7 +1499,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i49, %.critedge.i48 ]
   %57 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %39, i64 0, i64 %indvars.iv.i47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = load i8, ptr %58, align 4, !tbaa !28, !range !89, !noundef !90
+  %59 = load i8, ptr %58, align 4, !tbaa !28, !range !87, !noundef !88
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %.critedge.i48
 
@@ -1517,7 +1517,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 .critedge.i48:                                    ; preds = %61, %56
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i34
-  br i1 %exitcond.not.i50, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42, label %56, !llvm.loop !96
+  br i1 %exitcond.not.i50, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42, label %56, !llvm.loop !94
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42: ; preds = %18, %32, %47, %.critedge.i48, %61, %1
   %.sroa.013.3 = phi i8 [ -128, %1 ], [ -128, %.critedge.i48 ], [ %.sroa.0.0.copyload, %61 ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.02.0.copyload.us, %32 ], [ %.sroa.03.0.copyload.us, %18 ]
@@ -1526,12 +1526,12 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflictingRegisterENS1_11RegisterX64E(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %0, i8 %1) local_unnamed_addr #4 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !72
+  %3 = load ptr, ptr %0, align 8, !tbaa !70
   %4 = and i8 %1, 7
   %5 = tail call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %3, i8 noundef zeroext %4, i32 noundef -1)
   %6 = icmp eq i8 %4, 5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !36
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   %.sroa.333.0.insert.ext = zext i8 %5 to i64
   %.sroa.333.0.insert.shift = shl nuw nsw i64 %.sroa.333.0.insert.ext, 16
   %.sroa.232.0.insert.insert = or disjoint i64 %.sroa.333.0.insert.shift, 268468224
@@ -1550,7 +1550,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflicting
 
 11:                                               ; preds = %10, %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %13 = load i32, ptr %12, align 4, !tbaa !31
+  %13 = load i32, ptr %12, align 4, !tbaa !29
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit
 
@@ -1563,7 +1563,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflicting
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %18 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %15, i64 0, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load i8, ptr %19, align 4, !tbaa !28, !range !89, !noundef !90
+  %20 = load i8, ptr %19, align 4, !tbaa !28, !range !87, !noundef !88
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %25
 
@@ -1572,7 +1572,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflicting
   tail call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6414renameRegisterERNS1_11RegisterX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 1 dereferenceable(1) %23, i8 %1, i8 %5)
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 5
   tail call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6414renameRegisterERNS1_11RegisterX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 1 dereferenceable(1) %24, i8 %1, i8 %5)
-  %.pre.i = load i32, ptr %12, align 4, !tbaa !31
+  %.pre.i = load i32, ptr %12, align 4, !tbaa !29
   br label %25
 
 25:                                               ; preds = %22, %16
@@ -1580,7 +1580,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflicting
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %16, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit, !llvm.loop !98
+  br i1 %28, label %16, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit, !llvm.loop !96
 
 _ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit: ; preds = %25, %11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -1621,12 +1621,12 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUse
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr %0, align 8, !tbaa !72
+  %21 = load ptr, ptr %0, align 8, !tbaa !70
   %22 = tail call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %21, i8 %1)
   br i1 %22, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %20, %4
-  %23 = load ptr, ptr %0, align 8, !tbaa !72
+  %23 = load ptr, ptr %0, align 8, !tbaa !70
   tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %23, i8 %1)
   br label %24
 
@@ -1649,7 +1649,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumen
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %6 = load i32, ptr %5, align 4, !tbaa !35
+  %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = sext i32 %6 to i64
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %7, i32 2
   %.sroa.59.0.copyload.i = load i8, ptr %.sroa.59.0..sroa_idx.i, align 2, !tbaa !26
@@ -1657,16 +1657,16 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumen
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %12 = load i32, ptr %11, align 4, !tbaa !37
+  %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = icmp eq i32 %12, 0
   %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i = select i1 %13, ptr @_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE, ptr @_ZN4Luau7CodeGen3X64L16kSystemvGprOrderE
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %15 = load i32, ptr %14, align 8, !tbaa !68
+  %15 = load i32, ptr %14, align 8, !tbaa !66
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i, i64 0, i64 %16
-  %.sroa.0.0.copyload5.i = load i8, ptr %17, align 4, !tbaa !33
+  %.sroa.0.0.copyload5.i = load i8, ptr %17, align 4, !tbaa !31
   %cond = icmp eq i8 %.sroa.0.0.copyload5.i, 0
   br i1 %cond, label %18, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
 
@@ -1679,15 +1679,15 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumen
   br label %24
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit: ; preds = %8
-  %22 = load ptr, ptr %0, align 8, !tbaa !72
+  %22 = load ptr, ptr %0, align 8, !tbaa !70
   %23 = tail call i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej(ptr noundef nonnull align 8 dereferenceable(256) %22, i8 noundef zeroext %1, i32 noundef -1)
   br label %32
 
 24:                                               ; preds = %4, %18
   %.sroa.59.0.i.ph = phi i8 [ %21, %18 ], [ %.sroa.59.0.copyload.i, %4 ]
-  %25 = load ptr, ptr %0, align 8, !tbaa !72
+  %25 = load ptr, ptr %0, align 8, !tbaa !70
   %26 = tail call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6410canTakeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %25, i8 %.sroa.59.0.i.ph)
-  %27 = load ptr, ptr %0, align 8, !tbaa !72
+  %27 = load ptr, ptr %0, align 8, !tbaa !70
   br i1 %26, label %30, label %28
 
 28:                                               ; preds = %24
@@ -1710,7 +1710,7 @@ declare noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6410canTakeRegENS1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(25) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %5 = load i32, ptr %4, align 4, !tbaa !31
+  %5 = load i32, ptr %4, align 4, !tbaa !29
   %.not1718 = icmp sgt i32 %5, 0
   br i1 %.not1718, label %.lr.ph, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread
 
@@ -1728,7 +1728,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427in
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %12 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %6, i64 0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i8, ptr %13, align 4, !tbaa !28, !range !89, !noundef !90
+  %14 = load i8, ptr %13, align 4, !tbaa !28, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1
   %.not = icmp ne i64 %indvars.iv, %10
   %or.cond.not = and i1 %.not, %15
@@ -1759,7 +1759,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.
 .critedge:                                        ; preds = %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread, label %11, !llvm.loop !91
+  br i1 %exitcond.not, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread, label %11, !llvm.loop !89
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6421interferesWithOperandERKNS1_10OperandX64ENS1_11RegisterX64E.exit.thread: ; preds = %.critedge, %16, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i, %3
   %.not17.lcssa = phi i1 [ false, %3 ], [ true, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread.i ], [ true, %16 ], [ false, %.critedge ]
@@ -1801,7 +1801,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit8: ; pre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, i8 %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %4 = load i32, ptr %3, align 4, !tbaa !31
+  %4 = load i32, ptr %3, align 4, !tbaa !29
   %.not13 = icmp sgt i32 %4, 0
   br i1 %.not13, label %.lr.ph, label %._crit_edge
 
@@ -1816,7 +1816,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426in
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %9 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %5, i64 0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load i8, ptr %10, align 4, !tbaa !28, !range !89, !noundef !90
+  %11 = load i8, ptr %10, align 4, !tbaa !28, !range !87, !noundef !88
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %.critedge
 
@@ -1834,7 +1834,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426in
 .critedge:                                        ; preds = %13, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.critedge, %13, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %13 ], [ false, %.critedge ]
@@ -1913,12 +1913,12 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit: 
   br i1 %36, label %37, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
 37:                                               ; preds = %29
-  %38 = load ptr, ptr %0, align 8, !tbaa !72
+  %38 = load ptr, ptr %0, align 8, !tbaa !70
   %39 = tail call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6413shouldFreeGprENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %38, i8 %.sroa.0.0.copyload)
   br i1 %39, label %.sink.split.i10, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
 .sink.split.i10:                                  ; preds = %37, %21
-  %40 = load ptr, ptr %0, align 8, !tbaa !72
+  %40 = load ptr, ptr %0, align 8, !tbaa !70
   tail call void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11RegisterX64E(ptr noundef nonnull align 8 dereferenceable(256) %40, i8 %.sroa.0.0.copyload)
   br label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit
 
@@ -1937,7 +1937,7 @@ _ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %0, i8 %1, i8 %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %5 = load i32, ptr %4, align 4, !tbaa !31
+  %5 = load i32, ptr %4, align 4, !tbaa !29
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -1957,7 +1957,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegis
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %12 = getelementptr inbounds nuw [6 x %"struct.Luau::CodeGen::X64::CallArgument"], ptr %7, i64 0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i8, ptr %13, align 4, !tbaa !28, !range !89, !noundef !90
+  %14 = load i8, ptr %13, align 4, !tbaa !28, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %19
 
@@ -1966,7 +1966,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegis
   tail call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6414renameRegisterERNS1_11RegisterX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 1 dereferenceable(1) %17, i8 %1, i8 %2)
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 5
   tail call void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6414renameRegisterERNS1_11RegisterX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 1 dereferenceable(1) %18, i8 %1, i8 %2)
-  %.pre = load i32, ptr %4, align 4, !tbaa !31
+  %.pre = load i32, ptr %4, align 4, !tbaa !29
   br label %19
 
 19:                                               ; preds = %16, %10
@@ -1974,7 +1974,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegis
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %10, label %._crit_edge, !llvm.loop !98
+  br i1 %22, label %10, label %._crit_edge, !llvm.loop !96
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2024,73 +2024,71 @@ attributes #11 = { nounwind }
 !26 = !{!7, !7, i64 0}
 !27 = !{!15, !13, i64 4}
 !28 = !{!21, !24, i64 24}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!12, !13, i64 188}
-!32 = !{!18, !18, i64 0}
-!33 = !{!16, !16, i64 0}
-!34 = !{!24, !24, i64 0}
-!35 = !{!12, !13, i64 196}
-!36 = !{!12, !10, i64 8}
-!37 = !{!38, !47, i64 84}
-!38 = !{!"_ZTSN4Luau7CodeGen3X6418AssemblyBuilderX64E", !39, i64 0, !39, i64 24, !44, i64 48, !24, i64 80, !47, i64 84, !13, i64 88, !48, i64 96, !53, i64 120, !58, i64 144, !63, i64 176, !24, i64 216, !46, i64 224, !43, i64 232, !43, i64 240, !13, i64 248}
-!39 = !{!"_ZTSSt6vectorIhSaIhEE", !40, i64 0}
-!40 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !41, i64 0}
-!41 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !42, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
-!43 = !{!"p1 omnipotent char", !6, i64 0}
-!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !45, i64 0, !46, i64 8, !7, i64 16}
-!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !43, i64 0}
-!46 = !{!"long", !7, i64 0}
-!47 = !{!"_ZTSN4Luau7CodeGen3X646ABIX64E", !7, i64 0}
-!48 = !{!"_ZTSSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE", !49, i64 0}
-!49 = !{!"_ZTSSt12_Vector_baseIN4Luau7CodeGen5LabelESaIS2_EE", !50, i64 0}
-!50 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen5LabelESaIS2_EE12_Vector_implE", !51, i64 0}
-!51 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen5LabelESaIS2_EE17_Vector_impl_dataE", !52, i64 0, !52, i64 8, !52, i64 16}
-!52 = !{!"p1 _ZTSN4Luau7CodeGen5LabelE", !6, i64 0}
-!53 = !{!"_ZTSSt6vectorIjSaIjEE", !54, i64 0}
-!54 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !55, i64 0}
-!55 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !56, i64 0}
-!56 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
-!57 = !{!"p1 int", !6, i64 0}
-!58 = !{!"_ZTSN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEEE", !59, i64 0}
-!59 = !{!"_ZTSN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEEE", !60, i64 0, !46, i64 8, !46, i64 16, !13, i64 24, !61, i64 28, !62, i64 29}
-!60 = !{!"p1 _ZTSSt4pairIjiE", !6, i64 0}
-!61 = !{!"_ZTSSt4hashIjE"}
-!62 = !{!"_ZTSSt8equal_toIjE"}
-!63 = !{!"_ZTSN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEEE", !64, i64 0}
-!64 = !{!"_ZTSN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEEE", !65, i64 0, !46, i64 8, !46, i64 16, !46, i64 24, !66, i64 32, !67, i64 33}
-!65 = !{!"p1 _ZTSSt4pairImiE", !6, i64 0}
-!66 = !{!"_ZTSSt4hashImE"}
-!67 = !{!"_ZTSSt8equal_toImE"}
-!68 = !{!12, !13, i64 192}
-!69 = !{!13, !13, i64 0}
-!70 = distinct !{!70, !71, !30}
-!71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!12, !5, i64 0}
-!73 = !{!74, !75, i64 8}
-!74 = !{!"_ZTSN4Luau7CodeGen3X6413IrRegAllocX64E", !10, i64 0, !75, i64 8, !76, i64 16, !13, i64 24, !77, i64 28, !78, i64 44, !77, i64 108, !78, i64 124, !7, i64 188, !79, i64 192, !13, i64 224, !13, i64 228, !81, i64 232}
-!75 = !{!"p1 _ZTSN4Luau7CodeGen10IrFunctionE", !6, i64 0}
-!76 = !{!"p1 _ZTSN4Luau7CodeGen13LoweringStatsE", !6, i64 0}
-!77 = !{!"_ZTSSt5arrayIbLm16EE", !7, i64 0}
-!78 = !{!"_ZTSSt5arrayIjLm16EE", !7, i64 0}
-!79 = !{!"_ZTSSt6bitsetILm256EE", !80, i64 0}
-!80 = !{!"_ZTSSt12_Base_bitsetILm4EE", !7, i64 0}
-!81 = !{!"_ZTSSt6vectorIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE", !82, i64 0}
-!82 = !{!"_ZTSSt12_Vector_baseIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE", !83, i64 0}
-!83 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE12_Vector_implE", !84, i64 0}
-!84 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE17_Vector_impl_dataE", !85, i64 0, !85, i64 8, !85, i64 16}
-!85 = !{!"p1 _ZTSN4Luau7CodeGen3X6410IrSpillX64E", !6, i64 0}
-!86 = !{!21, !16, i64 4}
-!87 = !{!21, !16, i64 16}
-!88 = distinct !{!88, !71, !30}
-!89 = !{i8 0, i8 2}
-!90 = !{}
-!91 = distinct !{!91, !71, !30}
-!92 = distinct !{!92, !71, !30, !93}
-!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!94 = distinct !{!94, !71, !30}
-!95 = distinct !{!95, !71, !30}
-!96 = distinct !{!96, !71, !30}
-!97 = distinct !{!97, !71, !30, !93}
-!98 = distinct !{!98, !71, !30}
+!29 = !{!12, !13, i64 188}
+!30 = !{!18, !18, i64 0}
+!31 = !{!16, !16, i64 0}
+!32 = !{!24, !24, i64 0}
+!33 = !{!12, !13, i64 196}
+!34 = !{!12, !10, i64 8}
+!35 = !{!36, !45, i64 84}
+!36 = !{!"_ZTSN4Luau7CodeGen3X6418AssemblyBuilderX64E", !37, i64 0, !37, i64 24, !42, i64 48, !24, i64 80, !45, i64 84, !13, i64 88, !46, i64 96, !51, i64 120, !56, i64 144, !61, i64 176, !24, i64 216, !44, i64 224, !41, i64 232, !41, i64 240, !13, i64 248}
+!37 = !{!"_ZTSSt6vectorIhSaIhEE", !38, i64 0}
+!38 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !39, i64 0}
+!39 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
+!41 = !{!"p1 omnipotent char", !6, i64 0}
+!42 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !43, i64 0, !44, i64 8, !7, i64 16}
+!43 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !41, i64 0}
+!44 = !{!"long", !7, i64 0}
+!45 = !{!"_ZTSN4Luau7CodeGen3X646ABIX64E", !7, i64 0}
+!46 = !{!"_ZTSSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE", !47, i64 0}
+!47 = !{!"_ZTSSt12_Vector_baseIN4Luau7CodeGen5LabelESaIS2_EE", !48, i64 0}
+!48 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen5LabelESaIS2_EE12_Vector_implE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen5LabelESaIS2_EE17_Vector_impl_dataE", !50, i64 0, !50, i64 8, !50, i64 16}
+!50 = !{!"p1 _ZTSN4Luau7CodeGen5LabelE", !6, i64 0}
+!51 = !{!"_ZTSSt6vectorIjSaIjEE", !52, i64 0}
+!52 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !53, i64 0}
+!53 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !54, i64 0}
+!54 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !55, i64 0, !55, i64 8, !55, i64 16}
+!55 = !{!"p1 int", !6, i64 0}
+!56 = !{!"_ZTSN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEEE", !57, i64 0}
+!57 = !{!"_ZTSN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEEE", !58, i64 0, !44, i64 8, !44, i64 16, !13, i64 24, !59, i64 28, !60, i64 29}
+!58 = !{!"p1 _ZTSSt4pairIjiE", !6, i64 0}
+!59 = !{!"_ZTSSt4hashIjE"}
+!60 = !{!"_ZTSSt8equal_toIjE"}
+!61 = !{!"_ZTSN4Luau12DenseHashMapImiSt4hashImESt8equal_toImEEE", !62, i64 0}
+!62 = !{!"_ZTSN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEEE", !63, i64 0, !44, i64 8, !44, i64 16, !44, i64 24, !64, i64 32, !65, i64 33}
+!63 = !{!"p1 _ZTSSt4pairImiE", !6, i64 0}
+!64 = !{!"_ZTSSt4hashImE"}
+!65 = !{!"_ZTSSt8equal_toImE"}
+!66 = !{!12, !13, i64 192}
+!67 = !{!13, !13, i64 0}
+!68 = distinct !{!68, !69}
+!69 = !{!"llvm.loop.mustprogress"}
+!70 = !{!12, !5, i64 0}
+!71 = !{!72, !73, i64 8}
+!72 = !{!"_ZTSN4Luau7CodeGen3X6413IrRegAllocX64E", !10, i64 0, !73, i64 8, !74, i64 16, !13, i64 24, !75, i64 28, !76, i64 44, !75, i64 108, !76, i64 124, !7, i64 188, !77, i64 192, !13, i64 224, !13, i64 228, !79, i64 232}
+!73 = !{!"p1 _ZTSN4Luau7CodeGen10IrFunctionE", !6, i64 0}
+!74 = !{!"p1 _ZTSN4Luau7CodeGen13LoweringStatsE", !6, i64 0}
+!75 = !{!"_ZTSSt5arrayIbLm16EE", !7, i64 0}
+!76 = !{!"_ZTSSt5arrayIjLm16EE", !7, i64 0}
+!77 = !{!"_ZTSSt6bitsetILm256EE", !78, i64 0}
+!78 = !{!"_ZTSSt12_Base_bitsetILm4EE", !7, i64 0}
+!79 = !{!"_ZTSSt6vectorIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE", !80, i64 0}
+!80 = !{!"_ZTSSt12_Vector_baseIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE", !81, i64 0}
+!81 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE12_Vector_implE", !82, i64 0}
+!82 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE17_Vector_impl_dataE", !83, i64 0, !83, i64 8, !83, i64 16}
+!83 = !{!"p1 _ZTSN4Luau7CodeGen3X6410IrSpillX64E", !6, i64 0}
+!84 = !{!21, !16, i64 4}
+!85 = !{!21, !16, i64 16}
+!86 = distinct !{!86, !69}
+!87 = !{i8 0, i8 2}
+!88 = !{}
+!89 = distinct !{!89, !69}
+!90 = distinct !{!90, !69, !91}
+!91 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!92 = distinct !{!92, !69}
+!93 = distinct !{!93, !69}
+!94 = distinct !{!94, !69}
+!95 = distinct !{!95, !69, !91}
+!96 = distinct !{!96, !69}

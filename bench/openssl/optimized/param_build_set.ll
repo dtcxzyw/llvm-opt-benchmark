@@ -259,7 +259,7 @@ define range(i32 0, 2) i32 @ossl_param_build_set_multi_key_bn(ptr noundef %0, pt
 27:                                               ; preds = %18, %25
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.critedge, label %.lr.ph50, !llvm.loop !15
+  br i1 %exitcond63.not, label %.critedge, label %.lr.ph50, !llvm.loop !14
 
 .critedge:                                        ; preds = %12, %15, %.lr.ph, %25, %27, %.lr.ph50, %.preheader41, %.preheader
   %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader41 ], [ 0, %25 ], [ 1, %27 ], [ 1, %.lr.ph50 ], [ 0, %12 ], [ 1, %15 ], [ 1, %.lr.ph ]
@@ -288,7 +288,6 @@ attributes #2 = { nounwind }
 !9 = !{!"int", !7, i64 0}
 !10 = !{!"long", !7, i64 0}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
+!14 = distinct !{!14, !13}

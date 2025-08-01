@@ -59,7 +59,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 72
   %6 = icmp eq i64 %.add.i, 9232
-  br i1 %6, label %.preheader.preheader.i, label %4, !llvm.loop !9
+  br i1 %6, label %.preheader.preheader.i, label %4
 
 .preheader.preheader.i:                           ; preds = %4
   %.ptr4.i = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -73,7 +73,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %_ZN9metaspace15ChunkHeaderPool4SlabC2Ev.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN9metaspace15ChunkHeaderPool4SlabC2Ev.exit, label %.preheader.i, !llvm.loop !8
 
 _ZN9metaspace15ChunkHeaderPool4SlabC2Ev.exit:     ; preds = %.preheader.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -145,8 +145,6 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}

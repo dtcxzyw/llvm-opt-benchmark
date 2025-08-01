@@ -497,7 +497,7 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %56
   %197 = add nuw nsw i32 %.1133283, 1
   %198 = tail call noundef i32 @_ZNK6icu_777Package12getItemCountEv(ptr noundef nonnull align 8 dereferenceable(201237) %15)
   %199 = icmp slt i32 %197, %198
-  br i1 %199, label %.lr.ph284, label %.thread274, !llvm.loop !25
+  br i1 %199, label %.lr.ph284, label %.thread274, !llvm.loop !24
 
 .thread274:                                       ; preds = %.lr.ph284, %.preheader, %.thread277, %175
   %200 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 394), align 2, !tbaa !9
@@ -764,7 +764,6 @@ attributes #20 = { cold noreturn nounwind }
 !19 = !{!7, !7, i64 0}
 !20 = !{!21, !5, i64 0}
 !21 = !{!"_ZTSN6icu_774ItemE", !5, i64 0, !5, i64 8, !13, i64 16, !7, i64 20, !7, i64 21}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
+!24 = distinct !{!24, !23}

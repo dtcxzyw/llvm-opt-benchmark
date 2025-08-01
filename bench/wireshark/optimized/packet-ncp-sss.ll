@@ -545,7 +545,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr noundef readonly cap
   %111 = shl i32 %.1124.i, 1
   %112 = add nuw nsw i32 %.1116123.i, 1
   %exitcond125.not.i = icmp eq i32 %112, 256
-  br i1 %exitcond125.not.i, label %process_flags.exit, label %74, !llvm.loop !9
+  br i1 %exitcond125.not.i, label %process_flags.exit, label %74, !llvm.loop !8
 
 process_flags.exit:                               ; preds = %110
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #3
@@ -773,7 +773,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   %42 = add i32 %.16368, 1
   %43 = zext i32 %.3 to i64
   %44 = icmp samesign ult i64 %.1, %43
-  br i1 %44, label %26, label %45, !llvm.loop !10
+  br i1 %44, label %26, label %45, !llvm.loop !9
 
 45:                                               ; preds = %41
   %46 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %.1
@@ -912,7 +912,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
   %66 = add i32 %62, 1
   %67 = add nuw i32 %.096101, 1
   %exitcond.not = icmp eq i32 %67, %55
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 68:                                               ; preds = %52
   %69 = load i32, ptr @hf_sss_enc_data, align 4
@@ -1004,9 +1004,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -395,7 +395,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -533,7 +533,7 @@ define noundef zeroext i1 @_ZNK3gmx22OutputAdapterContainer7isEmptyEv(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i, i64 32
   %11 = add nsw i64 %.050.i.i.i.i, -1
   %12 = icmp samesign ugt i64 %.050.i.i.i.i, 1
-  br i1 %12, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !52
+  br i1 %12, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !51
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %9
   %.2.val.i.i.i.i = load ptr, ptr %scevgep.i.i.i.i, align 8, !tbaa !4
@@ -637,8 +637,7 @@ attributes #20 = { builtin nounwind }
 !45 = !{!43, !44, i64 8}
 !46 = !{!47, !6, i64 0}
 !47 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !6, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!43, !44, i64 16}
-!52 = distinct !{!52, !49, !50}
+!50 = !{!43, !44, i64 16}
+!51 = distinct !{!51, !49}

@@ -91,7 +91,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
 37:                                               ; preds = %36
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 3
-  br i1 %exitcond108.not, label %.loopexit69, label %.preheader68, !llvm.loop !86
+  br i1 %exitcond108.not, label %.loopexit69, label %.preheader68, !llvm.loop !85
 
 .loopexit69.loopexit:                             ; preds = %31
   %38 = trunc nuw nsw i64 %indvars.iv105 to i32
@@ -148,7 +148,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %68 = trunc nuw i32 %67 to i16
   %69 = getelementptr inbounds nuw [4 x i16], ptr %55, i64 0, i64 %indvars.iv109
   store i16 %68, ptr %69, align 2, !tbaa !82
-  br i1 %59, label %58, label %70, !llvm.loop !87
+  br i1 %59, label %58, label %70, !llvm.loop !86
 
 70:                                               ; preds = %58
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 3
@@ -157,7 +157,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %73 = add nsw i32 %72, -1
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next113, %74
-  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !88
+  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !87
 
 ._crit_edge.loopexit:                             ; preds = %70
   %76 = trunc nuw nsw i64 %indvars.iv.next113 to i32
@@ -171,7 +171,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %79 = add nuw nsw i32 %.181, 3
   %80 = zext i16 %77 to i32
   %81 = icmp samesign ult i32 %79, %80
-  br i1 %81, label %.lr.ph83, label %.loopexit, !llvm.loop !89
+  br i1 %81, label %.lr.ph83, label %.loopexit, !llvm.loop !88
 
 82:                                               ; preds = %14
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -238,7 +238,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %126 = load i16, ptr %93, align 2, !tbaa !79
   %127 = zext i16 %126 to i32
   %128 = icmp samesign ult i32 %125, %127
-  br i1 %128, label %105, label %._crit_edge86.loopexit, !llvm.loop !90
+  br i1 %128, label %105, label %._crit_edge86.loopexit, !llvm.loop !89
 
 ._crit_edge86.loopexit:                           ; preds = %105
   %.pre116 = load i16, ptr %88, align 4, !tbaa !77
@@ -250,7 +250,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %131 = add nuw nsw i32 %.287, 1
   %132 = zext i16 %129 to i32
   %133 = icmp samesign ult i32 %131, %132
-  br i1 %133, label %.preheader, label %._crit_edge88, !llvm.loop !91
+  br i1 %133, label %.preheader, label %._crit_edge88, !llvm.loop !90
 
 ._crit_edge88:                                    ; preds = %._crit_edge86, %82
   %134 = load ptr, ptr %15, align 8, !tbaa !81
@@ -268,23 +268,23 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 139:                                              ; preds = %.loopexit
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %141 = load i32, ptr %140, align 4, !tbaa !92
+  %141 = load i32, ptr %140, align 4, !tbaa !91
   %142 = icmp eq i32 %141, 3
   br i1 %142, label %143, label %191
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 5284
-  %145 = load i32, ptr %144, align 4, !tbaa !93
+  %145 = load i32, ptr %144, align 4, !tbaa !92
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 5280
   %147 = load i32, ptr %146, align 8, !tbaa !75
   %148 = xor i32 %147, %145
-  store i32 %148, ptr %11, align 8, !tbaa !94
+  store i32 %148, ptr %11, align 8, !tbaa !93
   %149 = or i32 %147, %145
   %.not64 = icmp eq i32 %149, 0
   br i1 %.not64, label %151, label %150
 
 150:                                              ; preds = %143
-  store i32 4, ptr %140, align 4, !tbaa !92
+  store i32 4, ptr %140, align 4, !tbaa !91
   br label %191
 
 151:                                              ; preds = %143
@@ -330,7 +330,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %179 = load i16, ptr %158, align 2, !tbaa !79
   %180 = zext i16 %179 to i32
   %181 = icmp samesign ult i32 %178, %180
-  br i1 %181, label %.lr.ph91, label %._crit_edge92.loopexit, !llvm.loop !95
+  br i1 %181, label %.lr.ph91, label %._crit_edge92.loopexit, !llvm.loop !94
 
 ._crit_edge92.loopexit:                           ; preds = %.lr.ph91
   %.pre118 = load i16, ptr %154, align 4, !tbaa !77
@@ -342,7 +342,7 @@ define void @_ZN6LibRaw15pre_interpolateEv(ptr noundef nonnull align 8 dereferen
   %184 = add nuw nsw i32 %.393, 2
   %185 = zext i16 %182 to i32
   %186 = icmp samesign ult i32 %184, %185
-  br i1 %186, label %160, label %._crit_edge96, !llvm.loop !96
+  br i1 %186, label %160, label %._crit_edge96, !llvm.loop !95
 
 ._crit_edge96:                                    ; preds = %._crit_edge92, %151
   %187 = shl i32 %137, 1
@@ -486,31 +486,31 @@ define void @_ZN6LibRaw18border_interpolateEi(ptr noundef nonnull align 8 derefe
   %47 = load i16, ptr %46, align 2, !tbaa !82
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %45
-  %50 = load i32, ptr %49, align 4, !tbaa !97
+  %50 = load i32, ptr %49, align 4, !tbaa !96
   %51 = add i32 %50, %48
-  store i32 %51, ptr %49, align 4, !tbaa !97
+  store i32 %51, ptr %49, align 4, !tbaa !96
   %52 = add i32 %37, 4
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !97
+  %55 = load i32, ptr %54, align 4, !tbaa !96
   %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !97
+  store i32 %56, ptr %54, align 4, !tbaa !96
   br label %57
 
 57:                                               ; preds = %29, %36
   %58 = phi i16 [ %30, %29 ], [ %39, %36 ]
   %59 = add i32 %.04054, 1
   %exitcond = icmp eq i32 %.04054, %26
-  br i1 %exitcond, label %60, label %29, !llvm.loop !98
+  br i1 %exitcond, label %60, label %29, !llvm.loop !97
 
 60:                                               ; preds = %57
   %61 = add nsw i32 %.04155, 1
   %exitcond65 = icmp eq i32 %61, %indvars.iv
-  br i1 %exitcond65, label %62, label %27, !llvm.loop !99
+  br i1 %exitcond65, label %62, label %27, !llvm.loop !98
 
 62:                                               ; preds = %60
   %63 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.04360, i32 noundef %.1)
-  %64 = load i32, ptr %8, align 4, !tbaa !92
+  %64 = load i32, ptr %8, align 4, !tbaa !91
   %.not64 = icmp eq i32 %64, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
@@ -529,13 +529,13 @@ define void @_ZN6LibRaw18border_interpolateEi(ptr noundef nonnull align 8 derefe
   %69 = add nuw i64 %indvars.iv66, 4
   %70 = and i64 %69, 4294967295
   %71 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !97
+  %72 = load i32, ptr %71, align 4, !tbaa !96
   %.not49 = icmp eq i32 %72, 0
   br i1 %.not49, label %85, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %indvars.iv66
-  %75 = load i32, ptr %74, align 4, !tbaa !97
+  %75 = load i32, ptr %74, align 4, !tbaa !96
   %76 = udiv i32 %75, %72
   %77 = trunc i32 %76 to i16
   %78 = load i16, ptr %7, align 2, !tbaa !79
@@ -551,14 +551,14 @@ define void @_ZN6LibRaw18border_interpolateEi(ptr noundef nonnull align 8 derefe
 85:                                               ; preds = %67, %68, %73
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
-  br i1 %exitcond69.not, label %._crit_edge, label %67, !llvm.loop !100
+  br i1 %exitcond69.not, label %._crit_edge, label %67, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %85, %62
   %86 = add nsw i32 %.1, 1
   %87 = load i16, ptr %7, align 2, !tbaa !79
   %88 = zext i16 %87 to i32
   %89 = icmp ult i32 %86, %88
-  br i1 %89, label %14, label %._crit_edge59.loopexit, !llvm.loop !101
+  br i1 %89, label %14, label %._crit_edge59.loopexit, !llvm.loop !100
 
 ._crit_edge59.loopexit:                           ; preds = %._crit_edge
   %.pre70 = load i16, ptr %5, align 4, !tbaa !77
@@ -572,7 +572,7 @@ define void @_ZN6LibRaw18border_interpolateEi(ptr noundef nonnull align 8 derefe
   %94 = zext i16 %90 to i32
   %95 = icmp samesign ult i32 %93, %94
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  br i1 %95, label %.preheader, label %._crit_edge61, !llvm.loop !102
+  br i1 %95, label %.preheader, label %._crit_edge61, !llvm.loop !101
 
 ._crit_edge61:                                    ; preds = %._crit_edge59, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
@@ -621,7 +621,7 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %21 = add nuw nsw i32 %.02441.us, 1
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, %19
   %exitcond52.not = icmp eq i32 %.02441.us, %20
-  br i1 %exitcond52.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !103
+  br i1 %exitcond52.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !102
 
 .lr.ph39.us:                                      ; preds = %.preheader.us
   %22 = srem i32 %.02441.us, %2
@@ -640,7 +640,7 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %1, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %33 = load i32, ptr %32, align 4, !tbaa !97
+  %33 = load i32, ptr %32, align 4, !tbaa !96
   %.not30.us.us = icmp eq i32 %33, 0
   br i1 %.not30.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us.preheader
 
@@ -652,30 +652,30 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %.032.us.us = phi i32 [ %35, %.lr.ph.us.us ], [ %33, %.lr.ph.us.us.preheader ]
   %.02531.us.us = phi ptr [ %50, %.lr.ph.us.us ], [ %34, %.lr.ph.us.us.preheader ]
   %35 = add nsw i32 %.032.us.us, -1
-  %36 = load i32, ptr %.02531.us.us, align 4, !tbaa !97
+  %36 = load i32, ptr %.02531.us.us, align 4, !tbaa !96
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i16, ptr %26, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !82
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %.02531.us.us, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !97
+  %42 = load i32, ptr %41, align 4, !tbaa !96
   %43 = shl i32 %40, %42
   %44 = getelementptr inbounds nuw i8, ptr %.02531.us.us, i64 8
-  %45 = load i32, ptr %44, align 4, !tbaa !97
+  %45 = load i32, ptr %44, align 4, !tbaa !96
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !97
+  %48 = load i32, ptr %47, align 4, !tbaa !96
   %49 = add nsw i32 %48, %43
-  store i32 %49, ptr %47, align 4, !tbaa !97
+  store i32 %49, ptr %47, align 4, !tbaa !96
   %50 = getelementptr inbounds nuw i8, ptr %.02531.us.us, i64 12
   %.not.us.us = icmp eq i32 %35, 0
-  br i1 %.not.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us, !llvm.loop !105
+  br i1 %.not.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us, !llvm.loop !104
 
 ._crit_edge.us.us:                                ; preds = %.lr.ph.us.us, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge40.split.us.us, label %25, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge40.split.us.us, label %25, !llvm.loop !105
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge40.split
   %51 = phi i16 [ %104, %._crit_edge40.split ], [ %6, %.preheader.lr.ph ]
@@ -705,7 +705,7 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %67 = getelementptr inbounds i32, ptr %1, i64 %66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = load i32, ptr %67, align 4, !tbaa !97
+  %69 = load i32, ptr %67, align 4, !tbaa !96
   %.not30 = icmp eq i32 %69, 0
   br i1 %.not30, label %.lr.ph36.preheader, label %.lr.ph
 
@@ -713,24 +713,24 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %.032 = phi i32 [ %70, %.lr.ph ], [ %69, %57 ]
   %.02531 = phi ptr [ %85, %.lr.ph ], [ %68, %57 ]
   %70 = add nsw i32 %.032, -1
-  %71 = load i32, ptr %.02531, align 4, !tbaa !97
+  %71 = load i32, ptr %.02531, align 4, !tbaa !96
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i16, ptr %62, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !82
   %75 = zext i16 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %.02531, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !97
+  %77 = load i32, ptr %76, align 4, !tbaa !96
   %78 = shl i32 %75, %77
   %79 = getelementptr inbounds nuw i8, ptr %.02531, i64 8
-  %80 = load i32, ptr %79, align 4, !tbaa !97
+  %80 = load i32, ptr %79, align 4, !tbaa !96
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !97
+  %83 = load i32, ptr %82, align 4, !tbaa !96
   %84 = add nsw i32 %83, %78
-  store i32 %84, ptr %82, align 4, !tbaa !97
+  store i32 %84, ptr %82, align 4, !tbaa !96
   %85 = getelementptr inbounds nuw i8, ptr %.02531, i64 12
   %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %.lr.ph36.preheader, label %.lr.ph, !llvm.loop !105
+  br i1 %.not, label %.lr.ph36.preheader, label %.lr.ph, !llvm.loop !104
 
 .lr.ph36.preheader:                               ; preds = %.lr.ph, %57
   %.12634.ph = phi ptr [ %68, %57 ], [ %85, %.lr.ph ]
@@ -739,12 +739,12 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
   %86 = phi i32 [ %98, %.lr.ph36 ], [ %13, %.lr.ph36.preheader ]
   %.12634 = phi ptr [ %97, %.lr.ph36 ], [ %.12634.ph, %.lr.ph36.preheader ]
-  %87 = load i32, ptr %.12634, align 4, !tbaa !97
+  %87 = load i32, ptr %.12634, align 4, !tbaa !96
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !97
+  %90 = load i32, ptr %89, align 4, !tbaa !96
   %91 = getelementptr inbounds nuw i8, ptr %.12634, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !97
+  %92 = load i32, ptr %91, align 4, !tbaa !96
   %93 = mul nsw i32 %92, %90
   %94 = lshr i32 %93, 8
   %95 = trunc i32 %94 to i16
@@ -753,7 +753,7 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %97 = getelementptr inbounds nuw i8, ptr %.12634, i64 8
   %98 = add nsw i32 %86, -1
   %.not29 = icmp eq i32 %98, 0
-  br i1 %.not29, label %._crit_edge37, label %.lr.ph36, !llvm.loop !107
+  br i1 %.not29, label %._crit_edge37, label %.lr.ph36, !llvm.loop !106
 
 ._crit_edge37:                                    ; preds = %.lr.ph36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
@@ -762,7 +762,7 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %101 = zext i16 %100 to i32
   %102 = add nsw i32 %101, -1
   %103 = icmp slt i32 %99, %102
-  br i1 %103, label %57, label %._crit_edge40.split.loopexit, !llvm.loop !108
+  br i1 %103, label %57, label %._crit_edge40.split.loopexit, !llvm.loop !107
 
 ._crit_edge40.split.loopexit:                     ; preds = %._crit_edge37
   %.pre53 = load i16, ptr %5, align 4, !tbaa !77
@@ -775,7 +775,7 @@ define void @_ZN6LibRaw20lin_interpolate_loopEPii(ptr noundef nonnull readonly a
   %107 = zext i16 %104 to i32
   %108 = add nsw i32 %107, -1
   %109 = icmp slt i32 %106, %108
-  br i1 %109, label %.preheader, label %._crit_edge43, !llvm.loop !109
+  br i1 %109, label %.preheader, label %._crit_edge43, !llvm.loop !108
 
 ._crit_edge43:                                    ; preds = %._crit_edge40.split, %._crit_edge40.split.us.us, %3
   ret void
@@ -896,29 +896,29 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
   %47 = shl nsw i32 %46, 2
   %48 = add nsw i32 %47, %39
   %49 = getelementptr inbounds nuw i8, ptr %.16194, i64 4
-  store i32 %48, ptr %.16194, align 4, !tbaa !97
+  store i32 %48, ptr %.16194, align 4, !tbaa !96
   %50 = getelementptr inbounds nuw i8, ptr %.16194, i64 8
-  store i32 %37, ptr %49, align 4, !tbaa !97
+  store i32 %37, ptr %49, align 4, !tbaa !96
   %51 = getelementptr inbounds nuw i8, ptr %.16194, i64 12
-  store i32 %39, ptr %50, align 4, !tbaa !97
+  store i32 %39, ptr %50, align 4, !tbaa !96
   %52 = shl nuw nsw i32 1, %37
   %53 = sext i32 %39 to i64
   %54 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !97
+  %55 = load i32, ptr %54, align 4, !tbaa !96
   %56 = add nsw i32 %55, %52
-  store i32 %56, ptr %54, align 4, !tbaa !97
+  store i32 %56, ptr %54, align 4, !tbaa !96
   br label %57
 
 57:                                               ; preds = %40, %42
   %.2 = phi ptr [ %.16194, %40 ], [ %51, %42 ]
   %58 = add nsw i32 %.06693, 1
   %exitcond.not = icmp eq i32 %58, 2
-  br i1 %exitcond.not, label %59, label %34, !llvm.loop !110
+  br i1 %exitcond.not, label %59, label %34, !llvm.loop !109
 
 59:                                               ; preds = %57
   %60 = add nsw i32 %.06595, 1
   %exitcond101.not = icmp eq i32 %60, 2
-  br i1 %exitcond101.not, label %61, label %.preheader, !llvm.loop !111
+  br i1 %exitcond101.not, label %61, label %.preheader, !llvm.loop !110
 
 61:                                               ; preds = %59
   %62 = ptrtoint ptr %.2 to i64
@@ -927,8 +927,8 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
   %65 = ashr exact i64 %64, 2
   %66 = sdiv i64 %65, 3
   %67 = trunc i64 %66 to i32
-  store i32 %67, ptr %gep, align 4, !tbaa !97
-  %68 = load i32, ptr %20, align 4, !tbaa !92
+  store i32 %67, ptr %gep, align 4, !tbaa !96
+  %68 = load i32, ptr %20, align 4, !tbaa !91
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %.lr.ph.preheader, label %._crit_edge
 
@@ -946,9 +946,9 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
 72:                                               ; preds = %.lr.ph
   %73 = getelementptr inbounds nuw i8, ptr %.398, i64 4
   %74 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %74, ptr %.398, align 4, !tbaa !97
+  store i32 %74, ptr %.398, align 4, !tbaa !96
   %75 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv
-  %76 = load i32, ptr %75, align 4, !tbaa !97
+  %76 = load i32, ptr %75, align 4, !tbaa !96
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %80
 
@@ -959,8 +959,8 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
 80:                                               ; preds = %72, %78
   %81 = phi i32 [ %79, %78 ], [ 0, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %.398, i64 8
-  store i32 %81, ptr %73, align 4, !tbaa !97
-  %.pre = load i32, ptr %20, align 4, !tbaa !92
+  store i32 %81, ptr %73, align 4, !tbaa !96
+  %.pre = load i32, ptr %20, align 4, !tbaa !91
   br label %83
 
 83:                                               ; preds = %.lr.ph, %80
@@ -971,17 +971,17 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
   %86 = icmp slt i64 %indvars.iv.next, %85
   %87 = icmp samesign ult i64 %indvars.iv, 3
   %88 = select i1 %86, i1 %87, i1 false
-  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !112
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %83, %61
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count110
-  br i1 %exitcond106.not, label %89, label %24, !llvm.loop !113
+  br i1 %exitcond106.not, label %89, label %24, !llvm.loop !112
 
 89:                                               ; preds = %._crit_edge
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %90, label %.preheader86, !llvm.loop !114
+  br i1 %exitcond111.not, label %90, label %.preheader86, !llvm.loop !113
 
 90:                                               ; preds = %89
   %91 = load ptr, ptr %4, align 8, !tbaa !6
@@ -1010,7 +1010,7 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit81
 
 101:                                              ; preds = %96, %90
-  %102 = load ptr, ptr %0, align 8, !tbaa !115
+  %102 = load ptr, ptr %0, align 8, !tbaa !114
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %104 = load ptr, ptr %103, align 8
   invoke void %104(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %3, i32 noundef %spec.select)
@@ -1102,8 +1102,8 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %indvars.iv = phi i64 [ 0, %.preheader225 ], [ %indvars.iv.next, %130 ]
   %.1183235 = phi ptr [ %.0182237, %.preheader225 ], [ %.7, %130 ]
   %21 = getelementptr inbounds nuw [16 x ptr], ptr %14, i64 0, i64 %indvars.iv
-  store ptr %.1183235, ptr %21, align 8, !tbaa !117
-  store ptr @_ZZN6LibRaw15vng_interpolateEvE5terms, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !118
+  store ptr %.1183235, ptr %21, align 8, !tbaa !116
+  store ptr @_ZZN6LibRaw15vng_interpolateEvE5terms, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = trunc i64 %indvars.iv to i32
   %23 = add i32 %22, 144
@@ -1114,25 +1114,25 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 26:                                               ; preds = %20, %91
   %.2231 = phi ptr [ %.1183235, %20 ], [ %.3, %91 ]
   %.0196230 = phi i32 [ 0, %20 ], [ %92, %91 ]
-  %27 = load ptr, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !118
+  %27 = load ptr, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !117
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  %29 = load i8, ptr %27, align 1, !tbaa !119
+  %29 = load i8, ptr %27, align 1, !tbaa !118
   %30 = sext i8 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  %32 = load i8, ptr %28, align 1, !tbaa !119
+  %32 = load i8, ptr %28, align 1, !tbaa !118
   %33 = sext i8 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 3
-  %35 = load i8, ptr %31, align 1, !tbaa !119
+  %35 = load i8, ptr %31, align 1, !tbaa !118
   %36 = sext i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %38 = load i8, ptr %34, align 1, !tbaa !119
+  %38 = load i8, ptr %34, align 1, !tbaa !118
   %39 = sext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 5
-  %41 = load i8, ptr %37, align 1, !tbaa !119
+  %41 = load i8, ptr %37, align 1, !tbaa !118
   %42 = sext i8 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 6
-  store ptr %43, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !118
-  %44 = load i8, ptr %40, align 1, !tbaa !119
+  store ptr %43, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !117
+  %44 = load i8, ptr %40, align 1, !tbaa !118
   %45 = sext i8 %44 to i32
   %46 = add i32 %16, %30
   %47 = add i32 %23, %33
@@ -1175,15 +1175,15 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %73 = shl nsw i32 %72, 2
   %74 = add nsw i32 %73, %48
   %75 = getelementptr inbounds nuw i8, ptr %.2231, i64 4
-  store i32 %74, ptr %.2231, align 4, !tbaa !97
+  store i32 %74, ptr %.2231, align 4, !tbaa !96
   %76 = mul nsw i32 %70, %36
   %77 = add nsw i32 %76, %39
   %78 = shl nsw i32 %77, 2
   %79 = add nsw i32 %78, %48
   %80 = getelementptr inbounds nuw i8, ptr %.2231, i64 8
-  store i32 %79, ptr %75, align 4, !tbaa !97
+  store i32 %79, ptr %75, align 4, !tbaa !96
   %81 = getelementptr inbounds nuw i8, ptr %.2231, i64 12
-  store i32 %42, ptr %80, align 4, !tbaa !97
+  store i32 %42, ptr %80, align 4, !tbaa !96
   br label %82
 
 82:                                               ; preds = %68, %87
@@ -1196,43 +1196,43 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %.4229, i64 4
-  store i32 %.0184228, ptr %.4229, align 4, !tbaa !97
+  store i32 %.0184228, ptr %.4229, align 4, !tbaa !96
   br label %87
 
 87:                                               ; preds = %82, %85
   %.5 = phi ptr [ %86, %85 ], [ %.4229, %82 ]
   %88 = add nuw nsw i32 %.0184228, 1
   %exitcond.not = icmp eq i32 %88, 8
-  br i1 %exitcond.not, label %89, label %82, !llvm.loop !120
+  br i1 %exitcond.not, label %89, label %82, !llvm.loop !119
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %.5, i64 4
-  store i32 -1, ptr %.5, align 4, !tbaa !97
+  store i32 -1, ptr %.5, align 4, !tbaa !96
   br label %91
 
 91:                                               ; preds = %64, %26, %89
   %.3 = phi ptr [ %.2231, %26 ], [ %.2231, %64 ], [ %90, %89 ]
   %92 = add nuw nsw i32 %.0196230, 1
   %exitcond274.not = icmp eq i32 %92, 64
-  br i1 %exitcond274.not, label %93, label %26, !llvm.loop !121
+  br i1 %exitcond274.not, label %93, label %26, !llvm.loop !120
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %.3, i64 4
-  store i32 2147483647, ptr %.3, align 4, !tbaa !97
-  store ptr @_ZZN6LibRaw15vng_interpolateEvE5chood, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !118
+  store i32 2147483647, ptr %.3, align 4, !tbaa !96
+  store ptr @_ZZN6LibRaw15vng_interpolateEvE5chood, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !117
   %95 = trunc nuw nsw i64 %indvars.iv to i32
   br label %96
 
 96:                                               ; preds = %93, %128
   %.6233 = phi ptr [ %94, %93 ], [ %.7, %128 ]
   %.1185232 = phi i32 [ 0, %93 ], [ %129, %128 ]
-  %97 = load ptr, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !118
+  %97 = load ptr, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !117
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  %99 = load i8, ptr %97, align 1, !tbaa !119
+  %99 = load i8, ptr %97, align 1, !tbaa !118
   %100 = sext i8 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  store ptr %101, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !118
-  %102 = load i8, ptr %98, align 1, !tbaa !119
+  store ptr %101, ptr @_ZZN6LibRaw15vng_interpolateEvE2cp, align 8, !tbaa !117
+  %102 = load i8, ptr %98, align 1, !tbaa !118
   %103 = sext i8 %102 to i32
   %104 = load i16, ptr %13, align 2, !tbaa !79
   %105 = zext i16 %104 to i32
@@ -1240,7 +1240,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %107 = add nsw i32 %106, %103
   %108 = shl nsw i32 %107, 2
   %109 = getelementptr inbounds nuw i8, ptr %.6233, i64 4
-  store i32 %108, ptr %.6233, align 4, !tbaa !97
+  store i32 %108, ptr %.6233, align 4, !tbaa !96
   %110 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %19, i32 noundef %95)
   %111 = add i32 %16, %100
   %112 = add i32 %23, %103
@@ -1269,18 +1269,18 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 128:                                              ; preds = %96, %114, %121
   %storemerge = phi i32 [ %127, %121 ], [ 0, %114 ], [ 0, %96 ]
   %.7 = getelementptr inbounds nuw i8, ptr %.6233, i64 8
-  store i32 %storemerge, ptr %109, align 4, !tbaa !97
+  store i32 %storemerge, ptr %109, align 4, !tbaa !96
   %129 = add nuw nsw i32 %.1185232, 1
   %exitcond275.not = icmp eq i32 %129, 8
-  br i1 %exitcond275.not, label %130, label %96, !llvm.loop !122
+  br i1 %exitcond275.not, label %130, label %96, !llvm.loop !121
 
 130:                                              ; preds = %128
   %exitcond277.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond277.not, label %131, label %20, !llvm.loop !123
+  br i1 %exitcond277.not, label %131, label %20, !llvm.loop !122
 
 131:                                              ; preds = %130
   %exitcond283.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count282
-  br i1 %exitcond283.not, label %132, label %.preheader225, !llvm.loop !124
+  br i1 %exitcond283.not, label %132, label %.preheader225, !llvm.loop !123
 
 132:                                              ; preds = %131
   %133 = load i16, ptr %13, align 2, !tbaa !79
@@ -1288,7 +1288,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %135 = mul nuw nsw i64 %134, 3
   %136 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %135, i64 noundef 8)
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %136, ptr %137, align 16, !tbaa !125
+  store ptr %136, ptr %137, align 16, !tbaa !124
   %138 = load i16, ptr %13, align 2, !tbaa !79
   %139 = zext i16 %138 to i64
   br label %149
@@ -1310,14 +1310,14 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 149:                                              ; preds = %132, %149
   %indvars.iv284 = phi i64 [ 0, %132 ], [ %indvars.iv.next285, %149 ]
-  %150 = load ptr, ptr %137, align 16, !tbaa !125
+  %150 = load ptr, ptr %137, align 16, !tbaa !124
   %151 = mul nuw nsw i64 %indvars.iv284, %139
   %152 = getelementptr inbounds nuw [4 x i16], ptr %150, i64 %151
   %153 = getelementptr inbounds nuw [5 x ptr], ptr %2, i64 0, i64 %indvars.iv284
-  store ptr %152, ptr %153, align 8, !tbaa !125
+  store ptr %152, ptr %153, align 8, !tbaa !124
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, 3
-  br i1 %exitcond287.not, label %.preheader224, label %149, !llvm.loop !126
+  br i1 %exitcond287.not, label %.preheader224, label %149, !llvm.loop !125
 
 154:                                              ; preds = %.lr.ph266, %330
   %155 = phi i32 [ %144, %.lr.ph266 ], [ %333, %330 ]
@@ -1374,14 +1374,14 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %186 = urem i32 %185, %.1181
   %187 = zext nneg i32 %186 to i64
   %188 = getelementptr inbounds nuw [16 x ptr], ptr %176, i64 0, i64 %187
-  %189 = load ptr, ptr %188, align 8, !tbaa !117
+  %189 = load ptr, ptr %188, align 8, !tbaa !116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %190 = load i32, ptr %189, align 4, !tbaa !97
+  %190 = load i32, ptr %189, align 4, !tbaa !96
   %.not212240 = icmp eq i32 %190, 2147483647
   br i1 %.not212240, label %._crit_edge, label %.lr.ph242
 
 ..loopexit_crit_edge:                             ; preds = %225
-  br label %.backedge, !llvm.loop !127
+  br label %.backedge, !llvm.loop !126
 
 .lr.ph242:                                        ; preds = %178, %.backedge
   %191 = phi i32 [ %217, %.backedge ], [ %190, %178 ]
@@ -1391,7 +1391,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %194 = load i16, ptr %193, align 2, !tbaa !82
   %195 = zext i16 %194 to i32
   %196 = getelementptr inbounds nuw i8, ptr %.8241, i64 4
-  %197 = load i32, ptr %196, align 4, !tbaa !97
+  %197 = load i32, ptr %196, align 4, !tbaa !96
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds i16, ptr %184, i64 %198
   %200 = load i16, ptr %199, align 2, !tbaa !82
@@ -1399,56 +1399,56 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %202 = sub nsw i32 %195, %201
   %203 = tail call i32 @llvm.abs.i32(i32 %202, i1 true)
   %204 = getelementptr inbounds nuw i8, ptr %.8241, i64 8
-  %205 = load i32, ptr %204, align 4, !tbaa !97
+  %205 = load i32, ptr %204, align 4, !tbaa !96
   %206 = shl i32 %203, %205
   %207 = getelementptr inbounds nuw i8, ptr %.8241, i64 12
-  %208 = load i32, ptr %207, align 4, !tbaa !97
+  %208 = load i32, ptr %207, align 4, !tbaa !96
   %209 = sext i32 %208 to i64
   %210 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %209
-  %211 = load i32, ptr %210, align 4, !tbaa !97
+  %211 = load i32, ptr %210, align 4, !tbaa !96
   %212 = add nsw i32 %206, %211
-  store i32 %212, ptr %210, align 4, !tbaa !97
+  store i32 %212, ptr %210, align 4, !tbaa !96
   %213 = getelementptr inbounds nuw i8, ptr %.8241, i64 20
   %214 = getelementptr inbounds nuw i8, ptr %.8241, i64 16
-  %215 = load i32, ptr %214, align 4, !tbaa !97
+  %215 = load i32, ptr %214, align 4, !tbaa !96
   %216 = icmp eq i32 %215, -1
   br i1 %216, label %.backedge, label %218
 
 .backedge:                                        ; preds = %218, %..loopexit_crit_edge, %.lr.ph242
   %.8.be = phi ptr [ %213, %.lr.ph242 ], [ %232, %..loopexit_crit_edge ], [ %223, %218 ]
-  %217 = load i32, ptr %.8.be, align 4, !tbaa !97
+  %217 = load i32, ptr %.8.be, align 4, !tbaa !96
   %.not212 = icmp eq i32 %217, 2147483647
-  br i1 %.not212, label %._crit_edge.loopexit, label %.lr.ph242, !llvm.loop !127
+  br i1 %.not212, label %._crit_edge.loopexit, label %.lr.ph242, !llvm.loop !126
 
 218:                                              ; preds = %.lr.ph242
   %219 = sext i32 %215 to i64
   %220 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %219
-  %221 = load i32, ptr %220, align 4, !tbaa !97
+  %221 = load i32, ptr %220, align 4, !tbaa !96
   %222 = add nsw i32 %221, %206
-  store i32 %222, ptr %220, align 4, !tbaa !97
+  store i32 %222, ptr %220, align 4, !tbaa !96
   %223 = getelementptr inbounds nuw i8, ptr %.8241, i64 24
-  %224 = load i32, ptr %213, align 4, !tbaa !97
+  %224 = load i32, ptr %213, align 4, !tbaa !96
   %.not216239 = icmp eq i32 %224, -1
-  br i1 %.not216239, label %.backedge, label %.lr.ph, !llvm.loop !127
+  br i1 %.not216239, label %.backedge, label %.lr.ph, !llvm.loop !126
 
 .lr.ph:                                           ; preds = %218
-  br label %225, !llvm.loop !127
+  br label %225, !llvm.loop !126
 
 225:                                              ; preds = %.lr.ph, %225
   %226 = phi i32 [ %224, %.lr.ph ], [ %233, %225 ]
   %227 = phi ptr [ %223, %.lr.ph ], [ %232, %225 ]
   %228 = sext i32 %226 to i64
   %229 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %228
-  %230 = load i32, ptr %229, align 4, !tbaa !97
+  %230 = load i32, ptr %229, align 4, !tbaa !96
   %231 = add nsw i32 %230, %206
-  store i32 %231, ptr %229, align 4, !tbaa !97
+  store i32 %231, ptr %229, align 4, !tbaa !96
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 4
-  %233 = load i32, ptr %227, align 4, !tbaa !97
+  %233 = load i32, ptr %227, align 4, !tbaa !96
   %.not216 = icmp eq i32 %233, -1
-  br i1 %.not216, label %..loopexit_crit_edge, label %225, !llvm.loop !128
+  br i1 %.not216, label %..loopexit_crit_edge, label %225, !llvm.loop !127
 
 ._crit_edge.loopexit:                             ; preds = %.backedge
-  %.pre = load i32, ptr %4, align 16, !tbaa !97
+  %.pre = load i32, ptr %4, align 16, !tbaa !96
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %178
@@ -1461,12 +1461,12 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %.0189245 = phi i32 [ %234, %._crit_edge ], [ %spec.select221, %235 ]
   %.0191244 = phi i32 [ %234, %._crit_edge ], [ %.1192, %235 ]
   %236 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv288
-  %237 = load i32, ptr %236, align 4, !tbaa !97
+  %237 = load i32, ptr %236, align 4, !tbaa !96
   %spec.select221 = tail call i32 @llvm.smin.i32(i32 %.0189245, i32 %237)
   %.1192 = tail call i32 @llvm.smax.i32(i32 %.0191244, i32 %237)
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next289, 8
-  br i1 %exitcond291.not, label %238, label %235, !llvm.loop !129
+  br i1 %exitcond291.not, label %238, label %235, !llvm.loop !128
 
 238:                                              ; preds = %235
   %239 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
@@ -1502,7 +1502,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %.0178253.us = phi i32 [ 0, %.split.us.preheader ], [ %.1179.us, %282 ]
   %.10251.us = phi ptr [ %239, %.split.us.preheader ], [ %283, %282 ]
   %253 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv301
-  %254 = load i32, ptr %253, align 4, !tbaa !97
+  %254 = load i32, ptr %253, align 4, !tbaa !96
   %.not214.us = icmp sgt i32 %254, %246
   br i1 %.not214.us, label %282, label %.preheader.us
 
@@ -1512,7 +1512,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   br i1 %256, label %257, label %270
 
 257:                                              ; preds = %255
-  %258 = load i32, ptr %284, align 4, !tbaa !97
+  %258 = load i32, ptr %284, align 4, !tbaa !96
   %.not215.us = icmp eq i32 %258, 0
   br i1 %.not215.us, label %270, label %259
 
@@ -1525,13 +1525,13 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %265 = zext i16 %264 to i32
   %266 = add nuw nsw i32 %265, %261
   %267 = lshr i32 %266, 1
-  %268 = load i32, ptr %252, align 4, !tbaa !97
+  %268 = load i32, ptr %252, align 4, !tbaa !96
   %269 = add nsw i32 %267, %268
-  store i32 %269, ptr %252, align 4, !tbaa !97
+  store i32 %269, ptr %252, align 4, !tbaa !96
   br label %281
 
 270:                                              ; preds = %257, %255
-  %271 = load i32, ptr %.10251.us, align 4, !tbaa !97
+  %271 = load i32, ptr %.10251.us, align 4, !tbaa !96
   %272 = trunc nuw nsw i64 %indvars.iv296 to i32
   %273 = add nsw i32 %271, %272
   %274 = sext i32 %273 to i64
@@ -1539,22 +1539,22 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %276 = load i16, ptr %275, align 2, !tbaa !82
   %277 = zext i16 %276 to i32
   %278 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv296
-  %279 = load i32, ptr %278, align 4, !tbaa !97
+  %279 = load i32, ptr %278, align 4, !tbaa !96
   %280 = add nsw i32 %279, %277
-  store i32 %280, ptr %278, align 4, !tbaa !97
+  store i32 %280, ptr %278, align 4, !tbaa !96
   br label %281
 
 281:                                              ; preds = %270, %259
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %._crit_edge249.us, label %255, !llvm.loop !130
+  br i1 %exitcond300.not, label %._crit_edge249.us, label %255, !llvm.loop !129
 
 282:                                              ; preds = %._crit_edge249.us, %.split.us
   %.1179.us = phi i32 [ %285, %._crit_edge249.us ], [ %.0178253.us, %.split.us ]
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %283 = getelementptr inbounds nuw i8, ptr %.10251.us, i64 8
   %exitcond304.not = icmp eq i64 %indvars.iv.next302, 8
-  br i1 %exitcond304.not, label %.lr.ph257, label %.split.us, !llvm.loop !131
+  br i1 %exitcond304.not, label %.lr.ph257, label %.split.us, !llvm.loop !130
 
 .preheader.us:                                    ; preds = %.split.us
   %284 = getelementptr inbounds nuw i8, ptr %.10251.us, i64 4
@@ -1583,8 +1583,8 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 294:                                              ; preds = %292
   %295 = zext i16 %293 to i32
   %296 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv305
-  %297 = load i32, ptr %296, align 4, !tbaa !97
-  %298 = load i32, ptr %289, align 4, !tbaa !97
+  %297 = load i32, ptr %296, align 4, !tbaa !96
+  %298 = load i32, ptr %289, align 4, !tbaa !96
   %299 = sub nsw i32 %297, %298
   %300 = sdiv i32 %299, %.1179.us
   %301 = add nsw i32 %300, %295
@@ -1599,7 +1599,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   store i16 %.1197, ptr %306, align 2, !tbaa !82
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
-  br i1 %exitcond309.not, label %.loopexit223, label %292, !llvm.loop !132
+  br i1 %exitcond309.not, label %.loopexit223, label %292, !llvm.loop !131
 
 .loopexit223:                                     ; preds = %305, %244, %241
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
@@ -1608,7 +1608,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %309 = add nsw i32 %308, -2
   %310 = sext i32 %309 to i64
   %311 = icmp slt i64 %indvars.iv.next311, %310
-  br i1 %311, label %178, label %._crit_edge262, !llvm.loop !133
+  br i1 %311, label %178, label %._crit_edge262, !llvm.loop !132
 
 ._crit_edge262:                                   ; preds = %.loopexit223, %170
   %.lcssa226 = phi i32 [ %172, %170 ], [ %308, %.loopexit223 ]
@@ -1621,7 +1621,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %316 = sext i32 %315 to i64
   %317 = getelementptr [4 x i16], ptr %314, i64 %316
   %318 = getelementptr i8, ptr %317, i64 16
-  %319 = load ptr, ptr %2, align 16, !tbaa !125
+  %319 = load ptr, ptr %2, align 16, !tbaa !124
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %321 = add nsw i32 %.lcssa226, -4
   %322 = sext i32 %321 to i64
@@ -1635,14 +1635,14 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 324:                                              ; preds = %.preheader, %324
   %indvars.iv313 = phi i64 [ %indvars.iv.next314, %324 ], [ 0, %.preheader ]
   %325 = getelementptr inbounds nuw [5 x ptr], ptr %2, i64 0, i64 %indvars.iv313
-  %326 = load ptr, ptr %325, align 8, !tbaa !125
+  %326 = load ptr, ptr %325, align 8, !tbaa !124
   %327 = add nuw i64 %indvars.iv313, 3
   %328 = and i64 %327, 3
   %329 = getelementptr inbounds nuw [5 x ptr], ptr %2, i64 0, i64 %328
-  store ptr %326, ptr %329, align 8, !tbaa !125
+  store ptr %326, ptr %329, align 8, !tbaa !124
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next314, 4
-  br i1 %exitcond316.not, label %330, label %324, !llvm.loop !134
+  br i1 %exitcond316.not, label %330, label %324, !llvm.loop !133
 
 330:                                              ; preds = %324
   %331 = add nuw nsw i32 %.2195265, 1
@@ -1650,7 +1650,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %333 = zext i16 %332 to i32
   %334 = add nsw i32 %333, -2
   %335 = icmp slt i32 %331, %334
-  br i1 %335, label %154, label %._crit_edge267.loopexit, !llvm.loop !135
+  br i1 %335, label %154, label %._crit_edge267.loopexit, !llvm.loop !134
 
 ._crit_edge267.loopexit:                          ; preds = %330
   %.pre317 = load i16, ptr %13, align 2, !tbaa !79
@@ -1666,7 +1666,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %339 = sext i32 %338 to i64
   %340 = getelementptr [4 x i16], ptr %336, i64 %339
   %341 = getelementptr i8, ptr %340, i64 16
-  %342 = load ptr, ptr %2, align 16, !tbaa !125
+  %342 = load ptr, ptr %2, align 16, !tbaa !124
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 16
   %344 = add nsw i32 %.pre-phi, -4
   %345 = sext i32 %344 to i64
@@ -1681,15 +1681,15 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %353 = getelementptr [4 x i16], ptr %347, i64 %352
   %354 = getelementptr i8, ptr %353, i64 16
   %355 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %356 = load ptr, ptr %355, align 8, !tbaa !125
+  %356 = load ptr, ptr %355, align 8, !tbaa !124
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %358 = add nsw i32 %350, -4
   %359 = sext i32 %358 to i64
   %360 = shl nsw i64 %359, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %354, ptr nonnull align 2 %357, i64 %360, i1 false)
-  %361 = load ptr, ptr %137, align 16, !tbaa !125
+  %361 = load ptr, ptr %137, align 16, !tbaa !124
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %361)
-  %362 = load ptr, ptr %3, align 16, !tbaa !117
+  %362 = load ptr, ptr %3, align 16, !tbaa !116
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %362)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
@@ -1712,15 +1712,15 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %.sroa.0 = alloca i32, align 4
   %.sroa.7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #11
-  store i32 1, ptr %2, align 16, !tbaa !97
+  store i32 1, ptr %2, align 16, !tbaa !96
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %6 = load i16, ptr %5, align 2, !tbaa !79
   %7 = zext i16 %6 to i32
-  store i32 %7, ptr %3, align 4, !tbaa !97
+  store i32 %7, ptr %3, align 4, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -1, ptr %8, align 8, !tbaa !97
+  store i32 -1, ptr %8, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0422)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
@@ -1804,7 +1804,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %45 ], [ %.sroa.7, %54 ]
   %indvars.iv.sroa.phi418 = phi ptr [ %.sroa.0422, %45 ], [ %.sroa.6, %54 ]
   %indvars.iv.sroa.phi425 = phi ptr [ %2, %45 ], [ %indvars.iv.sroa.gep426, %54 ]
-  %56 = load i32, ptr %indvars.iv.sroa.phi425, align 4, !tbaa !97
+  %56 = load i32, ptr %indvars.iv.sroa.phi425, align 4, !tbaa !96
   %57 = sub nsw i32 0, %56
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [4 x i16], ptr %50, i64 %58, i64 1
@@ -1829,7 +1829,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %76 = zext i16 %75 to i32
   %77 = add nuw nsw i32 %76, %72
   %78 = sub nsw i32 %68, %77
-  store i32 %78, ptr %indvars.iv.sroa.phi, align 4, !tbaa !97
+  store i32 %78, ptr %indvars.iv.sroa.phi, align 4, !tbaa !96
   %79 = sub nsw i32 %72, %53
   %80 = tail call i32 @llvm.abs.i32(i32 %79, i1 true)
   %81 = sub nsw i32 %76, %53
@@ -1856,12 +1856,12 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %102 = add nuw nsw i32 %101, %94
   %103 = shl nuw nsw i32 %102, 1
   %104 = add nuw nsw i32 %103, %87
-  store i32 %104, ptr %indvars.iv.sroa.phi418, align 4, !tbaa !97
-  br i1 %55, label %54, label %105, !llvm.loop !136
+  store i32 %104, ptr %indvars.iv.sroa.phi418, align 4, !tbaa !96
+  br i1 %55, label %54, label %105, !llvm.loop !135
 
 105:                                              ; preds = %54
-  %.sroa.0422.0..sroa.0422.0. = load i32, ptr %.sroa.0422, align 4, !tbaa !97
-  %.sroa.6.0..sroa.6.4.424 = load i32, ptr %.sroa.6, align 4, !tbaa !97
+  %.sroa.0422.0..sroa.0422.0. = load i32, ptr %.sroa.0422, align 4, !tbaa !96
+  %.sroa.6.0..sroa.6.4.424 = load i32, ptr %.sroa.6, align 4, !tbaa !96
   %106 = icmp sgt i32 %.sroa.0422.0..sroa.0422.0., %.sroa.6.0..sroa.6.4.424
   %107 = select i1 %106, i32 %7, i32 1
   %108 = zext nneg i32 %107 to i64
@@ -1890,7 +1890,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %121 = add nsw i32 %120, -3
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next361, %122
-  br i1 %123, label %45, label %._crit_edge.loopexit, !llvm.loop !137
+  br i1 %123, label %45, label %._crit_edge.loopexit, !llvm.loop !136
 
 ._crit_edge.loopexit:                             ; preds = %105
   %.pre379 = load i16, ptr %18, align 4, !tbaa !77
@@ -1903,7 +1903,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %127 = zext i16 %124 to i32
   %128 = add nsw i32 %127, -3
   %129 = icmp slt i32 %126, %128
-  br i1 %129, label %24, label %._crit_edge338, !llvm.loop !138
+  br i1 %129, label %24, label %._crit_edge338, !llvm.loop !137
 
 ._crit_edge338:                                   ; preds = %._crit_edge, %17
   %130 = phi i16 [ %19, %17 ], [ %124, %._crit_edge ]
@@ -1980,7 +1980,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %169 = phi i1 [ true, %.lr.ph344 ], [ false, %168 ]
   %indvars.iv363.sroa.phi = phi ptr [ %2, %.lr.ph344 ], [ %indvars.iv363.sroa.gep427, %168 ]
   %.1271340 = phi i32 [ %.0270341, %.lr.ph344 ], [ %200, %168 ]
-  %170 = load i32, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !97
+  %170 = load i32, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !96
   %171 = sub nsw i32 0, %170
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds [4 x i16], ptr %166, i64 %172
@@ -2013,7 +2013,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %199 = getelementptr inbounds [4 x i16], ptr %166, i64 0, i64 %174
   store i16 %198, ptr %199, align 2, !tbaa !82
   %200 = sub nsw i32 2, %.1271340
-  br i1 %169, label %168, label %201, !llvm.loop !139
+  br i1 %169, label %168, label %201, !llvm.loop !138
 
 201:                                              ; preds = %168
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 2
@@ -2022,7 +2022,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %204 = add nsw i32 %203, -1
   %205 = sext i32 %204 to i64
   %206 = icmp slt i64 %indvars.iv.next367, %205
-  br i1 %206, label %.lr.ph344, label %._crit_edge345.loopexit, !llvm.loop !140
+  br i1 %206, label %.lr.ph344, label %._crit_edge345.loopexit, !llvm.loop !139
 
 ._crit_edge345.loopexit:                          ; preds = %201
   %.pre383 = load i16, ptr %18, align 4, !tbaa !77
@@ -2035,7 +2035,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %210 = zext i16 %207 to i32
   %211 = add nsw i32 %210, -1
   %212 = icmp slt i32 %209, %211
-  br i1 %212, label %144, label %._crit_edge349, !llvm.loop !141
+  br i1 %212, label %144, label %._crit_edge349, !llvm.loop !140
 
 ._crit_edge349:                                   ; preds = %._crit_edge345, %138
   %213 = phi i16 [ %139, %138 ], [ %207, %._crit_edge345 ]
@@ -2122,7 +2122,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %indvars.iv369.sroa.phi420 = phi ptr [ %.sroa.0422, %249 ], [ %.sroa.6, %259 ]
   %indvars.iv369 = phi i64 [ 1, %249 ], [ 2, %259 ]
   %262 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv369
-  %263 = load i32, ptr %262, align 4, !tbaa !97
+  %263 = load i32, ptr %262, align 4, !tbaa !96
   %264 = add nsw i32 %263, %260
   %265 = sub nsw i32 0, %264
   %266 = sext i32 %265 to i64
@@ -2149,17 +2149,17 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %287 = sub nsw i32 %286, %257
   %288 = tail call i32 @llvm.abs.i32(i32 %287, i1 true)
   %289 = add nuw nsw i32 %283, %288
-  store i32 %289, ptr %indvars.iv369.sroa.phi420, align 4, !tbaa !97
+  store i32 %289, ptr %indvars.iv369.sroa.phi420, align 4, !tbaa !96
   %.neg324 = add nuw nsw i32 %275, %270
   %290 = add nuw nsw i32 %.neg324, %258
   %291 = add nuw nsw i32 %280, %286
   %292 = sub nsw i32 %290, %291
-  store i32 %292, ptr %indvars.iv369.sroa.phi, align 4, !tbaa !97
-  br i1 %261, label %259, label %293, !llvm.loop !142
+  store i32 %292, ptr %indvars.iv369.sroa.phi, align 4, !tbaa !96
+  br i1 %261, label %259, label %293, !llvm.loop !141
 
 293:                                              ; preds = %259
-  %.sroa.0422.0..sroa.0422.0.423 = load i32, ptr %.sroa.0422, align 4, !tbaa !97
-  %.sroa.6.0..sroa.6.4. = load i32, ptr %.sroa.6, align 4, !tbaa !97
+  %.sroa.0422.0..sroa.0422.0.423 = load i32, ptr %.sroa.0422, align 4, !tbaa !96
+  %.sroa.6.0..sroa.6.4. = load i32, ptr %.sroa.6, align 4, !tbaa !96
   %.not300 = icmp eq i32 %.sroa.0422.0..sroa.0422.0.423, %.sroa.6.0..sroa.6.4.
   %.sroa.7.0..sroa.7.4. = load i32, ptr %.sroa.7, align 4
   br i1 %.not300, label %298, label %294
@@ -2172,7 +2172,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   br label %301
 
 298:                                              ; preds = %293
-  %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4, !tbaa !97
+  %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4, !tbaa !96
   %299 = add nsw i32 %.sroa.7.0..sroa.7.4., %.sroa.0.0..sroa.0.0.
   %300 = ashr i32 %299, 2
   br label %301
@@ -2190,7 +2190,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %308 = add nsw i32 %307, -1
   %309 = sext i32 %308 to i64
   %310 = icmp slt i64 %indvars.iv.next373, %309
-  br i1 %310, label %249, label %._crit_edge354.loopexit, !llvm.loop !143
+  br i1 %310, label %249, label %._crit_edge354.loopexit, !llvm.loop !142
 
 ._crit_edge354.loopexit:                          ; preds = %301
   %.pre388 = load i16, ptr %18, align 4, !tbaa !77
@@ -2203,7 +2203,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %314 = zext i16 %311 to i32
   %315 = add nsw i32 %314, -1
   %316 = icmp slt i32 %313, %315
-  br i1 %316, label %227, label %._crit_edge358, !llvm.loop !144
+  br i1 %316, label %227, label %._crit_edge358, !llvm.loop !143
 
 ._crit_edge358:                                   ; preds = %._crit_edge354, %221
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
@@ -2336,65 +2336,64 @@ attributes #14 = { builtin nounwind }
 !80 = !{!7, !15, i64 544}
 !81 = !{!7, !9, i64 8}
 !82 = !{!14, !14, i64 0}
-!83 = distinct !{!83, !84, !85}
+!83 = distinct !{!83, !84}
 !84 = !{!"llvm.loop.mustprogress"}
-!85 = !{!"llvm.loop.estimated_trip_count"}
-!86 = distinct !{!86, !84, !85}
-!87 = distinct !{!87, !84, !85}
-!88 = distinct !{!88, !84, !85}
-!89 = distinct !{!89, !84, !85}
-!90 = distinct !{!90, !84, !85}
-!91 = distinct !{!91, !84, !85}
-!92 = !{!7, !15, i64 540}
-!93 = !{!7, !15, i64 5284}
-!94 = !{!7, !15, i64 381480}
-!95 = distinct !{!95, !84, !85}
-!96 = distinct !{!96, !84, !85}
-!97 = !{!15, !15, i64 0}
-!98 = distinct !{!98, !84, !85}
-!99 = distinct !{!99, !84, !85}
-!100 = distinct !{!100, !84, !85}
-!101 = distinct !{!101, !84, !85}
-!102 = distinct !{!102, !84, !85}
-!103 = distinct !{!103, !84, !85, !104}
-!104 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!105 = distinct !{!105, !84, !85}
-!106 = distinct !{!106, !84, !85, !104}
-!107 = distinct !{!107, !84, !85}
-!108 = distinct !{!108, !84, !85}
-!109 = distinct !{!109, !84, !85}
-!110 = distinct !{!110, !84, !85}
-!111 = distinct !{!111, !84, !85}
-!112 = distinct !{!112, !84, !85}
-!113 = distinct !{!113, !84, !85}
-!114 = distinct !{!114, !84, !85}
-!115 = !{!116, !116, i64 0}
-!116 = !{!"vtable pointer", !12, i64 0}
-!117 = !{!63, !63, i64 0}
-!118 = !{!18, !18, i64 0}
-!119 = !{!11, !11, i64 0}
-!120 = distinct !{!120, !84, !85}
-!121 = distinct !{!121, !84, !85}
-!122 = distinct !{!122, !84, !85}
-!123 = distinct !{!123, !84, !85}
-!124 = distinct !{!124, !84, !85}
-!125 = !{!9, !9, i64 0}
-!126 = distinct !{!126, !84, !85}
-!127 = distinct !{!127, !84, !85}
-!128 = distinct !{!128, !84, !85}
-!129 = distinct !{!129, !84, !85}
-!130 = distinct !{!130, !84, !85}
-!131 = distinct !{!131, !84, !85, !104}
-!132 = distinct !{!132, !84, !85}
-!133 = distinct !{!133, !84, !85}
-!134 = distinct !{!134, !84, !85}
-!135 = distinct !{!135, !84, !85}
-!136 = distinct !{!136, !84, !85}
-!137 = distinct !{!137, !84, !85}
-!138 = distinct !{!138, !84, !85}
-!139 = distinct !{!139, !84, !85}
-!140 = distinct !{!140, !84, !85}
-!141 = distinct !{!141, !84, !85}
-!142 = distinct !{!142, !84, !85}
-!143 = distinct !{!143, !84, !85}
-!144 = distinct !{!144, !84, !85}
+!85 = distinct !{!85, !84}
+!86 = distinct !{!86, !84}
+!87 = distinct !{!87, !84}
+!88 = distinct !{!88, !84}
+!89 = distinct !{!89, !84}
+!90 = distinct !{!90, !84}
+!91 = !{!7, !15, i64 540}
+!92 = !{!7, !15, i64 5284}
+!93 = !{!7, !15, i64 381480}
+!94 = distinct !{!94, !84}
+!95 = distinct !{!95, !84}
+!96 = !{!15, !15, i64 0}
+!97 = distinct !{!97, !84}
+!98 = distinct !{!98, !84}
+!99 = distinct !{!99, !84}
+!100 = distinct !{!100, !84}
+!101 = distinct !{!101, !84}
+!102 = distinct !{!102, !84, !103}
+!103 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!104 = distinct !{!104, !84}
+!105 = distinct !{!105, !84, !103}
+!106 = distinct !{!106, !84}
+!107 = distinct !{!107, !84}
+!108 = distinct !{!108, !84}
+!109 = distinct !{!109, !84}
+!110 = distinct !{!110, !84}
+!111 = distinct !{!111, !84}
+!112 = distinct !{!112, !84}
+!113 = distinct !{!113, !84}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"vtable pointer", !12, i64 0}
+!116 = !{!63, !63, i64 0}
+!117 = !{!18, !18, i64 0}
+!118 = !{!11, !11, i64 0}
+!119 = distinct !{!119, !84}
+!120 = distinct !{!120, !84}
+!121 = distinct !{!121, !84}
+!122 = distinct !{!122, !84}
+!123 = distinct !{!123, !84}
+!124 = !{!9, !9, i64 0}
+!125 = distinct !{!125, !84}
+!126 = distinct !{!126, !84}
+!127 = distinct !{!127, !84}
+!128 = distinct !{!128, !84}
+!129 = distinct !{!129, !84}
+!130 = distinct !{!130, !84, !103}
+!131 = distinct !{!131, !84}
+!132 = distinct !{!132, !84}
+!133 = distinct !{!133, !84}
+!134 = distinct !{!134, !84}
+!135 = distinct !{!135, !84}
+!136 = distinct !{!136, !84}
+!137 = distinct !{!137, !84}
+!138 = distinct !{!138, !84}
+!139 = distinct !{!139, !84}
+!140 = distinct !{!140, !84}
+!141 = distinct !{!141, !84}
+!142 = distinct !{!142, !84}
+!143 = distinct !{!143, !84}

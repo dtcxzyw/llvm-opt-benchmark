@@ -76,7 +76,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContextD2Ev(ptr noundef nonnull al
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr %5, ptr %4, align 8, !tbaa !11
-  %15 = load ptr, ptr %0, align 8, !tbaa !21
+  %15 = load ptr, ptr %0, align 8, !tbaa !20
   %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %17
 
@@ -90,7 +90,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContextD2Ev(ptr noundef nonnull al
 20:                                               ; preds = %17
   %.val = load ptr, ptr %15, align 8
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
-  store ptr %.val, ptr %21, align 8, !tbaa !22
+  store ptr %.val, ptr %21, align 8, !tbaa !21
   br label %_ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.exit
 
 _ZN12_GLOBAL__N_124CrashRecoveryContextImplD2Ev.exit: ; preds = %17, %20
@@ -128,13 +128,13 @@ define dso_local noundef ptr @_ZN4llvm20CrashRecoveryContext10GetCurrentEv() loc
 
 1:                                                ; preds = %0
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   br label %7
 
 7:                                                ; preds = %4, %1, %0
@@ -160,9 +160,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 4:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store i1 true, ptr @_ZN12_GLOBAL__N_121gCrashRecoveryEnabledE, align 1
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #19
-  store ptr @_ZL26CrashRecoverySignalHandleri, ptr %1, align 8, !tbaa !26
+  store ptr @_ZL26CrashRecoverySignalHandleri, ptr %1, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i32 0, ptr %5, align 8, !tbaa !27
+  store i32 0, ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = call i32 @sigemptyset(ptr noundef nonnull %6) #19
   br label %8
@@ -170,12 +170,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 8:                                                ; preds = %8, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
   %9 = getelementptr inbounds nuw [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i
-  %10 = load i32, ptr %9, align 4, !tbaa !30
+  %10 = load i32, ptr %9, align 4, !tbaa !29
   %11 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i
   %12 = call i32 @sigaction(i32 noundef %10, ptr noundef nonnull %1, ptr noundef nonnull %11) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %.not.i, label %_ZL32installExceptionOrSignalHandlersv.exit, label %8, !llvm.loop !31
+  br i1 %.not.i, label %_ZL32installExceptionOrSignalHandlersv.exit, label %8, !llvm.loop !30
 
 _ZL32installExceptionOrSignalHandlersv.exit:      ; preds = %8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #19
@@ -207,12 +207,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
   %5 = getelementptr inbounds nuw [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i
-  %6 = load i32, ptr %5, align 4, !tbaa !30
+  %6 = load i32, ptr %5, align 4, !tbaa !29
   %7 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i
   %8 = tail call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %7, ptr noundef null) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %.not.i, label %_ZL34uninstallExceptionOrSignalHandlersv.exit, label %4, !llvm.loop !32
+  br i1 %.not.i, label %_ZL34uninstallExceptionOrSignalHandlersv.exit, label %4, !llvm.loop !31
 
 _ZL34uninstallExceptionOrSignalHandlersv.exit:    ; preds = %4, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
@@ -232,7 +232,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext15registerCleanupEPNS_27Cra
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %1, ptr %7, align 8, !tbaa !33
+  store ptr %1, ptr %7, align 8, !tbaa !32
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -265,7 +265,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27C
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %8, ptr %13, align 8, !tbaa !13
   %.not12 = icmp eq ptr %8, null
@@ -274,7 +274,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27C
 .sink.split:                                      ; preds = %10, %9
   %.sink = phi ptr [ null, %9 ], [ %12, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %.sink, ptr %14, align 8, !tbaa !33
+  store ptr %.sink, ptr %14, align 8, !tbaa !32
   br label %15
 
 15:                                               ; preds = %.sink.split, %9, %10
@@ -296,17 +296,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS
 4:                                                ; preds = %3
   %5 = call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %6, align 8, !tbaa !24
+  store ptr %0, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %8 = load volatile i8, ptr %7, align 8
   %9 = and i8 %8, -2
   store volatile i8 %9, ptr %7, align 8
   %10 = and i8 %8, -8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
-  store ptr %12, ptr %5, align 8, !tbaa !34
-  store ptr %5, ptr %11, align 8, !tbaa !22
-  store ptr %5, ptr %0, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
+  store ptr %12, ptr %5, align 8, !tbaa !33
+  store ptr %5, ptr %11, align 8, !tbaa !21
+  store ptr %5, ptr %0, align 8, !tbaa !20
   %13 = or disjoint i8 %10, 4
   store i8 %13, ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -331,36 +331,36 @@ declare i32 @_setjmp(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define dso_local void @_ZN4llvm20CrashRecoveryContext10HandleExitEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !21
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   tail call fastcc void @_ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim(ptr noundef nonnull align 8 dereferenceable(217) %3, i32 noundef %1, i64 noundef 0)
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim(ptr noundef nonnull align 8 dereferenceable(217) %0, i32 noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #3 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !34
+  %4 = load ptr, ptr %0, align 8, !tbaa !33
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
-  store ptr %4, ptr %5, align 8, !tbaa !22
+  store ptr %4, ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load volatile i8, ptr %6, align 8
   %8 = or i8 %7, 1
   store volatile i8 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %12 = load i8, ptr %11, align 4, !tbaa !35, !range !36, !noundef !37
+  %12 = load i8, ptr %11, align 4, !tbaa !34, !range !35, !noundef !36
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
   tail call void @_ZN4llvm3sys15CleanupOnSignalEm(i64 noundef %2) #19
-  %.pre = load ptr, ptr %9, align 8, !tbaa !24
+  %.pre = load ptr, ptr %9, align 8, !tbaa !23
   br label %15
 
 15:                                               ; preds = %14, %3
   %16 = phi ptr [ %.pre, %14 ], [ %10, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %1, ptr %17, align 8, !tbaa !38
+  store i32 %1, ptr %17, align 8, !tbaa !37
   %18 = load i8, ptr %6, align 8
   %19 = and i8 %18, 4
   %.not = icmp eq i8 %19, 0
@@ -405,23 +405,23 @@ declare i32 @raise(i32 noundef) local_unnamed_addr #14
 define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.(anonymous namespace)::RunSafelyOnThreadInfo", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
-  store ptr %1, ptr %5, align 8, !tbaa !39
+  store ptr %1, ptr %5, align 8, !tbaa !38
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !40
+  store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %6, align 8, !tbaa !42
+  store ptr %0, ptr %6, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 0, ptr %7, align 8, !tbaa !45
+  store i8 0, ptr %7, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  store i8 0, ptr %8, align 1, !tbaa !46
+  store i8 0, ptr %8, align 1, !tbaa !45
   %.not7 = icmp eq i32 %3, 0
   %.sroa.2.0.insert.shift = select i1 %.not7, i64 0, i64 4294967296
   %.sroa.0.0.insert.ext = zext i32 %3 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store ptr %5, ptr %9, align 8, !tbaa !47
+  store ptr %5, ptr %9, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @_ZL26RunSafelyOnThread_DispatchPv, ptr %10, align 8, !tbaa !50
+  store ptr @_ZL26RunSafelyOnThread_DispatchPv, ptr %10, align 8, !tbaa !49
   %11 = call noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE(ptr noundef nonnull @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_, ptr noundef nonnull %9, i64 %.sroa.0.0.insert.insert) #19
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.exit.i.i, label %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit
@@ -432,7 +432,7 @@ _ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEE
 
 _ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit: ; preds = %4, %_ZNKSt14default_deleteISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEclEPS7_.exit.i.i
   call void @_ZN4llvm21llvm_thread_join_implEm(i64 noundef %11) #19
-  %12 = load ptr, ptr %0, align 8, !tbaa !21
+  %12 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_ZN4llvm6threadD2Ev.exit, label %13
 
@@ -444,7 +444,7 @@ _ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalI
   br label %_ZN4llvm6threadD2Ev.exit
 
 _ZN4llvm6threadD2Ev.exit:                         ; preds = %_ZN4llvm6threadC2IRFvPvEJPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEESt8optionalIjEOT_DpOT0_.exit, %13
-  %17 = load i8, ptr %8, align 1, !tbaa !46, !range !36, !noundef !37
+  %17 = load i8, ptr %8, align 1, !tbaa !45, !range !35, !noundef !36
   %18 = trunc nuw i8 %17 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
   ret i1 %18
@@ -453,14 +453,14 @@ _ZN4llvm6threadD2Ev.exit:                         ; preds = %_ZN4llvm6threadC2IR
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL26RunSafelyOnThread_DispatchPv(ptr noundef captures(none) initializes((25, 26)) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !38
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !40
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !39
   %4 = tail call noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %6 = zext i1 %4 to i8
-  store i8 %6, ptr %5, align 1, !tbaa !46
+  store i8 %6, ptr %5, align 1, !tbaa !45
   ret void
 }
 
@@ -470,7 +470,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define internal void @_ZL26CrashRecoverySignalHandleri(i32 noundef %0) #3 {
   %2 = alloca %struct.__sigset_t, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN12_GLOBAL__N_114CurrentContextE)
-  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %16
 
@@ -494,12 +494,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %5
 9:                                                ; preds = %9, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %9 ]
   %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i.i
-  %11 = load i32, ptr %10, align 4, !tbaa !30
+  %11 = load i32, ptr %10, align 4, !tbaa !29
   %12 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i.i
   %13 = tail call i32 @sigaction(i32 noundef %11, ptr noundef nonnull %12, ptr noundef null) #19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %.not.i.i, label %_ZN4llvm20CrashRecoveryContext7DisableEv.exit, label %9, !llvm.loop !32
+  br i1 %.not.i.i, label %_ZN4llvm20CrashRecoveryContext7DisableEv.exit, label %9, !llvm.loop !31
 
 _ZN4llvm20CrashRecoveryContext7DisableEv.exit:    ; preds = %9, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_128getCrashRecoveryContextMutexEvE25CrashRecoveryContextMutex) #19
@@ -514,29 +514,29 @@ _ZN4llvm20CrashRecoveryContext7DisableEv.exit:    ; preds = %9, %_ZNSt10lock_gua
   %20 = icmp eq i32 %0, 13
   %21 = add nsw i32 %0, 128
   %spec.store.select = select i1 %20, i32 74, i32 %21
-  %22 = load ptr, ptr %4, align 8, !tbaa !34
-  store ptr %22, ptr %3, align 8, !tbaa !22
+  %22 = load ptr, ptr %4, align 8, !tbaa !33
+  store ptr %22, ptr %3, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %24 = load volatile i8, ptr %23, align 8
   %25 = or i8 %24, 1
   store volatile i8 %25, ptr %23, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !24
+  %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  %29 = load i8, ptr %28, align 4, !tbaa !35, !range !36, !noundef !37
+  %29 = load i8, ptr %28, align 4, !tbaa !34, !range !35, !noundef !36
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %16
   %32 = sext i32 %0 to i64
   call void @_ZN4llvm3sys15CleanupOnSignalEm(i64 noundef range(i64 -2147483648, 2147483648) %32) #19
-  %.pre.i = load ptr, ptr %26, align 8, !tbaa !24
+  %.pre.i = load ptr, ptr %26, align 8, !tbaa !23
   br label %33
 
 33:                                               ; preds = %31, %16
   %34 = phi ptr [ %.pre.i, %31 ], [ %27, %16 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 %spec.store.select, ptr %35, align 8, !tbaa !38
+  store i32 %spec.store.select, ptr %35, align 8, !tbaa !37
   %36 = load i8, ptr %23, align 8
   %37 = and i8 %36, 4
   %.not.i = icmp eq i8 %37, 0
@@ -587,9 +587,9 @@ declare noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optiona
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noalias noundef ptr @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_(ptr noundef %0) #3 align 2 {
-  %.val1.i = load ptr, ptr %0, align 8, !tbaa !52
+  %.val1.i = load ptr, ptr %0, align 8, !tbaa !51
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val2.i = load ptr, ptr %2, align 8, !tbaa !39
+  %.val2.i = load ptr, ptr %2, align 8, !tbaa !38
   tail call void %.val2.i(ptr noundef %.val1.i) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
   ret ptr null
@@ -642,38 +642,37 @@ attributes #22 = { nounwind returns_twice }
 !15 = !{!14, !10, i64 16}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"vtable pointer", !7, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!4, !5, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTSN12_GLOBAL__N_124CrashRecoveryContextImplE", !5, i64 0}
-!24 = !{!25, !12, i64 8}
-!25 = !{!"_ZTSN12_GLOBAL__N_124CrashRecoveryContextImplE", !23, i64 0, !12, i64 8, !6, i64 16, !9, i64 216, !9, i64 216, !9, i64 216}
-!26 = !{!6, !6, i64 0}
-!27 = !{!28, !9, i64 136}
-!28 = !{!"_ZTS9sigaction", !6, i64 0, !29, i64 8, !9, i64 136, !5, i64 144}
-!29 = !{!"_ZTS10__sigset_t", !6, i64 0}
-!30 = !{!9, !9, i64 0}
-!31 = distinct !{!31, !19, !20}
-!32 = distinct !{!32, !19, !20}
-!33 = !{!14, !8, i64 24}
-!34 = !{!25, !23, i64 0}
-!35 = !{!4, !10, i64 20}
-!36 = !{i8 0, i8 2}
-!37 = !{}
-!38 = !{!4, !9, i64 16}
-!39 = !{!5, !5, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"long", !6, i64 0}
-!42 = !{!43, !12, i64 16}
-!43 = !{!"_ZTSN12_GLOBAL__N_121RunSafelyOnThreadInfoE", !44, i64 0, !12, i64 16, !10, i64 24, !10, i64 25}
-!44 = !{!"_ZTSN4llvm12function_refIFvvEEE", !5, i64 0, !41, i64 8}
-!45 = !{!43, !10, i64 24}
-!46 = !{!43, !10, i64 25}
-!47 = !{!48, !49, i64 0}
-!48 = !{!"_ZTSSt10_Head_baseILm1EPN12_GLOBAL__N_121RunSafelyOnThreadInfoELb0EE", !49, i64 0}
-!49 = !{!"p1 _ZTSN12_GLOBAL__N_121RunSafelyOnThreadInfoE", !5, i64 0}
-!50 = !{!51, !5, i64 0}
-!51 = !{!"_ZTSSt10_Head_baseILm0EPFvPvELb0EE", !5, i64 0}
-!52 = !{!49, !49, i64 0}
+!20 = !{!4, !5, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN12_GLOBAL__N_124CrashRecoveryContextImplE", !5, i64 0}
+!23 = !{!24, !12, i64 8}
+!24 = !{!"_ZTSN12_GLOBAL__N_124CrashRecoveryContextImplE", !22, i64 0, !12, i64 8, !6, i64 16, !9, i64 216, !9, i64 216, !9, i64 216}
+!25 = !{!6, !6, i64 0}
+!26 = !{!27, !9, i64 136}
+!27 = !{!"_ZTS9sigaction", !6, i64 0, !28, i64 8, !9, i64 136, !5, i64 144}
+!28 = !{!"_ZTS10__sigset_t", !6, i64 0}
+!29 = !{!9, !9, i64 0}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = !{!14, !8, i64 24}
+!33 = !{!24, !22, i64 0}
+!34 = !{!4, !10, i64 20}
+!35 = !{i8 0, i8 2}
+!36 = !{}
+!37 = !{!4, !9, i64 16}
+!38 = !{!5, !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"long", !6, i64 0}
+!41 = !{!42, !12, i64 16}
+!42 = !{!"_ZTSN12_GLOBAL__N_121RunSafelyOnThreadInfoE", !43, i64 0, !12, i64 16, !10, i64 24, !10, i64 25}
+!43 = !{!"_ZTSN4llvm12function_refIFvvEEE", !5, i64 0, !40, i64 8}
+!44 = !{!42, !10, i64 24}
+!45 = !{!42, !10, i64 25}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"_ZTSSt10_Head_baseILm1EPN12_GLOBAL__N_121RunSafelyOnThreadInfoELb0EE", !48, i64 0}
+!48 = !{!"p1 _ZTSN12_GLOBAL__N_121RunSafelyOnThreadInfoE", !5, i64 0}
+!49 = !{!50, !5, i64 0}
+!50 = !{!"_ZTSSt10_Head_baseILm0EPFvPvELb0EE", !5, i64 0}
+!51 = !{!48, !48, i64 0}

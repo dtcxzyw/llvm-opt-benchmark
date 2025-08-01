@@ -132,7 +132,7 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 276
-  store i32 %1, ptr %16, align 4, !tbaa !47
+  store i32 %1, ptr %16, align 4, !tbaa !46
   br label %17
 
 17:                                               ; preds = %15, %12
@@ -143,13 +143,13 @@ define void @jpeg_suppress_tables(ptr noundef readonly captures(none) %0, i32 no
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 276
-  store i32 %1, ptr %21, align 4, !tbaa !47
+  store i32 %1, ptr %21, align 4, !tbaa !46
   br label %22
 
 22:                                               ; preds = %17, %20
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !49
+  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !48
 
 23:                                               ; preds = %22
   ret void
@@ -167,9 +167,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load i32, ptr %5, align 8, !tbaa !50
+  %6 = load i32, ptr %5, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %8 = load i32, ptr %7, align 4, !tbaa !51
+  %8 = load i32, ptr %7, align 4, !tbaa !50
   %9 = icmp ult i32 %6, %8
   br i1 %9, label %10, label %14
 
@@ -206,7 +206,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %25 = load ptr, ptr %24, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  %27 = load i32, ptr %26, align 4, !tbaa !52
+  %27 = load i32, ptr %26, align 4, !tbaa !51
   %.not7278 = icmp eq i32 %27, 0
   br i1 %.not7278, label %.lr.ph80, label %._crit_edge81
 
@@ -219,9 +219,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %.lr.ph80, %._crit_edge
   %33 = phi ptr [ %25, %.lr.ph80 ], [ %99, %._crit_edge ]
-  %34 = load ptr, ptr %33, align 8, !tbaa !54
+  %34 = load ptr, ptr %33, align 8, !tbaa !53
   tail call void %34(ptr noundef nonnull %0) #4
-  %35 = load i32, ptr %28, align 8, !tbaa !55
+  %35 = load i32, ptr %28, align 8, !tbaa !54
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -234,11 +234,11 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %indvars.iv, ptr %39, align 8, !tbaa !56
+  store i64 %indvars.iv, ptr %39, align 8, !tbaa !55
   %40 = zext i32 %36 to i64
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %40, ptr %41, align 8, !tbaa !58
-  %42 = load ptr, ptr %37, align 8, !tbaa !59
+  store i64 %40, ptr %41, align 8, !tbaa !57
+  %42 = load ptr, ptr %37, align 8, !tbaa !58
   tail call void %42(ptr noundef nonnull %0) #4
   br label %43
 
@@ -248,9 +248,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr %31, align 8, !tbaa !60
+  %47 = load ptr, ptr %31, align 8, !tbaa !59
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !61
+  %49 = load ptr, ptr %48, align 8, !tbaa !60
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %57
 
@@ -263,9 +263,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %55 = load ptr, ptr %0, align 8, !tbaa !24
   %56 = load ptr, ptr %55, align 8, !tbaa !30
   tail call void %56(ptr noundef nonnull %0) #4
-  %.pre87 = load ptr, ptr %31, align 8, !tbaa !60
+  %.pre87 = load ptr, ptr %31, align 8, !tbaa !59
   %.phi.trans.insert88 = getelementptr inbounds nuw i8, ptr %.pre87, i64 8
-  %.pre89 = load ptr, ptr %.phi.trans.insert88, align 8, !tbaa !61
+  %.pre89 = load ptr, ptr %.phi.trans.insert88, align 8, !tbaa !60
   br label %57
 
 57:                                               ; preds = %51, %46
@@ -276,12 +276,12 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 
 60:                                               ; preds = %43
   %61 = icmp samesign ult i32 %44, 13
-  %62 = load ptr, ptr %31, align 8, !tbaa !60
+  %62 = load ptr, ptr %31, align 8, !tbaa !59
   br i1 %61, label %63, label %76
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !63
+  %65 = load ptr, ptr %64, align 8, !tbaa !62
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %73
 
@@ -294,9 +294,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %71 = load ptr, ptr %0, align 8, !tbaa !24
   %72 = load ptr, ptr %71, align 8, !tbaa !30
   tail call void %72(ptr noundef nonnull %0) #4
-  %.pre84 = load ptr, ptr %31, align 8, !tbaa !60
+  %.pre84 = load ptr, ptr %31, align 8, !tbaa !59
   %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
-  %.pre86 = load ptr, ptr %.phi.trans.insert85, align 8, !tbaa !63
+  %.pre86 = load ptr, ptr %.phi.trans.insert85, align 8, !tbaa !62
   br label %73
 
 73:                                               ; preds = %67, %63
@@ -307,7 +307,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 
 76:                                               ; preds = %60
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %78 = load ptr, ptr %77, align 8, !tbaa !64
+  %78 = load ptr, ptr %77, align 8, !tbaa !63
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %86
 
@@ -320,9 +320,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %84 = load ptr, ptr %0, align 8, !tbaa !24
   %85 = load ptr, ptr %84, align 8, !tbaa !30
   tail call void %85(ptr noundef nonnull %0) #4
-  %.pre = load ptr, ptr %31, align 8, !tbaa !60
+  %.pre = load ptr, ptr %31, align 8, !tbaa !59
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !64
+  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !63
   br label %86
 
 86:                                               ; preds = %80, %76
@@ -341,32 +341,32 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 
 92:                                               ; preds = %.sink.split90, %57, %86, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %93 = load i32, ptr %28, align 8, !tbaa !55
+  %93 = load i32, ptr %28, align 8, !tbaa !54
   %94 = zext i32 %93 to i64
   %95 = icmp samesign ult i64 %indvars.iv.next, %94
-  br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %92, %32
   %96 = load ptr, ptr %24, align 8, !tbaa !40
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !66
+  %98 = load ptr, ptr %97, align 8, !tbaa !65
   tail call void %98(ptr noundef nonnull %0) #4
   %99 = load ptr, ptr %24, align 8, !tbaa !40
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 28
-  %101 = load i32, ptr %100, align 4, !tbaa !52
+  %101 = load i32, ptr %100, align 4, !tbaa !51
   %.not72 = icmp eq i32 %101, 0
-  br i1 %.not72, label %32, label %._crit_edge81, !llvm.loop !67
+  br i1 %.not72, label %32, label %._crit_edge81, !llvm.loop !66
 
 ._crit_edge81:                                    ; preds = %._crit_edge, %23
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %103 = load ptr, ptr %102, align 8, !tbaa !68
+  %103 = load ptr, ptr %102, align 8, !tbaa !67
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !69
+  %105 = load ptr, ptr %104, align 8, !tbaa !68
   tail call void %105(ptr noundef nonnull %0) #4
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %107 = load ptr, ptr %106, align 8, !tbaa !33
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !71
+  %109 = load ptr, ptr %108, align 8, !tbaa !70
   tail call void %109(ptr noundef nonnull %0) #4
   tail call void @jpeg_abort(ptr noundef nonnull %0) #4
   ret void
@@ -375,7 +375,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @jpeg_write_marker(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load i32, ptr %5, align 8, !tbaa !50
+  %6 = load i32, ptr %5, align 8, !tbaa !49
   %.not = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !37
@@ -397,13 +397,13 @@ define void @jpeg_write_marker(ptr noundef %0, i32 noundef %1, ptr noundef reado
 
 14:                                               ; preds = %4, %._crit_edge27
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %16 = load ptr, ptr %15, align 8, !tbaa !67
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !74
+  %18 = load ptr, ptr %17, align 8, !tbaa !73
   tail call void %18(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %3) #4
-  %19 = load ptr, ptr %15, align 8, !tbaa !68
+  %19 = load ptr, ptr %15, align 8, !tbaa !67
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !75
+  %21 = load ptr, ptr %20, align 8, !tbaa !74
   %.not2324 = icmp eq i32 %3, 0
   br i1 %.not2324, label %._crit_edge, label %.lr.ph
 
@@ -416,7 +416,7 @@ define void @jpeg_write_marker(ptr noundef %0, i32 noundef %1, ptr noundef reado
   tail call void %21(ptr noundef nonnull %0, i32 noundef %24) #4
   %25 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %.not23 = icmp eq i32 %22, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   ret void
@@ -425,7 +425,7 @@ define void @jpeg_write_marker(ptr noundef %0, i32 noundef %1, ptr noundef reado
 ; Function Attrs: nounwind uwtable
 define void @jpeg_write_m_header(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %5 = load i32, ptr %4, align 8, !tbaa !50
+  %5 = load i32, ptr %4, align 8, !tbaa !49
   %.not = icmp eq i32 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !37
@@ -447,9 +447,9 @@ define void @jpeg_write_m_header(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 13:                                               ; preds = %3, %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %15 = load ptr, ptr %14, align 8, !tbaa !68
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
   tail call void %17(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #4
   ret void
 }
@@ -457,9 +457,9 @@ define void @jpeg_write_m_header(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 ; Function Attrs: nounwind uwtable
 define void @jpeg_write_m_byte(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %4 = load ptr, ptr %3, align 8, !tbaa !68
+  %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   tail call void %6(ptr noundef %0, i32 noundef %1) #4
   ret void
 }
@@ -485,22 +485,22 @@ define void @jpeg_write_tables(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %4, %1
   %11 = load ptr, ptr %0, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !77
+  %13 = load ptr, ptr %12, align 8, !tbaa !76
   tail call void %13(ptr noundef nonnull %0) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !78
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
   tail call void %17(ptr noundef nonnull %0) #4
   tail call void @jinit_marker_writer(ptr noundef nonnull %0) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %19 = load ptr, ptr %18, align 8, !tbaa !68
+  %19 = load ptr, ptr %18, align 8, !tbaa !67
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !79
+  %21 = load ptr, ptr %20, align 8, !tbaa !78
   tail call void %21(ptr noundef nonnull %0) #4
   %22 = load ptr, ptr %14, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !71
+  %24 = load ptr, ptr %23, align 8, !tbaa !70
   tail call void %24(ptr noundef nonnull %0) #4
   ret void
 }
@@ -559,39 +559,38 @@ attributes #4 = { nounwind }
 !41 = !{!6, !6, i64 0}
 !42 = !{!43, !11, i64 128}
 !43 = !{!"", !7, i64 0, !11, i64 128}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !11, i64 276}
-!48 = !{!"", !7, i64 0, !7, i64 17, !11, i64 276}
-!49 = distinct !{!49, !45, !46}
-!50 = !{!4, !11, i64 304}
-!51 = !{!4, !11, i64 52}
-!52 = !{!53, !11, i64 28}
-!53 = !{!"jpeg_comp_master", !6, i64 0, !6, i64 8, !6, i64 16, !11, i64 24, !11, i64 28, !11, i64 32}
-!54 = !{!53, !6, i64 0}
-!55 = !{!4, !11, i64 320}
-!56 = !{!57, !27, i64 8}
-!57 = !{!"jpeg_progress_mgr", !6, i64 0, !27, i64 8, !27, i64 16, !11, i64 24, !11, i64 28}
-!58 = !{!57, !27, i64 16}
-!59 = !{!57, !6, i64 0}
-!60 = !{!4, !18, i64 456}
-!61 = !{!62, !6, i64 8}
-!62 = !{!"jpeg_c_coef_controller", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!63 = !{!62, !6, i64 16}
-!64 = !{!62, !6, i64 24}
-!65 = distinct !{!65, !45, !46}
-!66 = !{!53, !6, i64 16}
-!67 = distinct !{!67, !45, !46}
-!68 = !{!4, !19, i64 464}
-!69 = !{!70, !6, i64 24}
-!70 = !{!"jpeg_marker_writer", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
-!71 = !{!72, !6, i64 32}
-!72 = !{!"jpeg_destination_mgr", !73, i64 0, !27, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
-!73 = !{!"p1 omnipotent char", !6, i64 0}
-!74 = !{!70, !6, i64 40}
-!75 = !{!70, !6, i64 48}
-!76 = distinct !{!76, !45, !46}
-!77 = !{!26, !6, i64 32}
-!78 = !{!72, !6, i64 16}
-!79 = !{!70, !6, i64 32}
+!46 = !{!47, !11, i64 276}
+!47 = !{!"", !7, i64 0, !7, i64 17, !11, i64 276}
+!48 = distinct !{!48, !45}
+!49 = !{!4, !11, i64 304}
+!50 = !{!4, !11, i64 52}
+!51 = !{!52, !11, i64 28}
+!52 = !{!"jpeg_comp_master", !6, i64 0, !6, i64 8, !6, i64 16, !11, i64 24, !11, i64 28, !11, i64 32}
+!53 = !{!52, !6, i64 0}
+!54 = !{!4, !11, i64 320}
+!55 = !{!56, !27, i64 8}
+!56 = !{!"jpeg_progress_mgr", !6, i64 0, !27, i64 8, !27, i64 16, !11, i64 24, !11, i64 28}
+!57 = !{!56, !27, i64 16}
+!58 = !{!56, !6, i64 0}
+!59 = !{!4, !18, i64 456}
+!60 = !{!61, !6, i64 8}
+!61 = !{!"jpeg_c_coef_controller", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!62 = !{!61, !6, i64 16}
+!63 = !{!61, !6, i64 24}
+!64 = distinct !{!64, !45}
+!65 = !{!52, !6, i64 16}
+!66 = distinct !{!66, !45}
+!67 = !{!4, !19, i64 464}
+!68 = !{!69, !6, i64 24}
+!69 = !{!"jpeg_marker_writer", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!70 = !{!71, !6, i64 32}
+!71 = !{!"jpeg_destination_mgr", !72, i64 0, !27, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
+!72 = !{!"p1 omnipotent char", !6, i64 0}
+!73 = !{!69, !6, i64 40}
+!74 = !{!69, !6, i64 48}
+!75 = distinct !{!75, !45}
+!76 = !{!26, !6, i64 32}
+!77 = !{!71, !6, i64 16}
+!78 = !{!69, !6, i64 32}

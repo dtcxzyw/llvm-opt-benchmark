@@ -3276,7 +3276,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
   call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %7 unwind label %11
@@ -3336,7 +3336,7 @@ define void @_ZN17grpc_event_engine12experimental37ListenerContainerAddWildcardA
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %22 = load i8, ptr %21, align 4, !tbaa !94, !range !40, !noundef !60
+  %22 = load i8, ptr %21, align 4, !tbaa !93, !range !40, !noundef !60
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %29
 
@@ -3952,19 +3952,19 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1, %_ZN4absl12lts_2
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsINS0_6StatusETnNSt9enable_ifIXsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %4 = load i64, ptr %1, align 8, !tbaa !11, !noalias !95
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %4 = load i64, ptr %1, align 8, !tbaa !11, !noalias !94
   %5 = icmp eq i64 %4, 1
   br i1 %5, label %._crit_edge.i.i.i.i, label %9
 
 ._crit_edge.i.i.i.i:                              ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %3, align 8, !tbaa !80, !alias.scope !95
-  store i16 19279, ptr %6, align 8, !alias.scope !95
+  store ptr %6, ptr %3, align 8, !tbaa !80, !alias.scope !94
+  store i16 19279, ptr %6, align 8, !alias.scope !94
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %7, align 8, !tbaa !39, !alias.scope !95
+  store i64 2, ptr %7, align 8, !tbaa !39, !alias.scope !94
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i8 0, ptr %8, align 2, !tbaa !55, !alias.scope !95
+  store i8 0, ptr %8, align 2, !tbaa !55, !alias.scope !94
   br label %_ZNK4absl12lts_202407226Status8ToStringB5cxx11ENS0_18StatusToStringModeE.exit.i
 
 9:                                                ; preds = %2
@@ -4579,7 +4579,7 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit.i:      ; preds = %19
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %23, %29
   %.pr.i.pr = load i64, ptr %0, align 8, !tbaa !11
   %34 = icmp eq i64 %.pr.i.pr, 1
-  br i1 %34, label %35, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEE6AssignIS6_EEvOT_.exit, !prof !98
+  br i1 %34, label %35, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEE6AssignIS6_EEvOT_.exit, !prof !97
 
 35:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   tail call void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(156) %0)
@@ -4755,13 +4755,12 @@ attributes #32 = { nounwind willreturn memory(none) }
 !86 = !{!87, !87, i64 0}
 !87 = !{!"vtable pointer", !7, i64 0}
 !88 = !{!13, !13, i64 0}
-!89 = distinct !{!89, !90, !91}
+!89 = distinct !{!89, !90}
 !90 = !{!"llvm.loop.mustprogress"}
-!91 = !{!"llvm.loop.estimated_trip_count"}
-!92 = !{!93, !93, i64 0}
-!93 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !10, i64 0}
-!94 = !{!46, !18, i64 36}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK4absl12lts_202407226Status8ToStringB5cxx11ENS0_18StatusToStringModeE: argument 0"}
-!97 = distinct !{!97, !"_ZNK4absl12lts_202407226Status8ToStringB5cxx11ENS0_18StatusToStringModeE"}
-!98 = !{!"branch_weights", !"expected", i32 2146411, i32 2145337237}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !10, i64 0}
+!93 = !{!46, !18, i64 36}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZNK4absl12lts_202407226Status8ToStringB5cxx11ENS0_18StatusToStringModeE: argument 0"}
+!96 = distinct !{!96, !"_ZNK4absl12lts_202407226Status8ToStringB5cxx11ENS0_18StatusToStringModeE"}
+!97 = !{!"branch_weights", !"expected", i32 2146411, i32 2145337237}

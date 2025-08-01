@@ -483,7 +483,7 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %25 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %26 = icmp eq i64 %25, 2
   %27 = load i8, ptr %8, align 8
-  br i1 %26, label %.outer, label %28, !llvm.loop !5
+  br i1 %26, label %.outer, label %28
 
 28:                                               ; preds = %24
   %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -497,7 +497,7 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
 29:                                               ; preds = %20
   %30 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %31 = icmp eq i64 %30, 2
-  br i1 %31, label %9, label %32, !llvm.loop !5
+  br i1 %31, label %9, label %32
 
 32:                                               ; preds = %29
   %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -610,7 +610,7 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %25 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %26 = icmp eq i64 %25, 2
   %27 = load i8, ptr %8, align 8
-  br i1 %26, label %.outer, label %28, !llvm.loop !7
+  br i1 %26, label %.outer, label %28
 
 28:                                               ; preds = %24
   %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -624,7 +624,7 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
 29:                                               ; preds = %20
   %30 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %31 = icmp eq i64 %30, 2
-  br i1 %31, label %9, label %32, !llvm.loop !7
+  br i1 %31, label %9, label %32
 
 32:                                               ; preds = %29
   %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -698,7 +698,7 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   call void @_ZN5serde2de9MapAccess10next_value17h6ff2055033372f07E(ptr nonnull sret({ i64, [11 x i64] }) align 8 %3, ptr align 4 %1)
   %20 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %21 = icmp eq i64 %20, 2
-  br i1 %21, label %9, label %28, !llvm.loop !8
+  br i1 %21, label %9, label %28
 
 22:                                               ; preds = %18
   call void @_ZN5serde2de5Error15duplicate_field17h6387f98266635f58E(ptr nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %5, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
@@ -710,7 +710,7 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %24 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %25 = icmp eq i64 %24, 2
   %26 = load i8, ptr %8, align 8
-  br i1 %25, label %.outer, label %27, !llvm.loop !8
+  br i1 %25, label %.outer, label %27
 
 27:                                               ; preds = %23
   %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -865,7 +865,3 @@ attributes #9 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{}
 !4 = !{i64 0, i64 3}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}

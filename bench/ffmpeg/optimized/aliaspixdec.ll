@@ -217,7 +217,7 @@ bytestream2_init.exit:                            ; preds = %4
   %107 = sub i64 %13, %106
   %108 = trunc i64 %107 to i32
   %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %47, label %._crit_edge, !llvm.loop !38
+  br i1 %109, label %47, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %41
   %.067.lcssa = phi i32 [ 0, %41 ], [ %64, %.loopexit ]
@@ -301,7 +301,6 @@ attributes #6 = { noreturn nounwind }
 !32 = !{!18, !12, i64 112}
 !33 = !{!12, !12, i64 0}
 !34 = !{!18, !12, i64 116}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
+!37 = distinct !{!37, !36}

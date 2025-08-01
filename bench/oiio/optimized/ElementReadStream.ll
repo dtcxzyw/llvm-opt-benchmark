@@ -151,12 +151,12 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %_ZNK3dpx13GenericHe
 .lr.ph.i.i.i16:                                   ; preds = %25, %.lr.ph.i.i.i16
   %.06.i.i.i17 = phi i64 [ %32, %.lr.ph.i.i.i16 ], [ 0, %25 ]
   %29 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i17
-  %30 = load i16, ptr %29, align 2, !tbaa !24
+  %30 = load i16, ptr %29, align 2, !tbaa !23
   %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
-  store i16 %31, ptr %29, align 2, !tbaa !24
+  store i16 %31, ptr %29, align 2, !tbaa !23
   %32 = add nuw i64 %.06.i.i.i17, 1
   %exitcond.not.i.i.i18 = icmp eq i64 %32, %27
-  br i1 %exitcond.not.i.i.i18, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i16, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i18, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i16, !llvm.loop !24
 
 33:                                               ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
   %34 = shl i64 %4, 31
@@ -168,12 +168,12 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %_ZNK3dpx13GenericHe
 .lr.ph.i.i.i20:                                   ; preds = %33, %.lr.ph.i.i.i20
   %.06.i.i.i21 = phi i64 [ %40, %.lr.ph.i.i.i20 ], [ 0, %33 ]
   %37 = getelementptr inbounds nuw i16, ptr %3, i64 %.06.i.i.i21
-  %38 = load i16, ptr %37, align 2, !tbaa !24
+  %38 = load i16, ptr %37, align 2, !tbaa !23
   %39 = tail call noundef i16 @llvm.bswap.i16(i16 %38)
-  store i16 %39, ptr %37, align 2, !tbaa !24
+  store i16 %39, ptr %37, align 2, !tbaa !23
   %40 = add nuw i64 %.06.i.i.i21, 1
   %exitcond.not.i.i.i22 = icmp eq i64 %40, %35
-  br i1 %exitcond.not.i.i.i22, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i20, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i22, label %_ZN3dpx21EndianSwapImageBufferILNS_8DataSizeE2EEEvPvi.exit, label %.lr.ph.i.i.i20, !llvm.loop !24
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit.thread:   ; preds = %8, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
   %41 = shl i64 %4, 30
@@ -291,8 +291,7 @@ attributes #11 = { nounwind }
 !18 = !{!12, !10, i64 23}
 !19 = !{!12, !15, i64 24}
 !20 = !{!13, !13, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!15, !15, i64 0}
-!25 = distinct !{!25, !22, !23}
+!23 = !{!15, !15, i64 0}
+!24 = distinct !{!24, !22}

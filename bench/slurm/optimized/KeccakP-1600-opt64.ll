@@ -184,7 +184,7 @@ define dso_local void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr n
   store i64 %90, ptr %88, align 8
   %91 = add i32 %63, 4
   %.not74 = icmp ugt i32 %91, %2
-  br i1 %.not74, label %.preheader, label %.lr.ph81, !llvm.loop !12
+  br i1 %.not74, label %.preheader, label %.lr.ph81, !llvm.loop !11
 
 .lr.ph85:                                         ; preds = %.preheader, %.lr.ph85
   %92 = phi i32 [ %106, %.lr.ph85 ], [ %62, %.preheader ]
@@ -206,7 +206,7 @@ define dso_local void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr n
   store i64 %105, ptr %103, align 8
   %106 = add i32 %92, 2
   %.not75 = icmp ugt i32 %106, %2
-  br i1 %.not75, label %._crit_edge, label %.lr.ph85, !llvm.loop !13
+  br i1 %.not75, label %._crit_edge, label %.lr.ph85, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %92, %.lr.ph85 ]
@@ -320,7 +320,7 @@ KeccakP1600_AddBytesInLane.exit35:                ; preds = %31, %28
   %41 = add i32 %.02938, 1
   %42 = getelementptr inbounds nuw i8, ptr %.02740, i64 %.pre-phi
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %KeccakP1600_AddBytesInLane.exit35, %24, %KeccakP1600_AddBytesInLane.exit
   ret void
@@ -389,7 +389,7 @@ define dso_local void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures
   %24 = add i32 %.02935, 1
   %25 = getelementptr inbounds nuw i8, ptr %.02737, i64 %22
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %6
   ret void
@@ -1028,7 +1028,7 @@ define dso_local void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0
   %551 = xor i64 %550, %507
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %552 = icmp samesign ult i64 %indvars.iv, 22
-  br i1 %552, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %552, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %234
   %.1897.lcssa = phi i64 [ %.0896, %234 ], [ %422, %.lr.ph ]
@@ -6900,7 +6900,7 @@ define dso_local void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(no
   %28 = add i32 %.02935, 1
   %29 = getelementptr inbounds nuw i8, ptr %.02737, i64 %26
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %7
   ret void
@@ -6935,7 +6935,7 @@ define dso_local void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly
   store i8 %18, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
@@ -6962,7 +6962,7 @@ define dso_local void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captu
   store i64 %9, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -6992,7 +6992,7 @@ define dso_local void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captu
   store i64 %15, ptr %16, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.pre
-  br i1 %exitcond.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.i, !llvm.loop !18
 
 KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %.lr.ph.i, %9
   %17 = and i32 %4, -8
@@ -7022,7 +7022,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %.lr.ph.i, %9
   store i8 %28, ptr %29, align 1
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i43
-  br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44, !llvm.loop !18
+  br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44, !llvm.loop !17
 
 KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %KeccakP1600_ExtractAndAddLanes.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
@@ -7067,7 +7067,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %Keccak
   store i8 %44, ptr %45, align 1
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i50
-  br i1 %exitcond.not.i54, label %KeccakP1600_ExtractAndAddBytesInLane.exit55, label %.lr.ph.i51, !llvm.loop !18
+  br i1 %exitcond.not.i54, label %KeccakP1600_ExtractAndAddBytesInLane.exit55, label %.lr.ph.i51, !llvm.loop !17
 
 KeccakP1600_ExtractAndAddBytesInLane.exit55:      ; preds = %.lr.ph.i51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -7076,7 +7076,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit55:      ; preds = %.lr.ph.i51
   %48 = getelementptr inbounds nuw i8, ptr %.03560, i64 %wide.trip.count.i50
   %49 = getelementptr inbounds nuw i8, ptr %.03461, i64 %wide.trip.count.i50
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.preheader.i49, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader.i49, !llvm.loop !19
 
 .loopexit:                                        ; preds = %KeccakP1600_ExtractAndAddBytesInLane.exit55, %30, %KeccakP1600_ExtractAndAddBytesInLane.exit
   ret void
@@ -11318,7 +11318,7 @@ define dso_local i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0,
   %4096 = getelementptr inbounds nuw i64, ptr %.05996, i64 %75
   %4097 = sub i64 %.059115995, %55
   %.not = icmp ult i64 %4097, %55
-  br i1 %.not, label %._crit_edge, label %76, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %76, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %375, %4
   %.05959.lcssa = phi i64 [ %53, %4 ], [ %4095, %375 ]
@@ -13752,7 +13752,7 @@ define dso_local i64 @KeccakP1600_12rounds_FastLoop_Absorb(ptr noundef captures(
   %2236 = getelementptr inbounds nuw i64, ptr %.03176, i64 %75
   %2237 = sub i64 %.030913175, %55
   %.not = icmp ult i64 %2237, %55
-  br i1 %.not, label %._crit_edge, label %76, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %76, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %375, %4
   %.03139.lcssa = phi i64 [ %53, %4 ], [ %2235, %375 ]
@@ -13835,18 +13835,17 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

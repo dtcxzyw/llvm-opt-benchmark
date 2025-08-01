@@ -241,7 +241,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensStg(ptr noundef %0, ptr n
   store ptr %110, ptr %114, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %96
 
 .loopexit:                                        ; preds = %96, %83, %79, %71, %64, %52, %48, %44, %32, %28, %24, %21, %7, %4
   %.064 = phi i32 [ -20, %4 ], [ -22, %7 ], [ -22, %21 ], [ -22, %24 ], [ -22, %32 ], [ -22, %44 ], [ -22, %48 ], [ -22, %52 ], [ -21, %64 ], [ -21, %71 ], [ -21, %79 ], [ -22, %28 ], [ 0, %83 ], [ 0, %96 ]
@@ -276,46 +276,46 @@ define internal range(i32 -41, 12) i32 @idaNlsResidualSensStg(ptr noundef readon
   %11 = load ptr, ptr %0, align 8, !tbaa !38
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 912
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %8, double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %12, ptr noundef %14) #3
   %16 = load i32, ptr %7, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 936
-  %18 = load ptr, ptr %17, align 8, !tbaa !46
+  %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 1288
-  %20 = load double, ptr %19, align 8, !tbaa !47
+  %20 = load double, ptr %19, align 8, !tbaa !45
   %21 = load ptr, ptr %0, align 8, !tbaa !38
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 920
-  %24 = load ptr, ptr %23, align 8, !tbaa !48
+  %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %16, double noundef 1.000000e+00, ptr noundef %18, double noundef %20, ptr noundef %22, ptr noundef %24) #3
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %27 = load ptr, ptr %26, align 8, !tbaa !49
+  %27 = load ptr, ptr %26, align 8, !tbaa !47
   %28 = load i32, ptr %7, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 1272
-  %30 = load double, ptr %29, align 8, !tbaa !50
+  %30 = load double, ptr %29, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %32 = load ptr, ptr %31, align 8, !tbaa !51
+  %32 = load ptr, ptr %31, align 8, !tbaa !49
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %34 = load ptr, ptr %33, align 8, !tbaa !52
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 672
-  %36 = load ptr, ptr %35, align 8, !tbaa !53
-  %37 = load ptr, ptr %13, align 8, !tbaa !45
-  %38 = load ptr, ptr %23, align 8, !tbaa !48
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %37 = load ptr, ptr %13, align 8, !tbaa !43
+  %38 = load ptr, ptr %23, align 8, !tbaa !46
   %39 = load ptr, ptr %1, align 8, !tbaa !38
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %42 = load ptr, ptr %41, align 8, !tbaa !54
+  %42 = load ptr, ptr %41, align 8, !tbaa !52
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 952
-  %44 = load ptr, ptr %43, align 8, !tbaa !55
+  %44 = load ptr, ptr %43, align 8, !tbaa !53
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 960
-  %46 = load ptr, ptr %45, align 8, !tbaa !56
+  %46 = load ptr, ptr %45, align 8, !tbaa !54
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 968
-  %48 = load ptr, ptr %47, align 8, !tbaa !57
+  %48 = load ptr, ptr %47, align 8, !tbaa !55
   %49 = tail call i32 %27(i32 noundef %28, double noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef %48) #3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 1488
-  %51 = load i64, ptr %50, align 8, !tbaa !58
+  %51 = load i64, ptr %50, align 8, !tbaa !56
   %52 = add nsw i64 %51, 1
-  store i64 %52, ptr %50, align 8, !tbaa !58
+  store i64 %52, ptr %50, align 8, !tbaa !56
   %53 = icmp slt i32 %49, 0
   br i1 %53, label %55, label %54
 
@@ -349,25 +349,25 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTestSensStg(ptr noundef %0, p
   br i1 %.not, label %13, label %36
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %7, align 4, !tbaa !59
+  %14 = load i32, ptr %7, align 4, !tbaa !57
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1328
   br i1 %15, label %17, label %21
 
 17:                                               ; preds = %13
-  store double %11, ptr %16, align 8, !tbaa !60
+  store double %11, ptr %16, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1352
-  %19 = load double, ptr %18, align 8, !tbaa !61
+  %19 = load double, ptr %18, align 8, !tbaa !59
   %20 = fcmp ugt double %11, %19
   br i1 %20, label %._crit_edge, label %36
 
 ._crit_edge:                                      ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !62
+  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %32
 
 21:                                               ; preds = %13
-  %22 = load double, ptr %16, align 8, !tbaa !60
+  %22 = load double, ptr %16, align 8, !tbaa !58
   %23 = fdiv double %11, %22
   %24 = sitofp i32 %14 to double
   %25 = fdiv double 1.000000e+00, %24
@@ -379,7 +379,7 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTestSensStg(ptr noundef %0, p
   %29 = fsub double 1.000000e+00, %26
   %30 = fdiv double %26, %29
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  store double %30, ptr %31, align 8, !tbaa !62
+  store double %30, ptr %31, align 8, !tbaa !60
   br label %32
 
 32:                                               ; preds = %._crit_edge, %28
@@ -407,7 +407,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -15, 1) i32 @idaNlsInitSensStg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1856
-  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %5 = load ptr, ptr %4, align 8, !tbaa !26
@@ -422,7 +422,7 @@ define range(i32 -15, 1) i32 @idaNlsInitSensStg(ptr noundef %0) local_unnamed_ad
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !62
   %.not15 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %12 = load ptr, ptr %11, align 8, !tbaa !26
@@ -464,35 +464,35 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetupSensStg(i32 %0, ptr noundef w
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1616
-  %8 = load i64, ptr %7, align 8, !tbaa !65
+  %8 = load i64, ptr %7, align 8, !tbaa !63
   %9 = add nsw i64 %8, 1
-  store i64 %9, ptr %7, align 8, !tbaa !65
+  store i64 %9, ptr %7, align 8, !tbaa !63
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1856
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %15 = load ptr, ptr %14, align 8, !tbaa !52
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 672
-  %17 = load ptr, ptr %16, align 8, !tbaa !53
+  %17 = load ptr, ptr %16, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 952
-  %19 = load ptr, ptr %18, align 8, !tbaa !55
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 960
-  %21 = load ptr, ptr %20, align 8, !tbaa !56
+  %21 = load ptr, ptr %20, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 968
-  %23 = load ptr, ptr %22, align 8, !tbaa !57
+  %23 = load ptr, ptr %22, align 8, !tbaa !55
   %24 = tail call i32 %11(ptr noundef nonnull %2, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23) #3
-  store i32 1, ptr %1, align 4, !tbaa !59
+  store i32 1, ptr %1, align 4, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1288
-  %26 = load double, ptr %25, align 8, !tbaa !47
+  %26 = load double, ptr %25, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1304
-  store double %26, ptr %27, align 8, !tbaa !66
+  store double %26, ptr %27, align 8, !tbaa !64
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 1312
-  store double 1.000000e+00, ptr %28, align 8, !tbaa !67
+  store double 1.000000e+00, ptr %28, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 1320
-  store double 2.000000e+01, ptr %29, align 8, !tbaa !68
+  store double 2.000000e+01, ptr %29, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 1360
-  store double 2.000000e+01, ptr %30, align 8, !tbaa !62
+  store double 2.000000e+01, ptr %30, align 8, !tbaa !60
   %31 = icmp slt i32 %24, 0
   br i1 %31, label %33, label %32
 
@@ -536,11 +536,11 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensStg(ptr noundef readonly 
   %14 = load i32, ptr %5, align 8, !tbaa !29
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %17, label %.loopexit, !llvm.loop !69
+  br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %18 = load ptr, ptr %4, align 8, !tbaa !64
+  %18 = load ptr, ptr %4, align 8, !tbaa !62
   %19 = load ptr, ptr %0, align 8, !tbaa !38
   %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
@@ -548,9 +548,9 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensStg(ptr noundef readonly 
   %23 = load ptr, ptr %8, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !37
-  %26 = load ptr, ptr %9, align 8, !tbaa !51
-  %27 = load ptr, ptr %10, align 8, !tbaa !52
-  %28 = load ptr, ptr %11, align 8, !tbaa !53
+  %26 = load ptr, ptr %9, align 8, !tbaa !49
+  %27 = load ptr, ptr %10, align 8, !tbaa !50
+  %28 = load ptr, ptr %11, align 8, !tbaa !51
   %29 = tail call i32 %18(ptr noundef nonnull %1, ptr noundef %22, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28) #3
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.loopexit, label %31
@@ -624,30 +624,27 @@ attributes #3 = { nounwind }
 !40 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
 !41 = !{!42, !21, i64 0}
 !42 = !{!"_N_VectorContent_SensWrapper", !21, i64 0, !17, i64 8, !17, i64 12}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!15, !21, i64 912}
-!46 = !{!15, !21, i64 936}
-!47 = !{!15, !16, i64 1288}
-!48 = !{!15, !21, i64 920}
-!49 = !{!15, !5, i64 168}
-!50 = !{!15, !16, i64 1272}
-!51 = !{!15, !18, i64 640}
-!52 = !{!15, !18, i64 648}
-!53 = !{!15, !18, i64 672}
-!54 = !{!15, !5, i64 176}
-!55 = !{!15, !18, i64 952}
-!56 = !{!15, !18, i64 960}
-!57 = !{!15, !18, i64 968}
-!58 = !{!15, !22, i64 1488}
-!59 = !{!17, !17, i64 0}
-!60 = !{!15, !16, i64 1328}
-!61 = !{!15, !16, i64 1352}
-!62 = !{!15, !16, i64 1360}
-!63 = !{!15, !5, i64 1856}
-!64 = !{!15, !5, i64 1864}
-!65 = !{!15, !22, i64 1616}
-!66 = !{!15, !16, i64 1304}
-!67 = !{!15, !16, i64 1312}
-!68 = !{!15, !16, i64 1320}
-!69 = distinct !{!69, !44}
+!43 = !{!15, !21, i64 912}
+!44 = !{!15, !21, i64 936}
+!45 = !{!15, !16, i64 1288}
+!46 = !{!15, !21, i64 920}
+!47 = !{!15, !5, i64 168}
+!48 = !{!15, !16, i64 1272}
+!49 = !{!15, !18, i64 640}
+!50 = !{!15, !18, i64 648}
+!51 = !{!15, !18, i64 672}
+!52 = !{!15, !5, i64 176}
+!53 = !{!15, !18, i64 952}
+!54 = !{!15, !18, i64 960}
+!55 = !{!15, !18, i64 968}
+!56 = !{!15, !22, i64 1488}
+!57 = !{!17, !17, i64 0}
+!58 = !{!15, !16, i64 1328}
+!59 = !{!15, !16, i64 1352}
+!60 = !{!15, !16, i64 1360}
+!61 = !{!15, !5, i64 1856}
+!62 = !{!15, !5, i64 1864}
+!63 = !{!15, !22, i64 1616}
+!64 = !{!15, !16, i64 1304}
+!65 = !{!15, !16, i64 1312}
+!66 = !{!15, !16, i64 1320}

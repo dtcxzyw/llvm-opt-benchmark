@@ -162,7 +162,7 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit54: ; preds = %_ZNK14Ar
   %79 = load i32, ptr %23, align 8
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next81, %80
-  br i1 %81, label %.lr.ph68, label %thread-pre-split, !llvm.loop !9
+  br i1 %81, label %.lr.ph68, label %thread-pre-split, !llvm.loop !8
 
 thread-pre-split:                                 ; preds = %.lr.ph68, %.preheader
   %.pr = load i32, ptr %29, align 4
@@ -228,7 +228,7 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55: ; preds = %.lr.ph70
   %116 = load i32, ptr %29, align 4
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next84, %117
-  br i1 %118, label %.lr.ph70, label %.loopexit62.loopexit, !llvm.loop !10
+  br i1 %118, label %.lr.ph70, label %.loopexit62.loopexit, !llvm.loop !9
 
 .loopexit62.loopexit:                             ; preds = %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit55
   %.pre = load ptr, ptr %0, align 8
@@ -334,7 +334,7 @@ _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %134, %1
   store i32 %160, ptr %181, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph72, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph72, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph72, %_ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit, %129
   ret void
@@ -396,9 +396,8 @@ attributes #6 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

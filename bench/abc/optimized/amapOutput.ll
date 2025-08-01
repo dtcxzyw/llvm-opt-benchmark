@@ -602,7 +602,7 @@ Vec_PtrPush.exit149:                              ; preds = %.Vec_PtrGrow.exit11
 
 291:                                              ; preds = %288
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 32
-  %293 = load ptr, ptr %292, align 8, !tbaa !51
+  %293 = load ptr, ptr %292, align 8, !tbaa !50
   %.not.i150 = icmp eq ptr %293, null
   br i1 %.not.i150, label %298, label %294
 
@@ -644,7 +644,7 @@ Amap_OutputStructAlloc.exit152:                   ; preds = %298, %305, %308
 
 315:                                              ; preds = %288
   %316 = getelementptr inbounds nuw i8, ptr %290, i64 40
-  %317 = load ptr, ptr %316, align 8, !tbaa !52
+  %317 = load ptr, ptr %316, align 8, !tbaa !51
   %.not.i153 = icmp eq ptr %317, null
   br i1 %.not.i153, label %322, label %318
 
@@ -867,7 +867,7 @@ Vec_PtrPush.exit169:                              ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %422, align 4, !tbaa !18
   %423 = sext i32 %.val to i64
   %424 = icmp slt i64 %indvars.iv.next188, %423
-  br i1 %424, label %12, label %.critedge, !llvm.loop !53
+  br i1 %424, label %12, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %415
   %425 = icmp eq i32 %.val108191, %416
@@ -1010,9 +1010,8 @@ attributes #10 = { nounwind allocsize(1) }
 !45 = !{!"p1 _ZTS11Amap_Set_t_", !6, i64 0}
 !46 = !{!39, !26, i64 8}
 !47 = !{!43, !32, i64 64}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!39, !9, i64 32}
-!52 = !{!39, !9, i64 40}
-!53 = distinct !{!53, !49, !50}
+!50 = !{!39, !9, i64 32}
+!51 = !{!39, !9, i64 40}
+!52 = distinct !{!52, !49}

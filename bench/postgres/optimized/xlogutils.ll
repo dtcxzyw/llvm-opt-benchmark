@@ -727,7 +727,7 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
 47:                                               ; preds = %40, %25, %21, %18, %14, %.lr.ph
   %48 = call ptr @hash_seq_search(ptr noundef nonnull %5) #8
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %47, %8, %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
@@ -798,7 +798,7 @@ define dso_local void @XLogDropDatabase(i32 noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %27, %.lr.ph.i
   %35 = call ptr @hash_seq_search(ptr noundef nonnull %2) #8
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %forget_invalid_pages_db.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %forget_invalid_pages_db.exit, label %.lr.ph.i, !llvm.loop !9
 
 forget_invalid_pages_db.exit:                     ; preds = %34, %1, %5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
@@ -1019,7 +1019,7 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
 22:                                               ; preds = %21
   %23 = load volatile i32, ptr @InterruptPending, align 4
   %.not31.us = icmp eq i32 %23, 0
-  br i1 %.not31.us, label %25, label %24, !prof !11
+  br i1 %.not31.us, label %25, label %24, !prof !10
 
 24:                                               ; preds = %22
   call void @ProcessInterrupts() #8
@@ -1027,7 +1027,7 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
 
 25:                                               ; preds = %24, %22
   call void @pg_usleep(i64 noundef 1000) #8
-  br label %.split.us, !llvm.loop !12
+  br label %.split.us, !llvm.loop !11
 
 .split:                                           ; preds = %5
   %26 = tail call zeroext i1 @RecoveryInProgress() #8
@@ -1212,11 +1212,10 @@ attributes #10 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}

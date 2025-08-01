@@ -57,9 +57,9 @@ define range(i64 0, -9223372036854775808) i64 @Abc_allFlip(i64 noundef %0, ptr n
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = load i32, ptr %1, align 4, !tbaa !9
+  %4 = load i32, ptr %1, align 4, !tbaa !8
   %5 = xor i32 %4, 64
-  store i32 %5, ptr %1, align 4, !tbaa !9
+  store i32 %5, ptr %1, align 4, !tbaa !8
   %6 = xor i64 %0, -1
   br label %7
 
@@ -115,17 +115,17 @@ define i32 @adjustInfoAfterSwap(ptr noundef captures(none) %0, i32 noundef %1, i
 define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %3
-  %5 = load i64, ptr %4, align 8, !tbaa !11
+  %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = and i64 %5, %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !11
+  %8 = load i64, ptr %7, align 8, !tbaa !10
   %9 = and i64 %8, %0
   %10 = shl nuw i32 1, %1
   %11 = zext i32 %10 to i64
   %12 = shl i64 %9, %11
   %13 = or i64 %12, %6
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !11
+  %15 = load i64, ptr %14, align 8, !tbaa !10
   %16 = and i64 %15, %0
   %17 = lshr i64 %16, %11
   %18 = or i64 %13, %17
@@ -136,7 +136,7 @@ define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnam
 define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %3
-  %5 = load i64, ptr %4, align 8, !tbaa !11
+  %5 = load i64, ptr %4, align 8, !tbaa !10
   %6 = xor i64 %5, -1
   %7 = and i64 %0, %6
   %8 = shl nuw i32 1, %1
@@ -152,7 +152,7 @@ define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unname
 define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %7 = load i64, ptr %6, align 8, !tbaa !10
   %8 = xor i64 %7, -1
   %9 = and i64 %0, %8
   %10 = shl nuw i32 1, %1
@@ -167,7 +167,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
   %17 = add nsw i32 %1, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %18
-  %20 = load i64, ptr %19, align 8, !tbaa !11
+  %20 = load i64, ptr %19, align 8, !tbaa !10
   %21 = xor i64 %20, -1
   %22 = and i64 %0, %21
   %23 = shl nuw i32 1, %17
@@ -188,15 +188,15 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
   %.248 = tail call i64 @llvm.umin.i64(i64 %34, i64 %.147)
   %.2 = select i1 %35, i32 3, i32 %.1
   %36 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
-  %37 = load i64, ptr %36, align 8, !tbaa !11
+  %37 = load i64, ptr %36, align 8, !tbaa !10
   %38 = and i64 %37, %0
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !11
+  %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = and i64 %40, %0
   %42 = shl i64 %41, %11
   %43 = or i64 %42, %38
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !11
+  %45 = load i64, ptr %44, align 8, !tbaa !10
   %46 = and i64 %45, %0
   %47 = lshr i64 %46, %11
   %48 = or i64 %43, %47
@@ -225,7 +225,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
   %65 = lshr i64 %64, %11
   %66 = or i64 %63, %65
   %67 = icmp ult i64 %66, %.551
-  %68 = load i32, ptr %3, align 4, !tbaa !9
+  %68 = load i32, ptr %3, align 4, !tbaa !8
   br i1 %67, label %69, label %80
 
 69:                                               ; preds = %4
@@ -281,7 +281,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noun
 adjustInfoAfterSwap.exit:                         ; preds = %69, %97, %85, %82
   %storemerge = phi i32 [ %84, %82 ], [ %101, %97 ], [ %88, %85 ], [ %spec.select65, %69 ]
   %.052 = phi i64 [ %.551, %82 ], [ %.551, %97 ], [ %.551, %85 ], [ %66, %69 ]
-  store i32 %storemerge, ptr %3, align 4, !tbaa !9
+  store i32 %storemerge, ptr %3, align 4, !tbaa !8
   ret i64 %.052
 }
 
@@ -289,17 +289,17 @@ adjustInfoAfterSwap.exit:                         ; preds = %69, %97, %85, %82
 define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %7 = load i64, ptr %6, align 8, !tbaa !10
   %8 = and i64 %7, %0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !11
+  %10 = load i64, ptr %9, align 8, !tbaa !10
   %11 = and i64 %10, %0
   %12 = shl nuw i32 1, %1
   %13 = zext i32 %12 to i64
   %14 = shl i64 %11, %13
   %15 = or i64 %14, %8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !11
+  %17 = load i64, ptr %16, align 8, !tbaa !10
   %18 = and i64 %17, %0
   %19 = lshr i64 %18, %13
   %20 = or i64 %15, %19
@@ -307,7 +307,7 @@ define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, p
   br i1 %21, label %35, label %adjustInfoAfterSwap.exit
 
 adjustInfoAfterSwap.exit:                         ; preds = %4
-  %22 = load i32, ptr %3, align 4, !tbaa !9
+  %22 = load i32, ptr %3, align 4, !tbaa !8
   %23 = getelementptr inbounds i8, ptr %2, i64 %5
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %25 = add nsw i32 %1, 1
@@ -324,7 +324,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %4
   %33 = shl i32 3, %1
   %34 = select i1 %.not.i, i32 0, i32 %33
   %.0.i = xor i32 %34, %22
-  store i32 %.0.i, ptr %3, align 4, !tbaa !9
+  store i32 %.0.i, ptr %3, align 4, !tbaa !8
   br label %35
 
 35:                                               ; preds = %4, %adjustInfoAfterSwap.exit
@@ -338,7 +338,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
 
 5:                                                ; preds = %109, %4
   %.0 = phi i64 [ %0, %4 ], [ %.2, %109 ]
-  %6 = load i32, ptr %1, align 4, !tbaa !9
+  %6 = load i32, ptr %1, align 4, !tbaa !8
   br label %7
 
 7:                                                ; preds = %5, %108
@@ -347,13 +347,13 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %.01720 = phi i32 [ %6, %5 ], [ %.118, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = icmp eq i32 %.01720, %9
   br i1 %10, label %11, label %108
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv
-  %13 = load i64, ptr %12, align 8, !tbaa !11
+  %13 = load i64, ptr %12, align 8, !tbaa !10
   %14 = xor i64 %13, -1
   %15 = and i64 %.122, %14
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -367,7 +367,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.122)
   %spec.select61.i = zext i1 %23 to i32
   %24 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.next
-  %25 = load i64, ptr %24, align 8, !tbaa !11
+  %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = xor i64 %25, -1
   %27 = and i64 %.122, %26
   %28 = shl nuw nsw i32 2, %16
@@ -388,15 +388,15 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %.248.i = tail call i64 @llvm.umin.i64(i64 %39, i64 %.147.i)
   %.2.i = select i1 %40, i32 3, i32 %.1.i
   %41 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv
-  %42 = load i64, ptr %41, align 8, !tbaa !11
+  %42 = load i64, ptr %41, align 8, !tbaa !10
   %43 = and i64 %42, %.122
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !11
+  %45 = load i64, ptr %44, align 8, !tbaa !10
   %46 = and i64 %45, %.122
   %47 = shl i64 %46, %18
   %48 = or i64 %47, %43
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !11
+  %50 = load i64, ptr %49, align 8, !tbaa !10
   %51 = and i64 %50, %.122
   %52 = lshr i64 %51, %18
   %53 = or i64 %48, %52
@@ -425,7 +425,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
   %70 = lshr i64 %69, %18
   %71 = or i64 %68, %70
   %72 = icmp ult i64 %71, %.551.i
-  %73 = load i32, ptr %3, align 4, !tbaa !9
+  %73 = load i32, ptr %3, align 4, !tbaa !8
   br i1 %72, label %74, label %86
 
 74:                                               ; preds = %11
@@ -482,18 +482,18 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef readonly ca
 Extra_Truth6MinimumRoundOne.exit:                 ; preds = %74, %88, %91, %104
   %storemerge.i = phi i32 [ %90, %88 ], [ %107, %104 ], [ %94, %91 ], [ %spec.select65.i, %74 ]
   %.052.i = phi i64 [ %.551.i, %88 ], [ %.551.i, %104 ], [ %.551.i, %91 ], [ %71, %74 ]
-  store i32 %storemerge.i, ptr %3, align 4, !tbaa !9
+  store i32 %storemerge.i, ptr %3, align 4, !tbaa !8
   br label %108
 
 108:                                              ; preds = %7, %Extra_Truth6MinimumRoundOne.exit
   %.118 = phi i32 [ %.01720, %Extra_Truth6MinimumRoundOne.exit ], [ %9, %7 ]
   %.2 = phi i64 [ %.052.i, %Extra_Truth6MinimumRoundOne.exit ], [ %.122, %7 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %109, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %109, label %7, !llvm.loop !12
 
 109:                                              ; preds = %108
   %.not = icmp eq i64 %.0, %.2
-  br i1 %.not, label %110, label %5, !llvm.loop !14
+  br i1 %.not, label %110, label %5, !llvm.loop !13
 
 110:                                              ; preds = %109
   ret i64 %.0
@@ -505,7 +505,7 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef read
 
 5:                                                ; preds = %41, %4
   %.0 = phi i64 [ %0, %4 ], [ %.2, %41 ]
-  %6 = load i32, ptr %1, align 4, !tbaa !9
+  %6 = load i32, ptr %1, align 4, !tbaa !8
   br label %7
 
 7:                                                ; preds = %5, %Extra_Truth6MinimumRoundOne_noEBFC.exit
@@ -514,16 +514,16 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef read
   %.01720 = phi i32 [ %6, %5 ], [ %.118, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = icmp eq i32 %.01720, %9
   br i1 %10, label %11, label %Extra_Truth6MinimumRoundOne_noEBFC.exit
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv
-  %13 = load i64, ptr %12, align 8, !tbaa !11
+  %13 = load i64, ptr %12, align 8, !tbaa !10
   %14 = and i64 %13, %.122
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %16 = load i64, ptr %15, align 8, !tbaa !10
   %17 = and i64 %16, %.122
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = shl nuw nsw i32 1, %18
@@ -531,7 +531,7 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef read
   %21 = shl i64 %17, %20
   %22 = or i64 %21, %14
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !11
+  %24 = load i64, ptr %23, align 8, !tbaa !10
   %25 = and i64 %24, %.122
   %26 = lshr i64 %25, %20
   %27 = or i64 %22, %26
@@ -539,7 +539,7 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr noundef read
   br i1 %28, label %Extra_Truth6MinimumRoundOne_noEBFC.exit, label %adjustInfoAfterSwap.exit.i
 
 adjustInfoAfterSwap.exit.i:                       ; preds = %11
-  %29 = load i32, ptr %3, align 4, !tbaa !9
+  %29 = load i32, ptr %3, align 4, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next
@@ -555,18 +555,18 @@ adjustInfoAfterSwap.exit.i:                       ; preds = %11
   %39 = shl nuw nsw i32 3, %18
   %40 = select i1 %.not.i.i, i32 0, i32 %39
   %.0.i.i = xor i32 %40, %29
-  store i32 %.0.i.i, ptr %3, align 4, !tbaa !9
+  store i32 %.0.i.i, ptr %3, align 4, !tbaa !8
   br label %Extra_Truth6MinimumRoundOne_noEBFC.exit
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit:          ; preds = %adjustInfoAfterSwap.exit.i, %11, %7
   %.118 = phi i32 [ %9, %7 ], [ %.01720, %11 ], [ %.01720, %adjustInfoAfterSwap.exit.i ]
   %.2 = phi i64 [ %.122, %7 ], [ %.122, %11 ], [ %27, %adjustInfoAfterSwap.exit.i ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %41, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %41, label %7, !llvm.loop !14
 
 41:                                               ; preds = %Extra_Truth6MinimumRoundOne_noEBFC.exit
   %.not = icmp eq i64 %.0, %.2
-  br i1 %.not, label %42, label %5, !llvm.loop !16
+  br i1 %.not, label %42, label %5, !llvm.loop !15
 
 42:                                               ; preds = %41
   ret i64 %.0
@@ -578,7 +578,7 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly c
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  %7 = load i32, ptr %3, align 4, !tbaa !9
+  %7 = load i32, ptr %3, align 4, !tbaa !8
   %8 = lshr i32 %7, 7
   switch i32 %8, label %136 [
     i32 0, label %.preheader
@@ -590,7 +590,7 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly c
 .preheader:                                       ; preds = %4, %46
   %9 = phi i32 [ %45, %46 ], [ %7, %4 ]
   %.0.i = phi i64 [ %.2.i, %46 ], [ %0, %4 ]
-  %10 = load i32, ptr %1, align 4, !tbaa !9
+  %10 = load i32, ptr %1, align 4, !tbaa !8
   br label %11
 
 11:                                               ; preds = %Extra_Truth6MinimumRoundOne_noEBFC.exit.i, %.preheader
@@ -600,16 +600,16 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly c
   %.01720.i = phi i32 [ %10, %.preheader ], [ %.118.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i
-  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %14 = load i32, ptr %13, align 4, !tbaa !8
   %15 = icmp eq i32 %.01720.i, %14
   br i1 %15, label %16, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i
-  %18 = load i64, ptr %17, align 8, !tbaa !11
+  %18 = load i64, ptr %17, align 8, !tbaa !10
   %19 = and i64 %18, %.122.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !11
+  %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = and i64 %21, %.122.i
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = shl nuw nsw i32 1, %23
@@ -617,7 +617,7 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr noundef readonly c
   %26 = shl i64 %22, %25
   %27 = or i64 %26, %19
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !11
+  %29 = load i64, ptr %28, align 8, !tbaa !10
   %30 = and i64 %29, %.122.i
   %31 = lshr i64 %30, %25
   %32 = or i64 %27, %31
@@ -640,7 +640,7 @@ adjustInfoAfterSwap.exit.i.i:                     ; preds = %16
   %43 = shl nuw nsw i32 3, %23
   %44 = select i1 %.not.i.i.i, i32 0, i32 %43
   %.0.i.i.i = xor i32 %44, %12
-  store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !9
+  store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !8
   br label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap.exit.i.i, %16, %11
@@ -648,11 +648,11 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
   %.118.i = phi i32 [ %14, %11 ], [ %.01720.i, %16 ], [ %.01720.i, %adjustInfoAfterSwap.exit.i.i ]
   %.2.i = phi i64 [ %.122.i, %11 ], [ %.122.i, %16 ], [ %32, %adjustInfoAfterSwap.exit.i.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %46, label %11, !llvm.loop !15
+  br i1 %exitcond.not.i, label %46, label %11, !llvm.loop !14
 
 46:                                               ; preds = %Extra_Truth6MinimumRoundOne_noEBFC.exit.i
   %.not.i = icmp eq i64 %.0.i, %.2.i
-  br i1 %.not.i, label %Extra_Truth6MinimumRoundMany_noEBFC.exit, label %.preheader, !llvm.loop !16
+  br i1 %.not.i, label %Extra_Truth6MinimumRoundMany_noEBFC.exit, label %.preheader, !llvm.loop !15
 
 47:                                               ; preds = %4
   %48 = tail call i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
@@ -666,7 +666,7 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
 51:                                               ; preds = %89, %49
   %52 = phi i32 [ %7, %49 ], [ %88, %89 ]
   %.0.i47 = phi i64 [ %0, %49 ], [ %.2.i54, %89 ]
-  %53 = load i32, ptr %1, align 4, !tbaa !9
+  %53 = load i32, ptr %1, align 4, !tbaa !8
   br label %54
 
 54:                                               ; preds = %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52, %51
@@ -676,16 +676,16 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
   %.01720.i50 = phi i32 [ %53, %51 ], [ %.118.i53, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i51
-  %57 = load i32, ptr %56, align 4, !tbaa !9
+  %57 = load i32, ptr %56, align 4, !tbaa !8
   %58 = icmp eq i32 %.01720.i50, %57
   br i1 %58, label %59, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i48
-  %61 = load i64, ptr %60, align 8, !tbaa !11
+  %61 = load i64, ptr %60, align 8, !tbaa !10
   %62 = and i64 %61, %.122.i49
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !11
+  %64 = load i64, ptr %63, align 8, !tbaa !10
   %65 = and i64 %64, %.122.i49
   %66 = trunc nuw nsw i64 %indvars.iv.i48 to i32
   %67 = shl nuw nsw i32 1, %66
@@ -693,7 +693,7 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
   %69 = shl i64 %65, %68
   %70 = or i64 %69, %62
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !11
+  %72 = load i64, ptr %71, align 8, !tbaa !10
   %73 = and i64 %72, %.122.i49
   %74 = lshr i64 %73, %68
   %75 = or i64 %70, %74
@@ -716,7 +716,7 @@ adjustInfoAfterSwap.exit.i.i57:                   ; preds = %59
   %86 = shl nuw nsw i32 3, %66
   %87 = select i1 %.not.i.i.i58, i32 0, i32 %86
   %.0.i.i.i59 = xor i32 %87, %55
-  store i32 %.0.i.i.i59, ptr %3, align 4, !tbaa !9
+  store i32 %.0.i.i.i59, ptr %3, align 4, !tbaa !8
   br label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit.i52:      ; preds = %adjustInfoAfterSwap.exit.i.i57, %59, %54
@@ -724,15 +724,15 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i52:      ; preds = %adjustInfoAfterSwap
   %.118.i53 = phi i32 [ %57, %54 ], [ %.01720.i50, %59 ], [ %.01720.i50, %adjustInfoAfterSwap.exit.i.i57 ]
   %.2.i54 = phi i64 [ %.122.i49, %54 ], [ %.122.i49, %59 ], [ %75, %adjustInfoAfterSwap.exit.i.i57 ]
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i51, 5
-  br i1 %exitcond.not.i55, label %89, label %54, !llvm.loop !15
+  br i1 %exitcond.not.i55, label %89, label %54, !llvm.loop !14
 
 89:                                               ; preds = %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52
   %.not.i56 = icmp eq i64 %.0.i47, %.2.i54
-  br i1 %.not.i56, label %Extra_Truth6MinimumRoundMany_noEBFC.exit60, label %51, !llvm.loop !16
+  br i1 %.not.i56, label %Extra_Truth6MinimumRoundMany_noEBFC.exit60, label %51, !llvm.loop !15
 
 Extra_Truth6MinimumRoundMany_noEBFC.exit60:       ; preds = %89
   %90 = xor i64 %0, -1
-  %91 = load i32, ptr %1, align 4, !tbaa !9
+  %91 = load i32, ptr %1, align 4, !tbaa !8
   br label %92
 
 92:                                               ; preds = %127, %Extra_Truth6MinimumRoundMany_noEBFC.exit60
@@ -747,16 +747,16 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit60:       ; preds = %89
   %.01720.i64 = phi i32 [ %91, %92 ], [ %.118.i67, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i62, 1
   %94 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i65
-  %95 = load i32, ptr %94, align 4, !tbaa !9
+  %95 = load i32, ptr %94, align 4, !tbaa !8
   %96 = icmp eq i32 %.01720.i64, %95
   br i1 %96, label %97, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i62
-  %99 = load i64, ptr %98, align 8, !tbaa !11
+  %99 = load i64, ptr %98, align 8, !tbaa !10
   %100 = and i64 %99, %.122.i63
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !11
+  %102 = load i64, ptr %101, align 8, !tbaa !10
   %103 = and i64 %102, %.122.i63
   %104 = trunc nuw nsw i64 %indvars.iv.i62 to i32
   %105 = shl nuw nsw i32 1, %104
@@ -764,7 +764,7 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit60:       ; preds = %89
   %107 = shl i64 %103, %106
   %108 = or i64 %107, %100
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !11
+  %110 = load i64, ptr %109, align 8, !tbaa !10
   %111 = and i64 %110, %.122.i63
   %112 = lshr i64 %111, %106
   %113 = or i64 %108, %112
@@ -794,24 +794,24 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i66:      ; preds = %adjustInfoAfterSwap
   %.118.i67 = phi i32 [ %95, %93 ], [ %.01720.i64, %97 ], [ %.01720.i64, %adjustInfoAfterSwap.exit.i.i71 ]
   %.2.i68 = phi i64 [ %.122.i63, %93 ], [ %.122.i63, %97 ], [ %113, %adjustInfoAfterSwap.exit.i.i71 ]
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i65, 5
-  br i1 %exitcond.not.i69, label %127, label %93, !llvm.loop !15
+  br i1 %exitcond.not.i69, label %127, label %93, !llvm.loop !14
 
 127:                                              ; preds = %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66
   %.not.i70 = icmp eq i64 %.0.i61, %.2.i68
-  br i1 %.not.i70, label %Extra_Truth6MinimumRoundMany_noEBFC.exit74, label %92, !llvm.loop !16
+  br i1 %.not.i70, label %Extra_Truth6MinimumRoundMany_noEBFC.exit74, label %92, !llvm.loop !15
 
 Extra_Truth6MinimumRoundMany_noEBFC.exit74:       ; preds = %127
   %.not46 = icmp ugt i64 %.0.i47, %.0.i61
   br i1 %.not46, label %128, label %Extra_Truth6MinimumRoundMany_noEBFC.exit
 
 128:                                              ; preds = %Extra_Truth6MinimumRoundMany_noEBFC.exit74
-  store i32 %126, ptr %3, align 4, !tbaa !9
+  store i32 %126, ptr %3, align 4, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   br label %Extra_Truth6MinimumRoundMany_noEBFC.exit
 
 129:                                              ; preds = %4
   %130 = xor i32 %7, 64
-  store i32 %130, ptr %6, align 4, !tbaa !9
+  store i32 %130, ptr %6, align 4, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
   %131 = tail call i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %132 = xor i64 %0, -1
@@ -820,8 +820,8 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit74:       ; preds = %127
   br i1 %.not, label %134, label %Extra_Truth6MinimumRoundMany_noEBFC.exit
 
 134:                                              ; preds = %129
-  %135 = load i32, ptr %6, align 4, !tbaa !9
-  store i32 %135, ptr %3, align 4, !tbaa !9
+  %135 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %135, ptr %3, align 4, !tbaa !8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   br label %Extra_Truth6MinimumRoundMany_noEBFC.exit
 
@@ -842,10 +842,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
   %5 = alloca i64, align 8
-  store i64 %0, ptr %5, align 8, !tbaa !11
+  store i64 %0, ptr %5, align 8, !tbaa !10
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #10
-  store i32 %6, ptr %3, align 4, !tbaa !9
-  %7 = load i64, ptr %5, align 8, !tbaa !11
+  store i32 %6, ptr %3, align 4, !tbaa !8
+  %7 = load i64, ptr %5, align 8, !tbaa !10
   %8 = call i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   ret i64 %8
 }
@@ -855,22 +855,22 @@ declare i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
   %5 = alloca i64, align 8
-  store i64 %0, ptr %5, align 8, !tbaa !11
+  store i64 %0, ptr %5, align 8, !tbaa !10
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #10
-  store i32 %6, ptr %3, align 4, !tbaa !9
-  %7 = load i64, ptr %5, align 8, !tbaa !11
+  store i32 %6, ptr %3, align 4, !tbaa !8
+  %7 = load i64, ptr %5, align 8, !tbaa !10
   %8 = call i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
-  store i64 %8, ptr %5, align 8, !tbaa !11
+  store i64 %8, ptr %5, align 8, !tbaa !10
   call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %5, i32 noundef 6, i32 noundef 5) #10
   call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %5, i32 noundef 6, i32 noundef 4) #10
   call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %5, i32 noundef 6, i32 noundef 3) #10
   call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %5, i32 noundef 6, i32 noundef 2) #10
   call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %5, i32 noundef 6, i32 noundef 1) #10
   call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %5, i32 noundef 6, i32 noundef 0) #10
-  %9 = load i32, ptr %3, align 4, !tbaa !9
+  %9 = load i32, ptr %3, align 4, !tbaa !8
   %10 = xor i32 %9, 63
-  store i32 %10, ptr %3, align 4, !tbaa !9
-  %11 = load i64, ptr %5, align 8, !tbaa !11
+  store i32 %10, ptr %3, align 4, !tbaa !8
+  %11 = load i64, ptr %5, align 8, !tbaa !10
   %12 = call i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   ret i64 %12
 }
@@ -900,14 +900,13 @@ attributes #10 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !4, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !4, i64 0}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !4, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !4, i64 0}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

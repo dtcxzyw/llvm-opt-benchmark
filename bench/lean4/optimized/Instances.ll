@@ -30564,7 +30564,7 @@ lean_dec.exit50:                                  ; preds = %120, %119, %117, %l
 
 lean_dec.exit52.backedge:                         ; preds = %123, %127, %129, %130, %58, %62, %64, %65, %lean_alloc_ctor.exit, %66
   %.046.be = phi ptr [ %.0, %66 ], [ %132, %lean_alloc_ctor.exit ], [ %.046, %65 ], [ %.046, %64 ], [ %.046, %62 ], [ %.046, %58 ], [ %.046, %130 ], [ %.046, %129 ], [ %.046, %127 ], [ %.046, %123 ]
-  br label %lean_dec.exit52, !llvm.loop !20
+  br label %lean_dec.exit52
 
 124:                                              ; preds = %123
   %125 = load i32, ptr %20, align 4, !tbaa !4
@@ -32533,7 +32533,7 @@ lean_dec.exit.us:                                 ; preds = %lean_nat_eq.exit.us
   %33 = phi i64 [ %24, %23 ], [ %20, %30 ], [ %20, %29 ], [ %20, %31 ], [ %22, %lean_nat_eq.exit.us.thread ]
   %.224.us = phi ptr [ %25, %23 ], [ %.02237.us, %30 ], [ %.02237.us, %29 ], [ %.02237.us, %31 ], [ %.02237.us, %lean_nat_eq.exit.us.thread ]
   %.not.us = icmp eq i64 %33, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02038 = phi i64 [ %.2, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -49888,7 +49888,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit39
   %.034.be = phi ptr [ %.0, %lean_inc.exit39 ], [ %72, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !24
+  br label %6
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -50170,7 +50170,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit48
   %.041.be = phi ptr [ %.0, %lean_inc.exit48 ], [ %96, %lean_alloc_ctor.exit ]
-  br label %9, !llvm.loop !25
+  br label %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -50344,7 +50344,7 @@ lean_alloc_ctor.exit43:                           ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit43, %lean_alloc_ctor.exit
   %.033.be = phi ptr [ %.0, %lean_alloc_ctor.exit ], [ %60, %lean_alloc_ctor.exit43 ]
-  br label %3, !llvm.loop !26
+  br label %3
 }
 
 declare ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef) local_unnamed_addr #2
@@ -89634,9 +89634,4 @@ attributes #7 = { noreturn nounwind }
 !18 = !{!"branch_weights", i32 4001, i32 4000000}
 !19 = !{!7, !7, i64 0}
 !20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}

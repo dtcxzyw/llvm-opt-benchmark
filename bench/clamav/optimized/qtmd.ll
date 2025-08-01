@@ -111,7 +111,7 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   store i16 %55, ptr %56, align 2, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i, label %qtmd_init_model.exit, label %52, !llvm.loop !41
+  br i1 %exitcond.not.i, label %qtmd_init_model.exit, label %52
 
 qtmd_init_model.exit:                             ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 128
@@ -134,7 +134,7 @@ qtmd_init_model.exit:                             ; preds = %52
   store i16 %65, ptr %66, align 2, !tbaa !40
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 65
-  br i1 %exitcond.not.i84, label %qtmd_init_model.exit85, label %61, !llvm.loop !41
+  br i1 %exitcond.not.i84, label %qtmd_init_model.exit85, label %61
 
 qtmd_init_model.exit85:                           ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 144
@@ -157,7 +157,7 @@ qtmd_init_model.exit85:                           ; preds = %61
   store i16 %75, ptr %76, align 2, !tbaa !40
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, 65
-  br i1 %exitcond.not.i88, label %qtmd_init_model.exit89, label %71, !llvm.loop !41
+  br i1 %exitcond.not.i88, label %qtmd_init_model.exit89, label %71
 
 qtmd_init_model.exit89:                           ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 160
@@ -180,7 +180,7 @@ qtmd_init_model.exit89:                           ; preds = %71
   store i16 %85, ptr %86, align 2, !tbaa !40
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, 65
-  br i1 %exitcond.not.i92, label %qtmd_init_model.exit93, label %81, !llvm.loop !41
+  br i1 %exitcond.not.i92, label %qtmd_init_model.exit93, label %81
 
 qtmd_init_model.exit93:                           ; preds = %81
   %87 = shl nuw nsw i32 %3, 1
@@ -208,7 +208,7 @@ qtmd_init_model.exit93:                           ; preds = %81
   store i16 %99, ptr %100, align 2, !tbaa !40
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i
-  br i1 %exitcond.not.i96, label %qtmd_init_model.exit97, label %94, !llvm.loop !41
+  br i1 %exitcond.not.i96, label %qtmd_init_model.exit97, label %94
 
 qtmd_init_model.exit97:                           ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 192
@@ -235,7 +235,7 @@ qtmd_init_model.exit97:                           ; preds = %94
   store i16 %112, ptr %113, align 2, !tbaa !40
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i98
-  br i1 %exitcond.not.i101, label %qtmd_init_model.exit102, label %107, !llvm.loop !41
+  br i1 %exitcond.not.i101, label %qtmd_init_model.exit102, label %107
 
 qtmd_init_model.exit102:                          ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %15, i64 208
@@ -261,7 +261,7 @@ qtmd_init_model.exit102:                          ; preds = %107
   store i16 %124, ptr %125, align 2, !tbaa !40
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i103
-  br i1 %exitcond.not.i106, label %qtmd_init_model.exit107, label %119, !llvm.loop !41
+  br i1 %exitcond.not.i106, label %qtmd_init_model.exit107, label %119
 
 qtmd_init_model.exit107:                          ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 224
@@ -283,7 +283,7 @@ qtmd_init_model.exit107:                          ; preds = %119
   store i16 %133, ptr %134, align 2, !tbaa !40
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 28
-  br i1 %exitcond.not.i110, label %qtmd_init_model.exit111, label %130, !llvm.loop !41
+  br i1 %exitcond.not.i110, label %qtmd_init_model.exit111, label %130
 
 qtmd_init_model.exit111:                          ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %15, i64 240
@@ -305,7 +305,7 @@ qtmd_init_model.exit111:                          ; preds = %130
   store i16 %142, ptr %143, align 2, !tbaa !40
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 8
-  br i1 %exitcond.not.i114, label %qtmd_init_model.exit115, label %139, !llvm.loop !41
+  br i1 %exitcond.not.i114, label %qtmd_init_model.exit115, label %139
 
 qtmd_init_model.exit115:                          ; preds = %139, %12, %8, %5, %26
   %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %8 ], [ null, %12 ], [ %15, %139 ]
@@ -344,7 +344,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 18:                                               ; preds = %8
   %19 = load ptr, ptr %0, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = tail call i32 %21(ptr noundef %23, ptr noundef %12, i32 noundef %.01072) #3
@@ -386,11 +386,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8, !tbaa !25
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %50 = load i16, ptr %49, align 4, !tbaa !44
+  %50 = load i16, ptr %49, align 4, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  %52 = load i16, ptr %51, align 2, !tbaa !45
+  %52 = load i16, ptr %51, align 2, !tbaa !43
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %54 = load i16, ptr %53, align 8, !tbaa !46
+  %54 = load i16, ptr %53, align 8, !tbaa !44
   %55 = load ptr, ptr %9, align 8, !tbaa !30
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %32 to i64
@@ -458,7 +458,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 90:                                               ; preds = %.lr.ph
   %91 = load ptr, ptr %0, align 8, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !47
+  %93 = load ptr, ptr %92, align 8, !tbaa !45
   %94 = load ptr, ptr %62, align 8, !tbaa !20
   %95 = load ptr, ptr %63, align 8, !tbaa !17
   %96 = load i32, ptr %64, align 4, !tbaa !22
@@ -478,9 +478,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 103:                                              ; preds = %101
   %104 = load ptr, ptr %63, align 8, !tbaa !17
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store i8 0, ptr %105, align 1, !tbaa !48
+  store i8 0, ptr %105, align 1, !tbaa !46
   %106 = load ptr, ptr %63, align 8, !tbaa !17
-  store i8 0, ptr %106, align 1, !tbaa !48
+  store i8 0, ptr %106, align 1, !tbaa !46
   store i8 1, ptr %65, align 1, !tbaa !32
   br label %108
 
@@ -501,14 +501,14 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.5878 = phi ptr [ %111, %108 ], [ %.38761909, %.lr.ph ]
   %.5830 = phi ptr [ %109, %108 ], [ %.38281910, %.lr.ph ]
   %113 = getelementptr inbounds nuw i8, ptr %.5830, i64 1
-  %114 = load i8, ptr %.5830, align 1, !tbaa !48
+  %114 = load i8, ptr %.5830, align 1, !tbaa !46
   %.not1228 = icmp ult ptr %113, %.5878
   br i1 %.not1228, label %137, label %115
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %0, align 8, !tbaa !19
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !47
+  %118 = load ptr, ptr %117, align 8, !tbaa !45
   %119 = load ptr, ptr %62, align 8, !tbaa !20
   %120 = load ptr, ptr %63, align 8, !tbaa !17
   %121 = load i32, ptr %64, align 4, !tbaa !22
@@ -528,9 +528,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 128:                                              ; preds = %126
   %129 = load ptr, ptr %63, align 8, !tbaa !17
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  store i8 0, ptr %130, align 1, !tbaa !48
+  store i8 0, ptr %130, align 1, !tbaa !46
   %131 = load ptr, ptr %63, align 8, !tbaa !17
-  store i8 0, ptr %131, align 1, !tbaa !48
+  store i8 0, ptr %131, align 1, !tbaa !46
   store i8 1, ptr %65, align 1, !tbaa !32
   br label %133
 
@@ -551,7 +551,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.6879 = phi ptr [ %136, %133 ], [ %.5878, %112 ]
   %.6831 = phi ptr [ %134, %133 ], [ %113, %112 ]
   %138 = getelementptr inbounds nuw i8, ptr %.6831, i64 1
-  %139 = load i8, ptr %.6831, align 1, !tbaa !48
+  %139 = load i8, ptr %.6831, align 1, !tbaa !46
   %140 = zext i8 %114 to i32
   %141 = shl nuw nsw i32 %140, 8
   %142 = zext i8 %139 to i32
@@ -561,7 +561,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %146 = or i32 %145, %.39481908
   %147 = add nsw i32 %.39981907, 16
   %148 = icmp slt i32 %.39981907, 0
-  br i1 %148, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !49
+  br i1 %148, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %137
   %.pre.pre = load ptr, ptr %9, align 8, !tbaa !30
@@ -618,11 +618,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %164 = zext i16 %.311022101 to i32
   %165 = zext i16 %.311222100 to i32
   %166 = sub nsw i32 %164, %165
-  %167 = load ptr, ptr %68, align 8, !tbaa !50
+  %167 = load ptr, ptr %68, align 8, !tbaa !47
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 2
   %169 = load i16, ptr %168, align 2, !tbaa !40
   %170 = zext i16 %169 to i32
-  %171 = load i32, ptr %69, align 4, !tbaa !51
+  %171 = load i32, ptr %69, align 4, !tbaa !48
   %172 = icmp sgt i32 %171, 1
   br i1 %172, label %.lr.ph1916, label %._crit_edge1917
 
@@ -649,7 +649,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 185:                                              ; preds = %182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge1917, label %182, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge1917, label %182
 
 ._crit_edge1917.loopexit.split.loop.exit:         ; preds = %182
   %186 = trunc nuw nsw i64 %indvars.iv to i32
@@ -676,7 +676,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %199 = add i16 %198, 8
   store i16 %199, ptr %197, align 2, !tbaa !40
   %200 = icmp sgt i64 %indvars.iv2369, 1
-  br i1 %200, label %196, label %201, !llvm.loop !53
+  br i1 %200, label %196, label %201
 
 201:                                              ; preds = %196
   %202 = add nsw i32 %166, 1
@@ -751,7 +751,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 233:                                              ; preds = %.lr.ph1926
   %234 = load ptr, ptr %0, align 8, !tbaa !19
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !47
+  %236 = load ptr, ptr %235, align 8, !tbaa !45
   %237 = load ptr, ptr %62, align 8, !tbaa !20
   %238 = load ptr, ptr %63, align 8, !tbaa !17
   %239 = load i32, ptr %64, align 4, !tbaa !22
@@ -771,9 +771,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 246:                                              ; preds = %244
   %247 = load ptr, ptr %63, align 8, !tbaa !17
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 1
-  store i8 0, ptr %248, align 1, !tbaa !48
+  store i8 0, ptr %248, align 1, !tbaa !46
   %249 = load ptr, ptr %63, align 8, !tbaa !17
-  store i8 0, ptr %249, align 1, !tbaa !48
+  store i8 0, ptr %249, align 1, !tbaa !46
   store i8 1, ptr %65, align 1, !tbaa !32
   br label %251
 
@@ -794,14 +794,14 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.12885 = phi ptr [ %254, %251 ], [ %.108831923, %.lr.ph1926 ]
   %.12837 = phi ptr [ %252, %251 ], [ %.108351924, %.lr.ph1926 ]
   %256 = getelementptr inbounds nuw i8, ptr %.12837, i64 1
-  %257 = load i8, ptr %.12837, align 1, !tbaa !48
+  %257 = load i8, ptr %.12837, align 1, !tbaa !46
   %.not1236 = icmp ult ptr %256, %.12885
   br i1 %.not1236, label %280, label %258
 
 258:                                              ; preds = %255
   %259 = load ptr, ptr %0, align 8, !tbaa !19
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  %261 = load ptr, ptr %260, align 8, !tbaa !47
+  %261 = load ptr, ptr %260, align 8, !tbaa !45
   %262 = load ptr, ptr %62, align 8, !tbaa !20
   %263 = load ptr, ptr %63, align 8, !tbaa !17
   %264 = load i32, ptr %64, align 4, !tbaa !22
@@ -821,9 +821,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 271:                                              ; preds = %269
   %272 = load ptr, ptr %63, align 8, !tbaa !17
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 1
-  store i8 0, ptr %273, align 1, !tbaa !48
+  store i8 0, ptr %273, align 1, !tbaa !46
   %274 = load ptr, ptr %63, align 8, !tbaa !17
-  store i8 0, ptr %274, align 1, !tbaa !48
+  store i8 0, ptr %274, align 1, !tbaa !46
   store i8 1, ptr %65, align 1, !tbaa !32
   br label %276
 
@@ -844,7 +844,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.13886 = phi ptr [ %279, %276 ], [ %.12885, %255 ]
   %.13838 = phi ptr [ %277, %276 ], [ %256, %255 ]
   %281 = getelementptr inbounds nuw i8, ptr %.13838, i64 1
-  %282 = load i8, ptr %.13838, align 1, !tbaa !48
+  %282 = load i8, ptr %.13838, align 1, !tbaa !46
   %283 = zext i8 %257 to i32
   %284 = shl nuw nsw i32 %283, 8
   %285 = zext i8 %282 to i32
@@ -854,7 +854,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %289 = or i32 %288, %.89531922
   %290 = add nsw i32 %.810031921, 16
   %291 = icmp slt i32 %.810031921, -15
-  br i1 %291, label %.lr.ph1926, label %._crit_edge1927, !llvm.loop !54
+  br i1 %291, label %.lr.ph1926, label %._crit_edge1927
 
 ._crit_edge1927:                                  ; preds = %280, %228
   %.81003.lcssa = phi i32 [ %.71002, %228 ], [ %290, %280 ]
@@ -866,7 +866,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %294 = trunc i32 %293 to i16
   %295 = shl i32 %.8953.lcssa, 1
   %296 = add nsw i32 %.81003.lcssa, -1
-  br label %217, !llvm.loop !55
+  br label %217
 
 297:                                              ; preds = %221
   %298 = icmp ult i16 %190, 4
@@ -923,7 +923,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 327:                                              ; preds = %324
   %indvars.iv.next2405 = add nuw nsw i64 %indvars.iv2404, 1
   %exitcond2408.not = icmp eq i64 %indvars.iv.next2405, %wide.trip.count2407
-  br i1 %exitcond2408.not, label %._crit_edge2084, label %324, !llvm.loop !56
+  br i1 %exitcond2408.not, label %._crit_edge2084, label %324
 
 ._crit_edge2084.loopexit.split.loop.exit:         ; preds = %324
   %328 = trunc nuw nsw i64 %indvars.iv2404 to i32
@@ -950,7 +950,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %341 = add i16 %340, 8
   store i16 %341, ptr %339, align 2, !tbaa !40
   %342 = icmp sgt i64 %indvars.iv2409, 1
-  br i1 %342, label %338, label %343, !llvm.loop !57
+  br i1 %342, label %338, label %343
 
 343:                                              ; preds = %338
   %344 = add nsw i32 %306, 1
@@ -1040,7 +1040,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.17890 = phi ptr [ %381, %379 ], [ %.158882090, %.lr.ph2093 ]
   %.17842 = phi ptr [ %380, %379 ], [ %.158402091, %.lr.ph2093 ]
   %383 = getelementptr inbounds nuw i8, ptr %.17842, i64 1
-  %384 = load i8, ptr %.17842, align 1, !tbaa !48
+  %384 = load i8, ptr %.17842, align 1, !tbaa !46
   %.not1313 = icmp ult ptr %383, %.17890
   br i1 %.not1313, label %392, label %385
 
@@ -1062,7 +1062,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.18891 = phi ptr [ %391, %389 ], [ %.17890, %382 ]
   %.18843 = phi ptr [ %390, %389 ], [ %383, %382 ]
   %393 = getelementptr inbounds nuw i8, ptr %.18843, i64 1
-  %394 = load i8, ptr %.18843, align 1, !tbaa !48
+  %394 = load i8, ptr %.18843, align 1, !tbaa !46
   %395 = zext i8 %384 to i32
   %396 = shl nuw nsw i32 %395, 8
   %397 = zext i8 %394 to i32
@@ -1072,7 +1072,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %401 = or i32 %400, %.119562089
   %402 = add nsw i32 %.1110062088, 16
   %403 = icmp slt i32 %.1110062088, -15
-  br i1 %403, label %.lr.ph2093, label %._crit_edge2094, !llvm.loop !58
+  br i1 %403, label %.lr.ph2093, label %._crit_edge2094
 
 ._crit_edge2094:                                  ; preds = %392, %370
   %.111006.lcssa = phi i32 [ %.101005, %370 ], [ %402, %392 ]
@@ -1084,14 +1084,14 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %406 = trunc i32 %405 to i16
   %407 = shl i32 %.11956.lcssa, 1
   %408 = add nsw i32 %.111006.lcssa, -1
-  br label %359, !llvm.loop !59
+  br label %359
 
 .thread1364:                                      ; preds = %363
   %409 = trunc i16 %332 to i8
   %410 = add i32 %.210552102, 1
   %411 = zext i32 %.210552102 to i64
   %412 = getelementptr inbounds nuw i8, ptr %44, i64 %411
-  store i8 %409, ptr %412, align 1, !tbaa !48
+  store i8 %409, ptr %412, align 1, !tbaa !46
   %413 = add i32 %.210462103, -1
   br label %.loopexit
 
@@ -1104,11 +1104,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 415:                                              ; preds = %414
   %416 = sub nsw i32 %219, %218
-  %417 = load ptr, ptr %80, align 8, !tbaa !60
+  %417 = load ptr, ptr %80, align 8, !tbaa !49
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 2
   %419 = load i16, ptr %418, align 2, !tbaa !40
   %420 = zext i16 %419 to i32
-  %421 = load i32, ptr %81, align 4, !tbaa !61
+  %421 = load i32, ptr %81, align 4, !tbaa !50
   %422 = icmp sgt i32 %421, 1
   br i1 %422, label %.lr.ph2034, label %._crit_edge2035
 
@@ -1135,7 +1135,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 435:                                              ; preds = %432
   %indvars.iv.next2397 = add nuw nsw i64 %indvars.iv2396, 1
   %exitcond2400.not = icmp eq i64 %indvars.iv.next2397, %wide.trip.count2399
-  br i1 %exitcond2400.not, label %._crit_edge2035, label %432, !llvm.loop !62
+  br i1 %exitcond2400.not, label %._crit_edge2035, label %432
 
 ._crit_edge2035.loopexit.split.loop.exit:         ; preds = %432
   %436 = trunc nuw nsw i64 %indvars.iv2396 to i32
@@ -1162,7 +1162,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %449 = add i16 %448, 8
   store i16 %449, ptr %447, align 2, !tbaa !40
   %450 = icmp sgt i64 %indvars.iv2401, 1
-  br i1 %450, label %446, label %451, !llvm.loop !63
+  br i1 %450, label %446, label %451
 
 451:                                              ; preds = %446
   %452 = add nsw i32 %416, 1
@@ -1252,7 +1252,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.24897 = phi ptr [ %489, %487 ], [ %.228952041, %.lr.ph2044 ]
   %.24849 = phi ptr [ %488, %487 ], [ %.228472042, %.lr.ph2044 ]
   %491 = getelementptr inbounds nuw i8, ptr %.24849, i64 1
-  %492 = load i8, ptr %.24849, align 1, !tbaa !48
+  %492 = load i8, ptr %.24849, align 1, !tbaa !46
   %.not1283 = icmp ult ptr %491, %.24897
   br i1 %.not1283, label %500, label %493
 
@@ -1274,7 +1274,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.25898 = phi ptr [ %499, %497 ], [ %.24897, %490 ]
   %.25850 = phi ptr [ %498, %497 ], [ %491, %490 ]
   %501 = getelementptr inbounds nuw i8, ptr %.25850, i64 1
-  %502 = load i8, ptr %.25850, align 1, !tbaa !48
+  %502 = load i8, ptr %.25850, align 1, !tbaa !46
   %503 = zext i8 %492 to i32
   %504 = shl nuw nsw i32 %503, 8
   %505 = zext i8 %502 to i32
@@ -1284,7 +1284,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %509 = or i32 %508, %.169612040
   %510 = add nsw i32 %.1610112039, 16
   %511 = icmp slt i32 %.1610112039, -15
-  br i1 %511, label %.lr.ph2044, label %._crit_edge2045, !llvm.loop !64
+  br i1 %511, label %.lr.ph2044, label %._crit_edge2045
 
 ._crit_edge2045:                                  ; preds = %500, %478
   %.161011.lcssa = phi i32 [ %.151010, %478 ], [ %510, %500 ]
@@ -1296,7 +1296,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %514 = trunc i32 %513 to i16
   %515 = shl i32 %.16961.lcssa, 1
   %516 = add nsw i32 %.161011.lcssa, -1
-  br label %467, !llvm.loop !65
+  br label %467
 
 517:                                              ; preds = %471
   %518 = zext i16 %440 to i64
@@ -1305,7 +1305,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .lr.ph2058.preheader:                             ; preds = %517
   %519 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %518
-  %520 = load i8, ptr %519, align 1, !tbaa !48
+  %520 = load i8, ptr %519, align 1, !tbaa !46
   br label %.lr.ph2058
 
 .lr.ph2058:                                       ; preds = %.lr.ph2058.preheader, %552
@@ -1341,7 +1341,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.29902 = phi ptr [ %530, %528 ], [ %.268992055, %523 ]
   %.29854 = phi ptr [ %529, %528 ], [ %.268512056, %523 ]
   %532 = getelementptr inbounds nuw i8, ptr %.29854, i64 1
-  %533 = load i8, ptr %.29854, align 1, !tbaa !48
+  %533 = load i8, ptr %.29854, align 1, !tbaa !46
   %.not1288 = icmp ult ptr %532, %.29902
   br i1 %.not1288, label %541, label %534
 
@@ -1363,7 +1363,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.30903 = phi ptr [ %540, %538 ], [ %.29902, %531 ]
   %.30855 = phi ptr [ %539, %538 ], [ %532, %531 ]
   %542 = getelementptr inbounds nuw i8, ptr %.30855, i64 1
-  %543 = load i8, ptr %.30855, align 1, !tbaa !48
+  %543 = load i8, ptr %.30855, align 1, !tbaa !46
   %544 = zext i8 %533 to i32
   %545 = shl nuw nsw i32 %544, 8
   %546 = zext i8 %543 to i32
@@ -1390,15 +1390,15 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %561 = trunc i32 %553 to i8
   %562 = sub i8 %.011392051, %561
   %.not1285 = icmp eq i8 %562, 0
-  br i1 %.not1285, label %._crit_edge2059, label %.lr.ph2058, !llvm.loop !66
+  br i1 %.not1285, label %._crit_edge2059, label %.lr.ph2058
 
 563:                                              ; preds = %414
   %564 = sub nsw i32 %219, %218
-  %565 = load ptr, ptr %77, align 8, !tbaa !67
+  %565 = load ptr, ptr %77, align 8, !tbaa !51
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 2
   %567 = load i16, ptr %566, align 2, !tbaa !40
   %568 = zext i16 %567 to i32
-  %569 = load i32, ptr %78, align 4, !tbaa !68
+  %569 = load i32, ptr %78, align 4, !tbaa !52
   %570 = icmp sgt i32 %569, 1
   br i1 %570, label %.lr.ph2001, label %._crit_edge2002
 
@@ -1425,7 +1425,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 583:                                              ; preds = %580
   %indvars.iv.next2389 = add nuw nsw i64 %indvars.iv2388, 1
   %exitcond2392.not = icmp eq i64 %indvars.iv.next2389, %wide.trip.count2391
-  br i1 %exitcond2392.not, label %._crit_edge2002, label %580, !llvm.loop !69
+  br i1 %exitcond2392.not, label %._crit_edge2002, label %580
 
 ._crit_edge2002.loopexit.split.loop.exit:         ; preds = %580
   %584 = trunc nuw nsw i64 %indvars.iv2388 to i32
@@ -1452,7 +1452,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %597 = add i16 %596, 8
   store i16 %597, ptr %595, align 2, !tbaa !40
   %598 = icmp sgt i64 %indvars.iv2393, 1
-  br i1 %598, label %594, label %599, !llvm.loop !70
+  br i1 %598, label %594, label %599
 
 599:                                              ; preds = %594
   %600 = add nsw i32 %564, 1
@@ -1542,7 +1542,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.36909 = phi ptr [ %637, %635 ], [ %.349072008, %.lr.ph2011 ]
   %.36861 = phi ptr [ %636, %635 ], [ %.348592009, %.lr.ph2011 ]
   %639 = getelementptr inbounds nuw i8, ptr %.36861, i64 1
-  %640 = load i8, ptr %.36861, align 1, !tbaa !48
+  %640 = load i8, ptr %.36861, align 1, !tbaa !46
   %.not1270 = icmp ult ptr %639, %.36909
   br i1 %.not1270, label %648, label %641
 
@@ -1564,7 +1564,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.37910 = phi ptr [ %647, %645 ], [ %.36909, %638 ]
   %.37862 = phi ptr [ %646, %645 ], [ %639, %638 ]
   %649 = getelementptr inbounds nuw i8, ptr %.37862, i64 1
-  %650 = load i8, ptr %.37862, align 1, !tbaa !48
+  %650 = load i8, ptr %.37862, align 1, !tbaa !46
   %651 = zext i8 %640 to i32
   %652 = shl nuw nsw i32 %651, 8
   %653 = zext i8 %650 to i32
@@ -1574,7 +1574,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %657 = or i32 %656, %.249692007
   %658 = add nsw i32 %.2410192006, 16
   %659 = icmp slt i32 %.2410192006, -15
-  br i1 %659, label %.lr.ph2011, label %._crit_edge2012, !llvm.loop !71
+  br i1 %659, label %.lr.ph2011, label %._crit_edge2012
 
 ._crit_edge2012:                                  ; preds = %648, %626
   %.241019.lcssa = phi i32 [ %.231018, %626 ], [ %658, %648 ]
@@ -1586,7 +1586,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %662 = trunc i32 %661 to i16
   %663 = shl i32 %.24969.lcssa, 1
   %664 = add nsw i32 %.241019.lcssa, -1
-  br label %615, !llvm.loop !72
+  br label %615
 
 665:                                              ; preds = %619
   %666 = zext i16 %588 to i64
@@ -1595,7 +1595,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .lr.ph2025.preheader:                             ; preds = %665
   %667 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %666
-  %668 = load i8, ptr %667, align 1, !tbaa !48
+  %668 = load i8, ptr %667, align 1, !tbaa !46
   br label %.lr.ph2025
 
 .lr.ph2025:                                       ; preds = %.lr.ph2025.preheader, %700
@@ -1631,7 +1631,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.41914 = phi ptr [ %678, %676 ], [ %.389112022, %671 ]
   %.41866 = phi ptr [ %677, %676 ], [ %.388632023, %671 ]
   %680 = getelementptr inbounds nuw i8, ptr %.41866, i64 1
-  %681 = load i8, ptr %.41866, align 1, !tbaa !48
+  %681 = load i8, ptr %.41866, align 1, !tbaa !46
   %.not1275 = icmp ult ptr %680, %.41914
   br i1 %.not1275, label %689, label %682
 
@@ -1653,7 +1653,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.42915 = phi ptr [ %688, %686 ], [ %.41914, %679 ]
   %.42867 = phi ptr [ %687, %686 ], [ %680, %679 ]
   %690 = getelementptr inbounds nuw i8, ptr %.42867, i64 1
-  %691 = load i8, ptr %.42867, align 1, !tbaa !48
+  %691 = load i8, ptr %.42867, align 1, !tbaa !46
   %692 = zext i8 %681 to i32
   %693 = shl nuw nsw i32 %692, 8
   %694 = zext i8 %691 to i32
@@ -1680,15 +1680,15 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %709 = trunc i32 %701 to i8
   %710 = sub i8 %.010932019, %709
   %.not1272 = icmp eq i8 %710, 0
-  br i1 %.not1272, label %._crit_edge2059, label %.lr.ph2025, !llvm.loop !73
+  br i1 %.not1272, label %._crit_edge2059, label %.lr.ph2025
 
 711:                                              ; preds = %414
   %712 = sub nsw i32 %219, %218
-  %713 = load ptr, ptr %71, align 8, !tbaa !74
+  %713 = load ptr, ptr %71, align 8, !tbaa !53
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 2
   %715 = load i16, ptr %714, align 2, !tbaa !40
   %716 = zext i16 %715 to i32
-  %717 = load i32, ptr %72, align 4, !tbaa !75
+  %717 = load i32, ptr %72, align 4, !tbaa !54
   %718 = icmp sgt i32 %717, 1
   br i1 %718, label %.lr.ph1935, label %._crit_edge1936
 
@@ -1715,7 +1715,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 731:                                              ; preds = %728
   %indvars.iv.next2373 = add nuw nsw i64 %indvars.iv2372, 1
   %exitcond2376.not = icmp eq i64 %indvars.iv.next2373, %wide.trip.count2375
-  br i1 %exitcond2376.not, label %._crit_edge1936, label %728, !llvm.loop !76
+  br i1 %exitcond2376.not, label %._crit_edge1936, label %728
 
 ._crit_edge1936.loopexit.split.loop.exit:         ; preds = %728
   %732 = trunc nuw nsw i64 %indvars.iv2372 to i32
@@ -1742,7 +1742,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %745 = add i16 %744, 8
   store i16 %745, ptr %743, align 2, !tbaa !40
   %746 = icmp sgt i64 %indvars.iv2377, 1
-  br i1 %746, label %742, label %747, !llvm.loop !77
+  br i1 %746, label %742, label %747
 
 747:                                              ; preds = %742
   %748 = add nsw i32 %712, 1
@@ -1832,7 +1832,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.47920 = phi ptr [ %785, %783 ], [ %.459181942, %.lr.ph1945 ]
   %.47872 = phi ptr [ %784, %783 ], [ %.458701943, %.lr.ph1945 ]
   %787 = getelementptr inbounds nuw i8, ptr %.47872, i64 1
-  %788 = load i8, ptr %.47872, align 1, !tbaa !48
+  %788 = load i8, ptr %.47872, align 1, !tbaa !46
   %.not1244 = icmp ult ptr %787, %.47920
   br i1 %.not1244, label %796, label %789
 
@@ -1854,7 +1854,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.48921 = phi ptr [ %795, %793 ], [ %.47920, %786 ]
   %.48 = phi ptr [ %794, %793 ], [ %787, %786 ]
   %797 = getelementptr inbounds nuw i8, ptr %.48, i64 1
-  %798 = load i8, ptr %.48, align 1, !tbaa !48
+  %798 = load i8, ptr %.48, align 1, !tbaa !46
   %799 = zext i8 %788 to i32
   %800 = shl nuw nsw i32 %799, 8
   %801 = zext i8 %798 to i32
@@ -1864,7 +1864,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %805 = or i32 %804, %.319761941
   %806 = add nsw i32 %.3110261940, 16
   %807 = icmp slt i32 %.3110261940, -15
-  br i1 %807, label %.lr.ph1945, label %._crit_edge1946, !llvm.loop !78
+  br i1 %807, label %.lr.ph1945, label %._crit_edge1946
 
 ._crit_edge1946:                                  ; preds = %796, %774
   %.311026.lcssa = phi i32 [ %.301025, %774 ], [ %806, %796 ]
@@ -1876,7 +1876,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %810 = trunc i32 %809 to i16
   %811 = shl i32 %.31976.lcssa, 1
   %812 = add nsw i32 %.311026.lcssa, -1
-  br label %763, !llvm.loop !79
+  br label %763
 
 813:                                              ; preds = %767
   %814 = zext i16 %736 to i64
@@ -1886,7 +1886,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .lr.ph1959.preheader:                             ; preds = %813
   %816 = getelementptr inbounds nuw [27 x i8], ptr @length_extra, i64 0, i64 %814
-  %817 = load i8, ptr %816, align 1, !tbaa !48
+  %817 = load i8, ptr %816, align 1, !tbaa !46
   br label %.lr.ph1959
 
 .lr.ph1959:                                       ; preds = %.lr.ph1959.preheader, %849
@@ -1922,7 +1922,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.52925 = phi ptr [ %827, %825 ], [ %.499221956, %820 ]
   %.52 = phi ptr [ %826, %825 ], [ %.491957, %820 ]
   %829 = getelementptr inbounds nuw i8, ptr %.52, i64 1
-  %830 = load i8, ptr %.52, align 1, !tbaa !48
+  %830 = load i8, ptr %.52, align 1, !tbaa !46
   %.not1249 = icmp ult ptr %829, %.52925
   br i1 %.not1249, label %838, label %831
 
@@ -1944,7 +1944,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.53926 = phi ptr [ %837, %835 ], [ %.52925, %828 ]
   %.53 = phi ptr [ %836, %835 ], [ %829, %828 ]
   %839 = getelementptr inbounds nuw i8, ptr %.53, i64 1
-  %840 = load i8, ptr %.53, align 1, !tbaa !48
+  %840 = load i8, ptr %.53, align 1, !tbaa !46
   %841 = zext i8 %830 to i32
   %842 = shl nuw nsw i32 %841, 8
   %843 = zext i8 %840 to i32
@@ -1971,7 +1971,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %858 = trunc i32 %850 to i8
   %859 = sub i8 %.010611953, %858
   %.not1246 = icmp eq i8 %859, 0
-  br i1 %.not1246, label %._crit_edge1960.loopexit, label %.lr.ph1959, !llvm.loop !80
+  br i1 %.not1246, label %._crit_edge1960.loopexit, label %.lr.ph1959
 
 ._crit_edge1960.loopexit:                         ; preds = %849
   %860 = add i32 %855, 5
@@ -1984,15 +1984,15 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.49922.lcssa = phi ptr [ %.44917, %813 ], [ %.50923, %._crit_edge1960.loopexit ]
   %.49.lcssa = phi ptr [ %.44869, %813 ], [ %.50, %._crit_edge1960.loopexit ]
   %861 = getelementptr inbounds nuw [27 x i8], ptr @length_base, i64 0, i64 %814
-  %862 = load i8, ptr %861, align 1, !tbaa !48
+  %862 = load i8, ptr %861, align 1, !tbaa !46
   %863 = zext i8 %862 to i32
   %864 = add i32 %.21096.lcssa, %863
   %865 = sub nsw i32 %765, %764
-  %866 = load ptr, ptr %74, align 8, !tbaa !81
+  %866 = load ptr, ptr %74, align 8, !tbaa !55
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 2
   %868 = load i16, ptr %867, align 2, !tbaa !40
   %869 = zext i16 %868 to i32
-  %870 = load i32, ptr %75, align 4, !tbaa !82
+  %870 = load i32, ptr %75, align 4, !tbaa !56
   %871 = icmp sgt i32 %870, 1
   br i1 %871, label %.lr.ph1968, label %._crit_edge1969
 
@@ -2019,7 +2019,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 884:                                              ; preds = %881
   %indvars.iv.next2381 = add nuw nsw i64 %indvars.iv2380, 1
   %exitcond2384.not = icmp eq i64 %indvars.iv.next2381, %wide.trip.count2383
-  br i1 %exitcond2384.not, label %._crit_edge1969, label %881, !llvm.loop !83
+  br i1 %exitcond2384.not, label %._crit_edge1969, label %881
 
 ._crit_edge1969.loopexit.split.loop.exit:         ; preds = %881
   %885 = trunc nuw nsw i64 %indvars.iv2380 to i32
@@ -2046,7 +2046,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %898 = add i16 %897, 8
   store i16 %898, ptr %896, align 2, !tbaa !40
   %899 = icmp sgt i64 %indvars.iv2385, 1
-  br i1 %899, label %895, label %900, !llvm.loop !84
+  br i1 %899, label %895, label %900
 
 900:                                              ; preds = %895
   %901 = add nsw i32 %865, 1
@@ -2136,7 +2136,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.58931 = phi ptr [ %938, %936 ], [ %.569291975, %.lr.ph1978 ]
   %.58 = phi ptr [ %937, %936 ], [ %.561976, %.lr.ph1978 ]
   %940 = getelementptr inbounds nuw i8, ptr %.58, i64 1
-  %941 = load i8, ptr %.58, align 1, !tbaa !48
+  %941 = load i8, ptr %.58, align 1, !tbaa !46
   %.not1257 = icmp ult ptr %940, %.58931
   br i1 %.not1257, label %949, label %942
 
@@ -2158,7 +2158,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.59932 = phi ptr [ %948, %946 ], [ %.58931, %939 ]
   %.59 = phi ptr [ %947, %946 ], [ %940, %939 ]
   %950 = getelementptr inbounds nuw i8, ptr %.59, i64 1
-  %951 = load i8, ptr %.59, align 1, !tbaa !48
+  %951 = load i8, ptr %.59, align 1, !tbaa !46
   %952 = zext i8 %941 to i32
   %953 = shl nuw nsw i32 %952, 8
   %954 = zext i8 %951 to i32
@@ -2168,7 +2168,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %958 = or i32 %957, %.389831974
   %959 = add nsw i32 %.3810331973, 16
   %960 = icmp slt i32 %.3810331973, -15
-  br i1 %960, label %.lr.ph1978, label %._crit_edge1979, !llvm.loop !85
+  br i1 %960, label %.lr.ph1978, label %._crit_edge1979
 
 ._crit_edge1979:                                  ; preds = %949, %927
   %.381033.lcssa = phi i32 [ %.371032, %927 ], [ %959, %949 ]
@@ -2180,7 +2180,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %963 = trunc i32 %962 to i16
   %964 = shl i32 %.38983.lcssa, 1
   %965 = add nsw i32 %.381033.lcssa, -1
-  br label %916, !llvm.loop !86
+  br label %916
 
 966:                                              ; preds = %920
   %967 = zext i16 %889 to i64
@@ -2189,7 +2189,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .lr.ph1992.preheader:                             ; preds = %966
   %968 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %967
-  %969 = load i8, ptr %968, align 1, !tbaa !48
+  %969 = load i8, ptr %968, align 1, !tbaa !46
   br label %.lr.ph1992
 
 .lr.ph1992:                                       ; preds = %.lr.ph1992.preheader, %1001
@@ -2225,7 +2225,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.63936 = phi ptr [ %979, %977 ], [ %.609331989, %972 ]
   %.63 = phi ptr [ %978, %977 ], [ %.601990, %972 ]
   %981 = getelementptr inbounds nuw i8, ptr %.63, i64 1
-  %982 = load i8, ptr %.63, align 1, !tbaa !48
+  %982 = load i8, ptr %.63, align 1, !tbaa !46
   %.not1262 = icmp ult ptr %981, %.63936
   br i1 %.not1262, label %990, label %983
 
@@ -2247,7 +2247,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.64937 = phi ptr [ %989, %987 ], [ %.63936, %980 ]
   %.64 = phi ptr [ %988, %987 ], [ %981, %980 ]
   %991 = getelementptr inbounds nuw i8, ptr %.64, i64 1
-  %992 = load i8, ptr %.64, align 1, !tbaa !48
+  %992 = load i8, ptr %.64, align 1, !tbaa !46
   %993 = zext i8 %982 to i32
   %994 = shl nuw nsw i32 %993, 8
   %995 = zext i8 %992 to i32
@@ -2274,7 +2274,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1010 = trunc i32 %1002 to i8
   %1011 = sub i8 %.09941987, %1010
   %.not1259 = icmp eq i8 %1011, 0
-  br i1 %.not1259, label %._crit_edge2059, label %.lr.ph1992, !llvm.loop !87
+  br i1 %.not1259, label %._crit_edge2059, label %.lr.ph1992
 
 1012:                                             ; preds = %414
   store i32 11, ptr %6, align 4, !tbaa !27
@@ -2292,7 +2292,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.32905 = phi ptr [ %.21894, %517 ], [ %.33906, %665 ], [ %.55928, %966 ], [ %.27900, %552 ], [ %.39912, %700 ], [ %.61934, %1001 ]
   %.32857 = phi ptr [ %.21846, %517 ], [ %.33858, %665 ], [ %.55, %966 ], [ %.27852, %552 ], [ %.39864, %700 ], [ %.61, %1001 ]
   %1013 = getelementptr inbounds nuw [42 x i32], ptr @position_base, i64 0, i64 %.sink
-  %1014 = load i32, ptr %1013, align 4, !tbaa !88
+  %1014 = load i32, ptr %1013, align 4, !tbaa !57
   %1015 = add i32 %1014, %.31097.lcssa.sink
   %.01060 = add i32 %1015, 1
   %1016 = zext i32 %.210552102 to i64
@@ -2320,11 +2320,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1029 = and i32 %1028, %.010902120
   %1030 = zext i32 %1029 to i64
   %1031 = getelementptr inbounds nuw i8, ptr %44, i64 %1030
-  %1032 = load i8, ptr %1031, align 1, !tbaa !48
+  %1032 = load i8, ptr %1031, align 1, !tbaa !46
   %1033 = getelementptr inbounds nuw i8, ptr %.010662122, i64 1
-  store i8 %1032, ptr %.010662122, align 1, !tbaa !48
+  store i8 %1032, ptr %.010662122, align 1, !tbaa !46
   %.not1290 = icmp eq i32 %1025, 0
-  br i1 %.not1290, label %._crit_edge2125.loopexit, label %.lr.ph2124, !llvm.loop !89
+  br i1 %.not1290, label %._crit_edge2125.loopexit, label %.lr.ph2124
 
 ._crit_edge2125.loopexit:                         ; preds = %.lr.ph2124
   %.pre2413 = load i32, ptr %66, align 8, !tbaa !23
@@ -2352,7 +2352,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1045 = trunc i64 %1040 to i32
   %1046 = load ptr, ptr %0, align 8, !tbaa !19
   %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 24
-  %1048 = load ptr, ptr %1047, align 8, !tbaa !43
+  %1048 = load ptr, ptr %1047, align 8, !tbaa !41
   %1049 = load ptr, ptr %84, align 8, !tbaa !21
   %1050 = tail call i32 %1048(ptr noundef %1049, ptr noundef %1037, i32 noundef %1045) #3
   %.not1292 = icmp eq i32 %1050, %1045
@@ -2382,11 +2382,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1060 = and i32 %1059, %.110912128
   %1061 = zext i32 %1060 to i64
   %1062 = getelementptr inbounds nuw i8, ptr %44, i64 %1061
-  %1063 = load i8, ptr %1062, align 1, !tbaa !48
+  %1063 = load i8, ptr %1062, align 1, !tbaa !46
   %1064 = getelementptr inbounds nuw i8, ptr %.110672130, i64 1
-  store i8 %1063, ptr %.110672130, align 1, !tbaa !48
+  store i8 %1063, ptr %.110672130, align 1, !tbaa !46
   %.not1294 = icmp eq i32 %1056, 0
-  br i1 %.not1294, label %._crit_edge2133.loopexit, label %.lr.ph2132, !llvm.loop !90
+  br i1 %.not1294, label %._crit_edge2133.loopexit, label %.lr.ph2132
 
 ._crit_edge2133.loopexit:                         ; preds = %.lr.ph2132
   %.pre2414 = load i32, ptr %66, align 8, !tbaa !23
@@ -2424,11 +2424,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.210922070 = phi i32 [ %1079, %.lr.ph2074 ], [ %1068, %1076 ]
   %1079 = add nsw i32 %.210922070, -1
   %1080 = getelementptr inbounds nuw i8, ptr %.110632072, i64 1
-  %1081 = load i8, ptr %.110632072, align 1, !tbaa !48
+  %1081 = load i8, ptr %.110632072, align 1, !tbaa !46
   %1082 = getelementptr inbounds nuw i8, ptr %.310692071, i64 1
-  store i8 %1081, ptr %.310692071, align 1, !tbaa !48
+  store i8 %1081, ptr %.310692071, align 1, !tbaa !46
   %1083 = icmp samesign ugt i32 %.210922070, 1
-  br i1 %1083, label %.lr.ph2074, label %.loopexit1481, !llvm.loop !91
+  br i1 %1083, label %.lr.ph2074, label %.loopexit1481
 
 .loopexit1481:                                    ; preds = %.lr.ph2074, %1076, %1071
   %.151087 = phi i32 [ %.01098, %1071 ], [ %1077, %1076 ], [ %1077, %.lr.ph2074 ]
@@ -2443,11 +2443,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.1610882076 = phi i32 [ %1085, %.lr.ph2080 ], [ %.151087, %.loopexit1481 ]
   %1085 = add nsw i32 %.1610882076, -1
   %1086 = getelementptr inbounds nuw i8, ptr %.210642078, i64 1
-  %1087 = load i8, ptr %.210642078, align 1, !tbaa !48
+  %1087 = load i8, ptr %.210642078, align 1, !tbaa !46
   %1088 = getelementptr inbounds nuw i8, ptr %.410702077, i64 1
-  store i8 %1087, ptr %.410702077, align 1, !tbaa !48
+  store i8 %1087, ptr %.410702077, align 1, !tbaa !46
   %1089 = icmp samesign ugt i32 %.1610882076, 1
-  br i1 %1089, label %.lr.ph2080, label %.loopexit, !llvm.loop !92
+  br i1 %1089, label %.lr.ph2080, label %.loopexit
 
 1090:                                             ; preds = %1065
   %1091 = icmp sgt i32 %.01098, 0
@@ -2465,11 +2465,11 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.1710892065 = phi i32 [ %1095, %.lr.ph2069 ], [ %.01098, %.lr.ph2069.preheader ]
   %1095 = add nsw i32 %.1710892065, -1
   %1096 = getelementptr inbounds nuw i8, ptr %.310652067, i64 1
-  %1097 = load i8, ptr %.310652067, align 1, !tbaa !48
+  %1097 = load i8, ptr %.310652067, align 1, !tbaa !46
   %1098 = getelementptr inbounds nuw i8, ptr %.510712066, i64 1
-  store i8 %1097, ptr %.510712066, align 1, !tbaa !48
+  store i8 %1097, ptr %.510712066, align 1, !tbaa !46
   %1099 = icmp samesign ugt i32 %.1710892065, 1
-  br i1 %1099, label %.lr.ph2069, label %.loopexit, !llvm.loop !93
+  br i1 %1099, label %.lr.ph2069, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph2069, %.lr.ph2080, %1090, %.loopexit1481, %.thread1364
   %.101150 = phi i16 [ %.71147, %.thread1364 ], [ %.131153, %.loopexit1481 ], [ %.131153, %1090 ], [ %.131153, %.lr.ph2080 ], [ %.131153, %.lr.ph2069 ]
@@ -2482,7 +2482,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.20893 = phi ptr [ %.14887, %.thread1364 ], [ %.32905, %.loopexit1481 ], [ %.32905, %1090 ], [ %.32905, %.lr.ph2080 ], [ %.32905, %.lr.ph2069 ]
   %.20845 = phi ptr [ %.14839, %.thread1364 ], [ %.32857, %.loopexit1481 ], [ %.32857, %1090 ], [ %.32857, %.lr.ph2080 ], [ %.32857, %.lr.ph2069 ]
   %1100 = icmp ult i32 %.51058, %.11052
-  br i1 %1100, label %.lr.ph2109, label %.loopexit1483, !llvm.loop !94
+  br i1 %1100, label %.lr.ph2109, label %.loopexit1483
 
 .loopexit1483:                                    ; preds = %.loopexit, %1052, %._crit_edge2133.loopexit, %153
   %.41144 = phi i16 [ %.21142, %153 ], [ %.131153, %._crit_edge2133.loopexit ], [ %.131153, %1052 ], [ %.101150, %.loopexit ]
@@ -2549,7 +2549,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.70943 = phi ptr [ %1119, %1117 ], [ %.689412136, %.lr.ph2139 ]
   %.70 = phi ptr [ %1118, %1117 ], [ %.682137, %.lr.ph2139 ]
   %1121 = getelementptr inbounds nuw i8, ptr %.70, i64 1
-  %1122 = load i8, ptr %.70, align 1, !tbaa !48
+  %1122 = load i8, ptr %.70, align 1, !tbaa !46
   %.not1305 = icmp ult ptr %1121, %.70943
   br i1 %.not1305, label %1130, label %1123
 
@@ -2571,7 +2571,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.71944 = phi ptr [ %1129, %1127 ], [ %.70943, %1120 ]
   %.71 = phi ptr [ %1128, %1127 ], [ %1121, %1120 ]
   %1131 = getelementptr inbounds nuw i8, ptr %.71, i64 1
-  %1132 = load i8, ptr %.71, align 1, !tbaa !48
+  %1132 = load i8, ptr %.71, align 1, !tbaa !46
   %1133 = zext i8 %1122 to i32
   %1134 = shl nuw nsw i32 %1133, 8
   %1135 = zext i8 %1132 to i32
@@ -2581,7 +2581,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1139 = or i32 %1138, %.479922135
   %1140 = add nsw i32 %.4710422134, 16
   %1141 = icmp slt i32 %.4710422134, -8
-  br i1 %1141, label %.lr.ph2139, label %._crit_edge2140, !llvm.loop !95
+  br i1 %1141, label %.lr.ph2139, label %._crit_edge2140
 
 ._crit_edge2140:                                  ; preds = %1130, %1111
   %.471042.lcssa = phi i32 [ %.461041, %1111 ], [ %1140, %1130 ]
@@ -2591,7 +2591,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1142 = shl i32 %.47992.lcssa, 8
   %1143 = add nsw i32 %.471042.lcssa, -8
   %.not1296 = icmp ugt i32 %.47992.lcssa, -16777217
-  br i1 %.not1296, label %1144, label %1111, !llvm.loop !96
+  br i1 %.not1296, label %1144, label %1111
 
 1144:                                             ; preds = %._crit_edge2140
   store i8 0, ptr %61, align 2, !tbaa !26
@@ -2623,7 +2623,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1154 = trunc i64 %1151 to i32
   %1155 = load ptr, ptr %0, align 8, !tbaa !19
   %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 24
-  %1157 = load ptr, ptr %1156, align 8, !tbaa !43
+  %1157 = load ptr, ptr %1156, align 8, !tbaa !41
   %1158 = load ptr, ptr %84, align 8, !tbaa !21
   %1159 = tail call i32 %1157(ptr noundef %1158, ptr noundef %.pre2416, i32 noundef %1154) #3
   %.not1299 = icmp eq i32 %1159, %1154
@@ -2648,7 +2648,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1167 = ptrtoint ptr %1164 to i64
   %1168 = sub i64 %1166, %1167
   %1169 = icmp slt i64 %1168, %.4824
-  br i1 %1169, label %85, label %._crit_edge2157.loopexit, !llvm.loop !97
+  br i1 %1169, label %85, label %._crit_edge2157.loopexit
 
 ._crit_edge2157.loopexit:                         ; preds = %1148, %1163
   %1170 = phi ptr [ %1164, %1163 ], [ %.pre2416, %1148 ]
@@ -2676,7 +2676,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1174 = trunc i64 %.2822 to i32
   %1175 = load ptr, ptr %0, align 8, !tbaa !19
   %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 24
-  %1177 = load ptr, ptr %1176, align 8, !tbaa !43
+  %1177 = load ptr, ptr %1176, align 8, !tbaa !41
   %1178 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1179 = load ptr, ptr %1178, align 8, !tbaa !21
   %1180 = tail call i32 %1177(ptr noundef %1179, ptr noundef %1172, i32 noundef %1174) #3
@@ -2702,9 +2702,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   store i8 %.1996, ptr %41, align 8, !tbaa !33
   store i32 %.11054, ptr %45, align 4, !tbaa !24
   store i32 %.11045, ptr %47, align 8, !tbaa !25
-  store i16 %.11100, ptr %49, align 4, !tbaa !44
-  store i16 %.11120, ptr %51, align 2, !tbaa !45
-  store i16 %.11141, ptr %53, align 8, !tbaa !46
+  store i16 %.11100, ptr %49, align 4, !tbaa !42
+  store i16 %.11120, ptr %51, align 2, !tbaa !43
+  store i16 %.11141, ptr %53, align 8, !tbaa !44
   br label %.thread
 
 .thread:                                          ; preds = %1125, %1115, %944, %934, %791, %781, %643, %633, %495, %485, %275, %250, %132, %107, %985, %975, %833, %823, %684, %674, %536, %526, %387, %377, %31, %5, %2, %1186, %1181, %1160, %1104, %1070, %1051, %1043, %1012, %25
@@ -2716,7 +2716,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 define internal fastcc range(i32 0, 4) i32 @read_input(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !45
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2750,9 +2750,9 @@ define internal fastcc range(i32 0, 4) i32 @read_input(ptr noundef nonnull captu
 22:                                               ; preds = %17
   %23 = load ptr, ptr %7, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store i8 0, ptr %24, align 1, !tbaa !48
+  store i8 0, ptr %24, align 1, !tbaa !46
   %25 = load ptr, ptr %7, align 8, !tbaa !17
-  store i8 0, ptr %25, align 1, !tbaa !48
+  store i8 0, ptr %25, align 1, !tbaa !46
   store i8 1, ptr %18, align 1, !tbaa !32
   br label %26
 
@@ -2806,7 +2806,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %spec.select = select i1 %.not54, i16 %15, i16 %16
   store i16 %spec.select, ptr %13, align 2, !tbaa !40
   %17 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %17, label %11, label %.loopexit, !llvm.loop !98
+  br i1 %17, label %11, label %.loopexit
 
 18:                                               ; preds = %1
   store i32 50, ptr %0, align 8, !tbaa !35
@@ -2843,7 +2843,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %31 = lshr i16 %30, 1
   store i16 %31, ptr %29, align 2, !tbaa !40
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader56, label %25, !llvm.loop !99
+  br i1 %exitcond.not, label %.preheader56, label %25
 
 .loopexit55:                                      ; preds = %59, %40
   %32 = phi i32 [ %41, %40 ], [ %60, %59 ]
@@ -2851,7 +2851,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next82, %34
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  br i1 %35, label %40, label %.preheader, !llvm.loop !100
+  br i1 %35, label %40, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit55
   %36 = icmp sgt i32 %32, 0
@@ -2861,7 +2861,6 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %.lcssa91 = phi i32 [ %33, %.preheader ], [ 0, %.preheader56 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !37
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %38, i64 6
   %39 = zext nneg i32 %.lcssa91 to i64
   br label %64
 
@@ -2904,19 +2903,20 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next79, %62
-  br i1 %63, label %.lr.ph65, label %.loopexit55, !llvm.loop !101
+  br i1 %63, label %.lr.ph65, label %.loopexit55
 
 64:                                               ; preds = %.lr.ph69, %64
   %indvars.iv84 = phi i64 [ %39, %.lr.ph69 ], [ %indvars.iv.next85, %64 ]
-  %gep = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %invariant.gep, i64 %indvars.iv84
-  %65 = load i16, ptr %gep, align 2, !tbaa !40
-  %66 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84, i32 1
+  %65 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 6
   %67 = load i16, ptr %66, align 2, !tbaa !40
-  %68 = add i16 %67, %65
-  store i16 %68, ptr %66, align 2, !tbaa !40
+  %68 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84, i32 1
+  %69 = load i16, ptr %68, align 2, !tbaa !40
+  %70 = add i16 %69, %67
+  store i16 %70, ptr %68, align 2, !tbaa !40
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
   %.not97 = icmp eq i64 %indvars.iv84, 0
-  br i1 %.not97, label %.loopexit, label %64, !llvm.loop !102
+  br i1 %.not97, label %.loopexit, label %64
 
 .loopexit:                                        ; preds = %11, %64, %18, %4, %.preheader
   ret void
@@ -3003,65 +3003,20 @@ attributes #3 = { nounwind }
 !38 = !{!39, !14, i64 0}
 !39 = !{!"qtmd_modelsym", !14, i64 0, !14, i64 2}
 !40 = !{!39, !14, i64 2}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!4, !5, i64 24}
-!44 = !{!9, !14, i64 44}
-!45 = !{!9, !14, i64 46}
-!46 = !{!9, !14, i64 48}
-!47 = !{!4, !5, i64 16}
-!48 = !{!6, !6, i64 0}
-!49 = distinct !{!49, !42}
-!50 = !{!9, !16, i64 248}
-!51 = !{!9, !13, i64 244}
-!52 = distinct !{!52, !42}
-!53 = distinct !{!53, !42}
-!54 = distinct !{!54, !42}
-!55 = distinct !{!55, !42}
-!56 = distinct !{!56, !42}
-!57 = distinct !{!57, !42}
-!58 = distinct !{!58, !42}
-!59 = distinct !{!59, !42}
-!60 = !{!9, !16, i64 184}
-!61 = !{!9, !13, i64 180}
-!62 = distinct !{!62, !42}
-!63 = distinct !{!63, !42}
-!64 = distinct !{!64, !42}
-!65 = distinct !{!65, !42}
-!66 = distinct !{!66, !42}
-!67 = !{!9, !16, i64 200}
-!68 = !{!9, !13, i64 196}
-!69 = distinct !{!69, !42}
-!70 = distinct !{!70, !42}
-!71 = distinct !{!71, !42}
-!72 = distinct !{!72, !42}
-!73 = distinct !{!73, !42}
-!74 = !{!9, !16, i64 232}
-!75 = !{!9, !13, i64 228}
-!76 = distinct !{!76, !42}
-!77 = distinct !{!77, !42}
-!78 = distinct !{!78, !42}
-!79 = distinct !{!79, !42}
-!80 = distinct !{!80, !42}
-!81 = !{!9, !16, i64 216}
-!82 = !{!9, !13, i64 212}
-!83 = distinct !{!83, !42}
-!84 = distinct !{!84, !42}
-!85 = distinct !{!85, !42}
-!86 = distinct !{!86, !42}
-!87 = distinct !{!87, !42}
-!88 = !{!13, !13, i64 0}
-!89 = distinct !{!89, !42}
-!90 = distinct !{!90, !42}
-!91 = distinct !{!91, !42}
-!92 = distinct !{!92, !42}
-!93 = distinct !{!93, !42}
-!94 = distinct !{!94, !42}
-!95 = distinct !{!95, !42}
-!96 = distinct !{!96, !42}
-!97 = distinct !{!97, !42}
-!98 = distinct !{!98, !42}
-!99 = distinct !{!99, !42}
-!100 = distinct !{!100, !42}
-!101 = distinct !{!101, !42}
-!102 = distinct !{!102, !42}
+!41 = !{!4, !5, i64 24}
+!42 = !{!9, !14, i64 44}
+!43 = !{!9, !14, i64 46}
+!44 = !{!9, !14, i64 48}
+!45 = !{!4, !5, i64 16}
+!46 = !{!6, !6, i64 0}
+!47 = !{!9, !16, i64 248}
+!48 = !{!9, !13, i64 244}
+!49 = !{!9, !16, i64 184}
+!50 = !{!9, !13, i64 180}
+!51 = !{!9, !16, i64 200}
+!52 = !{!9, !13, i64 196}
+!53 = !{!9, !16, i64 232}
+!54 = !{!9, !13, i64 228}
+!55 = !{!9, !16, i64 216}
+!56 = !{!9, !13, i64 212}
+!57 = !{!13, !13, i64 0}

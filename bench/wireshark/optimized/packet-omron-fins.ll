@@ -1957,7 +1957,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %176 = add nsw i32 %.12381, -4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   %.old25 = icmp sgt i32 %.12381, 7
-  br i1 %.old25, label %.preheader, label %.loopexit, !llvm.loop !6
+  br i1 %.old25, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %171, %155
   %.42387 = phi i32 [ 12, %155 ], [ %175, %171 ]
@@ -2084,7 +2084,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %197 = xor i32 %.02378.ph, -1
   %198 = add nsw i32 %.223822665, %197
   %199 = icmp sgt i32 %198, 1
-  br i1 %199, label %.lr.ph2666, label %.thread2535, !llvm.loop !8
+  br i1 %199, label %.lr.ph2666, label %.thread2535, !llvm.loop !6
 
 200:                                              ; preds = %96
   %201 = icmp eq i32 %66, 10
@@ -2249,7 +2249,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %302 = add nuw i32 %.1223952660, 8
   %303 = add nsw i32 %.42661, -8
   %304 = icmp samesign ugt i32 %.42661, 15
-  br i1 %304, label %.lr.ph2662, label %.thread2535, !llvm.loop !10
+  br i1 %304, label %.lr.ph2662, label %.thread2535, !llvm.loop !8
 
 305:                                              ; preds = %96
   %306 = icmp sgt i32 %66, 8
@@ -2295,7 +2295,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %338 = add i32 %.1423972655, 8
   %339 = add nsw i32 %.62656, -8
   %340 = icmp samesign ugt i32 %339, 7
-  br i1 %340, label %.lr.ph2657, label %.thread2535, !llvm.loop !11
+  br i1 %340, label %.lr.ph2657, label %.thread2535, !llvm.loop !9
 
 .loopexit2609:                                    ; preds = %305
   %341 = icmp ne i32 %66, 2
@@ -2692,7 +2692,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %618 = add nuw i32 %.232651, 21
   %619 = add nsw i32 %.72652, -21
   %620 = icmp samesign ugt i32 %.72652, 41
-  br i1 %620, label %.lr.ph2653, label %.thread2535, !llvm.loop !12
+  br i1 %620, label %.lr.ph2653, label %.thread2535, !llvm.loop !10
 
 621:                                              ; preds = %96
   %622 = icmp ne i32 %66, 28
@@ -2762,7 +2762,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %674 = add nuw nsw i32 %664, 1
   %675 = add nuw nsw i32 %.242645, 1
   %exitcond.not = icmp eq i32 %675, 45
-  br i1 %exitcond.not, label %676, label %650, !llvm.loop !13
+  br i1 %exitcond.not, label %676, label %650, !llvm.loop !11
 
 676:                                              ; preds = %650
   %677 = load i32, ptr @hf_omron_com_cycle_time, align 4
@@ -2814,7 +2814,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %719 = add nuw nsw i32 %717, 1
   %720 = add nuw nsw i32 %.252648, 1
   %exitcond2693.not = icmp eq i32 %720, 120
-  br i1 %exitcond2693.not, label %.thread2535, label %713, !llvm.loop !14
+  br i1 %exitcond2693.not, label %.thread2535, label %713, !llvm.loop !12
 
 721:                                              ; preds = %96
   %722 = icmp ne i32 %66, 16
@@ -3305,7 +3305,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %1105 = add nuw nsw i32 %.312641, 32
   %1106 = add nsw i32 %.82642, -32
   %1107 = icmp samesign ugt i32 %.82642, 63
-  br i1 %1107, label %.lr.ph2643, label %.thread2535, !llvm.loop !15
+  br i1 %1107, label %.lr.ph2643, label %.thread2535, !llvm.loop !13
 
 1108:                                             ; preds = %96
   %1109 = icmp eq i32 %66, 2
@@ -3470,7 +3470,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %1202 = add nuw i32 %.372637, 10
   %1203 = add nsw i32 %.92638, -10
   %1204 = icmp samesign ugt i32 %.92638, 19
-  br i1 %1204, label %.lr.ph2639, label %.thread2535, !llvm.loop !16
+  br i1 %1204, label %.lr.ph2639, label %.thread2535, !llvm.loop !14
 
 1205:                                             ; preds = %96
   %1206 = icmp ne i32 %66, 2
@@ -3574,7 +3574,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %1284 = add nuw i32 %.392633, 20
   %1285 = add nsw i32 %.102634, -20
   %1286 = icmp samesign ugt i32 %.102634, 39
-  br i1 %1286, label %.lr.ph2635, label %.thread2535, !llvm.loop !17
+  br i1 %1286, label %.lr.ph2635, label %.thread2535, !llvm.loop !15
 
 1287:                                             ; preds = %96
   %1288 = icmp eq i32 %66, 20
@@ -3698,7 +3698,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %1356 = add nuw i32 %.442628, 12
   %1357 = add nsw i32 %.122629, -12
   %1358 = icmp samesign ugt i32 %.122629, 23
-  br i1 %1358, label %.lr.ph2630, label %.thread2535, !llvm.loop !18
+  br i1 %1358, label %.lr.ph2630, label %.thread2535, !llvm.loop !16
 
 .loopexit2615:                                    ; preds = %1347
   %1359 = icmp ne i32 %66, 4
@@ -3949,7 +3949,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %1506 = add nuw i32 %.542624, 2
   %1507 = add nsw i32 %.132625, -2
   %1508 = icmp samesign ugt i32 %.132625, 3
-  br i1 %1508, label %.lr.ph2626, label %.thread2535, !llvm.loop !19
+  br i1 %1508, label %.lr.ph2626, label %.thread2535, !llvm.loop !17
 
 1509:                                             ; preds = %96
   %1510 = icmp eq i32 %66, 2
@@ -4032,7 +4032,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %1556 = add nuw i32 %.582621, 6
   %1557 = add nsw i32 %.152622, -6
   %1558 = icmp samesign ugt i32 %.152622, 11
-  br i1 %1558, label %.lr.ph, label %.thread2535, !llvm.loop !20
+  br i1 %1558, label %.lr.ph, label %.thread2535, !llvm.loop !18
 
 .loopexit2617:                                    ; preds = %1543
   %1559 = icmp ne i32 %66, 2
@@ -4206,17 +4206,15 @@ attributes #3 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9, !7}
-!20 = distinct !{!20, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

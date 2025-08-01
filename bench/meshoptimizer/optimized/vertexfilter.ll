@@ -224,7 +224,7 @@ _ZN7meshoptL19decodeFilterOctSimdEPam.exit23.i:   ; preds = %.lr.ph.i21.i, %64
   store <2 x i64> %182, ptr %123, align 1, !tbaa !4
   %183 = add nuw i64 %.056.i9, 4
   %184 = icmp ult i64 %183, %6
-  br i1 %184, label %.lr.ph.i8, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit11, !llvm.loop !10
+  br i1 %184, label %.lr.ph.i8, label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit11, !llvm.loop !9
 
 _ZN7meshoptL19decodeFilterOctSimdEPsm.exit11:     ; preds = %.lr.ph.i8, %120
   %.not.i4 = icmp eq i64 %6, %1
@@ -306,7 +306,7 @@ _ZN7meshoptL19decodeFilterOctSimdEPsm.exit11:     ; preds = %.lr.ph.i8, %120
   store <2 x i64> %243, ptr %4, align 16, !tbaa !4
   %.16..16..sroa_idx13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store <2 x i64> %246, ptr %.16..16..sroa_idx13, align 16, !tbaa !4
-  br label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit, !llvm.loop !10
+  br label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit, !llvm.loop !9
 
 _ZN7meshoptL19decodeFilterOctSimdEPsm.exit:       ; preds = %.lr.ph.i, %185
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %188, ptr nonnull align 16 %4, i64 %187, i1 false)
@@ -388,31 +388,31 @@ define dso_local void @meshopt_decodeFilterQuat(ptr noundef captures(none) %0, i
   %62 = sext i16 %61 to i64
   %63 = shl nsw i64 %62, 4
   %64 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.0.0.vec.extract.i6, i64 %.sroa.0.0.vec.extract.i6, i64 %63)
-  store i64 %64, ptr %6, align 8, !tbaa !11
+  store i64 %64, ptr %6, align 8, !tbaa !10
   %.sroa.0.8.vec.extract.i8 = extractelement <2 x i64> %58, i64 1
   %65 = extractelement <8 x i16> %bc.i7, i64 7
   %66 = sext i16 %65 to i64
   %67 = shl nsw i64 %66, 4
   %68 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.0.8.vec.extract.i8, i64 %.sroa.0.8.vec.extract.i8, i64 %67)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %68, ptr %69, align 8, !tbaa !11
+  store i64 %68, ptr %69, align 8, !tbaa !10
   %.sroa.5.16.vec.extract.i10 = extractelement <2 x i64> %60, i64 0
   %bc66.i11 = bitcast <4 x float> %9 to <8 x i16>
   %70 = extractelement <8 x i16> %bc66.i11, i64 3
   %71 = sext i16 %70 to i64
   %72 = shl nsw i64 %71, 4
   %73 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.5.16.vec.extract.i10, i64 %.sroa.5.16.vec.extract.i10, i64 %72)
-  store i64 %73, ptr %8, align 8, !tbaa !11
+  store i64 %73, ptr %8, align 8, !tbaa !10
   %.sroa.5.24.vec.extract.i12 = extractelement <2 x i64> %60, i64 1
   %74 = extractelement <8 x i16> %bc66.i11, i64 7
   %75 = sext i16 %74 to i64
   %76 = shl nsw i64 %75, 4
   %77 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.5.24.vec.extract.i12, i64 %.sroa.5.24.vec.extract.i12, i64 %76)
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %77, ptr %78, align 8, !tbaa !11
+  store i64 %77, ptr %78, align 8, !tbaa !10
   %79 = add nuw i64 %.064.i4, 4
   %80 = icmp ult i64 %79, %5
-  br i1 %80, label %.lr.ph.i3, label %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14, !llvm.loop !13
+  br i1 %80, label %.lr.ph.i3, label %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14, !llvm.loop !12
 
 _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14:    ; preds = %.lr.ph.i3, %3
   %.not.i = icmp eq i64 %5, %1
@@ -490,14 +490,14 @@ _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14:    ; preds = %.lr.ph.i3, %3
   %137 = sext i16 %136 to i64
   %138 = shl nsw i64 %137, 4
   %139 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.0.0.vec.extract.i, i64 %.sroa.0.0.vec.extract.i, i64 %138)
-  store i64 %139, ptr %4, align 16, !tbaa !11
+  store i64 %139, ptr %4, align 16, !tbaa !10
   %.sroa.0.8.vec.extract.i = extractelement <2 x i64> %133, i64 1
   %140 = extractelement <8 x i16> %bc.i, i64 7
   %141 = sext i16 %140 to i64
   %142 = shl nsw i64 %141, 4
   %143 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.0.8.vec.extract.i, i64 %.sroa.0.8.vec.extract.i, i64 %142)
   %.8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %143, ptr %.8..8..sroa_idx, align 8, !tbaa !11
+  store i64 %143, ptr %.8..8..sroa_idx, align 8, !tbaa !10
   %.sroa.5.16.vec.extract.i = extractelement <2 x i64> %135, i64 0
   %bc66.i = bitcast <4 x float> %.16..16. to <8 x i16>
   %144 = extractelement <8 x i16> %bc66.i, i64 3
@@ -505,15 +505,15 @@ _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14:    ; preds = %.lr.ph.i3, %3
   %146 = shl nsw i64 %145, 4
   %147 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.5.16.vec.extract.i, i64 %.sroa.5.16.vec.extract.i, i64 %146)
   %.16..16..sroa_idx16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %147, ptr %.16..16..sroa_idx16, align 16, !tbaa !11
+  store i64 %147, ptr %.16..16..sroa_idx16, align 16, !tbaa !10
   %.sroa.5.24.vec.extract.i = extractelement <2 x i64> %135, i64 1
   %148 = extractelement <8 x i16> %bc66.i, i64 7
   %149 = sext i16 %148 to i64
   %150 = shl nsw i64 %149, 4
   %151 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.5.24.vec.extract.i, i64 %.sroa.5.24.vec.extract.i, i64 %150)
   %.24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %151, ptr %.24..24..sroa_idx, align 8, !tbaa !11
-  br label %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit, !llvm.loop !13
+  store i64 %151, ptr %.24..24..sroa_idx, align 8, !tbaa !10
+  br label %_ZN7meshoptL20decodeFilterQuatSimdEPsm.exit, !llvm.loop !12
 
 _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit:      ; preds = %.lr.ph.i, %81
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %84, ptr nonnull align 16 %4, i64 %83, i1 false)
@@ -548,7 +548,7 @@ define dso_local void @meshopt_decodeFilterExp(ptr noundef captures(none) %0, i6
   store <4 x float> %17, ptr %8, align 1, !tbaa !4
   %18 = add nuw i64 %.013.i.i, 4
   %19 = icmp ult i64 %18, %7
-  br i1 %19, label %.lr.ph.i.i, label %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i, !llvm.loop !14
+  br i1 %19, label %.lr.ph.i.i, label %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i, !llvm.loop !13
 
 _ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i:     ; preds = %.lr.ph.i.i, %3
   %.not.i = icmp eq i64 %7, %6
@@ -575,7 +575,7 @@ _ZN7meshoptL19decodeFilterExpSimdEPjm.exit.i:     ; preds = %.lr.ph.i.i, %3
   %30 = bitcast <4 x i32> %26 to <4 x float>
   %31 = fmul <4 x float> %29, %30
   store <4 x float> %31, ptr %4, align 16, !tbaa !4
-  br label %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit23.i, !llvm.loop !14
+  br label %_ZN7meshoptL19decodeFilterExpSimdEPjm.exit23.i, !llvm.loop !13
 
 _ZN7meshoptL19decodeFilterExpSimdEPjm.exit23.i:   ; preds = %.lr.ph.i21.i, %20
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 16 %4, i64 %22, i1 false)
@@ -616,13 +616,13 @@ define dso_local void @meshopt_encodeFilterOct(ptr noundef writeonly captures(no
   %.063 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
   %19 = shl i64 %.063, 2
   %20 = getelementptr inbounds nuw float, ptr %4, i64 %19
-  %21 = load float, ptr %20, align 4, !tbaa !15
+  %21 = load float, ptr %20, align 4, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %23 = load float, ptr %22, align 4, !tbaa !15
+  %23 = load float, ptr %22, align 4, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %25 = load float, ptr %24, align 4, !tbaa !15
+  %25 = load float, ptr %24, align 4, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %27 = load float, ptr %26, align 4, !tbaa !15
+  %27 = load float, ptr %26, align 4, !tbaa !14
   %28 = tail call float @llvm.fabs.f32(float %21)
   %29 = tail call float @llvm.fabs.f32(float %23)
   %30 = fadd float %28, %29
@@ -695,21 +695,21 @@ define dso_local void @meshopt_encodeFilterOct(ptr noundef writeonly captures(no
 84:                                               ; preds = %.thread
   %85 = trunc i32 %59 to i16
   %86 = getelementptr inbounds nuw i16, ptr %0, i64 %19
-  store i16 %85, ptr %86, align 2, !tbaa !17
+  store i16 %85, ptr %86, align 2, !tbaa !16
   %87 = trunc i32 %67 to i16
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 2
-  store i16 %87, ptr %88, align 2, !tbaa !17
+  store i16 %87, ptr %88, align 2, !tbaa !16
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  store i16 %16, ptr %89, align 2, !tbaa !17
+  store i16 %16, ptr %89, align 2, !tbaa !16
   %90 = trunc i32 %75 to i16
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 6
-  store i16 %90, ptr %91, align 2, !tbaa !17
+  store i16 %90, ptr %91, align 2, !tbaa !16
   br label %92
 
 92:                                               ; preds = %84, %76
   %93 = add nuw i64 %.063, 1
   %exitcond.not = icmp eq i64 %93, %1
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -745,40 +745,40 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %14 = getelementptr inbounds nuw float, ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i16, ptr %0, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %17 = load float, ptr %16, align 4, !tbaa !15
+  %17 = load float, ptr %16, align 4, !tbaa !14
   %18 = tail call float @llvm.fabs.f32(float %17)
-  %19 = load float, ptr %14, align 4, !tbaa !15
+  %19 = load float, ptr %14, align 4, !tbaa !14
   %20 = tail call float @llvm.fabs.f32(float %19)
   %21 = fcmp ogt float %18, %20
   %22 = zext i1 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %24 = load float, ptr %23, align 4, !tbaa !15
+  %24 = load float, ptr %23, align 4, !tbaa !14
   %25 = tail call float @llvm.fabs.f32(float %24)
   %26 = zext i1 %21 to i64
   %27 = getelementptr inbounds nuw float, ptr %14, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !15
+  %28 = load float, ptr %27, align 4, !tbaa !14
   %29 = tail call float @llvm.fabs.f32(float %28)
   %30 = fcmp ogt float %25, %29
   %31 = select i1 %30, i32 2, i32 %22
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %33 = load float, ptr %32, align 4, !tbaa !15
+  %33 = load float, ptr %32, align 4, !tbaa !14
   %34 = tail call float @llvm.fabs.f32(float %33)
   %35 = zext nneg i32 %31 to i64
   %36 = getelementptr inbounds nuw float, ptr %14, i64 %35
-  %37 = load float, ptr %36, align 4, !tbaa !15
+  %37 = load float, ptr %36, align 4, !tbaa !14
   %38 = tail call float @llvm.fabs.f32(float %37)
   %39 = fcmp ogt float %34, %38
   %40 = select i1 %39, i32 3, i32 %31
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw float, ptr %14, i64 %41
-  %43 = load float, ptr %42, align 4, !tbaa !15
+  %43 = load float, ptr %42, align 4, !tbaa !14
   %44 = fcmp olt float %43, 0.000000e+00
   %45 = select i1 %44, float -1.000000e+00, float 1.000000e+00
   %46 = add nuw nsw i32 %40, 1
   %47 = and i32 %46, 3
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw float, ptr %14, i64 %48
-  %50 = load float, ptr %49, align 4, !tbaa !15
+  %50 = load float, ptr %49, align 4, !tbaa !14
   %51 = fmul float %50, 0x3FF6A09E60000000
   %52 = fmul float %51, %45
   %53 = fcmp oge float %52, 0.000000e+00
@@ -790,11 +790,11 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %59 = tail call float @llvm.fmuladd.f32(float %58, float %8, float %54)
   %60 = fptosi float %59 to i32
   %61 = trunc i32 %60 to i16
-  store i16 %61, ptr %15, align 2, !tbaa !17
+  store i16 %61, ptr %15, align 2, !tbaa !16
   %62 = xor i32 %40, 2
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw float, ptr %14, i64 %63
-  %65 = load float, ptr %64, align 4, !tbaa !15
+  %65 = load float, ptr %64, align 4, !tbaa !14
   %66 = fmul float %65, 0x3FF6A09E60000000
   %67 = fmul float %45, %66
   %68 = fcmp oge float %67, 0.000000e+00
@@ -807,12 +807,12 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %75 = fptosi float %74 to i32
   %76 = trunc i32 %75 to i16
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i16 %76, ptr %77, align 2, !tbaa !17
+  store i16 %76, ptr %77, align 2, !tbaa !16
   %78 = add nuw nsw i32 %40, 3
   %79 = and i32 %78, 3
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw float, ptr %14, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !15
+  %82 = load float, ptr %81, align 4, !tbaa !14
   %83 = fmul float %82, 0x3FF6A09E60000000
   %84 = fmul float %45, %83
   %85 = fcmp oge float %84, 0.000000e+00
@@ -825,14 +825,14 @@ define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(n
   %92 = fptosi float %91 to i32
   %93 = trunc i32 %92 to i16
   %94 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i16 %93, ptr %94, align 2, !tbaa !17
+  store i16 %93, ptr %94, align 2, !tbaa !16
   %95 = or disjoint i32 %40, %11
   %96 = trunc nuw i32 %95 to i16
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  store i16 %96, ptr %97, align 2, !tbaa !17
+  store i16 %96, ptr %97, align 2, !tbaa !16
   %98 = add nuw i64 %.045, 1
   %exitcond.not = icmp eq i64 %98, %1
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -858,7 +858,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 12:                                               ; preds = %.lr.ph99.us, %12
   %.07998.us = phi i64 [ 0, %.lr.ph99.us ], [ %23, %12 ]
   %13 = getelementptr inbounds nuw float, ptr %11, i64 %.07998.us
-  %14 = load float, ptr %13, align 4, !tbaa !15
+  %14 = load float, ptr %13, align 4, !tbaa !14
   %15 = fcmp oeq float %14, 0.000000e+00
   %16 = bitcast float %14 to i32
   %17 = lshr i32 %16, 23
@@ -866,25 +866,25 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %19 = add nsw i32 %18, -126
   %20 = select i1 %15, i32 0, i32 %19
   %21 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.07998.us
-  %22 = load i32, ptr %21, align 4, !tbaa !21
+  %22 = load i32, ptr %21, align 4, !tbaa !20
   %..us = tail call i32 @llvm.smax.i32(i32 %22, i32 %20)
-  store i32 %..us, ptr %21, align 4, !tbaa !21
+  store i32 %..us, ptr %21, align 4, !tbaa !20
   %23 = add nuw nsw i64 %.07998.us, 1
   %exitcond125.not = icmp eq i64 %23, %8
-  br i1 %exitcond125.not, label %._crit_edge.us, label %12, !llvm.loop !23
+  br i1 %exitcond125.not, label %._crit_edge.us, label %12, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %12
   %24 = add nuw i64 %.077100.us, 1
   %exitcond126.not = icmp eq i64 %24, %1
-  br i1 %exitcond126.not, label %.lr.ph113, label %.lr.ph99.us, !llvm.loop !24
+  br i1 %exitcond126.not, label %.lr.ph113, label %.lr.ph99.us, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.097 = phi i64 [ %26, %.lr.ph ], [ 0, %6 ]
   %25 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.097
-  store i32 -100, ptr %25, align 4, !tbaa !21
+  store i32 -100, ptr %25, align 4, !tbaa !20
   %26 = add nuw nsw i64 %.097, 1
   %exitcond.not = icmp eq i64 %26, %8
-  br i1 %exitcond.not, label %.preheader94.thread, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader94.thread, label %.lr.ph, !llvm.loop !25
 
 .loopexit95:                                      ; preds = %6
   %.not117 = icmp eq i64 %1, 0
@@ -913,7 +913,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %.083107 = phi i32 [ %40, %.lr.ph108 ], [ -100, %.preheader ]
   %.084106 = phi i64 [ %41, %.lr.ph108 ], [ 0, %.preheader ]
   %32 = getelementptr inbounds nuw float, ptr %30, i64 %.084106
-  %33 = load float, ptr %32, align 4, !tbaa !15
+  %33 = load float, ptr %32, align 4, !tbaa !14
   %34 = fcmp oeq float %33, 0.000000e+00
   %35 = bitcast float %33 to i32
   %36 = lshr i32 %35, 23
@@ -923,7 +923,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %40 = tail call i32 @llvm.smax.i32(i32 %.083107, i32 %39)
   %41 = add nuw nsw i64 %.084106, 1
   %exitcond129.not = icmp eq i64 %41, %8
-  br i1 %exitcond129.not, label %.lr.ph110.preheader, label %.lr.ph108, !llvm.loop !27
+  br i1 %exitcond129.not, label %.lr.ph110.preheader, label %.lr.ph108, !llvm.loop !26
 
 42:                                               ; preds = %28
   switch i32 %5, label %.loopexit [
@@ -940,7 +940,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 .lr.ph105:                                        ; preds = %.preheader90, %.lr.ph105
   %.082104 = phi i64 [ %53, %.lr.ph105 ], [ 0, %.preheader90 ]
   %43 = getelementptr inbounds nuw float, ptr %30, i64 %.082104
-  %44 = load float, ptr %43, align 4, !tbaa !15
+  %44 = load float, ptr %43, align 4, !tbaa !14
   %45 = fcmp oeq float %44, 0.000000e+00
   %46 = bitcast float %44 to i32
   %47 = lshr i32 %46, 23
@@ -949,15 +949,15 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %50 = add nsw i32 %49, -126
   %51 = select i1 %45, i32 0, i32 %50
   %52 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.082104
-  store i32 %51, ptr %52, align 4, !tbaa !21
+  store i32 %51, ptr %52, align 4, !tbaa !20
   %53 = add nuw nsw i64 %.082104, 1
   %exitcond128.not = icmp eq i64 %53, %8
-  br i1 %exitcond128.not, label %.lr.ph110.preheader, label %.lr.ph105, !llvm.loop !28
+  br i1 %exitcond128.not, label %.lr.ph110.preheader, label %.lr.ph105, !llvm.loop !27
 
 .lr.ph103:                                        ; preds = %.preheader92, %.lr.ph103
   %.080102 = phi i64 [ %63, %.lr.ph103 ], [ 0, %.preheader92 ]
   %54 = getelementptr inbounds nuw float, ptr %30, i64 %.080102
-  %55 = load float, ptr %54, align 4, !tbaa !15
+  %55 = load float, ptr %54, align 4, !tbaa !14
   %56 = fcmp oeq float %55, 0.000000e+00
   %57 = bitcast float %55 to i32
   %58 = lshr i32 %57, 23
@@ -965,10 +965,10 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %60 = tail call i32 @llvm.usub.sat.i32(i32 %59, i32 126)
   %61 = select i1 %56, i32 0, i32 %60
   %62 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.080102
-  store i32 %61, ptr %62, align 4, !tbaa !21
+  store i32 %61, ptr %62, align 4, !tbaa !20
   %63 = add nuw nsw i64 %.080102, 1
   %exitcond127.not = icmp eq i64 %63, %8
-  br i1 %exitcond127.not, label %.lr.ph110.preheader, label %.lr.ph103, !llvm.loop !29
+  br i1 %exitcond127.not, label %.lr.ph110.preheader, label %.lr.ph103, !llvm.loop !28
 
 .loopexit:                                        ; preds = %42
   br i1 %.not118, label %._crit_edge, label %.lr.ph110.preheader
@@ -980,7 +980,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 ._crit_edge:                                      ; preds = %68, %.preheader, %.preheader90, %.preheader92, %.loopexit
   %64 = add nuw i64 %.081111, 1
   %exitcond131.not = icmp eq i64 %64, %1
-  br i1 %exitcond131.not, label %._crit_edge114, label %28, !llvm.loop !30
+  br i1 %exitcond131.not, label %._crit_edge114, label %28, !llvm.loop !29
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %68
   %.078109 = phi i64 [ %84, %68 ], [ 0, %.lr.ph110.preheader ]
@@ -988,7 +988,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 65:                                               ; preds = %.lr.ph110
   %66 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.078109
-  %67 = load i32, ptr %66, align 4, !tbaa !21
+  %67 = load i32, ptr %66, align 4, !tbaa !20
   br label %68
 
 68:                                               ; preds = %.lr.ph110, %65
@@ -996,7 +996,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %reass.sub = sub i32 %69, %3
   %70 = add i32 %reass.sub, 1
   %71 = getelementptr inbounds nuw float, ptr %30, i64 %.078109
-  %72 = load float, ptr %71, align 4, !tbaa !15
+  %72 = load float, ptr %71, align 4, !tbaa !14
   %73 = shl i32 %70, 23
   %74 = sub i32 1065353216, %73
   %75 = bitcast i32 %74 to float
@@ -1008,10 +1008,10 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %81 = shl i32 %70, 24
   %82 = or disjoint i32 %80, %81
   %83 = getelementptr inbounds nuw i32, ptr %31, i64 %.078109
-  store i32 %82, ptr %83, align 4, !tbaa !21
+  store i32 %82, ptr %83, align 4, !tbaa !20
   %84 = add nuw nsw i64 %.078109, 1
   %exitcond130.not = icmp eq i64 %84, %8
-  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph110, !llvm.loop !31
+  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph110, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1072,28 +1072,27 @@ attributes #8 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !5, i64 0}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !5, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !5, i64 0}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !5, i64 0}
-!23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !8, !9}
-!27 = distinct !{!27, !8, !9}
-!28 = distinct !{!28, !8, !9}
-!29 = distinct !{!29, !8, !9}
-!30 = distinct !{!30, !8, !9}
-!31 = distinct !{!31, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !5, i64 0}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !5, i64 0}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !5, i64 0}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}

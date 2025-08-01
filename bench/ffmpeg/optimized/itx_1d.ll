@@ -4079,7 +4079,7 @@ define void @ff_vvc_inv_dct8_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 4
-  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4090,7 +4090,7 @@ define void @ff_vvc_inv_dct8_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4099,7 +4099,7 @@ define void @ff_vvc_inv_dct8_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 4
-  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dct8.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4140,7 +4140,7 @@ define void @ff_vvc_inv_dct8_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 8
-  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4151,7 +4151,7 @@ define void @ff_vvc_inv_dct8_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4160,7 +4160,7 @@ define void @ff_vvc_inv_dct8_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 8
-  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dct8.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4201,7 +4201,7 @@ define void @ff_vvc_inv_dct8_16(ptr noundef captures(none) %0, i64 noundef %1, i
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 16
-  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4212,7 +4212,7 @@ define void @ff_vvc_inv_dct8_16(ptr noundef captures(none) %0, i64 noundef %1, i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4221,7 +4221,7 @@ define void @ff_vvc_inv_dct8_16(ptr noundef captures(none) %0, i64 noundef %1, i
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 16
-  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dct8.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4262,7 +4262,7 @@ define void @ff_vvc_inv_dct8_32(ptr noundef captures(none) %0, i64 noundef %1, i
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 32
-  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dct8.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4273,7 +4273,7 @@ define void @ff_vvc_inv_dct8_32(ptr noundef captures(none) %0, i64 noundef %1, i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4282,7 +4282,7 @@ define void @ff_vvc_inv_dct8_32(ptr noundef captures(none) %0, i64 noundef %1, i
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 32
-  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dct8.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dct8.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4323,7 +4323,7 @@ define void @ff_vvc_inv_dst7_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 4
-  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4334,7 +4334,7 @@ define void @ff_vvc_inv_dst7_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4343,7 +4343,7 @@ define void @ff_vvc_inv_dst7_4(ptr noundef captures(none) %0, i64 noundef %1, i6
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 4
-  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dst7.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4384,7 +4384,7 @@ define void @ff_vvc_inv_dst7_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 8
-  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4395,7 +4395,7 @@ define void @ff_vvc_inv_dst7_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4404,7 +4404,7 @@ define void @ff_vvc_inv_dst7_8(ptr noundef captures(none) %0, i64 noundef %1, i6
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 8
-  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dst7.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4445,7 +4445,7 @@ define void @ff_vvc_inv_dst7_16(ptr noundef captures(none) %0, i64 noundef %1, i
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 16
-  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4456,7 +4456,7 @@ define void @ff_vvc_inv_dst7_16(ptr noundef captures(none) %0, i64 noundef %1, i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4465,7 +4465,7 @@ define void @ff_vvc_inv_dst7_16(ptr noundef captures(none) %0, i64 noundef %1, i
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 16
-  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dst7.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4506,7 +4506,7 @@ define void @ff_vvc_inv_dst7_32(ptr noundef captures(none) %0, i64 noundef %1, i
   %15 = getelementptr inbounds nuw i8, ptr %.02636.us.i.i, i64 1
   %16 = add nuw nsw i32 %.02338.us.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %16, 32
-  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond46.not.i.i, label %inv_dst7.exit, label %.preheader.us.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %3 ]
@@ -4517,7 +4517,7 @@ define void @ff_vvc_inv_dst7_32(ptr noundef captures(none) %0, i64 noundef %1, i
   store i32 %19, ptr %20, align 4, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.preheader.us.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
   %.02338.i.i = phi i32 [ %22, %.preheader.i.i ], [ 0, %3 ]
@@ -4526,7 +4526,7 @@ define void @ff_vvc_inv_dst7_32(ptr noundef captures(none) %0, i64 noundef %1, i
   %21 = getelementptr inbounds i32, ptr %.02537.i.i, i64 %1
   %22 = add nuw nsw i32 %.02338.i.i, 1
   %exitcond47.not.i.i = icmp eq i32 %22, 32
-  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond47.not.i.i, label %inv_dst7.exit, label %.preheader.i.i, !llvm.loop !14
 
 inv_dst7.exit:                                    ; preds = %._crit_edge.us.i.i, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -4594,7 +4594,7 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
   %38 = add nsw i32 %37, %.02328.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %30
   %39 = add nsw i32 %38, 64
@@ -4610,7 +4610,7 @@ define void @ff_vvc_inv_lfnst_1d(ptr noundef writeonly captures(none) %0, ptr no
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %46 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %29
-  br i1 %exitcond40.not, label %._crit_edge32, label %.preheader.us, !llvm.loop !17
+  br i1 %exitcond40.not, label %._crit_edge32, label %.preheader.us, !llvm.loop !16
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %47 = shl nuw nsw i64 %29, 2
@@ -4641,12 +4641,11 @@ attributes #4 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11, !13}
+!11 = distinct !{!11, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10, !12}

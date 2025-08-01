@@ -1144,7 +1144,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %121 = add nuw i64 %.1886, 1
   %122 = load i64, ptr %119, align 8, !tbaa !28
   %123 = icmp ult i64 %121, %122
-  br i1 %123, label %.lr.ph887, label %cmp_resunit.exit.thread, !llvm.loop !32
+  br i1 %123, label %.lr.ph887, label %cmp_resunit.exit.thread, !llvm.loop !31
 
 .lr.ph887:                                        ; preds = %.lr.ph887.preheader, %120
   %.1886 = phi i64 [ %121, %120 ], [ 0, %.lr.ph887.preheader ]
@@ -1157,7 +1157,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 127:                                              ; preds = %129
   %128 = add nuw i64 %.2885, 1
   %exitcond1901.not = icmp eq i64 %128, %21
-  br i1 %exitcond1901.not, label %cmp_resunit.exit.thread, label %129, !llvm.loop !33
+  br i1 %exitcond1901.not, label %cmp_resunit.exit.thread, label %129, !llvm.loop !32
 
 129:                                              ; preds = %.preheader2771, %127
   %.2885 = phi i64 [ %128, %127 ], [ 0, %.preheader2771 ]
@@ -1210,7 +1210,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 149:                                              ; preds = %.preheader2774
   %150 = add nuw i64 %.3884, 1
   %exitcond1853.not = icmp eq i64 %150, %21
-  br i1 %exitcond1853.not, label %cmp_resunit.exit.thread, label %.preheader2774, !llvm.loop !34
+  br i1 %exitcond1853.not, label %cmp_resunit.exit.thread, label %.preheader2774, !llvm.loop !33
 
 .preheader2774:                                   ; preds = %29, %149
   %.3884 = phi i64 [ %150, %149 ], [ 0, %29 ]
@@ -1254,7 +1254,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 167:                                              ; preds = %.preheader2777
   %168 = add nuw i64 %.4883, 1
   %exitcond1805.not = icmp eq i64 %168, %21
-  br i1 %exitcond1805.not, label %cmp_resunit.exit.thread, label %.preheader2777, !llvm.loop !35
+  br i1 %exitcond1805.not, label %cmp_resunit.exit.thread, label %.preheader2777, !llvm.loop !34
 
 .preheader2777:                                   ; preds = %29, %167
   %.4883 = phi i64 [ %168, %167 ], [ 0, %29 ]
@@ -1267,7 +1267,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 172:                                              ; preds = %.preheader2780
   %173 = add nuw i64 %.5882, 1
   %exitcond1757.not = icmp eq i64 %173, %21
-  br i1 %exitcond1757.not, label %cmp_resunit.exit.thread, label %.preheader2780, !llvm.loop !36
+  br i1 %exitcond1757.not, label %cmp_resunit.exit.thread, label %.preheader2780, !llvm.loop !35
 
 .preheader2780:                                   ; preds = %29, %172
   %.5882 = phi i64 [ %173, %172 ], [ 0, %29 ]
@@ -1301,7 +1301,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %186 = add nuw i64 %.6877, 1
   %187 = load i64, ptr %31, align 8, !tbaa !28
   %188 = icmp ult i64 %186, %187
-  br i1 %188, label %.lr.ph878, label %cmp_resunit.exit.thread, !llvm.loop !37
+  br i1 %188, label %.lr.ph878, label %cmp_resunit.exit.thread, !llvm.loop !36
 
 .lr.ph878:                                        ; preds = %.lr.ph878.preheader, %185
   %.6877 = phi i64 [ %186, %185 ], [ 0, %.lr.ph878.preheader ]
@@ -1314,7 +1314,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %192 = add nuw i64 %.7872, 1
   %193 = load i64, ptr %30, align 8, !tbaa !28
   %194 = icmp ult i64 %192, %193
-  br i1 %194, label %.lr.ph873, label %cmp_resunit.exit.thread, !llvm.loop !38
+  br i1 %194, label %.lr.ph873, label %cmp_resunit.exit.thread, !llvm.loop !37
 
 .lr.ph873:                                        ; preds = %.lr.ph873.preheader, %191
   %.7872 = phi i64 [ %192, %191 ], [ 0, %.lr.ph873.preheader ]
@@ -1337,7 +1337,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 202:                                              ; preds = %.preheader2787
   %203 = add nuw i64 %.8871, 1
   %exitcond1709.not = icmp eq i64 %203, %21
-  br i1 %exitcond1709.not, label %cmp_resunit.exit.thread, label %.preheader2787, !llvm.loop !39
+  br i1 %exitcond1709.not, label %cmp_resunit.exit.thread, label %.preheader2787, !llvm.loop !38
 
 .preheader2787:                                   ; preds = %29, %202
   %.8871 = phi i64 [ %203, %202 ], [ 0, %29 ]
@@ -1361,7 +1361,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 212:                                              ; preds = %.preheader2790
   %213 = add nuw i64 %.9870, 1
   %exitcond1661.not = icmp eq i64 %213, %21
-  br i1 %exitcond1661.not, label %cmp_resunit.exit.thread, label %.preheader2790, !llvm.loop !40
+  br i1 %exitcond1661.not, label %cmp_resunit.exit.thread, label %.preheader2790, !llvm.loop !39
 
 .preheader2790:                                   ; preds = %29, %212
   %.9870 = phi i64 [ %213, %212 ], [ 0, %29 ]
@@ -1374,7 +1374,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 217:                                              ; preds = %cmp_resunit.exit
   %218 = add nuw i64 %.10869, 1
   %exitcond1613.not = icmp eq i64 %218, %21
-  br i1 %exitcond1613.not, label %cmp_resunit.exit.thread, label %.preheader2793, !llvm.loop !41
+  br i1 %exitcond1613.not, label %cmp_resunit.exit.thread, label %.preheader2793, !llvm.loop !40
 
 .preheader2793:                                   ; preds = %29, %217
   %.10869 = phi i64 [ %218, %217 ], [ 0, %29 ]
@@ -1400,7 +1400,7 @@ cmp_resunit.exit:                                 ; preds = %223
 230:                                              ; preds = %.preheader2796
   %231 = add nuw i64 %.11868, 1
   %exitcond1565.not = icmp eq i64 %231, %21
-  br i1 %exitcond1565.not, label %cmp_resunit.exit.thread, label %.preheader2796, !llvm.loop !42
+  br i1 %exitcond1565.not, label %cmp_resunit.exit.thread, label %.preheader2796, !llvm.loop !41
 
 .preheader2796:                                   ; preds = %29, %230
   %.11868 = phi i64 [ %231, %230 ], [ 0, %29 ]
@@ -1413,7 +1413,7 @@ cmp_resunit.exit:                                 ; preds = %223
 235:                                              ; preds = %.preheader2799
   %236 = add nuw i64 %.12867, 1
   %exitcond1517.not = icmp eq i64 %236, %21
-  br i1 %exitcond1517.not, label %cmp_resunit.exit.thread, label %.preheader2799, !llvm.loop !43
+  br i1 %exitcond1517.not, label %cmp_resunit.exit.thread, label %.preheader2799, !llvm.loop !42
 
 .preheader2799:                                   ; preds = %29, %235
   %.12867 = phi i64 [ %236, %235 ], [ 0, %29 ]
@@ -1426,7 +1426,7 @@ cmp_resunit.exit:                                 ; preds = %223
 240:                                              ; preds = %.preheader2802
   %241 = add nuw i64 %.13866, 1
   %exitcond1469.not = icmp eq i64 %241, %21
-  br i1 %exitcond1469.not, label %cmp_resunit.exit.thread, label %.preheader2802, !llvm.loop !44
+  br i1 %exitcond1469.not, label %cmp_resunit.exit.thread, label %.preheader2802, !llvm.loop !43
 
 .preheader2802:                                   ; preds = %29, %240
   %.13866 = phi i64 [ %241, %240 ], [ 0, %29 ]
@@ -1439,7 +1439,7 @@ cmp_resunit.exit:                                 ; preds = %223
 245:                                              ; preds = %.preheader2805
   %246 = add nuw i64 %.14865, 1
   %exitcond1421.not = icmp eq i64 %246, %21
-  br i1 %exitcond1421.not, label %cmp_resunit.exit.thread, label %.preheader2805, !llvm.loop !45
+  br i1 %exitcond1421.not, label %cmp_resunit.exit.thread, label %.preheader2805, !llvm.loop !44
 
 .preheader2805:                                   ; preds = %29, %245
   %.14865 = phi i64 [ %246, %245 ], [ 0, %29 ]
@@ -1452,7 +1452,7 @@ cmp_resunit.exit:                                 ; preds = %223
 250:                                              ; preds = %.preheader2808
   %251 = add nuw i64 %.15864, 1
   %exitcond1373.not = icmp eq i64 %251, %21
-  br i1 %exitcond1373.not, label %cmp_resunit.exit.thread, label %.preheader2808, !llvm.loop !46
+  br i1 %exitcond1373.not, label %cmp_resunit.exit.thread, label %.preheader2808, !llvm.loop !45
 
 .preheader2808:                                   ; preds = %29, %250
   %.15864 = phi i64 [ %251, %250 ], [ 0, %29 ]
@@ -1465,7 +1465,7 @@ cmp_resunit.exit:                                 ; preds = %223
 255:                                              ; preds = %.preheader2811
   %256 = add nuw i64 %.16863, 1
   %exitcond1325.not = icmp eq i64 %256, %21
-  br i1 %exitcond1325.not, label %cmp_resunit.exit.thread, label %.preheader2811, !llvm.loop !47
+  br i1 %exitcond1325.not, label %cmp_resunit.exit.thread, label %.preheader2811, !llvm.loop !46
 
 .preheader2811:                                   ; preds = %29, %255
   %.16863 = phi i64 [ %256, %255 ], [ 0, %29 ]
@@ -1478,7 +1478,7 @@ cmp_resunit.exit:                                 ; preds = %223
 260:                                              ; preds = %.preheader2814
   %261 = add nuw i64 %.17862, 1
   %exitcond.not = icmp eq i64 %261, %21
-  br i1 %exitcond.not, label %cmp_resunit.exit.thread, label %.preheader2814, !llvm.loop !48
+  br i1 %exitcond.not, label %cmp_resunit.exit.thread, label %.preheader2814, !llvm.loop !47
 
 .preheader2814:                                   ; preds = %29, %260
   %.17862 = phi i64 [ %261, %260 ], [ 0, %29 ]
@@ -1496,7 +1496,7 @@ cmp_resunit.exit:                                 ; preds = %223
   %267 = add nuw i64 %.18857, 1
   %268 = load i64, ptr %265, align 8, !tbaa !28
   %269 = icmp ult i64 %267, %268
-  br i1 %269, label %.lr.ph858, label %cmp_resunit.exit.thread, !llvm.loop !49
+  br i1 %269, label %.lr.ph858, label %cmp_resunit.exit.thread, !llvm.loop !48
 
 .lr.ph858:                                        ; preds = %.lr.ph858.preheader, %266
   %.18857 = phi i64 [ %267, %266 ], [ 0, %.lr.ph858.preheader ]
@@ -1534,9 +1534,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly captu
   br i1 %.not30, label %.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %0, align 8, !tbaa !50
+  %5 = load ptr, ptr %0, align 8, !tbaa !49
   %6 = icmp eq ptr %5, null
-  %7 = load ptr, ptr %1, align 8, !tbaa !50
+  %7 = load ptr, ptr %1, align 8, !tbaa !49
   %8 = icmp eq ptr %7, null
   br i1 %6, label %9, label %10
 
@@ -1561,10 +1561,10 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly captu
 
 16:                                               ; preds = %14, %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
   %.not32 = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  %20 = load ptr, ptr %19, align 8, !tbaa !51
   %.not33 = icmp eq ptr %20, null
   br i1 %.not32, label %26, label %21
 
@@ -1585,9 +1585,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly captu
 
 27:                                               ; preds = %26, %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i8, ptr %28, align 8, !tbaa !53
+  %29 = load i8, ptr %28, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %31 = load i8, ptr %30, align 8, !tbaa !53
+  %31 = load i8, ptr %30, align 8, !tbaa !52
   %32 = icmp slt i8 %29, %31
   %spec.select = select i1 %32, i32 2, i32 0
   br label %.thread
@@ -1599,17 +1599,17 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly captu
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load i8, ptr %0, align 8, !tbaa !54
-  %4 = load i8, ptr %1, align 8, !tbaa !54
+  %3 = load i8, ptr %0, align 8, !tbaa !53
+  %4 = load i8, ptr %1, align 8, !tbaa !53
   %.not = icmp eq i8 %3, %4
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !57
+  %7 = load i64, ptr %6, align 8, !tbaa !56
   %8 = icmp eq i64 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !57
+  %10 = load i64, ptr %9, align 8, !tbaa !56
   %.not12 = icmp eq i64 %10, 0
   br i1 %8, label %11, label %12
 
@@ -1621,9 +1621,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr noundef readonly captu
 
 .thread:                                          ; preds = %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %14 = load ptr, ptr %13, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !58
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = shl i64 %7, 2
   %18 = tail call i32 @memcmp(ptr noundef %14, ptr noundef %16, i64 noundef %17) #7
   %19 = icmp slt i32 %18, 0
@@ -1641,9 +1641,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr noundef readonly captu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !59
+  %3 = load ptr, ptr %0, align 8, !tbaa !58
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !59
+  %5 = load ptr, ptr %1, align 8, !tbaa !58
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -1661,10 +1661,10 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captur
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = icmp eq ptr %13, null
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !61
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = icmp eq ptr %16, null
   br i1 %14, label %18, label %19
 
@@ -1682,7 +1682,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captur
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = tail call ptr @pmix_hwloc_print_topology(ptr noundef %25) #8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
@@ -1710,9 +1710,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !59
+  %3 = load ptr, ptr %0, align 8, !tbaa !58
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !59
+  %5 = load ptr, ptr %1, align 8, !tbaa !58
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -1730,14 +1730,14 @@ define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr noundef readonly capt
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = tail call ptr @pmix_hwloc_print_cpuset(ptr noundef %13) #8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %18 = load ptr, ptr %17, align 8, !tbaa !60
   %19 = tail call ptr @pmix_hwloc_print_cpuset(ptr noundef %18) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -1765,17 +1765,17 @@ define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr noundef readonly capt
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
-  %3 = load i64, ptr %0, align 8, !tbaa !62
-  %4 = load i64, ptr %1, align 8, !tbaa !62
+  %3 = load i64, ptr %0, align 8, !tbaa !61
+  %4 = load i64, ptr %1, align 8, !tbaa !61
   %.not = icmp eq i64 %3, %4
   br i1 %.not, label %5, label %cmp_coord.exit.thread
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %.not46 = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
   %.not47 = icmp eq ptr %9, null
   br i1 %.not46, label %15, label %10
 
@@ -1796,10 +1796,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly ca
 
 16:                                               ; preds = %15, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !66
+  %18 = load ptr, ptr %17, align 8, !tbaa !65
   %.not49 = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !66
+  %20 = load ptr, ptr %19, align 8, !tbaa !65
   %.not50 = icmp eq ptr %20, null
   br i1 %.not49, label %26, label %21
 
@@ -1820,10 +1820,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly ca
 
 27:                                               ; preds = %26, %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !67
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
   %30 = icmp eq ptr %29, null
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !67
+  %32 = load ptr, ptr %31, align 8, !tbaa !66
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
 
@@ -1836,9 +1836,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly ca
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load i64, ptr %37, align 8, !tbaa !68
+  %38 = load i64, ptr %37, align 8, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = load i64, ptr %39, align 8, !tbaa !68
+  %40 = load i64, ptr %39, align 8, !tbaa !67
   %41 = icmp ugt i64 %38, %40
   br i1 %41, label %cmp_coord.exit.thread, label %42
 
@@ -1853,23 +1853,23 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly ca
 46:                                               ; preds = %cmp_coord.exit
   %47 = add nuw i64 %.058, 1
   %exitcond.not = icmp eq i64 %47, %38
-  br i1 %exitcond.not, label %cmp_coord.exit.thread, label %.preheader, !llvm.loop !69
+  br i1 %exitcond.not, label %cmp_coord.exit.thread, label %.preheader, !llvm.loop !68
 
 .preheader:                                       ; preds = %44, %46
   %.058 = phi i64 [ %47, %46 ], [ 0, %44 ]
   %48 = getelementptr inbounds nuw %struct.pmix_coord, ptr %29, i64 %.058
   %49 = getelementptr inbounds nuw %struct.pmix_coord, ptr %32, i64 %.058
-  %50 = load i8, ptr %48, align 8, !tbaa !54
-  %51 = load i8, ptr %49, align 8, !tbaa !54
+  %50 = load i8, ptr %48, align 8, !tbaa !53
+  %51 = load i8, ptr %49, align 8, !tbaa !53
   %.not.i = icmp eq i8 %50, %51
   br i1 %.not.i, label %52, label %cmp_coord.exit.thread
 
 52:                                               ; preds = %.preheader
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !57
+  %54 = load i64, ptr %53, align 8, !tbaa !56
   %55 = icmp eq i64 %54, 0
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !57
+  %57 = load i64, ptr %56, align 8, !tbaa !56
   %.not12.i = icmp eq i64 %57, 0
   br i1 %55, label %58, label %59
 
@@ -1881,9 +1881,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly ca
 
 .thread.i:                                        ; preds = %59, %58
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !58
+  %61 = load ptr, ptr %60, align 8, !tbaa !57
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !58
+  %63 = load ptr, ptr %62, align 8, !tbaa !57
   %64 = shl i64 %54, 2
   %65 = tail call i32 @memcmp(ptr noundef %61, ptr noundef %63, i64 noundef %64) #7
   %66 = icmp slt i32 %65, 0
@@ -1901,16 +1901,16 @@ cmp_coord.exit.thread:                            ; preds = %.thread.i, %59, %58
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !70
+  %4 = load i64, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !70
+  %6 = load i64, ptr %5, align 8, !tbaa !69
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %28
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !72
+  %8 = load ptr, ptr %0, align 8, !tbaa !71
   %.not22 = icmp eq ptr %8, null
-  %9 = load ptr, ptr %1, align 8, !tbaa !72
+  %9 = load ptr, ptr %1, align 8, !tbaa !71
   %.not23 = icmp eq ptr %9, null
   br i1 %.not22, label %15, label %10
 
@@ -1931,10 +1931,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr noundef readonly capt
 
 16:                                               ; preds = %15, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !73
+  %18 = load ptr, ptr %17, align 8, !tbaa !72
   %.not25 = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !73
+  %20 = load ptr, ptr %19, align 8, !tbaa !72
   %.not26 = icmp eq ptr %20, null
   br i1 %.not25, label %26, label %21
 
@@ -1964,16 +1964,16 @@ define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr noundef readonly capt
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !74
+  %4 = load i64, ptr %3, align 8, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !74
+  %6 = load i64, ptr %5, align 8, !tbaa !73
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %43
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !76
+  %8 = load ptr, ptr %0, align 8, !tbaa !75
   %.not34 = icmp eq ptr %8, null
-  %9 = load ptr, ptr %1, align 8, !tbaa !76
+  %9 = load ptr, ptr %1, align 8, !tbaa !75
   %.not35 = icmp eq ptr %9, null
   br i1 %.not34, label %15, label %10
 
@@ -1994,10 +1994,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr noundef readonly cap
 
 16:                                               ; preds = %15, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
   %.not37 = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !77
+  %20 = load ptr, ptr %19, align 8, !tbaa !76
   %.not38 = icmp eq ptr %20, null
   br i1 %.not37, label %26, label %21
 
@@ -2018,9 +2018,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr noundef readonly cap
 
 27:                                               ; preds = %26, %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i16, ptr %28, align 8, !tbaa !78
+  %29 = load i16, ptr %28, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i16, ptr %30, align 8, !tbaa !78
+  %31 = load i16, ptr %30, align 8, !tbaa !77
   %32 = icmp ugt i16 %29, %31
   br i1 %32, label %43, label %33
 
@@ -2030,9 +2030,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr noundef readonly cap
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %37 = load i16, ptr %36, align 2, !tbaa !79
+  %37 = load i16, ptr %36, align 2, !tbaa !78
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %39 = load i16, ptr %38, align 2, !tbaa !79
+  %39 = load i16, ptr %38, align 2, !tbaa !78
   %40 = icmp ugt i16 %37, %39
   br i1 %40, label %43, label %41
 
@@ -2048,9 +2048,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr noundef readonly cap
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @cmp_endpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !80
+  %3 = load ptr, ptr %0, align 8, !tbaa !79
   %.not = icmp eq ptr %3, null
-  %4 = load ptr, ptr %1, align 8, !tbaa !80
+  %4 = load ptr, ptr %1, align 8, !tbaa !79
   %.not23 = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
@@ -2071,10 +2071,10 @@ define internal fastcc range(i32 0, 3) i32 @cmp_endpoint(ptr noundef readonly ca
 
 11:                                               ; preds = %10, %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !82
+  %13 = load ptr, ptr %12, align 8, !tbaa !81
   %.not25 = icmp eq ptr %13, null
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %15 = load ptr, ptr %14, align 8, !tbaa !81
   %.not26 = icmp eq ptr %15, null
   br i1 %.not25, label %21, label %16
 
@@ -2131,9 +2131,9 @@ cmp_byte_object.exit:                             ; preds = %38, %37, %32, %30, 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !83
+  %3 = load ptr, ptr %0, align 8, !tbaa !82
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !83
+  %5 = load ptr, ptr %1, align 8, !tbaa !82
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -2146,9 +2146,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr noundef readonly captur
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !85
+  %11 = load i64, ptr %10, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !85
+  %13 = load i64, ptr %12, align 8, !tbaa !84
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %21, label %15
 
@@ -2173,9 +2173,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr noundef readonly captur
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !86
+  %3 = load ptr, ptr %0, align 8, !tbaa !85
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !86
+  %5 = load ptr, ptr %1, align 8, !tbaa !85
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -2208,9 +2208,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %21 = load i32, ptr %20, align 4, !tbaa !90
+  %21 = load i32, ptr %20, align 4, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 268
-  %23 = load i32, ptr %22, align 4, !tbaa !90
+  %23 = load i32, ptr %22, align 4, !tbaa !89
   %24 = icmp sgt i32 %21, %23
   br i1 %24, label %122, label %25
 
@@ -2220,10 +2220,10 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %29 = load ptr, ptr %28, align 8, !tbaa !91
+  %29 = load ptr, ptr %28, align 8, !tbaa !90
   %.not100 = icmp eq ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %31 = load ptr, ptr %30, align 8, !tbaa !91
+  %31 = load ptr, ptr %30, align 8, !tbaa !90
   %.not101 = icmp eq ptr %31, null
   br i1 %.not100, label %37, label %32
 
@@ -2244,9 +2244,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 38:                                               ; preds = %37, %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %40 = load i8, ptr %39, align 8, !tbaa !92
+  %40 = load i8, ptr %39, align 8, !tbaa !91
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %42 = load i8, ptr %41, align 8, !tbaa !92
+  %42 = load i8, ptr %41, align 8, !tbaa !91
   %43 = icmp sgt i8 %40, %42
   br i1 %43, label %122, label %44
 
@@ -2267,9 +2267,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %54 = load float, ptr %53, align 8, !tbaa !93
+  %54 = load float, ptr %53, align 8, !tbaa !92
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %56 = load float, ptr %55, align 8, !tbaa !93
+  %56 = load float, ptr %55, align 8, !tbaa !92
   %57 = fcmp ogt float %54, %56
   br i1 %57, label %122, label %58
 
@@ -2279,9 +2279,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %62 = load i32, ptr %61, align 4, !tbaa !94
+  %62 = load i32, ptr %61, align 4, !tbaa !93
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  %64 = load i32, ptr %63, align 4, !tbaa !94
+  %64 = load i32, ptr %63, align 4, !tbaa !93
   %65 = icmp sgt i32 %62, %64
   br i1 %65, label %122, label %66
 
@@ -2291,9 +2291,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %70 = load i16, ptr %69, align 8, !tbaa !95
+  %70 = load i16, ptr %69, align 8, !tbaa !94
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %72 = load i16, ptr %71, align 8, !tbaa !95
+  %72 = load i16, ptr %71, align 8, !tbaa !94
   %73 = icmp ugt i16 %70, %72
   br i1 %73, label %122, label %74
 
@@ -2303,9 +2303,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %78 = load float, ptr %77, align 4, !tbaa !96
+  %78 = load float, ptr %77, align 4, !tbaa !95
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 316
-  %80 = load float, ptr %79, align 4, !tbaa !96
+  %80 = load float, ptr %79, align 4, !tbaa !95
   %81 = fcmp ogt float %78, %80
   br i1 %81, label %122, label %82
 
@@ -2315,9 +2315,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %86 = load float, ptr %85, align 8, !tbaa !97
+  %86 = load float, ptr %85, align 8, !tbaa !96
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %88 = load float, ptr %87, align 8, !tbaa !97
+  %88 = load float, ptr %87, align 8, !tbaa !96
   %89 = fcmp ogt float %86, %88
   br i1 %89, label %122, label %90
 
@@ -2327,9 +2327,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %94 = load float, ptr %93, align 4, !tbaa !98
+  %94 = load float, ptr %93, align 4, !tbaa !97
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 324
-  %96 = load float, ptr %95, align 4, !tbaa !98
+  %96 = load float, ptr %95, align 4, !tbaa !97
   %97 = fcmp ogt float %94, %96
   br i1 %97, label %122, label %98
 
@@ -2339,9 +2339,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %102 = load float, ptr %101, align 8, !tbaa !99
+  %102 = load float, ptr %101, align 8, !tbaa !98
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %104 = load float, ptr %103, align 8, !tbaa !99
+  %104 = load float, ptr %103, align 8, !tbaa !98
   %105 = fcmp ogt float %102, %104
   br i1 %105, label %122, label %106
 
@@ -2351,9 +2351,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %110 = load i16, ptr %109, align 4, !tbaa !100
+  %110 = load i16, ptr %109, align 4, !tbaa !99
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  %112 = load i16, ptr %111, align 4, !tbaa !100
+  %112 = load i16, ptr %111, align 4, !tbaa !99
   %113 = icmp ugt i16 %110, %112
   br i1 %113, label %122, label %114
 
@@ -2380,9 +2380,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !101
+  %3 = load ptr, ptr %0, align 8, !tbaa !100
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !101
+  %5 = load ptr, ptr %1, align 8, !tbaa !100
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -2404,9 +2404,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !103
+  %15 = load i64, ptr %14, align 8, !tbaa !102
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !103
+  %17 = load i64, ptr %16, align 8, !tbaa !102
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %101, label %19
 
@@ -2416,9 +2416,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !104
+  %23 = load i64, ptr %22, align 8, !tbaa !103
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !104
+  %25 = load i64, ptr %24, align 8, !tbaa !103
   %26 = icmp ugt i64 %23, %25
   br i1 %26, label %101, label %27
 
@@ -2428,9 +2428,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i64, ptr %30, align 8, !tbaa !105
+  %31 = load i64, ptr %30, align 8, !tbaa !104
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !105
+  %33 = load i64, ptr %32, align 8, !tbaa !104
   %34 = icmp ugt i64 %31, %33
   br i1 %34, label %101, label %35
 
@@ -2440,9 +2440,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !106
+  %39 = load i64, ptr %38, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load i64, ptr %40, align 8, !tbaa !106
+  %41 = load i64, ptr %40, align 8, !tbaa !105
   %42 = icmp ugt i64 %39, %41
   br i1 %42, label %101, label %43
 
@@ -2452,9 +2452,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = load i64, ptr %46, align 8, !tbaa !107
+  %47 = load i64, ptr %46, align 8, !tbaa !106
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %49 = load i64, ptr %48, align 8, !tbaa !107
+  %49 = load i64, ptr %48, align 8, !tbaa !106
   %50 = icmp ugt i64 %47, %49
   br i1 %50, label %101, label %51
 
@@ -2464,9 +2464,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %55 = load i64, ptr %54, align 8, !tbaa !108
+  %55 = load i64, ptr %54, align 8, !tbaa !107
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %57 = load i64, ptr %56, align 8, !tbaa !108
+  %57 = load i64, ptr %56, align 8, !tbaa !107
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %101, label %59
 
@@ -2476,9 +2476,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %63 = load i64, ptr %62, align 8, !tbaa !109
+  %63 = load i64, ptr %62, align 8, !tbaa !108
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %65 = load i64, ptr %64, align 8, !tbaa !109
+  %65 = load i64, ptr %64, align 8, !tbaa !108
   %66 = icmp ugt i64 %63, %65
   br i1 %66, label %101, label %67
 
@@ -2488,9 +2488,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load i64, ptr %70, align 8, !tbaa !110
+  %71 = load i64, ptr %70, align 8, !tbaa !109
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %73 = load i64, ptr %72, align 8, !tbaa !110
+  %73 = load i64, ptr %72, align 8, !tbaa !109
   %74 = icmp ugt i64 %71, %73
   br i1 %74, label %101, label %75
 
@@ -2500,9 +2500,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %79 = load i64, ptr %78, align 8, !tbaa !111
+  %79 = load i64, ptr %78, align 8, !tbaa !110
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %81 = load i64, ptr %80, align 8, !tbaa !111
+  %81 = load i64, ptr %80, align 8, !tbaa !110
   %82 = icmp ugt i64 %79, %81
   br i1 %82, label %101, label %83
 
@@ -2512,9 +2512,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %87 = load i64, ptr %86, align 8, !tbaa !112
+  %87 = load i64, ptr %86, align 8, !tbaa !111
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %89 = load i64, ptr %88, align 8, !tbaa !112
+  %89 = load i64, ptr %88, align 8, !tbaa !111
   %90 = icmp ugt i64 %87, %89
   br i1 %90, label %101, label %91
 
@@ -2524,9 +2524,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %95 = load i64, ptr %94, align 8, !tbaa !113
+  %95 = load i64, ptr %94, align 8, !tbaa !112
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %97 = load i64, ptr %96, align 8, !tbaa !113
+  %97 = load i64, ptr %96, align 8, !tbaa !112
   %98 = icmp ugt i64 %95, %97
   br i1 %98, label %101, label %99
 
@@ -2542,9 +2542,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !114
+  %3 = load ptr, ptr %0, align 8, !tbaa !113
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !114
+  %5 = load ptr, ptr %1, align 8, !tbaa !113
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -2566,9 +2566,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !116
+  %15 = load i64, ptr %14, align 8, !tbaa !115
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !116
+  %17 = load i64, ptr %16, align 8, !tbaa !115
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %61, label %19
 
@@ -2578,9 +2578,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !117
+  %23 = load i64, ptr %22, align 8, !tbaa !116
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !117
+  %25 = load i64, ptr %24, align 8, !tbaa !116
   %26 = icmp ugt i64 %23, %25
   br i1 %26, label %61, label %27
 
@@ -2590,9 +2590,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i64, ptr %30, align 8, !tbaa !118
+  %31 = load i64, ptr %30, align 8, !tbaa !117
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !118
+  %33 = load i64, ptr %32, align 8, !tbaa !117
   %34 = icmp ugt i64 %31, %33
   br i1 %34, label %61, label %35
 
@@ -2602,9 +2602,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !119
+  %39 = load i64, ptr %38, align 8, !tbaa !118
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load i64, ptr %40, align 8, !tbaa !119
+  %41 = load i64, ptr %40, align 8, !tbaa !118
   %42 = icmp ugt i64 %39, %41
   br i1 %42, label %61, label %43
 
@@ -2614,9 +2614,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = load i64, ptr %46, align 8, !tbaa !120
+  %47 = load i64, ptr %46, align 8, !tbaa !119
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %49 = load i64, ptr %48, align 8, !tbaa !120
+  %49 = load i64, ptr %48, align 8, !tbaa !119
   %50 = icmp ugt i64 %47, %49
   br i1 %50, label %61, label %51
 
@@ -2626,9 +2626,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %55 = load i64, ptr %54, align 8, !tbaa !121
+  %55 = load i64, ptr %54, align 8, !tbaa !120
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %57 = load i64, ptr %56, align 8, !tbaa !121
+  %57 = load i64, ptr %56, align 8, !tbaa !120
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %61, label %59
 
@@ -2644,9 +2644,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly ca
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !122
+  %3 = load ptr, ptr %0, align 8, !tbaa !121
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !122
+  %5 = load ptr, ptr %1, align 8, !tbaa !121
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -2668,9 +2668,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load float, ptr %14, align 8, !tbaa !124
+  %15 = load float, ptr %14, align 8, !tbaa !123
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load float, ptr %16, align 8, !tbaa !124
+  %17 = load float, ptr %16, align 8, !tbaa !123
   %18 = fcmp ogt float %15, %17
   br i1 %18, label %.loopexit, label %19
 
@@ -2680,9 +2680,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = load float, ptr %22, align 4, !tbaa !125
+  %23 = load float, ptr %22, align 4, !tbaa !124
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %25 = load float, ptr %24, align 4, !tbaa !125
+  %25 = load float, ptr %24, align 4, !tbaa !124
   %26 = fcmp ogt float %23, %25
   br i1 %26, label %.loopexit, label %27
 
@@ -2692,9 +2692,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load float, ptr %30, align 8, !tbaa !126
+  %31 = load float, ptr %30, align 8, !tbaa !125
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load float, ptr %32, align 8, !tbaa !126
+  %33 = load float, ptr %32, align 8, !tbaa !125
   %34 = fcmp ogt float %31, %33
   br i1 %34, label %.loopexit, label %35
 
@@ -2704,9 +2704,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %39 = load float, ptr %38, align 4, !tbaa !127
+  %39 = load float, ptr %38, align 4, !tbaa !126
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %41 = load float, ptr %40, align 4, !tbaa !127
+  %41 = load float, ptr %40, align 4, !tbaa !126
   %42 = fcmp ogt float %39, %41
   br i1 %42, label %.loopexit, label %43
 
@@ -2716,9 +2716,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load float, ptr %46, align 8, !tbaa !128
+  %47 = load float, ptr %46, align 8, !tbaa !127
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load float, ptr %48, align 8, !tbaa !128
+  %49 = load float, ptr %48, align 8, !tbaa !127
   %50 = fcmp ogt float %47, %49
   br i1 %50, label %.loopexit, label %51
 
@@ -2728,9 +2728,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %55 = load float, ptr %54, align 4, !tbaa !129
+  %55 = load float, ptr %54, align 4, !tbaa !128
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %57 = load float, ptr %56, align 4, !tbaa !129
+  %57 = load float, ptr %56, align 4, !tbaa !128
   %58 = fcmp ogt float %55, %57
   br i1 %58, label %.loopexit, label %59
 
@@ -2740,9 +2740,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %63 = load float, ptr %62, align 8, !tbaa !130
+  %63 = load float, ptr %62, align 8, !tbaa !129
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %65 = load float, ptr %64, align 8, !tbaa !130
+  %65 = load float, ptr %64, align 8, !tbaa !129
   %66 = fcmp ogt float %63, %65
   br i1 %66, label %.loopexit, label %67
 
@@ -2752,9 +2752,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %71 = load float, ptr %70, align 4, !tbaa !131
+  %71 = load float, ptr %70, align 4, !tbaa !130
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %73 = load float, ptr %72, align 4, !tbaa !131
+  %73 = load float, ptr %72, align 4, !tbaa !130
   %74 = fcmp ogt float %71, %73
   br i1 %74, label %.loopexit, label %75
 
@@ -2764,9 +2764,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %79 = load float, ptr %78, align 8, !tbaa !132
+  %79 = load float, ptr %78, align 8, !tbaa !131
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %81 = load float, ptr %80, align 8, !tbaa !132
+  %81 = load float, ptr %80, align 8, !tbaa !131
   %82 = fcmp ogt float %79, %81
   br i1 %82, label %.loopexit, label %83
 
@@ -2776,9 +2776,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %87 = load float, ptr %86, align 4, !tbaa !133
+  %87 = load float, ptr %86, align 4, !tbaa !132
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %89 = load float, ptr %88, align 4, !tbaa !133
+  %89 = load float, ptr %88, align 4, !tbaa !132
   %90 = fcmp ogt float %87, %89
   br i1 %90, label %.loopexit, label %91
 
@@ -2788,9 +2788,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %95 = load float, ptr %94, align 8, !tbaa !134
+  %95 = load float, ptr %94, align 8, !tbaa !133
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %97 = load float, ptr %96, align 8, !tbaa !134
+  %97 = load float, ptr %96, align 8, !tbaa !133
   %98 = fcmp ogt float %95, %97
   br i1 %98, label %.loopexit, label %99
 
@@ -2811,19 +2811,19 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %109 = load ptr, ptr %108, align 8, !tbaa !135
+  %109 = load ptr, ptr %108, align 8, !tbaa !134
   %.not127 = icmp eq ptr %109, null
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %111 = load ptr, ptr %110, align 8, !tbaa !135
+  %111 = load ptr, ptr %110, align 8, !tbaa !134
   %112 = icmp eq ptr %111, null
   %. = select i1 %.not127, i32 2, i32 1
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %115 = load i64, ptr %114, align 8, !tbaa !136
+  %115 = load i64, ptr %114, align 8, !tbaa !135
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %117 = load i64, ptr %116, align 8, !tbaa !136
+  %117 = load i64, ptr %116, align 8, !tbaa !135
   %118 = icmp ugt i64 %115, %117
   br i1 %118, label %.loopexit, label %119
 
@@ -2838,7 +2838,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 121:                                              ; preds = %.lr.ph
   %122 = add nuw i64 %.0135, 1
   %exitcond.not = icmp eq i64 %122, %115
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
 
 .lr.ph:                                           ; preds = %.preheader133, %121
   %.0135 = phi i64 [ %122, %121 ], [ 0, %.preheader133 ]
@@ -2850,19 +2850,19 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 ._crit_edge:                                      ; preds = %121, %.preheader133
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %127 = load ptr, ptr %126, align 8, !tbaa !138
+  %127 = load ptr, ptr %126, align 8, !tbaa !137
   %.not128 = icmp eq ptr %127, null
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %129 = load ptr, ptr %128, align 8, !tbaa !138
+  %129 = load ptr, ptr %128, align 8, !tbaa !137
   %130 = icmp eq ptr %129, null
   %.147 = select i1 %.not128, i32 2, i32 1
   br i1 %130, label %.loopexit, label %131
 
 131:                                              ; preds = %._crit_edge
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %133 = load i64, ptr %132, align 8, !tbaa !139
+  %133 = load i64, ptr %132, align 8, !tbaa !138
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %135 = load i64, ptr %134, align 8, !tbaa !139
+  %135 = load i64, ptr %134, align 8, !tbaa !138
   %136 = icmp ugt i64 %133, %135
   br i1 %136, label %.loopexit, label %137
 
@@ -2877,7 +2877,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 139:                                              ; preds = %.lr.ph137
   %140 = add nuw i64 %.1136, 1
   %exitcond143.not = icmp eq i64 %140, %133
-  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph137, !llvm.loop !140
+  br i1 %exitcond143.not, label %.loopexit, label %.lr.ph137, !llvm.loop !139
 
 .lr.ph137:                                        ; preds = %.preheader, %139
   %.1136 = phi i64 [ %140, %139 ], [ 0, %.preheader ]
@@ -2894,9 +2894,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !141
+  %3 = load ptr, ptr %0, align 8, !tbaa !140
   %4 = icmp eq ptr %3, null
-  %5 = load ptr, ptr %1, align 8, !tbaa !141
+  %5 = load ptr, ptr %1, align 8, !tbaa !140
   %6 = icmp eq ptr %5, null
   br i1 %4, label %7, label %8
 
@@ -2929,9 +2929,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %21 = load i16, ptr %20, align 8, !tbaa !144
+  %21 = load i16, ptr %20, align 8, !tbaa !143
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %23 = load i16, ptr %22, align 8, !tbaa !144
+  %23 = load i16, ptr %22, align 8, !tbaa !143
   %24 = icmp ugt i16 %21, %23
   br i1 %24, label %.loopexit, label %25
 
@@ -2941,10 +2941,10 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %29 = load ptr, ptr %28, align 8, !tbaa !145
+  %29 = load ptr, ptr %28, align 8, !tbaa !144
   %30 = icmp eq ptr %29, null
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %32 = load ptr, ptr %31, align 8, !tbaa !145
+  %32 = load ptr, ptr %31, align 8, !tbaa !144
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
 
@@ -2958,7 +2958,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
 36:                                               ; preds = %35
   %37 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %29) #8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %39 = load ptr, ptr %38, align 8, !tbaa !145
+  %39 = load ptr, ptr %38, align 8, !tbaa !144
   %40 = tail call i32 @PMIx_Argv_count(ptr noundef %39) #8
   %41 = icmp sgt i32 %37, %40
   br i1 %41, label %.loopexit, label %42
@@ -2972,22 +2972,22 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
   br i1 %44, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %45 = load ptr, ptr %28, align 8, !tbaa !145
-  %46 = load ptr, ptr %38, align 8, !tbaa !145
+  %45 = load ptr, ptr %28, align 8, !tbaa !144
+  %46 = load ptr, ptr %38, align 8, !tbaa !144
   %wide.trip.count = zext nneg i32 %37 to i64
   br label %48
 
 47:                                               ; preds = %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !146
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !145
 
 48:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
-  %50 = load ptr, ptr %49, align 8, !tbaa !147
+  %50 = load ptr, ptr %49, align 8, !tbaa !146
   %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
-  %52 = load ptr, ptr %51, align 8, !tbaa !147
+  %52 = load ptr, ptr %51, align 8, !tbaa !146
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %52) #7
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.loopexit, label %55
@@ -3079,122 +3079,121 @@ attributes #8 = { nounwind }
 !26 = !{!"pmix_data_array", !5, i64 0, !13, i64 8, !12, i64 16}
 !27 = !{!26, !12, i64 16}
 !28 = !{!26, !13, i64 8}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = distinct !{!33, !30, !31}
-!34 = distinct !{!34, !30, !31}
-!35 = distinct !{!35, !30, !31}
-!36 = distinct !{!36, !30, !31}
-!37 = distinct !{!37, !30, !31}
-!38 = distinct !{!38, !30, !31}
-!39 = distinct !{!39, !30, !31}
-!40 = distinct !{!40, !30, !31}
-!41 = distinct !{!41, !30, !31}
-!42 = distinct !{!42, !30, !31}
-!43 = distinct !{!43, !30, !31}
-!44 = distinct !{!44, !30, !31}
-!45 = distinct !{!45, !30, !31}
-!46 = distinct !{!46, !30, !31}
-!47 = distinct !{!47, !30, !31}
-!48 = distinct !{!48, !30, !31}
-!49 = distinct !{!49, !30, !31}
-!50 = !{!51, !11, i64 0}
-!51 = !{!"", !11, i64 0, !11, i64 8, !6, i64 16}
-!52 = !{!51, !11, i64 8}
-!53 = !{!51, !6, i64 16}
-!54 = !{!55, !6, i64 0}
-!55 = !{!"pmix_coord", !6, i64 0, !56, i64 8, !13, i64 16}
-!56 = !{!"p1 int", !12, i64 0}
-!57 = !{!55, !13, i64 16}
-!58 = !{!55, !56, i64 8}
-!59 = !{!60, !11, i64 0}
-!60 = !{!"", !11, i64 0, !12, i64 8}
-!61 = !{!60, !12, i64 8}
-!62 = !{!63, !13, i64 0}
-!63 = !{!"pmix_geometry", !13, i64 0, !11, i64 8, !11, i64 16, !64, i64 24, !13, i64 32}
-!64 = !{!"p1 _ZTS10pmix_coord", !12, i64 0}
-!65 = !{!63, !11, i64 8}
-!66 = !{!63, !11, i64 16}
-!67 = !{!63, !64, i64 24}
-!68 = !{!63, !13, i64 32}
-!69 = distinct !{!69, !30, !31}
-!70 = !{!71, !13, i64 16}
-!71 = !{!"pmix_device", !11, i64 0, !11, i64 8, !13, i64 16}
-!72 = !{!71, !11, i64 0}
-!73 = !{!71, !11, i64 8}
-!74 = !{!75, !13, i64 16}
-!75 = !{!"pmix_device_distance", !11, i64 0, !11, i64 8, !13, i64 16, !5, i64 24, !5, i64 26}
-!76 = !{!75, !11, i64 0}
-!77 = !{!75, !11, i64 8}
-!78 = !{!75, !5, i64 24}
-!79 = !{!75, !5, i64 26}
-!80 = !{!81, !11, i64 0}
-!81 = !{!"pmix_endpoint", !11, i64 0, !11, i64 8, !10, i64 16}
-!82 = !{!81, !11, i64 8}
-!83 = !{!84, !11, i64 0}
-!84 = !{!"pmix_data_buffer", !11, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !13, i64 32}
-!85 = !{!84, !13, i64 32}
-!86 = !{!87, !11, i64 0}
-!87 = !{!"pmix_proc_stats", !11, i64 0, !20, i64 8, !21, i64 268, !11, i64 272, !6, i64 280, !88, i64 288, !89, i64 304, !21, i64 308, !5, i64 312, !89, i64 316, !89, i64 320, !89, i64 324, !89, i64 328, !5, i64 332, !88, i64 336}
-!88 = !{!"timeval", !13, i64 0, !13, i64 8}
-!89 = !{!"float", !6, i64 0}
-!90 = !{!87, !21, i64 268}
-!91 = !{!87, !11, i64 272}
-!92 = !{!87, !6, i64 280}
-!93 = !{!87, !89, i64 304}
-!94 = !{!87, !21, i64 308}
-!95 = !{!87, !5, i64 312}
-!96 = !{!87, !89, i64 316}
-!97 = !{!87, !89, i64 320}
-!98 = !{!87, !89, i64 324}
-!99 = !{!87, !89, i64 328}
-!100 = !{!87, !5, i64 332}
-!101 = !{!102, !11, i64 0}
-!102 = !{!"", !11, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
-!103 = !{!102, !13, i64 8}
-!104 = !{!102, !13, i64 16}
-!105 = !{!102, !13, i64 24}
-!106 = !{!102, !13, i64 32}
-!107 = !{!102, !13, i64 40}
-!108 = !{!102, !13, i64 48}
-!109 = !{!102, !13, i64 56}
-!110 = !{!102, !13, i64 64}
-!111 = !{!102, !13, i64 72}
-!112 = !{!102, !13, i64 80}
-!113 = !{!102, !13, i64 88}
-!114 = !{!115, !11, i64 0}
-!115 = !{!"", !11, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
-!116 = !{!115, !13, i64 8}
-!117 = !{!115, !13, i64 16}
-!118 = !{!115, !13, i64 24}
-!119 = !{!115, !13, i64 32}
-!120 = !{!115, !13, i64 40}
-!121 = !{!115, !13, i64 48}
-!122 = !{!123, !11, i64 0}
-!123 = !{!"", !11, i64 0, !89, i64 8, !89, i64 12, !89, i64 16, !89, i64 20, !89, i64 24, !89, i64 28, !89, i64 32, !89, i64 36, !89, i64 40, !89, i64 44, !89, i64 48, !88, i64 56, !12, i64 72, !13, i64 80, !12, i64 88, !13, i64 96}
-!124 = !{!123, !89, i64 8}
-!125 = !{!123, !89, i64 12}
-!126 = !{!123, !89, i64 16}
-!127 = !{!123, !89, i64 20}
-!128 = !{!123, !89, i64 24}
-!129 = !{!123, !89, i64 28}
-!130 = !{!123, !89, i64 32}
-!131 = !{!123, !89, i64 36}
-!132 = !{!123, !89, i64 40}
-!133 = !{!123, !89, i64 44}
-!134 = !{!123, !89, i64 48}
-!135 = !{!123, !12, i64 72}
-!136 = !{!123, !13, i64 80}
-!137 = distinct !{!137, !30, !31}
-!138 = !{!123, !12, i64 88}
-!139 = !{!123, !13, i64 96}
-!140 = distinct !{!140, !30, !31}
-!141 = !{!142, !11, i64 0}
-!142 = !{!"pmix_regattr_t", !11, i64 0, !6, i64 8, !5, i64 520, !143, i64 528}
-!143 = !{!"p2 omnipotent char", !12, i64 0}
-!144 = !{!142, !5, i64 520}
-!145 = !{!142, !143, i64 528}
-!146 = distinct !{!146, !30, !31}
-!147 = !{!11, !11, i64 0}
+!31 = distinct !{!31, !30}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !30}
+!34 = distinct !{!34, !30}
+!35 = distinct !{!35, !30}
+!36 = distinct !{!36, !30}
+!37 = distinct !{!37, !30}
+!38 = distinct !{!38, !30}
+!39 = distinct !{!39, !30}
+!40 = distinct !{!40, !30}
+!41 = distinct !{!41, !30}
+!42 = distinct !{!42, !30}
+!43 = distinct !{!43, !30}
+!44 = distinct !{!44, !30}
+!45 = distinct !{!45, !30}
+!46 = distinct !{!46, !30}
+!47 = distinct !{!47, !30}
+!48 = distinct !{!48, !30}
+!49 = !{!50, !11, i64 0}
+!50 = !{!"", !11, i64 0, !11, i64 8, !6, i64 16}
+!51 = !{!50, !11, i64 8}
+!52 = !{!50, !6, i64 16}
+!53 = !{!54, !6, i64 0}
+!54 = !{!"pmix_coord", !6, i64 0, !55, i64 8, !13, i64 16}
+!55 = !{!"p1 int", !12, i64 0}
+!56 = !{!54, !13, i64 16}
+!57 = !{!54, !55, i64 8}
+!58 = !{!59, !11, i64 0}
+!59 = !{!"", !11, i64 0, !12, i64 8}
+!60 = !{!59, !12, i64 8}
+!61 = !{!62, !13, i64 0}
+!62 = !{!"pmix_geometry", !13, i64 0, !11, i64 8, !11, i64 16, !63, i64 24, !13, i64 32}
+!63 = !{!"p1 _ZTS10pmix_coord", !12, i64 0}
+!64 = !{!62, !11, i64 8}
+!65 = !{!62, !11, i64 16}
+!66 = !{!62, !63, i64 24}
+!67 = !{!62, !13, i64 32}
+!68 = distinct !{!68, !30}
+!69 = !{!70, !13, i64 16}
+!70 = !{!"pmix_device", !11, i64 0, !11, i64 8, !13, i64 16}
+!71 = !{!70, !11, i64 0}
+!72 = !{!70, !11, i64 8}
+!73 = !{!74, !13, i64 16}
+!74 = !{!"pmix_device_distance", !11, i64 0, !11, i64 8, !13, i64 16, !5, i64 24, !5, i64 26}
+!75 = !{!74, !11, i64 0}
+!76 = !{!74, !11, i64 8}
+!77 = !{!74, !5, i64 24}
+!78 = !{!74, !5, i64 26}
+!79 = !{!80, !11, i64 0}
+!80 = !{!"pmix_endpoint", !11, i64 0, !11, i64 8, !10, i64 16}
+!81 = !{!80, !11, i64 8}
+!82 = !{!83, !11, i64 0}
+!83 = !{!"pmix_data_buffer", !11, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !13, i64 32}
+!84 = !{!83, !13, i64 32}
+!85 = !{!86, !11, i64 0}
+!86 = !{!"pmix_proc_stats", !11, i64 0, !20, i64 8, !21, i64 268, !11, i64 272, !6, i64 280, !87, i64 288, !88, i64 304, !21, i64 308, !5, i64 312, !88, i64 316, !88, i64 320, !88, i64 324, !88, i64 328, !5, i64 332, !87, i64 336}
+!87 = !{!"timeval", !13, i64 0, !13, i64 8}
+!88 = !{!"float", !6, i64 0}
+!89 = !{!86, !21, i64 268}
+!90 = !{!86, !11, i64 272}
+!91 = !{!86, !6, i64 280}
+!92 = !{!86, !88, i64 304}
+!93 = !{!86, !21, i64 308}
+!94 = !{!86, !5, i64 312}
+!95 = !{!86, !88, i64 316}
+!96 = !{!86, !88, i64 320}
+!97 = !{!86, !88, i64 324}
+!98 = !{!86, !88, i64 328}
+!99 = !{!86, !5, i64 332}
+!100 = !{!101, !11, i64 0}
+!101 = !{!"", !11, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
+!102 = !{!101, !13, i64 8}
+!103 = !{!101, !13, i64 16}
+!104 = !{!101, !13, i64 24}
+!105 = !{!101, !13, i64 32}
+!106 = !{!101, !13, i64 40}
+!107 = !{!101, !13, i64 48}
+!108 = !{!101, !13, i64 56}
+!109 = !{!101, !13, i64 64}
+!110 = !{!101, !13, i64 72}
+!111 = !{!101, !13, i64 80}
+!112 = !{!101, !13, i64 88}
+!113 = !{!114, !11, i64 0}
+!114 = !{!"", !11, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
+!115 = !{!114, !13, i64 8}
+!116 = !{!114, !13, i64 16}
+!117 = !{!114, !13, i64 24}
+!118 = !{!114, !13, i64 32}
+!119 = !{!114, !13, i64 40}
+!120 = !{!114, !13, i64 48}
+!121 = !{!122, !11, i64 0}
+!122 = !{!"", !11, i64 0, !88, i64 8, !88, i64 12, !88, i64 16, !88, i64 20, !88, i64 24, !88, i64 28, !88, i64 32, !88, i64 36, !88, i64 40, !88, i64 44, !88, i64 48, !87, i64 56, !12, i64 72, !13, i64 80, !12, i64 88, !13, i64 96}
+!123 = !{!122, !88, i64 8}
+!124 = !{!122, !88, i64 12}
+!125 = !{!122, !88, i64 16}
+!126 = !{!122, !88, i64 20}
+!127 = !{!122, !88, i64 24}
+!128 = !{!122, !88, i64 28}
+!129 = !{!122, !88, i64 32}
+!130 = !{!122, !88, i64 36}
+!131 = !{!122, !88, i64 40}
+!132 = !{!122, !88, i64 44}
+!133 = !{!122, !88, i64 48}
+!134 = !{!122, !12, i64 72}
+!135 = !{!122, !13, i64 80}
+!136 = distinct !{!136, !30}
+!137 = !{!122, !12, i64 88}
+!138 = !{!122, !13, i64 96}
+!139 = distinct !{!139, !30}
+!140 = !{!141, !11, i64 0}
+!141 = !{!"pmix_regattr_t", !11, i64 0, !6, i64 8, !5, i64 520, !142, i64 528}
+!142 = !{!"p2 omnipotent char", !12, i64 0}
+!143 = !{!141, !5, i64 520}
+!144 = !{!141, !142, i64 528}
+!145 = distinct !{!145, !30}
+!146 = !{!11, !11, i64 0}

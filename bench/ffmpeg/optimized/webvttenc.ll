@@ -90,13 +90,13 @@ define internal i32 @webvtt_encode_frame(ptr noundef %0, ptr noundef %1, i32 nou
 
 ._crit_edge:                                      ; preds = %24, %4
   %34 = getelementptr i8, ptr %7, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !51
+  %35 = load i32, ptr %34, align 8, !tbaa !50
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.thread, label %36
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr i8, ptr %7, i64 28
-  %.val27 = load i32, ptr %37, align 4, !tbaa !52
+  %.val27 = load i32, ptr %37, align 4, !tbaa !51
   %.not30 = icmp ult i32 %35, %.val27
   br i1 %.not30, label %.thread, label %.thread.sink.split
 
@@ -146,68 +146,68 @@ define internal fastcc void @webvtt_style_apply(ptr noundef %0, ptr noundef %1) 
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !53
+  %8 = load i32, ptr %7, align 4, !tbaa !52
   %.not12 = icmp eq i32 %8, 0
   br i1 %.not12, label %webvtt_stack_push.exit, label %9
 
 9:                                                ; preds = %6
   tail call void (ptr, ptr, ...) @webvtt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %11 = load i32, ptr %10, align 8, !tbaa !55
+  %11 = load i32, ptr %10, align 8, !tbaa !54
   %12 = icmp sgt i32 %11, 63
   br i1 %12, label %webvtt_stack_push.exit, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %15 = add nsw i32 %11, 1
-  store i32 %15, ptr %10, align 8, !tbaa !55
+  store i32 %15, ptr %10, align 8, !tbaa !54
   %16 = sext i32 %11 to i64
   %17 = getelementptr inbounds [64 x i8], ptr %14, i64 0, i64 %16
-  store i8 98, ptr %17, align 1, !tbaa !56
+  store i8 98, ptr %17, align 1, !tbaa !55
   br label %webvtt_stack_push.exit
 
 webvtt_stack_push.exit:                           ; preds = %13, %9, %6
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !57
+  %19 = load i32, ptr %18, align 8, !tbaa !56
   %.not13 = icmp eq i32 %19, 0
   br i1 %.not13, label %webvtt_stack_push.exit16, label %20
 
 20:                                               ; preds = %webvtt_stack_push.exit
   tail call void (ptr, ptr, ...) @webvtt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %22 = load i32, ptr %21, align 8, !tbaa !55
+  %22 = load i32, ptr %21, align 8, !tbaa !54
   %23 = icmp sgt i32 %22, 63
   br i1 %23, label %webvtt_stack_push.exit16, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %26 = add nsw i32 %22, 1
-  store i32 %26, ptr %21, align 8, !tbaa !55
+  store i32 %26, ptr %21, align 8, !tbaa !54
   %27 = sext i32 %22 to i64
   %28 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %27
-  store i8 105, ptr %28, align 1, !tbaa !56
+  store i8 105, ptr %28, align 1, !tbaa !55
   br label %webvtt_stack_push.exit16
 
 webvtt_stack_push.exit16:                         ; preds = %24, %20, %webvtt_stack_push.exit
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %30 = load i32, ptr %29, align 4, !tbaa !58
+  %30 = load i32, ptr %29, align 4, !tbaa !57
   %.not14 = icmp eq i32 %30, 0
   br i1 %.not14, label %webvtt_stack_push.exit18, label %31
 
 31:                                               ; preds = %webvtt_stack_push.exit16
   tail call void (ptr, ptr, ...) @webvtt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %33 = load i32, ptr %32, align 8, !tbaa !55
+  %33 = load i32, ptr %32, align 8, !tbaa !54
   %34 = icmp sgt i32 %33, 63
   br i1 %34, label %webvtt_stack_push.exit18, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %37 = add nsw i32 %33, 1
-  store i32 %37, ptr %32, align 8, !tbaa !55
+  store i32 %37, ptr %32, align 8, !tbaa !54
   %38 = sext i32 %33 to i64
   %39 = getelementptr inbounds [64 x i8], ptr %36, i64 0, i64 %38
-  store i8 117, ptr %39, align 1, !tbaa !56
+  store i8 117, ptr %39, align 1, !tbaa !55
   br label %webvtt_stack_push.exit18
 
 webvtt_stack_push.exit18:                         ; preds = %35, %31, %webvtt_stack_push.exit16, %2
@@ -266,7 +266,7 @@ define internal void @webvtt_style_cb(ptr noundef %0, i8 noundef signext %1, i32
 7:                                                ; preds = %6
   %.not11.i = icmp eq i8 %1, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !55
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !54
   br i1 %.not11.i, label %.preheader.i, label %8
 
 8:                                                ; preds = %7
@@ -286,9 +286,9 @@ define internal void @webvtt_style_cb(ptr noundef %0, i8 noundef signext %1, i32
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %16 = and i64 %indvars.iv.next.i.i, 4294967295
   %17 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !56
+  %18 = load i8, ptr %17, align 1, !tbaa !55
   %19 = icmp eq i8 %18, %1
-  br i1 %19, label %.split.loop.exit.i.i, label %12, !llvm.loop !59
+  br i1 %19, label %.split.loop.exit.i.i, label %12, !llvm.loop !58
 
 .split.loop.exit.i.i:                             ; preds = %15
   %indvars.le.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -316,33 +316,33 @@ webvtt_stack_find.exit.i:                         ; preds = %12, %.split.loop.ex
 
 28:                                               ; preds = %25
   %29 = add nsw i32 %26, -1
-  store i32 %29, ptr %23, align 8, !tbaa !55
+  store i32 %29, ptr %23, align 8, !tbaa !54
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !56
+  %32 = load i8, ptr %31, align 1, !tbaa !55
   %33 = sext i8 %32 to i32
   br label %webvtt_stack_pop.exit.i
 
 webvtt_stack_pop.exit.i:                          ; preds = %28, %25
   %.0.i.i = phi i32 [ %33, %28 ], [ 0, %25 ]
   tail call void (ptr, ptr, ...) @webvtt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %.0.i.i)
-  %34 = load i32, ptr %23, align 8, !tbaa !55
+  %34 = load i32, ptr %23, align 8, !tbaa !54
   %.not12.i = icmp eq i32 %34, %22
-  br i1 %.not12.i, label %webvtt_stack_push_pop.exit, label %25, !llvm.loop !60
+  br i1 %.not12.i, label %webvtt_stack_push_pop.exit, label %25, !llvm.loop !59
 
 35:                                               ; preds = %6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %37 = load i32, ptr %36, align 8, !tbaa !55
+  %37 = load i32, ptr %36, align 8, !tbaa !54
   %38 = icmp sgt i32 %37, 63
   br i1 %38, label %43, label %webvtt_stack_push.exit.i
 
 webvtt_stack_push.exit.i:                         ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %40 = add nsw i32 %37, 1
-  store i32 %40, ptr %36, align 8, !tbaa !55
+  store i32 %40, ptr %36, align 8, !tbaa !54
   %41 = sext i32 %37 to i64
   %42 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 %41
-  store i8 %1, ptr %42, align 1, !tbaa !56
+  store i8 %1, ptr %42, align 1, !tbaa !55
   br label %webvtt_stack_push_pop.exit.thread
 
 43:                                               ; preds = %35
@@ -361,7 +361,7 @@ webvtt_stack_push_pop.exit:                       ; preds = %webvtt_stack_pop.ex
 ; Function Attrs: nounwind uwtable
 define internal void @webvtt_cancel_overrides_cb(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %4 = load i32, ptr %3, align 8, !tbaa !55
+  %4 = load i32, ptr %3, align 8, !tbaa !54
   %.not1215.i = icmp eq i32 %4, 0
   br i1 %.not1215.i, label %webvtt_stack_push_pop.exit, label %.lr.ph.i
 
@@ -376,19 +376,19 @@ define internal void @webvtt_cancel_overrides_cb(ptr noundef %0, ptr noundef %1)
 
 9:                                                ; preds = %6
   %10 = add nsw i32 %7, -1
-  store i32 %10, ptr %3, align 8, !tbaa !55
+  store i32 %10, ptr %3, align 8, !tbaa !54
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !56
+  %13 = load i8, ptr %12, align 1, !tbaa !55
   %14 = sext i8 %13 to i32
   br label %webvtt_stack_pop.exit.i
 
 webvtt_stack_pop.exit.i:                          ; preds = %9, %6
   %.0.i.i = phi i32 [ %14, %9 ], [ 0, %6 ]
   tail call void (ptr, ptr, ...) @webvtt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %.0.i.i)
-  %15 = load i32, ptr %3, align 8, !tbaa !55
+  %15 = load i32, ptr %3, align 8, !tbaa !54
   %.not12.i = icmp eq i32 %15, 0
-  br i1 %.not12.i, label %webvtt_stack_push_pop.exit, label %6, !llvm.loop !60
+  br i1 %.not12.i, label %webvtt_stack_push_pop.exit, label %6, !llvm.loop !59
 
 webvtt_stack_push_pop.exit:                       ; preds = %webvtt_stack_pop.exit.i, %2
   tail call fastcc void @webvtt_style_apply(ptr noundef nonnull %0, ptr noundef %1)
@@ -398,7 +398,7 @@ webvtt_stack_push_pop.exit:                       ; preds = %webvtt_stack_pop.ex
 ; Function Attrs: nounwind uwtable
 define internal void @webvtt_end_cb(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %3 = load i32, ptr %2, align 8, !tbaa !55
+  %3 = load i32, ptr %2, align 8, !tbaa !54
   %.not1215.i = icmp eq i32 %3, 0
   br i1 %.not1215.i, label %webvtt_stack_push_pop.exit, label %.lr.ph.i
 
@@ -413,19 +413,19 @@ define internal void @webvtt_end_cb(ptr noundef %0) #1 {
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %2, align 8, !tbaa !55
+  store i32 %9, ptr %2, align 8, !tbaa !54
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !56
+  %12 = load i8, ptr %11, align 1, !tbaa !55
   %13 = sext i8 %12 to i32
   br label %webvtt_stack_pop.exit.i
 
 webvtt_stack_pop.exit.i:                          ; preds = %8, %5
   %.0.i.i = phi i32 [ %13, %8 ], [ 0, %5 ]
   tail call void (ptr, ptr, ...) @webvtt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %.0.i.i)
-  %14 = load i32, ptr %2, align 8, !tbaa !55
+  %14 = load i32, ptr %2, align 8, !tbaa !54
   %.not12.i = icmp eq i32 %14, 0
-  br i1 %.not12.i, label %webvtt_stack_push_pop.exit, label %5, !llvm.loop !60
+  br i1 %.not12.i, label %webvtt_stack_push_pop.exit, label %5, !llvm.loop !59
 
 webvtt_stack_push_pop.exit:                       ; preds = %webvtt_stack_pop.exit.i, %1
   ret void
@@ -496,16 +496,15 @@ attributes #6 = { nounwind }
 !45 = !{!46, !14, i64 16}
 !46 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !14, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !14, i64 48, !14, i64 56}
 !47 = !{!46, !14, i64 56}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!28, !10, i64 24}
-!52 = !{!31, !10, i64 12}
-!53 = !{!54, !10, i64 36}
-!54 = !{!"", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !10, i64 68, !16, i64 72, !16, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !10, i64 100}
-!55 = !{!28, !10, i64 1112}
-!56 = !{!8, !8, i64 0}
-!57 = !{!54, !10, i64 40}
-!58 = !{!54, !10, i64 44}
-!59 = distinct !{!59, !49, !50}
-!60 = distinct !{!60, !49, !50}
+!50 = !{!28, !10, i64 24}
+!51 = !{!31, !10, i64 12}
+!52 = !{!53, !10, i64 36}
+!53 = !{!"", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !10, i64 68, !16, i64 72, !16, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !10, i64 100}
+!54 = !{!28, !10, i64 1112}
+!55 = !{!8, !8, i64 0}
+!56 = !{!53, !10, i64 40}
+!57 = !{!53, !10, i64 44}
+!58 = distinct !{!58, !49}
+!59 = distinct !{!59, !49}

@@ -435,7 +435,7 @@ define dso_local void @_ZN4llvm7CCState15MarkUnallocatedEt(ptr noundef nonnull r
   store i32 %22, ptr %20, align 4, !tbaa !181
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.03.08, i64 2
   %.not = icmp eq ptr %23, %9
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !216
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !215
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -481,7 +481,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_
   %.0813.i.i.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %32, %31 ]
   %.0912.i.i.i.us = phi i64 [ 3, %.lr.ph.split.us ], [ %.1.i.i.i.us, %31 ]
   %26 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i.us
-  %27 = load i8, ptr %26, align 1, !tbaa !217, !range !184, !noundef !185
+  %27 = load i8, ptr %26, align 1, !tbaa !216, !range !184, !noundef !185
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %31
 
@@ -493,7 +493,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_
   %.1.i.i.i.us = phi i64 [ %.0912.i.i.i.us, %25 ], [ %.0813.i.i.i.us, %29 ]
   %32 = add nuw nsw i64 %.0813.i.i.i.us, 1
   %exitcond.i.i.i.us = icmp eq i64 %32, 3
-  br i1 %exitcond.i.i.i.us, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.us, label %25, !llvm.loop !218
+  br i1 %exitcond.i.i.i.us, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.us, label %25, !llvm.loop !217
 
 _ZNK4llvm11CCValAssign8isRegLocEv.exit.us:        ; preds = %31, %29
   %spec.select.i.i.i.us = phi i64 [ 3, %29 ], [ %.1.i.i.i.us, %31 ]
@@ -513,7 +513,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.us:       ; preds = %35
 .critedge.us:                                     ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit.us, %_ZNK4llvm11CCValAssign8isRegLocEv.exit.us
   %37 = getelementptr inbounds nuw i8, ptr %.01524.us, i64 32
   %.not.us = icmp eq ptr %37, %19
-  br i1 %.not.us, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.lr.ph.split.us, !llvm.loop !219
+  br i1 %.not.us, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.lr.ph.split.us, !llvm.loop !218
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %.01524 = phi ptr [ %57, %.critedge ], [ %15, %.lr.ph ]
@@ -525,7 +525,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.us:       ; preds = %35
   %.0813.i.i.i = phi i64 [ 0, %.lr.ph.split ], [ %47, %46 ]
   %.0912.i.i.i = phi i64 [ 3, %.lr.ph.split ], [ %.1.i.i.i, %46 ]
   %41 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i
-  %42 = load i8, ptr %41, align 1, !tbaa !217, !range !184, !noundef !185
+  %42 = load i8, ptr %41, align 1, !tbaa !216, !range !184, !noundef !185
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %46
 
@@ -537,7 +537,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.us:       ; preds = %35
   %.1.i.i.i = phi i64 [ %.0912.i.i.i, %40 ], [ %.0813.i.i.i, %44 ]
   %47 = add nuw nsw i64 %.0813.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %47, 3
-  br i1 %exitcond.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %40, !llvm.loop !218
+  br i1 %exitcond.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %40, !llvm.loop !217
 
 _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %44, %46
   %spec.select.i.i.i = phi i64 [ 3, %44 ], [ %.1.i.i.i, %46 ]
@@ -571,7 +571,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit: ; preds = %53
 .critedge:                                        ; preds = %53, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %_ZNK4llvm11CCValAssign8isRegLocEv.exit
   %57 = getelementptr inbounds nuw i8, ptr %.01524, i64 32
   %.not = icmp eq ptr %57, %19
-  br i1 %.not, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.lr.ph.split, !llvm.loop !221
+  br i1 %.not, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.lr.ph.split
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread: ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit.us, %.critedge.us, %_ZNK4llvm11CCValAssign9getLocRegEv.exit, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %.critedge, %12, %2
   %.0 = phi i1 [ false, %2 ], [ true, %12 ], [ false, %_ZNK4llvm11CCValAssign9getLocRegEv.exit ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ true, %.critedge ], [ false, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.us ], [ true, %.critedge.us ]
@@ -613,14 +613,14 @@ define dso_local void @_ZN4llvm7CCState22AnalyzeFormalArgumentsERKNS_15SmallVect
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %17, align 1, !tbaa !222
+  store i8 1, ptr %17, align 1, !tbaa !220
   store ptr @.str, ptr %5, align 8, !tbaa !188
-  store i8 3, ptr %16, align 8, !tbaa !225
+  store i8 3, ptr %16, align 8, !tbaa !223
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 9, ptr %18, align 8, !tbaa !225
+  store i8 9, ptr %18, align 8, !tbaa !223
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %19, align 1, !tbaa !222
+  store i8 1, ptr %19, align 1, !tbaa !220
   store i32 %13, ptr %6, align 8, !tbaa !188
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #13
@@ -629,7 +629,7 @@ define dso_local void @_ZN4llvm7CCState22AnalyzeFormalArgumentsERKNS_15SmallVect
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !226
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !224
 }
 
 ; Function Attrs: noreturn
@@ -637,23 +637,23 @@ declare void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull ali
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #4 comdat {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i8, ptr %4, align 8, !tbaa !225, !noalias !227
+  %5 = load i8, ptr %4, align 8, !tbaa !223, !noalias !225
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load i8, ptr %8, align 8, !tbaa !225, !noalias !227
+  %9 = load i8, ptr %8, align 8, !tbaa !223, !noalias !225
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %12, align 8, !tbaa !225, !alias.scope !227
+  store i8 0, ptr %12, align 8, !tbaa !223, !alias.scope !225
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %13, align 1, !tbaa !222, !alias.scope !227
+  store i8 1, ptr %13, align 1, !tbaa !220, !alias.scope !225
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 14:                                               ; preds = %7
@@ -661,7 +661,7 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !230
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !228
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 17:                                               ; preds = %14
@@ -669,39 +669,39 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !230
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !228
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %22 = load i8, ptr %21, align 1, !tbaa !222, !noalias !227
+  %22 = load i8, ptr %21, align 1, !tbaa !220, !noalias !225
   %23 = icmp eq i8 %22, 1
-  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !227
+  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !225
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.56.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !227
+  %.sroa.56.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !225
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
   %.sroa.56.0.i = select i1 %23, i64 %.sroa.56.0.copyload.i, i64 undef
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %25 = load i8, ptr %24, align 1, !tbaa !222, !noalias !227
+  %25 = load i8, ptr %24, align 1, !tbaa !220, !noalias !225
   %26 = icmp eq i8 %25, 1
-  %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !227
+  %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !225
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !227
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !225
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.5.0.i = select i1 %26, i64 %.sroa.5.0.copyload.i, i64 undef
-  store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !227
+  store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !225
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.56.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !188, !alias.scope !227
+  store i64 %.sroa.56.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !188, !alias.scope !225
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !227
+  store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !225
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.5.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !188, !alias.scope !227
+  store i64 %.sroa.5.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !188, !alias.scope !225
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.014.i, ptr %28, align 8, !tbaa !225, !alias.scope !227
+  store i8 %.014.i, ptr %28, align 8, !tbaa !223, !alias.scope !225
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %.0.i, ptr %29, align 1, !tbaa !222, !alias.scope !227
+  store i8 %.0.i, ptr %29, align 1, !tbaa !220, !alias.scope !225
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
@@ -733,7 +733,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7CCState11CheckReturnERKNS_15SmallV
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %6
   %or.cond = select i1 %11, i1 true, i1 %.not
-  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !232
+  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !230
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.not.lcssa.ph = xor i1 %11, true
@@ -779,14 +779,14 @@ define dso_local void @_ZN4llvm7CCState13AnalyzeReturnERKNS_15SmallVectorImplINS
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %17, align 1, !tbaa !222
+  store i8 1, ptr %17, align 1, !tbaa !220
   store ptr @.str.1, ptr %5, align 8, !tbaa !188
-  store i8 3, ptr %16, align 8, !tbaa !225
+  store i8 3, ptr %16, align 8, !tbaa !223
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 9, ptr %18, align 8, !tbaa !225
+  store i8 9, ptr %18, align 8, !tbaa !223
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %19, align 1, !tbaa !222
+  store i8 1, ptr %19, align 1, !tbaa !220
   store i32 %13, ptr %6, align 8, !tbaa !188
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #13
@@ -795,7 +795,7 @@ define dso_local void @_ZN4llvm7CCState13AnalyzeReturnERKNS_15SmallVectorImplINS
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !233
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !231
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -827,13 +827,13 @@ define dso_local void @_ZN4llvm7CCState19AnalyzeCallOperandsERKNS_15SmallVectorI
   tail call void @llvm.assume(i1 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !234
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !232
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorImplINS_3MVTEEERNS1_INS_3ISD10ArgFlagsTyEEEPFbjS2_S2_NS_11CCValAssign7LocInfoES6_RS0_E(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !235
+  %6 = load i64, ptr %5, align 8, !tbaa !233
   %7 = and i64 %6, 4294967295
   %.not15 = icmp eq i64 %7, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -847,7 +847,7 @@ define dso_local void @_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorIm
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = load ptr, ptr %1, align 8, !tbaa !237
+  %9 = load ptr, ptr %1, align 8, !tbaa !235
   %10 = getelementptr inbounds nuw %"class.llvm::MVT", ptr %9, i64 %indvars.iv
   %.sroa.04.0.copyload = load i16, ptr %10, align 2, !tbaa !204
   %11 = load ptr, ptr %2, align 8, !tbaa !161
@@ -861,7 +861,7 @@ define dso_local void @_ZN4llvm7CCState19AnalyzeCallOperandsERNS_15SmallVectorIm
   tail call void @llvm.assume(i1 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !238
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !236
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -893,7 +893,7 @@ define dso_local void @_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImp
   tail call void @llvm.assume(i1 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !239
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -955,7 +955,7 @@ _ZL21isValueTypeInRegForCCjN4llvm3MVTE.exit.thread30: ; preds = %4, %_ZL21isValu
   %.0813.i.i.i = phi i64 [ 0, %17 ], [ %35, %34 ]
   %.0912.i.i.i = phi i64 [ 3, %17 ], [ %.1.i.i.i, %34 ]
   %29 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i
-  %30 = load i8, ptr %29, align 1, !tbaa !217, !range !184, !noundef !185
+  %30 = load i8, ptr %29, align 1, !tbaa !216, !range !184, !noundef !185
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %34
 
@@ -967,13 +967,13 @@ _ZL21isValueTypeInRegForCCjN4llvm3MVTE.exit.thread30: ; preds = %4, %_ZL21isValu
   %.1.i.i.i = phi i64 [ %.0912.i.i.i, %28 ], [ %.0813.i.i.i, %32 ]
   %35 = add nuw nsw i64 %.0813.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %35, 3
-  br i1 %exitcond.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %28, !llvm.loop !218
+  br i1 %exitcond.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit, label %28, !llvm.loop !217
 
 _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %32, %34
   %spec.select.i.i.i = phi i64 [ 3, %32 ], [ %.1.i.i.i, %34 ]
   %36 = zext i8 %27 to i64
   %37 = icmp eq i64 %spec.select.i.i.i, %36
-  br i1 %37, label %17, label %.preheader, !llvm.loop !240
+  br i1 %37, label %17, label %.preheader, !llvm.loop !238
 
 .preheader:                                       ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit
   %.not32 = icmp eq i32 %11, %23
@@ -1011,7 +1011,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %32, %34
   %.0813.i.i.i19 = phi i64 [ 0, %43 ], [ %57, %56 ]
   %.0912.i.i.i20 = phi i64 [ 3, %43 ], [ %.1.i.i.i21, %56 ]
   %51 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i19
-  %52 = load i8, ptr %51, align 1, !tbaa !217, !range !184, !noundef !185
+  %52 = load i8, ptr %51, align 1, !tbaa !216, !range !184, !noundef !185
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %56
 
@@ -1023,7 +1023,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit:           ; preds = %32, %34
   %.1.i.i.i21 = phi i64 [ %.0912.i.i.i20, %50 ], [ %.0813.i.i.i19, %54 ]
   %57 = add nuw nsw i64 %.0813.i.i.i19, 1
   %exitcond.i.i.i22 = icmp eq i64 %57, 3
-  br i1 %exitcond.i.i.i22, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit24, label %50, !llvm.loop !218
+  br i1 %exitcond.i.i.i22, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit24, label %50, !llvm.loop !217
 
 _ZNK4llvm11CCValAssign8isRegLocEv.exit24:         ; preds = %54, %56
   %spec.select.i.i.i23 = phi i64 [ 3, %54 ], [ %.1.i.i.i21, %56 ]
@@ -1042,42 +1042,42 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit24:         ; preds = %54, %56
 _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %60
   %.sroa.0.0.copyload.i = load i32, ptr %47, align 4, !tbaa !181
   %62 = trunc i32 %.sroa.0.0.copyload.i to i16
-  %63 = load i64, ptr %38, align 8, !tbaa !235
+  %63 = load i64, ptr %38, align 8, !tbaa !233
   %64 = add i64 %63, 1
-  %65 = load i64, ptr %39, align 8, !tbaa !241
+  %65 = load i64, ptr %39, align 8, !tbaa !239
   %.not.i.i.i25 = icmp ugt i64 %64, %65
   br i1 %.not.i.i.i25, label %66, label %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit, !prof !209
 
 66:                                               ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %40, i64 noundef %64, i64 noundef 2) #12
-  %.pre.i = load i64, ptr %38, align 8, !tbaa !235
+  %.pre.i = load i64, ptr %38, align 8, !tbaa !233
   br label %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit
 
 _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit: ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit, %66
   %67 = phi i64 [ %63, %_ZNK4llvm11CCValAssign9getLocRegEv.exit ], [ %.pre.i, %66 ]
-  %68 = load ptr, ptr %1, align 8, !tbaa !237
+  %68 = load ptr, ptr %1, align 8, !tbaa !235
   %69 = getelementptr inbounds nuw i16, ptr %68, i64 %67
   store i16 %62, ptr %69, align 1
-  %70 = load i64, ptr %38, align 8, !tbaa !235
+  %70 = load i64, ptr %38, align 8, !tbaa !233
   %71 = add i64 %70, 1
-  store i64 %71, ptr %38, align 8, !tbaa !235
+  store i64 %71, ptr %38, align 8, !tbaa !233
   br label %72
 
 72:                                               ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit24, %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit
   %73 = add i32 %.033, 1
   %.not = icmp eq i32 %73, %23
-  br i1 %.not, label %._crit_edge.loopexit, label %43, !llvm.loop !242
+  br i1 %.not, label %._crit_edge.loopexit, label %43, !llvm.loop !240
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_15SmallVectorImplINS_17ForwardedRegisterEEENS_8ArrayRefINS_3MVTEEEPFbjS6_S6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SmallVector.142", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i8, ptr %7, align 4, !tbaa !217, !range !184, !noundef !185
-  store i8 0, ptr %7, align 4, !tbaa !217
+  %8 = load i8, ptr %7, align 4, !tbaa !216, !range !184, !noundef !185
+  store i8 0, ptr %7, align 4, !tbaa !216
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %10 = load i8, ptr %9, align 1, !tbaa !217, !range !184, !noundef !185
-  store i8 1, ptr %9, align 1, !tbaa !217
+  %10 = load i8, ptr %9, align 1, !tbaa !216, !range !184, !noundef !185
+  store i8 1, ptr %9, align 1, !tbaa !216
   %.idx = shl nuw nsw i64 %3, 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not38 = icmp eq i64 %3, 0
@@ -1094,17 +1094,17 @@ define dso_local void @_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_1
   br label %19
 
 ._crit_edge42:                                    ; preds = %_ZN4llvm11SmallVectorItLj8EED2Ev.exit, %5
-  store i8 %10, ptr %9, align 1, !tbaa !217
-  store i8 %8, ptr %7, align 4, !tbaa !217
+  store i8 %10, ptr %9, align 1, !tbaa !216
+  store i8 %8, ptr %7, align 4, !tbaa !216
   ret void
 
 19:                                               ; preds = %.lr.ph41, %_ZN4llvm11SmallVectorItLj8EED2Ev.exit
   %.039 = phi ptr [ %2, %.lr.ph41 ], [ %37, %_ZN4llvm11SmallVectorItLj8EED2Ev.exit ]
   %.sroa.013.0.copyload = load i16, ptr %.039, align 2, !tbaa !204
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
-  store ptr %12, ptr %6, align 8, !tbaa !237
-  store i64 0, ptr %13, align 8, !tbaa !235
-  store i64 8, ptr %14, align 8, !tbaa !241
+  store ptr %12, ptr %6, align 8, !tbaa !235
+  store i64 0, ptr %13, align 8, !tbaa !233
+  store i64 8, ptr %14, align 8, !tbaa !239
   call void @_ZN4llvm7CCState27getRemainingRegParmsForTypeERNS_15SmallVectorImplItEENS_3MVTEPFbjS4_S4_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERS0_E(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i16 %.sroa.013.0.copyload, ptr noundef %4)
   %20 = load ptr, ptr %15, align 8, !tbaa !186
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1117,8 +1117,8 @@ define dso_local void @_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_1
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 552
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(412423) %26, i16 %.sroa.013.0.copyload, i1 noundef zeroext false) #12
-  %31 = load ptr, ptr %6, align 8, !tbaa !237
-  %32 = load i64, ptr %13, align 8, !tbaa !235
+  %31 = load ptr, ptr %6, align 8, !tbaa !235
+  %32 = load i64, ptr %13, align 8, !tbaa !233
   %.idx43 = shl nuw nsw i64 %32, 1
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx43
   %.not2636 = icmp eq i64 %32, 0
@@ -1130,7 +1130,7 @@ define dso_local void @_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_1
   br label %38
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17ForwardedRegisterELb1EE9push_backES1_.exit
-  %.pre = load ptr, ptr %6, align 8, !tbaa !237
+  %.pre = load ptr, ptr %6, align 8, !tbaa !235
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
@@ -1146,7 +1146,7 @@ _ZN4llvm11SmallVectorItLj8EED2Ev.exit:            ; preds = %._crit_edge, %36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
   %37 = getelementptr inbounds nuw i8, ptr %.039, i64 2
   %.not = icmp eq ptr %37, %11
-  br i1 %.not, label %._crit_edge42, label %19, !llvm.loop !243
+  br i1 %.not, label %._crit_edge42, label %19
 
 38:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_17ForwardedRegisterELb1EE9push_backES1_.exit
   %.02537 = phi ptr [ %31, %.lr.ph ], [ %54, %_ZN4llvm23SmallVectorTemplateBaseINS_17ForwardedRegisterELb1EE9push_backES1_.exit ]
@@ -1182,7 +1182,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_17ForwardedRegisterELb1EE9push_backES1_.exi
   store i32 %53, ptr %16, align 8, !tbaa !162
   %54 = getelementptr inbounds nuw i8, ptr %.02537, i64 2
   %.not26 = icmp eq ptr %54, %33
-  br i1 %.not26, label %._crit_edge.loopexit, label %38, !llvm.loop !244
+  br i1 %.not26, label %._crit_edge.loopexit, label %38
 }
 
 declare i32 @_ZN4llvm15MachineFunction9addLiveInENS_10MCRegisterEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1065), i32, ptr noundef) local_unnamed_addr #5
@@ -1230,7 +1230,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7CCState17resultsCompatibleEjjRNS_1
   call void @llvm.assume(i1 %25)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %.not.i, label %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit, label %.lr.ph.i, !llvm.loop !239
+  br i1 %.not.i, label %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit, label %.lr.ph.i, !llvm.loop !237
 
 _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit: ; preds = %.lr.ph.i, %13
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #12
@@ -1265,7 +1265,7 @@ _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPF
   call void @llvm.assume(i1 %36)
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i17, 1
   %.not.i23 = icmp eq i64 %indvars.iv.next.i22, %30
-  br i1 %.not.i23, label %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit24, label %.lr.ph.i16, !llvm.loop !239
+  br i1 %.not.i23, label %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit24, label %.lr.ph.i16, !llvm.loop !237
 
 _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit24: ; preds = %.lr.ph.i16, %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit
   %37 = load ptr, ptr %8, align 8, !tbaa !161
@@ -1306,7 +1306,7 @@ _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPF
   %.0813.i.i.i.i.i.i.i = phi i64 [ 0, %50 ], [ %60, %59 ]
   %.0912.i.i.i.i.i.i.i = phi i64 [ 3, %50 ], [ %.1.i.i.i.i.i.i.i, %59 ]
   %54 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i
-  %55 = load i8, ptr %54, align 1, !tbaa !217, !range !184, !noundef !185
+  %55 = load i8, ptr %54, align 1, !tbaa !216, !range !184, !noundef !185
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %59
 
@@ -1318,7 +1318,7 @@ _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPF
   %.1.i.i.i.i.i.i.i = phi i64 [ %.0912.i.i.i.i.i.i.i, %53 ], [ %.0813.i.i.i.i.i.i.i, %57 ]
   %60 = add nuw nsw i64 %.0813.i.i.i.i.i.i.i, 1
   %exitcond.i.i.i.i.i.i.i = icmp eq i64 %60, 3
-  br i1 %exitcond.i.i.i.i.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i, label %53, !llvm.loop !218
+  br i1 %exitcond.i.i.i.i.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i, label %53, !llvm.loop !217
 
 _ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i:   ; preds = %59, %57
   %spec.select.i.i.i.i.i.i.i = phi i64 [ 3, %57 ], [ %.1.i.i.i.i.i.i.i, %59 ]
@@ -1338,7 +1338,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i:   ; preds = %59, %57
   %.0813.i.i.i11.i.i.i.i = phi i64 [ 0, %63 ], [ %73, %72 ]
   %.0912.i.i.i12.i.i.i.i = phi i64 [ 3, %63 ], [ %.1.i.i.i13.i.i.i.i, %72 ]
   %67 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i11.i.i.i.i
-  %68 = load i8, ptr %67, align 1, !tbaa !217, !range !184, !noundef !185
+  %68 = load i8, ptr %67, align 1, !tbaa !216, !range !184, !noundef !185
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %72
 
@@ -1350,7 +1350,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit.i.i.i.i:   ; preds = %59, %57
   %.1.i.i.i13.i.i.i.i = phi i64 [ %.0912.i.i.i12.i.i.i.i, %66 ], [ %.0813.i.i.i11.i.i.i.i, %70 ]
   %73 = add nuw nsw i64 %.0813.i.i.i11.i.i.i.i, 1
   %exitcond.i.i.i14.i.i.i.i = icmp eq i64 %73, 3
-  br i1 %exitcond.i.i.i14.i.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit16.i.i.i.i, label %66, !llvm.loop !218
+  br i1 %exitcond.i.i.i14.i.i.i.i, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit16.i.i.i.i, label %66, !llvm.loop !217
 
 _ZNK4llvm11CCValAssign8isRegLocEv.exit16.i.i.i.i: ; preds = %72, %70
   %spec.select.i.i.i15.i.i.i.i = phi i64 [ 3, %70 ], [ %.1.i.i.i13.i.i.i.i, %72 ]
@@ -1384,7 +1384,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit19.i.i.i.i: ; preds = %_ZNK4llvm11CCValAs
   %.0813.i.i.i20.i.i.i.i = phi i64 [ %87, %86 ], [ 0, %.preheader ]
   %.0912.i.i.i21.i.i.i.i = phi i64 [ %.1.i.i.i22.i.i.i.i, %86 ], [ 3, %.preheader ]
   %81 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIlJN4llvm8RegisterEljEEmv.__found, i64 0, i64 %.0813.i.i.i20.i.i.i.i
-  %82 = load i8, ptr %81, align 1, !tbaa !217, !range !184, !noundef !185
+  %82 = load i8, ptr %81, align 1, !tbaa !216, !range !184, !noundef !185
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %86
 
@@ -1396,7 +1396,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit19.i.i.i.i: ; preds = %_ZNK4llvm11CCValAs
   %.1.i.i.i22.i.i.i.i = phi i64 [ %.0912.i.i.i21.i.i.i.i, %80 ], [ %.0813.i.i.i20.i.i.i.i, %84 ]
   %87 = add nuw nsw i64 %.0813.i.i.i20.i.i.i.i, 1
   %exitcond.i.i.i23.i.i.i.i = icmp eq i64 %87, 3
-  br i1 %exitcond.i.i.i23.i.i.i.i, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i, label %80, !llvm.loop !245
+  br i1 %exitcond.i.i.i23.i.i.i.i, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i, label %80, !llvm.loop !241
 
 _ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i:   ; preds = %86, %84
   %spec.select.i.i.i24.i.i.i.i = phi i64 [ 3, %84 ], [ %.1.i.i.i22.i.i.i.i, %86 ]
@@ -1410,7 +1410,7 @@ _ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i:   ; preds = %86, %84
   %.0813.i.i.i25.i.i.i.i = phi i64 [ 0, %_ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i ], [ %98, %97 ]
   %.0912.i.i.i26.i.i.i.i = phi i64 [ 3, %_ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i ], [ %.1.i.i.i27.i.i.i.i, %97 ]
   %92 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIlJN4llvm8RegisterEljEEmv.__found, i64 0, i64 %.0813.i.i.i25.i.i.i.i
-  %93 = load i8, ptr %92, align 1, !tbaa !217, !range !184, !noundef !185
+  %93 = load i8, ptr %92, align 1, !tbaa !216, !range !184, !noundef !185
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %95, label %97
 
@@ -1422,7 +1422,7 @@ _ZNK4llvm11CCValAssign8isMemLocEv.exit.i.i.i.i:   ; preds = %86, %84
   %.1.i.i.i27.i.i.i.i = phi i64 [ %.0912.i.i.i26.i.i.i.i, %91 ], [ %.0813.i.i.i25.i.i.i.i, %95 ]
   %98 = add nuw nsw i64 %.0813.i.i.i25.i.i.i.i, 1
   %exitcond.i.i.i28.i.i.i.i = icmp eq i64 %98, 3
-  br i1 %exitcond.i.i.i28.i.i.i.i, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit30.i.i.i.i, label %91, !llvm.loop !245
+  br i1 %exitcond.i.i.i28.i.i.i.i, label %_ZNK4llvm11CCValAssign8isMemLocEv.exit30.i.i.i.i, label %91, !llvm.loop !241
 
 _ZNK4llvm11CCValAssign8isMemLocEv.exit30.i.i.i.i: ; preds = %97, %95
   %spec.select.i.i.i29.i.i.i.i = phi i64 [ 3, %95 ], [ %.1.i.i.i27.i.i.i.i, %97 ]
@@ -1454,7 +1454,7 @@ _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit.i.i.i.i: ; preds = %_ZNK4llvm11CC
   %107 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i, i64 32
   %108 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %107, %40
-  br i1 %.not.i.i.i, label %"_ZSt5equalIPN4llvm11CCValAssignES2_ZNS0_7CCState17resultsCompatibleEjjRNS0_15MachineFunctionERNS0_11LLVMContextERKNS0_15SmallVectorImplINS0_3ISD8InputArgEEEPFbjNS0_3MVTESE_NS1_7LocInfoENS9_10ArgFlagsTyERS3_ESJ_E3$_0EbT_SL_T0_SM_T1_.exit", label %.lr.ph.i.i.i, !llvm.loop !246
+  br i1 %.not.i.i.i, label %"_ZSt5equalIPN4llvm11CCValAssignES2_ZNS0_7CCState17resultsCompatibleEjjRNS0_15MachineFunctionERNS0_11LLVMContextERKNS0_15SmallVectorImplINS0_3ISD8InputArgEEEPFbjNS0_3MVTESE_NS1_7LocInfoENS9_10ArgFlagsTyERS3_ESJ_E3$_0EbT_SL_T0_SM_T1_.exit", label %.lr.ph.i.i.i, !llvm.loop !242
 
 "_ZSt5equalIPN4llvm11CCValAssignES2_ZNS0_7CCState17resultsCompatibleEjjRNS0_15MachineFunctionERNS0_11LLVMContextERKNS0_15SmallVectorImplINS0_3ISD8InputArgEEEPFbjNS0_3MVTESE_NS1_7LocInfoENS9_10ArgFlagsTyERS3_ESJ_E3$_0EbT_SL_T0_SM_T1_.exit": ; preds = %.lr.ph.i.i.i, %_ZNK4llvm11CCValAssign9getLocRegEv.exit19.i.i.i.i, %"_ZZN4llvm7CCState17resultsCompatibleEjjRNS_15MachineFunctionERNS_11LLVMContextERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTESB_NS_11CCValAssign7LocInfoENS6_10ArgFlagsTyERS0_ESH_ENK3$_0clERKSC_SK_.exit.i.i.i", %106, %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit24, %42
   %.0.i.i = phi i1 [ false, %_ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTES7_NS_11CCValAssign7LocInfoENS2_10ArgFlagsTyERS0_E.exit24 ], [ true, %42 ], [ false, %"_ZZN4llvm7CCState17resultsCompatibleEjjRNS_15MachineFunctionERNS_11LLVMContextERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPFbjNS_3MVTESB_NS_11CCValAssign7LocInfoENS6_10ArgFlagsTyERS0_ESH_ENK3$_0clERKSC_SK_.exit.i.i.i" ], [ true, %106 ], [ false, %_ZNK4llvm11CCValAssign9getLocRegEv.exit19.i.i.i.i ], [ false, %.lr.ph.i.i.i ]
@@ -1834,37 +1834,33 @@ attributes #13 = { noreturn nounwind }
 !210 = !{!4, !11, i64 16}
 !211 = !{!212, !212, i64 0}
 !212 = !{!"short", !6, i64 0}
-!213 = distinct !{!213, !214, !215}
+!213 = distinct !{!213, !214}
 !214 = !{!"llvm.loop.mustprogress"}
-!215 = !{!"llvm.loop.estimated_trip_count"}
-!216 = distinct !{!216, !214, !215}
-!217 = !{!8, !8, i64 0}
-!218 = distinct !{!218, !214, !215}
-!219 = distinct !{!219, !215, !220}
-!220 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!221 = distinct !{!221, !215}
-!222 = !{!223, !224, i64 33}
-!223 = !{!"_ZTSN4llvm5TwineE", !6, i64 0, !6, i64 16, !224, i64 32, !224, i64 33}
-!224 = !{!"_ZTSN4llvm5Twine8NodeKindE", !6, i64 0}
-!225 = !{!223, !224, i64 32}
-!226 = distinct !{!226, !214, !215}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!229 = distinct !{!229, !"_ZNK4llvm5Twine6concatERKS0_"}
-!230 = !{i64 0, i64 16, !188, i64 16, i64 16, !188, i64 32, i64 1, !231, i64 33, i64 1, !231}
-!231 = !{!224, !224, i64 0}
-!232 = distinct !{!232, !214, !215}
-!233 = distinct !{!233, !214, !215}
-!234 = distinct !{!234, !214, !215}
-!235 = !{!236, !14, i64 8}
-!236 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !10, i64 0, !14, i64 8, !14, i64 16}
-!237 = !{!236, !10, i64 0}
-!238 = distinct !{!238, !214, !215}
-!239 = distinct !{!239, !214, !215}
-!240 = distinct !{!240, !214, !215}
-!241 = !{!236, !14, i64 16}
-!242 = distinct !{!242, !214, !215}
-!243 = distinct !{!243, !215}
-!244 = distinct !{!244, !215}
-!245 = distinct !{!245, !214, !215}
-!246 = distinct !{!246, !214, !215}
+!215 = distinct !{!215, !214}
+!216 = !{!8, !8, i64 0}
+!217 = distinct !{!217, !214}
+!218 = distinct !{!218, !219}
+!219 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!220 = !{!221, !222, i64 33}
+!221 = !{!"_ZTSN4llvm5TwineE", !6, i64 0, !6, i64 16, !222, i64 32, !222, i64 33}
+!222 = !{!"_ZTSN4llvm5Twine8NodeKindE", !6, i64 0}
+!223 = !{!221, !222, i64 32}
+!224 = distinct !{!224, !214}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!227 = distinct !{!227, !"_ZNK4llvm5Twine6concatERKS0_"}
+!228 = !{i64 0, i64 16, !188, i64 16, i64 16, !188, i64 32, i64 1, !229, i64 33, i64 1, !229}
+!229 = !{!222, !222, i64 0}
+!230 = distinct !{!230, !214}
+!231 = distinct !{!231, !214}
+!232 = distinct !{!232, !214}
+!233 = !{!234, !14, i64 8}
+!234 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !10, i64 0, !14, i64 8, !14, i64 16}
+!235 = !{!234, !10, i64 0}
+!236 = distinct !{!236, !214}
+!237 = distinct !{!237, !214}
+!238 = distinct !{!238, !214}
+!239 = !{!234, !14, i64 16}
+!240 = distinct !{!240, !214}
+!241 = distinct !{!241, !214}
+!242 = distinct !{!242, !214}

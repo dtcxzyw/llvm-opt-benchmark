@@ -413,7 +413,7 @@ define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef nonnull %0
 
 .lr.ph:                                           ; preds = %.lr.ph28
   %20 = icmp slt i32 %29, 0
-  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !31
+  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph28
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01524.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ]
@@ -436,7 +436,7 @@ define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef nonnull %0
   %28 = call i64 @read_in_full(i32 noundef %4, ptr noundef nonnull %3, i64 noundef 1024) #12
   %29 = trunc i64 %28 to i32
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %30, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph28, %14, %.lr.ph._crit_edge
   %.01523 = phi i32 [ %.01524.lcssa, %.lr.ph._crit_edge ], [ 0, %14 ], [ 1, %.lr.ph28 ]
@@ -528,5 +528,3 @@ attributes #15 = { nounwind willreturn memory(none) }
 !28 = !{!29, !5, i64 16}
 !29 = !{!"strbuf", !13, i64 0, !13, i64 8, !5, i64 16}
 !30 = !{!29, !13, i64 8}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}

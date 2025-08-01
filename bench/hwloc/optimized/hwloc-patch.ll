@@ -230,7 +230,7 @@ sub_174:                                          ; preds = %32
   %73 = getelementptr inbounds nuw i8, ptr %77, i64 %72
   store i8 0, ptr %73, align 1, !tbaa !13
   %.not36.i = icmp eq i64 %71, %68
-  br i1 %.not36.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
+  br i1 %.not36.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %67
   %74 = phi i64 [ %72, %67 ], [ 4096, %.preheader.i ]
@@ -269,9 +269,9 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
 
 87:                                               ; preds = %hwloc_diff_read.exit
   %88 = call i32 @hwloc_topology_init(ptr noundef nonnull %3) #13
-  %89 = load ptr, ptr %3, align 8, !tbaa !18
+  %89 = load ptr, ptr %3, align 8, !tbaa !16
   %90 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %89, i32 noundef 0) #13
-  %91 = load ptr, ptr %3, align 8, !tbaa !18
+  %91 = load ptr, ptr %3, align 8, !tbaa !16
   %92 = call i32 @hwloc_topology_set_flags(ptr noundef %91, i64 noundef 9) #13
   %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa, ptr noundef nonnull dereferenceable(8) @.str.16) #14
   %.not62 = icmp eq i32 %93, 0
@@ -288,7 +288,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   br label %143
 
 99:                                               ; preds = %94
-  %100 = load ptr, ptr %3, align 8, !tbaa !18
+  %100 = load ptr, ptr %3, align 8, !tbaa !16
   %101 = call i32 @hwloc_topology_set_xml(ptr noundef %100, ptr noundef nonnull %95) #13
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %114
@@ -300,7 +300,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   br label %143
 
 107:                                              ; preds = %87
-  %108 = load ptr, ptr %3, align 8, !tbaa !18
+  %108 = load ptr, ptr %3, align 8, !tbaa !16
   %109 = call i32 @hwloc_topology_set_xml(ptr noundef %108, ptr noundef nonnull %.lcssa) #13
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %114
@@ -311,7 +311,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   br label %143
 
 114:                                              ; preds = %107, %99
-  %115 = load ptr, ptr %3, align 8, !tbaa !18
+  %115 = load ptr, ptr %3, align 8, !tbaa !16
   %116 = call i32 @hwloc_topology_load(ptr noundef %115) #13
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %118, label %121
@@ -322,7 +322,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   br label %143
 
 121:                                              ; preds = %114
-  %122 = load ptr, ptr %3, align 8, !tbaa !18
+  %122 = load ptr, ptr %3, align 8, !tbaa !16
   %123 = load ptr, ptr %4, align 8, !tbaa !4
   %124 = call i32 @hwloc_topology_diff_apply(ptr noundef %122, ptr noundef %123, i64 noundef %.05592.lcssa) #13
   %125 = icmp slt i32 %124, 0
@@ -337,7 +337,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   br label %143
 
 131:                                              ; preds = %121
-  %132 = load ptr, ptr %3, align 8, !tbaa !18
+  %132 = load ptr, ptr %3, align 8, !tbaa !16
   %.not64 = icmp eq ptr %.0, null
   %133 = select i1 %.not64, ptr %.lcssa, ptr %.0
   %134 = call i32 @hwloc_topology_export_xml(ptr noundef %132, ptr noundef nonnull %133, i64 noundef 0) #13
@@ -350,7 +350,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   br label %143
 
 139:                                              ; preds = %131
-  %140 = load ptr, ptr %3, align 8, !tbaa !18
+  %140 = load ptr, ptr %3, align 8, !tbaa !16
   call void @hwloc_topology_destroy(ptr noundef %140) #13
   %141 = load ptr, ptr %4, align 8, !tbaa !4
   %142 = call i32 @hwloc_topology_diff_destroy(ptr noundef %141) #13
@@ -358,7 +358,7 @@ hwloc_diff_read.exit.thread:                      ; preds = %78, %62, %hwloc_dif
   unreachable
 
 143:                                              ; preds = %136, %126, %118, %111, %103, %96
-  %144 = load ptr, ptr %3, align 8, !tbaa !18
+  %144 = load ptr, ptr %3, align 8, !tbaa !16
   call void @hwloc_topology_destroy(ptr noundef %144) #13
   %145 = load ptr, ptr %4, align 8, !tbaa !4
   %146 = call i32 @hwloc_topology_diff_destroy(ptr noundef %145) #13
@@ -467,9 +467,7 @@ attributes #20 = { cold }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS14hwloc_topology", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS14hwloc_topology", !6, i64 0}

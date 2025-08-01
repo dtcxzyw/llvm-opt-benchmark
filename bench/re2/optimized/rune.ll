@@ -345,7 +345,7 @@ if.end5:                                          ; preds = %if.then2
 for.cond.backedge:                                ; preds = %if.end5, %_ZN3re210chartoruneEPiPKc.exit
   %.sink = phi i64 [ %retval.0.i, %_ZN3re210chartoruneEPiPKc.exit ], [ 1, %if.end5 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 %.sink
-  br label %for.cond, !llvm.loop !7
+  br label %for.cond, !llvm.loop !6
 
 if.end.i:                                         ; preds = %for.cond
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
@@ -448,7 +448,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

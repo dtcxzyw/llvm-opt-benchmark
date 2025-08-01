@@ -285,7 +285,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 106:                                              ; preds = %105
   %107 = load i64, ptr %9, align 8, !range !7, !noundef !4
   %108 = icmp eq i64 %107, -9223372036854775808
-  br i1 %108, label %.split.split.us, label %.split76.us, !llvm.loop !11
+  br i1 %108, label %.split.split.us, label %.split76.us, !llvm.loop !10
 
 .split72.split.us:                                ; preds = %105, %103, %.split.split.us
   %109 = landingpad { ptr, i32 }
@@ -371,7 +371,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 139:                                              ; preds = %138
   %140 = load i64, ptr %9, align 8, !range !7, !noundef !4
   %141 = icmp eq i64 %140, -9223372036854775808
-  br i1 %141, label %.split.split, label %.split76.us, !llvm.loop !12
+  br i1 %141, label %.split.split, label %.split76.us
 
 .split76.us:                                      ; preds = %139, %106, %93
   %.us-phi77 = phi i64 [ %94, %93 ], [ %107, %106 ], [ %140, %139 ]
@@ -384,9 +384,9 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 142:                                              ; preds = %34
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %144 = load ptr, ptr %143, align 8, !nonnull !4, !align !13, !noundef !4
+  %144 = load ptr, ptr %143, align 8, !nonnull !4, !align !11, !noundef !4
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %146 = load ptr, ptr %145, align 8, !nonnull !4, !align !13, !noundef !4
+  %146 = load ptr, ptr %145, align 8, !nonnull !4, !align !11, !noundef !4
   call void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %26, ptr align 8 %1, ptr nonnull align 8 %144, ptr nonnull align 8 %146, ptr align 8 %.fr)
   %147 = load i64, ptr %26, align 8, !range !7, !noundef !4
   %148 = icmp eq i64 %147, -9223372036854775808
@@ -514,9 +514,7 @@ attributes #7 = { cold noreturn nounwind }
 !5 = !{i64 0, i64 17}
 !6 = !{i64 0, i64 39}
 !7 = !{i64 0, i64 -9223372036854775807}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9}
-!13 = !{i64 8}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !9}
+!11 = !{i64 8}

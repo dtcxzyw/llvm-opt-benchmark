@@ -1674,6 +1674,5 @@ attributes #13 = { nounwind allocsize(0) }
 !84 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
 !85 = !{!84, !6, i64 8}
 !86 = !{!6, !6, i64 0}
-!87 = distinct !{!87, !88, !89}
+!87 = distinct !{!87, !88}
 !88 = !{!"llvm.loop.mustprogress"}
-!89 = !{!"llvm.loop.estimated_trip_count"}

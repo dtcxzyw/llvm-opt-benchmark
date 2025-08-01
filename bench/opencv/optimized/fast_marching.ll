@@ -252,7 +252,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
   %9 = shl nsw i32 %.018, 1
   %10 = or disjoint i32 %9, 1
   %11 = add nsw i32 %9, 2
-  %12 = load i32, ptr %4, align 8, !tbaa !44
+  %12 = load i32, ptr %4, align 8, !tbaa !43
   %13 = icmp slt i32 %10, %12
   br i1 %13, label %14, label %23
 
@@ -326,7 +326,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod8heapDownEi(ptr noundef nonnull
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %39, ptr noundef nonnull align 4 dereferenceable(12) %53, i64 12, i1 false), !tbaa.struct !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %53, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !40
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  br label %8, !llvm.loop !45
+  br label %8, !llvm.loop !44
 
 65:                                               ; preds = %34
   ret void
@@ -337,7 +337,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %3 = alloca %"struct.cv::videostab::FastMarchingMethod::DXY", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = load ptr, ptr %4, align 8, !tbaa !35
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -345,7 +345,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %11 = sdiv exact i64 %10, 12
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %14 = load i32, ptr %13, align 8, !tbaa !44
+  %14 = load i32, ptr %13, align 8, !tbaa !43
   %.not = icmp slt i32 %14, %12
   br i1 %.not, label %19, label %15
 
@@ -354,7 +354,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %17 = or disjoint i32 %16, 1
   %18 = sext i32 %17 to i64
   tail call void @_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %18)
-  %.pre = load i32, ptr %13, align 8, !tbaa !44
+  %.pre = load i32, ptr %13, align 8, !tbaa !43
   %.pre3 = load ptr, ptr %4, align 8, !tbaa !35
   br label %19
 
@@ -364,9 +364,9 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %20, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !40
-  %24 = load i32, ptr %13, align 8, !tbaa !44
+  %24 = load i32, ptr %13, align 8, !tbaa !43
   %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %13, align 8, !tbaa !44
+  store i32 %25, ptr %13, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -382,7 +382,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %38 = sext i32 %29 to i64
   %39 = getelementptr inbounds i32, ptr %37, i64 %38
   store i32 %24, ptr %39, align 4, !tbaa !34
-  %40 = load i32, ptr %13, align 8, !tbaa !44
+  %40 = load i32, ptr %13, align 8, !tbaa !43
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %.lr.ph.i.preheader, label %_ZN2cv9videostab18FastMarchingMethod6heapUpEi.exit
 
@@ -445,7 +445,7 @@ _ZN2cv9videostab18FastMarchingMethod6heapUpEi.exit: ; preds = %.lr.ph.i, %51, %1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  %4 = load ptr, ptr %3, align 8, !tbaa !45
   %5 = load ptr, ptr %0, align 8, !tbaa !35
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -457,7 +457,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv9videostab18FastMarchingMethod
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !47
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
   %17 = sdiv exact i64 %16, 12
@@ -473,7 +473,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv9videostab18FastMarchingMethod3DXYEmS3_ET
   %21 = mul nuw i64 %12, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !32
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
-  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !46
+  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !45
   br label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
@@ -499,11 +499,11 @@ _ZNKSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE12_M_check_lenEmPKc
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %28, %_ZNKSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !40, !alias.scope !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !40, !alias.scope !47
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 12
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !52
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !51
 
 _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE12_M_check_lenEmPKc.exit.i
   %.not.i35.i = icmp eq ptr %5, null
@@ -516,9 +516,9 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6
 _ZNSt12_Vector_baseIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE13_M_deallocateEPS3_m.exit36.i: ; preds = %33, %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !35
   %34 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %29, i64 %12
-  store ptr %34, ptr %3, align 8, !tbaa !46
+  store ptr %34, ptr %3, align 8, !tbaa !45
   %35 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %28, i64 %26
-  store ptr %35, ptr %13, align 8, !tbaa !47
+  store ptr %35, ptr %13, align 8, !tbaa !46
   br label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
 36:                                               ; preds = %2
@@ -531,7 +531,7 @@ _ZNSt12_Vector_baseIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE13_M_dealloca
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit, label %40
 
 40:                                               ; preds = %38
-  store ptr %39, ptr %3, align 8, !tbaa !46
+  store ptr %39, ptr %3, align 8, !tbaa !45
   br label %_ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit
 
 _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE17_M_default_appendEm.exit: ; preds = %40, %38, %_ZNSt12_Vector_baseIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE13_M_deallocateEPS3_m.exit36.i, %_ZSt27__uninitialized_default_n_aIPN2cv9videostab18FastMarchingMethod3DXYEmS3_ET_S5_T0_RSaIT1_E.exit.i, %36
@@ -546,13 +546,13 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %2 = alloca %"struct.cv::videostab::FastMarchingMethod::DXY", align 4
   %3 = alloca %"struct.cv::videostab::FastMarchingMethod::DXY", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %5 = load i32, ptr %4, align 8, !tbaa !44
+  %5 = load i32, ptr %4, align 8, !tbaa !43
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %_ZN2cv9videostab18FastMarchingMethod8heapDownEi.exit
 
 7:                                                ; preds = %1
   %8 = add nsw i32 %5, -1
-  store i32 %8, ptr %4, align 8, !tbaa !44
+  store i32 %8, ptr %4, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -584,7 +584,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %37 = load i32, ptr %35, align 4, !tbaa !34
   store i32 %37, ptr %24, align 4, !tbaa !34
   store i32 %36, ptr %35, align 4, !tbaa !34
-  %38 = load i32, ptr %4, align 8, !tbaa !44
+  %38 = load i32, ptr %4, align 8, !tbaa !43
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %39
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
@@ -599,7 +599,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   %42 = shl nsw i32 %.018.i, 1
   %43 = or disjoint i32 %42, 1
   %44 = add nsw i32 %42, 2
-  %45 = load i32, ptr %4, align 8, !tbaa !44
+  %45 = load i32, ptr %4, align 8, !tbaa !43
   %46 = icmp slt i32 %43, %45
   br i1 %46, label %47, label %56
 
@@ -673,7 +673,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod13heapRemoveMinEv(ptr noundef n
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %72, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false), !tbaa.struct !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !tbaa.struct !40
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
-  br label %41, !llvm.loop !45
+  br label %41, !llvm.loop !44
 
 _ZN2cv9videostab18FastMarchingMethod8heapDownEi.exit: ; preds = %67, %1
   ret void
@@ -776,15 +776,14 @@ attributes #19 = { builtin nounwind }
 !38 = !{!37, !10, i64 8}
 !39 = !{!37, !10, i64 4}
 !40 = !{i64 0, i64 4, !33, i64 4, i64 4, !34, i64 8, i64 4, !34}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!4, !10, i64 320}
-!45 = distinct !{!45, !42, !43}
-!46 = !{!24, !25, i64 8}
-!47 = !{!24, !25, i64 16}
-!48 = !{!49, !51}
-!49 = distinct !{!49, !50, !"_ZSt19__relocate_object_aIN2cv9videostab18FastMarchingMethod3DXYES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!50 = distinct !{!50, !"_ZSt19__relocate_object_aIN2cv9videostab18FastMarchingMethod3DXYES3_SaIS3_EEvPT_PT0_RT1_"}
-!51 = distinct !{!51, !50, !"_ZSt19__relocate_object_aIN2cv9videostab18FastMarchingMethod3DXYES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!52 = distinct !{!52, !42, !43}
+!43 = !{!4, !10, i64 320}
+!44 = distinct !{!44, !42}
+!45 = !{!24, !25, i64 8}
+!46 = !{!24, !25, i64 16}
+!47 = !{!48, !50}
+!48 = distinct !{!48, !49, !"_ZSt19__relocate_object_aIN2cv9videostab18FastMarchingMethod3DXYES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!49 = distinct !{!49, !"_ZSt19__relocate_object_aIN2cv9videostab18FastMarchingMethod3DXYES3_SaIS3_EEvPT_PT0_RT1_"}
+!50 = distinct !{!50, !49, !"_ZSt19__relocate_object_aIN2cv9videostab18FastMarchingMethod3DXYES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!51 = distinct !{!51, !42}

@@ -822,11 +822,11 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr noundef captu
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %96, i64 2) #12, !srcloc !12
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %96, i64 2) #12, !srcloc !11
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %97, i8 0, i64 104, i1 false)
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %98, i64 0) #12, !srcloc !13
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %98, i64 0) #12, !srcloc !12
   tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 272) #12
   %99 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %100 = load i32, ptr %99, align 4
@@ -974,7 +974,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr noundef captu
   %173 = lshr i32 %172, 12
   %174 = and i32 %173, 15
   %175 = icmp samesign ult i32 %171, %174
-  br i1 %175, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %175, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %164, %159
   %176 = load i32, ptr %99, align 4
@@ -983,7 +983,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr noundef captu
   br i1 %178, label %190, label %179
 
 179:                                              ; preds = %.loopexit
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %98, i64 2) #12, !srcloc !13
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %98, i64 2) #12, !srcloc !12
   %180 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #12
   br i1 %180, label %181, label %190
 
@@ -994,7 +994,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr noundef captu
   br i1 %184, label %185, label %190
 
 185:                                              ; preds = %181
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %98, i64 4) #12, !srcloc !13
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %98, i64 4) #12, !srcloc !12
   br label %190
 
 186:                                              ; preds = %122, %129
@@ -1207,10 +1207,10 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr noundef readonly
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %13, !prof !15
+  br i1 %10, label %11, label %13, !prof !14
 
 11:                                               ; preds = %7
-  %12 = tail call fastcc i32 @synaptics_detect_pkt_type(ptr noundef %0), !range !16
+  %12 = tail call fastcc i32 @synaptics_detect_pkt_type(ptr noundef %0), !range !15
   store i32 %12, ptr %8, align 8
   br label %13
 
@@ -1729,7 +1729,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr noundef readonly
   %364 = add i32 %363, -4
   store i32 %364, ptr %343, align 8
   %365 = icmp sgt i32 %364, 3
-  br i1 %365, label %362, label %.loopexit11, !llvm.loop !17
+  br i1 %365, label %362, label %.loopexit11, !llvm.loop !16
 
 366:                                              ; preds = %366, %355
   tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 277, i32 noundef %358) #12
@@ -1740,7 +1740,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr noundef readonly
   %368 = add i32 %367, 4
   store i32 %368, ptr %343, align 8
   %369 = icmp slt i32 %368, -3
-  br i1 %369, label %366, label %.loopexit, !llvm.loop !18
+  br i1 %369, label %366, label %.loopexit, !llvm.loop !17
 
 370:                                              ; preds = %339
   %371 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2067,7 +2067,7 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
   %22 = add nuw nsw i32 %9, 1
   %23 = icmp samesign ult i32 %9, 2
   %24 = select i1 %21, i1 %23, i1 false
-  br i1 %24, label %8, label %25, !llvm.loop !19
+  br i1 %24, label %8, label %25, !llvm.loop !18
 
 25:                                               ; preds = %13
   br i1 %21, label %68, label %26
@@ -2275,7 +2275,7 @@ define internal fastcc noundef range(i32 1, 3) i32 @synaptics_detect_pkt_type(pt
 3:                                                ; preds = %6
   %4 = add nuw nsw i64 %7, 1
   %5 = icmp eq i64 %4, 5
-  br i1 %5, label %.loopexit, label %6, !llvm.loop !20
+  br i1 %5, label %.loopexit, label %6, !llvm.loop !19
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ 0, %1 ], [ %4, %3 ]
@@ -2351,7 +2351,7 @@ define internal fastcc void @synaptics_report_mt_data(ptr noundef readonly captu
   store i16 %29, ptr %30, align 2
   %31 = add nuw nsw i64 %20, 1
   %32 = icmp eq i64 %31, %18
-  br i1 %32, label %33, label %19, !llvm.loop !21
+  br i1 %32, label %33, label %19, !llvm.loop !20
 
 33:                                               ; preds = %19
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -2381,7 +2381,7 @@ define internal fastcc void @synaptics_report_mt_data(ptr noundef readonly captu
   call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 58, i32 noundef %52) #12
   %53 = add nuw nsw i64 %39, 1
   %54 = icmp eq i64 %53, %18
-  br i1 %54, label %.loopexit, label %38, !llvm.loop !22
+  br i1 %54, label %.loopexit, label %38, !llvm.loop !21
 
 .critedge:                                        ; preds = %3
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -2581,7 +2581,7 @@ define internal fastcc void @synaptics_report_buttons(ptr noundef readonly captu
   tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %91, i32 noundef %90) #12
   %92 = add nuw nsw i64 %76, 1
   %93 = icmp eq i64 %92, %74
-  br i1 %93, label %.loopexit, label %75, !llvm.loop !23
+  br i1 %93, label %.loopexit, label %75, !llvm.loop !22
 
 94:                                               ; preds = %65
   %95 = getelementptr inbounds nuw i8, ptr %38, i64 72
@@ -3193,19 +3193,18 @@ attributes #14 = { nounwind allocsize(2) }
 !5 = !{!"auto-init"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 2148508913}
-!13 = !{i64 2148507380}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{i32 1, i32 3}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
+!11 = !{i64 2148508913}
+!12 = !{i64 2148507380}
+!13 = distinct !{!13, !9, !10}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{i32 1, i32 3}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}

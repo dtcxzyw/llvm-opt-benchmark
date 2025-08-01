@@ -569,7 +569,7 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   store i8 0, ptr %14, align 4
   %29 = load i32, ptr %4, align 8
   %30 = tail call i32 @ss_get_location(ptr noundef %0, i32 noundef %29) #11
-  br label %17, !llvm.loop !10
+  br label %17
 
 .loopexit.sink.split:                             ; preds = %27, %24
   %.0.lcssa31.sink = phi i32 [ 0, %24 ], [ %.0, %27 ]
@@ -577,7 +577,7 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.loopexit.sink.split
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   store i8 0, ptr %14, align 4
   ret void
 }
@@ -626,7 +626,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noun
   %24 = phi i32 [ %22, %21 ], [ %11, %13 ], [ %11, %9 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = zext i32 %24 to i64
-  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 range(i64 0, 4294967296) %26, ptr nonnull elementtype(i64) %25) #11, !srcloc !13
+  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 range(i64 0, 4294967296) %26, ptr nonnull elementtype(i64) %25) #11, !srcloc !11
   %storemerge.in.pre = load i32, ptr %10, align 4
   br label %28
 
@@ -696,7 +696,7 @@ define dso_local range(i64 0, -8191) i64 @table_block_relation_size(ptr noundef 
   %.0815 = phi i64 [ 0, %.preheader ], [ %15, %RelationGetSmgr.exit ]
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %RelationGetSmgr.exit, !prof !14
+  br i1 %8, label %9, label %RelationGetSmgr.exit, !prof !12
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %5, align 4
@@ -715,12 +715,12 @@ RelationGetSmgr.exit:                             ; preds = %6, %9
   %15 = add i64 %.0815, %14
   %16 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %16, 3
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !13
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %4, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %RelationGetSmgr.exit14, !prof !14
+  br i1 %19, label %20, label %RelationGetSmgr.exit14, !prof !12
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -894,10 +894,8 @@ attributes #12 = { cold nounwind }
 !7 = !{i64 2150316157}
 !8 = !{i64 1958224, i64 1958240}
 !9 = !{i64 2150316944}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 2150317069}
-!13 = !{i64 1909892, i64 1909909}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !16, !11}
-!16 = !{!"llvm.loop.mustprogress"}
+!10 = !{i64 2150317069}
+!11 = !{i64 1909892, i64 1909909}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

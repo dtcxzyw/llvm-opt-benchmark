@@ -1371,7 +1371,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
 23:                                               ; preds = %14
   %24 = tail call noalias ptr @malloc(i64 noundef %0) #20
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.preheader, label %.thread23, !llvm.loop !56
+  br i1 %25, label %.preheader, label %.thread23
 
 26:                                               ; preds = %15
   resume { ptr, i32 } %16
@@ -1524,5 +1524,3 @@ attributes #20 = { nounwind allocsize(0) }
 !53 = !{!"bool", !7, i64 0}
 !54 = !{i8 0, i8 2}
 !55 = !{}
-!56 = distinct !{!56, !57}
-!57 = !{!"llvm.loop.estimated_trip_count"}

@@ -444,7 +444,7 @@ define dso_local i32 @acpi_ps_parse_aml(ptr noundef %0) local_unnamed_addr #2 al
   %51 = phi ptr [ %49, %47 ], [ %91, %144 ]
   %52 = phi i32 [ %48, %47 ], [ %145, %144 ]
   %53 = icmp eq ptr %51, null
-  br i1 %53, label %.loopexit16, label %.preheader, !llvm.loop !9
+  br i1 %53, label %.loopexit16, label %.preheader, !llvm.loop !8
 
 54:                                               ; preds = %41
   %55 = getelementptr inbounds nuw i8, ptr %27, i64 1008
@@ -713,8 +713,7 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}

@@ -91,7 +91,7 @@ define dso_local ptr @copy_ipcs(i64 noundef %0, ptr noundef %1, ptr noundef %2) 
 
 28:                                               ; preds = %22
   %29 = tail call zeroext i1 @flush_work(ptr noundef nonnull @free_ipc_work) #4
-  br i1 %29, label %22, label %.loopexit, !llvm.loop !9
+  br i1 %29, label %22, label %.loopexit
 
 30:                                               ; preds = %22
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
@@ -200,7 +200,7 @@ define dso_local void @free_ipcs(ptr noundef %0, ptr noundef %1, ptr noundef rea
   %18 = phi i32 [ %10, %9 ], [ %16, %15 ]
   %19 = add i32 %11, 1
   %20 = icmp slt i32 %18, %5
-  br i1 %20, label %9, label %.loopexit, !llvm.loop !11
+  br i1 %20, label %9, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %17, %3
   tail call void @up_write(ptr noundef nonnull %4) #4
@@ -444,7 +444,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @free_ipc(ptr readnone captures(none) %0) #0 align 16 {
-  %2 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @free_ipc_list, ptr null, ptr nonnull elementtype(ptr) @free_ipc_list) #4, !srcloc !14
+  %2 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @free_ipc_list, ptr null, ptr nonnull elementtype(ptr) @free_ipc_list) #4, !srcloc !12
   %3 = getelementptr i8, ptr %2, i64 -1072
   %4 = icmp eq ptr %3, inttoptr (i64 -1072 to ptr)
   br i1 %4, label %.critedge, label %.preheader
@@ -458,7 +458,7 @@ define internal void @free_ipc(ptr readnone captures(none) %0) #0 align 16 {
   %10 = load ptr, ptr %9, align 8
   tail call void @mnt_make_shortterm(ptr noundef %10) #4
   %11 = icmp eq ptr %8, inttoptr (i64 -1072 to ptr)
-  br i1 %11, label %12, label %.preheader, !llvm.loop !15
+  br i1 %11, label %12, label %.preheader, !llvm.loop !13
 
 12:                                               ; preds = %.preheader
   tail call void @synchronize_rcu() #4
@@ -485,7 +485,7 @@ define internal void @free_ipc(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @proc_free_inum(i32 noundef %23) #4
   tail call void @kfree(ptr noundef %14) #4
   %24 = icmp eq ptr %17, inttoptr (i64 -1072 to ptr)
-  br i1 %24, label %.loopexit, label %13, !llvm.loop !16
+  br i1 %24, label %.loopexit, label %13, !llvm.loop !14
 
 .critedge:                                        ; preds = %1
   tail call void @synchronize_rcu() #4
@@ -538,11 +538,9 @@ attributes #6 = { nounwind allocsize(2) }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{!"branch_weights", i32 2000, i32 1}
 !8 = !{i64 2148439325}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !12, !13, !10}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{i64 2149048871}
-!15 = distinct !{!15, !12, !13, !10}
-!16 = distinct !{!16, !12, !13, !10}
+!9 = distinct !{!9, !10, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}
+!12 = !{i64 2149048871}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

@@ -116,25 +116,25 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   %.0 = phi i32 [ 1, %6 ], [ 16, %.outer.split.us ], [ %42, %.loopexit.loopexit ]
   store ptr %4, ptr %0, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %43, align 8, !tbaa !37
+  store i32 1, ptr %43, align 8, !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 17, ptr %44, align 4, !tbaa !38
+  store i32 17, ptr %44, align 4, !tbaa !37
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @.str.3, ptr %45, align 8, !tbaa !39
+  store ptr @.str.3, ptr %45, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %.0, ptr %46, align 8, !tbaa !40
+  store i32 %.0, ptr %46, align 8, !tbaa !39
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %47, align 4, !tbaa !41
+  store i32 0, ptr %47, align 4, !tbaa !40
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %48, align 8, !tbaa !42
+  store i32 0, ptr %48, align 8, !tbaa !41
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %17, ptr %49, align 8, !tbaa !43
+  store ptr %17, ptr %49, align 8, !tbaa !42
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @Terminate, ptr %50, align 8, !tbaa !44
+  store ptr @Terminate, ptr %50, align 8, !tbaa !43
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @OpenStream, ptr %51, align 8, !tbaa !45
+  store ptr @OpenStream, ptr %51, align 8, !tbaa !44
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @IsFormatSupported, ptr %52, align 8, !tbaa !46
+  store ptr @IsFormatSupported, ptr %52, align 8, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 168
   call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %53, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #16
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -179,26 +179,26 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !47
+  %13 = load i32, ptr %12, align 4, !tbaa !46
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %40
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %3, align 8, !tbaa !49
+  %16 = load i32, ptr %3, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !50
+  %18 = load i32, ptr %17, align 8, !tbaa !49
   %.not107 = icmp slt i32 %16, %18
   br i1 %.not107, label %19, label %sndioSetFmt.exit.thread
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %21 = load ptr, ptr %20, align 8, !tbaa !50
   %.not108 = icmp eq ptr %21, null
   br i1 %.not108, label %22, label %sndioSetFmt.exit.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !52
+  %24 = load i64, ptr %23, align 8, !tbaa !51
   %25 = and i64 %24, -2147483649
   switch i64 %25, label %sndioSetFmt.exit.thread [
     i64 2, label %26
@@ -211,41 +211,41 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 26:                                               ; preds = %22, %22
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %27, align 4, !tbaa !53
-  store i32 32, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %27, align 4, !tbaa !52
+  store i32 32, ptr %10, align 4, !tbaa !54
   br label %37
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %29, align 4, !tbaa !53
-  store i32 24, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %29, align 4, !tbaa !52
+  store i32 24, ptr %10, align 4, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 3, ptr %30, align 4, !tbaa !56
+  store i32 3, ptr %30, align 4, !tbaa !55
   br label %37
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %32, align 4, !tbaa !53
-  store i32 16, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %32, align 4, !tbaa !52
+  store i32 16, ptr %10, align 4, !tbaa !54
   br label %37
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %34, align 4, !tbaa !53
-  store i32 8, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %34, align 4, !tbaa !52
+  store i32 8, ptr %10, align 4, !tbaa !54
   br label %37
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %36, align 4, !tbaa !53
-  store i32 8, ptr %10, align 4, !tbaa !55
+  store i32 0, ptr %36, align 4, !tbaa !52
+  store i32 8, ptr %10, align 4, !tbaa !54
   br label %37
 
 37:                                               ; preds = %35, %33, %31, %28, %26
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 1, ptr %38, align 4, !tbaa !57
+  store i32 1, ptr %38, align 4, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 %13, ptr %39, align 4, !tbaa !58
+  store i32 %13, ptr %39, align 4, !tbaa !57
   br label %40
 
 40:                                               ; preds = %37, %11, %9
@@ -257,26 +257,26 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !47
+  %43 = load i32, ptr %42, align 4, !tbaa !46
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %71
 
 45:                                               ; preds = %41
-  %46 = load i32, ptr %2, align 8, !tbaa !49
+  %46 = load i32, ptr %2, align 8, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load i32, ptr %47, align 8, !tbaa !50
+  %48 = load i32, ptr %47, align 8, !tbaa !49
   %.not111 = icmp slt i32 %46, %48
   br i1 %.not111, label %49, label %sndioSetFmt.exit.thread
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !51
+  %51 = load ptr, ptr %50, align 8, !tbaa !50
   %.not112 = icmp eq ptr %51, null
   br i1 %.not112, label %52, label %sndioSetFmt.exit.thread
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !52
+  %54 = load i64, ptr %53, align 8, !tbaa !51
   %55 = and i64 %54, -2147483649
   switch i64 %55, label %sndioSetFmt.exit.thread [
     i64 2, label %56
@@ -289,41 +289,41 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 56:                                               ; preds = %52, %52
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %57, align 4, !tbaa !53
-  store i32 32, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %57, align 4, !tbaa !52
+  store i32 32, ptr %10, align 4, !tbaa !54
   br label %67
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %59, align 4, !tbaa !53
-  store i32 24, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %59, align 4, !tbaa !52
+  store i32 24, ptr %10, align 4, !tbaa !54
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 3, ptr %60, align 4, !tbaa !56
+  store i32 3, ptr %60, align 4, !tbaa !55
   br label %67
 
 61:                                               ; preds = %52
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %62, align 4, !tbaa !53
-  store i32 16, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %62, align 4, !tbaa !52
+  store i32 16, ptr %10, align 4, !tbaa !54
   br label %67
 
 63:                                               ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 1, ptr %64, align 4, !tbaa !53
-  store i32 8, ptr %10, align 4, !tbaa !55
+  store i32 1, ptr %64, align 4, !tbaa !52
+  store i32 8, ptr %10, align 4, !tbaa !54
   br label %67
 
 65:                                               ; preds = %52
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %66, align 4, !tbaa !53
-  store i32 8, ptr %10, align 4, !tbaa !55
+  store i32 0, ptr %66, align 4, !tbaa !52
+  store i32 8, ptr %10, align 4, !tbaa !54
   br label %67
 
 67:                                               ; preds = %65, %63, %61, %58, %56
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 1, ptr %68, align 4, !tbaa !57
+  store i32 1, ptr %68, align 4, !tbaa !56
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 %43, ptr %69, align 4, !tbaa !59
+  store i32 %43, ptr %69, align 4, !tbaa !58
   %70 = or disjoint i32 %.096, 2
   br label %71
 
@@ -333,14 +333,14 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   %.093 = phi i64 [ %54, %67 ], [ 0, %41 ], [ 0, %40 ]
   %72 = fptoui double %4 to i32
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 %72, ptr %73, align 4, !tbaa !60
+  store i32 %72, ptr %73, align 4, !tbaa !59
   %.not114 = icmp eq i64 %5, 0
   br i1 %.not114, label %77, label %74
 
 74:                                               ; preds = %71
   %75 = trunc i64 %5 to i32
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 %75, ptr %76, align 4, !tbaa !61
+  store i32 %75, ptr %76, align 4, !tbaa !60
   br label %77
 
 77:                                               ; preds = %74, %71
@@ -349,7 +349,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 78:                                               ; preds = %77
   %.mux = select i1 %.not, ptr %3, ptr %2
-  %79 = load i32, ptr %.mux, align 8, !tbaa !49
+  %79 = load i32, ptr %.mux, align 8, !tbaa !48
   %80 = sext i32 %79 to i64
   %.idx = mul nsw i64 %80, 72
   %81 = getelementptr i8, ptr %0, i64 272
@@ -379,9 +379,9 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !56
+  %93 = load i32, ptr %92, align 4, !tbaa !55
   %94 = shl i32 %93, 3
-  %95 = load i32, ptr %10, align 4, !tbaa !55
+  %95 = load i32, ptr %10, align 4, !tbaa !54
   %.not.i = icmp ne i32 %94, %95
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %97 = load i32, ptr %96, align 4
@@ -409,13 +409,13 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %107 = load i32, ptr %106, align 4, !tbaa !53
+  %107 = load i32, ptr %106, align 4, !tbaa !52
   %.not20.i = icmp eq i32 %107, 0
   br i1 %.not20.i, label %121, label %sndioGetFmt.exit
 
 108:                                              ; preds = %102
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %110 = load i32, ptr %109, align 4, !tbaa !53
+  %110 = load i32, ptr %109, align 4, !tbaa !52
   %.not19.i = icmp eq i32 %110, 0
   br i1 %.not19.i, label %121, label %111
 
@@ -426,13 +426,13 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 
 114:                                              ; preds = %102
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %116 = load i32, ptr %115, align 4, !tbaa !53
+  %116 = load i32, ptr %115, align 4, !tbaa !52
   %.not18.i = icmp eq i32 %116, 0
   br i1 %.not18.i, label %121, label %sndioGetFmt.exit
 
 117:                                              ; preds = %102
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %119 = load i32, ptr %118, align 4, !tbaa !53
+  %119 = load i32, ptr %118, align 4, !tbaa !52
   %.not17.i = icmp eq i32 %119, 0
   %120 = select i1 %.not17.i, i64 32, i64 16
   br label %sndioGetFmt.exit
@@ -449,9 +449,9 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
 
 123:                                              ; preds = %sndioGetFmt.exit
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %125 = load i32, ptr %124, align 4, !tbaa !59
+  %125 = load i32, ptr %124, align 4, !tbaa !58
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %127 = load i32, ptr %126, align 4, !tbaa !47
+  %127 = load i32, ptr %126, align 4, !tbaa !46
   %.not120 = icmp eq i32 %125, %127
   br i1 %.not120, label %129, label %128
 
@@ -466,9 +466,9 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %133 = load i32, ptr %132, align 4, !tbaa !58
+  %133 = load i32, ptr %132, align 4, !tbaa !57
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %135 = load i32, ptr %134, align 4, !tbaa !47
+  %135 = load i32, ptr %134, align 4, !tbaa !46
   %.not122 = icmp eq i32 %133, %135
   br i1 %.not122, label %137, label %136
 
@@ -477,7 +477,7 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br label %sndioSetFmt.exit.thread
 
 137:                                              ; preds = %131, %129
-  %138 = load i32, ptr %73, align 4, !tbaa !60
+  %138 = load i32, ptr %73, align 4, !tbaa !59
   %139 = uitofp i32 %138 to double
   %140 = fmul double %4, 0x3FEFD70A3D70A3D7
   %141 = fcmp ogt double %140, %139
@@ -506,7 +506,7 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   call void @PaUtil_InitializeStreamRepresentation(ptr noundef nonnull %146, ptr noundef nonnull %150, ptr noundef %7, ptr noundef %8) #16
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 80
   %152 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %153 = load i32, ptr %152, align 4, !tbaa !61
+  %153 = load i32, ptr %152, align 4, !tbaa !60
   %154 = zext i32 %153 to i64
   %155 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef nonnull %151, i32 noundef %.095, i64 noundef %.093, i64 noundef %.sink.i, i32 noundef %.094, i64 noundef %.092, i64 noundef %.sink.i, double noundef %4, i64 noundef %6, i64 noundef %5, i64 noundef %154, i32 noundef 0, ptr noundef %7, ptr noundef %8) #16
   %.not124 = icmp eq i32 %155, 0
@@ -521,16 +521,16 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br i1 %.not119, label %170, label %158
 
 158:                                              ; preds = %157
-  %159 = load i32, ptr %152, align 4, !tbaa !61
+  %159 = load i32, ptr %152, align 4, !tbaa !60
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %161 = load i32, ptr %160, align 4, !tbaa !59
+  %161 = load i32, ptr %160, align 4, !tbaa !58
   %162 = mul i32 %161, %159
-  %163 = load i32, ptr %92, align 4, !tbaa !56
+  %163 = load i32, ptr %92, align 4, !tbaa !55
   %164 = mul i32 %162, %163
   %165 = zext i32 %164 to i64
   %166 = call noalias ptr @malloc(i64 noundef %165) #17
   %167 = getelementptr inbounds nuw i8, ptr %146, i64 480
-  store ptr %166, ptr %167, align 8, !tbaa !62
+  store ptr %166, ptr %167, align 8, !tbaa !61
   %168 = icmp eq ptr %166, null
   br i1 %168, label %169, label %170
 
@@ -543,22 +543,22 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br i1 %.not121, label %.critedge, label %171
 
 171:                                              ; preds = %170
-  %172 = load i32, ptr %152, align 4, !tbaa !61
+  %172 = load i32, ptr %152, align 4, !tbaa !60
   %173 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %174 = load i32, ptr %173, align 4, !tbaa !58
+  %174 = load i32, ptr %173, align 4, !tbaa !57
   %175 = mul i32 %174, %172
-  %176 = load i32, ptr %92, align 4, !tbaa !56
+  %176 = load i32, ptr %92, align 4, !tbaa !55
   %177 = mul i32 %175, %176
   %178 = zext i32 %177 to i64
   %179 = call noalias ptr @malloc(i64 noundef %178) #17
   %180 = getelementptr inbounds nuw i8, ptr %146, i64 488
-  store ptr %179, ptr %180, align 8, !tbaa !72
+  store ptr %179, ptr %180, align 8, !tbaa !71
   %181 = icmp eq ptr %179, null
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %171
   %183 = getelementptr inbounds nuw i8, ptr %146, i64 480
-  %184 = load ptr, ptr %183, align 8, !tbaa !62
+  %184 = load ptr, ptr %183, align 8, !tbaa !61
   call void @free(ptr noundef %184) #16
   call void @PaUtil_FreeMemory(ptr noundef nonnull %146) #16
   call void @sio_close(ptr noundef nonnull %83) #16
@@ -566,22 +566,22 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
 
 185:                                              ; preds = %171
   %186 = getelementptr inbounds nuw i8, ptr %146, i64 56
-  store double 0.000000e+00, ptr %186, align 8, !tbaa !73
+  store double 0.000000e+00, ptr %186, align 8, !tbaa !72
   %187 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %188 = load i32, ptr %187, align 4, !tbaa !74
+  %188 = load i32, ptr %187, align 4, !tbaa !73
   %189 = zext i32 %188 to i64
   %190 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %151) #16
   %191 = add i64 %190, %189
   %192 = uitofp i64 %191 to double
-  %193 = load i32, ptr %73, align 4, !tbaa !60
+  %193 = load i32, ptr %73, align 4, !tbaa !59
   %194 = uitofp i32 %193 to double
   %195 = fdiv double %192, %194
   br label %197
 
 .critedge:                                        ; preds = %170
   %196 = getelementptr inbounds nuw i8, ptr %146, i64 56
-  store double 0.000000e+00, ptr %196, align 8, !tbaa !73
-  %.pre = load i32, ptr %73, align 4, !tbaa !60
+  store double 0.000000e+00, ptr %196, align 8, !tbaa !72
+  %.pre = load i32, ptr %73, align 4, !tbaa !59
   %.pre141 = uitofp i32 %.pre to double
   br label %197
 
@@ -589,20 +589,20 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   %.pre-phi = phi double [ %.pre141, %.critedge ], [ %194, %185 ]
   %198 = phi double [ 0.000000e+00, %.critedge ], [ %195, %185 ]
   %199 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  store double %198, ptr %199, align 8, !tbaa !75
+  store double %198, ptr %199, align 8, !tbaa !74
   %200 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  store double %.pre-phi, ptr %200, align 8, !tbaa !76
+  store double %.pre-phi, ptr %200, align 8, !tbaa !75
   %201 = getelementptr inbounds nuw i8, ptr %146, i64 464
-  store i32 0, ptr %201, align 8, !tbaa !77
+  store i32 0, ptr %201, align 8, !tbaa !76
   %202 = getelementptr inbounds nuw i8, ptr %146, i64 460
-  store i32 1, ptr %202, align 4, !tbaa !78
+  store i32 1, ptr %202, align 4, !tbaa !77
   %203 = getelementptr inbounds nuw i8, ptr %146, i64 456
-  store i32 %.1, ptr %203, align 8, !tbaa !79
+  store i32 %.1, ptr %203, align 8, !tbaa !78
   %204 = getelementptr inbounds nuw i8, ptr %146, i64 384
-  store ptr %83, ptr %204, align 8, !tbaa !80
+  store ptr %83, ptr %204, align 8, !tbaa !79
   %205 = getelementptr inbounds nuw i8, ptr %146, i64 392
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %205, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !81
-  store ptr %146, ptr %1, align 8, !tbaa !83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %205, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !80
+  store ptr %146, ptr %1, align 8, !tbaa !82
   br label %sndioSetFmt.exit.thread
 
 sndioSetFmt.exit.thread:                          ; preds = %77, %52, %22, %78, %49, %45, %19, %15, %197, %182, %169, %156, %148, %144, %136, %128, %121, %90, %87
@@ -622,28 +622,28 @@ declare void @PaUtil_InitializeStreamInterface(ptr noundef, ptr noundef, ptr nou
 define internal noundef i32 @CloseStream(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %4 = load i32, ptr %3, align 4, !tbaa !78
+  %4 = load i32, ptr %3, align 4, !tbaa !77
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %16
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  store i32 1, ptr %3, align 4, !tbaa !78
+  store i32 1, ptr %3, align 4, !tbaa !77
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %6, align 8, !tbaa !83
   %.not7.i = icmp eq ptr %7, null
   br i1 %.not7.i, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %10 = load i64, ptr %9, align 8, !tbaa !85
+  %10 = load i64, ptr %9, align 8, !tbaa !84
   %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
   %.not8.i = icmp eq i32 %11, 0
   br i1 %.not8.i, label %12, label %StopStream.exit
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %14 = load ptr, ptr %13, align 8, !tbaa !80
+  %14 = load ptr, ptr %13, align 8, !tbaa !79
   %15 = call i32 @sio_stop(ptr noundef %14) #16
   br label %StopStream.exit
 
@@ -653,16 +653,16 @@ StopStream.exit:                                  ; preds = %8, %12
 
 16:                                               ; preds = %StopStream.exit, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %18 = load i32, ptr %17, align 8, !tbaa !79
+  %18 = load i32, ptr %17, align 8, !tbaa !78
   %19 = and i32 %18, 2
   %.not11 = icmp eq i32 %19, 0
   br i1 %.not11, label %23, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %22 = load ptr, ptr %21, align 8, !tbaa !62
+  %22 = load ptr, ptr %21, align 8, !tbaa !61
   call void @free(ptr noundef %22) #16
-  %.pre = load i32, ptr %17, align 8, !tbaa !79
+  %.pre = load i32, ptr %17, align 8, !tbaa !78
   br label %23
 
 23:                                               ; preds = %20, %16
@@ -673,13 +673,13 @@ StopStream.exit:                                  ; preds = %8, %12
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  %28 = load ptr, ptr %27, align 8, !tbaa !71
   call void @free(ptr noundef %28) #16
   br label %29
 
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %31 = load ptr, ptr %30, align 8, !tbaa !80
+  %31 = load ptr, ptr %30, align 8, !tbaa !79
   call void @sio_close(ptr noundef %31) #16
   call void @PaUtil_TerminateStreamRepresentation(ptr noundef nonnull %0) #16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -691,50 +691,50 @@ StopStream.exit:                                  ; preds = %8, %12
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %3 = load i32, ptr %2, align 4, !tbaa !78
+  %3 = load i32, ptr %2, align 4, !tbaa !77
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %45, label %4
 
 4:                                                ; preds = %1
-  store i32 0, ptr %2, align 4, !tbaa !78
+  store i32 0, ptr %2, align 4, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %5, align 8, !tbaa !77
+  store i32 1, ptr %5, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i64 0, ptr %6, align 8, !tbaa !86
+  store i64 0, ptr %6, align 8, !tbaa !85
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   tail call void @PaUtil_ResetBufferProcessor(ptr noundef nonnull %9) #16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %11 = load ptr, ptr %10, align 8, !tbaa !80
+  %11 = load ptr, ptr %10, align 8, !tbaa !79
   %12 = tail call i32 @sio_start(ptr noundef %11) #16
   %.not28 = icmp eq i32 %12, 0
   br i1 %.not28, label %45, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %15 = load i32, ptr %14, align 8, !tbaa !79
+  %15 = load i32, ptr %14, align 8, !tbaa !78
   %16 = and i32 %15, 1
   %.not29 = icmp eq i32 %16, 0
   br i1 %.not29, label %.loopexit, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %19 = load i32, ptr %18, align 8, !tbaa !87
+  %19 = load i32, ptr %18, align 8, !tbaa !86
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %21 = load i32, ptr %20, align 8, !tbaa !88
+  %21 = load i32, ptr %20, align 8, !tbaa !87
   %22 = mul i32 %21, %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  %24 = load i32, ptr %23, align 4, !tbaa !89
+  %24 = load i32, ptr %23, align 4, !tbaa !88
   %25 = mul i32 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %27 = load ptr, ptr %26, align 8, !tbaa !72
+  %27 = load ptr, ptr %26, align 8, !tbaa !71
   %28 = zext i32 %25 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %28, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %30 = load i32, ptr %29, align 8, !tbaa !90
-  %31 = load i32, ptr %18, align 8, !tbaa !87
+  %30 = load i32, ptr %29, align 8, !tbaa !89
+  %31 = load i32, ptr %18, align 8, !tbaa !86
   %.not3033 = icmp ugt i32 %31, %30
   br i1 %.not3033, label %.loopexit, label %.lr.ph.preheader
 
@@ -744,19 +744,19 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02734 = phi i32 [ %38, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %33 = load ptr, ptr %10, align 8, !tbaa !80
-  %34 = load ptr, ptr %26, align 8, !tbaa !72
+  %33 = load ptr, ptr %10, align 8, !tbaa !79
+  %34 = load ptr, ptr %26, align 8, !tbaa !71
   %35 = tail call i64 @sio_write(ptr noundef %33, ptr noundef %34, i64 noundef %28) #16
-  %36 = load i64, ptr %7, align 8, !tbaa !91
+  %36 = load i64, ptr %7, align 8, !tbaa !90
   %37 = add i64 %36, %35
-  store i64 %37, ptr %7, align 8, !tbaa !91
+  store i64 %37, ptr %7, align 8, !tbaa !90
   %38 = add i32 %.02734, -1
   %.not30 = icmp eq i32 %38, 0
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !92
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !91
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %13
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !84
+  %40 = load ptr, ptr %39, align 8, !tbaa !83
   %.not31 = icmp eq ptr %40, null
   br i1 %.not31, label %44, label %41
 
@@ -779,27 +779,27 @@ define internal range(i32 -9999, 1) i32 @StopStream(ptr noundef captures(none) %
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %4 = load i32, ptr %3, align 4, !tbaa !78
+  %4 = load i32, ptr %3, align 4, !tbaa !77
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %16
 
 5:                                                ; preds = %1
-  store i32 1, ptr %3, align 4, !tbaa !78
+  store i32 1, ptr %3, align 4, !tbaa !77
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %6, align 8, !tbaa !83
   %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %10 = load i64, ptr %9, align 8, !tbaa !85
+  %10 = load i64, ptr %9, align 8, !tbaa !84
   %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %12, label %16
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %14 = load ptr, ptr %13, align 8, !tbaa !80
+  %14 = load ptr, ptr %13, align 8, !tbaa !79
   %15 = call i32 @sio_stop(ptr noundef %14) #16
   %.not9 = icmp eq i32 %15, 0
   %. = select i1 %.not9, i32 -9999, i32 0
@@ -816,27 +816,27 @@ define internal range(i32 -9999, 1) i32 @AbortStream(ptr noundef captures(none) 
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %4 = load i32, ptr %3, align 4, !tbaa !78
+  %4 = load i32, ptr %3, align 4, !tbaa !77
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %StopStream.exit
 
 5:                                                ; preds = %1
-  store i32 1, ptr %3, align 4, !tbaa !78
+  store i32 1, ptr %3, align 4, !tbaa !77
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %6, align 8, !tbaa !83
   %.not7.i = icmp eq ptr %7, null
   br i1 %.not7.i, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %10 = load i64, ptr %9, align 8, !tbaa !85
+  %10 = load i64, ptr %9, align 8, !tbaa !84
   %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
   %.not8.i = icmp eq i32 %11, 0
   br i1 %.not8.i, label %12, label %StopStream.exit
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %14 = load ptr, ptr %13, align 8, !tbaa !80
+  %14 = load ptr, ptr %13, align 8, !tbaa !79
   %15 = call i32 @sio_stop(ptr noundef %14) #16
   %.not9.i = icmp eq i32 %15, 0
   %..i = select i1 %.not9.i, i32 -9999, i32 0
@@ -851,24 +851,24 @@ StopStream.exit:                                  ; preds = %1, %8, %12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @IsStreamStopped(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %3 = load i32, ptr %2, align 4, !tbaa !78
+  %3 = load i32, ptr %2, align 4, !tbaa !77
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @IsStreamActive(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %3 = load i32, ptr %2, align 8, !tbaa !77
+  %3 = load i32, ptr %2, align 8, !tbaa !76
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal double @GetStreamTime(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %3 = load i64, ptr %2, align 8, !tbaa !86
+  %3 = load i64, ptr %2, align 8, !tbaa !85
   %4 = uitofp i64 %3 to double
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load double, ptr %5, align 8, !tbaa !76
+  %6 = load double, ptr %5, align 8, !tbaa !75
   %7 = fdiv double %4, %6
   ret double %7
 }
@@ -878,7 +878,7 @@ declare double @PaUtil_DummyGetCpuLoad(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8, !tbaa !83
+  store ptr %1, ptr %4, align 8, !tbaa !82
   %.not44 = icmp eq i64 %2, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph47
 
@@ -895,29 +895,29 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
 12:                                               ; preds = %._crit_edge
   %13 = sub i64 %.03545, %spec.select39
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !93
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !92
 
 14:                                               ; preds = %.lr.ph47, %12
   %.03545 = phi i64 [ %2, %.lr.ph47 ], [ %13, %12 ]
-  %15 = load i32, ptr %5, align 8, !tbaa !87
+  %15 = load i32, ptr %5, align 8, !tbaa !86
   %16 = zext i32 %15 to i64
   %spec.select39 = call i64 @llvm.umin.i64(i64 %.03545, i64 %16)
   %spec.select = trunc nuw i64 %spec.select39 to i32
-  %17 = load i32, ptr %7, align 4, !tbaa !94
+  %17 = load i32, ptr %7, align 4, !tbaa !93
   %18 = mul i32 %17, %spec.select
-  %19 = load i32, ptr %8, align 4, !tbaa !89
+  %19 = load i32, ptr %8, align 4, !tbaa !88
   %20 = mul i32 %18, %19
   %.not3741 = icmp eq i32 %20, 0
   br i1 %.not3741, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
-  %21 = load ptr, ptr %6, align 8, !tbaa !62
+  %21 = load ptr, ptr %6, align 8, !tbaa !61
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %.043 = phi ptr [ %29, %27 ], [ %21, %.lr.ph.preheader ]
   %.03242 = phi i32 [ %30, %27 ], [ %20, %.lr.ph.preheader ]
-  %22 = load ptr, ptr %9, align 8, !tbaa !80
+  %22 = load ptr, ptr %9, align 8, !tbaa !79
   %23 = zext i32 %.03242 to i64
   %24 = call i64 @sio_read(ptr noundef %22, ptr noundef %.043, i64 noundef %23) #16
   %25 = trunc i64 %24 to i32
@@ -929,15 +929,15 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
   %29 = getelementptr inbounds nuw i8, ptr %.043, i64 %28
   %30 = sub i32 %.03242, %25
   %.not37 = icmp eq i32 %30, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %27, %14
-  %31 = load i64, ptr %10, align 8, !tbaa !96
+  %31 = load i64, ptr %10, align 8, !tbaa !95
   %32 = add i64 %31, %spec.select39
-  store i64 %32, ptr %10, align 8, !tbaa !96
+  store i64 %32, ptr %10, align 8, !tbaa !95
   call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %11, i64 noundef %spec.select39) #16
-  %33 = load ptr, ptr %6, align 8, !tbaa !62
-  %34 = load i32, ptr %7, align 4, !tbaa !94
+  %33 = load ptr, ptr %6, align 8, !tbaa !61
+  %34 = load i32, ptr %7, align 4, !tbaa !93
   call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %11, i32 noundef 0, ptr noundef %33, i32 noundef %34) #16
   %35 = call i64 @PaUtil_CopyInput(ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %spec.select39) #16
   %36 = trunc i64 %35 to i32
@@ -952,7 +952,7 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8, !tbaa !83
+  store ptr %1, ptr %4, align 8, !tbaa !82
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %.not29 = icmp eq i64 %2, 0
@@ -968,13 +968,13 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
 
 12:                                               ; preds = %.lr.ph, %30
   %.02630 = phi i64 [ %2, %.lr.ph ], [ %33, %30 ]
-  %13 = load i32, ptr %5, align 8, !tbaa !87
+  %13 = load i32, ptr %5, align 8, !tbaa !86
   %14 = zext i32 %13 to i64
   %spec.select28 = call i64 @llvm.umin.i64(i64 %.02630, i64 %14)
   %spec.select = trunc nuw i64 %spec.select28 to i32
   call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %7, i64 noundef %spec.select28) #16
-  %15 = load ptr, ptr %8, align 8, !tbaa !72
-  %16 = load i32, ptr %9, align 8, !tbaa !88
+  %15 = load ptr, ptr %8, align 8, !tbaa !71
+  %16 = load i32, ptr %9, align 8, !tbaa !87
   call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %15, i32 noundef %16) #16
   %17 = call i64 @PaUtil_CopyOutput(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %spec.select28) #16
   %18 = trunc i64 %17 to i32
@@ -982,11 +982,11 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
   br i1 %.not27, label %19, label %._crit_edge
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %6, align 8, !tbaa !80
-  %21 = load ptr, ptr %8, align 8, !tbaa !72
-  %22 = load i32, ptr %9, align 8, !tbaa !88
+  %20 = load ptr, ptr %6, align 8, !tbaa !79
+  %21 = load ptr, ptr %8, align 8, !tbaa !71
+  %22 = load i32, ptr %9, align 8, !tbaa !87
   %23 = mul i32 %22, %spec.select
-  %24 = load i32, ptr %10, align 4, !tbaa !89
+  %24 = load i32, ptr %10, align 4, !tbaa !88
   %25 = mul i32 %23, %24
   %26 = zext i32 %25 to i64
   %27 = call i64 @sio_write(ptr noundef %20, ptr noundef %21, i64 noundef %26) #16
@@ -995,12 +995,12 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
   br i1 %29, label %._crit_edge, label %30
 
 30:                                               ; preds = %19
-  %31 = load i64, ptr %11, align 8, !tbaa !91
+  %31 = load i64, ptr %11, align 8, !tbaa !90
   %32 = add i64 %31, %spec.select28
-  store i64 %32, ptr %11, align 8, !tbaa !91
+  store i64 %32, ptr %11, align 8, !tbaa !90
   %33 = sub i64 %.02630, %spec.select28
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !97
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %12, %19, %30, %3
   %.025 = phi i32 [ 0, %3 ], [ 0, %30 ], [ -9999, %19 ], [ -9999, %12 ]
@@ -1012,7 +1012,7 @@ define internal i64 @BlockingGetStreamReadAvailable(ptr noundef readonly capture
   %2 = alloca %struct.pollfd, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !79
   %5 = call i32 @sio_pollfd(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1) #16
   %6 = sext i32 %5 to i64
   br label %7
@@ -1024,9 +1024,9 @@ define internal i64 @BlockingGetStreamReadAvailable(ptr noundef readonly capture
 
 10:                                               ; preds = %7
   %11 = tail call ptr @__errno_location() #18
-  %12 = load i32, ptr %11, align 4, !tbaa !82
+  %12 = load i32, ptr %11, align 4, !tbaa !81
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %14, !llvm.loop !98
+  br i1 %13, label %7, label %14, !llvm.loop !97
 
 14:                                               ; preds = %10
   call void @perror(ptr noundef nonnull @.str.4) #19
@@ -1034,7 +1034,7 @@ define internal i64 @BlockingGetStreamReadAvailable(ptr noundef readonly capture
   unreachable
 
 15:                                               ; preds = %7
-  %16 = load ptr, ptr %3, align 8, !tbaa !80
+  %16 = load ptr, ptr %3, align 8, !tbaa !79
   %17 = call i32 @sio_revents(ptr noundef %16, ptr noundef nonnull %2) #16
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
@@ -1042,9 +1042,9 @@ define internal i64 @BlockingGetStreamReadAvailable(ptr noundef readonly capture
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %21 = load i64, ptr %20, align 8, !tbaa !86
+  %21 = load i64, ptr %20, align 8, !tbaa !85
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %23 = load i64, ptr %22, align 8, !tbaa !96
+  %23 = load i64, ptr %22, align 8, !tbaa !95
   %24 = sub i64 %21, %23
   br label %25
 
@@ -1059,7 +1059,7 @@ define internal i64 @BlockingGetStreamWriteAvailable(ptr noundef readonly captur
   %2 = alloca %struct.pollfd, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !79
   %5 = call i32 @sio_pollfd(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 4) #16
   %6 = sext i32 %5 to i64
   br label %7
@@ -1071,9 +1071,9 @@ define internal i64 @BlockingGetStreamWriteAvailable(ptr noundef readonly captur
 
 10:                                               ; preds = %7
   %11 = tail call ptr @__errno_location() #18
-  %12 = load i32, ptr %11, align 4, !tbaa !82
+  %12 = load i32, ptr %11, align 4, !tbaa !81
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %7, label %14, !llvm.loop !99
+  br i1 %13, label %7, label %14, !llvm.loop !98
 
 14:                                               ; preds = %10
   call void @perror(ptr noundef nonnull @.str.4) #19
@@ -1081,7 +1081,7 @@ define internal i64 @BlockingGetStreamWriteAvailable(ptr noundef readonly captur
   unreachable
 
 15:                                               ; preds = %7
-  %16 = load ptr, ptr %3, align 8, !tbaa !80
+  %16 = load ptr, ptr %3, align 8, !tbaa !79
   %17 = call i32 @sio_revents(ptr noundef %16, ptr noundef nonnull %2) #16
   %18 = and i32 %17, 4
   %.not = icmp eq i32 %18, 0
@@ -1089,12 +1089,12 @@ define internal i64 @BlockingGetStreamWriteAvailable(ptr noundef readonly captur
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %21 = load i32, ptr %20, align 8, !tbaa !90
+  %21 = load i32, ptr %20, align 8, !tbaa !89
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %24 = load i64, ptr %23, align 8, !tbaa !91
+  %24 = load i64, ptr %23, align 8, !tbaa !90
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %26 = load i64, ptr %25, align 8, !tbaa !86
+  %26 = load i64, ptr %25, align 8, !tbaa !85
   %.neg = sub i64 %22, %24
   %27 = add i64 %.neg, %26
   br label %28
@@ -1166,18 +1166,18 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %5 = load i32, ptr %4, align 8, !tbaa !87
+  %5 = load i32, ptr %4, align 8, !tbaa !86
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  %7 = load i32, ptr %6, align 4, !tbaa !94
+  %7 = load i32, ptr %6, align 4, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  %9 = load i32, ptr %8, align 4, !tbaa !89
+  %9 = load i32, ptr %8, align 4, !tbaa !88
   %10 = mul i32 %9, %5
   %11 = mul i32 %10, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %13 = load i32, ptr %12, align 8, !tbaa !88
+  %13 = load i32, ptr %12, align 8, !tbaa !87
   %14 = mul i32 %10, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %16 = load i32, ptr %15, align 4, !tbaa !78
+  %16 = load i32, ptr %15, align 4, !tbaa !77
   %.not67 = icmp eq i32 %16, 0
   br i1 %.not67, label %.lr.ph69, label %.loopexit
 
@@ -1199,27 +1199,27 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %.lr.ph69, %98
-  %31 = load i32, ptr %17, align 8, !tbaa !79
+  %31 = load i32, ptr %17, align 8, !tbaa !78
   %32 = and i32 %31, 2
   %.not56 = icmp eq i32 %32, 0
   br i1 %.not56, label %._crit_edge77, label %33
 
 ._crit_edge77:                                    ; preds = %30
-  %.pre73.pre = load i64, ptr %21, align 8, !tbaa !86
-  %.pre74.pre = load i32, ptr %22, align 4, !tbaa !100
+  %.pre73.pre = load i64, ptr %21, align 8, !tbaa !85
+  %.pre74.pre = load i32, ptr %22, align 4, !tbaa !99
   br label %53
 
 33:                                               ; preds = %30
   br i1 %.not5764, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %33
-  %34 = load ptr, ptr %18, align 8, !tbaa !62
+  %34 = load ptr, ptr %18, align 8, !tbaa !61
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %.066 = phi ptr [ %43, %40 ], [ %34, %.lr.ph.preheader ]
   %.05465 = phi i32 [ %41, %40 ], [ %11, %.lr.ph.preheader ]
-  %35 = load ptr, ptr %19, align 8, !tbaa !80
+  %35 = load ptr, ptr %19, align 8, !tbaa !79
   %36 = zext i32 %.05465 to i64
   %37 = call i64 @sio_read(ptr noundef %35, ptr noundef %.066, i64 noundef %36) #16
   %38 = trunc i64 %37 to i32
@@ -1232,25 +1232,25 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   %42 = ashr exact i64 %sext, 32
   %43 = getelementptr inbounds i8, ptr %.066, i64 %42
   %.not57 = icmp eq i32 %41, 0
-  br i1 %.not57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !101
+  br i1 %.not57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge.loopexit:                             ; preds = %40
-  %.pre.pre = load i32, ptr %17, align 8, !tbaa !79
+  %.pre.pre = load i32, ptr %17, align 8, !tbaa !78
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %33
   %.pre = phi i32 [ %.pre.pre, %._crit_edge.loopexit ], [ %31, %33 ]
-  %44 = load i32, ptr %4, align 8, !tbaa !87
+  %44 = load i32, ptr %4, align 8, !tbaa !86
   %45 = zext i32 %44 to i64
-  %46 = load i64, ptr %20, align 8, !tbaa !96
+  %46 = load i64, ptr %20, align 8, !tbaa !95
   %47 = add i64 %46, %45
-  store i64 %47, ptr %20, align 8, !tbaa !96
-  %48 = load i64, ptr %21, align 8, !tbaa !86
+  store i64 %47, ptr %20, align 8, !tbaa !95
+  %48 = load i64, ptr %21, align 8, !tbaa !85
   %49 = uitofp i64 %48 to double
-  %50 = load i32, ptr %22, align 4, !tbaa !100
+  %50 = load i32, ptr %22, align 4, !tbaa !99
   %51 = uitofp i32 %50 to double
   %52 = fdiv double %49, %51
-  store double %52, ptr %2, align 8, !tbaa !102
+  store double %52, ptr %2, align 8, !tbaa !101
   br label %53
 
 53:                                               ; preds = %._crit_edge77, %._crit_edge
@@ -1266,34 +1266,34 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   br label %63
 
 56:                                               ; preds = %53
-  %57 = load i32, ptr %23, align 8, !tbaa !90
+  %57 = load i32, ptr %23, align 8, !tbaa !89
   %58 = zext i32 %57 to i64
   %59 = add i64 %.pre73, %58
   %60 = uitofp i64 %59 to double
   %61 = uitofp i32 %.pre74 to double
   %62 = fdiv double %60, %61
-  store double %62, ptr %24, align 8, !tbaa !104
+  store double %62, ptr %24, align 8, !tbaa !103
   br label %63
 
 63:                                               ; preds = %._crit_edge80, %56
   %.pre-phi = phi double [ %.pre81, %._crit_edge80 ], [ %61, %56 ]
   %64 = uitofp i64 %.pre73 to double
   %65 = fdiv double %64, %.pre-phi
-  store double %65, ptr %25, align 8, !tbaa !105
+  store double %65, ptr %25, align 8, !tbaa !104
   call void @PaUtil_BeginBufferProcessing(ptr noundef nonnull %26, ptr noundef nonnull %2, i64 noundef 0) #16
-  %66 = load i32, ptr %17, align 8, !tbaa !79
+  %66 = load i32, ptr %17, align 8, !tbaa !78
   %67 = and i32 %66, 1
   %.not59 = icmp eq i32 %67, 0
   br i1 %.not59, label %73, label %68
 
 68:                                               ; preds = %63
-  %69 = load i32, ptr %4, align 8, !tbaa !87
+  %69 = load i32, ptr %4, align 8, !tbaa !86
   %70 = zext i32 %69 to i64
   call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %26, i64 noundef %70) #16
-  %71 = load ptr, ptr %27, align 8, !tbaa !72
-  %72 = load i32, ptr %12, align 8, !tbaa !88
+  %71 = load ptr, ptr %27, align 8, !tbaa !71
+  %72 = load i32, ptr %12, align 8, !tbaa !87
   call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %71, i32 noundef %72) #16
-  %.pre75 = load i32, ptr %17, align 8, !tbaa !79
+  %.pre75 = load i32, ptr %17, align 8, !tbaa !78
   br label %73
 
 73:                                               ; preds = %68, %63
@@ -1303,51 +1303,51 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   br i1 %.not60, label %81, label %76
 
 76:                                               ; preds = %73
-  %77 = load i32, ptr %4, align 8, !tbaa !87
+  %77 = load i32, ptr %4, align 8, !tbaa !86
   %78 = zext i32 %77 to i64
   call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %26, i64 noundef %78) #16
-  %79 = load ptr, ptr %18, align 8, !tbaa !62
-  %80 = load i32, ptr %6, align 4, !tbaa !94
+  %79 = load ptr, ptr %18, align 8, !tbaa !61
+  %80 = load i32, ptr %6, align 4, !tbaa !93
   call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %79, i32 noundef %80) #16
   br label %81
 
 81:                                               ; preds = %76, %73
-  store i32 0, ptr %3, align 4, !tbaa !82
+  store i32 0, ptr %3, align 4, !tbaa !81
   %82 = call i64 @PaUtil_EndBufferProcessing(ptr noundef nonnull %26, ptr noundef nonnull %3) #16
-  %83 = load i32, ptr %3, align 4, !tbaa !82
+  %83 = load i32, ptr %3, align 4, !tbaa !81
   %.not61 = icmp eq i32 %83, 0
   br i1 %.not61, label %84, label %.loopexit
 
 84:                                               ; preds = %81
-  %85 = load i32, ptr %17, align 8, !tbaa !79
+  %85 = load i32, ptr %17, align 8, !tbaa !78
   %86 = and i32 %85, 1
   %.not62 = icmp eq i32 %86, 0
   br i1 %.not62, label %98, label %87
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr %19, align 8, !tbaa !80
-  %89 = load ptr, ptr %27, align 8, !tbaa !72
+  %88 = load ptr, ptr %19, align 8, !tbaa !79
+  %89 = load ptr, ptr %27, align 8, !tbaa !71
   %90 = call i64 @sio_write(ptr noundef %88, ptr noundef %89, i64 noundef %28) #16
   %91 = trunc i64 %90 to i32
   %92 = icmp ugt i32 %14, %91
   br i1 %92, label %.loopexit, label %93
 
 93:                                               ; preds = %87
-  %94 = load i32, ptr %4, align 8, !tbaa !87
+  %94 = load i32, ptr %4, align 8, !tbaa !86
   %95 = zext i32 %94 to i64
-  %96 = load i64, ptr %29, align 8, !tbaa !91
+  %96 = load i64, ptr %29, align 8, !tbaa !90
   %97 = add i64 %96, %95
-  store i64 %97, ptr %29, align 8, !tbaa !91
+  store i64 %97, ptr %29, align 8, !tbaa !90
   br label %98
 
 98:                                               ; preds = %93, %84
-  %99 = load i32, ptr %15, align 4, !tbaa !78
+  %99 = load i32, ptr %15, align 4, !tbaa !77
   %.not = icmp eq i32 %99, 0
-  br i1 %.not, label %30, label %.loopexit, !llvm.loop !106
+  br i1 %.not, label %30, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %87, %81, %98, %.lr.ph, %1
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 0, ptr %100, align 8, !tbaa !77
+  store i32 0, ptr %100, align 8, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #16
   ret ptr null
@@ -1454,76 +1454,75 @@ attributes #20 = { noreturn nounwind }
 !31 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88}
 !32 = !{!11, !11, i64 0}
 !33 = !{!6, !6, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!26, !10, i64 8}
-!38 = !{!26, !10, i64 12}
-!39 = !{!26, !11, i64 16}
-!40 = !{!26, !10, i64 24}
-!41 = !{!26, !10, i64 28}
-!42 = !{!26, !10, i64 32}
-!43 = !{!26, !30, i64 40}
-!44 = !{!26, !5, i64 48}
-!45 = !{!26, !5, i64 56}
-!46 = !{!26, !5, i64 64}
-!47 = !{!48, !10, i64 4}
-!48 = !{!"PaStreamParameters", !10, i64 0, !10, i64 4, !28, i64 8, !12, i64 16, !5, i64 24}
-!49 = !{!48, !10, i64 0}
-!50 = !{!25, !10, i64 24}
-!51 = !{!48, !5, i64 24}
-!52 = !{!48, !28, i64 8}
-!53 = !{!54, !10, i64 8}
-!54 = !{!"sio_par", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !6, i64 48, !10, i64 60}
-!55 = !{!54, !10, i64 0}
-!56 = !{!54, !10, i64 4}
-!57 = !{!54, !10, i64 12}
-!58 = !{!54, !10, i64 24}
-!59 = !{!54, !10, i64 20}
-!60 = !{!54, !10, i64 28}
-!61 = !{!54, !10, i64 40}
-!62 = !{!63, !11, i64 480}
-!63 = !{!"PaSndioStream", !64, i64 0, !67, i64 80, !70, i64 384, !54, i64 392, !10, i64 456, !10, i64 460, !10, i64 464, !71, i64 472, !11, i64 480, !11, i64 488, !71, i64 496, !71, i64 504, !28, i64 512}
-!64 = !{!"PaUtilStreamRepresentation", !28, i64 0, !65, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !66, i64 48}
-!65 = !{!"p1 _ZTS26PaUtilStreamRepresentation", !5, i64 0}
-!66 = !{!"PaStreamInfo", !10, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!67 = !{!"", !28, i64 0, !28, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !28, i64 32, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !5, i64 56, !5, i64 64, !10, i64 72, !10, i64 76, !10, i64 80, !10, i64 84, !5, i64 88, !5, i64 96, !28, i64 104, !28, i64 112, !5, i64 120, !5, i64 128, !28, i64 136, !5, i64 144, !5, i64 152, !28, i64 160, !68, i64 168, !28, i64 176, !10, i64 184, !6, i64 192, !6, i64 208, !10, i64 224, !6, i64 232, !6, i64 248, !69, i64 264, !12, i64 280, !5, i64 288, !5, i64 296}
-!68 = !{!"p1 _ZTS24PaStreamCallbackTimeInfo", !5, i64 0}
-!69 = !{!"PaUtilTriangularDitherGenerator", !10, i64 0, !10, i64 4, !10, i64 8}
-!70 = !{!"p1 _ZTS7sio_hdl", !5, i64 0}
-!71 = !{!"long long", !6, i64 0}
-!72 = !{!63, !11, i64 488}
-!73 = !{!63, !12, i64 56}
-!74 = !{!54, !10, i64 32}
-!75 = !{!63, !12, i64 64}
-!76 = !{!63, !12, i64 72}
-!77 = !{!63, !10, i64 464}
-!78 = !{!63, !10, i64 460}
-!79 = !{!63, !10, i64 456}
-!80 = !{!63, !70, i64 384}
-!81 = !{i64 0, i64 4, !82, i64 4, i64 4, !82, i64 8, i64 4, !82, i64 12, i64 4, !82, i64 16, i64 4, !82, i64 20, i64 4, !82, i64 24, i64 4, !82, i64 28, i64 4, !82, i64 32, i64 4, !82, i64 36, i64 4, !82, i64 40, i64 4, !82, i64 44, i64 4, !82, i64 48, i64 12, !33, i64 60, i64 4, !82}
-!82 = !{!10, !10, i64 0}
-!83 = !{!5, !5, i64 0}
-!84 = !{!63, !5, i64 24}
-!85 = !{!63, !28, i64 512}
-!86 = !{!63, !71, i64 472}
-!87 = !{!63, !10, i64 432}
-!88 = !{!63, !10, i64 416}
-!89 = !{!63, !10, i64 396}
-!90 = !{!63, !10, i64 424}
-!91 = !{!63, !71, i64 504}
-!92 = distinct !{!92, !35, !36}
-!93 = distinct !{!93, !35, !36}
-!94 = !{!63, !10, i64 412}
-!95 = distinct !{!95, !35, !36}
-!96 = !{!63, !71, i64 496}
-!97 = distinct !{!97, !35, !36}
-!98 = distinct !{!98, !35, !36}
-!99 = distinct !{!99, !35, !36}
-!100 = !{!63, !10, i64 420}
-!101 = distinct !{!101, !35, !36}
-!102 = !{!103, !12, i64 0}
-!103 = !{!"PaStreamCallbackTimeInfo", !12, i64 0, !12, i64 8, !12, i64 16}
-!104 = !{!103, !12, i64 16}
-!105 = !{!103, !12, i64 8}
-!106 = distinct !{!106, !35, !36}
+!36 = !{!26, !10, i64 8}
+!37 = !{!26, !10, i64 12}
+!38 = !{!26, !11, i64 16}
+!39 = !{!26, !10, i64 24}
+!40 = !{!26, !10, i64 28}
+!41 = !{!26, !10, i64 32}
+!42 = !{!26, !30, i64 40}
+!43 = !{!26, !5, i64 48}
+!44 = !{!26, !5, i64 56}
+!45 = !{!26, !5, i64 64}
+!46 = !{!47, !10, i64 4}
+!47 = !{!"PaStreamParameters", !10, i64 0, !10, i64 4, !28, i64 8, !12, i64 16, !5, i64 24}
+!48 = !{!47, !10, i64 0}
+!49 = !{!25, !10, i64 24}
+!50 = !{!47, !5, i64 24}
+!51 = !{!47, !28, i64 8}
+!52 = !{!53, !10, i64 8}
+!53 = !{!"sio_par", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !6, i64 48, !10, i64 60}
+!54 = !{!53, !10, i64 0}
+!55 = !{!53, !10, i64 4}
+!56 = !{!53, !10, i64 12}
+!57 = !{!53, !10, i64 24}
+!58 = !{!53, !10, i64 20}
+!59 = !{!53, !10, i64 28}
+!60 = !{!53, !10, i64 40}
+!61 = !{!62, !11, i64 480}
+!62 = !{!"PaSndioStream", !63, i64 0, !66, i64 80, !69, i64 384, !53, i64 392, !10, i64 456, !10, i64 460, !10, i64 464, !70, i64 472, !11, i64 480, !11, i64 488, !70, i64 496, !70, i64 504, !28, i64 512}
+!63 = !{!"PaUtilStreamRepresentation", !28, i64 0, !64, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !65, i64 48}
+!64 = !{!"p1 _ZTS26PaUtilStreamRepresentation", !5, i64 0}
+!65 = !{!"PaStreamInfo", !10, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!66 = !{!"", !28, i64 0, !28, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !28, i64 32, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !5, i64 56, !5, i64 64, !10, i64 72, !10, i64 76, !10, i64 80, !10, i64 84, !5, i64 88, !5, i64 96, !28, i64 104, !28, i64 112, !5, i64 120, !5, i64 128, !28, i64 136, !5, i64 144, !5, i64 152, !28, i64 160, !67, i64 168, !28, i64 176, !10, i64 184, !6, i64 192, !6, i64 208, !10, i64 224, !6, i64 232, !6, i64 248, !68, i64 264, !12, i64 280, !5, i64 288, !5, i64 296}
+!67 = !{!"p1 _ZTS24PaStreamCallbackTimeInfo", !5, i64 0}
+!68 = !{!"PaUtilTriangularDitherGenerator", !10, i64 0, !10, i64 4, !10, i64 8}
+!69 = !{!"p1 _ZTS7sio_hdl", !5, i64 0}
+!70 = !{!"long long", !6, i64 0}
+!71 = !{!62, !11, i64 488}
+!72 = !{!62, !12, i64 56}
+!73 = !{!53, !10, i64 32}
+!74 = !{!62, !12, i64 64}
+!75 = !{!62, !12, i64 72}
+!76 = !{!62, !10, i64 464}
+!77 = !{!62, !10, i64 460}
+!78 = !{!62, !10, i64 456}
+!79 = !{!62, !69, i64 384}
+!80 = !{i64 0, i64 4, !81, i64 4, i64 4, !81, i64 8, i64 4, !81, i64 12, i64 4, !81, i64 16, i64 4, !81, i64 20, i64 4, !81, i64 24, i64 4, !81, i64 28, i64 4, !81, i64 32, i64 4, !81, i64 36, i64 4, !81, i64 40, i64 4, !81, i64 44, i64 4, !81, i64 48, i64 12, !33, i64 60, i64 4, !81}
+!81 = !{!10, !10, i64 0}
+!82 = !{!5, !5, i64 0}
+!83 = !{!62, !5, i64 24}
+!84 = !{!62, !28, i64 512}
+!85 = !{!62, !70, i64 472}
+!86 = !{!62, !10, i64 432}
+!87 = !{!62, !10, i64 416}
+!88 = !{!62, !10, i64 396}
+!89 = !{!62, !10, i64 424}
+!90 = !{!62, !70, i64 504}
+!91 = distinct !{!91, !35}
+!92 = distinct !{!92, !35}
+!93 = !{!62, !10, i64 412}
+!94 = distinct !{!94, !35}
+!95 = !{!62, !70, i64 496}
+!96 = distinct !{!96, !35}
+!97 = distinct !{!97, !35}
+!98 = distinct !{!98, !35}
+!99 = !{!62, !10, i64 420}
+!100 = distinct !{!100, !35}
+!101 = !{!102, !12, i64 0}
+!102 = !{!"PaStreamCallbackTimeInfo", !12, i64 0, !12, i64 8, !12, i64 16}
+!103 = !{!102, !12, i64 16}
+!104 = !{!102, !12, i64 8}
+!105 = distinct !{!105, !35}

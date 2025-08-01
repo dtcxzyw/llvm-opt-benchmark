@@ -241,7 +241,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit37
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit
   %.031.be = phi ptr [ %.0, %lean_dec.exit ], [ %82, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !12
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -313,7 +313,7 @@ lean_inc.exit:                                    ; preds = %21, %20, %18, %13
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %.critedge.i, !prof !14
+  br i1 %or.cond, label %33, label %.critedge.i, !prof !12
 
 33:                                               ; preds = %22
   %34 = icmp ule ptr %.0, %24
@@ -326,7 +326,7 @@ lean_inc.exit:                                    ; preds = %21, %20, %18, %13
 lean_nat_le.exit:                                 ; preds = %33, %.critedge.i
   %.0.i = phi i1 [ %34, %33 ], [ %35, %.critedge.i ]
   %.0. = select i1 %.0.i, ptr %24, ptr %.0
-  br label %3, !llvm.loop !15
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -419,7 +419,7 @@ lean_obj_tag.exit.i:                              ; preds = %22, %19
   %44 = and i64 %43, 1
   %45 = icmp ne i64 %44, 0
   %or.cond.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond.i, label %46, label %.critedge.i.i, !prof !14
+  br i1 %or.cond.i, label %46, label %.critedge.i.i, !prof !12
 
 46:                                               ; preds = %35
   %47 = icmp ule ptr %.0.i10, %37
@@ -432,7 +432,7 @@ lean_obj_tag.exit.i:                              ; preds = %22, %19
 lean_nat_le.exit.i:                               ; preds = %.critedge.i.i, %46
   %.0.i.i = phi i1 [ %47, %46 ], [ %48, %.critedge.i.i ]
   %.0..i = select i1 %.0.i.i, ptr %37, ptr %.0.i10
-  br label %16, !llvm.loop !15
+  br label %16
 
 l_List_foldl___at_Std_Sat_CNF_Clause_maxLiteral___spec__3.exit: ; preds = %26, %31, %33, %34
   tail call void @lean_inc_heartbeat() #3
@@ -552,7 +552,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond.i = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond.i, label %33, label %.critedge.i.i, !prof !14
+  br i1 %or.cond.i, label %33, label %.critedge.i.i, !prof !12
 
 33:                                               ; preds = %22
   %34 = icmp ule ptr %.0.i, %24
@@ -565,7 +565,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
 lean_nat_le.exit.i:                               ; preds = %.critedge.i.i, %33
   %.0.i.i = phi i1 [ %34, %33 ], [ %35, %.critedge.i.i ]
   %.0..i = select i1 %.0.i.i, ptr %24, ptr %.0.i
-  br label %3, !llvm.loop !15
+  br label %3
 
 l_List_foldl___at_Std_Sat_CNF_Clause_maxLiteral___spec__3.exit: ; preds = %13, %18, %20, %21
   %36 = ptrtoint ptr %1 to i64
@@ -804,7 +804,7 @@ l_Std_Sat_CNF_Clause_maxLiteral.exit:             ; preds = %lean_dec.exit22, %5
 lean_obj_tag.exit35:                              ; preds = %56, %59
   %.0.i33 = phi i32 [ %58, %56 ], [ %61, %59 ]
   %62 = icmp eq i32 %.0.i33, 0
-  br i1 %62, label %3, label %63, !llvm.loop !16
+  br i1 %62, label %3, label %63
 
 63:                                               ; preds = %lean_obj_tag.exit35
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -855,7 +855,7 @@ lean_inc.exit:                                    ; preds = %73, %72, %70, %63
 
 lean_dec.exit:                                    ; preds = %80, %79, %77, %lean_inc.exit
   %81 = tail call ptr @lean_array_push(ptr noundef %.018.ph, ptr noundef %65) #3
-  br label %.outer, !llvm.loop !16
+  br label %.outer
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -992,7 +992,7 @@ lean_inc.exit:                                    ; preds = %33, %32, %30, %23
   br label %lean_dec.exit11
 
 lean_dec.exit11:                                  ; preds = %40, %39, %37, %lean_inc.exit
-  br i1 %.not, label %51, label %41, !prof !17
+  br i1 %.not, label %51, label %41, !prof !13
 
 41:                                               ; preds = %lean_dec.exit11
   %42 = lshr i64 %26, 1
@@ -1181,9 +1181,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Std_Sat_CNF_RelabelFin_0__Std_Sat_CNF_numLiterals_match__1_splitter___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !18
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !18
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -1222,13 +1222,13 @@ define ptr @l_Std_Sat_CNF_relabelFin___lambda__1(ptr noundef %0, ptr noundef %1)
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %lean_nat_lt.exit.thread7, label %5, !prof !17
+  br i1 %.not, label %lean_nat_lt.exit.thread7, label %5, !prof !13
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, 1
   %.not10 = icmp eq i64 %7, 0
-  br i1 %.not10, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !17
+  br i1 %.not10, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !13
 
 lean_nat_lt.exit:                                 ; preds = %5
   %8 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %1, ptr noundef %0) #3
@@ -1367,9 +1367,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l_Std_Sat_CNF_relabelFin___lambda__1___boxed, ptr %37, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 2, ptr %38, align 8, !tbaa !18
+  store i16 2, ptr %38, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 1, ptr %39, align 2, !tbaa !18
+  store i16 1, ptr %39, align 2, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %32, ptr %40, align 8, !tbaa !9
   %41 = tail call ptr @l_Std_Sat_CNF_relabel___rarg(ptr noundef nonnull %33, ptr noundef %0) #3
@@ -1391,13 +1391,13 @@ define ptr @l_Std_Sat_CNF_relabelFin___lambda__1___boxed(ptr noundef %0, ptr nou
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 1
   %.not.i8 = icmp eq i64 %4, 0
-  br i1 %.not.i8, label %lean_nat_lt.exit.thread7.i, label %5, !prof !17
+  br i1 %.not.i8, label %lean_nat_lt.exit.thread7.i, label %5, !prof !13
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, 1
   %.not10.i = icmp eq i64 %7, 0
-  br i1 %.not10.i, label %lean_nat_lt.exit.i, label %lean_nat_lt.exit.thread.i, !prof !17
+  br i1 %.not10.i, label %lean_nat_lt.exit.i, label %lean_nat_lt.exit.thread.i, !prof !13
 
 lean_nat_lt.exit.i:                               ; preds = %5
   %8 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %1, ptr noundef %0) #3
@@ -1440,7 +1440,7 @@ thread-pre-split:                                 ; preds = %15, %lean_nat_lt.ex
   %17 = phi i32 [ %.pr, %thread-pre-split ], [ %13, %12 ]
   %.0.i.ph = phi ptr [ %.0.i.ph.ph, %thread-pre-split ], [ %1, %12 ]
   %18 = icmp sgt i32 %17, 1
-  br i1 %18, label %19, label %21, !prof !20
+  br i1 %18, label %19, label %21, !prof !16
 
 19:                                               ; preds = %16
   %20 = add nsw i32 %17, -1
@@ -1574,9 +1574,9 @@ _init_l_Std_Sat_CNF_relabelFin___closed__1.exit:  ; preds = %lean_dec_ref.exit10
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @l_Std_Sat_CNF_instDecidableExistsMemOfDecidableEq___rarg___lambda__1___boxed, ptr %33, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i16 1, ptr %34, align 8, !tbaa !18
+  store i16 1, ptr %34, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 18
-  store i16 0, ptr %35, align 2, !tbaa !18
+  store i16 0, ptr %35, align 2, !tbaa !14
   store ptr %29, ptr @l_Std_Sat_CNF_relabelFin___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %29) #3
   tail call void @lean_inc_heartbeat() #3
@@ -1653,12 +1653,8 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!"branch_weights", i32 4000000, i32 4001}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !7, i64 0}
-!20 = !{!"branch_weights", !"expected", i32 2146611587, i32 872061}
+!12 = !{!"branch_weights", i32 4000000, i32 4001}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 2146611587, i32 872061}

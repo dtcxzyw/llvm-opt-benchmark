@@ -1825,7 +1825,7 @@ _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %_ZNKSt9type_inf
 46:                                               ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNKSt9type_infoneERKS_.exit.thread, label %47, !llvm.loop !37
+  br i1 %exitcond.not, label %_ZNKSt9type_infoneERKS_.exit.thread, label %47, !llvm.loop !36
 
 47:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
@@ -1966,14 +1966,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %26 = fcmp oeq double %.1.i.us, %1
   %or.cond.us = and i1 %.not, %26
   %or.cond = or i1 %25, %or.cond.us
-  br i1 %or.cond, label %.lr.ph.split.us..thread.loopexit_crit_edge, label %.lr.ph98, !llvm.loop !38
+  br i1 %or.cond, label %.lr.ph.split.us..thread.loopexit_crit_edge, label %.lr.ph98, !llvm.loop !37
 
 .lr.ph98:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %.1.i.us97 = phi double [ %.1.i.us, %.lr.ph.split.us ], [ %19, %.lr.ph.split.us.preheader ]
   %indvars.iv6796 = phi i64 [ %indvars.iv.next68, %.lr.ph.split.us ], [ %17, %.lr.ph.split.us.preheader ]
   store double %.1.i.us97, ptr %5, align 8, !tbaa !24
   %27 = icmp sgt i64 %indvars.iv6796, 0
-  br i1 %27, label %.lr.ph.split.us, label %..thread.loopexit_crit_edge, !llvm.loop !38
+  br i1 %27, label %.lr.ph.split.us, label %..thread.loopexit_crit_edge, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = fsub double %19, %14
@@ -1997,14 +1997,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %37 = fcmp oeq double %35, %1
   %or.cond.us32 = and i1 %.not, %37
   %or.cond52 = or i1 %36, %or.cond.us32
-  br i1 %or.cond52, label %.lr.ph.split.split.us..thread.loopexit78_crit_edge, label %.lr.ph91, !llvm.loop !40
+  br i1 %or.cond52, label %.lr.ph.split.split.us..thread.loopexit78_crit_edge, label %.lr.ph91, !llvm.loop !39
 
 .lr.ph91:                                         ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
   %38 = phi double [ %35, %.lr.ph.split.split.us ], [ %29, %.lr.ph.split.split.us.preheader ]
   %indvars.iv6490 = phi i64 [ %indvars.iv.next65, %.lr.ph.split.split.us ], [ %17, %.lr.ph.split.split.us.preheader ]
   store double %38, ptr %5, align 8, !tbaa !24
   %39 = icmp sgt i64 %indvars.iv6490, 0
-  br i1 %39, label %.lr.ph.split.split.us, label %..thread.loopexit78_crit_edge, !llvm.loop !40
+  br i1 %39, label %.lr.ph.split.split.us, label %..thread.loopexit78_crit_edge, !llvm.loop !39
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not, label %.lr.ph.split.split.split.preheader, label %.lr.ph.split.split.split.us
@@ -2023,14 +2023,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %43 = load double, ptr %42, align 8, !tbaa !24
   %44 = fsub double %43, %14
   %45 = fcmp olt double %44, %1
-  br i1 %45, label %.thread.loopexit74.split.loop.exit, label %.lr.ph50, !llvm.loop !41
+  br i1 %45, label %.thread.loopexit74.split.loop.exit, label %.lr.ph50, !llvm.loop !40
 
 .lr.ph50:                                         ; preds = %.lr.ph.split.split.split.us, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ %17, %.lr.ph.split.split.split.us ]
   %46 = phi double [ %44, %41 ], [ %28, %.lr.ph.split.split.split.us ]
   store double %46, ptr %5, align 8, !tbaa !24
   %47 = icmp sgt i64 %indvars.iv, 0
-  br i1 %47, label %41, label %.thread, !llvm.loop !41
+  br i1 %47, label %41, label %.thread, !llvm.loop !40
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph86
   %indvars.iv.next62 = add nsw i64 %indvars.iv6185, -1
@@ -2038,14 +2038,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %49 = load double, ptr %48, align 8, !tbaa !24
   %50 = fsub double %49, %14
   %or.cond53 = fcmp ugt double %50, %1
-  br i1 %or.cond53, label %.lr.ph86, label %.lr.ph.split.split.split..thread.loopexit80_crit_edge, !llvm.loop !42
+  br i1 %or.cond53, label %.lr.ph86, label %.lr.ph.split.split.split..thread.loopexit80_crit_edge, !llvm.loop !41
 
 .lr.ph86:                                         ; preds = %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split
   %51 = phi double [ %50, %.lr.ph.split.split.split ], [ %28, %.lr.ph.split.split.split.preheader ]
   %indvars.iv6185 = phi i64 [ %indvars.iv.next62, %.lr.ph.split.split.split ], [ %17, %.lr.ph.split.split.split.preheader ]
   store double %51, ptr %5, align 8, !tbaa !24
   %52 = icmp sgt i64 %indvars.iv6185, 0
-  br i1 %52, label %.lr.ph.split.split.split, label %..thread.loopexit80_crit_edge, !llvm.loop !42
+  br i1 %52, label %.lr.ph.split.split.split, label %..thread.loopexit80_crit_edge, !llvm.loop !41
 
 .thread.loopexit74.split.loop.exit:               ; preds = %41
   %53 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2056,21 +2056,21 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   br label %.thread
 
 ..thread.loopexit_crit_edge:                      ; preds = %.lr.ph98
-  br label %.thread, !llvm.loop !38
+  br label %.thread, !llvm.loop !37
 
 .lr.ph.split.split.us..thread.loopexit78_crit_edge: ; preds = %.lr.ph.split.split.us
   %55 = trunc nuw nsw i64 %indvars.iv6490 to i32
   br label %.thread
 
 ..thread.loopexit78_crit_edge:                    ; preds = %.lr.ph91
-  br label %.thread, !llvm.loop !40
+  br label %.thread, !llvm.loop !39
 
 .lr.ph.split.split.split..thread.loopexit80_crit_edge: ; preds = %.lr.ph.split.split.split
   %56 = trunc nuw nsw i64 %indvars.iv6185 to i32
   br label %.thread
 
 ..thread.loopexit80_crit_edge:                    ; preds = %.lr.ph86
-  br label %.thread, !llvm.loop !42
+  br label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %.lr.ph50, %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split..thread.loopexit80_crit_edge, %..thread.loopexit80_crit_edge, %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us..thread.loopexit78_crit_edge, %..thread.loopexit78_crit_edge, %.lr.ph.split.us.preheader, %.lr.ph.split.us..thread.loopexit_crit_edge, %..thread.loopexit_crit_edge, %.thread.loopexit74.split.loop.exit, %.lr.ph.split.split.split.us, %6
   %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.split.split.us ], [ %53, %.thread.loopexit74.split.loop.exit ], [ 0, %..thread.loopexit_crit_edge ], [ %54, %.lr.ph.split.us..thread.loopexit_crit_edge ], [ %8, %.lr.ph.split.us.preheader ], [ 0, %..thread.loopexit78_crit_edge ], [ %55, %.lr.ph.split.split.us..thread.loopexit78_crit_edge ], [ %8, %.lr.ph.split.split.us.preheader ], [ 0, %..thread.loopexit80_crit_edge ], [ %56, %.lr.ph.split.split.split..thread.loopexit80_crit_edge ], [ %8, %.lr.ph.split.split.split.preheader ], [ 0, %.lr.ph50 ]
@@ -2115,7 +2115,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
   %25 = fcmp oeq double %.1.i.us, %1
   %or.cond.us = and i1 %.not, %25
   %or.cond = or i1 %24, %or.cond.us
-  br i1 %or.cond, label %.critedge, label %.split.us, !llvm.loop !43
+  br i1 %or.cond, label %.critedge, label %.split.us, !llvm.loop !42
 
 .split:                                           ; preds = %6
   br i1 %14, label %.split.split.us.preheader, label %.split.split
@@ -2140,7 +2140,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
   %36 = fcmp oeq double %34, %1
   %or.cond.us20 = and i1 %.not, %36
   %or.cond31 = or i1 %35, %or.cond.us20
-  br i1 %or.cond31, label %.critedge, label %.split.split.us, !llvm.loop !44
+  br i1 %or.cond31, label %.critedge, label %.split.split.us, !llvm.loop !43
 
 .split.split:                                     ; preds = %.split
   br i1 %.not, label %.split.split.split.preheader, label %.split.split.split.us
@@ -2159,7 +2159,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 
 40:                                               ; preds = %.lr.ph
   %41 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !45
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
@@ -2182,7 +2182,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
   %51 = load double, ptr %50, align 8, !tbaa !24
   %52 = fsub double %51, %13
   %or.cond32 = fcmp ugt double %52, %1
-  br i1 %or.cond32, label %.split.split.split, label %.critedge, !llvm.loop !46
+  br i1 %or.cond32, label %.split.split.split, label %.critedge, !llvm.loop !45
 
 .critedge:                                        ; preds = %.lr.ph, %48, %29, %19
   %.us-phi = phi double [ %.1.i.us, %19 ], [ %34, %29 ], [ %52, %48 ], [ %44, %.lr.ph ]
@@ -2280,16 +2280,15 @@ attributes #20 = { allocsize(0) }
 !31 = !{!"p1 double", !17, i64 0}
 !32 = !{!29, !31, i64 88}
 !33 = !{!29, !12, i64 84}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !35, !36}
-!38 = distinct !{!38, !35, !36, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !35, !36, !39}
-!41 = distinct !{!41, !35, !36, !39}
-!42 = distinct !{!42, !35, !36}
-!43 = distinct !{!43, !35, !36, !39}
-!44 = distinct !{!44, !35, !36, !39}
-!45 = distinct !{!45, !39}
-!46 = distinct !{!46, !35, !36}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !35, !38}
+!40 = distinct !{!40, !35, !38}
+!41 = distinct !{!41, !35}
+!42 = distinct !{!42, !35, !38}
+!43 = distinct !{!43, !35, !38}
+!44 = distinct !{!44, !38}
+!45 = distinct !{!45, !35}

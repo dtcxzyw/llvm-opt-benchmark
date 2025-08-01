@@ -1490,7 +1490,7 @@ zend_string_alloc.exit:                           ; preds = %77, %74
   %100 = add nuw i64 %.0138, 1
   %101 = load i64, ptr %5, align 8, !tbaa !113
   %102 = icmp ult i64 %100, %101
-  br i1 %102, label %65, label %._crit_edge, !llvm.loop !122
+  br i1 %102, label %65, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %99
   call void @globfree(ptr noundef nonnull %5) #13
@@ -1499,7 +1499,7 @@ zend_string_alloc.exit:                           ; preds = %77, %74
 103:                                              ; preds = %._crit_edge
   %104 = load ptr, ptr %1, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 28
-  %106 = load i32, ptr %105, align 4, !tbaa !124
+  %106 = load i32, ptr %105, align 4, !tbaa !122
   %.not88 = icmp eq i32 %106, 0
   br i1 %.not88, label %107, label %108
 
@@ -1620,7 +1620,7 @@ zend_parse_arg_long_ex.exit.thread:               ; preds = %28
 
 zend_parse_arg_long_ex.exit:                      ; preds = %28
   %34 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %29, ptr noundef nonnull %4, i32 noundef 2) #13
-  br i1 %34, label %35, label %40, !prof !125
+  br i1 %34, label %35, label %40, !prof !123
 
 35:                                               ; preds = %zend_parse_arg_long_ex.exit.thread, %zend_parse_arg_long_ex.exit
   %.not = icmp eq i32 %7, 3
@@ -1707,7 +1707,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %28
   %64 = call i32 @add_next_index_str(ptr noundef nonnull %1, ptr noundef %63) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %65 = load ptr, ptr %5, align 8, !tbaa !32
@@ -1905,8 +1905,5 @@ attributes #16 = { nounwind willreturn memory(none) }
 !119 = !{!"p1 _ZTS19_zend_llist_element", !7, i64 0}
 !120 = !{!114, !58, i64 8}
 !121 = !{!55, !55, i64 0}
-!122 = distinct !{!122, !123}
-!123 = !{!"llvm.loop.estimated_trip_count"}
-!124 = !{!17, !15, i64 28}
-!125 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!126 = distinct !{!126, !123}
+!122 = !{!17, !15, i64 28}
+!123 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}

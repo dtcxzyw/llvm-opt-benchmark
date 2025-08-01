@@ -326,12 +326,12 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %134, ptr %128, align 4, !tbaa !21
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %exitcond486.not = icmp eq i64 %indvars.iv.next483, %wide.trip.count485
-  br i1 %exitcond486.not, label %._crit_edge433.us, label %112, !llvm.loop !22
+  br i1 %exitcond486.not, label %._crit_edge433.us, label %112
 
 ._crit_edge433.us:                                ; preds = %122
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond491.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count490
-  br i1 %exitcond491.not, label %.lr.ph438, label %.lr.ph432.us, !llvm.loop !24
+  br i1 %exitcond491.not, label %.lr.ph438, label %.lr.ph432.us, !llvm.loop !22
 
 136:                                              ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
@@ -360,7 +360,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %148, ptr %150, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %136
 
 .preheader427.thread547:                          ; preds = %._crit_edge
   br i1 %92, label %._crit_edge447, label %.lr.ph438
@@ -425,12 +425,12 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %184, ptr %182, align 4, !tbaa !21
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %exitcond501.not = icmp eq i64 %indvars.iv.next498, %wide.trip.count500
-  br i1 %exitcond501.not, label %..loopexit425_crit_edge.us, label %157, !llvm.loop !27
+  br i1 %exitcond501.not, label %..loopexit425_crit_edge.us, label %157
 
 ..loopexit425_crit_edge.us:                       ; preds = %167
   %indvars.iv.next503 = add nsw i64 %indvars.iv502, -1
   %185 = icmp sgt i64 %indvars.iv502, 0
-  br i1 %185, label %.lr.ph443.us, label %._crit_edge447, !llvm.loop !28
+  br i1 %185, label %.lr.ph443.us, label %._crit_edge447, !llvm.loop !24
 
 186:                                              ; preds = %.lr.ph438, %195
   %indvars.iv492 = phi i64 [ 0, %.lr.ph438 ], [ %indvars.iv.next493, %195 ]
@@ -461,7 +461,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %199, ptr %201, align 4, !tbaa !21
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
   %exitcond496.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count495
-  br i1 %exitcond496.not, label %.preheader426, label %186, !llvm.loop !29
+  br i1 %exitcond496.not, label %.preheader426, label %186
 
 ._crit_edge447:                                   ; preds = %..loopexit425_crit_edge.us, %.preheader426, %.preheader427.thread547, %.lr.ph436
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
@@ -473,7 +473,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %indvars.iv.next506 = add nuw nsw i64 %indvars.iv505, 1
   %exitcond509.not = icmp eq i64 %indvars.iv.next506, %95
-  br i1 %exitcond509.not, label %.preheader424, label %106, !llvm.loop !30
+  br i1 %exitcond509.not, label %.preheader424, label %106
 
 ._crit_edge476:                                   ; preds = %._crit_edge473, %.preheader424
   ret void
@@ -553,12 +553,12 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %230, ptr %224, align 4, !tbaa !21
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond519.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
-  br i1 %exitcond519.not, label %._crit_edge459.us, label %208, !llvm.loop !31
+  br i1 %exitcond519.not, label %._crit_edge459.us, label %208
 
 ._crit_edge459.us:                                ; preds = %218
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
-  br i1 %exitcond524.not, label %.lr.ph464, label %.lr.ph458.us, !llvm.loop !32
+  br i1 %exitcond524.not, label %.lr.ph464, label %.lr.ph458.us, !llvm.loop !25
 
 232:                                              ; preds = %.lr.ph452, %241
   %indvars.iv510 = phi i64 [ 0, %.lr.ph452 ], [ %indvars.iv.next511, %241 ]
@@ -587,7 +587,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %244, ptr %246, align 4, !tbaa !21
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
-  br i1 %exitcond514.not, label %._crit_edge453, label %232, !llvm.loop !33
+  br i1 %exitcond514.not, label %._crit_edge453, label %232
 
 .preheader423.thread548:                          ; preds = %._crit_edge453
   br i1 %101, label %.lr.ph464, label %._crit_edge473
@@ -657,12 +657,12 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %282, ptr %280, align 4, !tbaa !21
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
   %exitcond534.not = icmp eq i64 %indvars.iv.next531, %wide.trip.count533
-  br i1 %exitcond534.not, label %..loopexit_crit_edge.us, label %255, !llvm.loop !34
+  br i1 %exitcond534.not, label %..loopexit_crit_edge.us, label %255
 
 ..loopexit_crit_edge.us:                          ; preds = %265
   %indvars.iv.next536 = add nsw i64 %indvars.iv535, -1
   %283 = icmp sgt i64 %indvars.iv535, 0
-  br i1 %283, label %.lr.ph469.us, label %._crit_edge473, !llvm.loop !35
+  br i1 %283, label %.lr.ph469.us, label %._crit_edge473, !llvm.loop !26
 
 284:                                              ; preds = %.lr.ph464, %293
   %indvars.iv525 = phi i64 [ 0, %.lr.ph464 ], [ %indvars.iv.next526, %293 ]
@@ -693,7 +693,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   store float %297, ptr %299, align 4, !tbaa !21
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   %exitcond529.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count528
-  br i1 %exitcond529.not, label %.preheader, label %284, !llvm.loop !36
+  br i1 %exitcond529.not, label %.preheader, label %284
 
 ._crit_edge473:                                   ; preds = %..loopexit_crit_edge.us, %.preheader423.thread548, %.lr.ph462, %.lr.ph472, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #16
@@ -705,7 +705,7 @@ _compute_gauss_params.exit:                       ; preds = %33, %49, %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
   %exitcond542.not = icmp eq i64 %indvars.iv.next539, %wide.trip.count541
-  br i1 %exitcond542.not, label %._crit_edge476, label %202, !llvm.loop !37
+  br i1 %exitcond542.not, label %._crit_edge476, label %202
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -819,10 +819,10 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %91, i64 16, i1 false), !tbaa !21, !alias.scope !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %91, i64 16, i1 false), !tbaa !21, !alias.scope !27
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %93, i64 16, i1 false), !tbaa !21, !alias.scope !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %93, i64 16, i1 false), !tbaa !21, !alias.scope !31
   %.not398 = icmp eq i32 %21, 0
   br i1 %.not398, label %.preheader364, label %.lr.ph379
 
@@ -834,7 +834,6 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   br label %99
 
 .preheader364:                                    ; preds = %._crit_edge377, %_compute_gauss_params.exit
-  %invariant.gep = getelementptr i8, ptr %89, i64 -16
   %.not400 = icmp eq i32 %24, 0
   br i1 %.not400, label %._crit_edge397, label %.lr.ph396
 
@@ -887,7 +886,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   store float %114, ptr %116, align 4, !tbaa !21
   %117 = add nuw nsw i64 %.0266366, 1
   %exitcond.not = icmp eq i64 %117, 4
-  br i1 %exitcond.not, label %101, label %102, !llvm.loop !46
+  br i1 %exitcond.not, label %101, label %102
 
 ._crit_edge:                                      ; preds = %124, %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
@@ -908,11 +907,11 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
 
 124:                                              ; preds = %136
   %125 = getelementptr inbounds nuw float, ptr %89, i64 %122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull readonly align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !21, !alias.scope !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull readonly align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !21, !alias.scope !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
   %126 = add nuw i64 %.0270369, 1
   %exitcond403.not = icmp eq i64 %126, %25
-  br i1 %exitcond403.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond403.not, label %._crit_edge, label %.lr.ph
 
 127:                                              ; preds = %.lr.ph, %136
   %.0269368 = phi i64 [ 0, %.lr.ph ], [ %150, %136 ]
@@ -952,7 +951,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   store float %148, ptr %142, align 4, !tbaa !21
   %150 = add nuw nsw i64 %.0269368, 1
   %exitcond402.not = icmp eq i64 %150, 4
-  br i1 %exitcond402.not, label %124, label %127, !llvm.loop !52
+  br i1 %exitcond402.not, label %124, label %127
 
 .preheader365:                                    ; preds = %160
   br i1 %.not399, label %._crit_edge377, label %.lr.ph376
@@ -986,7 +985,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   store float %164, ptr %166, align 4, !tbaa !21
   %167 = add nuw nsw i64 %.0268370, 1
   %exitcond404.not = icmp eq i64 %167, 4
-  br i1 %exitcond404.not, label %.preheader365, label %151, !llvm.loop !53
+  br i1 %exitcond404.not, label %.preheader365, label %151
 
 ._crit_edge377:                                   ; preds = %173, %.preheader365
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #16
@@ -998,7 +997,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %168 = add nuw i64 %.0258378, 1
   %exitcond406.not = icmp eq i64 %168, %22
-  br i1 %exitcond406.not, label %.preheader364, label %99, !llvm.loop !54
+  br i1 %exitcond406.not, label %.preheader364, label %99
 
 .lr.ph376:                                        ; preds = %.preheader365, %173
   %.0267375 = phi i64 [ %174, %173 ], [ %25, %.preheader365 ]
@@ -1011,7 +1010,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
 173:                                              ; preds = %185
   %174 = add i64 %.0267375, -1
   %.not = icmp eq i64 %174, 0
-  br i1 %.not, label %._crit_edge377, label %.lr.ph376, !llvm.loop !55
+  br i1 %.not, label %._crit_edge377, label %.lr.ph376
 
 175:                                              ; preds = %.lr.ph376, %185
   %.0265373 = phi i64 [ 0, %.lr.ph376 ], [ %203, %185 ]
@@ -1057,7 +1056,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   store float %202, ptr %200, align 4, !tbaa !21
   %203 = add nuw nsw i64 %.0265373, 1
   %exitcond405.not = icmp eq i64 %203, 4
-  br i1 %exitcond405.not, label %173, label %175, !llvm.loop !56
+  br i1 %exitcond405.not, label %173, label %175
 
 ._crit_edge397:                                   ; preds = %._crit_edge394, %.preheader364
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
@@ -1078,7 +1077,7 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
 
 .lr.ph385:                                        ; preds = %.preheader363
   %206 = mul i64 %.0264395, %22
-  br label %224
+  br label %226
 
 207:                                              ; preds = %204, %216
   %.0263380 = phi i64 [ 0, %204 ], [ %222, %216 ]
@@ -1107,112 +1106,113 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   store float %219, ptr %221, align 4, !tbaa !21
   %222 = add nuw nsw i64 %.0263380, 1
   %exitcond407.not = icmp eq i64 %222, 4
-  br i1 %exitcond407.not, label %.preheader363, label %207, !llvm.loop !57
+  br i1 %exitcond407.not, label %.preheader363, label %207
 
-._crit_edge386:                                   ; preds = %227, %.preheader363
+._crit_edge386:                                   ; preds = %229, %.preheader363
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #16
   %223 = add nuw i64 %.0264395, 1
   %.idx = mul i64 %96, %223
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  br label %255
+  %224 = getelementptr i8, ptr %89, i64 %.idx
+  %225 = getelementptr i8, ptr %224, i64 -16
+  br label %257
 
-224:                                              ; preds = %.lr.ph385, %227
-  %.0262384 = phi i64 [ 0, %.lr.ph385 ], [ %228, %227 ]
-  %225 = add i64 %.0262384, %206
-  %226 = shl i64 %225, 2
-  br label %229
+226:                                              ; preds = %.lr.ph385, %229
+  %.0262384 = phi i64 [ 0, %.lr.ph385 ], [ %230, %229 ]
+  %227 = add i64 %.0262384, %206
+  %228 = shl i64 %227, 2
+  br label %231
 
-227:                                              ; preds = %239
-  %228 = add nuw i64 %.0262384, 1
-  %exitcond409.not = icmp eq i64 %228, %22
-  br i1 %exitcond409.not, label %._crit_edge386, label %224, !llvm.loop !58
+229:                                              ; preds = %241
+  %230 = add nuw i64 %.0262384, 1
+  %exitcond409.not = icmp eq i64 %230, %22
+  br i1 %exitcond409.not, label %._crit_edge386, label %226
 
-229:                                              ; preds = %224, %239
-  %.0261383 = phi i64 [ 0, %224 ], [ %253, %239 ]
-  %230 = add nuw nsw i64 %.0261383, %226
-  %231 = getelementptr inbounds nuw float, ptr %89, i64 %230
-  %232 = load float, ptr %231, align 4, !tbaa !21
-  %233 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.0261383
+231:                                              ; preds = %226, %241
+  %.0261383 = phi i64 [ 0, %226 ], [ %255, %241 ]
+  %232 = add nuw nsw i64 %.0261383, %228
+  %233 = getelementptr inbounds nuw float, ptr %89, i64 %232
   %234 = load float, ptr %233, align 4, !tbaa !21
-  %235 = fcmp reassoc nsz arcp contract afn ult float %232, %234
-  br i1 %235, label %239, label %236
+  %235 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.0261383
+  %236 = load float, ptr %235, align 4, !tbaa !21
+  %237 = fcmp reassoc nsz arcp contract afn ult float %234, %236
+  br i1 %237, label %241, label %238
 
-236:                                              ; preds = %229
-  %237 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.0261383
-  %238 = load float, ptr %237, align 4, !tbaa !21
-  %.inv339 = fcmp reassoc nsz arcp contract afn ole float %232, %238
-  %.304 = select reassoc nsz arcp contract afn i1 %.inv339, float %232, float %238
-  br label %239
+238:                                              ; preds = %231
+  %239 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.0261383
+  %240 = load float, ptr %239, align 4, !tbaa !21
+  %.inv339 = fcmp reassoc nsz arcp contract afn ole float %234, %240
+  %.304 = select reassoc nsz arcp contract afn i1 %.inv339, float %234, float %240
+  br label %241
 
-239:                                              ; preds = %229, %236
-  %240 = phi reassoc nsz arcp contract afn float [ %.304, %236 ], [ %234, %229 ]
-  %241 = fmul reassoc nsz arcp contract afn float %240, %.0335
-  %242 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.0261383
-  %243 = load float, ptr %242, align 4, !tbaa !21
-  %244 = fmul reassoc nsz arcp contract afn float %243, %.0336
-  %245 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.0261383
-  %246 = load float, ptr %245, align 4, !tbaa !21
-  %247 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %.0261383
+241:                                              ; preds = %231, %238
+  %242 = phi reassoc nsz arcp contract afn float [ %.304, %238 ], [ %236, %231 ]
+  %243 = fmul reassoc nsz arcp contract afn float %242, %.0335
+  %244 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %.0261383
+  %245 = load float, ptr %244, align 4, !tbaa !21
+  %246 = fmul reassoc nsz arcp contract afn float %245, %.0336
+  %247 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.0261383
   %248 = load float, ptr %247, align 4, !tbaa !21
-  %.neg348.reass = fmul reassoc nsz arcp contract afn float %246, %factor.op.fmul381
-  %249 = fmul reassoc nsz arcp contract afn float %34, %248
-  %reass.add351 = fsub reassoc nsz arcp contract afn float %.neg348.reass, %249
-  %250 = fadd reassoc nsz arcp contract afn float %244, %241
-  %251 = fadd reassoc nsz arcp contract afn float %250, %reass.add351
-  %252 = getelementptr inbounds nuw float, ptr %2, i64 %230
-  store float %251, ptr %252, align 4, !tbaa !21
-  store float %240, ptr %242, align 4, !tbaa !21
-  store float %246, ptr %247, align 4, !tbaa !21
-  store float %251, ptr %245, align 4, !tbaa !21
-  %253 = add nuw nsw i64 %.0261383, 1
-  %exitcond408.not = icmp eq i64 %253, 4
-  br i1 %exitcond408.not, label %227, label %229, !llvm.loop !59
+  %249 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %.0261383
+  %250 = load float, ptr %249, align 4, !tbaa !21
+  %.neg348.reass = fmul reassoc nsz arcp contract afn float %248, %factor.op.fmul381
+  %251 = fmul reassoc nsz arcp contract afn float %34, %250
+  %reass.add351 = fsub reassoc nsz arcp contract afn float %.neg348.reass, %251
+  %252 = fadd reassoc nsz arcp contract afn float %246, %243
+  %253 = fadd reassoc nsz arcp contract afn float %252, %reass.add351
+  %254 = getelementptr inbounds nuw float, ptr %2, i64 %232
+  store float %253, ptr %254, align 4, !tbaa !21
+  store float %242, ptr %244, align 4, !tbaa !21
+  store float %248, ptr %249, align 4, !tbaa !21
+  store float %253, ptr %247, align 4, !tbaa !21
+  %255 = add nuw nsw i64 %.0261383, 1
+  %exitcond408.not = icmp eq i64 %255, 4
+  br i1 %exitcond408.not, label %229, label %231
 
-.preheader:                                       ; preds = %264
+.preheader:                                       ; preds = %266
   br i1 %97, label %.lr.ph393, label %._crit_edge394
 
 .lr.ph393:                                        ; preds = %.preheader
-  %254 = mul i64 %.0264395, %22
-  br label %273
+  %256 = mul i64 %.0264395, %22
+  br label %275
 
-255:                                              ; preds = %._crit_edge386, %264
-  %.0260387 = phi i64 [ 0, %._crit_edge386 ], [ %271, %264 ]
-  %256 = getelementptr inbounds nuw float, ptr %gep, i64 %.0260387
-  %257 = load float, ptr %256, align 4, !tbaa !21
-  %258 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.0260387
+257:                                              ; preds = %._crit_edge386, %266
+  %.0260387 = phi i64 [ 0, %._crit_edge386 ], [ %273, %266 ]
+  %258 = getelementptr inbounds nuw float, ptr %225, i64 %.0260387
   %259 = load float, ptr %258, align 4, !tbaa !21
-  %260 = fcmp reassoc nsz arcp contract afn ult float %257, %259
-  br i1 %260, label %264, label %261
+  %260 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.0260387
+  %261 = load float, ptr %260, align 4, !tbaa !21
+  %262 = fcmp reassoc nsz arcp contract afn ult float %259, %261
+  br i1 %262, label %266, label %263
 
-261:                                              ; preds = %255
-  %262 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.0260387
-  %263 = load float, ptr %262, align 4, !tbaa !21
-  %.inv338 = fcmp reassoc nsz arcp contract afn ole float %257, %263
-  %.305 = select reassoc nsz arcp contract afn i1 %.inv338, float %257, float %263
-  br label %264
+263:                                              ; preds = %257
+  %264 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.0260387
+  %265 = load float, ptr %264, align 4, !tbaa !21
+  %.inv338 = fcmp reassoc nsz arcp contract afn ole float %259, %265
+  %.305 = select reassoc nsz arcp contract afn i1 %.inv338, float %259, float %265
+  br label %266
 
-264:                                              ; preds = %255, %261
-  %265 = phi reassoc nsz arcp contract afn float [ %.305, %261 ], [ %259, %255 ]
-  %266 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.0260387
-  store float %265, ptr %266, align 4, !tbaa !21
-  %267 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.0260387
-  store float %265, ptr %267, align 4, !tbaa !21
-  %268 = fmul reassoc nsz arcp contract afn float %265, %87
-  %269 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.0260387
-  store float %268, ptr %269, align 4, !tbaa !21
-  %270 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.0260387
-  store float %268, ptr %270, align 4, !tbaa !21
-  %271 = add nuw nsw i64 %.0260387, 1
-  %exitcond410.not = icmp eq i64 %271, 4
-  br i1 %exitcond410.not, label %.preheader, label %255, !llvm.loop !60
+266:                                              ; preds = %257, %263
+  %267 = phi reassoc nsz arcp contract afn float [ %.305, %263 ], [ %261, %257 ]
+  %268 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.0260387
+  store float %267, ptr %268, align 4, !tbaa !21
+  %269 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.0260387
+  store float %267, ptr %269, align 4, !tbaa !21
+  %270 = fmul reassoc nsz arcp contract afn float %267, %87
+  %271 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.0260387
+  store float %270, ptr %271, align 4, !tbaa !21
+  %272 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.0260387
+  store float %270, ptr %272, align 4, !tbaa !21
+  %273 = add nuw nsw i64 %.0260387, 1
+  %exitcond410.not = icmp eq i64 %273, 4
+  br i1 %exitcond410.not, label %.preheader, label %257
 
-.loopexit:                                        ; preds = %286
+.loopexit:                                        ; preds = %288
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %272 = icmp sgt i64 %indvars.iv, 0
-  br i1 %272, label %273, label %._crit_edge394, !llvm.loop !61
+  %274 = icmp sgt i64 %indvars.iv, 0
+  br i1 %274, label %275, label %._crit_edge394
 
 ._crit_edge394:                                   ; preds = %.loopexit, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #16
@@ -1223,59 +1223,59 @@ _compute_gauss_params.exit:                       ; preds = %36, %52, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #16
   %exitcond413.not = icmp eq i64 %223, %25
-  br i1 %exitcond413.not, label %._crit_edge397, label %204, !llvm.loop !62
+  br i1 %exitcond413.not, label %._crit_edge397, label %204
 
-273:                                              ; preds = %.lr.ph393, %.loopexit
+275:                                              ; preds = %.lr.ph393, %.loopexit
   %indvars.iv = phi i64 [ %98, %.lr.ph393 ], [ %indvars.iv.next, %.loopexit ]
-  %274 = add i64 %254, %indvars.iv
-  %275 = shl i64 %274, 2
-  br label %276
+  %276 = add i64 %256, %indvars.iv
+  %277 = shl i64 %276, 2
+  br label %278
 
-276:                                              ; preds = %273, %286
-  %.0390 = phi i64 [ 0, %273 ], [ %304, %286 ]
-  %277 = add nuw nsw i64 %.0390, %275
-  %278 = getelementptr inbounds nuw float, ptr %89, i64 %277
-  %279 = load float, ptr %278, align 4, !tbaa !21
-  %280 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.0390
+278:                                              ; preds = %275, %288
+  %.0390 = phi i64 [ 0, %275 ], [ %306, %288 ]
+  %279 = add nuw nsw i64 %.0390, %277
+  %280 = getelementptr inbounds nuw float, ptr %89, i64 %279
   %281 = load float, ptr %280, align 4, !tbaa !21
-  %282 = fcmp reassoc nsz arcp contract afn ult float %279, %281
-  br i1 %282, label %286, label %283
+  %282 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.0390
+  %283 = load float, ptr %282, align 4, !tbaa !21
+  %284 = fcmp reassoc nsz arcp contract afn ult float %281, %283
+  br i1 %284, label %288, label %285
 
-283:                                              ; preds = %276
-  %284 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.0390
-  %285 = load float, ptr %284, align 4, !tbaa !21
-  %.inv = fcmp reassoc nsz arcp contract afn ole float %279, %285
-  %.306 = select reassoc nsz arcp contract afn i1 %.inv, float %279, float %285
-  br label %286
+285:                                              ; preds = %278
+  %286 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.0390
+  %287 = load float, ptr %286, align 4, !tbaa !21
+  %.inv = fcmp reassoc nsz arcp contract afn ole float %281, %287
+  %.306 = select reassoc nsz arcp contract afn i1 %.inv, float %281, float %287
+  br label %288
 
-286:                                              ; preds = %276, %283
-  %287 = phi reassoc nsz arcp contract afn float [ %.306, %283 ], [ %281, %276 ]
-  %288 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.0390
-  %289 = load float, ptr %288, align 4, !tbaa !21
-  %290 = fmul reassoc nsz arcp contract afn float %289, %.0337
-  %291 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.0390
-  %292 = load float, ptr %291, align 4, !tbaa !21
-  %293 = fmul reassoc nsz arcp contract afn float %292, %.sink.i
-  %294 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.0390
-  %295 = load float, ptr %294, align 4, !tbaa !21
-  %296 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.0390
+288:                                              ; preds = %278, %285
+  %289 = phi reassoc nsz arcp contract afn float [ %.306, %285 ], [ %283, %278 ]
+  %290 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %.0390
+  %291 = load float, ptr %290, align 4, !tbaa !21
+  %292 = fmul reassoc nsz arcp contract afn float %291, %.0337
+  %293 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.0390
+  %294 = load float, ptr %293, align 4, !tbaa !21
+  %295 = fmul reassoc nsz arcp contract afn float %294, %.sink.i
+  %296 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %.0390
   %297 = load float, ptr %296, align 4, !tbaa !21
-  %.neg345.reass = fmul reassoc nsz arcp contract afn float %295, %factor.op.fmul381
-  %298 = fmul reassoc nsz arcp contract afn float %34, %297
-  %reass.add = fsub reassoc nsz arcp contract afn float %.neg345.reass, %298
-  %299 = fadd reassoc nsz arcp contract afn float %293, %290
-  %300 = fadd reassoc nsz arcp contract afn float %299, %reass.add
-  store float %289, ptr %291, align 4, !tbaa !21
-  store float %287, ptr %288, align 4, !tbaa !21
-  store float %295, ptr %296, align 4, !tbaa !21
-  store float %300, ptr %294, align 4, !tbaa !21
-  %301 = getelementptr inbounds nuw float, ptr %2, i64 %277
-  %302 = load float, ptr %301, align 4, !tbaa !21
-  %303 = fadd reassoc nsz arcp contract afn float %302, %300
-  store float %303, ptr %301, align 4, !tbaa !21
-  %304 = add nuw nsw i64 %.0390, 1
-  %exitcond411.not = icmp eq i64 %304, 4
-  br i1 %exitcond411.not, label %.loopexit, label %276, !llvm.loop !63
+  %298 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %.0390
+  %299 = load float, ptr %298, align 4, !tbaa !21
+  %.neg345.reass = fmul reassoc nsz arcp contract afn float %297, %factor.op.fmul381
+  %300 = fmul reassoc nsz arcp contract afn float %34, %299
+  %reass.add = fsub reassoc nsz arcp contract afn float %.neg345.reass, %300
+  %301 = fadd reassoc nsz arcp contract afn float %295, %292
+  %302 = fadd reassoc nsz arcp contract afn float %301, %reass.add
+  store float %291, ptr %293, align 4, !tbaa !21
+  store float %289, ptr %290, align 4, !tbaa !21
+  store float %297, ptr %298, align 4, !tbaa !21
+  store float %302, ptr %296, align 4, !tbaa !21
+  %303 = getelementptr inbounds nuw float, ptr %2, i64 %279
+  %304 = load float, ptr %303, align 4, !tbaa !21
+  %305 = fadd reassoc nsz arcp contract afn float %304, %302
+  store float %305, ptr %303, align 4, !tbaa !21
+  %306 = add nuw nsw i64 %.0390, 1
+  %exitcond411.not = icmp eq i64 %306, 4
+  br i1 %exitcond411.not, label %.loopexit, label %278
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
@@ -1351,7 +1351,7 @@ define void @dt_gaussian_fast_blur(ptr noundef readonly %0, ptr noundef %1, i32 
 32:                                               ; preds = %50
   %indvars.iv.next44.i.i = add nsw i64 %indvars.iv43.i.i, 1
   %exitcond46.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, 5
-  br i1 %exitcond46.not.i.i, label %.preheader.i.i.preheader, label %.preheader35.i.i, !llvm.loop !64
+  br i1 %exitcond46.not.i.i, label %.preheader.i.i.preheader, label %.preheader35.i.i
 
 .preheader.i.i.preheader:                         ; preds = %32
   %33 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.2.i.i
@@ -1387,7 +1387,7 @@ define void @dt_gaussian_fast_blur(ptr noundef readonly %0, ptr noundef %1, i32 
   %.2.i.i = phi nsz float [ %46, %38 ], [ %.137.i.i, %47 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %32, label %34, !llvm.loop !65
+  br i1 %exitcond.not.i.i, label %32, label %34
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %53
   %indvars.iv51.i.i = phi i64 [ %indvars.iv.next52.i.i, %53 ], [ 0, %.preheader.i.i.preheader ]
@@ -1400,7 +1400,7 @@ define void @dt_gaussian_fast_blur(ptr noundef readonly %0, ptr noundef %1, i32 
 53:                                               ; preds = %54
   %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 1
   %exitcond54.not.i.i = icmp eq i64 %indvars.iv.next52.i.i, 5
-  br i1 %exitcond54.not.i.i, label %_calc_9x9_gauss_coeffs.exit.i, label %.preheader.i.i, !llvm.loop !66
+  br i1 %exitcond54.not.i.i, label %_calc_9x9_gauss_coeffs.exit.i, label %.preheader.i.i
 
 54:                                               ; preds = %54, %.preheader.i.i
   %indvars.iv47.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next48.i.i, %54 ]
@@ -1412,7 +1412,7 @@ define void @dt_gaussian_fast_blur(ptr noundef readonly %0, ptr noundef %1, i32 
   store float %58, ptr %gep.i.i, align 4, !tbaa !21
   %indvars.iv.next48.i.i = add nuw nsw i64 %indvars.iv47.i.i, 1
   %exitcond50.not.i.i = icmp eq i64 %indvars.iv.next48.i.i, 5
-  br i1 %exitcond50.not.i.i, label %53, label %54, !llvm.loop !67
+  br i1 %exitcond50.not.i.i, label %53, label %54
 
 _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %14) #16
@@ -1525,13 +1525,13 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   %.4.us.i.us = phi nsz float [ %118, %108 ], [ %.3270.us.i.us, %106 ]
   %120 = add nsw i32 %.0252271.us.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %120, 5
-  br i1 %exitcond.not.i.us, label %.loopexit.us.i.us, label %106, !llvm.loop !68
+  br i1 %exitcond.not.i.us, label %.loopexit.us.i.us, label %106
 
 .loopexit.us.i.us:                                ; preds = %119, %.preheader267.us.i.us
   %.2.us.i.us = phi nsz float [ %.1272.us.i.us, %.preheader267.us.i.us ], [ %.4.us.i.us, %119 ]
   %121 = add nsw i32 %.0253273.us.i.us, 1
   %exitcond284.not.i.us = icmp eq i32 %121, 5
-  br i1 %exitcond284.not.i.us, label %.loopexit268.us.i.loopexit.us, label %.preheader267.us.i.us, !llvm.loop !69
+  br i1 %exitcond284.not.i.us, label %.loopexit268.us.i.loopexit.us, label %.preheader267.us.i.us
 
 .loopexit268.us.i.loopexit.us:                    ; preds = %.loopexit.us.i.us
   %122 = fcmp reassoc nsz arcp contract afn ult float %.2.us.i.us, %5
@@ -1542,7 +1542,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   store float %125, ptr %gep, align 4, !tbaa !21
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond286.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond286.not.i.us, label %._crit_edge.us.i, label %.preheader267.us.preheader.i.us, !llvm.loop !70
+  br i1 %exitcond286.not.i.us, label %._crit_edge.us.i, label %.preheader267.us.preheader.i.us, !llvm.loop !39
 
 .preheader269.us.i.split:                         ; preds = %.preheader269.us.i, %.loopexit268.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit268.us.i ], [ 0, %.preheader269.us.i ]
@@ -1567,7 +1567,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   %.2.us.i = phi nsz float [ %.1272.us.i, %.preheader267.us.i ], [ %.4.us.i, %145 ]
   %131 = add nsw i32 %.0253273.us.i, 1
   %exitcond284.not.i = icmp eq i32 %131, 5
-  br i1 %exitcond284.not.i, label %.loopexit268.us.i, label %.preheader267.us.i, !llvm.loop !69
+  br i1 %exitcond284.not.i, label %.loopexit268.us.i, label %.preheader267.us.i
 
 132:                                              ; preds = %.preheader.us.i, %145
   %.0252271.us.i = phi i32 [ -4, %.preheader.us.i ], [ %146, %145 ]
@@ -1594,7 +1594,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   %.4.us.i = phi nsz float [ %144, %134 ], [ %.3270.us.i, %132 ]
   %146 = add nsw i32 %.0252271.us.i, 1
   %exitcond.not.i = icmp eq i32 %146, 5
-  br i1 %exitcond.not.i, label %.loopexit.us.i, label %132, !llvm.loop !68
+  br i1 %exitcond.not.i, label %.loopexit.us.i, label %132
 
 147:                                              ; preds = %.preheader269.us.i.split
   %148 = sub nsw i64 %126, %66
@@ -1832,7 +1832,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   store float %370, ptr %371, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond286.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond286.not.i, label %._crit_edge.us.i, label %.preheader269.us.i.split, !llvm.loop !71
+  br i1 %exitcond286.not.i, label %._crit_edge.us.i, label %.preheader269.us.i.split
 
 .preheader.us.i:                                  ; preds = %.preheader267.us.i
   %372 = tail call i32 @llvm.abs.i32(i32 %.0253273.us.i, i1 true)
@@ -1844,7 +1844,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
 ._crit_edge.us.i:                                 ; preds = %.loopexit268.us.i.loopexit.us, %.loopexit268.us.i
   %indvars.iv.next288.i = add nuw nsw i64 %indvars.iv287.i, 1
   %exitcond291.not.i = icmp eq i64 %indvars.iv.next288.i, %wide.trip.count290.i
-  br i1 %exitcond291.not.i, label %_fast_9x9_kernel_1.exit, label %.preheader269.us.i, !llvm.loop !72
+  br i1 %exitcond291.not.i, label %_fast_9x9_kernel_1.exit, label %.preheader269.us.i, !llvm.loop !40
 
 _fast_9x9_kernel_1.exit:                          ; preds = %._crit_edge.us.i, %_calc_9x9_gauss_coeffs.exit.i, %.preheader269.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %15) #16
@@ -1868,7 +1868,7 @@ _fast_9x9_kernel_1.exit:                          ; preds = %._crit_edge.us.i, %
 381:                                              ; preds = %399
   %indvars.iv.next44.i.i46 = add nsw i64 %indvars.iv43.i.i39, 1
   %exitcond46.not.i.i47 = icmp eq i64 %indvars.iv.next44.i.i46, 5
-  br i1 %exitcond46.not.i.i47, label %.preheader.i.i49.preheader, label %.preheader35.i.i38, !llvm.loop !64
+  br i1 %exitcond46.not.i.i47, label %.preheader.i.i49.preheader, label %.preheader35.i.i38
 
 .preheader.i.i49.preheader:                       ; preds = %381
   %382 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.2.i.i43
@@ -1904,7 +1904,7 @@ _fast_9x9_kernel_1.exit:                          ; preds = %._crit_edge.us.i, %
   %.2.i.i43 = phi nsz float [ %395, %387 ], [ %.137.i.i42, %396 ]
   %indvars.iv.next.i.i44 = add nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 5
-  br i1 %exitcond.not.i.i45, label %381, label %383, !llvm.loop !65
+  br i1 %exitcond.not.i.i45, label %381, label %383
 
 .preheader.i.i49:                                 ; preds = %.preheader.i.i49.preheader, %402
   %indvars.iv51.i.i50 = phi i64 [ %indvars.iv.next52.i.i57, %402 ], [ 0, %.preheader.i.i49.preheader ]
@@ -1917,7 +1917,7 @@ _fast_9x9_kernel_1.exit:                          ; preds = %._crit_edge.us.i, %
 402:                                              ; preds = %403
   %indvars.iv.next52.i.i57 = add nuw nsw i64 %indvars.iv51.i.i50, 1
   %exitcond54.not.i.i58 = icmp eq i64 %indvars.iv.next52.i.i57, 5
-  br i1 %exitcond54.not.i.i58, label %_calc_9x9_gauss_coeffs.exit.i59, label %.preheader.i.i49, !llvm.loop !66
+  br i1 %exitcond54.not.i.i58, label %_calc_9x9_gauss_coeffs.exit.i59, label %.preheader.i.i49
 
 403:                                              ; preds = %403, %.preheader.i.i49
   %indvars.iv47.i.i53 = phi i64 [ 0, %.preheader.i.i49 ], [ %indvars.iv.next48.i.i55, %403 ]
@@ -1929,7 +1929,7 @@ _fast_9x9_kernel_1.exit:                          ; preds = %._crit_edge.us.i, %
   store float %407, ptr %gep.i.i54, align 4, !tbaa !21
   %indvars.iv.next48.i.i55 = add nuw nsw i64 %indvars.iv47.i.i53, 1
   %exitcond50.not.i.i56 = icmp eq i64 %indvars.iv.next48.i.i55, 5
-  br i1 %exitcond50.not.i.i56, label %402, label %403, !llvm.loop !67
+  br i1 %exitcond50.not.i.i56, label %402, label %403
 
 _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %402
   call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %12) #16
@@ -2026,7 +2026,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %402
   %.lcssa134 = phi float [ %.lcssa135, %.preheader353.us.i ], [ %479, %.loopexit.us.i65 ]
   %459 = add nsw i32 %.0335358.us.i, 1
   %exitcond373.not.i = icmp eq i32 %459, 5
-  br i1 %exitcond373.not.i, label %.loopexit352.us.i, label %.preheader353.us.i, !llvm.loop !73
+  br i1 %exitcond373.not.i, label %.loopexit352.us.i, label %.preheader353.us.i
 
 460:                                              ; preds = %.preheader.us.i63, %.loopexit.us.i65
   %461 = phi float [ %.lcssa132138, %.preheader.us.i63 ], [ %478, %.loopexit.us.i65 ]
@@ -2060,7 +2060,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %402
   %479 = phi float [ %473, %.loopexit.us.i65.critedge ], [ %462, %460 ]
   %480 = add nsw i32 %.0333357.us.i, 1
   %exitcond.not.i66 = icmp eq i32 %480, 5
-  br i1 %exitcond.not.i66, label %.loopexit350.us.i, label %460, !llvm.loop !74
+  br i1 %exitcond.not.i66, label %.loopexit350.us.i, label %460
 
 .loopexit352.us.i.loopexit:                       ; preds = %487
   %.sroa.0.0..sroa.0.0..pre = load float, ptr %.sroa.0, align 16, !tbaa !21
@@ -2086,7 +2086,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
   %indvars.iv.next381.i = add nuw nsw i64 %indvars.iv380.i, 1
   %exitcond383.not.i = icmp eq i64 %indvars.iv.next381.i, %446
-  br i1 %exitcond383.not.i, label %._crit_edge.us.i62, label %452, !llvm.loop !75
+  br i1 %exitcond383.not.i, label %._crit_edge.us.i62, label %452
 
 487:                                              ; preds = %.preheader351.us.i, %487
   %488 = phi i1 [ true, %.preheader351.us.i ], [ false, %487 ]
@@ -2312,7 +2312,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %402
   %706 = fmul reassoc nsz arcp contract afn float %705, %442
   %707 = fadd reassoc nsz arcp contract afn float %703, %706
   store float %707, ptr %indvars.iv374.i.sroa.phi, align 4, !tbaa !21
-  br i1 %488, label %487, label %.loopexit352.us.i.loopexit, !llvm.loop !76
+  br i1 %488, label %487, label %.loopexit352.us.i.loopexit
 
 .preheader.us.i63:                                ; preds = %.preheader353.us.i
   %708 = tail call i32 @llvm.abs.i32(i32 %.0335358.us.i, i1 true)
@@ -2400,7 +2400,7 @@ _calc_9x9_gauss_coeffs.exit.i59:                  ; preds = %402
 ._crit_edge.us.i62:                               ; preds = %.loopexit352.us.i
   %indvars.iv.next385.i = add nuw nsw i64 %indvars.iv384.i, 1
   %exitcond388.not.i = icmp eq i64 %indvars.iv.next385.i, %wide.trip.count387.i
-  br i1 %exitcond388.not.i, label %_fast_9x9_kernel_2.exit, label %.preheader355.us.i, !llvm.loop !77
+  br i1 %exitcond388.not.i, label %_fast_9x9_kernel_2.exit, label %.preheader355.us.i, !llvm.loop !41
 
 _fast_9x9_kernel_2.exit:                          ; preds = %._crit_edge.us.i62, %_calc_9x9_gauss_coeffs.exit.i59, %.preheader355.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %13) #16
@@ -2424,7 +2424,7 @@ _fast_9x9_kernel_2.exit:                          ; preds = %._crit_edge.us.i62,
 786:                                              ; preds = %804
   %indvars.iv.next44.i.i78 = add nsw i64 %indvars.iv43.i.i71, 1
   %exitcond46.not.i.i79 = icmp eq i64 %indvars.iv.next44.i.i78, 5
-  br i1 %exitcond46.not.i.i79, label %.preheader.i.i81.preheader, label %.preheader35.i.i70, !llvm.loop !64
+  br i1 %exitcond46.not.i.i79, label %.preheader.i.i81.preheader, label %.preheader35.i.i70
 
 .preheader.i.i81.preheader:                       ; preds = %786
   %787 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.2.i.i75
@@ -2460,7 +2460,7 @@ _fast_9x9_kernel_2.exit:                          ; preds = %._crit_edge.us.i62,
   %.2.i.i75 = phi nsz float [ %800, %792 ], [ %.137.i.i74, %801 ]
   %indvars.iv.next.i.i76 = add nsw i64 %indvars.iv.i.i73, 1
   %exitcond.not.i.i77 = icmp eq i64 %indvars.iv.next.i.i76, 5
-  br i1 %exitcond.not.i.i77, label %786, label %788, !llvm.loop !65
+  br i1 %exitcond.not.i.i77, label %786, label %788
 
 .preheader.i.i81:                                 ; preds = %.preheader.i.i81.preheader, %807
   %indvars.iv51.i.i82 = phi i64 [ %indvars.iv.next52.i.i89, %807 ], [ 0, %.preheader.i.i81.preheader ]
@@ -2473,7 +2473,7 @@ _fast_9x9_kernel_2.exit:                          ; preds = %._crit_edge.us.i62,
 807:                                              ; preds = %808
   %indvars.iv.next52.i.i89 = add nuw nsw i64 %indvars.iv51.i.i82, 1
   %exitcond54.not.i.i90 = icmp eq i64 %indvars.iv.next52.i.i89, 5
-  br i1 %exitcond54.not.i.i90, label %_calc_9x9_gauss_coeffs.exit.i91, label %.preheader.i.i81, !llvm.loop !66
+  br i1 %exitcond54.not.i.i90, label %_calc_9x9_gauss_coeffs.exit.i91, label %.preheader.i.i81
 
 808:                                              ; preds = %808, %.preheader.i.i81
   %indvars.iv47.i.i85 = phi i64 [ 0, %.preheader.i.i81 ], [ %indvars.iv.next48.i.i87, %808 ]
@@ -2485,7 +2485,7 @@ _fast_9x9_kernel_2.exit:                          ; preds = %._crit_edge.us.i62,
   store float %812, ptr %gep.i.i86, align 4, !tbaa !21
   %indvars.iv.next48.i.i87 = add nuw nsw i64 %indvars.iv47.i.i85, 1
   %exitcond50.not.i.i88 = icmp eq i64 %indvars.iv.next48.i.i87, 5
-  br i1 %exitcond50.not.i.i88, label %807, label %808, !llvm.loop !67
+  br i1 %exitcond50.not.i.i88, label %807, label %808
 
 _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
   call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %9) #16
@@ -2572,7 +2572,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
 .loopexit350.us.i106:                             ; preds = %.loopexit.us.i115, %.preheader353.us.i103
   %indvars.iv.next378.i = add nsw i64 %indvars.iv377.i104, 1
   %exitcond380.not.i = icmp eq i64 %indvars.iv.next378.i, 5
-  br i1 %exitcond380.not.i, label %.loopexit352.us.i107, label %.preheader353.us.i103, !llvm.loop !78
+  br i1 %exitcond380.not.i, label %.loopexit352.us.i107, label %.preheader353.us.i103
 
 863:                                              ; preds = %.preheader.us.i112, %.loopexit.us.i115
   %indvars.iv373.i = phi i64 [ -4, %.preheader.us.i112 ], [ %indvars.iv.next374.i, %.loopexit.us.i115 ]
@@ -2596,7 +2596,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
 .loopexit.us.i115:                                ; preds = %873, %863
   %indvars.iv.next374.i = add nsw i64 %indvars.iv373.i, 1
   %exitcond376.not.i = icmp eq i64 %indvars.iv.next374.i, 5
-  br i1 %exitcond376.not.i, label %.loopexit350.us.i106, label %863, !llvm.loop !79
+  br i1 %exitcond376.not.i, label %.loopexit350.us.i106, label %863
 
 873:                                              ; preds = %873, %866
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %873 ], [ 0, %866 ]
@@ -2609,7 +2609,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
   store float %878, ptr %876, align 4, !tbaa !21
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, 4
-  br i1 %exitcond.not.i119, label %.loopexit.us.i115, label %873, !llvm.loop !80
+  br i1 %exitcond.not.i119, label %.loopexit.us.i115, label %873
 
 .loopexit352.us.i107:                             ; preds = %.loopexit350.us.i106, %887
   %879 = getelementptr inbounds nuw float, ptr %.0, i64 %858
@@ -2619,7 +2619,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #16
   %indvars.iv.next390.i = add nuw nsw i64 %indvars.iv389.i, 1
   %exitcond392.not.i = icmp eq i64 %indvars.iv.next390.i, %850
-  br i1 %exitcond392.not.i, label %._crit_edge.us.i111, label %856, !llvm.loop !81
+  br i1 %exitcond392.not.i, label %._crit_edge.us.i111, label %856
 
 881:                                              ; preds = %881, %.loopexit352.us.i107
   %indvars.iv385.i = phi i64 [ %indvars.iv.next386.i, %881 ], [ 0, %.loopexit352.us.i107 ]
@@ -2633,7 +2633,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
   store float %885, ptr %886, align 4, !tbaa !21
   %indvars.iv.next386.i = add nuw nsw i64 %indvars.iv385.i, 1
   %exitcond388.not.i110 = icmp eq i64 %indvars.iv.next386.i, 4
-  br i1 %exitcond388.not.i110, label %880, label %881, !llvm.loop !82
+  br i1 %exitcond388.not.i110, label %880, label %881
 
 887:                                              ; preds = %.preheader351.us.i120, %887
   %indvars.iv381.i = phi i64 [ 0, %.preheader351.us.i120 ], [ %indvars.iv.next382.i, %887 ]
@@ -2860,7 +2860,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
   store float %1106, ptr %1107, align 4, !tbaa !21
   %indvars.iv.next382.i = add nuw nsw i64 %indvars.iv381.i, 1
   %exitcond384.not.i = icmp eq i64 %indvars.iv.next382.i, 4
-  br i1 %exitcond384.not.i, label %.loopexit352.us.i107, label %887, !llvm.loop !83
+  br i1 %exitcond384.not.i, label %.loopexit352.us.i107, label %887
 
 .preheader.us.i112:                               ; preds = %.preheader353.us.i103
   %1108 = trunc nsw i64 %indvars.iv377.i104 to i32
@@ -2949,7 +2949,7 @@ _calc_9x9_gauss_coeffs.exit.i91:                  ; preds = %807
 ._crit_edge.us.i111:                              ; preds = %880
   %indvars.iv.next394.i = add nuw nsw i64 %indvars.iv393.i, 1
   %exitcond397.not.i = icmp eq i64 %indvars.iv.next394.i, %wide.trip.count396.i
-  br i1 %exitcond397.not.i, label %_fast_9x9_kernel_4.exit, label %.preheader355.us.i99, !llvm.loop !84
+  br i1 %exitcond397.not.i, label %_fast_9x9_kernel_4.exit, label %.preheader355.us.i99, !llvm.loop !42
 
 _fast_9x9_kernel_4.exit:                          ; preds = %._crit_edge.us.i111, %_calc_9x9_gauss_coeffs.exit.i91, %.preheader355.lr.ph.i92
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %10) #16
@@ -3029,65 +3029,23 @@ attributes #16 = { nounwind }
 !20 = !{!7, !12, i64 32}
 !21 = !{!11, !11, i64 0}
 !22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !23, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
 !26 = distinct !{!26, !23}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !23, !25}
-!29 = distinct !{!29, !23}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23, !25}
-!33 = distinct !{!33, !23}
-!34 = distinct !{!34, !23}
-!35 = distinct !{!35, !23, !25}
-!36 = distinct !{!36, !23}
-!37 = distinct !{!37, !23}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"copy_pixel: argument 0"}
-!40 = distinct !{!40, !"copy_pixel"}
-!41 = distinct !{!41, !40, !"copy_pixel: argument 1"}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"copy_pixel: argument 0"}
-!44 = distinct !{!44, !"copy_pixel"}
-!45 = distinct !{!45, !44, !"copy_pixel: argument 1"}
-!46 = distinct !{!46, !23}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"copy_pixel: argument 0"}
-!49 = distinct !{!49, !"copy_pixel"}
-!50 = distinct !{!50, !49, !"copy_pixel: argument 1"}
-!51 = distinct !{!51, !23}
-!52 = distinct !{!52, !23}
-!53 = distinct !{!53, !23}
-!54 = distinct !{!54, !23}
-!55 = distinct !{!55, !23}
-!56 = distinct !{!56, !23}
-!57 = distinct !{!57, !23}
-!58 = distinct !{!58, !23}
-!59 = distinct !{!59, !23}
-!60 = distinct !{!60, !23}
-!61 = distinct !{!61, !23}
-!62 = distinct !{!62, !23}
-!63 = distinct !{!63, !23}
-!64 = distinct !{!64, !23}
-!65 = distinct !{!65, !23}
-!66 = distinct !{!66, !23}
-!67 = distinct !{!67, !23}
-!68 = distinct !{!68, !23}
-!69 = distinct !{!69, !23}
-!70 = distinct !{!70, !23, !25}
-!71 = distinct !{!71, !23}
-!72 = distinct !{!72, !23, !25}
-!73 = distinct !{!73, !23}
-!74 = distinct !{!74, !23}
-!75 = distinct !{!75, !23}
-!76 = distinct !{!76, !23}
-!77 = distinct !{!77, !23, !25}
-!78 = distinct !{!78, !23}
-!79 = distinct !{!79, !23}
-!80 = distinct !{!80, !23}
-!81 = distinct !{!81, !23}
-!82 = distinct !{!82, !23}
-!83 = distinct !{!83, !23}
-!84 = distinct !{!84, !23, !25}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"copy_pixel: argument 0"}
+!29 = distinct !{!29, !"copy_pixel"}
+!30 = distinct !{!30, !29, !"copy_pixel: argument 1"}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"copy_pixel: argument 0"}
+!33 = distinct !{!33, !"copy_pixel"}
+!34 = distinct !{!34, !33, !"copy_pixel: argument 1"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"copy_pixel: argument 0"}
+!37 = distinct !{!37, !"copy_pixel"}
+!38 = distinct !{!38, !37, !"copy_pixel: argument 1"}
+!39 = distinct !{!39, !23}
+!40 = distinct !{!40, !23}
+!41 = distinct !{!41, !23}
+!42 = distinct !{!42, !23}

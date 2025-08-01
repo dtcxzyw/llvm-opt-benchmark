@@ -207,7 +207,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next557
   %31 = load ptr, ptr %30, align 8
   %.not376 = icmp eq ptr %31, null
-  br i1 %.not376, label %._crit_edge, label %.lr.ph457, !llvm.loop !7
+  br i1 %.not376, label %._crit_edge, label %.lr.ph457, !llvm.loop !6
 
 .lr.ph457:                                        ; preds = %22, %.loopexit435
   %indvars.iv556 = phi i64 [ %indvars.iv.next557, %.loopexit435 ], [ 0, %22 ]
@@ -228,7 +228,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.next
   %38 = load ptr, ptr %37, align 8
   %.not403 = icmp eq ptr %38, null
-  br i1 %.not403, label %.loopexit435, label %.lr.ph, !llvm.loop !8
+  br i1 %.not403, label %.loopexit435, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit435
   %39 = icmp eq i32 %.1263.lcssa, 0
@@ -324,14 +324,14 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.next560
   %75 = load ptr, ptr %74, align 8
   %.not542 = icmp eq ptr %75, null
-  br i1 %.not542, label %.loopexit433, label %.lr.ph462.split, !llvm.loop !9
+  br i1 %.not542, label %.loopexit433, label %.lr.ph462.split, !llvm.loop !8
 
 .loopexit433:                                     ; preds = %72, %59
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.next563
   %78 = load ptr, ptr %77, align 8
   %.not630 = icmp eq ptr %78, null
-  br i1 %.not630, label %._crit_edge468, label %.lr.ph467, !llvm.loop !10
+  br i1 %.not630, label %._crit_edge468, label %.lr.ph467, !llvm.loop !9
 
 ._crit_edge468:                                   ; preds = %.loopexit433, %.preheader434
   %79 = load ptr, ptr %46, align 8
@@ -374,7 +374,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.next566
   %97 = load ptr, ptr %96, align 8
   %.not401 = icmp eq ptr %97, null
-  br i1 %.not401, label %._crit_edge477, label %.lr.ph476, !llvm.loop !11
+  br i1 %.not401, label %._crit_edge477, label %.lr.ph476, !llvm.loop !10
 
 ._crit_edge477:                                   ; preds = %.lr.ph476, %85
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
@@ -382,7 +382,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.next569
   %100 = load ptr, ptr %99, align 8
   %.not399 = icmp eq ptr %100, null
-  br i1 %.not399, label %._crit_edge482, label %.lr.ph481, !llvm.loop !12
+  br i1 %.not399, label %._crit_edge482, label %.lr.ph481, !llvm.loop !11
 
 ._crit_edge482:                                   ; preds = %._crit_edge477, %._crit_edge468
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.13) #8
@@ -413,7 +413,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %.not382 = icmp eq ptr %108, null
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
   %indvars.iv.next578 = add nuw i32 %indvars.iv577, 1
-  br i1 %.not382, label %109, label %106, !llvm.loop !13
+  br i1 %.not382, label %109, label %106, !llvm.loop !12
 
 109:                                              ; preds = %106
   %110 = trunc nuw nsw i64 %indvars.iv571 to i32
@@ -443,7 +443,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   store i32 %117, ptr %116, align 4
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next575, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge485, label %.lr.ph484, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge485, label %.lr.ph484, !llvm.loop !13
 
 ._crit_edge485:                                   ; preds = %.lr.ph484, %.preheader432
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -478,7 +478,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %128 = phi i32 [ 99, %122 ], [ %141, %140 ]
   %129 = call i32 @SDLTest_RandomIntegerInRange(i32 noundef 0, i32 noundef %123) #8
   %130 = call i32 @SDLTest_RandomIntegerInRange(i32 noundef 0, i32 noundef %123) #8
-  %131 = load i8, ptr %124, align 4, !range !15, !noundef !16
+  %131 = load i8, ptr %124, align 4, !range !14, !noundef !15
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %140
 
@@ -496,7 +496,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 140:                                              ; preds = %133, %127
   %141 = add nsw i32 %128, -1
   %.not385 = icmp eq i32 %128, 0
-  br i1 %.not385, label %.preheader431, label %127, !llvm.loop !17
+  br i1 %.not385, label %.preheader431, label %127, !llvm.loop !16
 
 142:                                              ; preds = %.lr.ph534, %326
   %indvars.iv594 = phi i64 [ 0, %.lr.ph534 ], [ %indvars.iv.next595, %326 ]
@@ -541,7 +541,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %.not389 = icmp eq ptr %159, null
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %indvars.iv.next586 = add nuw i32 %indvars.iv585, 1
-  br i1 %.not389, label %160, label %157, !llvm.loop !18
+  br i1 %.not389, label %160, label %157, !llvm.loop !17
 
 160:                                              ; preds = %157
   %161 = trunc nuw nsw i64 %indvars.iv579 to i32
@@ -576,13 +576,13 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   store i32 %168, ptr %167, align 4
   %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
   %exitcond588.not = icmp eq i64 %indvars.iv.next583, %wide.trip.count587
-  br i1 %exitcond588.not, label %.preheader, label %.lr.ph487, !llvm.loop !19
+  br i1 %exitcond588.not, label %.preheader, label %.lr.ph487, !llvm.loop !18
 
 169:                                              ; preds = %.preheader, %182
   %170 = phi i32 [ 99, %.preheader ], [ %183, %182 ]
   %171 = call i32 @SDLTest_RandomIntegerInRange(i32 noundef 0, i32 noundef %166) #8
   %172 = call i32 @SDLTest_RandomIntegerInRange(i32 noundef 0, i32 noundef %166) #8
-  %173 = load i8, ptr %124, align 4, !range !15, !noundef !16
+  %173 = load i8, ptr %124, align 4, !range !14, !noundef !15
   %174 = trunc nuw i8 %173 to i1
   br i1 %174, label %175, label %182
 
@@ -600,7 +600,7 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 182:                                              ; preds = %175, %169
   %183 = add nsw i32 %170, -1
   %.not391 = icmp eq i32 %170, 0
-  br i1 %.not391, label %184, label %169, !llvm.loop !20
+  br i1 %.not391, label %184, label %169, !llvm.loop !19
 
 184:                                              ; preds = %182
   %185 = call i64 @SDL_GetPerformanceCounter() #8
@@ -884,7 +884,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
   %.2287 = phi i32 [ %.1286493, %277 ], [ %281, %280 ], [ %.1286493, %283 ]
   %287 = load i32, ptr %5, align 8
   %288 = icmp slt i32 %226, %287
-  br i1 %288, label %225, label %._crit_edge497, !llvm.loop !21
+  br i1 %288, label %225, label %._crit_edge497, !llvm.loop !20
 
 ._crit_edge497:                                   ; preds = %286, %221
   %.3320.lcssa = phi i32 [ %.2319506, %221 ], [ %.0.i414, %286 ]
@@ -955,7 +955,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
   %.3267 = phi i32 [ %.2266514, %204 ], [ %311, %308 ], [ %.2266514, %305 ], [ %.2266514, %307 ], [ %.2266514, %306 ]
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
   %exitcond593.not = icmp eq i64 %indvars.iv.next590, %wide.trip.count592
-  br i1 %exitcond593.not, label %._crit_edge517, label %192, !llvm.loop !22
+  br i1 %exitcond593.not, label %._crit_edge517, label %192, !llvm.loop !21
 
 ._crit_edge517:                                   ; preds = %.thread419, %184
   %.2325.lcssa = phi i1 [ %.0323527, %184 ], [ %.4327, %.thread419 ]
@@ -1005,7 +1005,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
   %.4 = phi i32 [ %.0264533, %153 ], [ %.2266.lcssa, %325 ]
   %indvars.iv.next595 = add nuw nsw i64 %indvars.iv594, 1
   %exitcond598.not = icmp eq i64 %indvars.iv.next595, %wide.trip.count597
-  br i1 %exitcond598.not, label %._crit_edge535, label %142, !llvm.loop !23
+  br i1 %exitcond598.not, label %._crit_edge535, label %142, !llvm.loop !22
 
 ._crit_edge535:                                   ; preds = %326, %.preheader431
   %.0309.lcssa = phi i32 [ 0, %.preheader431 ], [ %.6315, %326 ]
@@ -1057,7 +1057,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.40, ptr noundef nonnull %.0346, ptr noundef %347) #8
   %indvars.iv.next600 = add nuw nsw i64 %indvars.iv599, 1
   %exitcond603.not = icmp eq i64 %indvars.iv.next600, %wide.trip.count602
-  br i1 %exitcond603.not, label %.loopexit, label %343, !llvm.loop !24
+  br i1 %exitcond603.not, label %.loopexit, label %343, !llvm.loop !23
 
 .loopexit:                                        ; preds = %343, %340
   call void @SDL_free(ptr noundef nonnull %43) #8
@@ -1204,7 +1204,7 @@ define dso_local noundef ptr @SDLTest_CreateTestSuiteRunner(ptr noundef readonly
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %13, !llvm.loop !25
+  br i1 %16, label %17, label %13
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 32
@@ -1388,25 +1388,23 @@ attributes #10 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

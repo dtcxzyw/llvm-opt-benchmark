@@ -243,10 +243,10 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJjjdEE7snprintE
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !33
+  %9 = load i32, ptr %8, align 4, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !33
-  %12 = load double, ptr %7, align 8, !tbaa !34
+  %11 = load i32, ptr %10, align 8, !tbaa !32
+  %12 = load double, ptr %7, align 8, !tbaa !33
   %13 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i32 noundef %9, i32 noundef %11, double noundef %12) #8
   ret i32 %13
 }
@@ -299,8 +299,7 @@ attributes #8 = { nounwind }
 !27 = !{!"_ZTSSt10_Head_baseILm1EjLb0EE", !5, i64 0}
 !28 = !{!29, !5, i64 0}
 !29 = !{!"_ZTSSt10_Head_baseILm0EjLb0EE", !5, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!5, !5, i64 0}
-!34 = !{!25, !25, i64 0}
+!32 = !{!5, !5, i64 0}
+!33 = !{!25, !25, i64 0}

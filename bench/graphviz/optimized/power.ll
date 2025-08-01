@@ -82,7 +82,7 @@ gv_calloc.exit77:                                 ; preds = %23
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = tail call double @vector_product(i32 noundef %1, ptr noundef %24, ptr noundef %24) #11
-  %33 = tail call double @sqrt(double noundef %32) #11, !tbaa !16
+  %33 = tail call double @sqrt(double noundef %32) #11, !tbaa !15
   %34 = fcmp ogt double %33, 0.000000e+00
   %35 = fdiv double 1.000000e+00, %33
   %.063 = select i1 %34, double %35, double %33
@@ -96,7 +96,7 @@ gv_calloc.exit77:                                 ; preds = %23
 
 .preheader78.split.preheader.critedge:            ; preds = %gv_calloc.exit77
   %36 = tail call double @vector_product(i32 noundef %1, ptr noundef %24, ptr noundef %24) #11
-  %37 = tail call double @sqrt(double noundef %36) #11, !tbaa !16
+  %37 = tail call double @sqrt(double noundef %36) #11, !tbaa !15
   br label %.preheader78.split
 
 .preheader78.split.us:                            ; preds = %.preheader78.split.us.preheader, %._crit_edge90.us
@@ -104,13 +104,13 @@ gv_calloc.exit77:                                 ; preds = %23
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %4) #11
   %38 = load ptr, ptr %4, align 8, !tbaa !9
   %39 = call double @vector_product(i32 noundef %1, ptr noundef %38, ptr noundef %38) #11
-  %40 = call double @sqrt(double noundef %39) #11, !tbaa !16
+  %40 = call double @sqrt(double noundef %39) #11, !tbaa !15
   %41 = fcmp ogt double %40, 0.000000e+00
   br i1 %41, label %51, label %.lr.ph84.us
 
 ._crit_edge85.us:                                 ; preds = %47
   %42 = call double @vector_product(i32 noundef %1, ptr noundef nonnull %62, ptr noundef nonnull %62) #11
-  %43 = call double @sqrt(double noundef %42) #11, !tbaa !16
+  %43 = call double @sqrt(double noundef %42) #11, !tbaa !15
   %44 = fcmp ogt double %43, 0.000000e+00
   br i1 %44, label %45, label %.lr.ph89.us
 
@@ -126,7 +126,7 @@ gv_calloc.exit77:                                 ; preds = %23
   store double %49, ptr %50, align 8, !tbaa !11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge85.us, label %47, !llvm.loop !18
+  br i1 %exitcond106.not, label %._crit_edge85.us, label %47, !llvm.loop !17
 
 51:                                               ; preds = %.preheader78.split.us
   %52 = fdiv double 1.000000e+00, %40
@@ -151,7 +151,7 @@ gv_calloc.exit77:                                 ; preds = %23
   store double %57, ptr %59, align 8, !tbaa !11
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge90.us, label %54, !llvm.loop !19
+  br i1 %exitcond112.not, label %._crit_edge90.us, label %54, !llvm.loop !18
 
 .lr.ph84.us:                                      ; preds = %.preheader78.split.us
   %62 = load ptr, ptr %4, align 8, !tbaa !9
@@ -162,7 +162,7 @@ gv_calloc.exit77:                                 ; preds = %23
   %64 = add nuw nsw i32 %.0.us, 1
   %65 = icmp samesign ult i32 %.0.us, 100
   %or.cond.us = select i1 %63, i1 %65, i1 false
-  br i1 %or.cond.us, label %.preheader78.split.us, label %.critedge, !llvm.loop !20
+  br i1 %or.cond.us, label %.preheader78.split.us, label %.critedge, !llvm.loop !19
 
 .lr.ph82:                                         ; preds = %._crit_edge, %.lr.ph82
   %indvars.iv96 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next97, %.lr.ph82 ]
@@ -174,27 +174,27 @@ gv_calloc.exit77:                                 ; preds = %23
   store double %68, ptr %69, align 8, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.preheader78.split.us.preheader, label %.lr.ph82, !llvm.loop !22
+  br i1 %exitcond100.not, label %.preheader78.split.us.preheader, label %.lr.ph82, !llvm.loop !21
 
 .preheader78.split:                               ; preds = %.preheader78.split.preheader.critedge, %76
   %.0 = phi i32 [ %77, %76 ], [ 0, %.preheader78.split.preheader.critedge ]
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %4) #11
   %70 = load ptr, ptr %4, align 8, !tbaa !9
   %71 = call double @vector_product(i32 noundef 0, ptr noundef %70, ptr noundef %70) #11
-  %72 = call double @sqrt(double noundef %71) #11, !tbaa !16
+  %72 = call double @sqrt(double noundef %71) #11, !tbaa !15
   %73 = fcmp ogt double %72, 0.000000e+00
   br i1 %73, label %76, label %._crit_edge85
 
 ._crit_edge85:                                    ; preds = %.preheader78.split
   %.pre117 = load ptr, ptr %4, align 8, !tbaa !9
   %74 = call double @vector_product(i32 noundef 0, ptr noundef %.pre117, ptr noundef %.pre117) #11
-  %75 = call double @sqrt(double noundef %74) #11, !tbaa !16
+  %75 = call double @sqrt(double noundef %74) #11, !tbaa !15
   br label %76
 
 76:                                               ; preds = %._crit_edge85, %.preheader78.split
   %77 = add nuw nsw i32 %.0, 1
   %exitcond116.not = icmp eq i32 %77, 101
-  br i1 %exitcond116.not, label %.critedge.loopexit, label %.preheader78.split, !llvm.loop !23
+  br i1 %exitcond116.not, label %.critedge.loopexit, label %.preheader78.split, !llvm.loop !22
 
 .critedge.loopexit:                               ; preds = %76
   %.pre118 = load ptr, ptr %4, align 8, !tbaa !9
@@ -279,14 +279,13 @@ attributes #15 = { cold noreturn nounwind }
 !10 = !{!"p1 double", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"double", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !7, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !14, !15}
-!23 = distinct !{!23, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}

@@ -192,7 +192,7 @@ sub_2:                                            ; preds = %sub_1
 65:                                               ; preds = %62, %54
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %65, %46
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -220,15 +220,15 @@ is_phi_group.exit.i:                              ; preds = %58
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %71 ]
   %.02129.i = phi ptr [ %80, %.lr.ph.i ], [ %16, %71 ]
-  %76 = load i8, ptr %.02129.i, align 2, !tbaa !20
+  %76 = load i8, ptr %.02129.i, align 2, !tbaa !19
   %77 = zext i8 %76 to i32
   %78 = getelementptr inbounds nuw [64 x i32], ptr %17, i64 0, i64 %indvars.iv.i
-  store i32 %77, ptr %78, align 4, !tbaa !22
+  store i32 %77, ptr %78, align 4, !tbaa !21
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %77)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %80 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 3
   %81 = icmp ult ptr %80, %74
-  br i1 %81, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !24
+  br i1 %81, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %82 = trunc nuw i64 %indvars.iv.next.i to i32
@@ -250,7 +250,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %.020.lcssa.i56 = phi i32 [ %.020.lcssa.i, %process_smbios_group.exit ], [ %.020.lcssa.i57, %.tail ]
   %86 = call ptr @readdir(ptr noundef nonnull %12) #10
   %.not32 = icmp eq ptr %86, null
-  br i1 %.not32, label %87, label %sub_0, !llvm.loop !25
+  br i1 %.not32, label %87, label %sub_0, !llvm.loop !24
 
 87:                                               ; preds = %85
   %.not33 = icmp eq i32 %.020.lcssa.i56, 0
@@ -292,7 +292,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %104 = getelementptr inbounds nuw [64 x i32], ptr %90, i64 0, i64 %indvars.iv
-  %105 = load i32, ptr %104, align 4, !tbaa !22
+  %105 = load i32, ptr %104, align 4, !tbaa !21
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 15, ptr noundef nonnull @.str.5, i32 noundef %105) #10
   %putchar = call i32 @putchar(i32 10)
   %107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %9, i32 noundef %106)
@@ -312,7 +312,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %214, label %103, !llvm.loop !26
+  br i1 %exitcond.not, label %214, label %103, !llvm.loop !25
 
 110:                                              ; preds = %.lr.ph, %205
   %111 = phi i32 [ %.lcssa88104, %.lr.ph ], [ %206, %205 ]
@@ -337,7 +337,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
 122:                                              ; preds = %118
   %123 = load ptr, ptr @stderr, align 8, !tbaa !7
   %124 = tail call ptr @__errno_location() #14
-  %125 = load i32, ptr %124, align 4, !tbaa !22
+  %125 = load i32, ptr %124, align 4, !tbaa !21
   %126 = call ptr @strerror(i32 noundef %125) #10
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.18, ptr noundef nonnull %3, ptr noundef %126) #11
   br label %.thread50
@@ -369,7 +369,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %sext = shl i64 %129, 32
   %142 = ashr exact i64 %sext, 32
   %143 = getelementptr inbounds i8, ptr %4, i64 %142
-  %144 = load i16, ptr %92, align 4, !tbaa !27
+  %144 = load i16, ptr %92, align 4, !tbaa !26
   %145 = zext i16 %144 to i32
   %146 = and i32 %145, 1
   %.not48.i = icmp eq i32 %146, 0
@@ -377,11 +377,11 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
 
 147:                                              ; preds = %139
   %puts57.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %148 = load i8, ptr %93, align 8, !tbaa !29
+  %148 = load i8, ptr %93, align 8, !tbaa !28
   %149 = zext i8 %148 to i32
-  %150 = load i8, ptr %94, align 2, !tbaa !31
+  %150 = load i8, ptr %94, align 2, !tbaa !30
   %151 = zext i8 %150 to i32
-  %152 = load i8, ptr %95, align 1, !tbaa !32
+  %152 = load i8, ptr %95, align 1, !tbaa !31
   %153 = zext i8 %152 to i32
   br label %process_knl_entry.exit.thread
 
@@ -391,7 +391,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   br i1 %.not49.i, label %199, label %156
 
 156:                                              ; preds = %154
-  %157 = load i8, ptr %96, align 1, !tbaa !33
+  %157 = load i8, ptr %96, align 1, !tbaa !32
   %.not50.i = icmp eq i8 %157, 0
   %158 = load i8, ptr %93, align 8
   %.not51.i = icmp eq i8 %158, 0
@@ -399,7 +399,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   br i1 %or.cond.i, label %198, label %159
 
 159:                                              ; preds = %156
-  %160 = load i8, ptr %98, align 2, !tbaa !35
+  %160 = load i8, ptr %98, align 2, !tbaa !34
   %161 = zext i8 %160 to i32
   %162 = icmp eq i8 %160, 0
   br i1 %162, label %163, label %164
@@ -410,14 +410,14 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
 
 164:                                              ; preds = %163, %159
   %.041.i = phi i32 [ 12, %163 ], [ %161, %159 ]
-  %165 = load i8, ptr %99, align 1, !tbaa !36
+  %165 = load i8, ptr %99, align 1, !tbaa !35
   %166 = zext i8 %165 to i32
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %166, i32 noundef %.041.i)
   %.not5659.not.i = icmp eq i8 %165, 0
   br i1 %.not5659.not.i, label %.._crit_edge.i37_crit_edge, label %.lr.ph.i36
 
 .._crit_edge.i37_crit_edge:                       ; preds = %164
-  %.pre = load i64, ptr %7, align 8, !tbaa !37
+  %.pre = load i64, ptr %7, align 8, !tbaa !36
   br label %._crit_edge.i37
 
 .lr.ph.i36:                                       ; preds = %164
@@ -434,10 +434,10 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds nuw i8, ptr %.04260.i, i64 4
-  %173 = load i8, ptr %172, align 4, !tbaa !40
+  %173 = load i8, ptr %172, align 4, !tbaa !39
   %174 = zext i8 %173 to i32
   %175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %174)
-  %176 = load i32, ptr %.04260.i, align 4, !tbaa !42
+  %176 = load i32, ptr %.04260.i, align 4, !tbaa !41
   %177 = and i32 %176, 1
   %.not54.i = icmp eq i32 %177, 0
   br i1 %.not54.i, label %179, label %178
@@ -448,7 +448,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
 
 179:                                              ; preds = %171
   %180 = getelementptr inbounds nuw i8, ptr %.04260.i, i64 6
-  %181 = load i16, ptr %180, align 2, !tbaa !43
+  %181 = load i16, ptr %180, align 2, !tbaa !42
   %182 = zext i16 %181 to i64
   %183 = add i64 %170, %182
   %184 = zext i16 %181 to i32
@@ -461,21 +461,21 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %189 = getelementptr inbounds nuw i8, ptr %.04260.i, i64 %168
   %190 = add nuw nsw i32 %.061.i, 1
   %exitcond.not.i = icmp eq i32 %190, %166
-  br i1 %exitcond.not.i, label %._crit_edge.i37, label %169, !llvm.loop !44
+  br i1 %exitcond.not.i, label %._crit_edge.i37, label %169, !llvm.loop !43
 
 ._crit_edge.i37:                                  ; preds = %187, %.._crit_edge.i37_crit_edge
   %191 = phi i64 [ %.pre, %.._crit_edge.i37_crit_edge ], [ %188, %187 ]
   %192 = shl i64 %191, 6
   %193 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %192)
   %194 = shl i64 %191, 26
-  store i64 %194, ptr %7, align 8, !tbaa !37
+  store i64 %194, ptr %7, align 8, !tbaa !36
   %.not52.i = icmp eq i64 %194, 17179869184
   br i1 %.not52.i, label %process_knl_entry.exit.thread, label %195
 
 195:                                              ; preds = %._crit_edge.i37
   %196 = load ptr, ptr @stderr, align 8, !tbaa !7
   %197 = call i64 @fwrite(ptr nonnull @.str.34, i64 61, i64 1, ptr %196) #12
-  store i64 17179869184, ptr %7, align 8, !tbaa !37
+  store i64 17179869184, ptr %7, align 8, !tbaa !36
   br label %process_knl_entry.exit.thread
 
 198:                                              ; preds = %156
@@ -501,7 +501,7 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
   %208 = phi i32 [ %204, %process_knl_entry.exit.thread ], [ %113, %110 ]
   %209 = call ptr @readdir(ptr noundef nonnull %12) #10
   %.not34 = icmp eq ptr %209, null
-  br i1 %.not34, label %.thread, label %110, !llvm.loop !45
+  br i1 %.not34, label %.thread, label %110, !llvm.loop !44
 
 210:                                              ; preds = %169
   %211 = load ptr, ptr @stderr, align 8, !tbaa !7
@@ -543,7 +543,7 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
   ]
 
 223:                                              ; preds = %222
-  %224 = load i64, ptr %7, align 8, !tbaa !37
+  %224 = load i64, ptr %7, align 8, !tbaa !36
   br label %.sink.split
 
 225:                                              ; preds = %222
@@ -554,17 +554,17 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
   ]
 
 226:                                              ; preds = %225
-  %227 = load i64, ptr %7, align 8, !tbaa !37
+  %227 = load i64, ptr %7, align 8, !tbaa !36
   %228 = lshr i64 %227, 2
   br label %237
 
 229:                                              ; preds = %225
-  %230 = load i64, ptr %7, align 8, !tbaa !37
+  %230 = load i64, ptr %7, align 8, !tbaa !36
   %231 = lshr i64 %230, 1
   br label %237
 
 232:                                              ; preds = %225
-  %233 = load i64, ptr %7, align 8, !tbaa !37
+  %233 = load i64, ptr %7, align 8, !tbaa !36
   br label %237
 
 234:                                              ; preds = %225
@@ -586,7 +586,7 @@ process_knl_entry.exit.thread:                    ; preds = %199, %147, %198, %.
 .sink.split:                                      ; preds = %223, %237
   %.sink = phi i64 [ %239, %237 ], [ 0, %223 ]
   %.ph = phi i64 [ %.sink.i, %237 ], [ %224, %223 ]
-  store i64 %.sink, ptr %7, align 8, !tbaa !37
+  store i64 %.sink, ptr %7, align 8, !tbaa !36
   br label %243
 
 243:                                              ; preds = %.sink.split, %222
@@ -638,7 +638,7 @@ get_cluster_mode_str.exit.i:                      ; preds = %249, %248, %247, %2
 get_memory_mode_str.exit.i:                       ; preds = %252, %251, %250, %get_cluster_mode_str.exit.i
   %.0.i56.i = phi ptr [ @.str.57, %252 ], [ @.str.59, %250 ], [ @.str.58, %get_cluster_mode_str.exit.i ], [ %switch.select5.i.i, %251 ]
   %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %.0.i.i, ptr noundef %.0.i56.i)
-  %254 = load i64, ptr %7, align 8, !tbaa !37
+  %254 = load i64, ptr %7, align 8, !tbaa !36
   %255 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %254, i64 noundef %244)
   %256 = lshr i64 %254, %.052.i
   %257 = lshr i64 %244, %.052.i
@@ -650,7 +650,7 @@ get_memory_mode_str.exit.i:                       ; preds = %252, %251, %250, %g
 261:                                              ; preds = %get_memory_mode_str.exit.i
   %262 = load ptr, ptr @stderr, align 8, !tbaa !7
   %263 = tail call ptr @__errno_location() #14
-  %264 = load i32, ptr %263, align 4, !tbaa !22
+  %264 = load i32, ptr %263, align 4, !tbaa !21
   %265 = call ptr @strerror(i32 noundef %264) #10
   %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %262, ptr noundef nonnull @.str.42, ptr noundef %1, ptr noundef %265) #11
   br label %print_result.exit
@@ -663,7 +663,7 @@ get_memory_mode_str.exit.i:                       ; preds = %252, %251, %250, %g
 269:                                              ; preds = %267
   %270 = load ptr, ptr @stderr, align 8, !tbaa !7
   %271 = tail call ptr @__errno_location() #14
-  %272 = load i32, ptr %271, align 4, !tbaa !22
+  %272 = load i32, ptr %271, align 4, !tbaa !21
   %273 = call ptr @strerror(i32 noundef %272) #10
   %274 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %273) #11
   %275 = call i32 @close(i32 noundef %259) #10
@@ -777,7 +777,7 @@ define internal fastcc noundef i32 @get_file_buffer(ptr noundef nonnull %0, ptr 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8, !tbaa !7
   %7 = tail call ptr @__errno_location() #14
-  %8 = load i32, ptr %7, align 4, !tbaa !22
+  %8 = load i32, ptr %7, align 4, !tbaa !21
   %9 = tail call ptr @strerror(i32 noundef %8) #10
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %0, ptr noundef %9) #11
   br label %22
@@ -876,33 +876,32 @@ attributes #14 = { nounwind willreturn memory(none) }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 omnipotent char", !9, i64 0}
 !15 = !{!11, !5, i64 1}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"smbios_group_entry", !5, i64 0, !12, i64 2}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"int", !5, i64 0}
-!24 = distinct !{!24, !17, !18}
-!25 = distinct !{!25, !17, !18}
-!26 = distinct !{!26, !17, !18}
-!27 = !{!28, !12, i64 4}
-!28 = !{!"knl_smbios_header", !5, i64 0, !5, i64 1, !12, i64 2, !12, i64 4, !5, i64 6}
-!29 = !{!30, !5, i64 1}
-!30 = !{!"knl_general_info", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
-!31 = !{!30, !5, i64 3}
-!32 = !{!30, !5, i64 4}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"knl_edc_info", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 7, !5, i64 8}
-!35 = !{!34, !5, i64 7}
-!36 = !{!34, !5, i64 8}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"parser_data", !39, i64 0, !39, i64 8, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28, !5, i64 32}
-!39 = !{!"long", !5, i64 0}
-!40 = !{!41, !5, i64 4}
-!41 = !{!"knl_mcdram_info", !23, i64 0, !5, i64 4, !5, i64 5, !12, i64 6, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11}
-!42 = !{!41, !23, i64 0}
-!43 = !{!41, !12, i64 6}
-!44 = distinct !{!44, !17, !18}
-!45 = distinct !{!45, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !5, i64 0}
+!20 = !{!"smbios_group_entry", !5, i64 0, !12, i64 2}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !5, i64 0}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = !{!27, !12, i64 4}
+!27 = !{!"knl_smbios_header", !5, i64 0, !5, i64 1, !12, i64 2, !12, i64 4, !5, i64 6}
+!28 = !{!29, !5, i64 1}
+!29 = !{!"knl_general_info", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4}
+!30 = !{!29, !5, i64 3}
+!31 = !{!29, !5, i64 4}
+!32 = !{!33, !5, i64 0}
+!33 = !{!"knl_edc_info", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 7, !5, i64 8}
+!34 = !{!33, !5, i64 7}
+!35 = !{!33, !5, i64 8}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"parser_data", !38, i64 0, !38, i64 8, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28, !5, i64 32}
+!38 = !{!"long", !5, i64 0}
+!39 = !{!40, !5, i64 4}
+!40 = !{!"knl_mcdram_info", !22, i64 0, !5, i64 4, !5, i64 5, !12, i64 6, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11}
+!41 = !{!40, !22, i64 0}
+!42 = !{!40, !12, i64 6}
+!43 = distinct !{!43, !17}
+!44 = distinct !{!44, !17}

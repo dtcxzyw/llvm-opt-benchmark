@@ -118,7 +118,7 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
   %69 = load i32, ptr %23, align 4, !tbaa !17
   %70 = zext i32 %69 to i64
   %71 = icmp samesign ult i64 %68, %70
-  br i1 %71, label %63, label %.loopexit, !llvm.loop !25
+  br i1 %71, label %63, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %63, %.preheader, %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #3
@@ -263,7 +263,6 @@ attributes #3 = { nounwind }
 !19 = !{!5, !6, i64 8}
 !20 = !{!5, !6, i64 16}
 !21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
+!24 = distinct !{!24, !23}

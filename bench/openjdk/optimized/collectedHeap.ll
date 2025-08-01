@@ -942,7 +942,7 @@ define hidden void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 captures(
   store i8 0, ptr %80, align 1
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 1056
   %82 = icmp eq ptr %81, %76
-  br i1 %82, label %_ZN9GCHeapLogC2Ev.exit, label %77, !llvm.loop !12
+  br i1 %82, label %_ZN9GCHeapLogC2Ev.exit, label %77
 
 _ZN9GCHeapLogC2Ev.exit:                           ; preds = %77, %59
   %83 = getelementptr inbounds nuw i8, ptr %60, i64 152
@@ -1182,7 +1182,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %63 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   %64 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %2, i32 noundef %3) #18
   %.not = icmp eq ptr %64, null
-  br i1 %.not, label %11, label %.loopexit, !llvm.loop !14
+  br i1 %.not, label %11, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %62, %16, %4, %59, %25
   %.1 = phi ptr [ %61, %59 ], [ null, %25 ], [ %7, %4 ], [ %64, %62 ], [ %18, %16 ]
@@ -1462,7 +1462,7 @@ _ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit: ; preds = %20, %34,
   %42 = getelementptr inbounds ptr, ptr %.020, i64 %23
   %43 = sub i64 %.01719, %23
   %44 = icmp ugt i64 %43, %13
-  br i1 %44, label %20, label %._crit_edge, !llvm.loop !16
+  br i1 %44, label %20, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit, %3
   %.017.lcssa = phi i64 [ %1, %3 ], [ %43, %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit ]
@@ -1544,7 +1544,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.us: ; preds = %_ZN28JavaThreadIter
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %.not.i.us = icmp ult i32 %31, %34
-  br i1 %.not.i.us, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.us, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
+  br i1 %.not.i.us, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.us, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !15
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph, %52
   %35 = phi ptr [ %54, %52 ], [ %10, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph ]
@@ -1585,7 +1585,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %.not.i = icmp ult i32 %53, %56
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !19
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
 }
 
 declare void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
@@ -1645,7 +1645,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %.not.i = icmp ult i32 %26, %29
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !20
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !18
 
 30:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %1
   ret void
@@ -2568,7 +2568,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %31 = load i32, ptr %6, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next82, %32
-  br i1 %33, label %.lr.ph59.split.us, label %.loopexit.loopexit64, !llvm.loop !21
+  br i1 %33, label %.lr.ph59.split.us, label %.loopexit.loopexit64, !llvm.loop !19
 
 .lr.ph59.split:                                   ; preds = %.lr.ph59.split.preheader, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %indvars.iv86 = phi i64 [ 0, %.lr.ph59.split.preheader ], [ %indvars.iv.next87, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit ]
@@ -2604,7 +2604,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %49 = load i32, ptr %6, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next87, %50
-  br i1 %51, label %.lr.ph59.split, label %.loopexit.loopexit, !llvm.loop !22
+  br i1 %51, label %.lr.ph59.split, label %.loopexit.loopexit, !llvm.loop !20
 
 52:                                               ; preds = %10
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -2650,7 +2650,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %74 = load i32, ptr %11, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split.us, label %._crit_edgethread-pre-split, !llvm.loop !23
+  br i1 %76, label %.lr.ph.split.us, label %._crit_edgethread-pre-split, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ %58, %.lr.ph ]
@@ -2688,7 +2688,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %94 = load i32, ptr %11, align 8
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next73, %95
-  br i1 %96, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !24
+  br i1 %96, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !22
 
 ._crit_edgethread-pre-split:                      ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us, %.lr.ph.split, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41
   %.2.lcssa.ph = phi i32 [ %93, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ %2, %.lr.ph.split ], [ %73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ]
@@ -2738,7 +2738,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %116 = load i32, ptr %53, align 4
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next76, %117
-  br i1 %118, label %.lr.ph52.split.us, label %.loopexit, !llvm.loop !25
+  br i1 %118, label %.lr.ph52.split.us, label %.loopexit, !llvm.loop !23
 
 .lr.ph52.split:                                   ; preds = %.lr.ph52, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ 0, %.lr.ph52 ]
@@ -2776,7 +2776,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %136 = load i32, ptr %53, align 4
   %137 = sext i32 %136 to i64
   %138 = icmp slt i64 %indvars.iv.next79, %137
-  br i1 %138, label %.lr.ph52.split, label %.loopexit, !llvm.loop !26
+  br i1 %138, label %.lr.ph52.split, label %.loopexit, !llvm.loop !24
 
 .loopexit.loopexit64:                             ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit.us
   %indvars84 = trunc nsw i64 %indvars.iv.next82 to i32
@@ -2942,17 +2942,15 @@ attributes #20 = { noreturn nounwind }
 !10 = distinct !{!10, !11, !"_ZN13CollectedHeap24create_metaspace_summaryEv: argument 0"}
 !11 = distinct !{!11, !"_ZN13CollectedHeap24create_metaspace_summaryEv"}
 !12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !15, !13}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15, !13}
-!17 = distinct !{!17, !15, !13, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !15, !13}
-!20 = distinct !{!20, !15, !13}
-!21 = distinct !{!21, !15, !13, !18}
-!22 = distinct !{!22, !15, !13}
-!23 = distinct !{!23, !15, !13, !18}
-!24 = distinct !{!24, !15, !13}
-!25 = distinct !{!25, !15, !13, !18}
-!26 = distinct !{!26, !15, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13, !16}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13, !16}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13, !16}
+!24 = distinct !{!24, !13}

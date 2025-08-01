@@ -45,41 +45,41 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define hidden i32 @luaS_hash(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = trunc i64 %1 to i32
   %5 = xor i32 %2, %4
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.012 = phi i32 [ %12, %.lr.ph ], [ %5, %3 ]
-  %.0911 = phi i64 [ %13, %.lr.ph ], [ %1, %3 ]
+  %.012 = phi i32 [ %14, %.lr.ph ], [ %5, %3 ]
+  %.0911 = phi i64 [ %15, %.lr.ph ], [ %1, %3 ]
   %6 = shl i32 %.012, 5
   %7 = lshr i32 %.012, 2
   %8 = add i32 %6, %7
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0911
-  %9 = load i8, ptr %gep, align 1, !tbaa !4
-  %10 = zext i8 %9 to i32
-  %11 = add i32 %8, %10
-  %12 = xor i32 %11, %.012
-  %13 = add i64 %.0911, -1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  %9 = getelementptr i8, ptr %0, i64 %.0911
+  %10 = getelementptr i8, ptr %9, i64 -1
+  %11 = load i8, ptr %10, align 1, !tbaa !4
+  %12 = zext i8 %11 to i32
+  %13 = add i32 %8, %12
+  %14 = xor i32 %13, %.012
+  %15 = add i64 %.0911, -1
+  %.not = icmp eq i64 %15, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi i32 [ %5, %3 ], [ %12, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %5, %3 ], [ %14, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i32 @luaS_hashlongstr(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %3 = load i8, ptr %2, align 2, !tbaa !15
+  %3 = load i8, ptr %2, align 2, !tbaa !13
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !16
-  br label %22
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !14
+  br label %24
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -87,48 +87,48 @@ define hidden i32 @luaS_hashlongstr(ptr noundef captures(none) %0) local_unnamed
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !16
+  %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = trunc i64 %7 to i32
   %13 = xor i32 %11, %12
-  %invariant.gep.i = getelementptr i8, ptr %9, i64 -1
   %.not10.i = icmp eq i64 %7, 0
   br i1 %.not10.i, label %luaS_hash.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
-  %.012.i = phi i32 [ %20, %.lr.ph.i ], [ %13, %5 ]
-  %.0911.i = phi i64 [ %21, %.lr.ph.i ], [ %7, %5 ]
+  %.012.i = phi i32 [ %22, %.lr.ph.i ], [ %13, %5 ]
+  %.0911.i = phi i64 [ %23, %.lr.ph.i ], [ %7, %5 ]
   %14 = shl i32 %.012.i, 5
   %15 = lshr i32 %.012.i, 2
   %16 = add i32 %14, %15
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.0911.i
-  %17 = load i8, ptr %gep.i, align 1, !tbaa !4
-  %18 = zext i8 %17 to i32
-  %19 = add i32 %16, %18
-  %20 = xor i32 %19, %.012.i
-  %21 = add i64 %.0911.i, -1
-  %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %luaS_hash.exit, label %.lr.ph.i, !llvm.loop !13
+  %17 = getelementptr i8, ptr %9, i64 %.0911.i
+  %18 = getelementptr i8, ptr %17, i64 -1
+  %19 = load i8, ptr %18, align 1, !tbaa !4
+  %20 = zext i8 %19 to i32
+  %21 = add i32 %16, %20
+  %22 = xor i32 %21, %.012.i
+  %23 = add i64 %.0911.i, -1
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %luaS_hash.exit, label %.lr.ph.i
 
 luaS_hash.exit:                                   ; preds = %.lr.ph.i, %5
-  %.0.lcssa.i = phi i32 [ %13, %5 ], [ %20, %.lr.ph.i ]
-  store i32 %.0.lcssa.i, ptr %10, align 4, !tbaa !16
-  store i8 1, ptr %2, align 2, !tbaa !15
-  br label %22
+  %.0.lcssa.i = phi i32 [ %13, %5 ], [ %22, %.lr.ph.i ]
+  store i32 %.0.lcssa.i, ptr %10, align 4, !tbaa !14
+  store i8 1, ptr %2, align 2, !tbaa !13
+  br label %24
 
-22:                                               ; preds = %._crit_edge, %luaS_hash.exit
-  %23 = phi i32 [ %.pre, %._crit_edge ], [ %.0.lcssa.i, %luaS_hash.exit ]
-  ret i32 %23
+24:                                               ; preds = %._crit_edge, %luaS_hash.exit
+  %25 = phi i32 [ %.pre, %._crit_edge ], [ %.0.lcssa.i, %luaS_hash.exit ]
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaS_resize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %7 = load i32, ptr %6, align 4, !tbaa !28
+  %7 = load i32, ptr %6, align 4, !tbaa !26
   %8 = icmp slt i32 %1, %7
-  %.pre43 = load ptr, ptr %5, align 8, !tbaa !31
+  %.pre43 = load ptr, ptr %5, align 8, !tbaa !29
   %9 = icmp sgt i32 %7, 0
   %or.cond = and i1 %8, %9
   br i1 %or.cond, label %.lr.ph30.i, label %tablerehash.exit
@@ -141,8 +141,8 @@ define hidden void @luaS_resize(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 11:                                               ; preds = %._crit_edge.i, %.lr.ph30.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %12 = getelementptr inbounds nuw ptr, ptr %.pre43, i64 %indvars.iv.i
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
-  store ptr null, ptr %12, align 8, !tbaa !32
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  store ptr null, ptr %12, align 8, !tbaa !30
   %.not26.i = icmp eq ptr %13, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph28.i
 
@@ -151,23 +151,23 @@ define hidden void @luaS_resize(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %14 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !16
+  %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = and i32 %17, %10
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %.pre43, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   store ptr %21, ptr %14, align 8, !tbaa !4
-  store ptr %.02327.i, ptr %20, align 8, !tbaa !32
+  store ptr %.02327.i, ptr %20, align 8, !tbaa !30
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph28.i, !llvm.loop !34
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph28.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph28.i, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %tablerehash.exit.loopexit, label %11, !llvm.loop !35
+  br i1 %exitcond.not.i, label %tablerehash.exit.loopexit, label %11
 
 tablerehash.exit.loopexit:                        ; preds = %._crit_edge.i
-  %.pre = load ptr, ptr %5, align 8, !tbaa !31
+  %.pre = load ptr, ptr %5, align 8, !tbaa !29
   br label %tablerehash.exit
 
 tablerehash.exit:                                 ; preds = %tablerehash.exit.loopexit, %2
@@ -178,19 +178,19 @@ tablerehash.exit:                                 ; preds = %tablerehash.exit.lo
   %26 = shl nsw i64 %25, 3
   %27 = tail call ptr @luaM_realloc_(ptr noundef %0, ptr noundef %22, i64 noundef %24, i64 noundef %26) #13
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %32, !prof !36
+  br i1 %28, label %29, label %32, !prof !32
 
 29:                                               ; preds = %tablerehash.exit
   br i1 %8, label %30, label %tablerehash.exit42
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr %5, align 8, !tbaa !31
+  %31 = load ptr, ptr %5, align 8, !tbaa !29
   tail call fastcc void @tablerehash(ptr noundef %31, i32 noundef %1, i32 noundef %7)
   br label %tablerehash.exit42
 
 32:                                               ; preds = %tablerehash.exit
-  store ptr %27, ptr %5, align 8, !tbaa !31
-  store i32 %1, ptr %6, align 4, !tbaa !28
+  store ptr %27, ptr %5, align 8, !tbaa !29
+  store i32 %1, ptr %6, align 4, !tbaa !26
   %33 = icmp sgt i32 %1, %7
   br i1 %33, label %.preheader.i29, label %tablerehash.exit42
 
@@ -201,7 +201,7 @@ tablerehash.exit:                                 ; preds = %tablerehash.exit.lo
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 3
   %38 = add nuw nsw i64 %37, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i41, i8 0, i64 %38, i1 false), !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i41, i8 0, i64 %38, i1 false), !tbaa !30
   %39 = icmp sgt i32 %7, 0
   br i1 %39, label %.lr.ph30.i30, label %tablerehash.exit42
 
@@ -213,8 +213,8 @@ tablerehash.exit:                                 ; preds = %tablerehash.exit.lo
 41:                                               ; preds = %._crit_edge.i37, %.lr.ph30.i30
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph30.i30 ], [ %indvars.iv.next.i38, %._crit_edge.i37 ]
   %42 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i32
-  %43 = load ptr, ptr %42, align 8, !tbaa !32
-  store ptr null, ptr %42, align 8, !tbaa !32
+  %43 = load ptr, ptr %42, align 8, !tbaa !30
+  store ptr null, ptr %42, align 8, !tbaa !30
   %.not26.i33 = icmp eq ptr %43, null
   br i1 %.not26.i33, label %._crit_edge.i37, label %.lr.ph28.i34
 
@@ -223,20 +223,20 @@ tablerehash.exit:                                 ; preds = %tablerehash.exit.lo
   %44 = getelementptr inbounds nuw i8, ptr %.02327.i35, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %.02327.i35, i64 12
-  %47 = load i32, ptr %46, align 4, !tbaa !16
+  %47 = load i32, ptr %46, align 4, !tbaa !14
   %48 = and i32 %47, %40
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %27, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !32
+  %51 = load ptr, ptr %50, align 8, !tbaa !30
   store ptr %51, ptr %44, align 8, !tbaa !4
-  store ptr %.02327.i35, ptr %50, align 8, !tbaa !32
+  store ptr %.02327.i35, ptr %50, align 8, !tbaa !30
   %.not.i36 = icmp eq ptr %45, null
-  br i1 %.not.i36, label %._crit_edge.i37, label %.lr.ph28.i34, !llvm.loop !34
+  br i1 %.not.i36, label %._crit_edge.i37, label %.lr.ph28.i34
 
 ._crit_edge.i37:                                  ; preds = %.lr.ph28.i34, %41
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i31
-  br i1 %exitcond.not.i39, label %tablerehash.exit42, label %41, !llvm.loop !35
+  br i1 %exitcond.not.i39, label %tablerehash.exit42, label %41
 
 tablerehash.exit42:                               ; preds = %._crit_edge.i37, %.preheader.i29, %32, %29, %30
   ret void
@@ -256,7 +256,7 @@ define internal fastcc void @tablerehash(ptr noundef captures(none) %0, i32 noun
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 3
   %11 = add nuw nsw i64 %10, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %11, i1 false), !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %11, i1 false), !tbaa !30
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph.preheader, %3
@@ -271,8 +271,8 @@ define internal fastcc void @tablerehash(ptr noundef captures(none) %0, i32 noun
 14:                                               ; preds = %.lr.ph30, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %._crit_edge ]
   %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
-  store ptr null, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
+  store ptr null, ptr %15, align 8, !tbaa !30
   %.not26 = icmp eq ptr %16, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph28
 
@@ -281,20 +281,20 @@ define internal fastcc void @tablerehash(ptr noundef captures(none) %0, i32 noun
   %17 = getelementptr inbounds nuw i8, ptr %.02327, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %.02327, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !16
+  %20 = load i32, ptr %19, align 4, !tbaa !14
   %21 = and i32 %20, %13
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !30
   store ptr %24, ptr %17, align 8, !tbaa !4
-  store ptr %.02327, ptr %23, align 8, !tbaa !32
+  store ptr %.02327, ptr %23, align 8, !tbaa !30
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph28, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph28
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge31, label %14, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge31, label %14
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -317,25 +317,25 @@ define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed
   %6 = phi i1 [ true, %.preheader ], [ false, %14 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %14 ]
   %7 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %10 = load i8, ptr %9, align 1, !tbaa !37
+  %10 = load i8, ptr %9, align 1, !tbaa !33
   %11 = and i8 %10, 24
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr %3, align 8, !tbaa !38
-  store ptr %13, ptr %7, align 8, !tbaa !32
+  %13 = load ptr, ptr %3, align 8, !tbaa !34
+  store ptr %13, ptr %7, align 8, !tbaa !30
   br label %14
 
 14:                                               ; preds = %5, %12
-  br i1 %6, label %5, label %15, !llvm.loop !42
+  br i1 %6, label %5, label %15
 
 15:                                               ; preds = %14
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, 53
-  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !43
+  br i1 %exitcond.not, label %16, label %.preheader
 
 16:                                               ; preds = %15
   ret void
@@ -344,30 +344,30 @@ define hidden void @luaS_clearcache(ptr noundef captures(none) %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define hidden void @luaS_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = tail call ptr @luaM_malloc_(ptr noundef %0, i64 noundef 1024, i32 noundef 0) #13
-  store ptr %5, ptr %4, align 8, !tbaa !31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false), !tbaa !32
+  store ptr %5, ptr %4, align 8, !tbaa !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false), !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i32 128, ptr %6, align 4, !tbaa !28
+  store i32 128, ptr %6, align 4, !tbaa !26
   %7 = tail call fastcc ptr @internshrstr(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 17)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  store ptr %7, ptr %8, align 8, !tbaa !38
+  store ptr %7, ptr %8, align 8, !tbaa !34
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %7) #13
-  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 552
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv21 = phi i64 [ 0, %1 ], [ %indvars.iv.next22, %.preheader ]
   %11 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %10, i64 0, i64 %indvars.iv21
-  store ptr %9, ptr %11, align 8, !tbaa !32
+  store ptr %9, ptr %11, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %9, ptr %12, align 8, !tbaa !32
+  store ptr %9, ptr %12, align 8, !tbaa !30
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next22, 53
-  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !44
+  br i1 %exitcond.not, label %13, label %.preheader
 
 13:                                               ; preds = %.preheader
   ret void
@@ -386,7 +386,7 @@ define hidden ptr @luaS_newlstr(ptr noundef %0, ptr noundef readonly captures(no
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %2, 9223372036854775758
-  br i1 %8, label %9, label %10, !prof !36
+  br i1 %8, label %9, label %10, !prof !32
 
 9:                                                ; preds = %7
   tail call void @luaM_toobig(ptr noundef %0) #14
@@ -395,18 +395,18 @@ define hidden ptr @luaS_newlstr(ptr noundef %0, ptr noundef readonly captures(no
 10:                                               ; preds = %7
   %11 = add nuw nsw i64 %2, 33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %15 = load i32, ptr %14, align 8, !tbaa !45
+  %15 = load i32, ptr %14, align 8, !tbaa !38
   %16 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 20, i64 noundef %11) #13
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %15, ptr %17, align 4, !tbaa !16
+  store i32 %15, ptr %17, align 4, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  store i8 0, ptr %18, align 2, !tbaa !15
+  store i8 0, ptr %18, align 2, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %2, ptr %19, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 11
-  store i8 -1, ptr %20, align 1, !tbaa !46
+  store i8 -1, ptr %20, align 1, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %21, ptr %22, align 8, !tbaa !7
@@ -445,18 +445,18 @@ define hidden noundef i64 @luaS_sizelngstr(i64 noundef %0, i32 noundef %1) local
 define hidden ptr @luaS_createlngstrobj(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = add i64 %1, 33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = load i32, ptr %6, align 8, !tbaa !45
+  %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 20, i64 noundef %3) #13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %7, ptr %9, align 4, !tbaa !16
+  store i32 %7, ptr %9, align 4, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store i8 0, ptr %10, align 2, !tbaa !15
+  store i8 0, ptr %10, align 2, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %1, ptr %11, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 11
-  store i8 -1, ptr %12, align 1, !tbaa !46
+  store i8 -1, ptr %12, align 1, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %13, ptr %14, align 8, !tbaa !7
@@ -468,13 +468,13 @@ define hidden ptr @luaS_createlngstrobj(ptr noundef %0, i64 noundef %1) local_un
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @luaS_remove(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !16
+  %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %10 = load i32, ptr %9, align 4, !tbaa !28
+  %10 = load i32, ptr %9, align 4, !tbaa !26
   %11 = add nsw i32 %10, -1
   %12 = and i32 %11, %8
   %13 = zext i32 %12 to i64
@@ -483,168 +483,168 @@ define hidden void @luaS_remove(ptr noundef readonly captures(none) %0, ptr noun
 
 15:                                               ; preds = %15, %2
   %.0 = phi ptr [ %14, %2 ], [ %17, %15 ]
-  %16 = load ptr, ptr %.0, align 8, !tbaa !32
+  %16 = load ptr, ptr %.0, align 8, !tbaa !30
   %.not = icmp eq ptr %16, %1
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  br i1 %.not, label %18, label %15, !llvm.loop !47
+  br i1 %.not, label %18, label %15
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %17, align 8, !tbaa !4
-  store ptr %19, ptr %.0, align 8, !tbaa !32
+  store ptr %19, ptr %.0, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %21 = load i32, ptr %20, align 8, !tbaa !48
+  %21 = load i32, ptr %20, align 8, !tbaa !40
   %22 = add nsw i32 %21, -1
-  store i32 %22, ptr %20, align 8, !tbaa !48
+  store i32 %22, ptr %20, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @internshrstr(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %8 = load i32, ptr %7, align 8, !tbaa !45
+  %8 = load i32, ptr %7, align 8, !tbaa !38
   %9 = trunc i64 %2 to i32
   %10 = xor i32 %8, %9
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %.not10.i = icmp eq i64 %2, 0
   br i1 %.not10.i, label %luaS_hash.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.012.i = phi i32 [ %17, %.lr.ph.i ], [ %10, %3 ]
-  %.0911.i = phi i64 [ %18, %.lr.ph.i ], [ %2, %3 ]
+  %.012.i = phi i32 [ %19, %.lr.ph.i ], [ %10, %3 ]
+  %.0911.i = phi i64 [ %20, %.lr.ph.i ], [ %2, %3 ]
   %11 = shl i32 %.012.i, 5
   %12 = lshr i32 %.012.i, 2
   %13 = add i32 %11, %12
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.0911.i
-  %14 = load i8, ptr %gep.i, align 1, !tbaa !4
-  %15 = zext i8 %14 to i32
-  %16 = add i32 %13, %15
-  %17 = xor i32 %16, %.012.i
-  %18 = add i64 %.0911.i, -1
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %luaS_hash.exit, label %.lr.ph.i, !llvm.loop !13
+  %14 = getelementptr i8, ptr %1, i64 %.0911.i
+  %15 = getelementptr i8, ptr %14, i64 -1
+  %16 = load i8, ptr %15, align 1, !tbaa !4
+  %17 = zext i8 %16 to i32
+  %18 = add i32 %13, %17
+  %19 = xor i32 %18, %.012.i
+  %20 = add i64 %.0911.i, -1
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %luaS_hash.exit, label %.lr.ph.i
 
 luaS_hash.exit:                                   ; preds = %.lr.ph.i, %3
-  %.0.lcssa.i = phi i32 [ %10, %3 ], [ %17, %.lr.ph.i ]
-  %19 = load ptr, ptr %6, align 8, !tbaa !31
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %21 = load i32, ptr %20, align 4, !tbaa !28
-  %22 = add nsw i32 %21, -1
-  %23 = and i32 %22, %.0.lcssa.i
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %24
-  %.04449 = load ptr, ptr %25, align 8, !tbaa !4
+  %.0.lcssa.i = phi i32 [ %10, %3 ], [ %19, %.lr.ph.i ]
+  %21 = load ptr, ptr %6, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  %23 = load i32, ptr %22, align 4, !tbaa !26
+  %24 = add nsw i32 %23, -1
+  %25 = and i32 %24, %.0.lcssa.i
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
+  %.04449 = load ptr, ptr %27, align 8, !tbaa !4
   %.not50 = icmp eq ptr %.04449, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %luaS_hash.exit, %43
-  %.04451 = phi ptr [ %.044, %43 ], [ %.04449, %luaS_hash.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %.04451, i64 11
-  %27 = load i8, ptr %26, align 1, !tbaa !46
-  %28 = sext i8 %27 to i64
-  %29 = and i64 %28, 4294967295
-  %30 = icmp eq i64 %2, %29
-  br i1 %30, label %31, label %43
+.lr.ph:                                           ; preds = %luaS_hash.exit, %45
+  %.04451 = phi ptr [ %.044, %45 ], [ %.04449, %luaS_hash.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04451, i64 11
+  %29 = load i8, ptr %28, align 1, !tbaa !39
+  %30 = sext i8 %29 to i64
+  %31 = and i64 %30, 4294967295
+  %32 = icmp eq i64 %2, %31
+  br i1 %32, label %33, label %45
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.04451, i64 24
-  %bcmp = tail call i32 @bcmp(ptr %1, ptr nonnull %32, i64 %2)
-  %33 = icmp eq i32 %bcmp, 0
-  br i1 %33, label %34, label %43
+33:                                               ; preds = %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %.04451, i64 24
+  %bcmp = tail call i32 @bcmp(ptr %1, ptr nonnull %34, i64 %2)
+  %35 = icmp eq i32 %bcmp, 0
+  br i1 %35, label %36, label %45
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %.04451, i64 9
-  %36 = load i8, ptr %35, align 1, !tbaa !37
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 106
-  %38 = load i8, ptr %37, align 2, !tbaa !49
-  %39 = xor i8 %38, 24
-  %40 = and i8 %39, %36
-  %.not47 = icmp eq i8 %40, 0
-  br i1 %.not47, label %77, label %41
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %.04451, i64 9
+  %38 = load i8, ptr %37, align 1, !tbaa !33
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 106
+  %40 = load i8, ptr %39, align 2, !tbaa !41
+  %41 = xor i8 %40, 24
+  %42 = and i8 %41, %38
+  %.not47 = icmp eq i8 %42, 0
+  br i1 %.not47, label %79, label %43
 
-41:                                               ; preds = %34
-  %42 = xor i8 %36, 24
-  store i8 %42, ptr %35, align 1, !tbaa !37
-  br label %77
+43:                                               ; preds = %36
+  %44 = xor i8 %38, 24
+  store i8 %44, ptr %37, align 1, !tbaa !33
+  br label %79
 
-43:                                               ; preds = %.lr.ph, %31
-  %44 = getelementptr inbounds nuw i8, ptr %.04451, i64 16
-  %.044 = load ptr, ptr %44, align 8, !tbaa !4
+45:                                               ; preds = %.lr.ph, %33
+  %46 = getelementptr inbounds nuw i8, ptr %.04451, i64 16
+  %.044 = load ptr, ptr %46, align 8, !tbaa !4
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %43, %luaS_hash.exit
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %46 = load i32, ptr %45, align 8, !tbaa !48
-  %.not46 = icmp slt i32 %46, %21
-  br i1 %.not46, label %64, label %47
+._crit_edge:                                      ; preds = %45, %luaS_hash.exit
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %48 = load i32, ptr %47, align 8, !tbaa !40
+  %.not46 = icmp slt i32 %48, %23
+  br i1 %.not46, label %66, label %49
 
-47:                                               ; preds = %._crit_edge
-  %48 = icmp eq i32 %46, 2147483647
-  br i1 %48, label %49, label %53, !prof !36
+49:                                               ; preds = %._crit_edge
+  %50 = icmp eq i32 %48, 2147483647
+  br i1 %50, label %51, label %55, !prof !32
 
-49:                                               ; preds = %47
+51:                                               ; preds = %49
   tail call void @luaC_fullgc(ptr noundef %0, i32 noundef 1) #13
-  %50 = load i32, ptr %45, align 8, !tbaa !48
-  %51 = icmp eq i32 %50, 2147483647
-  br i1 %51, label %52, label %._crit_edge53
+  %52 = load i32, ptr %47, align 8, !tbaa !40
+  %53 = icmp eq i32 %52, 2147483647
+  br i1 %53, label %54, label %._crit_edge53
 
-._crit_edge53:                                    ; preds = %49
-  %.pre = load i32, ptr %20, align 4, !tbaa !28
-  br label %53
+._crit_edge53:                                    ; preds = %51
+  %.pre = load i32, ptr %22, align 4, !tbaa !26
+  br label %55
 
-52:                                               ; preds = %49
+54:                                               ; preds = %51
   tail call void @luaD_throw(ptr noundef %0, i32 noundef 4) #14
   unreachable
 
-53:                                               ; preds = %._crit_edge53, %47
-  %54 = phi i32 [ %.pre, %._crit_edge53 ], [ %21, %47 ]
-  %55 = icmp slt i32 %54, 1073741824
-  br i1 %55, label %56, label %growstrtab.exit
+55:                                               ; preds = %._crit_edge53, %49
+  %56 = phi i32 [ %.pre, %._crit_edge53 ], [ %23, %49 ]
+  %57 = icmp slt i32 %56, 1073741824
+  br i1 %57, label %58, label %growstrtab.exit
 
-56:                                               ; preds = %53
-  %57 = shl nsw i32 %54, 1
-  tail call void @luaS_resize(ptr noundef %0, i32 noundef %57)
-  %.pre54 = load i32, ptr %20, align 4, !tbaa !28
+58:                                               ; preds = %55
+  %59 = shl nsw i32 %56, 1
+  tail call void @luaS_resize(ptr noundef %0, i32 noundef %59)
+  %.pre54 = load i32, ptr %22, align 4, !tbaa !26
   br label %growstrtab.exit
 
-growstrtab.exit:                                  ; preds = %53, %56
-  %58 = phi i32 [ %54, %53 ], [ %.pre54, %56 ]
-  %59 = load ptr, ptr %6, align 8, !tbaa !31
-  %60 = add nsw i32 %58, -1
-  %61 = and i32 %60, %.0.lcssa.i
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %62
-  br label %64
+growstrtab.exit:                                  ; preds = %55, %58
+  %60 = phi i32 [ %56, %55 ], [ %.pre54, %58 ]
+  %61 = load ptr, ptr %6, align 8, !tbaa !29
+  %62 = add nsw i32 %60, -1
+  %63 = and i32 %62, %.0.lcssa.i
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  br label %66
 
-64:                                               ; preds = %growstrtab.exit, %._crit_edge
-  %.0 = phi ptr [ %63, %growstrtab.exit ], [ %25, %._crit_edge ]
-  %65 = add i64 %2, 25
-  %66 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 4, i64 noundef %65) #13
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  store i32 %.0.lcssa.i, ptr %67, align 4, !tbaa !16
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 10
-  store i8 0, ptr %68, align 2, !tbaa !15
-  %69 = trunc i64 %2 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 11
-  store i8 %69, ptr %70, align 1, !tbaa !46
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %2
-  store i8 0, ptr %72, align 1, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr align 1 %1, i64 %2, i1 false)
-  %73 = load ptr, ptr %.0, align 8, !tbaa !32
-  %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr %73, ptr %74, align 8, !tbaa !4
-  store ptr %66, ptr %.0, align 8, !tbaa !32
-  %75 = load i32, ptr %45, align 8, !tbaa !48
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %45, align 8, !tbaa !48
-  br label %77
+66:                                               ; preds = %growstrtab.exit, %._crit_edge
+  %.0 = phi ptr [ %65, %growstrtab.exit ], [ %27, %._crit_edge ]
+  %67 = add i64 %2, 25
+  %68 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 4, i64 noundef %67) #13
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  store i32 %.0.lcssa.i, ptr %69, align 4, !tbaa !14
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 10
+  store i8 0, ptr %70, align 2, !tbaa !13
+  %71 = trunc i64 %2 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 11
+  store i8 %71, ptr %72, align 1, !tbaa !39
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %2
+  store i8 0, ptr %74, align 1, !tbaa !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %1, i64 %2, i1 false)
+  %75 = load ptr, ptr %.0, align 8, !tbaa !30
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store ptr %75, ptr %76, align 8, !tbaa !4
+  store ptr %68, ptr %.0, align 8, !tbaa !30
+  %77 = load i32, ptr %47, align 8, !tbaa !40
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %47, align 8, !tbaa !40
+  br label %79
 
-77:                                               ; preds = %34, %41, %64
-  %.043 = phi ptr [ %66, %64 ], [ %.04451, %41 ], [ %.04451, %34 ]
+79:                                               ; preds = %36, %43, %66
+  %.043 = phi ptr [ %68, %66 ], [ %.04451, %43 ], [ %.04451, %36 ]
   ret ptr %.043
 }
 
@@ -660,22 +660,22 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %4 = trunc i64 %3 to i32
   %5 = urem i32 %4, 53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %9 = zext nneg i32 %5 to i64
   %10 = getelementptr inbounds nuw [53 x [2 x ptr]], ptr %8, i64 0, i64 %9
   br label %12
 
 11:                                               ; preds = %22
-  br i1 %13, label %12, label %.critedge, !llvm.loop !51
+  br i1 %13, label %12, label %.critedge
 
 12:                                               ; preds = %2, %11
   %13 = phi i1 [ true, %2 ], [ false, %11 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %11 ]
   %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 11
-  %17 = load i8, ptr %16, align 1, !tbaa !46
+  %17 = load i8, ptr %16, align 1, !tbaa !39
   %18 = icmp sgt i8 %17, -1
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br i1 %18, label %22, label %20
@@ -691,9 +691,9 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %25, label %.loopexit, label %11
 
 .critedge:                                        ; preds = %11
-  %26 = load ptr, ptr %10, align 8, !tbaa !32
+  %26 = load ptr, ptr %10, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %26, ptr %27, align 8, !tbaa !32
+  store ptr %26, ptr %27, align 8, !tbaa !30
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %29 = icmp ult i64 %28, 41
   br i1 %29, label %30, label %32
@@ -704,7 +704,7 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 32:                                               ; preds = %.critedge
   %33 = icmp ugt i64 %28, 9223372036854775758
-  br i1 %33, label %34, label %35, !prof !36
+  br i1 %33, label %34, label %35, !prof !32
 
 34:                                               ; preds = %32
   tail call void @luaM_toobig(ptr noundef %0) #14
@@ -713,16 +713,16 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 35:                                               ; preds = %32
   %36 = add nuw nsw i64 %28, 33
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %38 = load i32, ptr %37, align 8, !tbaa !45
+  %38 = load i32, ptr %37, align 8, !tbaa !38
   %39 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 20, i64 noundef %36) #13
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 %38, ptr %40, align 4, !tbaa !16
+  store i32 %38, ptr %40, align 4, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 10
-  store i8 0, ptr %41, align 2, !tbaa !15
+  store i8 0, ptr %41, align 2, !tbaa !13
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %28, ptr %42, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 11
-  store i8 -1, ptr %43, align 1, !tbaa !46
+  store i8 -1, ptr %43, align 1, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %44, ptr %45, align 8, !tbaa !7
@@ -733,7 +733,7 @@ define hidden ptr @luaS_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 luaS_newlstr.exit:                                ; preds = %30, %35
   %.0.i = phi ptr [ %31, %30 ], [ %39, %35 ]
-  store ptr %.0.i, ptr %10, align 8, !tbaa !32
+  store ptr %.0.i, ptr %10, align 8, !tbaa !30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %luaS_newlstr.exit
@@ -756,7 +756,7 @@ define hidden ptr @luaS_newudata(ptr noundef %0, i64 noundef %1, i16 noundef zer
   %8 = select i1 %4, i64 32, i64 %7
   %9 = xor i64 %8, 9223372036854775807
   %10 = icmp ugt i64 %1, %9
-  br i1 %10, label %11, label %12, !prof !36
+  br i1 %10, label %11, label %12, !prof !32
 
 11:                                               ; preds = %3
   tail call void @luaM_toobig(ptr noundef %0) #14
@@ -766,26 +766,26 @@ define hidden ptr @luaS_newudata(ptr noundef %0, i64 noundef %1, i16 noundef zer
   %13 = add nuw i64 %8, %1
   %14 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 7, i64 noundef %13) #13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %1, ptr %15, align 8, !tbaa !52
+  store i64 %1, ptr %15, align 8, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 10
-  store i16 %2, ptr %16, align 2, !tbaa !55
+  store i16 %2, ptr %16, align 2, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr null, ptr %17, align 8, !tbaa !56
+  store ptr null, ptr %17, align 8, !tbaa !46
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %18 = getelementptr i8, ptr %14, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %wide.trip.count = zext i16 %2 to i64
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %20 = getelementptr i8, ptr %18, i64 %.idx
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   store i8 0, ptr %20, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19, %12
   ret ptr %14
@@ -802,9 +802,9 @@ define hidden ptr @luaS_newextlstr(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !58
+  store ptr %1, ptr %9, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %2, ptr %10, align 8, !tbaa !60
+  store i64 %2, ptr %10, align 8, !tbaa !49
   %.not28 = icmp eq ptr %3, null
   br i1 %.not28, label %11, label %13
 
@@ -821,7 +821,7 @@ define hidden ptr @luaS_newextlstr(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 ._crit_edge:                                      ; preds = %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
+  %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %46
 
 17:                                               ; preds = %13
@@ -834,20 +834,20 @@ define hidden ptr @luaS_newextlstr(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %23 = load i32, ptr %22, align 8, !tbaa !45
+  %23 = load i32, ptr %22, align 8, !tbaa !38
   %24 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 20, i64 noundef 32) #13
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i32 %23, ptr %25, align 4, !tbaa !16
+  store i32 %23, ptr %25, align 4, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 10
-  store i8 0, ptr %26, align 2, !tbaa !15
+  store i8 0, ptr %26, align 2, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %24, ptr %27, align 8, !tbaa !61
+  store ptr %24, ptr %27, align 8, !tbaa !50
   br label %38
 
 28:                                               ; preds = %18
-  store i8 -3, ptr %6, align 8, !tbaa !62
+  store i8 -3, ptr %6, align 8, !tbaa !51
   %29 = call i32 @luaD_rawrunprotected(ptr noundef %0, ptr noundef nonnull @f_newext, ptr noundef nonnull %6) #13
   %.not27 = icmp eq i32 %29, 0
   br i1 %.not27, label %33, label %30
@@ -860,12 +860,12 @@ define hidden ptr @luaS_newextlstr(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !61
+  %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %3, ptr %36, align 8, !tbaa !63
+  store ptr %3, ptr %36, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store ptr %4, ptr %37, align 8, !tbaa !64
-  %.pre = load i8, ptr %6, align 8, !tbaa !62
+  store ptr %4, ptr %37, align 8, !tbaa !53
+  %.pre = load i8, ptr %6, align 8, !tbaa !51
   br label %38
 
 38:                                               ; preds = %33, %19
@@ -873,10 +873,10 @@ define hidden ptr @luaS_newextlstr(ptr noundef %0, ptr noundef %1, i64 noundef %
   %40 = phi i8 [ %.pre, %33 ], [ -2, %19 ]
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 11
-  store i8 %40, ptr %42, align 1, !tbaa !46
+  store i8 %40, ptr %42, align 1, !tbaa !39
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %2, ptr %43, align 8, !tbaa !4
-  %44 = load ptr, ptr %41, align 8, !tbaa !61
+  %44 = load ptr, ptr %41, align 8, !tbaa !50
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %1, ptr %45, align 8, !tbaa !7
   br label %46
@@ -890,12 +890,12 @@ define hidden ptr @luaS_newextlstr(ptr noundef %0, ptr noundef %1, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define internal void @f_pintern(ptr noundef %0, ptr noundef captures(none) initializes((24, 32)) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !60
+  %6 = load i64, ptr %5, align 8, !tbaa !49
   %7 = tail call fastcc ptr @internshrstr(ptr noundef %0, ptr noundef %4, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %7, ptr %8, align 8, !tbaa !61
+  store ptr %7, ptr %8, align 8, !tbaa !50
   ret void
 }
 
@@ -907,22 +907,22 @@ declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define internal void @f_newext(ptr noundef %0, ptr noundef captures(none) initializes((24, 32)) %1) #4 {
 luaS_sizelngstr.exit:
-  %2 = load i8, ptr %1, align 8, !tbaa !62
+  %2 = load i8, ptr %1, align 8, !tbaa !51
   %switch.selectcmp = icmp eq i8 %2, -2
   %switch.select = select i1 %switch.selectcmp, i64 32, i64 48
   %switch.selectcmp5 = icmp eq i8 %2, -1
   %switch.select6 = select i1 %switch.selectcmp5, i64 33, i64 %switch.select
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = load i32, ptr %5, align 8, !tbaa !45
+  %6 = load i32, ptr %5, align 8, !tbaa !38
   %7 = tail call ptr @luaC_newobj(ptr noundef %0, i8 noundef zeroext 20, i64 noundef %switch.select6) #13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %6, ptr %8, align 4, !tbaa !16
+  store i32 %6, ptr %8, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 0, ptr %9, align 2, !tbaa !15
+  store i8 0, ptr %9, align 2, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %7, ptr %10, align 8, !tbaa !61
+  store ptr %7, ptr %10, align 8, !tbaa !50
   ret void
 }
 
@@ -966,55 +966,44 @@ attributes #15 = { nounwind willreturn memory(read) }
 !10 = !{!"any pointer", !5, i64 0}
 !11 = !{!"int", !5, i64 0}
 !12 = !{!"p1 omnipotent char", !10, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!8, !5, i64 10}
-!16 = !{!8, !11, i64 12}
-!17 = !{!18, !20, i64 24}
-!18 = !{!"lua_State", !9, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !19, i64 12, !5, i64 16, !20, i64 24, !21, i64 32, !5, i64 40, !5, i64 48, !22, i64 56, !5, i64 64, !9, i64 72, !23, i64 80, !24, i64 88, !25, i64 96, !10, i64 160, !26, i64 168, !11, i64 176, !11, i64 180, !11, i64 184, !11, i64 188, !11, i64 192, !27, i64 196}
-!19 = !{!"short", !5, i64 0}
-!20 = !{!"p1 _ZTS12global_State", !10, i64 0}
-!21 = !{!"p1 _ZTS8CallInfo", !10, i64 0}
-!22 = !{!"p1 _ZTS5UpVal", !10, i64 0}
-!23 = !{!"p1 _ZTS9lua_State", !10, i64 0}
-!24 = !{!"p1 _ZTS11lua_longjmp", !10, i64 0}
-!25 = !{!"CallInfo", !5, i64 0, !5, i64 8, !21, i64 16, !21, i64 24, !5, i64 32, !5, i64 56, !11, i64 60}
-!26 = !{!"long", !5, i64 0}
-!27 = !{!"", !11, i64 0, !11, i64 4}
-!28 = !{!29, !11, i64 12}
-!29 = !{!"stringtable", !30, i64 0, !11, i64 8, !11, i64 12}
-!30 = !{!"p2 _ZTS7TString", !10, i64 0}
-!31 = !{!29, !30, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS7TString", !10, i64 0}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!37 = !{!8, !5, i64 9}
-!38 = !{!39, !33, i64 272}
-!39 = !{!"global_State", !10, i64 0, !10, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !29, i64 48, !40, i64 64, !40, i64 80, !11, i64 96, !5, i64 100, !5, i64 106, !5, i64 107, !5, i64 108, !5, i64 109, !5, i64 110, !5, i64 111, !9, i64 112, !41, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !23, i64 248, !10, i64 256, !23, i64 264, !33, i64 272, !5, i64 280, !5, i64 480, !5, i64 552, !10, i64 1400, !10, i64 1408}
-!40 = !{!"TValue", !5, i64 0, !5, i64 8}
-!41 = !{!"p2 _ZTS8GCObject", !10, i64 0}
-!42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14}
-!44 = distinct !{!44, !14}
-!45 = !{!39, !11, i64 96}
-!46 = !{!8, !5, i64 11}
-!47 = distinct !{!47, !14}
-!48 = !{!29, !11, i64 8}
-!49 = !{!39, !5, i64 106}
-!50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
-!52 = !{!53, !26, i64 16}
-!53 = !{!"Udata", !9, i64 0, !5, i64 8, !5, i64 9, !19, i64 10, !26, i64 16, !54, i64 24, !9, i64 32, !5, i64 40}
-!54 = !{!"p1 _ZTS5Table", !10, i64 0}
-!55 = !{!53, !19, i64 10}
-!56 = !{!53, !54, i64 24}
-!57 = distinct !{!57, !14}
-!58 = !{!59, !12, i64 8}
-!59 = !{!"NewExt", !5, i64 0, !12, i64 8, !26, i64 16, !33, i64 24}
-!60 = !{!59, !26, i64 16}
-!61 = !{!59, !33, i64 24}
-!62 = !{!59, !5, i64 0}
-!63 = !{!8, !10, i64 32}
-!64 = !{!8, !10, i64 40}
+!13 = !{!8, !5, i64 10}
+!14 = !{!8, !11, i64 12}
+!15 = !{!16, !18, i64 24}
+!16 = !{!"lua_State", !9, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !17, i64 12, !5, i64 16, !18, i64 24, !19, i64 32, !5, i64 40, !5, i64 48, !20, i64 56, !5, i64 64, !9, i64 72, !21, i64 80, !22, i64 88, !23, i64 96, !10, i64 160, !24, i64 168, !11, i64 176, !11, i64 180, !11, i64 184, !11, i64 188, !11, i64 192, !25, i64 196}
+!17 = !{!"short", !5, i64 0}
+!18 = !{!"p1 _ZTS12global_State", !10, i64 0}
+!19 = !{!"p1 _ZTS8CallInfo", !10, i64 0}
+!20 = !{!"p1 _ZTS5UpVal", !10, i64 0}
+!21 = !{!"p1 _ZTS9lua_State", !10, i64 0}
+!22 = !{!"p1 _ZTS11lua_longjmp", !10, i64 0}
+!23 = !{!"CallInfo", !5, i64 0, !5, i64 8, !19, i64 16, !19, i64 24, !5, i64 32, !5, i64 56, !11, i64 60}
+!24 = !{!"long", !5, i64 0}
+!25 = !{!"", !11, i64 0, !11, i64 4}
+!26 = !{!27, !11, i64 12}
+!27 = !{!"stringtable", !28, i64 0, !11, i64 8, !11, i64 12}
+!28 = !{!"p2 _ZTS7TString", !10, i64 0}
+!29 = !{!27, !28, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS7TString", !10, i64 0}
+!32 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!33 = !{!8, !5, i64 9}
+!34 = !{!35, !31, i64 272}
+!35 = !{!"global_State", !10, i64 0, !10, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !27, i64 48, !36, i64 64, !36, i64 80, !11, i64 96, !5, i64 100, !5, i64 106, !5, i64 107, !5, i64 108, !5, i64 109, !5, i64 110, !5, i64 111, !9, i64 112, !37, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !21, i64 248, !10, i64 256, !21, i64 264, !31, i64 272, !5, i64 280, !5, i64 480, !5, i64 552, !10, i64 1400, !10, i64 1408}
+!36 = !{!"TValue", !5, i64 0, !5, i64 8}
+!37 = !{!"p2 _ZTS8GCObject", !10, i64 0}
+!38 = !{!35, !11, i64 96}
+!39 = !{!8, !5, i64 11}
+!40 = !{!27, !11, i64 8}
+!41 = !{!35, !5, i64 106}
+!42 = !{!43, !24, i64 16}
+!43 = !{!"Udata", !9, i64 0, !5, i64 8, !5, i64 9, !17, i64 10, !24, i64 16, !44, i64 24, !9, i64 32, !5, i64 40}
+!44 = !{!"p1 _ZTS5Table", !10, i64 0}
+!45 = !{!43, !17, i64 10}
+!46 = !{!43, !44, i64 24}
+!47 = !{!48, !12, i64 8}
+!48 = !{!"NewExt", !5, i64 0, !12, i64 8, !24, i64 16, !31, i64 24}
+!49 = !{!48, !24, i64 16}
+!50 = !{!48, !31, i64 24}
+!51 = !{!48, !5, i64 0}
+!52 = !{!8, !10, i64 32}
+!53 = !{!8, !10, i64 40}

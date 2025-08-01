@@ -575,7 +575,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   %180 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %15) #11
   %181 = add nuw nsw i32 %.0266340, 1
   %exitcond.not = icmp eq i32 %181, %9
-  br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %88
 
 ._crit_edge:                                      ; preds = %174
   %182 = fcmp olt double %172, %73
@@ -641,7 +641,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
 define i32 @SUNLinSolNumIters_SPBCGS(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !54
+  %4 = load i32, ptr %3, align 4, !tbaa !52
   ret i32 %4
 }
 
@@ -649,7 +649,7 @@ define i32 @SUNLinSolNumIters_SPBCGS(ptr noundef readonly captures(none) %0) #6 
 define double @SUNLinSolResNorm_SPBCGS(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load double, ptr %3, align 8, !tbaa !55
+  %4 = load double, ptr %3, align 8, !tbaa !53
   ret double %4
 }
 
@@ -680,16 +680,16 @@ define noundef i32 @SUNLinSolSpace_SPBCGS(ptr noundef readonly captures(none) %0
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !59
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %3
   call void @N_VSpace(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  %.pre = load i64, ptr %5, align 8, !tbaa !61
-  %.pre5 = load i64, ptr %4, align 8, !tbaa !61
+  %.pre = load i64, ptr %5, align 8, !tbaa !59
+  %.pre5 = load i64, ptr %4, align 8, !tbaa !59
   %14 = mul nsw i64 %.pre, 9
   %15 = mul nsw i64 %.pre5, 9
   br label %16
@@ -697,8 +697,8 @@ define noundef i32 @SUNLinSolSpace_SPBCGS(ptr noundef readonly captures(none) %0
 16:                                               ; preds = %3, %13
   %17 = phi i64 [ %15, %13 ], [ 0, %3 ]
   %18 = phi i64 [ %14, %13 ], [ 0, %3 ]
-  store i64 %18, ptr %1, align 8, !tbaa !61
-  store i64 %17, ptr %2, align 8, !tbaa !61
+  store i64 %18, ptr %1, align 8, !tbaa !59
+  store i64 %17, ptr %2, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret i32 0
@@ -946,14 +946,12 @@ attributes #12 = { nounwind allocsize(0) }
 !49 = !{!29, !29, i64 0}
 !50 = !{!30, !30, i64 0}
 !51 = !{!31, !31, i64 0}
-!52 = distinct !{!52, !53}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!28, !29, i64 12}
-!55 = !{!28, !30, i64 16}
-!56 = !{!57, !58, i64 8}
-!57 = !{!"_generic_N_Vector", !5, i64 0, !58, i64 8, !9, i64 16}
-!58 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
-!59 = !{!60, !5, i64 32}
-!60 = !{!"_generic_N_Vector_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !5, i64 416, !5, i64 424, !5, i64 432, !5, i64 440}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"long", !6, i64 0}
+!52 = !{!28, !29, i64 12}
+!53 = !{!28, !30, i64 16}
+!54 = !{!55, !56, i64 8}
+!55 = !{!"_generic_N_Vector", !5, i64 0, !56, i64 8, !9, i64 16}
+!56 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
+!57 = !{!58, !5, i64 32}
+!58 = !{!"_generic_N_Vector_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !5, i64 416, !5, i64 424, !5, i64 432, !5, i64 440}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"long", !6, i64 0}

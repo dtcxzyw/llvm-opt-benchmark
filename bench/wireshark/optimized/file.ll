@@ -290,7 +290,7 @@ define hidden range(i32 0, 2) i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 n
   %48 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %9
   %49 = load ptr, ptr %15, align 8
@@ -340,7 +340,7 @@ define hidden void @cf_close(ptr noundef initializes((34, 35)) %0) local_unnamed
   %10 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %5
   tail call void @color_filters_cleanup()
@@ -362,7 +362,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %5
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
+  %19 = load i8, ptr %18, align 8, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %23
 
@@ -468,7 +468,7 @@ cf_unselect_packet.exit:                          ; preds = %38, %42
   %59 = getelementptr inbounds nuw i8, ptr %.09.i51, i64 8
   %.0.i52 = load ptr, ptr %59, align 8
   %.not.i53 = icmp eq ptr %.0.i52, null
-  br i1 %.not.i53, label %cf_callback_invoke.exit54, label %.lr.ph.i50, !llvm.loop !9
+  br i1 %.not.i53, label %cf_callback_invoke.exit54, label %.lr.ph.i50, !llvm.loop !8
 
 cf_callback_invoke.exit54:                        ; preds = %.lr.ph.i50, %51, %1
   ret void
@@ -617,7 +617,7 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i1 noundef zeroext %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store volatile i8 0, ptr %14, align 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %25 = load i8, ptr %24, align 1, !range !10, !noundef !11
+  %25 = load i8, ptr %24, align 1, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %31
 
@@ -689,7 +689,7 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i1 noundef zeroext %1
   %59 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %59, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 60:                                               ; preds = %49
   br i1 %.not8.i, label %cf_callback_invoke.exit, label %.lr.ph.i113
@@ -704,7 +704,7 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i1 noundef zeroext %1
   %65 = getelementptr inbounds nuw i8, ptr %.09.i114, i64 8
   %.0.i115 = load ptr, ptr %65, align 8
   %.not.i116 = icmp eq ptr %.0.i115, null
-  br i1 %.not.i116, label %cf_callback_invoke.exit, label %.lr.ph.i113, !llvm.loop !9
+  br i1 %.not.i116, label %cf_callback_invoke.exit, label %.lr.ph.i113, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i113, %.lr.ph.i, %60, %54
   call void @packet_list_freeze()
@@ -712,7 +712,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i113, %.lr.p
   store i8 0, ptr %66, align 2
   %67 = call i64 @g_get_monotonic_time()
   %68 = load ptr, ptr %0, align 8
-  %.0..0..0..0.22 = load volatile i8, ptr %13, align 1, !range !10, !noundef !11
+  %.0..0..0..0.22 = load volatile i8, ptr %13, align 1, !range !9, !noundef !10
   %69 = trunc nuw i8 %.0..0..0..0.22 to i1
   call void @epan_dissect_init(ptr noundef nonnull %10, ptr noundef %68, i1 noundef zeroext %69, i1 noundef zeroext false)
   %70 = call zeroext i1 @tap_listeners_require_columns()
@@ -735,7 +735,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i113, %.lr.p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store volatile ptr null, ptr %16, align 8
-  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 396), align 4, !range !10, !noundef !11
+  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 396), align 4, !range !9, !noundef !10
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %86
 
@@ -931,7 +931,7 @@ calc_progbar_val.exit124:                         ; preds = %160, %164, %171
   br i1 %180, label %.loopexit.sink.split, label %181
 
 181:                                              ; preds = %178
-  %182 = load i8, ptr %66, align 2, !range !10, !noundef !11
+  %182 = load i8, ptr %66, align 2, !range !9, !noundef !10
   %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %.loopexit, label %184
 
@@ -962,7 +962,7 @@ calc_progbar_val.exit124:                         ; preds = %160, %164, %171
 195:                                              ; preds = %196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %196, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %196, !llvm.loop !11
 
 196:                                              ; preds = %195, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %195 ]
@@ -1060,7 +1060,7 @@ cf_add_encapsulation_type.exit.i:                 ; preds = %196, %._crit_edge.i
   br label %243
 
 243:                                              ; preds = %237, %231, %225
-  %244 = load i8, ptr %122, align 8, !range !10, !noundef !11
+  %244 = load i8, ptr %122, align 8, !range !9, !noundef !10
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %read_record.exit, label %246
 
@@ -1078,7 +1078,7 @@ read_record.exit:                                 ; preds = %206, %243, %246, %2
   call void @wtap_rec_reset(ptr noundef nonnull %11)
   %250 = load ptr, ptr %78, align 8
   %251 = call zeroext i1 @wtap_read(ptr noundef %250, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %21)
-  br i1 %251, label %123, label %.loopexit, !llvm.loop !13
+  br i1 %251, label %123, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %178, %124
   %.sink150 = phi ptr [ %8, %124 ], [ %14, %178 ]
@@ -1205,7 +1205,7 @@ read_record.exit:                                 ; preds = %206, %243, %246, %2
   %293 = getelementptr inbounds nuw i8, ptr %.09.i129, i64 8
   %.0.i130 = load ptr, ptr %293, align 8
   %.not.i131 = icmp eq ptr %.0.i130, null
-  br i1 %.not.i131, label %cf_callback_invoke.exit132, label %.lr.ph.i128, !llvm.loop !9
+  br i1 %.not.i131, label %cf_callback_invoke.exit132, label %.lr.ph.i128, !llvm.loop !8
 
 294:                                              ; preds = %273
   br i1 %.not8.i127, label %cf_callback_invoke.exit132, label %.lr.ph.i135
@@ -1220,7 +1220,7 @@ read_record.exit:                                 ; preds = %206, %243, %246, %2
   %299 = getelementptr inbounds nuw i8, ptr %.09.i136, i64 8
   %.0.i137 = load ptr, ptr %299, align 8
   %.not.i138 = icmp eq ptr %.0.i137, null
-  br i1 %.not.i138, label %cf_callback_invoke.exit132, label %.lr.ph.i135, !llvm.loop !9
+  br i1 %.not.i138, label %cf_callback_invoke.exit132, label %.lr.ph.i135, !llvm.loop !8
 
 cf_callback_invoke.exit132:                       ; preds = %.lr.ph.i135, %.lr.ph.i128, %294, %288
   %300 = load i32, ptr %284, align 8
@@ -1232,7 +1232,7 @@ cf_callback_invoke.exit132:                       ; preds = %.lr.ph.i135, %.lr.p
   br label %303
 
 303:                                              ; preds = %301, %cf_callback_invoke.exit132
-  %.0..0..0..0.20 = load volatile i8, ptr %14, align 1, !range !10, !noundef !11
+  %.0..0..0..0.20 = load volatile i8, ptr %14, align 1, !range !9, !noundef !10
   %304 = trunc nuw i8 %.0..0..0..0.20 to i1
   br i1 %304, label %305, label %306
 
@@ -1252,7 +1252,7 @@ cf_callback_invoke.exit132:                       ; preds = %.lr.ph.i135, %.lr.p
   br label %310
 
 310:                                              ; preds = %308, %306
-  %311 = load i8, ptr %66, align 2, !range !10, !noundef !11
+  %311 = load i8, ptr %66, align 2, !range !9, !noundef !10
   %312 = trunc nuw i8 %311 to i1
   br i1 %312, label %313, label %314
 
@@ -1271,7 +1271,7 @@ cf_callback_invoke.exit132:                       ; preds = %.lr.ph.i135, %.lr.p
   br label %322
 
 318:                                              ; preds = %314
-  %.0..0..0..0.41 = load volatile i8, ptr %8, align 1, !range !10, !noundef !11
+  %.0..0..0..0.41 = load volatile i8, ptr %8, align 1, !range !9, !noundef !10
   %319 = trunc nuw i8 %.0..0..0..0.41 to i1
   br i1 %319, label %320, label %322
 
@@ -1610,7 +1610,7 @@ define internal fastcc void @rescan_packets(ptr noundef %0, ptr noundef %1, ptr 
   %87 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %87, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %77
   call void @g_timer_start(ptr noundef %11)
@@ -1696,7 +1696,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %77
   br i1 %.not201, label %121, label %.loopexit238
 
 121:                                              ; preds = %119
-  %122 = load i8, ptr %88, align 2, !range !10, !noundef !11
+  %122 = load i8, ptr %88, align 2, !range !9, !noundef !10
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %.loopexit238, label %124
 
@@ -1795,7 +1795,7 @@ cf_read_record.exit:                              ; preds = %128
   call void @wtap_rec_reset(ptr noundef nonnull %7)
   %160 = add i32 %.0150263, 1
   %.not199 = icmp ugt i32 %160, %.1148
-  br i1 %.not199, label %.loopexit238, label %102, !llvm.loop !14
+  br i1 %.not199, label %.loopexit238, label %102, !llvm.loop !13
 
 .loopexit238:                                     ; preds = %158, %119, %121, %98, %cf_read_record.exit
   %.0170250 = phi ptr [ %.0170254, %cf_read_record.exit ], [ null, %98 ], [ %.1171, %158 ], [ %.0170254, %119 ], [ %.0170254, %121 ]
@@ -1828,7 +1828,7 @@ cf_read_record.exit:                              ; preds = %128
   call void @frame_data_reset(ptr noundef %167)
   %168 = add i32 %.1151292, 1
   %.not204 = icmp ugt i32 %168, %163
-  br i1 %.not204, label %.loopexit, label %165, !llvm.loop !15
+  br i1 %.not204, label %.loopexit, label %165, !llvm.loop !14
 
 .loopexit:                                        ; preds = %165, %162, %.loopexit238
   %.not205 = icmp eq ptr %.1175, null
@@ -1868,7 +1868,7 @@ cf_read_record.exit:                              ; preds = %128
   %181 = getelementptr inbounds nuw i8, ptr %.09.i215, i64 8
   %.0.i216 = load ptr, ptr %181, align 8
   %.not.i217 = icmp eq ptr %.0.i216, null
-  br i1 %.not.i217, label %cf_callback_invoke.exit218, label %.lr.ph.i214, !llvm.loop !9
+  br i1 %.not.i217, label %cf_callback_invoke.exit218, label %.lr.ph.i214, !llvm.loop !8
 
 cf_callback_invoke.exit218:                       ; preds = %.lr.ph.i214, %172
   %182 = icmp eq i32 %.0165246, -1
@@ -1940,7 +1940,7 @@ declare void @report_cfile_read_failure(ptr noundef, i32 noundef, ptr noundef) l
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noalias ptr @cf_get_display_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %12, label %5
 
@@ -1980,7 +1980,7 @@ define hidden noalias ptr @cf_get_display_name(ptr noundef readonly captures(non
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noalias ptr @cf_get_basename(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %31, label %5
 
@@ -2026,7 +2026,7 @@ define hidden noalias ptr @cf_get_basename(ptr noundef readonly captures(none) %
   %27 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not32 = icmp eq ptr %28, null
-  br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %26, %8, %24
   tail call void @wtap_free_extensions_list(ptr noundef %11)
@@ -2105,7 +2105,7 @@ define hidden i32 @cf_get_packet_count(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @cf_is_tempfile(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -2136,7 +2136,7 @@ define hidden void @cf_set_drops(ptr noundef writeonly captures(none) initialize
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @cf_get_drops_known(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -2178,7 +2178,7 @@ define hidden range(i32 0, 2) i32 @cf_merge_files_to_tempfile(ptr noundef %0, pt
   %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %7
   %16 = call zeroext i1 @merge_files_to_tempfile(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.13, i32 noundef %5, ptr noundef %4, i32 noundef %3, i1 noundef zeroext %6, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %8)
@@ -2198,7 +2198,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %7
   %22 = getelementptr inbounds nuw i8, ptr %.09.i26, i64 8
   %.0.i27 = load ptr, ptr %22, align 8
   %.not.i28 = icmp eq ptr %.0.i27, null
-  br i1 %.not.i28, label %cf_callback_invoke.exit29, label %.lr.ph.i25, !llvm.loop !9
+  br i1 %.not.i28, label %cf_callback_invoke.exit29, label %.lr.ph.i25, !llvm.loop !8
 
 cf_callback_invoke.exit29:                        ; preds = %.lr.ph.i25, %cf_callback_invoke.exit
   %not. = xor i1 %16, true
@@ -2238,7 +2238,7 @@ define internal zeroext i1 @merge_callback(i32 noundef %0, i32 %1, ptr noundef r
   store i64 %12, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %8, %.preheader38
   %13 = tail call ptr @g_timer_new()
@@ -2284,7 +2284,7 @@ define internal zeroext i1 @merge_callback(i32 noundef %0, i32 %1, ptr noundef r
   %31 = add i64 %30, %.041
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !18
+  br i1 %exitcond51.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !17
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %31, %.lr.ph42 ]
@@ -2332,7 +2332,7 @@ define internal zeroext i1 @merge_callback(i32 noundef %0, i32 %1, ptr noundef r
 
 53:                                               ; preds = %23, %44, %50, %._crit_edge, %5
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %55 = load i8, ptr %54, align 8, !range !10, !noundef !11
+  %55 = load i8, ptr %54, align 8, !range !9, !noundef !10
   %56 = trunc nuw i8 %55 to i1
   ret i1 %56
 }
@@ -2404,7 +2404,7 @@ define hidden range(i32 0, 2) i32 @cf_filter_packets(ptr noundef %0, ptr noundef
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %34 = load i8, ptr %33, align 1, !range !10, !noundef !11
+  %34 = load i8, ptr %33, align 1, !range !9, !noundef !10
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %37
 
@@ -2443,7 +2443,7 @@ declare void @df_error_free(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @cf_redissect_packets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %3 = load i8, ptr %2, align 1, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 1, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %.thread, label %5
 
@@ -2697,7 +2697,7 @@ define hidden void @cf_reftime_packets(ptr noundef initializes((232, 248), (736,
   %66 = add i32 %.054, 1
   %67 = load i32, ptr %6, align 8
   %.not = icmp ugt i32 %66, %67
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %65, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
@@ -2724,7 +2724,7 @@ define hidden range(i32 0, 3) i32 @cf_retap_packets(ptr noundef %0) local_unname
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %7 = load i8, ptr %6, align 1, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 1, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %12
 
@@ -2749,7 +2749,7 @@ define hidden range(i32 0, 3) i32 @cf_retap_packets(ptr noundef %0) local_unname
   %17 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %12
   %18 = tail call zeroext i1 @have_filtering_tap_listeners()
@@ -2827,7 +2827,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %12
   %52 = getelementptr inbounds nuw i8, ptr %.09.i31, i64 8
   %.0.i32 = load ptr, ptr %52, align 8
   %.not.i33 = icmp eq ptr %.0.i32, null
-  br i1 %.not.i33, label %switch.lookup, label %.lr.ph.i30, !llvm.loop !9
+  br i1 %.not.i33, label %switch.lookup, label %.lr.ph.i30, !llvm.loop !8
 
 switch.lookup:                                    ; preds = %.lr.ph.i30, %46
   %53 = zext nneg i32 %47 to i64
@@ -2869,7 +2869,7 @@ define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr nounde
   call void @wtap_rec_init(ptr noundef nonnull %10, i64 noundef 1514)
   call void @g_timer_start(ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %14 = load i8, ptr %13, align 1, !range !10, !noundef !11
+  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %19
 
@@ -2940,7 +2940,7 @@ define internal fastcc range(i32 0, 3) i32 @process_specified_records(ptr nounde
 
 45:                                               ; preds = %39, %36, %35
   %.1 = phi float [ %43, %39 ], [ %.04864, %36 ], [ %.04864, %35 ]
-  %46 = load i8, ptr %20, align 2, !range !10, !noundef !11
+  %46 = load i8, ptr %20, align 2, !range !9, !noundef !10
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %.loopexit, label %48
 
@@ -2988,7 +2988,7 @@ cf_read_record.exit:                              ; preds = %52
   %65 = add i32 %.05062, 1
   %66 = load i32, ptr %23, align 8
   %.not57 = icmp ugt i32 %65, %66
-  br i1 %.not57, label %.loopexit, label %28, !llvm.loop !20
+  br i1 %.not57, label %.loopexit, label %28, !llvm.loop !19
 
 .loopexit:                                        ; preds = %64, %45, %50, %61, %cf_read_record.exit
   %.053 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %64 ], [ 1, %45 ], [ 0, %50 ], [ 2, %61 ]
@@ -3034,7 +3034,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %4) #23
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 265
-  %6 = load i8, ptr %5, align 1, !range !10, !noundef !11
+  %6 = load i8, ptr %5, align 1, !range !9, !noundef !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3069,7 +3069,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %27 = load i8, ptr %26, align 8, !range !10, !noundef !11
+  %27 = load i8, ptr %26, align 8, !range !9, !noundef !10
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %133
 
@@ -3092,7 +3092,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %34, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
-  %39 = load i8, ptr %38, align 4, !range !10, !noundef !11
+  %39 = load i8, ptr %38, align 4, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   %spec.select = select i1 %40, i32 %.0100124, i32 %.0108122
   %41 = zext nneg i8 %39 to i32
@@ -3105,7 +3105,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %43 = add nuw nsw i32 %.0100124, 1
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %45 = icmp slt i32 %43, %44
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %42
   %46 = zext i32 %.1109 to i64
@@ -3146,7 +3146,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %59, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
-  %64 = load i8, ptr %63, align 4, !range !10, !noundef !11
+  %64 = load i8, ptr %63, align 4, !range !9, !noundef !10
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %125, label %66
 
@@ -3251,7 +3251,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %126 = load i32, ptr %52, align 8
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %56, label %._crit_edge132, !llvm.loop !22
+  br i1 %128, label %56, label %._crit_edge132, !llvm.loop !21
 
 ._crit_edge132:                                   ; preds = %125, %48
   %.099.lcssa = phi ptr [ %30, %48 ], [ %.1, %125 ]
@@ -3274,7 +3274,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 272
-  %139 = load i8, ptr %138, align 8, !range !10, !noundef !11
+  %139 = load i8, ptr %138, align 8, !range !9, !noundef !10
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %146, label %141
 
@@ -3363,7 +3363,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %6) #23
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   br i1 %10, label %12, label %17
@@ -3387,7 +3387,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
 
 21:                                               ; preds = %17, %12
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %23 = load i8, ptr %22, align 4, !range !10, !noundef !11
+  %23 = load i8, ptr %22, align 4, !range !9, !noundef !10
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %36
 
@@ -3400,7 +3400,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
 29:                                               ; preds = %25
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 265
-  %32 = load i8, ptr %31, align 1, !range !10, !noundef !11
+  %32 = load i8, ptr %31, align 1, !range !9, !noundef !10
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %44
 
@@ -3411,7 +3411,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
 
 36:                                               ; preds = %21
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 29
-  %38 = load i8, ptr %37, align 1, !range !10, !noundef !11
+  %38 = load i8, ptr %37, align 1, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %44
 
@@ -3426,13 +3426,13 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   %46 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 20, i32 noundef 2, i64 noundef 20, ptr noundef nonnull @.str.56, i32 noundef %45)
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
-  %49 = load i8, ptr %48, align 8, !range !10, !noundef !11
+  %49 = load i8, ptr %48, align 8, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %131
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 265
-  %53 = load i8, ptr %52, align 1, !range !10, !noundef !11
+  %53 = load i8, ptr %52, align 1, !range !9, !noundef !10
   %54 = trunc nuw i8 %53 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %54, label %55, label %.thread
@@ -3442,7 +3442,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   br label %64
 
 55:                                               ; preds = %51
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !10
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !9
   %56 = trunc nuw i8 %.pre to i1
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %56, label %58, label %64
@@ -3544,7 +3544,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next, %120
-  br i1 %121, label %75, label %._crit_edge, !llvm.loop !23
+  br i1 %121, label %75, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %118, %64
   %.0108.lcssa = phi ptr [ %66, %64 ], [ %.2, %118 ]
@@ -3579,7 +3579,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 264
-  %143 = load i8, ptr %142, align 8, !range !10, !noundef !11
+  %143 = load i8, ptr %142, align 8, !range !9, !noundef !10
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %148
 
@@ -3598,7 +3598,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   %149 = phi i32 [ %.pre126, %._crit_edge123 ], [ %140, %141 ]
   %150 = phi ptr [ %.pre124, %._crit_edge123 ], [ %138, %141 ]
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 272
-  %152 = load i8, ptr %151, align 8, !range !10, !noundef !11
+  %152 = load i8, ptr %151, align 8, !range !9, !noundef !10
   %153 = trunc nuw i8 %152 to i1
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %155 = load ptr, ptr %150, align 8
@@ -3610,7 +3610,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   store i8 1, ptr %158, align 1
   %159 = load ptr, ptr %3, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 265
-  %161 = load i8, ptr %160, align 1, !range !10, !noundef !11
+  %161 = load i8, ptr %160, align 1, !range !9, !noundef !10
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %163, label %165
 
@@ -3622,13 +3622,13 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
 165:                                              ; preds = %157, %163, %137
   %166 = phi ptr [ %159, %157 ], [ %159, %163 ], [ %138, %137 ]
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 272
-  %168 = load i8, ptr %167, align 8, !range !10, !noundef !11
+  %168 = load i8, ptr %167, align 8, !range !9, !noundef !10
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %195
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 264
-  %172 = load i8, ptr %171, align 8, !range !10, !noundef !11
+  %172 = load i8, ptr %171, align 8, !range !9, !noundef !10
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %177, label %174
 
@@ -3661,7 +3661,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   store i8 1, ptr %188, align 1
   %189 = load ptr, ptr %3, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 265
-  %191 = load i8, ptr %190, align 1, !range !10, !noundef !11
+  %191 = load i8, ptr %190, align 1, !range !9, !noundef !10
   %192 = trunc nuw i8 %191 to i1
   br i1 %192, label %193, label %195
 
@@ -3675,7 +3675,7 @@ define internal noundef zeroext i1 @print_packet(ptr noundef %0, ptr noundef %1,
   call void @epan_dissect_reset(ptr noundef nonnull %196)
   %197 = load ptr, ptr %3, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 280
-  %199 = load i8, ptr %198, align 8, !range !10, !noundef !11
+  %199 = load i8, ptr %198, align 8, !range !9, !noundef !10
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %201, label %204
 
@@ -4066,7 +4066,7 @@ define internal noundef zeroext i1 @write_json_packet(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 268
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 272
-  %14 = load i8, ptr %13, align 8, !range !10, !noundef !11
+  %14 = load i8, ptr %13, align 8, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
@@ -4115,7 +4115,7 @@ define hidden noundef zeroext i1 @cf_find_packet_protocol_tree(ptr noundef %0, p
   %20 = load ptr, ptr %19, align 8
   %match_subtree_text.match_subtree_text_reverse = select i1 %18, ptr @match_subtree_text, ptr @match_subtree_text_reverse
   call void @proto_tree_children_foreach(ptr noundef %20, ptr noundef nonnull %match_subtree_text.match_subtree_text_reverse, ptr noundef nonnull %5)
-  %21 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %21 = load i8, ptr %6, align 8, !range !9, !noundef !10
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %27
 
@@ -4150,7 +4150,7 @@ define internal void @match_subtree_text(ptr noundef %0, ptr noundef %1) #1 {
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3) #23
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
+  %12 = load i8, ptr %11, align 8, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   %.not.i = icmp eq ptr %0, null
   %or.cond78 = or i1 %.not.i, %13
@@ -4208,7 +4208,7 @@ proto_item_is_hidden.exit:                        ; preds = %2
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %36 = load i8, ptr %35, align 8, !range !10, !noundef !11
+  %36 = load i8, ptr %35, align 8, !range !9, !noundef !10
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %69
 
@@ -4278,7 +4278,7 @@ proto_item_is_hidden.exit:                        ; preds = %2
   %66 = add i32 %.162, 1
   %67 = zext i32 %66 to i64
   %68 = icmp ugt i64 %39, %67
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 69:                                               ; preds = %34
   %70 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef %4) #26
@@ -4317,7 +4317,7 @@ define internal void @match_subtree_text_reverse(ptr noundef %0, ptr noundef %1)
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3) #23
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %12 = load i8, ptr %11, align 1, !range !10, !noundef !11
+  %12 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   %.not.i = icmp eq ptr %0, null
   %or.cond79 = or i1 %.not.i, %13
@@ -4367,7 +4367,7 @@ proto_item_is_hidden.exit:                        ; preds = %2
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %33 = load i8, ptr %32, align 8, !range !10, !noundef !11
+  %33 = load i8, ptr %32, align 8, !range !9, !noundef !10
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %64
 
@@ -4431,7 +4431,7 @@ proto_item_is_hidden.exit:                        ; preds = %2
   %61 = add i32 %.162, 1
   %62 = zext i32 %61 to i64
   %63 = icmp ugt i64 %36, %62
-  br i1 %63, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %63, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 64:                                               ; preds = %31
   %65 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef %4) #26
@@ -4468,7 +4468,7 @@ define internal fastcc noundef zeroext i1 @find_packet(ptr noundef initializes((
   %7 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %6) #23
   %8 = tail call ptr @g_timer_new()
-  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 194), align 2, !range !10, !noundef !11
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 194), align 2, !range !9, !noundef !10
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #23
   call void @wtap_rec_init(ptr noundef nonnull %6, i64 noundef 1514)
   br i1 %4, label %10, label %.thread
@@ -4540,7 +4540,7 @@ define internal fastcc noundef zeroext i1 @find_packet(ptr noundef initializes((
 
 41:                                               ; preds = %35, %32
   %.163 = phi float [ %39, %35 ], [ %.062, %32 ]
-  %42 = load i8, ptr %23, align 2, !range !10, !noundef !11
+  %42 = load i8, ptr %23, align 2, !range !9, !noundef !10
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %.loopexit, label %44
 
@@ -4618,7 +4618,7 @@ define internal fastcc noundef zeroext i1 @find_packet(ptr noundef initializes((
 
 74:                                               ; preds = %73, %67, %63
   %75 = icmp eq ptr %65, %15
-  br i1 %75, label %.loopexit, label %27, !llvm.loop !26
+  br i1 %75, label %.loopexit, label %27
 
 .loopexit.loopexit:                               ; preds = %71
   br label %.loopexit
@@ -4706,7 +4706,7 @@ cf_read_record.exit:                              ; preds = %4
   %27 = load ptr, ptr %26, align 8
   call void @proto_tree_children_foreach(ptr noundef %27, ptr noundef nonnull @match_subtree_text, ptr noundef %3)
   call void @epan_dissect_cleanup(ptr noundef nonnull %7)
-  %28 = load i8, ptr %23, align 8, !range !10, !noundef !11
+  %28 = load i8, ptr %23, align 8, !range !9, !noundef !10
   %29 = zext nneg i8 %28 to i32
   br label %30
 
@@ -4727,7 +4727,7 @@ define hidden ptr @cf_find_string_protocol_tree(ptr noundef %0, ptr noundef %1) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
   %10 = trunc nuw i8 %9 to i1
   %11 = tail call ptr @convert_string_case(ptr noundef %7, i1 noundef zeroext %10)
   store ptr %11, ptr %3, align 8
@@ -4745,7 +4745,7 @@ define hidden ptr @cf_find_string_protocol_tree(ptr noundef %0, ptr noundef %1) 
   call void @proto_tree_children_foreach(ptr noundef %1, ptr noundef nonnull %match_subtree_text.match_subtree_text_reverse, ptr noundef nonnull %3)
   %19 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %19)
-  %20 = load i8, ptr %4, align 8, !range !10, !noundef !11
+  %20 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -4824,7 +4824,7 @@ cf_read_record.exit:                              ; preds = %4
   %32 = getelementptr %struct.col_item_t, ptr %30, i64 %indvars.iv, i32 1
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 25
-  %35 = load i8, ptr %34, align 1, !range !10, !noundef !11
+  %35 = load i8, ptr %34, align 1, !range !9, !noundef !10
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %80
 
@@ -4845,7 +4845,7 @@ cf_read_record.exit:                              ; preds = %4
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %49 = load i8, ptr %48, align 8, !range !10, !noundef !11
+  %49 = load i8, ptr %48, align 8, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %.preheader, label %78
 
@@ -4908,7 +4908,7 @@ cf_read_record.exit:                              ; preds = %4
   %75 = add i32 %.155, 1
   %76 = zext i32 %75 to i64
   %77 = icmp ugt i64 %42, %76
-  br i1 %77, label %.lr.ph75, label %.loopexit, !llvm.loop !27
+  br i1 %77, label %.lr.ph75, label %.loopexit, !llvm.loop !25
 
 78:                                               ; preds = %47
   %79 = call ptr @strstr(ptr noundef %41, ptr noundef %8) #26
@@ -4918,7 +4918,7 @@ cf_read_record.exit:                              ; preds = %4
 80:                                               ; preds = %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !26
 
 .loopexit:                                        ; preds = %80, %74, %.lr.ph75, %70, %20, %.preheader, %78, %45
   %.057.shrunk = phi i1 [ %46, %45 ], [ %.not63, %78 ], [ false, %.preheader ], [ false, %20 ], [ false, %74 ], [ false, %.lr.ph75 ], [ true, %70 ], [ false, %80 ]
@@ -4956,13 +4956,13 @@ define hidden noundef zeroext i1 @cf_find_packet_data(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %17 = load i8, ptr %16, align 1, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 1, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %54
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %21 = load i8, ptr %20, align 8, !range !10, !noundef !11
+  %21 = load i8, ptr %20, align 8, !range !9, !noundef !10
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %41
 
@@ -5246,7 +5246,7 @@ cf_read_record.exit:                              ; preds = %4
 25:                                               ; preds = %27
   %26 = add nsw i64 %.121, -1
   %.not18 = icmp eq i64 %26, 0
-  br i1 %.not18, label %.loopexit, label %27, !llvm.loop !29
+  br i1 %.not18, label %.loopexit, label %27, !llvm.loop !27
 
 27:                                               ; preds = %.lr.ph, %25
   %.121 = phi i64 [ %.0, %.lr.ph ], [ %26, %25 ]
@@ -5387,7 +5387,7 @@ cf_read_record.exit:                              ; preds = %4
   %61 = and i64 %51, 4294967295
   %62 = getelementptr i8, ptr %41, i64 %61
   %63 = icmp ult ptr %62, %29
-  br i1 %63, label %.lr.ph, label %.lr.ph89.preheader, !llvm.loop !30
+  br i1 %63, label %.lr.ph, label %.lr.ph89.preheader, !llvm.loop !28
 
 .lr.ph89.preheader:                               ; preds = %60, %.lr.ph
   br label %.lr.ph89
@@ -5435,12 +5435,12 @@ cf_read_record.exit:                              ; preds = %4
   %88 = getelementptr i8, ptr %41, i64 %87
   %89 = icmp ult ptr %88, %29
   %or.cond = select i1 %.not78, i1 %89, i1 false
-  br i1 %or.cond, label %.lr.ph89, label %._crit_edge90, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph89, label %._crit_edge90, !llvm.loop !29
 
 ._crit_edge90:                                    ; preds = %.lr.ph89, %80, %84, %.preheader
   %90 = getelementptr i8, ptr %41, i64 1
   %91 = icmp ult ptr %90, %29
-  br i1 %91, label %38, label %.loopexit, !llvm.loop !32
+  br i1 %91, label %38, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %._crit_edge90, %38, %22, %cf_read_record.exit, %53, %73
   %.065 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 1, %73 ], [ 0, %22 ], [ 0, %38 ], [ 0, %._crit_edge90 ]
@@ -5572,7 +5572,7 @@ cf_read_record.exit:                              ; preds = %4
   %68 = and i64 %59, 4294967295
   %69 = getelementptr i8, ptr %49, i64 %68
   %70 = icmp ult ptr %69, %31
-  br i1 %70, label %.lr.ph, label %.lr.ph99.preheader, !llvm.loop !33
+  br i1 %70, label %.lr.ph, label %.lr.ph99.preheader, !llvm.loop !31
 
 .lr.ph99.preheader:                               ; preds = %67, %.lr.ph
   br label %.lr.ph99
@@ -5619,12 +5619,12 @@ cf_read_record.exit:                              ; preds = %4
   %94 = getelementptr i8, ptr %49, i64 %93
   %95 = icmp ult ptr %94, %31
   %or.cond = select i1 %.not86, i1 %95, i1 false
-  br i1 %or.cond, label %.lr.ph99, label %._crit_edge100, !llvm.loop !34
+  br i1 %or.cond, label %.lr.ph99, label %._crit_edge100, !llvm.loop !32
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %86, %90, %.preheader
   %96 = getelementptr i8, ptr %49, i64 -1
   %.not84 = icmp ult ptr %96, %30
-  br i1 %.not84, label %.loopexit, label %46, !llvm.loop !35
+  br i1 %.not84, label %.loopexit, label %46, !llvm.loop !33
 
 .loopexit:                                        ; preds = %._crit_edge100, %46, %44, %cf_read_record.exit, %61, %80, %22
   %.069 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %22 ], [ 1, %61 ], [ 1, %80 ], [ 0, %44 ], [ 0, %46 ], [ 0, %._crit_edge100 ]
@@ -5736,12 +5736,12 @@ cf_read_record.exit:                              ; preds = %4
   %61 = and i64 %51, 4294967295
   %62 = getelementptr i8, ptr %41, i64 %61
   %63 = icmp ult ptr %62, %29
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60, %.preheader
   %64 = getelementptr i8, ptr %41, i64 1
   %65 = icmp ult ptr %64, %29
-  br i1 %65, label %38, label %.loopexit, !llvm.loop !37
+  br i1 %65, label %38, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %38, %22, %cf_read_record.exit, %53
   %.042 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 0, %22 ], [ 0, %38 ], [ 0, %._crit_edge ]
@@ -5873,12 +5873,12 @@ cf_read_record.exit:                              ; preds = %4
   %68 = and i64 %59, 4294967295
   %69 = getelementptr i8, ptr %49, i64 %68
   %70 = icmp ult ptr %69, %31
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67, %.preheader
   %71 = getelementptr i8, ptr %49, i64 -1
   %.not56 = icmp ult ptr %71, %30
-  br i1 %.not56, label %.loopexit, label %46, !llvm.loop !39
+  br i1 %.not56, label %.loopexit, label %46, !llvm.loop !37
 
 .loopexit:                                        ; preds = %._crit_edge, %46, %44, %cf_read_record.exit, %61, %22
   %.046 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %22 ], [ 1, %61 ], [ 0, %44 ], [ 0, %46 ], [ 0, %._crit_edge ]
@@ -6001,12 +6001,12 @@ cf_read_record.exit:                              ; preds = %4
   %68 = getelementptr i8, ptr %41, i64 %67
   %69 = icmp ult ptr %68, %29
   %or.cond = select i1 %.not58, i1 %69, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60, %64, %.preheader
   %70 = getelementptr i8, ptr %41, i64 1
   %71 = icmp ult ptr %70, %29
-  br i1 %71, label %38, label %.loopexit, !llvm.loop !41
+  br i1 %71, label %38, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %._crit_edge, %38, %22, %cf_read_record.exit, %53
   %.048 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 0, %22 ], [ 0, %38 ], [ 0, %._crit_edge ]
@@ -6149,12 +6149,12 @@ cf_read_record.exit:                              ; preds = %4
   %75 = getelementptr i8, ptr %49, i64 %74
   %76 = icmp ult ptr %75, %31
   %or.cond = select i1 %.not66, i1 %76, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67, %71, %.preheader
   %77 = getelementptr i8, ptr %49, i64 -1
   %.not64 = icmp ult ptr %77, %30
-  br i1 %.not64, label %.loopexit, label %46, !llvm.loop !43
+  br i1 %.not64, label %.loopexit, label %46, !llvm.loop !41
 
 .loopexit:                                        ; preds = %._crit_edge, %46, %44, %cf_read_record.exit, %61, %22
   %.052 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %22 ], [ 1, %61 ], [ 0, %44 ], [ 0, %46 ], [ 0, %._crit_edge ]
@@ -6262,7 +6262,7 @@ cf_read_record.exit:                              ; preds = %4
   %60 = and i64 %51, 4294967295
   %61 = getelementptr i8, ptr %42, i64 %60
   %62 = icmp ult ptr %61, %26
-  br i1 %62, label %.lr.ph, label %.lr.ph90.preheader, !llvm.loop !44
+  br i1 %62, label %.lr.ph, label %.lr.ph90.preheader, !llvm.loop !42
 
 .lr.ph90.preheader:                               ; preds = %59, %.lr.ph
   br label %.lr.ph90
@@ -6308,12 +6308,12 @@ cf_read_record.exit:                              ; preds = %4
   %86 = getelementptr i8, ptr %42, i64 %85
   %87 = icmp ult ptr %86, %26
   %or.cond = select i1 %.not79, i1 %87, i1 false
-  br i1 %or.cond, label %.lr.ph90, label %._crit_edge91, !llvm.loop !45
+  br i1 %or.cond, label %.lr.ph90, label %._crit_edge91, !llvm.loop !43
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %78, %82, %.preheader
   %88 = getelementptr i8, ptr %42, i64 1
   %89 = icmp ult ptr %88, %26
-  br i1 %89, label %39, label %.loopexit, !llvm.loop !46
+  br i1 %89, label %39, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge91, %39, %19, %cf_read_record.exit, %53, %71
   %.066 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 1, %71 ], [ 0, %19 ], [ 0, %39 ], [ 0, %._crit_edge91 ]
@@ -6440,7 +6440,7 @@ cf_read_record.exit:                              ; preds = %4
   %68 = and i64 %60, 4294967295
   %69 = getelementptr i8, ptr %51, i64 %68
   %70 = icmp ult ptr %69, %28
-  br i1 %70, label %.lr.ph, label %.lr.ph98.preheader, !llvm.loop !47
+  br i1 %70, label %.lr.ph, label %.lr.ph98.preheader, !llvm.loop !45
 
 .lr.ph98.preheader:                               ; preds = %67, %.lr.ph
   br label %.lr.ph98
@@ -6485,12 +6485,12 @@ cf_read_record.exit:                              ; preds = %4
   %93 = getelementptr i8, ptr %51, i64 %92
   %94 = icmp ult ptr %93, %28
   %or.cond = select i1 %.not85, i1 %94, i1 false
-  br i1 %or.cond, label %.lr.ph98, label %._crit_edge99, !llvm.loop !48
+  br i1 %or.cond, label %.lr.ph98, label %._crit_edge99, !llvm.loop !46
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %85, %89, %.preheader
   %95 = getelementptr i8, ptr %51, i64 1
   %96 = icmp ult ptr %95, %28
-  br i1 %96, label %46, label %.loopexit, !llvm.loop !49
+  br i1 %96, label %46, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %._crit_edge99, %46, %41, %cf_read_record.exit, %62, %79, %19
   %.070 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %19 ], [ 1, %62 ], [ 1, %79 ], [ 0, %41 ], [ 0, %46 ], [ 0, %._crit_edge99 ]
@@ -6677,7 +6677,7 @@ cf_read_record.exit:                              ; preds = %4
 59:                                               ; preds = %50
   %60 = getelementptr i8, ptr %48, i64 -1
   %.not40 = icmp ult ptr %60, %21
-  br i1 %.not40, label %.loopexit, label %42, !llvm.loop !50
+  br i1 %.not40, label %.loopexit, label %42, !llvm.loop !48
 
 .loopexit:                                        ; preds = %42, %59, %40, %cf_read_record.exit, %53, %18
   %.0 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %18 ], [ 1, %53 ], [ 0, %40 ], [ 0, %59 ], [ 0, %42 ]
@@ -6797,12 +6797,12 @@ cf_read_record.exit:                              ; preds = %4
   %68 = getelementptr i8, ptr %42, i64 %67
   %69 = icmp ult ptr %68, %26
   %or.cond = select i1 %.not58, i1 %69, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60, %64, %.preheader
   %70 = getelementptr i8, ptr %42, i64 1
   %71 = icmp ult ptr %70, %26
-  br i1 %71, label %39, label %.loopexit, !llvm.loop !52
+  br i1 %71, label %39, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge, %39, %19, %cf_read_record.exit, %53
   %.047 = phi i32 [ 2, %cf_read_record.exit ], [ 1, %53 ], [ 0, %19 ], [ 0, %39 ], [ 0, %._crit_edge ]
@@ -6942,12 +6942,12 @@ cf_read_record.exit:                              ; preds = %4
   %76 = getelementptr i8, ptr %51, i64 %75
   %77 = icmp ult ptr %76, %28
   %or.cond = select i1 %.not64, i1 %77, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68, %72, %.preheader
   %78 = getelementptr i8, ptr %51, i64 1
   %79 = icmp ult ptr %78, %28
-  br i1 %79, label %46, label %.loopexit, !llvm.loop !54
+  br i1 %79, label %46, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %._crit_edge, %46, %41, %cf_read_record.exit, %62, %19
   %.051 = phi i32 [ 2, %cf_read_record.exit ], [ 0, %19 ], [ 1, %62 ], [ 0, %41 ], [ 0, %46 ], [ 0, %._crit_edge ]
@@ -7137,7 +7137,7 @@ define hidden noundef zeroext i1 @cf_goto_frame(ptr noundef readonly captures(ad
 
 37:                                               ; preds = %.lr.ph
   %38 = add nsw i32 %33, -1
-  br label %49, !llvm.loop !55
+  br label %49, !llvm.loop !53
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 100
@@ -7507,7 +7507,7 @@ define hidden void @cf_update_section_comments(ptr noundef captures(none) %0, i3
 26:                                               ; preds = %17, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %26, %9
   call void @g_free(ptr noundef %2)
@@ -7525,7 +7525,7 @@ define hidden void @cf_update_section_comments(ptr noundef captures(none) %0, i3
   %32 = call i32 @wtap_block_remove_nth_option_instance(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %31)
   store i8 1, ptr %29, align 1
   %33 = icmp ugt i32 %31, %10
-  br i1 %33, label %30, label %.loopexit, !llvm.loop !57
+  br i1 %33, label %30, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %30, %._crit_edge, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
@@ -7672,7 +7672,7 @@ define hidden range(i32 0, 6) i32 @cf_comment_types(ptr noundef readonly capture
   %8 = load ptr, ptr %3, align 8
   %9 = call i32 @wtap_file_get_num_shbs(ptr noundef %8)
   %10 = icmp ult i32 %7, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %1, %6
   %.01113 = phi i32 [ %7, %6 ], [ 0, %1 ]
@@ -7728,7 +7728,7 @@ declare zeroext i1 @wtap_dump_can_write(ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef zeroext i1 @cf_can_save(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %3 = load i8, ptr %2, align 1, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 1, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %9
 
@@ -7740,12 +7740,12 @@ define hidden noundef zeroext i1 @cf_can_save(ptr noundef readonly captures(none
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i8, ptr %10, align 8, !range !10, !noundef !11
+  %11 = load i8, ptr %10, align 8, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = load i8, ptr %2, align 1, !range !10, !noundef !11
+  %14 = load i8, ptr %2, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
@@ -7766,13 +7766,13 @@ define hidden noundef zeroext i1 @cf_can_save_as(ptr noundef readonly captures(n
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i8, ptr %6, align 8, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %11 = load i8, ptr %10, align 1, !range !10, !noundef !11
+  %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %14
 
@@ -7787,7 +7787,7 @@ define hidden noundef zeroext i1 @cf_can_save_as(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @cf_has_unsaved_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
 
@@ -7799,7 +7799,7 @@ define hidden zeroext i1 @cf_has_unsaved_data(ptr noundef readonly captures(none
 
 8:                                                ; preds = %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
+  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   br label %12
 
@@ -7830,7 +7830,7 @@ define hidden range(i32 0, 3) i32 @cf_save_records(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #23
   store i8 0, ptr %16, align 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %20 = load i8, ptr %19, align 1, !range !10, !noundef !11
+  %20 = load i8, ptr %19, align 1, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %23
 
@@ -7853,7 +7853,7 @@ define hidden range(i32 0, 3) i32 @cf_save_records(ptr noundef %0, ptr noundef %
   %28 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %.0.i = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !8
 
 cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %23
   %29 = tail call ptr @get_addrinfo_list()
@@ -7872,7 +7872,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %23
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %40 = load i8, ptr %39, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr %39, align 1, !range !9, !noundef !10
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %73, label %42
 
@@ -7887,7 +7887,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %23
 
 47:                                               ; preds = %44, %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load i8, ptr %48, align 8, !range !10, !noundef !11
+  %49 = load i8, ptr %48, align 8, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %62
 
@@ -8000,7 +8000,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %23
   %107 = getelementptr inbounds nuw i8, ptr %.09.i126, i64 8
   %.0.i127 = load ptr, ptr %107, align 8
   %.not.i128 = icmp eq ptr %.0.i127, null
-  br i1 %.not.i128, label %.thread162, label %.lr.ph.i125, !llvm.loop !9
+  br i1 %.not.i128, label %.thread162, label %.lr.ph.i125, !llvm.loop !8
 
 .thread162:                                       ; preds = %.lr.ph.i125, %102
   call void @wtap_dump_params_cleanup(ptr noundef nonnull %17)
@@ -8064,7 +8064,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %23
 .critedge.thread:                                 ; preds = %69, %124, %.critedge
   %.1108167 = phi i32 [ %.1108, %124 ], [ %.1108, %.critedge ], [ 1, %69 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %126 = load i8, ptr %125, align 8, !range !10, !noundef !11
+  %126 = load i8, ptr %125, align 8, !range !9, !noundef !10
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %.critedge.thread.thread
 
@@ -8091,7 +8091,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %23
   %137 = getelementptr inbounds nuw i8, ptr %.09.i133, i64 8
   %.0.i134 = load ptr, ptr %137, align 8
   %.not.i135 = icmp eq ptr %.0.i134, null
-  br i1 %.not.i135, label %cf_callback_invoke.exit136, label %.lr.ph.i132, !llvm.loop !9
+  br i1 %.not.i135, label %cf_callback_invoke.exit136, label %.lr.ph.i132, !llvm.loop !8
 
 cf_callback_invoke.exit136:                       ; preds = %.lr.ph.i132, %.critedge.thread.thread
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -8126,7 +8126,7 @@ cf_callback_invoke.exit136:                       ; preds = %.lr.ph.i132, %.crit
   %148 = getelementptr inbounds nuw i8, ptr %.09.i140, i64 8
   %.0.i141 = load ptr, ptr %148, align 8
   %.not.i142 = icmp eq ptr %.0.i141, null
-  br i1 %.not.i142, label %cf_callback_invoke.exit143, label %.lr.ph.i139, !llvm.loop !9
+  br i1 %.not.i142, label %cf_callback_invoke.exit143, label %.lr.ph.i139, !llvm.loop !8
 
 149:                                              ; preds = %139
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -8167,12 +8167,12 @@ cf_callback_invoke.exit136:                       ; preds = %.lr.ph.i132, %.crit
   %166 = getelementptr inbounds nuw i8, ptr %.09.i147, i64 8
   %.0.i148 = load ptr, ptr %166, align 8
   %.not.i149 = icmp eq ptr %.0.i148, null
-  br i1 %.not.i149, label %cf_callback_invoke.exit143, label %.lr.ph.i146, !llvm.loop !9
+  br i1 %.not.i149, label %cf_callback_invoke.exit143, label %.lr.ph.i146, !llvm.loop !8
 
 167:                                              ; preds = %139
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %168, align 4
-  %169 = load i8, ptr %16, align 1, !range !10, !noundef !11
+  %169 = load i8, ptr %16, align 1, !range !9, !noundef !10
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %171, label %177
 
@@ -8268,7 +8268,7 @@ cf_callback_invoke.exit136:                       ; preds = %.lr.ph.i132, %.crit
   %214 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
   %.0.i.i = load ptr, ptr %214, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %cf_callback_invoke.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %cf_callback_invoke.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 cf_callback_invoke.exit.i:                        ; preds = %.lr.ph.i.i, %203
   %215 = load ptr, ptr %179, align 8
@@ -8299,7 +8299,7 @@ cf_callback_invoke.exit.i:                        ; preds = %.lr.ph.i.i, %203
   %228 = load ptr, ptr %221, align 8
   %229 = call ptr @frame_data_sequence_find(ptr noundef %228, i32 noundef %227)
   %.not80.us.i = icmp eq ptr %229, null
-  br i1 %.not80.us.i, label %233, label %230, !prof !59
+  br i1 %.not80.us.i, label %233, label %230, !prof !57
 
 230:                                              ; preds = %.lr.ph.split.us.i
   %231 = load i64, ptr %11, align 8
@@ -8405,7 +8405,7 @@ calc_progbar_val.exit91.us.i:                     ; preds = %277, %270, %265
 
 progress_is_slow.exit.thread103.us.i:             ; preds = %calc_progbar_val.exit91.us.i, %progress_is_slow.exit.thread106.us.i, %progress_is_slow.exit.us.i, %241, %240
   %.2.us.i = phi ptr [ %.3109.us.i, %calc_progbar_val.exit91.us.i ], [ %.3109.us.i, %progress_is_slow.exit.thread106.us.i ], [ null, %progress_is_slow.exit.us.i ], [ null, %241 ], [ null, %240 ]
-  %284 = load i8, ptr %217, align 2, !range !10, !noundef !11
+  %284 = load i8, ptr %217, align 2, !range !9, !noundef !10
   %285 = trunc nuw i8 %284 to i1
   br i1 %285, label %progress_is_slow.exit.thread103._crit_edge.i, label %286
 
@@ -8439,7 +8439,7 @@ progress_is_slow.exit.thread103.us.i:             ; preds = %calc_progbar_val.ex
 299:                                              ; preds = %295
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
-  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %295, !llvm.loop !12
+  br i1 %exitcond.not.i.us.i, label %._crit_edge.i.us.i, label %295, !llvm.loop !11
 
 ._crit_edge.i.us.i:                               ; preds = %299, %289
   %300 = call ptr @g_array_append_vals(ptr noundef %291, ptr noundef nonnull %7, i32 noundef 1)
@@ -8453,7 +8453,7 @@ cf_add_encapsulation_type.exit.us.i:              ; preds = %295, %._crit_edge.i
   call void @wtap_rec_reset(ptr noundef nonnull %8)
   %302 = load ptr, ptr %179, align 8
   %303 = call zeroext i1 @wtap_read(ptr noundef %302, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  br i1 %303, label %.lr.ph.split.us.i, label %progress_is_slow.exit.thread103._crit_edge.i, !llvm.loop !60
+  br i1 %303, label %.lr.ph.split.us.i, label %progress_is_slow.exit.thread103._crit_edge.i, !llvm.loop !58
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i153, %327
   %.074110.i = phi i32 [ %304, %327 ], [ 0, %.lr.ph.i153 ]
@@ -8461,7 +8461,7 @@ cf_add_encapsulation_type.exit.us.i:              ; preds = %295, %._crit_edge.i
   %305 = load ptr, ptr %221, align 8
   %306 = call ptr @frame_data_sequence_find(ptr noundef %305, i32 noundef %304)
   %.not80.i = icmp eq ptr %306, null
-  br i1 %.not80.i, label %progress_is_slow.exit.thread103.i, label %307, !prof !59
+  br i1 %.not80.i, label %progress_is_slow.exit.thread103.i, label %307, !prof !57
 
 307:                                              ; preds = %.lr.ph.split.i
   %308 = load i64, ptr %11, align 8
@@ -8470,7 +8470,7 @@ cf_add_encapsulation_type.exit.us.i:              ; preds = %295, %._crit_edge.i
   br label %progress_is_slow.exit.thread103.i
 
 progress_is_slow.exit.thread103.i:                ; preds = %307, %.lr.ph.split.i
-  %310 = load i8, ptr %217, align 2, !range !10, !noundef !11
+  %310 = load i8, ptr %217, align 2, !range !9, !noundef !10
   %311 = trunc nuw i8 %310 to i1
   br i1 %311, label %progress_is_slow.exit.thread103._crit_edge.i, label %312
 
@@ -8497,7 +8497,7 @@ progress_is_slow.exit.thread103.i:                ; preds = %307, %.lr.ph.split.
 321:                                              ; preds = %322
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %322, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %322, !llvm.loop !11
 
 322:                                              ; preds = %321, %.lr.ph.i93.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i93.i ], [ %indvars.iv.next.i.i, %321 ]
@@ -8518,7 +8518,7 @@ cf_add_encapsulation_type.exit.i:                 ; preds = %322, %._crit_edge.i
   call void @wtap_rec_reset(ptr noundef nonnull %8)
   %328 = load ptr, ptr %179, align 8
   %329 = call zeroext i1 @wtap_read(ptr noundef %328, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  br i1 %329, label %.lr.ph.split.i, label %progress_is_slow.exit.thread103._crit_edge.i, !llvm.loop !62
+  br i1 %329, label %.lr.ph.split.i, label %progress_is_slow.exit.thread103._crit_edge.i, !llvm.loop !60
 
 progress_is_slow.exit.thread103._crit_edge.i:     ; preds = %327, %progress_is_slow.exit.thread103.i, %301, %progress_is_slow.exit.thread103.us.i, %cf_callback_invoke.exit.i
   %.1.i = phi ptr [ null, %cf_callback_invoke.exit.i ], [ %.2.us.i, %progress_is_slow.exit.thread103.us.i ], [ %.2.us.i, %301 ], [ null, %progress_is_slow.exit.thread103.i ], [ null, %327 ]
@@ -8560,10 +8560,10 @@ progress_is_slow.exit.thread103._crit_edge.i:     ; preds = %327, %progress_is_s
   %345 = getelementptr inbounds nuw i8, ptr %.09.i97.i, i64 8
   %.0.i98.i = load ptr, ptr %345, align 8
   %.not.i99.i = icmp eq ptr %.0.i98.i, null
-  br i1 %.not.i99.i, label %cf_callback_invoke.exit101.i, label %.lr.ph.i96.i, !llvm.loop !9
+  br i1 %.not.i99.i, label %cf_callback_invoke.exit101.i, label %.lr.ph.i96.i, !llvm.loop !8
 
 cf_callback_invoke.exit101.i:                     ; preds = %.lr.ph.i96.i, %331
-  %346 = load i8, ptr %217, align 2, !range !10, !noundef !11
+  %346 = load i8, ptr %217, align 2, !range !9, !noundef !10
   %347 = trunc nuw i8 %346 to i1
   br i1 %347, label %352, label %348
 
@@ -8624,7 +8624,7 @@ cf_callback_invoke.exit143:                       ; preds = %.lr.ph.i146, %.lr.p
   %365 = add i32 %.0109184, 1
   %366 = load i32, ptr %356, align 8
   %.not120 = icmp ugt i32 %365, %366
-  br i1 %.not120, label %._crit_edge, label %359, !llvm.loop !63
+  br i1 %.not120, label %._crit_edge, label %359, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %359, %353
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -8668,7 +8668,7 @@ cf_callback_invoke.exit143:                       ; preds = %.lr.ph.i146, %.lr.p
   %379 = getelementptr inbounds nuw i8, ptr %.09.i157, i64 8
   %.0.i158 = load ptr, ptr %379, align 8
   %.not.i159 = icmp eq ptr %.0.i158, null
-  br i1 %.not.i159, label %cf_callback_invoke.exit160, label %.lr.ph.i156, !llvm.loop !9
+  br i1 %.not.i159, label %cf_callback_invoke.exit160, label %.lr.ph.i156, !llvm.loop !8
 
 cf_callback_invoke.exit160:                       ; preds = %.lr.ph.i156, %.thread171, %.thread162, %cf_callback_invoke.exit136, %370, %cf_callback_invoke.exit143
   %.1 = phi i32 [ 0, %cf_callback_invoke.exit143 ], [ 0, %370 ], [ 0, %cf_callback_invoke.exit136 ], [ 2, %.thread162 ], [ 1, %.thread171 ], [ 1, %.lr.ph.i156 ]
@@ -8797,7 +8797,7 @@ define internal noundef zeroext i1 @save_record(ptr noundef %0, ptr noundef %1, 
 
 47:                                               ; preds = %32
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %49 = load i8, ptr %48, align 4, !range !10, !noundef !11
+  %49 = load i8, ptr %48, align 4, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %56, label %51
 
@@ -8957,7 +8957,7 @@ define hidden range(i32 0, 2) i32 @cf_reload(ptr noundef %0) local_unnamed_addr 
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %4 = load i8, ptr %3, align 1, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -8970,7 +8970,7 @@ define hidden range(i32 0, 2) i32 @cf_reload(ptr noundef %0) local_unnamed_addr 
 9:                                                ; preds = %1
   %10 = tail call noalias ptr @g_strdup(ptr noundef %7)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
+  %12 = load i8, ptr %11, align 8, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   store i8 0, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -9334,61 +9334,59 @@ attributes #28 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = distinct !{!53, !7, !8}
-!54 = distinct !{!54, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
 !55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
-!59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!60 = distinct !{!60, !7, !8, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !7, !8}
-!63 = distinct !{!63, !7, !8}
+!56 = distinct !{!56, !7}
+!57 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!58 = distinct !{!58, !7, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}

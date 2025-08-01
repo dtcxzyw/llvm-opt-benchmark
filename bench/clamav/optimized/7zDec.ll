@@ -407,7 +407,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
   %214 = add i64 %213, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %GetSum.exit.i, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %GetSum.exit.i, label %.lr.ph.i.i
 
 GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.thread287.i, %.thread.i
   %.0182295312.i = phi i64 [ %5, %.thread287.i ], [ %193, %.thread.i ], [ %193, %.lr.ph.i.i ]
@@ -446,7 +446,7 @@ GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.threa
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
   %spec.select.i220.i = call i64 @llvm.umin.i64(i64 %.02137.i.i, i64 262144)
   store i64 %spec.select.i220.i, ptr %24, align 8, !tbaa !33
-  %223 = load ptr, ptr %2, align 8, !tbaa !36
+  %223 = load ptr, ptr %2, align 8, !tbaa !34
   %224 = call i32 %223(ptr noundef nonnull %2, ptr noundef nonnull %23, ptr noundef nonnull %24) #6
   %.not28.i.i = icmp eq i32 %224, 0
   br i1 %.not28.i.i, label %225, label %SzDecodeCopy.exit.i
@@ -457,9 +457,9 @@ GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.threa
   br i1 %227, label %SzDecodeCopy.exit.i, label %228
 
 228:                                              ; preds = %225
-  %229 = load ptr, ptr %23, align 8, !tbaa !38
+  %229 = load ptr, ptr %23, align 8, !tbaa !36
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02336.i.i, ptr align 1 %229, i64 %226, i1 false)
-  %230 = load ptr, ptr %165, align 8, !tbaa !39
+  %230 = load ptr, ptr %165, align 8, !tbaa !37
   %231 = call i32 %230(ptr noundef nonnull %2, i64 noundef %226) #6
   %.not29.i.i = icmp eq i32 %231, 0
   br i1 %.not29.i.i, label %232, label %SzDecodeCopy.exit.i
@@ -470,7 +470,7 @@ GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.threa
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
   %.not.i221.i = icmp eq i64 %233, 0
-  br i1 %.not.i221.i, label %SzDecodeCopy.exit.thread.i, label %.lr.ph.i219.i, !llvm.loop !40
+  br i1 %.not.i221.i, label %SzDecodeCopy.exit.thread.i, label %.lr.ph.i219.i
 
 SzDecodeCopy.exit.i:                              ; preds = %228, %225, %.lr.ph.i219.i
   %.2.ph.i.i = phi i32 [ 6, %225 ], [ %224, %.lr.ph.i219.i ], [ %231, %228 ]
@@ -480,9 +480,9 @@ SzDecodeCopy.exit.i:                              ; preds = %228, %225, %.lr.ph.
 
 235:                                              ; preds = %219
   %236 = getelementptr i8, ptr %185, i64 16
-  %.val.i = load ptr, ptr %236, align 8, !tbaa !41
+  %.val.i = load ptr, ptr %236, align 8, !tbaa !38
   %237 = getelementptr i8, ptr %185, i64 24
-  %.val217.i = load i64, ptr %237, align 8, !tbaa !42
+  %.val217.i = load i64, ptr %237, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %18) #6
   %238 = trunc i64 %.val217.i to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
@@ -495,15 +495,15 @@ SzDecodeLzma.exit.thread.i:                       ; preds = %235
   br label %SzFolder_Decode2.exit
 
 240:                                              ; preds = %235
-  store ptr %.0178296311.i, ptr %167, align 8, !tbaa !43
-  store i64 %.0182295312.i, ptr %168, align 8, !tbaa !47
+  store ptr %.0178296311.i, ptr %167, align 8, !tbaa !40
+  store i64 %.0182295312.i, ptr %168, align 8, !tbaa !44
   call void @LzmaDec_Init(ptr noundef nonnull %18) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
   store ptr null, ptr %19, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
   %spec.select17.i.i = call i64 @llvm.umin.i64(i64 %216, i64 262144)
   store i64 %spec.select17.i.i, ptr %20, align 8, !tbaa !33
-  %241 = load ptr, ptr %2, align 8, !tbaa !36
+  %241 = load ptr, ptr %2, align 8, !tbaa !34
   %242 = call i32 %241(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %20) #6
   %.not4118.i.i = icmp eq i32 %242, 0
   br i1 %.not4118.i.i, label %.lr.ph.i224.i, label %SzDecodeLzma.exit.thread319.i
@@ -513,7 +513,7 @@ SzDecodeLzma.exit.thread.i:                       ; preds = %235
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
   %243 = load i64, ptr %20, align 8, !tbaa !33
   store i64 %243, ptr %21, align 8, !tbaa !33
-  %244 = load i64, ptr %169, align 8, !tbaa !48
+  %244 = load i64, ptr %169, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
   %245 = load ptr, ptr %19, align 8, !tbaa !32
   %246 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %18, i64 noundef %.0182295312.i, ptr noundef %245, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %22) #6
@@ -526,8 +526,8 @@ SzDecodeLzma.exit.thread.i:                       ; preds = %235
   br i1 %.not42.i225.i, label %251, label %SzDecodeLzma.exit.thread324.i
 
 251:                                              ; preds = %.lr.ph.i224.i
-  %252 = load i64, ptr %169, align 8, !tbaa !48
-  %253 = load i64, ptr %168, align 8, !tbaa !47
+  %252 = load i64, ptr %169, align 8, !tbaa !45
+  %253 = load i64, ptr %168, align 8, !tbaa !44
   %254 = icmp eq i64 %252, %253
   br i1 %254, label %258, label %255
 
@@ -546,7 +546,7 @@ SzDecodeLzma.exit.thread.i:                       ; preds = %235
   br i1 %or.cond.i228.i, label %SzDecodeLzma.exit.thread324.i, label %SzDecodeLzma.exit.i
 
 261:                                              ; preds = %255
-  %262 = load ptr, ptr %165, align 8, !tbaa !39
+  %262 = load ptr, ptr %165, align 8, !tbaa !37
   %263 = call i32 %262(ptr noundef nonnull %2, i64 noundef %247) #6
   %.not43.i226.i = icmp eq i32 %263, 0
   br i1 %.not43.i226.i, label %264, label %SzDecodeLzma.exit.thread324.i
@@ -561,10 +561,10 @@ SzDecodeLzma.exit.thread.i:                       ; preds = %235
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
   %spec.select.i227.i = call i64 @llvm.umin.i64(i64 %250, i64 262144)
   store i64 %spec.select.i227.i, ptr %20, align 8, !tbaa !33
-  %265 = load ptr, ptr %2, align 8, !tbaa !36
+  %265 = load ptr, ptr %2, align 8, !tbaa !34
   %266 = call i32 %265(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %20) #6
   %.not41.i.i = icmp eq i32 %266, 0
-  br i1 %.not41.i.i, label %.lr.ph.i224.i, label %SzDecodeLzma.exit.thread319.i, !llvm.loop !49
+  br i1 %.not41.i.i, label %.lr.ph.i224.i, label %SzDecodeLzma.exit.thread319.i
 
 SzDecodeLzma.exit.thread319.i:                    ; preds = %240, %264
   %.0335.i.ph.i = phi i32 [ %266, %264 ], [ %242, %240 ]
@@ -601,28 +601,28 @@ SzDecodeLzma.exit.i:                              ; preds = %258
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %13) #6
   %269 = getelementptr inbounds nuw i8, ptr %185, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
-  %270 = load i64, ptr %269, align 8, !tbaa !42
+  %270 = load i64, ptr %269, align 8, !tbaa !39
   %.not.i231.i = icmp eq i64 %270, 1
   br i1 %.not.i231.i, label %271, label %SzDecodeLzma2.exit.thread.i
 
 271:                                              ; preds = %268
   %272 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %273 = load ptr, ptr %272, align 8, !tbaa !41
-  %274 = load i8, ptr %273, align 1, !tbaa !50
+  %273 = load ptr, ptr %272, align 8, !tbaa !38
+  %274 = load i8, ptr %273, align 1, !tbaa !46
   %275 = call i32 @Lzma2Dec_AllocateProbs(ptr noundef nonnull %13, i8 noundef zeroext %274, ptr noundef %6) #6
   %.not41.i233.i = icmp eq i32 %275, 0
   br i1 %.not41.i233.i, label %276, label %SzDecodeLzma2.exit.thread.i
 
 276:                                              ; preds = %271
-  store ptr %.0178296311.i, ptr %161, align 8, !tbaa !51
-  store i64 %.0182295312.i, ptr %163, align 8, !tbaa !53
+  store ptr %.0178296311.i, ptr %161, align 8, !tbaa !47
+  store i64 %.0182295312.i, ptr %163, align 8, !tbaa !49
   call void @Lzma2Dec_Init(ptr noundef nonnull %13) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
   store ptr null, ptr %14, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
   %spec.select64.i234.i = call i64 @llvm.umin.i64(i64 %216, i64 262144)
   store i64 %spec.select64.i234.i, ptr %15, align 8, !tbaa !33
-  %277 = load ptr, ptr %2, align 8, !tbaa !36
+  %277 = load ptr, ptr %2, align 8, !tbaa !34
   %278 = call i32 %277(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15) #6
   %.not4265.i.i = icmp eq i32 %278, 0
   br i1 %.not4265.i.i, label %.lr.ph.i236.i, label %SzDecodeLzma2.exit.thread332.i
@@ -632,7 +632,7 @@ SzDecodeLzma.exit.i:                              ; preds = %258
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
   %279 = load i64, ptr %15, align 8, !tbaa !33
   store i64 %279, ptr %16, align 8, !tbaa !33
-  %280 = load i64, ptr %164, align 8, !tbaa !54
+  %280 = load i64, ptr %164, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
   %281 = load ptr, ptr %14, align 8, !tbaa !32
   %282 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %13, i64 noundef %.0182295312.i, ptr noundef %281, ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %17) #6
@@ -645,8 +645,8 @@ SzDecodeLzma.exit.i:                              ; preds = %258
   br i1 %.not43.i237.i, label %287, label %SzDecodeLzma2.exit.thread337.i
 
 287:                                              ; preds = %.lr.ph.i236.i
-  %288 = load i64, ptr %164, align 8, !tbaa !54
-  %289 = load i64, ptr %163, align 8, !tbaa !53
+  %288 = load i64, ptr %164, align 8, !tbaa !50
+  %289 = load i64, ptr %163, align 8, !tbaa !49
   %290 = icmp eq i64 %288, %289
   br i1 %290, label %SzDecodeLzma2.exit.i, label %291
 
@@ -657,7 +657,7 @@ SzDecodeLzma.exit.i:                              ; preds = %258
   br i1 %or.cond45.i.i, label %SzDecodeLzma2.exit.i, label %294
 
 294:                                              ; preds = %291
-  %295 = load ptr, ptr %165, align 8, !tbaa !39
+  %295 = load ptr, ptr %165, align 8, !tbaa !37
   %296 = call i32 %295(ptr noundef nonnull %2, i64 noundef %283) #6
   %.not44.i239.i = icmp eq i32 %296, 0
   br i1 %.not44.i239.i, label %297, label %SzDecodeLzma2.exit.thread337.i
@@ -672,10 +672,10 @@ SzDecodeLzma.exit.i:                              ; preds = %258
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
   %spec.select.i240.i = call i64 @llvm.umin.i64(i64 %286, i64 262144)
   store i64 %spec.select.i240.i, ptr %15, align 8, !tbaa !33
-  %298 = load ptr, ptr %2, align 8, !tbaa !36
+  %298 = load ptr, ptr %2, align 8, !tbaa !34
   %299 = call i32 %298(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15) #6
   %.not42.i241.i = icmp eq i32 %299, 0
-  br i1 %.not42.i241.i, label %.lr.ph.i236.i, label %SzDecodeLzma2.exit.thread332.i, !llvm.loop !55
+  br i1 %.not42.i241.i, label %.lr.ph.i236.i, label %SzDecodeLzma2.exit.thread332.i
 
 SzDecodeLzma2.exit.thread.i:                      ; preds = %271, %268
   %.0.i232.ph.i = phi i32 [ 1, %268 ], [ %275, %271 ]
@@ -720,21 +720,21 @@ SzDecodeLzma2.exit.i:                             ; preds = %291, %287
 304:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(i64 19184, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #6
-  store ptr @ReadByte, ptr %11, align 8, !tbaa !56
-  store ptr %2, ptr %170, align 8, !tbaa !59
+  store ptr @ReadByte, ptr %11, align 8, !tbaa !51
+  store ptr %2, ptr %170, align 8, !tbaa !54
   %305 = getelementptr inbounds nuw i8, ptr %185, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %171, i8 0, i64 40, i1 false)
-  %306 = load i64, ptr %305, align 8, !tbaa !42
+  %306 = load i64, ptr %305, align 8, !tbaa !39
   %.not.i243.i = icmp eq i64 %306, 5
   br i1 %.not.i243.i, label %307, label %SzDecodePpmd.exit.thread.i
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %309 = load ptr, ptr %308, align 8, !tbaa !41
-  %310 = load i8, ptr %309, align 1, !tbaa !50
+  %309 = load ptr, ptr %308, align 8, !tbaa !38
+  %310 = load i8, ptr %309, align 1, !tbaa !46
   %311 = zext i8 %310 to i32
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 1
-  %313 = load i32, ptr %312, align 1, !tbaa !50
+  %313 = load i32, ptr %312, align 1, !tbaa !46
   %314 = add i8 %310, -65
   %or.cond.i246.i = icmp ult i8 %314, -63
   %315 = add i32 %313, 36
@@ -752,13 +752,13 @@ SzDecodeLzma2.exit.i:                             ; preds = %291, %287
   call void @Ppmd7_Init(ptr noundef nonnull %10, i32 noundef %311) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
   call void @Ppmd7z_RangeDec_CreateVTable(ptr noundef nonnull %12) #6
-  store ptr %11, ptr %175, align 8, !tbaa !60
+  store ptr %11, ptr %175, align 8, !tbaa !55
   %320 = call i32 @Ppmd7z_RangeDec_Init(ptr noundef nonnull %12) #6
   %.not44.i248.i = icmp eq i32 %320, 0
   br i1 %.not44.i248.i, label %SzDecodePpmd.exit.thread345.i, label %321
 
 321:                                              ; preds = %319
-  %322 = load i32, ptr %173, align 8, !tbaa !63
+  %322 = load i32, ptr %173, align 8, !tbaa !58
   %.not45.i249.i = icmp eq i32 %322, 0
   br i1 %.not45.i249.i, label %.preheader.i.i, label %323
 
@@ -768,14 +768,14 @@ SzDecodeLzma2.exit.i:                             ; preds = %291, %287
 
 323:                                              ; preds = %321
   %324 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  %325 = load i32, ptr %324, align 4, !tbaa !64
+  %325 = load i32, ptr %324, align 4, !tbaa !59
   %326 = call i32 @llvm.umax.i32(i32 %325, i32 1)
   br label %SzDecodePpmd.exit.thread345.i
 
 .lr.ph.i251.i:                                    ; preds = %.preheader.i.i, %331
   %.03556.i.i = phi i64 [ %334, %331 ], [ 0, %.preheader.i.i ]
   %327 = call i32 @Ppmd7_DecodeSymbol(ptr noundef nonnull %10, ptr noundef nonnull %12) #6
-  %328 = load i32, ptr %173, align 8, !tbaa !63
+  %328 = load i32, ptr %173, align 8, !tbaa !58
   %329 = icmp ne i32 %328, 0
   %330 = icmp slt i32 %327, 0
   %or.cond7.i.i = select i1 %329, i1 true, i1 %330
@@ -784,10 +784,10 @@ SzDecodeLzma2.exit.i:                             ; preds = %291, %287
 331:                                              ; preds = %.lr.ph.i251.i
   %332 = trunc i32 %327 to i8
   %333 = getelementptr inbounds nuw i8, ptr %.0178296311.i, i64 %.03556.i.i
-  store i8 %332, ptr %333, align 1, !tbaa !50
+  store i8 %332, ptr %333, align 1, !tbaa !46
   %334 = add nuw i64 %.03556.i.i, 1
   %exitcond.not.i252.i = icmp eq i64 %334, %.0182295312.i
-  br i1 %exitcond.not.i252.i, label %SzDecodePpmd.exit.i, label %.lr.ph.i251.i, !llvm.loop !65
+  br i1 %exitcond.not.i252.i, label %SzDecodePpmd.exit.i, label %.lr.ph.i251.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i251.i
   %335 = icmp eq i64 %.03556.i.i, %.0182295312.i
@@ -795,7 +795,7 @@ SzDecodeLzma2.exit.i:                             ; preds = %291, %287
 
 336:                                              ; preds = %._crit_edge.i.i
   %337 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  %338 = load i32, ptr %337, align 4, !tbaa !64
+  %338 = load i32, ptr %337, align 4, !tbaa !59
   %339 = call i32 @llvm.umax.i32(i32 %338, i32 1)
   br label %SzDecodePpmd.exit.thread345.i
 
@@ -814,9 +814,9 @@ SzDecodePpmd.exit.thread345.i:                    ; preds = %319, %336, %323
   br label %SzFolder_Decode2.exit
 
 SzDecodePpmd.exit.i:                              ; preds = %331, %._crit_edge.i.i, %.preheader.i.i
-  %340 = load i64, ptr %174, align 8, !tbaa !66
-  %341 = load ptr, ptr %171, align 8, !tbaa !67
-  %342 = load ptr, ptr %172, align 8, !tbaa !68
+  %340 = load i64, ptr %174, align 8, !tbaa !60
+  %341 = load ptr, ptr %171, align 8, !tbaa !61
+  %342 = load ptr, ptr %172, align 8, !tbaa !62
   %343 = ptrtoint ptr %341 to i64
   %344 = ptrtoint ptr %342 to i64
   %345 = add i64 %340, %343
@@ -868,7 +868,7 @@ SzDecodePpmd.exit.i:                              ; preds = %331, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   %spec.select.i267.i = call i64 @llvm.umin.i64(i64 %.02137.i265.i, i64 262144)
   store i64 %spec.select.i267.i, ptr %9, align 8, !tbaa !33
-  %363 = load ptr, ptr %2, align 8, !tbaa !36
+  %363 = load ptr, ptr %2, align 8, !tbaa !34
   %364 = call i32 %363(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %9) #6
   %.not28.i268.i = icmp eq i32 %364, 0
   br i1 %.not28.i268.i, label %365, label %SzDecodeCopy.exit274.i
@@ -879,9 +879,9 @@ SzDecodePpmd.exit.i:                              ; preds = %331, %._crit_edge.i
   br i1 %367, label %SzDecodeCopy.exit274.i, label %368
 
 368:                                              ; preds = %365
-  %369 = load ptr, ptr %8, align 8, !tbaa !38
+  %369 = load ptr, ptr %8, align 8, !tbaa !36
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02336.i266.i, ptr align 1 %369, i64 %366, i1 false)
-  %370 = load ptr, ptr %165, align 8, !tbaa !39
+  %370 = load ptr, ptr %165, align 8, !tbaa !37
   %371 = call i32 %370(ptr noundef nonnull %2, i64 noundef %366) #6
   %.not29.i272.i = icmp eq i32 %371, 0
   br i1 %.not29.i272.i, label %372, label %SzDecodeCopy.exit274.i
@@ -892,7 +892,7 @@ SzDecodePpmd.exit.i:                              ; preds = %331, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   %.not.i273.i = icmp eq i64 %373, 0
-  br i1 %.not.i273.i, label %.loopexit.i, label %.lr.ph.i264.i, !llvm.loop !40
+  br i1 %.not.i273.i, label %.loopexit.i, label %.lr.ph.i264.i
 
 SzDecodeCopy.exit274.i:                           ; preds = %368, %365, %.lr.ph.i264.i
   %.2.ph.i270.i = phi i32 [ 6, %365 ], [ %364, %.lr.ph.i264.i ], [ %371, %368 ]
@@ -937,7 +937,7 @@ SzDecodeCopy.exit.thread.i:                       ; preds = %232, %384, %382, %.
   %386 = load i32, ptr %28, align 8, !tbaa !3
   %387 = zext i32 %386 to i64
   %388 = icmp samesign ult i64 %indvars.iv.next.i, %387
-  br i1 %388, label %182, label %SzFolder_Decode2.exit, !llvm.loop !69
+  br i1 %388, label %182, label %SzFolder_Decode2.exit
 
 CheckSupportedFolder.exit.thread.loopexit.split.loop.exit431.i: ; preds = %SzDecodeLzma.exit.i
   %switch.selectcmp.case1.i229.le.i = icmp ne i32 %267, 4
@@ -952,13 +952,13 @@ SzFolder_Decode2.exit:                            ; preds = %197, %202, %204, %2
 
 391:                                              ; preds = %SzFolder_Decode2.exit, %391
   %indvars.iv = phi i64 [ 0, %SzFolder_Decode2.exit ], [ %indvars.iv.next, %391 ]
-  %392 = load ptr, ptr %390, align 8, !tbaa !70
+  %392 = load ptr, ptr %390, align 8, !tbaa !63
   %393 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv
   %394 = load ptr, ptr %393, align 8, !tbaa !32
   call void %392(ptr noundef %6, ptr noundef %394) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %395, label %391, !llvm.loop !71
+  br i1 %exitcond.not, label %395, label %391
 
 395:                                              ; preds = %391
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #6
@@ -1003,51 +1003,51 @@ declare i32 @Lzma2Dec_DecodeToDic(ptr noundef, i64 noundef, ptr noundef, ptr nou
 define internal zeroext i8 @ReadByte(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !67
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %8, ptr %3, align 8, !tbaa !67
-  %9 = load i8, ptr %4, align 1, !tbaa !50
+  store ptr %8, ptr %3, align 8, !tbaa !61
+  %9 = load i8, ptr %4, align 1, !tbaa !46
   br label %39
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %12 = load i32, ptr %11, align 4, !tbaa !64
+  %12 = load i32, ptr %11, align 4, !tbaa !59
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %37
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %16 = load ptr, ptr %15, align 8, !tbaa !62
   %17 = ptrtoint ptr %4 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i64, ptr %20, align 8, !tbaa !66
+  %21 = load i64, ptr %20, align 8, !tbaa !60
   %22 = add i64 %21, %19
-  store i64 %22, ptr %20, align 8, !tbaa !66
+  store i64 %22, ptr %20, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = tail call i32 %26(ptr noundef %24, i64 noundef %19) #6
-  store i32 %27, ptr %11, align 4, !tbaa !64
+  store i32 %27, ptr %11, align 4, !tbaa !59
   store i64 33554432, ptr %2, align 8, !tbaa !33
-  %28 = load ptr, ptr %23, align 8, !tbaa !59
-  %29 = load ptr, ptr %28, align 8, !tbaa !36
+  %28 = load ptr, ptr %23, align 8, !tbaa !54
+  %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = call i32 %29(ptr noundef nonnull %28, ptr noundef nonnull %15, ptr noundef nonnull %2) #6
-  store i32 %30, ptr %11, align 4, !tbaa !64
-  %31 = load ptr, ptr %15, align 8, !tbaa !68
-  store ptr %31, ptr %3, align 8, !tbaa !67
+  store i32 %30, ptr %11, align 4, !tbaa !59
+  %31 = load ptr, ptr %15, align 8, !tbaa !62
+  store ptr %31, ptr %3, align 8, !tbaa !61
   %32 = load i64, ptr %2, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
-  store ptr %33, ptr %5, align 8, !tbaa !72
+  store ptr %33, ptr %5, align 8, !tbaa !64
   %.not24 = icmp eq i64 %32, 0
   br i1 %.not24, label %.thread, label %34
 
@@ -1057,14 +1057,14 @@ define internal zeroext i8 @ReadByte(ptr noundef %0) #0 {
 
 34:                                               ; preds = %14
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %35, ptr %3, align 8, !tbaa !67
-  %36 = load i8, ptr %31, align 1, !tbaa !50
+  store ptr %35, ptr %3, align 8, !tbaa !61
+  %36 = load i8, ptr %31, align 1, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   br label %39
 
 37:                                               ; preds = %.thread, %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %38, align 8, !tbaa !63
+  store i32 1, ptr %38, align 8, !tbaa !58
   br label %39
 
 39:                                               ; preds = %34, %37, %7
@@ -1136,42 +1136,34 @@ attributes #6 = { nounwind }
 !31 = !{!"", !5, i64 0, !5, i64 8}
 !32 = !{!16, !16, i64 0}
 !33 = !{!17, !17, i64 0}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !5, i64 0}
-!37 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
-!38 = !{!5, !5, i64 0}
-!39 = !{!37, !5, i64 8}
-!40 = distinct !{!40, !35}
-!41 = !{!13, !16, i64 16}
-!42 = !{!13, !17, i64 24}
-!43 = !{!44, !16, i64 24}
-!44 = !{!"", !45, i64 0, !46, i64 16, !16, i64 24, !16, i64 32, !10, i64 40, !10, i64 44, !17, i64 48, !17, i64 56, !10, i64 64, !10, i64 68, !10, i64 72, !6, i64 76, !10, i64 92, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !6, i64 112}
-!45 = !{!"_CLzmaProps", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!46 = !{!"p1 short", !5, i64 0}
-!47 = !{!44, !17, i64 56}
-!48 = !{!44, !17, i64 48}
-!49 = distinct !{!49, !35}
-!50 = !{!6, !6, i64 0}
-!51 = !{!52, !16, i64 24}
-!52 = !{!"", !44, i64 0, !10, i64 136, !10, i64 140, !10, i64 144, !6, i64 148, !10, i64 152, !10, i64 156, !10, i64 160}
-!53 = !{!52, !17, i64 56}
-!54 = !{!52, !17, i64 48}
-!55 = distinct !{!55, !35}
-!56 = !{!57, !5, i64 0}
-!57 = !{!"", !58, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !14, i64 32, !10, i64 40, !10, i64 44, !5, i64 48}
-!58 = !{!"", !5, i64 0}
-!59 = !{!57, !5, i64 48}
-!60 = !{!61, !5, i64 32}
-!61 = !{!"", !62, i64 0, !10, i64 24, !10, i64 28, !5, i64 32}
-!62 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
-!63 = !{!57, !10, i64 40}
-!64 = !{!57, !10, i64 44}
-!65 = distinct !{!65, !35}
-!66 = !{!57, !14, i64 32}
-!67 = !{!57, !16, i64 8}
-!68 = !{!57, !16, i64 24}
-!69 = distinct !{!69, !35}
-!70 = !{!31, !5, i64 8}
-!71 = distinct !{!71, !35}
-!72 = !{!57, !16, i64 16}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!36 = !{!5, !5, i64 0}
+!37 = !{!35, !5, i64 8}
+!38 = !{!13, !16, i64 16}
+!39 = !{!13, !17, i64 24}
+!40 = !{!41, !16, i64 24}
+!41 = !{!"", !42, i64 0, !43, i64 16, !16, i64 24, !16, i64 32, !10, i64 40, !10, i64 44, !17, i64 48, !17, i64 56, !10, i64 64, !10, i64 68, !10, i64 72, !6, i64 76, !10, i64 92, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !6, i64 112}
+!42 = !{!"_CLzmaProps", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!43 = !{!"p1 short", !5, i64 0}
+!44 = !{!41, !17, i64 56}
+!45 = !{!41, !17, i64 48}
+!46 = !{!6, !6, i64 0}
+!47 = !{!48, !16, i64 24}
+!48 = !{!"", !41, i64 0, !10, i64 136, !10, i64 140, !10, i64 144, !6, i64 148, !10, i64 152, !10, i64 156, !10, i64 160}
+!49 = !{!48, !17, i64 56}
+!50 = !{!48, !17, i64 48}
+!51 = !{!52, !5, i64 0}
+!52 = !{!"", !53, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !14, i64 32, !10, i64 40, !10, i64 44, !5, i64 48}
+!53 = !{!"", !5, i64 0}
+!54 = !{!52, !5, i64 48}
+!55 = !{!56, !5, i64 32}
+!56 = !{!"", !57, i64 0, !10, i64 24, !10, i64 28, !5, i64 32}
+!57 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16}
+!58 = !{!52, !10, i64 40}
+!59 = !{!52, !10, i64 44}
+!60 = !{!52, !14, i64 32}
+!61 = !{!52, !16, i64 8}
+!62 = !{!52, !16, i64 24}
+!63 = !{!31, !5, i64 8}
+!64 = !{!52, !16, i64 16}

@@ -334,7 +334,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_constructor2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.c160ce05be1254bab33d8aa99a7c1e66.7, i64 1)
   %59 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd350a9020d7bdcecE"(ptr nonnull align 8 %11)
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %._crit_edge, label %49, !llvm.loop !7
+  br i1 %60, label %._crit_edge, label %49
 
 61:                                               ; preds = %56, %52
   %62 = landingpad { ptr, i32 }
@@ -507,7 +507,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings12gen_enum_all28_$
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %2, ptr nonnull align 8 %8)
   %28 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE"(ptr nonnull align 8 %9)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %._crit_edge, label %16, !llvm.loop !9
+  br i1 %29, label %._crit_edge, label %16
 
 30:                                               ; preds = %25, %21
   %31 = landingpad { ptr, i32 }
@@ -607,7 +607,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings19gen_to_and_from_
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %2, ptr nonnull align 8 %8)
   %31 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE"(ptr nonnull align 8 %10)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %._crit_edge, label %19, !llvm.loop !10
+  br i1 %32, label %._crit_edge, label %19
 
 33:                                               ; preds = %28, %24
   %34 = landingpad { ptr, i32 }
@@ -709,7 +709,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings19gen_to_and_from_
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %2, ptr nonnull align 8 %8)
   %31 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE"(ptr nonnull align 8 %10)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %._crit_edge, label %19, !llvm.loop !11
+  br i1 %32, label %._crit_edge, label %19
 
 33:                                               ; preds = %28, %24
   %34 = landingpad { ptr, i32 }
@@ -797,7 +797,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings14gen_enum_types28
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %7)
   %36 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE"(ptr nonnull align 8 %12)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %._crit_edge, label %23, !llvm.loop !12
+  br i1 %37, label %._crit_edge, label %23
 
 38:                                               ; preds = %33, %29
   %39 = landingpad { ptr, i32 }
@@ -981,7 +981,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings10gen_getter28_$u7
 61:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   invoke void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h044ad9f18ebbc34dE(ptr nonnull align 8 %18, ptr nonnull align 8 %12, ptr nonnull align 8 %8)
-          to label %36 unwind label %52, !llvm.loop !13
+          to label %36 unwind label %52
 
 62:                                               ; preds = %.thread, %.thread39, %59, %55
   %63 = landingpad { ptr, i32 }
@@ -1083,7 +1083,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings11gen_getters28_$u
   call void @_ZN22cranelift_codegen_meta12gen_settings10gen_getter17h8cf4446a861d1f1aE(ptr nonnull align 8 %24, ptr align 8 %1)
   %25 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9003f7c898a8106bE"(ptr nonnull align 8 %4)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge8:                                     ; preds = %.lr.ph7, %._crit_edge
   ret void
@@ -1093,7 +1093,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings11gen_getters28_$u
   call void @_ZN22cranelift_codegen_meta12gen_settings15gen_pred_getter17h49bd761c555d8033E(ptr nonnull align 8 %27, ptr nonnull align 8 %0, ptr align 8 %1)
   %28 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd350a9020d7bdcecE"(ptr nonnull align 8 %3)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %._crit_edge8, label %.lr.ph7, !llvm.loop !15
+  br i1 %29, label %._crit_edge8, label %.lr.ph7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1197,7 +1197,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
   %40 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3cbf9b4a378107f5E"(ptr nonnull align 8 %8)
   %41 = extractvalue { i64, ptr } %40, 1
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %._crit_edge, label %34, !llvm.loop !16
+  br i1 %42, label %._crit_edge, label %34
 
 ._crit_edge27:                                    ; preds = %43, %._crit_edge
   ret void
@@ -1220,7 +1220,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
   %51 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a3e53ea5c67aa44E"(ptr nonnull align 8 %5)
   %52 = extractvalue { i64, ptr } %51, 1
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %._crit_edge27, label %43, !llvm.loop !17
+  br i1 %53, label %._crit_edge27, label %43
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1265,7 +1265,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %13, ptr nonnull align 8 @anon.c160ce05be1254bab33d8aa99a7c1e66.97, i64 2, ptr nonnull align 8 %12, i64 1)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %14, ptr nonnull align 8 %13)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %14)
-  %28 = load i64, ptr %21, align 8, !range !18, !noundef !3
+  %28 = load i64, ptr %21, align 8, !range !7, !noundef !3
   %29 = xor i64 %28, -9223372036854775808
   %30 = icmp ult i64 %29, 3
   %31 = select i1 %30, i64 %29, i64 1
@@ -1408,7 +1408,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %5)
   %17 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE"(ptr nonnull align 8 %7)
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %._crit_edge, label %15, !llvm.loop !19
+  br i1 %18, label %._crit_edge, label %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1459,7 +1459,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 .backedge:                                        ; preds = %22, %36
   %23 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93bbe789477ed50cE"(ptr nonnull align 8 %10)
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %._crit_edge, label %18, !llvm.loop !20
+  br i1 %24, label %._crit_edge, label %18
 
 25:                                               ; preds = %18
   %26 = call align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb5d84ce77de6fd85E"(ptr align 8 %1, ptr nonnull align 8 %20)
@@ -1667,7 +1667,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
   call void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$u8$C$u8$RP$$GT$$GT$17h9f17cf38b0e1ab32E"(ptr nonnull align 8 %10)
   %70 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7bdda3687d40d99E"(ptr nonnull align 8 %20)
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %._crit_edge, label %42, !llvm.loop !21
+  br i1 %71, label %._crit_edge, label %42
 
 72:                                               ; preds = %66
   %.sroa.332.0.extract.shift = lshr i24 %63, 16
@@ -1705,7 +1705,7 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 
 73:                                               ; preds = %72
   invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %7)
-          to label %62 unwind label %64, !llvm.loop !22
+          to label %62 unwind label %64
 
 74:                                               ; preds = %64, %58, %55, %51, %46
   %75 = landingpad { ptr, i32 }
@@ -2146,19 +2146,4 @@ attributes #9 = { noreturn }
 !4 = !{i64 8}
 !5 = !{i64 0, i64 2}
 !6 = !{i64 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = !{i64 0, i64 -9223372036854775805}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!7 = !{i64 0, i64 -9223372036854775805}

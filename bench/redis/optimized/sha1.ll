@@ -1144,13 +1144,13 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   %14 = lshr i32 %10, %13
   %15 = trunc i32 %14 to i8
   %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv
-  store i8 %15, ptr %16, align 1, !tbaa !12
+  store i8 %15, ptr %16, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %6, !llvm.loop !13
+  br i1 %exitcond.not, label %17, label %6, !llvm.loop !12
 
 17:                                               ; preds = %6
-  store i8 -128, ptr %4, align 1, !tbaa !12
+  store i8 -128, ptr %4, align 1, !tbaa !11
   call void @SHA1Update(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
   %18 = load i32, ptr %5, align 4, !tbaa !5
   %19 = and i32 %18, 504
@@ -1158,12 +1158,12 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
-  store i8 0, ptr %4, align 1, !tbaa !12
+  store i8 0, ptr %4, align 1, !tbaa !11
   call void @SHA1Update(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1)
   %20 = load i32, ptr %5, align 4, !tbaa !5
   %21 = and i32 %20, 504
   %.not = icmp eq i32 %21, 448
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   call void @SHA1Update(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 8)
@@ -1182,10 +1182,10 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   %30 = lshr i32 %26, %29
   %31 = trunc i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv21
-  store i8 %31, ptr %32, align 1, !tbaa !12
+  store i8 %31, ptr %32, align 1, !tbaa !11
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 20
-  br i1 %exitcond24.not, label %33, label %22, !llvm.loop !15
+  br i1 %exitcond24.not, label %33, label %22, !llvm.loop !14
 
 33:                                               ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false)
@@ -1221,10 +1221,9 @@ attributes #8 = { nounwind }
 !6 = !{!"int", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
+!11 = !{!7, !7, i64 0}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}

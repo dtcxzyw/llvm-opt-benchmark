@@ -98,7 +98,7 @@ define hidden void @uv__udp_finish_close(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %7, ptr %5, align 8
   %15 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %15
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %6, %1
   tail call fastcc void @uv__udp_run_completed(ptr noundef nonnull %0)
@@ -181,7 +181,7 @@ define internal fastcc void @uv__udp_run_completed(ptr noundef %0) unnamed_addr 
 .backedge:                                        ; preds = %.backedge.sink.split, %34
   %42 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %5, %42
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %.backedge, %1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -492,7 +492,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
 32:                                               ; preds = %29
   %33 = load i32, ptr %28, align 4
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %29, label %.critedge, !llvm.loop !7
+  br i1 %34, label %29, label %.critedge
 
 .critedge:                                        ; preds = %32, %..critedge_crit_edge
   %35 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %33, %32 ]
@@ -532,7 +532,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr no
 9:                                                ; preds = %5
   %10 = load i32, ptr %3, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !8
+  br i1 %11, label %5, label %.critedge
 
 .critedge:                                        ; preds = %9
   %12 = sub nsw i32 0, %10
@@ -810,7 +810,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 .backedge:                                        ; preds = %10, %._crit_edge.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %10 ], [ 0, %._crit_edge.thread ]
   %.038.be = phi ptr [ %.038.val, %10 ], [ %41, %._crit_edge.thread ]
-  br label %10, !llvm.loop !9
+  br label %10
 
 22:                                               ; preds = %10
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -843,7 +843,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   store ptr %.val40, ptr %9, align 8
   %39 = add nsw i32 %.149, -1
   %40 = icmp samesign ugt i32 %.149, 1
-  br i1 %40, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !10
+  br i1 %40, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %22
   switch i32 %25, label %42 [
@@ -927,7 +927,7 @@ define hidden i32 @uv__udp_try_send(ptr noundef captures(none) %0, ptr noundef %
   %23 = tail call ptr @__errno_location() #11
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 4
-  br i1 %25, label %18, label %.critedge.thread.i, !llvm.loop !11
+  br i1 %25, label %18, label %.critedge.thread.i
 
 .critedge.i:                                      ; preds = %18
   %26 = icmp slt i32 %20, 0
@@ -1102,7 +1102,7 @@ uv__udp_prep_pkt.exit:                            ; preds = %uv__udp_prep_pkt.ex
   %21 = tail call ptr @__errno_location() #11
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %uv__udp_prep_pkt.exit, label %.critedge.thread, !llvm.loop !11
+  br i1 %23, label %uv__udp_prep_pkt.exit, label %.critedge.thread
 
 .critedge:                                        ; preds = %uv__udp_prep_pkt.exit
   %24 = icmp slt i32 %18, 0
@@ -1275,7 +1275,7 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   %50 = add nuw nsw i64 %.05061.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %50, %spec.store.select.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %48, i8 0, i64 20, i1 false)
-  br i1 %exitcond.not.i.i, label %.preheader57.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.preheader57.i.i, label %.lr.ph.i.i
 
 51:                                               ; preds = %55, %.preheader57.i.i
   %52 = load i32, ptr %16, align 8
@@ -1287,7 +1287,7 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   %56 = tail call ptr @__errno_location() #11
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 4
-  br i1 %58, label %51, label %.thread.i.i, !llvm.loop !13
+  br i1 %58, label %51, label %.thread.i.i
 
 .critedge.i.i:                                    ; preds = %51
   %59 = sext i32 %53 to i64
@@ -1351,7 +1351,7 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   call void %85(ptr noundef nonnull %11, i64 noundef %88, ptr noundef nonnull %7, ptr noundef %89, i32 noundef %spec.select.i.i) #10
   %90 = add nuw nsw i64 %.163.i.i, 1
   %exitcond68.not.i.i = icmp eq i64 %90, %59
-  br i1 %exitcond68.not.i.i, label %.critedge2.i.i, label %.lr.ph64.i.i, !llvm.loop !14
+  br i1 %exitcond68.not.i.i, label %.critedge2.i.i, label %.lr.ph64.i.i
 
 .critedge2.i.i:                                   ; preds = %72
   %.pr69.i.i = load ptr, ptr %17, align 8
@@ -1435,7 +1435,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph64.i.i, %91, 
 118:                                              ; preds = %116
   %119 = load ptr, ptr %17, align 8
   %.not39.i = icmp eq ptr %119, null
-  br i1 %.not39.i, label %uv__udp_recvmsg.exit, label %22, !llvm.loop !15
+  br i1 %.not39.i, label %uv__udp_recvmsg.exit, label %22
 
 uv__udp_recvmsg.exit:                             ; preds = %113, %116, %118, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -2359,7 +2359,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   %33 = icmp samesign ult i64 %indvars.iv.next110, %8
   %34 = icmp samesign ult i64 %indvars.iv, 19
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %13, label %.preheader, !llvm.loop !16
+  br i1 %35, label %13, label %.preheader
 
 36:                                               ; preds = %.preheader, %39
   %37 = call i32 @sendmmsg(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %12, i32 noundef 0) #10
@@ -2370,7 +2370,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   %40 = tail call ptr @__errno_location() #11
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %36, label %uv__udp_prep_pkt.exit.thread63, !llvm.loop !17
+  br i1 %42, label %36, label %uv__udp_prep_pkt.exit.thread63
 
 .critedge:                                        ; preds = %36
   %43 = icmp slt i32 %37, 1
@@ -2466,17 +2466,3 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

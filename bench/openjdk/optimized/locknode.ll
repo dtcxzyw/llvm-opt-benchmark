@@ -343,7 +343,7 @@ _ZN11BoxLockNode8box_nodeEP4Node.exit:            ; preds = %.lr.ph.i, %1
 30:                                               ; preds = %.lr.ph.i1
   %31 = add i32 %.0712.i, 1
   %.not.i = icmp ugt i32 %31, %21
-  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i1, !llvm.loop !9
+  br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i1, !llvm.loop !8
 
 _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %30, %_ZN11BoxLockNode8box_nodeEP4Node.exit, %25
   %.0.i = phi i32 [ %29, %25 ], [ -1, %_ZN11BoxLockNode8box_nodeEP4Node.exit ], [ -1, %30 ]
@@ -405,7 +405,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next68, %33
-  br i1 %34, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !10
+  br i1 %34, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.not35 = icmp eq ptr %3, null
@@ -462,7 +462,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %62 = load i32, ptr %8, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next66, %63
-  br i1 %64, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !12
+  br i1 %64, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %93
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.lr.ph.split ]
@@ -527,7 +527,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %94 = load i32, ptr %8, align 8
   %95 = zext i32 %94 to i64
   %96 = icmp samesign ult i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !13
+  br i1 %96, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %93, %61
   %.028.lcssa = phi i1 [ %.129.us47, %61 ], [ %.129, %93 ]
@@ -786,11 +786,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8, !11}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !10}
+!12 = distinct !{!12, !7}

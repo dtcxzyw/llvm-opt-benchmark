@@ -330,7 +330,7 @@ is_eoc.exit.thread:                               ; preds = %16, %19, %is_eoc.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
-  br i1 %.026, label %.loopexit, label %12, !llvm.loop !19
+  br i1 %.026, label %.loopexit, label %12
 
 65:                                               ; preds = %12
   %66 = xor i8 %3, 1
@@ -405,7 +405,7 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
   %27 = call i64 @CBS_len(ptr noundef nonnull %7) #4
   %.not16 = icmp eq i64 %27, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %28 = call i32 @CBB_finish(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10) #4
@@ -480,8 +480,5 @@ attributes #4 = { nounwind }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}

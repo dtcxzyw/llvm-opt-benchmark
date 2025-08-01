@@ -4516,13 +4516,13 @@ define void @Cnf_ReadMsops(ptr noundef writeonly captures(none) %0, ptr noundef 
   %indvars.iv107 = phi i32 [ %indvars.iv.next108, %.preheader80 ], [ 0, %.preheader81 ]
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader80 ], [ 0, %.preheader81 ]
   %8 = getelementptr inbounds nuw [4487 x ptr], ptr @s_Data4, i64 0, i64 %indvars.iv97
-  %9 = load ptr, ptr %8, align 8, !tbaa !9
+  %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = icmp ne ptr %9, null
   %11 = icmp samesign ult i64 %indvars.iv97, 100000
   %12 = select i1 %10, i1 %11, i1 false
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %indvars.iv.next108 = add nuw nsw i32 %indvars.iv107, 1
-  br i1 %12, label %.preheader80, label %13, !llvm.loop !12
+  br i1 %12, label %.preheader80, label %13, !llvm.loop !11
 
 13:                                               ; preds = %.preheader80
   %14 = mul nuw nsw i64 %indvars.iv97, 75
@@ -4537,7 +4537,7 @@ define void @Cnf_ReadMsops(ptr noundef writeonly captures(none) %0, ptr noundef 
 .preheader79:                                     ; preds = %.preheader79.preheader, %28
   %indvars.iv104 = phi i64 [ 0, %.preheader79.preheader ], [ %indvars.iv.next105, %28 ]
   %16 = getelementptr inbounds nuw [4487 x ptr], ptr @s_Data4, i64 0, i64 %indvars.iv104
-  %17 = load ptr, ptr %16, align 8, !tbaa !9
+  %17 = load ptr, ptr %16, align 8, !tbaa !8
   %18 = mul nuw nsw i64 %indvars.iv104, 75
   %invariant.gep122.sink = getelementptr inbounds nuw i8, ptr %15, i64 %18
   br label %19
@@ -4561,18 +4561,18 @@ define void @Cnf_ReadMsops(ptr noundef writeonly captures(none) %0, ptr noundef 
   store i8 %.sink, ptr %gep123, align 1, !tbaa !3
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 75
-  br i1 %exitcond103.not, label %28, label %19, !llvm.loop !13
+  br i1 %exitcond103.not, label %28, label %19, !llvm.loop !12
 
 28:                                               ; preds = %27
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
-  br i1 %exitcond109.not, label %._crit_edge, label %.preheader79, !llvm.loop !14
+  br i1 %exitcond109.not, label %._crit_edge, label %.preheader79, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %28, %13
   %29 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #5
   %30 = tail call noalias dereferenceable_or_null(524288) ptr @malloc(i64 noundef 524288) #5
   store i8 0, ptr %29, align 1, !tbaa !3
-  store ptr null, ptr %30, align 8, !tbaa !9
+  store ptr null, ptr %30, align 8, !tbaa !8
   br label %31
 
 31:                                               ; preds = %._crit_edge, %45
@@ -4594,7 +4594,7 @@ define void @Cnf_ReadMsops(ptr noundef writeonly captures(none) %0, ptr noundef 
   store i8 %39, ptr %41, align 1, !tbaa !3
   %42 = add nsw i32 %.387, 1
   %43 = getelementptr inbounds ptr, ptr %30, i64 %40
-  store ptr %.07586, ptr %43, align 8, !tbaa !9
+  store ptr %.07586, ptr %43, align 8, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 1
   br label %45
 
@@ -4603,11 +4603,11 @@ define void @Cnf_ReadMsops(ptr noundef writeonly captures(none) %0, ptr noundef 
   %.4 = phi i32 [ %42, %35 ], [ %.387, %31 ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %46 = icmp slt i32 %.4, 65536
-  br i1 %46, label %31, label %47, !llvm.loop !15
+  br i1 %46, label %31, label %47, !llvm.loop !14
 
 47:                                               ; preds = %45
-  store ptr %29, ptr %0, align 8, !tbaa !9
-  store ptr %30, ptr %1, align 8, !tbaa !16
+  store ptr %29, ptr %0, align 8, !tbaa !8
+  store ptr %30, ptr %1, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #4
   ret void
 }
@@ -4639,15 +4639,14 @@ attributes #5 = { nounwind allocsize(0) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p2 omnipotent char", !11, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p2 omnipotent char", !10, i64 0}

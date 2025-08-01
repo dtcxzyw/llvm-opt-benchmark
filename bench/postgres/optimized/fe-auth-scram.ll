@@ -617,7 +617,7 @@ read_server_first_message.exit.thread:            ; preds = %82, %106, %111, %13
   store i8 %255, ptr %256, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %248
-  br i1 %exitcond.not.i, label %.loopexit.i40, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.loopexit.i40, label %.lr.ph.i.i, !llvm.loop !5
 
 257:                                              ; preds = %249, %214, %207, %183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
@@ -1209,7 +1209,6 @@ attributes #15 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

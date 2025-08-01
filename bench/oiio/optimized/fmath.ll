@@ -72,7 +72,7 @@ _ZN11OpenImageIO6v3_1_04simd7vfloat4C2EPKN9Imath_3_14halfE.exit: ; preds = %8
   %26 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.0813, i64 16
   %28 = icmp ugt i64 %25, 3
-  br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !11
+  br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !10
 
 .lr.ph21:                                         ; preds = %.preheader, %_ZNK9Imath_3_14halfcvfEv.exit
   %.120 = phi ptr [ %30, %_ZNK9Imath_3_14halfcvfEv.exit ], [ %.0.lcssa, %.preheader ]
@@ -80,19 +80,19 @@ _ZN11OpenImageIO6v3_1_04simd7vfloat4C2EPKN9Imath_3_14halfE.exit: ; preds = %8
   %.11118 = phi i64 [ %29, %_ZNK9Imath_3_14halfcvfEv.exit ], [ %.010.lcssa, %.preheader ]
   %29 = add i64 %.11118, -1
   %30 = getelementptr inbounds nuw i8, ptr %.120, i64 2
-  %31 = load i16, ptr %.120, align 2, !tbaa !12
+  %31 = load i16, ptr %.120, align 2, !tbaa !11
   %32 = zext i16 %31 to i32
   %33 = shl nuw nsw i32 %32, 13
   %34 = and i32 %33, 268427264
   %.signext.i.i = sext i16 %31 to i32
   %35 = and i32 %.signext.i.i, -2147483648
   %36 = icmp samesign ugt i32 %34, 8388607
-  br i1 %36, label %37, label %44, !prof !14
+  br i1 %36, label %37, label %44, !prof !13
 
 37:                                               ; preds = %.lr.ph21
   %38 = or disjoint i32 %34, %35
   %39 = icmp samesign ult i32 %34, 260046848
-  br i1 %39, label %40, label %42, !prof !14
+  br i1 %39, label %40, label %42, !prof !13
 
 40:                                               ; preds = %37
   %41 = add nuw nsw i32 %38, 939524096
@@ -119,9 +119,9 @@ _ZN11OpenImageIO6v3_1_04simd7vfloat4C2EPKN9Imath_3_14halfE.exit: ; preds = %8
 _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %40, %42, %44, %45
   %.sroa.0.0.i.i = phi i32 [ %41, %40 ], [ %43, %42 ], [ %52, %45 ], [ %35, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %.1919, i64 4
-  store i32 %.sroa.0.0.i.i, ptr %.1919, align 4, !tbaa !15
+  store i32 %.sroa.0.0.i.i, ptr %.1919, align 4, !tbaa !14
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %.preheader
   ret void
@@ -171,7 +171,7 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEEvPKT_PT0_
 
 20:                                               ; preds = %9
   %21 = icmp samesign ugt i32 %15, 2139095039
-  br i1 %21, label %22, label %33, !prof !18
+  br i1 %21, label %22, label %33, !prof !17
 
 22:                                               ; preds = %20
   %23 = or disjoint i16 %18, 31744
@@ -190,7 +190,7 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEEvPKT_PT0_
 
 33:                                               ; preds = %20
   %34 = icmp samesign ugt i32 %15, 1199566847
-  br i1 %34, label %35, label %37, !prof !18
+  br i1 %34, label %35, label %37, !prof !17
 
 35:                                               ; preds = %33
   %36 = or disjoint i16 %18, 31744
@@ -241,7 +241,7 @@ _ZN9Imath_3_14halfaSEf.exit:                      ; preds = %22, %25, %35, %37, 
   store i16 %.0.i.i.i, ptr %12, align 2, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %_ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit, label %9, !llvm.loop !19
+  br i1 %exitcond.not, label %_ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit, label %9, !llvm.loop !18
 
 _ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit: ; preds = %_ZN9Imath_3_14halfaSEf.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
@@ -249,7 +249,7 @@ _ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit: ; preds = %
   %66 = getelementptr inbounds nuw i8, ptr %.01118, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %.0919, i64 8
   %68 = icmp ugt i64 %65, 3
-  br i1 %68, label %.lr.ph, label %.preheader, !llvm.loop !20
+  br i1 %68, label %.lr.ph, label %.preheader, !llvm.loop !19
 
 .lr.ph27:                                         ; preds = %.preheader, %_ZN9Imath_3_14halfaSEf.exit16
   %.126 = phi i64 [ %69, %_ZN9Imath_3_14halfaSEf.exit16 ], [ %.0.lcssa, %.preheader ]
@@ -257,7 +257,7 @@ _ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit: ; preds = %
   %.11224 = phi ptr [ %70, %_ZN9Imath_3_14halfaSEf.exit16 ], [ %.011.lcssa, %.preheader ]
   %69 = add i64 %.126, -1
   %70 = getelementptr inbounds nuw i8, ptr %.11224, i64 4
-  %71 = load float, ptr %.11224, align 4, !tbaa !15
+  %71 = load float, ptr %.11224, align 4, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %.11025, i64 2
   %73 = bitcast float %71 to i32
   %74 = tail call float @llvm.fabs.f32(float %71)
@@ -270,7 +270,7 @@ _ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit: ; preds = %
 
 80:                                               ; preds = %.lr.ph27
   %81 = icmp samesign ugt i32 %75, 2139095039
-  br i1 %81, label %82, label %93, !prof !18
+  br i1 %81, label %82, label %93, !prof !17
 
 82:                                               ; preds = %80
   %83 = or disjoint i16 %78, 31744
@@ -289,7 +289,7 @@ _ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit: ; preds = %
 
 93:                                               ; preds = %80
   %94 = icmp samesign ugt i32 %75, 1199566847
-  br i1 %94, label %95, label %97, !prof !18
+  br i1 %94, label %95, label %97, !prof !17
 
 95:                                               ; preds = %93
   %96 = or disjoint i16 %78, 31744
@@ -339,7 +339,7 @@ _ZN9Imath_3_14halfaSEf.exit16:                    ; preds = %82, %85, %95, %97, 
   %.0.i.i.i15 = phi i16 [ %92, %85 ], [ %96, %95 ], [ %105, %97 ], [ %83, %82 ], [ %78, %106 ], [ %124, %123 ], [ %118, %120 ]
   store i16 %.0.i.i.i15, ptr %.11025, align 2, !tbaa !3
   %.not = icmp eq i64 %69, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph27, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph27, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN9Imath_3_14halfaSEf.exit16, %.preheader
   ret void
@@ -380,17 +380,16 @@ attributes #8 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !4, i64 0}
-!13 = !{!"_ZTSN9Imath_3_14halfE", !4, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !5, i64 0}
-!17 = distinct !{!17, !9, !10}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !4, i64 0}
+!12 = !{!"_ZTSN9Imath_3_14halfE", !4, i64 0}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !5, i64 0}
+!16 = distinct !{!16, !9}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}

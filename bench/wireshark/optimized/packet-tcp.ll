@@ -2938,7 +2938,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %108, %1
   store volatile i32 %169, ptr %9, align 4
   %.0..0..0..0.60 = load volatile i32, ptr %9, align 4
   %.not120 = icmp sgt i32 %.0..0..0..0.60, %.0..0..0..0.58
-  br i1 %.not120, label %45, label %.loopexit, !llvm.loop !11
+  br i1 %.not120, label %45, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %45, %166, %87, %68, %63, %53
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -4041,7 +4041,7 @@ tcp_analyze_get_acked_struct.exit.us.i.us:        ; preds = %179, %173
   %213 = load i32, ptr %212, align 4
   %214 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %210)
   %215 = icmp sgt i32 %214, 0
-  br i1 %215, label %.outer.split.us.i.us, label %desegment_tcp.exit, !llvm.loop !12
+  br i1 %215, label %.outer.split.us.i.us, label %desegment_tcp.exit, !llvm.loop !11
 
 .split1309.us.i.us:                               ; preds = %201, %194
   %.0498.us.lcssa1348.i.us = phi i8 [ 1, %201 ], [ %.0498.us.i.us, %194 ]
@@ -4136,7 +4136,7 @@ tcp_analyze_get_acked_struct.exit.us.i.us:        ; preds = %179, %173
   %.021..i.i.i.us = call i32 @llvm.umax.i32(i32 %.02131.i.i.i.us, i32 %264)
   %265 = load ptr, ptr %.032.i.i.i.us, align 8
   %.not28.i.i.i.us = icmp eq ptr %265, null
-  br i1 %.not28.i.i.i.us, label %find_maxnextseq.exit.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !14
+  br i1 %.not28.i.i.i.us, label %find_maxnextseq.exit.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !13
 
 find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %261, %257
   %.021.lcssa.i.i.i.us = phi i32 [ %254, %257 ], [ %.02131.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.021..i.i.i.us, %261 ]
@@ -4223,7 +4223,7 @@ find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %2
   %.021..i88.i.i.us = call i32 @llvm.umax.i32(i32 %.02131.i86.i.i.us, i32 %304)
   %305 = load ptr, ptr %.032.i85.i.i.us, align 8
   %.not28.i89.i.i.us = icmp eq ptr %305, null
-  br i1 %.not28.i89.i.i.us, label %.loopexit.i.i.us, label %.lr.ph.i84.i.i.us, !llvm.loop !14
+  br i1 %.not28.i89.i.i.us, label %.loopexit.i.i.us, label %.lr.ph.i84.i.i.us, !llvm.loop !13
 
 .loopexit.i.i.us:                                 ; preds = %.lr.ph.i84.i.i.us, %301, %297
   %.021.lcssa.i90.i.i.us = phi i32 [ %294, %297 ], [ %.02131.i86.i.i.us, %.lr.ph.i84.i.i.us ], [ %.021..i88.i.i.us, %301 ]
@@ -4329,7 +4329,7 @@ find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %2
   %372 = load ptr, ptr %371, align 8
   %373 = call ptr @wmem_list_head(ptr noundef %372)
   %.not80.i.i.us = icmp eq ptr %373, null
-  br i1 %.not80.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us, !llvm.loop !15
+  br i1 %.not80.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us, !llvm.loop !14
 
 ._crit_edge.i.i.us:                               ; preds = %285, %366, %.thread.i.i.us
   %.0.lcssa.i.i.us = phi ptr [ %143, %.thread.i.i.us ], [ %.0110.i.i.us, %285 ], [ %.1.i.i.us, %366 ]
@@ -4381,7 +4381,7 @@ find_maxnextseq.exit.i.i.us:                      ; preds = %.lr.ph.i.i.i.us, %2
   %.021..i100.i.i.us = call i32 @llvm.umax.i32(i32 %.02131.i98.i.i.us, i32 %395)
   %396 = load ptr, ptr %.032.i97.i.i.us, align 8
   %.not28.i101.i.i.us = icmp eq ptr %396, null
-  br i1 %.not28.i101.i.i.us, label %find_maxnextseq.exit104.i.i.us, label %.lr.ph.i96.i.i.us, !llvm.loop !14
+  br i1 %.not28.i101.i.i.us, label %find_maxnextseq.exit104.i.i.us, label %.lr.ph.i96.i.i.us, !llvm.loop !13
 
 find_maxnextseq.exit104.i.i.us:                   ; preds = %.lr.ph.i96.i.i.us, %392, %388
   %.021.lcssa.i102.i.i.us = phi i32 [ %385, %388 ], [ %.02131.i98.i.i.us, %.lr.ph.i96.i.i.us ], [ %.021..i100.i.i.us, %392 ]
@@ -4713,7 +4713,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %416, %410, %405, %4
   %.3.i.i.us = phi i32 [ %.2117.i.i.us, %.lr.ph118.i.i.us ], [ %spec.select100.i.i.us, %557 ]
   %561 = load ptr, ptr %.180116.i.i.us, align 8
   %.not94.i.i.us = icmp eq ptr %561, null
-  br i1 %.not94.i.i.us, label %._crit_edge.i628.i.us, label %.lr.ph118.i.i.us, !llvm.loop !16
+  br i1 %.not94.i.i.us, label %._crit_edge.i628.i.us, label %.lr.ph118.i.i.us, !llvm.loop !15
 
 562:                                              ; preds = %.lr.ph.i627.i.us
   %563 = getelementptr inbounds nuw i8, ptr %.079106.i.i.us, i64 8
@@ -4738,7 +4738,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %416, %410, %405, %4
   %.1.i631.i.us = phi i32 [ %.076105.i.i.us, %562 ], [ %spec.select99.i.i.us, %570 ], [ %564, %568 ]
   %.079.i.i.us = load ptr, ptr %.079106.i.i.us, align 8
   %.not93.i.i.us = icmp eq ptr %.079.i.i.us, null
-  br i1 %.not93.i.i.us, label %._crit_edge.i628.i.us, label %.lr.ph.i627.i.us, !llvm.loop !17
+  br i1 %.not93.i.i.us, label %._crit_edge.i628.i.us, label %.lr.ph.i627.i.us, !llvm.loop !16
 
 ._crit_edge.i628.i.us:                            ; preds = %571, %560
   %.077.lcssa127.i.i.us = phi i32 [ %.077104.i.i.us, %560 ], [ %spec.select.i.i.us, %571 ]
@@ -4808,7 +4808,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %416, %410, %405, %4
 609:                                              ; preds = %602, %595
   %610 = load ptr, ptr %.281120.i.i.us, align 8
   %.not96.i.i.us = icmp eq ptr %610, null
-  br i1 %.not96.i.i.us, label %split_msp.exit.i.us, label %595, !llvm.loop !18
+  br i1 %.not96.i.i.us, label %split_msp.exit.i.us, label %595, !llvm.loop !17
 
 split_msp.exit.i.us:                              ; preds = %609
   %611 = load i32, ptr %458, align 8
@@ -4955,7 +4955,7 @@ print_tcp_fragment_tree.exit.i.us:                ; preds = %620, %614
   %683 = add i32 %.0485.i.us, %.04791036.i.us
   %684 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %682)
   %685 = icmp sgt i32 %684, 0
-  br i1 %685, label %.outer.i.us, label %.critedge619.thread.i, !llvm.loop !19
+  br i1 %685, label %.outer.i.us, label %.critedge619.thread.i, !llvm.loop !18
 
 .split440.us:                                     ; preds = %421, %417, %msp_add_out_of_order.exit.thread.i.us
   br i1 %.0517686.i.us, label %745, label %765
@@ -5545,7 +5545,7 @@ proto_item_set_generated.exit637.thread.thread.i: ; preds = %proto_item_set_gene
   call void @col_set_writable(ptr noundef %918, i32 noundef 35, i1 noundef zeroext false)
   %919 = add i32 %.3748780.i, %.2514745787.i
   %920 = add i32 %.3482747783.i, %.2514745787.i
-  br label %.outer.outer.i, !llvm.loop !20
+  br label %.outer.outer.i
 
 921:                                              ; preds = %912
   br i1 %.0501.ph.ph.i, label %922, label %desegment_tcp.exit
@@ -7328,7 +7328,7 @@ proto_item_set_generated.exit1126:                ; preds = %507, %514, %517
 599:                                              ; preds = %598, %595, %588, %580
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %tcp_flags_to_str_first_letter.exit, label %572, !llvm.loop !21
+  br i1 %exitcond.not.i, label %tcp_flags_to_str_first_letter.exit, label %572, !llvm.loop !19
 
 tcp_flags_to_str_first_letter.exit:               ; preds = %599
   %600 = call ptr @wmem_strbuf_finalize(ptr noundef %571)
@@ -8246,12 +8246,12 @@ proto_item_set_generated.exit1161:                ; preds = %proto_item_set_gene
 
 1109:                                             ; preds = %1100
   %1110 = add i32 %492, 393216
-  %1111 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1110) #29, !srcloc !22
+  %1111 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1110) #29, !srcloc !20
   store i32 %1111, ptr %22, align 4
   br label %1116
 
 1112:                                             ; preds = %1100
-  %1113 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %492) #29, !srcloc !23
+  %1113 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %492) #29, !srcloc !21
   store i32 %1113, ptr %22, align 4
   %1114 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 100663296, ptr %1114, align 4
@@ -8735,7 +8735,7 @@ tcp_print_timestamps.exit:                        ; preds = %1232, %1255, %.thre
   %.195.i = phi i8 [ %.094152.i, %1292 ], [ %.2.i1178, %1333 ]
   %.1.i = phi i32 [ %1301, %1292 ], [ %1337, %1333 ]
   %.not.i1179 = icmp eq i32 %.1103.i, 0
-  br i1 %.not.i1179, label %._crit_edge.i, label %1271, !llvm.loop !24
+  br i1 %.not.i1179, label %._crit_edge.i, label %1271, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %1339
   %1340 = icmp eq i8 %.195.i, 0
@@ -9705,7 +9705,7 @@ proto_item_set_generated.exit48.i:                ; preds = %1805, %1802, %proto
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %1822, ptr noundef nonnull @.str.1186, i32 noundef %1828)
   %1829 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02.i.i)
   %.not.i49.i = icmp eq ptr %1829, null
-  br i1 %.not.i49.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i49.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %1821
   %1830 = load i32, ptr @hf_mptcp_analysis_subflows, align 4
@@ -9869,7 +9869,7 @@ mptcp_analysis_add_subflows.exit.i:               ; preds = %1836, %1833, %._cri
 proto_item_set_generated.exit.i.i1195:            ; preds = %1910, %1907, %1902
   %1914 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.092144.i.i)
   %.not104.i.i = icmp eq ptr %1914, null
-  br i1 %.not104.i.i, label %.loopexit.i.i, label %.lr.ph.i52.i, !llvm.loop !26
+  br i1 %.not104.i.i, label %.loopexit.i.i, label %.lr.ph.i52.i, !llvm.loop !24
 
 .loopexit.i.i:                                    ; preds = %proto_item_set_generated.exit.i.i1195, %1898, %1897
   %.1.i.i = phi ptr [ %1895, %1897 ], [ %1895, %1898 ], [ %1900, %proto_item_set_generated.exit.i.i1195 ]
@@ -10131,12 +10131,12 @@ mptcp_select_subflow_from_meta.exit.i.i:          ; preds = %2038, %2026
 proto_item_set_generated.exit.i.i.i:              ; preds = %2065, %2062, %2056
   %2069 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0193.i.i.i)
   %.not.i122.i.i = icmp eq ptr %2069, null
-  br i1 %.not.i122.i.i, label %mptcp_add_duplicated_dsn.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %.not.i122.i.i, label %mptcp_add_duplicated_dsn.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !25
 
 mptcp_add_duplicated_dsn.exit.i.i:                ; preds = %proto_item_set_generated.exit.i.i.i, %2042, %mptcp_select_subflow_from_meta.exit.i.i
   %2070 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.088146.i.i)
   %.not111.i.i = icmp eq ptr %2070, null
-  br i1 %.not111.i.i, label %mptcp_add_analysis_subtree.exit, label %2026, !llvm.loop !28
+  br i1 %.not111.i.i, label %mptcp_add_analysis_subtree.exit, label %2026, !llvm.loop !26
 
 mptcp_add_analysis_subtree.exit:                  ; preds = %mptcp_add_duplicated_dsn.exit.i.i, %2021, %2018, %2015, %proto_item_set_generated.exit120.i.i, %1940, %.thread132.i.i, %1843, %mptcp_analysis_add_subflows.exit.i, %1754, %verify_scps.exit
   %2071 = load i8, ptr %157, align 8
@@ -10956,7 +10956,7 @@ addresses_equal.exit:                             ; preds = %76, %68, %copy_addr
   %100 = load ptr, ptr %95, align 8
   %101 = load i32, ptr %100, align 8
   %102 = tail call fastcc zeroext i1 @check_follow_fragments(ptr noundef %0, i1 noundef zeroext %88, i32 noundef %99, i32 noundef %101, i1 noundef zeroext true)
-  br i1 %102, label %96, label %.loopexit, !llvm.loop !29
+  br i1 %102, label %96, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %96, %addresses_equal.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11048,7 +11048,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %153 = load ptr, ptr %129, align 8
   %154 = load i32, ptr %153, align 8
   %155 = tail call fastcc zeroext i1 @check_follow_fragments(ptr noundef %0, i1 noundef zeroext %89, i32 noundef 0, i32 noundef %154, i1 noundef zeroext false)
-  br i1 %155, label %152, label %.thread, !llvm.loop !30
+  br i1 %155, label %152, label %.thread, !llvm.loop !28
 
 156:                                              ; preds = %127
   %157 = getelementptr [2 x ptr], ptr %91, i64 0, i64 %104
@@ -11724,7 +11724,7 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %82, ptr noundef nonnull @.str.1220, i32 noundef %99, i32 noundef %114)
   %159 = add nuw i32 %.0135178, 8
   %160 = icmp sgt i32 %.0179, 8
-  br i1 %160, label %95, label %.loopexit, !llvm.loop !31
+  br i1 %160, label %95, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %95, %109
   %.sink = phi i32 [ %110, %109 ], [ %.0179, %95 ]
@@ -12121,7 +12121,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   %.1 = phi i1 [ true, %77 ], [ %.0104125, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %84, label %73, !llvm.loop !32
+  br i1 %exitcond.not, label %84, label %73, !llvm.loop !30
 
 84:                                               ; preds = %83
   %85 = load ptr, ptr %71, align 8
@@ -12187,7 +12187,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   %119 = add nuw nsw i32 %116, %112
   %120 = and i32 %119, 255
   %121 = icmp samesign ugt i32 %5, %120
-  br i1 %121, label %102, label %.loopexit, !llvm.loop !33
+  br i1 %121, label %102, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %102, %99, %98, %86, %91
   %122 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -13829,7 +13829,7 @@ proto_item_set_generated.exit465:                 ; preds = %519, %524, %527
   %533 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %532, ptr noundef %0, i32 noundef %.7484, i32 noundef 1, i32 noundef 0)
   %534 = add nuw nsw i32 %.7484, 1
   %exitcond.not = icmp eq i32 %534, %6
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !32
 
 535:                                              ; preds = %91
   %536 = getelementptr inbounds nuw i8, ptr %.0417, i64 5
@@ -15376,7 +15376,7 @@ tcp_analyze_get_acked_struct.exit791:             ; preds = %455, %469
   %.2589 = phi i32 [ %.1588, %.lr.ph._crit_edge ], [ %.1588., %508 ]
   %.0575 = load ptr, ptr %.0575849, align 8
   %.not676 = icmp eq ptr %.0575, null
-  br i1 %.not676, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not676, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %512, %496
   %.0590.lcssa = phi i32 [ 0, %496 ], [ %.2592, %512 ]
@@ -15597,7 +15597,7 @@ tcp_analyze_get_acked_struct.exit791:             ; preds = %455, %469
 .backedge:                                        ; preds = %631, %634
   %indvars.iv.be = add nuw nsw i64 %indvars.iv959, 1
   %exitcond.not = icmp eq i64 %indvars.iv.be, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %631, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge, label %631, !llvm.loop !34
 
 .critedge:                                        ; preds = %.backedge
   %637 = load ptr, ptr %534, align 8
@@ -15691,7 +15691,7 @@ tcp_analyze_get_acked_struct.exit793:             ; preds = %662, %667
 671:                                              ; preds = %654, %.lr.ph855
   %.1576 = load ptr, ptr %.1576853, align 8
   %.not682.not = icmp eq ptr %.1576, null
-  br i1 %.not682.not, label %._crit_edge856, label %.lr.ph855, !llvm.loop !37
+  br i1 %.not682.not, label %._crit_edge856, label %.lr.ph855, !llvm.loop !35
 
 ._crit_edge856:                                   ; preds = %671, %640
   %.not841 = icmp ult i64 %.0585, %.0584
@@ -15817,7 +15817,7 @@ tcp_analyze_get_acked_struct.exit797:             ; preds = %699, %711
   %715 = phi i8 [ %608, %610 ], [ %608, %626 ], [ %608, %611 ], [ %608, %693 ], [ %608, %._crit_edge856 ], [ %608, %659 ], [ %.pre899, %tcp_analyze_get_acked_struct.exit793 ], [ %608, %634 ]
   %.2583 = phi i8 [ 0, %610 ], [ 0, %626 ], [ 0, %611 ], [ 1, %693 ], [ 1, %._crit_edge856 ], [ 1, %659 ], [ 1, %tcp_analyze_get_acked_struct.exit793 ], [ 0, %634 ]
   %.not691 = icmp eq i8 %.2583, %715
-  br i1 %.not691, label %716, label %607, !llvm.loop !38
+  br i1 %.not691, label %716, label %607, !llvm.loop !36
 
 716:                                              ; preds = %.critedge761
   %717 = load ptr, ptr %534, align 8
@@ -15922,7 +15922,7 @@ tcp_analyze_get_acked_struct.exit799:             ; preds = %718, %730
 767:                                              ; preds = %759, %.lr.ph862
   %.2 = load ptr, ptr %.2860, align 8
   %.not693 = icmp eq ptr %.2, null
-  br i1 %.not693, label %.loopexit, label %.lr.ph862, !llvm.loop !39
+  br i1 %.not693, label %.loopexit, label %.lr.ph862, !llvm.loop !37
 
 .loopexit.sink.split:                             ; preds = %697, %tcp_analyze_get_acked_struct.exit797, %675, %tcp_analyze_get_acked_struct.exit795, %638, %.critedge, %622, %624, %555, %556
   %.sink941 = phi ptr [ %.pre894, %556 ], [ %535, %555 ], [ %.pre901, %624 ], [ %623, %622 ], [ %637, %.critedge ], [ %.pre898, %638 ], [ %.pre896, %tcp_analyze_get_acked_struct.exit795 ], [ %676, %675 ], [ %.pre897, %tcp_analyze_get_acked_struct.exit797 ], [ %698, %697 ]
@@ -16454,7 +16454,7 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
   %1056 = load ptr, ptr %979, align 8
   %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 72
   store i8 1, ptr %1057, align 8
-  br i1 %.not696, label %1101, label %1058, !llvm.loop !40
+  br i1 %.not696, label %1101, label %1058, !llvm.loop !38
 
 1058:                                             ; preds = %tcp_analyze_get_acked_struct.exit803
   %1059 = getelementptr inbounds nuw i8, ptr %.3865, i64 40
@@ -16467,12 +16467,12 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
 1064:                                             ; preds = %1058
   store i8 1, ptr %1063, align 1
   store i8 1, ptr %1001, align 1
-  br label %1101, !llvm.loop !40
+  br label %1101, !llvm.loop !38
 
 1065:                                             ; preds = %1058
   store i8 0, ptr %1063, align 1
   store i8 0, ptr %1001, align 1
-  br label %1101, !llvm.loop !40
+  br label %1101, !llvm.loop !38
 
 1066:                                             ; preds = %1034
   %1067 = icmp slt i32 %1039, 0
@@ -16480,7 +16480,7 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
 
 1068:                                             ; preds = %1066
   %1069 = load ptr, ptr %.3865, align 8
-  br label %1101, !llvm.loop !40
+  br label %1101, !llvm.loop !38
 
 1070:                                             ; preds = %.sink.split954, %1066, %tcp_analyze_get_acked_struct.exit801
   %1071 = load ptr, ptr %.3865, align 8
@@ -16535,7 +16535,7 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
   %.1600 = phi ptr [ %.0599864, %1093 ], [ %.3865, %1068 ], [ %.0599864, %1064 ], [ %.0599864, %1065 ], [ %.0599864, %tcp_analyze_get_acked_struct.exit803 ]
   %.4 = phi ptr [ %1071, %1093 ], [ %1069, %1068 ], [ %.3865, %1064 ], [ %.3865, %1065 ], [ %.3865, %tcp_analyze_get_acked_struct.exit803 ]
   %.not724 = icmp eq ptr %.4, null
-  br i1 %.not724, label %._crit_edge868, label %1009, !llvm.loop !41
+  br i1 %.not724, label %._crit_edge868, label %1009
 
 ._crit_edge868:                                   ; preds = %1101, %985
   %1102 = load i8, ptr @tcp_track_bytes_in_flight, align 1, !range !6, !noundef !7
@@ -16587,7 +16587,7 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
   %.1570 = call i32 @llvm.umin.i32(i32 %1132, i32 %.0569870)
   %1133 = load ptr, ptr %.5869, align 8
   %.not725 = icmp eq ptr %1133, null
-  br i1 %.not725, label %1134, label %1126, !llvm.loop !42
+  br i1 %.not725, label %1134, label %1126, !llvm.loop !39
 
 1134:                                             ; preds = %1126
   %1135 = sub i32 %spec.select777, %.1570
@@ -16648,7 +16648,7 @@ tcp_analyze_get_acked_struct.exit803:             ; preds = %1041, %1046
   %1166 = sub i32 %1165, %1164
   %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
   %exitcond880.not = icmp eq i64 %indvars.iv.next877, %wide.trip.count879
-  br i1 %exitcond880.not, label %1167, label %1160, !llvm.loop !43
+  br i1 %exitcond880.not, label %1167, label %1160, !llvm.loop !40
 
 1167:                                             ; preds = %1160
   %1168 = sub i32 %.0573, %1166
@@ -16850,7 +16850,7 @@ define internal fastcc noundef ptr @tcp_flags_to_str(ptr noundef %0, ptr noundef
   %21 = trunc nuw i8 %20 to i1
   %22 = select i1 %21, i64 6, i64 9
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %6, label %24, !llvm.loop !44
+  br i1 %23, label %6, label %24, !llvm.loop !41
 
 24:                                               ; preds = %19
   %.pre29 = load i16, ptr %5, align 2
@@ -17337,7 +17337,7 @@ define internal fastcc noundef zeroext i1 @check_follow_fragments(ptr noundef ca
   %88 = getelementptr inbounds nuw i8, ptr %.0117142, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not = icmp eq ptr %89, null
-  br i1 %.not, label %90, label %20, !llvm.loop !45
+  br i1 %.not, label %90, label %20, !llvm.loop !42
 
 90:                                               ; preds = %87
   %91 = sub i32 %spec.select, %2
@@ -17679,14 +17679,14 @@ define internal fastcc ptr @get_or_create_mptcpd_from_key(ptr noundef %0, ptr no
 mptcp_cryptodata_sha1.exit:                       ; preds = %18
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
-  %19 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %3) #29, !srcloc !46
+  %19 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %3) #29, !srcloc !43
   store i64 %19, ptr %8, align 8
   call void @gcry_md_hash_buffer(i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 8)
   %20 = load i32, ptr %7, align 16
-  %21 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %20) #29, !srcloc !47
+  %21 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %20) #29, !srcloc !44
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %23 = load i64, ptr %22, align 4
-  %24 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %23) #29, !srcloc !48
+  %24 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %23) #29, !srcloc !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #23
   br label %31
@@ -17694,14 +17694,14 @@ mptcp_cryptodata_sha1.exit:                       ; preds = %18
 mptcp_cryptodata_sha256.exit:                     ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  %25 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %3) #29, !srcloc !49
+  %25 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %3) #29, !srcloc !46
   store i64 %25, ptr %6, align 8
   call void @gcry_md_hash_buffer(i32 noundef 8, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 8)
   %26 = load i32, ptr %5, align 16
-  %27 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #29, !srcloc !50
+  %27 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #29, !srcloc !47
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %29 = load i64, ptr %28, align 8
-  %30 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %29) #29, !srcloc !51
+  %30 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %29) #29, !srcloc !48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   br label %31
@@ -18032,47 +18032,44 @@ attributes #29 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !10, !13}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = !{i64 2152339279}
-!23 = !{i64 2152340127}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !9}
+!20 = !{i64 2152339279}
+!21 = !{i64 2152340127}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
 !40 = distinct !{!40, !9}
-!41 = distinct !{!41, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10}
-!46 = !{i64 2152298981}
-!47 = !{i64 2152300593}
-!48 = !{i64 2152301254}
-!49 = !{i64 2152302833}
-!50 = !{i64 2152304445}
-!51 = !{i64 2152305106}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}
+!43 = !{i64 2152298981}
+!44 = !{i64 2152300593}
+!45 = !{i64 2152301254}
+!46 = !{i64 2152302833}
+!47 = !{i64 2152304445}
+!48 = !{i64 2152305106}

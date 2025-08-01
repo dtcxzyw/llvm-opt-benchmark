@@ -401,7 +401,7 @@ define dso_local ptr @raxAddChild(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %67
   store ptr %36, ptr %102, align 8
   store ptr %36, ptr %2, align 8, !tbaa !11
-  store ptr %102, ptr %3, align 8, !tbaa !19
+  store ptr %102, ptr %3, align 8, !tbaa !18
   br label %raxNewNode.exit.thread
 
 raxNewNode.exit.thread:                           ; preds = %9, %44, %84
@@ -618,7 +618,7 @@ define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr nound
   %28 = icmp samesign ult i64 %26, %17
   %29 = icmp ult i64 %27, %2
   %30 = and i1 %28, %29
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %25, %.lr.ph.i, %.preheader81.i
   %.260.lcssa.i = phi i64 [ %.058100.i, %.preheader81.i ], [ %27, %25 ], [ %.26083.i, %.lr.ph.i ]
@@ -636,7 +636,7 @@ define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr nound
 35:                                               ; preds = %31
   %36 = add nuw nsw i64 %.591.i, 1
   %exitcond.not.i = icmp eq i64 %36, %17
-  br i1 %exitcond.not.i, label %.thread.i, label %31, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.thread.i, label %31, !llvm.loop !21
 
 ._crit_edge93.i:                                  ; preds = %31
   %37 = icmp eq i64 %.591.i, %17
@@ -661,7 +661,7 @@ define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr nound
   %48 = icmp ugt i32 %47, 7
   %49 = icmp ult i64 %.462.i, %2
   %50 = select i1 %48, i1 %49, i1 false
-  br i1 %50, label %.lr.ph104.i, label %.thread.loopexit.i.loopexit534, !llvm.loop !23
+  br i1 %50, label %.lr.ph104.i, label %.thread.loopexit.i.loopexit534
 
 .thread.loopexit.i.loopexit534:                   ; preds = %._crit_edge.i, %._crit_edge93.i, %40
   %51 = phi i32 [ %13, %._crit_edge93.i ], [ %13, %._crit_edge.i ], [ %47, %40 ]
@@ -774,7 +774,7 @@ raxReallocForData.exit.thread:                    ; preds = %64, %raxReallocForD
 
 raxGetData.exit:                                  ; preds = %88, %90
   %.0.i340 = phi ptr [ %.0.copyload.i, %90 ], [ null, %88 ]
-  store ptr %.0.i340, ptr %4, align 8, !tbaa !24
+  store ptr %.0.i340, ptr %4, align 8, !tbaa !22
   br label %102
 
 102:                                              ; preds = %raxGetData.exit, %87
@@ -1526,7 +1526,7 @@ raxSetData.exit398:                               ; preds = %449, %463
 528:                                              ; preds = %524
   %.cast = ptrtoint ptr %527 to i64
   store i64 %.cast, ptr %.2530, align 8
-  %529 = load ptr, ptr %8, align 8, !tbaa !19
+  %529 = load ptr, ptr %8, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
   br label %530
 
@@ -1649,7 +1649,7 @@ raxSetData.exit411:                               ; preds = %565, %579
   store i64 %589, ptr %587, align 8, !tbaa !9
   %590 = tail call i32 @raxRemove(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %.0195516, ptr noundef null)
   %.not315 = icmp eq i32 %590, 0
-  br i1 %.not315, label %591, label %592, !prof !25
+  br i1 %.not315, label %591, label %592, !prof !23
 
 591:                                              ; preds = %585
   tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 873) #26
@@ -1720,7 +1720,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %32 = icmp samesign ult i64 %30, %21
   %33 = icmp ult i64 %31, %2
   %34 = and i1 %32, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %29, %.lr.ph, %.preheader81
   %.260.lcssa = phi i64 [ %.058100, %.preheader81 ], [ %.26083, %.lr.ph ], [ %31, %29 ]
@@ -1738,7 +1738,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
 39:                                               ; preds = %35
   %40 = add nuw nsw i64 %.591, 1
   %exitcond.not = icmp eq i64 %40, %21
-  br i1 %exitcond.not, label %.thread, label %35, !llvm.loop !22
+  br i1 %exitcond.not, label %.thread, label %35, !llvm.loop !21
 
 ._crit_edge93:                                    ; preds = %35
   %41 = icmp eq i64 %.591, %21
@@ -1754,10 +1754,10 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not70, label %74, label %45
 
 45:                                               ; preds = %44
-  %46 = load i64, ptr %12, align 8, !tbaa !26
-  %47 = load i64, ptr %13, align 8, !tbaa !28
+  %46 = load i64, ptr %12, align 8, !tbaa !24
+  %47 = load i64, ptr %13, align 8, !tbaa !26
   %48 = icmp eq i64 %46, %47
-  %.pre32.i = load ptr, ptr %6, align 8, !tbaa !29
+  %.pre32.i = load ptr, ptr %6, align 8, !tbaa !27
   br i1 %48, label %49, label %69
 
 49:                                               ; preds = %45
@@ -1767,19 +1767,19 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
 
 52:                                               ; preds = %49
   %53 = tail call noalias ptr @zmalloc(i64 noundef %51) #25
-  store ptr %53, ptr %6, align 8, !tbaa !29
+  store ptr %53, ptr %6, align 8, !tbaa !27
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  store ptr %14, ptr %6, align 8, !tbaa !29
-  store i32 1, ptr %15, align 8, !tbaa !30
+  store ptr %14, ptr %6, align 8, !tbaa !27
+  store i32 1, ptr %15, align 8, !tbaa !28
   %56 = tail call ptr @__errno_location() #29
   store i32 12, ptr %56, align 4, !tbaa !5
   br label %74
 
 57:                                               ; preds = %52
-  %58 = load i64, ptr %13, align 8, !tbaa !28
+  %58 = load i64, ptr %13, align 8, !tbaa !26
   %59 = shl i64 %58, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %14, i64 %59, i1 false)
   br label %65
@@ -1790,12 +1790,12 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   br i1 %62, label %63, label %.thread.i
 
 .thread.i:                                        ; preds = %60
-  store ptr %61, ptr %6, align 8, !tbaa !29
-  %.pre.i = load i64, ptr %13, align 8, !tbaa !28
+  store ptr %61, ptr %6, align 8, !tbaa !27
+  %.pre.i = load i64, ptr %13, align 8, !tbaa !26
   br label %65
 
 63:                                               ; preds = %60
-  store i32 1, ptr %15, align 8, !tbaa !30
+  store i32 1, ptr %15, align 8, !tbaa !28
   %64 = tail call ptr @__errno_location() #29
   store i32 12, ptr %64, align 4, !tbaa !5
   br label %74
@@ -1804,17 +1804,17 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %66 = phi ptr [ %61, %.thread.i ], [ %53, %57 ]
   %67 = phi i64 [ %.pre.i, %.thread.i ], [ %58, %57 ]
   %68 = shl i64 %67, 1
-  store i64 %68, ptr %13, align 8, !tbaa !28
-  %.pre33.i = load i64, ptr %12, align 8, !tbaa !26
+  store i64 %68, ptr %13, align 8, !tbaa !26
+  %.pre33.i = load i64, ptr %12, align 8, !tbaa !24
   br label %69
 
 69:                                               ; preds = %65, %45
   %70 = phi i64 [ %.pre33.i, %65 ], [ %46, %45 ]
   %71 = phi ptr [ %66, %65 ], [ %.pre32.i, %45 ]
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
-  store ptr %.0102, ptr %72, align 8, !tbaa !24
+  store ptr %.0102, ptr %72, align 8, !tbaa !22
   %73 = add i64 %70, 1
-  store i64 %73, ptr %12, align 8, !tbaa !26
+  store i64 %73, ptr %12, align 8, !tbaa !24
   br label %74
 
 74:                                               ; preds = %44, %55, %63, %69
@@ -1836,7 +1836,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %86 = icmp ugt i32 %85, 7
   %87 = icmp ult i64 %.462, %2
   %88 = select i1 %86, i1 %87, i1 false
-  br i1 %88, label %16, label %.thread.loopexit.loopexit126, !llvm.loop !23
+  br i1 %88, label %16, label %.thread.loopexit.loopexit126
 
 .thread.loopexit.loopexit126:                     ; preds = %74, %._crit_edge, %._crit_edge93
   %.052.lcssa.ph.ph = phi ptr [ %84, %74 ], [ %.052101, %._crit_edge ], [ %.052101, %._crit_edge93 ]
@@ -1863,7 +1863,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not73, label %93, label %92
 
 92:                                               ; preds = %91
-  store ptr %.052.lcssa, ptr %4, align 8, !tbaa !19
+  store ptr %.052.lcssa, ptr %4, align 8, !tbaa !18
   br label %93
 
 93:                                               ; preds = %91, %92
@@ -1891,13 +1891,13 @@ define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %0, ptr noundef read
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #26
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %8, ptr %6, align 8, !tbaa !29
+  store ptr %8, ptr %6, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !26
+  store i64 0, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 32, ptr %10, align 8, !tbaa !28
+  store i64 32, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  store i32 0, ptr %11, align 8, !tbaa !30
+  store i32 0, ptr %11, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
   store i32 0, ptr %7, align 4, !tbaa !5
   %12 = call fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, ptr noundef null, ptr noundef %7, ptr noundef nonnull %6)
@@ -1918,7 +1918,7 @@ define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %0, ptr noundef read
   br i1 %or.cond154, label %21, label %23
 
 21:                                               ; preds = %13, %4
-  %22 = load ptr, ptr %6, align 8, !tbaa !29
+  %22 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i = icmp eq ptr %22, %8
   br i1 %.not.i, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
@@ -1950,7 +1950,7 @@ define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %0, ptr noundef read
 
 raxGetData.exit:                                  ; preds = %24, %26
   %.0.i = phi ptr [ %.0.copyload.i, %26 ], [ null, %24 ]
-  store ptr %.0.i, ptr %3, align 8, !tbaa !24
+  store ptr %.0.i, ptr %3, align 8, !tbaa !22
   %.pre = load i32, ptr %14, align 4
   br label %37
 
@@ -1978,7 +1978,7 @@ raxGetData.exit:                                  ; preds = %24, %26
 47:                                               ; preds = %59
   %48 = load ptr, ptr %0, align 8, !tbaa !11
   %.not105 = icmp eq ptr %56, %48
-  br i1 %.not105, label %.loopexit, label %raxStackPop.exit, !llvm.loop !31
+  br i1 %.not105, label %.loopexit, label %raxStackPop.exit, !llvm.loop !29
 
 raxStackPop.exit:                                 ; preds = %.lr.ph, %47
   %.0.i169205208 = phi ptr [ %14, %.lr.ph ], [ %56, %47 ]
@@ -1986,14 +1986,14 @@ raxStackPop.exit:                                 ; preds = %.lr.ph, %47
   %49 = load i64, ptr %46, align 8, !tbaa !9
   %50 = add i64 %49, -1
   store i64 %50, ptr %46, align 8, !tbaa !9
-  %51 = load i64, ptr %9, align 8, !tbaa !26
+  %51 = load i64, ptr %9, align 8, !tbaa !24
   %52 = icmp ne i64 %51, 0
   call void @llvm.assume(i1 %52)
   %53 = add i64 %51, -1
-  store i64 %53, ptr %9, align 8, !tbaa !26
-  %54 = load ptr, ptr %6, align 8, !tbaa !29
+  store i64 %53, ptr %9, align 8, !tbaa !24
+  %54 = load ptr, ptr %6, align 8, !tbaa !27
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
-  %56 = load ptr, ptr %55, align 8, !tbaa !24
+  %56 = load ptr, ptr %55, align 8, !tbaa !22
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 1
   %.not106 = icmp eq i32 %58, 0
@@ -2005,10 +2005,10 @@ raxStackPop.exit:                                 ; preds = %.lr.ph, %47
   %.mask109 = and i32 %57, -8
   %.not108 = icmp eq i32 %.mask109, 8
   %or.cond155 = or i1 %.not107, %.not108
-  br i1 %or.cond155, label %47, label %._crit_edge, !llvm.loop !31
+  br i1 %or.cond155, label %47, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %59
-  br label %.loopexit, !llvm.loop !31
+  br label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %raxStackPop.exit, %47, %._crit_edge
   store ptr %56, ptr %5, align 8
@@ -2017,7 +2017,7 @@ raxStackPop.exit:                                 ; preds = %.lr.ph, %47
   br i1 %.not111, label %81, label %62
 
 62:                                               ; preds = %.loopexit
-  %.val167 = load i64, ptr %9, align 8, !tbaa !26
+  %.val167 = load i64, ptr %9, align 8, !tbaa !24
   %63 = icmp eq i64 %.val167, 0
   br i1 %63, label %raxFindParentLink.exit, label %raxStackPeek.exit
 
@@ -2025,7 +2025,7 @@ raxStackPeek.exit:                                ; preds = %62
   %.val = load ptr, ptr %6, align 8
   %64 = getelementptr ptr, ptr %.val, i64 %.val167
   %65 = getelementptr i8, ptr %64, i64 -8
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
+  %66 = load ptr, ptr %65, align 8, !tbaa !22
   %67 = icmp eq ptr %66, null
   br i1 %67, label %raxFindParentLink.exit, label %68
 
@@ -2047,7 +2047,7 @@ raxStackPeek.exit:                                ; preds = %62
   %.0.copyload.i173 = load ptr, ptr %.0.i172, align 8
   %79 = icmp eq ptr %.0.copyload.i173, %56
   %80 = getelementptr inbounds nuw i8, ptr %.0.i172, i64 8
-  br i1 %79, label %raxFindParentLink.exit, label %78, !llvm.loop !32
+  br i1 %79, label %raxFindParentLink.exit, label %78
 
 raxFindParentLink.exit:                           ; preds = %78, %62, %raxStackPeek.exit
   %.085 = phi ptr [ %0, %raxStackPeek.exit ], [ %0, %62 ], [ %.0.i172, %78 ]
@@ -2074,30 +2074,30 @@ raxFindParentLink.exit:                           ; preds = %78, %62, %raxStackP
   br i1 %.not113, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %86
-  %.promoted215 = load i64, ptr %9, align 8, !tbaa !26
+  %.promoted215 = load i64, ptr %9, align 8, !tbaa !24
   %89 = icmp eq i64 %.promoted215, 0
   br i1 %89, label %raxStackPop.exit175.thread, label %raxStackPop.exit175.lr.ph
 
 raxStackPop.exit175.lr.ph:                        ; preds = %.preheader
-  %90 = load ptr, ptr %6, align 8, !tbaa !29
+  %90 = load ptr, ptr %6, align 8, !tbaa !27
   %91 = add i64 %.promoted215, -1
-  store i64 %91, ptr %9, align 8, !tbaa !26
+  store i64 %91, ptr %9, align 8, !tbaa !24
   %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
-  %93 = load ptr, ptr %92, align 8, !tbaa !24
+  %93 = load ptr, ptr %92, align 8, !tbaa !22
   %.not115275 = icmp eq ptr %93, null
   br i1 %.not115275, label %raxStackPop.exit175.thread, label %.lr.ph276
 
 94:                                               ; preds = %104
   %95 = icmp eq i64 %100, 0
-  br i1 %95, label %.raxStackPop.exit175.thread.loopexit_crit_edge, label %raxStackPop.exit175, !llvm.loop !33
+  br i1 %95, label %raxStackPop.exit175.thread, label %raxStackPop.exit175
 
 raxStackPop.exit175:                              ; preds = %94
   %96 = add i64 %100, -1
-  store i64 %96, ptr %9, align 8, !tbaa !26
+  store i64 %96, ptr %9, align 8, !tbaa !24
   %97 = getelementptr inbounds nuw ptr, ptr %90, i64 %96
-  %98 = load ptr, ptr %97, align 8, !tbaa !24
+  %98 = load ptr, ptr %97, align 8, !tbaa !22
   %.not115 = icmp eq ptr %98, null
-  br i1 %.not115, label %raxStackPop.exit175.thread, label %.lr.ph276, !llvm.loop !33
+  br i1 %.not115, label %raxStackPop.exit175.thread, label %.lr.ph276
 
 .lr.ph276:                                        ; preds = %raxStackPop.exit175.lr.ph, %raxStackPop.exit175
   %99 = phi ptr [ %98, %raxStackPop.exit175 ], [ %93, %raxStackPop.exit175.lr.ph ]
@@ -2116,13 +2116,10 @@ raxStackPop.exit175:                              ; preds = %94
   %or.cond158 = or i1 %.not117, %.not118
   br i1 %or.cond158, label %94, label %raxStackPop.exit175.thread
 
-.raxStackPop.exit175.thread.loopexit_crit_edge:   ; preds = %94
-  br label %raxStackPop.exit175.thread, !llvm.loop !33
-
-raxStackPop.exit175.thread:                       ; preds = %104, %raxStackPop.exit175, %.lr.ph276, %raxStackPop.exit175.lr.ph, %.raxStackPop.exit175.thread.loopexit_crit_edge, %.preheader
-  %.lcssa = phi ptr [ %.promoted216, %.preheader ], [ %99, %.raxStackPop.exit175.thread.loopexit_crit_edge ], [ %.promoted216, %raxStackPop.exit175.lr.ph ], [ %101, %.lr.ph276 ], [ %99, %raxStackPop.exit175 ], [ %101, %104 ]
-  %.not115190 = phi i1 [ true, %.preheader ], [ true, %.raxStackPop.exit175.thread.loopexit_crit_edge ], [ true, %raxStackPop.exit175.lr.ph ], [ false, %.lr.ph276 ], [ true, %raxStackPop.exit175 ], [ false, %104 ]
-  %.0.i174189 = phi ptr [ null, %.preheader ], [ null, %.raxStackPop.exit175.thread.loopexit_crit_edge ], [ null, %raxStackPop.exit175.lr.ph ], [ %99, %.lr.ph276 ], [ null, %raxStackPop.exit175 ], [ %99, %104 ]
+raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStackPop.exit175, %.lr.ph276, %raxStackPop.exit175.lr.ph, %.preheader
+  %.lcssa = phi ptr [ %.promoted216, %.preheader ], [ %.promoted216, %raxStackPop.exit175.lr.ph ], [ %101, %.lr.ph276 ], [ %99, %raxStackPop.exit175 ], [ %101, %104 ], [ %99, %94 ]
+  %.not115190 = phi i1 [ true, %.preheader ], [ true, %raxStackPop.exit175.lr.ph ], [ false, %.lr.ph276 ], [ true, %raxStackPop.exit175 ], [ false, %104 ], [ true, %94 ]
+  %.0.i174189 = phi ptr [ null, %.preheader ], [ null, %raxStackPop.exit175.lr.ph ], [ %99, %.lr.ph276 ], [ null, %raxStackPop.exit175 ], [ %99, %104 ], [ null, %94 ]
   store ptr %.lcssa, ptr %5, align 8
   %106 = load i32, ptr %.lcssa, align 4
   %.not120231 = icmp ult i32 %106, 8
@@ -2192,7 +2189,7 @@ raxStackPop.exit175.thread:                       ; preds = %104, %raxStackPop.e
 141:                                              ; preds = %136
   %142 = add nuw nsw i32 %.090232, 1
   %.not120 = icmp ult i32 %132, 8
-  br i1 %.not120, label %.thread192.thread256, label %.lr.ph234, !llvm.loop !34
+  br i1 %.not120, label %.thread192.thread256, label %.lr.ph234
 
 .thread192:                                       ; preds = %134, %.lr.ph234, %136
   %143 = icmp samesign ugt i32 %.090232, 1
@@ -2209,7 +2206,7 @@ raxStackPop.exit175.thread:                       ; preds = %104, %raxStackPop.e
   br i1 %.not153, label %149, label %151
 
 149:                                              ; preds = %.thread192.thread256
-  %150 = load ptr, ptr %6, align 8, !tbaa !29
+  %150 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i176 = icmp eq ptr %150, %8
   br i1 %.not.i176, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
@@ -2229,138 +2226,133 @@ raxStackPop.exit175.thread:                       ; preds = %104, %raxStackPop.e
   %.not132290 = icmp ult i32 %.pre250, 8
   br i1 %.not132290, label %.thread198, label %.lr.ph293
 
-160:                                              ; preds = %194
-  %161 = add i64 %.389291, %170
-  %.not132 = icmp ult i32 %192, 8
-  br i1 %.not132, label %.thread198, label %.lr.ph293, !llvm.loop !35
-
-.lr.ph293:                                        ; preds = %151, %160
-  %.389291 = phi i64 [ %161, %160 ], [ 0, %151 ]
-  %162 = phi ptr [ %.cast202, %160 ], [ %.lcssa, %151 ]
-  %163 = phi i32 [ %192, %160 ], [ %.pre250, %151 ]
-  %164 = lshr i32 %163, 3
-  %165 = getelementptr inbounds nuw i8, ptr %158, i64 %.389291
-  %166 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %167 = zext nneg i32 %164 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull align 4 %166, i64 %167, i1 false)
-  %168 = load i32, ptr %162, align 4
-  %169 = lshr i32 %168, 3
-  %170 = zext nneg i32 %169 to i64
-  %171 = xor i32 %169, 3
-  %.neg133 = add nuw nsw i32 %171, 1
-  %172 = and i32 %.neg133, 7
-  %173 = zext nneg i32 %172 to i64
-  %174 = and i32 %168, 4
-  %.not134 = icmp eq i32 %174, 0
-  %175 = shl nuw nsw i64 %170, 3
-  %spec.select161 = select i1 %.not134, i64 %175, i64 8
-  %176 = and i32 %168, 1
-  %.not135 = icmp eq i32 %176, 0
-  %177 = shl i32 %168, 2
-  %178 = and i32 %177, 8
-  %179 = xor i32 %178, 8
-  %narrow201 = select i1 %.not135, i32 0, i32 %179
-  %180 = zext nneg i32 %narrow201 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %162, i64 %170
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %173
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 %spec.select161
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %180
-  %186 = getelementptr inbounds i8, ptr %185, i64 -8
-  %187 = and i32 %168, 2
-  %.not138 = icmp eq i32 %187, 0
+.lr.ph293:                                        ; preds = %151, %192
+  %.389291 = phi i64 [ %194, %192 ], [ 0, %151 ]
+  %160 = phi ptr [ %.cast202, %192 ], [ %.lcssa, %151 ]
+  %161 = phi i32 [ %190, %192 ], [ %.pre250, %151 ]
+  %162 = lshr i32 %161, 3
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 %.389291
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %165 = zext nneg i32 %162 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %163, ptr nonnull align 4 %164, i64 %165, i1 false)
+  %166 = load i32, ptr %160, align 4
+  %167 = lshr i32 %166, 3
+  %168 = zext nneg i32 %167 to i64
+  %169 = xor i32 %167, 3
+  %.neg133 = add nuw nsw i32 %169, 1
+  %170 = and i32 %.neg133, 7
+  %171 = zext nneg i32 %170 to i64
+  %172 = and i32 %166, 4
+  %.not134 = icmp eq i32 %172, 0
+  %173 = shl nuw nsw i64 %168, 3
+  %spec.select161 = select i1 %.not134, i64 %173, i64 8
+  %174 = and i32 %166, 1
+  %.not135 = icmp eq i32 %174, 0
+  %175 = shl i32 %166, 2
+  %176 = and i32 %175, 8
+  %177 = xor i32 %176, 8
+  %narrow201 = select i1 %.not135, i32 0, i32 %177
+  %178 = zext nneg i32 %narrow201 to i64
+  %179 = getelementptr inbounds nuw i8, ptr %160, i64 %168
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %171
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 %spec.select161
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %178
+  %184 = getelementptr inbounds i8, ptr %183, i64 -8
+  %185 = and i32 %166, 2
+  %.not138 = icmp eq i32 %185, 0
   %.neg139 = select i1 %.not138, i64 -8, i64 0
   %.neg140 = select i1 %.not135, i64 0, i64 %.neg139
-  %188 = getelementptr inbounds i8, ptr %186, i64 %.neg140
-  %189 = load i64, ptr %188, align 8
-  store i64 %189, ptr %5, align 8
-  call void @zfree(ptr noundef nonnull %162) #26
-  %190 = load i64, ptr %155, align 8, !tbaa !9
-  %191 = add i64 %190, -1
-  store i64 %191, ptr %155, align 8, !tbaa !9
-  %.cast202 = inttoptr i64 %189 to ptr
-  %192 = load i32, ptr %.cast202, align 4
-  %193 = and i32 %192, 1
-  %.not141 = icmp eq i32 %193, 0
-  br i1 %.not141, label %194, label %.thread198
+  %186 = getelementptr inbounds i8, ptr %184, i64 %.neg140
+  %187 = load i64, ptr %186, align 8
+  store i64 %187, ptr %5, align 8
+  call void @zfree(ptr noundef nonnull %160) #26
+  %188 = load i64, ptr %155, align 8, !tbaa !9
+  %189 = add i64 %188, -1
+  store i64 %189, ptr %155, align 8, !tbaa !9
+  %.cast202 = inttoptr i64 %187 to ptr
+  %190 = load i32, ptr %.cast202, align 4
+  %191 = and i32 %190, 1
+  %.not141 = icmp eq i32 %191, 0
+  br i1 %.not141, label %192, label %.thread198
 
-194:                                              ; preds = %.lr.ph293
-  %195 = and i32 %192, 4
-  %.not142 = icmp ne i32 %195, 0
-  %.mask144 = and i32 %192, -8
-  %.not143 = icmp eq i32 %.mask144, 8
-  %or.cond162 = or i1 %.not142, %.not143
-  br i1 %or.cond162, label %160, label %..thread198_crit_edge, !llvm.loop !35
+192:                                              ; preds = %.lr.ph293
+  %193 = and i32 %190, 4
+  %.not142 = icmp eq i32 %193, 0
+  %.mask144 = and i32 %190, -8
+  %.not143 = icmp ne i32 %.mask144, 8
+  %or.cond162.not300 = and i1 %.not142, %.not143
+  %194 = add i64 %.389291, %168
+  %.not132 = icmp ult i32 %190, 8
+  %or.cond299 = or i1 %or.cond162.not300, %.not132
+  br i1 %or.cond299, label %.thread198, label %.lr.ph293
 
-..thread198_crit_edge:                            ; preds = %194
-  br label %.thread198, !llvm.loop !35
-
-.thread198:                                       ; preds = %160, %.lr.ph293, %..thread198_crit_edge, %151
-  %196 = phi i64 [ %189, %..thread198_crit_edge ], [ %159, %151 ], [ %189, %.lr.ph293 ], [ %189, %160 ]
-  %197 = load i32, ptr %148, align 4
-  %198 = lshr i32 %197, 3
-  %199 = zext nneg i32 %198 to i64
-  %200 = xor i32 %198, 3
-  %.neg145 = add nuw nsw i32 %200, 1
-  %201 = and i32 %.neg145, 7
-  %202 = zext nneg i32 %201 to i64
-  %203 = and i32 %197, 4
-  %.not146 = icmp eq i32 %203, 0
-  %204 = shl nuw nsw i64 %199, 3
-  %spec.select165 = select i1 %.not146, i64 %204, i64 8
-  %205 = and i32 %197, 1
-  %.not147 = icmp eq i32 %205, 0
-  %206 = shl i32 %197, 2
-  %207 = and i32 %206, 8
-  %208 = xor i32 %207, 8
-  %narrow203 = select i1 %.not147, i32 0, i32 %208
-  %209 = zext nneg i32 %narrow203 to i64
-  %210 = getelementptr inbounds nuw i8, ptr %148, i64 %199
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 %202
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %spec.select165
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 %209
-  %215 = getelementptr inbounds i8, ptr %214, i64 -8
-  %216 = and i32 %197, 2
-  %.not150 = icmp eq i32 %216, 0
+.thread198:                                       ; preds = %.lr.ph293, %192, %151
+  %195 = phi i64 [ %159, %151 ], [ %187, %192 ], [ %187, %.lr.ph293 ]
+  %196 = load i32, ptr %148, align 4
+  %197 = lshr i32 %196, 3
+  %198 = zext nneg i32 %197 to i64
+  %199 = xor i32 %197, 3
+  %.neg145 = add nuw nsw i32 %199, 1
+  %200 = and i32 %.neg145, 7
+  %201 = zext nneg i32 %200 to i64
+  %202 = and i32 %196, 4
+  %.not146 = icmp eq i32 %202, 0
+  %203 = shl nuw nsw i64 %198, 3
+  %spec.select165 = select i1 %.not146, i64 %203, i64 8
+  %204 = and i32 %196, 1
+  %.not147 = icmp eq i32 %204, 0
+  %205 = shl i32 %196, 2
+  %206 = and i32 %205, 8
+  %207 = xor i32 %206, 8
+  %narrow203 = select i1 %.not147, i32 0, i32 %207
+  %208 = zext nneg i32 %narrow203 to i64
+  %209 = getelementptr inbounds nuw i8, ptr %148, i64 %198
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %201
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 %spec.select165
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %208
+  %214 = getelementptr inbounds i8, ptr %213, i64 -8
+  %215 = and i32 %196, 2
+  %.not150 = icmp eq i32 %215, 0
   %.neg151 = select i1 %.not150, i64 -8, i64 0
   %.neg152 = select i1 %.not147, i64 0, i64 %.neg151
-  %217 = getelementptr inbounds i8, ptr %215, i64 %.neg152
-  store i64 %196, ptr %217, align 8
-  br i1 %.not115190, label %.critedge.sink.split, label %218
+  %216 = getelementptr inbounds i8, ptr %214, i64 %.neg152
+  store i64 %195, ptr %216, align 8
+  br i1 %.not115190, label %.critedge.sink.split, label %217
 
-218:                                              ; preds = %.thread198
-  %219 = getelementptr inbounds nuw i8, ptr %.0.i174189, i64 4
-  %220 = load i32, ptr %.0.i174189, align 4
-  %221 = lshr i32 %220, 3
-  %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 %222
-  %224 = xor i32 %221, 3
-  %.neg.i178 = add nuw nsw i32 %224, 1
-  %225 = and i32 %.neg.i178, 7
-  %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw i8, ptr %223, i64 %226
-  br label %228
+217:                                              ; preds = %.thread198
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i174189, i64 4
+  %219 = load i32, ptr %.0.i174189, align 4
+  %220 = lshr i32 %219, 3
+  %221 = zext nneg i32 %220 to i64
+  %222 = getelementptr inbounds nuw i8, ptr %218, i64 %221
+  %223 = xor i32 %220, 3
+  %.neg.i178 = add nuw nsw i32 %223, 1
+  %224 = and i32 %.neg.i178, 7
+  %225 = zext nneg i32 %224 to i64
+  %226 = getelementptr inbounds nuw i8, ptr %222, i64 %225
+  br label %227
 
-228:                                              ; preds = %228, %218
-  %.0.i179 = phi ptr [ %227, %218 ], [ %230, %228 ]
+227:                                              ; preds = %227, %217
+  %.0.i179 = phi ptr [ %226, %217 ], [ %229, %227 ]
   %.0.copyload.i180 = load ptr, ptr %.0.i179, align 8
-  %229 = icmp eq ptr %.0.copyload.i180, %.lcssa
-  %230 = getelementptr inbounds nuw i8, ptr %.0.i179, i64 8
-  br i1 %229, label %.critedge.sink.split, label %228, !llvm.loop !32
+  %228 = icmp eq ptr %.0.copyload.i180, %.lcssa
+  %229 = getelementptr inbounds nuw i8, ptr %.0.i179, i64 8
+  br i1 %228, label %.critedge.sink.split, label %227
 
-.critedge.sink.split:                             ; preds = %228, %.thread198
-  %.sink = phi ptr [ %0, %.thread198 ], [ %.0.i179, %228 ]
+.critedge.sink.split:                             ; preds = %227, %.thread198
+  %.sink = phi ptr [ %0, %.thread198 ], [ %.0.i179, %227 ]
   store ptr %148, ptr %.sink, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %.preheader204, %raxStackPop.exit175.thread, %81, %.thread192, %86
-  %231 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not.i182 = icmp eq ptr %231, %8
+  %230 = load ptr, ptr %6, align 8, !tbaa !27
+  %.not.i182 = icmp eq ptr %230, %8
   br i1 %.not.i182, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
 raxStackFree.exit.sink.split:                     ; preds = %.critedge, %149, %21
-  %.sink267 = phi ptr [ %22, %21 ], [ %150, %149 ], [ %231, %.critedge ]
+  %.sink267 = phi ptr [ %22, %21 ], [ %150, %149 ], [ %230, %.critedge ]
   %.0.ph = phi i32 [ 0, %21 ], [ 1, %149 ], [ 1, %.critedge ]
   call void @zfree(ptr noundef %.sink267) #26
   br label %raxStackFree.exit
@@ -2430,7 +2422,7 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
   %24 = icmp samesign ult i64 %22, %13
   %25 = icmp ult i64 %23, %2
   %26 = and i1 %24, %25
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %21, %.lr.ph.i, %.preheader81.i
   %.260.lcssa.i = phi i64 [ %.058100.i, %.preheader81.i ], [ %23, %21 ], [ %.26083.i, %.lr.ph.i ]
@@ -2448,7 +2440,7 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
 31:                                               ; preds = %27
   %32 = add nuw nsw i64 %.591.i, 1
   %exitcond.not.i = icmp eq i64 %32, %13
-  br i1 %exitcond.not.i, label %.thread.i, label %27, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.thread.i, label %27, !llvm.loop !21
 
 ._crit_edge93.i:                                  ; preds = %27
   %33 = icmp eq i64 %.591.i, %13
@@ -2473,7 +2465,7 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
   %44 = icmp ugt i32 %43, 7
   %45 = icmp ult i64 %.462.i, %2
   %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph104.i, label %.thread.loopexit.i.loopexit22, !llvm.loop !23
+  br i1 %46, label %.lr.ph104.i, label %.thread.loopexit.i.loopexit22
 
 .thread.loopexit.i.loopexit22:                    ; preds = %._crit_edge.i, %._crit_edge93.i, %36
   %47 = phi i32 [ %9, %._crit_edge93.i ], [ %9, %._crit_edge.i ], [ %43, %36 ]
@@ -2528,7 +2520,7 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
 
 raxGetData.exit:                                  ; preds = %55, %57
   %.0.i13 = phi ptr [ %.0.copyload.i, %57 ], [ null, %55 ]
-  store ptr %.0.i13, ptr %3, align 8, !tbaa !24
+  store ptr %.0.i13, ptr %3, align 8, !tbaa !22
   br label %68
 
 68:                                               ; preds = %54, %raxGetData.exit, %.thread.i, %51
@@ -2555,7 +2547,7 @@ define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly cap
   %.0.copyload = load ptr, ptr %.0, align 8
   %13 = icmp eq ptr %.0.copyload, %1
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br i1 %13, label %15, label %12, !llvm.loop !32
+  br i1 %13, label %15, label %12
 
 15:                                               ; preds = %12
   ret ptr %.0
@@ -2626,7 +2618,7 @@ raxSetData.exit:                                  ; preds = %7, %9, %19
   %31 = icmp eq ptr %.0.copyload, %1
   %32 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.055, i64 1
-  br i1 %31, label %34, label %30, !llvm.loop !36
+  br i1 %31, label %34, label %30
 
 34:                                               ; preds = %30
   %35 = ptrtoint ptr %.055 to i64
@@ -2748,7 +2740,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   tail call void @raxRecursiveFree(ptr noundef %0, ptr noundef %.0.copyload, ptr noundef %2)
   %27 = getelementptr inbounds i8, ptr %.02337, i64 -8
   %.not32 = icmp eq i32 %26, 0
-  br i1 %.not32, label %select.unfold._crit_edge, label %select.unfold, !llvm.loop !37
+  br i1 %.not32, label %select.unfold._crit_edge, label %select.unfold, !llvm.loop !30
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %3
   %.not33 = icmp eq ptr %2, null
@@ -2834,7 +2826,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   tail call void @raxRecursiveFreeWithCtx(ptr noundef %0, ptr noundef %.0.copyload, ptr noundef %2, ptr noundef %3)
   %28 = getelementptr inbounds i8, ptr %.02539, i64 -8
   %.not34 = icmp eq i32 %27, 0
-  br i1 %.not34, label %select.unfold._crit_edge, label %select.unfold, !llvm.loop !38
+  br i1 %.not34, label %select.unfold._crit_edge, label %select.unfold, !llvm.loop !31
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %4
   %.not35 = icmp eq ptr %2, null
@@ -2933,29 +2925,29 @@ raxFreeWithCallback.exit:                         ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @raxStart(ptr noundef initializes((0, 4), (8, 16), (32, 40)) %0, ptr noundef %1) local_unnamed_addr #14 {
-  store i32 2, ptr %0, align 8, !tbaa !39
+  store i32 2, ptr %0, align 8, !tbaa !32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !43
+  store ptr %1, ptr %3, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %4, align 8, !tbaa !44
+  store i64 0, ptr %4, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %6, align 8, !tbaa !45
+  store ptr %5, ptr %6, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 128, ptr %7, align 8, !tbaa !46
+  store i64 128, ptr %7, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %8, align 8, !tbaa !47
+  store ptr null, ptr %8, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store ptr null, ptr %9, align 8, !tbaa !48
+  store ptr null, ptr %9, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %11, ptr %10, align 8, !tbaa !29
+  store ptr %11, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 0, ptr %12, align 8, !tbaa !26
+  store i64 0, ptr %12, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 32, ptr %13, align 8, !tbaa !28
+  store i64 32, ptr %13, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 0, ptr %14, align 8, !tbaa !30
+  store i32 0, ptr %14, align 8, !tbaa !28
   ret void
 }
 
@@ -2966,22 +2958,22 @@ define dso_local range(i32 0, 2) i32 @raxIteratorAddChars(ptr noundef %0, ptr no
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !46
+  %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !37
   %10 = add i64 %9, %2
   %11 = icmp ult i64 %7, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = icmp eq ptr %14, %15
   %spec.select = select i1 %16, ptr null, ptr %14
   %17 = shl i64 %10, 1
   %18 = tail call ptr @zrealloc(ptr noundef %spec.select, i64 noundef %17) #27
-  store ptr %18, ptr %13, align 8, !tbaa !45
+  store ptr %18, ptr %13, align 8, !tbaa !38
   %19 = icmp eq ptr %18, null
   %.not = icmp eq ptr %spec.select, null
   br i1 %19, label %23, label %20
@@ -2990,18 +2982,18 @@ define dso_local range(i32 0, 2) i32 @raxIteratorAddChars(ptr noundef %0, ptr no
   br i1 %.not, label %21, label %.thread
 
 21:                                               ; preds = %20
-  %22 = load i64, ptr %8, align 8, !tbaa !44
+  %22 = load i64, ptr %8, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 8 %15, i64 %22, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %20, %21
-  store i64 %17, ptr %6, align 8, !tbaa !46
-  %.pre = load i64, ptr %8, align 8, !tbaa !44
+  store i64 %17, ptr %6, align 8, !tbaa !39
+  %.pre = load i64, ptr %8, align 8, !tbaa !37
   br label %26
 
 23:                                               ; preds = %12
   %24 = select i1 %.not, ptr %15, ptr %spec.select
-  store ptr %24, ptr %13, align 8, !tbaa !45
+  store ptr %24, ptr %13, align 8, !tbaa !38
   %25 = tail call ptr @__errno_location() #29
   store i32 12, ptr %25, align 4, !tbaa !5
   br label %33
@@ -3009,12 +3001,12 @@ define dso_local range(i32 0, 2) i32 @raxIteratorAddChars(ptr noundef %0, ptr no
 26:                                               ; preds = %.thread, %5
   %27 = phi i64 [ %.pre, %.thread ], [ %9, %5 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !45
+  %29 = load ptr, ptr %28, align 8, !tbaa !38
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %1, i64 %2, i1 false)
-  %31 = load i64, ptr %8, align 8, !tbaa !44
+  %31 = load i64, ptr %8, align 8, !tbaa !37
   %32 = add i64 %31, %2
-  store i64 %32, ptr %8, align 8, !tbaa !44
+  store i64 %32, ptr %8, align 8, !tbaa !37
   br label %33
 
 33:                                               ; preds = %23, %3, %26
@@ -3025,15 +3017,15 @@ define dso_local range(i32 0, 2) i32 @raxIteratorAddChars(ptr noundef %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @raxIteratorDelChars(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i64, ptr %3, align 8, !tbaa !44
+  %4 = load i64, ptr %3, align 8, !tbaa !37
   %5 = sub i64 %4, %1
-  store i64 %5, ptr %3, align 8, !tbaa !44
+  store i64 %5, ptr %3, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = load i32, ptr %0, align 8, !tbaa !39
+  %3 = load i32, ptr %0, align 8, !tbaa !32
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %.thread158
@@ -3045,17 +3037,17 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
 
 7:                                                ; preds = %5
   %8 = and i32 %3, -4
-  store i32 %8, ptr %0, align 8, !tbaa !39
+  store i32 %8, ptr %0, align 8, !tbaa !32
   br label %.thread158
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !44
+  %11 = load i64, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %14 = load i64, ptr %13, align 8, !tbaa !49
+  %14 = load i64, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load ptr, ptr %15, align 8, !tbaa !50
+  %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3076,10 +3068,10 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   br i1 %or.cond, label %28, label %.preheader
 
 28:                                               ; preds = %25
-  %29 = load i64, ptr %13, align 8, !tbaa !26
-  %30 = load i64, ptr %21, align 8, !tbaa !28
+  %29 = load i64, ptr %13, align 8, !tbaa !24
+  %30 = load i64, ptr %21, align 8, !tbaa !26
   %31 = icmp eq i64 %29, %30
-  %.pre32.i = load ptr, ptr %12, align 8, !tbaa !29
+  %.pre32.i = load ptr, ptr %12, align 8, !tbaa !27
   br i1 %31, label %32, label %54
 
 32:                                               ; preds = %28
@@ -3089,20 +3081,20 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
 
 35:                                               ; preds = %32
   %36 = tail call noalias ptr @zmalloc(i64 noundef %34) #25
-  store ptr %36, ptr %12, align 8, !tbaa !29
+  store ptr %36, ptr %12, align 8, !tbaa !27
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  store ptr %22, ptr %12, align 8, !tbaa !29
+  store ptr %22, ptr %12, align 8, !tbaa !27
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %39, align 8, !tbaa !30
+  store i32 1, ptr %39, align 8, !tbaa !28
   %40 = tail call ptr @__errno_location() #29
   store i32 12, ptr %40, align 4, !tbaa !5
   br label %.thread158
 
 41:                                               ; preds = %35
-  %42 = load i64, ptr %21, align 8, !tbaa !28
+  %42 = load i64, ptr %21, align 8, !tbaa !26
   %43 = shl i64 %42, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %22, i64 %43, i1 false)
   br label %50
@@ -3113,13 +3105,13 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   br i1 %46, label %47, label %.thread.i
 
 .thread.i:                                        ; preds = %44
-  store ptr %45, ptr %12, align 8, !tbaa !29
-  %.pre.i = load i64, ptr %21, align 8, !tbaa !28
+  store ptr %45, ptr %12, align 8, !tbaa !27
+  %.pre.i = load i64, ptr %21, align 8, !tbaa !26
   br label %50
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %48, align 8, !tbaa !30
+  store i32 1, ptr %48, align 8, !tbaa !28
   %49 = tail call ptr @__errno_location() #29
   store i32 12, ptr %49, align 4, !tbaa !5
   br label %.thread158
@@ -3128,18 +3120,18 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   %51 = phi ptr [ %45, %.thread.i ], [ %36, %41 ]
   %52 = phi i64 [ %.pre.i, %.thread.i ], [ %42, %41 ]
   %53 = shl i64 %52, 1
-  store i64 %53, ptr %21, align 8, !tbaa !28
-  %.pre33.i = load i64, ptr %13, align 8, !tbaa !26
+  store i64 %53, ptr %21, align 8, !tbaa !26
+  %.pre33.i = load i64, ptr %13, align 8, !tbaa !24
   br label %54
 
 54:                                               ; preds = %50, %28
   %55 = phi i64 [ %.pre33.i, %50 ], [ %29, %28 ]
   %56 = phi ptr [ %51, %50 ], [ %.pre32.i, %28 ]
   %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
-  store ptr %27, ptr %57, align 8, !tbaa !24
+  store ptr %27, ptr %57, align 8, !tbaa !22
   %58 = add i64 %55, 1
-  store i64 %58, ptr %13, align 8, !tbaa !26
-  %59 = load ptr, ptr %15, align 8, !tbaa !50
+  store i64 %58, ptr %13, align 8, !tbaa !24
+  %59 = load ptr, ptr %15, align 8, !tbaa !43
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %59, align 4
   %62 = lshr i32 %61, 3
@@ -3157,11 +3149,11 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   br i1 %70, label %92, label %71
 
 71:                                               ; preds = %54
-  %72 = load i64, ptr %19, align 8, !tbaa !46
-  %73 = load i64, ptr %10, align 8, !tbaa !44
+  %72 = load i64, ptr %19, align 8, !tbaa !39
+  %73 = load i64, ptr %10, align 8, !tbaa !37
   %74 = add i64 %73, %spec.select119
   %75 = icmp ult i64 %72, %74
-  %.pre201 = load ptr, ptr %17, align 8, !tbaa !45
+  %.pre201 = load ptr, ptr %17, align 8, !tbaa !38
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %71
@@ -3169,7 +3161,7 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   %spec.select.i = select i1 %77, ptr null, ptr %.pre201
   %78 = shl i64 %74, 1
   %79 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %78) #27
-  store ptr %79, ptr %17, align 8, !tbaa !45
+  store ptr %79, ptr %17, align 8, !tbaa !38
   %80 = icmp eq ptr %79, null
   %.not.i = icmp eq ptr %spec.select.i, null
   br i1 %80, label %raxIteratorAddChars.exit, label %81
@@ -3178,15 +3170,15 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   br i1 %.not.i, label %82, label %.thread.i121
 
 82:                                               ; preds = %81
-  %83 = load i64, ptr %10, align 8, !tbaa !44
+  %83 = load i64, ptr %10, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 8 %20, i64 %83, i1 false)
-  %.pre200.pre = load ptr, ptr %17, align 8, !tbaa !45
+  %.pre200.pre = load ptr, ptr %17, align 8, !tbaa !38
   br label %.thread.i121
 
 .thread.i121:                                     ; preds = %82, %81
   %.pre200 = phi ptr [ %.pre200.pre, %82 ], [ %79, %81 ]
-  store i64 %78, ptr %19, align 8, !tbaa !46
-  %.pre.i122 = load i64, ptr %10, align 8, !tbaa !44
+  store i64 %78, ptr %19, align 8, !tbaa !39
+  %.pre.i122 = load i64, ptr %10, align 8, !tbaa !37
   br label %84
 
 84:                                               ; preds = %.thread.i121, %71
@@ -3194,14 +3186,14 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
   %86 = phi i64 [ %.pre.i122, %.thread.i121 ], [ %73, %71 ]
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %87, ptr nonnull readonly align 1 %60, i64 %spec.select119, i1 false)
-  %88 = load i64, ptr %10, align 8, !tbaa !44
+  %88 = load i64, ptr %10, align 8, !tbaa !37
   %89 = add i64 %88, %spec.select119
-  store i64 %89, ptr %10, align 8, !tbaa !44
+  store i64 %89, ptr %10, align 8, !tbaa !37
   br label %92
 
 raxIteratorAddChars.exit:                         ; preds = %76
   %90 = select i1 %.not.i, ptr %20, ptr %spec.select.i
-  store ptr %90, ptr %17, align 8, !tbaa !45
+  store ptr %90, ptr %17, align 8, !tbaa !38
   %91 = tail call ptr @__errno_location() #29
   store i32 12, ptr %91, align 4, !tbaa !5
   br label %.thread158
@@ -3209,7 +3201,7 @@ raxIteratorAddChars.exit:                         ; preds = %76
 92:                                               ; preds = %84, %54
   %93 = load i64, ptr %68, align 8
   store i64 %93, ptr %15, align 8
-  %94 = load ptr, ptr %23, align 8, !tbaa !48
+  %94 = load ptr, ptr %23, align 8, !tbaa !41
   %.not116 = icmp eq ptr %94, null
   %95 = inttoptr i64 %93 to ptr
   br i1 %.not116, label %101, label %96
@@ -3220,7 +3212,7 @@ raxIteratorAddChars.exit:                         ; preds = %76
   br i1 %.not117, label %._crit_edge202, label %98
 
 ._crit_edge202:                                   ; preds = %96
-  %.pre203 = load ptr, ptr %15, align 8, !tbaa !50
+  %.pre203 = load ptr, ptr %15, align 8, !tbaa !43
   br label %101
 
 98:                                               ; preds = %96
@@ -3262,7 +3254,7 @@ raxIteratorAddChars.exit:                         ; preds = %76
 raxGetData.exit:                                  ; preds = %105, %107
   %.0.i = phi ptr [ %.0.copyload.i, %107 ], [ null, %105 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i, ptr %119, align 8, !tbaa !47
+  store ptr %.0.i, ptr %119, align 8, !tbaa !40
   br label %.thread158
 
 .preheader:                                       ; preds = %25, %.preheader.backedge
@@ -3272,43 +3264,43 @@ raxGetData.exit:                                  ; preds = %105, %107
   br i1 %.391, label %122, label %128
 
 122:                                              ; preds = %.preheader
-  %123 = load ptr, ptr %18, align 8, !tbaa !43
+  %123 = load ptr, ptr %18, align 8, !tbaa !36
   %124 = load ptr, ptr %123, align 8, !tbaa !11
   %125 = icmp eq ptr %121, %124
   br i1 %125, label %.thread154, label %raxStackPop.exit
 
 .thread154:                                       ; preds = %122
-  %126 = load i32, ptr %0, align 8, !tbaa !39
+  %126 = load i32, ptr %0, align 8, !tbaa !32
   %127 = or i32 %126, 2
-  store i32 %127, ptr %0, align 8, !tbaa !39
-  store i64 %14, ptr %13, align 8, !tbaa !49
-  store i64 %11, ptr %10, align 8, !tbaa !44
-  store ptr %16, ptr %15, align 8, !tbaa !50
+  store i32 %127, ptr %0, align 8, !tbaa !32
+  store i64 %14, ptr %13, align 8, !tbaa !42
+  store i64 %11, ptr %10, align 8, !tbaa !37
+  store ptr %16, ptr %15, align 8, !tbaa !43
   br label %.thread158
 
 128:                                              ; preds = %.preheader
-  %129 = load ptr, ptr %17, align 8, !tbaa !45
-  %130 = load i64, ptr %10, align 8, !tbaa !44
+  %129 = load ptr, ptr %17, align 8, !tbaa !38
+  %130 = load i64, ptr %10, align 8, !tbaa !37
   %131 = getelementptr i8, ptr %129, i64 %130
   %132 = getelementptr i8, ptr %131, i64 -1
   %133 = load i8, ptr %132, align 1, !tbaa !15
   br label %145
 
 raxStackPop.exit:                                 ; preds = %122
-  %134 = load ptr, ptr %17, align 8, !tbaa !45
-  %135 = load i64, ptr %10, align 8, !tbaa !44
+  %134 = load ptr, ptr %17, align 8, !tbaa !38
+  %135 = load i64, ptr %10, align 8, !tbaa !37
   %136 = getelementptr i8, ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -1
   %138 = load i8, ptr %137, align 1, !tbaa !15
-  %139 = load i64, ptr %13, align 8, !tbaa !26
+  %139 = load i64, ptr %13, align 8, !tbaa !24
   %140 = icmp ne i64 %139, 0
   tail call void @llvm.assume(i1 %140)
   %141 = add i64 %139, -1
-  store i64 %141, ptr %13, align 8, !tbaa !26
-  %142 = load ptr, ptr %12, align 8, !tbaa !29
+  store i64 %141, ptr %13, align 8, !tbaa !24
+  %142 = load ptr, ptr %12, align 8, !tbaa !27
   %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %141
-  %144 = load ptr, ptr %143, align 8, !tbaa !24
-  store ptr %144, ptr %15, align 8, !tbaa !50
+  %144 = load ptr, ptr %143, align 8, !tbaa !22
+  store ptr %144, ptr %15, align 8, !tbaa !43
   %.pre197 = load i32, ptr %144, align 4
   br label %145
 
@@ -3324,7 +3316,7 @@ raxStackPop.exit:                                 ; preds = %122
   %narrow = select i1 %.not105, i32 1, i32 %152
   %153 = zext nneg i32 %narrow to i64
   %154 = sub i64 %149, %153
-  store i64 %154, ptr %10, align 8, !tbaa !44
+  store i64 %154, ptr %10, align 8, !tbaa !37
   %155 = load i32, ptr %147, align 4
   %156 = and i32 %155, 4
   %.not106 = icmp eq i32 %156, 0
@@ -3359,7 +3351,7 @@ raxStackPop.exit:                                 ; preds = %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = getelementptr inbounds nuw i8, ptr %.086187, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %163
-  br i1 %exitcond.not, label %.preheader.backedge, label %169, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader.backedge, label %169, !llvm.loop !44
 
 175:                                              ; preds = %169
   %176 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3372,7 +3364,7 @@ raxStackPop.exit:                                 ; preds = %122
 177:                                              ; preds = %175
   %178 = and i64 %indvars.iv, 4294967295
   %179 = getelementptr inbounds nuw i8, ptr %162, i64 %178
-  %180 = load i64, ptr %19, align 8, !tbaa !46
+  %180 = load i64, ptr %19, align 8, !tbaa !39
   %181 = add i64 %154, 1
   %182 = icmp ult i64 %180, %181
   br i1 %182, label %183, label %194
@@ -3382,7 +3374,7 @@ raxStackPop.exit:                                 ; preds = %122
   %spec.select.i127 = select i1 %184, ptr null, ptr %150
   %185 = shl i64 %181, 1
   %186 = tail call ptr @zrealloc(ptr noundef %spec.select.i127, i64 noundef %185) #27
-  store ptr %186, ptr %17, align 8, !tbaa !45
+  store ptr %186, ptr %17, align 8, !tbaa !38
   %187 = icmp eq ptr %186, null
   %.not.i128 = icmp eq ptr %spec.select.i127, null
   br i1 %187, label %191, label %188
@@ -3391,20 +3383,20 @@ raxStackPop.exit:                                 ; preds = %122
   br i1 %.not.i128, label %189, label %.thread.i129
 
 189:                                              ; preds = %188
-  %190 = load i64, ptr %10, align 8, !tbaa !44
+  %190 = load i64, ptr %10, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %186, ptr nonnull align 8 %20, i64 %190, i1 false)
-  %.pre198.pre = load ptr, ptr %17, align 8, !tbaa !45
+  %.pre198.pre = load ptr, ptr %17, align 8, !tbaa !38
   br label %.thread.i129
 
 .thread.i129:                                     ; preds = %189, %188
   %.pre198 = phi ptr [ %.pre198.pre, %189 ], [ %186, %188 ]
-  store i64 %185, ptr %19, align 8, !tbaa !46
-  %.pre.i130 = load i64, ptr %10, align 8, !tbaa !44
+  store i64 %185, ptr %19, align 8, !tbaa !39
+  %.pre.i130 = load i64, ptr %10, align 8, !tbaa !37
   br label %194
 
 191:                                              ; preds = %183
   %192 = select i1 %.not.i128, ptr %20, ptr %spec.select.i127
-  store ptr %192, ptr %17, align 8, !tbaa !45
+  store ptr %192, ptr %17, align 8, !tbaa !38
   %193 = tail call ptr @__errno_location() #29
   store i32 12, ptr %193, align 4, !tbaa !5
   br label %raxIteratorAddChars.exit131
@@ -3415,17 +3407,17 @@ raxStackPop.exit:                                 ; preds = %122
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 %196
   %198 = load i8, ptr %179, align 1
   store i8 %198, ptr %197, align 1
-  %199 = load i64, ptr %10, align 8, !tbaa !44
+  %199 = load i64, ptr %10, align 8, !tbaa !37
   %200 = add i64 %199, 1
-  store i64 %200, ptr %10, align 8, !tbaa !44
+  store i64 %200, ptr %10, align 8, !tbaa !37
   br label %raxIteratorAddChars.exit131
 
 raxIteratorAddChars.exit131:                      ; preds = %191, %194
-  %201 = load ptr, ptr %15, align 8, !tbaa !50
-  %202 = load i64, ptr %13, align 8, !tbaa !26
-  %203 = load i64, ptr %21, align 8, !tbaa !28
+  %201 = load ptr, ptr %15, align 8, !tbaa !43
+  %202 = load i64, ptr %13, align 8, !tbaa !24
+  %203 = load i64, ptr %21, align 8, !tbaa !26
   %204 = icmp eq i64 %202, %203
-  %.pre32.i132 = load ptr, ptr %12, align 8, !tbaa !29
+  %.pre32.i132 = load ptr, ptr %12, align 8, !tbaa !27
   br i1 %204, label %205, label %227
 
 205:                                              ; preds = %raxIteratorAddChars.exit131
@@ -3435,20 +3427,20 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
 
 208:                                              ; preds = %205
   %209 = tail call noalias ptr @zmalloc(i64 noundef %207) #25
-  store ptr %209, ptr %12, align 8, !tbaa !29
+  store ptr %209, ptr %12, align 8, !tbaa !27
   %210 = icmp eq ptr %209, null
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %208
-  store ptr %22, ptr %12, align 8, !tbaa !29
+  store ptr %22, ptr %12, align 8, !tbaa !27
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %212, align 8, !tbaa !30
+  store i32 1, ptr %212, align 8, !tbaa !28
   %213 = tail call ptr @__errno_location() #29
   store i32 12, ptr %213, align 4, !tbaa !5
   br label %.thread158
 
 214:                                              ; preds = %208
-  %215 = load i64, ptr %21, align 8, !tbaa !28
+  %215 = load i64, ptr %21, align 8, !tbaa !26
   %216 = shl i64 %215, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %209, ptr nonnull align 8 %22, i64 %216, i1 false)
   br label %223
@@ -3459,13 +3451,13 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
   br i1 %219, label %220, label %.thread.i134
 
 .thread.i134:                                     ; preds = %217
-  store ptr %218, ptr %12, align 8, !tbaa !29
-  %.pre.i135 = load i64, ptr %21, align 8, !tbaa !28
+  store ptr %218, ptr %12, align 8, !tbaa !27
+  %.pre.i135 = load i64, ptr %21, align 8, !tbaa !26
   br label %223
 
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %221, align 8, !tbaa !30
+  store i32 1, ptr %221, align 8, !tbaa !28
   %222 = tail call ptr @__errno_location() #29
   store i32 12, ptr %222, align 4, !tbaa !5
   br label %.thread158
@@ -3474,20 +3466,20 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
   %224 = phi ptr [ %218, %.thread.i134 ], [ %209, %214 ]
   %225 = phi i64 [ %.pre.i135, %.thread.i134 ], [ %215, %214 ]
   %226 = shl i64 %225, 1
-  store i64 %226, ptr %21, align 8, !tbaa !28
-  %.pre33.i136 = load i64, ptr %13, align 8, !tbaa !26
+  store i64 %226, ptr %21, align 8, !tbaa !26
+  %.pre33.i136 = load i64, ptr %13, align 8, !tbaa !24
   br label %227
 
 227:                                              ; preds = %223, %raxIteratorAddChars.exit131
   %228 = phi i64 [ %.pre33.i136, %223 ], [ %202, %raxIteratorAddChars.exit131 ]
   %229 = phi ptr [ %224, %223 ], [ %.pre32.i132, %raxIteratorAddChars.exit131 ]
   %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %228
-  store ptr %201, ptr %230, align 8, !tbaa !24
+  store ptr %201, ptr %230, align 8, !tbaa !22
   %231 = add i64 %228, 1
-  store i64 %231, ptr %13, align 8, !tbaa !26
+  store i64 %231, ptr %13, align 8, !tbaa !24
   %232 = load i64, ptr %.086187, align 8
   store i64 %232, ptr %15, align 8
-  %233 = load ptr, ptr %23, align 8, !tbaa !48
+  %233 = load ptr, ptr %23, align 8, !tbaa !41
   %.not109 = icmp eq ptr %233, null
   %234 = inttoptr i64 %232 to ptr
   br i1 %.not109, label %240, label %235
@@ -3498,7 +3490,7 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
   br i1 %.not110, label %._crit_edge, label %237
 
 ._crit_edge:                                      ; preds = %235
-  %.pre199 = load ptr, ptr %15, align 8, !tbaa !50
+  %.pre199 = load ptr, ptr %15, align 8, !tbaa !43
   br label %240
 
 237:                                              ; preds = %235
@@ -3517,7 +3509,7 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
 .backedge:                                        ; preds = %240, %101
   %.be = phi i32 [ %242, %240 ], [ %103, %101 ]
   %.be226 = phi ptr [ %241, %240 ], [ %102, %101 ]
-  br label %25, !llvm.loop !52
+  br label %25
 
 244:                                              ; preds = %240
   %245 = and i32 %242, 2
@@ -3545,7 +3537,7 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
 raxGetData.exit144:                               ; preds = %244, %246
   %.0.i139 = phi ptr [ %.0.copyload.i143, %246 ], [ null, %244 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i139, ptr %258, align 8, !tbaa !47
+  store ptr %.0.i139, ptr %258, align 8, !tbaa !40
   br label %.thread158
 
 .thread158:                                       ; preds = %220, %211, %raxGetData.exit144, %raxIteratorAddChars.exit, %raxGetData.exit, %47, %38, %.thread154, %2, %7
@@ -3556,7 +3548,7 @@ raxGetData.exit144:                               ; preds = %244, %246
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @raxSeekGreatest(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = load i32, ptr %3, align 4
   %.not59 = icmp ult i32 %4, 8
   br i1 %.not59, label %.thread, label %.lr.ph
@@ -3583,11 +3575,11 @@ define dso_local range(i32 0, 2) i32 @raxSeekGreatest(ptr noundef %0) local_unna
   br i1 %.not24, label %38, label %20
 
 20:                                               ; preds = %13
-  %21 = load i64, ptr %5, align 8, !tbaa !46
-  %22 = load i64, ptr %6, align 8, !tbaa !44
+  %21 = load i64, ptr %5, align 8, !tbaa !39
+  %22 = load i64, ptr %6, align 8, !tbaa !37
   %23 = add i64 %22, %19
   %24 = icmp ult i64 %21, %23
-  %.pre60 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre60 = load ptr, ptr %7, align 8, !tbaa !38
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %20
@@ -3595,7 +3587,7 @@ define dso_local range(i32 0, 2) i32 @raxSeekGreatest(ptr noundef %0) local_unna
   %spec.select.i = select i1 %26, ptr null, ptr %.pre60
   %27 = shl i64 %23, 1
   %28 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %27) #27
-  store ptr %28, ptr %7, align 8, !tbaa !45
+  store ptr %28, ptr %7, align 8, !tbaa !38
   %29 = icmp eq ptr %28, null
   %.not.i = icmp eq ptr %spec.select.i, null
   br i1 %29, label %raxIteratorAddChars.exit, label %30
@@ -3604,15 +3596,15 @@ define dso_local range(i32 0, 2) i32 @raxSeekGreatest(ptr noundef %0) local_unna
   br i1 %.not.i, label %31, label %.thread.i
 
 31:                                               ; preds = %30
-  %32 = load i64, ptr %6, align 8, !tbaa !44
+  %32 = load i64, ptr %6, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 8 %8, i64 %32, i1 false)
-  %.pre.pre = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre.pre = load ptr, ptr %7, align 8, !tbaa !38
   br label %.thread.i
 
 .thread.i:                                        ; preds = %31, %30
   %.pre = phi ptr [ %.pre.pre, %31 ], [ %28, %30 ]
-  store i64 %27, ptr %5, align 8, !tbaa !46
-  %.pre.i = load i64, ptr %6, align 8, !tbaa !44
+  store i64 %27, ptr %5, align 8, !tbaa !39
+  %.pre.i = load i64, ptr %6, align 8, !tbaa !37
   br label %33
 
 33:                                               ; preds = %.thread.i, %20
@@ -3624,17 +3616,17 @@ define dso_local range(i32 0, 2) i32 @raxSeekGreatest(ptr noundef %0) local_unna
 
 raxIteratorAddChars.exit:                         ; preds = %25
   %37 = select i1 %.not.i, ptr %8, ptr %spec.select.i
-  store ptr %37, ptr %7, align 8, !tbaa !45
+  store ptr %37, ptr %7, align 8, !tbaa !38
   br label %.thread.sink.split
 
 38:                                               ; preds = %13
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %40 = getelementptr inbounds i8, ptr %39, i64 -1
-  %41 = load i64, ptr %5, align 8, !tbaa !46
-  %42 = load i64, ptr %6, align 8, !tbaa !44
+  %41 = load i64, ptr %5, align 8, !tbaa !39
+  %42 = load i64, ptr %6, align 8, !tbaa !37
   %43 = add i64 %42, 1
   %44 = icmp ult i64 %41, %43
-  %.pre62 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre62 = load ptr, ptr %7, align 8, !tbaa !38
   br i1 %44, label %45, label %raxIteratorAddChars.exit40
 
 45:                                               ; preds = %38
@@ -3642,7 +3634,7 @@ raxIteratorAddChars.exit:                         ; preds = %25
   %spec.select.i36 = select i1 %46, ptr null, ptr %.pre62
   %47 = shl i64 %43, 1
   %48 = tail call ptr @zrealloc(ptr noundef %spec.select.i36, i64 noundef %47) #27
-  store ptr %48, ptr %7, align 8, !tbaa !45
+  store ptr %48, ptr %7, align 8, !tbaa !38
   %49 = icmp eq ptr %48, null
   %.not.i37 = icmp eq ptr %spec.select.i36, null
   br i1 %49, label %raxIteratorAddChars.exit40.thread, label %50
@@ -3651,20 +3643,20 @@ raxIteratorAddChars.exit:                         ; preds = %25
   br i1 %.not.i37, label %51, label %.thread.i38
 
 51:                                               ; preds = %50
-  %52 = load i64, ptr %6, align 8, !tbaa !44
+  %52 = load i64, ptr %6, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 8 %8, i64 %52, i1 false)
-  %.pre61.pre = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre61.pre = load ptr, ptr %7, align 8, !tbaa !38
   br label %.thread.i38
 
 .thread.i38:                                      ; preds = %51, %50
   %.pre61 = phi ptr [ %.pre61.pre, %51 ], [ %48, %50 ]
-  store i64 %47, ptr %5, align 8, !tbaa !46
-  %.pre.i39 = load i64, ptr %6, align 8, !tbaa !44
+  store i64 %47, ptr %5, align 8, !tbaa !39
+  %.pre.i39 = load i64, ptr %6, align 8, !tbaa !37
   br label %raxIteratorAddChars.exit40
 
 raxIteratorAddChars.exit40.thread:                ; preds = %45
   %53 = select i1 %.not.i37, ptr %8, ptr %spec.select.i36
-  store ptr %53, ptr %7, align 8, !tbaa !45
+  store ptr %53, ptr %7, align 8, !tbaa !38
   br label %.thread.sink.split
 
 raxIteratorAddChars.exit40:                       ; preds = %38, %.thread.i38
@@ -3677,10 +3669,10 @@ raxIteratorAddChars.exit40:                       ; preds = %38, %.thread.i38
 
 raxIteratorAddChars.exit.thread:                  ; preds = %33, %raxIteratorAddChars.exit40
   %.sink65 = phi i64 [ %19, %33 ], [ 1, %raxIteratorAddChars.exit40 ]
-  %58 = load i64, ptr %6, align 8, !tbaa !44
+  %58 = load i64, ptr %6, align 8, !tbaa !37
   %59 = add i64 %58, %.sink65
-  store i64 %59, ptr %6, align 8, !tbaa !44
-  %60 = load ptr, ptr %2, align 8, !tbaa !50
+  store i64 %59, ptr %6, align 8, !tbaa !37
+  %60 = load ptr, ptr %2, align 8, !tbaa !43
   %61 = load i32, ptr %60, align 4
   %62 = lshr i32 %61, 3
   %63 = zext nneg i32 %62 to i64
@@ -3709,10 +3701,10 @@ raxIteratorAddChars.exit.thread:                  ; preds = %33, %raxIteratorAdd
   %.not31 = icmp eq i32 %80, 0
   %.neg32 = select i1 %.not31, i64 -8, i64 0
   %.neg33 = select i1 %.not28, i64 0, i64 %.neg32
-  %81 = load i64, ptr %10, align 8, !tbaa !26
-  %82 = load i64, ptr %11, align 8, !tbaa !28
+  %81 = load i64, ptr %10, align 8, !tbaa !24
+  %82 = load i64, ptr %11, align 8, !tbaa !26
   %83 = icmp eq i64 %81, %82
-  %.pre32.i = load ptr, ptr %9, align 8, !tbaa !29
+  %.pre32.i = load ptr, ptr %9, align 8, !tbaa !27
   br i1 %83, label %84, label %104
 
 84:                                               ; preds = %raxIteratorAddChars.exit.thread
@@ -3722,18 +3714,18 @@ raxIteratorAddChars.exit.thread:                  ; preds = %33, %raxIteratorAdd
 
 87:                                               ; preds = %84
   %88 = tail call noalias ptr @zmalloc(i64 noundef %86) #25
-  store ptr %88, ptr %9, align 8, !tbaa !29
+  store ptr %88, ptr %9, align 8, !tbaa !27
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
-  store ptr %12, ptr %9, align 8, !tbaa !29
+  store ptr %12, ptr %9, align 8, !tbaa !27
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %91, align 8, !tbaa !30
+  store i32 1, ptr %91, align 8, !tbaa !28
   br label %.thread.sink.split
 
 92:                                               ; preds = %87
-  %93 = load i64, ptr %11, align 8, !tbaa !28
+  %93 = load i64, ptr %11, align 8, !tbaa !26
   %94 = shl i64 %93, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %88, ptr nonnull align 8 %12, i64 %94, i1 false)
   br label %100
@@ -3744,37 +3736,37 @@ raxIteratorAddChars.exit.thread:                  ; preds = %33, %raxIteratorAdd
   br i1 %97, label %98, label %.thread.i41
 
 .thread.i41:                                      ; preds = %95
-  store ptr %96, ptr %9, align 8, !tbaa !29
-  %.pre.i42 = load i64, ptr %11, align 8, !tbaa !28
+  store ptr %96, ptr %9, align 8, !tbaa !27
+  %.pre.i42 = load i64, ptr %11, align 8, !tbaa !26
   br label %100
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %99, align 8, !tbaa !30
+  store i32 1, ptr %99, align 8, !tbaa !28
   br label %.thread.sink.split
 
 100:                                              ; preds = %.thread.i41, %92
   %101 = phi ptr [ %96, %.thread.i41 ], [ %88, %92 ]
   %102 = phi i64 [ %.pre.i42, %.thread.i41 ], [ %93, %92 ]
   %103 = shl i64 %102, 1
-  store i64 %103, ptr %11, align 8, !tbaa !28
-  %.pre33.i = load i64, ptr %10, align 8, !tbaa !26
+  store i64 %103, ptr %11, align 8, !tbaa !26
+  %.pre33.i = load i64, ptr %10, align 8, !tbaa !24
   br label %104
 
 104:                                              ; preds = %raxIteratorAddChars.exit.thread, %100
   %105 = phi i64 [ %.pre33.i, %100 ], [ %81, %raxIteratorAddChars.exit.thread ]
   %106 = phi ptr [ %101, %100 ], [ %.pre32.i, %raxIteratorAddChars.exit.thread ]
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
-  store ptr %60, ptr %107, align 8, !tbaa !24
+  store ptr %60, ptr %107, align 8, !tbaa !22
   %108 = add i64 %105, 1
-  store i64 %108, ptr %10, align 8, !tbaa !26
+  store i64 %108, ptr %10, align 8, !tbaa !24
   %109 = getelementptr inbounds i8, ptr %79, i64 %.neg33
   %110 = load i64, ptr %109, align 8
   store i64 %110, ptr %2, align 8
   %.cast = inttoptr i64 %110 to ptr
   %111 = load i32, ptr %.cast, align 4
   %.not = icmp ult i32 %111, 8
-  br i1 %.not, label %.thread, label %13, !llvm.loop !53
+  br i1 %.not, label %.thread, label %13
 
 .thread.sink.split:                               ; preds = %raxIteratorAddChars.exit, %raxIteratorAddChars.exit40.thread, %98, %90
   %112 = tail call ptr @__errno_location() #29
@@ -3788,7 +3780,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %33, %raxIteratorAdd
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @raxIteratorPrevStep(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = load i32, ptr %0, align 8, !tbaa !39
+  %3 = load i32, ptr %0, align 8, !tbaa !32
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %.thread99
@@ -3800,17 +3792,17 @@ define dso_local range(i32 0, 2) i32 @raxIteratorPrevStep(ptr noundef %0, i32 no
 
 7:                                                ; preds = %5
   %8 = and i32 %3, -4
-  store i32 %8, ptr %0, align 8, !tbaa !39
+  store i32 %8, ptr %0, align 8, !tbaa !32
   br label %.thread99
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !44
+  %11 = load i64, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %14 = load i64, ptr %13, align 8, !tbaa !49
+  %14 = load i64, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load ptr, ptr %15, align 8, !tbaa !50
+  %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = icmp eq i32 %1, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3826,49 +3818,49 @@ define dso_local range(i32 0, 2) i32 @raxIteratorPrevStep(ptr noundef %0, i32 no
   br i1 %.062, label %26, label %33
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %19, align 8, !tbaa !43
+  %27 = load ptr, ptr %19, align 8, !tbaa !36
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   %29 = icmp eq ptr %25, %28
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %26
-  %31 = load i32, ptr %0, align 8, !tbaa !39
+  %31 = load i32, ptr %0, align 8, !tbaa !32
   %32 = or i32 %31, 2
-  store i32 %32, ptr %0, align 8, !tbaa !39
-  store i64 %14, ptr %13, align 8, !tbaa !49
-  store i64 %11, ptr %10, align 8, !tbaa !44
-  store ptr %16, ptr %15, align 8, !tbaa !50
+  store i32 %32, ptr %0, align 8, !tbaa !32
+  store i64 %14, ptr %13, align 8, !tbaa !42
+  store i64 %11, ptr %10, align 8, !tbaa !37
+  store ptr %16, ptr %15, align 8, !tbaa !43
   br label %.thread99
 
 33:                                               ; preds = %24
-  %34 = load ptr, ptr %18, align 8, !tbaa !45
-  %35 = load i64, ptr %10, align 8, !tbaa !44
+  %34 = load ptr, ptr %18, align 8, !tbaa !38
+  %35 = load i64, ptr %10, align 8, !tbaa !37
   %36 = getelementptr i8, ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -1
   %38 = load i8, ptr %37, align 1, !tbaa !15
   br label %52
 
 39:                                               ; preds = %26
-  %40 = load ptr, ptr %18, align 8, !tbaa !45
-  %41 = load i64, ptr %10, align 8, !tbaa !44
+  %40 = load ptr, ptr %18, align 8, !tbaa !38
+  %41 = load i64, ptr %10, align 8, !tbaa !37
   %42 = getelementptr i8, ptr %40, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -1
   %44 = load i8, ptr %43, align 1, !tbaa !15
-  %45 = load i64, ptr %13, align 8, !tbaa !26
+  %45 = load i64, ptr %13, align 8, !tbaa !24
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %raxStackPop.exit, label %47
 
 47:                                               ; preds = %39
   %48 = add i64 %45, -1
-  store i64 %48, ptr %13, align 8, !tbaa !26
-  %49 = load ptr, ptr %12, align 8, !tbaa !29
+  store i64 %48, ptr %13, align 8, !tbaa !24
+  %49 = load ptr, ptr %12, align 8, !tbaa !27
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
   br label %raxStackPop.exit
 
 raxStackPop.exit:                                 ; preds = %39, %47
   %.0.i = phi ptr [ %51, %47 ], [ null, %39 ]
-  store ptr %.0.i, ptr %15, align 8, !tbaa !50
+  store ptr %.0.i, ptr %15, align 8, !tbaa !43
   br label %52
 
 52:                                               ; preds = %33, %raxStackPop.exit
@@ -3883,7 +3875,7 @@ raxStackPop.exit:                                 ; preds = %39, %47
   %narrow = select i1 %.not71, i32 1, i32 %59
   %60 = zext nneg i32 %narrow to i64
   %61 = sub i64 %55, %60
-  store i64 %61, ptr %10, align 8, !tbaa !44
+  store i64 %61, ptr %10, align 8, !tbaa !37
   %62 = load i32, ptr %53, align 4
   %63 = and i32 %62, 4
   %.not72 = icmp eq i32 %63, 0
@@ -3936,11 +3928,11 @@ raxStackPop.exit:                                 ; preds = %39, %47
 93:                                               ; preds = %88
   %94 = getelementptr inbounds i8, ptr %.060118, i64 -8
   %95 = icmp samesign ugt i32 %.0119.in, 1
-  br i1 %95, label %88, label %.loopexit, !llvm.loop !54
+  br i1 %95, label %88, label %.loopexit, !llvm.loop !45
 
 .thread89:                                        ; preds = %88
   %96 = getelementptr inbounds nuw [0 x i8], ptr %87, i64 0, i64 %89
-  %97 = load i64, ptr %20, align 8, !tbaa !46
+  %97 = load i64, ptr %20, align 8, !tbaa !39
   %98 = add i64 %61, 1
   %99 = icmp ult i64 %97, %98
   br i1 %99, label %100, label %110
@@ -3950,7 +3942,7 @@ raxStackPop.exit:                                 ; preds = %39, %47
   %spec.select.i = select i1 %101, ptr null, ptr %56
   %102 = shl i64 %98, 1
   %103 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %102) #27
-  store ptr %103, ptr %18, align 8, !tbaa !45
+  store ptr %103, ptr %18, align 8, !tbaa !38
   %104 = icmp eq ptr %103, null
   %.not.i = icmp eq ptr %spec.select.i, null
   br i1 %104, label %raxIteratorAddChars.exit.thread, label %105
@@ -3959,21 +3951,21 @@ raxStackPop.exit:                                 ; preds = %39, %47
   br i1 %.not.i, label %106, label %.thread.i
 
 106:                                              ; preds = %105
-  %107 = load i64, ptr %10, align 8, !tbaa !44
+  %107 = load i64, ptr %10, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr nonnull align 8 %21, i64 %107, i1 false)
-  %.pre.pre = load ptr, ptr %18, align 8, !tbaa !45
+  %.pre.pre = load ptr, ptr %18, align 8, !tbaa !38
   br label %.thread.i
 
 .thread.i:                                        ; preds = %106, %105
   %.pre = phi ptr [ %.pre.pre, %106 ], [ %103, %105 ]
-  store i64 %102, ptr %20, align 8, !tbaa !46
-  %.pre.i = load i64, ptr %10, align 8, !tbaa !44
+  store i64 %102, ptr %20, align 8, !tbaa !39
+  %.pre.i = load i64, ptr %10, align 8, !tbaa !37
   %.pre129 = load i8, ptr %96, align 1
   br label %110
 
 raxIteratorAddChars.exit.thread:                  ; preds = %100
   %108 = select i1 %.not.i, ptr %21, ptr %spec.select.i
-  store ptr %108, ptr %18, align 8, !tbaa !45
+  store ptr %108, ptr %18, align 8, !tbaa !38
   %109 = tail call ptr @__errno_location() #29
   store i32 12, ptr %109, align 4, !tbaa !5
   br label %.thread99
@@ -3984,14 +3976,14 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
   %113 = phi i64 [ %.pre.i, %.thread.i ], [ %61, %.thread89 ]
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 %113
   store i8 %111, ptr %114, align 1
-  %115 = load i64, ptr %10, align 8, !tbaa !44
+  %115 = load i64, ptr %10, align 8, !tbaa !37
   %116 = add i64 %115, 1
-  store i64 %116, ptr %10, align 8, !tbaa !44
-  %117 = load ptr, ptr %15, align 8, !tbaa !50
-  %118 = load i64, ptr %13, align 8, !tbaa !26
-  %119 = load i64, ptr %22, align 8, !tbaa !28
+  store i64 %116, ptr %10, align 8, !tbaa !37
+  %117 = load ptr, ptr %15, align 8, !tbaa !43
+  %118 = load i64, ptr %13, align 8, !tbaa !24
+  %119 = load i64, ptr %22, align 8, !tbaa !26
   %120 = icmp eq i64 %118, %119
-  %.pre32.i = load ptr, ptr %12, align 8, !tbaa !29
+  %.pre32.i = load ptr, ptr %12, align 8, !tbaa !27
   br i1 %120, label %121, label %143
 
 121:                                              ; preds = %110
@@ -4001,20 +3993,20 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
 
 124:                                              ; preds = %121
   %125 = tail call noalias ptr @zmalloc(i64 noundef %123) #25
-  store ptr %125, ptr %12, align 8, !tbaa !29
+  store ptr %125, ptr %12, align 8, !tbaa !27
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %130
 
 127:                                              ; preds = %124
-  store ptr %23, ptr %12, align 8, !tbaa !29
+  store ptr %23, ptr %12, align 8, !tbaa !27
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %128, align 8, !tbaa !30
+  store i32 1, ptr %128, align 8, !tbaa !28
   %129 = tail call ptr @__errno_location() #29
   store i32 12, ptr %129, align 4, !tbaa !5
   br label %.thread99
 
 130:                                              ; preds = %124
-  %131 = load i64, ptr %22, align 8, !tbaa !28
+  %131 = load i64, ptr %22, align 8, !tbaa !26
   %132 = shl i64 %131, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %125, ptr nonnull align 8 %23, i64 %132, i1 false)
   br label %139
@@ -4025,13 +4017,13 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
   br i1 %135, label %136, label %.thread.i84
 
 .thread.i84:                                      ; preds = %133
-  store ptr %134, ptr %12, align 8, !tbaa !29
-  %.pre.i85 = load i64, ptr %22, align 8, !tbaa !28
+  store ptr %134, ptr %12, align 8, !tbaa !27
+  %.pre.i85 = load i64, ptr %22, align 8, !tbaa !26
   br label %139
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %137, align 8, !tbaa !30
+  store i32 1, ptr %137, align 8, !tbaa !28
   %138 = tail call ptr @__errno_location() #29
   store i32 12, ptr %138, align 4, !tbaa !5
   br label %.thread99
@@ -4040,17 +4032,17 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
   %140 = phi ptr [ %134, %.thread.i84 ], [ %125, %130 ]
   %141 = phi i64 [ %.pre.i85, %.thread.i84 ], [ %131, %130 ]
   %142 = shl i64 %141, 1
-  store i64 %142, ptr %22, align 8, !tbaa !28
-  %.pre33.i = load i64, ptr %13, align 8, !tbaa !26
+  store i64 %142, ptr %22, align 8, !tbaa !26
+  %.pre33.i = load i64, ptr %13, align 8, !tbaa !24
   br label %143
 
 143:                                              ; preds = %139, %110
   %144 = phi i64 [ %.pre33.i, %139 ], [ %118, %110 ]
   %145 = phi ptr [ %140, %139 ], [ %.pre32.i, %110 ]
   %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %144
-  store ptr %117, ptr %146, align 8, !tbaa !24
+  store ptr %117, ptr %146, align 8, !tbaa !22
   %147 = add i64 %144, 1
-  store i64 %147, ptr %13, align 8, !tbaa !26
+  store i64 %147, ptr %13, align 8, !tbaa !24
   %148 = load i64, ptr %.060118, align 8
   store i64 %148, ptr %15, align 8
   %149 = tail call i32 @raxSeekGreatest(ptr noundef nonnull %0)
@@ -4058,7 +4050,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
   br i1 %.not82, label %.thread99, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %143
-  %.pre130 = load ptr, ptr %15, align 8, !tbaa !50
+  %.pre130 = load ptr, ptr %15, align 8, !tbaa !43
   %.pre131 = load i32, ptr %.pre130, align 4
   br label %.loopexit
 
@@ -4067,7 +4059,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
   %151 = phi ptr [ %.pre130, %._crit_edge ], [ %53, %64 ], [ %53, %52 ], [ %53, %93 ]
   %152 = and i32 %150, 1
   %.not83 = icmp eq i32 %152, 0
-  br i1 %.not83, label %24, label %153, !llvm.loop !55
+  br i1 %.not83, label %24, label %153
 
 153:                                              ; preds = %.loopexit
   %154 = and i32 %150, 2
@@ -4095,7 +4087,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %100
 raxGetData.exit:                                  ; preds = %153, %155
   %.0.i87 = phi ptr [ %.0.copyload.i, %155 ], [ null, %153 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i87, ptr %167, align 8, !tbaa !47
+  store ptr %.0.i87, ptr %167, align 8, !tbaa !40
   br label %.thread99
 
 .thread99:                                        ; preds = %143, %136, %127, %raxIteratorAddChars.exit.thread, %raxGetData.exit, %30, %2, %7
@@ -4109,7 +4101,7 @@ define dso_local range(i32 0, 2) i32 @raxSeek(ptr noundef initializes((32, 40), 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.promoted = load i32, ptr %0, align 8, !tbaa !39
+  %.promoted = load i32, ptr %0, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %tailrecurse
 
@@ -4118,12 +4110,12 @@ tailrecurse:                                      ; preds = %.thread, %4
   %.tr172 = phi ptr [ %1, %4 ], [ @.str.5, %.thread ]
   %.tr173 = phi ptr [ %2, %4 ], [ null, %.thread ]
   %.tr174 = phi i64 [ %3, %4 ], [ 0, %.thread ]
-  store i64 0, ptr %6, align 8, !tbaa !49
+  store i64 0, ptr %6, align 8, !tbaa !42
   %11 = and i32 %10, -4
   %12 = or disjoint i32 %11, 1
-  store i32 %12, ptr %0, align 8, !tbaa !39
-  store i64 0, ptr %7, align 8, !tbaa !44
-  store ptr null, ptr %8, align 8, !tbaa !50
+  store i32 %12, ptr %0, align 8, !tbaa !32
+  store i64 0, ptr %7, align 8, !tbaa !37
+  store ptr null, ptr %8, align 8, !tbaa !43
   %13 = load i8, ptr %.tr172, align 1, !tbaa !15
   %14 = icmp eq i8 %13, 62
   br i1 %14, label %.loopexit.sink.split, label %15
@@ -4152,21 +4144,21 @@ tailrecurse:                                      ; preds = %.thread, %4
   %21 = phi i1 [ %14, %.loopexit.sink.split ], [ false, %15 ]
   %22 = phi i1 [ %.ph281, %.loopexit.sink.split ], [ false, %15 ]
   %.not114 = phi i1 [ %20, %.loopexit.sink.split ], [ false, %15 ]
-  %23 = load ptr, ptr %9, align 8, !tbaa !43
+  %23 = load ptr, ptr %9, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !9
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %.loopexit175, label %59
 
 .thread244:                                       ; preds = %15
-  %27 = load ptr, ptr %9, align 8, !tbaa !43
+  %27 = load ptr, ptr %9, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !9
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %.loopexit175, label %36
 
 .thread:                                          ; preds = %15
-  %31 = load ptr, ptr %9, align 8, !tbaa !43
+  %31 = load ptr, ptr %9, align 8, !tbaa !36
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !9
   %34 = icmp eq i64 %33, 0
@@ -4174,22 +4166,22 @@ tailrecurse:                                      ; preds = %.thread, %4
 
 .loopexit175:                                     ; preds = %.thread, %.thread244, %.loopexit
   %35 = or i32 %10, 3
-  store i32 %35, ptr %0, align 8, !tbaa !39
+  store i32 %35, ptr %0, align 8, !tbaa !32
   br label %214
 
 36:                                               ; preds = %.thread244
   %37 = load ptr, ptr %27, align 8, !tbaa !11
-  store ptr %37, ptr %8, align 8, !tbaa !50
+  store ptr %37, ptr %8, align 8, !tbaa !43
   %38 = tail call i32 @raxSeekGreatest(ptr noundef nonnull %0)
   %.not132 = icmp eq i32 %38, 0
   br i1 %.not132, label %214, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %8, align 8, !tbaa !50
+  %40 = load ptr, ptr %8, align 8, !tbaa !43
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 1
   %.not133 = icmp eq i32 %42, 0
-  br i1 %.not133, label %43, label %44, !prof !25
+  br i1 %.not133, label %43, label %44, !prof !23
 
 43:                                               ; preds = %39
   tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1562) #26
@@ -4222,7 +4214,7 @@ tailrecurse:                                      ; preds = %.thread, %4
 raxGetData.exit:                                  ; preds = %44, %46
   %.0.i = phi ptr [ %.0.copyload.i, %46 ], [ null, %44 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i, ptr %58, align 8, !tbaa !47
+  store ptr %.0.i, ptr %58, align 8, !tbaa !40
   br label %214
 
 59:                                               ; preds = %.loopexit
@@ -4231,7 +4223,7 @@ raxGetData.exit:                                  ; preds = %44, %46
   store i32 0, ptr %5, align 4, !tbaa !5
   %61 = call fastcc i64 @raxLowWalk(ptr noundef nonnull %23, ptr noundef %.tr173, i64 noundef %.tr174, ptr noundef nonnull %8, ptr noundef null, ptr noundef %5, ptr noundef nonnull %60)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %63 = load i32, ptr %62, align 8, !tbaa !56
+  %63 = load i32, ptr %62, align 8, !tbaa !46
   %.not113 = icmp eq i32 %63, 0
   br i1 %.not113, label %64, label %213
 
@@ -4241,7 +4233,7 @@ raxGetData.exit:                                  ; preds = %44, %46
   br i1 %or.cond135.not, label %98, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %8, align 8, !tbaa !50
+  %67 = load ptr, ptr %8, align 8, !tbaa !43
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 4
   %70 = icmp ne i32 %69, 0
@@ -4259,7 +4251,7 @@ raxGetData.exit:                                  ; preds = %44, %46
   br i1 %.not131, label %213, label %76
 
 76:                                               ; preds = %74
-  %77 = load ptr, ptr %8, align 8, !tbaa !50
+  %77 = load ptr, ptr %8, align 8, !tbaa !43
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 2
   %.not.i139 = icmp eq i32 %79, 0
@@ -4291,7 +4283,7 @@ raxGetData.exit:                                  ; preds = %44, %46
 raxGetData.exit145:                               ; preds = %76, %80
   %.0.i140 = phi ptr [ %.0.copyload.i144, %80 ], [ null, %76 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i140, ptr %97, align 8, !tbaa !47
+  store ptr %.0.i140, ptr %97, align 8, !tbaa !40
   br label %213
 
 98:                                               ; preds = %66, %64
@@ -4306,7 +4298,7 @@ raxGetData.exit145:                               ; preds = %76, %80
   br i1 %65, label %104, label %.critedge
 
 104:                                              ; preds = %99
-  %105 = load ptr, ptr %8, align 8, !tbaa !50
+  %105 = load ptr, ptr %8, align 8, !tbaa !43
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 4
   %.not117 = icmp eq i32 %107, 0
@@ -4319,9 +4311,9 @@ raxGetData.exit145:                               ; preds = %76, %80
   br i1 %.not118, label %213, label %111
 
 111:                                              ; preds = %108
-  %112 = load i32, ptr %0, align 8, !tbaa !39
+  %112 = load i32, ptr %0, align 8, !tbaa !32
   %113 = and i32 %112, -2
-  store i32 %113, ptr %0, align 8, !tbaa !39
+  store i32 %113, ptr %0, align 8, !tbaa !32
   br i1 %22, label %114, label %116
 
 114:                                              ; preds = %111
@@ -4338,9 +4330,9 @@ raxGetData.exit145:                               ; preds = %76, %80
   br i1 %.not120, label %213, label %119
 
 119:                                              ; preds = %117, %116
-  %120 = load i32, ptr %0, align 8, !tbaa !39
+  %120 = load i32, ptr %0, align 8, !tbaa !32
   %121 = or i32 %120, 1
-  store i32 %121, ptr %0, align 8, !tbaa !39
+  store i32 %121, ptr %0, align 8, !tbaa !32
   br label %213
 
 122:                                              ; preds = %104
@@ -4349,9 +4341,9 @@ raxGetData.exit145:                               ; preds = %76, %80
   %125 = load i8, ptr %124, align 1, !tbaa !15
   %126 = getelementptr inbounds nuw i8, ptr %.tr173, i64 %61
   %127 = load i8, ptr %126, align 1, !tbaa !15
-  %128 = load i32, ptr %0, align 8, !tbaa !39
+  %128 = load i32, ptr %0, align 8, !tbaa !32
   %129 = and i32 %128, -2
-  store i32 %129, ptr %0, align 8, !tbaa !39
+  store i32 %129, ptr %0, align 8, !tbaa !32
   br i1 %21, label %130, label %141
 
 130:                                              ; preds = %122
@@ -4389,7 +4381,7 @@ raxGetData.exit145:                               ; preds = %76, %80
   br i1 %.not130, label %213, label %146
 
 146:                                              ; preds = %144
-  %147 = load ptr, ptr %8, align 8, !tbaa !50
+  %147 = load ptr, ptr %8, align 8, !tbaa !43
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 2
   %.not.i146 = icmp eq i32 %149, 0
@@ -4421,11 +4413,11 @@ raxGetData.exit145:                               ; preds = %76, %80
 raxGetData.exit152:                               ; preds = %146, %150
   %.0.i147 = phi ptr [ %.0.copyload.i151, %150 ], [ null, %146 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i147, ptr %167, align 8, !tbaa !47
+  store ptr %.0.i147, ptr %167, align 8, !tbaa !40
   br label %.critedge138
 
 168:                                              ; preds = %142
-  %169 = load ptr, ptr %8, align 8, !tbaa !50
+  %169 = load ptr, ptr %8, align 8, !tbaa !43
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %171 = load i32, ptr %169, align 4
   %172 = lshr i32 %171, 3
@@ -4440,16 +4432,16 @@ raxGetData.exit152:                               ; preds = %146, %150
   br i1 %.not129, label %213, label %.critedge138
 
 .critedge138:                                     ; preds = %raxGetData.exit152, %175, %141
-  %177 = load i32, ptr %0, align 8, !tbaa !39
+  %177 = load i32, ptr %0, align 8, !tbaa !32
   %178 = or i32 %177, 1
-  store i32 %178, ptr %0, align 8, !tbaa !39
+  store i32 %178, ptr %0, align 8, !tbaa !32
   br label %213
 
 .critedge:                                        ; preds = %99
-  %179 = load i32, ptr %0, align 8, !tbaa !39
+  %179 = load i32, ptr %0, align 8, !tbaa !32
   %180 = and i32 %179, -2
-  store i32 %180, ptr %0, align 8, !tbaa !39
-  %181 = load ptr, ptr %8, align 8, !tbaa !50
+  store i32 %180, ptr %0, align 8, !tbaa !32
+  %181 = load ptr, ptr %8, align 8, !tbaa !43
   %182 = load i32, ptr %181, align 4
   %183 = and i32 %182, 4
   %.not122 = icmp eq i32 %183, 0
@@ -4485,7 +4477,7 @@ raxGetData.exit152:                               ; preds = %146, %150
 raxGetData.exit159:                               ; preds = %188, %190
   %.0.i154 = phi ptr [ %.0.copyload.i158, %190 ], [ null, %188 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i154, ptr %200, align 8, !tbaa !47
+  store ptr %.0.i154, ptr %200, align 8, !tbaa !40
   br label %207
 
 201:                                              ; preds = %184, %.critedge
@@ -4505,15 +4497,15 @@ raxGetData.exit159:                               ; preds = %188, %190
   br i1 %.not124, label %213, label %207
 
 207:                                              ; preds = %204, %205, %raxGetData.exit159
-  %208 = load i32, ptr %0, align 8, !tbaa !39
+  %208 = load i32, ptr %0, align 8, !tbaa !32
   %209 = or i32 %208, 1
-  store i32 %209, ptr %0, align 8, !tbaa !39
+  store i32 %209, ptr %0, align 8, !tbaa !32
   br label %213
 
 210:                                              ; preds = %98
-  %211 = load i32, ptr %0, align 8, !tbaa !39
+  %211 = load i32, ptr %0, align 8, !tbaa !32
   %212 = or i32 %211, 2
-  store i32 %212, ptr %0, align 8, !tbaa !39
+  store i32 %212, ptr %0, align 8, !tbaa !32
   br label %213
 
 213:                                              ; preds = %raxGetData.exit145, %119, %207, %.critedge138, %205, %202, %132, %134, %139, %144, %168, %175, %117, %114, %108, %74, %59, %210
@@ -4533,7 +4525,7 @@ define dso_local range(i32 0, 2) i32 @raxNext(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %.sink.split, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !39
+  %4 = load i32, ptr %0, align 8, !tbaa !32
   %5 = and i32 %4, 2
   %.not2 = icmp eq i32 %5, 0
   br i1 %.not2, label %7, label %.sink.split
@@ -4556,7 +4548,7 @@ define dso_local range(i32 0, 2) i32 @raxPrev(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %.sink.split, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !39
+  %4 = load i32, ptr %0, align 8, !tbaa !32
   %5 = and i32 %4, 2
   %.not2 = icmp eq i32 %5, 0
   br i1 %.not2, label %7, label %.sink.split
@@ -4575,16 +4567,16 @@ define dso_local range(i32 0, 2) i32 @raxPrev(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !43
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !9
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %0, align 8, !tbaa !39
+  %9 = load i32, ptr %0, align 8, !tbaa !32
   %10 = or i32 %9, 2
-  store i32 %10, ptr %0, align 8, !tbaa !39
+  store i32 %10, ptr %0, align 8, !tbaa !32
   br label %.critedge67
 
 11:                                               ; preds = %2
@@ -4607,7 +4599,7 @@ define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef 
 24:                                               ; preds = %13, %11
   %.046 = phi i64 [ %23, %13 ], [ %1, %11 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %26 = load ptr, ptr %25, align 8, !tbaa !50
+  %26 = load ptr, ptr %25, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4628,7 +4620,7 @@ define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef 
   %36 = lshr i32 %.pre119, 3
   %spec.select = select i1 %.not58, i32 %36, i32 1
   %37 = tail call i32 @rand() #26
-  %38 = load ptr, ptr %3, align 8, !tbaa !43
+  %38 = load ptr, ptr %3, align 8, !tbaa !36
   %39 = load ptr, ptr %38, align 8, !tbaa !11
   %40 = icmp ne ptr %.050120, %39
   %41 = zext i1 %40 to i32
@@ -4638,23 +4630,23 @@ define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef 
   br i1 %44, label %raxStackPop.exit, label %57
 
 raxStackPop.exit:                                 ; preds = %.critedge
-  %45 = load i64, ptr %32, align 8, !tbaa !26
+  %45 = load i64, ptr %32, align 8, !tbaa !24
   %46 = icmp ne i64 %45, 0
   tail call void @llvm.assume(i1 %46)
   %47 = add i64 %45, -1
-  store i64 %47, ptr %32, align 8, !tbaa !26
-  %48 = load ptr, ptr %31, align 8, !tbaa !29
+  store i64 %47, ptr %32, align 8, !tbaa !24
+  %48 = load ptr, ptr %31, align 8, !tbaa !27
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
-  %50 = load ptr, ptr %49, align 8, !tbaa !24
+  %50 = load ptr, ptr %49, align 8, !tbaa !22
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 4
   %.not63 = icmp eq i32 %52, 0
   %53 = lshr i32 %51, 3
   %narrow = select i1 %.not63, i32 1, i32 %53
   %54 = zext nneg i32 %narrow to i64
-  %55 = load i64, ptr %28, align 8, !tbaa !44
+  %55 = load i64, ptr %28, align 8, !tbaa !37
   %56 = sub i64 %55, %54
-  store i64 %56, ptr %28, align 8, !tbaa !44
+  store i64 %56, ptr %28, align 8, !tbaa !37
   br label %148
 
 57:                                               ; preds = %.critedge
@@ -4671,11 +4663,11 @@ raxStackPop.exit:                                 ; preds = %.critedge
   br i1 %64, label %raxIteratorAddChars.exit.thread, label %65
 
 65:                                               ; preds = %61
-  %66 = load i64, ptr %27, align 8, !tbaa !46
-  %67 = load i64, ptr %28, align 8, !tbaa !44
+  %66 = load i64, ptr %27, align 8, !tbaa !39
+  %67 = load i64, ptr %28, align 8, !tbaa !37
   %68 = add i64 %67, %63
   %69 = icmp ult i64 %66, %68
-  %.pre102 = load ptr, ptr %29, align 8, !tbaa !45
+  %.pre102 = load ptr, ptr %29, align 8, !tbaa !38
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %65
@@ -4683,7 +4675,7 @@ raxStackPop.exit:                                 ; preds = %.critedge
   %spec.select.i = select i1 %71, ptr null, ptr %.pre102
   %72 = shl i64 %68, 1
   %73 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %72) #27
-  store ptr %73, ptr %29, align 8, !tbaa !45
+  store ptr %73, ptr %29, align 8, !tbaa !38
   %74 = icmp eq ptr %73, null
   %.not.i = icmp eq ptr %spec.select.i, null
   br i1 %74, label %raxIteratorAddChars.exit, label %75
@@ -4692,15 +4684,15 @@ raxStackPop.exit:                                 ; preds = %.critedge
   br i1 %.not.i, label %76, label %.thread.i
 
 76:                                               ; preds = %75
-  %77 = load i64, ptr %28, align 8, !tbaa !44
+  %77 = load i64, ptr %28, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 8 %30, i64 %77, i1 false)
-  %.pre101.pre = load ptr, ptr %29, align 8, !tbaa !45
+  %.pre101.pre = load ptr, ptr %29, align 8, !tbaa !38
   br label %.thread.i
 
 .thread.i:                                        ; preds = %76, %75
   %.pre101 = phi ptr [ %.pre101.pre, %76 ], [ %73, %75 ]
-  store i64 %72, ptr %27, align 8, !tbaa !46
-  %.pre.i = load i64, ptr %28, align 8, !tbaa !44
+  store i64 %72, ptr %27, align 8, !tbaa !39
+  %.pre.i = load i64, ptr %28, align 8, !tbaa !37
   br label %78
 
 78:                                               ; preds = %.thread.i, %65
@@ -4712,7 +4704,7 @@ raxStackPop.exit:                                 ; preds = %.critedge
 
 raxIteratorAddChars.exit:                         ; preds = %70
   %82 = select i1 %.not.i, ptr %30, ptr %spec.select.i
-  store ptr %82, ptr %29, align 8, !tbaa !45
+  store ptr %82, ptr %29, align 8, !tbaa !38
   %83 = tail call ptr @__errno_location() #29
   store i32 12, ptr %83, align 4, !tbaa !5
   br label %.critedge67
@@ -4720,11 +4712,11 @@ raxIteratorAddChars.exit:                         ; preds = %70
 84:                                               ; preds = %57
   %85 = sext i32 %43 to i64
   %86 = getelementptr inbounds i8, ptr %60, i64 %85
-  %87 = load i64, ptr %27, align 8, !tbaa !46
-  %88 = load i64, ptr %28, align 8, !tbaa !44
+  %87 = load i64, ptr %27, align 8, !tbaa !39
+  %88 = load i64, ptr %28, align 8, !tbaa !37
   %89 = add i64 %88, 1
   %90 = icmp ult i64 %87, %89
-  %.pre104 = load ptr, ptr %29, align 8, !tbaa !45
+  %.pre104 = load ptr, ptr %29, align 8, !tbaa !38
   br i1 %90, label %91, label %raxIteratorAddChars.exit74
 
 91:                                               ; preds = %84
@@ -4732,7 +4724,7 @@ raxIteratorAddChars.exit:                         ; preds = %70
   %spec.select.i70 = select i1 %92, ptr null, ptr %.pre104
   %93 = shl i64 %89, 1
   %94 = tail call ptr @zrealloc(ptr noundef %spec.select.i70, i64 noundef %93) #27
-  store ptr %94, ptr %29, align 8, !tbaa !45
+  store ptr %94, ptr %29, align 8, !tbaa !38
   %95 = icmp eq ptr %94, null
   %.not.i71 = icmp eq ptr %spec.select.i70, null
   br i1 %95, label %raxIteratorAddChars.exit74.thread, label %96
@@ -4741,20 +4733,20 @@ raxIteratorAddChars.exit:                         ; preds = %70
   br i1 %.not.i71, label %97, label %.thread.i72
 
 97:                                               ; preds = %96
-  %98 = load i64, ptr %28, align 8, !tbaa !44
+  %98 = load i64, ptr %28, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 8 %30, i64 %98, i1 false)
-  %.pre103.pre = load ptr, ptr %29, align 8, !tbaa !45
+  %.pre103.pre = load ptr, ptr %29, align 8, !tbaa !38
   br label %.thread.i72
 
 .thread.i72:                                      ; preds = %97, %96
   %.pre103 = phi ptr [ %.pre103.pre, %97 ], [ %94, %96 ]
-  store i64 %93, ptr %27, align 8, !tbaa !46
-  %.pre.i73 = load i64, ptr %28, align 8, !tbaa !44
+  store i64 %93, ptr %27, align 8, !tbaa !39
+  %.pre.i73 = load i64, ptr %28, align 8, !tbaa !37
   br label %raxIteratorAddChars.exit74
 
 raxIteratorAddChars.exit74.thread:                ; preds = %91
   %99 = select i1 %.not.i71, ptr %30, ptr %spec.select.i70
-  store ptr %99, ptr %29, align 8, !tbaa !45
+  store ptr %99, ptr %29, align 8, !tbaa !38
   %100 = tail call ptr @__errno_location() #29
   store i32 12, ptr %100, align 4, !tbaa !5
   br label %.critedge67
@@ -4769,17 +4761,17 @@ raxIteratorAddChars.exit74:                       ; preds = %84, %.thread.i72
 
 raxIteratorAddChars.exit.thread.sink.split:       ; preds = %raxIteratorAddChars.exit74, %78
   %.sink113 = phi i64 [ %63, %78 ], [ 1, %raxIteratorAddChars.exit74 ]
-  %105 = load i64, ptr %28, align 8, !tbaa !44
+  %105 = load i64, ptr %28, align 8, !tbaa !37
   %106 = add i64 %105, %.sink113
-  store i64 %106, ptr %28, align 8, !tbaa !44
+  store i64 %106, ptr %28, align 8, !tbaa !37
   br label %raxIteratorAddChars.exit.thread
 
 raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars.exit.thread.sink.split, %61
   %107 = load i32, ptr %.050120, align 4
-  %108 = load i64, ptr %32, align 8, !tbaa !26
-  %109 = load i64, ptr %33, align 8, !tbaa !28
+  %108 = load i64, ptr %32, align 8, !tbaa !24
+  %109 = load i64, ptr %33, align 8, !tbaa !26
   %110 = icmp eq i64 %108, %109
-  %.pre32.i = load ptr, ptr %31, align 8, !tbaa !29
+  %.pre32.i = load ptr, ptr %31, align 8, !tbaa !27
   br i1 %110, label %111, label %133
 
 111:                                              ; preds = %raxIteratorAddChars.exit.thread
@@ -4789,20 +4781,20 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
 
 114:                                              ; preds = %111
   %115 = tail call noalias ptr @zmalloc(i64 noundef %113) #25
-  store ptr %115, ptr %31, align 8, !tbaa !29
+  store ptr %115, ptr %31, align 8, !tbaa !27
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %114
-  store ptr %34, ptr %31, align 8, !tbaa !29
+  store ptr %34, ptr %31, align 8, !tbaa !27
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %118, align 8, !tbaa !30
+  store i32 1, ptr %118, align 8, !tbaa !28
   %119 = tail call ptr @__errno_location() #29
   store i32 12, ptr %119, align 4, !tbaa !5
   br label %.critedge67
 
 120:                                              ; preds = %114
-  %121 = load i64, ptr %33, align 8, !tbaa !28
+  %121 = load i64, ptr %33, align 8, !tbaa !26
   %122 = shl i64 %121, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %115, ptr nonnull align 8 %34, i64 %122, i1 false)
   br label %129
@@ -4813,13 +4805,13 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   br i1 %125, label %126, label %.thread.i75
 
 .thread.i75:                                      ; preds = %123
-  store ptr %124, ptr %31, align 8, !tbaa !29
-  %.pre.i76 = load i64, ptr %33, align 8, !tbaa !28
+  store ptr %124, ptr %31, align 8, !tbaa !27
+  %.pre.i76 = load i64, ptr %33, align 8, !tbaa !26
   br label %129
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store i32 1, ptr %127, align 8, !tbaa !30
+  store i32 1, ptr %127, align 8, !tbaa !28
   %128 = tail call ptr @__errno_location() #29
   store i32 12, ptr %128, align 4, !tbaa !5
   br label %.critedge67
@@ -4828,17 +4820,17 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %130 = phi ptr [ %124, %.thread.i75 ], [ %115, %120 ]
   %131 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %121, %120 ]
   %132 = shl i64 %131, 1
-  store i64 %132, ptr %33, align 8, !tbaa !28
-  %.pre33.i = load i64, ptr %32, align 8, !tbaa !26
+  store i64 %132, ptr %33, align 8, !tbaa !26
+  %.pre33.i = load i64, ptr %32, align 8, !tbaa !24
   br label %133
 
 133:                                              ; preds = %129, %raxIteratorAddChars.exit.thread
   %134 = phi i64 [ %.pre33.i, %129 ], [ %108, %raxIteratorAddChars.exit.thread ]
   %135 = phi ptr [ %130, %129 ], [ %.pre32.i, %raxIteratorAddChars.exit.thread ]
   %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
-  store ptr %.050120, ptr %136, align 8, !tbaa !24
+  store ptr %.050120, ptr %136, align 8, !tbaa !22
   %137 = add i64 %134, 1
-  store i64 %137, ptr %32, align 8, !tbaa !26
+  store i64 %137, ptr %32, align 8, !tbaa !24
   %138 = getelementptr inbounds nuw i8, ptr %.050120, i64 4
   %139 = lshr i32 %107, 3
   %140 = zext nneg i32 %139 to i64
@@ -4864,10 +4856,10 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %152 = and i32 %149, 1
   %.not57 = icmp eq i32 %152, 0
   %or.cond = or i1 %.not, %.not57
-  br i1 %or.cond, label %.critedge, label %153, !llvm.loop !57
+  br i1 %or.cond, label %.critedge, label %153, !llvm.loop !47
 
 153:                                              ; preds = %148
-  store ptr %.151, ptr %25, align 8, !tbaa !50
+  store ptr %.151, ptr %25, align 8, !tbaa !43
   %154 = load i32, ptr %.151, align 4
   %155 = and i32 %154, 2
   %.not.i77 = icmp eq i32 %155, 0
@@ -4899,7 +4891,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
 raxGetData.exit:                                  ; preds = %153, %156
   %.0.i78 = phi ptr [ %.0.copyload.i, %156 ], [ null, %153 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i78, ptr %173, align 8, !tbaa !47
+  store ptr %.0.i78, ptr %173, align 8, !tbaa !40
   br label %.critedge67
 
 .critedge67:                                      ; preds = %126, %117, %raxIteratorAddChars.exit74.thread, %raxIteratorAddChars.exit, %raxGetData.exit, %8
@@ -4949,11 +4941,11 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
 19:                                               ; preds = %14, %12, %16
   %20 = phi i1 [ true, %16 ], [ true, %12 ], [ false, %14 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !44
+  %22 = load i64, ptr %21, align 8, !tbaa !37
   %23 = icmp ult i64 %3, %22
   %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %22)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
   %26 = tail call i32 @memcmp(ptr noundef %25, ptr noundef %2, i64 noundef %.) #30
   %or.cond = and i1 %13, %20
   %27 = icmp eq i32 %26, 0
@@ -5008,7 +5000,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 ; Function Attrs: nounwind uwtable
 define dso_local void @raxStop(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not = icmp eq ptr %3, %4
   br i1 %.not, label %6, label %5
@@ -5019,7 +5011,7 @@ define dso_local void @raxStop(ptr noundef readonly captures(address) %0) local_
 
 6:                                                ; preds = %5, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.not.i = icmp eq ptr %8, %9
   br i1 %.not.i, label %raxStackFree.exit, label %10
@@ -5034,7 +5026,7 @@ raxStackFree.exit:                                ; preds = %6, %10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 3) i32 @raxEOF(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
-  %2 = load i32, ptr %0, align 8, !tbaa !39
+  %2 = load i32, ptr %0, align 8, !tbaa !32
   %3 = and i32 %2, 2
   ret i32 %3
 }
@@ -5141,7 +5133,7 @@ raxGetData.exit:                                  ; preds = %13, %15
 .lr.ph47.split.us:                                ; preds = %.lr.ph47.split.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph47.split.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %.03744.us = phi ptr [ %45, %.lr.ph47.split.us.preheader ], [ %54, %._crit_edge.us ]
-  %48 = load ptr, ptr @stdout, align 8, !tbaa !58
+  %48 = load ptr, ptr @stdout, align 8, !tbaa !48
   %49 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %48)
   br i1 %46, label %.lr.ph.us, label %._crit_edge.us
 
@@ -5155,15 +5147,15 @@ raxGetData.exit:                                  ; preds = %13, %15
   %54 = getelementptr inbounds nuw i8, ptr %.03744.us, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond53.not, label %._crit_edge48, label %.lr.ph47.split.us, !llvm.loop !60
+  br i1 %exitcond53.not, label %._crit_edge48, label %.lr.ph47.split.us, !llvm.loop !50
 
 .lr.ph.us:                                        ; preds = %.lr.ph47.split.us, %.lr.ph.us
   %.03443.us = phi i32 [ %57, %.lr.ph.us ], [ 0, %.lr.ph47.split.us ]
-  %55 = load ptr, ptr @stdout, align 8, !tbaa !58
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !48
   %56 = tail call noundef i32 @putc(i32 noundef 32, ptr noundef %55)
   %57 = add nuw nsw i32 %.03443.us, 1
   %exitcond.not = icmp eq i32 %57, %.0
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !52
 
 ._crit_edge48.loopexit:                           ; preds = %.lr.ph47
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
@@ -5181,7 +5173,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define dso_local void @raxShow(ptr noundef readonly captures(none) %0) local_unnamed_addr #20 {
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   tail call void @raxRecursiveShow(i32 noundef 0, i32 noundef 0, ptr noundef %2)
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !58
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !48
   %4 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %3)
   ret void
 }
@@ -5245,12 +5237,12 @@ define dso_local void @raxDebugShowNode(ptr noundef %0, ptr noundef %1) local_un
   %36 = getelementptr inbounds nuw i8, ptr %.02132, i64 8
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %.0.copyload)
   %.not29 = icmp eq i32 %35, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %38 = load ptr, ptr @stdout, align 8, !tbaa !58
+  %38 = load ptr, ptr @stdout, align 8, !tbaa !48
   %39 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %38)
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !58
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !48
   %41 = tail call i32 @fflush(ptr noundef %40)
   br label %42
 
@@ -5344,7 +5336,7 @@ raxGetData.exit:                                  ; preds = %.raxGetData.exit_cr
   %34 = getelementptr inbounds nuw i8, ptr %.02530.us, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.0.copyload = load ptr, ptr %23, align 8
@@ -5424,52 +5416,42 @@ attributes #31 = { cold noreturn nounwind }
 !13 = !{!"any pointer", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15 = !{!7, !7, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p2 _ZTS7raxNode", !13, i64 0}
-!21 = distinct !{!21, !17, !18}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !18}
-!24 = !{!13, !13, i64 0}
-!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!26 = !{!27, !10, i64 8}
-!27 = !{!"raxStack", !13, i64 0, !10, i64 8, !10, i64 16, !7, i64 24, !6, i64 280}
-!28 = !{!27, !10, i64 16}
-!29 = !{!27, !13, i64 0}
-!30 = !{!27, !6, i64 280}
-!31 = distinct !{!31, !17, !18}
-!32 = distinct !{!32, !18}
-!33 = distinct !{!33, !18}
-!34 = distinct !{!34, !18}
-!35 = distinct !{!35, !18}
-!36 = distinct !{!36, !18}
-!37 = distinct !{!37, !17, !18}
-!38 = distinct !{!38, !17, !18}
-!39 = !{!40, !6, i64 0}
-!40 = !{!"raxIterator", !6, i64 0, !41, i64 8, !42, i64 16, !13, i64 24, !10, i64 32, !10, i64 40, !7, i64 48, !12, i64 176, !27, i64 184, !13, i64 472}
-!41 = !{!"p1 _ZTS3rax", !13, i64 0}
-!42 = !{!"p1 omnipotent char", !13, i64 0}
-!43 = !{!40, !41, i64 8}
-!44 = !{!40, !10, i64 32}
-!45 = !{!40, !42, i64 16}
-!46 = !{!40, !10, i64 40}
-!47 = !{!40, !13, i64 24}
-!48 = !{!40, !13, i64 472}
-!49 = !{!40, !10, i64 192}
-!50 = !{!40, !12, i64 176}
-!51 = distinct !{!51, !17, !18}
-!52 = distinct !{!52, !18}
-!53 = distinct !{!53, !18}
-!54 = distinct !{!54, !17, !18}
-!55 = distinct !{!55, !18}
-!56 = !{!40, !6, i64 464}
-!57 = distinct !{!57, !17, !18}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!60 = distinct !{!60, !17, !18, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !17, !18}
-!63 = distinct !{!63, !17, !18}
-!64 = distinct !{!64, !17, !18, !61}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p2 _ZTS7raxNode", !13, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = !{!13, !13, i64 0}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!25, !10, i64 8}
+!25 = !{!"raxStack", !13, i64 0, !10, i64 8, !10, i64 16, !7, i64 24, !6, i64 280}
+!26 = !{!25, !10, i64 16}
+!27 = !{!25, !13, i64 0}
+!28 = !{!25, !6, i64 280}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = !{!33, !6, i64 0}
+!33 = !{!"raxIterator", !6, i64 0, !34, i64 8, !35, i64 16, !13, i64 24, !10, i64 32, !10, i64 40, !7, i64 48, !12, i64 176, !25, i64 184, !13, i64 472}
+!34 = !{!"p1 _ZTS3rax", !13, i64 0}
+!35 = !{!"p1 omnipotent char", !13, i64 0}
+!36 = !{!33, !34, i64 8}
+!37 = !{!33, !10, i64 32}
+!38 = !{!33, !35, i64 16}
+!39 = !{!33, !10, i64 40}
+!40 = !{!33, !13, i64 24}
+!41 = !{!33, !13, i64 472}
+!42 = !{!33, !10, i64 192}
+!43 = !{!33, !12, i64 176}
+!44 = distinct !{!44, !17}
+!45 = distinct !{!45, !17}
+!46 = !{!33, !6, i64 464}
+!47 = distinct !{!47, !17}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!50 = distinct !{!50, !17, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !17}
+!53 = distinct !{!53, !17}
+!54 = distinct !{!54, !17, !51}

@@ -30,14 +30,14 @@ define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) l
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw [21 x %struct.anon], ptr @codes, i64 0, i64 %indvars.iv.next
-  %6 = load i32, ptr %5, align 16, !tbaa !7
+  %6 = load i32, ptr %5, align 16, !tbaa !6
   %7 = icmp eq i32 %1, %6
   br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %4, %2
   %.lcssa = phi ptr [ @codes, %2 ], [ %5, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = tail call i32 %9(ptr noundef %0) #3
   br label %12
 
@@ -139,13 +139,12 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"", !9, i64 0, !12, i64 8}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"any pointer", !10, i64 0}
-!13 = !{!8, !12, i64 8}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"", !8, i64 0, !11, i64 8}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"any pointer", !9, i64 0}
+!12 = !{!7, !11, i64 8}

@@ -616,7 +616,7 @@ for.inc:                                          ; preds = %for.body90, %invoke
   %newIntersectionCount.1 = phi i32 [ %inc, %invoke.cont132 ], [ %newIntersectionCount.0259, %invoke.cont123 ], [ %newIntersectionCount.0259, %if.then95 ], [ %newIntersectionCount.0259, %for.body90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body90, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body90, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %cmp148 = icmp sgt i32 %newIntersectionCount.1, 1
@@ -757,7 +757,7 @@ for.inc212:                                       ; preds = %for.body195, %invok
   %inside.2 = phi i8 [ %frombool210, %invoke.cont207 ], [ %inside.1262, %for.body195 ]
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
-  br i1 %exitcond275.not, label %invoke.cont218, label %for.body195, !llvm.loop !9
+  br i1 %exitcond275.not, label %invoke.cont218, label %for.body195, !llvm.loop !8
 
 invoke.cont218:                                   ; preds = %for.inc212, %if.end191
   %55 = phi ptr [ %20, %if.end191 ], [ %53, %for.inc212 ]
@@ -797,7 +797,7 @@ for.inc234:                                       ; preds = %invoke.cont218, %la
   %inc236 = add nuw nsw i32 %r.0267, 1
   %61 = load i32, ptr %width, align 8
   %cmp57 = icmp slt i32 %inc236, %61
-  br i1 %cmp57, label %for.body, label %for.end237, !llvm.loop !10
+  br i1 %cmp57, label %for.body, label %for.end237, !llvm.loop !9
 
 for.end237:                                       ; preds = %for.inc234, %if.end55
   invoke void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(28) %line, ptr noundef nonnull align 8 dereferenceable(24) %intersections)
@@ -1130,7 +1130,7 @@ for.inc:                                          ; preds = %for.body90, %invoke
   %newIntersectionCount.1 = phi i32 [ %inc, %invoke.cont132 ], [ %newIntersectionCount.0259, %invoke.cont123 ], [ %newIntersectionCount.0259, %if.then95 ], [ %newIntersectionCount.0259, %for.body90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body90, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body90, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
   %cmp148 = icmp sgt i32 %newIntersectionCount.1, 1
@@ -1271,7 +1271,7 @@ for.inc212:                                       ; preds = %for.body195, %invok
   %inside.2 = phi i8 [ %frombool210, %invoke.cont207 ], [ %inside.1262, %for.body195 ]
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
-  br i1 %exitcond275.not, label %invoke.cont218, label %for.body195, !llvm.loop !12
+  br i1 %exitcond275.not, label %invoke.cont218, label %for.body195, !llvm.loop !11
 
 invoke.cont218:                                   ; preds = %for.inc212, %if.end191
   %55 = phi ptr [ %20, %if.end191 ], [ %53, %for.inc212 ]
@@ -1311,7 +1311,7 @@ for.inc234:                                       ; preds = %invoke.cont218, %la
   %inc236 = add nuw nsw i32 %r.0267, 1
   %61 = load i32, ptr %width, align 8
   %cmp57 = icmp slt i32 %inc236, %61
-  br i1 %cmp57, label %for.body, label %for.end237, !llvm.loop !13
+  br i1 %cmp57, label %for.body, label %for.end237, !llvm.loop !12
 
 for.end237:                                       ; preds = %for.inc234, %if.end55
   invoke void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(28) %line, ptr noundef nonnull align 8 dereferenceable(24) %intersections)
@@ -1426,14 +1426,14 @@ invoke.cont24.us:                                 ; preds = %invoke.cont23.us
   %add27.us = fadd double %error.136.us, %5
   %inc.us = add nuw nsw i32 %subRow.035.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %scanlinesPerRow
-  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !14
+  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !13
 
 for.cond12.for.inc28_crit_edge.us:                ; preds = %invoke.cont24.us
   %inc29.us = add nuw nsw i32 %row.039.us, 1
   %6 = load i32, ptr %height, align 4
   %sub10.us = add nsw i32 %6, -1
   %cmp11.us = icmp slt i32 %inc29.us, %sub10.us
-  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !15
+  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !14
 
 lpad19.split.us:                                  ; preds = %invoke.cont23.us, %invoke.cont22.us, %invoke.cont20.us, %for.body14.us
   %7 = landingpad { ptr, i32 }
@@ -1577,14 +1577,14 @@ invoke.cont24.us:                                 ; preds = %invoke.cont23.us
   %add27.us = fadd double %error.136.us, %5
   %inc.us = add nuw nsw i32 %subRow.035.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %scanlinesPerRow
-  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !17
+  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !16
 
 for.cond12.for.inc28_crit_edge.us:                ; preds = %invoke.cont24.us
   %inc29.us = add nuw nsw i32 %row.039.us, 1
   %6 = load i32, ptr %height, align 4
   %sub10.us = add nsw i32 %6, -1
   %cmp11.us = icmp slt i32 %inc29.us, %sub10.us
-  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !18
+  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !17
 
 lpad19.split.us:                                  ; preds = %invoke.cont23.us, %invoke.cont22.us, %invoke.cont20.us, %for.body14.us
   %7 = landingpad { ptr, i32 }
@@ -1728,14 +1728,14 @@ invoke.cont24.us:                                 ; preds = %invoke.cont23.us
   %add27.us = fadd double %error.136.us, %5
   %inc.us = add nuw nsw i32 %subRow.035.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %scanlinesPerRow
-  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !19
+  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !18
 
 for.cond12.for.inc28_crit_edge.us:                ; preds = %invoke.cont24.us
   %inc29.us = add nuw nsw i32 %row.039.us, 1
   %6 = load i32, ptr %height, align 4
   %sub10.us = add nsw i32 %6, -1
   %cmp11.us = icmp slt i32 %inc29.us, %sub10.us
-  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !20
+  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !19
 
 lpad19.split.us:                                  ; preds = %invoke.cont23.us, %invoke.cont22.us, %invoke.cont20.us, %for.body14.us
   %7 = landingpad { ptr, i32 }
@@ -1906,19 +1906,18 @@ attributes #12 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7, !16}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7, !16}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6, !15}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6, !15}

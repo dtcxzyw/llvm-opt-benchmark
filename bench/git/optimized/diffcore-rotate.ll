@@ -97,11 +97,11 @@ select.unfold:                                    ; preds = %17, %9
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
   %34 = trunc nuw i64 %indvars.iv.next54 to i32
   %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph45, label %.preheader, !llvm.loop !40
+  br i1 %35, label %.lr.ph45, label %.preheader, !llvm.loop !39
 
 36:                                               ; preds = %.lr.ph47, %43
   %indvars.iv56 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next57, %43 ]
-  %37 = load i32, ptr %29, align 8, !tbaa !41
+  %37 = load i32, ptr %29, align 8, !tbaa !40
   %.not36 = icmp eq i32 %37, 0
   %38 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv56
@@ -119,12 +119,12 @@ select.unfold:                                    ; preds = %17, %9
 43:                                               ; preds = %41, %42
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge48, label %36, !llvm.loop !42
+  br i1 %exitcond63.not, label %._crit_edge48, label %36, !llvm.loop !41
 
 ._crit_edge48:                                    ; preds = %43, %.preheader
   %44 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
   call void @free(ptr noundef %44) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !42
   br label %45
 
 45:                                               ; preds = %._crit_edge, %1, %._crit_edge48
@@ -149,7 +149,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #5 {
-  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !45
+  %1 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
@@ -228,12 +228,11 @@ attributes #12 = { noreturn nounwind }
 !34 = !{!"diff_filespec", !35, i64 0, !13, i64 40, !7, i64 48, !7, i64 56, !15, i64 64, !10, i64 72, !10, i64 76, !32, i64 80, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !10, i64 82, !36, i64 88}
 !35 = !{!"object_id", !8, i64 0, !10, i64 32}
 !36 = !{!"p1 _ZTS15userdiff_driver", !7, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = distinct !{!40, !38, !39}
-!41 = !{!12, !10, i64 16}
-!42 = distinct !{!42, !38, !39}
-!43 = !{i64 0, i64 8, !44, i64 8, i64 4, !45, i64 12, i64 4, !45}
-!44 = !{!6, !6, i64 0}
-!45 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !38}
+!40 = !{!12, !10, i64 16}
+!41 = distinct !{!41, !38}
+!42 = !{i64 0, i64 8, !43, i64 8, i64 4, !44, i64 12, i64 4, !44}
+!43 = !{!6, !6, i64 0}
+!44 = !{!10, !10, i64 0}

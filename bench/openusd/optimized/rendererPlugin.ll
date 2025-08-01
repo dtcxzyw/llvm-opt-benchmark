@@ -183,7 +183,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
 
 44:                                               ; preds = %41
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.4)
-          to label %33 unwind label %.loopexit, !llvm.loop !4
+          to label %33 unwind label %.loopexit
 
 46:                                               ; preds = %20, %14
   %47 = landingpad { ptr, i32 }
@@ -595,5 +595,3 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

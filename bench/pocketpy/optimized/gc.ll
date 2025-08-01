@@ -183,7 +183,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6ve
   %.sroa.022.1 = phi ptr [ %.sroa.022.047, %44 ], [ %28, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.022.047, %14 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.019.044, i64 8
   %.not33 = icmp eq ptr %48, %5
-  br i1 %.not33, label %._crit_edge, label %8, !llvm.loop !4
+  br i1 %.not33, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit, %1
   %.sroa.15.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.15.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
@@ -202,7 +202,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6ve
   store i8 0, ptr %53, align 1
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.012.051, i64 8
   %.not34 = icmp eq ptr %54, %51
-  br i1 %.not34, label %._crit_edge54, label %.lr.ph53, !llvm.loop !6
+  br i1 %.not34, label %._crit_edge54, label %.lr.ph53
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge
   %55 = load ptr, ptr %4, align 8
@@ -490,7 +490,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   %18 = udiv i32 %.02230.i, 10000
   %19 = add i32 %.02329.i, 4
   %20 = icmp ult i32 %.02230.i, 100000
-  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
   %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
@@ -551,7 +551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !9
+  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
@@ -629,7 +629,7 @@ define void @_ZN4pkpy11ManagedHeapD2Ev(ptr noundef nonnull readonly align 8 capt
   tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %5) #19
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 8
   %.not = icmp eq ptr %9, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -649,7 +649,7 @@ define void @_ZN4pkpy11ManagedHeapD2Ev(ptr noundef nonnull readonly align 8 capt
   tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %14) #19
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.022, i64 8
   %.not18 = icmp eq ptr %18, %13
-  br i1 %.not18, label %._crit_edge25.loopexit, label %.lr.ph24, !llvm.loop !11
+  br i1 %.not18, label %._crit_edge25.loopexit, label %.lr.ph24
 
 ._crit_edge25.loopexit:                           ; preds = %.lr.ph24
   %.pre = load ptr, ptr %10, align 8
@@ -750,7 +750,7 @@ define void @_ZNK4pkpy8FuncDecl8_gc_markEv(ptr noundef nonnull readonly align 8 
   %sext = shl i64 %39, 28
   %40 = ashr i64 %sext, 32
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %34, %1
   ret void
@@ -956,11 +956,6 @@ attributes #20 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !8, !5}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !8, !5}
+!7 = distinct !{!7, !5}

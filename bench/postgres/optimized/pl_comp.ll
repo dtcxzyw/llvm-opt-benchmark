@@ -528,7 +528,7 @@ delete_function.exit:                             ; preds = %plpgsql_HashTableDe
   br i1 %.not36, label %93, label %delete_function.exit.thread
 
 delete_function.exit.thread:                      ; preds = %plpgsql_HashTableDelete.exit.i, %delete_function.exit
-  br i1 %.not34, label %compute_function_hashkey.exit45, label %39, !llvm.loop !3
+  br i1 %.not34, label %compute_function_hashkey.exit45, label %39
 
 93:                                               ; preds = %delete_function.exit
   br i1 %.not34, label %compute_function_hashkey.exit45, label %.loopexit.i39
@@ -678,7 +678,7 @@ compute_function_hashkey.exit45:                  ; preds = %compute_function_ha
   %167 = load i32, ptr @plpgsql_variable_conflict, align 4
   %168 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 484
   store i32 %167, ptr %168, align 4
-  %169 = load i8, ptr @plpgsql_print_strict_params, align 1, !range !5, !noundef !6
+  %169 = load i8, ptr @plpgsql_print_strict_params, align 1, !range !3, !noundef !4
   %170 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 488
   store i8 %169, ptr %170, align 8
   %171 = load i32, ptr @plpgsql_extra_warnings, align 4
@@ -871,7 +871,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
 263:                                              ; preds = %261, %257, %253
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %263
   %264 = icmp sgt i32 %.1285.i, 1
@@ -965,7 +965,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   %313 = load ptr, ptr %274, align 8
   call void @TupleDescInitEntryCollation(ptr noundef %313, i16 noundef signext %311, i32 noundef %.0.i49) #9
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %276
-  br i1 %exitcond.not.i51, label %build_row_from_vars.exit, label %283, !llvm.loop !9
+  br i1 %exitcond.not.i51, label %build_row_from_vars.exit, label %283, !llvm.loop !7
 
 build_row_from_vars.exit:                         ; preds = %301
   %314 = load i32, ptr @plpgsql_nDatums, align 4
@@ -1066,7 +1066,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
   %347 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 48
   store i32 %.0281.i, ptr %347, align 8
   %348 = getelementptr inbounds nuw i8, ptr %124, i64 100
-  %349 = load i8, ptr %348, align 4, !range !5, !noundef !6
+  %349 = load i8, ptr %348, align 4, !range !3, !noundef !4
   %350 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 59
   store i8 %349, ptr %350, align 1
   %351 = zext i32 %.0281.i to i64
@@ -1129,7 +1129,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
   %382 = zext i1 %380 to i8
   store i8 %382, ptr %381, align 2
   %383 = getelementptr inbounds nuw i8, ptr %361, i64 78
-  %384 = load i8, ptr %383, align 2, !range !5, !noundef !6
+  %384 = load i8, ptr %383, align 2, !range !3, !noundef !4
   %385 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 56
   store i8 %384, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %361, i64 76
@@ -1635,7 +1635,7 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
 
 618:                                              ; preds = %614
   %619 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 59
-  %620 = load i8, ptr %619, align 1, !range !5, !noundef !6
+  %620 = load i8, ptr %619, align 1, !range !3, !noundef !4
   %621 = trunc nuw i8 %620 to i1
   br i1 %621, label %622, label %623
 
@@ -1665,7 +1665,7 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
   store i32 %633, ptr %634, align 4
   %indvars.iv.next367.i = add nuw nsw i64 %indvars.iv366.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next367.i, %630
-  br i1 %exitcond.not, label %._crit_edge362.i, label %631, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge362.i, label %631, !llvm.loop !8
 
 ._crit_edge362.i:                                 ; preds = %631, %623
   %635 = load i32, ptr @plpgsql_nDatums, align 4
@@ -1715,13 +1715,13 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
   %.1.i.i = phi i64 [ %.01213.i.i, %.lr.ph.i.i ], [ %653, %652 ], [ %655, %654 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %plpgsql_finish_datums.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %plpgsql_finish_datums.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 plpgsql_finish_datums.exit.i:                     ; preds = %656, %._crit_edge362.i
   %.012.lcssa.i.i = phi i64 [ 0, %._crit_edge362.i ], [ %.1.i.i, %656 ]
   %657 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 512
   store i64 %.012.lcssa.i.i, ptr %657, align 8
-  %658 = load i8, ptr %183, align 1, !range !5, !noundef !6
+  %658 = load i8, ptr %183, align 1, !range !3, !noundef !4
   %659 = trunc nuw i8 %658 to i1
   br i1 %659, label %660, label %661
 
@@ -1730,7 +1730,7 @@ plpgsql_finish_datums.exit.i:                     ; preds = %656, %._crit_edge36
   br label %661
 
 661:                                              ; preds = %660, %plpgsql_finish_datums.exit.i
-  %662 = load i8, ptr @plpgsql_DumpExecTree, align 1, !range !5, !noundef !6
+  %662 = load i8, ptr @plpgsql_DumpExecTree, align 1, !range !3, !noundef !4
   %663 = trunc nuw i8 %662 to i1
   br i1 %663, label %664, label %665
 
@@ -1742,7 +1742,7 @@ plpgsql_finish_datums.exit.i:                     ; preds = %656, %._crit_edge36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   %666 = load ptr, ptr @plpgsql_HashTable, align 8
   %667 = call ptr @hash_search(ptr noundef %666, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %3) #9
-  %668 = load i8, ptr %3, align 1, !range !5, !noundef !6
+  %668 = load i8, ptr %3, align 1, !range !3, !noundef !4
   %669 = trunc nuw i8 %668 to i1
   br i1 %669, label %670, label %do_compile.exit
 
@@ -1824,7 +1824,7 @@ define hidden ptr @plpgsql_compile_inline(ptr noundef %0) local_unnamed_addr #0 
   %8 = load ptr, ptr @error_context_stack, align 8
   store ptr %8, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
-  %9 = load i8, ptr @check_function_bodies, align 1, !range !5, !noundef !6
+  %9 = load i8, ptr @check_function_bodies, align 1, !range !3, !noundef !4
   store i8 %9, ptr @plpgsql_check_syntax, align 1
   %10 = call ptr @palloc0(i64 noundef 552) #9
   store ptr %10, ptr @plpgsql_curr_compile, align 8
@@ -1846,7 +1846,7 @@ define hidden ptr @plpgsql_compile_inline(ptr noundef %0) local_unnamed_addr #0 
   %19 = load i32, ptr @plpgsql_variable_conflict, align 4
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 484
   store i32 %19, ptr %20, align 4
-  %21 = load i8, ptr @plpgsql_print_strict_params, align 1, !range !5, !noundef !6
+  %21 = load i8, ptr @plpgsql_print_strict_params, align 1, !range !3, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 488
   store i8 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 492
@@ -1977,13 +1977,13 @@ plpgsql_build_datatype.exit:                      ; preds = %1
   %.1.i = phi i64 [ %.01213.i, %.lr.ph.i ], [ %77, %76 ], [ %79, %78 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %plpgsql_finish_datums.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %plpgsql_finish_datums.exit, label %.lr.ph.i, !llvm.loop !9
 
 plpgsql_finish_datums.exit:                       ; preds = %80, %57
   %.012.lcssa.i = phi i64 [ 0, %57 ], [ %.1.i, %80 ]
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 512
   store i64 %.012.lcssa.i, ptr %81, align 8
-  %82 = load i8, ptr %27, align 1, !range !5, !noundef !6
+  %82 = load i8, ptr %27, align 1, !range !3, !noundef !4
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %85
 
@@ -1992,7 +1992,7 @@ plpgsql_finish_datums.exit:                       ; preds = %80, %57
   br label %85
 
 85:                                               ; preds = %84, %plpgsql_finish_datums.exit
-  %86 = load i8, ptr @plpgsql_DumpExecTree, align 1, !range !5, !noundef !6
+  %86 = load i8, ptr @plpgsql_DumpExecTree, align 1, !range !3, !noundef !4
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %89
 
@@ -2606,7 +2606,7 @@ define hidden ptr @plpgsql_build_recfield(ptr noundef captures(none) %0, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %.021 = load i32, ptr %14, align 4
   %15 = icmp sgt i32 %.021, -1
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !12
+  br i1 %15, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %13, %2
   %16 = tail call ptr @palloc0(i64 noundef 48) #9
@@ -2940,7 +2940,7 @@ define internal fastcc ptr @build_datatype(ptr %.16.val, i32 noundef %0, i32 nou
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %.16.val, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 82
-  %9 = load i8, ptr %8, align 2, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 2, !range !3, !noundef !4
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %16, label %11
 
@@ -3027,7 +3027,7 @@ define internal fastcc ptr @build_datatype(ptr %.16.val, i32 noundef %0, i32 nou
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i16 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 78
-  %51 = load i8, ptr %50, align 2, !range !5, !noundef !6
+  %51 = load i8, ptr %50, align 2, !range !3, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 18
   store i8 %51, ptr %52, align 2
   %53 = load i8, ptr %22, align 1
@@ -3348,7 +3348,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind uwtable
 define hidden ptr @plpgsql_build_datatype_arrayof(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
+  %3 = load i8, ptr %2, align 8, !range !3, !noundef !4
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %27, label %5
 
@@ -3461,12 +3461,12 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
   %47 = getelementptr inbounds [252 x %struct.ExceptionLabelMap], ptr @exception_label_map, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 16
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %54, label %49, !llvm.loop !13
+  br i1 %.not, label %54, label %49, !llvm.loop !11
 
 49:                                               ; preds = %.lr.ph
   %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %48) #11
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %51, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %49, %42
   %.lcssa = phi ptr [ @exception_label_map, %42 ], [ %47, %49 ]
@@ -3535,7 +3535,7 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
   %21 = getelementptr inbounds [252 x %struct.ExceptionLabelMap], ptr @exception_label_map, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 16
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %23, label %.preheader, !llvm.loop !14
+  br i1 %.not, label %23, label %.preheader, !llvm.loop !12
 
 23:                                               ; preds = %18
   %.not23 = icmp eq ptr %.1, null
@@ -3590,7 +3590,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   %.1 = phi i32 [ %.019, %7 ], [ %12, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %13
   %.not = icmp eq ptr %0, null
@@ -3651,7 +3651,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next27, %39
-  br i1 %40, label %.lr.ph23, label %.loopexit, !llvm.loop !16
+  br i1 %40, label %.lr.ph23, label %.loopexit, !llvm.loop !14
 
 .thread:                                          ; preds = %._crit_edge.thread, %14
   %.0.lcssa3335 = phi i32 [ %.1, %14 ], [ 0, %._crit_edge.thread ]
@@ -3746,7 +3746,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
 16:                                               ; preds = %15, %13, %.thread.us
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count59
-  br i1 %exitcond60.not, label %.loopexit, label %.thread.us, !llvm.loop !17
+  br i1 %exitcond60.not, label %.loopexit, label %.thread.us, !llvm.loop !15
 
 17:                                               ; preds = %8
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #10
@@ -3791,7 +3791,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
   %.140 = phi i32 [ %29, %28 ], [ %.03947, %.lr.ph.split ], [ %.03947, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %36
   %indvars.iv61 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next62, %36 ]
@@ -3827,7 +3827,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
 36:                                               ; preds = %.sink.split, %.lr.ph50
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !20
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !18
 
 .loopexit:                                        ; preds = %30, %16, %36, %.preheader45, %.preheader
   ret void
@@ -4078,7 +4078,7 @@ list_length.exit:                                 ; preds = %4
   %126 = getelementptr inbounds nuw i8, ptr %130, i64 20
   %.056 = load i32, ptr %126, align 4
   %127 = icmp slt i32 %.056, 0
-  br i1 %127, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %127, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %115, %125
   %.05689 = phi i32 [ %.056, %125 ], [ %.05688, %115 ]
@@ -4197,22 +4197,20 @@ attributes #11 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !8, !4}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !4}
-!10 = distinct !{!10, !8, !4}
-!11 = distinct !{!11, !8, !4}
-!12 = distinct !{!12, !8, !4}
-!13 = distinct !{!13, !8, !4}
-!14 = distinct !{!14, !8, !4}
-!15 = distinct !{!15, !8, !4}
-!16 = distinct !{!16, !8, !4}
-!17 = distinct !{!17, !8, !4, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !8, !4}
-!20 = distinct !{!20, !8, !4}
-!21 = distinct !{!21, !8, !4}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

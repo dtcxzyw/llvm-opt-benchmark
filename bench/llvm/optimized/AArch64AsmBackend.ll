@@ -3891,7 +3891,7 @@ _ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit:
   store i8 %362, ptr %360, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not53 = icmp eq i64 %indvars.iv.next, %.0.i
-  br i1 %.not53, label %.loopexit, label %352, !llvm.loop !105
+  br i1 %.not53, label %.loopexit, label %352, !llvm.loop !104
 
 .loopexit:                                        ; preds = %352, %.critedge
   %363 = load i32, ptr %76, align 8, !tbaa !43
@@ -3983,7 +3983,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12write
   %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.264, i64 noundef 4) #19
   %10 = add nuw nsw i64 %.07, 1
   %.not = icmp eq i64 %10, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3999,9 +3999,9 @@ define linkonce_odr hidden void @_ZN4llvm12MCAsmBackend19handleAssemblerFlagENS_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29generateCompactUnwindEncodingEPKN4llvm16MCDwarfFrameInfoEPKNS1_9MCContextE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !107
+  %5 = load ptr, ptr %4, align 8, !tbaa !106
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %6, align 8, !tbaa !109
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
@@ -4011,7 +4011,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !111
+  %15 = load ptr, ptr %14, align 8, !tbaa !110
   %16 = tail call noundef zeroext i1 @_ZNK4llvm12MCAsmBackend28isDarwinCanonicalPersonalityEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %15) #19
   br i1 %16, label %.lr.ph, label %17
 
@@ -4038,7 +4038,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   %.0122271 = phi i64 [ %158, %.thread243 ], [ %.0122271.ph, %.outer ]
   %21 = getelementptr %"class.llvm::MCCFIInstruction", ptr %5, i64 %.0122271
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i8, ptr %22, align 8, !tbaa !117
+  %23 = load i8, ptr %22, align 8, !tbaa !116
   switch i8 %23, label %.thread [
     i8 7, label %24
     i8 6, label %50
@@ -4046,7 +4046,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   ]
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %19, align 8, !tbaa !124
+  %25 = load ptr, ptr %19, align 8, !tbaa !123
   %.0.in.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.0.i = load i32, ptr %.0.in.i, align 8, !tbaa !24
   %26 = zext i32 %.0.i to i64
@@ -4061,14 +4061,14 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
 
 30:                                               ; preds = %24
   %31 = getelementptr i8, ptr %21, i64 136
-  %32 = load i8, ptr %31, align 8, !tbaa !117
+  %32 = load i8, ptr %31, align 8, !tbaa !116
   %.not136 = icmp eq i8 %32, 3
   br i1 %.not136, label %33, label %.thread
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw %"class.llvm::MCCFIInstruction", ptr %5, i64 %29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = load i8, ptr %35, align 8, !tbaa !117
+  %36 = load i8, ptr %35, align 8, !tbaa !116
   %.not137 = icmp eq i8 %36, 3
   br i1 %.not137, label %37, label %.thread
 
@@ -4082,13 +4082,13 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not138, label %39, label %.thread
 
 39:                                               ; preds = %37
-  %40 = load ptr, ptr %19, align 8, !tbaa !124
+  %40 = load ptr, ptr %19, align 8, !tbaa !123
   %.0.in.i163 = getelementptr i8, ptr %21, i64 112
   %.0.i164 = load i32, ptr %.0.in.i163, align 8, !tbaa !24
   %41 = zext i32 %.0.i164 to i64
   %42 = tail call i64 @_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb(ptr noundef nonnull align 8 dereferenceable(232) %40, i64 noundef %41, i1 noundef zeroext true) #19
   %.sroa.0211.0.extract.trunc = trunc i64 %42 to i32
-  %43 = load ptr, ptr %19, align 8, !tbaa !124
+  %43 = load ptr, ptr %19, align 8, !tbaa !123
   %.0.in.i165 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.0.i166 = load i32, ptr %.0.in.i165, align 8, !tbaa !24
   %44 = zext i32 %.0.i166 to i64
@@ -4112,7 +4112,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br label %.thread243
 
 53:                                               ; preds = %20
-  %54 = load ptr, ptr %19, align 8, !tbaa !124
+  %54 = load ptr, ptr %19, align 8, !tbaa !123
   %.0.in.i169 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.0.i170 = load i32, ptr %.0.in.i169, align 8, !tbaa !24
   %55 = zext i32 %.0.i170 to i64
@@ -4136,14 +4136,14 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
 62:                                               ; preds = %60, %59
   %63 = getelementptr inbounds nuw %"class.llvm::MCCFIInstruction", ptr %5, i64 %57
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %65 = load i8, ptr %64, align 8, !tbaa !117
+  %65 = load i8, ptr %64, align 8, !tbaa !116
   %.not132 = icmp eq i8 %65, 3
   br i1 %.not132, label %66, label %.thread
 
 66:                                               ; preds = %62
   %.0.in.i173 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0.i174 = load i64, ptr %.0.in.i173, align 8, !tbaa !24
-  %67 = load ptr, ptr %19, align 8, !tbaa !124
+  %67 = load ptr, ptr %19, align 8, !tbaa !123
   %.0.in.i175 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.0.i176 = load i32, ptr %.0.in.i175, align 8, !tbaa !24
   %68 = zext i32 %.0.i176 to i64
@@ -4408,13 +4408,13 @@ _ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit: ; preds = %71, %104, %105, %10
   %.298 = phi i64 [ %52, %51 ], [ %.096274, %84 ], [ %.096274, %96 ], [ %.096274, %140 ], [ %.096274, %152 ], [ %.096274, %146 ], [ %.096274, %102 ], [ %.096274, %90 ], [ %.096274, %78 ], [ %.096274, %154 ]
   %158 = add i64 %.1123, 1
   %.not = icmp eq i64 %158, %11
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !126
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !125
 
 .thread243.thread:                                ; preds = %39
   %159 = or i64 %.0100273, 67108864
   %160 = add i64 %.0122271, 3
   %.not283 = icmp eq i64 %160, %11
-  br i1 %.not283, label %.thread, label %.outer, !llvm.loop !126
+  br i1 %.not283, label %.thread, label %.outer, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.thread243
   br i1 %.088275.ph, label %.thread, label %161
@@ -4733,7 +4733,7 @@ define internal void @_ZNK12_GLOBAL__N_120ELFAArch64AsmBackend24createObjectTarg
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 73
-  %6 = load i8, ptr %5, align 1, !tbaa !36, !range !127, !noundef !128
+  %6 = load i8, ptr %5, align 1, !tbaa !36, !range !126, !noundef !127
   %7 = trunc nuw i8 %6 to i1
   tail call void @_ZN4llvm28createAArch64ELFObjectWriterEhb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, i8 noundef zeroext %4, i1 noundef zeroext %7) #19
   ret void
@@ -4874,30 +4874,29 @@ attributes #21 = { noreturn nounwind }
 !99 = !{!97, !98, i64 32}
 !100 = !{!39, !34, i64 8}
 !101 = !{!32, !33, i64 8}
-!102 = distinct !{!102, !103, !104}
+!102 = distinct !{!102, !103}
 !103 = !{!"llvm.loop.mustprogress"}
-!104 = !{!"llvm.loop.estimated_trip_count"}
-!105 = distinct !{!105, !103, !104}
-!106 = distinct !{!106, !103, !104}
-!107 = !{!108, !109, i64 0}
-!108 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
-!109 = !{!"p1 _ZTSN4llvm16MCCFIInstructionE", !8, i64 0}
-!110 = !{!108, !109, i64 8}
-!111 = !{!112, !113, i64 16}
-!112 = !{!"_ZTSN4llvm16MCDwarfFrameInfoE", !113, i64 0, !113, i64 8, !113, i64 16, !113, i64 24, !114, i64 32, !34, i64 56, !34, i64 60, !34, i64 64, !11, i64 72, !35, i64 80, !35, i64 81, !34, i64 84, !35, i64 88, !35, i64 89}
-!113 = !{!"p1 _ZTSN4llvm8MCSymbolE", !8, i64 0}
-!114 = !{!"_ZTSSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE", !115, i64 0}
-!115 = !{!"_ZTSSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE", !116, i64 0}
-!116 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE12_Vector_implE", !108, i64 0}
-!117 = !{!118, !119, i64 32}
-!118 = !{!"_ZTSN4llvm16MCCFIInstructionE", !113, i64 0, !9, i64 8, !119, i64 32, !42, i64 40, !120, i64 48, !5, i64 72}
-!119 = !{!"_ZTSN4llvm16MCCFIInstruction6OpTypeE", !9, i64 0}
-!120 = !{!"_ZTSSt6vectorIcSaIcEE", !121, i64 0}
-!121 = !{!"_ZTSSt12_Vector_baseIcSaIcEE", !122, i64 0}
-!122 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE12_Vector_implE", !123, i64 0}
-!123 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
-!124 = !{!125, !26, i64 72}
-!125 = !{!"_ZTSN12_GLOBAL__N_123DarwinAArch64AsmBackendE", !31, i64 0, !26, i64 72}
-!126 = distinct !{!126, !103, !104}
-!127 = !{i8 0, i8 2}
-!128 = !{}
+!104 = distinct !{!104, !103}
+!105 = distinct !{!105, !103}
+!106 = !{!107, !108, i64 0}
+!107 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE17_Vector_impl_dataE", !108, i64 0, !108, i64 8, !108, i64 16}
+!108 = !{!"p1 _ZTSN4llvm16MCCFIInstructionE", !8, i64 0}
+!109 = !{!107, !108, i64 8}
+!110 = !{!111, !112, i64 16}
+!111 = !{!"_ZTSN4llvm16MCDwarfFrameInfoE", !112, i64 0, !112, i64 8, !112, i64 16, !112, i64 24, !113, i64 32, !34, i64 56, !34, i64 60, !34, i64 64, !11, i64 72, !35, i64 80, !35, i64 81, !34, i64 84, !35, i64 88, !35, i64 89}
+!112 = !{!"p1 _ZTSN4llvm8MCSymbolE", !8, i64 0}
+!113 = !{!"_ZTSSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE", !114, i64 0}
+!114 = !{!"_ZTSSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE", !115, i64 0}
+!115 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MCCFIInstructionESaIS1_EE12_Vector_implE", !107, i64 0}
+!116 = !{!117, !118, i64 32}
+!117 = !{!"_ZTSN4llvm16MCCFIInstructionE", !112, i64 0, !9, i64 8, !118, i64 32, !42, i64 40, !119, i64 48, !5, i64 72}
+!118 = !{!"_ZTSN4llvm16MCCFIInstruction6OpTypeE", !9, i64 0}
+!119 = !{!"_ZTSSt6vectorIcSaIcEE", !120, i64 0}
+!120 = !{!"_ZTSSt12_Vector_baseIcSaIcEE", !121, i64 0}
+!121 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE12_Vector_implE", !122, i64 0}
+!122 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
+!123 = !{!124, !26, i64 72}
+!124 = !{!"_ZTSN12_GLOBAL__N_123DarwinAArch64AsmBackendE", !31, i64 0, !26, i64 72}
+!125 = distinct !{!125, !103}
+!126 = !{i8 0, i8 2}
+!127 = !{}

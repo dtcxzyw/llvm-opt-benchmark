@@ -443,7 +443,7 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
   br i1 %.not191, label %.backedge, label %179
 
 .backedge:                                        ; preds = %177, %179, %172
-  br label %21, !llvm.loop !83
+  br label %21
 
 179:                                              ; preds = %177
   store i32 %22, ptr %10, align 4, !tbaa !42
@@ -614,5 +614,3 @@ attributes #2 = { nounwind }
 !80 = !{!75, !11, i64 296}
 !81 = !{!75, !11, i64 298}
 !82 = !{!49, !8, i64 452}
-!83 = distinct !{!83, !84}
-!84 = !{!"llvm.loop.estimated_trip_count"}

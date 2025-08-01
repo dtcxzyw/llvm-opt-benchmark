@@ -227,7 +227,7 @@ define void @jpeg_fdct_islow(ptr noundef captures(none) %0) local_unnamed_addr #
   %192 = getelementptr inbounds nuw i8, ptr %.1160164, i64 2
   %193 = add nsw i32 %.1165, -1
   %.not166 = icmp eq i32 %.1165, 0
-  br i1 %.not166, label %194, label %.preheader, !llvm.loop !10
+  br i1 %.not166, label %194, label %.preheader, !llvm.loop !9
 
 194:                                              ; preds = %.preheader
   ret void
@@ -244,7 +244,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"short", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

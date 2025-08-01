@@ -358,7 +358,7 @@ define void @Ver_StreamSkipChars(ptr noundef captures(none) %0, ptr noundef read
 57:                                               ; preds = %52, %54
   %58 = getelementptr inbounds nuw i8, ptr %.02129, i64 1
   %exitcond.not = icmp eq ptr %58, %40
-  br i1 %exitcond.not, label %._crit_edge30, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge30, label %.preheader, !llvm.loop !25
 
 ._crit_edge30:                                    ; preds = %57, %._crit_edge
   %59 = icmp eq ptr %39, %40
@@ -452,7 +452,7 @@ define void @Ver_StreamSkipToChars(ptr noundef captures(none) %0, ptr noundef re
   %46 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !22
   %.not = icmp eq i8 %47, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader, %45
   %48 = phi i8 [ %47, %45 ], [ %44, %.preheader ]
@@ -477,7 +477,7 @@ define void @Ver_StreamSkipToChars(ptr noundef captures(none) %0, ptr noundef re
 55:                                               ; preds = %._crit_edge, %51
   %56 = getelementptr inbounds nuw i8, ptr %.02128, i64 1
   %exitcond.not = icmp eq ptr %56, %40
-  br i1 %exitcond.not, label %._crit_edge29, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge29, label %.preheader, !llvm.loop !27
 
 ._crit_edge29:                                    ; preds = %55, %._crit_edge31
   %57 = icmp eq ptr %39, %40
@@ -560,7 +560,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
   %43 = phi ptr [ %38, %13 ], [ %12, %5 ]
   %44 = phi ptr [ %.pre, %13 ], [ %7, %5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 65624
-  store i32 0, ptr %45, align 8, !tbaa !29
+  store i32 0, ptr %45, align 8, !tbaa !28
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = icmp ult ptr %44, %43
   br i1 %47, label %.preheader.lr.ph, label %._crit_edge46
@@ -582,7 +582,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
   %53 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !22
   %.not38 = icmp eq i8 %54, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.preheader, %52
   %55 = phi i8 [ %54, %52 ], [ %51, %.preheader ]
@@ -592,11 +592,11 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
 
 ._crit_edge:                                      ; preds = %52, %.preheader
   %57 = add nsw i32 %50, 1
-  store i32 %57, ptr %45, align 8, !tbaa !29
+  store i32 %57, ptr %45, align 8, !tbaa !28
   %58 = sext i32 %50 to i64
   %59 = getelementptr inbounds [65541 x i8], ptr %48, i64 0, i64 %58
   store i8 %.pre52, ptr %59, align 1, !tbaa !22
-  %60 = load i32, ptr %45, align 8, !tbaa !29
+  %60 = load i32, ptr %45, align 8, !tbaa !28
   %61 = icmp eq i32 %60, 65536
   br i1 %61, label %62, label %63
 
@@ -626,7 +626,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
   %73 = getelementptr inbounds nuw i8, ptr %.03445, i64 1
   %74 = load ptr, ptr %46, align 8, !tbaa !18
   %75 = icmp ult ptr %73, %74
-  br i1 %75, label %.preheader, label %._crit_edge46.loopexit, !llvm.loop !31
+  br i1 %75, label %.preheader, label %._crit_edge46.loopexit, !llvm.loop !30
 
 ._crit_edge46.loopexit:                           ; preds = %72
   %.pre53 = load ptr, ptr %8, align 8, !tbaa !19
@@ -694,7 +694,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %15, ptr %2, align 8, !tbaa !16
   %16 = load i8, ptr %15, align 1, !tbaa !22
   %.not5 = icmp eq i8 %16, 40
-  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %sub_1, %sub_0, %12, %.tail
   ret void
@@ -757,13 +757,12 @@ attributes #15 = { nounwind willreturn memory(read) }
 !20 = !{!4, !10, i64 32}
 !21 = !{!4, !11, i64 65628}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = distinct !{!27, !24, !25}
-!28 = distinct !{!28, !24, !25}
-!29 = !{!4, !11, i64 65624}
-!30 = distinct !{!30, !24, !25}
-!31 = distinct !{!31, !24, !25}
-!32 = distinct !{!32, !24, !25}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}
+!28 = !{!4, !11, i64 65624}
+!29 = distinct !{!29, !24}
+!30 = distinct !{!30, !24}
+!31 = distinct !{!31, !24}

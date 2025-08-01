@@ -141,7 +141,7 @@ if.end.i19.i:                                     ; preds = %for.body.i
 _ZN4llvh11raw_ostreamlsEc.exit21.i:               ; preds = %if.end.i19.i, %if.then.i16.i
   %inc.i = add nuw i64 %I.025.i, 1
   %cmp4.i = icmp ult i64 %inc.i, %MinDigits
-  br i1 %cmp4.i, label %for.body.i, label %if.end6.i, !llvm.loop !7
+  br i1 %cmp4.i, label %for.body.i, label %if.end6.i, !llvm.loop !6
 
 if.end6.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit21.i, %if.end.i
   %cmp7.i = icmp eq i32 %Style, 1
@@ -188,7 +188,7 @@ _ZN4llvh11raw_ostreamlsEc.exit.i.i:               ; preds = %if.end.i.i.i, %if.t
   %sub.i15.i.i = add i64 %sub.i.pn28.i.i, -3
   %add.ptr.i.i16.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.pn27.i.i, i64 3
   %cmp.i.i.i = icmp eq i64 %sub.i15.i.i, 0
-  br i1 %cmp.i.i.i, label %_ZL19write_unsigned_implImEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit, label %while.body.i.i, !llvm.loop !8
+  br i1 %cmp.i.i.i, label %_ZL19write_unsigned_implImEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit, label %while.body.i.i, !llvm.loop !7
 
 if.else.i:                                        ; preds = %if.end6.i
   %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i) #12
@@ -256,7 +256,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.el
   store i8 %add.i.i, ptr %incdec.ptr.i.i, align 1
   %div.i.i = udiv i64 %Value.addr.0.i.i, 10
   %tobool.not.i.i = icmp ult i64 %Value.addr.0.i.i, 10
-  br i1 %tobool.not.i.i, label %_ZL16format_to_bufferIyLm128EEiT_RAT0__c.exit.i, label %do.body.i.i, !llvm.loop !9
+  br i1 %tobool.not.i.i, label %_ZL16format_to_bufferIyLm128EEiT_RAT0__c.exit.i, label %do.body.i.i, !llvm.loop !8
 
 _ZL16format_to_bufferIyLm128EEiT_RAT0__c.exit.i:  ; preds = %do.body.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -315,7 +315,7 @@ if.end.i19.i:                                     ; preds = %for.body.i
 _ZN4llvh11raw_ostreamlsEc.exit21.i:               ; preds = %if.end.i19.i, %if.then.i16.i
   %inc.i = add nuw i64 %I.025.i, 1
   %cmp4.i = icmp ult i64 %inc.i, %MinDigits
-  br i1 %cmp4.i, label %for.body.i, label %if.end6.i, !llvm.loop !10
+  br i1 %cmp4.i, label %for.body.i, label %if.end6.i, !llvm.loop !9
 
 if.end6.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit21.i, %if.end.i
   %cmp7.i = icmp eq i32 %Style, 1
@@ -362,7 +362,7 @@ _ZN4llvh11raw_ostreamlsEc.exit.i.i:               ; preds = %if.end.i.i.i, %if.t
   %sub.i15.i.i = add i64 %sub.i.pn28.i.i, -3
   %add.ptr.i.i16.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.pn27.i.i, i64 3
   %cmp.i.i.i = icmp eq i64 %sub.i15.i.i, 0
-  br i1 %cmp.i.i.i, label %_ZL19write_unsigned_implIyEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit, label %while.body.i.i, !llvm.loop !8
+  br i1 %cmp.i.i.i, label %_ZL19write_unsigned_implIyEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb.exit, label %while.body.i.i, !llvm.loop !7
 
 if.else.i:                                        ; preds = %if.end6.i
   %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i) #12
@@ -447,7 +447,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 %conv3.i, ptr %incdec.ptr, align 1
   %div2710 = lshr i64 %N.addr.028, 4
   %tobool20.not = icmp ult i64 %N.addr.028, 16
-  br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %if.end
   %call30 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %NumberBuffer, i64 noundef %idx.ext) #12
@@ -762,7 +762,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   store i8 %conv2.i, ptr %incdec.ptr.i, align 1
   %div.i = udiv i32 %Value.addr.0.i, 10
   %tobool.not.i = icmp ult i32 %Value.addr.0.i, 10
-  br i1 %tobool.not.i, label %_ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit, label %do.body.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %_ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit, label %do.body.i, !llvm.loop !11
 
 _ZL16format_to_bufferIjLm128EEiT_RAT0__c.exit:    ; preds = %do.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
@@ -821,7 +821,7 @@ if.end.i19:                                       ; preds = %for.body
 _ZN4llvh11raw_ostreamlsEc.exit21:                 ; preds = %if.then.i16, %if.end.i19
   %inc = add nuw i64 %I.024, 1
   %cmp4 = icmp ult i64 %inc, %MinDigits
-  br i1 %cmp4, label %for.body, label %if.end6, !llvm.loop !13
+  br i1 %cmp4, label %for.body, label %if.end6, !llvm.loop !12
 
 if.end6:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit21, %if.end
   %cmp7 = icmp eq i32 %Style, 1
@@ -868,7 +868,7 @@ _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.the
   %sub.i15.i = add i64 %sub.i.pn28.i, -3
   %add.ptr.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.pn27.i, i64 3
   %cmp.i.i = icmp eq i64 %sub.i15.i, 0
-  br i1 %cmp.i.i, label %if.end14, label %while.body.i, !llvm.loop !8
+  br i1 %cmp.i.i, label %if.end14, label %while.body.i, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end6
   %call13 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %add.ptr, i64 noundef %conv) #12
@@ -919,13 +919,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

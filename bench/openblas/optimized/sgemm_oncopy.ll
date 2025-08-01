@@ -68,17 +68,17 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.2163.us = phi ptr [ %45, %.preheader201.us ], [ %31, %.loopexit204.us ]
   %.2157.us = phi ptr [ %44, %.preheader201.us ], [ %30, %.loopexit204.us ]
   %.1.us = phi i64 [ %49, %.preheader201.us ], [ %10, %.loopexit204.us ]
-  %37 = load float, ptr %.2157.us, align 4, !tbaa !9
-  %38 = load float, ptr %.2163.us, align 4, !tbaa !9
-  %39 = load float, ptr %.2169.us, align 4, !tbaa !9
-  %40 = load float, ptr %.2172.us, align 4, !tbaa !9
-  store float %37, ptr %.5178.us, align 4, !tbaa !9
+  %37 = load float, ptr %.2157.us, align 4, !tbaa !8
+  %38 = load float, ptr %.2163.us, align 4, !tbaa !8
+  %39 = load float, ptr %.2169.us, align 4, !tbaa !8
+  %40 = load float, ptr %.2172.us, align 4, !tbaa !8
+  store float %37, ptr %.5178.us, align 4, !tbaa !8
   %41 = getelementptr inbounds nuw i8, ptr %.5178.us, i64 4
-  store float %38, ptr %41, align 4, !tbaa !9
+  store float %38, ptr %41, align 4, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %.5178.us, i64 8
-  store float %39, ptr %42, align 4, !tbaa !9
+  store float %39, ptr %42, align 4, !tbaa !8
   %43 = getelementptr inbounds nuw i8, ptr %.5178.us, i64 12
-  store float %40, ptr %43, align 4, !tbaa !9
+  store float %40, ptr %43, align 4, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %.2157.us, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %.2163.us, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.2169.us, i64 4
@@ -86,13 +86,13 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %48 = getelementptr inbounds nuw i8, ptr %.5178.us, i64 16
   %49 = add nsw i64 %.1.us, -1
   %50 = icmp samesign ugt i64 %.1.us, 1
-  br i1 %50, label %.preheader201.us, label %.loopexit202.us, !llvm.loop !11
+  br i1 %50, label %.preheader201.us, label %.loopexit202.us, !llvm.loop !10
 
 .loopexit202.us:                                  ; preds = %.preheader201.us, %.loopexit204.us
   %.4177.us = phi ptr [ %34, %.loopexit204.us ], [ %48, %.preheader201.us ]
   %51 = add nsw i64 %.0151.us, -1
   %52 = icmp sgt i64 %.0151.us, 1
-  br i1 %52, label %.preheader203.us, label %.loopexit206, !llvm.loop !12
+  br i1 %52, label %.preheader203.us, label %.loopexit206, !llvm.loop !11
 
 .loopexit204.us:                                  ; preds = %14
   %53 = getelementptr inbounds i8, ptr %.1153.us, i64 %.idx
@@ -123,17 +123,17 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.2163 = phi ptr [ %68, %59 ], [ %56, %.preheader201 ]
   %.2157 = phi ptr [ %67, %59 ], [ %.1153, %.preheader201 ]
   %.1 = phi i64 [ %72, %59 ], [ %10, %.preheader201 ]
-  %60 = load float, ptr %.2157, align 4, !tbaa !9
-  %61 = load float, ptr %.2163, align 4, !tbaa !9
-  %62 = load float, ptr %.2169, align 4, !tbaa !9
-  %63 = load float, ptr %.2172, align 4, !tbaa !9
-  store float %60, ptr %.5178, align 4, !tbaa !9
+  %60 = load float, ptr %.2157, align 4, !tbaa !8
+  %61 = load float, ptr %.2163, align 4, !tbaa !8
+  %62 = load float, ptr %.2169, align 4, !tbaa !8
+  %63 = load float, ptr %.2172, align 4, !tbaa !8
+  store float %60, ptr %.5178, align 4, !tbaa !8
   %64 = getelementptr inbounds nuw i8, ptr %.5178, i64 4
-  store float %61, ptr %64, align 4, !tbaa !9
+  store float %61, ptr %64, align 4, !tbaa !8
   %65 = getelementptr inbounds nuw i8, ptr %.5178, i64 8
-  store float %62, ptr %65, align 4, !tbaa !9
+  store float %62, ptr %65, align 4, !tbaa !8
   %66 = getelementptr inbounds nuw i8, ptr %.5178, i64 12
-  store float %63, ptr %66, align 4, !tbaa !9
+  store float %63, ptr %66, align 4, !tbaa !8
   %67 = getelementptr inbounds nuw i8, ptr %.2157, i64 4
   %68 = getelementptr inbounds nuw i8, ptr %.2163, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %.2169, i64 4
@@ -141,13 +141,13 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %71 = getelementptr inbounds nuw i8, ptr %.5178, i64 16
   %72 = add nsw i64 %.1, -1
   %73 = icmp samesign ugt i64 %.1, 1
-  br i1 %73, label %59, label %.loopexit202, !llvm.loop !11
+  br i1 %73, label %59, label %.loopexit202, !llvm.loop !10
 
 .loopexit202:                                     ; preds = %59
   %74 = getelementptr inbounds i8, ptr %.1153, i64 %.idx
   %75 = add nsw i64 %.0151, -1
   %76 = icmp sgt i64 %.0151, 1
-  br i1 %76, label %.preheader201, label %.loopexit206, !llvm.loop !14
+  br i1 %76, label %.preheader201, label %.loopexit206, !llvm.loop !13
 
 .loopexit206:                                     ; preds = %.loopexit202, %.loopexit202.us, %.preheader205.split.split.us.preheader, %5
   %.0173 = phi ptr [ %4, %5 ], [ %4, %.preheader205.split.split.us.preheader ], [ %.4177.us, %.loopexit202.us ], [ %71, %.loopexit202 ]
@@ -169,41 +169,41 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.4165 = phi ptr [ %105, %.preheader199 ], [ %79, %78 ]
   %.4159 = phi ptr [ %104, %.preheader199 ], [ %.0152, %78 ]
   %.2 = phi i64 [ %107, %.preheader199 ], [ %81, %78 ]
-  %83 = load float, ptr %.4159, align 4, !tbaa !9
+  %83 = load float, ptr %.4159, align 4, !tbaa !8
   %84 = getelementptr inbounds nuw i8, ptr %.4159, i64 4
-  %85 = load float, ptr %84, align 4, !tbaa !9
+  %85 = load float, ptr %84, align 4, !tbaa !8
   %86 = getelementptr inbounds nuw i8, ptr %.4159, i64 8
-  %87 = load float, ptr %86, align 4, !tbaa !9
+  %87 = load float, ptr %86, align 4, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %.4159, i64 12
-  %89 = load float, ptr %88, align 4, !tbaa !9
-  %90 = load float, ptr %.4165, align 4, !tbaa !9
+  %89 = load float, ptr %88, align 4, !tbaa !8
+  %90 = load float, ptr %.4165, align 4, !tbaa !8
   %91 = getelementptr inbounds nuw i8, ptr %.4165, i64 4
-  %92 = load float, ptr %91, align 4, !tbaa !9
+  %92 = load float, ptr %91, align 4, !tbaa !8
   %93 = getelementptr inbounds nuw i8, ptr %.4165, i64 8
-  %94 = load float, ptr %93, align 4, !tbaa !9
+  %94 = load float, ptr %93, align 4, !tbaa !8
   %95 = getelementptr inbounds nuw i8, ptr %.4165, i64 12
-  %96 = load float, ptr %95, align 4, !tbaa !9
-  store float %83, ptr %.8181, align 4, !tbaa !9
+  %96 = load float, ptr %95, align 4, !tbaa !8
+  store float %83, ptr %.8181, align 4, !tbaa !8
   %97 = getelementptr inbounds nuw i8, ptr %.8181, i64 4
-  store float %90, ptr %97, align 4, !tbaa !9
+  store float %90, ptr %97, align 4, !tbaa !8
   %98 = getelementptr inbounds nuw i8, ptr %.8181, i64 8
-  store float %85, ptr %98, align 4, !tbaa !9
+  store float %85, ptr %98, align 4, !tbaa !8
   %99 = getelementptr inbounds nuw i8, ptr %.8181, i64 12
-  store float %92, ptr %99, align 4, !tbaa !9
+  store float %92, ptr %99, align 4, !tbaa !8
   %100 = getelementptr inbounds nuw i8, ptr %.8181, i64 16
-  store float %87, ptr %100, align 4, !tbaa !9
+  store float %87, ptr %100, align 4, !tbaa !8
   %101 = getelementptr inbounds nuw i8, ptr %.8181, i64 20
-  store float %94, ptr %101, align 4, !tbaa !9
+  store float %94, ptr %101, align 4, !tbaa !8
   %102 = getelementptr inbounds nuw i8, ptr %.8181, i64 24
-  store float %89, ptr %102, align 4, !tbaa !9
+  store float %89, ptr %102, align 4, !tbaa !8
   %103 = getelementptr inbounds nuw i8, ptr %.8181, i64 28
-  store float %96, ptr %103, align 4, !tbaa !9
+  store float %96, ptr %103, align 4, !tbaa !8
   %104 = getelementptr inbounds nuw i8, ptr %.4159, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %.4165, i64 16
   %106 = getelementptr inbounds nuw i8, ptr %.8181, i64 32
   %107 = add nsw i64 %.2, -1
   %108 = icmp samesign ugt i64 %.2, 1
-  br i1 %108, label %.preheader199, label %.loopexit200, !llvm.loop !15
+  br i1 %108, label %.preheader199, label %.loopexit200, !llvm.loop !14
 
 .loopexit200:                                     ; preds = %.preheader199, %78
   %.7180 = phi ptr [ %.0173, %78 ], [ %106, %.preheader199 ]
@@ -218,17 +218,17 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.5166 = phi ptr [ %114, %.preheader197 ], [ %.3164, %.loopexit200 ]
   %.5160 = phi ptr [ %113, %.preheader197 ], [ %.3158, %.loopexit200 ]
   %.3 = phi i64 [ %116, %.preheader197 ], [ %109, %.loopexit200 ]
-  %110 = load float, ptr %.5160, align 4, !tbaa !9
-  %111 = load float, ptr %.5166, align 4, !tbaa !9
-  store float %110, ptr %.9, align 4, !tbaa !9
+  %110 = load float, ptr %.5160, align 4, !tbaa !8
+  %111 = load float, ptr %.5166, align 4, !tbaa !8
+  store float %110, ptr %.9, align 4, !tbaa !8
   %112 = getelementptr inbounds nuw i8, ptr %.9, i64 4
-  store float %111, ptr %112, align 4, !tbaa !9
+  store float %111, ptr %112, align 4, !tbaa !8
   %113 = getelementptr inbounds nuw i8, ptr %.5160, i64 4
   %114 = getelementptr inbounds nuw i8, ptr %.5166, i64 4
   %115 = getelementptr inbounds nuw i8, ptr %.9, i64 8
   %116 = add nsw i64 %.3, -1
   %117 = icmp samesign ugt i64 %.3, 1
-  br i1 %117, label %.preheader197, label %.loopexit198, !llvm.loop !16
+  br i1 %117, label %.preheader197, label %.loopexit198, !llvm.loop !15
 
 .loopexit198:                                     ; preds = %.preheader197, %.loopexit200, %.loopexit206
   %.6179 = phi ptr [ %.7180, %.loopexit200 ], [ %.0173, %.loopexit206 ], [ %115, %.preheader197 ]
@@ -246,25 +246,25 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.11 = phi ptr [ %133, %.preheader195 ], [ %.6179, %119 ]
   %.7 = phi ptr [ %132, %.preheader195 ], [ %.2154, %119 ]
   %.4 = phi i64 [ %134, %.preheader195 ], [ %120, %119 ]
-  %122 = load float, ptr %.7, align 4, !tbaa !9
+  %122 = load float, ptr %.7, align 4, !tbaa !8
   %123 = getelementptr inbounds nuw i8, ptr %.7, i64 4
-  %124 = load float, ptr %123, align 4, !tbaa !9
+  %124 = load float, ptr %123, align 4, !tbaa !8
   %125 = getelementptr inbounds nuw i8, ptr %.7, i64 8
-  %126 = load float, ptr %125, align 4, !tbaa !9
+  %126 = load float, ptr %125, align 4, !tbaa !8
   %127 = getelementptr inbounds nuw i8, ptr %.7, i64 12
-  %128 = load float, ptr %127, align 4, !tbaa !9
-  store float %122, ptr %.11, align 4, !tbaa !9
+  %128 = load float, ptr %127, align 4, !tbaa !8
+  store float %122, ptr %.11, align 4, !tbaa !8
   %129 = getelementptr inbounds nuw i8, ptr %.11, i64 4
-  store float %124, ptr %129, align 4, !tbaa !9
+  store float %124, ptr %129, align 4, !tbaa !8
   %130 = getelementptr inbounds nuw i8, ptr %.11, i64 8
-  store float %126, ptr %130, align 4, !tbaa !9
+  store float %126, ptr %130, align 4, !tbaa !8
   %131 = getelementptr inbounds nuw i8, ptr %.11, i64 12
-  store float %128, ptr %131, align 4, !tbaa !9
+  store float %128, ptr %131, align 4, !tbaa !8
   %132 = getelementptr inbounds nuw i8, ptr %.7, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %.11, i64 16
   %134 = add nsw i64 %.4, -1
   %135 = icmp samesign ugt i64 %.4, 1
-  br i1 %135, label %.preheader195, label %.loopexit196, !llvm.loop !17
+  br i1 %135, label %.preheader195, label %.loopexit196, !llvm.loop !16
 
 .loopexit196:                                     ; preds = %.preheader195, %119
   %.10 = phi ptr [ %.6179, %119 ], [ %133, %.preheader195 ]
@@ -277,13 +277,13 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %.12 = phi ptr [ %139, %.preheader ], [ %.10, %.loopexit196 ]
   %.8 = phi ptr [ %138, %.preheader ], [ %.6, %.loopexit196 ]
   %.5 = phi i64 [ %140, %.preheader ], [ %136, %.loopexit196 ]
-  %137 = load float, ptr %.8, align 4, !tbaa !9
-  store float %137, ptr %.12, align 4, !tbaa !9
+  %137 = load float, ptr %.8, align 4, !tbaa !8
+  store float %137, ptr %.12, align 4, !tbaa !8
   %138 = getelementptr inbounds nuw i8, ptr %.8, i64 4
   %139 = getelementptr inbounds nuw i8, ptr %.12, i64 4
   %140 = add nsw i64 %.5, -1
   %141 = icmp samesign ugt i64 %.5, 1
-  br i1 %141, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %141, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit196, %.loopexit198
   ret i32 0
@@ -299,16 +299,15 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"float", !4, i64 0}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"float", !4, i64 0}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

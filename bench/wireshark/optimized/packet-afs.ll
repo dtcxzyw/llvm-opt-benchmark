@@ -2051,7 +2051,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr noundef readonly capt
   tail call fastcc void @OUT_FS_AFSCallBack(ptr noundef %0)
   %45 = add nuw i32 %.07477, 1
   %exitcond92.not = icmp eq i32 %45, %44
-  br i1 %exitcond92.not, label %._crit_edge80, label %.lr.ph79, !llvm.loop !11
+  br i1 %exitcond92.not, label %._crit_edge80, label %.lr.ph79, !llvm.loop !10
 
 ._crit_edge80:                                    ; preds = %.lr.ph79, %._crit_edge
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
@@ -2093,7 +2093,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr noundef readonly capt
   tail call fastcc void @OUT_FS_AFSFetchStatus(ptr noundef %0, ptr noundef nonnull @.str.245)
   %63 = add nuw i32 %.07381, 1
   %exitcond93.not = icmp eq i32 %63, %62
-  br i1 %exitcond93.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !12
+  br i1 %exitcond93.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !11
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %59
   %64 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -2108,7 +2108,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr noundef readonly capt
   tail call fastcc void @OUT_FS_AFSCallBack(ptr noundef %0)
   %67 = add nuw i32 %.085, 1
   %exitcond94.not = icmp eq i32 %67, %66
-  br i1 %exitcond94.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !13
+  br i1 %exitcond94.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !12
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge84
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
@@ -2543,7 +2543,7 @@ OUT_RXString.exit122:                             ; preds = %187, %202
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %262 = add nuw i32 %.0106152, 1
   %exitcond163.not = icmp eq i32 %262, %253
-  br i1 %exitcond163.not, label %._crit_edge, label %.lr.ph153, !llvm.loop !14
+  br i1 %exitcond163.not, label %._crit_edge, label %.lr.ph153, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph153, %250
   %263 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -2558,7 +2558,7 @@ OUT_RXString.exit122:                             ; preds = %187, %202
   tail call fastcc void @OUT_FS_AFSCallBack(ptr noundef %0)
   %266 = add nuw i32 %.0108154, 1
   %exitcond164.not = icmp eq i32 %266, %265
-  br i1 %exitcond164.not, label %OUT_RXString.exit, label %.lr.ph156, !llvm.loop !15
+  br i1 %exitcond164.not, label %OUT_RXString.exit, label %.lr.ph156, !llvm.loop !14
 
 267:                                              ; preds = %3
   %268 = load i32, ptr @hf_afs_fs_volname, align 4
@@ -2670,7 +2670,7 @@ OUT_RXString.exit130:                             ; preds = %OUT_RXString.exit12
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %331 = add nuw i32 %.0107149, 1
   %exitcond.not = icmp eq i32 %331, %322
-  br i1 %exitcond.not, label %OUT_RXString.exit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %OUT_RXString.exit, label %.lr.ph, !llvm.loop !15
 
 332:                                              ; preds = %3
   %333 = load i32, ptr @ett_afs_fid, align 4
@@ -2756,7 +2756,7 @@ OUT_RXString.exit130:                             ; preds = %OUT_RXString.exit12
   %389 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0)
   %390 = add nuw nsw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %390, %388
-  br i1 %exitcond.not.i, label %OUT_RXArray8.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %OUT_RXArray8.exit, label %.lr.ph.i, !llvm.loop !16
 
 OUT_RXArray8.exit:                                ; preds = %.lr.ph.i, %383
   %391 = load i32, ptr @hf_afs_fs_ipaddr, align 4
@@ -2773,7 +2773,7 @@ OUT_RXArray8.exit:                                ; preds = %.lr.ph.i, %383
   %396 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %391, i32 noundef 4, i32 noundef 0)
   %397 = add nuw nsw i32 %.09.i140, 1
   %exitcond.not.i141 = icmp eq i32 %397, %395
-  br i1 %exitcond.not.i141, label %OUT_RXArray8.exit142, label %.lr.ph.i139, !llvm.loop !17
+  br i1 %exitcond.not.i141, label %OUT_RXArray8.exit142, label %.lr.ph.i139, !llvm.loop !16
 
 OUT_RXArray8.exit142:                             ; preds = %.lr.ph.i139, %OUT_RXArray8.exit
   %398 = load i32, ptr @hf_afs_fs_cps_spare1, align 4
@@ -2856,7 +2856,7 @@ OUT_RXString.exit146:                             ; preds = %OUT_RXString.exit14
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %446 = add nuw i32 %.0150, 1
   %exitcond162.not = icmp eq i32 %446, %437
-  br i1 %exitcond162.not, label %OUT_RXString.exit, label %.lr.ph151, !llvm.loop !18
+  br i1 %exitcond162.not, label %OUT_RXString.exit, label %.lr.ph151, !llvm.loop !17
 
 447:                                              ; preds = %3
   %448 = load i32, ptr @ett_afs_fid, align 4
@@ -2933,7 +2933,7 @@ define internal void @dissect_cb_reply(ptr noundef %0, ptr noundef readonly capt
   %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0)
   %18 = add nuw i32 %.027.i, 1
   %exitcond.not.i = icmp eq i32 %18, %9
-  br i1 %exitcond.not.i, label %.lr.ph30.preheader.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.lr.ph30.preheader.i, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph30.preheader.i:                             ; preds = %.lr.ph.i
   %19 = shl i32 %9, 2
@@ -2947,7 +2947,7 @@ define internal void @dissect_cb_reply(ptr noundef %0, ptr noundef readonly capt
   %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0)
   %23 = add nuw i32 %.128.i, 1
   %exitcond38.not.i = icmp eq i32 %23, %9
-  br i1 %exitcond38.not.i, label %.lr.ph34.preheader.i, label %.lr.ph30.i, !llvm.loop !20
+  br i1 %exitcond38.not.i, label %.lr.ph34.preheader.i, label %.lr.ph30.i, !llvm.loop !19
 
 .lr.ph34.preheader.i:                             ; preds = %.lr.ph30.i
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20)
@@ -2959,7 +2959,7 @@ define internal void @dissect_cb_reply(ptr noundef %0, ptr noundef readonly capt
   %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0)
   %26 = add nuw i32 %.232.i, 1
   %exitcond39.not.i = icmp eq i32 %26, %9
-  br i1 %exitcond39.not.i, label %OUT_CM_INTERFACES.exit, label %.lr.ph34.i, !llvm.loop !21
+  br i1 %exitcond39.not.i, label %OUT_CM_INTERFACES.exit, label %.lr.ph34.i, !llvm.loop !20
 
 OUT_CM_INTERFACES.exit:                           ; preds = %.lr.ph34.i, %._crit_edge31.thread.i
   %27 = phi i32 [ 128, %._crit_edge31.thread.i ], [ %20, %.lr.ph34.i ]
@@ -3012,7 +3012,7 @@ define internal void @dissect_cb_request(ptr noundef %0, ptr readnone captures(n
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %16 = add nuw i32 %.01516, 1
   %exitcond.not = icmp eq i32 %16, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %17 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -3039,7 +3039,7 @@ define internal void @dissect_cb_request(ptr noundef %0, ptr readnone captures(n
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %31 = add nuw i32 %.017, 1
   %exitcond21.not = icmp eq i32 %31, %19
-  br i1 %exitcond21.not, label %.loopexit, label %.lr.ph19, !llvm.loop !23
+  br i1 %exitcond21.not, label %.loopexit, label %.lr.ph19, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph19, %._crit_edge, %3
   ret void
@@ -3080,7 +3080,7 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr noundef readonly ca
   %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0)
   %14 = add nuw i32 %.034, 1
   %exitcond41.not = icmp eq i32 %14, %9
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph35, !llvm.loop !24
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph35, !llvm.loop !23
 
 15:                                               ; preds = %5
   %16 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -3097,7 +3097,7 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr noundef readonly ca
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %21, i32 noundef 64)
   %22 = add nuw i32 %.02732, 1
   %exitcond40.not = icmp eq i32 %22, %18
-  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph33, !llvm.loop !25
+  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph33, !llvm.loop !24
 
 23:                                               ; preds = %5, %5, %5, %5, %5
   %24 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -3114,7 +3114,7 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr noundef readonly ca
   %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0)
   %31 = add nuw i32 %.02631, 1
   %exitcond.not = icmp eq i32 %31, %26
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 32:                                               ; preds = %5
   %33 = load i32, ptr @hf_afs_prot_maxuid, align 4
@@ -3209,7 +3209,7 @@ OUT_RXString.exit:                                ; preds = %4, %11
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %34, i32 noundef 64)
   %35 = add nuw i32 %.042, 1
   %exitcond46.not = icmp eq i32 %35, %31
-  br i1 %exitcond46.not, label %OUT_RXString.exit39, label %.lr.ph43, !llvm.loop !27
+  br i1 %exitcond46.not, label %OUT_RXString.exit39, label %.lr.ph43, !llvm.loop !26
 
 36:                                               ; preds = %3
   %37 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
@@ -3226,7 +3226,7 @@ OUT_RXString.exit:                                ; preds = %4, %11
   %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0)
   %44 = add nuw i32 %.03341, 1
   %exitcond.not = icmp eq i32 %44, %39
-  br i1 %exitcond.not, label %OUT_RXString.exit39, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %OUT_RXString.exit39, label %.lr.ph, !llvm.loop !27
 
 45:                                               ; preds = %3
   %46 = load i32, ptr @hf_afs_prot_name_uint_string, align 4
@@ -3359,7 +3359,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
 24:                                               ; preds = %20, %23
   %25 = add nuw nsw i32 %.0143, 1
   %exitcond150.not = icmp eq i32 %25, 8
-  br i1 %exitcond150.not, label %.preheader, label %18, !llvm.loop !29
+  br i1 %exitcond150.not, label %.preheader, label %18, !llvm.loop !28
 
 .preheader:                                       ; preds = %24, %42
   %.1144 = phi i32 [ %43, %42 ], [ 0, %24 ]
@@ -3389,7 +3389,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4)
   %43 = add nuw nsw i32 %.1144, 1
   %exitcond151.not = icmp eq i32 %43, 8
-  br i1 %exitcond151.not, label %44, label %.preheader, !llvm.loop !30
+  br i1 %exitcond151.not, label %44, label %.preheader, !llvm.loop !29
 
 44:                                               ; preds = %42
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 32)
@@ -3449,7 +3449,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
 80:                                               ; preds = %76, %79
   %81 = add nuw nsw i32 %.0125141, 1
   %exitcond148.not = icmp eq i32 %81, 13
-  br i1 %exitcond148.not, label %.preheader133, label %74, !llvm.loop !31
+  br i1 %exitcond148.not, label %.preheader133, label %74, !llvm.loop !30
 
 .preheader133:                                    ; preds = %80, %98
   %.1126142 = phi i32 [ %99, %98 ], [ 0, %80 ]
@@ -3479,7 +3479,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4)
   %99 = add nuw nsw i32 %.1126142, 1
   %exitcond149.not = icmp eq i32 %99, 13
-  br i1 %exitcond149.not, label %100, label %.preheader133, !llvm.loop !32
+  br i1 %exitcond149.not, label %100, label %.preheader133, !llvm.loop !31
 
 100:                                              ; preds = %98
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 52)
@@ -3518,7 +3518,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
 120:                                              ; preds = %116, %119
   %121 = add nuw nsw i32 %.0127137, 1
   %exitcond.not = icmp eq i32 %121, 13
-  br i1 %exitcond.not, label %.preheader136, label %114, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader136, label %114, !llvm.loop !32
 
 .preheader136:                                    ; preds = %120, %127
   %.1128138 = phi i32 [ %128, %127 ], [ 0, %120 ]
@@ -3537,7 +3537,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
 127:                                              ; preds = %123, %126
   %128 = add nuw nsw i32 %.1128138, 1
   %exitcond145.not = icmp eq i32 %128, 13
-  br i1 %exitcond145.not, label %.preheader135, label %.preheader136, !llvm.loop !34
+  br i1 %exitcond145.not, label %.preheader135, label %.preheader136, !llvm.loop !33
 
 .preheader135:                                    ; preds = %127, %145
   %.2139 = phi i32 [ %146, %145 ], [ 0, %127 ]
@@ -3567,7 +3567,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4)
   %146 = add nuw nsw i32 %.2139, 1
   %exitcond146.not = icmp eq i32 %146, 13
-  br i1 %exitcond146.not, label %.preheader134, label %.preheader135, !llvm.loop !35
+  br i1 %exitcond146.not, label %.preheader134, label %.preheader135, !llvm.loop !34
 
 .preheader134:                                    ; preds = %145, %152
   %.3140 = phi i32 [ %153, %152 ], [ 0, %145 ]
@@ -3586,7 +3586,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly ca
 152:                                              ; preds = %148, %151
   %153 = add nuw nsw i32 %.3140, 1
   %exitcond147.not = icmp eq i32 %153, 13
-  br i1 %exitcond147.not, label %154, label %.preheader134, !llvm.loop !36
+  br i1 %exitcond147.not, label %154, label %.preheader134, !llvm.loop !35
 
 154:                                              ; preds = %152
   %155 = load i32, ptr @hf_afs_vldb_rwvol, align 4
@@ -3716,7 +3716,7 @@ define internal void @dissect_vldb_request(ptr noundef %0, ptr readnone captures
   %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0)
   %42 = add nuw i32 %.019, 1
   %exitcond.not = icmp eq i32 %42, %39
-  br i1 %exitcond.not, label %OUT_RXString.exit, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %OUT_RXString.exit, label %.lr.ph, !llvm.loop !36
 
 OUT_RXString.exit:                                ; preds = %.lr.ph, %32, %18, %11, %29, %23, %20, %6, %4, %3
   ret void
@@ -5283,13 +5283,13 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   %134 = add nuw nsw i32 %.01133, 1
   %135 = load i32, ptr %3, align 4
   %136 = icmp slt i32 %134, %135
-  br i1 %136, label %.lr.ph, label %.preheader, !llvm.loop !38
+  br i1 %136, label %.lr.ph, label %.preheader, !llvm.loop !37
 
 137:                                              ; preds = %183
   %138 = add nuw nsw i32 %.11145, 1
   %139 = load i32, ptr %4, align 4
   %140 = icmp slt i32 %138, %139
-  br i1 %140, label %141, label %.loopexit, !llvm.loop !39
+  br i1 %140, label %141, label %.loopexit, !llvm.loop !38
 
 141:                                              ; preds = %.lr.ph7, %137
   %.16 = phi i32 [ %.0.lcssa, %.lr.ph7 ], [ %227, %137 ]
@@ -5579,7 +5579,7 @@ define internal fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %1, i32 n
   %13 = add i32 %.02022, 4
   %14 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %14, %2
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !40
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !39
 
 15:                                               ; preds = %10
   %16 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %8, ptr noundef null)
@@ -5768,7 +5768,7 @@ define internal fastcc void @OUT_UBIK_InterfaceAddrs(ptr noundef %0) unnamed_add
   %.2 = phi i32 [ 0, %6 ], [ 1, %13 ]
   %15 = add nuw nsw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %15, 255
-  br i1 %exitcond.not, label %16, label %2, !llvm.loop !41
+  br i1 %exitcond.not, label %16, label %2, !llvm.loop !40
 
 16:                                               ; preds = %14
   ret void
@@ -5840,37 +5840,36 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}

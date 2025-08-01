@@ -680,10 +680,10 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_name(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !33
+  %3 = load ptr, ptr %0, align 8, !tbaa !32
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 263) #9
   %4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 264) #9
-  store ptr %4, ptr %0, align 8, !tbaa !33
+  store ptr %4, ptr %0, align 8, !tbaa !32
   %5 = icmp ne ptr %4, null
   %6 = zext i1 %5 to i32
   ret i32 %6
@@ -1072,32 +1072,32 @@ define i32 @X509_VERIFY_PARAM_get_auth_level(ptr noundef readonly captures(none)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_VERIFY_PARAM_get0_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !33
+  %2 = load ptr, ptr %0, align 8, !tbaa !32
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %2 = load ptr, ptr @param_table, align 8, !tbaa !33
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @param_cmp) #9
-  store ptr %5, ptr @param_table, align 8, !tbaa !34
+  store ptr %5, ptr @param_table, align 8, !tbaa !33
   %6 = icmp eq ptr %5, null
   br i1 %6, label %16, label %12
 
 7:                                                ; preds = %1
   %8 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %2, ptr noundef %0) #9
   %9 = icmp sgt i32 %8, -1
-  %.pre7 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %.pre7 = load ptr, ptr @param_table, align 8, !tbaa !33
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = tail call ptr @OPENSSL_sk_delete(ptr noundef %.pre7, i32 noundef %8) #9
   tail call void @X509_VERIFY_PARAM_free(ptr noundef %11)
-  %.pre = load ptr, ptr @param_table, align 8, !tbaa !34
+  %.pre = load ptr, ptr @param_table, align 8, !tbaa !33
   br label %12
 
 12:                                               ; preds = %7, %10, %4
@@ -1116,10 +1116,10 @@ declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @param_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !36
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %5 = load ptr, ptr %1, align 8, !tbaa !36
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %3 = load ptr, ptr %0, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !32
+  %5 = load ptr, ptr %1, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #10
   ret i32 %7
 }
@@ -1130,7 +1130,7 @@ declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483642, -2147483648) i32 @X509_VERIFY_PARAM_get_count() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %1 = load ptr, ptr @param_table, align 8, !tbaa !33
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
 
@@ -1155,7 +1155,7 @@ define ptr @X509_VERIFY_PARAM_get0(i32 noundef %0) local_unnamed_addr #0 {
   br label %10
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %7 = load ptr, ptr @param_table, align 8, !tbaa !33
   %8 = add nsw i32 %0, -6
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %8) #9
   br label %10
@@ -1169,20 +1169,20 @@ define ptr @X509_VERIFY_PARAM_get0(i32 noundef %0) local_unnamed_addr #0 {
 define ptr @X509_VERIFY_PARAM_lookup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.X509_VERIFY_PARAM_st, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #9
-  store ptr %0, ptr %2, align 8, !tbaa !33
-  %3 = load ptr, ptr @param_table, align 8, !tbaa !34
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr @param_table, align 8, !tbaa !33
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %1
   tail call void @OPENSSL_sk_sort(ptr noundef nonnull %3) #9
-  %5 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %5 = load ptr, ptr @param_table, align 8, !tbaa !33
   %6 = call i32 @OPENSSL_sk_find(ptr noundef %5, ptr noundef nonnull %2) #9
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %9 = load ptr, ptr @param_table, align 8, !tbaa !33
   %10 = call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %6) #9
   br label %13
 
@@ -1200,9 +1200,9 @@ declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @X509_VERIFY_PARAM_table_cleanup() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @param_table, align 8, !tbaa !34
+  %1 = load ptr, ptr @param_table, align 8, !tbaa !33
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @X509_VERIFY_PARAM_free) #9
-  store ptr null, ptr @param_table, align 8, !tbaa !34
+  store ptr null, ptr @param_table, align 8, !tbaa !33
   ret void
 }
 
@@ -1228,8 +1228,8 @@ declare ptr @OBJ_bsearch_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, pt
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @table_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !33
-  %.val4 = load ptr, ptr %1, align 8, !tbaa !33
+  %.val = load ptr, ptr %0, align 8, !tbaa !32
+  %.val4 = load ptr, ptr %1, align 8, !tbaa !32
   %3 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull readonly dereferenceable(1) %.val4) #10
   ret i32 %3
 }
@@ -1278,11 +1278,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !27 = !{!5, !5, i64 0}
 !28 = !{!9, !9, i64 0}
 !29 = !{!4, !9, i64 104}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!4, !5, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS26stack_st_X509_VERIFY_PARAM", !6, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !6, i64 0}
+!32 = !{!4, !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS26stack_st_X509_VERIFY_PARAM", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !6, i64 0}

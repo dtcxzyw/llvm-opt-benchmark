@@ -215,12 +215,12 @@ define dso_local void @drm_flip_work_cleanup(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
-  br i1 %8, label %10, label %9, !prof !12
+  br i1 %8, label %10, label %9, !prof !11
 
 9:                                                ; preds = %5, %1
-  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #6, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 155, i32 2305, i64 12) #6, !srcloc !14
-  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #6, !srcloc !15
+  tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #6, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 155, i32 2305, i64 12) #6, !srcloc !13
+  tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #6, !srcloc !14
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -258,11 +258,10 @@ attributes #7 = { nounwind allocsize(2) }
 !5 = !{i64 2147939468}
 !6 = !{!"auto-init"}
 !7 = !{i64 492557, i64 492578}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{i64 2155298228, i64 2155298037, i64 2155298089, i64 2155298135, i64 2155298163}
-!14 = !{i64 2155298302, i64 2155298331, i64 2155298377, i64 2155298435, i64 2155298489, i64 2155298543, i64 2155298598, i64 2155298629, i64 2155298937, i64 2155298943, i64 2155298990, i64 2155299013, i64 2155299039}
-!15 = !{i64 2155299503, i64 2155299314, i64 2155299364, i64 2155299410, i64 2155299438}
+!11 = !{!"branch_weights", i32 2000, i32 1}
+!12 = !{i64 2155298228, i64 2155298037, i64 2155298089, i64 2155298135, i64 2155298163}
+!13 = !{i64 2155298302, i64 2155298331, i64 2155298377, i64 2155298435, i64 2155298489, i64 2155298543, i64 2155298598, i64 2155298629, i64 2155298937, i64 2155298943, i64 2155298990, i64 2155299013, i64 2155299039}
+!14 = !{i64 2155299503, i64 2155299314, i64 2155299364, i64 2155299410, i64 2155299438}

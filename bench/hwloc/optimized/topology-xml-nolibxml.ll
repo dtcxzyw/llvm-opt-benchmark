@@ -304,29 +304,29 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr noundef read
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr @hwloc__nolibxml_import_next_attr, ptr %31, align 8, !tbaa !30
+  store ptr @hwloc__nolibxml_import_next_attr, ptr %31, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr @hwloc__nolibxml_import_find_child, ptr %32, align 8, !tbaa !31
+  store ptr @hwloc__nolibxml_import_find_child, ptr %32, align 8, !tbaa !30
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store ptr @hwloc__nolibxml_import_close_tag, ptr %33, align 8, !tbaa !32
+  store ptr @hwloc__nolibxml_import_close_tag, ptr %33, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store ptr @hwloc__nolibxml_import_close_child, ptr %34, align 8, !tbaa !33
+  store ptr @hwloc__nolibxml_import_close_child, ptr %34, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store ptr @hwloc__nolibxml_import_get_content, ptr %35, align 8, !tbaa !34
+  store ptr @hwloc__nolibxml_import_get_content, ptr %35, align 8, !tbaa !33
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  store ptr @hwloc__nolibxml_import_close_content, ptr %36, align 8, !tbaa !35
-  store ptr null, ptr %0, align 8, !tbaa !36
+  store ptr @hwloc__nolibxml_import_close_content, ptr %36, align 8, !tbaa !34
+  store ptr null, ptr %0, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %37, align 8, !tbaa !14
   store ptr %.041, ptr %12, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store ptr %0, ptr %7, align 8, !tbaa !36
+  store ptr %0, ptr %7, align 8, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %30, ptr %40, align 8, !tbaa !26
+  store ptr %30, ptr %40, align 8, !tbaa !25
   %41 = tail call i64 @strspn(ptr noundef nonnull readonly %.041, ptr noundef nonnull @.str.18) #24
   %42 = getelementptr inbounds nuw i8, ptr %.041, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !14
@@ -621,14 +621,14 @@ sub_1:                                            ; preds = %sub_0
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !37
+  %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 32768
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !40
+  %19 = load i64, ptr %18, align 8, !tbaa !39
   %20 = add nsw i64 %19, 1
   br label %21
 
@@ -654,7 +654,7 @@ sub_1:                                            ; preds = %sub_0
   %31 = getelementptr inbounds nuw i8, ptr %35, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !14
   %.not40 = icmp eq i64 %29, %27
-  br i1 %.not40, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %.not40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %32 = phi i64 [ %30, %26 ], [ %.033, %.preheader ]
@@ -720,7 +720,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captu
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 10) #24
   %.not40 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  br i1 %.not40, label %.loopexit, label %10, !llvm.loop !42
+  br i1 %.not40, label %.loopexit, label %10, !llvm.loop !40
 
 16:                                               ; preds = %12
   %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.033, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
@@ -730,10 +730,10 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captu
 19:                                               ; preds = %16
   %20 = load i32, ptr %3, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %20, ptr %21, align 8, !tbaa !43
+  store i32 %20, ptr %21, align 8, !tbaa !41
   %22 = load i32, ptr %4, align 4, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %22, ptr %23, align 4, !tbaa !44
+  store i32 %22, ptr %23, align 4, !tbaa !42
   %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 62) #24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %38
@@ -745,9 +745,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captu
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %29, align 8, !tbaa !43
+  store i32 1, ptr %29, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 0, ptr %30, align 4, !tbaa !44
+  store i32 0, ptr %30, align 4, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %.033, i64 10
   br label %38
 
@@ -758,9 +758,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captu
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %35, align 8, !tbaa !43
+  store i32 0, ptr %35, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 9, ptr %36, align 4, !tbaa !44
+  store i32 9, ptr %36, align 4, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %.033, i64 6
   br label %38
 
@@ -768,20 +768,20 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captu
   %.034 = phi ptr [ %25, %19 ], [ %37, %34 ], [ %31, %28 ]
   %.0 = phi ptr [ @.str.6, %19 ], [ @.str.9, %34 ], [ @.str.6, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !26
+  %40 = load ptr, ptr %39, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr @hwloc__nolibxml_import_next_attr, ptr %41, align 8, !tbaa !30
+  store ptr @hwloc__nolibxml_import_next_attr, ptr %41, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store ptr @hwloc__nolibxml_import_find_child, ptr %42, align 8, !tbaa !31
+  store ptr @hwloc__nolibxml_import_find_child, ptr %42, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store ptr @hwloc__nolibxml_import_close_tag, ptr %43, align 8, !tbaa !32
+  store ptr @hwloc__nolibxml_import_close_tag, ptr %43, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store ptr @hwloc__nolibxml_import_close_child, ptr %44, align 8, !tbaa !33
+  store ptr @hwloc__nolibxml_import_close_child, ptr %44, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  store ptr @hwloc__nolibxml_import_get_content, ptr %45, align 8, !tbaa !34
+  store ptr @hwloc__nolibxml_import_get_content, ptr %45, align 8, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  store ptr @hwloc__nolibxml_import_close_content, ptr %46, align 8, !tbaa !35
-  store ptr null, ptr %1, align 8, !tbaa !36
+  store ptr @hwloc__nolibxml_import_close_content, ptr %46, align 8, !tbaa !34
+  store ptr null, ptr %1, align 8, !tbaa !35
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 0, ptr %47, align 8, !tbaa !14
   store ptr %.034, ptr %5, align 8, !tbaa !14
@@ -1034,7 +1034,7 @@ sub_1100:                                         ; preds = %sub_094
   %63 = getelementptr i8, ptr %62, i64 %.1
   %64 = load i8, ptr %63, align 1, !tbaa !14
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %.loopexit, label %17, !llvm.loop !45
+  br i1 %65, label %.loopexit, label %17, !llvm.loop !43
 
 66:                                               ; preds = %17
   %67 = getelementptr i8, ptr %19, i64 %.080
@@ -1055,11 +1055,11 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %4, align 8, !tbaa !14
-  store ptr %0, ptr %1, align 8, !tbaa !36
+  store ptr %0, ptr %1, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !26
+  store ptr %8, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !14
   %.not = icmp eq i32 %11, 0
@@ -1177,7 +1177,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @hwloc__nolibxml_import_close_child(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %0, align 8, !tbaa !36
+  %3 = load ptr, ptr %0, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %2, align 8, !tbaa !14
   store ptr %5, ptr %4, align 8, !tbaa !14
@@ -1262,15 +1262,15 @@ define internal fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #21
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %9, align 8, !tbaa !46
+  store ptr @hwloc__nolibxml_export_new_child, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %10, align 8, !tbaa !50
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %10, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %11, align 8, !tbaa !51
+  store ptr @hwloc__nolibxml_export_add_content, ptr %11, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %12, align 8, !tbaa !52
+  store ptr @hwloc__nolibxml_export_end_object, ptr %12, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %1, ptr %13, align 8, !tbaa !53
+  store ptr %1, ptr %13, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %14, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -1305,17 +1305,17 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %22, %5
   %29 = phi ptr [ %2, %5 ], [ %25, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 2, ptr %18, align 4, !tbaa !14
-  store ptr %6, ptr %7, align 8, !tbaa !54
+  store ptr %6, ptr %7, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %31, align 8, !tbaa !46
+  store ptr @hwloc__nolibxml_export_new_child, ptr %31, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %32, align 8, !tbaa !50
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %32, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %33, align 8, !tbaa !51
+  store ptr @hwloc__nolibxml_export_add_content, ptr %33, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %34, align 8, !tbaa !52
+  store ptr @hwloc__nolibxml_export_end_object, ptr %34, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %1, ptr %35, align 8, !tbaa !53
+  store ptr %1, ptr %35, align 8, !tbaa !51
   store ptr %29, ptr %30, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %28, ptr %36, align 8, !tbaa !14
@@ -1354,7 +1354,7 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   %.str.27..str.26 = select i1 %.not, ptr @.str.27, ptr @.str.26
   call void @hwloc__nolibxml_export_new_prop(ptr noundef nonnull %7, ptr noundef nonnull @.str.25, ptr noundef nonnull %.str.27..str.26)
   call void @hwloc__xml_export_topology(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %4) #21
-  %52 = load ptr, ptr %7, align 8, !tbaa !54
+  %52 = load ptr, ptr %7, align 8, !tbaa !52
   %53 = load i32, ptr %40, align 8, !tbaa !14
   %.not.i18 = icmp eq i32 %53, 0
   br i1 %.not.i18, label %58, label %54
@@ -1465,27 +1465,27 @@ hwloc__nolibxml_export_update_buffer.exit:        ; preds = %13, %7, %3
   %26 = load i32, ptr %5, align 4, !tbaa !14
   %27 = add i32 %26, 1
   store i32 %27, ptr %5, align 4, !tbaa !14
-  store ptr %0, ptr %1, align 8, !tbaa !54
+  store ptr %0, ptr %1, align 8, !tbaa !52
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !46
+  %29 = load ptr, ptr %28, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !46
+  store ptr %29, ptr %30, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !50
+  %32 = load ptr, ptr %31, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %32, ptr %33, align 8, !tbaa !50
+  store ptr %32, ptr %33, align 8, !tbaa !48
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !51
+  %35 = load ptr, ptr %34, align 8, !tbaa !49
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %35, ptr %36, align 8, !tbaa !51
+  store ptr %35, ptr %36, align 8, !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !52
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %38, ptr %39, align 8, !tbaa !52
+  store ptr %38, ptr %39, align 8, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
+  %41 = load ptr, ptr %40, align 8, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %41, ptr %42, align 8, !tbaa !53
+  store ptr %41, ptr %42, align 8, !tbaa !51
   %43 = load ptr, ptr %4, align 8, !tbaa !14
   store ptr %43, ptr %25, align 8, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1602,7 +1602,7 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr noundef captures(none)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %25, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %26
-  br label %14, !llvm.loop !55
+  br label %14, !llvm.loop !53
 
 29:                                               ; preds = %14
   store i8 0, ptr %.035.i, align 1, !tbaa !14
@@ -1719,7 +1719,7 @@ hwloc__nolibxml_export_update_buffer.exit15:      ; preds = %hwloc__nolibxml_exp
 ; Function Attrs: nofree nounwind uwtable
 define internal void @hwloc__nolibxml_export_end_object(ptr noundef captures(none) %0, ptr noundef %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %0, align 8, !tbaa !54
+  %4 = load ptr, ptr %0, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8, !tbaa !14
   %.not = icmp eq i32 %6, 0
@@ -1817,15 +1817,15 @@ define internal fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #21
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %8, align 8, !tbaa !46
+  store ptr @hwloc__nolibxml_export_new_child, ptr %8, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %9, align 8, !tbaa !50
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %9, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %10, align 8, !tbaa !51
+  store ptr @hwloc__nolibxml_export_add_content, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %11, align 8, !tbaa !52
+  store ptr @hwloc__nolibxml_export_end_object, ptr %11, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %12, align 8, !tbaa !53
+  store ptr null, ptr %12, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %13, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1860,17 +1860,17 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %21, %4
   %28 = phi ptr [ %2, %4 ], [ %24, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 2, ptr %17, align 4, !tbaa !14
-  store ptr %5, ptr %6, align 8, !tbaa !54
+  store ptr %5, ptr %6, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %30, align 8, !tbaa !46
+  store ptr @hwloc__nolibxml_export_new_child, ptr %30, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %31, align 8, !tbaa !50
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %31, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %32, align 8, !tbaa !51
+  store ptr @hwloc__nolibxml_export_add_content, ptr %32, align 8, !tbaa !49
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %33, align 8, !tbaa !52
+  store ptr @hwloc__nolibxml_export_end_object, ptr %33, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %34, align 8, !tbaa !53
+  store ptr null, ptr %34, align 8, !tbaa !51
   store ptr %28, ptr %29, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %27, ptr %35, align 8, !tbaa !14
@@ -1913,7 +1913,7 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
 
 51:                                               ; preds = %50, %hwloc__nolibxml_export_new_child.exit
   call void @hwloc__xml_export_diff(ptr noundef nonnull %6, ptr noundef %0) #21
-  %52 = load ptr, ptr %6, align 8, !tbaa !54
+  %52 = load ptr, ptr %6, align 8, !tbaa !52
   %53 = load i32, ptr %39, align 8, !tbaa !14
   %.not.i16 = icmp eq i32 %53, 0
   br i1 %.not.i16, label %58, label %54
@@ -2042,36 +2042,34 @@ attributes #25 = { cold }
 !20 = !{!9, !9, i64 0}
 !21 = !{!8, !8, i64 0}
 !22 = !{!12, !12, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !29, i64 8}
-!27 = !{!"hwloc__xml_import_state_s", !28, i64 0, !29, i64 8, !6, i64 16}
-!28 = !{!"p1 _ZTS25hwloc__xml_import_state_s", !5, i64 0}
-!29 = !{!"p1 _ZTS24hwloc_xml_backend_data_s", !5, i64 0}
-!30 = !{!4, !5, i64 24}
-!31 = !{!4, !5, i64 32}
-!32 = !{!4, !5, i64 40}
-!33 = !{!4, !5, i64 48}
-!34 = !{!4, !5, i64 56}
-!35 = !{!4, !5, i64 64}
-!36 = !{!27, !28, i64 0}
-!37 = !{!38, !9, i64 24}
-!38 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !39, i64 72, !39, i64 88, !39, i64 104, !6, i64 120}
-!39 = !{!"timespec", !12, i64 0, !12, i64 8}
-!40 = !{!38, !12, i64 48}
-!41 = distinct !{!41, !25}
-!42 = distinct !{!42, !24, !25}
-!43 = !{!4, !9, i64 88}
-!44 = !{!4, !9, i64 92}
-!45 = distinct !{!45, !24, !25}
-!46 = !{!47, !5, i64 8}
-!47 = !{!"hwloc__xml_export_state_s", !48, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !49, i64 40, !6, i64 48}
-!48 = !{!"p1 _ZTS25hwloc__xml_export_state_s", !5, i64 0}
-!49 = !{!"p1 _ZTS24hwloc__xml_export_data_s", !5, i64 0}
-!50 = !{!47, !5, i64 16}
-!51 = !{!47, !5, i64 24}
-!52 = !{!47, !5, i64 32}
-!53 = !{!47, !49, i64 40}
-!54 = !{!47, !48, i64 0}
-!55 = distinct !{!55, !24, !25}
+!25 = !{!26, !28, i64 8}
+!26 = !{!"hwloc__xml_import_state_s", !27, i64 0, !28, i64 8, !6, i64 16}
+!27 = !{!"p1 _ZTS25hwloc__xml_import_state_s", !5, i64 0}
+!28 = !{!"p1 _ZTS24hwloc_xml_backend_data_s", !5, i64 0}
+!29 = !{!4, !5, i64 24}
+!30 = !{!4, !5, i64 32}
+!31 = !{!4, !5, i64 40}
+!32 = !{!4, !5, i64 48}
+!33 = !{!4, !5, i64 56}
+!34 = !{!4, !5, i64 64}
+!35 = !{!26, !27, i64 0}
+!36 = !{!37, !9, i64 24}
+!37 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !38, i64 72, !38, i64 88, !38, i64 104, !6, i64 120}
+!38 = !{!"timespec", !12, i64 0, !12, i64 8}
+!39 = !{!37, !12, i64 48}
+!40 = distinct !{!40, !24}
+!41 = !{!4, !9, i64 88}
+!42 = !{!4, !9, i64 92}
+!43 = distinct !{!43, !24}
+!44 = !{!45, !5, i64 8}
+!45 = !{!"hwloc__xml_export_state_s", !46, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !47, i64 40, !6, i64 48}
+!46 = !{!"p1 _ZTS25hwloc__xml_export_state_s", !5, i64 0}
+!47 = !{!"p1 _ZTS24hwloc__xml_export_data_s", !5, i64 0}
+!48 = !{!45, !5, i64 16}
+!49 = !{!45, !5, i64 24}
+!50 = !{!45, !5, i64 32}
+!51 = !{!45, !47, i64 40}
+!52 = !{!45, !46, i64 0}
+!53 = distinct !{!53, !24}

@@ -1798,7 +1798,7 @@ Py_DECREF.exit87:                                 ; preds = %131, %128, %125, %1
   %132 = xor i1 %.0134, true
   %133 = tail call ptr @PyException_GetContext(ptr noundef nonnull %114) #17
   %.not83 = icmp eq ptr %133, null
-  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .loopexit:                                        ; preds = %Py_DECREF.exit87, %122, %.preheader, %121
   tail call void @PyException_SetContext(ptr noundef nonnull %.066, ptr noundef nonnull %102) #17
@@ -2107,7 +2107,7 @@ define dso_local i32 @PyErr_GivenExceptionMatches(ptr noundef %0, ptr noundef %1
 13:                                               ; preds = %.lr.ph
   %14 = add nuw nsw i64 %.02141, 1
   %exitcond.not = icmp eq i64 %14, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %9, %13
   %.02141 = phi i64 [ %14, %13 ], [ 0, %9 ]
@@ -2209,9 +2209,9 @@ _PyErr_ExceptionMatches.exit:                     ; preds = %1, %6
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_NormalizeException(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i32, ptr %5, align 8, !tbaa !46
+  %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = add i32 %6, 1
-  store i32 %7, ptr %5, align 8, !tbaa !46
+  store i32 %7, ptr %5, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %9
 
@@ -2455,7 +2455,7 @@ _PyErr_Fetch.exit:                                ; preds = %73, %_Py_NewRef.exi
 
 Py_DECREF.exit:                                   ; preds = %95, %92, %90, %89, %_PyErr_Fetch.exit
   %exitcond = icmp eq i32 %59, 34
-  br i1 %exitcond, label %96, label %9, !llvm.loop !47
+  br i1 %exitcond, label %96, label %9
 
 96:                                               ; preds = %Py_DECREF.exit
   %97 = load ptr, ptr %1, align 8, !tbaa !24
@@ -2473,9 +2473,9 @@ Py_DECREF.exit:                                   ; preds = %95, %92, %90, %89, 
   unreachable
 
 .loopexit:                                        ; preds = %9, %Py_DECREF.exit78.thread
-  %storemerge.in = load i32, ptr %5, align 8, !tbaa !46
+  %storemerge.in = load i32, ptr %5, align 8, !tbaa !45
   %storemerge = add i32 %storemerge.in, -1
-  store i32 %storemerge, ptr %5, align 8, !tbaa !46
+  store i32 %storemerge, ptr %5, align 8, !tbaa !45
   ret void
 }
 
@@ -3445,7 +3445,7 @@ define dso_local noalias noundef ptr @PyErr_SetFromErrnoWithFilenameObjects(ptr 
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = tail call ptr @__errno_location() #19
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !46
   switch i32 %7, label %10 [
     i32 4, label %8
     i32 0, label %13
@@ -3575,13 +3575,13 @@ define dso_local noalias noundef ptr @PyErr_SetFromErrnoWithFilename(ptr noundef
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__errno_location() #19
-  %6 = load i32, ptr %5, align 4, !tbaa !48
+  %6 = load i32, ptr %5, align 4, !tbaa !46
   %7 = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %1) #17
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %.critedge, label %8
 
 8:                                                ; preds = %4
-  store i32 %6, ptr %5, align 4, !tbaa !48
+  store i32 %6, ptr %5, align 4, !tbaa !46
   %9 = tail call ptr @PyErr_SetFromErrnoWithFilenameObjects(ptr noundef %0, ptr noundef nonnull %7, ptr noundef null)
   %10 = load i32, ptr %7, align 8, !tbaa !20
   %.not.i.i = icmp sgt i32 %10, -1
@@ -4278,11 +4278,11 @@ define hidden void @_PyErr_InitTypes(ptr dead_on_unwind noalias writable writeon
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @__func__._PyErr_InitTypes, ptr %7, align 8, !tbaa !49
+  store ptr @__func__._PyErr_InitTypes, ptr %7, align 8, !tbaa !47
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @.str.17, ptr %8, align 8, !tbaa !51
+  store ptr @.str.17, ptr %8, align 8, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8, !tbaa !52
+  store i32 0, ptr %9, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %10, align 4
   br label %12
@@ -4293,7 +4293,7 @@ define hidden void @_PyErr_InitTypes(ptr dead_on_unwind noalias writable writeon
 
 12:                                               ; preds = %11, %5
   %.sink = phi i32 [ 1, %5 ], [ 0, %11 ]
-  store i32 %.sink, ptr %0, align 8, !tbaa !53
+  store i32 %.sink, ptr %0, align 8, !tbaa !51
   ret void
 }
 
@@ -6336,7 +6336,7 @@ PyErr_Clear.exit32:                               ; preds = %38, %35, %33, %28, 
 
 43:                                               ; preds = %46, %.critedge
   %.02325.i = phi i32 [ 0, %.critedge ], [ %spec.select.i, %46 ]
-  store i64 0, ptr %5, align 8, !tbaa !54
+  store i64 0, ptr %5, align 8, !tbaa !52
   %44 = call ptr @_Py_UniversalNewlineFgetsWithSize(ptr noundef nonnull %4, i32 noundef 1000, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %5) #17
   %45 = icmp eq ptr %44, null
   br i1 %45, label %err_programtext.exit, label %46
@@ -6352,7 +6352,7 @@ PyErr_Clear.exit32:                               ; preds = %38, %35, %33, %28, 
   %or.cond5.i = select i1 %or.cond.i, i1 %52, i1 false
   %spec.select.i = select i1 %or.cond5.i, i32 %.02325.i, i32 %47
   %.not.i = icmp slt i32 %spec.select.i, %1
-  br i1 %.not.i, label %43, label %.critedge.i, !llvm.loop !55
+  br i1 %.not.i, label %43, label %.critedge.i, !llvm.loop !53
 
 .critedge.i:                                      ; preds = %46
   %53 = icmp eq i32 %1, 1
@@ -6368,7 +6368,7 @@ PyErr_Clear.exit32:                               ; preds = %38, %35, %33, %28, 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %59 = add i64 %49, -3
-  store i64 %59, ptr %5, align 8, !tbaa !54
+  store i64 %59, ptr %5, align 8, !tbaa !52
   br label %60
 
 60:                                               ; preds = %57, %55, %.critedge.i
@@ -6555,18 +6555,16 @@ attributes #20 = { nounwind willreturn memory(read) }
 !38 = !{!5, !16, i64 120}
 !39 = !{!19, !15, i64 0}
 !40 = !{!19, !16, i64 8}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
-!45 = distinct !{!45, !42, !43}
-!46 = !{!5, !13, i64 56}
-!47 = distinct !{!47, !43}
-!48 = !{!13, !13, i64 0}
-!49 = !{!50, !31, i64 8}
-!50 = !{!"", !13, i64 0, !31, i64 8, !31, i64 16, !13, i64 24}
-!51 = !{!50, !31, i64 16}
-!52 = !{!50, !13, i64 24}
-!53 = !{!50, !13, i64 0}
-!54 = !{!11, !11, i64 0}
-!55 = distinct !{!55, !42, !43}
+!43 = distinct !{!43, !42}
+!44 = distinct !{!44, !42}
+!45 = !{!5, !13, i64 56}
+!46 = !{!13, !13, i64 0}
+!47 = !{!48, !31, i64 8}
+!48 = !{!"", !13, i64 0, !31, i64 8, !31, i64 16, !13, i64 24}
+!49 = !{!48, !31, i64 16}
+!50 = !{!48, !13, i64 24}
+!51 = !{!48, !13, i64 0}
+!52 = !{!11, !11, i64 0}
+!53 = distinct !{!53, !42}

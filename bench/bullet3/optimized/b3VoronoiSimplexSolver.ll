@@ -1653,7 +1653,7 @@ define dso_local noundef i32 @_ZNK22b3VoronoiSimplexSolver10getSimplexEP9b3Vecto
   %17 = load i32, ptr %0, align 16, !tbaa !4
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %10, label %._crit_edge, !llvm.loop !27
+  br i1 %19, label %10, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %10, %4
   %.lcssa = phi i32 [ %5, %4 ], [ %17, %10 ]
@@ -1715,7 +1715,7 @@ _ZNK9b3Vector3eqERKS_.exit.thread:                ; preds = %_ZNK9b3Vector3eqERK
   %28 = phi i1 [ %.0912, %22 ], [ %.0912, %18 ], [ %.0912, %13 ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZNK9b3Vector3eqERKS_.exit.thread, %.._crit_edge_crit_edge
   %29 = phi float [ %.pre, %.._crit_edge_crit_edge ], [ %7, %_ZNK9b3Vector3eqERKS_.exit.thread ]
@@ -1884,8 +1884,7 @@ attributes #9 = { nounwind }
 !21 = !{!10, !10, i64 0}
 !22 = !{!5, !11, i64 372}
 !23 = !{!12, !11, i64 36}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = distinct !{!28, !25, !26}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}

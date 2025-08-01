@@ -182,7 +182,7 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %45, %47
-  br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %44, %.thread, %.loopexit3.thread, %31, %.loopexit3
   %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
@@ -280,7 +280,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr nound
   %40 = phi i32 [ %22, %21 ], [ %16, %14 ]
   %41 = add nuw nsw i64 %15, 1
   %42 = icmp eq i64 %41, %13
-  br i1 %42, label %.loopexit, label %14, !llvm.loop !11
+  br i1 %42, label %.loopexit, label %14, !llvm.loop !10
 
 .loopexit:                                        ; preds = %39, %38, %37, %33, %28, %7, %3
   %43 = phi i32 [ 4097, %3 ], [ 4, %33 ], [ 5, %28 ], [ 0, %38 ], [ 0, %37 ], [ 5, %7 ], [ 5, %39 ]
@@ -338,7 +338,7 @@ define dso_local i32 @acpi_get_table(ptr noundef readonly captures(address_is_nu
   %28 = phi i32 [ %23, %22 ], [ %17, %15 ]
   %29 = add nuw nsw i64 %16, 1
   %30 = icmp eq i64 %29, %14
-  br i1 %30, label %.loopexit, label %15, !llvm.loop !12
+  br i1 %30, label %.loopexit, label %15, !llvm.loop !11
 
 .loopexit:                                        ; preds = %27, %25, %7
   %31 = phi i32 [ %26, %25 ], [ 5, %7 ], [ 5, %27 ]
@@ -372,7 +372,7 @@ define dso_local void @acpi_put_table(ptr noundef readnone captures(address) %0)
 10:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit, label %12, !llvm.loop !13
+  br i1 %11, label %.loopexit, label %12, !llvm.loop !12
 
 12:                                               ; preds = %10, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %7 ]
@@ -499,11 +499,10 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

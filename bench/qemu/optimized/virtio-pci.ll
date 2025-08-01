@@ -629,7 +629,7 @@ define internal void @virtio_pci_notify(ptr noundef %0, i16 noundef zeroext %1) 
 
 virtio_bus_get_device.exit:                       ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 34160
-  %.val = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
+  %.val = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 161
@@ -847,7 +847,7 @@ virtio_bus_get_device.exit:                       ; preds = %3, %5
   %10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
   %11 = tail call i32 @msix_enabled(ptr noundef nonnull %0) #15
   %12 = icmp ne i32 %11, 0
-  %13 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !8
+  %13 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !7
   %14 = trunc nuw i8 %13 to i1
   %15 = select i1 %12, i1 %14, i1 false
   %16 = tail call i32 @llvm.smin.i32(i32 %1, i32 1024)
@@ -883,7 +883,7 @@ virtio_bus_get_device.exit:                       ; preds = %3, %5
 27:                                               ; preds = %.critedge.thread, %.critedge
   %28 = phi ptr [ %25, %.critedge.thread ], [ %23, %.critedge ]
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 457
-  %30 = load i8, ptr %29, align 1, !range !8, !noundef !7
+  %30 = load i8, ptr %29, align 1, !range !7, !noundef !6
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %48
 
@@ -926,7 +926,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %39, %38
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef nonnull %0, i32 noundef %.07.i)
   %46 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %46, %16
-  br i1 %exitcond.not.i, label %kvm_virtio_pci_vector_vq_release.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %kvm_virtio_pci_vector_vq_release.exit, label %.lr.ph.i, !llvm.loop !8
 
 kvm_virtio_pci_vector_vq_release.exit:            ; preds = %.lr.ph.i, %45, %virtio_bus_get_device.exit.i
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef nonnull %0, i32 noundef -1)
@@ -954,7 +954,7 @@ kvm_virtio_pci_vector_vq_release.exit:            ; preds = %.lr.ph.i, %45, %vir
 55:                                               ; preds = %52
   %56 = add nuw nsw i32 %.081120, 1
   %exitcond.not = icmp eq i32 %56, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph, %48
   %.081.lcssa = phi i32 [ 0, %48 ], [ %.081120, %.lr.ph ], [ %16, %55 ]
@@ -967,7 +967,7 @@ kvm_virtio_pci_vector_vq_release.exit:            ; preds = %.lr.ph.i, %45, %vir
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 457
-  %62 = load i8, ptr %61, align 1, !range !8, !noundef !7
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !6
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %105
 
@@ -1010,7 +1010,7 @@ virtio_bus_get_device.exit.i95:                   ; preds = %74, %69
   %80 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef %.01011.i)
   %81 = add nuw nsw i32 %.01011.i, 1
   %exitcond.not.i98 = icmp eq i32 %81, %16
-  br i1 %exitcond.not.i98, label %kvm_virtio_pci_vector_vq_use.exit, label %.lr.ph.i96, !llvm.loop !11
+  br i1 %exitcond.not.i98, label %kvm_virtio_pci_vector_vq_use.exit, label %.lr.ph.i96, !llvm.loop !10
 
 kvm_virtio_pci_vector_vq_use.exit:                ; preds = %79
   %82 = icmp slt i32 %80, 0
@@ -1076,7 +1076,7 @@ kvm_virtio_pci_vector_vq_use.exit.thread:         ; preds = %.lr.ph.i96, %.threa
   %102 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef %101, i1 noundef zeroext false, i1 noundef zeroext %15)
   %103 = add nsw i32 %101, -1
   %.not129 = icmp eq i32 %101, 0
-  br i1 %.not129, label %._crit_edge124, label %.lr.ph123, !llvm.loop !12
+  br i1 %.not129, label %._crit_edge124, label %.lr.ph123, !llvm.loop !11
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader
   %104 = load ptr, ptr %49, align 16
@@ -1096,7 +1096,7 @@ define internal range(i32 -1, 1) i32 @virtio_pci_set_host_notifier_mr(ptr nounde
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 5352
-  %.val = load i8, ptr %7, align 8, !range !8, !noundef !7
+  %.val = load i8, ptr %7, align 8, !range !7, !noundef !6
   %8 = trunc nuw i8 %.val to i1
   br i1 %8, label %23, label %9
 
@@ -1197,11 +1197,11 @@ define internal void @virtio_pci_pre_plugged(ptr noundef %0, ptr readnone captur
 virtio_bus_get_device.exit:
   %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 107, ptr noundef nonnull @__func__.VIRTIO_PCI) #15
   %3 = getelementptr i8, ptr %2, i64 34160
-  %.val = load ptr, ptr %3, align 8, !nonnull !7, !noundef !7
+  %.val = load ptr, ptr %3, align 8, !nonnull !6, !noundef !6
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %2, i64 5352
-  %.val5 = load i8, ptr %6, align 8, !range !8, !noundef !7
+  %.val5 = load i8, ptr %6, align 8, !range !7, !noundef !6
   %7 = trunc nuw i8 %.val5 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 168
   %.pre = load i64, ptr %.phi.trans.insert, align 8
@@ -1238,7 +1238,7 @@ define internal void @virtio_pci_device_plugged(ptr noundef %0, ptr noundef %1) 
 virtio_bus_get_device.exit:                       ; preds = %2, %11
   %14 = phi ptr [ %13, %11 ], [ null, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 5353
-  %16 = load i8, ptr %15, align 1, !range !8, !noundef !7
+  %16 = load i8, ptr %15, align 1, !range !7, !noundef !6
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %25, label %18
 
@@ -1261,7 +1261,7 @@ virtio_bus_get_device.exit:                       ; preds = %2, %11
 
 25:                                               ; preds = %22, %18, %virtio_bus_get_device.exit
   %26 = getelementptr i8, ptr %3, i64 5352
-  %.val94 = load i8, ptr %26, align 8, !range !8, !noundef !7
+  %.val94 = load i8, ptr %26, align 8, !range !7, !noundef !6
   %27 = trunc nuw i8 %.val94 to i1
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %29 = load ptr, ptr %28, align 16
@@ -1624,7 +1624,7 @@ virtio_pci_add_mem_cap.exit:                      ; preds = %virtio_pci_modern_i
 define internal void @virtio_pci_device_unplugged(ptr noundef %0) #0 {
   %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 107, ptr noundef nonnull @__func__.VIRTIO_PCI) #15
   %3 = getelementptr i8, ptr %2, i64 5352
-  %.val = load i8, ptr %3, align 8, !range !8, !noundef !7
+  %.val = load i8, ptr %3, align 8, !range !7, !noundef !6
   %4 = trunc nuw i8 %.val to i1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 5348
   %6 = load i32, ptr %5, align 4
@@ -1692,7 +1692,7 @@ virtio_bus_get_device.exit:                       ; preds = %4, %6
   %.val42 = load i32, ptr %11, align 4
   %12 = icmp eq i32 %.val42, 2
   %13 = getelementptr i8, ptr %0, i64 5352
-  %.val40 = load i8, ptr %13, align 8, !range !8, !noundef !7
+  %.val40 = load i8, ptr %13, align 8, !range !7, !noundef !6
   %14 = trunc nuw i8 %.val40 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5348
   %16 = load i32, ptr %15, align 4
@@ -1795,7 +1795,7 @@ virtio_bus_get_device.exit:                       ; preds = %2, %5
   %.idx = mul nsw i64 %12, 28
   %13 = getelementptr i8, ptr %3, i64 5390
   %14 = getelementptr i8, ptr %13, i64 %.idx
-  %15 = load i8, ptr %14, align 2, !range !8, !noundef !7
+  %15 = load i8, ptr %14, align 2, !range !7, !noundef !6
   %16 = trunc nuw i8 %15 to i1
   br label %19
 
@@ -1841,7 +1841,7 @@ declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @virtio_pci_modern_state_needed(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr i8, ptr %0, i64 5352
-  %.val = load i8, ptr %2, align 8, !range !8, !noundef !7
+  %.val = load i8, ptr %2, align 8, !range !7, !noundef !6
   %3 = trunc nuw i8 %.val to i1
   %4 = xor i1 %3, true
   ret i1 %4
@@ -1885,7 +1885,7 @@ virtio_bus_get_device.exit:                       ; preds = %2, %4
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef %0, i32 noundef %.07)
   %11 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %11, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %10, %.lr.ph, %virtio_bus_get_device.exit
   ret void
@@ -1959,7 +1959,7 @@ virtio_pci_set_guest_notifier_fd_handler.exit:    ; preds = %23, %22, %virtio_pc
 
 26:                                               ; preds = %virtio_pci_set_guest_notifier_fd_handler.exit
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 457
-  %28 = load i8, ptr %27, align 1, !range !8, !noundef !7
+  %28 = load i8, ptr %27, align 1, !range !7, !noundef !6
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %.critedge
 
@@ -2037,7 +2037,7 @@ virtio_bus_get_device.exit:                       ; preds = %4, %6
   %.1 = phi i32 [ %25, %24 ], [ %.069, %17 ]
   %27 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %.04968) #15
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %26, %13, %virtio_bus_get_device.exit
   %.0.lcssa = phi i32 [ 0, %virtio_bus_get_device.exit ], [ %.069, %13 ], [ %.1, %26 ]
@@ -2069,7 +2069,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %38, %36
   %42 = tail call ptr @object_get_class(ptr noundef %41) #15
   %43 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %42, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 457
-  %45 = load i8, ptr %44, align 1, !range !8, !noundef !7
+  %45 = load i8, ptr %44, align 1, !range !7, !noundef !6
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %51
 
@@ -2138,7 +2138,7 @@ virtio_bus_get_device.exit.i61:                   ; preds = %74, %72
   %78 = tail call ptr @object_get_class(ptr noundef %77) #15
   %79 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %78, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 457
-  %81 = load i8, ptr %80, align 1, !range !8, !noundef !7
+  %81 = load i8, ptr %80, align 1, !range !7, !noundef !6
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %87
 
@@ -2175,7 +2175,7 @@ virtio_pci_one_vector_mask.exit64:                ; preds = %86, %87
   %97 = icmp ne ptr %96, null
   %98 = icmp sgt i32 %.3, -1
   %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %67, label %.loopexit, !llvm.loop !14
+  br i1 %99, label %67, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %95, %virtio_pci_one_vector_mask.exit, %._crit_edge, %32
   %.051 = phi i32 [ 0, %32 ], [ 0, %._crit_edge ], [ %.048, %virtio_pci_one_vector_mask.exit ], [ %.048, %95 ]
@@ -2236,7 +2236,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %22, %21
   %26 = tail call ptr @object_get_class(ptr noundef %25) #15
   %27 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %26, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 457
-  %29 = load i8, ptr %28, align 1, !range !8, !noundef !7
+  %29 = load i8, ptr %28, align 1, !range !7, !noundef !6
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %35
 
@@ -2266,7 +2266,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %22, %21
 virtio_pci_one_vector_mask.exit:                  ; preds = %35, %34, %18
   %42 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %.034) #15
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %virtio_pci_one_vector_mask.exit, %13, %virtio_bus_get_device.exit
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 208
@@ -2291,7 +2291,7 @@ virtio_bus_get_device.exit.i29:                   ; preds = %49, %47
   %53 = tail call ptr @object_get_class(ptr noundef %52) #15
   %54 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %53, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 457
-  %56 = load i8, ptr %55, align 1, !range !8, !noundef !7
+  %56 = load i8, ptr %55, align 1, !range !7, !noundef !6
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %62
 
@@ -2415,7 +2415,7 @@ virtio_pci_get_notifier.exit:                     ; preds = %26
   %41 = add nuw nsw i32 %.064, 1
   %42 = load i32, ptr %11, align 8
   %43 = icmp slt i32 %41, %42
-  br i1 %43, label %16, label %virtio_pci_get_notifier.exit.thread, !llvm.loop !16
+  br i1 %43, label %16, label %virtio_pci_get_notifier.exit.thread, !llvm.loop !15
 
 virtio_pci_get_notifier.exit.thread:              ; preds = %40, %22, %26, %virtio_bus_get_device.exit
   %.val.i40 = load ptr, ptr %4, align 8
@@ -2550,7 +2550,7 @@ virtio_pci_get_notifier.exit:                     ; preds = %28, %22
 
 33:                                               ; preds = %virtio_pci_get_notifier.exit
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 457
-  %35 = load i8, ptr %34, align 1, !range !8, !noundef !7
+  %35 = load i8, ptr %34, align 1, !range !7, !noundef !6
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %kvm_virtio_pci_irqfd_release.exit
 
@@ -2691,7 +2691,7 @@ virtio_pci_get_notifier.exit:                     ; preds = %29, %23
 41:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %42, align 8, !annotation !17
+  store i64 0, ptr %42, align 8, !annotation !16
   %43 = load ptr, ptr @kvm_state, align 8
   store ptr %43, ptr %3, align 8
   %44 = call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull %3, i32 noundef %.029, ptr noundef nonnull %0) #15
@@ -2724,7 +2724,7 @@ kvm_virtio_pci_vq_vector_use.exit.thread:         ; preds = %41
   %53 = add i32 %52, 1
   store i32 %53, ptr %38, align 4
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 457
-  %55 = load i8, ptr %54, align 1, !range !8, !noundef !7
+  %55 = load i8, ptr %54, align 1, !range !7, !noundef !6
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %kvm_virtio_pci_vq_vector_release.exit
 
@@ -2825,7 +2825,7 @@ virtio_bus_get_device.exit:                       ; preds = %6, %8
 31:                                               ; preds = %21, %29, %virtio_bus_get_device.exit
   %.0 = phi i32 [ %27, %29 ], [ 0, %21 ], [ 0, %virtio_bus_get_device.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 457
-  %33 = load i8, ptr %32, align 1, !range !8, !noundef !7
+  %33 = load i8, ptr %32, align 1, !range !7, !noundef !6
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %45
 
@@ -3015,7 +3015,7 @@ pcie_ats_config_write.exit:                       ; preds = %50, %virtio_bus_get
   %61 = and i8 %60, 4
   %.not44 = icmp eq i8 %61, 0
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 428
-  %63 = load i8, ptr %62, align 4, !range !8, !noundef !7
+  %63 = load i8, ptr %62, align 4, !range !7, !noundef !6
   %64 = trunc nuw i8 %63 to i1
   br i1 %.not44, label %65, label %72
 
@@ -3101,7 +3101,7 @@ virtio_set_disabled.exit48:                       ; preds = %73, %72, %virtio_se
 108:                                              ; preds = %103
   %109 = zext i32 %102 to i64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !16
   %110 = sub nsw i64 %95, %109
   call void @memory_region_find(ptr dead_on_unwind nonnull writable sret(%struct.MemoryRegionSection) align 16 %5, ptr noundef nonnull %100, i64 noundef %110, i64 noundef %97) #15
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3116,7 +3116,7 @@ virtio_set_disabled.exit48:                       ; preds = %73, %72, %virtio_se
 114:                                              ; preds = %103, %99
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %virtio_address_space_write.exit, label %99, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %virtio_address_space_write.exit, label %99, !llvm.loop !17
 
 virtio_address_space_lookup.exit.i:               ; preds = %108
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3237,9 +3237,9 @@ define internal i32 @virtio_read_config(ptr noundef %0, i32 noundef %1, i32 noun
 
 44:                                               ; preds = %39
   %45 = zext i32 %38 to i64
-  store i64 0, ptr %5, align 8, !annotation !17
+  store i64 0, ptr %5, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !16
   %46 = sub nsw i64 %31, %45
   call void @memory_region_find(ptr dead_on_unwind nonnull writable sret(%struct.MemoryRegionSection) align 16 %4, ptr noundef nonnull %36, i64 noundef %46, i64 noundef %33) #15
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3254,7 +3254,7 @@ define internal i32 @virtio_read_config(ptr noundef %0, i32 noundef %1, i32 noun
 50:                                               ; preds = %39, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %virtio_address_space_read.exit, label %35, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %virtio_address_space_read.exit, label %35, !llvm.loop !17
 
 virtio_address_space_lookup.exit.i:               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3412,7 +3412,7 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %46 = add nuw nsw i32 %.04557, 1
   %spec.select = select i1 %.not, i32 %.156, i32 %46
   %exitcond.not = icmp eq i32 %46, 1024
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 47:                                               ; preds = %8
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -3451,9 +3451,9 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
   %.idx55 = mul nuw nsw i64 %72, 28
-  %73 = getelementptr i8, ptr %0, i64 5390
-  %74 = getelementptr i8, ptr %73, i64 %.idx55
-  %75 = load i8, ptr %74, align 2, !range !8, !noundef !7
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 5390
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx55
+  %75 = load i8, ptr %74, align 2, !range !7, !noundef !6
   %76 = zext nneg i8 %75 to i32
   br label %.loopexit
 
@@ -3468,8 +3468,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i64
   %.idx54 = mul nuw nsw i64 %84, 28
-  %85 = getelementptr i8, ptr %0, i64 5392
-  %86 = getelementptr i8, ptr %85, i64 %.idx54
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx54
   %87 = load i32, ptr %86, align 4
   br label %.loopexit
 
@@ -3478,8 +3478,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i64
   %.idx53 = mul nuw nsw i64 %91, 28
-  %92 = getelementptr i8, ptr %0, i64 5392
-  %93 = getelementptr i8, ptr %92, i64 %.idx53
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx53
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   br label %.loopexit
@@ -3489,8 +3489,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i64
   %.idx52 = mul nuw nsw i64 %99, 28
-  %100 = getelementptr i8, ptr %0, i64 5400
-  %101 = getelementptr i8, ptr %100, i64 %.idx52
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx52
   %102 = load i32, ptr %101, align 4
   br label %.loopexit
 
@@ -3499,8 +3499,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i64
   %.idx51 = mul nuw nsw i64 %106, 28
-  %107 = getelementptr i8, ptr %0, i64 5400
-  %108 = getelementptr i8, ptr %107, i64 %.idx51
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx51
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   br label %.loopexit
@@ -3510,8 +3510,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i64
   %.idx50 = mul nuw nsw i64 %114, 28
-  %115 = getelementptr i8, ptr %0, i64 5408
-  %116 = getelementptr i8, ptr %115, i64 %.idx50
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx50
   %117 = load i32, ptr %116, align 4
   br label %.loopexit
 
@@ -3520,8 +3520,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i64
   %.idx49 = mul nuw nsw i64 %121, 28
-  %122 = getelementptr i8, ptr %0, i64 5408
-  %123 = getelementptr i8, ptr %122, i64 %.idx49
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx49
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   br label %.loopexit
@@ -3531,9 +3531,9 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i64
   %.idx = mul nuw nsw i64 %129, 28
-  %130 = getelementptr i8, ptr %0, i64 5391
-  %131 = getelementptr i8, ptr %130, i64 %.idx
-  %132 = load i8, ptr %131, align 1, !range !8, !noundef !7
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 5391
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx
+  %132 = load i8, ptr %131, align 1, !range !7, !noundef !6
   %133 = zext nneg i8 %132 to i32
   br label %.loopexit
 
@@ -3649,7 +3649,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
   br i1 %.not24.i, label %52, label %49
 
 49:                                               ; preds = %47
-  %50 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !8, !noundef !7
+  %50 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !7, !noundef !6
   %51 = trunc nuw i8 %50 to i1
   br label %52
 
@@ -3777,7 +3777,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
   br i1 %.not24.i133, label %122, label %119
 
 119:                                              ; preds = %117
-  %120 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !8, !noundef !7
+  %120 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !7, !noundef !6
   %121 = trunc nuw i8 %120 to i1
   br label %122
 
@@ -3857,8 +3857,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i64
   %.idx126 = mul nuw nsw i64 %168, 28
-  %169 = getelementptr i8, ptr %0, i64 5392
-  %170 = getelementptr i8, ptr %169, i64 %.idx126
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx126
   store i32 %165, ptr %170, align 4
   br label %virtio_pci_set_vector.exit
 
@@ -3868,8 +3868,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %174 = load i16, ptr %173, align 2
   %175 = zext i16 %174 to i64
   %.idx125 = mul nuw nsw i64 %175, 28
-  %176 = getelementptr i8, ptr %0, i64 5392
-  %177 = getelementptr i8, ptr %176, i64 %.idx125
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %.idx125
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i32 %172, ptr %178, align 4
   br label %virtio_pci_set_vector.exit
@@ -3880,8 +3880,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
   %.idx124 = mul nuw nsw i64 %183, 28
-  %184 = getelementptr i8, ptr %0, i64 5400
-  %185 = getelementptr i8, ptr %184, i64 %.idx124
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx124
   store i32 %180, ptr %185, align 4
   br label %virtio_pci_set_vector.exit
 
@@ -3891,8 +3891,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %189 = load i16, ptr %188, align 2
   %190 = zext i16 %189 to i64
   %.idx123 = mul nuw nsw i64 %190, 28
-  %191 = getelementptr i8, ptr %0, i64 5400
-  %192 = getelementptr i8, ptr %191, i64 %.idx123
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx123
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store i32 %187, ptr %193, align 4
   br label %virtio_pci_set_vector.exit
@@ -3903,8 +3903,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i64
   %.idx122 = mul nuw nsw i64 %198, 28
-  %199 = getelementptr i8, ptr %0, i64 5408
-  %200 = getelementptr i8, ptr %199, i64 %.idx122
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 %.idx122
   store i32 %195, ptr %200, align 4
   br label %virtio_pci_set_vector.exit
 
@@ -3914,8 +3914,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %204 = load i16, ptr %203, align 2
   %205 = zext i16 %204 to i64
   %.idx121 = mul nuw nsw i64 %205, 28
-  %206 = getelementptr i8, ptr %0, i64 5408
-  %207 = getelementptr i8, ptr %206, i64 %.idx121
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %.idx121
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store i32 %202, ptr %208, align 4
   br label %virtio_pci_set_vector.exit
@@ -4120,7 +4120,7 @@ virtio_bus_get_device.exit:                       ; preds = %4, %7
 18:                                               ; preds = %virtio_bus_get_device.exit
   %19 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %trace_virtio_pci_notify_write.exit, label %20, !prof !20
+  br i1 %.not.i.i, label %trace_virtio_pci_notify_write.exit, label %20, !prof !19
 
 20:                                               ; preds = %18
   %21 = load i16, ptr @_TRACE_VIRTIO_PCI_NOTIFY_WRITE_DSTATE, align 2
@@ -4134,13 +4134,13 @@ virtio_bus_get_device.exit:                       ; preds = %4, %7
   br i1 %.not7.i.i, label %trace_virtio_pci_notify_write.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = load i8, ptr @message_with_timestamp, align 1, !range !8, !noundef !7
+  %26 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !6
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !16
   %29 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #15
   %30 = tail call i32 @qemu_get_thread_id() #15
   %31 = load i64, ptr %5, align 8
@@ -4182,7 +4182,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
 12:                                               ; preds = %virtio_bus_get_device.exit
   %13 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %trace_virtio_pci_notify_write_pio.exit, label %14, !prof !20
+  br i1 %.not.i.i, label %trace_virtio_pci_notify_write_pio.exit, label %14, !prof !19
 
 14:                                               ; preds = %12
   %15 = load i16, ptr @_TRACE_VIRTIO_PCI_NOTIFY_WRITE_PIO_DSTATE, align 2
@@ -4196,13 +4196,13 @@ virtio_bus_get_device.exit:                       ; preds = %4
   br i1 %.not7.i.i, label %trace_virtio_pci_notify_write_pio.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = load i8, ptr @message_with_timestamp, align 1, !range !8, !noundef !7
+  %20 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !6
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !16
   %23 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #15
   %24 = tail call i32 @qemu_get_thread_id() #15
   %25 = load i64, ptr %5, align 8
@@ -4715,7 +4715,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %11
   %113 = load i32, ptr @qemu_loglevel, align 4
   %114 = and i32 %113, 2048
   %.not73.i = icmp eq i32 %114, 0
-  br i1 %.not73.i, label %virtio_ioport_write.exit, label %115, !prof !20
+  br i1 %.not73.i, label %virtio_ioport_write.exit, label %115, !prof !19
 
 115:                                              ; preds = %112
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, ptr noundef nonnull @__func__.virtio_ioport_write, i32 noundef range(i32 0, 24) %14, i32 noundef %15) #15
@@ -4967,7 +4967,7 @@ define internal void @virtio_pci_realize(ptr noundef %0, ptr noundef %1) #0 {
 57:                                               ; preds = %55, %._crit_edge
   %.val92 = phi i32 [ %56, %55 ], [ %53, %._crit_edge ]
   %58 = getelementptr i8, ptr %4, i64 5352
-  %.val89 = load i8, ptr %58, align 8, !range !8, !noundef !7
+  %.val89 = load i8, ptr %58, align 8, !range !7, !noundef !6
   %59 = trunc nuw i8 %.val89 to i1
   %60 = icmp ne i32 %.val92, 2
   %or.cond.not = select i1 %59, i1 %60, i1 false
@@ -5193,7 +5193,7 @@ define internal void @virtio_pci_dc_realize(ptr noundef %0, ptr noundef %1) #0 {
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %5, i64 5352
-  %.val = load i8, ptr %10, align 8, !range !8, !noundef !7
+  %.val = load i8, ptr %10, align 8, !range !7, !noundef !6
   %11 = trunc nuw i8 %.val to i1
   br i1 %11, label %16, label %12
 
@@ -5365,20 +5365,19 @@ attributes #17 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{}
-!8 = !{i8 0, i8 2}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = !{!"auto-init"}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = !{}
+!7 = !{i8 0, i8 2}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = !{!"auto-init"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}

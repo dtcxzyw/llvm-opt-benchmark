@@ -1674,7 +1674,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h3b
   %20 = icmp eq ptr %.sroa.015.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
-  br i1 %or.cond, label %22, label %17, !llvm.loop !3
+  br i1 %or.cond, label %22, label %17
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -1817,7 +1817,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h5d
   %20 = icmp eq ptr %.sroa.010.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 32
-  br i1 %or.cond, label %22, label %17, !llvm.loop !5
+  br i1 %or.cond, label %22, label %17
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -1953,7 +1953,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h60
   %20 = icmp eq ptr %.sroa.015.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
-  br i1 %or.cond, label %22, label %17, !llvm.loop !6
+  br i1 %or.cond, label %22, label %17
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -2096,7 +2096,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9d
   %20 = icmp eq ptr %.sroa.015.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
-  br i1 %or.cond, label %22, label %17, !llvm.loop !7
+  br i1 %or.cond, label %22, label %17
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -2239,7 +2239,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc0
   %20 = icmp eq ptr %.sroa.017.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 32
-  br i1 %or.cond, label %22, label %17, !llvm.loop !8
+  br i1 %or.cond, label %22, label %17
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -2640,9 +2640,3 @@ attributes #5 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}

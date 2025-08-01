@@ -256,7 +256,7 @@ define dso_local void @AtAbort_Twophase() local_unnamed_addr #0 {
 17:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %18, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %18, !llvm.loop !8
 
 18:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
@@ -375,7 +375,7 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
 31:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !9
 
 32:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
@@ -474,7 +474,7 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   store ptr %80, ptr %81, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %MarkAsPreparingGuts.exit, label %79, !llvm.loop !11
+  br i1 %exitcond.not.i, label %MarkAsPreparingGuts.exit, label %79, !llvm.loop !10
 
 MarkAsPreparingGuts.exit:                         ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %56, i64 440
@@ -605,7 +605,7 @@ define dso_local i64 @pg_prepared_xact(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %36, ptr noundef nonnull align 8 dereferenceable(256) %38, i64 256, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %35, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %35, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %35, %28
   %39 = load ptr, ptr @MainLWLockArray, align 8
@@ -653,7 +653,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 52
   %60 = load i8, ptr %59, align 4, !range !4, !noundef !5
   %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %.thread, label %92, !llvm.loop !13
+  br i1 %61, label %.thread, label %92, !llvm.loop !12
 
 .thread:                                          ; preds = %.lr.ph59
   %62 = sext i32 %58 to i64
@@ -803,7 +803,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
   %.2.ph = phi i32 [ %.01321, %18 ], [ %.01321, %26 ], [ %33, %31 ], [ %.01321, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !13
 
 .loopexit:                                        ; preds = %35, %2, %34
   %.01320 = phi i32 [ %.01321, %34 ], [ 0, %2 ], [ %.2.ph, %35 ]
@@ -855,7 +855,7 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
 18:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !14
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
@@ -1621,7 +1621,7 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
   %54 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %.0 = load ptr, ptr %54, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %43
   tail call void @XLogSetRecordFlags(i8 noundef zeroext 1) #14
@@ -1845,7 +1845,7 @@ define internal fastcc ptr @ReadTwoPhaseFile(i32 noundef %0, i1 noundef zeroext 
   %10 = lshr i64 %5, 32
   %11 = trunc i64 %5 to i32
   %12 = icmp ugt i32 %0, %11
-  br i1 %12, label %13, label %16, !prof !17
+  br i1 %12, label %13, label %16, !prof !16
 
 13:                                               ; preds = %9
   %14 = add nuw nsw i64 %10, 4294967295
@@ -2126,7 +2126,7 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
 56:                                               ; preds = %21, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %56, %6
   %57 = load ptr, ptr @MainLWLockArray, align 8
@@ -2383,7 +2383,7 @@ RecordTransactionAbortPrepared.exit:              ; preds = %170, %179
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
   %219 = load i8, ptr %218, align 4
   %220 = icmp eq i8 %219, 0
-  br i1 %220, label %ProcessRecords.exit, label %.lr.ph.i82, !llvm.loop !19
+  br i1 %220, label %ProcessRecords.exit, label %.lr.ph.i82
 
 221:                                              ; preds = %184
   %222 = load i32, ptr %115, align 4
@@ -2422,7 +2422,7 @@ RecordTransactionAbortPrepared.exit:              ; preds = %170, %179
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %245 = load i8, ptr %244, align 4
   %246 = icmp eq i8 %245, 0
-  br i1 %246, label %ProcessRecords.exit, label %.lr.ph.i85, !llvm.loop !19
+  br i1 %246, label %ProcessRecords.exit, label %.lr.ph.i85
 
 ProcessRecords.exit:                              ; preds = %238, %212, %221, %196
   tail call void @PredicateLockTwoPhaseFinish(i32 noundef %71, i1 noundef zeroext %1) #14
@@ -2442,7 +2442,7 @@ ProcessRecords.exit:                              ; preds = %238, %212, %221, %1
 254:                                              ; preds = %255
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count.i92
-  br i1 %exitcond.not.i95, label %._crit_edge.i90, label %255, !llvm.loop !9
+  br i1 %exitcond.not.i95, label %._crit_edge.i90, label %255, !llvm.loop !8
 
 255:                                              ; preds = %254, %.lr.ph.i91
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.i91 ], [ %indvars.iv.next.i94, %254 ]
@@ -2633,7 +2633,7 @@ define internal fastcc void @RemoveTwoPhaseFile(i32 noundef %0, i1 noundef zeroe
   %9 = lshr i64 %4, 32
   %10 = trunc i64 %4 to i32
   %11 = icmp ugt i32 %0, %10
-  br i1 %11, label %12, label %15, !prof !17
+  br i1 %11, label %12, label %15, !prof !16
 
 12:                                               ; preds = %8
   %13 = add nuw nsw i64 %9, 4294967295
@@ -2758,7 +2758,7 @@ define dso_local void @CheckPointTwoPhase(i64 noundef %0) local_unnamed_addr #0 
   %50 = lshr i64 %45, 32
   %51 = trunc i64 %45 to i32
   %52 = icmp ugt i32 %38, %51
-  br i1 %52, label %53, label %56, !prof !17
+  br i1 %52, label %53, label %56, !prof !16
 
 53:                                               ; preds = %49
   %54 = add nuw nsw i64 %50, 4294967295
@@ -2890,7 +2890,7 @@ RecreateTwoPhaseFile.exit:                        ; preds = %100
   %111 = load i32, ptr %110, align 8
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %108, %8
   %.017.lcssa = phi i32 [ 0, %8 ], [ %.1, %108 ]
@@ -2949,7 +2949,7 @@ define dso_local void @restoreTwoPhaseData() local_unnamed_addr #0 {
   %15 = trunc i64 %14 to i32
   %16 = tail call fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %15, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.backedge, label %.thread, !llvm.loop !21
+  br i1 %17, label %.backedge, label %.thread
 
 .thread:                                          ; preds = %13
   tail call void @PrepareRedoAdd(ptr noundef nonnull %16, i64 noundef 0, i64 noundef 0, i16 noundef zeroext 0)
@@ -2958,7 +2958,7 @@ define dso_local void @restoreTwoPhaseData() local_unnamed_addr #0 {
 .backedge:                                        ; preds = %.lr.ph, %10, %.thread, %13
   %18 = tail call ptr @ReadDir(ptr noundef %4, ptr noundef nonnull @.str.14) #14
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.backedge, %0
   %19 = load ptr, ptr @MainLWLockArray, align 8
@@ -3123,7 +3123,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   %68 = load i32, ptr %61, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next43, %69
-  br i1 %70, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !23
+  br i1 %70, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %4, label %.lr.ph.split.split.us, label %.loopexit
@@ -3137,7 +3137,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   %73 = load i32, ptr %61, align 4
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !25
+  br i1 %75, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %67, %.lr.ph.split, %52, %30, %34, %18, %22
   %.0 = phi ptr [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %30 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %67 ], [ %53, %.lr.ph.split.split.us ]
@@ -3168,7 +3168,7 @@ define dso_local void @PrepareRedoAdd(ptr noundef readonly captures(none) %0, i6
   %16 = lshr i64 %11, 32
   %17 = trunc i64 %11 to i32
   %18 = icmp ugt i32 %10, %17
-  br i1 %18, label %19, label %22, !prof !17
+  br i1 %18, label %19, label %22, !prof !16
 
 19:                                               ; preds = %15
   %20 = add nuw nsw i64 %16, 4294967295
@@ -3361,7 +3361,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next55, %32
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
@@ -3426,7 +3426,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
+  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %63, %28, %2
   %.032.lcssa = phi i32 [ 0, %2 ], [ 0, %28 ], [ %.133, %63 ]
@@ -3490,7 +3490,7 @@ define dso_local void @StandbyRecoverPreparedTransactions() local_unnamed_addr #
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %21, %0
   %27 = load ptr, ptr @MainLWLockArray, align 8
@@ -3648,7 +3648,7 @@ define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
   store ptr %103, ptr %104, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %MarkAsPreparingGuts.exit, label %102, !llvm.loop !11
+  br i1 %exitcond.not.i, label %MarkAsPreparingGuts.exit, label %102, !llvm.loop !10
 
 MarkAsPreparingGuts.exit:                         ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 440
@@ -3744,7 +3744,7 @@ GXactLoadSubxactData.exit:                        ; preds = %122, %124
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %154 = load i8, ptr %153, align 4
   %155 = icmp eq i8 %154, 0
-  br i1 %155, label %ProcessRecords.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %155, label %ProcessRecords.exit, label %.lr.ph.i
 
 ProcessRecords.exit:                              ; preds = %147, %GXactLoadSubxactData.exit
   %156 = load i32, ptr @standbyState, align 4
@@ -3780,7 +3780,7 @@ ProcessRecords.exit:                              ; preds = %147, %GXactLoadSubx
   %174 = load i32, ptr %173, align 8
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next, %175
-  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %171, %0
   %177 = load ptr, ptr @MainLWLockArray, align 8
@@ -3824,7 +3824,7 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !27
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -3869,7 +3869,7 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
 30:                                               ; preds = %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !8
 
 31:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
@@ -3982,7 +3982,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !31
+  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %45, %3, %44
   %51 = phi i1 [ true, %44 ], [ false, %3 ], [ false, %45 ]
@@ -4085,7 +4085,7 @@ IsTwoPhaseTransactionGidForSubid.exit:            ; preds = %23
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %IsTwoPhaseTransactionGidForSubid.exit._crit_edge, !llvm.loop !32
+  br i1 %37, label %.lr.ph, label %IsTwoPhaseTransactionGidForSubid.exit._crit_edge, !llvm.loop !29
 
 IsTwoPhaseTransactionGidForSubid.exit._crit_edge: ; preds = %32, %IsTwoPhaseTransactionGidForSubid.exit, %1
   %.lcssa = phi i1 [ false, %1 ], [ true, %IsTwoPhaseTransactionGidForSubid.exit ], [ false, %32 ]
@@ -4193,30 +4193,27 @@ attributes #17 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !7, !8, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !7, !8, !24}
-!26 = distinct !{!26, !7, !8, !24}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7, !21}
+!23 = distinct !{!23, !7, !21}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

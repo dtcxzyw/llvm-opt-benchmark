@@ -110,7 +110,7 @@ define hidden i32 @uv__signal_loop_fork(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %.lr.ph, %15
   %.017 = load ptr, ptr %.01721, align 8
   %.not = icmp eq ptr %.017, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18
   %.pre = load i32, ptr %2, align 8
@@ -163,7 +163,7 @@ define hidden void @uv__signal_loop_cleanup(ptr noundef captures(address) %0) lo
 8:                                                ; preds = %6, %.lr.ph
   %.0 = load ptr, ptr %.019, align 8
   %.not = icmp eq ptr %.0, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %8, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -229,7 +229,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef captures(address) %0) u
   %22 = getelementptr inbounds nuw i8, ptr %.070.i, i64 112
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %24, label %.preheader6.i, !llvm.loop !7
+  br i1 %.not.i, label %24, label %.preheader6.i
 
 24:                                               ; preds = %.preheader6.i
   %25 = getelementptr inbounds nuw i8, ptr %.070.i, i64 112
@@ -321,7 +321,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef captures(address) %0) u
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 128
   %64 = load ptr, ptr %63, align 8
   %.not85.i = icmp eq ptr %64, null
-  br i1 %.not85.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !8
+  br i1 %.not85.i, label %.loopexit.i, label %.preheader.i
 
 65:                                               ; preds = %10
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -824,7 +824,7 @@ split.thread.i.i:                                 ; preds = %138, %166, %split.t
   store i32 1, ptr %289, align 8
   %.1180.in.i.i = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 128
   %.1180.i.i = load ptr, ptr %.1180.in.i.i, align 8
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader
 
 .critedge.i.i:                                    ; preds = %286, %193
   %.1177.i.i = phi ptr [ %.117762.i.i, %286 ], [ %.117761.i.i, %193 ]
@@ -889,7 +889,7 @@ uv__signal_compare.exit.thread3.i.i:              ; preds = %uv__signal_compare.
   %308 = getelementptr inbounds nuw i8, ptr %.01210.i.i, i64 %.sink.i.i
   %.012.i.i = load ptr, ptr %308, align 8
   %.not.i.i16 = icmp eq ptr %.012.i.i, null
-  br i1 %.not.i.i16, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i16, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i
 
 uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %uv__signal_compare.exit.thread3.i.i
   %.not.i17 = icmp eq ptr %.1.i.i15, null
@@ -972,7 +972,7 @@ uv__signal_register_handler.exit:                 ; preds = %324
   %336 = tail call ptr @__errno_location() #12
   %337 = load i32, ptr %336, align 4
   %338 = icmp eq i32 %337, 4
-  br i1 %338, label %331, label %339, !llvm.loop !11
+  br i1 %338, label %331, label %339
 
 339:                                              ; preds = %335
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
@@ -1157,7 +1157,7 @@ uv__signal_compare.exit.thread3.i.i:              ; preds = %uv__signal_compare.
   %36 = getelementptr inbounds nuw i8, ptr %.01210.i.i, i64 %.sink.i.i
   %.012.i.i = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %.012.i.i, null
-  br i1 %.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i
 
 uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %uv__signal_compare.exit.thread3.i.i
   %.not.i = icmp eq ptr %.1.i.i, null
@@ -1281,7 +1281,7 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   %67 = tail call ptr @__errno_location() #12
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 4
-  br i1 %69, label %62, label %70, !llvm.loop !11
+  br i1 %69, label %62, label %70
 
 70:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
@@ -1368,7 +1368,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   %107 = getelementptr inbounds nuw i8, ptr %.02615.i, i64 %.sink.i
   %.026.i = load ptr, ptr %107, align 8
   %.not.i42 = icmp eq ptr %.026.i, null
-  br i1 %.not.i42, label %108, label %82, !llvm.loop !12
+  br i1 %.not.i42, label %108, label %82
 
 108:                                              ; preds = %uv__signal_compare.exit.thread5.i
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1448,7 +1448,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   %146 = getelementptr inbounds nuw i8, ptr %.0.be.i.i, i64 128
   %147 = load ptr, ptr %146, align 8
   %.not.i.i44 = icmp eq ptr %147, null
-  br i1 %.not.i.i44, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.i, label %.lr.ph.i.i43, !llvm.loop !13
+  br i1 %.not.i.i44, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.i, label %.lr.ph.i.i43
 
 148:                                              ; preds = %139, %136
   %149 = getelementptr inbounds nuw i8, ptr %125, i64 120
@@ -1703,7 +1703,7 @@ uv__signal_tree_s_RB_INSERT.exit:                 ; preds = %uv__signal_compare.
   %252 = tail call ptr @__errno_location() #12
   %253 = load i32, ptr %252, align 4
   %254 = icmp eq i32 %253, 4
-  br i1 %254, label %247, label %255, !llvm.loop !11
+  br i1 %254, label %247, label %255
 
 255:                                              ; preds = %251
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
@@ -1813,7 +1813,7 @@ uv__signal_cleanup.exit:                          ; preds = %5, %7
   %17 = tail call ptr @__errno_location() #12
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %12, label %20, !llvm.loop !11
+  br i1 %19, label %12, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #10
@@ -1915,7 +1915,7 @@ define internal void @uv__signal_event(ptr noundef readonly captures(none) %0, p
 38:                                               ; preds = %30, %37
   %39 = add nuw i64 %.02839, 16
   %40 = icmp ult i64 %39, %19
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %40, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %.critedge38
   %41 = and i64 %18, 15
@@ -1931,7 +1931,7 @@ define internal void @uv__signal_event(ptr noundef readonly captures(none) %0, p
   %.130 = phi i64 [ %.029, %13 ], [ %.029, %16 ], [ %19, %42 ], [ %19, %._crit_edge ]
   %.1 = phi i64 [ %.0, %13 ], [ %.0, %16 ], [ %41, %42 ], [ 0, %._crit_edge ]
   %45 = icmp eq i64 %.130, 512
-  br i1 %45, label %6, label %46, !llvm.loop !15
+  br i1 %45, label %6, label %46
 
 46:                                               ; preds = %44, %16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #10
@@ -1984,7 +1984,7 @@ define internal fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %0) u
   %16 = tail call ptr @__errno_location() #12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %11, label %19, !llvm.loop !16
+  br i1 %18, label %11, label %19
 
 19:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
@@ -2033,7 +2033,7 @@ define internal void @uv__signal_handler(i32 noundef %0) #9 {
 13:                                               ; preds = %9
   %14 = load i32, ptr %6, align 4
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %9, label %uv__signal_lock.exit, !llvm.loop !16
+  br i1 %15, label %9, label %uv__signal_lock.exit
 
 uv__signal_lock.exit:                             ; preds = %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
@@ -2085,7 +2085,7 @@ uv__signal_compare.exit.thread3.i.i:              ; preds = %uv__signal_compare.
   %32 = getelementptr inbounds nuw i8, ptr %.01210.i.i, i64 %.sink.i.i
   %.012.i.i = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %.012.i.i, null
-  br i1 %.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i
 
 uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %uv__signal_compare.exit.thread3.i.i
   %.not.i = icmp eq ptr %.1.i.i, null
@@ -2133,7 +2133,7 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
 46:                                               ; preds = %40
   %47 = load i32, ptr %6, align 4
   %48 = icmp eq i32 %47, 4
-  br i1 %48, label %40, label %.critedge2, !llvm.loop !17
+  br i1 %48, label %40, label %.critedge2
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %.02544, i64 144
@@ -2153,7 +2153,7 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
   %55 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 112
   %56 = load ptr, ptr %55, align 8
   %.not20.i = icmp eq ptr %56, null
-  br i1 %.not20.i, label %uv__signal_tree_s_RB_NEXT.exit, label %.preheader.i, !llvm.loop !18
+  br i1 %.not20.i, label %uv__signal_tree_s_RB_NEXT.exit, label %.preheader.i
 
 57:                                               ; preds = %.critedge2
   %58 = getelementptr inbounds nuw i8, ptr %.02544, i64 128
@@ -2181,14 +2181,14 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 120
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %.2.i, %69
-  br i1 %70, label %64, label %uv__signal_tree_s_RB_NEXT.exit, !llvm.loop !19
+  br i1 %70, label %64, label %uv__signal_tree_s_RB_NEXT.exit
 
 uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %67, %60
   %.1.i = phi ptr [ %59, %60 ], [ %66, %67 ], [ %.0.i18, %.preheader.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 104
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, %0
-  br i1 %73, label %.lr.ph45, label %.critedge, !llvm.loop !20
+  br i1 %73, label %.lr.ph45, label %.critedge
 
 .critedge:                                        ; preds = %uv__signal_tree_s_RB_NEXT.exit, %64, %.lr.ph, %uv__signal_first_handle.exit.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
@@ -2205,7 +2205,7 @@ uv__signal_tree_s_RB_NEXT.exit:                   ; preds = %.preheader.i, %67, 
 78:                                               ; preds = %74
   %79 = load i32, ptr %6, align 4
   %80 = icmp eq i32 %79, 4
-  br i1 %80, label %74, label %uv__signal_unlock.exit, !llvm.loop !11
+  br i1 %80, label %74, label %uv__signal_unlock.exit
 
 uv__signal_unlock.exit:                           ; preds = %74, %78
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
@@ -2243,20 +2243,3 @@ attributes #12 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

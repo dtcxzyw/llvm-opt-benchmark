@@ -584,7 +584,7 @@ _ZL17align_buffer_sizeRmmmb.exit.i:               ; preds = %33, %24
   %.not11.i = icmp samesign uge i64 %41, %42
   %.not12.i = icmp ugt i64 %39, %26
   %or.cond.i = and i1 %.not12.i, %.not11.i
-  br i1 %or.cond.i, label %.lr.ph.i, label %_ZL39adjust_buffer_size_to_total_memory_sizeRmS_.exit, !llvm.loop !10
+  br i1 %or.cond.i, label %.lr.ph.i, label %_ZL39adjust_buffer_size_to_total_memory_sizeRmS_.exit, !llvm.loop !9
 
 _ZL39adjust_buffer_size_to_total_memory_sizeRmS_.exit: ; preds = %.lr.ph.i, %_ZL17align_buffer_sizeRmmmb.exit.i
   %43 = phi i64 [ %36, %_ZL17align_buffer_sizeRmmmb.exit.i ], [ %40, %.lr.ph.i ]
@@ -733,7 +733,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{!"branch_weights", i32 1, i32 1048575}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

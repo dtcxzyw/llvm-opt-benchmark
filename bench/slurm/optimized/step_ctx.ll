@@ -134,7 +134,7 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
   ]
 
 .backedge:                                        ; preds = %55, %55
-  br label %42, !llvm.loop !12
+  br label %42, !llvm.loop !11
 
 .loopexit:                                        ; preds = %55, %51, %42, %.thread
   %57 = call i32 @xsignal_block(ptr noundef nonnull @step_signals) #8
@@ -535,8 +535,7 @@ attributes #9 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
+!11 = distinct !{!11, !10}

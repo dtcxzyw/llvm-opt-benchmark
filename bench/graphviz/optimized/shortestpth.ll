@@ -201,11 +201,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %21
   %.3.us.i = phi i32 [ %.2.us.i, %99 ], [ %.166.us.i, %79 ]
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %70
-  br i1 %exitcond82.not.i, label %..loopexit_crit_edge.us.i, label %79, !llvm.loop !23
+  br i1 %exitcond82.not.i, label %..loopexit_crit_edge.us.i, label %79, !llvm.loop !22
 
 ..loopexit_crit_edge.us.i:                        ; preds = %106
   %.not.us.i = icmp eq i32 %.3.us.i, %11
-  br i1 %.not.us.i, label %shortestPath.exit, label %.lr.ph68.us.i, !llvm.loop !24
+  br i1 %.not.us.i, label %shortestPath.exit, label %.lr.ph68.us.i, !llvm.loop !23
 
 .loopexit.preheader.i:                            ; preds = %55
   %107 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -290,9 +290,8 @@ attributes #12 = { cold noreturn nounwind }
 !17 = !{!"p1 double", !9, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"double", !6, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = distinct !{!24, !21, !22, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}

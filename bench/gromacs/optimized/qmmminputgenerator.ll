@@ -333,7 +333,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -389,12 +389,12 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx1112basic_str
   %.016 = phi ptr [ %22, %16 ], [ %2, %3 ]
   %.01215 = phi ptr [ %21, %16 ], [ %0, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %.016, i64 16
-  store ptr %5, ptr %.016, align 8, !tbaa !22
+  store ptr %5, ptr %.016, align 8, !tbaa !21
   %6 = load ptr, ptr %.01215, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  store i64 %8, ptr %4, align 8, !tbaa !23
+  store i64 %8, ptr %4, align 8, !tbaa !22
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -404,7 +404,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx1112basic_str
 
 .noexc:                                           ; preds = %.noexc.i.i
   store ptr %10, ptr %.016, align 8, !tbaa !11
-  %11 = load i64, ptr %4, align 8, !tbaa !23
+  %11 = load i64, ptr %4, align 8, !tbaa !22
   store i64 %11, ptr %5, align 8, !tbaa !17
   br label %._crit_edge.i.i.i
 
@@ -425,7 +425,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx1112basic_str
   br label %16
 
 16:                                               ; preds = %15, %13, %._crit_edge.i.i.i
-  %17 = load i64, ptr %4, align 8, !tbaa !23
+  %17 = load i64, ptr %4, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   store i64 %17, ptr %18, align 8, !tbaa !16
   %19 = load ptr, ptr %.016, align 8, !tbaa !11
@@ -435,7 +435,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx1112basic_str
   %21 = getelementptr inbounds nuw i8, ptr %.01215, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %.not = icmp eq ptr %21, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 23:                                               ; preds = %.noexc.i.i
   %24 = landingpad { ptr, i32 }
@@ -513,80 +513,80 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18QMMMInputGeneratorC2ERKNS_14QMMMParametersE7PbcTypePA3_KfNS_8ArrayRefIS5_EENS8_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 12), (48, 108), (120, 124), (128, 136)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr %4, ptr %5, ptr noundef readonly byval(%"class.gmx::ArrayRef.4") align 8 captures(none) %6) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !25
+  store ptr %1, ptr %0, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %8, align 8, !tbaa !27
+  store i32 %2, ptr %8, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %11, align 8, !tbaa !46
+  store i32 0, ptr %11, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr null, ptr %12, align 8, !tbaa !47
+  store ptr null, ptr %12, align 8, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %9, i8 0, i64 60, i1 false)
-  store ptr %11, ptr %13, align 8, !tbaa !48
+  store ptr %11, ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %11, ptr %14, align 8, !tbaa !49
+  store ptr %11, ptr %14, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 0, ptr %15, align 8, !tbaa !50
+  store i64 0, ptr %15, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %4, ptr %16, align 8, !tbaa !51
+  store ptr %4, ptr %16, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = ptrtoint ptr %5 to i64
   %19 = ptrtoint ptr %4 to i64
   %20 = sub i64 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
-  store ptr %21, ptr %17, align 8, !tbaa !51
+  store ptr %21, ptr %17, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %23 = load ptr, ptr %6, align 8, !tbaa !52
-  store ptr %23, ptr %22, align 8, !tbaa !52
+  %23 = load ptr, ptr %6, align 8, !tbaa !51
+  store ptr %23, ptr %22, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !52
+  %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 %29
-  store ptr %30, ptr %24, align 8, !tbaa !52
+  store ptr %30, ptr %24, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %32 = load float, ptr %3, align 4, !tbaa !53
-  store float %32, ptr %31, align 4, !tbaa !53
+  %32 = load float, ptr %3, align 4, !tbaa !52
+  store float %32, ptr %31, align 4, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %34 = load float, ptr %33, align 4, !tbaa !53
+  %34 = load float, ptr %33, align 4, !tbaa !52
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %34, ptr %35, align 8, !tbaa !53
+  store float %34, ptr %35, align 8, !tbaa !52
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load float, ptr %36, align 4, !tbaa !53
+  %37 = load float, ptr %36, align 4, !tbaa !52
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %37, ptr %38, align 4, !tbaa !53
+  store float %37, ptr %38, align 4, !tbaa !52
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load float, ptr %39, align 4, !tbaa !53
-  store float %41, ptr %40, align 8, !tbaa !53
+  %41 = load float, ptr %39, align 4, !tbaa !52
+  store float %41, ptr %40, align 8, !tbaa !52
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = load float, ptr %42, align 4, !tbaa !53
+  %43 = load float, ptr %42, align 4, !tbaa !52
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %43, ptr %44, align 4, !tbaa !53
+  store float %43, ptr %44, align 4, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %46 = load float, ptr %45, align 4, !tbaa !53
+  %46 = load float, ptr %45, align 4, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %46, ptr %47, align 8, !tbaa !53
+  store float %46, ptr %47, align 8, !tbaa !52
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %50 = load float, ptr %48, align 4, !tbaa !53
-  store float %50, ptr %49, align 4, !tbaa !53
+  %50 = load float, ptr %48, align 4, !tbaa !52
+  store float %50, ptr %49, align 4, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %52 = load float, ptr %51, align 4, !tbaa !53
+  %52 = load float, ptr %51, align 4, !tbaa !52
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %52, ptr %53, align 8, !tbaa !53
+  store float %52, ptr %53, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %55 = load float, ptr %54, align 4, !tbaa !53
+  %55 = load float, ptr %54, align 4, !tbaa !52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %55, ptr %56, align 4, !tbaa !53
+  store float %55, ptr %56, align 4, !tbaa !52
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !55
+  %58 = load ptr, ptr %57, align 8, !tbaa !54
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !55
+  %60 = load ptr, ptr %59, align 8, !tbaa !54
   %.not14 = icmp eq ptr %58, %60
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -607,7 +607,7 @@ define void @_ZN3gmx18QMMMInputGeneratorC2ERKNS_14QMMMParametersE7PbcTypePA3_KfN
 _ZNSt3setIlSt4lessIlESaIlEE7emplaceIJRKlEEESt4pairISt23_Rb_tree_const_iteratorIlEbEDpOT_.exit: ; preds = %.lr.ph
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 8
   %.not = icmp eq ptr %64, %60
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 65:                                               ; preds = %.lr.ph
   %66 = landingpad { ptr, i32 }
@@ -630,11 +630,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull align 8 dereferenceable(192) %0, float noundef %1, float noundef %2) local_unnamed_addr #14 align 2 {
   %4 = alloca %struct.t_pbc, align 4
   %5 = alloca %"class.gmx::BasicVector", align 4
-  %6 = load ptr, ptr %0, align 8, !tbaa !58
+  %6 = load ptr, ptr %0, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
-  %10 = load ptr, ptr %7, align 8, !tbaa !61
+  %9 = load ptr, ptr %8, align 8, !tbaa !57
+  %10 = load ptr, ptr %7, align 8, !tbaa !59
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -645,47 +645,47 @@ define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull al
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load float, ptr %17, align 4, !tbaa !53
-  store float %19, ptr %18, align 8, !tbaa !53
+  %19 = load float, ptr %17, align 4, !tbaa !52
+  store float %19, ptr %18, align 8, !tbaa !52
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load float, ptr %20, align 8, !tbaa !53
+  %21 = load float, ptr %20, align 8, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %21, ptr %22, align 4, !tbaa !53
+  store float %21, ptr %22, align 4, !tbaa !52
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %24 = load float, ptr %23, align 4, !tbaa !53
+  %24 = load float, ptr %23, align 4, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %24, ptr %25, align 8, !tbaa !53
+  store float %24, ptr %25, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %28 = load float, ptr %26, align 8, !tbaa !53
-  store float %28, ptr %27, align 4, !tbaa !53
+  %28 = load float, ptr %26, align 8, !tbaa !52
+  store float %28, ptr %27, align 4, !tbaa !52
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %30 = load float, ptr %29, align 4, !tbaa !53
+  %30 = load float, ptr %29, align 4, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %30, ptr %31, align 8, !tbaa !53
+  store float %30, ptr %31, align 8, !tbaa !52
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load float, ptr %32, align 8, !tbaa !53
+  %33 = load float, ptr %32, align 8, !tbaa !52
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %33, ptr %34, align 4, !tbaa !53
+  store float %33, ptr %34, align 4, !tbaa !52
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load float, ptr %35, align 4, !tbaa !53
-  store float %37, ptr %36, align 8, !tbaa !53
+  %37 = load float, ptr %35, align 4, !tbaa !52
+  store float %37, ptr %36, align 8, !tbaa !52
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load float, ptr %38, align 8, !tbaa !53
+  %39 = load float, ptr %38, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store float %39, ptr %40, align 4, !tbaa !53
+  store float %39, ptr %40, align 4, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %42 = load float, ptr %41, align 4, !tbaa !53
+  %42 = load float, ptr %41, align 4, !tbaa !52
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store float %42, ptr %43, align 8, !tbaa !53
+  store float %42, ptr %43, align 8, !tbaa !52
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %45 = load i64, ptr %10, align 8, !tbaa !23
+  %45 = load i64, ptr %10, align 8, !tbaa !22
   %46 = load i64, ptr %44, align 8
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %47, i64 %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %49, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false), !tbaa.struct !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %49, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false), !tbaa.struct !60
   %50 = fmul float %19, 5.000000e-01
   %51 = fmul float %21, 5.000000e-01
   %52 = fmul float %24, 5.000000e-01
@@ -701,13 +701,13 @@ define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull al
   %62 = fadd float %56, %59
   %63 = fadd float %57, %60
   %64 = fadd float %58, %61
-  %65 = load float, ptr %49, align 4, !tbaa !53
+  %65 = load float, ptr %49, align 4, !tbaa !52
   %66 = fsub float %62, %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %68 = load float, ptr %67, align 8, !tbaa !53
+  %68 = load float, ptr %67, align 8, !tbaa !52
   %69 = fsub float %63, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %71 = load float, ptr %70, align 4, !tbaa !53
+  %71 = load float, ptr %70, align 4, !tbaa !52
   %72 = fsub float %64, %71
   %.sroa.0.0.vec.insert.i110 = insertelement <2 x float> poison, float %66, i64 0
   %.sroa.0.4.vec.insert.i111 = insertelement <2 x float> %.sroa.0.0.vec.insert.i110, float %69, i64 1
@@ -720,15 +720,15 @@ define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull al
 74:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #26
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !27
+  %76 = load i32, ptr %75, align 8, !tbaa !26
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %4, i32 noundef %76, ptr noundef nonnull %77)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #26
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !53
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !52
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %78, align 4, !tbaa !53
+  store float 0.000000e+00, ptr %78, align 4, !tbaa !52
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float 0.000000e+00, ptr %79, align 4, !tbaa !53
+  store float 0.000000e+00, ptr %79, align 4, !tbaa !52
   %80 = add nsw i64 %14, -1
   %.not = icmp eq i64 %80, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph304
@@ -739,28 +739,28 @@ define void @_ZN3gmx18QMMMInputGenerator12computeQMBoxEff(ptr noundef nonnull al
 
 .loopexit:                                        ; preds = %.lr.ph
   %exitcond309.not = icmp eq i64 %246, %80
-  br i1 %exitcond309.not, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !63
+  br i1 %exitcond309.not, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.loopexit, %74
   %.0.lcssa = phi float [ 0.000000e+00, %74 ], [ %265, %.loopexit ]
   %82 = fmul float %1, %.0.lcssa
-  %83 = load float, ptr %77, align 4, !tbaa !53
+  %83 = load float, ptr %77, align 4, !tbaa !52
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %85 = load float, ptr %84, align 8, !tbaa !53
+  %85 = load float, ptr %84, align 8, !tbaa !52
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %87 = load float, ptr %86, align 4, !tbaa !53
+  %87 = load float, ptr %86, align 4, !tbaa !52
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %89 = load float, ptr %88, align 8, !tbaa !53
+  %89 = load float, ptr %88, align 8, !tbaa !52
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %91 = load float, ptr %90, align 4, !tbaa !53
+  %91 = load float, ptr %90, align 4, !tbaa !52
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %93 = load float, ptr %92, align 8, !tbaa !53
+  %93 = load float, ptr %92, align 8, !tbaa !52
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %95 = load float, ptr %94, align 4, !tbaa !53
+  %95 = load float, ptr %94, align 4, !tbaa !52
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %97 = load float, ptr %96, align 8, !tbaa !53
+  %97 = load float, ptr %96, align 8, !tbaa !52
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %99 = load float, ptr %98, align 4, !tbaa !53
+  %99 = load float, ptr %98, align 4, !tbaa !52
   %100 = fmul float %85, %85
   %101 = call float @llvm.fmuladd.f32(float %83, float %83, float %100)
   %102 = call noundef float @llvm.fmuladd.f32(float %87, float %87, float %101)
@@ -966,26 +966,26 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit150: ; preds = %179
   %.sroa.20.1.i177 = select i1 %228, float %232, float %.sroa.20.0.i172
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0271.0.vec.extract = extractelement <2 x float> %.sroa.058.1.i, i64 0
-  store float %.sroa.0271.0.vec.extract, ptr %233, align 8, !tbaa !53
+  store float %.sroa.0271.0.vec.extract, ptr %233, align 8, !tbaa !52
   %.sroa.0271.4.vec.extract = extractelement <2 x float> %.sroa.058.1.i, i64 1
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %.sroa.0271.4.vec.extract, ptr %234, align 4, !tbaa !53
+  store float %.sroa.0271.4.vec.extract, ptr %234, align 4, !tbaa !52
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %.sroa.20.1.i, ptr %235, align 8, !tbaa !53
+  store float %.sroa.20.1.i, ptr %235, align 8, !tbaa !52
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %.sroa.0255.0.vec.extract = extractelement <2 x float> %.sroa.058.1.i142, i64 0
-  store float %.sroa.0255.0.vec.extract, ptr %236, align 4, !tbaa !53
+  store float %.sroa.0255.0.vec.extract, ptr %236, align 4, !tbaa !52
   %.sroa.0255.4.vec.extract = extractelement <2 x float> %.sroa.058.1.i142, i64 1
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %.sroa.0255.4.vec.extract, ptr %237, align 8, !tbaa !53
+  store float %.sroa.0255.4.vec.extract, ptr %237, align 8, !tbaa !52
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %.sroa.20.1.i143, ptr %238, align 4, !tbaa !53
+  store float %.sroa.20.1.i143, ptr %238, align 4, !tbaa !52
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store float %.sroa.0240.0.vec.extract.pre-phi, ptr %239, align 8, !tbaa !53
+  store float %.sroa.0240.0.vec.extract.pre-phi, ptr %239, align 8, !tbaa !52
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store float %.sroa.0240.4.vec.extract.pre-phi, ptr %240, align 4, !tbaa !53
+  store float %.sroa.0240.4.vec.extract.pre-phi, ptr %240, align 4, !tbaa !52
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store float %.sroa.20.1.i177, ptr %241, align 8, !tbaa !53
+  store float %.sroa.20.1.i177, ptr %241, align 8, !tbaa !52
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1002,30 +1002,30 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit150: ; preds = %179
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.1301 = phi float [ %265, %.lr.ph ], [ %.0303, %.lr.ph.preheader ]
   %.095300 = phi i64 [ %266, %.lr.ph ], [ %246, %.lr.ph.preheader ]
-  %247 = load ptr, ptr %0, align 8, !tbaa !58
+  %247 = load ptr, ptr %0, align 8, !tbaa !56
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  %249 = load ptr, ptr %248, align 8, !tbaa !61
+  %249 = load ptr, ptr %248, align 8, !tbaa !59
   %250 = getelementptr inbounds nuw i64, ptr %249, i64 %.094302
-  %251 = load i64, ptr %250, align 8, !tbaa !23
+  %251 = load i64, ptr %250, align 8, !tbaa !22
   %252 = load i64, ptr %81, align 8
   %253 = inttoptr i64 %252 to ptr
   %254 = getelementptr inbounds %"class.gmx::BasicVector", ptr %253, i64 %251
   %255 = getelementptr inbounds nuw i64, ptr %249, i64 %.095300
-  %256 = load i64, ptr %255, align 8, !tbaa !23
+  %256 = load i64, ptr %255, align 8, !tbaa !22
   %257 = getelementptr inbounds %"class.gmx::BasicVector", ptr %253, i64 %256
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %4, ptr noundef nonnull %254, ptr noundef nonnull %257, ptr noundef nonnull %5)
-  %258 = load float, ptr %5, align 4, !tbaa !53
-  %259 = load float, ptr %78, align 4, !tbaa !53
+  %258 = load float, ptr %5, align 4, !tbaa !52
+  %259 = load float, ptr %78, align 4, !tbaa !52
   %260 = fmul float %259, %259
   %261 = call float @llvm.fmuladd.f32(float %258, float %258, float %260)
-  %262 = load float, ptr %79, align 4, !tbaa !53
+  %262 = load float, ptr %79, align 4, !tbaa !52
   %263 = call noundef float @llvm.fmuladd.f32(float %262, float %262, float %261)
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %263)
   %264 = fcmp ogt float %sqrt.i, %.1301
   %265 = select i1 %264, float %sqrt.i, float %.1301
   %266 = add i64 %.095300, 1
   %exitcond.not = icmp eq i64 %266, %14
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge308:                                   ; preds = %309
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1036,20 +1036,20 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit150: ; preds = %179
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %273 = fmul float %269, %328
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %275 = load ptr, ptr %0, align 8, !tbaa !58
+  %275 = load ptr, ptr %0, align 8, !tbaa !56
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  %277 = load ptr, ptr %276, align 8, !tbaa !61
-  %278 = load i64, ptr %277, align 8, !tbaa !23
+  %277 = load ptr, ptr %276, align 8, !tbaa !59
+  %278 = load i64, ptr %277, align 8, !tbaa !22
   %279 = load i64, ptr %274, align 8
   %280 = inttoptr i64 %279 to ptr
   %281 = getelementptr inbounds %"class.gmx::BasicVector", ptr %280, i64 %278
-  %282 = load float, ptr %281, align 4, !tbaa !53
+  %282 = load float, ptr %281, align 4, !tbaa !52
   %283 = fadd float %270, %282
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 4
-  %285 = load float, ptr %284, align 4, !tbaa !53
+  %285 = load float, ptr %284, align 4, !tbaa !52
   %286 = fadd float %271, %285
   %287 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  %288 = load float, ptr %287, align 4, !tbaa !53
+  %288 = load float, ptr %287, align 4, !tbaa !52
   %289 = fadd float %273, %288
   %.sroa.0.0.vec.insert.i190 = insertelement <2 x float> poison, float %283, i64 0
   %.sroa.0.4.vec.insert.i191 = insertelement <2 x float> %.sroa.0.0.vec.insert.i190, float %286, i64 1
@@ -1085,25 +1085,25 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit150: ; preds = %179
 
 309:                                              ; preds = %.lr.ph307, %309
   %.096306 = phi i64 [ 1, %.lr.ph307 ], [ %329, %309 ]
-  %310 = load ptr, ptr %0, align 8, !tbaa !58
+  %310 = load ptr, ptr %0, align 8, !tbaa !56
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %312 = load ptr, ptr %311, align 8, !tbaa !61
+  %312 = load ptr, ptr %311, align 8, !tbaa !59
   %313 = getelementptr inbounds nuw i64, ptr %312, i64 %.096306
-  %314 = load i64, ptr %313, align 8, !tbaa !23
+  %314 = load i64, ptr %313, align 8, !tbaa !22
   %315 = load i64, ptr %242, align 8
   %316 = inttoptr i64 %315 to ptr
   %317 = getelementptr inbounds %"class.gmx::BasicVector", ptr %316, i64 %314
-  %318 = load i64, ptr %312, align 8, !tbaa !23
+  %318 = load i64, ptr %312, align 8, !tbaa !22
   %319 = getelementptr inbounds %"class.gmx::BasicVector", ptr %316, i64 %318
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %4, ptr noundef nonnull %317, ptr noundef nonnull %319, ptr noundef nonnull %5)
-  %320 = load float, ptr %243, align 4, !tbaa !53
-  %321 = load float, ptr %5, align 4, !tbaa !53
+  %320 = load float, ptr %243, align 4, !tbaa !52
+  %321 = load float, ptr %5, align 4, !tbaa !52
   %322 = fadd float %320, %321
-  %323 = load float, ptr %244, align 8, !tbaa !53
-  %324 = load float, ptr %78, align 4, !tbaa !53
+  %323 = load float, ptr %244, align 8, !tbaa !52
+  %324 = load float, ptr %78, align 4, !tbaa !52
   %325 = fadd float %323, %324
-  %326 = load float, ptr %245, align 4, !tbaa !53
-  %327 = load float, ptr %79, align 4, !tbaa !53
+  %326 = load float, ptr %245, align 4, !tbaa !52
+  %327 = load float, ptr %79, align 4, !tbaa !52
   %328 = fadd float %326, %327
   %.sroa.0.0.vec.insert.i.i218 = insertelement <2 x float> poison, float %322, i64 0
   %.sroa.0.4.vec.insert.i.i219 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i218, float %325, i64 1
@@ -1111,7 +1111,7 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit150: ; preds = %179
   store float %328, ptr %245, align 4, !tbaa !17
   %329 = add nuw i64 %.096306, 1
   %exitcond310.not = icmp eq i64 %329, %umax
-  br i1 %exitcond310.not, label %._crit_edge308, label %309, !llvm.loop !65
+  br i1 %exitcond310.not, label %._crit_edge308, label %309, !llvm.loop !63
 
 330:                                              ; preds = %._crit_edge308, %16
   ret void
@@ -1120,7 +1120,7 @@ _ZN3gmx15computeQMBoxVecERKNS_11BasicVectorIfEES3_S3_fff.exit150: ; preds = %179
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3setIlSt4lessIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEED2Ev.exit unwind label %4
 
@@ -1139,24 +1139,24 @@ _ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEED2Ev.exit: ; preds = %1
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE17_M_emplace_uniqueIJRKlEEESt4pairISt17_Rb_tree_iteratorIlEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load i64, ptr %1, align 8, !tbaa !23
-  store i64 %5, ptr %4, align 8, !tbaa !23
+  %5 = load i64, ptr %1, align 8, !tbaa !22
+  store i64 %5, ptr %4, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.02022.i = load ptr, ptr %6, align 8, !tbaa !66
+  %.02022.i = load ptr, ptr %6, align 8, !tbaa !64
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.02024.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.02022.i, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !23
+  %9 = load i64, ptr %8, align 8, !tbaa !22
   %10 = icmp slt i64 %5, %9
   %.in.v.i = select i1 %10, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !66
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !64
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !67
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %10, label %._crit_edge.thread.i, label %16
@@ -1164,14 +1164,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlE
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %7, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %12 = load ptr, ptr %11, align 8, !tbaa !47
   %13 = icmp eq ptr %.019.lcssa28.i, %12
   br i1 %13, label %select.unfold, label %14
 
 14:                                               ; preds = %._crit_edge.thread.i
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !23
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !22
   br label %16
 
 16:                                               ; preds = %14, %._crit_edge.i
@@ -1188,7 +1188,7 @@ select.unfold:                                    ; preds = %16, %._crit_edge.th
 
 20:                                               ; preds = %select.unfold
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !23
+  %22 = load i64, ptr %21, align 8, !tbaa !22
   %23 = icmp slt i64 %5, %22
   br label %.thread24
 
@@ -1196,9 +1196,9 @@ select.unfold:                                    ; preds = %16, %._crit_edge.th
   %24 = phi i1 [ true, %select.unfold ], [ %23, %20 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %24, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i64, ptr %25, align 8, !tbaa !50
+  %26 = load i64, ptr %25, align 8, !tbaa !49
   %27 = add i64 %26, 1
-  store i64 %27, ptr %25, align 8, !tbaa !50
+  store i64 %27, ptr %25, align 8, !tbaa !49
   br label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_Auto_nodeD2Ev.exit
 
 28:                                               ; preds = %16
@@ -1227,13 +1227,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_er
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !68
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   tail call void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !69
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1242,7 +1242,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_er
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx18QMMMInputGenerator8isQMAtomEl(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %0, i64 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not10.i.i.i = icmp eq ptr %4, null
   br i1 %.not10.i.i.i, label %_ZNKSt3setIlSt4lessIlESaIlEE4findERKl.exit, label %.lr.ph.i.i.i
@@ -1251,14 +1251,14 @@ define noundef zeroext i1 @_ZNK3gmx18QMMMInputGenerator8isQMAtomEl(ptr noundef n
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %4, %2 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %5, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !23
+  %7 = load i64, ptr %6, align 8, !tbaa !22
   %8 = icmp slt i64 %7, %1
   %.19.i.i.i = select i1 %8, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %8, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !66
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !64
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !71
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !69
 
 _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -1266,7 +1266,7 @@ _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree
 
 10:                                               ; preds = %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !23
+  %12 = load i64, ptr %11, align 8, !tbaa !22
   %13 = icmp sge i64 %1, %12
   br label %_ZNKSt3setIlSt4lessIlESaIlEE4findERKl.exit
 
@@ -1375,7 +1375,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #19
 define void @_ZN3gmx18QMMMInputGenerator21generateGlobalSectionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %0, align 8, !tbaa !22
+  store ptr %1, ptr %0, align 8, !tbaa !21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8, !tbaa !16
   store i8 0, ptr %1, align 8, !tbaa !17
@@ -1464,7 +1464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !22
+  store ptr %5, ptr %0, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !16
   store i8 0, ptr %5, align 8, !tbaa !17
@@ -1473,9 +1473,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
-  %8 = load ptr, ptr %1, align 8, !tbaa !58
+  %8 = load ptr, ptr %1, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %10 = load i32, ptr %9, align 8, !tbaa !72
+  %10 = load i32, ptr %9, align 8, !tbaa !70
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.128, i32 noundef %10)
           to label %11 unwind label %57
 
@@ -1520,9 +1520,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
-  %27 = load ptr, ptr %1, align 8, !tbaa !58
+  %27 = load ptr, ptr %1, align 8, !tbaa !56
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 108
-  %29 = load i32, ptr %28, align 4, !tbaa !90
+  %29 = load i32, ptr %28, align 4, !tbaa !88
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.129, i32 noundef %29)
           to label %30 unwind label %68
 
@@ -1566,9 +1566,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
-  %46 = load ptr, ptr %1, align 8, !tbaa !58
+  %46 = load ptr, ptr %1, align 8, !tbaa !56
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 108
-  %48 = load i32, ptr %47, align 4, !tbaa !90
+  %48 = load i32, ptr %47, align 4, !tbaa !88
   %49 = icmp sgt i32 %48, 1
   br i1 %49, label %50, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit27
 
@@ -1909,12 +1909,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i134: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit137: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i134
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  %183 = load ptr, ptr %1, align 8, !tbaa !58
+  %183 = load ptr, ptr %1, align 8, !tbaa !56
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 112
-  %185 = load i32, ptr %184, align 8, !tbaa !91
+  %185 = load i32, ptr %184, align 8, !tbaa !89
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %186
-  %188 = load ptr, ptr %187, align 8, !tbaa !92
+  %188 = load ptr, ptr %187, align 8, !tbaa !90
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.157, ptr noundef %188)
           to label %189 unwind label %241
 
@@ -2121,15 +2121,15 @@ define void @_ZNK3gmx18QMMMInputGenerator19generateQMMMSectionB5cxx11Ev(ptr dead
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8, !tbaa !22
+  store ptr %10, ptr %0, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %11, align 8, !tbaa !16
   store i8 0, ptr %10, align 8, !tbaa !17
-  %12 = load ptr, ptr %1, align 8, !tbaa !58
+  %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
-  %16 = load ptr, ptr %13, align 8, !tbaa !61
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
+  %16 = load ptr, ptr %13, align 8, !tbaa !59
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
@@ -2161,7 +2161,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 .noexc55:                                         ; preds = %29
   %32 = and i64 %30, -4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %31, i8 0, i64 %32, i1 false), !tbaa !93
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %31, i8 0, i64 %32, i1 false), !tbaa !91
   %33 = getelementptr inbounds nuw i32, ptr %31, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 %30
   %35 = ptrtoint ptr %33 to i64
@@ -2176,7 +2176,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc55, %_ZNSt6ve
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %37 = load ptr, ptr %36, align 8, !tbaa !94
+  %37 = load ptr, ptr %36, align 8, !tbaa !92
   br label %41
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %41, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
@@ -2191,17 +2191,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 41:                                               ; preds = %.lr.ph, %41
   %.023288 = phi i64 [ 0, %.lr.ph ], [ %50, %41 ]
   %42 = getelementptr inbounds nuw i64, ptr %16, i64 %.023288
-  %43 = load i64, ptr %42, align 8, !tbaa !23
+  %43 = load i64, ptr %42, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i32, ptr %37, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !93
+  %45 = load i32, ptr %44, align 4, !tbaa !91
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw i32, ptr %.sroa.0220.0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !93
+  %48 = load i32, ptr %47, align 4, !tbaa !91
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 4, !tbaa !93
+  store i32 %49, ptr %47, align 4, !tbaa !91
   %50 = add nuw i64 %.023288, 1
   %exitcond.not = icmp eq i64 %50, %20
-  br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, label %41, !llvm.loop !95
+  br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, label %41, !llvm.loop !93
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %51 = load i64, ptr %11, align 8, !tbaa !16
@@ -2216,15 +2216,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i58: ; pre
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit61: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %56 = load float, ptr %55, align 8, !tbaa !53
+  %56 = load float, ptr %55, align 8, !tbaa !52
   %57 = fmul float %56, 1.000000e+01
   %58 = fpext float %57 to double
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %60 = load float, ptr %59, align 4, !tbaa !53
+  %60 = load float, ptr %59, align 4, !tbaa !52
   %61 = fmul float %60, 1.000000e+01
   %62 = fpext float %61 to double
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %64 = load float, ptr %63, align 8, !tbaa !53
+  %64 = load float, ptr %63, align 8, !tbaa !52
   %65 = fmul float %64, 1.000000e+01
   %66 = fpext float %65 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.172, double noundef %58, double noundef %62, double noundef %66)
@@ -2272,15 +2272,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %84 = load float, ptr %83, align 4, !tbaa !53
+  %84 = load float, ptr %83, align 4, !tbaa !52
   %85 = fmul float %84, 1.000000e+01
   %86 = fpext float %85 to double
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %88 = load float, ptr %87, align 8, !tbaa !53
+  %88 = load float, ptr %87, align 8, !tbaa !52
   %89 = fmul float %88, 1.000000e+01
   %90 = fpext float %89 to double
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %92 = load float, ptr %91, align 4, !tbaa !53
+  %92 = load float, ptr %91, align 4, !tbaa !52
   %93 = fmul float %92, 1.000000e+01
   %94 = fpext float %93 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.173, double noundef %86, double noundef %90, double noundef %94)
@@ -2328,15 +2328,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %112 = load float, ptr %111, align 8, !tbaa !53
+  %112 = load float, ptr %111, align 8, !tbaa !52
   %113 = fmul float %112, 1.000000e+01
   %114 = fpext float %113 to double
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %116 = load float, ptr %115, align 4, !tbaa !53
+  %116 = load float, ptr %115, align 4, !tbaa !52
   %117 = fmul float %116, 1.000000e+01
   %118 = fpext float %117 to double
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %120 = load float, ptr %119, align 8, !tbaa !53
+  %120 = load float, ptr %119, align 8, !tbaa !52
   %121 = fmul float %120, 1.000000e+01
   %122 = fpext float %121 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.174, double noundef %114, double noundef %118, double noundef %122)
@@ -2558,11 +2558,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit141.preheader: ;
   br label %255
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit141.preheader
-  %211 = load ptr, ptr %1, align 8, !tbaa !58
+  %211 = load ptr, ptr %1, align 8, !tbaa !56
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 56
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 64
-  %214 = load ptr, ptr %213, align 8, !tbaa !96
-  %215 = load ptr, ptr %212, align 8, !tbaa !97
+  %214 = load ptr, ptr %213, align 8, !tbaa !94
+  %215 = load ptr, ptr %212, align 8, !tbaa !95
   %.not298 = icmp eq ptr %214, %215
   br i1 %.not298, label %._crit_edge, label %.lr.ph295
 
@@ -2671,7 +2671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %_Z
 255:                                              ; preds = %.lr.ph293, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182
   %.022291 = phi i64 [ 0, %.lr.ph293 ], [ %335, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182 ]
   %256 = getelementptr inbounds nuw i32, ptr %.sroa.0220.0, i64 %.022291
-  %257 = load i32, ptr %256, align 4, !tbaa !93
+  %257 = load i32, ptr %256, align 4, !tbaa !91
   %258 = icmp sgt i32 %257, 0
   br i1 %258, label %259, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182
 
@@ -2799,15 +2799,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 .lr.ph290:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161
   %.021289 = phi i64 [ %330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161.preheader ]
-  %293 = load ptr, ptr %1, align 8, !tbaa !58
+  %293 = load ptr, ptr %1, align 8, !tbaa !56
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 80
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %296 = load ptr, ptr %295, align 8, !tbaa !61
+  %296 = load ptr, ptr %295, align 8, !tbaa !59
   %297 = getelementptr inbounds nuw i64, ptr %296, i64 %.021289
-  %298 = load i64, ptr %297, align 8, !tbaa !23
-  %299 = load ptr, ptr %294, align 8, !tbaa !94
+  %298 = load i64, ptr %297, align 8, !tbaa !22
+  %299 = load ptr, ptr %294, align 8, !tbaa !92
   %300 = getelementptr inbounds nuw i32, ptr %299, i64 %298
-  %301 = load i32, ptr %300, align 4, !tbaa !93
+  %301 = load i32, ptr %300, align 4, !tbaa !91
   %302 = sext i32 %301 to i64
   %303 = icmp eq i64 %.022291, %302
   br i1 %303, label %304, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161
@@ -2900,7 +2900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178: ; preds = %_Z
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161: ; preds = %.lr.ph290, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175
   %330 = add nuw i64 %.021289, 1
   %exitcond300.not = icmp eq i64 %330, %umax299
-  br i1 %exitcond300.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161._crit_edge, label %.lr.ph290, !llvm.loop !98
+  br i1 %exitcond300.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit161._crit_edge, label %.lr.ph290, !llvm.loop !96
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit165: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i162
   %331 = load i64, ptr %11, align 8, !tbaa !16
@@ -2915,7 +2915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i179: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i179, %255
   %335 = add nuw i64 %.022291, 1
   %exitcond302.not = icmp eq i64 %335, %206
-  br i1 %exitcond302.not, label %.preheader, label %255, !llvm.loop !99
+  br i1 %exitcond302.not, label %.preheader, label %255, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit208, %.preheader
   %336 = load i64, ptr %11, align 8, !tbaa !16
@@ -2954,11 +2954,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i187: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit190: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i187
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #26
-  %345 = load ptr, ptr %1, align 8, !tbaa !58
+  %345 = load ptr, ptr %1, align 8, !tbaa !56
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 56
-  %347 = load ptr, ptr %346, align 8, !tbaa !97
+  %347 = load ptr, ptr %346, align 8, !tbaa !95
   %348 = getelementptr inbounds nuw %"struct.gmx::LinkFrontier", ptr %347, i64 %.0294
-  %349 = load i64, ptr %348, align 8, !tbaa !100
+  %349 = load i64, ptr %348, align 8, !tbaa !98
   %350 = trunc i64 %349 to i32
   %351 = add nsw i32 %350, 1
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.197, i32 noundef %351)
@@ -3003,11 +3003,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit197: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26
-  %366 = load ptr, ptr %1, align 8, !tbaa !58
+  %366 = load ptr, ptr %1, align 8, !tbaa !56
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 56
-  %368 = load ptr, ptr %367, align 8, !tbaa !97
+  %368 = load ptr, ptr %367, align 8, !tbaa !95
   %369 = getelementptr inbounds nuw %"struct.gmx::LinkFrontier", ptr %368, i64 %.0294, i32 1
-  %370 = load i64, ptr %369, align 8, !tbaa !102
+  %370 = load i64, ptr %369, align 8, !tbaa !100
   %371 = trunc i64 %370 to i32
   %372 = add nsw i32 %371, 1
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.198, i32 noundef %372)
@@ -3062,17 +3062,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i205: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit208: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i205
   %391 = add nuw i64 %.0294, 1
-  %392 = load ptr, ptr %1, align 8, !tbaa !58
+  %392 = load ptr, ptr %1, align 8, !tbaa !56
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 56
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 64
-  %395 = load ptr, ptr %394, align 8, !tbaa !96
-  %396 = load ptr, ptr %393, align 8, !tbaa !97
+  %395 = load ptr, ptr %394, align 8, !tbaa !94
+  %396 = load ptr, ptr %393, align 8, !tbaa !95
   %397 = ptrtoint ptr %395 to i64
   %398 = ptrtoint ptr %396 to i64
   %399 = sub i64 %397, %398
   %400 = ashr exact i64 %399, 4
   %401 = icmp ult i64 %391, %400
-  br i1 %401, label %340, label %._crit_edge, !llvm.loop !103
+  br i1 %401, label %340, label %._crit_edge, !llvm.loop !101
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i205
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3214,7 +3214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %_Z
 define void @_ZN3gmx18QMMMInputGenerator17generateMMSectionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %0, align 8, !tbaa !22
+  store ptr %1, ptr %0, align 8, !tbaa !21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8, !tbaa !16
   store i8 0, ptr %1, align 8, !tbaa !17
@@ -3358,23 +3358,23 @@ define void @_ZNK3gmx18QMMMInputGenerator21generateSubsysSectionB5cxx11Ev(ptr de
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %0, align 8, !tbaa !22
+  store ptr %14, ptr %0, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %15, align 8, !tbaa !16
   store i8 0, ptr %14, align 8, !tbaa !17
-  %16 = load ptr, ptr %1, align 8, !tbaa !58
+  %16 = load ptr, ptr %1, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !59
-  %20 = load ptr, ptr %17, align 8, !tbaa !61
+  %19 = load ptr, ptr %18, align 8, !tbaa !57
+  %20 = load ptr, ptr %17, align 8, !tbaa !59
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !59
-  %28 = load ptr, ptr %25, align 8, !tbaa !61
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
+  %28 = load ptr, ptr %25, align 8, !tbaa !59
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -3407,7 +3407,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 .noexc50:                                         ; preds = %42
   %45 = and i64 %43, -4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %44, i8 0, i64 %45, i1 false), !tbaa !93
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %44, i8 0, i64 %45, i1 false), !tbaa !91
   %46 = getelementptr inbounds nuw i32, ptr %44, i64 %39
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   %48 = ptrtoint ptr %46 to i64
@@ -3422,7 +3422,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc50, %_ZNSt6ve
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %50 = load ptr, ptr %49, align 8, !tbaa !94
+  %50 = load ptr, ptr %49, align 8, !tbaa !92
   br label %54
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %54, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
@@ -3437,17 +3437,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 54:                                               ; preds = %.lr.ph, %54
   %.015406 = phi i64 [ 0, %.lr.ph ], [ %63, %54 ]
   %55 = getelementptr inbounds nuw i64, ptr %20, i64 %.015406
-  %56 = load i64, ptr %55, align 8, !tbaa !23
+  %56 = load i64, ptr %55, align 8, !tbaa !22
   %57 = getelementptr inbounds nuw i32, ptr %50, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !93
+  %58 = load i32, ptr %57, align 4, !tbaa !91
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds nuw i32, ptr %.sroa.0239.0, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !93
+  %61 = load i32, ptr %60, align 4, !tbaa !91
   %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %60, align 4, !tbaa !93
+  store i32 %62, ptr %60, align 4, !tbaa !91
   %63 = add nuw i64 %.015406, 1
   %exitcond.not = icmp eq i64 %63, %24
-  br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, label %54, !llvm.loop !104
+  br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, label %54, !llvm.loop !102
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %64 = load i64, ptr %15, align 8, !tbaa !16
@@ -3462,15 +3462,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i53: ; pre
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit56: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %69 = load float, ptr %68, align 4, !tbaa !53
+  %69 = load float, ptr %68, align 4, !tbaa !52
   %70 = fmul float %69, 1.000000e+01
   %71 = fpext float %70 to double
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %73 = load float, ptr %72, align 8, !tbaa !53
+  %73 = load float, ptr %72, align 8, !tbaa !52
   %74 = fmul float %73, 1.000000e+01
   %75 = fpext float %74 to double
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %77 = load float, ptr %76, align 4, !tbaa !53
+  %77 = load float, ptr %76, align 4, !tbaa !52
   %78 = fmul float %77, 1.000000e+01
   %79 = fpext float %78 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.172, double noundef %71, double noundef %75, double noundef %79)
@@ -3518,15 +3518,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %97 = load float, ptr %96, align 8, !tbaa !53
+  %97 = load float, ptr %96, align 8, !tbaa !52
   %98 = fmul float %97, 1.000000e+01
   %99 = fpext float %98 to double
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %101 = load float, ptr %100, align 4, !tbaa !53
+  %101 = load float, ptr %100, align 4, !tbaa !52
   %102 = fmul float %101, 1.000000e+01
   %103 = fpext float %102 to double
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %105 = load float, ptr %104, align 8, !tbaa !53
+  %105 = load float, ptr %104, align 8, !tbaa !52
   %106 = fmul float %105, 1.000000e+01
   %107 = fpext float %106 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.173, double noundef %99, double noundef %103, double noundef %107)
@@ -3574,15 +3574,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %125 = load float, ptr %124, align 4, !tbaa !53
+  %125 = load float, ptr %124, align 4, !tbaa !52
   %126 = fmul float %125, 1.000000e+01
   %127 = fpext float %126 to double
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %129 = load float, ptr %128, align 8, !tbaa !53
+  %129 = load float, ptr %128, align 8, !tbaa !52
   %130 = fmul float %129, 1.000000e+01
   %131 = fpext float %130 to double
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %133 = load float, ptr %132, align 4, !tbaa !53
+  %133 = load float, ptr %132, align 4, !tbaa !52
   %134 = fmul float %133, 1.000000e+01
   %135 = fpext float %134 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.174, double noundef %127, double noundef %131, double noundef %135)
@@ -3953,7 +3953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
 283:                                              ; preds = %.lr.ph408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit202
   %.0407 = phi i64 [ 0, %.lr.ph408 ], [ %473, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit202 ]
   %284 = getelementptr inbounds nuw i32, ptr %.sroa.0239.0, i64 %.0407
-  %285 = load i32, ptr %284, align 4, !tbaa !93
+  %285 = load i32, ptr %284, align 4, !tbaa !91
   %286 = icmp sgt i32 %285, 0
   br i1 %286, label %287, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit202
 
@@ -3966,8 +3966,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
           to label %290 unwind label %428
 
 290:                                              ; preds = %287
-  call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %291 = load i64, ptr %221, align 8, !tbaa !16, !noalias !105
+  call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  %291 = load i64, ptr %221, align 8, !tbaa !16, !noalias !103
   %292 = icmp eq i64 %291, 4611686018427387903
   br i1 %292, label %293, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i144
 
@@ -3983,7 +3983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i144: ; pr
           to label %.noexc147 unwind label %.loopexit
 
 .noexc147:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i144
-  store ptr %222, ptr %8, align 8, !tbaa !22, !alias.scope !105
+  store ptr %222, ptr %8, align 8, !tbaa !21, !alias.scope !103
   %295 = load ptr, ptr %294, align 8, !tbaa !11
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %297 = icmp eq ptr %295, %296
@@ -3999,9 +3999,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i144: ; pr
   br label %304
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145: ; preds = %.noexc147
-  store ptr %295, ptr %8, align 8, !tbaa !11, !alias.scope !105
+  store ptr %295, ptr %8, align 8, !tbaa !11, !alias.scope !103
   %303 = load i64, ptr %296, align 8, !tbaa !17
-  store i64 %303, ptr %222, align 8, !tbaa !17, !alias.scope !105
+  store i64 %303, ptr %222, align 8, !tbaa !17, !alias.scope !103
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %294, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !16
   br label %304
@@ -4009,7 +4009,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 304:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145, %298
   %305 = phi i64 [ %300, %298 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145 ]
   %306 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store i64 %305, ptr %223, align 8, !tbaa !16, !alias.scope !105
+  store i64 %305, ptr %223, align 8, !tbaa !16, !alias.scope !103
   store ptr %296, ptr %294, align 8, !tbaa !11
   store i64 0, ptr %306, align 8, !tbaa !16
   store i8 0, ptr %296, align 8, !tbaa !17
@@ -4076,8 +4076,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
           to label %328 unwind label %443
 
 328:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157
-  call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %329 = load i64, ptr %225, align 8, !tbaa !16, !noalias !108
+  call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  %329 = load i64, ptr %225, align 8, !tbaa !16, !noalias !106
   %330 = icmp eq i64 %329, 4611686018427387903
   br i1 %330, label %331, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i158
 
@@ -4093,7 +4093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i158: ; pr
           to label %.noexc163 unwind label %.loopexit257
 
 .noexc163:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i158
-  store ptr %226, ptr %10, align 8, !tbaa !22, !alias.scope !108
+  store ptr %226, ptr %10, align 8, !tbaa !21, !alias.scope !106
   %333 = load ptr, ptr %332, align 8, !tbaa !11
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %335 = icmp eq ptr %333, %334
@@ -4109,9 +4109,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i158: ; pr
   br label %342
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159: ; preds = %.noexc163
-  store ptr %333, ptr %10, align 8, !tbaa !11, !alias.scope !108
+  store ptr %333, ptr %10, align 8, !tbaa !11, !alias.scope !106
   %341 = load i64, ptr %334, align 8, !tbaa !17
-  store i64 %341, ptr %226, align 8, !tbaa !17, !alias.scope !108
+  store i64 %341, ptr %226, align 8, !tbaa !17, !alias.scope !106
   %.phi.trans.insert.i160 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %.pre.i161 = load i64, ptr %.phi.trans.insert.i160, align 8, !tbaa !16
   br label %342
@@ -4119,7 +4119,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 342:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159, %336
   %343 = phi i64 [ %338, %336 ], [ %.pre.i161, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159 ]
   %344 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  store i64 %343, ptr %227, align 8, !tbaa !16, !alias.scope !108
+  store i64 %343, ptr %227, align 8, !tbaa !16, !alias.scope !106
   store ptr %334, ptr %332, align 8, !tbaa !11
   store i64 0, ptr %344, align 8, !tbaa !16
   store i8 0, ptr %334, align 8, !tbaa !17
@@ -4197,13 +4197,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i175: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i175
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #26
-  %368 = load ptr, ptr %1, align 8, !tbaa !58
+  %368 = load ptr, ptr %1, align 8, !tbaa !56
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 112
-  %370 = load i32, ptr %369, align 8, !tbaa !91
+  %370 = load i32, ptr %369, align 8, !tbaa !89
   %371 = sext i32 %370 to i64
   %372 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %371
-  %373 = load ptr, ptr %372, align 8, !tbaa !92
-  store ptr %229, ptr %13, align 8, !tbaa !22
+  %373 = load ptr, ptr %372, align 8, !tbaa !90
+  store ptr %229, ptr %13, align 8, !tbaa !21
   %374 = icmp eq ptr %373, null
   br i1 %374, label %375, label %376
 
@@ -4217,7 +4217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %
 376:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178
   %377 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %373) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  store i64 %377, ptr %3, align 8, !tbaa !23
+  store i64 %377, ptr %3, align 8, !tbaa !22
   %378 = icmp ugt i64 %377, 15
   br i1 %378, label %.noexc.i, label %._crit_edge.i.i
 
@@ -4227,7 +4227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %
 
 .noexc180:                                        ; preds = %.noexc.i
   store ptr %379, ptr %13, align 8, !tbaa !11
-  %380 = load i64, ptr %3, align 8, !tbaa !23
+  %380 = load i64, ptr %3, align 8, !tbaa !22
   store i64 %380, ptr %229, align 8, !tbaa !17
   br label %._crit_edge.i.i
 
@@ -4248,7 +4248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %
   br label %385
 
 385:                                              ; preds = %384, %382, %._crit_edge.i.i
-  %386 = load i64, ptr %3, align 8, !tbaa !23
+  %386 = load i64, ptr %3, align 8, !tbaa !22
   store i64 %386, ptr %230, align 8, !tbaa !16
   %387 = load ptr, ptr %13, align 8, !tbaa !11
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 %386
@@ -4258,7 +4258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %
           to label %.noexc184 unwind label %458
 
 .noexc184:                                        ; preds = %385
-  store ptr %231, ptr %12, align 8, !tbaa !22, !alias.scope !111
+  store ptr %231, ptr %12, align 8, !tbaa !21, !alias.scope !109
   %390 = load ptr, ptr %389, align 8, !tbaa !11
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 16
   %392 = icmp eq ptr %390, %391
@@ -4274,9 +4274,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit178: ; preds = %
   br label %399
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181: ; preds = %.noexc184
-  store ptr %390, ptr %12, align 8, !tbaa !11, !alias.scope !111
+  store ptr %390, ptr %12, align 8, !tbaa !11, !alias.scope !109
   %398 = load i64, ptr %391, align 8, !tbaa !17
-  store i64 %398, ptr %231, align 8, !tbaa !17, !alias.scope !111
+  store i64 %398, ptr %231, align 8, !tbaa !17, !alias.scope !109
   %.phi.trans.insert.i182 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %.pre.i183 = load i64, ptr %.phi.trans.insert.i182, align 8, !tbaa !16
   br label %399
@@ -4284,7 +4284,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 399:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181, %393
   %400 = phi i64 [ %395, %393 ], [ %.pre.i183, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181 ]
   %401 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  store i64 %400, ptr %232, align 8, !tbaa !16, !alias.scope !111
+  store i64 %400, ptr %232, align 8, !tbaa !16, !alias.scope !109
   store ptr %391, ptr %389, align 8, !tbaa !11
   store i64 0, ptr %401, align 8, !tbaa !16
   store i8 0, ptr %391, align 8, !tbaa !17
@@ -4575,7 +4575,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220: ; preds = %.l
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit202: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i199, %283
   %473 = add nuw i64 %.0407, 1
   %exitcond411.not = icmp eq i64 %473, %220
-  br i1 %exitcond411.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit127._crit_edge, label %283, !llvm.loop !114
+  br i1 %exitcond411.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit127._crit_edge, label %283, !llvm.loop !112
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit131: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i128
   %474 = load i64, ptr %15, align 8, !tbaa !16
@@ -4668,7 +4668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit237: ; preds = %_Z
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !22
+  store ptr %5, ptr %0, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !16
   store i8 0, ptr %5, align 8, !tbaa !17
@@ -4745,7 +4745,7 @@ define void @_ZNK3gmx18QMMMInputGenerator17generateCP2KInputB5cxx11Ev(ptr dead_o
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !22
+  store ptr %8, ptr %0, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %9, align 8, !tbaa !16
   store i8 0, ptr %8, align 8, !tbaa !17
@@ -5193,14 +5193,14 @@ define void @_ZNK3gmx18QMMMInputGenerator15generateCP2KPdbB5cxx11Ev(ptr dead_on_
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !22
+  store ptr %8, ptr %0, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %9, align 8, !tbaa !16
   store i8 0, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.sroa.0.0.copyload.i156 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
   %.not158 = icmp eq ptr %12, %.sroa.0.0.copyload.i156
   br i1 %.not158, label %._crit_edge, label %.lr.ph
 
@@ -5287,11 +5287,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  %50 = load ptr, ptr %1, align 8, !tbaa !58
+  %50 = load ptr, ptr %1, align 8, !tbaa !56
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
-  %52 = load ptr, ptr %51, align 8, !tbaa !94
+  %52 = load ptr, ptr %51, align 8, !tbaa !92
   %53 = getelementptr inbounds nuw i32, ptr %52, i64 %.019157
-  %54 = load i32, ptr %53, align 4, !tbaa !93
+  %54 = load i32, ptr %53, align 4, !tbaa !91
   %55 = sext i32 %54 to i64
   %56 = load ptr, ptr @_ZN3gmxL15periodic_systemB5cxx11E, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %56, i64 %55
@@ -5337,7 +5337,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  %73 = load ptr, ptr %17, align 8, !tbaa !47
+  %73 = load ptr, ptr %17, align 8, !tbaa !46
   %.not10.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not10.i.i.i.i, label %_ZNK3gmx18QMMMInputGenerator8isQMAtomEl.exit.thread, label %.lr.ph.i.i.i.i
 
@@ -5345,14 +5345,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ]
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %75 = load i64, ptr %74, align 8, !tbaa !23
+  %75 = load i64, ptr %74, align 8, !tbaa !22
   %76 = icmp slt i64 %75, %.019157
   %.19.i.i.i.i = select i1 %76, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %76, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !66
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !71
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !69
 
 _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %77 = icmp eq ptr %.19.i.i.i.i, %18
@@ -5360,7 +5360,7 @@ _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree
 
 _ZNK3gmx18QMMMInputGenerator8isQMAtomEl.exit:     ; preds = %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %79 = load i64, ptr %78, align 8, !tbaa !23
+  %79 = load i64, ptr %78, align 8, !tbaa !22
   %.not = icmp slt i64 %.019157, %79
   br i1 %.not, label %_ZNK3gmx18QMMMInputGenerator8isQMAtomEl.exit.thread, label %80
 
@@ -5472,20 +5472,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit43: ; preds = %_
   %107 = load i64, ptr %10, align 8
   %108 = inttoptr i64 %107 to ptr
   %109 = getelementptr inbounds %"class.gmx::BasicVector", ptr %108, i64 %.019157
-  %110 = load float, ptr %109, align 4, !tbaa !53
-  %111 = load float, ptr %19, align 8, !tbaa !53
+  %110 = load float, ptr %109, align 4, !tbaa !52
+  %111 = load float, ptr %19, align 8, !tbaa !52
   %112 = fadd float %110, %111
   %113 = fmul float %112, 1.000000e+01
   %114 = fpext float %113 to double
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %116 = load float, ptr %115, align 4, !tbaa !53
-  %117 = load float, ptr %20, align 4, !tbaa !53
+  %116 = load float, ptr %115, align 4, !tbaa !52
+  %117 = load float, ptr %20, align 4, !tbaa !52
   %118 = fadd float %116, %117
   %119 = fmul float %118, 1.000000e+01
   %120 = fpext float %119 to double
   %121 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %122 = load float, ptr %121, align 4, !tbaa !53
-  %123 = load float, ptr %21, align 8, !tbaa !53
+  %122 = load float, ptr %121, align 4, !tbaa !52
+  %123 = load float, ptr %21, align 8, !tbaa !52
   %124 = fadd float %122, %123
   %125 = fmul float %124, 1.000000e+01
   %126 = fpext float %125 to double
@@ -5531,11 +5531,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
-  %141 = load ptr, ptr %1, align 8, !tbaa !58
+  %141 = load ptr, ptr %1, align 8, !tbaa !56
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 80
-  %143 = load ptr, ptr %142, align 8, !tbaa !94
+  %143 = load ptr, ptr %142, align 8, !tbaa !92
   %144 = getelementptr inbounds nuw i32, ptr %143, i64 %.019157
-  %145 = load i32, ptr %144, align 4, !tbaa !93
+  %145 = load i32, ptr %144, align 4, !tbaa !91
   %146 = sext i32 %145 to i64
   %147 = load ptr, ptr @_ZN3gmxL15periodic_systemB5cxx11E, align 8, !tbaa !4
   %148 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %147, i64 %146
@@ -5585,7 +5585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
   %164 = load i64, ptr %26, align 8
   %165 = inttoptr i64 %164 to ptr
   %166 = getelementptr inbounds float, ptr %165, i64 %.019157
-  %167 = load float, ptr %166, align 4, !tbaa !53
+  %167 = load float, ptr %166, align 4, !tbaa !52
   %168 = fpext float %167 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.242, double noundef %168)
           to label %169 unwind label %208
@@ -5630,13 +5630,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
   %183 = add nuw i64 %.019157, 1
   %.sroa.0.0.copyload.i = load ptr, ptr %10, align 8
-  %184 = load ptr, ptr %11, align 8, !tbaa !52
+  %184 = load ptr, ptr %11, align 8, !tbaa !51
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
   %187 = sub i64 %185, %186
   %188 = sdiv exact i64 %187, 12
   %189 = icmp ult i64 %183, %188
-  br i1 %189, label %29, label %._crit_edge, !llvm.loop !115
+  br i1 %189, label %29, label %._crit_edge, !llvm.loop !113
 
 190:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit43
   %191 = landingpad { ptr, i32 }
@@ -5797,7 +5797,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   %1 = alloca [119 x %"class.std::__cxx11::basic_string"], align 8
   call void @llvm.lifetime.start.p0(i64 3808, ptr nonnull %1) #26
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %2, ptr %1, align 8, !tbaa !22
+  store ptr %2, ptr %1, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 3, ptr %3, align 8, !tbaa !16
@@ -5805,7 +5805,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %4, align 1, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %6, ptr %5, align 8, !tbaa !22
+  store ptr %6, ptr %5, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 3, ptr %7, align 8, !tbaa !16
@@ -5813,7 +5813,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %8, align 1, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %10, ptr %9, align 8, !tbaa !22
+  store ptr %10, ptr %9, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %10, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 3, ptr %11, align 8, !tbaa !16
@@ -5821,7 +5821,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %12, align 1, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr %14, ptr %13, align 8, !tbaa !22
+  store ptr %14, ptr %13, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %14, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 3, ptr %15, align 8, !tbaa !16
@@ -5829,7 +5829,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %16, align 1, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store ptr %18, ptr %17, align 8, !tbaa !22
+  store ptr %18, ptr %17, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %18, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i64 3, ptr %19, align 8, !tbaa !16
@@ -5837,7 +5837,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %20, align 1, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  store ptr %22, ptr %21, align 8, !tbaa !22
+  store ptr %22, ptr %21, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %22, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i64 3, ptr %23, align 8, !tbaa !16
@@ -5845,7 +5845,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %24, align 1, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  store ptr %26, ptr %25, align 8, !tbaa !22
+  store ptr %26, ptr %25, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i64 3, ptr %27, align 8, !tbaa !16
@@ -5853,7 +5853,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %28, align 1, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store ptr %30, ptr %29, align 8, !tbaa !22
+  store ptr %30, ptr %29, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %30, ptr noundef nonnull align 1 dereferenceable(3) @.str.7, i64 3, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i64 3, ptr %31, align 8, !tbaa !16
@@ -5861,7 +5861,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %32, align 1, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  store ptr %34, ptr %33, align 8, !tbaa !22
+  store ptr %34, ptr %33, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, i64 3, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i64 3, ptr %35, align 8, !tbaa !16
@@ -5869,7 +5869,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %36, align 1, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  store ptr %38, ptr %37, align 8, !tbaa !22
+  store ptr %38, ptr %37, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %38, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store i64 3, ptr %39, align 8, !tbaa !16
@@ -5877,7 +5877,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %40, align 1, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store ptr %42, ptr %41, align 8, !tbaa !22
+  store ptr %42, ptr %41, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %42, ptr noundef nonnull align 1 dereferenceable(3) @.str.10, i64 3, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store i64 3, ptr %43, align 8, !tbaa !16
@@ -5885,7 +5885,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %44, align 1, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  store ptr %46, ptr %45, align 8, !tbaa !22
+  store ptr %46, ptr %45, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %46, ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store i64 3, ptr %47, align 8, !tbaa !16
@@ -5893,7 +5893,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %48, align 1, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  store ptr %50, ptr %49, align 8, !tbaa !22
+  store ptr %50, ptr %49, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %50, ptr noundef nonnull align 1 dereferenceable(3) @.str.12, i64 3, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 392
   store i64 3, ptr %51, align 8, !tbaa !16
@@ -5901,7 +5901,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %52, align 1, !tbaa !17
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  store ptr %54, ptr %53, align 8, !tbaa !22
+  store ptr %54, ptr %53, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %54, ptr noundef nonnull align 1 dereferenceable(3) @.str.13, i64 3, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 424
   store i64 3, ptr %55, align 8, !tbaa !16
@@ -5909,7 +5909,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %56, align 1, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  store ptr %58, ptr %57, align 8, !tbaa !22
+  store ptr %58, ptr %57, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %58, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 456
   store i64 3, ptr %59, align 8, !tbaa !16
@@ -5917,7 +5917,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %60, align 1, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  store ptr %62, ptr %61, align 8, !tbaa !22
+  store ptr %62, ptr %61, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %62, ptr noundef nonnull align 1 dereferenceable(3) @.str.15, i64 3, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 488
   store i64 3, ptr %63, align 8, !tbaa !16
@@ -5925,7 +5925,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %64, align 1, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  store ptr %66, ptr %65, align 8, !tbaa !22
+  store ptr %66, ptr %65, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %66, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, i64 3, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store i64 3, ptr %67, align 8, !tbaa !16
@@ -5933,7 +5933,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %68, align 1, !tbaa !17
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  store ptr %70, ptr %69, align 8, !tbaa !22
+  store ptr %70, ptr %69, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %70, ptr noundef nonnull align 1 dereferenceable(3) @.str.17, i64 3, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 552
   store i64 3, ptr %71, align 8, !tbaa !16
@@ -5941,7 +5941,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %72, align 1, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  store ptr %74, ptr %73, align 8, !tbaa !22
+  store ptr %74, ptr %73, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %74, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 584
   store i64 3, ptr %75, align 8, !tbaa !16
@@ -5949,7 +5949,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %76, align 1, !tbaa !17
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 624
-  store ptr %78, ptr %77, align 8, !tbaa !22
+  store ptr %78, ptr %77, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %78, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 616
   store i64 3, ptr %79, align 8, !tbaa !16
@@ -5957,7 +5957,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %80, align 1, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 656
-  store ptr %82, ptr %81, align 8, !tbaa !22
+  store ptr %82, ptr %81, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %82, ptr noundef nonnull align 1 dereferenceable(3) @.str.20, i64 3, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 648
   store i64 3, ptr %83, align 8, !tbaa !16
@@ -5965,7 +5965,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %84, align 1, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  store ptr %86, ptr %85, align 8, !tbaa !22
+  store ptr %86, ptr %85, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %86, ptr noundef nonnull align 1 dereferenceable(3) @.str.21, i64 3, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 680
   store i64 3, ptr %87, align 8, !tbaa !16
@@ -5973,7 +5973,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %88, align 1, !tbaa !17
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  store ptr %90, ptr %89, align 8, !tbaa !22
+  store ptr %90, ptr %89, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %90, ptr noundef nonnull align 1 dereferenceable(3) @.str.22, i64 3, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 712
   store i64 3, ptr %91, align 8, !tbaa !16
@@ -5981,7 +5981,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %92, align 1, !tbaa !17
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 752
-  store ptr %94, ptr %93, align 8, !tbaa !22
+  store ptr %94, ptr %93, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %94, ptr noundef nonnull align 1 dereferenceable(3) @.str.23, i64 3, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 744
   store i64 3, ptr %95, align 8, !tbaa !16
@@ -5989,7 +5989,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %96, align 1, !tbaa !17
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  store ptr %98, ptr %97, align 8, !tbaa !22
+  store ptr %98, ptr %97, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %98, ptr noundef nonnull align 1 dereferenceable(3) @.str.24, i64 3, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 776
   store i64 3, ptr %99, align 8, !tbaa !16
@@ -5997,7 +5997,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %100, align 1, !tbaa !17
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 816
-  store ptr %102, ptr %101, align 8, !tbaa !22
+  store ptr %102, ptr %101, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %102, ptr noundef nonnull align 1 dereferenceable(3) @.str.25, i64 3, i1 false)
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 808
   store i64 3, ptr %103, align 8, !tbaa !16
@@ -6005,7 +6005,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %104, align 1, !tbaa !17
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  store ptr %106, ptr %105, align 8, !tbaa !22
+  store ptr %106, ptr %105, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %106, ptr noundef nonnull align 1 dereferenceable(3) @.str.26, i64 3, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 840
   store i64 3, ptr %107, align 8, !tbaa !16
@@ -6013,7 +6013,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %108, align 1, !tbaa !17
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 880
-  store ptr %110, ptr %109, align 8, !tbaa !22
+  store ptr %110, ptr %109, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %110, ptr noundef nonnull align 1 dereferenceable(3) @.str.27, i64 3, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 872
   store i64 3, ptr %111, align 8, !tbaa !16
@@ -6021,7 +6021,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %112, align 1, !tbaa !17
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 912
-  store ptr %114, ptr %113, align 8, !tbaa !22
+  store ptr %114, ptr %113, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %114, ptr noundef nonnull align 1 dereferenceable(3) @.str.28, i64 3, i1 false)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store i64 3, ptr %115, align 8, !tbaa !16
@@ -6029,7 +6029,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %116, align 1, !tbaa !17
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  store ptr %118, ptr %117, align 8, !tbaa !22
+  store ptr %118, ptr %117, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %118, ptr noundef nonnull align 1 dereferenceable(3) @.str.29, i64 3, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 936
   store i64 3, ptr %119, align 8, !tbaa !16
@@ -6037,7 +6037,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %120, align 1, !tbaa !17
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 976
-  store ptr %122, ptr %121, align 8, !tbaa !22
+  store ptr %122, ptr %121, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %122, ptr noundef nonnull align 1 dereferenceable(3) @.str.30, i64 3, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 968
   store i64 3, ptr %123, align 8, !tbaa !16
@@ -6045,7 +6045,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %124, align 1, !tbaa !17
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 1008
-  store ptr %126, ptr %125, align 8, !tbaa !22
+  store ptr %126, ptr %125, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %126, ptr noundef nonnull align 1 dereferenceable(3) @.str.31, i64 3, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   store i64 3, ptr %127, align 8, !tbaa !16
@@ -6053,7 +6053,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %128, align 1, !tbaa !17
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  store ptr %130, ptr %129, align 8, !tbaa !22
+  store ptr %130, ptr %129, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %130, ptr noundef nonnull align 1 dereferenceable(3) @.str.32, i64 3, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   store i64 3, ptr %131, align 8, !tbaa !16
@@ -6061,7 +6061,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %132, align 1, !tbaa !17
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 1072
-  store ptr %134, ptr %133, align 8, !tbaa !22
+  store ptr %134, ptr %133, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %134, ptr noundef nonnull align 1 dereferenceable(3) @.str.33, i64 3, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   store i64 3, ptr %135, align 8, !tbaa !16
@@ -6069,7 +6069,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %136, align 1, !tbaa !17
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 1104
-  store ptr %138, ptr %137, align 8, !tbaa !22
+  store ptr %138, ptr %137, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %138, ptr noundef nonnull align 1 dereferenceable(3) @.str.34, i64 3, i1 false)
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   store i64 3, ptr %139, align 8, !tbaa !16
@@ -6077,7 +6077,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %140, align 1, !tbaa !17
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 1120
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 1136
-  store ptr %142, ptr %141, align 8, !tbaa !22
+  store ptr %142, ptr %141, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %142, ptr noundef nonnull align 1 dereferenceable(3) @.str.35, i64 3, i1 false)
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   store i64 3, ptr %143, align 8, !tbaa !16
@@ -6085,7 +6085,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %144, align 1, !tbaa !17
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 1152
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 1168
-  store ptr %146, ptr %145, align 8, !tbaa !22
+  store ptr %146, ptr %145, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %146, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   store i64 3, ptr %147, align 8, !tbaa !16
@@ -6093,7 +6093,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %148, align 1, !tbaa !17
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 1184
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 1200
-  store ptr %150, ptr %149, align 8, !tbaa !22
+  store ptr %150, ptr %149, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %150, ptr noundef nonnull align 1 dereferenceable(3) @.str.37, i64 3, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 1192
   store i64 3, ptr %151, align 8, !tbaa !16
@@ -6101,7 +6101,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %152, align 1, !tbaa !17
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 1216
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 1232
-  store ptr %154, ptr %153, align 8, !tbaa !22
+  store ptr %154, ptr %153, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %154, ptr noundef nonnull align 1 dereferenceable(3) @.str.38, i64 3, i1 false)
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   store i64 3, ptr %155, align 8, !tbaa !16
@@ -6109,7 +6109,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %156, align 1, !tbaa !17
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 1264
-  store ptr %158, ptr %157, align 8, !tbaa !22
+  store ptr %158, ptr %157, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %158, ptr noundef nonnull align 1 dereferenceable(3) @.str.39, i64 3, i1 false)
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   store i64 3, ptr %159, align 8, !tbaa !16
@@ -6117,7 +6117,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %160, align 1, !tbaa !17
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 1296
-  store ptr %162, ptr %161, align 8, !tbaa !22
+  store ptr %162, ptr %161, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %162, ptr noundef nonnull align 1 dereferenceable(3) @.str.40, i64 3, i1 false)
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 1288
   store i64 3, ptr %163, align 8, !tbaa !16
@@ -6125,7 +6125,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %164, align 1, !tbaa !17
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 1328
-  store ptr %166, ptr %165, align 8, !tbaa !22
+  store ptr %166, ptr %165, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %166, ptr noundef nonnull align 1 dereferenceable(3) @.str.41, i64 3, i1 false)
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   store i64 3, ptr %167, align 8, !tbaa !16
@@ -6133,7 +6133,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %168, align 1, !tbaa !17
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 1344
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 1360
-  store ptr %170, ptr %169, align 8, !tbaa !22
+  store ptr %170, ptr %169, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %170, ptr noundef nonnull align 1 dereferenceable(3) @.str.42, i64 3, i1 false)
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 1352
   store i64 3, ptr %171, align 8, !tbaa !16
@@ -6141,7 +6141,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %172, align 1, !tbaa !17
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 1376
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 1392
-  store ptr %174, ptr %173, align 8, !tbaa !22
+  store ptr %174, ptr %173, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %174, ptr noundef nonnull align 1 dereferenceable(3) @.str.43, i64 3, i1 false)
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   store i64 3, ptr %175, align 8, !tbaa !16
@@ -6149,7 +6149,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %176, align 1, !tbaa !17
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 1408
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 1424
-  store ptr %178, ptr %177, align 8, !tbaa !22
+  store ptr %178, ptr %177, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %178, ptr noundef nonnull align 1 dereferenceable(3) @.str.44, i64 3, i1 false)
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 1416
   store i64 3, ptr %179, align 8, !tbaa !16
@@ -6157,7 +6157,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %180, align 1, !tbaa !17
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 1440
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 1456
-  store ptr %182, ptr %181, align 8, !tbaa !22
+  store ptr %182, ptr %181, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %182, ptr noundef nonnull align 1 dereferenceable(3) @.str.45, i64 3, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   store i64 3, ptr %183, align 8, !tbaa !16
@@ -6165,7 +6165,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %184, align 1, !tbaa !17
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 1472
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 1488
-  store ptr %186, ptr %185, align 8, !tbaa !22
+  store ptr %186, ptr %185, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %186, ptr noundef nonnull align 1 dereferenceable(3) @.str.46, i64 3, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   store i64 3, ptr %187, align 8, !tbaa !16
@@ -6173,7 +6173,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %188, align 1, !tbaa !17
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 1504
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 1520
-  store ptr %190, ptr %189, align 8, !tbaa !22
+  store ptr %190, ptr %189, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %190, ptr noundef nonnull align 1 dereferenceable(3) @.str.47, i64 3, i1 false)
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 1512
   store i64 3, ptr %191, align 8, !tbaa !16
@@ -6181,7 +6181,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %192, align 1, !tbaa !17
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 1536
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 1552
-  store ptr %194, ptr %193, align 8, !tbaa !22
+  store ptr %194, ptr %193, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %194, ptr noundef nonnull align 1 dereferenceable(3) @.str.48, i64 3, i1 false)
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 1544
   store i64 3, ptr %195, align 8, !tbaa !16
@@ -6189,7 +6189,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %196, align 1, !tbaa !17
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 1568
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 1584
-  store ptr %198, ptr %197, align 8, !tbaa !22
+  store ptr %198, ptr %197, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %198, ptr noundef nonnull align 1 dereferenceable(3) @.str.49, i64 3, i1 false)
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 1576
   store i64 3, ptr %199, align 8, !tbaa !16
@@ -6197,7 +6197,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %200, align 1, !tbaa !17
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 1600
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 1616
-  store ptr %202, ptr %201, align 8, !tbaa !22
+  store ptr %202, ptr %201, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %202, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 1608
   store i64 3, ptr %203, align 8, !tbaa !16
@@ -6205,7 +6205,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %204, align 1, !tbaa !17
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 1632
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 1648
-  store ptr %206, ptr %205, align 8, !tbaa !22
+  store ptr %206, ptr %205, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %206, ptr noundef nonnull align 1 dereferenceable(3) @.str.51, i64 3, i1 false)
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 1640
   store i64 3, ptr %207, align 8, !tbaa !16
@@ -6213,7 +6213,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %208, align 1, !tbaa !17
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 1664
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 1680
-  store ptr %210, ptr %209, align 8, !tbaa !22
+  store ptr %210, ptr %209, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %210, ptr noundef nonnull align 1 dereferenceable(3) @.str.52, i64 3, i1 false)
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   store i64 3, ptr %211, align 8, !tbaa !16
@@ -6221,7 +6221,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %212, align 1, !tbaa !17
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 1696
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 1712
-  store ptr %214, ptr %213, align 8, !tbaa !22
+  store ptr %214, ptr %213, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %214, ptr noundef nonnull align 1 dereferenceable(3) @.str.53, i64 3, i1 false)
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 1704
   store i64 3, ptr %215, align 8, !tbaa !16
@@ -6229,7 +6229,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %216, align 1, !tbaa !17
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 1728
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 1744
-  store ptr %218, ptr %217, align 8, !tbaa !22
+  store ptr %218, ptr %217, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %218, ptr noundef nonnull align 1 dereferenceable(3) @.str.54, i64 3, i1 false)
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 1736
   store i64 3, ptr %219, align 8, !tbaa !16
@@ -6237,7 +6237,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %220, align 1, !tbaa !17
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 1760
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 1776
-  store ptr %222, ptr %221, align 8, !tbaa !22
+  store ptr %222, ptr %221, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %222, ptr noundef nonnull align 1 dereferenceable(3) @.str.55, i64 3, i1 false)
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 1768
   store i64 3, ptr %223, align 8, !tbaa !16
@@ -6245,7 +6245,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %224, align 1, !tbaa !17
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 1792
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 1808
-  store ptr %226, ptr %225, align 8, !tbaa !22
+  store ptr %226, ptr %225, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %226, ptr noundef nonnull align 1 dereferenceable(3) @.str.56, i64 3, i1 false)
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 1800
   store i64 3, ptr %227, align 8, !tbaa !16
@@ -6253,7 +6253,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %228, align 1, !tbaa !17
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 1824
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 1840
-  store ptr %230, ptr %229, align 8, !tbaa !22
+  store ptr %230, ptr %229, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %230, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, i64 3, i1 false)
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 1832
   store i64 3, ptr %231, align 8, !tbaa !16
@@ -6261,7 +6261,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %232, align 1, !tbaa !17
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 1856
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 1872
-  store ptr %234, ptr %233, align 8, !tbaa !22
+  store ptr %234, ptr %233, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %234, ptr noundef nonnull align 1 dereferenceable(3) @.str.58, i64 3, i1 false)
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 1864
   store i64 3, ptr %235, align 8, !tbaa !16
@@ -6269,7 +6269,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %236, align 1, !tbaa !17
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 1904
-  store ptr %238, ptr %237, align 8, !tbaa !22
+  store ptr %238, ptr %237, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %238, ptr noundef nonnull align 1 dereferenceable(3) @.str.59, i64 3, i1 false)
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 1896
   store i64 3, ptr %239, align 8, !tbaa !16
@@ -6277,7 +6277,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %240, align 1, !tbaa !17
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 1920
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 1936
-  store ptr %242, ptr %241, align 8, !tbaa !22
+  store ptr %242, ptr %241, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %242, ptr noundef nonnull align 1 dereferenceable(3) @.str.60, i64 3, i1 false)
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   store i64 3, ptr %243, align 8, !tbaa !16
@@ -6285,7 +6285,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %244, align 1, !tbaa !17
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 1952
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 1968
-  store ptr %246, ptr %245, align 8, !tbaa !22
+  store ptr %246, ptr %245, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %246, ptr noundef nonnull align 1 dereferenceable(3) @.str.61, i64 3, i1 false)
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 1960
   store i64 3, ptr %247, align 8, !tbaa !16
@@ -6293,7 +6293,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %248, align 1, !tbaa !17
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 1984
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 2000
-  store ptr %250, ptr %249, align 8, !tbaa !22
+  store ptr %250, ptr %249, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %250, ptr noundef nonnull align 1 dereferenceable(3) @.str.62, i64 3, i1 false)
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 1992
   store i64 3, ptr %251, align 8, !tbaa !16
@@ -6301,7 +6301,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %252, align 1, !tbaa !17
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 2016
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 2032
-  store ptr %254, ptr %253, align 8, !tbaa !22
+  store ptr %254, ptr %253, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %254, ptr noundef nonnull align 1 dereferenceable(3) @.str.63, i64 3, i1 false)
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   store i64 3, ptr %255, align 8, !tbaa !16
@@ -6309,7 +6309,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %256, align 1, !tbaa !17
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 2064
-  store ptr %258, ptr %257, align 8, !tbaa !22
+  store ptr %258, ptr %257, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %258, ptr noundef nonnull align 1 dereferenceable(3) @.str.64, i64 3, i1 false)
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 2056
   store i64 3, ptr %259, align 8, !tbaa !16
@@ -6317,7 +6317,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %260, align 1, !tbaa !17
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 2096
-  store ptr %262, ptr %261, align 8, !tbaa !22
+  store ptr %262, ptr %261, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %262, ptr noundef nonnull align 1 dereferenceable(3) @.str.65, i64 3, i1 false)
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 2088
   store i64 3, ptr %263, align 8, !tbaa !16
@@ -6325,7 +6325,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %264, align 1, !tbaa !17
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 2112
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 2128
-  store ptr %266, ptr %265, align 8, !tbaa !22
+  store ptr %266, ptr %265, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %266, ptr noundef nonnull align 1 dereferenceable(3) @.str.66, i64 3, i1 false)
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 2120
   store i64 3, ptr %267, align 8, !tbaa !16
@@ -6333,7 +6333,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %268, align 1, !tbaa !17
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 2144
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 2160
-  store ptr %270, ptr %269, align 8, !tbaa !22
+  store ptr %270, ptr %269, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %270, ptr noundef nonnull align 1 dereferenceable(3) @.str.67, i64 3, i1 false)
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   store i64 3, ptr %271, align 8, !tbaa !16
@@ -6341,7 +6341,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %272, align 1, !tbaa !17
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 2176
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 2192
-  store ptr %274, ptr %273, align 8, !tbaa !22
+  store ptr %274, ptr %273, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %274, ptr noundef nonnull align 1 dereferenceable(3) @.str.68, i64 3, i1 false)
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 2184
   store i64 3, ptr %275, align 8, !tbaa !16
@@ -6349,7 +6349,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %276, align 1, !tbaa !17
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 2208
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 2224
-  store ptr %278, ptr %277, align 8, !tbaa !22
+  store ptr %278, ptr %277, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %278, ptr noundef nonnull align 1 dereferenceable(3) @.str.69, i64 3, i1 false)
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   store i64 3, ptr %279, align 8, !tbaa !16
@@ -6357,7 +6357,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %280, align 1, !tbaa !17
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 2256
-  store ptr %282, ptr %281, align 8, !tbaa !22
+  store ptr %282, ptr %281, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %282, ptr noundef nonnull align 1 dereferenceable(3) @.str.70, i64 3, i1 false)
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 2248
   store i64 3, ptr %283, align 8, !tbaa !16
@@ -6365,7 +6365,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %284, align 1, !tbaa !17
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 2272
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 2288
-  store ptr %286, ptr %285, align 8, !tbaa !22
+  store ptr %286, ptr %285, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %286, ptr noundef nonnull align 1 dereferenceable(3) @.str.71, i64 3, i1 false)
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 2280
   store i64 3, ptr %287, align 8, !tbaa !16
@@ -6373,7 +6373,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %288, align 1, !tbaa !17
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 2304
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 2320
-  store ptr %290, ptr %289, align 8, !tbaa !22
+  store ptr %290, ptr %289, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %290, ptr noundef nonnull align 1 dereferenceable(3) @.str.72, i64 3, i1 false)
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 2312
   store i64 3, ptr %291, align 8, !tbaa !16
@@ -6381,7 +6381,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %292, align 1, !tbaa !17
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 2336
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 2352
-  store ptr %294, ptr %293, align 8, !tbaa !22
+  store ptr %294, ptr %293, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %294, ptr noundef nonnull align 1 dereferenceable(3) @.str.73, i64 3, i1 false)
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 2344
   store i64 3, ptr %295, align 8, !tbaa !16
@@ -6389,7 +6389,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %296, align 1, !tbaa !17
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 2368
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 2384
-  store ptr %298, ptr %297, align 8, !tbaa !22
+  store ptr %298, ptr %297, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %298, ptr noundef nonnull align 1 dereferenceable(3) @.str.74, i64 3, i1 false)
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 2376
   store i64 3, ptr %299, align 8, !tbaa !16
@@ -6397,7 +6397,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %300, align 1, !tbaa !17
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 2400
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 2416
-  store ptr %302, ptr %301, align 8, !tbaa !22
+  store ptr %302, ptr %301, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %302, ptr noundef nonnull align 1 dereferenceable(3) @.str.75, i64 3, i1 false)
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   store i64 3, ptr %303, align 8, !tbaa !16
@@ -6405,7 +6405,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %304, align 1, !tbaa !17
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 2432
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 2448
-  store ptr %306, ptr %305, align 8, !tbaa !22
+  store ptr %306, ptr %305, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %306, ptr noundef nonnull align 1 dereferenceable(3) @.str.76, i64 3, i1 false)
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 2440
   store i64 3, ptr %307, align 8, !tbaa !16
@@ -6413,7 +6413,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %308, align 1, !tbaa !17
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 2464
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 2480
-  store ptr %310, ptr %309, align 8, !tbaa !22
+  store ptr %310, ptr %309, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %310, ptr noundef nonnull align 1 dereferenceable(3) @.str.77, i64 3, i1 false)
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 2472
   store i64 3, ptr %311, align 8, !tbaa !16
@@ -6421,7 +6421,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %312, align 1, !tbaa !17
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 2496
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 2512
-  store ptr %314, ptr %313, align 8, !tbaa !22
+  store ptr %314, ptr %313, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %314, ptr noundef nonnull align 1 dereferenceable(3) @.str.78, i64 3, i1 false)
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 2504
   store i64 3, ptr %315, align 8, !tbaa !16
@@ -6429,7 +6429,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %316, align 1, !tbaa !17
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 2528
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 2544
-  store ptr %318, ptr %317, align 8, !tbaa !22
+  store ptr %318, ptr %317, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %318, ptr noundef nonnull align 1 dereferenceable(3) @.str.79, i64 3, i1 false)
   %319 = getelementptr inbounds nuw i8, ptr %1, i64 2536
   store i64 3, ptr %319, align 8, !tbaa !16
@@ -6437,7 +6437,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %320, align 1, !tbaa !17
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 2560
   %322 = getelementptr inbounds nuw i8, ptr %1, i64 2576
-  store ptr %322, ptr %321, align 8, !tbaa !22
+  store ptr %322, ptr %321, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %322, ptr noundef nonnull align 1 dereferenceable(3) @.str.80, i64 3, i1 false)
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 2568
   store i64 3, ptr %323, align 8, !tbaa !16
@@ -6445,7 +6445,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %324, align 1, !tbaa !17
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 2592
   %326 = getelementptr inbounds nuw i8, ptr %1, i64 2608
-  store ptr %326, ptr %325, align 8, !tbaa !22
+  store ptr %326, ptr %325, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %326, ptr noundef nonnull align 1 dereferenceable(3) @.str.81, i64 3, i1 false)
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 2600
   store i64 3, ptr %327, align 8, !tbaa !16
@@ -6453,7 +6453,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %328, align 1, !tbaa !17
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 2624
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 2640
-  store ptr %330, ptr %329, align 8, !tbaa !22
+  store ptr %330, ptr %329, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %330, ptr noundef nonnull align 1 dereferenceable(3) @.str.82, i64 3, i1 false)
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 2632
   store i64 3, ptr %331, align 8, !tbaa !16
@@ -6461,7 +6461,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %332, align 1, !tbaa !17
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 2656
   %334 = getelementptr inbounds nuw i8, ptr %1, i64 2672
-  store ptr %334, ptr %333, align 8, !tbaa !22
+  store ptr %334, ptr %333, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %334, ptr noundef nonnull align 1 dereferenceable(3) @.str.83, i64 3, i1 false)
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 2664
   store i64 3, ptr %335, align 8, !tbaa !16
@@ -6469,7 +6469,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %336, align 1, !tbaa !17
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 2688
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 2704
-  store ptr %338, ptr %337, align 8, !tbaa !22
+  store ptr %338, ptr %337, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %338, ptr noundef nonnull align 1 dereferenceable(3) @.str.84, i64 3, i1 false)
   %339 = getelementptr inbounds nuw i8, ptr %1, i64 2696
   store i64 3, ptr %339, align 8, !tbaa !16
@@ -6477,7 +6477,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %340, align 1, !tbaa !17
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 2720
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 2736
-  store ptr %342, ptr %341, align 8, !tbaa !22
+  store ptr %342, ptr %341, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %342, ptr noundef nonnull align 1 dereferenceable(3) @.str.85, i64 3, i1 false)
   %343 = getelementptr inbounds nuw i8, ptr %1, i64 2728
   store i64 3, ptr %343, align 8, !tbaa !16
@@ -6485,7 +6485,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %344, align 1, !tbaa !17
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 2752
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 2768
-  store ptr %346, ptr %345, align 8, !tbaa !22
+  store ptr %346, ptr %345, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %346, ptr noundef nonnull align 1 dereferenceable(3) @.str.86, i64 3, i1 false)
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 2760
   store i64 3, ptr %347, align 8, !tbaa !16
@@ -6493,7 +6493,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %348, align 1, !tbaa !17
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 2784
   %350 = getelementptr inbounds nuw i8, ptr %1, i64 2800
-  store ptr %350, ptr %349, align 8, !tbaa !22
+  store ptr %350, ptr %349, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %350, ptr noundef nonnull align 1 dereferenceable(3) @.str.87, i64 3, i1 false)
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 2792
   store i64 3, ptr %351, align 8, !tbaa !16
@@ -6501,7 +6501,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %352, align 1, !tbaa !17
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 2816
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 2832
-  store ptr %354, ptr %353, align 8, !tbaa !22
+  store ptr %354, ptr %353, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %354, ptr noundef nonnull align 1 dereferenceable(3) @.str.88, i64 3, i1 false)
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 2824
   store i64 3, ptr %355, align 8, !tbaa !16
@@ -6509,7 +6509,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %356, align 1, !tbaa !17
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 2848
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 2864
-  store ptr %358, ptr %357, align 8, !tbaa !22
+  store ptr %358, ptr %357, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %358, ptr noundef nonnull align 1 dereferenceable(3) @.str.89, i64 3, i1 false)
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 2856
   store i64 3, ptr %359, align 8, !tbaa !16
@@ -6517,7 +6517,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %360, align 1, !tbaa !17
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 2880
   %362 = getelementptr inbounds nuw i8, ptr %1, i64 2896
-  store ptr %362, ptr %361, align 8, !tbaa !22
+  store ptr %362, ptr %361, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %362, ptr noundef nonnull align 1 dereferenceable(3) @.str.90, i64 3, i1 false)
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 2888
   store i64 3, ptr %363, align 8, !tbaa !16
@@ -6525,7 +6525,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %364, align 1, !tbaa !17
   %365 = getelementptr inbounds nuw i8, ptr %1, i64 2912
   %366 = getelementptr inbounds nuw i8, ptr %1, i64 2928
-  store ptr %366, ptr %365, align 8, !tbaa !22
+  store ptr %366, ptr %365, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %366, ptr noundef nonnull align 1 dereferenceable(3) @.str.91, i64 3, i1 false)
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 2920
   store i64 3, ptr %367, align 8, !tbaa !16
@@ -6533,7 +6533,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %368, align 1, !tbaa !17
   %369 = getelementptr inbounds nuw i8, ptr %1, i64 2944
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 2960
-  store ptr %370, ptr %369, align 8, !tbaa !22
+  store ptr %370, ptr %369, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %370, ptr noundef nonnull align 1 dereferenceable(3) @.str.92, i64 3, i1 false)
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 2952
   store i64 3, ptr %371, align 8, !tbaa !16
@@ -6541,7 +6541,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %372, align 1, !tbaa !17
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 2976
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 2992
-  store ptr %374, ptr %373, align 8, !tbaa !22
+  store ptr %374, ptr %373, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %374, ptr noundef nonnull align 1 dereferenceable(3) @.str.93, i64 3, i1 false)
   %375 = getelementptr inbounds nuw i8, ptr %1, i64 2984
   store i64 3, ptr %375, align 8, !tbaa !16
@@ -6549,7 +6549,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %376, align 1, !tbaa !17
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 3008
   %378 = getelementptr inbounds nuw i8, ptr %1, i64 3024
-  store ptr %378, ptr %377, align 8, !tbaa !22
+  store ptr %378, ptr %377, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %378, ptr noundef nonnull align 1 dereferenceable(3) @.str.94, i64 3, i1 false)
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 3016
   store i64 3, ptr %379, align 8, !tbaa !16
@@ -6557,7 +6557,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %380, align 1, !tbaa !17
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 3040
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 3056
-  store ptr %382, ptr %381, align 8, !tbaa !22
+  store ptr %382, ptr %381, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %382, ptr noundef nonnull align 1 dereferenceable(3) @.str.95, i64 3, i1 false)
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 3048
   store i64 3, ptr %383, align 8, !tbaa !16
@@ -6565,7 +6565,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %384, align 1, !tbaa !17
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 3088
-  store ptr %386, ptr %385, align 8, !tbaa !22
+  store ptr %386, ptr %385, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %386, ptr noundef nonnull align 1 dereferenceable(3) @.str.96, i64 3, i1 false)
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 3080
   store i64 3, ptr %387, align 8, !tbaa !16
@@ -6573,7 +6573,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %388, align 1, !tbaa !17
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 3104
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 3120
-  store ptr %390, ptr %389, align 8, !tbaa !22
+  store ptr %390, ptr %389, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %390, ptr noundef nonnull align 1 dereferenceable(3) @.str.97, i64 3, i1 false)
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 3112
   store i64 3, ptr %391, align 8, !tbaa !16
@@ -6581,7 +6581,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %392, align 1, !tbaa !17
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 3136
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 3152
-  store ptr %394, ptr %393, align 8, !tbaa !22
+  store ptr %394, ptr %393, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %394, ptr noundef nonnull align 1 dereferenceable(3) @.str.98, i64 3, i1 false)
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 3144
   store i64 3, ptr %395, align 8, !tbaa !16
@@ -6589,7 +6589,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %396, align 1, !tbaa !17
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 3168
   %398 = getelementptr inbounds nuw i8, ptr %1, i64 3184
-  store ptr %398, ptr %397, align 8, !tbaa !22
+  store ptr %398, ptr %397, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %398, ptr noundef nonnull align 1 dereferenceable(3) @.str.99, i64 3, i1 false)
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 3176
   store i64 3, ptr %399, align 8, !tbaa !16
@@ -6597,7 +6597,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %400, align 1, !tbaa !17
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 3200
   %402 = getelementptr inbounds nuw i8, ptr %1, i64 3216
-  store ptr %402, ptr %401, align 8, !tbaa !22
+  store ptr %402, ptr %401, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %402, ptr noundef nonnull align 1 dereferenceable(3) @.str.100, i64 3, i1 false)
   %403 = getelementptr inbounds nuw i8, ptr %1, i64 3208
   store i64 3, ptr %403, align 8, !tbaa !16
@@ -6605,7 +6605,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %404, align 1, !tbaa !17
   %405 = getelementptr inbounds nuw i8, ptr %1, i64 3232
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 3248
-  store ptr %406, ptr %405, align 8, !tbaa !22
+  store ptr %406, ptr %405, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %406, ptr noundef nonnull align 1 dereferenceable(3) @.str.101, i64 3, i1 false)
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 3240
   store i64 3, ptr %407, align 8, !tbaa !16
@@ -6613,7 +6613,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %408, align 1, !tbaa !17
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 3264
   %410 = getelementptr inbounds nuw i8, ptr %1, i64 3280
-  store ptr %410, ptr %409, align 8, !tbaa !22
+  store ptr %410, ptr %409, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %410, ptr noundef nonnull align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
   %411 = getelementptr inbounds nuw i8, ptr %1, i64 3272
   store i64 3, ptr %411, align 8, !tbaa !16
@@ -6621,7 +6621,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %412, align 1, !tbaa !17
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 3296
   %414 = getelementptr inbounds nuw i8, ptr %1, i64 3312
-  store ptr %414, ptr %413, align 8, !tbaa !22
+  store ptr %414, ptr %413, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %414, ptr noundef nonnull align 1 dereferenceable(3) @.str.103, i64 3, i1 false)
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 3304
   store i64 3, ptr %415, align 8, !tbaa !16
@@ -6629,7 +6629,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %416, align 1, !tbaa !17
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 3328
   %418 = getelementptr inbounds nuw i8, ptr %1, i64 3344
-  store ptr %418, ptr %417, align 8, !tbaa !22
+  store ptr %418, ptr %417, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %418, ptr noundef nonnull align 1 dereferenceable(3) @.str.104, i64 3, i1 false)
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 3336
   store i64 3, ptr %419, align 8, !tbaa !16
@@ -6637,7 +6637,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %420, align 1, !tbaa !17
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 3360
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 3376
-  store ptr %422, ptr %421, align 8, !tbaa !22
+  store ptr %422, ptr %421, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %422, ptr noundef nonnull align 1 dereferenceable(3) @.str.105, i64 3, i1 false)
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 3368
   store i64 3, ptr %423, align 8, !tbaa !16
@@ -6645,7 +6645,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %424, align 1, !tbaa !17
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 3392
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 3408
-  store ptr %426, ptr %425, align 8, !tbaa !22
+  store ptr %426, ptr %425, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %426, ptr noundef nonnull align 1 dereferenceable(3) @.str.106, i64 3, i1 false)
   %427 = getelementptr inbounds nuw i8, ptr %1, i64 3400
   store i64 3, ptr %427, align 8, !tbaa !16
@@ -6653,7 +6653,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %428, align 1, !tbaa !17
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 3424
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 3440
-  store ptr %430, ptr %429, align 8, !tbaa !22
+  store ptr %430, ptr %429, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %430, ptr noundef nonnull align 1 dereferenceable(3) @.str.107, i64 3, i1 false)
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 3432
   store i64 3, ptr %431, align 8, !tbaa !16
@@ -6661,7 +6661,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %432, align 1, !tbaa !17
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 3456
   %434 = getelementptr inbounds nuw i8, ptr %1, i64 3472
-  store ptr %434, ptr %433, align 8, !tbaa !22
+  store ptr %434, ptr %433, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %434, ptr noundef nonnull align 1 dereferenceable(3) @.str.108, i64 3, i1 false)
   %435 = getelementptr inbounds nuw i8, ptr %1, i64 3464
   store i64 3, ptr %435, align 8, !tbaa !16
@@ -6669,7 +6669,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %436, align 1, !tbaa !17
   %437 = getelementptr inbounds nuw i8, ptr %1, i64 3488
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 3504
-  store ptr %438, ptr %437, align 8, !tbaa !22
+  store ptr %438, ptr %437, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %438, ptr noundef nonnull align 1 dereferenceable(3) @.str.109, i64 3, i1 false)
   %439 = getelementptr inbounds nuw i8, ptr %1, i64 3496
   store i64 3, ptr %439, align 8, !tbaa !16
@@ -6677,7 +6677,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %440, align 1, !tbaa !17
   %441 = getelementptr inbounds nuw i8, ptr %1, i64 3520
   %442 = getelementptr inbounds nuw i8, ptr %1, i64 3536
-  store ptr %442, ptr %441, align 8, !tbaa !22
+  store ptr %442, ptr %441, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %442, ptr noundef nonnull align 1 dereferenceable(3) @.str.110, i64 3, i1 false)
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 3528
   store i64 3, ptr %443, align 8, !tbaa !16
@@ -6685,7 +6685,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %444, align 1, !tbaa !17
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 3552
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 3568
-  store ptr %446, ptr %445, align 8, !tbaa !22
+  store ptr %446, ptr %445, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %446, ptr noundef nonnull align 1 dereferenceable(3) @.str.111, i64 3, i1 false)
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 3560
   store i64 3, ptr %447, align 8, !tbaa !16
@@ -6693,7 +6693,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %448, align 1, !tbaa !17
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 3584
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 3600
-  store ptr %450, ptr %449, align 8, !tbaa !22
+  store ptr %450, ptr %449, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %450, ptr noundef nonnull align 1 dereferenceable(3) @.str.112, i64 3, i1 false)
   %451 = getelementptr inbounds nuw i8, ptr %1, i64 3592
   store i64 3, ptr %451, align 8, !tbaa !16
@@ -6701,7 +6701,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %452, align 1, !tbaa !17
   %453 = getelementptr inbounds nuw i8, ptr %1, i64 3616
   %454 = getelementptr inbounds nuw i8, ptr %1, i64 3632
-  store ptr %454, ptr %453, align 8, !tbaa !22
+  store ptr %454, ptr %453, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %454, ptr noundef nonnull align 1 dereferenceable(3) @.str.113, i64 3, i1 false)
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 3624
   store i64 3, ptr %455, align 8, !tbaa !16
@@ -6709,7 +6709,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %456, align 1, !tbaa !17
   %457 = getelementptr inbounds nuw i8, ptr %1, i64 3648
   %458 = getelementptr inbounds nuw i8, ptr %1, i64 3664
-  store ptr %458, ptr %457, align 8, !tbaa !22
+  store ptr %458, ptr %457, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %458, ptr noundef nonnull align 1 dereferenceable(3) @.str.114, i64 3, i1 false)
   %459 = getelementptr inbounds nuw i8, ptr %1, i64 3656
   store i64 3, ptr %459, align 8, !tbaa !16
@@ -6717,7 +6717,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %460, align 1, !tbaa !17
   %461 = getelementptr inbounds nuw i8, ptr %1, i64 3680
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 3696
-  store ptr %462, ptr %461, align 8, !tbaa !22
+  store ptr %462, ptr %461, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %462, ptr noundef nonnull align 1 dereferenceable(3) @.str.115, i64 3, i1 false)
   %463 = getelementptr inbounds nuw i8, ptr %1, i64 3688
   store i64 3, ptr %463, align 8, !tbaa !16
@@ -6725,7 +6725,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %464, align 1, !tbaa !17
   %465 = getelementptr inbounds nuw i8, ptr %1, i64 3712
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 3728
-  store ptr %466, ptr %465, align 8, !tbaa !22
+  store ptr %466, ptr %465, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %466, ptr noundef nonnull align 1 dereferenceable(3) @.str.116, i64 3, i1 false)
   %467 = getelementptr inbounds nuw i8, ptr %1, i64 3720
   store i64 3, ptr %467, align 8, !tbaa !16
@@ -6733,7 +6733,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %468, align 1, !tbaa !17
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 3744
   %470 = getelementptr inbounds nuw i8, ptr %1, i64 3760
-  store ptr %470, ptr %469, align 8, !tbaa !22
+  store ptr %470, ptr %469, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %470, ptr noundef nonnull align 1 dereferenceable(3) @.str.117, i64 3, i1 false)
   %471 = getelementptr inbounds nuw i8, ptr %1, i64 3752
   store i64 3, ptr %471, align 8, !tbaa !16
@@ -6741,7 +6741,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
   store i8 0, ptr %472, align 1, !tbaa !17
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 3776
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 3792
-  store ptr %474, ptr %473, align 8, !tbaa !22
+  store ptr %474, ptr %473, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %474, ptr noundef nonnull align 1 dereferenceable(3) @.str.118, i64 3, i1 false)
   %475 = getelementptr inbounds nuw i8, ptr %1, i64 3784
   store i64 3, ptr %475, align 8, !tbaa !16
@@ -6755,7 +6755,7 @@ define internal void @_GLOBAL__sub_I_qmmminputgenerator.cpp() #21 section ".text
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %0
   store ptr %478, ptr @_ZN3gmxL15periodic_systemB5cxx11E, align 8, !tbaa !4
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 3808
-  store ptr %479, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmxL15periodic_systemB5cxx11E, i64 16), align 8, !tbaa !21
+  store ptr %479, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmxL15periodic_systemB5cxx11E, i64 16), align 8, !tbaa !20
   %480 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_(ptr noundef nonnull %1, ptr noundef nonnull %477, ptr noundef nonnull %478)
           to label %489 unwind label %481
 
@@ -6770,7 +6770,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %.body.i
 
 484:                                              ; preds = %481
-  %485 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmxL15periodic_systemB5cxx11E, i64 16), align 8, !tbaa !21
+  %485 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmxL15periodic_systemB5cxx11E, i64 16), align 8, !tbaa !20
   %486 = ptrtoint ptr %485 to i64
   %487 = ptrtoint ptr %483 to i64
   %488 = sub i64 %486, %487
@@ -6804,7 +6804,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %501 = icmp eq ptr %492, %1
-  br i1 %501, label %__cxx_global_var_init.exit, label %490, !llvm.loop !116
+  br i1 %501, label %__cxx_global_var_init.exit, label %490
 
 .body.i:                                          ; preds = %.body.i.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit969.i
   %502 = phi ptr [ %503, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit969.i ], [ %477, %.body.i.preheader ]
@@ -6829,7 +6829,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit969.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i967.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i968.i
   %512 = icmp eq ptr %503, %1
-  br i1 %512, label %.thread.i, label %.body.i, !llvm.loop !117
+  br i1 %512, label %.thread.i, label %.body.i
 
 .thread.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit969.i
   call void @llvm.lifetime.end.p0(i64 3808, ptr nonnull %1) #26
@@ -6905,103 +6905,99 @@ attributes #30 = { nounwind willreturn memory(read) }
 !15 = !{!"long", !8, i64 0}
 !16 = !{!12, !15, i64 8}
 !17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!5, !6, i64 16}
-!22 = !{!13, !14, i64 0}
-!23 = !{!15, !15, i64 0}
-!24 = distinct !{!24, !19, !20}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTSN3gmx14QMMMParametersE", !7, i64 0}
-!27 = !{!28, !29, i64 8}
-!28 = !{!"_ZTSN3gmx18QMMMInputGeneratorE", !26, i64 0, !29, i64 8, !8, i64 12, !8, i64 48, !30, i64 84, !30, i64 96, !31, i64 112, !40, i64 160, !43, i64 176}
-!29 = !{!"_ZTS7PbcType", !8, i64 0}
-!30 = !{!"_ZTSN3gmx11BasicVectorIfEE", !8, i64 0}
-!31 = !{!"_ZTSSt3setIlSt4lessIlESaIlEE", !32, i64 0}
-!32 = !{!"_ZTSSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE", !33, i64 0}
-!33 = !{!"_ZTSNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE13_Rb_tree_implIS3_Lb1EEE", !34, i64 0, !36, i64 8}
-!34 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIlEE", !35, i64 0}
-!35 = !{!"_ZTSSt4lessIlE"}
-!36 = !{!"_ZTSSt15_Rb_tree_header", !37, i64 0, !15, i64 32}
-!37 = !{!"_ZTSSt18_Rb_tree_node_base", !38, i64 0, !39, i64 8, !39, i64 16, !39, i64 24}
-!38 = !{!"_ZTSSt14_Rb_tree_color", !8, i64 0}
-!39 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
-!40 = !{!"_ZTSN3gmx8ArrayRefIKfEE", !41, i64 0, !41, i64 8}
-!41 = !{!"_ZTSN3gmx12ArrayRefIterIKfEE", !42, i64 0}
-!42 = !{!"p1 float", !7, i64 0}
-!43 = !{!"_ZTSN3gmx8ArrayRefIKNS_11BasicVectorIfEEEE", !44, i64 0, !44, i64 8}
-!44 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !45, i64 0}
-!45 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !7, i64 0}
-!46 = !{!36, !38, i64 0}
-!47 = !{!36, !39, i64 8}
-!48 = !{!36, !39, i64 16}
-!49 = !{!36, !39, i64 24}
-!50 = !{!36, !15, i64 32}
-!51 = !{!41, !42, i64 0}
-!52 = !{!44, !45, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"float", !8, i64 0}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 long", !7, i64 0}
-!57 = distinct !{!57, !20}
-!58 = !{!28, !26, i64 0}
-!59 = !{!60, !56, i64 8}
-!60 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !56, i64 0, !56, i64 8, !56, i64 16}
-!61 = !{!60, !56, i64 0}
-!62 = !{i64 0, i64 12, !17}
-!63 = distinct !{!63, !19, !20}
-!64 = distinct !{!64, !19, !20}
-!65 = distinct !{!65, !19, !20}
-!66 = !{!39, !39, i64 0}
-!67 = distinct !{!67, !19, !20}
-!68 = !{!37, !39, i64 24}
-!69 = !{!37, !39, i64 16}
-!70 = distinct !{!70, !19, !20}
-!71 = distinct !{!71, !19, !20}
-!72 = !{!73, !88, i64 104}
-!73 = !{!"_ZTSN3gmx14QMMMParametersE", !74, i64 0, !75, i64 8, !75, i64 32, !78, i64 56, !83, i64 80, !88, i64 104, !88, i64 108, !89, i64 112, !12, i64 120, !12, i64 152, !12, i64 184, !8, i64 216, !30, i64 252}
-!74 = !{!"bool", !8, i64 0}
-!75 = !{!"_ZTSSt6vectorIlSaIlEE", !76, i64 0}
-!76 = !{!"_ZTSSt12_Vector_baseIlSaIlEE", !77, i64 0}
-!77 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE12_Vector_implE", !60, i64 0}
-!78 = !{!"_ZTSSt6vectorIN3gmx12LinkFrontierESaIS1_EE", !79, i64 0}
-!79 = !{!"_ZTSSt12_Vector_baseIN3gmx12LinkFrontierESaIS1_EE", !80, i64 0}
-!80 = !{!"_ZTSNSt12_Vector_baseIN3gmx12LinkFrontierESaIS1_EE12_Vector_implE", !81, i64 0}
-!81 = !{!"_ZTSNSt12_Vector_baseIN3gmx12LinkFrontierESaIS1_EE17_Vector_impl_dataE", !82, i64 0, !82, i64 8, !82, i64 16}
-!82 = !{!"p1 _ZTSN3gmx12LinkFrontierE", !7, i64 0}
-!83 = !{!"_ZTSSt6vectorIiSaIiEE", !84, i64 0}
-!84 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !85, i64 0}
-!85 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !86, i64 0}
-!86 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !87, i64 0, !87, i64 8, !87, i64 16}
-!87 = !{!"p1 int", !7, i64 0}
-!88 = !{!"int", !8, i64 0}
-!89 = !{!"_ZTSN3gmx12QMMMQMMethodE", !8, i64 0}
-!90 = !{!73, !88, i64 108}
-!91 = !{!73, !89, i64 112}
-!92 = !{!14, !14, i64 0}
-!93 = !{!88, !88, i64 0}
-!94 = !{!86, !87, i64 0}
-!95 = distinct !{!95, !19, !20}
-!96 = !{!81, !82, i64 8}
-!97 = !{!81, !82, i64 0}
-!98 = distinct !{!98, !19, !20}
-!99 = distinct !{!99, !19, !20}
-!100 = !{!101, !15, i64 0}
-!101 = !{!"_ZTSN3gmx12LinkFrontierE", !15, i64 0, !15, i64 8}
-!102 = !{!101, !15, i64 8}
-!103 = distinct !{!103, !19, !20}
-!104 = distinct !{!104, !19, !20}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
-!107 = distinct !{!107, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
-!110 = distinct !{!110, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
-!113 = distinct !{!113, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
-!114 = distinct !{!114, !19, !20}
-!115 = distinct !{!115, !19, !20}
-!116 = distinct !{!116, !20}
-!117 = distinct !{!117, !20}
+!20 = !{!5, !6, i64 16}
+!21 = !{!13, !14, i64 0}
+!22 = !{!15, !15, i64 0}
+!23 = distinct !{!23, !19}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN3gmx14QMMMParametersE", !7, i64 0}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"_ZTSN3gmx18QMMMInputGeneratorE", !25, i64 0, !28, i64 8, !8, i64 12, !8, i64 48, !29, i64 84, !29, i64 96, !30, i64 112, !39, i64 160, !42, i64 176}
+!28 = !{!"_ZTS7PbcType", !8, i64 0}
+!29 = !{!"_ZTSN3gmx11BasicVectorIfEE", !8, i64 0}
+!30 = !{!"_ZTSSt3setIlSt4lessIlESaIlEE", !31, i64 0}
+!31 = !{!"_ZTSSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE", !32, i64 0}
+!32 = !{!"_ZTSNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE13_Rb_tree_implIS3_Lb1EEE", !33, i64 0, !35, i64 8}
+!33 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIlEE", !34, i64 0}
+!34 = !{!"_ZTSSt4lessIlE"}
+!35 = !{!"_ZTSSt15_Rb_tree_header", !36, i64 0, !15, i64 32}
+!36 = !{!"_ZTSSt18_Rb_tree_node_base", !37, i64 0, !38, i64 8, !38, i64 16, !38, i64 24}
+!37 = !{!"_ZTSSt14_Rb_tree_color", !8, i64 0}
+!38 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !7, i64 0}
+!39 = !{!"_ZTSN3gmx8ArrayRefIKfEE", !40, i64 0, !40, i64 8}
+!40 = !{!"_ZTSN3gmx12ArrayRefIterIKfEE", !41, i64 0}
+!41 = !{!"p1 float", !7, i64 0}
+!42 = !{!"_ZTSN3gmx8ArrayRefIKNS_11BasicVectorIfEEEE", !43, i64 0, !43, i64 8}
+!43 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !44, i64 0}
+!44 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !7, i64 0}
+!45 = !{!35, !37, i64 0}
+!46 = !{!35, !38, i64 8}
+!47 = !{!35, !38, i64 16}
+!48 = !{!35, !38, i64 24}
+!49 = !{!35, !15, i64 32}
+!50 = !{!40, !41, i64 0}
+!51 = !{!43, !44, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"float", !8, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 long", !7, i64 0}
+!56 = !{!27, !25, i64 0}
+!57 = !{!58, !55, i64 8}
+!58 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !55, i64 0, !55, i64 8, !55, i64 16}
+!59 = !{!58, !55, i64 0}
+!60 = !{i64 0, i64 12, !17}
+!61 = distinct !{!61, !19}
+!62 = distinct !{!62, !19}
+!63 = distinct !{!63, !19}
+!64 = !{!38, !38, i64 0}
+!65 = distinct !{!65, !19}
+!66 = !{!36, !38, i64 24}
+!67 = !{!36, !38, i64 16}
+!68 = distinct !{!68, !19}
+!69 = distinct !{!69, !19}
+!70 = !{!71, !86, i64 104}
+!71 = !{!"_ZTSN3gmx14QMMMParametersE", !72, i64 0, !73, i64 8, !73, i64 32, !76, i64 56, !81, i64 80, !86, i64 104, !86, i64 108, !87, i64 112, !12, i64 120, !12, i64 152, !12, i64 184, !8, i64 216, !29, i64 252}
+!72 = !{!"bool", !8, i64 0}
+!73 = !{!"_ZTSSt6vectorIlSaIlEE", !74, i64 0}
+!74 = !{!"_ZTSSt12_Vector_baseIlSaIlEE", !75, i64 0}
+!75 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE12_Vector_implE", !58, i64 0}
+!76 = !{!"_ZTSSt6vectorIN3gmx12LinkFrontierESaIS1_EE", !77, i64 0}
+!77 = !{!"_ZTSSt12_Vector_baseIN3gmx12LinkFrontierESaIS1_EE", !78, i64 0}
+!78 = !{!"_ZTSNSt12_Vector_baseIN3gmx12LinkFrontierESaIS1_EE12_Vector_implE", !79, i64 0}
+!79 = !{!"_ZTSNSt12_Vector_baseIN3gmx12LinkFrontierESaIS1_EE17_Vector_impl_dataE", !80, i64 0, !80, i64 8, !80, i64 16}
+!80 = !{!"p1 _ZTSN3gmx12LinkFrontierE", !7, i64 0}
+!81 = !{!"_ZTSSt6vectorIiSaIiEE", !82, i64 0}
+!82 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !83, i64 0}
+!83 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !84, i64 0}
+!84 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !85, i64 0, !85, i64 8, !85, i64 16}
+!85 = !{!"p1 int", !7, i64 0}
+!86 = !{!"int", !8, i64 0}
+!87 = !{!"_ZTSN3gmx12QMMMQMMethodE", !8, i64 0}
+!88 = !{!71, !86, i64 108}
+!89 = !{!71, !87, i64 112}
+!90 = !{!14, !14, i64 0}
+!91 = !{!86, !86, i64 0}
+!92 = !{!84, !85, i64 0}
+!93 = distinct !{!93, !19}
+!94 = !{!79, !80, i64 8}
+!95 = !{!79, !80, i64 0}
+!96 = distinct !{!96, !19}
+!97 = distinct !{!97, !19}
+!98 = !{!99, !15, i64 0}
+!99 = !{!"_ZTSN3gmx12LinkFrontierE", !15, i64 0, !15, i64 8}
+!100 = !{!99, !15, i64 8}
+!101 = distinct !{!101, !19}
+!102 = distinct !{!102, !19}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!105 = distinct !{!105, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
+!108 = distinct !{!108, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
+!111 = distinct !{!111, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
+!112 = distinct !{!112, !19}
+!113 = distinct !{!113, !19}

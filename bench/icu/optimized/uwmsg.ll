@@ -200,24 +200,24 @@ define dso_local ptr @u_wmsg_errorName(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   store i32 0, ptr %3, align 4, !tbaa !4
-  %5 = load ptr, ptr @gInfoMessages, align 8, !tbaa !18
+  %5 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %7
 
 6:                                                ; preds = %1
   %calloc5.i = tail call dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  store ptr %calloc5.i, ptr @gInfoMessages, align 8, !tbaa !18
+  store ptr %calloc5.i, ptr @gInfoMessages, align 8, !tbaa !17
   br label %7
 
 7:                                                ; preds = %6, %1
   %8 = phi ptr [ %calloc5.i, %6 ], [ %5, %1 ]
-  %9 = load ptr, ptr @gErrMessages, align 8, !tbaa !18
+  %9 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
   %.not4.i = icmp eq ptr %9, null
   br i1 %.not4.i, label %10, label %fetchErrorName.exit
 
 10:                                               ; preds = %7
   %calloc.i = tail call dereferenceable_or_null(534544) ptr @calloc(i64 1, i64 534544)
-  store ptr %calloc.i, ptr @gErrMessages, align 8, !tbaa !18
+  store ptr %calloc.i, ptr @gErrMessages, align 8, !tbaa !17
   br label %fetchErrorName.exit
 
 fetchErrorName.exit:                              ; preds = %7, %10
@@ -280,13 +280,13 @@ fetchErrorName.exit:                              ; preds = %7, %10
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr @gErrMessages, align 8, !tbaa !18
+  %42 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %12
   store ptr %.2, ptr %43, align 8, !tbaa !11
   br label %48
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr @gInfoMessages, align 8, !tbaa !18
+  %45 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
   %46 = getelementptr ptr, ptr %45, i64 %14
   %47 = getelementptr i8, ptr %46, i64 1024
   store ptr %.2, ptr %47, align 8, !tbaa !11
@@ -353,9 +353,8 @@ attributes #10 = { nounwind allocsize(0) }
 !12 = !{!"p1 short", !10, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 omnipotent char", !10, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p2 short", !20, i64 0}
-!20 = !{!"any p2 pointer", !10, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p2 short", !19, i64 0}
+!19 = !{!"any p2 pointer", !10, i64 0}

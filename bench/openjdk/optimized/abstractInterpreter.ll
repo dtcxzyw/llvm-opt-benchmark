@@ -836,8 +836,8 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
   %86 = zext i16 %.0.i.i to i64
   %87 = trunc i32 %2 to i16
   %.idx79 = mul nuw nsw i64 %86, 24
-  %88 = getelementptr i8, ptr %85, i64 26
-  %89 = getelementptr i8, ptr %88, i64 %.idx79
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 26
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx79
   store i16 %87, ptr %89, align 2
   br label %90
 
@@ -1380,7 +1380,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !10
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1396,7 +1396,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !11
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !10
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1467,8 +1467,7 @@ attributes #12 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

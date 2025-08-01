@@ -277,7 +277,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i32 %134, ptr %69, align 8, !tbaa !53
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %._crit_edge157, label %.lr.ph.us, !llvm.loop !68
+  br i1 %exitcond164.not, label %._crit_edge157, label %.lr.ph.us, !llvm.loop !67
 
 ._crit_edge157:                                   ; preds = %._crit_edge.us, %.lr.ph156, %19
   %.not148 = icmp eq ptr %.0132, %1
@@ -329,7 +329,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   store double 1.000000e+00, ptr %15, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.0 = phi i32 [ -12, %1 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -434,9 +434,8 @@ attributes #4 = { nounwind }
 !62 = !{!54, !43, i64 40}
 !63 = !{!54, !43, i64 64}
 !64 = !{!54, !43, i64 48}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !66, !67, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!70 = distinct !{!70, !66, !67}
+!67 = distinct !{!67, !66, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = distinct !{!69, !66}

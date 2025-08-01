@@ -1240,7 +1240,7 @@ create_collation_from_locale.exit:                ; preds = %67, %62
   %.119.i = phi ptr [ %79, %77 ], [ %.018.i, %74 ]
   %.2.i = phi ptr [ %78, %77 ], [ %.117.i, %74 ]
   %.1.i = phi i1 [ %.0.i77, %77 ], [ true, %74 ]
-  br label %69, !llvm.loop !10
+  br label %69, !llvm.loop !9
 
 normalize_libc_locale_name.exit:                  ; preds = %69
   store i8 0, ptr %.018.i, align 1
@@ -1281,7 +1281,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
   %94 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 128, ptr noundef nonnull %23)
   %.not = icmp eq ptr %94, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %create_collation_from_locale.exit.thread
   %95 = icmp eq i32 %.187, 0
@@ -1327,7 +1327,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
   %.391 = phi i32 [ %.290108, %.lr.ph111 ], [ %112, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.058.lcssa127134
-  br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !10
 
 ._crit_edge112:                                   ; preds = %113, %100
   %.290.lcssa = phi i32 [ %.189, %100 ], [ %.391, %113 ]
@@ -1396,7 +1396,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
 138:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %138, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %138 ]
@@ -1420,7 +1420,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
   store i8 %147, ptr %148, align 1
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %get_icu_locale_comment.exit.thread97, label %.lr.ph20.i, !llvm.loop !14
+  br i1 %exitcond27.not.i, label %get_icu_locale_comment.exit.thread97, label %.lr.ph20.i, !llvm.loop !12
 
 get_icu_locale_comment.exit.thread97:             ; preds = %.lr.ph20.i
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 %wide.trip.count.i
@@ -1453,7 +1453,7 @@ get_icu_locale_comment.exit:                      ; preds = %.preheader.i78
   %158 = add nsw i32 %.066115, 1
   %159 = call i32 @uloc_countAvailable_70() #11
   %160 = icmp slt i32 %158, %159
-  br i1 %160, label %.lr.ph117, label %._crit_edge118, !llvm.loop !15
+  br i1 %160, label %.lr.ph117, label %._crit_edge118, !llvm.loop !13
 
 ._crit_edge118:                                   ; preds = %157, %118
   %.4.lcssa = phi i32 [ %.290.lcssa145, %118 ], [ %.5, %157 ]
@@ -1537,11 +1537,9 @@ attributes #14 = { noreturn nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !7, !9}
-!13 = distinct !{!13, !7, !9}
-!14 = distinct !{!14, !7, !9}
-!15 = distinct !{!15, !7, !9}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

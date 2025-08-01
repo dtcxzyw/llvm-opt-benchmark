@@ -1131,7 +1131,7 @@ define hidden void @_ZN9Arguments22init_system_propertiesEv() local_unnamed_addr
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %14, label %.preheader.i, !llvm.loop !9
+  br i1 %.not.i, label %14, label %.preheader.i, !llvm.loop !8
 
 14:                                               ; preds = %.preheader.i
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -1180,7 +1180,7 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %19, %20
   %33 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not.i35 = icmp eq ptr %34, null
-  br i1 %.not.i35, label %35, label %.preheader.i33, !llvm.loop !9
+  br i1 %.not.i35, label %35, label %.preheader.i33, !llvm.loop !8
 
 35:                                               ; preds = %.preheader.i33
   %36 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 16
@@ -1229,7 +1229,7 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit37:            ; preds = %40, %41
   %54 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not.i40 = icmp eq ptr %55, null
-  br i1 %.not.i40, label %56, label %.preheader.i38, !llvm.loop !9
+  br i1 %.not.i40, label %56, label %.preheader.i38, !llvm.loop !8
 
 56:                                               ; preds = %.preheader.i38
   %57 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 16
@@ -1278,7 +1278,7 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit42:            ; preds = %61, %62
   %75 = getelementptr inbounds nuw i8, ptr %.0.i44, i64 16
   %76 = load ptr, ptr %75, align 8
   %.not.i45 = icmp eq ptr %76, null
-  br i1 %.not.i45, label %77, label %.preheader.i43, !llvm.loop !9
+  br i1 %.not.i45, label %77, label %.preheader.i43, !llvm.loop !8
 
 77:                                               ; preds = %.preheader.i43
   %78 = getelementptr inbounds nuw i8, ptr %.0.i44, i64 16
@@ -1392,7 +1392,7 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit47:            ; preds = %82, %83
   %127 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 16
   %128 = load ptr, ptr %127, align 8
   %.not.i50 = icmp eq ptr %128, null
-  br i1 %.not.i50, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread, label %.preheader.i48, !llvm.loop !9
+  br i1 %.not.i50, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread, label %.preheader.i48, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread: ; preds = %.preheader.i48
   %129 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 16
@@ -1416,7 +1416,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51: ; preds = %_ZN14Sy
   %134 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
   %135 = load ptr, ptr %134, align 8
   %.not.i54 = icmp eq ptr %135, null
-  br i1 %.not.i54, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread, label %.preheader.i52, !llvm.loop !9
+  br i1 %.not.i54, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread, label %.preheader.i52, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread: ; preds = %.preheader.i52
   %136 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
@@ -1440,7 +1440,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55: ; preds = %_ZN9Arg
   %141 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
   %142 = load ptr, ptr %141, align 8
   %.not.i58 = icmp eq ptr %142, null
-  br i1 %.not.i58, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread, label %.preheader.i56, !llvm.loop !9
+  br i1 %.not.i58, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread, label %.preheader.i56, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread: ; preds = %.preheader.i56
   %143 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
@@ -1464,7 +1464,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59: ; preds = %_ZN9Arg
   %148 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
   %149 = load ptr, ptr %148, align 8
   %.not.i62 = icmp eq ptr %149, null
-  br i1 %.not.i62, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread, label %.preheader.i60, !llvm.loop !9
+  br i1 %.not.i62, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread, label %.preheader.i60, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread: ; preds = %.preheader.i60
   %150 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
@@ -1489,7 +1489,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arg
   %153 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
   %154 = load ptr, ptr %153, align 8
   %.not.i66 = icmp eq ptr %154, null
-  br i1 %.not.i66, label %155, label %.preheader.i64, !llvm.loop !9
+  br i1 %.not.i66, label %155, label %.preheader.i64, !llvm.loop !8
 
 155:                                              ; preds = %.preheader.i64
   %156 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
@@ -1506,7 +1506,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arg
   %159 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
   %160 = load ptr, ptr %159, align 8
   %.not.i70 = icmp eq ptr %160, null
-  br i1 %.not.i70, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71, label %.preheader.i68, !llvm.loop !9
+  br i1 %.not.i70, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71, label %.preheader.i68, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71: ; preds = %.preheader.i68
   %161 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
@@ -1530,7 +1530,7 @@ define hidden void @_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !8
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -1583,7 +1583,7 @@ define hidden void @_ZN9Arguments39init_version_specific_system_propertiesEv() l
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !9
+  br i1 %.not.i, label %15, label %.preheader.i, !llvm.loop !8
 
 15:                                               ; preds = %.preheader.i
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -1620,7 +1620,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit: ; preds = %12, %15
   %30 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not.i12 = icmp eq ptr %31, null
-  br i1 %.not.i12, label %32, label %.preheader.i10, !llvm.loop !9
+  br i1 %.not.i12, label %32, label %.preheader.i10, !llvm.loop !8
 
 32:                                               ; preds = %.preheader.i10
   %33 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 16
@@ -1669,7 +1669,7 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %37, %38
   %51 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not.i16 = icmp eq ptr %52, null
-  br i1 %.not.i16, label %53, label %.preheader.i14, !llvm.loop !9
+  br i1 %.not.i16, label %53, label %.preheader.i14, !llvm.loop !8
 
 53:                                               ; preds = %.preheader.i14
   %54 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 16
@@ -1705,12 +1705,12 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   %10 = getelementptr inbounds [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not.not.i = icmp eq ptr %11, null
-  br i1 %.not.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %13, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ @_ZL17special_jvm_flags, %.lr.ph.i.preheader ], [ %10, %.lr.ph.i ]
@@ -1783,12 +1783,12 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   %11 = getelementptr inbounds [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not.not.i = icmp eq ptr %12, null
-  br i1 %.not.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %14, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ @_ZL17special_jvm_flags, %.lr.ph.i.preheader ], [ %11, %.lr.ph.i ]
@@ -2134,7 +2134,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrig
   %17 = icmp eq i8 %13, 95
   %or.cond5 = or i1 %17, %16
   %18 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %or.cond5, label %12, label %19, !llvm.loop !11
+  br i1 %or.cond5, label %12, label %19, !llvm.loop !10
 
 19:                                               ; preds = %12
   %20 = icmp eq ptr %.1, %.049
@@ -2885,7 +2885,7 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
   %10 = add i64 %9, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph37.preheader, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph37.preheader, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.preheader
   %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 0, i32 noundef 0) #31
@@ -2909,7 +2909,7 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
   %19 = sub i64 %.133, %16
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph37, !llvm.loop !13
+  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph37, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph37, %._crit_edge, %2
   %.0 = phi ptr [ null, %2 ], [ %11, %._crit_edge ], [ %12, %.lr.ph37 ]
@@ -2941,7 +2941,7 @@ define hidden void @_ZN9Arguments8print_onEP12outputStream(ptr noundef nonnull %
   %10 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next.i, %11
-  br i1 %12, label %.lr.ph.i, label %_ZN9Arguments18print_jvm_flags_onEP12outputStream.exit, !llvm.loop !14
+  br i1 %12, label %.lr.ph.i, label %_ZN9Arguments18print_jvm_flags_onEP12outputStream.exit, !llvm.loop !13
 
 _ZN9Arguments18print_jvm_flags_onEP12outputStream.exit: ; preds = %.lr.ph.i, %4
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #31
@@ -2968,7 +2968,7 @@ _ZN9Arguments18print_jvm_flags_onEP12outputStream.exit: ; preds = %.lr.ph.i, %4
   %22 = load i32, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next.i19, %23
-  br i1 %24, label %.lr.ph.i17, label %_ZN9Arguments17print_jvm_args_onEP12outputStream.exit, !llvm.loop !15
+  br i1 %24, label %.lr.ph.i17, label %_ZN9Arguments17print_jvm_args_onEP12outputStream.exit, !llvm.loop !14
 
 _ZN9Arguments17print_jvm_args_onEP12outputStream.exit: ; preds = %.lr.ph.i17, %16
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #31
@@ -3028,7 +3028,7 @@ define hidden void @_ZN9Arguments18print_jvm_flags_onEP12outputStream(ptr nounde
   %7 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %1
   ret void
@@ -3052,7 +3052,7 @@ define hidden void @_ZN9Arguments17print_jvm_args_onEP12outputStream(ptr noundef
   %7 = load i32, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %1
   ret void
@@ -3080,7 +3080,7 @@ define hidden void @_ZN9Arguments16print_summary_onEP12outputStream(ptr noundef 
   %10 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next.i, %11
-  br i1 %12, label %.lr.ph.i, label %_ZN9Arguments18print_jvm_flags_onEP12outputStream.exit, !llvm.loop !14
+  br i1 %12, label %.lr.ph.i, label %_ZN9Arguments18print_jvm_flags_onEP12outputStream.exit, !llvm.loop !13
 
 _ZN9Arguments18print_jvm_flags_onEP12outputStream.exit: ; preds = %.lr.ph.i, %4
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #31
@@ -3102,7 +3102,7 @@ _ZN9Arguments18print_jvm_flags_onEP12outputStream.exit: ; preds = %.lr.ph.i, %4
   %19 = load i32, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i9, %20
-  br i1 %21, label %.lr.ph.i7, label %_ZN9Arguments17print_jvm_args_onEP12outputStream.exit, !llvm.loop !15
+  br i1 %21, label %.lr.ph.i7, label %_ZN9Arguments17print_jvm_args_onEP12outputStream.exit, !llvm.loop !14
 
 _ZN9Arguments17print_jvm_args_onEP12outputStream.exit: ; preds = %.lr.ph.i7, %13
   %22 = load ptr, ptr @_ZN9Arguments13_java_commandE, align 8
@@ -3435,7 +3435,7 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %58, %60
   %74 = icmp ne i32 %73, -1
   %75 = icmp slt i32 %.147, 1023
   %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %72
   %77 = icmp sgt i32 %.147, 0
@@ -3521,7 +3521,7 @@ define hidden noundef ptr @_ZN9Arguments12get_propertyEPKc(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %_ZN9Arguments22PropertyList_get_valueEP14SystemPropertyPKc.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZN9Arguments22PropertyList_get_valueEP14SystemPropertyPKc.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN9Arguments22PropertyList_get_valueEP14SystemPropertyPKc.exit: ; preds = %9, %1, %7
   %.07.i = phi ptr [ %8, %7 ], [ null, %1 ], [ null, %9 ]
@@ -3549,7 +3549,7 @@ define hidden noundef ptr @_ZN9Arguments22PropertyList_get_valueEP14SystemProper
   %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %9, %2, %7
   %.07 = phi ptr [ %8, %7 ], [ null, %2 ], [ null, %9 ]
@@ -3642,7 +3642,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments12add_propertyEPKcNS_17PropertyWr
   %44 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.0.i = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN14SystemPropertyC2EPKcS1_bb.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %_ZN14SystemPropertyC2EPKcS1_bb.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %43, %33
   %45 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #31
@@ -3676,7 +3676,7 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit:              ; preds = %43, %33
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %62 = load ptr, ptr %61, align 8
   %.not.i.i16.i = icmp eq ptr %62, null
-  br i1 %.not.i.i16.i, label %63, label %.preheader.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i16.i, label %63, label %.preheader.i.i.i, !llvm.loop !8
 
 63:                                               ; preds = %.preheader.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -3793,7 +3793,7 @@ define hidden void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKc
   %30 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   %31 = icmp eq i32 %4, 0
@@ -3813,7 +3813,7 @@ define hidden void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKc
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not.i.i16 = icmp eq ptr %38, null
-  br i1 %.not.i.i16, label %39, label %.preheader.i.i, !llvm.loop !9
+  br i1 %.not.i.i16, label %39, label %.preheader.i.i, !llvm.loop !8
 
 39:                                               ; preds = %.preheader.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -5369,7 +5369,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i:  ; preds = %117, %.lr.ph.i
   %121 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not.not.i = icmp eq ptr %122, null
-  br i1 %.not.not.i, label %.loopexit292, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.not.i, label %.loopexit292, label %.lr.ph.i, !llvm.loop !18
 
 _ZL12match_optionPK12JavaVMOptionPPKcS4_b.exit:   ; preds = %117, %117
   store ptr %118, ptr %43, align 8
@@ -5413,7 +5413,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i238: ; preds = %136, %.lr.ph.i235
   %141 = getelementptr inbounds nuw i8, ptr %.0813.i236, i64 8
   %142 = load ptr, ptr %141, align 8
   %.not.not.i239 = icmp eq ptr %142, null
-  br i1 %.not.not.i239, label %.loopexit, label %.lr.ph.i235, !llvm.loop !19
+  br i1 %.not.not.i239, label %.loopexit, label %.lr.ph.i235, !llvm.loop !18
 
 _ZL12match_optionPK12JavaVMOptionPPKcS4_b.exit242: ; preds = %136
   store ptr %137, ptr %43, align 8
@@ -5671,8 +5671,8 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
   br i1 %276, label %277, label %280
 
 277:                                              ; preds = %274
-  store i32 17, ptr %46, align 4, !alias.scope !20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %64, i8 0, i64 16, i1 false), !alias.scope !20
+  store i32 17, ptr %46, align 4, !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %64, i8 0, i64 16, i1 false), !alias.scope !19
   call void @_ZNK11JDK_Version9to_stringEPcm(ptr noundef nonnull align 4 dereferenceable(20) %46, ptr noundef nonnull %45, i64 noundef 256) #31
   %278 = load ptr, ptr %44, align 8
   %279 = load ptr, ptr %278, align 8
@@ -6107,8 +6107,8 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261: ; preds = %452
   br i1 %483, label %484, label %487
 
 484:                                              ; preds = %482
-  store i32 10, ptr %55, align 4, !alias.scope !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, i8 0, i64 16, i1 false), !alias.scope !23
+  store i32 10, ptr %55, align 4, !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, i8 0, i64 16, i1 false), !alias.scope !22
   call void @_ZNK11JDK_Version9to_stringEPcm(ptr noundef nonnull align 4 dereferenceable(20) %55, ptr noundef nonnull %54, i64 noundef 256) #31
   %485 = load ptr, ptr %44, align 8
   %486 = load ptr, ptr %485, align 8
@@ -6930,7 +6930,7 @@ sub_1289:                                         ; preds = %519
   %832 = load i32, ptr %58, align 4
   %833 = sext i32 %832 to i64
   %834 = icmp slt i64 %indvars.iv.next, %833
-  br i1 %834, label %65, label %._crit_edge, !llvm.loop !26
+  br i1 %834, label %65, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.critedge159, %3
   %835 = load i8, ptr @PrintSharedArchiveAndExit, align 1
@@ -7412,7 +7412,7 @@ define hidden void @_ZN9Arguments16fix_appclasspathEv() local_unnamed_addr #0 al
   %11 = load i8, ptr %.017, align 1
   %12 = icmp eq i8 %11, %7
   %13 = getelementptr inbounds nuw i8, ptr %.017, i64 1
-  br i1 %12, label %10, label %14, !llvm.loop !27
+  br i1 %12, label %10, label %14, !llvm.loop !26
 
 14:                                               ; preds = %10
   %15 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %.017, i8 noundef zeroext 19) #31
@@ -7435,7 +7435,7 @@ define hidden void @_ZN9Arguments16fix_appclasspathEv() local_unnamed_addr #0 al
   store i8 0, ptr %.021, align 1
   %.0 = getelementptr inbounds i8, ptr %.021, i64 -1
   %.not = icmp ult ptr %.0, %15
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %20, %14
   store i8 %7, ptr %1, align 1
@@ -7451,7 +7451,7 @@ define hidden void @_ZN9Arguments16fix_appclasspathEv() local_unnamed_addr #0 al
 24:                                               ; preds = %24, %.critedge
   %25 = call noundef i32 @_ZN11StringUtils17replace_no_expandEPcPKcS2_(ptr noundef nonnull %15, ptr noundef nonnull %1, ptr noundef nonnull %2) #31
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %24, label %27, !llvm.loop !29
+  br i1 %26, label %24, label %27, !llvm.loop !28
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr @_ZN9Arguments16_java_class_pathE, align 8
@@ -7586,7 +7586,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %.187, i64 1
   %15 = icmp ult ptr %14, %6
-  br i1 %15, label %8, label %.critedge.thread.loopexit, !llvm.loop !30
+  br i1 %15, label %8, label %.critedge.thread.loopexit, !llvm.loop !29
 
 .lr.ph97:                                         ; preds = %.critedge.preheader, %.critedge4
   %.296 = phi ptr [ %.4, %.critedge4 ], [ %.187, %.critedge.preheader ]
@@ -7620,7 +7620,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
   store i8 %22, ptr %.24489, align 1
   %.3 = getelementptr inbounds nuw i8, ptr %.390, i64 1
   %25 = icmp ult ptr %.3, %6
-  br i1 %25, label %.lr.ph, label %.critedge51, !llvm.loop !31
+  br i1 %25, label %.lr.ph, label %.critedge51, !llvm.loop !30
 
 .critedge51:                                      ; preds = %20, %23
   %26 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -7641,7 +7641,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
   %.3.pn = phi ptr [ %.296, %32 ], [ %.390, %.lr.ph ]
   %.4 = getelementptr inbounds nuw i8, ptr %.3.pn, i64 1
   %34 = icmp ult ptr %.4, %6
-  br i1 %34, label %.lr.ph97, label %.critedge2, !llvm.loop !32
+  br i1 %34, label %.lr.ph97, label %.critedge2, !llvm.loop !31
 
 .critedge2:                                       ; preds = %.lr.ph97, %.critedge4, %.critedge.preheader
   %.143.lcssa = phi ptr [ %.042105, %.critedge.preheader ], [ %.345, %.critedge4 ], [ %.14395, %.lr.ph97 ]
@@ -7693,7 +7693,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv
-  br i1 %exitcond.not, label %.preheader15.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader15.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !32
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.preheader.i.i.i, %.preheader15.i.i.i
   %.not.i.i.i = icmp eq ptr %.sroa.17.0104, null
@@ -7712,7 +7712,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   store ptr null, ptr %.sroa.2.0..sroa_idx, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %61 = icmp ult ptr %60, %6
-  br i1 %61, label %.preheader, label %.critedge.thread.loopexit111, !llvm.loop !34
+  br i1 %61, label %.preheader, label %.critedge.thread.loopexit111, !llvm.loop !33
 
 .critedge.thread.loopexit:                        ; preds = %13
   %62 = trunc nuw nsw i64 %indvars.iv to i32
@@ -7760,7 +7760,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 79:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next.i, %65
-  br i1 %exitcond128.not, label %._crit_edge.i52, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond128.not, label %._crit_edge.i52, label %.lr.ph.i, !llvm.loop !34
 
 ._crit_edge.i52:                                  ; preds = %79, %69
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -7916,7 +7916,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit:    ; preds = %_ZL12match_optionPK
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %9, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit, !llvm.loop !36
+  br i1 %or.cond, label %._crit_edge, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit, %1
   %.lcssa = phi i1 [ false, %1 ], [ %9, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
@@ -7944,7 +7944,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i: ; preds = %7
 13:                                               ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN9Arguments33args_contains_vm_options_file_argEPK14JavaVMInitArgs.exit, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %_ZN9Arguments33args_contains_vm_options_file_argEPK14JavaVMInitArgs.exit, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i, !llvm.loop !35
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i:  ; preds = %13, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
@@ -8083,7 +8083,7 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_Z
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next.i.i.i, %umax
-  br i1 %exitcond91.not, label %.preheader15.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %exitcond91.not, label %.preheader15.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !32
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph18.preheader.i.i.i, %.preheader15.i.i.i
   %.not.i.i.i17 = icmp eq ptr %.sroa.27.177, null
@@ -8102,7 +8102,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %55 = load i32, ptr %7, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !37
+  br i1 %57, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !36
 
 58:                                               ; preds = %21
   %59 = load ptr, ptr %18, align 8
@@ -8152,7 +8152,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   %indvars.iv.next.i.i.i35 = add nuw nsw i64 %indvars.iv.i.i.i34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i35, %72
-  br i1 %exitcond.not, label %.preheader15.i.i.i23, label %.lr.ph.i.i.i33, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader15.i.i.i23, label %.lr.ph.i.i.i33, !llvm.loop !32
 
 .preheader.i.i.i25:                               ; preds = %.lr.ph18.preheader.i.i.i29, %.preheader15.i.i.i23
   %.not.i.i.i26 = icmp eq ptr %.sroa.27.084, null
@@ -8183,7 +8183,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %88 = load i32, ptr %5, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next99, %89
-  br i1 %90, label %21, label %._crit_edge, !llvm.loop !38
+  br i1 %90, label %21, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit
   %.sroa.0.0.lcssa = phi i32 [ 0, %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit ], [ %.sroa.0.2, %.loopexit ]
@@ -8223,7 +8223,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 107:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next.i, %92
-  br i1 %exitcond101.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond101.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %107, %96
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8363,7 +8363,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i.i: ; preds = %44
 48:                                               ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.i, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i.i, !llvm.loop !35
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i.i: ; preds = %48, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %48 ]
@@ -8493,7 +8493,7 @@ _ZL12match_optionPK12JavaVMOptionPKc.exit60:      ; preds = %_ZN16ScopedVMInitAr
   %101 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = icmp slt i32 %100, %102
-  br i1 %103, label %17, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread, !llvm.loop !39
+  br i1 %103, label %17, label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread, !llvm.loop !38
 
 _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread: ; preds = %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit, %_ZL12match_optionPK12JavaVMOptionPKc.exit60, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit, %52, %33
   %.0.ph = phi i32 [ -6, %52 ], [ -6, %33 ], [ %43, %_ZN16ScopedVMInitArgs23set_vm_options_file_argEPKc.exit ], [ 0, %_ZL12match_optionPK12JavaVMOptionPKc.exit60 ], [ %61, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit ]
@@ -8526,7 +8526,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
   %112 = load i32, ptr %6, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next.i, %113
-  br i1 %114, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !40
+  br i1 %114, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %7, align 8
@@ -8985,7 +8985,7 @@ _ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgs
   %165 = load i32, ptr %47, align 4
   %166 = sext i32 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next.i, %166
-  br i1 %167, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !40
+  br i1 %167, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %48, align 8
@@ -9025,7 +9025,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit:                   ; preds = %157, %._crit_edge.i
   %179 = load i32, ptr %41, align 4
   %180 = sext i32 %179 to i64
   %181 = icmp slt i64 %indvars.iv.next.i73, %180
-  br i1 %181, label %.lr.ph.i71, label %._crit_edge.loopexit.i74, !llvm.loop !40
+  br i1 %181, label %.lr.ph.i71, label %._crit_edge.loopexit.i74, !llvm.loop !39
 
 ._crit_edge.loopexit.i74:                         ; preds = %.lr.ph.i71
   %.pre.i75 = load ptr, ptr %42, align 8
@@ -9065,7 +9065,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit76:                 ; preds = %171, %._crit_edge.i
   %193 = load i32, ptr %35, align 4
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv.next.i82, %194
-  br i1 %195, label %.lr.ph.i80, label %._crit_edge.loopexit.i83, !llvm.loop !40
+  br i1 %195, label %.lr.ph.i80, label %._crit_edge.loopexit.i83, !llvm.loop !39
 
 ._crit_edge.loopexit.i83:                         ; preds = %.lr.ph.i80
   %.pre.i84 = load ptr, ptr %36, align 8
@@ -9105,7 +9105,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit85:                 ; preds = %185, %._crit_edge.i
   %207 = load i32, ptr %29, align 4
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next.i91, %208
-  br i1 %209, label %.lr.ph.i89, label %._crit_edge.loopexit.i92, !llvm.loop !40
+  br i1 %209, label %.lr.ph.i89, label %._crit_edge.loopexit.i92, !llvm.loop !39
 
 ._crit_edge.loopexit.i92:                         ; preds = %.lr.ph.i89
   %.pre.i93 = load ptr, ptr %30, align 8
@@ -9145,7 +9145,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit94:                 ; preds = %199, %._crit_edge.i
   %221 = load i32, ptr %23, align 4
   %222 = sext i32 %221 to i64
   %223 = icmp slt i64 %indvars.iv.next.i100, %222
-  br i1 %223, label %.lr.ph.i98, label %._crit_edge.loopexit.i101, !llvm.loop !40
+  br i1 %223, label %.lr.ph.i98, label %._crit_edge.loopexit.i101, !llvm.loop !39
 
 ._crit_edge.loopexit.i101:                        ; preds = %.lr.ph.i98
   %.pre.i102 = load ptr, ptr %24, align 8
@@ -9185,7 +9185,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit103:                ; preds = %213, %._crit_edge.i
   %235 = load i32, ptr %17, align 4
   %236 = sext i32 %235 to i64
   %237 = icmp slt i64 %indvars.iv.next.i109, %236
-  br i1 %237, label %.lr.ph.i107, label %._crit_edge.loopexit.i110, !llvm.loop !40
+  br i1 %237, label %.lr.ph.i107, label %._crit_edge.loopexit.i110, !llvm.loop !39
 
 ._crit_edge.loopexit.i110:                        ; preds = %.lr.ph.i107
   %.pre.i111 = load ptr, ptr %18, align 8
@@ -9225,7 +9225,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit112:                ; preds = %227, %._crit_edge.i
   %249 = load i32, ptr %11, align 4
   %250 = sext i32 %249 to i64
   %251 = icmp slt i64 %indvars.iv.next.i118, %250
-  br i1 %251, label %.lr.ph.i116, label %._crit_edge.loopexit.i119, !llvm.loop !40
+  br i1 %251, label %.lr.ph.i116, label %._crit_edge.loopexit.i119, !llvm.loop !39
 
 ._crit_edge.loopexit.i119:                        ; preds = %.lr.ph.i116
   %.pre.i120 = load ptr, ptr %12, align 8
@@ -9285,7 +9285,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit:    ; preds = %14, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %22 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %6, label %._crit_edge, !llvm.loop !41
+  br i1 %25, label %6, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit, %1
   ret void
@@ -9548,7 +9548,7 @@ define hidden noundef i32 @_ZN9Arguments18PropertyList_countEP14SystemProperty(p
   %3 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %2, %.lr.ph ]
@@ -9592,7 +9592,7 @@ _ZNK14SystemProperty8readableEv.exit.thread6:     ; preds = %_ZNK14SystemPropert
   %14 = getelementptr inbounds nuw i8, ptr %.0410, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZNK14SystemProperty8readableEv.exit.thread6, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %13, %_ZNK14SystemProperty8readableEv.exit.thread6 ]
@@ -9627,7 +9627,7 @@ define hidden noundef ptr @_ZN9Arguments31PropertyList_get_readable_valueEP14Sys
   %15 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .loopexit.sink.split:                             ; preds = %11, %7
   %17 = load ptr, ptr %.013, align 8
@@ -9659,7 +9659,7 @@ define hidden void @_ZN9Arguments16PropertyList_addEPP14SystemPropertyPKcS4_bb(p
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %14, label %.preheader.i, !llvm.loop !9
+  br i1 %.not.i, label %14, label %.preheader.i, !llvm.loop !8
 
 14:                                               ; preds = %.preheader.i
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -9685,7 +9685,7 @@ define hidden void @_ZN9Arguments16PropertyList_addEP14SystemProperty(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %7, label %.preheader.i, !llvm.loop !9
+  br i1 %.not.i, label %7, label %.preheader.i, !llvm.loop !8
 
 7:                                                ; preds = %.preheader.i
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -9771,7 +9771,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments15copy_expand_pidEPKcmPcm(ptr nou
   %41 = icmp ult ptr %.1, %5
   %42 = icmp ult ptr %.136, %7
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %12, label %._crit_edge, !llvm.loop !45
+  br i1 %43, label %12, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %40, %4
   %.035.lcssa = phi ptr [ %2, %4 ], [ %.136, %40 ]
@@ -10208,7 +10208,7 @@ _ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !46
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !45
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10224,7 +10224,7 @@ _ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !47
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !46
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -10308,116 +10308,116 @@ define internal void @_GLOBAL__sub_I_arguments.cpp() #16 section ".text.startup"
   %9 = load i64, ptr @SharedBaseAddress, align 8
   store i64 %9, ptr @_ZN9Arguments26_default_SharedBaseAddressE, align 8
   store ptr @.str.38, ptr @_ZL17special_jvm_flags, align 16
-  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 8), align 8, !alias.scope !48
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 8), align 8, !alias.scope !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 12), i8 0, i64 56, i1 false)
   store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 72), align 8
-  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 80), align 16, !alias.scope !51
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 80), align 16, !alias.scope !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 84), i8 0, i64 56, i1 false)
   store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 144), align 16
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 152), align 8, !alias.scope !54
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 152), align 8, !alias.scope !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 156), i8 0, i64 56, i1 false)
   store ptr @.str.42, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 216), align 8
-  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 224), align 16, !alias.scope !57
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 228), i8 0, i64 16, i1 false), !alias.scope !57
-  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 244), align 4, !alias.scope !60
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 224), align 16, !alias.scope !56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 228), i8 0, i64 16, i1 false), !alias.scope !56
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 244), align 4, !alias.scope !59
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 248), i8 0, i64 36, i1 false)
   store ptr @.str.43, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 288), align 16
-  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 296), align 8, !alias.scope !63
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 300), i8 0, i64 16, i1 false), !alias.scope !63
-  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 316), align 4, !alias.scope !66
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 296), align 8, !alias.scope !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 300), i8 0, i64 16, i1 false), !alias.scope !62
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 316), align 4, !alias.scope !65
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 320), i8 0, i64 36, i1 false)
   store ptr @.str.44, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 360), align 8
-  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 368), align 16, !alias.scope !69
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 372), i8 0, i64 16, i1 false), !alias.scope !69
-  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 388), align 4, !alias.scope !72
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 368), align 16, !alias.scope !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 372), i8 0, i64 16, i1 false), !alias.scope !68
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 388), align 4, !alias.scope !71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 392), i8 0, i64 36, i1 false)
   store ptr @.str.45, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 432), align 16
-  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 440), align 8, !alias.scope !75
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 444), i8 0, i64 16, i1 false), !alias.scope !75
-  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 460), align 4, !alias.scope !78
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 440), align 8, !alias.scope !74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 444), i8 0, i64 16, i1 false), !alias.scope !74
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 460), align 4, !alias.scope !77
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 464), i8 0, i64 36, i1 false)
   store ptr @.str.46, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 504), align 8
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 512), align 16, !alias.scope !81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 516), i8 0, i64 16, i1 false), !alias.scope !81
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 532), align 4, !alias.scope !84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 536), i8 0, i64 16, i1 false), !alias.scope !84
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 552), align 8, !alias.scope !87
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 556), i8 0, i64 16, i1 false), !alias.scope !87
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 512), align 16, !alias.scope !80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 516), i8 0, i64 16, i1 false), !alias.scope !80
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 532), align 4, !alias.scope !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 536), i8 0, i64 16, i1 false), !alias.scope !83
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 552), align 8, !alias.scope !86
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 556), i8 0, i64 16, i1 false), !alias.scope !86
   store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 576), align 16
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 584), align 8, !alias.scope !90
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 588), i8 0, i64 16, i1 false), !alias.scope !90
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 604), align 4, !alias.scope !93
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 608), i8 0, i64 16, i1 false), !alias.scope !93
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 624), align 16, !alias.scope !96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 628), i8 0, i64 16, i1 false), !alias.scope !96
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 584), align 8, !alias.scope !89
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 588), i8 0, i64 16, i1 false), !alias.scope !89
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 604), align 4, !alias.scope !92
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 608), i8 0, i64 16, i1 false), !alias.scope !92
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 624), align 16, !alias.scope !95
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 628), i8 0, i64 16, i1 false), !alias.scope !95
   store ptr @.str.48, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 648), align 8
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 656), align 16, !alias.scope !99
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 660), i8 0, i64 16, i1 false), !alias.scope !99
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 676), align 4, !alias.scope !102
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 680), i8 0, i64 16, i1 false), !alias.scope !102
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 696), align 8, !alias.scope !105
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 700), i8 0, i64 16, i1 false), !alias.scope !105
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 656), align 16, !alias.scope !98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 660), i8 0, i64 16, i1 false), !alias.scope !98
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 676), align 4, !alias.scope !101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 680), i8 0, i64 16, i1 false), !alias.scope !101
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 696), align 8, !alias.scope !104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 700), i8 0, i64 16, i1 false), !alias.scope !104
   store ptr @.str.49, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 720), align 16
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 728), align 8, !alias.scope !108
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 732), i8 0, i64 16, i1 false), !alias.scope !108
-  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 748), align 4, !alias.scope !111
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 752), i8 0, i64 16, i1 false), !alias.scope !111
-  store i32 27, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 768), align 16, !alias.scope !114
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 772), i8 0, i64 16, i1 false), !alias.scope !114
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 728), align 8, !alias.scope !107
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 732), i8 0, i64 16, i1 false), !alias.scope !107
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 748), align 4, !alias.scope !110
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 752), i8 0, i64 16, i1 false), !alias.scope !110
+  store i32 27, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 768), align 16, !alias.scope !113
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 772), i8 0, i64 16, i1 false), !alias.scope !113
   store ptr @.str.50, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 792), align 8
-  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 800), align 16, !alias.scope !117
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 800), align 16, !alias.scope !116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 804), i8 0, i64 56, i1 false)
   store ptr @.str.51, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 864), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 872), i8 0, i64 20, i1 false), !alias.scope !120
-  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 892), align 4, !alias.scope !123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 872), i8 0, i64 20, i1 false), !alias.scope !119
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 892), align 4, !alias.scope !122
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 896), i8 0, i64 36, i1 false)
   store ptr @.str.52, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 936), align 8
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 944), align 16, !alias.scope !126
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 948), i8 0, i64 16, i1 false), !alias.scope !126
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 964), align 4, !alias.scope !129
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 968), i8 0, i64 16, i1 false), !alias.scope !129
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 984), align 8, !alias.scope !132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 988), i8 0, i64 16, i1 false), !alias.scope !132
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 944), align 16, !alias.scope !125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 948), i8 0, i64 16, i1 false), !alias.scope !125
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 964), align 4, !alias.scope !128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 968), i8 0, i64 16, i1 false), !alias.scope !128
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 984), align 8, !alias.scope !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 988), i8 0, i64 16, i1 false), !alias.scope !131
   store ptr @.str.53, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1008), align 16
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1016), align 8, !alias.scope !135
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1020), i8 0, i64 16, i1 false), !alias.scope !135
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1036), align 4, !alias.scope !138
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1040), i8 0, i64 16, i1 false), !alias.scope !138
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1056), align 16, !alias.scope !141
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1060), i8 0, i64 16, i1 false), !alias.scope !141
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1016), align 8, !alias.scope !134
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1020), i8 0, i64 16, i1 false), !alias.scope !134
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1036), align 4, !alias.scope !137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1040), i8 0, i64 16, i1 false), !alias.scope !137
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1056), align 16, !alias.scope !140
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1060), i8 0, i64 16, i1 false), !alias.scope !140
   store ptr @.str.54, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1080), align 8
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1088), align 16, !alias.scope !144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1092), i8 0, i64 16, i1 false), !alias.scope !144
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1108), align 4, !alias.scope !147
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1112), i8 0, i64 16, i1 false), !alias.scope !147
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1128), align 8, !alias.scope !150
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1132), i8 0, i64 16, i1 false), !alias.scope !150
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1088), align 16, !alias.scope !143
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1092), i8 0, i64 16, i1 false), !alias.scope !143
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1108), align 4, !alias.scope !146
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1112), i8 0, i64 16, i1 false), !alias.scope !146
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1128), align 8, !alias.scope !149
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1132), i8 0, i64 16, i1 false), !alias.scope !149
   store ptr @.str.55, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1152), align 16
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1160), align 8, !alias.scope !153
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1164), i8 0, i64 16, i1 false), !alias.scope !153
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1180), align 4, !alias.scope !156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1184), i8 0, i64 16, i1 false), !alias.scope !156
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1200), align 16, !alias.scope !159
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1204), i8 0, i64 16, i1 false), !alias.scope !159
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1160), align 8, !alias.scope !152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1164), i8 0, i64 16, i1 false), !alias.scope !152
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1180), align 4, !alias.scope !155
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1184), i8 0, i64 16, i1 false), !alias.scope !155
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1200), align 16, !alias.scope !158
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1204), i8 0, i64 16, i1 false), !alias.scope !158
   store ptr @.str.56, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1224), align 8
-  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1232), align 16, !alias.scope !162
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1236), i8 0, i64 16, i1 false), !alias.scope !162
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1252), align 4, !alias.scope !165
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1256), i8 0, i64 16, i1 false), !alias.scope !165
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1272), align 8, !alias.scope !168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1276), i8 0, i64 16, i1 false), !alias.scope !168
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1232), align 16, !alias.scope !161
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1236), i8 0, i64 16, i1 false), !alias.scope !161
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1252), align 4, !alias.scope !164
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1256), i8 0, i64 16, i1 false), !alias.scope !164
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1272), align 8, !alias.scope !167
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1276), i8 0, i64 16, i1 false), !alias.scope !167
   store ptr @.str.57, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1296), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1304), i8 0, i64 20, i1 false), !alias.scope !171
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1324), align 4, !alias.scope !174
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1328), i8 0, i64 16, i1 false), !alias.scope !174
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1344), align 16, !alias.scope !177
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1348), i8 0, i64 16, i1 false), !alias.scope !177
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1304), i8 0, i64 20, i1 false), !alias.scope !170
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1324), align 4, !alias.scope !173
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1328), i8 0, i64 16, i1 false), !alias.scope !173
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1344), align 16, !alias.scope !176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1348), i8 0, i64 16, i1 false), !alias.scope !176
   store ptr @.str.58, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1368), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1376), i8 0, i64 20, i1 false), !alias.scope !180
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1396), align 4, !alias.scope !183
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1400), i8 0, i64 16, i1 false), !alias.scope !183
-  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1416), align 8, !alias.scope !186
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1420), i8 0, i64 16, i1 false), !alias.scope !186
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1376), i8 0, i64 20, i1 false), !alias.scope !179
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1396), align 4, !alias.scope !182
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1400), i8 0, i64 16, i1 false), !alias.scope !182
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1416), align 8, !alias.scope !185
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1420), i8 0, i64 16, i1 false), !alias.scope !185
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) getelementptr inbounds nuw (i8, ptr @_ZL17special_jvm_flags, i64 1440), i8 0, i64 68, i1 false)
   %10 = load i64, ptr @HeapBaseMinAddress, align 8
   store i64 %10, ptr @_ZL25DefaultHeapBaseMinAddress, align 8
@@ -10488,186 +10488,185 @@ attributes #33 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!22 = distinct !{!22, !"_ZN11JDK_Version3jdkEi"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!25 = distinct !{!25, !"_ZN11JDK_Version3jdkEi"}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!50 = distinct !{!50, !"_ZN11JDK_Version3jdkEi"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!53 = distinct !{!53, !"_ZN11JDK_Version3jdkEi"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!56 = distinct !{!56, !"_ZN11JDK_Version3jdkEi"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!59 = distinct !{!59, !"_ZN11JDK_Version3jdkEi"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!62 = distinct !{!62, !"_ZN11JDK_Version3jdkEi"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!65 = distinct !{!65, !"_ZN11JDK_Version3jdkEi"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!68 = distinct !{!68, !"_ZN11JDK_Version3jdkEi"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!71 = distinct !{!71, !"_ZN11JDK_Version3jdkEi"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!74 = distinct !{!74, !"_ZN11JDK_Version3jdkEi"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!77 = distinct !{!77, !"_ZN11JDK_Version3jdkEi"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!80 = distinct !{!80, !"_ZN11JDK_Version3jdkEi"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!83 = distinct !{!83, !"_ZN11JDK_Version3jdkEi"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!86 = distinct !{!86, !"_ZN11JDK_Version3jdkEi"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!89 = distinct !{!89, !"_ZN11JDK_Version3jdkEi"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!92 = distinct !{!92, !"_ZN11JDK_Version3jdkEi"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!95 = distinct !{!95, !"_ZN11JDK_Version3jdkEi"}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!98 = distinct !{!98, !"_ZN11JDK_Version3jdkEi"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!101 = distinct !{!101, !"_ZN11JDK_Version3jdkEi"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!104 = distinct !{!104, !"_ZN11JDK_Version3jdkEi"}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!107 = distinct !{!107, !"_ZN11JDK_Version3jdkEi"}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!110 = distinct !{!110, !"_ZN11JDK_Version3jdkEi"}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!113 = distinct !{!113, !"_ZN11JDK_Version3jdkEi"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!116 = distinct !{!116, !"_ZN11JDK_Version3jdkEi"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!119 = distinct !{!119, !"_ZN11JDK_Version3jdkEi"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN11JDK_Version9undefinedEv: argument 0"}
-!122 = distinct !{!122, !"_ZN11JDK_Version9undefinedEv"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!125 = distinct !{!125, !"_ZN11JDK_Version3jdkEi"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!128 = distinct !{!128, !"_ZN11JDK_Version3jdkEi"}
-!129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!131 = distinct !{!131, !"_ZN11JDK_Version3jdkEi"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!134 = distinct !{!134, !"_ZN11JDK_Version3jdkEi"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!137 = distinct !{!137, !"_ZN11JDK_Version3jdkEi"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!140 = distinct !{!140, !"_ZN11JDK_Version3jdkEi"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!143 = distinct !{!143, !"_ZN11JDK_Version3jdkEi"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!146 = distinct !{!146, !"_ZN11JDK_Version3jdkEi"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!149 = distinct !{!149, !"_ZN11JDK_Version3jdkEi"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!152 = distinct !{!152, !"_ZN11JDK_Version3jdkEi"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!155 = distinct !{!155, !"_ZN11JDK_Version3jdkEi"}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!158 = distinct !{!158, !"_ZN11JDK_Version3jdkEi"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!161 = distinct !{!161, !"_ZN11JDK_Version3jdkEi"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!164 = distinct !{!164, !"_ZN11JDK_Version3jdkEi"}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!167 = distinct !{!167, !"_ZN11JDK_Version3jdkEi"}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!170 = distinct !{!170, !"_ZN11JDK_Version3jdkEi"}
-!171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZN11JDK_Version9undefinedEv: argument 0"}
-!173 = distinct !{!173, !"_ZN11JDK_Version9undefinedEv"}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!176 = distinct !{!176, !"_ZN11JDK_Version3jdkEi"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!179 = distinct !{!179, !"_ZN11JDK_Version3jdkEi"}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN11JDK_Version9undefinedEv: argument 0"}
-!182 = distinct !{!182, !"_ZN11JDK_Version9undefinedEv"}
-!183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!185 = distinct !{!185, !"_ZN11JDK_Version3jdkEi"}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN11JDK_Version3jdkEi: argument 0"}
-!188 = distinct !{!188, !"_ZN11JDK_Version3jdkEi"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!21 = distinct !{!21, !"_ZN11JDK_Version3jdkEi"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!24 = distinct !{!24, !"_ZN11JDK_Version3jdkEi"}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!49 = distinct !{!49, !"_ZN11JDK_Version3jdkEi"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!52 = distinct !{!52, !"_ZN11JDK_Version3jdkEi"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!55 = distinct !{!55, !"_ZN11JDK_Version3jdkEi"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!58 = distinct !{!58, !"_ZN11JDK_Version3jdkEi"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!61 = distinct !{!61, !"_ZN11JDK_Version3jdkEi"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!64 = distinct !{!64, !"_ZN11JDK_Version3jdkEi"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!67 = distinct !{!67, !"_ZN11JDK_Version3jdkEi"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!70 = distinct !{!70, !"_ZN11JDK_Version3jdkEi"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!73 = distinct !{!73, !"_ZN11JDK_Version3jdkEi"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!76 = distinct !{!76, !"_ZN11JDK_Version3jdkEi"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!79 = distinct !{!79, !"_ZN11JDK_Version3jdkEi"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!82 = distinct !{!82, !"_ZN11JDK_Version3jdkEi"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!85 = distinct !{!85, !"_ZN11JDK_Version3jdkEi"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!88 = distinct !{!88, !"_ZN11JDK_Version3jdkEi"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!91 = distinct !{!91, !"_ZN11JDK_Version3jdkEi"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!94 = distinct !{!94, !"_ZN11JDK_Version3jdkEi"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!97 = distinct !{!97, !"_ZN11JDK_Version3jdkEi"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!100 = distinct !{!100, !"_ZN11JDK_Version3jdkEi"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!103 = distinct !{!103, !"_ZN11JDK_Version3jdkEi"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!106 = distinct !{!106, !"_ZN11JDK_Version3jdkEi"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!109 = distinct !{!109, !"_ZN11JDK_Version3jdkEi"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!112 = distinct !{!112, !"_ZN11JDK_Version3jdkEi"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!115 = distinct !{!115, !"_ZN11JDK_Version3jdkEi"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!118 = distinct !{!118, !"_ZN11JDK_Version3jdkEi"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZN11JDK_Version9undefinedEv: argument 0"}
+!121 = distinct !{!121, !"_ZN11JDK_Version9undefinedEv"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!124 = distinct !{!124, !"_ZN11JDK_Version3jdkEi"}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!127 = distinct !{!127, !"_ZN11JDK_Version3jdkEi"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!130 = distinct !{!130, !"_ZN11JDK_Version3jdkEi"}
+!131 = !{!132}
+!132 = distinct !{!132, !133, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!133 = distinct !{!133, !"_ZN11JDK_Version3jdkEi"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!136 = distinct !{!136, !"_ZN11JDK_Version3jdkEi"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!139 = distinct !{!139, !"_ZN11JDK_Version3jdkEi"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!142 = distinct !{!142, !"_ZN11JDK_Version3jdkEi"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!145 = distinct !{!145, !"_ZN11JDK_Version3jdkEi"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!148 = distinct !{!148, !"_ZN11JDK_Version3jdkEi"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!151 = distinct !{!151, !"_ZN11JDK_Version3jdkEi"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!154 = distinct !{!154, !"_ZN11JDK_Version3jdkEi"}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!157 = distinct !{!157, !"_ZN11JDK_Version3jdkEi"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!160 = distinct !{!160, !"_ZN11JDK_Version3jdkEi"}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!163 = distinct !{!163, !"_ZN11JDK_Version3jdkEi"}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!166 = distinct !{!166, !"_ZN11JDK_Version3jdkEi"}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!169 = distinct !{!169, !"_ZN11JDK_Version3jdkEi"}
+!170 = !{!171}
+!171 = distinct !{!171, !172, !"_ZN11JDK_Version9undefinedEv: argument 0"}
+!172 = distinct !{!172, !"_ZN11JDK_Version9undefinedEv"}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!175 = distinct !{!175, !"_ZN11JDK_Version3jdkEi"}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!178 = distinct !{!178, !"_ZN11JDK_Version3jdkEi"}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN11JDK_Version9undefinedEv: argument 0"}
+!181 = distinct !{!181, !"_ZN11JDK_Version9undefinedEv"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!184 = distinct !{!184, !"_ZN11JDK_Version3jdkEi"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN11JDK_Version3jdkEi: argument 0"}
+!187 = distinct !{!187, !"_ZN11JDK_Version3jdkEi"}

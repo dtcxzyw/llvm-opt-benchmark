@@ -4288,7 +4288,7 @@ define internal void @ansi_map_stat_reset(ptr noundef %0) #0 {
   %10 = add nuw i32 %.020, 1
   %11 = load i32, ptr %2, align 4
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -7215,7 +7215,7 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   %.1.i = phi i32 [ %35, %30 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ]
   %37 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %37, %11
-  br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.exit, label %.lr.ph.i, !llvm.loop !9
 
 dissect_ansi_map_win_trigger_list.exit:           ; preds = %36, %10, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
@@ -10730,8 +10730,7 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -67,7 +67,7 @@ define dso_local void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) l
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 376), align 8
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next36, %30
-  br i1 %31, label %24, label %.loopexit, !llvm.loop !12
+  br i1 %31, label %24, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %24, %20
   %32 = load ptr, ptr %8, align 8
@@ -87,7 +87,7 @@ define dso_local void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) l
   %34 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next39
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -119,9 +119,8 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

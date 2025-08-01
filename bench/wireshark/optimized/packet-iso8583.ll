@@ -387,7 +387,7 @@ define internal i32 @dissect_iso8583_msg(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %36, ptr %31, align 1
   %38 = getelementptr i8, ptr %.23241.i, i64 1
   %.not39.i = icmp eq i32 %24, 0
-  br i1 %.not39.i, label %bin2hex.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not39.i, label %bin2hex.exit, label %.lr.ph.i, !llvm.loop !8
 
 bin2hex.exit:                                     ; preds = %.lr.ph.i
   store i8 0, ptr %37, align 1
@@ -422,7 +422,7 @@ bin2hex.exit:                                     ; preds = %.lr.ph.i
 53:                                               ; preds = %47
   %54 = getelementptr i8, ptr %.09.i, i64 1
   %exitcond.not.i = icmp eq ptr %54, %44
-  br i1 %exitcond.not.i, label %isnum_str.exit.thread172, label %47, !llvm.loop !10
+  br i1 %exitcond.not.i, label %isnum_str.exit.thread172, label %47, !llvm.loop !9
 
 isnum_str.exit:                                   ; preds = %47
   %.not = icmp eq ptr %.09.i, %44
@@ -468,7 +468,7 @@ isnum_str.exit.thread172:                         ; preds = %53, %isnum_str.exit
   store i8 %78, ptr %73, align 1
   %80 = getelementptr i8, ptr %.23241.i127, i64 1
   %.not39.i128 = icmp eq i32 %66, 0
-  br i1 %.not39.i128, label %bin2hex.exit129, label %.lr.ph.i124, !llvm.loop !9
+  br i1 %.not39.i128, label %bin2hex.exit129, label %.lr.ph.i124, !llvm.loop !8
 
 bin2hex.exit129:                                  ; preds = %.lr.ph.i124
   store i8 0, ptr %79, align 1
@@ -503,7 +503,7 @@ bin2hex.exit129:                                  ; preds = %.lr.ph.i124
 95:                                               ; preds = %89
   %96 = getelementptr i8, ptr %.09.i132, i64 1
   %exitcond.not.i134 = icmp eq ptr %96, %86
-  br i1 %exitcond.not.i134, label %ishex_str.exit.thread177, label %89, !llvm.loop !11
+  br i1 %exitcond.not.i134, label %ishex_str.exit.thread177, label %89, !llvm.loop !10
 
 ishex_str.exit:                                   ; preds = %89
   %.not190 = icmp eq ptr %.09.i132, %86
@@ -623,7 +623,7 @@ ishex_str.exit.thread177:                         ; preds = %95, %ishex_str.exit
 163:                                              ; preds = %.lr.ph.i.i
   %164 = getelementptr i8, ptr %.09.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %164, %156
-  br i1 %exitcond.not.i.i, label %ishex_str.exit.thread43.i.preheader, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %ishex_str.exit.thread43.i.preheader, label %.lr.ph.i.i, !llvm.loop !10
 
 ishex_str.exit.i:                                 ; preds = %.lr.ph.i.i
   %.not.i135 = icmp eq ptr %.09.i.i, %156
@@ -657,7 +657,7 @@ ishex_str.exit.thread43.i:                        ; preds = %ishex_str.exit.thre
   %.1.i.i = or i64 %176, %167
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i40.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i40.i, label %177, label %ishex_str.exit.thread43.i, !llvm.loop !12
+  br i1 %exitcond.not.i40.i, label %177, label %ishex_str.exit.thread43.i, !llvm.loop !11
 
 177:                                              ; preds = %174
   store i64 %.1.i.i, ptr %indvars.iv.i.sroa.phi, align 8
@@ -711,7 +711,7 @@ get_bitmap.exit.thread:                           ; preds = %get_bitmap.exit.thr
 197:                                              ; preds = %.lr.ph.i138
   %198 = getelementptr i8, ptr %.09.i139, i64 1
   %exitcond.not.i141 = icmp eq ptr %198, %190
-  br i1 %exitcond.not.i141, label %ishex_str.exit142.thread182, label %.lr.ph.i138, !llvm.loop !11
+  br i1 %exitcond.not.i141, label %ishex_str.exit142.thread182, label %.lr.ph.i138, !llvm.loop !10
 
 ishex_str.exit142:                                ; preds = %.lr.ph.i138
   %.not191 = icmp eq ptr %.09.i139, %190
@@ -763,7 +763,7 @@ ishex_str.exit142.thread182:                      ; preds = %197, %ishex_str.exi
 224:                                              ; preds = %.lr.ph.i145
   %225 = getelementptr i8, ptr %.09.i146, i64 1
   %exitcond.not.i148 = icmp eq ptr %225, %217
-  br i1 %exitcond.not.i148, label %ishex_str.exit149.thread, label %.lr.ph.i145, !llvm.loop !11
+  br i1 %exitcond.not.i148, label %ishex_str.exit149.thread, label %.lr.ph.i145, !llvm.loop !10
 
 ishex_str.exit149:                                ; preds = %.lr.ph.i145, %211
   %.0.lcssa.i144 = phi ptr [ %215, %211 ], [ %.09.i146, %.lr.ph.i145 ]
@@ -907,7 +907,7 @@ ishex_str.exit149.thread:                         ; preds = %224, %229, %ishex_s
   %292 = add i32 %283, -2
   %293 = getelementptr i8, ptr %.088134.i.i, i64 1
   %.not109.i.i = icmp eq i32 %292, 0
-  br i1 %.not109.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i154, !llvm.loop !13
+  br i1 %.not109.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i154, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i154, %281
   %.089.lcssa.i.i = phi i32 [ 0, %281 ], [ %291, %.lr.ph.i.i154 ]
@@ -1031,7 +1031,7 @@ thread-pre-split.i.i:                             ; preds = %265
   store i8 %353, ptr %348, align 1
   %355 = getelementptr i8, ptr %.23241.i.i, i64 1
   %.not39.i.i = icmp eq i32 %341, 0
-  br i1 %.not39.i.i, label %bin2hex.exit.i, label %.lr.ph.i39.i, !llvm.loop !9
+  br i1 %.not39.i.i, label %bin2hex.exit.i, label %.lr.ph.i39.i, !llvm.loop !8
 
 bin2hex.exit.i:                                   ; preds = %.lr.ph.i39.i, %339
   %.2.lcssa.i.i = phi ptr [ %.1.i.i157, %339 ], [ %354, %.lr.ph.i39.i ]
@@ -1110,7 +1110,7 @@ bin2hex.exit.i:                                   ; preds = %.lr.ph.i39.i, %339
   store i8 %398, ptr %393, align 1
   %400 = getelementptr i8, ptr %.23241.i.i.i, i64 1
   %.not39.i.i.i = icmp eq i32 %386, 0
-  br i1 %.not39.i.i.i, label %bin2hex.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not39.i.i.i, label %bin2hex.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 bin2hex.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %378
   %.2.lcssa.i.i.i = phi ptr [ %385, %378 ], [ %399, %.lr.ph.i.i.i ]
@@ -1232,7 +1232,7 @@ get_bit.exit.i:                                   ; preds = %417, %.thread123.i.
 439:                                              ; preds = %.lr.ph.i.i36.i
   %440 = getelementptr i8, ptr %.09.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %440, %432
-  br i1 %exitcond.not.i.i.i, label %isalpha_str.exit.i.i, label %.lr.ph.i.i36.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %isalpha_str.exit.i.i, label %.lr.ph.i.i36.i, !llvm.loop !13
 
 isalpha_str.exit.i.i:                             ; preds = %439, %.lr.ph.i.i36.i, %430
   %.0.lcssa.i.i.i = phi ptr [ %.2.i67.i, %430 ], [ %.09.i.i.i, %.lr.ph.i.i36.i ], [ %432, %439 ]
@@ -1260,7 +1260,7 @@ isalpha_str.exit.i.i:                             ; preds = %439, %.lr.ph.i.i36.
 453:                                              ; preds = %.lr.ph.i24.i.i
   %454 = getelementptr i8, ptr %.09.i25.i.i, i64 1
   %exitcond.not.i27.i.i = icmp eq ptr %454, %446
-  br i1 %exitcond.not.i27.i.i, label %isnum_str.exit.i.i, label %.lr.ph.i24.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i27.i.i, label %isnum_str.exit.i.i, label %.lr.ph.i24.i.i, !llvm.loop !9
 
 isnum_str.exit.i.i:                               ; preds = %453, %.lr.ph.i24.i.i, %444
   %.0.lcssa.i23.i.i = phi ptr [ %.2.i67.i, %444 ], [ %.09.i25.i.i, %.lr.ph.i24.i.i ], [ %446, %453 ]
@@ -1288,7 +1288,7 @@ isnum_str.exit.i.i:                               ; preds = %453, %.lr.ph.i24.i.
 467:                                              ; preds = %.lr.ph.i29.i.i
   %468 = getelementptr i8, ptr %.09.i30.i.i, i64 1
   %exitcond.not.i32.i.i = icmp eq ptr %468, %460
-  br i1 %exitcond.not.i32.i.i, label %ishex_str.exit.i.i, label %.lr.ph.i29.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i32.i.i, label %ishex_str.exit.i.i, label %.lr.ph.i29.i.i, !llvm.loop !10
 
 ishex_str.exit.i.i:                               ; preds = %467, %.lr.ph.i29.i.i, %458
   %.0.lcssa.i28.i.i = phi ptr [ %.2.i67.i, %458 ], [ %.09.i30.i.i, %.lr.ph.i29.i.i ], [ %460, %467 ]
@@ -1316,7 +1316,7 @@ ishex_str.exit.i.i:                               ; preds = %467, %.lr.ph.i29.i.
 .critedge2.i.i.i:                                 ; preds = %.lr.ph.i34.i.i
   %481 = getelementptr i8, ptr %.013.i.i.i, i64 1
   %exitcond.not.i35.i.i = icmp eq ptr %481, %474
-  br i1 %exitcond.not.i35.i.i, label %isspec_str.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i35.i.i, label %isspec_str.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !14
 
 isspec_str.exit.i.i:                              ; preds = %.critedge2.i.i.i, %.lr.ph.i34.i.i, %472
   %.0.lcssa.i33.i.i = phi ptr [ %.2.i67.i, %472 ], [ %474, %.critedge2.i.i.i ], [ %.013.i.i.i, %.lr.ph.i34.i.i ]
@@ -1344,7 +1344,7 @@ isspec_str.exit.i.i:                              ; preds = %.critedge2.i.i.i, %
 .critedge2.i38.i.i:                               ; preds = %.lr.ph.i37.i.i
   %494 = getelementptr i8, ptr %.016.i.i.i, i64 1
   %exitcond.not.i39.i.i = icmp eq ptr %494, %487
-  br i1 %exitcond.not.i39.i.i, label %isalspec_str.exit.i.i, label %.lr.ph.i37.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i39.i.i, label %isalspec_str.exit.i.i, label %.lr.ph.i37.i.i, !llvm.loop !15
 
 isalspec_str.exit.i.i:                            ; preds = %.critedge2.i38.i.i, %.lr.ph.i37.i.i, %485
   %.0.lcssa.i36.i.i = phi ptr [ %.2.i67.i, %485 ], [ %487, %.critedge2.i38.i.i ], [ %.016.i.i.i, %.lr.ph.i37.i.i ]
@@ -1372,7 +1372,7 @@ isalspec_str.exit.i.i:                            ; preds = %.critedge2.i38.i.i,
 507:                                              ; preds = %.lr.ph.i41.i.i
   %508 = getelementptr i8, ptr %.09.i42.i.i, i64 1
   %exitcond.not.i44.i.i = icmp eq ptr %508, %500
-  br i1 %exitcond.not.i44.i.i, label %isalnum_str.exit.i.i, label %.lr.ph.i41.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i44.i.i, label %isalnum_str.exit.i.i, label %.lr.ph.i41.i.i, !llvm.loop !16
 
 isalnum_str.exit.i.i:                             ; preds = %507, %.lr.ph.i41.i.i, %498
   %.0.lcssa.i40.i.i = phi ptr [ %.2.i67.i, %498 ], [ %.09.i42.i.i, %.lr.ph.i41.i.i ], [ %500, %507 ]
@@ -1400,7 +1400,7 @@ isalnum_str.exit.i.i:                             ; preds = %507, %.lr.ph.i41.i.
 .critedge2.i49.i.i:                               ; preds = %.lr.ph.i46.i.i
   %521 = getelementptr i8, ptr %.016.i47.i.i, i64 1
   %exitcond.not.i50.i.i = icmp eq ptr %521, %514
-  br i1 %exitcond.not.i50.i.i, label %isalnumspec_str.exit.i.i, label %.lr.ph.i46.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i50.i.i, label %isalnumspec_str.exit.i.i, label %.lr.ph.i46.i.i, !llvm.loop !17
 
 isalnumspec_str.exit.i.i:                         ; preds = %.critedge2.i49.i.i, %.lr.ph.i46.i.i, %512
   %.0.lcssa.i45.i.i = phi ptr [ %.2.i67.i, %512 ], [ %514, %.critedge2.i49.i.i ], [ %.016.i47.i.i, %.lr.ph.i46.i.i ]
@@ -1428,7 +1428,7 @@ isalnumspec_str.exit.i.i:                         ; preds = %.critedge2.i49.i.i,
 .critedge2.i55.i.i:                               ; preds = %.lr.ph.i52.i.i
   %534 = getelementptr i8, ptr %.016.i53.i.i, i64 1
   %exitcond.not.i56.i.i = icmp eq ptr %534, %527
-  br i1 %exitcond.not.i56.i.i, label %isnumspec_str.exit.i.i, label %.lr.ph.i52.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i56.i.i, label %isnumspec_str.exit.i.i, label %.lr.ph.i52.i.i, !llvm.loop !18
 
 isnumspec_str.exit.i.i:                           ; preds = %.critedge2.i55.i.i, %.lr.ph.i52.i.i, %525
   %.0.lcssa.i51.i.i = phi ptr [ %.2.i67.i, %525 ], [ %527, %.critedge2.i55.i.i ], [ %.016.i53.i.i, %.lr.ph.i52.i.i ]
@@ -1456,7 +1456,7 @@ isnumspec_str.exit.i.i:                           ; preds = %.critedge2.i55.i.i,
 547:                                              ; preds = %.lr.ph.i58.i.i
   %548 = getelementptr i8, ptr %.09.i59.i.i, i64 1
   %exitcond.not.i61.i.i = icmp eq ptr %548, %540
-  br i1 %exitcond.not.i61.i.i, label %ishex_str.exit62.i.i, label %.lr.ph.i58.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i61.i.i, label %ishex_str.exit62.i.i, label %.lr.ph.i58.i.i, !llvm.loop !10
 
 ishex_str.exit62.i.i:                             ; preds = %547, %.lr.ph.i58.i.i, %538
   %.0.lcssa.i57.i.i = phi ptr [ %.2.i67.i, %538 ], [ %.09.i59.i.i, %.lr.ph.i58.i.i ], [ %540, %547 ]
@@ -1489,7 +1489,7 @@ ishex_str.exit62.i.i:                             ; preds = %547, %.lr.ph.i58.i.
 .critedge2.i67.i.i:                               ; preds = %.lr.ph.i64.i.i
   %564 = getelementptr i8, ptr %.016.i65.i.i, i64 1
   %exitcond.not.i68.i.i = icmp eq ptr %564, %556
-  br i1 %exitcond.not.i68.i.i, label %isalnumspec_str.exit69.i.i, label %.lr.ph.i64.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i68.i.i, label %isalnumspec_str.exit69.i.i, label %.lr.ph.i64.i.i, !llvm.loop !17
 
 isalnumspec_str.exit69.i.i:                       ; preds = %.critedge2.i67.i.i, %.lr.ph.i64.i.i, %558
   %.0.lcssa.i63.i.i = phi ptr [ %.2.i67.i, %558 ], [ %556, %.critedge2.i67.i.i ], [ %.016.i65.i.i, %.lr.ph.i64.i.i ]
@@ -1514,7 +1514,7 @@ isalnumspec_str.exit69.i.i:                       ; preds = %.critedge2.i67.i.i,
 574:                                              ; preds = %.lr.ph.i71.i.i
   %575 = getelementptr i8, ptr %.09.i72.i.i, i64 1
   %exitcond.not.i74.i.i = icmp eq ptr %575, %556
-  br i1 %exitcond.not.i74.i.i, label %isstrtype_ok.exit.i, label %.lr.ph.i71.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i74.i.i, label %isstrtype_ok.exit.i, label %.lr.ph.i71.i.i, !llvm.loop !10
 
 isstrtype_ok.exit.i:                              ; preds = %574, %.lr.ph.i71.i.i, %568
   %.0.lcssa.i70.i.i = phi ptr [ %.2.i67.i, %568 ], [ %.09.i72.i.i, %.lr.ph.i71.i.i ], [ %556, %574 ]
@@ -1562,7 +1562,7 @@ isstrtype_ok.exit.thread.i:                       ; preds = %isstrtype_ok.exit.i
   %.1.i155 = phi i32 [ %.04585.i, %241 ], [ %.04585.i, %243 ], [ %.666.i, %586 ], [ %.666.i, %587 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i152, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i156, label %._crit_edge.i, label %241, !llvm.loop !20
+  br i1 %exitcond.not.i156, label %._crit_edge.i, label %241, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %591, %.preheader.i
   %592 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1662,18 +1662,17 @@ attributes #10 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

@@ -174,7 +174,7 @@ define dso_local noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef 
 
 83:                                               ; preds = %._crit_edge
   %84 = load i32, ptr @_ZL15roundtrip_count, align 4, !tbaa !9
-  %85 = load i64, ptr %3, align 8, !tbaa !14
+  %85 = load i64, ptr %3, align 8, !tbaa !13
   %86 = call i32 @pthread_join(i64 noundef %85, ptr noundef null)
   %.not40 = icmp eq i32 %86, 0
   br i1 %.not40, label %90, label %87
@@ -291,7 +291,7 @@ define internal noalias noundef ptr @_ZL6workerPv(ptr noundef %0) #6 {
   %25 = add nuw nsw i32 %.020, 1
   %26 = load i32, ptr @_ZL15roundtrip_count, align 4, !tbaa !9
   %.not16 = icmp eq i32 %25, %26
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %.020 = phi i32 [ %25, %24 ], [ 0, %.preheader ]
@@ -420,9 +420,8 @@ attributes #13 = { cold noreturn nounwind }
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !7, i64 0}
-!16 = distinct !{!16, !12, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = distinct !{!15, !12}

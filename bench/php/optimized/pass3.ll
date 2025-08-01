@@ -90,12 +90,12 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr noundef readnone ca
 38:                                               ; preds = %.lr.ph342
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %in_hitlist.exit, label %.lr.ph342, !llvm.loop !28
+  br i1 %exitcond396.not, label %in_hitlist.exit, label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %.lr.ph342.preheader, %38
   %indvars.iv392 = phi i64 [ 0, %.lr.ph342.preheader ], [ %indvars.iv.next393, %38 ]
   %39 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv392
-  %40 = load ptr, ptr %39, align 8, !tbaa !30
+  %40 = load ptr, ptr %39, align 8, !tbaa !28
   %41 = icmp eq ptr %40, %.ptr295
   br i1 %41, label %in_hitlist.exit.thread, label %38
 
@@ -103,7 +103,7 @@ in_hitlist.exit:                                  ; preds = %38, %33
   %42 = add nsw i32 %.0256, 1
   %43 = sext i32 %.0256 to i64
   %44 = getelementptr inbounds ptr, ptr %14, i64 %43
-  store ptr %.ptr295, ptr %44, align 8, !tbaa !30
+  store ptr %.ptr295, ptr %44, align 8, !tbaa !28
   br label %46
 
 45:                                               ; preds = %30
@@ -115,7 +115,7 @@ in_hitlist.exit:                                  ; preds = %38, %33
   %.2.idx = phi i64 [ %.0255.add, %in_hitlist.exit ], [ %.0255.add294, %45 ]
   %47 = trunc i64 %.2.idx to i32
   store i32 %47, ptr %27, align 8, !tbaa !27
-  br label %30, !llvm.loop !31
+  br label %30
 
 in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
   %.1.idx = phi i64 [ %.0255.add, %.lr.ph342 ], [ %.0255.idx, %30 ]
@@ -126,14 +126,14 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
 49:                                               ; preds = %in_hitlist.exit.thread
   store i8 0, ptr %24, align 4, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %.0343, i64 29
-  store i8 0, ptr %50, align 1, !tbaa !32
+  store i8 0, ptr %50, align 1, !tbaa !29
   store i32 -1, ptr %27, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %.0343, i64 30
-  store i8 0, ptr %51, align 2, !tbaa !33
+  store i8 0, ptr %51, align 2, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %.0343, i64 12
   store i32 -1, ptr %52, align 4, !tbaa !27
   %53 = getelementptr inbounds nuw i8, ptr %.0343, i64 31
-  store i8 0, ptr %53, align 1, !tbaa !34
+  store i8 0, ptr %53, align 1, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %.0343, i64 16
   store i32 -1, ptr %54, align 8, !tbaa !27
   br label %in_hitlist.exit300.thread
@@ -148,21 +148,21 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
   ]
 
 58:                                               ; preds = %55, %55, %55
-  %59 = load i32, ptr %20, align 4, !tbaa !35
+  %59 = load i32, ptr %20, align 4, !tbaa !32
   %60 = and i32 %59, 32768
   %.not = icmp eq i32 %60, 0
   br i1 %.not, label %61, label %79
 
 61:                                               ; preds = %58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0343, ptr noundef nonnull align 8 dereferenceable(32) %.1.ptr, i64 32, i1 false), !tbaa.struct !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0343, ptr noundef nonnull align 8 dereferenceable(32) %.1.ptr, i64 32, i1 false), !tbaa.struct !33
   %62 = getelementptr inbounds nuw i8, ptr %.0343, i64 29
-  %63 = load i8, ptr %62, align 1, !tbaa !32
+  %63 = load i8, ptr %62, align 1, !tbaa !29
   %64 = icmp eq i8 %63, 1
   br i1 %64, label %65, label %in_hitlist.exit300.thread
 
 65:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  %66 = load ptr, ptr %21, align 8, !tbaa !39
+  %66 = load ptr, ptr %21, align 8, !tbaa !36
   %67 = load i32, ptr %27, align 8, !tbaa !27
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw %struct._zval_struct, ptr %66, i64 %68
@@ -176,9 +176,9 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
   br i1 %.not298, label %77, label %74
 
 74:                                               ; preds = %65
-  %75 = load i32, ptr %70, align 4, !tbaa !40
+  %75 = load i32, ptr %70, align 4, !tbaa !37
   %76 = add i32 %75, 1
-  store i32 %76, ptr %70, align 4, !tbaa !40
+  store i32 %76, ptr %70, align 4, !tbaa !37
   br label %77
 
 77:                                               ; preds = %74, %65
@@ -245,12 +245,12 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
 108:                                              ; preds = %.lr.ph340
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %in_hitlist.exit300, label %.lr.ph340, !llvm.loop !28
+  br i1 %exitcond391.not, label %in_hitlist.exit300, label %.lr.ph340
 
 .lr.ph340:                                        ; preds = %.lr.ph340.preheader, %108
   %indvars.iv387 = phi i64 [ 0, %.lr.ph340.preheader ], [ %indvars.iv.next388, %108 ]
   %109 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv387
-  %110 = load ptr, ptr %109, align 8, !tbaa !30
+  %110 = load ptr, ptr %109, align 8, !tbaa !28
   %111 = icmp eq ptr %110, %106
   br i1 %111, label %in_hitlist.exit300.thread, label %108
 
@@ -258,7 +258,7 @@ in_hitlist.exit300:                               ; preds = %108, %102
   %112 = add nsw i32 %.2258, 1
   %113 = sext i32 %.2258 to i64
   %114 = getelementptr inbounds ptr, ptr %14, i64 %113
-  store ptr %106, ptr %114, align 8, !tbaa !30
+  store ptr %106, ptr %114, align 8, !tbaa !28
   br label %117
 
 115:                                              ; preds = %99
@@ -272,7 +272,7 @@ in_hitlist.exit300:                               ; preds = %108, %102
   %119 = sub i64 %118, %98
   %120 = trunc i64 %119 to i32
   store i32 %120, ptr %94, align 4, !tbaa !27
-  br label %99, !llvm.loop !42
+  br label %99
 
 121:                                              ; preds = %23, %23
   %122 = getelementptr inbounds nuw i8, ptr %.0343, i64 12
@@ -309,12 +309,12 @@ in_hitlist.exit300:                               ; preds = %108, %102
 138:                                              ; preds = %.lr.ph338
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond386.not = icmp eq i64 %indvars.iv.next383, %wide.trip.count385
-  br i1 %exitcond386.not, label %in_hitlist.exit302, label %.lr.ph338, !llvm.loop !28
+  br i1 %exitcond386.not, label %in_hitlist.exit302, label %.lr.ph338
 
 .lr.ph338:                                        ; preds = %.lr.ph338.preheader, %138
   %indvars.iv382 = phi i64 [ 0, %.lr.ph338.preheader ], [ %indvars.iv.next383, %138 ]
   %139 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv382
-  %140 = load ptr, ptr %139, align 8, !tbaa !30
+  %140 = load ptr, ptr %139, align 8, !tbaa !28
   %141 = icmp eq ptr %140, %.ptr290
   br i1 %141, label %in_hitlist.exit302.thread, label %138
 
@@ -322,7 +322,7 @@ in_hitlist.exit302:                               ; preds = %138, %133
   %142 = add nsw i32 %.4260, 1
   %143 = sext i32 %.4260 to i64
   %144 = getelementptr inbounds ptr, ptr %14, i64 %143
-  store ptr %.ptr290, ptr %144, align 8, !tbaa !30
+  store ptr %.ptr290, ptr %144, align 8, !tbaa !28
   br label %186
 
 145:                                              ; preds = %129
@@ -330,9 +330,9 @@ in_hitlist.exit302:                               ; preds = %138, %133
   br i1 %146, label %147, label %169
 
 147:                                              ; preds = %145
-  %148 = load i8, ptr %125, align 1, !tbaa !32
+  %148 = load i8, ptr %125, align 1, !tbaa !29
   %149 = getelementptr inbounds nuw i8, ptr %.5.ptr, i64 29
-  %150 = load i8, ptr %149, align 1, !tbaa !32
+  %150 = load i8, ptr %149, align 1, !tbaa !29
   %151 = icmp eq i8 %148, %150
   br i1 %151, label %152, label %169
 
@@ -359,12 +359,12 @@ in_hitlist.exit302:                               ; preds = %138, %133
 162:                                              ; preds = %.lr.ph336
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
-  br i1 %exitcond381.not, label %in_hitlist.exit304, label %.lr.ph336, !llvm.loop !28
+  br i1 %exitcond381.not, label %in_hitlist.exit304, label %.lr.ph336
 
 .lr.ph336:                                        ; preds = %.lr.ph336.preheader, %162
   %indvars.iv377 = phi i64 [ 0, %.lr.ph336.preheader ], [ %indvars.iv.next378, %162 ]
   %163 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv377
-  %164 = load ptr, ptr %163, align 8, !tbaa !30
+  %164 = load ptr, ptr %163, align 8, !tbaa !28
   %165 = icmp eq ptr %164, %.ptr289
   br i1 %165, label %in_hitlist.exit302.thread, label %162
 
@@ -372,7 +372,7 @@ in_hitlist.exit304:                               ; preds = %162, %157
   %166 = add nsw i32 %.4260, 1
   %167 = sext i32 %.4260 to i64
   %168 = getelementptr inbounds ptr, ptr %14, i64 %167
-  store ptr %.ptr289, ptr %168, align 8, !tbaa !30
+  store ptr %.ptr289, ptr %168, align 8, !tbaa !28
   br label %186
 
 169:                                              ; preds = %152, %147, %145
@@ -381,9 +381,9 @@ in_hitlist.exit304:                               ; preds = %162, %157
   br i1 %171, label %172, label %183
 
 172:                                              ; preds = %169
-  %173 = load i8, ptr %125, align 1, !tbaa !32
+  %173 = load i8, ptr %125, align 1, !tbaa !29
   %174 = getelementptr inbounds nuw i8, ptr %.5.ptr, i64 29
-  %175 = load i8, ptr %174, align 1, !tbaa !32
+  %175 = load i8, ptr %174, align 1, !tbaa !29
   %176 = icmp eq i8 %173, %175
   br i1 %176, label %177, label %183
 
@@ -411,7 +411,7 @@ in_hitlist.exit304:                               ; preds = %162, %157
   %.7.idx = phi i64 [ %.5.add286, %in_hitlist.exit302 ], [ %.5.add, %in_hitlist.exit304 ], [ %.5.add288, %182 ], [ %.5.add287, %185 ]
   %187 = trunc i64 %.7.idx to i32
   store i32 %187, ptr %122, align 4, !tbaa !27
-  br label %129, !llvm.loop !43
+  br label %129
 
 in_hitlist.exit302.thread:                        ; preds = %183, %.lr.ph336, %.lr.ph338
   %.6.idx = phi i64 [ %.5.add286, %.lr.ph338 ], [ %.5.add, %.lr.ph336 ], [ %.5.idx, %183 ]
@@ -462,12 +462,12 @@ in_hitlist.exit302.thread:                        ; preds = %183, %.lr.ph336, %.
 212:                                              ; preds = %.lr.ph334
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count375
-  br i1 %exitcond376.not, label %in_hitlist.exit306, label %.lr.ph334, !llvm.loop !28
+  br i1 %exitcond376.not, label %in_hitlist.exit306, label %.lr.ph334
 
 .lr.ph334:                                        ; preds = %.lr.ph334.preheader, %212
   %indvars.iv372 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next373, %212 ]
   %213 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv372
-  %214 = load ptr, ptr %213, align 8, !tbaa !30
+  %214 = load ptr, ptr %213, align 8, !tbaa !28
   %215 = icmp eq ptr %214, %.ptr281
   br i1 %215, label %in_hitlist.exit306.thread, label %212
 
@@ -475,7 +475,7 @@ in_hitlist.exit306:                               ; preds = %212, %207
   %216 = add nsw i32 %.6262, 1
   %217 = sext i32 %.6262 to i64
   %218 = getelementptr inbounds ptr, ptr %14, i64 %217
-  store ptr %.ptr281, ptr %218, align 8, !tbaa !30
+  store ptr %.ptr281, ptr %218, align 8, !tbaa !28
   br label %365
 
 219:                                              ; preds = %203
@@ -485,8 +485,8 @@ in_hitlist.exit306:                               ; preds = %212, %207
 
 222:                                              ; preds = %219
   %223 = getelementptr inbounds nuw i8, ptr %.8.ptr, i64 29
-  %224 = load i8, ptr %223, align 1, !tbaa !32
-  %225 = load i8, ptr %194, align 1, !tbaa !34
+  %224 = load i8, ptr %223, align 1, !tbaa !29
+  %225 = load i8, ptr %194, align 1, !tbaa !31
   %226 = icmp eq i8 %224, %225
   br i1 %226, label %227, label %232
 
@@ -498,7 +498,7 @@ in_hitlist.exit306:                               ; preds = %212, %207
   br i1 %231, label %240, label %232
 
 232:                                              ; preds = %227, %222
-  %233 = load i8, ptr %196, align 1, !tbaa !32
+  %233 = load i8, ptr %196, align 1, !tbaa !29
   %234 = icmp eq i8 %224, %233
   br i1 %234, label %235, label %252
 
@@ -525,12 +525,12 @@ in_hitlist.exit306:                               ; preds = %212, %207
 245:                                              ; preds = %.lr.ph332
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %in_hitlist.exit308, label %.lr.ph332, !llvm.loop !28
+  br i1 %exitcond371.not, label %in_hitlist.exit308, label %.lr.ph332
 
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %245
   %indvars.iv367 = phi i64 [ 0, %.lr.ph332.preheader ], [ %indvars.iv.next368, %245 ]
   %246 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv367
-  %247 = load ptr, ptr %246, align 8, !tbaa !30
+  %247 = load ptr, ptr %246, align 8, !tbaa !28
   %248 = icmp eq ptr %247, %.ptr280
   br i1 %248, label %in_hitlist.exit306.thread, label %245
 
@@ -538,7 +538,7 @@ in_hitlist.exit308:                               ; preds = %245, %240
   %249 = add nsw i32 %.6262, 1
   %250 = sext i32 %.6262 to i64
   %251 = getelementptr inbounds ptr, ptr %14, i64 %250
-  store ptr %.ptr280, ptr %251, align 8, !tbaa !30
+  store ptr %.ptr280, ptr %251, align 8, !tbaa !28
   br label %365
 
 252:                                              ; preds = %235, %232, %219
@@ -554,8 +554,8 @@ in_hitlist.exit308:                               ; preds = %245, %240
 
 259:                                              ; preds = %254
   %260 = getelementptr inbounds nuw i8, ptr %.8.ptr, i64 29
-  %261 = load i8, ptr %260, align 1, !tbaa !32
-  %262 = load i8, ptr %194, align 1, !tbaa !34
+  %261 = load i8, ptr %260, align 1, !tbaa !29
+  %262 = load i8, ptr %194, align 1, !tbaa !31
   %263 = icmp eq i8 %261, %262
   br i1 %263, label %264, label %268
 
@@ -566,7 +566,7 @@ in_hitlist.exit308:                               ; preds = %245, %240
   br i1 %267, label %276, label %268
 
 268:                                              ; preds = %264, %259
-  %269 = load i8, ptr %196, align 1, !tbaa !32
+  %269 = load i8, ptr %196, align 1, !tbaa !29
   %270 = icmp eq i8 %261, %269
   br i1 %270, label %271, label %288
 
@@ -593,12 +593,12 @@ in_hitlist.exit308:                               ; preds = %245, %240
 281:                                              ; preds = %.lr.ph330
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
-  br i1 %exitcond366.not, label %in_hitlist.exit310, label %.lr.ph330, !llvm.loop !28
+  br i1 %exitcond366.not, label %in_hitlist.exit310, label %.lr.ph330
 
 .lr.ph330:                                        ; preds = %.lr.ph330.preheader, %281
   %indvars.iv362 = phi i64 [ 0, %.lr.ph330.preheader ], [ %indvars.iv.next363, %281 ]
   %282 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv362
-  %283 = load ptr, ptr %282, align 8, !tbaa !30
+  %283 = load ptr, ptr %282, align 8, !tbaa !28
   %284 = icmp eq ptr %283, %.ptr279
   br i1 %284, label %in_hitlist.exit306.thread, label %281
 
@@ -606,7 +606,7 @@ in_hitlist.exit310:                               ; preds = %281, %276
   %285 = add nsw i32 %.6262, 1
   %286 = sext i32 %.6262 to i64
   %287 = getelementptr inbounds ptr, ptr %14, i64 %286
-  store ptr %.ptr279, ptr %287, align 8, !tbaa !30
+  store ptr %.ptr279, ptr %287, align 8, !tbaa !28
   br label %365
 
 288:                                              ; preds = %271, %268, %254, %252
@@ -615,8 +615,8 @@ in_hitlist.exit310:                               ; preds = %281, %276
 
 290:                                              ; preds = %288
   %291 = getelementptr inbounds nuw i8, ptr %.8.ptr, i64 29
-  %292 = load i8, ptr %291, align 1, !tbaa !32
-  %293 = load i8, ptr %194, align 1, !tbaa !34
+  %292 = load i8, ptr %291, align 1, !tbaa !29
+  %293 = load i8, ptr %194, align 1, !tbaa !31
   %294 = icmp eq i8 %292, %293
   br i1 %294, label %295, label %300
 
@@ -628,7 +628,7 @@ in_hitlist.exit310:                               ; preds = %281, %276
   br i1 %299, label %308, label %300
 
 300:                                              ; preds = %295, %290
-  %301 = load i8, ptr %196, align 1, !tbaa !32
+  %301 = load i8, ptr %196, align 1, !tbaa !29
   %302 = icmp eq i8 %292, %301
   br i1 %302, label %303, label %309
 
@@ -656,8 +656,8 @@ in_hitlist.exit310:                               ; preds = %281, %276
 
 316:                                              ; preds = %311
   %317 = getelementptr inbounds nuw i8, ptr %.8.ptr, i64 29
-  %318 = load i8, ptr %317, align 1, !tbaa !32
-  %319 = load i8, ptr %194, align 1, !tbaa !34
+  %318 = load i8, ptr %317, align 1, !tbaa !29
+  %319 = load i8, ptr %194, align 1, !tbaa !31
   %320 = icmp eq i8 %318, %319
   br i1 %320, label %321, label %325
 
@@ -668,7 +668,7 @@ in_hitlist.exit310:                               ; preds = %281, %276
   br i1 %324, label %333, label %325
 
 325:                                              ; preds = %321, %316
-  %326 = load i8, ptr %196, align 1, !tbaa !32
+  %326 = load i8, ptr %196, align 1, !tbaa !29
   %327 = icmp eq i8 %318, %326
   br i1 %327, label %328, label %334
 
@@ -691,8 +691,8 @@ in_hitlist.exit310:                               ; preds = %281, %276
 
 335:                                              ; preds = %334
   %336 = getelementptr inbounds nuw i8, ptr %.8.ptr, i64 29
-  %337 = load i8, ptr %336, align 1, !tbaa !32
-  %338 = load i8, ptr %194, align 1, !tbaa !34
+  %337 = load i8, ptr %336, align 1, !tbaa !29
+  %338 = load i8, ptr %194, align 1, !tbaa !31
   %339 = icmp eq i8 %337, %338
   br i1 %339, label %340, label %345
 
@@ -704,7 +704,7 @@ in_hitlist.exit310:                               ; preds = %281, %276
   br i1 %344, label %353, label %345
 
 345:                                              ; preds = %340, %335
-  %346 = load i8, ptr %196, align 1, !tbaa !32
+  %346 = load i8, ptr %196, align 1, !tbaa !29
   %347 = icmp eq i8 %337, %346
   br i1 %347, label %348, label %in_hitlist.exit306.thread
 
@@ -731,12 +731,12 @@ in_hitlist.exit310:                               ; preds = %281, %276
 357:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %in_hitlist.exit312, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %in_hitlist.exit312, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %357
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %357 ]
   %358 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
-  %359 = load ptr, ptr %358, align 8, !tbaa !30
+  %359 = load ptr, ptr %358, align 8, !tbaa !28
   %360 = icmp eq ptr %359, %.ptr
   br i1 %360, label %in_hitlist.exit306.thread, label %357
 
@@ -744,7 +744,7 @@ in_hitlist.exit312:                               ; preds = %357, %353
   %361 = add nsw i32 %.6262, 1
   %362 = sext i32 %.6262 to i64
   %363 = getelementptr inbounds ptr, ptr %14, i64 %362
-  store ptr %.ptr, ptr %363, align 8, !tbaa !30
+  store ptr %.ptr, ptr %363, align 8, !tbaa !28
   br label %365
 
 364:                                              ; preds = %334
@@ -756,7 +756,7 @@ in_hitlist.exit312:                               ; preds = %357, %353
   %.10.idx = phi i64 [ %.8.add275, %in_hitlist.exit306 ], [ %.8.add274, %in_hitlist.exit308 ], [ %.8.add273, %in_hitlist.exit310 ], [ %.8.add278, %308 ], [ %.8.add277, %333 ], [ %.8.add, %in_hitlist.exit312 ], [ %.8.add276, %364 ]
   %366 = trunc i64 %.10.idx to i32
   store i32 %366, ptr %191, align 4, !tbaa !27
-  br label %203, !llvm.loop !44
+  br label %203
 
 in_hitlist.exit306.thread:                        ; preds = %334, %345, %348, %.lr.ph, %.lr.ph330, %.lr.ph332, %.lr.ph334
   %.9.idx = phi i64 [ %.8.add275, %.lr.ph334 ], [ %.8.add274, %.lr.ph332 ], [ %.8.add273, %.lr.ph330 ], [ %.8.add, %.lr.ph ], [ %.8.idx, %348 ], [ %.8.idx, %345 ], [ %.8.idx, %334 ]
@@ -771,7 +771,7 @@ in_hitlist.exit306.thread:                        ; preds = %334, %345, %348, %.
 in_hitlist.exit300.thread:                        ; preds = %99, %.lr.ph340, %82, %in_hitlist.exit306.thread, %368, %in_hitlist.exit302.thread, %189, %49, %79, %92, %86, %61, %77, %23
   %369 = getelementptr inbounds nuw i8, ptr %.0343, i64 32
   %370 = icmp ult ptr %369, %19
-  br i1 %370, label %23, label %._crit_edge, !llvm.loop !45
+  br i1 %370, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %in_hitlist.exit300.thread, %13
   br i1 %8, label %371, label %372, !prof !23
@@ -840,21 +840,14 @@ attributes #6 = { nounwind }
 !25 = !{!26, !6, i64 28}
 !26 = !{!"_zend_op", !10, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !8, i64 20, !8, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
 !27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!16, !16, i64 0}
-!31 = distinct !{!31, !29}
-!32 = !{!26, !6, i64 29}
-!33 = !{!26, !6, i64 30}
-!34 = !{!26, !6, i64 31}
-!35 = !{!5, !8, i64 4}
-!36 = !{i64 0, i64 8, !37, i64 8, i64 4, !27, i64 12, i64 4, !27, i64 16, i64 4, !27, i64 20, i64 4, !38, i64 24, i64 4, !38, i64 28, i64 1, !27, i64 29, i64 1, !27, i64 30, i64 1, !27, i64 31, i64 1, !27}
-!37 = !{!10, !10, i64 0}
-!38 = !{!8, !8, i64 0}
-!39 = !{!5, !21, i64 192}
-!40 = !{!41, !8, i64 0}
-!41 = !{!"_zend_refcounted_h", !8, i64 0, !6, i64 4}
-!42 = distinct !{!42, !29}
-!43 = distinct !{!43, !29}
-!44 = distinct !{!44, !29}
-!45 = distinct !{!45, !29}
+!28 = !{!16, !16, i64 0}
+!29 = !{!26, !6, i64 29}
+!30 = !{!26, !6, i64 30}
+!31 = !{!26, !6, i64 31}
+!32 = !{!5, !8, i64 4}
+!33 = !{i64 0, i64 8, !34, i64 8, i64 4, !27, i64 12, i64 4, !27, i64 16, i64 4, !27, i64 20, i64 4, !35, i64 24, i64 4, !35, i64 28, i64 1, !27, i64 29, i64 1, !27, i64 30, i64 1, !27, i64 31, i64 1, !27}
+!34 = !{!10, !10, i64 0}
+!35 = !{!8, !8, i64 0}
+!36 = !{!5, !21, i64 192}
+!37 = !{!38, !8, i64 0}
+!38 = !{!"_zend_refcounted_h", !8, i64 0, !6, i64 4}

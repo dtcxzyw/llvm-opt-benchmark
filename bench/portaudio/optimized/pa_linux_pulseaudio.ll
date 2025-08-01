@@ -663,11 +663,11 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %51
   %76 = phi ptr [ %70, %.preheader ], [ %62, %51 ], [ %70, %.lr.ph ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  store ptr @Terminate, ptr %77, align 8, !tbaa !95
+  store ptr @Terminate, ptr %77, align 8, !tbaa !94
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  store ptr @OpenStream, ptr %78, align 8, !tbaa !96
+  store ptr @OpenStream, ptr %78, align 8, !tbaa !95
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  store ptr @IsFormatSupported, ptr %79, align 8, !tbaa !97
+  store ptr @IsFormatSupported, ptr %79, align 8, !tbaa !96
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %80, ptr noundef nonnull @PaPulseAudio_CloseStreamCb, ptr noundef nonnull @PaPulseAudio_StartStreamCb, ptr noundef nonnull @PaPulseAudio_StopStreamCb, ptr noundef nonnull @PaPulseAudio_AbortStreamCb, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @GetStreamCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #14
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -743,14 +743,14 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 416
-  store i64 %spec.store.select, ptr %17, align 8, !tbaa !98
+  store i64 %spec.store.select, ptr %17, align 8, !tbaa !97
   %18 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 17) #14
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 576
-  store ptr %18, ptr %19, align 8, !tbaa !99
+  store ptr %18, ptr %19, align 8, !tbaa !98
   %20 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 15) #14
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 568
-  store ptr %20, ptr %21, align 8, !tbaa !100
-  %22 = load ptr, ptr %19, align 8, !tbaa !99
+  store ptr %20, ptr %21, align 8, !tbaa !99
+  %22 = load ptr, ptr %19, align 8, !tbaa !98
   %.not184 = icmp eq ptr %22, null
   %.not185 = icmp eq ptr %20, null
   %or.cond = select i1 %.not184, i1 true, i1 %.not185
@@ -758,16 +758,16 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 23:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %22, ptr noundef nonnull align 16 dereferenceable(17) @__const.OpenStream.defaultSourceStreamName, i64 17, i1 false)
-  %24 = load ptr, ptr %21, align 8, !tbaa !100
+  %24 = load ptr, ptr %21, align 8, !tbaa !99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %24, ptr noundef nonnull align 1 dereferenceable(15) @__const.OpenStream.defaultSinkStreamName, i64 15, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 648
-  store volatile i32 0, ptr %25, align 8, !tbaa !101
+  store volatile i32 0, ptr %25, align 8, !tbaa !100
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 652
-  store volatile i32 1, ptr %26, align 4, !tbaa !102
+  store volatile i32 1, ptr %26, align 4, !tbaa !101
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 656
-  store volatile i32 0, ptr %27, align 8, !tbaa !103
+  store volatile i32 0, ptr %27, align 8, !tbaa !102
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 660
-  store volatile i32 1, ptr %28, align 4, !tbaa !104
+  store volatile i32 1, ptr %28, align 4, !tbaa !103
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 472
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 464
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 584
@@ -778,10 +778,10 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !105
+  %34 = load i32, ptr %33, align 4, !tbaa !104
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !107
-  %37 = load i32, ptr %2, align 8, !tbaa !108
+  %36 = load i64, ptr %35, align 8, !tbaa !106
+  %37 = load i32, ptr %2, align 8, !tbaa !107
   %38 = icmp eq i32 %37, -2
   br i1 %38, label %157, label %39
 
@@ -798,7 +798,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !109
+  %50 = load ptr, ptr %49, align 8, !tbaa !108
   %.not187 = icmp eq ptr %50, null
   br i1 %.not187, label %51, label %157
 
@@ -807,7 +807,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %53 = tail call i32 @Pa_GetSampleSize(i64 noundef %36) #14
   %54 = mul nsw i32 %53, %34
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 556
-  store i32 %54, ptr %55, align 4, !tbaa !110
+  store i32 %54, ptr %55, align 4, !tbaa !109
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 452
   %57 = tail call i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %52, ptr noundef nonnull %56)
   %.not188 = icmp eq i32 %57, 0
@@ -816,12 +816,12 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 58:                                               ; preds = %51
   %59 = fptoui double %4 to i32
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 456
-  store i32 %59, ptr %60, align 4, !tbaa !111
+  store i32 %59, ptr %60, align 4, !tbaa !110
   %61 = trunc i32 %34 to i8
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 460
-  store i8 %61, ptr %62, align 4, !tbaa !112
+  store i8 %61, ptr %62, align 4, !tbaa !111
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 532
-  store i32 %34, ptr %63, align 4, !tbaa !113
+  store i32 %34, ptr %63, align 4, !tbaa !112
   %64 = tail call i32 @pa_sample_spec_valid(ptr noundef nonnull %56) #15
   %.not189 = icmp eq i32 %64, 0
   br i1 %.not189, label %157, label %65
@@ -829,30 +829,30 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 82232
   %67 = load ptr, ptr %66, align 8, !tbaa !3
-  %68 = load ptr, ptr %19, align 8, !tbaa !99
+  %68 = load ptr, ptr %19, align 8, !tbaa !98
   %69 = tail call ptr @pa_stream_new(ptr noundef %67, ptr noundef %68, ptr noundef nonnull %56, ptr noundef null) #14
-  store ptr %69, ptr %29, align 8, !tbaa !114
+  store ptr %69, ptr %29, align 8, !tbaa !113
   %.not190 = icmp eq ptr %69, null
   br i1 %.not190, label %72, label %70
 
 70:                                               ; preds = %65
   tail call void @pa_stream_set_state_callback(ptr noundef nonnull %69, ptr noundef nonnull @PaPulseAudio_StreamStateCb, ptr noundef nonnull %15) #14
-  %71 = load ptr, ptr %29, align 8, !tbaa !114
+  %71 = load ptr, ptr %29, align 8, !tbaa !113
   tail call void @pa_stream_set_started_callback(ptr noundef %71, ptr noundef nonnull @PaPulseAudio_StreamStartedCb, ptr noundef nonnull %15) #14
   br label %72
 
 72:                                               ; preds = %65, %70
-  %73 = load i32, ptr %2, align 8, !tbaa !108
+  %73 = load i32, ptr %2, align 8, !tbaa !107
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 560
-  store i32 %73, ptr %74, align 8, !tbaa !115
+  store i32 %73, ptr %74, align 8, !tbaa !114
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %76 = load double, ptr %75, align 8, !tbaa !116
+  %76 = load double, ptr %75, align 8, !tbaa !115
   %77 = fcmp ult double %76, 0.000000e+00
   %78 = tail call double @llvm.fmuladd.f64(double %76, double 1.000000e+06, double 1.000000e+00)
   %79 = fptoui double %78 to i32
   %.sink = select i1 %77, i32 0, i32 %79
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 520
-  store i32 %.sink, ptr %80, align 8, !tbaa !117
+  store i32 %.sink, ptr %80, align 8, !tbaa !116
   %81 = tail call i32 @PaPulseAudio_BlockingInitRingBuffer(ptr noundef nonnull %31, i32 noundef 262144)
   %.not191 = icmp eq i32 %81, 0
   br i1 %.not191, label %82, label %157
@@ -866,10 +866,10 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !105
+  %85 = load i32, ptr %84, align 4, !tbaa !104
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !107
-  %88 = load i32, ptr %3, align 8, !tbaa !108
+  %87 = load i64, ptr %86, align 8, !tbaa !106
+  %88 = load i32, ptr %3, align 8, !tbaa !107
   %89 = icmp eq i32 %88, -2
   br i1 %89, label %157, label %90
 
@@ -886,7 +886,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !109
+  %101 = load ptr, ptr %100, align 8, !tbaa !108
   %.not193 = icmp eq ptr %101, null
   br i1 %.not193, label %102, label %157
 
@@ -895,7 +895,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %104 = tail call i32 @Pa_GetSampleSize(i64 noundef %87) #14
   %105 = mul nsw i32 %104, %85
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 552
-  store i32 %105, ptr %106, align 8, !tbaa !118
+  store i32 %105, ptr %106, align 8, !tbaa !117
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 440
   %108 = tail call i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %103, ptr noundef nonnull %107)
   %.not194 = icmp eq i32 %108, 0
@@ -904,12 +904,12 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 109:                                              ; preds = %102
   %110 = fptoui double %4 to i32
   %111 = getelementptr inbounds nuw i8, ptr %15, i64 444
-  store i32 %110, ptr %111, align 4, !tbaa !119
+  store i32 %110, ptr %111, align 4, !tbaa !118
   %112 = trunc i32 %85 to i8
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 448
-  store i8 %112, ptr %113, align 8, !tbaa !120
+  store i8 %112, ptr %113, align 8, !tbaa !119
   %114 = getelementptr inbounds nuw i8, ptr %15, i64 528
-  store i32 %85, ptr %114, align 8, !tbaa !121
+  store i32 %85, ptr %114, align 8, !tbaa !120
   %115 = tail call i32 @pa_sample_spec_valid(ptr noundef nonnull %107) #15
   %.not195 = icmp eq i32 %115, 0
   br i1 %.not195, label %157, label %116
@@ -917,32 +917,32 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 116:                                              ; preds = %109
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 82232
   %118 = load ptr, ptr %117, align 8, !tbaa !3
-  %119 = load ptr, ptr %21, align 8, !tbaa !100
+  %119 = load ptr, ptr %21, align 8, !tbaa !99
   %120 = tail call ptr @pa_stream_new(ptr noundef %118, ptr noundef %119, ptr noundef nonnull %107, ptr noundef null) #14
-  store ptr %120, ptr %30, align 8, !tbaa !122
+  store ptr %120, ptr %30, align 8, !tbaa !121
   %.not196 = icmp eq ptr %120, null
   br i1 %.not196, label %.sink.split, label %121
 
 121:                                              ; preds = %116
   tail call void @pa_stream_set_state_callback(ptr noundef nonnull %120, ptr noundef nonnull @PaPulseAudio_StreamStateCb, ptr noundef nonnull %15) #14
-  %122 = load ptr, ptr %30, align 8, !tbaa !122
+  %122 = load ptr, ptr %30, align 8, !tbaa !121
   tail call void @pa_stream_set_started_callback(ptr noundef %122, ptr noundef nonnull @PaPulseAudio_StreamStartedCb, ptr noundef nonnull %15) #14
-  %123 = load ptr, ptr %30, align 8, !tbaa !122
+  %123 = load ptr, ptr %30, align 8, !tbaa !121
   tail call void @pa_stream_set_underflow_callback(ptr noundef %123, ptr noundef nonnull @PaPulseAudio_StreamUnderflowCb, ptr noundef nonnull %15) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %121, %116
-  %124 = load i32, ptr %3, align 8, !tbaa !108
+  %124 = load i32, ptr %3, align 8, !tbaa !107
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 564
-  store i32 %124, ptr %125, align 4, !tbaa !123
+  store i32 %124, ptr %125, align 4, !tbaa !122
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %127 = load double, ptr %126, align 8, !tbaa !116
+  %127 = load double, ptr %126, align 8, !tbaa !115
   %128 = fcmp ult double %127, 0.000000e+00
   %129 = tail call double @llvm.fmuladd.f64(double %127, double 1.000000e+06, double 1.000000e+00)
   %130 = fptoui double %129 to i32
   %.sink201 = select i1 %128, i32 0, i32 %130
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 520
-  store i32 %.sink201, ptr %131, align 8, !tbaa !117
+  store i32 %.sink201, ptr %131, align 8, !tbaa !116
   br label %132
 
 132:                                              ; preds = %.sink.split, %82
@@ -950,11 +950,11 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %.0156 = phi i64 [ 1, %82 ], [ %87, %.sink.split ]
   %.0 = phi i64 [ 1, %82 ], [ %103, %.sink.split ]
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  store ptr %0, ptr %133, align 8, !tbaa !124
+  store ptr %0, ptr %133, align 8, !tbaa !123
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 82232
   %135 = load ptr, ptr %134, align 8, !tbaa !3
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 432
-  store ptr %135, ptr %136, align 8, !tbaa !125
+  store ptr %135, ptr %136, align 8, !tbaa !124
   %137 = load ptr, ptr %13, align 8, !tbaa !21
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 424
   store ptr %137, ptr %138, align 8, !tbaa !75
@@ -974,19 +974,19 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %145 = uitofp i64 %144 to double
   %146 = fdiv double %145, %4
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store double %146, ptr %147, align 8, !tbaa !126
+  store double %146, ptr %147, align 8, !tbaa !125
   %148 = tail call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %141) #14
   %149 = uitofp i64 %148 to double
   %150 = fdiv double %149, %4
   %151 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  store double %150, ptr %151, align 8, !tbaa !127
+  store double %150, ptr %151, align 8, !tbaa !126
   %152 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store double %4, ptr %152, align 8, !tbaa !128
+  store double %4, ptr %152, align 8, !tbaa !127
   %153 = getelementptr inbounds nuw i8, ptr %15, i64 544
-  store i64 %spec.store.select, ptr %153, align 8, !tbaa !129
+  store i64 %spec.store.select, ptr %153, align 8, !tbaa !128
   %154 = getelementptr inbounds nuw i8, ptr %15, i64 536
-  store i64 %spec.store.select, ptr %154, align 8, !tbaa !130
-  store ptr %15, ptr %1, align 8, !tbaa !131
+  store i64 %spec.store.select, ptr %154, align 8, !tbaa !129
+  store ptr %15, ptr %1, align 8, !tbaa !130
   br label %155
 
 155:                                              ; preds = %11, %157, %143
@@ -997,9 +997,9 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
 
 157:                                              ; preds = %109, %99, %90, %83, %58, %48, %39, %32, %16, %132, %102, %72, %51
   %.0161.ph = phi i32 [ -9999, %109 ], [ -9984, %99 ], [ -9998, %90 ], [ -9996, %83 ], [ -9999, %58 ], [ -9984, %48 ], [ -9998, %39 ], [ -9996, %32 ], [ -9992, %16 ], [ %142, %132 ], [ %108, %102 ], [ %81, %72 ], [ %57, %51 ]
-  %158 = load ptr, ptr %19, align 8, !tbaa !99
+  %158 = load ptr, ptr %19, align 8, !tbaa !98
   tail call void @PaUtil_FreeMemory(ptr noundef %158) #14
-  %159 = load ptr, ptr %21, align 8, !tbaa !100
+  %159 = load ptr, ptr %21, align 8, !tbaa !99
   tail call void @PaUtil_FreeMemory(ptr noundef %159) #14
   tail call void @PaUtil_FreeMemory(ptr noundef nonnull %15) #14
   br label %155
@@ -1016,15 +1016,15 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !105
+  %7 = load i32, ptr %6, align 4, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !107
+  %9 = load i64, ptr %8, align 8, !tbaa !106
   %10 = and i64 %9, 65536
   %.not22 = icmp eq i64 %10, 0
   br i1 %.not22, label %11, label %49
 
 11:                                               ; preds = %5
-  %12 = load i32, ptr %1, align 8, !tbaa !108
+  %12 = load i32, ptr %1, align 8, !tbaa !107
   %13 = icmp eq i32 %12, -2
   br i1 %13, label %49, label %14
 
@@ -1041,7 +1041,7 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !109
+  %25 = load ptr, ptr %24, align 8, !tbaa !108
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %26, label %49
 
@@ -1051,15 +1051,15 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !105
+  %29 = load i32, ptr %28, align 4, !tbaa !104
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !107
+  %31 = load i64, ptr %30, align 8, !tbaa !106
   %32 = and i64 %31, 65536
   %.not25 = icmp eq i64 %32, 0
   br i1 %.not25, label %33, label %49
 
 33:                                               ; preds = %27
-  %34 = load i32, ptr %2, align 8, !tbaa !108
+  %34 = load i32, ptr %2, align 8, !tbaa !107
   %35 = icmp eq i32 %34, -2
   br i1 %35, label %49, label %36
 
@@ -1076,7 +1076,7 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !109
+  %47 = load ptr, ptr %46, align 8, !tbaa !108
   %.not26 = icmp eq ptr %47, null
   br i1 %.not26, label %48, label %49
 
@@ -1101,14 +1101,14 @@ declare i32 @PaPulseAudio_AbortStreamCb(ptr noundef) #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define i32 @IsStreamStopped(ptr noundef %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %3 = load volatile i32, ptr %2, align 4, !tbaa !102
+  %3 = load volatile i32, ptr %2, align 4, !tbaa !101
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define i32 @IsStreamActive(ptr noundef %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %3 = load volatile i32, ptr %2, align 8, !tbaa !101
+  %3 = load volatile i32, ptr %2, align 8, !tbaa !100
   ret i32 %3
 }
 
@@ -1116,14 +1116,14 @@ define i32 @IsStreamActive(ptr noundef %0) #8 {
 define double @GetStreamTime(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.PaStreamCallbackTimeInfo, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %4 = load ptr, ptr %3, align 8, !tbaa !124
+  %4 = load ptr, ptr %3, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 82216
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   tail call void @PaPulseAudio_Lock(ptr noundef %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %8 = load ptr, ptr %7, align 8, !tbaa !122
+  %8 = load ptr, ptr %7, align 8, !tbaa !121
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
 
@@ -1134,7 +1134,7 @@ define double @GetStreamTime(ptr noundef readonly captures(none) %0) #0 {
 
 12:                                               ; preds = %9, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %14 = load ptr, ptr %13, align 8, !tbaa !114
+  %14 = load ptr, ptr %13, align 8, !tbaa !113
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %18, label %15
 
@@ -1147,7 +1147,7 @@ define double @GetStreamTime(ptr noundef readonly captures(none) %0) #0 {
   %19 = load ptr, ptr %5, align 8, !tbaa !21
   call void @PaPulseAudio_UnLock(ptr noundef %19) #14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load double, ptr %20, align 8, !tbaa !132
+  %21 = load double, ptr %20, align 8, !tbaa !131
   br label %22
 
 22:                                               ; preds = %15, %9, %18
@@ -1206,7 +1206,7 @@ define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudi
 
 .sink.split:                                      ; preds = %2, %3, %4, %5, %6
   %.sink = phi i32 [ 0, %6 ], [ 3, %5 ], [ 9, %4 ], [ 7, %3 ], [ 5, %2 ]
-  store i32 %.sink, ptr %1, align 4, !tbaa !134
+  store i32 %.sink, ptr %1, align 4, !tbaa !133
   br label %7
 
 7:                                                ; preds = %.sink.split, %2
@@ -1289,7 +1289,7 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr no
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %5 = load ptr, ptr %4, align 8, !tbaa !114
+  %5 = load ptr, ptr %4, align 8, !tbaa !113
   %6 = icmp eq ptr %5, null
   br i1 %6, label %26, label %7
 
@@ -1313,16 +1313,16 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr no
   %17 = add i64 %16, 1
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %12, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %20 = load ptr, ptr %19, align 8, !tbaa !99
+  %20 = load ptr, ptr %19, align 8, !tbaa !98
   tail call void @PaUtil_FreeMemory(ptr noundef %20) #14
-  store ptr %12, ptr %19, align 8, !tbaa !99
-  %21 = load ptr, ptr %4, align 8, !tbaa !114
+  store ptr %12, ptr %19, align 8, !tbaa !98
+  %21 = load ptr, ptr %4, align 8, !tbaa !113
   %22 = tail call ptr @pa_stream_set_name(ptr noundef %21, ptr noundef nonnull %1, ptr noundef nonnull @RenameStreamCb, ptr noundef nonnull %0) #14
   store ptr %22, ptr %3, align 8, !tbaa !76
   %23 = load ptr, ptr %8, align 8, !tbaa !75
   tail call void @PaPulseAudio_UnLock(ptr noundef %23) #14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %25 = load ptr, ptr %24, align 8, !tbaa !124
+  %25 = load ptr, ptr %24, align 8, !tbaa !123
   call void @PaPulseAudio_ReleaseOperation(ptr noundef %25, ptr noundef nonnull %3) #14
   br label %26
 
@@ -1347,7 +1347,7 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSink(ptr noundef %0, ptr noun
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %5 = load ptr, ptr %4, align 8, !tbaa !122
+  %5 = load ptr, ptr %4, align 8, !tbaa !121
   %6 = icmp eq ptr %5, null
   br i1 %6, label %26, label %7
 
@@ -1371,16 +1371,16 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSink(ptr noundef %0, ptr noun
   %17 = add i64 %16, 1
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %12, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %20 = load ptr, ptr %19, align 8, !tbaa !100
+  %20 = load ptr, ptr %19, align 8, !tbaa !99
   tail call void @PaUtil_FreeMemory(ptr noundef %20) #14
-  store ptr %12, ptr %19, align 8, !tbaa !100
-  %21 = load ptr, ptr %4, align 8, !tbaa !122
+  store ptr %12, ptr %19, align 8, !tbaa !99
+  %21 = load ptr, ptr %4, align 8, !tbaa !121
   %22 = tail call ptr @pa_stream_set_name(ptr noundef %21, ptr noundef nonnull %1, ptr noundef nonnull @RenameStreamCb, ptr noundef nonnull %0) #14
   store ptr %22, ptr %3, align 8, !tbaa !76
   %23 = load ptr, ptr %8, align 8, !tbaa !75
   tail call void @PaPulseAudio_UnLock(ptr noundef %23) #14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %25 = load ptr, ptr %24, align 8, !tbaa !124
+  %25 = load ptr, ptr %24, align 8, !tbaa !123
   call void @PaPulseAudio_ReleaseOperation(ptr noundef %25, ptr noundef nonnull %3) #14
   br label %26
 
@@ -1504,46 +1504,45 @@ attributes #15 = { nounwind willreturn memory(read) }
 !89 = !{!5, !14, i64 40}
 !90 = !{!91, !91, i64 0}
 !91 = !{!"p1 _ZTS12PaDeviceInfo", !13, i64 0}
-!92 = distinct !{!92, !93, !94}
+!92 = distinct !{!92, !93}
 !93 = !{!"llvm.loop.mustprogress"}
-!94 = !{!"llvm.loop.estimated_trip_count"}
-!95 = !{!5, !13, i64 48}
-!96 = !{!5, !13, i64 56}
-!97 = !{!5, !13, i64 64}
-!98 = !{!64, !7, i64 416}
-!99 = !{!64, !12, i64 576}
-!100 = !{!64, !12, i64 568}
-!101 = !{!64, !11, i64 648}
-!102 = !{!64, !11, i64 652}
-!103 = !{!64, !11, i64 656}
-!104 = !{!64, !11, i64 660}
-!105 = !{!106, !11, i64 4}
-!106 = !{!"PaStreamParameters", !11, i64 0, !11, i64 4, !7, i64 8, !34, i64 16, !13, i64 24}
-!107 = !{!106, !7, i64 8}
-!108 = !{!106, !11, i64 0}
-!109 = !{!106, !13, i64 24}
-!110 = !{!64, !11, i64 556}
-!111 = !{!64, !11, i64 456}
-!112 = !{!64, !8, i64 460}
-!113 = !{!64, !11, i64 532}
-!114 = !{!64, !72, i64 472}
-!115 = !{!64, !11, i64 560}
-!116 = !{!106, !34, i64 16}
-!117 = !{!64, !11, i64 520}
-!118 = !{!64, !11, i64 552}
-!119 = !{!64, !11, i64 444}
-!120 = !{!64, !8, i64 448}
-!121 = !{!64, !11, i64 528}
-!122 = !{!64, !72, i64 464}
-!123 = !{!64, !11, i64 564}
-!124 = !{!64, !13, i64 408}
-!125 = !{!64, !19, i64 432}
-!126 = !{!64, !34, i64 56}
-!127 = !{!64, !34, i64 64}
-!128 = !{!64, !34, i64 72}
-!129 = !{!64, !7, i64 544}
-!130 = !{!64, !7, i64 536}
-!131 = !{!13, !13, i64 0}
-!132 = !{!133, !34, i64 8}
-!133 = !{!"PaStreamCallbackTimeInfo", !34, i64 0, !34, i64 8, !34, i64 16}
-!134 = !{!16, !11, i64 0}
+!94 = !{!5, !13, i64 48}
+!95 = !{!5, !13, i64 56}
+!96 = !{!5, !13, i64 64}
+!97 = !{!64, !7, i64 416}
+!98 = !{!64, !12, i64 576}
+!99 = !{!64, !12, i64 568}
+!100 = !{!64, !11, i64 648}
+!101 = !{!64, !11, i64 652}
+!102 = !{!64, !11, i64 656}
+!103 = !{!64, !11, i64 660}
+!104 = !{!105, !11, i64 4}
+!105 = !{!"PaStreamParameters", !11, i64 0, !11, i64 4, !7, i64 8, !34, i64 16, !13, i64 24}
+!106 = !{!105, !7, i64 8}
+!107 = !{!105, !11, i64 0}
+!108 = !{!105, !13, i64 24}
+!109 = !{!64, !11, i64 556}
+!110 = !{!64, !11, i64 456}
+!111 = !{!64, !8, i64 460}
+!112 = !{!64, !11, i64 532}
+!113 = !{!64, !72, i64 472}
+!114 = !{!64, !11, i64 560}
+!115 = !{!105, !34, i64 16}
+!116 = !{!64, !11, i64 520}
+!117 = !{!64, !11, i64 552}
+!118 = !{!64, !11, i64 444}
+!119 = !{!64, !8, i64 448}
+!120 = !{!64, !11, i64 528}
+!121 = !{!64, !72, i64 464}
+!122 = !{!64, !11, i64 564}
+!123 = !{!64, !13, i64 408}
+!124 = !{!64, !19, i64 432}
+!125 = !{!64, !34, i64 56}
+!126 = !{!64, !34, i64 64}
+!127 = !{!64, !34, i64 72}
+!128 = !{!64, !7, i64 544}
+!129 = !{!64, !7, i64 536}
+!130 = !{!13, !13, i64 0}
+!131 = !{!132, !34, i64 8}
+!132 = !{!"PaStreamCallbackTimeInfo", !34, i64 0, !34, i64 8, !34, i64 16}
+!133 = !{!16, !11, i64 0}

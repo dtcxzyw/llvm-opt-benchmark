@@ -134,7 +134,7 @@ ogg_find_stream.exit:                             ; preds = %63
   %69 = load i64, ptr %68, align 1, !tbaa !47
   %70 = and i64 %indvars.iv.i, 4294967295
   %71 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %70, i32 9
-  %72 = load i64, ptr %71, align 8, !tbaa !56
+  %72 = load i64, ptr %71, align 8, !tbaa !55
   %.not54 = icmp eq i64 %72, -1
   br i1 %.not54, label %74, label %73
 
@@ -151,7 +151,7 @@ ogg_find_stream.exit.thread:                      ; preds = %67, %57
   br i1 %.not55, label %76, label %75
 
 75:                                               ; preds = %74
-  store i64 %69, ptr %71, align 8, !tbaa !56
+  store i64 %69, ptr %71, align 8, !tbaa !55
   br label %76
 
 76:                                               ; preds = %2, %46, %39, %74, %75, %53, %55, %28, %._crit_edge, %73, %ogg_find_stream.exit.thread, %34
@@ -237,7 +237,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !50 = !{!32, !19, i64 56}
 !51 = !{!25, !13, i64 8}
 !52 = !{!32, !13, i64 32}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!32, !19, i64 48}
+!55 = !{!32, !19, i64 48}

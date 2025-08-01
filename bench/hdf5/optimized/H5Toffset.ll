@@ -153,7 +153,7 @@ define range(i32 -1, -2147483648) i32 @H5Tget_offset(i64 noundef %0) local_unnam
 
 63:                                               ; preds = %.preheader.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !31
+  %65 = load i32, ptr %64, align 4, !tbaa !30
   %.off.i = add i32 %65, -5
   %switch.i = icmp ult i32 %.off.i, 7
   br i1 %switch.i, label %66, label %H5T_get_offset.exit
@@ -166,7 +166,7 @@ define range(i32 -1, -2147483648) i32 @H5Tget_offset(i64 noundef %0) local_unnam
 
 H5T_get_offset.exit:                              ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 64
-  %71 = load i64, ptr %70, align 8, !tbaa !32
+  %71 = load i64, ptr %70, align 8, !tbaa !31
   %72 = trunc i64 %71 to i32
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %H5T_get_offset.exit.thread, label %78
@@ -260,7 +260,7 @@ define i32 @H5T_get_offset(ptr noundef readonly captures(none) %0) local_unnamed
 
 21:                                               ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !31
+  %23 = load i32, ptr %22, align 4, !tbaa !30
   %.off = add i32 %23, -5
   %switch = icmp ult i32 %.off, 7
   br i1 %switch, label %24, label %28
@@ -273,7 +273,7 @@ define i32 @H5T_get_offset(ptr noundef readonly captures(none) %0) local_unnamed
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %30 = load i64, ptr %29, align 8, !tbaa !32
+  %30 = load i64, ptr %29, align 8, !tbaa !31
   %31 = trunc i64 %30 to i32
   br label %32
 
@@ -364,7 +364,7 @@ define range(i32 -1, 1) i32 @H5Tset_offset(i64 noundef %0, i64 noundef %1) local
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !33
+  %48 = load i32, ptr %47, align 8, !tbaa !32
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %53, label %49
 
@@ -376,7 +376,7 @@ define range(i32 -1, 1) i32 @H5Tset_offset(i64 noundef %0, i64 noundef %1) local
 
 53:                                               ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !31
+  %55 = load i32, ptr %54, align 4, !tbaa !30
   %56 = icmp eq i32 %55, 3
   %57 = icmp ne i64 %1, 0
   %or.cond = and i1 %57, %56
@@ -394,7 +394,7 @@ define range(i32 -1, 1) i32 @H5Tset_offset(i64 noundef %0, i64 noundef %1) local
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 52
-  %66 = load i32, ptr %65, align 4, !tbaa !32
+  %66 = load i32, ptr %65, align 4, !tbaa !31
   %.not27 = icmp eq i32 %66, 0
   br i1 %.not27, label %.thread, label %67
 
@@ -456,7 +456,7 @@ define internal fastcc void @H5T__set_offset(ptr noundef nonnull readonly captur
   tail call fastcc void @H5T__set_offset(ptr noundef %13, i64 noundef %1)
   %15 = load ptr, ptr %10, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !31
+  %17 = load i32, ptr %16, align 4, !tbaa !30
   switch i32 %17, label %38 [
     i32 10, label %18
     i32 11, label %29
@@ -469,12 +469,12 @@ define internal fastcc void @H5T__set_offset(ptr noundef nonnull readonly captur
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !34
+  %24 = load i64, ptr %23, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %26 = load i64, ptr %25, align 8, !tbaa !32
+  %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = mul i64 %26, %24
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %27, ptr %28, align 8, !tbaa !34
+  store i64 %27, ptr %28, align 8, !tbaa !33
   br label %59
 
 29:                                               ; preds = %14
@@ -483,10 +483,10 @@ define internal fastcc void @H5T__set_offset(ptr noundef nonnull readonly captur
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !34
+  %35 = load i64, ptr %34, align 8, !tbaa !33
   %36 = shl i64 %35, 1
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %36, ptr %37, align 8, !tbaa !34
+  store i64 %36, ptr %37, align 8, !tbaa !33
   br label %59
 
 38:                                               ; preds = %14
@@ -495,17 +495,17 @@ define internal fastcc void @H5T__set_offset(ptr noundef nonnull readonly captur
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !34
+  %44 = load i64, ptr %43, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %44, ptr %45, align 8, !tbaa !34
+  store i64 %44, ptr %45, align 8, !tbaa !33
   br label %59
 
 46:                                               ; preds = %9
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %48 = load i64, ptr %47, align 8, !tbaa !32
+  %48 = load i64, ptr %47, align 8, !tbaa !31
   %49 = add i64 %48, %1
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !34
+  %51 = load i64, ptr %50, align 8, !tbaa !33
   %52 = shl i64 %51, 3
   %53 = icmp ugt i64 %49, %52
   br i1 %53, label %54, label %57
@@ -513,12 +513,12 @@ define internal fastcc void @H5T__set_offset(ptr noundef nonnull readonly captur
 54:                                               ; preds = %46
   %55 = add i64 %49, 7
   %56 = lshr i64 %55, 3
-  store i64 %56, ptr %50, align 8, !tbaa !34
+  store i64 %56, ptr %50, align 8, !tbaa !33
   br label %57
 
 57:                                               ; preds = %54, %46
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i64 %1, ptr %58, align 8, !tbaa !32
+  store i64 %1, ptr %58, align 8, !tbaa !31
   br label %59
 
 59:                                               ; preds = %14, %18, %38, %29, %57, %2
@@ -562,10 +562,9 @@ attributes #5 = { nounwind }
 !25 = !{!26, !27, i64 32}
 !26 = !{!"H5T_shared_t", !12, i64 0, !17, i64 8, !17, i64 12, !12, i64 16, !17, i64 24, !4, i64 28, !27, i64 32, !24, i64 40, !5, i64 48}
 !27 = !{!"p1 _ZTS5H5T_t", !19, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!26, !17, i64 12}
-!32 = !{!5, !5, i64 0}
-!33 = !{!26, !17, i64 8}
-!34 = !{!26, !12, i64 16}
+!30 = !{!26, !17, i64 12}
+!31 = !{!5, !5, i64 0}
+!32 = !{!26, !17, i64 8}
+!33 = !{!26, !12, i64 16}

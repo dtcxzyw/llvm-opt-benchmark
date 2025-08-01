@@ -245,7 +245,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %42 = phi i64 [ %98, %96 ], [ %83, %81 ], [ %38, %36 ], [ %.ph, %.sink.split ]
   %43 = sub i64 %42, %5
   %.not61 = icmp ult i64 %43, %3
-  br i1 %.not61, label %20, label %._crit_edge, !llvm.loop !4
+  br i1 %.not61, label %20, label %._crit_edge
 
 44:                                               ; preds = %39
   %45 = load i64, ptr %17, align 8, !noundef !3
@@ -270,7 +270,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
 
 54:                                               ; preds = %48
   %55 = icmp ult i64 %51, %5
-  br i1 %55, label %84, label %89, !prof !6
+  br i1 %55, label %84, label %89, !prof !4
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %17, align 8, !noundef !3
@@ -295,7 +295,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
 64:                                               ; preds = %60
   %65 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.09.0, i64 1)
   %66 = icmp ult i64 %.sroa.09.0, %5
-  br i1 %66, label %69, label %74, !prof !6
+  br i1 %66, label %69, label %74, !prof !4
 
 67:                                               ; preds = %61
   store i64 %5, ptr %17, align 8
@@ -310,7 +310,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %71 = sub i64 %70, %5
   %72 = add i64 %71, %.sroa.09.0
   %73 = icmp ult i64 %72, %3
-  br i1 %73, label %75, label %80, !prof !6
+  br i1 %73, label %75, label %80, !prof !4
 
 74:                                               ; preds = %64
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.sroa.09.0, i64 %5, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.5) #2
@@ -322,7 +322,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %78 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %72
   %79 = load i8, ptr %78, align 1, !noundef !3
   %.not29 = icmp eq i8 %77, %79
-  br i1 %.not29, label %60, label %81, !llvm.loop !7
+  br i1 %.not29, label %60, label %81
 
 80:                                               ; preds = %69
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %72, i64 %3, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.6) #2
@@ -339,7 +339,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %86 = sub i64 %85, %5
   %87 = add i64 %86, %51
   %88 = icmp ult i64 %87, %3
-  br i1 %88, label %90, label %95, !prof !6
+  br i1 %88, label %90, label %95, !prof !4
 
 89:                                               ; preds = %54
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %51, i64 %5, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.7) #2
@@ -351,7 +351,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
   %93 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %87
   %94 = load i8, ptr %93, align 1, !noundef !3
   %.not27 = icmp eq i8 %92, %94
-  br i1 %.not27, label %48, label %96, !llvm.loop !8
+  br i1 %.not27, label %48, label %96
 
 95:                                               ; preds = %84
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %87, i64 %3, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.8) #2
@@ -437,7 +437,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %42 = phi i64 [ %98, %96 ], [ %83, %81 ], [ %38, %36 ], [ %.ph, %.sink.split ]
   %43 = sub i64 %42, %5
   %.not61 = icmp ult i64 %43, %3
-  br i1 %.not61, label %20, label %._crit_edge, !llvm.loop !9
+  br i1 %.not61, label %20, label %._crit_edge
 
 44:                                               ; preds = %39
   %45 = load i64, ptr %17, align 8, !noundef !3
@@ -462,7 +462,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
 
 54:                                               ; preds = %48
   %55 = icmp ult i64 %51, %5
-  br i1 %55, label %84, label %89, !prof !6
+  br i1 %55, label %84, label %89, !prof !4
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %17, align 8, !noundef !3
@@ -487,7 +487,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
 64:                                               ; preds = %60
   %65 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.09.0, i64 1)
   %66 = icmp ult i64 %.sroa.09.0, %5
-  br i1 %66, label %69, label %74, !prof !6
+  br i1 %66, label %69, label %74, !prof !4
 
 67:                                               ; preds = %61
   store i64 %5, ptr %17, align 8
@@ -502,7 +502,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %71 = sub i64 %70, %5
   %72 = add i64 %71, %.sroa.09.0
   %73 = icmp ult i64 %72, %3
-  br i1 %73, label %75, label %80, !prof !6
+  br i1 %73, label %75, label %80, !prof !4
 
 74:                                               ; preds = %64
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.sroa.09.0, i64 %5, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.5) #2
@@ -514,7 +514,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %78 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %72
   %79 = load i8, ptr %78, align 1, !noundef !3
   %.not29 = icmp eq i8 %77, %79
-  br i1 %.not29, label %60, label %81, !llvm.loop !10
+  br i1 %.not29, label %60, label %81
 
 80:                                               ; preds = %69
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %72, i64 %3, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.6) #2
@@ -531,7 +531,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %86 = sub i64 %85, %5
   %87 = add i64 %86, %51
   %88 = icmp ult i64 %87, %3
-  br i1 %88, label %90, label %95, !prof !6
+  br i1 %88, label %90, label %95, !prof !4
 
 89:                                               ; preds = %54
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %51, i64 %5, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.7) #2
@@ -543,7 +543,7 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
   %93 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %87
   %94 = load i8, ptr %93, align 1, !noundef !3
   %.not27 = icmp eq i8 %92, %94
-  br i1 %.not27, label %48, label %96, !llvm.loop !11
+  br i1 %.not27, label %48, label %96
 
 95:                                               ; preds = %84
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %87, i64 %3, ptr nonnull align 8 @anon.078f656ecbe906049e0b3866393bab06.8) #2
@@ -777,11 +777,4 @@ attributes #2 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}

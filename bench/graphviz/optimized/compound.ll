@@ -344,7 +344,7 @@ inBoxf.exit241.thread.i:                          ; preds = %109
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !49
   br label %.thread.i
 
 .thread.i:                                        ; preds = %192, %189, %178, %160, %149, %inBoxf.exit241.thread.i
@@ -482,10 +482,10 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   %273 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.0205282.i
   %274 = sub i64 %.3284.i, %.0205282.i
   %275 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre.i, i64 %274
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !49
   %276 = add nuw nsw i64 %.0205282.i, 1
   %exitcond.not.i = icmp eq i64 %276, 4
-  br i1 %exitcond.not.i, label %270, label %272, !llvm.loop !51
+  br i1 %exitcond.not.i, label %270, label %272, !llvm.loop !50
 
 .preheader.i:                                     ; preds = %270, %.preheader.i
   %.0204287.i = phi i64 [ %281, %.preheader.i ], [ 0, %270 ]
@@ -493,16 +493,16 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   %278 = sub i64 %.3284.i, %.0204287.i
   %279 = getelementptr inbounds nuw %struct.pointf_s, ptr %277, i64 %278
   %280 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.0204287.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 16 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 16 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !49
   %281 = add nuw nsw i64 %.0204287.i, 1
   %exitcond295.not.i = icmp eq i64 %281, 4
-  br i1 %exitcond295.not.i, label %297, label %.preheader.i, !llvm.loop !52
+  br i1 %exitcond295.not.i, label %297, label %.preheader.i, !llvm.loop !51
 
 282:                                              ; preds = %270
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
   %283 = add i64 %.3284.i, -3
   %cond.i = icmp eq i64 %283, 0
-  br i1 %cond.i, label %._crit_edge286.i, label %.lr.ph285.i, !llvm.loop !53
+  br i1 %cond.i, label %._crit_edge286.i, label %.lr.ph285.i, !llvm.loop !52
 
 ._crit_edge286.i:                                 ; preds = %282, %.preheader274.i
   %284 = load i32, ptr %74, align 8, !tbaa !40
@@ -565,7 +565,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
 
 321:                                              ; preds = %319
   %322 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %322, i64 16, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %322, i64 16, i1 false), !tbaa.struct !49
   br label %.thread268.i
 
 .thread268.i:                                     ; preds = %321, %319, %300, %297, %285, %._crit_edge286.i, %268, %inBoxf.exit248.thread.i
@@ -577,7 +577,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   br i1 %mul.ov.i.i, label %325, label %328
 
 325:                                              ; preds = %.thread268.i
-  %326 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %326 = load ptr, ptr @stderr, align 8, !tbaa !53
   %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %326, ptr noundef nonnull @.str.9, i64 noundef %324, i64 noundef 16) #12
   call fastcc void @graphviz_exit() #13
   unreachable
@@ -590,7 +590,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   br i1 %or.cond3.i.i, label %332, label %gv_calloc.exit.i
 
 332:                                              ; preds = %328
-  %333 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %333 = load ptr, ptr @stderr, align 8, !tbaa !53
   %334 = shl nuw i64 %324, 4
   %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %333, ptr noundef nonnull @.str.10, i64 noundef %334) #12
   call fastcc void @graphviz_exit() #13
@@ -608,7 +608,7 @@ gv_calloc.exit.i:                                 ; preds = %328
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 16
   %339 = load ptr, ptr %338, align 8, !tbaa !13
   %340 = load ptr, ptr %339, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %340, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %340, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #11
   br label %makeCompoundEdge.exit
 
@@ -619,22 +619,22 @@ gv_calloc.exit.i:                                 ; preds = %328
   %342 = getelementptr inbounds nuw %struct.pointf_s, ptr %341, i64 %.0197288.i
   %343 = load ptr, ptr %57, align 8, !tbaa !45
   %344 = getelementptr inbounds nuw %struct.pointf_s, ptr %343, i64 %.0289.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %342, ptr noundef nonnull align 8 dereferenceable(16) %344, i64 16, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %342, ptr noundef nonnull align 8 dereferenceable(16) %344, i64 16, i1 false), !tbaa.struct !49
   %345 = add nuw i64 %.0197288.i, 1
   %346 = add i64 %.0289.i, 1
   %347 = load i64, ptr %10, align 8, !tbaa !37
   %348 = icmp ult i64 %345, %347
-  br i1 %348, label %.lr.ph290.i, label %._crit_edge291.i, !llvm.loop !60
+  br i1 %348, label %.lr.ph290.i, label %._crit_edge291.i, !llvm.loop !59
 
 makeCompoundEdge.exit:                            ; preds = %getCluster.exit239.i, %30, %41, %._crit_edge291.i
   %349 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.018) #11
   %.not14 = icmp eq ptr %349, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %makeCompoundEdge.exit, %11
   %350 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01323) #11
   %.not = icmp eq ptr %350, null
-  br i1 %.not, label %._crit_edge26, label %11, !llvm.loop !62
+  br i1 %.not, label %._crit_edge26, label %11, !llvm.loop !61
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %1
   %351 = call i32 @dtclose(ptr noundef %4) #11
@@ -871,7 +871,7 @@ define internal fastcc double @findVertical(ptr noundef %0, double noundef %1, d
   br i1 %9, label %43, label %10
 
 10:                                               ; preds = %6
-  %11 = load double, ptr %0, align 8, !tbaa !63
+  %11 = load double, ptr %0, align 8, !tbaa !62
   %12 = fcmp olt double %11, %3
   %13 = fcmp ogt double %11, %3
   %..i.i = zext i1 %13 to i32
@@ -885,7 +885,7 @@ define internal fastcc double @findVertical(ptr noundef %0, double noundef %1, d
   %.122.i = phi i32 [ %spec.select.i, %10 ], [ %spec.select17.i, %15 ]
   %.01620.i = phi i32 [ %.0.i.i, %10 ], [ %.0.i19.i, %15 ]
   %16 = getelementptr inbounds nuw %struct.pointf_s, ptr %0, i64 %indvars.iv.i
-  %17 = load double, ptr %16, align 8, !tbaa !63
+  %17 = load double, ptr %16, align 8, !tbaa !62
   %18 = fcmp olt double %17, %3
   %19 = fcmp ogt double %17, %3
   %..i18.i = zext i1 %19 to i32
@@ -897,7 +897,7 @@ define internal fastcc double @findVertical(ptr noundef %0, double noundef %1, d
   %spec.select17.i = add nuw nsw i32 %.122.i, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %countVertCross.exit, label %15, !llvm.loop !64
+  br i1 %exitcond.not.i, label %countVertCross.exit, label %15, !llvm.loop !63
 
 countVertCross.exit:                              ; preds = %15
   switch i32 %spec.select17.i, label %35 [
@@ -907,7 +907,7 @@ countVertCross.exit:                              ; preds = %15
 
 23:                                               ; preds = %countVertCross.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load double, ptr %24, align 8, !tbaa !63
+  %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = fsub double %25, %3
   %27 = tail call double @llvm.fabs.f64(double %26)
   %28 = fcmp ugt double %27, 5.000000e-03
@@ -915,7 +915,7 @@ countVertCross.exit:                              ; preds = %15
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load double, ptr %30, align 8, !tbaa !65
+  %31 = load double, ptr %30, align 8, !tbaa !64
   %32 = fcmp ugt double %4, %31
   %33 = fcmp ugt double %31, %5
   %or.cond = or i1 %32, %33
@@ -956,7 +956,7 @@ define internal fastcc double @findHorizontal(ptr noundef %0, double noundef %1,
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load double, ptr %11, align 8, !tbaa !65
+  %12 = load double, ptr %11, align 8, !tbaa !64
   %13 = fcmp olt double %12, %3
   %14 = fcmp ogt double %12, %3
   %..i.i = zext i1 %14 to i32
@@ -970,7 +970,7 @@ define internal fastcc double @findHorizontal(ptr noundef %0, double noundef %1,
   %.122.i = phi i32 [ %spec.select.i, %10 ], [ %spec.select17.i, %16 ]
   %.01620.i = phi i32 [ %.0.i.i, %10 ], [ %.0.i19.i, %16 ]
   %17 = getelementptr inbounds nuw %struct.pointf_s, ptr %0, i64 %indvars.iv.i, i32 1
-  %18 = load double, ptr %17, align 8, !tbaa !65
+  %18 = load double, ptr %17, align 8, !tbaa !64
   %19 = fcmp olt double %18, %3
   %20 = fcmp ogt double %18, %3
   %..i18.i = zext i1 %20 to i32
@@ -982,7 +982,7 @@ define internal fastcc double @findHorizontal(ptr noundef %0, double noundef %1,
   %spec.select17.i = add nuw nsw i32 %.122.i, %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %countHorzCross.exit, label %16, !llvm.loop !66
+  br i1 %exitcond.not.i, label %countHorzCross.exit, label %16, !llvm.loop !65
 
 countHorzCross.exit:                              ; preds = %16
   switch i32 %spec.select17.i, label %36 [
@@ -992,7 +992,7 @@ countHorzCross.exit:                              ; preds = %16
 
 24:                                               ; preds = %countHorzCross.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load double, ptr %25, align 8, !tbaa !65
+  %26 = load double, ptr %25, align 8, !tbaa !64
   %27 = fsub double %26, %3
   %28 = tail call double @llvm.fabs.f64(double %27)
   %29 = fcmp ugt double %28, 5.000000e-03
@@ -1000,7 +1000,7 @@ countHorzCross.exit:                              ; preds = %16
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load double, ptr %31, align 8, !tbaa !63
+  %32 = load double, ptr %31, align 8, !tbaa !62
   %33 = fcmp ugt double %4, %32
   %34 = fcmp ugt double %32, %5
   %or.cond = or i1 %33, %34
@@ -1112,23 +1112,22 @@ attributes #15 = { cold noreturn nounwind }
 !44 = !{!30, !20, i64 24}
 !45 = !{!38, !25, i64 0}
 !46 = !{!20, !20, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{i64 0, i64 8, !46, i64 8, i64 8, !46}
-!51 = distinct !{!51, !48, !49}
-!52 = distinct !{!52, !48, !49}
-!53 = distinct !{!53, !48, !49}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!56 = !{i64 0, i64 8, !57, i64 8, i64 8, !58, i64 16, i64 4, !59, i64 20, i64 4, !59, i64 24, i64 8, !46, i64 32, i64 8, !46, i64 40, i64 8, !46, i64 48, i64 8, !46}
-!57 = !{!25, !25, i64 0}
-!58 = !{!10, !10, i64 0}
-!59 = !{!9, !9, i64 0}
-!60 = distinct !{!60, !48, !49}
-!61 = distinct !{!61, !48, !49}
-!62 = distinct !{!62, !48, !49}
-!63 = !{!19, !20, i64 0}
-!64 = distinct !{!64, !48, !49}
-!65 = !{!19, !20, i64 8}
-!66 = distinct !{!66, !48, !49}
+!49 = !{i64 0, i64 8, !46, i64 8, i64 8, !46}
+!50 = distinct !{!50, !48}
+!51 = distinct !{!51, !48}
+!52 = distinct !{!52, !48}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!55 = !{i64 0, i64 8, !56, i64 8, i64 8, !57, i64 16, i64 4, !58, i64 20, i64 4, !58, i64 24, i64 8, !46, i64 32, i64 8, !46, i64 40, i64 8, !46, i64 48, i64 8, !46}
+!56 = !{!25, !25, i64 0}
+!57 = !{!10, !10, i64 0}
+!58 = !{!9, !9, i64 0}
+!59 = distinct !{!59, !48}
+!60 = distinct !{!60, !48}
+!61 = distinct !{!61, !48}
+!62 = !{!19, !20, i64 0}
+!63 = distinct !{!63, !48}
+!64 = !{!19, !20, i64 8}
+!65 = distinct !{!65, !48}

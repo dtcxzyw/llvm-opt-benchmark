@@ -895,6 +895,5 @@ attributes #8 = { nounwind }
 !22 = !{!"any pointer", !5, i64 0}
 !23 = !{!"p1 _ZTS22mbedtls_cmac_context_t", !22, i64 0}
 !24 = !{!20, !8, i64 48}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}

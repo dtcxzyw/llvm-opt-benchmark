@@ -209,7 +209,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split: ; preds = %_ZNK6aiMes
   %54 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv
   store ptr %53, ptr %54, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split, !llvm.loop !6
+  br i1 %exitcond, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split, !llvm.loop !5
 
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split, %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ]
@@ -231,7 +231,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   %59 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv263
   store ptr %58, ptr %59, align 8
   %exitcond266 = icmp eq i64 %indvars.iv.next264, 8
-  br i1 %exitcond266, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !7
+  br i1 %exitcond266, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !6
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.thread.split: ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %_ZNK6aiMesh16HasTextureCoordsEj.exit, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split
   %.0157319326 = phi ptr [ %.0157320, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0157320, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0157320, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
@@ -310,14 +310,14 @@ _ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i: ; preds = %7
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i ], [ %102, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %104, %.lr.ph.i.i.i.i ], [ %91, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %103 = load i64, ptr %.0911.i.i.i.i, align 4, !alias.scope !11, !noalias !8
-  store i64 %103, ptr %.012.i.i.i.i, align 4, !alias.scope !8, !noalias !11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %103 = load i64, ptr %.0911.i.i.i.i, align 4, !alias.scope !10, !noalias !7
+  store i64 %103, ptr %.012.i.i.i.i, align 4, !alias.scope !7, !noalias !10
   %104 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %104, %98
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %91, null
@@ -343,7 +343,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit: ; preds = %79, %_ZNSt12_Ve
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ult i64 %indvars.iv.next268, %110
-  br i1 %111, label %79, label %.preheader226.loopexit, !llvm.loop !14
+  br i1 %111, label %79, label %.preheader226.loopexit, !llvm.loop !13
 
 .preheader223.loopexit:                           ; preds = %._crit_edge245
   %.pre307 = load i32, ptr %61, align 8
@@ -393,7 +393,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit: ; preds = %79, %_ZNSt12_Ve
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %122 = zext i32 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next288, %122
-  br i1 %123, label %114, label %.preheader223.loopexit, !llvm.loop !15
+  br i1 %123, label %114, label %.preheader223.loopexit, !llvm.loop !14
 
 .preheader224:                                    ; preds = %.preheader224.lr.ph, %._crit_edge
   %124 = phi i32 [ %120, %.preheader224.lr.ph ], [ %145, %._crit_edge ]
@@ -439,7 +439,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit: ; preds = %79, %_ZNSt12_Ve
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %147 = zext i32 %145 to i64
   %148 = icmp samesign ult i64 %indvars.iv.next274, %147
-  br i1 %148, label %.preheader224, label %._crit_edge240, !llvm.loop !16
+  br i1 %148, label %.preheader224, label %._crit_edge240, !llvm.loop !15
 
 149:                                              ; preds = %.lr.ph238, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit
   %indvars.iv270 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next271, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit ]
@@ -503,14 +503,14 @@ _ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %183, %.lr.ph.i.i.i.i.i ], [ %179, %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %182, %.lr.ph.i.i.i.i.i ], [ %167, %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %181 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !20, !noalias !17
-  store i64 %181, ptr %.012.i.i.i.i.i, align 4, !alias.scope !17, !noalias !20
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  %181 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !19, !noalias !16
+  store i64 %181, ptr %.012.i.i.i.i.i, align 4, !alias.scope !16, !noalias !19
   %182 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %182, %162
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %179, %_ZNKSt6vectorI14aiVertexWeightSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %183, %.lr.ph.i.i.i.i.i ]
@@ -538,7 +538,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vec
   %191 = load i32, ptr %190, align 4
   %192 = zext i32 %191 to i64
   %193 = icmp samesign ult i64 %indvars.iv.next271, %192
-  br i1 %193, label %149, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %193, label %149, label %._crit_edge.loopexit, !llvm.loop !21
 
 194:                                              ; preds = %._crit_edge240
   %195 = getelementptr inbounds nuw %class.aiVector3t, ptr %141, i64 %137
@@ -589,7 +589,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit192.thread: ; preds = %_ZNK6aiMesh24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %218, ptr noundef nonnull align 4 dereferenceable(12) %215, i64 12, i1 false)
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond279 = icmp eq i64 %indvars.iv.next277, 8
-  br i1 %exitcond279, label %_ZNK6aiMesh15HasVertexColorsEj.exit198.preheader, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit192.thread, !llvm.loop !23
+  br i1 %exitcond279, label %_ZNK6aiMesh15HasVertexColorsEj.exit198.preheader, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit192.thread, !llvm.loop !22
 
 _ZNK6aiMesh15HasVertexColorsEj.exit198.preheader: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit192.thread, %210
   br label %_ZNK6aiMesh15HasVertexColorsEj.exit198
@@ -616,11 +616,11 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit195:          ; preds = %_ZNK6aiMesh15HasVer
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %230, ptr noundef nonnull align 4 dereferenceable(16) %227, i64 16, i1 false)
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond283 = icmp eq i64 %indvars.iv.next281, 8
-  br i1 %exitcond283, label %_ZNK6aiMesh16HasTextureCoordsEj.exit195._ZNK6aiMesh15HasVertexColorsEj.exit198.thread_crit_edge, label %_ZNK6aiMesh15HasVertexColorsEj.exit198, !llvm.loop !24
+  br i1 %exitcond283, label %_ZNK6aiMesh16HasTextureCoordsEj.exit195._ZNK6aiMesh15HasVertexColorsEj.exit198.thread_crit_edge, label %_ZNK6aiMesh15HasVertexColorsEj.exit198, !llvm.loop !23
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit195._ZNK6aiMesh15HasVertexColorsEj.exit198.thread_crit_edge: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit195
   %.pre304 = load ptr, ptr %119, align 8
-  br label %_ZNK6aiMesh15HasVertexColorsEj.exit198.thread, !llvm.loop !24
+  br label %_ZNK6aiMesh15HasVertexColorsEj.exit198.thread, !llvm.loop !23
 
 _ZNK6aiMesh15HasVertexColorsEj.exit198.thread:    ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit198, %_ZNK6aiMesh16HasTextureCoordsEj.exit195._ZNK6aiMesh15HasVertexColorsEj.exit198.thread_crit_edge
   %231 = phi ptr [ %.pre304, %_ZNK6aiMesh16HasTextureCoordsEj.exit195._ZNK6aiMesh15HasVertexColorsEj.exit198.thread_crit_edge ], [ %.pre305, %_ZNK6aiMesh15HasVertexColorsEj.exit198 ]
@@ -631,7 +631,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit198.thread:    ; preds = %_ZNK6aiMesh15HasVer
   %234 = load i32, ptr %117, align 8
   %235 = zext i32 %234 to i64
   %236 = icmp samesign ult i64 %indvars.iv.next285, %235
-  br i1 %236, label %.preheader225, label %._crit_edge245.loopexit, !llvm.loop !25
+  br i1 %236, label %.preheader225, label %._crit_edge245.loopexit, !llvm.loop !24
 
 237:                                              ; preds = %.lr.ph250, %281
   %indvars.iv290 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next291, %281 ]
@@ -699,7 +699,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit198.thread:    ; preds = %_ZNK6aiMesh15HasVer
   %282 = load i32, ptr %61, align 8
   %283 = zext i32 %282 to i64
   %284 = icmp samesign ult i64 %indvars.iv.next291, %283
-  br i1 %284, label %237, label %._crit_edge251, !llvm.loop !26
+  br i1 %284, label %237, label %._crit_edge251, !llvm.loop !25
 
 ._crit_edge251:                                   ; preds = %281, %.preheader223
   %285 = icmp eq i32 %.fr316, 0
@@ -724,7 +724,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit198.thread:    ; preds = %_ZNK6aiMesh15HasVer
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit:   ; preds = %.preheader, %287
   %293 = icmp eq i64 %.add, 8
-  br i1 %293, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %293, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit, %._crit_edge251
   tail call void @_ZdaPvm(ptr noundef nonnull %66, i64 noundef %65) #14
@@ -758,7 +758,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit:   ; preds = %.preheader, %287
   store ptr %307, ptr %300, align 8
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond296 = icmp eq i64 %indvars.iv.next294, 8
-  br i1 %exitcond296, label %_ZNK6aiMesh15HasVertexColorsEj.exit205.preheader, label %299, !llvm.loop !28
+  br i1 %exitcond296, label %_ZNK6aiMesh15HasVertexColorsEj.exit205.preheader, label %299, !llvm.loop !26
 
 _ZNK6aiMesh15HasVertexColorsEj.exit205.preheader: ; preds = %299, %305
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -781,7 +781,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit202:          ; preds = %_ZNK6aiMesh15HasVer
   store ptr %315, ptr %309, align 8
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond300 = icmp eq i64 %indvars.iv.next298, 8
-  br i1 %exitcond300, label %_ZNK6aiMesh15HasVertexColorsEj.exit205.thread, label %_ZNK6aiMesh15HasVertexColorsEj.exit205, !llvm.loop !29
+  br i1 %exitcond300, label %_ZNK6aiMesh15HasVertexColorsEj.exit205.thread, label %_ZNK6aiMesh15HasVertexColorsEj.exit205, !llvm.loop !27
 
 _ZNK6aiMesh15HasVertexColorsEj.exit205.thread:    ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit202, %_ZNK6aiMesh15HasVertexColorsEj.exit205
   store i32 %9, ptr %5, align 4
@@ -900,7 +900,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
 18:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %.not, label %19, label %.critedge, !llvm.loop !30
+  br i1 %.not, label %19, label %.critedge, !llvm.loop !28
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
@@ -917,7 +917,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
 .critedge:                                        ; preds = %18, %13
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge24, label %13, !llvm.loop !31
+  br i1 %exitcond.not, label %.critedge24, label %13, !llvm.loop !29
 
 .critedge24:                                      ; preds = %.critedge, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
   %.not.i.i.i = icmp eq ptr %.sroa.025.0, null
@@ -998,7 +998,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i, %6
 27:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %26
-  br i1 %exitcond.not, label %.critedge.i, label %28, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge.i, label %28, !llvm.loop !28
 
 28:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
@@ -1015,7 +1015,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i, %6
 .critedge.i:                                      ; preds = %27, %22
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge24.i, label %22, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.critedge24.i, label %22, !llvm.loop !29
 
 .critedge24.i:                                    ; preds = %.critedge.i, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.025.0.i, null
@@ -1039,7 +1039,7 @@ _Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread:   ; preds = %.critedge24.i, %_Z2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = zext i32 %40 to i64
   %.not = icmp samesign ult i64 %indvars.iv.next, %41
-  br i1 %.not, label %6, label %.loopexit, !llvm.loop !32
+  br i1 %.not, label %6, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread, %1, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit
   %42 = phi i1 [ false, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit ], [ true, %1 ], [ true, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread ]
@@ -1112,33 +1112,31 @@ attributes #15 = { noreturn }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!10 = distinct !{!10, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_"}
-!11 = !{!12}
-!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!19 = distinct !{!19, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_"}
-!20 = !{!21}
-!21 = distinct !{!21, !19, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_"}
+!10 = !{!11}
+!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!18 = distinct !{!18, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_"}
+!19 = !{!20}
+!20 = distinct !{!20, !18, !"_ZSt19__relocate_object_aI14aiVertexWeightS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}

@@ -373,7 +373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
   %60 = getelementptr inbounds nuw i8, ptr %.020, i64 1
   %.not = icmp eq ptr %60, %14
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -519,16 +519,16 @@ define dso_local noundef nonnull align 8 dereferenceable(37) ptr @_ZN5vcpkg13Xml
 
 _ZN5vcpkg13XmlSerializer19emit_pending_indentEv.exit: ; preds = %3, %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  store i32 98, ptr %5, align 8, !tbaa !23
+  store i32 98, ptr %5, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @.str.9, ptr %16, align 8, !tbaa !25
+  store ptr @.str.9, ptr %16, align 8, !tbaa !23
   %17 = tail call noundef ptr @_ZN5vcpkg7Strings6searchENS_10StringViewES1_(ptr %1, i64 %2, ptr nonnull @.str.10, i64 3)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %_ZN5vcpkg6Checks14msg_check_exitIJEJEEEvRKNS_8LineInfoEbNS_3msg8MessageTIJDpT_EEEDpNS5_6TagArgINS_8identityIS7_E4typeET0_EE.exit, label %20
 
 20:                                               ; preds = %_ZN5vcpkg13XmlSerializer19emit_pending_indentEv.exit
-  %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg27msgUnsupportedSyntaxInCDATAE, align 8, !tbaa !26
+  %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg27msgUnsupportedSyntaxInCDATAE, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, i64 %.sroa.0.0.copyload)
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #6
@@ -782,9 +782,7 @@ attributes #8 = { builtin nounwind }
 !18 = !{!13, !14, i64 32}
 !19 = !{!5, !7, i64 0}
 !20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !14, i64 0}
-!24 = !{!"_ZTSN5vcpkg8LineInfoE", !14, i64 0, !7, i64 8}
-!25 = !{!24, !7, i64 8}
-!26 = !{!11, !11, i64 0}
+!21 = !{!22, !14, i64 0}
+!22 = !{!"_ZTSN5vcpkg8LineInfoE", !14, i64 0, !7, i64 8}
+!23 = !{!22, !7, i64 8}
+!24 = !{!11, !11, i64 0}

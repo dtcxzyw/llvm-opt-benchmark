@@ -331,7 +331,7 @@ define hidden zeroext i1 @SDL_InsertIntoHashTable(ptr noundef captures(address_i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
   %.not.i.i = icmp sgt i32 %49, -1
-  br i1 %.not.i.i, label %.critedge, label %26, !llvm.loop !6
+  br i1 %.not.i.i, label %.critedge, label %26
 
 find_first_item.exit:                             ; preds = %33
   br i1 %3, label %50, label %92
@@ -394,7 +394,7 @@ find_first_item.exit:                             ; preds = %33
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %90, 2147483647
   %.not23.i = icmp eq i32 %91, 0
-  br i1 %.not23.i, label %delete_item.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not23.i, label %delete_item.exit, label %.lr.ph.i
 
 delete_item.exit:                                 ; preds = %.lr.ph.i, %60
   %.020.lcssa.i = phi ptr [ %29, %60 ], [ %77, %.lr.ph.i ]
@@ -544,7 +544,7 @@ delete_item.exit:                                 ; preds = %.lr.ph.i, %60
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 20
   %161 = load i32, ptr %160, align 4
   %.not.i.i.i = icmp sgt i32 %161, -1
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 insert_item.exit.i.i:                             ; preds = %137, %._crit_edge.i.i.i
   %162 = phi i32 [ %127, %._crit_edge.i.i.i ], [ %.0.i.i.i.i, %137 ]
@@ -555,7 +555,7 @@ insert_item.exit.i.i:                             ; preds = %137, %._crit_edge.i
   %164 = phi i32 [ %162, %insert_item.exit.i.i ], [ %116, %.lr.ph.i.i31 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i31, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i31, !llvm.loop !5
 
 maybe_resize.exit:                                ; preds = %.maybe_resize.exit_crit_edge, %.critedge
   %165 = phi i32 [ %111, %.maybe_resize.exit_crit_edge ], [ %95, %.critedge ]
@@ -665,7 +665,7 @@ maybe_resize.exit:                                ; preds = %.maybe_resize.exit_
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 20
   %200 = load i32, ptr %199, align 4
   %.not.i34 = icmp sgt i32 %200, -1
-  br i1 %.not.i34, label %._crit_edge.i.loopexit, label %.lr.ph.i32, !llvm.loop !8
+  br i1 %.not.i34, label %._crit_edge.i.loopexit, label %.lr.ph.i32
 
 insert_item.exit:                                 ; preds = %180, %._crit_edge.i, %maybe_resize.exit, %92
   %.024 = phi i1 [ false, %92 ], [ false, %maybe_resize.exit ], [ true, %._crit_edge.i ], [ true, %180 ]
@@ -767,7 +767,7 @@ define hidden zeroext i1 @SDL_FindInHashTable(ptr noundef readonly captures(addr
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
   %.not.i.i = icmp sgt i32 %49, -1
-  br i1 %.not.i.i, label %find_first_item.exit.thread, label %26, !llvm.loop !6
+  br i1 %.not.i.i, label %find_first_item.exit.thread, label %26
 
 find_first_item.exit:                             ; preds = %33
   %.not21 = icmp eq ptr %2, null
@@ -867,7 +867,7 @@ define hidden zeroext i1 @SDL_RemoveFromHashTable(ptr noundef captures(address_i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = load i32, ptr %45, align 4
   %.not.i.i = icmp sgt i32 %46, -1
-  br i1 %.not.i.i, label %find_first_item.exit.thread, label %23, !llvm.loop !6
+  br i1 %.not.i.i, label %find_first_item.exit.thread, label %23
 
 find_first_item.exit:                             ; preds = %30
   %47 = load i32, ptr %11, align 8
@@ -927,7 +927,7 @@ find_first_item.exit:                             ; preds = %30
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 2147483647
   %.not23.i = icmp eq i32 %87, 0
-  br i1 %.not23.i, label %delete_item.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not23.i, label %delete_item.exit, label %.lr.ph.i
 
 delete_item.exit:                                 ; preds = %.lr.ph.i, %56
   %.020.lcssa.i = phi ptr [ %26, %56 ], [ %73, %.lr.ph.i ]
@@ -1005,7 +1005,7 @@ define hidden zeroext i1 @SDL_IterateHashTable(ptr noundef %0, ptr noundef reado
   %.1 = phi i32 [ %28, %27 ], [ %.01826, %19 ]
   %31 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %32 = icmp ult ptr %31, %17
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !10
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %30, %22, %27, %9
   %33 = load ptr, ptr %0, align 8
@@ -1148,7 +1148,7 @@ define hidden i32 @SDL_HashString(ptr noundef readnone captures(none) %0, ptr no
   %8 = sext i8 %7 to i32
   %9 = xor i32 %5, %8
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %hash_string_djbxor.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %hash_string_djbxor.exit, label %.lr.ph.i, !llvm.loop !7
 
 hash_string_djbxor.exit:                          ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 5381, %2 ], [ %9, %.lr.ph.i ]
@@ -1247,12 +1247,8 @@ attributes #10 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}

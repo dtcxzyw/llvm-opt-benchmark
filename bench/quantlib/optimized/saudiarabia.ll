@@ -1371,7 +1371,7 @@ if.end24.i.i.i.i.i.i102:                          ; preds = %"_ZN9__gnu_cxx5__op
   %incdec.ptr.i44.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0105.i.i.i.i.i.i72, i64 32
   %dec.i.i.i.i.i.i104 = add nsw i64 %__trip_count.0106.i.i.i.i.i.i71, -1
   %cmp.i.i.i.i.i.i105 = icmp sgt i64 %__trip_count.0106.i.i.i.i.i.i71, 1
-  br i1 %cmp.i.i.i.i.i.i105, label %for.body.i.i.i.i.i.i70, label %for.end.loopexit.i.i.i.i.i.i106, !llvm.loop !39
+  br i1 %cmp.i.i.i.i.i.i105, label %for.body.i.i.i.i.i.i70, label %for.end.loopexit.i.i.i.i.i.i106, !llvm.loop !38
 
 for.end.loopexit.i.i.i.i.i.i106:                  ; preds = %if.end24.i.i.i.i.i.i102
   %.pre.i.i.i.i.i.i107 = ptrtoint ptr %incdec.ptr.i44.i.i.i.i.i.i103 to i64
@@ -1635,13 +1635,13 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !40
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !39
   tail call void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !40
   tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 40) #24
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !42
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1780,12 +1780,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib11SaudiArabia11TadawulImplEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !43
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !42
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !46
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !45
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SaudiArabia11TadawulImplEEE, i64 16), ptr %call.i, align 8, !tbaa !16
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !47
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !46
   %5 = load ptr, ptr %pn, align 8, !tbaa !21
   store ptr %call.i, ptr %pn, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %5, null
@@ -1888,7 +1888,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib11SaudiArabia11TadawulImplEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !47
+  %0 = load ptr, ptr %px_, align 8, !tbaa !46
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib11SaudiArabia11TadawulImplEEEvPT_.exit, label %delete.notnull.i
 
@@ -2027,16 +2027,15 @@ attributes #24 = { builtin nounwind }
 !33 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
 !34 = !{!33, !10, i64 16}
 !35 = !{!33, !10, i64 8}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
-!40 = !{!6, !10, i64 24}
-!41 = !{!6, !10, i64 16}
-!42 = distinct !{!42, !37, !38}
-!43 = !{!44, !45, i64 8}
-!44 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !45, i64 8, !45, i64 12}
-!45 = !{!"int", !8, i64 0}
-!46 = !{!44, !45, i64 12}
-!47 = !{!48, !10, i64 16}
-!48 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib11SaudiArabia11TadawulImplEEE", !44, i64 0, !10, i64 16}
+!38 = distinct !{!38, !37}
+!39 = !{!6, !10, i64 24}
+!40 = !{!6, !10, i64 16}
+!41 = distinct !{!41, !37}
+!42 = !{!43, !44, i64 8}
+!43 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !44, i64 8, !44, i64 12}
+!44 = !{!"int", !8, i64 0}
+!45 = !{!43, !44, i64 12}
+!46 = !{!47, !10, i64 16}
+!47 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib11SaudiArabia11TadawulImplEEE", !43, i64 0, !10, i64 16}

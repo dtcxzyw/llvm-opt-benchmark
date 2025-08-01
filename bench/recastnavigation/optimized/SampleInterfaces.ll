@@ -231,7 +231,7 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull readon
   %21 = call i32 @putchar(i32 noundef 32)
   %22 = add nsw i32 %20, -1
   %.not26 = icmp eq i32 %22, 0
-  br i1 %.not26, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not26, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !7
 
 23:                                               ; preds = %12
   %24 = sext i8 %13 to i32
@@ -245,7 +245,7 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull readon
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit27, %23
   %.2 = phi i32 [ %26, %23 ], [ %.018, %.loopexit27 ], [ %27, %.loopexit.loopexit ], [ %.018, %14 ]
-  br label %12, !llvm.loop !9
+  br label %12, !llvm.loop !8
 
 28:                                               ; preds = %12
   %29 = call i32 @putchar(i32 noundef 10)
@@ -253,7 +253,7 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull readon
   %30 = load i32, ptr %5, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next37, %31
-  br i1 %32, label %9, label %._crit_edge, !llvm.loop !10
+  br i1 %32, label %9, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %28, %2
   ret void
@@ -365,7 +365,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   store i32 -2631721, ptr %10, align 4
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %7
-  br i1 %exitcond35.not, label %.split.us, label %.preheader.split.us, !llvm.loop !11
+  br i1 %exitcond35.not, label %.split.us, label %.preheader.split.us, !llvm.loop !10
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split ], [ 0, %.preheader ]
@@ -376,19 +376,19 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   store i32 %spec.select, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !13
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !12
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %7
-  br i1 %exitcond40.not, label %14, label %.preheader, !llvm.loop !14
+  br i1 %exitcond40.not, label %14, label %.preheader, !llvm.loop !13
 
 14:                                               ; preds = %.split.us
   call void @glTexImage2D(i32 noundef 3553, i32 noundef %.02227, i32 noundef 6408, i32 noundef %.02128, i32 noundef %.02128, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef nonnull %2)
   %15 = lshr i32 %.02128, 1
   %16 = add nuw nsw i32 %.02227, 1
   %exitcond41 = icmp eq i32 %16, 7
-  br i1 %exitcond41, label %17, label %.preheader24, !llvm.loop !15
+  br i1 %exitcond41, label %17, label %.preheader24, !llvm.loop !14
 
 17:                                               ; preds = %14
   call void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9985)
@@ -759,14 +759,13 @@ attributes #20 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

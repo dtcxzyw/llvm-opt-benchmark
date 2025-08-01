@@ -858,7 +858,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %4 = tail call i64 @test_get_argument_count() #8
   %5 = trunc i64 %4 to i32
   %6 = tail call ptr @BN_CTX_new() #8
-  store ptr %6, ptr @ctx, align 8, !tbaa !7
+  store ptr %6, ptr @ctx, align 8, !tbaa !6
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3377, ptr noundef nonnull @.str.18, ptr noundef %6) #8
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %.loopexit, label %8
@@ -960,7 +960,7 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
 9:                                                ; preds = %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 150
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %6, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %6 ]
@@ -1007,21 +1007,21 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   br i1 %.not32, label %.loopexit, label %35
 
 35:                                               ; preds = %28
-  %36 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %36 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %37 = add i32 %36, 1
-  store i32 %37, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %37, ptr @rand_neg.neg, align 4, !tbaa !12
   %38 = and i32 %36, 7
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !13
+  %41 = load i32, ptr %40, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %41) #8
-  %42 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %42 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %43 = add i32 %42, 1
-  store i32 %43, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %43, ptr @rand_neg.neg, align 4, !tbaa !12
   %44 = and i32 %42, 7
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !13
+  %47 = load i32, ptr %46, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %47) #8
   br label %48
 
@@ -1104,7 +1104,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
 18:                                               ; preds = %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 150
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %15, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %15 ]
@@ -1154,23 +1154,23 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   br i1 %.not48, label %.loopexit, label %47
 
 47:                                               ; preds = %39, %34
-  %48 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %48 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %49 = add i32 %48, 1
-  store i32 %49, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %49, ptr @rand_neg.neg, align 4, !tbaa !12
   %50 = and i32 %48, 7
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !13
+  %53 = load i32, ptr %52, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %53) #8
-  %54 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %54 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %55 = add i32 %54, 1
-  store i32 %55, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %55, ptr @rand_neg.neg, align 4, !tbaa !12
   %56 = and i32 %54, 7
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !13
+  %59 = load i32, ptr %58, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %59) #8
-  %60 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %60 = load ptr, ptr @ctx, align 8, !tbaa !6
   %61 = tail call i32 @BN_RECP_CTX_set(ptr noundef %16, ptr noundef %4, ptr noundef %60) #8
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
@@ -1179,7 +1179,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   br i1 %.not53, label %.loopexit, label %65
 
 65:                                               ; preds = %47
-  %66 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %66 = load ptr, ptr @ctx, align 8, !tbaa !6
   %67 = tail call i32 @BN_div_recp(ptr noundef %10, ptr noundef %7, ptr noundef %1, ptr noundef %16, ptr noundef %66) #8
   %68 = icmp ne i32 %67, 0
   %69 = zext i1 %68 to i32
@@ -1188,7 +1188,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   br i1 %.not54, label %.loopexit, label %71
 
 71:                                               ; preds = %65
-  %72 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %72 = load ptr, ptr @ctx, align 8, !tbaa !6
   %73 = tail call i32 @BN_mul(ptr noundef %13, ptr noundef %10, ptr noundef %4, ptr noundef %72) #8
   %74 = icmp ne i32 %73, 0
   %75 = zext i1 %74 to i32
@@ -1239,7 +1239,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ab(i32 noundef %0) #1 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [4 x %struct.anon], ptr @signed_mod_tests, i64 0, i64 %2
-  %4 = load i32, ptr %3, align 16, !tbaa !16
+  %4 = load i32, ptr %3, align 16, !tbaa !15
   %5 = tail call ptr @BN_new() #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %set_signed_bn.exit, label %7
@@ -1268,7 +1268,7 @@ set_signed_bn.exit:                               ; preds = %1, %11, %12
 
 14:                                               ; preds = %set_signed_bn.exit
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !18
+  %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = tail call ptr @BN_new() #8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %set_signed_bn.exit28, label %19
@@ -1297,7 +1297,7 @@ set_signed_bn.exit28:                             ; preds = %14, %23, %24
 
 26:                                               ; preds = %set_signed_bn.exit28
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !19
+  %28 = load i32, ptr %27, align 8, !tbaa !18
   %29 = tail call ptr @BN_new() #8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %set_signed_bn.exit32, label %31
@@ -1326,7 +1326,7 @@ set_signed_bn.exit32:                             ; preds = %26, %35, %36
 
 38:                                               ; preds = %set_signed_bn.exit32
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !20
+  %40 = load i32, ptr %39, align 4, !tbaa !19
   %41 = tail call ptr @BN_new() #8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %set_signed_bn.exit36, label %43
@@ -1354,7 +1354,7 @@ set_signed_bn.exit36:                             ; preds = %38, %47, %48
   br i1 %.not21, label %60, label %50
 
 50:                                               ; preds = %set_signed_bn.exit36
-  %51 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %51 = load ptr, ptr @ctx, align 8, !tbaa !6
   %52 = tail call i32 @BN_div(ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %51) #8
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
@@ -1389,7 +1389,7 @@ set_signed_bn.exit36:                             ; preds = %38, %47, %48
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ba(i32 noundef %0) #1 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [4 x %struct.anon], ptr @signed_mod_tests, i64 0, i64 %2
-  %4 = load i32, ptr %3, align 16, !tbaa !16
+  %4 = load i32, ptr %3, align 16, !tbaa !15
   %5 = tail call ptr @BN_new() #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %set_signed_bn.exit, label %7
@@ -1418,7 +1418,7 @@ set_signed_bn.exit:                               ; preds = %1, %11, %12
 
 14:                                               ; preds = %set_signed_bn.exit
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !18
+  %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = tail call ptr @BN_new() #8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %set_signed_bn.exit28, label %19
@@ -1447,7 +1447,7 @@ set_signed_bn.exit28:                             ; preds = %14, %23, %24
 
 26:                                               ; preds = %set_signed_bn.exit28
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !19
+  %28 = load i32, ptr %27, align 8, !tbaa !18
   %29 = tail call ptr @BN_new() #8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %set_signed_bn.exit32, label %31
@@ -1476,7 +1476,7 @@ set_signed_bn.exit32:                             ; preds = %26, %35, %36
 
 38:                                               ; preds = %set_signed_bn.exit32
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !20
+  %40 = load i32, ptr %39, align 4, !tbaa !19
   %41 = tail call ptr @BN_new() #8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %set_signed_bn.exit36, label %43
@@ -1504,7 +1504,7 @@ set_signed_bn.exit36:                             ; preds = %38, %47, %48
   br i1 %.not21, label %60, label %50
 
 50:                                               ; preds = %set_signed_bn.exit36
-  %51 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %51 = load ptr, ptr @ctx, align 8, !tbaa !6
   %52 = tail call i32 @BN_div(ptr noundef %.0.i27, ptr noundef %.0.i, ptr noundef %.0.i, ptr noundef %.0.i27, ptr noundef %51) #8
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
@@ -1577,7 +1577,7 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
 20:                                               ; preds = %65
   %21 = add nuw nsw i32 %.046, 1
   %exitcond.not = icmp eq i32 %21, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .preheader:                                       ; preds = %15, %20
   %.046 = phi i32 [ %21, %20 ], [ 0, %15 ]
@@ -1591,23 +1591,23 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   br i1 %.not39, label %.loopexit, label %28
 
 28:                                               ; preds = %.preheader
-  %29 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %29 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %30 = add i32 %29, 1
-  store i32 %30, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %30, ptr @rand_neg.neg, align 4, !tbaa !12
   %31 = and i32 %29, 7
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !13
+  %34 = load i32, ptr %33, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %34) #8
-  %35 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %35 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %36 = add i32 %35, 1
-  store i32 %36, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %36, ptr @rand_neg.neg, align 4, !tbaa !12
   %37 = and i32 %35, 7
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !13
+  %40 = load i32, ptr %39, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %40) #8
-  %41 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %41 = load ptr, ptr @ctx, align 8, !tbaa !6
   %42 = tail call i32 @BN_div(ptr noundef null, ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %41) #8
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
@@ -1616,7 +1616,7 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   br i1 %.not40, label %.loopexit, label %46
 
 46:                                               ; preds = %28
-  %47 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %47 = load ptr, ptr @ctx, align 8, !tbaa !6
   %48 = tail call i32 @BN_div(ptr noundef %10, ptr noundef %13, ptr noundef %1, ptr noundef %4, ptr noundef %47) #8
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -1630,7 +1630,7 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   br i1 %.not42, label %.loopexit, label %54
 
 54:                                               ; preds = %52
-  %55 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %55 = load ptr, ptr @ctx, align 8, !tbaa !6
   %56 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %10, ptr noundef %4, ptr noundef %55) #8
   %57 = icmp ne i32 %56, 0
   %58 = zext i1 %57 to i32
@@ -1670,9 +1670,9 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   %3 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.105) #8
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -1695,9 +1695,9 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   br i1 %.not9, label %33, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %1, align 8, !tbaa !22
-  %17 = load ptr, ptr %2, align 8, !tbaa !22
-  %18 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %16 = load ptr, ptr %1, align 8, !tbaa !21
+  %17 = load ptr, ptr %2, align 8, !tbaa !21
+  %18 = load ptr, ptr @ctx, align 8, !tbaa !6
   %19 = call ptr @BN_mod_inverse(ptr noundef %13, ptr noundef %16, ptr noundef %17, ptr noundef %18) #8
   %20 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.17, i32 noundef 3189, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef %19, ptr noundef %13) #8
   %.not10 = icmp eq i32 %20, 0
@@ -1716,9 +1716,9 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   br i1 %.not12, label %33, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %2, align 8, !tbaa !22
-  %29 = load ptr, ptr %1, align 8, !tbaa !22
-  %30 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %28 = load ptr, ptr %2, align 8, !tbaa !21
+  %29 = load ptr, ptr %1, align 8, !tbaa !21
+  %30 = load ptr, ptr @ctx, align 8, !tbaa !6
   %31 = call ptr @BN_mod_inverse(ptr noundef %28, ptr noundef %29, ptr noundef %28, ptr noundef %30) #8
   %32 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 3197, ptr noundef nonnull @.str.115, ptr noundef %31) #8
   %.not13 = icmp ne i32 %32, 0
@@ -1729,9 +1729,9 @@ define internal range(i32 0, 2) i32 @test_mod_inverse() #1 {
   %.07 = phi i32 [ 0, %24 ], [ 0, %21 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ 0, %0 ], [ %spec.select, %27 ]
   %.06 = phi ptr [ %22, %24 ], [ %22, %21 ], [ null, %15 ], [ null, %12 ], [ null, %7 ], [ null, %0 ], [ %22, %27 ]
   %.0 = phi ptr [ %13, %24 ], [ %13, %21 ], [ %13, %15 ], [ %13, %12 ], [ null, %7 ], [ null, %0 ], [ %13, %27 ]
-  %34 = load ptr, ptr %1, align 8, !tbaa !22
+  %34 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %34) #8
-  %35 = load ptr, ptr %2, align 8, !tbaa !22
+  %35 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_free(ptr noundef %35) #8
   call void @BN_free(ptr noundef %.0) #8
   call void @CRYPTO_free(ptr noundef %.06, ptr noundef nonnull @.str.17, i32 noundef 3206) #8
@@ -1746,11 +1746,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !21
   %5 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.117) #8
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -1783,11 +1783,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
 22:                                               ; preds = %19
   %23 = icmp eq i32 %0, 0
   %24 = select i1 %23, ptr @BN_mod_exp_simple, ptr @BN_mod_exp_recp
-  %25 = load ptr, ptr %2, align 8, !tbaa !22
-  %26 = load ptr, ptr %3, align 8, !tbaa !22
-  %27 = load ptr, ptr %4, align 8, !tbaa !22
-  %28 = load ptr, ptr @ctx, align 8, !tbaa !7
-  %29 = call i32 %24(ptr noundef %20, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28) #8, !callees !24
+  %25 = load ptr, ptr %2, align 8, !tbaa !21
+  %26 = load ptr, ptr %3, align 8, !tbaa !21
+  %27 = load ptr, ptr %4, align 8, !tbaa !21
+  %28 = load ptr, ptr @ctx, align 8, !tbaa !6
+  %29 = call i32 %24(ptr noundef %20, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28) #8, !callees !23
   %30 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3229, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef %29, i32 noundef 1) #8
   %.not21 = icmp eq i32 %30, 0
   br i1 %.not21, label %67, label %31
@@ -1805,12 +1805,12 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
 
 36:                                               ; preds = %34
   call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str.17, i32 noundef 3236) #8
-  %37 = load ptr, ptr %3, align 8, !tbaa !22
+  %37 = load ptr, ptr %3, align 8, !tbaa !21
   %38 = call ptr @BN_copy(ptr noundef %20, ptr noundef %37) #8
-  %39 = load ptr, ptr %2, align 8, !tbaa !22
-  %40 = load ptr, ptr %4, align 8, !tbaa !22
-  %41 = load ptr, ptr @ctx, align 8, !tbaa !7
-  %42 = call i32 %24(ptr noundef %20, ptr noundef %39, ptr noundef %20, ptr noundef %40, ptr noundef %41) #8, !callees !24
+  %39 = load ptr, ptr %2, align 8, !tbaa !21
+  %40 = load ptr, ptr %4, align 8, !tbaa !21
+  %41 = load ptr, ptr @ctx, align 8, !tbaa !6
+  %42 = call i32 %24(ptr noundef %20, ptr noundef %39, ptr noundef %20, ptr noundef %40, ptr noundef %41) #8, !callees !23
   %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3243, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.123, i32 noundef %42, i32 noundef 1) #8
   %.not24 = icmp eq i32 %43, 0
   br i1 %.not24, label %67, label %44
@@ -1828,10 +1828,10 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
 
 49:                                               ; preds = %47
   call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str.17, i32 noundef 3250) #8
-  %50 = load ptr, ptr %4, align 8, !tbaa !22
-  %51 = load ptr, ptr %2, align 8, !tbaa !22
-  %52 = load ptr, ptr %3, align 8, !tbaa !22
-  %53 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %50 = load ptr, ptr %4, align 8, !tbaa !21
+  %51 = load ptr, ptr %2, align 8, !tbaa !21
+  %52 = load ptr, ptr %3, align 8, !tbaa !21
+  %53 = load ptr, ptr @ctx, align 8, !tbaa !6
   br i1 %23, label %54, label %57
 
 54:                                               ; preds = %49
@@ -1847,7 +1847,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   br i1 %.not27, label %67, label %60
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr %4, align 8, !tbaa !22
+  %61 = load ptr, ptr %4, align 8, !tbaa !21
   %62 = call ptr @BN_bn2dec(ptr noundef %61) #8
   %63 = call i32 @test_ptr_ne(ptr noundef nonnull @.str.17, i32 noundef 3260, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.112, ptr noundef %62, ptr noundef null) #8
   %.not28 = icmp eq i32 %63, 0
@@ -1866,11 +1866,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp_alias(i32 noundef %0) #1 {
   %.017 = phi i32 [ 1, %66 ], [ 0, %54 ], [ 0, %64 ], [ 0, %60 ], [ 0, %57 ], [ 0, %47 ], [ 0, %44 ], [ 0, %36 ], [ 0, %34 ], [ 0, %31 ], [ 0, %22 ], [ 0, %19 ], [ 0, %14 ], [ 0, %9 ], [ 0, %1 ]
   %.016 = phi ptr [ %.1, %66 ], [ null, %54 ], [ %62, %64 ], [ %62, %60 ], [ null, %57 ], [ %45, %47 ], [ %45, %44 ], [ null, %36 ], [ %32, %34 ], [ %32, %31 ], [ null, %22 ], [ null, %19 ], [ null, %14 ], [ null, %9 ], [ null, %1 ]
   %.0 = phi ptr [ %20, %66 ], [ %20, %54 ], [ %20, %64 ], [ %20, %60 ], [ %20, %57 ], [ %20, %47 ], [ %20, %44 ], [ %20, %36 ], [ %20, %34 ], [ %20, %31 ], [ %20, %22 ], [ %20, %19 ], [ null, %14 ], [ null, %9 ], [ null, %1 ]
-  %68 = load ptr, ptr %2, align 8, !tbaa !22
+  %68 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_free(ptr noundef %68) #8
-  %69 = load ptr, ptr %3, align 8, !tbaa !22
+  %69 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %69) #8
-  %70 = load ptr, ptr %4, align 8, !tbaa !22
+  %70 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %70) #8
   call void @BN_free(ptr noundef %.0) #8
   call void @CRYPTO_free(ptr noundef %.016, ptr noundef nonnull @.str.17, i32 noundef 3273) #8
@@ -1890,31 +1890,31 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !22
+  store ptr null, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr null, ptr %6, align 8, !tbaa !22
+  store ptr null, ptr %6, align 8, !tbaa !21
   %7 = tail call ptr @BN_new() #8
-  store ptr %7, ptr %1, align 8, !tbaa !22
+  store ptr %7, ptr %1, align 8, !tbaa !21
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 479, ptr noundef nonnull @.str.63, ptr noundef %7) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %394, label %9
 
 9:                                                ; preds = %0
   %10 = tail call ptr @BN_new() #8
-  store ptr %10, ptr %2, align 8, !tbaa !22
+  store ptr %10, ptr %2, align 8, !tbaa !21
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 480, ptr noundef nonnull @.str.131, ptr noundef %10) #8
   %.not55 = icmp eq i32 %11, 0
   br i1 %.not55, label %394, label %12
 
 12:                                               ; preds = %9
   %13 = tail call ptr @BN_new() #8
-  store ptr %13, ptr %3, align 8, !tbaa !22
+  store ptr %13, ptr %3, align 8, !tbaa !21
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 481, ptr noundef nonnull @.str.132, ptr noundef %13) #8
   %.not56 = icmp eq i32 %14, 0
   br i1 %.not56, label %394, label %15
@@ -1927,21 +1927,21 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
 
 18:                                               ; preds = %15
   %19 = tail call ptr @BN_new() #8
-  store ptr %19, ptr %4, align 8, !tbaa !22
+  store ptr %19, ptr %4, align 8, !tbaa !21
   %20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 483, ptr noundef nonnull @.str.77, ptr noundef %19) #8
   %.not58 = icmp eq i32 %20, 0
   br i1 %.not58, label %394, label %21
 
 21:                                               ; preds = %18
   %22 = tail call ptr @BN_new() #8
-  store ptr %22, ptr %5, align 8, !tbaa !22
+  store ptr %22, ptr %5, align 8, !tbaa !21
   %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 484, ptr noundef nonnull @.str.64, ptr noundef %22) #8
   %.not59 = icmp eq i32 %23, 0
   br i1 %.not59, label %394, label %24
 
 24:                                               ; preds = %21
   %25 = tail call ptr @BN_new() #8
-  store ptr %25, ptr %6, align 8, !tbaa !22
+  store ptr %25, ptr %6, align 8, !tbaa !21
   %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 485, ptr noundef nonnull @.str.133, ptr noundef %25) #8
   %.not60 = icmp eq i32 %26, 0
   br i1 %.not60, label %394, label %27
@@ -1976,7 +1976,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
 
 43:                                               ; preds = %38
   tail call void @BN_zero_ex(ptr noundef %10) #8
-  %44 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %44 = load ptr, ptr @ctx, align 8, !tbaa !6
   %45 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %44, ptr noundef null) #8
   %46 = icmp ne i32 %45, 0
   %47 = zext i1 %46 to i32
@@ -2014,8 +2014,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not69, label %394, label %66
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr %6, align 8, !tbaa !22
-  %68 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %67 = load ptr, ptr %6, align 8, !tbaa !21
+  %68 = load ptr, ptr @ctx, align 8, !tbaa !6
   %69 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %67, ptr noundef %68) #8
   %70 = icmp ne i32 %69, 0
   %71 = zext i1 %70 to i32
@@ -2024,9 +2024,9 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not70, label %394, label %73
 
 73:                                               ; preds = %66
-  %74 = load ptr, ptr %1, align 8, !tbaa !22
-  %75 = load ptr, ptr %5, align 8, !tbaa !22
-  %76 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %74 = load ptr, ptr %1, align 8, !tbaa !21
+  %75 = load ptr, ptr %5, align 8, !tbaa !21
+  %76 = load ptr, ptr @ctx, align 8, !tbaa !6
   %77 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %74, ptr noundef %75, ptr noundef %31, ptr noundef %76) #8
   %78 = icmp ne i32 %77, 0
   %79 = zext i1 %78 to i32
@@ -2035,9 +2035,9 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not71, label %394, label %81
 
 81:                                               ; preds = %73
-  %82 = load ptr, ptr %5, align 8, !tbaa !22
-  %83 = load ptr, ptr %1, align 8, !tbaa !22
-  %84 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %82 = load ptr, ptr %5, align 8, !tbaa !21
+  %83 = load ptr, ptr %1, align 8, !tbaa !21
+  %84 = load ptr, ptr @ctx, align 8, !tbaa !6
   %85 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %82, ptr noundef %83, ptr noundef %31, ptr noundef %84) #8
   %86 = icmp ne i32 %85, 0
   %87 = zext i1 %86 to i32
@@ -2067,18 +2067,18 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not75, label %394, label %101
 
 101:                                              ; preds = %96
-  %102 = load ptr, ptr %5, align 8, !tbaa !22
+  %102 = load ptr, ptr %5, align 8, !tbaa !21
   call void @BN_free(ptr noundef %102) #8
-  %103 = load ptr, ptr %1, align 8, !tbaa !22
+  %103 = load ptr, ptr %1, align 8, !tbaa !21
   %104 = call ptr @BN_dup(ptr noundef %103) #8
-  store ptr %104, ptr %5, align 8, !tbaa !22
+  store ptr %104, ptr %5, align 8, !tbaa !21
   %105 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 531, ptr noundef nonnull @.str.148, ptr noundef %104) #8
   %.not76 = icmp eq i32 %105, 0
   br i1 %.not76, label %394, label %106
 
 106:                                              ; preds = %101
-  %107 = load ptr, ptr %6, align 8, !tbaa !22
-  %108 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %107 = load ptr, ptr %6, align 8, !tbaa !21
+  %108 = load ptr, ptr @ctx, align 8, !tbaa !6
   %109 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %107, ptr noundef %108) #8
   %110 = icmp ne i32 %109, 0
   %111 = zext i1 %110 to i32
@@ -2087,8 +2087,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not77, label %394, label %113
 
 113:                                              ; preds = %106
-  %114 = load ptr, ptr %1, align 8, !tbaa !22
-  %115 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %114 = load ptr, ptr %1, align 8, !tbaa !21
+  %115 = load ptr, ptr @ctx, align 8, !tbaa !6
   %116 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %114, ptr noundef %114, ptr noundef %31, ptr noundef %115) #8
   %117 = icmp ne i32 %116, 0
   %118 = zext i1 %117 to i32
@@ -2097,9 +2097,9 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not78, label %394, label %120
 
 120:                                              ; preds = %113
-  %121 = load ptr, ptr %1, align 8, !tbaa !22
-  %122 = load ptr, ptr %5, align 8, !tbaa !22
-  %123 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %121 = load ptr, ptr %1, align 8, !tbaa !21
+  %122 = load ptr, ptr %5, align 8, !tbaa !21
+  %123 = load ptr, ptr @ctx, align 8, !tbaa !6
   %124 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %121, ptr noundef %122, ptr noundef %31, ptr noundef %123) #8
   %125 = icmp ne i32 %124, 0
   %126 = zext i1 %125 to i32
@@ -2129,18 +2129,18 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not82, label %394, label %140
 
 140:                                              ; preds = %135
-  %141 = load ptr, ptr %5, align 8, !tbaa !22
+  %141 = load ptr, ptr %5, align 8, !tbaa !21
   call void @BN_free(ptr noundef %141) #8
-  %142 = load ptr, ptr %1, align 8, !tbaa !22
+  %142 = load ptr, ptr %1, align 8, !tbaa !21
   %143 = call ptr @BN_dup(ptr noundef %142) #8
-  store ptr %143, ptr %5, align 8, !tbaa !22
+  store ptr %143, ptr %5, align 8, !tbaa !21
   %144 = call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 576, ptr noundef nonnull @.str.148, ptr noundef %143) #8
   %.not83 = icmp eq i32 %144, 0
   br i1 %.not83, label %394, label %145
 
 145:                                              ; preds = %140
-  %146 = load ptr, ptr %6, align 8, !tbaa !22
-  %147 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %146 = load ptr, ptr %6, align 8, !tbaa !21
+  %147 = load ptr, ptr @ctx, align 8, !tbaa !6
   %148 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %146, ptr noundef %147) #8
   %149 = icmp ne i32 %148, 0
   %150 = zext i1 %149 to i32
@@ -2149,8 +2149,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not84, label %394, label %152
 
 152:                                              ; preds = %145
-  %153 = load ptr, ptr %1, align 8, !tbaa !22
-  %154 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %153 = load ptr, ptr %1, align 8, !tbaa !21
+  %154 = load ptr, ptr @ctx, align 8, !tbaa !6
   %155 = call i32 @BN_mod_mul_montgomery(ptr noundef %28, ptr noundef %153, ptr noundef %153, ptr noundef %31, ptr noundef %154) #8
   %156 = icmp ne i32 %155, 0
   %157 = zext i1 %156 to i32
@@ -2159,9 +2159,9 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not85, label %394, label %159
 
 159:                                              ; preds = %152
-  %160 = load ptr, ptr %1, align 8, !tbaa !22
-  %161 = load ptr, ptr %5, align 8, !tbaa !22
-  %162 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %160 = load ptr, ptr %1, align 8, !tbaa !21
+  %161 = load ptr, ptr %5, align 8, !tbaa !21
+  %162 = load ptr, ptr @ctx, align 8, !tbaa !6
   %163 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %160, ptr noundef %161, ptr noundef %31, ptr noundef %162) #8
   %164 = icmp ne i32 %163, 0
   %165 = zext i1 %164 to i32
@@ -2191,8 +2191,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not89, label %394, label %179
 
 179:                                              ; preds = %174
-  %180 = load ptr, ptr %6, align 8, !tbaa !22
-  %181 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %180 = load ptr, ptr %6, align 8, !tbaa !21
+  %181 = load ptr, ptr @ctx, align 8, !tbaa !6
   %182 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %180, ptr noundef %181) #8
   %183 = icmp ne i32 %182, 0
   %184 = zext i1 %183 to i32
@@ -2201,8 +2201,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not90, label %394, label %186
 
 186:                                              ; preds = %179
-  %187 = load ptr, ptr %1, align 8, !tbaa !22
-  %188 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %187 = load ptr, ptr %1, align 8, !tbaa !21
+  %188 = load ptr, ptr @ctx, align 8, !tbaa !6
   %189 = call i32 @BN_mod_mul_montgomery(ptr noundef %16, ptr noundef %187, ptr noundef %187, ptr noundef %31, ptr noundef %188) #8
   %190 = icmp ne i32 %189, 0
   %191 = zext i1 %190 to i32
@@ -2235,8 +2235,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not94, label %394, label %208
 
 208:                                              ; preds = %203
-  %209 = load ptr, ptr %6, align 8, !tbaa !22
-  %210 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %209 = load ptr, ptr %6, align 8, !tbaa !21
+  %210 = load ptr, ptr @ctx, align 8, !tbaa !6
   %211 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %209, ptr noundef %210) #8
   %212 = icmp ne i32 %211, 0
   %213 = zext i1 %212 to i32
@@ -2245,10 +2245,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not95, label %394, label %215
 
 215:                                              ; preds = %208
-  %216 = load ptr, ptr %1, align 8, !tbaa !22
-  %217 = load ptr, ptr %5, align 8, !tbaa !22
-  %218 = load ptr, ptr %6, align 8, !tbaa !22
-  %219 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %216 = load ptr, ptr %1, align 8, !tbaa !21
+  %217 = load ptr, ptr %5, align 8, !tbaa !21
+  %218 = load ptr, ptr %6, align 8, !tbaa !21
+  %219 = load ptr, ptr @ctx, align 8, !tbaa !6
   %220 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %28, ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, ptr noundef %31) #8
   %221 = icmp ne i32 %220, 0
   %222 = zext i1 %221 to i32
@@ -2257,10 +2257,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not96, label %394, label %224
 
 224:                                              ; preds = %215
-  %225 = load ptr, ptr %1, align 8, !tbaa !22
-  %226 = load ptr, ptr %5, align 8, !tbaa !22
-  %227 = load ptr, ptr %6, align 8, !tbaa !22
-  %228 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %225 = load ptr, ptr %1, align 8, !tbaa !21
+  %226 = load ptr, ptr %5, align 8, !tbaa !21
+  %227 = load ptr, ptr %6, align 8, !tbaa !21
+  %228 = load ptr, ptr @ctx, align 8, !tbaa !6
   %229 = call i32 @BN_mod_exp_mont(ptr noundef %16, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228, ptr noundef %31) #8
   %230 = icmp ne i32 %229, 0
   %231 = zext i1 %230 to i32
@@ -2298,8 +2298,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not101, label %394, label %250
 
 250:                                              ; preds = %245
-  %251 = load ptr, ptr %6, align 8, !tbaa !22
-  %252 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %251 = load ptr, ptr %6, align 8, !tbaa !21
+  %252 = load ptr, ptr @ctx, align 8, !tbaa !6
   %253 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %251, ptr noundef %252) #8
   %254 = icmp ne i32 %253, 0
   %255 = zext i1 %254 to i32
@@ -2308,10 +2308,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not102, label %394, label %257
 
 257:                                              ; preds = %250
-  %258 = load ptr, ptr %1, align 8, !tbaa !22
-  %259 = load ptr, ptr %5, align 8, !tbaa !22
-  %260 = load ptr, ptr %6, align 8, !tbaa !22
-  %261 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %258 = load ptr, ptr %1, align 8, !tbaa !21
+  %259 = load ptr, ptr %5, align 8, !tbaa !21
+  %260 = load ptr, ptr %6, align 8, !tbaa !21
+  %261 = load ptr, ptr @ctx, align 8, !tbaa !6
   %262 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %28, ptr noundef %258, ptr noundef %259, ptr noundef %260, ptr noundef %261, ptr noundef %31) #8
   %263 = icmp ne i32 %262, 0
   %264 = zext i1 %263 to i32
@@ -2350,10 +2350,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not107, label %394, label %283
 
 283:                                              ; preds = %278
-  %284 = load ptr, ptr %4, align 8, !tbaa !22
-  %285 = load ptr, ptr %2, align 8, !tbaa !22
-  %286 = load ptr, ptr %3, align 8, !tbaa !22
-  %287 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %284 = load ptr, ptr %4, align 8, !tbaa !21
+  %285 = load ptr, ptr %2, align 8, !tbaa !21
+  %286 = load ptr, ptr %3, align 8, !tbaa !21
+  %287 = load ptr, ptr @ctx, align 8, !tbaa !6
   %288 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %284, ptr noundef %285, ptr noundef %286, ptr noundef %287, ptr noundef null) #8
   %289 = icmp ne i32 %288, 0
   %290 = zext i1 %289 to i32
@@ -2362,11 +2362,11 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not108, label %394, label %292
 
 292:                                              ; preds = %283
-  %293 = load ptr, ptr %1, align 8, !tbaa !22
-  %294 = load ptr, ptr %4, align 8, !tbaa !22
-  %295 = load ptr, ptr %2, align 8, !tbaa !22
-  %296 = load ptr, ptr %3, align 8, !tbaa !22
-  %297 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %293 = load ptr, ptr %1, align 8, !tbaa !21
+  %294 = load ptr, ptr %4, align 8, !tbaa !21
+  %295 = load ptr, ptr %2, align 8, !tbaa !21
+  %296 = load ptr, ptr %3, align 8, !tbaa !21
+  %297 = load ptr, ptr @ctx, align 8, !tbaa !6
   %298 = call i32 @BN_mod_exp_simple(ptr noundef %293, ptr noundef %294, ptr noundef %295, ptr noundef %296, ptr noundef %297) #8
   %299 = icmp ne i32 %298, 0
   %300 = zext i1 %299 to i32
@@ -2375,13 +2375,13 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not109, label %394, label %302
 
 302:                                              ; preds = %292
-  %303 = load ptr, ptr %1, align 8, !tbaa !22
+  %303 = load ptr, ptr %1, align 8, !tbaa !21
   %304 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 686, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %303, ptr noundef %16) #8
   %.not110 = icmp eq i32 %304, 0
   br i1 %.not110, label %394, label %305
 
 305:                                              ; preds = %302
-  %306 = load ptr, ptr %2, align 8, !tbaa !22
+  %306 = load ptr, ptr %2, align 8, !tbaa !21
   %307 = call i32 @BN_bntest_rand(ptr noundef %306, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
   %308 = icmp ne i32 %307, 0
   %309 = zext i1 %308 to i32
@@ -2390,12 +2390,12 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not111, label %394, label %311
 
 311:                                              ; preds = %305
-  %312 = load ptr, ptr %1, align 8, !tbaa !22
+  %312 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_zero_ex(ptr noundef %312) #8
-  %313 = load ptr, ptr %1, align 8, !tbaa !22
-  %314 = load ptr, ptr %2, align 8, !tbaa !22
-  %315 = load ptr, ptr %3, align 8, !tbaa !22
-  %316 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %313 = load ptr, ptr %1, align 8, !tbaa !21
+  %314 = load ptr, ptr %2, align 8, !tbaa !21
+  %315 = load ptr, ptr %3, align 8, !tbaa !21
+  %316 = load ptr, ptr @ctx, align 8, !tbaa !6
   %317 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %313, ptr noundef %314, ptr noundef %315, ptr noundef %316, ptr noundef null) #8
   %318 = icmp ne i32 %317, 0
   %319 = zext i1 %318 to i32
@@ -2409,7 +2409,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not113, label %394, label %323
 
 323:                                              ; preds = %321
-  %324 = load ptr, ptr %1, align 8, !tbaa !22
+  %324 = load ptr, ptr %1, align 8, !tbaa !21
   %325 = call i32 @BN_set_word(ptr noundef %324, i64 noundef 1) #8
   %326 = icmp ne i32 %325, 0
   %327 = zext i1 %326 to i32
@@ -2418,8 +2418,8 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not114, label %394, label %329
 
 329:                                              ; preds = %323
-  %330 = load ptr, ptr %3, align 8, !tbaa !22
-  %331 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %330 = load ptr, ptr %3, align 8, !tbaa !21
+  %331 = load ptr, ptr @ctx, align 8, !tbaa !6
   %332 = call i32 @BN_MONT_CTX_set(ptr noundef %31, ptr noundef %330, ptr noundef %331) #8
   %333 = icmp ne i32 %332, 0
   %334 = zext i1 %333 to i32
@@ -2428,9 +2428,9 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not115, label %394, label %336
 
 336:                                              ; preds = %329
-  %337 = load ptr, ptr %4, align 8, !tbaa !22
-  %338 = load ptr, ptr %1, align 8, !tbaa !22
-  %339 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %337 = load ptr, ptr %4, align 8, !tbaa !21
+  %338 = load ptr, ptr %1, align 8, !tbaa !21
+  %339 = load ptr, ptr @ctx, align 8, !tbaa !6
   %340 = call i32 @BN_from_montgomery(ptr noundef %337, ptr noundef %338, ptr noundef %31, ptr noundef %339) #8
   %341 = icmp ne i32 %340, 0
   %342 = zext i1 %341 to i32
@@ -2439,10 +2439,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not116, label %394, label %344
 
 344:                                              ; preds = %336
-  %345 = load ptr, ptr %4, align 8, !tbaa !22
-  %346 = load ptr, ptr %2, align 8, !tbaa !22
-  %347 = load ptr, ptr %3, align 8, !tbaa !22
-  %348 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %345 = load ptr, ptr %4, align 8, !tbaa !21
+  %346 = load ptr, ptr %2, align 8, !tbaa !21
+  %347 = load ptr, ptr %3, align 8, !tbaa !21
+  %348 = load ptr, ptr @ctx, align 8, !tbaa !6
   %349 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %345, ptr noundef %346, ptr noundef %347, ptr noundef %348, ptr noundef null) #8
   %350 = icmp ne i32 %349, 0
   %351 = zext i1 %350 to i32
@@ -2451,11 +2451,11 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not117, label %394, label %353
 
 353:                                              ; preds = %344
-  %354 = load ptr, ptr %1, align 8, !tbaa !22
-  %355 = load ptr, ptr %4, align 8, !tbaa !22
-  %356 = load ptr, ptr %2, align 8, !tbaa !22
-  %357 = load ptr, ptr %3, align 8, !tbaa !22
-  %358 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %354 = load ptr, ptr %1, align 8, !tbaa !21
+  %355 = load ptr, ptr %4, align 8, !tbaa !21
+  %356 = load ptr, ptr %2, align 8, !tbaa !21
+  %357 = load ptr, ptr %3, align 8, !tbaa !21
+  %358 = load ptr, ptr @ctx, align 8, !tbaa !6
   %359 = call i32 @BN_mod_exp_simple(ptr noundef %354, ptr noundef %355, ptr noundef %356, ptr noundef %357, ptr noundef %358) #8
   %360 = icmp ne i32 %359, 0
   %361 = zext i1 %360 to i32
@@ -2464,13 +2464,13 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not118, label %394, label %363
 
 363:                                              ; preds = %353
-  %364 = load ptr, ptr %1, align 8, !tbaa !22
+  %364 = load ptr, ptr %1, align 8, !tbaa !21
   %365 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 709, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %364, ptr noundef %16) #8
   %.not119 = icmp eq i32 %365, 0
   br i1 %.not119, label %394, label %366
 
 366:                                              ; preds = %363
-  %367 = load ptr, ptr %4, align 8, !tbaa !22
+  %367 = load ptr, ptr %4, align 8, !tbaa !21
   %368 = call i32 @BN_bntest_rand(ptr noundef %367, i32 noundef 1024, i32 noundef 0, i32 noundef 0) #8
   %369 = icmp ne i32 %368, 0
   %370 = zext i1 %369 to i32
@@ -2479,10 +2479,10 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not120, label %394, label %372
 
 372:                                              ; preds = %366
-  %373 = load ptr, ptr %4, align 8, !tbaa !22
-  %374 = load ptr, ptr %2, align 8, !tbaa !22
-  %375 = load ptr, ptr %3, align 8, !tbaa !22
-  %376 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %373 = load ptr, ptr %4, align 8, !tbaa !21
+  %374 = load ptr, ptr %2, align 8, !tbaa !21
+  %375 = load ptr, ptr %3, align 8, !tbaa !21
+  %376 = load ptr, ptr @ctx, align 8, !tbaa !6
   %377 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %16, ptr noundef %373, ptr noundef %374, ptr noundef %375, ptr noundef %376, ptr noundef null) #8
   %378 = icmp ne i32 %377, 0
   %379 = zext i1 %378 to i32
@@ -2491,11 +2491,11 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not121, label %394, label %381
 
 381:                                              ; preds = %372
-  %382 = load ptr, ptr %1, align 8, !tbaa !22
-  %383 = load ptr, ptr %4, align 8, !tbaa !22
-  %384 = load ptr, ptr %2, align 8, !tbaa !22
-  %385 = load ptr, ptr %3, align 8, !tbaa !22
-  %386 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %382 = load ptr, ptr %1, align 8, !tbaa !21
+  %383 = load ptr, ptr %4, align 8, !tbaa !21
+  %384 = load ptr, ptr %2, align 8, !tbaa !21
+  %385 = load ptr, ptr %3, align 8, !tbaa !21
+  %386 = load ptr, ptr @ctx, align 8, !tbaa !6
   %387 = call i32 @BN_mod_exp_simple(ptr noundef %382, ptr noundef %383, ptr noundef %384, ptr noundef %385, ptr noundef %386) #8
   %388 = icmp ne i32 %387, 0
   %389 = zext i1 %388 to i32
@@ -2504,7 +2504,7 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   br i1 %.not122, label %394, label %391
 
 391:                                              ; preds = %381
-  %392 = load ptr, ptr %1, align 8, !tbaa !22
+  %392 = load ptr, ptr %1, align 8, !tbaa !21
   %393 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 716, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, ptr noundef %392, ptr noundef %16) #8
   %.not123 = icmp ne i32 %393, 0
   %spec.select = zext i1 %.not123 to i32
@@ -2516,18 +2516,18 @@ define internal range(i32 0, 2) i32 @test_modexp_mont5() #1 {
   %.052 = phi ptr [ %31, %381 ], [ %31, %372 ], [ %31, %366 ], [ %31, %363 ], [ %31, %353 ], [ %31, %344 ], [ %31, %336 ], [ %31, %329 ], [ %31, %323 ], [ %31, %321 ], [ %31, %311 ], [ %31, %305 ], [ %31, %302 ], [ %31, %292 ], [ %31, %283 ], [ %31, %278 ], [ %31, %273 ], [ %31, %268 ], [ %31, %266 ], [ %31, %257 ], [ %31, %250 ], [ %31, %245 ], [ %31, %240 ], [ %31, %235 ], [ %31, %233 ], [ %31, %224 ], [ %31, %215 ], [ %31, %208 ], [ %31, %203 ], [ %31, %198 ], [ %31, %193 ], [ %31, %186 ], [ %31, %179 ], [ %31, %174 ], [ %31, %169 ], [ %31, %167 ], [ %31, %159 ], [ %31, %152 ], [ %31, %145 ], [ %31, %140 ], [ %31, %135 ], [ %31, %130 ], [ %31, %128 ], [ %31, %120 ], [ %31, %113 ], [ %31, %106 ], [ %31, %101 ], [ %31, %96 ], [ %31, %91 ], [ %31, %89 ], [ %31, %81 ], [ %31, %73 ], [ %31, %66 ], [ %31, %61 ], [ %31, %56 ], [ %31, %51 ], [ %31, %49 ], [ %31, %43 ], [ %31, %38 ], [ %31, %33 ], [ %31, %30 ], [ null, %27 ], [ null, %24 ], [ null, %21 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %9 ], [ null, %0 ], [ %31, %391 ]
   %.0 = phi i32 [ 0, %381 ], [ 0, %372 ], [ 0, %366 ], [ 0, %363 ], [ 0, %353 ], [ 0, %344 ], [ 0, %336 ], [ 0, %329 ], [ 0, %323 ], [ 0, %321 ], [ 0, %311 ], [ 0, %305 ], [ 0, %302 ], [ 0, %292 ], [ 0, %283 ], [ 0, %278 ], [ 0, %273 ], [ 0, %268 ], [ 0, %266 ], [ 0, %257 ], [ 0, %250 ], [ 0, %245 ], [ 0, %240 ], [ 0, %235 ], [ 0, %233 ], [ 0, %224 ], [ 0, %215 ], [ 0, %208 ], [ 0, %203 ], [ 0, %198 ], [ 0, %193 ], [ 0, %186 ], [ 0, %179 ], [ 0, %174 ], [ 0, %169 ], [ 0, %167 ], [ 0, %159 ], [ 0, %152 ], [ 0, %145 ], [ 0, %140 ], [ 0, %135 ], [ 0, %130 ], [ 0, %128 ], [ 0, %120 ], [ 0, %113 ], [ 0, %106 ], [ 0, %101 ], [ 0, %96 ], [ 0, %91 ], [ 0, %89 ], [ 0, %81 ], [ 0, %73 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %49 ], [ 0, %43 ], [ 0, %38 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %0 ], [ %spec.select, %391 ]
   call void @BN_MONT_CTX_free(ptr noundef %.052) #8
-  %395 = load ptr, ptr %1, align 8, !tbaa !22
+  %395 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %395) #8
-  %396 = load ptr, ptr %2, align 8, !tbaa !22
+  %396 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_free(ptr noundef %396) #8
-  %397 = load ptr, ptr %3, align 8, !tbaa !22
+  %397 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %397) #8
   call void @BN_free(ptr noundef %.054) #8
-  %398 = load ptr, ptr %4, align 8, !tbaa !22
+  %398 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %398) #8
-  %399 = load ptr, ptr %5, align 8, !tbaa !22
+  %399 = load ptr, ptr %5, align 8, !tbaa !21
   call void @BN_free(ptr noundef %399) #8
-  %400 = load ptr, ptr %6, align 8, !tbaa !22
+  %400 = load ptr, ptr %6, align 8, !tbaa !21
   call void @BN_free(ptr noundef %400) #8
   call void @BN_free(ptr noundef %.053) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
@@ -2573,20 +2573,20 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   br i1 %.not43, label %.loopexit, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %18 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %19 = add i32 %18, 1
-  store i32 %19, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %19, ptr @rand_neg.neg, align 4, !tbaa !12
   %20 = and i32 %18, 7
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !13
+  %23 = load i32, ptr %22, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %23) #8
   br label %26
 
 24:                                               ; preds = %80
   %25 = add nuw nsw i32 %.03657, 1
   %exitcond.not = icmp eq i32 %25, 100
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !24
 
 26:                                               ; preds = %17, %24
   %.03657 = phi i32 [ 0, %17 ], [ %25, %24 ]
@@ -2598,13 +2598,13 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   br i1 %.not44, label %.loopexit, label %31
 
 31:                                               ; preds = %26
-  %32 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %32 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %33 = add i32 %32, 1
-  store i32 %33, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %33, ptr @rand_neg.neg, align 4, !tbaa !12
   %34 = and i32 %32, 7
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !13
+  %37 = load i32, ptr %36, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %37) #8
   %38 = tail call ptr @BN_copy(ptr noundef %10, ptr noundef %4) #8
   %39 = icmp ne ptr %38, null
@@ -2632,7 +2632,7 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
 
 52:                                               ; preds = %47
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef 0) #8
-  %53 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %53 = load ptr, ptr @ctx, align 8, !tbaa !6
   %54 = tail call i32 @BN_mod_exp_recp(ptr noundef %7, ptr noundef %1, ptr noundef %10, ptr noundef %4, ptr noundef %53) #8
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -2671,7 +2671,7 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
 
 71:                                               ; preds = %67, %60, %58
   %.035 = phi i32 [ 1, %58 ], [ 0, %60 ], [ -1, %67 ]
-  %72 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %72 = load ptr, ptr @ctx, align 8, !tbaa !6
   %73 = tail call i32 @BN_kronecker(ptr noundef %1, ptr noundef %4, ptr noundef %72) #8
   %74 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 1196, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.235, i32 noundef %73, i32 noundef -1) #8
   %.not53 = icmp eq i32 %74, 0
@@ -2913,7 +2913,7 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
   %60 = sub nuw nsw i64 256, %.030
   %61 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1856, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.251, ptr noundef nonnull %2, i64 noundef %60, ptr noundef nonnull %1, i64 noundef %60) #8
   %.not46 = icmp eq i32 %61, 0
-  br i1 %.not46, label %.loopexit, label %16, !llvm.loop !26
+  br i1 %.not46, label %.loopexit, label %16, !llvm.loop !25
 
 .loopexit:                                        ; preds = %16, %52, %55, %59, %43, %48, %50, %38, %41, %34, %31, %23, %28, %17, %12, %9, %6, %0
   %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %0 ], [ 1, %16 ], [ 0, %17 ], [ 0, %23 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %43 ], [ 0, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %55 ], [ 0, %59 ]
@@ -2928,233 +2928,233 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
 define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %2 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
   %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2002, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %114, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr %1, align 8, !tbaa !22
+  %5 = load ptr, ptr %1, align 8, !tbaa !21
   %6 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2003, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.69, ptr noundef %5, i64 noundef 0) #8
   %.not1 = icmp eq i32 %6, 0
   br i1 %.not1, label %114, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !22
+  %8 = load ptr, ptr %1, align 8, !tbaa !21
   %9 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2004, ptr noundef nonnull @.str.242, ptr noundef %8) #8
   %.not2 = icmp eq i32 %9, 0
   br i1 %.not2, label %114, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %1, align 8, !tbaa !22
+  %11 = load ptr, ptr %1, align 8, !tbaa !21
   %12 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2005, ptr noundef nonnull @.str.242, ptr noundef %11) #8
   %.not3 = icmp eq i32 %12, 0
   br i1 %.not3, label %114, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %1, align 8, !tbaa !22
+  %14 = load ptr, ptr %1, align 8, !tbaa !21
   %15 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2006, ptr noundef nonnull @.str.242, ptr noundef %14) #8
   %.not4 = icmp eq i32 %15, 0
   br i1 %.not4, label %114, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %1, align 8, !tbaa !22
+  %17 = load ptr, ptr %1, align 8, !tbaa !21
   %18 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2007, ptr noundef nonnull @.str.242, ptr noundef %17) #8
   %.not5 = icmp eq i32 %18, 0
   br i1 %.not5, label %114, label %19
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %1, align 8, !tbaa !22
+  %20 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %20) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %21 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #8
   %22 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2012, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.246, i32 noundef %21, i32 noundef 3) #8
   %.not6 = icmp eq i32 %22, 0
   br i1 %.not6, label %114, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %1, align 8, !tbaa !22
+  %24 = load ptr, ptr %1, align 8, !tbaa !21
   %25 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2013, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.266, ptr noundef %24, i64 noundef 256) #8
   %.not7 = icmp eq i32 %25, 0
   br i1 %.not7, label %114, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %1, align 8, !tbaa !22
+  %27 = load ptr, ptr %1, align 8, !tbaa !21
   %28 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2014, ptr noundef nonnull @.str.242, ptr noundef %27) #8
   %.not8 = icmp eq i32 %28, 0
   br i1 %.not8, label %114, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %1, align 8, !tbaa !22
+  %30 = load ptr, ptr %1, align 8, !tbaa !21
   %31 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2015, ptr noundef nonnull @.str.242, ptr noundef %30) #8
   %.not9 = icmp eq i32 %31, 0
   br i1 %.not9, label %114, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %1, align 8, !tbaa !22
+  %33 = load ptr, ptr %1, align 8, !tbaa !21
   %34 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2016, ptr noundef nonnull @.str.242, ptr noundef %33) #8
   %.not10 = icmp eq i32 %34, 0
   br i1 %.not10, label %114, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %1, align 8, !tbaa !22
+  %36 = load ptr, ptr %1, align 8, !tbaa !21
   %37 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2017, ptr noundef nonnull @.str.242, ptr noundef %36) #8
   %.not11 = icmp eq i32 %37, 0
   br i1 %.not11, label %114, label %38
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %1, align 8, !tbaa !22
+  %39 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %39) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %40 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #8
   %41 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2022, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.246, i32 noundef %40, i32 noundef 3) #8
   %.not12 = icmp eq i32 %41, 0
   br i1 %.not12, label %114, label %42
 
 42:                                               ; preds = %38
-  %43 = load ptr, ptr %1, align 8, !tbaa !22
+  %43 = load ptr, ptr %1, align 8, !tbaa !21
   %44 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2023, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %43, i64 noundef 42) #8
   %.not13 = icmp eq i32 %44, 0
   br i1 %.not13, label %114, label %45
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %1, align 8, !tbaa !22
+  %46 = load ptr, ptr %1, align 8, !tbaa !21
   %47 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2024, ptr noundef nonnull @.str.242, ptr noundef %46) #8
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %114, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %1, align 8, !tbaa !22
+  %49 = load ptr, ptr %1, align 8, !tbaa !21
   %50 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2025, ptr noundef nonnull @.str.242, ptr noundef %49) #8
   %.not15 = icmp eq i32 %50, 0
   br i1 %.not15, label %114, label %51
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %1, align 8, !tbaa !22
+  %52 = load ptr, ptr %1, align 8, !tbaa !21
   %53 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2026, ptr noundef nonnull @.str.242, ptr noundef %52) #8
   %.not16 = icmp eq i32 %53, 0
   br i1 %.not16, label %114, label %54
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %1, align 8, !tbaa !22
+  %55 = load ptr, ptr %1, align 8, !tbaa !21
   %56 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2027, ptr noundef nonnull @.str.242, ptr noundef %55) #8
   %.not17 = icmp eq i32 %56, 0
   br i1 %.not17, label %114, label %57
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %1, align 8, !tbaa !22
+  %58 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %58) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %59 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.123) #8
   %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2032, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.123, i32 noundef %59, i32 noundef 1) #8
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %114, label %61
 
 61:                                               ; preds = %57
-  %62 = load ptr, ptr %1, align 8, !tbaa !22
+  %62 = load ptr, ptr %1, align 8, !tbaa !21
   %63 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2033, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.123, ptr noundef %62, i64 noundef 1) #8
   %.not19 = icmp eq i32 %63, 0
   br i1 %.not19, label %114, label %64
 
 64:                                               ; preds = %61
-  %65 = load ptr, ptr %1, align 8, !tbaa !22
+  %65 = load ptr, ptr %1, align 8, !tbaa !21
   %66 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2034, ptr noundef nonnull @.str.242, ptr noundef %65) #8
   %.not20 = icmp eq i32 %66, 0
   br i1 %.not20, label %114, label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %1, align 8, !tbaa !22
+  %68 = load ptr, ptr %1, align 8, !tbaa !21
   %69 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2035, ptr noundef nonnull @.str.242, ptr noundef %68) #8
   %.not21 = icmp eq i32 %69, 0
   br i1 %.not21, label %114, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %1, align 8, !tbaa !22
+  %71 = load ptr, ptr %1, align 8, !tbaa !21
   %72 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2036, ptr noundef nonnull @.str.242, ptr noundef %71) #8
   %.not22 = icmp eq i32 %72, 0
   br i1 %.not22, label %114, label %73
 
 73:                                               ; preds = %70
-  %74 = load ptr, ptr %1, align 8, !tbaa !22
+  %74 = load ptr, ptr %1, align 8, !tbaa !21
   %75 = call i32 @test_BN_eq_one(ptr noundef nonnull @.str.17, i32 noundef 2037, ptr noundef nonnull @.str.242, ptr noundef %74) #8
   %.not23 = icmp eq i32 %75, 0
   br i1 %.not23, label %114, label %76
 
 76:                                               ; preds = %73
-  %77 = load ptr, ptr %1, align 8, !tbaa !22
+  %77 = load ptr, ptr %1, align 8, !tbaa !21
   %78 = call i32 @test_BN_odd(ptr noundef nonnull @.str.17, i32 noundef 2038, ptr noundef nonnull @.str.242, ptr noundef %77) #8
   %.not24 = icmp eq i32 %78, 0
   br i1 %.not24, label %114, label %79
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr %1, align 8, !tbaa !22
+  %80 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %80) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %81 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #8
   %82 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2043, ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.272, i32 noundef %81, i32 noundef 2) #8
   %.not25 = icmp eq i32 %82, 0
   br i1 %.not25, label %114, label %83
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr %1, align 8, !tbaa !22
+  %84 = load ptr, ptr %1, align 8, !tbaa !21
   %85 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2044, ptr noundef nonnull @.str.242, ptr noundef %84) #8
   %.not26 = icmp eq i32 %85, 0
   br i1 %.not26, label %114, label %86
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr %1, align 8, !tbaa !22
+  %87 = load ptr, ptr %1, align 8, !tbaa !21
   %88 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2045, ptr noundef nonnull @.str.242, ptr noundef %87) #8
   %.not27 = icmp eq i32 %88, 0
   br i1 %.not27, label %114, label %89
 
 89:                                               ; preds = %86
-  %90 = load ptr, ptr %1, align 8, !tbaa !22
+  %90 = load ptr, ptr %1, align 8, !tbaa !21
   %91 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2046, ptr noundef nonnull @.str.242, ptr noundef %90) #8
   %.not28 = icmp eq i32 %91, 0
   br i1 %.not28, label %114, label %92
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr %1, align 8, !tbaa !22
+  %93 = load ptr, ptr %1, align 8, !tbaa !21
   %94 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2047, ptr noundef nonnull @.str.242, ptr noundef %93) #8
   %.not29 = icmp eq i32 %94, 0
   br i1 %.not29, label %114, label %95
 
 95:                                               ; preds = %92
-  %96 = load ptr, ptr %1, align 8, !tbaa !22
+  %96 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %96) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %97 = call i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.275) #8
   %98 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2052, ptr noundef nonnull @.str.274, ptr noundef nonnull @.str.272, i32 noundef %97, i32 noundef 2) #8
   %.not30 = icmp eq i32 %98, 0
   br i1 %.not30, label %114, label %99
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr %1, align 8, !tbaa !22
+  %100 = load ptr, ptr %1, align 8, !tbaa !21
   %101 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2053, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %100, i64 noundef 42) #8
   %.not31 = icmp eq i32 %101, 0
   br i1 %.not31, label %114, label %102
 
 102:                                              ; preds = %99
-  %103 = load ptr, ptr %1, align 8, !tbaa !22
+  %103 = load ptr, ptr %1, align 8, !tbaa !21
   %104 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2054, ptr noundef nonnull @.str.242, ptr noundef %103) #8
   %.not32 = icmp eq i32 %104, 0
   br i1 %.not32, label %114, label %105
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr %1, align 8, !tbaa !22
+  %106 = load ptr, ptr %1, align 8, !tbaa !21
   %107 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2055, ptr noundef nonnull @.str.242, ptr noundef %106) #8
   %.not33 = icmp eq i32 %107, 0
   br i1 %.not33, label %114, label %108
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr %1, align 8, !tbaa !22
+  %109 = load ptr, ptr %1, align 8, !tbaa !21
   %110 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2056, ptr noundef nonnull @.str.242, ptr noundef %109) #8
   %.not34 = icmp eq i32 %110, 0
   br i1 %.not34, label %114, label %111
 
 111:                                              ; preds = %108
-  %112 = load ptr, ptr %1, align 8, !tbaa !22
+  %112 = load ptr, ptr %1, align 8, !tbaa !21
   %113 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2057, ptr noundef nonnull @.str.242, ptr noundef %112) #8
   %.not35 = icmp ne i32 %113, 0
   %spec.select = zext i1 %.not35 to i32
@@ -3162,7 +3162,7 @@ define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
 
 114:                                              ; preds = %111, %95, %99, %102, %105, %108, %79, %83, %86, %89, %92, %57, %61, %64, %67, %70, %73, %76, %38, %42, %45, %48, %51, %54, %19, %23, %26, %29, %32, %35, %0, %4, %7, %10, %13, %16
   %.0 = phi i32 [ 0, %108 ], [ 0, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %111 ]
-  %115 = load ptr, ptr %1, align 8, !tbaa !22
+  %115 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %115) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
   ret i32 %.0
@@ -3172,215 +3172,215 @@ define internal range(i32 0, 2) i32 @test_dec2bn() #1 {
 define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %2 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.69) #8
   %3 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2071, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.123, i32 noundef %2, i32 noundef 1) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %105, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr %1, align 8, !tbaa !22
+  %5 = load ptr, ptr %1, align 8, !tbaa !21
   %6 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2072, ptr noundef nonnull @.str.242, ptr noundef %5) #8
   %.not1 = icmp eq i32 %6, 0
   br i1 %.not1, label %105, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !22
+  %8 = load ptr, ptr %1, align 8, !tbaa !21
   %9 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2073, ptr noundef nonnull @.str.242, ptr noundef %8) #8
   %.not2 = icmp eq i32 %9, 0
   br i1 %.not2, label %105, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %1, align 8, !tbaa !22
+  %11 = load ptr, ptr %1, align 8, !tbaa !21
   %12 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2074, ptr noundef nonnull @.str.242, ptr noundef %11) #8
   %.not3 = icmp eq i32 %12, 0
   br i1 %.not3, label %105, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %1, align 8, !tbaa !22
+  %14 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %14) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %15 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.266) #8
   %16 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2079, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.246, i32 noundef %15, i32 noundef 3) #8
   %.not4 = icmp eq i32 %16, 0
   br i1 %.not4, label %105, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %1, align 8, !tbaa !22
+  %18 = load ptr, ptr %1, align 8, !tbaa !21
   %19 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2080, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.278, ptr noundef %18, i64 noundef 598) #8
   %.not5 = icmp eq i32 %19, 0
   br i1 %.not5, label %105, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %1, align 8, !tbaa !22
+  %21 = load ptr, ptr %1, align 8, !tbaa !21
   %22 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2081, ptr noundef nonnull @.str.242, ptr noundef %21) #8
   %.not6 = icmp eq i32 %22, 0
   br i1 %.not6, label %105, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %1, align 8, !tbaa !22
+  %24 = load ptr, ptr %1, align 8, !tbaa !21
   %25 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2082, ptr noundef nonnull @.str.242, ptr noundef %24) #8
   %.not7 = icmp eq i32 %25, 0
   br i1 %.not7, label %105, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %1, align 8, !tbaa !22
+  %27 = load ptr, ptr %1, align 8, !tbaa !21
   %28 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2083, ptr noundef nonnull @.str.242, ptr noundef %27) #8
   %.not8 = icmp eq i32 %28, 0
   br i1 %.not8, label %105, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %1, align 8, !tbaa !22
+  %30 = load ptr, ptr %1, align 8, !tbaa !21
   %31 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2084, ptr noundef nonnull @.str.242, ptr noundef %30) #8
   %.not9 = icmp eq i32 %31, 0
   br i1 %.not9, label %105, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %1, align 8, !tbaa !22
+  %33 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %33) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %34 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.268) #8
   %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2089, ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.246, i32 noundef %34, i32 noundef 3) #8
   %.not10 = icmp eq i32 %35, 0
   br i1 %.not10, label %105, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %1, align 8, !tbaa !22
+  %37 = load ptr, ptr %1, align 8, !tbaa !21
   %38 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2090, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.280, ptr noundef %37, i64 noundef 66) #8
   %.not11 = icmp eq i32 %38, 0
   br i1 %.not11, label %105, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %1, align 8, !tbaa !22
+  %40 = load ptr, ptr %1, align 8, !tbaa !21
   %41 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2091, ptr noundef nonnull @.str.242, ptr noundef %40) #8
   %.not12 = icmp eq i32 %41, 0
   br i1 %.not12, label %105, label %42
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr %1, align 8, !tbaa !22
+  %43 = load ptr, ptr %1, align 8, !tbaa !21
   %44 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2092, ptr noundef nonnull @.str.242, ptr noundef %43) #8
   %.not13 = icmp eq i32 %44, 0
   br i1 %.not13, label %105, label %45
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %1, align 8, !tbaa !22
+  %46 = load ptr, ptr %1, align 8, !tbaa !21
   %47 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2093, ptr noundef nonnull @.str.242, ptr noundef %46) #8
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %105, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %1, align 8, !tbaa !22
+  %49 = load ptr, ptr %1, align 8, !tbaa !21
   %50 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2094, ptr noundef nonnull @.str.242, ptr noundef %49) #8
   %.not15 = icmp eq i32 %50, 0
   br i1 %.not15, label %105, label %51
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %1, align 8, !tbaa !22
+  %52 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %52) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %53 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.282) #8
   %54 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2099, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.272, i32 noundef %53, i32 noundef 2) #8
   %.not16 = icmp eq i32 %54, 0
   br i1 %.not16, label %105, label %55
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr %1, align 8, !tbaa !22
+  %56 = load ptr, ptr %1, align 8, !tbaa !21
   %57 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2100, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.283, ptr noundef %56, i64 noundef 203) #8
   %.not17 = icmp eq i32 %57, 0
   br i1 %.not17, label %105, label %58
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %1, align 8, !tbaa !22
+  %59 = load ptr, ptr %1, align 8, !tbaa !21
   %60 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2101, ptr noundef nonnull @.str.242, ptr noundef %59) #8
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %105, label %61
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %1, align 8, !tbaa !22
+  %62 = load ptr, ptr %1, align 8, !tbaa !21
   %63 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2102, ptr noundef nonnull @.str.242, ptr noundef %62) #8
   %.not19 = icmp eq i32 %63, 0
   br i1 %.not19, label %105, label %64
 
 64:                                               ; preds = %61
-  %65 = load ptr, ptr %1, align 8, !tbaa !22
+  %65 = load ptr, ptr %1, align 8, !tbaa !21
   %66 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2103, ptr noundef nonnull @.str.242, ptr noundef %65) #8
   %.not20 = icmp eq i32 %66, 0
   br i1 %.not20, label %105, label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %1, align 8, !tbaa !22
+  %68 = load ptr, ptr %1, align 8, !tbaa !21
   %69 = call i32 @test_BN_odd(ptr noundef nonnull @.str.17, i32 noundef 2104, ptr noundef nonnull @.str.242, ptr noundef %68) #8
   %.not21 = icmp eq i32 %69, 0
   br i1 %.not21, label %105, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %1, align 8, !tbaa !22
+  %71 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %71) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %72 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.273) #8
   %73 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2109, ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.272, i32 noundef %72, i32 noundef 2) #8
   %.not22 = icmp eq i32 %73, 0
   br i1 %.not22, label %105, label %74
 
 74:                                               ; preds = %70
-  %75 = load ptr, ptr %1, align 8, !tbaa !22
+  %75 = load ptr, ptr %1, align 8, !tbaa !21
   %76 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2110, ptr noundef nonnull @.str.242, ptr noundef %75) #8
   %.not23 = icmp eq i32 %76, 0
   br i1 %.not23, label %105, label %77
 
 77:                                               ; preds = %74
-  %78 = load ptr, ptr %1, align 8, !tbaa !22
+  %78 = load ptr, ptr %1, align 8, !tbaa !21
   %79 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2111, ptr noundef nonnull @.str.242, ptr noundef %78) #8
   %.not24 = icmp eq i32 %79, 0
   br i1 %.not24, label %105, label %80
 
 80:                                               ; preds = %77
-  %81 = load ptr, ptr %1, align 8, !tbaa !22
+  %81 = load ptr, ptr %1, align 8, !tbaa !21
   %82 = call i32 @test_BN_le_zero(ptr noundef nonnull @.str.17, i32 noundef 2112, ptr noundef nonnull @.str.242, ptr noundef %81) #8
   %.not25 = icmp eq i32 %82, 0
   br i1 %.not25, label %105, label %83
 
 83:                                               ; preds = %80
-  %84 = load ptr, ptr %1, align 8, !tbaa !22
+  %84 = load ptr, ptr %1, align 8, !tbaa !21
   %85 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2113, ptr noundef nonnull @.str.242, ptr noundef %84) #8
   %.not26 = icmp eq i32 %85, 0
   br i1 %.not26, label %105, label %86
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr %1, align 8, !tbaa !22
+  %87 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %87) #8
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   %88 = call i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.286) #8
   %89 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2118, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.246, i32 noundef %88, i32 noundef 3) #8
   %.not27 = icmp eq i32 %89, 0
   br i1 %.not27, label %105, label %90
 
 90:                                               ; preds = %86
-  %91 = load ptr, ptr %1, align 8, !tbaa !22
+  %91 = load ptr, ptr %1, align 8, !tbaa !21
   %92 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2119, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.287, ptr noundef %91, i64 noundef 2748) #8
   %.not28 = icmp eq i32 %92, 0
   br i1 %.not28, label %105, label %93
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr %1, align 8, !tbaa !22
+  %94 = load ptr, ptr %1, align 8, !tbaa !21
   %95 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2120, ptr noundef nonnull @.str.242, ptr noundef %94) #8
   %.not29 = icmp eq i32 %95, 0
   br i1 %.not29, label %105, label %96
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %1, align 8, !tbaa !22
+  %97 = load ptr, ptr %1, align 8, !tbaa !21
   %98 = call i32 @test_BN_gt_zero(ptr noundef nonnull @.str.17, i32 noundef 2121, ptr noundef nonnull @.str.242, ptr noundef %97) #8
   %.not30 = icmp eq i32 %98, 0
   br i1 %.not30, label %105, label %99
 
 99:                                               ; preds = %96
-  %100 = load ptr, ptr %1, align 8, !tbaa !22
+  %100 = load ptr, ptr %1, align 8, !tbaa !21
   %101 = call i32 @test_BN_ne_zero(ptr noundef nonnull @.str.17, i32 noundef 2122, ptr noundef nonnull @.str.242, ptr noundef %100) #8
   %.not31 = icmp eq i32 %101, 0
   br i1 %.not31, label %105, label %102
 
 102:                                              ; preds = %99
-  %103 = load ptr, ptr %1, align 8, !tbaa !22
+  %103 = load ptr, ptr %1, align 8, !tbaa !21
   %104 = call i32 @test_BN_even(ptr noundef nonnull @.str.17, i32 noundef 2123, ptr noundef nonnull @.str.242, ptr noundef %103) #8
   %.not32 = icmp ne i32 %104, 0
   %spec.select = zext i1 %.not32 to i32
@@ -3388,7 +3388,7 @@ define internal range(i32 0, 2) i32 @test_hex2bn() #1 {
 
 105:                                              ; preds = %102, %86, %90, %93, %96, %99, %70, %74, %77, %80, %83, %51, %55, %58, %61, %64, %67, %32, %36, %39, %42, %45, %48, %13, %17, %20, %23, %26, %29, %0, %4, %7, %10
   %.0 = phi i32 [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %102 ]
-  %106 = load ptr, ptr %1, align 8, !tbaa !22
+  %106 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %106) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
   ret i32 %.0
@@ -3399,7 +3399,7 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
   %2 = tail call ptr @BN_new() #8
-  store ptr %2, ptr %1, align 8, !tbaa !22
+  store ptr %2, ptr %1, align 8, !tbaa !21
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2137, ptr noundef nonnull @.str.238, ptr noundef %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %92, label %4
@@ -3413,13 +3413,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not1, label %92, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %1, align 8, !tbaa !22
+  %10 = load ptr, ptr %1, align 8, !tbaa !21
   %11 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2141, ptr noundef nonnull @.str.242, ptr noundef %10) #8
   %.not2 = icmp eq i32 %11, 0
   br i1 %.not2, label %92, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %1, align 8, !tbaa !22
+  %13 = load ptr, ptr %1, align 8, !tbaa !21
   %14 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2142, ptr noundef nonnull @.str.242, ptr noundef %13) #8
   %.not3 = icmp eq i32 %14, 0
   br i1 %.not3, label %92, label %15
@@ -3433,13 +3433,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not4, label %92, label %20
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %1, align 8, !tbaa !22
+  %21 = load ptr, ptr %1, align 8, !tbaa !21
   %22 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2146, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.266, ptr noundef %21, i64 noundef 256) #8
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %92, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %1, align 8, !tbaa !22
+  %24 = load ptr, ptr %1, align 8, !tbaa !21
   %25 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2147, ptr noundef nonnull @.str.242, ptr noundef %24) #8
   %.not6 = icmp eq i32 %25, 0
   br i1 %.not6, label %92, label %26
@@ -3453,13 +3453,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not7, label %92, label %31
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %1, align 8, !tbaa !22
+  %32 = load ptr, ptr %1, align 8, !tbaa !21
   %33 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2151, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.269, ptr noundef %32, i64 noundef 42) #8
   %.not8 = icmp eq i32 %33, 0
   br i1 %.not8, label %92, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %1, align 8, !tbaa !22
+  %35 = load ptr, ptr %1, align 8, !tbaa !21
   %36 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2152, ptr noundef nonnull @.str.242, ptr noundef %35) #8
   %.not9 = icmp eq i32 %36, 0
   br i1 %.not9, label %92, label %37
@@ -3473,13 +3473,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not10, label %92, label %42
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr %1, align 8, !tbaa !22
+  %43 = load ptr, ptr %1, align 8, !tbaa !21
   %44 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2156, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.292, ptr noundef %43, i64 noundef 4660) #8
   %.not11 = icmp eq i32 %44, 0
   br i1 %.not11, label %92, label %45
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %1, align 8, !tbaa !22
+  %46 = load ptr, ptr %1, align 8, !tbaa !21
   %47 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2157, ptr noundef nonnull @.str.242, ptr noundef %46) #8
   %.not12 = icmp eq i32 %47, 0
   br i1 %.not12, label %92, label %48
@@ -3493,13 +3493,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not13, label %92, label %53
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %1, align 8, !tbaa !22
+  %54 = load ptr, ptr %1, align 8, !tbaa !21
   %55 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2161, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.292, ptr noundef %54, i64 noundef 4660) #8
   %.not14 = icmp eq i32 %55, 0
   br i1 %.not14, label %92, label %56
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr %1, align 8, !tbaa !22
+  %57 = load ptr, ptr %1, align 8, !tbaa !21
   %58 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2162, ptr noundef nonnull @.str.242, ptr noundef %57) #8
   %.not15 = icmp eq i32 %58, 0
   br i1 %.not15, label %92, label %59
@@ -3513,13 +3513,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not16, label %92, label %64
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr %1, align 8, !tbaa !22
+  %65 = load ptr, ptr %1, align 8, !tbaa !21
   %66 = call i32 @test_BN_abs_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2166, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.297, ptr noundef %65, i64 noundef 43981) #8
   %.not17 = icmp eq i32 %66, 0
   br i1 %.not17, label %92, label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %1, align 8, !tbaa !22
+  %68 = load ptr, ptr %1, align 8, !tbaa !21
   %69 = call i32 @test_BN_lt_zero(ptr noundef nonnull @.str.17, i32 noundef 2167, ptr noundef nonnull @.str.242, ptr noundef %68) #8
   %.not18 = icmp eq i32 %69, 0
   br i1 %.not18, label %92, label %70
@@ -3533,13 +3533,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not19, label %92, label %75
 
 75:                                               ; preds = %70
-  %76 = load ptr, ptr %1, align 8, !tbaa !22
+  %76 = load ptr, ptr %1, align 8, !tbaa !21
   %77 = call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2171, ptr noundef nonnull @.str.242, ptr noundef %76) #8
   %.not20 = icmp eq i32 %77, 0
   br i1 %.not20, label %92, label %78
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr %1, align 8, !tbaa !22
+  %79 = load ptr, ptr %1, align 8, !tbaa !21
   %80 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2172, ptr noundef nonnull @.str.242, ptr noundef %79) #8
   %.not21 = icmp eq i32 %80, 0
   br i1 %.not21, label %92, label %81
@@ -3553,13 +3553,13 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
   br i1 %.not22, label %92, label %86
 
 86:                                               ; preds = %81
-  %87 = load ptr, ptr %1, align 8, !tbaa !22
+  %87 = load ptr, ptr %1, align 8, !tbaa !21
   %88 = call i32 @test_BN_eq_word(ptr noundef nonnull @.str.17, i32 noundef 2176, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.301, ptr noundef %87, i64 noundef 123) #8
   %.not23 = icmp eq i32 %88, 0
   br i1 %.not23, label %92, label %89
 
 89:                                               ; preds = %86
-  %90 = load ptr, ptr %1, align 8, !tbaa !22
+  %90 = load ptr, ptr %1, align 8, !tbaa !21
   %91 = call i32 @test_BN_ge_zero(ptr noundef nonnull @.str.17, i32 noundef 2177, ptr noundef nonnull @.str.242, ptr noundef %90) #8
   %.not24 = icmp ne i32 %91, 0
   %spec.select = zext i1 %.not24 to i32
@@ -3567,7 +3567,7 @@ define internal range(i32 0, 2) i32 @test_asc2bn() #1 {
 
 92:                                               ; preds = %89, %81, %86, %70, %75, %78, %59, %64, %67, %48, %53, %56, %37, %42, %45, %26, %31, %34, %15, %20, %23, %4, %9, %12, %0
   %.0 = phi i32 [ 0, %86 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ], [ 0, %59 ], [ 0, %56 ], [ 0, %53 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %89 ]
-  %93 = load ptr, ptr %1, align 8, !tbaa !22
+  %93 = load ptr, ptr %1, align 8, !tbaa !21
   call void @BN_free(ptr noundef %93) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
   ret i32 %.0
@@ -3954,13 +3954,13 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   %5 = getelementptr inbounds [6 x %struct.mpitest_st], ptr @kMPITests, i64 0, i64 %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %6 = tail call ptr @BN_new() #8
-  store ptr %6, ptr %3, align 8, !tbaa !22
+  store ptr %6, ptr %3, align 8, !tbaa !21
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2204, ptr noundef nonnull @.str.238, ptr noundef %6) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %36, label %8
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %5, align 8, !tbaa !27
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
   %10 = call i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef %9) #8
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -3969,7 +3969,7 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   br i1 %.not11, label %36, label %14
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %3, align 8, !tbaa !22
+  %15 = load ptr, ptr %3, align 8, !tbaa !21
   %16 = call i32 @BN_bn2mpi(ptr noundef %15, ptr noundef null) #8
   %17 = sext i32 %16 to i64
   %18 = call i32 @test_size_t_le(ptr noundef nonnull @.str.17, i32 noundef 2208, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, i64 noundef %17, i64 noundef 8) #8
@@ -3977,7 +3977,7 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   br i1 %.not12, label %36, label %19
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr %3, align 8, !tbaa !22
+  %20 = load ptr, ptr %3, align 8, !tbaa !21
   %21 = call i32 @BN_bn2mpi(ptr noundef %20, ptr noundef nonnull %2) #8
   %22 = sext i32 %21 to i64
   %23 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.17, i32 noundef 2211, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.339, i64 noundef %22, i64 noundef %17) #8
@@ -3986,9 +3986,9 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !32
+  %28 = load i64, ptr %27, align 8, !tbaa !31
   %29 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 2212, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef %26, i64 noundef %28, ptr noundef nonnull %2, i64 noundef %17) #8
   %.not14 = icmp eq i32 %29, 0
   br i1 %.not14, label %36, label %30
@@ -4000,7 +4000,7 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   br i1 %.not15, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %3, align 8, !tbaa !22
+  %34 = load ptr, ptr %3, align 8, !tbaa !21
   %35 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 2218, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %34, ptr noundef %31) #8
   %.not16 = icmp ne i32 %35, 0
   call void @BN_free(ptr noundef %31) #8
@@ -4009,7 +4009,7 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
 
 36:                                               ; preds = %33, %30, %19, %24, %14, %1, %8
   %.0 = phi i32 [ 0, %30 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %8 ], [ 0, %1 ], [ %., %33 ]
-  %37 = load ptr, ptr %3, align 8, !tbaa !22
+  %37 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %37) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
@@ -4027,13 +4027,13 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   %6 = getelementptr inbounds [43 x %struct.mpitest_st], ptr @kSignedTests_BE, i64 0, i64 %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %7 = tail call ptr @BN_new() #8
-  store ptr %7, ptr %4, align 8, !tbaa !22
+  store ptr %7, ptr %4, align 8, !tbaa !21
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1935, ptr noundef nonnull @.str.238, ptr noundef %7) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %72, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %6, align 8, !tbaa !27
+  %10 = load ptr, ptr %6, align 8, !tbaa !26
   %11 = call i32 @BN_asc2bn(ptr noundef nonnull %4, ptr noundef %10) #8
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
@@ -4043,8 +4043,8 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !32
-  %18 = load ptr, ptr %4, align 8, !tbaa !22
+  %17 = load i64, ptr %16, align 8, !tbaa !31
+  %18 = load ptr, ptr %4, align 8, !tbaa !21
   %19 = call i32 @BN_signed_bn2bin(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 10) #8
   %20 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1946, ptr noundef nonnull @.str.354, ptr noundef nonnull @.str.340, i32 noundef %19, i32 noundef 10) #8
   %.not22 = icmp eq i32 %20, 0
@@ -4058,13 +4058,13 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   %.011.i = phi i64 [ 10, %21 ], [ %27, %23 ]
   %.0710.i = phi ptr [ %2, %21 ], [ %25, %23 ]
   %.089.i = phi ptr [ %22, %21 ], [ %26, %23 ]
-  %24 = load i8, ptr %.0710.i, align 1, !tbaa !33
-  store i8 %24, ptr %.089.i, align 1, !tbaa !33
+  %24 = load i8, ptr %.0710.i, align 1, !tbaa !32
+  store i8 %24, ptr %.089.i, align 1, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 1
   %26 = getelementptr inbounds i8, ptr %.089.i, i64 -1
   %27 = add nsw i64 %.011.i, -1
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %copy_reversed.exit, label %23, !llvm.loop !34
+  br i1 %.not.i, label %copy_reversed.exit, label %23, !llvm.loop !33
 
 copy_reversed.exit:                               ; preds = %23
   %28 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1947, ptr noundef nonnull @.str.355, i32 noundef 1) #8
@@ -4073,7 +4073,7 @@ copy_reversed.exit:                               ; preds = %23
 
 29:                                               ; preds = %copy_reversed.exit
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !31
+  %31 = load ptr, ptr %30, align 8, !tbaa !30
   %32 = shl i64 %17, 32
   %sext = sub i64 42949672960, %32
   %33 = ashr exact i64 %sext, 32
@@ -4089,7 +4089,7 @@ copy_reversed.exit:                               ; preds = %23
   br i1 %.not25, label %72, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %4, align 8, !tbaa !22
+  %40 = load ptr, ptr %4, align 8, !tbaa !21
   %41 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1952, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %40, ptr noundef %37) #8
   %.not26 = icmp eq i32 %41, 0
   br i1 %.not26, label %72, label %42
@@ -4102,14 +4102,14 @@ copy_reversed.exit:                               ; preds = %23
   br i1 %.not27, label %72, label %45
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %4, align 8, !tbaa !22
+  %46 = load ptr, ptr %4, align 8, !tbaa !21
   %47 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1960, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %46, ptr noundef %43) #8
   %.not28 = icmp eq i32 %47, 0
   br i1 %.not28, label %72, label %48
 
 48:                                               ; preds = %45
   call void @BN_free(ptr noundef %43) #8
-  %49 = load ptr, ptr %4, align 8, !tbaa !22
+  %49 = load ptr, ptr %4, align 8, !tbaa !21
   %50 = call i32 @BN_signed_bn2lebin(ptr noundef %49, ptr noundef nonnull %2, i32 noundef 10) #8
   %51 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 1973, ptr noundef nonnull @.str.359, ptr noundef nonnull @.str.340, i32 noundef %50, i32 noundef 10) #8
   %.not29 = icmp eq i32 %51, 0
@@ -4119,13 +4119,13 @@ copy_reversed.exit:                               ; preds = %23
   %.011.i37 = phi i64 [ %55, %.preheader ], [ 10, %48 ]
   %.0710.i38 = phi ptr [ %53, %.preheader ], [ %2, %48 ]
   %.089.i39 = phi ptr [ %54, %.preheader ], [ %22, %48 ]
-  %52 = load i8, ptr %.0710.i38, align 1, !tbaa !33
-  store i8 %52, ptr %.089.i39, align 1, !tbaa !33
+  %52 = load i8, ptr %.0710.i38, align 1, !tbaa !32
+  store i8 %52, ptr %.089.i39, align 1, !tbaa !32
   %53 = getelementptr inbounds nuw i8, ptr %.0710.i38, i64 1
   %54 = getelementptr inbounds i8, ptr %.089.i39, i64 -1
   %55 = add nsw i64 %.011.i37, -1
   %.not.i40 = icmp eq i64 %55, 0
-  br i1 %.not.i40, label %copy_reversed.exit41, label %.preheader, !llvm.loop !34
+  br i1 %.not.i40, label %copy_reversed.exit41, label %.preheader, !llvm.loop !33
 
 copy_reversed.exit41:                             ; preds = %.preheader
   %56 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1974, ptr noundef nonnull @.str.355, i32 noundef 1) #8
@@ -4145,7 +4145,7 @@ copy_reversed.exit41:                             ; preds = %.preheader
   br i1 %.not33, label %72, label %63
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %4, align 8, !tbaa !22
+  %64 = load ptr, ptr %4, align 8, !tbaa !21
   %65 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1979, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %64, ptr noundef %61) #8
   %.not34 = icmp eq i32 %65, 0
   br i1 %.not34, label %72, label %66
@@ -4158,7 +4158,7 @@ copy_reversed.exit41:                             ; preds = %.preheader
   br i1 %.not35, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr %4, align 8, !tbaa !22
+  %70 = load ptr, ptr %4, align 8, !tbaa !21
   %71 = call i32 @test_BN_eq(ptr noundef nonnull @.str.17, i32 noundef 1987, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.345, ptr noundef %70, ptr noundef %67) #8
   %.not36 = icmp ne i32 %71, 0
   %spec.select = zext i1 %.not36 to i32
@@ -4168,7 +4168,7 @@ copy_reversed.exit41:                             ; preds = %.preheader
   %.020 = phi ptr [ %67, %66 ], [ %61, %63 ], [ %61, %60 ], [ null, %57 ], [ null, %copy_reversed.exit41 ], [ null, %48 ], [ %43, %45 ], [ %43, %42 ], [ %37, %39 ], [ %37, %36 ], [ null, %29 ], [ null, %copy_reversed.exit ], [ null, %15 ], [ null, %9 ], [ null, %1 ], [ %67, %69 ]
   %.0 = phi i32 [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %copy_reversed.exit41 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %29 ], [ 0, %copy_reversed.exit ], [ 0, %15 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %69 ]
   call void @BN_free(ptr noundef %.020) #8
-  %73 = load ptr, ptr %4, align 8, !tbaa !22
+  %73 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %73) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #8
@@ -4212,7 +4212,7 @@ define internal range(i32 0, 2) i32 @test_negzero() #1 {
 17:                                               ; preds = %12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef 1) #8
   tail call void @BN_zero_ex(ptr noundef %4) #8
-  %18 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %18 = load ptr, ptr @ctx, align 8, !tbaa !6
   %19 = tail call i32 @BN_mul(ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %18) #8
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
@@ -4269,7 +4269,7 @@ define internal range(i32 0, 2) i32 @test_negzero() #1 {
 
 44:                                               ; preds = %39
   tail call void @BN_set_negative(ptr noundef %27, i32 noundef 1) #8
-  %45 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %45 = load ptr, ptr @ctx, align 8, !tbaa !6
   %46 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %27, ptr noundef %30, ptr noundef %45) #8
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
@@ -4296,7 +4296,7 @@ define internal range(i32 0, 2) i32 @test_negzero() #1 {
   br i1 %.not63, label %.loopexit, label %59
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %60 = load ptr, ptr @ctx, align 8, !tbaa !6
   %61 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %27, ptr noundef %30, ptr noundef %60) #8
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
@@ -4317,7 +4317,7 @@ define internal range(i32 0, 2) i32 @test_negzero() #1 {
 69:                                               ; preds = %67
   tail call void @BN_free(ptr noundef %27) #8
   tail call void @BN_free(ptr noundef %30) #8
-  br i1 %.not57, label %.preheader, label %70, !llvm.loop !35
+  br i1 %.not57, label %.preheader, label %70, !llvm.loop !34
 
 70:                                               ; preds = %69
   tail call void @BN_zero_ex(ptr noundef %1) #8
@@ -4371,7 +4371,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
 12:                                               ; preds = %9
   tail call void @BN_zero_ex(ptr noundef %7) #8
   %13 = tail call ptr @BN_value_one() #8
-  %14 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %14 = load ptr, ptr @ctx, align 8, !tbaa !6
   %15 = tail call i32 @BN_div(ptr noundef %1, ptr noundef %4, ptr noundef %13, ptr noundef %7, ptr noundef %14) #8
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
@@ -4383,7 +4383,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   tail call void @ERR_clear_error() #8
   %20 = tail call ptr @BN_value_one() #8
   %21 = tail call ptr @BN_value_one() #8
-  %22 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %22 = load ptr, ptr @ctx, align 8, !tbaa !6
   %23 = tail call i32 @BN_mod_mul(ptr noundef %1, ptr noundef %20, ptr noundef %21, ptr noundef %7, ptr noundef %22) #8
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32
@@ -4395,7 +4395,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   tail call void @ERR_clear_error() #8
   %28 = tail call ptr @BN_value_one() #8
   %29 = tail call ptr @BN_value_one() #8
-  %30 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %30 = load ptr, ptr @ctx, align 8, !tbaa !6
   %31 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %28, ptr noundef %29, ptr noundef %7, ptr noundef %30) #8
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
@@ -4407,7 +4407,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   tail call void @ERR_clear_error() #8
   %36 = tail call ptr @BN_value_one() #8
   %37 = tail call ptr @BN_value_one() #8
-  %38 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %38 = load ptr, ptr @ctx, align 8, !tbaa !6
   %39 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %36, ptr noundef %37, ptr noundef %7, ptr noundef %38, ptr noundef null) #8
   %40 = icmp ne i32 %39, 0
   %41 = zext i1 %40 to i32
@@ -4419,7 +4419,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   tail call void @ERR_clear_error() #8
   %44 = tail call ptr @BN_value_one() #8
   %45 = tail call ptr @BN_value_one() #8
-  %46 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %46 = load ptr, ptr @ctx, align 8, !tbaa !6
   %47 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %44, ptr noundef %45, ptr noundef %7, ptr noundef %46, ptr noundef null) #8
   %48 = icmp ne i32 %47, 0
   %49 = zext i1 %48 to i32
@@ -4429,7 +4429,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
 
 51:                                               ; preds = %43
   tail call void @ERR_clear_error() #8
-  %52 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %52 = load ptr, ptr @ctx, align 8, !tbaa !6
   %53 = tail call i32 @BN_MONT_CTX_set(ptr noundef %10, ptr noundef %7, ptr noundef %52) #8
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
@@ -4447,7 +4447,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   br i1 %.not37, label %85, label %62
 
 62:                                               ; preds = %57
-  %63 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %63 = load ptr, ptr @ctx, align 8, !tbaa !6
   %64 = tail call i32 @BN_MONT_CTX_set(ptr noundef %10, ptr noundef %4, ptr noundef %63) #8
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
@@ -4459,7 +4459,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   tail call void @ERR_clear_error() #8
   %69 = tail call ptr @BN_value_one() #8
   %70 = tail call ptr @BN_value_one() #8
-  %71 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %71 = load ptr, ptr @ctx, align 8, !tbaa !6
   %72 = tail call i32 @BN_mod_exp_mont(ptr noundef %1, ptr noundef %69, ptr noundef %70, ptr noundef %4, ptr noundef %71, ptr noundef null) #8
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
@@ -4471,7 +4471,7 @@ define internal range(i32 0, 2) i32 @test_badmod() #1 {
   tail call void @ERR_clear_error() #8
   %77 = tail call ptr @BN_value_one() #8
   %78 = tail call ptr @BN_value_one() #8
-  %79 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %79 = load ptr, ptr @ctx, align 8, !tbaa !6
   %80 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %1, ptr noundef %77, ptr noundef %78, ptr noundef %4, ptr noundef %79, ptr noundef null) #8
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i32
@@ -4723,7 +4723,7 @@ define internal range(i32 0, 2) i32 @test_expmodone() #1 {
   %71 = zext i1 %70 to i32
   %72 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 2592, ptr noundef nonnull @.str.470, i32 noundef %71) #8
   %.not53 = icmp eq i32 %72, 0
-  br i1 %.not53, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not53, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit.loopexit.split.loop.exit111:            ; preds = %67
   %not..not64.le = xor i1 %.not64, true
@@ -5063,7 +5063,7 @@ define internal range(i32 0, 2) i32 @test_ctx_consttime_flag() #1 {
 14:                                               ; preds = %13, %11
   %15 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %15, 15
-  br i1 %exitcond.not.i, label %test_ctx_set_ct_flag.exit, label %8, !llvm.loop !37
+  br i1 %exitcond.not.i, label %test_ctx_set_ct_flag.exit, label %8, !llvm.loop !36
 
 test_ctx_set_ct_flag.exit:                        ; preds = %8, %14
   %.08.i = phi i32 [ 0, %8 ], [ 1, %14 ]
@@ -5079,7 +5079,7 @@ test_ctx_set_ct_flag.exit:                        ; preds = %8, %14
 18:                                               ; preds = %23
   %19 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i20 = icmp eq i64 %19, 30
-  br i1 %exitcond.not.i20, label %test_ctx_check_ct_flag.exit, label %20, !llvm.loop !38
+  br i1 %exitcond.not.i20, label %test_ctx_check_ct_flag.exit, label %20, !llvm.loop !37
 
 20:                                               ; preds = %18, %17
   %.09.i = phi i64 [ 0, %17 ], [ %19, %18 ]
@@ -5138,7 +5138,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
 9:                                                ; preds = %53
   %10 = add nuw nsw i32 %.02035, 1
   %exitcond.not = icmp eq i32 %10, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .preheader:                                       ; preds = %6, %9
   %.02035 = phi i32 [ %10, %9 ], [ 0, %6 ]
@@ -5157,21 +5157,21 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
   br i1 %.not26, label %.loopexit, label %19
 
 19:                                               ; preds = %15
-  %20 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %20 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %21 = add i32 %20, 1
-  store i32 %21, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %21, ptr @rand_neg.neg, align 4, !tbaa !12
   %22 = and i32 %20, 7
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !13
+  %25 = load i32, ptr %24, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %25) #8
-  %26 = load i32, ptr @rand_neg.neg, align 4, !tbaa !13
+  %26 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
   %27 = add i32 %26, 1
-  store i32 %27, ptr @rand_neg.neg, align 4, !tbaa !13
+  store i32 %27, ptr @rand_neg.neg, align 4, !tbaa !12
   %28 = and i32 %26, 7
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !13
+  %31 = load i32, ptr %30, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %31) #8
   %32 = tail call i32 @BN_GF2m_add(ptr noundef %7, ptr noundef %1, ptr noundef %4) #8
   %33 = icmp ne i32 %32, 0
@@ -5293,7 +5293,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_mod() #1 {
   br i1 %.not31, label %.loopexit, label %.preheader
 
 32:                                               ; preds = %48
-  br i1 %33, label %.preheader, label %50, !llvm.loop !40
+  br i1 %33, label %.preheader, label %50, !llvm.loop !39
 
 .preheader:                                       ; preds = %.preheader36, %32
   %33 = phi i1 [ false, %32 ], [ true, %.preheader36 ]
@@ -5329,7 +5329,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_mod() #1 {
 50:                                               ; preds = %32
   %51 = add nuw nsw i32 %.02039, 1
   %exitcond.not = icmp eq i32 %51, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader36, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %.preheader36, !llvm.loop !40
 
 .loopexit:                                        ; preds = %50, %.preheader36, %.preheader, %38, %43, %48, %18, %23, %0, %3, %6, %9, %12, %15
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %4, %23 ], [ %4, %48 ], [ %4, %43 ], [ %4, %38 ], [ %4, %.preheader ], [ %4, %.preheader36 ], [ %4, %50 ]
@@ -5444,12 +5444,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
   br i1 %.not56, label %.loopexit, label %.preheader
 
 51:                                               ; preds = %85
-  br i1 %52, label %.preheader, label %87, !llvm.loop !42
+  br i1 %52, label %.preheader, label %87, !llvm.loop !41
 
 .preheader:                                       ; preds = %46, %51
   %52 = phi i1 [ false, %51 ], [ true, %46 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %51 ], [ %4, %46 ]
-  %53 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %53 = load ptr, ptr @ctx, align 8, !tbaa !6
   %54 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #8
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -5466,7 +5466,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
   br i1 %.not58, label %.loopexit, label %63
 
 63:                                               ; preds = %58
-  %64 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %64 = load ptr, ptr @ctx, align 8, !tbaa !6
   %65 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %22, ptr noundef %19, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %64) #8
   %66 = icmp ne i32 %65, 0
   %67 = zext i1 %66 to i32
@@ -5475,7 +5475,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
   br i1 %.not59, label %.loopexit, label %69
 
 69:                                               ; preds = %63
-  %70 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %70 = load ptr, ptr @ctx, align 8, !tbaa !6
   %71 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %25, ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %70) #8
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
@@ -5507,7 +5507,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_mul() #1 {
 87:                                               ; preds = %51
   %88 = add nuw nsw i32 %.03767, 1
   %exitcond.not = icmp eq i32 %88, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader64, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %.preheader64, !llvm.loop !42
 
 .loopexit:                                        ; preds = %87, %.preheader64, %41, %46, %.preheader, %58, %63, %69, %75, %80, %85, %27, %32, %0, %3, %6, %9, %12, %15, %18, %21, %24
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %4, %21 ], [ %4, %24 ], [ %4, %27 ], [ %4, %32 ], [ %4, %85 ], [ %4, %80 ], [ %4, %75 ], [ %4, %69 ], [ %4, %63 ], [ %4, %58 ], [ %4, %.preheader ], [ %4, %46 ], [ %4, %41 ], [ %4, %.preheader64 ], [ %4, %87 ]
@@ -5588,12 +5588,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_sqr() #1 {
   br i1 %.not31, label %.loopexit, label %.preheader
 
 29:                                               ; preds = %52
-  br i1 %30, label %.preheader, label %54, !llvm.loop !44
+  br i1 %30, label %.preheader, label %54, !llvm.loop !43
 
 .preheader:                                       ; preds = %.preheader37, %29
   %30 = phi i1 [ false, %29 ], [ true, %.preheader37 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %29 ], [ %4, %.preheader37 ]
-  %31 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %31 = load ptr, ptr @ctx, align 8, !tbaa !6
   %32 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %31) #8
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
@@ -5610,7 +5610,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_sqr() #1 {
   br i1 %.not33, label %.loopexit, label %41
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %42 = load ptr, ptr @ctx, align 8, !tbaa !6
   %43 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %13, ptr noundef %1, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #8
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
@@ -5634,7 +5634,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_sqr() #1 {
 54:                                               ; preds = %29
   %55 = add nuw nsw i32 %.02240, 1
   %exitcond.not = icmp eq i32 %55, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader37, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %.preheader37, !llvm.loop !44
 
 .loopexit:                                        ; preds = %54, %.preheader37, %.preheader, %36, %41, %47, %52, %15, %20, %0, %3, %6, %9, %12
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %20 ], [ %4, %52 ], [ %4, %47 ], [ %4, %41 ], [ %4, %36 ], [ %4, %.preheader ], [ %4, %.preheader37 ], [ %4, %54 ]
@@ -5698,7 +5698,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
   br i1 %.not28, label %.loopexit, label %25
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %26 = load ptr, ptr @ctx, align 8, !tbaa !6
   %27 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %10, ptr noundef %1, ptr noundef %4, ptr noundef %26) #8
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
@@ -5732,12 +5732,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
   br i1 %.not32, label %.loopexit, label %.preheader
 
 45:                                               ; preds = %58
-  br i1 %46, label %.preheader, label %60, !llvm.loop !46
+  br i1 %46, label %.preheader, label %60, !llvm.loop !45
 
 .preheader:                                       ; preds = %.preheader36, %45
   %46 = phi i1 [ false, %45 ], [ true, %.preheader36 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %45 ], [ %4, %.preheader36 ]
-  %47 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %47 = load ptr, ptr @ctx, align 8, !tbaa !6
   %48 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %47) #8
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -5746,7 +5746,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
   br i1 %.not33, label %.loopexit, label %52
 
 52:                                               ; preds = %.preheader
-  %53 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %53 = load ptr, ptr @ctx, align 8, !tbaa !6
   %54 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %13, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #8
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -5762,7 +5762,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modinv() #1 {
 60:                                               ; preds = %45
   %61 = add nuw nsw i32 %.02039, 1
   %exitcond.not = icmp eq i32 %61, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader36, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %.preheader36, !llvm.loop !46
 
 .loopexit:                                        ; preds = %60, %.preheader36, %.preheader, %52, %58, %31, %36, %25, %20, %15, %0, %3, %6, %9, %12
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %20 ], [ %4, %25 ], [ %4, %31 ], [ %4, %36 ], [ %4, %58 ], [ %4, %52 ], [ %4, %.preheader ], [ %4, %.preheader36 ], [ %4, %60 ]
@@ -5855,12 +5855,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
   br i1 %.not39, label %.loopexit, label %.preheader
 
 40:                                               ; preds = %59
-  br i1 %41, label %.preheader, label %61, !llvm.loop !48
+  br i1 %41, label %.preheader, label %61, !llvm.loop !47
 
 .preheader:                                       ; preds = %35, %40
   %41 = phi i1 [ false, %40 ], [ true, %35 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %40 ], [ %4, %35 ]
-  %42 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %42 = load ptr, ptr @ctx, align 8, !tbaa !6
   %43 = tail call i32 @BN_GF2m_mod_div(ptr noundef %13, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #8
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
@@ -5869,7 +5869,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
   br i1 %.not40, label %.loopexit, label %47
 
 47:                                               ; preds = %.preheader
-  %48 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %48 = load ptr, ptr @ctx, align 8, !tbaa !6
   %49 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %48) #8
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -5878,7 +5878,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
   br i1 %.not41, label %.loopexit, label %53
 
 53:                                               ; preds = %47
-  %54 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %54 = load ptr, ptr @ctx, align 8, !tbaa !6
   %55 = tail call i32 @BN_GF2m_mod_div(ptr noundef %19, ptr noundef %1, ptr noundef %16, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %54) #8
   %56 = icmp ne i32 %55, 0
   %57 = zext i1 %56 to i32
@@ -5894,7 +5894,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_moddiv() #1 {
 61:                                               ; preds = %40
   %62 = add nuw nsw i32 %.02547, 1
   %exitcond.not = icmp eq i32 %62, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader44, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.preheader44, !llvm.loop !48
 
 .loopexit:                                        ; preds = %61, %.preheader44, %35, %.preheader, %47, %53, %59, %21, %26, %0, %3, %6, %9, %12, %15, %18
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %4, %21 ], [ %4, %26 ], [ %4, %59 ], [ %4, %53 ], [ %4, %47 ], [ %4, %.preheader ], [ %4, %35 ], [ %4, %.preheader44 ], [ %4, %61 ]
@@ -5999,12 +5999,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
   br i1 %.not51, label %.loopexit, label %.preheader
 
 45:                                               ; preds = %80
-  br i1 %46, label %.preheader, label %82, !llvm.loop !50
+  br i1 %46, label %.preheader, label %82, !llvm.loop !49
 
 .preheader:                                       ; preds = %40, %45
   %46 = phi i1 [ false, %45 ], [ true, %40 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %45 ], [ %4, %40 ]
-  %47 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %47 = load ptr, ptr @ctx, align 8, !tbaa !6
   %48 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %16, ptr noundef %1, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %47) #8
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -6013,7 +6013,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
   br i1 %.not52, label %.loopexit, label %52
 
 52:                                               ; preds = %.preheader
-  %53 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %53 = load ptr, ptr @ctx, align 8, !tbaa !6
   %54 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %19, ptr noundef %1, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %53) #8
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -6022,7 +6022,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
   br i1 %.not53, label %.loopexit, label %58
 
 58:                                               ; preds = %52
-  %59 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %59 = load ptr, ptr @ctx, align 8, !tbaa !6
   %60 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %16, ptr noundef %16, ptr noundef %19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %59) #8
   %61 = icmp ne i32 %60, 0
   %62 = zext i1 %61 to i32
@@ -6039,7 +6039,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
   br i1 %.not55, label %.loopexit, label %69
 
 69:                                               ; preds = %64
-  %70 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %70 = load ptr, ptr @ctx, align 8, !tbaa !6
   %71 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %19, ptr noundef %1, ptr noundef %19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %70) #8
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
@@ -6063,7 +6063,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modexp() #1 {
 82:                                               ; preds = %45
   %83 = add nuw nsw i32 %.03662, 1
   %exitcond.not = icmp eq i32 %83, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader59, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %.preheader59, !llvm.loop !50
 
 .loopexit:                                        ; preds = %82, %.preheader59, %35, %40, %.preheader, %52, %58, %64, %69, %75, %80, %21, %26, %0, %3, %6, %9, %12, %15, %18
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %4, %21 ], [ %4, %26 ], [ %4, %80 ], [ %4, %75 ], [ %4, %69 ], [ %4, %64 ], [ %4, %58 ], [ %4, %52 ], [ %4, %.preheader ], [ %4, %40 ], [ %4, %35 ], [ %4, %.preheader59 ], [ %4, %82 ]
@@ -6152,7 +6152,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
   br i1 %.not37, label %.loopexit, label %.preheader
 
 35:                                               ; preds = %58
-  br i1 %36, label %.preheader, label %60, !llvm.loop !52
+  br i1 %36, label %.preheader, label %60, !llvm.loop !51
 
 .preheader:                                       ; preds = %.preheader43, %35
   %36 = phi i1 [ false, %35 ], [ true, %.preheader43 ]
@@ -6165,7 +6165,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
   br i1 %.not38, label %.loopexit, label %41
 
 41:                                               ; preds = %.preheader
-  %42 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %42 = load ptr, ptr @ctx, align 8, !tbaa !6
   %43 = tail call i32 @BN_GF2m_mod_sqrt(ptr noundef %13, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %42) #8
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
@@ -6174,7 +6174,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
   br i1 %.not39, label %.loopexit, label %47
 
 47:                                               ; preds = %41
-  %48 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %48 = load ptr, ptr @ctx, align 8, !tbaa !6
   %49 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %16, ptr noundef %13, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %48) #8
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -6198,7 +6198,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsqrt() #1 {
 60:                                               ; preds = %35
   %61 = add nuw nsw i32 %.02446, 1
   %exitcond.not = icmp eq i32 %61, 100
-  br i1 %exitcond.not, label %.loopexit, label %.preheader43, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %.preheader43, !llvm.loop !52
 
 .loopexit:                                        ; preds = %60, %.preheader43, %.preheader, %41, %47, %53, %58, %21, %26, %0, %3, %6, %9, %12, %15, %18
   %.sroa.0.0 = phi ptr [ null, %0 ], [ %4, %3 ], [ %4, %6 ], [ %4, %9 ], [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %4, %21 ], [ %4, %26 ], [ %4, %58 ], [ %4, %53 ], [ %4, %47 ], [ %4, %41 ], [ %4, %.preheader ], [ %4, %.preheader43 ], [ %4, %60 ]
@@ -6285,14 +6285,14 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsolvequad() #1 {
   %32 = phi i1 [ false, %59 ], [ true, %.preheader49 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %59 ], [ %4, %.preheader49 ]
   %.155 = phi i32 [ %.2, %59 ], [ %.02857, %.preheader49 ]
-  %33 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %33 = load ptr, ptr @ctx, align 8, !tbaa !6
   %34 = tail call i32 @BN_GF2m_mod_solve_quad(ptr noundef %10, ptr noundef %1, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %33) #8
   %.not43 = icmp eq i32 %34, 0
   br i1 %.not43, label %59, label %35
 
 35:                                               ; preds = %.preheader
   %36 = add nsw i32 %.155, 1
-  %37 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %37 = load ptr, ptr @ctx, align 8, !tbaa !6
   %38 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %13, ptr noundef %10, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %37) #8
   %39 = icmp ne i32 %38, 0
   %40 = zext i1 %39 to i32
@@ -6331,12 +6331,12 @@ define internal range(i32 0, 2) i32 @test_gf2m_modsolvequad() #1 {
 
 59:                                               ; preds = %.preheader, %57
   %.2 = phi i32 [ %36, %57 ], [ %.155, %.preheader ]
-  br i1 %32, label %.preheader, label %60, !llvm.loop !54
+  br i1 %32, label %.preheader, label %60, !llvm.loop !53
 
 60:                                               ; preds = %59
   %61 = add nuw nsw i32 %.03056, 1
   %exitcond.not = icmp eq i32 %61, 100
-  br i1 %exitcond.not, label %62, label %.preheader49, !llvm.loop !55
+  br i1 %exitcond.not, label %62, label %.preheader49, !llvm.loop !54
 
 62:                                               ; preds = %60
   %63 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 1121, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.69, i32 noundef %.2, i32 noundef 0) #8
@@ -6373,7 +6373,7 @@ define internal range(i32 0, 2) i32 @test_is_prime(i32 noundef %0) #1 {
 .preheader:                                       ; preds = %1
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [5 x i32], ptr @primes, i64 0, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sext i32 %6 to i64
   br label %8
 
@@ -6387,7 +6387,7 @@ define internal range(i32 0, 2) i32 @test_is_prime(i32 noundef %0) #1 {
   br i1 %.not7, label %.loopexit, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %14 = load ptr, ptr @ctx, align 8, !tbaa !6
   %15 = tail call i32 @BN_check_prime(ptr noundef %2, ptr noundef %14, ptr noundef null) #8
   %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2683, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.123, i32 noundef %15, i32 noundef 1) #8
   %.not8 = icmp eq i32 %16, 0
@@ -6415,7 +6415,7 @@ define internal range(i32 0, 2) i32 @test_not_prime(i32 noundef %0) #1 {
 .preheader:                                       ; preds = %1
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [4 x i32], ptr @not_primes, i64 0, i64 %4
-  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sext i32 %6 to i64
   br label %8
 
@@ -6429,7 +6429,7 @@ define internal range(i32 0, 2) i32 @test_not_prime(i32 noundef %0) #1 {
   br i1 %.not7, label %.loopexit, label %13
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %14 = load ptr, ptr @ctx, align 8, !tbaa !6
   %15 = tail call i32 @BN_check_prime(ptr noundef %2, ptr noundef %14, ptr noundef null) #8
   %16 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2706, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.69, i32 noundef %15, i32 noundef 0) #8
   %.not8 = icmp eq i32 %16, 0
@@ -6477,7 +6477,7 @@ define internal range(i32 0, 2) i32 @test_gcd_prime() #1 {
 14:                                               ; preds = %31
   %15 = add nuw nsw i32 %.01323, 1
   %exitcond.not = icmp eq i32 %15, 20
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !55
 
 .preheader:                                       ; preds = %9, %14
   %.01323 = phi i32 [ %15, %14 ], [ 0, %9 ]
@@ -6489,7 +6489,7 @@ define internal range(i32 0, 2) i32 @test_gcd_prime() #1 {
   br i1 %.not19, label %.loopexit, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %21 = load ptr, ptr @ctx, align 8, !tbaa !6
   %22 = tail call i32 @BN_gcd(ptr noundef %7, ptr noundef %1, ptr noundef %4, ptr noundef %21) #8
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
@@ -6506,7 +6506,7 @@ define internal range(i32 0, 2) i32 @test_gcd_prime() #1 {
   br i1 %.not21, label %.loopexit, label %31
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %32 = load ptr, ptr @ctx, align 8, !tbaa !6
   %33 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %32) #8
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
@@ -6554,14 +6554,14 @@ define internal range(i32 0, 2) i32 @test_coprime() #1 {
   br i1 %.not15, label %39, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %17 = load ptr, ptr @ctx, align 8, !tbaa !6
   %18 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %17) #8
   %19 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2811, ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.69, i32 noundef %18, i32 noundef 0) #8
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %39, label %20
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %21 = load ptr, ptr @ctx, align 8, !tbaa !6
   %22 = tail call i32 @BN_are_coprime(ptr noundef %4, ptr noundef %1, ptr noundef %21) #8
   %23 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2812, ptr noundef nonnull @.str.564, ptr noundef nonnull @.str.69, i32 noundef %22, i32 noundef 0) #8
   %.not17 = icmp eq i32 %23, 0
@@ -6576,14 +6576,14 @@ define internal range(i32 0, 2) i32 @test_coprime() #1 {
   br i1 %.not18, label %39, label %29
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %30 = load ptr, ptr @ctx, align 8, !tbaa !6
   %31 = tail call i32 @BN_are_coprime(ptr noundef %1, ptr noundef %4, ptr noundef %30) #8
   %32 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2814, ptr noundef nonnull @.str.561, ptr noundef nonnull @.str.123, i32 noundef %31, i32 noundef 1) #8
   %.not19 = icmp eq i32 %32, 0
   br i1 %.not19, label %39, label %33
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %34 = load ptr, ptr @ctx, align 8, !tbaa !6
   %35 = tail call i32 @BN_are_coprime(ptr noundef %4, ptr noundef %1, ptr noundef %34) #8
   %36 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2815, ptr noundef nonnull @.str.564, ptr noundef nonnull @.str.123, i32 noundef %35, i32 noundef 1) #8
   %37 = icmp ne i32 %36, 0
@@ -6606,18 +6606,18 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @BN_new() #8
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3067, ptr noundef nonnull @.str.566, ptr noundef %7) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %45, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %6, align 16, !tbaa !57
+  %10 = load ptr, ptr %6, align 16, !tbaa !56
   %11 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef %10) #8
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
@@ -6627,7 +6627,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !59
+  %17 = load ptr, ptr %16, align 8, !tbaa !58
   %18 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef %17) #8
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -6637,7 +6637,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = load ptr, ptr %23, align 16, !tbaa !60
+  %24 = load ptr, ptr %23, align 16, !tbaa !59
   %25 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %24) #8
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
@@ -6646,10 +6646,10 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   br i1 %.not15, label %45, label %29
 
 29:                                               ; preds = %22
-  %30 = load ptr, ptr %2, align 8, !tbaa !22
-  %31 = load ptr, ptr %3, align 8, !tbaa !22
-  %32 = load ptr, ptr %4, align 8, !tbaa !22
-  %33 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %30 = load ptr, ptr %2, align 8, !tbaa !21
+  %31 = load ptr, ptr %3, align 8, !tbaa !21
+  %32 = load ptr, ptr %4, align 8, !tbaa !21
+  %33 = load ptr, ptr @ctx, align 8, !tbaa !6
   %34 = call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33) #8
   %35 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3073, ptr noundef nonnull @.str.570, ptr noundef nonnull @.str.123, i32 noundef %34, i32 noundef 1) #8
   %.not16 = icmp eq i32 %35, 0
@@ -6664,7 +6664,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
 39:                                               ; preds = %36
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #9
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #9
   %44 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3079, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %37, i64 noundef %40, ptr noundef nonnull %42, i64 noundef %43) #8
   %.not18 = icmp ne i32 %44, 0
@@ -6676,11 +6676,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   %.0 = phi ptr [ %37, %36 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %9 ], [ null, %1 ], [ %37, %39 ]
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.17, i32 noundef 3085) #8
   call void @BN_free(ptr noundef %7) #8
-  %46 = load ptr, ptr %2, align 8, !tbaa !22
+  %46 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_free(ptr noundef %46) #8
-  %47 = load ptr, ptr %3, align 8, !tbaa !22
+  %47 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %47) #8
-  %48 = load ptr, ptr %4, align 8, !tbaa !22
+  %48 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %48) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
@@ -6696,18 +6696,18 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @BN_new() #8
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 3101, ptr noundef nonnull @.str.566, ptr noundef %7) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %48, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %6, align 16, !tbaa !57
+  %10 = load ptr, ptr %6, align 16, !tbaa !56
   %11 = call i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef %10) #8
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
@@ -6717,7 +6717,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !59
+  %17 = load ptr, ptr %16, align 8, !tbaa !58
   %18 = call i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef %17) #8
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -6727,7 +6727,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = load ptr, ptr %23, align 16, !tbaa !60
+  %24 = load ptr, ptr %23, align 16, !tbaa !59
   %25 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %24) #8
   %26 = icmp ne i32 %25, 0
   %27 = zext i1 %26 to i32
@@ -6736,16 +6736,16 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   br i1 %.not15, label %48, label %29
 
 29:                                               ; preds = %22
-  %30 = load ptr, ptr %2, align 8, !tbaa !22
+  %30 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_set_flags(ptr noundef %30, i32 noundef 4) #8
-  %31 = load ptr, ptr %3, align 8, !tbaa !22
+  %31 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_set_flags(ptr noundef %31, i32 noundef 4) #8
-  %32 = load ptr, ptr %4, align 8, !tbaa !22
+  %32 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_set_flags(ptr noundef %32, i32 noundef 4) #8
-  %33 = load ptr, ptr %2, align 8, !tbaa !22
-  %34 = load ptr, ptr %3, align 8, !tbaa !22
-  %35 = load ptr, ptr %4, align 8, !tbaa !22
-  %36 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %33 = load ptr, ptr %2, align 8, !tbaa !21
+  %34 = load ptr, ptr %3, align 8, !tbaa !21
+  %35 = load ptr, ptr %4, align 8, !tbaa !21
+  %36 = load ptr, ptr @ctx, align 8, !tbaa !6
   %37 = call i32 @BN_mod_exp(ptr noundef %7, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36) #8
   %38 = call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3111, ptr noundef nonnull @.str.570, ptr noundef nonnull @.str.123, i32 noundef %37, i32 noundef 1) #8
   %.not16 = icmp eq i32 %38, 0
@@ -6760,7 +6760,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
 42:                                               ; preds = %39
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #9
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !61
+  %45 = load ptr, ptr %44, align 8, !tbaa !60
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #9
   %47 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3117, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %40, i64 noundef %43, ptr noundef nonnull %45, i64 noundef %46) #8
   %.not18 = icmp ne i32 %47, 0
@@ -6772,11 +6772,11 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   %.0 = phi ptr [ %40, %39 ], [ null, %29 ], [ null, %22 ], [ null, %15 ], [ null, %9 ], [ null, %1 ], [ %40, %42 ]
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.17, i32 noundef 3123) #8
   call void @BN_free(ptr noundef %7) #8
-  %49 = load ptr, ptr %2, align 8, !tbaa !22
+  %49 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_free(ptr noundef %49) #8
-  %50 = load ptr, ptr %3, align 8, !tbaa !22
+  %50 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %50) #8
-  %51 = load ptr, ptr %4, align 8, !tbaa !22
+  %51 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %51) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
@@ -6855,7 +6855,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp2_mont() #1 {
 
 38:                                               ; preds = %33
   tail call void @BN_zero_ex(ptr noundef %16) #8
-  %39 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %39 = load ptr, ptr @ctx, align 8, !tbaa !6
   %40 = tail call i32 @BN_mod_exp2_mont(ptr noundef %1, ptr noundef %4, ptr noundef %7, ptr noundef %10, ptr noundef %13, ptr noundef %16, ptr noundef %39, ptr noundef null) #8
   %41 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 3160, ptr noundef nonnull @.str.611, ptr noundef nonnull @.str.69, i32 noundef %40, i32 noundef 0) #8
   %.not31 = icmp ne i32 %41, 0
@@ -6886,11 +6886,11 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
   %.09 = phi i64 [ 0, %0 ], [ %50, %test_rand_range_single.exit ]
   %.068 = phi i32 [ 0, %0 ], [ %49, %test_rand_range_single.exit ]
   %2 = getelementptr inbounds nuw [37 x %struct.anon.0], ptr @rand_range_cases, i64 0, i64 %.09
-  %3 = load i32, ptr %2, align 16, !tbaa !62
+  %3 = load i32, ptr %2, align 16, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !65
+  %5 = load i32, ptr %4, align 4, !tbaa !64
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load double, ptr %6, align 8, !tbaa !66
+  %7 = load double, ptr %6, align 8, !tbaa !65
   %8 = uitofp i32 %5 to double
   %9 = uitofp i32 %3 to double
   %10 = fdiv double %8, %9
@@ -6948,24 +6948,24 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 34:                                               ; preds = %30
   %35 = and i64 %31, 4294967295
   %36 = getelementptr inbounds nuw i64, ptr %13, i64 %35
-  %37 = load i64, ptr %36, align 8, !tbaa !67
+  %37 = load i64, ptr %36, align 8, !tbaa !66
   %38 = add i64 %37, 1
-  store i64 %38, ptr %36, align 8, !tbaa !67
+  store i64 %38, ptr %36, align 8, !tbaa !66
   %39 = add nuw i32 %.04052.i, 1
   %exitcond.not.i = icmp eq i32 %39, %5
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !68
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !67
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %.lr.ph55.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph55.i ], [ 0, %.preheader.i ]
   %.054.i = phi double [ %44, %.lr.ph55.i ], [ 0.000000e+00, %.preheader.i ]
   %40 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
-  %41 = load i64, ptr %40, align 8, !tbaa !67
+  %41 = load i64, ptr %40, align 8, !tbaa !66
   %42 = uitofp i64 %41 to double
   %43 = fsub double %42, %10
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %.054.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next.i, %11
-  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph55.i, !llvm.loop !69
+  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph55.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %.lr.ph55.i, %.preheader.i
   %.0.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %44, %.lr.ph55.i ]
@@ -6989,7 +6989,7 @@ test_rand_range_single.exit:                      ; preds = %.lr.ph.i, %30, %1, 
   %49 = add nuw nsw i32 %.038.i, %.068
   %50 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %50, 37
-  br i1 %exitcond.not, label %51, label %1, !llvm.loop !70
+  br i1 %exitcond.not, label %51, label %1, !llvm.loop !69
 
 51:                                               ; preds = %test_rand_range_single.exit
   %52 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.17, i32 noundef 2398, ptr noundef nonnull @.str.612, ptr noundef nonnull @.str.613, i32 noundef %49, i32 noundef 29) #8
@@ -7021,7 +7021,7 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
 
 .preheader:                                       ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !71
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = tail call i64 @BIO_ctrl(ptr noundef %9, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
   %11 = and i64 %10, 4294967295
   %.not1624 = icmp eq i64 %11, 0
@@ -7045,7 +7045,7 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
   br i1 %.not17, label %.critedge, label %20
 
 20:                                               ; preds = %18
-  %21 = load i32, ptr %12, align 4, !tbaa !74
+  %21 = load i32, ptr %12, align 4, !tbaa !73
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.backedge, label %23
 
@@ -7056,21 +7056,21 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
 .splitthread-pre-split.i:                         ; preds = %findattr.exit.thread.i
   %25 = add nsw i32 %28, -1
   %26 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
-  %.pr.i = load i32, ptr %12, align 4, !tbaa !74
+  %.pr.i = load i32, ptr %12, align 4, !tbaa !73
   br label %.split.i
 
 .split.i:                                         ; preds = %23, %.splitthread-pre-split.i
   %27 = phi i32 [ %.pr.i, %.splitthread-pre-split.i ], [ %21, %23 ]
   %28 = phi i32 [ %25, %.splitthread-pre-split.i ], [ 11, %23 ]
   %.019.i = phi ptr [ %26, %.splitthread-pre-split.i ], [ @file_test_run.filetests, %23 ]
-  %29 = load ptr, ptr %.019.i, align 8, !tbaa !75
+  %29 = load ptr, ptr %.019.i, align 8, !tbaa !74
   %30 = icmp sgt i32 %27, 0
   br i1 %30, label %.lr.ph.i.i, label %findattr.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %.split.i, %34
   %.in.i.i = phi i32 [ %35, %34 ], [ %27, %.split.i ]
   %.011.i.i = phi ptr [ %36, %34 ], [ %13, %.split.i ]
-  %31 = load ptr, ptr %.011.i.i, align 8, !tbaa !77
+  %31 = load ptr, ptr %.011.i.i, align 8, !tbaa !76
   %32 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %31, ptr noundef %29) #8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %findattr.exit.i, label %34
@@ -7079,61 +7079,61 @@ define internal range(i32 0, 2) i32 @run_file_tests(i32 noundef %0) #1 {
   %35 = add nsw i32 %.in.i.i, -1
   %36 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
   %37 = icmp sgt i32 %.in.i.i, 1
-  br i1 %37, label %.lr.ph.i.i, label %findattr.exit.thread.i, !llvm.loop !79
+  br i1 %37, label %.lr.ph.i.i, label %findattr.exit.thread.i, !llvm.loop !78
 
 findattr.exit.i:                                  ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !80
+  %39 = load ptr, ptr %38, align 8, !tbaa !79
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %findattr.exit.thread.i, label %40
 
 40:                                               ; preds = %findattr.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !81
+  %42 = load ptr, ptr %41, align 8, !tbaa !80
   %43 = tail call i32 %42(ptr noundef nonnull %4) #8
   %.not14.i = icmp eq i32 %43, 0
   br i1 %.not14.i, label %44, label %file_test_run.exit
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %4, align 8, !tbaa !82
-  %46 = load i32, ptr %14, align 4, !tbaa !83
+  %45 = load ptr, ptr %4, align 8, !tbaa !81
+  %46 = load i32, ptr %14, align 4, !tbaa !82
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 3300, ptr noundef nonnull @.str.637, ptr noundef %45, i32 noundef %46, ptr noundef %29) #8
   br label %49
 
 findattr.exit.thread.i:                           ; preds = %34, %findattr.exit.i, %.split.i
   %.not26.i = icmp eq i32 %28, 0
-  br i1 %.not26.i, label %.split21.us.i, label %.splitthread-pre-split.i, !llvm.loop !84
+  br i1 %.not26.i, label %.split21.us.i, label %.splitthread-pre-split.i, !llvm.loop !83
 
 .split21.us.i:                                    ; preds = %findattr.exit.thread.i, %23
-  %47 = load ptr, ptr %4, align 8, !tbaa !82
-  %48 = load i32, ptr %14, align 4, !tbaa !83
+  %47 = load ptr, ptr %4, align 8, !tbaa !81
+  %48 = load i32, ptr %14, align 4, !tbaa !82
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.17, i32 noundef 3306, ptr noundef nonnull @.str.638, ptr noundef %47, i32 noundef %48) #8
   br label %49
 
 49:                                               ; preds = %44, %.split21.us.i
-  %50 = load i32, ptr %15, align 8, !tbaa !86
+  %50 = load i32, ptr %15, align 8, !tbaa !85
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %15, align 8, !tbaa !86
+  store i32 %51, ptr %15, align 8, !tbaa !85
   br label %file_test_run.exit
 
 file_test_run.exit:                               ; preds = %40, %49
-  %52 = load i32, ptr %16, align 4, !tbaa !87
+  %52 = load i32, ptr %16, align 4, !tbaa !86
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %16, align 4, !tbaa !87
+  store i32 %53, ptr %16, align 4, !tbaa !86
   tail call void @test_clearstanza(ptr noundef nonnull %4) #8
   br label %.backedge
 
 .backedge:                                        ; preds = %file_test_run.exit, %20
-  %54 = load ptr, ptr %8, align 8, !tbaa !71
+  %54 = load ptr, ptr %8, align 8, !tbaa !70
   %55 = tail call i64 @BIO_ctrl(ptr noundef %54, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
   %56 = and i64 %55, 4294967295
   %.not16 = icmp eq i64 %56, 0
-  br i1 %.not16, label %18, label %.critedge, !llvm.loop !88
+  br i1 %.not16, label %18, label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %18, %.backedge, %.preheader
   %57 = tail call i32 @test_end_file(ptr noundef nonnull %4) #8
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %59 = load i32, ptr %58, align 8, !tbaa !86
+  %59 = load i32, ptr %58, align 8, !tbaa !85
   tail call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef 3334) #8
   %60 = icmp eq i32 %59, 0
   %61 = zext i1 %60 to i32
@@ -7149,7 +7149,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %1 = load ptr, ptr @ctx, align 8, !tbaa !6
   tail call void @BN_CTX_free(ptr noundef %1) #8
   ret void
 }
@@ -7946,7 +7946,7 @@ equalBN.exit.thread:                              ; preds = %29
   br label %91
 
 equalBN.exit:                                     ; preds = %29
-  %33 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %33 = load ptr, ptr @ctx, align 8, !tbaa !6
   %34 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %14, ptr noundef %33) #8
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
@@ -7960,7 +7960,7 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not64, label %91, label %40
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %41 = load ptr, ptr @ctx, align 8, !tbaa !6
   %42 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %17, ptr noundef %5, ptr noundef %14, ptr noundef %41) #8
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
@@ -8026,7 +8026,7 @@ equalBN.exit:                                     ; preds = %29
   br i1 %.not74, label %91, label %76
 
 76:                                               ; preds = %71
-  %77 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %77 = load ptr, ptr @ctx, align 8, !tbaa !6
   %78 = tail call i32 @BN_div(ptr noundef %11, ptr noundef null, ptr noundef %5, ptr noundef %14, ptr noundef %77) #8
   %79 = icmp ne i32 %78, 0
   %80 = zext i1 %79 to i32
@@ -8268,7 +8268,7 @@ define internal range(i32 0, 2) i32 @file_square(ptr noundef readonly captures(n
 
 16:                                               ; preds = %13
   tail call void @BN_zero_ex(ptr noundef %8) #8
-  %17 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %17 = load ptr, ptr @ctx, align 8, !tbaa !6
   %18 = tail call i32 @BN_sqr(ptr noundef %11, ptr noundef %2, ptr noundef %17) #8
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -8287,7 +8287,7 @@ equalBN.exit.thread:                              ; preds = %22
   br label %44
 
 equalBN.exit:                                     ; preds = %22
-  %26 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %26 = load ptr, ptr @ctx, align 8, !tbaa !6
   %27 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %2, ptr noundef %26) #8
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
@@ -8306,7 +8306,7 @@ equalBN.exit42.thread:                            ; preds = %31
   br label %44
 
 equalBN.exit42:                                   ; preds = %31
-  %35 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %35 = load ptr, ptr @ctx, align 8, !tbaa !6
   %36 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %5, ptr noundef %2, ptr noundef %35) #8
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
@@ -8377,7 +8377,7 @@ define internal range(i32 0, 2) i32 @file_product(ptr noundef readonly captures(
 
 19:                                               ; preds = %16
   tail call void @BN_zero_ex(ptr noundef %17) #8
-  %20 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %20 = load ptr, ptr @ctx, align 8, !tbaa !6
   %21 = tail call i32 @BN_mul(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %20) #8
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
@@ -8396,7 +8396,7 @@ equalBN.exit.thread:                              ; preds = %25
   br label %48
 
 equalBN.exit:                                     ; preds = %25
-  %29 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %29 = load ptr, ptr @ctx, align 8, !tbaa !6
   %30 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %8, ptr noundef %2, ptr noundef %29) #8
   %31 = icmp ne i32 %30, 0
   %32 = zext i1 %31 to i32
@@ -8415,7 +8415,7 @@ equalBN.exit:                                     ; preds = %25
   br i1 %.not45, label %48, label %38
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %39 = load ptr, ptr @ctx, align 8, !tbaa !6
   %40 = tail call i32 @BN_div(ptr noundef %11, ptr noundef %14, ptr noundef %8, ptr noundef %5, ptr noundef %39) #8
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
@@ -8492,7 +8492,7 @@ define internal range(i32 0, 2) i32 @file_quotient(ptr noundef readonly captures
   br i1 %.not73, label %.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %23 = load ptr, ptr @ctx, align 8, !tbaa !6
   %24 = tail call i32 @BN_div(ptr noundef %14, ptr noundef %17, ptr noundef %2, ptr noundef %5, ptr noundef %23) #8
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -8516,7 +8516,7 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not76, label %.thread, label %33
 
 33:                                               ; preds = %equalBN.exit
-  %34 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %34 = load ptr, ptr @ctx, align 8, !tbaa !6
   %35 = tail call i32 @BN_mul(ptr noundef %14, ptr noundef %8, ptr noundef %5, ptr noundef %34) #8
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -8602,7 +8602,7 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not87, label %.thread, label %77
 
 77:                                               ; preds = %72, %70
-  %78 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %78 = load ptr, ptr @ctx, align 8, !tbaa !6
   %79 = tail call i32 @BN_nnmod(ptr noundef %14, ptr noundef %2, ptr noundef %5, ptr noundef %78) #8
   %80 = icmp ne i32 %79, 0
   %81 = zext i1 %80 to i32
@@ -8668,7 +8668,7 @@ define internal range(i32 0, 2) i32 @file_modmul(ptr noundef readonly captures(n
   br i1 %.not63, label %81, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %17 = load ptr, ptr @ctx, align 8, !tbaa !6
   %18 = tail call i32 @BN_mod_mul(ptr noundef %14, ptr noundef %2, ptr noundef %5, ptr noundef %8, ptr noundef %17) #8
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -8703,7 +8703,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %or.cond3, label %78, label %34
 
 34:                                               ; preds = %27
-  %35 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %35 = load ptr, ptr @ctx, align 8, !tbaa !6
   %36 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %28, ptr noundef %8, ptr noundef %35) #8
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
@@ -8712,7 +8712,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %.not67, label %78, label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %41 = load ptr, ptr @ctx, align 8, !tbaa !6
   %42 = tail call i32 @BN_nnmod(ptr noundef nonnull %29, ptr noundef %2, ptr noundef %8, ptr noundef %41) #8
   %43 = icmp ne i32 %42, 0
   %44 = zext i1 %43 to i32
@@ -8721,7 +8721,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %.not68, label %78, label %46
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %47 = load ptr, ptr @ctx, align 8, !tbaa !6
   %48 = tail call i32 @BN_nnmod(ptr noundef nonnull %30, ptr noundef %5, ptr noundef %8, ptr noundef %47) #8
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -8730,7 +8730,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %.not69, label %78, label %52
 
 52:                                               ; preds = %46
-  %53 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %53 = load ptr, ptr @ctx, align 8, !tbaa !6
   %54 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %29, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %53) #8
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -8739,7 +8739,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %.not70, label %78, label %58
 
 58:                                               ; preds = %52
-  %59 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %59 = load ptr, ptr @ctx, align 8, !tbaa !6
   %60 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %30, ptr noundef nonnull %30, ptr noundef nonnull %28, ptr noundef %59) #8
   %61 = icmp ne i32 %60, 0
   %62 = zext i1 %61 to i32
@@ -8748,7 +8748,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %.not71, label %78, label %64
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %65 = load ptr, ptr @ctx, align 8, !tbaa !6
   %66 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %14, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %28, ptr noundef %65) #8
   %67 = icmp ne i32 %66, 0
   %68 = zext i1 %67 to i32
@@ -8757,7 +8757,7 @@ equalBN.exit:                                     ; preds = %22
   br i1 %.not72, label %78, label %70
 
 70:                                               ; preds = %64
-  %71 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %71 = load ptr, ptr @ctx, align 8, !tbaa !6
   %72 = tail call i32 @BN_from_montgomery(ptr noundef %14, ptr noundef %14, ptr noundef nonnull %28, ptr noundef %71) #8
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
@@ -8804,11 +8804,11 @@ define internal range(i32 0, 2) i32 @file_modexp(ptr noundef readonly captures(n
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !21
   %5 = tail call fastcc ptr @getBN(ptr noundef %0, ptr noundef nonnull @.str.640)
-  store ptr %5, ptr %2, align 8, !tbaa !22
+  store ptr %5, ptr %2, align 8, !tbaa !21
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1670, ptr noundef nonnull @.str.639, ptr noundef %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %70, label %7
@@ -8844,7 +8844,7 @@ define internal range(i32 0, 2) i32 @file_modexp(ptr noundef readonly captures(n
   br i1 %.not38, label %70, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %23 = load ptr, ptr @ctx, align 8, !tbaa !6
   %24 = tail call i32 @BN_mod_exp(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %23) #8
   %25 = icmp ne i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -8868,7 +8868,7 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not41, label %49, label %33
 
 33:                                               ; preds = %equalBN.exit
-  %34 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %34 = load ptr, ptr @ctx, align 8, !tbaa !6
   %35 = tail call i32 @BN_mod_exp_mont(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %34, ptr noundef null) #8
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -8882,7 +8882,7 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not43, label %70, label %41
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %42 = load ptr, ptr @ctx, align 8, !tbaa !6
   %43 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %17, ptr noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %42, ptr noundef null) #8
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
@@ -8899,10 +8899,10 @@ equalBN.exit:                                     ; preds = %28
   %50 = call i32 @BN_hex2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.775) #8
   %51 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.776) #8
   %52 = call i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.777) #8
-  %53 = load ptr, ptr %2, align 8, !tbaa !22
-  %54 = load ptr, ptr %3, align 8, !tbaa !22
-  %55 = load ptr, ptr %4, align 8, !tbaa !22
-  %56 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %53 = load ptr, ptr %2, align 8, !tbaa !21
+  %54 = load ptr, ptr %3, align 8, !tbaa !21
+  %55 = load ptr, ptr %4, align 8, !tbaa !21
+  %56 = load ptr, ptr @ctx, align 8, !tbaa !6
   %57 = call i32 @BN_mod_exp(ptr noundef %20, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56) #8
   %58 = icmp ne i32 %57, 0
   %59 = zext i1 %58 to i32
@@ -8911,8 +8911,8 @@ equalBN.exit:                                     ; preds = %28
   br i1 %.not46, label %70, label %61
 
 61:                                               ; preds = %49
-  %62 = load ptr, ptr %2, align 8, !tbaa !22
-  %63 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %62 = load ptr, ptr %2, align 8, !tbaa !21
+  %63 = load ptr, ptr @ctx, align 8, !tbaa !6
   %64 = call i32 @BN_mul(ptr noundef %8, ptr noundef %62, ptr noundef %62, ptr noundef %63) #8
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
@@ -8933,11 +8933,11 @@ equalBN.exit:                                     ; preds = %28
   %.030 = phi ptr [ %17, %61 ], [ %17, %49 ], [ %17, %47 ], [ %17, %41 ], [ %17, %39 ], [ %17, %33 ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %1 ], [ %17, %68 ], [ %17, %equalBN.exit.thread ]
   %.029 = phi ptr [ %20, %61 ], [ %20, %49 ], [ %20, %47 ], [ %20, %41 ], [ %20, %39 ], [ %20, %33 ], [ %20, %22 ], [ %20, %19 ], [ null, %16 ], [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %1 ], [ %20, %68 ], [ %20, %equalBN.exit.thread ]
   %.0 = phi i32 [ 0, %61 ], [ 0, %49 ], [ 0, %47 ], [ 0, %41 ], [ 0, %39 ], [ 0, %33 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %68 ], [ 0, %equalBN.exit.thread ]
-  %71 = load ptr, ptr %2, align 8, !tbaa !22
+  %71 = load ptr, ptr %2, align 8, !tbaa !21
   call void @BN_free(ptr noundef %71) #8
-  %72 = load ptr, ptr %3, align 8, !tbaa !22
+  %72 = load ptr, ptr %3, align 8, !tbaa !21
   call void @BN_free(ptr noundef %72) #8
-  %73 = load ptr, ptr %4, align 8, !tbaa !22
+  %73 = load ptr, ptr %4, align 8, !tbaa !21
   call void @BN_free(ptr noundef %73) #8
   call void @BN_free(ptr noundef %.029) #8
   call void @BN_free(ptr noundef %.033) #8
@@ -8976,7 +8976,7 @@ define internal range(i32 0, 2) i32 @file_exp(ptr noundef readonly captures(none
   br i1 %.not17, label %equalBN.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %14 = load ptr, ptr @ctx, align 8, !tbaa !6
   %15 = tail call i32 @BN_exp(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %14) #8
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
@@ -9040,7 +9040,7 @@ define internal range(i32 0, 2) i32 @file_modsqrt(ptr noundef readonly captures(
 16:                                               ; preds = %13
   %17 = tail call i32 @BN_is_negative(ptr noundef %8) #8
   %.not30 = icmp eq i32 %17, 0
-  %18 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %18 = load ptr, ptr @ctx, align 8, !tbaa !6
   %19 = tail call ptr @BN_mod_sqrt(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %18) #8
   br i1 %.not30, label %22, label %20
 
@@ -9116,7 +9116,7 @@ define internal range(i32 0, 2) i32 @file_gcd(ptr noundef readonly captures(none
   br i1 %.not17, label %equalBN.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr @ctx, align 8, !tbaa !7
+  %14 = load ptr, ptr @ctx, align 8, !tbaa !6
   %15 = tail call i32 @BN_gcd(ptr noundef %11, ptr noundef %2, ptr noundef %5, ptr noundef %14) #8
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
@@ -9151,7 +9151,7 @@ define internal fastcc ptr @getBN(ptr noundef readonly captures(none) %0, ptr no
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !74
+  %5 = load i32, ptr %4, align 4, !tbaa !73
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader.i, label %findattr.exit.thread
 
@@ -9162,7 +9162,7 @@ define internal fastcc ptr @getBN(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
   %.in.i = phi i32 [ %12, %11 ], [ %5, %.lr.ph.preheader.i ]
   %.011.i = phi ptr [ %13, %11 ], [ %7, %.lr.ph.preheader.i ]
-  %8 = load ptr, ptr %.011.i, align 8, !tbaa !77
+  %8 = load ptr, ptr %.011.i, align 8, !tbaa !76
   %9 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %8, ptr noundef %1) #8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %findattr.exit, label %11
@@ -9171,23 +9171,23 @@ define internal fastcc ptr @getBN(ptr noundef readonly captures(none) %0, ptr no
   %12 = add nsw i32 %.in.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %14 = icmp sgt i32 %.in.i, 1
-  br i1 %14, label %.lr.ph.i, label %findattr.exit.thread, !llvm.loop !79
+  br i1 %14, label %.lr.ph.i, label %findattr.exit.thread, !llvm.loop !78
 
 findattr.exit:                                    ; preds = %.lr.ph.i
   %15 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !80
+  %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = icmp eq ptr %16, null
   br i1 %17, label %findattr.exit.thread, label %21
 
 findattr.exit.thread:                             ; preds = %11, %2, %findattr.exit
-  %18 = load ptr, ptr %0, align 8, !tbaa !82
+  %18 = load ptr, ptr %0, align 8, !tbaa !81
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !83
+  %20 = load i32, ptr %19, align 4, !tbaa !82
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 102, ptr noundef nonnull @.str.686, ptr noundef %18, i32 noundef %20, ptr noundef %1) #8
   br label %28
 
 21:                                               ; preds = %findattr.exit
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   %22 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull %16) #8
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
   %24 = trunc i64 %23 to i32
@@ -9199,7 +9199,7 @@ findattr.exit.thread:                             ; preds = %11, %2, %findattr.e
   br label %28
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %3, align 8, !tbaa !22
+  %27 = load ptr, ptr %3, align 8, !tbaa !21
   br label %28
 
 28:                                               ; preds = %26, %25, %findattr.exit.thread
@@ -9254,88 +9254,87 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS10bignum_ctx", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = distinct !{!12, !5, !6}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !10, i64 0}
-!15 = distinct !{!15, !5, !6}
-!16 = !{!17, !14, i64 0}
-!17 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!18 = !{!17, !14, i64 4}
-!19 = !{!17, !14, i64 8}
-!20 = !{!17, !14, i64 12}
-!21 = distinct !{!21, !5, !6}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!24 = !{ptr @BN_mod_exp_recp, ptr @BN_mod_exp_simple}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"mpitest_st", !29, i64 0, !29, i64 8, !30, i64 16}
-!29 = !{!"p1 omnipotent char", !9, i64 0}
-!30 = !{!"long", !10, i64 0}
-!31 = !{!28, !29, i64 8}
-!32 = !{!28, !30, i64 16}
-!33 = !{!10, !10, i64 0}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = distinct !{!37, !5, !6}
-!38 = distinct !{!38, !5, !6}
-!39 = distinct !{!39, !5, !6}
-!40 = distinct !{!40, !5, !6}
-!41 = distinct !{!41, !5, !6}
-!42 = distinct !{!42, !5, !6}
-!43 = distinct !{!43, !5, !6}
-!44 = distinct !{!44, !5, !6}
-!45 = distinct !{!45, !5, !6}
-!46 = distinct !{!46, !5, !6}
-!47 = distinct !{!47, !5, !6}
-!48 = distinct !{!48, !5, !6}
-!49 = distinct !{!49, !5, !6}
-!50 = distinct !{!50, !5, !6}
-!51 = distinct !{!51, !5, !6}
-!52 = distinct !{!52, !5, !6}
-!53 = distinct !{!53, !5, !6}
-!54 = distinct !{!54, !5, !6}
-!55 = distinct !{!55, !5, !6}
-!56 = distinct !{!56, !5, !6}
-!57 = !{!58, !29, i64 0}
-!58 = !{!"mod_exp_test_st", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24}
-!59 = !{!58, !29, i64 8}
-!60 = !{!58, !29, i64 16}
-!61 = !{!58, !29, i64 24}
-!62 = !{!63, !14, i64 0}
-!63 = !{!"", !14, i64 0, !14, i64 4, !64, i64 8}
-!64 = !{!"double", !10, i64 0}
-!65 = !{!63, !14, i64 4}
-!66 = !{!63, !64, i64 8}
-!67 = !{!30, !30, i64 0}
-!68 = distinct !{!68, !5, !6}
-!69 = distinct !{!69, !5, !6}
-!70 = distinct !{!70, !5, !6}
-!71 = !{!72, !73, i64 8}
-!72 = !{!"stanza_st", !29, i64 0, !73, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !10, i64 40, !73, i64 2440, !10, i64 2448}
-!73 = !{!"p1 _ZTS6bio_st", !9, i64 0}
-!74 = !{!72, !14, i64 36}
-!75 = !{!76, !29, i64 0}
-!76 = !{!"filetest_st", !29, i64 0, !9, i64 8}
-!77 = !{!78, !29, i64 0}
-!78 = !{!"pair_st", !29, i64 0, !29, i64 8}
-!79 = distinct !{!79, !5, !6}
-!80 = !{!78, !29, i64 8}
-!81 = !{!76, !9, i64 8}
-!82 = !{!72, !29, i64 0}
-!83 = !{!72, !14, i64 20}
-!84 = distinct !{!84, !5, !6, !85}
-!85 = !{!"llvm.loop.unswitch.partial.disable"}
-!86 = !{!72, !14, i64 24}
-!87 = !{!72, !14, i64 28}
-!88 = distinct !{!88, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS10bignum_ctx", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !5}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !9, i64 0}
+!14 = distinct !{!14, !5}
+!15 = !{!16, !13, i64 0}
+!16 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12}
+!17 = !{!16, !13, i64 4}
+!18 = !{!16, !13, i64 8}
+!19 = !{!16, !13, i64 12}
+!20 = distinct !{!20, !5}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!23 = !{ptr @BN_mod_exp_recp, ptr @BN_mod_exp_simple}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"mpitest_st", !28, i64 0, !28, i64 8, !29, i64 16}
+!28 = !{!"p1 omnipotent char", !8, i64 0}
+!29 = !{!"long", !9, i64 0}
+!30 = !{!27, !28, i64 8}
+!31 = !{!27, !29, i64 16}
+!32 = !{!9, !9, i64 0}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = !{!57, !28, i64 0}
+!57 = !{!"mod_exp_test_st", !28, i64 0, !28, i64 8, !28, i64 16, !28, i64 24}
+!58 = !{!57, !28, i64 8}
+!59 = !{!57, !28, i64 16}
+!60 = !{!57, !28, i64 24}
+!61 = !{!62, !13, i64 0}
+!62 = !{!"", !13, i64 0, !13, i64 4, !63, i64 8}
+!63 = !{!"double", !9, i64 0}
+!64 = !{!62, !13, i64 4}
+!65 = !{!62, !63, i64 8}
+!66 = !{!29, !29, i64 0}
+!67 = distinct !{!67, !5}
+!68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
+!70 = !{!71, !72, i64 8}
+!71 = !{!"stanza_st", !28, i64 0, !72, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !9, i64 40, !72, i64 2440, !9, i64 2448}
+!72 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!73 = !{!71, !13, i64 36}
+!74 = !{!75, !28, i64 0}
+!75 = !{!"filetest_st", !28, i64 0, !8, i64 8}
+!76 = !{!77, !28, i64 0}
+!77 = !{!"pair_st", !28, i64 0, !28, i64 8}
+!78 = distinct !{!78, !5}
+!79 = !{!77, !28, i64 8}
+!80 = !{!75, !8, i64 8}
+!81 = !{!71, !28, i64 0}
+!82 = !{!71, !13, i64 20}
+!83 = distinct !{!83, !5, !84}
+!84 = !{!"llvm.loop.unswitch.partial.disable"}
+!85 = !{!71, !13, i64 24}
+!86 = !{!71, !13, i64 28}
+!87 = distinct !{!87, !5}

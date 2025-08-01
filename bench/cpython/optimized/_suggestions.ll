@@ -155,6 +155,5 @@ attributes #2 = { nounwind }
 !19 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
 !20 = !{!"int", !7, i64 0}
 !21 = !{!"short", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}

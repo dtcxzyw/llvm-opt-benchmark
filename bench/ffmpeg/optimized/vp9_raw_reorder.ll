@@ -489,7 +489,7 @@ vp9_raw_reorder_clear_slot.exit74:                ; preds = %210, %240, %vp9_raw
 247:                                              ; preds = %241, %245
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
-  br i1 %exitcond92.not, label %248, label %241, !llvm.loop !46
+  br i1 %exitcond92.not, label %248, label %241, !llvm.loop !45
 
 248:                                              ; preds = %247
   %249 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
@@ -548,7 +548,7 @@ define internal void @vp9_raw_reorder_flush_close(ptr noundef readonly captures(
   tail call fastcc void @vp9_raw_reorder_clear_slot(ptr noundef %3, i32 noundef %.06)
   %7 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %7, 8
-  br i1 %exitcond.not, label %4, label %6, !llvm.loop !47
+  br i1 %exitcond.not, label %4, label %6, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -620,7 +620,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp9_raw_reorder_make_outpu
   %.179 = phi ptr [ %9, %31 ], [ %.078168, %25 ], [ %.078168, %21 ], [ %.078168, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %33, label %7, !llvm.loop !48
+  br i1 %exitcond.not, label %33, label %7, !llvm.loop !47
 
 33:                                               ; preds = %32
   %34 = icmp ne ptr %.181, null
@@ -683,7 +683,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp9_raw_reorder_make_outpu
   %63 = load ptr, ptr %.077, align 8, !tbaa !28
   tail call void @av_packet_move_ref(ptr noundef %1, ptr noundef %63) #6
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %65 = load i64, ptr %64, align 8, !tbaa !49
+  %65 = load i64, ptr %64, align 8, !tbaa !48
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %65, ptr %66, align 8, !tbaa !30
   store i32 0, ptr %46, align 8, !tbaa !39
@@ -774,7 +774,7 @@ put_bits.exit121:                                 ; preds = %104, %106
   %107 = add nsw i32 %.sroa.23.1173, %.sink
   %notsub = add i32 %107, -33
   %108 = icmp sgt i32 %notsub, -17
-  br i1 %108, label %.lr.ph, label %.lr.ph.i, !llvm.loop !50
+  br i1 %108, label %.lr.ph, label %.lr.ph.i, !llvm.loop !49
 
 .lr.ph.i:                                         ; preds = %put_bits.exit121
   %109 = shl i32 %.026.i.i119, %107
@@ -801,12 +801,12 @@ put_bits.exit121:                                 ; preds = %104, %106
   %116 = shl i32 %.sroa.0.2, 8
   %117 = add nsw i32 %.sroa.23.2, 8
   %118 = icmp slt i32 %.sroa.23.2, 24
-  br i1 %118, label %110, label %.loopexit, !llvm.loop !51
+  br i1 %118, label %110, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %113
   %119 = load i64, ptr %87, align 8, !tbaa !31
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %119, ptr %120, align 8, !tbaa !49
+  store i64 %119, ptr %120, align 8, !tbaa !48
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %119, ptr %121, align 8, !tbaa !30
   store i32 0, ptr %48, align 4, !tbaa !40
@@ -948,12 +948,11 @@ attributes #7 = { noreturn nounwind }
 !40 = !{!29, !13, i64 12}
 !41 = !{!29, !13, i64 56}
 !42 = !{!29, !13, i64 32}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45}
-!47 = distinct !{!47, !44, !45}
-!48 = distinct !{!48, !44, !45}
-!49 = !{!22, !16, i64 16}
-!50 = distinct !{!50, !44, !45}
-!51 = distinct !{!51, !44, !45}
+!45 = distinct !{!45, !44}
+!46 = distinct !{!46, !44}
+!47 = distinct !{!47, !44}
+!48 = !{!22, !16, i64 16}
+!49 = distinct !{!49, !44}
+!50 = distinct !{!50, !44}

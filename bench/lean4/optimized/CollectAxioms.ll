@@ -5986,7 +5986,7 @@ lean_inc.exit:                                    ; preds = %73, %72, %70, %lean
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %82, %81, %79, %lean_inc.exit
-  br label %lean_dec.exit, !llvm.loop !14
+  br label %lean_dec.exit
 }
 
 declare zeroext i8 @l_Lean_NameSet_contains(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -6379,9 +6379,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @l_Lean_collectAxioms___rarg___lambda__1, ptr %37, align 8, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i16 3, ptr %38, align 8, !tbaa !16
+  store i16 3, ptr %38, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  store i16 2, ptr %39, align 2, !tbaa !16
+  store i16 2, ptr %39, align 2, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %2, ptr %40, align 8, !tbaa !10
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -6410,9 +6410,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_collectAxioms___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !16
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !14
   ret ptr %2
 }
 
@@ -6578,7 +6578,5 @@ attributes #5 = { noreturn nounwind }
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}

@@ -171,7 +171,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %103 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !4
   %.not101 = icmp sgt i8 %104, -1
-  br i1 %.not101, label %.lr.ph144, label %.loopexit.split.loop.exit, !llvm.loop !10
+  br i1 %.not101, label %.lr.ph144, label %.loopexit.split.loop.exit
 
 .lr.ph144:                                        ; preds = %94, %99
   %.287142 = phi ptr [ %100, %99 ], [ %.085, %94 ]
@@ -327,7 +327,7 @@ define noundef ptr @av_base64_encode(ptr noundef %0, i32 noundef %1, ptr noundef
   %37 = getelementptr inbounds nuw i8, ptr %.03547, i64 4
   store i8 %36, ptr %31, align 1, !tbaa !4
   %38 = icmp samesign ugt i32 %.048, 6
-  br i1 %38, label %.lr.ph, label %.lr.ph56.preheader, !llvm.loop !11
+  br i1 %38, label %.lr.ph, label %.lr.ph56.preheader, !llvm.loop !9
 
 .lr.ph61:                                         ; preds = %.lr.ph56
   %39 = shl nuw nsw i32 %.0.lcssa80, 3
@@ -345,7 +345,7 @@ define noundef ptr @av_base64_encode(ptr noundef %0, i32 noundef %1, ptr noundef
   %45 = or disjoint i32 %41, %44
   %46 = add nsw i32 %.155, -1
   %.not41 = icmp eq i32 %46, 0
-  br i1 %.not41, label %.lr.ph61, label %.lr.ph56, !llvm.loop !12
+  br i1 %.not41, label %.lr.ph61, label %.lr.ph56, !llvm.loop !10
 
 .preheader:                                       ; preds = %55, %.preheader44
   %.136.lcssa = phi ptr [ %0, %.preheader44 ], [ %61, %55 ]
@@ -377,7 +377,7 @@ define noundef ptr @av_base64_encode(ptr noundef %0, i32 noundef %1, ptr noundef
   store i8 %60, ptr %.13659, align 1, !tbaa !4
   %62 = add nsw i32 %.13360, -6
   %63 = icmp samesign ugt i32 %.13360, 6
-  br i1 %63, label %55, label %.preheader, !llvm.loop !13
+  br i1 %63, label %55, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph65.preheader, %.preheader
   %.2.lcssa = phi ptr [ %.136.lcssa, %.preheader ], [ %scevgep, %.lr.ph65.preheader ]
@@ -408,10 +408,8 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

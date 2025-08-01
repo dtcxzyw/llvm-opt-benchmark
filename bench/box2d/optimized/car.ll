@@ -241,7 +241,7 @@ define dso_local void @_ZN3Car7DespawnEv(ptr noundef nonnull align 4 captures(no
   %.sroa.0.0.copyload = load i64, ptr %0, align 4
   tail call void @b2DestroyBody(i64 %.sroa.0.0.copyload)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %6, align 4, !tbaa !41
+  store i8 0, ptr %6, align 4, !tbaa !40
   ret void
 }
 
@@ -340,7 +340,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float 0x3FC99999A0000000, ptr %23, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 16738740, ptr %24, align 8, !tbaa !44
+  store i32 16738740, ptr %24, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #7
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %14)
   store i32 2, ptr %14, align 8, !tbaa !20
@@ -364,7 +364,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %.sroa.055.4.vec.insert = insertelement <2 x float> %.sroa.055.0.vec.insert, float %33, i64 1
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %15, float noundef %30, float noundef %31, <2 x float> %.sroa.055.4.vec.insert, <2 x float> <float 1.000000e+00, float 0.000000e+00>)
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store float %31, ptr %34, align 4, !tbaa !45
+  store float %31, ptr %34, align 4, !tbaa !44
   %.sroa.053.0.copyload = load i64, ptr %0, align 4
   %35 = call i64 @b2CreatePolygonShape(i64 %.sroa.053.0.copyload, ptr noundef nonnull %13, ptr noundef nonnull %15)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16) #7
@@ -375,15 +375,15 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %39 = fmul float %3, 3.750000e-01
   %.sroa.050.4.vec.insert = insertelement <2 x float> %.sroa.050.0.vec.insert, float %39, i64 1
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %16, float noundef %36, float noundef %37, <2 x float> %.sroa.050.4.vec.insert, <2 x float> <float 1.000000e+00, float 0.000000e+00>)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %15, ptr noundef nonnull align 4 dereferenceable(144) %16, i64 144, i1 false), !tbaa.struct !47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %15, ptr noundef nonnull align 4 dereferenceable(144) %16, i64 144, i1 false), !tbaa.struct !46
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16) #7
-  store float %31, ptr %34, align 4, !tbaa !45
+  store float %31, ptr %34, align 4, !tbaa !44
   %.sroa.048.0.copyload = load i64, ptr %0, align 4
   %40 = call i64 @b2CreatePolygonShape(i64 %.sroa.048.0.copyload, ptr noundef nonnull %13, ptr noundef nonnull %15)
   %41 = fmul float %7, 2.000000e+00
   store float %41, ptr %22, align 4, !tbaa !4
   store float 2.500000e+00, ptr %23, align 8, !tbaa !14
-  store i32 12632256, ptr %24, align 8, !tbaa !44
+  store i32 12632256, ptr %24, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #7
   store float 0.000000e+00, ptr %17, align 4, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -499,7 +499,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   store float %93, ptr %91, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %20, label %87, !llvm.loop !51
+  br i1 %exitcond.not, label %20, label %87, !llvm.loop !50
 }
 
 declare void @b2MakeOffsetBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef, float noundef, <2 x float>, <2 x float>) local_unnamed_addr #4
@@ -521,7 +521,7 @@ define dso_local void @_ZN5Truck7DespawnEv(ptr noundef nonnull align 4 captures(
   %.sroa.0.0.copyload = load i64, ptr %0, align 4
   tail call void @b2DestroyBody(i64 %.sroa.0.0.copyload)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %6, align 4, !tbaa !52
+  store i8 0, ptr %6, align 4, !tbaa !51
   ret void
 }
 
@@ -623,19 +623,18 @@ attributes #7 = { nounwind }
 !35 = !{!28, !9, i64 56}
 !36 = !{!28, !9, i64 60}
 !37 = !{!28, !13, i64 52}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!42, !13, i64 40}
-!42 = !{!"_ZTS3Car", !29, i64 0, !29, i64 8, !29, i64 16, !43, i64 24, !43, i64 32, !13, i64 40}
-!43 = !{!"_ZTS9b2JointId", !10, i64 0, !30, i64 4, !30, i64 6}
-!44 = !{!5, !10, i64 56}
-!45 = !{!46, !9, i64 136}
-!46 = !{!"_ZTS9b2Polygon", !7, i64 0, !7, i64 64, !16, i64 128, !9, i64 136, !10, i64 140}
-!47 = !{i64 0, i64 64, !48, i64 64, i64 64, !48, i64 128, i64 4, !49, i64 132, i64 4, !49, i64 136, i64 4, !49, i64 140, i64 4, !50}
-!48 = !{!7, !7, i64 0}
-!49 = !{!9, !9, i64 0}
-!50 = !{!10, !10, i64 0}
-!51 = distinct !{!51, !39, !40}
-!52 = !{!53, !13, i64 40}
-!53 = !{!"_ZTS5Truck", !29, i64 0, !29, i64 8, !29, i64 16, !43, i64 24, !43, i64 32, !13, i64 40}
+!40 = !{!41, !13, i64 40}
+!41 = !{!"_ZTS3Car", !29, i64 0, !29, i64 8, !29, i64 16, !42, i64 24, !42, i64 32, !13, i64 40}
+!42 = !{!"_ZTS9b2JointId", !10, i64 0, !30, i64 4, !30, i64 6}
+!43 = !{!5, !10, i64 56}
+!44 = !{!45, !9, i64 136}
+!45 = !{!"_ZTS9b2Polygon", !7, i64 0, !7, i64 64, !16, i64 128, !9, i64 136, !10, i64 140}
+!46 = !{i64 0, i64 64, !47, i64 64, i64 64, !47, i64 128, i64 4, !48, i64 132, i64 4, !48, i64 136, i64 4, !48, i64 140, i64 4, !49}
+!47 = !{!7, !7, i64 0}
+!48 = !{!9, !9, i64 0}
+!49 = !{!10, !10, i64 0}
+!50 = distinct !{!50, !39}
+!51 = !{!52, !13, i64 40}
+!52 = !{!"_ZTS5Truck", !29, i64 0, !29, i64 8, !29, i64 16, !42, i64 24, !42, i64 32, !13, i64 40}

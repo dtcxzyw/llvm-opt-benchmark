@@ -903,19 +903,19 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   store ptr %2, ptr %36, align 8
   %37 = call i32 @yenta_set_socket(ptr noundef %0, ptr noundef nonnull @dead_socket)
   store i8 0, ptr %3, align 8
-  %38 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !17
+  %38 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
   store i8 1, ptr %3, align 8
-  %39 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !17
+  %39 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
   br label %40
 
 40:                                               ; preds = %.critedge, %40
   %41 = phi i32 [ %44, %40 ], [ 0, %.critedge ]
   %42 = trunc i32 %41 to i8
   store i8 %42, ptr %4, align 8
-  %43 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !17
+  %43 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !16
   %44 = add nuw nsw i32 %41, 1
   %45 = icmp eq i32 %44, 5
-  br i1 %45, label %46, label %40, !llvm.loop !18
+  br i1 %45, label %46, label %40, !llvm.loop !17
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
@@ -1961,7 +1961,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr noundef
   %37 = lshr i32 %36, 1
   %38 = add nuw nsw i32 %35, 1
   %39 = icmp ult i32 %36, 4
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %30
   %40 = phi i32 [ 0, %30 ], [ %38, %.preheader ]
@@ -1991,7 +1991,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr noundef
   %58 = lshr i32 %53, 1
   %59 = icmp samesign ult i32 %58, %2
   %60 = or i1 %57, %59
-  br i1 %60, label %61, label %51, !llvm.loop !20
+  br i1 %60, label %61, label %51, !llvm.loop !19
 
 61:                                               ; preds = %51
   br i1 %57, label %71, label %62
@@ -2005,7 +2005,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr noundef
   %68 = icmp ne ptr %67, null
   %69 = icmp slt i32 %63, 4
   %70 = or i1 %69, %68
-  br i1 %70, label %10, label %71, !llvm.loop !21
+  br i1 %70, label %10, label %71, !llvm.loop !20
 
 71:                                               ; preds = %62, %61
   %72 = phi i32 [ 1, %61 ], [ 0, %62 ]
@@ -3397,7 +3397,7 @@ define internal fastcc range(i32 0, 65536) i32 @yenta_probe_irq(ptr noundef read
 43:                                               ; preds = %26, %21
   %44 = add nuw nsw i64 %22, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %46, label %21, !llvm.loop !22
+  br i1 %45, label %46, label %21, !llvm.loop !21
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %2, align 8
@@ -3979,7 +3979,7 @@ define internal void @ene_tune_bridge(ptr noundef readonly captures(none) %0, pt
 10:                                               ; preds = %6
   %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ene_tune_tbl, ptr noundef %8) #11
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %6, label %13, !llvm.loop !23
+  br i1 %12, label %6, label %13, !llvm.loop !22
 
 13:                                               ; preds = %10, %6
   %14 = phi ptr [ %11, %10 ], [ null, %6 ]
@@ -4063,7 +4063,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
   %23 = add i32 %22, %18
   %24 = add nuw nsw i64 %9, 4
   %25 = icmp samesign ult i64 %9, 32
-  br i1 %25, label %8, label %26, !llvm.loop !24
+  br i1 %25, label %8, label %26, !llvm.loop !23
 
 26:                                               ; preds = %17
   %27 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %23, ptr noundef nonnull @.str.47) #11
@@ -4106,7 +4106,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
   %53 = add i32 %52, %46
   %54 = add nuw nsw i64 %30, 1
   %55 = icmp eq i64 %54, 69
-  br i1 %55, label %56, label %29, !llvm.loop !25
+  br i1 %55, label %56, label %29, !llvm.loop !24
 
 56:                                               ; preds = %45
   %57 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %53, ptr noundef nonnull @.str.50) #11
@@ -4249,16 +4249,15 @@ attributes #13 = { nounwind allocsize(2) }
 !10 = !{i32 0, i32 2}
 !11 = !{i8 0, i8 2}
 !12 = !{}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{i32 -22, i32 1}
-!18 = distinct !{!18, !14, !15, !16}
-!19 = distinct !{!19, !14, !15, !16}
-!20 = distinct !{!20, !14, !15, !16}
-!21 = distinct !{!21, !14, !15, !16}
-!22 = distinct !{!22, !14, !15, !16}
-!23 = distinct !{!23, !14, !15, !16}
-!24 = distinct !{!24, !14, !15, !16}
-!25 = distinct !{!25, !14, !15, !16}
+!16 = !{i32 -22, i32 1}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}

@@ -171,7 +171,7 @@ define dso_local noundef zeroext i1 @trace_is_tracepoint_string(ptr noundef read
 9:                                                ; preds = %.preheader
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %10, %0
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %9, %.preheader, %3, %1
   %12 = phi i1 [ false, %1 ], [ true, %3 ], [ %8, %.preheader ], [ %8, %9 ]
@@ -271,7 +271,7 @@ define internal ptr @t_start(ptr readnone captures(none) %0, ptr noundef readonl
   %24 = add i32 %28, 1
   %25 = load ptr, ptr %27, align 8
   %26 = icmp eq ptr %25, @trace_bprintk_fmt_list
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %20, %23
   %27 = phi ptr [ %25, %23 ], [ %21, %20 ]
@@ -339,7 +339,7 @@ define internal ptr @t_next(ptr readnone captures(none) %0, ptr noundef readonly
   %30 = add i32 %34, 1
   %31 = load ptr, ptr %33, align 8
   %32 = icmp eq ptr %31, @trace_bprintk_fmt_list
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %25, %29
   %33 = phi ptr [ %31, %29 ], [ %23, %25 ]
@@ -411,7 +411,7 @@ define internal noundef i32 @t_show(ptr noundef %0, ptr noundef readonly capture
 
 17:                                               ; preds = %16, %15, %14, %13, %12
   %18 = add i32 %8, 1
-  br label %7, !llvm.loop !16
+  br label %7, !llvm.loop !13
 
 19:                                               ; preds = %7
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.5) #13
@@ -475,7 +475,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr readnone cap
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @strcmp(ptr noundef %23, ptr noundef nonnull dereferenceable(1) %16) #13
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.preheader, !llvm.loop !17
+  br i1 %25, label %26, label %.preheader, !llvm.loop !14
 
 26:                                               ; preds = %21
   %27 = icmp eq ptr %19, null
@@ -524,7 +524,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr readnone cap
 .thread8:                                         ; preds = %.preheader9, %46, %28
   %48 = getelementptr i8, ptr %15, i64 8
   %49 = icmp ult ptr %48, %13
-  br i1 %49, label %.preheader9, label %.loopexit, !llvm.loop !18
+  br i1 %49, label %.preheader9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.thread8, %9
   tail call void @mutex_unlock(ptr noundef nonnull @btrace_mutex) #13
@@ -592,10 +592,7 @@ attributes #15 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !10, !11, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !10, !11, !13}
-!15 = distinct !{!15, !10, !11, !13}
-!16 = distinct !{!16, !10, !11, !13}
-!17 = distinct !{!17, !10, !11, !13}
-!18 = distinct !{!18, !10, !11, !13}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

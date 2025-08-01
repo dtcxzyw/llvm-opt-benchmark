@@ -131,7 +131,7 @@ skip_prefix.exit.preheader:                       ; preds = %32
 
 37:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
-  %38 = load i32, ptr %7, align 4, !tbaa !15
+  %38 = load i32, ptr %7, align 4, !tbaa !14
   %.not62 = icmp eq i32 %38, 0
   br i1 %.not62, label %41, label %39
 
@@ -141,9 +141,9 @@ skip_prefix.exit.preheader:                       ; preds = %32
   unreachable
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %42 = load ptr, ptr @the_repository, align 8, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 400
-  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %44 = load ptr, ptr %43, align 8, !tbaa !18
   %45 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %scevgep, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef %44) #10
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %46, label %49
@@ -191,7 +191,7 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
   %.1 = phi i32 [ %.044100, %19 ], [ %.044100, %22 ], [ %.044100, %23 ], [ 1, %51 ], [ %.044100, %57 ], [ %.044100, %19 ], [ %.044100, %19 ], [ %.044100, %28 ], [ %.044100, %30 ], [ %.044100, %52 ]
   %60 = add nsw i32 %.150, 1
   %61 = icmp slt i32 %60, %0
-  br i1 %61, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !38
+  br i1 %61, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !37
 
 .critedge.loopexit:                               ; preds = %skip_prefix.exit68, %.lr.ph
   %62 = phi ptr [ %13, %.lr.ph ], [ %59, %skip_prefix.exit68 ]
@@ -223,7 +223,7 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
   unreachable
 
 70:                                               ; preds = %.critedge
-  %71 = load i32, ptr %7, align 4, !tbaa !15
+  %71 = load i32, ptr %7, align 4, !tbaa !14
   %.not57 = icmp eq i32 %71, 0
   br i1 %.not57, label %74, label %72
 
@@ -234,10 +234,10 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
 
 74:                                               ; preds = %70
   call void @trace2_cmd_name_fl(ptr noundef nonnull @.str.6, i32 noundef 151, ptr noundef nonnull @.str.7) #10
-  %75 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %75 = load ptr, ptr @the_repository, align 8, !tbaa !16
   call void @repo_config(ptr noundef %75, ptr noundef nonnull @git_default_config, ptr noundef null) #10
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !39
+  %77 = load i64, ptr %76, align 8, !tbaa !38
   %.not59 = icmp eq i64 %77, 0
   br i1 %.044.lcssa, label %78, label %123
 
@@ -253,7 +253,7 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
   %82 = sext i32 %.049.lcssa to i64
   %83 = getelementptr inbounds ptr, ptr %1, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !9
-  %85 = load ptr, ptr %9, align 8, !tbaa !41
+  %85 = load ptr, ptr %9, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   call void @http_init(ptr noundef null, ptr noundef %84, i32 noundef 0) #10
   %86 = call ptr @xstrdup(ptr noundef %84) #10
@@ -267,11 +267,11 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
 
 89:                                               ; preds = %81
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  %91 = load ptr, ptr %90, align 8, !tbaa !42
+  %91 = load ptr, ptr %90, align 8, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store ptr %3, ptr %92, align 8, !tbaa !48
+  store ptr %3, ptr %92, align 8, !tbaa !47
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store ptr %85, ptr %93, align 8, !tbaa !52
+  store ptr %85, ptr %93, align 8, !tbaa !51
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %95 = load i8, ptr %94, align 8
   %96 = or i8 %95, 1
@@ -281,15 +281,15 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
   br i1 %.not16.i, label %119, label %98
 
 98:                                               ; preds = %89
-  %99 = load ptr, ptr %90, align 8, !tbaa !42
+  %99 = load ptr, ptr %90, align 8, !tbaa !41
   call void @run_active_slot(ptr noundef %99) #10
-  %100 = load i32, ptr %3, align 8, !tbaa !53
+  %100 = load i32, ptr %3, align 8, !tbaa !52
   %.not17.i = icmp eq i32 %100, 0
   br i1 %.not17.i, label %120, label %101
 
 101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #10
-  %102 = load ptr, ptr %87, align 8, !tbaa !55
+  %102 = load ptr, ptr %87, align 8, !tbaa !54
   %103 = call ptr @url_normalize(ptr noundef %102, ptr noundef nonnull %4) #10
   %.not19.i = icmp eq ptr %103, null
   br i1 %.not19.i, label %106, label %104
@@ -300,20 +300,20 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
   br i1 %.not20.i, label %106, label %108
 
 106:                                              ; preds = %104, %101
-  %107 = load ptr, ptr %87, align 8, !tbaa !55
+  %107 = load ptr, ptr %87, align 8, !tbaa !54
   call void (ptr, ...) @die(ptr noundef nonnull @.str.14, ptr noundef %107, ptr noundef nonnull @curl_errorstr) #11
   unreachable
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %110 = load i64, ptr %109, align 8, !tbaa !56
+  %110 = load i64, ptr %109, align 8, !tbaa !55
   %111 = trunc i64 %110 to i32
-  %112 = load ptr, ptr %4, align 8, !tbaa !58
+  %112 = load ptr, ptr %4, align 8, !tbaa !57
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %114 = load i64, ptr %113, align 8, !tbaa !59
+  %114 = load i64, ptr %113, align 8, !tbaa !58
   %115 = trunc i64 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %117 = load i64, ptr %116, align 8, !tbaa !60
+  %117 = load i64, ptr %116, align 8, !tbaa !59
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 %117
   call void (ptr, ...) @die(ptr noundef nonnull @.str.15, i32 noundef %111, ptr noundef %112, i32 noundef %115, ptr noundef %118, ptr noundef nonnull @curl_errorstr) #11
   unreachable
@@ -402,7 +402,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #6 {
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !15
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %7, label %5
 
@@ -439,11 +439,11 @@ define internal fastcc i32 @fetch_using_walker(ptr noundef %0, i32 noundef range
   %10 = load ptr, ptr %8, align 8, !tbaa !9
   %11 = call ptr @get_http_walker(ptr noundef %10) #10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 %1, ptr %12, align 8, !tbaa !61
+  store i32 %1, ptr %12, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i32 %2, ptr %13, align 8, !tbaa !63
+  store i32 %2, ptr %13, align 8, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  store i32 0, ptr %14, align 4, !tbaa !64
+  store i32 0, ptr %14, align 4, !tbaa !63
   %15 = load ptr, ptr %8, align 8, !tbaa !9
   %16 = call i32 @walker_fetch(ptr noundef %11, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %15) #10
   %.not = icmp eq i32 %6, 0
@@ -455,12 +455,12 @@ define internal fastcc i32 @fetch_using_walker(ptr noundef %0, i32 noundef range
 
 18:                                               ; preds = %17, %7
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  %20 = load i32, ptr %19, align 4, !tbaa !65
+  %20 = load i32, ptr %19, align 4, !tbaa !64
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !66
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !65
   %23 = call i64 @fwrite(ptr nonnull @.str.18, i64 172, i64 1, ptr %22) #13
   br label %24
 
@@ -545,58 +545,57 @@ attributes #13 = { cold }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !7, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS10repository", !6, i64 0}
-!19 = !{!20, !36, i64 400}
-!20 = !{!"repository", !10, i64 0, !10, i64 8, !21, i64 16, !22, i64 24, !23, i64 32, !24, i64 40, !24, i64 104, !28, i64 168, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !29, i64 256, !32, i64 368, !33, i64 376, !34, i64 384, !35, i64 392, !36, i64 400, !36, i64 408, !16, i64 416, !16, i64 420, !16, i64 424, !10, i64 432, !37, i64 440, !16, i64 448, !16, i64 452, !16, i64 456}
-!21 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
-!22 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
-!23 = !{!"p1 _ZTS9ref_store", !6, i64 0}
-!24 = !{!"strmap", !25, i64 0, !27, i64 48, !16, i64 56}
-!25 = !{!"hashmap", !26, i64 0, !6, i64 8, !6, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40}
-!26 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
-!27 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
-!28 = !{!"repo_path_cache", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
-!29 = !{!"repo_settings", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !30, i64 48, !16, i64 56, !16, i64 60, !16, i64 64, !16, i64 68, !16, i64 72, !16, i64 76, !16, i64 80, !31, i64 88, !31, i64 96, !31, i64 104}
-!30 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
-!31 = !{!"long", !7, i64 0}
-!32 = !{!"p1 _ZTS10config_set", !6, i64 0}
-!33 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
-!34 = !{!"p1 _ZTS11index_state", !6, i64 0}
-!35 = !{!"p1 _ZTS12remote_state", !6, i64 0}
-!36 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
-!37 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
-!38 = distinct !{!38, !13, !14}
-!39 = !{!40, !31, i64 8}
-!40 = !{!"strvec", !5, i64 0, !31, i64 8, !31, i64 16}
-!41 = !{!40, !5, i64 0}
-!42 = !{!43, !46, i64 56}
-!43 = !{!"http_pack_request", !10, i64 0, !5, i64 8, !16, i64 16, !44, i64 24, !45, i64 32, !46, i64 56, !47, i64 64}
-!44 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!45 = !{!"strbuf", !31, i64 0, !31, i64 8, !10, i64 16}
-!46 = !{!"p1 _ZTS19active_request_slot", !6, i64 0}
-!47 = !{!"p1 _ZTS10curl_slist", !6, i64 0}
-!48 = !{!49, !51, i64 32}
-!49 = !{!"active_request_slot", !6, i64 0, !16, i64 8, !16, i64 12, !31, i64 16, !50, i64 24, !51, i64 32, !6, i64 40, !6, i64 48, !46, i64 56}
-!50 = !{!"p1 int", !6, i64 0}
-!51 = !{!"p1 _ZTS12slot_results", !6, i64 0}
-!52 = !{!43, !5, i64 8}
-!53 = !{!54, !16, i64 0}
-!54 = !{!"slot_results", !16, i64 0, !31, i64 8, !31, i64 16, !31, i64 24}
-!55 = !{!43, !10, i64 0}
-!56 = !{!57, !31, i64 24}
-!57 = !{!"url_info", !10, i64 0, !10, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !31, i64 48, !31, i64 56, !31, i64 64, !31, i64 72, !31, i64 80, !31, i64 88, !31, i64 96, !31, i64 104}
-!58 = !{!57, !10, i64 0}
-!59 = !{!57, !31, i64 72}
-!60 = !{!57, !31, i64 64}
-!61 = !{!62, !16, i64 40}
-!62 = !{!"walker", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !16, i64 40, !16, i64 44, !16, i64 48, !16, i64 52}
-!63 = !{!62, !16, i64 48}
-!64 = !{!62, !16, i64 44}
-!65 = !{!62, !16, i64 52}
-!66 = !{!44, !44, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS10repository", !6, i64 0}
+!18 = !{!19, !35, i64 400}
+!19 = !{!"repository", !10, i64 0, !10, i64 8, !20, i64 16, !21, i64 24, !22, i64 32, !23, i64 40, !23, i64 104, !27, i64 168, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !28, i64 256, !31, i64 368, !32, i64 376, !33, i64 384, !34, i64 392, !35, i64 400, !35, i64 408, !15, i64 416, !15, i64 420, !15, i64 424, !10, i64 432, !36, i64 440, !15, i64 448, !15, i64 452, !15, i64 456}
+!20 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
+!21 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
+!22 = !{!"p1 _ZTS9ref_store", !6, i64 0}
+!23 = !{!"strmap", !24, i64 0, !26, i64 48, !15, i64 56}
+!24 = !{!"hashmap", !25, i64 0, !6, i64 8, !6, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40}
+!25 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
+!26 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
+!27 = !{!"repo_path_cache", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!28 = !{!"repo_settings", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !29, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !15, i64 80, !30, i64 88, !30, i64 96, !30, i64 104}
+!29 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
+!30 = !{!"long", !7, i64 0}
+!31 = !{!"p1 _ZTS10config_set", !6, i64 0}
+!32 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
+!33 = !{!"p1 _ZTS11index_state", !6, i64 0}
+!34 = !{!"p1 _ZTS12remote_state", !6, i64 0}
+!35 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
+!36 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
+!37 = distinct !{!37, !13}
+!38 = !{!39, !30, i64 8}
+!39 = !{!"strvec", !5, i64 0, !30, i64 8, !30, i64 16}
+!40 = !{!39, !5, i64 0}
+!41 = !{!42, !45, i64 56}
+!42 = !{!"http_pack_request", !10, i64 0, !5, i64 8, !15, i64 16, !43, i64 24, !44, i64 32, !45, i64 56, !46, i64 64}
+!43 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!44 = !{!"strbuf", !30, i64 0, !30, i64 8, !10, i64 16}
+!45 = !{!"p1 _ZTS19active_request_slot", !6, i64 0}
+!46 = !{!"p1 _ZTS10curl_slist", !6, i64 0}
+!47 = !{!48, !50, i64 32}
+!48 = !{!"active_request_slot", !6, i64 0, !15, i64 8, !15, i64 12, !30, i64 16, !49, i64 24, !50, i64 32, !6, i64 40, !6, i64 48, !45, i64 56}
+!49 = !{!"p1 int", !6, i64 0}
+!50 = !{!"p1 _ZTS12slot_results", !6, i64 0}
+!51 = !{!42, !5, i64 8}
+!52 = !{!53, !15, i64 0}
+!53 = !{!"slot_results", !15, i64 0, !30, i64 8, !30, i64 16, !30, i64 24}
+!54 = !{!42, !10, i64 0}
+!55 = !{!56, !30, i64 24}
+!56 = !{!"url_info", !10, i64 0, !10, i64 8, !30, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48, !30, i64 56, !30, i64 64, !30, i64 72, !30, i64 80, !30, i64 88, !30, i64 96, !30, i64 104}
+!57 = !{!56, !10, i64 0}
+!58 = !{!56, !30, i64 72}
+!59 = !{!56, !30, i64 64}
+!60 = !{!61, !15, i64 40}
+!61 = !{!"walker", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52}
+!62 = !{!61, !15, i64 48}
+!63 = !{!61, !15, i64 44}
+!64 = !{!61, !15, i64 52}
+!65 = !{!43, !43, i64 0}

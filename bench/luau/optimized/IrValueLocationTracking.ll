@@ -366,7 +366,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %172 = lshr i32 %.sroa.015.0.copyload, 4
   %173 = zext nneg i32 %172 to i64
-  %174 = load ptr, ptr %171, align 8, !tbaa !42
+  %174 = load ptr, ptr %171, align 8, !tbaa !41
   %175 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %174, i64 %173, i32 1
   %176 = load i32, ptr %175, align 8, !tbaa !27
   %177 = icmp eq i32 %176, -1
@@ -454,7 +454,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 48
   %222 = lshr i32 %.sroa.013.0.copyload, 4
   %223 = zext nneg i32 %222 to i64
-  %224 = load ptr, ptr %221, align 8, !tbaa !42
+  %224 = load ptr, ptr %221, align 8, !tbaa !41
   %225 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %224, i64 %223, i32 1
   %226 = load i32, ptr %225, align 8, !tbaa !27
   %.not = icmp eq i32 %226, -1
@@ -617,7 +617,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91: ; preds = %3
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 48
   %314 = lshr i32 %.sroa.09.0.copyload, 4
   %315 = zext nneg i32 %314 to i64
-  %316 = load ptr, ptr %313, align 8, !tbaa !42
+  %316 = load ptr, ptr %313, align 8, !tbaa !41
   %317 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %316, i64 %315, i32 1
   %318 = load i32, ptr %317, align 8, !tbaa !27
   %319 = icmp eq i32 %318, -1
@@ -1081,7 +1081,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %568 = getelementptr inbounds nuw i8, ptr %566, i64 48
   %569 = lshr i32 %.sroa.02.0.copyload, 4
   %570 = zext nneg i32 %569 to i64
-  %571 = load ptr, ptr %568, align 8, !tbaa !42
+  %571 = load ptr, ptr %568, align 8, !tbaa !41
   %572 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %571, i64 %570, i32 1
   %573 = load i32, ptr %572, align 8, !tbaa !27
   %574 = icmp eq i32 %573, -1
@@ -1576,7 +1576,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit:
   %54 = zext nneg i32 %53 to i64
   %55 = load ptr, ptr %52, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %55, i64 %54, i32 9
-  %57 = load i32, ptr %56, align 4, !tbaa !45
+  %57 = load i32, ptr %56, align 4, !tbaa !44
   %.not = icmp eq i32 %57, %2
   br i1 %.not, label %60, label %58
 
@@ -1623,7 +1623,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 576
   %17 = lshr i64 %13, 6
   %18 = getelementptr inbounds nuw [4 x i64], ptr %16, i64 0, i64 %17
-  %19 = load i64, ptr %18, align 8, !tbaa !46
+  %19 = load i64, ptr %18, align 8, !tbaa !45
   %20 = and i64 %13, 63
   %21 = shl nuw i64 1, %20
   %22 = and i64 %19, %21
@@ -1710,7 +1710,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6re
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
   %17 = ashr exact i64 %16, 2
@@ -1752,14 +1752,14 @@ _ZNKSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %28, %_ZNKSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %5, %_ZNKSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %31 = load i32, ptr %.0911.i.i.i.i, align 4, !tbaa !27, !alias.scope !52, !noalias !49
-  store i32 %31, ptr %.012.i.i.i.i, align 4, !tbaa !27, !alias.scope !49, !noalias !52
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %31 = load i32, ptr %.0911.i.i.i.i, align 4, !tbaa !27, !alias.scope !51, !noalias !48
+  store i32 %31, ptr %.012.i.i.i.i, align 4, !tbaa !27, !alias.scope !48, !noalias !51
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !54
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !53
 
 _ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE12_M_check_lenEmPKc.exit.i
   %.not.i36.i = icmp eq ptr %5, null
@@ -1775,7 +1775,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen4IrOpESaIS2_EE13_M_deallocateEPS2_m.exit37.i: 
   %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %29, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %28, i64 %26
-  store ptr %37, ptr %13, align 8, !tbaa !48
+  store ptr %37, ptr %13, align 8, !tbaa !47
   br label %_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %2
@@ -1882,19 +1882,18 @@ attributes #12 = { builtin nounwind }
 !36 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen4IrOpESaIS2_EE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
 !37 = !{!"p1 _ZTSN4Luau7CodeGen4IrOpE", !6, i64 0}
 !38 = !{!36, !37, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !44, i64 0}
-!43 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen7IrConstESaIS2_EE17_Vector_impl_dataE", !44, i64 0, !44, i64 8, !44, i64 16}
-!44 = !{!"p1 _ZTSN4Luau7CodeGen7IrConstE", !6, i64 0}
-!45 = !{!17, !12, i64 32}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"long", !7, i64 0}
-!48 = !{!36, !37, i64 16}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aIN4Luau7CodeGen4IrOpES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!51 = distinct !{!51, !"_ZSt19__relocate_object_aIN4Luau7CodeGen4IrOpES2_SaIS2_EEvPT_PT0_RT1_"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aIN4Luau7CodeGen4IrOpES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!54 = distinct !{!54, !40, !41}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen7IrConstESaIS2_EE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p1 _ZTSN4Luau7CodeGen7IrConstE", !6, i64 0}
+!44 = !{!17, !12, i64 32}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"long", !7, i64 0}
+!47 = !{!36, !37, i64 16}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZSt19__relocate_object_aIN4Luau7CodeGen4IrOpES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!50 = distinct !{!50, !"_ZSt19__relocate_object_aIN4Luau7CodeGen4IrOpES2_SaIS2_EEvPT_PT0_RT1_"}
+!51 = !{!52}
+!52 = distinct !{!52, !50, !"_ZSt19__relocate_object_aIN4Luau7CodeGen4IrOpES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!53 = distinct !{!53, !40}

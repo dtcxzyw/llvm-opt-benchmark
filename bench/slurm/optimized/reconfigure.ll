@@ -251,7 +251,7 @@ define dso_local range(i32 -1, 1803) i32 @slurm_shutdown(i16 noundef zeroext %0)
   %10 = add nuw nsw i32 %.04, 1
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 280), align 8
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %1
   %13 = call fastcc i32 @_send_message_controller(i32 noundef 0, ptr noundef %2)
@@ -373,7 +373,7 @@ define dso_local i32 @slurm_set_slurmd_debug_flags(ptr noundef %0, i64 noundef %
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @slurm_get_return_code(i32 noundef %18, ptr noundef %20) #6
   %.not18 = icmp eq i32 %21, 0
-  br i1 %.not18, label %14, label %22, !llvm.loop !13
+  br i1 %.not18, label %14, label %22, !llvm.loop !12
 
 22:                                               ; preds = %16, %14
   %.1 = phi i32 [ %21, %16 ], [ 0, %14 ]
@@ -440,7 +440,7 @@ define dso_local i32 @slurm_set_slurmd_debug_level(ptr noundef %0, i32 noundef %
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @slurm_get_return_code(i32 noundef %16, ptr noundef %18) #6
   %.not17 = icmp eq i32 %19, 0
-  br i1 %.not17, label %12, label %20, !llvm.loop !14
+  br i1 %.not17, label %12, label %20, !llvm.loop !13
 
 20:                                               ; preds = %14, %12
   %.1 = phi i32 [ %19, %14 ], [ 0, %12 ]
@@ -629,10 +629,9 @@ attributes #7 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

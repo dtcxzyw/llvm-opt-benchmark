@@ -99,7 +99,7 @@ define internal i32 @cavsvideo_parse(ptr noundef readonly captures(none) %0, ptr
 40:                                               ; preds = %.lr.ph63.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
-  br i1 %exitcond75.not.i, label %.loopexit.i, label %.lr.ph63.i, !llvm.loop !23
+  br i1 %exitcond75.not.i, label %.loopexit.i, label %.lr.ph63.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %27, %40, %.preheader.i, %.preheader53.i
   %.03850.i = phi i32 [ %.038.ph.i, %.preheader.i ], [ 0, %.preheader53.i ], [ %.038.ph.i, %40 ], [ 0, %27 ]
@@ -168,7 +168,6 @@ attributes #2 = { nounwind }
 !17 = !{!"ParseContext", !5, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40}
 !18 = !{!17, !10, i64 20}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
+!22 = distinct !{!22, !21}

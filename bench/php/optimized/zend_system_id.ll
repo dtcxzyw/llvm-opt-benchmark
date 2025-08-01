@@ -144,7 +144,7 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   store i8 %37, ptr %38, align 1, !tbaa !4
   %39 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %39, 16
-  br i1 %exitcond.not.i, label %php_hash_bin2hex.exit, label %25, !llvm.loop !11
+  br i1 %exitcond.not.i, label %php_hash_bin2hex.exit, label %25
 
 php_hash_bin2hex.exit:                            ; preds = %25
   store i1 true, ptr @finalized, align 4
@@ -168,7 +168,7 @@ php_hash_bin2hex.exit:                            ; preds = %25
   %46 = add i16 %45, 1
   store i16 %46, ptr %3, align 2, !tbaa !9
   %47 = icmp slt i16 %46, 256
-  br i1 %47, label %40, label %24, !llvm.loop !13
+  br i1 %47, label %40, label %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -205,6 +205,3 @@ attributes #5 = { nounwind }
 !8 = !{!"any pointer", !5, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !5, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}

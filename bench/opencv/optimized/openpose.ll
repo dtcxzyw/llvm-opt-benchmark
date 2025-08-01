@@ -1441,7 +1441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
 473:                                              ; preds = %434, %472
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %exitcond458.not = icmp eq i64 %indvars.iv.next455, %.090
-  br i1 %exitcond458.not, label %._crit_edge.i.i342, label %434, !llvm.loop !84
+  br i1 %exitcond458.not, label %._crit_edge.i.i342, label %434, !llvm.loop !83
 
 474:                                              ; preds = %453
   %475 = landingpad { ptr, i32 }
@@ -1925,7 +1925,6 @@ attributes #19 = { builtin allocsize(0) }
 !78 = !{!77, !29, i64 4}
 !79 = !{!80, !80, i64 0}
 !80 = !{!"double", !8, i64 0}
-!81 = distinct !{!81, !82, !83}
+!81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = distinct !{!84, !82, !83}
+!83 = distinct !{!83, !82}

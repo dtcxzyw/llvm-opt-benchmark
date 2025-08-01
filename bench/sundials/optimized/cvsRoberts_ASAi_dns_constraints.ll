@@ -830,7 +830,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   store double %20, ptr %24, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %25, label %10, !llvm.loop !24
+  br i1 %exitcond.not, label %25, label %10
 
 25:                                               ; preds = %19, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %19 ]
@@ -867,18 +867,18 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load double, ptr %19, align 8, !tbaa !9
   %21 = fneg double %16
-  %22 = load ptr, ptr %3, align 8, !tbaa !26
+  %22 = load ptr, ptr %3, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   store double %21, ptr %25, align 8, !tbaa !9
   %26 = fmul double %15, %18
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
   store double %26, ptr %28, align 8, !tbaa !9
   %29 = fmul double %13, %18
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
+  %31 = load ptr, ptr %30, align 8, !tbaa !30
   store double %29, ptr %31, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store double %16, ptr %32, align 8, !tbaa !9
@@ -1002,17 +1002,17 @@ define internal noundef i32 @JacB(double %0, ptr noundef readonly captures(none)
   %19 = load double, ptr %18, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load double, ptr %20, align 8, !tbaa !9
-  %22 = load ptr, ptr %4, align 8, !tbaa !26
+  %22 = load ptr, ptr %4, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   store double %10, ptr %25, align 8, !tbaa !9
   %26 = fneg double %10
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
   store double %26, ptr %28, align 8, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %30 = load ptr, ptr %29, align 8, !tbaa !30
   store double 0.000000e+00, ptr %30, align 8, !tbaa !9
   %31 = fneg double %12
   %32 = fmul double %21, %31
@@ -1231,12 +1231,10 @@ attributes #14 = { cold nounwind }
 !21 = !{!6, !6, i64 0}
 !22 = !{!18, !18, i64 0}
 !23 = !{!19, !19, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !6, i64 0}
-!27 = !{!"_generic_SUNMatrix", !6, i64 0, !28, i64 8, !12, i64 16}
-!28 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!29 = !{!30, !31, i64 32}
-!30 = !{!"_SUNMatrixContent_Dense", !18, i64 0, !18, i64 8, !20, i64 16, !18, i64 24, !31, i64 32}
-!31 = !{!"p2 double", !6, i64 0}
-!32 = !{!20, !20, i64 0}
+!24 = !{!25, !6, i64 0}
+!25 = !{!"_generic_SUNMatrix", !6, i64 0, !26, i64 8, !12, i64 16}
+!26 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!27 = !{!28, !29, i64 32}
+!28 = !{!"_SUNMatrixContent_Dense", !18, i64 0, !18, i64 8, !20, i64 16, !18, i64 24, !29, i64 32}
+!29 = !{!"p2 double", !6, i64 0}
+!30 = !{!20, !20, i64 0}

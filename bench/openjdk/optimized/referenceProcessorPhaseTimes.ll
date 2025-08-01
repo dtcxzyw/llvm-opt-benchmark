@@ -541,14 +541,14 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArra
 27:                                               ; preds = %26, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %27
   %28 = getelementptr inbounds nuw [5 x ptr], ptr %0, i64 0, i64 %indvars.iv
   store ptr %9, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %29, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %29, label %8, !llvm.loop !9
 
 29:                                               ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit
   %30 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #11
@@ -596,7 +596,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17:     ; preds = %_ZN15WorkerDataArra
 46:                                               ; preds = %45, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17
   %indvars.iv.next.i.i20 = add nuw nsw i64 %indvars.iv.i.i18, 1
   %exitcond.not.i.i21 = icmp eq i64 %indvars.iv.next.i.i20, 9
-  br i1 %exitcond.not.i.i21, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit22, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17, !llvm.loop !9
+  br i1 %exitcond.not.i.i21, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit22, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit22:         ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -653,12 +653,12 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %4
 20:                                               ; preds = %19, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %16, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %16, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !10
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %21 ]
@@ -668,7 +668,7 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %20
   store double -1.000000e+00, ptr %23, align 8
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 3
-  br i1 %exitcond30.not, label %24, label %21, !llvm.loop !12
+  br i1 %exitcond30.not, label %24, label %21, !llvm.loop !11
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -708,7 +708,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i17:       ; preds = %.lr.ph.i.i14, %24
 40:                                               ; preds = %39, %36
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 9
-  br i1 %exitcond.not.i21, label %_ZN15WorkerDataArrayIdE5resetEv.exit22.preheader, label %36, !llvm.loop !9
+  br i1 %exitcond.not.i21, label %_ZN15WorkerDataArrayIdE5resetEv.exit22.preheader, label %36, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE5resetEv.exit22.preheader: ; preds = %40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -759,7 +759,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimesD2Ev(ptr noundef nonnull re
 13:                                               ; preds = %12, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdED2Ev.exit, label %8, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdED2Ev.exit, label %8, !llvm.loop !12
 
 _ZN15WorkerDataArrayIdED2Ev.exit:                 ; preds = %13
   %14 = load ptr, ptr %4, align 8
@@ -770,7 +770,7 @@ _ZN15WorkerDataArrayIdED2Ev.exit:                 ; preds = %13
 15:                                               ; preds = %2, %_ZN15WorkerDataArrayIdED2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %16, label %2, !llvm.loop !14
+  br i1 %exitcond.not, label %16, label %2, !llvm.loop !13
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -797,7 +797,7 @@ _ZN15WorkerDataArrayIdED2Ev.exit:                 ; preds = %13
 27:                                               ; preds = %26, %22
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 9
-  br i1 %exitcond.not.i7, label %_ZN15WorkerDataArrayIdED2Ev.exit8, label %22, !llvm.loop !13
+  br i1 %exitcond.not.i7, label %_ZN15WorkerDataArrayIdED2Ev.exit8, label %22, !llvm.loop !12
 
 _ZN15WorkerDataArrayIdED2Ev.exit8:                ; preds = %27
   %28 = load ptr, ptr %18, align 8
@@ -815,7 +815,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13Referen
   %5 = add nsw i32 %1, -1
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %6
-  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %7) #11, !srcloc !15
+  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %7) #11, !srcloc !14
   ret void
 }
 
@@ -1199,7 +1199,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %.pre.pre to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %13
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next, %13 ]
@@ -1244,7 +1244,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
   %33 = load i32, ptr %6, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next57, %34
-  br i1 %35, label %.lr.ph50, label %._crit_edge, !llvm.loop !17
+  br i1 %35, label %.lr.ph50, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %32
   %36 = fsub double %.135, %.1
@@ -1341,7 +1341,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef non
   %7 = load i32, ptr %3, align 8
   %8 = zext i32 %7 to i64
   %9 = icmp samesign ult i64 %indvars.iv.next.i, %8
-  br i1 %9, label %.lr.ph.i, label %_ZN15WorkerDataArrayImE7set_allEm.exit, !llvm.loop !18
+  br i1 %9, label %.lr.ph.i, label %_ZN15WorkerDataArrayImE7set_allEm.exit, !llvm.loop !17
 
 _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1361,7 +1361,7 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 15:                                               ; preds = %11, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %16, label %11, !llvm.loop !19
+  br i1 %exitcond.not, label %16, label %11, !llvm.loop !18
 
 16:                                               ; preds = %15
   ret void
@@ -1389,7 +1389,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImED2Ev(ptr noundef nonnull
 8:                                                ; preds = %3, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !20
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !19
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %0, align 8
@@ -1479,18 +1479,17 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{i64 2145411697}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{i64 2145411697}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

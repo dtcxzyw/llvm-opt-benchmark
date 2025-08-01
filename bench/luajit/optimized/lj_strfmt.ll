@@ -163,7 +163,7 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   %70 = zext i8 %69 to i32
   %71 = add nsw i32 %70, -65
   %72 = icmp ult i32 %71, 56
-  br i1 %72, label %73, label %84, !prof !17
+  br i1 %72, label %73, label %84, !prof !16
 
 73:                                               ; preds = %68
   %74 = zext nneg i32 %71 to i64
@@ -192,13 +192,13 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   %87 = sub i64 %86, %3
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %88, ptr %89, align 8, !tbaa !18
+  store i32 %88, ptr %89, align 8, !tbaa !17
   store ptr %5, ptr %0, align 8, !tbaa !4
   br label %96
 
 90:                                               ; preds = %.lr.ph
   %exitcond.not = icmp eq ptr %12, %5
-  br i1 %exitcond.not, label %.thread88, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.thread88, label %.lr.ph, !llvm.loop !18
 
 .thread88:                                        ; preds = %90, %1, %18, %16
   %storemerge = phi ptr [ %17, %16 ], [ %.07192, %18 ], [ %2, %1 ], [ %scevgep, %90 ]
@@ -208,7 +208,7 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   %92 = sub i64 %91, %3
   %93 = trunc i64 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %93, ptr %94, align 8, !tbaa !18
+  store i32 %93, ptr %94, align 8, !tbaa !17
   %.not = icmp eq i32 %93, 0
   %95 = select i1 %.not, i32 0, i32 2
   br label %96
@@ -448,7 +448,7 @@ define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: ad
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %27 = and i64 %indvars.iv.next, 4294967294
   %.not28 = icmp eq i64 %27, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %28 = zext nneg i32 %19 to i64
@@ -477,7 +477,7 @@ define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly captures(ret
   store i8 %5, ptr %.067, align 1, !tbaa !13
   %7 = lshr i32 %.08, 7
   %8 = icmp ugt i32 %.08, 16383
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.06.lcssa = phi ptr [ %0, %2 ], [ %6, %.lr.ph ]
@@ -502,7 +502,7 @@ define hidden ptr @lj_strfmt_wstrnum(ptr noundef %0, ptr noundef readonly captur
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !13
-  store i32 %10, ptr %2, align 4, !tbaa !22
+  store i32 %10, ptr %2, align 4, !tbaa !21
   %11 = load i64, ptr %1, align 8, !tbaa !13
   %12 = and i64 %11, 140737488355327
   %13 = inttoptr i64 %12 to ptr
@@ -519,14 +519,14 @@ define hidden ptr @lj_strfmt_wstrnum(ptr noundef %0, ptr noundef readonly captur
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = trunc i64 %28 to i32
-  store i32 %29, ptr %2, align 4, !tbaa !22
+  store i32 %29, ptr %2, align 4, !tbaa !21
   br label %50
 
 30:                                               ; preds = %3, %15
@@ -535,25 +535,25 @@ define hidden ptr @lj_strfmt_wstrnum(ptr noundef %0, ptr noundef readonly captur
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !29
+  %34 = load i64, ptr %33, align 8, !tbaa !28
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 200
   %37 = ptrtoint ptr %0 to i64
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 224
-  store i64 %37, ptr %38, align 8, !tbaa !32
+  store i64 %37, ptr %38, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 216
-  %40 = load ptr, ptr %39, align 8, !tbaa !34
-  store ptr %40, ptr %36, align 8, !tbaa !35
+  %40 = load ptr, ptr %39, align 8, !tbaa !33
+  store ptr %40, ptr %36, align 8, !tbaa !34
   %41 = load double, ptr %1, align 8, !tbaa !13
   %42 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %36, i32 noundef 251658293, double noundef %41) #13
-  %43 = load ptr, ptr %42, align 8, !tbaa !35
+  %43 = load ptr, ptr %42, align 8, !tbaa !34
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !34
+  %45 = load ptr, ptr %44, align 8, !tbaa !33
   %46 = ptrtoint ptr %43 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = trunc i64 %48 to i32
-  store i32 %49, ptr %2, align 4, !tbaa !22
+  store i32 %49, ptr %2, align 4, !tbaa !21
   br label %50
 
 50:                                               ; preds = %30, %32, %21, %6
@@ -566,14 +566,14 @@ declare hidden ptr @lj_strfmt_putfnum(ptr noundef, i32 noundef, double noundef) 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_strfmt_putint(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
-  %5 = load ptr, ptr %0, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %5 = load ptr, ptr %0, align 8, !tbaa !34
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = trunc i64 %8 to i32
   %10 = icmp ult i32 %9, 11
-  br i1 %10, label %11, label %lj_buf_more.exit, !prof !37
+  br i1 %10, label %11, label %lj_buf_more.exit, !prof !36
 
 11:                                               ; preds = %2
   %12 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef 11) #13
@@ -582,7 +582,7 @@ define hidden noundef ptr @lj_strfmt_putint(ptr noundef returned %0, i32 noundef
 lj_buf_more.exit:                                 ; preds = %2, %11
   %.0.i = phi ptr [ %12, %11 ], [ %5, %2 ]
   %13 = tail call ptr @lj_strfmt_wint(ptr noundef %.0.i, i32 noundef %1)
-  store ptr %13, ptr %0, align 8, !tbaa !35
+  store ptr %13, ptr %0, align 8, !tbaa !34
   ret ptr %0
 }
 
@@ -596,14 +596,14 @@ define hidden ptr @lj_strfmt_putnum(ptr noundef %0, ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_strfmt_putptr(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
-  %5 = load ptr, ptr %0, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %5 = load ptr, ptr %0, align 8, !tbaa !34
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = trunc i64 %8 to i32
   %10 = icmp ult i32 %9, 18
-  br i1 %10, label %11, label %lj_buf_more.exit, !prof !37
+  br i1 %10, label %11, label %lj_buf_more.exit, !prof !36
 
 11:                                               ; preds = %2
   %12 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef 18) #13
@@ -661,7 +661,7 @@ lj_buf_more.exit:                                 ; preds = %2, %11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %37 = and i64 %indvars.iv.next.i, 4294967294
   %.not28.i = icmp eq i64 %37, 0
-  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %38 = zext nneg i32 %29 to i64
@@ -670,7 +670,7 @@ lj_buf_more.exit:                                 ; preds = %2, %11
 
 lj_strfmt_wptr.exit:                              ; preds = %15, %._crit_edge.i
   %.021.i = phi ptr [ %19, %15 ], [ %39, %._crit_edge.i ]
-  store ptr %.021.i, ptr %0, align 8, !tbaa !35
+  store ptr %.021.i, ptr %0, align 8, !tbaa !34
   ret ptr %0
 }
 
@@ -678,7 +678,7 @@ lj_strfmt_wptr.exit:                              ; preds = %15, %._crit_edge.i
 define hidden noundef ptr @lj_strfmt_putquoted(ptr noundef returned %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !38
+  %5 = load i32, ptr %4, align 4, !tbaa !37
   %6 = tail call fastcc ptr @strfmt_putquotedlen(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %5)
   ret ptr %0
 }
@@ -686,14 +686,14 @@ define hidden noundef ptr @lj_strfmt_putquoted(ptr noundef returned %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @strfmt_putquotedlen(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
-  %6 = load ptr, ptr %0, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = load ptr, ptr %0, align 8, !tbaa !34
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = and i64 %9, 4294967295
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %lj_buf_putb.exit, !prof !37
+  br i1 %11, label %12, label %lj_buf_putb.exit, !prof !36
 
 12:                                               ; preds = %3
   %13 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef 1) #13
@@ -703,7 +703,7 @@ lj_buf_putb.exit:                                 ; preds = %3, %12
   %.0.i.i = phi ptr [ %13, %12 ], [ %6, %3 ]
   store i8 34, ptr %.0.i.i, align 1, !tbaa !13
   %storemerge41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  store ptr %storemerge41, ptr %0, align 8, !tbaa !35
+  store ptr %storemerge41, ptr %0, align 8, !tbaa !34
   %.not42 = icmp eq i32 %2, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -715,13 +715,13 @@ lj_buf_putb.exit:                                 ; preds = %3, %12
   %16 = getelementptr inbounds nuw i8, ptr %.043, i64 1
   %17 = load i8, ptr %.043, align 1, !tbaa !13
   %18 = zext i8 %17 to i32
-  %19 = load ptr, ptr %4, align 8, !tbaa !36
+  %19 = load ptr, ptr %4, align 8, !tbaa !35
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %14 to i64
   %22 = sub i64 %20, %21
   %23 = and i64 %22, 4294967292
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %lj_buf_more.exit, !prof !37
+  br i1 %24, label %25, label %lj_buf_more.exit, !prof !36
 
 25:                                               ; preds = %.lr.ph
   %26 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef 4) #13
@@ -800,19 +800,19 @@ lj_buf_more.exit:                                 ; preds = %.lr.ph, %25
   %.031 = phi ptr [ %28, %27 ], [ %.2, %57 ], [ %.0.i, %29 ]
   store i8 %.032, ptr %.031, align 1, !tbaa !13
   %storemerge = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  store ptr %storemerge, ptr %0, align 8, !tbaa !35
+  store ptr %storemerge, ptr %0, align 8, !tbaa !34
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %59, %lj_buf_putb.exit
   %60 = phi ptr [ %storemerge41, %lj_buf_putb.exit ], [ %storemerge, %59 ]
-  %61 = load ptr, ptr %4, align 8, !tbaa !36
+  %61 = load ptr, ptr %4, align 8, !tbaa !35
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %60 to i64
   %64 = sub i64 %62, %63
   %65 = and i64 %64, 4294967295
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %lj_buf_putb.exit40, !prof !37
+  br i1 %66, label %67, label %lj_buf_putb.exit40, !prof !36
 
 67:                                               ; preds = %._crit_edge
   %68 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef 1) #13
@@ -822,7 +822,7 @@ lj_buf_putb.exit40:                               ; preds = %._crit_edge, %67
   %.0.i.i39 = phi ptr [ %68, %67 ], [ %60, %._crit_edge ]
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i39, i64 1
   store i8 34, ptr %.0.i.i39, align 1, !tbaa !13
-  store ptr %69, ptr %0, align 8, !tbaa !35
+  store ptr %69, ptr %0, align 8, !tbaa !34
   ret ptr %0
 }
 
@@ -832,14 +832,14 @@ define hidden noundef ptr @lj_strfmt_putfchar(ptr noundef returned %0, i32 nound
   %5 = and i32 %4, 255
   %6 = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !36
-  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !34
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = trunc i64 %12 to i32
   %14 = icmp ugt i32 %6, %13
-  br i1 %14, label %15, label %lj_buf_more.exit, !prof !37
+  br i1 %14, label %15, label %lj_buf_more.exit, !prof !36
 
 15:                                               ; preds = %3
   %16 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %6) #13
@@ -883,7 +883,7 @@ lj_buf_more.exit:                                 ; preds = %3, %15
 
 30:                                               ; preds = %27, %._crit_edge
   %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %29, %27 ]
-  store ptr %.2, ptr %0, align 8, !tbaa !35
+  store ptr %.2, ptr %0, align 8, !tbaa !34
   ret ptr %0
 }
 
@@ -891,7 +891,7 @@ lj_buf_more.exit:                                 ; preds = %3, %15
 define hidden noundef ptr @lj_strfmt_putfstr(ptr noundef returned %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !38
+  %6 = load i32, ptr %5, align 4, !tbaa !37
   %7 = lshr i32 %1, 16
   %8 = and i32 %7, 255
   %9 = lshr i32 %1, 24
@@ -899,14 +899,14 @@ define hidden noundef ptr @lj_strfmt_putfstr(ptr noundef returned %0, i32 nounde
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %6, i32 %10)
   %11 = tail call i32 @llvm.umax.i32(i32 %8, i32 %spec.select.i)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
-  %14 = load ptr, ptr %0, align 8, !tbaa !35
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %14 = load ptr, ptr %0, align 8, !tbaa !34
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = trunc i64 %17 to i32
   %19 = icmp ugt i32 %11, %18
-  br i1 %19, label %20, label %lj_buf_more.exit.i, !prof !37
+  br i1 %19, label %20, label %lj_buf_more.exit.i, !prof !36
 
 20:                                               ; preds = %3
   %21 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %11) #13
@@ -950,7 +950,7 @@ lj_buf_more.exit.i:                               ; preds = %20, %3
 
 strfmt_putfstrlen.exit:                           ; preds = %._crit_edge.i, %32
   %.2.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ %34, %32 ]
-  store ptr %.2.i, ptr %0, align 8, !tbaa !35
+  store ptr %.2.i, ptr %0, align 8, !tbaa !34
   ret ptr %0
 }
 
@@ -1032,7 +1032,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   store i8 %31, ptr %.ptr122, align 1, !tbaa !13
   %32 = udiv i64 %.1147, 10
   %.not104 = icmp ult i64 %.1147, 42949672960
-  br i1 %.not104, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not104, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader142
   %.182.idx.lcssa = phi i64 [ 23, %.preheader142 ], [ %.182.add, %.lr.ph ]
@@ -1051,7 +1051,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   store i8 %37, ptr %.ptr116, align 1, !tbaa !13
   %38 = udiv i32 %.075, 10
   %.not105 = icmp ult i32 %.075, 10
-  br i1 %.not105, label %.loopexit141, label %34, !llvm.loop !42
+  br i1 %.not105, label %.loopexit141, label %34, !llvm.loop !41
 
 39:                                               ; preds = %26
   %40 = and i32 %spec.select124134, 16
@@ -1075,7 +1075,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   store i8 %47, ptr %.ptr119, align 1, !tbaa !13
   %48 = lshr i64 %.2, 4
   %.not110 = icmp ult i64 %.2, 16
-  br i1 %.not110, label %49, label %44, !llvm.loop !43
+  br i1 %.not110, label %49, label %44, !llvm.loop !42
 
 49:                                               ; preds = %44
   %50 = and i32 %spec.select124134, 4096
@@ -1095,7 +1095,7 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   store i8 %54, ptr %.ptr117, align 1, !tbaa !13
   %55 = lshr i64 %.3, 3
   %.not107 = icmp ult i64 %.3, 8
-  br i1 %.not107, label %56, label %.preheader143, !llvm.loop !44
+  br i1 %.not107, label %56, label %.preheader143, !llvm.loop !43
 
 56:                                               ; preds = %.preheader143
   %57 = and i32 %spec.select124134, 4096
@@ -1122,14 +1122,14 @@ define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %0, i32 nound
   %65 = add i32 %spec.select127, %64
   %66 = tail call i32 @llvm.umax.i32(i32 %63, i32 %65)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !36
-  %69 = load ptr, ptr %0, align 8, !tbaa !35
+  %68 = load ptr, ptr %67, align 8, !tbaa !35
+  %69 = load ptr, ptr %0, align 8, !tbaa !34
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
   %73 = trunc i64 %72 to i32
   %74 = icmp ugt i32 %66, %73
-  br i1 %74, label %75, label %lj_buf_more.exit, !prof !37
+  br i1 %74, label %75, label %lj_buf_more.exit, !prof !36
 
 75:                                               ; preds = %.loopexit141
   %76 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef %66) #13
@@ -1225,7 +1225,7 @@ lj_buf_more.exit:                                 ; preds = %.loopexit141, %75
   %107 = getelementptr inbounds nuw i8, ptr %.7162, i64 1
   store i8 %106, ptr %.7162, align 1, !tbaa !13
   %exitcond.not = icmp eq i64 %.5.add, 23
-  br i1 %exitcond.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !44
 
 ._crit_edge165:                                   ; preds = %.lr.ph164, %.preheader136
   %.7.lcssa = phi ptr [ %.6.lcssa, %.preheader136 ], [ %107, %.lr.ph164 ]
@@ -1246,7 +1246,7 @@ lj_buf_more.exit:                                 ; preds = %.loopexit141, %75
 
 .loopexit:                                        ; preds = %.lr.ph169.preheader, %._crit_edge165
   %.8 = phi ptr [ %.7.lcssa, %._crit_edge165 ], [ %scevgep182, %.lr.ph169.preheader ]
-  store ptr %.8, ptr %0, align 8, !tbaa !35
+  store ptr %.8, ptr %0, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %4) #13
   ret ptr %0
 }
@@ -1263,14 +1263,14 @@ define hidden noundef ptr @lj_strfmt_putfnum_int(ptr noundef returned %0, i32 no
 8:                                                ; preds = %3
   %9 = trunc nsw i64 %4 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
-  %12 = load ptr, ptr %0, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %12 = load ptr, ptr %0, align 8, !tbaa !34
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = trunc i64 %15 to i32
   %17 = icmp ult i32 %16, 11
-  br i1 %17, label %18, label %lj_strfmt_putint.exit, !prof !37
+  br i1 %17, label %18, label %lj_strfmt_putint.exit, !prof !36
 
 18:                                               ; preds = %8
   %19 = tail call ptr @lj_buf_more2(ptr noundef nonnull %0, i32 noundef 11) #13
@@ -1279,7 +1279,7 @@ define hidden noundef ptr @lj_strfmt_putfnum_int(ptr noundef returned %0, i32 no
 lj_strfmt_putint.exit:                            ; preds = %8, %18
   %.0.i.i = phi ptr [ %19, %18 ], [ %12, %8 ]
   %20 = tail call ptr @lj_strfmt_wint(ptr noundef %.0.i.i, i32 noundef %9)
-  store ptr %20, ptr %0, align 8, !tbaa !35
+  store ptr %20, ptr %0, align 8, !tbaa !34
   br label %23
 
 21:                                               ; preds = %3
@@ -1303,9 +1303,9 @@ define hidden noundef ptr @lj_strfmt_putfnum_uint(ptr noundef returned %0, i32 n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_strfmt_putarg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -1314,7 +1314,7 @@ define hidden i32 @lj_strfmt_putarg(ptr noundef %0, ptr noundef %1, i32 noundef 
   %14 = tail call ptr @lj_lib_checkstr(ptr noundef %0, i32 noundef %2) #13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !38
+  %17 = load i32, ptr %16, align 4, !tbaa !37
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   %20 = ptrtoint ptr %19 to i64
@@ -1465,7 +1465,7 @@ lj_strfmt_putfnum_int.exit:                       ; preds = %lj_strfmt_putfnum_i
   %86 = zext i8 %85 to i32
   %87 = add nsw i32 %86, -65
   %88 = icmp ult i32 %87, 56
-  br i1 %88, label %89, label %lj_strfmt_parse.exit.thread155, !prof !17
+  br i1 %88, label %89, label %lj_strfmt_parse.exit.thread155, !prof !16
 
 89:                                               ; preds = %84
   %90 = zext nneg i32 %87 to i64
@@ -1485,7 +1485,7 @@ lj_strfmt_parse.exit.thread155:                   ; preds = %84, %89
 
 97:                                               ; preds = %.lr.ph.i
   %exitcond.not.i = icmp eq ptr %28, %19
-  br i1 %exitcond.not.i, label %.thread88.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.thread88.i, label %.lr.ph.i, !llvm.loop !18
 
 .thread88.i:                                      ; preds = %97, %34, %32, %lj_strfmt_putfnum_int.exit
   %storemerge.i = phi ptr [ %33, %32 ], [ %.07192.i, %34 ], [ %.sroa.0.0, %lj_strfmt_putfnum_int.exit ], [ %scevgep.i, %97 ]
@@ -1526,7 +1526,7 @@ lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_st
   unreachable
 
 112:                                              ; preds = %lj_strfmt_parse.exit
-  %113 = load ptr, ptr %7, align 8, !tbaa !47
+  %113 = load ptr, ptr %7, align 8, !tbaa !46
   %114 = add nsw i32 %.0, 1
   %115 = sext i32 %.0 to i64
   %116 = getelementptr inbounds %union.TValue, ptr %113, i64 %115
@@ -1558,14 +1558,14 @@ lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_st
   %124 = and i64 %121, 140737488355327
   %125 = inttoptr i64 %124 to ptr
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 10
-  %127 = load i16, ptr %126, align 2, !tbaa !48
+  %127 = load i16, ptr %126, align 2, !tbaa !47
   %.off = add i16 %127, -11
   %switch119 = icmp ult i16 %.off, 2
   br i1 %switch119, label %128, label %.thread
 
 128:                                              ; preds = %123
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %130 = load i64, ptr %129, align 8, !tbaa !51
+  %130 = load i64, ptr %129, align 8, !tbaa !50
   %131 = tail call ptr @lj_strfmt_putfxint(ptr noundef %1, i32 noundef %107, i64 noundef %130)
   br label %lj_strfmt_putfnum_int.exit.backedge
 
@@ -1580,14 +1580,14 @@ lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_st
 
 137:                                              ; preds = %.thread
   %138 = trunc nsw i64 %133 to i32
-  %139 = load ptr, ptr %22, align 8, !tbaa !36
-  %140 = load ptr, ptr %1, align 8, !tbaa !35
+  %139 = load ptr, ptr %22, align 8, !tbaa !35
+  %140 = load ptr, ptr %1, align 8, !tbaa !34
   %141 = ptrtoint ptr %139 to i64
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
   %144 = trunc i64 %143 to i32
   %145 = icmp ult i32 %144, 11
-  br i1 %145, label %146, label %lj_strfmt_putint.exit.i, !prof !37
+  br i1 %145, label %146, label %lj_strfmt_putint.exit.i, !prof !36
 
 146:                                              ; preds = %137
   %147 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef 11) #13
@@ -1596,7 +1596,7 @@ lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_st
 lj_strfmt_putint.exit.i:                          ; preds = %146, %137
   %.0.i.i.i = phi ptr [ %147, %146 ], [ %140, %137 ]
   %148 = tail call ptr @lj_strfmt_wint(ptr noundef %.0.i.i.i, i32 noundef %138)
-  store ptr %148, ptr %1, align 8, !tbaa !35
+  store ptr %148, ptr %1, align 8, !tbaa !34
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 149:                                              ; preds = %.thread
@@ -1613,14 +1613,14 @@ lj_strfmt_putint.exit.i:                          ; preds = %146, %137
   %155 = and i64 %152, 140737488355327
   %156 = inttoptr i64 %155 to ptr
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 10
-  %158 = load i16, ptr %157, align 2, !tbaa !48
+  %158 = load i16, ptr %157, align 2, !tbaa !47
   %.off120 = add i16 %158, -11
   %switch121 = icmp ult i16 %.off120, 2
   br i1 %switch121, label %159, label %.thread162
 
 159:                                              ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %161 = load i64, ptr %160, align 8, !tbaa !51
+  %161 = load i64, ptr %160, align 8, !tbaa !50
   %162 = tail call ptr @lj_strfmt_putfxint(ptr noundef %1, i32 noundef %107, i64 noundef %161)
   br label %lj_strfmt_putfnum_int.exit.backedge
 
@@ -1629,7 +1629,7 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   %.sroa.0.0.be = phi ptr [ %.sroa.0.1154, %lj_strfmt_parse.exit.thread147 ], [ %104, %118 ], [ %104, %128 ], [ %104, %.thread162 ], [ %104, %159 ], [ %104, %167 ], [ %104, %lj_strfmt_putfchar.exit ], [ %104, %lj_strfmt_putptr.exit ], [ %104, %183 ], [ %104, %strfmt_putfstrlen.exit ], [ %104, %230 ], [ %104, %lj_strfmt_putint.exit.i ], [ %104, %149 ]
   %.097.be = phi i32 [ %.097, %lj_strfmt_parse.exit.thread147 ], [ %.097, %118 ], [ %.097, %128 ], [ %.097, %.thread162 ], [ %.097, %159 ], [ %.097, %167 ], [ %.097, %lj_strfmt_putfchar.exit ], [ %.097, %lj_strfmt_putptr.exit ], [ 1, %183 ], [ %.097, %strfmt_putfstrlen.exit ], [ %.097, %230 ], [ %.097, %lj_strfmt_putint.exit.i ], [ %.097, %149 ]
   %.0.be = phi i32 [ %.0, %lj_strfmt_parse.exit.thread147 ], [ %114, %118 ], [ %114, %128 ], [ %114, %.thread162 ], [ %114, %159 ], [ %114, %167 ], [ %114, %lj_strfmt_putfchar.exit ], [ %114, %lj_strfmt_putptr.exit ], [ %114, %183 ], [ %114, %strfmt_putfstrlen.exit ], [ %114, %230 ], [ %114, %lj_strfmt_putint.exit.i ], [ %114, %149 ]
-  br label %lj_strfmt_putfnum_int.exit, !llvm.loop !52
+  br label %lj_strfmt_putfnum_int.exit, !llvm.loop !51
 
 .thread162:                                       ; preds = %154, %151
   %163 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %114) #13
@@ -1659,7 +1659,7 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 10
   %177 = load i8, ptr %176, align 2, !tbaa !13
   %.not = icmp eq i8 %177, 3
-  br i1 %.not, label %.critedge, label %.critedge118, !prof !17
+  br i1 %.not, label %.critedge, label %.critedge118, !prof !16
 
 .critedge118:                                     ; preds = %170, %173
   %178 = icmp sgt i32 %.097, -1
@@ -1676,22 +1676,22 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   br label %.critedge
 
 183:                                              ; preds = %179
-  %184 = load ptr, ptr %5, align 8, !tbaa !46
+  %184 = load ptr, ptr %5, align 8, !tbaa !45
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  store ptr %185, ptr %5, align 8, !tbaa !46
+  store ptr %185, ptr %5, align 8, !tbaa !45
   %186 = load i64, ptr %180, align 8, !tbaa !13
   store i64 %186, ptr %184, align 8, !tbaa !13
-  %187 = load ptr, ptr %5, align 8, !tbaa !46
+  %187 = load ptr, ptr %5, align 8, !tbaa !45
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store ptr %188, ptr %5, align 8, !tbaa !46
+  store ptr %188, ptr %5, align 8, !tbaa !45
   %189 = load i64, ptr %116, align 8, !tbaa !13
   store i64 %189, ptr %187, align 8, !tbaa !13
   tail call void @lua_call(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1) #13
-  %190 = load ptr, ptr %7, align 8, !tbaa !47
+  %190 = load ptr, ptr %7, align 8, !tbaa !46
   %191 = getelementptr inbounds %union.TValue, ptr %190, i64 %115
-  %192 = load ptr, ptr %5, align 8, !tbaa !46
+  %192 = load ptr, ptr %5, align 8, !tbaa !45
   %193 = getelementptr inbounds i8, ptr %192, i64 -8
-  store ptr %193, ptr %5, align 8, !tbaa !46
+  store ptr %193, ptr %5, align 8, !tbaa !45
   %194 = load i64, ptr %193, align 8, !tbaa !13
   store i64 %194, ptr %191, align 8, !tbaa !13
   %195 = icmp samesign ult i32 %.097, 2
@@ -1704,7 +1704,7 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   switch i64 %197, label %223 [
     i64 -5, label %198
     i64 -13, label %204
-  ], !prof !53
+  ], !prof !52
 
 198:                                              ; preds = %.critedge
   %199 = and i64 %196, 140737488355327
@@ -1733,9 +1733,9 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   unreachable
 
 215:                                              ; preds = %210
-  %216 = load ptr, ptr %211, align 8, !tbaa !23
+  %216 = load ptr, ptr %211, align 8, !tbaa !22
   %217 = getelementptr inbounds nuw i8, ptr %206, i64 88
-  %218 = load ptr, ptr %217, align 8, !tbaa !28
+  %218 = load ptr, ptr %217, align 8, !tbaa !27
   %219 = ptrtoint ptr %216 to i64
   %220 = ptrtoint ptr %218 to i64
   %221 = sub i64 %219, %220
@@ -1745,7 +1745,7 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
 223:                                              ; preds = %.critedge, %204
   %224 = tail call ptr @lj_strfmt_obj(ptr noundef nonnull %0, ptr noundef nonnull %.099)
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 20
-  %226 = load i32, ptr %225, align 4, !tbaa !38
+  %226 = load i32, ptr %225, align 4, !tbaa !37
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 24
   br label %228
 
@@ -1767,14 +1767,14 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   %236 = add nsw i32 %235, -1
   %spec.select.i122 = tail call i32 @llvm.umin.i32(i32 %.0101, i32 %236)
   %237 = tail call i32 @llvm.umax.i32(i32 %234, i32 %spec.select.i122)
-  %238 = load ptr, ptr %22, align 8, !tbaa !36
-  %239 = load ptr, ptr %1, align 8, !tbaa !35
+  %238 = load ptr, ptr %22, align 8, !tbaa !35
+  %239 = load ptr, ptr %1, align 8, !tbaa !34
   %240 = ptrtoint ptr %238 to i64
   %241 = ptrtoint ptr %239 to i64
   %242 = sub i64 %240, %241
   %243 = trunc i64 %242 to i32
   %244 = icmp ugt i32 %237, %243
-  br i1 %244, label %245, label %lj_buf_more.exit.i, !prof !37
+  br i1 %244, label %245, label %lj_buf_more.exit.i, !prof !36
 
 245:                                              ; preds = %232
   %246 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef %237) #13
@@ -1818,7 +1818,7 @@ lj_buf_more.exit.i:                               ; preds = %245, %232
 
 strfmt_putfstrlen.exit:                           ; preds = %._crit_edge.i125, %257
   %.2.i126 = phi ptr [ %.1.lcssa.i, %._crit_edge.i125 ], [ %259, %257 ]
-  store ptr %.2.i126, ptr %1, align 8, !tbaa !35
+  store ptr %.2.i126, ptr %1, align 8, !tbaa !34
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 260:                                              ; preds = %118
@@ -1826,14 +1826,14 @@ strfmt_putfstrlen.exit:                           ; preds = %._crit_edge.i125, %
   %262 = lshr i32 %.377.i, 16
   %263 = and i32 %262, 255
   %264 = tail call i32 @llvm.umax.i32(i32 %263, i32 1)
-  %265 = load ptr, ptr %22, align 8, !tbaa !36
-  %266 = load ptr, ptr %1, align 8, !tbaa !35
+  %265 = load ptr, ptr %22, align 8, !tbaa !35
+  %266 = load ptr, ptr %1, align 8, !tbaa !34
   %267 = ptrtoint ptr %265 to i64
   %268 = ptrtoint ptr %266 to i64
   %269 = sub i64 %267, %268
   %270 = trunc i64 %269 to i32
   %271 = icmp ugt i32 %264, %270
-  br i1 %271, label %272, label %lj_buf_more.exit.i129, !prof !37
+  br i1 %271, label %272, label %lj_buf_more.exit.i129, !prof !36
 
 272:                                              ; preds = %260
   %273 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef %264) #13
@@ -1877,21 +1877,21 @@ lj_buf_more.exit.i129:                            ; preds = %272, %260
 
 lj_strfmt_putfchar.exit:                          ; preds = %._crit_edge.i133, %284
   %.2.i135 = phi ptr [ %.1.lcssa.i134, %._crit_edge.i133 ], [ %286, %284 ]
-  store ptr %.2.i135, ptr %1, align 8, !tbaa !35
+  store ptr %.2.i135, ptr %1, align 8, !tbaa !34
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 287:                                              ; preds = %118
-  %288 = load i64, ptr %21, align 8, !tbaa !29
+  %288 = load i64, ptr %21, align 8, !tbaa !28
   %289 = inttoptr i64 %288 to ptr
   %290 = tail call ptr @lj_obj_ptr(ptr noundef %289, ptr noundef %116) #13
-  %291 = load ptr, ptr %22, align 8, !tbaa !36
-  %292 = load ptr, ptr %1, align 8, !tbaa !35
+  %291 = load ptr, ptr %22, align 8, !tbaa !35
+  %292 = load ptr, ptr %1, align 8, !tbaa !34
   %293 = ptrtoint ptr %291 to i64
   %294 = ptrtoint ptr %292 to i64
   %295 = sub i64 %293, %294
   %296 = trunc i64 %295 to i32
   %297 = icmp ult i32 %296, 18
-  br i1 %297, label %298, label %lj_buf_more.exit.i138, !prof !37
+  br i1 %297, label %298, label %lj_buf_more.exit.i138, !prof !36
 
 298:                                              ; preds = %287
   %299 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef 18) #13
@@ -1949,7 +1949,7 @@ lj_buf_more.exit.i138:                            ; preds = %298, %287
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %324 = and i64 %indvars.iv.next.i.i, 4294967294
   %.not28.i.i = icmp eq i64 %324, 0
-  br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %325 = zext nneg i32 %316 to i64
@@ -1958,7 +1958,7 @@ lj_buf_more.exit.i138:                            ; preds = %298, %287
 
 lj_strfmt_putptr.exit:                            ; preds = %302, %._crit_edge.i.i
   %.021.i.i = phi ptr [ %306, %302 ], [ %326, %._crit_edge.i.i ]
-  store ptr %.021.i.i, ptr %1, align 8, !tbaa !35
+  store ptr %.021.i.i, ptr %1, align 8, !tbaa !34
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 lj_strfmt_parse.exit.thread:                      ; preds = %.thread88.i, %lj_strfmt_parse.exit
@@ -2030,7 +2030,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #13
   %24 = xor i64 %5, -1
   %25 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !54
+  %26 = load ptr, ptr %25, align 8, !tbaa !53
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
   %28 = and i64 %27, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %26, i64 %28, i1 false)
@@ -2060,7 +2060,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 43:                                               ; preds = %33, %23
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !29
+  %45 = load i64, ptr %44, align 8, !tbaa !28
   %46 = inttoptr i64 %45 to ptr
   %47 = tail call ptr @lj_obj_ptr(ptr noundef %46, ptr noundef nonnull %1) #13
   %48 = ptrtoint ptr %47 to i64
@@ -2113,7 +2113,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %72 = and i64 %indvars.iv.next.i, 4294967294
   %.not28.i = icmp eq i64 %72, 0
-  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %73 = zext nneg i32 %64 to i64
@@ -2178,15 +2178,15 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
   %4 = alloca %struct.FormatState, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !29
+  %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = ptrtoint ptr %0 to i64
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  store i64 %9, ptr %10, align 8, !tbaa !32
+  store i64 %9, ptr %10, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
-  store ptr %12, ptr %8, align 8, !tbaa !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  store ptr %12, ptr %8, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   store ptr %1, ptr %4, align 8, !tbaa !4
@@ -2222,7 +2222,7 @@ define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr 
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %22, align 8, !tbaa !12
-  %29 = load i32, ptr %23, align 8, !tbaa !18
+  %29 = load i32, ptr %23, align 8, !tbaa !17
   %30 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %8, ptr noundef %28, i32 noundef %29) #13
   br label %182
 
@@ -2247,7 +2247,7 @@ define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr 
 
 42:                                               ; preds = %39, %34
   %43 = phi ptr [ %37, %34 ], [ %40, %39 ]
-  %44 = load i32, ptr %43, align 4, !tbaa !22
+  %44 = load i32, ptr %43, align 4, !tbaa !21
   %45 = sext i32 %44 to i64
   %46 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %8, i32 noundef %25, i64 noundef %45)
   br label %182
@@ -2273,7 +2273,7 @@ define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr 
 
 58:                                               ; preds = %55, %50
   %59 = phi ptr [ %53, %50 ], [ %56, %55 ]
-  %60 = load i32, ptr %59, align 4, !tbaa !22
+  %60 = load i32, ptr %59, align 4, !tbaa !21
   %61 = zext i32 %60 to i64
   %62 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %8, i32 noundef %25, i64 noundef %61)
   br label %182
@@ -2299,7 +2299,7 @@ define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr 
 
 74:                                               ; preds = %71, %66
   %75 = phi ptr [ %69, %66 ], [ %72, %71 ]
-  %76 = load double, ptr %75, align 8, !tbaa !55
+  %76 = load double, ptr %75, align 8, !tbaa !54
   %77 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %8, i32 noundef 251658293, double noundef %76) #13
   br label %182
 
@@ -2324,7 +2324,7 @@ define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr 
 
 89:                                               ; preds = %86, %81
   %90 = phi ptr [ %84, %81 ], [ %87, %86 ]
-  %91 = load ptr, ptr %90, align 8, !tbaa !54
+  %91 = load ptr, ptr %90, align 8, !tbaa !53
   %92 = icmp eq ptr %91, null
   %spec.store.select = select i1 %92, ptr @.str.6, ptr %91
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #15
@@ -2353,15 +2353,15 @@ define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %0, ptr noundef %1, ptr 
 
 107:                                              ; preds = %104, %99
   %108 = phi ptr [ %102, %99 ], [ %105, %104 ]
-  %109 = load i32, ptr %108, align 4, !tbaa !22
-  %110 = load ptr, ptr %20, align 8, !tbaa !36
-  %111 = load ptr, ptr %8, align 8, !tbaa !35
+  %109 = load i32, ptr %108, align 4, !tbaa !21
+  %110 = load ptr, ptr %20, align 8, !tbaa !35
+  %111 = load ptr, ptr %8, align 8, !tbaa !34
   %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
   %115 = and i64 %114, 4294967295
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %117, label %lj_buf_putb.exit, !prof !37
+  br i1 %116, label %117, label %lj_buf_putb.exit, !prof !36
 
 117:                                              ; preds = %107
   %118 = tail call ptr @lj_buf_more2(ptr noundef nonnull %8, i32 noundef 1) #13
@@ -2372,7 +2372,7 @@ lj_buf_putb.exit:                                 ; preds = %107, %117
   %119 = trunc i32 %109 to i8
   %120 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 %119, ptr %.0.i.i, align 1, !tbaa !13
-  store ptr %120, ptr %8, align 8, !tbaa !35
+  store ptr %120, ptr %8, align 8, !tbaa !34
   br label %182
 
 121:                                              ; preds = %24
@@ -2396,15 +2396,15 @@ lj_buf_putb.exit:                                 ; preds = %107, %117
 
 132:                                              ; preds = %129, %124
   %133 = phi ptr [ %127, %124 ], [ %130, %129 ]
-  %134 = load ptr, ptr %133, align 8, !tbaa !57
-  %135 = load ptr, ptr %20, align 8, !tbaa !36
-  %136 = load ptr, ptr %8, align 8, !tbaa !35
+  %134 = load ptr, ptr %133, align 8, !tbaa !56
+  %135 = load ptr, ptr %20, align 8, !tbaa !35
+  %136 = load ptr, ptr %8, align 8, !tbaa !34
   %137 = ptrtoint ptr %135 to i64
   %138 = ptrtoint ptr %136 to i64
   %139 = sub i64 %137, %138
   %140 = trunc i64 %139 to i32
   %141 = icmp ult i32 %140, 18
-  br i1 %141, label %142, label %lj_buf_more.exit.i, !prof !37
+  br i1 %141, label %142, label %lj_buf_more.exit.i, !prof !36
 
 142:                                              ; preds = %132
   %143 = tail call ptr @lj_buf_more2(ptr noundef nonnull %8, i32 noundef 18) #13
@@ -2462,7 +2462,7 @@ lj_buf_more.exit.i:                               ; preds = %142, %132
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %168 = and i64 %indvars.iv.next.i.i, 4294967294
   %.not28.i.i = icmp eq i64 %168, 0
-  br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %169 = zext nneg i32 %160 to i64
@@ -2471,18 +2471,18 @@ lj_buf_more.exit.i:                               ; preds = %142, %132
 
 lj_strfmt_putptr.exit:                            ; preds = %146, %._crit_edge.i.i
   %.021.i.i = phi ptr [ %150, %146 ], [ %170, %._crit_edge.i.i ]
-  store ptr %.021.i.i, ptr %8, align 8, !tbaa !35
+  store ptr %.021.i.i, ptr %8, align 8, !tbaa !34
   br label %182
 
 171:                                              ; preds = %24
-  %172 = load ptr, ptr %20, align 8, !tbaa !36
-  %173 = load ptr, ptr %8, align 8, !tbaa !35
+  %172 = load ptr, ptr %20, align 8, !tbaa !35
+  %173 = load ptr, ptr %8, align 8, !tbaa !34
   %174 = ptrtoint ptr %172 to i64
   %175 = ptrtoint ptr %173 to i64
   %176 = sub i64 %174, %175
   %177 = and i64 %176, 4294967295
   %178 = icmp eq i64 %177, 0
-  br i1 %178, label %179, label %lj_buf_putb.exit39, !prof !37
+  br i1 %178, label %179, label %lj_buf_putb.exit39, !prof !36
 
 179:                                              ; preds = %171
   %180 = tail call ptr @lj_buf_more2(ptr noundef nonnull %8, i32 noundef 1) #13
@@ -2492,17 +2492,17 @@ lj_buf_putb.exit39:                               ; preds = %171, %179
   %.0.i.i38 = phi ptr [ %180, %179 ], [ %173, %171 ]
   %181 = getelementptr inbounds nuw i8, ptr %.0.i.i38, i64 1
   store i8 63, ptr %.0.i.i38, align 1, !tbaa !13
-  store ptr %181, ptr %8, align 8, !tbaa !35
+  store ptr %181, ptr %8, align 8, !tbaa !34
   br label %182
 
 182:                                              ; preds = %lj_buf_putb.exit39, %lj_strfmt_putptr.exit, %lj_buf_putb.exit, %89, %74, %58, %42, %27
   %183 = call i32 @lj_strfmt_parse(ptr noundef nonnull %4)
   %.not = icmp eq i32 %183, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %24, !llvm.loop !58
+  br i1 %.not, label %._crit_edge.loopexit, label %24, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %182
-  %.pre = load ptr, ptr %11, align 8, !tbaa !34
-  %.pre42 = load ptr, ptr %8, align 8, !tbaa !35
+  %.pre = load ptr, ptr %11, align 8, !tbaa !33
+  %.pre42 = load ptr, ptr %8, align 8, !tbaa !34
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -2514,15 +2514,15 @@ lj_buf_putb.exit39:                               ; preds = %171, %179
   %189 = and i64 %188, 4294967295
   %190 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef %185, i64 noundef %189) #13
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %192 = load ptr, ptr %191, align 8, !tbaa !46
+  %192 = load ptr, ptr %191, align 8, !tbaa !45
   %193 = ptrtoint ptr %190 to i64
   %194 = or i64 %193, -703687441776640
   store i64 %194, ptr %192, align 8, !tbaa !13
-  %195 = load ptr, ptr %191, align 8, !tbaa !46
+  %195 = load ptr, ptr %191, align 8, !tbaa !45
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store ptr %196, ptr %191, align 8, !tbaa !46
+  store ptr %196, ptr %191, align 8, !tbaa !45
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %198 = load i64, ptr %197, align 8, !tbaa !59
+  %198 = load i64, ptr %197, align 8, !tbaa !58
   %199 = inttoptr i64 %198 to ptr
   %.not37 = icmp ult ptr %196, %199
   br i1 %.not37, label %201, label %200
@@ -2606,49 +2606,48 @@ attributes #15 = { nounwind willreturn memory(read) }
 !11 = !{!5, !6, i64 8}
 !12 = !{!5, !6, i64 16}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = !{!5, !10, i64 24}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
-!21 = distinct !{!21, !15, !16}
-!22 = !{!10, !10, i64 0}
-!23 = !{!24, !6, i64 0}
-!24 = !{!"SBufExt", !6, i64 0, !6, i64 8, !6, i64 16, !25, i64 24, !8, i64 32, !6, i64 40, !27, i64 48, !27, i64 56, !10, i64 64}
-!25 = !{!"MRef", !26, i64 0}
-!26 = !{!"long", !8, i64 0}
-!27 = !{!"GCRef", !26, i64 0}
-!28 = !{!24, !6, i64 40}
-!29 = !{!30, !26, i64 16}
-!30 = !{!"lua_State", !27, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !25, i64 16, !27, i64 24, !31, i64 32, !31, i64 40, !25, i64 48, !25, i64 56, !27, i64 64, !27, i64 72, !7, i64 80, !10, i64 88}
-!31 = !{!"p1 _ZTS6TValue", !7, i64 0}
-!32 = !{!33, !26, i64 24}
-!33 = !{!"SBuf", !6, i64 0, !6, i64 8, !6, i64 16, !25, i64 24}
-!34 = !{!33, !6, i64 16}
-!35 = !{!33, !6, i64 0}
-!36 = !{!33, !6, i64 8}
-!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!38 = !{!39, !10, i64 20}
-!39 = !{!"GCstr", !27, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 12, !10, i64 16, !10, i64 20}
-!40 = distinct !{!40, !15, !16}
-!41 = distinct !{!41, !15, !16}
-!42 = distinct !{!42, !15, !16}
-!43 = distinct !{!43, !15, !16}
-!44 = distinct !{!44, !15, !16}
-!45 = distinct !{!45, !15, !16}
-!46 = !{!30, !31, i64 40}
-!47 = !{!30, !31, i64 32}
-!48 = !{!49, !50, i64 10}
-!49 = !{!"GCcdata", !27, i64 0, !8, i64 8, !8, i64 9, !50, i64 10}
-!50 = !{!"short", !8, i64 0}
-!51 = !{!26, !26, i64 0}
-!52 = distinct !{!52, !15, !16}
-!53 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!54 = !{!6, !6, i64 0}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"double", !8, i64 0}
-!57 = !{!7, !7, i64 0}
-!58 = distinct !{!58, !15, !16}
-!59 = !{!30, !26, i64 48}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = !{!5, !10, i64 24}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = !{!10, !10, i64 0}
+!22 = !{!23, !6, i64 0}
+!23 = !{!"SBufExt", !6, i64 0, !6, i64 8, !6, i64 16, !24, i64 24, !8, i64 32, !6, i64 40, !26, i64 48, !26, i64 56, !10, i64 64}
+!24 = !{!"MRef", !25, i64 0}
+!25 = !{!"long", !8, i64 0}
+!26 = !{!"GCRef", !25, i64 0}
+!27 = !{!23, !6, i64 40}
+!28 = !{!29, !25, i64 16}
+!29 = !{!"lua_State", !26, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !24, i64 16, !26, i64 24, !30, i64 32, !30, i64 40, !24, i64 48, !24, i64 56, !26, i64 64, !26, i64 72, !7, i64 80, !10, i64 88}
+!30 = !{!"p1 _ZTS6TValue", !7, i64 0}
+!31 = !{!32, !25, i64 24}
+!32 = !{!"SBuf", !6, i64 0, !6, i64 8, !6, i64 16, !24, i64 24}
+!33 = !{!32, !6, i64 16}
+!34 = !{!32, !6, i64 0}
+!35 = !{!32, !6, i64 8}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!38, !10, i64 20}
+!38 = !{!"GCstr", !26, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 12, !10, i64 16, !10, i64 20}
+!39 = distinct !{!39, !15}
+!40 = distinct !{!40, !15}
+!41 = distinct !{!41, !15}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !15}
+!44 = distinct !{!44, !15}
+!45 = !{!29, !30, i64 40}
+!46 = !{!29, !30, i64 32}
+!47 = !{!48, !49, i64 10}
+!48 = !{!"GCcdata", !26, i64 0, !8, i64 8, !8, i64 9, !49, i64 10}
+!49 = !{!"short", !8, i64 0}
+!50 = !{!25, !25, i64 0}
+!51 = distinct !{!51, !15}
+!52 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!53 = !{!6, !6, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"double", !8, i64 0}
+!56 = !{!7, !7, i64 0}
+!57 = distinct !{!57, !15}
+!58 = !{!29, !25, i64 48}

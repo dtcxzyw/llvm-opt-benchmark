@@ -138,8 +138,8 @@ define void @evwatch_free(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %.idx = shl nuw nsw i64 %19, 4
-  %20 = getelementptr i8, ptr %16, i64 1184
-  %21 = getelementptr i8, ptr %20, i64 %.idx
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 1184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   store ptr %12, ptr %21, align 8
   br label %22
 

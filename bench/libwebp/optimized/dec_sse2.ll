@@ -1781,7 +1781,7 @@ define internal void @VFilter16i_SSE2(ptr noundef captures(none) %0, i32 noundef
   store <2 x i64> %126, ptr %129, align 1, !tbaa !7
   %130 = add nsw i32 %.040101, -1
   %131 = icmp samesign ugt i32 %.040101, 1
-  br i1 %131, label %29, label %132, !llvm.loop !11
+  br i1 %131, label %29, label %132, !llvm.loop !10
 
 132:                                              ; preds = %29
   ret void
@@ -2170,7 +2170,7 @@ Store4x4_SSE2.exit36.i:                           ; preds = %282
 Store16x4_SSE2.exit:                              ; preds = %293
   %300 = add nsw i32 %.018129, -1
   %301 = icmp samesign ugt i32 %.018129, 1
-  br i1 %301, label %93, label %302, !llvm.loop !12
+  br i1 %301, label %93, label %302, !llvm.loop !11
 
 302:                                              ; preds = %Store16x4_SSE2.exit
   ret void
@@ -3109,7 +3109,7 @@ define internal void @SimpleVFilter16i_SSE2(ptr noundef captures(none) %0, i32 n
   store <2 x i64> %65, ptr %15, align 1, !tbaa !7
   %66 = add nsw i32 %.08, -1
   %67 = icmp samesign ugt i32 %.08, 1
-  br i1 %67, label %14, label %68, !llvm.loop !13
+  br i1 %67, label %14, label %68, !llvm.loop !12
 
 68:                                               ; preds = %14
   ret void
@@ -3126,7 +3126,7 @@ define internal void @SimpleHFilter16i_SSE2(ptr noundef captures(none) %0, i32 n
   tail call void @SimpleHFilter16_SSE2(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   %6 = add nsw i32 %.07, -1
   %7 = icmp samesign ugt i32 %.07, 1
-  br i1 %7, label %4, label %8, !llvm.loop !14
+  br i1 %7, label %4, label %8, !llvm.loop !13
 
 8:                                                ; preds = %4
   ret void
@@ -3162,7 +3162,7 @@ define internal void @TM4_SSE2(ptr noundef captures(none) %0) #2 {
   %21 = add nuw nsw i32 %.04957.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.058.i, i64 32
   %exitcond63.not.i = icmp eq i32 %21, 4
-  br i1 %exitcond63.not.i, label %TrueMotion_SSE2.exit, label %8, !llvm.loop !15
+  br i1 %exitcond63.not.i, label %TrueMotion_SSE2.exit, label %8, !llvm.loop !14
 
 TrueMotion_SSE2.exit:                             ; preds = %8
   ret void
@@ -3192,7 +3192,7 @@ define internal void @VE4_SSE2(ptr noundef captures(none) %0) #2 {
   store i32 %14, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %15, !llvm.loop !16
+  br i1 %exitcond.not, label %18, label %15, !llvm.loop !15
 
 18:                                               ; preds = %15
   ret void
@@ -3412,48 +3412,48 @@ define internal void @VL4_SSE2(ptr noundef captures(none) initializes((0, 4), (3
 define internal void @DC16_SSE2(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load <16 x i8>, ptr %2, align 1, !tbaa !7
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.015 = phi i32 [ 0, %1 ], [ %8, %4 ]
+  %.015 = phi i32 [ 0, %1 ], [ %10, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %5
-  %6 = load i8, ptr %gep, align 1, !tbaa !7
-  %7 = zext i8 %6 to i32
-  %8 = add nuw nsw i32 %.015, %7
+  %6 = getelementptr i8, ptr %0, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -1
+  %8 = load i8, ptr %7, align 1, !tbaa !7
+  %9 = zext i8 %8 to i32
+  %10 = add nuw nsw i32 %.015, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !17
+  br i1 %exitcond.not, label %11, label %4, !llvm.loop !16
 
-9:                                                ; preds = %4
-  %10 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %3, <16 x i8> zeroinitializer)
-  %11 = bitcast <2 x i64> %10 to <4 x i32>
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %13 = bitcast <2 x i64> %10 to <8 x i16>
-  %14 = bitcast <4 x i32> %12 to <8 x i16>
-  %15 = add <8 x i16> %14, %13
-  %16 = bitcast <8 x i16> %15 to <4 x i32>
-  %17 = extractelement <4 x i32> %16, i64 0
-  %18 = add i32 %17, 16
-  %19 = add i32 %18, %8
-  %20 = lshr i32 %19, 5
-  %21 = trunc i32 %20 to i8
-  %22 = insertelement <16 x i8> poison, i8 %21, i64 0
-  %23 = shufflevector <16 x i8> %22, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %24
+11:                                               ; preds = %4
+  %12 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %3, <16 x i8> zeroinitializer)
+  %13 = bitcast <2 x i64> %12 to <4 x i32>
+  %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %15 = bitcast <2 x i64> %12 to <8 x i16>
+  %16 = bitcast <4 x i32> %14 to <8 x i16>
+  %17 = add <8 x i16> %16, %15
+  %18 = bitcast <8 x i16> %17 to <4 x i32>
+  %19 = extractelement <4 x i32> %18, i64 0
+  %20 = add i32 %19, 16
+  %21 = add i32 %20, %10
+  %22 = lshr i32 %21, 5
+  %23 = trunc i32 %22 to i8
+  %24 = insertelement <16 x i8> poison, i8 %23, i64 0
+  %25 = shufflevector <16 x i8> %24, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %26
 
-24:                                               ; preds = %24, %9
-  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %24 ]
-  %25 = shl nuw nsw i64 %indvars.iv.i, 5
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
-  store <16 x i8> %23, ptr %26, align 1, !tbaa !7
+26:                                               ; preds = %26, %11
+  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %26 ]
+  %27 = shl nuw nsw i64 %indvars.iv.i, 5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
+  store <16 x i8> %25, ptr %28, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %24, !llvm.loop !18
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %26, !llvm.loop !17
 
-Put16_SSE2.exit:                                  ; preds = %24
+Put16_SSE2.exit:                                  ; preds = %26
   ret void
 }
 
@@ -3486,7 +3486,7 @@ define internal void @TM16_SSE2(ptr noundef captures(none) %0) #2 {
   %21 = add nuw nsw i32 %.25159.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.260.i, i64 32
   %exitcond64.not.i = icmp eq i32 %21, 16
-  br i1 %exitcond64.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !19
+  br i1 %exitcond64.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !18
 
 TrueMotion_SSE2.exit:                             ; preds = %9
   ret void
@@ -3505,7 +3505,7 @@ define internal void @VE16_SSE2(ptr noundef captures(none) %0) #2 {
   store <2 x i64> %3, ptr %6, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !20
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !19
 
 7:                                                ; preds = %4
   ret void
@@ -3526,7 +3526,7 @@ define internal void @HE16_SSE2(ptr noundef captures(none) %0) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = add nsw i32 %.056, -1
   %9 = icmp samesign ugt i32 %.056, 1
-  br i1 %9, label %2, label %10, !llvm.loop !21
+  br i1 %9, label %2, label %10, !llvm.loop !20
 
 10:                                               ; preds = %2
   ret void
@@ -3534,38 +3534,38 @@ define internal void @HE16_SSE2(ptr noundef captures(none) %0) #2 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC16NoTop_SSE2(ptr noundef captures(none) %0) #2 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.067 = phi i32 [ 8, %1 ], [ %6, %2 ]
+  %.067 = phi i32 [ 8, %1 ], [ %8, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %3
-  %4 = load i8, ptr %gep, align 1, !tbaa !7
-  %5 = zext i8 %4 to i32
-  %6 = add nuw nsw i32 %.067, %5
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !7
+  %7 = zext i8 %6 to i32
+  %8 = add nuw nsw i32 %.067, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !22
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !21
 
-7:                                                ; preds = %2
-  %8 = lshr i32 %6, 4
-  %9 = trunc i32 %8 to i8
-  %10 = insertelement <16 x i8> poison, i8 %9, i64 0
-  %11 = shufflevector <16 x i8> %10, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %12
+9:                                                ; preds = %2
+  %10 = lshr i32 %8, 4
+  %11 = trunc i32 %10 to i8
+  %12 = insertelement <16 x i8> poison, i8 %11, i64 0
+  %13 = shufflevector <16 x i8> %12, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %14
 
-12:                                               ; preds = %12, %7
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %12 ]
-  %13 = shl nuw nsw i64 %indvars.iv.i, 5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
-  store <16 x i8> %11, ptr %14, align 1, !tbaa !7
+14:                                               ; preds = %14, %9
+  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %14 ]
+  %15 = shl nuw nsw i64 %indvars.iv.i, 5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  store <16 x i8> %13, ptr %16, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %12, !llvm.loop !18
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %14, !llvm.loop !17
 
-Put16_SSE2.exit:                                  ; preds = %12
+Put16_SSE2.exit:                                  ; preds = %14
   ret void
 }
 
@@ -3595,7 +3595,7 @@ define internal void @DC16NoLeft_SSE2(ptr noundef captures(none) %0) #2 {
   store <16 x i8> %16, ptr %19, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %17, !llvm.loop !18
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %17, !llvm.loop !17
 
 Put16_SSE2.exit:                                  ; preds = %17
   ret void
@@ -3612,7 +3612,7 @@ define internal void @DC16NoTopLeft_SSE2(ptr noundef writeonly captures(none) %0
   store <16 x i8> splat (i8 -128), ptr %4, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %2, !llvm.loop !18
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %2, !llvm.loop !17
 
 Put16_SSE2.exit:                                  ; preds = %2
   ret void
@@ -3622,47 +3622,47 @@ Put16_SSE2.exit:                                  ; preds = %2
 define internal void @DC8uv_SSE2(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1, !tbaa !7
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.013 = phi i32 [ 0, %1 ], [ %8, %4 ]
+  %.013 = phi i32 [ 0, %1 ], [ %10, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %5
-  %6 = load i8, ptr %gep, align 1, !tbaa !7
-  %7 = zext i8 %6 to i32
-  %8 = add nuw nsw i32 %.013, %7
+  %6 = getelementptr i8, ptr %0, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -1
+  %8 = load i8, ptr %7, align 1, !tbaa !7
+  %9 = zext i8 %8 to i32
+  %10 = add nuw nsw i32 %.013, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !23
+  br i1 %exitcond.not, label %11, label %4, !llvm.loop !22
 
-9:                                                ; preds = %4
-  %10 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
-  %11 = bitcast <2 x i64> %10 to <16 x i8>
-  %12 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %11, <16 x i8> zeroinitializer)
-  %13 = bitcast <2 x i64> %12 to <4 x i32>
-  %14 = extractelement <4 x i32> %13, i64 0
-  %15 = add i32 %14, 8
-  %16 = add i32 %15, %8
-  %17 = lshr i32 %16, 4
-  %18 = trunc i32 %17 to i8
-  %19 = insertelement <16 x i8> poison, i8 %18, i64 0
-  %20 = shufflevector <16 x i8> %19, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %21 = bitcast <16 x i8> %20 to <2 x i64>
-  %22 = extractelement <2 x i64> %21, i64 0
-  br label %23
+11:                                               ; preds = %4
+  %12 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
+  %13 = bitcast <2 x i64> %12 to <16 x i8>
+  %14 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %13, <16 x i8> zeroinitializer)
+  %15 = bitcast <2 x i64> %14 to <4 x i32>
+  %16 = extractelement <4 x i32> %15, i64 0
+  %17 = add i32 %16, 8
+  %18 = add i32 %17, %10
+  %19 = lshr i32 %18, 4
+  %20 = trunc i32 %19 to i8
+  %21 = insertelement <16 x i8> poison, i8 %20, i64 0
+  %22 = shufflevector <16 x i8> %21, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %23 = bitcast <16 x i8> %22 to <2 x i64>
+  %24 = extractelement <2 x i64> %23, i64 0
+  br label %25
 
-23:                                               ; preds = %23, %9
-  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %23 ]
-  %24 = shl nuw nsw i64 %indvars.iv.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
-  store i64 %22, ptr %25, align 1, !tbaa !7
+25:                                               ; preds = %25, %11
+  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %25 ]
+  %26 = shl nuw nsw i64 %indvars.iv.i, 5
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
+  store i64 %24, ptr %27, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %23, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %25, !llvm.loop !23
 
-Put8x8uv_SSE2.exit:                               ; preds = %23
+Put8x8uv_SSE2.exit:                               ; preds = %25
   ret void
 }
 
@@ -3696,7 +3696,7 @@ define internal void @TM8uv_SSE2(ptr noundef captures(none) %0) #2 {
   %22 = add nuw nsw i32 %.15055.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.156.i, i64 32
   %exitcond.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !25
+  br i1 %exitcond.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !24
 
 TrueMotion_SSE2.exit:                             ; preds = %9
   ret void
@@ -3715,7 +3715,7 @@ define internal void @VE8uv_SSE2(ptr noundef captures(none) %0) #2 {
   store i64 %3, ptr %6, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !26
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !25
 
 7:                                                ; preds = %4
   ret void
@@ -3723,40 +3723,40 @@ define internal void @VE8uv_SSE2(ptr noundef captures(none) %0) #2 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC8uvNoTop_SSE2(ptr noundef captures(none) %0) #2 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.067 = phi i32 [ 4, %1 ], [ %6, %2 ]
+  %.067 = phi i32 [ 4, %1 ], [ %8, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %3
-  %4 = load i8, ptr %gep, align 1, !tbaa !7
-  %5 = zext i8 %4 to i32
-  %6 = add nuw nsw i32 %.067, %5
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !7
+  %7 = zext i8 %6 to i32
+  %8 = add nuw nsw i32 %.067, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !27
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !26
 
-7:                                                ; preds = %2
-  %8 = lshr i32 %6, 3
-  %9 = trunc i32 %8 to i8
-  %10 = insertelement <16 x i8> poison, i8 %9, i64 0
-  %11 = shufflevector <16 x i8> %10, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %12 = bitcast <16 x i8> %11 to <2 x i64>
-  %13 = extractelement <2 x i64> %12, i64 0
-  br label %14
+9:                                                ; preds = %2
+  %10 = lshr i32 %8, 3
+  %11 = trunc i32 %10 to i8
+  %12 = insertelement <16 x i8> poison, i8 %11, i64 0
+  %13 = shufflevector <16 x i8> %12, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %14 = bitcast <16 x i8> %13 to <2 x i64>
+  %15 = extractelement <2 x i64> %14, i64 0
+  br label %16
 
-14:                                               ; preds = %14, %7
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %14 ]
-  %15 = shl nuw nsw i64 %indvars.iv.i, 5
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
-  store i64 %13, ptr %16, align 1, !tbaa !7
+16:                                               ; preds = %16, %9
+  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %16 ]
+  %17 = shl nuw nsw i64 %indvars.iv.i, 5
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
+  store i64 %15, ptr %18, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %14, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %16, !llvm.loop !23
 
-Put8x8uv_SSE2.exit:                               ; preds = %14
+Put8x8uv_SSE2.exit:                               ; preds = %16
   ret void
 }
 
@@ -3785,7 +3785,7 @@ define internal void @DC8uvNoLeft_SSE2(ptr noundef captures(none) %0) #2 {
   store i64 %15, ptr %18, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %16, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %16, !llvm.loop !23
 
 Put8x8uv_SSE2.exit:                               ; preds = %16
   ret void
@@ -3802,7 +3802,7 @@ define internal void @DC8uvNoTopLeft_SSE2(ptr noundef writeonly captures(none) %
   store i64 -9187201950435737472, ptr %4, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %2, !llvm.loop !24
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %2, !llvm.loop !23
 
 Put8x8uv_SSE2.exit:                               ; preds = %2
   ret void
@@ -3856,23 +3856,22 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}

@@ -730,7 +730,7 @@ proto_item_set_hidden.exit:                       ; preds = %13, %16, %19
   %48 = add i32 %.263, 2
   %49 = add nuw i8 %.164, 1
   %exitcond.not = icmp eq i8 %49, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 50:                                               ; preds = %proto_item_set_hidden.exit
   %51 = tail call ptr @proto_tree_add_expert(ptr noundef %9, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_doi, ptr noundef %2, i32 noundef %23, i32 noundef 1)
@@ -873,7 +873,6 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

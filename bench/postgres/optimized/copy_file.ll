@@ -302,7 +302,7 @@ define internal void @copy_file_by_range(ptr noundef %0, ptr noundef %1, ptr nou
 
 15:                                               ; preds = %.preheader
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %16, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %16, label %.preheader, !llvm.loop !8
 
 16:                                               ; preds = %15
   %17 = tail call i32 @close(i32 noundef %4) #7
@@ -364,7 +364,7 @@ define internal fastcc void @checksum_file(ptr noundef %0, ptr noundef %1) unnam
 14:                                               ; preds = %11
   %15 = tail call i32 @pg_checksum_update(ptr noundef nonnull %1, ptr noundef %10, i64 noundef %12) #7
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %11, !llvm.loop !10
+  br i1 %16, label %17, label %11, !llvm.loop !9
 
 17:                                               ; preds = %14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %0) #7
@@ -410,8 +410,7 @@ attributes #9 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = !{ptr @copy_file_blocks, ptr @copy_file_by_range, ptr @copy_file_clone}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

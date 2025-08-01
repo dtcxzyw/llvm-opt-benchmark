@@ -167,8 +167,8 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
-  %11 = load i32, ptr %10, align 8, !tbaa !29
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %11 = load i32, ptr %10, align 8, !tbaa !28
   switch i32 %11, label %cbs_sei_get_unit.exit.thread [
     i32 27, label %12
     i32 173, label %13
@@ -193,25 +193,25 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   %.065.i = phi i32 [ 5, %12 ], [ 31, %13 ], [ 11, %14 ]
   %.062.i = phi i32 [ 6, %12 ], [ %..i, %13 ], [ %.72.i, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !33
+  %17 = load i32, ptr %16, align 8, !tbaa !32
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.i, label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
   %wide.trip.count.i = zext nneg i32 %17 to i64
   br label %22
 
 21:                                               ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !38
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !37
 
 22:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
   %23 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %20, i64 %indvars.iv.i
-  %24 = load i32, ptr %23, align 8, !tbaa !39
+  %24 = load i32, ptr %23, align 8, !tbaa !38
   %25 = icmp eq i32 %24, %.062.i
   br i1 %25, label %cbs_sei_get_unit.exit, label %21
 
@@ -235,14 +235,14 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 .preheader76.i:                                   ; preds = %._crit_edge.i, %30
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %30 ], [ 0, %._crit_edge.i ]
   %27 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %20, i64 %indvars.iv90.i
-  %28 = load i32, ptr %27, align 8, !tbaa !39
+  %28 = load i32, ptr %27, align 8, !tbaa !38
   %29 = icmp ult i32 %28, %.065.i
   br i1 %29, label %.loopexit.loopexit100.split.loop.exit103.i, label %30
 
 30:                                               ; preds = %.preheader76.i
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count.i
-  br i1 %exitcond94.not.i, label %.loopexit.i, label %.preheader76.i, !llvm.loop !41
+  br i1 %exitcond94.not.i, label %.loopexit.i, label %.preheader76.i, !llvm.loop !40
 
 31:                                               ; preds = %34, %.preheader.i
   %indvars.iv95.i = phi i64 [ %.pre-phi, %.preheader.i ], [ %35, %34 ]
@@ -252,11 +252,11 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 
 34:                                               ; preds = %31
   %35 = add nsw i64 %indvars.iv95.i, -1
-  %36 = load ptr, ptr %26, align 8, !tbaa !37
+  %36 = load ptr, ptr %26, align 8, !tbaa !36
   %37 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %36, i64 %35
-  %38 = load i32, ptr %37, align 8, !tbaa !39
+  %38 = load i32, ptr %37, align 8, !tbaa !38
   %39 = icmp ult i32 %38, %.065.i
-  br i1 %39, label %.loopexit.i, label %31, !llvm.loop !42
+  br i1 %39, label %.loopexit.i, label %31, !llvm.loop !41
 
 .loopexit.loopexit100.split.loop.exit103.i:       ; preds = %.preheader76.i
   %40 = trunc nuw nsw i64 %indvars.iv90.i to i32
@@ -270,17 +270,17 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 
 43:                                               ; preds = %.loopexit.i
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = load ptr, ptr %44, align 8, !tbaa !37
+  %45 = load ptr, ptr %44, align 8, !tbaa !36
   %46 = sext i32 %.063.i to i64
   %47 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %45, i64 %46
-  store i32 %.062.i, ptr %47, align 8, !tbaa !39
+  store i32 %.062.i, ptr %47, align 8, !tbaa !38
   %48 = tail call i32 @ff_cbs_alloc_unit_content(ptr noundef %0, ptr noundef nonnull %47) #6
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %cbs_sei_get_unit.exit.thread, label %50
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr %9, align 8, !tbaa !25
-  %52 = load i32, ptr %51, align 8, !tbaa !29
+  %51 = load ptr, ptr %9, align 8, !tbaa !24
+  %52 = load i32, ptr %51, align 8, !tbaa !28
   switch i32 %52, label %65 [
     i32 27, label %53
     i32 173, label %57
@@ -290,7 +290,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 53:                                               ; preds = %50
   %54 = trunc nuw nsw i32 %.062.i to i8
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !43
+  %56 = load ptr, ptr %55, align 8, !tbaa !42
   store i8 0, ptr %56, align 1
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 %54, ptr %.sroa.46.0..sroa_idx.i, align 1
@@ -301,7 +301,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 57:                                               ; preds = %50
   %58 = trunc nuw nsw i32 %.062.i to i8
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !43
+  %60 = load ptr, ptr %59, align 8, !tbaa !42
   store i8 %58, ptr %60, align 1
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 0, ptr %.sroa.52.0..sroa_idx.i, align 1
@@ -314,7 +314,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 61:                                               ; preds = %50
   %62 = trunc nuw nsw i32 %.062.i to i8
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !43
+  %64 = load ptr, ptr %63, align 8, !tbaa !42
   store i8 0, ptr %64, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i8 %62, ptr %.sroa.4.0..sroa_idx.i, align 1
@@ -331,8 +331,8 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 
 cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
   %.033 = phi ptr [ %47, %61 ], [ %47, %57 ], [ %47, %53 ], [ %23, %22 ]
-  %.val = load ptr, ptr %9, align 8, !tbaa !25
-  %.val.val = load i32, ptr %.val, align 8, !tbaa !29
+  %.val = load ptr, ptr %9, align 8, !tbaa !24
+  %.val.val = load i32, ptr %.val, align 8, !tbaa !28
   switch i32 %.val.val, label %cbs_sei_get_unit.exit.thread [
     i32 27, label %66
     i32 173, label %68
@@ -340,25 +340,25 @@ cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
   ]
 
 66:                                               ; preds = %cbs_sei_get_unit.exit
-  %67 = load i32, ptr %.033, align 8, !tbaa !39
+  %67 = load i32, ptr %.033, align 8, !tbaa !38
   %.not25.not.i = icmp eq i32 %67, 6
   br i1 %.not25.not.i, label %72, label %cbs_sei_get_unit.exit.thread
 
 68:                                               ; preds = %cbs_sei_get_unit.exit
-  %69 = load i32, ptr %.033, align 8, !tbaa !39
+  %69 = load i32, ptr %.033, align 8, !tbaa !38
   %.off.i = add i32 %69, -39
   %switch30.i = icmp ult i32 %.off.i, 2
   br i1 %switch30.i, label %72, label %cbs_sei_get_unit.exit.thread
 
 70:                                               ; preds = %cbs_sei_get_unit.exit
-  %71 = load i32, ptr %.033, align 8, !tbaa !39
+  %71 = load i32, ptr %.033, align 8, !tbaa !38
   %.off31.i = add i32 %71, -23
   %switch32.i = icmp ult i32 %.off31.i, 2
   br i1 %switch32.i, label %72, label %cbs_sei_get_unit.exit.thread
 
 72:                                               ; preds = %70, %68, %66
   %73 = getelementptr inbounds nuw i8, ptr %.033, i64 40
-  %74 = load ptr, ptr %73, align 8, !tbaa !43
+  %74 = load ptr, ptr %73, align 8, !tbaa !42
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %77 = load i32, ptr %76, align 4, !tbaa !17
@@ -435,16 +435,16 @@ declare ptr @av_refstruct_ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -2, 1) i32 @ff_cbs_sei_find_message(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !33
+  %6 = load i32, ptr %5, align 8, !tbaa !32
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !37
+  %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %10, align 8, !tbaa !25
-  %.val.val = load i32, ptr %.val, align 8, !tbaa !29
+  %.val = load ptr, ptr %10, align 8, !tbaa !24
+  %.val.val = load i32, ptr %.val, align 8, !tbaa !28
   %wide.trip.count56 = zext nneg i32 %6 to i64
   br label %11
 
@@ -459,25 +459,25 @@ define range(i32 -2, 1) i32 @ff_cbs_sei_find_message(ptr noundef readonly captur
   ]
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr %12, align 8, !tbaa !39
+  %14 = load i32, ptr %12, align 8, !tbaa !38
   %.not25.not.i = icmp eq i32 %14, 6
   br i1 %.not25.not.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %12, align 8, !tbaa !39
+  %16 = load i32, ptr %12, align 8, !tbaa !38
   %.off.i = add i32 %16, -39
   %switch30.i = icmp ult i32 %.off.i, 2
   br i1 %switch30.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
 
 17:                                               ; preds = %11
-  %18 = load i32, ptr %12, align 8, !tbaa !39
+  %18 = load i32, ptr %12, align 8, !tbaa !38
   %.off31.i = add i32 %18, -23
   %switch32.i = icmp ult i32 %.off31.i, 2
   br i1 %switch32.i, label %cbs_sei_get_message_list.exit, label %cbs_sei_get_message_list.exit.thread
 
 cbs_sei_get_message_list.exit:                    ; preds = %13, %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !20
   %23 = icmp sgt i32 %22, 0
@@ -498,7 +498,7 @@ cbs_sei_get_message_list.exit:                    ; preds = %13, %15, %17
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %3, align 8, !tbaa !44
+  %31 = load ptr, ptr %3, align 8, !tbaa !43
   %32 = icmp eq ptr %31, null
   %33 = icmp ne i32 %.22747, 0
   %or.cond = select i1 %32, i1 true, i1 %33
@@ -513,17 +513,17 @@ cbs_sei_get_message_list.exit:                    ; preds = %13, %15, %17
   %.429.ph = phi i32 [ %spec.select, %34 ], [ %.22747, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %cbs_sei_get_message_list.exit.thread, label %26, !llvm.loop !45
+  br i1 %exitcond.not, label %cbs_sei_get_message_list.exit.thread, label %26, !llvm.loop !44
 
 37:                                               ; preds = %30
-  store ptr %27, ptr %3, align 8, !tbaa !44
+  store ptr %27, ptr %3, align 8, !tbaa !43
   br label %.loopexit
 
 cbs_sei_get_message_list.exit.thread:             ; preds = %36, %cbs_sei_get_message_list.exit, %17, %15, %13, %11
   %.126.ph = phi i32 [ %.02548, %11 ], [ %.02548, %13 ], [ %.02548, %15 ], [ %.02548, %17 ], [ %.02548, %cbs_sei_get_message_list.exit ], [ %.429.ph, %36 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.loopexit, label %11, !llvm.loop !46
+  br i1 %exitcond57.not, label %.loopexit, label %11, !llvm.loop !45
 
 .loopexit:                                        ; preds = %cbs_sei_get_message_list.exit.thread, %4, %37
   %.4 = phi i32 [ 0, %37 ], [ -2, %4 ], [ -2, %cbs_sei_get_message_list.exit.thread ]
@@ -533,7 +533,7 @@ cbs_sei_get_message_list.exit.thread:             ; preds = %36, %cbs_sei_get_me
 ; Function Attrs: nounwind uwtable
 define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !33
+  %5 = load i32, ptr %4, align 8, !tbaa !32
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph22, label %._crit_edge
 
@@ -545,10 +545,10 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
 9:                                                ; preds = %.lr.ph22, %cbs_sei_get_message_list.exit.thread
   %10 = phi i32 [ %5, %.lr.ph22 ], [ %50, %cbs_sei_get_message_list.exit.thread ]
   %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %cbs_sei_get_message_list.exit.thread ]
-  %11 = load ptr, ptr %7, align 8, !tbaa !37
+  %11 = load ptr, ptr %7, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %11, i64 %indvars.iv24
-  %.val = load ptr, ptr %8, align 8, !tbaa !25
-  %.val.val = load i32, ptr %.val, align 8, !tbaa !29
+  %.val = load ptr, ptr %8, align 8, !tbaa !24
+  %.val.val = load i32, ptr %.val, align 8, !tbaa !28
   switch i32 %.val.val, label %cbs_sei_get_message_list.exit.thread [
     i32 27, label %13
     i32 173, label %15
@@ -556,25 +556,25 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
   ]
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr %12, align 8, !tbaa !39
+  %14 = load i32, ptr %12, align 8, !tbaa !38
   %.not25.not.i = icmp eq i32 %14, 6
   br i1 %.not25.not.i, label %19, label %cbs_sei_get_message_list.exit.thread
 
 15:                                               ; preds = %9
-  %16 = load i32, ptr %12, align 8, !tbaa !39
+  %16 = load i32, ptr %12, align 8, !tbaa !38
   %.off.i = add i32 %16, -39
   %switch30.i = icmp ult i32 %.off.i, 2
   br i1 %switch30.i, label %19, label %cbs_sei_get_message_list.exit.thread
 
 17:                                               ; preds = %9
-  %18 = load i32, ptr %12, align 8, !tbaa !39
+  %18 = load i32, ptr %12, align 8, !tbaa !38
   %.off31.i = add i32 %18, -23
   %switch32.i = icmp ult i32 %.off31.i, 2
   br i1 %switch32.i, label %19, label %cbs_sei_get_message_list.exit.thread
 
 19:                                               ; preds = %17, %15, %13
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !20
@@ -629,10 +629,10 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
 
 cbs_sei_delete_message.exit:                      ; preds = %41, %35, %.lr.ph
   %49 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %49, label %.lr.ph, label %cbs_sei_get_message_list.exit.thread.loopexit, !llvm.loop !47
+  br i1 %49, label %.lr.ph, label %cbs_sei_get_message_list.exit.thread.loopexit, !llvm.loop !46
 
 cbs_sei_get_message_list.exit.thread.loopexit:    ; preds = %cbs_sei_delete_message.exit
-  %.pre = load i32, ptr %4, align 8, !tbaa !33
+  %.pre = load i32, ptr %4, align 8, !tbaa !32
   br label %cbs_sei_get_message_list.exit.thread
 
 cbs_sei_get_message_list.exit.thread:             ; preds = %cbs_sei_get_message_list.exit.thread.loopexit, %19, %17, %15, %13, %9
@@ -640,7 +640,7 @@ cbs_sei_get_message_list.exit.thread:             ; preds = %cbs_sei_get_message
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next25, %51
-  br i1 %52, label %9, label %._crit_edge, !llvm.loop !48
+  br i1 %52, label %9, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %cbs_sei_get_message_list.exit.thread, %3
   ret void
@@ -688,30 +688,29 @@ attributes #7 = { noreturn nounwind }
 !19 = !{!"p1 _ZTS13SEIRawMessage", !9, i64 0}
 !20 = !{!18, !6, i64 8}
 !21 = !{!18, !19, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !27, i64 8}
-!26 = !{!"CodedBitstreamContext", !9, i64 0, !27, i64 8, !9, i64 16, !28, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !10, i64 72, !11, i64 80}
-!27 = !{!"p1 _ZTS18CodedBitstreamType", !9, i64 0}
-!28 = !{!"p1 int", !9, i64 0}
-!29 = !{!30, !6, i64 0}
-!30 = !{!"CodedBitstreamType", !6, i64 0, !31, i64 8, !11, i64 16, !32, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80}
-!31 = !{!"p1 _ZTS7AVClass", !9, i64 0}
-!32 = !{!"p1 _ZTS32CodedBitstreamUnitTypeDescriptor", !9, i64 0}
-!33 = !{!34, !6, i64 32}
-!34 = !{!"CodedBitstreamFragment", !10, i64 0, !11, i64 8, !11, i64 16, !35, i64 24, !6, i64 32, !6, i64 36, !36, i64 40}
-!35 = !{!"p1 _ZTS11AVBufferRef", !9, i64 0}
-!36 = !{!"p1 _ZTS18CodedBitstreamUnit", !9, i64 0}
-!37 = !{!34, !36, i64 40}
-!38 = distinct !{!38, !23, !24}
-!39 = !{!40, !6, i64 0}
-!40 = !{!"CodedBitstreamUnit", !6, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !35, i64 32, !9, i64 40, !9, i64 48}
-!41 = distinct !{!41, !23, !24}
-!42 = distinct !{!42, !23, !24}
-!43 = !{!40, !9, i64 40}
-!44 = !{!19, !19, i64 0}
-!45 = distinct !{!45, !23, !24}
-!46 = distinct !{!46, !23, !24}
-!47 = distinct !{!47, !23, !24}
-!48 = distinct !{!48, !23, !24}
+!24 = !{!25, !26, i64 8}
+!25 = !{!"CodedBitstreamContext", !9, i64 0, !26, i64 8, !9, i64 16, !27, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !10, i64 72, !11, i64 80}
+!26 = !{!"p1 _ZTS18CodedBitstreamType", !9, i64 0}
+!27 = !{!"p1 int", !9, i64 0}
+!28 = !{!29, !6, i64 0}
+!29 = !{!"CodedBitstreamType", !6, i64 0, !30, i64 8, !11, i64 16, !31, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80}
+!30 = !{!"p1 _ZTS7AVClass", !9, i64 0}
+!31 = !{!"p1 _ZTS32CodedBitstreamUnitTypeDescriptor", !9, i64 0}
+!32 = !{!33, !6, i64 32}
+!33 = !{!"CodedBitstreamFragment", !10, i64 0, !11, i64 8, !11, i64 16, !34, i64 24, !6, i64 32, !6, i64 36, !35, i64 40}
+!34 = !{!"p1 _ZTS11AVBufferRef", !9, i64 0}
+!35 = !{!"p1 _ZTS18CodedBitstreamUnit", !9, i64 0}
+!36 = !{!33, !35, i64 40}
+!37 = distinct !{!37, !23}
+!38 = !{!39, !6, i64 0}
+!39 = !{!"CodedBitstreamUnit", !6, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !34, i64 32, !9, i64 40, !9, i64 48}
+!40 = distinct !{!40, !23}
+!41 = distinct !{!41, !23}
+!42 = !{!39, !9, i64 40}
+!43 = !{!19, !19, i64 0}
+!44 = distinct !{!44, !23}
+!45 = distinct !{!45, !23}
+!46 = distinct !{!46, !23}
+!47 = distinct !{!47, !23}

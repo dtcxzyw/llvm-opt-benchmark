@@ -287,7 +287,7 @@ SDL_CheckInitProperties.exit.thread:              ; preds = %0, %SDL_CheckInitPr
   br i1 %12, label %.preheader.backedge, label %13
 
 .preheader.backedge:                              ; preds = %.preheader, %13
-  br label %.preheader, !llvm.loop !6
+  br label %.preheader
 
 13:                                               ; preds = %.preheader
   %14 = tail call zeroext i1 @SDL_CompareAndSwapAtomicU32_REAL(ptr noundef nonnull @SDL_last_properties_id, i32 noundef %10, i32 noundef %11) #6
@@ -447,7 +447,7 @@ define hidden zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %0, i32 noundef %1
   %37 = load ptr, ptr %3, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = call zeroext i1 @SDL_IterateHashTable(ptr noundef %38, ptr noundef nonnull @CopyOneProperty, ptr noundef nonnull %5) #6
-  %40 = load i8, ptr %35, align 8, !range !7, !noundef !8
+  %40 = load i8, ptr %35, align 8, !range !5, !noundef !6
   %41 = trunc nuw i8 %40 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   %42 = load ptr, ptr %4, align 8
@@ -1397,7 +1397,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
 
 47:                                               ; preds = %20
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %49 = load i8, ptr %48, align 8, !range !7, !noundef !8
+  %49 = load i8, ptr %48, align 8, !range !5, !noundef !6
   %50 = trunc nuw i8 %49 to i1
   %51 = select i1 %50, ptr @.str.6, ptr @.str.7
   br label %52
@@ -1486,7 +1486,7 @@ define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i6
 
 36:                                               ; preds = %20
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %38 = load i8, ptr %37, align 8, !range !7, !noundef !8
+  %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = zext nneg i8 %38 to i64
   br label %40
 
@@ -1575,7 +1575,7 @@ define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, f
 
 35:                                               ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %37 = load i8, ptr %36, align 8, !range !7, !noundef !8
+  %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
   %38 = trunc nuw i8 %37 to i1
   %39 = uitofp i1 %38 to float
   br label %40
@@ -1663,7 +1663,7 @@ define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr nounde
 
 35:                                               ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %37 = load i8, ptr %36, align 8, !range !7, !noundef !8
+  %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
   %38 = trunc nuw i8 %37 to i1
   br label %39
 
@@ -1936,9 +1936,7 @@ attributes #7 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!5 = !{i8 0, i8 2}
+!6 = !{}

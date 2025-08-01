@@ -1037,9 +1037,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !74
+  %8 = load i32, ptr %5, align 4, !tbaa !73
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !74
+  store i32 %9, ptr %5, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1202,9 +1202,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev26FixedFunctionTransformImplEPFvPNS0_22FixedFunctionTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1229,7 +1229,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev26Fixed
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev26FixedFunctionTransformImplEPFvPNS0_22FixedFunctionTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev22FixedFunctionTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1293,7 +1293,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev9Tran
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !74
+  store i32 %20, ptr %5, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1427,12 +1427,11 @@ attributes #24 = { builtin nounwind }
 !68 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
 !69 = !{!"_ZTSSt6locale", !70, i64 0}
 !70 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!71 = distinct !{!71, !72, !73}
+!71 = distinct !{!71, !72}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!"llvm.loop.estimated_trip_count"}
-!74 = !{!16, !16, i64 0}
-!75 = !{!9, !9, i64 0}
-!76 = !{!77, !22, i64 24}
-!77 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev26FixedFunctionTransformImplEPFvPNS0_22FixedFunctionTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!78 = !{!79, !42, i64 8}
-!79 = !{!"_ZTSSt9type_info", !42, i64 8}
+!73 = !{!16, !16, i64 0}
+!74 = !{!9, !9, i64 0}
+!75 = !{!76, !22, i64 24}
+!76 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev26FixedFunctionTransformImplEPFvPNS0_22FixedFunctionTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!77 = !{!78, !42, i64 8}
+!78 = !{!"_ZTSSt9type_info", !42, i64 8}

@@ -801,7 +801,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_resources(ptr noundef
 50:                                               ; preds = %47, %44, %22, %16, %11
   %51 = add nuw nsw i64 %8, 1
   %52 = icmp eq i64 %51, 11
-  br i1 %52, label %53, label %7, !llvm.loop !11
+  br i1 %52, label %53, label %7, !llvm.loop !10
 
 53:                                               ; preds = %50, %7
   %54 = load i16, ptr %3, align 2
@@ -865,8 +865,7 @@ attributes #7 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 -16, i32 1}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}

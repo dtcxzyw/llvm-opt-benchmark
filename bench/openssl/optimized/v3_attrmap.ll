@@ -207,7 +207,7 @@ define internal range(i32 0, 2) i32 @i2r_ATTRIBUTE_MAPPINGS(ptr readnone capture
   br i1 %13, label %i2r_ATTRIBUTE_MAPPING.exit.thread, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = load i32, ptr %11, align 8, !tbaa !6
+  %15 = load i32, ptr %11, align 8, !tbaa !5
   switch i32 %15, label %i2r_ATTRIBUTE_MAPPING.exit.thread [
     i32 0, label %16
     i32 1, label %30
@@ -215,8 +215,8 @@ define internal range(i32 0, 2) i32 @i2r_ATTRIBUTE_MAPPINGS(ptr readnone capture
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !11
-  %19 = load ptr, ptr %18, align 8, !tbaa !12
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
+  %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %2, ptr noundef %19) #3
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %i2r_ATTRIBUTE_MAPPING.exit.thread, label %22
@@ -227,24 +227,24 @@ define internal range(i32 0, 2) i32 @i2r_ATTRIBUTE_MAPPINGS(ptr readnone capture
   br i1 %24, label %i2r_ATTRIBUTE_MAPPING.exit.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %17, align 8, !tbaa !11
+  %26 = load ptr, ptr %17, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !16
+  %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %2, ptr noundef %28) #3
   br label %i2r_ATTRIBUTE_MAPPING.exit
 
 30:                                               ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !11
-  %33 = load ptr, ptr %32, align 8, !tbaa !17
-  %34 = load ptr, ptr %33, align 8, !tbaa !20
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
-  %37 = load ptr, ptr %36, align 8, !tbaa !20
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %37 = load ptr, ptr %36, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !24
+  %41 = load ptr, ptr %40, align 8, !tbaa !23
   %42 = tail call i32 @OBJ_obj2nid(ptr noundef %34) #3
   %43 = tail call i32 @OBJ_obj2nid(ptr noundef %37) #3
   %44 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %2, ptr noundef %34) #3
@@ -323,25 +323,24 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"ATTRIBUTE_MAPPING_st", !8, i64 0, !9, i64 8}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!9, !9, i64 0}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"ATTRIBUTE_TYPE_MAPPING_st", !14, i64 0, !14, i64 8}
-!14 = !{!"p1 _ZTS14asn1_object_st", !15, i64 0}
-!15 = !{!"any pointer", !9, i64 0}
-!16 = !{!13, !14, i64 8}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"ATTRIBUTE_VALUE_MAPPING_st", !19, i64 0, !19, i64 8}
-!19 = !{!"p1 _ZTS7atav_st", !15, i64 0}
-!20 = !{!21, !14, i64 0}
-!21 = !{!"atav_st", !14, i64 0, !22, i64 8}
-!22 = !{!"p1 _ZTS12asn1_type_st", !15, i64 0}
-!23 = !{!18, !19, i64 8}
-!24 = !{!21, !22, i64 8}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"ATTRIBUTE_MAPPING_st", !7, i64 0, !8, i64 8}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!8, !8, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"ATTRIBUTE_TYPE_MAPPING_st", !13, i64 0, !13, i64 8}
+!13 = !{!"p1 _ZTS14asn1_object_st", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = !{!12, !13, i64 8}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"ATTRIBUTE_VALUE_MAPPING_st", !18, i64 0, !18, i64 8}
+!18 = !{!"p1 _ZTS7atav_st", !14, i64 0}
+!19 = !{!20, !13, i64 0}
+!20 = !{!"atav_st", !13, i64 0, !21, i64 8}
+!21 = !{!"p1 _ZTS12asn1_type_st", !14, i64 0}
+!22 = !{!17, !18, i64 8}
+!23 = !{!20, !21, i64 8}

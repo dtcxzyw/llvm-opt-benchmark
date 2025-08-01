@@ -583,12 +583,12 @@ _ZN28ResolutionErrorDeleteIterate8do_entryERK18ResolutionErrorKeyP20ResolutionEr
   %.1 = phi ptr [ %.01417, %33 ], [ %32, %_ZN28ResolutionErrorDeleteIterate8do_entryERK18ResolutionErrorKeyP20ResolutionErrorEntry.exit ]
   %38 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %37, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 107
-  br i1 %exitcond.not, label %39, label %4, !llvm.loop !10
+  br i1 %exitcond.not, label %39, label %4, !llvm.loop !9
 
 39:                                               ; preds = %._crit_edge
   ret void
@@ -700,12 +700,12 @@ _ZN28ResolutionIteratePurgeErrors8do_entryERK18ResolutionErrorKeyP20ResolutionEr
   %.1 = phi ptr [ %.01417, %36 ], [ %35, %_ZN28ResolutionIteratePurgeErrors8do_entryERK18ResolutionErrorKeyP20ResolutionErrorEntry.exit ]
   %41 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %40, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 107
-  br i1 %exitcond.not, label %42, label %4, !llvm.loop !12
+  br i1 %exitcond.not, label %42, label %4, !llvm.loop !11
 
 42:                                               ; preds = %._crit_edge
   ret void
@@ -833,10 +833,9 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -288,7 +288,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   %105 = getelementptr inbounds nuw i8, ptr %.0100, i64 %.sink
   %.0100.be = load ptr, ptr %105, align 8
   %.pre133 = load i32, ptr %.0100.be, align 8
-  br label %102, !llvm.loop !7
+  br label %102
 
 .critedge122:                                     ; preds = %102
   %106 = zext i32 %96 to i64
@@ -345,7 +345,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   %124 = getelementptr inbounds nuw i8, ptr %.098, i64 %.sink135
   %.098.be = load ptr, ptr %124, align 8
   %.pre134 = load i32, ptr %.098.be, align 8
-  br label %121, !llvm.loop !9
+  br label %121
 
 .critedge124:                                     ; preds = %121
   %125 = zext i32 %115 to i64
@@ -486,7 +486,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   %31 = getelementptr inbounds nuw i8, ptr %.048, i64 %.sink
   %.048.be = load ptr, ptr %31, align 8
   %.pre = load i32, ptr %.048.be, align 8
-  br label %28, !llvm.loop !10
+  br label %28
 
 .critedge:                                        ; preds = %28
   %32 = zext i32 %22 to i64
@@ -542,7 +542,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %.046, i64 %.sink60
   %.046.be = load ptr, ptr %48, align 8
   %.pre59 = load i32, ptr %.046.be, align 8
-  br label %45, !llvm.loop !11
+  br label %45
 
 .critedge56:                                      ; preds = %45
   %49 = zext i32 %39 to i64
@@ -626,7 +626,7 @@ define dso_local void @cast_no_check(ptr noundef %0, ptr noundef %1, ptr noundef
 18:                                               ; preds = %15, %9
   %.1.in.i = phi ptr [ %14, %9 ], [ %16, %15 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %5, !llvm.loop !12
+  br label %5
 
 type_flatten.exit:                                ; preds = %5
   %19 = load ptr, ptr %1, align 8
@@ -662,7 +662,7 @@ type_flatten.exit:                                ; preds = %5
 33:                                               ; preds = %30, %24
   %.1.in.i83 = phi ptr [ %29, %24 ], [ %31, %30 ]
   %.1.i84 = load ptr, ptr %.1.in.i83, align 8
-  br label %20, !llvm.loop !12
+  br label %20
 
 type_flatten.exit85:                              ; preds = %20
   %34 = icmp eq ptr %22, %7
@@ -723,7 +723,7 @@ type_flatten.exit85:                              ; preds = %20
   %54 = getelementptr inbounds nuw i8, ptr %.068, i64 %.sink
   %.068.be = load ptr, ptr %54, align 8
   %.pre = load i32, ptr %.068.be, align 8
-  br label %51, !llvm.loop !13
+  br label %51
 
 .critedge:                                        ; preds = %51
   %55 = zext i32 %45 to i64
@@ -779,7 +779,7 @@ type_flatten.exit85:                              ; preds = %20
   %72 = getelementptr inbounds nuw i8, ptr %.066, i64 %.sink98
   %.066.be = load ptr, ptr %72, align 8
   %.pre94 = load i32, ptr %.066.be, align 8
-  br label %69, !llvm.loop !14
+  br label %69
 
 .critedge81:                                      ; preds = %69
   %73 = zext i32 %63 to i64
@@ -970,7 +970,7 @@ define dso_local void @cast_promote_vararg(ptr noundef %0, ptr noundef %1) local
 17:                                               ; preds = %14, %8
   %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %4, !llvm.loop !12
+  br label %4
 
 type_flatten.exit:                                ; preds = %4
   %18 = add i32 %7, -2
@@ -1148,10 +1148,10 @@ thread-pre-split:                                 ; preds = %6, %8
     i32 36, label %9
     i32 38, label %9
     i32 23, label %8
-  ], !llvm.loop !15
+  ]
 
 8:                                                ; preds = %6, %6, %6, %6, %6, %6
-  br label %thread-pre-split, !llvm.loop !15
+  br label %thread-pre-split
 
 9:                                                ; preds = %6, %6
   %10 = icmp eq i32 %4, 31
@@ -1215,10 +1215,10 @@ thread-pre-split120:                              ; preds = %.preheader123, %30
     i32 36, label %.loopexit
     i32 38, label %.loopexit
     i32 23, label %30
-  ], !llvm.loop !16
+  ]
 
 30:                                               ; preds = %.preheader123, %.preheader123, %.preheader123, %.preheader123, %.preheader123, %.preheader123
-  br label %thread-pre-split120, !llvm.loop !16
+  br label %thread-pre-split120
 
 .loopexit:                                        ; preds = %.preheader123, %.preheader123, %25
   %31 = tail call ptr @type_infer_len_from_actual_type(ptr noundef %26, ptr noundef %27)
@@ -1286,7 +1286,7 @@ thread-pre-split120:                              ; preds = %.preheader123, %30
 57:                                               ; preds = %54, %48
   %.1.in.i = phi ptr [ %53, %48 ], [ %55, %54 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 64
@@ -1329,7 +1329,7 @@ type_flatten.exit:                                ; preds = %.preheader
 76:                                               ; preds = %73, %67
   %.1.in.i115 = phi ptr [ %72, %67 ], [ %74, %73 ]
   %.1.i116 = load ptr, ptr %.1.in.i115, align 8
-  br label %.preheader122, !llvm.loop !12
+  br label %.preheader122
 
 type_flatten.exit117:                             ; preds = %.preheader122
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 64
@@ -1459,7 +1459,7 @@ define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr noundef readonly ca
 15:                                               ; preds = %12, %6
   %.1.in.i = phi ptr [ %11, %6 ], [ %13, %12 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %2, !llvm.loop !12
+  br label %2
 
 16:                                               ; preds = %2, %2
   br label %20
@@ -1547,7 +1547,7 @@ define dso_local noundef zeroext i1 @cast_to_index(ptr noundef %0, ptr noundef %
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  br label %3, !llvm.loop !17
+  br label %3
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1685,7 +1685,7 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
 
 .backedge84:                                      ; preds = %15, %9
   %.0.i.in.be = phi ptr [ %14, %9 ], [ %16, %15 ]
-  br label %5, !llvm.loop !12
+  br label %5
 
 17:                                               ; preds = %5
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -1738,7 +1738,7 @@ type_flatten.exit:                                ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %.056, i64 %.sink
   %.056.be = load ptr, ptr %32, align 8
   %.pre = load i32, ptr %.056.be, align 8
-  br label %29, !llvm.loop !18
+  br label %29
 
 .critedge:                                        ; preds = %29
   %33 = zext i32 %23 to i64
@@ -1989,7 +1989,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr noundef readonly captures(none
 
 .preheader.backedge:                              ; preds = %70, %64
   %.0.i.in.be = phi ptr [ %69, %64 ], [ %71, %70 ]
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 72:                                               ; preds = %.preheader
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -2533,7 +2533,7 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr noundef readonly c
 28:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
@@ -2664,7 +2664,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   %44 = getelementptr inbounds nuw i8, ptr %.062, i64 %.sink
   %.062.be = load ptr, ptr %44, align 8
   %.pre = load i32, ptr %.062.be, align 8
-  br label %41, !llvm.loop !21
+  br label %41
 
 .critedge:                                        ; preds = %41
   %45 = zext i32 %35 to i64
@@ -2725,7 +2725,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   %65 = getelementptr inbounds nuw i8, ptr %.058, i64 %.sink75
   %.058.be = load ptr, ptr %65, align 8
   %.pre74 = load i32, ptr %.058.be, align 8
-  br label %62, !llvm.loop !22
+  br label %62
 
 .critedge70:                                      ; preds = %62
   %66 = zext i32 %56 to i64
@@ -2907,7 +2907,7 @@ define internal zeroext i1 @rule_sa_to_sa(ptr noundef readonly captures(none) %0
 24:                                               ; preds = %21, %15
   %.1.in.i = phi ptr [ %20, %15 ], [ %22, %21 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader, %37
   %.0.i69 = phi ptr [ %.1.i71, %37 ], [ %7, %.preheader ]
@@ -2939,7 +2939,7 @@ type_flatten.exit:                                ; preds = %.preheader, %37
 37:                                               ; preds = %34, %28
   %.1.in.i70 = phi ptr [ %33, %28 ], [ %35, %34 ]
   %.1.i71 = load ptr, ptr %.1.in.i70, align 8
-  br label %type_flatten.exit, !llvm.loop !12
+  br label %type_flatten.exit
 
 type_flatten.exit72:                              ; preds = %type_flatten.exit, %3
   %.054 = phi ptr [ %7, %3 ], [ %26, %type_flatten.exit ]
@@ -3253,7 +3253,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   %55 = getelementptr inbounds nuw i8, ptr %.072, i64 %.sink
   %.072.be = load ptr, ptr %55, align 8
   %.pre90 = load i32, ptr %.072.be, align 8
-  br label %52, !llvm.loop !23
+  br label %52
 
 56:                                               ; preds = %18
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3308,7 +3308,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   %76 = getelementptr inbounds nuw i8, ptr %.077, i64 %.sink91
   %.077.be = load ptr, ptr %76, align 8
   %.pre = load i32, ptr %.077.be, align 8
-  br label %73, !llvm.loop !24
+  br label %73
 
 .loopexit.sink.split:                             ; preds = %73, %52
   %.sink95 = phi i32 [ %46, %52 ], [ %67, %73 ]
@@ -3432,7 +3432,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   %29 = getelementptr inbounds nuw i8, ptr %.085, i64 %.sink
   %.085.be = load ptr, ptr %29, align 8
   %.pre114 = load i32, ptr %.085.be, align 8
-  br label %26, !llvm.loop !25
+  br label %26
 
 .critedge:                                        ; preds = %26
   %30 = zext i32 %20 to i64
@@ -3492,7 +3492,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   %49 = getelementptr inbounds nuw i8, ptr %.091, i64 %.sink116
   %.091.be = load ptr, ptr %49, align 8
   %.pre115 = load i32, ptr %.091.be, align 8
-  br label %46, !llvm.loop !26
+  br label %46
 
 .critedge102:                                     ; preds = %46
   %50 = zext i32 %40 to i64
@@ -3621,7 +3621,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   %108 = getelementptr inbounds nuw i8, ptr %.089, i64 %.sink117
   %.089.be = load ptr, ptr %108, align 8
   %.pre = load i32, ptr %.089.be, align 8
-  br label %105, !llvm.loop !27
+  br label %105
 
 .critedge104:                                     ; preds = %105
   %109 = zext i32 %99 to i64
@@ -3775,7 +3775,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   %46 = getelementptr inbounds nuw i8, ptr %.064, i64 %.sink
   %.064.be = load ptr, ptr %46, align 8
   %.pre = load i32, ptr %.064.be, align 8
-  br label %43, !llvm.loop !28
+  br label %43
 
 .thread:                                          ; preds = %43, %43, %27, %39, %39
   %.066.ph = phi i32 [ 20, %39 ], [ 20, %39 ], [ 19, %27 ], [ 21, %43 ], [ 21, %43 ]
@@ -3844,7 +3844,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   %71 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink79
   %.060.be = load ptr, ptr %71, align 8
   %.pre78 = load i32, ptr %.060.be, align 8
-  br label %68, !llvm.loop !29
+  br label %68
 
 .critedge72:                                      ; preds = %68
   %72 = zext i32 %62 to i64
@@ -3995,7 +3995,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   %45 = getelementptr inbounds nuw i8, ptr %.037, i64 %.sink
   %.037.be = load ptr, ptr %45, align 8
   %.pre = load i32, ptr %.037.be, align 8
-  br label %42, !llvm.loop !30
+  br label %42
 
 .critedge:                                        ; preds = %42
   %46 = zext i32 %36 to i64
@@ -4108,7 +4108,7 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
   %23 = getelementptr inbounds nuw i8, ptr %.027, i64 %.sink
   %.027.be = load ptr, ptr %23, align 8
   %.pre = load i32, ptr %.027.be, align 8
-  br label %20, !llvm.loop !31
+  br label %20
 
 .critedge:                                        ; preds = %20
   %24 = zext i32 %14 to i64
@@ -4463,7 +4463,7 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
 30:                                               ; preds = %27, %21
   %.1.in.i = phi ptr [ %26, %21 ], [ %28, %27 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %17, !llvm.loop !12
+  br label %17
 
 type_flatten.exit:                                ; preds = %17
   store ptr %19, ptr %4, align 8
@@ -4513,7 +4513,7 @@ type_flatten.exit:                                ; preds = %17
   %45 = getelementptr inbounds nuw i8, ptr %.038, i64 %.sink
   %.038.be = load ptr, ptr %45, align 8
   %.pre = load i32, ptr %.038.be, align 8
-  br label %42, !llvm.loop !32
+  br label %42
 
 .critedge:                                        ; preds = %42
   %46 = zext i32 %36 to i64
@@ -4652,7 +4652,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 43:                                               ; preds = %40, %34
   %.1.in.i = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %30, !llvm.loop !12
+  br label %30
 
 type_flatten.exit:                                ; preds = %30
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -4701,7 +4701,7 @@ type_flatten.exit:                                ; preds = %30
   %58 = getelementptr inbounds nuw i8, ptr %.066, i64 %.sink
   %.066.be = load ptr, ptr %58, align 8
   %.pre = load i32, ptr %.066.be, align 8
-  br label %55, !llvm.loop !33
+  br label %55
 
 59:                                               ; preds = %55
   %60 = zext i32 %49 to i64
@@ -4800,7 +4800,7 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   %92 = getelementptr inbounds nuw i8, ptr %.062, i64 %.sink93
   %.062.be = load ptr, ptr %92, align 8
   %.pre91 = load i32, ptr %.062.be, align 8
-  br label %89, !llvm.loop !34
+  br label %89
 
 .critedge76:                                      ; preds = %89
   %93 = zext i32 %83 to i64
@@ -5018,7 +5018,7 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr noundef read
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -5099,7 +5099,7 @@ define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr noundef readonly captu
 26:                                               ; preds = %23, %17
   %.1.in.i = phi ptr [ %22, %17 ], [ %24, %23 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader, %39
   %.0.i29 = phi ptr [ %.1.i31, %39 ], [ %13, %.preheader ]
@@ -5131,7 +5131,7 @@ type_flatten.exit:                                ; preds = %.preheader, %39
 39:                                               ; preds = %36, %30
   %.1.in.i30 = phi ptr [ %35, %30 ], [ %37, %36 ]
   %.1.i31 = load ptr, ptr %.1.in.i30, align 8
-  br label %type_flatten.exit, !llvm.loop !12
+  br label %type_flatten.exit
 
 type_flatten.exit32:                              ; preds = %type_flatten.exit, %3
   %.025 = phi ptr [ %7, %3 ], [ %15, %type_flatten.exit ]
@@ -5219,7 +5219,7 @@ define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %19, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %12
   %.lcssa = phi i1 [ true, %12 ], [ true, %3 ], [ %19, %.lr.ph ]
@@ -5279,7 +5279,7 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr noundef readonly ca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !37
+  br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %.lr.ph, %3, %16, %8, %17
   %.032 = phi i1 [ false, %17 ], [ true, %8 ], [ false, %16 ], [ true, %3 ], [ %31, %.lr.ph ]
@@ -5371,7 +5371,7 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr noundef readonly ca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %47, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !38
+  br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .thread:                                          ; preds = %.lr.ph, %38, %3, %.critedge.thread, %35, %.critedge, %8, %31
   %.046 = phi i1 [ false, %31 ], [ true, %8 ], [ false, %.critedge ], [ false, %35 ], [ false, %.critedge.thread ], [ true, %3 ], [ true, %38 ], [ %47, %.lr.ph ]
@@ -5419,7 +5419,7 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr noundef readonly 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %24, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %20, label %.loopexit, !llvm.loop !39
+  br i1 %or.cond.not, label %20, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %.critedge, %12
   %.027 = phi i1 [ false, %12 ], [ false, %.critedge ], [ %24, %20 ]
@@ -5533,7 +5533,7 @@ define internal void @cast_bool_to_int(ptr readnone captures(none) %0, ptr nound
 43:                                               ; preds = %40, %34
   %.1.in.i = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %30, !llvm.loop !12
+  br label %30
 
 type_flatten.exit:                                ; preds = %30
   store i64 0, ptr %26, align 8
@@ -5625,7 +5625,7 @@ define internal void @cast_bool_to_float(ptr readnone captures(none) %0, ptr nou
 43:                                               ; preds = %40, %34
   %.1.in.i = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %30, !llvm.loop !12
+  br label %30
 
 type_flatten.exit:                                ; preds = %30
   %cond = icmp eq i32 %33, 15
@@ -5866,7 +5866,7 @@ define internal void @cast_int_to_int(ptr readnone captures(none) %0, ptr nounde
 63:                                               ; preds = %56, %50, %48, %42
   %.1.in.i = phi ptr [ %47, %42 ], [ %49, %48 ], [ %55, %50 ], [ %61, %56 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.preheader, !llvm.loop !40
+  br label %.preheader
 
 type_flatten_to_int.exit:                         ; preds = %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5960,7 +5960,7 @@ define internal void @cast_int_to_float(ptr readnone captures(none) %0, ptr noun
 44:                                               ; preds = %41, %35
   %.1.in.i = phi ptr [ %40, %35 ], [ %42, %41 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %31, !llvm.loop !12
+  br label %31
 
 type_flatten.exit:                                ; preds = %31
   %cond = icmp eq i32 %34, 15
@@ -6099,7 +6099,7 @@ define internal void @cast_int_arr_to_bitstruct(ptr readnone captures(none) %0, 
 
 .backedge:                                        ; preds = %28, %22
   %.0.i.in.be = phi ptr [ %27, %22 ], [ %29, %28 ]
-  br label %18, !llvm.loop !12
+  br label %18
 
 30:                                               ; preds = %18
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -6135,7 +6135,7 @@ type_flatten.exit:                                ; preds = %18, %43
 43:                                               ; preds = %40, %34
   %.1.in.i17 = phi ptr [ %39, %34 ], [ %41, %40 ]
   %.1.i18 = load ptr, ptr %.1.in.i17, align 8
-  br label %type_flatten.exit, !llvm.loop !12
+  br label %type_flatten.exit
 
 type_flatten.exit19:                              ; preds = %type_flatten.exit
   %44 = icmp eq ptr %20, %32
@@ -6208,7 +6208,7 @@ define internal void @cast_int_to_enum(ptr readnone captures(none) %0, ptr nound
 17:                                               ; preds = %14, %8
   %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %4, !llvm.loop !12
+  br label %4
 
 type_flatten.exit:                                ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6395,7 +6395,7 @@ define internal void @cast_float_to_int(ptr readnone captures(none) %0, ptr noun
 42:                                               ; preds = %39, %33
   %.1.in.i = phi ptr [ %38, %33 ], [ %40, %39 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %29, !llvm.loop !12
+  br label %29
 
 type_flatten.exit:                                ; preds = %29
   call void @int_from_real(ptr dead_on_unwind nonnull writable sret(%struct.Int) align 8 %4, double noundef %28, i32 noundef %32) #10
@@ -6484,7 +6484,7 @@ define internal void @cast_float_to_float(ptr readnone captures(none) %0, ptr no
 41:                                               ; preds = %38, %32
   %.1.in.i = phi ptr [ %37, %32 ], [ %39, %38 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %28, !llvm.loop !12
+  br label %28
 
 type_flatten.exit:                                ; preds = %28
   %cond = icmp eq i32 %31, 15
@@ -6651,7 +6651,7 @@ define internal void @cast_ptr_to_int(ptr readnone captures(none) %0, ptr nounde
 41:                                               ; preds = %38, %32
   %.1.in.i = phi ptr [ %37, %32 ], [ %39, %38 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %28, !llvm.loop !12
+  br label %28
 
 type_flatten.exit:                                ; preds = %28
   store i64 0, ptr %26, align 8
@@ -6826,7 +6826,7 @@ define internal void @cast_ptr_to_infer(ptr noundef %0, ptr noundef %1, ptr noun
 
 .backedge:                                        ; preds = %14, %8
   %.0.i.in.be = phi ptr [ %13, %8 ], [ %15, %14 ]
-  br label %4, !llvm.loop !12
+  br label %4
 
 16:                                               ; preds = %4
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -7029,7 +7029,7 @@ define internal void @cast_sa_to_sa(ptr readnone captures(none) %0, ptr noundef 
 17:                                               ; preds = %14, %8
   %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %4, !llvm.loop !12
+  br label %4
 
 type_flatten.exit:                                ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -7061,7 +7061,7 @@ type_flatten.exit:                                ; preds = %4
 
 .backedge86:                                      ; preds = %29, %23
   %.0.i24.in.be = phi ptr [ %28, %23 ], [ %30, %29 ]
-  br label %19, !llvm.loop !12
+  br label %19
 
 31:                                               ; preds = %19
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -7093,7 +7093,7 @@ type_flatten.exit27:                              ; preds = %19, %type_flatten.e
 
 type_flatten.exit27.backedge:                     ; preds = %41, %35
   %.0.i28.in.be = phi ptr [ %40, %35 ], [ %42, %41 ]
-  br label %type_flatten.exit27, !llvm.loop !12
+  br label %type_flatten.exit27
 
 43:                                               ; preds = %type_flatten.exit27
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -7129,7 +7129,7 @@ type_flatten.exit31:                              ; preds = %type_flatten.exit27
 
 .backedge:                                        ; preds = %55, %49
   %.0.i32.in.be = phi ptr [ %54, %49 ], [ %56, %55 ]
-  br label %45, !llvm.loop !12
+  br label %45
 
 57:                                               ; preds = %45
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -7295,7 +7295,7 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr noundef captures(none)
 
 .preheader.backedge:                              ; preds = %17, %11
   %.0.i.in.be = phi ptr [ %16, %11 ], [ %18, %17 ]
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 19:                                               ; preds = %.preheader
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -7336,7 +7336,7 @@ type_flatten.exit:                                ; preds = %.preheader
 35:                                               ; preds = %32, %26
   %.1.in.i72 = phi ptr [ %31, %26 ], [ %33, %32 ]
   %.1.i73 = load ptr, ptr %.1.in.i72, align 8
-  br label %22, !llvm.loop !12
+  br label %22
 
 type_flatten.exit74:                              ; preds = %22
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -7772,7 +7772,7 @@ define internal void @cast_vecarr_to_infer(ptr noundef %0, ptr noundef %1, ptr n
 
 .backedge:                                        ; preds = %14, %8
   %.0.i.in.be = phi ptr [ %13, %8 ], [ %15, %14 ]
-  br label %4, !llvm.loop !12
+  br label %4
 
 16:                                               ; preds = %4
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -7871,7 +7871,7 @@ define internal void @cast_arr_to_vec(ptr noundef %0, ptr noundef captures(none)
 18:                                               ; preds = %15, %9
   %.1.in.i = phi ptr [ %14, %9 ], [ %16, %15 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %5, !llvm.loop !12
+  br label %5
 
 type_flatten.exit:                                ; preds = %5
   %19 = load ptr, ptr %1, align 8
@@ -7908,7 +7908,7 @@ type_flatten.exit:                                ; preds = %5
 34:                                               ; preds = %31, %25
   %.1.in.i23 = phi ptr [ %30, %25 ], [ %32, %31 ]
   %.1.i24 = load ptr, ptr %.1.in.i23, align 8
-  br label %21, !llvm.loop !12
+  br label %21
 
 type_flatten.exit25:                              ; preds = %21
   %35 = icmp eq ptr %7, %23
@@ -7940,7 +7940,7 @@ type_flatten.exit25:                              ; preds = %21
 
 .preheader.backedge:                              ; preds = %45, %39
   %.0.i26.in.be = phi ptr [ %44, %39 ], [ %46, %45 ]
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 47:                                               ; preds = %.preheader
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -8236,7 +8236,7 @@ define internal void @cast_enum_to_int(ptr readnone captures(none) %0, ptr nound
 
 .backedge:                                        ; preds = %20, %14, %8
   %.0.i.in.be = phi ptr [ %13, %8 ], [ %19, %14 ], [ %21, %20 ]
-  br label %4, !llvm.loop !41
+  br label %4
 
 22:                                               ; preds = %4
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_base, ptr noundef nonnull @.str.10, i32 noundef 2951) #11
@@ -8291,7 +8291,7 @@ type_base.exit:                                   ; preds = %4
 45:                                               ; preds = %42, %36
   %.1.in.i52 = phi ptr [ %41, %36 ], [ %43, %42 ]
   %.1.i53 = load ptr, ptr %.1.in.i52, align 8
-  br label %32, !llvm.loop !12
+  br label %32
 
 type_flatten.exit:                                ; preds = %32
   store i64 0, ptr %27, align 8
@@ -8613,7 +8613,7 @@ define internal void @cast_untyped_list_to_other(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %16, %10
   %.1.in.i = phi ptr [ %15, %10 ], [ %17, %16 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %6, !llvm.loop !12
+  br label %6
 
 type_flatten.exit:                                ; preds = %6
   %20 = tail call zeroext i1 @sema_expr_analyse_initializer_list(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %1) #10
@@ -8945,7 +8945,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 
 .backedge.backedge:                               ; preds = %44, %41, %38, %16, %22, %61, %74, %119, %122, %125, %132
   %.053.be = phi ptr [ %21, %16 ], [ %26, %22 ], [ %66, %61 ], [ %79, %74 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %134, %132 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
-  br label %.backedge, !llvm.loop !42
+  br label %.backedge
 
 49:                                               ; preds = %.backedge
   %50 = getelementptr inbounds nuw i8, ptr %.053, i64 28
@@ -9046,7 +9046,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 103:                                              ; preds = %100, %94
   %.1.in.i = phi ptr [ %99, %94 ], [ %101, %100 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader
   %104 = tail call zeroext i1 @expr_const_will_overflow(ptr noundef nonnull %90, i32 noundef %93) #10
@@ -9083,7 +9083,7 @@ type_flatten.exit:                                ; preds = %.preheader
 117:                                              ; preds = %114, %108
   %.1.in.i67 = phi ptr [ %113, %108 ], [ %115, %114 ]
   %.1.i68 = load ptr, ptr %.1.in.i67, align 8
-  br label %.preheader109, !llvm.loop !12
+  br label %.preheader109
 
 type_flatten.exit69:                              ; preds = %.preheader109
   %118 = tail call zeroext i1 @expr_const_float_fits_type(ptr noundef nonnull %90, i32 noundef %107) #10
@@ -9217,7 +9217,7 @@ define internal fastcc void @vector_const_initializer_convert_to_type(ptr nounde
 17:                                               ; preds = %14, %8
   %.1.in.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -9244,7 +9244,7 @@ type_flatten.exit:                                ; preds = %.preheader
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %26, ptr noundef %19)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph94, !llvm.loop !43
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph94, !llvm.loop !14
 
 .preheader83:                                     ; preds = %3, %39
   %.0.i70 = phi ptr [ %.1.i72, %39 ], [ %2, %3 ]
@@ -9276,7 +9276,7 @@ type_flatten.exit:                                ; preds = %.preheader
 39:                                               ; preds = %36, %30
   %.1.in.i71 = phi ptr [ %35, %30 ], [ %37, %36 ]
   %.1.i72 = load ptr, ptr %.1.in.i71, align 8
-  br label %.preheader83, !llvm.loop !12
+  br label %.preheader83
 
 type_flatten.exit73:                              ; preds = %.preheader83
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 56
@@ -9303,7 +9303,7 @@ type_flatten.exit73:                              ; preds = %.preheader83
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %48, ptr noundef %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .preheader84:                                     ; preds = %3, %61
   %.0.i74 = phi ptr [ %.1.i76, %61 ], [ %2, %3 ]
@@ -9335,7 +9335,7 @@ type_flatten.exit73:                              ; preds = %.preheader83
 61:                                               ; preds = %58, %52
   %.1.in.i75 = phi ptr [ %57, %52 ], [ %59, %58 ]
   %.1.i76 = load ptr, ptr %.1.in.i75, align 8
-  br label %.preheader84, !llvm.loop !12
+  br label %.preheader84
 
 type_flatten.exit77:                              ; preds = %.preheader84
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9367,7 +9367,7 @@ type_flatten.exit77:                              ; preds = %.preheader84
 
 .backedge:                                        ; preds = %73, %67
   %.0.i78.in.be = phi ptr [ %72, %67 ], [ %74, %73 ]
-  br label %63, !llvm.loop !12
+  br label %63
 
 75:                                               ; preds = %63
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
@@ -9481,7 +9481,7 @@ define internal fastcc void @expr_recursively_rewrite_untyped_list(ptr noundef c
   tail call fastcc void @expr_recursively_rewrite_untyped_list(ptr noundef %19, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %12, %15, %2, %7
   ret void
@@ -9515,7 +9515,7 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
@@ -9524,32 +9524,3 @@ attributes #11 = { noreturn nounwind }
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !20, !8}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !20, !8}
-!36 = distinct !{!36, !20, !8}
-!37 = distinct !{!37, !20, !8}
-!38 = distinct !{!38, !20, !8}
-!39 = distinct !{!39, !20, !8}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !20, !8}
-!44 = distinct !{!44, !20, !8}
-!45 = distinct !{!45, !20, !8}

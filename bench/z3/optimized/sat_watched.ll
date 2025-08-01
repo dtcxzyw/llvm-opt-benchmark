@@ -94,7 +94,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %._crit_edge
 25:                                               ; preds = %.lr.ph, %14
   %26 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
   %.not.not = icmp eq ptr %26, %9
-  br i1 %.not.not, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not.not, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit, label %.lr.ph, !llvm.loop !19
 
 _ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit: ; preds = %25, %2, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %._crit_edge
   %.not23 = phi i1 [ true, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ true, %._crit_edge ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %2 ], [ false, %25 ]
@@ -136,7 +136,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %2
 18:                                               ; preds = %14, %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.01420, i64 16
   %.not = icmp eq ptr %19, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18, %14, %2, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit
   %spec.select = phi ptr [ null, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ null, %2 ], [ %.01420, %14 ], [ null, %18 ]
@@ -175,7 +175,7 @@ _ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit:      ; preds = %2
 18:                                               ; preds = %14, %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.01420, i64 16
   %.not = icmp eq ptr %19, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18, %14, %2, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit
   %spec.select = phi ptr [ null, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ null, %2 ], [ %.01420, %14 ], [ null, %18 ]
@@ -230,7 +230,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i.thread: ; preds = %_ZN6vectorIN3sat
   %.1 = phi i8 [ %.022, %.critedge ], [ 1, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %.01619, i64 16
   %.not = icmp eq ptr %22, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %21
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
@@ -289,7 +289,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %3, %6
   %11 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %.0911, i64 16
   %.not = icmp eq ptr %11, %10
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
@@ -412,7 +412,7 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %23, %25
 
 54:                                               ; preds = %53
   %55 = load i64, ptr %.02531, align 8, !tbaa !14
-  %56 = load ptr, ptr %3, align 8, !tbaa !25
+  %56 = load ptr, ptr %3, align 8, !tbaa !22
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 240
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr %58(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %55)
@@ -435,7 +435,7 @@ default.unreachable:                              ; preds = %15
 65:                                               ; preds = %54, %60, %_ZN3satlsERSoNS_7literalE.exit, %35, %64, %37
   %66 = getelementptr inbounds nuw i8, ptr %.02531, i64 16
   %.not = icmp eq ptr %66, %11
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %12
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3satlsERSoRKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #0
@@ -483,14 +483,10 @@ attributes #8 = { nounwind }
 !14 = !{!12, !13, i64 0}
 !15 = !{i64 0, i64 8, !16, i64 8, i64 4, !9}
 !16 = !{!13, !13, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18, !19}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"vtable pointer", !8, i64 0}
-!27 = distinct !{!27, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"vtable pointer", !8, i64 0}

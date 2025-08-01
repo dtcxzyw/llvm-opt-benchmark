@@ -1027,7 +1027,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyWeakref_ClearRef(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i = icmp eq ptr %3, @_Py_NoneStruct
   br i1 %.not.i, label %clear_weakref_lock_held.exit, label %4
 
@@ -1067,7 +1067,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i:            ; preds = %19, %12
   %23 = load ptr, ptr %.0.i.i, align 8, !tbaa !33
   %24 = icmp eq ptr %23, %0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %26 = load ptr, ptr %25, align 8, !tbaa !39
   br i1 %24, label %27, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
 
 27:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i
@@ -1075,15 +1075,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i:            ; preds = %19, %12
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge: ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i, %27
-  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %29 = load ptr, ptr %28, align 8, !tbaa !40
   %.not23.i = icmp eq ptr %29, null
   br i1 %.not23.i, label %._crit_edge.i, label %30
 
 30:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr %26, ptr %31, align 8, !tbaa !40
+  store ptr %26, ptr %31, align 8, !tbaa !39
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %30, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
@@ -1092,7 +1092,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge: ; preds = %_PyObject_GET_WEAKR
 
 32:                                               ; preds = %._crit_edge.i
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %29, ptr %33, align 8, !tbaa !41
+  store ptr %29, ptr %33, align 8, !tbaa !40
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i
@@ -1107,7 +1107,7 @@ clear_weakref_lock_held.exit:                     ; preds = %1, %34
 define internal void @weakref_dealloc(ptr noundef %0) #0 {
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %3, @_Py_NoneStruct
   br i1 %.not.i.i, label %clear_weakref_lock_held.exit.i, label %4
 
@@ -1147,7 +1147,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %19, %12
   %23 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !33
   %24 = icmp eq ptr %23, %0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %26 = load ptr, ptr %25, align 8, !tbaa !39
   br i1 %24, label %27, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 27:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
@@ -1155,15 +1155,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %19, %12
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %27, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
-  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %29 = load ptr, ptr %28, align 8, !tbaa !40
   %.not23.i.i = icmp eq ptr %29, null
   br i1 %.not23.i.i, label %._crit_edge.i.i, label %30
 
 30:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr %26, ptr %31, align 8, !tbaa !40
+  store ptr %26, ptr %31, align 8, !tbaa !39
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %30, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
@@ -1172,7 +1172,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %27, %_PyObject_GE
 
 32:                                               ; preds = %._crit_edge.i.i
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %29, ptr %33, align 8, !tbaa !41
+  store ptr %29, ptr %33, align 8, !tbaa !40
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i
@@ -1181,19 +1181,19 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %27, %_PyObject_GE
 
 clear_weakref_lock_held.exit.i:                   ; preds = %34, %1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
-  store ptr null, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  store ptr null, ptr %35, align 8, !tbaa !41
   %.not.i2.i = icmp eq ptr %36, null
   br i1 %.not.i2.i, label %clear_weakref.exit, label %37
 
 37:                                               ; preds = %clear_weakref_lock_held.exit.i
-  %38 = load i32, ptr %36, align 8, !tbaa !43
+  %38 = load i32, ptr %36, align 8, !tbaa !42
   %.not.i.i.i = icmp sgt i32 %38, -1
   br i1 %.not.i.i.i, label %39, label %clear_weakref.exit
 
 39:                                               ; preds = %37
   %40 = add nsw i32 %38, -1
-  store i32 %40, ptr %36, align 8, !tbaa !43
+  store i32 %40, ptr %36, align 8, !tbaa !42
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %clear_weakref.exit
 
@@ -1205,7 +1205,7 @@ clear_weakref.exit:                               ; preds = %clear_weakref_lock_
   %43 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %43, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %45 = load ptr, ptr %44, align 8, !tbaa !44
+  %45 = load ptr, ptr %44, align 8, !tbaa !43
   tail call void %45(ptr noundef nonnull %0) #6
   ret void
 }
@@ -1213,12 +1213,12 @@ clear_weakref.exit:                               ; preds = %clear_weakref_lock_
 ; Function Attrs: nounwind uwtable
 define internal ptr @weakref_repr(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val26 = load ptr, ptr %2, align 8, !tbaa !38
+  %.val26 = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val26, @_Py_NoneStruct
   br i1 %3, label %_PyWeakref_GET_REF.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %.val.i.i = load i32, ptr %.val26, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val26, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %_PyWeakref_GET_REF.exit.thread, label %5
 
@@ -1228,7 +1228,7 @@ define internal ptr @weakref_repr(ptr noundef %0) #0 {
 
 7:                                                ; preds = %5
   %8 = add nuw i32 %.val.i.i, 1
-  store i32 %8, ptr %.val26, align 8, !tbaa !43
+  store i32 %8, ptr %.val26, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 _PyWeakref_GET_REF.exit.thread:                   ; preds = %4, %1
@@ -1251,13 +1251,13 @@ _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
 
 .split:                                           ; preds = %12, %_PyWeakref_GET_REF.exit
   %16 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.8, ptr noundef nonnull %0, ptr noundef nonnull %.val26, ptr noundef nonnull %.val26) #6
-  %17 = load i32, ptr %.val26, align 8, !tbaa !43
+  %17 = load i32, ptr %.val26, align 8, !tbaa !42
   %.not.i22 = icmp sgt i32 %17, -1
   br i1 %.not.i22, label %18, label %Py_DECREF.exit23
 
 18:                                               ; preds = %.split
   %19 = add nsw i32 %17, -1
-  store i32 %19, ptr %.val26, align 8, !tbaa !43
+  store i32 %19, ptr %.val26, align 8, !tbaa !42
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %Py_DECREF.exit23
 
@@ -1269,13 +1269,13 @@ Py_DECREF.exit23:                                 ; preds = %.split, %18, %21
   br i1 %11, label %Py_XDECREF.exit, label %22
 
 22:                                               ; preds = %Py_DECREF.exit23
-  %23 = load i32, ptr %10, align 8, !tbaa !43
+  %23 = load i32, ptr %10, align 8, !tbaa !42
   %.not.i.i28 = icmp sgt i32 %23, -1
   br i1 %.not.i.i28, label %24, label %Py_XDECREF.exit
 
 24:                                               ; preds = %22
   %25 = add nsw i32 %23, -1
-  store i32 %25, ptr %10, align 8, !tbaa !43
+  store i32 %25, ptr %10, align 8, !tbaa !42
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %Py_XDECREF.exit
 
@@ -1285,13 +1285,13 @@ Py_DECREF.exit23:                                 ; preds = %.split, %18, %21
 
 .split19:                                         ; preds = %12
   %28 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef nonnull %.val26, ptr noundef nonnull %.val26, ptr noundef nonnull %10) #6
-  %29 = load i32, ptr %.val26, align 8, !tbaa !43
+  %29 = load i32, ptr %.val26, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %29, -1
   br i1 %.not.i, label %30, label %Py_DECREF.exit
 
 30:                                               ; preds = %.split19
   %31 = add nsw i32 %29, -1
-  store i32 %31, ptr %.val26, align 8, !tbaa !43
+  store i32 %31, ptr %.val26, align 8, !tbaa !42
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %Py_DECREF.exit
 
@@ -1300,13 +1300,13 @@ Py_DECREF.exit23:                                 ; preds = %.split, %18, %21
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %33, %30, %.split19
-  %34 = load i32, ptr %10, align 8, !tbaa !43
+  %34 = load i32, ptr %10, align 8, !tbaa !42
   %.not.i.i30 = icmp sgt i32 %34, -1
   br i1 %.not.i.i30, label %35, label %Py_XDECREF.exit
 
 35:                                               ; preds = %Py_DECREF.exit
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %10, align 8, !tbaa !43
+  store i32 %36, ptr %10, align 8, !tbaa !42
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %Py_XDECREF.exit
 
@@ -1322,18 +1322,18 @@ Py_XDECREF.exit:                                  ; preds = %38, %35, %Py_DECREF
 ; Function Attrs: nounwind uwtable
 define internal i64 @weakref_hash(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !45
+  %3 = load i64, ptr %2, align 8, !tbaa !44
   %.not.i = icmp eq i64 %3, -1
   br i1 %.not.i, label %4, label %weakref_hash_lock_held.exit
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %5, align 8, !tbaa !38
+  %.val.i = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val.i, @_Py_NoneStruct
   br i1 %6, label %_PyWeakref_GET_REF.exit.thread.i, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i.i = load i32, ptr %.val.i, align 8, !tbaa !43
+  %.val.i.i.i = load i32, ptr %.val.i, align 8, !tbaa !42
   %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
   br i1 %.not.i.i.i, label %_PyWeakref_GET_REF.exit.thread.i, label %8
 
@@ -1343,24 +1343,24 @@ define internal i64 @weakref_hash(ptr noundef captures(none) %0) #0 {
 
 10:                                               ; preds = %8
   %11 = add nuw i32 %.val.i.i.i, 1
-  store i32 %11, ptr %.val.i, align 8, !tbaa !43
+  store i32 %11, ptr %.val.i, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit.i
 
 _PyWeakref_GET_REF.exit.thread.i:                 ; preds = %7, %4
-  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !46
+  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.10) #6
   br label %weakref_hash_lock_held.exit
 
 _PyWeakref_GET_REF.exit.i:                        ; preds = %10, %8
   %13 = tail call i64 @PyObject_Hash(ptr noundef nonnull %.val.i) #6
-  store i64 %13, ptr %2, align 8, !tbaa !45
-  %14 = load i32, ptr %.val.i, align 8, !tbaa !43
+  store i64 %13, ptr %2, align 8, !tbaa !44
+  %14 = load i32, ptr %.val.i, align 8, !tbaa !42
   %.not.i.i = icmp sgt i32 %14, -1
   br i1 %.not.i.i, label %15, label %Py_DECREF.exit.i
 
 15:                                               ; preds = %_PyWeakref_GET_REF.exit.i
   %16 = add nsw i32 %14, -1
-  store i32 %16, ptr %.val.i, align 8, !tbaa !43
+  store i32 %16, ptr %.val.i, align 8, !tbaa !42
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %Py_DECREF.exit.i
 
@@ -1369,7 +1369,7 @@ _PyWeakref_GET_REF.exit.i:                        ; preds = %10, %8
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %18, %15, %_PyWeakref_GET_REF.exit.i
-  %19 = load i64, ptr %2, align 8, !tbaa !45
+  %19 = load i64, ptr %2, align 8, !tbaa !44
   br label %weakref_hash_lock_held.exit
 
 weakref_hash_lock_held.exit:                      ; preds = %1, %_PyWeakref_GET_REF.exit.thread.i, %Py_DECREF.exit.i
@@ -1382,7 +1382,7 @@ declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @gc_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -1402,7 +1402,7 @@ define internal i32 @gc_traverse(ptr noundef readonly captures(none) %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @gc_clear(ptr noundef captures(address) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i = icmp eq ptr %3, @_Py_NoneStruct
   br i1 %.not.i, label %clear_weakref_lock_held.exit, label %4
 
@@ -1442,7 +1442,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i:            ; preds = %19, %12
   %23 = load ptr, ptr %.0.i.i, align 8, !tbaa !33
   %24 = icmp eq ptr %23, %0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %26 = load ptr, ptr %25, align 8, !tbaa !39
   br i1 %24, label %27, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
 
 27:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i
@@ -1450,15 +1450,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i:            ; preds = %19, %12
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge: ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i, %27
-  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %29 = load ptr, ptr %28, align 8, !tbaa !40
   %.not23.i = icmp eq ptr %29, null
   br i1 %.not23.i, label %._crit_edge.i, label %30
 
 30:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr %26, ptr %31, align 8, !tbaa !40
+  store ptr %26, ptr %31, align 8, !tbaa !39
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %30, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge
@@ -1467,7 +1467,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge: ; preds = %_PyObject_GET_WEAKR
 
 32:                                               ; preds = %._crit_edge.i
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %29, ptr %33, align 8, !tbaa !41
+  store ptr %29, ptr %33, align 8, !tbaa !40
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i
@@ -1476,19 +1476,19 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge: ; preds = %_PyObject_GET_WEAKR
 
 clear_weakref_lock_held.exit:                     ; preds = %1, %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
-  store ptr null, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  store ptr null, ptr %35, align 8, !tbaa !41
   %.not.i2 = icmp eq ptr %36, null
   br i1 %.not.i2, label %Py_XDECREF.exit, label %37
 
 37:                                               ; preds = %clear_weakref_lock_held.exit
-  %38 = load i32, ptr %36, align 8, !tbaa !43
+  %38 = load i32, ptr %36, align 8, !tbaa !42
   %.not.i.i = icmp sgt i32 %38, -1
   br i1 %.not.i.i, label %39, label %Py_XDECREF.exit
 
 39:                                               ; preds = %37
   %40 = add nsw i32 %38, -1
-  store i32 %40, ptr %36, align 8, !tbaa !43
+  store i32 %40, ptr %36, align 8, !tbaa !42
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %Py_XDECREF.exit
 
@@ -1544,12 +1544,12 @@ PyObject_TypeCheck.exit48:                        ; preds = %PyObject_TypeCheck.
 
 PyObject_TypeCheck.exit48.thread:                 ; preds = %PyObject_TypeCheck.exit.thread, %11, %PyObject_TypeCheck.exit48
   %12 = getelementptr i8, ptr %0, i64 16
-  %.val42 = load ptr, ptr %12, align 8, !tbaa !38
+  %.val42 = load ptr, ptr %12, align 8, !tbaa !37
   %13 = icmp eq ptr %.val42, @_Py_NoneStruct
   br i1 %13, label %_PyWeakref_GET_REF.exit, label %14
 
 14:                                               ; preds = %PyObject_TypeCheck.exit48.thread
-  %.val.i.i = load i32, ptr %.val42, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val42, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %_PyWeakref_GET_REF.exit, label %15
 
@@ -1559,18 +1559,18 @@ PyObject_TypeCheck.exit48.thread:                 ; preds = %PyObject_TypeCheck.
 
 17:                                               ; preds = %15
   %18 = add nuw i32 %.val.i.i, 1
-  store i32 %18, ptr %.val42, align 8, !tbaa !43
+  store i32 %18, ptr %.val42, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %PyObject_TypeCheck.exit48.thread, %14, %15, %17
   %.0.i = phi ptr [ null, %PyObject_TypeCheck.exit48.thread ], [ null, %14 ], [ %.val42, %15 ], [ %.val42, %17 ]
   %19 = getelementptr i8, ptr %1, i64 16
-  %.val43 = load ptr, ptr %19, align 8, !tbaa !38
+  %.val43 = load ptr, ptr %19, align 8, !tbaa !37
   %20 = icmp eq ptr %.val43, @_Py_NoneStruct
   br i1 %20, label %_PyWeakref_GET_REF.exit52.thread, label %21
 
 21:                                               ; preds = %_PyWeakref_GET_REF.exit
-  %.val.i.i49 = load i32, ptr %.val43, align 8, !tbaa !43
+  %.val.i.i49 = load i32, ptr %.val43, align 8, !tbaa !42
   %.not.i.i50 = icmp eq i32 %.val.i.i49, 0
   br i1 %.not.i.i50, label %_PyWeakref_GET_REF.exit52.thread, label %22
 
@@ -1580,7 +1580,7 @@ _PyWeakref_GET_REF.exit:                          ; preds = %PyObject_TypeCheck.
 
 24:                                               ; preds = %22
   %25 = add nuw i32 %.val.i.i49, 1
-  store i32 %25, ptr %.val43, align 8, !tbaa !43
+  store i32 %25, ptr %.val43, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit52
 
 _PyWeakref_GET_REF.exit52.thread:                 ; preds = %_PyWeakref_GET_REF.exit, %21
@@ -1593,13 +1593,13 @@ _PyWeakref_GET_REF.exit52:                        ; preds = %22, %24
   br i1 %28, label %Py_XDECREF.exit, label %39
 
 29:                                               ; preds = %_PyWeakref_GET_REF.exit52.thread
-  %30 = load i32, ptr %.0.i, align 8, !tbaa !43
+  %30 = load i32, ptr %.0.i, align 8, !tbaa !42
   %.not.i.i54 = icmp sgt i32 %30, -1
   br i1 %.not.i.i54, label %31, label %Py_XDECREF.exit57
 
 31:                                               ; preds = %29
   %32 = add nsw i32 %30, -1
-  store i32 %32, ptr %.0.i, align 8, !tbaa !43
+  store i32 %32, ptr %.0.i, align 8, !tbaa !42
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %Py_XDECREF.exit57
 
@@ -1613,7 +1613,7 @@ Py_XDECREF.exit:                                  ; preds = %_PyWeakref_GET_REF.
 
 35:                                               ; preds = %Py_XDECREF.exit
   %36 = add nsw i32 %27, -1
-  store i32 %36, ptr %.val43, align 8, !tbaa !43
+  store i32 %36, ptr %.val43, align 8, !tbaa !42
   br label %Py_XDECREF.exit57
 
 Py_XDECREF.exit57:                                ; preds = %35, %29, %31, %34, %_PyWeakref_GET_REF.exit52.thread, %Py_XDECREF.exit
@@ -1625,13 +1625,13 @@ Py_XDECREF.exit57:                                ; preds = %35, %29, %31, %34, 
 
 39:                                               ; preds = %_PyWeakref_GET_REF.exit52
   %40 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %.0.i, ptr noundef nonnull %.val43, i32 noundef %2) #6
-  %41 = load i32, ptr %.0.i, align 8, !tbaa !43
+  %41 = load i32, ptr %.0.i, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %41, -1
   br i1 %.not.i, label %42, label %Py_DECREF.exit
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %41, -1
-  store i32 %43, ptr %.0.i, align 8, !tbaa !43
+  store i32 %43, ptr %.0.i, align 8, !tbaa !42
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %Py_DECREF.exit
 
@@ -1640,13 +1640,13 @@ Py_XDECREF.exit57:                                ; preds = %35, %29, %31, %34, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %39, %42, %45
-  %46 = load i32, ptr %.val43, align 8, !tbaa !43
+  %46 = load i32, ptr %.val43, align 8, !tbaa !42
   %.not.i36 = icmp sgt i32 %46, -1
   br i1 %.not.i36, label %47, label %Py_DECREF.exit37
 
 47:                                               ; preds = %Py_DECREF.exit
   %48 = add nsw i32 %46, -1
-  store i32 %48, ptr %.val43, align 8, !tbaa !43
+  store i32 %48, ptr %.val43, align 8, !tbaa !42
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %Py_DECREF.exit37
 
@@ -1691,14 +1691,14 @@ define internal ptr @weakref___new__(ptr noundef %0, ptr noundef %1, ptr readnon
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !46
+  store ptr null, ptr %5, align 8, !tbaa !45
   %6 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.18, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8, !tbaa !46
-  %9 = load ptr, ptr %5, align 8, !tbaa !46
+  %8 = load ptr, ptr %4, align 8, !tbaa !45
+  %9 = load ptr, ptr %5, align 8, !tbaa !45
   %10 = call fastcc ptr @get_or_create_weakref(ptr noundef %0, ptr noundef %8, ptr noundef %9)
   br label %11
 
@@ -1715,7 +1715,7 @@ declare void @PyObject_GC_Del(ptr noundef) #2
 define internal void @proxy_dealloc(ptr noundef %0) #0 {
   tail call void @PyObject_GC_UnTrack(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %3, @_Py_NoneStruct
   br i1 %.not.i.i, label %clear_weakref_lock_held.exit.i, label %4
 
@@ -1755,7 +1755,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %19, %12
   %23 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !33
   %24 = icmp eq ptr %23, %0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %26 = load ptr, ptr %25, align 8, !tbaa !39
   br i1 %24, label %27, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 27:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
@@ -1763,15 +1763,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %19, %12
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %27, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
-  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %2, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %29 = load ptr, ptr %28, align 8, !tbaa !40
   %.not23.i.i = icmp eq ptr %29, null
   br i1 %.not23.i.i, label %._crit_edge.i.i, label %30
 
 30:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr %26, ptr %31, align 8, !tbaa !40
+  store ptr %26, ptr %31, align 8, !tbaa !39
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %30, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
@@ -1780,7 +1780,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %27, %_PyObject_GE
 
 32:                                               ; preds = %._crit_edge.i.i
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %29, ptr %33, align 8, !tbaa !41
+  store ptr %29, ptr %33, align 8, !tbaa !40
   br label %34
 
 34:                                               ; preds = %32, %._crit_edge.i.i
@@ -1789,19 +1789,19 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %27, %_PyObject_GE
 
 clear_weakref_lock_held.exit.i:                   ; preds = %34, %1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
-  store ptr null, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  store ptr null, ptr %35, align 8, !tbaa !41
   %.not.i2.i = icmp eq ptr %36, null
   br i1 %.not.i2.i, label %clear_weakref.exit, label %37
 
 37:                                               ; preds = %clear_weakref_lock_held.exit.i
-  %38 = load i32, ptr %36, align 8, !tbaa !43
+  %38 = load i32, ptr %36, align 8, !tbaa !42
   %.not.i.i.i = icmp sgt i32 %38, -1
   br i1 %.not.i.i.i, label %39, label %clear_weakref.exit
 
 39:                                               ; preds = %37
   %40 = add nsw i32 %38, -1
-  store i32 %40, ptr %36, align 8, !tbaa !43
+  store i32 %40, ptr %36, align 8, !tbaa !42
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %clear_weakref.exit
 
@@ -1817,12 +1817,12 @@ clear_weakref.exit:                               ; preds = %clear_weakref_lock_
 ; Function Attrs: nounwind uwtable
 define internal ptr @proxy_repr(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %2, align 8, !tbaa !38
+  %.val = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %3, label %_PyWeakref_GET_REF.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %_PyWeakref_GET_REF.exit.thread, label %5
 
@@ -1832,18 +1832,18 @@ define internal ptr @proxy_repr(ptr noundef %0) #0 {
 
 7:                                                ; preds = %5
   %8 = add nuw i32 %.val.i.i, 1
-  store i32 %8, ptr %.val, align 8, !tbaa !43
+  store i32 %8, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
   %9 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.19, ptr noundef nonnull %0, ptr noundef nonnull %.val, ptr noundef nonnull %.val) #6
-  %10 = load i32, ptr %.val, align 8, !tbaa !43
+  %10 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %10, -1
   br i1 %.not.i, label %11, label %Py_DECREF.exit
 
 11:                                               ; preds = %_PyWeakref_GET_REF.exit
   %12 = add nsw i32 %10, -1
-  store i32 %12, ptr %.val, align 8, !tbaa !43
+  store i32 %12, ptr %.val, align 8, !tbaa !42
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %Py_DECREF.exit
 
@@ -1871,12 +1871,12 @@ define internal ptr @proxy_str(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -1885,12 +1885,12 @@ define internal ptr @proxy_str(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -1898,19 +1898,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyObject_Str(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -1934,12 +1934,12 @@ define internal ptr @proxy_getattr(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val28 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -1948,12 +1948,12 @@ define internal ptr @proxy_getattr(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit22
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -1961,7 +1961,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val28.sink = phi ptr [ %.val28, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -1975,12 +1975,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val29 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -1989,12 +1989,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit22
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -2002,19 +2002,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val29.sink = phi ptr [ %.val29, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val29, %20 ], [ %.val29.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %28, -1
   br i1 %.not.i, label %29, label %Py_DECREF.exit
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit
 
@@ -2023,13 +2023,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %33, -1
   br i1 %.not.i21, label %34, label %Py_DECREF.exit22
 
 34:                                               ; preds = %Py_DECREF.exit
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit22
 
@@ -2045,12 +2045,12 @@ Py_DECREF.exit22:                                 ; preds = %37, %34, %Py_DECREF
 ; Function Attrs: nounwind uwtable
 define internal i32 @proxy_setattr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %4, align 8, !tbaa !38
+  %.val = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -2060,23 +2060,23 @@ define internal i32 @proxy_setattr(ptr noundef readonly captures(none) %0, ptr n
 
 9:                                                ; preds = %7
   %10 = add nuw i32 %.val.i.i, 1
-  store i32 %10, ptr %.val, align 8, !tbaa !43
+  store i32 %10, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %9, %7
   %12 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %.val, ptr noundef %1, ptr noundef %2) #6
-  %13 = load i32, ptr %.val, align 8, !tbaa !43
+  %13 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %13, -1
   br i1 %.not.i, label %14, label %Py_DECREF.exit
 
 14:                                               ; preds = %_PyWeakref_GET_REF.exit
   %15 = add nsw i32 %13, -1
-  store i32 %15, ptr %.val, align 8, !tbaa !43
+  store i32 %15, ptr %.val, align 8, !tbaa !42
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %Py_DECREF.exit
 
@@ -2100,12 +2100,12 @@ define internal ptr @proxy_richcompare(ptr noundef %0, ptr noundef %1, i32 nound
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val28 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %6, align 8, !tbaa !37
   %7 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %7, label %proxy_check_ref.exit, label %8
 
 8:                                                ; preds = %5
-  %.val.i.i = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %9
 
@@ -2114,12 +2114,12 @@ define internal ptr @proxy_richcompare(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %10, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %8, %5
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit22
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %0, align 8, !tbaa !43
+  %13 = load i32, ptr %0, align 8, !tbaa !42
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -2127,7 +2127,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
   %.val.i.i.sink = phi i32 [ %.val.i.i, %9 ], [ %13, %12 ]
   %.val28.sink = phi ptr [ %.val28, %9 ], [ %0, %12 ]
   %15 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %15, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %15, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
@@ -2141,12 +2141,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 17:                                               ; preds = %Py_INCREF.exit
   %18 = getelementptr i8, ptr %1, i64 16
-  %.val29 = load ptr, ptr %18, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %18, align 8, !tbaa !37
   %19 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %19, label %proxy_check_ref.exit34, label %20
 
 20:                                               ; preds = %17
-  %.val.i.i30 = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %21
 
@@ -2155,12 +2155,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %22, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %20, %17
-  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %23, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit22
 
 24:                                               ; preds = %Py_INCREF.exit
-  %25 = load i32, ptr %1, align 8, !tbaa !43
+  %25 = load i32, ptr %1, align 8, !tbaa !42
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -2168,19 +2168,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %24, %21
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %21 ], [ %25, %24 ]
   %.val29.sink = phi ptr [ %.val29, %21 ], [ %1, %24 ]
   %27 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %27, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %27, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %21, %24
   %.017 = phi ptr [ %1, %24 ], [ %.val29, %21 ], [ %.val29.sink, %Py_INCREF.exit23.sink.split ]
   %28 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %.016, ptr noundef nonnull %.017, i32 noundef %2) #6
-  %29 = load i32, ptr %.016, align 8, !tbaa !43
+  %29 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %29, -1
   br i1 %.not.i, label %30, label %Py_DECREF.exit
 
 30:                                               ; preds = %Py_INCREF.exit23
   %31 = add nsw i32 %29, -1
-  store i32 %31, ptr %.016, align 8, !tbaa !43
+  store i32 %31, ptr %.016, align 8, !tbaa !42
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %Py_DECREF.exit
 
@@ -2189,13 +2189,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_INCREF.exit23, %30, %33
-  %34 = load i32, ptr %.017, align 8, !tbaa !43
+  %34 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %34, -1
   br i1 %.not.i21, label %35, label %Py_DECREF.exit22
 
 35:                                               ; preds = %Py_DECREF.exit
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %.017, align 8, !tbaa !43
+  store i32 %36, ptr %.017, align 8, !tbaa !42
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %Py_DECREF.exit22
 
@@ -2211,12 +2211,12 @@ Py_DECREF.exit22:                                 ; preds = %38, %35, %Py_DECREF
 ; Function Attrs: nounwind uwtable
 define internal ptr @proxy_iter(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %2, align 8, !tbaa !38
+  %.val = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %3, label %proxy_check_ref.exit, label %4
 
 4:                                                ; preds = %1
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %5
 
@@ -2226,23 +2226,23 @@ define internal ptr @proxy_iter(ptr noundef readonly captures(none) %0) #0 {
 
 7:                                                ; preds = %5
   %8 = add nuw i32 %.val.i.i, 1
-  store i32 %8, ptr %.val, align 8, !tbaa !43
+  store i32 %8, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %4, %1
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
   %10 = tail call ptr @PyObject_GetIter(ptr noundef nonnull %.val) #6
-  %11 = load i32, ptr %.val, align 8, !tbaa !43
+  %11 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %11, -1
   br i1 %.not.i, label %12, label %Py_DECREF.exit
 
 12:                                               ; preds = %_PyWeakref_GET_REF.exit
   %13 = add nsw i32 %11, -1
-  store i32 %13, ptr %.val, align 8, !tbaa !43
+  store i32 %13, ptr %.val, align 8, !tbaa !42
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %Py_DECREF.exit
 
@@ -2258,12 +2258,12 @@ Py_DECREF.exit:                                   ; preds = %15, %12, %_PyWeakre
 ; Function Attrs: nounwind uwtable
 define internal ptr @proxy_iternext(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %2, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %3, label %proxy_check_ref.exit, label %4
 
 4:                                                ; preds = %1
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %5
 
@@ -2273,11 +2273,11 @@ define internal ptr @proxy_iternext(ptr noundef readonly captures(none) %0) #0 {
 
 7:                                                ; preds = %5
   %8 = add nuw i32 %.val.i.i, 1
-  store i32 %8, ptr %.val12, align 8, !tbaa !43
+  store i32 %8, ptr %.val12, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %4, %1
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
@@ -2287,19 +2287,19 @@ _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
   br i1 %.not, label %11, label %22
 
 11:                                               ; preds = %_PyWeakref_GET_REF.exit
-  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !46
+  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !45
   %13 = getelementptr i8, ptr %.val12, i64 8
   %.val = load ptr, ptr %13, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !47
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
   %16 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.22, ptr noundef %15) #6
-  %17 = load i32, ptr %.val12, align 8, !tbaa !43
+  %17 = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %17, -1
   br i1 %.not.i, label %18, label %Py_DECREF.exit
 
 18:                                               ; preds = %11
   %19 = add nsw i32 %17, -1
-  store i32 %19, ptr %.val12, align 8, !tbaa !43
+  store i32 %19, ptr %.val12, align 8, !tbaa !42
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %Py_DECREF.exit
 
@@ -2309,13 +2309,13 @@ _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
 
 22:                                               ; preds = %_PyWeakref_GET_REF.exit
   %23 = tail call ptr @PyIter_Next(ptr noundef nonnull %.val12) #6
-  %24 = load i32, ptr %.val12, align 8, !tbaa !43
+  %24 = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i9 = icmp sgt i32 %24, -1
   br i1 %.not.i9, label %25, label %Py_DECREF.exit
 
 25:                                               ; preds = %22
   %26 = add nsw i32 %24, -1
-  store i32 %26, ptr %.val12, align 8, !tbaa !43
+  store i32 %26, ptr %.val12, align 8, !tbaa !42
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %Py_DECREF.exit
 
@@ -2339,12 +2339,12 @@ define internal ptr @proxy_call(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val44 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val44 = load ptr, ptr %6, align 8, !tbaa !37
   %7 = icmp eq ptr %.val44, @_Py_NoneStruct
   br i1 %7, label %proxy_check_ref.exit, label %8
 
 8:                                                ; preds = %5
-  %.val.i.i = load i32, ptr %.val44, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val44, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %9
 
@@ -2353,12 +2353,12 @@ define internal ptr @proxy_call(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %10, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %8, %5
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %0, align 8, !tbaa !43
+  %13 = load i32, ptr %0, align 8, !tbaa !42
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -2366,7 +2366,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
   %.val.i.i.sink = phi i32 [ %.val.i.i, %9 ], [ %13, %12 ]
   %.val44.sink = phi ptr [ %.val44, %9 ], [ %0, %12 ]
   %15 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %15, ptr %.val44.sink, align 8, !tbaa !43
+  store i32 %15, ptr %.val44.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
@@ -2380,12 +2380,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 17:                                               ; preds = %Py_INCREF.exit
   %18 = getelementptr i8, ptr %1, i64 16
-  %.val45 = load ptr, ptr %18, align 8, !tbaa !38
+  %.val45 = load ptr, ptr %18, align 8, !tbaa !37
   %19 = icmp eq ptr %.val45, @_Py_NoneStruct
   br i1 %19, label %proxy_check_ref.exit51, label %20
 
 20:                                               ; preds = %17
-  %.val.i.i47 = load i32, ptr %.val45, align 8, !tbaa !43
+  %.val.i.i47 = load i32, ptr %.val45, align 8, !tbaa !42
   %.not.i.i48 = icmp eq i32 %.val.i.i47, 0
   br i1 %.not.i.i48, label %proxy_check_ref.exit51, label %21
 
@@ -2394,12 +2394,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %22, label %Py_INCREF.exit36, label %Py_INCREF.exit36.sink.split
 
 proxy_check_ref.exit51:                           ; preds = %20, %17
-  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %23, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 24:                                               ; preds = %Py_INCREF.exit
-  %25 = load i32, ptr %1, align 8, !tbaa !43
+  %25 = load i32, ptr %1, align 8, !tbaa !42
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %Py_INCREF.exit36, label %Py_INCREF.exit36.sink.split
 
@@ -2407,7 +2407,7 @@ Py_INCREF.exit36.sink.split:                      ; preds = %24, %21
   %.val.i.i47.sink = phi i32 [ %.val.i.i47, %21 ], [ %25, %24 ]
   %.val45.sink = phi ptr [ %.val45, %21 ], [ %1, %24 ]
   %27 = add nuw i32 %.val.i.i47.sink, 1
-  store i32 %27, ptr %.val45.sink, align 8, !tbaa !43
+  store i32 %27, ptr %.val45.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit36
 
 Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.sink.split, %21, %24
@@ -2425,12 +2425,12 @@ Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.si
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %2, i64 16
-  %.val46 = load ptr, ptr %31, align 8, !tbaa !38
+  %.val46 = load ptr, ptr %31, align 8, !tbaa !37
   %32 = icmp eq ptr %.val46, @_Py_NoneStruct
   br i1 %32, label %proxy_check_ref.exit56, label %33
 
 33:                                               ; preds = %30
-  %.val.i.i52 = load i32, ptr %.val46, align 8, !tbaa !43
+  %.val.i.i52 = load i32, ptr %.val46, align 8, !tbaa !42
   %.not.i.i53 = icmp eq i32 %.val.i.i52, 0
   br i1 %.not.i.i53, label %proxy_check_ref.exit56, label %34
 
@@ -2439,12 +2439,12 @@ Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.si
   br i1 %35, label %Py_INCREF.exit37, label %Py_INCREF.exit37.sink.split
 
 proxy_check_ref.exit56:                           ; preds = %33, %30
-  %36 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %36 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 37:                                               ; preds = %28
-  %38 = load i32, ptr %2, align 8, !tbaa !43
+  %38 = load i32, ptr %2, align 8, !tbaa !42
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %Py_INCREF.exit37, label %Py_INCREF.exit37.sink.split
 
@@ -2452,19 +2452,19 @@ Py_INCREF.exit37.sink.split:                      ; preds = %37, %34
   %.val.i.i52.sink = phi i32 [ %.val.i.i52, %34 ], [ %38, %37 ]
   %.val46.sink = phi ptr [ %.val46, %34 ], [ %2, %37 ]
   %40 = add nuw i32 %.val.i.i52.sink, 1
-  store i32 %40, ptr %.val46.sink, align 8, !tbaa !43
+  store i32 %40, ptr %.val46.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit37
 
 Py_INCREF.exit37:                                 ; preds = %Py_INCREF.exit37.sink.split, %34, %37, %Py_INCREF.exit36
   %.024 = phi ptr [ null, %Py_INCREF.exit36 ], [ %2, %37 ], [ %.val46, %34 ], [ %.val46.sink, %Py_INCREF.exit37.sink.split ]
   %41 = tail call ptr @PyObject_Call(ptr noundef nonnull %.026, ptr noundef nonnull %.025, ptr noundef %.024) #6
-  %42 = load i32, ptr %.026, align 8, !tbaa !43
+  %42 = load i32, ptr %.026, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %42, -1
   br i1 %.not.i, label %43, label %Py_DECREF.exit
 
 43:                                               ; preds = %Py_INCREF.exit37
   %44 = add nsw i32 %42, -1
-  store i32 %44, ptr %.026, align 8, !tbaa !43
+  store i32 %44, ptr %.026, align 8, !tbaa !42
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %Py_DECREF.exit
 
@@ -2473,13 +2473,13 @@ Py_INCREF.exit37:                                 ; preds = %Py_INCREF.exit37.si
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_INCREF.exit37, %43, %46
-  %47 = load i32, ptr %.025, align 8, !tbaa !43
+  %47 = load i32, ptr %.025, align 8, !tbaa !42
   %.not.i34 = icmp sgt i32 %47, -1
   br i1 %.not.i34, label %48, label %Py_DECREF.exit35
 
 48:                                               ; preds = %Py_DECREF.exit
   %49 = add nsw i32 %47, -1
-  store i32 %49, ptr %.025, align 8, !tbaa !43
+  store i32 %49, ptr %.025, align 8, !tbaa !42
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %Py_DECREF.exit35
 
@@ -2492,13 +2492,13 @@ Py_DECREF.exit35:                                 ; preds = %Py_DECREF.exit, %48
   br i1 %.not.i57, label %Py_XDECREF.exit, label %52
 
 52:                                               ; preds = %Py_DECREF.exit35
-  %53 = load i32, ptr %.024, align 8, !tbaa !43
+  %53 = load i32, ptr %.024, align 8, !tbaa !42
   %.not.i.i58 = icmp sgt i32 %53, -1
   br i1 %.not.i.i58, label %54, label %Py_XDECREF.exit
 
 54:                                               ; preds = %52
   %55 = add nsw i32 %53, -1
-  store i32 %55, ptr %.024, align 8, !tbaa !43
+  store i32 %55, ptr %.024, align 8, !tbaa !42
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %Py_XDECREF.exit
 
@@ -2527,9 +2527,9 @@ define internal fastcc ptr @get_or_create_weakref(ptr noundef %0, ptr noundef %1
   br i1 %.not100, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !46
+  %7 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %.val35, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.26, ptr noundef %9) #6
   br label %try_reuse_basic_ref.exit
 
@@ -2582,7 +2582,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %19, %26
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %get_basic_refs.exit.i
 
@@ -2594,13 +2594,13 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %19, %26
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !40
+  %42 = load ptr, ptr %41, align 8, !tbaa !39
   %.not16.i.i = icmp eq ptr %42, null
   br i1 %.not16.i.i, label %get_basic_refs.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %40
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !42
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !41
   %43 = icmp eq ptr %.pre.i.i, null
   br i1 %43, label %.thread.i..thread.thread.i_crit_edge.i, label %get_basic_refs.exit.i
 
@@ -2629,7 +2629,7 @@ get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i,
   br i1 %.not12.i, label %49, label %44
 
 44:                                               ; preds = %get_basic_refs.exit.i
-  %.val.i14.i = load i32, ptr %.1.i, align 8, !tbaa !43
+  %.val.i14.i = load i32, ptr %.1.i, align 8, !tbaa !42
   %.not.i15.i = icmp eq i32 %.val.i14.i, 0
   br i1 %.not.i15.i, label %49, label %45
 
@@ -2639,47 +2639,47 @@ get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i,
 
 47:                                               ; preds = %45
   %48 = add nuw i32 %.val.i14.i, 1
-  store i32 %48, ptr %.1.i, align 8, !tbaa !43
+  store i32 %48, ptr %.1.i, align 8, !tbaa !42
   br label %try_reuse_basic_ref.exit
 
 49:                                               ; preds = %31, %44, %get_basic_refs.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %51 = load ptr, ptr %50, align 8, !tbaa !48
+  %51 = load ptr, ptr %50, align 8, !tbaa !47
   %52 = tail call ptr %51(ptr noundef %0, i64 noundef 0) #6
   %53 = icmp eq ptr %52, null
   br i1 %53, label %try_reuse_basic_ref.exit, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store i64 -1, ptr %55, align 8, !tbaa !45
+  store i64 -1, ptr %55, align 8, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store ptr %1, ptr %56, align 8, !tbaa !38
+  store ptr %1, ptr %56, align 8, !tbaa !37
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   br i1 %.not.i, label %63, label %58
 
 58:                                               ; preds = %54
-  %59 = load i32, ptr %2, align 8, !tbaa !43
+  %59 = load i32, ptr %2, align 8, !tbaa !42
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %58
   %62 = add nuw i32 %59, 1
-  store i32 %62, ptr %2, align 8, !tbaa !43
+  store i32 %62, ptr %2, align 8, !tbaa !42
   br label %63
 
 63:                                               ; preds = %61, %58, %54
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr %spec.store.select, ptr %64, align 8, !tbaa !42
+  store ptr %spec.store.select, ptr %64, align 8, !tbaa !41
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  store ptr @weakref_vectorcall, ptr %65, align 8, !tbaa !49
+  store ptr @weakref_vectorcall, ptr %65, align 8, !tbaa !48
   %66 = load ptr, ptr %.0.i, align 8, !tbaa !33
   %.not.i.i38 = icmp eq ptr %66, null
   br i1 %.not.i.i38, label %get_basic_refs.exit.i39, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !42
+  %69 = load ptr, ptr %68, align 8, !tbaa !41
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %get_basic_refs.exit.i39
 
@@ -2691,13 +2691,13 @@ get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i,
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !40
+  %75 = load ptr, ptr %74, align 8, !tbaa !39
   %.not16.i.i53 = icmp eq ptr %75, null
   br i1 %.not16.i.i53, label %get_basic_refs.exit.i39, label %.thread.i.i54
 
 .thread.i.i54:                                    ; preds = %73
   %.phi.trans.insert.i.i55 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %.pre.i.i56 = load ptr, ptr %.phi.trans.insert.i.i55, align 8, !tbaa !42
+  %.pre.i.i56 = load ptr, ptr %.phi.trans.insert.i.i55, align 8, !tbaa !41
   %76 = icmp eq ptr %.pre.i.i56, null
   br i1 %76, label %.thread.i..thread.thread.i_crit_edge.i57, label %get_basic_refs.exit.i39
 
@@ -2744,14 +2744,14 @@ is_basic_proxy.exit.thread19.i:                   ; preds = %is_basic_proxy.exit
   br i1 %81, label %.thread21.i, label %85
 
 .thread21.i:                                      ; preds = %is_basic_proxy.exit.thread19.i, %is_basic_ref.exit.i
-  store ptr null, ptr %57, align 8, !tbaa !41
+  store ptr null, ptr %57, align 8, !tbaa !40
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store ptr %66, ptr %82, align 8, !tbaa !40
+  store ptr %66, ptr %82, align 8, !tbaa !39
   br i1 %.not.i.i38, label %insert_head.exit.i, label %83
 
 83:                                               ; preds = %.thread21.i
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr %52, ptr %84, align 8, !tbaa !41
+  store ptr %52, ptr %84, align 8, !tbaa !40
   br label %insert_head.exit.i
 
 insert_head.exit.i:                               ; preds = %83, %.thread21.i
@@ -2759,62 +2759,62 @@ insert_head.exit.i:                               ; preds = %83, %.thread21.i
   br label %try_reuse_basic_ref.exit
 
 85:                                               ; preds = %is_basic_proxy.exit.thread19.i
-  store ptr %.0.i41, ptr %57, align 8, !tbaa !41
+  store ptr %.0.i41, ptr %57, align 8, !tbaa !40
   %86 = getelementptr inbounds nuw i8, ptr %.0.i41, i64 48
-  %87 = load ptr, ptr %86, align 8, !tbaa !40
+  %87 = load ptr, ptr %86, align 8, !tbaa !39
   %88 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store ptr %87, ptr %88, align 8, !tbaa !40
+  store ptr %87, ptr %88, align 8, !tbaa !39
   %.not.i12.i = icmp eq ptr %87, null
   br i1 %.not.i12.i, label %insert_after.exit.i, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  store ptr %52, ptr %90, align 8, !tbaa !41
+  store ptr %52, ptr %90, align 8, !tbaa !40
   br label %insert_after.exit.i
 
 insert_after.exit.i:                              ; preds = %89, %85
-  store ptr %52, ptr %86, align 8, !tbaa !40
+  store ptr %52, ptr %86, align 8, !tbaa !39
   br label %try_reuse_basic_ref.exit
 
 91:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %93 = load ptr, ptr %92, align 8, !tbaa !48
+  %93 = load ptr, ptr %92, align 8, !tbaa !47
   %94 = tail call ptr %93(ptr noundef %0, i64 noundef 0) #6
   %95 = icmp eq ptr %94, null
   br i1 %95, label %try_reuse_basic_ref.exit, label %96
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store i64 -1, ptr %97, align 8, !tbaa !45
+  store i64 -1, ptr %97, align 8, !tbaa !44
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store ptr %1, ptr %98, align 8, !tbaa !38
+  store ptr %1, ptr %98, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %.not.i.i.i.i60 = icmp eq ptr %spec.store.select, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
   br i1 %.not.i.i.i.i60, label %105, label %100
 
 100:                                              ; preds = %96
-  %101 = load i32, ptr %2, align 8, !tbaa !43
+  %101 = load i32, ptr %2, align 8, !tbaa !42
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %100
   %104 = add nuw i32 %101, 1
-  store i32 %104, ptr %2, align 8, !tbaa !43
+  store i32 %104, ptr %2, align 8, !tbaa !42
   br label %105
 
 105:                                              ; preds = %103, %100, %96
   %106 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store ptr %spec.store.select, ptr %106, align 8, !tbaa !42
+  store ptr %spec.store.select, ptr %106, align 8, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %94, i64 56
-  store ptr @weakref_vectorcall, ptr %107, align 8, !tbaa !49
+  store ptr @weakref_vectorcall, ptr %107, align 8, !tbaa !48
   %108 = load ptr, ptr %.0.i, align 8, !tbaa !33
   %.not.i.i63 = icmp eq ptr %108, null
   br i1 %.not.i.i63, label %get_basic_refs.exit.i64, label %109
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %111 = load ptr, ptr %110, align 8, !tbaa !42
+  %111 = load ptr, ptr %110, align 8, !tbaa !41
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %get_basic_refs.exit.i64
 
@@ -2826,13 +2826,13 @@ insert_after.exit.i:                              ; preds = %89, %85
 
 115:                                              ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %117 = load ptr, ptr %116, align 8, !tbaa !40
+  %117 = load ptr, ptr %116, align 8, !tbaa !39
   %.not16.i.i90 = icmp eq ptr %117, null
   br i1 %.not16.i.i90, label %get_basic_refs.exit.i64, label %.thread.i.i91
 
 .thread.i.i91:                                    ; preds = %115
   %.phi.trans.insert.i.i92 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %.pre.i.i93 = load ptr, ptr %.phi.trans.insert.i.i92, align 8, !tbaa !42
+  %.pre.i.i93 = load ptr, ptr %.phi.trans.insert.i.i92, align 8, !tbaa !41
   %118 = icmp eq ptr %.pre.i.i93, null
   br i1 %118, label %.thread.i..thread.thread.i_crit_edge.i94, label %get_basic_refs.exit.i64
 
@@ -2879,14 +2879,14 @@ is_basic_proxy.exit.thread19.i68:                 ; preds = %is_basic_proxy.exit
   br i1 %123, label %.thread21.i72, label %127
 
 .thread21.i72:                                    ; preds = %is_basic_proxy.exit.thread19.i68, %is_basic_ref.exit.i74
-  store ptr null, ptr %99, align 8, !tbaa !41
+  store ptr null, ptr %99, align 8, !tbaa !40
   %124 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  store ptr %108, ptr %124, align 8, !tbaa !40
+  store ptr %108, ptr %124, align 8, !tbaa !39
   br i1 %.not.i.i63, label %insert_head.exit.i73, label %125
 
 125:                                              ; preds = %.thread21.i72
   %126 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  store ptr %94, ptr %126, align 8, !tbaa !41
+  store ptr %94, ptr %126, align 8, !tbaa !40
   br label %insert_head.exit.i73
 
 insert_head.exit.i73:                             ; preds = %125, %.thread21.i72
@@ -2894,21 +2894,21 @@ insert_head.exit.i73:                             ; preds = %125, %.thread21.i72
   br label %try_reuse_basic_ref.exit
 
 127:                                              ; preds = %is_basic_proxy.exit.thread19.i68
-  store ptr %.0.i69, ptr %99, align 8, !tbaa !41
+  store ptr %.0.i69, ptr %99, align 8, !tbaa !40
   %128 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !40
+  %129 = load ptr, ptr %128, align 8, !tbaa !39
   %130 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  store ptr %129, ptr %130, align 8, !tbaa !40
+  store ptr %129, ptr %130, align 8, !tbaa !39
   %.not.i12.i70 = icmp eq ptr %129, null
   br i1 %.not.i12.i70, label %insert_after.exit.i71, label %131
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 40
-  store ptr %94, ptr %132, align 8, !tbaa !41
+  store ptr %94, ptr %132, align 8, !tbaa !40
   br label %insert_after.exit.i71
 
 insert_after.exit.i71:                            ; preds = %131, %127
-  store ptr %94, ptr %128, align 8, !tbaa !40
+  store ptr %94, ptr %128, align 8, !tbaa !39
   br label %try_reuse_basic_ref.exit
 
 try_reuse_basic_ref.exit:                         ; preds = %91, %49, %insert_after.exit.i71, %insert_head.exit.i73, %insert_after.exit.i, %insert_head.exit.i, %47, %45, %6
@@ -2955,18 +2955,18 @@ PyObject_TypeCheck.exit:                          ; preds = %4
   br i1 %or.cond, label %PyObject_TypeCheck.exit.thread, label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !45
   %10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #6
   br label %_PyWeakref_IS_DEAD.exit
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %4, %7, %PyObject_TypeCheck.exit
   %11 = getelementptr i8, ptr %0, i64 16
-  %.val11 = load ptr, ptr %11, align 8, !tbaa !38
+  %.val11 = load ptr, ptr %11, align 8, !tbaa !37
   %12 = icmp eq ptr %.val11, @_Py_NoneStruct
   br i1 %12, label %_PyWeakref_IS_DEAD.exit, label %13
 
 13:                                               ; preds = %PyObject_TypeCheck.exit.thread
-  %.val.i = load i32, ptr %.val11, align 8, !tbaa !43
+  %.val.i = load i32, ptr %.val11, align 8, !tbaa !42
   %14 = icmp eq i32 %.val.i, 0
   %15 = zext i1 %14 to i32
   br label %_PyWeakref_IS_DEAD.exit
@@ -2986,7 +2986,7 @@ define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly cap
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  store ptr null, ptr %1, align 8, !tbaa !46
+  store ptr null, ptr %1, align 8, !tbaa !45
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.3, i32 noundef 954) #6
   br label %20
 
@@ -3009,19 +3009,19 @@ PyObject_TypeCheck.exit:                          ; preds = %5
   br i1 %or.cond, label %PyObject_TypeCheck.exit.thread, label %9
 
 9:                                                ; preds = %8
-  store ptr null, ptr %1, align 8, !tbaa !46
-  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !46
+  store ptr null, ptr %1, align 8, !tbaa !45
+  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.5) #6
   br label %20
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %5, %8, %PyObject_TypeCheck.exit
   %11 = getelementptr i8, ptr %0, i64 16
-  %.val13 = load ptr, ptr %11, align 8, !tbaa !38
+  %.val13 = load ptr, ptr %11, align 8, !tbaa !37
   %12 = icmp eq ptr %.val13, @_Py_NoneStruct
   br i1 %12, label %_PyWeakref_GET_REF.exit, label %13
 
 13:                                               ; preds = %PyObject_TypeCheck.exit.thread
-  %.val.i.i = load i32, ptr %.val13, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val13, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %_PyWeakref_GET_REF.exit, label %14
 
@@ -3031,12 +3031,12 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %5, %8, %PyObject_Ty
 
 16:                                               ; preds = %14
   %17 = add nuw i32 %.val.i.i, 1
-  store i32 %17, ptr %.val13, align 8, !tbaa !43
+  store i32 %17, ptr %.val13, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %PyObject_TypeCheck.exit.thread, %13, %14, %16
   %.0.i = phi ptr [ null, %PyObject_TypeCheck.exit.thread ], [ null, %13 ], [ %.val13, %14 ], [ %.val13, %16 ]
-  store ptr %.0.i, ptr %1, align 8, !tbaa !46
+  store ptr %.0.i, ptr %1, align 8, !tbaa !45
   %18 = icmp ne ptr %.0.i, null
   %19 = zext i1 %18 to i32
   br label %20
@@ -3077,12 +3077,12 @@ PyObject_TypeCheck.exit:                          ; preds = %3
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %3, %6, %PyObject_TypeCheck.exit
   %8 = getelementptr i8, ptr %0, i64 16
-  %.val14 = load ptr, ptr %8, align 8, !tbaa !38
+  %.val14 = load ptr, ptr %8, align 8, !tbaa !37
   %9 = icmp eq ptr %.val14, @_Py_NoneStruct
   br i1 %9, label %Py_DECREF.exit, label %10
 
 10:                                               ; preds = %PyObject_TypeCheck.exit.thread
-  %.val.i.i = load i32, ptr %.val14, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val14, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %Py_DECREF.exit, label %11
 
@@ -3116,7 +3116,7 @@ define dso_local void @PyObject_ClearWeakRefs(ptr noundef %0) local_unnamed_addr
   br i1 %.not117, label %7, label %6
 
 6:                                                ; preds = %3
-  %.val61 = load i32, ptr %0, align 8, !tbaa !43
+  %.val61 = load i32, ptr %0, align 8, !tbaa !42
   %.not50 = icmp eq i32 %.val61, 0
   br i1 %.not50, label %8, label %7
 
@@ -3217,7 +3217,7 @@ _PyWeakref_GetWeakrefCount.exit:                  ; preds = %.lr.ph.i
   %.pre129 = phi ptr [ %24, %.critedge.preheader ], [ %.pre130134, %is_basic_ref.exit.i73 ]
   %.pr125 = phi ptr [ %24, %.critedge.preheader ], [ %.pr135, %is_basic_ref.exit.i73 ]
   %46 = getelementptr inbounds nuw i8, ptr %.pr125, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !42
+  %47 = load ptr, ptr %46, align 8, !tbaa !41
   %48 = icmp eq ptr %47, null
   br i1 %48, label %is_basic_ref.exit.i, label %is_basic_ref_or_proxy.exit.thread.thread
 
@@ -3233,7 +3233,7 @@ is_basic_ref.exit.i:                              ; preds = %.critedgethread-pre
 
 is_basic_ref_or_proxy.exit.thread106:             ; preds = %is_basic_ref.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %.pr125, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !38
+  %51 = load ptr, ptr %50, align 8, !tbaa !37
   %.not.i67 = icmp eq ptr %51, @_Py_NoneStruct
   br i1 %.not.i67, label %is_basic_ref_or_proxy.exit.thread, label %52
 
@@ -3272,7 +3272,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i71:          ; preds = %66, %60
   %70 = load ptr, ptr %.0.i.i72, align 8, !tbaa !33
   %71 = icmp eq ptr %70, %.pr125
   %72 = getelementptr inbounds nuw i8, ptr %.pr125, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !40
+  %73 = load ptr, ptr %72, align 8, !tbaa !39
   br i1 %71, label %74, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge
 
 74:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i71
@@ -3280,15 +3280,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i71:          ; preds = %66, %60
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge: ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i71, %74
-  store ptr @_Py_NoneStruct, ptr %50, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %50, align 8, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %.pr125, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !41
+  %76 = load ptr, ptr %75, align 8, !tbaa !40
   %.not23.i = icmp eq ptr %76, null
   br i1 %.not23.i, label %._crit_edge.i, label %77
 
 77:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  store ptr %73, ptr %78, align 8, !tbaa !40
+  store ptr %73, ptr %78, align 8, !tbaa !39
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %77, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge
@@ -3297,7 +3297,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge: ; preds = %_PyObject_GET_WEA
 
 79:                                               ; preds = %._crit_edge.i
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store ptr %76, ptr %80, align 8, !tbaa !41
+  store ptr %76, ptr %80, align 8, !tbaa !40
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge.i
@@ -3307,7 +3307,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i71._crit_edge: ; preds = %_PyObject_GET_WEA
 
 is_basic_ref_or_proxy.exit.thread:                ; preds = %81, %is_basic_ref_or_proxy.exit.thread106
   %.pre = phi ptr [ %.pre129, %is_basic_ref_or_proxy.exit.thread106 ], [ %.pre.pre, %81 ]
-  store ptr null, ptr %46, align 8, !tbaa !42
+  store ptr null, ptr %46, align 8, !tbaa !41
   %82 = icmp eq ptr %.pre, null
   br i1 %82, label %.critedge59, label %is_basic_ref_or_proxy.exit.thread.thread
 
@@ -3315,7 +3315,7 @@ is_basic_ref_or_proxy.exit.thread.thread:         ; preds = %.critedgethread-pre
   %.pr135 = phi ptr [ %.pre, %is_basic_ref_or_proxy.exit.thread ], [ %.pr125, %is_basic_ref.exit.i ], [ %.pr125, %.critedgethread-pre-split ]
   %.pre130134 = phi ptr [ %.pre, %is_basic_ref_or_proxy.exit.thread ], [ %.pre129, %is_basic_ref.exit.i ], [ %.pre129, %.critedgethread-pre-split ]
   %83 = getelementptr inbounds nuw i8, ptr %.pr135, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !42
+  %84 = load ptr, ptr %83, align 8, !tbaa !41
   %85 = icmp eq ptr %84, null
   br i1 %85, label %is_basic_ref.exit.i73, label %.critedge59
 
@@ -3327,7 +3327,7 @@ is_basic_ref.exit.i73:                            ; preds = %is_basic_ref_or_pro
   %or.cond.i77 = or i1 %.not.i75, %.not.i.i76
   %87 = icmp eq ptr %.val.i.i74, @_PyWeakref_CallableProxyType
   %or.cond118 = or i1 %87, %or.cond.i77
-  br i1 %or.cond118, label %.critedgethread-pre-split, label %.critedge59, !llvm.loop !50
+  br i1 %or.cond118, label %.critedgethread-pre-split, label %.critedge59
 
 88:                                               ; preds = %_PyWeakref_GetWeakrefCount.exit
   %89 = tail call ptr @PyErr_GetRaisedException() #6
@@ -3354,7 +3354,7 @@ is_basic_ref.exit.i73:                            ; preds = %is_basic_ref_or_pro
 .lr.ph.i80:                                       ; preds = %96, %_PyWeakref_ClearRef.exit.i
   %101 = phi ptr [ %134, %_PyWeakref_ClearRef.exit.i ], [ %100, %96 ]
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !38
+  %103 = load ptr, ptr %102, align 8, !tbaa !37
   %.not.i.i.i = icmp eq ptr %103, @_Py_NoneStruct
   br i1 %.not.i.i.i, label %_PyWeakref_ClearRef.exit.i, label %104
 
@@ -3393,7 +3393,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i:        ; preds = %118, %112
   %122 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !33
   %123 = icmp eq ptr %122, %101
   %124 = getelementptr inbounds nuw i8, ptr %101, i64 48
-  %125 = load ptr, ptr %124, align 8, !tbaa !40
+  %125 = load ptr, ptr %124, align 8, !tbaa !39
   br i1 %123, label %126, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
 
 126:                                              ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i
@@ -3401,15 +3401,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i:        ; preds = %118, %112
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i: ; preds = %126, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i
-  store ptr @_Py_NoneStruct, ptr %102, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %102, align 8, !tbaa !37
   %127 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %128 = load ptr, ptr %127, align 8, !tbaa !41
+  %128 = load ptr, ptr %127, align 8, !tbaa !40
   %.not23.i.i.i = icmp eq ptr %128, null
   br i1 %.not23.i.i.i, label %._crit_edge.i.i.i, label %129
 
 129:                                              ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  store ptr %125, ptr %130, align 8, !tbaa !40
+  store ptr %125, ptr %130, align 8, !tbaa !39
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %129, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
@@ -3418,7 +3418,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i: ; preds = %126, %_PyObject
 
 131:                                              ; preds = %._crit_edge.i.i.i
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  store ptr %128, ptr %132, align 8, !tbaa !41
+  store ptr %128, ptr %132, align 8, !tbaa !40
   br label %133
 
 133:                                              ; preds = %131, %._crit_edge.i.i.i
@@ -3429,7 +3429,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i: ; preds = %126, %_PyObject
 _PyWeakref_ClearRef.exit.i:                       ; preds = %133, %.lr.ph.i80
   %134 = phi ptr [ %101, %.lr.ph.i80 ], [ %.pre.i81, %133 ]
   %.not.i82 = icmp eq ptr %134, null
-  br i1 %.not.i82, label %_PyWeakref_ClearWeakRefsNoCallbacks.exit, label %.lr.ph.i80, !llvm.loop !51
+  br i1 %.not.i82, label %_PyWeakref_ClearWeakRefsNoCallbacks.exit, label %.lr.ph.i80, !llvm.loop !49
 
 _PyWeakref_ClearWeakRefsNoCallbacks.exit:         ; preds = %_PyWeakref_ClearRef.exit.i, %96
   tail call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.6) #6
@@ -3449,7 +3449,7 @@ _PyWeakref_ClearWeakRefsNoCallbacks.exit:         ; preds = %_PyWeakref_ClearRef
   %.041120140 = phi i64 [ %.1116, %.preheader119.splitthread-pre-split ], [ 0, %.preheader119 ]
   %136 = phi ptr [ %.pr, %.preheader119.splitthread-pre-split ], [ %94, %.preheader119 ]
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load ptr, ptr %137, align 8, !tbaa !38
+  %138 = load ptr, ptr %137, align 8, !tbaa !37
   %.not.i84 = icmp eq ptr %138, @_Py_NoneStruct
   br i1 %.not.i84, label %clear_weakref_lock_held.exit96, label %139
 
@@ -3488,7 +3488,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i89:          ; preds = %153, %147
   %157 = load ptr, ptr %.0.i.i90, align 8, !tbaa !33
   %158 = icmp eq ptr %157, %136
   %159 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  %160 = load ptr, ptr %159, align 8, !tbaa !40
+  %160 = load ptr, ptr %159, align 8, !tbaa !39
   br i1 %158, label %161, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge
 
 161:                                              ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i89
@@ -3496,15 +3496,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i89:          ; preds = %153, %147
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge: ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i89, %161
-  store ptr @_Py_NoneStruct, ptr %137, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %137, align 8, !tbaa !37
   %162 = getelementptr inbounds nuw i8, ptr %136, i64 40
-  %163 = load ptr, ptr %162, align 8, !tbaa !41
+  %163 = load ptr, ptr %162, align 8, !tbaa !40
   %.not23.i91 = icmp eq ptr %163, null
   br i1 %.not23.i91, label %._crit_edge.i94, label %164
 
 164:                                              ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 48
-  store ptr %160, ptr %165, align 8, !tbaa !40
+  store ptr %160, ptr %165, align 8, !tbaa !39
   br label %._crit_edge.i94
 
 ._crit_edge.i94:                                  ; preds = %164, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge
@@ -3513,7 +3513,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge: ; preds = %_PyObject_GET_WEA
 
 166:                                              ; preds = %._crit_edge.i94
   %167 = getelementptr inbounds nuw i8, ptr %160, i64 40
-  store ptr %163, ptr %167, align 8, !tbaa !41
+  store ptr %163, ptr %167, align 8, !tbaa !40
   br label %168
 
 168:                                              ; preds = %166, %._crit_edge.i94
@@ -3522,9 +3522,9 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i89._crit_edge: ; preds = %_PyObject_GET_WEA
 
 clear_weakref_lock_held.exit96:                   ; preds = %.preheader119.split.preheader, %168
   %169 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %170 = load ptr, ptr %169, align 8, !tbaa !42
-  store ptr null, ptr %169, align 8, !tbaa !42
-  %.val.i97 = load i32, ptr %136, align 8, !tbaa !43
+  %170 = load ptr, ptr %169, align 8, !tbaa !41
+  store ptr null, ptr %169, align 8, !tbaa !41
+  %.val.i97 = load i32, ptr %136, align 8, !tbaa !42
   %.not.i98 = icmp eq i32 %.val.i97, 0
   br i1 %.not.i98, label %_Py_TryIncref.exit, label %171
 
@@ -3534,15 +3534,15 @@ clear_weakref_lock_held.exit96:                   ; preds = %.preheader119.split
 
 173:                                              ; preds = %171
   %174 = add nuw i32 %.val.i97, 1
-  store i32 %174, ptr %136, align 8, !tbaa !43
+  store i32 %174, ptr %136, align 8, !tbaa !42
   br label %175
 
 175:                                              ; preds = %171, %173
   %176 = getelementptr [1 x ptr], ptr %93, i64 0, i64 %.041120140
-  store ptr %136, ptr %176, align 8, !tbaa !46
+  store ptr %136, ptr %176, align 8, !tbaa !45
   %177 = add i64 %.041120140, 1
   %178 = getelementptr [1 x ptr], ptr %93, i64 0, i64 %177
-  store ptr %170, ptr %178, align 8, !tbaa !46
+  store ptr %170, ptr %178, align 8, !tbaa !45
   %179 = add i64 %.041120140, 2
   %.pre128 = load ptr, ptr %.0.i, align 8, !tbaa !33
   br label %Py_XDECREF.exit
@@ -3553,13 +3553,13 @@ _Py_TryIncref.exit:                               ; preds = %clear_weakref_lock_
   br i1 %.not.i100, label %Py_XDECREF.exit, label %181
 
 181:                                              ; preds = %_Py_TryIncref.exit
-  %182 = load i32, ptr %170, align 8, !tbaa !43
+  %182 = load i32, ptr %170, align 8, !tbaa !42
   %.not.i.i101 = icmp sgt i32 %182, -1
   br i1 %.not.i.i101, label %183, label %Py_XDECREF.exit
 
 183:                                              ; preds = %181
   %184 = add nsw i32 %182, -1
-  store i32 %184, ptr %170, align 8, !tbaa !43
+  store i32 %184, ptr %170, align 8, !tbaa !42
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %Py_XDECREF.exit
 
@@ -3571,16 +3571,16 @@ Py_XDECREF.exit:                                  ; preds = %175, %_Py_TryIncref
   %.in = phi ptr [ %180, %_Py_TryIncref.exit ], [ %180, %181 ], [ %180, %183 ], [ %180, %186 ], [ %.pre128, %175 ]
   %.1116 = phi i64 [ %.041120140, %_Py_TryIncref.exit ], [ %.041120140, %181 ], [ %.041120140, %183 ], [ %.041120140, %186 ], [ %179, %175 ]
   %.not122 = icmp eq ptr %.in, null
-  br i1 %.not122, label %.preheader, label %.preheader119.splitthread-pre-split, !llvm.loop !52
+  br i1 %.not122, label %.preheader, label %.preheader119.splitthread-pre-split, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %handle_callback.exit, %.preheader119, %.preheader
-  %187 = load i32, ptr %91, align 8, !tbaa !43
+  %187 = load i32, ptr %91, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %187, -1
   br i1 %.not.i, label %188, label %Py_DECREF.exit
 
 188:                                              ; preds = %._crit_edge
   %189 = add nsw i32 %187, -1
-  store i32 %189, ptr %91, align 8, !tbaa !43
+  store i32 %189, ptr %91, align 8, !tbaa !42
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %Py_DECREF.exit
 
@@ -3596,13 +3596,13 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %188, 
   %.040121 = phi i64 [ %207, %handle_callback.exit ], [ 0, %.preheader ]
   %192 = or disjoint i64 %.040121, 1
   %193 = getelementptr [1 x ptr], ptr %93, i64 0, i64 %192
-  %194 = load ptr, ptr %193, align 8, !tbaa !46
+  %194 = load ptr, ptr %193, align 8, !tbaa !45
   %.not53 = icmp eq ptr %194, null
   br i1 %.not53, label %handle_callback.exit, label %195
 
 195:                                              ; preds = %.lr.ph
   %196 = getelementptr [1 x ptr], ptr %93, i64 0, i64 %.040121
-  %197 = load ptr, ptr %196, align 8, !tbaa !46
+  %197 = load ptr, ptr %196, align 8, !tbaa !45
   %198 = tail call ptr @PyObject_CallOneArg(ptr noundef nonnull %194, ptr noundef %197) #6
   %199 = icmp eq ptr %198, null
   br i1 %199, label %200, label %201
@@ -3612,13 +3612,13 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %188, 
   br label %handle_callback.exit
 
 201:                                              ; preds = %195
-  %202 = load i32, ptr %198, align 8, !tbaa !43
+  %202 = load i32, ptr %198, align 8, !tbaa !42
   %.not.i.i102 = icmp sgt i32 %202, -1
   br i1 %.not.i.i102, label %203, label %handle_callback.exit
 
 203:                                              ; preds = %201
   %204 = add nsw i32 %202, -1
-  store i32 %204, ptr %198, align 8, !tbaa !43
+  store i32 %204, ptr %198, align 8, !tbaa !42
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %handle_callback.exit
 
@@ -3629,7 +3629,7 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %188, 
 handle_callback.exit:                             ; preds = %206, %203, %201, %200, %.lr.ph
   %207 = add i64 %.040121, 2
   %208 = icmp slt i64 %207, %.1116
-  br i1 %208, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  br i1 %208, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 _PyWeakref_GetWeakrefCount.exit.thread:           ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i, %.critedge59, %_PyWeakref_GetWeakrefCount.exit, %Py_DECREF.exit, %_PyWeakref_ClearWeakRefsNoCallbacks.exit, %_PyObject_GET_WEAKREFS_LISTPTR.exit, %7
   ret void
@@ -3657,7 +3657,7 @@ define hidden void @_PyWeakref_ClearWeakRefsNoCallbacks(ptr noundef readonly cap
 8:                                                ; preds = %.lr.ph, %_PyWeakref_ClearRef.exit
   %9 = phi ptr [ %6, %.lr.ph ], [ %42, %_PyWeakref_ClearRef.exit ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %11, @_Py_NoneStruct
   br i1 %.not.i.i, label %_PyWeakref_ClearRef.exit, label %12
 
@@ -3696,7 +3696,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %26, %20
   %30 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !33
   %31 = icmp eq ptr %30, %9
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
   br i1 %31, label %34, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 34:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
@@ -3704,15 +3704,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %26, %20
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %34, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
-  store ptr @_Py_NoneStruct, ptr %10, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %10, align 8, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
   %.not23.i.i = icmp eq ptr %36, null
   br i1 %.not23.i.i, label %._crit_edge.i.i, label %37
 
 37:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store ptr %33, ptr %38, align 8, !tbaa !40
+  store ptr %33, ptr %38, align 8, !tbaa !39
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %37, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
@@ -3721,7 +3721,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %34, %_PyObject_GE
 
 39:                                               ; preds = %._crit_edge.i.i
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store ptr %36, ptr %40, align 8, !tbaa !41
+  store ptr %36, ptr %40, align 8, !tbaa !40
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i
@@ -3732,7 +3732,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %34, %_PyObject_GE
 _PyWeakref_ClearRef.exit:                         ; preds = %8, %41
   %42 = phi ptr [ %9, %8 ], [ %.pre, %41 ]
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %_PyWeakref_ClearRef.exit, %1
   ret void
@@ -3764,7 +3764,7 @@ define dso_local void @PyUnstable_Object_ClearWeakRefsNoCallbacks(ptr noundef re
 8:                                                ; preds = %_PyWeakref_ClearRef.exit.i, %.lr.ph.i
   %9 = phi ptr [ %6, %.lr.ph.i ], [ %42, %_PyWeakref_ClearRef.exit.i ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %.not.i.i.i = icmp eq ptr %11, @_Py_NoneStruct
   br i1 %.not.i.i.i, label %_PyWeakref_ClearRef.exit.i, label %12
 
@@ -3803,7 +3803,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i:        ; preds = %26, %20
   %30 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !33
   %31 = icmp eq ptr %30, %9
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
   br i1 %31, label %34, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
 
 34:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i
@@ -3811,15 +3811,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i:        ; preds = %26, %20
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i: ; preds = %34, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i.i
-  store ptr @_Py_NoneStruct, ptr %10, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %10, align 8, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
   %.not23.i.i.i = icmp eq ptr %36, null
   br i1 %.not23.i.i.i, label %._crit_edge.i.i.i, label %37
 
 37:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store ptr %33, ptr %38, align 8, !tbaa !40
+  store ptr %33, ptr %38, align 8, !tbaa !39
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %37, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i
@@ -3828,7 +3828,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i: ; preds = %34, %_PyObject_
 
 39:                                               ; preds = %._crit_edge.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store ptr %36, ptr %40, align 8, !tbaa !41
+  store ptr %36, ptr %40, align 8, !tbaa !40
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i
@@ -3839,7 +3839,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i.i: ; preds = %34, %_PyObject_
 _PyWeakref_ClearRef.exit.i:                       ; preds = %41, %8
   %42 = phi ptr [ %9, %8 ], [ %.pre.i, %41 ]
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_PyWeakref_ClearWeakRefsNoCallbacks.exit, label %8, !llvm.loop !51
+  br i1 %.not.i, label %_PyWeakref_ClearWeakRefsNoCallbacks.exit, label %8, !llvm.loop !49
 
 _PyWeakref_ClearWeakRefsNoCallbacks.exit:         ; preds = %_PyWeakref_ClearRef.exit.i, %4, %1
   ret void
@@ -3849,7 +3849,7 @@ _PyWeakref_ClearWeakRefsNoCallbacks.exit:         ; preds = %_PyWeakref_ClearRef
 define hidden void @_PyStaticType_ClearWeakRefs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_PyStaticType_GetState(ptr noundef %0, ptr noundef %1) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -3860,7 +3860,7 @@ define hidden void @_PyStaticType_ClearWeakRefs(ptr noundef %0, ptr noundef %1) 
 7:                                                ; preds = %.lr.ph, %_PyWeakref_ClearRef.exit
   %8 = phi ptr [ %5, %.lr.ph ], [ %41, %_PyWeakref_ClearRef.exit ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %10, @_Py_NoneStruct
   br i1 %.not.i.i, label %_PyWeakref_ClearRef.exit, label %11
 
@@ -3899,7 +3899,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %25, %19
   %29 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !33
   %30 = icmp eq ptr %29, %8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !40
+  %32 = load ptr, ptr %31, align 8, !tbaa !39
   br i1 %30, label %33, label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 33:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
@@ -3907,15 +3907,15 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i.i:          ; preds = %25, %19
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %33, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i.i
-  store ptr @_Py_NoneStruct, ptr %9, align 8, !tbaa !38
+  store ptr @_Py_NoneStruct, ptr %9, align 8, !tbaa !37
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !41
+  %35 = load ptr, ptr %34, align 8, !tbaa !40
   %.not23.i.i = icmp eq ptr %35, null
   br i1 %.not23.i.i, label %._crit_edge.i.i, label %36
 
 36:                                               ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  store ptr %32, ptr %37, align 8, !tbaa !40
+  store ptr %32, ptr %37, align 8, !tbaa !39
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %36, %_PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i
@@ -3924,18 +3924,18 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit.i._crit_edge.i: ; preds = %33, %_PyObject_GE
 
 38:                                               ; preds = %._crit_edge.i.i
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store ptr %35, ptr %39, align 8, !tbaa !41
+  store ptr %35, ptr %39, align 8, !tbaa !40
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %.pre = load ptr, ptr %4, align 8, !tbaa !46
+  %.pre = load ptr, ptr %4, align 8, !tbaa !45
   br label %_PyWeakref_ClearRef.exit
 
 _PyWeakref_ClearRef.exit:                         ; preds = %7, %40
   %41 = phi ptr [ %8, %7 ], [ %.pre, %40 ]
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %_PyWeakref_ClearRef.exit, %2
   ret void
@@ -3946,12 +3946,12 @@ declare ptr @_PyStaticType_GetState(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @_PyWeakref_IsDead(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %2, align 8, !tbaa !38
+  %.val = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %3, label %_PyWeakref_IS_DEAD.exit, label %4
 
 4:                                                ; preds = %1
-  %.val.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i = load i32, ptr %.val, align 8, !tbaa !42
   %5 = icmp eq i32 %.val.i, 0
   %6 = zext i1 %5 to i32
   br label %_PyWeakref_IS_DEAD.exit
@@ -3991,12 +3991,12 @@ define internal ptr @proxy_add(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -4005,12 +4005,12 @@ define internal ptr @proxy_add(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4018,7 +4018,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -4032,12 +4032,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -4046,12 +4046,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -4059,19 +4059,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Add(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -4080,13 +4080,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -4110,12 +4110,12 @@ define internal ptr @proxy_sub(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -4124,12 +4124,12 @@ define internal ptr @proxy_sub(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4137,7 +4137,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -4151,12 +4151,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -4165,12 +4165,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -4178,19 +4178,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -4199,13 +4199,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -4229,12 +4229,12 @@ define internal ptr @proxy_mul(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -4243,12 +4243,12 @@ define internal ptr @proxy_mul(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4256,7 +4256,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -4270,12 +4270,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -4284,12 +4284,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -4297,19 +4297,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -4318,13 +4318,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -4348,12 +4348,12 @@ define internal ptr @proxy_mod(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -4362,12 +4362,12 @@ define internal ptr @proxy_mod(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4375,7 +4375,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -4389,12 +4389,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -4403,12 +4403,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -4416,19 +4416,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Remainder(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -4437,13 +4437,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -4467,12 +4467,12 @@ define internal ptr @proxy_divmod(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -4481,12 +4481,12 @@ define internal ptr @proxy_divmod(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4494,7 +4494,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -4508,12 +4508,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -4522,12 +4522,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -4535,19 +4535,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Divmod(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -4556,13 +4556,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -4586,12 +4586,12 @@ define internal ptr @proxy_pow(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val46 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val46 = load ptr, ptr %6, align 8, !tbaa !37
   %7 = icmp eq ptr %.val46, @_Py_NoneStruct
   br i1 %7, label %proxy_check_ref.exit, label %8
 
 8:                                                ; preds = %5
-  %.val.i.i = load i32, ptr %.val46, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val46, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %9
 
@@ -4600,12 +4600,12 @@ define internal ptr @proxy_pow(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   br i1 %10, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %8, %5
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %0, align 8, !tbaa !43
+  %13 = load i32, ptr %0, align 8, !tbaa !42
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4613,7 +4613,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
   %.val.i.i.sink = phi i32 [ %.val.i.i, %9 ], [ %13, %12 ]
   %.val46.sink = phi ptr [ %.val46, %9 ], [ %0, %12 ]
   %15 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %15, ptr %.val46.sink, align 8, !tbaa !43
+  store i32 %15, ptr %.val46.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
@@ -4627,12 +4627,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 17:                                               ; preds = %Py_INCREF.exit
   %18 = getelementptr i8, ptr %1, i64 16
-  %.val45 = load ptr, ptr %18, align 8, !tbaa !38
+  %.val45 = load ptr, ptr %18, align 8, !tbaa !37
   %19 = icmp eq ptr %.val45, @_Py_NoneStruct
   br i1 %19, label %proxy_check_ref.exit51, label %20
 
 20:                                               ; preds = %17
-  %.val.i.i47 = load i32, ptr %.val45, align 8, !tbaa !43
+  %.val.i.i47 = load i32, ptr %.val45, align 8, !tbaa !42
   %.not.i.i48 = icmp eq i32 %.val.i.i47, 0
   br i1 %.not.i.i48, label %proxy_check_ref.exit51, label %21
 
@@ -4641,12 +4641,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %22, label %Py_INCREF.exit36, label %Py_INCREF.exit36.sink.split
 
 proxy_check_ref.exit51:                           ; preds = %20, %17
-  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %23, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 24:                                               ; preds = %Py_INCREF.exit
-  %25 = load i32, ptr %1, align 8, !tbaa !43
+  %25 = load i32, ptr %1, align 8, !tbaa !42
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %Py_INCREF.exit36, label %Py_INCREF.exit36.sink.split
 
@@ -4654,7 +4654,7 @@ Py_INCREF.exit36.sink.split:                      ; preds = %24, %21
   %.val.i.i47.sink = phi i32 [ %.val.i.i47, %21 ], [ %25, %24 ]
   %.val45.sink = phi ptr [ %.val45, %21 ], [ %1, %24 ]
   %27 = add nuw i32 %.val.i.i47.sink, 1
-  store i32 %27, ptr %.val45.sink, align 8, !tbaa !43
+  store i32 %27, ptr %.val45.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit36
 
 Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.sink.split, %21, %24
@@ -4672,12 +4672,12 @@ Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.si
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %2, i64 16
-  %.val44 = load ptr, ptr %31, align 8, !tbaa !38
+  %.val44 = load ptr, ptr %31, align 8, !tbaa !37
   %32 = icmp eq ptr %.val44, @_Py_NoneStruct
   br i1 %32, label %proxy_check_ref.exit56, label %33
 
 33:                                               ; preds = %30
-  %.val.i.i52 = load i32, ptr %.val44, align 8, !tbaa !43
+  %.val.i.i52 = load i32, ptr %.val44, align 8, !tbaa !42
   %.not.i.i53 = icmp eq i32 %.val.i.i52, 0
   br i1 %.not.i.i53, label %proxy_check_ref.exit56, label %34
 
@@ -4686,12 +4686,12 @@ Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.si
   br i1 %35, label %Py_INCREF.exit37, label %Py_INCREF.exit37.sink.split
 
 proxy_check_ref.exit56:                           ; preds = %33, %30
-  %36 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %36 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 37:                                               ; preds = %28
-  %38 = load i32, ptr %2, align 8, !tbaa !43
+  %38 = load i32, ptr %2, align 8, !tbaa !42
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %Py_INCREF.exit37, label %Py_INCREF.exit37.sink.split
 
@@ -4699,19 +4699,19 @@ Py_INCREF.exit37.sink.split:                      ; preds = %37, %34
   %.val.i.i52.sink = phi i32 [ %.val.i.i52, %34 ], [ %38, %37 ]
   %.val44.sink = phi ptr [ %.val44, %34 ], [ %2, %37 ]
   %40 = add nuw i32 %.val.i.i52.sink, 1
-  store i32 %40, ptr %.val44.sink, align 8, !tbaa !43
+  store i32 %40, ptr %.val44.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit37
 
 Py_INCREF.exit37:                                 ; preds = %Py_INCREF.exit37.sink.split, %34, %37, %Py_INCREF.exit36
   %.024 = phi ptr [ null, %Py_INCREF.exit36 ], [ %2, %37 ], [ %.val44, %34 ], [ %.val44.sink, %Py_INCREF.exit37.sink.split ]
   %41 = tail call ptr @PyNumber_Power(ptr noundef nonnull %.026, ptr noundef nonnull %.025, ptr noundef %.024) #6
-  %42 = load i32, ptr %.026, align 8, !tbaa !43
+  %42 = load i32, ptr %.026, align 8, !tbaa !42
   %.not.i34 = icmp sgt i32 %42, -1
   br i1 %.not.i34, label %43, label %Py_DECREF.exit35
 
 43:                                               ; preds = %Py_INCREF.exit37
   %44 = add nsw i32 %42, -1
-  store i32 %44, ptr %.026, align 8, !tbaa !43
+  store i32 %44, ptr %.026, align 8, !tbaa !42
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %Py_DECREF.exit35
 
@@ -4720,13 +4720,13 @@ Py_INCREF.exit37:                                 ; preds = %Py_INCREF.exit37.si
   br label %Py_DECREF.exit35
 
 Py_DECREF.exit35:                                 ; preds = %Py_INCREF.exit37, %43, %46
-  %47 = load i32, ptr %.025, align 8, !tbaa !43
+  %47 = load i32, ptr %.025, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %47, -1
   br i1 %.not.i, label %48, label %Py_DECREF.exit
 
 48:                                               ; preds = %Py_DECREF.exit35
   %49 = add nsw i32 %47, -1
-  store i32 %49, ptr %.025, align 8, !tbaa !43
+  store i32 %49, ptr %.025, align 8, !tbaa !42
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %Py_DECREF.exit
 
@@ -4739,13 +4739,13 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit35, %
   br i1 %.not.i57, label %Py_XDECREF.exit, label %52
 
 52:                                               ; preds = %Py_DECREF.exit
-  %53 = load i32, ptr %.024, align 8, !tbaa !43
+  %53 = load i32, ptr %.024, align 8, !tbaa !42
   %.not.i.i58 = icmp sgt i32 %53, -1
   br i1 %.not.i.i58, label %54, label %Py_XDECREF.exit
 
 54:                                               ; preds = %52
   %55 = add nsw i32 %53, -1
-  store i32 %55, ptr %.024, align 8, !tbaa !43
+  store i32 %55, ptr %.024, align 8, !tbaa !42
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %Py_XDECREF.exit
 
@@ -4769,12 +4769,12 @@ define internal ptr @proxy_neg(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -4783,12 +4783,12 @@ define internal ptr @proxy_neg(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4796,19 +4796,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Negative(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -4832,12 +4832,12 @@ define internal ptr @proxy_pos(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -4846,12 +4846,12 @@ define internal ptr @proxy_pos(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4859,19 +4859,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Positive(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -4895,12 +4895,12 @@ define internal ptr @proxy_abs(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -4909,12 +4909,12 @@ define internal ptr @proxy_abs(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -4922,19 +4922,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -4950,12 +4950,12 @@ Py_DECREF.exit:                                   ; preds = %19, %16, %Py_INCREF
 ; Function Attrs: nounwind uwtable
 define internal i32 @proxy_bool(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %2, align 8, !tbaa !38
+  %.val = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %3, label %proxy_check_ref.exit, label %4
 
 4:                                                ; preds = %1
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %5
 
@@ -4965,23 +4965,23 @@ define internal i32 @proxy_bool(ptr noundef readonly captures(none) %0) #0 {
 
 7:                                                ; preds = %5
   %8 = add nuw i32 %.val.i.i, 1
-  store i32 %8, ptr %.val, align 8, !tbaa !43
+  store i32 %8, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %4, %1
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
   %10 = tail call i32 @PyObject_IsTrue(ptr noundef nonnull %.val) #6
-  %11 = load i32, ptr %.val, align 8, !tbaa !43
+  %11 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %11, -1
   br i1 %.not.i, label %12, label %Py_DECREF.exit
 
 12:                                               ; preds = %_PyWeakref_GET_REF.exit
   %13 = add nsw i32 %11, -1
-  store i32 %13, ptr %.val, align 8, !tbaa !43
+  store i32 %13, ptr %.val, align 8, !tbaa !42
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %Py_DECREF.exit
 
@@ -5005,12 +5005,12 @@ define internal ptr @proxy_invert(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -5019,12 +5019,12 @@ define internal ptr @proxy_invert(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5032,19 +5032,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Invert(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -5068,12 +5068,12 @@ define internal ptr @proxy_lshift(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5082,12 +5082,12 @@ define internal ptr @proxy_lshift(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5095,7 +5095,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5109,12 +5109,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5123,12 +5123,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5136,19 +5136,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Lshift(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5157,13 +5157,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -5187,12 +5187,12 @@ define internal ptr @proxy_rshift(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5201,12 +5201,12 @@ define internal ptr @proxy_rshift(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5214,7 +5214,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5228,12 +5228,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5242,12 +5242,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5255,19 +5255,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Rshift(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5276,13 +5276,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -5306,12 +5306,12 @@ define internal ptr @proxy_and(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5320,12 +5320,12 @@ define internal ptr @proxy_and(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5333,7 +5333,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5347,12 +5347,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5361,12 +5361,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5374,19 +5374,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_And(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5395,13 +5395,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -5425,12 +5425,12 @@ define internal ptr @proxy_xor(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5439,12 +5439,12 @@ define internal ptr @proxy_xor(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5452,7 +5452,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5466,12 +5466,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5480,12 +5480,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5493,19 +5493,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Xor(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5514,13 +5514,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -5544,12 +5544,12 @@ define internal ptr @proxy_or(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5558,12 +5558,12 @@ define internal ptr @proxy_or(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5571,7 +5571,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5585,12 +5585,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5599,12 +5599,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5612,19 +5612,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_Or(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5633,13 +5633,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -5663,12 +5663,12 @@ define internal ptr @proxy_int(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -5677,12 +5677,12 @@ define internal ptr @proxy_int(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5690,19 +5690,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Long(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -5726,12 +5726,12 @@ define internal ptr @proxy_float(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -5740,12 +5740,12 @@ define internal ptr @proxy_float(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5753,19 +5753,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Float(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -5789,12 +5789,12 @@ define internal ptr @proxy_iadd(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5803,12 +5803,12 @@ define internal ptr @proxy_iadd(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5816,7 +5816,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5830,12 +5830,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5844,12 +5844,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5857,19 +5857,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceAdd(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5878,13 +5878,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -5908,12 +5908,12 @@ define internal ptr @proxy_isub(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -5922,12 +5922,12 @@ define internal ptr @proxy_isub(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -5935,7 +5935,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -5949,12 +5949,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -5963,12 +5963,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -5976,19 +5976,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceSubtract(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -5997,13 +5997,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6027,12 +6027,12 @@ define internal ptr @proxy_imul(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6041,12 +6041,12 @@ define internal ptr @proxy_imul(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6054,7 +6054,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6068,12 +6068,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6082,12 +6082,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6095,19 +6095,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceMultiply(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -6116,13 +6116,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6146,12 +6146,12 @@ define internal ptr @proxy_imod(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6160,12 +6160,12 @@ define internal ptr @proxy_imod(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6173,7 +6173,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6187,12 +6187,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6201,12 +6201,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6214,19 +6214,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceRemainder(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -6235,13 +6235,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6265,12 +6265,12 @@ define internal ptr @proxy_ipow(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val46 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val46 = load ptr, ptr %6, align 8, !tbaa !37
   %7 = icmp eq ptr %.val46, @_Py_NoneStruct
   br i1 %7, label %proxy_check_ref.exit, label %8
 
 8:                                                ; preds = %5
-  %.val.i.i = load i32, ptr %.val46, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val46, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %9
 
@@ -6279,12 +6279,12 @@ define internal ptr @proxy_ipow(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %10, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %8, %5
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %0, align 8, !tbaa !43
+  %13 = load i32, ptr %0, align 8, !tbaa !42
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6292,7 +6292,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
   %.val.i.i.sink = phi i32 [ %.val.i.i, %9 ], [ %13, %12 ]
   %.val46.sink = phi ptr [ %.val46, %9 ], [ %0, %12 ]
   %15 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %15, ptr %.val46.sink, align 8, !tbaa !43
+  store i32 %15, ptr %.val46.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
@@ -6306,12 +6306,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 17:                                               ; preds = %Py_INCREF.exit
   %18 = getelementptr i8, ptr %1, i64 16
-  %.val45 = load ptr, ptr %18, align 8, !tbaa !38
+  %.val45 = load ptr, ptr %18, align 8, !tbaa !37
   %19 = icmp eq ptr %.val45, @_Py_NoneStruct
   br i1 %19, label %proxy_check_ref.exit51, label %20
 
 20:                                               ; preds = %17
-  %.val.i.i47 = load i32, ptr %.val45, align 8, !tbaa !43
+  %.val.i.i47 = load i32, ptr %.val45, align 8, !tbaa !42
   %.not.i.i48 = icmp eq i32 %.val.i.i47, 0
   br i1 %.not.i.i48, label %proxy_check_ref.exit51, label %21
 
@@ -6320,12 +6320,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %22, label %Py_INCREF.exit36, label %Py_INCREF.exit36.sink.split
 
 proxy_check_ref.exit51:                           ; preds = %20, %17
-  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %23 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %23, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 24:                                               ; preds = %Py_INCREF.exit
-  %25 = load i32, ptr %1, align 8, !tbaa !43
+  %25 = load i32, ptr %1, align 8, !tbaa !42
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %Py_INCREF.exit36, label %Py_INCREF.exit36.sink.split
 
@@ -6333,7 +6333,7 @@ Py_INCREF.exit36.sink.split:                      ; preds = %24, %21
   %.val.i.i47.sink = phi i32 [ %.val.i.i47, %21 ], [ %25, %24 ]
   %.val45.sink = phi ptr [ %.val45, %21 ], [ %1, %24 ]
   %27 = add nuw i32 %.val.i.i47.sink, 1
-  store i32 %27, ptr %.val45.sink, align 8, !tbaa !43
+  store i32 %27, ptr %.val45.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit36
 
 Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.sink.split, %21, %24
@@ -6351,12 +6351,12 @@ Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.si
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %2, i64 16
-  %.val44 = load ptr, ptr %31, align 8, !tbaa !38
+  %.val44 = load ptr, ptr %31, align 8, !tbaa !37
   %32 = icmp eq ptr %.val44, @_Py_NoneStruct
   br i1 %32, label %proxy_check_ref.exit56, label %33
 
 33:                                               ; preds = %30
-  %.val.i.i52 = load i32, ptr %.val44, align 8, !tbaa !43
+  %.val.i.i52 = load i32, ptr %.val44, align 8, !tbaa !42
   %.not.i.i53 = icmp eq i32 %.val.i.i52, 0
   br i1 %.not.i.i53, label %proxy_check_ref.exit56, label %34
 
@@ -6365,12 +6365,12 @@ Py_INCREF.exit36:                                 ; preds = %Py_INCREF.exit36.si
   br i1 %35, label %Py_INCREF.exit37, label %Py_INCREF.exit37.sink.split
 
 proxy_check_ref.exit56:                           ; preds = %33, %30
-  %36 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %36 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.21) #6
   br label %Py_XDECREF.exit
 
 37:                                               ; preds = %28
-  %38 = load i32, ptr %2, align 8, !tbaa !43
+  %38 = load i32, ptr %2, align 8, !tbaa !42
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %Py_INCREF.exit37, label %Py_INCREF.exit37.sink.split
 
@@ -6378,19 +6378,19 @@ Py_INCREF.exit37.sink.split:                      ; preds = %37, %34
   %.val.i.i52.sink = phi i32 [ %.val.i.i52, %34 ], [ %38, %37 ]
   %.val44.sink = phi ptr [ %.val44, %34 ], [ %2, %37 ]
   %40 = add nuw i32 %.val.i.i52.sink, 1
-  store i32 %40, ptr %.val44.sink, align 8, !tbaa !43
+  store i32 %40, ptr %.val44.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit37
 
 Py_INCREF.exit37:                                 ; preds = %Py_INCREF.exit37.sink.split, %34, %37, %Py_INCREF.exit36
   %.024 = phi ptr [ null, %Py_INCREF.exit36 ], [ %2, %37 ], [ %.val44, %34 ], [ %.val44.sink, %Py_INCREF.exit37.sink.split ]
   %41 = tail call ptr @PyNumber_InPlacePower(ptr noundef nonnull %.026, ptr noundef nonnull %.025, ptr noundef %.024) #6
-  %42 = load i32, ptr %.026, align 8, !tbaa !43
+  %42 = load i32, ptr %.026, align 8, !tbaa !42
   %.not.i34 = icmp sgt i32 %42, -1
   br i1 %.not.i34, label %43, label %Py_DECREF.exit35
 
 43:                                               ; preds = %Py_INCREF.exit37
   %44 = add nsw i32 %42, -1
-  store i32 %44, ptr %.026, align 8, !tbaa !43
+  store i32 %44, ptr %.026, align 8, !tbaa !42
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %Py_DECREF.exit35
 
@@ -6399,13 +6399,13 @@ Py_INCREF.exit37:                                 ; preds = %Py_INCREF.exit37.si
   br label %Py_DECREF.exit35
 
 Py_DECREF.exit35:                                 ; preds = %Py_INCREF.exit37, %43, %46
-  %47 = load i32, ptr %.025, align 8, !tbaa !43
+  %47 = load i32, ptr %.025, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %47, -1
   br i1 %.not.i, label %48, label %Py_DECREF.exit
 
 48:                                               ; preds = %Py_DECREF.exit35
   %49 = add nsw i32 %47, -1
-  store i32 %49, ptr %.025, align 8, !tbaa !43
+  store i32 %49, ptr %.025, align 8, !tbaa !42
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %Py_DECREF.exit
 
@@ -6418,13 +6418,13 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit35, %
   br i1 %.not.i57, label %Py_XDECREF.exit, label %52
 
 52:                                               ; preds = %Py_DECREF.exit
-  %53 = load i32, ptr %.024, align 8, !tbaa !43
+  %53 = load i32, ptr %.024, align 8, !tbaa !42
   %.not.i.i58 = icmp sgt i32 %53, -1
   br i1 %.not.i.i58, label %54, label %Py_XDECREF.exit
 
 54:                                               ; preds = %52
   %55 = add nsw i32 %53, -1
-  store i32 %55, ptr %.024, align 8, !tbaa !43
+  store i32 %55, ptr %.024, align 8, !tbaa !42
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %Py_XDECREF.exit
 
@@ -6448,12 +6448,12 @@ define internal ptr @proxy_ilshift(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6462,12 +6462,12 @@ define internal ptr @proxy_ilshift(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6475,7 +6475,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6489,12 +6489,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6503,12 +6503,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6516,19 +6516,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceLshift(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -6537,13 +6537,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6567,12 +6567,12 @@ define internal ptr @proxy_irshift(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6581,12 +6581,12 @@ define internal ptr @proxy_irshift(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6594,7 +6594,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6608,12 +6608,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6622,12 +6622,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6635,19 +6635,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceRshift(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -6656,13 +6656,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6686,12 +6686,12 @@ define internal ptr @proxy_iand(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6700,12 +6700,12 @@ define internal ptr @proxy_iand(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6713,7 +6713,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6727,12 +6727,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6741,12 +6741,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6754,19 +6754,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceAnd(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -6775,13 +6775,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6805,12 +6805,12 @@ define internal ptr @proxy_ixor(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6819,12 +6819,12 @@ define internal ptr @proxy_ixor(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6832,7 +6832,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6846,12 +6846,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6860,12 +6860,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6873,19 +6873,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceXor(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -6894,13 +6894,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -6924,12 +6924,12 @@ define internal ptr @proxy_ior(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -6938,12 +6938,12 @@ define internal ptr @proxy_ior(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -6951,7 +6951,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -6965,12 +6965,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -6979,12 +6979,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -6992,19 +6992,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceOr(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7013,13 +7013,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7043,12 +7043,12 @@ define internal ptr @proxy_floor_div(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -7057,12 +7057,12 @@ define internal ptr @proxy_floor_div(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7070,7 +7070,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -7084,12 +7084,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -7098,12 +7098,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -7111,19 +7111,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7132,13 +7132,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7162,12 +7162,12 @@ define internal ptr @proxy_true_div(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -7176,12 +7176,12 @@ define internal ptr @proxy_true_div(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7189,7 +7189,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -7203,12 +7203,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -7217,12 +7217,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -7230,19 +7230,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_TrueDivide(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7251,13 +7251,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7281,12 +7281,12 @@ define internal ptr @proxy_ifloor_div(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -7295,12 +7295,12 @@ define internal ptr @proxy_ifloor_div(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7308,7 +7308,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -7322,12 +7322,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -7336,12 +7336,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -7349,19 +7349,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceFloorDivide(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7370,13 +7370,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7400,12 +7400,12 @@ define internal ptr @proxy_itrue_div(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -7414,12 +7414,12 @@ define internal ptr @proxy_itrue_div(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7427,7 +7427,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -7441,12 +7441,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -7455,12 +7455,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -7468,19 +7468,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceTrueDivide(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7489,13 +7489,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7519,12 +7519,12 @@ define internal ptr @proxy_index(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %4, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -7533,12 +7533,12 @@ define internal ptr @proxy_index(ptr noundef %0) #0 {
   br i1 %8, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %0, align 8, !tbaa !43
+  %11 = load i32, ptr %0, align 8, !tbaa !42
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7546,19 +7546,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %10, %7
   %.val.i.i.sink = phi i32 [ %.val.i.i, %7 ], [ %11, %10 ]
   %.val12.sink = phi ptr [ %.val12, %7 ], [ %0, %10 ]
   %13 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %13, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %13, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %7, %10
   %.09 = phi ptr [ %0, %10 ], [ %.val12, %7 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   %14 = tail call ptr @PyNumber_Index(ptr noundef nonnull %.09) #6
-  %15 = load i32, ptr %.09, align 8, !tbaa !43
+  %15 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %15, -1
   br i1 %.not.i, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = add nsw i32 %15, -1
-  store i32 %17, ptr %.09, align 8, !tbaa !43
+  store i32 %17, ptr %.09, align 8, !tbaa !42
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %Py_DECREF.exit
 
@@ -7582,12 +7582,12 @@ define internal ptr @proxy_matmul(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -7596,12 +7596,12 @@ define internal ptr @proxy_matmul(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7609,7 +7609,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -7623,12 +7623,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -7637,12 +7637,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -7650,19 +7650,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_MatrixMultiply(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7671,13 +7671,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7701,12 +7701,12 @@ define internal ptr @proxy_imatmul(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -7715,12 +7715,12 @@ define internal ptr @proxy_imatmul(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -7728,7 +7728,7 @@ Py_INCREF.exit.sink.split:                        ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %8, %11
@@ -7742,12 +7742,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
 
 16:                                               ; preds = %Py_INCREF.exit
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -7756,12 +7756,12 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br i1 %21, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -7769,19 +7769,19 @@ Py_INCREF.exit23.sink.split:                      ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit23.sink.split ]
   %27 = tail call ptr @PyNumber_InPlaceMatrixMultiply(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit23
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -7790,13 +7790,13 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit23, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -7882,12 +7882,12 @@ declare ptr @PyNumber_InPlaceMatrixMultiply(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal i64 @proxy_length(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %2, align 8, !tbaa !38
+  %.val = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %3, label %proxy_check_ref.exit, label %4
 
 4:                                                ; preds = %1
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %5
 
@@ -7897,23 +7897,23 @@ define internal i64 @proxy_length(ptr noundef readonly captures(none) %0) #0 {
 
 7:                                                ; preds = %5
   %8 = add nuw i32 %.val.i.i, 1
-  store i32 %8, ptr %.val, align 8, !tbaa !43
+  store i32 %8, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %4, %1
-  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %9 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %7, %5
   %10 = tail call i64 @PyObject_Size(ptr noundef nonnull %.val) #6
-  %11 = load i32, ptr %.val, align 8, !tbaa !43
+  %11 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %11, -1
   br i1 %.not.i, label %12, label %Py_DECREF.exit
 
 12:                                               ; preds = %_PyWeakref_GET_REF.exit
   %13 = add nsw i32 %11, -1
-  store i32 %13, ptr %.val, align 8, !tbaa !43
+  store i32 %13, ptr %.val, align 8, !tbaa !42
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %Py_DECREF.exit
 
@@ -7929,12 +7929,12 @@ Py_DECREF.exit:                                   ; preds = %15, %12, %_PyWeakre
 ; Function Attrs: nounwind uwtable
 define internal i32 @proxy_contains(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %3, align 8, !tbaa !38
+  %.val = load ptr, ptr %3, align 8, !tbaa !37
   %4 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %4, label %proxy_check_ref.exit, label %5
 
 5:                                                ; preds = %2
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %6
 
@@ -7944,23 +7944,23 @@ define internal i32 @proxy_contains(ptr noundef readonly captures(none) %0, ptr 
 
 8:                                                ; preds = %6
   %9 = add nuw i32 %.val.i.i, 1
-  store i32 %9, ptr %.val, align 8, !tbaa !43
+  store i32 %9, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %5, %2
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %8, %6
   %11 = tail call i32 @PySequence_Contains(ptr noundef nonnull %.val, ptr noundef %1) #6
-  %12 = load i32, ptr %.val, align 8, !tbaa !43
+  %12 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %12, -1
   br i1 %.not.i, label %13, label %Py_DECREF.exit
 
 13:                                               ; preds = %_PyWeakref_GET_REF.exit
   %14 = add nsw i32 %12, -1
-  store i32 %14, ptr %.val, align 8, !tbaa !43
+  store i32 %14, ptr %.val, align 8, !tbaa !42
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %Py_DECREF.exit
 
@@ -7988,12 +7988,12 @@ define internal ptr @proxy_getitem(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val29 = load ptr, ptr %5, align 8, !tbaa !38
+  %.val29 = load ptr, ptr %5, align 8, !tbaa !37
   %6 = icmp eq ptr %.val29, @_Py_NoneStruct
   br i1 %6, label %proxy_check_ref.exit, label %7
 
 7:                                                ; preds = %4
-  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val29, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %8
 
@@ -8002,12 +8002,12 @@ define internal ptr @proxy_getitem(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
 proxy_check_ref.exit:                             ; preds = %7, %4
-  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %10 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 8, !tbaa !43
+  %12 = load i32, ptr %0, align 8, !tbaa !42
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Py_INCREF.exit23, label %Py_INCREF.exit23.sink.split
 
@@ -8015,7 +8015,7 @@ Py_INCREF.exit23.sink.split:                      ; preds = %11, %8
   %.val.i.i.sink = phi i32 [ %.val.i.i, %8 ], [ %12, %11 ]
   %.val29.sink = phi ptr [ %.val29, %8 ], [ %0, %11 ]
   %14 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %14, ptr %.val29.sink, align 8, !tbaa !43
+  store i32 %14, ptr %.val29.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit23
 
 Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.sink.split, %8, %11
@@ -8029,12 +8029,12 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
 
 16:                                               ; preds = %Py_INCREF.exit23
   %17 = getelementptr i8, ptr %1, i64 16
-  %.val28 = load ptr, ptr %17, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %17, align 8, !tbaa !37
   %18 = icmp eq ptr %.val28, @_Py_NoneStruct
   br i1 %18, label %proxy_check_ref.exit34, label %19
 
 19:                                               ; preds = %16
-  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !43
+  %.val.i.i30 = load i32, ptr %.val28, align 8, !tbaa !42
   %.not.i.i31 = icmp eq i32 %.val.i.i30, 0
   br i1 %.not.i.i31, label %proxy_check_ref.exit34, label %20
 
@@ -8043,12 +8043,12 @@ Py_INCREF.exit23:                                 ; preds = %Py_INCREF.exit23.si
   br i1 %21, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit34:                           ; preds = %19, %16
-  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %22 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 23:                                               ; preds = %Py_INCREF.exit23
-  %24 = load i32, ptr %1, align 8, !tbaa !43
+  %24 = load i32, ptr %1, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -8056,19 +8056,19 @@ Py_INCREF.exit.sink.split:                        ; preds = %23, %20
   %.val.i.i30.sink = phi i32 [ %.val.i.i30, %20 ], [ %24, %23 ]
   %.val28.sink = phi ptr [ %.val28, %20 ], [ %1, %23 ]
   %26 = add nuw i32 %.val.i.i30.sink, 1
-  store i32 %26, ptr %.val28.sink, align 8, !tbaa !43
+  store i32 %26, ptr %.val28.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %20, %23
   %.016 = phi ptr [ %1, %23 ], [ %.val28, %20 ], [ %.val28.sink, %Py_INCREF.exit.sink.split ]
   %27 = tail call ptr @PyObject_GetItem(ptr noundef nonnull %.017, ptr noundef nonnull %.016) #6
-  %28 = load i32, ptr %.017, align 8, !tbaa !43
+  %28 = load i32, ptr %.017, align 8, !tbaa !42
   %.not.i21 = icmp sgt i32 %28, -1
   br i1 %.not.i21, label %29, label %Py_DECREF.exit22
 
 29:                                               ; preds = %Py_INCREF.exit
   %30 = add nsw i32 %28, -1
-  store i32 %30, ptr %.017, align 8, !tbaa !43
+  store i32 %30, ptr %.017, align 8, !tbaa !42
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %Py_DECREF.exit22
 
@@ -8077,13 +8077,13 @@ Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink
   br label %Py_DECREF.exit22
 
 Py_DECREF.exit22:                                 ; preds = %Py_INCREF.exit, %29, %32
-  %33 = load i32, ptr %.016, align 8, !tbaa !43
+  %33 = load i32, ptr %.016, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %33, -1
   br i1 %.not.i, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %Py_DECREF.exit22
   %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.016, align 8, !tbaa !43
+  store i32 %35, ptr %.016, align 8, !tbaa !42
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %Py_DECREF.exit
 
@@ -8099,12 +8099,12 @@ Py_DECREF.exit:                                   ; preds = %37, %34, %Py_DECREF
 ; Function Attrs: nounwind uwtable
 define internal i32 @proxy_setitem(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %4, align 8, !tbaa !38
+  %.val = load ptr, ptr %4, align 8, !tbaa !37
   %5 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %5, label %proxy_check_ref.exit, label %6
 
 6:                                                ; preds = %3
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %7
 
@@ -8114,11 +8114,11 @@ define internal i32 @proxy_setitem(ptr noundef readonly captures(none) %0, ptr n
 
 9:                                                ; preds = %7
   %10 = add nuw i32 %.val.i.i, 1
-  store i32 %10, ptr %.val, align 8, !tbaa !43
+  store i32 %10, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 proxy_check_ref.exit:                             ; preds = %6, %3
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
@@ -8136,13 +8136,13 @@ _PyWeakref_GET_REF.exit:                          ; preds = %9, %7
 
 17:                                               ; preds = %15, %13
   %.0 = phi i32 [ %14, %13 ], [ %16, %15 ]
-  %18 = load i32, ptr %.val, align 8, !tbaa !43
+  %18 = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %18, -1
   br i1 %.not.i, label %19, label %Py_DECREF.exit
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %18, -1
-  store i32 %20, ptr %.val, align 8, !tbaa !43
+  store i32 %20, ptr %.val, align 8, !tbaa !42
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %Py_DECREF.exit
 
@@ -8185,12 +8185,12 @@ define internal ptr @proxy_bytes(ptr noundef %0, ptr readnone captures(none) %1)
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %6, align 8, !tbaa !37
   %7 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %7, label %proxy_check_ref.exit, label %8
 
 8:                                                ; preds = %5
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %9
 
@@ -8199,12 +8199,12 @@ define internal ptr @proxy_bytes(ptr noundef %0, ptr readnone captures(none) %1)
   br i1 %10, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %8, %5
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %0, align 8, !tbaa !43
+  %13 = load i32, ptr %0, align 8, !tbaa !42
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -8212,22 +8212,22 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
   %.val.i.i.sink = phi i32 [ %.val.i.i, %9 ], [ %13, %12 ]
   %.val12.sink = phi ptr [ %.val12, %9 ], [ %0, %12 ]
   %15 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %15, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %15, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
   %.09 = phi ptr [ %0, %12 ], [ %.val12, %9 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.09, ptr %3, align 8, !tbaa !46
+  store ptr %.09, ptr %3, align 8, !tbaa !45
   %16 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37488), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %17 = load i32, ptr %.09, align 8, !tbaa !43
+  %17 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %17, -1
   br i1 %.not.i, label %18, label %Py_DECREF.exit
 
 18:                                               ; preds = %Py_INCREF.exit
   %19 = add nsw i32 %17, -1
-  store i32 %19, ptr %.09, align 8, !tbaa !43
+  store i32 %19, ptr %.09, align 8, !tbaa !42
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %Py_DECREF.exit
 
@@ -8252,12 +8252,12 @@ define internal ptr @proxy_reversed(ptr noundef %0, ptr readnone captures(none) 
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %6, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %6, align 8, !tbaa !37
   %7 = icmp eq ptr %.val12, @_Py_NoneStruct
   br i1 %7, label %proxy_check_ref.exit, label %8
 
 8:                                                ; preds = %5
-  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val12, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %proxy_check_ref.exit, label %9
 
@@ -8266,12 +8266,12 @@ define internal ptr @proxy_reversed(ptr noundef %0, ptr readnone captures(none) 
   br i1 %10, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 proxy_check_ref.exit:                             ; preds = %8, %5
-  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !46
+  %11 = load ptr, ptr @PyExc_ReferenceError, align 8, !tbaa !45
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.21) #6
   br label %Py_DECREF.exit
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %0, align 8, !tbaa !43
+  %13 = load i32, ptr %0, align 8, !tbaa !42
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
@@ -8279,22 +8279,22 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
   %.val.i.i.sink = phi i32 [ %.val.i.i, %9 ], [ %13, %12 ]
   %.val12.sink = phi ptr [ %.val12, %9 ], [ %0, %12 ]
   %15 = add nuw i32 %.val.i.i.sink, 1
-  store i32 %15, ptr %.val12.sink, align 8, !tbaa !43
+  store i32 %15, ptr %.val12.sink, align 8, !tbaa !42
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
   %.09 = phi ptr [ %0, %12 ], [ %.val12, %9 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.09, ptr %3, align 8, !tbaa !46
+  store ptr %.09, ptr %3, align 8, !tbaa !45
   %16 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43120), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %17 = load i32, ptr %.09, align 8, !tbaa !43
+  %17 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %17, -1
   br i1 %.not.i, label %18, label %Py_DECREF.exit
 
 18:                                               ; preds = %Py_INCREF.exit
   %19 = add nsw i32 %17, -1
-  store i32 %19, ptr %.09, align 8, !tbaa !43
+  store i32 %19, ptr %.09, align 8, !tbaa !42
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %Py_DECREF.exit
 
@@ -8333,12 +8333,12 @@ define internal ptr @weakref_vectorcall(ptr noundef readonly captures(none) %0, 
 
 13:                                               ; preds = %8, %11
   %14 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %14, align 8, !tbaa !38
+  %.val = load ptr, ptr %14, align 8, !tbaa !37
   %15 = icmp eq ptr %.val, @_Py_NoneStruct
   br i1 %15, label %_PyWeakref_GET_REF.exit, label %16
 
 16:                                               ; preds = %13
-  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !43
+  %.val.i.i = load i32, ptr %.val, align 8, !tbaa !42
   %.not.i.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not.i.i, label %_PyWeakref_GET_REF.exit, label %17
 
@@ -8348,7 +8348,7 @@ define internal ptr @weakref_vectorcall(ptr noundef readonly captures(none) %0, 
 
 19:                                               ; preds = %17
   %20 = add nuw i32 %.val.i.i, 1
-  store i32 %20, ptr %.val, align 8, !tbaa !43
+  store i32 %20, ptr %.val, align 8, !tbaa !42
   br label %_PyWeakref_GET_REF.exit
 
 _PyWeakref_GET_REF.exit:                          ; preds = %13, %16, %17, %19
@@ -8420,24 +8420,22 @@ attributes #6 = { nounwind }
 !32 = !{!"_err_stackitem", !18, i64 0, !29, i64 8}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"p1 _ZTS16_PyWeakReference", !9, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!39, !18, i64 16}
-!39 = !{!"_PyWeakReference", !5, i64 0, !18, i64 16, !18, i64 24, !13, i64 32, !34, i64 40, !34, i64 48, !9, i64 56}
-!40 = !{!39, !34, i64 48}
-!41 = !{!39, !34, i64 40}
-!42 = !{!39, !18, i64 24}
-!43 = !{!6, !6, i64 0}
-!44 = !{!11, !9, i64 320}
-!45 = !{!39, !13, i64 32}
-!46 = !{!18, !18, i64 0}
-!47 = !{!11, !14, i64 24}
-!48 = !{!11, !9, i64 304}
-!49 = !{!39, !9, i64 56}
-!50 = distinct !{!50, !37}
-!51 = distinct !{!51, !36, !37}
-!52 = distinct !{!52, !36, !37, !53}
-!53 = !{!"llvm.loop.unswitch.partial.disable"}
-!54 = distinct !{!54, !36, !37}
-!55 = distinct !{!55, !36, !37}
+!37 = !{!38, !18, i64 16}
+!38 = !{!"_PyWeakReference", !5, i64 0, !18, i64 16, !18, i64 24, !13, i64 32, !34, i64 40, !34, i64 48, !9, i64 56}
+!39 = !{!38, !34, i64 48}
+!40 = !{!38, !34, i64 40}
+!41 = !{!38, !18, i64 24}
+!42 = !{!6, !6, i64 0}
+!43 = !{!11, !9, i64 320}
+!44 = !{!38, !13, i64 32}
+!45 = !{!18, !18, i64 0}
+!46 = !{!11, !14, i64 24}
+!47 = !{!11, !9, i64 304}
+!48 = !{!38, !9, i64 56}
+!49 = distinct !{!49, !36}
+!50 = distinct !{!50, !36, !51}
+!51 = !{!"llvm.loop.unswitch.partial.disable"}
+!52 = distinct !{!52, !36}
+!53 = distinct !{!53, !36}

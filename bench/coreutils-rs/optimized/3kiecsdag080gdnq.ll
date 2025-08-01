@@ -96,7 +96,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %37 = phi i64 [ %.pre, %36 ], [ %15, %14 ]
   %38 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp eq i64 %38, %37
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -148,5 +148,3 @@ attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17hb030bbfdd66dbf66E.llvm.12253990058101720390: argument 0"}
 !16 = distinct !{!16, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17hb030bbfdd66dbf66E.llvm.12253990058101720390"}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}

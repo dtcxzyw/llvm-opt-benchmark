@@ -688,7 +688,7 @@ fdt_nodename_eq_.exit.thread:                     ; preds = %22, %42, %62, %69, 
   %77 = icmp sgt i32 %76, -1
   %78 = icmp sgt i32 %.pr, -1
   %79 = select i1 %77, i1 %78, i1 false
-  br i1 %79, label %19, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %79, label %19, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %fdt_nodename_eq_.exit.thread
   %80 = icmp sgt i32 %.pr, -1
@@ -814,7 +814,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
 59:                                               ; preds = %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %.353, i64 1
   %61 = icmp eq ptr %60, %6
-  br i1 %61, label %.thread, label %.preheader, !llvm.loop !9
+  br i1 %61, label %.thread, label %.preheader, !llvm.loop !8
 
 62:                                               ; preds = %.preheader
   %63 = ptrtoint ptr %.353 to i64
@@ -827,7 +827,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
   %68 = trunc i64 %67 to i32
   %69 = call i32 @fdt_subnode_offset_namelen(ptr noundef %0, i32 noundef %.249, ptr noundef nonnull %.353, i32 noundef %68)
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %.thread, label %55, !llvm.loop !10
+  br i1 %70, label %.thread, label %55, !llvm.loop !9
 
 .thread:                                          ; preds = %62, %55, %59, %11, %fdt_get_alias_namelen.exit, %3
   %.155 = phi i32 [ %7, %3 ], [ -5, %fdt_get_alias_namelen.exit ], [ -5, %11 ], [ %.249, %59 ], [ %69, %62 ], [ %.249, %55 ]
@@ -1030,7 +1030,7 @@ define dso_local i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %1) 
 12:                                               ; preds = %7
   %13 = load i32, ptr %3, align 4
   %14 = icmp eq i32 %8, 4
-  br i1 %14, label %7, label %nextprop_.exit, !llvm.loop !11
+  br i1 %14, label %7, label %nextprop_.exit, !llvm.loop !10
 
 nextprop_.exit:                                   ; preds = %7, %12, %9
   %.05.i = phi i32 [ %..i, %9 ], [ %.0.i, %7 ], [ -1, %12 ]
@@ -1071,7 +1071,7 @@ define dso_local i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %1) l
 12:                                               ; preds = %7
   %13 = load i32, ptr %3, align 4
   %14 = icmp eq i32 %8, 4
-  br i1 %14, label %7, label %nextprop_.exit, !llvm.loop !11
+  br i1 %14, label %7, label %nextprop_.exit, !llvm.loop !10
 
 nextprop_.exit:                                   ; preds = %7, %12, %9
   %.05.i = phi i32 [ %..i, %9 ], [ %.0.i, %7 ], [ -1, %12 ]
@@ -1234,7 +1234,7 @@ define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 nounde
 18:                                               ; preds = %13
   %19 = load i32, ptr %9, align 4
   %20 = icmp eq i32 %14, 4
-  br i1 %20, label %13, label %fdt_first_property_offset.exit.thread77, !llvm.loop !11
+  br i1 %20, label %13, label %fdt_first_property_offset.exit.thread77, !llvm.loop !10
 
 fdt_first_property_offset.exit.thread77:          ; preds = %18, %15
   %.05.i.i.ph = phi i32 [ %spec.select, %15 ], [ -1, %18 ]
@@ -1349,7 +1349,7 @@ fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by
 65:                                               ; preds = %60
   %66 = load i32, ptr %7, align 4
   %67 = icmp eq i32 %61, 4
-  br i1 %67, label %60, label %fdt_next_property_offset.exit.thread82, !llvm.loop !11
+  br i1 %67, label %60, label %fdt_next_property_offset.exit.thread82, !llvm.loop !10
 
 fdt_next_property_offset.exit.thread82:           ; preds = %65, %62
   %.05.i.i35.ph = phi i32 [ %spec.select95, %62 ], [ -1, %65 ]
@@ -1359,7 +1359,7 @@ fdt_next_property_offset.exit.thread82:           ; preds = %65, %62
 fdt_next_property_offset.exit:                    ; preds = %60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   %68 = icmp sgt i32 %.0.i.i33, -1
-  br i1 %68, label %27, label %.thread55, !llvm.loop !12
+  br i1 %68, label %27, label %.thread55, !llvm.loop !11
 
 .thread55:                                        ; preds = %56, %fdt_next_property_offset.exit, %6, %fdt_next_property_offset.exit.thread82, %fdt_first_property_offset.exit.thread77, %fdt_first_property_offset.exit
   %.023.lcssa = phi i32 [ %.0.i.i, %fdt_first_property_offset.exit ], [ %.05.i.i.ph, %fdt_first_property_offset.exit.thread77 ], [ %.05.i.i35.ph, %fdt_next_property_offset.exit.thread82 ], [ %10, %6 ], [ %57, %56 ], [ %.0.i.i33, %fdt_next_property_offset.exit ]
@@ -1777,12 +1777,12 @@ define dso_local range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32
   %26 = getelementptr inbounds i8, ptr %2, i64 %25
   %27 = load i8, ptr %26, align 1
   %.not51 = icmp eq i8 %27, 47
-  br i1 %.not51, label %28, label %22, !llvm.loop !13
+  br i1 %.not51, label %28, label %22, !llvm.loop !12
 
 28:                                               ; preds = %22
   %29 = add nsw i32 %.14262, -1
   %30 = icmp sgt i32 %29, %20
-  br i1 %30, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %30, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %28
   %31 = add nsw i32 %.04166, -1
@@ -1892,7 +1892,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32
 99:                                               ; preds = %88
   %100 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.03968, ptr noundef nonnull %5) #9
   %.not71 = icmp ugt i32 %100, %1
-  br i1 %.not71, label %._crit_edge69, label %.preheader58, !llvm.loop !15
+  br i1 %.not71, label %._crit_edge69, label %.preheader58, !llvm.loop !14
 
 ._crit_edge69:                                    ; preds = %99
   %or.cond = icmp sgt i32 %100, -2
@@ -1954,7 +1954,7 @@ define dso_local i32 @fdt_supernode_atdepth_offset(ptr noundef %0, i32 noundef %
 19:                                               ; preds = %.lr.ph
   %20 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02330, ptr noundef nonnull %5) #9
   %.not32 = icmp ugt i32 %20, %1
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %19
   %or.cond = icmp sgt i32 %20, -2
@@ -2006,7 +2006,7 @@ define dso_local i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnam
   %.02330.i24 = phi i32 [ %12, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.preheader ]
   %12 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02330.i24, ptr noundef nonnull %3) #9
   %.not32.i = icmp ugt i32 %12, %1
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.ithread-pre-split, !llvm.loop !16
+  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.ithread-pre-split, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph
   %or.cond.i = icmp sgt i32 %12, -2
@@ -2076,7 +2076,7 @@ fdt_supernode_atdepth_offset.exit.i.thread:       ; preds = %.lr.ph.i.i.preheade
   %.02330.i.i18 = phi i32 [ %13, %.lr.ph.ithread-pre-split.i ], [ 0, %.lr.ph.i.i.preheader ]
   %13 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02330.i.i18, ptr noundef nonnull %4) #9
   %.not32.i.i = icmp ugt i32 %13, %1
-  br i1 %.not32.i.i, label %._crit_edge.i.i, label %.lr.ph.ithread-pre-split.i, !llvm.loop !16
+  br i1 %.not32.i.i, label %._crit_edge.i.i, label %.lr.ph.ithread-pre-split.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph
   %or.cond.i.i = icmp sgt i32 %13, -2
@@ -2135,7 +2135,7 @@ fdt_node_depth.exit:                              ; preds = %fdt_supernode_atdep
 29:                                               ; preds = %.lr.ph.i
   %30 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02330.i, ptr noundef nonnull %3) #9
   %.not32.i = icmp ugt i32 %30, %1
-  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %29
   %or.cond.i = icmp sgt i32 %30, -2
@@ -2243,7 +2243,7 @@ fdt_getprop.exit:                                 ; preds = %18
 51:                                               ; preds = %fdt_getprop.exit, %45, %48
   %52 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.01724, ptr noundef null) #9
   %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %18, label %.loopexit, !llvm.loop !17
+  br i1 %53, label %18, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %48, %51, %10, %5
   %.1 = phi i32 [ %8, %5 ], [ %11, %10 ], [ %.01724, %48 ], [ %52, %51 ]
@@ -2276,7 +2276,7 @@ define dso_local i32 @fdt_node_offset_by_phandle(ptr noundef %0, i32 noundef %1)
 12:                                               ; preds = %.lr.ph
   %13 = tail call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.01518, ptr noundef null) #9
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %7, %2, %4
   %.016 = phi i32 [ %5, %4 ], [ -6, %2 ], [ %8, %7 ], [ %.01518, %.lr.ph ], [ %13, %12 ]
@@ -2315,7 +2315,7 @@ define dso_local range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i3
   %17 = add i32 %.01419, %16
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %.not = icmp slt i32 %17, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %12, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 0, %9 ], [ 1, %.lr.ph ]
@@ -2406,7 +2406,7 @@ define dso_local i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr n
 52:                                               ; preds = %.lr.ph
   %53 = add i32 %.024, 1
   %54 = icmp ult ptr %50, %42
-  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %38, %36
   %.016 = phi i32 [ %37, %36 ], [ 0, %38 ], [ -15, %.lr.ph ], [ %53, %52 ]
@@ -2513,7 +2513,7 @@ define dso_local i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr 
 60:                                               ; preds = %58, %55
   %61 = add i32 %.01926, 1
   %62 = icmp ult ptr %53, %45
-  br i1 %62, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %62, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %58, %60, %39, %37
   %.020 = phi i32 [ %38, %37 ], [ -1, %39 ], [ -15, %.lr.ph ], [ %.01926, %58 ], [ -1, %60 ]
@@ -2599,7 +2599,7 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
 48:                                               ; preds = %60
   %49 = add i32 %.02542, -1
   %50 = icmp ult ptr %57, %45
-  br i1 %50, label %51, label %._crit_edge, !llvm.loop !22
+  br i1 %50, label %51, label %._crit_edge, !llvm.loop !21
 
 51:                                               ; preds = %.lr.ph, %48
   %.043 = phi ptr [ %42, %.lr.ph ], [ %57, %48 ]
@@ -2736,7 +2736,7 @@ define dso_local i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, 
   %52 = add i32 %.01419.i, %51
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %.not.i = icmp slt i32 %52, %39
-  br i1 %.not.i, label %fdt_stringlist_contains.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %fdt_stringlist_contains.exit, label %.lr.ph.i, !llvm.loop !18
 
 fdt_stringlist_contains.exit:                     ; preds = %47, %44, %.lr.ph.i, %36, %34
   %.0 = phi i32 [ %35, %34 ], [ 1, %36 ], [ 0, %.lr.ph.i ], [ 1, %44 ], [ 1, %47 ]
@@ -2768,7 +2768,7 @@ define dso_local i32 @fdt_node_offset_by_compatible(ptr noundef %0, i32 noundef 
 12:                                               ; preds = %10
   %13 = tail call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.01821, ptr noundef null) #9
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %12, %6, %3
   %.1 = phi i32 [ %4, %3 ], [ %7, %6 ], [ %9, %.lr.ph ], [ %.01821, %10 ], [ %13, %12 ]
@@ -2814,22 +2814,21 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"auto-init"}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}

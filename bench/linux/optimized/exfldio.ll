@@ -589,7 +589,7 @@ define dso_local i32 @acpi_ex_insert_into_field(ptr noundef %0, ptr noundef read
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !5
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #7, !srcloc !10
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #7, !srcloc !9
   %12 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %13 = and i64 %12, 512
@@ -693,7 +693,7 @@ define dso_local i32 @acpi_ex_insert_into_field(ptr noundef %0, ptr noundef read
   %84 = or i64 %83, %73
   %85 = add nuw i32 %55, 1
   %86 = icmp ult i32 %85, %50
-  br i1 %86, label %.preheader, label %.loopexit9.loopexit, !llvm.loop !11
+  br i1 %86, label %.preheader, label %.loopexit9.loopexit, !llvm.loop !10
 
 .loopexit9.loopexit:                              ; preds = %63, %75
   %.ph = phi i64 [ %84, %75 ], [ %73, %63 ]
@@ -775,9 +775,8 @@ attributes #8 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 1824892, i64 1824913}
-!11 = distinct !{!11, !7, !8, !9}
+!9 = !{i64 1824892, i64 1824913}
+!10 = distinct !{!10, !7, !8}

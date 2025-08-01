@@ -170,7 +170,7 @@ define hidden noundef zeroext i1 @SDL_DispatchEventWatchList(ptr noundef capture
 
 58:                                               ; preds = %46, %51, %41
   %.not46 = icmp eq i64 %indvars.iv.next55, 0
-  br i1 %.not46, label %._crit_edge52, label %41, !llvm.loop !8
+  br i1 %.not46, label %._crit_edge52, label %41, !llvm.loop !7
 
 ._crit_edge52:                                    ; preds = %58, %37
   store i8 0, ptr %34, align 1
@@ -292,7 +292,7 @@ define hidden void @SDL_RemoveEventWatchList(ptr noundef captures(none) %0, ptr 
 34:                                               ; preds = %10, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !8
 
 .loopexit:                                        ; preds = %34, %3, %23, %29, %26
   %35 = load ptr, ptr %0, align 8
@@ -315,8 +315,7 @@ attributes #6 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

@@ -244,7 +244,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4lift17h13acabfb82f65fe3E"(ptr align 8 %0, ptr nonnull align 8 %33, i1 zeroext false)
   %62 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52ac58b9549c31a1E"(ptr nonnull align 8 %11)
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %._crit_edge, label %32, !llvm.loop !7
+  br i1 %63, label %._crit_edge, label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -379,7 +379,7 @@ default.unreachable20:                            ; preds = %47, %3
   unreachable
 
 29:                                               ; preds = %3
-  %30 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %30 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %50, label %60
 
@@ -389,7 +389,7 @@ default.unreachable20:                            ; preds = %47, %3
   br i1 %34, label %69, label %68
 
 35:                                               ; preds = %3
-  %36 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %36 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %169, label %174
 
@@ -419,7 +419,7 @@ default.unreachable20:                            ; preds = %47, %3
 
 47:                                               ; preds = %3
   %48 = getelementptr inbounds nuw i8, ptr %26, i64 17
-  %49 = load i8, ptr %48, align 1, !range !10, !noundef !3
+  %49 = load i8, ptr %48, align 1, !range !8, !noundef !3
   switch i8 %49, label %default.unreachable20 [
     i8 0, label %175
     i8 1, label %176
@@ -482,18 +482,18 @@ default.unreachable20:                            ; preds = %47, %3
   br i1 %2, label %75, label %72
 
 69:                                               ; preds = %32
-  %70 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %70 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %163, label %168
 
 72:                                               ; preds = %68
-  %73 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %73 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %78, label %83
 
 75:                                               ; preds = %68
   call void @_ZN4witx3ast7Variant11as_expected17h031acc9c1ddc32c2E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %18, ptr nonnull align 8 %33)
-  %76 = load i64, ptr %18, align 8, !range !9, !noundef !3
+  %76 = load i64, ptr %18, align 8, !range !7, !noundef !3
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %84, label %85
 
@@ -591,7 +591,7 @@ default.unreachable20:                            ; preds = %47, %3
   %123 = load i64, ptr %17, align 8, !noundef !3
   %124 = add i64 %123, 1
   store i64 %124, ptr %17, align 8
-  %125 = load i64, ptr %120, align 8, !range !9, !noundef !3
+  %125 = load i64, ptr %120, align 8, !range !7, !noundef !3
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d$17hbfeb6ddccaefb84dE.exit", label %127
 
@@ -611,13 +611,13 @@ default.unreachable20:                            ; preds = %47, %3
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   %132 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd831ea6c1d94edb9E"(ptr nonnull align 8 %15)
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %._crit_edge, label %119, !llvm.loop !11
+  br i1 %133, label %._crit_edge, label %119
 
 134:                                              ; preds = %._crit_edge, %104
   %135 = load ptr, ptr %24, align 8, !nonnull !3, !align !5, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %13, ptr nonnull align 8 %136)
-  %137 = load i64, ptr %13, align 8, !range !12, !noundef !3
+  %137 = load i64, ptr %13, align 8, !range !9, !noundef !3
   %138 = icmp eq i64 %137, -9223372036854775807
   br i1 %138, label %139, label %140
 
@@ -650,7 +650,7 @@ default.unreachable20:                            ; preds = %47, %3
   %151 = load ptr, ptr %24, align 8, !nonnull !3, !align !5, !noundef !3
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %11, ptr nonnull align 8 %152)
-  %153 = load i64, ptr %11, align 8, !range !12, !noundef !3
+  %153 = load i64, ptr %11, align 8, !range !9, !noundef !3
   %154 = icmp eq i64 %153, -9223372036854775807
   br i1 %154, label %156, label %157
 
@@ -709,7 +709,7 @@ default.unreachable20:                            ; preds = %47, %3
 
 176:                                              ; preds = %47
   %177 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %178 = load i8, ptr %177, align 1, !range !13, !noundef !3
+  %178 = load i8, ptr %177, align 1, !range !10, !noundef !3
   %179 = trunc nuw i8 %178 to i1
   br i1 %179, label %193, label %192
 
@@ -719,7 +719,7 @@ default.unreachable20:                            ; preds = %47, %3
 
 181:                                              ; preds = %47
   %182 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %183 = load i8, ptr %182, align 1, !range !13, !noundef !3
+  %183 = load i8, ptr %182, align 1, !range !10, !noundef !3
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %195, label %194
 
@@ -785,7 +785,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$4lift28_$u7b$$u7b$closure$u7d$$u7d
   %12 = load i64, ptr %11, align 8, !noundef !3
   %13 = add i64 %12, 1
   store i64 %13, ptr %11, align 8
-  %14 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %14 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %23
 
@@ -841,7 +841,7 @@ default.unreachable32:                            ; preds = %35, %3
   unreachable
 
 23:                                               ; preds = %3
-  %24 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %24 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %38, label %45
 
@@ -851,7 +851,7 @@ default.unreachable32:                            ; preds = %35, %3
   br i1 %28, label %60, label %58
 
 29:                                               ; preds = %3
-  %30 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %30 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %141, label %146
 
@@ -869,7 +869,7 @@ default.unreachable32:                            ; preds = %35, %3
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 17
-  %37 = load i8, ptr %36, align 1, !range !10, !noundef !3
+  %37 = load i8, ptr %36, align 1, !range !8, !noundef !3
   switch i8 %37, label %default.unreachable32 [
     i8 0, label %147
     i8 1, label %148
@@ -933,7 +933,7 @@ default.unreachable32:                            ; preds = %35, %3
   br i1 %59, label %63, label %64
 
 60:                                               ; preds = %26
-  %61 = load i64, ptr %1, align 8, !range !9, !noundef !3
+  %61 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %135, label %140
 
@@ -943,7 +943,7 @@ default.unreachable32:                            ; preds = %35, %3
 
 64:                                               ; preds = %58
   call void @_ZN4witx3ast7Variant11as_expected17h031acc9c1ddc32c2E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %14, ptr nonnull align 8 %27)
-  %65 = load i64, ptr %14, align 8, !range !9, !noundef !3
+  %65 = load i64, ptr %14, align 8, !range !7, !noundef !3
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %67, label %68
 
@@ -995,7 +995,7 @@ default.unreachable32:                            ; preds = %35, %3
   store i64 %88, ptr %89, align 8
   store i64 0, ptr %7, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %7)
-  %90 = load i64, ptr %70, align 8, !range !9, !noundef !3
+  %90 = load i64, ptr %70, align 8, !range !7, !noundef !3
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hdbcf48083256c3e2E.exit", label %92
 
@@ -1052,7 +1052,7 @@ default.unreachable32:                            ; preds = %35, %3
   store i64 %115, ptr %108, align 8
   store i64 0, ptr %5, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
-  %116 = load i64, ptr %111, align 8, !range !9, !noundef !3
+  %116 = load i64, ptr %111, align 8, !range !7, !noundef !3
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hdbcf48083256c3e2E.exit29", label %118
 
@@ -1072,14 +1072,14 @@ default.unreachable32:                            ; preds = %35, %3
   %122 = call { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbf562a55c124adfcE"(ptr nonnull align 8 %12)
   %123 = extractvalue { i64, ptr } %122, 1
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %.loopexit, label %110, !llvm.loop !14
+  br i1 %124, label %.loopexit, label %110
 
 125:                                              ; preds = %.loopexit
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.ade288f69af41da59e4153ec9739cc31.36)
   call void @"_ZN4witx3abi18Generator$LT$B$GT$5lower17he47749bbf1e3a209E"(ptr nonnull align 8 %0, ptr nonnull align 8 %72, ptr align 8 null)
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %11, ptr nonnull align 8 %126)
-  %127 = load i64, ptr %11, align 8, !range !12, !noundef !3
+  %127 = load i64, ptr %11, align 8, !range !9, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %133, label %134
 
@@ -1136,7 +1136,7 @@ default.unreachable32:                            ; preds = %35, %3
 
 148:                                              ; preds = %35
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 18
-  %150 = load i8, ptr %149, align 1, !range !13, !noundef !3
+  %150 = load i8, ptr %149, align 1, !range !10, !noundef !3
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %165, label %164
 
@@ -1146,7 +1146,7 @@ default.unreachable32:                            ; preds = %35, %3
 
 153:                                              ; preds = %35
   %154 = getelementptr inbounds nuw i8, ptr %20, i64 18
-  %155 = load i8, ptr %154, align 1, !range !13, !noundef !3
+  %155 = load i8, ptr %154, align 1, !range !10, !noundef !3
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %167, label %166
 
@@ -1207,7 +1207,7 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$5lower28_$u7b$$u7b$closure$u7d$$u7
   store i64 %10, ptr %11, align 8
   store i64 0, ptr %6, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr align 8 %1, ptr nonnull align 8 %6)
-  %12 = load i64, ptr %2, align 8, !range !9, !noundef !3
+  %12 = load i64, ptr %2, align 8, !range !7, !noundef !3
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %19
 
@@ -1355,11 +1355,7 @@ attributes #9 = { noreturn }
 !4 = !{i64 1}
 !5 = !{i64 8}
 !6 = !{i8 0, i8 7}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 0, i64 2}
-!10 = !{i8 0, i8 11}
-!11 = distinct !{!11, !8}
-!12 = !{i64 0, i64 -9223372036854775806}
-!13 = !{i8 0, i8 2}
-!14 = distinct !{!14, !8}
+!7 = !{i64 0, i64 2}
+!8 = !{i8 0, i8 11}
+!9 = !{i64 0, i64 -9223372036854775806}
+!10 = !{i8 0, i8 2}

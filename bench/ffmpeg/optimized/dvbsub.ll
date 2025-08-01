@@ -100,7 +100,7 @@ define internal range(i32 0, 51) i32 @dvbsub_probe(ptr noundef readonly captures
   %..0 = tail call i32 @llvm.umin.i32(i32 %.057, i32 %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %48, label %44, !llvm.loop !16
+  br i1 %exitcond.not, label %48, label %44, !llvm.loop !15
 
 48:                                               ; preds = %44
   %.not46.not = icmp eq i32 %..0, 0
@@ -113,7 +113,7 @@ define internal range(i32 0, 51) i32 @dvbsub_probe(ptr noundef readonly captures
   %.2 = phi i32 [ %.1, %48 ], [ %.03759, %11 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond68.not, label %._crit_edge62.loopexit, label %11, !llvm.loop !17
+  br i1 %exitcond68.not, label %._crit_edge62.loopexit, label %11, !llvm.loop !16
 
 ._crit_edge62.loopexit:                           ; preds = %50
   %51 = icmp sgt i32 %.2, 5
@@ -169,8 +169,7 @@ attributes #5 = { nounwind }
 !10 = !{!"int", !8, i64 0}
 !11 = !{!5, !10, i64 16}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}

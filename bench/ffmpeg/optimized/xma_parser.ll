@@ -56,16 +56,16 @@ define internal noundef i32 @xma_parse(ptr noundef captures(none) %0, ptr readno
 ._crit_edge:                                      ; preds = %27, %10
   %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %.0.lcssa, ptr %30, align 8, !tbaa !18
+  store i32 %.0.lcssa, ptr %30, align 8, !tbaa !17
   %31 = icmp ne i32 %.0.lcssa, 0
   %32 = zext i1 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %32, ptr %33, align 8, !tbaa !19
+  store i32 %32, ptr %33, align 8, !tbaa !18
   br label %34
 
 34:                                               ; preds = %._crit_edge, %6
-  store ptr %4, ptr %2, align 8, !tbaa !20
-  store i32 %5, ptr %3, align 4, !tbaa !22
+  store ptr %4, ptr %2, align 8, !tbaa !19
+  store i32 %5, ptr %3, align 4, !tbaa !21
   ret i32 %5
 }
 
@@ -88,11 +88,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !12 = !{!13, !11, i64 0}
 !13 = !{!"XMAParserContext", !11, i64 0}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!5, !11, i64 296}
-!19 = !{!5, !11, i64 232}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 omnipotent char", !6, i64 0}
-!22 = !{!11, !11, i64 0}
+!17 = !{!5, !11, i64 296}
+!18 = !{!5, !11, i64 232}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !6, i64 0}
+!21 = !{!11, !11, i64 0}

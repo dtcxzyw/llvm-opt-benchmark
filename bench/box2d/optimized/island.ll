@@ -476,7 +476,7 @@ define hidden void @b2LinkContact(ptr noundef %0, ptr noundef captures(none) %1)
   store i32 %73, ptr %75, align 4, !tbaa !90
   %.062.pre = load i32, ptr %72, align 4, !tbaa !90
   %.not79 = icmp eq i32 %.062.pre, -1
-  br i1 %.not79, label %._crit_edge128, label %.lr.ph127, !llvm.loop !111
+  br i1 %.not79, label %._crit_edge128, label %.lr.ph127, !llvm.loop !110
 
 ._crit_edge128:                                   ; preds = %.lr.ph127, %74, %.thread106._crit_edge
   %.166.lcssa = phi i32 [ %32, %.thread106._crit_edge ], [ %.062125, %74 ], [ %.062125, %.lr.ph127 ]
@@ -580,7 +580,7 @@ b2AddContactToIsland.exit:                        ; preds = %114, %109, %97, %92
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !86
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 %.0113.sink, ptr %118, align 4, !tbaa !112
+  store i32 %.0113.sink, ptr %118, align 4, !tbaa !111
   ret void
 }
 
@@ -589,7 +589,7 @@ declare void @b2WakeSolverSet(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @b2UnlinkContact(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %4 = load i32, ptr %3, align 4, !tbaa !112
+  %4 = load i32, ptr %3, align 4, !tbaa !111
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %.val = load ptr, ptr %5, align 8, !tbaa !10
   %6 = sext i32 %4 to i64
@@ -660,7 +660,7 @@ define hidden void @b2UnlinkContact(ptr noundef readonly captures(none) %0, ptr 
   %41 = load i32, ptr %40, align 4, !tbaa !91
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !91
-  store i32 -1, ptr %3, align 4, !tbaa !112
+  store i32 -1, ptr %3, align 4, !tbaa !111
   store i32 -1, ptr %8, align 4, !tbaa !107
   store i32 -1, ptr %36, align 4, !tbaa !105
   ret void
@@ -675,12 +675,12 @@ define hidden void @b2ValidateIsland(ptr noundef readnone captures(none) %0, i32
 define hidden void @b2LinkJoint(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !113
+  %6 = load i32, ptr %5, align 4, !tbaa !112
   %.val82 = load ptr, ptr %4, align 8, !tbaa !99
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds %struct.b2Body, ptr %.val82, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load i32, ptr %9, align 4, !tbaa !113
+  %10 = load i32, ptr %9, align 4, !tbaa !112
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.b2Body, ptr %.val82, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -725,19 +725,19 @@ define hidden void @b2LinkJoint(ptr noundef %0, ptr noundef captures(none) %1, i
 
 ._crit_edge.i:                                    ; preds = %28
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !115
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !114
   br label %41
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %33, ptr %35, align 8, !tbaa !117
+  store i32 %33, ptr %35, align 8, !tbaa !116
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val18.i = load ptr, ptr %36, align 8, !tbaa !118
+  %.val18.i = load ptr, ptr %36, align 8, !tbaa !117
   %37 = sext i32 %33 to i64
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %39 = load i32, ptr %38, align 4, !tbaa !115
+  %39 = load i32, ptr %38, align 4, !tbaa !114
   %40 = getelementptr inbounds %struct.b2Joint, ptr %.val18.i, i64 %37, i32 7
-  store i32 %39, ptr %40, align 4, !tbaa !119
+  store i32 %39, ptr %40, align 4, !tbaa !118
   br label %41
 
 41:                                               ; preds = %34, %._crit_edge.i
@@ -758,7 +758,7 @@ b2AddJointToIsland.exit:                          ; preds = %41, %46
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !89
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %24, ptr %50, align 8, !tbaa !120
+  store i32 %24, ptr %50, align 8, !tbaa !119
   br label %120
 
 51:                                               ; preds = %.thread97
@@ -789,7 +789,7 @@ b2AddJointToIsland.exit:                          ; preds = %41, %46
   store i32 %63, ptr %59, align 4, !tbaa !90
   %.pre = load i32, ptr %62, align 4, !tbaa !90
   %.not73 = icmp eq i32 %.pre, -1
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %.lr.ph, %64, %52
   %.163.lcssa = phi ptr [ %55, %52 ], [ %61, %64 ], [ %61, %.lr.ph ]
@@ -828,7 +828,7 @@ b2AddJointToIsland.exit:                          ; preds = %41, %46
   store i32 %74, ptr %70, align 4, !tbaa !90
   %.pre127 = load i32, ptr %73, align 4, !tbaa !90
   %.not75 = icmp eq i32 %.pre127, -1
-  br i1 %.not75, label %._crit_edge120, label %.lr.ph119, !llvm.loop !122
+  br i1 %.not75, label %._crit_edge120, label %.lr.ph119, !llvm.loop !121
 
 ._crit_edge120:                                   ; preds = %.lr.ph119, %75, %.thread104._crit_edge
   %.161.lcssa = phi i32 [ %26, %.thread104._crit_edge ], [ %69, %.lr.ph119 ], [ %74, %75 ]
@@ -858,19 +858,19 @@ b2AddJointToIsland.exit:                          ; preds = %41, %46
 
 ._crit_edge.i86:                                  ; preds = %.thread98
   %.phi.trans.insert.i87 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %.pre.i88 = load i32, ptr %.phi.trans.insert.i87, align 4, !tbaa !115
+  %.pre.i88 = load i32, ptr %.phi.trans.insert.i87, align 4, !tbaa !114
   br label %92
 
 85:                                               ; preds = %.thread98
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %84, ptr %86, align 8, !tbaa !117
+  store i32 %84, ptr %86, align 8, !tbaa !116
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val18.i85 = load ptr, ptr %87, align 8, !tbaa !118
+  %.val18.i85 = load ptr, ptr %87, align 8, !tbaa !117
   %88 = sext i32 %84 to i64
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %90 = load i32, ptr %89, align 4, !tbaa !115
+  %90 = load i32, ptr %89, align 4, !tbaa !114
   %91 = getelementptr inbounds %struct.b2Joint, ptr %.val18.i85, i64 %88, i32 7
-  store i32 %90, ptr %91, align 4, !tbaa !119
+  store i32 %90, ptr %91, align 4, !tbaa !118
   br label %92
 
 92:                                               ; preds = %85, %._crit_edge.i86
@@ -897,19 +897,19 @@ b2AddJointToIsland.exit:                          ; preds = %41, %46
 
 ._crit_edge.i93:                                  ; preds = %.thread98.thread
   %.phi.trans.insert.i94 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %.pre.i95 = load i32, ptr %.phi.trans.insert.i94, align 4, !tbaa !115
+  %.pre.i95 = load i32, ptr %.phi.trans.insert.i94, align 4, !tbaa !114
   br label %109
 
 102:                                              ; preds = %.thread98.thread
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %101, ptr %103, align 8, !tbaa !117
+  store i32 %101, ptr %103, align 8, !tbaa !116
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val18.i92 = load ptr, ptr %104, align 8, !tbaa !118
+  %.val18.i92 = load ptr, ptr %104, align 8, !tbaa !117
   %105 = sext i32 %101 to i64
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %107 = load i32, ptr %106, align 4, !tbaa !115
+  %107 = load i32, ptr %106, align 4, !tbaa !114
   %108 = getelementptr inbounds %struct.b2Joint, ptr %.val18.i92, i64 %105, i32 7
-  store i32 %107, ptr %108, align 4, !tbaa !119
+  store i32 %107, ptr %108, align 4, !tbaa !118
   br label %109
 
 109:                                              ; preds = %102, %._crit_edge.i93
@@ -932,7 +932,7 @@ b2AddJointToIsland.exit89:                        ; preds = %114, %109, %97, %92
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !89
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %.060102103.sink, ptr %118, align 8, !tbaa !120
+  store i32 %.060102103.sink, ptr %118, align 8, !tbaa !119
   br i1 %2, label %119, label %120
 
 119:                                              ; preds = %b2AddJointToIsland.exit89
@@ -992,7 +992,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %25, ptr %22, align 4, !tbaa !90
   %.pre = load i32, ptr %24, align 4, !tbaa !90
   %.not = icmp eq i32 %.pre, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %.lr.ph, %26
   %27 = phi i32 [ %25, %26 ], [ %21, %.lr.ph ]
@@ -1006,7 +1006,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.thread:                               ; preds = %15, %29, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph57, label %15, !llvm.loop !124
+  br i1 %exitcond.not, label %.lr.ph57, label %15, !llvm.loop !123
 
 ._crit_edge58:                                    ; preds = %150, %1
   tail call void @b2ValidateConnectivity(ptr noundef %0) #5
@@ -1046,7 +1046,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 84
   %.0.i = load i32, ptr %46, align 4, !tbaa !95
   %.not.i = icmp eq i32 %.0.i, -1
-  br i1 %.not.i, label %._crit_edge.i, label %42, !llvm.loop !125
+  br i1 %.not.i, label %._crit_edge.i, label %42, !llvm.loop !124
 
 ._crit_edge.i:                                    ; preds = %42, %38
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -1063,11 +1063,11 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   %49 = sext i32 %.07999.i to i64
   %50 = getelementptr inbounds %struct.b2Contact, ptr %.val90.i, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 52
-  store i32 %36, ptr %51, align 4, !tbaa !112
+  store i32 %36, ptr %51, align 4, !tbaa !111
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %.079.i = load i32, ptr %52, align 4, !tbaa !95
   %.not81.i = icmp eq i32 %.079.i, -1
-  br i1 %.not81.i, label %._crit_edge102.i, label %48, !llvm.loop !126
+  br i1 %.not81.i, label %._crit_edge102.i, label %48, !llvm.loop !125
 
 ._crit_edge102.i:                                 ; preds = %48, %._crit_edge.i
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 36
@@ -1076,7 +1076,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not82104.i, label %._crit_edge108.i, label %.lr.ph107.i
 
 .lr.ph107.i:                                      ; preds = %._crit_edge102.i
-  %.val93.i = load ptr, ptr %12, align 8, !tbaa !118
+  %.val93.i = load ptr, ptr %12, align 8, !tbaa !117
   br label %54
 
 54:                                               ; preds = %54, %.lr.ph107.i
@@ -1084,11 +1084,11 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   %55 = sext i32 %.080105.i to i64
   %56 = getelementptr inbounds %struct.b2Joint, ptr %.val93.i, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store i32 %36, ptr %57, align 8, !tbaa !120
+  store i32 %36, ptr %57, align 8, !tbaa !119
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %.080.i = load i32, ptr %58, align 4, !tbaa !95
   %.not82.i = icmp eq i32 %.080.i, -1
-  br i1 %.not82.i, label %._crit_edge108.i, label %54, !llvm.loop !127
+  br i1 %.not82.i, label %._crit_edge108.i, label %54, !llvm.loop !126
 
 ._crit_edge108.i:                                 ; preds = %54, %._crit_edge102.i
   %59 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1096,10 +1096,10 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   %.val86.i = load ptr, ptr %10, align 8, !tbaa !99
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %struct.b2Body, ptr %.val86.i, i64 %61, i32 13
-  store i32 %.094.i, ptr %62, align 4, !tbaa !128
+  store i32 %.094.i, ptr %62, align 4, !tbaa !127
   %63 = sext i32 %.094.i to i64
   %64 = getelementptr inbounds %struct.b2Body, ptr %.val86.i, i64 %63, i32 12
-  store i32 %60, ptr %64, align 8, !tbaa !129
+  store i32 %60, ptr %64, align 8, !tbaa !128
   %65 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %66 = load i32, ptr %65, align 4, !tbaa !82
   store i32 %66, ptr %59, align 4, !tbaa !82
@@ -1174,13 +1174,13 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
 109:                                              ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %111 = load i32, ptr %110, align 4, !tbaa !88
-  %.val92.i = load ptr, ptr %12, align 8, !tbaa !118
+  %.val92.i = load ptr, ptr %12, align 8, !tbaa !117
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds %struct.b2Joint, ptr %.val92.i, i64 %112, i32 8
-  store i32 %.080103.i, ptr %113, align 8, !tbaa !117
+  store i32 %.080103.i, ptr %113, align 8, !tbaa !116
   %114 = sext i32 %.080103.i to i64
   %115 = getelementptr inbounds %struct.b2Joint, ptr %.val92.i, i64 %114, i32 7
-  store i32 %111, ptr %115, align 4, !tbaa !119
+  store i32 %111, ptr %115, align 4, !tbaa !118
   %116 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %117 = load i32, ptr %116, align 4, !tbaa !88
   store i32 %117, ptr %110, align 4, !tbaa !88
@@ -1249,35 +1249,35 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
 
 150:                                              ; preds = %30, %b2DestroyIsland.exit
   %151 = icmp samesign ugt i64 %indvars.iv61, 1
-  br i1 %151, label %30, label %._crit_edge58, !llvm.loop !130
+  br i1 %151, label %30, label %._crit_edge58, !llvm.loop !129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @b2UnlinkJoint(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !120
+  %4 = load i32, ptr %3, align 8, !tbaa !119
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %.val = load ptr, ptr %5, align 8, !tbaa !10
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds %struct.b2Island, ptr %.val, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %9 = load i32, ptr %8, align 4, !tbaa !119
+  %9 = load i32, ptr %8, align 4, !tbaa !118
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !117
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !116
   br label %16
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val29 = load ptr, ptr %11, align 8, !tbaa !118
+  %.val29 = load ptr, ptr %11, align 8, !tbaa !117
   %12 = sext i32 %9 to i64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !117
+  %14 = load i32, ptr %13, align 8, !tbaa !116
   %15 = getelementptr inbounds %struct.b2Joint, ptr %.val29, i64 %12, i32 8
-  store i32 %14, ptr %15, align 8, !tbaa !117
+  store i32 %14, ptr %15, align 8, !tbaa !116
   br label %16
 
 16:                                               ; preds = %._crit_edge, %10
@@ -1287,17 +1287,17 @@ define hidden void @b2UnlinkJoint(ptr noundef readonly captures(none) %0, ptr no
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val30 = load ptr, ptr %19, align 8, !tbaa !118
+  %.val30 = load ptr, ptr %19, align 8, !tbaa !117
   %20 = sext i32 %17 to i64
   %21 = getelementptr inbounds %struct.b2Joint, ptr %.val30, i64 %20, i32 7
-  store i32 %9, ptr %21, align 4, !tbaa !119
+  store i32 %9, ptr %21, align 4, !tbaa !118
   br label %22
 
 22:                                               ; preds = %18, %16
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !87
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %26 = load i32, ptr %25, align 4, !tbaa !115
+  %26 = load i32, ptr %25, align 4, !tbaa !114
   %27 = icmp eq i32 %24, %26
   br i1 %27, label %28, label %29
 
@@ -1312,7 +1312,7 @@ define hidden void @b2UnlinkJoint(ptr noundef readonly captures(none) %0, ptr no
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr %8, align 4, !tbaa !119
+  %34 = load i32, ptr %8, align 4, !tbaa !118
   store i32 %34, ptr %30, align 4, !tbaa !88
   br label %35
 
@@ -1326,9 +1326,9 @@ define hidden void @b2UnlinkJoint(ptr noundef readonly captures(none) %0, ptr no
   %41 = load i32, ptr %40, align 4, !tbaa !91
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !91
-  store i32 -1, ptr %3, align 8, !tbaa !120
-  store i32 -1, ptr %8, align 4, !tbaa !119
-  store i32 -1, ptr %36, align 8, !tbaa !117
+  store i32 -1, ptr %3, align 8, !tbaa !119
+  store i32 -1, ptr %8, align 4, !tbaa !118
+  store i32 -1, ptr %36, align 8, !tbaa !116
   ret void
 }
 
@@ -1354,7 +1354,7 @@ define hidden void @b2SplitIsland(ptr noundef %0, i32 noundef %1) local_unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %15 = load ptr, ptr %14, align 8, !tbaa !131
+  %15 = load ptr, ptr %14, align 8, !tbaa !130
   %16 = shl i32 %13, 2
   %17 = tail call ptr @b2AllocateArenaItem(ptr noundef nonnull %0, i32 noundef %16, ptr noundef nonnull @.str) #5
   %18 = tail call ptr @b2AllocateArenaItem(ptr noundef nonnull %0, i32 noundef %16, ptr noundef nonnull @.str.1) #5
@@ -1372,11 +1372,11 @@ define hidden void @b2SplitIsland(ptr noundef %0, i32 noundef %1) local_unnamed_
   %21 = sext i32 %.0153187 to i64
   %22 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 121
-  store i8 0, ptr %23, align 1, !tbaa !132
+  store i8 0, ptr %23, align 1, !tbaa !131
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 84
   %.0153 = load i32, ptr %24, align 4, !tbaa !95
   %.not165 = icmp eq i32 %.0153, -1
-  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1394,11 +1394,11 @@ define hidden void @b2SplitIsland(ptr noundef %0, i32 noundef %1) local_unnamed_
   %28 = sext i32 %.0154190 to i64
   %29 = getelementptr inbounds %struct.b2Contact, ptr %.val179, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store i8 0, ptr %30, align 4, !tbaa !134
+  store i8 0, ptr %30, align 4, !tbaa !133
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %.0154 = load i32, ptr %31, align 4, !tbaa !95
   %.not166 = icmp eq i32 %.0154, -1
-  br i1 %.not166, label %._crit_edge193, label %27, !llvm.loop !135
+  br i1 %.not166, label %._crit_edge193, label %27, !llvm.loop !134
 
 ._crit_edge193:                                   ; preds = %27, %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1408,7 +1408,7 @@ define hidden void @b2SplitIsland(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 .lr.ph198:                                        ; preds = %._crit_edge193
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %.val182 = load ptr, ptr %33, align 8, !tbaa !118
+  %.val182 = load ptr, ptr %33, align 8, !tbaa !117
   br label %34
 
 34:                                               ; preds = %.lr.ph198, %34
@@ -1416,11 +1416,11 @@ define hidden void @b2SplitIsland(ptr noundef %0, i32 noundef %1) local_unnamed_
   %35 = sext i32 %.0155196 to i64
   %36 = getelementptr inbounds %struct.b2Joint, ptr %.val182, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 70
-  store i8 0, ptr %37, align 2, !tbaa !136
+  store i8 0, ptr %37, align 2, !tbaa !135
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %.0155 = load i32, ptr %38, align 4, !tbaa !95
   %.not167 = icmp eq i32 %.0155, -1
-  br i1 %.not167, label %._crit_edge199, label %34, !llvm.loop !137
+  br i1 %.not167, label %._crit_edge199, label %34, !llvm.loop !136
 
 ._crit_edge199:                                   ; preds = %34, %._crit_edge193
   %.val19.i = load ptr, ptr %3, align 8, !tbaa !10
@@ -1493,13 +1493,13 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %69 = load i32, ptr %68, align 4, !tbaa !95
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %70, i32 25
-  %72 = load i8, ptr %71, align 1, !tbaa !132, !range !138, !noundef !139
+  %72 = load i8, ptr %71, align 1, !tbaa !131, !range !137, !noundef !138
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %.loopexit183, label %74
 
 74:                                               ; preds = %67
   store i32 %69, ptr %17, align 4, !tbaa !95
-  store i8 1, ptr %71, align 1, !tbaa !132
+  store i8 1, ptr %71, align 1, !tbaa !131
   %75 = tail call ptr @b2CreateIsland(ptr noundef nonnull %0, i32 noundef 2)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 4, !tbaa !80
@@ -1517,7 +1517,7 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
 .loopexit:                                        ; preds = %211, %._crit_edge205
   %.4.lcssa = phi i32 [ %.1.lcssa, %._crit_edge205 ], [ %.5, %211 ]
   %87 = icmp sgt i32 %.4.lcssa, 0
-  br i1 %87, label %88, label %.loopexit183, !llvm.loop !140
+  br i1 %87, label %88, label %.loopexit183, !llvm.loop !139
 
 88:                                               ; preds = %74, %.loopexit
   %.0157212 = phi i32 [ 1, %74 ], [ %.4.lcssa, %.loopexit ]
@@ -1536,14 +1536,14 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
 97:                                               ; preds = %88
   %98 = sext i32 %96 to i64
   %99 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %98, i32 13
-  store i32 %92, ptr %99, align 4, !tbaa !128
+  store i32 %92, ptr %99, align 4, !tbaa !127
   br label %100
 
 100:                                              ; preds = %97, %88
   %101 = getelementptr inbounds nuw i8, ptr %94, i64 80
-  store i32 %96, ptr %101, align 8, !tbaa !129
+  store i32 %96, ptr %101, align 8, !tbaa !128
   %102 = getelementptr inbounds nuw i8, ptr %94, i64 84
-  store i32 -1, ptr %102, align 4, !tbaa !128
+  store i32 -1, ptr %102, align 4, !tbaa !127
   store i32 %92, ptr %78, align 4, !tbaa !82
   %103 = load i32, ptr %79, align 4, !tbaa !81
   %104 = icmp eq i32 %103, -1
@@ -1558,7 +1558,7 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %80, align 4, !tbaa !83
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  %110 = load i32, ptr %109, align 8, !tbaa !141
+  %110 = load i32, ptr %109, align 8, !tbaa !140
   %.not169200 = icmp eq i32 %110, -1
   br i1 %.not169200, label %._crit_edge205, label %.lr.ph204
 
@@ -1578,21 +1578,21 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %117 = zext nneg i32 %narrow173 to i64
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i32, ptr %119, align 4, !tbaa !142
+  %120 = load i32, ptr %119, align 4, !tbaa !141
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 64
-  %122 = load i8, ptr %121, align 4, !tbaa !134, !range !138, !noundef !139
+  %122 = load i8, ptr %121, align 4, !tbaa !133, !range !137, !noundef !138
   %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %161, label %124, !llvm.loop !143
+  br i1 %123, label %161, label %124, !llvm.loop !142
 
 124:                                              ; preds = %111
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 60
-  %126 = load i32, ptr %125, align 4, !tbaa !144
+  %126 = load i32, ptr %125, align 4, !tbaa !143
   %127 = and i32 %126, 1
   %128 = icmp eq i32 %127, 0
-  br i1 %128, label %161, label %129, !llvm.loop !143
+  br i1 %128, label %161, label %129, !llvm.loop !142
 
 129:                                              ; preds = %124
-  store i8 1, ptr %121, align 4, !tbaa !134
+  store i8 1, ptr %121, align 4, !tbaa !133
   %130 = xor i32 %113, 1
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %116, i64 0, i64 %131
@@ -1600,7 +1600,7 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 121
-  %137 = load i8, ptr %136, align 1, !tbaa !132, !range !138, !noundef !139
+  %137 = load i8, ptr %136, align 1, !tbaa !131, !range !137, !noundef !138
   %138 = icmp eq i8 %137, 0
   br i1 %138, label %139, label %146
 
@@ -1615,13 +1615,13 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %144 = sext i32 %.1202 to i64
   %145 = getelementptr inbounds i32, ptr %17, i64 %144
   store i32 %133, ptr %145, align 4, !tbaa !95
-  store i8 1, ptr %136, align 1, !tbaa !132
+  store i8 1, ptr %136, align 1, !tbaa !131
   br label %146
 
 146:                                              ; preds = %142, %139, %129
   %.3 = phi i32 [ %143, %142 ], [ %.1202, %139 ], [ %.1202, %129 ]
   %147 = getelementptr inbounds nuw i8, ptr %115, i64 52
-  store i32 %77, ptr %147, align 4, !tbaa !112
+  store i32 %77, ptr %147, align 4, !tbaa !111
   %148 = load i32, ptr %81, align 4, !tbaa !85
   %.not176 = icmp eq i32 %148, -1
   br i1 %.not176, label %152, label %149
@@ -1655,17 +1655,17 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
 161:                                              ; preds = %124, %111, %158
   %.2 = phi i32 [ %.3, %158 ], [ %.1202, %111 ], [ %.1202, %124 ]
   %.not169 = icmp eq i32 %120, -1
-  br i1 %.not169, label %._crit_edge205, label %111, !llvm.loop !145
+  br i1 %.not169, label %._crit_edge205, label %111
 
 ._crit_edge205:                                   ; preds = %161, %106
   %.1.lcssa = phi i32 [ %89, %106 ], [ %.2, %161 ]
   %162 = getelementptr inbounds nuw i8, ptr %94, i64 68
-  %163 = load i32, ptr %162, align 4, !tbaa !146
+  %163 = load i32, ptr %162, align 4, !tbaa !144
   %.not170206 = icmp eq i32 %163, -1
   br i1 %.not170206, label %.loopexit, label %.lr.ph210
 
 .lr.ph210:                                        ; preds = %._crit_edge205
-  %.val181 = load ptr, ptr %66, align 8, !tbaa !118
+  %.val181 = load ptr, ptr %66, align 8, !tbaa !117
   br label %164
 
 164:                                              ; preds = %.lr.ph210, %211
@@ -1680,28 +1680,28 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %170 = zext nneg i32 %narrow to i64
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %173 = load i32, ptr %172, align 4, !tbaa !147
+  %173 = load i32, ptr %172, align 4, !tbaa !145
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 70
-  %175 = load i8, ptr %174, align 2, !tbaa !136, !range !138, !noundef !139
+  %175 = load i8, ptr %174, align 2, !tbaa !135, !range !137, !noundef !138
   %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %211, label %177, !llvm.loop !148
+  br i1 %176, label %211, label %177, !llvm.loop !146
 
 177:                                              ; preds = %164
-  store i8 1, ptr %174, align 2, !tbaa !136
+  store i8 1, ptr %174, align 2, !tbaa !135
   %178 = xor i32 %166, 1
   %179 = zext nneg i32 %178 to i64
   %180 = getelementptr inbounds nuw [2 x %struct.b2JointEdge], ptr %169, i64 0, i64 %179
-  %181 = load i32, ptr %180, align 4, !tbaa !113
+  %181 = load i32, ptr %180, align 4, !tbaa !112
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds %struct.b2Body, ptr %15, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
   %185 = load i32, ptr %184, align 8, !tbaa !100
   %186 = icmp eq i32 %185, 1
-  br i1 %186, label %211, label %187, !llvm.loop !148
+  br i1 %186, label %211, label %187, !llvm.loop !146
 
 187:                                              ; preds = %177
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 121
-  %189 = load i8, ptr %188, align 1, !tbaa !132, !range !138, !noundef !139
+  %189 = load i8, ptr %188, align 1, !tbaa !131, !range !137, !noundef !138
   %190 = icmp eq i8 %189, 0
   %191 = icmp eq i32 %185, 2
   %or.cond = and i1 %191, %190
@@ -1712,13 +1712,13 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   %194 = sext i32 %.4208 to i64
   %195 = getelementptr inbounds i32, ptr %17, i64 %194
   store i32 %181, ptr %195, align 4, !tbaa !95
-  store i8 1, ptr %188, align 1, !tbaa !132
+  store i8 1, ptr %188, align 1, !tbaa !131
   br label %196
 
 196:                                              ; preds = %192, %187
   %.7 = phi i32 [ %193, %192 ], [ %.4208, %187 ]
   %197 = getelementptr inbounds nuw i8, ptr %168, i64 48
-  store i32 %77, ptr %197, align 8, !tbaa !120
+  store i32 %77, ptr %197, align 8, !tbaa !119
   %198 = load i32, ptr %84, align 4, !tbaa !88
   %.not172 = icmp eq i32 %198, -1
   br i1 %.not172, label %202, label %199
@@ -1726,14 +1726,14 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
 199:                                              ; preds = %196
   %200 = sext i32 %198 to i64
   %201 = getelementptr inbounds %struct.b2Joint, ptr %.val181, i64 %200, i32 8
-  store i32 %165, ptr %201, align 8, !tbaa !117
+  store i32 %165, ptr %201, align 8, !tbaa !116
   br label %202
 
 202:                                              ; preds = %199, %196
   %203 = getelementptr inbounds nuw i8, ptr %168, i64 52
-  store i32 %198, ptr %203, align 4, !tbaa !119
+  store i32 %198, ptr %203, align 4, !tbaa !118
   %204 = getelementptr inbounds nuw i8, ptr %168, i64 56
-  store i32 -1, ptr %204, align 8, !tbaa !117
+  store i32 -1, ptr %204, align 8, !tbaa !116
   store i32 %165, ptr %84, align 4, !tbaa !88
   %205 = load i32, ptr %85, align 4, !tbaa !87
   %206 = icmp eq i32 %205, -1
@@ -1752,12 +1752,12 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
 211:                                              ; preds = %208, %177, %164
   %.5 = phi i32 [ %.4208, %164 ], [ %.7, %208 ], [ %.4208, %177 ]
   %.not170 = icmp eq i32 %173, -1
-  br i1 %.not170, label %.loopexit, label %164, !llvm.loop !149
+  br i1 %.not170, label %.loopexit, label %164
 
 .loopexit183:                                     ; preds = %.loopexit, %67
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge215, label %67, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge215, label %67, !llvm.loop !147
 
 212:                                              ; preds = %7, %2, %._crit_edge215
   ret void
@@ -1771,13 +1771,13 @@ declare void @b2FreeArenaItem(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden void @b2SplitIslandTask(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @b2GetTicks() #5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1528
-  %7 = load i32, ptr %6, align 8, !tbaa !151
+  %7 = load i32, ptr %6, align 8, !tbaa !148
   tail call void @b2SplitIsland(ptr noundef %3, i32 noundef %7)
   %8 = tail call float @b2GetMilliseconds(i64 noundef %5) #5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1656
-  %10 = load float, ptr %9, align 4, !tbaa !152
+  %10 = load float, ptr %9, align 4, !tbaa !149
   %11 = fadd float %8, %10
-  store float %11, ptr %9, align 4, !tbaa !152
+  store float %11, ptr %9, align 4, !tbaa !149
   ret void
 }
 
@@ -1902,48 +1902,45 @@ attributes #5 = { nounwind }
 !105 = !{!104, !9, i64 48}
 !106 = !{!37, !38, i64 0}
 !107 = !{!104, !9, i64 44}
-!108 = distinct !{!108, !109, !110}
+!108 = distinct !{!108, !109}
 !109 = !{!"llvm.loop.mustprogress"}
-!110 = !{!"llvm.loop.estimated_trip_count"}
-!111 = distinct !{!111, !109, !110}
-!112 = !{!104, !9, i64 52}
-!113 = !{!114, !9, i64 0}
-!114 = !{!"b2JointEdge", !9, i64 0, !9, i64 4, !9, i64 8}
-!115 = !{!116, !9, i64 44}
-!116 = !{!"b2Joint", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !61, i64 60, !9, i64 64, !62, i64 68, !64, i64 70, !64, i64 71}
-!117 = !{!116, !9, i64 56}
-!118 = !{!35, !36, i64 0}
-!119 = !{!116, !9, i64 52}
-!120 = !{!116, !9, i64 48}
-!121 = distinct !{!121, !109, !110}
-!122 = distinct !{!122, !109, !110}
-!123 = distinct !{!123, !109, !110}
-!124 = distinct !{!124, !109, !110}
-!125 = distinct !{!125, !109, !110}
-!126 = distinct !{!126, !109, !110}
-!127 = distinct !{!127, !109, !110}
-!128 = !{!101, !9, i64 84}
-!129 = !{!101, !9, i64 80}
-!130 = distinct !{!130, !109, !110}
-!131 = !{!16, !32, i64 1032}
-!132 = !{!101, !64, i64 121}
-!133 = distinct !{!133, !109, !110}
-!134 = !{!104, !64, i64 64}
-!135 = distinct !{!135, !109, !110}
-!136 = !{!116, !64, i64 70}
-!137 = distinct !{!137, !109, !110}
-!138 = !{i8 0, i8 2}
-!139 = !{}
-!140 = distinct !{!140, !109, !110}
-!141 = !{!101, !9, i64 48}
-!142 = !{!98, !9, i64 8}
-!143 = distinct !{!143, !109}
-!144 = !{!104, !9, i64 60}
-!145 = distinct !{!145, !110}
-!146 = !{!101, !9, i64 68}
-!147 = !{!114, !9, i64 8}
-!148 = distinct !{!148, !109}
-!149 = distinct !{!149, !110}
-!150 = distinct !{!150, !109, !110}
-!151 = !{!16, !9, i64 1528}
-!152 = !{!16, !61, i64 1656}
+!110 = distinct !{!110, !109}
+!111 = !{!104, !9, i64 52}
+!112 = !{!113, !9, i64 0}
+!113 = !{!"b2JointEdge", !9, i64 0, !9, i64 4, !9, i64 8}
+!114 = !{!115, !9, i64 44}
+!115 = !{!"b2Joint", !6, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !7, i64 20, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !61, i64 60, !9, i64 64, !62, i64 68, !64, i64 70, !64, i64 71}
+!116 = !{!115, !9, i64 56}
+!117 = !{!35, !36, i64 0}
+!118 = !{!115, !9, i64 52}
+!119 = !{!115, !9, i64 48}
+!120 = distinct !{!120, !109}
+!121 = distinct !{!121, !109}
+!122 = distinct !{!122, !109}
+!123 = distinct !{!123, !109}
+!124 = distinct !{!124, !109}
+!125 = distinct !{!125, !109}
+!126 = distinct !{!126, !109}
+!127 = !{!101, !9, i64 84}
+!128 = !{!101, !9, i64 80}
+!129 = distinct !{!129, !109}
+!130 = !{!16, !32, i64 1032}
+!131 = !{!101, !64, i64 121}
+!132 = distinct !{!132, !109}
+!133 = !{!104, !64, i64 64}
+!134 = distinct !{!134, !109}
+!135 = !{!115, !64, i64 70}
+!136 = distinct !{!136, !109}
+!137 = !{i8 0, i8 2}
+!138 = !{}
+!139 = distinct !{!139, !109}
+!140 = !{!101, !9, i64 48}
+!141 = !{!98, !9, i64 8}
+!142 = distinct !{!142, !109}
+!143 = !{!104, !9, i64 60}
+!144 = !{!101, !9, i64 68}
+!145 = !{!113, !9, i64 8}
+!146 = distinct !{!146, !109}
+!147 = distinct !{!147, !109}
+!148 = !{!16, !9, i64 1528}
+!149 = !{!16, !61, i64 1656}

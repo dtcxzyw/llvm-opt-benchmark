@@ -227,7 +227,7 @@ define hidden void @_ZN10JfrPostBox16synchronous_postEi(ptr noundef nonnull alig
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 10, ptr %6, align 4
   %7 = load ptr, ptr @JfrMsg_lock, align 8
@@ -265,16 +265,16 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN10JfrPostBox7dep
   %21 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %7, i64 noundef 0) #10
   %22 = load volatile i64, ptr %19, align 8
   %.not = icmp ugt i64 %18, %22
-  br i1 %.not, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !11
+  br i1 %.not, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !10
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN10JfrPostBox7depositEi.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #10
   store volatile i32 6, ptr %6, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %24 = load volatile i64, ptr %23, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %25 = and i64 %24, 1
   %.not.i.i3 = icmp eq i64 %25, 0
   br i1 %.not.i.i3, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %26
@@ -299,7 +299,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4
 
 34:                                               ; preds = %31, %28, %26
   %35 = load volatile i64, ptr %23, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %36 = and i64 %35, 1
   %.not.i1.i = icmp eq i64 %36, 0
   br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %37
@@ -333,7 +333,7 @@ define hidden noundef zeroext i1 @_ZNK10JfrPostBox8is_emptyEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN10JfrPostBox7collectEv(ptr noundef nonnull align 8 dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %2) #10, !srcloc !13
+  %3 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %2) #10, !srcloc !12
   %4 = and i32 %3, 783
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -520,10 +520,9 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411161}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !8, !9}
-!12 = !{i64 2145392998}
-!13 = !{i64 2145410032}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !8}
+!11 = !{i64 2145392998}
+!12 = !{i64 2145410032}

@@ -213,7 +213,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
   %60 = add nuw nsw i32 %.071, 1
   %exitcond.not = icmp eq i32 %60, 5
-  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !7
 
 .thread72:                                        ; preds = %6
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1223,7 +1223,7 @@ WriteSegmentToSteamControllerPacketAssembler.exit.i.i.i: ; preds = %71, %67
 
 .thread.i.i.i:                                    ; preds = %.thread.sink.split.i.i.i, %WriteSegmentToSteamControllerPacketAssembler.exit.i.i.i, %61, %58, %52, %42
   %74 = icmp slt i32 %.133.i.i.i, 8
-  br i1 %74, label %42, label %GetFeatureReport.exit.thread19.i.i, !llvm.loop !9
+  br i1 %74, label %42, label %GetFeatureReport.exit.thread19.i.i, !llvm.loop !8
 
 GetFeatureReport.exit.thread19.i.i:               ; preds = %.thread.i.i.i
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull @.str.14, i32 noundef %.133.i.i.i) #9
@@ -1246,7 +1246,7 @@ GetFeatureReport.exit.thread19.i.i:               ; preds = %.thread.i.i.i
   call void @SDL_DelayNS_REAL(i64 noundef 500000) #9
   %81 = add nuw nsw i32 %.049.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %81, 50
-  br i1 %exitcond.not.i.i.i, label %.thread.i.i, label %76, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %.thread.i.i, label %76, !llvm.loop !9
 
 GetFeatureReport.exit.i.i:                        ; preds = %WriteSegmentToSteamControllerPacketAssembler.exit.i.i.i
   store i8 0, ptr %9, align 16
@@ -1265,7 +1265,7 @@ GetFeatureReport.exit.thread16.i.i:               ; preds = %76, %GetFeatureRepo
 .thread.i.i:                                      ; preds = %80, %GetFeatureReport.exit.thread16.i.i, %GetFeatureReport.exit.thread19.i.i
   %84 = add nuw nsw i32 %.01227.i.i, 1
   %exitcond.i.i = icmp eq i32 %84, 10
-  br i1 %exitcond.i.i, label %.loopexit27, label %38, !llvm.loop !11
+  br i1 %exitcond.i.i, label %.loopexit27, label %38, !llvm.loop !10
 
 ReadResponse.exit.i:                              ; preds = %GetFeatureReport.exit.thread16.i.i
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -1301,7 +1301,7 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
   %.1.i = phi i32 [ %96, %94 ], [ %.058119.i, %91 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %91, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %91, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %97, %.preheader.i
   %.058.lcssa.i = phi i32 [ 9000, %.preheader.i ], [ %.1.i, %97 ]
@@ -1537,7 +1537,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_SendJoystickEffect(ptr noundef re
   %23 = load ptr, ptr %15, align 8
   %24 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %23, ptr noundef nonnull %5, i64 noundef 20) #9
   %25 = icmp sgt i32 %18, 0
-  br i1 %25, label %16, label %SetFeatureReport.exit, !llvm.loop !13
+  br i1 %25, label %16, label %SetFeatureReport.exit, !llvm.loop !12
 
 26:                                               ; preds = %30, %.preheader.i
   %.034.i = phi i32 [ 0, %.preheader.i ], [ %31, %30 ]
@@ -2410,12 +2410,11 @@ attributes #10 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

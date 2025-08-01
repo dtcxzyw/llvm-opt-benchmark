@@ -111,7 +111,7 @@ define hidden noundef zeroext i1 @osi_calc_checksum(ptr noundef %0, i32 noundef 
   store i32 %23, ptr %4, align 4
   %24 = sub i32 %.02732, %spec.store.select
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %19, %8, %5
   ret i1 %7
@@ -182,7 +182,7 @@ define hidden noundef zeroext i1 @osi_check_and_get_checksum(ptr noundef %0, i32
   %24 = add i32 %23, %.16484
   %25 = add nuw i32 %.05985, 1
   %exitcond.not = icmp eq i32 %25, %.061
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %scevgep = getelementptr i8, ptr %.07089, i64 1
@@ -206,7 +206,7 @@ define hidden noundef zeroext i1 @osi_check_and_get_checksum(ptr noundef %0, i32
   %32 = urem i32 %.2, 255
   %33 = sub i32 %.1, %.061
   %.not79 = icmp eq i32 %33, 0
-  br i1 %.not79, label %._crit_edge96, label %18, !llvm.loop !11
+  br i1 %.not79, label %._crit_edge96, label %18, !llvm.loop !10
 
 ._crit_edge96:                                    ; preds = %._crit_edge, %13
   %.065.lcssa = phi i32 [ 0, %13 ], [ %31, %._crit_edge ]
@@ -306,7 +306,7 @@ define hidden i32 @check_atn_ec_32(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.1 = select i1 %37, i32 %38, i32 %36
   %39 = add nuw i32 %.0162226, 1
   %exitcond.not = icmp eq i32 %39, %1
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %27, %8
   %.0152.lcssa = phi i32 [ 0, %8 ], [ %spec.select, %27 ]
@@ -363,7 +363,7 @@ define hidden i32 @check_atn_ec_32(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.4 = select i1 %65, i32 %66, i32 %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond272.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !13
+  br i1 %exitcond272.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !12
 
 ._crit_edge241:                                   ; preds = %.lr.ph240, %._crit_edge
   %.5157.lcssa = phi i32 [ %spec.select220, %._crit_edge ], [ %spec.select221, %.lr.ph240 ]
@@ -432,7 +432,7 @@ define hidden i32 @check_atn_ec_32(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.7 = select i1 %94, i32 %95, i32 %93
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
-  br i1 %exitcond277.not, label %.preheader, label %.lr.ph252, !llvm.loop !14
+  br i1 %exitcond277.not, label %.preheader, label %.lr.ph252, !llvm.loop !13
 
 .lr.ph262:                                        ; preds = %.lr.ph262.preheader, %.lr.ph262
   %.8261 = phi i32 [ %.9, %.lr.ph262 ], [ %.6.lcssa, %.lr.ph262.preheader ]
@@ -460,7 +460,7 @@ define hidden i32 @check_atn_ec_32(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.9 = select i1 %108, i32 %109, i32 %107
   %110 = add i32 %.3165257, 1
   %exitcond278.not = icmp eq i32 %.3165257, %80
-  br i1 %exitcond278.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !15
+  br i1 %exitcond278.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !14
 
 ._crit_edge263:                                   ; preds = %.lr.ph262, %.preheader
   %.10.lcssa = phi i32 [ %.8160.lcssa, %.preheader ], [ %spec.select224, %.lr.ph262 ]
@@ -531,7 +531,7 @@ define hidden zeroext i16 @check_atn_ec_16(ptr noundef %0, i32 noundef %1, i32 n
   %.182 = select i1 %30, i16 %31, i16 %29
   %32 = add nuw i32 %.0120, 1
   %exitcond.not = icmp eq i32 %32, %1
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %26, %8
   %.085.lcssa = phi i16 [ 0, %8 ], [ %spec.select, %26 ]
@@ -569,7 +569,7 @@ define hidden zeroext i16 @check_atn_ec_16(ptr noundef %0, i32 noundef %1, i32 n
   %.4 = select i1 %47, i16 %48, i16 %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond147.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !17
+  br i1 %exitcond147.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !16
 
 ._crit_edge127:                                   ; preds = %.lr.ph126, %._crit_edge
   %.590.lcssa = phi i16 [ %spec.select113, %._crit_edge ], [ %spec.select114, %.lr.ph126 ]
@@ -617,7 +617,7 @@ define hidden zeroext i16 @check_atn_ec_16(ptr noundef %0, i32 noundef %1, i32 n
   %.7 = select i1 %65, i16 %66, i16 %64
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count150
-  br i1 %exitcond151.not, label %.preheader, label %.lr.ph134, !llvm.loop !18
+  br i1 %exitcond151.not, label %.preheader, label %.lr.ph134, !llvm.loop !17
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %.3139 = phi i32 [ %75, %.lr.ph140 ], [ %2, %.lr.ph140.preheader ]
@@ -635,7 +635,7 @@ define hidden zeroext i16 @check_atn_ec_16(ptr noundef %0, i32 noundef %1, i32 n
   %.9 = select i1 %73, i16 %74, i16 %72
   %75 = add i32 %.3139, 1
   %exitcond152.not = icmp eq i32 %.3139, %57
-  br i1 %exitcond152.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !19
+  br i1 %exitcond152.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !18
 
 ._crit_edge141:                                   ; preds = %.lr.ph140, %.preheader
   %.10.lcssa = phi i16 [ %.893.lcssa, %.preheader ], [ %spec.select117, %.lr.ph140 ]
@@ -804,7 +804,7 @@ define internal i32 @dissect_osi_juniper(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_osi_tpkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = load i8, ptr @tpkt_desegment, align 1, !range !20, !noundef !21
+  %5 = load i8, ptr @tpkt_desegment, align 1, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
   %7 = load ptr, ptr @osi_handle, align 8
   tail call void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %6, ptr noundef %7)
@@ -856,19 +856,18 @@ attributes #4 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = !{i8 0, i8 2}
-!21 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = !{i8 0, i8 2}
+!20 = !{}

@@ -555,9 +555,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
 .lr.ph:                                           ; preds = %.preheader, %215
   %182 = phi i32 [ %216, %215 ], [ %170, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %215 ], [ 0, %.preheader ]
-  %183 = load ptr, ptr %91, align 8, !tbaa !58
-  %184 = load ptr, ptr %92, align 8, !tbaa !59
-  %185 = load i64, ptr %184, align 8, !tbaa !60
+  %183 = load ptr, ptr %91, align 8, !tbaa !57
+  %184 = load ptr, ptr %92, align 8, !tbaa !58
+  %185 = load i64, ptr %184, align 8, !tbaa !59
   %186 = mul i64 %185, %indvars.iv127
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv
@@ -567,9 +567,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   br i1 %or.cond, label %191, label %215
 
 191:                                              ; preds = %.lr.ph
-  %192 = load ptr, ptr %93, align 8, !tbaa !58
-  %193 = load ptr, ptr %94, align 8, !tbaa !59
-  %194 = load i64, ptr %193, align 8, !tbaa !60
+  %192 = load ptr, ptr %93, align 8, !tbaa !57
+  %193 = load ptr, ptr %94, align 8, !tbaa !58
+  %194 = load i64, ptr %193, align 8, !tbaa !59
   %195 = mul i64 %194, %indvars.iv127
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 %195
   %197 = getelementptr inbounds nuw %"class.cv::Vec", ptr %196, i64 %indvars.iv
@@ -601,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %217 = sext i32 %216 to i64
   %218 = icmp slt i64 %indvars.iv.next, %217
-  br i1 %218, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !61
+  br i1 %218, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !60
 
 219:                                              ; preds = %._crit_edge.i.i100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #11
@@ -659,7 +659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
 
 234:                                              ; preds = %232
   %235 = icmp sgt i32 %233, -1
-  br i1 %235, label %236, label %103, !llvm.loop !62
+  br i1 %235, label %236, label %103, !llvm.loop !61
 
 236:                                              ; preds = %234
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
@@ -837,12 +837,11 @@ attributes #13 = { builtin nounwind }
 !51 = !{!"_ZTSN2cv7MatStepE", !52, i64 0, !11, i64 8}
 !52 = !{!"p1 long", !15, i64 0}
 !53 = !{!47, !17, i64 8}
-!54 = distinct !{!54, !55, !56, !57}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!"llvm.loop.unswitch.partial.disable"}
-!58 = !{!47, !40, i64 16}
-!59 = !{!47, !52, i64 72}
-!60 = !{!10, !10, i64 0}
-!61 = distinct !{!61, !55, !56}
-!62 = distinct !{!62, !55, !56}
+!56 = !{!"llvm.loop.unswitch.partial.disable"}
+!57 = !{!47, !40, i64 16}
+!58 = !{!47, !52, i64 72}
+!59 = !{!10, !10, i64 0}
+!60 = distinct !{!60, !55}
+!61 = distinct !{!61, !55}

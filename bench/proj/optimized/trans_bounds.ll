@@ -321,7 +321,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i283: ; preds = %_ZNKSt6vectorIdSa
   %.1.i = select i1 %145, double %144, double %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %39
-  br i1 %exitcond.not.i, label %_ZL10simple_minPKdi.exit, label %142, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL10simple_minPKdi.exit, label %142, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit:                         ; preds = %142
   store double %.1.i, ptr %7, align 8, !tbaa !3
@@ -340,7 +340,7 @@ _ZL10simple_minPKdi.exit:                         ; preds = %142
   %.1.i218 = select i1 %or.cond15.i, double %148, double %.01316.i
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i217, 1
   %exitcond.not.i220 = icmp eq i64 %indvars.iv.next.i219, %39
-  br i1 %exitcond.not.i220, label %_ZL10simple_maxPKdi.exit, label %146, !llvm.loop !18
+  br i1 %exitcond.not.i220, label %_ZL10simple_maxPKdi.exit, label %146, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit:                         ; preds = %146
   store double %.1.i218, ptr %9, align 8, !tbaa !3
@@ -356,7 +356,7 @@ _ZL10simple_maxPKdi.exit:                         ; preds = %146
   %.1.i224 = select i1 %156, double %155, double %.0911.i223
   %indvars.iv.next.i225 = add nuw nsw i64 %indvars.iv.i222, 1
   %exitcond.not.i226 = icmp eq i64 %indvars.iv.next.i225, %39
-  br i1 %exitcond.not.i226, label %_ZL10simple_minPKdi.exit227, label %153, !llvm.loop !17
+  br i1 %exitcond.not.i226, label %_ZL10simple_minPKdi.exit227, label %153, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit227:                      ; preds = %153
   store double %.1.i224, ptr %8, align 8, !tbaa !3
@@ -375,7 +375,7 @@ _ZL10simple_minPKdi.exit227:                      ; preds = %153
   %.1.i233 = select i1 %or.cond15.i232, double %159, double %.01316.i230
   %indvars.iv.next.i234 = add nuw nsw i64 %indvars.iv.i229, 1
   %exitcond.not.i235 = icmp eq i64 %indvars.iv.next.i234, %39
-  br i1 %exitcond.not.i235, label %_ZL10simple_maxPKdi.exit236, label %157, !llvm.loop !18
+  br i1 %exitcond.not.i235, label %_ZL10simple_maxPKdi.exit236, label %157, !llvm.loop !17
 
 163:                                              ; preds = %139
   br i1 %.0181, label %164, label %170
@@ -393,7 +393,7 @@ _ZL10simple_minPKdi.exit227:                      ; preds = %153
   %.1.i240 = select i1 %169, double %168, double %.0911.i239
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i238, 1
   %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i241, %39
-  br i1 %exitcond.not.i242, label %_ZL10simple_minPKdi.exit243, label %166, !llvm.loop !17
+  br i1 %exitcond.not.i242, label %_ZL10simple_minPKdi.exit243, label %166, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit243:                      ; preds = %166
   store double %.1.i240, ptr %7, align 8, !tbaa !3
@@ -423,7 +423,7 @@ _ZL10simple_minPKdi.exit243:                      ; preds = %166
   %.1.i249 = select i1 %or.cond15.i248, double %175, double %.01316.i246
   %indvars.iv.next.i250 = add nuw nsw i64 %indvars.iv.i245, 1
   %exitcond.not.i251 = icmp eq i64 %indvars.iv.next.i250, %39
-  br i1 %exitcond.not.i251, label %_ZL10simple_maxPKdi.exit252, label %173, !llvm.loop !18
+  br i1 %exitcond.not.i251, label %_ZL10simple_maxPKdi.exit252, label %173, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit252:                      ; preds = %173
   store double %.1.i249, ptr %9, align 8, !tbaa !3
@@ -442,7 +442,7 @@ _ZL10simple_maxPKdi.exit252:                      ; preds = %173
   %.1.i256 = select i1 %184, double %183, double %.0911.i255
   %indvars.iv.next.i257 = add nuw nsw i64 %indvars.iv.i254, 1
   %exitcond.not.i258 = icmp eq i64 %indvars.iv.next.i257, %39
-  br i1 %exitcond.not.i258, label %_ZL10simple_minPKdi.exit259, label %181, !llvm.loop !17
+  br i1 %exitcond.not.i258, label %_ZL10simple_minPKdi.exit259, label %181, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit259:                      ; preds = %181
   store double %.1.i256, ptr %7, align 8, !tbaa !3
@@ -461,7 +461,7 @@ _ZL10simple_minPKdi.exit259:                      ; preds = %181
   %.1.i265 = select i1 %or.cond15.i264, double %187, double %.01316.i262
   %indvars.iv.next.i266 = add nuw nsw i64 %indvars.iv.i261, 1
   %exitcond.not.i267 = icmp eq i64 %indvars.iv.next.i266, %39
-  br i1 %exitcond.not.i267, label %_ZL10simple_maxPKdi.exit268, label %185, !llvm.loop !18
+  br i1 %exitcond.not.i267, label %_ZL10simple_maxPKdi.exit268, label %185, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit268:                      ; preds = %185
   store double %.1.i265, ptr %9, align 8, !tbaa !3
@@ -646,14 +646,14 @@ _ZL14get_output_crsP6pj_ctxP8PJconsts12PJ_DIRECTION.exit: ; preds = %6, %8
 
 26:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store ptr null, ptr %4, align 8, !tbaa !19
+  store ptr null, ptr %4, align 8, !tbaa !18
   %27 = call i32 @proj_cs_get_axis_info(ptr noundef %0, ptr noundef nonnull %.124, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %28 = call ptr @proj_destroy(ptr noundef nonnull %.124)
   %.not = icmp eq i32 %27, 1
   br i1 %.not, label %29, label %37
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %4, align 8, !tbaa !19
+  %30 = load ptr, ptr %4, align 8, !tbaa !18
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(4) @.str.8) #13
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %37, label %33
@@ -811,7 +811,7 @@ define internal fastcc noundef double @_ZL16antimeridian_minPKdi(ptr noundef rea
   %23 = zext i32 %.1.i to i64
   %24 = icmp ne i64 %indvars.iv, %23
   %25 = and i1 %22, %24
-  br i1 %25, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !20
+  br i1 %25, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !19
 
 _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %8
   %26 = phi double [ %13, %8 ], [ %21, %.lr.ph.i ]
@@ -865,7 +865,7 @@ _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %8
   %.1 = phi double [ %.04172, %4 ], [ %.5, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !21
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !20
 
 43:                                               ; preds = %3
   br label %45
@@ -926,7 +926,7 @@ define internal fastcc noundef double @_ZL16antimeridian_maxPKdi(ptr noundef rea
   %23 = zext i32 %.1.i to i64
   %24 = icmp ne i64 %indvars.iv, %23
   %25 = and i1 %22, %24
-  br i1 %25, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !20
+  br i1 %25, label %.lr.ph.i, label %_ZL19find_previous_indexiPKdi.exit, !llvm.loop !19
 
 _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %8
   %26 = phi double [ %13, %8 ], [ %21, %.lr.ph.i ]
@@ -984,7 +984,7 @@ _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %8
   %.1 = phi double [ %.05184, %4 ], [ %.5, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !21
 
 45:                                               ; preds = %3
   br label %47
@@ -1328,7 +1328,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next933 = add nsw i64 %indvars.iv932, 1
   %153 = add nuw i32 %.0365877, 1
   %exitcond936.not = icmp eq i32 %.0365877, %15
-  br i1 %exitcond936.not, label %.lr.ph883.preheader, label %.lr.ph879, !llvm.loop !23
+  br i1 %exitcond936.not, label %.lr.ph883.preheader, label %.lr.ph879, !llvm.loop !22
 
 .lr.ph888.preheader:                              ; preds = %.lr.ph883
   %sext974 = shl i64 %indvars.iv.next938, 32
@@ -1349,7 +1349,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next938 = add nsw i64 %indvars.iv937, 1
   %160 = add nuw i32 %.0364882, 1
   %exitcond941.not = icmp eq i32 %.0364882, %15
-  br i1 %exitcond941.not, label %.lr.ph888.preheader, label %.lr.ph883, !llvm.loop !24
+  br i1 %exitcond941.not, label %.lr.ph888.preheader, label %.lr.ph883, !llvm.loop !23
 
 .lr.ph893.preheader:                              ; preds = %.lr.ph888
   %sext975 = shl i64 %indvars.iv.next943, 32
@@ -1370,10 +1370,10 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next943 = add nsw i64 %indvars.iv942, 1
   %167 = add nuw i32 %.0363887, 1
   %exitcond946.not = icmp eq i32 %.0363887, %15
-  br i1 %exitcond946.not, label %.lr.ph893.preheader, label %.lr.ph888, !llvm.loop !25
+  br i1 %exitcond946.not, label %.lr.ph893.preheader, label %.lr.ph888, !llvm.loop !24
 
 ._crit_edge894:                                   ; preds = %.lr.ph893
-  br i1 %143, label %.lr.ph879.preheader, label %.lr.ph902.preheader, !llvm.loop !26
+  br i1 %143, label %.lr.ph879.preheader, label %.lr.ph902.preheader, !llvm.loop !25
 
 .lr.ph893:                                        ; preds = %.lr.ph893.preheader, %.lr.ph893
   %indvars.iv947 = phi i64 [ %161, %.lr.ph893.preheader ], [ %indvars.iv.next948, %.lr.ph893 ]
@@ -1390,7 +1390,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next948 = add nsw i64 %indvars.iv947, 1
   %174 = add nuw i32 %.0362892, 1
   %exitcond951.not = icmp eq i32 %.0362892, %15
-  br i1 %exitcond951.not, label %._crit_edge894, label %.lr.ph893, !llvm.loop !27
+  br i1 %exitcond951.not, label %._crit_edge894, label %.lr.ph893, !llvm.loop !26
 
 .lr.ph907.preheader:                              ; preds = %.lr.ph902
   %sext977 = shl i64 %indvars.iv.next954, 32
@@ -1411,7 +1411,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next954 = add nsw i64 %indvars.iv953, 1
   %181 = add nuw i32 %.0359900, 1
   %exitcond957.not = icmp eq i32 %.0359900, %15
-  br i1 %exitcond957.not, label %.lr.ph907.preheader, label %.lr.ph902, !llvm.loop !28
+  br i1 %exitcond957.not, label %.lr.ph907.preheader, label %.lr.ph902, !llvm.loop !27
 
 .lr.ph912.preheader:                              ; preds = %.lr.ph907
   %sext978 = shl i64 %indvars.iv.next959, 32
@@ -1432,7 +1432,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next959 = add nsw i64 %indvars.iv958, 1
   %188 = add nuw i32 %.0358906, 1
   %exitcond962.not = icmp eq i32 %.0358906, %15
-  br i1 %exitcond962.not, label %.lr.ph912.preheader, label %.lr.ph907, !llvm.loop !29
+  br i1 %exitcond962.not, label %.lr.ph912.preheader, label %.lr.ph907, !llvm.loop !28
 
 .lr.ph917.preheader:                              ; preds = %.lr.ph912
   %sext979 = shl i64 %indvars.iv.next964, 32
@@ -1453,7 +1453,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next964 = add nsw i64 %indvars.iv963, 1
   %195 = add nuw i32 %.0357911, 1
   %exitcond967.not = icmp eq i32 %.0357911, %15
-  br i1 %exitcond967.not, label %.lr.ph917.preheader, label %.lr.ph912, !llvm.loop !30
+  br i1 %exitcond967.not, label %.lr.ph917.preheader, label %.lr.ph912, !llvm.loop !29
 
 ._crit_edge918:                                   ; preds = %.lr.ph917
   %196 = invoke i64 @proj_trans_generic(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %60, i64 noundef 8, i64 noundef %58, ptr noundef nonnull %64, i64 noundef 8, i64 noundef %58, ptr noundef nonnull %67, i64 noundef 8, i64 noundef %58, ptr noundef null, i64 noundef 0, i64 noundef 0)
@@ -1473,7 +1473,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %indvars.iv.next969 = add nsw i64 %indvars.iv968, 1
   %202 = add nuw i32 %.0356916, 1
   %exitcond972.not = icmp eq i32 %.0356916, %15
-  br i1 %exitcond972.not, label %._crit_edge918, label %.lr.ph917, !llvm.loop !31
+  br i1 %exitcond972.not, label %._crit_edge918, label %.lr.ph917, !llvm.loop !30
 
 203:                                              ; preds = %._crit_edge918
   %204 = load double, ptr %60, align 8, !tbaa !3
@@ -1488,7 +1488,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i629: ; preds = %_ZNKSt6vectorIdSa
   %.1.i = select i1 %208, double %207, double %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not.i, label %_ZL10simple_minPKdi.exit, label %205, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL10simple_minPKdi.exit, label %205, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit:                         ; preds = %205
   %209 = load double, ptr %9, align 8, !tbaa !3
@@ -1507,7 +1507,7 @@ _ZL10simple_minPKdi.exit:                         ; preds = %205
   %.1.i438 = select i1 %215, double %214, double %.0911.i437
   %indvars.iv.next.i439 = add nuw nsw i64 %indvars.iv.i436, 1
   %exitcond.not.i440 = icmp eq i64 %indvars.iv.next.i439, %58
-  br i1 %exitcond.not.i440, label %_ZL10simple_minPKdi.exit441, label %212, !llvm.loop !17
+  br i1 %exitcond.not.i440, label %_ZL10simple_minPKdi.exit441, label %212, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit441:                      ; preds = %212
   %216 = load double, ptr %10, align 8, !tbaa !3
@@ -1526,7 +1526,7 @@ _ZL10simple_minPKdi.exit441:                      ; preds = %212
   %.1.i446 = select i1 %222, double %221, double %.0911.i445
   %indvars.iv.next.i447 = add nuw nsw i64 %indvars.iv.i444, 1
   %exitcond.not.i448 = icmp eq i64 %indvars.iv.next.i447, %58
-  br i1 %exitcond.not.i448, label %_ZL10simple_minPKdi.exit449, label %219, !llvm.loop !17
+  br i1 %exitcond.not.i448, label %_ZL10simple_minPKdi.exit449, label %219, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit449:                      ; preds = %219
   %223 = load double, ptr %11, align 8, !tbaa !3
@@ -1548,7 +1548,7 @@ _ZL10simple_minPKdi.exit449:                      ; preds = %219
   %.1.i453 = select i1 %or.cond15.i, double %227, double %.01316.i
   %indvars.iv.next.i454 = add nuw nsw i64 %indvars.iv.i452, 1
   %exitcond.not.i455 = icmp eq i64 %indvars.iv.next.i454, %58
-  br i1 %exitcond.not.i455, label %_ZL10simple_maxPKdi.exit, label %225, !llvm.loop !18
+  br i1 %exitcond.not.i455, label %_ZL10simple_maxPKdi.exit, label %225, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit:                         ; preds = %225
   %231 = load double, ptr %12, align 8, !tbaa !3
@@ -1570,7 +1570,7 @@ _ZL10simple_maxPKdi.exit:                         ; preds = %225
   %.1.i462 = select i1 %or.cond15.i461, double %235, double %.01316.i459
   %indvars.iv.next.i463 = add nuw nsw i64 %indvars.iv.i458, 1
   %exitcond.not.i464 = icmp eq i64 %indvars.iv.next.i463, %58
-  br i1 %exitcond.not.i464, label %_ZL10simple_maxPKdi.exit465, label %233, !llvm.loop !18
+  br i1 %exitcond.not.i464, label %_ZL10simple_maxPKdi.exit465, label %233, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit465:                      ; preds = %233
   %239 = load double, ptr %13, align 8, !tbaa !3
@@ -1592,7 +1592,7 @@ _ZL10simple_maxPKdi.exit465:                      ; preds = %233
   %.1.i472 = select i1 %or.cond15.i471, double %243, double %.01316.i469
   %indvars.iv.next.i473 = add nuw nsw i64 %indvars.iv.i468, 1
   %exitcond.not.i474 = icmp eq i64 %indvars.iv.next.i473, %58
-  br i1 %exitcond.not.i474, label %_ZL10simple_maxPKdi.exit475, label %241, !llvm.loop !18
+  br i1 %exitcond.not.i474, label %_ZL10simple_maxPKdi.exit475, label %241, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit475:                      ; preds = %241
   %247 = load double, ptr %14, align 8, !tbaa !3
@@ -1657,7 +1657,7 @@ _ZL10simple_maxPKdi.exit475:                      ; preds = %241
   store double %252, ptr %275, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 276:                                              ; preds = %._crit_edge
   br i1 %.0384, label %277, label %280
@@ -1690,7 +1690,7 @@ _ZL10simple_maxPKdi.exit475:                      ; preds = %241
   %.1.i480 = select i1 %286, double %285, double %.0911.i479
   %indvars.iv.next.i481 = add nuw nsw i64 %indvars.iv.i478, 1
   %exitcond.not.i482 = icmp eq i64 %indvars.iv.next.i481, %58
-  br i1 %exitcond.not.i482, label %_ZL10simple_minPKdi.exit483, label %283, !llvm.loop !17
+  br i1 %exitcond.not.i482, label %_ZL10simple_minPKdi.exit483, label %283, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit483:                      ; preds = %283
   %287 = load double, ptr %9, align 8, !tbaa !3
@@ -1713,7 +1713,7 @@ _ZL10simple_minPKdi.exit483:                      ; preds = %283
   %.1.i490 = select i1 %or.cond15.i489, double %292, double %.01316.i487
   %indvars.iv.next.i491 = add nuw nsw i64 %indvars.iv.i486, 1
   %exitcond.not.i492 = icmp eq i64 %indvars.iv.next.i491, %58
-  br i1 %exitcond.not.i492, label %_ZL10simple_maxPKdi.exit493, label %290, !llvm.loop !18
+  br i1 %exitcond.not.i492, label %_ZL10simple_maxPKdi.exit493, label %290, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit493:                      ; preds = %290
   %296 = load double, ptr %12, align 8, !tbaa !3
@@ -1732,7 +1732,7 @@ _ZL10simple_maxPKdi.exit493:                      ; preds = %290
   %.1.i498 = select i1 %302, double %301, double %.0911.i497
   %indvars.iv.next.i499 = add nuw nsw i64 %indvars.iv.i496, 1
   %exitcond.not.i500 = icmp eq i64 %indvars.iv.next.i499, %58
-  br i1 %exitcond.not.i500, label %_ZL10simple_minPKdi.exit501, label %299, !llvm.loop !17
+  br i1 %exitcond.not.i500, label %_ZL10simple_minPKdi.exit501, label %299, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit501:                      ; preds = %299
   %303 = load double, ptr %10, align 8, !tbaa !3
@@ -1755,7 +1755,7 @@ _ZL10simple_minPKdi.exit501:                      ; preds = %299
   %.1.i508 = select i1 %or.cond15.i507, double %308, double %.01316.i505
   %indvars.iv.next.i509 = add nuw nsw i64 %indvars.iv.i504, 1
   %exitcond.not.i510 = icmp eq i64 %indvars.iv.next.i509, %58
-  br i1 %exitcond.not.i510, label %_ZL10simple_maxPKdi.exit511, label %306, !llvm.loop !18
+  br i1 %exitcond.not.i510, label %_ZL10simple_maxPKdi.exit511, label %306, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit511:                      ; preds = %306
   %312 = load double, ptr %13, align 8, !tbaa !3
@@ -1779,7 +1779,7 @@ _ZL10simple_maxPKdi.exit511:                      ; preds = %306
   %.1.i516 = select i1 %320, double %319, double %.0911.i515
   %indvars.iv.next.i517 = add nuw nsw i64 %indvars.iv.i514, 1
   %exitcond.not.i518 = icmp eq i64 %indvars.iv.next.i517, %58
-  br i1 %exitcond.not.i518, label %_ZL10simple_minPKdi.exit519, label %317, !llvm.loop !17
+  br i1 %exitcond.not.i518, label %_ZL10simple_minPKdi.exit519, label %317, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit519:                      ; preds = %317
   %321 = load double, ptr %9, align 8, !tbaa !3
@@ -1812,7 +1812,7 @@ _ZL10simple_minPKdi.exit519:                      ; preds = %317
   %.1.i526 = select i1 %or.cond15.i525, double %328, double %.01316.i523
   %indvars.iv.next.i527 = add nuw nsw i64 %indvars.iv.i522, 1
   %exitcond.not.i528 = icmp eq i64 %indvars.iv.next.i527, %58
-  br i1 %exitcond.not.i528, label %_ZL10simple_maxPKdi.exit529, label %326, !llvm.loop !18
+  br i1 %exitcond.not.i528, label %_ZL10simple_maxPKdi.exit529, label %326, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit529:                      ; preds = %326
   %332 = load double, ptr %12, align 8, !tbaa !3
@@ -1834,7 +1834,7 @@ _ZL10simple_maxPKdi.exit529:                      ; preds = %326
   %.1.i534 = select i1 %339, double %338, double %.0911.i533
   %indvars.iv.next.i535 = add nuw nsw i64 %indvars.iv.i532, 1
   %exitcond.not.i536 = icmp eq i64 %indvars.iv.next.i535, %58
-  br i1 %exitcond.not.i536, label %_ZL10simple_minPKdi.exit537, label %336, !llvm.loop !17
+  br i1 %exitcond.not.i536, label %_ZL10simple_minPKdi.exit537, label %336, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit537:                      ; preds = %336
   %340 = load double, ptr %9, align 8, !tbaa !3
@@ -1857,7 +1857,7 @@ _ZL10simple_minPKdi.exit537:                      ; preds = %336
   %.1.i544 = select i1 %or.cond15.i543, double %345, double %.01316.i541
   %indvars.iv.next.i545 = add nuw nsw i64 %indvars.iv.i540, 1
   %exitcond.not.i546 = icmp eq i64 %indvars.iv.next.i545, %58
-  br i1 %exitcond.not.i546, label %_ZL10simple_maxPKdi.exit547, label %343, !llvm.loop !18
+  br i1 %exitcond.not.i546, label %_ZL10simple_maxPKdi.exit547, label %343, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit547:                      ; preds = %343
   %349 = load double, ptr %12, align 8, !tbaa !3
@@ -1909,7 +1909,7 @@ _ZL10simple_maxPKdi.exit547:                      ; preds = %343
   %371 = zext i32 %.1.i.i to i64
   %372 = icmp ne i64 %indvars.iv.i550, %371
   %373 = and i1 %370, %372
-  br i1 %373, label %.lr.ph.i.i, label %_ZL19find_previous_indexiPKdi.exit.i, !llvm.loop !20
+  br i1 %373, label %.lr.ph.i.i, label %_ZL19find_previous_indexiPKdi.exit.i, !llvm.loop !19
 
 _ZL19find_previous_indexiPKdi.exit.i:             ; preds = %.lr.ph.i.i, %356
   %374 = phi double [ %361, %356 ], [ %369, %.lr.ph.i.i ]
@@ -1963,7 +1963,7 @@ _ZL19find_previous_indexiPKdi.exit.i:             ; preds = %.lr.ph.i.i, %356
   %.1.i552 = phi double [ %.04172.i, %352 ], [ %.5.i, %388 ]
   %indvars.iv.next.i553 = add nuw nsw i64 %indvars.iv.i550, 1
   %exitcond.not.i554 = icmp eq i64 %indvars.iv.next.i553, %58
-  br i1 %exitcond.not.i554, label %351, label %352, !llvm.loop !21
+  br i1 %exitcond.not.i554, label %351, label %352, !llvm.loop !20
 
 391:                                              ; preds = %351
   br label %_ZL16antimeridian_minPKdi.exit
@@ -2022,7 +2022,7 @@ _ZL16antimeridian_minPKdi.exit:                   ; preds = %392, %391, %351
   %415 = zext i32 %.1.i.i575 to i64
   %416 = icmp ne i64 %indvars.iv.i558, %415
   %417 = and i1 %414, %416
-  br i1 %417, label %.lr.ph.i.i572, label %_ZL19find_previous_indexiPKdi.exit.i561, !llvm.loop !20
+  br i1 %417, label %.lr.ph.i.i572, label %_ZL19find_previous_indexiPKdi.exit.i561, !llvm.loop !19
 
 _ZL19find_previous_indexiPKdi.exit.i561:          ; preds = %.lr.ph.i.i572, %400
   %418 = phi double [ %405, %400 ], [ %413, %.lr.ph.i.i572 ]
@@ -2080,7 +2080,7 @@ _ZL19find_previous_indexiPKdi.exit.i561:          ; preds = %.lr.ph.i.i572, %400
   %.1.i565 = phi double [ %.05184.i, %396 ], [ %.5.i564, %433 ]
   %indvars.iv.next.i566 = add nuw nsw i64 %indvars.iv.i558, 1
   %exitcond.not.i567 = icmp eq i64 %indvars.iv.next.i566, %58
-  br i1 %exitcond.not.i567, label %395, label %396, !llvm.loop !22
+  br i1 %exitcond.not.i567, label %395, label %396, !llvm.loop !21
 
 437:                                              ; preds = %395
   br label %_ZL16antimeridian_maxPKdi.exit
@@ -2110,7 +2110,7 @@ _ZL16antimeridian_maxPKdi.exit:                   ; preds = %395, %437, %438
   %.1.i580 = select i1 %446, double %445, double %.0911.i579
   %indvars.iv.next.i581 = add nuw nsw i64 %indvars.iv.i578, 1
   %exitcond.not.i582 = icmp eq i64 %indvars.iv.next.i581, %58
-  br i1 %exitcond.not.i582, label %_ZL10simple_minPKdi.exit583, label %443, !llvm.loop !17
+  br i1 %exitcond.not.i582, label %_ZL10simple_minPKdi.exit583, label %443, !llvm.loop !16
 
 _ZL10simple_minPKdi.exit583:                      ; preds = %443
   %447 = load double, ptr %11, align 8, !tbaa !3
@@ -2132,14 +2132,14 @@ _ZL10simple_minPKdi.exit583:                      ; preds = %443
   %.1.i590 = select i1 %or.cond15.i589, double %451, double %.01316.i587
   %indvars.iv.next.i591 = add nuw nsw i64 %indvars.iv.i586, 1
   %exitcond.not.i592 = icmp eq i64 %indvars.iv.next.i591, %58
-  br i1 %exitcond.not.i592, label %_ZL10simple_maxPKdi.exit593, label %449, !llvm.loop !18
+  br i1 %exitcond.not.i592, label %_ZL10simple_maxPKdi.exit593, label %449, !llvm.loop !17
 
 _ZL10simple_maxPKdi.exit593:                      ; preds = %449
   %455 = load double, ptr %14, align 8, !tbaa !3
   %456 = fcmp olt double %455, %.1.i590
   %.sroa.speculated = select i1 %456, double %.1.i590, double %455
   store double %.sroa.speculated, ptr %14, align 8, !tbaa !3
-  br i1 %251, label %.lr.ph.preheader, label %.loopexit, !llvm.loop !33
+  br i1 %251, label %.lr.ph.preheader, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZL10simple_maxPKdi.exit593, %_ZL10simple_maxPKdi.exit475
   %.sroa.38.3 = phi ptr [ %66, %_ZL10simple_maxPKdi.exit475 ], [ %.sroa.38.5, %_ZL10simple_maxPKdi.exit593 ]
@@ -2318,23 +2318,22 @@ attributes #16 = { noreturn nounwind }
 !11 = !{!"int", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"vtable pointer", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = !{!9, !9, i64 0}
-!20 = distinct !{!20, !15, !16}
-!21 = distinct !{!21, !15, !16}
-!22 = distinct !{!22, !15, !16}
-!23 = distinct !{!23, !15, !16}
-!24 = distinct !{!24, !15, !16}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
-!27 = distinct !{!27, !15, !16}
-!28 = distinct !{!28, !15, !16}
-!29 = distinct !{!29, !15, !16}
-!30 = distinct !{!30, !15, !16}
-!31 = distinct !{!31, !15, !16}
-!32 = distinct !{!32, !15, !16}
-!33 = distinct !{!33, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = !{!9, !9, i64 0}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}

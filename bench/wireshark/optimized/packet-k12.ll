@@ -190,7 +190,7 @@ define internal noundef zeroext i1 @protos_chk_cb(ptr readnone captures(none) %0
 22:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %22 ]
@@ -377,7 +377,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %83 = load i32, ptr @nk12_handles, align 4
   %84 = zext i32 %83 to i64
   %85 = icmp samesign ult i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph, label %.thread, !llvm.loop !10
+  br i1 %85, label %.lr.ph, label %.thread, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader104, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.preheader104 ]
@@ -477,7 +477,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 135:                                              ; preds = %._crit_edge, %129, %122
   %136 = phi ptr [ %.pre, %._crit_edge ], [ %134, %129 ], [ %121, %122 ]
   %.not98 = icmp eq ptr %136, null
-  br i1 %.not98, label %.critedge.loopexit, label %.lr.ph108, !llvm.loop !11
+  br i1 %.not98, label %.critedge.loopexit, label %.lr.ph108, !llvm.loop !10
 
 .critedge.loopexit:                               ; preds = %135, %.lr.ph108
   %.pre113 = load ptr, ptr %.088, align 8
@@ -744,7 +744,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 272:                                              ; preds = %252, %233
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %fill_fp_info.exit, label %230, !llvm.loop !12
+  br i1 %exitcond.not.i, label %fill_fp_info.exit, label %230, !llvm.loop !11
 
 fill_fp_info.exit:                                ; preds = %230, %272, %.critedge, %140, %144, %.thread76.i, %215, %218, %113
   %.sink = phi ptr [ %116, %113 ], [ %137, %218 ], [ %137, %215 ], [ %137, %.thread76.i ], [ %137, %144 ], [ %137, %140 ], [ %137, %.critedge ], [ %137, %272 ], [ %137, %230 ]
@@ -775,7 +775,7 @@ define internal noundef ptr @k12_copy_cb(ptr noundef returned captures(ret: addr
   %13 = getelementptr ptr, ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = shl i32 %11, 3
@@ -820,7 +820,7 @@ define internal noundef zeroext i1 @k12_update_cb(ptr noundef captures(none) %0,
   %12 = getelementptr ptr, ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.042.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
@@ -869,7 +869,7 @@ define internal noundef zeroext i1 @k12_update_cb(ptr noundef captures(none) %0,
 36:                                               ; preds = %.lr.ph55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge56.loopexit, label %.lr.ph55, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge56.loopexit, label %.lr.ph55, !llvm.loop !14
 
 ._crit_edge56.loopexit:                           ; preds = %36
   %.pre = load ptr, ptr %14, align 8
@@ -1044,13 +1044,12 @@ attributes #7 = { allocsize(0,1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

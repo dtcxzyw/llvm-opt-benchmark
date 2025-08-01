@@ -109,29 +109,29 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %21 = add i64 %.01422, 1
   %22 = tail call ptr @ASN1_ITEM_get(i64 noundef %21) #6
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %23, label %.loopexit, label %.lr.ph
 
 24:                                               ; preds = %.preheader
   %25 = add nuw nsw i64 %.121, 1
   %exitcond.not = icmp eq i64 %25, 5
-  br i1 %exitcond.not, label %thread-pre-split, label %.preheader, !llvm.loop !17
+  br i1 %exitcond.not, label %thread-pre-split, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %12, %24
   %.121 = phi i64 [ %25, %24 ], [ 0, %12 ]
   %26 = getelementptr inbounds nuw [5 x %struct.error_enum], ptr @setup_tests.expected_errors, i64 0, i64 %.121
-  %27 = load ptr, ptr %26, align 16, !tbaa !19
+  %27 = load ptr, ptr %26, align 16, !tbaa !17
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %7) #7
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %24
 
 30:                                               ; preds = %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !22
-  store i32 %32, ptr @expected_error, align 4, !tbaa !23
+  %32 = load i32, ptr %31, align 8, !tbaa !20
+  store i32 %32, ptr @expected_error, align 4, !tbaa !21
   br label %33
 
 thread-pre-split:                                 ; preds = %24
-  %.pr = load i32, ptr @expected_error, align 4, !tbaa !23
+  %.pr = load i32, ptr @expected_error, align 4, !tbaa !21
   br label %33
 
 33:                                               ; preds = %thread-pre-split, %30
@@ -194,7 +194,7 @@ define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
   br i1 %.not, label %53, label %7
 
 7:                                                ; preds = %0
-  %8 = load i32, ptr @expected_error, align 4, !tbaa !23
+  %8 = load i32, ptr @expected_error, align 4, !tbaa !21
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %14
 
@@ -219,7 +219,7 @@ define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
-  %23 = load i32, ptr @expected_error, align 4, !tbaa !23
+  %23 = load i32, ptr @expected_error, align 4, !tbaa !21
   %24 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 76, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef %23, i32 noundef 3) #6
   %.not28.not = icmp eq i32 %24, 0
   br i1 %.not28.not, label %.thread, label %43
@@ -234,7 +234,7 @@ define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
   br i1 %or.cond, label %31, label %34
 
 31:                                               ; preds = %25
-  %32 = load i32, ptr @expected_error, align 4, !tbaa !23
+  %32 = load i32, ptr @expected_error, align 4, !tbaa !21
   %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 84, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.36, i32 noundef %32, i32 noundef 4) #6
   %.not27.not = icmp eq i32 %33, 0
   br i1 %.not27.not, label %.thread, label %43
@@ -250,13 +250,13 @@ define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
   br i1 %.not24, label %40, label %37
 
 37:                                               ; preds = %35, %34
-  %38 = load i32, ptr @expected_error, align 4, !tbaa !23
+  %38 = load i32, ptr @expected_error, align 4, !tbaa !21
   %39 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 90, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.37, i32 noundef %38, i32 noundef 5) #6
   %.not26.not = icmp eq i32 %39, 0
   br i1 %.not26.not, label %.thread, label %43
 
 40:                                               ; preds = %35
-  %41 = load i32, ptr @expected_error, align 4, !tbaa !23
+  %41 = load i32, ptr @expected_error, align 4, !tbaa !21
   %42 = call i32 @test_int_eq(ptr noundef nonnull @.str.19, i32 noundef 95, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %41, i32 noundef 1) #6
   %.not25.not = icmp eq i32 %42, 0
   br i1 %.not25.not, label %.thread, label %43
@@ -350,11 +350,9 @@ attributes #7 = { nounwind willreturn memory(read) }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !6, i64 0}
 !15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !18, !16}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !5, i64 0}
-!20 = !{!"", !5, i64 0, !21, i64 8}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!20, !21, i64 8}
-!23 = !{!21, !21, i64 0}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !5, i64 0}
+!18 = !{!"", !5, i64 0, !19, i64 8}
+!19 = !{!"int", !7, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!19, !19, i64 0}

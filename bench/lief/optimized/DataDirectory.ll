@@ -82,7 +82,7 @@ define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr nou
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -137,7 +137,6 @@ attributes #5 = { nounwind }
 !37 = !{!"_ZTS18Pe_DataDirectory_t", !17, i64 0, !17, i64 4}
 !38 = !{!32, !17, i64 12}
 !39 = !{!37, !17, i64 4}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = distinct !{!43, !41, !42}
+!42 = distinct !{!42, !41}

@@ -24,7 +24,7 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h147197e4434a14a0E(ptr captures(
   store ptr %8, ptr %10, align 8
   %12 = add nuw i64 %.0910, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -51,7 +51,7 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h8a209995bac202feE(ptr captures(
   store i64 %8, ptr %10, align 8
   %12 = add nuw i64 %.0910, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -73,7 +73,7 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h99f21a770acb397bE(ptr captures(
   store i64 %7, ptr %6, align 8
   %9 = add nuw i64 %.05, 1
   %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -87,7 +87,3 @@ attributes #0 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}

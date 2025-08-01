@@ -157,7 +157,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   %64 = add i16 %.sroa.03.026.i.i, -1
   %65 = and i16 %64, %.sroa.03.026.i.i
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !82
+  br i1 %66, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 67:                                               ; preds = %._crit_edge.i.i
   %68 = icmp slt <16 x i8> %.sroa.0.0.copyload.i25.i.i, zeroinitializer
@@ -183,7 +183,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
 77:                                               ; preds = %74
   %78 = add i64 %.sroa.8.0.i.i, 16
   %79 = add i64 %.sroa.0.024.i.i, %78
-  br label %48, !llvm.loop !84
+  br label %48
 
 80:                                               ; preds = %74
   %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
@@ -194,7 +194,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   br i1 %83, label %84, label %98
 
 84:                                               ; preds = %80
-  %85 = load <16 x i8>, ptr %.val.i, align 16, !noalias !85
+  %85 = load <16 x i8>, ptr %.val.i, align 16, !noalias !82
   %86 = icmp slt <16 x i8> %85, zeroinitializer
   %87 = bitcast <16 x i1> %86 to i16
   %88 = icmp ne i16 %87, 0
@@ -216,36 +216,36 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
 
 98:                                               ; preds = %84, %80
   %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %80 ], [ %90, %84 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %99 = load ptr, ptr %0, align 8, !alias.scope !88, !noalias !91, !nonnull !4, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  %99 = load ptr, ptr %0, align 8, !alias.scope !85, !noalias !88, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds i8, ptr %99, i64 %.sroa.3.0.i.ph.i
-  %101 = load i8, ptr %100, align 1, !noalias !93, !noundef !4
+  %101 = load i8, ptr %100, align 1, !noalias !90, !noundef !4
   %102 = and i8 %101, 1
   %103 = zext nneg i8 %102 to i64
-  %104 = load i64, ptr %38, align 8, !alias.scope !88, !noalias !91, !noundef !4
+  %104 = load i64, ptr %38, align 8, !alias.scope !85, !noalias !88, !noundef !4
   %105 = sub i64 %104, %103
-  store i64 %105, ptr %38, align 8, !alias.scope !88, !noalias !91
+  store i64 %105, ptr %38, align 8, !alias.scope !85, !noalias !88
   %106 = add i64 %.sroa.3.0.i.ph.i, -16
-  %107 = load i64, ptr %45, align 8, !alias.scope !88, !noalias !91, !noundef !4
+  %107 = load i64, ptr %45, align 8, !alias.scope !85, !noalias !88, !noundef !4
   %108 = and i64 %107, %106
-  store i8 %47, ptr %100, align 1, !noalias !93
+  store i8 %47, ptr %100, align 1, !noalias !90
   %109 = getelementptr i8, ptr %99, i64 %108
   %110 = getelementptr i8, ptr %109, i64 16
-  store i8 %47, ptr %110, align 1, !noalias !93
+  store i8 %47, ptr %110, align 1, !noalias !90
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %112 = load i64, ptr %111, align 8, !alias.scope !88, !noalias !91, !noundef !4
+  %112 = load i64, ptr %111, align 8, !alias.scope !85, !noalias !88, !noundef !4
   %113 = add i64 %112, 1
-  store i64 %113, ptr %111, align 8, !alias.scope !88, !noalias !91
+  store i64 %113, ptr %111, align 8, !alias.scope !85, !noalias !88
   %114 = sub nsw i64 0, %.sroa.3.0.i.ph.i
   %115 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %99, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -32
-  store ptr %1, ptr %116, align 8, !noalias !88
+  store ptr %1, ptr %116, align 8, !noalias !85
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 -24
-  store i64 %2, ptr %.sroa.412.0..sroa_idx, align 8, !noalias !88
+  store i64 %2, ptr %.sroa.412.0..sroa_idx, align 8, !noalias !85
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 -16
-  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !88
+  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !85
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 -8
-  store i64 %4, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !88
+  store i64 %4, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !85
   br label %117
 
 117:                                              ; preds = %91, %98
@@ -423,15 +423,12 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !79 = distinct !{!79, !80, !"_RNvXCs7oQ2vmvFkJi_9hashbrownReINtB2_10EquivalentBq_E10equivalentCsjIaN6dkKMFO_12turborepo_ci: argument 0"}
 !80 = distinct !{!80, !"_RNvXCs7oQ2vmvFkJi_9hashbrownReINtB2_10EquivalentBq_E10equivalentCsjIaN6dkKMFO_12turborepo_ci"}
 !81 = distinct !{!81, !80, !"_RNvXCs7oQ2vmvFkJi_9hashbrownReINtB2_10EquivalentBq_E10equivalentCsjIaN6dkKMFO_12turborepo_ci: argument 1"}
-!82 = distinct !{!82, !83}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = distinct !{!84, !83}
-!85 = !{!86, !55}
-!86 = distinct !{!86, !87, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h2adf3a82de9ef529E: argument 0"}
-!87 = distinct !{!87, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h2adf3a82de9ef529E"}
+!82 = !{!83, !55}
+!83 = distinct !{!83, !84, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h2adf3a82de9ef529E: argument 0"}
+!84 = distinct !{!84, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h2adf3a82de9ef529E"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_RNvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTReBP_EE14insert_in_slotCsjIaN6dkKMFO_12turborepo_ci: argument 0"}
+!87 = distinct !{!87, !"_RNvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTReBP_EE14insert_in_slotCsjIaN6dkKMFO_12turborepo_ci"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_RNvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTReBP_EE14insert_in_slotCsjIaN6dkKMFO_12turborepo_ci: argument 0"}
-!90 = distinct !{!90, !"_RNvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTReBP_EE14insert_in_slotCsjIaN6dkKMFO_12turborepo_ci"}
-!91 = !{!92}
-!92 = distinct !{!92, !90, !"_RNvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTReBP_EE14insert_in_slotCsjIaN6dkKMFO_12turborepo_ci: argument 1"}
-!93 = !{!89, !92}
+!89 = distinct !{!89, !87, !"_RNvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTReBP_EE14insert_in_slotCsjIaN6dkKMFO_12turborepo_ci: argument 1"}
+!90 = !{!86, !89}

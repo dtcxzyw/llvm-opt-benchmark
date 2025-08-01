@@ -98715,7 +98715,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.027.be = phi ptr [ %.0, %21 ], [ %48, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !23
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -98932,7 +98932,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.031.be = phi ptr [ %.0, %21 ], [ %50, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !25
+  br label %3
 }
 
 declare ptr @l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71_(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -106543,6 +106543,3 @@ attributes #7 = { noreturn nounwind }
 !20 = !{!"branch_weights", i32 4001, i32 4000000}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !6, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !24}

@@ -804,7 +804,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %9, %15, %17
 45:                                               ; preds = %29, %33, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
-  br i1 %exitcond.not, label %46, label %29, !llvm.loop !12
+  br i1 %exitcond.not, label %46, label %29, !llvm.loop !11
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %21, align 8
@@ -898,7 +898,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %8, %14, %16
 37:                                               ; preds = %27, %31, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
-  br i1 %exitcond.not, label %38, label %27, !llvm.loop !13
+  br i1 %exitcond.not, label %38, label %27, !llvm.loop !12
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr %20, align 8
@@ -929,7 +929,7 @@ _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %43, %41, %2
 define hidden void @_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase(ptr noundef %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load volatile ptr, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -947,7 +947,7 @@ declare void @_ZN11JvmtiTagMap24flush_object_free_eventsEv(ptr noundef nonnull a
 define hidden void @_ZN27JvmtiEventControllerPrivate28set_enabled_events_with_lockEP12JvmtiEnvBasel(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %_ZN11MutexLockerD2Ev.exit
 
@@ -1000,7 +1000,7 @@ define hidden noundef i64 @_ZN27JvmtiEventControllerPrivate21recompute_env_enabl
   %.0 = phi i64 [ %8, %1 ], [ %11, %10 ], [ %13, %12 ], [ 0, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %17 = load volatile ptr, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %19, label %_ZN11MutexLockerD2Ev.exit.i
 
@@ -1128,7 +1128,7 @@ define hidden noundef range(i64 0, 4398046511104) i64 @_ZN27JvmtiEventController
   %16 = getelementptr inbounds nuw i8, ptr %.02938, i64 16
   %.029 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.029, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %6, align 8
@@ -1315,7 +1315,7 @@ _ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %_ZN16SafeResourceMa
   %.0.i = phi i64 [ %50, %.lr.ph ], [ %53, %52 ], [ %55, %54 ], [ 0, %56 ]
   %58 = getelementptr inbounds nuw i8, ptr %.05595, i64 376
   %59 = load volatile ptr, ptr %58, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %.not.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i, label %61, label %_ZN11MutexLockerD2Ev.exit.i.i
 
@@ -1338,7 +1338,7 @@ _ZN27JvmtiEventControllerPrivate21recompute_env_enabledEP12JvmtiEnvBase.exit: ; 
   %65 = getelementptr inbounds nuw i8, ptr %.05595, i64 16
   %.055 = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %.055, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiEventControllerPrivate21recompute_env_enabledEP12JvmtiEnvBase.exit
   %66 = and i64 %64, 2749786749763
@@ -1400,7 +1400,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %.not.i = icmp ult i32 %95, %98
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !16
 
 ._crit_edge.thread:                               ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %._crit_edge
   %.0.lcssa103 = phi i64 [ %64, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ %64, %._crit_edge ], [ 0, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
@@ -1422,7 +1422,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %106 = getelementptr inbounds nuw i8, ptr %.05497, i64 96
   %107 = load ptr, ptr %106, align 8
   %.not63 = icmp eq ptr %107, null
-  br i1 %.not63, label %108, label %103, !llvm.loop !18
+  br i1 %.not63, label %108, label %103, !llvm.loop !17
 
 108:                                              ; preds = %103
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
@@ -1668,7 +1668,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %10 = load volatile i32, ptr %9, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %11 = add i32 %10, -57003
   %12 = icmp ult i32 %11, 4
   br i1 %12, label %39, label %13
@@ -2042,7 +2042,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %9, %15, %17
 _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %35, %33, %3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %37 = load volatile ptr, ptr %36, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit, label %38
 
@@ -2054,26 +2054,27 @@ _ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit:
   tail call void @_ZN12JvmtiEnvBase19set_event_callbacksEPK19jvmtiEventCallbacksi(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, i32 noundef %2) #15
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %40 = load i64, ptr %39, align 8
-  %invariant.gep = getelementptr i8, ptr %0, i64 -360
-  br label %41
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %42
 
-41:                                               ; preds = %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit, %41
-  %indvars.iv = phi i64 [ 50, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %indvars.iv.next, %41 ]
-  %.022 = phi i64 [ %40, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %.1, %41 ]
-  %42 = add nsw i64 %indvars.iv, -47
-  %43 = shl nuw i64 1, %42
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %44 = load ptr, ptr %gep, align 8
-  %.not20 = icmp eq ptr %44, null
-  %45 = or i64 %43, %.022
-  %46 = xor i64 %43, -1
-  %47 = and i64 %.022, %46
-  %.1 = select i1 %.not20, i64 %47, i64 %45
+42:                                               ; preds = %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit, %42
+  %indvars.iv = phi i64 [ 50, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %indvars.iv.next, %42 ]
+  %.022 = phi i64 [ %40, %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit ], [ %.1, %42 ]
+  %43 = add nsw i64 %indvars.iv, -47
+  %44 = shl nuw i64 1, %43
+  %45 = getelementptr ptr, ptr %41, i64 %indvars.iv
+  %46 = getelementptr i8, ptr %45, i64 -400
+  %47 = load ptr, ptr %46, align 8
+  %.not20 = icmp eq ptr %47, null
+  %48 = or i64 %44, %.022
+  %49 = xor i64 %44, -1
+  %50 = and i64 %.022, %49
+  %.1 = select i1 %.not20, i64 %50, i64 %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
-  br i1 %exitcond.not, label %48, label %41, !llvm.loop !19
+  br i1 %exitcond.not, label %51, label %42, !llvm.loop !18
 
-48:                                               ; preds = %41
+51:                                               ; preds = %42
   store i64 %.1, ptr %39, align 8
   tail call void @_ZN27JvmtiEventControllerPrivate17recompute_enabledEv()
   ret void
@@ -2285,7 +2286,7 @@ _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %33, %31, %1
   %38 = getelementptr inbounds nuw i8, ptr %.011, i64 96
   %.0 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37
   tail call void @_ZN27JvmtiEventControllerPrivate17recompute_enabledEv()
@@ -2456,7 +2457,7 @@ _ZN16SafeResourceMarkD2Ev.exit:                   ; preds = %33, %31, %1
   tail call void @_ZN27JvmtiEventControllerPrivate28set_extension_event_callbackEP12JvmtiEnvBaseiPFvP9_jvmtiEnvzE(ptr noundef %0, i32 noundef %.08, ptr noundef null)
   %35 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %35, 50
-  br i1 %exitcond.not, label %36, label %34, !llvm.loop !21
+  br i1 %exitcond.not, label %36, label %34, !llvm.loop !20
 
 36:                                               ; preds = %34
   tail call void @_ZN12JvmtiEnvBase11env_disposeEv(ptr noundef nonnull align 8 dereferenceable(460) %0) #15
@@ -2623,7 +2624,7 @@ _ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
   %77 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %.0.i17 = load ptr, ptr %77, align 8
   %.not.i18 = icmp eq ptr %.0.i17, null
-  br i1 %.not.i18, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i18, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit: ; preds = %.lr.ph.i, %76, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
   %.0.lcssa.i = phi ptr [ null, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ], [ %.010.i, %.lr.ph.i ], [ null, %76 ]
@@ -3062,7 +3063,7 @@ define hidden void @_ZN20JvmtiEventController16set_user_enabledEP12JvmtiEnvBaseP
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %10 = load volatile ptr, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN27JvmtiEventControllerPrivate24flush_object_free_eventsEP12JvmtiEnvBase.exit, label %11
 
@@ -4144,17 +4145,16 @@ attributes #16 = { noreturn nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
 !8 = distinct !{!8, !"_ZNK5frame6senderEP11RegisterMap"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = !{i64 2145392468}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = !{i64 2145392468}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}

@@ -313,7 +313,7 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit._ZN26GrowableArrayWithAllocatorIPN5T
   store ptr %121, ptr %119, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %umax.i
-  br i1 %exitcond.not.i, label %.preheader15.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader15.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph18.preheader.i.i.i.i, %.preheader15.i.i.i.i
   %.not.i.i.i14.i = icmp eq ptr %.sroa.16.145.i, null
@@ -335,7 +335,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %125 = getelementptr inbounds nuw i8, ptr %.046.i, i64 32
   %126 = load ptr, ptr %125, align 8
   %.not.i67 = icmp eq ptr %126, null
-  br i1 %.not.i67, label %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i, label %_ZN7VMATree18PositionComparator3cmpEmm.exit.i, !llvm.loop !10
+  br i1 %.not.i67, label %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i, label %_ZN7VMATree18PositionComparator3cmpEmm.exit.i, !llvm.loop !9
 
 _ZN7VMATree18PositionComparator3cmpEmm.exit11.i:  ; preds = %124, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i, %.preheader.i
   %.sroa.0.2.i = phi i32 [ %.sroa.0.052.i, %.preheader.i ], [ %.pre-phi.i, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i ], [ %.pre-phi.i, %124 ]
@@ -441,7 +441,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i: ; preds = %_ZN7VMATree14I
   %171 = icmp eq i32 %127, 0
   %172 = icmp eq ptr %storemerge.i, null
   %.not8.i = select i1 %171, i1 %172, i1 false
-  br i1 %.not8.i, label %._crit_edge56.i, label %.preheader.i, !llvm.loop !11
+  br i1 %.not8.i, label %._crit_edge56.i, label %.preheader.i, !llvm.loop !10
 
 ._crit_edge56.i:                                  ; preds = %.thread.i
   %173 = icmp eq i32 %.sroa.10.3.i, 0
@@ -600,7 +600,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   %234 = load i32, ptr %13, align 8
   %235 = sext i32 %234 to i64
   %236 = icmp slt i64 %indvars.iv.next, %235
-  br i1 %236, label %207, label %._crit_edge, !llvm.loop !12
+  br i1 %236, label %207, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
@@ -965,7 +965,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN7VMATre
   %27 = load i32, ptr %0, align 8
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i, %28
-  br i1 %29, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !13
+  br i1 %29, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -981,7 +981,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN7VMATre
   %33 = load i32, ptr %4, align 4
   %34 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %35, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 36:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %31) #9
@@ -1034,12 +1034,11 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

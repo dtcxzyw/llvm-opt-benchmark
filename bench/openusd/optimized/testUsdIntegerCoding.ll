@@ -146,7 +146,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %.sroa.12.1 = getelementptr inbounds nuw i8, ptr %.pn174, i64 8
   %.sroa.087.0.add = add nuw nsw i64 %.sroa.087.0.idx194, 4
   %.not = icmp eq i64 %.sroa.087.0.add, 4800
-  br i1 %.not, label %45, label %18, !llvm.loop !5
+  br i1 %.not, label %45, label %18
 
 41:                                               ; preds = %7, %2
   %42 = landingpad { ptr, i32 }
@@ -454,5 +454,3 @@ attributes #15 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

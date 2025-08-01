@@ -74,7 +74,7 @@ define void @ff_vp6_filter_diag4_c(ptr noundef writeonly captures(none) %0, ptr 
   %50 = getelementptr inbounds nuw i8, ptr %.057, i64 32
   %51 = add nuw nsw i32 %.04356, 1
   %exitcond64.not = icmp eq i32 %51, 11
-  br i1 %exitcond64.not, label %.preheader52, label %.preheader53, !llvm.loop !14
+  br i1 %exitcond64.not, label %.preheader52, label %.preheader53, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader52, %81
   %.pn = phi ptr [ %6, %.preheader52 ], [ %.162, %81 ]
@@ -119,13 +119,13 @@ define void @ff_vp6_filter_diag4_c(ptr noundef writeonly captures(none) %0, ptr 
   store i8 %.0.i51, ptr %80, align 1, !tbaa !8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 8
-  br i1 %exitcond68.not, label %81, label %52, !llvm.loop !15
+  br i1 %exitcond68.not, label %81, label %52, !llvm.loop !14
 
 81:                                               ; preds = %52
   %82 = getelementptr inbounds i8, ptr %.04760, i64 %2
   %83 = add nuw nsw i32 %.14461, 1
   %exitcond69.not = icmp eq i32 %83, 8
-  br i1 %exitcond69.not, label %84, label %.preheader, !llvm.loop !16
+  br i1 %exitcond69.not, label %84, label %.preheader, !llvm.loop !15
 
 84:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %6) #2
@@ -155,9 +155,8 @@ attributes #2 = { nounwind }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}

@@ -1032,6 +1032,5 @@ attributes #11 = { builtin nounwind }
 !24 = !{!25, !17, i64 0}
 !25 = !{!"_ZTSN2cv11_InputArrayE", !17, i64 0, !7, i64 8, !22, i64 16}
 !26 = !{!25, !7, i64 8}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}

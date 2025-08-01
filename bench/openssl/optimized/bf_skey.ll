@@ -71,7 +71,7 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   store i32 %34, ptr %35, align 4, !tbaa !6
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 2
   %36 = icmp samesign ult i64 %indvars.iv62, 16
-  br i1 %36, label %31, label %37, !llvm.loop !11
+  br i1 %36, label %31, label %37, !llvm.loop !10
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88,7 +88,7 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   store i32 %42, ptr %43, align 4, !tbaa !6
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
   %44 = icmp samesign ult i64 %indvars.iv65, 1022
-  br i1 %44, label %39, label %45, !llvm.loop !12
+  br i1 %44, label %39, label %45, !llvm.loop !11
 
 45:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
@@ -126,8 +126,7 @@ attributes #5 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

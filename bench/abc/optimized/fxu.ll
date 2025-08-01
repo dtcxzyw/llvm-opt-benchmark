@@ -79,7 +79,7 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %6
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !36
+  %36 = load i32, ptr %35, align 4, !tbaa !35
   %.not88 = icmp eq i32 %36, 0
   br i1 %.not88, label %63, label %37
 
@@ -95,7 +95,7 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %58, %37
   %.2 = phi i32 [ 0, %37 ], [ %.3, %58 ]
-  %45 = load ptr, ptr %40, align 8, !tbaa !37
+  %45 = load ptr, ptr %40, align 8, !tbaa !36
   %46 = tail call i32 @Fxu_HeapDoubleReadMaxWeight(ptr noundef %45) #7
   %47 = load i32, ptr %41, align 8, !tbaa !29
   %.not96 = icmp eq i32 %47, 0
@@ -128,11 +128,11 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %60, ptr %38, align 4, !tbaa !12
   %61 = load i32, ptr %43, align 8, !tbaa !32
   %62 = icmp slt i32 %60, %61
-  br i1 %62, label %44, label %.loopexit, !llvm.loop !38
+  br i1 %62, label %44, label %.loopexit, !llvm.loop !37
 
 63:                                               ; preds = %34
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !39
+  %65 = load i32, ptr %64, align 4, !tbaa !38
   %.not89 = icmp eq i32 %65, 0
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %66, align 4, !tbaa !12
@@ -148,7 +148,7 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
   %.4 = phi i32 [ %.5, %97 ], [ 0, %63 ]
   %73 = load ptr, ptr %68, align 8, !tbaa !13
   %74 = tail call i32 @Fxu_HeapSingleReadMaxWeight(ptr noundef %73) #7
-  %75 = load ptr, ptr %69, align 8, !tbaa !37
+  %75 = load ptr, ptr %69, align 8, !tbaa !36
   %76 = tail call i32 @Fxu_HeapDoubleReadMaxWeight(ptr noundef %75) #7
   %77 = load i32, ptr %70, align 8, !tbaa !29
   %.not90 = icmp eq i32 %77, 0
@@ -205,13 +205,13 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %99, ptr %66, align 4, !tbaa !12
   %100 = load i32, ptr %72, align 8, !tbaa !32
   %101 = icmp slt i32 %99, %100
-  br i1 %101, label %.preheader, label %.loopexit, !llvm.loop !40
+  br i1 %101, label %.preheader, label %.loopexit, !llvm.loop !39
 
 .preheader111:                                    ; preds = %63, %118
   %.6 = phi i32 [ %.7, %118 ], [ 0, %63 ]
   %102 = load ptr, ptr %68, align 8, !tbaa !13
   %103 = call i32 @Fxu_HeapSingleReadMaxWeight(ptr noundef %102) #7
-  %104 = load ptr, ptr %69, align 8, !tbaa !37
+  %104 = load ptr, ptr %69, align 8, !tbaa !36
   %105 = call i32 @Fxu_HeapDoubleReadMaxWeight(ptr noundef %104) #7
   %106 = call i32 @Fxu_Select(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   %107 = load i32, ptr %70, align 8, !tbaa !29
@@ -239,15 +239,15 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not95, label %.loopexit, label %118
 
 118:                                              ; preds = %116, %111
-  %119 = load ptr, ptr %2, align 8, !tbaa !41
-  %120 = load ptr, ptr %3, align 8, !tbaa !42
+  %119 = load ptr, ptr %2, align 8, !tbaa !40
+  %120 = load ptr, ptr %3, align 8, !tbaa !41
   call void @Fxu_Update(ptr noundef nonnull %4, ptr noundef %119, ptr noundef %120) #7
   %121 = load i32, ptr %66, align 4, !tbaa !12
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %66, align 4, !tbaa !12
   %123 = load i32, ptr %72, align 8, !tbaa !32
   %124 = icmp slt i32 %122, %123
-  br i1 %124, label %.preheader111, label %.loopexit, !llvm.loop !44
+  br i1 %124, label %.preheader111, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %29, %27, %25, %54, %56, %58, %118, %116, %114, %97, %87, %85, %94, %92
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -257,11 +257,11 @@ define i32 @Fxu_FastExtract(ptr noundef %0) local_unnamed_addr #0 {
 
 127:                                              ; preds = %.loopexit
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 188
-  %129 = load i32, ptr %128, align 4, !tbaa !45
+  %129 = load i32, ptr %128, align 4, !tbaa !44
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %131 = load i32, ptr %130, align 8, !tbaa !46
+  %131 = load i32, ptr %130, align 8, !tbaa !45
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 196
-  %133 = load i32, ptr %132, align 4, !tbaa !47
+  %133 = load i32, ptr %132, align 4, !tbaa !46
   %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %129, i32 noundef %131, i32 noundef %133)
   br label %135
 
@@ -325,7 +325,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_MatrixRingCubesUnmark(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   %magicptr = ptrtoint ptr %3 to i64
   switch i64 %magicptr, label %4 [
     i64 0, label %.loopexit
@@ -334,7 +334,7 @@ define void @Fxu_MatrixRingCubesUnmark(ptr noundef captures(none) %0) local_unna
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !48
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -344,18 +344,18 @@ define void @Fxu_MatrixRingCubesUnmark(ptr noundef captures(none) %0) local_unna
 
 .lr.ph.preheader:                                 ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr null, ptr %9, align 8, !tbaa !49
+  store ptr null, ptr %9, align 8, !tbaa !48
   %.not1519 = icmp eq ptr %8, inttoptr (i64 1 to ptr)
   br i1 %.not1519, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01820 = phi ptr [ %11, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %.01820, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !49
+  %11 = load ptr, ptr %10, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %.01820, i64 64
-  store ptr null, ptr %12, align 8, !tbaa !49
+  store ptr null, ptr %12, align 8, !tbaa !48
   %.not15 = icmp eq ptr %11, inttoptr (i64 1 to ptr)
-  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %7, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -365,7 +365,7 @@ define void @Fxu_MatrixRingCubesUnmark(ptr noundef captures(none) %0) local_unna
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_MatrixRingVarsUnmark(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %magicptr = ptrtoint ptr %3 to i64
   switch i64 %magicptr, label %4 [
     i64 0, label %.loopexit
@@ -374,7 +374,7 @@ define void @Fxu_MatrixRingVarsUnmark(ptr noundef captures(none) %0) local_unnam
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -384,18 +384,18 @@ define void @Fxu_MatrixRingVarsUnmark(ptr noundef captures(none) %0) local_unnam
 
 .lr.ph.preheader:                                 ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr null, ptr %9, align 8, !tbaa !55
+  store ptr null, ptr %9, align 8, !tbaa !54
   %.not1519 = icmp eq ptr %8, inttoptr (i64 1 to ptr)
   br i1 %.not1519, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01820 = phi ptr [ %11, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %.01820, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %.01820, i64 64
-  store ptr null, ptr %12, align 8, !tbaa !55
+  store ptr null, ptr %12, align 8, !tbaa !54
   %.not15 = icmp eq ptr %11, inttoptr (i64 1 to ptr)
-  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %7, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -417,7 +417,7 @@ define ptr @Fxu_MemFetch(ptr noundef readonly captures(none) %0, i32 noundef %1)
 
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !57
   %11 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %10) #7
   ret ptr %11
 }
@@ -430,7 +430,7 @@ define void @Fxu_MemRecycle(ptr noundef readonly captures(none) %0, ptr noundef 
   %5 = sub nsw i32 %4, %2
   store i32 %5, ptr @s_MemoryTotal, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %7, ptr noundef %1) #7
   ret void
 }
@@ -487,29 +487,28 @@ attributes #7 = { nounwind }
 !30 = !{!8, !4, i64 36}
 !31 = !{!8, !4, i64 8}
 !32 = !{!8, !4, i64 24}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!8, !4, i64 4}
-!37 = !{!14, !21, i64 80}
-!38 = distinct !{!38, !34, !35}
-!39 = !{!8, !4, i64 12}
-!40 = distinct !{!40, !34, !35}
-!41 = !{!23, !23, i64 0}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS9FxuDouble", !10, i64 0}
-!44 = distinct !{!44, !34, !35}
-!45 = !{!14, !4, i64 188}
-!46 = !{!14, !4, i64 192}
-!47 = !{!14, !4, i64 196}
-!48 = !{!14, !16, i64 144}
-!49 = !{!50, !16, i64 64}
-!50 = !{!"FxuCube", !4, i64 0, !16, i64 8, !18, i64 16, !51, i64 24, !16, i64 48, !16, i64 56, !16, i64 64}
-!51 = !{!"FxuListLit", !52, i64 0, !52, i64 8, !4, i64 16}
-!52 = !{!"p1 _ZTS6FxuLit", !10, i64 0}
-!53 = distinct !{!53, !34, !35}
-!54 = !{!14, !18, i64 160}
-!55 = !{!56, !18, i64 64}
-!56 = !{!"FxuVar", !4, i64 0, !4, i64 4, !16, i64 8, !25, i64 16, !51, i64 24, !18, i64 48, !18, i64 56, !18, i64 64}
-!57 = distinct !{!57, !34, !35}
-!58 = !{!14, !28, i64 200}
+!35 = !{!8, !4, i64 4}
+!36 = !{!14, !21, i64 80}
+!37 = distinct !{!37, !34}
+!38 = !{!8, !4, i64 12}
+!39 = distinct !{!39, !34}
+!40 = !{!23, !23, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS9FxuDouble", !10, i64 0}
+!43 = distinct !{!43, !34}
+!44 = !{!14, !4, i64 188}
+!45 = !{!14, !4, i64 192}
+!46 = !{!14, !4, i64 196}
+!47 = !{!14, !16, i64 144}
+!48 = !{!49, !16, i64 64}
+!49 = !{!"FxuCube", !4, i64 0, !16, i64 8, !18, i64 16, !50, i64 24, !16, i64 48, !16, i64 56, !16, i64 64}
+!50 = !{!"FxuListLit", !51, i64 0, !51, i64 8, !4, i64 16}
+!51 = !{!"p1 _ZTS6FxuLit", !10, i64 0}
+!52 = distinct !{!52, !34}
+!53 = !{!14, !18, i64 160}
+!54 = !{!55, !18, i64 64}
+!55 = !{!"FxuVar", !4, i64 0, !4, i64 4, !16, i64 8, !25, i64 16, !50, i64 24, !18, i64 48, !18, i64 56, !18, i64 64}
+!56 = distinct !{!56, !34}
+!57 = !{!14, !28, i64 200}

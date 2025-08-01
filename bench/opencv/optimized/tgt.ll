@@ -54,7 +54,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 27:                                               ; preds = %12
   %28 = zext i32 %.059 to i64
-  store i32 %25, ptr %11, align 8, !tbaa !15
+  store i32 %25, ptr %11, align 8, !tbaa !14
   %29 = icmp eq i32 %25, 0
   br i1 %29, label %30, label %31
 
@@ -66,7 +66,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %32 = zext i32 %25 to i64
   %33 = tail call ptr @opj_calloc(i64 noundef %32, i64 noundef 24) #6
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %33, ptr %34, align 8, !tbaa !16
+  store ptr %33, ptr %34, align 8, !tbaa !15
   %.not74 = icmp eq ptr %33, null
   br i1 %.not74, label %35, label %37
 
@@ -76,10 +76,10 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br label %opj_tgt_reset.exit
 
 37:                                               ; preds = %31
-  %38 = load i32, ptr %11, align 8, !tbaa !15
+  %38 = load i32, ptr %11, align 8, !tbaa !14
   %39 = mul i32 %38, 24
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %39, ptr %40, align 8, !tbaa !17
+  store i32 %39, ptr %40, align 8, !tbaa !16
   %.not98 = icmp eq i32 %.059, 0
   br i1 %.not98, label %._crit_edge, label %.preheader.preheader
 
@@ -120,7 +120,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.06081.us = phi i32 [ %50, %.lr.ph.us ], [ %58, %57 ]
   %.26680.us = phi ptr [ %.16584.us, %.lr.ph.us ], [ %60, %57 ]
   %.26979.us = phi ptr [ %.16883.us, %.lr.ph.us ], [ %59, %57 ]
-  store ptr %.26680.us, ptr %.26979.us, align 8, !tbaa !18
+  store ptr %.26680.us, ptr %.26979.us, align 8, !tbaa !17
   %55 = getelementptr inbounds nuw i8, ptr %.26979.us, i64 24
   %.not76.us = icmp eq i32 %.06081.us, 1
   br i1 %.not76.us, label %.thread, label %57
@@ -131,11 +131,11 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 57:                                               ; preds = %54
   %58 = add nsw i32 %.06081.us, -2
-  store ptr %.26680.us, ptr %55, align 8, !tbaa !18
+  store ptr %.26680.us, ptr %55, align 8, !tbaa !17
   %59 = getelementptr inbounds nuw i8, ptr %.26979.us, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %.26680.us, i64 24
   %61 = icmp sgt i32 %.06081.us, 2
-  br i1 %61, label %54, label %._crit_edge.us, !llvm.loop !20
+  br i1 %61, label %54, label %._crit_edge.us, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %57, %.thread
   %62 = phi ptr [ %56, %.thread ], [ %60, %57 ]
@@ -149,7 +149,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.2.us = select i1 %or.cond.us, ptr %62, ptr %65
   %66 = add nuw nsw i32 %.06186.us, 1
   %exitcond101.not = icmp eq i32 %66, %47
-  br i1 %exitcond101.not, label %._crit_edge88, label %.lr.ph.us, !llvm.loop !21
+  br i1 %exitcond101.not, label %._crit_edge88, label %.lr.ph.us, !llvm.loop !20
 
 .lr.ph87.split:                                   ; preds = %.lr.ph87, %.lr.ph87.split
   %.06186 = phi i32 [ %70, %.lr.ph87.split ], [ 0, %.lr.ph87 ]
@@ -164,7 +164,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.2 = select i1 %or.cond, ptr %.16584, ptr %69
   %70 = add nuw nsw i32 %.06186, 1
   %exitcond.not = icmp eq i32 %70, %47
-  br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !22
 
 ._crit_edge88:                                    ; preds = %.lr.ph87.split, %._crit_edge.us, %.preheader
   %.168.lcssa = phi ptr [ %.06794, %.preheader ], [ %.370.us106, %._crit_edge.us ], [ %.06794, %.lr.ph87.split ]
@@ -172,11 +172,11 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.1.lcssa = phi ptr [ %.06396, %.preheader ], [ %.2.us, %._crit_edge.us ], [ %.2, %.lr.ph87.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %exitcond104.not, label %._crit_edge, label %.preheader, !llvm.loop !24
+  br i1 %exitcond104.not, label %._crit_edge, label %.preheader, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %._crit_edge88, %37
   %.067.lcssa = phi ptr [ %33, %37 ], [ %.168.lcssa, %._crit_edge88 ]
-  store ptr null, ptr %.067.lcssa, align 8, !tbaa !18
+  store ptr null, ptr %.067.lcssa, align 8, !tbaa !17
   %.not12.i = icmp eq i32 %38, 0
   br i1 %.not12.i, label %opj_tgt_reset.exit, label %.lr.ph.i
 
@@ -184,15 +184,15 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.011.i = phi ptr [ %74, %.lr.ph.i ], [ %33, %._crit_edge ]
   %.0810.i = phi i32 [ %75, %.lr.ph.i ], [ 0, %._crit_edge ]
   %71 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  store i32 999, ptr %71, align 8, !tbaa !25
+  store i32 999, ptr %71, align 8, !tbaa !24
   %72 = getelementptr inbounds nuw i8, ptr %.011.i, i64 12
-  store i32 0, ptr %72, align 4, !tbaa !26
+  store i32 0, ptr %72, align 4, !tbaa !25
   %73 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
-  store i32 0, ptr %73, align 8, !tbaa !27
+  store i32 0, ptr %73, align 8, !tbaa !26
   %74 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %75 = add nuw i32 %.0810.i, 1
   %exitcond.not.i = icmp eq i32 %75, %38
-  br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !27
 
 opj_tgt_reset.exit:                               ; preds = %.lr.ph.i, %._crit_edge, %35, %30, %7
   %.0 = phi ptr [ null, %30 ], [ null, %35 ], [ null, %7 ], [ %6, %._crit_edge ], [ %6, %.lr.ph.i ]
@@ -217,28 +217,28 @@ define hidden void @opj_tgt_reset(ptr noundef readonly captures(address_is_null)
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !15
+  %4 = load i32, ptr %3, align 8, !tbaa !14
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !16
+  %6 = load ptr, ptr %5, align 8, !tbaa !15
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.011 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %.0810 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %7 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  store i32 999, ptr %7, align 8, !tbaa !25
+  store i32 999, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %.011, i64 12
-  store i32 0, ptr %8, align 4, !tbaa !26
+  store i32 0, ptr %8, align 4, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %.011, i64 16
-  store i32 0, ptr %9, align 8, !tbaa !27
+  store i32 0, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %11 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %11, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %1
   ret void
@@ -294,35 +294,35 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %26, ptr %27, align 4, !tbaa !11
   %28 = add i32 %18, %19
   %29 = icmp ugt i32 %19, 1
-  br i1 %29, label %15, label %30, !llvm.loop !29
+  br i1 %29, label %15, label %30, !llvm.loop !28
 
 30:                                               ; preds = %15
   %31 = zext i32 %.079 to i64
-  store i32 %28, ptr %14, align 8, !tbaa !15
+  store i32 %28, ptr %14, align 8, !tbaa !14
   %32 = icmp eq i32 %28, 0
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !16
+  %35 = load ptr, ptr %34, align 8, !tbaa !15
   %.not6.i = icmp eq ptr %35, null
   br i1 %.not6.i, label %opj_tgt_reset.exit.sink.split, label %36
 
 36:                                               ; preds = %33
   tail call void @opj_free(ptr noundef nonnull %35) #6
-  store ptr null, ptr %34, align 8, !tbaa !16
+  store ptr null, ptr %34, align 8, !tbaa !15
   br label %opj_tgt_reset.exit.sink.split
 
 37:                                               ; preds = %30
   %38 = mul i32 %28, 24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !17
+  %40 = load i32, ptr %39, align 8, !tbaa !16
   %41 = icmp ugt i32 %38, %40
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !16
+  %44 = load ptr, ptr %43, align 8, !tbaa !15
   %45 = zext i32 %38 to i64
   %46 = tail call ptr @opj_realloc(ptr noundef %44, i64 noundef %45) #6
   %.not93.not = icmp eq ptr %46, null
@@ -330,24 +330,24 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 
 47:                                               ; preds = %42
   %48 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.2) #6
-  %49 = load ptr, ptr %43, align 8, !tbaa !16
+  %49 = load ptr, ptr %43, align 8, !tbaa !15
   %.not6.i97 = icmp eq ptr %49, null
   br i1 %.not6.i97, label %opj_tgt_reset.exit.sink.split, label %50
 
 50:                                               ; preds = %47
   tail call void @opj_free(ptr noundef nonnull %49) #6
-  store ptr null, ptr %43, align 8, !tbaa !16
+  store ptr null, ptr %43, align 8, !tbaa !15
   br label %opj_tgt_reset.exit.sink.split
 
 51:                                               ; preds = %42
-  store ptr %46, ptr %43, align 8, !tbaa !16
-  %52 = load i32, ptr %39, align 8, !tbaa !17
+  store ptr %46, ptr %43, align 8, !tbaa !15
+  %52 = load i32, ptr %39, align 8, !tbaa !16
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 %53
   %55 = sub i32 %38, %52
   %56 = zext i32 %55 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %54, i8 0, i64 %56, i1 false)
-  store i32 %38, ptr %39, align 8, !tbaa !17
+  store i32 %38, ptr %39, align 8, !tbaa !16
   %.pre = load i32, ptr %0, align 8, !tbaa !3
   %.pre128 = load i32, ptr %13, align 4, !tbaa !10
   br label %57
@@ -356,7 +356,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %58 = phi i32 [ %.pre128, %51 ], [ %2, %37 ]
   %59 = phi i32 [ %.pre, %51 ], [ %1, %37 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !16
+  %61 = load ptr, ptr %60, align 8, !tbaa !15
   %.not121 = icmp eq i32 %.079, 0
   br i1 %.not121, label %._crit_edge, label %.preheader.preheader
 
@@ -395,7 +395,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.2104.us = phi ptr [ %.174109.us, %.lr.ph.us ], [ %78, %76 ]
   %.277103.us = phi ptr [ %.176108.us, %.lr.ph.us ], [ %79, %76 ]
   %.080102.us = phi i32 [ %69, %.lr.ph.us ], [ %77, %76 ]
-  store ptr %.277103.us, ptr %.2104.us, align 8, !tbaa !18
+  store ptr %.277103.us, ptr %.2104.us, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %.2104.us, i64 24
   %.not95.us = icmp eq i32 %.080102.us, 1
   br i1 %.not95.us, label %.thread129, label %76
@@ -406,11 +406,11 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 
 76:                                               ; preds = %73
   %77 = add nsw i32 %.080102.us, -2
-  store ptr %.277103.us, ptr %74, align 8, !tbaa !18
+  store ptr %.277103.us, ptr %74, align 8, !tbaa !17
   %78 = getelementptr inbounds nuw i8, ptr %.2104.us, i64 48
   %79 = getelementptr inbounds nuw i8, ptr %.277103.us, i64 24
   %80 = icmp sgt i32 %.080102.us, 2
-  br i1 %80, label %73, label %._crit_edge.us, !llvm.loop !30
+  br i1 %80, label %73, label %._crit_edge.us, !llvm.loop !29
 
 ._crit_edge.us:                                   ; preds = %76, %.thread129
   %81 = phi ptr [ %75, %.thread129 ], [ %79, %76 ]
@@ -424,7 +424,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.378.us = select i1 %or.cond.us, ptr %81, ptr %.184106.us
   %85 = add nuw nsw i32 %.081107.us, 1
   %exitcond124.not = icmp eq i32 %85, %66
-  br i1 %exitcond124.not, label %._crit_edge111, label %.lr.ph.us, !llvm.loop !31
+  br i1 %exitcond124.not, label %._crit_edge111, label %.lr.ph.us, !llvm.loop !30
 
 .lr.ph110.split:                                  ; preds = %.lr.ph110, %.lr.ph110.split
   %.176108 = phi ptr [ %.378, %.lr.ph110.split ], [ %.075119, %.lr.ph110 ]
@@ -439,7 +439,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.378 = select i1 %or.cond, ptr %.176108, ptr %.184106
   %89 = add nuw nsw i32 %.081107, 1
   %exitcond.not = icmp eq i32 %89, %66
-  br i1 %exitcond.not, label %._crit_edge111, label %.lr.ph110.split, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge111, label %.lr.ph110.split, !llvm.loop !31
 
 ._crit_edge111:                                   ; preds = %.lr.ph110.split, %._crit_edge.us, %.preheader
   %.184.lcssa = phi ptr [ %.083117, %.preheader ], [ %.285.us, %._crit_edge.us ], [ %.285, %.lr.ph110.split ]
@@ -447,37 +447,37 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.174.lcssa = phi ptr [ %.073120, %.preheader ], [ %.3.us131, %._crit_edge.us ], [ %.073120, %.lr.ph110.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next, %31
-  br i1 %exitcond127.not, label %._crit_edge, label %.preheader, !llvm.loop !33
+  br i1 %exitcond127.not, label %._crit_edge, label %.preheader, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %._crit_edge111, %57
   %.073.lcssa = phi ptr [ %61, %57 ], [ %.174.lcssa, %._crit_edge111 ]
-  store ptr null, ptr %.073.lcssa, align 8, !tbaa !18
+  store ptr null, ptr %.073.lcssa, align 8, !tbaa !17
   br label %90
 
 90:                                               ; preds = %9, %._crit_edge
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !15
+  %92 = load i32, ptr %91, align 8, !tbaa !14
   %.not12.i = icmp eq i32 %92, 0
   br i1 %.not12.i, label %opj_tgt_reset.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !16
+  %94 = load ptr, ptr %93, align 8, !tbaa !15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.011.i = phi ptr [ %98, %.lr.ph.i ], [ %94, %.lr.ph.preheader.i ]
   %.0810.i = phi i32 [ %99, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %95 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  store i32 999, ptr %95, align 8, !tbaa !25
+  store i32 999, ptr %95, align 8, !tbaa !24
   %96 = getelementptr inbounds nuw i8, ptr %.011.i, i64 12
-  store i32 0, ptr %96, align 4, !tbaa !26
+  store i32 0, ptr %96, align 4, !tbaa !25
   %97 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
-  store i32 0, ptr %97, align 8, !tbaa !27
+  store i32 0, ptr %97, align 8, !tbaa !26
   %98 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %99 = add nuw i32 %.0810.i, 1
   %exitcond.not.i = icmp eq i32 %99, %92
-  br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !27
 
 opj_tgt_reset.exit.sink.split:                    ; preds = %47, %50, %36, %33
   tail call void @opj_free(ptr noundef nonnull %0) #6
@@ -497,13 +497,13 @@ define hidden void @opj_tgt_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %6, label %5
 
 5:                                                ; preds = %2
   tail call void @opj_free(ptr noundef nonnull %4) #6
-  store ptr null, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %3, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -522,7 +522,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @opj_tgt_setvalue(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %.critedge, label %.lr.ph.preheader
 
@@ -534,15 +534,15 @@ define hidden void @opj_tgt_setvalue(ptr noundef readonly captures(none) %0, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %.09 = phi ptr [ %12, %11 ], [ %7, %.lr.ph.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.09, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !25
+  %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = icmp sgt i32 %9, %2
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
-  store i32 %2, ptr %8, align 8, !tbaa !25
-  %12 = load ptr, ptr %.09, align 8, !tbaa !18
+  store i32 %2, ptr %8, align 8, !tbaa !24
+  %12 = load ptr, ptr %.09, align 8, !tbaa !17
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %11, %3
   ret void
@@ -553,10 +553,10 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
   %5 = alloca [31 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not33 = icmp eq ptr %10, null
   br i1 %.not33, label %.preheader.preheader, label %.lr.ph
 
@@ -565,10 +565,10 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
   %.02335 = phi ptr [ %11, %.lr.ph ], [ %9, %4 ]
   %.02534 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
-  store ptr %.02335, ptr %.02534, align 8, !tbaa !35
-  %13 = load ptr, ptr %11, align 8, !tbaa !18
+  store ptr %.02335, ptr %.02534, align 8, !tbaa !34
+  %13 = load ptr, ptr %11, align 8, !tbaa !17
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !35
 
 .preheader.preheader:                             ; preds = %.lr.ph, %4
   %.126.ph = phi ptr [ %5, %4 ], [ %12, %.lr.ph ]
@@ -580,12 +580,12 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
   %.124 = phi ptr [ %32, %30 ], [ %.124.ph, %.preheader.preheader ]
   %.0 = phi i32 [ %.232, %30 ], [ 0, %.preheader.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.124, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !26
+  %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = icmp sgt i32 %.0, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %.preheader
-  store i32 %.0, ptr %14, align 4, !tbaa !26
+  store i32 %.0, ptr %14, align 4, !tbaa !25
   br label %18
 
 18:                                               ; preds = %.preheader, %17
@@ -599,37 +599,37 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
 
 21:                                               ; preds = %.lr.ph38, %27
   %.237 = phi i32 [ %.1, %.lr.ph38 ], [ %28, %27 ]
-  %22 = load i32, ptr %20, align 8, !tbaa !25
+  %22 = load i32, ptr %20, align 8, !tbaa !24
   %.not29 = icmp slt i32 %.237, %22
   br i1 %.not29, label %27, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.124, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !27
+  %25 = load i32, ptr %24, align 8, !tbaa !26
   %.not30 = icmp eq i32 %25, 0
   br i1 %.not30, label %26, label %.loopexit
 
 26:                                               ; preds = %23
   call void @opj_bio_putbit(ptr noundef %0, i32 noundef 1) #6
-  store i32 1, ptr %24, align 8, !tbaa !27
+  store i32 1, ptr %24, align 8, !tbaa !26
   br label %.loopexit
 
 27:                                               ; preds = %21
   call void @opj_bio_putbit(ptr noundef %0, i32 noundef 0) #6
   %28 = add nsw i32 %.237, 1
   %exitcond.not = icmp eq i32 %28, %3
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !36
 
 .loopexit:                                        ; preds = %27, %18, %23, %26
   %.232 = phi i32 [ %.237, %23 ], [ %.237, %26 ], [ %.1, %18 ], [ %3, %27 ]
-  store i32 %.232, ptr %14, align 4, !tbaa !26
+  store i32 %.232, ptr %14, align 4, !tbaa !25
   %29 = icmp eq ptr %.126, %5
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %.loopexit
   %31 = getelementptr inbounds i8, ptr %.126, i64 -8
-  %32 = load ptr, ptr %31, align 8, !tbaa !35
-  br label %.preheader, !llvm.loop !38
+  %32 = load ptr, ptr %31, align 8, !tbaa !34
+  br label %.preheader
 
 33:                                               ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5) #6
@@ -643,10 +643,10 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   %5 = alloca [31 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not31 = icmp eq ptr %10, null
   br i1 %.not31, label %.preheader.preheader, label %.lr.ph
 
@@ -655,10 +655,10 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   %.02433 = phi ptr [ %11, %.lr.ph ], [ %9, %4 ]
   %.02632 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %.02632, i64 8
-  store ptr %.02433, ptr %.02632, align 8, !tbaa !35
-  %13 = load ptr, ptr %11, align 8, !tbaa !18
+  store ptr %.02433, ptr %.02632, align 8, !tbaa !34
+  %13 = load ptr, ptr %11, align 8, !tbaa !17
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !37
 
 .preheader.preheader:                             ; preds = %.lr.ph, %4
   %.127.ph = phi ptr [ %5, %4 ], [ %12, %.lr.ph ]
@@ -670,12 +670,12 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   %.125 = phi ptr [ %33, %31 ], [ %.125.ph, %.preheader.preheader ]
   %.0 = phi i32 [ %.2.lcssa, %31 ], [ 0, %.preheader.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.125, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !26
+  %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = icmp sgt i32 %.0, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %.preheader
-  store i32 %.0, ptr %14, align 4, !tbaa !26
+  store i32 %.0, ptr %14, align 4, !tbaa !25
   br label %18
 
 18:                                               ; preds = %.preheader, %17
@@ -686,7 +686,7 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
 
 .lr.ph36:                                         ; preds = %18, %28
   %.235 = phi i32 [ %.3, %28 ], [ %.1, %18 ]
-  %21 = load i32, ptr %19, align 8, !tbaa !25
+  %21 = load i32, ptr %19, align 8, !tbaa !24
   %22 = icmp slt i32 %.235, %21
   br i1 %22, label %23, label %.critedge
 
@@ -696,7 +696,7 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   br i1 %.not30, label %26, label %25
 
 25:                                               ; preds = %23
-  store i32 %.235, ptr %19, align 8, !tbaa !25
+  store i32 %.235, ptr %19, align 8, !tbaa !24
   br label %28
 
 26:                                               ; preds = %23
@@ -706,21 +706,21 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
 28:                                               ; preds = %26, %25
   %.3 = phi i32 [ %.235, %25 ], [ %27, %26 ]
   %29 = icmp slt i32 %.3, %3
-  br i1 %29, label %.lr.ph36, label %.critedge, !llvm.loop !40
+  br i1 %29, label %.lr.ph36, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph36, %28, %18
   %.2.lcssa = phi i32 [ %.1, %18 ], [ %.3, %28 ], [ %.235, %.lr.ph36 ]
-  store i32 %.2.lcssa, ptr %14, align 4, !tbaa !26
+  store i32 %.2.lcssa, ptr %14, align 4, !tbaa !25
   %30 = icmp eq ptr %.127, %5
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.critedge
   %32 = getelementptr inbounds i8, ptr %.127, i64 -8
-  %33 = load ptr, ptr %32, align 8, !tbaa !35
-  br label %.preheader, !llvm.loop !41
+  %33 = load ptr, ptr %32, align 8, !tbaa !34
+  br label %.preheader
 
 34:                                               ; preds = %.critedge
-  %35 = load i32, ptr %19, align 8, !tbaa !25
+  %35 = load i32, ptr %19, align 8, !tbaa !24
   %36 = icmp slt i32 %35, %3
   %37 = zext i1 %36 to i32
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5) #6
@@ -751,33 +751,30 @@ attributes #6 = { nounwind }
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!4, !5, i64 4}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!4, !5, i64 8}
-!16 = !{!4, !8, i64 16}
-!17 = !{!4, !5, i64 24}
-!18 = !{!19, !8, i64 0}
-!19 = !{!"opj_tgt_node", !8, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !13, !14}
-!24 = distinct !{!24, !13, !14}
-!25 = !{!19, !5, i64 8}
-!26 = !{!19, !5, i64 12}
-!27 = !{!19, !5, i64 16}
-!28 = distinct !{!28, !13, !14}
-!29 = distinct !{!29, !13, !14}
-!30 = distinct !{!30, !13, !14}
-!31 = distinct !{!31, !13, !14, !22}
-!32 = distinct !{!32, !13, !14}
-!33 = distinct !{!33, !13, !14}
-!34 = distinct !{!34, !13, !14}
-!35 = !{!8, !8, i64 0}
-!36 = distinct !{!36, !13, !14}
-!37 = distinct !{!37, !13, !14}
-!38 = distinct !{!38, !14}
-!39 = distinct !{!39, !13, !14}
-!40 = distinct !{!40, !13, !14}
-!41 = distinct !{!41, !14}
+!14 = !{!4, !5, i64 8}
+!15 = !{!4, !8, i64 16}
+!16 = !{!4, !5, i64 24}
+!17 = !{!18, !8, i64 0}
+!18 = !{!"opj_tgt_node", !8, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = !{!18, !5, i64 8}
+!25 = !{!18, !5, i64 12}
+!26 = !{!18, !5, i64 16}
+!27 = distinct !{!27, !13}
+!28 = distinct !{!28, !13}
+!29 = distinct !{!29, !13}
+!30 = distinct !{!30, !13, !21}
+!31 = distinct !{!31, !13}
+!32 = distinct !{!32, !13}
+!33 = distinct !{!33, !13}
+!34 = !{!8, !8, i64 0}
+!35 = distinct !{!35, !13}
+!36 = distinct !{!36, !13}
+!37 = distinct !{!37, !13}
+!38 = distinct !{!38, !13}

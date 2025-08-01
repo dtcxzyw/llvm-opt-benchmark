@@ -348,6 +348,5 @@ attributes #4 = { nounwind }
 !12 = !{!13, !5, i64 0}
 !13 = !{!"ossl_dispatch_st", !5, i64 0, !9, i64 8}
 !14 = !{!13, !9, i64 8}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}

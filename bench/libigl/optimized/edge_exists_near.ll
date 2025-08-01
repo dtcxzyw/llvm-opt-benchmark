@@ -131,7 +131,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit139.thread253:       ; preds = %_ZNSt12_Vector_base
 62:                                               ; preds = %.lr.ph
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0142.0338, i64 4
   %.not263.not = icmp eq ptr %63, %.sroa.15.4342
-  br i1 %.not263.not, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not263.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph350, %62
   %.sroa.0142.0338 = phi ptr [ %63, %62 ], [ %.sroa.0161.7343, %.lr.ph350 ]
@@ -254,7 +254,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit134:       ; preds = %.lr.ph, %_ZNSt6vect
   %.sroa.0177.9 = phi ptr [ %.sroa.0177.8349, %83 ], [ %97, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i131 ], [ %.sroa.0177.8349, %.lr.ph ]
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0150.0345, i64 4
   %.not262 = icmp eq ptr %103, %59
-  br i1 %.not262, label %.loopexit, label %.lr.ph350, !llvm.loop !25
+  br i1 %.not262, label %.loopexit, label %.lr.ph350
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit134, %54, %53
   %.sroa.27.6.ph = phi ptr [ %.sroa.27.2356, %53 ], [ %.sroa.27.2356, %54 ], [ %.sroa.27.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit134 ]
@@ -265,7 +265,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit134:       ; preds = %.lr.ph, %_ZNSt6vect
   %.sroa.0177.7.ph = phi ptr [ %.sroa.0177.2361, %53 ], [ %.sroa.0177.2361, %54 ], [ %.sroa.0177.9, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit134 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit268, label %33, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit268, label %33, !llvm.loop !23
 
 _ZNSt6vectorIiSaIiEED2Ev.exit137:                 ; preds = %.loopexit268, %33
   %.sroa.27.10 = phi ptr [ %.sroa.27.2356, %33 ], [ %.sroa.27.6.ph, %.loopexit268 ]
@@ -380,7 +380,4 @@ attributes #9 = { builtin nounwind }
 !21 = !{!20, !10, i64 8}
 !22 = !{!6, !6, i64 0}
 !23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !27, !24}
-!27 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"llvm.loop.mustprogress"}

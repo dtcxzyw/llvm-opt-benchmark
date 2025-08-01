@@ -759,11 +759,11 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicy
 .lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i ], [ %28, %32 ]
   %.0911.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %7, %32 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !tbaa.struct !268, !alias.scope !273
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !tbaa.struct !268, !alias.scope !272
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
   %.not.i.i.i = icmp eq ptr %34, %6
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !277
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !276
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE11_S_relocateEPS2_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %32
   %.not.i31 = icmp eq ptr %7, null
@@ -797,7 +797,7 @@ define void @_Z24gmx_pme_send_coordinatesP10t_forcerecPK9t_commrecPA3_KfN3gmx8Ar
 
 18:                                               ; preds = %16
   tail call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %15)
-  %19 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !278
+  %19 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !277
   %20 = extractvalue { i32, i32 } %19, 0
   %21 = extractvalue { i32, i32 } %19, 1
   %22 = zext i32 %20 to i64
@@ -805,39 +805,39 @@ define void @_Z24gmx_pme_send_coordinatesP10t_forcerecPK9t_commrecPA3_KfN3gmx8Ar
   %24 = shl nuw i64 %23, 32
   %25 = or disjoint i64 %24, %22
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 184
-  store i64 %25, ptr %26, align 8, !tbaa !279
+  store i64 %25, ptr %26, align 8, !tbaa !278
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 2584
-  %28 = load ptr, ptr %27, align 8, !tbaa !282
+  %28 = load ptr, ptr %27, align 8, !tbaa !281
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 2592
-  %30 = load ptr, ptr %29, align 8, !tbaa !282
+  %30 = load ptr, ptr %29, align 8, !tbaa !281
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %52, label %32
 
 32:                                               ; preds = %18
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 2608
-  %34 = load i32, ptr %33, align 8, !tbaa !284
+  %34 = load i32, ptr %33, align 8, !tbaa !283
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 8, !tbaa !284
+  store i32 %35, ptr %33, align 8, !tbaa !283
   %36 = icmp eq i32 %35, 3
   br i1 %36, label %37, label %52
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 2612
-  %39 = load i32, ptr %38, align 4, !tbaa !301
+  %39 = load i32, ptr %38, align 4, !tbaa !300
   %40 = mul nsw i32 %39, 60
   %41 = sext i32 %40 to i64
   %42 = getelementptr %struct.wallcc_t, ptr %28, i64 %41
   %43 = getelementptr i8, ptr %42, i64 168
-  %44 = load i32, ptr %43, align 8, !tbaa !302
+  %44 = load i32, ptr %43, align 8, !tbaa !301
   %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %43, align 8, !tbaa !302
+  store i32 %45, ptr %43, align 8, !tbaa !301
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 2616
-  %47 = load i64, ptr %46, align 8, !tbaa !303
+  %47 = load i64, ptr %46, align 8, !tbaa !302
   %48 = sub i64 %25, %47
   %49 = getelementptr i8, ptr %42, i64 176
-  %50 = load i64, ptr %49, align 8, !tbaa !304
+  %50 = load i64, ptr %49, align 8, !tbaa !303
   %51 = add i64 %48, %50
-  store i64 %51, ptr %49, align 8, !tbaa !304
+  store i64 %51, ptr %49, align 8, !tbaa !303
   br label %52
 
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %16
@@ -849,7 +849,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %16
   %spec.select35 = select i1 %7, i32 576, i32 64
   tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef %0, ptr noundef %1, i32 noundef %spec.select35, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef %2, ptr %3, float noundef %5, float noundef %6, i32 noundef 0, i32 noundef 0, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %14, ptr noundef %13)
   tail call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %15)
-  %53 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !278
+  %53 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !277
   %54 = extractvalue { i32, i32 } %53, 0
   %55 = extractvalue { i32, i32 } %53, 1
   %56 = zext i32 %54 to i64
@@ -857,7 +857,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %16
   %58 = shl nuw i64 %57, 32
   %59 = or disjoint i64 %58, %56
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  %61 = load i64, ptr %26, align 8, !tbaa !279
+  %61 = load i64, ptr %26, align 8, !tbaa !278
   %.not.i = icmp ult i64 %59, %61
   br i1 %.not.i, label %64, label %62
 
@@ -867,36 +867,36 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %16
 
 64:                                               ; preds = %52
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 2624
-  store i8 1, ptr %65, align 8, !tbaa !305
+  store i8 1, ptr %65, align 8, !tbaa !304
   br label %66
 
 66:                                               ; preds = %64, %62
   %.0.i = phi i64 [ %63, %62 ], [ 0, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %68 = load i64, ptr %67, align 8, !tbaa !304
+  %68 = load i64, ptr %67, align 8, !tbaa !303
   %69 = add i64 %68, %.0.i
-  store i64 %69, ptr %67, align 8, !tbaa !304
-  %70 = load i32, ptr %60, align 8, !tbaa !302
+  store i64 %69, ptr %67, align 8, !tbaa !303
+  %70 = load i32, ptr %60, align 8, !tbaa !301
   %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %60, align 8, !tbaa !302
-  %72 = load ptr, ptr %27, align 8, !tbaa !282
-  %73 = load ptr, ptr %29, align 8, !tbaa !282
+  store i32 %71, ptr %60, align 8, !tbaa !301
+  %72 = load ptr, ptr %27, align 8, !tbaa !281
+  %73 = load ptr, ptr %29, align 8, !tbaa !281
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %75
 
 75:                                               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 2608
-  %77 = load i32, ptr %76, align 8, !tbaa !284
+  %77 = load i32, ptr %76, align 8, !tbaa !283
   %78 = add nsw i32 %77, -1
-  store i32 %78, ptr %76, align 8, !tbaa !284
+  store i32 %78, ptr %76, align 8, !tbaa !283
   %79 = icmp eq i32 %78, 2
   br i1 %79, label %80, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 2612
-  store i32 7, ptr %81, align 4, !tbaa !301
+  store i32 7, ptr %81, align 4, !tbaa !300
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 2616
-  store i64 %59, ptr %82, align 8, !tbaa !303
+  store i64 %59, ptr %82, align 8, !tbaa !302
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %66, %75, %80, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
@@ -937,9 +937,9 @@ define void @_Z23gmx_pme_send_switchgridPK9t_commrecPiff(ptr noundef readonly ca
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %19, ptr %20, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  store float %2, ptr %21, align 4, !tbaa !306
+  store float %2, ptr %21, align 4, !tbaa !305
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store float %3, ptr %22, align 8, !tbaa !307
+  store float %3, ptr %22, align 8, !tbaa !306
   %23 = load ptr, ptr @TMPI_BYTE, align 8, !tbaa !146
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !38
@@ -1097,7 +1097,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread: ; pr
   store float %69, ptr %65, align 4, !tbaa !269
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !308
+  br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !307
 
 71:                                               ; preds = %51
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %14, i32 %49)
@@ -1135,7 +1135,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread: ; pr
   %90 = load ptr, ptr %89, align 8, !tbaa !148
   %91 = call noundef i32 @_Z9tMPI_RecvPviP14tmpi_datatype_iiP10tmpi_comm_P12tmpi_status_(ptr noundef nonnull %11, i32 noundef 96, ptr noundef %86, i32 noundef %88, i32 noundef 1, ptr noundef %90, ptr noundef null)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %93 = load i8, ptr %92, align 8, !tbaa !309, !range !132, !noundef !133
+  %93 = load i8, ptr %92, align 8, !tbaa !308, !range !132, !noundef !133
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %.preheader10.i.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit25.i
 
@@ -1152,7 +1152,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread: ; pr
 98:                                               ; preds = %99
   %indvars.iv.next15.i.i = add nuw nsw i64 %indvars.iv14.i.i, 1
   %exitcond17.not.i.i = icmp eq i64 %indvars.iv.next15.i.i, 3
-  br i1 %exitcond17.not.i.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i, label %.preheader.i.i, !llvm.loop !313
+  br i1 %exitcond17.not.i.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i, label %.preheader.i.i, !llvm.loop !312
 
 99:                                               ; preds = %99, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %99 ]
@@ -1164,7 +1164,7 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit.thread: ; pr
   store float %104, ptr %102, align 4, !tbaa !145
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %98, label %99, !llvm.loop !314
+  br i1 %exitcond.not.i.i, label %98, label %99, !llvm.loop !313
 
 _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i: ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 36
@@ -1179,7 +1179,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i: ; preds = %98
 108:                                              ; preds = %109
   %indvars.iv.next15.i23.i = add nuw nsw i64 %indvars.iv14.i19.i, 1
   %exitcond17.not.i24.i = icmp eq i64 %indvars.iv.next15.i23.i, 3
-  br i1 %exitcond17.not.i24.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit25.i, label %.preheader.i18.i, !llvm.loop !313
+  br i1 %exitcond17.not.i24.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit25.i, label %.preheader.i18.i, !llvm.loop !312
 
 109:                                              ; preds = %109, %.preheader.i18.i
   %indvars.iv.i20.i = phi i64 [ 0, %.preheader.i18.i ], [ %indvars.iv.next.i21.i, %109 ]
@@ -1191,30 +1191,30 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.i: ; preds = %98
   store float %114, ptr %112, align 4, !tbaa !145
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, 3
-  br i1 %exitcond.not.i22.i, label %108, label %109, !llvm.loop !314
+  br i1 %exitcond.not.i22.i, label %108, label %109, !llvm.loop !313
 
 _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit25.i: ; preds = %108, %84
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %116 = load float, ptr %115, align 4, !tbaa !315
+  %116 = load float, ptr %115, align 4, !tbaa !314
   store float %116, ptr %3, align 4, !tbaa !145
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 76
-  %118 = load float, ptr %117, align 4, !tbaa !318
+  %118 = load float, ptr %117, align 4, !tbaa !317
   store float %118, ptr %4, align 4, !tbaa !145
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %120 = load float, ptr %119, align 4, !tbaa !319
+  %120 = load float, ptr %119, align 4, !tbaa !318
   %121 = load float, ptr %5, align 4, !tbaa !145
   %122 = fadd float %120, %121
   store float %122, ptr %5, align 4, !tbaa !145
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  %124 = load float, ptr %123, align 4, !tbaa !320
+  %124 = load float, ptr %123, align 4, !tbaa !319
   %125 = load float, ptr %6, align 4, !tbaa !145
   %126 = fadd float %124, %125
   store float %126, ptr %6, align 4, !tbaa !145
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %128 = load float, ptr %127, align 4, !tbaa !321
+  %128 = load float, ptr %127, align 4, !tbaa !320
   store float %128, ptr %9, align 4, !tbaa !145
   %129 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  %130 = load i32, ptr %129, align 4, !tbaa !322
+  %130 = load i32, ptr %129, align 4, !tbaa !321
   %.not16.i = icmp eq i32 %130, 0
   br i1 %.not16.i, label %_ZL21receive_virial_energyPK9t_commrecPN3gmx15ForceWithVirialEPfS5_S5_S5_S5_.exit, label %131
 
@@ -1297,7 +1297,7 @@ define internal void @_Z17gmx_pme_receive_fPN3gmx12PmePpCommGpuEPK9t_commrecPNS_
   %39 = load i32, ptr %7, align 4, !tbaa !34
   %40 = sext i32 %39 to i64
   %.not.not = icmp slt i64 %indvars.iv, %40
-  br i1 %.not.not, label %20, label %._crit_edge, !llvm.loop !323
+  br i1 %.not.not, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1324,7 +1324,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #10
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare !callback !324 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
+declare !callback !322 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
 
 declare void @_ZN3gmx12PmePpCommGpu19receiveForceFromPmeEPNS_11BasicVectorIfEEib(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -1637,59 +1637,57 @@ attributes #14 = { noreturn }
 !267 = !{!"vtable pointer", !7, i64 0}
 !268 = !{i64 0, i64 12, !269}
 !269 = !{!6, !6, i64 0}
-!270 = distinct !{!270, !271, !272}
+!270 = distinct !{!270, !271}
 !271 = !{!"llvm.loop.mustprogress"}
-!272 = !{!"llvm.loop.estimated_trip_count"}
-!273 = !{!274, !276}
-!274 = distinct !{!274, !275, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_: argument 0"}
-!275 = distinct !{!275, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_"}
-!276 = distinct !{!276, !275, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
-!277 = distinct !{!277, !271, !272}
-!278 = !{i64 5107522}
-!279 = !{!280, !281, i64 16}
-!280 = !{!"_ZTS8wallcc_t", !17, i64 0, !281, i64 8, !281, i64 16}
-!281 = !{!"long long", !6, i64 0}
-!282 = !{!283, !283, i64 0}
-!283 = !{!"p1 _ZTS8wallcc_t", !13, i64 0}
-!284 = !{!285, !17, i64 2608}
-!285 = !{!"_ZTS13gmx_wallcycle", !286, i64 0, !114, i64 1440, !287, i64 1448, !288, i64 2552, !293, i64 2576, !294, i64 2584, !17, i64 2608, !298, i64 2612, !281, i64 2616, !16, i64 2624, !16, i64 2625, !299, i64 2626, !17, i64 2628, !16, i64 2632}
-!286 = !{!"_ZTSN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEE", !6, i64 0}
-!287 = !{!"_ZTSN3gmx16EnumerationArrayI19WallCycleSubCounter8wallcc_tLS1_46EEE", !6, i64 0}
-!288 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !289, i64 0}
-!289 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !290, i64 0}
-!290 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !291, i64 0}
-!291 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !292, i64 0, !292, i64 8, !292, i64 16}
-!292 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !13, i64 0}
-!293 = !{!"p1 _ZTS9t_commrec", !13, i64 0}
-!294 = !{!"_ZTSSt6vectorI8wallcc_tSaIS0_EE", !295, i64 0}
-!295 = !{!"_ZTSSt12_Vector_baseI8wallcc_tSaIS0_EE", !296, i64 0}
-!296 = !{!"_ZTSNSt12_Vector_baseI8wallcc_tSaIS0_EE12_Vector_implE", !297, i64 0}
-!297 = !{!"_ZTSNSt12_Vector_baseI8wallcc_tSaIS0_EE17_Vector_impl_dataE", !283, i64 0, !283, i64 8, !283, i64 16}
-!298 = !{!"_ZTS16WallCycleCounter", !6, i64 0}
-!299 = !{!"_ZTSSt5arrayI16WallCycleCounterLm0EE", !300, i64 0}
-!300 = !{!"_ZTSNSt14__array_traitsI16WallCycleCounterLm0EE5_TypeE"}
-!301 = !{!285, !298, i64 2612}
-!302 = !{!280, !17, i64 0}
-!303 = !{!285, !281, i64 2616}
-!304 = !{!280, !281, i64 8}
-!305 = !{!285, !16, i64 2624}
-!306 = !{!137, !138, i64 84}
-!307 = !{!137, !138, i64 88}
-!308 = distinct !{!308, !271, !272}
-!309 = !{!310, !16, i64 16}
-!310 = !{!"_ZTSN3gmx15ForceWithVirialE", !311, i64 0, !16, i64 16, !6, i64 20}
-!311 = !{!"_ZTSN3gmx8ArrayRefINS_11BasicVectorIfEEEE", !312, i64 0, !312, i64 8}
-!312 = !{!"_ZTSN3gmx12ArrayRefIterINS_11BasicVectorIfEEEE", !130, i64 0}
-!313 = distinct !{!313, !271, !272}
-!314 = distinct !{!314, !271, !272}
-!315 = !{!316, !138, i64 72}
-!316 = !{!"_ZTS22gmx_pme_comm_vir_ene_t", !6, i64 0, !6, i64 36, !138, i64 72, !138, i64 76, !138, i64 80, !138, i64 84, !138, i64 88, !317, i64 92}
-!317 = !{!"_ZTS13StopCondition", !6, i64 0}
-!318 = !{!316, !138, i64 76}
-!319 = !{!316, !138, i64 80}
-!320 = !{!316, !138, i64 84}
-!321 = !{!316, !138, i64 88}
-!322 = !{!316, !317, i64 92}
-!323 = distinct !{!323, !272}
-!324 = !{!325}
-!325 = !{i64 2, i64 -1, i64 -1, i1 true}
+!272 = !{!273, !275}
+!273 = distinct !{!273, !274, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_: argument 0"}
+!274 = distinct !{!274, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_"}
+!275 = distinct !{!275, !274, !"_ZSt19__relocate_object_aIN3gmx11BasicVectorIfEES2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
+!276 = distinct !{!276, !271}
+!277 = !{i64 5107522}
+!278 = !{!279, !280, i64 16}
+!279 = !{!"_ZTS8wallcc_t", !17, i64 0, !280, i64 8, !280, i64 16}
+!280 = !{!"long long", !6, i64 0}
+!281 = !{!282, !282, i64 0}
+!282 = !{!"p1 _ZTS8wallcc_t", !13, i64 0}
+!283 = !{!284, !17, i64 2608}
+!284 = !{!"_ZTS13gmx_wallcycle", !285, i64 0, !114, i64 1440, !286, i64 1448, !287, i64 2552, !292, i64 2576, !293, i64 2584, !17, i64 2608, !297, i64 2612, !280, i64 2616, !16, i64 2624, !16, i64 2625, !298, i64 2626, !17, i64 2628, !16, i64 2632}
+!285 = !{!"_ZTSN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEE", !6, i64 0}
+!286 = !{!"_ZTSN3gmx16EnumerationArrayI19WallCycleSubCounter8wallcc_tLS1_46EEE", !6, i64 0}
+!287 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !288, i64 0}
+!288 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !289, i64 0}
+!289 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !290, i64 0}
+!290 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !291, i64 0, !291, i64 8, !291, i64 16}
+!291 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !13, i64 0}
+!292 = !{!"p1 _ZTS9t_commrec", !13, i64 0}
+!293 = !{!"_ZTSSt6vectorI8wallcc_tSaIS0_EE", !294, i64 0}
+!294 = !{!"_ZTSSt12_Vector_baseI8wallcc_tSaIS0_EE", !295, i64 0}
+!295 = !{!"_ZTSNSt12_Vector_baseI8wallcc_tSaIS0_EE12_Vector_implE", !296, i64 0}
+!296 = !{!"_ZTSNSt12_Vector_baseI8wallcc_tSaIS0_EE17_Vector_impl_dataE", !282, i64 0, !282, i64 8, !282, i64 16}
+!297 = !{!"_ZTS16WallCycleCounter", !6, i64 0}
+!298 = !{!"_ZTSSt5arrayI16WallCycleCounterLm0EE", !299, i64 0}
+!299 = !{!"_ZTSNSt14__array_traitsI16WallCycleCounterLm0EE5_TypeE"}
+!300 = !{!284, !297, i64 2612}
+!301 = !{!279, !17, i64 0}
+!302 = !{!284, !280, i64 2616}
+!303 = !{!279, !280, i64 8}
+!304 = !{!284, !16, i64 2624}
+!305 = !{!137, !138, i64 84}
+!306 = !{!137, !138, i64 88}
+!307 = distinct !{!307, !271}
+!308 = !{!309, !16, i64 16}
+!309 = !{!"_ZTSN3gmx15ForceWithVirialE", !310, i64 0, !16, i64 16, !6, i64 20}
+!310 = !{!"_ZTSN3gmx8ArrayRefINS_11BasicVectorIfEEEE", !311, i64 0, !311, i64 8}
+!311 = !{!"_ZTSN3gmx12ArrayRefIterINS_11BasicVectorIfEEEE", !130, i64 0}
+!312 = distinct !{!312, !271}
+!313 = distinct !{!313, !271}
+!314 = !{!315, !138, i64 72}
+!315 = !{!"_ZTS22gmx_pme_comm_vir_ene_t", !6, i64 0, !6, i64 36, !138, i64 72, !138, i64 76, !138, i64 80, !138, i64 84, !138, i64 88, !316, i64 92}
+!316 = !{!"_ZTS13StopCondition", !6, i64 0}
+!317 = !{!315, !138, i64 76}
+!318 = !{!315, !138, i64 80}
+!319 = !{!315, !138, i64 84}
+!320 = !{!315, !138, i64 88}
+!321 = !{!315, !316, i64 92}
+!322 = !{!323}
+!323 = !{i64 2, i64 -1, i64 -1, i1 true}

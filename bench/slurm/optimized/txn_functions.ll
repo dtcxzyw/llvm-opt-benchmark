@@ -358,7 +358,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
   %173 = load ptr, ptr %35, align 8
   %174 = sext i32 %.0125168.i to i64
   %175 = getelementptr inbounds i8, ptr %173, i64 %174
-  %176 = load i8, ptr @user_case_norm, align 1, !range !12, !noundef !13
+  %176 = load i8, ptr @user_case_norm, align 1, !range !11, !noundef !12
   %177 = trunc nuw i8 %176 to i1
   %178 = call i32 @slurm_addto_char_list_with_case(ptr noundef %172, ptr noundef nonnull %175, i1 noundef zeroext %177) #8
   br label %183
@@ -374,13 +374,13 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_set_cond.exit, label %34, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_set_cond.exit, label %34, !llvm.loop !13
 
 _set_cond.exit:                                   ; preds = %183, %31
   %.0126.lcssa.i = phi i32 [ %.0125, %31 ], [ %0, %183 ]
   %184 = add nsw i32 %.0126.lcssa.i, 1
   %185 = icmp slt i32 %184, %0
-  br i1 %185, label %15, label %._crit_edge, !llvm.loop !15
+  br i1 %185, label %15, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
   %186 = load i32, ptr @exit_code, align 4
@@ -588,14 +588,14 @@ _set_cond.exit:                                   ; preds = %183, %31
   %295 = add nuw nsw i32 %.0128, 1
   %296 = call ptr @list_next(ptr noundef %213) #8
   %.not117 = icmp eq ptr %296, null
-  br i1 %.not117, label %._crit_edge130, label %226, !llvm.loop !16
+  br i1 %.not117, label %._crit_edge130, label %226, !llvm.loop !15
 
 ._crit_edge130:                                   ; preds = %294, %.preheader
   call void @list_iterator_reset(ptr noundef %213) #8
   %putchar = call i32 @putchar(i32 10)
   %297 = call ptr @list_next(ptr noundef %212) #8
   %.not115 = icmp eq ptr %297, null
-  br i1 %.not115, label %._crit_edge132, label %.preheader, !llvm.loop !17
+  br i1 %.not115, label %._crit_edge132, label %.preheader, !llvm.loop !16
 
 ._crit_edge132:                                   ; preds = %._crit_edge130, %211
   call void @list_iterator_destroy(ptr noundef %213) #8
@@ -705,13 +705,12 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

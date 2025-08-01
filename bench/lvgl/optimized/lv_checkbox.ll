@@ -353,7 +353,7 @@ define void @lv_checkbox_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not19, label %.preheader, label %18
 
 .preheader:                                       ; preds = %16, %.preheader
-  br label %.preheader, !llvm.loop !40
+  br label %.preheader
 
 18:                                               ; preds = %16
   %19 = tail call ptr @lv_strcpy(ptr noundef nonnull %17, ptr noundef nonnull %1) #5
@@ -505,5 +505,3 @@ attributes #5 = { nounwind }
 !37 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
 !38 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
 !39 = !{!36, !16, i64 48}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}

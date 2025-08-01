@@ -713,7 +713,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %72
   %.pre141 = load ptr, ptr %62, align 8
@@ -844,7 +844,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %.1101 = phi i32 [ %99, %121 ], [ %.0100132, %129 ]
   %136 = call ptr @systable_getnext_ordered(ptr noundef %90, i32 noundef 1) #8
   %.not117 = icmp eq ptr %136, null
-  br i1 %.not117, label %._crit_edge135, label %.lr.ph134, !llvm.loop !10
+  br i1 %.not117, label %._crit_edge135, label %.lr.ph134, !llvm.loop !9
 
 ._crit_edge135:                                   ; preds = %135, %.loopexit
   %.0102.lcssa = phi i32 [ 0, %.loopexit ], [ %.1103, %135 ]
@@ -1148,8 +1148,7 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

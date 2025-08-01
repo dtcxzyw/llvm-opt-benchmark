@@ -1706,7 +1706,7 @@ define internal fastcc noundef zeroext i1 @dissect_pipe_lanman(ptr noundef %0, p
   %95 = icmp eq i32 %94, %37
   %or.cond.i = or i1 %.not.i, %95
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  br i1 %or.cond.i, label %find_lanman.exit, label %92, !llvm.loop !11
+  br i1 %or.cond.i, label %find_lanman.exit, label %92, !llvm.loop !10
 
 find_lanman.exit:                                 ; preds = %92
   %96 = add i32 %91, %72
@@ -1844,7 +1844,7 @@ find_lanman.exit:                                 ; preds = %92
   %174 = getelementptr i8, ptr %.01217.i.i, i64 1
   %175 = load i8, ptr %174, align 1
   %.not14.i.i = icmp eq i8 %175, 0
-  br i1 %.not14.i.i, label %get_count.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not14.i.i, label %get_count.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 get_count.exit.i:                                 ; preds = %169, %.lr.ph.i.i
   %storemerge.i.i = phi i32 [ %173, %169 ], [ %.01118.i.i, %.lr.ph.i.i ]
@@ -2015,7 +2015,7 @@ add_bytes_param.exit.i:                           ; preds = %.thread.i, %.thread
   %272 = getelementptr i8, ptr %.01217.i167.i, i64 1
   %273 = load i8, ptr %272, align 1
   %.not14.i169.i = icmp eq i8 %273, 0
-  br i1 %.not14.i169.i, label %get_count.exit172.i, label %.lr.ph.i165.i, !llvm.loop !12
+  br i1 %.not14.i169.i, label %get_count.exit172.i, label %.lr.ph.i165.i, !llvm.loop !11
 
 get_count.exit172.i:                              ; preds = %267, %.lr.ph.i165.i, %.preheader.i163.i, %256
   %storemerge.i170.i = phi i32 [ 1, %256 ], [ 0, %.preheader.i163.i ], [ %271, %267 ], [ %.01118.i166.i, %.lr.ph.i165.i ]
@@ -2045,7 +2045,7 @@ get_count.exit172.i:                              ; preds = %267, %.lr.ph.i165.i
   %.0145.i.be = phi ptr [ %.0145.i, %100 ], [ %.0145.i, %107 ], [ %130, %126 ], [ %125, %114 ], [ %.0145.i, %135 ], [ %157, %153 ], [ %152, %142 ], [ %.0145.i, %add_bytes_param.exit.i ], [ %210, %208 ], [ %207, %198 ], [ %.0145.i, %215 ], [ %225, %224 ], [ %.0145.i, %230 ], [ %255, %251 ], [ %250, %238 ], [ %.0145.i, %get_count.exit172.i ], [ %.0145.i, %277 ], [ %.0145.i, %281 ], [ %.0145.i, %282 ]
   %.0143.i.be = phi ptr [ %101, %100 ], [ %101, %107 ], [ %101, %126 ], [ %101, %114 ], [ %101, %135 ], [ %101, %153 ], [ %101, %142 ], [ %.0.i184187.i, %add_bytes_param.exit.i ], [ %.0.i183.i, %208 ], [ %.0.i183.i, %198 ], [ %101, %215 ], [ %101, %224 ], [ %101, %230 ], [ %101, %251 ], [ %101, %238 ], [ %.0.i171.i, %get_count.exit172.i ], [ %101, %277 ], [ %101, %281 ], [ %101, %282 ]
   %.0.i185.be = phi i32 [ %.0.i185, %100 ], [ %110, %107 ], [ %129, %126 ], [ %124, %114 ], [ %138, %135 ], [ %156, %153 ], [ %151, %142 ], [ %191, %add_bytes_param.exit.i ], [ %209, %208 ], [ %206, %198 ], [ %.0.i185, %215 ], [ %.0.i185, %224 ], [ %234, %230 ], [ %254, %251 ], [ %249, %238 ], [ %276, %get_count.exit172.i ], [ %280, %277 ], [ %.0.i185, %281 ], [ %285, %282 ]
-  br label %100, !llvm.loop !13
+  br label %100, !llvm.loop !12
 
 dissect_request_parameters.exit:                  ; preds = %100
   %286 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %.0.i185)
@@ -2131,7 +2131,7 @@ dissect_request_parameters.exit:                  ; preds = %100
   %330 = load i16, ptr %8, align 2
   %331 = zext i16 %330 to i32
   %332 = icmp samesign ult i32 %329, %331
-  br i1 %332, label %327, label %.loopexit, !llvm.loop !14
+  br i1 %332, label %327, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %327, %319
   %.0163 = phi i32 [ %322, %319 ], [ %328, %327 ]
@@ -2192,7 +2192,7 @@ dissect_request_parameters.exit:                  ; preds = %100
   %367 = icmp eq i32 %366, %363
   %or.cond.i188 = or i1 %.not.i187, %367
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond.i188, label %find_lanman.exit189, label %364, !llvm.loop !11
+  br i1 %or.cond.i188, label %find_lanman.exit189, label %364, !llvm.loop !10
 
 find_lanman.exit189:                              ; preds = %364
   %368 = tail call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %1, i32 noundef 0)
@@ -2284,7 +2284,7 @@ find_lanman.exit189:                              ; preds = %364
   %412 = getelementptr i8, ptr %.01217.i.i197, i64 1
   %413 = load i8, ptr %412, align 1
   %.not14.i.i199 = icmp eq i8 %413, 0
-  br i1 %.not14.i.i199, label %get_count.exit.i200, label %.lr.ph.i.i195, !llvm.loop !12
+  br i1 %.not14.i.i199, label %get_count.exit.i200, label %.lr.ph.i.i195, !llvm.loop !11
 
 get_count.exit.i200:                              ; preds = %407, %.lr.ph.i.i195
   %storemerge.i.i201 = phi i32 [ %411, %407 ], [ %.01118.i.i196, %.lr.ph.i.i195 ]
@@ -2449,7 +2449,7 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %.098.i.be = phi ptr [ %.098.i, %392 ], [ %.098.i, %395 ], [ %.098.i, %add_bytes_param.exit.i204 ], [ %448, %446 ], [ %445, %436 ], [ %.098.i, %453 ], [ %476, %472 ], [ %471, %460 ], [ %.098.i, %481 ], [ %503, %499 ], [ %498, %488 ], [ %.098.i, %504 ]
   %.096.i.be = phi ptr [ %393, %392 ], [ %393, %395 ], [ %.0.i119122.i, %add_bytes_param.exit.i204 ], [ %.0.i118.i, %446 ], [ %.0.i118.i, %436 ], [ %393, %453 ], [ %393, %472 ], [ %393, %460 ], [ %393, %481 ], [ %393, %499 ], [ %393, %488 ], [ %393, %504 ]
   %.0.i190.be = phi i32 [ %.0.i190, %392 ], [ %.0.i190, %395 ], [ %429, %add_bytes_param.exit.i204 ], [ %447, %446 ], [ %444, %436 ], [ %456, %453 ], [ %475, %472 ], [ %470, %460 ], [ %484, %481 ], [ %502, %499 ], [ %497, %488 ], [ %509, %504 ]
-  br label %392, !llvm.loop !15
+  br label %392, !llvm.loop !14
 
 dissect_response_parameters.exit:                 ; preds = %392
   %.not170 = icmp eq ptr %2, null
@@ -2577,7 +2577,7 @@ define internal fastcc i32 @dissect_transact_data(ptr noundef nonnull %0, i32 no
   %.0182.be = phi ptr [ %.0182, %14 ], [ %.0182, %34 ], [ %57, %53 ], [ %52, %41 ], [ %.0182, %75 ], [ %97, %93 ], [ %92, %82 ], [ %.0182, %add_bytes_param.exit ], [ %150, %148 ], [ %147, %138 ], [ %.0182, %155 ], [ %165, %164 ], [ %.0182, %170 ], [ %200, %196 ], [ %195, %get_stringz_pointer_value.exit ], [ %.0182, %add_bytes_pointer_param.exit ], [ %255, %251 ], [ %250, %236 ], [ %.0182, %256 ], [ %.0182, %262 ]
   %.0180.be = phi ptr [ %15, %14 ], [ %.0.i, %34 ], [ %.0.i, %53 ], [ %.0.i, %41 ], [ %.0.i214, %75 ], [ %.0.i214, %93 ], [ %.0.i214, %82 ], [ %.0.i225258261, %add_bytes_param.exit ], [ %.0.i225257, %148 ], [ %.0.i225257, %138 ], [ %15, %155 ], [ %15, %164 ], [ %15, %170 ], [ %15, %196 ], [ %15, %get_stringz_pointer_value.exit ], [ %.0.i238, %add_bytes_pointer_param.exit ], [ %.0.i238, %251 ], [ %.0.i238, %236 ], [ %15, %256 ], [ %15, %262 ]
   %.0.be = phi i32 [ %.0, %14 ], [ %37, %34 ], [ %56, %53 ], [ %51, %41 ], [ %78, %75 ], [ %96, %93 ], [ %91, %82 ], [ %131, %add_bytes_param.exit ], [ %149, %148 ], [ %146, %138 ], [ %.0, %155 ], [ %.0, %164 ], [ %171, %170 ], [ %199, %196 ], [ %186, %get_stringz_pointer_value.exit ], [ %232, %add_bytes_pointer_param.exit ], [ %254, %251 ], [ %240, %236 ], [ %261, %256 ], [ %261, %262 ]
-  br label %14, !llvm.loop !16
+  br label %14, !llvm.loop !15
 
 17:                                               ; preds = %14
   %18 = load i8, ptr %15, align 1
@@ -2604,7 +2604,7 @@ define internal fastcc i32 @dissect_transact_data(ptr noundef nonnull %0, i32 no
   %29 = getelementptr i8, ptr %.01217.i, i64 1
   %30 = load i8, ptr %29, align 1
   %.not14.i = icmp eq i8 %30, 0
-  br i1 %.not14.i, label %get_count.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not14.i, label %get_count.exit, label %.lr.ph.i, !llvm.loop !11
 
 get_count.exit:                                   ; preds = %.lr.ph.i, %28, %17
   %.0.i = phi ptr [ %15, %17 ], [ %.01217.i, %.lr.ph.i ], [ %29, %28 ]
@@ -2671,7 +2671,7 @@ get_count.exit:                                   ; preds = %.lr.ph.i, %28, %17
   %70 = getelementptr i8, ptr %.01217.i210, i64 1
   %71 = load i8, ptr %70, align 1
   %.not14.i212 = icmp eq i8 %71, 0
-  br i1 %.not14.i212, label %get_count.exit215, label %.lr.ph.i208, !llvm.loop !12
+  br i1 %.not14.i212, label %get_count.exit215, label %.lr.ph.i208, !llvm.loop !11
 
 get_count.exit215:                                ; preds = %.lr.ph.i208, %69, %58
   %.0.i214 = phi ptr [ %15, %58 ], [ %.01217.i210, %.lr.ph.i208 ], [ %70, %69 ]
@@ -2744,7 +2744,7 @@ get_count.exit215:                                ; preds = %.lr.ph.i208, %69, %
   %114 = getelementptr i8, ptr %.01217.i221, i64 1
   %115 = load i8, ptr %114, align 1
   %.not14.i223 = icmp eq i8 %115, 0
-  br i1 %.not14.i223, label %get_count.exit226, label %.lr.ph.i219, !llvm.loop !12
+  br i1 %.not14.i223, label %get_count.exit226, label %.lr.ph.i219, !llvm.loop !11
 
 get_count.exit226:                                ; preds = %.lr.ph.i219, %109
   %storemerge.i224 = phi i32 [ %113, %109 ], [ %.01118.i220, %.lr.ph.i219 ]
@@ -2931,7 +2931,7 @@ get_stringz_pointer_value.exit:                   ; preds = %175, %181, %183
   %217 = getelementptr i8, ptr %.01217.i234, i64 1
   %218 = load i8, ptr %217, align 1
   %.not14.i236 = icmp eq i8 %218, 0
-  br i1 %.not14.i236, label %get_count.exit239, label %.lr.ph.i232, !llvm.loop !12
+  br i1 %.not14.i236, label %get_count.exit239, label %.lr.ph.i232, !llvm.loop !11
 
 get_count.exit239:                                ; preds = %.lr.ph.i232, %212, %201, %.preheader.i230
   %storemerge.i237 = phi i32 [ 1, %201 ], [ 0, %.preheader.i230 ], [ %.01118.i233, %.lr.ph.i232 ], [ %216, %212 ]
@@ -3042,7 +3042,7 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
   %24 = getelementptr i8, ptr %.07087, i64 16
   %25 = load i32, ptr %24, align 8
   %.not = icmp eq i32 %25, -1
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %20, %8
   %.070.lcssa = phi ptr [ %16, %8 ], [ %.07087, %20 ], [ %24, %23 ]
@@ -3121,7 +3121,7 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
   %62 = load i16, ptr %10, align 2
   %63 = zext i16 %62 to i32
   %64 = icmp samesign ult i32 %61, %63
-  br i1 %64, label %.lr.ph92.us, label %.loopexit.us, !llvm.loop !18
+  br i1 %64, label %.lr.ph92.us, label %.loopexit.us, !llvm.loop !17
 
 .loopexit.us:                                     ; preds = %.lr.ph92.us, %52
   %.2.us = phi i32 [ %54, %52 ], [ %60, %.lr.ph92.us ]
@@ -3136,7 +3136,7 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
 67:                                               ; preds = %65, %.loopexit.us
   %68 = add nuw nsw i32 %.06495.us, 1
   %exitcond107.not = icmp eq i32 %68, %41
-  br i1 %exitcond107.not, label %.loopexit85, label %.lr.ph96.split.us, !llvm.loop !19
+  br i1 %exitcond107.not, label %.loopexit85, label %.lr.ph96.split.us, !llvm.loop !18
 
 69:                                               ; preds = %36
   br i1 %6, label %70, label %73
@@ -3181,13 +3181,13 @@ define internal fastcc void @dissect_response_data(ptr noundef nonnull %0, ptr n
   %87 = load i16, ptr %10, align 2
   %88 = zext i16 %87 to i32
   %89 = icmp samesign ult i32 %86, %88
-  br i1 %89, label %.lr.ph92, label %.loopexit, !llvm.loop !18
+  br i1 %89, label %.lr.ph92, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph92, %.lr.ph96.split
   %.2 = phi i32 [ %79, %.lr.ph96.split ], [ %85, %.lr.ph92 ]
   %90 = add nuw nsw i32 %.06495, 1
   %exitcond.not = icmp eq i32 %90, %41
-  br i1 %exitcond.not, label %.loopexit85, label %.lr.ph96.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit85, label %.lr.ph96.split, !llvm.loop !20
 
 .loopexit85:                                      ; preds = %.loopexit, %67, %.preheader84, %76
   %.071 = phi i32 [ %77, %76 ], [ 0, %.preheader84 ], [ %.2.us, %67 ], [ %.2, %.loopexit ]
@@ -3794,17 +3794,16 @@ attributes #11 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !9}

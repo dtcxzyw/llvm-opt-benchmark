@@ -512,7 +512,7 @@ define dso_local void @free_names(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %reftable_free.exit10, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %2 = load ptr, ptr %0, align 8, !tbaa !19
+  %2 = load ptr, ptr %0, align 8, !tbaa !18
   %.not811 = icmp eq ptr %2, null
   %.pre15 = load ptr, ptr @reftable_free_ptr, align 8, !tbaa !4
   br i1 %.not811, label %._crit_edge, label %.lr.ph
@@ -526,9 +526,9 @@ reftable_free.exit.us:                            ; preds = %.lr.ph, %reftable_f
   %.012.us = phi ptr [ %5, %reftable_free.exit.us ], [ %0, %.lr.ph ]
   tail call void @free(ptr noundef nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %.012.us, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
   %.not8.us = icmp eq ptr %6, null
-  br i1 %.not8.us, label %._crit_edge.thread, label %reftable_free.exit.us, !llvm.loop !20
+  br i1 %.not8.us, label %._crit_edge.thread, label %reftable_free.exit.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %reftable_free.exit
   %7 = phi ptr [ %12, %reftable_free.exit ], [ %.pre15, %.lr.ph ]
@@ -551,9 +551,9 @@ reftable_free.exit:                               ; preds = %10, %11
   %12 = phi ptr [ %.pre, %10 ], [ %7, %11 ]
   %13 = phi ptr [ %.pre, %10 ], [ null, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %.012, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !18
   %.not8 = icmp eq ptr %15, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not8, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %reftable_free.exit, %.preheader
   %16 = phi ptr [ %.pre15, %.preheader ], [ %12, %reftable_free.exit ]
@@ -578,10 +578,10 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @names
 
 2:                                                ; preds = %2, %1
   %.0 = phi ptr [ %0, %1 ], [ %4, %2 ]
-  %3 = load ptr, ptr %.0, align 8, !tbaa !19
+  %3 = load ptr, ptr %.0, align 8, !tbaa !18
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br i1 %.not, label %5, label %2, !llvm.loop !24
+  br i1 %.not, label %5, label %2, !llvm.loop !23
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %.0 to i64
@@ -681,13 +681,13 @@ reftable_malloc.exit.i:                           ; preds = %30, %28
 
 reftable_strdup.exit.thread:                      ; preds = %reftable_malloc.exit.i, %reftable_alloc_grow.exit.thread
   %32 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041108
-  store ptr null, ptr %32, align 8, !tbaa !19
+  store ptr null, ptr %32, align 8, !tbaa !18
   br label %.thread
 
 reftable_strdup.exit:                             ; preds = %reftable_malloc.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i54, ptr nonnull readonly align 1 %.040109, i64 %25, i1 false)
   %33 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041108
-  store ptr %.0.i.i54, ptr %33, align 8, !tbaa !19
+  store ptr %.0.i.i54, ptr %33, align 8, !tbaa !18
   br label %34
 
 34:                                               ; preds = %9, %reftable_strdup.exit
@@ -696,7 +696,7 @@ reftable_strdup.exit:                             ; preds = %reftable_malloc.exi
   %.142 = phi i64 [ %12, %reftable_strdup.exit ], [ %.041108, %9 ]
   %35 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %36 = icmp ult ptr %35, %4
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %2
   %.076.lcssa = phi i64 [ 0, %2 ], [ %.177, %34 ]
@@ -739,7 +739,7 @@ reftable_realloc.exit.i62:                        ; preds = %47, %45
 reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.exit.i62, %._crit_edge
   %.5 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %.0.i.i63, %reftable_realloc.exit.i62 ]
   %49 = getelementptr inbounds nuw ptr, ptr %.5, i64 %.041.lcssa
-  store ptr null, ptr %49, align 8, !tbaa !19
+  store ptr null, ptr %49, align 8, !tbaa !18
   br label %reftable_free.exit
 
 .thread:                                          ; preds = %reftable_realloc.exit.i, %reftable_realloc.exit.i62, %reftable_strdup.exit.thread
@@ -764,7 +764,7 @@ reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.ex
 .lr.ph113:                                        ; preds = %.thread, %reftable_free.exit70
   %.0112 = phi i64 [ %58, %reftable_free.exit70 ], [ 0, %.thread ]
   %53 = getelementptr inbounds nuw ptr, ptr %.4, i64 %.0112
-  %54 = load ptr, ptr %53, align 8, !tbaa !19
+  %54 = load ptr, ptr %53, align 8, !tbaa !18
   %55 = load ptr, ptr @reftable_free_ptr, align 8, !tbaa !4
   %.not.i69 = icmp eq ptr %55, null
   br i1 %.not.i69, label %57, label %56
@@ -780,7 +780,7 @@ reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.ex
 reftable_free.exit70:                             ; preds = %56, %57
   %58 = add nuw i64 %.0112, 1
   %exitcond.not = icmp eq i64 %58, %.3
-  br i1 %exitcond.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !24
 
 reftable_free.exit:                               ; preds = %52, %51, %reftable_alloc_grow.exit67.thread
   %.039 = phi ptr [ %.5, %reftable_alloc_grow.exit67.thread ], [ null, %51 ], [ null, %52 ]
@@ -792,7 +792,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !18
   %.not20 = icmp eq ptr %3, null
   br i1 %.not20, label %.critedge, label %.lr.ph
 
@@ -800,7 +800,7 @@ define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(
   %4 = phi ptr [ %12, %9 ], [ %3, %2 ]
   %.021 = phi i64 [ %10, %9 ], [ 0, %2 ]
   %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %.021
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %.critedge, label %7
 
@@ -812,15 +812,15 @@ define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(
 9:                                                ; preds = %7
   %10 = add i64 %.021, 1
   %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph, %9, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %10, %9 ], [ %.021, %.lr.ph ]
   %.lcssa = phi ptr [ null, %2 ], [ null, %9 ], [ %4, %.lr.ph ]
   %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0.lcssa
-  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = icmp eq ptr %.lcssa, %14
   %16 = zext i1 %15 to i32
   br label %.loopexit
@@ -865,7 +865,7 @@ define dso_local i64 @common_prefix_size(ptr noundef readonly captures(none) %0,
 17:                                               ; preds = %10
   %18 = add nuw i64 %.09, 1
   %exitcond15.not = icmp eq i64 %18, %5
-  br i1 %exitcond15.not, label %.critedge, label %9, !llvm.loop !28
+  br i1 %exitcond15.not, label %.critedge, label %9, !llvm.loop !26
 
 .critedge:                                        ; preds = %9, %10, %17, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %5, %17 ], [ %.09, %10 ], [ %7, %9 ]
@@ -954,16 +954,14 @@ attributes #24 = { noreturn nounwind }
 !13 = !{!9, !10, i64 8}
 !14 = !{!6, !6, i64 0}
 !15 = !{!10, !10, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!11, !11, i64 0}
-!20 = distinct !{!20, !17, !18, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !17, !18, !23}
-!23 = !{!"llvm.loop.unswitch.partial.disable"}
-!24 = distinct !{!24, !17, !18}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !17, !18}
-!27 = distinct !{!27, !17, !18}
-!28 = distinct !{!28, !17, !18}
+!18 = !{!11, !11, i64 0}
+!19 = distinct !{!19, !17, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !17, !22}
+!22 = !{!"llvm.loop.unswitch.partial.disable"}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}

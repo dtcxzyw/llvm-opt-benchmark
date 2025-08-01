@@ -500,7 +500,7 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
   %47 = load i32, ptr %17, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next49.i, %48
-  br i1 %49, label %.lr.ph43.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %49, label %.lr.ph43.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %45
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #8
@@ -563,7 +563,7 @@ _next_month.exit:                                 ; preds = %.backedge, %29, %.t
   %69 = add nuw i32 %.01928.i, 1
   %indvars.iv.next.i48 = add nsw i64 %indvars.iv.i45, 1
   %exitcond.i = icmp eq i32 %69, %63
-  br i1 %exitcond.i, label %.preheader.i49, label %65, !llvm.loop !13
+  br i1 %exitcond.i, label %.preheader.i49, label %65, !llvm.loop !12
 
 .lr.ph33.i:                                       ; preds = %.lr.ph33.i.preheader, %72
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %72 ], [ 0, %.lr.ph33.i.preheader ]
@@ -579,7 +579,7 @@ _next_month.exit:                                 ; preds = %.backedge, %29, %.t
   %74 = load i32, ptr %21, align 8
   %75 = sext i32 %74 to i64
   %.not24.i = icmp slt i64 %indvars.iv.next41.i, %75
-  br i1 %.not24.i, label %.lr.ph33.i, label %_next_day_of_week.exit.thread.preheader, !llvm.loop !14
+  br i1 %.not24.i, label %.lr.ph33.i, label %_next_day_of_week.exit.thread.preheader, !llvm.loop !13
 
 76:                                               ; preds = %57
   br i1 %.not30, label %104, label %77
@@ -646,7 +646,7 @@ _days_in_month.exit.i:                            ; preds = %88, %84, %82, %78, 
   %97 = add nuw i32 %.02433.i, 1
   %indvars.iv.next.i54 = add nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i55 = icmp eq i32 %97, %92
-  br i1 %exitcond.not.i55, label %.preheader.i56, label %93, !llvm.loop !15
+  br i1 %exitcond.not.i55, label %.preheader.i56, label %93, !llvm.loop !14
 
 .lr.ph38.i:                                       ; preds = %.lr.ph38.i.preheader, %100
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %100 ], [ 1, %.lr.ph38.i.preheader ]
@@ -662,7 +662,7 @@ _days_in_month.exit.i:                            ; preds = %88, %84, %82, %78, 
   %102 = load i32, ptr %20, align 4
   %103 = sext i32 %102 to i64
   %.not28.i58 = icmp slt i64 %indvars.iv.next46.i, %103
-  br i1 %.not28.i58, label %.lr.ph38.i, label %_next_day_of_week.exit.thread105, !llvm.loop !16
+  br i1 %.not28.i58, label %.lr.ph38.i, label %_next_day_of_week.exit.thread105, !llvm.loop !15
 
 104:                                              ; preds = %76
   switch i32 %53, label %_days_in_month.exit.i59 [
@@ -726,7 +726,7 @@ _days_in_month.exit.i59:                          ; preds = %115, %111, %109, %1
   %124 = add nuw i32 %.02433.i64, 1
   %indvars.iv.next.i68 = add nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i69 = icmp eq i32 %124, %119
-  br i1 %exitcond.not.i69, label %.preheader.i70, label %120, !llvm.loop !15
+  br i1 %exitcond.not.i69, label %.preheader.i70, label %120, !llvm.loop !14
 
 .lr.ph38.i75:                                     ; preds = %.lr.ph38.i75.preheader, %127
   %indvars.iv45.i76 = phi i64 [ %indvars.iv.next46.i79, %127 ], [ 1, %.lr.ph38.i75.preheader ]
@@ -742,7 +742,7 @@ _days_in_month.exit.i59:                          ; preds = %115, %111, %109, %1
   %129 = load i32, ptr %20, align 4
   %130 = sext i32 %129 to i64
   %.not28.i80 = icmp slt i64 %indvars.iv.next46.i79, %130
-  br i1 %.not28.i80, label %.lr.ph38.i75, label %_next_day_of_month.exit82, !llvm.loop !16
+  br i1 %.not28.i80, label %.lr.ph38.i75, label %_next_day_of_month.exit82, !llvm.loop !15
 
 _next_day_of_month.exit82:                        ; preds = %120, %.lr.ph38.i75, %127, %.preheader.i70
   %.123.i67 = phi i32 [ %119, %.preheader.i70 ], [ %128, %127 ], [ %.12536.i77, %.lr.ph38.i75 ], [ %.02433.i64, %120 ]
@@ -776,7 +776,7 @@ _next_day_of_month.exit82:                        ; preds = %120, %.lr.ph38.i75,
   %140 = add nuw i32 %.01928.i85, 1
   %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i84, 1
   %exitcond.i90 = icmp eq i32 %140, %134
-  br i1 %exitcond.i90, label %.preheader.i91, label %136, !llvm.loop !13
+  br i1 %exitcond.i90, label %.preheader.i91, label %136, !llvm.loop !12
 
 .lr.ph33.i95:                                     ; preds = %.lr.ph33.i95.preheader, %143
   %indvars.iv40.i96 = phi i64 [ %indvars.iv.next41.i99, %143 ], [ 0, %.lr.ph33.i95.preheader ]
@@ -792,7 +792,7 @@ _next_day_of_month.exit82:                        ; preds = %120, %.lr.ph38.i75,
   %145 = load i32, ptr %21, align 8
   %146 = sext i32 %145 to i64
   %.not24.i100 = icmp slt i64 %indvars.iv.next41.i99, %146
-  br i1 %.not24.i100, label %.lr.ph33.i95, label %_next_day_of_week.exit101, !llvm.loop !14
+  br i1 %.not24.i100, label %.lr.ph33.i95, label %_next_day_of_week.exit101, !llvm.loop !13
 
 _next_day_of_week.exit101:                        ; preds = %136, %.lr.ph33.i95, %143, %.preheader.i91
   %.122.i88 = phi i32 [ 0, %.preheader.i91 ], [ 0, %143 ], [ %.12031.i97, %.lr.ph33.i95 ], [ %.01928.i85, %136 ]
@@ -856,7 +856,7 @@ _next_day_of_week.exit.thread:                    ; preds = %_next_day_of_week.e
   %166 = add nsw i32 %.pre148.pre, 1
   store i32 %166, ptr %18, align 8
   %167 = icmp slt i32 %.pre148.pre, 23
-  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %165, %.lr.ph, %159
   %168 = phi i32 [ %.pr, %159 ], [ %166, %165 ], [ %.pre148.pre, %.lr.ph ]
@@ -868,7 +868,7 @@ _next_day_of_week.exit.thread:                    ; preds = %_next_day_of_week.e
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.sink.split, %_next_day_of_week.exit.thread105
-  br label %.backedge, !llvm.loop !18
+  br label %.backedge
 
 171:                                              ; preds = %._crit_edge, %154, %_next_day_of_week.exit.thread
   %172 = load i32, ptr %0, align 8
@@ -902,7 +902,7 @@ thread-pre-split:                                 ; preds = %174
   %185 = add nsw i32 %.pre149.pre, 1
   store i32 %185, ptr %19, align 4
   %186 = icmp slt i32 %.pre149.pre, 59
-  br i1 %186, label %.lr.ph127, label %._crit_edge128, !llvm.loop !19
+  br i1 %186, label %.lr.ph127, label %._crit_edge128, !llvm.loop !17
 
 ._crit_edge128:                                   ; preds = %184, %.lr.ph127, %thread-pre-split
   %187 = phi i32 [ %.pr109, %thread-pre-split ], [ %185, %184 ], [ %.pre149.pre, %.lr.ph127 ]
@@ -919,7 +919,7 @@ thread-pre-split:                                 ; preds = %174
   store i32 0, ptr %19, align 4
   %193 = add nsw i32 %189, 1
   store i32 %193, ptr %18, align 8
-  br label %_next_day_of_week.exit.thread, !llvm.loop !20
+  br label %_next_day_of_week.exit.thread
 
 194:                                              ; preds = %191, %174, %171
   %195 = call i64 @slurm_mktime(ptr noundef nonnull %3) #7
@@ -1604,16 +1604,13 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

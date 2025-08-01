@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %41 = add nuw nsw i32 %.119.i, 1
   %exitcond25.not.i = icmp eq i32 %41, 15
-  br i1 %exitcond25.not.i, label %42, label %40, !llvm.loop !21
+  br i1 %exitcond25.not.i, label %42, label %40, !llvm.loop !20
 
 42:                                               ; preds = %40
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9) #7
@@ -222,7 +222,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %44 = add nuw nsw i32 %.220.i, 1
   %exitcond26.not.i = icmp eq i32 %44, 31
-  br i1 %exitcond26.not.i, label %45, label %43, !llvm.loop !22
+  br i1 %exitcond26.not.i, label %45, label %43, !llvm.loop !21
 
 45:                                               ; preds = %43
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %18) #7
@@ -233,7 +233,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %47 = add nuw nsw i32 %.321.i, 1
   %exitcond27.not.i = icmp eq i32 %47, 128
-  br i1 %exitcond27.not.i, label %48, label %46, !llvm.loop !23
+  br i1 %exitcond27.not.i, label %48, label %46, !llvm.loop !22
 
 48:                                               ; preds = %46
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #7
@@ -244,7 +244,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %50 = add nuw nsw i32 %.422.i, 1
   %exitcond28.not.i = icmp eq i32 %50, 32
-  br i1 %exitcond28.not.i, label %51, label %49, !llvm.loop !24
+  br i1 %exitcond28.not.i, label %51, label %49, !llvm.loop !23
 
 51:                                               ; preds = %49
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %10) #7
@@ -255,7 +255,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %53 = add nuw nsw i32 %.523.i, 1
   %exitcond29.not.i = icmp eq i32 %53, 16
-  br i1 %exitcond29.not.i, label %54, label %52, !llvm.loop !25
+  br i1 %exitcond29.not.i, label %54, label %52, !llvm.loop !24
 
 54:                                               ; preds = %52
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %9) #7
@@ -266,7 +266,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %0, ptr
   call void @ecp_nistz256_sqr_mont(ptr noundef nonnull %11, ptr noundef nonnull %11) #7
   %56 = add nuw nsw i32 %.624.i, 1
   %exitcond30.not.i = icmp eq i32 %56, 8
-  br i1 %exitcond30.not.i, label %ecp_nistz256_mod_inverse.exit, label %55, !llvm.loop !26
+  br i1 %exitcond30.not.i, label %ecp_nistz256_mod_inverse.exit, label %55, !llvm.loop !25
 
 ecp_nistz256_mod_inverse.exit:                    ; preds = %55
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %8) #7
@@ -382,7 +382,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
   %.not156 = icmp eq ptr %20, null
   br i1 %.not156, label %.thread183, label %21
 
@@ -393,7 +393,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
   call void @ecp_nistz256_gather_w7(ptr noundef nonnull %10, ptr noundef %26, i32 noundef 1) #7
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !11
@@ -422,7 +422,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store i32 1, ptr %41, align 8, !tbaa !29
+  store i32 1, ptr %41, align 8, !tbaa !28
   %42 = call i32 @EC_POINT_cmp(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %22, ptr noundef %6) #7
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.thread185
@@ -432,7 +432,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br label %.thread183
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %25, align 8, !tbaa !28
+  %45 = load ptr, ptr %25, align 8, !tbaa !27
   call void @EC_POINT_free(ptr noundef nonnull %22) #7
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread183, label %48
@@ -460,7 +460,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !30
+  %58 = load ptr, ptr %57, align 8, !tbaa !29
   %59 = call i32 @BN_nnmod(ptr noundef nonnull %54, ptr noundef nonnull %2, ptr noundef %58, ptr noundef %6) #7
   %.not161 = icmp eq i32 %59, 0
   br i1 %.not161, label %60, label %61
@@ -488,61 +488,61 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %scevgep = getelementptr i8, ptr %8, i64 %66
   %narrow = sub nuw nsw i32 33, %.0130.lcssa238
   %67 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %67, i1 false), !tbaa !27
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %67, i1 false), !tbaa !26
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %61 ]
   %68 = call ptr @bn_get_words(ptr noundef nonnull %.0123) #7
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv
-  %70 = load i64, ptr %69, align 8, !tbaa !36
+  %70 = load i64, ptr %69, align 8, !tbaa !35
   %71 = trunc i64 %70 to i8
   %72 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %indvars.iv
-  store i8 %71, ptr %72, align 8, !tbaa !27
+  store i8 %71, ptr %72, align 8, !tbaa !26
   %73 = lshr i64 %70, 8
   %74 = trunc i64 %73 to i8
   %75 = or disjoint i64 %indvars.iv, 1
   %76 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %75
-  store i8 %74, ptr %76, align 1, !tbaa !27
+  store i8 %74, ptr %76, align 1, !tbaa !26
   %77 = lshr i64 %70, 16
   %78 = trunc i64 %77 to i8
   %79 = or disjoint i64 %indvars.iv, 2
   %80 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %79
-  store i8 %78, ptr %80, align 2, !tbaa !27
+  store i8 %78, ptr %80, align 2, !tbaa !26
   %81 = lshr i64 %70, 24
   %82 = trunc i64 %81 to i8
   %83 = or disjoint i64 %indvars.iv, 3
   %84 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %83
-  store i8 %82, ptr %84, align 1, !tbaa !27
+  store i8 %82, ptr %84, align 1, !tbaa !26
   %85 = lshr i64 %70, 32
   %86 = trunc i64 %85 to i8
   %87 = or disjoint i64 %indvars.iv, 4
   %88 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %87
-  store i8 %86, ptr %88, align 4, !tbaa !27
+  store i8 %86, ptr %88, align 4, !tbaa !26
   %89 = lshr i64 %70, 40
   %90 = trunc i64 %89 to i8
   %91 = or disjoint i64 %indvars.iv, 5
   %92 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %91
-  store i8 %90, ptr %92, align 1, !tbaa !27
+  store i8 %90, ptr %92, align 1, !tbaa !26
   %93 = lshr i64 %70, 48
   %94 = trunc i64 %93 to i8
   %95 = or disjoint i64 %indvars.iv, 6
   %96 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %95
-  store i8 %94, ptr %96, align 2, !tbaa !27
+  store i8 %94, ptr %96, align 2, !tbaa !26
   %97 = lshr i64 %70, 56
   %98 = trunc nuw i64 %97 to i8
   %99 = or disjoint i64 %indvars.iv, 7
   %100 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %99
-  store i8 %98, ptr %100, align 1, !tbaa !27
+  store i8 %98, ptr %100, align 1, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %101 = call i32 @bn_get_top(ptr noundef nonnull %.0123) #7
   %102 = shl nsw i32 %101, 3
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph, label %.preheader, !llvm.loop !37
+  br i1 %104, label %.lr.ph, label %.preheader, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph226.preheader, %.preheader
-  %105 = load i8, ptr %8, align 16, !tbaa !27
+  %105 = load i8, ptr %8, align 16, !tbaa !26
   %106 = zext i8 %105 to i32
   %107 = shl nuw nsw i32 %106, 1
   %108 = and i32 %107, 254
@@ -563,43 +563,43 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %121 = zext nneg i32 %118 to i64
   %122 = sub nsw i64 0, %121
   %123 = add nsw i64 %121, -1
-  %124 = load i64, ptr %119, align 32, !tbaa !36
+  %124 = load i64, ptr %119, align 32, !tbaa !35
   %125 = and i64 %124, %122
-  %126 = load i64, ptr %120, align 32, !tbaa !36
+  %126 = load i64, ptr %120, align 32, !tbaa !35
   %127 = and i64 %123, %126
   %128 = xor i64 %127, %125
-  store i64 %128, ptr %120, align 32, !tbaa !36
+  store i64 %128, ptr %120, align 32, !tbaa !35
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %130 = load i64, ptr %129, align 8, !tbaa !36
+  %130 = load i64, ptr %129, align 8, !tbaa !35
   %131 = and i64 %130, %122
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %133 = load i64, ptr %132, align 8, !tbaa !36
+  %133 = load i64, ptr %132, align 8, !tbaa !35
   %134 = and i64 %133, %123
   %135 = xor i64 %134, %131
-  store i64 %135, ptr %132, align 8, !tbaa !36
+  store i64 %135, ptr %132, align 8, !tbaa !35
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %137 = load i64, ptr %136, align 16, !tbaa !36
+  %137 = load i64, ptr %136, align 16, !tbaa !35
   %138 = and i64 %137, %122
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %140 = load i64, ptr %139, align 16, !tbaa !36
+  %140 = load i64, ptr %139, align 16, !tbaa !35
   %141 = and i64 %140, %123
   %142 = xor i64 %141, %138
-  store i64 %142, ptr %139, align 16, !tbaa !36
+  store i64 %142, ptr %139, align 16, !tbaa !35
   %143 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %144 = load i64, ptr %143, align 8, !tbaa !36
+  %144 = load i64, ptr %143, align 8, !tbaa !35
   %145 = and i64 %144, %122
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %147 = load i64, ptr %146, align 8, !tbaa !36
+  %147 = load i64, ptr %146, align 8, !tbaa !35
   %148 = and i64 %147, %123
   %149 = xor i64 %148, %145
-  store i64 %149, ptr %146, align 8, !tbaa !36
-  %150 = load i64, ptr %10, align 32, !tbaa !27
+  store i64 %149, ptr %146, align 8, !tbaa !35
+  %150 = load i64, ptr %10, align 32, !tbaa !26
   %151 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %152 = load i64, ptr %151, align 8, !tbaa !27
+  %152 = load i64, ptr %151, align 8, !tbaa !26
   %153 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %154 = load i64, ptr %153, align 16, !tbaa !27
+  %154 = load i64, ptr %153, align 16, !tbaa !26
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %156 = load i64, ptr %155, align 8, !tbaa !27
+  %156 = load i64, ptr %155, align 8, !tbaa !26
   %157 = or i64 %150, %152
   %158 = or i64 %157, %154
   %159 = or i64 %158, %156
@@ -610,12 +610,12 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %164 = icmp ne i64 %163, 0
   %165 = sext i1 %164 to i64
   %166 = zext i1 %164 to i64
-  store i64 %166, ptr %119, align 32, !tbaa !27
+  store i64 %166, ptr %119, align 32, !tbaa !26
   %167 = select i1 %164, i64 -4294967296, i64 0
-  store i64 %167, ptr %129, align 8, !tbaa !27
-  store i64 %165, ptr %136, align 16, !tbaa !27
+  store i64 %167, ptr %129, align 8, !tbaa !26
+  store i64 %165, ptr %136, align 16, !tbaa !26
   %168 = select i1 %164, i64 4294967294, i64 0
-  store i64 %168, ptr %143, align 8, !tbaa !27
+  store i64 %168, ptr %143, align 8, !tbaa !26
   %169 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %170 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %171 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -633,12 +633,12 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %179 = lshr i32 %178, 3
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %180
-  %182 = load i8, ptr %181, align 1, !tbaa !27
+  %182 = load i8, ptr %181, align 1, !tbaa !26
   %183 = zext i8 %182 to i32
   %184 = add nuw nsw i32 %179, 1
   %185 = zext nneg i32 %184 to i64
   %186 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 0, i64 %185
-  %187 = load i8, ptr %186, align 1, !tbaa !27
+  %187 = load i8, ptr %186, align 1, !tbaa !26
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 8
   %190 = or disjoint i32 %189, %183
@@ -662,34 +662,34 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %206 = zext nneg i32 %204 to i64
   %207 = sub nsw i64 0, %206
   %208 = add nsw i64 %206, -1
-  %209 = load i64, ptr %169, align 32, !tbaa !36
+  %209 = load i64, ptr %169, align 32, !tbaa !35
   %210 = and i64 %209, %207
-  %211 = load i64, ptr %170, align 32, !tbaa !36
+  %211 = load i64, ptr %170, align 32, !tbaa !35
   %212 = and i64 %208, %211
   %213 = xor i64 %212, %210
-  store i64 %213, ptr %170, align 32, !tbaa !36
-  %214 = load i64, ptr %171, align 8, !tbaa !36
+  store i64 %213, ptr %170, align 32, !tbaa !35
+  %214 = load i64, ptr %171, align 8, !tbaa !35
   %215 = and i64 %214, %207
-  %216 = load i64, ptr %172, align 8, !tbaa !36
+  %216 = load i64, ptr %172, align 8, !tbaa !35
   %217 = and i64 %208, %216
   %218 = xor i64 %217, %215
-  store i64 %218, ptr %172, align 8, !tbaa !36
-  %219 = load i64, ptr %173, align 16, !tbaa !36
+  store i64 %218, ptr %172, align 8, !tbaa !35
+  %219 = load i64, ptr %173, align 16, !tbaa !35
   %220 = and i64 %219, %207
-  %221 = load i64, ptr %174, align 16, !tbaa !36
+  %221 = load i64, ptr %174, align 16, !tbaa !35
   %222 = and i64 %221, %208
   %223 = xor i64 %222, %220
-  store i64 %223, ptr %174, align 16, !tbaa !36
-  %224 = load i64, ptr %175, align 8, !tbaa !36
+  store i64 %223, ptr %174, align 16, !tbaa !35
+  %224 = load i64, ptr %175, align 8, !tbaa !35
   %225 = and i64 %224, %207
-  %226 = load i64, ptr %176, align 8, !tbaa !36
+  %226 = load i64, ptr %176, align 8, !tbaa !35
   %227 = and i64 %226, %208
   %228 = xor i64 %227, %225
-  store i64 %228, ptr %176, align 8, !tbaa !36
+  store i64 %228, ptr %176, align 8, !tbaa !35
   call void @ecp_nistz256_point_add_affine(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %9) #7
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, 37
-  br i1 %exitcond.not, label %.loopexit, label %177, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %177, !llvm.loop !37
 
 229:                                              ; preds = %.thread183
   %230 = shl nuw nsw i64 %11, 3
@@ -706,10 +706,10 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %236 = shl nuw nsw i64 %3, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %231, ptr align 8 %5, i64 %236, i1 false)
   %237 = getelementptr inbounds nuw ptr, ptr %231, i64 %3
-  store ptr %2, ptr %237, align 8, !tbaa !39
+  store ptr %2, ptr %237, align 8, !tbaa !38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %234, ptr align 8 %4, i64 %236, i1 false)
   %238 = getelementptr inbounds nuw ptr, ptr %234, i64 %3
-  store ptr %15, ptr %238, align 8, !tbaa !40
+  store ptr %15, ptr %238, align 8, !tbaa !39
   br label %240
 
 .loopexit:                                        ; preds = %177, %13
@@ -774,13 +774,13 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %scevgep.i = getelementptr i8, ptr %252, i64 %273
   %274 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %263, i64 %.0225257.i
   %275 = getelementptr inbounds nuw ptr, ptr %.0129217248, i64 %.0225257.i
-  %276 = load ptr, ptr %275, align 8, !tbaa !39
+  %276 = load ptr, ptr %275, align 8, !tbaa !38
   %277 = call i32 @BN_num_bits(ptr noundef %276) #7
   %278 = icmp sgt i32 %277, 256
   br i1 %278, label %282, label %279
 
 279:                                              ; preds = %272
-  %280 = load ptr, ptr %275, align 8, !tbaa !39
+  %280 = load ptr, ptr %275, align 8, !tbaa !38
   %281 = call i32 @BN_is_negative(ptr noundef %280) #7
   %.not.i176 = icmp eq i32 %281, 0
   br i1 %.not.i176, label %289, label %282
@@ -791,20 +791,20 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %284, label %ecp_nistz256_windowed_mul.exit, label %285
 
 285:                                              ; preds = %282
-  %286 = load ptr, ptr %275, align 8, !tbaa !39
-  %287 = load ptr, ptr %265, align 8, !tbaa !30
+  %286 = load ptr, ptr %275, align 8, !tbaa !38
+  %287 = load ptr, ptr %265, align 8, !tbaa !29
   %288 = call i32 @BN_nnmod(ptr noundef nonnull %283, ptr noundef %286, ptr noundef %287, ptr noundef %6) #7
   %.not243.i = icmp eq i32 %288, 0
   br i1 %.not243.i, label %.thread250.sink.split.i, label %291
 
 289:                                              ; preds = %279
-  %290 = load ptr, ptr %275, align 8, !tbaa !39
+  %290 = load ptr, ptr %275, align 8, !tbaa !38
   br label %291
 
 291:                                              ; preds = %289, %285
   %.sink.i = phi ptr [ %290, %289 ], [ %283, %285 ]
   %292 = getelementptr inbounds nuw ptr, ptr %256, i64 %.0225257.i
-  store ptr %.sink.i, ptr %292, align 8, !tbaa !39
+  store ptr %.sink.i, ptr %292, align 8, !tbaa !38
   %293 = call i32 @bn_get_top(ptr noundef %.sink.i) #7
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %.lr.ph.i, label %.lr.ph256.i
@@ -824,7 +824,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %scevgep266.i = getelementptr i8, ptr %scevgep.i, i64 %298
   %narrow.i = sub nuw nsw i32 33, %.0228.lcssa273.i
   %299 = zext nneg i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep266.i, i8 0, i64 %299, i1 false), !tbaa !27
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep266.i, i8 0, i64 %299, i1 false), !tbaa !26
   br label %._crit_edge.i
 
 300:                                              ; preds = %300, %.lr.ph.i
@@ -832,56 +832,56 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %300 ]
   %302 = call ptr @bn_get_words(ptr noundef %301) #7
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 %indvars.iv.i
-  %304 = load i64, ptr %303, align 8, !tbaa !36
+  %304 = load i64, ptr %303, align 8, !tbaa !35
   %305 = trunc i64 %304 to i8
   %306 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %indvars.iv.i
-  store i8 %305, ptr %306, align 1, !tbaa !27
+  store i8 %305, ptr %306, align 1, !tbaa !26
   %307 = lshr i64 %304, 8
   %308 = trunc i64 %307 to i8
   %309 = or disjoint i64 %indvars.iv.i, 1
   %310 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %309
-  store i8 %308, ptr %310, align 1, !tbaa !27
+  store i8 %308, ptr %310, align 1, !tbaa !26
   %311 = lshr i64 %304, 16
   %312 = trunc i64 %311 to i8
   %313 = or disjoint i64 %indvars.iv.i, 2
   %314 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %313
-  store i8 %312, ptr %314, align 1, !tbaa !27
+  store i8 %312, ptr %314, align 1, !tbaa !26
   %315 = lshr i64 %304, 24
   %316 = trunc i64 %315 to i8
   %317 = or disjoint i64 %indvars.iv.i, 3
   %318 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %317
-  store i8 %316, ptr %318, align 1, !tbaa !27
+  store i8 %316, ptr %318, align 1, !tbaa !26
   %319 = lshr i64 %304, 32
   %320 = trunc i64 %319 to i8
   %321 = or disjoint i64 %indvars.iv.i, 4
   %322 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %321
-  store i8 %320, ptr %322, align 1, !tbaa !27
+  store i8 %320, ptr %322, align 1, !tbaa !26
   %323 = lshr i64 %304, 40
   %324 = trunc i64 %323 to i8
   %325 = or disjoint i64 %indvars.iv.i, 5
   %326 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %325
-  store i8 %324, ptr %326, align 1, !tbaa !27
+  store i8 %324, ptr %326, align 1, !tbaa !26
   %327 = lshr i64 %304, 48
   %328 = trunc i64 %327 to i8
   %329 = or disjoint i64 %indvars.iv.i, 6
   %330 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %329
-  store i8 %328, ptr %330, align 1, !tbaa !27
+  store i8 %328, ptr %330, align 1, !tbaa !26
   %331 = lshr i64 %304, 56
   %332 = trunc nuw i64 %331 to i8
   %333 = or disjoint i64 %indvars.iv.i, 7
   %334 = getelementptr inbounds nuw [33 x i8], ptr %295, i64 0, i64 %333
-  store i8 %332, ptr %334, align 1, !tbaa !27
+  store i8 %332, ptr %334, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %335 = load ptr, ptr %292, align 8, !tbaa !39
+  %335 = load ptr, ptr %292, align 8, !tbaa !38
   %336 = call i32 @bn_get_top(ptr noundef %335) #7
   %337 = shl nsw i32 %336, 3
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next.i, %338
-  br i1 %339, label %300, label %.preheader252.i, !llvm.loop !41
+  br i1 %339, label %300, label %.preheader252.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph256.i, %.preheader252.i
   %340 = getelementptr inbounds nuw ptr, ptr %.0125218247, i64 %.0225257.i
-  %341 = load ptr, ptr %340, align 8, !tbaa !40
+  %341 = load ptr, ptr %340, align 8, !tbaa !39
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %343 = load ptr, ptr %342, align 8, !tbaa !11
   %344 = call i32 @bn_copy_words(ptr noundef nonnull %264, ptr noundef %343, i32 noundef 4) #7
@@ -889,7 +889,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %.not244.i, label %.thread250.sink.split.i, label %345
 
 345:                                              ; preds = %._crit_edge.i
-  %346 = load ptr, ptr %340, align 8, !tbaa !40
+  %346 = load ptr, ptr %340, align 8, !tbaa !39
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %348 = load ptr, ptr %347, align 8, !tbaa !16
   %349 = call i32 @bn_copy_words(ptr noundef nonnull %266, ptr noundef %348, i32 noundef 4) #7
@@ -897,7 +897,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %.not245.i, label %.thread250.sink.split.i, label %350
 
 350:                                              ; preds = %345
-  %351 = load ptr, ptr %340, align 8, !tbaa !40
+  %351 = load ptr, ptr %340, align 8, !tbaa !39
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 32
   %353 = load ptr, ptr %352, align 8, !tbaa !17
   %354 = call i32 @bn_copy_words(ptr noundef nonnull %267, ptr noundef %353, i32 noundef 4) #7
@@ -938,11 +938,11 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   call void @ecp_nistz256_scatter_w5(ptr noundef nonnull %274, ptr noundef nonnull %268, i32 noundef 16) #7
   %356 = add nuw i64 %.0225257.i, 1
   %exitcond.not.i = icmp eq i64 %356, %.0124219246
-  br i1 %exitcond.not.i, label %357, label %272, !llvm.loop !42
+  br i1 %exitcond.not.i, label %357, label %272, !llvm.loop !41
 
 357:                                              ; preds = %355
   %358 = getelementptr inbounds nuw i8, ptr %252, i64 31
-  %359 = load i8, ptr %358, align 1, !tbaa !27
+  %359 = load i8, ptr %358, align 1, !tbaa !26
   %360 = lshr i8 %359, 6
   %361 = zext nneg i8 %360 to i32
   %362 = lshr i32 %361, 1
@@ -978,10 +978,10 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %.1258.i = phi i64 [ %373, %.lr.ph260.i ], [ %427, %381 ]
   %382 = getelementptr inbounds nuw [33 x i8], ptr %252, i64 %.1258.i
   %383 = getelementptr inbounds nuw [33 x i8], ptr %382, i64 0, i64 %377
-  %384 = load i8, ptr %383, align 1, !tbaa !27
+  %384 = load i8, ptr %383, align 1, !tbaa !26
   %385 = zext i8 %384 to i32
   %386 = getelementptr inbounds nuw [33 x i8], ptr %382, i64 0, i64 %379
-  %387 = load i8, ptr %386, align 1, !tbaa !27
+  %387 = load i8, ptr %386, align 1, !tbaa !26
   %388 = zext i8 %387 to i32
   %389 = shl nuw nsw i32 %388, 8
   %390 = or disjoint i32 %389, %385
@@ -1003,34 +1003,34 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %404 = zext nneg i32 %402 to i64
   %405 = sub nsw i64 0, %404
   %406 = add nsw i64 %404, -1
-  %407 = load i64, ptr %364, align 8, !tbaa !36
+  %407 = load i64, ptr %364, align 8, !tbaa !35
   %408 = and i64 %407, %405
-  %409 = load i64, ptr %266, align 8, !tbaa !36
+  %409 = load i64, ptr %266, align 8, !tbaa !35
   %410 = and i64 %406, %409
   %411 = xor i64 %410, %408
-  store i64 %411, ptr %266, align 8, !tbaa !36
-  %412 = load i64, ptr %365, align 8, !tbaa !36
+  store i64 %411, ptr %266, align 8, !tbaa !35
+  %412 = load i64, ptr %365, align 8, !tbaa !35
   %413 = and i64 %412, %405
-  %414 = load i64, ptr %366, align 8, !tbaa !36
+  %414 = load i64, ptr %366, align 8, !tbaa !35
   %415 = and i64 %406, %414
   %416 = xor i64 %415, %413
-  store i64 %416, ptr %366, align 8, !tbaa !36
-  %417 = load i64, ptr %367, align 8, !tbaa !36
+  store i64 %416, ptr %366, align 8, !tbaa !35
+  %417 = load i64, ptr %367, align 8, !tbaa !35
   %418 = and i64 %417, %405
-  %419 = load i64, ptr %368, align 8, !tbaa !36
+  %419 = load i64, ptr %368, align 8, !tbaa !35
   %420 = and i64 %419, %406
   %421 = xor i64 %420, %418
-  store i64 %421, ptr %368, align 8, !tbaa !36
-  %422 = load i64, ptr %369, align 8, !tbaa !36
+  store i64 %421, ptr %368, align 8, !tbaa !35
+  %422 = load i64, ptr %369, align 8, !tbaa !35
   %423 = and i64 %422, %405
-  %424 = load i64, ptr %370, align 8, !tbaa !36
+  %424 = load i64, ptr %370, align 8, !tbaa !35
   %425 = and i64 %424, %406
   %426 = xor i64 %425, %423
-  store i64 %426, ptr %370, align 8, !tbaa !36
+  store i64 %426, ptr %370, align 8, !tbaa !35
   call void @ecp_nistz256_point_add(ptr noundef nonnull %241, ptr noundef nonnull %241, ptr noundef nonnull %264) #7
   %427 = add i64 %.1258.i, 1
   %exitcond270.not.i = icmp eq i64 %427, %.0124219246
-  br i1 %exitcond270.not.i, label %._crit_edge261.i, label %381, !llvm.loop !43
+  br i1 %exitcond270.not.i, label %._crit_edge261.i, label %381, !llvm.loop !42
 
 ._crit_edge261.i:                                 ; preds = %381, %371
   %428 = add nsw i32 %.0233262.i, -5
@@ -1040,12 +1040,12 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   call void @ecp_nistz256_point_double(ptr noundef nonnull %241, ptr noundef nonnull %241) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %241, ptr noundef nonnull %241) #7
   %429 = icmp ugt i32 %428, 4
-  br i1 %429, label %371, label %.preheader.i, !llvm.loop !44
+  br i1 %429, label %371, label %.preheader.i, !llvm.loop !43
 
 .preheader.i:                                     ; preds = %._crit_edge261.i, %.preheader.i
   %.2263.i = phi i64 [ %469, %.preheader.i ], [ 0, %._crit_edge261.i ]
   %430 = getelementptr inbounds nuw [33 x i8], ptr %252, i64 %.2263.i
-  %431 = load i8, ptr %430, align 1, !tbaa !27
+  %431 = load i8, ptr %430, align 1, !tbaa !26
   %432 = zext i8 %431 to i32
   %433 = shl nuw nsw i32 %432, 1
   %434 = and i32 %433, 62
@@ -1065,34 +1065,34 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %446 = zext nneg i32 %444 to i64
   %447 = sub nsw i64 0, %446
   %448 = add nsw i64 %446, -1
-  %449 = load i64, ptr %364, align 8, !tbaa !36
+  %449 = load i64, ptr %364, align 8, !tbaa !35
   %450 = and i64 %449, %447
-  %451 = load i64, ptr %266, align 8, !tbaa !36
+  %451 = load i64, ptr %266, align 8, !tbaa !35
   %452 = and i64 %448, %451
   %453 = xor i64 %452, %450
-  store i64 %453, ptr %266, align 8, !tbaa !36
-  %454 = load i64, ptr %365, align 8, !tbaa !36
+  store i64 %453, ptr %266, align 8, !tbaa !35
+  %454 = load i64, ptr %365, align 8, !tbaa !35
   %455 = and i64 %454, %447
-  %456 = load i64, ptr %366, align 8, !tbaa !36
+  %456 = load i64, ptr %366, align 8, !tbaa !35
   %457 = and i64 %456, %448
   %458 = xor i64 %457, %455
-  store i64 %458, ptr %366, align 8, !tbaa !36
-  %459 = load i64, ptr %367, align 8, !tbaa !36
+  store i64 %458, ptr %366, align 8, !tbaa !35
+  %459 = load i64, ptr %367, align 8, !tbaa !35
   %460 = and i64 %459, %447
-  %461 = load i64, ptr %368, align 8, !tbaa !36
+  %461 = load i64, ptr %368, align 8, !tbaa !35
   %462 = and i64 %461, %448
   %463 = xor i64 %462, %460
-  store i64 %463, ptr %368, align 8, !tbaa !36
-  %464 = load i64, ptr %369, align 8, !tbaa !36
+  store i64 %463, ptr %368, align 8, !tbaa !35
+  %464 = load i64, ptr %369, align 8, !tbaa !35
   %465 = and i64 %464, %447
-  %466 = load i64, ptr %370, align 8, !tbaa !36
+  %466 = load i64, ptr %370, align 8, !tbaa !35
   %467 = and i64 %466, %448
   %468 = xor i64 %467, %465
-  store i64 %468, ptr %370, align 8, !tbaa !36
+  store i64 %468, ptr %370, align 8, !tbaa !35
   call void @ecp_nistz256_point_add(ptr noundef nonnull %241, ptr noundef nonnull %241, ptr noundef nonnull %264) #7
   %469 = add nuw i64 %.2263.i, 1
   %exitcond271.not.i = icmp eq i64 %469, %.0124219246
-  br i1 %exitcond271.not.i, label %ecp_nistz256_windowed_mul.exit, label %.preheader.i, !llvm.loop !45
+  br i1 %exitcond271.not.i, label %ecp_nistz256_windowed_mul.exit, label %.preheader.i, !llvm.loop !44
 
 .thread250.sink.split.i:                          ; preds = %350, %345, %._crit_edge.i, %285
   %.sink277.i = phi i32 [ 646, %285 ], [ 674, %350 ], [ 674, %345 ], [ 674, %._crit_edge.i ]
@@ -1153,13 +1153,13 @@ ecp_nistz256_windowed_mul.exit:                   ; preds = %282, %.preheader.i,
   br i1 %489, label %490, label %is_one.exit
 
 490:                                              ; preds = %485
-  %491 = load i64, ptr %487, align 8, !tbaa !36
+  %491 = load i64, ptr %487, align 8, !tbaa !35
   %492 = getelementptr inbounds nuw i8, ptr %487, i64 8
-  %493 = load i64, ptr %492, align 8, !tbaa !36
+  %493 = load i64, ptr %492, align 8, !tbaa !35
   %494 = getelementptr inbounds nuw i8, ptr %487, i64 16
-  %495 = load i64, ptr %494, align 8, !tbaa !36
+  %495 = load i64, ptr %494, align 8, !tbaa !35
   %496 = getelementptr inbounds nuw i8, ptr %487, i64 24
-  %497 = load i64, ptr %496, align 8, !tbaa !36
+  %497 = load i64, ptr %496, align 8, !tbaa !35
   %498 = icmp eq i64 %491, 1
   %499 = icmp eq i64 %493, -4294967296
   %500 = and i1 %498, %499
@@ -1173,7 +1173,7 @@ ecp_nistz256_windowed_mul.exit:                   ; preds = %282, %.preheader.i,
 is_one.exit:                                      ; preds = %485, %490
   %.0.i177 = phi i32 [ %505, %490 ], [ 0, %485 ]
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %.0.i177, ptr %506, align 8, !tbaa !29
+  store i32 %.0.i177, ptr %506, align 8, !tbaa !28
   br label %.thread
 
 .thread:                                          ; preds = %53, %60, %21, %39, %470, %471, %475, %480, %233, %229, %is_one.exit, %17
@@ -1222,17 +1222,17 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   br i1 %12, label %ecp_nistz256_pre_comp_new.exit.thread, label %13
 
 13:                                               ; preds = %10
-  store ptr %0, ptr %11, align 8, !tbaa !46
+  store ptr %0, ptr %11, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 6, ptr %14, align 8, !tbaa !47
+  store i64 6, ptr %14, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store atomic i32 1, ptr %15 seq_cst, align 4, !tbaa !48
+  store atomic i32 1, ptr %15 seq_cst, align 4, !tbaa !47
   %16 = icmp eq ptr %1, null
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %19 = load ptr, ptr %18, align 8, !tbaa !49
+  %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = tail call ptr @BN_CTX_new_ex(ptr noundef %19) #7
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %22
@@ -1288,7 +1288,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 46:                                               ; preds = %70
   %47 = add nuw nsw i32 %.070106, 1
   %exitcond110.not = icmp eq i32 %47, 64
-  br i1 %exitcond110.not, label %72, label %48, !llvm.loop !50
+  br i1 %exitcond110.not, label %72, label %48, !llvm.loop !49
 
 48:                                               ; preds = %.preheader103, %46
   %.070106 = phi i32 [ 0, %.preheader103 ], [ %47, %46 ]
@@ -1299,9 +1299,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 .preheader:                                       ; preds = %48, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %48 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  %50 = load ptr, ptr %0, align 8, !tbaa !51
+  %50 = load ptr, ptr %0, align 8, !tbaa !50
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 208
-  %52 = load ptr, ptr %51, align 8, !tbaa !52
+  %52 = load ptr, ptr %51, align 8, !tbaa !51
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread, label %54
 
@@ -1336,7 +1336,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 65:                                               ; preds = %67
   %66 = add nuw nsw i32 %.072104, 1
   %exitcond.not = icmp eq i32 %66, 7
-  br i1 %exitcond.not, label %69, label %67, !llvm.loop !54
+  br i1 %exitcond.not, label %69, label %67, !llvm.loop !53
 
 67:                                               ; preds = %63, %65
   %.072104 = phi i32 [ 0, %63 ], [ %66, %65 ]
@@ -1352,7 +1352,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next, 37
-  br i1 %exitcond109.not, label %70, label %.preheader, !llvm.loop !55
+  br i1 %exitcond109.not, label %70, label %.preheader, !llvm.loop !54
 
 70:                                               ; preds = %69
   %71 = call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull %38, ptr noundef nonnull %4, ptr noundef nonnull %.075) #7
@@ -1360,16 +1360,16 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   br i1 %.not93, label %.loopexit, label %46
 
 72:                                               ; preds = %46
-  store ptr %0, ptr %11, align 8, !tbaa !46
-  store i64 7, ptr %14, align 8, !tbaa !47
+  store ptr %0, ptr %11, align 8, !tbaa !45
+  store i64 7, ptr %14, align 8, !tbaa !46
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %36, ptr %73, align 8, !tbaa !28
+  store ptr %36, ptr %73, align 8, !tbaa !27
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %29, ptr %74, align 8, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 5, ptr %75, align 8, !tbaa !56
+  store i32 5, ptr %75, align 8, !tbaa !55
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %11, ptr %76, align 8, !tbaa !27
+  store ptr %11, ptr %76, align 8, !tbaa !26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %48, %.thread, %41, %31, %28, %22, %17, %72, %27
@@ -1430,13 +1430,13 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_window_have_precompute_mult(pt
 
 5:                                                ; preds = %3, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %7 = load i32, ptr %6, align 8, !tbaa !56
+  %7 = load i32, ptr %6, align 8, !tbaa !55
   %8 = icmp eq i32 %7, 5
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = icmp ne ptr %11, null
   %13 = zext i1 %12 to i32
   br label %14
@@ -1511,7 +1511,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !30
+  %21 = load ptr, ptr %20, align 8, !tbaa !29
   %22 = tail call i32 @BN_nnmod(ptr noundef nonnull %17, ptr noundef %2, ptr noundef %21, ptr noundef %3) #7
   %.not22 = icmp eq i32 %22, 0
   br i1 %.not22, label %23, label %.thread
@@ -1573,17 +1573,17 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
 40:                                               ; preds = %26, %40
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %40 ]
   %41 = getelementptr inbounds nuw [27 x %struct.anon], ptr @ecp_nistz256_inv_mod_ord.chain, i64 0, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 2, !tbaa !57
+  %42 = load i8, ptr %41, align 2, !tbaa !56
   %43 = zext i8 %42 to i64
   call void @ecp_nistz256_ord_sqr_mont(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef %43) #7
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  %45 = load i8, ptr %44, align 1, !tbaa !59
+  %45 = load i8, ptr %44, align 1, !tbaa !58
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [15 x [4 x i64]], ptr %5, i64 0, i64 %46
   call void @ecp_nistz256_ord_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %47) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
-  br i1 %exitcond.not, label %48, label %40, !llvm.loop !60
+  br i1 %exitcond.not, label %48, label %40, !llvm.loop !59
 
 48:                                               ; preds = %40
   call void @ecp_nistz256_ord_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull @ecp_nistz256_inv_mod_ord.one) #7
@@ -1603,7 +1603,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -1686,9 +1686,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0,
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %25, ptr %39, align 8, !tbaa !61
+  store ptr %25, ptr %39, align 8, !tbaa !60
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %31, ptr %40, align 8, !tbaa !62
+  store ptr %31, ptr %40, align 8, !tbaa !61
   %41 = tail call i32 @ossl_ec_GFp_simple_group_set_curve(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %17, ptr noundef nonnull %21, ptr noundef nonnull %5) #7
   %.not96 = icmp eq i32 %41, 0
   br i1 %.not96, label %42, label %43
@@ -1759,7 +1759,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0,
 66:                                               ; preds = %63
   %67 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #7
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %67, ptr %68, align 8, !tbaa !63
+  store ptr %67, ptr %68, align 8, !tbaa !62
   %69 = icmp eq ptr %67, null
   br i1 %69, label %70, label %71
 
@@ -1776,14 +1776,14 @@ define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0,
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !30
+  %75 = load ptr, ptr %74, align 8, !tbaa !29
   %76 = tail call ptr @BN_copy(ptr noundef %75, ptr noundef nonnull %61) #7
   %.not100 = icmp eq ptr %76, null
   br i1 %.not100, label %89, label %77
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !64
+  %79 = load ptr, ptr %78, align 8, !tbaa !63
   %80 = tail call i32 @BN_set_word(ptr noundef %79, i64 noundef 1) #7
   %.not101 = icmp eq i32 %80, 0
   br i1 %.not101, label %89, label %81
@@ -1801,7 +1801,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256group_full_init(ptr noundef %0,
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %82, ptr %88, align 8, !tbaa !65
+  store ptr %82, ptr %88, align 8, !tbaa !64
   br label %89
 
 89:                                               ; preds = %84, %81, %77, %73, %71, %27, %24, %87, %70, %65, %58, %55, %46, %42, %37, %33, %23, %10
@@ -1888,13 +1888,13 @@ define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr noundef
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8, !tbaa !11
   %13 = tail call ptr @bn_get_words(ptr noundef %12) #7
-  %14 = load i64, ptr %13, align 8, !tbaa !36
+  %14 = load i64, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !36
+  %16 = load i64, ptr %15, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !36
+  %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !36
+  %20 = load i64, ptr %19, align 8, !tbaa !35
   %21 = icmp ne i64 %14, 8784043285714375740
   %22 = icmp ne i64 %16, 8483257759279461889
   %.not13 = or i1 %21, %22
@@ -1907,13 +1907,13 @@ define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr noundef
 25:                                               ; preds = %11
   %26 = load ptr, ptr %7, align 8, !tbaa !16
   %27 = tail call ptr @bn_get_words(ptr noundef %26) #7
-  %28 = load i64, ptr %27, align 8, !tbaa !36
+  %28 = load i64, ptr %27, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !36
+  %30 = load i64, ptr %29, align 8, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !36
+  %32 = load i64, ptr %31, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !36
+  %34 = load i64, ptr %33, align 8, !tbaa !35
   %35 = icmp ne i64 %28, -2453807210370345462
   %36 = icmp ne i64 %30, -8409706061646666660
   %.not20 = or i1 %35, %36
@@ -1932,13 +1932,13 @@ define internal fastcc range(i32 0, 2) i32 @ecp_nistz256_is_affine_G(ptr noundef
   br i1 %44, label %45, label %is_one.exit
 
 45:                                               ; preds = %39
-  %46 = load i64, ptr %42, align 8, !tbaa !36
+  %46 = load i64, ptr %42, align 8, !tbaa !35
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !36
+  %48 = load i64, ptr %47, align 8, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !36
+  %50 = load i64, ptr %49, align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %52 = load i64, ptr %51, align 8, !tbaa !36
+  %52 = load i64, ptr %51, align 8, !tbaa !35
   %53 = icmp eq i64 %46, 1
   %54 = icmp eq i64 %48, -4294967296
   %55 = and i1 %53, %54
@@ -2063,51 +2063,50 @@ attributes #7 = { nounwind }
 !15 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
 !16 = !{!12, !15, i64 24}
 !17 = !{!12, !15, i64 32}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = distinct !{!23, !19, !20}
-!24 = distinct !{!24, !19, !20}
-!25 = distinct !{!25, !19, !20}
-!26 = distinct !{!26, !19, !20}
-!27 = !{!7, !7, i64 0}
-!28 = !{!4, !6, i64 16}
-!29 = !{!12, !14, i64 40}
-!30 = !{!31, !15, i64 16}
-!31 = !{!"ec_group_st", !13, i64 0, !32, i64 8, !15, i64 16, !15, i64 24, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44, !33, i64 48, !9, i64 56, !15, i64 64, !7, i64 72, !15, i64 96, !15, i64 104, !14, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !34, i64 144, !14, i64 152, !7, i64 160, !35, i64 168, !33, i64 176}
-!32 = !{!"p1 _ZTS11ec_point_st", !6, i64 0}
-!33 = !{!"p1 omnipotent char", !6, i64 0}
-!34 = !{!"p1 _ZTS14bn_mont_ctx_st", !6, i64 0}
-!35 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
-!36 = !{!9, !9, i64 0}
-!37 = distinct !{!37, !19, !20}
-!38 = distinct !{!38, !19, !20}
-!39 = !{!15, !15, i64 0}
-!40 = !{!32, !32, i64 0}
-!41 = distinct !{!41, !19, !20}
-!42 = distinct !{!42, !19, !20}
-!43 = distinct !{!43, !19, !20}
-!44 = distinct !{!44, !19, !20}
-!45 = distinct !{!45, !19, !20}
-!46 = !{!4, !5, i64 0}
-!47 = !{!4, !9, i64 8}
-!48 = !{!10, !7, i64 0}
-!49 = !{!31, !35, i64 168}
-!50 = distinct !{!50, !19, !20}
-!51 = !{!31, !13, i64 0}
-!52 = !{!53, !6, i64 208}
-!53 = !{!"ec_method_st", !14, i64 0, !14, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440}
-!54 = distinct !{!54, !19, !20}
-!55 = distinct !{!55, !19, !20}
-!56 = !{!31, !14, i64 152}
-!57 = !{!58, !7, i64 0}
-!58 = !{!"", !7, i64 0, !7, i64 1}
-!59 = !{!58, !7, i64 1}
-!60 = distinct !{!60, !19, !20}
-!61 = !{!31, !6, i64 120}
-!62 = !{!31, !6, i64 128}
-!63 = !{!31, !32, i64 8}
-!64 = !{!31, !15, i64 24}
-!65 = !{!31, !34, i64 144}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = !{!7, !7, i64 0}
+!27 = !{!4, !6, i64 16}
+!28 = !{!12, !14, i64 40}
+!29 = !{!30, !15, i64 16}
+!30 = !{!"ec_group_st", !13, i64 0, !31, i64 8, !15, i64 16, !15, i64 24, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44, !32, i64 48, !9, i64 56, !15, i64 64, !7, i64 72, !15, i64 96, !15, i64 104, !14, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !33, i64 144, !14, i64 152, !7, i64 160, !34, i64 168, !32, i64 176}
+!31 = !{!"p1 _ZTS11ec_point_st", !6, i64 0}
+!32 = !{!"p1 omnipotent char", !6, i64 0}
+!33 = !{!"p1 _ZTS14bn_mont_ctx_st", !6, i64 0}
+!34 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
+!35 = !{!9, !9, i64 0}
+!36 = distinct !{!36, !19}
+!37 = distinct !{!37, !19}
+!38 = !{!15, !15, i64 0}
+!39 = !{!31, !31, i64 0}
+!40 = distinct !{!40, !19}
+!41 = distinct !{!41, !19}
+!42 = distinct !{!42, !19}
+!43 = distinct !{!43, !19}
+!44 = distinct !{!44, !19}
+!45 = !{!4, !5, i64 0}
+!46 = !{!4, !9, i64 8}
+!47 = !{!10, !7, i64 0}
+!48 = !{!30, !34, i64 168}
+!49 = distinct !{!49, !19}
+!50 = !{!30, !13, i64 0}
+!51 = !{!52, !6, i64 208}
+!52 = !{!"ec_method_st", !14, i64 0, !14, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440}
+!53 = distinct !{!53, !19}
+!54 = distinct !{!54, !19}
+!55 = !{!30, !14, i64 152}
+!56 = !{!57, !7, i64 0}
+!57 = !{!"", !7, i64 0, !7, i64 1}
+!58 = !{!57, !7, i64 1}
+!59 = distinct !{!59, !19}
+!60 = !{!30, !6, i64 120}
+!61 = !{!30, !6, i64 128}
+!62 = !{!30, !31, i64 8}
+!63 = !{!30, !15, i64 24}
+!64 = !{!30, !33, i64 144}

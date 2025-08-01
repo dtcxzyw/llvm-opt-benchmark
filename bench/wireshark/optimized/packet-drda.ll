@@ -1756,14 +1756,14 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
   %indvars.iv42 = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv42, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.loopexit23, label %14, !llvm.loop !11
+  br i1 %exitcond, label %.loopexit23, label %14, !llvm.loop !10
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr [6 x %struct.enum_val_t], ptr @typdefnam_vals, i64 0, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %11) #9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %18, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %4
   %.lcssa40 = phi ptr [ @typdefnam_vals, %4 ], [ %15, %14 ]
@@ -1787,14 +1787,14 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
   %indvars.iv3243 = phi i64 [ %indvars.iv.next33, %29 ], [ 0, %.loopexit23 ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv3243, 1
   %exitcond35 = icmp eq i64 %indvars.iv.next33, 5
-  br i1 %exitcond35, label %.loopexit, label %29, !llvm.loop !12
+  br i1 %exitcond35, label %.loopexit, label %29, !llvm.loop !11
 
 29:                                               ; preds = %.lr.ph44
   %30 = getelementptr [6 x %struct.enum_val_t], ptr @typdefnam_vals, i64 0, i64 %indvars.iv.next33
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef %26) #9
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %._crit_edge45, label %.lr.ph44, !llvm.loop !12
+  br i1 %33, label %._crit_edge45, label %.lr.ph44, !llvm.loop !11
 
 ._crit_edge45:                                    ; preds = %29, %.loopexit23
   %.lcssa = phi ptr [ @typdefnam_vals, %.loopexit23 ], [ %30, %29 ]
@@ -1861,7 +1861,7 @@ define internal i32 @dissect_drda_mgrlvlls(ptr noundef %0, ptr readnone captures
   %31 = add i32 %.026, 4
   %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %31)
   %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %4
   %34 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1890,7 +1890,7 @@ define internal noundef i32 @dissect_drda_secmec(ptr noundef %0, ptr readnone ca
   %9 = add i32 %.06, 2
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %9)
   %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %9, %.lr.ph ]
@@ -2512,7 +2512,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   store i32 %133, ptr %8, align 4
   %134 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %131, i32 noundef %133, i8 noundef zeroext -1)
   %.not = icmp eq i32 %134, -1
-  br i1 %.not, label %._crit_edge, label %125, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %125, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %125, %118
   %.3.lcssa = phi i32 [ %121, %118 ], [ %131, %125 ]
@@ -2546,7 +2546,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   store i32 %154, ptr %8, align 4
   %155 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %152, i32 noundef %154, i8 noundef zeroext -1)
   %.not191 = icmp eq i32 %155, -1
-  br i1 %.not191, label %._crit_edge236, label %.lr.ph235, !llvm.loop !16
+  br i1 %.not191, label %._crit_edge236, label %.lr.ph235, !llvm.loop !15
 
 ._crit_edge236:                                   ; preds = %.lr.ph235, %._crit_edge
   %.4.lcssa = phi i32 [ %144, %._crit_edge ], [ %152, %.lr.ph235 ]
@@ -3493,7 +3493,7 @@ dissect_drda_sqldagrp.exit:                       ; preds = %dissect_drda_sqldop
   %480 = add nuw i32 %.032, 1
   %481 = load i32, ptr %36, align 4
   %482 = icmp ult i32 %480, %481
-  br i1 %482, label %145, label %._crit_edge, !llvm.loop !17
+  br i1 %482, label %145, label %._crit_edge, !llvm.loop !16
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3879,7 +3879,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %229 = add i32 %.0, %.092105
   %230 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %229)
   %231 = icmp sgt i32 %230, 1
-  br i1 %231, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %231, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %228, %.preheader, %drda_get_pdu_info.exit
   %232 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
@@ -4387,14 +4387,13 @@ attributes #11 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

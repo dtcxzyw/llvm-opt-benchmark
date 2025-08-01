@@ -898,7 +898,7 @@ define internal ptr @getpath_abspath(ptr readnone captures(none) %0, ptr noundef
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %8 = load ptr, ptr %3, align 8, !tbaa !31
   %9 = call ptr @PyUnicode_AsWideCharString(ptr noundef %8, ptr noundef nonnull %4) #13
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %22, label %10
@@ -915,12 +915,12 @@ define internal ptr @getpath_abspath(ptr readnone captures(none) %0, ptr noundef
 
 16:                                               ; preds = %10
   %17 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %14, i64 noundef -1) #13
-  %18 = load ptr, ptr %5, align 8, !tbaa !34
+  %18 = load ptr, ptr %5, align 8, !tbaa !33
   call void @PyMem_RawFree(ptr noundef %18) #13
   br label %21
 
 19:                                               ; preds = %10
-  %20 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !32
+  %20 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !31
   call void @PyErr_SetString(ptr noundef %20, ptr noundef nonnull @.str.50) #13
   br label %21
 
@@ -950,12 +950,12 @@ define internal ptr @getpath_basename(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not, label %_Py_NewRef.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %3, align 8, !tbaa !31
   %7 = getelementptr i8, ptr %6, i64 16
-  %.val = load i64, ptr %7, align 8, !tbaa !35
+  %.val = load i64, ptr %7, align 8, !tbaa !34
   %8 = call i64 @PyUnicode_FindChar(ptr noundef %6, i32 noundef 47, i64 noundef 0, i64 noundef %.val, i32 noundef -1) #13
   %9 = icmp slt i64 %8, 0
-  %10 = load ptr, ptr %3, align 8, !tbaa !32
+  %10 = load ptr, ptr %3, align 8, !tbaa !31
   br i1 %9, label %11, label %16
 
 11:                                               ; preds = %5
@@ -988,9 +988,9 @@ define internal ptr @getpath_dirname(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %3, align 8, !tbaa !31
   %7 = getelementptr i8, ptr %6, i64 16
-  %.val = load i64, ptr %7, align 8, !tbaa !35
+  %.val = load i64, ptr %7, align 8, !tbaa !34
   %8 = call i64 @PyUnicode_FindChar(ptr noundef %6, i32 noundef 47, i64 noundef 0, i64 noundef %.val, i32 noundef -1) #13
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %12
@@ -1000,7 +1000,7 @@ define internal ptr @getpath_dirname(ptr readnone captures(none) %0, ptr noundef
   br label %15
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %13 = load ptr, ptr %3, align 8, !tbaa !31
   %14 = call ptr @PyUnicode_Substring(ptr noundef %13, i64 noundef 0, i64 noundef %8) #13
   br label %15
 
@@ -1025,13 +1025,13 @@ define internal noundef ptr @getpath_hassuffix(ptr readnone captures(none) %0, p
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
-  %9 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load ptr, ptr %3, align 8, !tbaa !31
   %10 = call ptr @PyUnicode_AsWideCharString(ptr noundef %9, ptr noundef nonnull %5) #13
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %30, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %4, align 8, !tbaa !32
+  %12 = load ptr, ptr %4, align 8, !tbaa !31
   %13 = call ptr @PyUnicode_AsWideCharString(ptr noundef %12, ptr noundef nonnull %6) #13
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %29, label %14
@@ -1098,7 +1098,7 @@ define internal ptr @getpath_isabs(ptr readnone captures(none) %0, ptr noundef %
   br i1 %.not, label %_Py_XNewRef.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr %3, align 8, !tbaa !31
   %7 = call ptr @PyUnicode_AsWideCharString(ptr noundef %6, ptr noundef null) #13
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %_Py_XNewRef.exit, label %8
@@ -1133,7 +1133,7 @@ define internal ptr @getpath_isdir(ptr readnone captures(none) %0, ptr noundef %
   br i1 %.not, label %_Py_XNewRef.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
   %8 = call ptr @PyUnicode_AsWideCharString(ptr noundef %7, ptr noundef null) #13
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %_Py_XNewRef.exit, label %9
@@ -1175,7 +1175,7 @@ define internal ptr @getpath_isfile(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not, label %_Py_XNewRef.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
   %8 = call ptr @PyUnicode_AsWideCharString(ptr noundef %7, ptr noundef null) #13
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %_Py_XNewRef.exit, label %9
@@ -1219,7 +1219,7 @@ define internal ptr @getpath_isxfile(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %_Py_XNewRef.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %8 = load ptr, ptr %3, align 8, !tbaa !31
   %9 = call ptr @PyUnicode_AsWideCharString(ptr noundef %8, ptr noundef nonnull %4) #13
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %_Py_XNewRef.exit, label %10
@@ -1232,7 +1232,7 @@ define internal ptr @getpath_isxfile(ptr readnone captures(none) %0, ptr noundef
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !39
+  %15 = load i32, ptr %14, align 8, !tbaa !38
   %16 = and i32 %15, 61440
   %17 = icmp eq i32 %16, 32768
   br i1 %17, label %18, label %21
@@ -1269,19 +1269,19 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %4 = getelementptr i8, ptr %1, i64 8
   %.val88 = load ptr, ptr %4, align 8, !tbaa !17
   %5 = getelementptr i8, ptr %.val88, i64 168
-  %.val89 = load i64, ptr %5, align 8, !tbaa !42
+  %.val89 = load i64, ptr %5, align 8, !tbaa !41
   %6 = and i64 %.val89, 67108864
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
+  %8 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !31
   tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.52) #13
   br label %77
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %1, i64 16
-  %.val91 = load i64, ptr %10, align 8, !tbaa !48
+  %.val91 = load i64, ptr %10, align 8, !tbaa !47
   %11 = icmp eq i64 %.val91, 0
   br i1 %11, label %12, label %14
 
@@ -1317,7 +1317,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %.067105 = phi i64 [ 0, %.lr.ph ], [ %.269, %38 ]
   %.071104 = phi i64 [ 0, %.lr.ph ], [ %41, %38 ]
   %24 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.066106
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %26 = icmp eq ptr %25, @_Py_NoneStruct
   br i1 %26, label %38, label %27
@@ -1326,7 +1326,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %28 = getelementptr i8, ptr %25, i64 8
   %.val = load ptr, ptr %28, align 8, !tbaa !17
   %29 = getelementptr i8, ptr %.val, i64 168
-  %.val90 = load i64, ptr %29, align 8, !tbaa !42
+  %.val90 = load i64, ptr %29, align 8, !tbaa !41
   %30 = and i64 %.val90, 268435456
   %.not80 = icmp eq i64 %30, 0
   br i1 %.not80, label %36, label %31
@@ -1334,7 +1334,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
 31:                                               ; preds = %27
   %32 = call ptr @PyUnicode_AsWideCharString(ptr noundef %25, ptr noundef nonnull %3) #13
   %33 = getelementptr ptr, ptr %16, i64 %.066106
-  store ptr %32, ptr %33, align 8, !tbaa !34
+  store ptr %32, ptr %33, align 8, !tbaa !33
   %.not81 = icmp eq ptr %32, null
   br i1 %.not81, label %.thread95, label %34
 
@@ -1346,7 +1346,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   br label %38
 
 36:                                               ; preds = %27
-  %37 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
+  %37 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !31
   call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.53) #13
   br label %.thread95
 
@@ -1362,7 +1362,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   %42 = add nuw nsw i64 %.066106, 1
   %exitcond.not = icmp eq i64 %42, %.val91
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %38
   %43 = icmp sgt i64 %41, 0
@@ -1386,11 +1386,11 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
 .lr.ph115:                                        ; preds = %.preheader, %.lr.ph115
   %.061114 = phi i64 [ %49, %.lr.ph115 ], [ 0, %.preheader ]
   %47 = getelementptr ptr, ptr %16, i64 %.061114
-  %48 = load ptr, ptr %47, align 8, !tbaa !34
+  %48 = load ptr, ptr %47, align 8, !tbaa !33
   call void @PyMem_Free(ptr noundef %48) #13
   %49 = add nuw nsw i64 %.061114, 1
   %exitcond121.not = icmp eq i64 %49, %.val91
-  br i1 %exitcond121.not, label %._crit_edge116, label %.lr.ph115, !llvm.loop !50
+  br i1 %exitcond121.not, label %._crit_edge116, label %.lr.ph115, !llvm.loop !49
 
 50:                                               ; preds = %._crit_edge116
   %51 = call ptr @PyErr_NoMemory() #13
@@ -1413,7 +1413,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %.060109 = phi i64 [ %71, %70 ], [ 0, %54 ]
   %.062108 = phi ptr [ %.163, %70 ], [ %46, %54 ]
   %55 = getelementptr ptr, ptr %16, i64 %.060109
-  %56 = load ptr, ptr %55, align 8, !tbaa !34
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
   %.not86 = icmp eq ptr %56, null
   br i1 %.not86, label %70, label %57
 
@@ -1443,7 +1443,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
 
 68:                                               ; preds = %62, %67, %64, %57
   %.264 = phi ptr [ null, %67 ], [ %.062108, %64 ], [ %.062108, %62 ], [ %.062108, %57 ]
-  %69 = load ptr, ptr %55, align 8, !tbaa !34
+  %69 = load ptr, ptr %55, align 8, !tbaa !33
   call void @PyMem_Free(ptr noundef %69) #13
   br label %70
 
@@ -1451,10 +1451,10 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %.163 = phi ptr [ %.264, %68 ], [ %.062108, %.lr.ph111 ]
   %71 = add nuw nsw i64 %.060109, 1
   %exitcond120.not = icmp eq i64 %71, %.val91
-  br i1 %exitcond120.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !51
+  br i1 %exitcond120.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !50
 
 72:                                               ; preds = %._crit_edge112
-  %73 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !32
+  %73 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !31
   call void @PyErr_SetString(ptr noundef %73, ptr noundef nonnull @.str.54) #13
   br label %77
 
@@ -1479,7 +1479,7 @@ define internal ptr @getpath_readlines(ptr readnone captures(none) %0, ptr nound
   br i1 %.not, label %100, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
   %8 = call ptr @PyUnicode_AsWideCharString(ptr noundef %7, ptr noundef null) #13
   %.not91 = icmp eq ptr %8, null
   br i1 %.not91, label %100, label %9
@@ -1490,7 +1490,7 @@ define internal ptr @getpath_readlines(ptr readnone captures(none) %0, ptr nound
   br i1 %.not92, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !32
+  %12 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !31
   %13 = call ptr @PyErr_SetFromErrno(ptr noundef %12) #13
   call void @PyMem_Free(ptr noundef nonnull %8) #13
   br label %100
@@ -1555,7 +1555,7 @@ Py_DECREF.exit111:                                ; preds = %20, %22, %25
   br label %Py_DECREF.exit109
 
 Py_DECREF.exit109:                                ; preds = %32, %34, %37
-  %38 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !32
+  %38 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !31
   call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.56) #13
   br label %100
 
@@ -1614,7 +1614,7 @@ Py_DECREF.exit107:                                ; preds = %43, %45, %48
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   %58 = add nsw i64 %.062130, -1
   %59 = icmp sgt i64 %.062130, 0
-  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !52
+  br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %.lr.ph135
   %.062.lcssa = phi i64 [ %54, %.lr.ph135 ], [ %.062130, %.lr.ph ], [ -1, %.critedge2 ]
@@ -1676,7 +1676,7 @@ Py_DECREF.exit105:                                ; preds = %80, %77, %76
   %81 = getelementptr i8, ptr %50, i64 4
   %82 = call ptr @wcschr(ptr noundef %81, i32 noundef 10) #14
   %.not97 = icmp eq ptr %82, null
-  br i1 %.not97, label %._crit_edge, label %.lr.ph135, !llvm.loop !53
+  br i1 %.not97, label %._crit_edge, label %.lr.ph135
 
 ._crit_edge:                                      ; preds = %Py_DECREF.exit105
   %.not137 = icmp eq ptr %81, null
@@ -1758,7 +1758,7 @@ define internal ptr @getpath_realpath(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not, label %33, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
   %8 = call ptr @PyUnicode_AsWideCharString(ptr noundef %7, ptr noundef null) #13
   %.not40 = icmp eq ptr %8, null
   br i1 %.not40, label %32, label %9
@@ -1824,10 +1824,10 @@ define internal ptr @getpath_realpath(ptr readnone captures(none) %0, ptr nounde
   %28 = add nuw nsw i32 %.02763, 1
   call void @llvm.lifetime.end.p0(i64 16388, ptr nonnull %4) #13
   %.not41 = icmp eq ptr %.4, null
-  br i1 %.not41, label %.thread51, label %.lr.ph, !llvm.loop !54
+  br i1 %.not41, label %.thread51, label %.lr.ph
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !32
+  %30 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !31
   call void @PyErr_SetString(ptr noundef %30, ptr noundef nonnull @.str.57) #13
   call void @llvm.lifetime.end.p0(i64 16388, ptr nonnull %4) #13
   %.not45 = icmp eq ptr %.4, null
@@ -1920,8 +1920,8 @@ define internal noundef ptr @getpath_warn(ptr readnone captures(none) %0, ptr no
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !55
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !52
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
   %8 = call ptr @PyUnicode_AsUTF8(ptr noundef %7) #13
   %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.60, ptr noundef %8) #15
   br label %10
@@ -1993,31 +1993,28 @@ attributes #15 = { cold nounwind }
 !26 = !{!22, !22, i64 0}
 !27 = !{!28, !9, i64 0}
 !28 = !{!"PyMethodDef", !9, i64 0, !10, i64 8, !6, i64 16, !9, i64 24}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS7_object", !10, i64 0}
-!34 = !{!23, !23, i64 0}
-!35 = !{!36, !22, i64 16}
-!36 = !{!"", !18, i64 0, !22, i64 16, !22, i64 24, !37, i64 32}
-!37 = !{!"", !38, i64 0, !38, i64 2, !38, i64 2, !38, i64 2, !38, i64 2}
-!38 = !{!"short", !7, i64 0}
-!39 = !{!40, !6, i64 24}
-!40 = !{!"stat", !22, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !41, i64 72, !41, i64 88, !41, i64 104, !7, i64 120}
-!41 = !{!"timespec", !22, i64 0, !22, i64 8}
-!42 = !{!43, !22, i64 168}
-!43 = !{!"_typeobject", !44, i64 0, !9, i64 24, !22, i64 32, !22, i64 40, !10, i64 48, !22, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !22, i64 168, !9, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !22, i64 208, !10, i64 216, !10, i64 224, !45, i64 232, !46, i64 240, !47, i64 248, !19, i64 256, !33, i64 264, !10, i64 272, !10, i64 280, !22, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !33, i64 336, !33, i64 344, !33, i64 352, !10, i64 360, !33, i64 368, !10, i64 376, !6, i64 384, !10, i64 392, !10, i64 400, !7, i64 408, !38, i64 410}
-!44 = !{!"", !18, i64 0, !22, i64 16}
-!45 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
-!46 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
-!47 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
-!48 = !{!44, !22, i64 16}
-!49 = distinct !{!49, !30, !31}
-!50 = distinct !{!50, !30, !31}
-!51 = distinct !{!51, !30, !31}
-!52 = distinct !{!52, !30, !31}
-!53 = distinct !{!53, !31}
-!54 = distinct !{!54, !31}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS7_object", !10, i64 0}
+!33 = !{!23, !23, i64 0}
+!34 = !{!35, !22, i64 16}
+!35 = !{!"", !18, i64 0, !22, i64 16, !22, i64 24, !36, i64 32}
+!36 = !{!"", !37, i64 0, !37, i64 2, !37, i64 2, !37, i64 2, !37, i64 2}
+!37 = !{!"short", !7, i64 0}
+!38 = !{!39, !6, i64 24}
+!39 = !{!"stat", !22, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !40, i64 72, !40, i64 88, !40, i64 104, !7, i64 120}
+!40 = !{!"timespec", !22, i64 0, !22, i64 8}
+!41 = !{!42, !22, i64 168}
+!42 = !{!"_typeobject", !43, i64 0, !9, i64 24, !22, i64 32, !22, i64 40, !10, i64 48, !22, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !22, i64 168, !9, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !22, i64 208, !10, i64 216, !10, i64 224, !44, i64 232, !45, i64 240, !46, i64 248, !19, i64 256, !32, i64 264, !10, i64 272, !10, i64 280, !22, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !32, i64 336, !32, i64 344, !32, i64 352, !10, i64 360, !32, i64 368, !10, i64 376, !6, i64 384, !10, i64 392, !10, i64 400, !7, i64 408, !37, i64 410}
+!43 = !{!"", !18, i64 0, !22, i64 16}
+!44 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
+!45 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
+!46 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
+!47 = !{!43, !22, i64 16}
+!48 = distinct !{!48, !30}
+!49 = distinct !{!49, !30}
+!50 = distinct !{!50, !30}
+!51 = distinct !{!51, !30}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}

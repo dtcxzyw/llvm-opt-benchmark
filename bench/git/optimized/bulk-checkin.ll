@@ -373,7 +373,7 @@ prepare_to_stream.exit63.i:                       ; preds = %48, %46
   call fastcc void @flush_bulk_checkin_packfile()
   %121 = call i64 @lseek64(i32 noundef %1, i64 noundef %12, i32 noundef 0) #13
   %122 = icmp eq i64 %121, -1
-  br i1 %122, label %123, label %46, !llvm.loop !57
+  br i1 %122, label %123, label %46
 
 123:                                              ; preds = %117
   %124 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #13
@@ -388,7 +388,7 @@ prepare_to_stream.exit63.i:                       ; preds = %48, %46
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 400
   %128 = load ptr, ptr %127, align 8, !tbaa !13
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 72
-  %130 = load ptr, ptr %129, align 8, !tbaa !59
+  %130 = load ptr, ptr %129, align 8, !tbaa !57
   call void %130(ptr noundef %0, ptr noundef nonnull %9) #13
   br i1 %.not56.i, label %deflate_blob_to_pack.exit, label %131
 
@@ -396,7 +396,7 @@ prepare_to_stream.exit63.i:                       ; preds = %48, %46
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 8), align 8, !tbaa !37
   %133 = call i32 @crc32_end(ptr noundef %132) #13
   %134 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
-  store i32 %133, ptr %134, align 4, !tbaa !60
+  store i32 %133, ptr %134, align 4, !tbaa !58
   %135 = load ptr, ptr @the_repository, align 8, !tbaa !8
   %136 = call i32 @repo_has_object_file(ptr noundef %135, ptr noundef %0) #13
   %.not.i65.i = icmp eq i32 %136, 0
@@ -408,19 +408,19 @@ prepare_to_stream.exit63.i:                       ; preds = %48, %46
   br i1 %.not4.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !61
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
   %wide.trip.count.i.i = zext i32 %137 to i64
   br label %140
 
 139:                                              ; preds = %140
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %140, !llvm.loop !62
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %140, !llvm.loop !60
 
 140:                                              ; preds = %139, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %139 ]
   %141 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv.i.i
-  %142 = load ptr, ptr %141, align 8, !tbaa !64
+  %142 = load ptr, ptr %141, align 8, !tbaa !62
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %142, ptr noundef nonnull readonly dereferenceable(32) %0, i64 32)
   %.not.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not.i.not.i.i, label %already_written.exit.i, label %139
@@ -436,14 +436,14 @@ already_written.exit.i:                           ; preds = %140, %131
 .loopexit.i:                                      ; preds = %139, %.preheader.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.0.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %0, i64 32, i1 false)
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %147 = load i32, ptr %146, align 4, !tbaa !66
+  %147 = load i32, ptr %146, align 4, !tbaa !64
   %148 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  store i32 %147, ptr %148, align 4, !tbaa !66
+  store i32 %147, ptr %148, align 4, !tbaa !64
   %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   %150 = add i32 %149, 1
-  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 72), align 8, !tbaa !67
+  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 72), align 8, !tbaa !65
   %152 = icmp ugt i32 %150, %151
-  %.pre23.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !61
+  %.pre23.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
   br i1 %152, label %153, label %160
 
 153:                                              ; preds = %.loopexit.i
@@ -451,11 +451,11 @@ already_written.exit.i:                           ; preds = %140, %131
   %155 = add i32 %154, 48
   %156 = lshr i32 %155, 1
   %..i = call i32 @llvm.umax.i32(i32 %156, i32 %150)
-  store i32 %..i, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 72), align 8, !tbaa !67
+  store i32 %..i, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 72), align 8, !tbaa !65
   %157 = zext i32 %..i to i64
   %158 = shl nuw nsw i64 %157, 3
   %159 = call ptr @xrealloc(ptr noundef %.pre23.i, i64 noundef %158) #13
-  store ptr %159, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !61
+  store ptr %159, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
   %.pre24.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   %.pre25.i = add i32 %.pre24.i, 1
   br label %160
@@ -467,7 +467,7 @@ already_written.exit.i:                           ; preds = %140, %131
   store i32 %.pre-phi.i, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   %163 = zext i32 %161 to i64
   %164 = getelementptr inbounds nuw ptr, ptr %162, i64 %163
-  store ptr %.0.i, ptr %164, align 8, !tbaa !64
+  store ptr %.0.i, ptr %164, align 8, !tbaa !62
   br label %deflate_blob_to_pack.exit
 
 deflate_blob_to_pack.exit:                        ; preds = %14, %123, %125, %already_written.exit.i, %160
@@ -510,11 +510,11 @@ define internal fastcc void @flush_bulk_checkin_packfile() unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %4, align 8, !tbaa !68
+  %8 = load i32, ptr %4, align 8, !tbaa !66
   %9 = tail call i32 @close(i32 noundef %8) #13
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 8), align 8, !tbaa !37
   tail call void @free_hashfile(ptr noundef %10) #13
-  %11 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !71
+  %11 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !69
   %12 = tail call i32 @unlink(ptr noundef %11) #13
   br label %.loopexit
 
@@ -527,7 +527,7 @@ define internal fastcc void @flush_bulk_checkin_packfile() unnamed_addr #0 {
   %17 = load ptr, ptr @the_repository, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %19 = load ptr, ptr %18, align 8, !tbaa !13
-  %20 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !71
+  %20 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !69
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 16), align 8, !tbaa !43
   call void @fixup_pack_header_footer(ptr noundef %19, i32 noundef %16, ptr noundef nonnull %2, ptr noundef %20, i32 noundef %21, ptr noundef nonnull %2, i64 noundef %22) #13
@@ -539,17 +539,17 @@ define internal fastcc void @flush_bulk_checkin_packfile() unnamed_addr #0 {
   %26 = call ptr @repo_get_object_directory(ptr noundef %25) #13
   %27 = call ptr @hash_to_hex(ptr noundef nonnull %2) #13
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef %26, ptr noundef %27) #13
-  %28 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !71
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !61
+  %28 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !69
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
-  store ptr null, ptr %1, align 8, !tbaa !72
+  store ptr null, ptr %1, align 8, !tbaa !70
   %31 = load ptr, ptr @the_repository, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 400
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   call void @stage_tmp_packfiles(ptr noundef %33, ptr noundef nonnull %3, ptr noundef %28, ptr noundef %29, i32 noundef %30, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 24), ptr noundef nonnull %2, ptr noundef nonnull %1) #13
   call void @rename_tmp_packfile_idx(ptr noundef nonnull %3, ptr noundef nonnull %1) #13
-  %34 = load ptr, ptr %1, align 8, !tbaa !72
+  %34 = load ptr, ptr %1, align 8, !tbaa !70
   call void @free(ptr noundef %34) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
   %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
@@ -558,20 +558,20 @@ define internal fastcc void @flush_bulk_checkin_packfile() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %24 ]
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !61
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8, !tbaa !64
+  %38 = load ptr, ptr %37, align 8, !tbaa !62
   call void @free(ptr noundef %38) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !73
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %7
-  %42 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !71
+  %42 = load ptr, ptr @bulk_checkin_packfile, align 8, !tbaa !69
   call void @free(ptr noundef %42) #13
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !61
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
   call void @free(ptr noundef %43) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @bulk_checkin_packfile, i8 0, i64 80, i1 false)
   call void @strbuf_release(ptr noundef nonnull %3) #13
@@ -612,9 +612,9 @@ define dso_local void @flush_odb_transaction() local_unnamed_addr #0 {
   %6 = tail call ptr @repo_get_object_directory(ptr noundef %5) #13
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, ptr noundef %6) #13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
   %9 = call ptr @xmks_tempfile_m(ptr noundef %8, i32 noundef 384) #13
-  store ptr %9, ptr %2, align 8, !tbaa !76
+  store ptr %9, ptr %2, align 8, !tbaa !74
   %10 = call i32 @get_tempfile_fd(ptr noundef %9) #13
   %11 = call ptr @get_tempfile_path(ptr noundef %9) #13
   call void @fsync_or_die(i32 noundef %10, ptr noundef %11) #13
@@ -840,24 +840,22 @@ attributes #15 = { noreturn nounwind }
 !54 = !{!38, !5, i64 76}
 !55 = !{!56, !26, i64 0}
 !56 = !{!"hashfile_checkpoint", !26, i64 0, !6, i64 8}
-!57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!34, !10, i64 72}
-!60 = !{!45, !5, i64 36}
-!61 = !{!38, !42, i64 64}
-!62 = distinct !{!62, !63, !58}
-!63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS14pack_idx_entry", !10, i64 0}
-!66 = !{!46, !5, i64 32}
-!67 = !{!38, !5, i64 72}
-!68 = !{!69, !5, i64 0}
-!69 = !{!"hashfile", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 16, !26, i64 2416, !70, i64 2424, !15, i64 2432, !5, i64 2440, !5, i64 2444, !26, i64 2448, !15, i64 2456, !15, i64 2464, !31, i64 2472, !5, i64 2480}
-!70 = !{!"p1 _ZTS8progress", !10, i64 0}
-!71 = !{!38, !15, i64 0}
-!72 = !{!15, !15, i64 0}
-!73 = distinct !{!73, !63, !58}
-!74 = !{!75, !15, i64 16}
-!75 = !{!"strbuf", !26, i64 0, !26, i64 8, !15, i64 16}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"p1 _ZTS8tempfile", !10, i64 0}
+!57 = !{!34, !10, i64 72}
+!58 = !{!45, !5, i64 36}
+!59 = !{!38, !42, i64 64}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.mustprogress"}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS14pack_idx_entry", !10, i64 0}
+!64 = !{!46, !5, i64 32}
+!65 = !{!38, !5, i64 72}
+!66 = !{!67, !5, i64 0}
+!67 = !{!"hashfile", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 16, !26, i64 2416, !68, i64 2424, !15, i64 2432, !5, i64 2440, !5, i64 2444, !26, i64 2448, !15, i64 2456, !15, i64 2464, !31, i64 2472, !5, i64 2480}
+!68 = !{!"p1 _ZTS8progress", !10, i64 0}
+!69 = !{!38, !15, i64 0}
+!70 = !{!15, !15, i64 0}
+!71 = distinct !{!71, !61}
+!72 = !{!73, !15, i64 16}
+!73 = !{!"strbuf", !26, i64 0, !26, i64 8, !15, i64 16}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS8tempfile", !10, i64 0}

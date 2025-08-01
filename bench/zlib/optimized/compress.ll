@@ -70,7 +70,7 @@ thread-pre-split:                                 ; preds = %28
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !19
+  %34 = load i64, ptr %33, align 8, !tbaa !18
   store i64 %34, ptr %1, align 8, !tbaa !3
   %35 = call i32 @deflateEnd(ptr noundef nonnull %6) #6
   %36 = icmp eq i32 %30, 1
@@ -158,7 +158,7 @@ thread-pre-split.i:                               ; preds = %27
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %33 = load i64, ptr %32, align 8, !tbaa !19
+  %33 = load i64, ptr %32, align 8, !tbaa !18
   store i64 %33, ptr %1, align 8, !tbaa !3
   %34 = call i32 @deflateEnd(ptr noundef nonnull %5) #6
   %35 = icmp eq i32 %29, 1
@@ -215,7 +215,6 @@ attributes #6 = { nounwind }
 !13 = !{!8, !11, i64 32}
 !14 = !{!8, !9, i64 0}
 !15 = !{!8, !11, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!8, !4, i64 40}
+!18 = !{!8, !4, i64 40}

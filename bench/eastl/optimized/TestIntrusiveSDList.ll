@@ -241,7 +241,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %pCurrent.0 = phi ptr [ %0, %entry ], [ %1, %while.cond ]
   %1 = load ptr, ptr %pCurrent.0, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !8
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %mppPrevNext = getelementptr inbounds nuw i8, ptr %pCurrent.0, i64 8
@@ -261,7 +261,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %tobool = icmp ne ptr %pCurrent.0, null
   %cmp = icmp ne ptr %pCurrent.0, %value
   %or.cond.not = and i1 %cmp, %tobool
-  br i1 %or.cond.not, label %for.cond, label %for.end, !llvm.loop !9
+  br i1 %or.cond.not, label %for.cond, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
   ret i1 %tobool
@@ -278,7 +278,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %tobool.not = icmp eq ptr %pCurrent.0, null
   %cmp = icmp eq ptr %pCurrent.0, %value
   %or.cond = or i1 %tobool.not, %cmp
-  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !10
+  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond
   store ptr %pCurrent.0, ptr %agg.result, align 8
@@ -296,7 +296,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %tobool.not = icmp eq ptr %pCurrent.0, null
   %cmp = icmp eq ptr %pCurrent.0, %value
   %or.cond = or i1 %tobool.not, %cmp
-  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !11
+  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
   ret ptr %pCurrent.0
@@ -461,7 +461,7 @@ for.cond:                                         ; preds = %for.body, %entry
 
 for.body:                                         ; preds = %for.cond
   %cmp.i1 = icmp eq ptr %temp.sroa.0.0, %i.coerce
-  br i1 %cmp.i1, label %return, label %for.cond, !llvm.loop !12
+  br i1 %cmp.i1, label %return, label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %for.cond
   %cmp.i2 = icmp eq ptr %i.coerce, null
@@ -661,14 +661,14 @@ if.end:                                           ; preds = %while.cond.i.i79
   %2 = load ptr, ptr %l, align 8
   %cmp.i87 = icmp eq ptr %2, null
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i87, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @.str.10)
-  %3 = load ptr, ptr %l, align 8, !noalias !13
+  %3 = load ptr, ptr %l, align 8, !noalias !12
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %mppPrevNext.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load ptr, ptr %mppPrevNext.i, align 8, !noalias !16
-  store ptr null, ptr %4, align 8, !noalias !16
+  %4 = load ptr, ptr %mppPrevNext.i, align 8, !noalias !15
+  store ptr null, ptr %4, align 8, !noalias !15
   %.pre = load ptr, ptr %l, align 8
   %5 = icmp eq ptr %.pre, null
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit
@@ -712,7 +712,7 @@ if.then.i94:                                      ; preds = %_ZN5eastl16intrusiv
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96: ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit, %if.then.i94
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit96
   store ptr %nodes, ptr %l, align 8
@@ -859,26 +859,26 @@ _ZN15TestSDListLocal8ListInitcmEi.exit191:        ; preds = %while.cond.i.i186
   store ptr %incdec.ptr.i69, ptr %ppPrevNext.0.i.i187, align 8
   store ptr %ppPrevNext.0.i.i187, ptr %mppPrevNext.i.i83, align 16
   store ptr null, ptr %incdec.ptr.i69, align 8
-  %9 = load ptr, ptr %l, align 8, !noalias !20
+  %9 = load ptr, ptr %l, align 8, !noalias !19
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8, !noalias !23
+  %12 = load ptr, ptr %11, align 8, !noalias !22
   %mppPrevNext.i192 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %mppPrevNext.i192, align 8, !noalias !23
-  store ptr %12, ptr %13, align 8, !noalias !23
-  %14 = load ptr, ptr %mppPrevNext.i192, align 8, !noalias !23
+  %13 = load ptr, ptr %mppPrevNext.i192, align 8, !noalias !22
+  store ptr %12, ptr %13, align 8, !noalias !22
+  %14 = load ptr, ptr %mppPrevNext.i192, align 8, !noalias !22
   %mppPrevNext7.i193 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %mppPrevNext7.i193, align 8, !noalias !23
+  store ptr %14, ptr %mppPrevNext7.i193, align 8, !noalias !22
   %call60 = call noundef zeroext i1 (ptr, ptr, ...) @_ZN15TestSDListLocal15VerifyContainerIN5eastl16intrusive_sdlistINS_7IntNodeEEEEEbRKT_PKcz(ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull @.str.17, i32 noundef 5, i32 noundef 6, i32 noundef 8, i32 noundef 9, i32 noundef -1)
   %call61 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call60, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 260, ptr noundef nonnull @.str.18)
-  %15 = load ptr, ptr %l, align 8, !noalias !26
+  %15 = load ptr, ptr %l, align 8, !noalias !25
   %tobool.not.i194 = icmp eq ptr %15, null
   br i1 %tobool.not.i194, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203, label %if.then.i196
 
 if.then.i196:                                     ; preds = %_ZN15TestSDListLocal8ListInitcmEi.exit191
   %mppPrevNext.i197 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %16 = load ptr, ptr %mppPrevNext.i197, align 8, !noalias !29
-  store ptr null, ptr %16, align 8, !noalias !29
+  %16 = load ptr, ptr %mppPrevNext.i197, align 8, !noalias !28
+  store ptr null, ptr %16, align 8, !noalias !28
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203: ; preds = %if.then.i196, %_ZN15TestSDListLocal8ListInitcmEi.exit191
@@ -922,7 +922,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %_ZN15T
   %pCurrent.0.i = load ptr, ptr %pCurrent.0.in.i, align 8
   %tobool.not.i232 = icmp eq ptr %pCurrent.0.i, null
   %inc.i = add i64 %n.0.i, 1
-  br i1 %tobool.not.i232, label %_ZNK5eastl21intrusive_sdlist_base4sizeEv.exit, label %for.cond.i, !llvm.loop !32
+  br i1 %tobool.not.i232, label %_ZNK5eastl21intrusive_sdlist_base4sizeEv.exit, label %for.cond.i, !llvm.loop !31
 
 _ZNK5eastl21intrusive_sdlist_base4sizeEv.exit:    ; preds = %for.cond.i
   %cmp73 = icmp eq i64 %n.0.i, 3
@@ -941,7 +941,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %_ZNK
   %pCurrent.0.i234 = phi ptr [ %19, %_ZNK5eastl21intrusive_sdlist_base4sizeEv.exit ], [ %20, %while.cond.i ]
   %20 = load ptr, ptr %pCurrent.0.i234, align 8
   %tobool.not.i235 = icmp eq ptr %20, null
-  br i1 %tobool.not.i235, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit, label %while.cond.i, !llvm.loop !8
+  br i1 %tobool.not.i235, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit, label %while.cond.i, !llvm.loop !7
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit: ; preds = %while.cond.i
   %mppPrevNext.i236 = getelementptr inbounds nuw i8, ptr %pCurrent.0.i234, i64 8
@@ -1055,7 +1055,7 @@ for.body94:                                       ; preds = %_ZN5eastl16intrusiv
   %call99 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @.str.31)
   %cit.sroa.0.0 = load ptr, ptr %cit.sroa.0.0386, align 8
   %cmp.i296.not = icmp eq ptr %cit.sroa.0.0, null
-  br i1 %cmp.i296.not, label %for.end102, label %for.body94, !llvm.loop !33
+  br i1 %cmp.i296.not, label %for.end102, label %for.body94, !llvm.loop !32
 
 for.end102:                                       ; preds = %for.body94, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit295
   %30 = load i32, ptr %nErrorCount, align 4
@@ -1146,7 +1146,7 @@ if.end:                                           ; preds = %vaarg.end
   %8 = load ptr, ptr %it.sroa.0.034, align 8
   %inc = add nuw nsw i32 %index.035, 1
   %cmp.i.not = icmp eq ptr %8, null
-  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !34
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %if.end, %entry
   %gp_offset15 = phi i32 [ %gp_offset15.pre, %entry ], [ %gp_offset29, %if.end ]
@@ -1210,7 +1210,7 @@ vaarg.end38:                                      ; preds = %vaarg.in_mem34, %va
   %vaarg.addr39 = phi ptr [ %16, %vaarg.in_reg32 ], [ %overflow_arg_area3643, %vaarg.in_mem34 ]
   %18 = load i32, ptr %vaarg.addr39, align 4
   %cmp40.not = icmp eq i32 %18, -1
-  br i1 %cmp40.not, label %for.cond.i, label %do.body, !llvm.loop !35
+  br i1 %cmp40.not, label %for.cond.i, label %do.body, !llvm.loop !34
 
 for.cond.i:                                       ; preds = %vaarg.end38, %for.cond.i
   %n.0.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %vaarg.end38 ]
@@ -1218,7 +1218,7 @@ for.cond.i:                                       ; preds = %vaarg.end38, %for.c
   %pCurrent.0.i = load ptr, ptr %pCurrent.0.in.i, align 8
   %tobool.not.i = icmp eq ptr %pCurrent.0.i, null
   %inc.i = add i32 %n.0.i, 1
-  br i1 %tobool.not.i, label %_ZNK5eastl21intrusive_sdlist_base4sizeEv.exit, label %for.cond.i, !llvm.loop !32
+  br i1 %tobool.not.i, label %_ZNK5eastl21intrusive_sdlist_base4sizeEv.exit, label %for.cond.i, !llvm.loop !31
 
 _ZNK5eastl21intrusive_sdlist_base4sizeEv.exit:    ; preds = %for.cond.i
   call void @_ZN15TestSDListLocal16IntListToString8IN5eastl16intrusive_sdlistINS_7IntNodeEEEEENS1_12basic_stringIcNS1_9allocatorEEERKT_(ptr nonnull sret(%"class.eastl::basic_string") align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(8) %cont)
@@ -1269,7 +1269,7 @@ for.body:                                         ; preds = %for.cond
   %strlen.i.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %strlen.i.i.i2
   %call2.i.i3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i.i)
-          to label %for.cond unwind label %lpad.loopexit, !llvm.loop !36
+          to label %for.cond unwind label %lpad.loopexit, !llvm.loop !35
 
 lpad.loopexit:                                    ; preds = %for.body
   %lpad.loopexit10 = landingpad { ptr, i32 }
@@ -1448,35 +1448,34 @@ attributes #12 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv: %agg.result"}
-!15 = distinct !{!15, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_: %agg.result"}
-!18 = distinct !{!18, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_"}
-!19 = distinct !{!19, !6, !7}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv: %agg.result"}
-!22 = distinct !{!22, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EE: %agg.result"}
-!25 = distinct !{!25, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EE"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv: %agg.result"}
-!28 = distinct !{!28, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_: %agg.result"}
-!31 = distinct !{!31, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_"}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv: %agg.result"}
+!14 = distinct !{!14, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_: %agg.result"}
+!17 = distinct !{!17, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_"}
+!18 = distinct !{!18, !6}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv: %agg.result"}
+!21 = distinct !{!21, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EE: %agg.result"}
+!24 = distinct !{!24, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EE"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv: %agg.result"}
+!27 = distinct !{!27, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5beginEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_: %agg.result"}
+!30 = distinct !{!30, !"_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_"}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}

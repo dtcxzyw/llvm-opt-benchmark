@@ -3211,12 +3211,12 @@ define linkonce_odr dso_local void @_ZN7testing15AssertionResult13AppendMessageE
   br i1 %.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %9
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %2
-  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !154
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !153
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %7, ptr %6, align 8, !tbaa !109, !noalias !154
+  store ptr %7, ptr %6, align 8, !tbaa !109, !noalias !153
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !45, !noalias !154
-  store i8 0, ptr %7, align 1, !tbaa !46, !noalias !154
+  store i64 0, ptr %8, align 8, !tbaa !45, !noalias !153
+  store i8 0, ptr %7, align 1, !tbaa !46, !noalias !153
   store ptr %6, ptr %4, align 8, !tbaa !37
   br label %9
 
@@ -3552,7 +3552,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 0, ptr %16, align 8, !tbaa !45
   store i8 0, ptr %13, align 8, !tbaa !46
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 54, ptr %28, align 8, !tbaa !157
+  store i32 54, ptr %28, align 8, !tbaa !156
   %29 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 54)
           to label %30 unwind label %57
 
@@ -3684,7 +3684,7 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i
-  store ptr %35, ptr @_ZN4absl18container_internal12_GLOBAL__N_130NodeTest_ConstructDestroy_Test10test_info_E, align 8, !tbaa !159
+  store ptr %35, ptr @_ZN4absl18container_internal12_GLOBAL__N_130NodeTest_ConstructDestroy_Test10test_info_E, align 8, !tbaa !158
   %77 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4absl18container_internal12_GLOBAL__N_130NodeTest_ConstructDestroy_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -3745,7 +3745,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 0, ptr %84, align 8, !tbaa !45
   store i8 0, ptr %81, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 60, ptr %96, align 8, !tbaa !157
+  store i32 60, ptr %96, align 8, !tbaa !156
   %97 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl18container_internal12_GLOBAL__N_18NodeTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 60)
           to label %98 unwind label %125
 
@@ -3873,7 +3873,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %common.resume
 
 __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i
-  store ptr %103, ptr @_ZN4absl18container_internal12_GLOBAL__N_122NodeTest_transfer_Test10test_info_E, align 8, !tbaa !159
+  store ptr %103, ptr @_ZN4absl18container_internal12_GLOBAL__N_122NodeTest_transfer_Test10test_info_E, align 8, !tbaa !158
   %145 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4absl18container_internal12_GLOBAL__N_122NodeTest_transfer_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -4069,13 +4069,12 @@ attributes #24 = { noreturn }
 !148 = !{!149, !41, i64 8}
 !149 = !{!"_ZTSSt9type_info", !41, i64 8}
 !150 = !{!42, !42, i64 0}
-!151 = distinct !{!151, !152, !153}
+!151 = distinct !{!151, !152}
 !152 = !{!"llvm.loop.mustprogress"}
-!153 = !{!"llvm.loop.estimated_trip_count"}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!156 = distinct !{!156, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!157 = !{!158, !18, i64 32}
-!158 = !{!"_ZTSN7testing8internal12CodeLocationE", !39, i64 0, !18, i64 32}
-!159 = !{!160, !160, i64 0}
-!160 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}
+!153 = !{!154}
+!154 = distinct !{!154, !155, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!155 = distinct !{!155, !"_ZSt11make_uniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!156 = !{!157, !18, i64 32}
+!157 = !{!"_ZTSN7testing8internal12CodeLocationE", !39, i64 0, !18, i64 32}
+!158 = !{!159, !159, i64 0}
+!159 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}

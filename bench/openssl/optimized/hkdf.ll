@@ -889,25 +889,25 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !33
+  %21 = load i32, ptr %20, align 8, !tbaa !32
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %23, label %37
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
   %26 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %25, ptr noundef nonnull @.str.8) #7
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.sink.split, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %24, align 8, !tbaa !34
+  %29 = load ptr, ptr %24, align 8, !tbaa !33
   %30 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.9) #7
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.sink.split, label %32
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr %24, align 8, !tbaa !34
+  %33 = load ptr, ptr %24, align 8, !tbaa !33
   %34 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %33, ptr noundef nonnull @.str.10) #7
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.sink.split, label %36
@@ -924,7 +924,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not45, label %42, label %39
 
 39:                                               ; preds = %37
-  %40 = load i32, ptr %3, align 4, !tbaa !35
+  %40 = load i32, ptr %3, align 4, !tbaa !34
   %or.cond3 = icmp ugt i32 %40, 2
   br i1 %or.cond3, label %41, label %.sink.split
 
@@ -969,13 +969,13 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %56 = load i64, ptr %55, align 8, !tbaa !36
+  %56 = load i64, ptr %55, align 8, !tbaa !35
   %.not49 = icmp eq i64 %56, 0
   br i1 %.not49, label %65, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !34
+  %59 = load ptr, ptr %58, align 8, !tbaa !33
   %.not50 = icmp eq ptr %59, null
   br i1 %.not50, label %65, label %60
 
@@ -1076,7 +1076,7 @@ kdf_hkdf_size.exit.thread26:                      ; preds = %7, %kdf_hkdf_size.e
 
 27:                                               ; preds = %23, %19
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i64 0, ptr %28, align 8, !tbaa !37
+  store i64 0, ptr %28, align 8, !tbaa !36
   br label %31
 
 29:                                               ; preds = %23
@@ -1157,7 +1157,7 @@ define internal fastcc range(i32 0, 2) i32 @prov_tls13_hkdf_expand(ptr noundef n
   br label %38
 
 35:                                               ; preds = %32
-  %36 = load i64, ptr %12, align 8, !tbaa !38
+  %36 = load i64, ptr %12, align 8, !tbaa !37
   %37 = call fastcc i32 @HKDF_Expand(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13, i64 noundef %36, ptr noundef %9, i64 noundef %10)
   br label %38
 
@@ -1239,12 +1239,11 @@ attributes #7 = { nounwind }
 !27 = !{!28, !12, i64 0}
 !28 = !{!"ossl_param_st", !12, i64 0, !8, i64 8, !5, i64 16, !13, i64 24, !13, i64 32}
 !29 = !{!6, !6, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!28, !8, i64 8}
-!34 = !{!28, !5, i64 16}
-!35 = !{!8, !8, i64 0}
-!36 = !{!28, !13, i64 24}
-!37 = !{!28, !13, i64 32}
-!38 = !{!13, !13, i64 0}
+!32 = !{!28, !8, i64 8}
+!33 = !{!28, !5, i64 16}
+!34 = !{!8, !8, i64 0}
+!35 = !{!28, !13, i64 24}
+!36 = !{!28, !13, i64 32}
+!37 = !{!13, !13, i64 0}

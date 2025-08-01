@@ -193,7 +193,7 @@ define range(i32 0, 2) i32 @ossl_bio_init_core(ptr noundef %0, ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_write_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !21
+  %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %5, i32 noundef 17) #3
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
@@ -216,7 +216,7 @@ define internal i32 @bio_core_write_ex(ptr noundef %0, ptr noundef %1, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_read_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !21
+  %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %5, i32 noundef 17) #3
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -238,7 +238,7 @@ define internal i32 @bio_core_read_ex(ptr noundef %0, ptr noundef %1, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_puts(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !21
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %3, i32 noundef 17) #3
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -261,7 +261,7 @@ define internal i32 @bio_core_puts(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !21
+  %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %4, i32 noundef 17) #3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
@@ -284,7 +284,7 @@ define internal i32 @bio_core_gets(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @bio_core_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !21
+  %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %5, i32 noundef 17) #3
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
@@ -314,7 +314,7 @@ define internal noundef i32 @bio_core_new(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @bio_core_free(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !21
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %2, i32 noundef 17) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -363,16 +363,15 @@ attributes #3 = { nounwind }
 !15 = !{!4, !5, i64 24}
 !16 = !{!4, !5, i64 32}
 !17 = !{!4, !5, i64 48}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"bio_st", !23, i64 0, !24, i64 8, !5, i64 16, !5, i64 24, !25, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !5, i64 64, !26, i64 72, !26, i64 80, !27, i64 88, !28, i64 96, !28, i64 104, !29, i64 112}
-!23 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
-!24 = !{!"p1 _ZTS13bio_method_st", !5, i64 0}
-!25 = !{!"p1 omnipotent char", !5, i64 0}
-!26 = !{!"p1 _ZTS6bio_st", !5, i64 0}
-!27 = !{!"", !6, i64 0}
-!28 = !{!"long", !6, i64 0}
-!29 = !{!"crypto_ex_data_st", !23, i64 0, !30, i64 8}
-!30 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"bio_st", !22, i64 0, !23, i64 8, !5, i64 16, !5, i64 24, !24, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !5, i64 64, !25, i64 72, !25, i64 80, !26, i64 88, !27, i64 96, !27, i64 104, !28, i64 112}
+!22 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!23 = !{!"p1 _ZTS13bio_method_st", !5, i64 0}
+!24 = !{!"p1 omnipotent char", !5, i64 0}
+!25 = !{!"p1 _ZTS6bio_st", !5, i64 0}
+!26 = !{!"", !6, i64 0}
+!27 = !{!"long", !6, i64 0}
+!28 = !{!"crypto_ex_data_st", !22, i64 0, !29, i64 8}
+!29 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}

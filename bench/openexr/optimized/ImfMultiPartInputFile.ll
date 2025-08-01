@@ -3024,21 +3024,21 @@ define void @_ZN7Imf_3_418MultiPartInputFileC2EPKcib(ptr noundef nonnull align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %6, align 8
-  store i64 104, ptr %5, align 8, !tbaa !78
+  store i64 104, ptr %5, align 8, !tbaa !77
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  store i32 -2, ptr %8, align 8, !tbaa !82
+  store i32 -2, ptr %8, align 8, !tbaa !81
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store float -1.000000e+00, ptr %9, align 4, !tbaa !83
+  store float -1.000000e+00, ptr %9, align 4, !tbaa !82
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %10, align 8
-  store i32 3, ptr %11, align 8, !tbaa !84
+  store i32 3, ptr %11, align 8, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr null, ptr %12, align 8, !tbaa !88
+  store ptr null, ptr %12, align 8, !tbaa !87
   %13 = select i1 %3, i32 2, i32 6
-  store i32 %13, ptr %10, align 8, !tbaa !89
+  store i32 %13, ptr %10, align 8, !tbaa !88
   call void @_ZN7Imf_3_418MultiPartInputFileC2EPKcRKNS_18ContextInitializerEib(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(120) %5, i32 noundef %2, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #23
   ret void
@@ -3054,26 +3054,26 @@ define void @_ZN7Imf_3_418MultiPartInputFileC2ERNS_7IStreamEib(ptr noundef nonnu
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #23
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 0, ptr %7, align 8
-  store i64 104, ptr %5, align 8, !tbaa !78
+  store i64 104, ptr %5, align 8, !tbaa !77
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
-  store i32 -2, ptr %9, align 8, !tbaa !82
+  store i32 -2, ptr %9, align 8, !tbaa !81
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store float -1.000000e+00, ptr %10, align 4, !tbaa !83
+  store float -1.000000e+00, ptr %10, align 4, !tbaa !82
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 2, ptr %11, align 8
-  store i32 3, ptr %12, align 8, !tbaa !84
+  store i32 3, ptr %12, align 8, !tbaa !83
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr null, ptr %13, align 8, !tbaa !88
+  store ptr null, ptr %13, align 8, !tbaa !87
   %14 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN7Imf_3_418ContextInitializer14setInputStreamEPNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %1)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %16 = load i32, ptr %15, align 8, !tbaa !88
   %17 = and i32 %16, -5
   %18 = select i1 %3, i32 0, i32 4
   %19 = or disjoint i32 %17, %18
-  store i32 %19, ptr %15, align 8, !tbaa !89
+  store i32 %19, ptr %15, align 8, !tbaa !88
   call void @_ZN7Imf_3_418MultiPartInputFileC2EPKcRKNS_18ContextInitializerEib(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(120) %14, i32 noundef %2, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #23
   ret void
@@ -3223,9 +3223,9 @@ define void @_ZN7Imf_3_418MultiPartInputFile14flushPartCacheEv(ptr noundef nonnu
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %6 = load ptr, ptr %2, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !90
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !90
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   %.not8 = icmp eq ptr %8, %10
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -3258,7 +3258,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 _ZNSt3any5resetEv.exit:                           ; preds = %.lr.ph, %15
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 96
   %.not = icmp eq ptr %19, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3348,7 +3348,7 @@ _ZSt8_DestroyIPN7Imf_3_418MultiPartInputFile4Data4PartES3_EvT_S5_RSaIT0_E.exit.i
 
 7:                                                ; preds = %_ZSt8_DestroyIPN7Imf_3_418MultiPartInputFile4Data4PartES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !92
+  %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -3485,7 +3485,7 @@ _ZSt8_DestroyIN7Imf_3_418MultiPartInputFile4Data4PartEEvPT_.exit: ; preds = %_ZN
   tail call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05) #23
   %33 = getelementptr inbounds nuw i8, ptr %.05, i64 96
   %.not = icmp eq ptr %33, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %_ZSt8_DestroyIN7Imf_3_418MultiPartInputFile4Data4PartEEvPT_.exit, %2
   ret void
@@ -3508,7 +3508,7 @@ define linkonce_odr void @_ZNSt6vectorIN7Imf_3_418MultiPartInputFile4Data4PartES
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 96
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !92
+  %12 = load ptr, ptr %11, align 8, !tbaa !90
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = sdiv exact i64 %14, 96
@@ -3583,7 +3583,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7Imf_3_418MultiPartInputFile4Data4Par
   br i1 %.not.i40, label %_ZNSt12_Vector_baseIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE13_M_deallocateEPS3_m.exit41, label %42
 
 42:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7Imf_3_418MultiPartInputFile4Data4PartES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %43 = load ptr, ptr %11, align 8, !tbaa !92
+  %43 = load ptr, ptr %11, align 8, !tbaa !90
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #26
@@ -3594,7 +3594,7 @@ _ZNSt12_Vector_baseIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE13_M_dealloc
   %46 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %28, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !11
   %47 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %27, i64 %25
-  store ptr %47, ptr %11, align 8, !tbaa !92
+  store ptr %47, ptr %11, align 8, !tbaa !90
   br label %48
 
 48:                                               ; preds = %19, %_ZNSt12_Vector_baseIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE13_M_deallocateEPS3_m.exit41, %2
@@ -3630,8 +3630,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE
   %.01016 = phi i64 [ %1, %.lr.ph ], [ %11, %9 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.017, i8 0, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !94
-  store float 0.000000e+00, ptr %4, align 4, !tbaa !96
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !92
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !94
   invoke void @_ZN7Imf_3_46HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(96) %.017, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %3, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
           to label %.noexc unwind label %13
 
@@ -3653,7 +3653,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE
   %11 = add i64 %.01016, -1
   %12 = getelementptr inbounds nuw i8, ptr %.017, i64 96
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !97
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !95
 
 13:                                               ; preds = %5
   %14 = landingpad { ptr, i32 }
@@ -3779,7 +3779,7 @@ _ZSt10_ConstructIN7Imf_3_418MultiPartInputFile4Data4PartEJRKS3_EEvPT_DpOT0_.exit
   %30 = getelementptr inbounds nuw i8, ptr %.01218, i64 96
   %31 = getelementptr inbounds nuw i8, ptr %.019, i64 96
   %.not = icmp eq ptr %30, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 32:                                               ; preds = %.lr.ph
   %33 = landingpad { ptr, i32 }
@@ -5548,24 +5548,24 @@ _ZNSt12__shared_ptrIN7Imf_3_418DeepTiledInputFileELN9__gnu_cxx12_Lock_policyE2EE
 define internal void @_GLOBAL__sub_I_ImfMultiPartInputFile.cpp() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, align 8, !tbaa !99
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, align 8, !tbaa !97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
-  store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 8), align 8, !tbaa !101
+  store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 8), align 8, !tbaa !99
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, i64 29), align 1, !tbaa !28
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L13SCANLINEIMAGEB5cxx11E, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, align 8, !tbaa !99
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, align 8, !tbaa !97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.3, i64 10, i1 false)
-  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 8), align 8, !tbaa !101
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 8), align 8, !tbaa !99
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, i64 26), align 2, !tbaa !28
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L10TILEDIMAGEB5cxx11E, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, align 8, !tbaa !99
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, align 8, !tbaa !97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.5, i64 12, i1 false)
-  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 8), align 8, !tbaa !101
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 8), align 8, !tbaa !99
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, i64 28), align 4, !tbaa !28
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L12DEEPSCANLINEB5cxx11E, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, align 8, !tbaa !99
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 16), ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, align 8, !tbaa !97
   store i64 7308332244138288484, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 16), align 8
-  store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 8), align 8, !tbaa !101
+  store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 8), align 8, !tbaa !99
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, i64 24), align 8, !tbaa !28
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7Imf_3_4L8DEEPTILEB5cxx11E, ptr nonnull @__dso_handle) #23
   ret void
@@ -5689,31 +5689,29 @@ attributes #27 = { noreturn nounwind }
 !72 = !{!"p2 _ZTS19_priv_exr_context_t", !73, i64 0}
 !73 = !{!"any p2 pointer", !6, i64 0}
 !74 = !{!72, !72, i64 0}
-!75 = distinct !{!75, !76, !77}
+!75 = distinct !{!75, !76}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!"llvm.loop.estimated_trip_count"}
-!78 = !{!79, !80, i64 0}
-!79 = !{!"_ZTS27_exr_context_initializer_v3", !80, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !19, i64 72, !19, i64 76, !19, i64 80, !19, i64 84, !19, i64 88, !81, i64 92, !19, i64 96, !7, i64 100}
-!80 = !{!"long", !7, i64 0}
-!81 = !{!"float", !7, i64 0}
-!82 = !{!79, !19, i64 88}
-!83 = !{!79, !81, i64 92}
-!84 = !{!85, !86, i64 104}
-!85 = !{!"_ZTSN7Imf_3_418ContextInitializerE", !79, i64 0, !86, i64 104, !87, i64 112}
-!86 = !{!"_ZTSN7Imf_3_418ContextInitializer15ContextFileTypeE", !7, i64 0}
-!87 = !{!"p1 _ZTSN7Imf_3_47IStreamE", !6, i64 0}
-!88 = !{!85, !87, i64 112}
-!89 = !{!85, !19, i64 96}
-!90 = !{!13, !13, i64 0}
-!91 = distinct !{!91, !77}
-!92 = !{!12, !13, i64 16}
-!93 = distinct !{!93, !76, !77}
-!94 = !{!95, !81, i64 0}
-!95 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !81, i64 0, !81, i64 4}
-!96 = !{!95, !81, i64 4}
-!97 = distinct !{!97, !76, !77}
-!98 = distinct !{!98, !76, !77}
-!99 = !{!100, !36, i64 0}
-!100 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
-!101 = !{!102, !80, i64 8}
-!102 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !100, i64 0, !80, i64 8, !7, i64 16}
+!77 = !{!78, !79, i64 0}
+!78 = !{!"_ZTS27_exr_context_initializer_v3", !79, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !19, i64 72, !19, i64 76, !19, i64 80, !19, i64 84, !19, i64 88, !80, i64 92, !19, i64 96, !7, i64 100}
+!79 = !{!"long", !7, i64 0}
+!80 = !{!"float", !7, i64 0}
+!81 = !{!78, !19, i64 88}
+!82 = !{!78, !80, i64 92}
+!83 = !{!84, !85, i64 104}
+!84 = !{!"_ZTSN7Imf_3_418ContextInitializerE", !78, i64 0, !85, i64 104, !86, i64 112}
+!85 = !{!"_ZTSN7Imf_3_418ContextInitializer15ContextFileTypeE", !7, i64 0}
+!86 = !{!"p1 _ZTSN7Imf_3_47IStreamE", !6, i64 0}
+!87 = !{!84, !86, i64 112}
+!88 = !{!84, !19, i64 96}
+!89 = !{!13, !13, i64 0}
+!90 = !{!12, !13, i64 16}
+!91 = distinct !{!91, !76}
+!92 = !{!93, !80, i64 0}
+!93 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !80, i64 0, !80, i64 4}
+!94 = !{!93, !80, i64 4}
+!95 = distinct !{!95, !76}
+!96 = distinct !{!96, !76}
+!97 = !{!98, !36, i64 0}
+!98 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
+!99 = !{!100, !79, i64 8}
+!100 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !98, i64 0, !79, i64 8, !7, i64 16}

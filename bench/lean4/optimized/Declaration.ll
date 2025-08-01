@@ -30588,7 +30588,7 @@ lean_dec.exit21:                                  ; preds = %57, %56, %54, %lean
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %69, %68, %66, %lean_dec.exit21
-  br label %lean_dec.exit, !llvm.loop !19
+  br label %lean_dec.exit
 
 lean_dec.exit22:                                  ; preds = %lean_obj_tag.exit31, %14, %18, %20, %21
   %.0 = phi ptr [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %14 ], [ %.018, %lean_obj_tag.exit31 ]
@@ -78675,5 +78675,3 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!7, !7, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}

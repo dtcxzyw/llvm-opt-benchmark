@@ -291,7 +291,7 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
   %94 = tail call ptr @sg_next(ptr noundef %77) #6
   %95 = load i32, ptr %41, align 4
   %96 = icmp ult i32 %93, %95
-  br i1 %96, label %75, label %.thread11, !llvm.loop !12
+  br i1 %96, label %75, label %.thread11, !llvm.loop !11
 
 97:                                               ; preds = %27
   %98 = ptrtoint ptr %38 to i64
@@ -569,8 +569,7 @@ attributes #8 = { nounwind allocsize(0) }
 !5 = !{i64 2148771238, i64 2148771277, i64 2148771298, i64 2148771335, i64 2148771358, i64 2148771367}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

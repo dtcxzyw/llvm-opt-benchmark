@@ -66,7 +66,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
   %.0.i = select i1 %27, ptr %19, ptr %29
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0.i, i64 32)
   %30 = icmp eq i32 %bcmp.i, 0
-  br i1 %30, label %.loopexit, label %22, !llvm.loop !9
+  br i1 %30, label %.loopexit, label %22, !llvm.loop !8
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -173,7 +173,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI15Native
   %27 = load i32, ptr %0, align 8
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i, %28
-  br i1 %29, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !10
+  br i1 %29, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -189,7 +189,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorI15Native
   %33 = load i32, ptr %4, align 4
   %34 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !11
+  br i1 %35, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !10
 
 36:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %31) #8
@@ -251,7 +251,7 @@ define hidden void @_ZN22NativeCallStackStorageC2Ebi(ptr noundef nonnull align 8
   %21 = load i32, ptr %9, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %3
   ret void
@@ -382,7 +382,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17Array
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !13
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -398,7 +398,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIN17Array
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #8
@@ -451,12 +451,11 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

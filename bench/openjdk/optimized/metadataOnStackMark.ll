@@ -131,7 +131,7 @@ _ZN19MetadataOnStackMark21retire_current_bufferEv.exit: ; preds = %1
   store ptr %19, ptr %20, align 8
   store ptr %.016, ptr @_ZN19MetadataOnStackMark13_free_buffersE, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !9
+  br i1 %.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !8
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %_ZN19MetadataOnStackMark21retire_current_bufferEv.exit
   store ptr null, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
@@ -282,7 +282,6 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

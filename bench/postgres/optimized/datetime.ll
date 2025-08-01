@@ -396,7 +396,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   %58 = getelementptr inbounds nuw [7 x %struct.anon], ptr @PGTYPESdate_fmt_asc.mapping, i64 0, i64 %indvars.iv.next
   %59 = load ptr, ptr %58, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !6
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !5
 
 .critedge:                                        ; preds = %._crit_edge, %48, %42
   %.4 = phi i32 [ -1, %42 ], [ -1, %48 ], [ 0, %._crit_edge ]
@@ -437,7 +437,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 10:                                               ; preds = %3
   %11 = tail call ptr @__errno_location() #13
   store i32 311, ptr %11, align 4
-  br label %247
+  br label %248
 
 12:                                               ; preds = %3
   %13 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.5) #14
@@ -453,7 +453,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 19:                                               ; preds = %12
   %20 = tail call ptr @__errno_location() #13
   store i32 311, ptr %20, align 4
-  br label %247
+  br label %248
 
 21:                                               ; preds = %12
   %22 = icmp ult ptr %13, %14
@@ -494,7 +494,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
   %.not.not = icmp eq i8 %39, 0
-  br i1 %.not.not, label %.critedge, label %40, !llvm.loop !7
+  br i1 %.not.not, label %.critedge, label %40, !llvm.loop !6
 
 40:                                               ; preds = %.lr.ph, %35
   %41 = phi i8 [ %32, %.lr.ph ], [ %39, %35 ]
@@ -609,7 +609,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 97:                                               ; preds = %40
   %98 = tail call ptr @pgtypes_strdup(ptr noundef nonnull %2) #12
   %.not = icmp eq ptr %98, null
-  br i1 %.not, label %247, label %.preheader251
+  br i1 %.not, label %248, label %.preheader251
 
 .preheader251:                                    ; preds = %97
   %99 = load i8, ptr %98, align 1
@@ -627,7 +627,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 %104
   %106 = load i8, ptr %105, align 1
   %.not228 = icmp eq i8 %106, 0
-  br i1 %.not228, label %.loopexit, label %.lr.ph257, !llvm.loop !8
+  br i1 %.not228, label %.loopexit, label %.lr.ph257, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph257, %.preheader251, %94
   %.1208 = phi ptr [ %52, %94 ], [ %98, %.preheader251 ], [ %98, %.lr.ph257 ]
@@ -682,14 +682,14 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %128 = add i32 %.3192262, 1
   %129 = zext i32 %128 to i64
   %130 = icmp ugt i64 %107, %129
-  br i1 %130, label %.outer, label %._crit_edge, !llvm.loop !9
+  br i1 %130, label %.outer, label %._crit_edge, !llvm.loop !8
 
 .thread299:                                       ; preds = %127
   store i32 %.3192262, ptr %111, align 8
   %131 = add i32 %.3192262, 1
   %132 = zext i32 %131 to i64
   %133 = icmp ugt i64 %107, %132
-  br i1 %133, label %112, label %._crit_edge.thread304, !llvm.loop !9
+  br i1 %133, label %112, label %._crit_edge.thread304, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit310
   %134 = icmp eq i32 %.2201, 0
@@ -712,11 +712,14 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   tail call void @free(ptr noundef nonnull %.1208) #12
   %140 = tail call ptr @__errno_location() #13
   store i32 312, ptr %140, align 4
-  br label %247
+  br label %248
 
 141:                                              ; preds = %138
   %.not233 = icmp eq i32 %.2204, 3
-  br i1 %.not233, label %198, label %142
+  br i1 %.not233, label %.preheader332, label %142
+
+.preheader332:                                    ; preds = %.critedge248, %141
+  br label %198
 
 142:                                              ; preds = %141
   %143 = tail call ptr @pgtypes_alloc(i64 noundef 20) #12
@@ -730,7 +733,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 
 145:                                              ; preds = %142
   tail call void @free(ptr noundef nonnull %.1208) #12
-  br label %247
+  br label %248
 
 .preheader:                                       ; preds = %.preheader250, %192
   %146 = phi ptr [ %195, %192 ], [ @pgtypes_date_months, %.preheader250 ]
@@ -750,7 +753,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %153 = icmp samesign ult i64 %indvars.iv279, 19
   %or.cond274 = select i1 %.not236, i1 %153, i1 false
-  br i1 %or.cond274, label %147, label %154, !llvm.loop !10
+  br i1 %or.cond274, label %147, label %154, !llvm.loop !9
 
 154:                                              ; preds = %147
   %155 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.1208, ptr noundef nonnull dereferenceable(1) %143) #14
@@ -809,7 +812,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %spec.store.select249 = select i1 %.not239, i32 %181, i32 -1
   store i32 %spec.store.select249, ptr %.4206.sroa.phi, align 4
   tail call void @free(ptr noundef nonnull %143) #12
-  br label %198
+  br label %.preheader332
 
 184:                                              ; preds = %154
   %185 = icmp eq ptr %.0269, @pgtypes_date_months
@@ -833,138 +836,135 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %195 = getelementptr inbounds nuw ptr, ptr %.1, i64 %194
   %196 = load ptr, ptr %195, align 8
   %.not235 = icmp eq ptr %196, null
-  br i1 %.not235, label %.critedge246, label %.preheader, !llvm.loop !11
+  br i1 %.not235, label %.critedge246, label %.preheader, !llvm.loop !10
 
 .critedge246:                                     ; preds = %192, %.preheader250
   tail call void @free(ptr noundef nonnull %143) #12
   tail call void @free(ptr noundef nonnull %.1208) #12
   %197 = tail call ptr @__errno_location() #13
   store i32 313, ptr %197, align 4
-  br label %247
+  br label %248
 
-198:                                              ; preds = %.critedge248, %141
-  %invariant.gep = getelementptr i8, ptr %.1208, i64 1
-  br label %199
+198:                                              ; preds = %.preheader332, %223
+  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %223 ], [ 0, %.preheader332 ]
+  %.sroa.2.0272 = phi i32 [ %.sroa.2.1, %223 ], [ 0, %.preheader332 ]
+  %.sroa.9.0271 = phi i32 [ %.sroa.9.1, %223 ], [ 0, %.preheader332 ]
+  %.sroa.19.0270 = phi i32 [ %.sroa.19.1, %223 ], [ 0, %.preheader332 ]
+  %199 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %4, i64 0, i64 %indvars.iv282
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  %201 = load i32, ptr %200, align 4
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds i8, ptr %.1208, i64 %202
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 1
+  store i8 0, ptr %204, align 1
+  %205 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv282
+  %206 = load i32, ptr %205, align 4
+  %207 = icmp eq i32 %206, -1
+  br i1 %207, label %208, label %216
 
-199:                                              ; preds = %198, %222
-  %indvars.iv282 = phi i64 [ 0, %198 ], [ %indvars.iv.next283, %222 ]
-  %.sroa.2.0272 = phi i32 [ 0, %198 ], [ %.sroa.2.1, %222 ]
-  %.sroa.9.0271 = phi i32 [ 0, %198 ], [ %.sroa.9.1, %222 ]
-  %.sroa.19.0270 = phi i32 [ 0, %198 ], [ %.sroa.19.1, %222 ]
-  %200 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %4, i64 0, i64 %indvars.iv282
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
-  %202 = load i32, ptr %201, align 4
-  %203 = sext i32 %202 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %203
-  store i8 0, ptr %gep, align 1
-  %204 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv282
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp eq i32 %205, -1
-  br i1 %206, label %207, label %215
+208:                                              ; preds = %198
+  %209 = tail call ptr @__errno_location() #13
+  store i32 0, ptr %209, align 4
+  %210 = load i32, ptr %199, align 8
+  %211 = sext i32 %210 to i64
+  %212 = getelementptr inbounds i8, ptr %.1208, i64 %211
+  %213 = tail call i64 @strtol(ptr noundef nonnull captures(none) %212, ptr noundef null, i32 noundef 10) #12
+  %214 = trunc i64 %213 to i32
+  %215 = load i32, ptr %209, align 4
+  %.not240 = icmp eq i32 %215, 0
+  %spec.store.select = select i1 %.not240, i32 %214, i32 -1
+  store i32 %spec.store.select, ptr %205, align 4
+  br label %216
 
-207:                                              ; preds = %199
-  %208 = tail call ptr @__errno_location() #13
-  store i32 0, ptr %208, align 4
-  %209 = load i32, ptr %200, align 8
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i8, ptr %.1208, i64 %210
-  %212 = tail call i64 @strtol(ptr noundef nonnull captures(none) %211, ptr noundef null, i32 noundef 10) #12
-  %213 = trunc i64 %212 to i32
-  %214 = load i32, ptr %208, align 4
-  %.not240 = icmp eq i32 %214, 0
-  %spec.store.select = select i1 %.not240, i32 %213, i32 -1
-  store i32 %spec.store.select, ptr %204, align 4
-  br label %215
-
-215:                                              ; preds = %207, %199
-  %216 = phi i32 [ %spec.store.select, %207 ], [ %205, %199 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.0188, i64 %indvars.iv282
-  %218 = load i8, ptr %217, align 1
-  switch i8 %218, label %222 [
-    i8 100, label %219
-    i8 109, label %220
-    i8 121, label %221
+216:                                              ; preds = %208, %198
+  %217 = phi i32 [ %spec.store.select, %208 ], [ %206, %198 ]
+  %218 = getelementptr inbounds nuw i8, ptr %.0188, i64 %indvars.iv282
+  %219 = load i8, ptr %218, align 1
+  switch i8 %219, label %223 [
+    i8 100, label %220
+    i8 109, label %221
+    i8 121, label %222
   ]
 
-219:                                              ; preds = %215
-  br label %222
+220:                                              ; preds = %216
+  br label %223
 
-220:                                              ; preds = %215
-  br label %222
+221:                                              ; preds = %216
+  br label %223
 
-221:                                              ; preds = %215
-  br label %222
+222:                                              ; preds = %216
+  br label %223
 
-222:                                              ; preds = %215, %219, %221, %220
-  %.sroa.19.1 = phi i32 [ %.sroa.19.0270, %219 ], [ %.sroa.19.0270, %220 ], [ %216, %221 ], [ %.sroa.19.0270, %215 ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0271, %219 ], [ %216, %220 ], [ %.sroa.9.0271, %221 ], [ %.sroa.9.0271, %215 ]
-  %.sroa.2.1 = phi i32 [ %216, %219 ], [ %.sroa.2.0272, %220 ], [ %.sroa.2.0272, %221 ], [ %.sroa.2.0272, %215 ]
+223:                                              ; preds = %216, %220, %222, %221
+  %.sroa.19.1 = phi i32 [ %.sroa.19.0270, %220 ], [ %.sroa.19.0270, %221 ], [ %217, %222 ], [ %.sroa.19.0270, %216 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0271, %220 ], [ %217, %221 ], [ %.sroa.9.0271, %222 ], [ %.sroa.9.0271, %216 ]
+  %.sroa.2.1 = phi i32 [ %217, %220 ], [ %.sroa.2.0272, %221 ], [ %.sroa.2.0272, %222 ], [ %.sroa.2.0272, %216 ]
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 3
-  br i1 %exitcond285.not, label %223, label %199, !llvm.loop !12
+  br i1 %exitcond285.not, label %224, label %198, !llvm.loop !11
 
-223:                                              ; preds = %222
+224:                                              ; preds = %223
   tail call void @free(ptr noundef nonnull %.1208) #12
-  %224 = add i32 %.sroa.2.1, -32
-  %or.cond17 = icmp ult i32 %224, -31
-  br i1 %or.cond17, label %225, label %227
+  %225 = add i32 %.sroa.2.1, -32
+  %or.cond17 = icmp ult i32 %225, -31
+  br i1 %or.cond17, label %226, label %228
 
-225:                                              ; preds = %223
-  %226 = tail call ptr @__errno_location() #13
-  store i32 314, ptr %226, align 4
-  br label %247
+226:                                              ; preds = %224
+  %227 = tail call ptr @__errno_location() #13
+  store i32 314, ptr %227, align 4
+  br label %248
 
-227:                                              ; preds = %223
-  %228 = add i32 %.sroa.9.1, -13
-  %or.cond20 = icmp ult i32 %228, -12
-  br i1 %or.cond20, label %229, label %231
+228:                                              ; preds = %224
+  %229 = add i32 %.sroa.9.1, -13
+  %or.cond20 = icmp ult i32 %229, -12
+  br i1 %or.cond20, label %230, label %232
 
-229:                                              ; preds = %227
-  %230 = tail call ptr @__errno_location() #13
-  store i32 315, ptr %230, align 4
-  br label %247
+230:                                              ; preds = %228
+  %231 = tail call ptr @__errno_location() #13
+  store i32 315, ptr %231, align 4
+  br label %248
 
-231:                                              ; preds = %227
-  %232 = icmp eq i32 %.sroa.2.1, 31
-  br i1 %232, label %233, label %237
+232:                                              ; preds = %228
+  %233 = icmp eq i32 %.sroa.2.1, 31
+  br i1 %233, label %234, label %238
 
-233:                                              ; preds = %231
-  %234 = and i32 %.sroa.9.1, 13
-  switch i32 %234, label %237 [
-    i32 9, label %235
-    i32 4, label %235
+234:                                              ; preds = %232
+  %235 = and i32 %.sroa.9.1, 13
+  switch i32 %235, label %238 [
+    i32 9, label %236
+    i32 4, label %236
   ]
 
-235:                                              ; preds = %233, %233
-  %236 = tail call ptr @__errno_location() #13
-  store i32 314, ptr %236, align 4
-  br label %247
+236:                                              ; preds = %234, %234
+  %237 = tail call ptr @__errno_location() #13
+  store i32 314, ptr %237, align 4
+  br label %248
 
-237:                                              ; preds = %233, %231
-  %238 = icmp eq i32 %.sroa.9.1, 2
-  %239 = icmp samesign ugt i32 %.sroa.2.1, 29
-  %or.cond32 = select i1 %238, i1 %239, i1 false
-  br i1 %or.cond32, label %240, label %242
+238:                                              ; preds = %234, %232
+  %239 = icmp eq i32 %.sroa.9.1, 2
+  %240 = icmp samesign ugt i32 %.sroa.2.1, 29
+  %or.cond32 = select i1 %239, i1 %240, i1 false
+  br i1 %or.cond32, label %241, label %243
 
-240:                                              ; preds = %237
-  %241 = tail call ptr @__errno_location() #13
-  store i32 314, ptr %241, align 4
-  br label %247
+241:                                              ; preds = %238
+  %242 = tail call ptr @__errno_location() #13
+  store i32 314, ptr %242, align 4
+  br label %248
 
-242:                                              ; preds = %237
-  %243 = tail call i32 @date2j(i32 noundef %.sroa.19.1, i32 noundef %.sroa.9.1, i32 noundef %.sroa.2.1) #12
-  %244 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #12
-  %245 = sub i32 %243, %244
-  %246 = sext i32 %245 to i64
-  store i64 %246, ptr %0, align 8
-  br label %247
+243:                                              ; preds = %238
+  %244 = tail call i32 @date2j(i32 noundef %.sroa.19.1, i32 noundef %.sroa.9.1, i32 noundef %.sroa.2.1) #12
+  %245 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #12
+  %246 = sub i32 %244, %245
+  %247 = sext i32 %246 to i64
+  store i64 %247, ptr %0, align 8
+  br label %248
 
 .critedge242:                                     ; preds = %50, %48
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #12
-  br label %247
+  br label %248
 
-247:                                              ; preds = %145, %.critedge246, %97, %.critedge242, %242, %240, %235, %229, %225, %.thread308, %19, %10
-  %.0185 = phi i32 [ -1, %.thread308 ], [ -1, %225 ], [ -1, %229 ], [ -1, %235 ], [ -1, %240 ], [ 0, %242 ], [ -1, %19 ], [ -1, %10 ], [ -1, %.critedge242 ], [ -1, %97 ], [ -1, %.critedge246 ], [ -1, %145 ]
+248:                                              ; preds = %145, %.critedge246, %97, %.critedge242, %243, %241, %236, %230, %226, %.thread308, %19, %10
+  %.0185 = phi i32 [ -1, %.thread308 ], [ -1, %226 ], [ -1, %230 ], [ -1, %236 ], [ -1, %241 ], [ 0, %243 ], [ -1, %19 ], [ -1, %10 ], [ -1, %.critedge242 ], [ -1, %97 ], [ -1, %.critedge246 ], [ -1, %145 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   ret i32 %.0185
@@ -1005,13 +1005,12 @@ attributes #14 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

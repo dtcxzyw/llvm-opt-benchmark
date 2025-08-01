@@ -536,9 +536,9 @@ define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
-  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #4, !callees !24
+  %13 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %12) #4, !callees !23
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %14, align 8, !tbaa !16, !noalias !25
+  %15 = load i64, ptr %14, align 8, !tbaa !16, !noalias !24
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -550,10 +550,10 @@ define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit:                                 ; preds = %11, %18
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %18 ], [ %17, %11 ]
-  store ptr %.sroa.2.0.i, ptr %2, align 8, !tbaa !28
+  store ptr %.sroa.2.0.i, ptr %2, align 8, !tbaa !27
   %19 = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %3, ptr noundef nonnull %2) #4
-  %20 = load ptr, ptr %2, align 8, !tbaa !28
-  %21 = load i64, ptr %14, align 8, !tbaa !16, !noalias !30
+  %20 = load ptr, ptr %2, align 8, !tbaa !27
+  %21 = load i64, ptr %14, align 8, !tbaa !16, !noalias !29
   %22 = and i64 %21, 8192
   %.not.i.i12 = icmp eq i64 %22, 0
   br i1 %.not.i.i12, label %RSTRING_PTR.exit15, label %23
@@ -758,15 +758,14 @@ attributes #5 = { noreturn nounwind }
 !18 = !{!"branch_weights", i32 4001, i32 1}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !8, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{ptr @rb_str_new, null}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"rbimpl_rstring_getmem: argument 0"}
-!27 = distinct !{!27, !"rbimpl_rstring_getmem"}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 omnipotent char", !14, i64 0}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"rbimpl_rstring_getmem: argument 0"}
-!32 = distinct !{!32, !"rbimpl_rstring_getmem"}
+!23 = distinct !{ptr @rb_str_new, null}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"rbimpl_rstring_getmem: argument 0"}
+!26 = distinct !{!26, !"rbimpl_rstring_getmem"}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !14, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
+!31 = distinct !{!31, !"rbimpl_rstring_getmem"}

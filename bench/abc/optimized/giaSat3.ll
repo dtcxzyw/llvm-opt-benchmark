@@ -95,7 +95,7 @@ define void @Gia_ManSat3Report(i32 noundef %0, i32 noundef %1, i64 noundef %2) l
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !19
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -108,7 +108,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #9
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !19
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #9
@@ -116,7 +116,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !20, !noalias !22
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !19, !noalias !21
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #9
   br label %17
 
@@ -198,10 +198,10 @@ define i32 @Gia_ManSat3CallOne(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %6, label %Abc_Clock.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr %4, align 8, !tbaa !25
+  %8 = load i64, ptr %4, align 8, !tbaa !24
   %.neg12 = mul i64 %8, -1000000
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %10 = load i64, ptr %9, align 8, !tbaa !27
   %.neg = sdiv i64 %10, -1000
   %.neg13 = add i64 %.neg, %.neg12
   br label %Abc_Clock.exit
@@ -216,7 +216,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 12:                                               ; preds = %Abc_Clock.exit
   %13 = call i32 @sat_solver3_solve(ptr noundef nonnull %11, ptr noundef null, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 432
-  %15 = load i64, ptr %14, align 8, !tbaa !29
+  %15 = load i64, ptr %14, align 8, !tbaa !28
   %16 = trunc i64 %15 to i32
   call void @sat_solver3_delete(ptr noundef nonnull %11) #9
   br label %17
@@ -230,10 +230,10 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %19, label %Abc_Clock.exit11, label %20
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr %3, align 8, !tbaa !25
+  %21 = load i64, ptr %3, align 8, !tbaa !24
   %22 = mul nsw i64 %21, 1000000
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !28
+  %24 = load i64, ptr %23, align 8, !tbaa !27
   %25 = sdiv i64 %24, 1000
   %26 = add nsw i64 %25, %22
   br label %Abc_Clock.exit11
@@ -282,10 +282,10 @@ define void @Gia_ManSat3Call(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %7, label %Abc_Clock.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr %4, align 8, !tbaa !25
+  %9 = load i64, ptr %4, align 8, !tbaa !24
   %.neg18 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !28
+  %11 = load i64, ptr %10, align 8, !tbaa !27
   %.neg = sdiv i64 %11, -1000
   %.neg19 = add i64 %.neg, %.neg18
   br label %Abc_Clock.exit
@@ -295,24 +295,24 @@ Abc_Clock.exit:                                   ; preds = %5, %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   %12 = getelementptr i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !39
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr i8, ptr %14, i64 4
-  %.val20 = load i32, ptr %15, align 4, !tbaa !56
+  %.val20 = load i32, ptr %15, align 4, !tbaa !55
   %16 = icmp sgt i32 %.val20, 0
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %Abc_Clock.exit ]
   %17 = phi ptr [ %27, %18 ], [ %14, %Abc_Clock.exit ]
-  %.val14 = load ptr, ptr %12, align 8, !tbaa !57
+  %.val14 = load ptr, ptr %12, align 8, !tbaa !56
   %.not13 = icmp eq ptr %.val14, null
   br i1 %.not13, label %.critedge, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr i8, ptr %17, i64 8
-  %.val15.val = load ptr, ptr %19, align 8, !tbaa !58
+  %.val15.val = load ptr, ptr %19, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i32, ptr %.val15.val, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4, !tbaa !19
+  %21 = load i32, ptr %20, align 4, !tbaa !18
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val14, i64 %22
   %24 = call ptr @Gia_ManDupDfsCone(ptr noundef nonnull %0, ptr noundef nonnull %23) #9
@@ -320,12 +320,12 @@ Abc_Clock.exit:                                   ; preds = %5, %8
   %26 = call i32 @Gia_ManSat3CallOne(ptr noundef %24, i32 noundef %25)
   call void @Gia_ManStop(ptr noundef %24) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load ptr, ptr %13, align 8, !tbaa !39
+  %27 = load ptr, ptr %13, align 8, !tbaa !38
   %28 = getelementptr i8, ptr %27, i64 4
-  %.val = load i32, ptr %28, align 4, !tbaa !56
+  %.val = load i32, ptr %28, align 4, !tbaa !55
   %29 = sext i32 %.val to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !59
+  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %.lr.ph, %18, %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
@@ -334,10 +334,10 @@ Abc_Clock.exit:                                   ; preds = %5, %8
   br i1 %32, label %Abc_Clock.exit17, label %33
 
 33:                                               ; preds = %.critedge
-  %34 = load i64, ptr %3, align 8, !tbaa !25
+  %34 = load i64, ptr %3, align 8, !tbaa !24
   %35 = mul nsw i64 %34, 1000000
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !28
+  %37 = load i64, ptr %36, align 8, !tbaa !27
   %38 = sdiv i64 %37, 1000
   %39 = add nsw i64 %38, %35
   br label %Abc_Clock.exit17
@@ -418,47 +418,46 @@ attributes #10 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
 !14 = !{!4, !10, i64 24}
 !15 = !{!11, !11, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!9, !9, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"vprintf: argument 0"}
-!24 = distinct !{!24, !"vprintf"}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"timespec", !27, i64 0, !27, i64 8}
-!27 = !{!"long", !7, i64 0}
-!28 = !{!26, !27, i64 8}
-!29 = !{!30, !27, i64 432}
-!30 = !{!"sat_solver3_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !31, i64 16, !9, i64 72, !9, i64 76, !32, i64 80, !33, i64 88, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !27, i64 120, !27, i64 128, !27, i64 136, !34, i64 144, !34, i64 152, !9, i64 160, !9, i64 164, !35, i64 168, !12, i64 184, !9, i64 192, !11, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !35, i64 264, !35, i64 280, !35, i64 296, !35, i64 312, !11, i64 328, !35, i64 336, !9, i64 352, !9, i64 356, !9, i64 360, !36, i64 368, !36, i64 376, !9, i64 384, !9, i64 388, !37, i64 392, !9, i64 464, !9, i64 468, !9, i64 472, !9, i64 476, !9, i64 480, !27, i64 488, !27, i64 496, !27, i64 504, !35, i64 512, !38, i64 528, !9, i64 536, !9, i64 540, !9, i64 544, !35, i64 552, !35, i64 568, !9, i64 584, !9, i64 588, !9, i64 592, !11, i64 600, !6, i64 608, !9, i64 616, !21, i64 624, !9, i64 632, !9, i64 636, !35, i64 640, !6, i64 656, !6, i64 664}
-!31 = !{!"Sat_Mem_t_", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !10, i64 48}
-!32 = !{!"p1 _ZTS8clause_t", !6, i64 0}
-!33 = !{!"p1 _ZTS6veci_t", !6, i64 0}
-!34 = !{!"p1 long", !6, i64 0}
-!35 = !{!"veci_t", !9, i64 0, !9, i64 4, !11, i64 8}
-!36 = !{!"double", !7, i64 0}
-!37 = !{!"stats_t", !9, i64 0, !9, i64 4, !9, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !27, i64 48, !27, i64 56, !27, i64 64}
-!38 = !{!"p1 double", !6, i64 0}
-!39 = !{!40, !13, i64 72}
-!40 = !{!"Gia_Man_t_", !12, i64 0, !12, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !41, i64 32, !11, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !13, i64 64, !13, i64 72, !42, i64 80, !42, i64 96, !9, i64 112, !9, i64 116, !9, i64 120, !42, i64 128, !11, i64 144, !11, i64 152, !13, i64 160, !9, i64 168, !9, i64 172, !9, i64 176, !9, i64 180, !11, i64 184, !43, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !9, i64 224, !9, i64 228, !11, i64 232, !9, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !44, i64 272, !44, i64 280, !13, i64 288, !6, i64 296, !13, i64 304, !13, i64 312, !12, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !45, i64 368, !45, i64 376, !46, i64 384, !42, i64 392, !42, i64 408, !13, i64 424, !13, i64 432, !13, i64 440, !13, i64 448, !13, i64 456, !13, i64 464, !13, i64 472, !13, i64 480, !13, i64 488, !13, i64 496, !13, i64 504, !12, i64 512, !47, i64 520, !48, i64 528, !49, i64 536, !49, i64 544, !13, i64 552, !13, i64 560, !13, i64 568, !13, i64 576, !13, i64 584, !9, i64 592, !50, i64 596, !50, i64 600, !13, i64 608, !11, i64 616, !9, i64 624, !46, i64 632, !46, i64 640, !46, i64 648, !13, i64 656, !13, i64 664, !13, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !51, i64 720, !49, i64 728, !6, i64 736, !6, i64 744, !27, i64 752, !27, i64 760, !6, i64 768, !11, i64 776, !9, i64 784, !9, i64 788, !9, i64 792, !9, i64 796, !9, i64 800, !9, i64 804, !9, i64 808, !9, i64 812, !9, i64 816, !9, i64 820, !9, i64 824, !9, i64 828, !52, i64 832, !52, i64 840, !52, i64 848, !52, i64 856, !13, i64 864, !13, i64 872, !13, i64 880, !53, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !13, i64 912, !9, i64 920, !9, i64 924, !13, i64 928, !13, i64 936, !46, i64 944, !52, i64 952, !13, i64 960, !13, i64 968, !9, i64 976, !9, i64 980, !52, i64 984, !42, i64 992, !42, i64 1008, !42, i64 1024, !54, i64 1040, !55, i64 1048, !55, i64 1056, !9, i64 1064, !9, i64 1068, !9, i64 1072, !9, i64 1076, !55, i64 1080, !13, i64 1088, !13, i64 1096, !13, i64 1104, !46, i64 1112}
-!41 = !{!"p1 _ZTS10Gia_Obj_t_", !6, i64 0}
-!42 = !{!"Vec_Int_t_", !9, i64 0, !9, i64 4, !11, i64 8}
-!43 = !{!"p1 _ZTS10Gia_Rpr_t_", !6, i64 0}
-!44 = !{!"p1 _ZTS10Vec_Wec_t_", !6, i64 0}
-!45 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
-!46 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
-!47 = !{!"p1 _ZTS10Gia_Plc_t_", !6, i64 0}
-!48 = !{!"p1 _ZTS10Gia_Man_t_", !6, i64 0}
-!49 = !{!"p1 _ZTS10Vec_Flt_t_", !6, i64 0}
-!50 = !{!"float", !7, i64 0}
-!51 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
-!52 = !{!"p1 _ZTS10Vec_Wrd_t_", !6, i64 0}
-!53 = !{!"p1 _ZTS10Vec_Bit_t_", !6, i64 0}
-!54 = !{!"p1 _ZTS10Gia_Dat_t_", !6, i64 0}
-!55 = !{!"p1 _ZTS10Vec_Str_t_", !6, i64 0}
-!56 = !{!42, !9, i64 4}
-!57 = !{!40, !41, i64 32}
-!58 = !{!42, !11, i64 8}
-!59 = distinct !{!59, !17, !18}
+!18 = !{!9, !9, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"vprintf: argument 0"}
+!23 = distinct !{!23, !"vprintf"}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"timespec", !26, i64 0, !26, i64 8}
+!26 = !{!"long", !7, i64 0}
+!27 = !{!25, !26, i64 8}
+!28 = !{!29, !26, i64 432}
+!29 = !{!"sat_solver3_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !30, i64 16, !9, i64 72, !9, i64 76, !31, i64 80, !32, i64 88, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !26, i64 120, !26, i64 128, !26, i64 136, !33, i64 144, !33, i64 152, !9, i64 160, !9, i64 164, !34, i64 168, !12, i64 184, !9, i64 192, !11, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !34, i64 264, !34, i64 280, !34, i64 296, !34, i64 312, !11, i64 328, !34, i64 336, !9, i64 352, !9, i64 356, !9, i64 360, !35, i64 368, !35, i64 376, !9, i64 384, !9, i64 388, !36, i64 392, !9, i64 464, !9, i64 468, !9, i64 472, !9, i64 476, !9, i64 480, !26, i64 488, !26, i64 496, !26, i64 504, !34, i64 512, !37, i64 528, !9, i64 536, !9, i64 540, !9, i64 544, !34, i64 552, !34, i64 568, !9, i64 584, !9, i64 588, !9, i64 592, !11, i64 600, !6, i64 608, !9, i64 616, !20, i64 624, !9, i64 632, !9, i64 636, !34, i64 640, !6, i64 656, !6, i64 664}
+!30 = !{!"Sat_Mem_t_", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !10, i64 48}
+!31 = !{!"p1 _ZTS8clause_t", !6, i64 0}
+!32 = !{!"p1 _ZTS6veci_t", !6, i64 0}
+!33 = !{!"p1 long", !6, i64 0}
+!34 = !{!"veci_t", !9, i64 0, !9, i64 4, !11, i64 8}
+!35 = !{!"double", !7, i64 0}
+!36 = !{!"stats_t", !9, i64 0, !9, i64 4, !9, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !26, i64 48, !26, i64 56, !26, i64 64}
+!37 = !{!"p1 double", !6, i64 0}
+!38 = !{!39, !13, i64 72}
+!39 = !{!"Gia_Man_t_", !12, i64 0, !12, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !40, i64 32, !11, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !13, i64 64, !13, i64 72, !41, i64 80, !41, i64 96, !9, i64 112, !9, i64 116, !9, i64 120, !41, i64 128, !11, i64 144, !11, i64 152, !13, i64 160, !9, i64 168, !9, i64 172, !9, i64 176, !9, i64 180, !11, i64 184, !42, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !9, i64 224, !9, i64 228, !11, i64 232, !9, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !43, i64 272, !43, i64 280, !13, i64 288, !6, i64 296, !13, i64 304, !13, i64 312, !12, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !44, i64 368, !44, i64 376, !45, i64 384, !41, i64 392, !41, i64 408, !13, i64 424, !13, i64 432, !13, i64 440, !13, i64 448, !13, i64 456, !13, i64 464, !13, i64 472, !13, i64 480, !13, i64 488, !13, i64 496, !13, i64 504, !12, i64 512, !46, i64 520, !47, i64 528, !48, i64 536, !48, i64 544, !13, i64 552, !13, i64 560, !13, i64 568, !13, i64 576, !13, i64 584, !9, i64 592, !49, i64 596, !49, i64 600, !13, i64 608, !11, i64 616, !9, i64 624, !45, i64 632, !45, i64 640, !45, i64 648, !13, i64 656, !13, i64 664, !13, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !50, i64 720, !48, i64 728, !6, i64 736, !6, i64 744, !26, i64 752, !26, i64 760, !6, i64 768, !11, i64 776, !9, i64 784, !9, i64 788, !9, i64 792, !9, i64 796, !9, i64 800, !9, i64 804, !9, i64 808, !9, i64 812, !9, i64 816, !9, i64 820, !9, i64 824, !9, i64 828, !51, i64 832, !51, i64 840, !51, i64 848, !51, i64 856, !13, i64 864, !13, i64 872, !13, i64 880, !52, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !13, i64 912, !9, i64 920, !9, i64 924, !13, i64 928, !13, i64 936, !45, i64 944, !51, i64 952, !13, i64 960, !13, i64 968, !9, i64 976, !9, i64 980, !51, i64 984, !41, i64 992, !41, i64 1008, !41, i64 1024, !53, i64 1040, !54, i64 1048, !54, i64 1056, !9, i64 1064, !9, i64 1068, !9, i64 1072, !9, i64 1076, !54, i64 1080, !13, i64 1088, !13, i64 1096, !13, i64 1104, !45, i64 1112}
+!40 = !{!"p1 _ZTS10Gia_Obj_t_", !6, i64 0}
+!41 = !{!"Vec_Int_t_", !9, i64 0, !9, i64 4, !11, i64 8}
+!42 = !{!"p1 _ZTS10Gia_Rpr_t_", !6, i64 0}
+!43 = !{!"p1 _ZTS10Vec_Wec_t_", !6, i64 0}
+!44 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
+!45 = !{!"p1 _ZTS10Vec_Ptr_t_", !6, i64 0}
+!46 = !{!"p1 _ZTS10Gia_Plc_t_", !6, i64 0}
+!47 = !{!"p1 _ZTS10Gia_Man_t_", !6, i64 0}
+!48 = !{!"p1 _ZTS10Vec_Flt_t_", !6, i64 0}
+!49 = !{!"float", !7, i64 0}
+!50 = !{!"p1 _ZTS10Vec_Vec_t_", !6, i64 0}
+!51 = !{!"p1 _ZTS10Vec_Wrd_t_", !6, i64 0}
+!52 = !{!"p1 _ZTS10Vec_Bit_t_", !6, i64 0}
+!53 = !{!"p1 _ZTS10Gia_Dat_t_", !6, i64 0}
+!54 = !{!"p1 _ZTS10Vec_Str_t_", !6, i64 0}
+!55 = !{!41, !9, i64 4}
+!56 = !{!39, !40, i64 32}
+!57 = !{!41, !11, i64 8}
+!58 = distinct !{!58, !17}

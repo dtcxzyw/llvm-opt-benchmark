@@ -342,7 +342,7 @@ get_commit_reference.exit.i35:                    ; preds = %124
   br i1 %.not13.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i
-  %136 = load ptr, ptr %135, align 8, !tbaa !29
+  %136 = load ptr, ptr %135, align 8, !tbaa !28
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %138 = call ptr @oid_to_hex(ptr noundef nonnull %137) #10
   %puts.us.i = call i32 @puts(ptr nonnull dereferenceable(1) %138)
@@ -350,14 +350,14 @@ get_commit_reference.exit.i35:                    ; preds = %124
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   %.0916.i = phi ptr [ %143, %.preheader.split.i ], [ %135, %.preheader.i ]
-  %139 = load ptr, ptr %.0916.i, align 8, !tbaa !29
+  %139 = load ptr, ptr %.0916.i, align 8, !tbaa !28
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = call ptr @oid_to_hex(ptr noundef nonnull %140) #10
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %141)
   %142 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 8
-  %143 = load ptr, ptr %142, align 8, !tbaa !32
+  %143 = load ptr, ptr %142, align 8, !tbaa !31
   %.not12.i = icmp eq ptr %143, null
-  br i1 %.not12.i, label %.sink.split.i, label %.preheader.split.i, !llvm.loop !33
+  br i1 %.not12.i, label %.sink.split.i, label %.preheader.split.i, !llvm.loop !32
 
 .sink.split.i:                                    ; preds = %.preheader.split.i, %.preheader.split.us.i, %._crit_edge.i
   %.010.ph.i = phi i32 [ 128, %._crit_edge.i ], [ 0, %.preheader.split.us.i ], [ 0, %.preheader.split.i ]
@@ -413,7 +413,7 @@ get_commit_reference.exit.i46:                    ; preds = %154
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #10
   %158 = call ptr @commit_list_insert(ptr noundef nonnull %156, ptr noundef nonnull %9) #10
   %159 = icmp samesign ugt i64 %indvars.iv.i42, 1
-  br i1 %159, label %.lr.ph.i41, label %._crit_edge.i36, !llvm.loop !34
+  br i1 %159, label %.lr.ph.i41, label %._crit_edge.i36, !llvm.loop !33
 
 ._crit_edge.i36:                                  ; preds = %get_commit_reference.exit.i46, %146
   call void @reduce_heads_replace(ptr noundef nonnull %9) #10
@@ -423,14 +423,14 @@ get_commit_reference.exit.i46:                    ; preds = %154
 
 .preheader.i38:                                   ; preds = %._crit_edge.i36, %.preheader.i38
   %.0814.i = phi ptr [ %165, %.preheader.i38 ], [ %160, %._crit_edge.i36 ]
-  %161 = load ptr, ptr %.0814.i, align 8, !tbaa !29
+  %161 = load ptr, ptr %.0814.i, align 8, !tbaa !28
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = call ptr @oid_to_hex(ptr noundef nonnull %162) #10
   %puts.i39 = call i32 @puts(ptr nonnull dereferenceable(1) %163)
   %164 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !32
+  %165 = load ptr, ptr %164, align 8, !tbaa !31
   %.not11.i = icmp eq ptr %165, null
-  br i1 %.not11.i, label %166, label %.preheader.i38, !llvm.loop !35
+  br i1 %.not11.i, label %166, label %.preheader.i38, !llvm.loop !34
 
 166:                                              ; preds = %.preheader.i38
   %167 = load ptr, ptr %9, align 8, !tbaa !24
@@ -538,16 +538,16 @@ get_commit_reference.exit:                        ; preds = %204
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #10
   %208 = add nuw nsw i64 %.02769, 1
   %209 = getelementptr inbounds nuw ptr, ptr %197, i64 %.02769
-  store ptr %206, ptr %209, align 8, !tbaa !36
+  store ptr %206, ptr %209, align 8, !tbaa !35
   %exitcond.not = icmp eq i64 %208, %195
-  br i1 %exitcond.not, label %210, label %198, !llvm.loop !37
+  br i1 %exitcond.not, label %210, label %198, !llvm.loop !36
 
 210:                                              ; preds = %get_commit_reference.exit
   %211 = load i32, ptr %15, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8, !tbaa !24
   %212 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %213 = load ptr, ptr %197, align 8, !tbaa !36
+  %213 = load ptr, ptr %197, align 8, !tbaa !35
   %214 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %215 = call i32 @repo_get_merge_bases_many_dirty(ptr noundef %212, ptr noundef %213, i64 noundef %.02769, ptr noundef nonnull %214, ptr noundef nonnull %5) #10
   %216 = icmp slt i32 %215, 0
@@ -563,7 +563,7 @@ get_commit_reference.exit:                        ; preds = %204
   br i1 %.not10.i, label %.preheader.split.us.i56, label %.preheader.split.i52
 
 .preheader.split.us.i56:                          ; preds = %.preheader.i51
-  %219 = load ptr, ptr %217, align 8, !tbaa !29
+  %219 = load ptr, ptr %217, align 8, !tbaa !28
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   %221 = call ptr @oid_to_hex(ptr noundef nonnull %220) #10
   %puts.us.i57 = call i32 @puts(ptr nonnull dereferenceable(1) %221)
@@ -571,14 +571,14 @@ get_commit_reference.exit:                        ; preds = %204
 
 .preheader.split.i52:                             ; preds = %.preheader.i51, %.preheader.split.i52
   %.011.i = phi ptr [ %226, %.preheader.split.i52 ], [ %217, %.preheader.i51 ]
-  %222 = load ptr, ptr %.011.i, align 8, !tbaa !29
+  %222 = load ptr, ptr %.011.i, align 8, !tbaa !28
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 4
   %224 = call ptr @oid_to_hex(ptr noundef nonnull %223) #10
   %puts.i53 = call i32 @puts(ptr nonnull dereferenceable(1) %224)
   %225 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %226 = load ptr, ptr %225, align 8, !tbaa !32
+  %226 = load ptr, ptr %225, align 8, !tbaa !31
   %.not9.i54 = icmp eq ptr %226, null
-  br i1 %.not9.i54, label %.split.i, label %.preheader.split.i52, !llvm.loop !38
+  br i1 %.not9.i54, label %.split.i, label %.preheader.split.i52, !llvm.loop !37
 
 .split.i:                                         ; preds = %.preheader.split.i52, %.preheader.split.us.i56
   %227 = load ptr, ptr %5, align 8, !tbaa !24
@@ -717,16 +717,15 @@ attributes #11 = { noreturn nounwind }
 !23 = !{!10, !10, i64 0}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 _ZTS11commit_list", !11, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"commit_list", !31, i64 0, !25, i64 8}
-!31 = !{!"p1 _ZTS6commit", !11, i64 0}
-!32 = !{!30, !25, i64 8}
-!33 = distinct !{!33, !27, !28}
-!34 = distinct !{!34, !27, !28}
-!35 = distinct !{!35, !27, !28}
-!36 = !{!31, !31, i64 0}
-!37 = distinct !{!37, !27, !28}
-!38 = distinct !{!38, !27, !28}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"commit_list", !30, i64 0, !25, i64 8}
+!30 = !{!"p1 _ZTS6commit", !11, i64 0}
+!31 = !{!29, !25, i64 8}
+!32 = distinct !{!32, !27}
+!33 = distinct !{!33, !27}
+!34 = distinct !{!34, !27}
+!35 = !{!30, !30, i64 0}
+!36 = distinct !{!36, !27}
+!37 = distinct !{!37, !27}

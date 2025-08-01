@@ -147,7 +147,7 @@ define internal range(i32 0, 2) i32 @i2r_ATTRIBUTES_SYNTAX(ptr readnone captures
   %46 = add nuw nsw i32 %.03547, 1
   %47 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #3
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %10, label %.loopexit, !llvm.loop !6
+  br i1 %48, label %10, label %.loopexit, !llvm.loop !5
 
 .loopexit.sink.split:                             ; preds = %5, %4
   %.str.3.sink = phi ptr [ @.str.2, %4 ], [ @.str.3, %5 ]
@@ -195,7 +195,6 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

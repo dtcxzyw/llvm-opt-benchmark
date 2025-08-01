@@ -261,7 +261,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_compress_write(ptr nou
 
 61:                                               ; preds = %49
   %62 = icmp sgt i32 %55, -1
-  br i1 %62, label %49, label %.loopexit, !llvm.loop !46
+  br i1 %62, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %61, %45
   %.075 = phi i32 [ %36, %45 ], [ %spec.select, %61 ]
@@ -326,16 +326,16 @@ define internal range(i32 -30, 1) i32 @archive_compressor_compress_write(ptr nou
 
 .thread111:                                       ; preds = %82, %87, %91, %83
   %.074 = phi i32 [ %86, %83 ], [ %94, %91 ], [ 2147483647, %87 ], [ 2147483647, %82 ]
-  %95 = load i32, ptr %24, align 8, !tbaa !47
+  %95 = load i32, ptr %24, align 8, !tbaa !45
   %96 = icmp sgt i32 %.074, %95
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %.thread111
-  store i32 %.074, ptr %24, align 8, !tbaa !47
+  store i32 %.074, ptr %24, align 8, !tbaa !45
   br label %.backedge
 
 98:                                               ; preds = %.thread111
-  store i32 0, ptr %24, align 8, !tbaa !47
+  store i32 0, ptr %24, align 8, !tbaa !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276004) %18, i8 -1, i64 276004, i1 false)
   store i32 257, ptr %20, align 4, !tbaa !33
   %99 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef 256)
@@ -360,7 +360,7 @@ define internal i32 @archive_compressor_compress_close(ptr noundef readonly capt
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 414060
-  %10 = load i32, ptr %9, align 4, !tbaa !48
+  %10 = load i32, ptr %9, align 4, !tbaa !46
   %11 = srem i32 %10, 8
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %37, label %12
@@ -371,7 +371,7 @@ define internal i32 @archive_compressor_compress_close(ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %14, ptr %15, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 414064
-  %17 = load i8, ptr %16, align 8, !tbaa !49
+  %17 = load i8, ptr %16, align 8, !tbaa !47
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 414072
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 414088
@@ -392,7 +392,7 @@ define internal i32 @archive_compressor_compress_close(ptr noundef readonly capt
 
 31:                                               ; preds = %12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !50
+  %33 = load ptr, ptr %32, align 8, !tbaa !48
   %34 = load ptr, ptr %18, align 8, !tbaa !24
   %35 = tail call i32 @__archive_write_filter(ptr noundef %33, ptr noundef %34, i64 noundef %28) #7
   %.not.i.i = icmp eq i32 %35, 0
@@ -404,7 +404,7 @@ define internal i32 @archive_compressor_compress_close(ptr noundef readonly capt
 
 37:                                               ; preds = %7, %36, %12
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !50
+  %39 = load ptr, ptr %38, align 8, !tbaa !48
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 414072
   %41 = load ptr, ptr %40, align 8, !tbaa !24
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 414088
@@ -437,14 +437,14 @@ define internal fastcc range(i32 -30, 1) i32 @output_code(ptr noundef readonly c
   %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = icmp eq i32 %1, 256
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 414060
-  %7 = load i32, ptr %6, align 4, !tbaa !48
+  %7 = load i32, ptr %6, align 4, !tbaa !46
   %8 = srem i32 %7, 8
   %9 = shl i32 %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 414064
-  %11 = load i8, ptr %10, align 8, !tbaa !49
+  %11 = load i8, ptr %10, align 8, !tbaa !47
   %12 = trunc i32 %9 to i8
   %13 = or i8 %11, %12
-  store i8 %13, ptr %10, align 8, !tbaa !49
+  store i8 %13, ptr %10, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 414072
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 414088
@@ -465,7 +465,7 @@ define internal fastcc range(i32 -30, 1) i32 @output_code(ptr noundef readonly c
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %29 = load ptr, ptr %28, align 8, !tbaa !48
   %30 = load ptr, ptr %14, align 8, !tbaa !24
   %31 = tail call i32 @__archive_write_filter(ptr noundef %29, ptr noundef %30, i64 noundef %24) #7
   %.not.i = icmp eq i32 %31, 0
@@ -507,7 +507,7 @@ output_byte.exit:                                 ; preds = %2, %27, %32
 
 55:                                               ; preds = %39
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !50
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
   %58 = load ptr, ptr %42, align 8, !tbaa !24
   %59 = tail call i32 @__archive_write_filter(ptr noundef %57, ptr noundef %58, i64 noundef %52) #7
   %.not.i55 = icmp eq i32 %59, 0
@@ -527,21 +527,21 @@ output_byte.exit56:                               ; preds = %39, %55, %60
   %64 = phi i32 [ %.pre, %output_byte.exit56 ], [ %34, %output_byte.exit ]
   %.050 = phi i32 [ %62, %output_byte.exit56 ], [ %36, %output_byte.exit ]
   %.049 = phi i32 [ %61, %output_byte.exit56 ], [ %37, %output_byte.exit ]
-  %65 = load i32, ptr %6, align 4, !tbaa !48
+  %65 = load i32, ptr %6, align 4, !tbaa !46
   %66 = add nsw i32 %65, %64
-  store i32 %66, ptr %6, align 4, !tbaa !48
+  store i32 %66, ptr %6, align 4, !tbaa !46
   %67 = sext i32 %.050 to i64
   %68 = getelementptr inbounds [9 x i8], ptr @rmask, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !34
   %70 = trunc i32 %.049 to i8
   %71 = and i8 %69, %70
-  store i8 %71, ptr %10, align 8, !tbaa !49
+  store i8 %71, ptr %10, align 8, !tbaa !47
   %72 = shl nsw i32 %64, 3
   %73 = icmp eq i32 %66, %72
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %63
-  store i32 0, ptr %6, align 4, !tbaa !48
+  store i32 0, ptr %6, align 4, !tbaa !46
   br label %75
 
 75:                                               ; preds = %74, %63
@@ -588,7 +588,7 @@ output_byte.exit56:                               ; preds = %39, %55, %60
   br i1 %102, label %103, label %108
 
 103:                                              ; preds = %87
-  %104 = load ptr, ptr %86, align 8, !tbaa !50
+  %104 = load ptr, ptr %86, align 8, !tbaa !48
   %105 = load ptr, ptr %90, align 8, !tbaa !24
   %106 = tail call i32 @__archive_write_filter(ptr noundef %104, ptr noundef %105, i64 noundef %100) #7
   %.not.i58 = icmp eq i32 %106, 0
@@ -599,19 +599,19 @@ output_byte.exit56:                               ; preds = %39, %55, %60
   br label %108
 
 108:                                              ; preds = %107, %87
-  %109 = load i32, ptr %6, align 4, !tbaa !48
+  %109 = load i32, ptr %6, align 4, !tbaa !46
   %110 = add nsw i32 %109, 8
-  store i32 %110, ptr %6, align 4, !tbaa !48
-  store i8 0, ptr %10, align 8, !tbaa !49
+  store i32 %110, ptr %6, align 4, !tbaa !46
+  store i8 0, ptr %10, align 8, !tbaa !47
   %111 = load i32, ptr %33, align 8, !tbaa !31
   %112 = shl nsw i32 %111, 3
   %113 = icmp slt i32 %110, %112
-  br i1 %113, label %87, label %.loopexit, !llvm.loop !51
+  br i1 %113, label %87, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %108, %83
   %114 = phi i32 [ %64, %83 ], [ %111, %108 ]
-  store i8 0, ptr %10, align 8, !tbaa !49
-  store i32 0, ptr %6, align 4, !tbaa !48
+  store i8 0, ptr %10, align 8, !tbaa !47
+  store i32 0, ptr %6, align 4, !tbaa !46
   br i1 %5, label %115, label %117
 
 115:                                              ; preds = %.loopexit
@@ -702,12 +702,10 @@ attributes #9 = { nounwind allocsize(0) }
 !40 = !{!13, !13, i64 0}
 !41 = !{!42, !42, i64 0}
 !42 = !{!"short", !7, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !45}
-!47 = !{!23, !13, i64 414048}
-!48 = !{!23, !13, i64 414060}
-!49 = !{!23, !7, i64 414064}
-!50 = !{!5, !11, i64 16}
-!51 = distinct !{!51, !44, !45}
+!45 = !{!23, !13, i64 414048}
+!46 = !{!23, !13, i64 414060}
+!47 = !{!23, !7, i64 414064}
+!48 = !{!5, !11, i64 16}
+!49 = distinct !{!49, !44}

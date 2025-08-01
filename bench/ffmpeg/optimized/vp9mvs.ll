@@ -171,16 +171,16 @@ vp89_rac_get_tree.exit:                           ; preds = %vpx_rac_renorm.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %97 = zext nneg i32 %95 to i64
   %98 = getelementptr inbounds nuw [4 x i32], ptr %96, i64 0, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !53
+  %99 = load i32, ptr %98, align 4, !tbaa !52
   %100 = add i32 %99, 1
-  store i32 %100, ptr %98, align 4, !tbaa !53
+  store i32 %100, ptr %98, align 4, !tbaa !52
   %101 = icmp samesign ugt i32 %95, 1
   br i1 %101, label %102, label %498
 
 102:                                              ; preds = %vp89_rac_get_tree.exit
   %103 = load ptr, ptr %0, align 16, !tbaa !4
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 11873
-  %105 = load i8, ptr %104, align 1, !tbaa !54
+  %105 = load i8, ptr %104, align 1, !tbaa !53
   %106 = load i32, ptr %46, align 8, !tbaa !44
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %107
@@ -298,15 +298,15 @@ vp89_rac_get_tree.exit89.i:                       ; preds = %vpx_rac_renorm.exit
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %186 = zext i1 %135 to i64
   %187 = getelementptr inbounds nuw [2 x i32], ptr %185, i64 0, i64 %186
-  %188 = load i32, ptr %187, align 4, !tbaa !53
+  %188 = load i32, ptr %187, align 4, !tbaa !52
   %189 = add i32 %188, 1
-  store i32 %189, ptr %187, align 4, !tbaa !53
+  store i32 %189, ptr %187, align 4, !tbaa !52
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 1132
   %191 = zext i32 %184 to i64
   %192 = getelementptr inbounds nuw [11 x i32], ptr %190, i64 0, i64 %191
-  %193 = load i32, ptr %192, align 4, !tbaa !53
+  %193 = load i32, ptr %192, align 4, !tbaa !52
   %194 = add i32 %193, 1
-  store i32 %194, ptr %192, align 4, !tbaa !53
+  store i32 %194, ptr %192, align 4, !tbaa !52
   %.not.i = icmp eq i8 %181, 0
   br i1 %.not.i, label %346, label %.lr.ph
 
@@ -375,12 +375,12 @@ vpx_rac_renorm.exit152:                           ; preds = %197, %211, %215
   %238 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %196, i64 0, i64 %indvars.iv
   %239 = zext i1 %229 to i64
   %240 = getelementptr inbounds nuw [2 x i32], ptr %238, i64 0, i64 %239
-  %241 = load i32, ptr %240, align 4, !tbaa !53
+  %241 = load i32, ptr %240, align 4, !tbaa !52
   %242 = add i32 %241, 1
-  store i32 %242, ptr %240, align 4, !tbaa !53
+  store i32 %242, ptr %240, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %191
-  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %vpx_rac_renorm.exit152
   %243 = getelementptr inbounds nuw i8, ptr %103, i64 11901
@@ -458,14 +458,14 @@ vp89_rac_get_tree.exit87.i:                       ; preds = %vpx_rac_renorm.exit
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %292 = zext nneg i32 %288 to i64
   %293 = getelementptr inbounds nuw [4 x i32], ptr %291, i64 0, i64 %292
-  %294 = load i32, ptr %293, align 4, !tbaa !53
+  %294 = load i32, ptr %293, align 4, !tbaa !52
   %295 = add i32 %294, 1
-  store i32 %295, ptr %293, align 4, !tbaa !53
+  store i32 %295, ptr %293, align 4, !tbaa !52
   br i1 %.not84.i, label %339, label %296
 
 296:                                              ; preds = %vp89_rac_get_tree.exit87.i
   %297 = getelementptr inbounds nuw i8, ptr %103, i64 11905
-  %298 = load i8, ptr %297, align 1, !tbaa !57
+  %298 = load i8, ptr %297, align 1, !tbaa !56
   %299 = load i32, ptr %46, align 8, !tbaa !44
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %300
@@ -518,16 +518,16 @@ vpx_rac_renorm.exit149:                           ; preds = %296, %310, %314
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %335 = zext i1 %328 to i64
   %336 = getelementptr inbounds nuw [2 x i32], ptr %334, i64 0, i64 %335
-  %337 = load i32, ptr %336, align 4, !tbaa !53
+  %337 = load i32, ptr %336, align 4, !tbaa !52
   %338 = add i32 %337, 1
-  store i32 %338, ptr %336, align 4, !tbaa !53
+  store i32 %338, ptr %336, align 4, !tbaa !52
   br label %343
 
 339:                                              ; preds = %vp89_rac_get_tree.exit87.i
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  %341 = load i32, ptr %340, align 4, !tbaa !53
+  %341 = load i32, ptr %340, align 4, !tbaa !52
   %342 = add i32 %341, 1
-  store i32 %342, ptr %340, align 4, !tbaa !53
+  store i32 %342, ptr %340, align 4, !tbaa !52
   br label %343
 
 343:                                              ; preds = %339, %vpx_rac_renorm.exit149
@@ -539,7 +539,7 @@ vpx_rac_renorm.exit149:                           ; preds = %296, %310, %314
 
 346:                                              ; preds = %vp89_rac_get_tree.exit89.i
   %347 = getelementptr inbounds nuw i8, ptr %103, i64 11884
-  %348 = load i8, ptr %347, align 1, !tbaa !58
+  %348 = load i8, ptr %347, align 1, !tbaa !57
   %349 = load i32, ptr %46, align 8, !tbaa !44
   %350 = sext i32 %349 to i64
   %351 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %350
@@ -591,9 +591,9 @@ vpx_rac_renorm.exit155:                           ; preds = %346, %360, %364
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %384 = zext i1 %378 to i64
   %385 = getelementptr inbounds nuw [2 x i32], ptr %383, i64 0, i64 %384
-  %386 = load i32, ptr %385, align 4, !tbaa !53
+  %386 = load i32, ptr %385, align 4, !tbaa !52
   %387 = add i32 %386, 1
-  store i32 %387, ptr %385, align 4, !tbaa !53
+  store i32 %387, ptr %385, align 4, !tbaa !52
   %388 = getelementptr inbounds nuw i8, ptr %103, i64 11895
   %389 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %388, i64 0, i64 %384
   %.promoted274 = load i32, ptr %46, align 8, !tbaa !44
@@ -668,9 +668,9 @@ vp89_rac_get_tree.exit.i:                         ; preds = %vpx_rac_renorm.exit
   %435 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %434, i64 0, i64 %384
   %436 = zext nneg i32 %433 to i64
   %437 = getelementptr inbounds nuw [4 x i32], ptr %435, i64 0, i64 %436
-  %438 = load i32, ptr %437, align 4, !tbaa !53
+  %438 = load i32, ptr %437, align 4, !tbaa !52
   %439 = add i32 %438, 1
-  store i32 %439, ptr %437, align 4, !tbaa !53
+  store i32 %439, ptr %437, align 4, !tbaa !52
   %440 = select i1 %378, i32 8, i32 0
   %441 = shl nuw nsw i32 %433, 1
   %442 = or i32 %441, %440
@@ -678,7 +678,7 @@ vp89_rac_get_tree.exit.i:                         ; preds = %vpx_rac_renorm.exit
 
 443:                                              ; preds = %vp89_rac_get_tree.exit.i
   %444 = getelementptr inbounds nuw i8, ptr %103, i64 11904
-  %445 = load i8, ptr %444, align 1, !tbaa !59
+  %445 = load i8, ptr %444, align 1, !tbaa !58
   %446 = load i32, ptr %46, align 8, !tbaa !44
   %447 = sext i32 %446 to i64
   %448 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %447
@@ -731,18 +731,18 @@ vpx_rac_renorm.exit161:                           ; preds = %443, %457, %461
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %482 = zext i1 %475 to i64
   %483 = getelementptr inbounds nuw [2 x i32], ptr %481, i64 0, i64 %482
-  %484 = load i32, ptr %483, align 4, !tbaa !53
+  %484 = load i32, ptr %483, align 4, !tbaa !52
   %485 = add i32 %484, 1
-  store i32 %485, ptr %483, align 4, !tbaa !53
+  store i32 %485, ptr %483, align 4, !tbaa !52
   %486 = or disjoint i32 %442, %479
   br label %read_mv_component.exit
 
 487:                                              ; preds = %vp89_rac_get_tree.exit.i
   %488 = or disjoint i32 %442, 1
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 1316
-  %490 = load i32, ptr %489, align 4, !tbaa !53
+  %490 = load i32, ptr %489, align 4, !tbaa !52
   %491 = add i32 %490, 1
-  store i32 %491, ptr %489, align 4, !tbaa !53
+  store i32 %491, ptr %489, align 4, !tbaa !52
   br label %read_mv_component.exit
 
 read_mv_component.exit:                           ; preds = %343, %vpx_rac_renorm.exit161, %487
@@ -764,7 +764,7 @@ read_mv_component.exit:                           ; preds = %343, %vpx_rac_renor
 500:                                              ; preds = %498
   %501 = load ptr, ptr %0, align 16, !tbaa !4
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 11906
-  %503 = load i8, ptr %502, align 1, !tbaa !54
+  %503 = load i8, ptr %502, align 1, !tbaa !53
   %504 = load i32, ptr %46, align 8, !tbaa !44
   %505 = sext i32 %504 to i64
   %506 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %505
@@ -882,15 +882,15 @@ vp89_rac_get_tree.exit89.i87:                     ; preds = %vpx_rac_renorm.exit
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %585 = zext i1 %533 to i64
   %586 = getelementptr inbounds nuw [2 x i32], ptr %584, i64 0, i64 %585
-  %587 = load i32, ptr %586, align 4, !tbaa !53
+  %587 = load i32, ptr %586, align 4, !tbaa !52
   %588 = add i32 %587, 1
-  store i32 %588, ptr %586, align 4, !tbaa !53
+  store i32 %588, ptr %586, align 4, !tbaa !52
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %590 = zext i32 %583 to i64
   %591 = getelementptr inbounds nuw [11 x i32], ptr %589, i64 0, i64 %590
-  %592 = load i32, ptr %591, align 4, !tbaa !53
+  %592 = load i32, ptr %591, align 4, !tbaa !52
   %593 = add i32 %592, 1
-  store i32 %593, ptr %591, align 4, !tbaa !53
+  store i32 %593, ptr %591, align 4, !tbaa !52
   %.not.i88 = icmp eq i8 %580, 0
   br i1 %.not.i88, label %746, label %.lr.ph283
 
@@ -959,12 +959,12 @@ vpx_rac_renorm.exit176:                           ; preds = %596, %610, %614
   %637 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %595, i64 0, i64 %indvars.iv347
   %638 = zext i1 %628 to i64
   %639 = getelementptr inbounds nuw [2 x i32], ptr %637, i64 0, i64 %638
-  %640 = load i32, ptr %639, align 4, !tbaa !53
+  %640 = load i32, ptr %639, align 4, !tbaa !52
   %641 = add i32 %640, 1
-  store i32 %641, ptr %639, align 4, !tbaa !53
+  store i32 %641, ptr %639, align 4, !tbaa !52
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next348, %590
-  br i1 %exitcond352.not, label %._crit_edge284, label %596, !llvm.loop !56
+  br i1 %exitcond352.not, label %._crit_edge284, label %596, !llvm.loop !55
 
 ._crit_edge284:                                   ; preds = %vpx_rac_renorm.exit176
   %642 = getelementptr inbounds nuw i8, ptr %501, i64 11934
@@ -1042,14 +1042,14 @@ vp89_rac_get_tree.exit87.i92:                     ; preds = %vpx_rac_renorm.exit
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   %692 = zext nneg i32 %688 to i64
   %693 = getelementptr inbounds nuw [4 x i32], ptr %691, i64 0, i64 %692
-  %694 = load i32, ptr %693, align 4, !tbaa !53
+  %694 = load i32, ptr %693, align 4, !tbaa !52
   %695 = add i32 %694, 1
-  store i32 %695, ptr %693, align 4, !tbaa !53
+  store i32 %695, ptr %693, align 4, !tbaa !52
   br i1 %.not84.i, label %739, label %696
 
 696:                                              ; preds = %vp89_rac_get_tree.exit87.i92
   %697 = getelementptr inbounds nuw i8, ptr %501, i64 11938
-  %698 = load i8, ptr %697, align 1, !tbaa !57
+  %698 = load i8, ptr %697, align 1, !tbaa !56
   %699 = load i32, ptr %46, align 8, !tbaa !44
   %700 = sext i32 %699 to i64
   %701 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %700
@@ -1102,16 +1102,16 @@ vpx_rac_renorm.exit173:                           ; preds = %696, %710, %714
   %734 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   %735 = zext i1 %728 to i64
   %736 = getelementptr inbounds nuw [2 x i32], ptr %734, i64 0, i64 %735
-  %737 = load i32, ptr %736, align 4, !tbaa !53
+  %737 = load i32, ptr %736, align 4, !tbaa !52
   %738 = add i32 %737, 1
-  store i32 %738, ptr %736, align 4, !tbaa !53
+  store i32 %738, ptr %736, align 4, !tbaa !52
   br label %743
 
 739:                                              ; preds = %vp89_rac_get_tree.exit87.i92
   %740 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %741 = load i32, ptr %740, align 4, !tbaa !53
+  %741 = load i32, ptr %740, align 4, !tbaa !52
   %742 = add i32 %741, 1
-  store i32 %742, ptr %740, align 4, !tbaa !53
+  store i32 %742, ptr %740, align 4, !tbaa !52
   br label %743
 
 743:                                              ; preds = %739, %vpx_rac_renorm.exit173
@@ -1123,7 +1123,7 @@ vpx_rac_renorm.exit173:                           ; preds = %696, %710, %714
 
 746:                                              ; preds = %vp89_rac_get_tree.exit89.i87
   %747 = getelementptr inbounds nuw i8, ptr %501, i64 11917
-  %748 = load i8, ptr %747, align 1, !tbaa !58
+  %748 = load i8, ptr %747, align 1, !tbaa !57
   %749 = load i32, ptr %46, align 8, !tbaa !44
   %750 = sext i32 %749 to i64
   %751 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %750
@@ -1175,9 +1175,9 @@ vpx_rac_renorm.exit179:                           ; preds = %746, %760, %764
   %783 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %784 = zext i1 %778 to i64
   %785 = getelementptr inbounds nuw [2 x i32], ptr %783, i64 0, i64 %784
-  %786 = load i32, ptr %785, align 4, !tbaa !53
+  %786 = load i32, ptr %785, align 4, !tbaa !52
   %787 = add i32 %786, 1
-  store i32 %787, ptr %785, align 4, !tbaa !53
+  store i32 %787, ptr %785, align 4, !tbaa !52
   %788 = getelementptr inbounds nuw i8, ptr %501, i64 11928
   %789 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %788, i64 0, i64 %784
   %.promoted289 = load i32, ptr %46, align 8, !tbaa !44
@@ -1252,9 +1252,9 @@ vp89_rac_get_tree.exit.i99:                       ; preds = %vpx_rac_renorm.exit
   %836 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %835, i64 0, i64 %784
   %837 = zext nneg i32 %834 to i64
   %838 = getelementptr inbounds nuw [4 x i32], ptr %836, i64 0, i64 %837
-  %839 = load i32, ptr %838, align 4, !tbaa !53
+  %839 = load i32, ptr %838, align 4, !tbaa !52
   %840 = add i32 %839, 1
-  store i32 %840, ptr %838, align 4, !tbaa !53
+  store i32 %840, ptr %838, align 4, !tbaa !52
   %841 = select i1 %778, i32 8, i32 0
   %842 = shl nuw nsw i32 %834, 1
   %843 = or i32 %842, %841
@@ -1262,7 +1262,7 @@ vp89_rac_get_tree.exit.i99:                       ; preds = %vpx_rac_renorm.exit
 
 844:                                              ; preds = %vp89_rac_get_tree.exit.i99
   %845 = getelementptr inbounds nuw i8, ptr %501, i64 11937
-  %846 = load i8, ptr %845, align 1, !tbaa !59
+  %846 = load i8, ptr %845, align 1, !tbaa !58
   %847 = load i32, ptr %46, align 8, !tbaa !44
   %848 = sext i32 %847 to i64
   %849 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %848
@@ -1315,18 +1315,18 @@ vpx_rac_renorm.exit185:                           ; preds = %844, %858, %862
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 1516
   %883 = zext i1 %876 to i64
   %884 = getelementptr inbounds nuw [2 x i32], ptr %882, i64 0, i64 %883
-  %885 = load i32, ptr %884, align 4, !tbaa !53
+  %885 = load i32, ptr %884, align 4, !tbaa !52
   %886 = add i32 %885, 1
-  store i32 %886, ptr %884, align 4, !tbaa !53
+  store i32 %886, ptr %884, align 4, !tbaa !52
   %887 = or disjoint i32 %843, %880
   br label %read_mv_component.exit101
 
 888:                                              ; preds = %vp89_rac_get_tree.exit.i99
   %889 = or disjoint i32 %843, 1
   %890 = getelementptr inbounds nuw i8, ptr %0, i64 1520
-  %891 = load i32, ptr %890, align 4, !tbaa !53
+  %891 = load i32, ptr %890, align 4, !tbaa !52
   %892 = add i32 %891, 1
-  store i32 %892, ptr %890, align 4, !tbaa !53
+  store i32 %892, ptr %890, align 4, !tbaa !52
   br label %read_mv_component.exit101
 
 read_mv_component.exit101:                        ; preds = %743, %vpx_rac_renorm.exit185, %888
@@ -1341,7 +1341,7 @@ read_mv_component.exit101:                        ; preds = %743, %vpx_rac_renor
 
 .thread:                                          ; preds = %11, %498, %read_mv_component.exit101, %41
   %898 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %899 = load i8, ptr %898, align 2, !tbaa !60
+  %899 = load i8, ptr %898, align 2, !tbaa !59
   %.not78 = icmp eq i8 %899, 0
   br i1 %.not78, label %.thread236, label %900
 
@@ -1485,16 +1485,16 @@ vp89_rac_get_tree.exit84:                         ; preds = %vpx_rac_renorm.exit
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %982 = zext nneg i32 %980 to i64
   %983 = getelementptr inbounds nuw [4 x i32], ptr %981, i64 0, i64 %982
-  %984 = load i32, ptr %983, align 4, !tbaa !53
+  %984 = load i32, ptr %983, align 4, !tbaa !52
   %985 = add i32 %984, 1
-  store i32 %985, ptr %983, align 4, !tbaa !53
+  store i32 %985, ptr %983, align 4, !tbaa !52
   %986 = icmp samesign ugt i32 %980, 1
   br i1 %986, label %987, label %1383
 
 987:                                              ; preds = %vp89_rac_get_tree.exit84
   %988 = load ptr, ptr %0, align 16, !tbaa !4
   %989 = getelementptr inbounds nuw i8, ptr %988, i64 11873
-  %990 = load i8, ptr %989, align 1, !tbaa !54
+  %990 = load i8, ptr %989, align 1, !tbaa !53
   %991 = load i32, ptr %931, align 8, !tbaa !44
   %992 = sext i32 %991 to i64
   %993 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %992
@@ -1612,15 +1612,15 @@ vp89_rac_get_tree.exit89.i103:                    ; preds = %vpx_rac_renorm.exit
   %1070 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %1071 = zext i1 %1020 to i64
   %1072 = getelementptr inbounds nuw [2 x i32], ptr %1070, i64 0, i64 %1071
-  %1073 = load i32, ptr %1072, align 4, !tbaa !53
+  %1073 = load i32, ptr %1072, align 4, !tbaa !52
   %1074 = add i32 %1073, 1
-  store i32 %1074, ptr %1072, align 4, !tbaa !53
+  store i32 %1074, ptr %1072, align 4, !tbaa !52
   %1075 = getelementptr inbounds nuw i8, ptr %0, i64 1132
   %1076 = zext i32 %1069 to i64
   %1077 = getelementptr inbounds nuw [11 x i32], ptr %1075, i64 0, i64 %1076
-  %1078 = load i32, ptr %1077, align 4, !tbaa !53
+  %1078 = load i32, ptr %1077, align 4, !tbaa !52
   %1079 = add i32 %1078, 1
-  store i32 %1079, ptr %1077, align 4, !tbaa !53
+  store i32 %1079, ptr %1077, align 4, !tbaa !52
   %.not.i104 = icmp eq i8 %1066, 0
   br i1 %.not.i104, label %1231, label %.lr.ph300
 
@@ -1689,12 +1689,12 @@ vpx_rac_renorm.exit200:                           ; preds = %1082, %1096, %1100
   %1123 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %1081, i64 0, i64 %indvars.iv353
   %1124 = zext i1 %1114 to i64
   %1125 = getelementptr inbounds nuw [2 x i32], ptr %1123, i64 0, i64 %1124
-  %1126 = load i32, ptr %1125, align 4, !tbaa !53
+  %1126 = load i32, ptr %1125, align 4, !tbaa !52
   %1127 = add i32 %1126, 1
-  store i32 %1127, ptr %1125, align 4, !tbaa !53
+  store i32 %1127, ptr %1125, align 4, !tbaa !52
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next354, %1076
-  br i1 %exitcond358.not, label %._crit_edge301, label %1082, !llvm.loop !56
+  br i1 %exitcond358.not, label %._crit_edge301, label %1082, !llvm.loop !55
 
 ._crit_edge301:                                   ; preds = %vpx_rac_renorm.exit200
   %1128 = getelementptr inbounds nuw i8, ptr %988, i64 11901
@@ -1772,14 +1772,14 @@ vp89_rac_get_tree.exit87.i108:                    ; preds = %vpx_rac_renorm.exit
   %1176 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %1177 = zext nneg i32 %1173 to i64
   %1178 = getelementptr inbounds nuw [4 x i32], ptr %1176, i64 0, i64 %1177
-  %1179 = load i32, ptr %1178, align 4, !tbaa !53
+  %1179 = load i32, ptr %1178, align 4, !tbaa !52
   %1180 = add i32 %1179, 1
-  store i32 %1180, ptr %1178, align 4, !tbaa !53
+  store i32 %1180, ptr %1178, align 4, !tbaa !52
   br i1 %.not84.i109, label %1224, label %1181
 
 1181:                                             ; preds = %vp89_rac_get_tree.exit87.i108
   %1182 = getelementptr inbounds nuw i8, ptr %988, i64 11905
-  %1183 = load i8, ptr %1182, align 1, !tbaa !57
+  %1183 = load i8, ptr %1182, align 1, !tbaa !56
   %1184 = load i32, ptr %931, align 8, !tbaa !44
   %1185 = sext i32 %1184 to i64
   %1186 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1185
@@ -1832,16 +1832,16 @@ vpx_rac_renorm.exit197:                           ; preds = %1181, %1195, %1199
   %1219 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %1220 = zext i1 %1213 to i64
   %1221 = getelementptr inbounds nuw [2 x i32], ptr %1219, i64 0, i64 %1220
-  %1222 = load i32, ptr %1221, align 4, !tbaa !53
+  %1222 = load i32, ptr %1221, align 4, !tbaa !52
   %1223 = add i32 %1222, 1
-  store i32 %1223, ptr %1221, align 4, !tbaa !53
+  store i32 %1223, ptr %1221, align 4, !tbaa !52
   br label %1228
 
 1224:                                             ; preds = %vp89_rac_get_tree.exit87.i108
   %1225 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  %1226 = load i32, ptr %1225, align 4, !tbaa !53
+  %1226 = load i32, ptr %1225, align 4, !tbaa !52
   %1227 = add i32 %1226, 1
-  store i32 %1227, ptr %1225, align 4, !tbaa !53
+  store i32 %1227, ptr %1225, align 4, !tbaa !52
   br label %1228
 
 1228:                                             ; preds = %1224, %vpx_rac_renorm.exit197
@@ -1853,7 +1853,7 @@ vpx_rac_renorm.exit197:                           ; preds = %1181, %1195, %1199
 
 1231:                                             ; preds = %vp89_rac_get_tree.exit89.i103
   %1232 = getelementptr inbounds nuw i8, ptr %988, i64 11884
-  %1233 = load i8, ptr %1232, align 1, !tbaa !58
+  %1233 = load i8, ptr %1232, align 1, !tbaa !57
   %1234 = load i32, ptr %931, align 8, !tbaa !44
   %1235 = sext i32 %1234 to i64
   %1236 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1235
@@ -1905,9 +1905,9 @@ vpx_rac_renorm.exit203:                           ; preds = %1231, %1245, %1249
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %1269 = zext i1 %1263 to i64
   %1270 = getelementptr inbounds nuw [2 x i32], ptr %1268, i64 0, i64 %1269
-  %1271 = load i32, ptr %1270, align 4, !tbaa !53
+  %1271 = load i32, ptr %1270, align 4, !tbaa !52
   %1272 = add i32 %1271, 1
-  store i32 %1272, ptr %1270, align 4, !tbaa !53
+  store i32 %1272, ptr %1270, align 4, !tbaa !52
   %1273 = getelementptr inbounds nuw i8, ptr %988, i64 11895
   %1274 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %1273, i64 0, i64 %1269
   %.promoted307 = load i32, ptr %931, align 8, !tbaa !44
@@ -1982,9 +1982,9 @@ vp89_rac_get_tree.exit.i115:                      ; preds = %vpx_rac_renorm.exit
   %1320 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %1319, i64 0, i64 %1269
   %1321 = zext nneg i32 %1318 to i64
   %1322 = getelementptr inbounds nuw [4 x i32], ptr %1320, i64 0, i64 %1321
-  %1323 = load i32, ptr %1322, align 4, !tbaa !53
+  %1323 = load i32, ptr %1322, align 4, !tbaa !52
   %1324 = add i32 %1323, 1
-  store i32 %1324, ptr %1322, align 4, !tbaa !53
+  store i32 %1324, ptr %1322, align 4, !tbaa !52
   %1325 = select i1 %1263, i32 8, i32 0
   %1326 = shl nuw nsw i32 %1318, 1
   %1327 = or i32 %1326, %1325
@@ -1992,7 +1992,7 @@ vp89_rac_get_tree.exit.i115:                      ; preds = %vpx_rac_renorm.exit
 
 1328:                                             ; preds = %vp89_rac_get_tree.exit.i115
   %1329 = getelementptr inbounds nuw i8, ptr %988, i64 11904
-  %1330 = load i8, ptr %1329, align 1, !tbaa !59
+  %1330 = load i8, ptr %1329, align 1, !tbaa !58
   %1331 = load i32, ptr %931, align 8, !tbaa !44
   %1332 = sext i32 %1331 to i64
   %1333 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1332
@@ -2045,18 +2045,18 @@ vpx_rac_renorm.exit209:                           ; preds = %1328, %1342, %1346
   %1366 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %1367 = zext i1 %1360 to i64
   %1368 = getelementptr inbounds nuw [2 x i32], ptr %1366, i64 0, i64 %1367
-  %1369 = load i32, ptr %1368, align 4, !tbaa !53
+  %1369 = load i32, ptr %1368, align 4, !tbaa !52
   %1370 = add i32 %1369, 1
-  store i32 %1370, ptr %1368, align 4, !tbaa !53
+  store i32 %1370, ptr %1368, align 4, !tbaa !52
   %1371 = or disjoint i32 %1327, %1364
   br label %read_mv_component.exit117
 
 1372:                                             ; preds = %vp89_rac_get_tree.exit.i115
   %1373 = or disjoint i32 %1327, 1
   %1374 = getelementptr inbounds nuw i8, ptr %0, i64 1316
-  %1375 = load i32, ptr %1374, align 4, !tbaa !53
+  %1375 = load i32, ptr %1374, align 4, !tbaa !52
   %1376 = add i32 %1375, 1
-  store i32 %1376, ptr %1374, align 4, !tbaa !53
+  store i32 %1376, ptr %1374, align 4, !tbaa !52
   br label %read_mv_component.exit117
 
 read_mv_component.exit117:                        ; preds = %1228, %vpx_rac_renorm.exit209, %1372
@@ -2078,7 +2078,7 @@ read_mv_component.exit117:                        ; preds = %1228, %vpx_rac_reno
 1385:                                             ; preds = %1383
   %1386 = load ptr, ptr %0, align 16, !tbaa !4
   %1387 = getelementptr inbounds nuw i8, ptr %1386, i64 11906
-  %1388 = load i8, ptr %1387, align 1, !tbaa !54
+  %1388 = load i8, ptr %1387, align 1, !tbaa !53
   %1389 = load i32, ptr %931, align 8, !tbaa !44
   %1390 = sext i32 %1389 to i64
   %1391 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1390
@@ -2196,15 +2196,15 @@ vp89_rac_get_tree.exit89.i119:                    ; preds = %vpx_rac_renorm.exit
   %1469 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %1470 = zext i1 %1418 to i64
   %1471 = getelementptr inbounds nuw [2 x i32], ptr %1469, i64 0, i64 %1470
-  %1472 = load i32, ptr %1471, align 4, !tbaa !53
+  %1472 = load i32, ptr %1471, align 4, !tbaa !52
   %1473 = add i32 %1472, 1
-  store i32 %1473, ptr %1471, align 4, !tbaa !53
+  store i32 %1473, ptr %1471, align 4, !tbaa !52
   %1474 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %1475 = zext i32 %1468 to i64
   %1476 = getelementptr inbounds nuw [11 x i32], ptr %1474, i64 0, i64 %1475
-  %1477 = load i32, ptr %1476, align 4, !tbaa !53
+  %1477 = load i32, ptr %1476, align 4, !tbaa !52
   %1478 = add i32 %1477, 1
-  store i32 %1478, ptr %1476, align 4, !tbaa !53
+  store i32 %1478, ptr %1476, align 4, !tbaa !52
   %.not.i120 = icmp eq i8 %1465, 0
   br i1 %.not.i120, label %1631, label %.lr.ph316
 
@@ -2273,12 +2273,12 @@ vpx_rac_renorm.exit224:                           ; preds = %1481, %1495, %1499
   %1522 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %1480, i64 0, i64 %indvars.iv359
   %1523 = zext i1 %1513 to i64
   %1524 = getelementptr inbounds nuw [2 x i32], ptr %1522, i64 0, i64 %1523
-  %1525 = load i32, ptr %1524, align 4, !tbaa !53
+  %1525 = load i32, ptr %1524, align 4, !tbaa !52
   %1526 = add i32 %1525, 1
-  store i32 %1526, ptr %1524, align 4, !tbaa !53
+  store i32 %1526, ptr %1524, align 4, !tbaa !52
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next360, %1475
-  br i1 %exitcond364.not, label %._crit_edge317, label %1481, !llvm.loop !56
+  br i1 %exitcond364.not, label %._crit_edge317, label %1481, !llvm.loop !55
 
 ._crit_edge317:                                   ; preds = %vpx_rac_renorm.exit224
   %1527 = getelementptr inbounds nuw i8, ptr %1386, i64 11934
@@ -2356,14 +2356,14 @@ vp89_rac_get_tree.exit87.i124:                    ; preds = %vpx_rac_renorm.exit
   %1576 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   %1577 = zext nneg i32 %1573 to i64
   %1578 = getelementptr inbounds nuw [4 x i32], ptr %1576, i64 0, i64 %1577
-  %1579 = load i32, ptr %1578, align 4, !tbaa !53
+  %1579 = load i32, ptr %1578, align 4, !tbaa !52
   %1580 = add i32 %1579, 1
-  store i32 %1580, ptr %1578, align 4, !tbaa !53
+  store i32 %1580, ptr %1578, align 4, !tbaa !52
   br i1 %.not84.i109, label %1624, label %1581
 
 1581:                                             ; preds = %vp89_rac_get_tree.exit87.i124
   %1582 = getelementptr inbounds nuw i8, ptr %1386, i64 11938
-  %1583 = load i8, ptr %1582, align 1, !tbaa !57
+  %1583 = load i8, ptr %1582, align 1, !tbaa !56
   %1584 = load i32, ptr %931, align 8, !tbaa !44
   %1585 = sext i32 %1584 to i64
   %1586 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1585
@@ -2416,16 +2416,16 @@ vpx_rac_renorm.exit221:                           ; preds = %1581, %1595, %1599
   %1619 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   %1620 = zext i1 %1613 to i64
   %1621 = getelementptr inbounds nuw [2 x i32], ptr %1619, i64 0, i64 %1620
-  %1622 = load i32, ptr %1621, align 4, !tbaa !53
+  %1622 = load i32, ptr %1621, align 4, !tbaa !52
   %1623 = add i32 %1622, 1
-  store i32 %1623, ptr %1621, align 4, !tbaa !53
+  store i32 %1623, ptr %1621, align 4, !tbaa !52
   br label %1628
 
 1624:                                             ; preds = %vp89_rac_get_tree.exit87.i124
   %1625 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %1626 = load i32, ptr %1625, align 4, !tbaa !53
+  %1626 = load i32, ptr %1625, align 4, !tbaa !52
   %1627 = add i32 %1626, 1
-  store i32 %1627, ptr %1625, align 4, !tbaa !53
+  store i32 %1627, ptr %1625, align 4, !tbaa !52
   br label %1628
 
 1628:                                             ; preds = %1624, %vpx_rac_renorm.exit221
@@ -2437,7 +2437,7 @@ vpx_rac_renorm.exit221:                           ; preds = %1581, %1595, %1599
 
 1631:                                             ; preds = %vp89_rac_get_tree.exit89.i119
   %1632 = getelementptr inbounds nuw i8, ptr %1386, i64 11917
-  %1633 = load i8, ptr %1632, align 1, !tbaa !58
+  %1633 = load i8, ptr %1632, align 1, !tbaa !57
   %1634 = load i32, ptr %931, align 8, !tbaa !44
   %1635 = sext i32 %1634 to i64
   %1636 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1635
@@ -2489,9 +2489,9 @@ vpx_rac_renorm.exit227:                           ; preds = %1631, %1645, %1649
   %1668 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %1669 = zext i1 %1663 to i64
   %1670 = getelementptr inbounds nuw [2 x i32], ptr %1668, i64 0, i64 %1669
-  %1671 = load i32, ptr %1670, align 4, !tbaa !53
+  %1671 = load i32, ptr %1670, align 4, !tbaa !52
   %1672 = add i32 %1671, 1
-  store i32 %1672, ptr %1670, align 4, !tbaa !53
+  store i32 %1672, ptr %1670, align 4, !tbaa !52
   %1673 = getelementptr inbounds nuw i8, ptr %1386, i64 11928
   %1674 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %1673, i64 0, i64 %1669
   %.promoted322 = load i32, ptr %931, align 8, !tbaa !44
@@ -2566,9 +2566,9 @@ vp89_rac_get_tree.exit.i131:                      ; preds = %vpx_rac_renorm.exit
   %1721 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %1720, i64 0, i64 %1669
   %1722 = zext nneg i32 %1719 to i64
   %1723 = getelementptr inbounds nuw [4 x i32], ptr %1721, i64 0, i64 %1722
-  %1724 = load i32, ptr %1723, align 4, !tbaa !53
+  %1724 = load i32, ptr %1723, align 4, !tbaa !52
   %1725 = add i32 %1724, 1
-  store i32 %1725, ptr %1723, align 4, !tbaa !53
+  store i32 %1725, ptr %1723, align 4, !tbaa !52
   %1726 = select i1 %1663, i32 8, i32 0
   %1727 = shl nuw nsw i32 %1719, 1
   %1728 = or i32 %1727, %1726
@@ -2576,7 +2576,7 @@ vp89_rac_get_tree.exit.i131:                      ; preds = %vpx_rac_renorm.exit
 
 1729:                                             ; preds = %vp89_rac_get_tree.exit.i131
   %1730 = getelementptr inbounds nuw i8, ptr %1386, i64 11937
-  %1731 = load i8, ptr %1730, align 1, !tbaa !59
+  %1731 = load i8, ptr %1730, align 1, !tbaa !58
   %1732 = load i32, ptr %931, align 8, !tbaa !44
   %1733 = sext i32 %1732 to i64
   %1734 = getelementptr inbounds [256 x i8], ptr @ff_vpx_norm_shift, i64 0, i64 %1733
@@ -2629,18 +2629,18 @@ vpx_rac_renorm.exit233:                           ; preds = %1729, %1743, %1747
   %1767 = getelementptr inbounds nuw i8, ptr %0, i64 1516
   %1768 = zext i1 %1761 to i64
   %1769 = getelementptr inbounds nuw [2 x i32], ptr %1767, i64 0, i64 %1768
-  %1770 = load i32, ptr %1769, align 4, !tbaa !53
+  %1770 = load i32, ptr %1769, align 4, !tbaa !52
   %1771 = add i32 %1770, 1
-  store i32 %1771, ptr %1769, align 4, !tbaa !53
+  store i32 %1771, ptr %1769, align 4, !tbaa !52
   %1772 = or disjoint i32 %1728, %1765
   br label %read_mv_component.exit133
 
 1773:                                             ; preds = %vp89_rac_get_tree.exit.i131
   %1774 = or disjoint i32 %1728, 1
   %1775 = getelementptr inbounds nuw i8, ptr %0, i64 1520
-  %1776 = load i32, ptr %1775, align 4, !tbaa !53
+  %1776 = load i32, ptr %1775, align 4, !tbaa !52
   %1777 = add i32 %1776, 1
-  store i32 %1777, ptr %1775, align 4, !tbaa !53
+  store i32 %1777, ptr %1775, align 4, !tbaa !52
   br label %read_mv_component.exit133
 
 read_mv_component.exit133:                        ; preds = %1628, %vpx_rac_renorm.exit233, %1773
@@ -2663,13 +2663,13 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !62
+  %11 = load i32, ptr %10, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i32, ptr %12, align 16, !tbaa !63
+  %13 = load i32, ptr %12, align 16, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !64
+  %15 = load i32, ptr %14, align 4, !tbaa !63
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %17 = load i32, ptr %16, align 4, !tbaa !65
+  %17 = load i32, ptr %16, align 4, !tbaa !64
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw [13 x [8 x [2 x i8]]], ptr @find_ref_mvs.mv_ref_blk_off, i64 0, i64 %18
   %20 = icmp sgt i32 %5, -1
@@ -2677,7 +2677,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 ..thread1613_crit_edge:                           ; preds = %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre = load i32, ptr %.phi.trans.insert, align 16, !tbaa !66
+  %.pre = load i32, ptr %.phi.trans.insert, align 16, !tbaa !65
   br label %.thread1613
 
 21:                                               ; preds = %6
@@ -2757,9 +2757,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 464
-  %54 = load ptr, ptr %53, align 8, !tbaa !67
+  %54 = load ptr, ptr %53, align 8, !tbaa !66
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 3248
-  %56 = load i32, ptr %55, align 8, !tbaa !73
+  %56 = load i32, ptr %55, align 8, !tbaa !72
   %57 = shl i32 %11, 3
   %58 = add i32 %57, -8
   %59 = mul i32 %58, %56
@@ -2774,7 +2774,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 66:                                               ; preds = %52
   %.not953 = icmp eq i32 %5, 0
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 18424
-  %68 = load ptr, ptr %67, align 8, !tbaa !74
+  %68 = load ptr, ptr %67, align 8, !tbaa !73
   %69 = shl nsw i32 %13, 1
   br i1 %.not953, label %92, label %70
 
@@ -2786,9 +2786,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %75 = load i16, ptr %74, align 4, !tbaa !39
   %76 = sext i16 %75 to i32
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %78 = load i32, ptr %77, align 16, !tbaa !75
+  %78 = load i32, ptr %77, align 16, !tbaa !74
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %80 = load i32, ptr %79, align 8, !tbaa !76
+  %80 = load i32, ptr %79, align 8, !tbaa !75
   %81 = icmp sgt i32 %78, %76
   %..i1341 = tail call i32 @llvm.smin.i32(i32 %80, i32 %76)
   %.0.i1342 = select i1 %81, i32 %78, i32 %..i1341
@@ -2796,9 +2796,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %83 = load i16, ptr %82, align 2, !tbaa !42
   %84 = sext i16 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %86 = load i32, ptr %85, align 4, !tbaa !77
+  %86 = load i32, ptr %85, align 4, !tbaa !76
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %88 = load i32, ptr %87, align 4, !tbaa !78
+  %88 = load i32, ptr %87, align 4, !tbaa !77
   %89 = icmp sgt i32 %86, %84
   %..i1339 = tail call i32 @llvm.smin.i32(i32 %88, i32 %84)
   %.0.i1340 = select i1 %89, i32 %86, i32 %..i1339
@@ -2827,9 +2827,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext2011 = shl i32 %95, 16
   %97 = ashr exact i32 %sext2011, 16
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %99 = load i32, ptr %98, align 16, !tbaa !75
+  %99 = load i32, ptr %98, align 16, !tbaa !74
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %101 = load i32, ptr %100, align 8, !tbaa !76
+  %101 = load i32, ptr %100, align 8, !tbaa !75
   %102 = icmp sgt i32 %99, %97
   %..i1337 = tail call i32 @llvm.smin.i32(i32 %101, i32 %97)
   %.0.i1338 = select i1 %102, i32 %99, i32 %..i1337
@@ -2837,9 +2837,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %103, ptr %1, align 4, !tbaa !39
   %104 = ashr i32 %95, 16
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %106 = load i32, ptr %105, align 4, !tbaa !77
+  %106 = load i32, ptr %105, align 4, !tbaa !76
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %108 = load i32, ptr %107, align 4, !tbaa !78
+  %108 = load i32, ptr %107, align 4, !tbaa !77
   %109 = icmp sgt i32 %106, %104
   %..i1335 = tail call i32 @llvm.smin.i32(i32 %108, i32 %104)
   %.0.i1336 = select i1 %109, i32 %106, i32 %..i1335
@@ -2860,9 +2860,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1945 = shl i32 %95, 16
   %116 = ashr exact i32 %sext1945, 16
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %118 = load i32, ptr %117, align 16, !tbaa !75
+  %118 = load i32, ptr %117, align 16, !tbaa !74
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %120 = load i32, ptr %119, align 8, !tbaa !76
+  %120 = load i32, ptr %119, align 8, !tbaa !75
   %121 = icmp sgt i32 %118, %116
   %..i1333 = tail call i32 @llvm.smin.i32(i32 %120, i32 %116)
   %.0.i1334 = select i1 %121, i32 %118, i32 %..i1333
@@ -2870,9 +2870,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %122, ptr %1, align 4, !tbaa !39
   %123 = ashr i32 %95, 16
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %125 = load i32, ptr %124, align 4, !tbaa !77
+  %125 = load i32, ptr %124, align 4, !tbaa !76
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %127 = load i32, ptr %126, align 4, !tbaa !78
+  %127 = load i32, ptr %126, align 4, !tbaa !77
   %128 = icmp sgt i32 %125, %123
   %..i1331 = tail call i32 @llvm.smin.i32(i32 %127, i32 %123)
   %.0.i1332 = select i1 %128, i32 %125, i32 %..i1331
@@ -2891,7 +2891,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 136:                                              ; preds = %131
   %.not949 = icmp eq i32 %5, 0
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 18424
-  %138 = load ptr, ptr %137, align 8, !tbaa !74
+  %138 = load ptr, ptr %137, align 8, !tbaa !73
   %139 = shl nsw i32 %13, 1
   br i1 %.not949, label %162, label %140
 
@@ -2903,9 +2903,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %145 = load i16, ptr %144, align 4, !tbaa !39
   %146 = sext i16 %145 to i32
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %148 = load i32, ptr %147, align 16, !tbaa !75
+  %148 = load i32, ptr %147, align 16, !tbaa !74
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %150 = load i32, ptr %149, align 8, !tbaa !76
+  %150 = load i32, ptr %149, align 8, !tbaa !75
   %151 = icmp sgt i32 %148, %146
   %..i1329 = tail call i32 @llvm.smin.i32(i32 %150, i32 %146)
   %.0.i1330 = select i1 %151, i32 %148, i32 %..i1329
@@ -2913,9 +2913,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %153 = load i16, ptr %152, align 2, !tbaa !42
   %154 = sext i16 %153 to i32
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %156 = load i32, ptr %155, align 4, !tbaa !77
+  %156 = load i32, ptr %155, align 4, !tbaa !76
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %158 = load i32, ptr %157, align 4, !tbaa !78
+  %158 = load i32, ptr %157, align 4, !tbaa !77
   %159 = icmp sgt i32 %156, %154
   %..i1327 = tail call i32 @llvm.smin.i32(i32 %158, i32 %154)
   %.0.i1328 = select i1 %159, i32 %156, i32 %..i1327
@@ -2944,9 +2944,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1943 = shl i32 %165, 16
   %167 = ashr exact i32 %sext1943, 16
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %169 = load i32, ptr %168, align 16, !tbaa !75
+  %169 = load i32, ptr %168, align 16, !tbaa !74
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %171 = load i32, ptr %170, align 8, !tbaa !76
+  %171 = load i32, ptr %170, align 8, !tbaa !75
   %172 = icmp sgt i32 %169, %167
   %..i1325 = tail call i32 @llvm.smin.i32(i32 %171, i32 %167)
   %.0.i1326 = select i1 %172, i32 %169, i32 %..i1325
@@ -2954,9 +2954,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %173, ptr %1, align 4, !tbaa !39
   %174 = ashr i32 %165, 16
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %176 = load i32, ptr %175, align 4, !tbaa !77
+  %176 = load i32, ptr %175, align 4, !tbaa !76
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %178 = load i32, ptr %177, align 4, !tbaa !78
+  %178 = load i32, ptr %177, align 4, !tbaa !77
   %179 = icmp sgt i32 %176, %174
   %..i1323 = tail call i32 @llvm.smin.i32(i32 %178, i32 %174)
   %.0.i1324 = select i1 %179, i32 %176, i32 %..i1323
@@ -2977,9 +2977,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext = shl i32 %165, 16
   %186 = ashr exact i32 %sext, 16
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %188 = load i32, ptr %187, align 16, !tbaa !75
+  %188 = load i32, ptr %187, align 16, !tbaa !74
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %190 = load i32, ptr %189, align 8, !tbaa !76
+  %190 = load i32, ptr %189, align 8, !tbaa !75
   %191 = icmp sgt i32 %188, %186
   %..i1321 = tail call i32 @llvm.smin.i32(i32 %190, i32 %186)
   %.0.i1322 = select i1 %191, i32 %188, i32 %..i1321
@@ -2987,9 +2987,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %192, ptr %1, align 4, !tbaa !39
   %193 = ashr i32 %165, 16
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %195 = load i32, ptr %194, align 4, !tbaa !77
+  %195 = load i32, ptr %194, align 4, !tbaa !76
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %197 = load i32, ptr %196, align 4, !tbaa !78
+  %197 = load i32, ptr %196, align 4, !tbaa !77
   %198 = icmp sgt i32 %195, %193
   %..i1319 = tail call i32 @llvm.smin.i32(i32 %197, i32 %193)
   %.0.i1320 = select i1 %198, i32 %195, i32 %..i1319
@@ -3002,15 +3002,15 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %.0783 = phi i32 [ -2147450880, %50 ], [ -2147450880, %131 ], [ %90, %.thread1601 ], [ %160, %.thread1606 ], [ -2147450880, %112 ], [ -2147450880, %114 ], [ -2147450880, %182 ], [ -2147450880, %184 ]
   %.9 = phi i32 [ %.2, %50 ], [ %.2, %131 ], [ %.2, %.thread1601 ], [ %.2, %.thread1606 ], [ %95, %112 ], [ %.2, %114 ], [ %165, %182 ], [ %.2, %184 ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %202 = load i32, ptr %201, align 16, !tbaa !66
+  %202 = load i32, ptr %201, align 16, !tbaa !65
   %203 = icmp ugt i32 %13, %202
   br i1 %203, label %204, label %.thread1613
 
 204:                                              ; preds = %.thread1603
   %205 = getelementptr inbounds nuw i8, ptr %7, i64 464
-  %206 = load ptr, ptr %205, align 8, !tbaa !67
+  %206 = load ptr, ptr %205, align 8, !tbaa !66
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 3248
-  %208 = load i32, ptr %207, align 8, !tbaa !73
+  %208 = load i32, ptr %207, align 8, !tbaa !72
   %209 = shl i32 %11, 3
   %210 = mul i32 %209, %208
   %211 = add i32 %13, -1
@@ -3040,9 +3040,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %228 = load i16, ptr %226, align 4, !tbaa !39
   %229 = sext i16 %228 to i32
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %231 = load i32, ptr %230, align 16, !tbaa !75
+  %231 = load i32, ptr %230, align 16, !tbaa !74
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %233 = load i32, ptr %232, align 8, !tbaa !76
+  %233 = load i32, ptr %232, align 8, !tbaa !75
   %234 = icmp sgt i32 %231, %229
   %..i1317 = tail call i32 @llvm.smin.i32(i32 %233, i32 %229)
   %.0.i1318 = select i1 %234, i32 %231, i32 %..i1317
@@ -3050,9 +3050,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %236 = load i16, ptr %235, align 2, !tbaa !42
   %237 = sext i16 %236 to i32
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %239 = load i32, ptr %238, align 4, !tbaa !77
+  %239 = load i32, ptr %238, align 4, !tbaa !76
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %241 = load i32, ptr %240, align 4, !tbaa !78
+  %241 = load i32, ptr %240, align 4, !tbaa !77
   %242 = icmp sgt i32 %239, %237
   %..i1315 = tail call i32 @llvm.smin.i32(i32 %241, i32 %237)
   %.0.i1316 = select i1 %242, i32 %239, i32 %..i1315
@@ -3079,17 +3079,17 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1953 = shl i32 %247, 16
   %249 = ashr exact i32 %sext1953, 16
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %251 = load i32, ptr %250, align 16, !tbaa !75
+  %251 = load i32, ptr %250, align 16, !tbaa !74
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %253 = load i32, ptr %252, align 8, !tbaa !76
+  %253 = load i32, ptr %252, align 8, !tbaa !75
   %254 = icmp sgt i32 %251, %249
   %..i1313 = tail call i32 @llvm.smin.i32(i32 %253, i32 %249)
   %.0.i1314 = select i1 %254, i32 %251, i32 %..i1313
   %255 = ashr i32 %247, 16
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %257 = load i32, ptr %256, align 4, !tbaa !77
+  %257 = load i32, ptr %256, align 4, !tbaa !76
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %259 = load i32, ptr %258, align 4, !tbaa !78
+  %259 = load i32, ptr %258, align 4, !tbaa !77
   %260 = icmp sgt i32 %257, %255
   %..i1311 = tail call i32 @llvm.smin.i32(i32 %259, i32 %255)
   %.0.i1312 = select i1 %260, i32 %257, i32 %..i1311
@@ -3114,9 +3114,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext2009 = shl i32 %266, 16
   %268 = ashr exact i32 %sext2009, 16
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %270 = load i32, ptr %269, align 16, !tbaa !75
+  %270 = load i32, ptr %269, align 16, !tbaa !74
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %272 = load i32, ptr %271, align 8, !tbaa !76
+  %272 = load i32, ptr %271, align 8, !tbaa !75
   %273 = icmp sgt i32 %270, %268
   %..i1309 = tail call i32 @llvm.smin.i32(i32 %272, i32 %268)
   %.0.i1310 = select i1 %273, i32 %270, i32 %..i1309
@@ -3124,9 +3124,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %274, ptr %1, align 4, !tbaa !39
   %275 = ashr i32 %266, 16
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %277 = load i32, ptr %276, align 4, !tbaa !77
+  %277 = load i32, ptr %276, align 4, !tbaa !76
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %279 = load i32, ptr %278, align 4, !tbaa !78
+  %279 = load i32, ptr %278, align 4, !tbaa !77
   %280 = icmp sgt i32 %277, %275
   %..i1307 = tail call i32 @llvm.smin.i32(i32 %279, i32 %275)
   %.0.i1308 = select i1 %280, i32 %277, i32 %..i1307
@@ -3147,9 +3147,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1955 = shl i32 %266, 16
   %287 = ashr exact i32 %sext1955, 16
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %289 = load i32, ptr %288, align 16, !tbaa !75
+  %289 = load i32, ptr %288, align 16, !tbaa !74
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %291 = load i32, ptr %290, align 8, !tbaa !76
+  %291 = load i32, ptr %290, align 8, !tbaa !75
   %292 = icmp sgt i32 %289, %287
   %..i1305 = tail call i32 @llvm.smin.i32(i32 %291, i32 %287)
   %.0.i1306 = select i1 %292, i32 %289, i32 %..i1305
@@ -3157,9 +3157,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %293, ptr %1, align 4, !tbaa !39
   %294 = ashr i32 %266, 16
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %296 = load i32, ptr %295, align 4, !tbaa !77
+  %296 = load i32, ptr %295, align 4, !tbaa !76
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %298 = load i32, ptr %297, align 4, !tbaa !78
+  %298 = load i32, ptr %297, align 4, !tbaa !77
   %299 = icmp sgt i32 %296, %294
   %..i1303 = tail call i32 @llvm.smin.i32(i32 %298, i32 %294)
   %.0.i1304 = select i1 %299, i32 %296, i32 %..i1303
@@ -3194,9 +3194,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %317 = load i16, ptr %315, align 4, !tbaa !39
   %318 = sext i16 %317 to i32
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %320 = load i32, ptr %319, align 16, !tbaa !75
+  %320 = load i32, ptr %319, align 16, !tbaa !74
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %322 = load i32, ptr %321, align 8, !tbaa !76
+  %322 = load i32, ptr %321, align 8, !tbaa !75
   %323 = icmp sgt i32 %320, %318
   %..i1301 = tail call i32 @llvm.smin.i32(i32 %322, i32 %318)
   %.0.i1302 = select i1 %323, i32 %320, i32 %..i1301
@@ -3204,9 +3204,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %325 = load i16, ptr %324, align 2, !tbaa !42
   %326 = sext i16 %325 to i32
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %328 = load i32, ptr %327, align 4, !tbaa !77
+  %328 = load i32, ptr %327, align 4, !tbaa !76
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %330 = load i32, ptr %329, align 4, !tbaa !78
+  %330 = load i32, ptr %329, align 4, !tbaa !77
   %331 = icmp sgt i32 %328, %326
   %..i1299 = tail call i32 @llvm.smin.i32(i32 %330, i32 %326)
   %.0.i1300 = select i1 %331, i32 %328, i32 %..i1299
@@ -3233,17 +3233,17 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1947 = shl i32 %336, 16
   %338 = ashr exact i32 %sext1947, 16
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %340 = load i32, ptr %339, align 16, !tbaa !75
+  %340 = load i32, ptr %339, align 16, !tbaa !74
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %342 = load i32, ptr %341, align 8, !tbaa !76
+  %342 = load i32, ptr %341, align 8, !tbaa !75
   %343 = icmp sgt i32 %340, %338
   %..i1297 = tail call i32 @llvm.smin.i32(i32 %342, i32 %338)
   %.0.i1298 = select i1 %343, i32 %340, i32 %..i1297
   %344 = ashr i32 %336, 16
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %346 = load i32, ptr %345, align 4, !tbaa !77
+  %346 = load i32, ptr %345, align 4, !tbaa !76
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %348 = load i32, ptr %347, align 4, !tbaa !78
+  %348 = load i32, ptr %347, align 4, !tbaa !77
   %349 = icmp sgt i32 %346, %344
   %..i1295 = tail call i32 @llvm.smin.i32(i32 %348, i32 %344)
   %.0.i1296 = select i1 %349, i32 %346, i32 %..i1295
@@ -3269,9 +3269,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1951 = shl i32 %355, 16
   %357 = ashr exact i32 %sext1951, 16
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %359 = load i32, ptr %358, align 16, !tbaa !75
+  %359 = load i32, ptr %358, align 16, !tbaa !74
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %361 = load i32, ptr %360, align 8, !tbaa !76
+  %361 = load i32, ptr %360, align 8, !tbaa !75
   %362 = icmp sgt i32 %359, %357
   %..i1293 = tail call i32 @llvm.smin.i32(i32 %361, i32 %357)
   %.0.i1294 = select i1 %362, i32 %359, i32 %..i1293
@@ -3279,9 +3279,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %363, ptr %1, align 4, !tbaa !39
   %364 = ashr i32 %355, 16
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %366 = load i32, ptr %365, align 4, !tbaa !77
+  %366 = load i32, ptr %365, align 4, !tbaa !76
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %368 = load i32, ptr %367, align 4, !tbaa !78
+  %368 = load i32, ptr %367, align 4, !tbaa !77
   %369 = icmp sgt i32 %366, %364
   %..i1291 = tail call i32 @llvm.smin.i32(i32 %368, i32 %364)
   %.0.i1292 = select i1 %369, i32 %366, i32 %..i1291
@@ -3302,9 +3302,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %sext1949 = shl i32 %355, 16
   %376 = ashr exact i32 %sext1949, 16
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 77024
-  %378 = load i32, ptr %377, align 16, !tbaa !75
+  %378 = load i32, ptr %377, align 16, !tbaa !74
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 77032
-  %380 = load i32, ptr %379, align 8, !tbaa !76
+  %380 = load i32, ptr %379, align 8, !tbaa !75
   %381 = icmp sgt i32 %378, %376
   %..i1289 = tail call i32 @llvm.smin.i32(i32 %380, i32 %376)
   %.0.i1290 = select i1 %381, i32 %378, i32 %..i1289
@@ -3312,9 +3312,9 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   store i16 %382, ptr %1, align 4, !tbaa !39
   %383 = ashr i32 %355, 16
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 77028
-  %385 = load i32, ptr %384, align 4, !tbaa !77
+  %385 = load i32, ptr %384, align 4, !tbaa !76
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 77036
-  %387 = load i32, ptr %386, align 4, !tbaa !78
+  %387 = load i32, ptr %386, align 4, !tbaa !77
   %388 = icmp sgt i32 %385, %383
   %..i1287 = tail call i32 @llvm.smin.i32(i32 %387, i32 %383)
   %.0.i1288 = select i1 %388, i32 %385, i32 %..i1287
@@ -3357,20 +3357,20 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1046, label %.thread1634, label %411
 
 411:                                              ; preds = %402
-  %412 = load i32, ptr %393, align 4, !tbaa !79
+  %412 = load i32, ptr %393, align 4, !tbaa !78
   %413 = icmp ult i32 %406, %412
   %414 = icmp sgt i32 %410, -1
   %or.cond50 = select i1 %413, i1 %414, i1 false
   br i1 %or.cond50, label %415, label %.thread1634
 
 415:                                              ; preds = %411
-  %416 = load i32, ptr %394, align 8, !tbaa !80
+  %416 = load i32, ptr %394, align 8, !tbaa !79
   %417 = icmp ult i32 %410, %416
   br i1 %417, label %418, label %.thread1634
 
 418:                                              ; preds = %415
-  %419 = load ptr, ptr %395, align 8, !tbaa !67
-  %420 = load i32, ptr %396, align 8, !tbaa !73
+  %419 = load ptr, ptr %395, align 8, !tbaa !66
+  %420 = load i32, ptr %396, align 8, !tbaa !72
   %421 = shl i32 %410, 3
   %422 = mul i32 %421, %420
   %423 = add i32 %422, %406
@@ -3392,16 +3392,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 433:                                              ; preds = %431
   %434 = load i16, ptr %425, align 4, !tbaa !39
   %435 = sext i16 %434 to i32
-  %436 = load i32, ptr %398, align 16, !tbaa !75
-  %437 = load i32, ptr %399, align 8, !tbaa !76
+  %436 = load i32, ptr %398, align 16, !tbaa !74
+  %437 = load i32, ptr %399, align 8, !tbaa !75
   %438 = icmp sgt i32 %436, %435
   %..i1285 = tail call i32 @llvm.smin.i32(i32 %437, i32 %435)
   %.0.i1286 = select i1 %438, i32 %436, i32 %..i1285
   %439 = getelementptr inbounds nuw i8, ptr %425, i64 2
   %440 = load i16, ptr %439, align 2, !tbaa !42
   %441 = sext i16 %440 to i32
-  %442 = load i32, ptr %400, align 4, !tbaa !77
-  %443 = load i32, ptr %401, align 4, !tbaa !78
+  %442 = load i32, ptr %400, align 4, !tbaa !76
+  %443 = load i32, ptr %401, align 4, !tbaa !77
   %444 = icmp sgt i32 %442, %441
   %..i1283 = tail call i32 @llvm.smin.i32(i32 %443, i32 %441)
   %.0.i1284 = select i1 %444, i32 %442, i32 %..i1283
@@ -3427,14 +3427,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 450:                                              ; preds = %448
   %sext1967 = shl i32 %449, 16
   %451 = ashr exact i32 %sext1967, 16
-  %452 = load i32, ptr %398, align 16, !tbaa !75
-  %453 = load i32, ptr %399, align 8, !tbaa !76
+  %452 = load i32, ptr %398, align 16, !tbaa !74
+  %453 = load i32, ptr %399, align 8, !tbaa !75
   %454 = icmp sgt i32 %452, %451
   %..i1281 = tail call i32 @llvm.smin.i32(i32 %453, i32 %451)
   %.0.i1282 = select i1 %454, i32 %452, i32 %..i1281
   %455 = ashr i32 %449, 16
-  %456 = load i32, ptr %400, align 4, !tbaa !77
-  %457 = load i32, ptr %401, align 4, !tbaa !78
+  %456 = load i32, ptr %400, align 4, !tbaa !76
+  %457 = load i32, ptr %401, align 4, !tbaa !77
   %458 = icmp sgt i32 %456, %455
   %..i1279 = tail call i32 @llvm.smin.i32(i32 %457, i32 %455)
   %.0.i1280 = select i1 %458, i32 %456, i32 %..i1279
@@ -3453,16 +3453,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 461:                                              ; preds = %459
   %sext1965 = shl i32 %460, 16
   %462 = ashr exact i32 %sext1965, 16
-  %463 = load i32, ptr %398, align 16, !tbaa !75
-  %464 = load i32, ptr %399, align 8, !tbaa !76
+  %463 = load i32, ptr %398, align 16, !tbaa !74
+  %464 = load i32, ptr %399, align 8, !tbaa !75
   %465 = icmp sgt i32 %463, %462
   %..i1277 = tail call i32 @llvm.smin.i32(i32 %464, i32 %462)
   %.0.i1278 = select i1 %465, i32 %463, i32 %..i1277
   %466 = trunc i32 %.0.i1278 to i16
   store i16 %466, ptr %1, align 4, !tbaa !39
   %467 = ashr i32 %460, 16
-  %468 = load i32, ptr %400, align 4, !tbaa !77
-  %469 = load i32, ptr %401, align 4, !tbaa !78
+  %468 = load i32, ptr %400, align 4, !tbaa !76
+  %469 = load i32, ptr %401, align 4, !tbaa !77
   %470 = icmp sgt i32 %468, %467
   %..i1275 = tail call i32 @llvm.smin.i32(i32 %469, i32 %467)
   %.0.i1276 = select i1 %470, i32 %468, i32 %..i1275
@@ -3482,16 +3482,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 476:                                              ; preds = %475
   %sext1963 = shl i32 %460, 16
   %477 = ashr exact i32 %sext1963, 16
-  %478 = load i32, ptr %398, align 16, !tbaa !75
-  %479 = load i32, ptr %399, align 8, !tbaa !76
+  %478 = load i32, ptr %398, align 16, !tbaa !74
+  %479 = load i32, ptr %399, align 8, !tbaa !75
   %480 = icmp sgt i32 %478, %477
   %..i1273 = tail call i32 @llvm.smin.i32(i32 %479, i32 %477)
   %.0.i1274 = select i1 %480, i32 %478, i32 %..i1273
   %481 = trunc i32 %.0.i1274 to i16
   store i16 %481, ptr %1, align 4, !tbaa !39
   %482 = ashr i32 %460, 16
-  %483 = load i32, ptr %400, align 4, !tbaa !77
-  %484 = load i32, ptr %401, align 4, !tbaa !78
+  %483 = load i32, ptr %400, align 4, !tbaa !76
+  %484 = load i32, ptr %401, align 4, !tbaa !77
   %485 = icmp sgt i32 %483, %482
   %..i1271 = tail call i32 @llvm.smin.i32(i32 %484, i32 %482)
   %.0.i1272 = select i1 %485, i32 %483, i32 %..i1271
@@ -3518,16 +3518,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 497:                                              ; preds = %494
   %498 = load i16, ptr %496, align 4, !tbaa !39
   %499 = sext i16 %498 to i32
-  %500 = load i32, ptr %398, align 16, !tbaa !75
-  %501 = load i32, ptr %399, align 8, !tbaa !76
+  %500 = load i32, ptr %398, align 16, !tbaa !74
+  %501 = load i32, ptr %399, align 8, !tbaa !75
   %502 = icmp sgt i32 %500, %499
   %..i1269 = tail call i32 @llvm.smin.i32(i32 %501, i32 %499)
   %.0.i1270 = select i1 %502, i32 %500, i32 %..i1269
   %503 = getelementptr inbounds nuw i8, ptr %425, i64 6
   %504 = load i16, ptr %503, align 2, !tbaa !42
   %505 = sext i16 %504 to i32
-  %506 = load i32, ptr %400, align 4, !tbaa !77
-  %507 = load i32, ptr %401, align 4, !tbaa !78
+  %506 = load i32, ptr %400, align 4, !tbaa !76
+  %507 = load i32, ptr %401, align 4, !tbaa !77
   %508 = icmp sgt i32 %506, %505
   %..i1267 = tail call i32 @llvm.smin.i32(i32 %507, i32 %505)
   %.0.i1268 = select i1 %508, i32 %506, i32 %..i1267
@@ -3553,14 +3553,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 514:                                              ; preds = %512
   %sext1961 = shl i32 %513, 16
   %515 = ashr exact i32 %sext1961, 16
-  %516 = load i32, ptr %398, align 16, !tbaa !75
-  %517 = load i32, ptr %399, align 8, !tbaa !76
+  %516 = load i32, ptr %398, align 16, !tbaa !74
+  %517 = load i32, ptr %399, align 8, !tbaa !75
   %518 = icmp sgt i32 %516, %515
   %..i1265 = tail call i32 @llvm.smin.i32(i32 %517, i32 %515)
   %.0.i1266 = select i1 %518, i32 %516, i32 %..i1265
   %519 = ashr i32 %513, 16
-  %520 = load i32, ptr %400, align 4, !tbaa !77
-  %521 = load i32, ptr %401, align 4, !tbaa !78
+  %520 = load i32, ptr %400, align 4, !tbaa !76
+  %521 = load i32, ptr %401, align 4, !tbaa !77
   %522 = icmp sgt i32 %520, %519
   %..i1263 = tail call i32 @llvm.smin.i32(i32 %521, i32 %519)
   %.0.i1264 = select i1 %522, i32 %520, i32 %..i1263
@@ -3580,16 +3580,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 526:                                              ; preds = %523
   %sext1959 = shl i32 %525, 16
   %527 = ashr exact i32 %sext1959, 16
-  %528 = load i32, ptr %398, align 16, !tbaa !75
-  %529 = load i32, ptr %399, align 8, !tbaa !76
+  %528 = load i32, ptr %398, align 16, !tbaa !74
+  %529 = load i32, ptr %399, align 8, !tbaa !75
   %530 = icmp sgt i32 %528, %527
   %..i1261 = tail call i32 @llvm.smin.i32(i32 %529, i32 %527)
   %.0.i1262 = select i1 %530, i32 %528, i32 %..i1261
   %531 = trunc i32 %.0.i1262 to i16
   store i16 %531, ptr %1, align 4, !tbaa !39
   %532 = ashr i32 %525, 16
-  %533 = load i32, ptr %400, align 4, !tbaa !77
-  %534 = load i32, ptr %401, align 4, !tbaa !78
+  %533 = load i32, ptr %400, align 4, !tbaa !76
+  %534 = load i32, ptr %401, align 4, !tbaa !77
   %535 = icmp sgt i32 %533, %532
   %..i1259 = tail call i32 @llvm.smin.i32(i32 %534, i32 %532)
   %.0.i1260 = select i1 %535, i32 %533, i32 %..i1259
@@ -3609,16 +3609,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 541:                                              ; preds = %540
   %sext1957 = shl i32 %525, 16
   %542 = ashr exact i32 %sext1957, 16
-  %543 = load i32, ptr %398, align 16, !tbaa !75
-  %544 = load i32, ptr %399, align 8, !tbaa !76
+  %543 = load i32, ptr %398, align 16, !tbaa !74
+  %544 = load i32, ptr %399, align 8, !tbaa !75
   %545 = icmp sgt i32 %543, %542
   %..i1257 = tail call i32 @llvm.smin.i32(i32 %544, i32 %542)
   %.0.i1258 = select i1 %545, i32 %543, i32 %..i1257
   %546 = trunc i32 %.0.i1258 to i16
   store i16 %546, ptr %1, align 4, !tbaa !39
   %547 = ashr i32 %525, 16
-  %548 = load i32, ptr %400, align 4, !tbaa !77
-  %549 = load i32, ptr %401, align 4, !tbaa !78
+  %548 = load i32, ptr %400, align 4, !tbaa !76
+  %549 = load i32, ptr %401, align 4, !tbaa !77
   %550 = icmp sgt i32 %548, %547
   %..i1255 = tail call i32 @llvm.smin.i32(i32 %549, i32 %547)
   %.0.i1256 = select i1 %550, i32 %548, i32 %..i1255
@@ -3632,25 +3632,25 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %.32.ph = phi i32 [ %.241855, %488 ], [ %.241855, %402 ], [ %.241855, %411 ], [ %.241855, %415 ], [ %.241855, %448 ], [ %.241855, %446 ], [ %460, %473 ], [ %.241855, %475 ], [ %.241855, %512 ], [ %.241855, %510 ], [ %525, %538 ], [ %.241855, %540 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %553, label %402, !llvm.loop !81
+  br i1 %exitcond.not, label %553, label %402, !llvm.loop !80
 
 553:                                              ; preds = %.thread1634
   %554 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %555 = load i8, ptr %554, align 4, !tbaa !82
+  %555 = load i8, ptr %554, align 4, !tbaa !81
   %.not972 = icmp eq i8 %555, 0
   br i1 %.not972, label %.thread1657, label %556
 
 556:                                              ; preds = %553
   %557 = getelementptr inbounds nuw i8, ptr %7, i64 520
-  %558 = load ptr, ptr %557, align 8, !tbaa !67
-  %559 = load i32, ptr %396, align 8, !tbaa !73
+  %558 = load ptr, ptr %557, align 8, !tbaa !66
+  %559 = load i32, ptr %396, align 8, !tbaa !72
   %560 = shl i32 %11, 3
   %561 = mul i32 %560, %559
   %562 = add i32 %561, %13
   %563 = zext i32 %562 to i64
   %564 = getelementptr inbounds nuw %struct.VP9mvrefPair, ptr %558, i64 %563
   %565 = getelementptr inbounds nuw i8, ptr %7, i64 528
-  %566 = load i32, ptr %565, align 8, !tbaa !83
+  %566 = load i32, ptr %565, align 8, !tbaa !82
   %.not973 = icmp eq i32 %566, 0
   br i1 %.not973, label %567, label %570
 
@@ -3677,16 +3677,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 578:                                              ; preds = %576
   %579 = load i16, ptr %564, align 4, !tbaa !39
   %580 = sext i16 %579 to i32
-  %581 = load i32, ptr %398, align 16, !tbaa !75
-  %582 = load i32, ptr %399, align 8, !tbaa !76
+  %581 = load i32, ptr %398, align 16, !tbaa !74
+  %582 = load i32, ptr %399, align 8, !tbaa !75
   %583 = icmp sgt i32 %581, %580
   %..i1253 = tail call i32 @llvm.smin.i32(i32 %582, i32 %580)
   %.0.i1254 = select i1 %583, i32 %581, i32 %..i1253
   %584 = getelementptr inbounds nuw i8, ptr %564, i64 2
   %585 = load i16, ptr %584, align 2, !tbaa !42
   %586 = sext i16 %585 to i32
-  %587 = load i32, ptr %400, align 4, !tbaa !77
-  %588 = load i32, ptr %401, align 4, !tbaa !78
+  %587 = load i32, ptr %400, align 4, !tbaa !76
+  %588 = load i32, ptr %401, align 4, !tbaa !77
   %589 = icmp sgt i32 %587, %586
   %..i1251 = tail call i32 @llvm.smin.i32(i32 %588, i32 %586)
   %.0.i1252 = select i1 %589, i32 %587, i32 %..i1251
@@ -3712,14 +3712,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 595:                                              ; preds = %593
   %sext1979 = shl i32 %594, 16
   %596 = ashr exact i32 %sext1979, 16
-  %597 = load i32, ptr %398, align 16, !tbaa !75
-  %598 = load i32, ptr %399, align 8, !tbaa !76
+  %597 = load i32, ptr %398, align 16, !tbaa !74
+  %598 = load i32, ptr %399, align 8, !tbaa !75
   %599 = icmp sgt i32 %597, %596
   %..i1249 = tail call i32 @llvm.smin.i32(i32 %598, i32 %596)
   %.0.i1250 = select i1 %599, i32 %597, i32 %..i1249
   %600 = ashr i32 %594, 16
-  %601 = load i32, ptr %400, align 4, !tbaa !77
-  %602 = load i32, ptr %401, align 4, !tbaa !78
+  %601 = load i32, ptr %400, align 4, !tbaa !76
+  %602 = load i32, ptr %401, align 4, !tbaa !77
   %603 = icmp sgt i32 %601, %600
   %..i1247 = tail call i32 @llvm.smin.i32(i32 %602, i32 %600)
   %.0.i1248 = select i1 %603, i32 %601, i32 %..i1247
@@ -3738,16 +3738,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 606:                                              ; preds = %604
   %sext1977 = shl i32 %605, 16
   %607 = ashr exact i32 %sext1977, 16
-  %608 = load i32, ptr %398, align 16, !tbaa !75
-  %609 = load i32, ptr %399, align 8, !tbaa !76
+  %608 = load i32, ptr %398, align 16, !tbaa !74
+  %609 = load i32, ptr %399, align 8, !tbaa !75
   %610 = icmp sgt i32 %608, %607
   %..i1245 = tail call i32 @llvm.smin.i32(i32 %609, i32 %607)
   %.0.i1246 = select i1 %610, i32 %608, i32 %..i1245
   %611 = trunc i32 %.0.i1246 to i16
   store i16 %611, ptr %1, align 4, !tbaa !39
   %612 = ashr i32 %605, 16
-  %613 = load i32, ptr %400, align 4, !tbaa !77
-  %614 = load i32, ptr %401, align 4, !tbaa !78
+  %613 = load i32, ptr %400, align 4, !tbaa !76
+  %614 = load i32, ptr %401, align 4, !tbaa !77
   %615 = icmp sgt i32 %613, %612
   %..i1243 = tail call i32 @llvm.smin.i32(i32 %614, i32 %612)
   %.0.i1244 = select i1 %615, i32 %613, i32 %..i1243
@@ -3767,16 +3767,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 621:                                              ; preds = %620
   %sext1975 = shl i32 %605, 16
   %622 = ashr exact i32 %sext1975, 16
-  %623 = load i32, ptr %398, align 16, !tbaa !75
-  %624 = load i32, ptr %399, align 8, !tbaa !76
+  %623 = load i32, ptr %398, align 16, !tbaa !74
+  %624 = load i32, ptr %399, align 8, !tbaa !75
   %625 = icmp sgt i32 %623, %622
   %..i1241 = tail call i32 @llvm.smin.i32(i32 %624, i32 %622)
   %.0.i1242 = select i1 %625, i32 %623, i32 %..i1241
   %626 = trunc i32 %.0.i1242 to i16
   store i16 %626, ptr %1, align 4, !tbaa !39
   %627 = ashr i32 %605, 16
-  %628 = load i32, ptr %400, align 4, !tbaa !77
-  %629 = load i32, ptr %401, align 4, !tbaa !78
+  %628 = load i32, ptr %400, align 4, !tbaa !76
+  %629 = load i32, ptr %401, align 4, !tbaa !77
   %630 = icmp sgt i32 %628, %627
   %..i1239 = tail call i32 @llvm.smin.i32(i32 %629, i32 %627)
   %.0.i1240 = select i1 %630, i32 %628, i32 %..i1239
@@ -3803,16 +3803,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 642:                                              ; preds = %639
   %643 = load i16, ptr %641, align 4, !tbaa !39
   %644 = sext i16 %643 to i32
-  %645 = load i32, ptr %398, align 16, !tbaa !75
-  %646 = load i32, ptr %399, align 8, !tbaa !76
+  %645 = load i32, ptr %398, align 16, !tbaa !74
+  %646 = load i32, ptr %399, align 8, !tbaa !75
   %647 = icmp sgt i32 %645, %644
   %..i1237 = tail call i32 @llvm.smin.i32(i32 %646, i32 %644)
   %.0.i1238 = select i1 %647, i32 %645, i32 %..i1237
   %648 = getelementptr inbounds nuw i8, ptr %564, i64 6
   %649 = load i16, ptr %648, align 2, !tbaa !42
   %650 = sext i16 %649 to i32
-  %651 = load i32, ptr %400, align 4, !tbaa !77
-  %652 = load i32, ptr %401, align 4, !tbaa !78
+  %651 = load i32, ptr %400, align 4, !tbaa !76
+  %652 = load i32, ptr %401, align 4, !tbaa !77
   %653 = icmp sgt i32 %651, %650
   %..i1235 = tail call i32 @llvm.smin.i32(i32 %652, i32 %650)
   %.0.i1236 = select i1 %653, i32 %651, i32 %..i1235
@@ -3838,14 +3838,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 659:                                              ; preds = %657
   %sext1973 = shl i32 %658, 16
   %660 = ashr exact i32 %sext1973, 16
-  %661 = load i32, ptr %398, align 16, !tbaa !75
-  %662 = load i32, ptr %399, align 8, !tbaa !76
+  %661 = load i32, ptr %398, align 16, !tbaa !74
+  %662 = load i32, ptr %399, align 8, !tbaa !75
   %663 = icmp sgt i32 %661, %660
   %..i1233 = tail call i32 @llvm.smin.i32(i32 %662, i32 %660)
   %.0.i1234 = select i1 %663, i32 %661, i32 %..i1233
   %664 = ashr i32 %658, 16
-  %665 = load i32, ptr %400, align 4, !tbaa !77
-  %666 = load i32, ptr %401, align 4, !tbaa !78
+  %665 = load i32, ptr %400, align 4, !tbaa !76
+  %666 = load i32, ptr %401, align 4, !tbaa !77
   %667 = icmp sgt i32 %665, %664
   %..i1231 = tail call i32 @llvm.smin.i32(i32 %666, i32 %664)
   %.0.i1232 = select i1 %667, i32 %665, i32 %..i1231
@@ -3865,16 +3865,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 671:                                              ; preds = %668
   %sext1971 = shl i32 %670, 16
   %672 = ashr exact i32 %sext1971, 16
-  %673 = load i32, ptr %398, align 16, !tbaa !75
-  %674 = load i32, ptr %399, align 8, !tbaa !76
+  %673 = load i32, ptr %398, align 16, !tbaa !74
+  %674 = load i32, ptr %399, align 8, !tbaa !75
   %675 = icmp sgt i32 %673, %672
   %..i1229 = tail call i32 @llvm.smin.i32(i32 %674, i32 %672)
   %.0.i1230 = select i1 %675, i32 %673, i32 %..i1229
   %676 = trunc i32 %.0.i1230 to i16
   store i16 %676, ptr %1, align 4, !tbaa !39
   %677 = ashr i32 %670, 16
-  %678 = load i32, ptr %400, align 4, !tbaa !77
-  %679 = load i32, ptr %401, align 4, !tbaa !78
+  %678 = load i32, ptr %400, align 4, !tbaa !76
+  %679 = load i32, ptr %401, align 4, !tbaa !77
   %680 = icmp sgt i32 %678, %677
   %..i1227 = tail call i32 @llvm.smin.i32(i32 %679, i32 %677)
   %.0.i1228 = select i1 %680, i32 %678, i32 %..i1227
@@ -3894,16 +3894,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 686:                                              ; preds = %685
   %sext1969 = shl i32 %670, 16
   %687 = ashr exact i32 %sext1969, 16
-  %688 = load i32, ptr %398, align 16, !tbaa !75
-  %689 = load i32, ptr %399, align 8, !tbaa !76
+  %688 = load i32, ptr %398, align 16, !tbaa !74
+  %689 = load i32, ptr %399, align 8, !tbaa !75
   %690 = icmp sgt i32 %688, %687
   %..i1225 = tail call i32 @llvm.smin.i32(i32 %689, i32 %687)
   %.0.i1226 = select i1 %690, i32 %688, i32 %..i1225
   %691 = trunc i32 %.0.i1226 to i16
   store i16 %691, ptr %1, align 4, !tbaa !39
   %692 = ashr i32 %670, 16
-  %693 = load i32, ptr %400, align 4, !tbaa !77
-  %694 = load i32, ptr %401, align 4, !tbaa !78
+  %693 = load i32, ptr %400, align 4, !tbaa !76
+  %694 = load i32, ptr %401, align 4, !tbaa !77
   %695 = icmp sgt i32 %693, %692
   %..i1223 = tail call i32 @llvm.smin.i32(i32 %694, i32 %692)
   %.0.i1224 = select i1 %695, i32 %693, i32 %..i1223
@@ -3915,7 +3915,7 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 .thread1657:                                      ; preds = %685, %683, %655, %657, %620, %618, %591, %593, %633, %553
   %.24807 = phi i32 [ %.23806.ph, %553 ], [ %.23806.ph, %633 ], [ %.23806.ph, %593 ], [ %592, %591 ], [ %.23806.ph, %618 ], [ %.23806.ph, %620 ], [ %.23806.ph, %657 ], [ %656, %655 ], [ %.23806.ph, %683 ], [ %.23806.ph, %685 ]
   %.33 = phi i32 [ %.32.ph, %553 ], [ %.32.ph, %633 ], [ %.32.ph, %593 ], [ %.32.ph, %591 ], [ %605, %618 ], [ %.32.ph, %620 ], [ %.32.ph, %657 ], [ %.32.ph, %655 ], [ %670, %683 ], [ %.32.ph, %685 ]
-  %698 = load i32, ptr %392, align 16, !tbaa !66
+  %698 = load i32, ptr %392, align 16, !tbaa !65
   %699 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %700 = zext nneg i32 %2 to i64
   %701 = getelementptr inbounds nuw [3 x i8], ptr %699, i64 0, i64 %700
@@ -3937,20 +3937,20 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1016, label %.thread1699, label %711
 
 711:                                              ; preds = %702
-  %712 = load i32, ptr %393, align 4, !tbaa !79
+  %712 = load i32, ptr %393, align 4, !tbaa !78
   %713 = icmp ult i32 %706, %712
   %714 = icmp sgt i32 %710, -1
   %or.cond52 = select i1 %713, i1 %714, i1 false
   br i1 %or.cond52, label %715, label %.thread1699
 
 715:                                              ; preds = %711
-  %716 = load i32, ptr %394, align 8, !tbaa !80
+  %716 = load i32, ptr %394, align 8, !tbaa !79
   %717 = icmp ult i32 %710, %716
   br i1 %717, label %718, label %.thread1699
 
 718:                                              ; preds = %715
-  %719 = load ptr, ptr %395, align 8, !tbaa !67
-  %720 = load i32, ptr %396, align 8, !tbaa !73
+  %719 = load ptr, ptr %395, align 8, !tbaa !66
+  %720 = load i32, ptr %396, align 8, !tbaa !72
   %721 = shl i32 %710, 3
   %722 = mul i32 %721, %720
   %723 = add i32 %722, %706
@@ -3986,14 +3986,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 743:                                              ; preds = %741
   %744 = sext i16 %737 to i32
-  %745 = load i32, ptr %398, align 16, !tbaa !75
-  %746 = load i32, ptr %399, align 8, !tbaa !76
+  %745 = load i32, ptr %398, align 16, !tbaa !74
+  %746 = load i32, ptr %399, align 8, !tbaa !75
   %747 = icmp sgt i32 %745, %744
   %..i1221 = tail call i32 @llvm.smin.i32(i32 %746, i32 %744)
   %.0.i1222 = select i1 %747, i32 %745, i32 %..i1221
   %748 = sext i16 %740 to i32
-  %749 = load i32, ptr %400, align 4, !tbaa !77
-  %750 = load i32, ptr %401, align 4, !tbaa !78
+  %749 = load i32, ptr %400, align 4, !tbaa !76
+  %750 = load i32, ptr %401, align 4, !tbaa !77
   %751 = icmp sgt i32 %749, %748
   %..i1219 = tail call i32 @llvm.smin.i32(i32 %750, i32 %748)
   %.0.i1220 = select i1 %751, i32 %749, i32 %..i1219
@@ -4024,14 +4024,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 755:                                              ; preds = %754
   %756 = sext i16 %737 to i32
-  %757 = load i32, ptr %398, align 16, !tbaa !75
-  %758 = load i32, ptr %399, align 8, !tbaa !76
+  %757 = load i32, ptr %398, align 16, !tbaa !74
+  %758 = load i32, ptr %399, align 8, !tbaa !75
   %759 = icmp sgt i32 %757, %756
   %..i1217 = tail call i32 @llvm.smin.i32(i32 %758, i32 %756)
   %.0.i1218 = select i1 %759, i32 %757, i32 %..i1217
   %760 = sext i16 %740 to i32
-  %761 = load i32, ptr %400, align 4, !tbaa !77
-  %762 = load i32, ptr %401, align 4, !tbaa !78
+  %761 = load i32, ptr %400, align 4, !tbaa !76
+  %762 = load i32, ptr %401, align 4, !tbaa !77
   %763 = icmp sgt i32 %761, %760
   %..i1215 = tail call i32 @llvm.smin.i32(i32 %762, i32 %760)
   %.0.i1216 = select i1 %763, i32 %761, i32 %..i1215
@@ -4052,16 +4052,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 765:                                              ; preds = %764
   %766 = sext i16 %737 to i32
-  %767 = load i32, ptr %398, align 16, !tbaa !75
-  %768 = load i32, ptr %399, align 8, !tbaa !76
+  %767 = load i32, ptr %398, align 16, !tbaa !74
+  %768 = load i32, ptr %399, align 8, !tbaa !75
   %769 = icmp sgt i32 %767, %766
   %..i1213 = tail call i32 @llvm.smin.i32(i32 %768, i32 %766)
   %.0.i1214 = select i1 %769, i32 %767, i32 %..i1213
   %770 = trunc i32 %.0.i1214 to i16
   store i16 %770, ptr %1, align 4, !tbaa !39
   %771 = sext i16 %740 to i32
-  %772 = load i32, ptr %400, align 4, !tbaa !77
-  %773 = load i32, ptr %401, align 4, !tbaa !78
+  %772 = load i32, ptr %400, align 4, !tbaa !76
+  %773 = load i32, ptr %401, align 4, !tbaa !77
   %774 = icmp sgt i32 %772, %771
   %..i1211 = tail call i32 @llvm.smin.i32(i32 %773, i32 %771)
   %.0.i1212 = select i1 %774, i32 %772, i32 %..i1211
@@ -4080,16 +4080,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 780:                                              ; preds = %779
   %781 = sext i16 %737 to i32
-  %782 = load i32, ptr %398, align 16, !tbaa !75
-  %783 = load i32, ptr %399, align 8, !tbaa !76
+  %782 = load i32, ptr %398, align 16, !tbaa !74
+  %783 = load i32, ptr %399, align 8, !tbaa !75
   %784 = icmp sgt i32 %782, %781
   %..i1209 = tail call i32 @llvm.smin.i32(i32 %783, i32 %781)
   %.0.i1210 = select i1 %784, i32 %782, i32 %..i1209
   %785 = trunc i32 %.0.i1210 to i16
   store i16 %785, ptr %1, align 4, !tbaa !39
   %786 = sext i16 %740 to i32
-  %787 = load i32, ptr %400, align 4, !tbaa !77
-  %788 = load i32, ptr %401, align 4, !tbaa !78
+  %787 = load i32, ptr %400, align 4, !tbaa !76
+  %788 = load i32, ptr %401, align 4, !tbaa !77
   %789 = icmp sgt i32 %787, %786
   %..i1207 = tail call i32 @llvm.smin.i32(i32 %788, i32 %786)
   %.0.i1208 = select i1 %789, i32 %787, i32 %..i1207
@@ -4108,16 +4108,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 795:                                              ; preds = %793
   %796 = load i16, ptr %725, align 4, !tbaa !39
   %797 = sext i16 %796 to i32
-  %798 = load i32, ptr %398, align 16, !tbaa !75
-  %799 = load i32, ptr %399, align 8, !tbaa !76
+  %798 = load i32, ptr %398, align 16, !tbaa !74
+  %799 = load i32, ptr %399, align 8, !tbaa !75
   %800 = icmp sgt i32 %798, %797
   %..i1205 = tail call i32 @llvm.smin.i32(i32 %799, i32 %797)
   %.0.i1206 = select i1 %800, i32 %798, i32 %..i1205
   %801 = getelementptr inbounds nuw i8, ptr %725, i64 2
   %802 = load i16, ptr %801, align 2, !tbaa !42
   %803 = sext i16 %802 to i32
-  %804 = load i32, ptr %400, align 4, !tbaa !77
-  %805 = load i32, ptr %401, align 4, !tbaa !78
+  %804 = load i32, ptr %400, align 4, !tbaa !76
+  %805 = load i32, ptr %401, align 4, !tbaa !77
   %806 = icmp sgt i32 %804, %803
   %..i1203 = tail call i32 @llvm.smin.i32(i32 %805, i32 %803)
   %.0.i1204 = select i1 %806, i32 %804, i32 %..i1203
@@ -4143,14 +4143,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 812:                                              ; preds = %810
   %sext1985 = shl i32 %811, 16
   %813 = ashr exact i32 %sext1985, 16
-  %814 = load i32, ptr %398, align 16, !tbaa !75
-  %815 = load i32, ptr %399, align 8, !tbaa !76
+  %814 = load i32, ptr %398, align 16, !tbaa !74
+  %815 = load i32, ptr %399, align 8, !tbaa !75
   %816 = icmp sgt i32 %814, %813
   %..i1201 = tail call i32 @llvm.smin.i32(i32 %815, i32 %813)
   %.0.i1202 = select i1 %816, i32 %814, i32 %..i1201
   %817 = ashr i32 %811, 16
-  %818 = load i32, ptr %400, align 4, !tbaa !77
-  %819 = load i32, ptr %401, align 4, !tbaa !78
+  %818 = load i32, ptr %400, align 4, !tbaa !76
+  %819 = load i32, ptr %401, align 4, !tbaa !77
   %820 = icmp sgt i32 %818, %817
   %..i1199 = tail call i32 @llvm.smin.i32(i32 %819, i32 %817)
   %.0.i1200 = select i1 %820, i32 %818, i32 %..i1199
@@ -4169,16 +4169,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 823:                                              ; preds = %821
   %sext1983 = shl i32 %822, 16
   %824 = ashr exact i32 %sext1983, 16
-  %825 = load i32, ptr %398, align 16, !tbaa !75
-  %826 = load i32, ptr %399, align 8, !tbaa !76
+  %825 = load i32, ptr %398, align 16, !tbaa !74
+  %826 = load i32, ptr %399, align 8, !tbaa !75
   %827 = icmp sgt i32 %825, %824
   %..i1197 = tail call i32 @llvm.smin.i32(i32 %826, i32 %824)
   %.0.i1198 = select i1 %827, i32 %825, i32 %..i1197
   %828 = trunc i32 %.0.i1198 to i16
   store i16 %828, ptr %1, align 4, !tbaa !39
   %829 = ashr i32 %822, 16
-  %830 = load i32, ptr %400, align 4, !tbaa !77
-  %831 = load i32, ptr %401, align 4, !tbaa !78
+  %830 = load i32, ptr %400, align 4, !tbaa !76
+  %831 = load i32, ptr %401, align 4, !tbaa !77
   %832 = icmp sgt i32 %830, %829
   %..i1195 = tail call i32 @llvm.smin.i32(i32 %831, i32 %829)
   %.0.i1196 = select i1 %832, i32 %830, i32 %..i1195
@@ -4198,16 +4198,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 838:                                              ; preds = %837
   %sext1981 = shl i32 %822, 16
   %839 = ashr exact i32 %sext1981, 16
-  %840 = load i32, ptr %398, align 16, !tbaa !75
-  %841 = load i32, ptr %399, align 8, !tbaa !76
+  %840 = load i32, ptr %398, align 16, !tbaa !74
+  %841 = load i32, ptr %399, align 8, !tbaa !75
   %842 = icmp sgt i32 %840, %839
   %..i1193 = tail call i32 @llvm.smin.i32(i32 %841, i32 %839)
   %.0.i1194 = select i1 %842, i32 %840, i32 %..i1193
   %843 = trunc i32 %.0.i1194 to i16
   store i16 %843, ptr %1, align 4, !tbaa !39
   %844 = ashr i32 %822, 16
-  %845 = load i32, ptr %400, align 4, !tbaa !77
-  %846 = load i32, ptr %401, align 4, !tbaa !78
+  %845 = load i32, ptr %400, align 4, !tbaa !76
+  %846 = load i32, ptr %401, align 4, !tbaa !77
   %847 = icmp sgt i32 %845, %844
   %..i1191 = tail call i32 @llvm.smin.i32(i32 %846, i32 %844)
   %.0.i1192 = select i1 %847, i32 %845, i32 %..i1191
@@ -4256,14 +4256,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 871:                                              ; preds = %869
   %872 = sext i16 %867 to i32
-  %873 = load i32, ptr %398, align 16, !tbaa !75
-  %874 = load i32, ptr %399, align 8, !tbaa !76
+  %873 = load i32, ptr %398, align 16, !tbaa !74
+  %874 = load i32, ptr %399, align 8, !tbaa !75
   %875 = icmp sgt i32 %873, %872
   %..i1189 = tail call i32 @llvm.smin.i32(i32 %874, i32 %872)
   %.0.i1190 = select i1 %875, i32 %873, i32 %..i1189
   %876 = sext i16 %868 to i32
-  %877 = load i32, ptr %400, align 4, !tbaa !77
-  %878 = load i32, ptr %401, align 4, !tbaa !78
+  %877 = load i32, ptr %400, align 4, !tbaa !76
+  %878 = load i32, ptr %401, align 4, !tbaa !77
   %879 = icmp sgt i32 %877, %876
   %..i1187 = tail call i32 @llvm.smin.i32(i32 %878, i32 %876)
   %.0.i1188 = select i1 %879, i32 %877, i32 %..i1187
@@ -4294,14 +4294,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 883:                                              ; preds = %882
   %884 = sext i16 %867 to i32
-  %885 = load i32, ptr %398, align 16, !tbaa !75
-  %886 = load i32, ptr %399, align 8, !tbaa !76
+  %885 = load i32, ptr %398, align 16, !tbaa !74
+  %886 = load i32, ptr %399, align 8, !tbaa !75
   %887 = icmp sgt i32 %885, %884
   %..i1185 = tail call i32 @llvm.smin.i32(i32 %886, i32 %884)
   %.0.i1186 = select i1 %887, i32 %885, i32 %..i1185
   %888 = sext i16 %868 to i32
-  %889 = load i32, ptr %400, align 4, !tbaa !77
-  %890 = load i32, ptr %401, align 4, !tbaa !78
+  %889 = load i32, ptr %400, align 4, !tbaa !76
+  %890 = load i32, ptr %401, align 4, !tbaa !77
   %891 = icmp sgt i32 %889, %888
   %..i1183 = tail call i32 @llvm.smin.i32(i32 %890, i32 %888)
   %.0.i1184 = select i1 %891, i32 %889, i32 %..i1183
@@ -4322,16 +4322,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 893:                                              ; preds = %892
   %894 = sext i16 %867 to i32
-  %895 = load i32, ptr %398, align 16, !tbaa !75
-  %896 = load i32, ptr %399, align 8, !tbaa !76
+  %895 = load i32, ptr %398, align 16, !tbaa !74
+  %896 = load i32, ptr %399, align 8, !tbaa !75
   %897 = icmp sgt i32 %895, %894
   %..i1181 = tail call i32 @llvm.smin.i32(i32 %896, i32 %894)
   %.0.i1182 = select i1 %897, i32 %895, i32 %..i1181
   %898 = trunc i32 %.0.i1182 to i16
   store i16 %898, ptr %1, align 4, !tbaa !39
   %899 = sext i16 %868 to i32
-  %900 = load i32, ptr %400, align 4, !tbaa !77
-  %901 = load i32, ptr %401, align 4, !tbaa !78
+  %900 = load i32, ptr %400, align 4, !tbaa !76
+  %901 = load i32, ptr %401, align 4, !tbaa !77
   %902 = icmp sgt i32 %900, %899
   %..i1179 = tail call i32 @llvm.smin.i32(i32 %901, i32 %899)
   %.0.i1180 = select i1 %902, i32 %900, i32 %..i1179
@@ -4350,16 +4350,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 908:                                              ; preds = %907
   %909 = sext i16 %867 to i32
-  %910 = load i32, ptr %398, align 16, !tbaa !75
-  %911 = load i32, ptr %399, align 8, !tbaa !76
+  %910 = load i32, ptr %398, align 16, !tbaa !74
+  %911 = load i32, ptr %399, align 8, !tbaa !75
   %912 = icmp sgt i32 %910, %909
   %..i1177 = tail call i32 @llvm.smin.i32(i32 %911, i32 %909)
   %.0.i1178 = select i1 %912, i32 %910, i32 %..i1177
   %913 = trunc i32 %.0.i1178 to i16
   store i16 %913, ptr %1, align 4, !tbaa !39
   %914 = sext i16 %868 to i32
-  %915 = load i32, ptr %400, align 4, !tbaa !77
-  %916 = load i32, ptr %401, align 4, !tbaa !78
+  %915 = load i32, ptr %400, align 4, !tbaa !76
+  %916 = load i32, ptr %401, align 4, !tbaa !77
   %917 = icmp sgt i32 %915, %914
   %..i1175 = tail call i32 @llvm.smin.i32(i32 %916, i32 %914)
   %.0.i1176 = select i1 %917, i32 %915, i32 %..i1175
@@ -4378,14 +4378,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 923:                                              ; preds = %921
   %sext1993 = shl i32 %857, 16
   %924 = ashr exact i32 %sext1993, 16
-  %925 = load i32, ptr %398, align 16, !tbaa !75
-  %926 = load i32, ptr %399, align 8, !tbaa !76
+  %925 = load i32, ptr %398, align 16, !tbaa !74
+  %926 = load i32, ptr %399, align 8, !tbaa !75
   %927 = icmp sgt i32 %925, %924
   %..i1173 = tail call i32 @llvm.smin.i32(i32 %926, i32 %924)
   %.0.i1174 = select i1 %927, i32 %925, i32 %..i1173
   %928 = ashr i32 %857, 16
-  %929 = load i32, ptr %400, align 4, !tbaa !77
-  %930 = load i32, ptr %401, align 4, !tbaa !78
+  %929 = load i32, ptr %400, align 4, !tbaa !76
+  %930 = load i32, ptr %401, align 4, !tbaa !77
   %931 = icmp sgt i32 %929, %928
   %..i1171 = tail call i32 @llvm.smin.i32(i32 %930, i32 %928)
   %.0.i1172 = select i1 %931, i32 %929, i32 %..i1171
@@ -4406,14 +4406,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 934:                                              ; preds = %933
   %sext1991 = shl i32 %857, 16
   %935 = ashr exact i32 %sext1991, 16
-  %936 = load i32, ptr %398, align 16, !tbaa !75
-  %937 = load i32, ptr %399, align 8, !tbaa !76
+  %936 = load i32, ptr %398, align 16, !tbaa !74
+  %937 = load i32, ptr %399, align 8, !tbaa !75
   %938 = icmp sgt i32 %936, %935
   %..i1169 = tail call i32 @llvm.smin.i32(i32 %937, i32 %935)
   %.0.i1170 = select i1 %938, i32 %936, i32 %..i1169
   %939 = ashr i32 %857, 16
-  %940 = load i32, ptr %400, align 4, !tbaa !77
-  %941 = load i32, ptr %401, align 4, !tbaa !78
+  %940 = load i32, ptr %400, align 4, !tbaa !76
+  %941 = load i32, ptr %401, align 4, !tbaa !77
   %942 = icmp sgt i32 %940, %939
   %..i1167 = tail call i32 @llvm.smin.i32(i32 %941, i32 %939)
   %.0.i1168 = select i1 %942, i32 %940, i32 %..i1167
@@ -4431,16 +4431,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 944:                                              ; preds = %943
   %sext1989 = shl i32 %857, 16
   %945 = ashr exact i32 %sext1989, 16
-  %946 = load i32, ptr %398, align 16, !tbaa !75
-  %947 = load i32, ptr %399, align 8, !tbaa !76
+  %946 = load i32, ptr %398, align 16, !tbaa !74
+  %947 = load i32, ptr %399, align 8, !tbaa !75
   %948 = icmp sgt i32 %946, %945
   %..i1165 = tail call i32 @llvm.smin.i32(i32 %947, i32 %945)
   %.0.i1166 = select i1 %948, i32 %946, i32 %..i1165
   %949 = trunc i32 %.0.i1166 to i16
   store i16 %949, ptr %1, align 4, !tbaa !39
   %950 = ashr i32 %857, 16
-  %951 = load i32, ptr %400, align 4, !tbaa !77
-  %952 = load i32, ptr %401, align 4, !tbaa !78
+  %951 = load i32, ptr %400, align 4, !tbaa !76
+  %952 = load i32, ptr %401, align 4, !tbaa !77
   %953 = icmp sgt i32 %951, %950
   %..i1163 = tail call i32 @llvm.smin.i32(i32 %952, i32 %950)
   %.0.i1164 = select i1 %953, i32 %951, i32 %..i1163
@@ -4460,16 +4460,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 959:                                              ; preds = %958
   %sext1987 = shl i32 %857, 16
   %960 = ashr exact i32 %sext1987, 16
-  %961 = load i32, ptr %398, align 16, !tbaa !75
-  %962 = load i32, ptr %399, align 8, !tbaa !76
+  %961 = load i32, ptr %398, align 16, !tbaa !74
+  %962 = load i32, ptr %399, align 8, !tbaa !75
   %963 = icmp sgt i32 %961, %960
   %..i1161 = tail call i32 @llvm.smin.i32(i32 %962, i32 %960)
   %.0.i1162 = select i1 %963, i32 %961, i32 %..i1161
   %964 = trunc i32 %.0.i1162 to i16
   store i16 %964, ptr %1, align 4, !tbaa !39
   %965 = ashr i32 %857, 16
-  %966 = load i32, ptr %400, align 4, !tbaa !77
-  %967 = load i32, ptr %401, align 4, !tbaa !78
+  %966 = load i32, ptr %400, align 4, !tbaa !76
+  %967 = load i32, ptr %401, align 4, !tbaa !77
   %968 = icmp sgt i32 %966, %965
   %..i1159 = tail call i32 @llvm.smin.i32(i32 %967, i32 %965)
   %.0.i1160 = select i1 %968, i32 %966, i32 %..i1159
@@ -4483,17 +4483,17 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   %.57 = phi i32 [ %.401858, %715 ], [ %.401858, %711 ], [ %.401858, %702 ], [ %.42, %854 ], [ %.42, %.thread1678 ], [ %.42, %882 ], [ %.42, %881 ], [ %.sroa.01450.0.insert.insert1462, %905 ], [ %.42, %907 ], [ %.42, %933 ], [ %857, %956 ], [ %.42, %958 ], [ %.42, %923 ]
   %indvars.iv.next1939 = add nuw nsw i64 %indvars.iv1938, 1
   %exitcond1941.not = icmp eq i64 %indvars.iv.next1939, 8
-  br i1 %exitcond1941.not, label %971, label %702, !llvm.loop !84
+  br i1 %exitcond1941.not, label %971, label %702, !llvm.loop !83
 
 971:                                              ; preds = %.thread1699
-  %972 = load i8, ptr %554, align 4, !tbaa !82
+  %972 = load i8, ptr %554, align 4, !tbaa !81
   %.not986 = icmp eq i8 %972, 0
   br i1 %.not986, label %.critedge1090, label %973
 
 973:                                              ; preds = %971
   %974 = getelementptr inbounds nuw i8, ptr %7, i64 520
-  %975 = load ptr, ptr %974, align 8, !tbaa !67
-  %976 = load i32, ptr %396, align 8, !tbaa !73
+  %975 = load ptr, ptr %974, align 8, !tbaa !66
+  %976 = load i32, ptr %396, align 8, !tbaa !72
   %977 = shl i32 %11, 3
   %978 = mul i32 %977, %976
   %979 = add i32 %978, %13
@@ -4529,14 +4529,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 999:                                              ; preds = %997
   %1000 = sext i16 %993 to i32
-  %1001 = load i32, ptr %398, align 16, !tbaa !75
-  %1002 = load i32, ptr %399, align 8, !tbaa !76
+  %1001 = load i32, ptr %398, align 16, !tbaa !74
+  %1002 = load i32, ptr %399, align 8, !tbaa !75
   %1003 = icmp sgt i32 %1001, %1000
   %..i1157 = tail call i32 @llvm.smin.i32(i32 %1002, i32 %1000)
   %.0.i1158 = select i1 %1003, i32 %1001, i32 %..i1157
   %1004 = sext i16 %996 to i32
-  %1005 = load i32, ptr %400, align 4, !tbaa !77
-  %1006 = load i32, ptr %401, align 4, !tbaa !78
+  %1005 = load i32, ptr %400, align 4, !tbaa !76
+  %1006 = load i32, ptr %401, align 4, !tbaa !77
   %1007 = icmp sgt i32 %1005, %1004
   %..i1155 = tail call i32 @llvm.smin.i32(i32 %1006, i32 %1004)
   %.0.i1156 = select i1 %1007, i32 %1005, i32 %..i1155
@@ -4567,14 +4567,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1011:                                             ; preds = %1010
   %1012 = sext i16 %993 to i32
-  %1013 = load i32, ptr %398, align 16, !tbaa !75
-  %1014 = load i32, ptr %399, align 8, !tbaa !76
+  %1013 = load i32, ptr %398, align 16, !tbaa !74
+  %1014 = load i32, ptr %399, align 8, !tbaa !75
   %1015 = icmp sgt i32 %1013, %1012
   %..i1153 = tail call i32 @llvm.smin.i32(i32 %1014, i32 %1012)
   %.0.i1154 = select i1 %1015, i32 %1013, i32 %..i1153
   %1016 = sext i16 %996 to i32
-  %1017 = load i32, ptr %400, align 4, !tbaa !77
-  %1018 = load i32, ptr %401, align 4, !tbaa !78
+  %1017 = load i32, ptr %400, align 4, !tbaa !76
+  %1018 = load i32, ptr %401, align 4, !tbaa !77
   %1019 = icmp sgt i32 %1017, %1016
   %..i1151 = tail call i32 @llvm.smin.i32(i32 %1018, i32 %1016)
   %.0.i1152 = select i1 %1019, i32 %1017, i32 %..i1151
@@ -4595,16 +4595,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1021:                                             ; preds = %1020
   %1022 = sext i16 %993 to i32
-  %1023 = load i32, ptr %398, align 16, !tbaa !75
-  %1024 = load i32, ptr %399, align 8, !tbaa !76
+  %1023 = load i32, ptr %398, align 16, !tbaa !74
+  %1024 = load i32, ptr %399, align 8, !tbaa !75
   %1025 = icmp sgt i32 %1023, %1022
   %..i1149 = tail call i32 @llvm.smin.i32(i32 %1024, i32 %1022)
   %.0.i1150 = select i1 %1025, i32 %1023, i32 %..i1149
   %1026 = trunc i32 %.0.i1150 to i16
   store i16 %1026, ptr %1, align 4, !tbaa !39
   %1027 = sext i16 %996 to i32
-  %1028 = load i32, ptr %400, align 4, !tbaa !77
-  %1029 = load i32, ptr %401, align 4, !tbaa !78
+  %1028 = load i32, ptr %400, align 4, !tbaa !76
+  %1029 = load i32, ptr %401, align 4, !tbaa !77
   %1030 = icmp sgt i32 %1028, %1027
   %..i1147 = tail call i32 @llvm.smin.i32(i32 %1029, i32 %1027)
   %.0.i1148 = select i1 %1030, i32 %1028, i32 %..i1147
@@ -4623,16 +4623,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1036:                                             ; preds = %1035
   %1037 = sext i16 %993 to i32
-  %1038 = load i32, ptr %398, align 16, !tbaa !75
-  %1039 = load i32, ptr %399, align 8, !tbaa !76
+  %1038 = load i32, ptr %398, align 16, !tbaa !74
+  %1039 = load i32, ptr %399, align 8, !tbaa !75
   %1040 = icmp sgt i32 %1038, %1037
   %..i1145 = tail call i32 @llvm.smin.i32(i32 %1039, i32 %1037)
   %.0.i1146 = select i1 %1040, i32 %1038, i32 %..i1145
   %1041 = trunc i32 %.0.i1146 to i16
   store i16 %1041, ptr %1, align 4, !tbaa !39
   %1042 = sext i16 %996 to i32
-  %1043 = load i32, ptr %400, align 4, !tbaa !77
-  %1044 = load i32, ptr %401, align 4, !tbaa !78
+  %1043 = load i32, ptr %400, align 4, !tbaa !76
+  %1044 = load i32, ptr %401, align 4, !tbaa !77
   %1045 = icmp sgt i32 %1043, %1042
   %..i1143 = tail call i32 @llvm.smin.i32(i32 %1044, i32 %1042)
   %.0.i1144 = select i1 %1045, i32 %1043, i32 %..i1143
@@ -4651,16 +4651,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1051:                                             ; preds = %1049
   %1052 = load i16, ptr %981, align 4, !tbaa !39
   %1053 = sext i16 %1052 to i32
-  %1054 = load i32, ptr %398, align 16, !tbaa !75
-  %1055 = load i32, ptr %399, align 8, !tbaa !76
+  %1054 = load i32, ptr %398, align 16, !tbaa !74
+  %1055 = load i32, ptr %399, align 8, !tbaa !75
   %1056 = icmp sgt i32 %1054, %1053
   %..i1141 = tail call i32 @llvm.smin.i32(i32 %1055, i32 %1053)
   %.0.i1142 = select i1 %1056, i32 %1054, i32 %..i1141
   %1057 = getelementptr inbounds nuw i8, ptr %981, i64 2
   %1058 = load i16, ptr %1057, align 2, !tbaa !42
   %1059 = sext i16 %1058 to i32
-  %1060 = load i32, ptr %400, align 4, !tbaa !77
-  %1061 = load i32, ptr %401, align 4, !tbaa !78
+  %1060 = load i32, ptr %400, align 4, !tbaa !76
+  %1061 = load i32, ptr %401, align 4, !tbaa !77
   %1062 = icmp sgt i32 %1060, %1059
   %..i1139 = tail call i32 @llvm.smin.i32(i32 %1061, i32 %1059)
   %.0.i1140 = select i1 %1062, i32 %1060, i32 %..i1139
@@ -4686,14 +4686,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1068:                                             ; preds = %1066
   %sext1999 = shl i32 %1067, 16
   %1069 = ashr exact i32 %sext1999, 16
-  %1070 = load i32, ptr %398, align 16, !tbaa !75
-  %1071 = load i32, ptr %399, align 8, !tbaa !76
+  %1070 = load i32, ptr %398, align 16, !tbaa !74
+  %1071 = load i32, ptr %399, align 8, !tbaa !75
   %1072 = icmp sgt i32 %1070, %1069
   %..i1137 = tail call i32 @llvm.smin.i32(i32 %1071, i32 %1069)
   %.0.i1138 = select i1 %1072, i32 %1070, i32 %..i1137
   %1073 = ashr i32 %1067, 16
-  %1074 = load i32, ptr %400, align 4, !tbaa !77
-  %1075 = load i32, ptr %401, align 4, !tbaa !78
+  %1074 = load i32, ptr %400, align 4, !tbaa !76
+  %1075 = load i32, ptr %401, align 4, !tbaa !77
   %1076 = icmp sgt i32 %1074, %1073
   %..i1135 = tail call i32 @llvm.smin.i32(i32 %1075, i32 %1073)
   %.0.i1136 = select i1 %1076, i32 %1074, i32 %..i1135
@@ -4712,16 +4712,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1079:                                             ; preds = %1077
   %sext1997 = shl i32 %1078, 16
   %1080 = ashr exact i32 %sext1997, 16
-  %1081 = load i32, ptr %398, align 16, !tbaa !75
-  %1082 = load i32, ptr %399, align 8, !tbaa !76
+  %1081 = load i32, ptr %398, align 16, !tbaa !74
+  %1082 = load i32, ptr %399, align 8, !tbaa !75
   %1083 = icmp sgt i32 %1081, %1080
   %..i1133 = tail call i32 @llvm.smin.i32(i32 %1082, i32 %1080)
   %.0.i1134 = select i1 %1083, i32 %1081, i32 %..i1133
   %1084 = trunc i32 %.0.i1134 to i16
   store i16 %1084, ptr %1, align 4, !tbaa !39
   %1085 = ashr i32 %1078, 16
-  %1086 = load i32, ptr %400, align 4, !tbaa !77
-  %1087 = load i32, ptr %401, align 4, !tbaa !78
+  %1086 = load i32, ptr %400, align 4, !tbaa !76
+  %1087 = load i32, ptr %401, align 4, !tbaa !77
   %1088 = icmp sgt i32 %1086, %1085
   %..i1131 = tail call i32 @llvm.smin.i32(i32 %1087, i32 %1085)
   %.0.i1132 = select i1 %1088, i32 %1086, i32 %..i1131
@@ -4741,16 +4741,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1094:                                             ; preds = %1093
   %sext1995 = shl i32 %1078, 16
   %1095 = ashr exact i32 %sext1995, 16
-  %1096 = load i32, ptr %398, align 16, !tbaa !75
-  %1097 = load i32, ptr %399, align 8, !tbaa !76
+  %1096 = load i32, ptr %398, align 16, !tbaa !74
+  %1097 = load i32, ptr %399, align 8, !tbaa !75
   %1098 = icmp sgt i32 %1096, %1095
   %..i1129 = tail call i32 @llvm.smin.i32(i32 %1097, i32 %1095)
   %.0.i1130 = select i1 %1098, i32 %1096, i32 %..i1129
   %1099 = trunc i32 %.0.i1130 to i16
   store i16 %1099, ptr %1, align 4, !tbaa !39
   %1100 = ashr i32 %1078, 16
-  %1101 = load i32, ptr %400, align 4, !tbaa !77
-  %1102 = load i32, ptr %401, align 4, !tbaa !78
+  %1101 = load i32, ptr %400, align 4, !tbaa !76
+  %1102 = load i32, ptr %401, align 4, !tbaa !77
   %1103 = icmp sgt i32 %1101, %1100
   %..i1127 = tail call i32 @llvm.smin.i32(i32 %1102, i32 %1100)
   %.0.i1128 = select i1 %1103, i32 %1101, i32 %..i1127
@@ -4799,14 +4799,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1127:                                             ; preds = %1125
   %1128 = sext i16 %1123 to i32
-  %1129 = load i32, ptr %398, align 16, !tbaa !75
-  %1130 = load i32, ptr %399, align 8, !tbaa !76
+  %1129 = load i32, ptr %398, align 16, !tbaa !74
+  %1130 = load i32, ptr %399, align 8, !tbaa !75
   %1131 = icmp sgt i32 %1129, %1128
   %..i1125 = tail call i32 @llvm.smin.i32(i32 %1130, i32 %1128)
   %.0.i1126 = select i1 %1131, i32 %1129, i32 %..i1125
   %1132 = sext i16 %1124 to i32
-  %1133 = load i32, ptr %400, align 4, !tbaa !77
-  %1134 = load i32, ptr %401, align 4, !tbaa !78
+  %1133 = load i32, ptr %400, align 4, !tbaa !76
+  %1134 = load i32, ptr %401, align 4, !tbaa !77
   %1135 = icmp sgt i32 %1133, %1132
   %..i1123 = tail call i32 @llvm.smin.i32(i32 %1134, i32 %1132)
   %.0.i1124 = select i1 %1135, i32 %1133, i32 %..i1123
@@ -4830,14 +4830,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1138:                                             ; preds = %1137
   %1139 = sext i16 %1123 to i32
-  %1140 = load i32, ptr %398, align 16, !tbaa !75
-  %1141 = load i32, ptr %399, align 8, !tbaa !76
+  %1140 = load i32, ptr %398, align 16, !tbaa !74
+  %1141 = load i32, ptr %399, align 8, !tbaa !75
   %1142 = icmp sgt i32 %1140, %1139
   %..i1121 = tail call i32 @llvm.smin.i32(i32 %1141, i32 %1139)
   %.0.i1122 = select i1 %1142, i32 %1140, i32 %..i1121
   %1143 = sext i16 %1124 to i32
-  %1144 = load i32, ptr %400, align 4, !tbaa !77
-  %1145 = load i32, ptr %401, align 4, !tbaa !78
+  %1144 = load i32, ptr %400, align 4, !tbaa !76
+  %1145 = load i32, ptr %401, align 4, !tbaa !77
   %1146 = icmp sgt i32 %1144, %1143
   %..i1119 = tail call i32 @llvm.smin.i32(i32 %1145, i32 %1143)
   %.0.i1120 = select i1 %1146, i32 %1144, i32 %..i1119
@@ -4854,16 +4854,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1148:                                             ; preds = %1147
   %1149 = sext i16 %1123 to i32
-  %1150 = load i32, ptr %398, align 16, !tbaa !75
-  %1151 = load i32, ptr %399, align 8, !tbaa !76
+  %1150 = load i32, ptr %398, align 16, !tbaa !74
+  %1151 = load i32, ptr %399, align 8, !tbaa !75
   %1152 = icmp sgt i32 %1150, %1149
   %..i1117 = tail call i32 @llvm.smin.i32(i32 %1151, i32 %1149)
   %.0.i1118 = select i1 %1152, i32 %1150, i32 %..i1117
   %1153 = trunc i32 %.0.i1118 to i16
   store i16 %1153, ptr %1, align 4, !tbaa !39
   %1154 = sext i16 %1124 to i32
-  %1155 = load i32, ptr %400, align 4, !tbaa !77
-  %1156 = load i32, ptr %401, align 4, !tbaa !78
+  %1155 = load i32, ptr %400, align 4, !tbaa !76
+  %1156 = load i32, ptr %401, align 4, !tbaa !77
   %1157 = icmp sgt i32 %1155, %1154
   %..i1115 = tail call i32 @llvm.smin.i32(i32 %1156, i32 %1154)
   %.0.i1116 = select i1 %1157, i32 %1155, i32 %..i1115
@@ -4884,16 +4884,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 1162:                                             ; preds = %1160
   %1163 = sext i16 %1123 to i32
-  %1164 = load i32, ptr %398, align 16, !tbaa !75
-  %1165 = load i32, ptr %399, align 8, !tbaa !76
+  %1164 = load i32, ptr %398, align 16, !tbaa !74
+  %1165 = load i32, ptr %399, align 8, !tbaa !75
   %1166 = icmp sgt i32 %1164, %1163
   %..i1113 = tail call i32 @llvm.smin.i32(i32 %1165, i32 %1163)
   %.0.i1114 = select i1 %1166, i32 %1164, i32 %..i1113
   %1167 = trunc i32 %.0.i1114 to i16
   store i16 %1167, ptr %1, align 4, !tbaa !39
   %1168 = sext i16 %1124 to i32
-  %1169 = load i32, ptr %400, align 4, !tbaa !77
-  %1170 = load i32, ptr %401, align 4, !tbaa !78
+  %1169 = load i32, ptr %400, align 4, !tbaa !76
+  %1170 = load i32, ptr %401, align 4, !tbaa !77
   %1171 = icmp sgt i32 %1169, %1168
   %..i1111 = tail call i32 @llvm.smin.i32(i32 %1170, i32 %1168)
   %.0.i1112 = select i1 %1171, i32 %1169, i32 %..i1111
@@ -4912,14 +4912,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1177:                                             ; preds = %1175
   %sext2007 = shl i32 %1113, 16
   %1178 = ashr exact i32 %sext2007, 16
-  %1179 = load i32, ptr %398, align 16, !tbaa !75
-  %1180 = load i32, ptr %399, align 8, !tbaa !76
+  %1179 = load i32, ptr %398, align 16, !tbaa !74
+  %1180 = load i32, ptr %399, align 8, !tbaa !75
   %1181 = icmp sgt i32 %1179, %1178
   %..i1109 = tail call i32 @llvm.smin.i32(i32 %1180, i32 %1178)
   %.0.i1110 = select i1 %1181, i32 %1179, i32 %..i1109
   %1182 = ashr i32 %1113, 16
-  %1183 = load i32, ptr %400, align 4, !tbaa !77
-  %1184 = load i32, ptr %401, align 4, !tbaa !78
+  %1183 = load i32, ptr %400, align 4, !tbaa !76
+  %1184 = load i32, ptr %401, align 4, !tbaa !77
   %1185 = icmp sgt i32 %1183, %1182
   %..i1107 = tail call i32 @llvm.smin.i32(i32 %1184, i32 %1182)
   %.0.i1108 = select i1 %1185, i32 %1183, i32 %..i1107
@@ -4940,14 +4940,14 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1188:                                             ; preds = %1187
   %sext2005 = shl i32 %1113, 16
   %1189 = ashr exact i32 %sext2005, 16
-  %1190 = load i32, ptr %398, align 16, !tbaa !75
-  %1191 = load i32, ptr %399, align 8, !tbaa !76
+  %1190 = load i32, ptr %398, align 16, !tbaa !74
+  %1191 = load i32, ptr %399, align 8, !tbaa !75
   %1192 = icmp sgt i32 %1190, %1189
   %..i1105 = tail call i32 @llvm.smin.i32(i32 %1191, i32 %1189)
   %.0.i1106 = select i1 %1192, i32 %1190, i32 %..i1105
   %1193 = ashr i32 %1113, 16
-  %1194 = load i32, ptr %400, align 4, !tbaa !77
-  %1195 = load i32, ptr %401, align 4, !tbaa !78
+  %1194 = load i32, ptr %400, align 4, !tbaa !76
+  %1195 = load i32, ptr %401, align 4, !tbaa !77
   %1196 = icmp sgt i32 %1194, %1193
   %..i1103 = tail call i32 @llvm.smin.i32(i32 %1195, i32 %1193)
   %.0.i1104 = select i1 %1196, i32 %1194, i32 %..i1103
@@ -4965,16 +4965,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1198:                                             ; preds = %1197
   %sext2003 = shl i32 %1113, 16
   %1199 = ashr exact i32 %sext2003, 16
-  %1200 = load i32, ptr %398, align 16, !tbaa !75
-  %1201 = load i32, ptr %399, align 8, !tbaa !76
+  %1200 = load i32, ptr %398, align 16, !tbaa !74
+  %1201 = load i32, ptr %399, align 8, !tbaa !75
   %1202 = icmp sgt i32 %1200, %1199
   %..i1101 = tail call i32 @llvm.smin.i32(i32 %1201, i32 %1199)
   %.0.i1102 = select i1 %1202, i32 %1200, i32 %..i1101
   %1203 = trunc i32 %.0.i1102 to i16
   store i16 %1203, ptr %1, align 4, !tbaa !39
   %1204 = ashr i32 %1113, 16
-  %1205 = load i32, ptr %400, align 4, !tbaa !77
-  %1206 = load i32, ptr %401, align 4, !tbaa !78
+  %1205 = load i32, ptr %400, align 4, !tbaa !76
+  %1206 = load i32, ptr %401, align 4, !tbaa !77
   %1207 = icmp sgt i32 %1205, %1204
   %..i1099 = tail call i32 @llvm.smin.i32(i32 %1206, i32 %1204)
   %.0.i1100 = select i1 %1207, i32 %1205, i32 %..i1099
@@ -4992,16 +4992,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 1212:                                             ; preds = %1210
   %sext2001 = shl i32 %1113, 16
   %1213 = ashr exact i32 %sext2001, 16
-  %1214 = load i32, ptr %398, align 16, !tbaa !75
-  %1215 = load i32, ptr %399, align 8, !tbaa !76
+  %1214 = load i32, ptr %398, align 16, !tbaa !74
+  %1215 = load i32, ptr %399, align 8, !tbaa !75
   %1216 = icmp sgt i32 %1214, %1213
   %..i1097 = tail call i32 @llvm.smin.i32(i32 %1215, i32 %1213)
   %.0.i1098 = select i1 %1216, i32 %1214, i32 %..i1097
   %1217 = trunc i32 %.0.i1098 to i16
   store i16 %1217, ptr %1, align 4, !tbaa !39
   %1218 = ashr i32 %1113, 16
-  %1219 = load i32, ptr %400, align 4, !tbaa !77
-  %1220 = load i32, ptr %401, align 4, !tbaa !78
+  %1219 = load i32, ptr %400, align 4, !tbaa !76
+  %1220 = load i32, ptr %401, align 4, !tbaa !77
   %1221 = icmp sgt i32 %1219, %1218
   %..i1095 = tail call i32 @llvm.smin.i32(i32 %1220, i32 %1218)
   %.0.i1096 = select i1 %1221, i32 %1219, i32 %..i1095
@@ -5012,16 +5012,16 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
 
 .critedge1090:                                    ; preds = %1177, %1187, %1160, %1137, %1127, %1210, %1110, %.thread1725, %971
   store i32 0, ptr %1, align 4, !tbaa !19
-  %1224 = load i32, ptr %398, align 16, !tbaa !75
-  %1225 = load i32, ptr %399, align 8, !tbaa !76
+  %1224 = load i32, ptr %398, align 16, !tbaa !74
+  %1225 = load i32, ptr %399, align 8, !tbaa !75
   %1226 = icmp sgt i32 %1224, 0
   %..i1093 = tail call i32 @llvm.smin.i32(i32 %1225, i32 0)
   %.0.i1094 = select i1 %1226, i32 %1224, i32 %..i1093
   %1227 = trunc i32 %.0.i1094 to i16
   store i16 %1227, ptr %1, align 4, !tbaa !39
   %1228 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %1229 = load i32, ptr %400, align 4, !tbaa !77
-  %1230 = load i32, ptr %401, align 4, !tbaa !78
+  %1229 = load i32, ptr %400, align 4, !tbaa !76
+  %1230 = load i32, ptr %401, align 4, !tbaa !77
   %1231 = icmp sgt i32 %1229, 0
   %..i = tail call i32 @llvm.smin.i32(i32 %1230, i32 0)
   %.0.i = select i1 %1231, i32 %1229, i32 %..i
@@ -5101,38 +5101,37 @@ attributes #3 = { nounwind }
 !47 = !{!32, !17, i64 8}
 !48 = !{!32, !17, i64 16}
 !49 = !{!17, !17, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!11, !11, i64 0}
-!54 = !{!55, !8, i64 0}
-!55 = !{!"", !8, i64 0, !8, i64 1, !8, i64 11, !8, i64 12, !8, i64 22, !8, i64 28, !8, i64 31, !8, i64 32}
-!56 = distinct !{!56, !51, !52}
-!57 = !{!55, !8, i64 32}
-!58 = !{!55, !8, i64 11}
-!59 = !{!55, !8, i64 31}
-!60 = !{!61, !8, i64 2}
-!61 = !{!"VP9Block", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 5, !8, i64 9, !8, i64 10, !11, i64 12, !8, i64 16, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64}
-!62 = !{!5, !11, i64 24}
-!63 = !{!5, !11, i64 32}
-!64 = !{!5, !11, i64 28}
-!65 = !{!61, !11, i64 48}
-!66 = !{!5, !11, i64 96}
-!67 = !{!68, !72, i64 32}
-!68 = !{!"VP9Frame", !69, i64 0, !7, i64 16, !17, i64 24, !72, i64 32, !11, i64 40, !7, i64 48}
-!69 = !{!"ProgressFrame", !70, i64 0, !71, i64 8}
-!70 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!71 = !{!"p1 _ZTS16ProgressInternal", !7, i64 0}
-!72 = !{!"p1 _ZTS12VP9mvrefPair", !7, i64 0}
-!73 = !{!21, !11, i64 3248}
-!74 = !{!21, !36, i64 18424}
-!75 = !{!5, !11, i64 77024}
-!76 = !{!5, !11, i64 77032}
-!77 = !{!5, !11, i64 77028}
-!78 = !{!5, !11, i64 77036}
-!79 = !{!21, !11, i64 3260}
-!80 = !{!21, !11, i64 3256}
-!81 = distinct !{!81, !51, !52}
-!82 = !{!21, !8, i64 20}
-!83 = !{!68, !11, i64 40}
-!84 = distinct !{!84, !51, !52}
+!52 = !{!11, !11, i64 0}
+!53 = !{!54, !8, i64 0}
+!54 = !{!"", !8, i64 0, !8, i64 1, !8, i64 11, !8, i64 12, !8, i64 22, !8, i64 28, !8, i64 31, !8, i64 32}
+!55 = distinct !{!55, !51}
+!56 = !{!54, !8, i64 32}
+!57 = !{!54, !8, i64 11}
+!58 = !{!54, !8, i64 31}
+!59 = !{!60, !8, i64 2}
+!60 = !{!"VP9Block", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 5, !8, i64 9, !8, i64 10, !11, i64 12, !8, i64 16, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64}
+!61 = !{!5, !11, i64 24}
+!62 = !{!5, !11, i64 32}
+!63 = !{!5, !11, i64 28}
+!64 = !{!60, !11, i64 48}
+!65 = !{!5, !11, i64 96}
+!66 = !{!67, !71, i64 32}
+!67 = !{!"VP9Frame", !68, i64 0, !7, i64 16, !17, i64 24, !71, i64 32, !11, i64 40, !7, i64 48}
+!68 = !{!"ProgressFrame", !69, i64 0, !70, i64 8}
+!69 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!70 = !{!"p1 _ZTS16ProgressInternal", !7, i64 0}
+!71 = !{!"p1 _ZTS12VP9mvrefPair", !7, i64 0}
+!72 = !{!21, !11, i64 3248}
+!73 = !{!21, !36, i64 18424}
+!74 = !{!5, !11, i64 77024}
+!75 = !{!5, !11, i64 77032}
+!76 = !{!5, !11, i64 77028}
+!77 = !{!5, !11, i64 77036}
+!78 = !{!21, !11, i64 3260}
+!79 = !{!21, !11, i64 3256}
+!80 = distinct !{!80, !51}
+!81 = !{!21, !8, i64 20}
+!82 = !{!67, !11, i64 40}
+!83 = distinct !{!83, !51}

@@ -255,12 +255,12 @@ define internal void @uat_expert_entries_severity_tostr_cb(ptr noundef readonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -381,7 +381,7 @@ define internal void @uat_expert_post_update_cb() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %13, %0
   %17 = tail call ptr @g_array_set_size(ptr noundef %2, i32 noundef 0)
@@ -423,7 +423,7 @@ expert_registrar_get_byname.exit:                 ; preds = %.lr.ph15
   %32 = load i32, ptr @expert_level_entry_count, align 4
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next21, %33
-  br i1 %34, label %.lr.ph15, label %._crit_edge16, !llvm.loop !11
+  br i1 %34, label %.lr.ph15, label %._crit_edge16, !llvm.loop !10
 
 ._crit_edge16:                                    ; preds = %31, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #16
@@ -775,7 +775,7 @@ expert_register_field_init.exit:                  ; preds = %31, %.sink.split.i
   %66 = add nuw nsw i32 %.01929, 1
   %67 = getelementptr i8, ptr %.030, i64 136
   %exitcond.not = icmp eq i32 %66, %2
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !11
 
 .loopexit:                                        ; preds = %expert_register_field_init.exit, %3, %9
   ret void
@@ -789,7 +789,7 @@ define ptr @expert_get_summary(ptr noundef readonly captures(none) %0) local_unn
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr @gpa_expertinfo.0, align 8
   %4 = icmp uge i32 %2, %3
-  %5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !13
+  %5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %6 = trunc nuw i8 %5 to i1
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %7, label %8
@@ -843,7 +843,7 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @gpa_expertinfo.0, align 8
   %7 = icmp uge i32 %5, %6
-  %8 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !13
+  %8 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %7, i1 %9, i1 false
   br i1 %or.cond, label %10, label %11
@@ -896,7 +896,7 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef r
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr @gpa_expertinfo.0, align 8
   %8 = icmp uge i32 %6, %7
-  %9 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !13
+  %9 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %10 = trunc nuw i8 %9 to i1
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %11, label %12
@@ -1276,7 +1276,7 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
   %8 = load i32, ptr %2, align 4
   %9 = load i32, ptr @gpa_expertinfo.0, align 8
   %10 = icmp uge i32 %8, %9
-  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !13
+  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %12 = trunc nuw i8 %11 to i1
   %or.cond = select i1 %10, i1 %12, i1 false
   br i1 %or.cond, label %13, label %14
@@ -1343,7 +1343,7 @@ define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1,
   %9 = load i32, ptr %2, align 4
   %10 = load i32, ptr @gpa_expertinfo.0, align 8
   %11 = icmp uge i32 %9, %10
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !13
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %11, i1 %13, i1 false
   br i1 %or.cond, label %14, label %15
@@ -1524,11 +1524,10 @@ attributes #19 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}

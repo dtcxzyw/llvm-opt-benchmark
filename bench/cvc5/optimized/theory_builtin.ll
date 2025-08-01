@@ -1367,6 +1367,5 @@ attributes #24 = { builtin allocsize(0) }
 !89 = !{!90, !6, i64 0}
 !90 = !{!"_ZTSNSt12_Vector_baseIN4cvc516ProofRewriteRuleESaIS1_EE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
 !91 = !{!90, !6, i64 16}
-!92 = distinct !{!92, !93, !94}
+!92 = distinct !{!92, !93}
 !93 = !{!"llvm.loop.mustprogress"}
-!94 = !{!"llvm.loop.estimated_trip_count"}

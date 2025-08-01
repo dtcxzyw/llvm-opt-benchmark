@@ -850,7 +850,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %209 = icmp ne ptr %208, null
   %210 = icmp ult i32 %207, 4
   %211 = or i1 %210, %209
-  br i1 %211, label %197, label %.thread, !llvm.loop !10
+  br i1 %211, label %197, label %.thread, !llvm.loop !9
 
 212:                                              ; preds = %.loopexit29
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -961,7 +961,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %284 = icmp eq ptr %283, null
   %285 = icmp ugt i32 %282, 3
   %286 = and i1 %285, %284
-  br i1 %286, label %287, label %258, !llvm.loop !11
+  br i1 %286, label %287, label %258, !llvm.loop !10
 
 287:                                              ; preds = %280, %272
   %288 = phi ptr [ %260, %272 ], [ %281, %280 ]
@@ -1067,7 +1067,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %356 = phi i64 [ %318, %327 ], [ %318, %323 ], [ %342, %350 ]
   %357 = add nuw nsw i64 %317, 1
   %358 = icmp eq i64 %357, 11
-  br i1 %358, label %.split35.us.us, label %316, !llvm.loop !12
+  br i1 %358, label %.split35.us.us, label %316, !llvm.loop !11
 
 .split35.us.us:                                   ; preds = %353, %316
   %359 = phi i64 [ %354, %353 ], [ %320, %316 ]
@@ -1075,7 +1075,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %361 = phi i64 [ %356, %353 ], [ %318, %316 ]
   %362 = load ptr, ptr %310, align 8
   %363 = icmp eq ptr %362, %4
-  br i1 %363, label %.loopexit, label %.split.us.us, !llvm.loop !14
+  br i1 %363, label %.loopexit, label %.split.us.us, !llvm.loop !13
 
 .split:                                           ; preds = %.preheader28, %.split35
   %364 = phi ptr [ %383, %.split35 ], [ %308, %.preheader28 ]
@@ -1104,7 +1104,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %382 = phi i64 [ %433, %429 ], [ %373, %371 ]
   %383 = load ptr, ptr %364, align 8
   %384 = icmp eq ptr %383, %4
-  br i1 %384, label %.loopexit, label %.split, !llvm.loop !15
+  br i1 %384, label %.loopexit, label %.split, !llvm.loop !14
 
 385:                                              ; preds = %371
   %386 = getelementptr inbounds nuw i8, ptr %377, i64 40
@@ -1158,7 +1158,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %419 = getelementptr inbounds nuw i8, ptr %416, i64 16
   %420 = load ptr, ptr %419, align 8
   %421 = icmp eq ptr %420, %377
-  br i1 %421, label %422, label %414, !llvm.loop !16
+  br i1 %421, label %422, label %414, !llvm.loop !15
 
 422:                                              ; preds = %418
   %423 = icmp eq ptr %416, null
@@ -1181,7 +1181,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %433 = phi i64 [ %373, %389 ], [ %373, %385 ], [ %404, %.thread24 ]
   %434 = add nuw nsw i64 %372, 1
   %435 = icmp eq i64 %434, 11
-  br i1 %435, label %.split35, label %371, !llvm.loop !17
+  br i1 %435, label %.split35, label %371, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.split35, %.split35.us.us, %304
   %436 = phi i64 [ 0, %304 ], [ %359, %.split35.us.us ], [ %379, %.split35 ]
@@ -1285,13 +1285,13 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
 
 504:                                              ; preds = %499
   %505 = select i1 %255, i64 %253, i64 0
-  %506 = call fastcc i32 @pbus_size_mem(ptr noundef %0, i64 noundef 1057280, i64 noundef 1057280, i64 noundef 1057280, i64 noundef 1057280, i64 noundef %505, i64 noundef %253, ptr noundef %1), !range !18
+  %506 = call fastcc i32 @pbus_size_mem(ptr noundef %0, i64 noundef 1057280, i64 noundef 1057280, i64 noundef 1057280, i64 noundef 1057280, i64 noundef %505, i64 noundef %253, ptr noundef %1), !range !17
   %507 = icmp eq i32 %506, 0
   br i1 %507, label %515, label %508
 
 508:                                              ; preds = %504, %499, %497
   %509 = select i1 %255, i64 %253, i64 0
-  %510 = call fastcc i32 @pbus_size_mem(ptr noundef %0, i64 noundef 8704, i64 noundef 8704, i64 noundef 8704, i64 noundef 8704, i64 noundef %509, i64 noundef %253, ptr noundef %1), !range !18
+  %510 = call fastcc i32 @pbus_size_mem(ptr noundef %0, i64 noundef 8704, i64 noundef 8704, i64 noundef 8704, i64 noundef 8704, i64 noundef %509, i64 noundef %253, ptr noundef %1), !range !17
   %511 = icmp eq i32 %510, 0
   %512 = select i1 %511, i64 0, i64 %253
   %513 = add i64 %512, %252
@@ -1304,7 +1304,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %518 = phi i64 [ 512, %508 ], [ 8704, %504 ]
   %519 = phi i64 [ %514, %508 ], [ 1057280, %504 ]
   %520 = select i1 %255, i64 %516, i64 0
-  %521 = call fastcc i32 @pbus_size_mem(ptr noundef %0, i64 noundef %519, i64 noundef 512, i64 noundef %518, i64 noundef %517, i64 noundef %520, i64 noundef %516, ptr noundef %1), !range !18
+  %521 = call fastcc i32 @pbus_size_mem(ptr noundef %0, i64 noundef %519, i64 noundef 512, i64 noundef %518, i64 noundef %517, i64 noundef %520, i64 noundef %516, ptr noundef %1), !range !17
   br label %522
 
 522:                                              ; preds = %515, %212, %187
@@ -1361,7 +1361,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %40 = icmp eq ptr %39, null
   %41 = icmp ugt i32 %38, 3
   %42 = and i1 %41, %40
-  br i1 %42, label %43, label %13, !llvm.loop !19
+  br i1 %42, label %43, label %13, !llvm.loop !10
 
 43:                                               ; preds = %36, %27
   %44 = phi ptr [ %15, %27 ], [ %37, %36 ]
@@ -1464,7 +1464,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
 
 112:                                              ; preds = %110, %105, %103
   %113 = phi i64 [ %111, %110 ], [ %104, %103 ], [ %109, %105 ]
-  %114 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %113) #15, !srcloc !20
+  %114 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %113) #15, !srcloc !18
   %115 = trunc i64 %114 to i32
   %116 = add i32 %115, -20
   %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
@@ -1504,7 +1504,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = icmp eq ptr %136, %71
-  br i1 %137, label %138, label %.preheader, !llvm.loop !21
+  br i1 %137, label %138, label %.preheader, !llvm.loop !15
 
 138:                                              ; preds = %134
   %139 = icmp eq ptr %132, null
@@ -1530,7 +1530,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, %71
-  br i1 %152, label %153, label %145, !llvm.loop !22
+  br i1 %152, label %153, label %145, !llvm.loop !15
 
 153:                                              ; preds = %149
   %154 = icmp eq ptr %147, null
@@ -1549,7 +1549,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %162 = phi i64 [ %67, %120 ], [ %67, %84 ], [ %67, %79 ], [ %67, %73 ], [ %123, %129 ], [ %123, %155 ], [ %123, %153 ], [ %123, %145 ]
   %163 = add nuw nsw i64 %66, 1
   %164 = icmp eq i64 %163, 11
-  br i1 %164, label %165, label %65, !llvm.loop !23
+  br i1 %164, label %165, label %65, !llvm.loop !19
 
 165:                                              ; preds = %.thread21, %65
   %166 = phi i64 [ %159, %.thread21 ], [ %70, %65 ]
@@ -1558,7 +1558,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %169 = phi i64 [ %162, %.thread21 ], [ %67, %65 ]
   %170 = load ptr, ptr %57, align 8
   %171 = icmp eq ptr %170, %51
-  br i1 %171, label %.loopexit.loopexit, label %56, !llvm.loop !24
+  br i1 %171, label %.loopexit.loopexit, label %56, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %165
   %172 = add nuw i32 %168, 1
@@ -1600,7 +1600,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %199 = add i64 %198, %183
   %200 = add nuw nsw i64 %181, 1
   %201 = icmp eq i64 %200, %178
-  br i1 %201, label %202, label %180, !llvm.loop !25
+  br i1 %201, label %202, label %180, !llvm.loop !21
 
 202:                                              ; preds = %195
   %203 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -1748,7 +1748,7 @@ define dso_local void @__pci_bus_assign_resources(ptr noundef readonly captures(
   call fastcc void @__dev_sort_resources(ptr noundef %9, ptr noundef nonnull %4)
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %6
-  br i1 %11, label %.loopexit10, label %.preheader9, !llvm.loop !26
+  br i1 %11, label %.loopexit10, label %.preheader9, !llvm.loop !22
 
 .loopexit10:                                      ; preds = %.preheader9, %3
   call fastcc void @__assign_resources_sorted(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
@@ -1851,18 +1851,18 @@ define dso_local void @__pci_bus_assign_resources(ptr noundef readonly captures(
   %76 = icmp ne ptr %75, null
   %77 = icmp ult i32 %74, 4
   %78 = or i1 %77, %76
-  br i1 %78, label %45, label %79, !llvm.loop !27
+  br i1 %78, label %45, label %79, !llvm.loop !23
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.loopexit, label %38, !llvm.loop !28
+  br i1 %82, label %.loopexit, label %38, !llvm.loop !24
 
 .loopexit:                                        ; preds = %79, %38, %33, %25, %21
   %83 = add nuw nsw i64 %18, 1
   %84 = icmp eq i64 %83, 11
-  br i1 %84, label %85, label %17, !llvm.loop !29
+  br i1 %84, label %85, label %17, !llvm.loop !25
 
 85:                                               ; preds = %.loopexit, %17
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -1908,7 +1908,7 @@ define dso_local void @__pci_bus_assign_resources(ptr noundef readonly captures(
 106:                                              ; preds = %98, %97, %96, %92, %85
   %107 = load ptr, ptr %14, align 8
   %108 = icmp eq ptr %107, %6
-  br i1 %108, label %.loopexit8, label %.preheader, !llvm.loop !30
+  br i1 %108, label %.loopexit8, label %.preheader, !llvm.loop !26
 
 .loopexit8:                                       ; preds = %106, %.loopexit10
   ret void
@@ -1956,13 +1956,13 @@ define internal fastcc void @pci_bus_allocate_resources(ptr noundef %0) unnamed_
 
 18:                                               ; preds = %14
   %19 = trunc i64 %9 to i32
-  %20 = tail call i32 @pci_claim_bridge_resource(ptr noundef %6, i32 noundef %19), !range !31
+  %20 = tail call i32 @pci_claim_bridge_resource(ptr noundef %6, i32 noundef %19), !range !27
   br label %21
 
 21:                                               ; preds = %18, %14, %8
   %22 = add nuw nsw i64 %9, 1
   %23 = icmp eq i64 %22, 11
-  br i1 %23, label %.loopexit2, label %8, !llvm.loop !32
+  br i1 %23, label %.loopexit2, label %8, !llvm.loop !28
 
 .loopexit2:                                       ; preds = %21, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1975,7 +1975,7 @@ define internal fastcc void @pci_bus_allocate_resources(ptr noundef %0) unnamed_
   tail call fastcc void @pci_bus_allocate_resources(ptr noundef %27)
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %24
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2
   ret void
@@ -2015,7 +2015,7 @@ define internal fastcc void @pci_bus_allocate_dev_resources(ptr noundef readonly
 20:                                               ; preds = %17, %13, %7
   %21 = add nuw nsw i64 %8, 1
   %22 = icmp eq i64 %21, 7
-  br i1 %22, label %23, label %7, !llvm.loop !34
+  br i1 %22, label %23, label %7, !llvm.loop !30
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2030,7 +2030,7 @@ define internal fastcc void @pci_bus_allocate_dev_resources(ptr noundef readonly
 28:                                               ; preds = %27, %23
   %29 = load ptr, ptr %5, align 8
   %30 = icmp eq ptr %29, %2
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %28, %1
   ret void
@@ -2098,170 +2098,170 @@ define dso_local void @pci_assign_unassigned_root_bus_resources(ptr noundef %0) 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %15 = call i32 @llvm.smax.i32(i32 %13, i32 1)
   %16 = add nsw i32 %15, -1
-  br label %17
+  br label %.loopexit9
 
-17:                                               ; preds = %.loopexit9, %12
-  %18 = phi i32 [ 0, %12 ], [ %49, %.loopexit9 ]
-  %19 = phi i32 [ 0, %12 ], [ %21, %.loopexit9 ]
-  %20 = phi ptr [ null, %12 ], [ %23, %.loopexit9 ]
-  %21 = add nuw nsw i32 %19, 1
-  %22 = icmp eq i32 %21, %13
-  %23 = select i1 %22, ptr %2, ptr %20
-  call void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %23)
-  call fastcc void @pci_root_bus_distribute_available_resources(ptr noundef %0, ptr noundef %23)
-  call void @__pci_bus_assign_resources(ptr noundef %0, ptr noundef %23, ptr noundef nonnull %3)
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %29, label %25
+.loopexit9:                                       ; preds = %.loopexit9.backedge, %12
+  %17 = phi i32 [ 0, %12 ], [ %48, %.loopexit9.backedge ]
+  %18 = phi i32 [ 0, %12 ], [ %20, %.loopexit9.backedge ]
+  %19 = phi ptr [ null, %12 ], [ %22, %.loopexit9.backedge ]
+  %20 = add nuw nsw i32 %18, 1
+  %21 = icmp eq i32 %20, %13
+  %22 = select i1 %21, ptr %2, ptr %19
+  call void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %22)
+  call fastcc void @pci_root_bus_distribute_available_resources(ptr noundef %0, ptr noundef %22)
+  call void @__pci_bus_assign_resources(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %3)
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %28, label %24
 
-25:                                               ; preds = %17
-  %26 = load volatile ptr, ptr %23, align 8
-  %27 = icmp eq ptr %26, %23
-  br i1 %27, label %29, label %28, !prof !36
+24:                                               ; preds = %.loopexit9
+  %25 = load volatile ptr, ptr %22, align 8
+  %26 = icmp eq ptr %25, %22
+  br i1 %26, label %28, label %27, !prof !32
 
-28:                                               ; preds = %25
-  call void asm sideeffect "385: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 385b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 385) #12, !srcloc !37
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2084, i32 0, i64 12) #12, !srcloc !38
+27:                                               ; preds = %24
+  call void asm sideeffect "385: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 385b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 385) #12, !srcloc !33
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2084, i32 0, i64 12) #12, !srcloc !34
   unreachable
 
-29:                                               ; preds = %25, %17
-  %30 = load volatile ptr, ptr %3, align 8
-  %31 = icmp eq ptr %30, %3
-  br i1 %31, label %.loopexit, label %32
+28:                                               ; preds = %24, %.loopexit9
+  %29 = load volatile ptr, ptr %3, align 8
+  %30 = icmp eq ptr %29, %3
+  br i1 %30, label %.loopexit, label %31
 
-32:                                               ; preds = %29
-  %33 = icmp eq i32 %19, %16
-  br i1 %33, label %34, label %46
+31:                                               ; preds = %28
+  %32 = icmp eq i32 %18, %16
+  br i1 %32, label %33, label %45
 
-34:                                               ; preds = %32
-  %35 = icmp eq i32 %6, -1
-  br i1 %35, label %36, label %37
+33:                                               ; preds = %31
+  %34 = icmp eq i32 %6, -1
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.7) #13
   %.pre17 = load ptr, ptr %3, align 8
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %34
-  %38 = phi ptr [ %.pre17, %36 ], [ %30, %34 ]
-  %39 = icmp eq ptr %38, %3
-  br i1 %39, label %.loopexit, label %.preheader
+36:                                               ; preds = %35, %33
+  %37 = phi ptr [ %.pre17, %35 ], [ %29, %33 ]
+  %38 = icmp eq ptr %37, %3
+  br i1 %38, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %37, %.preheader
-  %40 = phi ptr [ %41, %.preheader ], [ %38, %37 ]
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %43, ptr %44, align 8
-  store volatile ptr %41, ptr %43, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %40, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %42, align 8
-  call void @kfree(ptr noundef %40) #12
-  %45 = icmp eq ptr %41, %3
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !39
+.preheader:                                       ; preds = %36, %.preheader
+  %39 = phi ptr [ %40, %.preheader ], [ %37, %36 ]
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %42, ptr %43, align 8
+  store volatile ptr %40, ptr %42, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %39, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %41, align 8
+  call void @kfree(ptr noundef %39) #12
+  %44 = icmp eq ptr %40, %3
+  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !35
 
-46:                                               ; preds = %32
-  %47 = add nuw i32 %19, 2
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.9, i32 noundef %47) #13
-  %48 = icmp sgt i32 %47, 2
-  %49 = select i1 %48, i32 1, i32 %18
-  %50 = load ptr, ptr %3, align 8
-  %51 = icmp eq ptr %50, %3
-  br i1 %51, label %.loopexit13, label %.preheader12
+45:                                               ; preds = %31
+  %46 = add nuw i32 %18, 2
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.9, i32 noundef %46) #13
+  %47 = icmp sgt i32 %46, 2
+  %48 = select i1 %47, i32 1, i32 %17
+  %49 = load ptr, ptr %3, align 8
+  %50 = icmp eq ptr %49, %3
+  br i1 %50, label %.loopexit13, label %.preheader12
 
 .loopexit13.loopexit:                             ; preds = %.preheader12
   %.pre = load ptr, ptr %3, align 8
   br label %.loopexit13
 
-.loopexit13:                                      ; preds = %.loopexit13.loopexit, %46
-  %52 = phi ptr [ %.pre, %.loopexit13.loopexit ], [ %50, %46 ]
-  %53 = icmp eq ptr %52, %3
-  br i1 %53, label %.loopexit11, label %.preheader10
+.loopexit13:                                      ; preds = %.loopexit13.loopexit, %45
+  %51 = phi ptr [ %.pre, %.loopexit13.loopexit ], [ %49, %45 ]
+  %52 = icmp eq ptr %51, %3
+  br i1 %52, label %.loopexit11, label %.preheader10
 
-.preheader12:                                     ; preds = %46, %.preheader12
-  %54 = phi ptr [ %62, %.preheader12 ], [ %50, %46 ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %60 = load i64, ptr %59, align 8
-  %61 = and i64 %60, 1057536
-  call fastcc void @pci_bus_release_bridge_resources(ptr noundef %58, i64 noundef %61, i32 noundef %49)
-  %62 = load ptr, ptr %54, align 8
-  %63 = icmp eq ptr %62, %3
-  br i1 %63, label %.loopexit13.loopexit, label %.preheader12, !llvm.loop !40
+.preheader12:                                     ; preds = %45, %.preheader12
+  %53 = phi ptr [ %61, %.preheader12 ], [ %49, %45 ]
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, 1057536
+  call fastcc void @pci_bus_release_bridge_resources(ptr noundef %57, i64 noundef %60, i32 noundef %48)
+  %61 = load ptr, ptr %53, align 8
+  %62 = icmp eq ptr %61, %3
+  br i1 %62, label %.loopexit13.loopexit, label %.preheader12, !llvm.loop !36
 
-.preheader10:                                     ; preds = %.loopexit13, %91
-  %64 = phi ptr [ %92, %91 ], [ %52, %.loopexit13 ]
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %68 = load i64, ptr %67, align 8
-  store i64 %68, ptr %66, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store i64 %73, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 73
-  %78 = load i8, ptr %77, align 1
-  %79 = add i8 %78, -1
-  %80 = icmp ult i8 %79, 2
-  br i1 %80, label %81, label %91
+.preheader10:                                     ; preds = %.loopexit13, %90
+  %63 = phi ptr [ %91, %90 ], [ %51, %.loopexit13 ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %67 = load i64, ptr %66, align 8
+  store i64 %67, ptr %65, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i64 %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  store i64 %72, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 73
+  %77 = load i8, ptr %76, align 1
+  %78 = add i8 %77, -1
+  %79 = icmp ult i8 %78, 2
+  br i1 %79, label %80, label %90
 
-81:                                               ; preds = %.preheader10
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 920
-  %83 = ptrtoint ptr %66 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = lshr exact i64 %85, 6
-  %87 = trunc i64 %86 to i32
-  %88 = add i32 %87, -7
-  %89 = icmp ult i32 %88, 4
-  br i1 %89, label %90, label %91
+80:                                               ; preds = %.preheader10
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 920
+  %82 = ptrtoint ptr %65 to i64
+  %83 = ptrtoint ptr %81 to i64
+  %84 = sub i64 %82, %83
+  %85 = lshr exact i64 %84, 6
+  %86 = trunc i64 %85 to i32
+  %87 = add i32 %86, -7
+  %88 = icmp ult i32 %87, 4
+  br i1 %88, label %89, label %90
 
-90:                                               ; preds = %81
-  store i64 0, ptr %74, align 8
-  br label %91
+89:                                               ; preds = %80
+  store i64 0, ptr %73, align 8
+  br label %90
 
-91:                                               ; preds = %90, %81, %.preheader10
-  %92 = load ptr, ptr %64, align 8
-  %93 = icmp eq ptr %92, %3
-  br i1 %93, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !41
+90:                                               ; preds = %89, %80, %.preheader10
+  %91 = load ptr, ptr %63, align 8
+  %92 = icmp eq ptr %91, %3
+  br i1 %92, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !37
 
-.loopexit11.loopexit:                             ; preds = %91
+.loopexit11.loopexit:                             ; preds = %90
   %.pre16 = load ptr, ptr %3, align 8
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %.loopexit13
-  %94 = phi ptr [ %.pre16, %.loopexit11.loopexit ], [ %52, %.loopexit13 ]
-  %95 = icmp eq ptr %94, %3
-  br i1 %95, label %.loopexit9, label %.preheader8
+  %93 = phi ptr [ %.pre16, %.loopexit11.loopexit ], [ %51, %.loopexit13 ]
+  %94 = icmp eq ptr %93, %3
+  br i1 %94, label %.loopexit9.backedge, label %.preheader8
 
-.loopexit9:                                       ; preds = %.preheader8, %.loopexit11
-  br label %17, !llvm.loop !42
+.loopexit9.backedge:                              ; preds = %.preheader8, %.loopexit11
+  br label %.loopexit9
 
 .preheader8:                                      ; preds = %.loopexit11, %.preheader8
-  %96 = phi ptr [ %97, %.preheader8 ], [ %94, %.loopexit11 ]
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %99, ptr %100, align 8
-  store volatile ptr %97, ptr %99, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %96, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %98, align 8
-  call void @kfree(ptr noundef %96) #12
-  %101 = icmp eq ptr %97, %3
-  br i1 %101, label %.loopexit9, label %.preheader8, !llvm.loop !43
+  %95 = phi ptr [ %96, %.preheader8 ], [ %93, %.loopexit11 ]
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %98, ptr %99, align 8
+  store volatile ptr %96, ptr %98, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %95, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %97, align 8
+  call void @kfree(ptr noundef %95) #12
+  %100 = icmp eq ptr %96, %3
+  br i1 %100, label %.loopexit9.backedge, label %.preheader8, !llvm.loop !35
 
-.loopexit:                                        ; preds = %29, %.preheader, %37
+.loopexit:                                        ; preds = %28, %.preheader, %36
   call fastcc void @pci_bus_dump_resources(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
@@ -2283,7 +2283,7 @@ define internal fastcc i32 @pci_bus_get_depth(ptr noundef readonly captures(addr
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 %6)
   %10 = load ptr, ptr %5, align 8
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !44
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader, %1
   %12 = phi i32 [ 0, %1 ], [ %9, %.preheader ]
@@ -2332,7 +2332,7 @@ define internal fastcc void @pci_root_bus_distribute_available_resources(ptr nou
 27:                                               ; preds = %26, %22, %.split.us
   %28 = load ptr, ptr %17, align 8
   %29 = icmp eq ptr %28, %3
-  br i1 %29, label %.loopexit, label %.split.us, !llvm.loop !45
+  br i1 %29, label %.loopexit, label %.split.us, !llvm.loop !39
 
 .split:                                           ; preds = %6, %67
   %30 = phi ptr [ %68, %67 ], [ %4, %6 ]
@@ -2397,7 +2397,7 @@ define internal fastcc void @pci_root_bus_distribute_available_resources(ptr nou
 67:                                               ; preds = %66, %64, %60, %35, %.split
   %68 = load ptr, ptr %30, align 8
   %69 = icmp eq ptr %68, %3
-  br i1 %69, label %.loopexit, label %.split, !llvm.loop !46
+  br i1 %69, label %.loopexit, label %.split, !llvm.loop !40
 
 .loopexit:                                        ; preds = %67, %27, %2
   ret void
@@ -2423,7 +2423,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
   %spec.select = select i1 %12, i8 %9, i8 0
   %13 = load ptr, ptr %8, align 8
   %14 = icmp eq ptr %13, %4
-  br i1 %14, label %.split5.us, label %.split.us, !llvm.loop !47
+  br i1 %14, label %.split5.us, label %.split.us, !llvm.loop !41
 
 .split:                                           ; preds = %7, %26
   %15 = phi ptr [ %28, %26 ], [ %5, %7 ]
@@ -2448,7 +2448,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
   %27 = phi i8 [ %16, %.split ], [ 0, %20 ], [ 0, %25 ]
   %28 = load ptr, ptr %15, align 8
   %29 = icmp eq ptr %28, %4
-  br i1 %29, label %.split5.us, label %.split, !llvm.loop !48
+  br i1 %29, label %.split5.us, label %.split, !llvm.loop !42
 
 .split5.us:                                       ; preds = %26, %.split.us
   %.us-phi = phi i8 [ %spec.select, %.split.us ], [ %27, %26 ]
@@ -2575,7 +2575,7 @@ define internal fastcc void @pci_bus_dump_resources(ptr noundef %0) unnamed_addr
   %21 = icmp ne ptr %20, null
   %22 = icmp slt i32 %19, 4
   %23 = or i1 %22, %21
-  br i1 %23, label %5, label %24, !llvm.loop !49
+  br i1 %23, label %5, label %24, !llvm.loop !43
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2597,7 +2597,7 @@ define internal fastcc void @pci_bus_dump_resources(ptr noundef %0) unnamed_addr
 33:                                               ; preds = %32, %.preheader
   %34 = load ptr, ptr %28, align 8
   %35 = icmp eq ptr %34, %25
-  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %33, %24
   ret void
@@ -2651,7 +2651,7 @@ define dso_local void @pci_assign_unassigned_resources() local_unnamed_addr #5 a
 .critedge:                                        ; preds = %.preheader, %27, %12
   %30 = load ptr, ptr %3, align 8
   %31 = icmp eq ptr %30, @pci_root_buses
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.critedge, %0
   ret void
@@ -2683,167 +2683,167 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #5
   %11 = getelementptr i8, ptr %0, i64 1496
   %12 = getelementptr i8, ptr %0, i64 1376
   %13 = getelementptr i8, ptr %0, i64 1440
-  br label %14
+  br label %.loopexit12
 
-14:                                               ; preds = %.loopexit12, %1
-  %15 = phi i1 [ false, %1 ], [ true, %.loopexit12 ]
+.loopexit12:                                      ; preds = %.loopexit12.backedge, %1
+  %14 = phi i1 [ false, %1 ], [ true, %.loopexit12.backedge ]
   call void @__pci_bus_size_bridges(ptr noundef %5, ptr noundef nonnull %2)
-  %16 = load i40, ptr %8, align 1
-  %17 = and i40 %16, 16777216
-  %18 = icmp eq i40 %17, 0
-  br i1 %18, label %21, label %19
+  %15 = load i40, ptr %8, align 1
+  %16 = and i40 %15, 16777216
+  %17 = icmp eq i40 %16, 0
+  br i1 %17, label %20, label %18
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %4, align 8
+18:                                               ; preds = %.loopexit12
+  %19 = load ptr, ptr %4, align 8
   %.val = load i64, ptr %9, align 8
   %.val8 = load i64, ptr %12, align 8
   %.val9 = load i64, ptr %10, align 8
   %.val10 = load i64, ptr %13, align 8
-  call fastcc void @pci_bus_distribute_available_resources(ptr noundef %20, ptr noundef nonnull %2, i64 %.val, i64 %.val8, i64 %.val9, i64 %.val10, ptr noundef nonnull byval(%struct.resource) align 8 %11)
-  br label %21
+  call fastcc void @pci_bus_distribute_available_resources(ptr noundef %19, ptr noundef nonnull %2, i64 %.val, i64 %.val8, i64 %.val9, i64 %.val10, ptr noundef nonnull byval(%struct.resource) align 8 %11)
+  br label %20
 
-21:                                               ; preds = %19, %14
+20:                                               ; preds = %18, %.loopexit12
   call fastcc void @__pci_bridge_assign_resources(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %22 = load volatile ptr, ptr %2, align 8
-  %23 = icmp eq ptr %22, %2
-  br i1 %23, label %25, label %24, !prof !36
+  %21 = load volatile ptr, ptr %2, align 8
+  %22 = icmp eq ptr %21, %2
+  br i1 %22, label %24, label %23, !prof !32
 
-24:                                               ; preds = %21
-  call void asm sideeffect "386: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 386b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 386) #12, !srcloc !52
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2177, i32 0, i64 12) #12, !srcloc !53
+23:                                               ; preds = %20
+  call void asm sideeffect "386: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 386b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 386) #12, !srcloc !46
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2177, i32 0, i64 12) #12, !srcloc !47
   unreachable
 
-25:                                               ; preds = %21
-  %26 = load volatile ptr, ptr %3, align 8
-  %27 = icmp eq ptr %26, %3
-  br i1 %27, label %.loopexit, label %28
+24:                                               ; preds = %20
+  %25 = load volatile ptr, ptr %3, align 8
+  %26 = icmp eq ptr %25, %3
+  br i1 %26, label %.loopexit, label %27
 
-28:                                               ; preds = %25
-  br i1 %15, label %.preheader, label %35
+27:                                               ; preds = %24
+  br i1 %14, label %.preheader, label %34
 
-.preheader:                                       ; preds = %28, %.preheader
-  %29 = phi ptr [ %30, %.preheader ], [ %26, %28 ]
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %32, ptr %33, align 8
-  store volatile ptr %30, ptr %32, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %29, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %31, align 8
-  call void @kfree(ptr noundef %29) #12
-  %34 = icmp eq ptr %30, %3
-  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !54
+.preheader:                                       ; preds = %27, %.preheader
+  %28 = phi ptr [ %29, %.preheader ], [ %25, %27 ]
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %31, ptr %32, align 8
+  store volatile ptr %29, ptr %31, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %28, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %30, align 8
+  call void @kfree(ptr noundef %28) #12
+  %33 = icmp eq ptr %29, %3
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !35
 
-35:                                               ; preds = %28
-  %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef 2) #13
-  %37 = load ptr, ptr %3, align 8
-  %38 = icmp eq ptr %37, %3
-  br i1 %38, label %.loopexit16, label %.preheader15
+34:                                               ; preds = %27
+  %35 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef 2) #13
+  %36 = load ptr, ptr %3, align 8
+  %37 = icmp eq ptr %36, %3
+  br i1 %37, label %.loopexit16, label %.preheader15
 
 .loopexit16.loopexit:                             ; preds = %.preheader15
   %.pre = load ptr, ptr %3, align 8
   br label %.loopexit16
 
-.loopexit16:                                      ; preds = %.loopexit16.loopexit, %35
-  %39 = phi ptr [ %.pre, %.loopexit16.loopexit ], [ %37, %35 ]
-  %40 = icmp eq ptr %39, %3
-  br i1 %40, label %.loopexit14, label %.preheader13
+.loopexit16:                                      ; preds = %.loopexit16.loopexit, %34
+  %38 = phi ptr [ %.pre, %.loopexit16.loopexit ], [ %36, %34 ]
+  %39 = icmp eq ptr %38, %3
+  br i1 %39, label %.loopexit14, label %.preheader13
 
-.preheader15:                                     ; preds = %35, %.preheader15
-  %41 = phi ptr [ %49, %.preheader15 ], [ %37, %35 ]
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %47 = load i64, ptr %46, align 8
-  %48 = and i64 %47, 1057536
-  call fastcc void @pci_bus_release_bridge_resources(ptr noundef %45, i64 noundef %48, i32 noundef 1)
-  %49 = load ptr, ptr %41, align 8
-  %50 = icmp eq ptr %49, %3
-  br i1 %50, label %.loopexit16.loopexit, label %.preheader15, !llvm.loop !55
+.preheader15:                                     ; preds = %34, %.preheader15
+  %40 = phi ptr [ %48, %.preheader15 ], [ %36, %34 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 1057536
+  call fastcc void @pci_bus_release_bridge_resources(ptr noundef %44, i64 noundef %47, i32 noundef 1)
+  %48 = load ptr, ptr %40, align 8
+  %49 = icmp eq ptr %48, %3
+  br i1 %49, label %.loopexit16.loopexit, label %.preheader15, !llvm.loop !48
 
-.preheader13:                                     ; preds = %.loopexit16, %78
-  %51 = phi ptr [ %79, %78 ], [ %39, %.loopexit16 ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %55 = load i64, ptr %54, align 8
-  store i64 %55, ptr %53, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %57, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store i64 %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 73
-  %65 = load i8, ptr %64, align 1
-  %66 = add i8 %65, -1
-  %67 = icmp ult i8 %66, 2
-  br i1 %67, label %68, label %78
+.preheader13:                                     ; preds = %.loopexit16, %77
+  %50 = phi ptr [ %78, %77 ], [ %38, %.loopexit16 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %54 = load i64, ptr %53, align 8
+  store i64 %54, ptr %52, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  store i64 %59, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 73
+  %64 = load i8, ptr %63, align 1
+  %65 = add i8 %64, -1
+  %66 = icmp ult i8 %65, 2
+  br i1 %66, label %67, label %77
 
-68:                                               ; preds = %.preheader13
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 920
-  %70 = ptrtoint ptr %53 to i64
-  %71 = ptrtoint ptr %69 to i64
-  %72 = sub i64 %70, %71
-  %73 = lshr exact i64 %72, 6
-  %74 = trunc i64 %73 to i32
-  %75 = add i32 %74, -7
-  %76 = icmp ult i32 %75, 4
-  br i1 %76, label %77, label %78
+67:                                               ; preds = %.preheader13
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 920
+  %69 = ptrtoint ptr %52 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = lshr exact i64 %71, 6
+  %73 = trunc i64 %72 to i32
+  %74 = add i32 %73, -7
+  %75 = icmp ult i32 %74, 4
+  br i1 %75, label %76, label %77
 
-77:                                               ; preds = %68
-  store i64 0, ptr %61, align 8
-  br label %78
+76:                                               ; preds = %67
+  store i64 0, ptr %60, align 8
+  br label %77
 
-78:                                               ; preds = %77, %68, %.preheader13
-  %79 = load ptr, ptr %51, align 8
-  %80 = icmp eq ptr %79, %3
-  br i1 %80, label %.loopexit14.loopexit, label %.preheader13, !llvm.loop !56
+77:                                               ; preds = %76, %67, %.preheader13
+  %78 = load ptr, ptr %50, align 8
+  %79 = icmp eq ptr %78, %3
+  br i1 %79, label %.loopexit14.loopexit, label %.preheader13, !llvm.loop !49
 
-.loopexit14.loopexit:                             ; preds = %78
+.loopexit14.loopexit:                             ; preds = %77
   %.pre21 = load ptr, ptr %3, align 8
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.loopexit14.loopexit, %.loopexit16
-  %81 = phi ptr [ %.pre21, %.loopexit14.loopexit ], [ %39, %.loopexit16 ]
-  %82 = icmp eq ptr %81, %3
-  br i1 %82, label %.loopexit12, label %.preheader11
+  %80 = phi ptr [ %.pre21, %.loopexit14.loopexit ], [ %38, %.loopexit16 ]
+  %81 = icmp eq ptr %80, %3
+  br i1 %81, label %.loopexit12.backedge, label %.preheader11
 
-.loopexit12:                                      ; preds = %.preheader11, %.loopexit14
-  br label %14, !llvm.loop !57
+.loopexit12.backedge:                             ; preds = %.preheader11, %.loopexit14
+  br label %.loopexit12
 
 .preheader11:                                     ; preds = %.loopexit14, %.preheader11
-  %83 = phi ptr [ %84, %.preheader11 ], [ %81, %.loopexit14 ]
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %86, ptr %87, align 8
-  store volatile ptr %84, ptr %86, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %83, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %85, align 8
-  call void @kfree(ptr noundef %83) #12
-  %88 = icmp eq ptr %84, %3
-  br i1 %88, label %.loopexit12, label %.preheader11, !llvm.loop !58
+  %82 = phi ptr [ %83, %.preheader11 ], [ %80, %.loopexit14 ]
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %85, ptr %86, align 8
+  store volatile ptr %83, ptr %85, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %82, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %84, align 8
+  call void @kfree(ptr noundef %82) #12
+  %87 = icmp eq ptr %83, %3
+  br i1 %87, label %.loopexit12.backedge, label %.preheader11, !llvm.loop !35
 
-.loopexit:                                        ; preds = %25, %.preheader
-  %89 = call i32 @pci_reenable_device(ptr noundef %0) #12
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %93, label %91
+.loopexit:                                        ; preds = %24, %.preheader
+  %88 = call i32 @pci_reenable_device(ptr noundef %0) #12
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %92, label %90
 
-91:                                               ; preds = %.loopexit
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %92, ptr noundef nonnull @.str.11, i32 noundef %89) #13
-  br label %93
+90:                                               ; preds = %.loopexit
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %91, ptr noundef nonnull @.str.11, i32 noundef %88) #13
+  br label %92
 
-93:                                               ; preds = %91, %.loopexit
+92:                                               ; preds = %90, %.loopexit
   call void @pci_set_master(ptr noundef %0) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
@@ -2999,7 +2999,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
 51:                                               ; preds = %13, %23
   %52 = add nuw nsw i64 %14, 1
   %53 = icmp eq i64 %52, 10
-  br i1 %53, label %.critedge, label %13, !llvm.loop !59
+  br i1 %53, label %.critedge, label %13, !llvm.loop !50
 
 54:                                               ; preds = %31, %49
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -3016,7 +3016,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.critedge, label %9, !llvm.loop !60
+  br i1 %63, label %.critedge, label %9, !llvm.loop !51
 
 .critedge:                                        ; preds = %56, %60, %54, %51
   %64 = load volatile ptr, ptr %3, align 8
@@ -3030,11 +3030,11 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   call fastcc void @__pci_bridge_assign_resources(ptr noundef %10, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %69 = load volatile ptr, ptr %4, align 8
   %70 = icmp eq ptr %69, %4
-  br i1 %70, label %72, label %71, !prof !36
+  br i1 %70, label %72, label %71, !prof !32
 
 71:                                               ; preds = %66
-  call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #12, !srcloc !61
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2282, i32 0, i64 12) #12, !srcloc !62
+  call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #12, !srcloc !52
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2282, i32 0, i64 12) #12, !srcloc !53
   unreachable
 
 72:                                               ; preds = %66
@@ -3066,7 +3066,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   %87 = phi ptr [ %79, %.preheader23 ], [ %81, %83 ]
   %88 = load ptr, ptr %78, align 8
   %89 = icmp eq ptr %88, %3
-  br i1 %89, label %.loopexit24.loopexit, label %.preheader23, !llvm.loop !63
+  br i1 %89, label %.loopexit24.loopexit, label %.preheader23, !llvm.loop !54
 
 .loopexit24.loopexit:                             ; preds = %86
   %.pre = load ptr, ptr %3, align 8
@@ -3089,7 +3089,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %94, align 8
   call void @kfree(ptr noundef %92) #12
   %97 = icmp eq ptr %93, %3
-  br i1 %97, label %.loopexit, label %.preheader.i, !llvm.loop !64
+  br i1 %97, label %.loopexit, label %.preheader.i, !llvm.loop !35
 
 .loopexit25.loopexit:                             ; preds = %27
   %.pre48 = load ptr, ptr %5, align 8
@@ -3118,7 +3118,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store i64 %110, ptr %111, align 8
   %112 = load ptr, ptr %101, align 8
   %113 = icmp eq ptr %112, %5
-  br i1 %113, label %.loopexit21.loopexit, label %.preheader20, !llvm.loop !65
+  br i1 %113, label %.loopexit21.loopexit, label %.preheader20, !llvm.loop !55
 
 .loopexit21.loopexit:                             ; preds = %.preheader20
   %.pre49 = load ptr, ptr %5, align 8
@@ -3141,7 +3141,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %118, align 8
   call void @kfree(ptr noundef %116) #12
   %121 = icmp eq ptr %117, %5
-  br i1 %121, label %.loopexit19, label %.preheader18, !llvm.loop !66
+  br i1 %121, label %.loopexit19, label %.preheader18, !llvm.loop !35
 
 .loopexit19:                                      ; preds = %.preheader18, %.loopexit21
   %122 = load ptr, ptr %3, align 8
@@ -3178,7 +3178,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   call fastcc void @__pci_setup_bridge(ptr noundef %145, i64 noundef 8960)
   %146 = load ptr, ptr %124, align 8
   %147 = icmp eq ptr %146, %3
-  br i1 %147, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !67
+  br i1 %147, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !56
 
 .loopexit17.loopexit:                             ; preds = %.preheader16
   %.pre50 = load ptr, ptr %3, align 8
@@ -3201,7 +3201,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %152, align 8
   call void @kfree(ptr noundef %150) #12
   %155 = icmp eq ptr %151, %3
-  br i1 %155, label %.loopexit, label %.preheader, !llvm.loop !68
+  br i1 %155, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.preheader.i, %.preheader, %.critedge, %.loopexit17, %.loopexit24
   %156 = phi i32 [ -2, %.critedge ], [ %99, %.loopexit17 ], [ 0, %.loopexit24 ], [ %99, %.preheader ], [ 0, %.preheader.i ]
@@ -3298,18 +3298,18 @@ define dso_local void @pci_assign_unassigned_bus_resources(ptr noundef readonly 
 17:                                               ; preds = %16, %12, %.preheader
   %18 = load ptr, ptr %7, align 8
   %19 = icmp eq ptr %18, %4
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !69
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %17, %1
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #12
   call void @__pci_bus_assign_resources(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null)
   %20 = load volatile ptr, ptr %2, align 8
   %21 = icmp eq ptr %20, %2
-  br i1 %21, label %23, label %22, !prof !36
+  br i1 %21, label %23, label %22, !prof !32
 
 22:                                               ; preds = %.loopexit
-  call void asm sideeffect "389: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 389b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 389) #12, !srcloc !70
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2345, i32 0, i64 12) #12, !srcloc !71
+  call void asm sideeffect "389: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 389b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 389) #12, !srcloc !58
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2345, i32 0, i64 12) #12, !srcloc !59
   unreachable
 
 23:                                               ; preds = %.loopexit
@@ -3472,7 +3472,7 @@ define internal fastcc void @__dev_sort_resources(ptr noundef %0, ptr noundef %1
 85:                                               ; preds = %83, %78, %76
   %86 = phi i64 [ %84, %83 ], [ %77, %76 ], [ %82, %78 ]
   %87 = icmp ugt i64 %47, %86
-  br i1 %87, label %88, label %58, !llvm.loop !72
+  br i1 %87, label %88, label %58
 
 88:                                               ; preds = %85, %58
   %89 = phi ptr [ %60, %85 ], [ %1, %58 ]
@@ -3488,7 +3488,7 @@ define internal fastcc void @__dev_sort_resources(ptr noundef %0, ptr noundef %1
 93:                                               ; preds = %88, %.thread, %27, %20
   %94 = add nuw nsw i64 %17, 1
   %95 = icmp eq i64 %94, 11
-  br i1 %95, label %.loopexit, label %16, !llvm.loop !73
+  br i1 %95, label %.loopexit, label %16, !llvm.loop !60
 
 .loopexit:                                        ; preds = %93, %16, %8, %2, %2
   ret void
@@ -3557,7 +3557,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store volatile ptr %21, ptr %4, align 8
   %38 = load ptr, ptr %15, align 8
   %39 = icmp eq ptr %38, %0
-  br i1 %39, label %.loopexit69.loopexit, label %.preheader68, !llvm.loop !74
+  br i1 %39, label %.loopexit69.loopexit, label %.preheader68, !llvm.loop !61
 
 40:                                               ; preds = %.preheader68
   %41 = load ptr, ptr %4, align 8
@@ -3576,7 +3576,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %45, align 8
   call void @kfree(ptr noundef %43) #12
   %48 = icmp eq ptr %44, %4
-  br i1 %48, label %.loopexit51, label %.preheader66, !llvm.loop !75
+  br i1 %48, label %.loopexit51, label %.preheader66, !llvm.loop !35
 
 .loopexit69.loopexit:                             ; preds = %23
   %.pre = load ptr, ptr %0, align 8
@@ -3604,7 +3604,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %54
-  br i1 %62, label %63, label %55, !llvm.loop !76
+  br i1 %62, label %63, label %55, !llvm.loop !15
 
 63:                                               ; preds = %59
   %64 = icmp eq ptr %57, null
@@ -3638,7 +3638,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, %72
-  br i1 %83, label %84, label %.preheader62, !llvm.loop !77
+  br i1 %83, label %84, label %.preheader62, !llvm.loop !15
 
 84:                                               ; preds = %80
   %85 = icmp eq ptr %78, null
@@ -3704,7 +3704,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
 125:                                              ; preds = %123, %118, %116
   %126 = phi i64 [ %124, %123 ], [ %117, %116 ], [ %122, %118 ]
   %127 = icmp ugt i64 %88, %126
-  br i1 %127, label %128, label %98, !llvm.loop !78
+  br i1 %127, label %128, label %98, !llvm.loop !62
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -3723,7 +3723,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
 
 .thread38:                                        ; preds = %.preheader62, %98, %84, %128, %86, %.thread
   %135 = icmp eq ptr %52, %0
-  br i1 %135, label %.loopexit65, label %.preheader64, !llvm.loop !79
+  br i1 %135, label %.loopexit65, label %.preheader64, !llvm.loop !63
 
 .loopexit65:                                      ; preds = %.thread38, %.loopexit69
   call fastcc void @assign_requested_resources_sorted(ptr noundef %0, ptr noundef nonnull %5)
@@ -3753,7 +3753,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, %143
-  br i1 %152, label %153, label %145, !llvm.loop !80
+  br i1 %152, label %153, label %145, !llvm.loop !64
 
 153:                                              ; preds = %148
   %154 = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -3769,7 +3769,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
 .loopexit47:                                      ; preds = %145, %153
   %157 = load ptr, ptr %141, align 8
   %158 = icmp eq ptr %157, %0
-  br i1 %158, label %.loopexit49, label %.preheader48, !llvm.loop !81
+  br i1 %158, label %.loopexit49, label %.preheader48, !llvm.loop !65
 
 .loopexit49:                                      ; preds = %.loopexit47, %138
   %159 = load ptr, ptr %4, align 8
@@ -3788,7 +3788,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %163, align 8
   call void @kfree(ptr noundef %161) #12
   %166 = icmp eq ptr %162, %4
-  br i1 %166, label %.loopexit46, label %.preheader45, !llvm.loop !82
+  br i1 %166, label %.loopexit46, label %.preheader45, !llvm.loop !35
 
 .loopexit46:                                      ; preds = %.preheader45, %.loopexit49
   %167 = load ptr, ptr %0, align 8
@@ -3807,7 +3807,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %171, align 8
   call void @kfree(ptr noundef %169) #12
   %174 = icmp eq ptr %170, %0
-  br i1 %174, label %.loopexit, label %.preheader43, !llvm.loop !83
+  br i1 %174, label %.loopexit, label %.preheader43, !llvm.loop !35
 
 .preheader61:                                     ; preds = %.loopexit65, %.preheader61
   %175 = phi ptr [ %180, %.preheader61 ], [ %136, %.loopexit65 ]
@@ -3817,7 +3817,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %179 = or i64 %178, %176
   %180 = load ptr, ptr %175, align 8
   %181 = icmp eq ptr %180, %5
-  br i1 %181, label %182, label %.preheader61, !llvm.loop !84
+  br i1 %181, label %182, label %.preheader61, !llvm.loop !66
 
 182:                                              ; preds = %.preheader61
   %183 = load ptr, ptr %0, align 8
@@ -3891,7 +3891,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %227 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %228, %195
-  br i1 %229, label %230, label %222, !llvm.loop !85
+  br i1 %229, label %230, label %222, !llvm.loop !64
 
 230:                                              ; preds = %225
   %231 = getelementptr inbounds nuw i8, ptr %223, i64 8
@@ -3920,7 +3920,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, %234
-  br i1 %243, label %244, label %236, !llvm.loop !86
+  br i1 %243, label %244, label %236, !llvm.loop !64
 
 244:                                              ; preds = %239
   %245 = getelementptr inbounds nuw i8, ptr %237, i64 8
@@ -3947,7 +3947,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
 
 252:                                              ; preds = %.loopexit58, %217, %209, %207, %191
   %253 = icmp eq ptr %193, %0
-  br i1 %253, label %.loopexit60.loopexit, label %191, !llvm.loop !87
+  br i1 %253, label %.loopexit60.loopexit, label %191, !llvm.loop !67
 
 .loopexit60.loopexit:                             ; preds = %252
   %.pre98 = load ptr, ptr %5, align 8
@@ -3970,7 +3970,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %258, align 8
   call void @kfree(ptr noundef %256) #12
   %261 = icmp eq ptr %257, %5
-  br i1 %261, label %.loopexit57, label %.preheader56, !llvm.loop !88
+  br i1 %261, label %.loopexit57, label %.preheader56, !llvm.loop !35
 
 .loopexit57:                                      ; preds = %.preheader56, %.loopexit60
   %262 = load ptr, ptr %0, align 8
@@ -3998,7 +3998,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
 274:                                              ; preds = %272, %.preheader54
   %275 = load ptr, ptr %266, align 8
   %276 = icmp eq ptr %275, %0
-  br i1 %276, label %.loopexit55, label %.preheader54, !llvm.loop !89
+  br i1 %276, label %.loopexit55, label %.preheader54, !llvm.loop !68
 
 .preheader52:                                     ; preds = %.loopexit55, %.preheader52
   %277 = phi ptr [ %288, %.preheader52 ], [ %264, %.loopexit55 ]
@@ -4017,7 +4017,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store i64 %286, ptr %287, align 8
   %288 = load ptr, ptr %277, align 8
   %289 = icmp eq ptr %288, %4
-  br i1 %289, label %.loopexit53.loopexit, label %.preheader52, !llvm.loop !90
+  br i1 %289, label %.loopexit53.loopexit, label %.preheader52, !llvm.loop !69
 
 .loopexit53.loopexit:                             ; preds = %.preheader52
   %.pre99 = load ptr, ptr %4, align 8
@@ -4040,7 +4040,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %294, align 8
   call void @kfree(ptr noundef %292) #12
   %297 = icmp eq ptr %293, %4
-  br i1 %297, label %.loopexit51, label %.preheader50, !llvm.loop !91
+  br i1 %297, label %.loopexit51, label %.preheader50, !llvm.loop !35
 
 .loopexit51:                                      ; preds = %.preheader66, %.preheader50, %.loopexit53, %40, %9
   call fastcc void @assign_requested_resources_sorted(ptr noundef %0, ptr noundef %2)
@@ -4068,7 +4068,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %312 = load ptr, ptr %311, align 8
   %313 = icmp eq ptr %312, %303
-  br i1 %313, label %314, label %.preheader39, !llvm.loop !92
+  br i1 %313, label %314, label %.preheader39, !llvm.loop !70
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds nuw i8, ptr %300, i64 24
@@ -4138,7 +4138,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
 
 .loopexit40:                                      ; preds = %.preheader39, %352
   %357 = icmp eq ptr %301, %1
-  br i1 %357, label %.loopexit42, label %.preheader41, !llvm.loop !93
+  br i1 %357, label %.loopexit42, label %.preheader41, !llvm.loop !71
 
 358:                                              ; preds = %3
   call fastcc void @assign_requested_resources_sorted(ptr noundef %0, ptr noundef %2)
@@ -4161,7 +4161,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef readonly capt
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %363, align 8
   call void @kfree(ptr noundef %361) #12
   %366 = icmp eq ptr %362, %0
-  br i1 %366, label %.loopexit, label %.preheader, !llvm.loop !94
+  br i1 %366, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.preheader43, %.preheader, %.loopexit42, %.loopexit46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
@@ -4218,7 +4218,7 @@ define internal fastcc void @assign_requested_resources_sorted(ptr noundef reado
 28:                                               ; preds = %26, %15, %.split.us
   %29 = load ptr, ptr %7, align 8
   %30 = icmp eq ptr %29, %0
-  br i1 %30, label %.loopexit, label %.split.us, !llvm.loop !95
+  br i1 %30, label %.loopexit, label %.split.us, !llvm.loop !72
 
 .split:                                           ; preds = %5, %78
   %31 = phi ptr [ %79, %78 ], [ %3, %5 ]
@@ -4297,7 +4297,7 @@ define internal fastcc void @assign_requested_resources_sorted(ptr noundef reado
 78:                                               ; preds = %76, %47, %.split
   %79 = load ptr, ptr %31, align 8
   %80 = icmp eq ptr %79, %0
-  br i1 %80, label %.loopexit, label %.split, !llvm.loop !96
+  br i1 %80, label %.loopexit, label %.split, !llvm.loop !73
 
 .loopexit:                                        ; preds = %78, %28, %2
   ret void
@@ -4511,7 +4511,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, %6
-  br i1 %134, label %135, label %127, !llvm.loop !97
+  br i1 %134, label %135, label %127, !llvm.loop !64
 
 135:                                              ; preds = %130
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -4563,7 +4563,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, %7
-  br i1 %164, label %165, label %157, !llvm.loop !98
+  br i1 %164, label %165, label %157, !llvm.loop !64
 
 165:                                              ; preds = %160
   %166 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -4618,7 +4618,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %196 = load ptr, ptr %195, align 8
   %197 = icmp eq ptr %196, %8
-  br i1 %197, label %198, label %190, !llvm.loop !99
+  br i1 %197, label %198, label %190, !llvm.loop !64
 
 198:                                              ; preds = %193
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 8
@@ -4667,7 +4667,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %223 = phi i32 [ %206, %217 ], [ %220, %219 ], [ %206, %.preheader18 ]
   %224 = load ptr, ptr %205, align 8
   %225 = icmp eq ptr %224, %202
-  br i1 %225, label %226, label %.preheader18, !llvm.loop !100
+  br i1 %225, label %226, label %.preheader18, !llvm.loop !74
 
 226:                                              ; preds = %221
   %227 = sub i32 0, %223
@@ -4892,7 +4892,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %370 = phi i64 [ %247, %.thread10 ], [ %247, %332 ], [ %331, %.thread8 ], [ %247, %297 ], [ %247, %.thread6 ], [ %247, %255 ], [ %247, %251 ]
   %371 = add nuw nsw i64 %248, 1
   %372 = icmp eq i64 %371, 11
-  br i1 %372, label %.loopexit, label %244, !llvm.loop !101
+  br i1 %372, label %.loopexit, label %244, !llvm.loop !75
 
 .loopexit:                                        ; preds = %367, %244, %232
   %373 = phi i64 [ %236, %232 ], [ %245, %244 ], [ %368, %367 ]
@@ -4900,7 +4900,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %375 = phi i64 [ %234, %232 ], [ %247, %244 ], [ %370, %367 ]
   %376 = load ptr, ptr %233, align 8
   %377 = icmp eq ptr %376, %202
-  br i1 %377, label %378, label %232, !llvm.loop !102
+  br i1 %377, label %378, label %232, !llvm.loop !76
 
 378:                                              ; preds = %.loopexit
   store i64 %375, ptr %2, align 8
@@ -5088,7 +5088,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %.0.allc.2 = phi i64 [ %.0.allc.1, %395 ], [ %504, %489 ], [ %.0.allc.1, %400 ], [ %.0.allc.1, %.preheader ]
   %508 = load ptr, ptr %390, align 8
   %509 = icmp eq ptr %508, %202
-  br i1 %509, label %.thread, label %.preheader, !llvm.loop !103
+  br i1 %509, label %.thread, label %.preheader, !llvm.loop !77
 
 .thread:                                          ; preds = %507, %.loopexit19, %378, %226
   ret void
@@ -5129,101 +5129,75 @@ attributes #16 = { cold noreturn nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8, !9, !13}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = !{i32 -28, i32 1}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = !{i64 368555}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = distinct !{!22, !7, !8, !9}
-!23 = distinct !{!23, !7, !8, !9}
-!24 = distinct !{!24, !7, !8, !9}
-!25 = distinct !{!25, !7, !8, !9}
-!26 = distinct !{!26, !7, !8, !9}
-!27 = distinct !{!27, !7, !8, !9}
-!28 = distinct !{!28, !7, !8, !9}
-!29 = distinct !{!29, !7, !8, !9}
-!30 = distinct !{!30, !7, !8, !9}
-!31 = !{i32 -22, i32 1}
-!32 = distinct !{!32, !7, !8, !9}
-!33 = distinct !{!33, !7, !8, !9}
-!34 = distinct !{!34, !7, !8, !9}
-!35 = distinct !{!35, !7, !8, !9}
-!36 = !{!"branch_weights", i32 2000, i32 1}
-!37 = !{i64 2156208170, i64 2156207979, i64 2156208031, i64 2156208077, i64 2156208105}
-!38 = !{i64 2156208244, i64 2156208273, i64 2156208319, i64 2156208377, i64 2156208431, i64 2156208485, i64 2156208540, i64 2156208571}
-!39 = distinct !{!39, !7, !8, !9}
-!40 = distinct !{!40, !7, !8, !9}
-!41 = distinct !{!41, !7, !8, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !7, !8, !9}
-!44 = distinct !{!44, !7, !8, !9}
-!45 = distinct !{!45, !7, !8, !9, !13}
-!46 = distinct !{!46, !7, !8, !9}
-!47 = distinct !{!47, !7, !8, !9, !13}
-!48 = distinct !{!48, !7, !8, !9}
-!49 = distinct !{!49, !7, !8, !9}
-!50 = distinct !{!50, !7, !8, !9}
-!51 = distinct !{!51, !7, !8, !9}
-!52 = !{i64 2156225742, i64 2156225551, i64 2156225603, i64 2156225649, i64 2156225677}
-!53 = !{i64 2156225816, i64 2156225845, i64 2156225891, i64 2156225949, i64 2156226003, i64 2156226057, i64 2156226112, i64 2156226143}
-!54 = distinct !{!54, !7, !8, !9}
-!55 = distinct !{!55, !7, !8, !9}
-!56 = distinct !{!56, !7, !8, !9}
-!57 = distinct !{!57, !9}
-!58 = distinct !{!58, !7, !8, !9}
-!59 = distinct !{!59, !7, !8, !9}
-!60 = distinct !{!60, !7, !8, !9}
-!61 = !{i64 2156238160, i64 2156237969, i64 2156238021, i64 2156238067, i64 2156238095}
-!62 = !{i64 2156238234, i64 2156238263, i64 2156238309, i64 2156238367, i64 2156238421, i64 2156238475, i64 2156238530, i64 2156238561}
-!63 = distinct !{!63, !7, !8, !9}
-!64 = distinct !{!64, !7, !8, !9}
-!65 = distinct !{!65, !7, !8, !9}
-!66 = distinct !{!66, !7, !8, !9}
-!67 = distinct !{!67, !7, !8, !9}
-!68 = distinct !{!68, !7, !8, !9}
-!69 = distinct !{!69, !7, !8, !9}
-!70 = !{i64 2156256498, i64 2156256307, i64 2156256359, i64 2156256405, i64 2156256433}
-!71 = !{i64 2156256572, i64 2156256601, i64 2156256647, i64 2156256705, i64 2156256759, i64 2156256813, i64 2156256868, i64 2156256899}
-!72 = distinct !{!72, !9}
-!73 = distinct !{!73, !7, !8, !9}
-!74 = distinct !{!74, !7, !8, !9}
-!75 = distinct !{!75, !7, !8, !9}
-!76 = distinct !{!76, !7, !8, !9}
-!77 = distinct !{!77, !7, !8, !9}
-!78 = distinct !{!78, !7, !8, !9}
-!79 = distinct !{!79, !7, !8, !9}
-!80 = distinct !{!80, !7, !8, !9}
-!81 = distinct !{!81, !7, !8, !9}
-!82 = distinct !{!82, !7, !8, !9}
-!83 = distinct !{!83, !7, !8, !9}
-!84 = distinct !{!84, !7, !8, !9}
-!85 = distinct !{!85, !7, !8, !9}
-!86 = distinct !{!86, !7, !8, !9}
-!87 = distinct !{!87, !7, !8, !9}
-!88 = distinct !{!88, !7, !8, !9}
-!89 = distinct !{!89, !7, !8, !9}
-!90 = distinct !{!90, !7, !8, !9}
-!91 = distinct !{!91, !7, !8, !9}
-!92 = distinct !{!92, !7, !8, !9}
-!93 = distinct !{!93, !7, !8, !9}
-!94 = distinct !{!94, !7, !8, !9}
-!95 = distinct !{!95, !7, !8, !9, !13}
-!96 = distinct !{!96, !7, !8, !9}
-!97 = distinct !{!97, !7, !8, !9}
-!98 = distinct !{!98, !7, !8, !9}
-!99 = distinct !{!99, !7, !8, !9}
-!100 = distinct !{!100, !7, !8, !9}
-!101 = distinct !{!101, !7, !8, !9}
-!102 = distinct !{!102, !7, !8, !9}
-!103 = distinct !{!103, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8, !12}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{i32 -28, i32 1}
+!18 = !{i64 368555}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = !{i32 -22, i32 1}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = !{!"branch_weights", i32 2000, i32 1}
+!33 = !{i64 2156208170, i64 2156207979, i64 2156208031, i64 2156208077, i64 2156208105}
+!34 = !{i64 2156208244, i64 2156208273, i64 2156208319, i64 2156208377, i64 2156208431, i64 2156208485, i64 2156208540, i64 2156208571}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8, !12}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8, !12}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = !{i64 2156225742, i64 2156225551, i64 2156225603, i64 2156225649, i64 2156225677}
+!47 = !{i64 2156225816, i64 2156225845, i64 2156225891, i64 2156225949, i64 2156226003, i64 2156226057, i64 2156226112, i64 2156226143}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = !{i64 2156238160, i64 2156237969, i64 2156238021, i64 2156238067, i64 2156238095}
+!53 = !{i64 2156238234, i64 2156238263, i64 2156238309, i64 2156238367, i64 2156238421, i64 2156238475, i64 2156238530, i64 2156238561}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = !{i64 2156256498, i64 2156256307, i64 2156256359, i64 2156256405, i64 2156256433}
+!59 = !{i64 2156256572, i64 2156256601, i64 2156256647, i64 2156256705, i64 2156256759, i64 2156256813, i64 2156256868, i64 2156256899}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8}
+!72 = distinct !{!72, !7, !8, !12}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !7, !8}
+!75 = distinct !{!75, !7, !8}
+!76 = distinct !{!76, !7, !8}
+!77 = distinct !{!77, !7, !8}

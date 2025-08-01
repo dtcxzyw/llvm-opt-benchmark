@@ -1540,7 +1540,7 @@ define hidden range(i32 -32768, 32768) i32 @getNumButtons() local_unnamed_addr #
 25:                                               ; preds = %26
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.thread32, label %26, !llvm.loop !9
+  br i1 %exitcond66.not, label %.thread32, label %26, !llvm.loop !8
 
 26:                                               ; preds = %.lr.ph46, %25
   %indvars.iv62 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next63, %25 ]
@@ -1552,7 +1552,7 @@ define hidden range(i32 -32768, 32768) i32 @getNumButtons() local_unnamed_addr #
 30:                                               ; preds = %31
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.thread32, label %31, !llvm.loop !10
+  br i1 %exitcond61.not, label %.thread32, label %31, !llvm.loop !9
 
 31:                                               ; preds = %.lr.ph44, %30
   %indvars.iv57 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next58, %30 ]
@@ -1564,7 +1564,7 @@ define hidden range(i32 -32768, 32768) i32 @getNumButtons() local_unnamed_addr #
 35:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread32, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread32, label %.lr.ph, !llvm.loop !10
 
 .thread32:                                        ; preds = %35, %30, %25, %7, %.preheader35, %.preheader
   call void @XFreeDeviceList(ptr noundef %9) #13
@@ -1688,9 +1688,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

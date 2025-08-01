@@ -191,7 +191,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   %52 = getelementptr inbounds nuw i8, ptr %.086117, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !20
   %.not104 = icmp eq ptr %53, null
-  br i1 %.not104, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not104, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %51
   %54 = phi ptr [ %53, %51 ], [ %50, %.preheader ]
@@ -202,7 +202,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i32 1, ptr %58, align 8, !tbaa !23
+  store i32 1, ptr %58, align 8, !tbaa !21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.preheader, %57, %48
@@ -210,7 +210,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   %59 = call noalias ptr @g_strdup(ptr noundef nonnull %26) #10
   store ptr %59, ptr %30, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %61 = load i32, ptr %60, align 8, !tbaa !23
+  %61 = load i32, ptr %60, align 8, !tbaa !21
   %.not105 = icmp eq i32 %61, 0
   %62 = select i1 %.not105, ptr @.str.1, ptr @.str.8
   %63 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %26, ptr noundef nonnull %62) #10
@@ -229,7 +229,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   call void @g_free(ptr noundef %27) #10
   %70 = call ptr @g_dir_read_name(ptr noundef nonnull %23) #10
   %.not98 = icmp eq ptr %70, null
-  br i1 %.not98, label %._crit_edge, label %.lr.ph121, !llvm.loop !24
+  br i1 %.not98, label %._crit_edge, label %.lr.ph121
 
 .thread:                                          ; preds = %12
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #10
@@ -244,9 +244,9 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   %72 = phi ptr [ %19, %.thread ], [ %69, %._crit_edge ], [ %19, %._crit_edge.thread ]
   %.4113 = phi ptr [ %spec.select, %.thread ], [ %.2, %._crit_edge ], [ %spec.select, %._crit_edge.thread ]
   %73 = call ptr @g_list_last(ptr noundef %72) #10
-  %74 = load ptr, ptr %73, align 8, !tbaa !25
+  %74 = load ptr, ptr %73, align 8, !tbaa !22
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store i32 1, ptr %75, align 8, !tbaa !23
+  store i32 1, ptr %75, align 8, !tbaa !21
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %77) #10
@@ -260,7 +260,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   %.4112 = phi ptr [ %.2, %._crit_edge ], [ %.4113, %71 ]
   %.5 = phi ptr [ %.188, %._crit_edge ], [ %74, %71 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  store ptr null, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %3, align 8, !tbaa !24
   %81 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef null) #10
   %82 = call i32 @g_file_test(ptr noundef %81, i32 noundef 16) #10
   %.not.i107 = icmp eq i32 %82, 0
@@ -279,9 +279,9 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   br i1 %.not92.i, label %89, label %93
 
 89:                                               ; preds = %84
-  %90 = load ptr, ptr %3, align 8, !tbaa !27
+  %90 = load ptr, ptr %3, align 8, !tbaa !24
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !29
+  %92 = load ptr, ptr %91, align 8, !tbaa !26
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef %81, ptr noundef %92) #10
   br label %177
 
@@ -379,7 +379,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %168
   %.082121.i = phi ptr [ %170, %168 ], [ %80, %.preheader.i ]
-  %126 = load ptr, ptr %.082121.i, align 8, !tbaa !25
+  %126 = load ptr, ptr %.082121.i, align 8, !tbaa !22
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !17
   %129 = call i32 @g_strcmp0(ptr noundef %128, ptr noundef %.085.i) #10
@@ -441,7 +441,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   call void @g_free(ptr noundef %162) #10
   %163 = load ptr, ptr %126, align 8, !tbaa !14
   %164 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %165 = load i32, ptr %164, align 8, !tbaa !23
+  %165 = load i32, ptr %164, align 8, !tbaa !21
   %.not110.i = icmp eq i32 %165, 0
   %166 = select i1 %.not110.i, ptr @.str.1, ptr @.str.8
   %167 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.25, ptr noundef %.1.i, ptr noundef %163, ptr noundef nonnull %166) #10
@@ -451,9 +451,9 @@ _l10n_get_language.exit:                          ; preds = %2, %9
 
 168:                                              ; preds = %160, %130
   %169 = getelementptr inbounds nuw i8, ptr %.082121.i, i64 8
-  %170 = load ptr, ptr %169, align 8, !tbaa !31
+  %170 = load ptr, ptr %169, align 8, !tbaa !28
   %.not105.i = icmp eq ptr %170, null
-  br i1 %.not105.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not105.i, label %.loopexit.i, label %.lr.ph.i
 
 171:                                              ; preds = %123, %121, %.thread.i
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, i32 noundef %.087122.i) #10
@@ -463,7 +463,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   call void @json_reader_end_element(ptr noundef %97) #10
   %172 = add nuw nsw i32 %.087122.i, 1
   %exitcond.not.i = icmp eq i32 %172, %106
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %108, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %108
 
 173:                                              ; preds = %108
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef %81, i32 noundef %.087122.i) #10
@@ -487,7 +487,7 @@ _l10n_get_language.exit:                          ; preds = %2, %9
   %.080.i = phi ptr [ %87, %176 ], [ %87, %173 ], [ %87, %102 ], [ %87, %99 ], [ %87, %95 ], [ %87, %89 ], [ null, %83 ]
   %.0.i108 = phi ptr [ %97, %176 ], [ %97, %173 ], [ %97, %102 ], [ %97, %99 ], [ null, %95 ], [ null, %89 ], [ null, %83 ]
   call void @g_free(ptr noundef %81) #10
-  %178 = load ptr, ptr %3, align 8, !tbaa !27
+  %178 = load ptr, ptr %3, align 8, !tbaa !24
   %.not98.i = icmp eq ptr %178, null
   br i1 %.not98.i, label %180, label %179
 
@@ -526,7 +526,7 @@ get_language_names.exit:                          ; preds = %182, %183
 .lr.ph126:                                        ; preds = %get_language_names.exit, %192
   %.0125 = phi ptr [ %195, %192 ], [ %184, %get_language_names.exit ]
   %.084124 = phi i32 [ %193, %192 ], [ 0, %get_language_names.exit ]
-  %186 = load ptr, ptr %.0125, align 8, !tbaa !25
+  %186 = load ptr, ptr %.0125, align 8, !tbaa !22
   %187 = icmp eq ptr %186, %.5
   br i1 %187, label %188, label %189
 
@@ -545,9 +545,9 @@ get_language_names.exit:                          ; preds = %182, %183
 192:                                              ; preds = %191, %189
   %193 = add nuw nsw i32 %.084124, 1
   %194 = getelementptr inbounds nuw i8, ptr %.0125, i64 8
-  %195 = load ptr, ptr %194, align 8, !tbaa !31
+  %195 = load ptr, ptr %194, align 8, !tbaa !28
   %.not100 = icmp eq ptr %195, null
-  br i1 %.not100, label %._crit_edge127, label %.lr.ph126, !llvm.loop !34
+  br i1 %.not100, label %._crit_edge127, label %.lr.ph126
 
 196:                                              ; preds = %._crit_edge127
   %197 = load i32, ptr %7, align 4, !tbaa !13
@@ -614,7 +614,7 @@ define internal fastcc void @set_locale(ptr noundef %0, ptr noundef %1) unnamed_
   br i1 %.not, label %33, label %5
 
 5:                                                ; preds = %2
-  %6 = load i8, ptr %0, align 1, !tbaa !35
+  %6 = load i8, ptr %0, align 1, !tbaa !29
   %.not12 = icmp eq i8 %6, 0
   br i1 %.not12, label %33, label %7
 
@@ -622,21 +622,21 @@ define internal fastcc void @set_locale(ptr noundef %0, ptr noundef %1) unnamed_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store ptr null, ptr %3, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !24
   %8 = call i32 @g_spawn_command_line_sync(ptr noundef nonnull @.str.28, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %15
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %4, align 8, !tbaa !27
+  %10 = load ptr, ptr %4, align 8, !tbaa !24
   %.not17.i = icmp eq ptr %10, null
   br i1 %.not17.i, label %_dt_full_locale_name.exit.thread, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.29, ptr noundef %13) #10
-  %14 = load ptr, ptr %4, align 8, !tbaa !27
+  %14 = load ptr, ptr %4, align 8, !tbaa !24
   call void @g_error_free(ptr noundef %14) #10
   br label %_dt_full_locale_name.exit.thread
 
@@ -658,7 +658,7 @@ define internal fastcc void @set_locale(ptr noundef %0, ptr noundef %1) unnamed_
   %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next.i
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   %.not19.i = icmp eq ptr %23, null
-  br i1 %.not19.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not19.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %21
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %21 ], [ 0, %17 ]
@@ -701,7 +701,7 @@ _dt_full_locale_name.exit:                        ; preds = %.lr.ph.i
   br i1 %.not13, label %38, label %34
 
 34:                                               ; preds = %33
-  %35 = load i8, ptr %1, align 1, !tbaa !35
+  %35 = load i8, ptr %1, align 1, !tbaa !29
   %.not14 = icmp eq i8 %35, 0
   br i1 %.not14, label %38, label %36
 
@@ -879,19 +879,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !18 = !{!15, !16, i64 16}
 !19 = !{!7, !8, i64 0}
 !20 = !{!16, !16, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!15, !12, i64 24}
-!24 = distinct !{!24, !22}
-!25 = !{!26, !9, i64 0}
-!26 = !{!"_GList", !9, i64 0, !8, i64 8, !8, i64 16}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS7_GError", !9, i64 0}
-!29 = !{!30, !16, i64 8}
-!30 = !{!"_GError", !12, i64 0, !12, i64 4, !16, i64 8}
-!31 = !{!26, !8, i64 8}
-!32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
-!35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !22}
+!21 = !{!15, !12, i64 24}
+!22 = !{!23, !9, i64 0}
+!23 = !{!"_GList", !9, i64 0, !8, i64 8, !8, i64 16}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS7_GError", !9, i64 0}
+!26 = !{!27, !16, i64 8}
+!27 = !{!"_GError", !12, i64 0, !12, i64 4, !16, i64 8}
+!28 = !{!23, !8, i64 8}
+!29 = !{!10, !10, i64 0}

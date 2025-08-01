@@ -358,7 +358,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %.05887, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !75
+  %54 = load i64, ptr %53, align 8, !tbaa !74
   store i64 %54, ptr %2, align 8, !tbaa !11
   br label %55
 
@@ -368,7 +368,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %.05887, i64 48
-  %58 = load i8, ptr %57, align 8, !tbaa !76, !range !7, !noundef !8
+  %58 = load i8, ptr %57, align 8, !tbaa !75, !range !7, !noundef !8
   store i8 %58, ptr %4, align 1, !tbaa !3
   br label %59
 
@@ -378,7 +378,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %.05887, i64 50
-  %62 = load i8, ptr %61, align 2, !tbaa !77, !range !7, !noundef !8
+  %62 = load i8, ptr %61, align 2, !tbaa !76, !range !7, !noundef !8
   store i8 %62, ptr %5, align 1, !tbaa !3
   br label %63
 
@@ -388,7 +388,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %.05887, i64 56
-  %66 = load i8, ptr %65, align 8, !tbaa !78, !range !7, !noundef !8
+  %66 = load i8, ptr %65, align 8, !tbaa !77, !range !7, !noundef !8
   store i8 %66, ptr %6, align 1, !tbaa !3
   br label %67
 
@@ -398,13 +398,13 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %.05887, i64 240
-  %70 = load ptr, ptr %69, align 8, !tbaa !79
+  %70 = load ptr, ptr %69, align 8, !tbaa !78
   %.not80 = icmp eq ptr %70, null
   br i1 %.not80, label %74, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %73 = load i8, ptr %72, align 8, !tbaa !80, !range !7, !noundef !8
+  %73 = load i8, ptr %72, align 8, !tbaa !79, !range !7, !noundef !8
   br label %74
 
 74:                                               ; preds = %68, %71
@@ -418,7 +418,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %.05887, i64 88
-  %79 = load i32, ptr %78, align 8, !tbaa !85
+  %79 = load i32, ptr %78, align 8, !tbaa !84
   %80 = icmp ne i32 %79, 0
   %81 = zext i1 %80 to i8
   store i8 %81, ptr %8, align 1, !tbaa !3
@@ -430,7 +430,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %.05887, i64 80
-  %85 = load i32, ptr %84, align 8, !tbaa !86
+  %85 = load i32, ptr %84, align 8, !tbaa !85
   %86 = icmp ne i32 %85, 0
   %87 = zext i1 %86 to i8
   store i8 %87, ptr %9, align 1, !tbaa !3
@@ -442,7 +442,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr noundef readonly captures(
 
 89:                                               ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %.05887, i64 32
-  %91 = load i8, ptr %90, align 8, !tbaa !87, !range !7, !noundef !8
+  %91 = load i8, ptr %90, align 8, !tbaa !86, !range !7, !noundef !8
   store i8 %91, ptr %10, align 1, !tbaa !3
   br label %92
 
@@ -491,7 +491,7 @@ define range(i32 -1, 1) i32 @H5C_get_evictions_enabled(ptr noundef readonly capt
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %25 = load i8, ptr %24, align 8, !tbaa !88, !range !7, !noundef !8
+  %25 = load i8, ptr %24, align 8, !tbaa !87, !range !7, !noundef !8
   store i8 %25, ptr %1, align 1, !tbaa !3
   br label %26
 
@@ -515,7 +515,7 @@ define ptr @H5C_get_aux_ptr(ptr noundef readonly captures(none) %0) local_unname
 
 8:                                                ; preds = %7, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !89
+  %10 = load ptr, ptr %9, align 8, !tbaa !88
   ret ptr %10
 }
 
@@ -593,7 +593,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr noundef readonly captures(no
   %36 = getelementptr inbounds nuw i8, ptr %.03242, i64 104
   %.032 = load ptr, ptr %36, align 8, !tbaa !64
   %cond = icmp eq ptr %.032, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !90
+  br i1 %cond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %35, %12
   %37 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
@@ -603,7 +603,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr noundef readonly captures(no
 
 40:                                               ; preds = %24, %._crit_edge45
   %41 = getelementptr inbounds nuw i8, ptr %.03242, i64 64
-  %42 = load i32, ptr %41, align 8, !tbaa !91
+  %42 = load i32, ptr %41, align 8, !tbaa !90
   store i32 %42, ptr %2, align 4, !tbaa !14
   br label %43
 
@@ -646,7 +646,7 @@ define range(i32 -1, 1) i32 @H5C_get_mdc_image_info(ptr noundef readonly capture
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 527640
-  %21 = load i64, ptr %20, align 8, !tbaa !92
+  %21 = load i64, ptr %20, align 8, !tbaa !91
   store i64 %21, ptr %1, align 8, !tbaa !11
   br label %22
 
@@ -656,7 +656,7 @@ define range(i32 -1, 1) i32 @H5C_get_mdc_image_info(ptr noundef readonly capture
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 527648
-  %25 = load i64, ptr %24, align 8, !tbaa !93
+  %25 = load i64, ptr %24, align 8, !tbaa !92
   store i64 %25, ptr %2, align 8, !tbaa !11
   br label %26
 
@@ -745,25 +745,24 @@ attributes #4 = { nounwind }
 !69 = !{!"p1 long", !17, i64 0}
 !70 = !{!66, !26, i64 104}
 !71 = !{!66, !26, i64 112}
-!72 = distinct !{!72, !73, !74}
+!72 = distinct !{!72, !73}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!"llvm.loop.estimated_trip_count"}
-!75 = !{!66, !12, i64 16}
-!76 = !{!66, !4, i64 48}
-!77 = !{!66, !4, i64 50}
-!78 = !{!66, !4, i64 56}
-!79 = !{!66, !28, i64 240}
-!80 = !{!81, !4, i64 24}
-!81 = !{!"H5C_tag_info_t", !12, i64 0, !26, i64 8, !12, i64 16, !4, i64 24, !82, i64 32}
-!82 = !{!"UT_hash_handle", !83, i64 0, !17, i64 8, !17, i64 16, !84, i64 24, !84, i64 32, !17, i64 40, !15, i64 48, !15, i64 52}
-!83 = !{!"p1 _ZTS13UT_hash_table", !17, i64 0}
-!84 = !{!"p1 _ZTS14UT_hash_handle", !17, i64 0}
-!85 = !{!66, !15, i64 88}
-!86 = !{!66, !15, i64 80}
-!87 = !{!66, !4, i64 32}
-!88 = !{!23, !4, i64 80}
-!89 = !{!23, !17, i64 16}
-!90 = distinct !{!90, !73, !74}
-!91 = !{!66, !15, i64 64}
-!92 = !{!23, !12, i64 527640}
-!93 = !{!23, !12, i64 527648}
+!74 = !{!66, !12, i64 16}
+!75 = !{!66, !4, i64 48}
+!76 = !{!66, !4, i64 50}
+!77 = !{!66, !4, i64 56}
+!78 = !{!66, !28, i64 240}
+!79 = !{!80, !4, i64 24}
+!80 = !{!"H5C_tag_info_t", !12, i64 0, !26, i64 8, !12, i64 16, !4, i64 24, !81, i64 32}
+!81 = !{!"UT_hash_handle", !82, i64 0, !17, i64 8, !17, i64 16, !83, i64 24, !83, i64 32, !17, i64 40, !15, i64 48, !15, i64 52}
+!82 = !{!"p1 _ZTS13UT_hash_table", !17, i64 0}
+!83 = !{!"p1 _ZTS14UT_hash_handle", !17, i64 0}
+!84 = !{!66, !15, i64 88}
+!85 = !{!66, !15, i64 80}
+!86 = !{!66, !4, i64 32}
+!87 = !{!23, !4, i64 80}
+!88 = !{!23, !17, i64 16}
+!89 = distinct !{!89, !73}
+!90 = !{!66, !15, i64 64}
+!91 = !{!23, !12, i64 527640}
+!92 = !{!23, !12, i64 527648}

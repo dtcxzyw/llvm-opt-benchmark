@@ -128,7 +128,7 @@ define internal range(i32 0, 2) i32 @chacha20_poly1305_aead_cipher(ptr noundef %
   store i8 %41, ptr %42, align 1, !tbaa !22
   %46 = add nuw nsw i64 %.2137.i, 1
   %exitcond144.not.i = icmp eq i64 %46, %10
-  br i1 %exitcond144.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !26
+  br i1 %exitcond144.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph138.i, %.preheader.i, %.preheader134.i
   %47 = sub nsw i64 0, %10
@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @chacha20_poly1305_aead_cipher(ptr noundef %
 
 86:                                               ; preds = %84, %75
   %.0123.i = phi i64 [ %4, %75 ], [ %85, %84 ]
-  store i64 %.0123.i, ptr %2, align 8, !tbaa !27
+  store i64 %.0123.i, ptr %2, align 8, !tbaa !26
   br label %chacha20_poly1305_tls_cipher.exit
 
 chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
@@ -328,9 +328,9 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %132 = load ptr, ptr %131, align 8, !tbaa !28
+  %132 = load ptr, ptr %131, align 8, !tbaa !27
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !29
+  %134 = load ptr, ptr %133, align 8, !tbaa !28
   %135 = tail call i32 %134(ptr noundef nonnull %130, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %.1) #7
   tail call void @Poly1305_Update(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %.1) #7
   br label %143
@@ -339,9 +339,9 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
   tail call void @Poly1305_Update(ptr noundef nonnull %8, ptr noundef nonnull %3, i64 noundef %.1) #7
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %139 = load ptr, ptr %138, align 8, !tbaa !28
+  %139 = load ptr, ptr %138, align 8, !tbaa !27
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %141 = load ptr, ptr %140, align 8, !tbaa !29
+  %141 = load ptr, ptr %140, align 8, !tbaa !28
   %142 = tail call i32 %141(ptr noundef nonnull %137, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %.1) #7
   br label %143
 
@@ -447,7 +447,7 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %187 = load i64, ptr %186, align 8, !tbaa !31
+  %187 = load i64, ptr %186, align 8, !tbaa !30
   %188 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %7, ptr noundef nonnull %169, i64 noundef %187) #7
   %.not147 = icmp eq i32 %188, 0
   br i1 %.not147, label %select.unfold, label %189
@@ -464,7 +464,7 @@ select.unfold:                                    ; preds = %185, %184, %176, %1
 190:                                              ; preds = %189, %103, %143, %122, %select.unfold
   %.0115 = phi i64 [ 0, %189 ], [ 0, %122 ], [ %4, %103 ], [ %4, %143 ], [ %.1120.ph, %select.unfold ]
   %.0114 = phi i32 [ 0, %189 ], [ 0, %122 ], [ 1, %103 ], [ 1, %143 ], [ 1, %select.unfold ]
-  store i64 %.0115, ptr %2, align 8, !tbaa !27
+  store i64 %.0115, ptr %2, align 8, !tbaa !26
   br label %191
 
 191:                                              ; preds = %17, %190, %chacha20_poly1305_tls_cipher.exit
@@ -718,12 +718,11 @@ attributes #7 = { nounwind }
 !20 = !{!4, !10, i64 800}
 !21 = !{!4, !10, i64 808}
 !22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = !{!10, !10, i64 0}
-!28 = !{!4, !12, i64 360}
-!29 = !{!30, !8, i64 8}
-!30 = !{!"prov_cipher_hw_st", !8, i64 0, !8, i64 8, !8, i64 16}
-!31 = !{!4, !10, i64 824}
+!25 = distinct !{!25, !24}
+!26 = !{!10, !10, i64 0}
+!27 = !{!4, !12, i64 360}
+!28 = !{!29, !8, i64 8}
+!29 = !{!"prov_cipher_hw_st", !8, i64 0, !8, i64 8, !8, i64 16}
+!30 = !{!4, !10, i64 824}

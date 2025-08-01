@@ -418,13 +418,13 @@ check_retval.exit139:                             ; preds = %158
   %167 = add nuw nsw i32 %.056232, 1
   %168 = fadd double %.058231, 7.200000e+03
   %exitcond.not = icmp eq i32 %167, 13
-  br i1 %exitcond.not, label %check_retval.exit115, label %158, !llvm.loop !25
+  br i1 %exitcond.not, label %check_retval.exit115, label %158
 
 check_retval.exit115:                             ; preds = %166, %check_retval.exit139
   call fastcc void @PrintFinalStats(ptr noundef %161, i32 noundef %.057234)
   %169 = add nuw nsw i32 %.057234, 1
   %exitcond255.not = icmp eq i32 %169, 4
-  br i1 %exitcond255.not, label %170, label %86, !llvm.loop !27
+  br i1 %exitcond255.not, label %170, label %86
 
 170:                                              ; preds = %check_retval.exit115
   call void @N_VDestroy(ptr noundef nonnull %43) #10
@@ -476,21 +476,21 @@ define internal fastcc noalias noundef ptr @AllocUserData() unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %8 = tail call ptr @SUNDlsMat_newDenseMat(i64 noundef 2, i64 noundef 2) #10
   %9 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  store ptr %8, ptr %9, align 8, !tbaa !28
+  store ptr %8, ptr %9, align 8, !tbaa !25
   %10 = tail call ptr @SUNDlsMat_newDenseMat(i64 noundef 2, i64 noundef 2) #10
   %11 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8, !tbaa !28
+  store ptr %10, ptr %11, align 8, !tbaa !25
   %12 = tail call ptr @SUNDlsMat_newIndexArray(i64 noundef 2) #10
   %13 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv
-  store ptr %12, ptr %13, align 8, !tbaa !30
+  store ptr %12, ptr %13, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !32
+  br i1 %exitcond.not, label %14, label %7
 
 14:                                               ; preds = %7
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 10
-  br i1 %exitcond20.not, label %15, label %.preheader, !llvm.loop !33
+  br i1 %exitcond20.not, label %15, label %.preheader
 
 15:                                               ; preds = %14
   ret ptr %1
@@ -499,11 +499,10 @@ define internal fastcc noalias noundef ptr @AllocUserData() unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %1, double noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #10
-  %invariant.gep36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %5
 
-5:                                                ; preds = %3, %32
-  %indvars.iv32 = phi i64 [ 0, %3 ], [ %indvars.iv.next33, %32 ]
+5:                                                ; preds = %3, %34
+  %indvars.iv32 = phi i64 [ 0, %3 ], [ %indvars.iv.next33, %34 ]
   %6 = trunc nuw nsw i64 %indvars.iv32 to i32
   %7 = uitofp nneg i32 %6 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double %2, double 3.000000e+01)
@@ -515,39 +514,40 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %14 = tail call double @llvm.fmuladd.f64(double %13, double 5.000000e-01, double %12)
   %15 = mul nuw nsw i64 %indvars.iv32, 20
   %invariant.gep = getelementptr inbounds nuw double, ptr %4, i64 %15
-  %gep37 = getelementptr inbounds nuw double, ptr %invariant.gep36, i64 %15
-  br label %16
+  %16 = getelementptr inbounds nuw double, ptr %4, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br label %18
 
-16:                                               ; preds = %5, %16
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %16 ]
-  %17 = trunc nuw nsw i64 %indvars.iv to i32
-  %18 = uitofp nneg i32 %17 to double
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double %1, double 0.000000e+00)
-  %20 = fadd double %19, -1.000000e+01
-  %21 = fmul double %20, 1.000000e-01
-  %22 = fmul double %21, %21
-  %23 = fsub double 1.000000e+00, %22
-  %24 = fmul double %22, %22
-  %25 = tail call double @llvm.fmuladd.f64(double %24, double 5.000000e-01, double %23)
-  %26 = fmul double %25, 1.000000e+06
-  %27 = fmul double %14, %26
-  %28 = shl nuw nsw i64 %indvars.iv, 1
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %28
-  store double %27, ptr %gep, align 8, !tbaa !24
-  %29 = fmul double %25, 1.000000e+12
-  %30 = fmul double %14, %29
-  %31 = getelementptr inbounds nuw double, ptr %gep37, i64 %28
-  store double %30, ptr %31, align 8, !tbaa !24
+18:                                               ; preds = %5, %18
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %18 ]
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  %20 = uitofp nneg i32 %19 to double
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %1, double 0.000000e+00)
+  %22 = fadd double %21, -1.000000e+01
+  %23 = fmul double %22, 1.000000e-01
+  %24 = fmul double %23, %23
+  %25 = fsub double 1.000000e+00, %24
+  %26 = fmul double %24, %24
+  %27 = tail call double @llvm.fmuladd.f64(double %26, double 5.000000e-01, double %25)
+  %28 = fmul double %27, 1.000000e+06
+  %29 = fmul double %14, %28
+  %30 = shl nuw nsw i64 %indvars.iv, 1
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %30
+  store double %29, ptr %gep, align 8, !tbaa !24
+  %31 = fmul double %27, 1.000000e+12
+  %32 = fmul double %14, %31
+  %33 = getelementptr inbounds nuw double, ptr %17, i64 %30
+  store double %32, ptr %33, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %32, label %16, !llvm.loop !34
+  br i1 %exitcond.not, label %34, label %18
 
-32:                                               ; preds = %16
+34:                                               ; preds = %18
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 10
-  br i1 %exitcond35.not, label %33, label %5, !llvm.loop !35
+  br i1 %exitcond35.not, label %35, label %5
 
-33:                                               ; preds = %32
+35:                                               ; preds = %34
   ret void
 }
 
@@ -564,15 +564,15 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2408
   %8 = load double, ptr %7, align 8, !tbaa !15
   %9 = fmul double %0, %8
-  %10 = tail call double @sin(double noundef %9) #10, !tbaa !36
+  %10 = tail call double @sin(double noundef %9) #10, !tbaa !29
   %11 = fcmp ogt double %10, 0.000000e+00
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %4
   %13 = fdiv double -2.262000e+01, %10
-  %14 = tail call double @exp(double noundef %13) #10, !tbaa !36
+  %14 = tail call double @exp(double noundef %13) #10, !tbaa !29
   %15 = fdiv double 0xC01E676C8B439581, %10
-  %16 = tail call double @exp(double noundef %15) #10, !tbaa !36
+  %16 = tail call double @exp(double noundef %15) #10, !tbaa !29
   %17 = fmul double %14, 3.700000e+16
   br label %18
 
@@ -580,7 +580,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %.sink = phi double [ %16, %12 ], [ 0.000000e+00, %4 ]
   %.0 = phi double [ %17, %12 ], [ 0.000000e+00, %4 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 2400
-  store double %.sink, ptr %19, align 8, !tbaa !38
+  store double %.sink, ptr %19, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 2424
   %21 = load double, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 2448
@@ -599,10 +599,10 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %21, double 3.000000e+01)
   %33 = fadd double %21, %32
   %34 = fmul double %32, 2.000000e-01
-  %35 = tail call double @exp(double noundef %34) #10, !tbaa !36
+  %35 = tail call double @exp(double noundef %34) #10, !tbaa !29
   %36 = fmul double %23, %35
   %37 = fmul double %33, 2.000000e-01
-  %38 = tail call double @exp(double noundef %37) #10, !tbaa !36
+  %38 = tail call double @exp(double noundef %37) #10, !tbaa !29
   %39 = fmul double %23, %38
   %40 = icmp eq i64 %indvars.iv127, 0
   %41 = select i1 %40, i64 1, i64 4294967295
@@ -709,12 +709,12 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   store double %126, ptr %127, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %128, label %53, !llvm.loop !39
+  br i1 %exitcond.not, label %128, label %53
 
 128:                                              ; preds = %53
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 10
-  br i1 %exitcond130.not, label %129, label %28, !llvm.loop !40
+  br i1 %exitcond130.not, label %129, label %28
 
 129:                                              ; preds = %128
   ret i32 0
@@ -762,22 +762,22 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
 11:                                               ; preds = %.preheader95, %11
   %indvars.iv = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next, %11 ]
   %gep = getelementptr inbounds nuw [10 x ptr], ptr %invariant.gep, i64 %indvars.iv
-  %12 = load ptr, ptr %gep, align 8, !tbaa !28
+  %12 = load ptr, ptr %gep, align 8, !tbaa !25
   %gep99 = getelementptr inbounds nuw [10 x ptr], ptr %invariant.gep98, i64 %indvars.iv
-  %13 = load ptr, ptr %gep99, align 8, !tbaa !28
+  %13 = load ptr, ptr %gep99, align 8, !tbaa !25
   tail call void @SUNDlsMat_denseCopy(ptr noundef %12, ptr noundef %13, i64 noundef 2, i64 noundef 2) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %14, label %11, !llvm.loop !41
+  br i1 %exitcond.not, label %14, label %11
 
 14:                                               ; preds = %11
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 10
-  br i1 %exitcond120.not, label %.loopexit94, label %.preheader95, !llvm.loop !42
+  br i1 %exitcond120.not, label %.loopexit94, label %.preheader95
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 2400
-  %17 = load double, ptr %16, align 8, !tbaa !38
+  %17 = load double, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2424
   %19 = load double, ptr %18, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2448
@@ -785,21 +785,20 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 2432
   %23 = load double, ptr %22, align 8, !tbaa !20
   %24 = fneg double %17
-  %invariant.gep149 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %25
 
-25:                                               ; preds = %15, %58
-  %indvars.iv125 = phi i64 [ 0, %15 ], [ %indvars.iv.next126, %58 ]
+25:                                               ; preds = %15, %60
+  %indvars.iv125 = phi i64 [ 0, %15 ], [ %indvars.iv.next126, %60 ]
   %26 = trunc nuw nsw i64 %indvars.iv125 to i32
   %27 = uitofp nneg i32 %26 to double
   %28 = fadd double %27, -5.000000e-01
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %19, double 3.000000e+01)
   %30 = fadd double %19, %29
   %31 = fmul double %29, 2.000000e-01
-  %32 = tail call double @exp(double noundef %31) #10, !tbaa !36
+  %32 = tail call double @exp(double noundef %31) #10, !tbaa !29
   %33 = fmul double %21, %32
   %34 = fmul double %30, 2.000000e-01
-  %35 = tail call double @exp(double noundef %34) #10, !tbaa !36
+  %35 = tail call double @exp(double noundef %34) #10, !tbaa !29
   %36 = fmul double %21, %35
   %37 = fadd double %33, %36
   %38 = tail call double @llvm.fmuladd.f64(double %23, double 2.000000e+00, double %37)
@@ -807,100 +806,101 @@ define internal range(i32 0, 2) i32 @Precond(double %0, ptr noundef %1, ptr read
   %invariant.gep102 = getelementptr inbounds nuw [10 x ptr], ptr %8, i64 0, i64 %indvars.iv125
   %invariant.gep104 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv125
   %invariant.gep147 = getelementptr inbounds nuw double, ptr %10, i64 %39
-  %gep150 = getelementptr inbounds nuw double, ptr %invariant.gep149, i64 %39
-  br label %40
+  %40 = getelementptr inbounds nuw double, ptr %10, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  br label %42
 
-40:                                               ; preds = %25, %40
-  %indvars.iv121 = phi i64 [ 0, %25 ], [ %indvars.iv.next122, %40 ]
-  %41 = shl nuw nsw i64 %indvars.iv121, 1
-  %gep148 = getelementptr inbounds nuw double, ptr %invariant.gep147, i64 %41
-  %42 = load double, ptr %gep148, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw double, ptr %gep150, i64 %41
-  %44 = load double, ptr %43, align 8, !tbaa !24
+42:                                               ; preds = %25, %42
+  %indvars.iv121 = phi i64 [ 0, %25 ], [ %indvars.iv.next122, %42 ]
+  %43 = shl nuw nsw i64 %indvars.iv121, 1
+  %gep148 = getelementptr inbounds nuw double, ptr %invariant.gep147, i64 %43
+  %44 = load double, ptr %gep148, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw double, ptr %41, i64 %43
+  %46 = load double, ptr %45, align 8, !tbaa !24
   %gep103 = getelementptr inbounds nuw [10 x ptr], ptr %invariant.gep102, i64 %indvars.iv121
-  %45 = load ptr, ptr %gep103, align 8, !tbaa !28
+  %47 = load ptr, ptr %gep103, align 8, !tbaa !25
   %gep105 = getelementptr inbounds nuw [10 x ptr], ptr %invariant.gep104, i64 %indvars.iv121
-  %46 = load ptr, ptr %gep105, align 8, !tbaa !28
-  %47 = tail call double @llvm.fmuladd.f64(double %44, double -4.660000e-16, double 0xC0181FBE76C8B43A)
-  %48 = fsub double %47, %38
-  %49 = load ptr, ptr %45, align 8, !tbaa !43
-  store double %48, ptr %49, align 8, !tbaa !24
-  %50 = tail call double @llvm.fmuladd.f64(double %42, double -4.660000e-16, double %17)
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !43
-  store double %50, ptr %52, align 8, !tbaa !24
-  %53 = tail call double @llvm.fmuladd.f64(double %44, double -4.660000e-16, double 0x40181FBE76C8B43A)
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store double %53, ptr %54, align 8, !tbaa !24
-  %55 = tail call double @llvm.fmuladd.f64(double %42, double -4.660000e-16, double %24)
-  %56 = fsub double %55, %38
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store double %56, ptr %57, align 8, !tbaa !24
-  tail call void @SUNDlsMat_denseCopy(ptr noundef nonnull %45, ptr noundef %46, i64 noundef 2, i64 noundef 2) #10
+  %48 = load ptr, ptr %gep105, align 8, !tbaa !25
+  %49 = tail call double @llvm.fmuladd.f64(double %46, double -4.660000e-16, double 0xC0181FBE76C8B43A)
+  %50 = fsub double %49, %38
+  %51 = load ptr, ptr %47, align 8, !tbaa !32
+  store double %50, ptr %51, align 8, !tbaa !24
+  %52 = tail call double @llvm.fmuladd.f64(double %44, double -4.660000e-16, double %17)
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !32
+  store double %52, ptr %54, align 8, !tbaa !24
+  %55 = tail call double @llvm.fmuladd.f64(double %46, double -4.660000e-16, double 0x40181FBE76C8B43A)
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store double %55, ptr %56, align 8, !tbaa !24
+  %57 = tail call double @llvm.fmuladd.f64(double %44, double -4.660000e-16, double %24)
+  %58 = fsub double %57, %38
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store double %58, ptr %59, align 8, !tbaa !24
+  tail call void @SUNDlsMat_denseCopy(ptr noundef nonnull %47, ptr noundef %48, i64 noundef 2, i64 noundef 2) #10
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next122, 10
-  br i1 %exitcond124.not, label %58, label %40, !llvm.loop !45
+  br i1 %exitcond124.not, label %60, label %42
 
-58:                                               ; preds = %40
+60:                                               ; preds = %42
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next126, 10
-  br i1 %exitcond128.not, label %.loopexit94, label %25, !llvm.loop !46
+  br i1 %exitcond128.not, label %.loopexit94, label %25
 
-.loopexit94:                                      ; preds = %14, %58
-  %storemerge = phi i32 [ 1, %58 ], [ 0, %14 ]
-  store i32 %storemerge, ptr %4, align 4, !tbaa !36
-  %59 = fneg double %5
+.loopexit94:                                      ; preds = %14, %60
+  %storemerge = phi i32 [ 1, %60 ], [ 0, %14 ]
+  store i32 %storemerge, ptr %4, align 4, !tbaa !29
+  %61 = fneg double %5
   br label %.preheader93
 
-.preheader93:                                     ; preds = %.loopexit94, %62
-  %indvars.iv133 = phi i64 [ 0, %.loopexit94 ], [ %indvars.iv.next134, %62 ]
+.preheader93:                                     ; preds = %.loopexit94, %64
+  %indvars.iv133 = phi i64 [ 0, %.loopexit94 ], [ %indvars.iv.next134, %64 ]
   %invariant.gep108 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv133
-  br label %60
+  br label %62
 
-60:                                               ; preds = %.preheader93, %60
-  %indvars.iv129 = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next130, %60 ]
+62:                                               ; preds = %.preheader93, %62
+  %indvars.iv129 = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next130, %62 ]
   %gep109 = getelementptr inbounds nuw [10 x ptr], ptr %invariant.gep108, i64 %indvars.iv129
-  %61 = load ptr, ptr %gep109, align 8, !tbaa !28
-  tail call void @SUNDlsMat_denseScale(double noundef %59, ptr noundef %61, i64 noundef 2, i64 noundef 2) #10
+  %63 = load ptr, ptr %gep109, align 8, !tbaa !25
+  tail call void @SUNDlsMat_denseScale(double noundef %61, ptr noundef %63, i64 noundef 2, i64 noundef 2) #10
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 10
-  br i1 %exitcond132.not, label %62, label %60, !llvm.loop !47
+  br i1 %exitcond132.not, label %64, label %62
 
-62:                                               ; preds = %60
+64:                                               ; preds = %62
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 10
-  br i1 %exitcond136.not, label %.preheader, label %.preheader93, !llvm.loop !48
+  br i1 %exitcond136.not, label %.preheader, label %.preheader93
 
-.preheader:                                       ; preds = %62, %73
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %73 ], [ 0, %62 ]
-  %63 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 %indvars.iv141
-  %64 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 %indvars.iv141
-  br label %66
+.preheader:                                       ; preds = %64, %75
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %75 ], [ 0, %64 ]
+  %65 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 %indvars.iv141
+  %66 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 %indvars.iv141
+  br label %68
 
-65:                                               ; preds = %66
+67:                                               ; preds = %68
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 10
-  br i1 %exitcond140.not, label %73, label %66, !llvm.loop !49
+  br i1 %exitcond140.not, label %75, label %68
 
-66:                                               ; preds = %.preheader, %65
-  %indvars.iv137 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next138, %65 ]
-  %67 = getelementptr inbounds nuw [10 x ptr], ptr %63, i64 0, i64 %indvars.iv137
-  %68 = load ptr, ptr %67, align 8, !tbaa !28
-  tail call void @SUNDlsMat_denseAddIdentity(ptr noundef %68, i64 noundef 2) #10
-  %69 = load ptr, ptr %67, align 8, !tbaa !28
-  %70 = getelementptr inbounds nuw [10 x ptr], ptr %64, i64 0, i64 %indvars.iv137
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
-  %72 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef %69, i64 noundef 2, i64 noundef 2, ptr noundef %71) #10
-  %.not90 = icmp eq i64 %72, 0
-  br i1 %.not90, label %65, label %.loopexit
+68:                                               ; preds = %.preheader, %67
+  %indvars.iv137 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next138, %67 ]
+  %69 = getelementptr inbounds nuw [10 x ptr], ptr %65, i64 0, i64 %indvars.iv137
+  %70 = load ptr, ptr %69, align 8, !tbaa !25
+  tail call void @SUNDlsMat_denseAddIdentity(ptr noundef %70, i64 noundef 2) #10
+  %71 = load ptr, ptr %69, align 8, !tbaa !25
+  %72 = getelementptr inbounds nuw [10 x ptr], ptr %66, i64 0, i64 %indvars.iv137
+  %73 = load ptr, ptr %72, align 8, !tbaa !27
+  %74 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef %71, i64 noundef 2, i64 noundef 2, ptr noundef %73) #10
+  %.not90 = icmp eq i64 %74, 0
+  br i1 %.not90, label %67, label %.loopexit
 
-73:                                               ; preds = %65
+75:                                               ; preds = %67
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 10
-  br i1 %exitcond144.not, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %exitcond144.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %73, %66
-  %.0 = phi i32 [ 1, %66 ], [ 0, %73 ]
+.loopexit:                                        ; preds = %75, %68
+  %.0 = phi i32 [ 1, %68 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -924,18 +924,18 @@ define internal noundef i32 @PSolve(double %0, ptr readnone captures(none) %1, p
   %.idx = mul nuw nsw i64 %indvars.iv, 160
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %15 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !28
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  %18 = load ptr, ptr %17, align 8, !tbaa !27
   tail call void @SUNDlsMat_denseGETRS(ptr noundef %16, i64 noundef 2, ptr noundef %18, ptr noundef %gep) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %19, label %14, !llvm.loop !51
+  br i1 %exitcond.not, label %19, label %14
 
 19:                                               ; preds = %14
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 10
-  br i1 %exitcond26.not, label %20, label %.preheader, !llvm.loop !52
+  br i1 %exitcond26.not, label %20, label %.preheader
 
 20:                                               ; preds = %19
   ret i32 0
@@ -984,8 +984,8 @@ check_retval.exit19:                              ; preds = %check_retval.exit, 
   br label %check_retval.exit21
 
 check_retval.exit21:                              ; preds = %check_retval.exit19, %20
-  %23 = load i64, ptr %4, align 8, !tbaa !53
-  %24 = load i32, ptr %5, align 4, !tbaa !36
+  %23 = load i64, ptr %4, align 8, !tbaa !34
+  %24 = load i32, ptr %5, align 4, !tbaa !29
   %25 = load double, ptr %6, align 8, !tbaa !24
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, double noundef %2, i64 noundef %23, i32 noundef %24, double noundef %25)
   %27 = load double, ptr %7, align 8, !tbaa !24
@@ -1170,28 +1170,28 @@ check_retval.exit35:                              ; preds = %check_retval.exit33
 
 check_retval.exit37:                              ; preds = %check_retval.exit35, %80
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  %83 = load i64, ptr %3, align 8, !tbaa !53
-  %84 = load i64, ptr %4, align 8, !tbaa !53
+  %83 = load i64, ptr %3, align 8, !tbaa !34
+  %84 = load i64, ptr %4, align 8, !tbaa !34
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i64 noundef %83, i64 noundef %84)
-  %86 = load i64, ptr %5, align 8, !tbaa !53
-  %87 = load i64, ptr %6, align 8, !tbaa !53
+  %86 = load i64, ptr %5, align 8, !tbaa !34
+  %87 = load i64, ptr %6, align 8, !tbaa !34
   %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, i64 noundef %86, i64 noundef %87)
-  %89 = load i64, ptr %7, align 8, !tbaa !53
+  %89 = load i64, ptr %7, align 8, !tbaa !34
   %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i64 noundef %89)
-  %91 = load i64, ptr %8, align 8, !tbaa !53
-  %92 = load i64, ptr %17, align 8, !tbaa !53
+  %91 = load i64, ptr %8, align 8, !tbaa !34
+  %92 = load i64, ptr %17, align 8, !tbaa !34
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i64 noundef %91, i64 noundef %92)
-  %94 = load i64, ptr %10, align 8, !tbaa !53
-  %95 = load i64, ptr %13, align 8, !tbaa !53
+  %94 = load i64, ptr %10, align 8, !tbaa !34
+  %95 = load i64, ptr %13, align 8, !tbaa !34
   %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i64 noundef %94, i64 noundef %95)
-  %97 = load i64, ptr %9, align 8, !tbaa !53
-  %98 = load i64, ptr %12, align 8, !tbaa !53
+  %97 = load i64, ptr %9, align 8, !tbaa !34
+  %98 = load i64, ptr %12, align 8, !tbaa !34
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i64 noundef %97, i64 noundef %98)
-  %100 = load i64, ptr %14, align 8, !tbaa !53
-  %101 = load i64, ptr %15, align 8, !tbaa !53
+  %100 = load i64, ptr %14, align 8, !tbaa !34
+  %101 = load i64, ptr %15, align 8, !tbaa !34
   %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i64 noundef %100, i64 noundef %101)
-  %103 = load i64, ptr %11, align 8, !tbaa !53
-  %104 = load i64, ptr %16, align 8, !tbaa !53
+  %103 = load i64, ptr %11, align 8, !tbaa !34
+  %104 = load i64, ptr %16, align 8, !tbaa !34
   %105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, i64 noundef %103, i64 noundef %104)
   %106 = icmp slt i32 %1, 2
   br i1 %106, label %107, label %108
@@ -1237,22 +1237,22 @@ define internal fastcc void @FreeUserData(ptr noundef captures(none) %0) unnamed
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %8 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
   tail call void @SUNDlsMat_destroyMat(ptr noundef %9) #10
   %10 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
   tail call void @SUNDlsMat_destroyMat(ptr noundef %11) #10
   %12 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   tail call void @SUNDlsMat_destroyArray(ptr noundef %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !55
+  br i1 %exitcond.not, label %14, label %7
 
 14:                                               ; preds = %7
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 10
-  br i1 %exitcond20.not, label %15, label %.preheader, !llvm.loop !56
+  br i1 %exitcond20.not, label %15, label %.preheader
 
 15:                                               ; preds = %14
   tail call void @free(ptr noundef nonnull %0) #10
@@ -1387,35 +1387,14 @@ attributes #12 = { nounwind allocsize(0) }
 !22 = !{!16, !17, i64 2448}
 !23 = !{!6, !6, i64 0}
 !24 = !{!17, !17, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !26}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p2 double", !6, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 long", !6, i64 0}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
-!34 = distinct !{!34, !26}
-!35 = distinct !{!35, !26}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"int", !7, i64 0}
-!38 = !{!16, !17, i64 2400}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = distinct !{!41, !26}
-!42 = distinct !{!42, !26}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 double", !6, i64 0}
-!45 = distinct !{!45, !26}
-!46 = distinct !{!46, !26}
-!47 = distinct !{!47, !26}
-!48 = distinct !{!48, !26}
-!49 = distinct !{!49, !26}
-!50 = distinct !{!50, !26}
-!51 = distinct !{!51, !26}
-!52 = distinct !{!52, !26}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"long", !7, i64 0}
-!55 = distinct !{!55, !26}
-!56 = distinct !{!56, !26}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p2 double", !6, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 long", !6, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"int", !7, i64 0}
+!31 = !{!16, !17, i64 2400}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 double", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"long", !7, i64 0}

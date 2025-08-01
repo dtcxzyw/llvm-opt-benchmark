@@ -156,7 +156,7 @@ define hidden void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthE
   store i64 %16, ptr %14, align 8, !noalias !41
   %17 = add nuw i64 %.sroa.06.0, 1
   %18 = icmp eq i64 %17, %9
-  br i1 %18, label %.loopexit, label %12, !llvm.loop !42
+  br i1 %18, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %12
   %19 = add i64 %.promoted, %7
@@ -181,30 +181,30 @@ define hidden void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthE
   %9 = sub nuw i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %11, align 8, !alias.scope !44, !noalias !47, !nonnull !9, !align !33, !noundef !9
-  %.promoted = load i64, ptr %10, align 8, !alias.scope !44, !noalias !47
+  %.val.i = load ptr, ptr %11, align 8, !alias.scope !42, !noalias !45, !nonnull !9, !align !33, !noundef !9
+  %.promoted = load i64, ptr %10, align 8, !alias.scope !42, !noalias !45
   br label %12
 
 12:                                               ; preds = %12, %6
   %.sroa.06.0 = phi i64 [ 0, %6 ], [ %17, %12 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 %.sroa.06.0
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  store i8 0, ptr %13, align 1, !alias.scope !55, !noalias !44
-  %14 = load ptr, ptr %.val.i, align 8, !noalias !56, !nonnull !9, !align !33, !noundef !9
-  %15 = load i64, ptr %14, align 8, !noalias !56, !noundef !9
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  store i8 0, ptr %13, align 1, !alias.scope !53, !noalias !42
+  %14 = load ptr, ptr %.val.i, align 8, !noalias !54, !nonnull !9, !align !33, !noundef !9
+  %15 = load i64, ptr %14, align 8, !noalias !54, !noundef !9
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !noalias !56
+  store i64 %16, ptr %14, align 8, !noalias !54
   %17 = add nuw i64 %.sroa.06.0, 1
   %18 = icmp eq i64 %17, %9
-  br i1 %18, label %.loopexit, label %12, !llvm.loop !57
+  br i1 %18, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %12
   %19 = add i64 %.promoted, %7
   %20 = sub i64 %19, %8
-  store i64 %20, ptr %10, align 8, !alias.scope !44, !noalias !47
+  store i64 %20, ptr %10, align 8, !alias.scope !42, !noalias !45
   br label %21
 
 21:                                               ; preds = %.loopexit, %3
@@ -240,7 +240,7 @@ define hidden { i64, i64 } @_RNCNvMNtNtCsapf13pIxsjn_3std4hash6randomNtB4_11Rand
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i64, i64 } @_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultNtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateNtNtNtBN_6thread5local11AccessErrorE6expectCsff1zCjKRl2o_13turborepo_env.llvm.10116246802473599757(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
-  %6 = load i64, ptr %0, align 8, !range !58, !noundef !9
+  %6 = load i64, ptr %0, align 8, !range !55, !noundef !9
   %trunc = trunc nuw i64 %6 to i1
   br i1 %trunc, label %14, label %7
 
@@ -371,20 +371,17 @@ attributes #17 = { cold noreturn nounwind }
 !39 = distinct !{!39, !"_RNCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB8_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIBX_IBX_IBX_IBX_IBX_IBX_NtBZ_5UTermNtNtB11_3bit2B1ENtB28_2B0EB2m_EB2m_EB2m_EB2m_EB2m_EEINtNtB8_8sequence15GenericSequencehE8generateNCNvXNtB8_5implsBB_NtNtCs1LoaDTb72WA_4core7default7Default7default0E0Csff1zCjKRl2o_13turborepo_env"}
 !40 = !{!38, !35, !32}
 !41 = !{!38, !35, !29, !32}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateQhuNCINvNvB1e_8for_each4callTjB21_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB2J_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB3z_IB3z_IB3z_IB3z_IB3z_NtB3B_5UTermNtNtB3D_3bit2B1ENtB4M_2B0EB50_EB50_EB50_EB50_EEINtNtB2J_8sequence15GenericSequencehE8generateNCNvXNtB2J_5implsB3c_NtNtBf_7default7Default7default0E0E0E0Csff1zCjKRl2o_13turborepo_env: argument 0"}
-!46 = distinct !{!46, !"_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateQhuNCINvNvB1e_8for_each4callTjB21_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB2J_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB3z_IB3z_IB3z_IB3z_IB3z_NtB3B_5UTermNtNtB3D_3bit2B1ENtB4M_2B0EB50_EB50_EB50_EB50_EEINtNtB2J_8sequence15GenericSequencehE8generateNCNvXNtB2J_5implsB3c_NtNtBf_7default7Default7default0E0E0E0Csff1zCjKRl2o_13turborepo_env"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateQhuNCINvNvB1e_8for_each4callTjB21_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB2J_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB3z_IB3z_IB3z_IB3z_IB3z_NtB3B_5UTermNtNtB3D_3bit2B1ENtB4M_2B0EB50_EB50_EB50_EB50_EEINtNtB2J_8sequence15GenericSequencehE8generateNCNvXNtB2J_5implsB3c_NtNtBf_7default7Default7default0E0E0E0Csff1zCjKRl2o_13turborepo_env: argument 0"}
+!44 = distinct !{!44, !"_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateQhuNCINvNvB1e_8for_each4callTjB21_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB2J_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB3z_IB3z_IB3z_IB3z_IB3z_NtB3B_5UTermNtNtB3D_3bit2B1ENtB4M_2B0EB50_EB50_EB50_EB50_EEINtNtB2J_8sequence15GenericSequencehE8generateNCNvXNtB2J_5implsB3c_NtNtBf_7default7Default7default0E0E0E0Csff1zCjKRl2o_13turborepo_env"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateQhuNCINvNvB1e_8for_each4callTjB21_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB2J_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB3z_IB3z_IB3z_IB3z_IB3z_NtB3B_5UTermNtNtB3D_3bit2B1ENtB4M_2B0EB50_EB50_EB50_EB50_EEINtNtB2J_8sequence15GenericSequencehE8generateNCNvXNtB2J_5implsB3c_NtNtBf_7default7Default7default0E0E0E0Csff1zCjKRl2o_13turborepo_env: argument 1"}
 !47 = !{!48}
-!48 = distinct !{!48, !46, !"_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateQhuNCINvNvB1e_8for_each4callTjB21_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB2J_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB3z_IB3z_IB3z_IB3z_IB3z_NtB3B_5UTermNtNtB3D_3bit2B1ENtB4M_2B0EB50_EB50_EB50_EB50_EEINtNtB2J_8sequence15GenericSequencehE8generateNCNvXNtB2J_5implsB3c_NtNtBf_7default7Default7default0E0E0E0Csff1zCjKRl2o_13turborepo_env: argument 1"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callTjQhENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB1t_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB2j_IB2j_IB2j_IB2j_IB2j_NtB2l_5UTermNtNtB2n_3bit2B1ENtB3w_2B0EB3K_EB3K_EB3K_EB3K_EEINtNtB1t_8sequence15GenericSequencehE8generateNCNvXNtB1t_5implsB1W_NtNtBe_7default7Default7default0E0E0Csff1zCjKRl2o_13turborepo_env: argument 0"}
-!51 = distinct !{!51, !"_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callTjQhENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB1t_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB2j_IB2j_IB2j_IB2j_IB2j_NtB2l_5UTermNtNtB2n_3bit2B1ENtB3w_2B0EB3K_EB3K_EB3K_EB3K_EEINtNtB1t_8sequence15GenericSequencehE8generateNCNvXNtB1t_5implsB1W_NtNtBe_7default7Default7default0E0E0Csff1zCjKRl2o_13turborepo_env"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_RNCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB8_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIBX_IBX_IBX_IBX_IBX_NtBZ_5UTermNtNtB11_3bit2B1ENtB24_2B0EB2i_EB2i_EB2i_EB2i_EEINtNtB8_8sequence15GenericSequencehE8generateNCNvXNtB8_5implsBB_NtNtCs1LoaDTb72WA_4core7default7Default7default0E0Csff1zCjKRl2o_13turborepo_env: argument 0"}
-!54 = distinct !{!54, !"_RNCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB8_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIBX_IBX_IBX_IBX_IBX_NtBZ_5UTermNtNtB11_3bit2B1ENtB24_2B0EB2i_EB2i_EB2i_EB2i_EEINtNtB8_8sequence15GenericSequencehE8generateNCNvXNtB8_5implsBB_NtNtCs1LoaDTb72WA_4core7default7Default7default0E0Csff1zCjKRl2o_13turborepo_env"}
-!55 = !{!53, !50, !48}
-!56 = !{!53, !50, !45, !48}
-!57 = distinct !{!57, !43}
-!58 = !{i64 0, i64 2}
+!48 = distinct !{!48, !49, !"_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callTjQhENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB1t_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB2j_IB2j_IB2j_IB2j_IB2j_NtB2l_5UTermNtNtB2n_3bit2B1ENtB3w_2B0EB3K_EB3K_EB3K_EB3K_EEINtNtB1t_8sequence15GenericSequencehE8generateNCNvXNtB1t_5implsB1W_NtNtBe_7default7Default7default0E0E0Csff1zCjKRl2o_13turborepo_env: argument 0"}
+!49 = distinct !{!49, !"_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8for_each4callTjQhENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB1t_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB2j_IB2j_IB2j_IB2j_IB2j_NtB2l_5UTermNtNtB2n_3bit2B1ENtB3w_2B0EB3K_EB3K_EB3K_EB3K_EEINtNtB1t_8sequence15GenericSequencehE8generateNCNvXNtB1t_5implsB1W_NtNtBe_7default7Default7default0E0E0Csff1zCjKRl2o_13turborepo_env"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_RNCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB8_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIBX_IBX_IBX_IBX_IBX_NtBZ_5UTermNtNtB11_3bit2B1ENtB24_2B0EB2i_EB2i_EB2i_EB2i_EEINtNtB8_8sequence15GenericSequencehE8generateNCNvXNtB8_5implsBB_NtNtCs1LoaDTb72WA_4core7default7Default7default0E0Csff1zCjKRl2o_13turborepo_env: argument 0"}
+!52 = distinct !{!52, !"_RNCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB8_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIBX_IBX_IBX_IBX_IBX_NtBZ_5UTermNtNtB11_3bit2B1ENtB24_2B0EB2i_EB2i_EB2i_EB2i_EEINtNtB8_8sequence15GenericSequencehE8generateNCNvXNtB8_5implsBB_NtNtCs1LoaDTb72WA_4core7default7Default7default0E0Csff1zCjKRl2o_13turborepo_env"}
+!53 = !{!51, !48, !46}
+!54 = !{!51, !48, !43, !46}
+!55 = !{i64 0, i64 2}

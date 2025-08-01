@@ -67,13 +67,13 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i
 4:                                                ; preds = %.critedge
   %.0.add = add nuw nsw i64 %.0.idx22, 24
   %.not = icmp eq i64 %.0.add, 984
-  br i1 %.not, label %.thread, label %.critedge, !llvm.loop !3
+  br i1 %.not, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %4
   %.0.idx22 = phi i64 [ 0, %.preheader ], [ %.0.add, %4 ]
   %.0.ptr23 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx22
   %5 = getelementptr inbounds nuw i8, ptr %.0.ptr23, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !5
+  %6 = load i32, ptr %5, align 8, !tbaa !3
   %.not9 = icmp eq i32 %6, %2
   br i1 %.not9, label %7, label %4
 
@@ -84,16 +84,16 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.0.ptr23, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %12 = load i64, ptr %11, align 8, !tbaa !12
   %13 = add i64 %12, -1
-  %14 = load ptr, ptr %.0.ptr23, align 8, !tbaa !15
+  %14 = load ptr, ptr %.0.ptr23, align 8, !tbaa !13
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %13)
   br label %.thread
 
 15:                                               ; preds = %7
-  %.sroa.015.0.copyload = load ptr, ptr %.0.ptr23, align 8, !tbaa !16
+  %.sroa.015.0.copyload = load ptr, ptr %.0.ptr23, align 8, !tbaa !14
   %.sroa.6.0..0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr23, i64 8
-  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx, align 8, !tbaa !17
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx, align 8, !tbaa !15
   br label %.thread
 
 .thread:                                          ; preds = %4, %1, %10, %15, %3
@@ -124,13 +124,13 @@ define dso_local void @_ZN4llvm8codeview14printTypeIndexERNS_13ScopedPrinterENS_
 11:                                               ; preds = %.critedge.i
   %.0.add.i = add nuw nsw i64 %.0.idx22.i, 24
   %.not.i = icmp eq i64 %.0.add.i, 984
-  br i1 %.not.i, label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread, label %.critedge.i, !llvm.loop !3
+  br i1 %.not.i, label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %11, %.preheader.i
   %.0.idx22.i = phi i64 [ 0, %.preheader.i ], [ %.0.add.i, %11 ]
   %.0.ptr23.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx22.i
   %12 = getelementptr inbounds nuw i8, ptr %.0.ptr23.i, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !5
+  %13 = load i32, ptr %12, align 8, !tbaa !3
   %.not9.i = icmp eq i32 %13, %10
   br i1 %.not9.i, label %14, label %11
 
@@ -141,20 +141,20 @@ define dso_local void @_ZN4llvm8codeview14printTypeIndexERNS_13ScopedPrinterENS_
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.0.ptr23.i, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !14
+  %19 = load i64, ptr %18, align 8, !tbaa !12
   %20 = add i64 %19, -1
-  %21 = load ptr, ptr %.0.ptr23.i, align 8, !tbaa !15
+  %21 = load ptr, ptr %.0.ptr23.i, align 8, !tbaa !13
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %20)
   br label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
 
 22:                                               ; preds = %14
-  %.sroa.015.0.copyload.i = load ptr, ptr %.0.ptr23.i, align 8, !tbaa !16
+  %.sroa.015.0.copyload.i = load ptr, ptr %.0.ptr23.i, align 8, !tbaa !14
   %.sroa.6.0..0.ptr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.ptr23.i, i64 8
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx.i, align 8, !tbaa !17
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx.i, align 8, !tbaa !15
   br label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
 
 23:                                               ; preds = %7
-  %24 = load ptr, ptr %4, align 8, !tbaa !18
+  %24 = load ptr, ptr %4, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call { ptr, i64 } %26(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %3) #3
@@ -172,7 +172,7 @@ _ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread: ; preds = %11, %9, 
   %.sroa.6.030 = phi i64 [ %.sroa.6.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ 14, %9 ], [ 21, %11 ]
   %.sroa.0.029 = phi ptr [ %.sroa.0.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ @.str.1, %9 ], [ @.str.2, %11 ]
   %31 = zext i32 %3 to i64
-  %32 = load ptr, ptr %0, align 8, !tbaa !18
+  %32 = load ptr, ptr %0, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 344
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %.sroa.0.029, i64 %.sroa.6.030, i64 %31) #3
@@ -180,7 +180,7 @@ _ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread: ; preds = %11, %9, 
 
 .thread:                                          ; preds = %5, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
   %35 = zext i32 %3 to i64
-  %36 = load ptr, ptr %0, align 8, !tbaa !18
+  %36 = load ptr, ptr %0, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 336
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, i64 %35) #3
@@ -203,20 +203,18 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{!6, !13, i64 16}
-!6 = !{!"_ZTSN12_GLOBAL__N_115SimpleTypeEntryE", !7, i64 0, !13, i64 16}
-!7 = !{!"_ZTSN4llvm9StringRefE", !8, i64 0, !12, i64 8}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C++ TBAA"}
-!12 = !{!"long", !10, i64 0}
-!13 = !{!"_ZTSN4llvm8codeview14SimpleTypeKindE", !10, i64 0}
-!14 = !{!7, !12, i64 8}
-!15 = !{!7, !8, i64 0}
-!16 = !{!8, !8, i64 0}
-!17 = !{!12, !12, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"vtable pointer", !11, i64 0}
+!3 = !{!4, !11, i64 16}
+!4 = !{!"_ZTSN12_GLOBAL__N_115SimpleTypeEntryE", !5, i64 0, !11, i64 16}
+!5 = !{!"_ZTSN4llvm9StringRefE", !6, i64 0, !10, i64 8}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"long", !8, i64 0}
+!11 = !{!"_ZTSN4llvm8codeview14SimpleTypeKindE", !8, i64 0}
+!12 = !{!5, !10, i64 8}
+!13 = !{!5, !6, i64 0}
+!14 = !{!6, !6, i64 0}
+!15 = !{!10, !10, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !9, i64 0}

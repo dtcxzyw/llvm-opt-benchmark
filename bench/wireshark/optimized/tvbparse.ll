@@ -129,7 +129,7 @@ define noalias noundef ptr @tvbparse_chars(i32 noundef %0, i32 noundef %1, i32 n
   %18 = getelementptr i8, ptr %3, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -193,7 +193,7 @@ define internal i32 @cond_chars_common(ptr noundef %0, i32 noundef %1, ptr nound
   %.not = icmp eq i8 %26, 0
   %27 = add nuw i32 %.030, 1
   %28 = add nsw i32 %.028, -1
-  br i1 %.not, label %29, label %17, !llvm.loop !10
+  br i1 %.not, label %29, label %17
 
 29:                                               ; preds = %19, %17
   %30 = load i32, ptr %7, align 4
@@ -274,7 +274,7 @@ define internal range(i32 -1, 2) i32 @cond_not_char(ptr noundef %0, i32 noundef 
   %18 = getelementptr i8, ptr %12, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not19 = icmp eq i8 %19, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %spec.select, label %31, label %.critedge
@@ -329,7 +329,7 @@ define noalias noundef ptr @tvbparse_not_chars(i32 noundef %0, i32 noundef %1, i
   %18 = getelementptr i8, ptr %3, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -556,7 +556,7 @@ define noundef ptr @tvbparse_set_oneof(i32 noundef %0, ptr noundef %1, ptr nound
 32:                                               ; preds = %29
   %33 = load ptr, ptr %13, align 8
   call void @g_ptr_array_add(ptr noundef %33, ptr noundef nonnull %31)
-  br label %18, !llvm.loop !13
+  br label %18, !llvm.loop !11
 
 34:                                               ; preds = %29
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -658,7 +658,7 @@ define internal range(i32 -1, -2147483648) i32 @cond_one_of(ptr noundef %0, i32 
   %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %54
   %.pre35 = load i32, ptr %10, align 8
@@ -774,7 +774,7 @@ define noalias noundef ptr @tvbparse_hashed(i32 noundef %0, ptr noundef %1, ptr 
   %47 = phi ptr [ %41, %38 ], [ %44, %43 ]
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @wmem_map_insert(ptr noundef %15, ptr noundef nonnull %35, ptr noundef %48)
-  br label %21, !llvm.loop !15
+  br label %21, !llvm.loop !13
 
 50:                                               ; preds = %32
   call void @llvm.va_end.p0(ptr nonnull %7)
@@ -985,7 +985,7 @@ define void @tvbparse_hashed_add(ptr noundef readonly captures(none) %0, ...) lo
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %5, align 8
   %35 = call ptr @wmem_map_insert(ptr noundef %34, ptr noundef nonnull %20, ptr noundef %33)
-  br label %6, !llvm.loop !16
+  br label %6, !llvm.loop !14
 
 36:                                               ; preds = %17
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -1046,7 +1046,7 @@ define noundef ptr @tvbparse_set_seq(i32 noundef %0, ptr noundef %1, ptr noundef
 32:                                               ; preds = %29
   %33 = load ptr, ptr %13, align 8
   call void @g_ptr_array_add(ptr noundef %33, ptr noundef nonnull %31)
-  br label %18, !llvm.loop !17
+  br label %18, !llvm.loop !15
 
 34:                                               ; preds = %29
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -1201,7 +1201,7 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 %88(ptr noundef %0, i32 noundef %85, ptr noundef %86, ptr noundef nonnull %5)
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !18
+  br i1 %90, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !16
 
 ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %75, %.preheader.i
   %.0.i = phi i32 [ 0, %75 ], [ 0, %.preheader.i ], [ %84, %.lr.ph.i ]
@@ -1214,7 +1214,7 @@ ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %75, %.pr
   %94 = load i32, ptr %93, align 8
   %95 = zext i32 %94 to i64
   %96 = icmp samesign ult i64 %indvars.iv.next, %95
-  br i1 %96, label %21, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %96, label %21, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %ignore_fcn.exit
   %.pre = load i32, ptr %11, align 8
@@ -1508,7 +1508,7 @@ define internal i32 @cond_until(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %27 = add i32 %.0, 2
   %28 = load i32, ptr %12, align 4
   %29 = icmp slt i32 %27, %28
-  br i1 %29, label %.preheader, label %.critedge, !llvm.loop !20
+  br i1 %29, label %.preheader, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %25
   %30 = load i32, ptr %16, align 8
@@ -1620,7 +1620,7 @@ define noundef ptr @tvbparse_quoted(i32 noundef %0, ptr noundef %1, ptr noundef 
   %37 = getelementptr i8, ptr %12, i64 %36
   %38 = load i8, ptr %37, align 1
   %.not.i = icmp eq i8 %38, 0
-  br i1 %.not.i, label %tvbparse_not_chars.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %tvbparse_not_chars.exit, label %.lr.ph.i, !llvm.loop !10
 
 tvbparse_not_chars.exit:                          ; preds = %.lr.ph.i, %6
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1766,7 +1766,7 @@ define zeroext i1 @tvbparse_peek(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef %0, i32 noundef %15, ptr noundef %16, ptr noundef nonnull %3)
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !18
+  br i1 %20, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !16
 
 ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %2, %.preheader.i
   %.0.i = phi i32 [ 0, %2 ], [ 0, %.preheader.i ], [ %14, %.lr.ph.i ]
@@ -1813,7 +1813,7 @@ define ptr @tvbparse_get(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef %0, i32 noundef %15, ptr noundef %16, ptr noundef nonnull %3)
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !18
+  br i1 %20, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !16
 
 ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %2, %.preheader.i
   %.0.i = phi i32 [ 0, %2 ], [ 0, %.preheader.i ], [ %14, %.lr.ph.i ]
@@ -1880,7 +1880,7 @@ define internal fastcc void @execute_callbacks(ptr noundef readonly captures(non
 .backedge:                                        ; preds = %40, %28, %18
   %.0.be = phi ptr [ %19, %18 ], [ %.136, %28 ], [ %.1, %40 ]
   %.not = icmp eq ptr %.0.be, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !19
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %7, align 8
@@ -1927,7 +1927,7 @@ define internal fastcc void @execute_callbacks(ptr noundef readonly captures(non
   %.1.in = getelementptr inbounds nuw i8, ptr %31, i64 48
   %.1 = load ptr, ptr %.1.in, align 8
   %.not32 = icmp eq ptr %.1, null
-  br i1 %.not32, label %.lr.ph, label %.backedge, !llvm.loop !22
+  br i1 %.not32, label %.lr.ph, label %.backedge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.backedge, %.lr.ph, %2
   ret void
@@ -1956,7 +1956,7 @@ define ptr @tvbparse_find(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 14:                                               ; preds = %9
   %15 = load i32, ptr %8, align 4
   %16 = icmp slt i32 %11, %15
-  br i1 %16, label %9, label %.critedge, !llvm.loop !23
+  br i1 %16, label %9, label %.critedge, !llvm.loop !21
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %3, align 8
@@ -2027,7 +2027,7 @@ define void @tvbparse_tree_add_elem(ptr noundef %0, ptr noundef %1) local_unname
   %.025.be = phi ptr [ %27, %23 ], [ %.02540, %.preheader ], [ %32, %31 ]
   %.0.be = phi ptr [ %29, %23 ], [ %.131, %.preheader ], [ %.1, %31 ]
   %.not = icmp eq ptr %.0.be, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %30 = tail call i32 @wmem_list_count(ptr noundef %6)
@@ -2041,7 +2041,7 @@ define void @tvbparse_tree_add_elem(ptr noundef %0, ptr noundef %1) local_unname
   %.1.in = getelementptr inbounds nuw i8, ptr %34, i64 48
   %.1 = load ptr, ptr %.1.in, align 8
   %.not28 = icmp eq ptr %.1, null
-  br i1 %.not28, label %.lr.ph, label %.backedge, !llvm.loop !25
+  br i1 %.not28, label %.lr.ph, label %.backedge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.backedge, %.lr.ph, %2
   ret void
@@ -2119,23 +2119,21 @@ attributes #14 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

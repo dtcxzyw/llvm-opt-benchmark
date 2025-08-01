@@ -99,7 +99,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
   store i64 %59, ptr %60, align 8
   %61 = add nuw nsw i64 %57, 1
   %62 = icmp eq i64 %61, %55
-  br i1 %62, label %.loopexit13, label %56, !llvm.loop !9
+  br i1 %62, label %.loopexit13, label %56, !llvm.loop !8
 
 .loopexit13:                                      ; preds = %.preheader14, %56, %51, %.loopexit16
   %63 = phi i64 [ 0, %.loopexit16 ], [ 0, %51 ], [ 0, %56 ], [ 1, %.preheader14 ]
@@ -153,7 +153,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
   %95 = getelementptr i8, ptr %86, i64 8
   store i64 %94, ptr %86, align 8
   %96 = icmp eq i64 %93, 0
-  br i1 %96, label %.preheader, label %.loopexit12, !llvm.loop !10
+  br i1 %96, label %.preheader, label %.loopexit12, !llvm.loop !9
 
 .loopexit12:                                      ; preds = %91, %._crit_edge
   %97 = phi ptr [ %84, %._crit_edge ], [ %95, %91 ]
@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
   store i64 %109, ptr %110, align 8
   %111 = add nuw nsw i64 %107, 1
   %112 = icmp eq i64 %111, %105
-  br i1 %112, label %.loopexit, label %106, !llvm.loop !11
+  br i1 %112, label %.loopexit, label %106, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %106, %101, %.loopexit12
   %113 = load i32, ptr %4, align 4
@@ -225,10 +225,9 @@ attributes #2 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

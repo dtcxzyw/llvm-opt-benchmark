@@ -152,18 +152,18 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 28:                                               ; preds = %.preheader93
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 9
-  br i1 %exitcond119.not, label %.preheader92, label %.preheader93, !llvm.loop !7
+  br i1 %exitcond119.not, label %.preheader92, label %.preheader93, !llvm.loop !6
 
 .preheader92:                                     ; preds = %28, %40
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %40 ], [ 0, %28 ]
   %29 = getelementptr inbounds nuw [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv120, i32 1
-  %30 = load i32, ptr %29, align 4, !tbaa !8
+  %30 = load i32, ptr %29, align 4, !tbaa !7
   %31 = icmp eq i32 %30, -1
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds i32, ptr @test_int_stack.v, i64 %32
   %34 = select i1 %31, ptr @test_int_stack.notpresent, ptr %33
   %35 = tail call i32 @OPENSSL_sk_find(ptr noundef %2, ptr noundef nonnull %34) #5
-  %36 = load i32, ptr %29, align 4, !tbaa !8
+  %36 = load i32, ptr %29, align 4, !tbaa !7
   %37 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 114, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef %35, i32 noundef %36) #5
   %.not77 = icmp eq i32 %37, 0
   br i1 %.not77, label %38, label %40
@@ -176,18 +176,18 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 40:                                               ; preds = %.preheader92
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 5
-  br i1 %exitcond123.not, label %.preheader91, label %.preheader92, !llvm.loop !13
+  br i1 %exitcond123.not, label %.preheader91, label %.preheader92, !llvm.loop !12
 
 .preheader91:                                     ; preds = %40, %52
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %52 ], [ 0, %40 ]
   %41 = getelementptr inbounds nuw [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv124, i32 1
-  %42 = load i32, ptr %41, align 4, !tbaa !8
+  %42 = load i32, ptr %41, align 4, !tbaa !7
   %43 = icmp eq i32 %42, -1
   %44 = sext i32 %42 to i64
   %45 = getelementptr inbounds i32, ptr @test_int_stack.v, i64 %44
   %46 = select i1 %43, ptr @test_int_stack.notpresent, ptr %45
   %47 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %2, ptr noundef nonnull %46) #5
-  %48 = load i32, ptr %41, align 4, !tbaa !8
+  %48 = load i32, ptr %41, align 4, !tbaa !7
   %49 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 125, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, i32 noundef %47, i32 noundef %48) #5
   %.not76 = icmp eq i32 %49, 0
   br i1 %.not76, label %50, label %52
@@ -200,7 +200,7 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 52:                                               ; preds = %.preheader91
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 5
-  br i1 %exitcond127.not, label %53, label %.preheader91, !llvm.loop !14
+  br i1 %exitcond127.not, label %53, label %.preheader91, !llvm.loop !13
 
 53:                                               ; preds = %52
   %54 = tail call i32 @OPENSSL_sk_is_sorted(ptr noundef %2) #5
@@ -225,7 +225,7 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
   %64 = getelementptr inbounds nuw [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv128
   %65 = tail call i32 @OPENSSL_sk_find(ptr noundef %2, ptr noundef nonnull %64) #5
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !15
+  %67 = load i32, ptr %66, align 8, !tbaa !14
   %68 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 141, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef %65, i32 noundef %67) #5
   %.not75 = icmp eq i32 %68, 0
   br i1 %.not75, label %69, label %71
@@ -238,14 +238,14 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 71:                                               ; preds = %.preheader90
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 5
-  br i1 %exitcond131.not, label %.preheader89, label %.preheader90, !llvm.loop !16
+  br i1 %exitcond131.not, label %.preheader89, label %.preheader90, !llvm.loop !15
 
 .preheader89:                                     ; preds = %71, %79
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %79 ], [ 0, %71 ]
   %72 = getelementptr inbounds nuw [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv132
   %73 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %2, ptr noundef nonnull %72) #5
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !17
+  %75 = load i32, ptr %74, align 4, !tbaa !16
   %76 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 148, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef %73, i32 noundef %75) #5
   %.not74 = icmp eq i32 %76, 0
   br i1 %.not74, label %77, label %79
@@ -258,14 +258,14 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 79:                                               ; preds = %.preheader89
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 5
-  br i1 %exitcond135.not, label %.preheader, label %.preheader89, !llvm.loop !18
+  br i1 %exitcond135.not, label %.preheader, label %.preheader89, !llvm.loop !17
 
 .preheader:                                       ; preds = %79, %87
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %87 ], [ 0, %79 ]
   %80 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @test_int_stack.exfinds, i64 0, i64 %indvars.iv136
   %81 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %2, ptr noundef nonnull %80) #5
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !19
+  %83 = load i32, ptr %82, align 4, !tbaa !18
   %84 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 153, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef %81, i32 noundef %83) #5
   %.not73 = icmp eq i32 %84, 0
   br i1 %.not73, label %85, label %87
@@ -278,7 +278,7 @@ define internal range(i32 0, 2) i32 @test_int_stack(i32 noundef %0) #0 {
 87:                                               ; preds = %.preheader
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 6
-  br i1 %exitcond139.not, label %88, label %.preheader, !llvm.loop !21
+  br i1 %exitcond139.not, label %88, label %.preheader, !llvm.loop !20
 
 88:                                               ; preds = %87
   %89 = tail call ptr @OPENSSL_sk_shift(ptr noundef %2) #5
@@ -333,7 +333,7 @@ define internal range(i32 0, 2) i32 @test_uchar_stack(i32 noundef %0) #0 {
   %19 = tail call i32 @OPENSSL_sk_unshift(ptr noundef %2, ptr noundef nonnull %18) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %20, label %12, !llvm.loop !22
+  br i1 %exitcond.not, label %20, label %12, !llvm.loop !21
 
 20:                                               ; preds = %17
   %21 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @test_uchar_stack(i32 noundef %0) #0 {
 37:                                               ; preds = %31
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 6
-  br i1 %exitcond78.not, label %38, label %31, !llvm.loop !23
+  br i1 %exitcond78.not, label %38, label %31, !llvm.loop !22
 
 38:                                               ; preds = %37
   tail call void @OPENSSL_sk_free(ptr noundef %2) #5
@@ -413,7 +413,7 @@ define internal range(i32 0, 2) i32 @test_uchar_stack(i32 noundef %0) #0 {
 54:                                               ; preds = %48
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 3
-  br i1 %exitcond82.not, label %55, label %48, !llvm.loop !24
+  br i1 %exitcond82.not, label %55, label %48, !llvm.loop !23
 
 55:                                               ; preds = %54
   %56 = tail call ptr @OPENSSL_sk_delete(ptr noundef %27, i32 noundef 12) #5
@@ -446,7 +446,7 @@ define internal range(i32 0, 2) i32 @test_uchar_stack(i32 noundef %0) #0 {
   br label %.loopexit
 
 70:                                               ; preds = %63
-  br i1 %64, label %63, label %.loopexit, !llvm.loop !25
+  br i1 %64, label %63, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %70, %58, %55, %41, %38, %26, %23, %20, %1, %6, %69, %53, %35, %16
   %.048 = phi ptr [ %2, %16 ], [ %2, %23 ], [ %2, %35 ], [ null, %53 ], [ null, %69 ], [ null, %58 ], [ null, %55 ], [ null, %41 ], [ null, %38 ], [ %2, %26 ], [ %2, %20 ], [ %2, %6 ], [ %2, %1 ], [ null, %70 ]
@@ -470,18 +470,18 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %15 ]
   %4 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8, ptr noundef nonnull @.str.4, i32 noundef 282) #5
   %5 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %indvars.iv
-  store ptr %4, ptr %5, align 8, !tbaa !26
+  store ptr %4, ptr %5, align 8, !tbaa !25
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 284, ptr noundef nonnull @.str.44, ptr noundef %4) #5
   %.not56 = icmp eq i32 %6, 0
   br i1 %.not56, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %8, ptr %4, align 4, !tbaa !28
+  store i32 %8, ptr %4, align 4, !tbaa !27
   %9 = trunc i64 %indvars.iv to i8
   %10 = add nuw nsw i8 %9, 65
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %10, ptr %11, align 4, !tbaa !30
+  store i8 %10, ptr %11, align 4, !tbaa !29
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %13 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 288, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.8, i32 noundef %12, i32 noundef %8) #5
   %.not57 = icmp eq i32 %13, 0
@@ -495,7 +495,7 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   %16 = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %4) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %17, label %3, !llvm.loop !31
+  br i1 %exitcond.not, label %17, label %3, !llvm.loop !30
 
 17:                                               ; preds = %15
   %18 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
@@ -521,7 +521,7 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   %26 = trunc nuw nsw i64 %indvars.iv76 to i32
   %27 = tail call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef range(i32 -2147483648, 10) %26) #5
   %28 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %indvars.iv76
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   %30 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 307, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.44, ptr noundef %27, ptr noundef %29) #5
   %.not53 = icmp eq i32 %30, 0
   br i1 %.not53, label %31, label %32
@@ -531,8 +531,8 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   br label %.loopexit
 
 32:                                               ; preds = %.preheader58
-  %33 = load i32, ptr %27, align 4, !tbaa !28
-  %34 = load i32, ptr %29, align 4, !tbaa !28
+  %33 = load i32, ptr %27, align 4, !tbaa !27
+  %34 = load i32, ptr %29, align 4, !tbaa !27
   %35 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 311, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef %33, i32 noundef %34) #5
   %.not54 = icmp eq i32 %35, 0
   br i1 %.not54, label %36, label %37
@@ -543,9 +543,9 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %39 = load i8, ptr %38, align 4, !tbaa !30
+  %39 = load i8, ptr %38, align 4, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %41 = load i8, ptr %40, align 4, !tbaa !30
+  %41 = load i8, ptr %40, align 4, !tbaa !29
   %42 = tail call i32 @test_char_eq(ptr noundef nonnull @.str.4, i32 noundef 315, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i8 noundef signext %39, i8 noundef signext %41) #5
   %.not55 = icmp eq i32 %42, 0
   br i1 %.not55, label %43, label %44
@@ -557,12 +557,12 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
 44:                                               ; preds = %37
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 10
-  br i1 %exitcond79.not, label %45, label %.preheader58, !llvm.loop !32
+  br i1 %exitcond79.not, label %45, label %.preheader58, !llvm.loop !31
 
 45:                                               ; preds = %44
   tail call void @OPENSSL_sk_pop_free(ptr noundef %24, ptr noundef nonnull @SS_free) #5
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !26
+  %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = tail call ptr @OPENSSL_sk_delete_ptr(ptr noundef %2, ptr noundef %47) #5
   %49 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 327, ptr noundef nonnull @.str.48, ptr noundef %48) #5
   %.not50 = icmp eq i32 %49, 0
@@ -587,10 +587,10 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   %57 = select i1 %55, i32 %.2, i32 %56
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %58
-  %60 = load ptr, ptr %59, align 8, !tbaa !26
+  %60 = load ptr, ptr %59, align 8, !tbaa !25
   %61 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 333, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef %54, ptr noundef %60) #5
   %.not52 = icmp eq i32 %61, 0
-  br i1 %.not52, label %62, label %.preheader, !llvm.loop !33
+  br i1 %.not52, label %62, label %.preheader, !llvm.loop !32
 
 62:                                               ; preds = %53
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 334, ptr noundef nonnull @.str.59, i32 noundef %.2) #5
@@ -621,14 +621,14 @@ define internal range(i32 0, 2) i32 @test_SU_stack() #0 {
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw [10 x %union.SU], ptr %1, i64 0, i64 %indvars.iv
-  store i32 %4, ptr %8, align 4, !tbaa !34
+  store i32 %4, ptr %8, align 4, !tbaa !33
   br label %13
 
 9:                                                ; preds = %3
   %10 = trunc i64 %indvars.iv to i8
   %11 = add nuw nsw i8 %10, 65
   %12 = getelementptr inbounds nuw [10 x %union.SU], ptr %1, i64 0, i64 %indvars.iv
-  store i8 %11, ptr %12, align 4, !tbaa !34
+  store i8 %11, ptr %12, align 4, !tbaa !33
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -646,7 +646,7 @@ define internal range(i32 0, 2) i32 @test_SU_stack() #0 {
   %19 = call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %18) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %20, label %3, !llvm.loop !35
+  br i1 %exitcond.not, label %20, label %3, !llvm.loop !34
 
 20:                                               ; preds = %17
   %21 = call i32 @OPENSSL_sk_num(ptr noundef %2) #5
@@ -670,7 +670,7 @@ define internal range(i32 0, 2) i32 @test_SU_stack() #0 {
 28:                                               ; preds = %.preheader
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 10
-  br i1 %exitcond33.not, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %exitcond33.not, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %28, %20, %27, %16
   %.0 = phi i32 [ 0, %16 ], [ 0, %27 ], [ 0, %20 ], [ 1, %28 ]
@@ -699,10 +699,10 @@ declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @int_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !37
-  %4 = load i32, ptr %3, align 4, !tbaa !39
-  %5 = load ptr, ptr %1, align 8, !tbaa !37
-  %6 = load i32, ptr %5, align 4, !tbaa !39
+  %3 = load ptr, ptr %0, align 8, !tbaa !36
+  %4 = load i32, ptr %3, align 4, !tbaa !38
+  %5 = load ptr, ptr %1, align 8, !tbaa !36
+  %6 = load i32, ptr %5, align 4, !tbaa !38
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
   ret i32 %.0
 }
@@ -733,11 +733,11 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -255, 256) i32 @uchar_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !40
-  %4 = load i8, ptr %3, align 1, !tbaa !34
+  %3 = load ptr, ptr %0, align 8, !tbaa !39
+  %4 = load i8, ptr %3, align 1, !tbaa !33
   %5 = zext i8 %4 to i32
-  %6 = load ptr, ptr %1, align 8, !tbaa !40
-  %7 = load i8, ptr %6, align 1, !tbaa !34
+  %6 = load ptr, ptr %1, align 8, !tbaa !39
+  %7 = load i8, ptr %6, align 1, !tbaa !33
   %8 = zext i8 %7 to i32
   %9 = sub nsw i32 %5, %8
   ret i32 %9
@@ -812,41 +812,40 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{!9, !10, i64 4}
-!9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!10 = !{!"int", !11, i64 0}
-!11 = !{!"omnipotent char", !12, i64 0}
-!12 = !{!"Simple C/C++ TBAA"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = !{!9, !10, i64 8}
-!16 = distinct !{!16, !5, !6}
-!17 = !{!9, !10, i64 12}
-!18 = distinct !{!18, !5, !6}
-!19 = !{!20, !10, i64 4}
-!20 = !{!"", !10, i64 0, !10, i64 4}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"any pointer", !11, i64 0}
-!28 = !{!29, !10, i64 0}
-!29 = !{!"", !10, i64 0, !11, i64 4}
-!30 = !{!29, !11, i64 4}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = !{!11, !11, i64 0}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 int", !27, i64 0}
-!39 = !{!10, !10, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 omnipotent char", !27, i64 0}
+!6 = distinct !{!6, !5}
+!7 = !{!8, !9, i64 4}
+!8 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!9 = !{!"int", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!8, !9, i64 8}
+!15 = distinct !{!15, !5}
+!16 = !{!8, !9, i64 12}
+!17 = distinct !{!17, !5}
+!18 = !{!19, !9, i64 4}
+!19 = !{!"", !9, i64 0, !9, i64 4}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"any pointer", !10, i64 0}
+!27 = !{!28, !9, i64 0}
+!28 = !{!"", !9, i64 0, !10, i64 4}
+!29 = !{!28, !10, i64 4}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = !{!10, !10, i64 0}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 int", !26, i64 0}
+!38 = !{!9, !9, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 omnipotent char", !26, i64 0}

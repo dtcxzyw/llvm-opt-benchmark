@@ -582,13 +582,13 @@ if.then131.i.i:                                   ; preds = %if.end128.i.i
   store i8 3, ptr %LHSKind.i69.i.i, align 8
   %conv136.i.i = zext nneg i32 %or123.i.i to i64
   store i64 %conv136.i.i, ptr %ref.tmp135.i.i, align 8
-  store ptr %ref.tmp135.i.i, ptr %ref.tmp134.i.i, align 8, !alias.scope !7
+  store ptr %ref.tmp135.i.i, ptr %ref.tmp134.i.i, align 8, !alias.scope !6
   %RHS4.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp134.i.i, i64 8
-  store ptr null, ptr %RHS4.i.i.i.i, align 8, !alias.scope !7
+  store ptr null, ptr %RHS4.i.i.i.i, align 8, !alias.scope !6
   %LHSKind5.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp134.i.i, i64 16
-  store i8 15, ptr %LHSKind5.i.i.i.i, align 8, !alias.scope !7
+  store i8 15, ptr %LHSKind5.i.i.i.i, align 8, !alias.scope !6
   %RHSKind6.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp134.i.i, i64 17
-  store i8 1, ptr %RHSKind6.i.i.i.i, align 1, !alias.scope !7
+  store i8 1, ptr %RHSKind6.i.i.i.i, align 1, !alias.scope !6
   call void @_ZN4llvhplERKNS_5TwineES2_(ptr nonnull sret(%"class.llvh::Twine") align 8 %ref.tmp132.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp133.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp134.i.i)
   call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.15) #12
   unreachable
@@ -654,7 +654,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i20, %if.
   call void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %22, i64 noundef %conv, i32 noundef 1, i64 4, i8 1) #10
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0156, i64 2
   %cmp9.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp9.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
+  br i1 %cmp9.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %.pre = load ptr, ptr %utf16Chars, align 8
@@ -672,7 +672,7 @@ if.then.i.i21:                                    ; preds = %for.end
 while.cond.backedge:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit129, %if.then.i.i52, %if.then4.i.i49, %if.then.i.i67, %if.then4.i.i64, %if.then.i.i82, %if.then4.i.i79, %if.then.i.i97, %if.then4.i.i94, %if.then.i.i112, %if.then4.i.i109, %if.end.i37, %if.then.i34, %if.then.i.i21, %for.end
   %begin8.0.be = phi ptr [ %begin8.1151, %for.end ], [ %begin8.1151, %if.then.i.i21 ], [ %incdec.ptr.i17, %if.then.i34 ], [ %incdec.ptr.i17, %if.end.i37 ], [ %incdec.ptr.i17, %if.then4.i.i109 ], [ %incdec.ptr.i17, %if.then.i.i112 ], [ %incdec.ptr.i17, %if.then4.i.i94 ], [ %incdec.ptr.i17, %if.then.i.i97 ], [ %incdec.ptr.i17, %if.then4.i.i79 ], [ %incdec.ptr.i17, %if.then.i.i82 ], [ %incdec.ptr.i17, %if.then4.i.i64 ], [ %incdec.ptr.i17, %if.then.i.i67 ], [ %incdec.ptr.i17, %if.then4.i.i49 ], [ %incdec.ptr.i17, %if.then.i.i52 ], [ %incdec.ptr.i17, %_ZN4llvh11raw_ostreamlsEPKc.exit129 ]
   %cmp.not = icmp eq ptr %begin8.0.be, %add.ptr.i13
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
 if.then18:                                        ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread", %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread", %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread"
   %25 = load ptr, ptr %OS, align 8
@@ -1739,23 +1739,23 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvhplERKNS_5TwineES2_(ptr noalias sret(%"class.llvh::Twine") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %LHS, ptr noundef nonnull align 8 dereferenceable(18) %RHS) local_unnamed_addr #0 comdat {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %LHSKind.i.i.i = getelementptr inbounds nuw i8, ptr %LHS, i64 16
-  %0 = load i8, ptr %LHSKind.i.i.i, align 8, !noalias !12
+  %0 = load i8, ptr %LHSKind.i.i.i, align 8, !noalias !10
   %cmp.i.i = icmp eq i8 %0, 0
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %LHSKind.i.i7.i = getelementptr inbounds nuw i8, ptr %RHS, i64 16
-  %1 = load i8, ptr %LHSKind.i.i7.i, align 8, !noalias !12
+  %1 = load i8, ptr %LHSKind.i.i7.i, align 8, !noalias !10
   %cmp.i8.i = icmp eq i8 %1, 0
   br i1 %cmp.i8.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 0, ptr %LHSKind.i.i, align 8, !alias.scope !12
+  store i8 0, ptr %LHSKind.i.i, align 8, !alias.scope !10
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
-  store i8 1, ptr %RHSKind.i.i, align 1, !alias.scope !12
+  store i8 1, ptr %RHSKind.i.i, align 1, !alias.scope !10
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -1776,24 +1776,24 @@ if.then7.i:                                       ; preds = %if.end5.i
 
 if.end8.i:                                        ; preds = %if.end5.i
   %RHSKind.i.i.i = getelementptr inbounds nuw i8, ptr %LHS, i64 17
-  %2 = load i8, ptr %RHSKind.i.i.i, align 1, !noalias !12
+  %2 = load i8, ptr %RHSKind.i.i.i, align 1, !noalias !10
   %cmp.i13.i = icmp eq i8 %2, 1
-  %NewLHS.sroa.0.0.copyload.i = load ptr, ptr %LHS, align 8, !noalias !12
+  %NewLHS.sroa.0.0.copyload.i = load ptr, ptr %LHS, align 8, !noalias !10
   %spec.select.i = select i1 %cmp.i13.i, i8 %0, i8 2
   %spec.select20.i = select i1 %cmp.i13.i, ptr %NewLHS.sroa.0.0.copyload.i, ptr %LHS
   %RHSKind.i.i15.i = getelementptr inbounds nuw i8, ptr %RHS, i64 17
-  %3 = load i8, ptr %RHSKind.i.i15.i, align 1, !noalias !12
+  %3 = load i8, ptr %RHSKind.i.i15.i, align 1, !noalias !10
   %cmp.i16.i = icmp eq i8 %3, 1
-  %NewRHS.sroa.0.0.copyload.i = load ptr, ptr %RHS, align 8, !noalias !12
+  %NewRHS.sroa.0.0.copyload.i = load ptr, ptr %RHS, align 8, !noalias !10
   %NewRHSKind.0.i = select i1 %cmp.i16.i, i8 %1, i8 2
   %NewRHS.sroa.0.0.i = select i1 %cmp.i16.i, ptr %NewRHS.sroa.0.0.copyload.i, ptr %RHS
-  store ptr %spec.select20.i, ptr %agg.result, align 8, !alias.scope !12
+  store ptr %spec.select20.i, ptr %agg.result, align 8, !alias.scope !10
   %RHS4.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %NewRHS.sroa.0.0.i, ptr %RHS4.i.i, align 8, !alias.scope !12
+  store ptr %NewRHS.sroa.0.0.i, ptr %RHS4.i.i, align 8, !alias.scope !10
   %LHSKind5.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %spec.select.i, ptr %LHSKind5.i.i, align 8, !alias.scope !12
+  store i8 %spec.select.i, ptr %LHSKind5.i.i, align 8, !alias.scope !10
   %RHSKind6.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
-  store i8 %NewRHSKind.0.i, ptr %RHSKind6.i.i, align 1, !alias.scope !12
+  store i8 %NewRHSKind.0.i, ptr %RHSKind6.i.i, align 1, !alias.scope !10
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
 _ZNK4llvh5Twine6concatERKS0_.exit:                ; preds = %if.then.i, %if.then4.i, %if.then7.i, %if.end8.i
@@ -1835,14 +1835,12 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN4llvh5Twine9utohexstrERKm: %agg.result"}
-!9 = distinct !{!9, !"_ZN4llvh5Twine9utohexstrERKm"}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK4llvh5Twine6concatERKS0_: %agg.result"}
-!14 = distinct !{!14, !"_ZNK4llvh5Twine6concatERKS0_"}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN4llvh5Twine9utohexstrERKm: %agg.result"}
+!8 = distinct !{!8, !"_ZN4llvh5Twine9utohexstrERKm"}
+!9 = distinct !{!9, !5}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK4llvh5Twine6concatERKS0_: %agg.result"}
+!12 = distinct !{!12, !"_ZNK4llvh5Twine6concatERKS0_"}

@@ -123,16 +123,16 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
 64:                                               ; preds = %.preheader98, %64
   %indvars.iv = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next, %64 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  %65 = load float, ptr %gep, align 4, !tbaa !27
+  %65 = load float, ptr %gep, align 4, !tbaa !26
   %66 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv
-  %67 = load float, ptr %66, align 4, !tbaa !27
+  %67 = load float, ptr %66, align 4, !tbaa !26
   %68 = fadd float %65, %67
   %69 = add nuw nsw i64 %indvars.iv, %55
   %70 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %69
-  store float %68, ptr %70, align 4, !tbaa !27
+  store float %68, ptr %70, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %63, label %64, !llvm.loop !29
+  br i1 %exitcond.not, label %63, label %64, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %109
   %.pre132 = load i32, ptr %48, align 4, !tbaa !22
@@ -144,7 +144,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %indvars.iv125 = phi i64 [ %62, %.lr.ph.preheader ], [ %indvars.iv.next126, %109 ]
   %.186105 = phi i32 [ %.085107, %.lr.ph.preheader ], [ %.2, %109 ]
   %73 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %27, i64 %indvars.iv125
-  %74 = load i32, ptr %73, align 4, !tbaa !30
+  %74 = load i32, ptr %73, align 4, !tbaa !29
   %75 = shl nsw i32 %74, 2
   %76 = sext i32 %75 to i64
   br label %.preheader
@@ -153,13 +153,13 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %indvars.iv122 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next123, %87 ]
   %77 = mul nuw nsw i64 %indvars.iv122, 3
   %78 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %77
-  %79 = load float, ptr %78, align 4, !tbaa !27
+  %79 = load float, ptr %78, align 4, !tbaa !26
   %80 = add nuw nsw i64 %77, 1
   %81 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !27
+  %82 = load float, ptr %81, align 4, !tbaa !26
   %83 = add nuw nsw i64 %77, 2
   %84 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %83
-  %85 = load float, ptr %84, align 4, !tbaa !27
+  %85 = load float, ptr %84, align 4, !tbaa !26
   br label %89
 
 86:                                               ; preds = %87
@@ -169,7 +169,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %88 = icmp samesign ugt i64 %indvars.iv122, 2
   %.not96 = select i1 %88, i1 true, i1 %.293
-  br i1 %.not96, label %86, label %.preheader, !llvm.loop !32
+  br i1 %.not96, label %86, label %.preheader, !llvm.loop !31
 
 89:                                               ; preds = %.preheader, %89
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %89 ]
@@ -177,13 +177,13 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %90 = add nuw nsw i64 %indvars.iv119, %76
   %.idx133 = mul nsw i64 %90, 12
   %91 = getelementptr inbounds i8, ptr %30, i64 %.idx133
-  %92 = load float, ptr %91, align 4, !tbaa !27
+  %92 = load float, ptr %91, align 4, !tbaa !26
   %93 = fsub float %79, %92
   %94 = getelementptr i8, ptr %91, i64 4
-  %95 = load float, ptr %94, align 4, !tbaa !27
+  %95 = load float, ptr %94, align 4, !tbaa !26
   %96 = fsub float %82, %95
   %97 = getelementptr i8, ptr %91, i64 8
-  %98 = load float, ptr %97, align 4, !tbaa !27
+  %98 = load float, ptr %97, align 4, !tbaa !26
   %99 = fsub float %85, %98
   %100 = fmul float %96, %96
   %101 = tail call float @llvm.fmuladd.f32(float %93, float %93, float %100)
@@ -192,7 +192,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %.293 = select i1 %103, i1 true, i1 %.192101
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next120, 4
-  br i1 %exitcond121.not, label %87, label %89, !llvm.loop !33
+  br i1 %exitcond121.not, label %87, label %89, !llvm.loop !32
 
 104:                                              ; preds = %86
   %105 = add nsw i32 %.186105, 1
@@ -209,7 +209,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next126, %111
-  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 113:                                              ; preds = %._crit_edge
   %114 = getelementptr inbounds nuw i8, ptr %44, i64 12
@@ -223,7 +223,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
-  br i1 %exitcond131.not, label %._crit_edge111.loopexit, label %.lr.ph110, !llvm.loop !35
+  br i1 %exitcond131.not, label %._crit_edge111.loopexit, label %.lr.ph110, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -241,7 +241,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializa
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
   %17 = ashr exact i64 %16, 4
@@ -280,11 +280,11 @@ _ZNKSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EE
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i
   %.015.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %29, %_ZNKSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i ]
   %.sroa.010.014.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %5, %_ZNKSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i.i, i64 16, i1 false), !tbaa.struct !36
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !38
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i
   %.not.i41.i = icmp eq ptr %5, null
@@ -300,7 +300,7 @@ _ZNSt12_Vector_baseIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_Sa
   %35 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %29, i64 %27
-  store ptr %36, ptr %13, align 8, !tbaa !36
+  store ptr %36, ptr %13, align 8, !tbaa !35
   br label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
@@ -358,7 +358,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializa
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %14 = load ptr, ptr %13, align 8, !tbaa !39
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
   %17 = ashr exact i64 %16, 3
@@ -402,7 +402,7 @@ _ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EE
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i
   %.not.i41.i = icmp eq ptr %5, null
@@ -418,7 +418,7 @@ _ZNSt12_Vector_baseIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_Sa
   %36 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %30, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %29, i64 %27
-  store ptr %37, ptr %13, align 8, !tbaa !40
+  store ptr %37, ptr %13, align 8, !tbaa !39
   br label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
 38:                                               ; preds = %2
@@ -528,24 +528,24 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   br i1 %61, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %56
-  %62 = load float, ptr %6, align 4, !tbaa !27
-  %63 = load float, ptr %39, align 4, !tbaa !27
-  %64 = load float, ptr %40, align 4, !tbaa !27
+  %62 = load float, ptr %6, align 4, !tbaa !26
+  %63 = load float, ptr %39, align 4, !tbaa !26
+  %64 = load float, ptr %40, align 4, !tbaa !26
   %65 = sext i32 %58 to i64
   br label %.preheader
 
 66:                                               ; preds = %.critedge, %66
   %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %66 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  %67 = load float, ptr %gep, align 4, !tbaa !27
+  %67 = load float, ptr %gep, align 4, !tbaa !26
   %68 = getelementptr inbounds nuw [3 x float], ptr %54, i64 0, i64 %indvars.iv
-  %69 = load float, ptr %68, align 4, !tbaa !27
+  %69 = load float, ptr %68, align 4, !tbaa !26
   %70 = fadd float %67, %69
   %71 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
-  store float %70, ptr %71, align 4, !tbaa !27
+  store float %70, ptr %71, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %56, label %66, !llvm.loop !42
+  br i1 %exitcond.not, label %56, label %66, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %96
   %.pre116 = load i32, ptr %50, align 4, !tbaa !22
@@ -557,17 +557,17 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   %indvars.iv109 = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next110, %96 ]
   %.186101 = phi i32 [ %.085103, %.lr.ph ], [ %.2, %96 ]
   %74 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %27, i64 %indvars.iv109
-  %75 = load i32, ptr %74, align 4, !tbaa !30
+  %75 = load i32, ptr %74, align 4, !tbaa !29
   %76 = mul nsw i32 %75, 3
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds float, ptr %30, i64 %77
-  %79 = load float, ptr %78, align 4, !tbaa !27
+  %79 = load float, ptr %78, align 4, !tbaa !26
   %80 = fsub float %62, %79
   %81 = getelementptr i8, ptr %78, i64 4
-  %82 = load float, ptr %81, align 4, !tbaa !27
+  %82 = load float, ptr %81, align 4, !tbaa !26
   %83 = fsub float %63, %82
   %84 = getelementptr i8, ptr %78, i64 8
-  %85 = load float, ptr %84, align 4, !tbaa !27
+  %85 = load float, ptr %84, align 4, !tbaa !26
   %86 = fsub float %64, %85
   %87 = fmul float %83, %83
   %88 = tail call float @llvm.fmuladd.f32(float %80, float %80, float %87)
@@ -590,7 +590,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, 1
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next110, %98
-  br i1 %99, label %.preheader, label %._crit_edge, !llvm.loop !43
+  br i1 %99, label %.preheader, label %._crit_edge, !llvm.loop !42
 
 100:                                              ; preds = %._crit_edge
   %101 = getelementptr inbounds nuw i8, ptr %46, i64 12
@@ -604,7 +604,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #9
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
-  br i1 %exitcond115.not, label %._crit_edge105.loopexit, label %.critedge, !llvm.loop !44
+  br i1 %exitcond115.not, label %._crit_edge105.loopexit, label %.critedge, !llvm.loop !43
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -656,24 +656,23 @@ attributes #12 = { builtin nounwind }
 !21 = !{!19, !20, i64 4}
 !22 = !{!19, !20, i64 8}
 !23 = !{!19, !20, i64 12}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"float", !8, i64 0}
-!29 = distinct !{!29, !25, !26}
-!30 = !{!31, !20, i64 0}
-!31 = !{!"_ZTSN3gmx10nbnxn_cj_tE", !20, i64 0, !20, i64 4}
-!32 = distinct !{!32, !25, !26}
-!33 = distinct !{!33, !25, !26}
-!34 = distinct !{!34, !25, !26}
-!35 = distinct !{!35, !25, !26}
-!36 = !{!5, !6, i64 16}
-!37 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 4, !38, i64 12, i64 4, !38}
-!38 = !{!20, !20, i64 0}
-!39 = distinct !{!39, !25, !26}
-!40 = !{!12, !13, i64 16}
-!41 = distinct !{!41, !25, !26}
-!42 = distinct !{!42, !25, !26}
-!43 = distinct !{!43, !25, !26}
-!44 = distinct !{!44, !25, !26}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"float", !8, i64 0}
+!28 = distinct !{!28, !25}
+!29 = !{!30, !20, i64 0}
+!30 = !{!"_ZTSN3gmx10nbnxn_cj_tE", !20, i64 0, !20, i64 4}
+!31 = distinct !{!31, !25}
+!32 = distinct !{!32, !25}
+!33 = distinct !{!33, !25}
+!34 = distinct !{!34, !25}
+!35 = !{!5, !6, i64 16}
+!36 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 4, !37, i64 12, i64 4, !37}
+!37 = !{!20, !20, i64 0}
+!38 = distinct !{!38, !25}
+!39 = !{!12, !13, i64 16}
+!40 = distinct !{!40, !25}
+!41 = distinct !{!41, !25}
+!42 = distinct !{!42, !25}
+!43 = distinct !{!43, !25}

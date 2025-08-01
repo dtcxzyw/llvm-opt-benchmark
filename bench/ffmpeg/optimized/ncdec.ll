@@ -105,7 +105,7 @@ define internal range(i32 1, 0) i32 @nc_read_packet(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %25, align 4, !tbaa !54
+  store i32 0, ptr %25, align 4, !tbaa !53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %21, %24, %20
@@ -187,7 +187,6 @@ attributes #3 = { nounwind }
 !48 = !{!"p2 _ZTS9AVProgram", !45, i64 0}
 !49 = !{!"AVIOInterruptCB", !7, i64 0, !7, i64 8}
 !50 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!20, !10, i64 36}
+!53 = !{!20, !10, i64 36}

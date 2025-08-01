@@ -152,7 +152,7 @@ define noundef i32 @dtbmv_thread_NUU(i64 noundef %0, i64 noundef %1, ptr noundef
   %85 = zext i32 %82 to i64
   %86 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !17
-  %88 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %87, i32 %80) #7, !srcloc !29
+  %88 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %87, i32 %80) #7, !srcloc !28
   %89 = extractvalue { i32, i32 } %88, 0
   store volatile i32 %89, ptr %9, align 4, !tbaa !17
   %.0..0..0..0..0..0..i = load volatile i32, ptr %9, align 4, !tbaa !17
@@ -194,19 +194,19 @@ blas_quickdivide.exit:                            ; preds = %75, %84
   store ptr %105, ptr %106, align 8, !tbaa !25
   %107 = sub nsw i64 %.1121137, %spec.select134
   %108 = icmp sgt i64 %107, 0
-  br i1 %108, label %75, label %.loopexit, !llvm.loop !30
+  br i1 %108, label %75, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %blas_quickdivide.exit, %48
   %.1124 = phi i64 [ %64, %48 ], [ %94, %blas_quickdivide.exit ]
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr null, ptr %109, align 16, !tbaa !31
+  store ptr null, ptr %109, align 16, !tbaa !30
   %110 = add nsw i64 %0, 255
   %111 = and i64 %110, -256
   %112 = or disjoint i64 %111, 16
   %113 = mul nsw i64 %.1124, %112
   %114 = getelementptr inbounds double, ptr %6, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %114, ptr %115, align 8, !tbaa !32
+  store ptr %114, ptr %115, align 8, !tbaa !31
   %116 = add nsw i64 %.1124, -1
   %117 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %116, i32 8
   store ptr null, ptr %117, align 8, !tbaa !25
@@ -222,7 +222,7 @@ blas_quickdivide.exit:                            ; preds = %75, %84
   %123 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %122, i64 noundef 1, ptr noundef %6, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
   %124 = add nuw i64 %.2122142, 1
   %exitcond.not = icmp eq i64 %124, %.1124
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph143, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph143, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph143, %24, %69, %.loopexit
   %125 = call i32 @dcopy_k(i64 noundef %0, ptr noundef %6, i64 noundef 1, ptr noundef %4, i64 noundef %5) #7
@@ -308,7 +308,7 @@ define internal noundef i32 @trmv_kernel(ptr noundef readonly captures(none) %0,
 
 37:                                               ; preds = %.lr.ph
   %38 = getelementptr inbounds double, ptr %.051, i64 %.04760
-  %39 = load double, ptr %38, align 8, !tbaa !34
+  %39 = load double, ptr %38, align 8, !tbaa !33
   %40 = sub nsw i64 %13, %spec.select
   %41 = getelementptr inbounds double, ptr %.159, i64 %40
   %42 = sub nsw i64 %.04760, %spec.select
@@ -318,15 +318,15 @@ define internal noundef i32 @trmv_kernel(ptr noundef readonly captures(none) %0,
 
 45:                                               ; preds = %37, %.lr.ph
   %46 = getelementptr inbounds double, ptr %.051, i64 %.04760
-  %47 = load double, ptr %46, align 8, !tbaa !34
+  %47 = load double, ptr %46, align 8, !tbaa !33
   %48 = getelementptr inbounds double, ptr %.052, i64 %.04760
-  %49 = load double, ptr %48, align 8, !tbaa !34
+  %49 = load double, ptr %48, align 8, !tbaa !33
   %50 = fadd double %47, %49
-  store double %50, ptr %48, align 8, !tbaa !34
+  store double %50, ptr %48, align 8, !tbaa !33
   %51 = getelementptr inbounds double, ptr %.159, i64 %16
   %52 = add i64 %.04760, 1
   %exitcond.not = icmp eq i64 %52, %.048
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %45, %32
   ret i32 0
@@ -392,14 +392,13 @@ attributes #7 = { nounwind }
 !23 = !{!19, !5, i64 32}
 !24 = !{!19, !5, i64 40}
 !25 = !{!19, !20, i64 64}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{i64 1033119}
-!30 = distinct !{!30, !27, !28}
-!31 = !{!19, !5, i64 48}
-!32 = !{!19, !5, i64 56}
-!33 = distinct !{!33, !27, !28}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
-!36 = distinct !{!36, !27, !28}
+!28 = !{i64 1033119}
+!29 = distinct !{!29, !27}
+!30 = !{!19, !5, i64 48}
+!31 = !{!19, !5, i64 56}
+!32 = distinct !{!32, !27}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"double", !6, i64 0}
+!35 = distinct !{!35, !27}

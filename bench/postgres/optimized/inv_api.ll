@@ -662,7 +662,7 @@ getdatafield.exit:                                ; preds = %104
 132:                                              ; preds = %130, %131, %93
   %.3 = phi i32 [ %.4, %131 ], [ %.4, %130 ], [ %.2, %93 ]
   %.not86 = icmp slt i32 %.3, %2
-  br i1 %.not86, label %48, label %133, !llvm.loop !5
+  br i1 %.not86, label %48, label %133
 
 133:                                              ; preds = %132, %48
   %.1 = phi i32 [ %.3, %132 ], [ %.071, %48 ]
@@ -1046,7 +1046,7 @@ getdatafield.exit:                                ; preds = %97
   %.1 = add i32 %.pn, %.0115168
   %190 = add i32 %.0116167, 1
   %191 = icmp slt i32 %.1, %2
-  br i1 %191, label %72, label %._crit_edge, !llvm.loop !7
+  br i1 %191, label %72, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %189
   call void @systable_endscan_ordered(ptr noundef %61) #9
@@ -1383,7 +1383,7 @@ getdatafield.exit:                                ; preds = %75
   call void @CatalogTupleDelete(ptr noundef %159, ptr noundef nonnull %160) #9
   %161 = call ptr @systable_getnext_ordered(ptr noundef %52, i32 noundef 1) #9
   %.not90 = icmp eq ptr %161, null
-  br i1 %.not90, label %.loopexit, label %.lr.ph108, !llvm.loop !9
+  br i1 %.not90, label %.loopexit, label %.lr.ph108, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph108, %.preheader, %.loopexit102
   call void @systable_endscan_ordered(ptr noundef %52) #9
@@ -1440,7 +1440,5 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

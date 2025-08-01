@@ -140,7 +140,7 @@ poly1305_blocks.exit:                             ; preds = %37
   store i8 %92, ptr %95, align 1
   %96 = add nuw nsw i64 %.14654.i, 1
   %exitcond56.not.i = icmp eq i64 %96, %.148.i
-  br i1 %exitcond56.not.i, label %97, label %90, !llvm.loop !7
+  br i1 %exitcond56.not.i, label %97, label %90, !llvm.loop !6
 
 97:                                               ; preds = %90
   %98 = load i64, ptr %23, align 64
@@ -223,7 +223,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nounde
   store i8 %11, ptr %14, align 1
   %15 = add nuw i64 %.04553.i, 1
   %exitcond.not.i = icmp eq i64 %15, %spec.select.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %9, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %9, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %9
   %.pre.i = load i64, ptr %4, align 8
@@ -277,7 +277,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nounde
   store i8 %33, ptr %36, align 1
   %37 = add nuw nsw i64 %.14654.i, 1
   %exitcond56.not.i = icmp eq i64 %37, %.148.i
-  br i1 %exitcond56.not.i, label %38, label %31, !llvm.loop !7
+  br i1 %exitcond56.not.i, label %38, label %31, !llvm.loop !6
 
 38:                                               ; preds = %31
   %39 = load i64, ptr %4, align 8
@@ -525,8 +525,7 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

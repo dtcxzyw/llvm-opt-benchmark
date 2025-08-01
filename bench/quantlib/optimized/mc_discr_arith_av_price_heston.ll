@@ -628,7 +628,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add35 = fadd double %sum.046, %31
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.045, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %26
-  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !45
+  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 unreachable:                                      ; preds = %invoke.cont15
   unreachable
@@ -773,5 +773,3 @@ attributes #18 = { builtin nounwind }
 !42 = !{!41, !5, i64 0}
 !43 = !{!5, !5, i64 0}
 !44 = !{!24, !24, i64 0}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.estimated_trip_count"}

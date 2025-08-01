@@ -721,7 +721,7 @@ define internal fastcc range(i32 -124, 1) i32 @execute_test_case(i32 noundef %0,
   %31 = load i32, ptr %13, align 8, !tbaa !17
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.loopexit139, !llvm.loop !26
+  br i1 %33, label %.lr.ph, label %.loopexit139, !llvm.loop !25
 
 .loopexit139:                                     ; preds = %28, %9, %27
   %34 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.57) #21
@@ -793,7 +793,7 @@ IsValidCert.exit.thread122:                       ; preds = %49
   store i8 %55, ptr %58, align 1, !tbaa !22
   %59 = add nuw nsw i64 %.01420.i, 1
   %exitcond.not.i = icmp eq i64 %59, 79
-  br i1 %exitcond.not.i, label %.critedge.i, label %54, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.critedge.i, label %54, !llvm.loop !26
 
 .critedge.i:                                      ; preds = %56, %54, %54
   %.014.lcssa.i = phi i64 [ %.01420.i, %54 ], [ %.01420.i, %54 ], [ 79, %56 ]
@@ -973,7 +973,7 @@ thread-pre-split:                                 ; preds = %88, %92
   %132 = load i32, ptr %13, align 8, !tbaa !17
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next150, %133
-  br i1 %134, label %.lr.ph144, label %.loopexit138, !llvm.loop !28
+  br i1 %134, label %.lr.ph144, label %.loopexit138, !llvm.loop !27
 
 .loopexit138:                                     ; preds = %129, %119, %128
   %135 = load i32, ptr @execute_test_case.tests, align 4, !tbaa !21
@@ -983,11 +983,11 @@ thread-pre-split:                                 ; preds = %88, %92
   store i32 %138, ptr @execute_test_case.tests, align 4, !tbaa !21
   %139 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @exitWithRetFlag) #21
   %.not89 = icmp eq ptr %139, null
-  store i16 0, ptr %14, align 8, !tbaa !29
+  store i16 0, ptr %14, align 8, !tbaa !28
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i16 0, ptr %140, align 2, !tbaa !33
+  store i16 0, ptr %140, align 2, !tbaa !32
   %141 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr null, ptr %141, align 8, !tbaa !34
+  store ptr null, ptr %141, align 8, !tbaa !33
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %143 = call i32 @wc_InitMutex(ptr noundef nonnull %142) #16
   %.not.i111 = icmp eq i32 %143, 0
@@ -1017,7 +1017,7 @@ thread-pre-split:                                 ; preds = %88, %92
 
 InitTcpReady.exit:                                ; preds = %148
   %155 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %14, ptr %155, align 8, !tbaa !35
+  store ptr %14, ptr %155, align 8, !tbaa !34
   call void @start_thread(ptr noundef nonnull @server_test, ptr noundef nonnull %13, ptr noundef nonnull %15) #16
   call void @wait_tcp_ready(ptr noundef nonnull %13) #16
   br i1 %.not82, label %163, label %156
@@ -1062,7 +1062,7 @@ InitTcpReady.exit:                                ; preds = %148
 
 172:                                              ; preds = %167, %168, %163
   %173 = phi i32 [ %164, %167 ], [ %169, %168 ], [ %164, %163 ]
-  %174 = load i16, ptr %140, align 2, !tbaa !33
+  %174 = load i16, ptr %140, align 2, !tbaa !32
   %175 = zext i16 %174 to i32
   %.not94 = icmp eq i16 %174, 0
   br i1 %.not94, label %187, label %176
@@ -1145,7 +1145,7 @@ InitTcpReady.exit:                                ; preds = %148
   %212 = call i64 @wc_strlcat(ptr noundef nonnull %16, ptr noundef nonnull @flagSep, i64 noundef 240) #16
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %213 = icmp samesign ult i64 %indvars.iv.next153, %202
-  br i1 %213, label %.lr.ph147, label %.loopexit, !llvm.loop !36
+  br i1 %213, label %.lr.ph147, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %210, %198, %209
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #16
@@ -1176,7 +1176,7 @@ IsValidCA.exit.thread131:                         ; preds = %.loopexit
   store i8 %219, ptr %222, align 1, !tbaa !22
   %223 = add nuw nsw i64 %.01420.i113, 1
   %exitcond.not.i117 = icmp eq i64 %223, 79
-  br i1 %exitcond.not.i117, label %.critedge.i114, label %218, !llvm.loop !37
+  br i1 %exitcond.not.i117, label %.critedge.i114, label %218, !llvm.loop !36
 
 .critedge.i114:                                   ; preds = %220, %218, %218
   %.014.lcssa.i115 = phi i64 [ %.01420.i113, %218 ], [ %.01420.i113, %218 ], [ 79, %220 ]
@@ -1220,7 +1220,7 @@ IsValidCA.exit:                                   ; preds = %.critedge.i114
   unreachable
 
 242:                                              ; preds = %229
-  %243 = load i64, ptr %15, align 8, !tbaa !38
+  %243 = load i64, ptr %15, align 8, !tbaa !37
   call void @join_thread(i64 noundef %243) #16
   %244 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %245 = load i32, ptr %244, align 8, !tbaa !18
@@ -1390,20 +1390,19 @@ attributes #23 = { cold noreturn nounwind }
 !20 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !21 = !{!11, !11, i64 0}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = distinct !{!27, !24, !25}
-!28 = distinct !{!28, !24, !25}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"tcp_ready", !31, i64 0, !31, i64 2, !5, i64 8, !7, i64 16, !32, i64 56}
-!31 = !{!"short", !7, i64 0}
-!32 = !{!"COND_TYPE", !7, i64 0, !7, i64 40}
-!33 = !{!30, !31, i64 2}
-!34 = !{!30, !5, i64 8}
-!35 = !{!10, !13, i64 24}
-!36 = distinct !{!36, !24, !25}
-!37 = distinct !{!37, !24, !25}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"long", !7, i64 0}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"tcp_ready", !30, i64 0, !30, i64 2, !5, i64 8, !7, i64 16, !31, i64 56}
+!30 = !{!"short", !7, i64 0}
+!31 = !{!"COND_TYPE", !7, i64 0, !7, i64 40}
+!32 = !{!29, !30, i64 2}
+!33 = !{!29, !5, i64 8}
+!34 = !{!10, !13, i64 24}
+!35 = distinct !{!35, !24}
+!36 = distinct !{!36, !24}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"long", !7, i64 0}

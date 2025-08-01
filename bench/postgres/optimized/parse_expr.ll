@@ -2034,7 +2034,7 @@ list_length.exit:                                 ; preds = %.critedge
   %58 = load i32, ptr %30, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next166, %59
-  br i1 %60, label %52, label %.critedge118, !llvm.loop !9
+  br i1 %60, label %52, label %.critedge118, !llvm.loop !8
 
 .critedge118:                                     ; preds = %52, %.preheader
   %.0106.lcssa = phi ptr [ null, %.preheader ], [ %57, %52 ]
@@ -2620,7 +2620,7 @@ define internal fastcc noundef nonnull ptr @transformMergeSupportFunc(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 144
   %7 = load i32, ptr %6, align 8
   %.not10 = icmp eq i32 %7, 25
-  br i1 %.not10, label %.critedge, label %.preheader, !llvm.loop !10
+  br i1 %.not10, label %.critedge, label %.preheader, !llvm.loop !9
 
 .critedge11:                                      ; preds = %.preheader
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3190,7 +3190,7 @@ list_length.exit20:                               ; preds = %25, %27
   store ptr %36, ptr %24, align 8
   %37 = add i32 %.0, 1
   %.pre = load ptr, ptr %11, align 8
-  br label %25, !llvm.loop !11
+  br label %25, !llvm.loop !10
 
 38:                                               ; preds = %list_length.exit20
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3924,7 +3924,7 @@ define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %
   %20 = load i32, ptr %5, align 4
   %21 = sext i32 %20 to i64
   %.not27 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %.not27, label %8, label %.critedge, !llvm.loop !12
+  br i1 %.not27, label %8, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %8, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %19, %8 ]
@@ -4017,7 +4017,7 @@ define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0
   %14 = load i32, ptr %5, align 4
   %15 = sext i32 %14 to i64
   %.not22 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %.not22, label %8, label %.critedge, !llvm.loop !13
+  br i1 %.not22, label %8, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %8, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %13, %8 ]
@@ -5467,7 +5467,7 @@ list_length.exit178:                              ; preds = %list_length.exit, %
 72:                                               ; preds = %65
   %73 = tail call ptr @lappend(ptr noundef %.0132, ptr noundef nonnull %54) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.preheader182.split, !llvm.loop !14
+  br label %.preheader182.split, !llvm.loop !13
 
 74:                                               ; preds = %.thread
   %75 = getelementptr i8, ptr %.us-phi, i64 16
@@ -5643,7 +5643,7 @@ list_length.exit178:                              ; preds = %list_length.exit, %
   %152 = tail call ptr @lappend_oid(ptr noundef %.0134214, i32 noundef %150) #9
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %.preheader, label %.lr.ph215, !llvm.loop !15
+  br i1 %exitcond269.not, label %.preheader, label %.lr.ph215, !llvm.loop !14
 
 .critedge169.thread:                              ; preds = %.lr.ph215, %.lr.ph208, %.critedge169, %144
   %153 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -6886,13 +6886,12 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

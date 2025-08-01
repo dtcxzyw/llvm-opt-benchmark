@@ -338,7 +338,7 @@ define internal void @uv__async_io(ptr noundef %0, ptr noundef readonly captures
   ]
 
 .backedge34.backedge:                             ; preds = %.backedge34, %9
-  br label %.backedge34, !llvm.loop !37
+  br label %.backedge34
 
 9:                                                ; preds = %.backedge34
   %10 = tail call ptr @__errno_location() #8
@@ -431,7 +431,7 @@ define internal void @uv__async_io(ptr noundef %0, ptr noundef readonly captures
 .backedge:                                        ; preds = %34, %44, %40
   %45 = load ptr, ptr %5, align 16, !tbaa !25
   %.not33 = icmp eq ptr %5, %45
-  br i1 %.not33, label %._crit_edge, label %24, !llvm.loop !38
+  br i1 %.not33, label %._crit_edge, label %24, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.backedge, %13, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
@@ -492,8 +492,6 @@ attributes #9 = { noreturn nounwind }
 !32 = !{i64 1377022}
 !33 = !{i64 1378065}
 !34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!"llvm.loop.mustprogress"}
 !36 = !{!15, !9, i64 48}
 !37 = distinct !{!37, !35}
-!38 = distinct !{!38, !39, !35}
-!39 = !{!"llvm.loop.mustprogress"}

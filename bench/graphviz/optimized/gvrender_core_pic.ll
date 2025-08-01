@@ -295,7 +295,7 @@ tailrecurse.i:                                    ; preds = %37, %23
   %.01423.i = phi i64 [ 0, %tailrecurse.i ], [ %26, %25 ]
   %28 = getelementptr inbounds nuw [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01423.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !50
+  %30 = load ptr, ptr %29, align 8, !tbaa !49
   %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %30)
   %31 = tail call i64 @llvm.umin.i64(i64 %.tr21.i, i64 %strlen.i.i.i)
   %32 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %30, i64 noundef %31) #9
@@ -347,7 +347,7 @@ picfontname.exit:                                 ; preds = %34, %27
   %54 = fdiv double %17, 2.160000e+02
   %55 = fadd double %2, %54
   %56 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 34) #8
-  %57 = load ptr, ptr %3, align 8, !tbaa !52
+  %57 = load ptr, ptr %3, align 8, !tbaa !51
   tail call void @gvputs_nonascii(ptr noundef %0, ptr noundef %57) #8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.46, double noundef %53, double noundef %55) #8
   ret void
@@ -358,15 +358,15 @@ define internal void @pic_ellipse(ptr noundef %0, ptr noundef readonly captures(
   %.not = icmp eq i32 %2, 0
   %4 = select i1 %.not, ptr @.str.85, ptr @.str.84
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !53
-  %7 = load double, ptr %1, align 8, !tbaa !53
+  %6 = load double, ptr %5, align 8, !tbaa !52
+  %7 = load double, ptr %1, align 8, !tbaa !52
   %8 = fsub double %6, %7
   %9 = fmul double %8, 2.000000e+00
   %10 = fdiv double %9, 7.200000e+01
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load double, ptr %11, align 8, !tbaa !54
+  %12 = load double, ptr %11, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !54
+  %14 = load double, ptr %13, align 8, !tbaa !53
   %15 = fsub double %12, %14
   %16 = fmul double %15, 2.000000e+00
   %17 = fdiv double %16, 7.200000e+01
@@ -391,28 +391,28 @@ define internal void @pic_polygon(ptr noundef %0, ptr noundef readonly captures(
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = load double, ptr %1, align 8, !tbaa !53
-  %10 = load double, ptr %5, align 8, !tbaa !54
+  %9 = load double, ptr %1, align 8, !tbaa !52
+  %10 = load double, ptr %5, align 8, !tbaa !53
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.86, double noundef %9, double noundef %10) #8
   br label %16
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.018.i
-  %13 = load double, ptr %12, align 8, !tbaa !53
+  %13 = load double, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load double, ptr %14, align 8, !tbaa !54
+  %15 = load double, ptr %14, align 8, !tbaa !53
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.87, double noundef %13, double noundef %15) #8
   br label %16
 
 16:                                               ; preds = %11, %8
   %17 = add nuw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %17, %2
-  br i1 %exitcond.not.i, label %picptarray.exit, label %6, !llvm.loop !55
+  br i1 %exitcond.not.i, label %picptarray.exit, label %6, !llvm.loop !54
 
 picptarray.exit:                                  ; preds = %16, %4
-  %18 = load double, ptr %1, align 8, !tbaa !53
+  %18 = load double, ptr %1, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load double, ptr %19, align 8, !tbaa !54
+  %20 = load double, ptr %19, align 8, !tbaa !53
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.87, double noundef %18, double noundef %20) #8
   %21 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.88) #8
   ret void
@@ -422,13 +422,13 @@ picptarray.exit:                                  ; preds = %16, %4
 define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 %3) #0 {
   %5 = alloca [4 x %struct.pointf_s], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
-  %6 = load double, ptr %1, align 8, !tbaa !53
+  %6 = load double, ptr %1, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store double %6, ptr %7, align 16, !tbaa !53
+  store double %6, ptr %7, align 16, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load double, ptr %8, align 8, !tbaa !54
+  %9 = load double, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store double %9, ptr %10, align 8, !tbaa !54
+  store double %9, ptr %10, align 8, !tbaa !53
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.86, double noundef %6, double noundef %9) #8
   %11 = icmp ugt i64 %2, 3
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -436,7 +436,7 @@ define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(n
 .loopexit:                                        ; preds = %.preheader
   %12 = add i64 %15, 3
   %13 = icmp ult i64 %12, %2
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !56
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %14 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.88) #8
@@ -446,23 +446,23 @@ define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %4, %.loopexit
   %15 = phi i64 [ %12, %.loopexit ], [ 3, %4 ]
   %.027 = phi i64 [ %15, %.loopexit ], [ 0, %4 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !56
   %16 = getelementptr %struct.pointf_s, ptr %1, i64 %.027
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %.02325 = phi i64 [ 1, %.lr.ph ], [ %24, %17 ]
   %18 = getelementptr %struct.pointf_s, ptr %16, i64 %.02325
-  %19 = load double, ptr %18, align 8, !tbaa !53
+  %19 = load double, ptr %18, align 8, !tbaa !52
   %20 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %5, i64 0, i64 %.02325
-  store double %19, ptr %20, align 16, !tbaa !53
+  store double %19, ptr %20, align 16, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load double, ptr %21, align 8, !tbaa !54
+  %22 = load double, ptr %21, align 8, !tbaa !53
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store double %22, ptr %23, align 8, !tbaa !54
+  store double %22, ptr %23, align 8, !tbaa !53
   %24 = add nuw nsw i64 %.02325, 1
   %exitcond.not = icmp eq i64 %24, 4
-  br i1 %exitcond.not, label %.preheader, label %17, !llvm.loop !58
+  br i1 %exitcond.not, label %.preheader, label %17, !llvm.loop !57
 
 .preheader:                                       ; preds = %17, %.preheader
   %.02226 = phi i32 [ %30, %.preheader ], [ 1, %17 ]
@@ -474,7 +474,7 @@ define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(n
   call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.89, double noundef %28, double noundef %29) #8
   %30 = add nuw nsw i32 %.02226, 1
   %exitcond28.not = icmp eq i32 %30, 7
-  br i1 %exitcond28.not, label %.loopexit, label %.preheader, !llvm.loop !59
+  br i1 %exitcond28.not, label %.loopexit, label %.preheader, !llvm.loop !58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -492,23 +492,23 @@ define internal void @pic_polyline(ptr noundef %0, ptr noundef readonly captures
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = load double, ptr %1, align 8, !tbaa !53
-  %9 = load double, ptr %4, align 8, !tbaa !54
+  %8 = load double, ptr %1, align 8, !tbaa !52
+  %9 = load double, ptr %4, align 8, !tbaa !53
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.86, double noundef %8, double noundef %9) #8
   br label %15
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.018.i
-  %12 = load double, ptr %11, align 8, !tbaa !53
+  %12 = load double, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !54
+  %14 = load double, ptr %13, align 8, !tbaa !53
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.87, double noundef %12, double noundef %14) #8
   br label %15
 
 15:                                               ; preds = %10, %7
   %16 = add nuw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %16, %2
-  br i1 %exitcond.not.i, label %picptarray.exit, label %5, !llvm.loop !55
+  br i1 %exitcond.not.i, label %picptarray.exit, label %5, !llvm.loop !54
 
 picptarray.exit:                                  ; preds = %15, %3
   %17 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.88) #8
@@ -633,16 +633,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !44 = !{!"", !12, i64 0, !12, i64 8, !45, i64 16, !24, i64 24, !13, i64 32, !13, i64 32}
 !45 = !{!"p1 _ZTS16_PostscriptAlias", !6, i64 0}
 !46 = !{!44, !12, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!51, !12, i64 8}
-!51 = !{!"", !7, i64 0, !12, i64 8}
-!52 = !{!40, !12, i64 0}
-!53 = !{!23, !24, i64 0}
-!54 = !{!23, !24, i64 8}
-!55 = distinct !{!55, !48, !49}
-!56 = distinct !{!56, !48, !49}
-!57 = !{i64 0, i64 8, !38, i64 8, i64 8, !38}
-!58 = distinct !{!58, !48, !49}
-!59 = distinct !{!59, !48, !49}
+!49 = !{!50, !12, i64 8}
+!50 = !{!"", !7, i64 0, !12, i64 8}
+!51 = !{!40, !12, i64 0}
+!52 = !{!23, !24, i64 0}
+!53 = !{!23, !24, i64 8}
+!54 = distinct !{!54, !48}
+!55 = distinct !{!55, !48}
+!56 = !{i64 0, i64 8, !38, i64 8, i64 8, !38}
+!57 = distinct !{!57, !48}
+!58 = distinct !{!58, !48}

@@ -1087,7 +1087,7 @@ switch.lookup:                                    ; preds = %51
   %82 = add i32 %81, %.4558
   %83 = add nuw i32 %.0515557, 1
   %exitcond605.not = icmp eq i32 %83, %73
-  br i1 %exitcond605.not, label %.thread619, label %.lr.ph560, !llvm.loop !11
+  br i1 %exitcond605.not, label %.thread619, label %.lr.ph560, !llvm.loop !10
 
 84:                                               ; preds = %switch.lookup, %61
   %85 = phi i1 [ false, %switch.lookup ], [ %63, %61 ]
@@ -1133,7 +1133,7 @@ switch.lookup:                                    ; preds = %51
   %102 = add i32 %101, %.6564
   %103 = add nuw i32 %.0517563, 1
   %exitcond606.not = icmp eq i32 %103, %97
-  br i1 %exitcond606.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !12
+  br i1 %exitcond606.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !11
 
 104:                                              ; preds = %84, %._crit_edge567
   %.5 = phi i32 [ %.6.lcssa, %._crit_edge567 ], [ %.1512545, %84 ]
@@ -1169,7 +1169,7 @@ switch.lookup:                                    ; preds = %51
   %117 = add nuw i32 %.0519586, 1
   %.7 = add i32 %.7587, 4
   %exitcond610.not = icmp eq i32 %117, %112
-  br i1 %exitcond610.not, label %._crit_edge590, label %.lr.ph589, !llvm.loop !13
+  br i1 %exitcond610.not, label %._crit_edge590, label %.lr.ph589, !llvm.loop !12
 
 118:                                              ; preds = %104
   %119 = and i32 %20, -2
@@ -1202,7 +1202,7 @@ switch.lookup:                                    ; preds = %51
   %133 = add i32 %132, %.10581
   %134 = add nuw i32 %.0520580, 1
   %exitcond609.not = icmp eq i32 %134, %128
-  br i1 %exitcond609.not, label %.loopexit, label %.lr.ph583, !llvm.loop !14
+  br i1 %exitcond609.not, label %.loopexit, label %.lr.ph583, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph583, %127, %121
   %.9 = phi i32 [ %124, %121 ], [ %131, %127 ], [ %133, %.lr.ph583 ]
@@ -1378,7 +1378,7 @@ switch.lookup:                                    ; preds = %51
   %247 = add i32 %246, %.11576
   %248 = add nuw i32 %.0518575, 1
   %exitcond608.not = icmp eq i32 %248, %241
-  br i1 %exitcond608.not, label %.thread547, label %.lr.ph578, !llvm.loop !15
+  br i1 %exitcond608.not, label %.thread547, label %.lr.ph578, !llvm.loop !14
 
 249:                                              ; preds = %236
   %250 = icmp eq i32 %15, 400
@@ -1457,7 +1457,7 @@ switch.lookup:                                    ; preds = %51
   %292 = add nuw i32 %.0516570, 1
   %.13 = add i32 %.13571, 4
   %exitcond607.not = icmp eq i32 %292, %287
-  br i1 %exitcond607.not, label %.thread547, label %.lr.ph573, !llvm.loop !16
+  br i1 %exitcond607.not, label %.thread547, label %.lr.ph573, !llvm.loop !15
 
 293:                                              ; preds = %273
   %.neg = add i32 %39, 24
@@ -1881,7 +1881,7 @@ proto_item_set_generated.exit162:                 ; preds = %39, %36, %33, %prot
   %109 = add i32 %108, %.1164
   %110 = add nuw i32 %.0146163, 1
   %exitcond.not = icmp eq i32 %110, %102
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 111:                                              ; preds = %98
   %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(13) @.str.391, ptr noundef %51) #8
@@ -1985,7 +1985,7 @@ proto_item_set_generated.exit162:                 ; preds = %39, %36, %33, %prot
   %163 = add i32 %162, %.2165
   %164 = add nuw i32 %.0166, 1
   %exitcond172.not = icmp eq i32 %164, %156
-  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph167, !llvm.loop !18
+  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph167, !llvm.loop !17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -2074,7 +2074,7 @@ define internal fastcc noundef i32 @decode_hssite(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %57 = add nuw i32 %.0175179, 1
   %exitcond.not = icmp eq i32 %57, %35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge191:                                   ; preds = %._crit_edge185, %._crit_edge
   %.1.lcssa = phi i32 [ %43, %._crit_edge ], [ %78, %._crit_edge185 ]
@@ -2117,7 +2117,7 @@ define internal fastcc noundef i32 @decode_hssite(ptr noundef %0, ptr noundef re
   %78 = add i32 %.0178.lcssa, %.1188
   %79 = add nuw i32 %.0176187, 1
   %exitcond198.not = icmp eq i32 %79, %40
-  br i1 %exitcond198.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !20
+  br i1 %exitcond198.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !19
 
 80:                                               ; preds = %.lr.ph184, %80
   %.0177182 = phi i32 [ 0, %.lr.ph184 ], [ %100, %80 ]
@@ -2144,7 +2144,7 @@ define internal fastcc noundef i32 @decode_hssite(ptr noundef %0, ptr noundef re
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull @.str.400, ptr noundef %99, i32 noundef %94)
   %100 = add nuw i32 %.0177182, 1
   %exitcond197.not = icmp eq i32 %100, %72
-  br i1 %exitcond197.not, label %._crit_edge185, label %80, !llvm.loop !21
+  br i1 %exitcond197.not, label %._crit_edge185, label %80, !llvm.loop !20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -2340,17 +2340,16 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}

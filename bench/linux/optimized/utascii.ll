@@ -99,7 +99,7 @@ define dso_local void @acpi_ut_check_and_repair_ascii(ptr noundef readonly captu
 17:                                               ; preds = %16, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = icmp eq i64 %indvars.iv.next, %5
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %17, %.preheader, %3
   ret void
@@ -116,8 +116,7 @@ attributes #2 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_poin
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}

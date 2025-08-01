@@ -210,7 +210,7 @@ define hidden void @_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP
   %38 = inttoptr i64 %37 to ptr
   %39 = icmp eq ptr %2, %38
   %or.cond = and i1 %36, %39
-  br i1 %or.cond, label %._crit_edge, label %30, !llvm.loop !9
+  br i1 %or.cond, label %._crit_edge, label %30, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -330,7 +330,7 @@ _ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds
   %69 = phi ptr [ %32, %30 ], [ %.pre, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit ]
   %70 = add nuw i64 %.018, 1
   %71 = icmp ult i64 %70, %68
-  br i1 %71, label %30, label %._crit_edge, !llvm.loop !10
+  br i1 %71, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %67, %.loopexit
   %72 = phi ptr [ %.pre22, %.loopexit ], [ %69, %67 ]
@@ -562,7 +562,7 @@ define hidden void @_ZN13XNMethodTable25wait_until_iteration_doneEv() local_unna
   %2 = load ptr, ptr @CodeCache_lock, align 8
   %3 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #14
   %4 = tail call noundef zeroext i1 @_ZNK22XNMethodTableIteration11in_progressEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
-  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -619,7 +619,7 @@ define hidden void @_ZN13XNMethodTable18unregister_nmethodEP7nmethod(ptr noundef
   %37 = inttoptr i64 %36 to ptr
   %38 = icmp eq ptr %0, %37
   %or.cond.i = and i1 %35, %38
-  br i1 %or.cond.i, label %_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP7nmethod.exit, label %29, !llvm.loop !9
+  br i1 %or.cond.i, label %_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP7nmethod.exit, label %29, !llvm.loop !8
 
 _ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds = %29, %1
   %.0.lcssa.i = phi i64 [ %20, %1 ], [ %31, %29 ]
@@ -769,7 +769,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %17, %18
 
 _ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit: ; preds = %.lr.ph, %26
   %.not = icmp eq ptr %24, %22
-  br i1 %.not, label %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit, label %.lr.ph, !llvm.loop !11
 
 _ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit: ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit, %_ZN7XLockerI5XLockED2Ev.exit
   %.not.i.i.i = icmp eq ptr %.sroa.9.0, null
@@ -895,7 +895,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMet
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !13
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -911,7 +911,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMet
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !13
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #14
@@ -989,12 +989,11 @@ attributes #14 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

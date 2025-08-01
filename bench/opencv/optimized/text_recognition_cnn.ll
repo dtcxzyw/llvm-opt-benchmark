@@ -1300,7 +1300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
   store i8 0, ptr %358, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
-  %443 = load ptr, ptr %40, align 8, !tbaa !80
+  %443 = load ptr, ptr %40, align 8, !tbaa !79
   %444 = load ptr, ptr %443, align 8, !tbaa !17
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %446 = load ptr, ptr %445, align 8
@@ -1420,7 +1420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   %474 = sub i64 %472, %473
   %475 = ashr exact i64 %474, 2
   %476 = icmp ult i64 %469, %475
-  br i1 %476, label %434, label %.noexc.i158, !llvm.loop !83
+  br i1 %476, label %434, label %.noexc.i158, !llvm.loop !82
 
 477:                                              ; preds = %434
   %478 = landingpad { ptr, i32 }
@@ -1538,7 +1538,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189: ; preds = %_ZNS
 
 508:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189
   %509 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %510 = load ptr, ptr %509, align 8, !tbaa !84
+  %510 = load ptr, ptr %509, align 8, !tbaa !83
   %.not.i.i = icmp eq ptr %510, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %511
 
@@ -1550,9 +1550,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189: ; preds = %_ZNS
   br i1 %514, label %516, label %524
 
 516:                                              ; preds = %511
-  store i32 0, ptr %512, align 8, !tbaa !85
+  store i32 0, ptr %512, align 8, !tbaa !84
   %517 = getelementptr inbounds nuw i8, ptr %510, i64 12
-  store i32 0, ptr %517, align 4, !tbaa !87
+  store i32 0, ptr %517, align 4, !tbaa !86
   %518 = load ptr, ptr %510, align 8, !tbaa !17
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 16
   %520 = load ptr, ptr %519, align 8
@@ -1580,7 +1580,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit189: ; preds = %_ZNS
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %528, %526
   %.0.i.i.i.i = phi i32 [ %515, %526 ], [ %529, %528 ]
   %530 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %530, label %531, label %_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !88
+  br i1 %530, label %531, label %_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !87
 
 531:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %510) #18
@@ -1621,7 +1621,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit193:                 ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit193, %537
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #18
   %538 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %539 = load ptr, ptr %538, align 8, !tbaa !84
+  %539 = load ptr, ptr %538, align 8, !tbaa !83
   %.not.i.i195 = icmp eq ptr %539, null
   br i1 %.not.i.i195, label %_ZNSt12__shared_ptrIN2cv4text15TextDetectorCNNELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %540
 
@@ -1633,9 +1633,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %543, label %545, label %553
 
 545:                                              ; preds = %540
-  store i32 0, ptr %541, align 8, !tbaa !85
+  store i32 0, ptr %541, align 8, !tbaa !84
   %546 = getelementptr inbounds nuw i8, ptr %539, i64 12
-  store i32 0, ptr %546, align 4, !tbaa !87
+  store i32 0, ptr %546, align 4, !tbaa !86
   %547 = load ptr, ptr %539, align 8, !tbaa !17
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 16
   %549 = load ptr, ptr %548, align 8
@@ -1663,7 +1663,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIfSaIfE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i197: ; preds = %557, %555
   %.0.i.i.i.i198 = phi i32 [ %544, %555 ], [ %558, %557 ]
   %559 = icmp eq i32 %.0.i.i.i.i198, 1
-  br i1 %559, label %560, label %_ZNSt12__shared_ptrIN2cv4text15TextDetectorCNNELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !88
+  br i1 %559, label %560, label %_ZNSt12__shared_ptrIN2cv4text15TextDetectorCNNELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !87
 
 560:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i197
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %539) #18
@@ -2335,7 +2335,7 @@ declare noundef i32 @_ZN2cv7waitKeyEi(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -2347,9 +2347,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordR
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !85
+  store i32 0, ptr %5, align 8, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !87
+  store i32 0, ptr %10, align 4, !tbaa !86
   %11 = load ptr, ptr %3, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2377,7 +2377,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4text25OCRHolisticWordR
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !88
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !87
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -2390,7 +2390,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4text15TextDetectorCNNELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -2402,9 +2402,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4text15TextDetectorCNNE
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !85
+  store i32 0, ptr %5, align 8, !tbaa !84
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !87
+  store i32 0, ptr %10, align 4, !tbaa !86
   %11 = load ptr, ptr %3, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2432,7 +2432,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4text15TextDetectorCNNE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !88
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !87
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -2636,15 +2636,14 @@ attributes #21 = { noreturn }
 !74 = !{!"p1 float", !6, i64 0}
 !75 = !{!76, !76, i64 0}
 !76 = !{!"float", !7, i64 0}
-!77 = distinct !{!77, !78, !79}
+!77 = distinct !{!77, !78}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!"llvm.loop.estimated_trip_count"}
-!80 = !{!81, !82, i64 0}
-!81 = !{!"_ZTSSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EE", !82, i64 0, !48, i64 8}
-!82 = !{!"p1 _ZTSN2cv4text25OCRHolisticWordRecognizerE", !6, i64 0}
-!83 = distinct !{!83, !78, !79}
-!84 = !{!48, !49, i64 0}
-!85 = !{!86, !25, i64 8}
-!86 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !25, i64 8, !25, i64 12}
-!87 = !{!86, !25, i64 12}
-!88 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!79 = !{!80, !81, i64 0}
+!80 = !{!"_ZTSSt12__shared_ptrIN2cv4text25OCRHolisticWordRecognizerELN9__gnu_cxx12_Lock_policyE2EE", !81, i64 0, !48, i64 8}
+!81 = !{!"p1 _ZTSN2cv4text25OCRHolisticWordRecognizerE", !6, i64 0}
+!82 = distinct !{!82, !78}
+!83 = !{!48, !49, i64 0}
+!84 = !{!85, !25, i64 8}
+!85 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !25, i64 8, !25, i64 12}
+!86 = !{!85, !25, i64 12}
+!87 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -1008,7 +1008,7 @@ SSL_SESSION_list_remove.exit:                     ; preds = %40, %20, %14, %10
   %47 = or i8 %46, 4
   store i8 %47, ptr %45, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %49 = load ptr, ptr %48, align 8, !tbaa !85
+  %49 = load ptr, ptr %48, align 8, !tbaa !84
   %.not29 = icmp eq ptr %49, null
   br i1 %.not29, label %51, label %50
 
@@ -1043,7 +1043,7 @@ SSL_SESSION_up_ref.exit:                          ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %8, ptr %9, align 8, !tbaa !86
+  store i64 %8, ptr %9, align 8, !tbaa !85
   br label %10
 
 10:                                               ; preds = %6, %SSL_SESSION_up_ref.exit, %2
@@ -1085,17 +1085,17 @@ define hidden i64 @SSL_CTX_get_timeout(ptr noundef readonly captures(address_is_
 define hidden void @SSL_CTX_flush_sessions(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeout_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
-  store ptr %0, ptr %3, align 8, !tbaa !87
+  store ptr %0, ptr %3, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %5, ptr %6, align 8, !tbaa !89
+  store ptr %5, ptr %6, align 8, !tbaa !88
   %7 = icmp eq ptr %5, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %9, align 8, !tbaa !90
+  store i64 %1, ptr %9, align 8, !tbaa !89
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %10) #14
   call void @lh_doall_arg(ptr noundef nonnull %5, ptr noundef nonnull @timeout_doall_arg, ptr noundef nonnull %3) #14
@@ -1112,7 +1112,7 @@ declare void @lh_doall_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal void @timeout_doall_arg(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !90
+  %4 = load i64, ptr %3, align 8, !tbaa !89
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %13, label %6
 
@@ -1127,9 +1127,9 @@ define internal void @timeout_doall_arg(ptr noundef %0, ptr noundef readonly cap
 
 13:                                               ; preds = %6, %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !89
+  %15 = load ptr, ptr %14, align 8, !tbaa !88
   %16 = tail call ptr @lh_delete(ptr noundef %15, ptr noundef %0) #14
-  %17 = load ptr, ptr %1, align 8, !tbaa !87
+  %17 = load ptr, ptr %1, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = load ptr, ptr %18, align 8, !tbaa !78
   %20 = icmp eq ptr %19, null
@@ -1187,9 +1187,9 @@ SSL_SESSION_list_remove.exit:                     ; preds = %13, %21, %41
   %43 = load i8, ptr %42, align 8
   %44 = or i8 %43, 4
   store i8 %44, ptr %42, align 8
-  %45 = load ptr, ptr %1, align 8, !tbaa !87
+  %45 = load ptr, ptr %1, align 8, !tbaa !86
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 168
-  %47 = load ptr, ptr %46, align 8, !tbaa !85
+  %47 = load ptr, ptr %46, align 8, !tbaa !84
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %49, label %48
 
@@ -1214,7 +1214,7 @@ define hidden range(i32 0, 2) i32 @ssl_clear_bad_session(ptr noundef %0) local_u
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !91
+  %6 = load i32, ptr %5, align 8, !tbaa !90
   %7 = and i32 %6, 1
   %.not5 = icmp eq i32 %7, 0
   br i1 %.not5, label %8, label %15
@@ -1226,7 +1226,7 @@ define hidden range(i32 0, 2) i32 @ssl_clear_bad_session(ptr noundef %0) local_u
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %12 = load ptr, ptr %11, align 8, !tbaa !92
+  %12 = load ptr, ptr %11, align 8, !tbaa !91
   %13 = load ptr, ptr %2, align 8, !tbaa !35
   %14 = tail call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %12, ptr noundef %13, i32 noundef 1)
   br label %15
@@ -1241,28 +1241,28 @@ declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_sess_set_new_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %1, ptr %3, align 8, !tbaa !93
+  store ptr %1, ptr %3, align 8, !tbaa !92
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_CTX_sess_get_new_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_sess_set_remove_cb(ptr noundef writeonly captures(none) initializes((168, 176)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %1, ptr %3, align 8, !tbaa !85
+  store ptr %1, ptr %3, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_CTX_sess_get_remove_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load ptr, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
   ret ptr %3
 }
 
@@ -1283,42 +1283,42 @@ define hidden ptr @SSL_CTX_sess_get_get_cb(ptr noundef readonly captures(none) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_info_callback(ptr noundef writeonly captures(none) initializes((264, 272)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %1, ptr %3, align 8, !tbaa !94
+  store ptr %1, ptr %3, align 8, !tbaa !93
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_CTX_get_info_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %3 = load ptr, ptr %2, align 8, !tbaa !94
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_client_cert_cb(ptr noundef writeonly captures(none) initializes((224, 232)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %1, ptr %3, align 8, !tbaa !95
+  store ptr %1, ptr %3, align 8, !tbaa !94
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_CTX_get_client_cert_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !94
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_channel_id_cb(ptr noundef writeonly captures(none) initializes((232, 240)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %1, ptr %3, align 8, !tbaa !96
+  store ptr %1, ptr %3, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_CTX_get_channel_id_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %3 = load ptr, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
   ret ptr %3
 }
 
@@ -1437,18 +1437,17 @@ attributes #14 = { nounwind }
 !79 = !{!7, !19, i64 200}
 !80 = !{!58, !19, i64 136}
 !81 = !{!58, !19, i64 128}
-!82 = distinct !{!82, !83, !84}
+!82 = distinct !{!82, !83}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!58, !12, i64 168}
-!86 = !{!36, !15, i64 240}
-!87 = !{!88, !47, i64 0}
-!88 = !{!"timeout_param_st", !47, i64 0, !15, i64 8, !60, i64 16}
-!89 = !{!88, !60, i64 16}
-!90 = !{!88, !15, i64 8}
-!91 = !{!36, !8, i64 48}
-!92 = !{!36, !47, i64 232}
-!93 = !{!58, !12, i64 160}
-!94 = !{!58, !12, i64 264}
-!95 = !{!58, !12, i64 224}
-!96 = !{!58, !12, i64 232}
+!84 = !{!58, !12, i64 168}
+!85 = !{!36, !15, i64 240}
+!86 = !{!87, !47, i64 0}
+!87 = !{!"timeout_param_st", !47, i64 0, !15, i64 8, !60, i64 16}
+!88 = !{!87, !60, i64 16}
+!89 = !{!87, !15, i64 8}
+!90 = !{!36, !8, i64 48}
+!91 = !{!36, !47, i64 232}
+!92 = !{!58, !12, i64 160}
+!93 = !{!58, !12, i64 264}
+!94 = !{!58, !12, i64 224}
+!95 = !{!58, !12, i64 232}

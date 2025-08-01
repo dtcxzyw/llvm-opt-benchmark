@@ -382,12 +382,12 @@ define internal void @uat_devicenet_records_behavior_tostr_cb(ptr noundef readon
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -1010,7 +1010,7 @@ body_type_8_over_16_dissection.exit:              ; preds = %300, %292, %283, %2
   %306 = load i32, ptr @num_devicenet_records_uat, align 4
   %307 = zext i32 %306 to i64
   %308 = icmp samesign ult i64 %indvars.iv.next, %307
-  br i1 %308, label %234, label %._crit_edge, !llvm.loop !10
+  br i1 %308, label %234, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %body_type_8_over_16_dissection.exit, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i8 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %204, %body_type_8_over_16_dissection.exit ]
@@ -1290,8 +1290,7 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

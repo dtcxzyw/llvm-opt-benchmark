@@ -509,7 +509,7 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) local_unnamed_addr #0 
   %7 = select i1 %6, ptr @.str.156, ptr @.str.157
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.155, ptr noundef nonnull %7) #10
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.158) #10
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 72), align 8, !range !7, !noundef !8
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 72), align 8, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %9, ptr @.str.156, ptr @.str.157
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.159, ptr noundef nonnull %10) #10
@@ -542,7 +542,7 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) local_unnamed_addr #0 
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.170) #10
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.171) #10
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull @.str.172) #10
-  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8, !range !7, !noundef !8
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   %20 = select i1 %19, ptr @.str.156, ptr @.str.157
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.173, ptr noundef nonnull %20) #10
@@ -582,7 +582,7 @@ define dso_local void @slashUsage(i16 noundef zeroext %0) local_unnamed_addr #0 
 31:                                               ; preds = %22, %29
   %.1 = phi i32 [ %30, %29 ], [ %.09, %22 ]
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %22, !llvm.loop !9
+  br label %22, !llvm.loop !8
 }
 
 declare ptr @PQdb(ptr noundef) local_unnamed_addr #2
@@ -702,7 +702,7 @@ define dso_local void @helpVariables(i16 noundef zeroext %0) local_unnamed_addr 
 13:                                               ; preds = %4, %11
   %.1 = phi i32 [ %12, %11 ], [ %.07, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %4, !llvm.loop !10
+  br label %4, !llvm.loop !9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -781,7 +781,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %38 = call i32 @fputc(i32 noundef 10, ptr noundef %25)
   %39 = add nuw nsw i32 %.0111170.us, 1
   %40 = icmp samesign ult i32 %39, %.zext
-  br i1 %40, label %.lr.ph167.us, label %._crit_edge173, !llvm.loop !11
+  br i1 %40, label %.lr.ph167.us, label %._crit_edge173, !llvm.loop !10
 
 41:                                               ; preds = %.lr.ph167.us, %41
   %indvars.iv184 = phi i64 [ 0, %.lr.ph167.us ], [ %indvars.iv.next185, %41 ]
@@ -796,7 +796,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %48 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.258, i32 noundef 33, ptr noundef nonnull %spec.select.us) #10
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count
-  br i1 %exitcond187.not, label %._crit_edge168.us, label %41, !llvm.loop !13
+  br i1 %exitcond187.not, label %._crit_edge168.us, label %41, !llvm.loop !12
 
 ._crit_edge168.us:                                ; preds = %41
   %49 = add i32 %30, %.0111170.us
@@ -821,7 +821,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %58 = call i32 @fputc(i32 noundef 10, ptr noundef %25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %59, label %.lr.ph172.split, label %._crit_edge173, !llvm.loop !14
+  br i1 %59, label %.lr.ph172.split, label %._crit_edge173, !llvm.loop !13
 
 ._crit_edge173:                                   ; preds = %57, %37
   call void @ClosePager(ptr noundef %25) #10
@@ -848,7 +848,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 
 66:                                               ; preds = %.lr.ph
   %exitcond.not = icmp eq i64 %63, %.0101158
-  br i1 %exitcond.not, label %.critedge2.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge2.thread, label %.lr.ph, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader138
   %.098.lcssa = phi i64 [ 1, %.preheader138 ], [ %.095141, %.lr.ph ]
@@ -866,7 +866,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %70 = add i64 %.297147, 1
   %.2100 = add i64 %.2100148, 1
   %exitcond181.not = icmp eq i64 %70, %.0101158
-  br i1 %exitcond181.not, label %.critedge2, label %71, !llvm.loop !16
+  br i1 %exitcond181.not, label %.critedge2, label %71, !llvm.loop !15
 
 71:                                               ; preds = %.preheader, %69
   %.2100148 = phi i64 [ %.2100146, %.preheader ], [ %.2100, %69 ]
@@ -922,7 +922,7 @@ sub_0:                                            ; preds = %.lr.ph152
   %92 = getelementptr inbounds [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %91
   %93 = load ptr, ptr %92, align 8
   %.not123 = icmp eq ptr %93, null
-  br i1 %.not123, label %._crit_edge, label %.lr.ph152, !llvm.loop !17
+  br i1 %.not123, label %._crit_edge, label %.lr.ph152, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.tail.thread, %83
   %.1 = phi i32 [ %.2, %.tail.thread ], [ %87, %83 ]
@@ -979,13 +979,13 @@ sub_0135:                                         ; preds = %.lr.ph162
   %119 = getelementptr inbounds [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   %.not125 = icmp eq ptr %120, null
-  br i1 %.not125, label %._crit_edge163, label %.lr.ph162, !llvm.loop !18
+  br i1 %.not125, label %._crit_edge163, label %.lr.ph162, !llvm.loop !17
 
 .critedge2.thread:                                ; preds = %66, %74, %._crit_edge, %.critedge2
   %.2103 = phi i64 [ %.0101158, %.critedge2 ], [ %.1102, %._crit_edge ], [ %.1102, %74 ], [ %.0101158, %66 ]
   %121 = add nuw nsw i32 %.0107156, 1
   %exitcond182.not = icmp eq i32 %121, 4
-  br i1 %exitcond182.not, label %.thread, label %60, !llvm.loop !19
+  br i1 %exitcond182.not, label %.thread, label %60, !llvm.loop !18
 
 ._crit_edge163:                                   ; preds = %.tail134.thread, %105
   %.not126 = icmp eq ptr %97, null
@@ -1064,19 +1064,18 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

@@ -85,7 +85,7 @@ define dso_local ptr @intel_memory_region_by_type(ptr noundef readonly captures(
 14:                                               ; preds = %9, %4
   %15 = add nuw nsw i64 %5, 1
   %16 = icmp eq i64 %15, 7
-  br i1 %16, label %17, label %4, !llvm.loop !9
+  br i1 %16, label %17, label %4, !llvm.loop !8
 
 17:                                               ; preds = %14, %9
   %18 = phi ptr [ %7, %9 ], [ null, %14 ]
@@ -217,7 +217,7 @@ define dso_local ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %1,
 52:                                               ; preds = %48
   %53 = load ptr, ptr %13, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 7128
-  %55 = load i8, ptr %54, align 8, !range !10, !noundef !11
+  %55 = load i8, ptr %54, align 8, !range !9, !noundef !10
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %.thread13, label %57
 
@@ -239,7 +239,7 @@ define dso_local ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %1,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %66 = add nuw i64 %69, 4096
   %67 = icmp ugt i64 %66, %61
-  br i1 %67, label %.thread13, label %68, !llvm.loop !12
+  br i1 %67, label %.thread13, label %68, !llvm.loop !11
 
 68:                                               ; preds = %65, %60
   %69 = phi i64 [ 0, %60 ], [ %66, %65 ]
@@ -266,7 +266,7 @@ define dso_local ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %1,
 77:                                               ; preds = %85
   %78 = add nuw nsw i64 %80, 1
   %79 = icmp eq i64 %78, 4
-  br i1 %79, label %65, label %.preheader, !llvm.loop !13
+  br i1 %79, label %65, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %68, %77
   %80 = phi i64 [ %78, %77 ], [ 0, %68 ]
@@ -329,7 +329,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 define dso_local void @intel_memory_region_set_name(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #6 align 16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !13
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 16, ptr noundef %1, ptr noundef nonnull %3) #11
@@ -391,7 +391,7 @@ define dso_local void @intel_memory_region_destroy(ptr noundef %0) local_unnamed
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load volatile ptr, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %13, label %16
 
@@ -406,7 +406,7 @@ define dso_local void @intel_memory_region_destroy(ptr noundef %0) local_unnamed
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %19 = load volatile ptr, ptr %18, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %21, label %24
 
@@ -516,7 +516,7 @@ define dso_local i32 @intel_memory_regions_hw_probe(ptr noundef %0) local_unname
 51:                                               ; preds = %45, %7, %16
   %52 = add nuw nsw i64 %8, 1
   %53 = icmp eq i64 %52, 7
-  br i1 %53, label %.loopexit, label %7, !llvm.loop !16
+  br i1 %53, label %.loopexit, label %7, !llvm.loop !15
 
 54:                                               ; preds = %49, %83
   %55 = phi i64 [ %84, %83 ], [ 0, %49 ]
@@ -539,7 +539,7 @@ define dso_local i32 @intel_memory_regions_hw_probe(ptr noundef %0) local_unname
   %67 = icmp eq i32 %66, 0
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 224
   %69 = load volatile ptr, ptr %68, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %70 = icmp eq ptr %69, %68
   br i1 %70, label %71, label %74
 
@@ -554,7 +554,7 @@ define dso_local i32 @intel_memory_regions_hw_probe(ptr noundef %0) local_unname
 75:                                               ; preds = %59
   %76 = getelementptr inbounds nuw i8, ptr %57, i64 224
   %77 = load volatile ptr, ptr %76, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %78 = icmp eq ptr %77, %76
   br i1 %78, label %79, label %82
 
@@ -570,7 +570,7 @@ define dso_local i32 @intel_memory_regions_hw_probe(ptr noundef %0) local_unname
 83:                                               ; preds = %82, %74, %54
   %84 = add nuw nsw i64 %55, 1
   %85 = icmp eq i64 %84, 7
-  br i1 %85, label %.loopexit, label %54, !llvm.loop !17
+  br i1 %85, label %.loopexit, label %54, !llvm.loop !16
 
 .loopexit:                                        ; preds = %51, %83
   %86 = phi i32 [ %42, %83 ], [ 0, %51 ]
@@ -618,7 +618,7 @@ define dso_local void @intel_memory_regions_driver_release(ptr noundef captures(
   %16 = icmp eq i32 %15, 0
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %18 = load volatile ptr, ptr %17, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %20, label %23
 
@@ -633,7 +633,7 @@ define dso_local void @intel_memory_regions_driver_release(ptr noundef captures(
 24:                                               ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %26 = load volatile ptr, ptr %25, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %27 = icmp eq ptr %26, %25
   br i1 %27, label %28, label %31
 
@@ -649,7 +649,7 @@ define dso_local void @intel_memory_regions_driver_release(ptr noundef captures(
 32:                                               ; preds = %31, %23, %3
   %33 = add nuw nsw i64 %4, 1
   %34 = icmp eq i64 %33, 7
-  br i1 %34, label %35, label %3, !llvm.loop !18
+  br i1 %34, label %35, label %3, !llvm.loop !16
 
 35:                                               ; preds = %32
   ret void
@@ -671,7 +671,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__iopagetest(ptr noundef n
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7) #11
   %10 = zext i8 %2 to i32
   tail call void @memset_io(ptr noundef %1, i32 noundef %10, i64 noundef 4096) #11
-  tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   %11 = tail call i32 @ioread8(ptr noundef %1) #11
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %7, align 1
@@ -754,18 +754,16 @@ attributes #13 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{!"auto-init"}
-!15 = !{i64 2148172844}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = !{i64 2158169886}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"auto-init"}
+!14 = !{i64 2148172844}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = !{i64 2158169886}

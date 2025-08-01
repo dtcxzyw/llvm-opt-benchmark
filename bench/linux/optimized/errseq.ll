@@ -50,7 +50,7 @@ define dso_local i32 @errseq_set(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %19 = icmp ne i32 %17, %14
   %.not4 = and i1 %18, %19
   %20 = select i1 %19, i32 %17, i32 %9
-  br i1 %.not4, label %.preheader, label %.thread, !llvm.loop !12
+  br i1 %.not4, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %.preheader, %16, %8
   %21 = phi i32 [ %3, %8 ], [ %9, %.preheader ], [ %17, %16 ]
@@ -73,7 +73,7 @@ define dso_local i32 @errseq_sample(ptr noundef %0) #2 align 16 {
 define dso_local range(i32 -4095, 1) i32 @errseq_check(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = load volatile i32, ptr %0, align 4
   %4 = icmp eq i32 %3, %1
-  br i1 %4, label %8, label %5, !prof !14
+  br i1 %4, label %8, label %5, !prof !12
 
 5:                                                ; preds = %2
   %6 = and i32 %3, 4095
@@ -98,7 +98,7 @@ define dso_local range(i32 -4095, 1) i32 @errseq_check_and_advance(ptr noundef %
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %7, i32 %3, ptr elementtype(i32) %0) #3, !srcloc !15
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %7, i32 %3, ptr elementtype(i32) %0) #3, !srcloc !13
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -131,7 +131,5 @@ attributes #3 = { nounwind }
 !9 = !{i64 2148547035, i64 2148546851, i64 2148546901, i64 2148546947, i64 2148546975}
 !10 = !{i64 2148547333, i64 2148547149, i64 2148547199, i64 2148547245, i64 2148547273}
 !11 = !{i64 2148550394, i64 2148550433, i64 2148550454, i64 2148550491, i64 2148550514, i64 2148550523}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = !{i64 2148566263, i64 2148566302, i64 2148566323, i64 2148566360, i64 2148566383, i64 2148566392}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = !{i64 2148566263, i64 2148566302, i64 2148566323, i64 2148566360, i64 2148566383, i64 2148566392}

@@ -55,7 +55,7 @@ define range(i32 -1094995529, 1) i32 @avpriv_split_xiph_headers(ptr noundef %0, 
 
 29:                                               ; preds = %.critedge
   %.168 = getelementptr inbounds nuw i8, ptr %.269.lcssa, i64 1
-  br i1 %.not, label %30, label %.thread, !llvm.loop !15
+  br i1 %.not, label %30, label %.thread, !llvm.loop !14
 
 30:                                               ; preds = %.preheader75, %29
   %.not = phi i1 [ true, %.preheader75 ], [ false, %29 ]
@@ -81,7 +81,7 @@ define range(i32 -1094995529, 1) i32 @avpriv_split_xiph_headers(ptr noundef %0, 
   %38 = add nsw i32 %.180, 256
   %39 = getelementptr inbounds nuw i8, ptr %.26979, i64 1
   %40 = icmp slt i32 %38, %1
-  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %36, %30
   %41 = phi i32 [ 0, %30 ], [ %37, %36 ], [ %33, %.lr.ph ]
@@ -140,8 +140,7 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}

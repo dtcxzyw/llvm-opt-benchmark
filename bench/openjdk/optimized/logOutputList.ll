@@ -55,7 +55,7 @@ define hidden void @_ZN13LogOutputList16set_output_levelEP9LogOutputN8LogLevel4t
   %8 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.0.i = load volatile ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
   %9 = icmp eq i32 %2, 0
@@ -80,7 +80,7 @@ _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
 18:                                               ; preds = %16, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %.preheader, label %12, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader, label %12, !llvm.loop !12
 
 .preheader:                                       ; preds = %18, %19
   %.0.in.i = phi ptr [ %20, %19 ], [ %4, %18 ]
@@ -92,7 +92,7 @@ _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
   %20 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %.010.i
-  br i1 %22, label %23, label %.preheader, !llvm.loop !14
+  br i1 %22, label %23, label %.preheader, !llvm.loop !13
 
 23:                                               ; preds = %19
   %24 = load volatile ptr, ptr %11, align 8
@@ -148,7 +148,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
   store volatile ptr %43, ptr %30, align 8
   %44 = load volatile ptr, ptr %30, align 8
   %.not.i22 = icmp eq ptr %44, null
-  br i1 %.not.i22, label %.critedge.i, label %.lr.ph.i17, !llvm.loop !15
+  br i1 %.not.i22, label %.critedge.i, label %.lr.ph.i17, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %40, %.lr.ph.i17, %28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
@@ -179,7 +179,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
 54:                                               ; preds = %53, %49
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
   %.not35.not.i = icmp sgt i64 %indvars.iv.i18, %45
-  br i1 %.not35.not.i, label %.lr.ph42.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %.not35.not.i, label %.lr.ph42.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %54, %.critedge.i
   %.043.i = load volatile ptr, ptr %4, align 8
@@ -207,7 +207,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
   %63 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %.0.i20 = load volatile ptr, ptr %63, align 8
   %.not36.i = icmp eq ptr %.0.i20, null
-  br i1 %.not36.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i, !llvm.loop !17
+  br i1 %.not36.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i, !llvm.loop !16
 
 64:                                               ; preds = %_ZNK13LogOutputList4findEPK9LogOutput.exit
   tail call void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeEN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.010.i, i32 noundef %2)
@@ -234,7 +234,7 @@ define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef non
   %7 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.0 = load volatile ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %6 ], [ %.010, %.lr.ph ]
@@ -261,7 +261,7 @@ define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr n
 10:                                               ; preds = %4, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %11, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %11, label %4, !llvm.loop !12
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -277,7 +277,7 @@ define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %13, !llvm.loop !14
+  br i1 %17, label %18, label %13, !llvm.loop !13
 
 18:                                               ; preds = %14
   %19 = load volatile ptr, ptr %3, align 8
@@ -339,7 +339,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
   store volatile ptr %19, ptr %10, align 8
   %20 = load volatile ptr, ptr %10, align 8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph, %16, %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
@@ -370,7 +370,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
 30:                                               ; preds = %25, %29
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not35.not = icmp sgt i64 %indvars.iv, %21
-  br i1 %.not35.not, label %.lr.ph42, label %._crit_edge, !llvm.loop !16
+  br i1 %.not35.not, label %.lr.ph42, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %30, %.critedge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -399,7 +399,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
   %40 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %.0 = load volatile ptr, ptr %40, align 8
   %.not36 = icmp eq ptr %.0, null
-  br i1 %.not36, label %.loopexit, label %.lr.ph47, !llvm.loop !17
+  br i1 %.not36, label %.loopexit, label %.lr.ph47, !llvm.loop !16
 
 .loopexit:                                        ; preds = %39, %._crit_edge, %37
   ret void
@@ -436,7 +436,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   store volatile ptr %19, ptr %6, align 8
   %20 = load volatile ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %16, %.lr.ph.i, %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
@@ -467,7 +467,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
 30:                                               ; preds = %29, %25
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.not.i = icmp sgt i64 %indvars.iv.i, %21
-  br i1 %.not35.not.i, label %.lr.ph42.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %.not35.not.i, label %.lr.ph42.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %30, %.critedge.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -496,7 +496,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   %40 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %.0.i = load volatile ptr, ptr %40, align 8
   %.not36.i = icmp eq ptr %.0.i, null
-  br i1 %.not36.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i, !llvm.loop !17
+  br i1 %.not36.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i, !llvm.loop !16
 
 _ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit: ; preds = %39, %._crit_edge.i, %37
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
@@ -529,7 +529,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %42
 51:                                               ; preds = %49, %45
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i5, 6
-  br i1 %exitcond.not.i, label %.preheader, label %45, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader, label %45, !llvm.loop !12
 
 .preheader:                                       ; preds = %51, %52
   %.0.in.i = phi ptr [ %53, %52 ], [ %31, %51 ]
@@ -541,7 +541,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 8
   %54 = load volatile ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %1
-  br i1 %55, label %56, label %.preheader, !llvm.loop !14
+  br i1 %55, label %56, label %.preheader, !llvm.loop !13
 
 56:                                               ; preds = %52
   %57 = load volatile ptr, ptr %44, align 8
@@ -576,7 +576,7 @@ define hidden void @_ZN13LogOutputList5clearEv(ptr noundef nonnull align 8 deref
   store volatile ptr null, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %6, label %4, !llvm.loop !18
+  br i1 %exitcond.not, label %6, label %4, !llvm.loop !17
 
 6:                                                ; preds = %4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
@@ -600,7 +600,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %8
   %11 = load volatile ptr, ptr %10, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.010) #4
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK13LogOutputList21wait_until_no_readersEv.exit
   ret void
@@ -630,14 +630,13 @@ attributes #4 = { nounwind }
 !6 = !{i64 2145409567}
 !7 = !{i64 2145392998}
 !8 = !{i64 2145392468}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}

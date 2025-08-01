@@ -1010,7 +1010,7 @@ OSSL_CMP_CTX_get0_serverPath.exit.thread.i:       ; preds = %19
 
 OSSL_CMP_CTX_get0_serverPath.exit.i:              ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !44
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -1034,7 +1034,7 @@ OSSL_CMP_CTX_get0_serverPath.exit.i:              ; preds = %19
 
 OSSL_CMP_CTX_get0_serverPath.exit46.i:            ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !45
+  %30 = load ptr, ptr %29, align 8, !tbaa !44
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -1079,7 +1079,7 @@ OSSL_CMP_CTX_get0_serverPath.exit48.thread.i:     ; preds = %38
 
 OSSL_CMP_CTX_get0_serverPath.exit48.i:            ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %40 = load ptr, ptr %39, align 8, !tbaa !45
+  %40 = load ptr, ptr %39, align 8, !tbaa !44
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -1119,7 +1119,7 @@ OSSL_CMP_CTX_get0_serverPath.exit50.thread.i:     ; preds = %49
 
 OSSL_CMP_CTX_get0_serverPath.exit50.i:            ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !45
+  %51 = load ptr, ptr %50, align 8, !tbaa !44
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -1216,7 +1216,7 @@ OSSL_CMP_CTX_get0_server.exit.thread.i:           ; preds = %19
 
 OSSL_CMP_CTX_get0_server.exit.i:                  ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  %22 = load ptr, ptr %21, align 8, !tbaa !45
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -1240,7 +1240,7 @@ OSSL_CMP_CTX_get0_server.exit.i:                  ; preds = %19
 
 OSSL_CMP_CTX_get0_server.exit46.i:                ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %30 = load ptr, ptr %29, align 8, !tbaa !46
+  %30 = load ptr, ptr %29, align 8, !tbaa !45
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -1285,7 +1285,7 @@ OSSL_CMP_CTX_get0_server.exit48.thread.i:         ; preds = %38
 
 OSSL_CMP_CTX_get0_server.exit48.i:                ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %40 = load ptr, ptr %39, align 8, !tbaa !46
+  %40 = load ptr, ptr %39, align 8, !tbaa !45
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -1325,7 +1325,7 @@ OSSL_CMP_CTX_get0_server.exit50.thread.i:         ; preds = %49
 
 OSSL_CMP_CTX_get0_server.exit50.i:                ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %51 = load ptr, ptr %50, align 8, !tbaa !46
+  %51 = load ptr, ptr %50, align 8, !tbaa !45
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -1420,7 +1420,7 @@ OSSL_CMP_CTX_get_serverPort.exit.thread.i:        ; preds = %17
 
 OSSL_CMP_CTX_get_serverPort.exit.i:               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  %20 = load i32, ptr %19, align 8, !tbaa !47
+  %20 = load i32, ptr %19, align 8, !tbaa !46
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %22
 
@@ -1450,7 +1450,7 @@ OSSL_CMP_CTX_get_serverPort.exit39.thread.i:      ; preds = %26
 
 OSSL_CMP_CTX_get_serverPort.exit39.i:             ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  %28 = load i32, ptr %27, align 8, !tbaa !47
+  %28 = load i32, ptr %27, align 8, !tbaa !46
   %.not32.i = icmp eq i32 %28, 1
   br i1 %.not32.i, label %30, label %29
 
@@ -1474,7 +1474,7 @@ OSSL_CMP_CTX_get_serverPort.exit39.i:             ; preds = %26
 
 OSSL_CMP_CTX_get_serverPort.exit41.i:             ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  %35 = load i32, ptr %34, align 8, !tbaa !47
+  %35 = load i32, ptr %34, align 8, !tbaa !46
   switch i32 %35, label %OSSL_CMP_CTX_get_serverPort.exit43.i [
     i32 0, label %36
     i32 1, label %tear_down.exit
@@ -1496,7 +1496,7 @@ OSSL_CMP_CTX_get_serverPort.exit41.i:             ; preds = %33
 
 OSSL_CMP_CTX_get_serverPort.exit43.i:             ; preds = %36, %OSSL_CMP_CTX_get_serverPort.exit41.i
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @.str.71) #6
-  %.pr.i = load i32, ptr %34, align 8, !tbaa !47
+  %.pr.i = load i32, ptr %34, align 8, !tbaa !46
   %37 = icmp eq i32 %.pr.i, 0
   br i1 %37, label %38, label %39
 
@@ -1589,7 +1589,7 @@ OSSL_CMP_CTX_get0_proxy.exit.thread.i:            ; preds = %19
 
 OSSL_CMP_CTX_get0_proxy.exit.i:                   ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  %22 = load ptr, ptr %21, align 8, !tbaa !47
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -1613,7 +1613,7 @@ OSSL_CMP_CTX_get0_proxy.exit.i:                   ; preds = %19
 
 OSSL_CMP_CTX_get0_proxy.exit46.i:                 ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %30 = load ptr, ptr %29, align 8, !tbaa !47
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -1658,7 +1658,7 @@ OSSL_CMP_CTX_get0_proxy.exit48.thread.i:          ; preds = %38
 
 OSSL_CMP_CTX_get0_proxy.exit48.i:                 ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %40 = load ptr, ptr %39, align 8, !tbaa !48
+  %40 = load ptr, ptr %39, align 8, !tbaa !47
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -1698,7 +1698,7 @@ OSSL_CMP_CTX_get0_proxy.exit50.thread.i:          ; preds = %49
 
 OSSL_CMP_CTX_get0_proxy.exit50.i:                 ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %51 = load ptr, ptr %50, align 8, !tbaa !48
+  %51 = load ptr, ptr %50, align 8, !tbaa !47
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -1795,7 +1795,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit.thread.i:         ; preds = %19
 
 OSSL_CMP_CTX_get0_no_proxy.exit.i:                ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  %22 = load ptr, ptr %21, align 8, !tbaa !49
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -1819,7 +1819,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit.i:                ; preds = %19
 
 OSSL_CMP_CTX_get0_no_proxy.exit46.i:              ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  %30 = load ptr, ptr %29, align 8, !tbaa !49
+  %30 = load ptr, ptr %29, align 8, !tbaa !48
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -1864,7 +1864,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit48.thread.i:       ; preds = %38
 
 OSSL_CMP_CTX_get0_no_proxy.exit48.i:              ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  %40 = load ptr, ptr %39, align 8, !tbaa !49
+  %40 = load ptr, ptr %39, align 8, !tbaa !48
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -1904,7 +1904,7 @@ OSSL_CMP_CTX_get0_no_proxy.exit50.thread.i:       ; preds = %49
 
 OSSL_CMP_CTX_get0_no_proxy.exit50.i:              ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  %51 = load ptr, ptr %50, align 8, !tbaa !49
+  %51 = load ptr, ptr %50, align 8, !tbaa !48
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -1999,7 +1999,7 @@ OSSL_CMP_CTX_get_http_cb.exit.thread.i:           ; preds = %17
 
 OSSL_CMP_CTX_get_http_cb.exit.i:                  ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %20 = load ptr, ptr %19, align 8, !tbaa !50
+  %20 = load ptr, ptr %19, align 8, !tbaa !49
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
@@ -2029,7 +2029,7 @@ OSSL_CMP_CTX_get_http_cb.exit39.thread.i:         ; preds = %26
 
 OSSL_CMP_CTX_get_http_cb.exit39.i:                ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %28 = load ptr, ptr %27, align 8, !tbaa !50
+  %28 = load ptr, ptr %27, align 8, !tbaa !49
   %.not32.i = icmp eq ptr %28, @test_http_cb
   br i1 %.not32.i, label %30, label %29
 
@@ -2059,7 +2059,7 @@ OSSL_CMP_CTX_get_http_cb.exit41.thread.i:         ; preds = %33
 
 OSSL_CMP_CTX_get_http_cb.exit41.i:                ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %35 = load ptr, ptr %34, align 8, !tbaa !50
+  %35 = load ptr, ptr %34, align 8, !tbaa !49
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
 
@@ -2086,7 +2086,7 @@ OSSL_CMP_CTX_get_http_cb.exit43.i:                ; preds = %38, %.thread19.i, %
   %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
   %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_http_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %40 = load ptr, ptr %39, align 8, !tbaa !50
+  %40 = load ptr, ptr %39, align 8, !tbaa !49
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -2321,7 +2321,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit.thread.i:       ; preds = %17
 
 OSSL_CMP_CTX_get_transfer_cb.exit.i:              ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !51
+  %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
@@ -2351,7 +2351,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit39.thread.i:     ; preds = %26
 
 OSSL_CMP_CTX_get_transfer_cb.exit39.i:            ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !51
+  %28 = load ptr, ptr %27, align 8, !tbaa !50
   %.not32.i = icmp eq ptr %28, @test_transfer_cb
   br i1 %.not32.i, label %30, label %29
 
@@ -2381,7 +2381,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit41.thread.i:     ; preds = %33
 
 OSSL_CMP_CTX_get_transfer_cb.exit41.i:            ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !51
+  %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
 
@@ -2408,7 +2408,7 @@ OSSL_CMP_CTX_get_transfer_cb.exit43.i:            ; preds = %38, %.thread19.i, %
   %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
   %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_transfer_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !51
+  %40 = load ptr, ptr %39, align 8, !tbaa !50
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -2645,7 +2645,7 @@ OSSL_CMP_CTX_get0_srvCert.exit.thread.i:          ; preds = %19
 
 OSSL_CMP_CTX_get0_srvCert.exit.i:                 ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -2675,7 +2675,7 @@ OSSL_CMP_CTX_get0_srvCert.exit38.thread.i:        ; preds = %28
 
 OSSL_CMP_CTX_get0_srvCert.exit38.i:               ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
@@ -2705,7 +2705,7 @@ OSSL_CMP_CTX_get0_srvCert.exit40.thread.i:        ; preds = %36
 
 OSSL_CMP_CTX_get0_srvCert.exit40.i:               ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  %38 = load ptr, ptr %37, align 8, !tbaa !52
+  %38 = load ptr, ptr %37, align 8, !tbaa !51
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -2735,7 +2735,7 @@ OSSL_CMP_CTX_get0_srvCert.exit42.thread.i:        ; preds = %44
 
 OSSL_CMP_CTX_get0_srvCert.exit42.i:               ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 144
-  %46 = load ptr, ptr %45, align 8, !tbaa !52
+  %46 = load ptr, ptr %45, align 8, !tbaa !51
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
@@ -2963,7 +2963,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit.thread.i:  ; preds = %19
 
 OSSL_CMP_CTX_get0_expected_sender.exit.i:         ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  %22 = load ptr, ptr %21, align 8, !tbaa !53
+  %22 = load ptr, ptr %21, align 8, !tbaa !52
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -2987,7 +2987,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit.i:         ; preds = %19
 
 OSSL_CMP_CTX_get0_expected_sender.exit46.i:       ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  %30 = load ptr, ptr %29, align 8, !tbaa !53
+  %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -3032,7 +3032,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit48.thread.i: ; preds = %38
 
 OSSL_CMP_CTX_get0_expected_sender.exit48.i:       ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  %40 = load ptr, ptr %39, align 8, !tbaa !53
+  %40 = load ptr, ptr %39, align 8, !tbaa !52
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -3072,7 +3072,7 @@ OSSL_CMP_CTX_get0_expected_sender.exit50.thread.i: ; preds = %49
 
 OSSL_CMP_CTX_get0_expected_sender.exit50.i:       ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  %51 = load ptr, ptr %50, align 8, !tbaa !53
+  %51 = load ptr, ptr %50, align 8, !tbaa !52
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -3567,7 +3567,7 @@ OSSL_CMP_CTX_get0_cert.exit.thread.i:             ; preds = %19
 
 OSSL_CMP_CTX_get0_cert.exit.i:                    ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %22 = load ptr, ptr %21, align 8, !tbaa !54
+  %22 = load ptr, ptr %21, align 8, !tbaa !53
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -3597,7 +3597,7 @@ OSSL_CMP_CTX_get0_cert.exit38.thread.i:           ; preds = %28
 
 OSSL_CMP_CTX_get0_cert.exit38.i:                  ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %30 = load ptr, ptr %29, align 8, !tbaa !53
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
@@ -3627,7 +3627,7 @@ OSSL_CMP_CTX_get0_cert.exit40.thread.i:           ; preds = %36
 
 OSSL_CMP_CTX_get0_cert.exit40.i:                  ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %38 = load ptr, ptr %37, align 8, !tbaa !54
+  %38 = load ptr, ptr %37, align 8, !tbaa !53
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -3657,7 +3657,7 @@ OSSL_CMP_CTX_get0_cert.exit42.thread.i:           ; preds = %44
 
 OSSL_CMP_CTX_get0_cert.exit42.i:                  ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %46 = load ptr, ptr %45, align 8, !tbaa !54
+  %46 = load ptr, ptr %45, align 8, !tbaa !53
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
@@ -3754,7 +3754,7 @@ OSSL_CMP_CTX_get0_pkey.exit.thread.i:             ; preds = %19
 
 OSSL_CMP_CTX_get0_pkey.exit.i:                    ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 216
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -3784,7 +3784,7 @@ OSSL_CMP_CTX_get0_pkey.exit38.thread.i:           ; preds = %28
 
 OSSL_CMP_CTX_get0_pkey.exit38.i:                  ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 216
-  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
@@ -3814,7 +3814,7 @@ OSSL_CMP_CTX_get0_pkey.exit40.thread.i:           ; preds = %36
 
 OSSL_CMP_CTX_get0_pkey.exit40.i:                  ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 216
-  %38 = load ptr, ptr %37, align 8, !tbaa !55
+  %38 = load ptr, ptr %37, align 8, !tbaa !54
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -3844,7 +3844,7 @@ OSSL_CMP_CTX_get0_pkey.exit42.thread.i:           ; preds = %44
 
 OSSL_CMP_CTX_get0_pkey.exit42.i:                  ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 216
-  %46 = load ptr, ptr %45, align 8, !tbaa !55
+  %46 = load ptr, ptr %45, align 8, !tbaa !54
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
@@ -3943,14 +3943,14 @@ define internal i32 @test_CTX_set1_get1_referenceValue_str() #1 {
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 224
-  %26 = load ptr, ptr %25, align 8, !tbaa !56
+  %26 = load ptr, ptr %25, align 8, !tbaa !55
   %27 = icmp eq ptr %26, null
   br i1 %27, label %OSSL_CMP_CTX_get1_referenceValue_str.exit.thread.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit.i
 
 OSSL_CMP_CTX_get1_referenceValue_str.exit.i:      ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !57
-  %30 = load i32, ptr %26, align 8, !tbaa !59
+  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %30 = load i32, ptr %26, align 8, !tbaa !58
   %31 = sext i32 %30 to i64
   %32 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %29, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 781) #6
   %33 = icmp eq ptr %32, null
@@ -3986,14 +3986,14 @@ OSSL_CMP_CTX_get1_referenceValue_str.exit.thread.i: ; preds = %34, %OSSL_CMP_CTX
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.val, i64 224
-  %43 = load ptr, ptr %42, align 8, !tbaa !56
+  %43 = load ptr, ptr %42, align 8, !tbaa !55
   %44 = icmp eq ptr %43, null
   br i1 %44, label %OSSL_CMP_CTX_get1_referenceValue_str.exit53.i, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load i32, ptr %43, align 8, !tbaa !59
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load i32, ptr %43, align 8, !tbaa !58
   %49 = sext i32 %48 to i64
   %50 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @.str, i32 noundef 781) #6
   br label %OSSL_CMP_CTX_get1_referenceValue_str.exit53.i
@@ -4040,14 +4040,14 @@ OSSL_CMP_CTX_get1_referenceValue_str.exit53.i:    ; preds = %45, %41, %40
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 224
-  %64 = load ptr, ptr %63, align 8, !tbaa !56
+  %64 = load ptr, ptr %63, align 8, !tbaa !55
   %65 = icmp eq ptr %64, null
   br i1 %65, label %OSSL_CMP_CTX_get1_referenceValue_str.exit55.thread.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit55.i
 
 OSSL_CMP_CTX_get1_referenceValue_str.exit55.i:    ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !57
-  %68 = load i32, ptr %64, align 8, !tbaa !59
+  %67 = load ptr, ptr %66, align 8, !tbaa !56
+  %68 = load i32, ptr %64, align 8, !tbaa !58
   %69 = sext i32 %68 to i64
   %70 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %67, i64 noundef %69, ptr noundef nonnull @.str, i32 noundef 781) #6
   %71 = icmp eq ptr %70, null
@@ -4098,14 +4098,14 @@ OSSL_CMP_CTX_get1_referenceValue_str.exit55.thread.i: ; preds = %OSSL_CMP_CTX_ge
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.val, i64 224
-  %85 = load ptr, ptr %84, align 8, !tbaa !56
+  %85 = load ptr, ptr %84, align 8, !tbaa !55
   %86 = icmp eq ptr %85, null
   br i1 %86, label %OSSL_CMP_CTX_get1_referenceValue_str.exit57.thread.i, label %OSSL_CMP_CTX_get1_referenceValue_str.exit57.i
 
 OSSL_CMP_CTX_get1_referenceValue_str.exit57.i:    ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !57
-  %89 = load i32, ptr %85, align 8, !tbaa !59
+  %88 = load ptr, ptr %87, align 8, !tbaa !56
+  %89 = load i32, ptr %85, align 8, !tbaa !58
   %90 = sext i32 %89 to i64
   %91 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %88, i64 noundef %90, ptr noundef nonnull @.str, i32 noundef 781) #6
   %92 = icmp eq ptr %91, null
@@ -4210,14 +4210,14 @@ define internal i32 @test_CTX_set1_get1_secretValue_str() #1 {
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 232
-  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  %26 = load ptr, ptr %25, align 8, !tbaa !59
   %27 = icmp eq ptr %26, null
   br i1 %27, label %OSSL_CMP_CTX_get1_secretValue_str.exit.thread.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit.i
 
 OSSL_CMP_CTX_get1_secretValue_str.exit.i:         ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !57
-  %30 = load i32, ptr %26, align 8, !tbaa !59
+  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %30 = load i32, ptr %26, align 8, !tbaa !58
   %31 = sext i32 %30 to i64
   %32 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %29, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 784) #6
   %33 = icmp eq ptr %32, null
@@ -4253,14 +4253,14 @@ OSSL_CMP_CTX_get1_secretValue_str.exit.thread.i:  ; preds = %34, %OSSL_CMP_CTX_g
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.val, i64 232
-  %43 = load ptr, ptr %42, align 8, !tbaa !60
+  %43 = load ptr, ptr %42, align 8, !tbaa !59
   %44 = icmp eq ptr %43, null
   br i1 %44, label %OSSL_CMP_CTX_get1_secretValue_str.exit53.i, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load i32, ptr %43, align 8, !tbaa !59
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load i32, ptr %43, align 8, !tbaa !58
   %49 = sext i32 %48 to i64
   %50 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @.str, i32 noundef 784) #6
   br label %OSSL_CMP_CTX_get1_secretValue_str.exit53.i
@@ -4307,14 +4307,14 @@ OSSL_CMP_CTX_get1_secretValue_str.exit53.i:       ; preds = %45, %41, %40
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 232
-  %64 = load ptr, ptr %63, align 8, !tbaa !60
+  %64 = load ptr, ptr %63, align 8, !tbaa !59
   %65 = icmp eq ptr %64, null
   br i1 %65, label %OSSL_CMP_CTX_get1_secretValue_str.exit55.thread.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit55.i
 
 OSSL_CMP_CTX_get1_secretValue_str.exit55.i:       ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !57
-  %68 = load i32, ptr %64, align 8, !tbaa !59
+  %67 = load ptr, ptr %66, align 8, !tbaa !56
+  %68 = load i32, ptr %64, align 8, !tbaa !58
   %69 = sext i32 %68 to i64
   %70 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %67, i64 noundef %69, ptr noundef nonnull @.str, i32 noundef 784) #6
   %71 = icmp eq ptr %70, null
@@ -4365,14 +4365,14 @@ OSSL_CMP_CTX_get1_secretValue_str.exit55.thread.i: ; preds = %OSSL_CMP_CTX_get1_
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.val, i64 232
-  %85 = load ptr, ptr %84, align 8, !tbaa !60
+  %85 = load ptr, ptr %84, align 8, !tbaa !59
   %86 = icmp eq ptr %85, null
   br i1 %86, label %OSSL_CMP_CTX_get1_secretValue_str.exit57.thread.i, label %OSSL_CMP_CTX_get1_secretValue_str.exit57.i
 
 OSSL_CMP_CTX_get1_secretValue_str.exit57.i:       ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !57
-  %89 = load i32, ptr %85, align 8, !tbaa !59
+  %88 = load ptr, ptr %87, align 8, !tbaa !56
+  %89 = load i32, ptr %85, align 8, !tbaa !58
   %90 = sext i32 %89 to i64
   %91 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %88, i64 noundef %90, ptr noundef nonnull @.str, i32 noundef 784) #6
   %92 = icmp eq ptr %91, null
@@ -4475,7 +4475,7 @@ OSSL_CMP_CTX_get0_recipient.exit.thread.i:        ; preds = %19
 
 OSSL_CMP_CTX_get0_recipient.exit.i:               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 264
-  %22 = load ptr, ptr %21, align 8, !tbaa !61
+  %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -4499,7 +4499,7 @@ OSSL_CMP_CTX_get0_recipient.exit.i:               ; preds = %19
 
 OSSL_CMP_CTX_get0_recipient.exit46.i:             ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 264
-  %30 = load ptr, ptr %29, align 8, !tbaa !61
+  %30 = load ptr, ptr %29, align 8, !tbaa !60
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -4544,7 +4544,7 @@ OSSL_CMP_CTX_get0_recipient.exit48.thread.i:      ; preds = %38
 
 OSSL_CMP_CTX_get0_recipient.exit48.i:             ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 264
-  %40 = load ptr, ptr %39, align 8, !tbaa !61
+  %40 = load ptr, ptr %39, align 8, !tbaa !60
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -4584,7 +4584,7 @@ OSSL_CMP_CTX_get0_recipient.exit50.thread.i:      ; preds = %49
 
 OSSL_CMP_CTX_get0_recipient.exit50.i:             ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 264
-  %51 = load ptr, ptr %50, align 8, !tbaa !61
+  %51 = load ptr, ptr %50, align 8, !tbaa !60
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -4634,7 +4634,7 @@ define internal i32 @test_CTX_push0_geninfo_ITAV() #1 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %6 = load ptr, ptr %5, align 8, !tbaa !62
+  %6 = load ptr, ptr %5, align 8, !tbaa !61
   %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_CMP_ITAV_new() #6
   %9 = tail call ptr @OSSL_CMP_ITAV_new() #6
@@ -4660,7 +4660,7 @@ define internal i32 @test_CTX_push0_geninfo_ITAV() #1 {
   %.1.i = phi i32 [ 0, %17 ], [ %spec.select.i, %14 ]
   tail call void @ERR_clear_error() #6
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %19 = load ptr, ptr %5, align 8, !tbaa !62
+  %19 = load ptr, ptr %5, align 8, !tbaa !61
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
 
@@ -4680,7 +4680,7 @@ define internal i32 @test_CTX_push0_geninfo_ITAV() #1 {
 
 25:                                               ; preds = %24, %22
   %.3.i = phi i32 [ %.2.i, %22 ], [ 0, %24 ]
-  %26 = load ptr, ptr %5, align 8, !tbaa !62
+  %26 = load ptr, ptr %5, align 8, !tbaa !61
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #6
   %28 = add nuw nsw i32 %spec.store.select.i, 1
   %.not29.i = icmp eq i32 %27, %28
@@ -4692,7 +4692,7 @@ define internal i32 @test_CTX_push0_geninfo_ITAV() #1 {
 
 30:                                               ; preds = %29, %25
   %.4.i = phi i32 [ 0, %29 ], [ %.3.i, %25 ]
-  %.val.i = load ptr, ptr %5, align 8, !tbaa !62
+  %.val.i = load ptr, ptr %5, align 8, !tbaa !61
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %.val.i) #6
   %32 = add nsw i32 %31, -1
   %33 = tail call ptr @OPENSSL_sk_value(ptr noundef %.val.i, i32 noundef %32) #6
@@ -4715,7 +4715,7 @@ define internal i32 @test_CTX_push0_geninfo_ITAV() #1 {
 
 38:                                               ; preds = %37, %35
   %.6.i = phi i32 [ %.5.i, %35 ], [ 0, %37 ]
-  %39 = load ptr, ptr %5, align 8, !tbaa !62
+  %39 = load ptr, ptr %5, align 8, !tbaa !61
   %40 = tail call i32 @OPENSSL_sk_num(ptr noundef %39) #6
   %41 = add nuw nsw i32 %spec.store.select.i, 2
   %.not32.i = icmp eq i32 %40, %41
@@ -4727,7 +4727,7 @@ define internal i32 @test_CTX_push0_geninfo_ITAV() #1 {
 
 43:                                               ; preds = %42, %38
   %.7.i = phi i32 [ 0, %42 ], [ %.6.i, %38 ]
-  %.val36.i = load ptr, ptr %5, align 8, !tbaa !62
+  %.val36.i = load ptr, ptr %5, align 8, !tbaa !61
   %44 = tail call i32 @OPENSSL_sk_num(ptr noundef %.val36.i) #6
   %45 = add nsw i32 %44, -1
   %46 = tail call ptr @OPENSSL_sk_value(ptr noundef %.val36.i, i32 noundef %45) #6
@@ -4817,7 +4817,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit.thread.i:    ; preds = %19
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit.i:           ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 336
-  %22 = load ptr, ptr %21, align 8, !tbaa !63
+  %22 = load ptr, ptr %21, align 8, !tbaa !62
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -4841,7 +4841,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit.i:           ; preds = %19
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit46.i:         ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 336
-  %30 = load ptr, ptr %29, align 8, !tbaa !63
+  %30 = load ptr, ptr %29, align 8, !tbaa !62
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -4886,7 +4886,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit48.thread.i:  ; preds = %38
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit48.i:         ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 336
-  %40 = load ptr, ptr %39, align 8, !tbaa !63
+  %40 = load ptr, ptr %39, align 8, !tbaa !62
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -4926,7 +4926,7 @@ OSSL_CMP_CTX_get0_extraCertsOut.exit50.thread.i:  ; preds = %49
 
 OSSL_CMP_CTX_get0_extraCertsOut.exit50.i:         ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 336
-  %51 = load ptr, ptr %50, align 8, !tbaa !63
+  %51 = load ptr, ptr %50, align 8, !tbaa !62
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -5315,7 +5315,7 @@ OSSL_CMP_CTX_get0_issuer.exit.thread.i:           ; preds = %19
 
 OSSL_CMP_CTX_get0_issuer.exit.i:                  ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 360
-  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %22 = load ptr, ptr %21, align 8, !tbaa !63
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -5339,7 +5339,7 @@ OSSL_CMP_CTX_get0_issuer.exit.i:                  ; preds = %19
 
 OSSL_CMP_CTX_get0_issuer.exit46.i:                ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 360
-  %30 = load ptr, ptr %29, align 8, !tbaa !64
+  %30 = load ptr, ptr %29, align 8, !tbaa !63
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -5384,7 +5384,7 @@ OSSL_CMP_CTX_get0_issuer.exit48.thread.i:         ; preds = %38
 
 OSSL_CMP_CTX_get0_issuer.exit48.i:                ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 360
-  %40 = load ptr, ptr %39, align 8, !tbaa !64
+  %40 = load ptr, ptr %39, align 8, !tbaa !63
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -5424,7 +5424,7 @@ OSSL_CMP_CTX_get0_issuer.exit50.thread.i:         ; preds = %49
 
 OSSL_CMP_CTX_get0_issuer.exit50.i:                ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 360
-  %51 = load ptr, ptr %50, align 8, !tbaa !64
+  %51 = load ptr, ptr %50, align 8, !tbaa !63
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -5521,7 +5521,7 @@ OSSL_CMP_CTX_get0_subjectName.exit.thread.i:      ; preds = %19
 
 OSSL_CMP_CTX_get0_subjectName.exit.i:             ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 384
-  %22 = load ptr, ptr %21, align 8, !tbaa !65
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -5545,7 +5545,7 @@ OSSL_CMP_CTX_get0_subjectName.exit.i:             ; preds = %19
 
 OSSL_CMP_CTX_get0_subjectName.exit46.i:           ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 384
-  %30 = load ptr, ptr %29, align 8, !tbaa !65
+  %30 = load ptr, ptr %29, align 8, !tbaa !64
   %31 = icmp eq ptr %30, %5
   br i1 %31, label %.thread.i, label %33
 
@@ -5590,7 +5590,7 @@ OSSL_CMP_CTX_get0_subjectName.exit48.thread.i:    ; preds = %38
 
 OSSL_CMP_CTX_get0_subjectName.exit48.i:           ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 384
-  %40 = load ptr, ptr %39, align 8, !tbaa !65
+  %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -5630,7 +5630,7 @@ OSSL_CMP_CTX_get0_subjectName.exit50.thread.i:    ; preds = %49
 
 OSSL_CMP_CTX_get0_subjectName.exit50.i:           ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 384
-  %51 = load ptr, ptr %50, align 8, !tbaa !65
+  %51 = load ptr, ptr %50, align 8, !tbaa !64
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -5727,7 +5727,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit.thread.i:    ; preds = %19
 
 OSSL_CMP_CTX_get0_reqExtensions.exit.i:           ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 408
-  %22 = load ptr, ptr %21, align 8, !tbaa !66
+  %22 = load ptr, ptr %21, align 8, !tbaa !65
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -5757,7 +5757,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit.i:           ; preds = %19
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 408
-  %32 = load ptr, ptr %31, align 8, !tbaa !66
+  %32 = load ptr, ptr %31, align 8, !tbaa !65
   br label %OSSL_CMP_CTX_get0_reqExtensions.exit41.i
 
 OSSL_CMP_CTX_get0_reqExtensions.exit41.i:         ; preds = %30, %29
@@ -5791,7 +5791,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit43.thread.i:  ; preds = %37
 
 OSSL_CMP_CTX_get0_reqExtensions.exit43.i:         ; preds = %37
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 408
-  %39 = load ptr, ptr %38, align 8, !tbaa !66
+  %39 = load ptr, ptr %38, align 8, !tbaa !65
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %42
 
@@ -5821,7 +5821,7 @@ OSSL_CMP_CTX_get0_reqExtensions.exit45.thread.i:  ; preds = %44
 
 OSSL_CMP_CTX_get0_reqExtensions.exit45.i:         ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 408
-  %46 = load ptr, ptr %45, align 8, !tbaa !66
+  %46 = load ptr, ptr %45, align 8, !tbaa !65
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
@@ -5977,7 +5977,7 @@ define internal i32 @test_CTX_push0_policy() #1 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 416
-  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
   %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #6
   %8 = tail call ptr @POLICYINFO_new() #6
   %9 = tail call ptr @POLICYINFO_new() #6
@@ -6003,7 +6003,7 @@ define internal i32 @test_CTX_push0_policy() #1 {
   %.1.i = phi i32 [ 0, %17 ], [ %spec.select.i, %14 ]
   tail call void @ERR_clear_error() #6
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %19 = load ptr, ptr %5, align 8, !tbaa !67
+  %19 = load ptr, ptr %5, align 8, !tbaa !66
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
 
@@ -6023,7 +6023,7 @@ define internal i32 @test_CTX_push0_policy() #1 {
 
 25:                                               ; preds = %24, %22
   %.3.i = phi i32 [ %.2.i, %22 ], [ 0, %24 ]
-  %26 = load ptr, ptr %5, align 8, !tbaa !67
+  %26 = load ptr, ptr %5, align 8, !tbaa !66
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #6
   %28 = add nuw nsw i32 %spec.store.select.i, 1
   %.not29.i = icmp eq i32 %27, %28
@@ -6035,7 +6035,7 @@ define internal i32 @test_CTX_push0_policy() #1 {
 
 30:                                               ; preds = %29, %25
   %.4.i = phi i32 [ 0, %29 ], [ %.3.i, %25 ]
-  %.val.i = load ptr, ptr %5, align 8, !tbaa !67
+  %.val.i = load ptr, ptr %5, align 8, !tbaa !66
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %.val.i) #6
   %32 = add nsw i32 %31, -1
   %33 = tail call ptr @OPENSSL_sk_value(ptr noundef %.val.i, i32 noundef %32) #6
@@ -6058,7 +6058,7 @@ define internal i32 @test_CTX_push0_policy() #1 {
 
 38:                                               ; preds = %37, %35
   %.6.i = phi i32 [ %.5.i, %35 ], [ 0, %37 ]
-  %39 = load ptr, ptr %5, align 8, !tbaa !67
+  %39 = load ptr, ptr %5, align 8, !tbaa !66
   %40 = tail call i32 @OPENSSL_sk_num(ptr noundef %39) #6
   %41 = add nuw nsw i32 %spec.store.select.i, 2
   %.not32.i = icmp eq i32 %40, %41
@@ -6070,7 +6070,7 @@ define internal i32 @test_CTX_push0_policy() #1 {
 
 43:                                               ; preds = %42, %38
   %.7.i = phi i32 [ 0, %42 ], [ %.6.i, %38 ]
-  %.val36.i = load ptr, ptr %5, align 8, !tbaa !67
+  %.val36.i = load ptr, ptr %5, align 8, !tbaa !66
   %44 = tail call i32 @OPENSSL_sk_num(ptr noundef %.val36.i) #6
   %45 = add nsw i32 %44, -1
   %46 = tail call ptr @OPENSSL_sk_value(ptr noundef %.val36.i, i32 noundef %45) #6
@@ -6160,7 +6160,7 @@ OSSL_CMP_CTX_get0_oldCert.exit.thread.i:          ; preds = %19
 
 OSSL_CMP_CTX_get0_oldCert.exit.i:                 ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 432
-  %22 = load ptr, ptr %21, align 8, !tbaa !68
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -6190,7 +6190,7 @@ OSSL_CMP_CTX_get0_oldCert.exit38.thread.i:        ; preds = %28
 
 OSSL_CMP_CTX_get0_oldCert.exit38.i:               ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 432
-  %30 = load ptr, ptr %29, align 8, !tbaa !68
+  %30 = load ptr, ptr %29, align 8, !tbaa !67
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
@@ -6220,7 +6220,7 @@ OSSL_CMP_CTX_get0_oldCert.exit40.thread.i:        ; preds = %36
 
 OSSL_CMP_CTX_get0_oldCert.exit40.i:               ; preds = %36
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 432
-  %38 = load ptr, ptr %37, align 8, !tbaa !68
+  %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -6250,7 +6250,7 @@ OSSL_CMP_CTX_get0_oldCert.exit42.thread.i:        ; preds = %44
 
 OSSL_CMP_CTX_get0_oldCert.exit42.i:               ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 432
-  %46 = load ptr, ptr %45, align 8, !tbaa !68
+  %46 = load ptr, ptr %45, align 8, !tbaa !67
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
@@ -6300,7 +6300,7 @@ define internal i32 @test_CTX_push0_genm_ITAV() #1 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 456
-  %6 = load ptr, ptr %5, align 8, !tbaa !69
+  %6 = load ptr, ptr %5, align 8, !tbaa !68
   %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_CMP_ITAV_new() #6
   %9 = tail call ptr @OSSL_CMP_ITAV_new() #6
@@ -6326,7 +6326,7 @@ define internal i32 @test_CTX_push0_genm_ITAV() #1 {
   %.1.i = phi i32 [ 0, %17 ], [ %spec.select.i, %14 ]
   tail call void @ERR_clear_error() #6
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %19 = load ptr, ptr %5, align 8, !tbaa !69
+  %19 = load ptr, ptr %5, align 8, !tbaa !68
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
 
@@ -6346,7 +6346,7 @@ define internal i32 @test_CTX_push0_genm_ITAV() #1 {
 
 25:                                               ; preds = %24, %22
   %.3.i = phi i32 [ %.2.i, %22 ], [ 0, %24 ]
-  %26 = load ptr, ptr %5, align 8, !tbaa !69
+  %26 = load ptr, ptr %5, align 8, !tbaa !68
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #6
   %28 = add nuw nsw i32 %spec.store.select.i, 1
   %.not29.i = icmp eq i32 %27, %28
@@ -6358,7 +6358,7 @@ define internal i32 @test_CTX_push0_genm_ITAV() #1 {
 
 30:                                               ; preds = %29, %25
   %.4.i = phi i32 [ 0, %29 ], [ %.3.i, %25 ]
-  %.val.i = load ptr, ptr %5, align 8, !tbaa !69
+  %.val.i = load ptr, ptr %5, align 8, !tbaa !68
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %.val.i) #6
   %32 = add nsw i32 %31, -1
   %33 = tail call ptr @OPENSSL_sk_value(ptr noundef %.val.i, i32 noundef %32) #6
@@ -6381,7 +6381,7 @@ define internal i32 @test_CTX_push0_genm_ITAV() #1 {
 
 38:                                               ; preds = %37, %35
   %.6.i = phi i32 [ %.5.i, %35 ], [ 0, %37 ]
-  %39 = load ptr, ptr %5, align 8, !tbaa !69
+  %39 = load ptr, ptr %5, align 8, !tbaa !68
   %40 = tail call i32 @OPENSSL_sk_num(ptr noundef %39) #6
   %41 = add nuw nsw i32 %spec.store.select.i, 2
   %.not32.i = icmp eq i32 %40, %41
@@ -6393,7 +6393,7 @@ define internal i32 @test_CTX_push0_genm_ITAV() #1 {
 
 43:                                               ; preds = %42, %38
   %.7.i = phi i32 [ 0, %42 ], [ %.6.i, %38 ]
-  %.val36.i = load ptr, ptr %5, align 8, !tbaa !69
+  %.val36.i = load ptr, ptr %5, align 8, !tbaa !68
   %44 = tail call i32 @OPENSSL_sk_num(ptr noundef %.val36.i) #6
   %45 = add nsw i32 %44, -1
   %46 = tail call ptr @OPENSSL_sk_value(ptr noundef %.val36.i, i32 noundef %45) #6
@@ -6481,7 +6481,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit.thread.i:       ; preds = %17
 
 OSSL_CMP_CTX_get_certConf_cb.exit.i:              ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 520
-  %20 = load ptr, ptr %19, align 8, !tbaa !70
+  %20 = load ptr, ptr %19, align 8, !tbaa !69
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
@@ -6511,7 +6511,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit39.thread.i:     ; preds = %26
 
 OSSL_CMP_CTX_get_certConf_cb.exit39.i:            ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 520
-  %28 = load ptr, ptr %27, align 8, !tbaa !70
+  %28 = load ptr, ptr %27, align 8, !tbaa !69
   %.not32.i = icmp eq ptr %28, @test_certConf_cb
   br i1 %.not32.i, label %30, label %29
 
@@ -6541,7 +6541,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit41.thread.i:     ; preds = %33
 
 OSSL_CMP_CTX_get_certConf_cb.exit41.i:            ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 520
-  %35 = load ptr, ptr %34, align 8, !tbaa !70
+  %35 = load ptr, ptr %34, align 8, !tbaa !69
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
 
@@ -6568,7 +6568,7 @@ OSSL_CMP_CTX_get_certConf_cb.exit43.i:            ; preds = %38, %.thread19.i, %
   %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
   %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_certConf_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 520
-  %40 = load ptr, ptr %39, align 8, !tbaa !70
+  %40 = load ptr, ptr %39, align 8, !tbaa !69
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -8562,7 +8562,7 @@ tear_down.exit:                                   ; preds = %4
   br label %10
 
 9:                                                ; preds = %4
-  store ptr %0, ptr %2, align 8, !tbaa !71
+  store ptr %0, ptr %2, align 8, !tbaa !70
   br label %10
 
 10:                                               ; preds = %1, %9, %tear_down.exit
@@ -8919,33 +8919,32 @@ attributes #7 = { nounwind willreturn memory(read) }
 !39 = !{!12, !22, i64 296}
 !40 = !{!12, !7, i64 16}
 !41 = !{!14, !14, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!12, !6, i64 56}
-!46 = !{!12, !6, i64 64}
-!47 = !{!12, !14, i64 72}
-!48 = !{!12, !6, i64 80}
-!49 = !{!12, !6, i64 88}
-!50 = !{!12, !7, i64 120}
-!51 = !{!12, !7, i64 32}
-!52 = !{!12, !17, i64 144}
-!53 = !{!12, !18, i64 160}
-!54 = !{!12, !17, i64 200}
-!55 = !{!12, !21, i64 216}
-!56 = !{!12, !22, i64 224}
-!57 = !{!58, !6, i64 8}
-!58 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !6, i64 8, !16, i64 16}
-!59 = !{!58, !14, i64 0}
-!60 = !{!12, !22, i64 232}
-!61 = !{!12, !18, i64 264}
-!62 = !{!12, !24, i64 320}
-!63 = !{!12, !20, i64 336}
-!64 = !{!12, !18, i64 360}
-!65 = !{!12, !18, i64 384}
-!66 = !{!12, !26, i64 408}
-!67 = !{!12, !27, i64 416}
-!68 = !{!12, !17, i64 432}
-!69 = !{!12, !24, i64 456}
-!70 = !{!12, !7, i64 520}
-!71 = !{!5, !6, i64 0}
+!44 = !{!12, !6, i64 56}
+!45 = !{!12, !6, i64 64}
+!46 = !{!12, !14, i64 72}
+!47 = !{!12, !6, i64 80}
+!48 = !{!12, !6, i64 88}
+!49 = !{!12, !7, i64 120}
+!50 = !{!12, !7, i64 32}
+!51 = !{!12, !17, i64 144}
+!52 = !{!12, !18, i64 160}
+!53 = !{!12, !17, i64 200}
+!54 = !{!12, !21, i64 216}
+!55 = !{!12, !22, i64 224}
+!56 = !{!57, !6, i64 8}
+!57 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !6, i64 8, !16, i64 16}
+!58 = !{!57, !14, i64 0}
+!59 = !{!12, !22, i64 232}
+!60 = !{!12, !18, i64 264}
+!61 = !{!12, !24, i64 320}
+!62 = !{!12, !20, i64 336}
+!63 = !{!12, !18, i64 360}
+!64 = !{!12, !18, i64 384}
+!65 = !{!12, !26, i64 408}
+!66 = !{!12, !27, i64 416}
+!67 = !{!12, !17, i64 432}
+!68 = !{!12, !24, i64 456}
+!69 = !{!12, !7, i64 520}
+!70 = !{!5, !6, i64 0}

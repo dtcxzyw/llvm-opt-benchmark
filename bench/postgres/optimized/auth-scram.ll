@@ -491,7 +491,7 @@ is_scram_printable.exit.thread.i:                 ; preds = %switch.early.test.i
   %141 = load ptr, ptr %14, align 8
   %142 = load i8, ptr %141, align 1
   %.not14.i = icmp eq i8 %142, 0
-  br i1 %.not14.i, label %read_client_first_message.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not14.i, label %read_client_first_message.exit, label %.lr.ph.i, !llvm.loop !8
 
 read_client_first_message.exit:                   ; preds = %.lr.ph.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
@@ -605,7 +605,7 @@ build_server_first_message.exit:                  ; preds = %148
   %204 = call fastcc ptr @read_any_attr(ptr noundef %12, ptr noundef nonnull %11)
   %205 = load i8, ptr %11, align 1
   %.not.i43 = icmp eq i8 %205, 112
-  br i1 %.not.i43, label %206, label %202, !llvm.loop !10
+  br i1 %.not.i43, label %206, label %202, !llvm.loop !9
 
 206:                                              ; preds = %202
   %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %204) #14
@@ -788,7 +788,7 @@ verify_final_nonce.exit.thread:                   ; preds = %253, %read_client_f
   store i8 %311, ptr %312, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %306, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %306, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %306, %302
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1377,7 +1377,7 @@ define internal fastcc nonnull ptr @read_attr_value(ptr noundef nonnull captures
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %22, !llvm.loop !12
+  br label %22, !llvm.loop !11
 
 26:                                               ; preds = %22
   store i8 0, ptr %.0, align 1
@@ -1409,7 +1409,7 @@ define internal fastcc void @sanitize_str(ptr noundef readonly captures(none) %0
   store i8 %spec.select, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %9, label %2, !llvm.loop !13
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !12
 
 9:                                                ; preds = %2, %6
   %.lcssa = phi i64 [ %indvars.iv, %2 ], [ 30, %6 ]
@@ -1488,7 +1488,7 @@ define internal fastcc nonnull ptr @read_any_attr(ptr noundef nonnull captures(n
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %32, !llvm.loop !14
+  br label %32, !llvm.loop !13
 
 36:                                               ; preds = %32
   store i8 0, ptr %.0, align 1
@@ -1549,12 +1549,11 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

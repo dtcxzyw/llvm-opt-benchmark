@@ -353,7 +353,7 @@ sub_1.i:                                          ; preds = %Extra_UtilTildeExpa
 
 48:                                               ; preds = %46, %47
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  br i1 %.not.not, label %.loopexit, label %15, !llvm.loop !13
+  br i1 %.not.not, label %.loopexit, label %15
 
 .loopexit:                                        ; preds = %48, %44
   %.028 = phi ptr [ %.0.i.i46, %44 ], [ null, %48 ]
@@ -390,10 +390,10 @@ define i64 @Extra_CpuTime() local_unnamed_addr #9 {
   br i1 %3, label %Abc_Clock.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr %1, align 8, !tbaa !15
+  %5 = load i64, ptr %1, align 8, !tbaa !13
   %6 = mul nsw i64 %5, 1000000
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !18
+  %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = sdiv i64 %8, 1000
   %10 = add nsw i64 %9, %6
   br label %Abc_Clock.exit
@@ -413,10 +413,10 @@ define double @Extra_CpuTimeDouble() local_unnamed_addr #9 {
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr %1, align 8, !tbaa !15
+  %5 = load i64, ptr %1, align 8, !tbaa !13
   %6 = sitofp i64 %5 to double
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !18
+  %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = sitofp i64 %8 to double
   %10 = fdiv double %9, 1.000000e+09
   %11 = fadd double %10, %6
@@ -471,9 +471,7 @@ attributes #18 = { cold noreturn nounwind }
 !10 = !{!6, !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"timespec", !17, i64 0, !17, i64 8}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!16, !17, i64 8}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"timespec", !15, i64 0, !15, i64 8}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!14, !15, i64 8}

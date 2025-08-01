@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @_ZN11ciSignature6equalsEPS_(ptr noundef nonnul
 20:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !8
 
 21:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
@@ -319,7 +319,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZNK10ciMetadata9is
   %19 = zext i1 %.not.i2 to i32
   %spec.select = add nuw nsw i32 %.sroa.4.07, %19
   %.not = icmp sgt i32 %spec.select, %18
-  br i1 %.not, label %._crit_edge, label %_ZN17ciSignatureStream4typeEv.exit, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %_ZN17ciSignatureStream4typeEv.exit, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNK10ciMetadata9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %1
   %.lcssa = phi i1 [ false, %1 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit ]
@@ -527,7 +527,7 @@ _ZN13GrowableArrayIP6ciTypeE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !10
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -543,7 +543,7 @@ _ZN13GrowableArrayIP6ciTypeE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !12
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !11
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -595,10 +595,9 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

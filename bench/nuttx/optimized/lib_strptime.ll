@@ -107,7 +107,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %.be = phi i8 [ %23, %21 ], [ %401, %_conv_num.exit298 ]
   %.095591.be = phi ptr [ %22, %21 ], [ %.398, %_conv_num.exit298 ]
   %.0375590.be = phi ptr [ %.1376, %21 ], [ %.2377, %_conv_num.exit298 ]
-  br label %.lr.ph, !llvm.loop !9
+  br label %.lr.ph, !llvm.loop !8
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.095591, i64 1
@@ -172,7 +172,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 .preheader428.backedge:                           ; preds = %30, %31
   %.not114.be = phi i1 [ true, %30 ], [ false, %31 ]
   %.not116.be = phi i1 [ false, %30 ], [ true, %31 ]
-  br label %.preheader428, !llvm.loop !10
+  br label %.preheader428
 
 31:                                               ; preds = %.preheader428
   br i1 %.not111, label %.preheader428.backedge, label %_conv_num.exit.thread
@@ -256,7 +256,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 65:                                               ; preds = %59
   %indvars.iv.next764 = add nuw nsw i64 %indvars.iv763, 1
   %exitcond766.not = icmp eq i64 %indvars.iv.next764, 7
-  br i1 %exitcond766.not, label %_conv_num.exit.thread, label %.preheader, !llvm.loop !11
+  br i1 %exitcond766.not, label %_conv_num.exit.thread, label %.preheader, !llvm.loop !9
 
 .thread:                                          ; preds = %.preheader, %59
   %.3382.ph = phi i64 [ %56, %.preheader ], [ %62, %59 ]
@@ -288,7 +288,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 80:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %_conv_num.exit.thread, label %.preheader426, !llvm.loop !12
+  br i1 %exitcond.not, label %_conv_num.exit.thread, label %.preheader426, !llvm.loop !10
 
 .thread384:                                       ; preds = %.preheader426, %74
   %.5386.ph = phi i64 [ %71, %.preheader426 ], [ %77, %74 ]
@@ -314,7 +314,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %91 = zext i8 %90 to i32
   %92 = tail call i32 @isspace(i32 noundef %91) #4
   %.not.i = icmp eq i32 %92, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %84
   %.promoted32.i = phi ptr [ %.0375590, %84 ], [ %89, %.lr.ph.i ]
@@ -343,7 +343,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %105 = load i8, ptr %97, align 1
   %106 = add i8 %105, -48
   %or.cond28.i = icmp ult i8 %106, 10
-  br i1 %or.cond28.i, label %.preheader.i, label %.critedge.i, !llvm.loop !14
+  br i1 %or.cond28.i, label %.preheader.i, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %103, %.preheader.i
   %or.cond29.i = icmp ugt i32 %100, 99
@@ -371,7 +371,7 @@ _conv_num.exit:                                   ; preds = %.critedge.i
   %116 = zext i8 %115 to i32
   %117 = tail call i32 @isspace(i32 noundef %116) #4
   %.not.i166 = icmp eq i32 %117, 0
-  br i1 %.not.i166, label %._crit_edge.i167, label %.lr.ph.i165, !llvm.loop !13
+  br i1 %.not.i166, label %._crit_edge.i167, label %.lr.ph.i165, !llvm.loop !11
 
 ._crit_edge.i167:                                 ; preds = %.lr.ph.i165, %109
   %.promoted32.i168 = phi ptr [ %.0375590, %109 ], [ %114, %.lr.ph.i165 ]
@@ -400,7 +400,7 @@ _conv_num.exit:                                   ; preds = %.critedge.i
   %130 = load i8, ptr %122, align 1
   %131 = add i8 %130, -48
   %or.cond28.i178 = icmp ult i8 %131, 10
-  br i1 %or.cond28.i178, label %.preheader.i171, label %.critedge.i175, !llvm.loop !14
+  br i1 %or.cond28.i178, label %.preheader.i171, label %.critedge.i175, !llvm.loop !12
 
 .critedge.i175:                                   ; preds = %128, %.preheader.i171
   %132 = add i32 %125, -32
@@ -432,7 +432,7 @@ _conv_num.exit179:                                ; preds = %.critedge.i175
   %142 = zext i8 %141 to i32
   %143 = tail call i32 @isspace(i32 noundef %142) #4
   %.not.i183 = icmp eq i32 %143, 0
-  br i1 %.not.i183, label %._crit_edge.i184, label %.lr.ph.i182, !llvm.loop !13
+  br i1 %.not.i183, label %._crit_edge.i184, label %.lr.ph.i182, !llvm.loop !11
 
 ._crit_edge.i184:                                 ; preds = %.lr.ph.i182, %135
   %.promoted32.i185 = phi ptr [ %.0375590, %135 ], [ %140, %.lr.ph.i182 ]
@@ -461,7 +461,7 @@ _conv_num.exit179:                                ; preds = %.critedge.i175
   %156 = load i8, ptr %148, align 1
   %157 = add i8 %156, -48
   %or.cond28.i195 = icmp ult i8 %157, 10
-  br i1 %or.cond28.i195, label %.preheader.i188, label %.critedge.i192, !llvm.loop !14
+  br i1 %or.cond28.i195, label %.preheader.i188, label %.critedge.i192, !llvm.loop !12
 
 .critedge.i192:                                   ; preds = %154, %.preheader.i188
   %or.cond29.i193 = icmp ugt i32 %151, 23
@@ -492,7 +492,7 @@ _conv_num.exit196:                                ; preds = %.critedge.i192
   %167 = zext i8 %166 to i32
   %168 = tail call i32 @isspace(i32 noundef %167) #4
   %.not.i200 = icmp eq i32 %168, 0
-  br i1 %.not.i200, label %._crit_edge.i201, label %.lr.ph.i199, !llvm.loop !13
+  br i1 %.not.i200, label %._crit_edge.i201, label %.lr.ph.i199, !llvm.loop !11
 
 ._crit_edge.i201:                                 ; preds = %.lr.ph.i199, %160
   %.promoted32.i202 = phi ptr [ %.0375590, %160 ], [ %165, %.lr.ph.i199 ]
@@ -521,7 +521,7 @@ _conv_num.exit196:                                ; preds = %.critedge.i192
   %181 = load i8, ptr %173, align 1
   %182 = add i8 %181, -48
   %or.cond28.i212 = icmp ult i8 %182, 10
-  br i1 %or.cond28.i212, label %.preheader.i205, label %.critedge.i209, !llvm.loop !14
+  br i1 %or.cond28.i212, label %.preheader.i205, label %.critedge.i209, !llvm.loop !12
 
 .critedge.i209:                                   ; preds = %179, %.preheader.i205
   %183 = add i32 %176, -13
@@ -549,7 +549,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   %192 = zext i8 %191 to i32
   %193 = tail call i32 @isspace(i32 noundef %192) #4
   %.not.i217 = icmp eq i32 %193, 0
-  br i1 %.not.i217, label %._crit_edge.i218, label %.lr.ph.i216, !llvm.loop !13
+  br i1 %.not.i217, label %._crit_edge.i218, label %.lr.ph.i216, !llvm.loop !11
 
 ._crit_edge.i218:                                 ; preds = %.lr.ph.i216, %185
   %.promoted32.i219 = phi ptr [ %.0375590, %185 ], [ %190, %.lr.ph.i216 ]
@@ -578,7 +578,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   %206 = load i8, ptr %198, align 1
   %207 = add i8 %206, -48
   %or.cond28.i229 = icmp ult i8 %207, 10
-  br i1 %or.cond28.i229, label %.preheader.i222, label %.critedge.i226, !llvm.loop !14
+  br i1 %or.cond28.i229, label %.preheader.i222, label %.critedge.i226, !llvm.loop !12
 
 .critedge.i226:                                   ; preds = %204, %.preheader.i222
   %208 = add i32 %201, -367
@@ -607,7 +607,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   %219 = zext i8 %218 to i32
   %220 = tail call i32 @isspace(i32 noundef %219) #4
   %.not.i234 = icmp eq i32 %220, 0
-  br i1 %.not.i234, label %._crit_edge.i235, label %.lr.ph.i233, !llvm.loop !13
+  br i1 %.not.i234, label %._crit_edge.i235, label %.lr.ph.i233, !llvm.loop !11
 
 ._crit_edge.i235:                                 ; preds = %.lr.ph.i233, %212
   %.promoted32.i236 = phi ptr [ %.0375590, %212 ], [ %217, %.lr.ph.i233 ]
@@ -636,7 +636,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   %233 = load i8, ptr %225, align 1
   %234 = add i8 %233, -48
   %or.cond28.i246 = icmp ult i8 %234, 10
-  br i1 %or.cond28.i246, label %.preheader.i239, label %.critedge.i243, !llvm.loop !14
+  br i1 %or.cond28.i246, label %.preheader.i239, label %.critedge.i243, !llvm.loop !12
 
 .critedge.i243:                                   ; preds = %231, %.preheader.i239
   %or.cond29.i244 = icmp ugt i32 %228, 59
@@ -663,7 +663,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
   %243 = zext i8 %242 to i32
   %244 = tail call i32 @isspace(i32 noundef %243) #4
   %.not.i251 = icmp eq i32 %244, 0
-  br i1 %.not.i251, label %._crit_edge.i252, label %.lr.ph.i250, !llvm.loop !13
+  br i1 %.not.i251, label %._crit_edge.i252, label %.lr.ph.i250, !llvm.loop !11
 
 ._crit_edge.i252:                                 ; preds = %.lr.ph.i250, %236
   %.promoted32.i253 = phi ptr [ %.0375590, %236 ], [ %241, %.lr.ph.i250 ]
@@ -692,7 +692,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
   %257 = load i8, ptr %249, align 1
   %258 = add i8 %257, -48
   %or.cond28.i263 = icmp ult i8 %258, 10
-  br i1 %or.cond28.i263, label %.preheader.i256, label %.critedge.i260, !llvm.loop !14
+  br i1 %or.cond28.i263, label %.preheader.i256, label %.critedge.i260, !llvm.loop !12
 
 .critedge.i260:                                   ; preds = %255, %.preheader.i256
   %259 = add i32 %252, -13
@@ -769,7 +769,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
   %293 = zext i8 %292 to i32
   %294 = tail call i32 @isspace(i32 noundef %293) #4
   %.not.i268 = icmp eq i32 %294, 0
-  br i1 %.not.i268, label %._crit_edge.i269, label %.lr.ph.i267, !llvm.loop !13
+  br i1 %.not.i268, label %._crit_edge.i269, label %.lr.ph.i267, !llvm.loop !11
 
 ._crit_edge.i269:                                 ; preds = %.lr.ph.i267, %286
   %.promoted32.i270 = phi ptr [ %.0375590, %286 ], [ %291, %.lr.ph.i267 ]
@@ -798,7 +798,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
   %307 = load i8, ptr %299, align 1
   %308 = add i8 %307, -48
   %or.cond28.i280 = icmp ult i8 %308, 10
-  br i1 %or.cond28.i280, label %.preheader.i273, label %.critedge.i277, !llvm.loop !14
+  br i1 %or.cond28.i280, label %.preheader.i273, label %.critedge.i277, !llvm.loop !12
 
 .critedge.i277:                                   ; preds = %305, %.preheader.i273
   %or.cond29.i278 = icmp ugt i32 %302, 61
@@ -825,7 +825,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
   %317 = zext i8 %316 to i32
   %318 = tail call i32 @isspace(i32 noundef %317) #4
   %.not.i285 = icmp eq i32 %318, 0
-  br i1 %.not.i285, label %._crit_edge.i286, label %.lr.ph.i284, !llvm.loop !13
+  br i1 %.not.i285, label %._crit_edge.i286, label %.lr.ph.i284, !llvm.loop !11
 
 ._crit_edge.i286:                                 ; preds = %.lr.ph.i284, %310
   %.promoted32.i287 = phi ptr [ %.0375590, %310 ], [ %315, %.lr.ph.i284 ]
@@ -854,7 +854,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
   %331 = load i8, ptr %323, align 1
   %332 = add i8 %331, -48
   %or.cond28.i297 = icmp ult i8 %332, 10
-  br i1 %or.cond28.i297, label %.preheader.i290, label %.critedge.i294, !llvm.loop !14
+  br i1 %or.cond28.i297, label %.preheader.i290, label %.critedge.i294, !llvm.loop !12
 
 .critedge.i294:                                   ; preds = %329, %.preheader.i290
   %or.cond29.i295 = icmp ugt i32 %326, 53
@@ -877,7 +877,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
   %341 = zext i8 %340 to i32
   %342 = tail call i32 @isspace(i32 noundef %341) #4
   %.not.i302 = icmp eq i32 %342, 0
-  br i1 %.not.i302, label %._crit_edge.i303, label %.lr.ph.i301, !llvm.loop !13
+  br i1 %.not.i302, label %._crit_edge.i303, label %.lr.ph.i301, !llvm.loop !11
 
 ._crit_edge.i303:                                 ; preds = %.lr.ph.i301, %334
   %.promoted32.i304 = phi ptr [ %.0375590, %334 ], [ %339, %.lr.ph.i301 ]
@@ -910,7 +910,7 @@ _conv_num.exit315:                                ; preds = %._crit_edge.i303
   %356 = zext i8 %355 to i32
   %357 = tail call i32 @isspace(i32 noundef %356) #4
   %.not.i319 = icmp eq i32 %357, 0
-  br i1 %.not.i319, label %._crit_edge.i320, label %.lr.ph.i318, !llvm.loop !13
+  br i1 %.not.i319, label %._crit_edge.i320, label %.lr.ph.i318, !llvm.loop !11
 
 ._crit_edge.i320:                                 ; preds = %.lr.ph.i318, %349
   %.promoted32.i321 = phi ptr [ %.0375590, %349 ], [ %354, %.lr.ph.i318 ]
@@ -939,7 +939,7 @@ _conv_num.exit315:                                ; preds = %._crit_edge.i303
   %370 = load i8, ptr %362, align 1
   %371 = add i8 %370, -48
   %or.cond28.i331 = icmp ult i8 %371, 10
-  br i1 %or.cond28.i331, label %.preheader.i324, label %.critedge.i328, !llvm.loop !14
+  br i1 %or.cond28.i331, label %.preheader.i324, label %.critedge.i328, !llvm.loop !12
 
 .critedge.i328:                                   ; preds = %368, %.preheader.i324
   %or.cond29.i329 = icmp ugt i32 %365, 9999
@@ -965,7 +965,7 @@ _conv_num.exit332:                                ; preds = %.critedge.i328
   %380 = zext i8 %379 to i32
   %381 = tail call i32 @isspace(i32 noundef %380) #4
   %.not.i336 = icmp eq i32 %381, 0
-  br i1 %.not.i336, label %._crit_edge.i337, label %.lr.ph.i335, !llvm.loop !13
+  br i1 %.not.i336, label %._crit_edge.i337, label %.lr.ph.i335, !llvm.loop !11
 
 ._crit_edge.i337:                                 ; preds = %.lr.ph.i335, %373
   %.promoted32.i338 = phi ptr [ %.0375590, %373 ], [ %378, %.lr.ph.i335 ]
@@ -994,7 +994,7 @@ _conv_num.exit332:                                ; preds = %.critedge.i328
   %394 = load i8, ptr %386, align 1
   %395 = add i8 %394, -48
   %or.cond28.i348 = icmp ult i8 %395, 10
-  br i1 %or.cond28.i348, label %.preheader.i341, label %.critedge.i345, !llvm.loop !14
+  br i1 %or.cond28.i348, label %.preheader.i341, label %.critedge.i345, !llvm.loop !12
 
 .critedge.i345:                                   ; preds = %392, %.preheader.i341
   %or.cond29.i346 = icmp ugt i32 %389, 99
@@ -1014,7 +1014,7 @@ _conv_num.exit349:                                ; preds = %.critedge.i345
   %399 = tail call i32 @isspace(i32 noundef %398) #4
   %.not112 = icmp eq i32 %399, 0
   %400 = getelementptr inbounds nuw i8, ptr %.3378, i64 1
-  br i1 %.not112, label %_conv_num.exit298, label %.preheader427, !llvm.loop !15
+  br i1 %.not112, label %_conv_num.exit298, label %.preheader427, !llvm.loop !13
 
 _conv_num.exit298:                                ; preds = %.preheader427, %_conv_num.exit349, %_conv_num.exit315, %.critedge.i294, %_conv_num.exit281, %_conv_num.exit247, %_conv_num.exit213, %_conv_num.exit196, %_conv_num.exit179, %51, %48, %45, %42, %39, %36, %33, %.loopexit, %_conv_num.exit332, %283, %272, %260, %209, %_conv_num.exit, %.thread384, %.thread
   %.2377 = phi ptr [ %28, %.loopexit ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ], [ %46, %45 ], [ %49, %48 ], [ %52, %51 ], [ %67, %.thread ], [ %82, %.thread384 ], [ %97, %_conv_num.exit ], [ %122, %_conv_num.exit179 ], [ %148, %_conv_num.exit196 ], [ %173, %_conv_num.exit213 ], [ %198, %209 ], [ %225, %_conv_num.exit247 ], [ %249, %260 ], [ %273, %272 ], [ %284, %283 ], [ %299, %_conv_num.exit281 ], [ %347, %_conv_num.exit315 ], [ %362, %_conv_num.exit332 ], [ %386, %_conv_num.exit349 ], [ %323, %.critedge.i294 ], [ %.3378, %.preheader427 ]
@@ -1081,13 +1081,11 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

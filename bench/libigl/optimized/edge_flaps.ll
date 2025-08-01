@@ -151,7 +151,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %70, ptr %gep48, align 4, !tbaa !15
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %43, label %44, !llvm.loop !22
+  br i1 %exitcond.not, label %43, label %44, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -299,7 +299,6 @@ attributes #10 = { nounwind allocsize(0) }
 !16 = !{!"int", !8, i64 0}
 !17 = !{!18, !6, i64 0}
 !18 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EEE", !6, i64 0, !10, i64 8}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
+!21 = distinct !{!21, !20}

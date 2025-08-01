@@ -361,7 +361,7 @@ If_ManImproveNodePrepare.exit.i.i:                ; preds = %Vec_PtrPush.exit33.
 
 158:                                              ; preds = %154
   %159 = getelementptr i8, ptr %156, i64 24
-  %.val.i.i.i31.i = load ptr, ptr %159, align 8, !tbaa !46
+  %.val.i.i.i31.i = load ptr, ptr %159, align 8, !tbaa !45
   %160 = load i32, ptr %.val.i.i.i31.i, align 8
   %161 = and i32 %160, 256
   %.not.i.i.i32.i = icmp eq i32 %161, 0
@@ -369,7 +369,7 @@ If_ManImproveNodePrepare.exit.i.i:                ; preds = %Vec_PtrPush.exit33.
 
 If_ManImproveNodeWillGrow.exit.i.i.i:             ; preds = %158
   %162 = getelementptr i8, ptr %156, i64 32
-  %.val5.i.i.i.i = load ptr, ptr %162, align 8, !tbaa !47
+  %.val5.i.i.i.i = load ptr, ptr %162, align 8, !tbaa !46
   %163 = load i32, ptr %.val5.i.i.i.i, align 8
   %164 = and i32 %163, 256
   %.not15.not.i.i.i = icmp eq i32 %164, 0
@@ -381,7 +381,7 @@ If_ManImproveNodeWillGrow.exit.i.i.i:             ; preds = %158
   %168 = icmp eq i32 %167, 0
   %spec.select.i.i.i.i = sext i1 %168 to i32
   %.phi.trans.insert.i.i.i = getelementptr i8, ptr %156, i64 32
-  %.val13.i.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !47
+  %.val13.i.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !46
   %.pre.i.i.i = load i32, ptr %.val13.i.pre.i.i.i, align 8
   br label %177
 
@@ -422,7 +422,7 @@ If_ManImproveNodeFaninCost.exit.i.i.i:            ; preds = %180, %177
 186:                                              ; preds = %If_ManImproveNodeFaninCost.exit.i.i.i, %If_ManImproveNodeWillGrow.exit.i.i.i, %154
   %indvars.iv.next.i.i33.i = add nuw nsw i64 %indvars.iv.i.i28.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i33.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %thread-pre-split.i.i, label %154, !llvm.loop !48
+  br i1 %exitcond.not.i.i.i, label %thread-pre-split.i.i, label %154, !llvm.loop !47
 
 thread-pre-split.i.i:                             ; preds = %186
   %187 = icmp slt i32 %.val.i.i2644.i, %12
@@ -443,7 +443,7 @@ thread-pre-split.i.i:                             ; preds = %186
   %194 = icmp eq i32 %193, 0
   %spec.select.i.i19.i.i = sext i1 %194 to i32
   %195 = getelementptr i8, ptr %189, i64 24
-  %.val11.i.i.i.i = load ptr, ptr %195, align 8, !tbaa !46
+  %.val11.i.i.i.i = load ptr, ptr %195, align 8, !tbaa !45
   %196 = load i32, ptr %.val11.i.i.i.i, align 8
   %197 = and i32 %196, 256
   %.not.i.i20.i.i = icmp eq i32 %197, 0
@@ -461,7 +461,7 @@ thread-pre-split.i.i:                             ; preds = %186
 203:                                              ; preds = %198, %191
   %.1.i.i21.i.i = phi i32 [ %spec.select.i.i19.i.i, %191 ], [ %spec.select9.i.i30.i.i, %198 ]
   %204 = getelementptr i8, ptr %189, i64 32
-  %.val13.i.i22.i.i = load ptr, ptr %204, align 8, !tbaa !47
+  %.val13.i.i22.i.i = load ptr, ptr %204, align 8, !tbaa !46
   %205 = load i32, ptr %.val13.i.i22.i.i, align 8
   %206 = and i32 %205, 256
   %.not8.i.i23.i.i = icmp eq i32 %206, 0
@@ -483,14 +483,14 @@ If_ManImproveNodeFaninCost.exit.i24.i.i:          ; preds = %207, %203
 213:                                              ; preds = %If_ManImproveNodeFaninCost.exit.i24.i.i, %.lr.ph.i15.i.i
   %indvars.iv.next.i26.i.i = add nuw nsw i64 %indvars.iv.i17.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i64 %indvars.iv.next.i26.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i27.i.i, label %If_ManImproveCutCost.exit70.i.i, label %.lr.ph.i15.i.i, !llvm.loop !49
+  br i1 %exitcond.not.i27.i.i, label %If_ManImproveCutCost.exit70.i.i, label %.lr.ph.i15.i.i, !llvm.loop !48
 
 If_ManImproveNodeFaninCompact_int.exit.i:         ; preds = %If_ManImproveNodeFaninCost.exit.i.i.i, %If_ManImproveNodeFaninCost.exit.i24.i.i
   %.lcssa.sink.i.i = phi ptr [ %189, %If_ManImproveNodeFaninCost.exit.i24.i.i ], [ %156, %If_ManImproveNodeFaninCost.exit.i.i.i ]
   call void @If_ManImproveNodeFaninUpdate(ptr nonnull readnone poison, ptr noundef nonnull %.lcssa.sink.i.i, ptr noundef nonnull %13, ptr noundef nonnull %30)
   %.val.i.i26.i = load i32, ptr %15, align 4, !tbaa !32
   %214 = icmp sgt i32 %.val.i.i26.i, 0
-  br i1 %214, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i, !llvm.loop !50
+  br i1 %214, label %.lr.ph.i.i27.i, label %If_ManImproveCutCost.exit70.i.i, !llvm.loop !49
 
 If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFaninCompact_int.exit.i, %thread-pre-split.i.i, %213, %If_ManImproveNodePrepare.exit.i.i
   %.val17.i.i.i = phi i32 [ %.val17.i75.i.i, %If_ManImproveNodePrepare.exit.i.i ], [ %.val.i.i2644.i, %213 ], [ %.val.i.i2644.i, %thread-pre-split.i.i ], [ %.val.i.i26.i, %If_ManImproveNodeFaninCompact_int.exit.i ]
@@ -511,7 +511,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
   %.val.i.i = load i32, ptr %31, align 4, !tbaa !32
   %221 = sext i32 %.val.i.i to i64
   %222 = icmp slt i64 %indvars.iv.next.i.i, %221
-  br i1 %222, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !51
+  br i1 %222, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !50
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %If_ManImproveCutCost.exit70.i.i
   %223 = call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %48) #14
@@ -534,12 +534,12 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
   %232 = getelementptr inbounds nuw ptr, ptr %.val18.i.i.i, i64 %indvars.iv.i72.i.i
   %233 = load ptr, ptr %232, align 8, !tbaa !37
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %235 = load i32, ptr %234, align 4, !tbaa !52
+  %235 = load i32, ptr %234, align 4, !tbaa !51
   %236 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv.i72.i.i
   store i32 %235, ptr %236, align 4, !tbaa !42
   %indvars.iv.next.i73.i.i = add nuw nsw i64 %indvars.iv.i72.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i73.i.i, %230
-  br i1 %exitcond.not.i, label %.critedge.i.i.i, label %231, !llvm.loop !53
+  br i1 %exitcond.not.i, label %.critedge.i.i.i, label %231, !llvm.loop !52
 
 .critedge.i.i.i:                                  ; preds = %231, %.critedge.i.i
   call void @If_CutOrder(ptr noundef nonnull %48) #14
@@ -563,12 +563,12 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
   %244 = or i32 %243, %.067.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %If_ManImproveNodeUpdate.exit.i.i, label %239, !llvm.loop !54
+  br i1 %exitcond.not.i.i.i.i, label %If_ManImproveNodeUpdate.exit.i.i, label %239, !llvm.loop !53
 
 If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i.i
   %.06.lcssa.i.i.i.i = phi i32 [ 0, %.critedge.i.i.i ], [ %244, %239 ]
   %245 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  store i32 %.06.lcssa.i.i.i.i, ptr %245, align 4, !tbaa !55
+  store i32 %.06.lcssa.i.i.i.i, ptr %245, align 4, !tbaa !54
   %246 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %48) #14
   %247 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %48) #14
   store float %247, ptr %50, align 4, !tbaa !38
@@ -579,8 +579,8 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i
 250:                                              ; preds = %If_ManImproveNodeUpdate.exit.i.i
   %251 = load float, ptr %50, align 4, !tbaa !38
   %252 = getelementptr inbounds nuw i8, ptr %44, i64 52
-  %253 = load float, ptr %252, align 4, !tbaa !56
-  %254 = load float, ptr %38, align 8, !tbaa !57
+  %253 = load float, ptr %252, align 4, !tbaa !55
+  %254 = load float, ptr %38, align 8, !tbaa !56
   %255 = fadd float %253, %254
   %256 = fcmp ogt float %251, %255
   br i1 %256, label %257, label %If_ManImproveNodeExpand.exit.i
@@ -605,12 +605,12 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i
   %266 = getelementptr inbounds nuw ptr, ptr %.val18.i88.i.i, i64 %indvars.iv.i89.i.i
   %267 = load ptr, ptr %266, align 8, !tbaa !37
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 4
-  %269 = load i32, ptr %268, align 4, !tbaa !52
+  %269 = load i32, ptr %268, align 4, !tbaa !51
   %270 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv.i89.i.i
   store i32 %269, ptr %270, align 4, !tbaa !42
   %indvars.iv.next.i90.i.i = add nuw nsw i64 %indvars.iv.i89.i.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next.i90.i.i, %264
-  br i1 %exitcond54.not.i, label %.critedge.i77.i.i, label %265, !llvm.loop !53
+  br i1 %exitcond54.not.i, label %.critedge.i77.i.i, label %265, !llvm.loop !52
 
 .critedge.i77.i.i:                                ; preds = %265, %257
   call void @If_CutOrder(ptr noundef nonnull %48) #14
@@ -634,11 +634,11 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %239, %.critedge.i.i
   %278 = or i32 %277, %.067.i.i83.i.i
   %indvars.iv.next.i.i84.i.i = add nuw nsw i64 %indvars.iv.i.i82.i.i, 1
   %exitcond.not.i.i85.i.i = icmp eq i64 %indvars.iv.next.i.i84.i.i, %wide.trip.count.i.i81.i.i
-  br i1 %exitcond.not.i.i85.i.i, label %If_ManImproveNodeUpdate.exit92.i.i, label %273, !llvm.loop !54
+  br i1 %exitcond.not.i.i85.i.i, label %If_ManImproveNodeUpdate.exit92.i.i, label %273, !llvm.loop !53
 
 If_ManImproveNodeUpdate.exit92.i.i:               ; preds = %273, %.critedge.i77.i.i
   %.06.lcssa.i.i86.i.i = phi i32 [ 0, %.critedge.i77.i.i ], [ %278, %273 ]
-  store i32 %.06.lcssa.i.i86.i.i, ptr %245, align 4, !tbaa !55
+  store i32 %.06.lcssa.i.i86.i.i, ptr %245, align 4, !tbaa !54
   %279 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %48) #14
   %280 = call float @If_CutAreaRefed(ptr noundef nonnull %0, ptr noundef nonnull %48) #14
   store float %49, ptr %50, align 4, !tbaa !38
@@ -652,7 +652,7 @@ If_ManImproveNodeExpand.exit.i:                   ; preds = %If_ManImproveNodeUp
   %.val.i = load i32, ptr %283, align 4, !tbaa !32
   %284 = sext i32 %.val.i to i64
   %285 = icmp slt i64 %indvars.iv.next.i, %284
-  br i1 %285, label %39, label %.critedge.loopexit.i, !llvm.loop !58
+  br i1 %285, label %39, label %.critedge.loopexit.i, !llvm.loop !57
 
 .critedge.loopexit.i:                             ; preds = %If_ManImproveNodeExpand.exit.i
   %.pre.i = load ptr, ptr %21, align 8, !tbaa !35
@@ -692,22 +692,22 @@ If_ManImproveExpand.exit:                         ; preds = %Vec_PtrFree.exit23.
   call void @If_ManComputeRequired(ptr noundef nonnull %0) #14
   %292 = load ptr, ptr %10, align 8, !tbaa !9
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 192
-  %294 = load i32, ptr %293, align 8, !tbaa !59
+  %294 = load i32, ptr %293, align 8, !tbaa !58
   %.not = icmp eq i32 %294, 0
   br i1 %.not, label %324, label %295
 
 295:                                              ; preds = %If_ManImproveExpand.exit
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %297 = load float, ptr %296, align 4, !tbaa !60
+  %297 = load float, ptr %296, align 4, !tbaa !59
   %298 = fpext float %297 to double
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %300 = load float, ptr %299, align 4, !tbaa !61
+  %300 = load float, ptr %299, align 4, !tbaa !60
   %301 = fpext float %300 to double
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %303 = load i32, ptr %302, align 8, !tbaa !62
+  %303 = load i32, ptr %302, align 8, !tbaa !61
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, double noundef %298, double noundef %301, i32 noundef %303)
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %305 = load float, ptr %304, align 4, !tbaa !63
+  %305 = load float, ptr %304, align 4, !tbaa !62
   %306 = fcmp une float %305, 0.000000e+00
   br i1 %306, label %307, label %309
 
@@ -718,7 +718,7 @@ If_ManImproveExpand.exit:                         ; preds = %Vec_PtrFree.exit23.
 
 309:                                              ; preds = %307, %295
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %311 = load i32, ptr %310, align 4, !tbaa !64
+  %311 = load i32, ptr %310, align 4, !tbaa !63
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %311)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   %312 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #14
@@ -770,7 +770,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !65
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !64
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
@@ -778,7 +778,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !65, !noalias !67
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !64, !noalias !66
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %17
 
@@ -819,7 +819,7 @@ define i32 @If_ManImproveCutCost(ptr noundef readnone captures(none) %0, ptr nou
   %spec.select = add nuw nsw i32 %.010, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !70
+  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !69
 
 .critedge:                                        ; preds = %6, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
@@ -835,10 +835,10 @@ define void @If_ManImproveMark_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %1, i64 24
-  %.val = load ptr, ptr %7, align 8, !tbaa !46
+  %.val = load ptr, ptr %7, align 8, !tbaa !45
   tail call void @If_ManImproveMark_rec(ptr noundef %0, ptr noundef %.val, ptr noundef %2)
   %8 = getelementptr i8, ptr %1, i64 32
-  %.val10 = load ptr, ptr %8, align 8, !tbaa !47
+  %.val10 = load ptr, ptr %8, align 8, !tbaa !46
   tail call void @If_ManImproveMark_rec(ptr noundef %0, ptr noundef %.val10, ptr noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !32
@@ -918,7 +918,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @If_ManImproveNodeWillGrow(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %1, i64 24
-  %.val = load ptr, ptr %3, align 8, !tbaa !46
+  %.val = load ptr, ptr %3, align 8, !tbaa !45
   %4 = load i32, ptr %.val, align 8
   %5 = and i32 %4, 256
   %.not = icmp eq i32 %5, 0
@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeWillGrow(ptr noundef readnone captu
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 32
-  %.val5 = load ptr, ptr %7, align 8, !tbaa !47
+  %.val5 = load ptr, ptr %7, align 8, !tbaa !46
   %8 = load i32, ptr %.val5, align 8
   %9 = lshr i32 %8, 8
   %.lobit = and i32 %9, 1
@@ -945,7 +945,7 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr noundef readnone cap
   %5 = icmp eq i32 %4, 0
   %spec.select = sext i1 %5 to i32
   %6 = getelementptr i8, ptr %1, i64 24
-  %.val11 = load ptr, ptr %6, align 8, !tbaa !46
+  %.val11 = load ptr, ptr %6, align 8, !tbaa !45
   %7 = load i32, ptr %.val11, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
@@ -963,7 +963,7 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr noundef readnone cap
 14:                                               ; preds = %9, %2
   %.1 = phi i32 [ %spec.select, %2 ], [ %spec.select9, %9 ]
   %15 = getelementptr i8, ptr %1, i64 32
-  %.val13 = load ptr, ptr %15, align 8, !tbaa !47
+  %.val13 = load ptr, ptr %15, align 8, !tbaa !46
   %16 = load i32, ptr %.val13, align 8
   %17 = and i32 %16, 256
   %.not8 = icmp eq i32 %17, 0
@@ -1003,7 +1003,7 @@ define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr no
   %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %9, !llvm.loop !71
+  br i1 %17, label %18, label %9, !llvm.loop !70
 
 18:                                               ; preds = %12, %9
   %.0.in.lcssa.i = phi i32 [ %10, %12 ], [ %smin.i, %9 ]
@@ -1024,13 +1024,13 @@ define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr no
   store ptr %24, ptr %25, align 8, !tbaa !37
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %21, !llvm.loop !72
+  br i1 %exitcond.not.i, label %Vec_PtrRemove.exit, label %21, !llvm.loop !71
 
 Vec_PtrRemove.exit:                               ; preds = %21, %18
   %26 = add nsw i32 %6, -1
   store i32 %26, ptr %5, align 4, !tbaa !32
   %27 = getelementptr i8, ptr %1, i64 24
-  %.val = load ptr, ptr %27, align 8, !tbaa !46
+  %.val = load ptr, ptr %27, align 8, !tbaa !45
   %28 = load i32, ptr %.val, align 8
   %29 = and i32 %28, 256
   %.not = icmp eq i32 %29, 0
@@ -1171,7 +1171,7 @@ Vec_PtrPush.exit24:                               ; preds = %.Vec_PtrGrow.exit11
 
 91:                                               ; preds = %Vec_PtrPush.exit24, %Vec_PtrRemove.exit
   %92 = getelementptr i8, ptr %1, i64 32
-  %.val17 = load ptr, ptr %92, align 8, !tbaa !47
+  %.val17 = load ptr, ptr %92, align 8, !tbaa !46
   %93 = load i32, ptr %.val17, align 8
   %94 = and i32 %93, 256
   %.not16 = icmp eq i32 %94, 0
@@ -1339,7 +1339,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact0(ptr noundef readnone 
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %11, i64 24
-  %.val.i = load ptr, ptr %14, align 8, !tbaa !46
+  %.val.i = load ptr, ptr %14, align 8, !tbaa !45
   %15 = load i32, ptr %.val.i, align 8
   %16 = and i32 %15, 256
   %.not.i = icmp eq i32 %16, 0
@@ -1347,7 +1347,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact0(ptr noundef readnone 
 
 If_ManImproveNodeWillGrow.exit:                   ; preds = %13
   %17 = getelementptr i8, ptr %11, i64 32
-  %.val5.i = load ptr, ptr %17, align 8, !tbaa !47
+  %.val5.i = load ptr, ptr %17, align 8, !tbaa !46
   %18 = load i32, ptr %.val5.i, align 8
   %19 = and i32 %18, 256
   %.not15.not = icmp eq i32 %19, 0
@@ -1359,7 +1359,7 @@ If_ManImproveNodeWillGrow.exit:                   ; preds = %13
   %23 = icmp eq i32 %22, 0
   %spec.select.i = sext i1 %23 to i32
   %.phi.trans.insert = getelementptr i8, ptr %11, i64 32
-  %.val13.i.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !47
+  %.val13.i.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !46
   %.pre = load i32, ptr %.val13.i.pre, align 8
   br label %32
 
@@ -1404,7 +1404,7 @@ If_ManImproveNodeFaninCost.exit:                  ; preds = %32, %35
 42:                                               ; preds = %If_ManImproveNodeFaninCost.exit, %If_ManImproveNodeWillGrow.exit, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !48
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !47
 
 .critedge:                                        ; preds = %42, %5, %41
   %.014 = phi i32 [ 1, %41 ], [ 0, %5 ], [ 0, %42 ]
@@ -1439,7 +1439,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr noundef readnone 
   %16 = icmp eq i32 %15, 0
   %spec.select.i = sext i1 %16 to i32
   %17 = getelementptr i8, ptr %11, i64 24
-  %.val11.i = load ptr, ptr %17, align 8, !tbaa !46
+  %.val11.i = load ptr, ptr %17, align 8, !tbaa !45
   %18 = load i32, ptr %.val11.i, align 8
   %19 = and i32 %18, 256
   %.not.i = icmp eq i32 %19, 0
@@ -1457,7 +1457,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr noundef readnone 
 25:                                               ; preds = %20, %13
   %.1.i = phi i32 [ %spec.select.i, %13 ], [ %spec.select9.i, %20 ]
   %26 = getelementptr i8, ptr %11, i64 32
-  %.val13.i = load ptr, ptr %26, align 8, !tbaa !47
+  %.val13.i = load ptr, ptr %26, align 8, !tbaa !46
   %27 = load i32, ptr %.val13.i, align 8
   %28 = and i32 %27, 256
   %.not8.i = icmp eq i32 %28, 0
@@ -1483,7 +1483,7 @@ If_ManImproveNodeFaninCost.exit:                  ; preds = %25, %29
 36:                                               ; preds = %If_ManImproveNodeFaninCost.exit, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !49
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !48
 
 .critedge:                                        ; preds = %36, %5, %35
   %.012 = phi i32 [ 1, %35 ], [ 0, %5 ], [ 0, %36 ]
@@ -1518,7 +1518,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr noundef readnone 
   %16 = icmp eq i32 %15, 0
   %spec.select.i = sext i1 %16 to i32
   %17 = getelementptr i8, ptr %11, i64 24
-  %.val11.i = load ptr, ptr %17, align 8, !tbaa !46
+  %.val11.i = load ptr, ptr %17, align 8, !tbaa !45
   %18 = load i32, ptr %.val11.i, align 8
   %19 = and i32 %18, 256
   %.not.i = icmp eq i32 %19, 0
@@ -1536,7 +1536,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr noundef readnone 
 25:                                               ; preds = %20, %13
   %.1.i = phi i32 [ %spec.select.i, %13 ], [ %spec.select9.i, %20 ]
   %26 = getelementptr i8, ptr %11, i64 32
-  %.val13.i = load ptr, ptr %26, align 8, !tbaa !47
+  %.val13.i = load ptr, ptr %26, align 8, !tbaa !46
   %27 = load i32, ptr %.val13.i, align 8
   %28 = and i32 %27, 256
   %.not8.i = icmp eq i32 %28, 0
@@ -1562,7 +1562,7 @@ If_ManImproveNodeFaninCost.exit:                  ; preds = %25, %29
 36:                                               ; preds = %If_ManImproveNodeFaninCost.exit, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !73
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !72
 
 .critedge:                                        ; preds = %36, %5, %35
   %.012 = phi i32 [ 1, %35 ], [ 0, %5 ], [ 0, %36 ]
@@ -1593,7 +1593,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact_int(ptr noundef readno
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %11, i64 24
-  %.val.i.i = load ptr, ptr %14, align 8, !tbaa !46
+  %.val.i.i = load ptr, ptr %14, align 8, !tbaa !45
   %15 = load i32, ptr %.val.i.i, align 8
   %16 = and i32 %15, 256
   %.not.i.i = icmp eq i32 %16, 0
@@ -1601,7 +1601,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact_int(ptr noundef readno
 
 If_ManImproveNodeWillGrow.exit.i:                 ; preds = %13
   %17 = getelementptr i8, ptr %11, i64 32
-  %.val5.i.i = load ptr, ptr %17, align 8, !tbaa !47
+  %.val5.i.i = load ptr, ptr %17, align 8, !tbaa !46
   %18 = load i32, ptr %.val5.i.i, align 8
   %19 = and i32 %18, 256
   %.not15.not.i = icmp eq i32 %19, 0
@@ -1613,7 +1613,7 @@ If_ManImproveNodeWillGrow.exit.i:                 ; preds = %13
   %23 = icmp eq i32 %22, 0
   %spec.select.i.i = sext i1 %23 to i32
   %.phi.trans.insert.i = getelementptr i8, ptr %11, i64 32
-  %.val13.i.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !47
+  %.val13.i.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !46
   %.pre.i = load i32, ptr %.val13.i.pre.i, align 8
   br label %32
 
@@ -1654,7 +1654,7 @@ If_ManImproveNodeFaninCost.exit.i:                ; preds = %35, %32
 41:                                               ; preds = %If_ManImproveNodeFaninCost.exit.i, %If_ManImproveNodeWillGrow.exit.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %thread-pre-split, label %9, !llvm.loop !48
+  br i1 %exitcond.not.i, label %thread-pre-split, label %9, !llvm.loop !47
 
 thread-pre-split:                                 ; preds = %41
   %42 = icmp slt i32 %.val.i, %2
@@ -1681,7 +1681,7 @@ thread-pre-split:                                 ; preds = %41
   %51 = icmp eq i32 %50, 0
   %spec.select.i.i19 = sext i1 %51 to i32
   %52 = getelementptr i8, ptr %46, i64 24
-  %.val11.i.i = load ptr, ptr %52, align 8, !tbaa !46
+  %.val11.i.i = load ptr, ptr %52, align 8, !tbaa !45
   %53 = load i32, ptr %.val11.i.i, align 8
   %54 = and i32 %53, 256
   %.not.i.i20 = icmp eq i32 %54, 0
@@ -1699,7 +1699,7 @@ thread-pre-split:                                 ; preds = %41
 60:                                               ; preds = %55, %48
   %.1.i.i21 = phi i32 [ %spec.select.i.i19, %48 ], [ %spec.select9.i.i30, %55 ]
   %61 = getelementptr i8, ptr %46, i64 32
-  %.val13.i.i22 = load ptr, ptr %61, align 8, !tbaa !47
+  %.val13.i.i22 = load ptr, ptr %61, align 8, !tbaa !46
   %62 = load i32, ptr %.val13.i.i22, align 8
   %63 = and i32 %62, 256
   %.not8.i.i23 = icmp eq i32 %63, 0
@@ -1721,7 +1721,7 @@ If_ManImproveNodeFaninCost.exit.i24:              ; preds = %64, %60
 70:                                               ; preds = %If_ManImproveNodeFaninCost.exit.i24, %44
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i16
-  br i1 %exitcond.not.i27, label %If_ManImproveNodeFaninCompact1.exit.thread, label %44, !llvm.loop !49
+  br i1 %exitcond.not.i27, label %If_ManImproveNodeFaninCompact1.exit.thread, label %44, !llvm.loop !48
 
 If_ManImproveNodeFaninCompact1.exit.thread.sink.split: ; preds = %If_ManImproveNodeFaninCost.exit.i, %If_ManImproveNodeFaninCost.exit.i24
   %.lcssa.sink = phi ptr [ %46, %If_ManImproveNodeFaninCost.exit.i24 ], [ %11, %If_ManImproveNodeFaninCost.exit.i ]
@@ -1840,34 +1840,33 @@ attributes #17 = { nounwind willreturn memory(read) }
 !40 = !{!41, !16, i64 12}
 !41 = !{!"If_Obj_t_", !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 0, !16, i64 1, !16, i64 1, !16, i64 1, !16, i64 1, !16, i64 1, !16, i64 1, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !14, i64 24, !14, i64 32, !14, i64 40, !17, i64 48, !17, i64 52, !17, i64 56, !6, i64 64, !22, i64 72, !39, i64 80}
 !42 = !{!16, !16, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!41, !14, i64 24}
-!47 = !{!41, !14, i64 32}
-!48 = distinct !{!48, !44, !45}
-!49 = distinct !{!49, !44, !45}
-!50 = distinct !{!50, !44, !45}
-!51 = distinct !{!51, !44, !45}
-!52 = !{!41, !16, i64 4}
-!53 = distinct !{!53, !44, !45}
-!54 = distinct !{!54, !44, !45}
-!55 = !{!39, !16, i64 24}
-!56 = !{!41, !17, i64 52}
-!57 = !{!10, !17, i64 88}
-!58 = distinct !{!58, !44, !45}
-!59 = !{!29, !16, i64 192}
-!60 = !{!10, !17, i64 92}
-!61 = !{!10, !17, i64 100}
-!62 = !{!10, !16, i64 104}
-!63 = !{!10, !17, i64 108}
-!64 = !{!10, !16, i64 116}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"vprintf: argument 0"}
-!69 = distinct !{!69, !"vprintf"}
-!70 = distinct !{!70, !44, !45}
-!71 = distinct !{!71, !44, !45}
-!72 = distinct !{!72, !44, !45}
-!73 = distinct !{!73, !44, !45}
+!45 = !{!41, !14, i64 24}
+!46 = !{!41, !14, i64 32}
+!47 = distinct !{!47, !44}
+!48 = distinct !{!48, !44}
+!49 = distinct !{!49, !44}
+!50 = distinct !{!50, !44}
+!51 = !{!41, !16, i64 4}
+!52 = distinct !{!52, !44}
+!53 = distinct !{!53, !44}
+!54 = !{!39, !16, i64 24}
+!55 = !{!41, !17, i64 52}
+!56 = !{!10, !17, i64 88}
+!57 = distinct !{!57, !44}
+!58 = !{!29, !16, i64 192}
+!59 = !{!10, !17, i64 92}
+!60 = !{!10, !17, i64 100}
+!61 = !{!10, !16, i64 104}
+!62 = !{!10, !17, i64 108}
+!63 = !{!10, !16, i64 116}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"vprintf: argument 0"}
+!68 = distinct !{!68, !"vprintf"}
+!69 = distinct !{!69, !44}
+!70 = distinct !{!70, !44}
+!71 = distinct !{!71, !44}
+!72 = distinct !{!72, !44}

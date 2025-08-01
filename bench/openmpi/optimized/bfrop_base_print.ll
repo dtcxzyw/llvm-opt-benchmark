@@ -2796,7 +2796,7 @@ define range(i32 -47, 1) i32 @pmix_bfrops_base_print_cpuset(ptr noundef %0, ptr 
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_locality(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !114
+  store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i16, ptr %2, align 2, !tbaa !63
   switch i16 %6, label %11 [
     i16 0, label %7
@@ -2898,9 +2898,9 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_locality(ptr noundef %0, pt
   br label %50
 
 50:                                               ; preds = %48, %45
-  %51 = load ptr, ptr %5, align 8, !tbaa !114
+  %51 = load ptr, ptr %5, align 8, !tbaa !113
   %52 = call ptr @PMIx_Argv_join(ptr noundef %51, i32 noundef 58) #8
-  %53 = load ptr, ptr %5, align 8, !tbaa !114
+  %53 = load ptr, ptr %5, align 8, !tbaa !113
   call void @PMIx_Argv_free(ptr noundef %53) #8
   br label %54
 
@@ -2922,16 +2922,16 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr noundef writeo
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr null, ptr %6, align 8, !tbaa !114
+  store ptr null, ptr %6, align 8, !tbaa !113
   %7 = icmp eq ptr %1, null
   %8 = select i1 %7, ptr @.str.1, ptr %1
-  %9 = load i64, ptr %2, align 8, !tbaa !115
+  %9 = load i64, ptr %2, align 8, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !118
+  %11 = load ptr, ptr %10, align 8, !tbaa !117
   %12 = icmp eq ptr %11, null
   %spec.select = select i1 %12, ptr @.str.47, ptr %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !119
+  %14 = load ptr, ptr %13, align 8, !tbaa !118
   %15 = icmp eq ptr %14, null
   %16 = select i1 %15, ptr @.str.47, ptr %14
   %17 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.93, ptr noundef nonnull %8, i64 noundef %9, ptr noundef nonnull %spec.select, ptr noundef nonnull %16) #8
@@ -2944,7 +2944,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr noundef writeo
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   call void @free(ptr noundef %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !120
+  %24 = load i64, ptr %23, align 8, !tbaa !119
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2954,7 +2954,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr noundef writeo
 
 26:                                               ; preds = %.lr.ph, %38
   %.023 = phi i64 [ 0, %.lr.ph ], [ %42, %38 ]
-  %27 = load ptr, ptr %25, align 8, !tbaa !121
+  %27 = load ptr, ptr %25, align 8, !tbaa !120
   %28 = getelementptr inbounds nuw %struct.pmix_coord, ptr %27, i64 %.023
   %29 = load i8, ptr %28, align 8, !tbaa !91
   %30 = icmp ult i8 %29, 3
@@ -2975,7 +2975,7 @@ pmix_bfrops_base_print_coord.exit:                ; preds = %26, %switch.lookup
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %pmix_bfrops_base_print_coord.exit
-  %37 = load ptr, ptr %6, align 8, !tbaa !114
+  %37 = load ptr, ptr %6, align 8, !tbaa !113
   %.not22 = icmp eq ptr %37, null
   br i1 %.not22, label %48, label %.sink.split
 
@@ -2985,15 +2985,15 @@ pmix_bfrops_base_print_coord.exit:                ; preds = %26, %switch.lookup
   %41 = load ptr, ptr %5, align 8, !tbaa !3
   call void @free(ptr noundef %41) #8
   %42 = add nuw i64 %.023, 1
-  %43 = load i64, ptr %23, align 8, !tbaa !120
+  %43 = load i64, ptr %23, align 8, !tbaa !119
   %44 = icmp ult i64 %42, %43
-  br i1 %44, label %26, label %._crit_edge, !llvm.loop !122
+  br i1 %44, label %26, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %38, %19
-  %45 = load ptr, ptr %6, align 8, !tbaa !114
+  %45 = load ptr, ptr %6, align 8, !tbaa !113
   %46 = call ptr @PMIx_Argv_join(ptr noundef %45, i32 noundef 10) #8
   store ptr %46, ptr %0, align 8, !tbaa !3
-  %47 = load ptr, ptr %6, align 8, !tbaa !114
+  %47 = load ptr, ptr %6, align 8, !tbaa !113
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %._crit_edge
@@ -3103,7 +3103,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_endpoint(ptr noundef %0, pt
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_smed(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !114
+  store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i64, ptr %2, align 8, !tbaa !62
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -3178,9 +3178,9 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_smed(ptr noundef %0, ptr no
   br label %39
 
 39:                                               ; preds = %37, %34
-  %40 = load ptr, ptr %5, align 8, !tbaa !114
+  %40 = load ptr, ptr %5, align 8, !tbaa !113
   %41 = call ptr @PMIx_Argv_join(ptr noundef %40, i32 noundef 58) #8
-  %42 = load ptr, ptr %5, align 8, !tbaa !114
+  %42 = load ptr, ptr %5, align 8, !tbaa !113
   call void @PMIx_Argv_free(ptr noundef %42) #8
   br label %43
 
@@ -3200,7 +3200,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_smed(ptr noundef %0, ptr no
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_sacc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !114
+  store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i64, ptr %2, align 8, !tbaa !62
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -3266,9 +3266,9 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_sacc(ptr noundef %0, ptr no
   br label %35
 
 35:                                               ; preds = %33, %30
-  %36 = load ptr, ptr %5, align 8, !tbaa !114
+  %36 = load ptr, ptr %5, align 8, !tbaa !113
   %37 = call ptr @PMIx_Argv_join(ptr noundef %36, i32 noundef 58) #8
-  %38 = load ptr, ptr %5, align 8, !tbaa !114
+  %38 = load ptr, ptr %5, align 8, !tbaa !113
   call void @PMIx_Argv_free(ptr noundef %38) #8
   %39 = icmp eq ptr %1, null
   %40 = select i1 %39, ptr @.str.1, ptr %1
@@ -3284,7 +3284,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_sacc(ptr noundef %0, ptr no
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_spers(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !114
+  store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i64, ptr %2, align 8, !tbaa !62
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -3361,9 +3361,9 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_spers(ptr noundef %0, ptr n
   br label %40
 
 40:                                               ; preds = %38, %35
-  %41 = load ptr, ptr %5, align 8, !tbaa !114
+  %41 = load ptr, ptr %5, align 8, !tbaa !113
   %42 = call ptr @PMIx_Argv_join(ptr noundef %41, i32 noundef 58) #8
-  %43 = load ptr, ptr %5, align 8, !tbaa !114
+  %43 = load ptr, ptr %5, align 8, !tbaa !113
   call void @PMIx_Argv_free(ptr noundef %43) #8
   %44 = icmp eq ptr %1, null
   %45 = select i1 %44, ptr @.str.1, ptr %1
@@ -3379,7 +3379,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_spers(ptr noundef %0, ptr n
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_satyp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !114
+  store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i16, ptr %2, align 2, !tbaa !63
   %7 = and i16 %6, 1
   %.not = icmp eq i16 %7, 0
@@ -3401,9 +3401,9 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_satyp(ptr noundef %0, ptr n
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = load ptr, ptr %5, align 8, !tbaa !114
+  %16 = load ptr, ptr %5, align 8, !tbaa !113
   %17 = call ptr @PMIx_Argv_join(ptr noundef %16, i32 noundef 58) #8
-  %18 = load ptr, ptr %5, align 8, !tbaa !114
+  %18 = load ptr, ptr %5, align 8, !tbaa !113
   call void @PMIx_Argv_free(ptr noundef %18) #8
   %19 = icmp eq ptr %1, null
   %20 = select i1 %19, ptr @.str.1, ptr %1
@@ -3442,7 +3442,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
   br label %64
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8, !tbaa !123
+  %19 = load ptr, ptr %2, align 8, !tbaa !122
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.loopexit26, label %.preheader25
 
@@ -3477,15 +3477,15 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
   %31 = load ptr, ptr %7, align 8, !tbaa !3
   store ptr %31, ptr %6, align 8, !tbaa !3
   %32 = add i64 %.029, 1
-  %33 = load ptr, ptr %2, align 8, !tbaa !123
+  %33 = load ptr, ptr %2, align 8, !tbaa !122
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %.not22 = icmp eq ptr %35, null
-  br i1 %.not22, label %.loopexit26, label %.lr.ph, !llvm.loop !126
+  br i1 %.not22, label %.loopexit26, label %.lr.ph, !llvm.loop !125
 
 .loopexit26:                                      ; preds = %29, %.preheader25, %18
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !127
+  %37 = load i64, ptr %36, align 8, !tbaa !126
   %.not23 = icmp eq i64 %37, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph31
 
@@ -3496,7 +3496,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
 39:                                               ; preds = %.lr.ph31, %56
   %.130 = phi i64 [ 0, %.lr.ph31 ], [ %60, %56 ]
   %40 = load ptr, ptr %5, align 8, !tbaa !3
-  %41 = load ptr, ptr %38, align 8, !tbaa !128
+  %41 = load ptr, ptr %38, align 8, !tbaa !127
   %42 = getelementptr inbounds nuw %struct.pmix_info, ptr %41, i64 %.130
   %43 = call i32 @pmix_bfrops_base_print_info(ptr noundef nonnull %7, ptr noundef %40, ptr noundef %42, i16 zeroext poison)
   %.not24 = icmp eq i32 %43, 0
@@ -3533,9 +3533,9 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
   %59 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %59, ptr %6, align 8, !tbaa !3
   %60 = add nuw i64 %.130, 1
-  %61 = load i64, ptr %36, align 8, !tbaa !127
+  %61 = load i64, ptr %36, align 8, !tbaa !126
   %62 = icmp ult i64 %60, %61
-  br i1 %62, label %39, label %.loopexit, !llvm.loop !129
+  br i1 %62, label %39, label %.loopexit, !llvm.loop !128
 
 .loopexit:                                        ; preds = %56, %.loopexit26
   %63 = load ptr, ptr %6, align 8, !tbaa !3
@@ -3608,45 +3608,45 @@ define noundef i32 @pmix_bfrops_base_print_pstats(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 336
-  %12 = load i64, ptr %11, align 8, !tbaa !130
+  %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 344
-  %14 = load i64, ptr %13, align 8, !tbaa !132
-  %15 = load ptr, ptr %2, align 8, !tbaa !133
+  %14 = load i64, ptr %13, align 8, !tbaa !131
+  %15 = load ptr, ptr %2, align 8, !tbaa !132
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull %16) #8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 268
-  %19 = load i32, ptr %18, align 4, !tbaa !134
+  %19 = load i32, ptr %18, align 4, !tbaa !133
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %21 = load ptr, ptr %20, align 8, !tbaa !135
+  %21 = load ptr, ptr %20, align 8, !tbaa !134
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %23 = load i8, ptr %22, align 8, !tbaa !136
+  %23 = load i8, ptr %22, align 8, !tbaa !135
   %24 = sext i8 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 308
-  %26 = load i32, ptr %25, align 4, !tbaa !137
+  %26 = load i32, ptr %25, align 4, !tbaa !136
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %28 = load i16, ptr %27, align 8, !tbaa !138
+  %28 = load i16, ptr %27, align 8, !tbaa !137
   %29 = zext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 332
-  %31 = load i16, ptr %30, align 4, !tbaa !139
+  %31 = load i16, ptr %30, align 4, !tbaa !138
   %32 = zext i16 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 288
-  %34 = load i64, ptr %33, align 8, !tbaa !140
+  %34 = load i64, ptr %33, align 8, !tbaa !139
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %36 = load i64, ptr %35, align 8, !tbaa !141
+  %36 = load i64, ptr %35, align 8, !tbaa !140
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 304
-  %38 = load float, ptr %37, align 8, !tbaa !142
+  %38 = load float, ptr %37, align 8, !tbaa !141
   %39 = fpext float %38 to double
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 316
-  %41 = load float, ptr %40, align 4, !tbaa !143
+  %41 = load float, ptr %40, align 4, !tbaa !142
   %42 = fpext float %41 to double
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %44 = load float, ptr %43, align 8, !tbaa !144
+  %44 = load float, ptr %43, align 8, !tbaa !143
   %45 = fpext float %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  %47 = load float, ptr %46, align 8, !tbaa !145
+  %47 = load float, ptr %46, align 8, !tbaa !144
   %48 = fpext float %47 to double
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 324
-  %50 = load float, ptr %49, align 4, !tbaa !146
+  %50 = load float, ptr %49, align 4, !tbaa !145
   %51 = fpext float %50 to double
   %52 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %0, ptr noundef nonnull @.str.112, ptr noundef nonnull %7, i64 noundef %12, i64 noundef %14, ptr noundef nonnull %7, ptr noundef %15, ptr noundef %17, i32 noundef %19, ptr noundef %21, i32 noundef %24, i32 noundef %26, i32 noundef %29, i32 noundef %32, ptr noundef nonnull %7, i64 noundef %34, i64 noundef %36, double noundef %39, double noundef %42, double noundef %45, double noundef %48, double noundef %51) #8
   br label %53
@@ -3669,29 +3669,29 @@ define noundef i32 @pmix_bfrops_base_print_dkstats(ptr noundef %0, ptr noundef %
   br label %35
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %2, align 8, !tbaa !147
+  %11 = load ptr, ptr %2, align 8, !tbaa !146
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !149
+  %13 = load i64, ptr %12, align 8, !tbaa !148
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !150
+  %15 = load i64, ptr %14, align 8, !tbaa !149
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !151
+  %17 = load i64, ptr %16, align 8, !tbaa !150
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !152
+  %19 = load i64, ptr %18, align 8, !tbaa !151
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !153
+  %21 = load i64, ptr %20, align 8, !tbaa !152
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %23 = load i64, ptr %22, align 8, !tbaa !154
+  %23 = load i64, ptr %22, align 8, !tbaa !153
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %25 = load i64, ptr %24, align 8, !tbaa !155
+  %25 = load i64, ptr %24, align 8, !tbaa !154
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %27 = load i64, ptr %26, align 8, !tbaa !156
+  %27 = load i64, ptr %26, align 8, !tbaa !155
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %29 = load i64, ptr %28, align 8, !tbaa !157
+  %29 = load i64, ptr %28, align 8, !tbaa !156
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %31 = load i64, ptr %30, align 8, !tbaa !158
+  %31 = load i64, ptr %30, align 8, !tbaa !157
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %33 = load i64, ptr %32, align 8, !tbaa !159
+  %33 = load i64, ptr %32, align 8, !tbaa !158
   %34 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %0, ptr noundef nonnull @.str.114, ptr noundef nonnull %7, ptr noundef %11, ptr noundef nonnull %7, i64 noundef %13, i64 noundef %15, i64 noundef %17, i64 noundef %19, ptr noundef nonnull %7, i64 noundef %21, i64 noundef %23, i64 noundef %25, i64 noundef %27, ptr noundef nonnull %7, i64 noundef %29, i64 noundef %31, i64 noundef %33) #8
   br label %35
 
@@ -3711,19 +3711,19 @@ define noundef i32 @pmix_bfrops_base_print_netstats(ptr noundef %0, ptr noundef 
   br label %25
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %2, align 8, !tbaa !160
+  %11 = load ptr, ptr %2, align 8, !tbaa !159
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !162
+  %13 = load i64, ptr %12, align 8, !tbaa !161
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !163
+  %15 = load i64, ptr %14, align 8, !tbaa !162
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !164
+  %17 = load i64, ptr %16, align 8, !tbaa !163
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !165
+  %19 = load i64, ptr %18, align 8, !tbaa !164
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !166
+  %21 = load i64, ptr %20, align 8, !tbaa !165
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %23 = load i64, ptr %22, align 8, !tbaa !167
+  %23 = load i64, ptr %22, align 8, !tbaa !166
   %24 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %0, ptr noundef nonnull @.str.116, ptr noundef nonnull %7, ptr noundef %11, ptr noundef nonnull %7, i64 noundef %13, i64 noundef %15, i64 noundef %17, ptr noundef nonnull %7, i64 noundef %19, i64 noundef %21, i64 noundef %23) #8
   br label %25
 
@@ -3744,42 +3744,42 @@ define noundef i32 @pmix_bfrops_base_print_ndstats(ptr noundef %0, ptr noundef %
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %12 = load i64, ptr %11, align 8, !tbaa !168
+  %12 = load i64, ptr %11, align 8, !tbaa !167
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %14 = load i64, ptr %13, align 8, !tbaa !170
-  %15 = load ptr, ptr %2, align 8, !tbaa !171
+  %14 = load i64, ptr %13, align 8, !tbaa !169
+  %15 = load ptr, ptr %2, align 8, !tbaa !170
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %17 = load float, ptr %16, align 4, !tbaa !172
+  %17 = load float, ptr %16, align 4, !tbaa !171
   %18 = fpext float %17 to double
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = load float, ptr %19, align 8, !tbaa !173
+  %20 = load float, ptr %19, align 8, !tbaa !172
   %21 = fpext float %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %23 = load float, ptr %22, align 4, !tbaa !174
+  %23 = load float, ptr %22, align 4, !tbaa !173
   %24 = fpext float %23 to double
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %26 = load float, ptr %25, align 8, !tbaa !175
+  %26 = load float, ptr %25, align 8, !tbaa !174
   %27 = fpext float %26 to double
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %29 = load float, ptr %28, align 4, !tbaa !176
+  %29 = load float, ptr %28, align 4, !tbaa !175
   %30 = fpext float %29 to double
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %32 = load float, ptr %31, align 8, !tbaa !177
+  %32 = load float, ptr %31, align 8, !tbaa !176
   %33 = fpext float %32 to double
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %35 = load float, ptr %34, align 4, !tbaa !178
+  %35 = load float, ptr %34, align 4, !tbaa !177
   %36 = fpext float %35 to double
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %38 = load float, ptr %37, align 8, !tbaa !179
+  %38 = load float, ptr %37, align 8, !tbaa !178
   %39 = fpext float %38 to double
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %41 = load float, ptr %40, align 8, !tbaa !180
+  %41 = load float, ptr %40, align 8, !tbaa !179
   %42 = fpext float %41 to double
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %44 = load float, ptr %43, align 4, !tbaa !181
+  %44 = load float, ptr %43, align 4, !tbaa !180
   %45 = fpext float %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %47 = load float, ptr %46, align 8, !tbaa !182
+  %47 = load float, ptr %46, align 8, !tbaa !181
   %48 = fpext float %47 to double
   %49 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %0, ptr noundef nonnull @.str.118, ptr noundef nonnull %7, i64 noundef %12, i64 noundef %14, ptr noundef %15, ptr noundef nonnull %7, double noundef %18, double noundef %21, double noundef %24, double noundef %27, ptr noundef nonnull %7, double noundef %30, double noundef %33, double noundef %36, double noundef %39, ptr noundef nonnull %7, double noundef %42, double noundef %45, double noundef %48) #8
   br label %50
@@ -3801,7 +3801,7 @@ define noundef i32 @pmix_bfrops_base_print_dbuf(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !183
+  %12 = load i64, ptr %11, align 8, !tbaa !182
   %13 = tail call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %0, ptr noundef nonnull @.str.120, ptr noundef nonnull %7, i64 noundef %12) #8
   br label %14
 
@@ -3933,77 +3933,76 @@ attributes #9 = { nounwind willreturn memory(read) }
 !108 = !{!"pmix_endpoint", !4, i64 0, !4, i64 8, !72, i64 16}
 !109 = !{!108, !4, i64 8}
 !110 = !{!108, !20, i64 24}
-!111 = distinct !{!111, !112, !113}
+!111 = distinct !{!111, !112}
 !112 = !{!"llvm.loop.mustprogress"}
-!113 = !{!"llvm.loop.estimated_trip_count"}
-!114 = !{!86, !86, i64 0}
-!115 = !{!116, !20, i64 0}
-!116 = !{!"pmix_geometry", !20, i64 0, !4, i64 8, !4, i64 16, !117, i64 24, !20, i64 32}
-!117 = !{!"p1 _ZTS10pmix_coord", !5, i64 0}
-!118 = !{!116, !4, i64 8}
-!119 = !{!116, !4, i64 16}
-!120 = !{!116, !20, i64 32}
-!121 = !{!116, !117, i64 24}
-!122 = distinct !{!122, !112, !113}
-!123 = !{!124, !86, i64 0}
-!124 = !{!"pmix_query", !86, i64 0, !125, i64 8, !20, i64 16}
-!125 = !{!"p1 _ZTS9pmix_info", !5, i64 0}
-!126 = distinct !{!126, !112, !113}
-!127 = !{!124, !20, i64 16}
-!128 = !{!124, !125, i64 8}
-!129 = distinct !{!129, !112, !113}
-!130 = !{!131, !20, i64 336}
-!131 = !{!"pmix_proc_stats", !4, i64 0, !11, i64 8, !10, i64 268, !4, i64 272, !6, i64 280, !25, i64 288, !65, i64 304, !10, i64 308, !13, i64 312, !65, i64 316, !65, i64 320, !65, i64 324, !65, i64 328, !13, i64 332, !25, i64 336}
-!132 = !{!131, !20, i64 344}
-!133 = !{!131, !4, i64 0}
-!134 = !{!131, !10, i64 268}
-!135 = !{!131, !4, i64 272}
-!136 = !{!131, !6, i64 280}
-!137 = !{!131, !10, i64 308}
-!138 = !{!131, !13, i64 312}
-!139 = !{!131, !13, i64 332}
-!140 = !{!131, !20, i64 288}
-!141 = !{!131, !20, i64 296}
-!142 = !{!131, !65, i64 304}
-!143 = !{!131, !65, i64 316}
-!144 = !{!131, !65, i64 320}
-!145 = !{!131, !65, i64 328}
-!146 = !{!131, !65, i64 324}
-!147 = !{!148, !4, i64 0}
-!148 = !{!"", !4, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !20, i64 80, !20, i64 88}
-!149 = !{!148, !20, i64 8}
-!150 = !{!148, !20, i64 16}
-!151 = !{!148, !20, i64 24}
-!152 = !{!148, !20, i64 32}
-!153 = !{!148, !20, i64 40}
-!154 = !{!148, !20, i64 48}
-!155 = !{!148, !20, i64 56}
-!156 = !{!148, !20, i64 64}
-!157 = !{!148, !20, i64 72}
-!158 = !{!148, !20, i64 80}
-!159 = !{!148, !20, i64 88}
-!160 = !{!161, !4, i64 0}
-!161 = !{!"", !4, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48}
-!162 = !{!161, !20, i64 8}
-!163 = !{!161, !20, i64 16}
-!164 = !{!161, !20, i64 24}
-!165 = !{!161, !20, i64 32}
-!166 = !{!161, !20, i64 40}
-!167 = !{!161, !20, i64 48}
-!168 = !{!169, !20, i64 56}
-!169 = !{!"", !4, i64 0, !65, i64 8, !65, i64 12, !65, i64 16, !65, i64 20, !65, i64 24, !65, i64 28, !65, i64 32, !65, i64 36, !65, i64 40, !65, i64 44, !65, i64 48, !25, i64 56, !5, i64 72, !20, i64 80, !5, i64 88, !20, i64 96}
-!170 = !{!169, !20, i64 64}
-!171 = !{!169, !4, i64 0}
-!172 = !{!169, !65, i64 20}
-!173 = !{!169, !65, i64 24}
-!174 = !{!169, !65, i64 28}
-!175 = !{!169, !65, i64 32}
-!176 = !{!169, !65, i64 36}
-!177 = !{!169, !65, i64 40}
-!178 = !{!169, !65, i64 44}
-!179 = !{!169, !65, i64 48}
-!180 = !{!169, !65, i64 8}
-!181 = !{!169, !65, i64 12}
-!182 = !{!169, !65, i64 16}
-!183 = !{!184, !20, i64 32}
-!184 = !{!"pmix_data_buffer", !4, i64 0, !4, i64 8, !4, i64 16, !20, i64 24, !20, i64 32}
+!113 = !{!86, !86, i64 0}
+!114 = !{!115, !20, i64 0}
+!115 = !{!"pmix_geometry", !20, i64 0, !4, i64 8, !4, i64 16, !116, i64 24, !20, i64 32}
+!116 = !{!"p1 _ZTS10pmix_coord", !5, i64 0}
+!117 = !{!115, !4, i64 8}
+!118 = !{!115, !4, i64 16}
+!119 = !{!115, !20, i64 32}
+!120 = !{!115, !116, i64 24}
+!121 = distinct !{!121, !112}
+!122 = !{!123, !86, i64 0}
+!123 = !{!"pmix_query", !86, i64 0, !124, i64 8, !20, i64 16}
+!124 = !{!"p1 _ZTS9pmix_info", !5, i64 0}
+!125 = distinct !{!125, !112}
+!126 = !{!123, !20, i64 16}
+!127 = !{!123, !124, i64 8}
+!128 = distinct !{!128, !112}
+!129 = !{!130, !20, i64 336}
+!130 = !{!"pmix_proc_stats", !4, i64 0, !11, i64 8, !10, i64 268, !4, i64 272, !6, i64 280, !25, i64 288, !65, i64 304, !10, i64 308, !13, i64 312, !65, i64 316, !65, i64 320, !65, i64 324, !65, i64 328, !13, i64 332, !25, i64 336}
+!131 = !{!130, !20, i64 344}
+!132 = !{!130, !4, i64 0}
+!133 = !{!130, !10, i64 268}
+!134 = !{!130, !4, i64 272}
+!135 = !{!130, !6, i64 280}
+!136 = !{!130, !10, i64 308}
+!137 = !{!130, !13, i64 312}
+!138 = !{!130, !13, i64 332}
+!139 = !{!130, !20, i64 288}
+!140 = !{!130, !20, i64 296}
+!141 = !{!130, !65, i64 304}
+!142 = !{!130, !65, i64 316}
+!143 = !{!130, !65, i64 320}
+!144 = !{!130, !65, i64 328}
+!145 = !{!130, !65, i64 324}
+!146 = !{!147, !4, i64 0}
+!147 = !{!"", !4, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !20, i64 80, !20, i64 88}
+!148 = !{!147, !20, i64 8}
+!149 = !{!147, !20, i64 16}
+!150 = !{!147, !20, i64 24}
+!151 = !{!147, !20, i64 32}
+!152 = !{!147, !20, i64 40}
+!153 = !{!147, !20, i64 48}
+!154 = !{!147, !20, i64 56}
+!155 = !{!147, !20, i64 64}
+!156 = !{!147, !20, i64 72}
+!157 = !{!147, !20, i64 80}
+!158 = !{!147, !20, i64 88}
+!159 = !{!160, !4, i64 0}
+!160 = !{!"", !4, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48}
+!161 = !{!160, !20, i64 8}
+!162 = !{!160, !20, i64 16}
+!163 = !{!160, !20, i64 24}
+!164 = !{!160, !20, i64 32}
+!165 = !{!160, !20, i64 40}
+!166 = !{!160, !20, i64 48}
+!167 = !{!168, !20, i64 56}
+!168 = !{!"", !4, i64 0, !65, i64 8, !65, i64 12, !65, i64 16, !65, i64 20, !65, i64 24, !65, i64 28, !65, i64 32, !65, i64 36, !65, i64 40, !65, i64 44, !65, i64 48, !25, i64 56, !5, i64 72, !20, i64 80, !5, i64 88, !20, i64 96}
+!169 = !{!168, !20, i64 64}
+!170 = !{!168, !4, i64 0}
+!171 = !{!168, !65, i64 20}
+!172 = !{!168, !65, i64 24}
+!173 = !{!168, !65, i64 28}
+!174 = !{!168, !65, i64 32}
+!175 = !{!168, !65, i64 36}
+!176 = !{!168, !65, i64 40}
+!177 = !{!168, !65, i64 44}
+!178 = !{!168, !65, i64 48}
+!179 = !{!168, !65, i64 8}
+!180 = !{!168, !65, i64 12}
+!181 = !{!168, !65, i64 16}
+!182 = !{!183, !20, i64 32}
+!183 = !{!"pmix_data_buffer", !4, i64 0, !4, i64 8, !4, i64 16, !20, i64 24, !20, i64 32}

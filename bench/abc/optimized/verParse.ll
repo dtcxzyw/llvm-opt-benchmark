@@ -89,7 +89,7 @@ define ptr @Ver_ParseGetName(ptr noundef initializes((32, 36)) %0) local_unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %4, align 8, !tbaa !20
+  store i32 0, ptr %4, align 8, !tbaa !19
   %5 = tail call i32 @Ver_StreamIsOkey(ptr noundef %3) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %31, label %6
@@ -105,7 +105,7 @@ define ptr @Ver_ParseGetName(ptr noundef initializes((32, 36)) %0) local_unnamed
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %8
-  store i32 1, ptr %4, align 8, !tbaa !20
+  store i32 1, ptr %4, align 8, !tbaa !19
   %12 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %3) #4
   %13 = tail call ptr @Ver_StreamGetWord(ptr noundef %3, ptr noundef nonnull @.str.4) #4
   tail call void @Ver_StreamSkipChars(ptr noundef %3, ptr noundef nonnull @.str.4) #4
@@ -124,16 +124,16 @@ define ptr @Ver_ParseGetName(ptr noundef initializes((32, 36)) %0) local_unnamed
   %20 = phi i8 [ %22, %.lr.ph ], [ %19, %16 ]
   %.030 = phi ptr [ %21, %.lr.ph ], [ %18, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.030, i64 1
-  store i8 %20, ptr %.030, align 1, !tbaa !21
+  store i8 %20, ptr %.030, align 1, !tbaa !20
   %22 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %3) #4
   %.not26 = icmp eq i8 %22, 93
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.0.lcssa = phi ptr [ %18, %16 ], [ %21, %.lr.ph ]
   %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  store i8 93, ptr %.0.lcssa, align 1, !tbaa !21
-  store i8 0, ptr %23, align 1, !tbaa !21
+  store i8 93, ptr %.0.lcssa, align 1, !tbaa !20
+  store i8 0, ptr %23, align 1, !tbaa !20
   br label %26
 
 24:                                               ; preds = %8
@@ -193,9 +193,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !14 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !15 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
 !16 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!4, !5, i64 32}
-!21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !18, !19}
+!19 = !{!4, !5, i64 32}
+!20 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !18}

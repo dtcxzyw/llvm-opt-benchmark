@@ -595,7 +595,7 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnon
   store double %68, ptr %66, align 8, !tbaa !64
   %69 = add nsw i64 %.0102124.i, %49
   %70 = icmp slt i64 %69, %55
-  br i1 %70, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !65
+  br i1 %70, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %54
   %71 = load ptr, ptr %34, align 8, !tbaa !27
@@ -654,18 +654,18 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnon
   store double %104, ptr %106, align 8, !tbaa !64
   %107 = add nuw nsw i64 %.0101126.i, 1
   %.not121.not.i = icmp slt i64 %.0101126.i, %98
-  br i1 %.not121.not.i, label %.lr.ph128.i, label %._crit_edge129.i, !llvm.loop !67
+  br i1 %.not121.not.i, label %.lr.ph128.i, label %._crit_edge129.i
 
 ._crit_edge129.i:                                 ; preds = %.lr.ph128.i, %.lr.ph131.i
   %108 = add nsw i64 %.1130.i, %49
   %109 = icmp slt i64 %108, %96
-  br i1 %109, label %.lr.ph131.i, label %._crit_edge132.i, !llvm.loop !68
+  br i1 %109, label %.lr.ph131.i, label %._crit_edge132.i
 
 ._crit_edge132.i:                                 ; preds = %._crit_edge129.i, %.preheader.i
   %110 = phi i64 [ %76, %.preheader.i ], [ %96, %._crit_edge129.i ]
   %111 = add nuw i64 %.0100134.i, 1
   %exitcond.not.i = icmp eq i64 %.0100134.i, %..i
-  br i1 %exitcond.not.i, label %KBBDDQJac.exit, label %54, !llvm.loop !69
+  br i1 %exitcond.not.i, label %KBBDDQJac.exit, label %54
 
 .loopexit:                                        ; preds = %._crit_edge.i, %27, %33
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %7, i32 noundef -1, i32 noundef 427, ptr noundef nonnull @__func__.KINBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
@@ -712,7 +712,7 @@ define internal i32 @KINBBDPrecSolve(ptr readnone captures(none) %0, ptr readnon
   store double %24, ptr %25, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret i32 %19
@@ -909,9 +909,3 @@ attributes #10 = { nounwind allocsize(0) }
 !62 = !{!61, !6, i64 144}
 !63 = !{!4, !6, i64 24}
 !64 = !{!9, !9, i64 0}
-!65 = distinct !{!65, !66}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = distinct !{!67, !66}
-!68 = distinct !{!68, !66}
-!69 = distinct !{!69, !66}
-!70 = distinct !{!70, !66}

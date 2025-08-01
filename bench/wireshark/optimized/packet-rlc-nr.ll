@@ -1706,7 +1706,7 @@ proto_item_set_hidden.exit.i141:                  ; preds = %365, %362, %359
 511:                                              ; preds = %506, %502
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %502, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %502, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %511, %493
   %512 = add i32 %499, %.0139168.i.i
@@ -1717,7 +1717,7 @@ proto_item_set_hidden.exit.i141:                  ; preds = %365, %362, %359
   %.3.i.i = phi i32 [ %.1138.i.i, %484 ], [ %490, %._crit_edge.i.i ]
   %514 = load i64, ptr %8, align 8
   %.not153.i.i = icmp eq i64 %514, 0
-  br i1 %.not153.i.i, label %._crit_edge172.i.i, label %415, !llvm.loop !12
+  br i1 %.not153.i.i, label %._crit_edge172.i.i, label %415, !llvm.loop !11
 
 ._crit_edge172.i.i:                               ; preds = %513
   %.not154.i.i = icmp eq i32 %.4.i.i, 0
@@ -2853,8 +2853,7 @@ attributes #13 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

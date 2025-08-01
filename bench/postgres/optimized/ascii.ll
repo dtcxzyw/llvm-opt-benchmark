@@ -203,7 +203,7 @@ switch.lookup:                                    ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.02435, i64 1
   %16 = add i64 %6, -1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %14, %.lr.ph, %.preheader
   %.024.lcssa = phi ptr [ %0, %.preheader ], [ %.02435, %.lr.ph ], [ %15, %14 ]
@@ -233,7 +233,5 @@ attributes #6 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}

@@ -285,7 +285,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br i1 %7, label %.preheader19.preheader, label %.loopexit20
 
 .preheader19.preheader:                           ; preds = %3
-  store i8 0, ptr %4, align 1, !annotation !9
+  store i8 0, ptr %4, align 1, !annotation !8
   br label %.preheader19
 
 .preheader19:                                     ; preds = %.preheader19.preheader, %.loopexit
@@ -336,7 +336,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %27 = and i16 %26, %25
   %28 = add i8 %24, 1
   %29 = icmp eq i16 %27, 0
-  br i1 %29, label %.loopexit.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %29, label %.loopexit.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %30 = zext i8 %28 to i32
@@ -358,7 +358,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %40 = and i16 %39, %38
   %41 = add i8 %37, 1
   %42 = icmp eq i16 %40, 0
-  br i1 %42, label %.loopexit18.loopexit, label %36, !llvm.loop !11
+  br i1 %42, label %.loopexit18.loopexit, label %36, !llvm.loop !9
 
 .loopexit18.loopexit:                             ; preds = %36
   %43 = zext i8 %41 to i32
@@ -577,7 +577,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %215 = zext i32 %214 to i64
   %216 = getelementptr i8, ptr %8, i64 %215
   %217 = icmp ult ptr %216, %6
-  br i1 %217, label %.preheader19, label %.loopexit20, !llvm.loop !12
+  br i1 %217, label %.preheader19, label %.loopexit20, !llvm.loop !10
 
 .loopexit20:                                      ; preds = %.loopexit, %11, %.preheader19, %3
   %218 = phi i32 [ 12316, %3 ], [ 12316, %.loopexit ], [ 0, %11 ], [ %9, %.preheader19 ]
@@ -662,7 +662,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   %37 = getelementptr i8, ptr %26, i64 8
   %38 = add nuw i32 %25, 1
   %exitcond.not = icmp eq i32 %38, %21
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -691,7 +691,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   %56 = getelementptr i8, ptr %11, i64 8
   %57 = add nuw i32 %10, 1
   %58 = icmp eq i32 %57, %4
-  br i1 %58, label %59, label %9, !llvm.loop !14
+  br i1 %58, label %59, label %9, !llvm.loop !12
 
 59:                                               ; preds = %52
   %60 = add i64 %55, 24
@@ -723,13 +723,11 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}

@@ -311,7 +311,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC
   %6 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #8
   %7 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge.thread, !llvm.loop !9
+  br i1 %8, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge.thread, !llvm.loop !8
 
 ._crit_edge.thread:                               ; preds = %_ZN13MonitorLocker4waitEl.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1308
@@ -602,7 +602,6 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

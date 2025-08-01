@@ -487,7 +487,7 @@ define dso_local noundef zeroext i1 @_ZN22btSubsimplexConvexCast16calcTimeOfImpa
   %.sroa.8.0.lcssa = phi <2 x float> [ zeroinitializer, %6 ], [ %.sroa.8.1, %300 ], [ %.sroa.8.0227, %169 ]
   %.049.lcssa = phi float [ 0.000000e+00, %6 ], [ %.251, %300 ], [ %.049235, %169 ]
   %303 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store float %.049.lcssa, ptr %303, align 8, !tbaa !30
+  store float %.049.lcssa, ptr %303, align 8, !tbaa !29
   %.sroa.0149.0.vec.extract = extractelement <2 x float> %.sroa.0149.0.lcssa, i64 0
   %.sroa.0149.4.vec.extract = extractelement <2 x float> %.sroa.0149.0.lcssa, i64 1
   %304 = fmul float %.sroa.0149.4.vec.extract, %.sroa.0149.4.vec.extract
@@ -525,7 +525,7 @@ define dso_local noundef zeroext i1 @_ZN22btSubsimplexConvexCast16calcTimeOfImpa
   %321 = call float @llvm.fmuladd.f32(float %319, float %53, float %320)
   %322 = call noundef float @llvm.fmuladd.f32(float %317, float %55, float %321)
   %323 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %324 = load float, ptr %323, align 8, !tbaa !31
+  %324 = load float, ptr %323, align 8, !tbaa !30
   %325 = fneg float %324
   %326 = fcmp ult float %322, %325
   br i1 %326, label %327, label %.critedge60
@@ -536,7 +536,7 @@ define dso_local noundef zeroext i1 @_ZN22btSubsimplexConvexCast16calcTimeOfImpa
   %328 = load ptr, ptr %17, align 8, !tbaa !7
   call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %328, ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %16)
   %329 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %329, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %329, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #11
   br label %.critedge60
@@ -634,9 +634,8 @@ attributes #12 = { builtin nounwind }
 !24 = !{!"p1 _ZTS12btIDebugDraw", !11, i64 0}
 !25 = !{!"int", !12, i64 0}
 !26 = !{!20, !17, i64 192}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!20, !17, i64 168}
-!31 = !{!20, !17, i64 184}
-!32 = !{i64 0, i64 16, !18}
+!29 = !{!20, !17, i64 168}
+!30 = !{!20, !17, i64 184}
+!31 = !{i64 0, i64 16, !18}

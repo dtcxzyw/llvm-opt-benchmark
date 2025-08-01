@@ -99,7 +99,7 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr noundef
   %12 = phi i8 [ %6, %.lr.ph ], [ %.pr, %17 ]
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i16, ptr %8, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !17
+  %15 = load i16, ptr %14, align 2, !tbaa !16
   %16 = and i16 %15, 8
   %.not27 = icmp eq i16 %16, 0
   br i1 %.not27, label %.critedge2, label %17
@@ -108,7 +108,7 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr noundef
   %18 = getelementptr inbounds nuw i8, ptr %.237, i64 1
   %.pr = load i8, ptr %18, align 1, !tbaa !10
   %.not26 = icmp eq i8 %.pr, 0
-  br i1 %.not26, label %.critedge2, label %11, !llvm.loop !19
+  br i1 %.not26, label %.critedge2, label %11, !llvm.loop !18
 
 .critedge2:                                       ; preds = %11, %17
   %.2.lcssa.ph = phi ptr [ %.237, %11 ], [ %18, %17 ]
@@ -119,7 +119,7 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr noundef
   %20 = load i8, ptr %.3, align 1, !tbaa !10
   %cond32 = icmp eq i8 %20, 32
   %21 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %cond32, label %19, label %.critedge4.loopexit, !llvm.loop !20
+  br i1 %cond32, label %19, label %.critedge4.loopexit, !llvm.loop !19
 
 .critedge4.loopexit:                              ; preds = %19
   %22 = ptrtoint ptr %.2.lcssa.ph to i64
@@ -143,7 +143,7 @@ define internal zeroext i1 @Check_AlphaNumeric_Character(i32 noundef %0, ptr rea
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds i16, ptr %4, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !17
+  %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = and i16 %7, 8
   %9 = icmp ne i16 %8, 0
   ret i1 %9
@@ -189,10 +189,9 @@ attributes #11 = { nounwind willreturn memory(none) }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 short", !13, i64 0}
 !13 = !{!"any pointer", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !6, i64 0}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}

@@ -1226,7 +1226,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   store i32 %105, ptr %2, align 4
   %106 = add nuw nsw i32 %.0104114.i, 1
   %exitcond.not.i = icmp eq i32 %106, %85
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph115.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph115.i, !llvm.loop !8
 
 107:                                              ; preds = %82
   %108 = load i32, ptr %2, align 4
@@ -1350,7 +1350,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   store i32 %187, ptr %2, align 4
   %188 = add nsw i32 %.0112.i, -2
   %189 = icmp samesign ugt i32 %.0112.i, 2
-  br i1 %189, label %.lr.ph.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, !llvm.loop !10
+  br i1 %189, label %.lr.ph.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, !llvm.loop !9
 
 190:                                              ; preds = %81
   switch i8 %.1, label %dissect_rf4ce_profile_zrc20_attrs.exit [
@@ -1427,7 +1427,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
   %238 = add nuw nsw i32 %.06669.i, 1
   %exitcond.not.i100 = icmp eq i32 %.06669.i, %204
-  br i1 %exitcond.not.i100, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %.lr.ph.i99, !llvm.loop !11
+  br i1 %exitcond.not.i100, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %.lr.ph.i99, !llvm.loop !10
 
 239:                                              ; preds = %190
   %240 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_method_id, align 4
@@ -1497,7 +1497,7 @@ dissect_rf4ce_profile_zrc20_attrs.exit.thread:    ; preds = %.lr.ph.i99, %.lr.ph
   %281 = call i32 @tvb_captured_length(ptr noundef %0)
   %282 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %281, %282
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %279, %5
   ret void
@@ -1638,10 +1638,9 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

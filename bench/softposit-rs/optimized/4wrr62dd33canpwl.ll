@@ -63,7 +63,7 @@ define noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..qui
   %16 = add i8 %.05171, 1
   %17 = shl nuw i64 %.05870, 1
   %18 = icmp sgt i64 %17, -1
-  br i1 %18, label %.lr.ph72, label %.loopexit, !llvm.loop !5
+  br i1 %18, label %.lr.ph72, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph72, %.preheader, %._crit_edge
   %.2 = phi i64 [ %42, %._crit_edge ], [ %.sroa.10.0, %.preheader ], [ %17, %.lr.ph72 ]
@@ -103,7 +103,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %35 = add i8 %.05068, 1
   %36 = shl nuw i64 %.15967, 1
   %37 = icmp sgt i64 %36, -1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader66
   %.159.lcssa = phi i64 [ %.sroa.01.082, %.preheader66 ], [ %36, %.lr.ph ]
@@ -290,7 +290,7 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   %16 = add i8 %.0916.i.i, -1
   %17 = shl nuw i16 %.017.i.i, 1
   %18 = icmp sgt i16 %17, -1
-  br i1 %18, label %.lr.ph18.i.i, label %._crit_edge.i.i, !llvm.loop !8
+  br i1 %18, label %.lr.ph18.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
   %.09.lcssa.i.i = phi i8 [ -1, %.preheader.i.i ], [ %16, %.lr.ph18.i.i ]
@@ -304,7 +304,7 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   %20 = add nuw nsw i8 %.11013.i.i, 1
   %21 = shl i16 %.114.i.i, 1
   %22 = icmp sgt i16 %21, -1
-  br i1 %22, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %22, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i, label %.lr.ph.i.i
 
 _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %.preheader12.i.i
   %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %20, %.lr.ph.i.i ]
@@ -336,7 +336,7 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %.val = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !10
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !5
   store ptr @anon.ade9f7a0850fbf939fbb2c4249dd7fa3.2, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -346,8 +346,8 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !10
+  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !5
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %41
@@ -384,11 +384,6 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!12 = distinct !{!12, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!5 = !{!6}
+!6 = distinct !{!6, !7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
+!7 = distinct !{!7, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}

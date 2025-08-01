@@ -119,7 +119,7 @@ define void @st__free_table(ptr noundef captures(none) %0) local_unnamed_addr #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %._crit_edge24, !llvm.loop !26
+  br i1 %15, label %6, label %._crit_edge24, !llvm.loop !25
 
 ._crit_edge24:                                    ; preds = %._crit_edge, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -189,7 +189,7 @@ define range(i32 0, 2) i32 @st__lookup(ptr noundef readonly captures(none) %0, p
   %35 = icmp eq ptr %34, @st__numcmp
   %36 = icmp eq ptr %34, @st__ptrcmp
   %or.cond = or i1 %35, %36
-  %37 = load ptr, ptr %.03650, align 8, !tbaa !27
+  %37 = load ptr, ptr %.03650, align 8, !tbaa !26
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
@@ -205,7 +205,7 @@ define range(i32 0, 2) i32 @st__lookup(ptr noundef readonly captures(none) %0, p
   %43 = getelementptr inbounds nuw i8, ptr %.03650, i64 16
   %.036 = load ptr, ptr %43, align 8, !tbaa !18
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !27
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -230,8 +230,8 @@ define range(i32 0, 2) i32 @st__lookup(ptr noundef readonly captures(none) %0, p
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %.03650, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !29
-  store ptr %55, ptr %2, align 8, !tbaa !30
+  %55 = load ptr, ptr %54, align 8, !tbaa !28
+  store ptr %55, ptr %2, align 8, !tbaa !29
   br label %.critedge44
 
 .critedge44:                                      ; preds = %42, %28, %52, %53
@@ -325,7 +325,7 @@ define range(i32 0, 2) i32 @st__lookup_int(ptr noundef readonly captures(none) %
   %35 = icmp eq ptr %34, @st__numcmp
   %36 = icmp eq ptr %34, @st__ptrcmp
   %or.cond = or i1 %35, %36
-  %37 = load ptr, ptr %.03650, align 8, !tbaa !27
+  %37 = load ptr, ptr %.03650, align 8, !tbaa !26
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
@@ -341,7 +341,7 @@ define range(i32 0, 2) i32 @st__lookup_int(ptr noundef readonly captures(none) %
   %43 = getelementptr inbounds nuw i8, ptr %.03650, i64 16
   %.036 = load ptr, ptr %43, align 8, !tbaa !18
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !30
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -366,10 +366,10 @@ define range(i32 0, 2) i32 @st__lookup_int(ptr noundef readonly captures(none) %
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %.03650, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !29
+  %55 = load ptr, ptr %54, align 8, !tbaa !28
   %56 = ptrtoint ptr %55 to i64
   %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %2, align 4, !tbaa !32
+  store i32 %57, ptr %2, align 4, !tbaa !31
   br label %.critedge44
 
 .critedge44:                                      ; preds = %42, %28, %52, %53
@@ -430,7 +430,7 @@ define range(i32 -10000, 2) i32 @st__insert(ptr noundef captures(none) %0, ptr n
   %35 = icmp eq ptr %34, @st__numcmp
   %36 = icmp eq ptr %34, @st__ptrcmp
   %or.cond = or i1 %35, %36
-  %37 = load ptr, ptr %.06076, align 8, !tbaa !27
+  %37 = load ptr, ptr %.06076, align 8, !tbaa !26
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
@@ -446,7 +446,7 @@ define range(i32 -10000, 2) i32 @st__insert(ptr noundef captures(none) %0, ptr n
   %43 = getelementptr inbounds nuw i8, ptr %.06076, i64 16
   %.060 = load ptr, ptr %43, align 8, !tbaa !18
   %.not = icmp eq ptr %.060, null
-  br i1 %.not, label %.critedge70, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %.critedge70, label %.lr.ph, !llvm.loop !32
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -519,9 +519,9 @@ define range(i32 -10000, 2) i32 @st__insert(ptr noundef captures(none) %0, ptr n
   br i1 %85, label %97, label %86
 
 86:                                               ; preds = %83
-  store ptr %1, ptr %84, align 8, !tbaa !27
+  store ptr %1, ptr %84, align 8, !tbaa !26
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %2, ptr %87, align 8, !tbaa !29
+  store ptr %2, ptr %87, align 8, !tbaa !28
   %88 = load ptr, ptr %30, align 8, !tbaa !17
   %89 = sext i32 %.062 to i64
   %90 = getelementptr inbounds ptr, ptr %88, i64 %89
@@ -536,7 +536,7 @@ define range(i32 -10000, 2) i32 @st__insert(ptr noundef captures(none) %0, ptr n
 
 95:                                               ; preds = %46, %.critedge
   %96 = getelementptr inbounds nuw i8, ptr %.06076, i64 8
-  store ptr %2, ptr %96, align 8, !tbaa !29
+  store ptr %2, ptr %96, align 8, !tbaa !28
   br label %97
 
 97:                                               ; preds = %83, %59, %95, %86
@@ -617,7 +617,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   %.04957.us = phi ptr [ %27, %.lr.ph58.split.us ], [ %35, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %.04957.us, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !20
-  %36 = load ptr, ptr %.04957.us, align 8, !tbaa !27
+  %36 = load ptr, ptr %.04957.us, align 8, !tbaa !26
   %37 = ptrtoint ptr %36 to i64
   %38 = lshr i64 %37, 2
   %39 = urem i64 %38, %31
@@ -629,7 +629,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   store ptr %.04957.us, ptr %41, align 8, !tbaa !18
   %43 = add nsw i32 %33, 1
   %.not53.us = icmp eq ptr %35, null
-  br i1 %.not53.us, label %._crit_edge.split.us, label %32, !llvm.loop !34
+  br i1 %.not53.us, label %._crit_edge.split.us, label %32, !llvm.loop !33
 
 ._crit_edge.split.us:                             ; preds = %32
   store i32 %43, ptr %6, align 4, !tbaa !12
@@ -651,7 +651,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %.lr.ph58.split
-  %52 = load ptr, ptr %.04957, align 8, !tbaa !27
+  %52 = load ptr, ptr %.04957, align 8, !tbaa !26
   %53 = ptrtoint ptr %52 to i64
   %54 = lshr i64 %53, 2
   %55 = load i32, ptr %4, align 8, !tbaa !16
@@ -662,7 +662,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
 
 59:                                               ; preds = %.lr.ph58.split
   %60 = icmp eq ptr %44, @st__numhash
-  %61 = load ptr, ptr %.04957, align 8, !tbaa !27
+  %61 = load ptr, ptr %.04957, align 8, !tbaa !26
   br i1 %60, label %62, label %68
 
 62:                                               ; preds = %59
@@ -693,7 +693,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   %79 = add nsw i32 %73, 1
   store i32 %79, ptr %6, align 4, !tbaa !12
   %.not53 = icmp eq ptr %49, null
-  br i1 %.not53, label %._crit_edge, label %.lr.ph58.splitthread-pre-split, !llvm.loop !36
+  br i1 %.not53, label %._crit_edge, label %.lr.ph58.splitthread-pre-split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %71, %._crit_edge.split.us, %23
   %80 = phi ptr [ %24, %._crit_edge.split.us ], [ %24, %23 ], [ %72, %71 ]
@@ -701,7 +701,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   %82 = phi ptr [ %24, %._crit_edge.split.us ], [ %25, %23 ], [ %74, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge61, label %23, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge61, label %23, !llvm.loop !37
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %.preheader
   %.not = icmp eq ptr %3, null
@@ -785,9 +785,9 @@ define range(i32 -10000, 2) i32 @st__add_direct(ptr noundef captures(none) %0, p
   br i1 %47, label %58, label %48
 
 48:                                               ; preds = %44
-  store ptr %1, ptr %46, align 8, !tbaa !27
+  store ptr %1, ptr %46, align 8, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %2, ptr %49, align 8, !tbaa !29
+  store ptr %2, ptr %49, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %52 = sext i32 %45 to i64
@@ -859,7 +859,7 @@ define range(i32 -10000, 2) i32 @st__find_or_add(ptr noundef captures(none) %0, 
   %35 = icmp eq ptr %34, @st__numcmp
   %36 = icmp eq ptr %34, @st__ptrcmp
   %or.cond = or i1 %35, %36
-  %37 = load ptr, ptr %.06382, align 8, !tbaa !27
+  %37 = load ptr, ptr %.06382, align 8, !tbaa !26
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
@@ -875,7 +875,7 @@ define range(i32 -10000, 2) i32 @st__find_or_add(ptr noundef captures(none) %0, 
   %43 = getelementptr inbounds nuw i8, ptr %.06382, i64 16
   %.063 = load ptr, ptr %43, align 8, !tbaa !18
   %.not = icmp eq ptr %.063, null
-  br i1 %.not, label %.critedge76, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.critedge76, label %.lr.ph, !llvm.loop !38
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -948,9 +948,9 @@ define range(i32 -10000, 2) i32 @st__find_or_add(ptr noundef captures(none) %0, 
   br i1 %85, label %98, label %86
 
 86:                                               ; preds = %83
-  store ptr %1, ptr %84, align 8, !tbaa !27
+  store ptr %1, ptr %84, align 8, !tbaa !26
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr null, ptr %87, align 8, !tbaa !29
+  store ptr null, ptr %87, align 8, !tbaa !28
   %88 = load ptr, ptr %30, align 8, !tbaa !17
   %89 = sext i32 %.065 to i64
   %90 = getelementptr inbounds ptr, ptr %88, i64 %89
@@ -975,7 +975,7 @@ define range(i32 -10000, 2) i32 @st__find_or_add(ptr noundef captures(none) %0, 
 .sink.split:                                      ; preds = %86, %96
   %.sink = phi ptr [ %97, %96 ], [ %87, %86 ]
   %.064.ph = phi i32 [ 1, %96 ], [ 0, %86 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !40
+  store ptr %.sink, ptr %2, align 8, !tbaa !39
   br label %98
 
 98:                                               ; preds = %.sink.split, %95, %86, %83, %59
@@ -1036,7 +1036,7 @@ define range(i32 0, 2) i32 @st__find(ptr noundef readonly captures(none) %0, ptr
   %35 = icmp eq ptr %34, @st__numcmp
   %36 = icmp eq ptr %34, @st__ptrcmp
   %or.cond = or i1 %35, %36
-  %37 = load ptr, ptr %.03650, align 8, !tbaa !27
+  %37 = load ptr, ptr %.03650, align 8, !tbaa !26
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
@@ -1052,7 +1052,7 @@ define range(i32 0, 2) i32 @st__find(ptr noundef readonly captures(none) %0, ptr
   %43 = getelementptr inbounds nuw i8, ptr %.03650, i64 16
   %.036 = load ptr, ptr %43, align 8, !tbaa !18
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %.critedge44, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1077,7 +1077,7 @@ define range(i32 0, 2) i32 @st__find(ptr noundef readonly captures(none) %0, ptr
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %.03650, i64 8
-  store ptr %54, ptr %2, align 8, !tbaa !40
+  store ptr %54, ptr %2, align 8, !tbaa !39
   br label %.critedge44
 
 .critedge44:                                      ; preds = %42, %28, %52, %53
@@ -1094,7 +1094,7 @@ define noalias noundef ptr @st__copy(ptr noundef readonly captures(none) %0) loc
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 40, i1 false), !tbaa.struct !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 40, i1 false), !tbaa.struct !42
   %7 = sext i32 %3 to i64
   %8 = shl nsw i64 %7, 3
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #13
@@ -1147,32 +1147,32 @@ define noalias noundef ptr @st__copy(ptr noundef readonly captures(none) %0) loc
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   tail call void @free(ptr noundef nonnull %.04661) #14
   %.not52 = icmp eq ptr %25, null
-  br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !47
+  br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !46
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %21
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count74
-  br i1 %exitcond75.not, label %26, label %21, !llvm.loop !48
+  br i1 %exitcond75.not, label %26, label %21, !llvm.loop !47
 
 26:                                               ; preds = %._crit_edge64
   tail call void @free(ptr noundef nonnull %9) #14
   br label %.loopexit.sink.split
 
 27:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.04557, i64 16, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.04557, i64 16, i1 false), !tbaa.struct !48
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %18, ptr %28, align 8, !tbaa !20
   store ptr %19, ptr %16, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %.04557, i64 16
   %.045 = load ptr, ptr %29, align 8, !tbaa !18
   %.not = icmp eq ptr %.045, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %27, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next72 = add nuw i32 %indvars.iv71, 1
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !50
 
 .loopexit.sink.split:                             ; preds = %6, %26
   tail call void @free(ptr noundef %4) #14
@@ -1188,7 +1188,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @st__delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !30
+  %4 = load ptr, ptr %1, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = icmp eq ptr %6, @st__ptrhash
@@ -1240,7 +1240,7 @@ define range(i32 0, 2) i32 @st__delete(ptr noundef captures(none) %0, ptr nounde
   %36 = icmp eq ptr %35, @st__numcmp
   %37 = icmp eq ptr %35, @st__ptrcmp
   %or.cond = or i1 %36, %37
-  %38 = load ptr, ptr %.04458, align 8, !tbaa !27
+  %38 = load ptr, ptr %.04458, align 8, !tbaa !26
   br i1 %or.cond, label %39, label %40
 
 39:                                               ; preds = %.lr.ph
@@ -1256,7 +1256,7 @@ define range(i32 0, 2) i32 @st__delete(ptr noundef captures(none) %0, ptr nounde
   %44 = getelementptr inbounds nuw i8, ptr %.04458, i64 16
   %.044 = load ptr, ptr %44, align 8, !tbaa !18
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !51
 
 .critedge:                                        ; preds = %40, %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1284,13 +1284,13 @@ define range(i32 0, 2) i32 @st__delete(ptr noundef captures(none) %0, ptr nounde
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %.04458, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !29
-  store ptr %58, ptr %2, align 8, !tbaa !30
+  %58 = load ptr, ptr %57, align 8, !tbaa !28
+  store ptr %58, ptr %2, align 8, !tbaa !29
   br label %59
 
 59:                                               ; preds = %56, %53
-  %60 = load ptr, ptr %.04458, align 8, !tbaa !27
-  store ptr %60, ptr %1, align 8, !tbaa !30
+  %60 = load ptr, ptr %.04458, align 8, !tbaa !26
+  store ptr %60, ptr %1, align 8, !tbaa !29
   tail call void @free(ptr noundef nonnull %.04458) #14
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %62 = load i32, ptr %61, align 4, !tbaa !12
@@ -1305,7 +1305,7 @@ define range(i32 0, 2) i32 @st__delete(ptr noundef captures(none) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @st__delete_int(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
-  %4 = load i64, ptr %1, align 8, !tbaa !53
+  %4 = load i64, ptr %1, align 8, !tbaa !52
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !11
@@ -1356,7 +1356,7 @@ define range(i32 0, 2) i32 @st__delete_int(ptr noundef captures(none) %0, ptr no
   %35 = icmp eq ptr %34, @st__numcmp
   %36 = icmp eq ptr %34, @st__ptrcmp
   %or.cond = or i1 %35, %36
-  %37 = load ptr, ptr %.04458, align 8, !tbaa !27
+  %37 = load ptr, ptr %.04458, align 8, !tbaa !26
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %.lr.ph
@@ -1372,7 +1372,7 @@ define range(i32 0, 2) i32 @st__delete_int(ptr noundef captures(none) %0, ptr no
   %43 = getelementptr inbounds nuw i8, ptr %.04458, i64 16
   %.044 = load ptr, ptr %43, align 8, !tbaa !18
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %.critedge52, label %.lr.ph, !llvm.loop !54
 
 .critedge:                                        ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1400,14 +1400,14 @@ define range(i32 0, 2) i32 @st__delete_int(ptr noundef captures(none) %0, ptr no
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.04458, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !29
-  store ptr %57, ptr %2, align 8, !tbaa !30
+  %57 = load ptr, ptr %56, align 8, !tbaa !28
+  store ptr %57, ptr %2, align 8, !tbaa !29
   br label %58
 
 58:                                               ; preds = %55, %52
-  %59 = load ptr, ptr %.04458, align 8, !tbaa !27
+  %59 = load ptr, ptr %.04458, align 8, !tbaa !26
   %60 = ptrtoint ptr %59 to i64
-  store i64 %60, ptr %1, align 8, !tbaa !53
+  store i64 %60, ptr %1, align 8, !tbaa !52
   tail call void @free(ptr noundef nonnull %.04458) #14
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %62 = load i32, ptr %61, align 4, !tbaa !12
@@ -1444,9 +1444,9 @@ define range(i32 0, 2) i32 @st__foreach(ptr noundef captures(none) %0, ptr nound
 .lr.ph:                                           ; preds = %9, %27
   %.02127 = phi ptr [ %.1, %27 ], [ %12, %9 ]
   %.02226 = phi ptr [ %.123, %27 ], [ %13, %9 ]
-  %14 = load ptr, ptr %.02226, align 8, !tbaa !27
+  %14 = load ptr, ptr %.02226, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %.02226, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = tail call i32 %1(ptr noundef %14, ptr noundef %16, ptr noundef %2) #14
   switch i32 %17, label %27 [
     i32 0, label %18
@@ -1474,7 +1474,7 @@ define range(i32 0, 2) i32 @st__foreach(ptr noundef captures(none) %0, ptr nound
   %.123 = phi ptr [ %.02226, %.lr.ph ], [ %20, %18 ], [ %26, %21 ]
   %.1 = phi ptr [ %.02127, %.lr.ph ], [ %19, %18 ], [ %.02127, %21 ]
   %.not = icmp eq ptr %.123, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge.loopexit:                             ; preds = %27
   %.pre = load i32, ptr %4, align 8, !tbaa !16
@@ -1485,7 +1485,7 @@ define range(i32 0, 2) i32 @st__foreach(ptr noundef captures(none) %0, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %9, label %.loopexit, !llvm.loop !57
+  br i1 %30, label %9, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %3
   %.020 = phi i32 [ 1, %3 ], [ 0, %.lr.ph ], [ 1, %._crit_edge ]
@@ -1494,7 +1494,7 @@ define range(i32 0, 2) i32 @st__foreach(ptr noundef captures(none) %0, ptr nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, -1) i32 @st__strhash(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = load i8, ptr %0, align 1, !tbaa !58
+  %3 = load i8, ptr %0, align 1, !tbaa !57
   %.not7 = icmp eq i8 %3, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -1506,9 +1506,9 @@ define range(i32 0, -1) i32 @st__strhash(ptr noundef readonly captures(none) %0,
   %6 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %7 = mul i32 %.09, 997
   %8 = add i32 %7, %5
-  %9 = load i8, ptr %6, align 1, !tbaa !58
+  %9 = load i8, ptr %6, align 1, !tbaa !57
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -1523,11 +1523,11 @@ define noalias noundef ptr @st__init_gen(ptr noundef %0) local_unnamed_addr #7 {
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !60
+  store ptr %0, ptr %2, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %5, align 8, !tbaa !63
+  store ptr null, ptr %5, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %6, align 8, !tbaa !64
+  store i32 0, ptr %6, align 8, !tbaa !63
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1537,14 +1537,14 @@ define noalias noundef ptr @st__init_gen(ptr noundef %0) local_unnamed_addr #7 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @st__gen(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %23
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !64
-  %10 = load ptr, ptr %0, align 8, !tbaa !60
+  %9 = load i32, ptr %8, align 8, !tbaa !63
+  %10 = load ptr, ptr %0, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !16
   %13 = icmp slt i32 %9, %12
@@ -1567,31 +1567,31 @@ define range(i32 0, 2) i32 @st__gen(ptr noundef captures(none) %0, ptr noundef w
 .thread:                                          ; preds = %17
   %20 = trunc nsw i64 %indvars.iv to i32
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %8, align 8, !tbaa !64
+  store i32 %21, ptr %8, align 8, !tbaa !63
   br label %23
 
 22:                                               ; preds = %17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !64
 
 23:                                               ; preds = %.thread, %3
   %24 = phi ptr [ %19, %.thread ], [ %5, %3 ]
-  %25 = load ptr, ptr %24, align 8, !tbaa !27
-  store ptr %25, ptr %1, align 8, !tbaa !30
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  store ptr %25, ptr %1, align 8, !tbaa !29
   %.not22 = icmp eq ptr %2, null
   br i1 %.not22, label %29, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  store ptr %28, ptr %2, align 8, !tbaa !30
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  store ptr %28, ptr %2, align 8, !tbaa !29
   br label %29
 
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !20
-  store ptr %31, ptr %4, align 8, !tbaa !63
+  store ptr %31, ptr %4, align 8, !tbaa !62
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %7, %29
@@ -1602,14 +1602,14 @@ define range(i32 0, 2) i32 @st__gen(ptr noundef captures(none) %0, ptr noundef w
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @st__gen_int(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %23
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !64
-  %10 = load ptr, ptr %0, align 8, !tbaa !60
+  %9 = load i32, ptr %8, align 8, !tbaa !63
+  %10 = load ptr, ptr %0, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !16
   %13 = icmp slt i32 %9, %12
@@ -1632,32 +1632,32 @@ define range(i32 0, 2) i32 @st__gen_int(ptr noundef captures(none) %0, ptr nound
 .thread:                                          ; preds = %17
   %20 = trunc nsw i64 %indvars.iv to i32
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %8, align 8, !tbaa !64
+  store i32 %21, ptr %8, align 8, !tbaa !63
   br label %23
 
 22:                                               ; preds = %17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !65
 
 23:                                               ; preds = %.thread, %3
   %24 = phi ptr [ %19, %.thread ], [ %5, %3 ]
-  %25 = load ptr, ptr %24, align 8, !tbaa !27
-  store ptr %25, ptr %1, align 8, !tbaa !30
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  store ptr %25, ptr %1, align 8, !tbaa !29
   %.not22 = icmp eq ptr %2, null
   br i1 %.not22, label %30, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = ptrtoint ptr %28 to i64
-  store i64 %29, ptr %2, align 8, !tbaa !53
+  store i64 %29, ptr %2, align 8, !tbaa !52
   br label %30
 
 30:                                               ; preds = %26, %23
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !20
-  store ptr %32, ptr %4, align 8, !tbaa !63
+  store ptr %32, ptr %4, align 8, !tbaa !62
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %7, %30
@@ -1731,47 +1731,46 @@ attributes #14 = { nounwind }
 !20 = !{!21, !19, i64 16}
 !21 = !{!"st__table_entry", !22, i64 0, !22, i64 8, !19, i64 16}
 !22 = !{!"p1 omnipotent char", !5, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = !{!21, !22, i64 0}
-!28 = distinct !{!28, !24, !25}
-!29 = !{!21, !22, i64 8}
-!30 = !{!22, !22, i64 0}
-!31 = distinct !{!31, !24, !25}
-!32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !24, !25}
-!34 = distinct !{!34, !24, !25, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !24, !25, !37}
-!37 = !{!"llvm.loop.unswitch.partial.disable"}
-!38 = distinct !{!38, !24, !25}
-!39 = distinct !{!39, !24, !25}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p2 omnipotent char", !5, i64 0}
-!42 = distinct !{!42, !24, !25}
-!43 = !{i64 0, i64 8, !44, i64 8, i64 8, !44, i64 16, i64 4, !32, i64 20, i64 4, !32, i64 24, i64 4, !32, i64 28, i64 4, !32, i64 32, i64 8, !45, i64 40, i64 8, !46}
-!44 = !{!5, !5, i64 0}
-!45 = !{!9, !9, i64 0}
-!46 = !{!10, !10, i64 0}
-!47 = distinct !{!47, !24, !25}
-!48 = distinct !{!48, !24, !25}
-!49 = !{i64 0, i64 8, !30, i64 8, i64 8, !30, i64 16, i64 8, !18}
-!50 = distinct !{!50, !24, !25}
-!51 = distinct !{!51, !24, !25}
-!52 = distinct !{!52, !24, !25}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"long", !6, i64 0}
-!55 = distinct !{!55, !24, !25}
-!56 = distinct !{!56, !24, !25}
-!57 = distinct !{!57, !24, !25}
-!58 = !{!6, !6, i64 0}
-!59 = distinct !{!59, !24, !25}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"st__generator", !62, i64 0, !19, i64 8, !8, i64 16}
-!62 = !{!"p1 _ZTS9st__table", !5, i64 0}
-!63 = !{!61, !19, i64 8}
-!64 = !{!61, !8, i64 16}
-!65 = distinct !{!65, !24, !25}
-!66 = distinct !{!66, !24, !25}
+!25 = distinct !{!25, !24}
+!26 = !{!21, !22, i64 0}
+!27 = distinct !{!27, !24}
+!28 = !{!21, !22, i64 8}
+!29 = !{!22, !22, i64 0}
+!30 = distinct !{!30, !24}
+!31 = !{!8, !8, i64 0}
+!32 = distinct !{!32, !24}
+!33 = distinct !{!33, !24, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !24, !36}
+!36 = !{!"llvm.loop.unswitch.partial.disable"}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p2 omnipotent char", !5, i64 0}
+!41 = distinct !{!41, !24}
+!42 = !{i64 0, i64 8, !43, i64 8, i64 8, !43, i64 16, i64 4, !31, i64 20, i64 4, !31, i64 24, i64 4, !31, i64 28, i64 4, !31, i64 32, i64 8, !44, i64 40, i64 8, !45}
+!43 = !{!5, !5, i64 0}
+!44 = !{!9, !9, i64 0}
+!45 = !{!10, !10, i64 0}
+!46 = distinct !{!46, !24}
+!47 = distinct !{!47, !24}
+!48 = !{i64 0, i64 8, !29, i64 8, i64 8, !29, i64 16, i64 8, !18}
+!49 = distinct !{!49, !24}
+!50 = distinct !{!50, !24}
+!51 = distinct !{!51, !24}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"long", !6, i64 0}
+!54 = distinct !{!54, !24}
+!55 = distinct !{!55, !24}
+!56 = distinct !{!56, !24}
+!57 = !{!6, !6, i64 0}
+!58 = distinct !{!58, !24}
+!59 = !{!60, !61, i64 0}
+!60 = !{!"st__generator", !61, i64 0, !19, i64 8, !8, i64 16}
+!61 = !{!"p1 _ZTS9st__table", !5, i64 0}
+!62 = !{!60, !19, i64 8}
+!63 = !{!60, !8, i64 16}
+!64 = distinct !{!64, !24}
+!65 = distinct !{!65, !24}

@@ -337,26 +337,26 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
   br label %20, !llvm.loop !37
 
 114:                                              ; preds = %.critedge
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %115 = sub i64 %4, %21
-  %116 = load i64, ptr %6, align 8, !tbaa !25, !alias.scope !43, !noalias !45
+  %116 = load i64, ptr %6, align 8, !tbaa !25, !alias.scope !42, !noalias !44
   %117 = icmp ugt i64 %115, %116
   %118 = add i64 %116, %21
   %spec.select.i = select i1 %117, i64 %118, i64 %4
-  %119 = load ptr, ptr %1, align 8, !tbaa !48, !alias.scope !40, !noalias !49
-  %120 = load i64, ptr %8, align 8, !tbaa !50, !alias.scope !40, !noalias !49
-  %121 = tail call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %spec.select.i, ptr noundef %119, ptr noundef nonnull %7, i64 noundef %120) #4, !noalias !43
+  %119 = load ptr, ptr %1, align 8, !tbaa !47, !alias.scope !39, !noalias !48
+  %120 = load i64, ptr %8, align 8, !tbaa !49, !alias.scope !39, !noalias !48
+  %121 = tail call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %spec.select.i, ptr noundef %119, ptr noundef nonnull %7, i64 noundef %120) #4, !noalias !42
   %122 = sub i64 %116, %121
-  store i64 %122, ptr %6, align 8, !tbaa !25, !alias.scope !43, !noalias !45
-  %123 = load i8, ptr %9, align 8, !tbaa !51, !range !26, !alias.scope !40, !noalias !49, !noundef !27
+  store i64 %122, ptr %6, align 8, !tbaa !25, !alias.scope !42, !noalias !44
+  %123 = load i8, ptr %9, align 8, !tbaa !50, !range !26, !alias.scope !39, !noalias !48, !noundef !27
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %dict_write.exit, label %125
 
 125:                                              ; preds = %114
-  %126 = load i64, ptr %7, align 8, !tbaa !52, !alias.scope !40, !noalias !49
+  %126 = load i64, ptr %7, align 8, !tbaa !51, !alias.scope !39, !noalias !48
   %127 = add i64 %126, -576
-  store i64 %127, ptr %10, align 8, !tbaa !53, !alias.scope !40, !noalias !49
+  store i64 %127, ptr %10, align 8, !tbaa !52, !alias.scope !39, !noalias !48
   br label %dict_write.exit
 
 dict_write.exit:                                  ; preds = %114, %125
@@ -440,20 +440,19 @@ attributes #4 = { nounwind }
 !34 = !{!12, !6, i64 32}
 !35 = !{!12, !14, i64 56}
 !36 = !{!12, !6, i64 16}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"dict_write: argument 0"}
-!42 = distinct !{!42, !"dict_write"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"dict_write: argument 3"}
-!45 = !{!41, !46, !47}
-!46 = distinct !{!46, !42, !"dict_write: argument 1"}
-!47 = distinct !{!47, !42, !"dict_write: argument 2"}
-!48 = !{!33, !17, i64 0}
-!49 = !{!46, !47, !44}
-!50 = !{!33, !14, i64 24}
-!51 = !{!33, !15, i64 40}
-!52 = !{!33, !14, i64 8}
-!53 = !{!33, !14, i64 16}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"dict_write: argument 0"}
+!41 = distinct !{!41, !"dict_write"}
+!42 = !{!43}
+!43 = distinct !{!43, !41, !"dict_write: argument 3"}
+!44 = !{!40, !45, !46}
+!45 = distinct !{!45, !41, !"dict_write: argument 1"}
+!46 = distinct !{!46, !41, !"dict_write: argument 2"}
+!47 = !{!33, !17, i64 0}
+!48 = !{!45, !46, !43}
+!49 = !{!33, !14, i64 24}
+!50 = !{!33, !15, i64 40}
+!51 = !{!33, !14, i64 8}
+!52 = !{!33, !14, i64 16}

@@ -45,7 +45,7 @@ define void @ff_draw_pc_font(ptr noundef writeonly captures(none) %0, i32 nounde
   %22 = getelementptr i8, ptr %21, i64 -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %20, %7
   ret void
@@ -62,7 +62,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

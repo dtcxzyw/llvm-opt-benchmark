@@ -1267,7 +1267,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_time_coord_
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648)
   %20 = add nuw nsw i32 %.01821, 2
   %21 = icmp samesign ult i32 %20, %11
-  br i1 %21, label %16, label %.loopexit, !llvm.loop !9
+  br i1 %21, label %16, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
   %.0 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
@@ -1304,7 +1304,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_network_tim
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648)
   %20 = add nuw nsw i32 %.01821, 2
   %21 = icmp samesign ult i32 %20, %11
-  br i1 %21, label %16, label %.loopexit, !llvm.loop !10
+  br i1 %21, label %16, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
   %.0 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
@@ -1340,7 +1340,7 @@ define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_timeout_mul
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %3, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648)
   %19 = add nuw nsw i32 %.01821, 1
   %exitcond.not = icmp eq i32 %19, %10
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !10
 
 .loopexit:                                        ; preds = %15, %.preheader, %13
   %.0 = phi i32 [ %5, %13 ], [ %11, %.preheader ], [ %11, %15 ]
@@ -1377,7 +1377,7 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_coordinatio
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648)
   %20 = add nuw nsw i32 %.01821, 2
   %21 = icmp samesign ult i32 %20, %11
-  br i1 %21, label %16, label %.loopexit, !llvm.loop !12
+  br i1 %21, label %16, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
   %.0 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
@@ -1425,7 +1425,7 @@ define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_prod_cons_f
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %3, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648)
   %19 = add nuw nsw i32 %.01821, 1
   %exitcond.not = icmp eq i32 %19, %10
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !12
 
 .loopexit:                                        ; preds = %15, %.preheader, %13
   %.0 = phi i32 [ %5, %13 ], [ %11, %.preheader ], [ %11, %15 ]
@@ -1565,7 +1565,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %29 = load i8, ptr %28, align 8, !range !14, !noundef !15
+  %29 = load i8, ptr %28, align 8, !range !13, !noundef !14
   %30 = trunc nuw i8 %29 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
   store i64 0, ptr %14, align 8
@@ -2667,7 +2667,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   store i8 %56, ptr %54, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %compute_crc_s2_data.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %compute_crc_s2_data.exit, label %.lr.ph.i, !llvm.loop !15
 
 compute_crc_s2_data.exit:                         ; preds = %.lr.ph.i, %23
   %57 = call zeroext i8 @crc8_0x3B(ptr noundef %51, i32 noundef range(i32 -6, 2147483642) %3, i8 noundef zeroext %52)
@@ -2882,7 +2882,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
 53:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %verify_compliment_data.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %verify_compliment_data.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %53 ]
@@ -2963,7 +2963,7 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %17 = load i8, ptr %16, align 4, !range !14, !noundef !15
+  %17 = load i8, ptr %16, align 4, !range !13, !noundef !14
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %._crit_edge, label %19
 
@@ -3248,7 +3248,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %20, %23
 66:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %verify_compliment_data.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %verify_compliment_data.exit.thread, label %.lr.ph.i, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %66 ]
@@ -3528,15 +3528,14 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

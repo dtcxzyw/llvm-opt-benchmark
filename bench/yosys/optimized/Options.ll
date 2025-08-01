@@ -139,7 +139,7 @@ _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %_ZN7MinisatL5matchI
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7Minisat6Option13getOptionListEv.exit63 ], [ 0, %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit.preheader ]
   %43 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %_ZN7Minisat6Option13getOptionListEv.exit, !prof !17
+  br i1 %44, label %45, label %_ZN7Minisat6Option13getOptionListEv.exit, !prof !16
 
 45:                                               ; preds = %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
   %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -153,7 +153,7 @@ _ZN7MinisatL5matchIPKcEEbRT_S2_.exit:             ; preds = %_ZN7MinisatL5matchI
   br label %_ZN7Minisat6Option13getOptionListEv.exit
 
 _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit, %45, %47
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !18
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !17
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv, %50
   br i1 %51, label %52, label %.critedge
@@ -161,7 +161,7 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %_ZN7MinisatL5matchI
 52:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit
   %53 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %_ZN7Minisat6Option13getOptionListEv.exit63, !prof !17
+  br i1 %54, label %55, label %_ZN7Minisat6Option13getOptionListEv.exit63, !prof !16
 
 55:                                               ; preds = %52
   %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -175,16 +175,16 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %_ZN7MinisatL5matchI
   br label %_ZN7Minisat6Option13getOptionListEv.exit63
 
 _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
-  %59 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
+  %59 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
-  %61 = load ptr, ptr %60, align 8, !tbaa !23
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
   %62 = load ptr, ptr %6, align 8, !tbaa !10
-  %63 = load ptr, ptr %61, align 8, !tbaa !25
+  %63 = load ptr, ptr %61, align 8, !tbaa !24
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = tail call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef %62)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %66, label %.critedge31, label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit, !llvm.loop !27
+  br i1 %66, label %.critedge31, label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit, !llvm.loop !26
 
 .critedge:                                        ; preds = %_ZN7Minisat6Option13getOptionListEv.exit
   %.pre = load ptr, ptr %6, align 8, !tbaa !10
@@ -198,7 +198,7 @@ _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   store ptr %70, ptr %6, align 8, !tbaa !10
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !27
   %72 = load ptr, ptr @_ZZN7Minisat6Option19getHelpPrefixStringEvE15help_prefix_str, align 8, !tbaa !10
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.4, ptr noundef nonnull %70, ptr noundef %72) #11
   tail call void @exit(i32 noundef 1) #12
@@ -217,7 +217,7 @@ _ZN7MinisatL5matchIPcEEbRT_PKc.exit:              ; preds = %67, %.critedge
   %77 = load i32, ptr %0, align 4, !tbaa !6
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next115, %78
-  br i1 %79, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
+  br i1 %79, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %.critedge31
   %80 = trunc nuw nsw i64 %indvars.iv114 to i32
@@ -240,7 +240,7 @@ define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr noundef readonly c
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !27
   %7 = load ptr, ptr %1, align 8, !tbaa !10
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %7) #11
   br label %9
@@ -248,7 +248,7 @@ define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr noundef readonly c
 9:                                                ; preds = %5, %3
   %10 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %12, label %_ZN7Minisat6Option13getOptionListEv.exit, !prof !17
+  br i1 %11, label %12, label %_ZN7Minisat6Option13getOptionListEv.exit, !prof !16
 
 12:                                               ; preds = %9
   %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -262,8 +262,8 @@ define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr noundef readonly c
   br label %_ZN7Minisat6Option13getOptionListEv.exit
 
 _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %9, %12, %14
-  %16 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !18
+  %16 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !17
   tail call void @_ZN7Minisat4sortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_(ptr noundef %16, i32 noundef %17)
   br label %18
 
@@ -273,7 +273,7 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %9, %12, %14
   %.0 = phi ptr [ %90, %_ZN7Minisat6Option13getOptionListEv.exit33 ], [ null, %_ZN7Minisat6Option13getOptionListEv.exit ]
   %19 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN7Minisat6Option13getOptionListEv.exit23, !prof !17
+  br i1 %20, label %21, label %_ZN7Minisat6Option13getOptionListEv.exit23, !prof !16
 
 21:                                               ; preds = %18
   %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -287,21 +287,21 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %9, %12, %14
   br label %_ZN7Minisat6Option13getOptionListEv.exit23
 
 _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !18
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, i64 8), align 8, !tbaa !17
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv, %26
   br i1 %27, label %38, label %28
 
 28:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit23
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !27
   %30 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 16, i64 1, ptr %29) #13
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !27
   %32 = load ptr, ptr @_ZZN7Minisat6Option19getHelpPrefixStringEvE15help_prefix_str, align 8, !tbaa !10
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.8, ptr noundef %32) #11
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !27
   %35 = load ptr, ptr @_ZZN7Minisat6Option19getHelpPrefixStringEvE15help_prefix_str, align 8, !tbaa !10
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.9, ptr noundef %35) #11
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !27
   %fputc = tail call i32 @fputc(i32 10, ptr %37)
   tail call void @exit(i32 noundef 0) #14
   unreachable
@@ -309,7 +309,7 @@ _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
 38:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit23
   %39 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %41, label %_ZN7Minisat6Option13getOptionListEv.exit25, !prof !17
+  br i1 %40, label %41, label %_ZN7Minisat6Option13getOptionListEv.exit25, !prof !16
 
 41:                                               ; preds = %38
   %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -323,14 +323,14 @@ _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
   br label %_ZN7Minisat6Option13getOptionListEv.exit25
 
 _ZN7Minisat6Option13getOptionListEv.exit25:       ; preds = %38, %41, %43
-  %45 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
+  %45 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !23
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !31
+  %49 = load ptr, ptr %48, align 8, !tbaa !30
   %50 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %52, label %_ZN7Minisat6Option13getOptionListEv.exit27, !prof !17
+  br i1 %51, label %52, label %_ZN7Minisat6Option13getOptionListEv.exit27, !prof !16
 
 52:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit25
   %53 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -348,28 +348,28 @@ _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option1
   br i1 %.not19, label %59, label %56
 
 56:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit27
-  %57 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !27
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %49) #11
   br label %67
 
 59:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit27
-  %60 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
+  %60 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !23
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8, !tbaa !33
+  %64 = load ptr, ptr %63, align 8, !tbaa !32
   %.not20 = icmp eq ptr %64, %.015
   br i1 %.not20, label %67, label %65
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !27
   %fputc21 = tail call i32 @fputc(i32 10, ptr %66)
   br label %67
 
 67:                                               ; preds = %59, %65, %56
   %68 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %70, label %_ZN7Minisat6Option13getOptionListEv.exit29, !prof !17
+  br i1 %69, label %70, label %_ZN7Minisat6Option13getOptionListEv.exit29, !prof !16
 
 70:                                               ; preds = %67
   %71 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -383,16 +383,16 @@ _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option1
   br label %_ZN7Minisat6Option13getOptionListEv.exit29
 
 _ZN7Minisat6Option13getOptionListEv.exit29:       ; preds = %67, %70, %72
-  %74 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
+  %74 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
-  %76 = load ptr, ptr %75, align 8, !tbaa !23
-  %77 = load ptr, ptr %76, align 8, !tbaa !25
+  %76 = load ptr, ptr %75, align 8, !tbaa !22
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(40) %76, i1 noundef zeroext %2)
   %80 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %_ZN7Minisat6Option13getOptionListEv.exit31, !prof !17
+  br i1 %81, label %82, label %_ZN7Minisat6Option13getOptionListEv.exit31, !prof !16
 
 82:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit29
   %83 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -406,14 +406,14 @@ _ZN7Minisat6Option13getOptionListEv.exit29:       ; preds = %67, %70, %72
   br label %_ZN7Minisat6Option13getOptionListEv.exit31
 
 _ZN7Minisat6Option13getOptionListEv.exit31:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit29, %82, %84
-  %86 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
+  %86 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
   %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
-  %88 = load ptr, ptr %87, align 8, !tbaa !23
+  %88 = load ptr, ptr %87, align 8, !tbaa !22
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = load ptr, ptr %89, align 8, !tbaa !31
+  %90 = load ptr, ptr %89, align 8, !tbaa !30
   %91 = load atomic i8, ptr @_ZGVZN7Minisat6Option13getOptionListEvE7options acquire, align 8
   %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %_ZN7Minisat6Option13getOptionListEv.exit33, !prof !17
+  br i1 %92, label %93, label %_ZN7Minisat6Option13getOptionListEv.exit33, !prof !16
 
 93:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit31
   %94 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7Minisat6Option13getOptionListEvE7options) #10
@@ -427,13 +427,13 @@ _ZN7Minisat6Option13getOptionListEv.exit31:       ; preds = %_ZN7Minisat6Option1
   br label %_ZN7Minisat6Option13getOptionListEv.exit33
 
 _ZN7Minisat6Option13getOptionListEv.exit33:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit31, %93, %95
-  %97 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !22
+  %97 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
   %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
-  %99 = load ptr, ptr %98, align 8, !tbaa !23
+  %99 = load ptr, ptr %98, align 8, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %101 = load ptr, ptr %100, align 8, !tbaa !33
+  %101 = load ptr, ptr %100, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %18, !llvm.loop !34
+  br label %18, !llvm.loop !33
 }
 
 ; Function Attrs: nofree nounwind
@@ -461,17 +461,17 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Minisat3vecIPNS_6OptionEiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !22
+  %2 = load ptr, ptr %0, align 8, !tbaa !21
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7Minisat3vecIPNS_6OptionEiE5clearEb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %3, align 8, !tbaa !18
+  store i32 0, ptr %3, align 8, !tbaa !17
   tail call void @free(ptr noundef nonnull %2) #10
-  store ptr null, ptr %0, align 8, !tbaa !22
+  store ptr null, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %4, align 4, !tbaa !35
+  store i32 0, ptr %4, align 4, !tbaa !34
   br label %_ZN7Minisat3vecIPNS_6OptionEiE5clearEb.exit
 
 _ZN7Minisat3vecIPNS_6OptionEiE5clearEb.exit:      ; preds = %1, %.preheader.i
@@ -514,14 +514,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next33.i, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i ]
   %.02127.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %27, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i ]
   %7 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv32.i
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = sext i32 %.02127.i to i64
   %10 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #15
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %18
@@ -532,9 +532,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.i:    ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !33
+  %21 = load ptr, ptr %20, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #15
   %.fr.i = freeze i32 %24
   %25 = icmp slt i32 %.fr.i, 0
@@ -548,20 +548,20 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   %27 = phi i32 [ %26, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread.i ], [ %.02127.i, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.i ], [ %.02127.i, %18 ]
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %28 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv35.i
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   %30 = sext i32 %27 to i64
   %31 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !23
-  store ptr %32, ptr %28, align 8, !tbaa !23
-  store ptr %29, ptr %31, align 8, !tbaa !23
+  %32 = load ptr, ptr %31, align 8, !tbaa !22
+  store ptr %32, ptr %28, align 8, !tbaa !22
+  store ptr %29, ptr %31, align 8, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %_ZN7Minisat13selectionSortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_.exit, label %.lr.ph.preheader.i, !llvm.loop !37
+  br i1 %exitcond39.not.i, label %_ZN7Minisat13selectionSortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_.exit, label %.lr.ph.preheader.i, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr3849 = phi i32 [ %76, %tailrecurse ], [ %1, %2 ]
@@ -569,9 +569,9 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   %33 = lshr i32 %.tr3849, 1
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw ptr, ptr %.tr48, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  %38 = load ptr, ptr %37, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
   br label %40
 
@@ -586,27 +586,27 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   %indvars.iv = phi i64 [ %41, %40 ], [ %indvars.iv.next, %.critedge.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %42 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next
-  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !31
+  %45 = load ptr, ptr %44, align 8, !tbaa !30
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %38) #15
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.critedge.backedge, label %48
 
 48:                                               ; preds = %.critedge
   %49 = icmp eq i32 %46, 0
-  br i1 %49, label %50, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader, !llvm.loop !38
+  br i1 %49, label %50, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader, !llvm.loop !37
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !33
-  %53 = load ptr, ptr %39, align 8, !tbaa !33
+  %52 = load ptr, ptr %51, align 8, !tbaa !32
+  %53 = load ptr, ptr %39, align 8, !tbaa !32
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #15
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.critedge.backedge, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader
 
 .critedge.backedge:                               ; preds = %50, %.critedge
-  br label %.critedge, !llvm.loop !38
+  br label %.critedge, !llvm.loop !37
 
 _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader: ; preds = %50, %48
   %56 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next
@@ -617,9 +617,9 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit:      ; preds = %_ZN7Minisat6Option8
   %indvars.iv60 = phi i64 [ %57, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader ], [ %indvars.iv.next61, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
   %58 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
-  %59 = load ptr, ptr %58, align 8, !tbaa !23
+  %59 = load ptr, ptr %58, align 8, !tbaa !22
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !31
+  %61 = load ptr, ptr %60, align 8, !tbaa !30
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %61) #15
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge, label %64
@@ -629,15 +629,15 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit:      ; preds = %_ZN7Minisat6Option8
   br i1 %65, label %66, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %39, align 8, !tbaa !33
+  %67 = load ptr, ptr %39, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !33
+  %69 = load ptr, ptr %68, align 8, !tbaa !32
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #15
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge, label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread
 
 _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge: ; preds = %66, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit
-  br label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit, !llvm.loop !39
+  br label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit, !llvm.loop !38
 
 _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread: ; preds = %64, %66
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next61
@@ -646,9 +646,9 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread: ; preds = %64, %66
 72:                                               ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread
   %73 = trunc nsw i64 %indvars.iv.next61 to i32
   %74 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
-  store ptr %59, ptr %56, align 8, !tbaa !23
-  store ptr %43, ptr %74, align 8, !tbaa !23
-  br label %40, !llvm.loop !40
+  store ptr %59, ptr %56, align 8, !tbaa !22
+  store ptr %43, ptr %74, align 8, !tbaa !22
+  br label %40, !llvm.loop !39
 
 tailrecurse:                                      ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread
   %75 = trunc nsw i64 %indvars.iv.next to i32
@@ -706,30 +706,29 @@ attributes #15 = { nounwind willreturn memory(read) }
 !11 = !{!"p1 omnipotent char", !12, i64 0}
 !12 = !{!"any pointer", !8, i64 0}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!"branch_weights", i32 1, i32 1048575}
-!18 = !{!19, !7, i64 8}
-!19 = !{!"_ZTSN7Minisat3vecIPNS_6OptionEiEE", !20, i64 0, !7, i64 8, !7, i64 12}
-!20 = !{!"p2 _ZTSN7Minisat6OptionE", !21, i64 0}
-!21 = !{!"any p2 pointer", !12, i64 0}
-!22 = !{!19, !20, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTSN7Minisat6OptionE", !12, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"vtable pointer", !9, i64 0}
-!27 = distinct !{!27, !15, !16}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!30 = distinct !{!30, !15, !16}
-!31 = !{!32, !11, i64 24}
-!32 = !{!"_ZTSN7Minisat6OptionE", !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32}
-!33 = !{!32, !11, i64 32}
-!34 = distinct !{!34, !15, !16}
-!35 = !{!19, !7, i64 12}
-!36 = distinct !{!36, !15, !16}
-!37 = distinct !{!37, !15, !16}
-!38 = distinct !{!38, !15, !16}
-!39 = distinct !{!39, !15, !16}
-!40 = distinct !{!40, !15, !16}
+!16 = !{!"branch_weights", i32 1, i32 1048575}
+!17 = !{!18, !7, i64 8}
+!18 = !{!"_ZTSN7Minisat3vecIPNS_6OptionEiEE", !19, i64 0, !7, i64 8, !7, i64 12}
+!19 = !{!"p2 _ZTSN7Minisat6OptionE", !20, i64 0}
+!20 = !{!"any p2 pointer", !12, i64 0}
+!21 = !{!18, !19, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSN7Minisat6OptionE", !12, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !9, i64 0}
+!26 = distinct !{!26, !15}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!29 = distinct !{!29, !15}
+!30 = !{!31, !11, i64 24}
+!31 = !{!"_ZTSN7Minisat6OptionE", !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32}
+!32 = !{!31, !11, i64 32}
+!33 = distinct !{!33, !15}
+!34 = !{!18, !7, i64 12}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}
+!39 = distinct !{!39, !15}

@@ -381,7 +381,7 @@ cmsysBase64_Decode3.exit:                         ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %.056131, i64 3
   %50 = getelementptr inbounds nuw i8, ptr %.052132, i64 4
   %.not73 = icmp ult ptr %50, %5
-  br i1 %.not73, label %.lr.ph, label %cmsysBase64_Decode3.exit91.thread123, !llvm.loop !10
+  br i1 %.not73, label %.lr.ph, label %cmsysBase64_Decode3.exit91.thread123, !llvm.loop !9
 
 51:                                               ; preds = %4
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 %1
@@ -452,7 +452,7 @@ cmsysBase64_Decode3.exit79:                       ; preds = %94
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %53, %99
   %101 = icmp slt i64 %100, 3
-  br i1 %101, label %._crit_edge, label %.lr.ph135, !llvm.loop !11
+  br i1 %101, label %._crit_edge, label %.lr.ph135, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %cmsysBase64_Decode3.exit79, %51
   %.359.lcssa = phi ptr [ %2, %51 ], [ %97, %cmsysBase64_Decode3.exit79 ]
@@ -579,8 +579,7 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

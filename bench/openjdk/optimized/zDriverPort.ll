@@ -352,7 +352,7 @@ define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferen
 .critedge:                                        ; preds = %16, %29, %24
   %.not.i.not29 = icmp eq i64 %21, 0
   %.not.i.not = select i1 %19, i1 true, i1 %.not.i.not29
-  br i1 %.not.i.not, label %_ZN17ZListIteratorImplI16ZDriverPortEntryLb1EE4nextEPPS0_.exit.loopexit, label %16, !llvm.loop !9
+  br i1 %.not.i.not, label %_ZN17ZListIteratorImplI16ZDriverPortEntryLb1EE4nextEPPS0_.exit.loopexit, label %16, !llvm.loop !8
 
 _ZN17ZListIteratorImplI16ZDriverPortEntryLb1EE4nextEPPS0_.exit.loopexit: ; preds = %.critedge
   %.pre = load i64, ptr %8, align 8
@@ -483,7 +483,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #7
 define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   store volatile i32 10, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 792
@@ -493,11 +493,11 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   store volatile i32 %7, ptr %6, align 8
   store volatile i32 6, ptr %4, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %9 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %10 = and i64 %9, 1
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %11
@@ -522,7 +522,7 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
 
 19:                                               ; preds = %16, %13, %11
   %20 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %21 = and i64 %20, 1
   %.not.i1.i = icmp eq i64 %21, 0
   br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %22
@@ -584,9 +584,8 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2145392468}
-!11 = !{i64 2145392998}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2145392468}
+!10 = !{i64 2145392998}

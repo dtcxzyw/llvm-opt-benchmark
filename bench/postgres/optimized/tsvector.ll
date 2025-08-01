@@ -193,7 +193,7 @@ define dso_local noundef i64 @tsvectorin(ptr noundef captures(none) %0) local_un
   store i32 %.sink, ptr %79, align 8
   %80 = add i32 %.0115162, 1
   %81 = call zeroext i1 @gettoken_tsvector(ptr noundef %11, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #11
-  br i1 %81, label %.lr.ph166, label %._crit_edge167, !llvm.loop !7
+  br i1 %81, label %.lr.ph166, label %._crit_edge167, !llvm.loop !6
 
 ._crit_edge167:                                   ; preds = %77, %1
   %.0119.lcssa = phi ptr [ %13, %1 ], [ %.1120.lcssa, %77 ]
@@ -210,7 +210,7 @@ define dso_local noundef i64 @tsvectorin(ptr noundef captures(none) %0) local_un
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %87 = load i8, ptr %86, align 4, !range !8, !noundef !9
+  %87 = load i8, ptr %86, align 4, !range !7, !noundef !8
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %91
 
@@ -326,7 +326,7 @@ define dso_local noundef i64 @tsvectorin(ptr noundef captures(none) %0) local_un
   %148 = sub i64 %147, %126
   %149 = ashr exact i64 %148, 1
   %150 = icmp slt i64 %149, %125
-  br i1 %150, label %127, label %151, !llvm.loop !10
+  br i1 %150, label %127, label %151, !llvm.loop !9
 
 151:                                              ; preds = %145, %134
   %.1.i.i = phi ptr [ %135, %134 ], [ %.2.i.i, %145 ]
@@ -414,7 +414,7 @@ uniquePos.exit.i:                                 ; preds = %151, %118
   %199 = sub i64 %198, %97
   %200 = sdiv exact i64 %199, 24
   %201 = icmp slt i64 %200, %96
-  br i1 %201, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %201, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %197, %94
   %202 = phi i64 [ %95, %94 ], [ %97, %197 ]
@@ -484,7 +484,7 @@ uniquePos.exit.i:                                 ; preds = %151, %118
   %238 = sub i64 %237, %216
   %239 = ashr exact i64 %238, 1
   %240 = icmp slt i64 %239, %215
-  br i1 %240, label %217, label %241, !llvm.loop !10
+  br i1 %240, label %217, label %241, !llvm.loop !9
 
 241:                                              ; preds = %235, %224
   %.1.i81.i = phi ptr [ %225, %224 ], [ %.2.i79.i, %235 ]
@@ -617,7 +617,7 @@ uniquePos.exit83.i:                               ; preds = %241, %208
   store i32 %319, ptr %320, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !11
 
 ._crit_edge174:                                   ; preds = %318, %.thread
   %321 = ptrtoint ptr %269 to i64
@@ -715,7 +715,7 @@ define dso_local i64 @tsvectorout(ptr noundef readonly captures(none) %0) local_
   %.179 = phi i32 [ %33, %20 ], [ %17, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = icmp slt i64 %indvars.iv.next, %.pre127
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph._crit_edge, %1
   %.078.lcssa = phi i32 [ %10, %1 ], [ %.179, %.lr.ph._crit_edge ]
@@ -764,7 +764,7 @@ define dso_local i64 @tsvectorout(ptr noundef readonly captures(none) %0) local_
   %57 = and i32 %56, 2047
   %58 = zext nneg i32 %57 to i64
   %59 = icmp slt i64 %54, %58
-  br i1 %59, label %.lr.ph108, label %._crit_edge109, !llvm.loop !14
+  br i1 %59, label %.lr.ph108, label %._crit_edge109, !llvm.loop !13
 
 .lr.ph108:                                        ; preds = %48, %.loopexit
   %.2106 = phi ptr [ %.4.lcssa, %.loopexit ], [ %49, %48 ]
@@ -796,7 +796,7 @@ define dso_local i64 @tsvectorout(ptr noundef readonly captures(none) %0) local_
   %67 = getelementptr inbounds nuw i8, ptr %.499, i64 1
   store i8 %66, ptr %.499, align 1
   %.not89 = icmp eq i32 %64, 0
-  br i1 %.not89, label %.loopexit, label %.lr.ph102, !llvm.loop !15
+  br i1 %.not89, label %.loopexit, label %.lr.ph102, !llvm.loop !14
 
 ._crit_edge109:                                   ; preds = %.loopexit, %48
   %.2.lcssa = phi ptr [ %49, %48 ], [ %.4.lcssa, %.loopexit ]
@@ -890,7 +890,7 @@ default.unreachable128:                           ; preds = %96
   %.8 = phi ptr [ %111, %110 ], [ %.7, %108 ]
   %113 = add nsw i32 %.077112, -1
   %.not88 = icmp eq i32 %113, 0
-  br i1 %.not88, label %.thread.loopexit, label %96, !llvm.loop !16
+  br i1 %.not88, label %.thread.loopexit, label %96, !llvm.loop !15
 
 .thread.loopexit:                                 ; preds = %112
   %.pre125 = load i32, ptr %7, align 4
@@ -902,7 +902,7 @@ default.unreachable128:                           ; preds = %96
   %115 = getelementptr inbounds nuw i8, ptr %.076115, i64 4
   %116 = add nuw nsw i32 %.175116, 1
   %117 = icmp slt i32 %116, %114
-  br i1 %117, label %.lr.ph119, label %._crit_edge120, !llvm.loop !17
+  br i1 %117, label %.lr.ph119, label %._crit_edge120, !llvm.loop !16
 
 ._crit_edge120:                                   ; preds = %.thread, %._crit_edge
   %.071.lcssa = phi ptr [ %36, %._crit_edge ], [ %.5, %.thread ]
@@ -940,16 +940,16 @@ define dso_local i64 @tsvectorsend(ptr noundef readonly captures(none) %0) local
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %10 = call i32 @llvm.bswap.i32(i32 %9)
-  %11 = load ptr, ptr %2, align 8, !alias.scope !18
+  %11 = load ptr, ptr %2, align 8, !alias.scope !17
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i32, ptr %12, align 8, !alias.scope !18
+  %13 = load i32, ptr %12, align 8, !alias.scope !17
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  store i32 %10, ptr %15, align 1, !noalias !18
+  store i32 %10, ptr %15, align 1, !noalias !17
   %16 = add i32 %13, 4
-  store i32 %16, ptr %12, align 8, !alias.scope !18
+  store i32 %16, ptr %12, align 8, !alias.scope !17
   %17 = load i32, ptr %8, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
@@ -968,14 +968,14 @@ define dso_local i64 @tsvectorsend(ptr noundef readonly captures(none) %0) local
   %27 = and i32 %26, 2047
   call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef nonnull %25, i32 noundef %27) #11
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %28 = load ptr, ptr %2, align 8, !alias.scope !21
-  %29 = load i32, ptr %12, align 8, !alias.scope !21
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %28 = load ptr, ptr %2, align 8, !alias.scope !20
+  %29 = load i32, ptr %12, align 8, !alias.scope !20
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  store i8 0, ptr %31, align 1, !noalias !21
+  store i8 0, ptr %31, align 1, !noalias !20
   %32 = add i32 %29, 1
-  store i32 %32, ptr %12, align 8, !alias.scope !21
+  store i32 %32, ptr %12, align 8, !alias.scope !20
   %33 = load i32, ptr %.02733, align 4
   %34 = and i32 %33, 1
   %.not = icmp eq i32 %34, 0
@@ -999,15 +999,15 @@ define dso_local i64 @tsvectorsend(ptr noundef readonly captures(none) %0) local
 47:                                               ; preds = %.lr.ph, %35
   %48 = phi i16 [ %46, %35 ], [ 0, %.lr.ph ]
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %49 = call i16 @llvm.bswap.i16(i16 %48)
-  %50 = load ptr, ptr %2, align 8, !alias.scope !24
-  %51 = load i32, ptr %12, align 8, !alias.scope !24
+  %50 = load ptr, ptr %2, align 8, !alias.scope !23
+  %51 = load i32, ptr %12, align 8, !alias.scope !23
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %50, i64 %52
-  store i16 %49, ptr %53, align 1, !noalias !24
+  store i16 %49, ptr %53, align 1, !noalias !23
   %54 = add i32 %51, 2
-  store i32 %54, ptr %12, align 8, !alias.scope !24
+  store i32 %54, ptr %12, align 8, !alias.scope !23
   %.not30 = icmp eq i16 %48, 0
   br i1 %.not30, label %.loopexit, label %55
 
@@ -1033,25 +1033,25 @@ define dso_local i64 @tsvectorsend(ptr noundef readonly captures(none) %0) local
   %69 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
   %70 = load i16, ptr %69, align 2
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %71 = call i16 @llvm.bswap.i16(i16 %70)
-  %72 = load ptr, ptr %2, align 8, !alias.scope !27
-  %73 = load i32, ptr %12, align 8, !alias.scope !27
+  %72 = load ptr, ptr %2, align 8, !alias.scope !26
+  %73 = load i32, ptr %12, align 8, !alias.scope !26
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %72, i64 %74
-  store i16 %71, ptr %75, align 1, !noalias !27
+  store i16 %71, ptr %75, align 1, !noalias !26
   %76 = add i32 %73, 2
-  store i32 %76, ptr %12, align 8, !alias.scope !27
+  store i32 %76, ptr %12, align 8, !alias.scope !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !29
 
 .loopexit:                                        ; preds = %68, %47
   %77 = getelementptr inbounds nuw i8, ptr %.02733, i64 4
   %78 = add nuw nsw i32 %.034, 1
   %79 = load i32, ptr %8, align 4
   %80 = icmp slt i32 %78, %79
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %81 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #11
@@ -1164,7 +1164,7 @@ define dso_local i64 @tsvectorrecv(ptr noundef readonly captures(none) %0) local
   %45 = shl i64 %.193126, 1
   %46 = tail call ptr @repalloc(ptr noundef %.1127, i64 noundef %45) #11
   %.not = icmp ult i64 %41, %45
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.193.lcssa = phi i64 [ %.092134, %.preheader ], [ %45, %.lr.ph ]
@@ -1283,7 +1283,7 @@ define dso_local i64 @tsvectorrecv(ptr noundef readonly captures(none) %0) local
 117:                                              ; preds = %104, %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %118, label %104, !llvm.loop !33
+  br i1 %exitcond.not, label %118, label %104, !llvm.loop !32
 
 118:                                              ; preds = %117
   %119 = add nuw nsw i64 %39, 2
@@ -1295,7 +1295,7 @@ define dso_local i64 @tsvectorrecv(ptr noundef readonly captures(none) %0) local
   %.191 = trunc i64 %.191.in to i32
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count151
-  br i1 %exitcond152.not, label %._crit_edge140, label %17, !llvm.loop !34
+  br i1 %exitcond152.not, label %._crit_edge140, label %17, !llvm.loop !33
 
 ._crit_edge140:                                   ; preds = %121
   %122 = add i32 %narrow, %.191
@@ -1392,34 +1392,33 @@ attributes #13 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"pq_writeint32: argument 0"}
-!20 = distinct !{!20, !"pq_writeint32"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"pq_writeint8: argument 0"}
-!23 = distinct !{!23, !"pq_writeint8"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"pq_writeint16: argument 0"}
-!26 = distinct !{!26, !"pq_writeint16"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"pq_writeint16: argument 0"}
-!29 = distinct !{!29, !"pq_writeint16"}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"pq_writeint32: argument 0"}
+!19 = distinct !{!19, !"pq_writeint32"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"pq_writeint8: argument 0"}
+!22 = distinct !{!22, !"pq_writeint8"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"pq_writeint16: argument 0"}
+!25 = distinct !{!25, !"pq_writeint16"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"pq_writeint16: argument 0"}
+!28 = distinct !{!28, !"pq_writeint16"}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}

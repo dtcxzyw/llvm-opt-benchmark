@@ -568,7 +568,7 @@ BufferGetPage.exit205:                            ; preds = %182, %188
   br i1 %or.cond.i, label %225, label %.critedge.i
 
 225:                                              ; preds = %._crit_edge
-  %226 = load i8, ptr %70, align 8, !range !8, !noundef !9
+  %226 = load i8, ptr %70, align 8, !range !7, !noundef !8
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %233, label %228
 
@@ -697,7 +697,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
   %283 = load i32, ptr %10, align 4
   %284 = zext i32 %283 to i64
   %285 = icmp samesign ult i64 %indvars.iv.next.i, %284
-  br i1 %285, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !10
+  br i1 %285, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %292, %277
   %.lcssa.i = phi i32 [ %278, %277 ], [ %293, %292 ]
@@ -724,7 +724,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
   %293 = load i32, ptr %10, align 4
   %294 = zext i32 %293 to i64
   %295 = icmp samesign ult i64 %indvars.iv.next93.i, %294
-  br i1 %295, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %295, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !11
 
 296:                                              ; preds = %._crit_edge.i
   %297 = add i32 %247, %.7685.i
@@ -804,7 +804,7 @@ BufferGetPage.exit209:                            ; preds = %306, %312
 
 326:                                              ; preds = %325
   %327 = call zeroext i1 @ConditionalLockBuffer(i32 noundef %2) #8
-  br i1 %327, label %329, label %328, !prof !13
+  br i1 %327, label %329, label %328, !prof !12
 
 328:                                              ; preds = %326
   call void @LockBuffer(i32 noundef %248, i32 noundef 0) #8
@@ -843,7 +843,7 @@ BufferGetPage.exit209:                            ; preds = %306, %312
 
 339:                                              ; preds = %338, %337
   call void @UnlockReleaseBuffer(i32 noundef %248) #8
-  br label %74, !llvm.loop !14
+  br label %74
 
 .thread253:                                       ; preds = %335, %.thread
   %340 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
@@ -966,7 +966,7 @@ BufferGetPage.exit.us.us:                         ; preds = %32
   %.val63.us.us = load i16, ptr %36, align 2
   %37 = and i16 %.val63.us.us, 4
   %.not69.us.us = icmp eq i16 %37, 0
-  br i1 %.not69.us.us, label %.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %.not69.us.us, label %.thread, label %.lr.ph, !llvm.loop !13
 
 BufferGetPage.exit.us.us72:                       ; preds = %.split.us
   %38 = load ptr, ptr @BufferBlocks, align 8
@@ -1078,7 +1078,7 @@ BufferGetPage.exit65:                             ; preds = %61, %65
 83:                                               ; preds = %82
   tail call void @LockBuffer(i32 noundef %.048, i32 noundef 2) #8
   %or.cond3 = select i1 %60, i1 %75, i1 false
-  br i1 %or.cond3, label %.thread, label %.split, !llvm.loop !16
+  br i1 %or.cond3, label %.thread, label %.split
 
 .thread.sink.split:                               ; preds = %32, %45
   tail call void @visibilitymap_pin(ptr noundef %0, i32 noundef %.049, ptr noundef nonnull %.052) #8
@@ -1158,15 +1158,12 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !6, !7}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !7}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !6, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !10}

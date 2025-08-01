@@ -109,20 +109,20 @@ sub_1:                                            ; preds = %24
 .critedge:                                        ; preds = %15, %31, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %31 ], [ %.037, %15 ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 1748
-  %35 = load i32, ptr %34, align 4, !tbaa !84
+  %35 = load i32, ptr %34, align 4, !tbaa !83
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %36, label %37
 
 36:                                               ; preds = %.critedge
-  store i32 1, ptr %34, align 4, !tbaa !84
+  store i32 1, ptr %34, align 4, !tbaa !83
   br label %37
 
 37:                                               ; preds = %36, %.critedge
   %38 = phi i32 [ 1, %36 ], [ %35, %.critedge ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1492
-  store i32 1, ptr %39, align 4, !tbaa !85
+  store i32 1, ptr %39, align 4, !tbaa !84
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !86
+  %41 = load i32, ptr %40, align 8, !tbaa !85
   %42 = icmp ne i32 %41, 0
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 1432
   %44 = load i64, ptr %43, align 8
@@ -301,9 +301,8 @@ attributes #7 = { noreturn nounwind }
 !78 = !{!11, !11, i64 0}
 !79 = !{!7, !7, i64 0}
 !80 = !{!31, !18, i64 1412}
-!81 = distinct !{!81, !82, !83}
+!81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = !{!31, !18, i64 1748}
-!85 = !{!31, !18, i64 1492}
-!86 = !{!31, !18, i64 8}
+!83 = !{!31, !18, i64 1748}
+!84 = !{!31, !18, i64 1492}
+!85 = !{!31, !18, i64 8}

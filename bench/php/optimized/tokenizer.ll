@@ -539,14 +539,14 @@ define hidden i32 @lxb_html_tokenizer_chunk(ptr noundef initializes((160, 168), 
   %.123 = phi i64 [ 0, %19 ], [ %spec.select, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %.127, i64 1
   %exitcond.not = icmp eq ptr %26, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %25, %10
   %.022.lcssa = phi i64 [ %11, %10 ], [ %.123, %25 ]
   %.1.lcssa = phi ptr [ %.029, %10 ], [ %scevgep, %25 ]
   store i64 %.022.lcssa, ptr %8, align 8, !tbaa !36
   %27 = icmp ult ptr %.1.lcssa, %4
-  br i1 %27, label %10, label %._crit_edge32.loopexit, !llvm.loop !42
+  br i1 %27, label %10, label %._crit_edge32.loopexit
 
 ._crit_edge32.loopexit:                           ; preds = %._crit_edge
   %.pre34 = load i32, ptr %6, align 8, !tbaa !29
@@ -561,7 +561,7 @@ define hidden i32 @lxb_html_tokenizer_chunk(ptr noundef initializes((160, 168), 
 define hidden i32 @lxb_html_tokenizer_end(ptr noundef initializes((232, 237)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 0, ptr %2, align 8, !tbaa !29
-  %3 = load ptr, ptr @lxb_html_tokenizer_eof, align 8, !tbaa !43
+  %3 = load ptr, ptr @lxb_html_tokenizer_eof, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i8 1, ptr %5, align 4, !tbaa !28
@@ -571,7 +571,7 @@ define hidden i32 @lxb_html_tokenizer_end(ptr noundef initializes((232, 237)) %0
   %7 = load ptr, ptr %0, align 8, !tbaa !24
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %4) #8
   %9 = icmp ult ptr %8, %4
-  br i1 %9, label %6, label %10, !llvm.loop !44
+  br i1 %9, label %6, label %10
 
 10:                                               ; preds = %6
   store i8 0, ptr %5, align 4, !tbaa !28
@@ -585,7 +585,7 @@ define hidden i32 @lxb_html_tokenizer_end(ptr noundef initializes((232, 237)) %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   %15 = load ptr, ptr %13, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store i64 1, ptr %16, align 8, !tbaa !45
+  store i64 1, ptr %16, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -616,12 +616,12 @@ define hidden i64 @lxb_html_tokenizer_current_namespace(ptr noundef readonly cap
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
   %.not.i = icmp ne ptr %7, null
   %.phi.trans.insert.i = getelementptr i8, ptr %3, i64 32
-  %.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !50
   %.phi.trans.insert7.i = getelementptr inbounds nuw i8, ptr %.val.pre.i, i64 16
-  %.pre.i = load i64, ptr %.phi.trans.insert7.i, align 8, !tbaa !55
+  %.pre.i = load i64, ptr %.phi.trans.insert7.i, align 8, !tbaa !51
   %8 = icmp eq i64 %.pre.i, 1
   %or.cond.i = select i1 %.not.i, i1 %8, i1 false
   br i1 %or.cond.i, label %lxb_html_tree_adjusted_current_node.exit.thread7, label %._crit_edge.i
@@ -631,17 +631,17 @@ define hidden i64 @lxb_html_tokenizer_current_namespace(ptr noundef readonly cap
   br i1 %9, label %lxb_html_tree_adjusted_current_node.exit.thread, label %lxb_html_tree_adjusted_current_node.exit
 
 lxb_html_tree_adjusted_current_node.exit:         ; preds = %._crit_edge.i
-  %10 = load ptr, ptr %.val.pre.i, align 8, !tbaa !57
+  %10 = load ptr, ptr %.val.pre.i, align 8, !tbaa !53
   %11 = getelementptr ptr, ptr %10, i64 %.pre.i
   %12 = getelementptr i8, ptr %11, i64 -8
-  %13 = load ptr, ptr %12, align 8, !tbaa !58
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = icmp eq ptr %13, null
   br i1 %14, label %lxb_html_tree_adjusted_current_node.exit.thread, label %lxb_html_tree_adjusted_current_node.exit.thread7
 
 lxb_html_tree_adjusted_current_node.exit.thread7: ; preds = %5, %lxb_html_tree_adjusted_current_node.exit
   %.0.i9 = phi ptr [ %13, %lxb_html_tree_adjusted_current_node.exit ], [ %7, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0.i9, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !59
+  %16 = load i64, ptr %15, align 8, !tbaa !55
   br label %lxb_html_tree_adjusted_current_node.exit.thread
 
 lxb_html_tree_adjusted_current_node.exit.thread:  ; preds = %._crit_edge.i, %lxb_html_tree_adjusted_current_node.exit.thread7, %lxb_html_tree_adjusted_current_node.exit, %1
@@ -681,7 +681,7 @@ define hidden void @lxb_html_tokenizer_set_state_by_tag(ptr noundef writeonly ca
   %.sink = phi i64 [ %2, %6 ], [ %2, %7 ], [ %2, %5 ], [ %2, %5 ], [ 139, %8 ]
   %lxb_html_tokenizer_state_plaintext_before.sink.ph = phi ptr [ @lxb_html_tokenizer_state_rawtext_before, %6 ], [ @lxb_html_tokenizer_state_script_data_before, %7 ], [ @lxb_html_tokenizer_state_rcdata_before, %5 ], [ @lxb_html_tokenizer_state_rcdata_before, %5 ], [ @lxb_html_tokenizer_state_rawtext_before, %8 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %.sink, ptr %9, align 8, !tbaa !63
+  store i64 %.sink, ptr %9, align 8, !tbaa !59
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %5, %8, %4
@@ -733,7 +733,7 @@ define hidden void @lxb_html_tokenizer_state_set_noi(ptr noundef writeonly captu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @lxb_html_tokenizer_tmp_tag_id_set_noi(ptr noundef writeonly captures(none) initializes((120, 128)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %1, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %3, align 8, !tbaa !59
   ret void
 }
 
@@ -820,27 +820,23 @@ attributes #8 = { nounwind }
 !37 = !{!5, !13, i64 228}
 !38 = !{!5, !11, i64 160}
 !39 = !{!7, !7, i64 0}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = distinct !{!42, !41}
-!43 = !{!11, !11, i64 0}
-!44 = distinct !{!44, !41}
-!45 = !{!46, !12, i64 80}
-!46 = !{!"", !11, i64 0, !11, i64 8, !12, i64 16, !12, i64 24, !11, i64 32, !11, i64 40, !47, i64 48, !47, i64 56, !6, i64 64, !12, i64 72, !12, i64 80, !13, i64 88}
-!47 = !{!"p1 _ZTS19lxb_html_token_attr", !6, i64 0}
-!48 = !{!49, !51, i64 16}
-!49 = !{!"lxb_html_tree", !15, i64 0, !50, i64 8, !51, i64 16, !52, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !53, i64 56, !6, i64 72, !14, i64 80, !14, i64 81, !14, i64 82, !14, i64 83, !14, i64 84, !14, i64 85, !6, i64 88, !6, i64 96, !6, i64 104, !13, i64 112, !12, i64 120}
-!50 = !{!"p1 _ZTS17lxb_html_document", !6, i64 0}
-!51 = !{!"p1 _ZTS12lxb_dom_node", !6, i64 0}
-!52 = !{!"p1 _ZTS21lxb_html_form_element", !6, i64 0}
-!53 = !{!"", !6, i64 0, !14, i64 8}
-!54 = !{!49, !6, i64 32}
-!55 = !{!56, !12, i64 16}
-!56 = !{!"", !6, i64 0, !12, i64 8, !12, i64 16}
-!57 = !{!56, !6, i64 0}
-!58 = !{!6, !6, i64 0}
-!59 = !{!60, !12, i64 24}
-!60 = !{!"lxb_dom_node", !61, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !62, i64 32, !51, i64 40, !51, i64 48, !51, i64 56, !51, i64 64, !51, i64 72, !6, i64 80, !13, i64 88, !12, i64 96}
-!61 = !{!"lxb_dom_event_target", !6, i64 0}
-!62 = !{!"p1 _ZTS16lxb_dom_document", !6, i64 0}
-!63 = !{!5, !12, i64 120}
+!40 = !{!11, !11, i64 0}
+!41 = !{!42, !12, i64 80}
+!42 = !{!"", !11, i64 0, !11, i64 8, !12, i64 16, !12, i64 24, !11, i64 32, !11, i64 40, !43, i64 48, !43, i64 56, !6, i64 64, !12, i64 72, !12, i64 80, !13, i64 88}
+!43 = !{!"p1 _ZTS19lxb_html_token_attr", !6, i64 0}
+!44 = !{!45, !47, i64 16}
+!45 = !{!"lxb_html_tree", !15, i64 0, !46, i64 8, !47, i64 16, !48, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !49, i64 56, !6, i64 72, !14, i64 80, !14, i64 81, !14, i64 82, !14, i64 83, !14, i64 84, !14, i64 85, !6, i64 88, !6, i64 96, !6, i64 104, !13, i64 112, !12, i64 120}
+!46 = !{!"p1 _ZTS17lxb_html_document", !6, i64 0}
+!47 = !{!"p1 _ZTS12lxb_dom_node", !6, i64 0}
+!48 = !{!"p1 _ZTS21lxb_html_form_element", !6, i64 0}
+!49 = !{!"", !6, i64 0, !14, i64 8}
+!50 = !{!45, !6, i64 32}
+!51 = !{!52, !12, i64 16}
+!52 = !{!"", !6, i64 0, !12, i64 8, !12, i64 16}
+!53 = !{!52, !6, i64 0}
+!54 = !{!6, !6, i64 0}
+!55 = !{!56, !12, i64 24}
+!56 = !{!"lxb_dom_node", !57, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !58, i64 32, !47, i64 40, !47, i64 48, !47, i64 56, !47, i64 64, !47, i64 72, !6, i64 80, !13, i64 88, !12, i64 96}
+!57 = !{!"lxb_dom_event_target", !6, i64 0}
+!58 = !{!"p1 _ZTS16lxb_dom_document", !6, i64 0}
+!59 = !{!5, !12, i64 120}

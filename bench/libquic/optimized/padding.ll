@@ -197,13 +197,13 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %0, 
 21:                                               ; preds = %18
   %22 = tail call i32 @RAND_bytes(ptr noundef nonnull %.028, i64 noundef 1) #8
   %.not24 = icmp eq i32 %22, 0
-  br i1 %.not24, label %.loopexit, label %18, !llvm.loop !12
+  br i1 %.not24, label %.loopexit, label %18, !llvm.loop !11
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %25 = add nuw i32 %.02127, 1
   %exitcond.not = icmp eq i32 %25, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %23, %.preheader25
   %.0.lcssa = phi ptr [ %13, %.preheader25 ], [ %24, %23 ]
@@ -260,7 +260,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_padding_check_PKCS1_type_2(ptr
   %23 = select i1 %.not45, i32 0, i32 %.03646
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %24, label %14, !llvm.loop !14
+  br i1 %exitcond.not, label %24, label %14, !llvm.loop !13
 
 24:                                               ; preds = %14
   %25 = icmp ne i8 %11, 0
@@ -448,7 +448,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %
   store i8 %66, ptr %64, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader80
   %67 = call fastcc i32 @PKCS1_MGF1(ptr noundef nonnull %9, i32 noundef %16, ptr noundef nonnull %33, i32 noundef %54, ptr noundef %spec.select)
@@ -473,7 +473,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %
   store i8 %73, ptr %71, align 1, !tbaa !6
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph83, !llvm.loop !16
+  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph83, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph83, %.preheader, %._crit_edge, %59
   %.0 = phi i32 [ 0, %59 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph83 ]
@@ -572,7 +572,7 @@ define internal fastcc range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i32 noun
 40:                                               ; preds = %30
   %41 = add i32 %.02432, 1
   %42 = icmp ult i32 %29, %1
-  br i1 %42, label %15, label %._crit_edge, !llvm.loop !17
+  br i1 %42, label %15, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %26, %24, %15, %30, %40, %34, %.thread, %5
   %.0 = phi i32 [ 0, %5 ], [ -1, %34 ], [ 0, %.thread ], [ 0, %40 ], [ -1, %30 ], [ -1, %15 ], [ -1, %24 ], [ -1, %26 ]
@@ -648,7 +648,7 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   store i8 %37, ptr %35, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader96
   %38 = call fastcc i32 @PKCS1_MGF1(ptr noundef nonnull %25, i32 noundef %23, ptr noundef nonnull %9, i32 noundef %17, ptr noundef %spec.select)
@@ -669,7 +669,7 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   store i8 %43, ptr %41, align 1, !tbaa !6
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %24
-  br i1 %exitcond119.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !19
+  br i1 %exitcond119.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !18
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %.preheader
   %44 = zext i32 %5 to i64
@@ -707,7 +707,7 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   %64 = or i32 %63, %.080101
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %24
-  br i1 %exitcond124.not, label %._crit_edge107.loopexit, label %.lr.ph106, !llvm.loop !20
+  br i1 %exitcond124.not, label %._crit_edge107.loopexit, label %.lr.ph106, !llvm.loop !19
 
 ._crit_edge107.loopexit:                          ; preds = %.lr.ph106
   %65 = add i32 %61, 1
@@ -783,7 +783,7 @@ define hidden range(i32 0, 2) i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr
 16:                                               ; preds = %6, %13, %11
   %.066 = phi i32 [ %12, %11 ], [ %5, %13 ], [ %5, %6 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = call i32 @BN_num_bits(ptr noundef %18) #8
   %20 = add i32 %19, 7
   %21 = and i32 %20, 7
@@ -864,7 +864,7 @@ define hidden range(i32 0, 2) i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr
   store i8 %58, ptr %56, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   br i1 %30, label %65, label %59
@@ -891,7 +891,7 @@ define hidden range(i32 0, 2) i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr
   %72 = icmp slt i64 %indvars.iv90, %67
   %73 = select i1 %71, i1 %72, i1 false
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  br i1 %73, label %68, label %74, !llvm.loop !34
+  br i1 %73, label %68, label %74, !llvm.loop !33
 
 74:                                               ; preds = %68
   %75 = trunc nuw nsw i64 %indvars.iv90 to i32
@@ -1006,7 +1006,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %0
 15:                                               ; preds = %6, %12, %10
   %.065 = phi i32 [ %11, %10 ], [ %5, %12 ], [ %5, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = tail call i32 @BN_is_zero(ptr noundef %17) #8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %20, label %19
@@ -1016,7 +1016,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %0
   br label %100
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %16, align 8, !tbaa !21
+  %21 = load ptr, ptr %16, align 8, !tbaa !20
   %22 = tail call i32 @BN_num_bits(ptr noundef %21) #8
   %23 = add i32 %22, 7
   %24 = and i32 %23, 7
@@ -1154,7 +1154,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %0
   store i8 %91, ptr %.087, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !34
 
 .loopexit:                                        ; preds = %86, %76
   br i1 %28, label %97, label %92
@@ -1209,30 +1209,29 @@ attributes #9 = { nounwind allocsize(0) }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = !{!22, !25, i64 8}
-!22 = !{!"rsa_st", !23, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !25, i64 32, !25, i64 40, !25, i64 48, !25, i64 56, !25, i64 64, !26, i64 72, !27, i64 80, !29, i64 88, !29, i64 92, !7, i64 96, !30, i64 152, !30, i64 160, !30, i64 168, !29, i64 176, !31, i64 184, !32, i64 192}
-!23 = !{!"p1 _ZTS11rsa_meth_st", !24, i64 0}
-!24 = !{!"any pointer", !7, i64 0}
-!25 = !{!"p1 _ZTS9bignum_st", !24, i64 0}
-!26 = !{!"p1 _ZTS29stack_st_RSA_additional_prime", !24, i64 0}
-!27 = !{!"crypto_ex_data_st", !28, i64 0}
-!28 = !{!"p1 _ZTS13stack_st_void", !24, i64 0}
-!29 = !{!"int", !7, i64 0}
-!30 = !{!"p1 _ZTS14bn_mont_ctx_st", !24, i64 0}
-!31 = !{!"p2 _ZTS14bn_blinding_st", !24, i64 0}
-!32 = !{!"p1 omnipotent char", !24, i64 0}
-!33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
-!35 = distinct !{!35, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = !{!21, !24, i64 8}
+!21 = !{!"rsa_st", !22, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !25, i64 72, !26, i64 80, !28, i64 88, !28, i64 92, !7, i64 96, !29, i64 152, !29, i64 160, !29, i64 168, !28, i64 176, !30, i64 184, !31, i64 192}
+!22 = !{!"p1 _ZTS11rsa_meth_st", !23, i64 0}
+!23 = !{!"any pointer", !7, i64 0}
+!24 = !{!"p1 _ZTS9bignum_st", !23, i64 0}
+!25 = !{!"p1 _ZTS29stack_st_RSA_additional_prime", !23, i64 0}
+!26 = !{!"crypto_ex_data_st", !27, i64 0}
+!27 = !{!"p1 _ZTS13stack_st_void", !23, i64 0}
+!28 = !{!"int", !7, i64 0}
+!29 = !{!"p1 _ZTS14bn_mont_ctx_st", !23, i64 0}
+!30 = !{!"p2 _ZTS14bn_blinding_st", !23, i64 0}
+!31 = !{!"p1 omnipotent char", !23, i64 0}
+!32 = distinct !{!32, !10}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}

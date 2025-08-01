@@ -1098,14 +1098,14 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
 
 109:                                              ; preds = %.lr.ph
   %110 = getelementptr inbounds nuw [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %111 = load i32, ptr %110, align 16, !tbaa !42
+  %111 = load i32, ptr %110, align 16, !tbaa !41
   %112 = icmp eq i32 %103, %111
   br i1 %112, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %109, %.preheader
   %.lcssa = phi ptr [ @padding_item, %.preheader ], [ %110, %109 ]
   %113 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !44
+  %114 = load ptr, ptr %113, align 8, !tbaa !43
   %.not72 = icmp eq ptr %114, null
   br i1 %.not72, label %.thread, label %115
 
@@ -1170,9 +1170,9 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !45
+  %141 = load ptr, ptr %140, align 8, !tbaa !44
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %143 = load i64, ptr %142, align 8, !tbaa !46
+  %143 = load i64, ptr %142, align 8, !tbaa !45
   %144 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %141, i64 noundef %143, ptr noundef nonnull @.str.33, i32 noundef %137) #11
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %146, label %.critedge86
@@ -1180,7 +1180,7 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
 146:                                              ; preds = %139
   %147 = zext nneg i32 %144 to i64
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  store i64 %147, ptr %148, align 8, !tbaa !47
+  store i64 %147, ptr %148, align 8, !tbaa !46
   br label %.critedge88
 
 switch.lookup:                                    ; preds = %135
@@ -1243,7 +1243,7 @@ define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef %0, ptr noun
   br i1 %15, label %.critedge108, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %14
-  %16 = load ptr, ptr %1, align 8, !tbaa !48
+  %16 = load ptr, ptr %1, align 8, !tbaa !47
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge108, label %17
 
@@ -1295,7 +1295,7 @@ ossl_param_is_empty.exit:                         ; preds = %14
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !45
+  %37 = load ptr, ptr %36, align 8, !tbaa !44
   %.not90 = icmp eq ptr %37, null
   br i1 %.not90, label %.critedge108, label %.preheader.preheader
 
@@ -1308,18 +1308,18 @@ ossl_param_is_empty.exit:                         ; preds = %14
   %indvars.iv127 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv127, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %thread-pre-split, label %.preheader, !llvm.loop !49
+  br i1 %exitcond, label %thread-pre-split, label %.preheader, !llvm.loop !48
 
 .preheader:                                       ; preds = %.lr.ph
   %40 = getelementptr inbounds nuw [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !44
+  %42 = load ptr, ptr %41, align 8, !tbaa !43
   %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %42) #12
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %44, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !48
 
 .preheader._crit_edge:                            ; preds = %.preheader
-  %45 = load i32, ptr %40, align 16, !tbaa !42
+  %45 = load i32, ptr %40, align 16, !tbaa !41
   br label %46
 
 46:                                               ; preds = %.preheader._crit_edge, %.preheader.preheader
@@ -1406,7 +1406,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %33
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !45
+  %74 = load ptr, ptr %73, align 8, !tbaa !44
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.27) #12
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %.thread118.sink.split, label %77
@@ -1884,7 +1884,7 @@ define internal range(i32 0, 2) i32 @rsa_verify_message_final(ptr noundef captur
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %24 = load i64, ptr %23, align 8, !tbaa !50
+  %24 = load i64, ptr %23, align 8, !tbaa !49
   %25 = load i32, ptr %3, align 4, !tbaa !33
   %26 = zext i32 %25 to i64
   %27 = call fastcc i32 @rsa_verify_directly(ptr noundef %0, ptr noundef %22, i64 noundef %24, ptr noundef nonnull %2, i64 noundef %26)
@@ -1918,7 +1918,7 @@ define internal range(i32 0, 2) i32 @rsa_sigalg_set_ctx_params(ptr noundef %0, p
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !48
+  %6 = load ptr, ptr %1, align 8, !tbaa !47
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %7
 
@@ -2498,7 +2498,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_signverify_init(ptr noundef %0, 
   br label %.critedge
 
 .critedge66:                                      ; preds = %69, %36, %34
-  %72 = call i32 %2(ptr noundef nonnull %0, ptr noundef %3) #11, !callees !51
+  %72 = call i32 %2(ptr noundef nonnull %0, ptr noundef %3) #11, !callees !50
   %.not65 = icmp ne i32 %72, 0
   %. = zext i1 %.not65 to i32
   br label %.critedge
@@ -3303,9 +3303,9 @@ define internal fastcc range(i32 0, 2) i32 @rsa_verify_set_sig(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !51
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
-  %7 = load ptr, ptr %4, align 16, !tbaa !48
+  %7 = load ptr, ptr %4, align 16, !tbaa !47
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %rsa_sigalg_set_ctx_params.exit, label %8
 
@@ -3820,18 +3820,17 @@ attributes #12 = { nounwind willreturn memory(read) }
 !36 = !{!4, !11, i64 120}
 !37 = !{!38, !11, i64 8}
 !38 = !{!"ossl_param_st", !9, i64 0, !11, i64 8, !6, i64 16, !14, i64 24, !14, i64 32}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !11, i64 0}
-!43 = !{!"ossl_item_st", !11, i64 0, !6, i64 8}
-!44 = !{!43, !6, i64 8}
-!45 = !{!38, !6, i64 16}
-!46 = !{!38, !14, i64 24}
-!47 = !{!38, !14, i64 32}
-!48 = !{!38, !9, i64 0}
-!49 = distinct !{!49, !40, !41}
-!50 = !{!4, !14, i64 192}
-!51 = !{ptr @rsa_set_ctx_params, ptr @rsa_sigalg_set_ctx_params}
-!52 = !{i64 0, i64 8, !31, i64 8, i64 4, !33, i64 16, i64 8, !53, i64 24, i64 8, !21, i64 32, i64 8, !21}
-!53 = !{!6, !6, i64 0}
+!41 = !{!42, !11, i64 0}
+!42 = !{!"ossl_item_st", !11, i64 0, !6, i64 8}
+!43 = !{!42, !6, i64 8}
+!44 = !{!38, !6, i64 16}
+!45 = !{!38, !14, i64 24}
+!46 = !{!38, !14, i64 32}
+!47 = !{!38, !9, i64 0}
+!48 = distinct !{!48, !40}
+!49 = !{!4, !14, i64 192}
+!50 = !{ptr @rsa_set_ctx_params, ptr @rsa_sigalg_set_ctx_params}
+!51 = !{i64 0, i64 8, !31, i64 8, i64 4, !33, i64 16, i64 8, !52, i64 24, i64 8, !21, i64 32, i64 8, !21}
+!52 = !{!6, !6, i64 0}

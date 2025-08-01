@@ -1233,7 +1233,7 @@ define dso_local ptr @pg_analyze_and_rewrite_varparams(ptr noundef %0, ptr nound
 27:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !9
 
 28:                                               ; preds = %._crit_edge
   tail call void @ShowUsage(ptr noundef nonnull @.str.1)
@@ -2338,7 +2338,7 @@ get_stats_option_name.exit.thread:                ; preds = %87, %get_stats_opti
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %get_stats_option_name.exit.thread, %switch.lookup, %18, %21, %20, %42, %47, %46, %50, %55, %54, %56, %57, %63, %65, %67, %66, %68, %70, %71, %73, %74, %75, %78, %77, %81, %83, %91, %90, %95, %.backedge, %.backedge, %.backedge
-  br label %.backedge, !llvm.loop !11
+  br label %.backedge, !llvm.loop !10
 
 90:                                               ; preds = %.backedge
   br i1 %7, label %91, label %.backedge.backedge
@@ -2669,27 +2669,27 @@ define dso_local void @PostgresMain(ptr noundef %0, ptr noundef %1) local_unname
   call void @pq_beginmessage(ptr noundef nonnull %30, i8 noundef signext 75) #22
   %70 = load i32, ptr @MyProcPid, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %30, i32 noundef 4) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %71 = call i32 @llvm.bswap.i32(i32 %70)
-  %72 = load ptr, ptr %30, align 8, !alias.scope !12
+  %72 = load ptr, ptr %30, align 8, !alias.scope !11
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %74 = load i32, ptr %73, align 8, !alias.scope !12
+  %74 = load i32, ptr %73, align 8, !alias.scope !11
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %72, i64 %75
-  store i32 %71, ptr %76, align 1, !noalias !12
+  store i32 %71, ptr %76, align 1, !noalias !11
   %77 = add i32 %74, 4
-  store i32 %77, ptr %73, align 8, !alias.scope !12
+  store i32 %77, ptr %73, align 8, !alias.scope !11
   %78 = load i32, ptr @MyCancelKey, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %30, i32 noundef 4) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %79 = call i32 @llvm.bswap.i32(i32 %78)
-  %80 = load ptr, ptr %30, align 8, !alias.scope !15
-  %81 = load i32, ptr %73, align 8, !alias.scope !15
+  %80 = load ptr, ptr %30, align 8, !alias.scope !14
+  %81 = load i32, ptr %73, align 8, !alias.scope !14
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %80, i64 %82
-  store i32 %79, ptr %83, align 1, !noalias !15
+  store i32 %79, ptr %83, align 1, !noalias !14
   %84 = add i32 %81, 4
-  store i32 %84, ptr %73, align 8, !alias.scope !15
+  store i32 %84, ptr %73, align 8, !alias.scope !14
   call void @pq_endmessage(ptr noundef nonnull %30) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #22
   %.pr = load i32, ptr @whereToSendOutput, align 4
@@ -3148,7 +3148,7 @@ interactive_getc.exit.i.i:                        ; preds = %234, %232, %231, %2
   br label %.backedge.i.i.backedge
 
 .backedge.i.i.backedge:                           ; preds = %265, %260
-  br label %.backedge.i.i, !llvm.loop !18
+  br label %.backedge.i.i, !llvm.loop !17
 
 267:                                              ; preds = %interactive_getc.exit.i.i
   %268 = load i32, ptr %123, align 8
@@ -3289,7 +3289,7 @@ forbidden_in_wal_sender.exit:                     ; preds = %297
   store i32 %313, ptr %314, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %309
-  br i1 %exitcond.not, label %.loopexit, label %312, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %312, !llvm.loop !18
 
 .loopexit:                                        ; preds = %312, %forbidden_in_wal_sender.exit
   %.0 = phi ptr [ null, %forbidden_in_wal_sender.exit ], [ %311, %312 ]
@@ -3546,7 +3546,7 @@ IsTransactionExitStmt.exit.thread.i:              ; preds = %392, %382
 424:                                              ; preds = %415
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i129, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, %wide.trip.count.i128
-  br i1 %exitcond.not.i131, label %._crit_edge.i126, label %415, !llvm.loop !10
+  br i1 %exitcond.not.i131, label %._crit_edge.i126, label %415, !llvm.loop !9
 
 425:                                              ; preds = %._crit_edge.i126
   call void @ShowUsage(ptr noundef nonnull @.str.1)
@@ -3658,7 +3658,7 @@ pg_analyze_and_rewrite_varparams.exit132:         ; preds = %._crit_edge.i126, %
 478:                                              ; preds = %469
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i122
-  br i1 %exitcond.not.i125, label %._crit_edge.i120, label %469, !llvm.loop !10
+  br i1 %exitcond.not.i125, label %._crit_edge.i120, label %469, !llvm.loop !9
 
 479:                                              ; preds = %._crit_edge.i120
   call void @ShowUsage(ptr noundef nonnull @.str.1)
@@ -4135,7 +4135,7 @@ start_xact_command.exit167:                       ; preds = %enable_statement_ti
   store i16 %691, ptr %692, align 2
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
   %exitcond246.not.i = icmp eq i64 %indvars.iv.next243.i, %wide.trip.count245.i
-  br i1 %exitcond246.not.i, label %.loopexit223.i, label %689, !llvm.loop !20
+  br i1 %exitcond246.not.i, label %.loopexit223.i, label %689, !llvm.loop !19
 
 .loopexit223.i:                                   ; preds = %689, %start_xact_command.exit167
   %.0158.i = phi ptr [ null, %start_xact_command.exit167 ], [ %688, %689 ]
@@ -4473,7 +4473,7 @@ IsTransactionExitStmt.exit.thread.i75:            ; preds = %719, %716, %713, %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #22
   %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
   %exitcond251.not.i = icmp eq i64 %indvars.iv.next248.i, %757
-  br i1 %exitcond251.not.i, label %760, label %764, !llvm.loop !21
+  br i1 %exitcond251.not.i, label %760, label %764, !llvm.loop !20
 
 840:                                              ; preds = %760
   %841 = call ptr @BuildParamLogString(ptr noundef nonnull %755, ptr noundef %.4.i, i32 noundef %763) #22
@@ -4516,7 +4516,7 @@ IsTransactionExitStmt.exit.thread.i75:            ; preds = %719, %716, %713, %7
   store i16 %854, ptr %855, align 2
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %exitcond256.not.i = icmp eq i64 %indvars.iv.next253.i, %wide.trip.count255.i
-  br i1 %exitcond256.not.i, label %.loopexit.i, label %852, !llvm.loop !22
+  br i1 %exitcond256.not.i, label %.loopexit.i, label %852, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %852, %.thread.i
   %.0160.i = phi ptr [ null, %.thread.i ], [ %851, %852 ]
@@ -5730,20 +5730,20 @@ start_xact_command.exit202:                       ; preds = %enable_statement_ti
   %1397 = getelementptr inbounds nuw i32, ptr %1396, i64 %indvars.iv.i106
   %1398 = load i32, ptr %1397, align 4
   call void @enlargeStringInfo(ptr noundef nonnull @row_description_buf, i32 noundef 4) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %1399 = call i32 @llvm.bswap.i32(i32 %1398)
-  %1400 = load ptr, ptr @row_description_buf, align 8, !alias.scope !23
-  %1401 = load i32, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8, !alias.scope !23
+  %1400 = load ptr, ptr @row_description_buf, align 8, !alias.scope !22
+  %1401 = load i32, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8, !alias.scope !22
   %1402 = sext i32 %1401 to i64
   %1403 = getelementptr inbounds i8, ptr %1400, i64 %1402
-  store i32 %1399, ptr %1403, align 1, !noalias !23
+  store i32 %1399, ptr %1403, align 1, !noalias !22
   %1404 = add i32 %1401, 4
-  store i32 %1404, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8, !alias.scope !23
+  store i32 %1404, ptr getelementptr inbounds nuw (i8, ptr @row_description_buf, i64 8), align 8, !alias.scope !22
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %1405 = load i32, ptr %1380, align 8
   %1406 = sext i32 %1405 to i64
   %1407 = icmp slt i64 %indvars.iv.next.i107, %1406
-  br i1 %1407, label %1395, label %._crit_edge.i, !llvm.loop !26
+  br i1 %1407, label %1395, label %._crit_edge.i, !llvm.loop !25
 
 1408:                                             ; preds = %._crit_edge.i
   %1409 = call ptr @CachedPlanGetTargetList(ptr noundef nonnull %.0.i104, ptr noundef null) #22
@@ -5950,7 +5950,7 @@ finish_xact_command.exit111:                      ; preds = %disable_statement_t
 
 exec_describe_statement_message.exit:             ; preds = %1466, %1462, %1457, %1411, %1408, %1377, %296, %exec_parse_message.exit, %exec_bind_message.exit, %exec_execute_message.exit, %finish_xact_command.exit, %finish_xact_command.exit111, %1474, %1471, %289, %289, %289, %1316, %drop_unnamed_stmt.exit, %287
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #22
-  br label %135, !llvm.loop !27
+  br label %135
 }
 
 declare void @WalSndSignals() local_unnamed_addr #3
@@ -7041,24 +7041,22 @@ attributes #27 = { nounwind returns_twice }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !9}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"pq_writeint32: argument 0"}
-!14 = distinct !{!14, !"pq_writeint32"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"pq_writeint32: argument 0"}
-!17 = distinct !{!17, !"pq_writeint32"}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"pq_writeint32: argument 0"}
-!25 = distinct !{!25, !"pq_writeint32"}
-!26 = distinct !{!26, !8, !9}
-!27 = distinct !{!27, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"pq_writeint32: argument 0"}
+!13 = distinct !{!13, !"pq_writeint32"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pq_writeint32: argument 0"}
+!16 = distinct !{!16, !"pq_writeint32"}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"pq_writeint32: argument 0"}
+!24 = distinct !{!24, !"pq_writeint32"}
+!25 = distinct !{!25, !8}

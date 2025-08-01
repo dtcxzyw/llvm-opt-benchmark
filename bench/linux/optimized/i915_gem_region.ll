@@ -312,7 +312,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
 
 38:                                               ; preds = %37, %.thread
   %39 = icmp eq i32 %33, 0
-  br i1 %39, label %114, label %40, !llvm.loop !25
+  br i1 %39, label %114, label %40, !llvm.loop !24
 
 40:                                               ; preds = %38
   call void @mutex_unlock(ptr noundef nonnull %8) #7
@@ -334,7 +334,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %53 = load i8, ptr %52, align 8, !range !26, !noundef !27
+  %53 = load i8, ptr %52, align 8, !range !25, !noundef !26
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %58, label %55
 
@@ -356,7 +356,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   br i1 %65, label %66, label %79
 
 66:                                               ; preds = %61
-  %67 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 1, ptr elementtype(i32) %16) #7, !srcloc !28
+  %67 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 1, ptr elementtype(i32) %16) #7, !srcloc !27
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %73, label %69, !prof !6
 
@@ -390,7 +390,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   ]
 
 82:                                               ; preds = %79
-  %83 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 1, ptr elementtype(i32) %16) #7, !srcloc !28
+  %83 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 1, ptr elementtype(i32) %16) #7, !srcloc !27
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %89, label %85, !prof !6
 
@@ -438,7 +438,7 @@ select.unfold:                                    ; preds = %.thread13, %98
 .thread15:                                        ; preds = %select.unfold, %92, %98
   %102 = phi i32 [ %101, %select.unfold ], [ %99, %98 ], [ 0, %92 ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %4) #7
-  %103 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 -1, ptr elementtype(i32) %16) #7, !srcloc !29
+  %103 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 -1, ptr elementtype(i32) %16) #7, !srcloc !28
   %104 = icmp eq i32 %103, 1
   br i1 %104, label %108, label %105
 
@@ -451,7 +451,7 @@ select.unfold:                                    ; preds = %.thread13, %98
   br label %.thread17
 
 108:                                              ; preds = %.thread15
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !29
   call void @drm_gem_object_free(ptr noundef %16) #7
   br label %.thread17
 
@@ -469,7 +469,7 @@ select.unfold:                                    ; preds = %.thread13, %98
   %111 = getelementptr i8, ptr %109, i64 -720
   %112 = icmp eq ptr %111, null
   %113 = or i1 %110, %112
-  br i1 %113, label %.thread18, label %.lr.ph, !llvm.loop !31
+  br i1 %113, label %.thread18, label %.lr.ph
 
 114:                                              ; preds = %38
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
@@ -573,14 +573,12 @@ attributes #7 = { nounwind }
 !18 = !{i64 2158234684}
 !19 = !{!"auto-init"}
 !20 = !{i64 2148800188, i64 2148800227, i64 2148800248, i64 2148800285, i64 2148800308, i64 2148800317, i64 2148800615}
-!21 = distinct !{!21, !22, !23, !24}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
 !23 = !{!"llvm.loop.unroll.disable"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23}
-!26 = !{i8 0, i8 2}
-!27 = !{}
-!28 = !{i64 2148792296, i64 2148792335, i64 2148792356, i64 2148792393, i64 2148792416, i64 2148792425}
-!29 = !{i64 2148794481, i64 2148794520, i64 2148794541, i64 2148794578, i64 2148794601, i64 2148794610}
-!30 = !{i64 2150569528}
-!31 = distinct !{!31, !24}
+!24 = distinct !{!24, !23}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = !{i64 2148792296, i64 2148792335, i64 2148792356, i64 2148792393, i64 2148792416, i64 2148792425}
+!28 = !{i64 2148794481, i64 2148794520, i64 2148794541, i64 2148794578, i64 2148794601, i64 2148794610}
+!29 = !{i64 2150569528}

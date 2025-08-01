@@ -508,6 +508,5 @@ attributes #14 = { noreturn nounwind }
 !37 = !{i64 0, i64 16, !38}
 !38 = !{!11, !11, i64 0}
 !39 = !{i64 0, i64 4, !34, i64 8, i64 8, !35, i64 16, i64 4, !34, i64 20, i64 4, !34, i64 24, i64 8, !35, i64 32, i64 4, !34, i64 36, i64 4, !36, i64 40, i64 4, !36}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}

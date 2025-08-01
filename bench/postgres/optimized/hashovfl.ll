@@ -146,7 +146,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 
 30:                                               ; preds = %28, %29
   %31 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef %26, i32 noundef 2, i32 noundef 1) #6
-  br label %7, !llvm.loop !7
+  br label %7
 
 32:                                               ; preds = %BufferGetPage.exit
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -268,7 +268,7 @@ BufferGetPage.exit192:                            ; preds = %82, %88
   %104 = shl i32 %.079.i, 1
   %105 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %105, 32
-  br i1 %exitcond.not.i, label %106, label %101, !llvm.loop !8
+  br i1 %exitcond.not.i, label %106, label %101, !llvm.loop !6
 
 106:                                              ; preds = %103
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -303,7 +303,7 @@ _hash_firstfreebit.exit:                          ; preds = %101
 120:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i193 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i193, label %.thread259, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i193, label %.thread259, label %.lr.ph.i, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit13.i:           ; preds = %.lr.ph.i
   %121 = trunc nuw i64 %indvars.iv.i to i32
@@ -331,7 +331,7 @@ _hash_firstfreebit.exit:                          ; preds = %101
   %135 = add i32 %.2175310, 1
   %136 = add i32 %.2184309, 32
   %.not = icmp ugt i32 %136, %.
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %134, %BufferGetPage.exit192
   tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %80) #6
@@ -399,7 +399,7 @@ _hash_firstfreebit.exit:                          ; preds = %101
 173:                                              ; preds = %.lr.ph.i197
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i198, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i196
-  br i1 %exitcond.not.i201, label %.loopexit286, label %.lr.ph.i197, !llvm.loop !9
+  br i1 %exitcond.not.i201, label %.loopexit286, label %.lr.ph.i197, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit13.i199:        ; preds = %.lr.ph.i197
   %174 = trunc nuw i64 %indvars.iv.i198 to i32
@@ -438,7 +438,7 @@ _hash_firstfreebit.exit:                          ; preds = %101
 186:                                              ; preds = %.lr.ph.i206
   %indvars.iv.next.i209 = add nuw nsw i64 %indvars.iv.i207, 1
   %exitcond.not.i210 = icmp eq i64 %indvars.iv.next.i209, %wide.trip.count.i205
-  br i1 %exitcond.not.i210, label %.loopexit, label %.lr.ph.i206, !llvm.loop !9
+  br i1 %exitcond.not.i210, label %.loopexit, label %.lr.ph.i206, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit13.i208:        ; preds = %.lr.ph.i206
   %187 = trunc nuw i64 %indvars.iv.i207 to i32
@@ -1203,7 +1203,7 @@ BufferGetPage.exit181:                            ; preds = %147, %153
   store i8 %201, ptr %200, align 1
   tail call void @XLogBeginInsert() #6
   call void @XLogRegisterData(ptr noundef nonnull %11, i32 noundef 12) #6
-  %202 = load i8, ptr %197, align 2, !range !11, !noundef !12
+  %202 = load i8, ptr %197, align 2, !range !9, !noundef !10
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %205, label %204
 
@@ -1236,12 +1236,12 @@ BufferGetPage.exit181:                            ; preds = %147, %153
   call void @XLogRegisterBufData(i8 noundef zeroext 1, ptr noundef %210, i32 noundef %213) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 214:                                              ; preds = %205
-  %215 = load i8, ptr %197, align 2, !range !11, !noundef !12
+  %215 = load i8, ptr %197, align 2, !range !9, !noundef !10
   %216 = trunc nuw i8 %215 to i1
-  %217 = load i8, ptr %200, align 1, !range !11
+  %217 = load i8, ptr %200, align 1, !range !9
   %218 = trunc nuw i8 %217 to i1
   %or.cond = select i1 %216, i1 true, i1 %218
   br i1 %or.cond, label %219, label %.loopexit
@@ -1254,7 +1254,7 @@ BufferGetPage.exit181:                            ; preds = %147, %153
 .loopexit:                                        ; preds = %.lr.ph, %207, %219, %214
   %.0160 = phi i1 [ %218, %219 ], [ false, %214 ], [ true, %207 ], [ true, %.lr.ph ]
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %2, i8 noundef zeroext 8) #6
-  %220 = load i8, ptr %200, align 1, !range !11
+  %220 = load i8, ptr %200, align 1, !range !9
   %221 = trunc nuw i8 %220 to i1
   %or.cond5 = select i1 %.not196, i1 true, i1 %221
   br i1 %or.cond5, label %223, label %222
@@ -1341,7 +1341,7 @@ BufferGetPage.exit185:                            ; preds = %248, %254
   %262 = trunc i64 %228 to i32
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i184, i64 4
   store i32 %262, ptr %263, align 4
-  %264 = load i8, ptr %200, align 1, !range !11
+  %264 = load i8, ptr %200, align 1, !range !9
   %265 = trunc nuw i8 %264 to i1
   %or.cond9 = select i1 %.not196, i1 true, i1 %265
   br i1 %or.cond9, label %281, label %266
@@ -1587,7 +1587,7 @@ BufferGetPage.exit203:                            ; preds = %36, %42
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4
   %.not262 = icmp eq i32 %53, -1
-  br i1 %.not262, label %.preheader, label %.preheader263, !llvm.loop !14
+  br i1 %.not262, label %.preheader, label %.preheader263, !llvm.loop !12
 
 .preheader:                                       ; preds = %BufferGetPage.exit203
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1639,7 +1639,7 @@ BufferGetPage.exit203:                            ; preds = %36, %42
   %76 = trunc i32 %75 to i16
   %.0.i = select i1 %72, i16 0, i16 %76
   %.not197298 = icmp eq i16 %.0.i, 0
-  br i1 %.not197298, label %._crit_edge309.thread, label %.lr.ph308, !llvm.loop !15
+  br i1 %.not197298, label %._crit_edge309.thread, label %.lr.ph308, !llvm.loop !13
 
 .lr.ph308:                                        ; preds = %.lr.ph308.lr.ph, %.loopexit
   %.0.i327 = phi i16 [ %64, %.lr.ph308.lr.ph ], [ %.0.i, %.loopexit ]
@@ -1774,7 +1774,7 @@ BufferGetPage.exit203:                            ; preds = %36, %42
   store i8 %139, ptr %57, align 2
   call void @XLogBeginInsert() #6
   call void @XLogRegisterData(ptr noundef nonnull %10, i32 noundef 3) #6
-  %140 = load i8, ptr %57, align 2, !range !11, !noundef !12
+  %140 = load i8, ptr %57, align 2, !range !9, !noundef !10
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %143, label %142
 
@@ -1799,7 +1799,7 @@ BufferGetPage.exit203:                            ; preds = %36, %42
   call void @XLogRegisterBufData(i8 noundef zeroext 1, ptr noundef %147, i32 noundef %150) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %151, label %145, !llvm.loop !16
+  br i1 %exitcond.not, label %151, label %145, !llvm.loop !14
 
 151:                                              ; preds = %145
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.1166, i8 noundef zeroext 8) #6
@@ -1904,7 +1904,7 @@ BufferGetPage.exit209:                            ; preds = %188, %194
   %201 = load i16, ptr %200, align 4
   %202 = zext i16 %201 to i64
   %203 = getelementptr inbounds nuw i8, ptr %.0.i.i208, i64 %202
-  br i1 %.not199.not, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !15
+  br i1 %.not199.not, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !13
 
 .lr.ph.preheader:                                 ; preds = %BufferGetPage.exit209
   %wide.trip.count367 = zext i16 %.3158 to i64
@@ -1917,7 +1917,7 @@ BufferGetPage.exit209:                            ; preds = %188, %194
   call void @pfree(ptr noundef %205) #6
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count367
-  br i1 %exitcond368.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond368.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 206:                                              ; preds = %._crit_edge
   %207 = add i16 %.3163, 1
@@ -1943,7 +1943,7 @@ BufferGetPage.exit209:                            ; preds = %188, %194
   %.3187231 = phi ptr [ %.2186299, %77 ], [ %.4188, %206 ]
   %215 = add i16 %.0168301, 1
   %.not197 = icmp ugt i16 %215, %.0.i327
-  br i1 %.not197, label %._crit_edge309, label %77, !llvm.loop !18
+  br i1 %.not197, label %._crit_edge309, label %77, !llvm.loop !16
 
 ._crit_edge309.thread:                            ; preds = %.loopexit, %58
   %.2186.lcssa.ph = phi ptr [ %.0184, %58 ], [ %.0.i.i208, %.loopexit ]
@@ -1971,7 +1971,7 @@ BufferGetPage.exit209:                            ; preds = %188, %194
   call void @pfree(ptr noundef %221) #6
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
-  br i1 %exitcond373.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !19
+  br i1 %exitcond373.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !17
 
 ._crit_edge336:                                   ; preds = %.lr.ph335, %._crit_edge309.thread, %._crit_edge309
   %222 = phi i32 [ %216, %._crit_edge309.thread ], [ %218, %._crit_edge309 ], [ %218, %.lr.ph335 ]
@@ -2025,7 +2025,7 @@ BufferGetPage.exit211:                            ; preds = %231, %237
   call void @llvm.lifetime.end.p0(i64 3264, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 3264, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #6
-  br label %58, !llvm.loop !20
+  br label %58
 
 .thread250:                                       ; preds = %227, %226, %.thread239
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %9) #6
@@ -2064,20 +2064,17 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

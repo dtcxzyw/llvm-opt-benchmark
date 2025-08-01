@@ -401,7 +401,7 @@ declare noundef ptr @_ZNK5faiss5Index21get_distance_computerEv(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK5faiss13IndexFastScan12sa_code_sizeEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load i64, ptr %2, align 8, !tbaa !70
+  %3 = load i64, ptr %2, align 8, !tbaa !69
   ret i64 %3
 }
 
@@ -461,9 +461,9 @@ define void @_ZNK5faiss30IndexAdditiveQuantizerFastScan17compute_float_LUTEPflPK
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !71
+  %17 = load i64, ptr %16, align 8, !tbaa !70
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %19 = load i64, ptr %18, align 8, !tbaa !72
+  %19 = load i64, ptr %18, align 8, !tbaa !71
   %20 = mul i64 %19, %17
   %21 = shl i64 %19, 1
   %22 = mul i64 %20, %2
@@ -482,14 +482,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %15
   %24 = shl nuw nsw i64 %22, 2
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #25
   %26 = getelementptr inbounds nuw float, ptr %25, i64 %22
-  store float 0.000000e+00, ptr %25, align 4, !tbaa !73
+  store float 0.000000e+00, ptr %25, align 4, !tbaa !72
   %27 = icmp eq i64 %22, 1
   br i1 %27, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc41
   %28 = getelementptr i8, ptr %25, i64 4
   %29 = add nsw i64 %24, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %28, i8 0, i64 %29, i1 false), !tbaa !73
+  tail call void @llvm.memset.p0.i64(ptr align 4 %28, i8 0, i64 %29, i1 false), !tbaa !72
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc41, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -505,8 +505,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %34 = load ptr, ptr %9, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 144
-  %37 = load ptr, ptr %36, align 8, !tbaa !74
-  %38 = load ptr, ptr %35, align 8, !tbaa !75
+  %37 = load ptr, ptr %36, align 8, !tbaa !73
+  %38 = load ptr, ptr %35, align 8, !tbaa !74
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
@@ -515,7 +515,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 42:                                               ; preds = %33
   %43 = icmp ugt i64 %41, 9223372036854775804
-  br i1 %43, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i, !prof !76
+  br i1 %43, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i, !prof !75
 
 .noexc.i.i:                                       ; preds = %42
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
@@ -541,7 +541,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
 
 49:                                               ; preds = %.noexc44.thread
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %51 = load i32, ptr %50, align 4, !tbaa !77
+  %51 = load i32, ptr %50, align 4, !tbaa !76
   %52 = icmp slt i32 %51, 2
   %53 = load i32, ptr %6, align 4
   %54 = icmp ne i32 %53, 1
@@ -567,12 +567,12 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
 61:                                               ; preds = %.lr.ph, %61
   %.03070 = phi i64 [ 0, %.lr.ph ], [ %65, %61 ]
   %62 = getelementptr inbounds nuw float, ptr %45, i64 %.03070
-  %63 = load float, ptr %62, align 4, !tbaa !73
+  %63 = load float, ptr %62, align 4, !tbaa !72
   %64 = fdiv float %63, %56
-  store float %64, ptr %62, align 4, !tbaa !73
+  store float %64, ptr %62, align 4, !tbaa !72
   %65 = add nuw i64 %.03070, 1
   %exitcond.not = icmp eq i64 %65, %55
-  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !78
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !77
 
 .loopexit:                                        ; preds = %61, %49, %.noexc44.thread
   %66 = lshr exact i64 %41, 2
@@ -681,7 +681,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit47:                  ; preds = %._crit_edge, %94
   %103 = getelementptr inbounds nuw float, ptr %102, i64 %21
   %104 = add nuw nsw i64 %.072, 1
   %exitcond74.not = icmp eq i64 %104, %2
-  br i1 %exitcond74.not, label %._crit_edge, label %99, !llvm.loop !79
+  br i1 %exitcond74.not, label %._crit_edge, label %99, !llvm.loop !78
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %93, %57
   %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %93 ]
@@ -712,7 +712,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScanC2EPNS_17AdditiveQuantizer
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %5, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %6, align 4, !tbaa !77
+  store i32 1, ptr %6, align 4, !tbaa !76
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %7, align 8, !tbaa !17
   invoke void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerENS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3)
@@ -800,9 +800,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !80
+  %34 = load ptr, ptr %33, align 8, !tbaa !79
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !80
+  %36 = load ptr, ptr %35, align 8, !tbaa !79
   %37 = icmp eq ptr %34, %36
   br i1 %37, label %38, label %60
 
@@ -930,7 +930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
 85:                                               ; preds = %60
   %86 = icmp eq i32 %2, 0
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %88 = load i32, ptr %87, align 8, !tbaa !81
+  %88 = load i32, ptr %87, align 8, !tbaa !80
   br i1 %86, label %89, label %114
 
 89:                                               ; preds = %85
@@ -1071,28 +1071,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %143 = load i64, ptr %142, align 8, !tbaa !71
+  %143 = load i64, ptr %142, align 8, !tbaa !70
   %144 = add i64 %143, 2
   br label %148
 
 145:                                              ; preds = %.thread, %138
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %147 = load i64, ptr %146, align 8, !tbaa !71
+  %147 = load i64, ptr %146, align 8, !tbaa !70
   br label %148
 
 148:                                              ; preds = %145, %141
   %.sink = phi i64 [ %147, %145 ], [ %144, %141 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sink, ptr %149, align 8, !tbaa !82
+  store i64 %.sink, ptr %149, align 8, !tbaa !81
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %151 = load i64, ptr %150, align 8, !tbaa !83
+  %151 = load i64, ptr %150, align 8, !tbaa !82
   %152 = trunc i64 %151 to i32
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN5faiss13IndexFastScan13init_fastscanEimmNS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %152, i64 noundef %.sink, i64 noundef 4, i32 noundef %2, i32 noundef %3)
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %155 = load i64, ptr %154, align 8, !tbaa !72
+  %155 = load i64, ptr %154, align 8, !tbaa !71
   %156 = shl i64 %155, 10
-  %157 = load i64, ptr %153, align 8, !tbaa !82
+  %157 = load i64, ptr %153, align 8, !tbaa !81
   %158 = mul i64 %156, %157
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %158, ptr %159, align 8, !tbaa !17
@@ -1112,7 +1112,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZN5faiss13IndexFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   tail call void @free(ptr noundef %3) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #14
   ret void
@@ -1198,7 +1198,7 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScanC2Ev(ptr noundef nonnull a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %3, align 4, !tbaa !77
+  store i32 1, ptr %3, align 4, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1215,11 +1215,11 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKNS_22IndexAdditiveQua
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %4, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %5, align 4, !tbaa !77
+  store i32 1, ptr %5, align 4, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %6, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !85
+  %8 = load ptr, ptr %7, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !55
   invoke void @_ZN5faiss30IndexAdditiveQuantizerFastScan4initEPNS_17AdditiveQuantizerENS_10MetricTypeEi(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %8, i32 noundef %10, i32 noundef %2)
@@ -1227,40 +1227,40 @@ define void @_ZN5faiss30IndexAdditiveQuantizerFastScanC2ERKNS_22IndexAdditiveQua
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !87
+  %13 = load i64, ptr %12, align 8, !tbaa !86
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %13, ptr %14, align 8, !tbaa !87
+  store i64 %13, ptr %14, align 8, !tbaa !86
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %16 = load i8, ptr %15, align 1, !tbaa !4, !range !13, !noundef !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %16, ptr %17, align 1, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %19 = load ptr, ptr %18, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %19, ptr %20, align 8, !tbaa !89
+  store ptr %19, ptr %20, align 8, !tbaa !88
   %21 = sext i32 %2 to i64
   %22 = add nsw i64 %21, -1
   %23 = add i64 %22, %13
   %24 = urem i64 %23, %21
   %25 = sub nuw i64 %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %25, ptr %26, align 8, !tbaa !90
+  store i64 %25, ptr %26, align 8, !tbaa !89
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %29 = load i64, ptr %28, align 8, !tbaa !91
+  %29 = load i64, ptr %28, align 8, !tbaa !90
   %30 = mul i64 %29, %25
   %31 = lshr i64 %30, 1
   invoke void @_ZN5faiss12AlignedTableIhLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %31)
           to label %32 unwind label %41
 
 32:                                               ; preds = %11
-  %33 = load ptr, ptr %20, align 8, !tbaa !89
-  %34 = load i64, ptr %14, align 8, !tbaa !87
+  %33 = load ptr, ptr %20, align 8, !tbaa !88
+  %34 = load i64, ptr %14, align 8, !tbaa !86
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = load i64, ptr %35, align 8, !tbaa !82
-  %37 = load i64, ptr %26, align 8, !tbaa !90
-  %38 = load i64, ptr %28, align 8, !tbaa !91
-  %39 = load ptr, ptr %27, align 8, !tbaa !84
+  %36 = load i64, ptr %35, align 8, !tbaa !81
+  %37 = load i64, ptr %26, align 8, !tbaa !89
+  %38 = load i64, ptr %28, align 8, !tbaa !90
+  %39 = load ptr, ptr %27, align 8, !tbaa !83
   invoke void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr noundef %33, i64 noundef %34, i64 noundef %36, i64 noundef %37, i64 noundef %21, i64 noundef %38, ptr noundef %39)
           to label %40 unwind label %41
 
@@ -1288,23 +1288,23 @@ define linkonce_odr void @_ZN5faiss12AlignedTableIhLi32EE6resizeEm(ptr noundef n
   %.0.i = phi i64 [ %8, %.preheader.i ], [ 256, %5 ]
   %7 = icmp ult i64 %.0.i, %1
   %8 = shl i64 %.0.i, 1
-  br i1 %7, label %.preheader.i, label %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit, !llvm.loop !92
+  br i1 %7, label %.preheader.i, label %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit, !llvm.loop !91
 
 _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit: ; preds = %.preheader.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !93
+  %10 = load i64, ptr %9, align 8, !tbaa !92
   %11 = icmp eq i64 %10, %.0.i
   br i1 %11, label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit, label %.thread
 
 _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread8: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !93
+  %13 = load i64, ptr %12, align 8, !tbaa !92
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit, label %27
 
 _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !93
+  %16 = load i64, ptr %15, align 8, !tbaa !92
   %17 = icmp eq i64 %16, 256
   br i1 %17, label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit, label %.thread
 
@@ -1323,36 +1323,36 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
   unreachable
 
 22:                                               ; preds = %.thread
-  %23 = load i64, ptr %18, align 8, !tbaa !93
+  %23 = load i64, ptr %18, align 8, !tbaa !92
   %.not2.i = icmp eq i64 %23, 0
   br i1 %.not2.i, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %3, align 8, !tbaa !94
-  %26 = load ptr, ptr %0, align 8, !tbaa !84
+  %25 = load ptr, ptr %3, align 8, !tbaa !93
+  %26 = load ptr, ptr %0, align 8, !tbaa !83
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.sroa.speculated.i, i1 false)
   br label %28
 
 27:                                               ; preds = %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store ptr null, ptr %3, align 8, !tbaa !94
+  store ptr null, ptr %3, align 8, !tbaa !93
   br label %28
 
 28:                                               ; preds = %27, %24, %22
   %.07.i37 = phi i64 [ 0, %27 ], [ %.07.i36, %24 ], [ %.07.i36, %22 ]
   %29 = phi ptr [ %12, %27 ], [ %18, %24 ], [ %18, %22 ]
-  store i64 %.07.i37, ptr %29, align 8, !tbaa !93
-  %30 = load ptr, ptr %0, align 8, !tbaa !84
+  store i64 %.07.i37, ptr %29, align 8, !tbaa !92
+  %30 = load ptr, ptr %0, align 8, !tbaa !83
   call void @free(ptr noundef %30) #14
-  %31 = load ptr, ptr %3, align 8, !tbaa !94
-  store ptr %31, ptr %0, align 8, !tbaa !84
+  %31 = load ptr, ptr %3, align 8, !tbaa !93
+  store ptr %31, ptr %0, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit
 
 _ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread8, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit, %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %1, ptr %32, align 8, !tbaa !95
+  store i64 %1, ptr %32, align 8, !tbaa !94
   ret void
 }
 
@@ -1371,7 +1371,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define void @_ZN5faiss30IndexAdditiveQuantizerFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   tail call void @free(ptr noundef %3) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #14
   ret void
@@ -1468,10 +1468,10 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %3
   %spec.select = select i1 %.not, ptr null, ptr %40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %43 = load i64, ptr %42, align 8, !tbaa !82
+  %43 = load i64, ptr %42, align 8, !tbaa !81
   %44 = mul i64 %43, %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %46 = load i64, ptr %45, align 8, !tbaa !72
+  %46 = load i64, ptr %45, align 8, !tbaa !71
   %47 = mul i64 %44, %46
   %48 = icmp ugt i64 %47, 2305843009213693951
   br i1 %48, label %49, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1497,11 +1497,11 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
           to label %.noexc16 unwind label %83
 
 .noexc16:                                         ; preds = %50
-  store ptr %52, ptr %7, align 8, !tbaa !75
+  store ptr %52, ptr %7, align 8, !tbaa !74
   %53 = getelementptr inbounds nuw float, ptr %52, i64 %47
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !96
-  store float 0.000000e+00, ptr %52, align 4, !tbaa !73
+  store ptr %53, ptr %54, align 8, !tbaa !95
+  store float 0.000000e+00, ptr %52, align 4, !tbaa !72
   %55 = getelementptr i8, ptr %52, i64 4
   %56 = add nsw i64 %47, -1
   %57 = icmp eq i64 %56, 0
@@ -1509,7 +1509,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   %58 = add nsw i64 %51, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %58, i1 false), !tbaa !73
+  call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %58, i1 false), !tbaa !72
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %56, 2
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i.i.i.i.i
   br label %60
@@ -1519,7 +1519,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   %62 = phi ptr [ %52, %.noexc16 ], [ %52, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ]
   %.0.i.i.i.i.i = phi ptr [ %55, %.noexc16 ], [ %59, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ]
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %63, align 8, !tbaa !74
+  store ptr %.0.i.i.i.i.i, ptr %63, align 8, !tbaa !73
   %64 = load ptr, ptr %0, align 8, !tbaa !53
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 192
   %66 = load ptr, ptr %65, align 8
@@ -1528,27 +1528,27 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
 
 67:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  store double 0.000000e+00, ptr %8, align 8, !tbaa !97
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !96
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_scaleElPKf.omp_outlined, ptr nonnull %4, ptr nonnull %7, ptr nonnull %0, ptr nonnull %8)
   %68 = load i64, ptr %4, align 8, !tbaa !15
   %69 = sitofp i64 %68 to double
-  %70 = load double, ptr %8, align 8, !tbaa !97
+  %70 = load double, ptr %8, align 8, !tbaa !96
   %71 = fdiv double %70, %69
-  store double %71, ptr %8, align 8, !tbaa !97
+  store double %71, ptr %8, align 8, !tbaa !96
   %72 = fcmp olt double %71, 1.000000e+00
   %.sroa.speculated = select i1 %72, double 1.000000e+00, double %71
   %73 = fptrunc double %.sroa.speculated to float
   %74 = call float @llvm.round.f32(float %73)
   %75 = fptosi float %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %75, ptr %76, align 4, !tbaa !77
+  store i32 %75, ptr %76, align 4, !tbaa !76
   %77 = load i8, ptr %37, align 8, !tbaa !25, !range !13, !noundef !14
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %91
 
 79:                                               ; preds = %67
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %71)
-  %81 = load i32, ptr %76, align 4, !tbaa !77
+  %81 = load i32, ptr %76, align 4, !tbaa !76
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %81)
   br label %91
 
@@ -1572,13 +1572,13 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
 
 91:                                               ; preds = %79, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  %92 = load ptr, ptr %7, align 8, !tbaa !75
+  %92 = load ptr, ptr %7, align 8, !tbaa !74
   %.not.i.i.i17 = icmp eq ptr %92, null
   br i1 %.not.i.i.i17, label %_ZNSt6vectorIfSaIfEED2Ev.exit18, label %93
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !96
+  %95 = load ptr, ptr %94, align 8, !tbaa !95
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %92 to i64
   %98 = sub i64 %96, %97
@@ -1641,10 +1641,10 @@ define internal void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_s
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
   store i64 1, ptr %9, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
-  store i32 0, ptr %10, align 4, !tbaa !99
+  store i32 0, ptr %10, align 4, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  store double 0.000000e+00, ptr %11, align 8, !tbaa !97
-  %17 = load i32, ptr %0, align 4, !tbaa !99
+  store double 0.000000e+00, ptr %11, align 8, !tbaa !96
+  %17 = load i32, ptr %0, align 4, !tbaa !98
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %17, i32 34, ptr nonnull %10, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, i64 1, i64 1)
   %18 = load i64, ptr %8, align 8, !tbaa !15
   %19 = call i64 @llvm.smin.i64(i64 %18, i64 %16)
@@ -1661,10 +1661,10 @@ define internal void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_s
 23:                                               ; preds = %.lr.ph, %32
   %24 = phi double [ 0.000000e+00, %.lr.ph ], [ %34, %32 ]
   %.017 = phi i64 [ %20, %.lr.ph ], [ %35, %32 ]
-  %25 = load ptr, ptr %3, align 8, !tbaa !75
-  %26 = load i64, ptr %21, align 8, !tbaa !82
+  %25 = load ptr, ptr %3, align 8, !tbaa !74
+  %26 = load i64, ptr %21, align 8, !tbaa !81
   %27 = mul i64 %26, %.017
-  %28 = load i64, ptr %22, align 8, !tbaa !72
+  %28 = load i64, ptr %22, align 8, !tbaa !71
   %29 = mul i64 %27, %28
   %30 = getelementptr inbounds nuw float, ptr %25, i64 %29
   %31 = invoke noundef float @_ZN5faiss12quantize_lut22aq_estimate_norm_scaleEmmmPKf(i64 noundef %26, i64 noundef %28, i64 noundef 2, ptr noundef %30)
@@ -1673,11 +1673,11 @@ define internal void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_s
 32:                                               ; preds = %23
   %33 = fpext float %31 to double
   %34 = fadd double %24, %33
-  store double %34, ptr %11, align 8, !tbaa !97
+  store double %34, ptr %11, align 8, !tbaa !96
   %35 = add nsw i64 %.017, 1
   %36 = load i64, ptr %8, align 8, !tbaa !15
   %.not.not = icmp slt i64 %.017, %36
-  br i1 %.not.not, label %23, label %._crit_edge, !llvm.loop !100
+  br i1 %.not.not, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -1689,15 +1689,15 @@ define internal void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_s
   ]
 
 38:                                               ; preds = %._crit_edge
-  %39 = load double, ptr %5, align 8, !tbaa !97
-  %40 = load double, ptr %11, align 8, !tbaa !97
+  %39 = load double, ptr %5, align 8, !tbaa !96
+  %40 = load double, ptr %11, align 8, !tbaa !96
   %41 = fadd double %39, %40
-  store double %41, ptr %5, align 8, !tbaa !97
+  store double %41, ptr %5, align 8, !tbaa !96
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
   br label %45
 
 42:                                               ; preds = %._crit_edge
-  %43 = load double, ptr %11, align 8, !tbaa !97
+  %43 = load double, ptr %11, align 8, !tbaa !96
   %44 = atomicrmw fadd ptr %5, double %43 monotonic, align 8
   br label %45
 
@@ -1732,10 +1732,10 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #14
 define internal void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_scaleElPKf.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = load double, ptr %4, align 8, !tbaa !97
-  %6 = load double, ptr %3, align 8, !tbaa !97
+  %5 = load double, ptr %4, align 8, !tbaa !96
+  %6 = load double, ptr %3, align 8, !tbaa !96
   %7 = fadd double %5, %6
-  store double %7, ptr %4, align 8, !tbaa !97
+  store double %7, ptr %4, align 8, !tbaa !96
   ret void
 }
 
@@ -1746,7 +1746,7 @@ declare i32 @__kmpc_reduce_nowait(ptr, i32, i32, i64, ptr, ptr, ptr) local_unnam
 declare void @__kmpc_end_reduce_nowait(ptr, i32, ptr) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare !callback !101 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
+declare !callback !99 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #17
@@ -1779,7 +1779,7 @@ define void @_ZN5faiss30IndexResidualQuantizerFastScanC2EimmNS_10MetricTypeENS_1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %8, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %9, align 4, !tbaa !77
+  store i32 1, ptr %9, align 4, !tbaa !76
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %10, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1828,7 +1828,7 @@ define linkonce_odr void @_ZN5faiss30IndexResidualQuantizerFastScanD2Ev(ptr noun
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   ret void
@@ -1841,7 +1841,7 @@ define linkonce_odr void @_ZN5faiss30IndexResidualQuantizerFastScanD0Ev(ptr noun
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 600) #23
@@ -1854,7 +1854,7 @@ define void @_ZN5faiss30IndexResidualQuantizerFastScanC2Ev(ptr noundef nonnull a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %3, align 4, !tbaa !77
+  store i32 1, ptr %3, align 4, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1885,7 +1885,7 @@ define void @_ZN5faiss33IndexLocalSearchQuantizerFastScanC2EimmNS_10MetricTypeEN
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %8, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %9, align 4, !tbaa !77
+  store i32 1, ptr %9, align 4, !tbaa !76
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %10, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1934,7 +1934,7 @@ define linkonce_odr void @_ZN5faiss33IndexLocalSearchQuantizerFastScanD2Ev(ptr n
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(441) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   ret void
@@ -1947,7 +1947,7 @@ define linkonce_odr void @_ZN5faiss33IndexLocalSearchQuantizerFastScanD0Ev(ptr n
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(441) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 608) #23
@@ -1960,7 +1960,7 @@ define void @_ZN5faiss33IndexLocalSearchQuantizerFastScanC2Ev(ptr noundef nonnul
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %3, align 4, !tbaa !77
+  store i32 1, ptr %3, align 4, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1991,7 +1991,7 @@ define void @_ZN5faiss37IndexProductResidualQuantizerFastScanC2EimmmNS_10MetricT
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %9, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %10, align 4, !tbaa !77
+  store i32 1, ptr %10, align 4, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %11, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2037,7 +2037,7 @@ define linkonce_odr void @_ZN5faiss37IndexProductResidualQuantizerFastScanD2Ev(p
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   ret void
@@ -2050,7 +2050,7 @@ define linkonce_odr void @_ZN5faiss37IndexProductResidualQuantizerFastScanD0Ev(p
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 552) #23
@@ -2063,7 +2063,7 @@ define void @_ZN5faiss37IndexProductResidualQuantizerFastScanC2Ev(ptr noundef no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %3, align 4, !tbaa !77
+  store i32 1, ptr %3, align 4, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2094,7 +2094,7 @@ define void @_ZN5faiss40IndexProductLocalSearchQuantizerFastScanC2EimmmNS_10Metr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %9, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %10, align 4, !tbaa !77
+  store i32 1, ptr %10, align 4, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %11, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2143,7 +2143,7 @@ define linkonce_odr void @_ZN5faiss40IndexProductLocalSearchQuantizerFastScanD2E
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   ret void
@@ -2156,7 +2156,7 @@ define linkonce_odr void @_ZN5faiss40IndexProductLocalSearchQuantizerFastScanD0E
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   tail call void @free(ptr noundef %4) #14
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 552) #23
@@ -2169,7 +2169,7 @@ define void @_ZN5faiss40IndexProductLocalSearchQuantizerFastScanC2Ev(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 1, ptr %3, align 4, !tbaa !77
+  store i32 1, ptr %3, align 4, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %4, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2300,39 +2300,37 @@ attributes #26 = { noreturn nounwind }
 !64 = !{!"_ZTSN5faiss15NormTableScalerE", !6, i64 0, !65, i64 4}
 !65 = !{!"_ZTSN5faiss12simd16uint16E", !66, i64 0}
 !66 = !{!"_ZTSN5faiss10simd256bitE", !7, i64 0}
-!67 = distinct !{!67, !68, !69}
+!67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = !{!19, !9, i64 80}
-!71 = !{!28, !9, i64 24}
-!72 = !{!19, !9, i64 72}
-!73 = !{!12, !12, i64 0}
-!74 = !{!38, !39, i64 8}
-!75 = !{!38, !39, i64 0}
-!76 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!77 = !{!18, !6, i64 148}
-!78 = distinct !{!78, !68, !69}
-!79 = distinct !{!79, !68, !69}
-!80 = !{!34, !34, i64 0}
-!81 = !{!28, !52, i64 344}
-!82 = !{!19, !9, i64 56}
-!83 = !{!29, !9, i64 8}
-!84 = !{!21, !22, i64 0}
-!85 = !{!86, !24, i64 72}
-!86 = !{!"_ZTSN5faiss22IndexAdditiveQuantizerE", !43, i64 0, !24, i64 72}
-!87 = !{!5, !9, i64 16}
-!88 = !{!47, !22, i64 0}
-!89 = !{!19, !22, i64 128}
-!90 = !{!19, !9, i64 88}
-!91 = !{!19, !9, i64 96}
-!92 = distinct !{!92, !68, !69}
-!93 = !{!21, !9, i64 8}
-!94 = !{!22, !22, i64 0}
-!95 = !{!20, !9, i64 16}
-!96 = !{!38, !39, i64 16}
-!97 = !{!98, !98, i64 0}
-!98 = !{!"double", !7, i64 0}
-!99 = !{!6, !6, i64 0}
-!100 = distinct !{!100, !69}
-!101 = !{!102}
-!102 = !{i64 2, i64 -1, i64 -1, i1 true}
+!69 = !{!19, !9, i64 80}
+!70 = !{!28, !9, i64 24}
+!71 = !{!19, !9, i64 72}
+!72 = !{!12, !12, i64 0}
+!73 = !{!38, !39, i64 8}
+!74 = !{!38, !39, i64 0}
+!75 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!76 = !{!18, !6, i64 148}
+!77 = distinct !{!77, !68}
+!78 = distinct !{!78, !68}
+!79 = !{!34, !34, i64 0}
+!80 = !{!28, !52, i64 344}
+!81 = !{!19, !9, i64 56}
+!82 = !{!29, !9, i64 8}
+!83 = !{!21, !22, i64 0}
+!84 = !{!85, !24, i64 72}
+!85 = !{!"_ZTSN5faiss22IndexAdditiveQuantizerE", !43, i64 0, !24, i64 72}
+!86 = !{!5, !9, i64 16}
+!87 = !{!47, !22, i64 0}
+!88 = !{!19, !22, i64 128}
+!89 = !{!19, !9, i64 88}
+!90 = !{!19, !9, i64 96}
+!91 = distinct !{!91, !68}
+!92 = !{!21, !9, i64 8}
+!93 = !{!22, !22, i64 0}
+!94 = !{!20, !9, i64 16}
+!95 = !{!38, !39, i64 16}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"double", !7, i64 0}
+!98 = !{!6, !6, i64 0}
+!99 = !{!100}
+!100 = !{i64 2, i64 -1, i64 -1, i1 true}

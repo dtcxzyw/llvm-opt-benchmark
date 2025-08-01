@@ -1098,14 +1098,14 @@ _ZN4llvm11raw_ostreamlsEc.exit27:                 ; preds = %112, %110, %_ZN4llv
   tail call void @_ZNK5clang9api_notes9ParamInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(113) %.sroa.028.033, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.028.033, i64 120
   %.not31 = icmp eq ptr %116, %115
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define dso_local void @_ZN5clang9api_notes14ObjCMethodInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK5clang9api_notes12FunctionInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %4 = load i8, ptr %3, align 8, !tbaa !27, !range !21, !noundef !22
+  %4 = load i8, ptr %3, align 8, !tbaa !25, !range !21, !noundef !22
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -1207,7 +1207,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %49, %51
 define dso_local void @_ZN5clang9api_notes13CXXMethodInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK5clang9api_notes12FunctionInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %4 = load i8, ptr %3, align 8, !tbaa !27, !range !21, !noundef !22
+  %4 = load i8, ptr %3, align 8, !tbaa !25, !range !21, !noundef !22
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -1261,7 +1261,7 @@ define dso_local void @_ZN5clang9api_notes7TagInfo4dumpERN4llvm11raw_ostreamE(pt
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %20, %17, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %26 = load i8, ptr %25, align 4, !tbaa !29, !range !21, !noundef !22
+  %26 = load i8, ptr %25, align 4, !tbaa !27, !range !21, !noundef !22
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_ZN4llvm11raw_ostreamlsEc.exit
 
@@ -1289,7 +1289,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %20, %17, %2
 
 _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %37, %39
   %.0.i.i13 = phi ptr [ %38, %37 ], [ %1, %39 ]
-  %42 = load i32, ptr %24, align 8, !tbaa !31
+  %42 = load i32, ptr %24, align 8, !tbaa !29
   %43 = sext i32 %42 to i64
   %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i13, i64 noundef %43) #3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -1400,7 +1400,7 @@ define dso_local void @_ZNK5clang9api_notes11TypedefInfo4dumpERN4llvm11raw_ostre
   tail call void @_ZNK5clang9api_notes14CommonTypeInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %5 = load i8, ptr %4, align 4, !tbaa !33, !range !21, !noundef !22
+  %5 = load i8, ptr %4, align 4, !tbaa !31, !range !21, !noundef !22
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZN4llvm11raw_ostreamlsEc.exit
 
@@ -1428,7 +1428,7 @@ define dso_local void @_ZNK5clang9api_notes11TypedefInfo4dumpERN4llvm11raw_ostre
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
   %.0.i.i = phi ptr [ %17, %16 ], [ %1, %18 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !35
+  %21 = load i32, ptr %3, align 8, !tbaa !33
   %22 = sext i32 %21 to i64
   %23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, i64 noundef %22) #3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -1511,15 +1511,13 @@ attributes #3 = { nounwind }
 !22 = !{}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 _ZTSN5clang9api_notes9ParamInfoE", !9, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!28, !10, i64 120}
-!28 = !{!"_ZTSSt22_Optional_payload_baseIN5clang9api_notes9ParamInfoEE", !6, i64 0, !10, i64 120}
-!29 = !{!30, !10, i64 4}
-!30 = !{!"_ZTSSt22_Optional_payload_baseIN5clang9api_notes21EnumExtensibilityKindEE", !6, i64 0, !10, i64 4}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"_ZTSN5clang9api_notes21EnumExtensibilityKindE", !6, i64 0}
-!33 = !{!34, !10, i64 4}
-!34 = !{!"_ZTSSt22_Optional_payload_baseIN5clang9api_notes16SwiftNewTypeKindEE", !6, i64 0, !10, i64 4}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"_ZTSN5clang9api_notes16SwiftNewTypeKindE", !6, i64 0}
+!25 = !{!26, !10, i64 120}
+!26 = !{!"_ZTSSt22_Optional_payload_baseIN5clang9api_notes9ParamInfoEE", !6, i64 0, !10, i64 120}
+!27 = !{!28, !10, i64 4}
+!28 = !{!"_ZTSSt22_Optional_payload_baseIN5clang9api_notes21EnumExtensibilityKindEE", !6, i64 0, !10, i64 4}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"_ZTSN5clang9api_notes21EnumExtensibilityKindE", !6, i64 0}
+!31 = !{!32, !10, i64 4}
+!32 = !{!"_ZTSSt22_Optional_payload_baseIN5clang9api_notes16SwiftNewTypeKindEE", !6, i64 0, !10, i64 4}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"_ZTSN5clang9api_notes16SwiftNewTypeKindE", !6, i64 0}

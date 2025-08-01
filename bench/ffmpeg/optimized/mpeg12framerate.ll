@@ -69,7 +69,7 @@ av_cmp_q.exit.thread.us:                          ; preds = %19, %.split.us
 av_cmp_q.exit.thread.us150:                       ; preds = %.split.split.us
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count197
-  br i1 %exitcond193.not, label %.preheader124, label %.split.split.us, !llvm.loop !8
+  br i1 %exitcond193.not, label %.preheader124, label %.split.split.us, !llvm.loop !7
 
 .preheader124:                                    ; preds = %av_cmp_q.exit.thread.us, %av_cmp_q.exit.thread.us150, %av_cmp_q.exit.thread
   %.neg.i88 = lshr i32 %.sroa.011.0.extract.trunc.i, 31
@@ -102,7 +102,7 @@ av_cmp_q.exit.thread.us150:                       ; preds = %.split.split.us
 av_cmp_q.exit.thread:                             ; preds = %.split.split, %38
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %.preheader124, label %.split.split, !llvm.loop !9
+  br i1 %exitcond198.not, label %.preheader124, label %.split.split, !llvm.loop !8
 
 .preheader123:                                    ; preds = %.preheader124, %99
   %indvars.iv205 = phi i64 [ 1, %.preheader124 ], [ %indvars.iv.next206, %99 ]
@@ -248,18 +248,18 @@ av_cmp_q.exit99.thread:                           ; preds = %87, %av_cmp_q.exit9
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %.not79.not174 = icmp samesign ult i64 %indvars.iv199, 32
   %.not79.not = select i1 %8, i1 %.not79.not174, i1 false
-  br i1 %.not79.not, label %46, label %98, !llvm.loop !10
+  br i1 %.not79.not, label %46, label %98, !llvm.loop !9
 
 98:                                               ; preds = %97
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %.not78.not175 = icmp samesign ult i64 %indvars.iv202, 4
   %.not78.not = select i1 %8, i1 %.not78.not175, i1 false
-  br i1 %.not78.not, label %.preheader, label %99, !llvm.loop !11
+  br i1 %.not78.not, label %.preheader, label %99, !llvm.loop !10
 
 99:                                               ; preds = %98
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count197
-  br i1 %exitcond209.not, label %av_cmp_q.exit.thread101, label %.preheader123, !llvm.loop !12
+  br i1 %exitcond209.not, label %av_cmp_q.exit.thread101, label %.preheader123, !llvm.loop !11
 
 av_cmp_q.exit.thread101.loopexit178:              ; preds = %.split.split.us
   %100 = trunc nuw nsw i64 %indvars.iv189 to i32
@@ -281,14 +281,14 @@ av_cmp_q.exit.thread101:                          ; preds = %99, %av_cmp_q.exit.
   %.065 = phi i32 [ 1, %av_cmp_q.exit.thread101.loopexit178 ], [ 1, %av_cmp_q.exit.thread101.loopexit180 ], [ %102, %av_cmp_q.exit.thread101.loopexit ], [ 1, %av_cmp_q.exit.thread101.loopexit211 ], [ %.469.ph, %99 ]
   %.059 = phi i32 [ 1, %av_cmp_q.exit.thread101.loopexit178 ], [ 1, %av_cmp_q.exit.thread101.loopexit180 ], [ %45, %av_cmp_q.exit.thread101.loopexit ], [ 1, %av_cmp_q.exit.thread101.loopexit211 ], [ %.463.ph, %99 ]
   %.057 = phi i32 [ %100, %av_cmp_q.exit.thread101.loopexit178 ], [ %101, %av_cmp_q.exit.thread101.loopexit180 ], [ %43, %av_cmp_q.exit.thread101.loopexit ], [ %103, %av_cmp_q.exit.thread101.loopexit211 ], [ %.4.ph, %99 ]
-  store i32 %.057, ptr %1, align 4, !tbaa !13
+  store i32 %.057, ptr %1, align 4, !tbaa !12
   br i1 %8, label %104, label %107
 
 104:                                              ; preds = %av_cmp_q.exit.thread101
   %105 = add nsw i32 %.059, -1
-  store i32 %105, ptr %2, align 4, !tbaa !13
+  store i32 %105, ptr %2, align 4, !tbaa !12
   %106 = add nsw i32 %.065, -1
-  store i32 %106, ptr %3, align 4, !tbaa !13
+  store i32 %106, ptr %3, align 4, !tbaa !12
   br label %107
 
 107:                                              ; preds = %104, %av_cmp_q.exit.thread101
@@ -311,16 +311,15 @@ attributes #2 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5, !6, !7}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5, !6, !7}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !15, i64 0}
-!15 = !{!"omnipotent char", !16, i64 0}
-!16 = !{!"Simple C/C++ TBAA"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !14, i64 0}
+!14 = !{!"omnipotent char", !15, i64 0}
+!15 = !{!"Simple C/C++ TBAA"}

@@ -208,7 +208,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
   %69 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %70 = load i16, ptr %69, align 4
   %.not81 = icmp eq i16 %70, -1
-  br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !7
+  br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !6
 
 ._crit_edge106:                                   ; preds = %68
   %71 = icmp eq i16 %.270, -1
@@ -257,7 +257,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
   %95 = getelementptr inbounds nuw i32, ptr %2, i64 %93
   store i32 %82, ptr %95, align 4
   %.not86 = icmp eq i32 %.4, -1
-  br i1 %.not86, label %.thread.loopexit120, label %38, !llvm.loop !8
+  br i1 %.not86, label %.thread.loopexit120, label %38, !llvm.loop !7
 
 .thread.loopexit120:                              ; preds = %38, %92, %._crit_edge106, %72, %77, %91
   %.pre = load ptr, ptr %7, align 8
@@ -303,7 +303,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr noundef readonly cap
   %111 = getelementptr inbounds nuw i8, ptr %.2111, i64 8
   %112 = load i16, ptr %111, align 4
   %.not87 = icmp eq i16 %112, -1
-  br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !9
+  br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !8
 
 ._crit_edge113:                                   ; preds = %110, %109, %102, %.thread
   %.6 = phi i32 [ -1, %.thread ], [ -1, %102 ], [ -1, %109 ], [ %.7, %110 ]
@@ -337,9 +337,8 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

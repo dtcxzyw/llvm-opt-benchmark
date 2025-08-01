@@ -368,7 +368,7 @@ default.unreachable96:                            ; preds = %3
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %126 = load ptr, ptr %125, align 8, !invariant.load !4, !nonnull !4
   %127 = invoke { ptr, ptr } %126(ptr nonnull align 1 %123)
-          to label %116 unwind label %.loopexit, !llvm.loop !8
+          to label %116 unwind label %.loopexit
 
 128:                                              ; preds = %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
@@ -472,7 +472,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = icmp ult i64 %2, %13
-  br i1 %14, label %15, label %29, !prof !10
+  br i1 %14, label %15, label %29, !prof !8
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -488,7 +488,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp ult i64 %2, %27
-  br i1 %28, label %30, label %37, !prof !10
+  br i1 %28, label %30, label %37, !prof !8
 
 29:                                               ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %2, i64 %13, ptr nonnull align 8 @anon.aa697c42a56e7e150465c5b57521da72.15) #11
@@ -527,7 +527,7 @@ define hidden void @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$closure$u
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %48 = load i64, ptr %47, align 8, !noundef !4
   %49 = icmp ult i64 %2, %48
-  br i1 %49, label %50, label %58, !prof !10
+  br i1 %49, label %50, label %58, !prof !8
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -588,7 +588,7 @@ define hidden noundef i64 @"_ZN14cranelift_isle5error6Errors4emit28_$u7b$$u7b$cl
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ult i64 %1, %4
-  br i1 %5, label %6, label %11, !prof !10
+  br i1 %5, label %6, label %11, !prof !8
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -743,6 +743,4 @@ attributes #11 = { noreturn }
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !6 = !{i64 1}
 !7 = !{i64 8}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}

@@ -131,7 +131,7 @@ define i32 @fdt_node_end_offset_(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %7 = load i32, ptr %3, align 4
   %8 = icmp sgt i32 %7, -1
   %9 = select i1 %6, i1 %8, i1 false
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ %1, %2 ], [ %5, %.lr.ph ]
@@ -160,7 +160,7 @@ fdt_node_end_offset_.exit.thread:                 ; preds = %2
   %7 = load i32, ptr %3, align 4
   %8 = icmp sgt i32 %7, -1
   %9 = select i1 %6, i1 %8, i1 false
-  br i1 %9, label %.lr.ph.i, label %fdt_node_end_offset_.exit, !llvm.loop !10
+  br i1 %9, label %.lr.ph.i, label %fdt_node_end_offset_.exit, !llvm.loop !9
 
 fdt_node_end_offset_.exit:                        ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
@@ -210,7 +210,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

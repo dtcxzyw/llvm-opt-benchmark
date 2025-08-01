@@ -456,7 +456,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %86, ptr %87, align 4, !tbaa !48
   %indvars.iv.next542.i = add nuw nsw i64 %indvars.iv541.i, 1
   %exitcond545.not.i = icmp eq i64 %indvars.iv.next542.i, %wide.trip.count544.i
-  br i1 %exitcond545.not.i, label %generate_window_func.exit, label %79, !llvm.loop !53
+  br i1 %exitcond545.not.i, label %generate_window_func.exit, label %79, !llvm.loop !52
 
 88:                                               ; preds = %88, %.lr.ph444.i
   %indvars.iv536.i = phi i64 [ 0, %.lr.ph444.i ], [ %indvars.iv.next537.i, %88 ]
@@ -472,7 +472,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %96, ptr %97, align 4, !tbaa !48
   %indvars.iv.next537.i = add nuw nsw i64 %indvars.iv536.i, 1
   %exitcond540.not.i = icmp eq i64 %indvars.iv.next537.i, %wide.trip.count539.i
-  br i1 %exitcond540.not.i, label %generate_window_func.exit, label %88, !llvm.loop !54
+  br i1 %exitcond540.not.i, label %generate_window_func.exit, label %88, !llvm.loop !53
 
 98:                                               ; preds = %98, %.lr.ph441.i
   %indvars.iv531.i = phi i64 [ 0, %.lr.ph441.i ], [ %indvars.iv.next532.i, %98 ]
@@ -487,7 +487,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %105, ptr %106, align 4, !tbaa !48
   %indvars.iv.next532.i = add nuw nsw i64 %indvars.iv531.i, 1
   %exitcond535.not.i = icmp eq i64 %indvars.iv.next532.i, %wide.trip.count534.i
-  br i1 %exitcond535.not.i, label %generate_window_func.exit, label %98, !llvm.loop !55
+  br i1 %exitcond535.not.i, label %generate_window_func.exit, label %98, !llvm.loop !54
 
 107:                                              ; preds = %107, %.lr.ph438.i
   %indvars.iv526.i = phi i64 [ 0, %.lr.ph438.i ], [ %indvars.iv.next527.i, %107 ]
@@ -506,7 +506,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %118, ptr %119, align 4, !tbaa !48
   %indvars.iv.next527.i = add nuw nsw i64 %indvars.iv526.i, 1
   %exitcond530.not.i = icmp eq i64 %indvars.iv.next527.i, %wide.trip.count529.i
-  br i1 %exitcond530.not.i, label %generate_window_func.exit, label %107, !llvm.loop !56
+  br i1 %exitcond530.not.i, label %generate_window_func.exit, label %107, !llvm.loop !55
 
 120:                                              ; preds = %120, %.lr.ph435.i
   %indvars.iv521.i = phi i64 [ 0, %.lr.ph435.i ], [ %indvars.iv.next522.i, %120 ]
@@ -522,7 +522,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %128, ptr %129, align 4, !tbaa !48
   %indvars.iv.next522.i = add nuw nsw i64 %indvars.iv521.i, 1
   %exitcond525.not.i = icmp eq i64 %indvars.iv.next522.i, %wide.trip.count524.i
-  br i1 %exitcond525.not.i, label %generate_window_func.exit, label %120, !llvm.loop !57
+  br i1 %exitcond525.not.i, label %generate_window_func.exit, label %120, !llvm.loop !56
 
 130:                                              ; preds = %130, %.lr.ph432.i
   %indvars.iv516.i = phi i64 [ 0, %.lr.ph432.i ], [ %indvars.iv.next517.i, %130 ]
@@ -573,7 +573,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %173, ptr %174, align 4, !tbaa !48
   %indvars.iv.next517.i = add nuw nsw i64 %indvars.iv516.i, 1
   %exitcond520.not.i = icmp eq i64 %indvars.iv.next517.i, %wide.trip.count519.i
-  br i1 %exitcond520.not.i, label %generate_window_func.exit, label %130, !llvm.loop !58
+  br i1 %exitcond520.not.i, label %generate_window_func.exit, label %130, !llvm.loop !57
 
 175:                                              ; preds = %175, %.lr.ph429.i
   %indvars.iv511.i = phi i64 [ 0, %.lr.ph429.i ], [ %indvars.iv.next512.i, %175 ]
@@ -596,7 +596,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %190, ptr %191, align 4, !tbaa !48
   %indvars.iv.next512.i = add nuw nsw i64 %indvars.iv511.i, 1
   %exitcond515.not.i = icmp eq i64 %indvars.iv.next512.i, %wide.trip.count514.i
-  br i1 %exitcond515.not.i, label %generate_window_func.exit, label %175, !llvm.loop !59
+  br i1 %exitcond515.not.i, label %generate_window_func.exit, label %175, !llvm.loop !58
 
 192:                                              ; preds = %192, %.lr.ph426.i
   %indvars.iv506.i = phi i64 [ 0, %.lr.ph426.i ], [ %indvars.iv.next507.i, %192 ]
@@ -619,7 +619,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %207, ptr %208, align 4, !tbaa !48
   %indvars.iv.next507.i = add nuw nsw i64 %indvars.iv506.i, 1
   %exitcond510.not.i = icmp eq i64 %indvars.iv.next507.i, %wide.trip.count509.i
-  br i1 %exitcond510.not.i, label %generate_window_func.exit, label %192, !llvm.loop !60
+  br i1 %exitcond510.not.i, label %generate_window_func.exit, label %192, !llvm.loop !59
 
 209:                                              ; preds = %209, %.lr.ph423.i
   %indvars.iv501.i = phi i64 [ 0, %.lr.ph423.i ], [ %indvars.iv.next502.i, %209 ]
@@ -638,7 +638,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %220, ptr %221, align 4, !tbaa !48
   %indvars.iv.next502.i = add nuw nsw i64 %indvars.iv501.i, 1
   %exitcond505.not.i = icmp eq i64 %indvars.iv.next502.i, %wide.trip.count504.i
-  br i1 %exitcond505.not.i, label %generate_window_func.exit, label %209, !llvm.loop !61
+  br i1 %exitcond505.not.i, label %generate_window_func.exit, label %209, !llvm.loop !60
 
 222:                                              ; preds = %222, %.lr.ph420.i
   %indvars.iv496.i = phi i64 [ 0, %.lr.ph420.i ], [ %indvars.iv.next497.i, %222 ]
@@ -652,7 +652,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %228, ptr %229, align 4, !tbaa !48
   %indvars.iv.next497.i = add nuw nsw i64 %indvars.iv496.i, 1
   %exitcond500.not.i = icmp eq i64 %indvars.iv.next497.i, %wide.trip.count499.i
-  br i1 %exitcond500.not.i, label %generate_window_func.exit, label %222, !llvm.loop !62
+  br i1 %exitcond500.not.i, label %generate_window_func.exit, label %222, !llvm.loop !61
 
 230:                                              ; preds = %230, %.lr.ph417.i
   %indvars.iv491.i = phi i64 [ 0, %.lr.ph417.i ], [ %indvars.iv.next492.i, %230 ]
@@ -675,7 +675,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %245, ptr %246, align 4, !tbaa !48
   %indvars.iv.next492.i = add nuw nsw i64 %indvars.iv491.i, 1
   %exitcond495.not.i = icmp eq i64 %indvars.iv.next492.i, %wide.trip.count494.i
-  br i1 %exitcond495.not.i, label %generate_window_func.exit, label %230, !llvm.loop !63
+  br i1 %exitcond495.not.i, label %generate_window_func.exit, label %230, !llvm.loop !62
 
 247:                                              ; preds = %258, %.lr.ph414.i
   %indvars.iv486.i = phi i64 [ 0, %.lr.ph414.i ], [ %indvars.iv.next487.i, %258 ]
@@ -700,7 +700,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %259, ptr %260, align 4, !tbaa !48
   %indvars.iv.next487.i = add nuw nsw i64 %indvars.iv486.i, 1
   %exitcond490.not.i = icmp eq i64 %indvars.iv.next487.i, %wide.trip.count489.i
-  br i1 %exitcond490.not.i, label %generate_window_func.exit, label %247, !llvm.loop !64
+  br i1 %exitcond490.not.i, label %generate_window_func.exit, label %247, !llvm.loop !63
 
 261:                                              ; preds = %261, %.lr.ph411.i
   %indvars.iv481.i = phi i64 [ 0, %.lr.ph411.i ], [ %indvars.iv.next482.i, %261 ]
@@ -716,7 +716,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %269, ptr %270, align 4, !tbaa !48
   %indvars.iv.next482.i = add nuw nsw i64 %indvars.iv481.i, 1
   %exitcond485.not.i = icmp eq i64 %indvars.iv.next482.i, %wide.trip.count484.i
-  br i1 %exitcond485.not.i, label %generate_window_func.exit, label %261, !llvm.loop !65
+  br i1 %exitcond485.not.i, label %generate_window_func.exit, label %261, !llvm.loop !64
 
 271:                                              ; preds = %286, %.lr.ph408.i
   %indvars.iv476.i = phi i64 [ 0, %.lr.ph408.i ], [ %indvars.iv.next477.i, %286 ]
@@ -744,7 +744,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %.sink.i, ptr %287, align 4, !tbaa !48
   %indvars.iv.next477.i = add nuw nsw i64 %indvars.iv476.i, 1
   %exitcond480.not.i = icmp eq i64 %indvars.iv.next477.i, %wide.trip.count479.i
-  br i1 %exitcond480.not.i, label %generate_window_func.exit, label %271, !llvm.loop !66
+  br i1 %exitcond480.not.i, label %generate_window_func.exit, label %271, !llvm.loop !65
 
 288:                                              ; preds = %10
   %289 = add nsw i32 %11, -1
@@ -797,7 +797,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %319 = icmp samesign ugt i64 %indvars.iv473.i, %indvars.iv
   %320 = fcmp nsz une double %313, %.0328397.i
   %321 = select i1 %319, i1 %320, i1 false
-  br i1 %321, label %303, label %._crit_edge401.i, !llvm.loop !67
+  br i1 %321, label %303, label %._crit_edge401.i, !llvm.loop !66
 
 ._crit_edge401.i:                                 ; preds = %303, %.lr.ph405.i
   %.0328.lcssa.i = phi double [ %301, %.lr.ph405.i ], [ %313, %303 ]
@@ -814,7 +814,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %331 = getelementptr inbounds float, ptr %8, i64 %322
   store float %329, ptr %331, align 4, !tbaa !48
   %indvars.iv.next474.i = add nsw i64 %indvars.iv473.i, -1
-  br i1 %300, label %generate_window_func.exit, label %.lr.ph405.i, !llvm.loop !68
+  br i1 %300, label %generate_window_func.exit, label %.lr.ph405.i, !llvm.loop !67
 
 332:                                              ; preds = %348, %.lr.ph394.i
   %indvars.iv468.i = phi i64 [ 0, %.lr.ph394.i ], [ %indvars.iv.next469.i, %348 ]
@@ -844,7 +844,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %.sink551.i, ptr %349, align 4, !tbaa !48
   %indvars.iv.next469.i = add nuw nsw i64 %indvars.iv468.i, 1
   %exitcond472.not.i = icmp eq i64 %indvars.iv.next469.i, %wide.trip.count471.i
-  br i1 %exitcond472.not.i, label %generate_window_func.exit, label %332, !llvm.loop !69
+  br i1 %exitcond472.not.i, label %generate_window_func.exit, label %332, !llvm.loop !68
 
 350:                                              ; preds = %392, %.lr.ph391.i
   %indvars.iv463.i = phi i64 [ 0, %.lr.ph391.i ], [ %indvars.iv.next464.i, %392 ]
@@ -915,7 +915,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %.sink553.i, ptr %393, align 4, !tbaa !48
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
   %exitcond467.not.i = icmp eq i64 %indvars.iv.next464.i, %wide.trip.count466.i
-  br i1 %exitcond467.not.i, label %generate_window_func.exit, label %350, !llvm.loop !70
+  br i1 %exitcond467.not.i, label %generate_window_func.exit, label %350, !llvm.loop !69
 
 394:                                              ; preds = %413, %.lr.ph388.i
   %indvars.iv458.i = phi i64 [ 0, %.lr.ph388.i ], [ %indvars.iv.next459.i, %413 ]
@@ -953,7 +953,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %.sink555.i, ptr %414, align 4, !tbaa !48
   %indvars.iv.next459.i = add nuw nsw i64 %indvars.iv458.i, 1
   %exitcond462.not.i = icmp eq i64 %indvars.iv.next459.i, %wide.trip.count461.i
-  br i1 %exitcond462.not.i, label %generate_window_func.exit, label %394, !llvm.loop !71
+  br i1 %exitcond462.not.i, label %generate_window_func.exit, label %394, !llvm.loop !70
 
 415:                                              ; preds = %415, %.lr.ph385.i
   %indvars.iv453.i = phi i64 [ 0, %.lr.ph385.i ], [ %indvars.iv.next454.i, %415 ]
@@ -973,7 +973,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %427, ptr %428, align 4, !tbaa !48
   %indvars.iv.next454.i = add nuw nsw i64 %indvars.iv453.i, 1
   %exitcond457.not.i = icmp eq i64 %indvars.iv.next454.i, %wide.trip.count456.i
-  br i1 %exitcond457.not.i, label %generate_window_func.exit, label %415, !llvm.loop !72
+  br i1 %exitcond457.not.i, label %generate_window_func.exit, label %415, !llvm.loop !71
 
 429:                                              ; preds = %10
   %430 = tail call nsz double @av_bessel_i0(double noundef 1.200000e+01) #8
@@ -1004,7 +1004,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %446, ptr %447, align 4, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %generate_window_func.exit, label %436, !llvm.loop !73
+  br i1 %exitcond.not.i, label %generate_window_func.exit, label %436, !llvm.loop !72
 
 448:                                              ; preds = %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 232) #8
@@ -1052,7 +1052,7 @@ generate_window_func.exit:                        ; preds = %436, %415, %413, %3
 468:                                              ; preds = %465, %454
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %450, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge, label %450, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %468, %.preheader.i, %.preheader365.i, %.preheader366.i, %.preheader367.i, %.preheader368.i, %.preheader369.i, %.preheader370.i, %.preheader371.i, %.preheader372.i, %.preheader373.i, %.preheader374.i, %.preheader375.i, %.preheader376.i, %.preheader377.i, %.preheader378.i, %.preheader379.i, %.preheader380.i, %.preheader381.i, %.preheader382.i, %generate_window_func.exit
   %469 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1196,28 +1196,27 @@ attributes #9 = { noreturn nounwind }
 !47 = !{!21, !15, i64 20}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"float", !8, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = distinct !{!53, !51, !52}
-!54 = distinct !{!54, !51, !52}
-!55 = distinct !{!55, !51, !52}
-!56 = distinct !{!56, !51, !52}
-!57 = distinct !{!57, !51, !52}
-!58 = distinct !{!58, !51, !52}
-!59 = distinct !{!59, !51, !52}
-!60 = distinct !{!60, !51, !52}
-!61 = distinct !{!61, !51, !52}
-!62 = distinct !{!62, !51, !52}
-!63 = distinct !{!63, !51, !52}
-!64 = distinct !{!64, !51, !52}
-!65 = distinct !{!65, !51, !52}
-!66 = distinct !{!66, !51, !52}
-!67 = distinct !{!67, !51, !52}
-!68 = distinct !{!68, !51, !52}
-!69 = distinct !{!69, !51, !52}
-!70 = distinct !{!70, !51, !52}
-!71 = distinct !{!71, !51, !52}
-!72 = distinct !{!72, !51, !52}
-!73 = distinct !{!73, !51, !52}
-!74 = distinct !{!74, !51, !52}
+!52 = distinct !{!52, !51}
+!53 = distinct !{!53, !51}
+!54 = distinct !{!54, !51}
+!55 = distinct !{!55, !51}
+!56 = distinct !{!56, !51}
+!57 = distinct !{!57, !51}
+!58 = distinct !{!58, !51}
+!59 = distinct !{!59, !51}
+!60 = distinct !{!60, !51}
+!61 = distinct !{!61, !51}
+!62 = distinct !{!62, !51}
+!63 = distinct !{!63, !51}
+!64 = distinct !{!64, !51}
+!65 = distinct !{!65, !51}
+!66 = distinct !{!66, !51}
+!67 = distinct !{!67, !51}
+!68 = distinct !{!68, !51}
+!69 = distinct !{!69, !51}
+!70 = distinct !{!70, !51}
+!71 = distinct !{!71, !51}
+!72 = distinct !{!72, !51}
+!73 = distinct !{!73, !51}

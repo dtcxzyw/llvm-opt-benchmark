@@ -1550,7 +1550,7 @@ create_atn_conversation.exit96:                   ; preds = %143, %add_address_t
 
 154:                                              ; preds = %150, %create_atn_conversation.exit96
   %.039 = phi ptr [ %149, %create_atn_conversation.exit96 ], [ %152, %150 ]
-  %155 = load i8, ptr %.039, align 8, !range !9, !noundef !10
+  %155 = load i8, ptr %.039, align 8, !range !8, !noundef !9
   %156 = icmp eq i8 %155, 0
   br i1 %156, label %157, label %159
 
@@ -2800,8 +2800,7 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}

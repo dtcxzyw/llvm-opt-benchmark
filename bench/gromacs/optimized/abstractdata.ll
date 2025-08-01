@@ -735,7 +735,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !75
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -891,7 +891,7 @@ define void @_ZN3gmx20AbstractAnalysisData15addColumnModuleEiiRKSt10shared_ptrIN
           to label %12 unwind label %90
 
 12:                                               ; preds = %10
-  store ptr %11, ptr %5, align 8, !tbaa !76
+  store ptr %11, ptr %5, align 8, !tbaa !75
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %_ZNSt10shared_ptrIN3gmx17AnalysisDataProxyEEC2IS1_vEEPT_.exit unwind label %15
@@ -935,7 +935,7 @@ _ZNSt10shared_ptrIN3gmx17AnalysisDataProxyEEC2IS1_vEEPT_.exit: ; preds = %12
   store i32 1, ptr %29, align 4, !tbaa !64
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx17AnalysisDataProxyELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %11, ptr %30, align 8, !tbaa !79
+  store ptr %11, ptr %30, align 8, !tbaa !78
   store ptr %14, ptr %13, align 8, !tbaa !53
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !16
@@ -946,7 +946,7 @@ _ZNSt10shared_ptrIN3gmx17AnalysisDataProxyEEC2IS1_vEEPT_.exit: ; preds = %12
 34:                                               ; preds = %_ZNSt10shared_ptrIN3gmx17AnalysisDataProxyEEC2IS1_vEEPT_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %35, ptr %6, align 8, !tbaa !81
+  store ptr %35, ptr %6, align 8, !tbaa !80
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %36, align 8, !tbaa !53
   %37 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !60
@@ -1232,7 +1232,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx17AnalysisDataProxyELN9__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx17AnalysisDataProxyELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !79
+  %3 = load ptr, ptr %2, align 8, !tbaa !78
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -1487,7 +1487,7 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = icmp samesign uge i64 %indvars.iv.next, %22
   %.not15 = select i1 %32, i1 true, i1 %.1
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1634,16 +1634,15 @@ attributes #27 = { nounwind }
 !69 = !{!67, !68, i64 8}
 !70 = !{!71, !7, i64 0}
 !71 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !7, i64 0}
-!72 = distinct !{!72, !73, !74}
+!72 = distinct !{!72, !73}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!"llvm.loop.estimated_trip_count"}
-!75 = !{!67, !68, i64 16}
-!76 = !{!77, !78, i64 0}
-!77 = !{!"_ZTSSt12__shared_ptrIN3gmx17AnalysisDataProxyELN9__gnu_cxx12_Lock_policyE2EE", !78, i64 0, !51, i64 8}
-!78 = !{!"p1 _ZTSN3gmx17AnalysisDataProxyE", !7, i64 0}
-!79 = !{!80, !78, i64 16}
-!80 = !{!"_ZTSSt15_Sp_counted_ptrIPN3gmx17AnalysisDataProxyELN9__gnu_cxx12_Lock_policyE2EE", !63, i64 0, !78, i64 16}
-!81 = !{!82, !83, i64 0}
-!82 = !{!"_ZTSSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EE", !83, i64 0, !51, i64 8}
-!83 = !{!"p1 _ZTSN3gmx19IAnalysisDataModuleE", !7, i64 0}
-!84 = distinct !{!84, !73, !74}
+!74 = !{!67, !68, i64 16}
+!75 = !{!76, !77, i64 0}
+!76 = !{!"_ZTSSt12__shared_ptrIN3gmx17AnalysisDataProxyELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !51, i64 8}
+!77 = !{!"p1 _ZTSN3gmx17AnalysisDataProxyE", !7, i64 0}
+!78 = !{!79, !77, i64 16}
+!79 = !{!"_ZTSSt15_Sp_counted_ptrIPN3gmx17AnalysisDataProxyELN9__gnu_cxx12_Lock_policyE2EE", !63, i64 0, !77, i64 16}
+!80 = !{!81, !82, i64 0}
+!81 = !{!"_ZTSSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EE", !82, i64 0, !51, i64 8}
+!82 = !{!"p1 _ZTSN3gmx19IAnalysisDataModuleE", !7, i64 0}
+!83 = distinct !{!83, !73}

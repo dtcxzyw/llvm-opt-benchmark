@@ -1190,7 +1190,7 @@ dissect_lbtrm_nak.exit:                           ; preds = %244, %dissect_lbtrm
   %315 = add nuw nsw i32 %.026.i.i, 4
   %indvars.iv.next.i.i372 = add nuw nsw i64 %indvars.iv.i.i371, 1
   %exitcond.not.i.i373 = icmp eq i64 %indvars.iv.next.i.i372, %294
-  br i1 %exitcond.not.i.i373, label %dissect_lbtrm_ncf_list.exit.loopexit.i, label %.lr.ph.i.i370, !llvm.loop !15
+  br i1 %exitcond.not.i.i373, label %dissect_lbtrm_ncf_list.exit.loopexit.i, label %.lr.ph.i.i370, !llvm.loop !14
 
 dissect_lbtrm_ncf_list.exit.loopexit.i:           ; preds = %313
   %316 = add nuw i32 %.026.i.i, 12
@@ -1223,7 +1223,7 @@ dissect_lbtrm_ncf.exit:                           ; preds = %._crit_edge.i, %dis
   %325 = zext i8 %323 to i32
   %326 = add i32 %.0306, %325
   %327 = add i32 %.0313, %325
-  br i1 %324, label %328, label %319, !llvm.loop !16
+  br i1 %324, label %328, label %319
 
 328:                                              ; preds = %320, %319
   %.1314 = phi i32 [ %327, %320 ], [ %.0313, %319 ]
@@ -2148,11 +2148,11 @@ define hidden void @proto_reg_handoff_lbtrm() #0 {
   %6 = load ptr, ptr @global_lbtrm_mc_address_low, align 8
   %7 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %1)
   %8 = load i32, ptr %1, align 4
-  %9 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #11, !srcloc !17
+  %9 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #11, !srcloc !15
   %10 = load ptr, ptr @global_lbtrm_mc_address_high, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %10, ptr noundef nonnull %1)
   %12 = load i32, ptr %1, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !18
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !16
   %.not = icmp ugt i32 %9, %13
   br i1 %.not, label %15, label %14
 
@@ -2187,12 +2187,12 @@ define hidden void @proto_reg_handoff_lbtrm() #0 {
   %24 = load ptr, ptr @global_mim_incoming_mc_address, align 8
   %25 = call zeroext i1 @ws_inet_pton4(ptr noundef %24, ptr noundef nonnull %1)
   %26 = load i32, ptr %1, align 4
-  %27 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #11, !srcloc !19
+  %27 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %26) #11, !srcloc !17
   store i32 %27, ptr @mim_incoming_mc_address_host, align 4
   %28 = load ptr, ptr @global_mim_outgoing_mc_address, align 8
   %29 = call zeroext i1 @ws_inet_pton4(ptr noundef %28, ptr noundef nonnull %1)
   %30 = load i32, ptr %1, align 4
-  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #11, !srcloc !20
+  %31 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %30) #11, !srcloc !18
   store i32 %31, ptr @mim_outgoing_mc_address_host, align 4
   %32 = load i32, ptr @global_mim_incoming_dest_port, align 4
   store i32 %32, ptr @mim_incoming_dest_port, align 4
@@ -2649,7 +2649,7 @@ define internal fastcc ptr @lbtrm_tag_find(ptr noundef readonly captures(none) %
 61:                                               ; preds = %.thread, %55, %46, %39, %35
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %62 = load i32, ptr %28, align 8
@@ -2673,7 +2673,7 @@ define internal fastcc ptr @lbtrm_tag_find(ptr noundef readonly captures(none) %
 72:                                               ; preds = %63, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !21
 
 .loopexit.sink.split:                             ; preds = %68, %.thread, %50, %39
   %.lcssa59.sink = phi ptr [ %29, %39 ], [ %29, %50 ], [ %29, %.thread ], [ %64, %68 ]
@@ -2870,13 +2870,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mc_address_low_chk_cb(ptr readnone
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !24
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !22
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !25
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !23
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -2904,7 +2904,7 @@ define internal void @lbtrm_tag_mc_address_low_set_cb(ptr noundef captures(none)
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !26
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
@@ -2946,13 +2946,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mc_address_high_chk_cb(ptr readnon
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !27
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !25
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !28
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !26
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -2980,7 +2980,7 @@ define internal void @lbtrm_tag_mc_address_high_set_cb(ptr noundef captures(none
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !29
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
@@ -3157,13 +3157,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mim_mc_incoming_address_chk_cb(ptr
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !30
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !28
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !31
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !29
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -3191,7 +3191,7 @@ define internal void @lbtrm_tag_mim_mc_incoming_address_set_cb(ptr noundef captu
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !32
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
@@ -3233,13 +3233,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mim_mc_outgoing_address_chk_cb(ptr
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !33
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !31
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !34
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #11, !srcloc !32
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -3267,7 +3267,7 @@ define internal void @lbtrm_tag_mim_mc_outgoing_address_set_cb(ptr noundef captu
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !35
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #11, !srcloc !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
@@ -3343,27 +3343,25 @@ attributes #12 = { nounwind willreturn memory(read) }
 !9 = !{i64 2151192670}
 !10 = !{i8 0, i8 2}
 !11 = !{}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !14}
-!17 = !{i64 2151193496}
-!18 = !{i64 2151194181}
-!19 = !{i64 2151194837}
-!20 = !{i64 2151195493}
-!21 = distinct !{!21, !13, !14, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !13, !14}
-!24 = !{i64 2151139161}
-!25 = !{i64 2151139574}
-!26 = !{i64 2151140364}
-!27 = !{i64 2151144344}
-!28 = !{i64 2151144757}
-!29 = !{i64 2151145549}
-!30 = !{i64 2151155546}
-!31 = !{i64 2151155959}
-!32 = !{i64 2151156767}
-!33 = !{i64 2151160836}
-!34 = !{i64 2151161249}
-!35 = !{i64 2151162057}
+!14 = distinct !{!14, !13}
+!15 = !{i64 2151193496}
+!16 = !{i64 2151194181}
+!17 = !{i64 2151194837}
+!18 = !{i64 2151195493}
+!19 = distinct !{!19, !13, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !13}
+!22 = !{i64 2151139161}
+!23 = !{i64 2151139574}
+!24 = !{i64 2151140364}
+!25 = !{i64 2151144344}
+!26 = !{i64 2151144757}
+!27 = !{i64 2151145549}
+!28 = !{i64 2151155546}
+!29 = !{i64 2151155959}
+!30 = !{i64 2151156767}
+!31 = !{i64 2151160836}
+!32 = !{i64 2151161249}
+!33 = !{i64 2151162057}

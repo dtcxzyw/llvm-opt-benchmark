@@ -75,7 +75,7 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i(ptr nou
   %14 = add nuw nsw i32 %.010, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %14, %.lr.ph ]
@@ -111,7 +111,7 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhi(ptr noundef readonly captures(n
 _ZN2cv3hal12cpu_baseline11normHammingEPKhi.exit:  ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ %11, %.lr.ph.i ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !10
+  %13 = load i32, ptr %12, align 8, !tbaa !9
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %14
 
@@ -160,12 +160,12 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef readonly capture
   %15 = add nuw nsw i32 %.010.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit: ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %15, %.lr.ph.i ]
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !10
+  %17 = load i32, ptr %16, align 8, !tbaa !9
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %18
 
@@ -218,12 +218,11 @@ attributes #7 = { noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !14, i64 8}
-!11 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !12, i64 0, !14, i64 8}
-!12 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!"int", !4, i64 0}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !13, i64 8}
+!10 = !{!"_ZTSN2cv5utils5trace7details6RegionE", !11, i64 0, !13, i64 8}
+!11 = !{!"p1 _ZTSN2cv5utils5trace7details6Region4ImplE", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!"int", !4, i64 0}

@@ -148,13 +148,13 @@ define noundef zeroext i1 @_ZN5boost6fibers10wait_queue22suspend_and_wait_untilE
   %35 = ptrtoint ptr %storemerge.i.i.i to i64
   %36 = add i64 %35, -16
   %37 = icmp eq i64 %36, %31
-  br i1 %37, label %.lr.ph.i.i, label %.lr.ph.i._crit_edge.i.i, !llvm.loop !27
+  br i1 %37, label %.lr.ph.i.i, label %.lr.ph.i._crit_edge.i.i, !llvm.loop !26
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
   %storemerge57.i12.i.i = phi ptr [ %storemerge.i.i.i, %.lr.ph.i.i.i ], [ %storemerge53.i.i.i, %.lr.ph.i.preheader.i.i ]
   %storemerge.i.i.i = load ptr, ptr %storemerge57.i12.i.i, align 8, !tbaa !16
   %.not.i.i.i11 = icmp eq ptr %storemerge.i.i.i, %0
-  br i1 %.not.i.i.i11, label %_ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i11, label %_ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
 .lr.ph.i._crit_edge.i.i:                          ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %storemerge57.i.lcssa.i.i = phi ptr [ %storemerge53.i.i.i, %.lr.ph.i.preheader.i.i ], [ %storemerge.i.i.i, %.lr.ph.i.i.i ]
@@ -187,13 +187,13 @@ define noundef zeroext i1 @_ZN5boost6fibers10wait_queue22suspend_and_wait_untilE
   %.129.i.i.i = phi ptr [ %.02863.i.i.i, %44 ], [ %storemerge4260.i.i.i, %42 ]
   %.3.i.i.i = phi ptr [ %storemerge4260.i.i.i, %44 ], [ %.264.i.i.i, %42 ]
   %.not40.i.i.i = icmp eq ptr %storemerge41.i.i.i, %0
-  br i1 %.not40.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph65.i.i.i, !llvm.loop !28
+  br i1 %.not40.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph65.i.i.i, !llvm.loop !27
 
 ._crit_edge.i.i.i:                                ; preds = %46, %.lr.ph.i._crit_edge.i.i
   %.028.lcssa.i.i.i = phi ptr [ %.056.i.lcssa.i.i, %.lr.ph.i._crit_edge.i.i ], [ %.129.i.i.i, %46 ]
   %.2.lcssa.i.i.i = phi ptr [ %storemerge57.i.lcssa.i.i, %.lr.ph.i._crit_edge.i.i ], [ %.3.i.i.i, %46 ]
   store ptr %storemerge57.i.lcssa.i.i, ptr %.028.lcssa.i.i.i, align 8, !tbaa !16
-  %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !16, !noalias !29
+  %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !16, !noalias !28
   br label %_ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i
 
 _ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i.i, %30
@@ -201,19 +201,19 @@ _ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEE
   %.037.i.i.i = phi ptr [ %storemerge57.i.lcssa.i.i, %._crit_edge.i.i.i ], [ %0, %30 ], [ %0, %.lr.ph.i.i ]
   %.1.i.i.i = phi ptr [ %.2.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %0, %30 ], [ %storemerge57.i12.i.i, %.lr.ph.i.i ]
   store ptr %.1.i.i.i, ptr %11, align 8, !tbaa !12
-  store ptr %.037.i.i.i, ptr %0, align 8, !tbaa !16, !noalias !29
+  store ptr %.037.i.i.i, ptr %0, align 8, !tbaa !16, !noalias !28
   %.not12.i.i.i.i.i = icmp eq ptr %47, %.037.i.i.i
   br i1 %.not12.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i, %.lr.ph.i.i.i.i.i
   %.013.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i ], [ %47, %_ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i ]
-  %48 = load ptr, ptr %.013.i.i.i.i.i, align 8, !tbaa !16, !noalias !29
-  store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !16, !noalias !29
+  %48 = load ptr, ptr %.013.i.i.i.i.i, align 8, !tbaa !16, !noalias !28
+  store ptr null, ptr %.013.i.i.i.i.i, align 8, !tbaa !16, !noalias !28
   %.not.i.i.i.i.i = icmp eq ptr %48, %.037.i.i.i
-  br i1 %.not.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !35
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
-  %.pre.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16, !noalias !29
+  %.pre.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16, !noalias !28
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %_ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEEE16stable_partitionINS1_16key_nodeptr_compINS1_14equal_to_valueIRKNS_6fibers15waker_with_hookEEENS0_8mhtraitsISB_NS0_17slist_member_hookIJEEEXadL_ZNSB_17waker_queue_hook_EEEEEvEEEEvPNS0_10slist_nodeIS4_EESM_T_RNS6_21stable_partition_infoE.exit.i.i
@@ -222,7 +222,7 @@ _ZN5boost9intrusive6detail23common_slist_algorithmsINS0_17slist_node_traitsIPvEE
   br i1 %50, label %51, label %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE6removeERKS4_.exit.thread
 
 51:                                               ; preds = %._crit_edge.i.i.i.i.i
-  store ptr %0, ptr %11, align 8, !tbaa !12, !noalias !29
+  store ptr %0, ptr %11, align 8, !tbaa !12, !noalias !28
   br label %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE6removeERKS4_.exit.thread
 
 _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE6removeERKS4_.exit.thread: ; preds = %._crit_edge.i.i.i.i.i, %51, %27
@@ -281,7 +281,7 @@ _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !9
   %17 = tail call noundef zeroext i1 @_ZN5boost6fibers7context4wakeEm(ptr noundef nonnull align 8 dereferenceable(232) %14, i64 noundef %16) #10
-  br i1 %17, label %18, label %3, !llvm.loop !37
+  br i1 %17, label %18, label %3
 
 18:                                               ; preds = %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE9pop_frontEv.exit, %3
   ret void
@@ -320,7 +320,7 @@ _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17
   %17 = tail call noundef zeroext i1 @_ZN5boost6fibers7context4wakeEm(ptr noundef nonnull align 8 dereferenceable(232) %14, i64 noundef %16) #10
   %18 = load ptr, ptr %0, align 8, !tbaa !16
   %19 = icmp eq ptr %18, %0
-  br i1 %19, label %._crit_edge, label %5, !llvm.loop !38
+  br i1 %19, label %._crit_edge, label %5, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE9pop_frontEv.exit, %1
   ret void
@@ -382,18 +382,16 @@ attributes #11 = { noreturn }
 !21 = !{!19, !20, i64 8}
 !22 = !{i8 0, i8 2}
 !23 = !{}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = distinct !{!28, !25, !26}
-!29 = !{!30, !32, !34}
-!30 = distinct !{!30, !31, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE23erase_after_and_disposeINS0_6detail13null_disposerEEENS0_14slist_iteratorIS7_Lb0EEENSC_IS7_Lb1EEESE_T_: argument 0"}
-!31 = distinct !{!31, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE23erase_after_and_disposeINS0_6detail13null_disposerEEENS0_14slist_iteratorIS7_Lb0EEENSC_IS7_Lb1EEESE_T_"}
-!32 = distinct !{!32, !33, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_: argument 0"}
-!33 = distinct !{!33, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_"}
-!34 = distinct !{!34, !35, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_m: argument 0"}
-!35 = distinct !{!35, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_m"}
-!36 = distinct !{!36, !25, !26}
-!37 = distinct !{!37, !26}
-!38 = distinct !{!38, !25, !26}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = !{!29, !31, !33}
+!29 = distinct !{!29, !30, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE23erase_after_and_disposeINS0_6detail13null_disposerEEENS0_14slist_iteratorIS7_Lb0EEENSC_IS7_Lb1EEESE_T_: argument 0"}
+!30 = distinct !{!30, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE23erase_after_and_disposeINS0_6detail13null_disposerEEENS0_14slist_iteratorIS7_Lb0EEENSC_IS7_Lb1EEESE_T_"}
+!31 = distinct !{!31, !32, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_: argument 0"}
+!32 = distinct !{!32, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_"}
+!33 = distinct !{!33, !34, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_m: argument 0"}
+!34 = distinct !{!34, !"_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers15waker_with_hookENS0_17slist_member_hookIJEEEXadL_ZNS4_17waker_queue_hook_EEEEEmLm4EvE11erase_afterENS0_14slist_iteratorIS7_Lb1EEESA_m"}
+!35 = distinct !{!35, !25}
+!36 = distinct !{!36, !25}

@@ -234,7 +234,7 @@ define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr nounde
   tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #8
   %18 = add nsw i64 %.05, -1
   %19 = icmp ugt i64 %18, 1
-  br i1 %19, label %17, label %.loopexit, !llvm.loop !9
+  br i1 %19, label %17, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %17, %.preheader, %15
   ret void
@@ -305,7 +305,7 @@ _ZN13MonitorLocker4waitEl.exit.us:                ; preds = %.split47.us.us, %_Z
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(8) %32) #8
   %.not.i28.us = icmp eq i32 %35, 0
-  br i1 %.not.i28.us, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.us, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, !llvm.loop !10
+  br i1 %.not.i28.us, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.us, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, !llvm.loop !9
 
 36:                                               ; preds = %63, %.split.us.us
   %.sroa.031.0.us.us = phi i32 [ 0, %.split.us.us ], [ %40, %63 ]
@@ -370,7 +370,7 @@ _ZN14TaskTerminator12DelayContext7do_stepEv.exit.us.us: ; preds = %51, %._crit_e
 
 63:                                               ; preds = %_ZN14TaskTerminator12DelayContext7do_stepEv.exit.us.us
   %.not.i16.us.us.not = icmp eq i32 %59, 0
-  br i1 %.not.i16.us.us.not, label %36, label %.split51.us, !llvm.loop !12
+  br i1 %.not.i16.us.us.not, label %36, label %.split51.us, !llvm.loop !11
 
 .split47.us.us:                                   ; preds = %36
   store ptr null, ptr %17, align 8
@@ -490,7 +490,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20: ; preds = %.split49.us
   br label %_ZN13MonitorLockerD2Ev.exit
 
 111:                                              ; preds = %_ZN13MutexUnlockerD2Ev.exit
-  br i1 %103, label %.split51.us, label %75, !llvm.loop !13
+  br i1 %103, label %.split51.us, label %75, !llvm.loop !12
 
 .split51.us:                                      ; preds = %111, %63
   %.us-phi52 = phi i32 [ %59, %63 ], [ %98, %111 ]
@@ -522,7 +522,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20: ; preds = %.split49.us
   tail call void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #8
   %121 = add nsw i64 %.05.i, -1
   %122 = icmp ugt i64 %121, 1
-  br i1 %122, label %.lr.ph.i23, label %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit24, !llvm.loop !9
+  br i1 %122, label %.lr.ph.i23, label %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit24, !llvm.loop !8
 
 _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit24: ; preds = %.lr.ph.i23, %.preheader.i22, %120
   %123 = load volatile i32, ptr %11, align 8
@@ -585,7 +585,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit27: ; preds = %134, %136
   %145 = load ptr, ptr %1, align 8
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(8) %1) #8
-  br i1 %147, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30, !llvm.loop !14
+  br i1 %147, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30, !llvm.loop !13
 
 _ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread: ; preds = %144, %139, %31
   %.us-phi61 = phi i32 [ %35, %31 ], [ 0, %144 ], [ %143, %139 ]
@@ -641,12 +641,11 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8, !11}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !10}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -173,7 +173,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr noundef readonl
   %.032.be.i = phi ptr [ %43, %37 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %45, %37 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.033.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %mic2euc_kr.exit, !llvm.loop !6
+  br i1 %29, label %.lr.ph.i, label %mic2euc_kr.exit, !llvm.loop !5
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03346.i) #4
@@ -243,7 +243,6 @@ attributes #5 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

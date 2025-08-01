@@ -66,7 +66,7 @@ define hidden void @luaT_init(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !24
+  br i1 %exitcond.not, label %10, label %3
 
 10:                                               ; preds = %3
   ret void
@@ -86,7 +86,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define hidden ptr @luaT_gettm(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @luaH_Hgetshortstr(ptr noundef %0, ptr noundef %2) #5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i8, ptr %5, align 8, !tbaa !26
+  %6 = load i8, ptr %5, align 8, !tbaa !24
   %7 = and i8 %6, 15
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %15
@@ -94,10 +94,10 @@ define hidden ptr @luaT_gettm(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 9:                                                ; preds = %3
   %10 = shl nuw i32 1, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %12 = load i8, ptr %11, align 2, !tbaa !28
+  %12 = load i8, ptr %11, align 2, !tbaa !26
   %13 = trunc i32 %10 to i8
   %14 = or i8 %12, %13
-  store i8 %14, ptr %11, align 2, !tbaa !28
+  store i8 %14, ptr %11, align 2, !tbaa !26
   br label %15
 
 15:                                               ; preds = %3, %9
@@ -110,7 +110,7 @@ declare hidden ptr @luaH_Hgetshortstr(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i8, ptr %4, align 8, !tbaa !26
+  %5 = load i8, ptr %4, align 8, !tbaa !24
   %6 = and i8 %5, 15
   switch i8 %6, label %13 [
     i8 5, label %7
@@ -118,12 +118,12 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
   ]
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %8 = load ptr, ptr %1, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %19
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %1, align 8, !tbaa !33
+  %11 = load ptr, ptr %1, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %19
 
@@ -137,7 +137,7 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
 
 19:                                               ; preds = %13, %10, %7
   %.0.in = phi ptr [ %18, %13 ], [ %9, %7 ], [ %12, %10 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !34
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !32
   %.not = icmp eq ptr %.0, null
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !9
@@ -163,23 +163,23 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaT_objtypename(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i8, ptr %3, align 8, !tbaa !26
+  %4 = load i8, ptr %3, align 8, !tbaa !24
   switch i8 %4, label %.thread [
     i8 69, label %5
     i8 71, label %9
   ]
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !33
+  %6 = load ptr, ptr %1, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.thread, label %13
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !33
+  %10 = load ptr, ptr %1, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %.thread, label %13
 
@@ -188,25 +188,25 @@ define hidden ptr @luaT_objtypename(ptr noundef %0, ptr noundef readonly capture
   %14 = tail call ptr @luaS_new(ptr noundef %0, ptr noundef nonnull @.str.35) #5
   %15 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.013, ptr noundef %14) #5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i8, ptr %16, align 8, !tbaa !26
+  %17 = load i8, ptr %16, align 8, !tbaa !24
   %18 = and i8 %17, 15
   %.not17 = icmp eq i8 %18, 4
   br i1 %.not17, label %19, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %13
-  %.pre = load i8, ptr %3, align 8, !tbaa !26
+  %.pre = load i8, ptr %3, align 8, !tbaa !24
   br label %.thread
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr %15, align 8, !tbaa !33
+  %20 = load ptr, ptr %15, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 11
-  %22 = load i8, ptr %21, align 1, !tbaa !38
+  %22 = load i8, ptr %21, align 1, !tbaa !36
   %23 = icmp sgt i8 %22, -1
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %23, label %.thread18, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %24, align 8, !tbaa !40
+  %26 = load ptr, ptr %24, align 8, !tbaa !38
   br label %.thread18
 
 .thread:                                          ; preds = %..thread_crit_edge, %2, %5, %9
@@ -226,40 +226,40 @@ define hidden ptr @luaT_objtypename(ptr noundef %0, ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define hidden void @luaT_callTM(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !33
-  %8 = load i64, ptr %1, align 8, !tbaa !33
-  store i64 %8, ptr %7, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %8 = load i64, ptr %1, align 8, !tbaa !31
+  store i64 %8, ptr %7, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i8, ptr %9, align 8, !tbaa !26
+  %10 = load i8, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %10, ptr %11, align 8, !tbaa !26
+  store i8 %10, ptr %11, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = load i64, ptr %2, align 8, !tbaa !33
-  store i64 %13, ptr %12, align 8, !tbaa !33
+  %13 = load i64, ptr %2, align 8, !tbaa !31
+  store i64 %13, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i8, ptr %14, align 8, !tbaa !26
+  %15 = load i8, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 %15, ptr %16, align 8, !tbaa !26
+  store i8 %15, ptr %16, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %18 = load i64, ptr %3, align 8, !tbaa !33
-  store i64 %18, ptr %17, align 8, !tbaa !33
+  %18 = load i64, ptr %3, align 8, !tbaa !31
+  store i64 %18, ptr %17, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = load i8, ptr %19, align 8, !tbaa !26
+  %20 = load i8, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i8 %20, ptr %21, align 8, !tbaa !26
+  store i8 %20, ptr %21, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %23 = load i64, ptr %4, align 8, !tbaa !33
-  store i64 %23, ptr %22, align 8, !tbaa !33
+  %23 = load i64, ptr %4, align 8, !tbaa !31
+  store i64 %23, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i8, ptr %24, align 8, !tbaa !26
+  %25 = load i8, ptr %24, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i8 %25, ptr %26, align 8, !tbaa !26
+  store i8 %25, ptr %26, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store ptr %27, ptr %6, align 8, !tbaa !33
+  store ptr %27, ptr %6, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 60
-  %31 = load i32, ptr %30, align 4, !tbaa !42
+  %31 = load i32, ptr %30, align 4, !tbaa !40
   %32 = and i32 %31, 1081344
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %33, label %34
@@ -283,36 +283,36 @@ declare hidden void @luaD_callnoyield(ptr noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 64) i8 @luaT_callTMres(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load i64, ptr %1, align 8, !tbaa !33
-  store i64 %10, ptr %9, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %10 = load i64, ptr %1, align 8, !tbaa !31
+  store i64 %10, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !26
+  %12 = load i8, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 %12, ptr %13, align 8, !tbaa !26
+  store i8 %12, ptr %13, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load i64, ptr %2, align 8, !tbaa !33
-  store i64 %15, ptr %14, align 8, !tbaa !33
+  %15 = load i64, ptr %2, align 8, !tbaa !31
+  store i64 %15, ptr %14, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i8, ptr %16, align 8, !tbaa !26
+  %17 = load i8, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i8 %17, ptr %18, align 8, !tbaa !26
+  store i8 %17, ptr %18, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %20 = load i64, ptr %3, align 8, !tbaa !33
-  store i64 %20, ptr %19, align 8, !tbaa !33
+  %20 = load i64, ptr %3, align 8, !tbaa !31
+  store i64 %20, ptr %19, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load i8, ptr %21, align 8, !tbaa !26
+  %22 = load i8, ptr %21, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i8 %22, ptr %23, align 8, !tbaa !26
-  %24 = load ptr, ptr %8, align 8, !tbaa !33
+  store i8 %22, ptr %23, align 8, !tbaa !24
+  %24 = load ptr, ptr %8, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr %25, ptr %8, align 8, !tbaa !33
+  store ptr %25, ptr %8, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !41
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 60
-  %29 = load i32, ptr %28, align 4, !tbaa !42
+  %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = and i32 %29, 1081344
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %32
@@ -329,17 +329,17 @@ define hidden zeroext range(i8 0, 64) i8 @luaT_callTMres(ptr noundef %0, ptr nou
   %34 = ptrtoint ptr %4 to i64
   %35 = ptrtoint ptr %7 to i64
   %36 = sub i64 %34, %35
-  %37 = load ptr, ptr %6, align 8, !tbaa !33
+  %37 = load ptr, ptr %6, align 8, !tbaa !31
   %38 = getelementptr inbounds i8, ptr %37, i64 %36
-  %39 = load ptr, ptr %8, align 8, !tbaa !33
+  %39 = load ptr, ptr %8, align 8, !tbaa !31
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
-  store ptr %40, ptr %8, align 8, !tbaa !33
-  %41 = load i64, ptr %40, align 8, !tbaa !33
-  store i64 %41, ptr %38, align 8, !tbaa !33
+  store ptr %40, ptr %8, align 8, !tbaa !31
+  %41 = load i64, ptr %40, align 8, !tbaa !31
+  store i64 %41, ptr %38, align 8, !tbaa !31
   %42 = getelementptr inbounds i8, ptr %39, i64 -8
-  %43 = load i8, ptr %42, align 8, !tbaa !26
+  %43 = load i8, ptr %42, align 8, !tbaa !24
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i8 %43, ptr %44, align 8, !tbaa !26
+  store i8 %43, ptr %44, align 8, !tbaa !24
   %45 = and i8 %43, 63
   ret i8 %45
 }
@@ -348,7 +348,7 @@ define hidden zeroext range(i8 0, 64) i8 @luaT_callTMres(ptr noundef %0, ptr nou
 define hidden void @luaT_trybinTM(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @callbinTM(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %22, !prof !43
+  br i1 %7, label %8, label %22, !prof !41
 
 8:                                                ; preds = %5
   switch i32 %4, label %21 [
@@ -362,14 +362,14 @@ define hidden void @luaT_trybinTM(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 9:                                                ; preds = %8, %8, %8, %8, %8, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !26
+  %11 = load i8, ptr %10, align 8, !tbaa !24
   %12 = and i8 %11, 15
   %13 = icmp eq i8 %12, 3
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !26
+  %16 = load i8, ptr %15, align 8, !tbaa !24
   %17 = and i8 %16, 15
   %18 = icmp eq i8 %17, 3
   br i1 %18, label %19, label %20
@@ -393,7 +393,7 @@ define hidden void @luaT_trybinTM(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i8, ptr %6, align 8, !tbaa !26
+  %7 = load i8, ptr %6, align 8, !tbaa !24
   %8 = and i8 %7, 15
   switch i8 %8, label %15 [
     i8 5, label %9
@@ -401,12 +401,12 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
   ]
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !tbaa !33
+  %10 = load ptr, ptr %1, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br label %21
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr %1, align 8, !tbaa !33
+  %13 = load ptr, ptr %1, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %21
 
@@ -420,7 +420,7 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %15, %12, %9
   %.0.in.i = phi ptr [ %20, %15 ], [ %11, %9 ], [ %14, %12 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !34
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !32
   %.not.i = icmp eq ptr %.0.i, null
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !9
@@ -441,14 +441,14 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
 luaT_gettmbyobj.exit:                             ; preds = %24, %30
   %32 = phi ptr [ %29, %24 ], [ %31, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i8, ptr %33, align 8, !tbaa !26
+  %34 = load i8, ptr %33, align 8, !tbaa !24
   %35 = and i8 %34, 15
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %luaT_gettmbyobj.exit17
 
 37:                                               ; preds = %luaT_gettmbyobj.exit
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i8, ptr %38, align 8, !tbaa !26
+  %39 = load i8, ptr %38, align 8, !tbaa !24
   %40 = and i8 %39, 15
   switch i8 %40, label %47 [
     i8 5, label %41
@@ -456,12 +456,12 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
   ]
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr %2, align 8, !tbaa !33
+  %42 = load ptr, ptr %2, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   br label %52
 
 44:                                               ; preds = %37
-  %45 = load ptr, ptr %2, align 8, !tbaa !33
+  %45 = load ptr, ptr %2, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   br label %52
 
@@ -474,7 +474,7 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
 
 52:                                               ; preds = %47, %44, %41
   %.0.in.i14 = phi ptr [ %51, %47 ], [ %43, %41 ], [ %46, %44 ]
-  %.0.i15 = load ptr, ptr %.0.in.i14, align 8, !tbaa !34
+  %.0.i15 = load ptr, ptr %.0.in.i14, align 8, !tbaa !32
   %.not.i16 = icmp eq ptr %.0.i15, null
   %53 = load ptr, ptr %22, align 8, !tbaa !9
   br i1 %.not.i16, label %60, label %54
@@ -494,41 +494,41 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
 luaT_gettmbyobj.exit17:                           ; preds = %60, %54, %luaT_gettmbyobj.exit
   %.0 = phi ptr [ %32, %luaT_gettmbyobj.exit ], [ %59, %54 ], [ %61, %60 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %63 = load i8, ptr %62, align 8, !tbaa !26
+  %63 = load i8, ptr %62, align 8, !tbaa !24
   %64 = and i8 %63, 15
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %105, label %66
 
 66:                                               ; preds = %luaT_gettmbyobj.exit17
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !33
+  %68 = load ptr, ptr %67, align 8, !tbaa !31
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !33
-  %71 = load i64, ptr %.0, align 8, !tbaa !33
-  store i64 %71, ptr %70, align 8, !tbaa !33
-  %72 = load i8, ptr %62, align 8, !tbaa !26
+  %70 = load ptr, ptr %69, align 8, !tbaa !31
+  %71 = load i64, ptr %.0, align 8, !tbaa !31
+  store i64 %71, ptr %70, align 8, !tbaa !31
+  %72 = load i8, ptr %62, align 8, !tbaa !24
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i8 %72, ptr %73, align 8, !tbaa !26
+  store i8 %72, ptr %73, align 8, !tbaa !24
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %75 = load i64, ptr %1, align 8, !tbaa !33
-  store i64 %75, ptr %74, align 8, !tbaa !33
-  %76 = load i8, ptr %6, align 8, !tbaa !26
+  %75 = load i64, ptr %1, align 8, !tbaa !31
+  store i64 %75, ptr %74, align 8, !tbaa !31
+  %76 = load i8, ptr %6, align 8, !tbaa !24
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i8 %76, ptr %77, align 8, !tbaa !26
+  store i8 %76, ptr %77, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %79 = load i64, ptr %2, align 8, !tbaa !33
-  store i64 %79, ptr %78, align 8, !tbaa !33
+  %79 = load i64, ptr %2, align 8, !tbaa !31
+  store i64 %79, ptr %78, align 8, !tbaa !31
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %81 = load i8, ptr %80, align 8, !tbaa !26
+  %81 = load i8, ptr %80, align 8, !tbaa !24
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  store i8 %81, ptr %82, align 8, !tbaa !26
-  %83 = load ptr, ptr %69, align 8, !tbaa !33
+  store i8 %81, ptr %82, align 8, !tbaa !24
+  %83 = load ptr, ptr %69, align 8, !tbaa !31
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  store ptr %84, ptr %69, align 8, !tbaa !33
+  store ptr %84, ptr %69, align 8, !tbaa !31
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !41
+  %86 = load ptr, ptr %85, align 8, !tbaa !39
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 60
-  %88 = load i32, ptr %87, align 4, !tbaa !42
+  %88 = load i32, ptr %87, align 4, !tbaa !40
   %89 = and i32 %88, 1081344
   %.not.i18 = icmp eq i32 %89, 0
   br i1 %.not.i18, label %90, label %91
@@ -545,17 +545,17 @@ luaT_callTMres.exit:                              ; preds = %90, %91
   %92 = ptrtoint ptr %3 to i64
   %93 = ptrtoint ptr %68 to i64
   %94 = sub i64 %92, %93
-  %95 = load ptr, ptr %67, align 8, !tbaa !33
+  %95 = load ptr, ptr %67, align 8, !tbaa !31
   %96 = getelementptr inbounds i8, ptr %95, i64 %94
-  %97 = load ptr, ptr %69, align 8, !tbaa !33
+  %97 = load ptr, ptr %69, align 8, !tbaa !31
   %98 = getelementptr inbounds i8, ptr %97, i64 -16
-  store ptr %98, ptr %69, align 8, !tbaa !33
-  %99 = load i64, ptr %98, align 8, !tbaa !33
-  store i64 %99, ptr %96, align 8, !tbaa !33
+  store ptr %98, ptr %69, align 8, !tbaa !31
+  %99 = load i64, ptr %98, align 8, !tbaa !31
+  store i64 %99, ptr %96, align 8, !tbaa !31
   %100 = getelementptr inbounds i8, ptr %97, i64 -8
-  %101 = load i8, ptr %100, align 8, !tbaa !26
+  %101 = load i8, ptr %100, align 8, !tbaa !24
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i8 %101, ptr %102, align 8, !tbaa !26
+  store i8 %101, ptr %102, align 8, !tbaa !24
   %103 = and i8 %101, 63
   %104 = zext nneg i8 %103 to i32
   br label %105
@@ -574,12 +574,12 @@ declare hidden void @luaG_opinterror(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaT_tryconcatTM(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   %5 = getelementptr inbounds i8, ptr %3, i64 -16
   %6 = tail call fastcc i32 @callbinTM(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 22)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %9, !prof !43
+  br i1 %7, label %8, label %9, !prof !41
 
 8:                                                ; preds = %1
   tail call void @luaG_concaterror(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -600,7 +600,7 @@ define hidden void @luaT_trybinassocTM(ptr noundef %0, ptr noundef %1, ptr nound
 7:                                                ; preds = %6
   %8 = tail call fastcc i32 @callbinTM(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %4, i32 noundef %5)
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %luaT_trybinTM.exit, !prof !43
+  br i1 %9, label %10, label %luaT_trybinTM.exit, !prof !41
 
 10:                                               ; preds = %7
   switch i32 %5, label %23 [
@@ -614,14 +614,14 @@ define hidden void @luaT_trybinassocTM(ptr noundef %0, ptr noundef %1, ptr nound
 
 11:                                               ; preds = %10, %10, %10, %10, %10, %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !26
+  %13 = load i8, ptr %12, align 8, !tbaa !24
   %14 = and i8 %13, 15
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !26
+  %18 = load i8, ptr %17, align 8, !tbaa !24
   %19 = and i8 %18, 15
   %20 = icmp eq i8 %19, 3
   br i1 %20, label %21, label %22
@@ -641,7 +641,7 @@ define hidden void @luaT_trybinassocTM(ptr noundef %0, ptr noundef %1, ptr nound
 24:                                               ; preds = %6
   %25 = tail call fastcc i32 @callbinTM(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %5)
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %luaT_trybinTM.exit, !prof !43
+  br i1 %26, label %27, label %luaT_trybinTM.exit, !prof !41
 
 27:                                               ; preds = %24
   switch i32 %5, label %40 [
@@ -655,14 +655,14 @@ define hidden void @luaT_trybinassocTM(ptr noundef %0, ptr noundef %1, ptr nound
 
 28:                                               ; preds = %27, %27, %27, %27, %27, %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load i8, ptr %29, align 8, !tbaa !26
+  %30 = load i8, ptr %29, align 8, !tbaa !24
   %31 = and i8 %30, 15
   %32 = icmp eq i8 %31, 3
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = load i8, ptr %34, align 8, !tbaa !26
+  %35 = load i8, ptr %34, align 8, !tbaa !24
   %36 = and i8 %35, 15
   %37 = icmp eq i8 %36, 3
   br i1 %37, label %38, label %39
@@ -687,9 +687,9 @@ luaT_trybinTM.exit:                               ; preds = %24, %7
 define hidden void @luaT_trybiniTM(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.TValue, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
-  store i64 %2, ptr %7, align 8, !tbaa !33
+  store i64 %2, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 3, ptr %8, align 8, !tbaa !26
+  store i8 3, ptr %8, align 8, !tbaa !24
   call void @luaT_trybinassocTM(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %3, ptr noundef %4, i32 noundef %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
   ret void
@@ -698,7 +698,7 @@ define hidden void @luaT_trybiniTM(ptr noundef %0, ptr noundef %1, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @luaT_callorderTM(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = tail call fastcc i32 @callbinTM(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i32 noundef %3)
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %14
@@ -729,14 +729,14 @@ define hidden range(i32 0, 2) i32 @luaT_callorderiTM(ptr noundef %0, ptr noundef
   %10 = sitofp i32 %2 to double
   %.sink15 = select i1 %.not, double %9, double %10
   %.sink = select i1 %.not, i8 3, i8 19
-  store double %.sink15, ptr %7, align 8, !tbaa !33
+  store double %.sink15, ptr %7, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %.sink, ptr %11, align 8, !tbaa !26
+  store i8 %.sink, ptr %11, align 8, !tbaa !24
   %.not13 = icmp eq i32 %3, 0
   %. = select i1 %.not13, ptr %7, ptr %1
   %.14 = select i1 %.not13, ptr %1, ptr %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = call fastcc i32 @callbinTM(ptr noundef %0, ptr noundef %.14, ptr noundef %., ptr noundef %13, i32 noundef %5)
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %luaT_callorderTM.exit, label %16
@@ -758,8 +758,8 @@ luaT_callorderTM.exit:                            ; preds = %6
 ; Function Attrs: nounwind uwtable
 define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((44, 48)) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
-  %7 = load ptr, ptr %2, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %7 = load ptr, ptr %2, align 8, !tbaa !31
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -768,38 +768,38 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
   %13 = xor i32 %1, -1
   %14 = add i32 %12, %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store i32 %14, ptr %15, align 4, !tbaa !33
+  store i32 %14, ptr %15, align 4, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !33
-  %18 = load ptr, ptr %5, align 8, !tbaa !33
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %18 = load ptr, ptr %5, align 8, !tbaa !31
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 4
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %24 = load i8, ptr %23, align 4, !tbaa !44
+  %24 = load i8, ptr %23, align 4, !tbaa !42
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %25, 1
   %27 = zext nneg i32 %26 to i64
   %.not = icmp sgt i64 %22, %27
-  br i1 %.not, label %30, label %28, !prof !52
+  br i1 %.not, label %30, label %28, !prof !50
 
 28:                                               ; preds = %4
   %29 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef %26, i32 noundef 1) #5
-  %.pre = load ptr, ptr %5, align 8, !tbaa !33
+  %.pre = load ptr, ptr %5, align 8, !tbaa !31
   br label %30
 
 30:                                               ; preds = %4, %28
   %31 = phi ptr [ %18, %4 ], [ %.pre, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %32, ptr %5, align 8, !tbaa !33
-  %33 = load ptr, ptr %2, align 8, !tbaa !33
-  %34 = load i64, ptr %33, align 8, !tbaa !33
-  store i64 %34, ptr %31, align 8, !tbaa !33
+  store ptr %32, ptr %5, align 8, !tbaa !31
+  %33 = load ptr, ptr %2, align 8, !tbaa !31
+  %34 = load i64, ptr %33, align 8, !tbaa !31
+  store i64 %34, ptr %31, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = load i8, ptr %35, align 8, !tbaa !26
+  %36 = load i8, ptr %35, align 8, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i8 %36, ptr %37, align 8, !tbaa !26
+  store i8 %36, ptr %37, align 8, !tbaa !24
   %.not3233 = icmp slt i32 %1, 1
   br i1 %.not3233, label %._crit_edge, label %.lr.ph.preheader
 
@@ -810,34 +810,34 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = load ptr, ptr %5, align 8, !tbaa !33
+  %39 = load ptr, ptr %5, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %40, ptr %5, align 8, !tbaa !33
-  %41 = load ptr, ptr %2, align 8, !tbaa !33
+  store ptr %40, ptr %5, align 8, !tbaa !31
+  %41 = load ptr, ptr %2, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw %union.StackValue, ptr %41, i64 %indvars.iv
-  %43 = load i64, ptr %42, align 8, !tbaa !33
-  store i64 %43, ptr %39, align 8, !tbaa !33
+  %43 = load i64, ptr %42, align 8, !tbaa !31
+  store i64 %43, ptr %39, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load i8, ptr %44, align 8, !tbaa !26
+  %45 = load i8, ptr %44, align 8, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i8 %45, ptr %46, align 8, !tbaa !26
-  %47 = load ptr, ptr %2, align 8, !tbaa !33
+  store i8 %45, ptr %46, align 8, !tbaa !24
+  %47 = load ptr, ptr %2, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw %union.StackValue, ptr %47, i64 %indvars.iv, i32 0, i32 1
-  store i8 0, ptr %48, align 8, !tbaa !33
+  store i8 0, ptr %48, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
-  %49 = load ptr, ptr %2, align 8, !tbaa !33
+  %49 = load ptr, ptr %2, align 8, !tbaa !31
   %sext = shl i64 %10, 28
   %50 = ashr i64 %sext, 32
   %51 = getelementptr inbounds %union.StackValue, ptr %49, i64 %50
-  store ptr %51, ptr %2, align 8, !tbaa !33
+  store ptr %51, ptr %2, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  %53 = load ptr, ptr %52, align 8, !tbaa !31
   %54 = getelementptr inbounds %union.StackValue, ptr %53, i64 %50
-  store ptr %54, ptr %52, align 8, !tbaa !33
+  store ptr %54, ptr %52, align 8, !tbaa !31
   ret void
 }
 
@@ -846,39 +846,39 @@ declare hidden i32 @luaD_growstack(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %6 = load i32, ptr %5, align 4, !tbaa !33
+  %6 = load i32, ptr %5, align 4, !tbaa !31
   %.fr = freeze i32 %6
   %7 = icmp slt i32 %3, 0
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 4
   %17 = sext i32 %.fr to i64
   %.not = icmp sgt i64 %16, %17
-  br i1 %.not, label %27, label %18, !prof !52
+  br i1 %.not, label %27, label %18, !prof !50
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !33
+  %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = ptrtoint ptr %2 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %24 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef %.fr, i32 noundef 1) #5
-  %25 = load ptr, ptr %19, align 8, !tbaa !33
+  %25 = load ptr, ptr %19, align 8, !tbaa !31
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   br label %27
 
 27:                                               ; preds = %8, %18
   %.1 = phi ptr [ %26, %18 ], [ %2, %8 ]
   %28 = getelementptr inbounds %union.StackValue, ptr %.1, i64 %17
-  store ptr %28, ptr %11, align 8, !tbaa !33
+  store ptr %28, ptr %11, align 8, !tbaa !31
   br label %29
 
 29:                                               ; preds = %27, %4
@@ -907,26 +907,26 @@ define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly capture
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = getelementptr inbounds nuw %union.StackValue, ptr %.0, i64 %indvars.iv
-  %37 = load ptr, ptr %1, align 8, !tbaa !33
+  %37 = load ptr, ptr %1, align 8, !tbaa !31
   %38 = getelementptr inbounds %union.StackValue, ptr %37, i64 %32
   %39 = getelementptr inbounds nuw %union.StackValue, ptr %38, i64 %indvars.iv
-  %40 = load i64, ptr %39, align 8, !tbaa !33
-  store i64 %40, ptr %36, align 8, !tbaa !33
+  %40 = load i64, ptr %39, align 8, !tbaa !31
+  store i64 %40, ptr %36, align 8, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !26
+  %42 = load i8, ptr %41, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i8 %42, ptr %43, align 8, !tbaa !26
+  store i8 %42, ptr %43, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %35, !llvm.loop !54
+  br i1 %exitcond.not, label %.preheader, label %35
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %indvars.iv42 = phi i64 [ %34, %.lr.ph40.preheader ], [ %indvars.iv.next43, %.lr.ph40 ]
   %44 = getelementptr inbounds nuw %union.StackValue, ptr %.0, i64 %indvars.iv42, i32 0, i32 1
-  store i8 0, ptr %44, align 8, !tbaa !33
+  store i8 0, ptr %44, align 8, !tbaa !31
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph40, !llvm.loop !55
+  br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph40
 
 ._crit_edge:                                      ; preds = %.lr.ph40, %.preheader
   ret void
@@ -969,35 +969,30 @@ attributes #6 = { noreturn nounwind }
 !21 = !{!"", !19, i64 0, !19, i64 4}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 _ZTS7TString", !6, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !7, i64 8}
-!27 = !{!"TValue", !7, i64 0, !7, i64 8}
-!28 = !{!29, !7, i64 10}
-!29 = !{!"Table", !11, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !19, i64 12, !30, i64 16, !31, i64 24, !32, i64 32, !11, i64 40}
-!30 = !{!"p1 _ZTS5Value", !6, i64 0}
-!31 = !{!"p1 _ZTS4Node", !6, i64 0}
-!32 = !{!"p1 _ZTS5Table", !6, i64 0}
-!33 = !{!7, !7, i64 0}
-!34 = !{!32, !32, i64 0}
-!35 = !{!29, !32, i64 32}
-!36 = !{!37, !32, i64 24}
-!37 = !{!"Udata", !11, i64 0, !7, i64 8, !7, i64 9, !12, i64 10, !20, i64 16, !32, i64 24, !11, i64 32, !7, i64 40}
-!38 = !{!39, !7, i64 11}
-!39 = !{!"TString", !11, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !19, i64 12, !7, i64 16, !5, i64 24, !6, i64 32, !6, i64 40}
-!40 = !{!39, !5, i64 24}
-!41 = !{!10, !14, i64 32}
-!42 = !{!18, !19, i64 60}
-!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!44 = !{!45, !7, i64 12}
-!45 = !{!"Proto", !11, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !19, i64 40, !19, i64 44, !19, i64 48, !46, i64 56, !47, i64 64, !48, i64 72, !49, i64 80, !5, i64 88, !50, i64 96, !51, i64 104, !23, i64 112, !11, i64 120}
-!46 = !{!"p1 _ZTS6TValue", !6, i64 0}
-!47 = !{!"p1 int", !6, i64 0}
-!48 = !{!"p2 _ZTS5Proto", !6, i64 0}
-!49 = !{!"p1 _ZTS9Upvaldesc", !6, i64 0}
-!50 = !{!"p1 _ZTS11AbsLineInfo", !6, i64 0}
-!51 = !{!"p1 _ZTS6LocVar", !6, i64 0}
-!52 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!53 = distinct !{!53, !25}
-!54 = distinct !{!54, !25}
-!55 = distinct !{!55, !25}
+!24 = !{!25, !7, i64 8}
+!25 = !{!"TValue", !7, i64 0, !7, i64 8}
+!26 = !{!27, !7, i64 10}
+!27 = !{!"Table", !11, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !19, i64 12, !28, i64 16, !29, i64 24, !30, i64 32, !11, i64 40}
+!28 = !{!"p1 _ZTS5Value", !6, i64 0}
+!29 = !{!"p1 _ZTS4Node", !6, i64 0}
+!30 = !{!"p1 _ZTS5Table", !6, i64 0}
+!31 = !{!7, !7, i64 0}
+!32 = !{!30, !30, i64 0}
+!33 = !{!27, !30, i64 32}
+!34 = !{!35, !30, i64 24}
+!35 = !{!"Udata", !11, i64 0, !7, i64 8, !7, i64 9, !12, i64 10, !20, i64 16, !30, i64 24, !11, i64 32, !7, i64 40}
+!36 = !{!37, !7, i64 11}
+!37 = !{!"TString", !11, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !19, i64 12, !7, i64 16, !5, i64 24, !6, i64 32, !6, i64 40}
+!38 = !{!37, !5, i64 24}
+!39 = !{!10, !14, i64 32}
+!40 = !{!18, !19, i64 60}
+!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!42 = !{!43, !7, i64 12}
+!43 = !{!"Proto", !11, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !19, i64 40, !19, i64 44, !19, i64 48, !44, i64 56, !45, i64 64, !46, i64 72, !47, i64 80, !5, i64 88, !48, i64 96, !49, i64 104, !23, i64 112, !11, i64 120}
+!44 = !{!"p1 _ZTS6TValue", !6, i64 0}
+!45 = !{!"p1 int", !6, i64 0}
+!46 = !{!"p2 _ZTS5Proto", !6, i64 0}
+!47 = !{!"p1 _ZTS9Upvaldesc", !6, i64 0}
+!48 = !{!"p1 _ZTS11AbsLineInfo", !6, i64 0}
+!49 = !{!"p1 _ZTS6LocVar", !6, i64 0}
+!50 = !{!"branch_weights", !"expected", i32 2000, i32 1}

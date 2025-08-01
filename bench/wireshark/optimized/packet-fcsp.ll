@@ -322,7 +322,7 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %88 = add nuw nsw i32 %85, 4
   %.3.i.i = add i32 %.343.i.i, 4
   %89 = icmp samesign ult i32 %88, %84
-  br i1 %89, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !9
+  br i1 %89, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !8
 
 90:                                               ; preds = %.lr.ph50.i.i
   %91 = icmp eq i16 %73, 0
@@ -338,13 +338,13 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.2.i.i = phi i32 [ %.03449.i.i, %..loopexit_crit_edge.i.i ], [ %.342.i.i, %82 ], [ %.13544.i.i, %74 ], [ %.135.i.i, %.lr.ph46.i.i ], [ %.3.i.i, %.lr.ph.i.i ]
   %92 = sub nsw i32 %.137.i.i, %.pre-phi.i.i
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph50.i.i, label %dissect_fcsp_dhchap_auth_param.exit.i, !llvm.loop !10
+  br i1 %93, label %.lr.ph50.i.i, label %dissect_fcsp_dhchap_auth_param.exit.i, !llvm.loop !9
 
 dissect_fcsp_dhchap_auth_param.exit.i:            ; preds = %.loopexit.i.i, %90, %58, %.lr.ph.i
   %94 = add i32 %56, %55
   %95 = add nuw i32 %.054.i, 1
   %exitcond.not.i = icmp eq i32 %95, %50
-  br i1 %exitcond.not.i, label %dissect_fcsp_auth_negotiate.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_fcsp_auth_negotiate.exit, label %.lr.ph.i, !llvm.loop !10
 
 96:                                               ; preds = %10
   %97 = load i32, ptr @hf_auth_responder_name_type, align 4
@@ -489,9 +489,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

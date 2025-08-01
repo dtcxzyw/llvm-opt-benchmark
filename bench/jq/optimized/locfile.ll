@@ -103,7 +103,7 @@ define dso_local ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr noundef r
 .lr.ph41._crit_edge:                              ; preds = %.lr.ph41, %40
   %.1 = phi i32 [ %44, %40 ], [ %.03438, %.lr.ph41 ]
   %exitcond48.not = icmp eq i64 %39, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !25
+  br i1 %exitcond48.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -173,7 +173,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @locfile_get_line(ptr no
   %7 = load i32, ptr %6, align 4, !tbaa !21
   %.not = icmp sgt i32 %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %8, label %5, !llvm.loop !26
+  br i1 %.not, label %8, label %5, !llvm.loop !25
 
 8:                                                ; preds = %5
   %9 = trunc nuw nsw i64 %indvars.iv to i32
@@ -201,7 +201,7 @@ define dso_local void @locfile_locate(ptr noundef readonly captures(none) %0, i6
   %10 = load i32, ptr %9, align 4, !tbaa !21
   %.not.i = icmp sgt i32 %10, %.sroa.025.0.extract.trunc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i, label %locfile_get_line.exit, label %8, !llvm.loop !26
+  br i1 %.not.i, label %locfile_get_line.exit, label %8, !llvm.loop !25
 
 locfile_get_line.exit:                            ; preds = %8
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -326,8 +326,7 @@ attributes #7 = { nounwind }
 !19 = !{!5, !10, i64 64}
 !20 = !{!5, !13, i64 32}
 !21 = !{!10, !10, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = distinct !{!26, !23, !24}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}

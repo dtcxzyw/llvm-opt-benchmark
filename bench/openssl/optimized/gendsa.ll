@@ -102,7 +102,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   br label %6, !llvm.loop !11
 
 .loopexit:                                        ; preds = %6, %26
-  %8 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %8 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.35, ptr noundef %5) #3
   br label %.loopexit70
 
@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   br i1 %.not58, label %36, label %39
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %37 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.37) #3
   br label %.loopexit70
 
@@ -182,7 +182,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %47 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %48 = call i32 @EVP_PKEY_get_bits(ptr noundef %40) #3
   %49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %47, ptr noundef nonnull @.str.40, i32 noundef 10000, i32 noundef %48) #3
   br label %50
@@ -195,7 +195,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %50
-  %56 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %56 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %57 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef nonnull @.str.41) #3
   br label %.loopexit70
 
@@ -206,7 +206,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %62 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %63 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %62, ptr noundef nonnull @.str.42) #3
   br label %.loopexit70
 
@@ -223,7 +223,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   br i1 %.not59, label %71, label %75
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %72 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.43) #3
   br label %.loopexit70
 
@@ -231,7 +231,7 @@ define dso_local range(i32 0, 2) i32 @gendsa_main(i32 noundef %0, ptr noundef %1
   %.046.ph = phi ptr [ null, %28 ], [ null, %32 ], [ null, %36 ], [ %65, %71 ], [ null, %64 ], [ null, %61 ], [ %40, %55 ], [ null, %.loopexit ], [ null, %20 ], [ null, %18 ]
   %.044.ph = phi ptr [ null, %28 ], [ null, %32 ], [ null, %36 ], [ %53, %71 ], [ %53, %64 ], [ %53, %61 ], [ null, %55 ], [ null, %.loopexit ], [ null, %20 ], [ null, %18 ]
   %.036.ph = phi ptr [ null, %28 ], [ null, %32 ], [ null, %36 ], [ %41, %71 ], [ %41, %64 ], [ %41, %61 ], [ %41, %55 ], [ null, %.loopexit ], [ null, %20 ], [ null, %18 ]
-  %74 = load ptr, ptr @bio_err, align 8, !tbaa !14
+  %74 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %74) #3
   br label %75
 
@@ -342,8 +342,7 @@ attributes #3 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS6bio_st", !6, i64 0}

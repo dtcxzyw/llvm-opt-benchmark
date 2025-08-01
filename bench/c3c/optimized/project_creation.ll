@@ -246,7 +246,7 @@ define internal fastcc noundef zeroext i1 @check_name(ptr noundef readonly captu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %char_is_alphanum_.exit, label %.lr.ph, !llvm.loop !10
+  br i1 %8, label %char_is_alphanum_.exit, label %.lr.ph
 
 char_is_alphanum_.exit:                           ; preds = %5, %.lr.ph, %1
   %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ true, %5 ]
@@ -381,7 +381,7 @@ define internal fastcc ptr @module_name(ptr noundef readonly captures(none) %0) 
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #9
   %17 = add nuw i64 %.02325, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %16
   %18 = trunc nuw i8 %.1 to i1
@@ -580,8 +580,6 @@ attributes #12 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}

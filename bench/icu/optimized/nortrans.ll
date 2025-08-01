@@ -815,7 +815,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
   %.142 = phi i32 [ %103, %94 ], [ %.041, %90 ], [ %.041, %68 ]
   %.2 = phi i32 [ %101, %94 ], [ %33, %90 ], [ %33, %68 ]
   %105 = icmp slt i32 %.2, %.142
-  br i1 %105, label %_ZNK6icu_7711Replaceable8char32AtEi.exit, label %.thread66, !llvm.loop !31
+  br i1 %105, label %_ZNK6icu_7711Replaceable8char32AtEi.exit, label %.thread66, !llvm.loop !30
 
 .thread66:                                        ; preds = %62, %53, %104
   %.273 = phi i32 [ %.2, %104 ], [ %33, %62 ], [ %.0, %53 ]
@@ -824,9 +824,9 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
   %106 = load i32, ptr %10, align 4, !tbaa !27
   %107 = sub i32 %.14272, %106
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %109 = load i32, ptr %108, align 4, !tbaa !32
+  %109 = load i32, ptr %108, align 4, !tbaa !31
   %110 = add nsw i32 %107, %109
-  store i32 %110, ptr %108, align 4, !tbaa !32
+  store i32 %110, ptr %108, align 4, !tbaa !31
   store i32 %.14272, ptr %10, align 4, !tbaa !27
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
@@ -918,8 +918,7 @@ attributes #7 = { nounwind }
 !25 = !{!26, !24, i64 8}
 !26 = !{!"_ZTS14UTransPosition", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12}
 !27 = !{!26, !24, i64 12}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
-!32 = !{!26, !24, i64 4}
+!30 = distinct !{!30, !29}
+!31 = !{!26, !24, i64 4}

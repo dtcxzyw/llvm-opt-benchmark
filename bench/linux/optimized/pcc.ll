@@ -295,7 +295,7 @@ define internal i32 @pcc_mbox_probe(ptr noundef %0) #0 align 16 {
   %44 = add i64 %.in, %43
   %45 = add nuw nsw i64 %48, 1
   %46 = icmp eq i64 %45, %11
-  br i1 %46, label %.loopexit27, label %47, !llvm.loop !11
+  br i1 %46, label %.loopexit27, label %47, !llvm.loop !10
 
 47:                                               ; preds = %36, %34
   %48 = phi i64 [ 0, %34 ], [ %45, %36 ]
@@ -384,7 +384,7 @@ define internal i32 @pcc_mbox_probe(ptr noundef %0) #0 align 16 {
   %97 = load i8, ptr %96, align 1
   %98 = add i8 %97, -8
   %99 = icmp ult i8 %98, 57
-  %100 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %97), !range !12
+  %100 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %97), !range !11
   %101 = icmp samesign ult i8 %100, 2
   %102 = select i1 %99, i1 %101, i1 false
   br i1 %102, label %106, label %103
@@ -435,7 +435,7 @@ define internal i32 @pcc_mbox_probe(ptr noundef %0) #0 align 16 {
   %131 = load i8, ptr %130, align 1
   %132 = add i8 %131, -8
   %133 = icmp ult i8 %132, 57
-  %134 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %131), !range !12
+  %134 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %131), !range !11
   %135 = icmp samesign ult i8 %134, 2
   %136 = select i1 %133, i1 %135, i1 false
   br i1 %136, label %140, label %137
@@ -516,7 +516,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %180 = load i8, ptr %179, align 1
   %181 = add i8 %180, -8
   %182 = icmp ult i8 %181, 57
-  %183 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %180), !range !12
+  %183 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %180), !range !11
   %184 = icmp samesign ult i8 %183, 2
   %185 = select i1 %182, i1 %184, i1 false
   br i1 %185, label %189, label %186
@@ -566,7 +566,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %213 = load i8, ptr %212, align 1
   %214 = add i8 %213, -8
   %215 = icmp ult i8 %214, 57
-  %216 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %213), !range !12
+  %216 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %213), !range !11
   %217 = icmp samesign ult i8 %216, 2
   %218 = select i1 %215, i1 %217, i1 false
   br i1 %218, label %222, label %219
@@ -612,7 +612,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %244 = load i8, ptr %243, align 1
   %245 = add i8 %244, -8
   %246 = icmp ult i8 %245, 57
-  %247 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %244), !range !12
+  %247 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %244), !range !11
   %248 = icmp samesign ult i8 %247, 2
   %249 = select i1 %246, i1 %248, i1 false
   br i1 %249, label %253, label %250
@@ -658,7 +658,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %276 = load i8, ptr %275, align 1
   %277 = add i8 %276, -8
   %278 = icmp ult i8 %277, 57
-  %279 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %276), !range !12
+  %279 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %276), !range !11
   %280 = icmp samesign ult i8 %279, 2
   %281 = select i1 %278, i1 %280, i1 false
   br i1 %281, label %285, label %282
@@ -704,7 +704,7 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
   %307 = load i8, ptr %306, align 1
   %308 = add i8 %307, -8
   %309 = icmp ult i8 %308, 57
-  %310 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %307), !range !12
+  %310 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %307), !range !11
   %311 = icmp samesign ult i8 %310, 2
   %312 = select i1 %309, i1 %311, i1 false
   br i1 %312, label %316, label %313
@@ -893,7 +893,7 @@ define internal i32 @pcc_startup(ptr noundef %0) #0 align 16 {
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @devm_request_threaded_irq(ptr noundef %14, i32 noundef %5, ptr noundef nonnull @pcc_mbox_irq, ptr noundef null, i64 noundef %12, ptr noundef nonnull @.str.17, ptr noundef %0) #10
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %21, label %17, !prof !13
+  br i1 %16, label %21, label %17, !prof !12
 
 17:                                               ; preds = %7
   %18 = load ptr, ptr %0, align 8
@@ -955,22 +955,22 @@ define internal fastcc i32 @pcc_chan_reg_read_modify_write(ptr noundef readonly 
   ]
 
 15:                                               ; preds = %9
-  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7) #10, !srcloc !14
+  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7) #10, !srcloc !13
   %17 = zext i8 %16 to i64
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #10, !srcloc !15
+  %19 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #10, !srcloc !14
   %20 = zext i16 %19 to i64
   br label %.thread
 
 21:                                               ; preds = %9
-  %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7) #10, !srcloc !16
+  %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7) #10, !srcloc !15
   %23 = zext i32 %22 to i64
   br label %.thread
 
 24:                                               ; preds = %9
-  %25 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #10, !srcloc !17
+  %25 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #10, !srcloc !16
   br label %.thread
 
 26:                                               ; preds = %6
@@ -1015,21 +1015,21 @@ define internal fastcc i32 @pcc_chan_reg_read_modify_write(ptr noundef readonly 
 
 47:                                               ; preds = %41
   %48 = trunc i64 %35 to i8
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %48, ptr nonnull elementtype(i8) %39) #10, !srcloc !18
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %48, ptr nonnull elementtype(i8) %39) #10, !srcloc !17
   br label %56
 
 49:                                               ; preds = %41
   %50 = trunc i64 %35 to i16
-  call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %50, ptr nonnull elementtype(i16) %39) #10, !srcloc !19
+  call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %50, ptr nonnull elementtype(i16) %39) #10, !srcloc !18
   br label %56
 
 51:                                               ; preds = %41
   %52 = trunc i64 %35 to i32
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr nonnull elementtype(i32) %39) #10, !srcloc !20
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr nonnull elementtype(i32) %39) #10, !srcloc !19
   br label %56
 
 53:                                               ; preds = %41
-  call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull elementtype(i64) %39) #10, !srcloc !21
+  call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull elementtype(i64) %39) #10, !srcloc !20
   br label %56
 
 54:                                               ; preds = %38
@@ -1062,7 +1062,7 @@ define internal noundef range(i32 0, 2) i32 @pcc_mbox_irq(i32 %0, ptr noundef %1
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 252
-  %12 = load i8, ptr %11, align 4, !range !22, !noundef !23
+  %12 = load i8, ptr %11, align 4, !range !21, !noundef !22
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %129, label %14
 
@@ -1095,22 +1095,22 @@ define internal noundef range(i32 0, 2) i32 @pcc_mbox_irq(i32 %0, ptr noundef %1
   ]
 
 28:                                               ; preds = %22
-  %29 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %20) #10, !srcloc !14
+  %29 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %20) #10, !srcloc !13
   %30 = zext i8 %29 to i64
   br label %.sink.split
 
 31:                                               ; preds = %22
-  %32 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %20) #10, !srcloc !15
+  %32 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %20) #10, !srcloc !14
   %33 = zext i16 %32 to i64
   br label %.sink.split
 
 34:                                               ; preds = %22
-  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20) #10, !srcloc !16
+  %35 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20) #10, !srcloc !15
   %36 = zext i32 %35 to i64
   br label %.sink.split
 
 37:                                               ; preds = %22
-  %38 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20) #10, !srcloc !17
+  %38 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20) #10, !srcloc !16
   br label %.sink.split
 
 39:                                               ; preds = %18
@@ -1170,22 +1170,22 @@ define internal noundef range(i32 0, 2) i32 @pcc_mbox_irq(i32 %0, ptr noundef %1
   ]
 
 67:                                               ; preds = %61
-  %68 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %59) #10, !srcloc !14
+  %68 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %59) #10, !srcloc !13
   %69 = zext i8 %68 to i64
   br label %81
 
 70:                                               ; preds = %61
-  %71 = call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %59) #10, !srcloc !15
+  %71 = call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %59) #10, !srcloc !14
   %72 = zext i16 %71 to i64
   br label %81
 
 73:                                               ; preds = %61
-  %74 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59) #10, !srcloc !16
+  %74 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59) #10, !srcloc !15
   %75 = zext i32 %74 to i64
   br label %81
 
 76:                                               ; preds = %61
-  %77 = call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %59) #10, !srcloc !17
+  %77 = call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %59) #10, !srcloc !16
   br label %81
 
 78:                                               ; preds = %58
@@ -1231,19 +1231,19 @@ define internal noundef range(i32 0, 2) i32 @pcc_mbox_irq(i32 %0, ptr noundef %1
   ]
 
 99:                                               ; preds = %93
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull elementtype(i8) %91) #10, !srcloc !18
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull elementtype(i8) %91) #10, !srcloc !17
   br label %129
 
 100:                                              ; preds = %93
-  call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 0, ptr nonnull elementtype(i16) %91) #10, !srcloc !19
+  call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 0, ptr nonnull elementtype(i16) %91) #10, !srcloc !18
   br label %129
 
 101:                                              ; preds = %93
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull elementtype(i32) %91) #10, !srcloc !20
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull elementtype(i32) %91) #10, !srcloc !19
   br label %129
 
 102:                                              ; preds = %93
-  call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull elementtype(i64) %91) #10, !srcloc !21
+  call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull elementtype(i64) %91) #10, !srcloc !20
   br label %129
 
 103:                                              ; preds = %90
@@ -1342,20 +1342,19 @@ attributes #12 = { nounwind allocsize(1) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -22, i32 1}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{i8 0, i8 9}
-!13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = !{i64 2154623336}
-!15 = !{i64 2154623750}
-!16 = !{i64 2154624167}
-!17 = !{i64 2154628076}
-!18 = !{i64 2154625790}
-!19 = !{i64 2154626174}
-!20 = !{i64 2154626560}
-!21 = !{i64 2154628830}
-!22 = !{i8 0, i8 2}
-!23 = !{}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i8 0, i8 9}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = !{i64 2154623336}
+!14 = !{i64 2154623750}
+!15 = !{i64 2154624167}
+!16 = !{i64 2154628076}
+!17 = !{i64 2154625790}
+!18 = !{i64 2154626174}
+!19 = !{i64 2154626560}
+!20 = !{i64 2154628830}
+!21 = !{i8 0, i8 2}
+!22 = !{}

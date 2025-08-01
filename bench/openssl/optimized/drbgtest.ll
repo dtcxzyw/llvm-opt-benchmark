@@ -306,9 +306,9 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   %.05062.i = phi i32 [ 1, %18 ], [ %24, %23 ]
   %.04664.i = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 80
   %26 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 136
-  store i32 %.05062.i, ptr %26, align 4, !tbaa !21
+  store i32 %.05062.i, ptr %26, align 4, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 96
-  store i32 %.05062.i, ptr %27, align 4, !tbaa !21
+  store i32 %.05062.i, ptr %27, align 4, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 108
   %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %28, i64 noundef 10, ptr noundef nonnull @.str.54, i32 noundef %.05062.i) #14
   %30 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 148
@@ -328,9 +328,9 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   br i1 %.not18.i.i, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = load i32, ptr %3, align 4, !tbaa !23
+  %38 = load i32, ptr %3, align 4, !tbaa !22
   %39 = call i32 @close(i32 noundef %38) #14
-  %40 = load i32, ptr %21, align 4, !tbaa !23
+  %40 = load i32, ptr %21, align 4, !tbaa !22
   br label %.sink.split.i.i
 
 41:                                               ; preds = %34
@@ -338,7 +338,7 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   br i1 %42, label %43, label %65
 
 43:                                               ; preds = %41
-  %44 = load i32, ptr %21, align 4, !tbaa !23
+  %44 = load i32, ptr %21, align 4, !tbaa !22
   %45 = call i32 @close(i32 noundef %44) #14
   %46 = call i32 @waitpid(i32 noundef %35, ptr noundef nonnull %2, i32 noundef 0) #14
   %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 353, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef %46, i32 noundef %35) #14
@@ -346,13 +346,13 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   br i1 %.not21.i.i, label %63, label %48
 
 48:                                               ; preds = %43
-  %49 = load i32, ptr %2, align 4, !tbaa !23
+  %49 = load i32, ptr %2, align 4, !tbaa !22
   %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 354, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.27, i32 noundef %49, i32 noundef 0) #14
   %.not22.i.i = icmp eq i32 %50, 0
   br i1 %.not22.i.i, label %63, label %51
 
 51:                                               ; preds = %48
-  %52 = load i32, ptr %3, align 4, !tbaa !23
+  %52 = load i32, ptr %3, align 4, !tbaa !22
   %53 = call i64 @read(i32 noundef %52, ptr noundef nonnull %4, i64 noundef 32) #14
   %54 = icmp eq i64 %53, 32
   %55 = zext i1 %54 to i32
@@ -362,25 +362,25 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 100
-  store i32 %35, ptr %58, align 4, !tbaa !24
+  store i32 %35, ptr %58, align 4, !tbaa !23
   %59 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 104
-  store i32 0, ptr %59, align 4, !tbaa !25
+  store i32 0, ptr %59, align 4, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.04664.i, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 120
   %61 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 140
-  store i32 %35, ptr %61, align 4, !tbaa !24
+  store i32 %35, ptr %61, align 4, !tbaa !23
   %62 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 144
-  store i32 1, ptr %62, align 4, !tbaa !25
+  store i32 1, ptr %62, align 4, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull align 16 dereferenceable(16) %22, i64 16, i1 false)
   br label %63
 
 63:                                               ; preds = %57, %51, %48, %43
   %.016.i.i = phi i32 [ 1, %57 ], [ 0, %51 ], [ 0, %48 ], [ 0, %43 ]
-  %64 = load i32, ptr %3, align 4, !tbaa !23
+  %64 = load i32, ptr %3, align 4, !tbaa !22
   br label %.sink.split.i.i
 
 65:                                               ; preds = %41
-  %66 = load i32, ptr %3, align 4, !tbaa !23
+  %66 = load i32, ptr %3, align 4, !tbaa !22
   %67 = call i32 @close(i32 noundef %66) #14
   %68 = call fastcc i32 @test_drbg_reseed(ptr noundef %10, ptr noundef %13, ptr noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %22, i32 noundef 1, i64 noundef 0)
   %69 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 384, ptr noundef nonnull @.str.68, i32 noundef %68) #14
@@ -388,7 +388,7 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   br i1 %.not19.i.i, label %76, label %70
 
 70:                                               ; preds = %65
-  %71 = load i32, ptr %21, align 4, !tbaa !23
+  %71 = load i32, ptr %21, align 4, !tbaa !22
   %72 = call i64 @write(i32 noundef %71, ptr noundef nonnull %4, i64 noundef 32) #14
   %73 = icmp eq i64 %72, 32
   %74 = zext i1 %73 to i32
@@ -399,7 +399,7 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
 
 76:                                               ; preds = %70, %65
   %77 = phi i32 [ 1, %65 ], [ %spec.select.i.i, %70 ]
-  %78 = load i32, ptr %21, align 4, !tbaa !23
+  %78 = load i32, ptr %21, align 4, !tbaa !22
   %79 = call i32 @close(i32 noundef %78) #14
   call void @exit(i32 noundef %77) #15
   unreachable
@@ -433,14 +433,14 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %89, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #14
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %19, ptr %90, align 4, !tbaa !24
+  store i32 %19, ptr %90, align 4, !tbaa !23
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %91, align 8, !tbaa !25
+  store i32 0, ptr %91, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  store i32 %19, ptr %92, align 4, !tbaa !24
+  store i32 %19, ptr %92, align 4, !tbaa !23
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 1, ptr %93, align 16, !tbaa !25
+  store i32 1, ptr %93, align 16, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 16 dereferenceable(16) %83, i64 16, i1 false)
   br label %94
 
@@ -452,38 +452,38 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   %96 = getelementptr inbounds nuw i8, ptr %.04766.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond75.not.i, label %97, label %94, !llvm.loop !26
+  br i1 %exitcond75.not.i, label %97, label %94, !llvm.loop !25
 
 97:                                               ; preds = %94
   call void @qsort(ptr noundef nonnull %8, i64 noundef 20, i64 noundef 40, ptr noundef nonnull @compare_drbg_fork_result) #14
-  %.pre.i = load i8, ptr %8, align 16, !tbaa !27
+  %.pre.i = load i8, ptr %8, align 16, !tbaa !26
   br label %98
 
 98:                                               ; preds = %110, %97
   %99 = phi i8 [ %.pre.i, %97 ], [ %101, %110 ]
   %indvars.iv76.i = phi i64 [ 1, %97 ], [ %indvars.iv.next77.i, %110 ]
   %100 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv76.i
-  %101 = load i8, ptr %100, align 8, !tbaa !27
+  %101 = load i8, ptr %100, align 8, !tbaa !26
   %102 = icmp eq i8 %101, %99
   br i1 %102, label %103, label %110
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %105 = load i32, ptr %104, align 8, !tbaa !25
+  %105 = load i32, ptr %104, align 8, !tbaa !24
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !23
+  %108 = load i32, ptr %107, align 4, !tbaa !22
   %109 = add nsw i32 %108, 1
-  store i32 %109, ptr %107, align 4, !tbaa !23
+  store i32 %109, ptr %107, align 4, !tbaa !22
   br label %110
 
 110:                                              ; preds = %103, %98
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 20
-  br i1 %exitcond79.not.i, label %111, label %98, !llvm.loop !28
+  br i1 %exitcond79.not.i, label %111, label %98, !llvm.loop !27
 
 111:                                              ; preds = %110
-  %112 = load i32, ptr %5, align 8, !tbaa !23
+  %112 = load i32, ptr %5, align 8, !tbaa !22
   %113 = icmp sgt i32 %112, 7
   br i1 %113, label %114, label %115
 
@@ -494,7 +494,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
 115:                                              ; preds = %114, %111
   %.048.i = phi i32 [ 0, %114 ], [ 1, %111 ]
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %117 = load i32, ptr %116, align 4, !tbaa !23
+  %117 = load i32, ptr %116, align 4, !tbaa !22
   %118 = icmp sgt i32 %117, 7
   br i1 %118, label %119, label %120
 
@@ -518,7 +518,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   %spec.select.i = add nuw nsw i32 %122, %124
   %125 = add nuw nsw i32 %.369.i, 2
   %126 = icmp samesign ult i32 %.369.i, 318
-  br i1 %126, label %121, label %127, !llvm.loop !29
+  br i1 %126, label %121, label %127, !llvm.loop !28
 
 127:                                              ; preds = %121
   %128 = icmp samesign ugt i32 %spec.select.i, 7
@@ -542,17 +542,17 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   %131 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv80.i
   %132 = call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %131, i64 noundef 16) #14
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !24
+  %134 = load i32, ptr %133, align 4, !tbaa !23
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 28
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %137 = load i32, ptr %136, align 8, !tbaa !25
+  %137 = load i32, ptr %136, align 8, !tbaa !24
   %.not57.i = icmp eq i32 %137, 0
   %138 = select i1 %.not57.i, ptr @.str.11, ptr @.str.12
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.61, ptr noundef %132, i32 noundef %134, ptr noundef nonnull %135, ptr noundef nonnull %138) #14
   call void @CRYPTO_free(ptr noundef %132, ptr noundef nonnull @.str.4, i32 noundef 512) #14
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 20
-  br i1 %exitcond83.not.i, label %test_rand_reseed_on_fork.exit, label %.preheader.i, !llvm.loop !30
+  br i1 %exitcond83.not.i, label %test_rand_reseed_on_fork.exit, label %.preheader.i, !llvm.loop !29
 
 test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in_child.exit.i, %.preheader.i, %82, %129
   %.0.i = phi i32 [ 0, %82 ], [ 1, %129 ], [ %.286.i, %.preheader.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
@@ -822,7 +822,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
   %4 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef null) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %5, label %2, !llvm.loop !31
+  br i1 %exitcond.not, label %5, label %2, !llvm.loop !30
 
 5:                                                ; preds = %2
   call fastcc void @run_multi_thread_test()
@@ -831,11 +831,11 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
 6:                                                ; preds = %5, %6
   %indvars.iv13 = phi i64 [ 0, %5 ], [ %indvars.iv.next14, %6 ]
   %7 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %indvars.iv13
-  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %8 = load i64, ptr %7, align 8, !tbaa !31
   %9 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #14
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 3
-  br i1 %exitcond16.not, label %10, label %6, !llvm.loop !33
+  br i1 %exitcond16.not, label %10, label %6, !llvm.loop !32
 
 10:                                               ; preds = %6
   %.b = load i1, ptr @multi_thread_rand_bytes_succeeded, align 4
@@ -998,7 +998,7 @@ define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %0, ptr
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !34
+  %45 = load ptr, ptr %44, align 8, !tbaa !33
   %.not15.i.i = icmp eq ptr %45, null
   br i1 %.not15.i.i, label %rand_bytes.exit, label %46
 
@@ -1033,7 +1033,7 @@ rand_bytes.exit:                                  ; preds = %43, %46, %48, %49
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !34
+  %59 = load ptr, ptr %58, align 8, !tbaa !33
   %.not15.i.i73 = icmp eq ptr %59, null
   br i1 %.not15.i.i73, label %rand_priv_bytes.exit, label %60
 
@@ -1168,7 +1168,7 @@ define internal fastcc void @inc_reseed_counter(ptr noundef %0) unnamed_addr #0 
   %9 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %9, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %.val.i, i64 208
-  store atomic i32 %8, ptr %10 seq_cst, align 4, !tbaa !36
+  store atomic i32 %8, ptr %10 seq_cst, align 4, !tbaa !35
   ret void
 }
 
@@ -1276,9 +1276,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_drbg_fork_result(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 4, !tbaa !25
+  %4 = load i32, ptr %3, align 4, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 4, !tbaa !25
+  %6 = load i32, ptr %5, align 4, !tbaa !24
   %7 = sub nsw i32 %4, %6
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread
@@ -1290,9 +1290,9 @@ define internal i32 @compare_drbg_fork_result(ptr noundef readonly captures(none
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 4, !tbaa !21
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i32, ptr %15, align 4, !tbaa !21
+  %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = sub nsw i32 %14, %16
   br label %.thread
 
@@ -1344,7 +1344,7 @@ define internal fastcc noundef ptr @new_drbg(ptr noundef %0) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   %5 = call ptr @EVP_RAND_fetch(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef null) #14
   %6 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 792, ptr noundef nonnull @.str.91, ptr noundef %5) #14
@@ -1421,13 +1421,13 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 1, ptr %4, align 4, !tbaa !23
+  store i32 1, ptr %4, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.99, ptr noundef nonnull %4) #14
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #14
   %16 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %12, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
@@ -1440,13 +1440,13 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  store i32 1, ptr %1, align 4, !tbaa !23
+  store i32 1, ptr %1, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #14
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.99, ptr noundef nonnull %1) #14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   %22 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %9, ptr noundef nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #14
@@ -1474,7 +1474,7 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !34
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
   %.not15.i.i = icmp eq ptr %33, null
   br i1 %.not15.i.i, label %rand_bytes.exit.thread, label %34
 
@@ -1512,7 +1512,7 @@ rand_bytes.exit.thread:                           ; preds = %36, %31, %rand_byte
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !34
+  %47 = load ptr, ptr %46, align 8, !tbaa !33
   %.not15.i.i7 = icmp eq ptr %47, null
   br i1 %.not15.i.i7, label %rand_priv_bytes.exit.thread, label %48
 
@@ -1541,7 +1541,7 @@ rand_priv_bytes.exit.thread:                      ; preds = %50, %45, %rand_priv
   %55 = call i64 @time(ptr noundef null) #14
   %56 = sub nsw i64 %55, %8
   %57 = icmp slt i64 %56, 5
-  br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !41
+  br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %54, %26
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #14
@@ -1605,27 +1605,26 @@ attributes #16 = { nounwind willreturn memory(read) }
 !15 = !{!"int", !8, i64 0}
 !16 = !{!"short", !8, i64 0}
 !17 = !{!"long", !8, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !15, i64 16}
-!22 = !{!"drbg_fork_result_st", !8, i64 0, !15, i64 16, !15, i64 20, !15, i64 24, !8, i64 28}
-!23 = !{!15, !15, i64 0}
-!24 = !{!22, !15, i64 20}
-!25 = !{!22, !15, i64 24}
-!26 = distinct !{!26, !19, !20}
-!27 = !{!8, !8, i64 0}
-!28 = distinct !{!28, !19, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19, !20}
-!31 = distinct !{!31, !19, !20}
-!32 = !{!17, !17, i64 0}
-!33 = distinct !{!33, !19, !20}
-!34 = !{!35, !7, i64 8}
-!35 = !{!"rand_meth_st", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40}
-!36 = !{!13, !8, i64 208}
-!37 = !{i64 0, i64 8, !38, i64 8, i64 4, !23, i64 16, i64 8, !40, i64 24, i64 8, !32, i64 32, i64 8, !32}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 omnipotent char", !7, i64 0}
-!40 = !{!7, !7, i64 0}
-!41 = distinct !{!41, !19, !20}
+!20 = !{!21, !15, i64 16}
+!21 = !{!"drbg_fork_result_st", !8, i64 0, !15, i64 16, !15, i64 20, !15, i64 24, !8, i64 28}
+!22 = !{!15, !15, i64 0}
+!23 = !{!21, !15, i64 20}
+!24 = !{!21, !15, i64 24}
+!25 = distinct !{!25, !19}
+!26 = !{!8, !8, i64 0}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = !{!17, !17, i64 0}
+!32 = distinct !{!32, !19}
+!33 = !{!34, !7, i64 8}
+!34 = !{!"rand_meth_st", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40}
+!35 = !{!13, !8, i64 208}
+!36 = !{i64 0, i64 8, !37, i64 8, i64 4, !22, i64 16, i64 8, !39, i64 24, i64 8, !31, i64 32, i64 8, !31}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 omnipotent char", !7, i64 0}
+!39 = !{!7, !7, i64 0}
+!40 = distinct !{!40, !19}

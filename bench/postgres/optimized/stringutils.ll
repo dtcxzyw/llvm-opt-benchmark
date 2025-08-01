@@ -194,7 +194,7 @@ define dso_local noundef ptr @strtokx(ptr noundef readonly captures(address_is_n
   %.4.lcssa.i = phi ptr [ %.3.i, %97 ], [ %100, %.lr.ph.i ]
   %84 = load i8, ptr %.4.lcssa.i, align 1
   %.not34.i = icmp eq i8 %84, 0
-  br i1 %.not34.i, label %strip_quotes.exit, label %.lr.ph49.i, !llvm.loop !7
+  br i1 %.not34.i, label %strip_quotes.exit, label %.lr.ph49.i
 
 .lr.ph49.i:                                       ; preds = %80, %.loopexit.i
   %85 = phi i8 [ %84, %.loopexit.i ], [ %83, %80 ]
@@ -240,7 +240,7 @@ define dso_local noundef ptr @strtokx(ptr noundef readonly captures(address_is_n
   %102 = getelementptr inbounds nuw i8, ptr %.33042.i, i64 1
   store i8 %101, ptr %.33042.i, align 1
   %.not36.i = icmp eq i32 %99, 0
-  br i1 %.not36.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not36.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 strip_quotes.exit:                                ; preds = %.loopexit.i, %87, %80
   %.027.lcssa.i = phi ptr [ %20, %80 ], [ %.330.lcssa.i, %.loopexit.i ], [ %.02747.i, %87 ]
@@ -345,7 +345,7 @@ define dso_local void @strip_quotes(ptr noundef %0, i8 noundef signext %1, i8 no
   %.4.lcssa = phi ptr [ %.3, %21 ], [ %24, %.lr.ph ]
   %8 = load i8, ptr %.4.lcssa, align 1
   %.not34 = icmp eq i8 %8, 0
-  br i1 %.not34, label %.thread, label %.lr.ph49, !llvm.loop !7
+  br i1 %.not34, label %.thread, label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %4, %.loopexit
   %9 = phi i8 [ %8, %.loopexit ], [ %7, %4 ]
@@ -391,7 +391,7 @@ define dso_local void @strip_quotes(ptr noundef %0, i8 noundef signext %1, i8 no
   %26 = getelementptr inbounds nuw i8, ptr %.33042, i64 1
   store i8 %25, ptr %.33042, align 1
   %.not36 = icmp eq i32 %23, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .thread:                                          ; preds = %.loopexit, %11, %4
   %.027.lcssa = phi ptr [ %0, %4 ], [ %.02747, %11 ], [ %.330.lcssa, %.loopexit ]
@@ -419,7 +419,7 @@ define dso_local noundef ptr @quote_if_needed(ptr noundef %0, ptr noundef readon
   %.1.lcssa = phi ptr [ %.02745, %25 ], [ %28, %.lr.ph ]
   %13 = load i8, ptr %.1.lcssa, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !7
 
 .lr.ph46:                                         ; preds = %6, %.loopexit
   %14 = phi i8 [ %13, %.loopexit ], [ %12, %6 ]
@@ -467,7 +467,7 @@ define dso_local noundef ptr @quote_if_needed(ptr noundef %0, ptr noundef readon
   %30 = getelementptr inbounds nuw i8, ptr %.238, i64 1
   store i8 %29, ptr %.238, align 1
   %.not36 = icmp eq i32 %27, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   %.030.lcssa = phi ptr [ %11, %6 ], [ %.2.lcssa, %.loopexit ]
@@ -505,10 +505,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

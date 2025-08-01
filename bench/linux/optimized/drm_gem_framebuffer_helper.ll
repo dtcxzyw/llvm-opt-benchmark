@@ -280,7 +280,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 48:                                               ; preds = %34, %30, %26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !21
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
@@ -392,7 +392,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %115 = load i8, ptr %49, align 1
   %116 = zext i8 %115 to i64
   %117 = icmp samesign ult i64 %114, %116
-  br i1 %117, label %62, label %118, !llvm.loop !23
+  br i1 %117, label %62, label %118, !llvm.loop !22
 
 118:                                              ; preds = %113
   %119 = trunc nuw nsw i64 %114 to i32
@@ -461,7 +461,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 
 .thread20:                                        ; preds = %148, %150, %151, %139
   %152 = icmp eq i64 %141, 0
-  br i1 %152, label %.loopexit, label %139, !llvm.loop !24
+  br i1 %152, label %.loopexit, label %139, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.thread20, %.thread15, %123, %45, %14
   %153 = phi i32 [ -22, %45 ], [ -22, %14 ], [ 0, %123 ], [ %135, %.thread15 ], [ %135, %.thread20 ]
@@ -585,7 +585,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = icmp samesign ult i64 %18, %22
-  br i1 %23, label %.preheader, label %.loopexit8, !llvm.loop !25
+  br i1 %23, label %.preheader, label %.loopexit8, !llvm.loop !24
 
 .loopexit8:                                       ; preds = %17
   %24 = icmp eq i8 %21, 0
@@ -621,7 +621,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
   %45 = icmp samesign ult i64 %40, %44
-  br i1 %45, label %28, label %.loopexit, !llvm.loop !26
+  br i1 %45, label %28, label %.loopexit, !llvm.loop !25
 
 46:                                               ; preds = %13, %.preheader
   %47 = phi i32 [ %15, %13 ], [ -22, %.preheader ]
@@ -645,7 +645,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
 .split1:                                          ; preds = %52, %.split
   %55 = and i64 %49, 4294967295
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.loopexit, label %.split, !llvm.loop !27
+  br i1 %56, label %.loopexit, label %.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %39, %.split1, %.loopexit8, %3, %46
   %57 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %.split1 ], [ 0, %39 ]
@@ -696,7 +696,7 @@ define dso_local void @drm_gem_fb_vunmap(ptr noundef readonly captures(none) %0,
 .split1:                                          ; preds = %18, %13, %9
   %19 = and i64 %10, 4294967295
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.loopexit, label %9, !llvm.loop !28
+  br i1 %20, label %.loopexit, label %9, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.split1, %2
   ret void
@@ -736,7 +736,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr noundef readonly captures(
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = icmp samesign ult i32 %20, %24
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !28
 
 26:                                               ; preds = %15, %.preheader
   %27 = phi i32 [ %17, %15 ], [ -22, %.preheader ]
@@ -779,7 +779,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr noundef readonly captures(
 
 .split1:                                          ; preds = %46, %36, %32, %.split
   %48 = icmp eq i32 %29, 0
-  br i1 %48, label %.loopexit, label %.split, !llvm.loop !30
+  br i1 %48, label %.loopexit, label %.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %19, %.split1, %26, %2
   %49 = phi i32 [ %27, %26 ], [ 0, %2 ], [ %27, %.split1 ], [ 0, %19 ]
@@ -838,7 +838,7 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr noundef readonly captures(n
 
 .split1:                                          ; preds = %27, %17, %13, %9
   %29 = icmp eq i32 %10, 0
-  br i1 %29, label %.loopexit, label %9, !llvm.loop !31
+  br i1 %29, label %.loopexit, label %9, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.split1, %2
   ret void
@@ -1034,17 +1034,15 @@ attributes #9 = { nounwind allocsize(2) }
 !15 = !{i64 2156072446, i64 2156072257, i64 2156072307, i64 2156072353, i64 2156072381}
 !16 = !{i64 2148896920, i64 2148896959, i64 2148896980, i64 2148897017, i64 2148897040, i64 2148897049}
 !17 = !{i64 2150263980}
-!18 = distinct !{!18, !19, !20, !21}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = !{!"llvm.loop.unroll.disable"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!"auto-init"}
-!23 = distinct !{!23, !19, !20, !21}
-!24 = distinct !{!24, !19, !20, !21}
-!25 = distinct !{!25, !19, !20, !21}
-!26 = distinct !{!26, !19, !20, !21}
-!27 = distinct !{!27, !19, !20, !21}
-!28 = distinct !{!28, !19, !20, !21}
-!29 = distinct !{!29, !19, !20, !21}
-!30 = distinct !{!30, !19, !20, !21}
-!31 = distinct !{!31, !19, !20, !21}
+!21 = !{!"auto-init"}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}

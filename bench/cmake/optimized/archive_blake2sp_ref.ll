@@ -70,7 +70,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
   store i8 2, ptr %22, align 1, !tbaa !15
   %32 = trunc nuw nsw i64 %.019 to i8
   store i32 0, ptr %23, align 4
-  store i8 %32, ptr %24, align 8, !tbaa !21
+  store i8 %32, ptr %24, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, i8 0, i64 6, i1 false)
   store i8 32, ptr %26, align 1, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, i8 0, i64 16, i1 false)
@@ -78,16 +78,16 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
   %34 = load i8, ptr %26, align 1, !tbaa !17
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 120
-  store i64 %35, ptr %36, align 8, !tbaa !22
+  store i64 %35, ptr %36, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
   %37 = icmp slt i32 %33, 0
   br i1 %37, label %.loopexit, label %28
 
 38:                                               ; preds = %28
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i8 1, ptr %39, align 8, !tbaa !24
+  store i8 1, ptr %39, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  store i8 1, ptr %40, align 8, !tbaa !24
+  store i8 1, ptr %40, align 8, !tbaa !23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %6, %2, %38
@@ -163,7 +163,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
 36:                                               ; preds = %38
   %37 = add nuw nsw i64 %.037, 1
   %exitcond.not = icmp eq i64 %37, 8
-  br i1 %exitcond.not, label %46, label %38, !llvm.loop !25
+  br i1 %exitcond.not, label %46, label %38, !llvm.loop !24
 
 38:                                               ; preds = %.preheader, %36
   %.037 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
@@ -175,7 +175,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   store i8 2, ptr %30, align 1, !tbaa !15
   %40 = trunc nuw nsw i64 %.037 to i8
   store i32 0, ptr %31, align 4
-  store i8 %40, ptr %32, align 8, !tbaa !21
+  store i8 %40, ptr %32, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %33, i8 0, i64 6, i1 false)
   store i8 32, ptr %34, align 1, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %35, i8 0, i64 16, i1 false)
@@ -183,16 +183,16 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   %42 = load i8, ptr %34, align 1, !tbaa !17
   %43 = zext i8 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 120
-  store i64 %43, ptr %44, align 8, !tbaa !22
+  store i64 %43, ptr %44, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
   %45 = icmp slt i32 %41, 0
   br i1 %45, label %.loopexit, label %36
 
 46:                                               ; preds = %36
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  store i8 1, ptr %47, align 8, !tbaa !24
+  store i8 1, ptr %47, align 8, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  store i8 1, ptr %48, align 8, !tbaa !24
+  store i8 1, ptr %48, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
@@ -204,10 +204,10 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   %51 = call i32 @blake2s_update(ptr noundef %50, ptr noundef nonnull %7, i64 noundef 64) #7
   %52 = add nuw nsw i64 %.138, 1
   %exitcond39.not = icmp eq i64 %52, 8
-  br i1 %exitcond39.not, label %53, label %49, !llvm.loop !26
+  br i1 %exitcond39.not, label %53, label %49, !llvm.loop !25
 
 53:                                               ; preds = %49
-  %54 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !27
+  %54 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !26
   %55 = call ptr %54(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 64) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
   br label %.loopexit
@@ -225,7 +225,7 @@ declare i32 @blake2s_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  %5 = load i64, ptr %4, align 8, !tbaa !29
+  %5 = load i64, ptr %4, align 8, !tbaa !28
   %6 = sub i64 512, %5
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %20, label %7
@@ -248,7 +248,7 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   %15 = tail call i32 @blake2s_update(ptr noundef %12, ptr noundef nonnull %14, i64 noundef 64) #7
   %16 = add nuw nsw i64 %.04456, 1
   %exitcond.not = icmp eq i64 %16, 8
-  br i1 %exitcond.not, label %17, label %11, !llvm.loop !30
+  br i1 %exitcond.not, label %17, label %11, !llvm.loop !29
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %6
@@ -276,12 +276,12 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   %27 = getelementptr inbounds nuw i8, ptr %.058.us, i64 512
   %28 = add i64 %.04357.us, -512
   %29 = icmp ugt i64 %28, 511
-  br i1 %29, label %25, label %._crit_edge.us, !llvm.loop !31
+  br i1 %29, label %25, label %._crit_edge.us, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %25
   %30 = add nuw nsw i64 %.159.us, 1
   %exitcond63.not = icmp eq i64 %30, 8
-  br i1 %exitcond63.not, label %.split61.us, label %.lr.ph.us, !llvm.loop !32
+  br i1 %exitcond63.not, label %.split61.us, label %.lr.ph.us, !llvm.loop !31
 
 .split61.us:                                      ; preds = %._crit_edge.us, %20
   %31 = and i64 %.045, 511
@@ -298,7 +298,7 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
 
 37:                                               ; preds = %32, %.split61.us
   %38 = add i64 %31, %.046
-  store i64 %38, ptr %4, align 8, !tbaa !29
+  store i64 %38, ptr %4, align 8, !tbaa !28
   ret i32 0
 }
 
@@ -326,7 +326,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
 
 13:                                               ; preds = %.preheader29, %22
   %.02530 = phi i64 [ 0, %.preheader29 ], [ %26, %22 ]
-  %14 = load i64, ptr %10, align 8, !tbaa !29
+  %14 = load i64, ptr %10, align 8, !tbaa !28
   %15 = shl nuw nsw i64 %.02530, 6
   %16 = icmp ugt i64 %14, %15
   br i1 %16, label %17, label %22
@@ -345,7 +345,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
   %25 = call i32 @blake2s_final(ptr noundef %23, ptr noundef nonnull %24, i64 noundef 32) #7
   %26 = add nuw nsw i64 %.02530, 1
   %exitcond.not = icmp eq i64 %26, 8
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !34
+  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !33
 
 27:                                               ; preds = %.preheader, %27
   %.131 = phi i64 [ 0, %.preheader ], [ %30, %27 ]
@@ -353,7 +353,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
   %29 = call i32 @blake2s_update(ptr noundef nonnull %12, ptr noundef nonnull %28, i64 noundef 32) #7
   %30 = add nuw nsw i64 %.131, 1
   %exitcond32.not = icmp eq i64 %30, 8
-  br i1 %exitcond32.not, label %31, label %27, !llvm.loop !35
+  br i1 %exitcond32.not, label %31, label %27, !llvm.loop !34
 
 31:                                               ; preds = %27
   %32 = load i64, ptr %7, align 8, !tbaa !4
@@ -413,7 +413,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 31:                                               ; preds = %33
   %32 = add nuw nsw i64 %.05464, 1
   %exitcond.not = icmp eq i64 %32, 8
-  br i1 %exitcond.not, label %41, label %33, !llvm.loop !36
+  br i1 %exitcond.not, label %41, label %33, !llvm.loop !35
 
 33:                                               ; preds = %.preheader, %31
   %.05464 = phi i64 [ 0, %.preheader ], [ %32, %31 ]
@@ -425,7 +425,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   store i8 2, ptr %25, align 1, !tbaa !15
   %35 = trunc nuw nsw i64 %.05464 to i8
   store i32 0, ptr %26, align 4
-  store i8 %35, ptr %27, align 8, !tbaa !21
+  store i8 %35, ptr %27, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %28, i8 0, i64 6, i1 false)
   store i8 32, ptr %29, align 1, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %30, i8 0, i64 16, i1 false)
@@ -433,14 +433,14 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %37 = load i8, ptr %29, align 1, !tbaa !17
   %38 = zext i8 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  store i64 %38, ptr %39, align 8, !tbaa !22
+  store i64 %38, ptr %39, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
   %40 = icmp slt i32 %36, 0
   br i1 %40, label %.loopexit, label %31
 
 41:                                               ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 1080
-  store i8 1, ptr %42, align 8, !tbaa !24
+  store i8 1, ptr %42, align 8, !tbaa !23
   br i1 %18, label %43, label %55
 
 43:                                               ; preds = %41
@@ -459,10 +459,10 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %50 = call i32 @blake2s_update(ptr noundef nonnull %49, ptr noundef nonnull %12, i64 noundef 64) #7
   %51 = add nuw nsw i64 %.165, 1
   %exitcond75.not = icmp eq i64 %51, 8
-  br i1 %exitcond75.not, label %52, label %48, !llvm.loop !37
+  br i1 %exitcond75.not, label %52, label %48, !llvm.loop !36
 
 52:                                               ; preds = %48
-  %53 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !27
+  %53 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !26
   %54 = call ptr %53(ptr noundef nonnull %12, i32 noundef 0, i64 noundef 64) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #7
   br label %55
@@ -489,7 +489,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %66 = call i32 @blake2s_final(ptr noundef nonnull %59, ptr noundef nonnull %65, i64 noundef 32) #7
   %67 = add nuw nsw i64 %.269.us, 1
   %exitcond77.not = icmp eq i64 %67, 8
-  br i1 %exitcond77.not, label %.split71.us, label %.lr.ph.us, !llvm.loop !38
+  br i1 %exitcond77.not, label %.split71.us, label %.lr.ph.us, !llvm.loop !37
 
 68:                                               ; preds = %.lr.ph.us, %68
   %.05567.us = phi ptr [ %58, %.lr.ph.us ], [ %70, %68 ]
@@ -498,7 +498,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %70 = getelementptr inbounds nuw i8, ptr %.05567.us, i64 512
   %71 = add i64 %.05666.us, -512
   %72 = icmp ugt i64 %71, 511
-  br i1 %72, label %68, label %._crit_edge.us, !llvm.loop !39
+  br i1 %72, label %68, label %._crit_edge.us, !llvm.loop !38
 
 ._crit_edge.us:                                   ; preds = %68
   %73 = icmp ugt i64 %71, %57
@@ -524,7 +524,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %85 = call i32 @blake2s_final(ptr noundef nonnull %83, ptr noundef nonnull %84, i64 noundef 32) #7
   %86 = add nuw nsw i64 %.269, 1
   %exitcond76.not = icmp eq i64 %86, 8
-  br i1 %exitcond76.not, label %.split71.us, label %.split, !llvm.loop !40
+  br i1 %exitcond76.not, label %.split71.us, label %.split, !llvm.loop !39
 
 .split71.us:                                      ; preds = %82, %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
@@ -550,7 +550,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 96:                                               ; preds = %.split71.us
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  store i8 1, ptr %97, align 16, !tbaa !24
+  store i8 1, ptr %97, align 16, !tbaa !23
   br label %98
 
 98:                                               ; preds = %96, %98
@@ -559,7 +559,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %100 = call i32 @blake2s_update(ptr noundef nonnull %11, ptr noundef nonnull %99, i64 noundef 32) #7
   %101 = add nuw nsw i64 %.372, 1
   %exitcond78.not = icmp eq i64 %101, 8
-  br i1 %exitcond78.not, label %102, label %98, !llvm.loop !41
+  br i1 %exitcond78.not, label %102, label %98, !llvm.loop !40
 
 102:                                              ; preds = %98
   %103 = call i32 @blake2s_final(ptr noundef nonnull %11, ptr noundef nonnull %0, i64 noundef %1) #7
@@ -610,27 +610,26 @@ attributes #7 = { nounwind }
 !15 = !{!10, !6, i64 3}
 !16 = !{!10, !6, i64 14}
 !17 = !{!10, !6, i64 15}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!6, !6, i64 0}
-!22 = !{!23, !8, i64 120}
-!23 = !{!"blake2s_state__", !6, i64 0, !6, i64 32, !6, i64 40, !6, i64 48, !8, i64 112, !8, i64 120, !6, i64 128}
-!24 = !{!23, !6, i64 128}
-!25 = distinct !{!25, !19, !20}
-!26 = distinct !{!26, !19, !20}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"any pointer", !6, i64 0}
-!29 = !{!5, !8, i64 1736}
-!30 = distinct !{!30, !19, !20}
-!31 = distinct !{!31, !19, !20}
-!32 = distinct !{!32, !19, !20, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !19, !20}
-!35 = distinct !{!35, !19, !20}
-!36 = distinct !{!36, !19, !20}
-!37 = distinct !{!37, !19, !20}
-!38 = distinct !{!38, !19, !20, !33}
-!39 = distinct !{!39, !19, !20}
-!40 = distinct !{!40, !19, !20}
-!41 = distinct !{!41, !19, !20}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !8, i64 120}
+!22 = !{!"blake2s_state__", !6, i64 0, !6, i64 32, !6, i64 40, !6, i64 48, !8, i64 112, !8, i64 120, !6, i64 128}
+!23 = !{!22, !6, i64 128}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"any pointer", !6, i64 0}
+!28 = !{!5, !8, i64 1736}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}
+!37 = distinct !{!37, !19, !32}
+!38 = distinct !{!38, !19}
+!39 = distinct !{!39, !19}
+!40 = distinct !{!40, !19}

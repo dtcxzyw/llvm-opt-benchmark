@@ -471,7 +471,7 @@ if.end63:                                         ; preds = %invoke.cont59, %if.
 if.then65:                                        ; preds = %if.end63
   %sequence_.i = getelementptr inbounds nuw i8, ptr %uniformRsg, i64 5008
   %weight.i = getelementptr inbounds nuw i8, ptr %uniformRsg, i64 5032
-  store double 1.000000e+00, ptr %weight.i, align 8, !tbaa !45
+  store double 1.000000e+00, ptr %weight.i, align 8, !tbaa !44
   %36 = load i64, ptr %uniformRsg, align 8, !tbaa !34
   %cmp3.not.i = icmp eq i64 %36, 0
   br i1 %cmp3.not.i, label %invoke.cont67, label %for.body.lr.ph.i81
@@ -523,7 +523,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %.noexc90, %fo
   store double %div.i.i.i, ptr %add.ptr.i.i86, align 8, !tbaa !20
   %inc.i87 = add nuw i64 %i.04.i, 1
   %cmp.i88 = icmp ult i64 %inc.i87, %39
-  br i1 %cmp.i88, label %for.body.i84, label %invoke.cont67, !llvm.loop !46
+  br i1 %cmp.i88, label %for.body.i84, label %invoke.cont67, !llvm.loop !45
 
 invoke.cont67:                                    ; preds = %_ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i, %if.then65
   %call71 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %randomShift_, ptr noundef nonnull align 8 dereferenceable(24) %sequence_.i)
@@ -653,7 +653,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !47
+  store ptr %0, ptr %this, align 8, !tbaa !46
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -710,9 +710,9 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !47
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !50
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !49
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -723,7 +723,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !48
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !47
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -736,7 +736,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !48
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !47
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -1042,7 +1042,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = tail call double @llvm.fmuladd.f64(double %conv5, double %div, double %h.019)
   %div6 = udiv i64 %k.021, %call
   %cmp4.not = icmp ugt i64 %call, %k.021
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !52
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !51
 
 while.end:                                        ; preds = %while.body, %for.body
   %h.0.lcssa = phi double [ 0.000000e+00, %for.body ], [ %5, %while.body ]
@@ -1059,7 +1059,7 @@ while.end:                                        ; preds = %while.body, %for.bo
   %inc18 = add nuw i64 %i.023, 1
   %9 = load i64, ptr %this, align 8, !tbaa !3
   %cmp = icmp ult i64 %inc18, %9
-  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !53
+  br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !52
 }
 
 declare noundef i64 @_ZN8QuantLib12PrimeNumbers3getEm(i64 noundef) local_unnamed_addr #4
@@ -1175,15 +1175,14 @@ attributes #21 = { builtin nounwind }
 !39 = distinct !{!39, !"_ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE17nextInt32SequenceEv"}
 !40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !41 = !{!36, !5, i64 4992}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!35, !14, i64 5032}
-!46 = distinct !{!46, !43, !44}
-!47 = !{!31, !13, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"vtable pointer", !7, i64 0}
-!50 = !{!51, !13, i64 0}
-!51 = !{!"_ZTSN5boost6detail12shared_countE", !13, i64 0}
-!52 = distinct !{!52, !43, !44}
-!53 = distinct !{!53, !43, !44}
+!44 = !{!35, !14, i64 5032}
+!45 = distinct !{!45, !43}
+!46 = !{!31, !13, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"vtable pointer", !7, i64 0}
+!49 = !{!50, !13, i64 0}
+!50 = !{!"_ZTSN5boost6detail12shared_countE", !13, i64 0}
+!51 = distinct !{!51, !43}
+!52 = distinct !{!52, !43}

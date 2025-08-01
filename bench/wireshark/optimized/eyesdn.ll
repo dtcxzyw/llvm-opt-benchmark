@@ -75,7 +75,7 @@ define internal noundef zeroext i1 @eyesdn_read(ptr noundef readonly captures(no
   switch i32 %8, label %6 [
     i32 -1, label %eyesdn_seek_next_packet.exit.thread
     i32 255, label %9
-  ], !llvm.loop !6
+  ]
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
@@ -193,7 +193,7 @@ define internal fastcc noundef zeroext i1 @read_eyesdn_rec(ptr noundef %0, ptr n
   store i8 %24, ptr %25, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %esc_read.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %esc_read.exit, label %.lr.ph.i, !llvm.loop !6
 
 esc_read.exit:                                    ; preds = %23
   %26 = load i8, ptr %5, align 1
@@ -341,7 +341,7 @@ esc_read.exit:                                    ; preds = %23
   store i8 %101, ptr %102, align 1
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 53
-  br i1 %exitcond.not.i105, label %esc_read.exit108, label %.lr.ph.i101, !llvm.loop !8
+  br i1 %exitcond.not.i105, label %esc_read.exit108, label %.lr.ph.i101, !llvm.loop !6
 
 esc_read.exit108:                                 ; preds = %100
   %103 = tail call i64 @file_seek(ptr noundef %0, i64 noundef %85, i32 noundef 0, ptr noundef %2)
@@ -495,7 +495,7 @@ esc_read.exit108:                                 ; preds = %100
   store i8 %172, ptr %173, align 1
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %153
-  br i1 %exitcond.not.i113, label %esc_read.exit116, label %.lr.ph.i109, !llvm.loop !8
+  br i1 %exitcond.not.i113, label %esc_read.exit116, label %.lr.ph.i109, !llvm.loop !6
 
 .critedge:                                        ; preds = %87, %90, %95, %esc_read.exit108, %82
   call void @llvm.lifetime.end.p0(i64 53, ptr nonnull %6) #5
@@ -598,7 +598,7 @@ define internal noundef zeroext i1 @eyesdn_dump(ptr noundef %0, ptr noundef read
   %20 = load i32, ptr %19, align 8
   %21 = sdiv i32 %20, 1000
   %22 = load i64, ptr %18, align 8
-  %23 = load i8, ptr %9, align 8, !range !10, !noundef !11
+  %23 = load i8, ptr %9, align 8, !range !8, !noundef !9
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %25 = load i8, ptr %24, align 1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -691,7 +691,7 @@ define internal noundef zeroext i1 @eyesdn_dump(ptr noundef %0, ptr noundef read
 66:                                               ; preds = %74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %76, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %76, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %66, %65
   %indvars.iv.i = phi i64 [ 0, %65 ], [ %indvars.iv.next.i, %66 ]
@@ -732,7 +732,7 @@ esc_write.exit.thread:                            ; preds = %74, %69
 78:                                               ; preds = %86
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %esc_write.exit41, label %.lr.ph.i35, !llvm.loop !12
+  br i1 %exitcond.not.i40, label %esc_write.exit41, label %.lr.ph.i35, !llvm.loop !10
 
 .lr.ph.i35:                                       ; preds = %78, %.lr.ph.preheader.i
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i39, %78 ]
@@ -789,9 +789,7 @@ attributes #5 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

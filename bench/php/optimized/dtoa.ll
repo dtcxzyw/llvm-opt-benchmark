@@ -64,7 +64,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
   %31 = add nsw i32 %.sroa.5.05.i.i.i, -1
   %32 = and i64 %.sroa.0.06.i.i.i, 4503599627370496
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.lr.ph.i.i.i, label %lexbor_diyfp_normalize_boundaries.exit.i, !llvm.loop !7
+  br i1 %33, label %.lr.ph.i.i.i, label %lexbor_diyfp_normalize_boundaries.exit.i
 
 lexbor_diyfp_normalize_boundaries.exit.i:         ; preds = %.lr.ph.i.i.i, %20
   %.sroa.5.0.lcssa.i.i.i = phi i32 [ %29, %20 ], [ %31, %.lr.ph.i.i.i ]
@@ -91,7 +91,7 @@ lexbor_diyfp_normalize_boundaries.exit.i:         ; preds = %.lr.ph.i.i.i, %20
   %46 = add i64 %.010.i.i.i, 1
   %47 = shl nuw i64 %.069.i.i.i, 1
   %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %.preheader.i.i.i, label %lexbor_diyfp_normalize.exit.loopexit.i, !llvm.loop !9
+  br i1 %48, label %.preheader.i.i.i, label %lexbor_diyfp_normalize.exit.loopexit.i
 
 lexbor_diyfp_normalize.exit.loopexit.i:           ; preds = %.preheader.i.i.i
   %49 = and i64 %46, 4294967295
@@ -300,18 +300,18 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %174 = shl i64 %173, %111
   %175 = add i64 %174, %116
   %.not118.i.i = icmp ugt i64 %175, %106
-  br i1 %.not118.i.i, label %lexbor_dec_count.exit.i.i, label %176, !llvm.loop !10
+  br i1 %.not118.i.i, label %lexbor_dec_count.exit.i.i, label %176
 
 176:                                              ; preds = %171
-  %177 = load i32, ptr %6, align 4, !tbaa !11
+  %177 = load i32, ptr %6, align 4, !tbaa !7
   %178 = add nsw i32 %177, %172
-  store i32 %178, ptr %6, align 4, !tbaa !11
+  store i32 %178, ptr %6, align 4, !tbaa !7
   %179 = ptrtoint ptr %.199.i.i to i64
   %180 = ptrtoint ptr %.021 to i64
   %181 = sub i64 %179, %180
   %182 = zext nneg i32 %172 to i64
   %183 = getelementptr inbounds nuw [10 x i64], ptr @lexbor_grisu2_gen.pow10, i64 0, i64 %182
-  %184 = load i64, ptr %183, align 8, !tbaa !13
+  %184 = load i64, ptr %183, align 8, !tbaa !9
   %185 = shl i64 %184, %111
   %186 = icmp uge i64 %175, %110
   %187 = sub nuw i64 %106, %175
@@ -344,7 +344,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %200 = sub i64 %106, %191
   %.not.i.i.i = icmp ult i64 %200, %185
   %or.cond.i.i.i = or i1 %199, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %lexbor_grisu2.exit, label %190, !llvm.loop !15
+  br i1 %or.cond.i.i.i, label %lexbor_grisu2.exit, label %190
 
 .preheader.i.i:                                   ; preds = %lexbor_dec_count.exit.i.i, %214
   %.0103.i.i = phi i64 [ %215, %214 ], [ %116, %lexbor_dec_count.exit.i.i ]
@@ -379,12 +379,12 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %215 = and i64 %201, %115
   %216 = add nsw i32 %.1.i.i, -1
   %217 = icmp ult i64 %215, %202
-  br i1 %217, label %218, label %.preheader.i.i, !llvm.loop !16
+  br i1 %217, label %218, label %.preheader.i.i
 
 218:                                              ; preds = %214
-  %219 = load i32, ptr %6, align 4, !tbaa !11
+  %219 = load i32, ptr %6, align 4, !tbaa !7
   %220 = add nsw i32 %219, %216
-  store i32 %220, ptr %6, align 4, !tbaa !11
+  store i32 %220, ptr %6, align 4, !tbaa !7
   %221 = icmp sgt i32 %.1.i.i, -9
   br i1 %221, label %222, label %227
 
@@ -392,7 +392,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %223 = sub nsw i32 1, %.1.i.i
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw [10 x i64], ptr @lexbor_grisu2_gen.pow10, i64 0, i64 %224
-  %226 = load i64, ptr %225, align 8, !tbaa !13
+  %226 = load i64, ptr %225, align 8, !tbaa !9
   br label %227
 
 227:                                              ; preds = %222, %218
@@ -432,14 +432,14 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %247 = sub i64 %202, %238
   %.not.i125.i.i = icmp ult i64 %247, %112
   %or.cond.i126.i.i = or i1 %246, %.not.i125.i.i
-  br i1 %or.cond.i126.i.i, label %lexbor_grisu2.exit, label %237, !llvm.loop !15
+  br i1 %or.cond.i126.i.i, label %lexbor_grisu2.exit, label %237
 
 default.unreachable.i.i:                          ; preds = %lexbor_dec_count.exit.i.i
   unreachable
 
 lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.i.i, %240, %.critedge2.i124.i.i, %167, %176, %210, %227
   %.0.i.i = phi i64 [ %170, %167 ], [ %213, %210 ], [ %181, %176 ], [ %231, %227 ], [ %231, %.critedge2.i124.i.i ], [ %231, %240 ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
-  %248 = load i32, ptr %6, align 4, !tbaa !11
+  %248 = load i32, ptr %6, align 4, !tbaa !7
   %249 = trunc i64 %.0.i.i to i32
   %250 = add nsw i32 %248, %249
   %251 = icmp sgt i32 %248, -1
@@ -576,7 +576,7 @@ lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.
   store i8 %311, ptr %312, align 1, !tbaa !4
   %313 = udiv i32 %.0.i.i25, 10
   %.not22.i.i = icmp samesign ult i32 %.0.i.i25, 10
-  br i1 %.not22.i.i, label %314, label %308, !llvm.loop !17
+  br i1 %.not22.i.i, label %314, label %308
 
 314:                                              ; preds = %308
   %.020.i.i = getelementptr inbounds nuw i8, ptr %.021, i64 3
@@ -639,7 +639,7 @@ lexbor_write_exponent.exit.i:                     ; preds = %314, %302
   store i8 %339, ptr %340, align 1, !tbaa !4
   %341 = udiv i32 %.0.i123.i, 10
   %.not22.i124.i = icmp samesign ult i32 %.0.i123.i, 10
-  br i1 %.not22.i124.i, label %342, label %336, !llvm.loop !17
+  br i1 %.not22.i124.i, label %342, label %336
 
 342:                                              ; preds = %336
   %.020.i125.i = getelementptr inbounds nuw i8, ptr %331, i64 1
@@ -706,14 +706,7 @@ attributes #6 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !5, i64 0}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !5, i64 0}

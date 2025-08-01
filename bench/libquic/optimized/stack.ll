@@ -387,7 +387,7 @@ sk_delete.exit:                                   ; preds = %11, %13
 19:                                               ; preds = %7
   %20 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %20, %4
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %19, %.preheader, %2, %sk_delete.exit
   %.09 = phi ptr [ %9, %sk_delete.exit ], [ null, %2 ], [ null, %.preheader ], [ null, %19 ]
@@ -431,7 +431,7 @@ define hidden range(i32 0, 2) i32 @sk_find(ptr noundef captures(address_is_null)
 18:                                               ; preds = %13
   %19 = add nuw i64 %.02642, 1
   %exitcond.not = icmp eq i64 %19, %10
-  br i1 %exitcond.not, label %bsearch.exit.thread, label %13, !llvm.loop !21
+  br i1 %exitcond.not, label %bsearch.exit.thread, label %13, !llvm.loop !20
 
 20:                                               ; preds = %6
   %21 = icmp eq ptr %2, null
@@ -483,7 +483,7 @@ sk_sort.exit:                                     ; preds = %22, %25
   %.118.i = phi i64 [ %.01720.i, %40 ], [ %34, %.lr.ph.i ]
   %.1.i = phi i64 [ %41, %40 ], [ %.01621.i, %.lr.ph.i ]
   %43 = icmp ult i64 %.1.i, %.118.i
-  br i1 %43, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !22
+  br i1 %43, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
 bsearch.exit:                                     ; preds = %39
   %44 = load ptr, ptr %30, align 8, !tbaa !6
@@ -510,7 +510,7 @@ bsearch.exit:                                     ; preds = %39
 55:                                               ; preds = %.lr.ph
   %56 = add i64 %.139, -1
   %.not = icmp eq i64 %56, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %55, %bsearch.exit
   %.1.lcssa = phi i64 [ 0, %bsearch.exit ], [ 0, %55 ], [ %.139, %.lr.ph ]
@@ -519,7 +519,7 @@ bsearch.exit:                                     ; preds = %39
 
 bsearch.exit.thread.sink.split:                   ; preds = %.critedge, %17
   %.1.lcssa.sink = phi i64 [ %.02642, %17 ], [ %.1.lcssa, %.critedge ]
-  store i64 %.1.lcssa.sink, ptr %1, align 8, !tbaa !24
+  store i64 %.1.lcssa.sink, ptr %1, align 8, !tbaa !23
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %42, %18, %bsearch.exit.thread.sink.split, %.preheader, %sk_sort.exit, %.critedge, %20, %17, %3
@@ -843,7 +843,7 @@ define hidden noalias noundef ptr @sk_deep_copy(ptr noundef readonly captures(ad
 19:                                               ; preds = %.lr.ph33, %18
   %20 = add nuw i64 %.032, 1
   %exitcond39.not = icmp eq i64 %20, %.02431
-  br i1 %exitcond39.not, label %sk_free.exit, label %.lr.ph33, !llvm.loop !25
+  br i1 %exitcond39.not, label %sk_free.exit, label %.lr.ph33, !llvm.loop !24
 
 sk_free.exit:                                     ; preds = %19, %.preheader
   tail call void @free(ptr noundef nonnull %8) #17
@@ -853,7 +853,7 @@ sk_free.exit:                                     ; preds = %19, %.preheader
 21:                                               ; preds = %13, %9
   %22 = add nuw i64 %.02431, 1
   %exitcond.not = icmp eq i64 %22, %6
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !25
 
 .loopexit:                                        ; preds = %21, %.preheader29, %sk_free.exit, %3
   %.025 = phi ptr [ null, %3 ], [ null, %sk_free.exit ], [ %4, %.preheader29 ], [ %4, %21 ]
@@ -902,13 +902,12 @@ attributes #18 = { nounwind allocsize(1) }
 !14 = !{!7, !8, i64 0}
 !15 = !{!7, !8, i64 16}
 !16 = !{!11, !11, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = !{!8, !8, i64 0}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}

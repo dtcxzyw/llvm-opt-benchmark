@@ -277,7 +277,7 @@ define internal noundef i32 @dissect_dvb_ait(ptr noundef %0, ptr noundef %1, ptr
   %70 = add i32 %73, %.2114
   %71 = sub i32 %70, %67
   %72 = icmp slt i32 %71, %68
-  br i1 %72, label %.lr.ph116, label %._crit_edge117, !llvm.loop !9
+  br i1 %72, label %.lr.ph116, label %._crit_edge117, !llvm.loop !8
 
 .lr.ph116:                                        ; preds = %.lr.ph123, %69
   %.2114 = phi i32 [ %70, %69 ], [ %67, %.lr.ph123 ]
@@ -292,7 +292,7 @@ define internal noundef i32 @dissect_dvb_ait(ptr noundef %0, ptr noundef %1, ptr
   call void @proto_item_set_len(ptr noundef %75, i32 noundef %76)
   %77 = sub i32 %.2.lcssa, %47
   %78 = icmp slt i32 %77, %48
-  br i1 %78, label %.lr.ph123, label %._crit_edge124, !llvm.loop !10
+  br i1 %78, label %.lr.ph123, label %._crit_edge124, !llvm.loop !9
 
 ._crit_edge124:                                   ; preds = %._crit_edge117, %._crit_edge
   %.1.lcssa = phi i32 [ %47, %._crit_edge ], [ %.2.lcssa, %._crit_edge117 ]
@@ -392,7 +392,7 @@ define internal fastcc i32 @dissect_dvb_ait_descriptor(ptr noundef %0, i32 nound
   %42 = add i32 %.01.i, 5
   %43 = sub i32 %42, %23
   %44 = icmp ult i32 %43, %24
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %19
   %.0.lcssa.i = phi i32 [ %23, %19 ], [ %42, %.lr.ph.i ]
@@ -418,7 +418,7 @@ define internal fastcc i32 @dissect_dvb_ait_descriptor(ptr noundef %0, i32 nound
   %57 = add i32 %.12.i, 1
   %58 = sub i32 %57, %18
   %59 = icmp ult i32 %58, %10
-  br i1 %59, label %.lr.ph4.i, label %dissect_dvb_ait_app_desc_body.exit, !llvm.loop !12
+  br i1 %59, label %.lr.ph4.i, label %dissect_dvb_ait_app_desc_body.exit, !llvm.loop !11
 
 dissect_dvb_ait_app_desc_body.exit:               ; preds = %.lr.ph4.i, %._crit_edge.i
   %.lcssa.i = phi i32 [ %52, %._crit_edge.i ], [ %10, %.lr.ph4.i ]
@@ -444,7 +444,7 @@ dissect_dvb_ait_app_desc_body.exit:               ; preds = %.lr.ph4.i, %._crit_
   %70 = add i32 %69, %68
   %71 = sub i32 %70, %18
   %72 = icmp ult i32 %71, %10
-  br i1 %72, label %.lr.ph.i68, label %dissect_dvb_ait_app_name_desc_body.exit, !llvm.loop !13
+  br i1 %72, label %.lr.ph.i68, label %dissect_dvb_ait_app_name_desc_body.exit, !llvm.loop !12
 
 dissect_dvb_ait_app_name_desc_body.exit:          ; preds = %.lr.ph.i68
   %73 = icmp sgt i32 %71, 0
@@ -520,7 +520,7 @@ dissect_dvb_ait_app_name_desc_body.exit:          ; preds = %.lr.ph.i68
   %119 = add i32 %118, %117
   %120 = add nuw i8 %.02.i, 1
   %exitcond.not.i = icmp eq i8 %120, %110
-  br i1 %exitcond.not.i, label %dissect_dvb_ait_trpt_proto_desc_body.exit, label %.lr.ph.i72, !llvm.loop !14
+  br i1 %exitcond.not.i, label %dissect_dvb_ait_trpt_proto_desc_body.exit, label %.lr.ph.i72, !llvm.loop !13
 
 121:                                              ; preds = %83
   %122 = load i32, ptr @hf_dvb_ait_descr_trpt_sel_bytes, align 4
@@ -606,12 +606,11 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

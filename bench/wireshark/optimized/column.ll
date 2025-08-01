@@ -494,7 +494,7 @@ col_format_to_string.exit.i:                      ; preds = %col_format_to_strin
 55:                                               ; preds = %col_format_to_string.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 47
-  br i1 %exitcond.not.i, label %get_column_format_from_str.exit.thread, label %col_format_to_string.exit.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %get_column_format_from_str.exit.thread, label %col_format_to_string.exit.i, !llvm.loop !8
 
 get_column_format_from_str.exit:                  ; preds = %col_format_to_string.exit.i
   %56 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -563,7 +563,7 @@ col_format_to_string.exit:                        ; preds = %1, %6
 6:                                                ; preds = %col_format_to_string.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
-  br i1 %exitcond.not, label %.split.loop.exit, label %col_format_to_string.exit, !llvm.loop !9
+  br i1 %exitcond.not, label %.split.loop.exit, label %col_format_to_string.exit, !llvm.loop !8
 
 .split.loop.exit8:                                ; preds = %col_format_to_string.exit
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -653,7 +653,7 @@ define void @try_convert_to_custom_column(ptr noundef captures(none) %0) local_u
   %14 = phi ptr [ %3, %2 ], [ %11, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %15, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %15, label %2, !llvm.loop !9
 
 15:                                               ; preds = %13
   ret void
@@ -685,7 +685,7 @@ col_format_to_string.exit:                        ; preds = %0, %8
   %10 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.146, ptr noundef %2, ptr noundef %4, ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
-  br i1 %exitcond.not, label %11, label %col_format_to_string.exit, !llvm.loop !11
+  br i1 %exitcond.not, label %11, label %col_format_to_string.exit, !llvm.loop !10
 
 11:                                               ; preds = %8
   %12 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.148)
@@ -788,7 +788,7 @@ g_string_append_c_inline.exit:                    ; preds = %56, %50, %column_fm
   %59 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not18 = icmp eq ptr %60, null
-  br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !12
+  br i1 %.not18, label %._crit_edge, label %24, !llvm.loop !11
 
 61:                                               ; preds = %._crit_edge, %11
   ret void
@@ -1429,7 +1429,7 @@ define zeroext i1 @get_column_visible(i32 noundef %0) local_unnamed_addr #1 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %7 = load i8, ptr %6, align 4, !range !13, !noundef !14
+  %7 = load i8, ptr %6, align 4, !range !12, !noundef !13
   %8 = trunc nuw i8 %7 to i1
   br label %9
 
@@ -1680,7 +1680,7 @@ get_custom_field_tooltip.exit:                    ; preds = %32, %38, %49, %51
   %58 = call i32 @g_strv_length(ptr noundef %15)
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %19, label %._crit_edge, !llvm.loop !15
+  br i1 %60, label %19, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %57, %12
   call void @g_strfreev(ptr noundef %15)
@@ -1842,7 +1842,7 @@ define void @col_finalize(ptr noundef readonly captures(none) %0) local_unnamed_
   %50 = call i32 @g_strv_length(ptr noundef %24)
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %52, label %27, label %._crit_edge, !llvm.loop !16
+  br i1 %52, label %27, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %49, %22
   call void @g_strfreev(ptr noundef %24)
@@ -1957,7 +1957,7 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
   %92 = load i32, ptr %3, align 8
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next170, %93
-  br i1 %94, label %10, label %._crit_edge163.loopexit, !llvm.loop !17
+  br i1 %94, label %10, label %._crit_edge163.loopexit, !llvm.loop !16
 
 ._crit_edge163.loopexit:                          ; preds = %get_column_format_matches.exit
   %sext = shl i64 %indvars.iv.next170, 32
@@ -1996,7 +1996,7 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
   %110 = getelementptr %struct.col_item_t, ptr %109, i64 %indvars.iv175, i32 1
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 %indvars.iv172
-  %113 = load i8, ptr %112, align 1, !range !13, !noundef !14
+  %113 = load i8, ptr %112, align 1, !range !12, !noundef !13
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %123
 
@@ -2021,14 +2021,14 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
 123:                                              ; preds = %108, %._crit_edge178
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next173, 47
-  br i1 %exitcond.not, label %124, label %108, !llvm.loop !18
+  br i1 %exitcond.not, label %124, label %108, !llvm.loop !17
 
 124:                                              ; preds = %123
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %125 = load i32, ptr %3, align 8
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next176, %126
-  br i1 %127, label %.preheader, label %._crit_edge166, !llvm.loop !19
+  br i1 %127, label %.preheader, label %._crit_edge166, !llvm.loop !18
 
 ._crit_edge166:                                   ; preds = %124, %._crit_edge163
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
@@ -2156,7 +2156,7 @@ get_column_custom_occurrence.exit:                ; preds = %get_column_custom_f
   %51 = load i32, ptr %4, align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %8, label %._crit_edge, !llvm.loop !20
+  br i1 %53, label %8, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %50, %3
   tail call void @col_finalize(ptr noundef %0)
@@ -2225,7 +2225,7 @@ define void @column_register_fields() local_unnamed_addr #1 {
   %20 = load i32, ptr @hf_cols_cleanup, align 4
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next.i, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !21
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !20
 
 column_deregister_fields.exit:                    ; preds = %.thread, %._crit_edge.i
   %23 = load ptr, ptr @prefs, align 8
@@ -2279,7 +2279,7 @@ column_deregister_fields.exit:                    ; preds = %.thread, %._crit_ed
   %50 = load i32, ptr %46, align 8
   %51 = sext i32 %50 to i64
   %52 = getelementptr i8, ptr %27, i64 %51
-  %53 = load i8, ptr %52, align 1, !range !13, !noundef !14
+  %53 = load i8, ptr %52, align 1, !range !12, !noundef !13
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %64, label %55
 
@@ -2310,7 +2310,7 @@ column_deregister_fields.exit:                    ; preds = %.thread, %._crit_ed
   %65 = getelementptr inbounds nuw i8, ptr %.04247, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not44 = icmp eq ptr %66, null
-  br i1 %.not44, label %._crit_edge, label %44, !llvm.loop !22
+  br i1 %.not44, label %._crit_edge, label %44, !llvm.loop !21
 
 67:                                               ; preds = %._crit_edge, %column_deregister_fields.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #11
@@ -2383,20 +2383,19 @@ attributes #14 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

@@ -138,7 +138,7 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   %57 = call i32 @BIO_ADDRINFO_socktype(ptr noundef nonnull %.081123) #9
   %58 = call i32 @BIO_ADDRINFO_protocol(ptr noundef nonnull %.081123) #9
   %59 = call i32 @BIO_socket(i32 noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef 0) #9
-  store i32 %59, ptr %0, align 4, !tbaa !13
+  store i32 %59, ptr %0, align 4, !tbaa !12
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %.loopexit, label %61
 
@@ -153,9 +153,9 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   br i1 %.not95, label %.thread101, label %67
 
 .thread101:                                       ; preds = %62
-  %65 = load i32, ptr %0, align 4, !tbaa !13
+  %65 = load i32, ptr %0, align 4, !tbaa !12
   %66 = call i32 @BIO_closesocket(i32 noundef %65) #9
-  store i32 -1, ptr %0, align 4, !tbaa !13
+  store i32 -1, ptr %0, align 4, !tbaa !12
   br label %82
 
 67:                                               ; preds = %62, %61
@@ -166,16 +166,16 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   br i1 %.not104, label %.thread, label %70
 
 70:                                               ; preds = %67
-  %71 = load i32, ptr %0, align 4, !tbaa !13
+  %71 = load i32, ptr %0, align 4, !tbaa !12
   %72 = call ptr @BIO_ADDRINFO_address(ptr noundef nonnull %.081123) #9
   %73 = call i32 @BIO_connect(i32 noundef %71, ptr noundef %72, i32 noundef %.2) #9
   %.not97 = icmp eq i32 %73, 0
   br i1 %.not97, label %74, label %77
 
 74:                                               ; preds = %70
-  %75 = load i32, ptr %0, align 4, !tbaa !13
+  %75 = load i32, ptr %0, align 4, !tbaa !12
   %76 = call i32 @BIO_closesocket(i32 noundef %75) #9
-  store i32 -1, ptr %0, align 4, !tbaa !13
+  store i32 -1, ptr %0, align 4, !tbaa !12
   br label %.loopexit
 
 77:                                               ; preds = %70
@@ -184,7 +184,7 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
 .thread:                                          ; preds = %67, %77
   %78 = call ptr @BIO_ADDRINFO_address(ptr noundef nonnull %.081123) #9
   %79 = call ptr @BIO_ADDR_dup(ptr noundef %78) #9
-  store ptr %79, ptr %10, align 8, !tbaa !15
+  store ptr %79, ptr %10, align 8, !tbaa !14
   br label %.loopexit105
 
 .loopexit:                                        ; preds = %51, %55, %74
@@ -193,12 +193,12 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   %.1 = phi i32 [ %.0126, %55 ], [ %.2, %74 ], [ %.0126, %51 ]
   %80 = call ptr @BIO_ADDRINFO_next(ptr noundef nonnull %.081123) #9
   %.not91 = icmp eq ptr %80, null
-  br i1 %.not91, label %.loopexit105, label %33, !llvm.loop !17
+  br i1 %.not91, label %.loopexit105, label %33, !llvm.loop !16
 
 .loopexit105:                                     ; preds = %.loopexit, %28, %.thread, %77
   %.081116 = phi ptr [ %.081123, %.thread ], [ %.081123, %77 ], [ null, %28 ], [ null, %.loopexit ]
   %.175.ph = phi i32 [ %.276, %.thread ], [ %.276, %77 ], [ 0, %28 ], [ %.3, %.loopexit ]
-  %.pr = load i32, ptr %0, align 4, !tbaa !13
+  %.pr = load i32, ptr %0, align 4, !tbaa !12
   %81 = icmp eq i32 %.pr, -1
   br i1 %81, label %82, label %108
 
@@ -335,7 +335,7 @@ define void @get_sock_info_address(i32 noundef %0, ptr noundef writeonly capture
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  store ptr null, ptr %1, align 8, !tbaa !18
+  store ptr null, ptr %1, align 8, !tbaa !17
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -343,12 +343,12 @@ define void @get_sock_info_address(i32 noundef %0, ptr noundef writeonly capture
   br i1 %.not10, label %8, label %7
 
 7:                                                ; preds = %6
-  store ptr null, ptr %2, align 8, !tbaa !18
+  store ptr null, ptr %2, align 8, !tbaa !17
   br label %8
 
 8:                                                ; preds = %7, %6
   %9 = tail call ptr @BIO_ADDR_new() #9
-  store ptr %9, ptr %4, align 8, !tbaa !20
+  store ptr %9, ptr %4, align 8, !tbaa !19
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %20, label %10
 
@@ -361,22 +361,22 @@ define void @get_sock_info_address(i32 noundef %0, ptr noundef writeonly capture
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !20
+  %14 = load ptr, ptr %4, align 8, !tbaa !19
   %15 = call ptr @BIO_ADDR_hostname_string(ptr noundef %14, i32 noundef 1) #9
-  store ptr %15, ptr %1, align 8, !tbaa !18
+  store ptr %15, ptr %1, align 8, !tbaa !17
   br label %16
 
 16:                                               ; preds = %13, %12
   br i1 %.not10, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %4, align 8, !tbaa !20
+  %18 = load ptr, ptr %4, align 8, !tbaa !19
   %19 = call ptr @BIO_ADDR_service_string(ptr noundef %18, i32 noundef 1) #9
-  store ptr %19, ptr %2, align 8, !tbaa !18
+  store ptr %19, ptr %2, align 8, !tbaa !17
   br label %20
 
 20:                                               ; preds = %16, %17, %10, %8
-  %21 = load ptr, ptr %4, align 8, !tbaa !20
+  %21 = load ptr, ptr %4, align 8, !tbaa !19
   call void @BIO_ADDR_free(ptr noundef %21) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret void
@@ -404,21 +404,21 @@ define range(i32 0, 2) i32 @report_server_accept(ptr noundef %0, i32 noundef %1,
 9:                                                ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %10 = tail call ptr @BIO_ADDR_new() #9
-  store ptr %10, ptr %5, align 8, !tbaa !20
+  store ptr %10, ptr %5, align 8, !tbaa !19
   %.not11.i = icmp eq ptr %10, null
   br i1 %.not11.i, label %get_sock_info_address.exit, label %11
 
 11:                                               ; preds = %9
   %12 = call i32 @BIO_sock_info(i32 noundef %1, i32 noundef 0, ptr noundef nonnull %5) #9
   %.not12.i = icmp eq i32 %12, 0
-  %.pre22 = load ptr, ptr %5, align 8, !tbaa !20
+  %.pre22 = load ptr, ptr %5, align 8, !tbaa !19
   br i1 %.not12.i, label %get_sock_info_address.exit, label %13
 
 13:                                               ; preds = %11
   %14 = call ptr @BIO_ADDR_hostname_string(ptr noundef %.pre22, i32 noundef 1) #9
-  %15 = load ptr, ptr %5, align 8, !tbaa !20
+  %15 = load ptr, ptr %5, align 8, !tbaa !19
   %16 = call ptr @BIO_ADDR_service_string(ptr noundef %15, i32 noundef 1) #9
-  %.pre = load ptr, ptr %5, align 8, !tbaa !20
+  %.pre = load ptr, ptr %5, align 8, !tbaa !19
   br label %get_sock_info_address.exit
 
 get_sock_info_address.exit:                       ; preds = %9, %11, %13
@@ -640,7 +640,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br i1 %.not134, label %92, label %91
 
 91:                                               ; preds = %90
-  store i32 %.0114179, ptr %0, align 4, !tbaa !13
+  store i32 %.0114179, ptr %0, align 4, !tbaa !12
   br label %92
 
 92:                                               ; preds = %91, %90
@@ -652,15 +652,15 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br i1 %93, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %92
-  %95 = load ptr, ptr @ourpeer, align 8, !tbaa !15
+  %95 = load ptr, ptr @ourpeer, align 8, !tbaa !14
   call void @BIO_ADDR_free(ptr noundef %95) #9
   %96 = call ptr @BIO_ADDR_new() #9
-  store ptr %96, ptr @ourpeer, align 8, !tbaa !15
+  store ptr %96, ptr @ourpeer, align 8, !tbaa !14
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.split161.us, label %.preheader.us
 
 98:                                               ; preds = %.preheader.us, %131
-  %99 = load ptr, ptr @ourpeer, align 8, !tbaa !15
+  %99 = load ptr, ptr @ourpeer, align 8, !tbaa !14
   %100 = call i32 @BIO_accept_ex(i32 noundef %.0114179, ptr noundef %99, i32 noundef 0) #9
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %131, label %.critedge140.us
@@ -680,8 +680,8 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %107 = call i32 @BIO_set_tcp_ndelay(i32 noundef %100, i32 noundef 1) #9
   %108 = call i32 %6(i32 noundef %100, i32 noundef 1, i32 noundef %5, ptr noundef %7) #9
   %109 = call i32 @shutdown(i32 noundef %100, i32 noundef 1) #9
-  store i64 0, ptr %14, align 8, !tbaa !21
-  store i64 500000, ptr %94, align 8, !tbaa !24
+  store i64 0, ptr %14, align 8, !tbaa !20
+  store i64 500000, ptr %94, align 8, !tbaa !23
   %110 = and i32 %100, 63
   %111 = zext nneg i32 %110 to i64
   %112 = shl nuw i64 1, %111
@@ -692,10 +692,10 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %117
 
 117:                                              ; preds = %122, %106
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, i8 0, i64 128, i1 false), !tbaa !25
-  %118 = load i64, ptr %115, align 8, !tbaa !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, i8 0, i64 128, i1 false), !tbaa !24
+  %118 = load i64, ptr %115, align 8, !tbaa !24
   %119 = or i64 %118, %112
-  store i64 %119, ptr %115, align 8, !tbaa !25
+  store i64 %119, ptr %115, align 8, !tbaa !24
   %120 = call i32 @select(i32 noundef %116, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef nonnull %14) #9
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %122, label %.critedge5.us
@@ -703,7 +703,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
 122:                                              ; preds = %117
   %123 = call i64 @read(i32 noundef %100, ptr noundef nonnull %13, i64 noundef 64) #9
   %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %117, label %.critedge5.us, !llvm.loop !26
+  br i1 %124, label %117, label %.critedge5.us, !llvm.loop !25
 
 .critedge5.us:                                    ; preds = %122, %117
   %125 = call i32 @BIO_closesocket(i32 noundef %100) #9
@@ -718,17 +718,17 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #9
-  %128 = load ptr, ptr @ourpeer, align 8, !tbaa !15
+  %128 = load ptr, ptr @ourpeer, align 8, !tbaa !14
   call void @BIO_ADDR_free(ptr noundef %128) #9
   %129 = call ptr @BIO_ADDR_new() #9
-  store ptr %129, ptr @ourpeer, align 8, !tbaa !15
+  store ptr %129, ptr @ourpeer, align 8, !tbaa !14
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %.split161.us, label %.preheader.us, !llvm.loop !27
+  br i1 %130, label %.split161.us, label %.preheader.us, !llvm.loop !26
 
 131:                                              ; preds = %98
   %132 = call i32 @BIO_sock_should_retry(i32 noundef %100) #9
   %.not136.us = icmp eq i32 %132, 0
-  br i1 %.not136.us, label %.critedge, label %98, !llvm.loop !29
+  br i1 %.not136.us, label %.critedge, label %98, !llvm.loop !28
 
 .preheader.us:                                    ; preds = %.split.us, %127
   %.0111.us168 = phi i32 [ %spec.select141.us, %127 ], [ %8, %.split.us ]
@@ -802,9 +802,9 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %152
 
 152:                                              ; preds = %150, %148
-  %153 = load ptr, ptr @ourpeer, align 8, !tbaa !15
+  %153 = load ptr, ptr @ourpeer, align 8, !tbaa !14
   call void @BIO_ADDR_free(ptr noundef %153) #9
-  store ptr null, ptr @ourpeer, align 8, !tbaa !15
+  store ptr null, ptr @ourpeer, align 8, !tbaa !14
   br label %154
 
 154:                                              ; preds = %11, %152, %19
@@ -853,7 +853,7 @@ define void @do_ssl_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %7 = tail call i32 @SSL_shutdown(ptr noundef %0) #9
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %6, %.lr.ph, %1
   ret void
@@ -891,24 +891,23 @@ attributes #11 = { nounwind willreturn memory(read) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 _ZTS6bio_st", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS11bio_addr_st", !5, i64 0}
-!17 = distinct !{!17, !11, !12}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !5, i64 0}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"timeval", !23, i64 0, !23, i64 8}
-!23 = !{!"long", !6, i64 0}
-!24 = !{!22, !23, i64 8}
-!25 = !{!23, !23, i64 0}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !11, !12}
-!30 = distinct !{!30, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS11bio_addr_st", !5, i64 0}
+!16 = distinct !{!16, !11}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{!6, !6, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"timeval", !22, i64 0, !22, i64 8}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!21, !22, i64 8}
+!24 = !{!22, !22, i64 0}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}

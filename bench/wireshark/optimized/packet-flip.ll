@@ -304,7 +304,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %105 = add nsw i32 %.0105129, -4
   %106 = icmp samesign ugt i32 %105, 3
   %107 = select i1 %83, i1 %106, i1 false
-  br i1 %107, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  br i1 %107, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %104, %66, %.preheader
   %.0105.lcssa = phi i32 [ %46, %.preheader ], [ %67, %66 ], [ %105, %104 ]
@@ -440,7 +440,5 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}

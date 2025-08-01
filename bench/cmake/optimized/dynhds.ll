@@ -85,7 +85,7 @@ define dso_local void @Curl_dynhds_reset(ptr noundef captures(none) %0) local_un
   %10 = add nuw i64 %.09, 1
   %11 = load i64, ptr %2, align 8, !tbaa !16
   %12 = icmp ult i64 %10, %11
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -140,12 +140,12 @@ define dso_local ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, pt
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.015
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !24
+  %11 = load i64, ptr %10, align 8, !tbaa !23
   %12 = icmp eq i64 %11, %2
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph
-  %14 = load ptr, ptr %9, align 8, !tbaa !27
+  %14 = load ptr, ptr %9, align 8, !tbaa !26
   %15 = tail call i32 @curl_strnequal(ptr noundef %14, ptr noundef %1, i64 noundef %2) #9
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %._crit_edge, label %16
@@ -164,7 +164,7 @@ define dso_local ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, pt
   %21 = phi i64 [ %.pre, %._crit_edge ], [ %6, %.lr.ph ]
   %22 = add nuw i64 %.015, 1
   %23 = icmp ult i64 %22, %21
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %20, %3, %16
   %.012 = phi ptr [ %19, %16 ], [ null, %3 ], [ null, %20 ]
@@ -188,12 +188,12 @@ define dso_local ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, p
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.015.i
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !24
+  %11 = load i64, ptr %10, align 8, !tbaa !23
   %12 = icmp eq i64 %11, %3
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = load ptr, ptr %9, align 8, !tbaa !27
+  %14 = load ptr, ptr %9, align 8, !tbaa !26
   %15 = tail call i32 @curl_strnequal(ptr noundef %14, ptr noundef nonnull %1, i64 noundef %3) #9
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %._crit_edge.i, label %16
@@ -212,7 +212,7 @@ define dso_local ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, p
   %21 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %6, %.lr.ph.i ]
   %22 = add nuw i64 %.015.i, 1
   %23 = icmp ult i64 %22, %21
-  br i1 %23, label %.lr.ph.i, label %Curl_dynhds_get.exit, !llvm.loop !28
+  br i1 %23, label %.lr.ph.i, label %Curl_dynhds_get.exit, !llvm.loop !27
 
 Curl_dynhds_get.exit:                             ; preds = %20, %2, %16
   %.012.i = phi ptr [ %19, %16 ], [ null, %2 ], [ null, %20 ]
@@ -256,24 +256,24 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %26, ptr %24, align 8, !tbaa !27
+  store ptr %26, ptr %24, align 8, !tbaa !26
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %1, i64 %2, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 %2, ptr %27, align 8, !tbaa !24
+  store i64 %2, ptr %27, align 8, !tbaa !23
   %28 = getelementptr i8, ptr %26, i64 %2
   %29 = getelementptr i8, ptr %28, i64 1
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !29
+  store ptr %29, ptr %30, align 8, !tbaa !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr readonly align 1 %3, i64 %4, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %4, ptr %31, align 8, !tbaa !30
+  store i64 %4, ptr %31, align 8, !tbaa !29
   %32 = and i32 %21, 1
   %.not24.i = icmp eq i32 %32, 0
   br i1 %.not24.i, label %36, label %33
 
 33:                                               ; preds = %25
-  %34 = load ptr, ptr %24, align 8, !tbaa !27
-  %35 = load i64, ptr %27, align 8, !tbaa !24
+  %34 = load ptr, ptr %24, align 8, !tbaa !26
+  %35 = load i64, ptr %27, align 8, !tbaa !23
   tail call void @Curl_strntolower(ptr noundef %34, ptr noundef %34, i64 noundef %35) #9
   br label %36
 
@@ -282,7 +282,7 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none
   %38 = load i64, ptr %37, align 8, !tbaa !16
   %39 = add i64 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !31
+  %41 = load i64, ptr %40, align 8, !tbaa !30
   %.not54 = icmp ult i64 %39, %41
   br i1 %.not54, label %._crit_edge, label %42
 
@@ -317,7 +317,7 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none
 
 .thread:                                          ; preds = %48, %50
   store ptr %47, ptr %0, align 8, !tbaa !15
-  store i64 %.042, ptr %40, align 8, !tbaa !31
+  store i64 %.042, ptr %40, align 8, !tbaa !30
   %.pre67 = load i64, ptr %37, align 8, !tbaa !16
   %.pre68 = add i64 %.pre67, 1
   br label %55
@@ -363,7 +363,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
   br i1 %or.cond, label %6, label %.critedge73
 
 6:                                                ; preds = %3
-  %7 = load i8, ptr %1, align 1, !tbaa !32
+  %7 = load i8, ptr %1, align 1, !tbaa !31
   switch i8 %7, label %49 [
     i8 32, label %8
     i8 9, label %8
@@ -378,7 +378,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
 .preheader:                                       ; preds = %8, %.critedge3
   %.05477 = phi ptr [ %12, %.critedge3 ], [ %1, %8 ]
   %.05776 = phi i64 [ %13, %.critedge3 ], [ %2, %8 ]
-  %11 = load i8, ptr %.05477, align 1, !tbaa !32
+  %11 = load i8, ptr %.05477, align 1, !tbaa !31
   switch i8 %11, label %.critedge [
     i8 32, label %.critedge3
     i8 9, label %.critedge3
@@ -388,7 +388,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
   %12 = getelementptr inbounds nuw i8, ptr %.05477, i64 1
   %13 = add i64 %.05776, -1
   %.not71 = icmp eq i64 %13, 0
-  br i1 %.not71, label %.critedge73, label %.preheader, !llvm.loop !33
+  br i1 %.not71, label %.critedge73, label %.preheader, !llvm.loop !32
 
 .critedge:                                        ; preds = %.preheader
   %14 = load ptr, ptr %0, align 8, !tbaa !15
@@ -396,12 +396,12 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !30
+  %19 = load i64, ptr %18, align 8, !tbaa !29
   %20 = add i64 %.05776, 1
   %21 = add i64 %20, %19
   %22 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !24
+  %24 = load i64, ptr %23, align 8, !tbaa !23
   %25 = add i64 %21, 34
   %26 = add i64 %25, %24
   %27 = tail call ptr %22(i64 noundef 1, i64 noundef %26) #9
@@ -410,28 +410,28 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
 
 28:                                               ; preds = %.critedge
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %29, ptr %27, align 8, !tbaa !27
-  %30 = load ptr, ptr %17, align 8, !tbaa !27
-  %31 = load i64, ptr %23, align 8, !tbaa !24
+  store ptr %29, ptr %27, align 8, !tbaa !26
+  %30 = load ptr, ptr %17, align 8, !tbaa !26
+  %31 = load i64, ptr %23, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %30, i64 %31, i1 false)
-  %32 = load i64, ptr %23, align 8, !tbaa !24
+  %32 = load i64, ptr %23, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 %32, ptr %33, align 8, !tbaa !24
+  store i64 %32, ptr %33, align 8, !tbaa !23
   %34 = getelementptr i8, ptr %29, i64 %32
   %35 = getelementptr i8, ptr %34, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %35, ptr %36, align 8, !tbaa !29
+  store ptr %35, ptr %36, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !29
-  %39 = load i64, ptr %18, align 8, !tbaa !30
+  %38 = load ptr, ptr %37, align 8, !tbaa !28
+  %39 = load i64, ptr %18, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %38, i64 %39, i1 false)
-  %40 = load i64, ptr %18, align 8, !tbaa !30
+  %40 = load i64, ptr %18, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 %40
-  store i8 32, ptr %41, align 1, !tbaa !32
+  store i8 32, ptr %41, align 1, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 1 dereferenceable(1) %.05477, i64 range(i64 1, 0) %.05776, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 %21, ptr %43, align 8, !tbaa !30
+  store i64 %21, ptr %43, align 8, !tbaa !29
   %44 = load ptr, ptr %0, align 8, !tbaa !15
   %45 = load i64, ptr %9, align 8, !tbaa !16
   %46 = getelementptr ptr, ptr %44, i64 %45
@@ -458,7 +458,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
 .lr.ph:                                           ; preds = %51, %57
   %.05581 = phi i64 [ %.055, %57 ], [ %.05579, %51 ]
   %.05880 = phi ptr [ %.058, %57 ], [ %.05878, %51 ]
-  %56 = load i8, ptr %.05880, align 1, !tbaa !32
+  %56 = load i8, ptr %.05880, align 1, !tbaa !31
   switch i8 %56, label %._crit_edge [
     i8 32, label %57
     i8 9, label %57
@@ -468,7 +468,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
   %.058 = getelementptr inbounds nuw i8, ptr %.05880, i64 1
   %.055 = add nuw i64 %.05581, 1
   %58 = icmp ult i64 %.055, %2
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %57, %.lr.ph, %51
   %.058.lcssa = phi ptr [ %.05878, %51 ], [ %.05880, %.lr.ph ], [ %.058, %57 ]
@@ -526,7 +526,7 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr noundef readonly captures(none) 
   %6 = add nuw i64 %.021, 1
   %7 = load i64, ptr %3, align 8, !tbaa !16
   %8 = icmp ult i64 %6, %7
-  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %2, %5
   %.021 = phi i64 [ %6, %5 ], [ 0, %2 ]
@@ -534,14 +534,14 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.021
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !24
+  %13 = load i64, ptr %12, align 8, !tbaa !23
   %14 = trunc i64 %13 to i32
-  %15 = load ptr, ptr %11, align 8, !tbaa !27
+  %15 = load ptr, ptr %11, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !30
+  %17 = load i64, ptr %16, align 8, !tbaa !29
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef %15, i32 noundef %18, ptr noundef %20) #9
   %.not20 = icmp eq i32 %21, 0
   br i1 %.not20, label %5, label %.loopexit
@@ -560,7 +560,7 @@ define dso_local ptr @Curl_dynhds_to_nva(ptr noundef readonly captures(none) %0,
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = mul i64 %5, 40
   %7 = tail call ptr %3(i64 noundef 1, i64 noundef %6) #9
-  store i64 0, ptr %1, align 8, !tbaa !36
+  store i64 0, ptr %1, align 8, !tbaa !35
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %26, label %.preheader
 
@@ -577,29 +577,29 @@ define dso_local ptr @Curl_dynhds_to_nva(ptr noundef readonly captures(none) %0,
   %.02528 = phi i64 [ 0, %.lr.ph ], [ %25, %10 ]
   %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02528
   %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %7, i64 %.02528
-  store ptr %13, ptr %14, align 8, !tbaa !37
+  store ptr %13, ptr %14, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !24
+  %16 = load i64, ptr %15, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %16, ptr %17, align 8, !tbaa !39
+  store i64 %16, ptr %17, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !40
+  store ptr %19, ptr %20, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !30
+  %22 = load i64, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %22, ptr %23, align 8, !tbaa !41
+  store i64 %22, ptr %23, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i8 0, ptr %24, align 8, !tbaa !42
+  store i8 0, ptr %24, align 8, !tbaa !41
   %25 = add nuw i64 %.02528, 1
   %exitcond.not = icmp eq i64 %25, %8
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %10, %.preheader
-  store i64 %8, ptr %1, align 8, !tbaa !36
+  store i64 %8, ptr %1, align 8, !tbaa !35
   br label %26
 
 26:                                               ; preds = %2, %._crit_edge
@@ -648,27 +648,26 @@ attributes #10 = { nounwind willreturn memory(read) }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 _ZTS12dynhds_entry", !7, i64 0}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = !{!25, !10, i64 16}
-!25 = !{!"dynhds_entry", !26, i64 0, !26, i64 8, !10, i64 16, !10, i64 24}
-!26 = !{!"p1 omnipotent char", !7, i64 0}
-!27 = !{!25, !26, i64 0}
-!28 = distinct !{!28, !21, !22}
-!29 = !{!25, !26, i64 8}
-!30 = !{!25, !10, i64 24}
-!31 = !{!5, !10, i64 16}
-!32 = !{!8, !8, i64 0}
-!33 = distinct !{!33, !21, !22}
-!34 = distinct !{!34, !21, !22}
-!35 = distinct !{!35, !21, !22}
-!36 = !{!10, !10, i64 0}
-!37 = !{!38, !26, i64 0}
-!38 = !{!"", !26, i64 0, !26, i64 8, !10, i64 16, !10, i64 24, !8, i64 32}
-!39 = !{!38, !10, i64 16}
-!40 = !{!38, !26, i64 8}
-!41 = !{!38, !10, i64 24}
-!42 = !{!38, !8, i64 32}
-!43 = distinct !{!43, !21, !22}
+!22 = distinct !{!22, !21}
+!23 = !{!24, !10, i64 16}
+!24 = !{!"dynhds_entry", !25, i64 0, !25, i64 8, !10, i64 16, !10, i64 24}
+!25 = !{!"p1 omnipotent char", !7, i64 0}
+!26 = !{!24, !25, i64 0}
+!27 = distinct !{!27, !21}
+!28 = !{!24, !25, i64 8}
+!29 = !{!24, !10, i64 24}
+!30 = !{!5, !10, i64 16}
+!31 = !{!8, !8, i64 0}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}
+!34 = distinct !{!34, !21}
+!35 = !{!10, !10, i64 0}
+!36 = !{!37, !25, i64 0}
+!37 = !{!"", !25, i64 0, !25, i64 8, !10, i64 16, !10, i64 24, !8, i64 32}
+!38 = !{!37, !10, i64 16}
+!39 = !{!37, !25, i64 8}
+!40 = !{!37, !10, i64 24}
+!41 = !{!37, !8, i64 32}
+!42 = distinct !{!42, !21}

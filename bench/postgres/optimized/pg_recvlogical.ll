@@ -759,7 +759,7 @@ sub_177:                                          ; preds = %.tail, %sub_1
   %247 = sext i32 %246 to i64
   %248 = load i64, ptr @noptions, align 8
   %249 = icmp ugt i64 %248, %247
-  br i1 %249, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %249, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %245
   %250 = icmp eq i64 %248, 0
@@ -839,7 +839,7 @@ sub_177:                                          ; preds = %.tail, %sub_1
 
 278:                                              ; preds = %277
   store i1 false, ptr @output_needs_fsync, align 1
-  %279 = load i8, ptr @output_isfile, align 1, !range !8, !noundef !9
+  %279 = load i8, ptr @output_isfile, align 1, !range !7, !noundef !8
   %280 = trunc nuw i8 %279 to i1
   br i1 %280, label %281, label %OutputFsync.exit.i
 
@@ -912,7 +912,7 @@ sub_0.i:                                          ; preds = %295
 
 307:                                              ; preds = %306
   store i1 false, ptr @output_needs_fsync, align 1
-  %308 = load i8, ptr @output_isfile, align 1, !range !8, !noundef !9
+  %308 = load i8, ptr @output_isfile, align 1, !range !7, !noundef !8
   %309 = trunc nuw i8 %308 to i1
   br i1 %309, label %310, label %OutputFsync.exit173.i
 
@@ -1095,7 +1095,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %390 = add i32 %389, 1
   %391 = call i32 @select(i32 noundef %390, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef %.0107.i) #13
   %392 = icmp eq i32 %391, 0
-  br i1 %392, label %.thread323.i, label %393, !llvm.loop !10
+  br i1 %392, label %.thread323.i, label %393, !llvm.loop !9
 
 393:                                              ; preds = %387
   %394 = icmp slt i32 %391, 0
@@ -1105,7 +1105,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %396 = tail call ptr @__errno_location() #17
   %397 = load i32, ptr %396, align 4
   %398 = icmp eq i32 %397, 4
-  br i1 %398, label %.thread323.i, label %399, !llvm.loop !10
+  br i1 %398, label %.thread323.i, label %399, !llvm.loop !9
 
 399:                                              ; preds = %395
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98) #13
@@ -1115,7 +1115,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %400 = load ptr, ptr @conn, align 8
   %401 = call i32 @PQconsumeInput(ptr noundef %400) #13
   %402 = icmp eq i32 %401, 0
-  br i1 %402, label %403, label %.thread323.i, !llvm.loop !10
+  br i1 %402, label %403, label %.thread323.i, !llvm.loop !9
 
 403:                                              ; preds = %.critedge.i
   %404 = load ptr, ptr @conn, align 8
@@ -1176,7 +1176,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
 
 432:                                              ; preds = %431
   store i1 false, ptr @output_needs_fsync, align 1
-  %433 = load i8, ptr @output_isfile, align 1, !range !8, !noundef !9
+  %433 = load i8, ptr @output_isfile, align 1, !range !7, !noundef !8
   %434 = trunc nuw i8 %433 to i1
   br i1 %434, label %435, label %flushAndSendFeedback.exit.i
 
@@ -1199,7 +1199,7 @@ flushAndSendFeedback.exit.i:                      ; preds = %435, %432, %431, %4
 
 442:                                              ; preds = %flushAndSendFeedback.exit.i, %420
   %.4.i = phi i64 [ %.2.i, %420 ], [ %440, %flushAndSendFeedback.exit.i ]
-  br i1 %or.cond168.not.i, label %.thread198.sink.split.i, label %.backedge.i, !llvm.loop !10
+  br i1 %or.cond168.not.i, label %.thread198.sink.split.i, label %.backedge.i, !llvm.loop !9
 
 443:                                              ; preds = %409
   %444 = sext i8 %411 to i32
@@ -1238,7 +1238,7 @@ flushAndSendFeedback.exit.i:                      ; preds = %435, %432, %431, %4
 
 459:                                              ; preds = %458
   store i1 false, ptr @output_needs_fsync, align 1
-  %460 = load i8, ptr @output_isfile, align 1, !range !8, !noundef !9
+  %460 = load i8, ptr @output_isfile, align 1, !range !7, !noundef !8
   %461 = trunc nuw i8 %460 to i1
   br i1 %461, label %462, label %flushAndSendFeedback.exit176.i
 
@@ -1290,7 +1290,7 @@ flushAndSendFeedback.exit176.i:                   ; preds = %462, %459, %458, %4
   %483 = add i32 %.0110265.i, %479
   %484 = sub i32 %.0112264.i, %479
   %.not151.i = icmp eq i32 %484, 0
-  br i1 %.not151.i, label %._crit_edge268.i, label %.lr.ph267.i, !llvm.loop !11
+  br i1 %.not151.i, label %._crit_edge268.i, label %.lr.ph267.i, !llvm.loop !10
 
 ._crit_edge268.i:                                 ; preds = %482
   %485 = load i32, ptr @outfd, align 4
@@ -1342,7 +1342,7 @@ flushAndSendFeedback.exit176.i:                   ; preds = %462, %459, %458, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %495 = load volatile i32, ptr @time_to_abort, align 4
   %.not141.i = icmp eq i32 %495, 0
-  br i1 %.not141.i, label %.lr.ph272.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %.not141.i, label %.lr.ph272.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.backedge.i, %.thread198.i, %262
   %.198.i = phi i64 [ %.299.ph.i, %.thread198.i ], [ 0, %262 ], [ %.299320.i, %.backedge.i ]
@@ -1473,7 +1473,7 @@ sub_0211.i:                                       ; preds = %537
 
 549:                                              ; preds = %548
   store i1 false, ptr @output_needs_fsync, align 1
-  %550 = load i8, ptr @output_isfile, align 1, !range !8, !noundef !9
+  %550 = load i8, ptr @output_isfile, align 1, !range !7, !noundef !8
   %551 = trunc nuw i8 %550 to i1
   br i1 %551, label %552, label %OutputFsync.exit180.i
 
@@ -1549,7 +1549,7 @@ StreamLogicalLog.exit:                            ; preds = %213, %564
 570:                                              ; preds = %568
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.49, i32 noundef 5) #13
   call void @pg_usleep(i64 noundef 5000000) #13
-  br label %211, !llvm.loop !13
+  br label %211
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1810,7 +1810,7 @@ define internal fastcc noundef zeroext i1 @flushAndSendFeedback(ptr noundef %0, 
 
 8:                                                ; preds = %7
   store i1 false, ptr @output_needs_fsync, align 1
-  %9 = load i8, ptr @output_isfile, align 1, !range !8, !noundef !9
+  %9 = load i8, ptr @output_isfile, align 1, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %OutputFsync.exit
 
@@ -1887,13 +1887,10 @@ attributes #17 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !6}

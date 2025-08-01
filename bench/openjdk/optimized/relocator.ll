@@ -332,7 +332,7 @@ _ZN26GrowableArrayWithAllocatorIP10ChangeItem13GrowableArrayIS1_EE4pushERKS1_.ex
   %61 = load ptr, ptr %16, align 8
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.loopexit, label %.lr.ph12.i, !llvm.loop !9
+  br i1 %63, label %.loopexit, label %.lr.ph12.i, !llvm.loop !8
 
 _ZN9Relocator19handle_code_changesEv.exit:        ; preds = %.lr.ph12.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -435,7 +435,7 @@ define hidden noundef zeroext i1 @_ZN9Relocator19handle_code_changesEv(ptr nound
   %27 = load ptr, ptr %2, align 8
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge13, label %.lr.ph12, !llvm.loop !9
+  br i1 %29, label %._crit_edge13, label %.lr.ph12, !llvm.loop !8
 
 ._crit_edge13:                                    ; preds = %.lr.ph12, %._crit_edge, %1
   %.lcssa8 = phi i1 [ true, %1 ], [ %12, %._crit_edge ], [ %12, %.lr.ph12 ]
@@ -529,7 +529,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.i, label %_ZN9Relocator19get_orig_switch_padEib.exit.thread, !llvm.loop !10
+  br i1 %34, label %.lr.ph.i, label %_ZN9Relocator19get_orig_switch_padEib.exit.thread, !llvm.loop !9
 
 _ZN9Relocator19get_orig_switch_padEib.exit:       ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -690,7 +690,7 @@ define hidden noundef i32 @_ZN9Relocator19get_orig_switch_padEib(ptr noundef non
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %29, %3, %26
   %.0 = phi i32 [ %28, %26 ], [ -1, %3 ], [ -1, %29 ]
@@ -711,7 +711,7 @@ define hidden void @_ZN9Relocator15push_jump_widenEiii(ptr noundef nonnull reado
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %4, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %4 ]
@@ -818,7 +818,7 @@ define hidden void @_ZN9Relocator11change_jumpEiibii(ptr noundef nonnull readonl
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %23, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %23 ]
@@ -1031,7 +1031,7 @@ define hidden void @_ZN9Relocator12change_jumpsEii(ptr noundef nonnull readonly 
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next.i, %55
-  br i1 %56, label %.lr.ph.i, label %_ZN9Relocator19get_orig_switch_padEib.exit.thread, !llvm.loop !10
+  br i1 %56, label %.lr.ph.i, label %_ZN9Relocator19get_orig_switch_padEib.exit.thread, !llvm.loop !9
 
 _ZN9Relocator19get_orig_switch_padEib.exit:       ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -1196,7 +1196,7 @@ _ZN9Relocator11change_jumpEiibii.exit88:          ; preds = %95, %110, %111
 _ZN9Relocator11change_jumpEiibii.exit96:          ; preds = %122, %138, %139
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %._crit_edge122, label %122, !llvm.loop !12
+  br i1 %exitcond133.not, label %._crit_edge122, label %122, !llvm.loop !11
 
 ._crit_edge122:                                   ; preds = %_ZN9Relocator11change_jumpEiibii.exit96, %_ZN9Relocator11change_jumpEiibii.exit88
   %140 = shl i32 %118, 2
@@ -1209,7 +1209,7 @@ _ZN9Relocator11change_jumpEiibii.exit96:          ; preds = %122, %138, %139
   %.074.be = phi i32 [ %194, %_ZN9Relocator11change_jumpEiibii.exit ], [ %143, %._crit_edge122 ], [ %190, %._crit_edge ]
   %144 = load i32, ptr %4, align 4
   %145 = icmp slt i32 %.074.be, %144
-  br i1 %145, label %9, label %._crit_edge126, !llvm.loop !13
+  br i1 %145, label %9, label %._crit_edge126, !llvm.loop !12
 
 146:                                              ; preds = %94, %94, %94
   %147 = add nsw i32 %.074123, 1
@@ -1293,7 +1293,7 @@ _ZN9Relocator11change_jumpEiibii.exit103:         ; preds = %146, %161, %162
 _ZN9Relocator11change_jumpEiibii.exit111:         ; preds = %169, %185, %186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %169, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %169, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN9Relocator11change_jumpEiibii.exit111, %_ZN9Relocator11change_jumpEiibii.exit103
   %187 = shl i32 %166, 3
@@ -1385,7 +1385,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %3
 39:                                               ; preds = %32, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %39, %3, %_ZN14ExceptionTableC2EPK6Method.exit
   ret void
@@ -1499,7 +1499,7 @@ _ZN21CompressedWriteStream10write_byteEa.exit.i.i: ; preds = %54, %50
 
 _ZN31CompressedLineNumberWriteStream10write_pairEii.exit: ; preds = %32, %_ZN21CompressedWriteStream10write_byteEa.exit.i.i, %60
   %61 = call noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20) %6) #10
-  br i1 %61, label %32, label %._crit_edge, !llvm.loop !16
+  br i1 %61, label %32, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN31CompressedLineNumberWriteStream10write_pairEii.exit, %24
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1591,7 +1591,7 @@ define hidden void @_ZN9Relocator22adjust_local_var_tableEii(ptr noundef nonnull
 32:                                               ; preds = %22, %30, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !16
 
 .loopexit:                                        ; preds = %32, %3
   ret void
@@ -2015,7 +2015,7 @@ _ZN22verification_type_info7set_bciEt.exit:       ; preds = %198, %197, %186, %.
   %200 = getelementptr inbounds nuw i8, ptr %.071141, i64 %..i.i.i
   %201 = add nuw nsw i32 %.070142, 1
   %exitcond.not = icmp eq i32 %201, %.0.i86113200
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %_ZN22verification_type_info7set_bciEt.exit
   %.pre166 = load i8, ptr %.168, align 1
@@ -2076,7 +2076,7 @@ _ZN22verification_type_info7set_bciEt.exit97:     ; preds = %221, %220, %209, %.
   %223 = getelementptr inbounds nuw i8, ptr %.172143, i64 %..i.i.i99
   %224 = add nuw nsw i32 %.0144, 1
   %exitcond163.not = icmp eq i32 %224, %205
-  br i1 %exitcond163.not, label %thread-pre-split.loopexit, label %.lr.ph146, !llvm.loop !19
+  br i1 %exitcond163.not, label %thread-pre-split.loopexit, label %.lr.ph146, !llvm.loop !18
 
 thread-pre-split.loopexit:                        ; preds = %_ZN22verification_type_info7set_bciEt.exit97
   %.pr.pre = load i8, ptr %.168, align 1
@@ -2145,7 +2145,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   %253 = getelementptr inbounds nuw i8, ptr %.078.i.i.i.i, i64 %..i.i.i.i.i.i
   %254 = add nuw nsw i32 %.010.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %.010.i.i.i.i, %249
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 255:                                              ; preds = %245
   %.not40.i.i = icmp eq i8 %225, -1
@@ -2176,7 +2176,7 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread211
   %264 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 %..i.i.i.i.i
   %265 = add nuw nsw i32 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %265, %259
-  br i1 %exitcond.not.i.i, label %.lr.ph.i4.preheader.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %.lr.ph.i4.preheader.i, label %.lr.ph.i.i, !llvm.loop !20
 
 .lr.ph.i4.preheader.i:                            ; preds = %.lr.ph.i.i
   %.0.i.i.i.i3.i = load i16, ptr %264, align 1
@@ -2208,7 +2208,7 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread211
   %273 = getelementptr inbounds nuw i8, ptr %.01523.i.i, i64 %..i.i.i.i
   %274 = add nuw nsw i32 %.01424.i.i, 1
   %exitcond.not.i5.i = icmp eq i32 %274, %259
-  br i1 %exitcond.not.i5.i, label %.preheader.i.i103.loopexit, label %.lr.ph.i4.i, !llvm.loop !22
+  br i1 %exitcond.not.i5.i, label %.preheader.i.i103.loopexit, label %.lr.ph.i4.i, !llvm.loop !21
 
 .lr.ph28.i.i:                                     ; preds = %.preheader.i.i103, %.lr.ph28.i.i
   %.027.i.i = phi i32 [ %279, %.lr.ph28.i.i ], [ 0, %.preheader.i.i103 ]
@@ -2222,7 +2222,7 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread211
   %278 = getelementptr inbounds nuw i8, ptr %.126.i.i, i64 %..i.i19.i.i
   %279 = add nuw nsw i32 %.027.i.i, 1
   %exitcond31.not.i.i = icmp eq i32 %279, %269
-  br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !23
+  br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !22
 
 _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %141, %142, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread, %.preheader.i.i103, %thread-pre-split, %227, %230, %236, %241, %255
   %.1180188225 = phi ptr [ %.1, %230 ], [ %.1, %236 ], [ %.1, %255 ], [ %.1, %thread-pre-split ], [ %.1, %227 ], [ %.1, %241 ], [ %.1, %.preheader.i.i103 ], [ %.066151, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %110, %142 ], [ %110, %141 ], [ %.1, %.lr.ph28.i.i ], [ %.1, %.lr.ph.i.i.i.i ]
@@ -2233,7 +2233,7 @@ _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.l
   %281 = getelementptr inbounds i8, ptr %.168179189222, i64 %.0.i.i
   %282 = add nuw nsw i32 %.076147, 1
   %exitcond165.not = icmp eq i32 %282, %22
-  br i1 %exitcond165.not, label %._crit_edge154, label %26, !llvm.loop !24
+  br i1 %exitcond165.not, label %._crit_edge154, label %26, !llvm.loop !23
 
 ._crit_edge154:                                   ; preds = %_ZNK15stack_map_frame4nextEv.exit, %14
   %.066.lcssa = phi ptr [ %19, %14 ], [ %.1180188225, %_ZNK15stack_map_frame4nextEv.exit ]
@@ -2561,7 +2561,7 @@ _ZN14ExceptionTableC2EPK6Method.exit.i:           ; preds = %44
 92:                                               ; preds = %90, %85
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN9Relocator22adjust_exception_tableEii.exit, label %68, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN9Relocator22adjust_exception_tableEii.exit, label %68, !llvm.loop !14
 
 _ZN9Relocator22adjust_exception_tableEii.exit:    ; preds = %92, %44, %_ZN14ExceptionTableC2EPK6Method.exit.i
   call void @_ZN9Relocator20adjust_line_no_tableEii(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %3)
@@ -2599,7 +2599,7 @@ _ZN10ChangeItem8relocateEii.exit:                 ; preds = %.lr.ph, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = sext i32 %108 to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN10ChangeItem8relocateEii.exit, %_ZN9Relocator22adjust_exception_tableEii.exit
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2646,7 +2646,7 @@ define hidden noundef zeroext i1 @_ZN9Relocator12handle_widenEiiPh(ptr noundef n
   store i8 %11, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %4
   ret i1 %7
@@ -3004,7 +3004,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ChangeWiden18handle_code_cha
   store i8 %15, ptr %18, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN9Relocator12handle_widenEiiPh.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZN9Relocator12handle_widenEiiPh.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN9Relocator12handle_widenEiiPh.exit:            ; preds = %.lr.ph.i, %2
   ret i1 %11
@@ -3178,7 +3178,7 @@ _ZN21CompressedWriteStream10write_byteEa.exit:    ; preds = %3, %8
   %29 = icmp ule i32 %16, %28
   %30 = icmp eq i32 %26, 4
   %or.cond.i.i.i.i.i = select i1 %29, i1 true, i1 %30
-  br i1 %or.cond.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
+  br i1 %or.cond.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i.i: ; preds = %._crit_edge.loopexit.i.i.i.i.i, %20
   %.0.lcssa.i.i.i.i.i = phi i32 [ 1, %20 ], [ %22, %._crit_edge.loopexit.i.i.i.i.i ]
@@ -3220,7 +3220,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i: ; preds = %32, %_ZN9U
   %44 = icmp ult i32 %40, 12224
   %45 = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
   %or.cond.i.i.i.i = select i1 %44, i1 true, i1 %45
-  br i1 %or.cond.i.i.i.i, label %37, label %.preheader.i.i.i.i, !llvm.loop !28
+  br i1 %or.cond.i.i.i.i, label %37, label %.preheader.i.i.i.i, !llvm.loop !27
 
 _ZN21CompressedWriteStream16write_signed_intEi.exit: ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i, %37
   %.lcssa.sink.i.i.i.i = phi i32 [ %43, %37 ], [ %16, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i ]
@@ -3261,7 +3261,7 @@ _ZN21CompressedWriteStream16write_signed_intEi.exit: ; preds = %_ZN9UNSIGNED513f
   %64 = icmp ule i32 %52, %63
   %65 = icmp eq i32 %61, 4
   %or.cond.i.i.i.i.i19 = select i1 %64, i1 true, i1 %65
-  br i1 %or.cond.i.i.i.i.i19, label %._crit_edge.loopexit.i.i.i.i.i20, label %.lr.ph.i.i.i.i.i15, !llvm.loop !27
+  br i1 %or.cond.i.i.i.i.i19, label %._crit_edge.loopexit.i.i.i.i.i20, label %.lr.ph.i.i.i.i.i15, !llvm.loop !26
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i.i21: ; preds = %._crit_edge.loopexit.i.i.i.i.i20, %55
   %.0.lcssa.i.i.i.i.i22 = phi i32 [ 1, %55 ], [ %57, %._crit_edge.loopexit.i.i.i.i.i20 ]
@@ -3303,7 +3303,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i3: ; preds = %67, %_ZN9
   %79 = icmp ult i32 %75, 12224
   %80 = icmp eq i64 %indvars.iv.next.i.i.i.i10, 4
   %or.cond.i.i.i.i11 = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.i.i.i.i11, label %72, label %.preheader.i.i.i.i6, !llvm.loop !28
+  br i1 %or.cond.i.i.i.i11, label %72, label %.preheader.i.i.i.i6, !llvm.loop !27
 
 _ZN21CompressedWriteStream16write_signed_intEi.exit25: ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i3, %72
   %.lcssa.sink.i.i.i.i12 = phi i32 [ %78, %72 ], [ %52, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i.i3 ]
@@ -3397,7 +3397,7 @@ _ZN13GrowableArrayIP10ChangeItemE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !29
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3413,7 +3413,7 @@ _ZN13GrowableArrayIP10ChangeItemE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !30
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3476,28 +3476,27 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

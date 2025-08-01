@@ -160,7 +160,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN8proxygen16ByteE
   %10 = load ptr, ptr %it.sroa.0.07.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i, i8 0, i64 16, i1 false)
   %cmp.i.not.i.i.i.i = icmp eq ptr %10, %m_header.i.i
-  br i1 %cmp.i.not.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !7
+  br i1 %cmp.i.not.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !6
 
 _ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit: ; preds = %while.body.i.i.i.i, %_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit
   %byteEvents_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -435,7 +435,7 @@ cleanup.done68:                                   ; preds = %cond.true46, %cond.
   %tobool.not.i = icmp eq ptr %20, null
   %cmp.i = icmp eq ptr %20, %m_header.i143
   %21 = or i1 %tobool.not.i, %cmp.i
-  br i1 %21, label %while.end73, label %land.rhs, !llvm.loop !8
+  br i1 %21, label %while.end73, label %land.rhs, !llvm.loop !7
 
 lpad57:                                           ; preds = %invoke.cont60, %invoke.cont58, %cond.false53
   %22 = landingpad { ptr, i32 }
@@ -1065,7 +1065,7 @@ cleanup.done51:                                   ; preds = %cond.true, %cond.en
   %13 = load ptr, ptr %prev_.i.i574, align 8
   %14 = load ptr, ptr %m_header.i.i204, align 8
   %cmp.i.not = icmp eq ptr %13, %14
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !8
 
 lpad:                                             ; preds = %invoke.cont17, %invoke.cont13, %invoke.cont, %cond.false9
   %15 = landingpad { ptr, i32 }
@@ -1258,7 +1258,7 @@ _ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %cmp.i85.not, label %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, label %while.body
 
 _ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge: ; preds = %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %.pre115 = load ptr, ptr %prev_.i.i590, align 8, !noalias !10
+  %.pre115 = load ptr, ptr %prev_.i.i590, align 8, !noalias !9
   br label %while.end
 
 while.body:                                       ; preds = %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -1280,10 +1280,10 @@ while.end:                                        ; preds = %if.else89, %_ZN6goo
   %41 = phi ptr [ %.pre115, %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %37, %if.else89 ]
   %memptr.offset.i.i86 = getelementptr inbounds nuw i8, ptr %call64, i64 8
   %prev_.i6.i.i88 = getelementptr inbounds nuw i8, ptr %call64, i64 16
-  store ptr %41, ptr %prev_.i6.i.i88, align 8, !noalias !10
-  store ptr %36, ptr %memptr.offset.i.i86, align 8, !noalias !10
-  store ptr %memptr.offset.i.i86, ptr %prev_.i.i590, align 8, !noalias !10
-  store ptr %memptr.offset.i.i86, ptr %41, align 8, !noalias !10
+  store ptr %41, ptr %prev_.i6.i.i88, align 8, !noalias !9
+  store ptr %36, ptr %memptr.offset.i.i86, align 8, !noalias !9
+  store ptr %memptr.offset.i.i86, ptr %prev_.i.i590, align 8, !noalias !9
+  store ptr %memptr.offset.i.i86, ptr %41, align 8, !noalias !9
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then87, %while.end, %if.then81
@@ -2086,12 +2086,11 @@ attributes #17 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_: %agg.result"}
-!12 = distinct !{!12, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_: %agg.result"}
+!11 = distinct !{!11, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_"}

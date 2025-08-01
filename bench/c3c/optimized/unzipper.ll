@@ -385,7 +385,7 @@ define dso_local noundef ptr @zip_file_read(ptr noundef captures(none) %0, ptr n
   %67 = icmp ne i64 %62, 0
   %68 = icmp ne i32 %63, 0
   %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %48, label %._crit_edge, !llvm.loop !10
+  br i1 %69, label %48, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %57, %60, %38
   %70 = call i32 @mz_inflateEnd(ptr noundef nonnull %6) #7
@@ -506,7 +506,7 @@ define dso_local noundef ptr @zip_file_write(ptr noundef captures(none) %0, ptr 
 52:                                               ; preds = %.split
   %53 = call i64 @fwrite(ptr noundef nonnull @internal_buffer, i64 noundef 1, i64 noundef %47, ptr noundef nonnull %39)
   %.not88 = icmp eq i64 %53, %47
-  br i1 %.not88, label %.split, label %54, !llvm.loop !11
+  br i1 %.not88, label %.split, label %54, !llvm.loop !10
 
 54:                                               ; preds = %52
   %55 = call i32 @fclose(ptr noundef nonnull %39)
@@ -602,14 +602,14 @@ define dso_local noundef ptr @zip_file_write(ptr noundef captures(none) %0, ptr 
   %94 = load i32, ptr %61, align 8
   %95 = icmp ne i32 %94, 0
   %or.cond = select i1 %.not, i1 %95, i1 false
-  br i1 %or.cond, label %76, label %96, !llvm.loop !12
+  br i1 %or.cond, label %76, label %96, !llvm.loop !11
 
 96:                                               ; preds = %93
   %97 = load i64, ptr %59, align 8
   %98 = load i64, ptr %64, align 8
   %99 = sub i64 %97, %98
   %.not83 = icmp eq i64 %99, 0
-  br i1 %.not83, label %._crit_edge, label %65, !llvm.loop !13
+  br i1 %.not83, label %._crit_edge, label %65, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %96, %58
   %100 = call i32 @fclose(ptr noundef nonnull %39)
@@ -662,10 +662,9 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

@@ -1471,9 +1471,9 @@ define range(i32 -1, 1) i32 @H5ESregister_insert_func(i64 noundef %0, ptr nounde
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %1, ptr %53, align 8, !tbaa !32
+  store ptr %1, ptr %53, align 8, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %2, ptr %54, align 8, !tbaa !33
+  store ptr %2, ptr %54, align 8, !tbaa !32
   br label %56
 
 .thread37:                                        ; preds = %48, %42
@@ -1581,9 +1581,9 @@ define range(i32 -1, 1) i32 @H5ESregister_complete_func(i64 noundef %0, ptr noun
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %1, ptr %53, align 8, !tbaa !34
+  store ptr %1, ptr %53, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store ptr %2, ptr %54, align 8, !tbaa !35
+  store ptr %2, ptr %54, align 8, !tbaa !34
   br label %56
 
 .thread37:                                        ; preds = %48, %42
@@ -1671,7 +1671,7 @@ define range(i32 -1, 1) i32 @H5ESclose(i64 noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %35
   %38 = call i32 @H5I_get_type(i64 noundef %0) #4
   %.not14 = icmp eq i32 %38, 16
-  br i1 %.not14, label %43, label %39, !prof !36
+  br i1 %.not14, label %43, label %39, !prof !35
 
 39:                                               ; preds = %37
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1747,11 +1747,10 @@ attributes #4 = { nounwind }
 !26 = !{!22, !23, i64 16}
 !27 = !{!22, !23, i64 24}
 !28 = !{!22, !12, i64 72}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!16, !17, i64 8}
-!33 = !{!16, !17, i64 16}
-!34 = !{!16, !17, i64 24}
-!35 = !{!16, !17, i64 32}
-!36 = !{!"branch_weights", i32 -2147483648, i32 0}
+!31 = !{!16, !17, i64 8}
+!32 = !{!16, !17, i64 16}
+!33 = !{!16, !17, i64 24}
+!34 = !{!16, !17, i64 32}
+!35 = !{!"branch_weights", i32 -2147483648, i32 0}

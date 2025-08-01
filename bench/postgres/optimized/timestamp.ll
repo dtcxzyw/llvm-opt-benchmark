@@ -720,7 +720,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %93, ptr %4, align 4
   %94 = load i8, ptr %92, align 1
   %.not246 = icmp eq i8 %94, 0
-  br i1 %.not246, label %._crit_edge307, label %89, !llvm.loop !7
+  br i1 %.not246, label %._crit_edge307, label %89, !llvm.loop !6
 
 ._crit_edge307:                                   ; preds = %89, %.preheader259
   %95 = load i32, ptr %9, align 8
@@ -759,7 +759,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %110, ptr %4, align 4
   %111 = load i8, ptr %109, align 1
   %.not244 = icmp eq i8 %111, 0
-  br i1 %.not244, label %._crit_edge302, label %106, !llvm.loop !8
+  br i1 %.not244, label %._crit_edge302, label %106, !llvm.loop !7
 
 ._crit_edge302:                                   ; preds = %106, %.preheader260
   %112 = load i32, ptr %9, align 8
@@ -933,7 +933,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %194, ptr %4, align 4
   %195 = load i8, ptr %193, align 1
   %.not240 = icmp eq i8 %195, 0
-  br i1 %.not240, label %._crit_edge297, label %190, !llvm.loop !9
+  br i1 %.not240, label %._crit_edge297, label %190, !llvm.loop !8
 
 ._crit_edge297:                                   ; preds = %190, %.preheader261
   %196 = load i32, ptr %9, align 8
@@ -969,7 +969,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %209, ptr %4, align 4
   %210 = load i8, ptr %208, align 1
   %.not238 = icmp eq i8 %210, 0
-  br i1 %.not238, label %.loopexit, label %205, !llvm.loop !10
+  br i1 %.not238, label %.loopexit, label %205, !llvm.loop !9
 
 211:                                              ; preds = %22
   %212 = ptrtoint ptr %.sroa.0.0 to i64
@@ -1009,7 +1009,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %228, ptr %4, align 4
   %229 = load i8, ptr %227, align 1
   %.not237 = icmp eq i8 %229, 0
-  br i1 %.not237, label %._crit_edge288, label %224, !llvm.loop !11
+  br i1 %.not237, label %._crit_edge288, label %224, !llvm.loop !10
 
 ._crit_edge288:                                   ; preds = %224, %.preheader263
   %230 = load i32, ptr %9, align 8
@@ -1048,7 +1048,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %245, ptr %4, align 4
   %246 = load i8, ptr %244, align 1
   %.not235 = icmp eq i8 %246, 0
-  br i1 %.not235, label %._crit_edge283, label %241, !llvm.loop !12
+  br i1 %.not235, label %._crit_edge283, label %241, !llvm.loop !11
 
 ._crit_edge283:                                   ; preds = %241, %.preheader264
   %247 = load i32, ptr %9, align 8
@@ -1087,7 +1087,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %263, ptr %4, align 4
   %264 = load i8, ptr %262, align 1
   %.not234 = icmp eq i8 %264, 0
-  br i1 %.not234, label %._crit_edge278, label %259, !llvm.loop !13
+  br i1 %.not234, label %._crit_edge278, label %259, !llvm.loop !12
 
 ._crit_edge278:                                   ; preds = %259, %.preheader265
   %265 = load i32, ptr %9, align 8
@@ -1145,7 +1145,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %290, ptr %4, align 4
   %291 = load i8, ptr %289, align 1
   %.not233 = icmp eq i8 %291, 0
-  br i1 %.not233, label %._crit_edge273, label %286, !llvm.loop !14
+  br i1 %.not233, label %._crit_edge273, label %286, !llvm.loop !13
 
 ._crit_edge273:                                   ; preds = %286, %.preheader266
   %292 = load i32, ptr %9, align 8
@@ -1184,7 +1184,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   store i32 %308, ptr %4, align 4
   %309 = load i8, ptr %307, align 1
   %.not232 = icmp eq i8 %309, 0
-  br i1 %.not232, label %._crit_edge, label %304, !llvm.loop !15
+  br i1 %.not232, label %._crit_edge, label %304, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %304, %.preheader267
   %310 = load i32, ptr %9, align 8
@@ -1261,7 +1261,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %.2225 = phi ptr [ %.1224, %.loopexit ], [ %.0223, %336 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.1, %.loopexit ], [ %.sroa.0.0, %336 ]
   %343 = getelementptr inbounds nuw i8, ptr %.2225, i64 1
-  br label %20, !llvm.loop !16
+  br label %20, !llvm.loop !15
 
 .critedge252:                                     ; preds = %232, %198, %97, %80, %20, %333, %.loopexit, %315, %22, %294, %276, %249, %214, %180, %174, %156, %153, %50, %79, %331
   %.2 = phi i32 [ -1, %331 ], [ -1, %79 ], [ -1, %232 ], [ -1, %198 ], [ -1, %97 ], [ -1, %80 ], [ 0, %20 ], [ -1, %333 ], [ %332, %.loopexit ], [ -1, %315 ], [ -1, %22 ], [ -1, %294 ], [ -1, %276 ], [ -1, %249 ], [ -1, %214 ], [ -1, %180 ], [ %176, %174 ], [ %158, %156 ], [ %155, %153 ], [ %52, %50 ]
@@ -1531,7 +1531,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %111 = add i64 %110, -9223371331200000000
   %or.cond.i = icmp ult i64 %111, 9011559254509551616
   %or.cond57.not = or i1 %or.cond.i, %109
-  br i1 %or.cond57.not, label %.thread49, label %112, !prof !17
+  br i1 %or.cond57.not, label %.thread49, label %112, !prof !16
 
 .thread49:                                        ; preds = %10, %84, %79, %99, %.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
@@ -1617,17 +1617,16 @@ attributes #12 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = !{!"branch_weights", i32 2002, i32 2000}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = !{!"branch_weights", i32 2002, i32 2000}

@@ -128,7 +128,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
 
 .preheader179.outer.backedge:                     ; preds = %36, %63, %73, %83, %100, %117
   %.279.ph.be = phi ptr [ %118, %117 ], [ %101, %100 ], [ %84, %83 ], [ %74, %73 ], [ %64, %63 ], [ %37, %36 ]
-  br label %.preheader179.outer, !llvm.loop !19
+  br label %.preheader179.outer
 
 .preheader179.outer:                              ; preds = %.preheader180, %.preheader179.outer.backedge
   %.279.ph = phi ptr [ %.279.ph.be, %.preheader179.outer.backedge ], [ %17, %.preheader180 ]
@@ -177,7 +177,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %68, label %69, label %76
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr %54, align 8, !tbaa !21
+  %70 = load ptr, ptr %54, align 8, !tbaa !19
   %.not110 = icmp eq ptr %70, null
   br i1 %.not110, label %.thread, label %71
 
@@ -197,7 +197,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %78, label %79, label %93
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr %47, align 8, !tbaa !22
+  %80 = load ptr, ptr %47, align 8, !tbaa !20
   %.not108 = icmp eq ptr %80, null
   br i1 %.not108, label %86, label %81
 
@@ -212,10 +212,10 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %85, label %.preheader, label %.preheader179.outer.backedge
 
 86:                                               ; preds = %79
-  store ptr null, ptr %49, align 8, !tbaa !23
-  store i32 0, ptr %50, align 8, !tbaa !24
+  store ptr null, ptr %49, align 8, !tbaa !21
+  store i32 0, ptr %50, align 8, !tbaa !22
   %87 = call ptr @X509_PKEY_new() #5
-  store ptr %87, ptr %48, align 8, !tbaa !22
+  store ptr %87, ptr %48, align 8, !tbaa !20
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %6, align 8, !tbaa !6
   %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #6
@@ -229,7 +229,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %95, label %96, label %110
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %43, align 8, !tbaa !22
+  %97 = load ptr, ptr %43, align 8, !tbaa !20
   %.not106 = icmp eq ptr %97, null
   br i1 %.not106, label %103, label %98
 
@@ -244,10 +244,10 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %102, label %.preheader, label %.preheader179.outer.backedge
 
 103:                                              ; preds = %96
-  store ptr null, ptr %45, align 8, !tbaa !23
-  store i32 0, ptr %46, align 8, !tbaa !24
+  store ptr null, ptr %45, align 8, !tbaa !21
+  store i32 0, ptr %46, align 8, !tbaa !22
   %104 = call ptr @X509_PKEY_new() #5
-  store ptr %104, ptr %44, align 8, !tbaa !22
+  store ptr %104, ptr %44, align 8, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %6, align 8, !tbaa !6
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #6
@@ -261,7 +261,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %112, label %113, label %.critedge
 
 113:                                              ; preds = %110
-  %114 = load ptr, ptr %39, align 8, !tbaa !22
+  %114 = load ptr, ptr %39, align 8, !tbaa !20
   %.not = icmp eq ptr %114, null
   br i1 %.not, label %120, label %115
 
@@ -276,10 +276,10 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %119, label %.preheader, label %.preheader179.outer.backedge
 
 120:                                              ; preds = %113
-  store ptr null, ptr %41, align 8, !tbaa !23
-  store i32 0, ptr %42, align 8, !tbaa !24
+  store ptr null, ptr %41, align 8, !tbaa !21
+  store i32 0, ptr %42, align 8, !tbaa !22
   %121 = call ptr @X509_PKEY_new() #5
-  store ptr %121, ptr %40, align 8, !tbaa !22
+  store ptr %121, ptr %40, align 8, !tbaa !20
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %6, align 8, !tbaa !6
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #6
@@ -307,7 +307,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
 132:                                              ; preds = %129
   %133 = load ptr, ptr %7, align 8, !tbaa !6
   store ptr %133, ptr %8, align 8, !tbaa !6
-  %134 = load i64, ptr %9, align 8, !tbaa !25
+  %134 = load i64, ptr %9, align 8, !tbaa !23
   br i1 %.not119148, label %137, label %135
 
 135:                                              ; preds = %132
@@ -341,10 +341,10 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
 
 144:                                              ; preds = %141
   %145 = load ptr, ptr %7, align 8, !tbaa !6
-  store ptr %145, ptr %52, align 8, !tbaa !23
-  %146 = load i64, ptr %9, align 8, !tbaa !25
+  store ptr %145, ptr %52, align 8, !tbaa !21
+  %146 = load i64, ptr %9, align 8, !tbaa !23
   %147 = trunc i64 %146 to i32
-  store i32 %147, ptr %53, align 8, !tbaa !24
+  store i32 %147, ptr %53, align 8, !tbaa !22
   store ptr null, ptr %7, align 8, !tbaa !6
   br label %.critedge
 
@@ -381,23 +381,23 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   store ptr null, ptr %7, align 8, !tbaa !6
   %157 = call i32 @PEM_read_bio(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9) #5
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %._crit_edge, label %.preheader179, !llvm.loop !27
+  br i1 %158, label %._crit_edge, label %.preheader179
 
 159:                                              ; preds = %24
   %160 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 8
-  %161 = load ptr, ptr %160, align 8, !tbaa !21
+  %161 = load ptr, ptr %160, align 8, !tbaa !19
   %.not127 = icmp eq ptr %161, null
   br i1 %.not127, label %162, label %168
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 16
-  %164 = load ptr, ptr %163, align 8, !tbaa !22
+  %164 = load ptr, ptr %163, align 8, !tbaa !20
   %.not128 = icmp eq ptr %164, null
   br i1 %.not128, label %165, label %168
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 56
-  %167 = load ptr, ptr %166, align 8, !tbaa !23
+  %167 = load ptr, ptr %166, align 8, !tbaa !21
   %.not129 = icmp eq ptr %167, null
   br i1 %.not129, label %.thread156.thread, label %168
 
@@ -430,7 +430,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   %174 = zext i32 %173 to i64
   %175 = call i64 @sk_num(ptr noundef %.074165173.ph) #5
   %176 = icmp ugt i64 %175, %174
-  br i1 %176, label %.lr.ph, label %._crit_edge216, !llvm.loop !28
+  br i1 %176, label %.lr.ph, label %._crit_edge216, !llvm.loop !25
 
 ._crit_edge216:                                   ; preds = %.lr.ph, %.preheader
   %.not133 = icmp eq ptr %.074165173.ph, %1
@@ -554,19 +554,19 @@ define hidden range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr n
 16:                                               ; preds = %10, %7
   %.0 = phi i32 [ %11, %10 ], [ 0, %7 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
   %.not36 = icmp eq ptr %18, null
   br i1 %.not36, label %47, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
   %.not37 = icmp eq ptr %21, null
   br i1 %.not37, label %40, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %24 = load i32, ptr %23, align 8, !tbaa !24
+  %24 = load i32, ptr %23, align 8, !tbaa !22
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %40
 
@@ -579,7 +579,7 @@ define hidden range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr n
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !30
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = tail call i32 @EVP_CIPHER_nid(ptr noundef %30) #5
   %32 = tail call ptr @OBJ_nid2sn(i32 noundef %31) #5
   %33 = icmp eq ptr %32, null
@@ -591,7 +591,7 @@ define hidden range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr n
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 0, ptr %9, align 16, !tbaa !31
+  store i8 0, ptr %9, align 16, !tbaa !28
   call void @PEM_proc_type(ptr noundef nonnull %9, i32 noundef 10) #5
   call void @PEM_dek_info(ptr noundef nonnull %9, ptr noundef nonnull %32, i32 noundef %.0, ptr noundef nonnull %36) #5
   %37 = zext nneg i32 %24 to i64
@@ -601,9 +601,9 @@ define hidden range(i32 0, 2) i32 @PEM_X509_INFO_write_bio(ptr noundef %0, ptr n
 
 40:                                               ; preds = %22, %19
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !31
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
   %45 = tail call i32 @PEM_write_bio_RSAPrivateKey(ptr noundef %0, ptr noundef %44, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #5
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %53, label %47
@@ -677,21 +677,18 @@ attributes #6 = { nounwind willreturn memory(read) }
 !16 = !{!"evp_cipher_info_st", !17, i64 0, !9, i64 8}
 !17 = !{!"p1 _ZTS13evp_cipher_st", !8, i64 0}
 !18 = !{!"int", !9, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!12, !14, i64 8}
-!22 = !{!12, !15, i64 16}
-!23 = !{!12, !7, i64 56}
-!24 = !{!12, !18, i64 48}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"long", !9, i64 0}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !29, !20}
-!29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!12, !17, i64 24}
-!31 = !{!9, !9, i64 0}
-!32 = !{!33, !36, i64 24}
-!33 = !{!"private_key_st", !18, i64 0, !34, i64 8, !35, i64 16, !36, i64 24, !18, i64 32, !7, i64 40, !18, i64 48, !16, i64 56}
-!34 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
-!35 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
-!36 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!19 = !{!12, !14, i64 8}
+!20 = !{!12, !15, i64 16}
+!21 = !{!12, !7, i64 56}
+!22 = !{!12, !18, i64 48}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !9, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!12, !17, i64 24}
+!28 = !{!9, !9, i64 0}
+!29 = !{!30, !33, i64 24}
+!30 = !{!"private_key_st", !18, i64 0, !31, i64 8, !32, i64 16, !33, i64 24, !18, i64 32, !7, i64 40, !18, i64 48, !16, i64 56}
+!31 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
+!32 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!33 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}

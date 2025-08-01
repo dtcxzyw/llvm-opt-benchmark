@@ -49,18 +49,18 @@ define internal void @atrac_generate_tables() #2 {
   store float %11, ptr %14, align 4, !tbaa !4
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 24
-  br i1 %exitcond16.not, label %8, label %.preheader, !llvm.loop !11
+  br i1 %exitcond16.not, label %8, label %.preheader, !llvm.loop !10
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(argmem: write) uwtable
 define void @ff_atrac_init_gain_compensation(ptr noundef writeonly captures(none) initializes((188, 200)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %2, ptr %4, align 4, !tbaa !12
+  store i32 %2, ptr %4, align 4, !tbaa !11
   %5 = shl nuw i32 1, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 %5, ptr %6, align 4, !tbaa !15
+  store i32 %5, ptr %6, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i32 %1, ptr %7, align 4, !tbaa !16
+  store i32 %1, ptr %7, align 4, !tbaa !15
   br label %11
 
 .preheader:                                       ; preds = %11
@@ -78,7 +78,7 @@ define void @ff_atrac_init_gain_compensation(ptr noundef writeonly captures(none
   store float %exp217, ptr %14, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !16
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv21 = phi i64 [ -15, %.preheader ], [ %indvars.iv.next22, %15 ]
@@ -91,7 +91,7 @@ define void @ff_atrac_init_gain_compensation(ptr noundef writeonly captures(none
   store float %exp2, ptr %20, align 4, !tbaa !4
   %indvars.iv.next22 = add nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %21, label %15, !llvm.loop !18
+  br i1 %exitcond24.not, label %21, label %15, !llvm.loop !17
 
 21:                                               ; preds = %15
   ret void
@@ -99,13 +99,13 @@ define void @ff_atrac_init_gain_compensation(ptr noundef writeonly captures(none
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
-  %8 = load i32, ptr %4, align 4, !tbaa !19
+  %8 = load i32, ptr %4, align 4, !tbaa !18
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [16 x float], ptr %0, i64 0, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !4
@@ -113,7 +113,7 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
 
 15:                                               ; preds = %7, %9
   %16 = phi nsz float [ %14, %9 ], [ 1.000000e+00, %7 ]
-  %17 = load i32, ptr %3, align 4, !tbaa !19
+  %17 = load i32, ptr %3, align 4, !tbaa !18
   %.not73 = icmp eq i32 %17, 0
   br i1 %.not73, label %.preheader, label %.preheader78
 
@@ -124,12 +124,12 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
 .lr.ph86:                                         ; preds = %.preheader78
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %21 = load i32, ptr %20, align 4, !tbaa !12
+  %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %26 = load i32, ptr %25, align 4, !tbaa !15
+  %26 = load i32, ptr %25, align 4, !tbaa !14
   %27 = zext nneg i32 %17 to i64
   %wide.trip.count102 = zext nneg i32 %17 to i64
   br label %37
@@ -153,12 +153,12 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   store float %33, ptr %34, align 4, !tbaa !4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph91, !llvm.loop !22
+  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph91, !llvm.loop !21
 
 .loopexit77:                                      ; preds = %.lr.ph82, %.preheader76
   %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader76 ], [ %55, %.lr.ph82 ]
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %.preheader74, label %37, !llvm.loop !23
+  br i1 %exitcond103.not, label %.preheader74, label %37, !llvm.loop !22
 
 .preheader74:                                     ; preds = %.loopexit77, %.preheader78
   %.1.lcssa = phi i32 [ 0, %.preheader78 ], [ %.3.lcssa, %.loopexit77 ]
@@ -174,10 +174,10 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   %indvars.iv99 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next100, %.loopexit77 ]
   %.185 = phi i32 [ 0, %.lr.ph86 ], [ %.3.lcssa, %.loopexit77 ]
   %38 = getelementptr inbounds nuw [7 x i32], ptr %19, i64 0, i64 %indvars.iv99
-  %39 = load i32, ptr %38, align 4, !tbaa !21
+  %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = shl i32 %39, %21
   %41 = getelementptr inbounds nuw [7 x i32], ptr %22, i64 0, i64 %indvars.iv99
-  %42 = load i32, ptr %41, align 4, !tbaa !21
+  %42 = load i32, ptr %41, align 4, !tbaa !20
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [16 x float], ptr %0, i64 0, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !4
@@ -185,7 +185,7 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   %46 = icmp samesign ult i64 %indvars.iv.next100, %27
   %47 = getelementptr inbounds nuw [7 x i32], ptr %22, i64 0, i64 %indvars.iv.next100
   %.in = select i1 %46, ptr %47, ptr %24
-  %48 = load i32, ptr %.in, align 4, !tbaa !21
+  %48 = load i32, ptr %.in, align 4, !tbaa !20
   %reass.sub = sub i32 %48, %42
   %49 = add i32 %reass.sub, 15
   %50 = sext i32 %49 to i64
@@ -222,7 +222,7 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   store float %64, ptr %65, align 4, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader76, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader76, label %.lr.ph, !llvm.loop !23
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv95 = phi i64 [ %57, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
@@ -238,7 +238,7 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   %73 = fmul nsz float %52, %.081
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, %58
-  br i1 %exitcond98.not, label %.loopexit77, label %.lr.ph82, !llvm.loop !25
+  br i1 %exitcond98.not, label %.loopexit77, label %.lr.ph82, !llvm.loop !24
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv104 = phi i64 [ %36, %.lr.ph89.preheader ], [ %indvars.iv.next105, %.lr.ph89 ]
@@ -251,7 +251,7 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   store float %78, ptr %79, align 4, !tbaa !4
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph89, !llvm.loop !26
+  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph89, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph89, %.lr.ph91, %.preheader74, %.preheader
   %80 = sext i32 %5 to i64
@@ -308,7 +308,7 @@ define void @ff_atrac_iqmf(ptr noundef readonly captures(none) %0, ptr noundef r
   store float %28, ptr %29, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %30 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %30, label %.lr.ph, label %.preheader, !llvm.loop !27
+  br i1 %30, label %.lr.ph, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph, %44
   %.05366 = phi ptr [ %47, %44 ], [ %3, %.lr.ph ]
@@ -333,7 +333,7 @@ define void @ff_atrac_iqmf(ptr noundef readonly captures(none) %0, ptr noundef r
   %42 = tail call nsz float @llvm.fmuladd.f32(float %39, float %41, float %.062)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 2
   %43 = icmp samesign ult i64 %indvars.iv70, 46
-  br i1 %43, label %31, label %44, !llvm.loop !28
+  br i1 %43, label %31, label %44, !llvm.loop !27
 
 44:                                               ; preds = %31
   store float %42, ptr %.05366, align 4, !tbaa !4
@@ -343,7 +343,7 @@ define void @ff_atrac_iqmf(ptr noundef readonly captures(none) %0, ptr noundef r
   %47 = getelementptr inbounds nuw i8, ptr %.05366, i64 8
   %48 = add nsw i32 %.05564, -1
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %44, %6
   %49 = shl i32 %2, 1
@@ -382,25 +382,24 @@ attributes #8 = { nounwind }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !14, i64 192}
-!13 = !{!"AtracGCContext", !6, i64 0, !6, i64 64, !14, i64 188, !14, i64 192, !14, i64 196}
-!14 = !{!"int", !6, i64 0}
-!15 = !{!13, !14, i64 196}
-!16 = !{!13, !14, i64 188}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = !{!20, !14, i64 0}
-!20 = !{!"AtracGainInfo", !14, i64 0, !6, i64 4, !6, i64 32}
-!21 = !{!14, !14, i64 0}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !13, i64 192}
+!12 = !{!"AtracGCContext", !6, i64 0, !6, i64 64, !13, i64 188, !13, i64 192, !13, i64 196}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!12, !13, i64 196}
+!15 = !{!12, !13, i64 188}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = !{!19, !13, i64 0}
+!19 = !{!"AtracGainInfo", !13, i64 0, !6, i64 4, !6, i64 32}
+!20 = !{!13, !13, i64 0}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}

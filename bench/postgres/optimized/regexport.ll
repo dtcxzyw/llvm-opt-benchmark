@@ -301,7 +301,7 @@ define dso_local void @pg_reg_getcharacters(ptr noundef readonly captures(none) 
   %.1 = phi ptr [ %28, %27 ], [ %.01523, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !6
 
 .loopexit:                                        ; preds = %32, %27, %14, %4, %8
   ret void
@@ -322,7 +322,6 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

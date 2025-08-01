@@ -727,7 +727,7 @@ define internal i32 @test_des_cfb64() #0 {
 4:                                                ; preds = %0
   %5 = call i32 @DES_set_key_checked(ptr noundef nonnull @cfb_key, ptr noundef nonnull %1) #6
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   call void @DES_cfb64_encrypt(ptr noundef nonnull @plain, ptr noundef nonnull @cfb_buf1, i64 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 1) #6
   call void @DES_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plain, i64 12), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 12), i64 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 1) #6
   %6 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 568, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.47, ptr noundef nonnull @cfb_cipher64, i64 noundef 24, ptr noundef nonnull @cfb_buf1, i64 noundef 24) #6
@@ -736,7 +736,7 @@ define internal i32 @test_des_cfb64() #0 {
 
 7:                                                ; preds = %4
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   call void @DES_cfb64_encrypt(ptr noundef nonnull @cfb_buf1, ptr noundef nonnull @cfb_buf2, i64 noundef 17, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 0) #6
   call void @DES_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 17), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf2, i64 17), i64 noundef 7, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 0) #6
   %8 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 575, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @cfb_buf2, i64 noundef 24) #6
@@ -754,7 +754,7 @@ define internal i32 @test_des_cfb64() #0 {
   call void @DES_cfb_encrypt(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 8, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, i32 noundef 1) #6
   %13 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %13, 24
-  br i1 %exitcond.not, label %14, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %14, label %10, !llvm.loop !11
 
 14:                                               ; preds = %10
   %15 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 582, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.47, ptr noundef nonnull @cfb_cipher8, i64 noundef 24, ptr noundef nonnull @cfb_buf1, i64 noundef 24) #6
@@ -772,7 +772,7 @@ define internal i32 @test_des_cfb64() #0 {
   call void @DES_cfb_encrypt(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef 8, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, i32 noundef 0) #6
   %20 = add nuw nsw i64 %.114, 1
   %exitcond15.not = icmp eq i64 %20, 24
-  br i1 %exitcond15.not, label %21, label %17, !llvm.loop !13
+  br i1 %exitcond15.not, label %21, label %17, !llvm.loop !12
 
 21:                                               ; preds = %17
   %22 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 589, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @cfb_buf2, i64 noundef 24) #6
@@ -793,7 +793,7 @@ define internal i32 @test_des_ede_cfb64() #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   %3 = call i32 @DES_set_key_checked(ptr noundef nonnull @cfb_key, ptr noundef nonnull %1) #6
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull @plain, ptr noundef nonnull @cfb_buf1, i64 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 1) #6
   call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plain, i64 12), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 12), i64 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 1) #6
   %4 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 604, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.47, ptr noundef nonnull @cfb_cipher64, i64 noundef 24, ptr noundef nonnull @cfb_buf1, i64 noundef 24) #6
@@ -802,7 +802,7 @@ define internal i32 @test_des_ede_cfb64() #0 {
 
 5:                                                ; preds = %0
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull @cfb_buf1, ptr noundef nonnull @cfb_buf2, i64 noundef 17, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 0) #6
   call void @DES_ede3_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf1, i64 17), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfb_buf2, i64 17), i64 noundef 7, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, ptr noundef nonnull %2, i32 noundef 0) #6
   %6 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 612, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @cfb_buf2, i64 noundef 24) #6
@@ -848,7 +848,7 @@ define internal i32 @test_des_ofb64() #0 {
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @ofb_buf1, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @ofb_buf2, i8 0, i64 24, i1 false)
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   br label %4
 
 4:                                                ; preds = %0, %4
@@ -858,7 +858,7 @@ define internal i32 @test_des_ofb64() #0 {
   call void @DES_ofb64_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp, ptr noundef nonnull %2) #6
   %7 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %7, 24
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !14
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !13
 
 8:                                                ; preds = %4
   %9 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 645, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull @ofb_cipher, i64 noundef 24, ptr noundef nonnull @ofb_buf1, i64 noundef 24) #6
@@ -867,7 +867,7 @@ define internal i32 @test_des_ofb64() #0 {
 
 10:                                               ; preds = %8
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   call void @DES_ofb64_encrypt(ptr noundef nonnull @ofb_buf1, ptr noundef nonnull @ofb_buf2, i64 noundef 24, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp, ptr noundef nonnull %2) #6
   %11 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 651, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.54, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @ofb_buf2, i64 noundef 24) #6
   br label %12
@@ -889,7 +889,7 @@ define internal i32 @test_des_ede_ofb64() #0 {
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @ofb_buf1, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @ofb_buf2, i8 0, i64 24, i1 false)
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   br label %4
 
 4:                                                ; preds = %0, %4
@@ -899,7 +899,7 @@ define internal i32 @test_des_ede_ofb64() #0 {
   call void @DES_ede3_ofb64_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp, ptr noundef nonnull %2) #6
   %7 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %7, 24
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !15
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !14
 
 8:                                                ; preds = %4
   %9 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 669, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull @ofb_cipher, i64 noundef 24, ptr noundef nonnull @ofb_buf1, i64 noundef 24) #6
@@ -908,7 +908,7 @@ define internal i32 @test_des_ede_ofb64() #0 {
 
 10:                                               ; preds = %8
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
-  store i32 0, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %2, align 4, !tbaa !9
   call void @DES_ede3_ofb64_encrypt(ptr noundef nonnull @ofb_buf1, ptr noundef nonnull @ofb_buf2, i64 noundef 24, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp, ptr noundef nonnull %2) #6
   %11 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 675, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.54, ptr noundef nonnull @plain, i64 noundef 24, ptr noundef nonnull @ofb_buf2, i64 noundef 24) #6
   br label %12
@@ -955,28 +955,28 @@ define internal range(i32 0, 2) i32 @test_des_quad_cksum() #0 {
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr %1, align 16, !tbaa !10
+  %6 = load i32, ptr %1, align 16, !tbaa !9
   %7 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 701, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, i32 noundef %6, i32 noundef 847166093) #6
   %.not2 = icmp eq i32 %7, 0
   br i1 %.not2, label %20, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !10
+  %10 = load i32, ptr %9, align 4, !tbaa !9
   %11 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 703, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %10, i32 noundef 538593740) #6
   %.not3 = icmp eq i32 %11, 0
   br i1 %.not3, label %20, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !10
+  %14 = load i32, ptr %13, align 8, !tbaa !9
   %15 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 705, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.59, i32 noundef %14, i32 noundef 1893180986) #6
   %.not4 = icmp eq i32 %15, 0
   br i1 %.not4, label %20, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 707, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef %18, i32 noundef 1344023590) #6
   %.not5 = icmp ne i32 %19, 0
   %. = zext i1 %.not5 to i32
@@ -1101,7 +1101,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %9 = alloca i32, align 4
   %10 = sext i32 %0 to i64
   %11 = getelementptr inbounds [6 x i32], ptr @test_des_key_wrap_sizes, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !9
   %.fr = freeze i32 %12
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #6
@@ -1162,7 +1162,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   store i8 %34, ptr %35, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %36 = load i64, ptr @cbc_key, align 8
@@ -1172,7 +1172,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   store i64 %38, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %36, ptr %39, align 16
-  store i32 200, ptr %6, align 4, !tbaa !10
+  store i32 200, ptr %6, align 4, !tbaa !9
   %40 = call i32 @EVP_EncryptInit(ptr noundef %31, ptr noundef %16, ptr noundef nonnull %5, ptr noundef null) #6
   %41 = icmp ne i32 %40, 0
   %42 = zext i1 %41 to i32
@@ -1195,15 +1195,15 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %53 = shl nsw i32 %19, 1
   %54 = add i32 %51, %53
   %55 = sub i32 %54, %52
-  %56 = load i32, ptr %6, align 4, !tbaa !10
+  %56 = load i32, ptr %6, align 4, !tbaa !9
   %57 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 756, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, i32 noundef %56, i32 noundef %55) #6
   %.not41 = icmp eq i32 %57, 0
   br i1 %.not41, label %98, label %58
 
 58:                                               ; preds = %49
-  %59 = load i32, ptr %6, align 4, !tbaa !10
+  %59 = load i32, ptr %6, align 4, !tbaa !9
   %60 = sub i32 200, %59
-  store i32 %60, ptr %7, align 4, !tbaa !10
+  store i32 %60, ptr %7, align 4, !tbaa !9
   %61 = sext i32 %59 to i64
   %62 = getelementptr inbounds i8, ptr %3, i64 %61
   %63 = call i32 @EVP_EncryptFinal(ptr noundef %31, ptr noundef nonnull %62, ptr noundef nonnull %7) #6
@@ -1214,15 +1214,15 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   br i1 %.not42, label %98, label %67
 
 67:                                               ; preds = %58
-  %68 = load i32, ptr %7, align 4, !tbaa !10
+  %68 = load i32, ptr %7, align 4, !tbaa !9
   %69 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 761, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.33, i32 noundef %68, i32 noundef 0) #6
   %.not43 = icmp eq i32 %69, 0
   br i1 %.not43, label %98, label %70
 
 70:                                               ; preds = %67
-  %71 = load i32, ptr %6, align 4, !tbaa !10
-  %72 = load i32, ptr %7, align 4, !tbaa !10
-  store i32 200, ptr %8, align 4, !tbaa !10
+  %71 = load i32, ptr %6, align 4, !tbaa !9
+  %72 = load i32, ptr %7, align 4, !tbaa !9
+  store i32 200, ptr %8, align 4, !tbaa !9
   %73 = call i32 @EVP_DecryptInit(ptr noundef %31, ptr noundef %16, ptr noundef nonnull %5, ptr noundef null) #6
   %74 = icmp ne i32 %73, 0
   %75 = zext i1 %74 to i32
@@ -1240,9 +1240,9 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   br i1 %.not45, label %98, label %83
 
 83:                                               ; preds = %77
-  %84 = load i32, ptr %8, align 4, !tbaa !10
+  %84 = load i32, ptr %8, align 4, !tbaa !9
   %85 = sub i32 200, %84
-  store i32 %85, ptr %9, align 4, !tbaa !10
+  store i32 %85, ptr %9, align 4, !tbaa !9
   %86 = sext i32 %84 to i64
   %87 = getelementptr inbounds i8, ptr %4, i64 %86
   %88 = call i32 @EVP_DecryptFinal(ptr noundef %31, ptr noundef nonnull %87, ptr noundef nonnull %9) #6
@@ -1253,8 +1253,8 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   br i1 %.not46, label %98, label %92
 
 92:                                               ; preds = %83
-  %93 = load i32, ptr %8, align 4, !tbaa !10
-  %94 = load i32, ptr %9, align 4, !tbaa !10
+  %93 = load i32, ptr %8, align 4, !tbaa !9
+  %94 = load i32, ptr %9, align 4, !tbaa !9
   %95 = add nsw i32 %94, %93
   %96 = sext i32 %95 to i64
   %97 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 776, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.102, ptr noundef nonnull %2, i64 noundef %13, ptr noundef nonnull %4, i64 noundef %96) #6
@@ -1285,7 +1285,7 @@ define internal i32 @test_des_weak_keys(i32 noundef %0) #0 {
   %3 = getelementptr inbounds [17 x %struct.anon], ptr @weak_keys, i64 0, i64 %2
   %4 = tail call i32 @DES_is_weak_key(ptr noundef nonnull %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !17
+  %6 = load i32, ptr %5, align 4, !tbaa !16
   %7 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 823, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, i32 noundef %4, i32 noundef %6) #6
   ret i32 %7
 }
@@ -1296,7 +1296,7 @@ define internal i32 @test_des_check_bad_parity(i32 noundef %0) #0 {
   %3 = getelementptr inbounds [11 x %struct.anon.0], ptr @bad_parity_keys, i64 0, i64 %2
   %4 = tail call i32 @DES_check_key_parity(ptr noundef nonnull %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !17
+  %6 = load i32, ptr %5, align 4, !tbaa !16
   %7 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 849, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, i32 noundef %4, i32 noundef %6) #6
   ret i32 %7
 }
@@ -1485,15 +1485,14 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = !{!18, !11, i64 8}
-!18 = !{!"", !5, i64 0, !11, i64 8}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = !{!17, !10, i64 8}
+!17 = !{!"", !5, i64 0, !10, i64 8}

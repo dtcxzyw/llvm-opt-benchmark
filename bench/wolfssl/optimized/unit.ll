@@ -79,8 +79,8 @@ ChangeToWolfRoot.exit:                            ; preds = %5
   %.02358 = phi ptr [ %15, %46 ], [ %1, %ChangeToWolfRoot.exit ]
   %.02457 = phi i32 [ %47, %46 ], [ %0, %ChangeToWolfRoot.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02358, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !12
-  %17 = load i8, ptr %16, align 1, !tbaa !14
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = load i8, ptr %16, align 1, !tbaa !13
   %.not = icmp eq i8 %17, 45
   br i1 %.not, label %sub_1, label %._crit_edge
 
@@ -134,7 +134,7 @@ sub_1:                                            ; preds = %.lr.ph
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !14
+  %38 = load i8, ptr %37, align 1, !tbaa !13
   %39 = add i8 %38, -48
   %or.cond41 = icmp ult i8 %39, 10
   br i1 %or.cond41, label %40, label %44
@@ -153,15 +153,15 @@ sub_1:                                            ; preds = %.lr.ph
 
 46:                                               ; preds = %44, %40, %33, %30
   %apiTesting.sink = phi ptr [ @allTesting, %30 ], [ @apiTesting, %33 ], [ @allTesting, %40 ], [ @allTesting, %44 ]
-  store i32 0, ptr %apiTesting.sink, align 4, !tbaa !15
+  store i32 0, ptr %apiTesting.sink, align 4, !tbaa !14
   %47 = add nsw i32 %.02457, -1
   %48 = icmp sgt i32 %.02457, 2
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %46, %.lr.ph, %ChangeToWolfRoot.exit
   %.024.lcssa = phi i32 [ %0, %ChangeToWolfRoot.exit ], [ %.02457, %.lr.ph ], [ 1, %46 ]
   %.023.lcssa = phi ptr [ %1, %ChangeToWolfRoot.exit ], [ %.02358, %.lr.ph ], [ %15, %46 ]
-  %49 = load i32, ptr @apiTesting, align 4, !tbaa !15
+  %49 = load i32, ptr @apiTesting, align 4, !tbaa !14
   %.not36 = icmp eq i32 %49, 0
   br i1 %.not36, label %55, label %50
 
@@ -174,7 +174,7 @@ sub_1:                                            ; preds = %.lr.ph
   br i1 %or.cond, label %56, label %71
 
 55:                                               ; preds = %._crit_edge
-  %.old = load i32, ptr @allTesting, align 4, !tbaa !15
+  %.old = load i32, ptr @allTesting, align 4, !tbaa !14
   %.old1.not = icmp eq i32 %.old, 0
   br i1 %.old1.not, label %.thread46, label %56
 
@@ -299,12 +299,11 @@ attributes #12 = { cold noreturn nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !6, i64 0}
-!14 = !{!7, !7, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !7, i64 0}
-!17 = distinct !{!17, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !6, i64 0}
+!13 = !{!7, !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !7, i64 0}
+!16 = distinct !{!16, !10}

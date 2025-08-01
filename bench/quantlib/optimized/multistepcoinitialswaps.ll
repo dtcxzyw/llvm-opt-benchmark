@@ -949,8 +949,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib20EvolutionDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = load i64, ptr %0, align 8, !tbaa !50
-  store i64 %1, ptr %this, align 8, !tbaa !50
+  %1 = load i64, ptr %0, align 8, !tbaa !49
+  store i64 %1, ptr %this, align 8, !tbaa !49
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1051,7 +1051,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %relevanceRates_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %relevanceRates_5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %_M_finish.i.i32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %_M_finish.i.i32, align 8, !tbaa !51
+  %10 = load ptr, ptr %_M_finish.i.i32, align 8, !tbaa !50
   %11 = load ptr, ptr %relevanceRates_5, align 8, !tbaa !35
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %11 to i64
@@ -1079,7 +1079,7 @@ invoke.cont.i40:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i41 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i3947, %_ZNSt16allocator_traitsISaISt4pairImmEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i41, ptr %relevanceRates_, align 8, !tbaa !35
   %_M_finish.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8, !tbaa !51
+  store ptr %cond.i.i.i.i41, ptr %_M_finish.i.i.i42, align 8, !tbaa !50
   %add.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i41, i64 %sub.ptr.sub.i.i35
   %_M_end_of_storage.i.i.i44 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i43, ptr %_M_end_of_storage.i.i.i44, align 8, !tbaa !36
@@ -1095,11 +1095,11 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i40, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %13
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !52
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !51
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont.i40
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i41, %invoke.cont.i40 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8, !tbaa !51
+  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i42, align 8, !tbaa !50
   %rateTaus_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %rateTaus_8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %_M_finish.i.i48 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1153,7 +1153,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
   %firstAliveRate_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %firstAliveRate_11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %_M_finish.i.i72 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load ptr, ptr %_M_finish.i.i72, align 8, !tbaa !53
+  %18 = load ptr, ptr %_M_finish.i.i72, align 8, !tbaa !52
   %19 = load ptr, ptr %firstAliveRate_11, align 8, !tbaa !33
   %sub.ptr.lhs.cast.i.i73 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i74 = ptrtoint ptr %19 to i64
@@ -1181,7 +1181,7 @@ invoke.cont.i80:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i81 = phi ptr [ null, %invoke.cont10 ], [ %call5.i.i.i.i2.i6.i7993, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i81, ptr %firstAliveRate_, align 8, !tbaa !33
   %_M_finish.i.i.i82 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr %cond.i.i.i.i81, ptr %_M_finish.i.i.i82, align 8, !tbaa !53
+  store ptr %cond.i.i.i.i81, ptr %_M_finish.i.i.i82, align 8, !tbaa !52
   %add.ptr.i.i.i83 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i81, i64 %sub.ptr.sub.i.i75
   %_M_end_of_storage.i.i.i84 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %add.ptr.i.i.i83, ptr %_M_end_of_storage.i.i.i84, align 8, !tbaa !34
@@ -1199,7 +1199,7 @@ if.then.i.i.i.i.i.i.i.i.i89:                      ; preds = %invoke.cont.i80
 
 invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i89, %invoke.cont.i80
   %add.ptr.i.i.i.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %cond.i.i.i.i81, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i87
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i90, ptr %_M_finish.i.i.i82, align 8, !tbaa !53
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i90, ptr %_M_finish.i.i.i82, align 8, !tbaa !52
   ret void
 
 lpad:                                             ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i16, %if.then3.i.i.i.i.i.i29
@@ -1350,10 +1350,9 @@ attributes #12 = { nounwind }
 !44 = !{!"_ZTSN8QuantLib23MarketModelMultiProduct8CashFlowE", !22, i64 0, !31, i64 8}
 !45 = !{!31, !31, i64 0}
 !46 = !{!44, !31, i64 8}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!21, !22, i64 0}
-!51 = !{!26, !5, i64 8}
-!52 = distinct !{!52, !48, !49}
-!53 = !{!30, !5, i64 8}
+!49 = !{!21, !22, i64 0}
+!50 = !{!26, !5, i64 8}
+!51 = distinct !{!51, !48}
+!52 = !{!30, !5, i64 8}

@@ -191,7 +191,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
   %82 = load ptr, ptr %18, align 8
   %83 = call ptr @tuplesort_getindextuple(ptr noundef %82, i1 noundef zeroext true) #10
   %.not.i = icmp eq ptr %83, null
-  br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !6
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i, %58
   br label %.preheader.i
@@ -216,7 +216,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
 
 90:                                               ; preds = %95
   call void @pfree(ptr noundef nonnull %.031.i) #10
-  br label %.preheader.i, !llvm.loop !8
+  br label %.preheader.i, !llvm.loop !7
 
 91:                                               ; preds = %95, %.critedge.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next.i, %95 ]
@@ -232,7 +232,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
 95:                                               ; preds = %94, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %90, label %91, !llvm.loop !9
+  br i1 %exitcond.not.i, label %90, label %91, !llvm.loop !8
 
 gist_indexsortbuild.exit:                         ; preds = %86
   %96 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
@@ -348,7 +348,7 @@ BufferGetPage.exit:                               ; preds = %110, %116
 
 159:                                              ; preds = %.lr.ph.i55
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %161 = load i8, ptr %160, align 8, !range !10, !noundef !11
+  %161 = load i8, ptr %160, align 8, !range !9, !noundef !10
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %170, label %163
 
@@ -411,7 +411,7 @@ BufferGetPage.exit:                               ; preds = %110, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   %190 = load ptr, ptr %172, align 8
   %.not.i.i = icmp eq ptr %190, null
-  br i1 %.not.i.i, label %gistProcessEmptyingQueue.exit.i, label %.lr.ph17.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %gistProcessEmptyingQueue.exit.i, label %.lr.ph17.i.i, !llvm.loop !11
 
 191:                                              ; preds = %.lr.ph.i55
   %192 = call ptr @list_delete_first(ptr noundef nonnull %154) #10
@@ -425,7 +425,7 @@ gistProcessEmptyingQueue.exit.i:                  ; preds = %._crit_edge.i.i, %1
   %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i54
   %197 = load ptr, ptr %196, align 8
   %.not.i56 = icmp eq ptr %197, null
-  br i1 %.not.i56, label %._crit_edge.i, label %.lr.ph.i55, !llvm.loop !13
+  br i1 %.not.i56, label %._crit_edge.i, label %.lr.ph.i55, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %gistProcessEmptyingQueue.exit.i, %.preheader.i53
   %198 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #10
@@ -440,7 +440,7 @@ gistProcessEmptyingQueue.exit.i:                  ; preds = %._crit_edge.i.i, %1
 202:                                              ; preds = %199, %._crit_edge.i
   %indvars.iv.next.i57 = add nsw i64 %indvars.iv.i54, -1
   %203 = icmp sgt i64 %indvars.iv.i54, 0
-  br i1 %203, label %.preheader.i53, label %gistEmptyAllBuffers.exit.loopexit, !llvm.loop !14
+  br i1 %203, label %.preheader.i53, label %gistEmptyAllBuffers.exit.loopexit, !llvm.loop !13
 
 gistEmptyAllBuffers.exit.loopexit:                ; preds = %202
   %.pre = load ptr, ptr %139, align 8
@@ -647,7 +647,7 @@ define internal void @gistBuildCallback(ptr noundef %0, ptr noundef readonly cap
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   %52 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i, label %gistBufferingBuildInsert.exit, label %.lr.ph17.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %gistBufferingBuildInsert.exit, label %.lr.ph17.i.i, !llvm.loop !11
 
 53:                                               ; preds = %6
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -715,7 +715,7 @@ thread-pre-split:                                 ; preds = %68, %gistBufferingB
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %RelationGetSmgr.exit, !prof !15
+  br i1 %99, label %100, label %RelationGetSmgr.exit, !prof !14
 
 100:                                              ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -771,7 +771,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   br i1 %127, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %113
-  %128 = getelementptr i8, ptr %125, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %wide.trip.count.i = zext nneg i32 %126 to i64
   br label %129
 
@@ -779,7 +779,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %129 ]
   %.03848.i = phi i64 [ 8, %.lr.ph.i ], [ %.1.i, %129 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %130 = getelementptr i8, ptr %128, i64 %.idx.i
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i
   %131 = load i16, ptr %130, align 4
   %132 = icmp slt i16 %131, 0
   %narrow.i = select i1 %132, i16 4, i16 %131
@@ -787,7 +787,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   %.1.i = add i64 %.03848.i, %.1.v.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %129, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %129, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %129, %113
   %.038.lcssa.i = phi i64 [ 8, %113 ], [ %.1.i, %129 ]
@@ -819,7 +819,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   %153 = fmul double %152, 1.024000e+03
   %154 = fmul double %153, 0x3F20000000000000
   %155 = fcmp ogt double %145, %154
-  br i1 %155, label %select.unfold.i, label %138, !llvm.loop !17
+  br i1 %155, label %select.unfold.i, label %138
 
 select.unfold.i:                                  ; preds = %150, %138
   %156 = add i32 %.040.i, -1
@@ -904,7 +904,7 @@ BufferGetPage.exit.i.i:                           ; preds = %184, %178
   %206 = or disjoint i32 %204, %205
   call void @UnlockReleaseBuffer(i32 noundef %176) #10
   %207 = add i32 %.014.i.i, 1
-  br label %175, !llvm.loop !18
+  br label %175
 
 gistGetMaxLevel.exit.i:                           ; preds = %BufferGetPage.exit.i.i
   %208 = fmul double %174, 2.000000e+00
@@ -1056,7 +1056,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   %13 = and i16 %12, 1
   %14 = load volatile i32, ptr @InterruptPending, align 4
   %.not78 = icmp eq i32 %14, 0
-  br i1 %.not78, label %16, label %15, !prof !19
+  br i1 %.not78, label %16, label %15, !prof !16
 
 15:                                               ; preds = %2
   tail call void @ProcessInterrupts() #10
@@ -1097,7 +1097,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   %34 = add i32 %33, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .thread:                                          ; preds = %16
   %37 = call ptr @palloc0(i64 noundef 56) #10
@@ -1144,7 +1144,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   %.190 = phi ptr [ %.07297, %.lr.ph92 ], [ %117, %115 ]
   %60 = load volatile i32, ptr @InterruptPending, align 4
   %.not80 = icmp eq i32 %60, 0
-  br i1 %.not80, label %62, label %61, !prof !19
+  br i1 %.not80, label %62, label %61, !prof !16
 
 61:                                               ; preds = %59
   call void @ProcessInterrupts() #10
@@ -1199,7 +1199,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   %90 = getelementptr inbounds nuw i8, ptr %.07384, i64 %89
   %91 = load i32, ptr %67, align 4
   %92 = icmp slt i32 %76, %91
-  br i1 %92, label %.lr.ph87, label %._crit_edge88, !llvm.loop !21
+  br i1 %92, label %.lr.ph87, label %._crit_edge88, !llvm.loop !18
 
 93:                                               ; preds = %._crit_edge88
   %94 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -1247,7 +1247,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   %116 = getelementptr inbounds nuw i8, ptr %.190, i64 48
   %117 = load ptr, ptr %116, align 8
   %.not79 = icmp eq ptr %117, null
-  br i1 %.not79, label %._crit_edge93, label %59, !llvm.loop !22
+  br i1 %.not79, label %._crit_edge93, label %59, !llvm.loop !19
 
 ._crit_edge93:                                    ; preds = %115, %.loopexit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
@@ -1303,7 +1303,7 @@ define internal fastcc zeroext i1 @gistProcessItup(ptr noundef readonly captures
   %13 = load ptr, ptr %0, align 8
   %14 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %16, label %15, !prof !19
+  br i1 %.not, label %16, label %15, !prof !16
 
 15:                                               ; preds = %4
   tail call void @ProcessInterrupts() #10
@@ -1411,7 +1411,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %cond = icmp eq i32 %65, 0
-  br i1 %cond, label %.loopexit, label %20, !llvm.loop !23
+  br i1 %cond, label %.loopexit, label %20
 
 66:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
@@ -1626,7 +1626,7 @@ BufferGetPage.exit.i:                             ; preds = %90, %84
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %gistMemorizeAllDownlinks.exit, label %105, !llvm.loop !24
+  br i1 %exitcond.i, label %gistMemorizeAllDownlinks.exit, label %105, !llvm.loop !20
 
 gistMemorizeAllDownlinks.exit:                    ; preds = %105, %BufferGetPage.exit.i
   call void @UnlockReleaseBuffer(i32 noundef %81) #10
@@ -1641,7 +1641,7 @@ gistMemorizeAllDownlinks.exit:                    ; preds = %105, %BufferGetPage
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %69, !llvm.loop !25
+  br i1 %exitcond, label %.loopexit, label %69, !llvm.loop !21
 
 .loopexit:                                        ; preds = %gistMemorizeAllDownlinks.exit, %58, %55, %31, %8
   %120 = load ptr, ptr %19, align 8
@@ -1660,7 +1660,7 @@ gistMemorizeAllDownlinks.exit:                    ; preds = %105, %BufferGetPage
   store i32 %122, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #10
   %126 = call ptr @hash_search(ptr noundef %.val61.i, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14) #10
-  %127 = load i8, ptr %14, align 1, !range !10, !noundef !11
+  %127 = load i8, ptr %14, align 1, !range !9, !noundef !10
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %gistGetParent.exit.i, label %129
 
@@ -1784,7 +1784,7 @@ BufferGetPage.exit.i74:                           ; preds = %150, %144
 .critedge.i:                                      ; preds = %181
   %193 = add i16 %.0453.i, 1
   %.not52.i = icmp ugt i16 %193, %163
-  br i1 %.not52.i, label %._crit_edge.i, label %181, !llvm.loop !26
+  br i1 %.not52.i, label %._crit_edge.i, label %181, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %179
   %194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1916,7 +1916,7 @@ BufferGetPage.exit.i80.us:                        ; preds = %231, %225
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %indvars.iv.next.i92.us = add nuw nsw i64 %indvars.iv.i87.us, 1
   %exitcond.i93.us = icmp eq i64 %indvars.iv.next.i92.us, %wide.trip.count.i86.us
-  br i1 %exitcond.i93.us, label %gistMemorizeAllDownlinks.exit95.us, label %246, !llvm.loop !24
+  br i1 %exitcond.i93.us, label %gistMemorizeAllDownlinks.exit95.us, label %246, !llvm.loop !20
 
 gistMemorizeAllDownlinks.exit95.us:               ; preds = %246, %BufferGetPage.exit.i80.us, %.lr.ph133
   %259 = load i32, ptr %215, align 8
@@ -2035,26 +2035,22 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = distinct !{!15, !5}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

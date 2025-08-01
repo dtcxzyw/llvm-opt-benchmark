@@ -1032,7 +1032,7 @@ define void @wtap_add_generated_idb(ptr noundef readonly captures(none) %0) loca
   %15 = mul i64 %14, 10
   %16 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %16, %spec.store.select.i
-  br i1 %exitcond.not.i, label %13, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %13, label %.lr.ph.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %13, %1
   %17 = trunc nuw nsw i32 %spec.store.select.i to i8
@@ -1482,7 +1482,7 @@ define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly captures(
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %1, %4, %8
   %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %1 ], [ %13, %12 ], [ %13, %.lr.ph ]
@@ -1728,7 +1728,7 @@ define hidden noundef ptr @wtap_dump_params_generate_idb(ptr noundef readonly ca
   %13 = mul i64 %12, 10
   %14 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %14, %spec.store.select.i
-  br i1 %exitcond.not.i, label %11, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %11, label %.lr.ph.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %11, %1
   %15 = trunc nuw nsw i32 %spec.store.select.i to i8
@@ -1805,7 +1805,7 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr noundef re
 12:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !10
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2077,7 +2077,7 @@ define void @wtap_set_cb_new_ipv4(ptr noundef captures(address_is_null) %0, ptr 
   %19 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %.0.i = load ptr, ptr %19, align 8
   %.not9.i = icmp eq ptr %.0.i, null
-  br i1 %.not9.i, label %wtapng_process_nrb_ipv4.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not9.i, label %wtapng_process_nrb_ipv4.exit, label %.lr.ph.i, !llvm.loop !11
 
 wtapng_process_nrb_ipv4.exit:                     ; preds = %.lr.ph.i, %.lr.ph, %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2086,7 +2086,7 @@ wtapng_process_nrb_ipv4.exit:                     ; preds = %.lr.ph.i, %.lr.ph, 
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %wtapng_process_nrb_ipv4.exit, %.preheader, %3, %2
   ret void
@@ -2137,7 +2137,7 @@ define void @wtap_set_cb_new_ipv6(ptr noundef captures(address_is_null) %0, ptr 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not9.i = icmp eq ptr %.0.i, null
-  br i1 %.not9.i, label %wtapng_process_nrb_ipv6.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not9.i, label %wtapng_process_nrb_ipv6.exit, label %.lr.ph.i, !llvm.loop !13
 
 wtapng_process_nrb_ipv6.exit:                     ; preds = %.lr.ph.i, %.lr.ph, %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2146,7 +2146,7 @@ wtapng_process_nrb_ipv6.exit:                     ; preds = %.lr.ph.i, %.lr.ph, 
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %wtapng_process_nrb_ipv6.exit, %.preheader, %3, %2
   ret void
@@ -2175,7 +2175,7 @@ define hidden void @wtapng_process_nrb(ptr noundef readonly captures(none) %0, p
   %10 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %.0.i = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %.0.i, null
-  br i1 %.not9.i, label %wtapng_process_nrb_ipv4.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not9.i, label %wtapng_process_nrb_ipv4.exit, label %.lr.ph.i, !llvm.loop !11
 
 wtapng_process_nrb_ipv4.exit:                     ; preds = %.lr.ph.i, %2, %.preheader.i
   %11 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1)
@@ -2199,7 +2199,7 @@ wtapng_process_nrb_ipv4.exit:                     ; preds = %.lr.ph.i, %2, %.pre
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.0.i7 = load ptr, ptr %.0.in.i, align 8
   %.not9.i8 = icmp eq ptr %.0.i7, null
-  br i1 %.not9.i8, label %wtapng_process_nrb_ipv6.exit, label %.lr.ph.i6, !llvm.loop !14
+  br i1 %.not9.i8, label %wtapng_process_nrb_ipv6.exit, label %.lr.ph.i6, !llvm.loop !13
 
 wtapng_process_nrb_ipv6.exit:                     ; preds = %.lr.ph.i6, %wtapng_process_nrb_ipv4.exit, %.preheader.i5
   ret void
@@ -2251,7 +2251,7 @@ wtapng_process_dsb.exit:                          ; preds = %.lr.ph, %16
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %wtapng_process_dsb.exit, %6, %2, %3
   ret void
@@ -2537,7 +2537,7 @@ define hidden noundef ptr @wtap_rec_generate_idb(ptr noundef readonly captures(n
   %20 = mul i64 %19, 10
   %21 = add nuw nsw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %21, %17
-  br i1 %exitcond.not.i, label %18, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %18, label %.lr.ph.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %18, %16
   %22 = phi i32 [ %17, %18 ], [ 0, %16 ]
@@ -3132,14 +3132,13 @@ attributes #22 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

@@ -154,7 +154,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 8192
   %.not34.i = icmp eq i16 %69, 0
-  br i1 %.not34.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !7
+  br i1 %.not34.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %53, %.lr.ph43.i
   %.141.i127 = phi ptr [ %72, %.lr.ph43.i ], [ %.02939.i, %53 ]
@@ -163,7 +163,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %72 = getelementptr inbounds i8, ptr %.141.i127, i64 %71
   %73 = load i8, ptr %72, align 1
   %.not33.i = icmp eq i8 %73, 0
-  br i1 %.not33.i, label %findwrd.exit.thread, label %.lr.ph43.i, !llvm.loop !7
+  br i1 %.not33.i, label %findwrd.exit.thread, label %.lr.ph43.i, !llvm.loop !6
 
 .critedge2.i:                                     ; preds = %.lr.ph43.i
   store i8 0, ptr %72, align 1
@@ -198,7 +198,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 8192
   %.not34.i83 = icmp eq i16 %91, 0
-  br i1 %.not34.i83, label %.critedge.i87, label %.critedge2.i84, !llvm.loop !7
+  br i1 %.not34.i83, label %.critedge.i87, label %.critedge2.i84, !llvm.loop !6
 
 .critedge.i87:                                    ; preds = %.lr.ph.i74, %.lr.ph43.i80
   %.141.i82133 = phi ptr [ %94, %.lr.ph43.i80 ], [ %.02939.i75, %.lr.ph.i74 ]
@@ -207,10 +207,10 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %94 = getelementptr inbounds i8, ptr %.141.i82133, i64 %93
   %95 = load i8, ptr %94, align 1
   %.not33.i88 = icmp eq i8 %95, 0
-  br i1 %.not33.i88, label %.critedge.i87..critedge2.i84_crit_edge, label %.lr.ph43.i80, !llvm.loop !7
+  br i1 %.not33.i88, label %.critedge.i87..critedge2.i84_crit_edge, label %.lr.ph43.i80, !llvm.loop !6
 
 .critedge.i87..critedge2.i84_crit_edge:           ; preds = %.critedge.i87
-  br label %.critedge2.i84, !llvm.loop !7
+  br label %.critedge2.i84, !llvm.loop !6
 
 .critedge2.i84:                                   ; preds = %.lr.ph43.i80, %.critedge.i87..critedge2.i84_crit_edge
   %96 = icmp eq i32 %92, 1
@@ -300,7 +300,7 @@ findwrd.exit.thread:                              ; preds = %60, %.critedge.i, %
   call void @pfree(ptr noundef nonnull %50) #8
   %137 = call ptr @tsearch_readline(ptr noundef nonnull %2) #8
   %.not69 = icmp eq ptr %137, null
-  br i1 %.not69, label %._crit_edge, label %49, !llvm.loop !8
+  br i1 %.not69, label %._crit_edge, label %49, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %findwrd.exit.thread, %44
   %.060.lcssa = phi i32 [ 0, %44 ], [ %.161, %findwrd.exit.thread ]
@@ -393,7 +393,7 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %17 = load i8, ptr %16, align 8, !range !9, !noundef !10
+  %17 = load i8, ptr %16, align 8, !range !8, !noundef !9
   %18 = trunc nuw i8 %17 to i1
   %19 = and i64 %9, 2147483647
   br i1 %18, label %20, label %22
@@ -442,7 +442,7 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
   %.118.i = phi i64 [ %.01720.i, %37 ], [ %30, %.lr.ph.i ]
   %.1.i = phi i64 [ %38, %37 ], [ %.01621.i, %.lr.ph.i ]
   %40 = icmp ult i64 %.1.i, %.118.i
-  br i1 %40, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
+  br i1 %40, label %.lr.ph.i, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %39, %24
   tail call void @pfree(ptr noundef %storemerge) #8
@@ -501,11 +501,10 @@ attributes #11 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}

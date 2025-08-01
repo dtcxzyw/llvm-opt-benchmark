@@ -149,7 +149,7 @@ define internal range(i32 0, 2) i32 @i2r_ALLOWED_ATTRIBUTES_SYNTAX(ptr readnone 
 
 17:                                               ; preds = %14
   %18 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.01116) #3
-  %19 = load ptr, ptr %18, align 8, !tbaa !6
+  %19 = load ptr, ptr %18, align 8, !tbaa !5
   %20 = tail call i32 @OPENSSL_sk_num(ptr noundef %19) #3
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i
@@ -161,9 +161,9 @@ define internal range(i32 0, 2) i32 @i2r_ALLOWED_ATTRIBUTES_SYNTAX(ptr readnone 
   br i1 %23, label %i2r_ALLOWED_ATTRIBUTES_ITEM.exit.thread, label %24
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = load ptr, ptr %18, align 8, !tbaa !6
+  %25 = load ptr, ptr %18, align 8, !tbaa !5
   %26 = tail call ptr @OPENSSL_sk_value(ptr noundef %25, i32 noundef %.0168.i) #3
-  %27 = load i32, ptr %26, align 8, !tbaa !13
+  %27 = load i32, ptr %26, align 8, !tbaa !12
   switch i32 %27, label %i2r_ALLOWED_ATTRIBUTES_ITEM.exit.thread [
     i32 0, label %28
     i32 1, label %36
@@ -176,14 +176,14 @@ define internal range(i32 0, 2) i32 @i2r_ALLOWED_ATTRIBUTES_SYNTAX(ptr readnone 
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %33 = load ptr, ptr %32, align 8, !tbaa !15
   %34 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %2, ptr noundef %33) #3
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %i2r_ALLOWED_ATTRIBUTES_ITEM.exit.thread, label %i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.i
 
 36:                                               ; preds = %24
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = tail call ptr @X509_ATTRIBUTE_get0_object(ptr noundef %38) #3
   %40 = tail call i32 @OBJ_obj2nid(ptr noundef %39) #3
   %41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.13, i32 noundef range(i32 -2147483640, -2147483648) %8, ptr noundef nonnull @.str.8) #3
@@ -209,7 +209,7 @@ define internal range(i32 0, 2) i32 @i2r_ALLOWED_ATTRIBUTES_SYNTAX(ptr readnone 
   %52 = add nuw nsw i32 %.0241.i.i, 1
   %53 = tail call i32 @X509_ATTRIBUTE_count(ptr noundef %38) #3
   %54 = icmp slt i32 %52, %53
-  br i1 %54, label %.lr.ph.i.i, label %i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.thread4.i, !llvm.loop !17
+  br i1 %54, label %.lr.ph.i.i, label %i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.thread4.i, !llvm.loop !16
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %51
   %.0241.i.i = phi i32 [ %52, %51 ], [ 0, %.preheader.i.i ]
@@ -230,10 +230,10 @@ i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.i:             ; preds = %31
 
 i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.thread4.i:     ; preds = %51, %i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.i, %.preheader.i.i
   %63 = add nuw nsw i32 %.0168.i, 1
-  %64 = load ptr, ptr %18, align 8, !tbaa !6
+  %64 = load ptr, ptr %18, align 8, !tbaa !5
   %65 = tail call i32 @OPENSSL_sk_num(ptr noundef %64) #3
   %66 = icmp slt i32 %63, %65
-  br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.thread4.i, %17
   %67 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef range(i32 -2147483644, -2147483648) %7, ptr noundef nonnull @.str.8) #3
@@ -242,7 +242,7 @@ i2r_ALLOWED_ATTRIBUTES_CHOICE.exit.thread4.i:     ; preds = %51, %i2r_ALLOWED_AT
 
 69:                                               ; preds = %._crit_edge.i
   %70 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !19
+  %71 = load ptr, ptr %70, align 8, !tbaa !18
   %72 = tail call i32 @GENERAL_NAME_print(ptr noundef %2, ptr noundef %71) #3
   %73 = icmp slt i32 %72, 1
   br i1 %73, label %i2r_ALLOWED_ATTRIBUTES_ITEM.exit.thread, label %i2r_ALLOWED_ATTRIBUTES_ITEM.exit
@@ -295,20 +295,19 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"ALLOWED_ATTRIBUTES_ITEM_st", !8, i64 0, !12, i64 8}
-!8 = !{!"p1 _ZTS39stack_st_OSSL_ALLOWED_ATTRIBUTES_CHOICE", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"p1 _ZTS15GENERAL_NAME_st", !9, i64 0}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"ALLOWED_ATTRIBUTES_CHOICE_st", !15, i64 0, !10, i64 8}
-!15 = !{!"int", !10, i64 0}
-!16 = !{!10, !10, i64 0}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = !{!7, !12, i64 8}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"ALLOWED_ATTRIBUTES_ITEM_st", !7, i64 0, !11, i64 8}
+!7 = !{!"p1 _ZTS39stack_st_OSSL_ALLOWED_ATTRIBUTES_CHOICE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 _ZTS15GENERAL_NAME_st", !8, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"ALLOWED_ATTRIBUTES_CHOICE_st", !14, i64 0, !9, i64 8}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!9, !9, i64 0}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = !{!6, !11, i64 8}

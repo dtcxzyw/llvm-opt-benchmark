@@ -385,7 +385,7 @@ define internal i32 @rps_sock_flow_sysctl(ptr noundef readonly captures(none) %0
   br i1 %68, label %76, label %69
 
 69:                                               ; preds = %.loopexit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   store volatile ptr %67, ptr @rps_sock_flow_table, align 8
   %70 = icmp eq ptr %67, null
   br i1 %70, label %74, label %71
@@ -443,7 +443,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %17
-  %24 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %21) #15, !srcloc !12
+  %24 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %21) #15, !srcloc !11
   %25 = and i64 %24, 4294967232
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %.thread
@@ -487,7 +487,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
   %50 = load i32, ptr @netdev_flow_limit_table_len, align 4
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %50, ptr %51, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   store volatile ptr %47, ptr %33, align 64
   br label %52
 
@@ -495,7 +495,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
   %53 = add nuw nsw i64 %24, 1
   %54 = and i64 %53, 127
   %55 = icmp samesign ugt i64 %54, 63
-  br i1 %55, label %.thread, label %17, !prof !14, !llvm.loop !15
+  br i1 %55, label %.thread, label %17, !prof !13, !llvm.loop !14
 
 .thread:                                          ; preds = %17, %52, %42, %23
   %56 = phi i32 [ 0, %23 ], [ -12, %42 ], [ 0, %52 ], [ 0, %17 ]
@@ -516,7 +516,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
   br i1 %63, label %.thread11, label %64
 
 64:                                               ; preds = %58
-  %65 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %62) #15, !srcloc !12
+  %65 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %62) #15, !srcloc !11
   %66 = and i64 %65, 4294967232
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %68, label %.thread11
@@ -533,7 +533,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %68
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %69) #14, !srcloc !16
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %69) #14, !srcloc !15
   %.pre = load i64, ptr @__cpu_possible_mask, align 8
   br label %78
 
@@ -542,7 +542,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
   %80 = add nuw nsw i64 %65, 1
   %81 = and i64 %80, 127
   %82 = icmp samesign ugt i64 %81, 63
-  br i1 %82, label %.thread11, label %58, !prof !14, !llvm.loop !17
+  br i1 %82, label %.thread11, label %58, !prof !13, !llvm.loop !16
 
 .thread11:                                        ; preds = %58, %78, %64
   call void @__rcu_read_unlock() #14
@@ -618,7 +618,7 @@ define internal i32 @flow_limit_table_len_sysctl(ptr noundef %0, i32 noundef %1,
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %7, align 4
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !18
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !17
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %18, label %17
 
@@ -754,7 +754,7 @@ define internal noundef range(i32 -12, 1) i32 @sysctl_core_net_init(ptr noundef 
   %17 = getelementptr i8, ptr %13, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit, label %12, !llvm.loop !19
+  br i1 %19, label %.loopexit, label %12, !llvm.loop !18
 
 .loopexit:                                        ; preds = %12, %6, %1
   %20 = phi ptr [ @netns_core_table, %1 ], [ %4, %6 ], [ %4, %12 ]
@@ -785,11 +785,11 @@ define internal void @sysctl_core_net_exit(ptr noundef readonly captures(none) %
   %5 = load ptr, ptr %4, align 8
   tail call void @unregister_net_sysctl_table(ptr noundef %3) #14
   %6 = icmp eq ptr %5, @netns_core_table
-  br i1 %6, label %7, label %8, !prof !20
+  br i1 %6, label %7, label %8, !prof !19
 
 7:                                                ; preds = %1
-  tail call void asm sideeffect "905: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 905b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 905) #14, !srcloc !21
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 736, i32 0, i64 12) #14, !srcloc !22
+  tail call void asm sideeffect "905: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 905b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 905) #14, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 736, i32 0, i64 12) #14, !srcloc !21
   unreachable
 
 8:                                                ; preds = %1
@@ -955,19 +955,18 @@ attributes #18 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i64 2057300}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2160374878}
-!12 = !{i64 2053043}
-!13 = !{i64 2160388735}
-!14 = !{!"branch_weights", i32 1, i32 1999}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = !{i64 2149542023, i64 2149542062, i64 2149542083, i64 2149542120, i64 2149542143, i64 2149542013}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = !{i32 0, i32 33}
-!19 = distinct !{!19, !8, !9, !10}
-!20 = !{!"branch_weights", i32 1, i32 2000}
-!21 = !{i64 2160407527, i64 2160407336, i64 2160407388, i64 2160407434, i64 2160407462}
-!22 = !{i64 2160407601, i64 2160407630, i64 2160407676, i64 2160407734, i64 2160407788, i64 2160407842, i64 2160407897, i64 2160407928}
+!10 = !{i64 2160374878}
+!11 = !{i64 2053043}
+!12 = !{i64 2160388735}
+!13 = !{!"branch_weights", i32 1, i32 1999}
+!14 = distinct !{!14, !8, !9}
+!15 = !{i64 2149542023, i64 2149542062, i64 2149542083, i64 2149542120, i64 2149542143, i64 2149542013}
+!16 = distinct !{!16, !8, !9}
+!17 = !{i32 0, i32 33}
+!18 = distinct !{!18, !8, !9}
+!19 = !{!"branch_weights", i32 1, i32 2000}
+!20 = !{i64 2160407527, i64 2160407336, i64 2160407388, i64 2160407434, i64 2160407462}
+!21 = !{i64 2160407601, i64 2160407630, i64 2160407676, i64 2160407734, i64 2160407788, i64 2160407842, i64 2160407897, i64 2160407928}

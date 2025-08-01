@@ -90,7 +90,7 @@ define void @ff_spdif_bswap_buf16(ptr noundef writeonly captures(none) %0, ptr n
   store i16 %49, ptr %50, align 2, !tbaa !4
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %.preheader
   ret void
@@ -112,7 +112,6 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

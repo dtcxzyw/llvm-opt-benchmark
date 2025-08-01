@@ -985,7 +985,7 @@ define hidden void @dcerpc_smb_store_pol_pkts(ptr noundef readonly captures(none
 23:                                               ; preds = %19, %.lr.ph.i
   %.0.i = load ptr, ptr %.020.i, align 8
   %.not15.i = icmp eq ptr %.0.i, null
-  br i1 %.not15.i, label %find_pol_handle.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not15.i, label %find_pol_handle.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
@@ -1053,10 +1053,10 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   %48 = getelementptr inbounds nuw i8, ptr %.023.i, i64 16
   %49 = load i32, ptr %48, align 8
   %.not22.i44 = icmp ugt i32 %49, %.pre.pre
-  br i1 %.not22.i44, label %.critedge.i, label %.lr.ph, !llvm.loop !12
+  br i1 %.not22.i44, label %.critedge.i, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i36.preheader
-  br label %57, !llvm.loop !12
+  br label %57, !llvm.loop !11
 
 50:                                               ; preds = %37
   %51 = call ptr @wmem_file_scope()
@@ -1074,16 +1074,16 @@ find_pol_handle.exit.thread:                      ; preds = %23, %12, %.preheade
   %.026.i45 = phi ptr [ %.023.i, %.lr.ph ], [ %.0.i37, %.lr.ph.i36 ]
   %.0.i37 = load ptr, ptr %.026.i45, align 8
   %.not.i38 = icmp eq ptr %.0.i37, null
-  br i1 %.not.i38, label %.critedge.thread.i, label %.lr.ph.i36, !llvm.loop !12
+  br i1 %.not.i38, label %.critedge.thread.i, label %.lr.ph.i36, !llvm.loop !11
 
 .lr.ph.i36:                                       ; preds = %57
   %58 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 16
   %59 = load i32, ptr %58, align 8
   %.not22.i = icmp ugt i32 %59, %.pre.pre
-  br i1 %.not22.i, label %.lr.ph.i36..critedge.i_crit_edge, label %57, !llvm.loop !12
+  br i1 %.not22.i, label %.lr.ph.i36..critedge.i_crit_edge, label %57, !llvm.loop !11
 
 .lr.ph.i36..critedge.i_crit_edge:                 ; preds = %.lr.ph.i36
-  br label %.critedge.i, !llvm.loop !12
+  br label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %.lr.ph.i36..critedge.i_crit_edge, %.lr.ph.i36.preheader
   %.026.i.lcssa = phi ptr [ %.0.i37, %.lr.ph.i36..critedge.i_crit_edge ], [ %.023.i, %.lr.ph.i36.preheader ]
@@ -1158,7 +1158,7 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
 23:                                               ; preds = %19, %.lr.ph.i
   %.0.i = load ptr, ptr %.020.i, align 8
   %.not15.i = icmp eq ptr %.0.i, null
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
@@ -1201,10 +1201,10 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
   %40 = getelementptr inbounds nuw i8, ptr %.023.i, i64 16
   %41 = load i32, ptr %40, align 8
   %.not22.i35 = icmp ugt i32 %41, %39
-  br i1 %.not22.i35, label %.critedge.i, label %.lr.ph, !llvm.loop !12
+  br i1 %.not22.i35, label %.critedge.i, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i27.preheader
-  br label %49, !llvm.loop !12
+  br label %49, !llvm.loop !11
 
 42:                                               ; preds = %.loopexit
   %43 = call ptr @wmem_file_scope()
@@ -1222,16 +1222,16 @@ define hidden void @dcerpc_store_polhnd_name(ptr noundef readonly captures(none)
   %.026.i36 = phi ptr [ %.023.i, %.lr.ph ], [ %.0.i28, %.lr.ph.i27 ]
   %.0.i28 = load ptr, ptr %.026.i36, align 8
   %.not.i29 = icmp eq ptr %.0.i28, null
-  br i1 %.not.i29, label %.critedge.thread.i, label %.lr.ph.i27, !llvm.loop !12
+  br i1 %.not.i29, label %.critedge.thread.i, label %.lr.ph.i27, !llvm.loop !11
 
 .lr.ph.i27:                                       ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 16
   %51 = load i32, ptr %50, align 8
   %.not22.i = icmp ugt i32 %51, %39
-  br i1 %.not22.i, label %.lr.ph.i27..critedge.i_crit_edge, label %49, !llvm.loop !12
+  br i1 %.not22.i, label %.lr.ph.i27..critedge.i_crit_edge, label %49, !llvm.loop !11
 
 .lr.ph.i27..critedge.i_crit_edge:                 ; preds = %.lr.ph.i27
-  br label %.critedge.i, !llvm.loop !12
+  br label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %.lr.ph.i27..critedge.i_crit_edge, %.lr.ph.i27.preheader
   %.026.i.lcssa = phi ptr [ %.0.i28, %.lr.ph.i27..critedge.i_crit_edge ], [ %.023.i, %.lr.ph.i27.preheader ]
@@ -1319,7 +1319,7 @@ define hidden noundef zeroext i1 @dcerpc_fetch_polhnd_data(ptr noundef readonly 
 24:                                               ; preds = %20, %.lr.ph.i
   %.0.i = load ptr, ptr %.020.i, align 8
   %.not15.i = icmp eq ptr %.0.i, null
-  br i1 %.not15.i, label %find_pol_handle.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not15.i, label %find_pol_handle.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 find_pol_handle.exit.thread:                      ; preds = %24, %15, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #9
@@ -1586,7 +1586,7 @@ define internal fastcc i32 @dissect_nt_hnd(ptr noundef %0, i32 noundef %1, ptr n
 47:                                               ; preds = %43, %.lr.ph.i.i
   %.0.i.i = load ptr, ptr %.020.i.i, align 8
   %.not15.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not15.i.i, label %dcerpc_fetch_polhnd_data.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not15.i.i, label %dcerpc_fetch_polhnd_data.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 dcerpc_fetch_polhnd_data.exit:                    ; preds = %47, %36, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #9
@@ -1763,7 +1763,7 @@ define hidden i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr n
 50:                                               ; preds = %46, %.lr.ph.i.i
   %.0.i.i = load ptr, ptr %.020.i.i, align 8
   %.not15.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not15.i.i, label %find_pol_handle.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not15.i.i, label %find_pol_handle.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !10
 
 find_pol_handle.exit.thread.i:                    ; preds = %50, %.preheader.i.i, %39
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
@@ -1963,7 +1963,7 @@ define internal fastcc void @cb_str_postprocess_options(ptr noundef readonly cap
   %.0. = select i1 %.not50, ptr %.052, ptr %26
   %27 = add nsw i32 %.03851, -1
   %28 = icmp samesign ugt i32 %.03851, 1
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %17, %15, %11
   %29 = and i32 %3, 536870912
@@ -2238,7 +2238,7 @@ dissect_ndr_nt_SID.exit._crit_edge:               ; preds = %dissect_ndr_nt_SID.
   %.0. = select i1 %.not59, ptr %.068, ptr %54
   %55 = add nsw i32 %.04567, -1
   %56 = icmp samesign ugt i32 %.04567, 1
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %47, %dissect_ndr_nt_SID.exit.thread, %40, %43, %45, %30, %dissect_ndr_nt_SID.exit
   %.018.i62 = phi i32 [ %25, %dissect_ndr_nt_SID.exit.thread ], [ %.018.i66, %40 ], [ %.018.i66, %43 ], [ %.018.i66, %45 ], [ %.018.i66, %30 ], [ %1, %dissect_ndr_nt_SID.exit ], [ %.018.i66, %47 ], [ %.018.i66, %.lr.ph ]
@@ -2665,10 +2665,9 @@ attributes #11 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

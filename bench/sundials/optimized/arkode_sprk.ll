@@ -68,7 +68,7 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %14
   store double %23, ptr %24, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %ARKodeSPRKTable_Alloc.exit.thread, label %18, !llvm.loop !15
+  br i1 %exitcond.not, label %ARKodeSPRKTable_Alloc.exit.thread, label %18
 
 ARKodeSPRKTable_Alloc.exit.thread.sink.split:     ; preds = %9, %ARKodeSPRKTable_Free.exit19.i
   tail call void @free(ptr noundef nonnull %calloc.i) #14
@@ -504,24 +504,24 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br i1 %22, label %.thread39, label %.thread38
 
 .thread39:                                        ; preds = %21
-  %23 = tail call double @sqrt(double noundef %19) #14, !tbaa !17
+  %23 = tail call double @sqrt(double noundef %19) #14, !tbaa !15
   br label %.thread38
 
 .thread:                                          ; preds = %7
-  %24 = tail call double @sqrt(double noundef %15) #14, !tbaa !17
+  %24 = tail call double @sqrt(double noundef %15) #14, !tbaa !15
   %25 = fadd double %19, %24
   %26 = fcmp ugt double %25, 0.000000e+00
   br i1 %26, label %27, label %.thread37
 
 27:                                               ; preds = %.thread
-  %28 = tail call double @sqrt(double noundef %15) #14, !tbaa !17
+  %28 = tail call double @sqrt(double noundef %15) #14, !tbaa !15
   %29 = fadd double %19, %28
-  %30 = tail call double @sqrt(double noundef %29) #14, !tbaa !17
+  %30 = tail call double @sqrt(double noundef %29) #14, !tbaa !15
   br label %.thread37
 
 .thread37:                                        ; preds = %27, %.thread
   %31 = phi double [ %30, %27 ], [ 0.000000e+00, %.thread ]
-  %32 = tail call double @sqrt(double noundef %15) #14, !tbaa !17
+  %32 = tail call double @sqrt(double noundef %15) #14, !tbaa !15
   %33 = fmul double %32, 3.000000e+00
   br label %.thread38
 
@@ -1314,7 +1314,7 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
   store double %31, ptr %32, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %ARKodeSPRKTable_Alloc.exit
   ret ptr %.0.i
@@ -1322,12 +1322,12 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ARKodeSPRKTable_Space(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #7 {
-  store i64 2, ptr %1, align 8, !tbaa !19
+  store i64 2, ptr %1, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = shl nsw i32 %5, 1
   %7 = sext i32 %6 to i64
-  store i64 %7, ptr %2, align 8, !tbaa !19
+  store i64 %7, ptr %2, align 8, !tbaa !16
   ret void
 }
 
@@ -1339,13 +1339,13 @@ define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr n
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store ptr null, ptr %3, align 8, !tbaa !21
+  store ptr null, ptr %3, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !tbaa !21
+  store ptr null, ptr %4, align 8, !tbaa !18
   %5 = call i32 @ARKodeSPRKTable_ToButcher(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %6 = load ptr, ptr %3, align 8, !tbaa !21
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @ARKodeButcherTable_Write(ptr noundef %6, ptr noundef %1) #14
-  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
   tail call void @ARKodeButcherTable_Write(ptr noundef %7, ptr noundef %1) #14
   tail call void @ARKodeButcherTable_Free(ptr noundef %6) #14
   tail call void @ARKodeButcherTable_Free(ptr noundef %7) #14
@@ -1377,7 +1377,7 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1387,10 +1387,10 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   %22 = load i32, ptr %0, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %25 = load ptr, ptr %17, align 8, !tbaa !26
+  %25 = load ptr, ptr %17, align 8, !tbaa !23
   %wide.trip.count117 = zext nneg i32 %10 to i64
   %26 = load ptr, ptr %18, align 8, !tbaa !10
-  %27 = load ptr, ptr %19, align 8, !tbaa !23
+  %27 = load ptr, ptr %19, align 8, !tbaa !20
   %wide.trip.count127 = zext nneg i32 %10 to i64
   %wide.trip.count137 = zext nneg i32 %10 to i64
   br label %29
@@ -1410,9 +1410,9 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   br i1 %.not7481, label %.preheader76.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %34 = load ptr, ptr %16, align 8, !tbaa !27
+  %34 = load ptr, ptr %16, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %30
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = add nuw i32 %.06697, 1
   %wide.trip.count = zext i32 %37 to i64
   br label %38
@@ -1425,7 +1425,7 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   store double %40, ptr %41, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader76.preheader, label %38, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader76.preheader, label %38
 
 .preheader76.preheader:                           ; preds = %38, %29
   br label %.preheader76
@@ -1446,13 +1446,13 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   store double %47, ptr %42, align 8, !tbaa !13
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next104, %indvars.iv110
-  br i1 %exitcond109.not, label %48, label %43, !llvm.loop !30
+  br i1 %exitcond109.not, label %48, label %43
 
 48:                                               ; preds = %43
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count117
-  br i1 %exitcond118.not, label %.lr.ph88, label %.preheader76, !llvm.loop !31
+  br i1 %exitcond118.not, label %.lr.ph88, label %.preheader76
 
 .lr.ph88:                                         ; preds = %48, %._crit_edge
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge ], [ 0, %48 ]
@@ -1464,9 +1464,9 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   br i1 %.not100, label %._crit_edge, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.lr.ph88
-  %52 = load ptr, ptr %20, align 8, !tbaa !27
+  %52 = load ptr, ptr %20, align 8, !tbaa !24
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv124
-  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
   br label %55
 
 55:                                               ; preds = %.lr.ph86, %55
@@ -1477,12 +1477,12 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   store double %57, ptr %58, align 8, !tbaa !13
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %indvars.iv124
-  br i1 %exitcond123.not, label %._crit_edge, label %55, !llvm.loop !32
+  br i1 %exitcond123.not, label %._crit_edge, label %55
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph88
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %.preheader, label %.lr.ph88, !llvm.loop !33
+  br i1 %exitcond128.not, label %.preheader, label %.lr.ph88
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge91
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %._crit_edge91 ], [ 0, %._crit_edge ]
@@ -1491,7 +1491,7 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
 
 .lr.ph90:                                         ; preds = %.preheader
   %59 = load ptr, ptr %18, align 8, !tbaa !10
-  %60 = load ptr, ptr %21, align 8, !tbaa !26
+  %60 = load ptr, ptr %21, align 8, !tbaa !23
   %61 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv134
   %.promoted93 = load double, ptr %61, align 8, !tbaa !13
   br label %62
@@ -1505,7 +1505,7 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   store double %66, ptr %61, align 8, !tbaa !13
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %indvars.iv134
-  br i1 %exitcond133.not, label %._crit_edge91.loopexit, label %62, !llvm.loop !34
+  br i1 %exitcond133.not, label %._crit_edge91.loopexit, label %62
 
 ._crit_edge91.loopexit:                           ; preds = %62
   %67 = trunc nuw nsw i64 %indvars.iv134 to i32
@@ -1516,19 +1516,19 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly cap
   %.4.lcssa = phi i32 [ 1, %.preheader ], [ %68, %._crit_edge91.loopexit ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
-  br i1 %exitcond138.not, label %._crit_edge95, label %.preheader, !llvm.loop !35
+  br i1 %exitcond138.not, label %._crit_edge95, label %.preheader
 
 ._crit_edge95:                                    ; preds = %._crit_edge91
-  store i32 %22, ptr %6, align 8, !tbaa !36
-  store i32 %22, ptr %9, align 8, !tbaa !36
-  store i32 0, ptr %23, align 4, !tbaa !37
-  store i32 0, ptr %24, align 4, !tbaa !37
+  store i32 %22, ptr %6, align 8, !tbaa !26
+  store i32 %22, ptr %9, align 8, !tbaa !26
+  store i32 0, ptr %23, align 4, !tbaa !27
+  store i32 0, ptr %24, align 4, !tbaa !27
   %69 = icmp slt i32 %.4.lcssa, %10
-  br i1 %69, label %29, label %._crit_edge99, !llvm.loop !38
+  br i1 %69, label %29, label %._crit_edge99
 
 ._crit_edge99:                                    ; preds = %._crit_edge95, %.preheader80
-  store ptr %6, ptr %1, align 8, !tbaa !21
-  store ptr %9, ptr %2, align 8, !tbaa !21
+  store ptr %6, ptr %1, align 8, !tbaa !18
+  store ptr %9, ptr %2, align 8, !tbaa !18
   br label %70
 
 70:                                               ; preds = %3, %._crit_edge99, %28
@@ -1587,27 +1587,16 @@ attributes #15 = { nounwind willreturn memory(read) }
 !12 = !{!4, !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"double", !6, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!5, !5, i64 0}
-!18 = distinct !{!18, !16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS21ARKodeButcherTableMem", !9, i64 0}
-!23 = !{!24, !8, i64 32}
-!24 = !{!"ARKodeButcherTableMem", !5, i64 0, !5, i64 4, !5, i64 8, !25, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
-!25 = !{!"p2 double", !9, i64 0}
-!26 = !{!24, !8, i64 24}
-!27 = !{!24, !25, i64 16}
-!28 = !{!8, !8, i64 0}
-!29 = distinct !{!29, !16}
-!30 = distinct !{!30, !16}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16}
-!34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
-!36 = !{!24, !5, i64 0}
-!37 = !{!24, !5, i64 4}
-!38 = distinct !{!38, !16}
+!15 = !{!5, !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS21ARKodeButcherTableMem", !9, i64 0}
+!20 = !{!21, !8, i64 32}
+!21 = !{!"ARKodeButcherTableMem", !5, i64 0, !5, i64 4, !5, i64 8, !22, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
+!22 = !{!"p2 double", !9, i64 0}
+!23 = !{!21, !8, i64 24}
+!24 = !{!21, !22, i64 16}
+!25 = !{!8, !8, i64 0}
+!26 = !{!21, !5, i64 0}
+!27 = !{!21, !5, i64 4}

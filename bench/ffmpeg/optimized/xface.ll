@@ -153,7 +153,7 @@ define void @ff_big_div(ptr noundef captures(none) %0, i8 noundef zeroext %1, pt
   %32 = trunc i16 %30 to i8
   store i8 %32, ptr %26, align 1, !tbaa !9
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %33, label %23, !llvm.loop !13
+  br i1 %.not, label %33, label %23, !llvm.loop !12
 
 33:                                               ; preds = %23
   %34 = trunc nuw i16 %31 to i8
@@ -213,7 +213,7 @@ define void @ff_big_mul(ptr noundef captures(none) %0, i8 noundef zeroext %1) lo
   %20 = load i8, ptr %19, align 1, !tbaa !9
   store i8 %20, ptr %.02638, align 1, !tbaa !9
   %.not33 = icmp eq i32 %18, 0
-  br i1 %.not33, label %21, label %17, !llvm.loop !14
+  br i1 %.not33, label %21, label %17, !llvm.loop !13
 
 21:                                               ; preds = %17
   store i8 0, ptr %19, align 1, !tbaa !9
@@ -238,7 +238,7 @@ define void @ff_big_mul(ptr noundef captures(none) %0, i8 noundef zeroext %1) lo
   store i8 %31, ptr %.135, align 1, !tbaa !9
   %33 = lshr i16 %30, 8
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %34, label %25, !llvm.loop !15
+  br i1 %.not, label %34, label %25, !llvm.loop !14
 
 34:                                               ; preds = %25
   %.not32 = icmp ult i16 %30, 256
@@ -322,7 +322,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   %.2.us111 = phi i32 [ %25, %17 ], [ %.198.us109, %.split.split.split.us ]
   %27 = add nsw i32 %.099.us108, 1
   %exitcond.not = icmp eq i32 %27, %indvars.iv
-  br i1 %exitcond.not, label %.split101.us, label %.split.split.split.us, !llvm.loop !16
+  br i1 %exitcond.not, label %.split101.us, label %.split.split.split.us, !llvm.loop !15
 
 .split.split.split:                               ; preds = %.split.split, %40
   %.099 = phi i32 [ %41, %40 ], [ %5, %.split.split ]
@@ -348,13 +348,13 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   %.2 = phi i32 [ %39, %31 ], [ %.198, %.split.split.split ]
   %41 = add nsw i32 %.099, 1
   %exitcond124.not = icmp eq i32 %41, %indvars.iv
-  br i1 %exitcond124.not, label %.split101.us, label %.split.split.split, !llvm.loop !18
+  br i1 %exitcond124.not, label %.split101.us, label %.split.split.split, !llvm.loop !17
 
 .split101.us:                                     ; preds = %26, %40, %13
   %.us-phi = phi i32 [ %.092115, %13 ], [ %.2, %40 ], [ %.2.us111, %26 ]
   %42 = add nsw i32 %.091116, 1
   %exitcond127 = icmp eq i32 %42, %indvars.iv125
-  br i1 %exitcond127, label %43, label %13, !llvm.loop !19
+  br i1 %exitcond127, label %43, label %13, !llvm.loop !18
 
 43:                                               ; preds = %.split101.us
   %44 = add nuw nsw i64 %indvars.iv128, %3
@@ -556,13 +556,13 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %indvars.iv.next126 = add nuw nsw i32 %indvars.iv125, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 48
-  br i1 %exitcond131.not, label %181, label %10, !llvm.loop !20
+  br i1 %exitcond131.not, label %181, label %10, !llvm.loop !19
 
 181:                                              ; preds = %180
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 48
-  br i1 %exitcond135.not, label %182, label %.preheader, !llvm.loop !21
+  br i1 %exitcond135.not, label %182, label %.preheader, !llvm.loop !20
 
 182:                                              ; preds = %181
   ret void
@@ -591,15 +591,14 @@ attributes #6 = { noreturn nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}

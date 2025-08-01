@@ -2318,7 +2318,7 @@ pymain_exit_err_print.exit.i:                     ; preds = %31, %29
   switch i32 %40, label %.preheader.i [
     i32 -1, label %.loopexit.i
     i32 10, label %41
-  ], !llvm.loop !210
+  ]
 
 41:                                               ; preds = %.preheader.i
   %42 = tail call i32 @ungetc(i32 noundef 10, ptr noundef nonnull %33)
@@ -2333,7 +2333,7 @@ pymain_exit_err_print.exit.i:                     ; preds = %31, %29
 
 46:                                               ; preds = %.loopexit.i
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %48 = load i32, ptr %47, align 8, !tbaa !212
+  %48 = load i32, ptr %47, align 8, !tbaa !210
   %49 = and i32 %48, 61440
   %50 = icmp eq i32 %49, 16384
   br i1 %50, label %51, label %53
@@ -2793,16 +2793,16 @@ Py_DECREF.exit16:                                 ; preds = %5, %8, %11
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   %20 = getelementptr i8, ptr %6, i64 8
-  %.val.i.i.i = load ptr, ptr %20, align 8, !tbaa !215
+  %.val.i.i.i = load ptr, ptr %20, align 8, !tbaa !213
   %21 = getelementptr i8, ptr %.val.i.i.i, i64 168
-  %.val6.i.i.i = load i64, ptr %21, align 8, !tbaa !216
+  %.val6.i.i.i = load i64, ptr %21, align 8, !tbaa !214
   %22 = and i64 %.val6.i.i.i, 2048
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
-  %24 = load i64, ptr %23, align 8, !tbaa !221
+  %24 = load i64, ptr %23, align 8, !tbaa !219
   %25 = getelementptr i8, ptr %6, i64 %24
   %.0.copyload.i.i.i = load ptr, ptr %25, align 1
   %26 = icmp eq ptr %.0.copyload.i.i.i, null
@@ -3408,15 +3408,13 @@ attributes #20 = { noreturn nounwind }
 !207 = !{!23, !5, i64 24}
 !208 = !{!26, !27, i64 280}
 !209 = !{!26, !5, i64 392}
-!210 = distinct !{!210, !211}
-!211 = !{!"llvm.loop.estimated_trip_count"}
-!212 = !{!213, !5, i64 24}
-!213 = !{!"stat", !14, i64 0, !14, i64 8, !14, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !214, i64 72, !214, i64 88, !214, i64 104, !6, i64 120}
-!214 = !{!"timespec", !14, i64 0, !14, i64 8}
-!215 = !{!104, !100, i64 8}
-!216 = !{!217, !14, i64 168}
-!217 = !{!"_typeobject", !186, i64 0, !24, i64 24, !14, i64 32, !14, i64 40, !10, i64 48, !14, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !14, i64 168, !24, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !14, i64 208, !10, i64 216, !10, i64 224, !218, i64 232, !219, i64 240, !220, i64 248, !100, i64 256, !17, i64 264, !10, i64 272, !10, i64 280, !14, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !10, i64 360, !17, i64 368, !10, i64 376, !5, i64 384, !10, i64 392, !10, i64 400, !6, i64 408, !171, i64 410}
-!218 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
-!219 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
-!220 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
-!221 = !{!217, !14, i64 56}
+!210 = !{!211, !5, i64 24}
+!211 = !{!"stat", !14, i64 0, !14, i64 8, !14, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !212, i64 72, !212, i64 88, !212, i64 104, !6, i64 120}
+!212 = !{!"timespec", !14, i64 0, !14, i64 8}
+!213 = !{!104, !100, i64 8}
+!214 = !{!215, !14, i64 168}
+!215 = !{!"_typeobject", !186, i64 0, !24, i64 24, !14, i64 32, !14, i64 40, !10, i64 48, !14, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !14, i64 168, !24, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !14, i64 208, !10, i64 216, !10, i64 224, !216, i64 232, !217, i64 240, !218, i64 248, !100, i64 256, !17, i64 264, !10, i64 272, !10, i64 280, !14, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !10, i64 360, !17, i64 368, !10, i64 376, !5, i64 384, !10, i64 392, !10, i64 400, !6, i64 408, !171, i64 410}
+!216 = !{!"p1 _ZTS11PyMethodDef", !10, i64 0}
+!217 = !{!"p1 _ZTS11PyMemberDef", !10, i64 0}
+!218 = !{!"p1 _ZTS11PyGetSetDef", !10, i64 0}
+!219 = !{!215, !14, i64 56}

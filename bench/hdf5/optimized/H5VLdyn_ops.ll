@@ -72,7 +72,7 @@ define internal noundef i32 @H5VL__term_opt_operation_cb(ptr noundef %0, ptr rea
   br i1 %9, label %H5VL__release_dyn_op.exit, label %13, !prof !9
 
 H5VL__release_dyn_op.exit:                        ; preds = %3
-  %10 = load ptr, ptr %0, align 8, !tbaa !16
+  %10 = load ptr, ptr %0, align 8, !tbaa !15
   %11 = tail call ptr @H5MM_xfree(ptr noundef %10) #2
   %12 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5VL_dyn_op_t_reg_free_list, ptr noundef nonnull %0) #2
   br label %13
@@ -104,8 +104,8 @@ define range(i32 -1, 1) i32 @H5VL__register_opt_operation(i32 noundef %0, ptr no
   br i1 %.not20, label %27, label %16
 
 16:                                               ; preds = %14
-  %17 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %18 = load i64, ptr @H5E_EXISTS_g, align 8, !tbaa !20
+  %17 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %18 = load i64, ptr @H5E_EXISTS_g, align 8, !tbaa !19
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__register_opt_operation, i32 noundef 203, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.1) #2
   br label %55
 
@@ -116,8 +116,8 @@ define range(i32 -1, 1) i32 @H5VL__register_opt_operation(i32 noundef %0, ptr no
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %25 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !20
+  %24 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %25 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !19
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__register_opt_operation, i32 noundef 208, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #2
   br label %55
 
@@ -127,44 +127,44 @@ define range(i32 -1, 1) i32 @H5VL__register_opt_operation(i32 noundef %0, ptr no
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %32 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
+  %31 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %32 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !19
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__register_opt_operation, i32 noundef 213, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.3) #2
   br label %55
 
 34:                                               ; preds = %27
   %35 = tail call noalias ptr @H5MM_strdup(ptr noundef %1) #2
-  store ptr %35, ptr %28, align 8, !tbaa !16
+  store ptr %35, ptr %28, align 8, !tbaa !15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %39 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
+  %38 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %39 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !19
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__register_opt_operation, i32 noundef 215, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.4) #2
   br label %55
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw [13 x i32], ptr @H5VL_opt_vals_g, i64 0, i64 %11
-  %43 = load i32, ptr %42, align 4, !tbaa !22
+  %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !22
+  store i32 %44, ptr %42, align 4, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 %43, ptr %45, align 8, !tbaa !23
+  store i32 %43, ptr %45, align 8, !tbaa !22
   %46 = load ptr, ptr %12, align 8, !tbaa !10
   %47 = tail call i32 @H5SL_insert(ptr noundef %46, ptr noundef nonnull %28, ptr noundef nonnull %35) #2
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %41
-  %50 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %51 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !20
+  %50 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %51 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !19
   %52 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__register_opt_operation, i32 noundef 220, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.5) #2
   br label %55
 
 53:                                               ; preds = %41
-  %54 = load i32, ptr %45, align 8, !tbaa !23
-  store i32 %54, ptr %2, align 4, !tbaa !22
+  %54 = load i32, ptr %45, align 8, !tbaa !22
+  store i32 %54, ptr %2, align 4, !tbaa !21
   br label %55
 
 55:                                               ; preds = %16, %23, %30, %37, %49, %53, %3
@@ -211,7 +211,7 @@ define i64 @H5VL__num_opt_operation() local_unnamed_addr #0 {
   %.2 = phi i64 [ %11, %9 ], [ %.19, %.preheader ]
   %13 = add nuw nsw i64 %.068, 1
   %exitcond.not = icmp eq i64 %13, 13
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %12, %0
   %.0 = phi i64 [ 0, %0 ], [ %.2, %12 ]
@@ -243,20 +243,20 @@ define range(i32 -1, 1) i32 @H5VL__find_opt_operation(i32 noundef %0, ptr nounde
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %19 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !20
+  %18 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %19 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !19
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__find_opt_operation, i32 noundef 281, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.6) #2
   br label %28
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !23
-  store i32 %23, ptr %2, align 4, !tbaa !22
+  %23 = load i32, ptr %22, align 8, !tbaa !22
+  store i32 %23, ptr %2, align 4, !tbaa !21
   br label %28
 
 24:                                               ; preds = %10
-  %25 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %26 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !20
+  %25 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %26 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !19
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__find_opt_operation, i32 noundef 287, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.6) #2
   br label %28
 
@@ -288,8 +288,8 @@ define range(i32 -1, 1) i32 @H5VL__unregister_opt_operation(i32 noundef %0, ptr 
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %18 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !20
+  %17 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %18 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !19
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__unregister_opt_operation, i32 noundef 319, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.6) #2
   br label %47
 
@@ -303,7 +303,7 @@ define range(i32 -1, 1) i32 @H5VL__unregister_opt_operation(i32 noundef %0, ptr 
   br i1 %26, label %27, label %H5VL__release_dyn_op.exit, !prof !9
 
 27:                                               ; preds = %20
-  %28 = load ptr, ptr %14, align 8, !tbaa !16
+  %28 = load ptr, ptr %14, align 8, !tbaa !15
   %29 = tail call ptr @H5MM_xfree(ptr noundef %28) #2
   %30 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5VL_dyn_op_t_reg_free_list, ptr noundef nonnull %14) #2
   br label %H5VL__release_dyn_op.exit
@@ -321,8 +321,8 @@ H5VL__release_dyn_op.exit:                        ; preds = %20, %27
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %34
-  %39 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %40 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !20
+  %39 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %40 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !19
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__unregister_opt_operation, i32 noundef 327, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.7) #2
   br label %47
 
@@ -331,8 +331,8 @@ H5VL__release_dyn_op.exit:                        ; preds = %20, %27
   br label %47
 
 43:                                               ; preds = %9
-  %44 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !20
-  %45 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !20
+  %44 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !19
+  %45 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !19
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__unregister_opt_operation, i32 noundef 332, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.6) #2
   br label %47
 
@@ -368,15 +368,14 @@ attributes #2 = { nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 _ZTS6H5SL_t", !12, i64 0}
 !12 = !{!"any pointer", !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"H5VL_dyn_op_t", !18, i64 0, !19, i64 8}
-!18 = !{!"p1 omnipotent char", !12, i64 0}
-!19 = !{!"int", !5, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !5, i64 0}
-!22 = !{!19, !19, i64 0}
-!23 = !{!17, !19, i64 8}
-!24 = distinct !{!24, !14, !15}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"H5VL_dyn_op_t", !17, i64 0, !18, i64 8}
+!17 = !{!"p1 omnipotent char", !12, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !5, i64 0}
+!21 = !{!18, !18, i64 0}
+!22 = !{!16, !18, i64 8}
+!23 = distinct !{!23, !14}

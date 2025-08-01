@@ -44,7 +44,7 @@ define noundef zeroext i1 @_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry16e
 
 11:                                               ; preds = %.preheader
   %12 = invoke i32 @pthread_cond_wait(ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux9anonymousL15g_OnceBlockCondE, ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux9anonymousL16g_OnceBlockMutexE)
-          to label %.preheader unwind label %14, !llvm.loop !13
+          to label %.preheader unwind label %14, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %1, %8
   %.not8 = phi i1 [ false, %8 ], [ true, %1 ], [ true, %.loopexit ]
@@ -124,7 +124,6 @@ attributes #6 = { noreturn nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !6, i64 0}
 !9 = !{!"_ZTSN5boost3log11v2_mt_posix15once_block_flagE", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

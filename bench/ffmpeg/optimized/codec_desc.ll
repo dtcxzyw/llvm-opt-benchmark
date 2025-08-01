@@ -1195,10 +1195,10 @@ define ptr @avcodec_descriptor_get_by_name(ptr noundef readonly captures(none) %
 select.unfold:                                    ; preds = %3, %2
   %.0.i.ph = phi ptr [ @codec_descriptors, %2 ], [ %8, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #4
   %.not7 = icmp eq i32 %11, 0
-  br i1 %.not7, label %avcodec_descriptor_next.exit, label %2, !llvm.loop !18
+  br i1 %.not7, label %avcodec_descriptor_next.exit, label %2, !llvm.loop !17
 
 avcodec_descriptor_next.exit:                     ; preds = %3, %select.unfold
   %.05 = phi ptr [ %.0.i.ph, %select.unfold ], [ null, %3 ]
@@ -1241,7 +1241,7 @@ define i32 @avcodec_get_type(i32 noundef %0) local_unnamed_addr #0 {
 avcodec_descriptor_get.exit:                      ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr @codec_descriptors, i64 %4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %16 = load i32, ptr %15, align 4, !tbaa !18
   br label %avcodec_descriptor_get.exit.thread
 
 avcodec_descriptor_get.exit.thread:               ; preds = %12, %avcodec_descriptor_get.exit
@@ -1271,9 +1271,8 @@ attributes #4 = { nounwind willreturn memory(read) }
 !11 = !{!"p2 omnipotent char", !12, i64 0}
 !12 = !{!"any p2 pointer", !10, i64 0}
 !13 = !{!"p1 _ZTS9AVProfile", !10, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!5, !9, i64 8}
-!18 = distinct !{!18, !15, !16}
-!19 = !{!5, !6, i64 4}
+!16 = !{!5, !9, i64 8}
+!17 = distinct !{!17, !15}
+!18 = !{!5, !6, i64 4}

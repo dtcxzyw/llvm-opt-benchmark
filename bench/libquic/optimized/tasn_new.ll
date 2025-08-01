@@ -383,7 +383,7 @@ tailrecurse:                                      ; preds = %18, %2
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !33
   %.not19.i = icmp eq ptr %15, null
   br i1 %.not19.i, label %17, label %16
 
@@ -409,7 +409,7 @@ tailrecurse:                                      ; preds = %18, %2
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !35
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
   %.not18.i21 = icmp eq ptr %26, null
   br i1 %.not18.i21, label %28, label %27
 
@@ -423,7 +423,7 @@ tailrecurse:                                      ; preds = %18, %2
 
 .critedge.i:                                      ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !37
+  %30 = load i64, ptr %29, align 8, !tbaa !36
   %31 = and i64 %30, 4294967295
   %32 = icmp eq i64 %31, 1
   br i1 %32, label %33, label %.critedge19.i22
@@ -432,7 +432,7 @@ tailrecurse:                                      ; preds = %18, %2
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %35 = load i64, ptr %34, align 8, !tbaa !29
   %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %0, align 4, !tbaa !38
+  store i32 %36, ptr %0, align 4, !tbaa !37
   br label %asn1_item_clear.exit
 
 .critedge19.i22:                                  ; preds = %.critedge.i
@@ -447,7 +447,7 @@ tailrecurse:                                      ; preds = %18, %2
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
   %.not18.i5 = icmp eq ptr %42, null
   br i1 %.not18.i5, label %44, label %43
 
@@ -488,7 +488,7 @@ define hidden i32 @ASN1_primitive_new(ptr noundef %0, ptr noundef %1) local_unna
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %.not36 = icmp eq ptr %8, null
   br i1 %.not36, label %.thread, label %9
 
@@ -503,7 +503,7 @@ define hidden i32 @ASN1_primitive_new(ptr noundef %0, ptr noundef %1) local_unna
 
 13:                                               ; preds = %.thread
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !37
+  %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = trunc i64 %15 to i32
   switch i32 %16, label %.thread40 [
     i32 6, label %17
@@ -521,7 +521,7 @@ define hidden i32 @ASN1_primitive_new(ptr noundef %0, ptr noundef %1) local_unna
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !29
   %22 = trunc i64 %21 to i32
-  store i32 %22, ptr %0, align 4, !tbaa !38
+  store i32 %22, ptr %0, align 4, !tbaa !37
   br label %37
 
 23:                                               ; preds = %13
@@ -535,8 +535,8 @@ define hidden i32 @ASN1_primitive_new(ptr noundef %0, ptr noundef %1) local_unna
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr null, ptr %27, align 8, !tbaa !40
-  store i32 -1, ptr %25, align 8, !tbaa !41
+  store ptr null, ptr %27, align 8, !tbaa !39
+  store i32 -1, ptr %25, align 8, !tbaa !40
   br label %36
 
 .thread40:                                        ; preds = %.thread, %13
@@ -550,9 +550,9 @@ define hidden i32 @ASN1_primitive_new(ptr noundef %0, ptr noundef %1) local_unna
 
 32:                                               ; preds = %.thread40
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !43
+  %34 = load i64, ptr %33, align 8, !tbaa !42
   %35 = or i64 %34, 64
-  store i64 %35, ptr %33, align 8, !tbaa !43
+  store i64 %35, ptr %33, align 8, !tbaa !42
   br label %36
 
 36:                                               ; preds = %.thread40, %32, %26
@@ -628,17 +628,16 @@ attributes #6 = { nounwind allocsize(0) }
 !28 = !{!26, !13, i64 0}
 !29 = !{!12, !13, i64 40}
 !30 = !{!12, !13, i64 24}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!21, !8, i64 24}
-!35 = !{!36, !8, i64 32}
-!36 = !{!"ASN1_PRIMITIVE_FUNCS_st", !8, i64 0, !13, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
-!37 = !{!12, !13, i64 8}
-!38 = !{!18, !18, i64 0}
-!39 = !{!36, !8, i64 16}
-!40 = !{!9, !9, i64 0}
-!41 = !{!42, !18, i64 0}
-!42 = !{!"asn1_type_st", !18, i64 0, !9, i64 8}
-!43 = !{!44, !13, i64 16}
-!44 = !{!"asn1_string_st", !18, i64 0, !18, i64 4, !15, i64 8, !13, i64 16}
+!33 = !{!21, !8, i64 24}
+!34 = !{!35, !8, i64 32}
+!35 = !{!"ASN1_PRIMITIVE_FUNCS_st", !8, i64 0, !13, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
+!36 = !{!12, !13, i64 8}
+!37 = !{!18, !18, i64 0}
+!38 = !{!35, !8, i64 16}
+!39 = !{!9, !9, i64 0}
+!40 = !{!41, !18, i64 0}
+!41 = !{!"asn1_type_st", !18, i64 0, !9, i64 8}
+!42 = !{!43, !13, i64 16}
+!43 = !{!"asn1_string_st", !18, i64 0, !18, i64 4, !15, i64 8, !13, i64 16}

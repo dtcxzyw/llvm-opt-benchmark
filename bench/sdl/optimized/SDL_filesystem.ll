@@ -296,7 +296,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
   %22 = getelementptr inbounds i8, ptr %.06487, i64 -1
   store i8 0, ptr %.06487, align 1
   %.not75 = icmp ult ptr %22, %19
-  br i1 %.not75, label %.critedge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not75, label %.critedge, label %.lr.ph, !llvm.loop !5
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge2, %14, %11
   %.065 = phi ptr [ null, %11 ], [ null, %14 ], [ %19, %.critedge2 ], [ %19, %.lr.ph ]
@@ -407,7 +407,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
   %76 = load i32, ptr %51, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph91, label %.loopexit, !llvm.loop !7
+  br i1 %78, label %.lr.ph91, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph91, %61, %58
   %79 = phi i32 [ %70, %61 ], [ %59, %58 ], [ %76, %.lr.ph91 ]
@@ -474,7 +474,7 @@ define internal fastcc ptr @CaseFoldUtf8String(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #8
   %12 = call i32 @SDL_StepUTF8_REAL(ptr noundef nonnull %2, ptr noundef null) #8
   %.not33 = icmp eq i32 %12, 0
-  br i1 %.not33, label %._crit_edge44, label %.lr.ph43, !llvm.loop !8
+  br i1 %.not33, label %._crit_edge44, label %.lr.ph43, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %EncodeCodepointToUtf8.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %EncodeCodepointToUtf8.exit ]
@@ -576,7 +576,7 @@ EncodeCodepointToUtf8.exit:                       ; preds = %16, %17, %21, %23, 
   %70 = getelementptr inbounds nuw i8, ptr %.12836, i64 %.0.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %.preheader
   %.027.lcssa = phi ptr [ %7, %.preheader ], [ %.128.lcssa, %._crit_edge ]
@@ -679,14 +679,14 @@ define internal zeroext i1 @WildcardMatch(ptr noundef readonly captures(address)
   %.137 = phi i8 [ %.03665, %7 ], [ %14, %11 ], [ %21, %19 ], [ %28, %26 ]
   %.0 = load i8, ptr %.150, align 1
   %.not = icmp eq i8 %.137, 0
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !9
 
 .lr.ph69:                                         ; preds = %.preheader, %.lr.ph69
   %.25168 = phi ptr [ %30, %.lr.ph69 ], [ %.049.lcssa, %.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %.25168, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 42
-  br i1 %32, label %.lr.ph69, label %._crit_edge, !llvm.loop !11
+  br i1 %32, label %.lr.ph69, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph69, %.preheader
   %.2.lcssa = phi i8 [ %.0.lcssa, %.preheader ], [ %31, %.lr.ph69 ]
@@ -764,7 +764,7 @@ define internal range(i32 0, 3) i32 @GlobDirectoryCallback(ptr noundef %0, ptr n
   br label %38
 
 38:                                               ; preds = %.thread, %16
-  %39 = load i8, ptr %5, align 1, !range !12, !noundef !13
+  %39 = load i8, ptr %5, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %57
 
@@ -973,7 +973,7 @@ define hidden void @SDL_QuitFilesystem() local_unnamed_addr #0 {
 8:                                                ; preds = %4, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !14
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !13
 }
 
 declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1003,15 +1003,14 @@ attributes #9 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !4}

@@ -114,12 +114,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  %7 = load i8, ptr %6, align 1, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !6
   %8 = zext i8 %7 to i32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %8)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !10
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !9
 
 10:                                               ; preds = %5
   %putchar63.i = tail call i32 @putchar(i32 9)
@@ -129,12 +129,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 12:                                               ; preds = %12, %10
   %indvars.iv89.i = phi i64 [ 0, %10 ], [ %indvars.iv.next90.i, %12 ]
   %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 0, i64 %indvars.iv89.i
-  %14 = load i8, ptr %13, align 1, !tbaa !7
+  %14 = load i8, ptr %13, align 1, !tbaa !6
   %15 = zext i8 %14 to i32
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %15)
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next90.i, 8
-  br i1 %exitcond92.not.i, label %17, label %12, !llvm.loop !11
+  br i1 %exitcond92.not.i, label %17, label %12, !llvm.loop !10
 
 17:                                               ; preds = %12
   %putchar64.i = tail call i32 @putchar(i32 9)
@@ -144,18 +144,18 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 19:                                               ; preds = %19, %17
   %indvars.iv93.i = phi i64 [ 0, %17 ], [ %indvars.iv.next94.i, %19 ]
   %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 0, i64 %indvars.iv93.i
-  %21 = load i8, ptr %20, align 1, !tbaa !7
+  %21 = load i8, ptr %20, align 1, !tbaa !6
   %22 = zext i8 %21 to i32
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %22)
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 8
-  br i1 %exitcond96.not.i, label %24, label %19, !llvm.loop !12
+  br i1 %exitcond96.not.i, label %24, label %19, !llvm.loop !11
 
 24:                                               ; preds = %19
   %putchar65.i = tail call i32 @putchar(i32 10)
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next98.i, 34
-  br i1 %exitcond100.not.i, label %25, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond100.not.i, label %25, label %.preheader.i, !llvm.loop !12
 
 25:                                               ; preds = %24
   %puts53.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -165,12 +165,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 27:                                               ; preds = %27, %25
   %indvars.iv101.i = phi i64 [ 0, %25 ], [ %indvars.iv.next102.i, %27 ]
   %28 = getelementptr inbounds nuw [8 x i8], ptr @key_data, i64 0, i64 %indvars.iv101.i
-  %29 = load i8, ptr %28, align 1, !tbaa !7
+  %29 = load i8, ptr %28, align 1, !tbaa !6
   %30 = zext i8 %29 to i32
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %30)
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 8
-  br i1 %exitcond104.not.i, label %32, label %27, !llvm.loop !14
+  br i1 %exitcond104.not.i, label %32, label %27, !llvm.loop !13
 
 32:                                               ; preds = %27
   %putchar.i = tail call i32 @putchar(i32 10)
@@ -186,12 +186,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 36:                                               ; preds = %36, %33
   %indvars.iv105.i = phi i64 [ 0, %33 ], [ %indvars.iv.next106.i, %36 ]
   %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %indvars.iv105.i
-  %38 = load i8, ptr %37, align 1, !tbaa !7
+  %38 = load i8, ptr %37, align 1, !tbaa !6
   %39 = zext i8 %38 to i32
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %39)
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next106.i, 8
-  br i1 %exitcond108.not.i, label %41, label %36, !llvm.loop !15
+  br i1 %exitcond108.not.i, label %41, label %36, !llvm.loop !14
 
 41:                                               ; preds = %36
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
@@ -202,18 +202,18 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 44:                                               ; preds = %44, %41
   %indvars.iv109.i = phi i64 [ 0, %41 ], [ %indvars.iv.next110.i, %44 ]
   %45 = getelementptr inbounds nuw [25 x i8], ptr @key_test, i64 0, i64 %indvars.iv109.i
-  %46 = load i8, ptr %45, align 1, !tbaa !7
+  %46 = load i8, ptr %45, align 1, !tbaa !6
   %47 = zext i8 %46 to i32
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %47)
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond114.not.i = icmp eq i64 %indvars.iv.next110.i, %indvars.iv115.i
-  br i1 %exitcond114.not.i, label %49, label %44, !llvm.loop !16
+  br i1 %exitcond114.not.i, label %49, label %44, !llvm.loop !15
 
 49:                                               ; preds = %44
   %putchar62.i = tail call i32 @putchar(i32 10)
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %exitcond122.not.i = icmp eq i64 %indvars.iv.next118.i, 24
-  br i1 %exitcond122.not.i, label %50, label %33, !llvm.loop !17
+  br i1 %exitcond122.not.i, label %50, label %33, !llvm.loop !16
 
 50:                                               ; preds = %49
   %puts54.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -223,12 +223,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 52:                                               ; preds = %52, %50
   %indvars.iv123.i = phi i64 [ 0, %50 ], [ %indvars.iv.next124.i, %52 ]
   %53 = getelementptr inbounds nuw [16 x i8], ptr @cbc_key, i64 0, i64 %indvars.iv123.i
-  %54 = load i8, ptr %53, align 1, !tbaa !7
+  %54 = load i8, ptr %53, align 1, !tbaa !6
   %55 = zext i8 %54 to i32
   %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %55)
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %exitcond126.not.i = icmp eq i64 %indvars.iv.next124.i, 16
-  br i1 %exitcond126.not.i, label %57, label %52, !llvm.loop !18
+  br i1 %exitcond126.not.i, label %57, label %52, !llvm.loop !17
 
 57:                                               ; preds = %52
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33)
@@ -237,12 +237,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 59:                                               ; preds = %59, %57
   %indvars.iv127.i = phi i64 [ 0, %57 ], [ %indvars.iv.next128.i, %59 ]
   %60 = getelementptr inbounds nuw [8 x i8], ptr @cbc_iv, i64 0, i64 %indvars.iv127.i
-  %61 = load i8, ptr %60, align 1, !tbaa !7
+  %61 = load i8, ptr %60, align 1, !tbaa !6
   %62 = zext i8 %61 to i32
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %62)
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next128.i, 8
-  br i1 %exitcond130.not.i, label %64, label %59, !llvm.loop !19
+  br i1 %exitcond130.not.i, label %64, label %59, !llvm.loop !18
 
 64:                                               ; preds = %59
   %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
@@ -261,7 +261,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %74 = phi i64 [ %80, %.lr.ph.i ], [ 0, %64 ]
   %.876.i = phi i32 [ %79, %.lr.ph.i ], [ 0, %64 ]
   %75 = getelementptr inbounds nuw [40 x i8], ptr @cbc_data, i64 0, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !7
+  %76 = load i8, ptr %75, align 1, !tbaa !6
   %77 = sext i8 %76 to i32
   %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %77)
   %79 = add i32 %.876.i, 1
@@ -269,7 +269,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
   %82 = add i64 %81, 1
   %83 = icmp ugt i64 %82, %80
-  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %64
   %putchar55.i = tail call i32 @putchar(i32 10)
@@ -280,12 +280,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 85:                                               ; preds = %85, %._crit_edge.i
   %indvars.iv131.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next132.i, %85 ]
   %86 = getelementptr inbounds nuw [32 x i8], ptr @cbc_ok, i64 0, i64 %indvars.iv131.i
-  %87 = load i8, ptr %86, align 1, !tbaa !7
+  %87 = load i8, ptr %86, align 1, !tbaa !6
   %88 = zext i8 %87 to i32
   %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %88)
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next132.i, 32
-  br i1 %exitcond134.not.i, label %90, label %85, !llvm.loop !21
+  br i1 %exitcond134.not.i, label %90, label %85, !llvm.loop !20
 
 90:                                               ; preds = %85
   %putchar57.i = tail call i32 @putchar(i32 10)
@@ -302,7 +302,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %96 = phi i64 [ %102, %.lr.ph80.i ], [ 0, %90 ]
   %.1078.i = phi i32 [ %101, %.lr.ph80.i ], [ 0, %90 ]
   %97 = getelementptr inbounds nuw [29 x i8], ptr @cfb64_ok, i64 0, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !7
+  %98 = load i8, ptr %97, align 1, !tbaa !6
   %99 = zext i8 %98 to i32
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %99)
   %101 = add i32 %.1078.i, 1
@@ -310,7 +310,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
   %104 = add i64 %103, 1
   %105 = icmp ugt i64 %104, %102
-  br i1 %105, label %.lr.ph80.i, label %._crit_edge81.i, !llvm.loop !22
+  br i1 %105, label %.lr.ph80.i, label %._crit_edge81.i, !llvm.loop !21
 
 ._crit_edge81.i:                                  ; preds = %.lr.ph80.i, %90
   %putchar59.i = tail call i32 @putchar(i32 10)
@@ -327,7 +327,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %111 = phi i64 [ %117, %.lr.ph84.i ], [ 0, %._crit_edge81.i ]
   %.1182.i = phi i32 [ %116, %.lr.ph84.i ], [ 0, %._crit_edge81.i ]
   %112 = getelementptr inbounds nuw [29 x i8], ptr @ofb64_ok, i64 0, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !7
+  %113 = load i8, ptr %112, align 1, !tbaa !6
   %114 = zext i8 %113 to i32
   %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %114)
   %116 = add i32 %.1182.i, 1
@@ -335,7 +335,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #9
   %119 = add i64 %118, 1
   %120 = icmp ugt i64 %119, %117
-  br i1 %120, label %.lr.ph84.i, label %print_test_data.exit, !llvm.loop !23
+  br i1 %120, label %.lr.ph84.i, label %print_test_data.exit, !llvm.loop !22
 
 print_test_data.exit:                             ; preds = %.lr.ph84.i, %._crit_edge81.i
   %putchar61.i = tail call i32 @putchar(i32 10)
@@ -374,12 +374,12 @@ define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %0) #1 {
   %7 = trunc i64 %6 to i32
   call void @BF_set_key(ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %5) #8
   %8 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_plain, i64 0, i64 %4
-  %9 = load i32, ptr %8, align 8, !tbaa !24
-  store i32 %9, ptr %3, align 4, !tbaa !24
+  %9 = load i32, ptr %8, align 8, !tbaa !23
+  store i32 %9, ptr %3, align 4, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !24
+  %11 = load i32, ptr %10, align 4, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %11, ptr %12, align 4, !tbaa !24
+  store i32 %11, ptr %12, align 4, !tbaa !23
   call void @BF_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %2) #8
   %13 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_cipher, i64 0, i64 %4
   %14 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 306, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull %13, i64 noundef 8, ptr noundef nonnull %3, i64 noundef 8) #8
@@ -491,7 +491,7 @@ define internal range(i32 0, 2) i32 @test_bf_cfb64() #1 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store i64 1167088121787636990, ptr %3, align 8
-  store i32 0, ptr %4, align 4, !tbaa !24
+  store i32 0, ptr %4, align 4, !tbaa !23
   call void @BF_cfb64_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %2, i64 noundef 13, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %8 = add i64 %6, 4294967284
@@ -502,7 +502,7 @@ define internal range(i32 0, 2) i32 @test_bf_cfb64() #1 {
   %11 = ashr exact i64 %sext, 32
   %12 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 394, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.52, ptr noundef nonnull %2, i64 noundef %11, ptr noundef nonnull @cfb64_ok, i64 noundef %11) #8
   %.not = icmp ne i32 %12, 0
-  store i32 0, ptr %4, align 4, !tbaa !24
+  store i32 0, ptr %4, align 4, !tbaa !23
   store i64 1167088121787636990, ptr %3, align 8
   call void @BF_cfb64_encrypt(ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef 17, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0) #8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 17
@@ -539,7 +539,7 @@ define internal range(i32 0, 2) i32 @test_bf_ofb64() #1 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store i64 1167088121787636990, ptr %3, align 8
-  store i32 0, ptr %4, align 4, !tbaa !24
+  store i32 0, ptr %4, align 4, !tbaa !23
   call void @BF_ofb64_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %2, i64 noundef 13, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %8 = add i64 %6, 4294967284
@@ -550,7 +550,7 @@ define internal range(i32 0, 2) i32 @test_bf_ofb64() #1 {
   %11 = ashr exact i64 %sext, 32
   %12 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 426, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.53, ptr noundef nonnull %2, i64 noundef %11, ptr noundef nonnull @ofb64_ok, i64 noundef %11) #8
   %.not = icmp ne i32 %12, 0
-  store i32 0, ptr %4, align 4, !tbaa !24
+  store i32 0, ptr %4, align 4, !tbaa !23
   store i64 1167088121787636990, ptr %3, align 8
   call void @BF_ofb64_encrypt(ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef 17, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 17
@@ -621,25 +621,24 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"int", !8, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !7, i64 0}

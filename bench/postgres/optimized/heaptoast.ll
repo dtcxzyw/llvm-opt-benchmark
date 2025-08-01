@@ -119,7 +119,6 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 37:                                               ; preds = %30, %33
   %38 = phi i64 [ %36, %33 ], [ 2032, %30 ]
   %39 = sub nsw i64 %38, %.083
-  %invariant.gep = getelementptr i8, ptr %13, i64 108
   %40 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %41 = icmp ugt i64 %40, %39
   br i1 %41, label %.lr.ph, label %.thread107
@@ -128,7 +127,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %43
 
-43:                                               ; preds = %.lr.ph, %69
+43:                                               ; preds = %.lr.ph, %71
   %44 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %.thread107, label %46
@@ -137,177 +136,178 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %47 = load i32, ptr %13, align 8
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 4
-  %50 = zext nneg i32 %44 to i64
-  %.idx = mul nuw nsw i64 %50, 100
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %49
-  %51 = getelementptr i8, ptr %gep, i64 %.idx
-  %52 = load i8, ptr %51, align 4
-  %53 = icmp eq i8 %52, 120
-  br i1 %53, label %54, label %55
+  %50 = getelementptr i8, ptr %13, i64 %49
+  %51 = zext nneg i32 %44 to i64
+  %.idx = mul nuw nsw i64 %51, 100
+  %52 = getelementptr i8, ptr %50, i64 108
+  %53 = getelementptr i8, ptr %52, i64 %.idx
+  %54 = load i8, ptr %53, align 4
+  %55 = icmp eq i8 %54, 120
+  br i1 %55, label %56, label %57
 
-54:                                               ; preds = %46
+56:                                               ; preds = %46
   call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %44) #8
-  br label %59
+  br label %61
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds nuw [1600 x %struct.ToastAttrInfo], ptr %9, i64 0, i64 %50, i32 2
-  %57 = load i8, ptr %56, align 4
-  %58 = or i8 %57, 32
-  store i8 %58, ptr %56, align 4
-  br label %59
+57:                                               ; preds = %46
+  %58 = getelementptr inbounds nuw [1600 x %struct.ToastAttrInfo], ptr %9, i64 0, i64 %51, i32 2
+  %59 = load i8, ptr %58, align 4
+  %60 = or i8 %59, 32
+  store i8 %60, ptr %58, align 4
+  br label %61
 
-59:                                               ; preds = %55, %54
-  %60 = getelementptr inbounds nuw [1600 x %struct.ToastAttrInfo], ptr %9, i64 0, i64 %50, i32 1
-  %61 = load i32, ptr %60, align 8
-  %62 = sext i32 %61 to i64
-  %63 = icmp ult i64 %39, %62
-  br i1 %63, label %64, label %69
+61:                                               ; preds = %57, %56
+  %62 = getelementptr inbounds nuw [1600 x %struct.ToastAttrInfo], ptr %9, i64 0, i64 %51, i32 1
+  %63 = load i32, ptr %62, align 8
+  %64 = sext i32 %63 to i64
+  %65 = icmp ult i64 %39, %64
+  br i1 %65, label %66, label %71
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %42, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 108
-  %67 = load i32, ptr %66, align 4
-  %.not94 = icmp eq i32 %67, 0
-  br i1 %.not94, label %69, label %68
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %42, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 108
+  %69 = load i32, ptr %68, align 4
+  %.not94 = icmp eq i32 %69, 0
+  br i1 %.not94, label %71, label %70
 
-68:                                               ; preds = %64
+70:                                               ; preds = %66
   call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %44, i32 noundef %11) #8
-  br label %69
+  br label %71
 
-69:                                               ; preds = %59, %64, %68
-  %70 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %71 = icmp ugt i64 %70, %39
-  br i1 %71, label %43, label %.thread107, !llvm.loop !4
+71:                                               ; preds = %61, %66, %70
+  %72 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %73 = icmp ugt i64 %72, %39
+  br i1 %73, label %43, label %.thread107
 
-.thread107:                                       ; preds = %69, %43, %37
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %73 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %74 = icmp ugt i64 %73, %39
-  br i1 %74, label %.lr.ph120, label %.critedge
+.thread107:                                       ; preds = %71, %43, %37
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %75 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %76 = icmp ugt i64 %75, %39
+  br i1 %76, label %.lr.ph120, label %.critedge
 
-.lr.ph120:                                        ; preds = %.thread107, %81
-  %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 108
-  %77 = load i32, ptr %76, align 4
-  %.not95 = icmp eq i32 %77, 0
-  br i1 %.not95, label %.critedge, label %78
+.lr.ph120:                                        ; preds = %.thread107, %83
+  %77 = load ptr, ptr %74, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 108
+  %79 = load i32, ptr %78, align 4
+  %.not95 = icmp eq i32 %79, 0
+  br i1 %.not95, label %.critedge, label %80
 
-78:                                               ; preds = %.lr.ph120
-  %79 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %.critedge, label %81
+80:                                               ; preds = %.lr.ph120
+  %81 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #8
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %.critedge, label %83
 
-81:                                               ; preds = %78
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %79, i32 noundef %11) #8
-  %82 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %83 = icmp ugt i64 %82, %39
-  br i1 %83, label %.lr.ph120, label %.critedge, !llvm.loop !6
-
-.critedge:                                        ; preds = %.lr.ph120, %81, %78, %.thread107
+83:                                               ; preds = %80
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %81, i32 noundef %11) #8
   %84 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %85 = icmp ugt i64 %84, %39
-  br i1 %85, label %.lr.ph123, label %.thread113
+  br i1 %85, label %.lr.ph120, label %.critedge
 
-.lr.ph123:                                        ; preds = %.critedge, %88
-  %86 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #8
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.thread113, label %88
+.critedge:                                        ; preds = %.lr.ph120, %83, %80, %.thread107
+  %86 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %87 = icmp ugt i64 %86, %39
+  br i1 %87, label %.lr.ph123, label %.thread113
 
-88:                                               ; preds = %.lr.ph123
-  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %86) #8
-  %89 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %90 = icmp ugt i64 %89, %39
-  br i1 %90, label %.lr.ph123, label %.thread113, !llvm.loop !7
+.lr.ph123:                                        ; preds = %.critedge, %90
+  %88 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #8
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %.thread113, label %90
 
-.thread113:                                       ; preds = %88, %.lr.ph123, %.critedge
-  %91 = sub nsw i64 8160, %.083
-  %92 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %93 = icmp ugt i64 %92, %91
-  br i1 %93, label %.lr.ph125, label %.critedge2
+90:                                               ; preds = %.lr.ph123
+  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %88) #8
+  %91 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %92 = icmp ugt i64 %91, %39
+  br i1 %92, label %.lr.ph123, label %.thread113
 
-.lr.ph125:                                        ; preds = %.thread113, %100
-  %94 = load ptr, ptr %72, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 108
-  %96 = load i32, ptr %95, align 4
-  %.not96 = icmp eq i32 %96, 0
-  br i1 %.not96, label %.critedge2, label %97
+.thread113:                                       ; preds = %90, %.lr.ph123, %.critedge
+  %93 = sub nsw i64 8160, %.083
+  %94 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %95 = icmp ugt i64 %94, %93
+  br i1 %95, label %.lr.ph125, label %.critedge2
 
-97:                                               ; preds = %.lr.ph125
-  %98 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #8
-  %99 = icmp slt i32 %98, 0
-  br i1 %99, label %.critedge2, label %100
+.lr.ph125:                                        ; preds = %.thread113, %102
+  %96 = load ptr, ptr %74, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 108
+  %98 = load i32, ptr %97, align 4
+  %.not96 = icmp eq i32 %98, 0
+  br i1 %.not96, label %.critedge2, label %99
 
-100:                                              ; preds = %97
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %98, i32 noundef %11) #8
-  %101 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %102 = icmp ugt i64 %101, %91
-  br i1 %102, label %.lr.ph125, label %.critedge2, !llvm.loop !8
+99:                                               ; preds = %.lr.ph125
+  %100 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #8
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %.critedge2, label %102
 
-.critedge2:                                       ; preds = %.lr.ph125, %100, %97, %.thread113
-  %103 = load i8, ptr %22, align 8
-  %104 = zext i8 %103 to i32
-  %105 = and i32 %104, 8
-  %.not97 = icmp eq i32 %105, 0
-  br i1 %.not97, label %143, label %106
+102:                                              ; preds = %99
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %100, i32 noundef %11) #8
+  %103 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %104 = icmp ugt i64 %103, %93
+  br i1 %104, label %.lr.ph125, label %.critedge2
 
-106:                                              ; preds = %.critedge2
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = and i32 %104, 4
-  %.not98 = icmp eq i32 %109, 0
-  br i1 %.not98, label %114, label %110
+.critedge2:                                       ; preds = %.lr.ph125, %102, %99, %.thread113
+  %105 = load i8, ptr %22, align 8
+  %106 = zext i8 %105 to i32
+  %107 = and i32 %106, 8
+  %.not97 = icmp eq i32 %107, 0
+  br i1 %.not97, label %145, label %108
 
-110:                                              ; preds = %106
-  %111 = add i32 %14, 7
-  %112 = sdiv i32 %111, 8
-  %narrow99 = add nsw i32 %112, 30
-  %113 = and i32 %narrow99, -8
-  br label %114
+108:                                              ; preds = %.critedge2
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = and i32 %106, 4
+  %.not98 = icmp eq i32 %111, 0
+  br i1 %.not98, label %116, label %112
 
-114:                                              ; preds = %110, %106
-  %.082 = phi i32 [ %113, %110 ], [ 24, %106 ]
-  %115 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %116 = trunc i64 %115 to i32
-  %117 = add i32 %.082, %116
-  %118 = sext i32 %117 to i64
-  %119 = add nsw i64 %118, 24
-  %120 = call ptr @palloc0(i64 noundef %119) #8
-  store i32 %117, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %121, ptr noundef nonnull align 4 dereferenceable(6) %122, i64 6, i1 false)
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  store i32 %124, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %127 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store ptr %126, ptr %127, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %126, ptr noundef nonnull align 4 dereferenceable(23) %108, i64 23, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %120, i64 42
-  %129 = load i16, ptr %128, align 2
-  %130 = and i16 %129, -2048
-  %131 = trunc i32 %14 to i16
-  %132 = or i16 %130, %131
-  store i16 %132, ptr %128, align 2
-  %133 = trunc i32 %.082 to i8
-  %134 = getelementptr inbounds nuw i8, ptr %120, i64 46
-  store i8 %133, ptr %134, align 2
-  %135 = sext i32 %.082 to i64
-  %136 = getelementptr inbounds i8, ptr %126, i64 %135
-  %sext = shl i64 %115, 32
-  %137 = ashr exact i64 %sext, 32
-  %138 = getelementptr inbounds nuw i8, ptr %120, i64 44
-  %139 = load i8, ptr %22, align 8
-  %140 = and i8 %139, 4
-  %.not100 = icmp eq i8 %140, 0
-  %141 = getelementptr inbounds nuw i8, ptr %120, i64 47
-  %142 = select i1 %.not100, ptr null, ptr %141
-  call void @heap_fill_tuple(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %136, i64 noundef %137, ptr noundef nonnull %138, ptr noundef %142) #8
-  br label %143
+112:                                              ; preds = %108
+  %113 = add i32 %14, 7
+  %114 = sdiv i32 %113, 8
+  %narrow99 = add nsw i32 %114, 30
+  %115 = and i32 %narrow99, -8
+  br label %116
 
-143:                                              ; preds = %.critedge2, %114
-  %.0 = phi ptr [ %120, %114 ], [ %1, %.critedge2 ]
+116:                                              ; preds = %112, %108
+  %.082 = phi i32 [ %115, %112 ], [ 24, %108 ]
+  %117 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %118 = trunc i64 %117 to i32
+  %119 = add i32 %.082, %118
+  %120 = sext i32 %119 to i64
+  %121 = add nsw i64 %120, 24
+  %122 = call ptr @palloc0(i64 noundef %121) #8
+  store i32 %119, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %123, ptr noundef nonnull align 4 dereferenceable(6) %124, i64 6, i1 false)
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 12
+  store i32 %126, ptr %127, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  store ptr %128, ptr %129, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %128, ptr noundef nonnull align 4 dereferenceable(23) %110, i64 23, i1 false)
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 42
+  %131 = load i16, ptr %130, align 2
+  %132 = and i16 %131, -2048
+  %133 = trunc i32 %14 to i16
+  %134 = or i16 %132, %133
+  store i16 %134, ptr %130, align 2
+  %135 = trunc i32 %.082 to i8
+  %136 = getelementptr inbounds nuw i8, ptr %122, i64 46
+  store i8 %135, ptr %136, align 2
+  %137 = sext i32 %.082 to i64
+  %138 = getelementptr inbounds i8, ptr %128, i64 %137
+  %sext = shl i64 %117, 32
+  %139 = ashr exact i64 %sext, 32
+  %140 = getelementptr inbounds nuw i8, ptr %122, i64 44
+  %141 = load i8, ptr %22, align 8
+  %142 = and i8 %141, 4
+  %.not100 = icmp eq i8 %142, 0
+  %143 = getelementptr inbounds nuw i8, ptr %122, i64 47
+  %144 = select i1 %.not100, ptr null, ptr %143
+  call void @heap_fill_tuple(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %138, i64 noundef %139, ptr noundef nonnull %140, ptr noundef %144) #8
+  br label %145
+
+145:                                              ; preds = %.critedge2, %116
+  %.0 = phi ptr [ %122, %116 ], [ %1, %.critedge2 ]
   call void @toast_tuple_cleanup(ptr noundef nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 25600, ptr nonnull %9) #8
@@ -353,20 +353,20 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr i8, ptr %1, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %11 = getelementptr inbounds nuw [1664 x i8], ptr %4, i64 0, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %10
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %15 = getelementptr i8, ptr %9, i64 %.idx
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %16 = load i16, ptr %15, align 4
   %17 = icmp eq i16 %16, -1
   br i1 %17, label %18, label %28
@@ -390,7 +390,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 28:                                               ; preds = %18, %24, %10, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %28, %2
   %29 = call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -448,7 +448,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %74
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next44, %74 ]
   %67 = getelementptr inbounds nuw [1664 x i8], ptr %5, i64 0, i64 %indvars.iv43
-  %68 = load i8, ptr %67, align 1, !range !9, !noundef !10
+  %68 = load i8, ptr %67, align 1, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %74
 
@@ -462,7 +462,7 @@ define dso_local ptr @toast_flatten_tuple(ptr noundef %0, ptr noundef %1) local_
 74:                                               ; preds = %.lr.ph40, %70
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !13
+  br i1 %exitcond47.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !8
 
 ._crit_edge41:                                    ; preds = %74, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 1664, ptr nonnull %5) #8
@@ -509,7 +509,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br i1 %15, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3
-  %16 = getelementptr i8, ptr %2, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %17
 
@@ -517,13 +517,13 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.058 = phi i1 [ false, %.lr.ph ], [ %.1, %37 ]
   %18 = getelementptr inbounds nuw [1664 x i8], ptr %6, i64 0, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !range !9, !noundef !10
+  %19 = load i8, ptr %18, align 1, !range !4, !noundef !5
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %37, label %21
 
 21:                                               ; preds = %17
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %22 = getelementptr i8, ptr %16, i64 %.idx
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %23 = load i16, ptr %22, align 4
   %24 = icmp eq i16 %23, -1
   br i1 %24, label %25, label %37
@@ -551,7 +551,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %.1 = phi i1 [ %.058, %21 ], [ true, %17 ], [ %.058, %25 ], [ %.058, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %37
   br i1 %.1, label %38, label %._crit_edge.thread
@@ -608,7 +608,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %73
   %indvars.iv63 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next64, %73 ]
   %66 = getelementptr inbounds nuw [1664 x i8], ptr %7, i64 0, i64 %indvars.iv63
-  %67 = load i8, ptr %66, align 1, !range !9, !noundef !10
+  %67 = load i8, ptr %66, align 1, !range !4, !noundef !5
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %73
 
@@ -622,7 +622,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
 73:                                               ; preds = %.lr.ph61, %69
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !15
+  br i1 %exitcond67.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !10
 
 ._crit_edge62:                                    ; preds = %73, %._crit_edge.thread
   %74 = ptrtoint ptr %46 to i64
@@ -653,7 +653,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   br label %._crit_edge30
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %12
 
@@ -661,13 +661,13 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.02325 = phi i32 [ 0, %.lr.ph ], [ %.2, %32 ]
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %12
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %17 = getelementptr i8, ptr %11, i64 %.idx
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %18 = load i16, ptr %17, align 4
   %19 = icmp eq i16 %18, -1
   br i1 %19, label %20, label %32
@@ -694,7 +694,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   %.2 = phi i32 [ %.02325, %12 ], [ %.02325, %16 ], [ %29, %26 ], [ %.02325, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %32
   %33 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2) #8
@@ -712,7 +712,7 @@ define dso_local ptr @toast_build_flattened_tuple(ptr noundef %0, ptr noundef re
   call void @pfree(ptr noundef %36) #8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !17
+  br i1 %exitcond36.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !12
 
 ._crit_edge30:                                    ; preds = %.lr.ph29, %._crit_edge.thread, %._crit_edge
   %37 = phi ptr [ %10, %._crit_edge.thread ], [ %33, %._crit_edge ], [ %33, %.lr.ph29 ]
@@ -906,7 +906,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
   %121 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #8
   %.not = icmp eq ptr %121, null
-  br i1 %.not, label %._crit_edge, label %52, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %52, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %106, %39
   %.083.lcssa = phi i32 [ %21, %39 ], [ %120, %106 ]
@@ -974,7 +974,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %23 = load i8, ptr %22, align 2, !range !9, !noundef !10
+  %23 = load i8, ptr %22, align 2, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %26 = load i16, ptr %25, align 4
@@ -1080,18 +1080,13 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !12, !5}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !5}
-!14 = distinct !{!14, !12, !5}
-!15 = distinct !{!15, !12, !5}
-!16 = distinct !{!16, !12, !5}
-!17 = distinct !{!17, !12, !5}
-!18 = distinct !{!18, !12, !5}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -3320,7 +3320,7 @@ check_length.exit1730:                            ; preds = %786, %787
   %802 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %801, i32 noundef %.022, ptr noundef nonnull @.str.1086)
   %803 = add i32 %802, %.022
   %804 = icmp ult i32 %803, %793
-  br i1 %804, label %.lr.ph23, label %.critedge, !llvm.loop !11
+  br i1 %804, label %.lr.ph23, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph23, %800, %792
   %805 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
@@ -3451,7 +3451,7 @@ check_length.exit1738:                            ; preds = %843
   tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %857, i32 noundef %855, ptr noundef nonnull @.str.1095)
   %858 = add i8 %.0166418, -1
   %.not = icmp eq i8 %858, 0
-  br i1 %.not, label %.critedge133, label %.lr.ph20, !llvm.loop !12
+  br i1 %.not, label %.critedge133, label %.lr.ph20, !llvm.loop !11
 
 859:                                              ; preds = %841
   %860 = icmp eq i8 %7, 34
@@ -3570,7 +3570,7 @@ check_length.exit1740:                            ; preds = %861, %862
   tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %922, i32 noundef %.214, ptr noundef nonnull @.str.1110)
   %923 = add i32 %.214, 1
   %exitcond.not = icmp eq i32 %923, %903
-  br i1 %exitcond.not, label %.critedge133, label %.lr.ph15, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge133, label %.lr.ph15, !llvm.loop !12
 
 924:                                              ; preds = %900
   %925 = icmp eq i8 %6, 10
@@ -4063,7 +4063,7 @@ check_length.exit1766:                            ; preds = %1107, %1108
   %1163 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1162, i32 noundef %1161, ptr noundef nonnull @.str.1160)
   %1164 = add i32 %1163, %1161
   %1165 = icmp ult i32 %1164, %1152
-  br i1 %1165, label %.lr.ph, label %.critedge133, !llvm.loop !14
+  br i1 %1165, label %.lr.ph, label %.critedge133, !llvm.loop !13
 
 1166:                                             ; preds = %1149
   %1167 = icmp eq i8 %6, 15
@@ -4379,7 +4379,7 @@ define internal fastcc void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef
   %70 = icmp ne i16 %69, 0
   %71 = icmp ne i32 %68, 0
   %72 = select i1 %70, i1 %71, i1 false
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.lcssa = phi i1 [ %61, %49 ], [ %70, %.lr.ph ]
@@ -4938,7 +4938,7 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
 421:                                              ; preds = %416, %419, %251, %254, %378, %324, %301, %263, %256, %182, %136, %129
   %.1356 = phi i32 [ %123, %419 ], [ %123, %416 ], [ %123, %129 ], [ %175, %136 ], [ %244, %182 ], [ %123, %254 ], [ %123, %251 ], [ %123, %256 ], [ %295, %263 ], [ %323, %301 ], [ %372, %324 ], [ %410, %378 ]
   %422 = icmp ult i32 %.1356, %6
-  br i1 %422, label %9, label %.loopexit, !llvm.loop !16
+  br i1 %422, label %9, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %421, %5, %21
   ret void
@@ -5157,7 +5157,7 @@ define internal fastcc void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef re
   %187 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %182, ptr noundef %0, i32 noundef %181, i32 noundef %183, ptr noundef nonnull @.str.1170, ptr noundef nonnull @.str.1231, ptr noundef %186)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.1171, ptr noundef nonnull @.str.1231, ptr noundef %186)
   %188 = icmp ult i32 %181, %6
-  br i1 %188, label %9, label %._crit_edge, !llvm.loop !17
+  br i1 %188, label %9, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %9, %5
   ret void
@@ -5191,13 +5191,12 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

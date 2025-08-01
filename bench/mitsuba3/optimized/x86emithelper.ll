@@ -804,7 +804,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %53 = load i8, ptr %52, align 2, !tbaa !59
+  %53 = load i8, ptr %52, align 2, !tbaa !58
   switch i8 %53, label %54 [
     i8 -1, label %68
     i8 4, label %68
@@ -835,9 +835,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
 
 68:                                               ; preds = %65, %62, %60, %51, %51
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %70 = load i8, ptr %69, align 1, !tbaa !60
+  %70 = load i8, ptr %69, align 1, !tbaa !59
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %72 = load i8, ptr %71, align 2, !tbaa !61
+  %72 = load i8, ptr %71, align 2, !tbaa !60
   %73 = icmp ult i8 %70, %72
   br i1 %73, label %83, label %74
 
@@ -860,7 +860,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
 
 83:                                               ; preds = %74, %68
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %85 = load i32, ptr %84, align 4, !tbaa !62
+  %85 = load i32, ptr %84, align 4, !tbaa !61
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %93, label %87
 
@@ -879,31 +879,31 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
   br i1 %92, label %93, label %.loopexit18
 
 93:                                               ; preds = %87, %83
-  %94 = load i8, ptr %69, align 1, !tbaa !60
-  %95 = load i8, ptr %71, align 2, !tbaa !61
+  %94 = load i8, ptr %69, align 1, !tbaa !59
+  %95 = load i8, ptr %71, align 2, !tbaa !60
   %96 = icmp ult i8 %94, %95
   br i1 %96, label %111, label %97
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %99 = load i32, ptr %98, align 4, !tbaa !63
+  %99 = load i32, ptr %98, align 4, !tbaa !62
   %100 = icmp eq i32 %99, -1
   br i1 %100, label %111, label %101
 
 101:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %102 = load i32, ptr %3, align 4, !tbaa !9, !noalias !64
+  call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  %102 = load i32, ptr %3, align 4, !tbaa !9, !noalias !63
   %103 = and i32 %102, 248
   %104 = or disjoint i32 %103, 2
-  %105 = load i32, ptr %23, align 4, !tbaa !44, !noalias !64
-  store i32 %104, ptr %9, align 4, !tbaa !4, !alias.scope !64
+  %105 = load i32, ptr %23, align 4, !tbaa !44, !noalias !63
+  store i32 %104, ptr %9, align 4, !tbaa !4, !alias.scope !63
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %105, ptr %106, align 4, !tbaa !44, !alias.scope !64
+  store i32 %105, ptr %106, align 4, !tbaa !44, !alias.scope !63
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 0, ptr %107, align 4, !tbaa !4, !alias.scope !64
+  store i32 0, ptr %107, align 4, !tbaa !4, !alias.scope !63
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %99, ptr %108, align 4, !tbaa !4, !alias.scope !64
+  store i32 %99, ptr %108, align 4, !tbaa !4, !alias.scope !63
   %109 = call noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3movERKNS1_3MemERKNS1_2GpE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %110 = icmp eq i32 %109, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
@@ -915,19 +915,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %10, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %114 = load i32, ptr %113, align 4, !tbaa !67
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %115 = load i32, ptr %3, align 4, !tbaa !9, !noalias !68
+  %114 = load i32, ptr %113, align 4, !tbaa !66
+  call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %115 = load i32, ptr %3, align 4, !tbaa !9, !noalias !67
   %116 = and i32 %115, 248
   %117 = or disjoint i32 %116, 2
-  %118 = load i32, ptr %23, align 4, !tbaa !44, !noalias !68
-  store i32 %117, ptr %11, align 4, !tbaa !4, !alias.scope !68
+  %118 = load i32, ptr %23, align 4, !tbaa !44, !noalias !67
+  store i32 %117, ptr %11, align 4, !tbaa !4, !alias.scope !67
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %118, ptr %119, align 4, !tbaa !44, !alias.scope !68
+  store i32 %118, ptr %119, align 4, !tbaa !44, !alias.scope !67
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 0, ptr %120, align 4, !tbaa !4, !alias.scope !68
+  store i32 0, ptr %120, align 4, !tbaa !4, !alias.scope !67
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %114, ptr %121, align 4, !tbaa !4, !alias.scope !68
+  store i32 %114, ptr %121, align 4, !tbaa !4, !alias.scope !67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #11
   br label %122
@@ -965,12 +965,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
   %143 = add i32 %142, %133
   store i32 %143, ptr %121, align 4, !tbaa !4
   %144 = icmp eq i32 %141, 0
-  br i1 %144, label %.loopexit16, label %134, !llvm.loop !71
+  br i1 %144, label %.loopexit16, label %134, !llvm.loop !70
 
 .loopexit16:                                      ; preds = %139, %122
   %145 = add nuw nsw i64 %123, 1
   %146 = icmp eq i64 %145, 4
-  br i1 %146, label %.loopexit, label %122, !llvm.loop !72
+  br i1 %146, label %.loopexit, label %122
 
 .loopexit:                                        ; preds = %.loopexit16, %134
   %147 = phi i32 [ %137, %134 ], [ 0, %.loopexit16 ]
@@ -1086,29 +1086,29 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %27 = load i32, ptr %26, align 4, !tbaa !4, !noalias !19
-  store i32 %27, ptr %4, align 4, !tbaa !4, !alias.scope !73
+  store i32 %27, ptr %4, align 4, !tbaa !4, !alias.scope !71
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 4, ptr %28, align 4, !tbaa !44, !alias.scope !73
+  store i32 4, ptr %28, align 4, !tbaa !44, !alias.scope !71
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %29, align 4, !tbaa !4, !alias.scope !73
+  store i32 0, ptr %29, align 4, !tbaa !4, !alias.scope !71
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %30, align 4, !tbaa !4, !alias.scope !73
+  store i32 0, ptr %30, align 4, !tbaa !4, !alias.scope !71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  store i32 %27, ptr %5, align 4, !tbaa !4, !alias.scope !76
+  store i32 %27, ptr %5, align 4, !tbaa !4, !alias.scope !74
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 5, ptr %31, align 4, !tbaa !44, !alias.scope !76
+  store i32 5, ptr %31, align 4, !tbaa !44, !alias.scope !74
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %32, align 4, !tbaa !4, !alias.scope !76
+  store i32 0, ptr %32, align 4, !tbaa !4, !alias.scope !74
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !4, !alias.scope !76
+  store i32 0, ptr %33, align 4, !tbaa !4, !alias.scope !74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  store i32 %27, ptr %6, align 4, !tbaa !4, !alias.scope !79
+  store i32 %27, ptr %6, align 4, !tbaa !4, !alias.scope !77
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 4, ptr %34, align 4, !tbaa !44, !alias.scope !79
+  store i32 4, ptr %34, align 4, !tbaa !44, !alias.scope !77
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %35, align 4, !tbaa !4, !alias.scope !79
+  store i32 0, ptr %35, align 4, !tbaa !4, !alias.scope !77
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !4, !alias.scope !79
+  store i32 0, ptr %36, align 4, !tbaa !4, !alias.scope !77
   %37 = load i32, ptr %1, align 4, !tbaa !49
   %38 = and i32 %37, 16
   %39 = icmp eq i32 %38, 0
@@ -1119,16 +1119,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %7, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %44 = load i32, ptr %43, align 4, !tbaa !67
+  %44 = load i32, ptr %43, align 4, !tbaa !66
   %45 = and i32 %27, 248
   %46 = or disjoint i32 %45, 2
-  store i32 %46, ptr %8, align 4, !tbaa !4, !alias.scope !82
+  store i32 %46, ptr %8, align 4, !tbaa !4, !alias.scope !80
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 4, ptr %47, align 4, !tbaa !44, !alias.scope !82
+  store i32 4, ptr %47, align 4, !tbaa !44, !alias.scope !80
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %48, align 4, !tbaa !4, !alias.scope !82
+  store i32 0, ptr %48, align 4, !tbaa !4, !alias.scope !80
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %44, ptr %49, align 4, !tbaa !4, !alias.scope !82
+  store i32 %44, ptr %49, align 4, !tbaa !4, !alias.scope !80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
   br label %54
@@ -1176,12 +1176,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
   %75 = add i32 %74, %65
   store i32 %75, ptr %49, align 4, !tbaa !4
   %76 = icmp eq i32 %73, 0
-  br i1 %76, label %.loopexit22, label %66, !llvm.loop !85
+  br i1 %76, label %.loopexit22, label %66, !llvm.loop !83
 
 .loopexit22:                                      ; preds = %71, %54
   %77 = add nuw nsw i64 %55, 1
   %78 = icmp eq i64 %77, 4
-  br i1 %78, label %50, label %54, !llvm.loop !86
+  br i1 %78, label %50, label %54
 
 79:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
@@ -1222,7 +1222,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %100 = load i16, ptr %99, align 4, !tbaa !87
+  %100 = load i16, ptr %99, align 4, !tbaa !84
   %101 = zext i16 %100 to i32
   %102 = icmp eq i32 %20, %101
   br i1 %102, label %103, label %106
@@ -1235,13 +1235,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 106:                                              ; preds = %98
   %107 = sub nsw i32 %20, %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
-  store i32 %46, ptr %11, align 4, !tbaa !4, !alias.scope !88
+  store i32 %46, ptr %11, align 4, !tbaa !4, !alias.scope !85
   %108 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 5, ptr %108, align 4, !tbaa !44, !alias.scope !88
+  store i32 5, ptr %108, align 4, !tbaa !44, !alias.scope !85
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 0, ptr %109, align 4, !tbaa !4, !alias.scope !88
+  store i32 0, ptr %109, align 4, !tbaa !4, !alias.scope !85
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %107, ptr %110, align 4, !tbaa !4, !alias.scope !88
+  store i32 %107, ptr %110, align 4, !tbaa !4, !alias.scope !85
   %111 = call noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3leaERKNS1_2GpERKNS1_3MemE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
   %112 = icmp eq i32 %111, 0
@@ -1249,27 +1249,27 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 
 113:                                              ; preds = %94
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %115 = load i8, ptr %114, align 1, !tbaa !60
+  %115 = load i8, ptr %114, align 1, !tbaa !59
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %117 = load i8, ptr %116, align 2, !tbaa !61
+  %117 = load i8, ptr %116, align 2, !tbaa !60
   %118 = icmp ult i8 %115, %117
   br i1 %118, label %129, label %119
 
 119:                                              ; preds = %113
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %121 = load i32, ptr %120, align 4, !tbaa !63
+  %121 = load i32, ptr %120, align 4, !tbaa !62
   %122 = icmp eq i32 %121, -1
   br i1 %122, label %129, label %123
 
 123:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
-  store i32 %46, ptr %12, align 4, !tbaa !4, !alias.scope !91
+  store i32 %46, ptr %12, align 4, !tbaa !4, !alias.scope !88
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 4, ptr %124, align 4, !tbaa !44, !alias.scope !91
+  store i32 4, ptr %124, align 4, !tbaa !44, !alias.scope !88
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %125, align 4, !tbaa !4, !alias.scope !91
+  store i32 0, ptr %125, align 4, !tbaa !4, !alias.scope !88
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %121, ptr %126, align 4, !tbaa !4, !alias.scope !91
+  store i32 %121, ptr %126, align 4, !tbaa !4, !alias.scope !88
   %127 = call noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3movERKNS1_2GpERKNS1_3MemE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %12)
   %128 = icmp eq i32 %127, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
@@ -1277,7 +1277,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 
 129:                                              ; preds = %119, %113
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %131 = load i32, ptr %130, align 4, !tbaa !62
+  %131 = load i32, ptr %130, align 4, !tbaa !61
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %140, label %133
 
@@ -1317,7 +1317,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 150:                                              ; preds = %147, %.preheader
   %151 = shl i32 %143, 1
   %152 = icmp eq i32 %144, 0
-  br i1 %152, label %.loopexit21, label %.preheader, !llvm.loop !94
+  br i1 %152, label %.loopexit21, label %.preheader, !llvm.loop !91
 
 .loopexit21:                                      ; preds = %150, %140
   %153 = load i32, ptr %1, align 4, !tbaa !49
@@ -1332,20 +1332,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
 
 159:                                              ; preds = %156, %.loopexit21
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %161 = load i16, ptr %160, align 2, !tbaa !95
+  %161 = load i16, ptr %160, align 2, !tbaa !92
   %162 = icmp eq i16 %161, 0
   br i1 %162, label %170, label %163
 
 163:                                              ; preds = %159
   %164 = zext i16 %161 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  store i32 3, ptr %3, align 4, !tbaa !4, !alias.scope !96
+  store i32 3, ptr %3, align 4, !tbaa !4, !alias.scope !93
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %165, align 4, !tbaa !44, !alias.scope !96
+  store i32 0, ptr %165, align 4, !tbaa !44, !alias.scope !93
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %164, ptr %166, align 4, !tbaa !4, !alias.scope !96
+  store i32 %164, ptr %166, align 4, !tbaa !4, !alias.scope !93
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %167, align 4, !tbaa !4, !alias.scope !96
+  store i32 0, ptr %167, align 4, !tbaa !4, !alias.scope !93
   %168 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 667, ptr noundef nonnull align 4 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   %169 = icmp eq i32 %168, 0
@@ -1406,15 +1406,15 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplici
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr noundef writeonly captures(none) initializes((104, 144)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_11BaseEmitterERKNS0_9FuncFrameE, ptr %2, align 8, !tbaa !99
+  store ptr @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_11BaseEmitterERKNS0_9FuncFrameE, ptr %2, align 8, !tbaa !96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_11BaseEmitterERKNS0_9FuncFrameE, ptr %3, align 8, !tbaa !100
+  store ptr @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_11BaseEmitterERKNS0_9FuncFrameE, ptr %3, align 8, !tbaa !97
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @_ZN6asmjit9_abi_1_103x86L26Emitter_emitArgsAssignmentEPNS0_11BaseEmitterERKNS0_9FuncFrameERKNS0_18FuncArgsAssignmentE, ptr %4, align 8, !tbaa !101
+  store ptr @_ZN6asmjit9_abi_1_103x86L26Emitter_emitArgsAssignmentEPNS0_11BaseEmitterERKNS0_9FuncFrameERKNS0_18FuncArgsAssignmentE, ptr %4, align 8, !tbaa !98
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatInstructionERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_Em, ptr %5, align 8, !tbaa !102
+  store ptr @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatInstructionERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_Em, ptr %5, align 8, !tbaa !99
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmNS0_15ValidationFlagsE, ptr %6, align 8, !tbaa !103
+  store ptr @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmNS0_15ValidationFlagsE, ptr %6, align 8, !tbaa !100
   ret void
 }
 
@@ -1428,7 +1428,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_
   %7 = and i8 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !21
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %3, align 8, !tbaa !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %3, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = and i32 %4, 196608
   %11 = icmp ne i32 %10, 0
@@ -1451,7 +1451,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L18Emitter_emitEpilogEPNS0_
   %7 = and i8 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !21
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %3, align 8, !tbaa !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %3, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = and i32 %4, 196608
   %11 = icmp ne i32 %10, 0
@@ -1474,7 +1474,7 @@ define internal noundef i32 @_ZN6asmjit9_abi_1_103x86L26Emitter_emitArgsAssignme
   %8 = and i8 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8, !tbaa !21
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %4, align 8, !tbaa !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_103x8610EmitHelperE, i64 16), ptr %4, align 8, !tbaa !101
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = and i32 %5, 196608
   %12 = icmp ne i32 %11, 0
@@ -1586,53 +1586,50 @@ attributes #11 = { nounwind }
 !53 = !{!"_ZTSN6asmjit9_abi_1_107Support5ArrayIjLm4EEE", !6, i64 0}
 !54 = !{!"_ZTSN6asmjit9_abi_1_107Support5ArrayIhLm4EEE", !6, i64 0}
 !55 = !{i32 0, i32 33}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!50, !6, i64 6}
-!60 = !{!50, !6, i64 13}
-!61 = !{!50, !6, i64 10}
-!62 = !{!50, !5, i64 44}
-!63 = !{!50, !5, i64 32}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
-!66 = distinct !{!66, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
-!67 = !{!50, !5, i64 96}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
-!70 = distinct !{!70, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
-!71 = distinct !{!71, !57, !58}
-!72 = distinct !{!72, !58}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv: argument 0"}
-!75 = distinct !{!75, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zbpEv: argument 0"}
-!78 = distinct !{!78, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zbpEv"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv: argument 0"}
-!81 = distinct !{!81, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
-!84 = distinct !{!84, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
-!85 = distinct !{!85, !57, !58}
-!86 = distinct !{!86, !58}
-!87 = !{!50, !52, i64 88}
+!58 = !{!50, !6, i64 6}
+!59 = !{!50, !6, i64 13}
+!60 = !{!50, !6, i64 10}
+!61 = !{!50, !5, i64 44}
+!62 = !{!50, !5, i64 32}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
+!65 = distinct !{!65, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
+!66 = !{!50, !5, i64 96}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
+!69 = distinct !{!69, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
+!70 = distinct !{!70, !57}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv: argument 0"}
+!73 = distinct !{!73, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zbpEv: argument 0"}
+!76 = distinct !{!76, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zbpEv"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv: argument 0"}
+!79 = distinct !{!79, !"_ZNK6asmjit9_abi_1_103x8616EmitterExplicitTINS1_7EmitterEE3zspEv"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
+!82 = distinct !{!82, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
+!83 = distinct !{!83, !57}
+!84 = !{!50, !52, i64 88}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
+!87 = distinct !{!87, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
 !90 = distinct !{!90, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij: argument 0"}
-!93 = distinct !{!93, !"_ZN6asmjit9_abi_1_103x86L3ptrERKNS1_2GpEij"}
-!94 = distinct !{!94, !57, !58}
-!95 = !{!50, !52, i64 14}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN6asmjit9_abi_1_107Support13ForwardOpImplIiLb1EE7forwardERKi: argument 0"}
-!98 = distinct !{!98, !"_ZN6asmjit9_abi_1_107Support13ForwardOpImplIiLb1EE7forwardERKi"}
-!99 = !{!23, !16, i64 104}
-!100 = !{!23, !16, i64 112}
-!101 = !{!23, !16, i64 120}
-!102 = !{!23, !16, i64 128}
-!103 = !{!23, !16, i64 136}
-!104 = !{!105, !105, i64 0}
-!105 = !{!"vtable pointer", !7, i64 0}
+!91 = distinct !{!91, !57}
+!92 = !{!50, !52, i64 14}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN6asmjit9_abi_1_107Support13ForwardOpImplIiLb1EE7forwardERKi: argument 0"}
+!95 = distinct !{!95, !"_ZN6asmjit9_abi_1_107Support13ForwardOpImplIiLb1EE7forwardERKi"}
+!96 = !{!23, !16, i64 104}
+!97 = !{!23, !16, i64 112}
+!98 = !{!23, !16, i64 120}
+!99 = !{!23, !16, i64 128}
+!100 = !{!23, !16, i64 136}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"vtable pointer", !7, i64 0}

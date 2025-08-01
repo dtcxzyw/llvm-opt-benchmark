@@ -2859,7 +2859,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !16
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -3182,7 +3182,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !18
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3942,7 +3942,7 @@ lean_obj_tag.exit.i:                              ; preds = %86, %83
   %94 = load ptr, ptr %93, align 8, !tbaa !9
   %95 = tail call zeroext i8 @lean_name_eq(ptr noundef %92, ptr noundef %1) #4
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit, !llvm.loop !16
+  br i1 %96, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit
 
 97:                                               ; preds = %lean_obj_tag.exit.i
   %98 = ptrtoint ptr %58 to i64
@@ -4409,7 +4409,7 @@ lean_obj_tag.exit.i447:                           ; preds = %282, %279
   %290 = load ptr, ptr %289, align 8, !tbaa !9
   %291 = tail call zeroext i8 @lean_name_eq(ptr noundef %288, ptr noundef %1) #4
   %292 = icmp eq i8 %291, 0
-  br i1 %292, label %lean_array_uget.exit444, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit451, !llvm.loop !16
+  br i1 %292, label %lean_array_uget.exit444, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit451
 
 293:                                              ; preds = %lean_obj_tag.exit.i447
   br i1 %.not579, label %304, label %294, !prof !15
@@ -5054,7 +5054,7 @@ lean_obj_tag.exit.i508:                           ; preds = %544, %541
   %552 = load ptr, ptr %551, align 8, !tbaa !9
   %553 = tail call zeroext i8 @lean_name_eq(ptr noundef %550, ptr noundef %1) #4
   %554 = icmp eq i8 %553, 0
-  br i1 %554, label %lean_array_uget.exit505, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit512, !llvm.loop !16
+  br i1 %554, label %lean_array_uget.exit505, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit512
 
 555:                                              ; preds = %lean_obj_tag.exit.i508
   br i1 %.not571, label %566, label %556, !prof !15
@@ -6014,7 +6014,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit, !llvm.loop !16
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____spec__6.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -12379,9 +12379,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit19
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @l_Lean_Compiler_CSimp_replaceConstants___lambda__1___boxed, ptr %47, align 8, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i16 2, ptr %48, align 8, !tbaa !19
+  store i16 2, ptr %48, align 8, !tbaa !16
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 18
-  store i16 1, ptr %49, align 2, !tbaa !19
+  store i16 1, ptr %49, align 2, !tbaa !16
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %42, ptr %50, align 8, !tbaa !9
   %51 = tail call ptr @lean_replace_expr(ptr noundef nonnull %43, ptr noundef %1) #4
@@ -13163,9 +13163,9 @@ _init_l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____c
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____lambda__1, ptr %94, align 8, !tbaa !9
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store i16 2, ptr %95, align 8, !tbaa !19
+  store i16 2, ptr %95, align 8, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 18
-  store i16 0, ptr %96, align 2, !tbaa !19
+  store i16 0, ptr %96, align 2, !tbaa !16
   store ptr %90, ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____closed__6, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %90) #4
   tail call void @lean_inc_heartbeat() #4
@@ -13184,9 +13184,9 @@ _init_l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____c
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr @l_Lean_Compiler_CSimp_State_switch, ptr %101, align 8, !tbaa !9
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i16 1, ptr %102, align 8, !tbaa !19
+  store i16 1, ptr %102, align 8, !tbaa !16
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 18
-  store i16 0, ptr %103, align 2, !tbaa !19
+  store i16 0, ptr %103, align 2, !tbaa !16
   store ptr %97, ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____closed__7, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %97) #4
   %104 = load ptr, ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_137____closed__5, align 8, !tbaa !9
@@ -13421,9 +13421,9 @@ _init_l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____c
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____lambda__1___boxed, ptr %203, align 8, !tbaa !9
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  store i16 6, ptr %204, align 8, !tbaa !19
+  store i16 6, ptr %204, align 8, !tbaa !16
   %205 = getelementptr inbounds nuw i8, ptr %199, i64 18
-  store i16 0, ptr %205, align 2, !tbaa !19
+  store i16 0, ptr %205, align 2, !tbaa !16
   store ptr %199, ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____closed__19, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %199) #4
   tail call void @lean_inc_heartbeat() #4
@@ -13442,9 +13442,9 @@ _init_l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____c
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____lambda__2___boxed, ptr %210, align 8, !tbaa !9
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  store i16 4, ptr %211, align 8, !tbaa !19
+  store i16 4, ptr %211, align 8, !tbaa !16
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 18
-  store i16 0, ptr %212, align 2, !tbaa !19
+  store i16 0, ptr %212, align 2, !tbaa !16
   store ptr %206, ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____closed__20, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %206) #4
   %213 = load ptr, ptr @l_Lean_Compiler_CSimp_initFn____x40_Lean_Compiler_CSimpAttr___hyg_471____closed__18, align 8, !tbaa !9
@@ -13604,8 +13604,5 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !7, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !7, i64 0}

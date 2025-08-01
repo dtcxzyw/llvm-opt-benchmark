@@ -1187,7 +1187,7 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
 38:                                               ; preds = %40
   %39 = add nuw nsw i64 %.068.i, 1
   %exitcond.i = icmp eq i64 %39, 17
-  br i1 %exitcond.i, label %getFrameTypeName.exit.thread, label %40, !llvm.loop !13
+  br i1 %exitcond.i, label %getFrameTypeName.exit.thread, label %40, !llvm.loop !12
 
 40:                                               ; preds = %38, %34
   %.068.i = phi i64 [ 0, %34 ], [ %39, %38 ]
@@ -3040,7 +3040,7 @@ define internal fastcc noundef i32 @dissect_lbmsrs_batch(ptr noundef %0, ptr nou
   %811 = add i32 %.11201.i, 4
   %812 = add nuw i16 %.02.i, 1
   %exitcond.not.i = icmp eq i16 %812, %793
-  br i1 %exitcond.not.i, label %807, label %808, !llvm.loop !14
+  br i1 %exitcond.not.i, label %807, label %808, !llvm.loop !13
 
 813:                                              ; preds = %807, %801
   %.pre-phi.i = phi i32 [ %.pre.i, %807 ], [ %799, %801 ]
@@ -3190,7 +3190,7 @@ define internal fastcc noundef i32 @dissect_lbmsrs_batch(ptr noundef %0, ptr nou
   %906 = add i32 %.11201.i109, 4
   %907 = add nuw i16 %.02.i108, 1
   %exitcond.not.i110 = icmp eq i16 %907, %888
-  br i1 %exitcond.not.i110, label %902, label %903, !llvm.loop !15
+  br i1 %exitcond.not.i110, label %902, label %903, !llvm.loop !14
 
 908:                                              ; preds = %902, %896
   %.pre-phi.i112 = phi i32 [ %.pre.i111, %902 ], [ %894, %896 ]
@@ -3740,7 +3740,7 @@ dissect_lbmsrs_sir_ser.exit:                      ; preds = %1265, %1172, %1079,
   %1273 = icmp eq i32 %.0, 0
   %1274 = icmp eq i8 %.0120, 0
   %or.cond = or i1 %1274, %1273
-  br i1 %or.cond, label %.sink.split, label %21, !llvm.loop !16
+  br i1 %or.cond, label %.sink.split, label %21, !llvm.loop !15
 
 .sink.split:                                      ; preds = %21, %dissect_lbmsrs_sir_ser.exit, %dissect_lbmsrs_sir_ser.exit.thread
   %.sink792.ph = phi i32 [ %1271, %dissect_lbmsrs_sir_ser.exit.thread ], [ %1272, %dissect_lbmsrs_sir_ser.exit ], [ %.087, %21 ]
@@ -4101,7 +4101,7 @@ define internal void @lbmsrs_tag_ip_address_set_cb(ptr noundef captures(none) in
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #9, !srcloc !17
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #9, !srcloc !16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
@@ -4195,11 +4195,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !7 = !{i64 2151314655}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = !{i64 2151287754}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = !{i64 2151287754}

@@ -424,19 +424,19 @@ define internal i32 @merge_ref_iterator_advance(ptr noundef %0) #0 {
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %66, ptr %67, align 8, !tbaa !38
+  store ptr %66, ptr %67, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %69, ptr %70, align 8, !tbaa !39
+  store ptr %69, ptr %70, align 8, !tbaa !38
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %72, ptr %73, align 8, !tbaa !40
+  store ptr %72, ptr %73, align 8, !tbaa !39
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %75 = load i32, ptr %74, align 8, !tbaa !34
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %75, ptr %76, align 8, !tbaa !41
+  store i32 %75, ptr %76, align 8, !tbaa !40
   br label %.thread
 
 .thread58:                                        ; preds = %58, %25, %18, %10
@@ -543,14 +543,14 @@ compare_prefix.exit:                              ; preds = %17, %1
 
 17:                                               ; preds = %.lr.ph.i
   %18 = icmp ult i8 %16, %15
-  br i1 %18, label %compare_prefix.exit, label %compare_prefix.exit.thread41, !llvm.loop !42
+  br i1 %18, label %compare_prefix.exit, label %compare_prefix.exit.thread41, !llvm.loop !41
 
 19:                                               ; preds = %.lr.ph.i
   %20 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 1
   %21 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !26
   %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !42
 
 compare_prefix.exit.thread41:                     ; preds = %17
   %23 = load ptr, ptr %10, align 8, !tbaa !4
@@ -582,15 +582,15 @@ compare_prefix.exit.thread41:                     ; preds = %17
 compare_prefix.exit.thread38:                     ; preds = %.loopexit, %33
   %.sink = phi ptr [ %34, %33 ], [ %12, %.loopexit ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %35, align 8, !tbaa !44
+  store ptr %.sink, ptr %35, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %37, ptr %38, align 8, !tbaa !45
+  store ptr %37, ptr %38, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %40, ptr %41, align 8, !tbaa !46
+  store i32 %40, ptr %41, align 8, !tbaa !45
   br label %46
 
 .loopexit44:                                      ; preds = %compare_prefix.exit, %compare_prefix.exit.thread41
@@ -701,15 +701,14 @@ attributes #13 = { noreturn nounwind }
 !32 = !{!5, !10, i64 16}
 !33 = !{!5, !11, i64 24}
 !34 = !{!5, !12, i64 32}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!19, !10, i64 16}
-!39 = !{!19, !10, i64 8}
-!40 = !{!19, !11, i64 24}
-!41 = !{!19, !12, i64 32}
+!37 = !{!19, !10, i64 16}
+!38 = !{!19, !10, i64 8}
+!39 = !{!19, !11, i64 24}
+!40 = !{!19, !12, i64 32}
+!41 = distinct !{!41, !36}
 !42 = distinct !{!42, !36}
-!43 = distinct !{!43, !36, !37}
-!44 = !{!28, !10, i64 8}
-!45 = !{!28, !11, i64 24}
-!46 = !{!28, !12, i64 32}
+!43 = !{!28, !10, i64 8}
+!44 = !{!28, !11, i64 24}
+!45 = !{!28, !12, i64 32}

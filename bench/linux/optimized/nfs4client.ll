@@ -965,7 +965,7 @@ define dso_local void @nfs4_server_set_init_caps(ptr noundef captures(none) %0) 
 
 23:                                               ; preds = %21, %16
   %24 = phi i32 [ %22, %21 ], [ %17, %16 ]
-  %25 = load i8, ptr @nfs4_disable_idmapping, align 1, !range !21, !noundef !22
+  %25 = load i8, ptr @nfs4_disable_idmapping, align 1, !range !20, !noundef !21
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %37, label %27
 
@@ -1006,7 +1006,7 @@ define dso_local ptr @nfs4_create_server(ptr noundef readonly captures(none) %0)
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 168
   store i32 0, ptr %12, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 1, ptr nonnull elementtype(i64) %9) #14, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 1, ptr nonnull elementtype(i64) %9) #14, !srcloc !22
   br label %13
 
 13:                                               ; preds = %11, %7
@@ -1096,17 +1096,17 @@ define dso_local ptr @nfs4_create_server(ptr noundef readonly captures(none) %0)
   br i1 %76, label %77, label %89
 
 77:                                               ; preds = %67
-  %78 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %73), !range !24
+  %78 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %73), !range !23
   %79 = icmp samesign ugt i32 %78, 1
   br i1 %79, label %.preheader11, label %91
 
 80:                                               ; preds = %.preheader11
   %81 = add nsw i32 %83, -1
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %._crit_edge, label %.preheader11, !llvm.loop !25
+  br i1 %82, label %._crit_edge, label %.preheader11, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %80
-  br label %split, !llvm.loop !25
+  br label %split, !llvm.loop !24
 
 .preheader11:                                     ; preds = %77, %80
   %83 = phi i32 [ %81, %80 ], [ 31, %77 ]
@@ -1149,17 +1149,17 @@ split:                                            ; preds = %.preheader11, %._cr
   br i1 %107, label %108, label %120
 
 108:                                              ; preds = %98
-  %109 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %104), !range !24
+  %109 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %104), !range !23
   %110 = icmp samesign ugt i32 %109, 1
   br i1 %110, label %.preheader, label %122
 
 111:                                              ; preds = %.preheader
   %112 = add nsw i32 %114, -1
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %._crit_edge12, label %.preheader, !llvm.loop !26
+  br i1 %113, label %._crit_edge12, label %.preheader, !llvm.loop !24
 
 ._crit_edge12:                                    ; preds = %111
-  br label %split13, !llvm.loop !26
+  br label %split13, !llvm.loop !24
 
 .preheader:                                       ; preds = %108, %111
   %114 = phi i32 [ %112, %111 ], [ 31, %108 ]
@@ -1274,7 +1274,7 @@ define internal fastcc i32 @nfs4_server_common_setup(ptr noundef nonnull %0, ptr
 
 25:                                               ; preds = %23, %18
   %26 = phi i32 [ %24, %23 ], [ %19, %18 ]
-  %27 = load i8, ptr @nfs4_disable_idmapping, align 1, !range !21, !noundef !22
+  %27 = load i8, ptr @nfs4_disable_idmapping, align 1, !range !20, !noundef !21
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %39, label %29
 
@@ -1353,7 +1353,7 @@ define dso_local ptr @nfs4_create_referral_server(ptr noundef readonly captures(
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 168
   store i32 0, ptr %16, align 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 1, ptr nonnull elementtype(i64) %13) #14, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 1, ptr nonnull elementtype(i64) %13) #14, !srcloc !22
   br label %17
 
 17:                                               ; preds = %15, %6
@@ -1559,7 +1559,7 @@ define internal fastcc i32 @nfs4_set_client(ptr noundef %0, ptr noundef %1, ptr 
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %72, i32 32, ptr nonnull elementtype(i8) %72) #14, !srcloc !27
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %72, i32 32, ptr nonnull elementtype(i8) %72) #14, !srcloc !25
   store ptr %62, ptr %0, align 8
   call void @nfs_sysfs_add_server(ptr noundef %0) #14
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 216
@@ -1624,7 +1624,7 @@ define dso_local i32 @nfs4_update_server(ptr noundef %0, ptr noundef %1, ptr nou
 30:                                               ; preds = %27
   call void @nfs_server_remove_lists(ptr noundef %0) #14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i32 8, ptr nonnull elementtype(i8) %31) #14, !srcloc !27
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i32 8, ptr nonnull elementtype(i8) %31) #14, !srcloc !25
   %32 = load i32, ptr %12, align 8
   %33 = load ptr, ptr %20, align 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 248
@@ -1845,14 +1845,12 @@ attributes #16 = { nounwind allocsize(2) }
 !14 = !{i64 2148492998, i64 2148493037, i64 2148493058, i64 2148493095, i64 2148493118, i64 2148492988}
 !15 = !{i64 2148853456, i64 2148853495, i64 2148853516, i64 2148853553, i64 2148853576, i64 2148853585}
 !16 = !{!"branch_weights", i32 1, i32 2000}
-!17 = distinct !{!17, !18, !19, !20}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = !{!"llvm.loop.unroll.disable"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = !{i64 2148875228, i64 2148875267, i64 2148875288, i64 2148875325, i64 2148875348, i64 2148875218}
-!24 = !{i32 0, i32 22}
-!25 = distinct !{!25, !18, !19, !20}
-!26 = distinct !{!26, !18, !19, !20}
-!27 = !{i64 2148491710, i64 2148491749, i64 2148491770, i64 2148491807, i64 2148491830, i64 2148491700}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{i64 2148875228, i64 2148875267, i64 2148875288, i64 2148875325, i64 2148875348, i64 2148875218}
+!23 = !{i32 0, i32 22}
+!24 = distinct !{!24, !18, !19}
+!25 = !{i64 2148491710, i64 2148491749, i64 2148491770, i64 2148491807, i64 2148491830, i64 2148491700}

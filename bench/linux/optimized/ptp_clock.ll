@@ -832,7 +832,7 @@ define dso_local i32 @ptp_find_pin(ptr noundef readonly captures(none) %0, i32 n
 27:                                               ; preds = %19, %13
   %28 = add nuw nsw i64 %14, 1
   %29 = icmp eq i64 %28, %12
-  br i1 %29, label %.loopexit, label %13, !llvm.loop !13
+  br i1 %29, label %.loopexit, label %13, !llvm.loop !12
 
 .loopexit:                                        ; preds = %27, %23, %3
   %30 = phi i32 [ %26, %23 ], [ -1, %3 ], [ -1, %27 ]
@@ -879,7 +879,7 @@ define dso_local i32 @ptp_find_pin_unlocked(ptr noundef %0, i32 noundef %1, i32 
 28:                                               ; preds = %20, %14
   %29 = add nuw nsw i64 %15, 1
   %30 = icmp eq i64 %29, %13
-  br i1 %30, label %.loopexit, label %14, !llvm.loop !14
+  br i1 %30, label %.loopexit, label %14, !llvm.loop !12
 
 .loopexit:                                        ; preds = %28, %24, %3
   %31 = phi i32 [ %27, %24 ], [ -1, %3 ], [ -1, %28 ]
@@ -1033,7 +1033,7 @@ define internal i32 @ptp_clock_adjtime(ptr noundef %0, ptr noundef captures(none
   %38 = icmp sgt i64 %37, 9223372035
   %39 = mul i64 %37, 1000000000
   %40 = add i64 %39, %33
-  %41 = select i1 %38, i64 9223372036854775807, i64 %40, !prof !15
+  %41 = select i1 %38, i64 9223372036854775807, i64 %40, !prof !13
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef %23, i64 noundef %41) #14
@@ -1274,10 +1274,8 @@ attributes #16 = { cold nounwind }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{i64 2147788215, i64 2147788289}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !10, !11, !12}
-!14 = distinct !{!14, !10, !11, !12}
-!15 = !{!"branch_weights", i32 1, i32 2000}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!"branch_weights", i32 1, i32 2000}

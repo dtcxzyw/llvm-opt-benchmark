@@ -158,7 +158,7 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
 ._crit_edge:                                      ; preds = %54, %27
   %55 = load ptr, ptr @RegexpCacheMemoryContext, align 8
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %60, !prof !7
+  br i1 %56, label %57, label %60, !prof !6
 
 57:                                               ; preds = %._crit_edge
   %58 = load ptr, ptr @TopMemoryContext, align 8
@@ -876,7 +876,7 @@ define dso_local i64 @textregexreplace(ptr noundef readonly captures(none) %0) l
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %55 = load i8, ptr %54, align 4, !range !8, !noundef !9
+  %55 = load i8, ptr %54, align 4, !range !7, !noundef !8
   %56 = xor i8 %55, 1
   %not. = zext nneg i8 %56 to i32
   %57 = tail call ptr @replace_text_regexp(ptr noundef %6, ptr noundef %10, ptr noundef %14, i32 noundef %51, i32 noundef %53, i32 noundef 0, i32 noundef %not.) #9
@@ -1037,7 +1037,7 @@ define internal fastcc void @parse_re_flags(ptr noundef nonnull writeonly captur
   %64 = phi i32 [ %28, %31 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %51, %50 ], [ %54, %52 ], [ %56, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %63, %24, %2
   ret void
@@ -1119,7 +1119,7 @@ define dso_local i64 @textregexreplace_extended(ptr noundef readonly captures(no
   %46 = load i16, ptr %15, align 2
   %47 = icmp slt i16 %46, 5
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %49 = load i8, ptr %48, align 4, !range !8
+  %49 = load i8, ptr %48, align 4, !range !7
   %50 = xor i8 %49, 1
   %not. = zext nneg i8 %50 to i32
   %.1 = select i1 %47, i32 %not., i32 %.020
@@ -1512,7 +1512,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %.4 = phi ptr [ %.7, %159 ], [ %.2137, %93 ]
   %.3 = phi ptr [ %160, %159 ], [ %94, %93 ]
   %163 = icmp sgt i32 %.3156, 0
-  br i1 %163, label %75, label %._crit_edge, !llvm.loop !11
+  br i1 %163, label %75, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %162, %62
   %.0135.lcssa = phi ptr [ %71, %62 ], [ %.4, %162 ]
@@ -1543,7 +1543,7 @@ define dso_local i64 @similar_to_escape_1(ptr noundef readonly captures(none) %0
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @similar_escape(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
+  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %7
 
@@ -1558,7 +1558,7 @@ define dso_local i64 @similar_escape(ptr noundef captures(none) %0) local_unname
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i8, ptr %12, align 8, !range !8, !noundef !9
+  %13 = load i8, ptr %12, align 8, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %20, label %15
 
@@ -1630,7 +1630,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_count(ptr nounde
   %.0 = phi i32 [ %26, %23 ], [ 1, %19 ]
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %21)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %34 = load i8, ptr %33, align 4, !range !8, !noundef !9
+  %34 = load i8, ptr %33, align 4, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %40
 
@@ -1806,7 +1806,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %95 = shl i32 %94, 1
   %96 = add i32 %78, %95
   %97 = icmp sgt i32 %96, %89
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %88, %77
   %98 = phi i32 [ %79, %77 ], [ %94, %88 ]
@@ -1847,7 +1847,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %117 = add i32 %.01408, 1
   %118 = load i32, ptr %65, align 4
   %.not170 = icmp sgt i32 %117, %118
-  br i1 %.not170, label %.loopexit, label %.lr.ph9, !llvm.loop !13
+  br i1 %.not170, label %.loopexit, label %.lr.ph9, !llvm.loop !11
 
 119:                                              ; preds = %._crit_edge
   %120 = load i64, ptr %56, align 8
@@ -1915,7 +1915,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %153 = zext i1 %152 to i32
   %spec.select176 = add i32 %153, %150
   %154 = icmp sgt i32 %spec.select176, %40
-  br i1 %154, label %155, label %67, !llvm.loop !14
+  br i1 %154, label %155, label %67, !llvm.loop !12
 
 155:                                              ; preds = %148, %147, %67
   %.1149 = phi i32 [ %.2150, %148 ], [ %.2150, %147 ], [ %.0148, %67 ]
@@ -2084,7 +2084,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nounde
   %.045 = phi i32 [ %57, %54 ], [ 0, %52 ], [ 0, %42 ], [ 0, %32 ], [ 0, %19 ]
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %21)
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %64 = load i8, ptr %63, align 4, !range !8, !noundef !9
+  %64 = load i8, ptr %63, align 4, !range !7, !noundef !8
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %70
 
@@ -2198,7 +2198,7 @@ define dso_local range(i64 0, 2) i64 @regexp_like(ptr noundef readonly captures(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %20)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %22 = load i8, ptr %21, align 4, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 4, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %28
 
@@ -2299,7 +2299,7 @@ define dso_local i64 @regexp_match(ptr noundef captures(none) %0) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %20)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %22 = load i8, ptr %21, align 4, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 4, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %29
 
@@ -2414,7 +2414,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
   %39 = load i32, ptr %10, align 4
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next53, %40
-  br i1 %41, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %41, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
@@ -2452,7 +2452,7 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
   %62 = load i32, ptr %10, align 4
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
+  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %59, %36, %1
   %.lcssa = phi i32 [ %11, %1 ], [ %39, %36 ], [ %62, %59 ]
@@ -2625,7 +2625,7 @@ define dso_local i64 @regexp_split_to_table(ptr noundef %0) local_unnamed_addr #
   store ptr %25, ptr @CurrentMemoryContext, align 8
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %22)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load i8, ptr %27, align 4, !range !8, !noundef !9
+  %28 = load i8, ptr %27, align 4, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %34
 
@@ -2788,7 +2788,7 @@ define dso_local i64 @regexp_split_to_array(ptr noundef readonly captures(none) 
   %12 = phi ptr [ %10, %6 ], [ null, %1 ]
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %14 = load i8, ptr %13, align 4, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 4, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %20
 
@@ -2830,7 +2830,7 @@ define dso_local i64 @regexp_split_to_array(ptr noundef readonly captures(none) 
   store i32 %40, ptr %32, align 8
   %41 = load i32, ptr %33, align 8
   %.not = icmp sgt i32 %40, %41
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.0.lcssa = phi ptr [ null, %20 ], [ %38, %.lr.ph ]
@@ -2940,7 +2940,7 @@ define dso_local i64 @regexp_substr(ptr noundef captures(none) %0) local_unnamed
   %.049 = phi i32 [ %47, %44 ], [ 0, %42 ], [ 0, %32 ], [ 0, %19 ]
   call fastcc void @parse_re_flags(ptr noundef %2, ptr noundef %21)
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %54 = load i8, ptr %53, align 4, !range !8, !noundef !9
+  %54 = load i8, ptr %53, align 4, !range !7, !noundef !8
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %60
 
@@ -3179,18 +3179,16 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
+!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

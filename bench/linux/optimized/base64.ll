@@ -50,7 +50,7 @@ define dso_local i32 @base64_encode(ptr noundef readonly captures(none) %0, i32 
 29:                                               ; preds = %18
   %30 = add nuw nsw i64 %8, 1
   %31 = icmp eq i64 %30, %6
-  br i1 %31, label %32, label %7, !llvm.loop !9
+  br i1 %31, label %32, label %7, !llvm.loop !8
 
 32:                                               ; preds = %29
   %33 = icmp eq i32 %21, 0
@@ -147,7 +147,7 @@ define dso_local i32 @base64_decode(ptr noundef readonly captures(none) %0, i32 
   %.ph6 = phi ptr [ %9, %26 ], [ %38, %34 ], [ %9, %17 ]
   %40 = add nuw nsw i64 %8, 1
   %41 = icmp eq i64 %40, %6
-  br i1 %41, label %.loopexit8, label %7, !llvm.loop !10
+  br i1 %41, label %.loopexit8, label %7, !llvm.loop !9
 
 .loopexit8:                                       ; preds = %39, %3
   %42 = phi i32 [ 0, %3 ], [ %.ph, %39 ]
@@ -193,9 +193,8 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

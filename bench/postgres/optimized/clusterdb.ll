@@ -253,7 +253,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef nonnull %68, ptr noundef %8, i1 noundef zeroext %60, i1 noundef zeroext %61)
   %69 = load ptr, ptr %.032.us.i, align 8
   %.not31.us.i = icmp eq ptr %69, null
-  br i1 %.not31.us.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !7
+  br i1 %.not31.us.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !6
 
 70:                                               ; preds = %.lr.ph.split.us.i
   call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %60, i1 noundef zeroext %61)
@@ -263,7 +263,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %71 = add nuw nsw i32 %.02933.us.i, 1
   %72 = call i32 @PQntuples(ptr noundef %63) #9
   %73 = icmp slt i32 %71, %72
-  br i1 %73, label %.lr.ph.split.us.i, label %cluster_all_databases.exit, !llvm.loop !8
+  br i1 %73, label %.lr.ph.split.us.i, label %cluster_all_databases.exit, !llvm.loop !7
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.loopexit.i
   %.02933.i = phi i32 [ %82, %.loopexit.i ], [ 0, %.lr.ph.i ]
@@ -282,7 +282,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef nonnull %79, ptr noundef %8, i1 noundef zeroext %60, i1 noundef zeroext %61)
   %80 = load ptr, ptr %.032.i, align 8
   %.not31.i = icmp eq ptr %80, null
-  br i1 %.not31.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !7
+  br i1 %.not31.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !6
 
 81:                                               ; preds = %.lr.ph.split.i
   call fastcc void @cluster_one_database(ptr noundef nonnull %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %60, i1 noundef zeroext %61)
@@ -292,7 +292,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %82 = add nuw nsw i32 %.02933.i, 1
   %83 = call i32 @PQntuples(ptr noundef %63) #9
   %84 = icmp slt i32 %82, %83
-  br i1 %84, label %.lr.ph.split.i, label %cluster_all_databases.exit, !llvm.loop !10
+  br i1 %84, label %.lr.ph.split.i, label %cluster_all_databases.exit, !llvm.loop !9
 
 cluster_all_databases.exit:                       ; preds = %.loopexit.i, %.loopexit.us.i, %59
   call void @PQclear(ptr noundef %63) #9
@@ -330,7 +330,7 @@ cluster_all_databases.exit:                       ; preds = %.loopexit.i, %.loop
   call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef nonnull %96, ptr noundef %8, i1 noundef zeroext %94, i1 noundef zeroext %95)
   %97 = load ptr, ptr %.079, align 8
   %.not66 = icmp eq ptr %97, null
-  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !10
 
 98:                                               ; preds = %92
   call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef null, ptr noundef %8, i1 noundef zeroext %94, i1 noundef zeroext %95)
@@ -511,11 +511,10 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

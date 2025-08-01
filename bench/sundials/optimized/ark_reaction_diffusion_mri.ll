@@ -96,7 +96,7 @@ check_retval.exit.i:                              ; preds = %22, %check_retval.e
   store double %30, ptr %31, align 8, !tbaa !22
   %32 = add nuw nsw i64 %.017.i, 1
   %exitcond.not.i = icmp eq i64 %32, 1001
-  br i1 %exitcond.not.i, label %.loopexit158, label %check_retval.exit.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.loopexit158, label %check_retval.exit.i
 
 check_retval.exit101:                             ; preds = %22
   %33 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -108,7 +108,7 @@ check_retval.exit101:                             ; preds = %22
 .loopexit158:                                     ; preds = %check_retval.exit.i
   %37 = load ptr, ptr %5, align 8, !tbaa !18
   %38 = call ptr @ARKStepCreate(ptr noundef nonnull @ff, ptr noundef null, double noundef 0.000000e+00, ptr noundef nonnull %18, ptr noundef %37) #9
-  store ptr %38, ptr %2, align 8, !tbaa !25
+  store ptr %38, ptr %2, align 8, !tbaa !23
   %39 = icmp eq ptr %38, null
   br i1 %39, label %check_retval.exit103, label %42
 
@@ -161,7 +161,7 @@ check_retval.exit111:                             ; preds = %57
   %63 = load ptr, ptr %3, align 8, !tbaa !4
   %64 = load ptr, ptr %5, align 8, !tbaa !18
   %65 = call ptr @MRIStepCreate(ptr noundef nonnull @fs, ptr noundef null, double noundef 0.000000e+00, ptr noundef nonnull %18, ptr noundef %63, ptr noundef %64) #9
-  store ptr %65, ptr %1, align 8, !tbaa !25
+  store ptr %65, ptr %1, align 8, !tbaa !23
   %66 = icmp eq ptr %65, null
   br i1 %66, label %check_retval.exit113, label %69
 
@@ -212,7 +212,7 @@ check_retval.exit119:                             ; preds = %79
   %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.15, double noundef %89) #9
   %91 = add nuw nsw i64 %.079159, 1
   %exitcond.not = icmp eq i64 %91, 1001
-  br i1 %exitcond.not, label %92, label %86, !llvm.loop !26
+  br i1 %exitcond.not, label %92, label %86
 
 92:                                               ; preds = %86
   %93 = call i32 @fclose(ptr noundef %85)
@@ -227,7 +227,7 @@ check_retval.exit119:                             ; preds = %79
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.17, double noundef %98) #9
   %100 = add nuw nsw i64 %.1160, 1
   %exitcond165.not = icmp eq i64 %100, 1001
-  br i1 %exitcond165.not, label %101, label %96, !llvm.loop !27
+  br i1 %exitcond165.not, label %101, label %96
 
 101:                                              ; preds = %96
   %fputc = call i32 @fputc(i32 10, ptr %94)
@@ -267,7 +267,7 @@ check_retval.exit121:                             ; preds = %106
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.17, double noundef %119) #9
   %121 = add nuw nsw i64 %.2161, 1
   %exitcond166.not = icmp eq i64 %121, 1001
-  br i1 %exitcond166.not, label %122, label %117, !llvm.loop !28
+  br i1 %exitcond166.not, label %122, label %117
 
 122:                                              ; preds = %117
   %fputc94 = call i32 @fputc(i32 10, ptr %94)
@@ -276,7 +276,7 @@ check_retval.exit121:                             ; preds = %106
   %125 = select i1 %124, double 3.000000e+00, double %123
   %126 = add nuw nsw i32 %.0163, 1
   %exitcond167.not = icmp eq i32 %126, 30
-  br i1 %exitcond167.not, label %.loopexit, label %106, !llvm.loop !29
+  br i1 %exitcond167.not, label %.loopexit, label %106
 
 .loopexit:                                        ; preds = %122, %check_retval.exit121
   %puts95 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -359,7 +359,7 @@ check_retval.exit20:                              ; preds = %check_retval.exit20
   store double %16, ptr %17, align 8, !tbaa !22
   %18 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %18, %5
-  br i1 %exitcond.not, label %.loopexit, label %check_retval.exit20, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %check_retval.exit20
 
 .loopexit.sink.split:                             ; preds = %8, %4
   %19 = load ptr, ptr @stderr, align 8, !tbaa !9
@@ -439,7 +439,7 @@ check_retval.exit43:                              ; preds = %14
   %43 = getelementptr inbounds nuw double, ptr %15, i64 %.048
   store double %42, ptr %43, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %39, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %44 = getelementptr double, ptr %10, i64 %5
@@ -538,12 +538,4 @@ attributes #11 = { nounwind allocsize(0) }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"int", !7, i64 0}
 !22 = !{!14, !14, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
+!23 = !{!6, !6, i64 0}

@@ -126,15 +126,15 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   br label %17
 
 17:                                               ; preds = %rbimpl_intern_const.exit40, %3
-  store ptr %4, ptr %10, align 8, !tbaa !13
+  store ptr %4, ptr %10, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %5, ptr %18, align 8, !tbaa !13
+  store ptr %5, ptr %18, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %6, ptr %19, align 8, !tbaa !13
+  store ptr %6, ptr %19, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %7, ptr %20, align 8, !tbaa !13
+  store ptr %7, ptr %20, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %8, ptr %21, align 8, !tbaa !13
+  store ptr %8, ptr %21, align 8, !tbaa !12
   %22 = icmp sgt i32 %0, 0
   br i1 %22, label %23, label %.thread
 
@@ -162,7 +162,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !13
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
   %.not105.i = icmp eq ptr %35, null
   br i1 %.not105.i, label %39, label %36
 
@@ -174,7 +174,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
 
 39:                                               ; preds = %36, %.preheader56
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %.preheader, label %.preheader56, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader, label %.preheader56, !llvm.loop !15
 
 .preheader:                                       ; preds = %39, %53
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %53 ], [ 2, %39 ]
@@ -182,7 +182,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   %.185.i64 = phi i32 [ %.286.i, %53 ], [ 2, %39 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %41 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv77
-  %42 = load ptr, ptr %41, align 8, !tbaa !13
+  %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = icmp slt i32 %.185.i64, %.0.i
   %.not104.i = icmp eq ptr %42, null
   br i1 %43, label %44, label %51
@@ -210,7 +210,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
 
 53:                                               ; preds = %52, %51, %49
   %.286.i = phi i32 [ %50, %49 ], [ %.185.i64, %52 ], [ %.185.i64, %51 ]
-  br i1 %40, label %.preheader, label %54, !llvm.loop !17
+  br i1 %40, label %.preheader, label %54, !llvm.loop !16
 
 54:                                               ; preds = %53
   store i64 %.087.i, ptr %8, align 8, !tbaa !6
@@ -335,11 +335,10 @@ attributes #8 = { noreturn nounwind }
 !7 = !{!"long", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 long", !15, i64 0}
-!15 = !{!"any pointer", !8, i64 0}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 long", !14, i64 0}
+!14 = !{!"any pointer", !8, i64 0}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

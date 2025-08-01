@@ -176,7 +176,7 @@ define hidden void @_ZN22G1CardSetMemoryManagerD2Ev(ptr noundef nonnull align 8 
   tail call void @_ZN16G1MonotonicArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !8
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8
@@ -203,7 +203,7 @@ define hidden void @_ZN22G1CardSetMemoryManagerD0Ev(ptr noundef nonnull align 8 
   tail call void @_ZN16G1MonotonicArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN22G1CardSetMemoryManagerD2Ev.exit, label %3, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN22G1CardSetMemoryManagerD2Ev.exit, label %3, !llvm.loop !8
 
 _ZN22G1CardSetMemoryManagerD2Ev.exit:             ; preds = %3
   %7 = load ptr, ptr %2, align 8
@@ -236,7 +236,7 @@ define hidden void @_ZN22G1CardSetMemoryManager5flushEv(ptr noundef nonnull read
   tail call void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !9
 
 7:                                                ; preds = %3
   ret void
@@ -265,7 +265,7 @@ define hidden noundef i64 @_ZNK22G1CardSetMemoryManager8mem_sizeEv(ptr noundef n
   %16 = add i64 %15, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %3, !llvm.loop !11
+  br i1 %exitcond.not, label %17, label %3, !llvm.loop !10
 
 17:                                               ; preds = %3
   %18 = add i64 %16, -2536
@@ -297,7 +297,7 @@ define hidden noundef i64 @_ZNK22G1CardSetMemoryManager15unused_mem_sizeEv(ptr n
   %18 = add i64 %.056, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %19, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %19, label %3, !llvm.loop !11
 
 19:                                               ; preds = %3
   ret i64 %18
@@ -338,7 +338,7 @@ define hidden void @_ZNK22G1CardSetMemoryManager12memory_statsEv(ptr dead_on_unw
   store i64 %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !13
+  br i1 %exitcond.not, label %28, label %5, !llvm.loop !12
 
 28:                                               ; preds = %5
   ret void
@@ -360,11 +360,10 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

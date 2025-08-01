@@ -1414,7 +1414,7 @@ os_from_llvm_string.exit:                         ; preds = %slice_strcmp.exit.i
 344:                                              ; preds = %.lr.ph.i71
   %345 = add nuw i64 %.070.i, 1
   %exitcond.not.i72 = icmp eq i64 %345, %340
-  br i1 %exitcond.not.i72, label %._crit_edge.i73, label %.lr.ph.i71, !llvm.loop !10
+  br i1 %exitcond.not.i72, label %._crit_edge.i73, label %.lr.ph.i71, !llvm.loop !9
 
 ._crit_edge.i73:                                  ; preds = %344, %.lr.ph.i71
   %.sroa.23.0.i = phi i64 [ %340, %344 ], [ %.070.i, %.lr.ph.i71 ]
@@ -2077,7 +2077,7 @@ os_target_alignment_of_float.exit:                ; preds = %os_target_alignment
   store i64 %.sroa.0.0.insert.insert.i93, ptr %467, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %468, label %437, !llvm.loop !11
+  br i1 %exitcond.not, label %468, label %437, !llvm.loop !10
 
 468:                                              ; preds = %os_target_alignment_of_float.exit
   %469 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 68), align 4
@@ -2844,7 +2844,7 @@ x64features_contains.exit15.i.i:                  ; preds = %686, %683
 699:                                              ; preds = %696, %695, %694, %678
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 104
-  br i1 %exitcond.not.i.i, label %x86features_as_diff_to_scratch.exit.i, label %678, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %x86features_as_diff_to_scratch.exit.i, label %678, !llvm.loop !11
 
 x86features_as_diff_to_scratch.exit.i:            ; preds = %699
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -3683,7 +3683,7 @@ define internal fastcc void @x86_features_from_host(ptr noundef nonnull initiali
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.next.i
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, %30
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %24, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %24 ]
@@ -3694,7 +3694,7 @@ define internal fastcc void @x86_features_from_host(ptr noundef nonnull initiali
 ._crit_edge.i:                                    ; preds = %28, %24
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, 104
-  br i1 %exitcond.not.i, label %x86feature_from_string.exit.thread, label %24, !llvm.loop !14
+  br i1 %exitcond.not.i, label %x86feature_from_string.exit.thread, label %24, !llvm.loop !12
 
 x86feature_from_string.exit.thread:               ; preds = %._crit_edge.i
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %22)
@@ -3746,7 +3746,7 @@ x86features_remove_feature.exit:                  ; preds = %37, %42
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.next.i30
   %60 = load i8, ptr %59, align 1
   %.not.i31 = icmp eq i8 %60, %58
-  br i1 %.not.i31, label %.lr.ph.i28, label %._crit_edge.i24, !llvm.loop !13
+  br i1 %.not.i31, label %.lr.ph.i28, label %._crit_edge.i24
 
 .lr.ph.i28:                                       ; preds = %52, %56
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %56 ], [ 0, %52 ]
@@ -3757,7 +3757,7 @@ x86features_remove_feature.exit:                  ; preds = %37, %42
 ._crit_edge.i24:                                  ; preds = %56, %52
   %indvars.iv.next22.i25 = add nuw nsw i64 %indvars.iv21.i22, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next22.i25, 104
-  br i1 %exitcond.not.i26, label %x86feature_from_string.exit33.thread, label %52, !llvm.loop !14
+  br i1 %exitcond.not.i26, label %x86feature_from_string.exit33.thread, label %52, !llvm.loop !12
 
 x86feature_from_string.exit33.thread:             ; preds = %._crit_edge.i24
   %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #18
@@ -3781,7 +3781,7 @@ x86feature_from_string.exit33:                    ; preds = %.lr.ph.i28
 70:                                               ; preds = %19, %x86features_remove_feature.exit, %x86feature_from_string.exit33, %65, %67, %x86feature_from_string.exit.thread
   %71 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.207) #17
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70, %15
   tail call void @LLVMDisposeMessage(ptr noundef %2) #17
@@ -4103,12 +4103,10 @@ attributes #18 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

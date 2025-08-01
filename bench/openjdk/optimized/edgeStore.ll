@@ -231,7 +231,7 @@ define hidden noundef i64 @_ZNK9EdgeStore6get_idEPK4Edge(ptr noundef nonnull rea
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.012.i3 = phi ptr [ %16, %.lr.ph.i ], [ %12, %2 ]
-  %16 = load ptr, ptr %.012.i3, align 8, !nonnull !10, !noundef !10
+  %16 = load ptr, ptr %.012.i3, align 8, !nonnull !9, !noundef !9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %6
@@ -274,7 +274,7 @@ define hidden noundef i64 @_ZNK9EdgeStore10gc_root_idEPK4Edge(ptr noundef nonnul
 
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
   %.012.i3.i = phi ptr [ %20, %.lr.ph.i.i ], [ %16, %5 ]
-  %20 = load ptr, ptr %.012.i3.i, align 8, !nonnull !10, !noundef !10
+  %20 = load ptr, ptr %.012.i3.i, align 8, !nonnull !9, !noundef !9
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, %10
@@ -424,7 +424,7 @@ define hidden void @_ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m
   %9 = add i64 %.0, 1
   %10 = load ptr, ptr %.09.i, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 .loopexit:                                        ; preds = %8, %4
   %.1.ph = phi i64 [ 1, %4 ], [ %9, %8 ]
@@ -591,7 +591,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edge
   %35 = add i64 %.0.i, 1
   %36 = load ptr, ptr %.09.i.i, align 8
   %.not.i.i21 = icmp eq ptr %36, null
-  br i1 %.not.i.i21, label %.loopexit.i, label %.lr.ph.i.i20, !llvm.loop !11
+  br i1 %.not.i.i21, label %.loopexit.i, label %.lr.ph.i.i20, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %34
   %37 = add i64 %35, %.01732
@@ -695,7 +695,7 @@ _ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit: ; preds = %.loopexit, 
   %84 = icmp ne ptr %82, null
   %85 = icmp ult i64 %83, %3
   %86 = select i1 %84, i1 %85, i1 false
-  br i1 %86, label %13, label %._crit_edge, !llvm.loop !12
+  br i1 %86, label %13, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit, %4
   %.lcssa29 = phi ptr [ %7, %4 ], [ %82, %_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit ]
@@ -771,14 +771,14 @@ define hidden void @_ZN9EdgeStoreD2Ev(ptr noundef nonnull readonly align 8 captu
   store i64 %14, ptr %7, align 8
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.0911.i.i, i64 noundef 56) #14
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %8
   store ptr null, ptr %10, align 8
   %15 = add nuw i64 %.012.i.i, 1
   %16 = load i64, ptr %5, align 8
   %17 = icmp ult i64 %15, %16
-  br i1 %17, label %8, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EED2Ev.exit, !llvm.loop !14
+  br i1 %17, label %8, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EED2Ev.exit, !llvm.loop !13
 
 _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EED2Ev.exit: ; preds = %._crit_edge.i.i, %4
   %18 = load ptr, ptr %2, align 8
@@ -1067,7 +1067,7 @@ define hidden void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr noundef nonnull readonl
 
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %.012.i3.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %22, %12 ]
-  %26 = load ptr, ptr %.012.i3.i.i, align 8, !nonnull !10, !noundef !10
+  %26 = load ptr, ptr %.012.i3.i.i, align 8, !nonnull !9, !noundef !9
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %16
@@ -1121,7 +1121,7 @@ _ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit:
 
 .lr.ph.i.i.i.i:                                   ; preds = %41, %.lr.ph.i.i.i.i
   %.012.i3.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %51, %41 ]
-  %55 = load ptr, ptr %.012.i3.i.i.i, align 8, !nonnull !10, !noundef !10
+  %55 = load ptr, ptr %.012.i3.i.i.i, align 8, !nonnull !9, !noundef !9
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, %45
@@ -1178,7 +1178,7 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit: ; preds = %35, %_Z
 
 .lr.ph.i.i.i.i16:                                 ; preds = %73, %.lr.ph.i.i.i.i16
   %.012.i3.i.i.i17 = phi ptr [ %87, %.lr.ph.i.i.i.i16 ], [ %83, %73 ]
-  %87 = load ptr, ptr %.012.i3.i.i.i17, align 8, !nonnull !10, !noundef !10
+  %87 = load ptr, ptr %.012.i3.i.i.i17, align 8, !nonnull !9, !noundef !9
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %89, %77
@@ -1228,7 +1228,7 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %
 
 .lr.ph.i.i.i.i24:                                 ; preds = %101, %.lr.ph.i.i.i.i24
   %.012.i3.i.i.i25 = phi ptr [ %115, %.lr.ph.i.i.i.i24 ], [ %111, %101 ]
-  %115 = load ptr, ptr %.012.i3.i.i.i25, align 8, !nonnull !10, !noundef !10
+  %115 = load ptr, ptr %.012.i3.i.i.i25, align 8, !nonnull !9, !noundef !9
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, %105
@@ -1280,7 +1280,7 @@ define hidden void @_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10Sto
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %.012.i3.i = phi ptr [ %21, %.lr.ph.i.i ], [ %17, %7 ]
-  %21 = load ptr, ptr %.012.i3.i, align 8, !nonnull !10, !noundef !10
+  %21 = load ptr, ptr %.012.i3.i, align 8, !nonnull !9, !noundef !9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %11
@@ -1329,7 +1329,7 @@ define hidden void @_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge(ptr 
 
 .lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
   %.012.i3.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %17, %7 ]
-  %21 = load ptr, ptr %.012.i3.i.i, align 8, !nonnull !10, !noundef !10
+  %21 = load ptr, ptr %.012.i3.i.i, align 8, !nonnull !9, !noundef !9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %11
@@ -1510,7 +1510,7 @@ _ZN13GrowableArrayIPK10StoredEdgeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !15
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1526,7 +1526,7 @@ _ZN13GrowableArrayIPK10StoredEdgeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !16
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1625,7 +1625,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge1
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -1689,14 +1689,13 @@ attributes #14 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
+!9 = !{}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}

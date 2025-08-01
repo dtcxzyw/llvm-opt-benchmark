@@ -393,7 +393,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
   %61 = xor i64 %60, %24
   %62 = icmp ult i64 %61, 8
   %63 = select i1 %58, i1 %62, i1 false
-  br i1 %63, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKNS0_17UsdSchemaRegistry24_APISchemaDefinitionInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %63, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKNS0_17UsdSchemaRegistry24_APISchemaDefinitionInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %45, %56
   %.018.i.i.i.i.i = phi ptr [ %64, %56 ], [ %46, %45 ]
@@ -406,10 +406,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %67, %40
   %.not17.i.i.i.i.i = icmp eq i64 %68, %41
-  br i1 %.not17.i.i.i.i.i, label %56, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not17.i.i.i.i.i, label %56, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !6
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %65
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry28FindAppliedAPIPrimDefinitionERKNS_7TfTokenE.exit, !llvm.loop !7
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry28FindAppliedAPIPrimDefinitionERKNS_7TfTokenE.exit, !llvm.loop !6
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKNS0_17UsdSchemaRegistry24_APISchemaDefinitionInfoENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE4findERS9_.exit.i: ; preds = %56, %28, %45
   %.sroa.06.1.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.06.0.i.i.i, %28 ], [ %64, %56 ]
@@ -441,7 +441,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKNS0_17UsdSche
   %82 = ptrtoint ptr %81 to i64
   %83 = xor i64 %82, %75
   %84 = icmp ult i64 %83, 8
-  br i1 %84, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i, label %78, !llvm.loop !8
+  br i1 %84, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i, label %78, !llvm.loop !7
 
 85:                                               ; preds = %71
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
@@ -478,7 +478,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKNS0_17UsdSche
   %112 = xor i64 %111, %75
   %113 = icmp ult i64 %112, 8
   %114 = select i1 %109, i1 %113, i1 false
-  br i1 %114, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i, label %.lr.ph.i.i.i.i.i7, !llvm.loop !9
+  br i1 %114, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i, label %.lr.ph.i.i.i.i.i7, !llvm.loop !8
 
 .lr.ph.i.i.i.i.i7:                                ; preds = %96, %107
   %.018.i.i.i.i.i8 = phi ptr [ %115, %107 ], [ %97, %96 ]
@@ -491,10 +491,10 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKNS0_17UsdSche
   %118 = load i64, ptr %117, align 8
   %119 = urem i64 %118, %91
   %.not17.i.i.i.i.i10 = icmp eq i64 %119, %92
-  br i1 %.not17.i.i.i.i.i10, label %107, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !9
+  br i1 %.not17.i.i.i.i.i10, label %107, label %..loopexit_crit_edge21.i.i.i.i.i11, !llvm.loop !8
 
 ..loopexit_crit_edge21.i.i.i.i.i11:               ; preds = %116
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry28FindAppliedAPIPrimDefinitionERKNS_7TfTokenE.exit, !llvm.loop !9
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry28FindAppliedAPIPrimDefinitionERKNS_7TfTokenE.exit, !llvm.loop !8
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i: ; preds = %107, %79, %96
   %.sroa.06.1.i.i.i12 = phi ptr [ %97, %96 ], [ %.sroa.06.0.i.i.i14, %79 ], [ %115, %107 ]
@@ -548,7 +548,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEvE6tfType acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %8, !prof !10
+  br i1 %2, label %3, label %8, !prof !9
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEvE6tfType) #12
@@ -588,7 +588,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase10_GetTfTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEvE6tfType acquire, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEv.exit, !prof !10
+  br i1 %3, label %4, label %_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEv.exit, !prof !9
 
 4:                                                ; preds = %1
   %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase16_GetStaticTfTypeEvE6tfType) #12
@@ -1443,10 +1443,9 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!"branch_weights", i32 1, i32 1048575}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!"branch_weights", i32 1, i32 1048575}

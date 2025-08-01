@@ -278,7 +278,7 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %58, %
   %144 = tail call double @llvm.log2.f64(double %.06.i), !tbaa !12
   %145 = add nuw nsw i32 %.045.i, 1
   %146 = fcmp ult double %144, 1.000000e+00
-  br i1 %146, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !48
+  br i1 %146, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !47
 
 math_logstar_n.exit57.thread:                     ; preds = %init_query_structure.exit
   %.pre = sitofp i32 %0 to double
@@ -302,7 +302,7 @@ math_logstar_n.exit.thread:                       ; preds = %.lr.ph.i
   %150 = tail call double @log2(double noundef %.08.i) #17, !tbaa !12
   %151 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %.067.i, %149
-  br i1 %exitcond.not.i, label %math_N.exit, label %.lr.ph.i45, !llvm.loop !49
+  br i1 %exitcond.not.i, label %math_N.exit, label %.lr.ph.i45, !llvm.loop !48
 
 math_N.exit:                                      ; preds = %.lr.ph.i45, %147
   %.0.lcssa.i = phi double [ %139, %147 ], [ %150, %.lr.ph.i45 ]
@@ -323,7 +323,7 @@ math_N.exit:                                      ; preds = %.lr.ph.i45, %147
   %157 = tail call double @log2(double noundef %.08.i48) #17, !tbaa !12
   %158 = add nuw nsw i32 %.067.i49, 1
   %exitcond.not.i50 = icmp eq i32 %158, %.03578
-  br i1 %exitcond.not.i50, label %math_N.exit51, label %.lr.ph.i47, !llvm.loop !49
+  br i1 %exitcond.not.i50, label %math_N.exit51, label %.lr.ph.i47, !llvm.loop !48
 
 math_N.exit51:                                    ; preds = %.lr.ph.i47
   %159 = fdiv double %139, %157
@@ -343,13 +343,13 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %164 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv89
   %165 = load i32, ptr %164, align 4, !tbaa !12
   call fastcc void @add_segment(i32 noundef %165, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  br label %156, !llvm.loop !50
+  br label %156, !llvm.loop !49
 
 166:                                              ; preds = %.lr.ph77, %find_new_roots.exit
   %indvars.iv92 = phi i64 [ 1, %.lr.ph77 ], [ %indvars.iv.next93, %find_new_roots.exit ]
   %167 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv92
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %169 = load i8, ptr %168, align 8, !tbaa !40, !range !51, !noundef !52
+  %169 = load i8, ptr %168, align 8, !tbaa !40, !range !50, !noundef !51
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %find_new_roots.exit, label %171
 
@@ -374,7 +374,7 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
 find_new_roots.exit:                              ; preds = %166, %171
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge, label %166, !llvm.loop !53
+  br i1 %exitcond96.not, label %._crit_edge, label %166, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %find_new_roots.exit
   %185 = add nuw nsw i32 %.03578, 1
@@ -386,7 +386,7 @@ find_new_roots.exit:                              ; preds = %166, %171
   %186 = tail call double @llvm.log2.f64(double %.06.i54), !tbaa !12
   %187 = add nuw nsw i32 %.045.i55, 1
   %188 = fcmp ult double %186, 1.000000e+00
-  br i1 %188, label %math_logstar_n.exit57, label %.lr.ph.i53, !llvm.loop !48
+  br i1 %188, label %math_logstar_n.exit57, label %.lr.ph.i53, !llvm.loop !47
 
 math_logstar_n.exit57:                            ; preds = %.lr.ph.i53
   %.not67 = icmp eq i32 %.045.i55, 0
@@ -398,7 +398,7 @@ math_logstar_n.exit57:                            ; preds = %.lr.ph.i53
   %189 = tail call double @log2(double noundef %.08.i60) #17, !tbaa !12
   %190 = add nuw nsw i32 %.067.i61, 1
   %exitcond.not.i62 = icmp eq i32 %190, %.045.i55
-  br i1 %exitcond.not.i62, label %math_N.exit63, label %.lr.ph.i59, !llvm.loop !49
+  br i1 %exitcond.not.i62, label %math_N.exit63, label %.lr.ph.i59, !llvm.loop !48
 
 math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_logstar_n.exit57.thread, %math_logstar_n.exit57
   %.072 = phi i32 [ %.079, %math_logstar_n.exit57 ], [ 2, %math_logstar_n.exit57.thread ], [ %.079, %.lr.ph.i59 ]
@@ -423,7 +423,7 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
   %197 = load i32, ptr %196, align 4, !tbaa !12
   call fastcc void @add_segment(i32 noundef %197, ptr noundef nonnull %1, ptr noundef %4, ptr noundef %5)
   %exitcond100.not = icmp eq i32 %.3, %0
-  br i1 %exitcond100.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !54
+  br i1 %exitcond100.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !53
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %math_N.exit63
   %198 = load ptr, ptr %6, align 8, !tbaa !11
@@ -445,12 +445,12 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #17
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !tbaa.struct !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %10 = load double, ptr %9, align 8, !tbaa !57
+  %10 = load double, ptr %9, align 8, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load double, ptr %11, align 8, !tbaa !58
+  %12 = load double, ptr %11, align 8, !tbaa !57
   %13 = fadd double %12, 0x3E7AD7F29ABCAF48
   %14 = fcmp ogt double %10, %13
   br i1 %14, label %22, label %15
@@ -461,8 +461,8 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %15
-  %19 = load double, ptr %8, align 8, !tbaa !59
-  %20 = load double, ptr %5, align 8, !tbaa !60
+  %19 = load double, ptr %8, align 8, !tbaa !58
+  %20 = load double, ptr %5, align 8, !tbaa !59
   %21 = fcmp ogt double %19, %20
   br i1 %21, label %22, label %29
 
@@ -493,7 +493,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %.pn.in.i = load i32, ptr %35, align 4, !tbaa !12
   %.pn.i = sext i32 %.pn.in.i to i64
   %.0.in.in.i = getelementptr inbounds %struct.segment_t, ptr %1, i64 %.pn.i, i32 2
-  %.0.in.i = load i8, ptr %.0.in.in.i, align 8, !tbaa !40, !range !51, !noundef !52
+  %.0.in.i = load i8, ptr %.0.in.in.i, align 8, !tbaa !40, !range !50, !noundef !51
   %.0.i = trunc nuw i8 %.0.in.i to i1
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %37 = load i32, ptr %36, align 4, !tbaa !44
@@ -510,14 +510,14 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %45 = getelementptr inbounds %struct.trap_t, ptr %42, i64 %43
   %46 = sext i32 %38 to i64
   %47 = getelementptr inbounds %struct.trap_t, ptr %42, i64 %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 8 dereferenceable(72) %47, i64 72, i1 false), !tbaa.struct !61
-  %48 = load double, ptr %11, align 8, !tbaa !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 8 dereferenceable(72) %47, i64 72, i1 false), !tbaa.struct !60
+  %48 = load double, ptr %11, align 8, !tbaa !57
   %49 = load ptr, ptr %41, align 8, !tbaa !11
   %50 = getelementptr inbounds %struct.trap_t, ptr %49, i64 %46, i32 3, i32 1
   store double %48, ptr %50, align 8, !tbaa !29
   %51 = getelementptr inbounds %struct.trap_t, ptr %49, i64 %43, i32 2, i32 1
   store double %48, ptr %51, align 8, !tbaa !26
-  %52 = load double, ptr %5, align 8, !tbaa !60
+  %52 = load double, ptr %5, align 8, !tbaa !59
   %53 = getelementptr inbounds %struct.trap_t, ptr %49, i64 %46, i32 3
   store double %52, ptr %53, align 8, !tbaa !30
   %54 = getelementptr inbounds %struct.trap_t, ptr %49, i64 %43, i32 2
@@ -630,7 +630,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %.pn.in.i592 = load i32, ptr %.pn.in.in.i591, align 4, !tbaa !12
   %.pn.i593 = sext i32 %.pn.in.i592 to i64
   %.0.in.in.i594 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %.pn.i593, i32 2
-  %.0.in.i595 = load i8, ptr %.0.in.in.i594, align 8, !tbaa !40, !range !51, !noundef !52
+  %.0.in.i595 = load i8, ptr %.0.in.in.i594, align 8, !tbaa !40, !range !50, !noundef !51
   %.0.i596 = trunc nuw i8 %.0.in.i595 to i1
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %116 = load i32, ptr %115, align 8, !tbaa !43
@@ -647,14 +647,14 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef captures(no
   %124 = getelementptr inbounds %struct.trap_t, ptr %121, i64 %122
   %125 = sext i32 %117 to i64
   %126 = getelementptr inbounds %struct.trap_t, ptr %121, i64 %125
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %124, ptr noundef nonnull align 8 dereferenceable(72) %126, i64 72, i1 false), !tbaa.struct !61
-  %127 = load double, ptr %9, align 8, !tbaa !57
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %124, ptr noundef nonnull align 8 dereferenceable(72) %126, i64 72, i1 false), !tbaa.struct !60
+  %127 = load double, ptr %9, align 8, !tbaa !56
   %128 = load ptr, ptr %120, align 8, !tbaa !11
   %129 = getelementptr inbounds %struct.trap_t, ptr %128, i64 %122, i32 2, i32 1
   store double %127, ptr %129, align 8, !tbaa !26
   %130 = getelementptr inbounds %struct.trap_t, ptr %128, i64 %125, i32 3, i32 1
   store double %127, ptr %130, align 8, !tbaa !29
-  %131 = load double, ptr %8, align 8, !tbaa !59
+  %131 = load double, ptr %8, align 8, !tbaa !58
   %132 = getelementptr inbounds %struct.trap_t, ptr %128, i64 %122, i32 2
   store double %131, ptr %132, align 8, !tbaa !28
   %133 = getelementptr inbounds %struct.trap_t, ptr %128, i64 %125, i32 3
@@ -864,7 +864,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
   %.2566 = phi i32 [ %231, %254 ], [ %.0564645, %248 ], [ %.0564645, %_greater_than_equal_to.exit.thread ]
   %256 = getelementptr inbounds %struct.trap_t, ptr %234, i64 %235
   %257 = getelementptr inbounds nuw %struct.trap_t, ptr %234, i64 %200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %256, ptr noundef nonnull align 8 dereferenceable(72) %257, i64 72, i1 false), !tbaa.struct !61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %256, ptr noundef nonnull align 8 dereferenceable(72) %257, i64 72, i1 false), !tbaa.struct !60
   %258 = load ptr, ptr %195, align 8, !tbaa !11
   %259 = getelementptr inbounds nuw %struct.trap_t, ptr %258, i64 %200, i32 8
   store i32 %217, ptr %259, align 8, !tbaa !37
@@ -925,9 +925,9 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
   %293 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 24
-  %296 = load double, ptr %295, align 8, !tbaa !57
+  %296 = load double, ptr %295, align 8, !tbaa !56
   %297 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %298 = load double, ptr %297, align 8, !tbaa !58
+  %298 = load double, ptr %297, align 8, !tbaa !57
   %299 = fadd double %298, 0x3E7AD7F29ABCAF48
   %300 = fcmp ogt double %296, %299
   br i1 %300, label %308, label %301
@@ -938,8 +938,8 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
   br i1 %303, label %335, label %304
 
 304:                                              ; preds = %301
-  %305 = load double, ptr %294, align 8, !tbaa !59
-  %306 = load double, ptr %293, align 8, !tbaa !60
+  %305 = load double, ptr %294, align 8, !tbaa !58
+  %306 = load double, ptr %293, align 8, !tbaa !59
   %307 = fcmp ogt double %305, %306
   br i1 %307, label %308, label %335
 
@@ -952,7 +952,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
 
 313:                                              ; preds = %308
   %314 = load double, ptr %5, align 8, !tbaa !19
-  %315 = load double, ptr %294, align 8, !tbaa !59
+  %315 = load double, ptr %294, align 8, !tbaa !58
   %316 = fcmp olt double %314, %315
   br i1 %316, label %is_left_of.exit.thread, label %is_left_of.exit.thread628
 
@@ -960,7 +960,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
   %318 = fsub double %298, %309
   %319 = tail call double @llvm.fabs.f64(double %318)
   %320 = fcmp ugt double %319, 0x3E7AD7F29ABCAF48
-  %321 = load double, ptr %293, align 8, !tbaa !60
+  %321 = load double, ptr %293, align 8, !tbaa !59
   br i1 %320, label %325, label %322
 
 322:                                              ; preds = %317
@@ -969,7 +969,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
   br i1 %324, label %is_left_of.exit.thread, label %is_left_of.exit.thread628
 
 325:                                              ; preds = %317
-  %326 = load double, ptr %294, align 8, !tbaa !59
+  %326 = load double, ptr %294, align 8, !tbaa !58
   %327 = fsub double %326, %321
   %328 = fsub double %309, %298
   %329 = fsub double %296, %298
@@ -989,7 +989,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
 
 340:                                              ; preds = %335
   %341 = load double, ptr %5, align 8, !tbaa !19
-  %342 = load double, ptr %294, align 8, !tbaa !59
+  %342 = load double, ptr %294, align 8, !tbaa !58
   %343 = fcmp olt double %341, %342
   br i1 %343, label %is_left_of.exit.thread, label %is_left_of.exit.thread628
 
@@ -1001,13 +1001,13 @@ _greater_than_equal_to.exit.thread:               ; preds = %198, %_greater_than
 
 348:                                              ; preds = %344
   %349 = load double, ptr %5, align 8, !tbaa !19
-  %350 = load double, ptr %293, align 8, !tbaa !60
+  %350 = load double, ptr %293, align 8, !tbaa !59
   %351 = fcmp olt double %349, %350
   br i1 %351, label %is_left_of.exit.thread, label %is_left_of.exit.thread628
 
 352:                                              ; preds = %344
-  %353 = load double, ptr %293, align 8, !tbaa !60
-  %354 = load double, ptr %294, align 8, !tbaa !59
+  %353 = load double, ptr %293, align 8, !tbaa !59
+  %354 = load double, ptr %294, align 8, !tbaa !58
   %355 = fsub double %353, %354
   %356 = fsub double %336, %296
   %357 = fsub double %298, %296
@@ -1069,8 +1069,8 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
   %390 = getelementptr inbounds %struct.trap_t, ptr %273, i64 %379, i32 10
   %. = select i1 %388, i32 %386, i32 %382
   %.660 = select i1 %388, i32 1, i32 2
-  store i32 %., ptr %389, align 4, !tbaa !62
-  store i32 %.660, ptr %390, align 8, !tbaa !63
+  store i32 %., ptr %389, align 4, !tbaa !61
+  store i32 %.660, ptr %390, align 8, !tbaa !62
   br label %391
 
 391:                                              ; preds = %.sink.split, %384, %376
@@ -1119,9 +1119,9 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
   %417 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %416
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 16
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 24
-  %420 = load double, ptr %419, align 8, !tbaa !57
+  %420 = load double, ptr %419, align 8, !tbaa !56
   %421 = getelementptr inbounds nuw i8, ptr %417, i64 8
-  %422 = load double, ptr %421, align 8, !tbaa !58
+  %422 = load double, ptr %421, align 8, !tbaa !57
   %423 = fadd double %422, 0x3E7AD7F29ABCAF48
   %424 = fcmp ogt double %420, %423
   br i1 %424, label %432, label %425
@@ -1132,8 +1132,8 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
   br i1 %427, label %459, label %428
 
 428:                                              ; preds = %425
-  %429 = load double, ptr %418, align 8, !tbaa !59
-  %430 = load double, ptr %417, align 8, !tbaa !60
+  %429 = load double, ptr %418, align 8, !tbaa !58
+  %430 = load double, ptr %417, align 8, !tbaa !59
   %431 = fcmp ogt double %429, %430
   br i1 %431, label %432, label %459
 
@@ -1146,7 +1146,7 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
 
 437:                                              ; preds = %432
   %438 = load double, ptr %5, align 8, !tbaa !19
-  %439 = load double, ptr %418, align 8, !tbaa !59
+  %439 = load double, ptr %418, align 8, !tbaa !58
   %440 = fcmp olt double %438, %439
   br i1 %440, label %is_left_of.exit604.thread, label %is_left_of.exit604.thread637
 
@@ -1154,7 +1154,7 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
   %442 = fsub double %422, %433
   %443 = tail call double @llvm.fabs.f64(double %442)
   %444 = fcmp ugt double %443, 0x3E7AD7F29ABCAF48
-  %445 = load double, ptr %417, align 8, !tbaa !60
+  %445 = load double, ptr %417, align 8, !tbaa !59
   br i1 %444, label %449, label %446
 
 446:                                              ; preds = %441
@@ -1163,7 +1163,7 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
   br i1 %448, label %is_left_of.exit604.thread, label %is_left_of.exit604.thread637
 
 449:                                              ; preds = %441
-  %450 = load double, ptr %418, align 8, !tbaa !59
+  %450 = load double, ptr %418, align 8, !tbaa !58
   %451 = fsub double %450, %445
   %452 = fsub double %433, %422
   %453 = fsub double %420, %422
@@ -1183,7 +1183,7 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
 
 464:                                              ; preds = %459
   %465 = load double, ptr %5, align 8, !tbaa !19
-  %466 = load double, ptr %418, align 8, !tbaa !59
+  %466 = load double, ptr %418, align 8, !tbaa !58
   %467 = fcmp olt double %465, %466
   br i1 %467, label %is_left_of.exit604.thread, label %is_left_of.exit604.thread637
 
@@ -1195,13 +1195,13 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
 
 472:                                              ; preds = %468
   %473 = load double, ptr %5, align 8, !tbaa !19
-  %474 = load double, ptr %417, align 8, !tbaa !60
+  %474 = load double, ptr %417, align 8, !tbaa !59
   %475 = fcmp olt double %473, %474
   br i1 %475, label %is_left_of.exit604.thread, label %is_left_of.exit604.thread637
 
 476:                                              ; preds = %468
-  %477 = load double, ptr %417, align 8, !tbaa !60
-  %478 = load double, ptr %418, align 8, !tbaa !59
+  %477 = load double, ptr %417, align 8, !tbaa !59
+  %478 = load double, ptr %418, align 8, !tbaa !58
   %479 = fsub double %477, %478
   %480 = fsub double %460, %420
   %481 = fsub double %422, %420
@@ -1263,8 +1263,8 @@ is_left_of.exit604.thread637:                     ; preds = %472, %464, %446, %4
   %514 = getelementptr inbounds %struct.trap_t, ptr %397, i64 %503, i32 10
   %.661 = select i1 %512, i32 %510, i32 %506
   %.662 = select i1 %512, i32 1, i32 2
-  store i32 %.661, ptr %513, align 4, !tbaa !62
-  store i32 %.662, ptr %514, align 8, !tbaa !63
+  store i32 %.661, ptr %513, align 4, !tbaa !61
+  store i32 %.662, ptr %514, align 8, !tbaa !62
   br label %515
 
 515:                                              ; preds = %.sink.split657, %508, %500
@@ -1282,7 +1282,7 @@ is_left_of.exit604.thread637:                     ; preds = %472, %464, %446, %4
   %521 = getelementptr inbounds nuw %struct.trap_t, ptr %258, i64 %200, i32 3
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 8
   %523 = load double, ptr %522, align 8, !tbaa !29
-  %524 = load double, ptr %11, align 8, !tbaa !58
+  %524 = load double, ptr %11, align 8, !tbaa !57
   %525 = fsub double %523, %524
   %526 = tail call double @llvm.fabs.f64(double %525)
   %527 = fcmp ugt double %526, 0x3E7AD7F29ABCAF48
@@ -1290,18 +1290,18 @@ is_left_of.exit604.thread637:                     ; preds = %472, %464, %446, %4
 
 528:                                              ; preds = %520
   %529 = load double, ptr %521, align 8, !tbaa !30
-  %530 = load double, ptr %5, align 8, !tbaa !60
+  %530 = load double, ptr %5, align 8, !tbaa !59
   %531 = fcmp ogt double %529, %530
   %.val586.pre = load double, ptr %8, align 8
   %.val587.pre = load double, ptr %9, align 8
   br label %_less_than.exit
 
 532:                                              ; preds = %520
-  %533 = load double, ptr %9, align 8, !tbaa !57
+  %533 = load double, ptr %9, align 8, !tbaa !56
   %534 = fsub double %533, %524
   %535 = fdiv double %525, %534
-  %536 = load double, ptr %5, align 8, !tbaa !60
-  %537 = load double, ptr %8, align 8, !tbaa !59
+  %536 = load double, ptr %5, align 8, !tbaa !59
+  %537 = load double, ptr %8, align 8, !tbaa !58
   %538 = fsub double %537, %536
   %539 = tail call double @llvm.fmuladd.f64(double %535, double %538, double %536)
   %540 = fadd double %523, 0x3E7AD7F29ABCAF48
@@ -1411,7 +1411,7 @@ _less_than.exit:                                  ; preds = %545, %542, %532, %5
   %600 = getelementptr inbounds %struct.trap_t, ptr %598, i64 %235
   store i32 %0, ptr %600, align 8, !tbaa !32
   %601 = icmp sgt i32 %.2563, 0
-  br i1 %601, label %198, label %.critedge, !llvm.loop !64
+  br i1 %601, label %198, label %.critedge
 
 .critedge:                                        ; preds = %_greater_than_equal_to.exit, %597, %209, %193, %.thread639
   %.1565 = phi i32 [ %.2566, %.thread639 ], [ 0, %193 ], [ %.0564645, %_greater_than_equal_to.exit ], [ %.2566, %597 ], [ %.0564645, %209 ]
@@ -1601,7 +1601,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %17 = load double, ptr %8, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %20 = load double, ptr %19, align 8, !tbaa !65
+  %20 = load double, ptr %19, align 8, !tbaa !63
   %21 = fadd double %20, 0x3E7AD7F29ABCAF48
   %22 = fcmp ogt double %17, %21
   br i1 %22, label %tailrecurse.backedge, label %23
@@ -1613,7 +1613,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 26:                                               ; preds = %23
   %27 = load double, ptr %0, align 8, !tbaa !19
-  %28 = load double, ptr %18, align 8, !tbaa !66
+  %28 = load double, ptr %18, align 8, !tbaa !64
   %29 = fcmp ogt double %27, %28
   br i1 %29, label %tailrecurse.backedge, label %31
 
@@ -1631,7 +1631,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 35:                                               ; preds = %31
   %36 = load double, ptr %0, align 8, !tbaa !19
-  %37 = load double, ptr %18, align 8, !tbaa !66
+  %37 = load double, ptr %18, align 8, !tbaa !64
   %38 = fsub double %36, %37
   %39 = tail call double @llvm.fabs.f64(double %38)
   %40 = fcmp ugt double %39, 0x3E7AD7F29ABCAF48
@@ -1661,7 +1661,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load double, ptr %56, align 8, !tbaa !58
+  %57 = load double, ptr %56, align 8, !tbaa !57
   %58 = fsub double %51, %57
   %59 = tail call double @llvm.fabs.f64(double %58)
   %60 = fcmp ugt double %59, 0x3E7AD7F29ABCAF48
@@ -1669,7 +1669,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 61:                                               ; preds = %50
   %62 = load double, ptr %0, align 8, !tbaa !19
-  %63 = load double, ptr %55, align 8, !tbaa !60
+  %63 = load double, ptr %55, align 8, !tbaa !59
   %64 = fsub double %62, %63
   %65 = tail call double @llvm.fabs.f64(double %64)
   %66 = fcmp ugt double %65, 0x3E7AD7F29ABCAF48
@@ -1678,7 +1678,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 67:                                               ; preds = %61, %50
   %68 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %54, i32 1
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load double, ptr %69, align 8, !tbaa !57
+  %70 = load double, ptr %69, align 8, !tbaa !56
   %71 = fsub double %51, %70
   %72 = tail call double @llvm.fabs.f64(double %71)
   %73 = fcmp ugt double %72, 0x3E7AD7F29ABCAF48
@@ -1686,7 +1686,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 74:                                               ; preds = %67
   %75 = load double, ptr %0, align 8, !tbaa !19
-  %76 = load double, ptr %68, align 8, !tbaa !59
+  %76 = load double, ptr %68, align 8, !tbaa !58
   %77 = fsub double %75, %76
   %78 = tail call double @llvm.fabs.f64(double %77)
   %79 = fcmp ugt double %78, 0x3E7AD7F29ABCAF48
@@ -1709,7 +1709,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 89:                                               ; preds = %80
   %90 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %92 = load double, ptr %91, align 8, !tbaa !57
+  %92 = load double, ptr %91, align 8, !tbaa !56
   %93 = fadd double %57, 0x3E7AD7F29ABCAF48
   %94 = fcmp ogt double %92, %93
   br i1 %94, label %102, label %95
@@ -1720,8 +1720,8 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   br i1 %97, label %128, label %98
 
 98:                                               ; preds = %95
-  %99 = load double, ptr %90, align 8, !tbaa !59
-  %100 = load double, ptr %55, align 8, !tbaa !60
+  %99 = load double, ptr %90, align 8, !tbaa !58
+  %100 = load double, ptr %55, align 8, !tbaa !59
   %101 = fcmp ogt double %99, %100
   br i1 %101, label %102, label %128
 
@@ -1733,7 +1733,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 106:                                              ; preds = %102
   %107 = load double, ptr %1, align 8, !tbaa !19
-  %108 = load double, ptr %90, align 8, !tbaa !59
+  %108 = load double, ptr %90, align 8, !tbaa !58
   %109 = fcmp olt double %107, %108
   br i1 %109, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
@@ -1741,7 +1741,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   %111 = fsub double %57, %82
   %112 = tail call double @llvm.fabs.f64(double %111)
   %113 = fcmp ugt double %112, 0x3E7AD7F29ABCAF48
-  %114 = load double, ptr %55, align 8, !tbaa !60
+  %114 = load double, ptr %55, align 8, !tbaa !59
   br i1 %113, label %118, label %115
 
 115:                                              ; preds = %110
@@ -1750,7 +1750,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
   br i1 %117, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 118:                                              ; preds = %110
-  %119 = load double, ptr %90, align 8, !tbaa !59
+  %119 = load double, ptr %90, align 8, !tbaa !58
   %120 = fsub double %119, %114
   %121 = fsub double %82, %57
   %122 = fsub double %92, %57
@@ -1769,7 +1769,7 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 132:                                              ; preds = %128
   %133 = load double, ptr %1, align 8, !tbaa !19
-  %134 = load double, ptr %90, align 8, !tbaa !59
+  %134 = load double, ptr %90, align 8, !tbaa !58
   %135 = fcmp olt double %133, %134
   br i1 %135, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
@@ -1781,13 +1781,13 @@ tailrecurse.backedge:                             ; preds = %26, %16, %is_left_o
 
 140:                                              ; preds = %136
   %141 = load double, ptr %1, align 8, !tbaa !19
-  %142 = load double, ptr %55, align 8, !tbaa !60
+  %142 = load double, ptr %55, align 8, !tbaa !59
   %143 = fcmp olt double %141, %142
   br i1 %143, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 144:                                              ; preds = %136
-  %145 = load double, ptr %55, align 8, !tbaa !60
-  %146 = load double, ptr %90, align 8, !tbaa !59
+  %145 = load double, ptr %55, align 8, !tbaa !59
+  %146 = load double, ptr %90, align 8, !tbaa !58
   %147 = fsub double %145, %146
   %148 = fsub double %82, %92
   %149 = fsub double %57, %92
@@ -1818,8 +1818,8 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
   br i1 %162, label %192, label %163
 
 163:                                              ; preds = %160
-  %164 = load double, ptr %157, align 8, !tbaa !59
-  %165 = load double, ptr %55, align 8, !tbaa !60
+  %164 = load double, ptr %157, align 8, !tbaa !58
+  %165 = load double, ptr %55, align 8, !tbaa !59
   %166 = fcmp ogt double %164, %165
   br i1 %166, label %167, label %192
 
@@ -1831,7 +1831,7 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
 
 171:                                              ; preds = %167
   %172 = load double, ptr %0, align 8, !tbaa !19
-  %173 = load double, ptr %157, align 8, !tbaa !59
+  %173 = load double, ptr %157, align 8, !tbaa !58
   %174 = fcmp olt double %172, %173
   br i1 %174, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
 
@@ -1839,7 +1839,7 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
   %176 = fsub double %57, %51
   %177 = tail call double @llvm.fabs.f64(double %176)
   %178 = fcmp ugt double %177, 0x3E7AD7F29ABCAF48
-  %179 = load double, ptr %55, align 8, !tbaa !60
+  %179 = load double, ptr %55, align 8, !tbaa !59
   br i1 %178, label %183, label %180
 
 180:                                              ; preds = %175
@@ -1848,7 +1848,7 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
   br i1 %182, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
 
 183:                                              ; preds = %175
-  %184 = load double, ptr %157, align 8, !tbaa !59
+  %184 = load double, ptr %157, align 8, !tbaa !58
   %185 = fsub double %184, %179
   %186 = fsub double %70, %57
   %187 = load double, ptr %0, align 8, !tbaa !19
@@ -1866,7 +1866,7 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
 
 196:                                              ; preds = %192
   %197 = load double, ptr %0, align 8, !tbaa !19
-  %198 = load double, ptr %157, align 8, !tbaa !59
+  %198 = load double, ptr %157, align 8, !tbaa !58
   %199 = fcmp olt double %197, %198
   br i1 %199, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
 
@@ -1878,13 +1878,13 @@ is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %1
 
 204:                                              ; preds = %200
   %205 = load double, ptr %0, align 8, !tbaa !19
-  %206 = load double, ptr %55, align 8, !tbaa !60
+  %206 = load double, ptr %55, align 8, !tbaa !59
   %207 = fcmp olt double %205, %206
   br i1 %207, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
 
 208:                                              ; preds = %200
-  %209 = load double, ptr %55, align 8, !tbaa !60
-  %210 = load double, ptr %157, align 8, !tbaa !59
+  %209 = load double, ptr %55, align 8, !tbaa !59
+  %210 = load double, ptr %157, align 8, !tbaa !58
   %211 = fsub double %209, %210
   %212 = fsub double %57, %70
   %213 = load double, ptr %0, align 8, !tbaa !19
@@ -1929,13 +1929,13 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %15 = load i32, ptr %14, align 4, !tbaa !62
+  %15 = load i32, ptr %14, align 4, !tbaa !61
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %19 = load i32, ptr %18, align 8, !tbaa !63
+  %19 = load i32, ptr %18, align 8, !tbaa !62
   %20 = icmp eq i32 %19, 1
   %21 = sext i32 %2 to i64
   %22 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %4, i32 5
@@ -1982,9 +1982,9 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   %45 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %.sink8, i32 6
   store i32 %2, ptr %45, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %4, i32 9
-  store i32 0, ptr %46, align 4, !tbaa !62
+  store i32 0, ptr %46, align 4, !tbaa !61
   %47 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %21, i32 9
-  store i32 0, ptr %47, align 4, !tbaa !62
+  store i32 0, ptr %47, align 4, !tbaa !61
   br label %152
 
 48:                                               ; preds = %13
@@ -2027,9 +2027,9 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   %73 = getelementptr inbounds nuw %struct.segment_t, ptr %0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %76 = load double, ptr %75, align 8, !tbaa !57
+  %76 = load double, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %78 = load double, ptr %77, align 8, !tbaa !58
+  %78 = load double, ptr %77, align 8, !tbaa !57
   %79 = fadd double %78, 0x3E7AD7F29ABCAF48
   %80 = fcmp ogt double %76, %79
   br i1 %80, label %88, label %81
@@ -2040,8 +2040,8 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br i1 %83, label %111, label %84
 
 84:                                               ; preds = %81
-  %85 = load double, ptr %74, align 8, !tbaa !59
-  %86 = load double, ptr %73, align 8, !tbaa !60
+  %85 = load double, ptr %74, align 8, !tbaa !58
+  %86 = load double, ptr %73, align 8, !tbaa !59
   %87 = fcmp ogt double %85, %86
   br i1 %87, label %88, label %111
 
@@ -2052,7 +2052,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %88
-  %93 = load double, ptr %74, align 8, !tbaa !59
+  %93 = load double, ptr %74, align 8, !tbaa !58
   %94 = fcmp olt double %.16.val, %93
   br i1 %94, label %is_left_of.exit.thread, label %is_left_of.exit.thread6
 
@@ -2060,7 +2060,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   %96 = fsub double %78, %.24.val
   %97 = tail call double @llvm.fabs.f64(double %96)
   %98 = fcmp ugt double %97, 0x3E7AD7F29ABCAF48
-  %99 = load double, ptr %73, align 8, !tbaa !60
+  %99 = load double, ptr %73, align 8, !tbaa !59
   br i1 %98, label %102, label %100
 
 100:                                              ; preds = %95
@@ -2068,7 +2068,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br i1 %101, label %is_left_of.exit.thread, label %is_left_of.exit.thread6
 
 102:                                              ; preds = %95
-  %103 = load double, ptr %74, align 8, !tbaa !59
+  %103 = load double, ptr %74, align 8, !tbaa !58
   %104 = fsub double %103, %99
   %105 = fsub double %.24.val, %78
   %106 = fsub double %76, %78
@@ -2085,7 +2085,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br i1 %114, label %118, label %115
 
 115:                                              ; preds = %111
-  %116 = load double, ptr %74, align 8, !tbaa !59
+  %116 = load double, ptr %74, align 8, !tbaa !58
   %117 = fcmp olt double %.16.val, %116
   br i1 %117, label %is_left_of.exit.thread, label %is_left_of.exit.thread6
 
@@ -2093,7 +2093,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   %119 = fsub double %78, %.24.val
   %120 = tail call double @llvm.fabs.f64(double %119)
   %121 = fcmp ugt double %120, 0x3E7AD7F29ABCAF48
-  %122 = load double, ptr %73, align 8, !tbaa !60
+  %122 = load double, ptr %73, align 8, !tbaa !59
   br i1 %121, label %125, label %123
 
 123:                                              ; preds = %118
@@ -2101,7 +2101,7 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br i1 %124, label %is_left_of.exit.thread, label %is_left_of.exit.thread6
 
 125:                                              ; preds = %118
-  %126 = load double, ptr %74, align 8, !tbaa !59
+  %126 = load double, ptr %74, align 8, !tbaa !58
   %127 = fsub double %122, %126
   %128 = fsub double %.24.val, %76
   %129 = fsub double %78, %76
@@ -2231,7 +2231,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 .thread115.backedge:                              ; preds = %40, %55, %.thread, %65
   %.098118.be = phi i32 [ %.1100112, %65 ], [ %.1100112, %.thread ], [ %53, %55 ], [ %38, %40 ]
-  br label %.thread115, !llvm.loop !67
+  br label %.thread115, !llvm.loop !65
 
 45:                                               ; preds = %_greater_than_equal_to.exit.thread
   br i1 %29, label %46, label %51
@@ -2365,7 +2365,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %124 = load ptr, ptr %8, align 8, !tbaa !11
   %125 = getelementptr inbounds nuw %struct.trap_t, ptr %124, i64 %.pre-phi, i32 11
   store i32 2, ptr %125, align 4, !tbaa !38
-  br label %.thread115.outer, !llvm.loop !67
+  br label %.thread115.outer, !llvm.loop !65
 
 .critedge:                                        ; preds = %36, %51, %_greater_than_equal_to.exit, %22, %6
   ret void
@@ -2449,26 +2449,24 @@ attributes #23 = { nounwind allocsize(1) }
 !42 = !{!"_Bool", !6, i64 0}
 !43 = !{!41, !13, i64 40}
 !44 = !{!41, !13, i64 36}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = distinct !{!48, !46, !47}
-!49 = distinct !{!49, !46, !47}
-!50 = distinct !{!50, !46, !47}
-!51 = !{i8 0, i8 2}
-!52 = !{}
-!53 = distinct !{!53, !46, !47}
-!54 = distinct !{!54, !46, !47}
-!55 = !{i64 0, i64 8, !25, i64 8, i64 8, !25, i64 16, i64 8, !25, i64 24, i64 8, !25, i64 32, i64 1, !56, i64 36, i64 4, !12, i64 40, i64 4, !12, i64 44, i64 4, !12, i64 48, i64 4, !12}
-!56 = !{!42, !42, i64 0}
-!57 = !{!41, !17, i64 24}
-!58 = !{!41, !17, i64 8}
-!59 = !{!41, !17, i64 16}
-!60 = !{!41, !17, i64 0}
-!61 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 8, !25, i64 16, i64 8, !25, i64 24, i64 8, !25, i64 32, i64 8, !25, i64 40, i64 4, !12, i64 44, i64 4, !12, i64 48, i64 4, !12, i64 52, i64 4, !12, i64 56, i64 4, !12, i64 60, i64 4, !12, i64 64, i64 4, !12, i64 68, i64 4, !12}
-!62 = !{!27, !13, i64 60}
-!63 = !{!27, !13, i64 64}
-!64 = distinct !{!64, !47}
-!65 = !{!15, !17, i64 16}
-!66 = !{!15, !17, i64 8}
-!67 = distinct !{!67, !46, !47}
+!47 = distinct !{!47, !46}
+!48 = distinct !{!48, !46}
+!49 = distinct !{!49, !46}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = distinct !{!52, !46}
+!53 = distinct !{!53, !46}
+!54 = !{i64 0, i64 8, !25, i64 8, i64 8, !25, i64 16, i64 8, !25, i64 24, i64 8, !25, i64 32, i64 1, !55, i64 36, i64 4, !12, i64 40, i64 4, !12, i64 44, i64 4, !12, i64 48, i64 4, !12}
+!55 = !{!42, !42, i64 0}
+!56 = !{!41, !17, i64 24}
+!57 = !{!41, !17, i64 8}
+!58 = !{!41, !17, i64 16}
+!59 = !{!41, !17, i64 0}
+!60 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 8, !25, i64 16, i64 8, !25, i64 24, i64 8, !25, i64 32, i64 8, !25, i64 40, i64 4, !12, i64 44, i64 4, !12, i64 48, i64 4, !12, i64 52, i64 4, !12, i64 56, i64 4, !12, i64 60, i64 4, !12, i64 64, i64 4, !12, i64 68, i64 4, !12}
+!61 = !{!27, !13, i64 60}
+!62 = !{!27, !13, i64 64}
+!63 = !{!15, !17, i64 16}
+!64 = !{!15, !17, i64 8}
+!65 = distinct !{!65, !46}

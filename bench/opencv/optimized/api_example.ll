@@ -933,7 +933,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89
 322:                                              ; preds = %320
   %323 = icmp slt i32 %321, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #18
-  br i1 %323, label %285, label %.loopexit, !llvm.loop !57
+  br i1 %323, label %285, label %.loopexit, !llvm.loop !56
 
 .critedge:                                        ; preds = %319
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #18
@@ -2049,7 +2049,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define linkonce_odr hidden void @_ZNSt11_Tuple_implILm1EJRN2cv4GMatES2_EE9_M_assignIS1_JS1_EEEvOS_ILm1EJT_DpT0_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !58
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = load ptr, ptr %3, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !34
@@ -2106,7 +2106,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %28, 
   br label %_ZN2cv4GMataSEOS0_.exit
 
 _ZN2cv4GMataSEOS0_.exit:                          ; preds = %2, %16, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %31
-  %32 = load ptr, ptr %0, align 8, !tbaa !60
+  %32 = load ptr, ptr %0, align 8, !tbaa !59
   %33 = load ptr, ptr %1, align 8, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !34
@@ -2255,11 +2255,10 @@ attributes #21 = { noreturn nounwind }
 !51 = !{!"p1 _ZTSN2cv4util3any6holderE", !6, i64 0}
 !52 = !{!53, !6, i64 16}
 !53 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = distinct !{!57, !55, !56}
-!58 = !{!59, !25, i64 0}
-!59 = !{!"_ZTSSt10_Head_baseILm1ERN2cv4GMatELb0EE", !25, i64 0}
-!60 = !{!61, !25, i64 0}
-!61 = !{!"_ZTSSt10_Head_baseILm2ERN2cv4GMatELb0EE", !25, i64 0}
+!56 = distinct !{!56, !55}
+!57 = !{!58, !25, i64 0}
+!58 = !{!"_ZTSSt10_Head_baseILm1ERN2cv4GMatELb0EE", !25, i64 0}
+!59 = !{!60, !25, i64 0}
+!60 = !{!"_ZTSSt10_Head_baseILm2ERN2cv4GMatELb0EE", !25, i64 0}

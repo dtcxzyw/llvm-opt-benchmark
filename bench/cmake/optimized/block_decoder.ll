@@ -360,9 +360,9 @@ define dso_local i32 @lzma_block_decoder(ptr noundef %0, ptr noundef %1) local_u
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = tail call i32 @lzma_block_decoder_init(ptr noundef %6, ptr noundef %8, ptr noundef %1)
   %.not15.not = icmp eq i32 %9, 0
   br i1 %.not15.not, label %11, label %10
@@ -372,11 +372,11 @@ define dso_local i32 @lzma_block_decoder(ptr noundef %0, ptr noundef %1) local_u
   br label %15
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr %5, align 8, !tbaa !43
+  %12 = load ptr, ptr %5, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  store i8 1, ptr %13, align 8, !tbaa !48
+  store i8 1, ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 99
-  store i8 1, ptr %14, align 1, !tbaa !48
+  store i8 1, ptr %14, align 1, !tbaa !47
   br label %15
 
 15:                                               ; preds = %10, %2, %11
@@ -460,12 +460,11 @@ attributes #10 = { nounwind willreturn memory(none) }
 !37 = !{i8 0, i8 2}
 !38 = !{}
 !39 = !{!7, !7, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !46, i64 56}
-!44 = !{!"", !45, i64 0, !9, i64 8, !9, i64 16, !45, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !46, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !12, i64 128, !12, i64 132}
-!45 = !{!"p1 omnipotent char", !6, i64 0}
-!46 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
-!47 = !{!44, !6, i64 48}
-!48 = !{!21, !21, i64 0}
+!42 = !{!43, !45, i64 56}
+!43 = !{!"", !44, i64 0, !9, i64 8, !9, i64 16, !44, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !45, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !12, i64 128, !12, i64 132}
+!44 = !{!"p1 omnipotent char", !6, i64 0}
+!45 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
+!46 = !{!43, !6, i64 48}
+!47 = !{!21, !21, i64 0}

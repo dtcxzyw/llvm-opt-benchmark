@@ -493,7 +493,7 @@ define dso_local zeroext i1 @track_script_killed(i64 noundef %0, i32 noundef %1,
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %25 = load i8, ptr %24, align 4, !range !12, !noundef !13
+  %25 = load i8, ptr %24, align 4, !range !11, !noundef !12
   %26 = trunc nuw i8 %25 to i1
   br label %31
 
@@ -779,7 +779,7 @@ _kill_script.exit:                                ; preds = %10, %14
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %31 = load i8, ptr %30, align 8, !range !12, !noundef !13
+  %31 = load i8, ptr %30, align 8, !range !11, !noundef !12
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %.thread, label %33
 
@@ -896,9 +896,8 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
+!11 = !{i8 0, i8 2}
+!12 = !{}

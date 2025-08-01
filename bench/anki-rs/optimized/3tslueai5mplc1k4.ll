@@ -39,7 +39,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %10, ptr %0, align 8
   %11 = call zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf48bab8ca5b1c62bE"(ptr nonnull align 8 %3, ptr nonnull align 8 %7)
-  br i1 %11, label %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfda3e178ab080860E.exit.thread", !llvm.loop !4
+  br i1 %11, label %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfda3e178ab080860E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfda3e178ab080860E.exit.thread": ; preds = %5, %9
   ret i1 %8
@@ -64,10 +64,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h39c9d34820ec298aE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !6
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfda3e178ab080860E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfda3e178ab080860E.exit.thread": ; preds = %6, %13
@@ -94,10 +94,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h7f8f8f2e9841dc95E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !8
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2054e5925b6848a7E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2054e5925b6848a7E.exit.thread": ; preds = %6, %13
@@ -129,7 +129,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h99348c2566d8a9b9E"(ptr nonnull align 8 %4, ptr nonnull align 8 %14)
   %15 = add nuw i64 %.0, 1
   %16 = icmp eq i64 %15, %12
-  br i1 %16, label %.loopexit, label %13, !llvm.loop !9
+  br i1 %16, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -291,9 +291,4 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = !{i64 8}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!4 = !{i64 8}

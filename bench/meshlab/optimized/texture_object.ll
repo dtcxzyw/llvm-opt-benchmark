@@ -167,7 +167,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge, %33
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #24
   %37 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP16TextureImageInfoS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP16TextureImageInfoS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZSt8_DestroyIP16TextureImageInfoS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %0, align 8
@@ -627,20 +627,20 @@ _ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_Dp
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
   %.0911.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #24, !noalias !12
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6QImage, i64 16), ptr %.012.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i) #24, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6QImage, i64 16), ptr %.012.i.i.i.i, align 8, !alias.scope !8, !noalias !11
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
-  %24 = load ptr, ptr %23, align 8, !alias.scope !12, !noalias !9
-  store ptr %24, ptr %22, align 8, !alias.scope !9, !noalias !12
-  store ptr null, ptr %23, align 8, !alias.scope !12, !noalias !9
+  %24 = load ptr, ptr %23, align 8, !alias.scope !11, !noalias !8
+  store ptr %24, ptr %22, align 8, !alias.scope !8, !noalias !11
+  store ptr null, ptr %23, align 8, !alias.scope !11, !noalias !8
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i) #24
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaI16TextureImageInfoEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i.i ]
@@ -651,20 +651,20 @@ _ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pred
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i.i27
   %.012.i.i.i.i28 = phi ptr [ %32, %.lr.ph.i.i.i.i27 ], [ %27, %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %31, %.lr.ph.i.i.i.i27 ], [ %1, %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28) #24, !noalias !18
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6QImage, i64 16), ptr %.012.i.i.i.i28, align 8, !alias.scope !15, !noalias !18
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i28) #24, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6QImage, i64 16), ptr %.012.i.i.i.i28, align 8, !alias.scope !14, !noalias !17
   %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 24
-  %30 = load ptr, ptr %29, align 8, !alias.scope !18, !noalias !15
-  store ptr %30, ptr %28, align 8, !alias.scope !15, !noalias !18
-  store ptr null, ptr %29, align 8, !alias.scope !18, !noalias !15
+  %30 = load ptr, ptr %29, align 8, !alias.scope !17, !noalias !14
+  store ptr %30, ptr %28, align 8, !alias.scope !14, !noalias !17
+  store ptr null, ptr %29, align 8, !alias.scope !17, !noalias !14
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i29) #24
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i30 = icmp eq ptr %31, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !14
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !13
 
 _ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorI16TextureImageInfoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %32, %.lr.ph.i.i.i.i27 ]
@@ -930,7 +930,7 @@ define void @_ZN13TextureObject4BindEi(ptr noundef nonnull readonly align 8 capt
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %50, i32 1)
   %51 = add nuw nsw i32 %.048, 1
   %exitcond.not = icmp eq i32 %51, %45
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %52 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
@@ -983,7 +983,7 @@ define void @_Z6MirrorR6QImage(ptr noundef nonnull align 8 dereferenceable(32) %
   %4 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %5 = sdiv i32 %4, 2
   %6 = icmp slt i32 %12, %5
-  br i1 %6, label %.lr.ph17, label %._crit_edge, !llvm.loop !21
+  br i1 %6, label %.lr.ph17, label %._crit_edge, !llvm.loop !20
 
 .lr.ph17:                                         ; preds = %1, %.loopexit
   %.01416 = phi i32 [ %12, %.loopexit ], [ 0, %1 ]
@@ -1009,7 +1009,7 @@ define void @_Z6MirrorR6QImage(ptr noundef nonnull align 8 dereferenceable(32) %
   %19 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -1136,7 +1136,7 @@ _ZN13TextureObject13TextureHeightEm.exit:         ; preds = %_ZN13TextureObject1
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 5
   %27 = icmp ugt i64 %26, %20
-  br i1 %27, label %_ZN13TextureObject12TextureWidthEm.exit, label %._crit_edge, !llvm.loop !23
+  br i1 %27, label %_ZN13TextureObject12TextureWidthEm.exit, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN13TextureObject13TextureHeightEm.exit, %1
   %.016.lcssa = phi i32 [ 0, %1 ], [ %.sroa.speculated, %_ZN13TextureObject13TextureHeightEm.exit ]
@@ -1286,7 +1286,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 5
   %58 = icmp ugt i64 %57, %51
-  br i1 %58, label %8, label %._crit_edge, !llvm.loop !24
+  br i1 %58, label %8, label %._crit_edge, !llvm.loop !23
 
 .loopexit:                                        ; preds = %8, %23, %_ZNKSt6vectorI11TextureSizeSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1402,7 +1402,7 @@ _ZN13TextureObject11TextureAreaEm.exit:           ; preds = %_ZN13TextureObject1
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 5
   %31 = icmp ugt i64 %30, %24
-  br i1 %31, label %_ZN13TextureObject12TextureWidthEm.exit.i, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %31, label %_ZN13TextureObject12TextureWidthEm.exit.i, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %_ZN13TextureObject11TextureAreaEm.exit
   %32 = sitofp i64 %22 to double
@@ -1439,7 +1439,7 @@ define void @_ZN13TextureObject20ComputeRelativeSizesEv(ptr dead_on_unwind noali
   %.sroa.speculated26 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 %8)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.030.041, i64 8
   %.not = icmp eq ptr %10, %6
-  br i1 %.not, label %.lr.ph49, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %.lr.ph49, label %.lr.ph
 
 .lr.ph49:                                         ; preds = %.lr.ph
   %11 = uitofp nneg i32 %.sroa.speculated26 to double
@@ -1510,11 +1510,11 @@ _ZNKSt6vectorISt4pairIddESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %24
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc8, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %36, %.noexc8 ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i ], [ %16, %.noexc8 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !25
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %15
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
 
 _ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc8
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %36, %.noexc8 ], [ %39, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1537,7 +1537,7 @@ _ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   %44 = phi ptr [ %36, %_ZNSt6vectorISt4pairIddESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %16, %22 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.018.047, i64 8
   %.not37 = icmp eq ptr %45, %6
-  br i1 %.not37, label %._crit_edge50, label %14, !llvm.loop !32
+  br i1 %.not37, label %._crit_edge50, label %14
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorISt4pairIddESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1647,31 +1647,28 @@ attributes #27 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!11 = distinct !{!11, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_"}
-!12 = !{!13}
-!13 = distinct !{!13, !11, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!14 = distinct !{!14, !6, !7}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_"}
-!18 = !{!19}
-!19 = distinct !{!19, !17, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !7}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!29 = distinct !{!29, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_"}
-!30 = distinct !{!30, !29, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !7}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!10 = distinct !{!10, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_"}
+!11 = !{!12}
+!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!13 = distinct !{!13, !6}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_"}
+!17 = !{!18}
+!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aI16TextureImageInfoS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!27 = distinct !{!27, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_"}
+!28 = distinct !{!28, !27, !"_ZSt19__relocate_object_aISt4pairIddES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!29 = distinct !{!29, !6}

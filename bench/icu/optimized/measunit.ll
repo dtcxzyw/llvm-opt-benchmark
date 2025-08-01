@@ -8165,7 +8165,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_779ErrorCodeE, i64 16), ptr %3, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %39, align 8, !tbaa !36
+  store i32 0, ptr %39, align 8, !tbaa !35
   %40 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 168) #20
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
@@ -8181,7 +8181,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %1
 
 44:                                               ; preds = %42
   store ptr %40, ptr %7, align 8, !tbaa !17
-  %45 = load i32, ptr %39, align 8, !tbaa !36
+  %45 = load i32, ptr %39, align 8, !tbaa !35
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %.thread22, label %47
 
@@ -8353,7 +8353,7 @@ define void @_ZN6icu_7711MeasureUnitC2EONS_15MeasureUnitImplE(ptr noundef nonnul
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %9 = load i32, ptr %8, align 8, !tbaa !38
+  %9 = load i32, ptr %8, align 8, !tbaa !37
   %10 = invoke noundef zeroext i1 @_ZN6icu_7711MeasureUnit13findBySubTypeENS_11StringPieceEPS0_(ptr %7, i32 %9, ptr noundef nonnull %0)
           to label %11 unwind label %41
 
@@ -8366,8 +8366,8 @@ define void @_ZN6icu_7711MeasureUnitC2EONS_15MeasureUnitImplE(ptr noundef nonnul
   br i1 %14, label %40, label %15
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %1, align 8, !tbaa !40
-  store i32 %16, ptr %13, align 8, !tbaa !40
+  %16 = load i32, ptr %1, align 8, !tbaa !39
+  store i32 %16, ptr %13, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !24
@@ -8378,8 +8378,8 @@ define void @_ZN6icu_7711MeasureUnitC2EONS_15MeasureUnitImplE(ptr noundef nonnul
   store ptr %22, ptr %20, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !45
-  store i32 %25, ptr %23, align 8, !tbaa !45
+  %25 = load i32, ptr %24, align 8, !tbaa !44
+  store i32 %25, ptr %23, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %28 = load i8, ptr %27, align 4, !tbaa !29
@@ -8398,7 +8398,7 @@ define void @_ZN6icu_7711MeasureUnitC2EONS_15MeasureUnitImplE(ptr noundef nonnul
 
 35:                                               ; preds = %15
   store ptr %29, ptr %21, align 8, !tbaa !30
-  store i32 8, ptr %24, align 8, !tbaa !45
+  store i32 8, ptr %24, align 8, !tbaa !44
   store i8 0, ptr %27, align 4, !tbaa !29
   br label %_ZN6icu_7715MeasureUnitImplC2EOS0_.exit
 
@@ -8408,8 +8408,8 @@ _ZN6icu_7715MeasureUnitImplC2EOS0_.exit:          ; preds = %31, %35
   tail call void @_ZN6icu_7710CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60) %36, ptr noundef nonnull align 8 dereferenceable(60) %6) #20
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %39 = load i64, ptr %38, align 8, !tbaa !46
-  store i64 %39, ptr %37, align 8, !tbaa !46
+  %39 = load i64, ptr %38, align 8, !tbaa !45
+  store i64 %39, ptr %37, align 8, !tbaa !45
   br label %40
 
 40:                                               ; preds = %_ZN6icu_7715MeasureUnitImplC2EOS0_.exit, %12
@@ -8457,7 +8457,7 @@ define noundef zeroext i1 @_ZN6icu_7711MeasureUnit13findBySubTypeENS_11StringPie
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr @_ZN6icu_77L9gSubTypesE, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !47
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %18)
   %19 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr %0, i32 %1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
@@ -8467,11 +8467,11 @@ define noundef zeroext i1 @_ZN6icu_7711MeasureUnit13findBySubTypeENS_11StringPie
 21:                                               ; preds = %.lr.ph
   %22 = add nsw i32 %15, 1
   %23 = icmp slt i32 %22, %.017.ph.i
-  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !48
+  br i1 %23, label %.lr.ph, label %.critedge
 
 24:                                               ; preds = %.lr.ph
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i, !llvm.loop !48
+  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %24
   %25 = icmp slt i32 %14, -1
@@ -8550,7 +8550,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit.i:           ; preds = %42, %._crit_edge.i.
 .critedge:                                        ; preds = %.outer.i, %21, %5, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit
   %indvars.iv.next.pre-phi = phi i64 [ %10, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit ], [ 6, %5 ], [ %10, %21 ], [ %10, %.outer.i ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 23
-  br i1 %exitcond.not, label %_ZN6icu_7711MeasureUnit5setToEii.exit, label %5, !llvm.loop !49
+  br i1 %exitcond.not, label %_ZN6icu_7711MeasureUnit5setToEii.exit, label %5, !llvm.loop !47
 
 _ZN6icu_7711MeasureUnit5setToEii.exit:            ; preds = %.critedge, %_ZN6icu_7715MeasureUnitImplD2Ev.exit.i, %26
   %59 = phi i1 [ true, %_ZN6icu_7715MeasureUnitImplD2Ev.exit.i ], [ true, %26 ], [ false, %.critedge ]
@@ -8622,14 +8622,14 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7715MeasureUnitImpl4copyER10UErrorCode(ptr dead_on_unwind noalias writable sret(%"class.icu_77::MeasureUnitImpl") align 8 initializes((0, 4), (8, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store i32 0, ptr %0, align 8, !tbaa !40
+  store i32 0, ptr %0, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %6, ptr %5, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 8, ptr %7, align 8, !tbaa !45
+  store i32 8, ptr %7, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %8, align 4, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -8648,24 +8648,24 @@ common.resume:                                    ; preds = %73, %10
 
 _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %12, align 8, !tbaa !38
+  store i32 0, ptr %12, align 8, !tbaa !37
   %13 = load ptr, ptr %9, align 8, !tbaa !3
-  store i8 0, ptr %13, align 1, !tbaa !50
+  store i8 0, ptr %13, align 1, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 0, ptr %14, align 8, !tbaa !46
-  %15 = load i32, ptr %1, align 8, !tbaa !40
-  store i32 %15, ptr %0, align 8, !tbaa !40
+  store i64 0, ptr %14, align 8, !tbaa !45
+  %15 = load i32, ptr %1, align 8, !tbaa !39
+  store i32 %15, ptr %0, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %19 = load i32, ptr %18, align 8, !tbaa !38
+  %19 = load i32, ptr %18, align 8, !tbaa !37
   %20 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef %17, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit unwind label %26
 
 _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit: ; preds = %_ZN6icu_7715MeasureUnitImplC2Ev.exit
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %22 = load i64, ptr %21, align 8, !tbaa !46
-  store i64 %22, ptr %14, align 8, !tbaa !46
+  %22 = load i64, ptr %21, align 8, !tbaa !45
+  store i64 %22, ptr %14, align 8, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !24
   %.not34 = icmp sgt i32 %24, 0
@@ -8687,7 +8687,7 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit: ; preds = %_ZN6icu_7715Me
   %30 = load ptr, ptr %25, align 8, !tbaa !30
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !31
-  %33 = load i32, ptr %7, align 8, !tbaa !45
+  %33 = load i32, ptr %7, align 8, !tbaa !44
   %34 = icmp eq i32 %29, %33
   br i1 %34, label %35, label %55
 
@@ -8713,7 +8713,7 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit: ; preds = %_ZN6icu_7715Me
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %44
-  %47 = load i32, ptr %7, align 8, !tbaa !45
+  %47 = load i32, ptr %7, align 8, !tbaa !44
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %29, i32 %47)
   %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %38)
   %48 = load ptr, ptr %5, align 8, !tbaa !30
@@ -8734,7 +8734,7 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit: ; preds = %_ZN6icu_7715Me
 
 _ZN6icu_7715MaybeStackArrayIPNS_14SingleUnitImplELi8EE6resizeEii.exit.i.i: ; preds = %53, %51
   store ptr %43, ptr %5, align 8, !tbaa !30
-  store i32 %38, ptr %7, align 8, !tbaa !45
+  store i32 %38, ptr %7, align 8, !tbaa !44
   store i8 1, ptr %8, align 4, !tbaa !29
   br label %55
 
@@ -8771,7 +8771,7 @@ _ZN6icu_7716MaybeStackVectorINS_14SingleUnitImplELi8EE11emplaceBackIJRKS1_EEEPS1
   %71 = load i32, ptr %23, align 8, !tbaa !24
   %72 = sext i32 %71 to i64
   %.not = icmp slt i64 %indvars.iv.next, %72
-  br i1 %.not, label %28, label %_ZN6icu_7715MeasureUnitImplD2Ev.exit, !llvm.loop !51
+  br i1 %.not, label %28, label %_ZN6icu_7715MeasureUnitImplD2Ev.exit, !llvm.loop !49
 
 _ZN6icu_7716MaybeStackVectorINS_14SingleUnitImplELi8EE11emplaceBackIJRKS1_EEEPS1_DpOT_.exit.thread: ; preds = %35, %.noexc, %_ZN6icu_7716MaybeStackVectorINS_14SingleUnitImplELi8EE11emplaceBackIJRKS1_EEEPS1_DpOT_.exit.thread24
   store i32 7, ptr %2, align 4, !tbaa !13
@@ -8982,7 +8982,7 @@ define noundef ptr @_ZNK6icu_7711MeasureUnit7getTypeEv(ptr noundef nonnull reado
 5:                                                ; preds = %1
   %6 = sext i8 %3 to i64
   %7 = getelementptr inbounds [23 x ptr], ptr @_ZN6icu_77L6gTypesE, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -9033,7 +9033,7 @@ _ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i:      ; preds = %16, %12, %10
 
 _ZNK6icu_7711MeasureUnit13getIdentifierEv.exit:   ; preds = %8, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i
   %.in.i = phi ptr [ %9, %8 ], [ %23, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i ]
-  %24 = load ptr, ptr %.in.i, align 8, !tbaa !47
+  %24 = load ptr, ptr %.in.i, align 8, !tbaa !46
   br label %25
 
 25:                                               ; preds = %1, %_ZNK6icu_7711MeasureUnit13getIdentifierEv.exit
@@ -9080,7 +9080,7 @@ _ZNK6icu_7711MeasureUnit9getOffsetEv.exit:        ; preds = %6, %10, %14
 
 22:                                               ; preds = %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit, %4
   %.in = phi ptr [ %5, %4 ], [ %21, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit ]
-  %23 = load ptr, ptr %.in, align 8, !tbaa !47
+  %23 = load ptr, ptr %.in, align 8, !tbaa !46
   ret ptr %23
 }
 
@@ -9123,19 +9123,19 @@ define noundef zeroext i1 @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE(ptr noundef
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
+  %14 = load ptr, ptr %13, align 8, !tbaa !50
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNKSt9type_infoneERKS_.exit.thread15, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %12, align 1, !tbaa !50
+  %17 = load i8, ptr %12, align 1, !tbaa !48
   %.not.i.i = icmp eq i8 %17, 42
   br i1 %.not.i.i, label %_ZNKSt9type_infoneERKS_.exit.thread, label %_ZNKSt9type_infoneERKS_.exit
 
 _ZNKSt9type_infoneERKS_.exit:                     ; preds = %16
-  %18 = load i8, ptr %14, align 1, !tbaa !50
+  %18 = load i8, ptr %14, align 1, !tbaa !48
   %19 = icmp eq i8 %18, 42
   %.idx.i.i.i = zext i1 %19 to i64
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
@@ -9181,7 +9181,7 @@ _ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i:      ; preds = %34, %30, %26
 
 _ZNK6icu_7711MeasureUnit13getIdentifierEv.exit:   ; preds = %24, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i
   %.in.i = phi ptr [ %25, %24 ], [ %41, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i ]
-  %42 = load ptr, ptr %.in.i, align 8, !tbaa !47
+  %42 = load ptr, ptr %.in.i, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !17
   %.not.i9 = icmp eq ptr %44, null
@@ -9219,7 +9219,7 @@ _ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i11:    ; preds = %55, %51, %47
 
 _ZNK6icu_7711MeasureUnit13getIdentifierEv.exit13: ; preds = %45, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i11
   %.in.i10 = phi ptr [ %46, %45 ], [ %62, %_ZNK6icu_7711MeasureUnit9getOffsetEv.exit.i11 ]
-  %63 = load ptr, ptr %.in.i10, align 8, !tbaa !47
+  %63 = load ptr, ptr %.in.i10, align 8, !tbaa !46
   %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %63) #23
   %65 = icmp eq i32 %64, 0
   br label %_ZNKSt9type_infoneERKS_.exit.thread
@@ -9253,7 +9253,7 @@ define noundef range(i32 0, 497) i32 @_ZN6icu_7711MeasureUnit12getAvailableEPS0_
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader
   %.1.lcssa = phi i32 [ %.01722, %.preheader ], [ %9, %.loopexit.loopexit ]
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 23
-  br i1 %exitcond28.not, label %.loopexit18, label %.preheader, !llvm.loop !54
+  br i1 %exitcond28.not, label %.loopexit18, label %.preheader, !llvm.loop !52
 
 .preheader:                                       ; preds = %6, %.loopexit
   %10 = phi i32 [ %12, %.loopexit ], [ 0, %6 ]
@@ -9346,7 +9346,7 @@ _ZN6icu_7711MeasureUnit5setToEii.exit:            ; preds = %17, %_ZN6icu_7715Me
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %49 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %49, %13
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %17, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %17, !llvm.loop !53
 
 .loopexit18:                                      ; preds = %.loopexit, %3, %8
   %.015 = phi i32 [ 496, %8 ], [ 0, %3 ], [ 496, %.loopexit ]
@@ -9455,7 +9455,7 @@ define noundef i32 @_ZN6icu_7711MeasureUnit12getAvailableEPKcPS0_iR10UErrorCode(
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr @_ZN6icu_77L6gTypesE, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !47
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef %18)
   %19 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %10, i32 %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
@@ -9465,11 +9465,11 @@ define noundef i32 @_ZN6icu_7711MeasureUnit12getAvailableEPKcPS0_iR10UErrorCode(
 21:                                               ; preds = %.lr.ph
   %22 = add nsw i32 %15, 1
   %23 = icmp slt i32 %22, %.017.ph.i
-  br i1 %23, label %.lr.ph, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread, !llvm.loop !48
+  br i1 %23, label %.lr.ph, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread
 
 24:                                               ; preds = %.lr.ph
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i, !llvm.loop !48
+  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %24
   %.off = add i32 %14, 3
@@ -9573,7 +9573,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit.i:           ; preds = %53, %._crit_edge.i.
 _ZN6icu_7711MeasureUnit5setToEii.exit:            ; preds = %38, %_ZN6icu_7715MeasureUnitImplD2Ev.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread, label %38, !llvm.loop !56
+  br i1 %exitcond.not, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread, label %38, !llvm.loop !54
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread: ; preds = %.outer.i, %21, %_ZN6icu_7711MeasureUnit5setToEii.exit, %.preheader, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, %37, %4
   %.017 = phi i32 [ 0, %4 ], [ 0, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit ], [ %33, %37 ], [ %33, %.preheader ], [ %33, %_ZN6icu_7711MeasureUnit5setToEii.exit ], [ 0, %21 ], [ 0, %.outer.i ]
@@ -9648,7 +9648,7 @@ define void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 ca
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr @_ZN6icu_77L6gTypesE, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !47
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %15)
   %16 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr %7, i32 %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
@@ -9658,11 +9658,11 @@ define void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 ca
 18:                                               ; preds = %.lr.ph
   %19 = add nsw i32 %12, 1
   %20 = icmp slt i32 %19, %.017.ph.i
-  br i1 %20, label %.lr.ph, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, !llvm.loop !48
+  br i1 %20, label %.lr.ph, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit
 
 21:                                               ; preds = %.lr.ph
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i, !llvm.loop !48
+  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %21, %.outer.i, %18
   %.2.i = phi i32 [ -1, %18 ], [ -1, %.outer.i ], [ %12, %21 ]
@@ -9697,7 +9697,7 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %21, %.outer.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr @_ZN6icu_77L9gSubTypesE, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !47
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef %40)
   %41 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %32, i32 %34)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
@@ -9707,11 +9707,11 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %21, %.outer.
 43:                                               ; preds = %.lr.ph19
   %44 = add nsw i32 %37, 1
   %45 = icmp slt i32 %44, %.017.ph.i4
-  br i1 %45, label %.lr.ph19, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit9, !llvm.loop !48
+  br i1 %45, label %.lr.ph19, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit9
 
 46:                                               ; preds = %.lr.ph19
   %.not.i8 = icmp eq i32 %41, 0
-  br i1 %.not.i8, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit9, label %.outer.i3, !llvm.loop !48
+  br i1 %.not.i8, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit9, label %.outer.i3
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit9: ; preds = %46, %.outer.i3, %43
   %.2.i7 = phi i32 [ -1, %43 ], [ -1, %.outer.i3 ], [ %37, %46 ]
@@ -9753,7 +9753,7 @@ define void @_ZN6icu_7711MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr @_ZN6icu_77L6gTypesE, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !47
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %18)
   %19 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr %10, i32 %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
@@ -9763,11 +9763,11 @@ define void @_ZN6icu_7711MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef
 21:                                               ; preds = %.lr.ph
   %22 = add nsw i32 %15, 1
   %23 = icmp slt i32 %22, %.017.ph.i
-  br i1 %23, label %.lr.ph, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, !llvm.loop !48
+  br i1 %23, label %.lr.ph, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit
 
 24:                                               ; preds = %.lr.ph
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i, !llvm.loop !48
+  br i1 %.not.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit, label %.outer.i
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %24, %.outer.i, %21
   %.2.i = phi i32 [ -1, %21 ], [ -1, %.outer.i ], [ %15, %24 ]
@@ -9798,7 +9798,7 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %24, %.outer.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr @_ZN6icu_77L9gSubTypesE, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !47
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %40)
   %41 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr %1, i32 %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
@@ -9808,11 +9808,11 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %24, %.outer.
 43:                                               ; preds = %.lr.ph45
   %44 = add nsw i32 %37, 1
   %45 = icmp slt i32 %44, %.017.ph.i17
-  br i1 %45, label %.lr.ph45, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22.thread, !llvm.loop !48
+  br i1 %45, label %.lr.ph45, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22.thread
 
 46:                                               ; preds = %.lr.ph45
   %.not.i21 = icmp eq i32 %41, 0
-  br i1 %.not.i21, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22, label %.outer.i16, !llvm.loop !48
+  br i1 %.not.i21, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22, label %.outer.i16
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22: ; preds = %46
   %.off = add i32 %36, 3
@@ -9825,17 +9825,17 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22.thread: ; preds = %.ou
   br i1 %49, label %67, label %50
 
 50:                                               ; preds = %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22.thread
-  call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  store i32 0, ptr %48, align 8, !tbaa !40, !alias.scope !57
+  call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  store i32 0, ptr %48, align 8, !tbaa !39, !alias.scope !55
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 0, ptr %51, align 8, !tbaa !24, !alias.scope !57
+  store i32 0, ptr %51, align 8, !tbaa !24, !alias.scope !55
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr %53, ptr %52, align 8, !tbaa !30, !alias.scope !57
+  store ptr %53, ptr %52, align 8, !tbaa !30, !alias.scope !55
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i32 8, ptr %54, align 8, !tbaa !45, !alias.scope !57
+  store i32 8, ptr %54, align 8, !tbaa !44, !alias.scope !55
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 28
-  store i8 0, ptr %55, align 4, !tbaa !29, !alias.scope !57
+  store i8 0, ptr %55, align 4, !tbaa !29, !alias.scope !55
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 96
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %56)
           to label %_ZN6icu_7715MeasureUnitImplC2Ev.exit.i unwind label %57
@@ -9848,25 +9848,25 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22.thread: ; preds = %.ou
 
 _ZN6icu_7715MeasureUnitImplC2Ev.exit.i:           ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 152
-  store i32 0, ptr %59, align 8, !tbaa !38, !alias.scope !57
-  %60 = load ptr, ptr %56, align 8, !tbaa !3, !alias.scope !57
-  store i8 0, ptr %60, align 1, !tbaa !50
+  store i32 0, ptr %59, align 8, !tbaa !37, !alias.scope !55
+  %60 = load ptr, ptr %56, align 8, !tbaa !3, !alias.scope !55
+  store i8 0, ptr %60, align 1, !tbaa !48
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 160
-  store i64 0, ptr %61, align 8, !tbaa !46, !alias.scope !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20, !noalias !57
-  store i32 0, ptr %5, align 4, !tbaa !13, !noalias !57
+  store i64 0, ptr %61, align 8, !tbaa !45, !alias.scope !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20, !noalias !55
+  store i32 0, ptr %5, align 4, !tbaa !13, !noalias !55
   %62 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %56, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %65 unwind label %63
 
 63:                                               ; preds = %_ZN6icu_7715MeasureUnitImplC2Ev.exit.i
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20, !noalias !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20, !noalias !55
   call void @_ZN6icu_7715MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %48) #20
   br label %.body
 
 65:                                               ; preds = %_ZN6icu_7715MeasureUnitImplC2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20, !noalias !57
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20, !noalias !55
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %48, ptr %66, align 8, !tbaa !17
   br label %97
@@ -9905,7 +9905,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit.i:           ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds ptr, ptr @_ZN6icu_77L9gSubTypesE, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !47
+  %84 = load ptr, ptr %83, align 8, !tbaa !46
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %84)
   %85 = call noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr %76, i32 %78)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
@@ -9915,11 +9915,11 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit.i:           ; preds = %50
 87:                                               ; preds = %.lr.ph47
   %88 = add nsw i32 %81, 1
   %89 = icmp slt i32 %88, %.017.ph.i24
-  br i1 %89, label %.lr.ph47, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit29, !llvm.loop !48
+  br i1 %89, label %.lr.ph47, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit29
 
 90:                                               ; preds = %.lr.ph47
   %.not.i28 = icmp eq i32 %85, 0
-  br i1 %.not.i28, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit29, label %.outer.i23, !llvm.loop !48
+  br i1 %.not.i28, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit29, label %.outer.i23
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit29: ; preds = %90, %.outer.i23, %87, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22
   %.0 = phi i32 [ %37, %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit22 ], [ -1, %87 ], [ -1, %.outer.i23 ], [ %81, %90 ]
@@ -10065,30 +10065,28 @@ attributes #23 = { nounwind willreturn memory(read) }
 !30 = !{!26, !27, i64 0}
 !31 = !{!32, !32, i64 0}
 !32 = !{!"p1 _ZTSN6icu_7714SingleUnitImplE", !6, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !14, i64 8}
-!37 = !{!"_ZTSN6icu_779ErrorCodeE", !14, i64 8}
-!38 = !{!39, !9, i64 56}
-!39 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!40 = !{!41, !42, i64 0}
-!41 = !{!"_ZTSN6icu_7715MeasureUnitImplE", !42, i64 0, !43, i64 8, !39, i64 96, !44, i64 160}
-!42 = !{!"_ZTSN6icu_7722UMeasureUnitComplexityE", !7, i64 0}
-!43 = !{!"_ZTSN6icu_7716MaybeStackVectorINS_14SingleUnitImplELi8EEE", !25, i64 0}
-!44 = !{!"long", !7, i64 0}
-!45 = !{!26, !9, i64 8}
-!46 = !{!41, !44, i64 160}
-!47 = !{!5, !5, i64 0}
-!48 = distinct !{!48, !35}
-!49 = distinct !{!49, !34, !35}
-!50 = !{!7, !7, i64 0}
-!51 = distinct !{!51, !34, !35}
-!52 = !{!53, !5, i64 8}
-!53 = !{!"_ZTSSt9type_info", !5, i64 8}
-!54 = distinct !{!54, !34, !35}
-!55 = distinct !{!55, !34, !35}
-!56 = distinct !{!56, !34, !35}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN6icu_7715MeasureUnitImpl15forCurrencyCodeENS_11StringPieceE: argument 0"}
-!59 = distinct !{!59, !"_ZN6icu_7715MeasureUnitImpl15forCurrencyCodeENS_11StringPieceE"}
+!35 = !{!36, !14, i64 8}
+!36 = !{!"_ZTSN6icu_779ErrorCodeE", !14, i64 8}
+!37 = !{!38, !9, i64 56}
+!38 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTSN6icu_7715MeasureUnitImplE", !41, i64 0, !42, i64 8, !38, i64 96, !43, i64 160}
+!41 = !{!"_ZTSN6icu_7722UMeasureUnitComplexityE", !7, i64 0}
+!42 = !{!"_ZTSN6icu_7716MaybeStackVectorINS_14SingleUnitImplELi8EEE", !25, i64 0}
+!43 = !{!"long", !7, i64 0}
+!44 = !{!26, !9, i64 8}
+!45 = !{!40, !43, i64 160}
+!46 = !{!5, !5, i64 0}
+!47 = distinct !{!47, !34}
+!48 = !{!7, !7, i64 0}
+!49 = distinct !{!49, !34}
+!50 = !{!51, !5, i64 8}
+!51 = !{!"_ZTSSt9type_info", !5, i64 8}
+!52 = distinct !{!52, !34}
+!53 = distinct !{!53, !34}
+!54 = distinct !{!54, !34}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN6icu_7715MeasureUnitImpl15forCurrencyCodeENS_11StringPieceE: argument 0"}
+!57 = distinct !{!57, !"_ZN6icu_7715MeasureUnitImpl15forCurrencyCodeENS_11StringPieceE"}

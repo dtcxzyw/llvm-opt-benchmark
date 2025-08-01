@@ -216,7 +216,7 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
   %100 = load i32, ptr %24, align 8
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next.i, %101
-  br i1 %102, label %.lr.ph.i, label %_ZN11hb_buffer_t17clear_glyph_flagsEj.exit, !llvm.loop !9
+  br i1 %102, label %.lr.ph.i, label %_ZN11hb_buffer_t17clear_glyph_flagsEj.exit, !llvm.loop !8
 
 _ZN11hb_buffer_t17clear_glyph_flagsEj.exit:       ; preds = %.lr.ph.i, %94
   ret i32 1
@@ -573,7 +573,6 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

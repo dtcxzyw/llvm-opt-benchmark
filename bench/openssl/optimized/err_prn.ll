@@ -72,7 +72,7 @@ define void @ERR_print_errors_cb(ptr noundef readonly captures(none) %0, ptr nou
   %38 = call i32 %0(ptr noundef nonnull %9, i64 noundef %37, ptr noundef %1) #5
   %39 = icmp slt i32 %38, 1
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %9) #5
-  br i1 %39, label %40, label %11, !llvm.loop !12
+  br i1 %39, label %40, label %11
 
 40:                                               ; preds = %18, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
@@ -179,13 +179,13 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 32:                                               ; preds = %22, %26, %29
   %.072 = phi i64 [ %31, %29 ], [ 0, %26 ], [ 0, %22 ]
-  %33 = load i8, ptr %spec.store.select, align 1, !tbaa !14
+  %33 = load i8, ptr %spec.store.select, align 1, !tbaa !12
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %37, label %.preheader
 
 .preheader:                                       ; preds = %32
   %35 = ptrtoint ptr %.069 to i64
-  %36 = load i8, ptr %.069, align 1, !tbaa !14
+  %36 = load i8, ptr %.069, align 1, !tbaa !12
   %.not80111 = icmp eq i8 %36, 0
   br i1 %.not80111, label %.thread.thread, label %.lr.ph
 
@@ -206,7 +206,7 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 42:                                               ; preds = %.lr.ph
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #6
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !14
+  %45 = load i8, ptr %44, align 1, !tbaa !12
   %46 = icmp eq i8 %45, 0
   %47 = zext i1 %46 to i32
   br label %51
@@ -214,7 +214,7 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 48:                                               ; preds = %.lr.ph
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.265112) #6
   %50 = getelementptr inbounds nuw i8, ptr %.265112, i64 %49
-  %.pre118 = load i8, ptr %50, align 1, !tbaa !14
+  %.pre118 = load i8, ptr %50, align 1, !tbaa !12
   br label %51
 
 51:                                               ; preds = %48, %42
@@ -226,7 +226,7 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %54 = sub i64 %53, %35
   %.not81 = icmp ugt i64 %54, %.072
   %or.cond = select i1 %.not80, i1 true, i1 %.not81
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %51
   br i1 %.not81, label %.thread100, label %.thread
@@ -284,9 +284,9 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 76:                                               ; preds = %75, %.thread.thread, %62
   %.170 = phi ptr [ %.167105, %62 ], [ %.16498109, %.thread.thread ], [ %.3, %75 ]
-  %77 = load i8, ptr %.170, align 1, !tbaa !14
+  %77 = load i8, ptr %.170, align 1, !tbaa !12
   %.not88 = icmp eq i8 %77, 0
-  br i1 %.not88, label %.critedge92, label %16, !llvm.loop !17
+  br i1 %.not88, label %.critedge92, label %16, !llvm.loop !15
 
 .critedge92:                                      ; preds = %55, %67, %76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
@@ -324,7 +324,7 @@ define void @ERR_add_error_mem_bio(ptr noundef %0, ptr noundef %1) local_unnamed
   %8 = load ptr, ptr %3, align 8, !tbaa !9
   %9 = getelementptr i8, ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !14
+  %11 = load i8, ptr %10, align 1, !tbaa !12
   %.not9 = icmp eq i8 %11, 0
   br i1 %.not9, label %17, label %12
 
@@ -419,9 +419,7 @@ attributes #6 = { nounwind willreturn memory(read) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !16, !13}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16, !13}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}

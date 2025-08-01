@@ -1002,14 +1002,14 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %23 = getelementptr inbounds nuw { [3 x i64] }, ptr %14, i64 %.sroa.7.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.019.i, i64 24, i1 false), !noalias !290
   %24 = icmp eq i64 %20, 0
-  br i1 %24, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd891e1577b5b639cE.exit", label %.lr.ph.i, !llvm.loop !291
+  br i1 %24, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd891e1577b5b639cE.exit", label %.lr.ph.i
 
 "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd891e1577b5b639cE.exit": ; preds = %.lr.ph.i, %19, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h1c53670d347b6c36E.exit.i"
-  store i64 %10, ptr %3, align 8, !noalias !293
+  store i64 %10, ptr %3, align 8, !noalias !291
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !293
+  store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !291
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !293
+  store i64 %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !291
   %25 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17ha499a89ab9085478E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bda2e65f64aab46b054b2f6def9b72f.69)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret { ptr, i64 } %25
@@ -1017,7 +1017,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN85_$LT$wasmparser..binary_reader..BinaryReaderErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h5fa07faf4a179448E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !range !294, !noundef !3
+  %3 = load i8, ptr %0, align 1, !range !292, !noundef !3
   %4 = trunc nuw i8 %3 to i1
   %. = select i1 %4, i64 7, i64 6
   %anon.4bda2e65f64aab46b054b2f6def9b72f.70.anon.4bda2e65f64aab46b054b2f6def9b72f.10 = select i1 %4, ptr @anon.4bda2e65f64aab46b054b2f6def9b72f.70, ptr @anon.4bda2e65f64aab46b054b2f6def9b72f.10
@@ -1586,7 +1586,5 @@ attributes #13 = { noreturn }
 !288 = distinct !{!288, !287, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hd891e1577b5b639cE: argument 1"}
 !289 = !{i64 0, i64 2}
 !290 = !{!286}
-!291 = distinct !{!291, !292}
-!292 = !{!"llvm.loop.estimated_trip_count"}
-!293 = !{!288}
-!294 = !{i8 0, i8 2}
+!291 = !{!288}
+!292 = !{i8 0, i8 2}

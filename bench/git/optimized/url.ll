@@ -120,7 +120,7 @@ define dso_local ptr @url_decode(ptr noundef %0) local_unnamed_addr #3 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %0, ptr %2, align 8, !tbaa !10
+  store ptr %0, ptr %2, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %sext = shl i64 %4, 32
@@ -137,7 +137,7 @@ define dso_local ptr @url_decode(ptr noundef %0) local_unnamed_addr #3 {
   %.neg.i = sub i64 %11, %10
   %13 = trunc i64 %.neg.i to i32
   %14 = add i32 %13, %5
-  store ptr %7, ptr %2, align 8, !tbaa !10
+  store ptr %7, ptr %2, align 8, !tbaa !9
   br label %url_decode_mem.exit
 
 url_decode_mem.exit:                              ; preds = %1, %9
@@ -152,7 +152,7 @@ url_decode_mem.exit:                              ; preds = %1, %9
 define dso_local ptr @url_decode_mem(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.strbuf, align 8
-  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %0, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %5 = sext i32 %1 to i64
@@ -168,7 +168,7 @@ define dso_local ptr @url_decode_mem(ptr noundef %0, i32 noundef %1) local_unnam
   %.neg = sub i64 %10, %9
   %12 = trunc i64 %.neg to i32
   %13 = add i32 %1, %12
-  store ptr %6, ptr %3, align 8, !tbaa !10
+  store ptr %6, ptr %3, align 8, !tbaa !9
   br label %14
 
 14:                                               ; preds = %8, %2
@@ -191,7 +191,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !10
+  %6 = load ptr, ptr %0, align 8, !tbaa !9
   %.not79 = icmp eq i32 %1, 0
   br i1 %.not79, label %.thread72, label %.lr.ph
 
@@ -255,19 +255,19 @@ hex2chr.exit:                                     ; preds = %20, %27
   br i1 %37, label %.thread70, label %38
 
 38:                                               ; preds = %hex2chr.exit
-  %39 = load i64, ptr %3, align 8, !tbaa !13
+  %39 = load i64, ptr %3, align 8, !tbaa !12
   %.not.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %38
-  %40 = load i64, ptr %8, align 8, !tbaa !16
+  %40 = load i64, ptr %8, align 8, !tbaa !15
   %.neg.i = add i64 %40, 1
   %.not.i46 = icmp eq i64 %39, %.neg.i
   br i1 %.not.i46, label %strbuf_avail.exit.thread.i, label %41
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %38
   tail call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #9
-  %.pre.i = load i64, ptr %8, align 8, !tbaa !16
+  %.pre.i = load i64, ptr %8, align 8, !tbaa !15
   %.pre7.i = add i64 %.pre.i, 1
   br label %41
 
@@ -283,23 +283,23 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
   br i1 %or.cond4, label %46, label %.thread70
 
 46:                                               ; preds = %44
-  %47 = load i64, ptr %3, align 8, !tbaa !13
+  %47 = load i64, ptr %3, align 8, !tbaa !12
   %.not.i.i47 = icmp eq i64 %47, 0
   br i1 %.not.i.i47, label %strbuf_addch.exit56.sink.split, label %strbuf_avail.exit.i48
 
 strbuf_avail.exit.i48:                            ; preds = %46
-  %48 = load i64, ptr %8, align 8, !tbaa !16
+  %48 = load i64, ptr %8, align 8, !tbaa !15
   %.neg.i49 = add i64 %48, 1
   %.not.i50 = icmp eq i64 %47, %.neg.i49
   br i1 %.not.i50, label %strbuf_addch.exit56.sink.split, label %strbuf_addch.exit56
 
 .thread70:                                        ; preds = %hex2chr.exit, %44
-  %49 = load i64, ptr %3, align 8, !tbaa !13
+  %49 = load i64, ptr %3, align 8, !tbaa !12
   %.not.i.i57 = icmp eq i64 %49, 0
   br i1 %.not.i.i57, label %strbuf_addch.exit56.sink.split, label %strbuf_avail.exit.i58
 
 strbuf_avail.exit.i58:                            ; preds = %.thread70
-  %50 = load i64, ptr %8, align 8, !tbaa !16
+  %50 = load i64, ptr %8, align 8, !tbaa !15
   %.neg.i59 = add i64 %50, 1
   %.not.i60 = icmp eq i64 %49, %.neg.i59
   br i1 %.not.i60, label %strbuf_addch.exit56.sink.split, label %strbuf_addch.exit56
@@ -307,7 +307,7 @@ strbuf_avail.exit.i58:                            ; preds = %.thread70
 strbuf_addch.exit56.sink.split:                   ; preds = %.thread70, %strbuf_avail.exit.i58, %46, %strbuf_avail.exit.i48
   %.sink.ph = phi i8 [ 32, %strbuf_avail.exit.i48 ], [ 32, %46 ], [ %11, %strbuf_avail.exit.i58 ], [ %11, %.thread70 ]
   tail call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #9
-  %.pre.i64 = load i64, ptr %8, align 8, !tbaa !16
+  %.pre.i64 = load i64, ptr %8, align 8, !tbaa !15
   %.pre7.i65 = add i64 %.pre.i64, 1
   br label %strbuf_addch.exit56
 
@@ -317,12 +317,12 @@ strbuf_addch.exit56:                              ; preds = %strbuf_avail.exit.i
   %.sink98 = phi i8 [ %43, %41 ], [ 32, %strbuf_avail.exit.i48 ], [ %11, %strbuf_avail.exit.i58 ], [ %.sink.ph, %strbuf_addch.exit56.sink.split ]
   %.sink94 = phi i64 [ 3, %41 ], [ 1, %strbuf_avail.exit.i48 ], [ 1, %strbuf_avail.exit.i58 ], [ 1, %strbuf_addch.exit56.sink.split ]
   %.sink93 = phi i32 [ -3, %41 ], [ -1, %strbuf_avail.exit.i48 ], [ -1, %strbuf_avail.exit.i58 ], [ -1, %strbuf_addch.exit56.sink.split ]
-  %51 = load ptr, ptr %9, align 8, !tbaa !17
-  store i64 %.pre-phi.i.sink, ptr %8, align 8, !tbaa !16
+  %51 = load ptr, ptr %9, align 8, !tbaa !16
+  store i64 %.pre-phi.i.sink, ptr %8, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.sink101
   store i8 %.sink98, ptr %52, align 1, !tbaa !4
-  %53 = load ptr, ptr %9, align 8, !tbaa !17
-  %54 = load i64, ptr %8, align 8, !tbaa !16
+  %53 = load ptr, ptr %9, align 8, !tbaa !16
+  %54 = load i64, ptr %8, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %.03580, i64 %.sink94
@@ -332,7 +332,7 @@ strbuf_addch.exit56:                              ; preds = %strbuf_avail.exit.i
 
 .thread72:                                        ; preds = %strbuf_addch.exit56, %10, %5, %16
   %.136 = phi ptr [ %17, %16 ], [ %6, %5 ], [ %56, %strbuf_addch.exit56 ], [ %.03580, %10 ]
-  store ptr %.136, ptr %0, align 8, !tbaa !10
+  store ptr %.136, ptr %0, align 8, !tbaa !9
   %58 = tail call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #9
   ret ptr %58
 }
@@ -341,7 +341,7 @@ strbuf_addch.exit56:                              ; preds = %strbuf_avail.exit.i
 define dso_local ptr @url_percent_decode(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.strbuf, align 8
-  store ptr %0, ptr %2, align 8, !tbaa !10
+  store ptr %0, ptr %2, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
@@ -376,13 +376,13 @@ define dso_local void @end_url_with_slash(ptr noundef %0, ptr noundef %1) local_
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !15
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %strbuf_complete.exit, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr i8, ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -1
   %11 = load i8, ptr %10, align 1, !tbaa !4
@@ -390,7 +390,7 @@ define dso_local void @end_url_with_slash(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not6.i, label %strbuf_complete.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = load i64, ptr %0, align 8, !tbaa !13
+  %13 = load i64, ptr %0, align 8, !tbaa !12
   %.not.i.i.i = icmp eq i64 %13, 0
   %.neg.i.i = add i64 %5, 1
   %.not.i.i = icmp eq i64 %13, %.neg.i.i
@@ -399,20 +399,20 @@ define dso_local void @end_url_with_slash(ptr noundef %0, ptr noundef %1) local_
 
 strbuf_avail.exit.thread.i.i:                     ; preds = %12
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #9
-  %.pre.i.i = load i64, ptr %4, align 8, !tbaa !16
+  %.pre.i.i = load i64, ptr %4, align 8, !tbaa !15
   %.pre7.i.i = add i64 %.pre.i.i, 1
-  %.pre.i = load ptr, ptr %7, align 8, !tbaa !17
+  %.pre.i = load ptr, ptr %7, align 8, !tbaa !16
   br label %strbuf_addch.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.thread.i.i, %12
   %14 = phi ptr [ %.pre.i, %strbuf_avail.exit.thread.i.i ], [ %8, %12 ]
   %.pre-phi.i.i = phi i64 [ %.pre7.i.i, %strbuf_avail.exit.thread.i.i ], [ %.neg.i.i, %12 ]
   %15 = phi i64 [ %.pre.i.i, %strbuf_avail.exit.thread.i.i ], [ %5, %12 ]
-  store i64 %.pre-phi.i.i, ptr %4, align 8, !tbaa !16
+  store i64 %.pre-phi.i.i, ptr %4, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   store i8 47, ptr %16, align 1, !tbaa !4
-  %17 = load ptr, ptr %7, align 8, !tbaa !17
-  %18 = load i64, ptr %4, align 8, !tbaa !16
+  %17 = load ptr, ptr %7, align 8, !tbaa !16
+  %18 = load i64, ptr %4, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !4
   br label %strbuf_complete.exit
@@ -429,13 +429,13 @@ define dso_local void @str_end_url_with_slash(ptr noundef %0, ptr noundef captur
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %0, i64 noundef %4) #9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !16
+  %6 = load i64, ptr %5, align 8, !tbaa !15
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %end_url_with_slash.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr i8, ptr %9, i64 %6
   %11 = getelementptr i8, ptr %10, i64 -1
   %12 = load i8, ptr %11, align 1, !tbaa !4
@@ -443,7 +443,7 @@ define dso_local void @str_end_url_with_slash(ptr noundef %0, ptr noundef captur
   br i1 %.not6.i.i, label %end_url_with_slash.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = load i64, ptr %3, align 8, !tbaa !13
+  %14 = load i64, ptr %3, align 8, !tbaa !12
   %.not.i.i.i.i = icmp eq i64 %14, 0
   %.neg.i.i.i = add i64 %6, 1
   %.not.i.i.i = icmp eq i64 %14, %.neg.i.i.i
@@ -452,29 +452,29 @@ define dso_local void @str_end_url_with_slash(ptr noundef %0, ptr noundef captur
 
 strbuf_avail.exit.thread.i.i.i:                   ; preds = %13
   call void @strbuf_grow(ptr noundef nonnull %3, i64 noundef 1) #9
-  %.pre.i.i.i = load i64, ptr %5, align 8, !tbaa !16
+  %.pre.i.i.i = load i64, ptr %5, align 8, !tbaa !15
   %.pre7.i.i.i = add i64 %.pre.i.i.i, 1
-  %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !17
+  %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !16
   br label %strbuf_addch.exit.i.i
 
 strbuf_addch.exit.i.i:                            ; preds = %strbuf_avail.exit.thread.i.i.i, %13
   %15 = phi ptr [ %.pre.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %9, %13 ]
   %.pre-phi.i.i.i = phi i64 [ %.pre7.i.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %.neg.i.i.i, %13 ]
   %16 = phi i64 [ %.pre.i.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %6, %13 ]
-  store i64 %.pre-phi.i.i.i, ptr %5, align 8, !tbaa !16
+  store i64 %.pre-phi.i.i.i, ptr %5, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   store i8 47, ptr %17, align 1, !tbaa !4
-  %18 = load ptr, ptr %8, align 8, !tbaa !17
-  %19 = load i64, ptr %5, align 8, !tbaa !16
+  %18 = load ptr, ptr %8, align 8, !tbaa !16
+  %19 = load i64, ptr %5, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !4
   br label %end_url_with_slash.exit
 
 end_url_with_slash.exit:                          ; preds = %2, %7, %strbuf_addch.exit.i.i
-  %21 = load ptr, ptr %1, align 8, !tbaa !10
+  %21 = load ptr, ptr %1, align 8, !tbaa !9
   call void @free(ptr noundef %21) #9
   %22 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #9
-  store ptr %22, ptr %1, align 8, !tbaa !10
+  store ptr %22, ptr %1, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
   ret void
 }
@@ -509,14 +509,13 @@ attributes #9 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"strbuf", !15, i64 0, !15, i64 8, !11, i64 16}
-!15 = !{!"long", !5, i64 0}
-!16 = !{!14, !15, i64 8}
-!17 = !{!14, !11, i64 16}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"strbuf", !14, i64 0, !14, i64 8, !10, i64 16}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = !{!13, !10, i64 16}

@@ -114,7 +114,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
   store i64 %22, ptr %23, align 8, !tbaa !15
   %24 = add nuw nsw i64 %.01113.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %24, 5
-  br i1 %exitcond.not.i.i, label %18, label %20, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %18, label %20
 
 seq_try_load_hooks.exit.thread.i:                 ; preds = %18, %13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
@@ -148,12 +148,12 @@ seq_try_load_hooks.exit.i:                        ; preds = %18
   store atomic i64 %32, ptr %30 monotonic, align 8
   %33 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i14.i = icmp eq i64 %33, 5
-  br i1 %exitcond.not.i14.i, label %35, label %29, !llvm.loop !18
+  br i1 %exitcond.not.i14.i, label %35, label %29
 
 34:                                               ; preds = %seq_try_load_hooks.exit.i, %seq_try_load_hooks.exit.thread.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %hook_install_locked.exit.thread, label %13, !llvm.loop !19
+  br i1 %exitcond.i, label %hook_install_locked.exit.thread, label %13
 
 hook_install_locked.exit.thread:                  ; preds = %34
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7.i)
@@ -242,7 +242,7 @@ malloc_mutex_lock.exit:                           ; preds = %6, %10
   store i64 %20, ptr %21, align 8, !tbaa !15
   %22 = add nuw nsw i64 %.01113.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %22, 5
-  br i1 %exitcond.not.i.i, label %16, label %18, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %16, label %18
 
 23:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
@@ -273,7 +273,7 @@ seq_try_load_hooks.exit.i:                        ; preds = %23, %16, %malloc_mu
   store atomic i64 %30, ptr %28 monotonic, align 8
   %31 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %31, 5
-  br i1 %exitcond.not.i4.i, label %hook_remove_locked.exit, label %27, !llvm.loop !18
+  br i1 %exitcond.not.i4.i, label %hook_remove_locked.exit, label %27
 
 hook_remove_locked.exit:                          ; preds = %27
   %32 = add i64 %24, 2
@@ -298,22 +298,22 @@ atomic_load_u.exit:
   %4 = alloca [5 x i64], align 16
   %5 = load atomic i32, ptr @nhooks.0 monotonic, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %28, label %7, !prof !20
+  br i1 %6, label %28, label %7, !prof !16
 
 7:                                                ; preds = %atomic_load_u.exit
   %8 = tail call fastcc ptr @hook_reentrantp()
-  %9 = load i8, ptr %8, align 1, !tbaa !21, !range !23, !noundef !24
+  %9 = load i8, ptr %8, align 1, !tbaa !17, !range !19, !noundef !20
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %28, label %11
 
 11:                                               ; preds = %7
-  store i8 1, ptr %8, align 1, !tbaa !21
+  store i8 1, ptr %8, align 1, !tbaa !17
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %13
 
 12:                                               ; preds = %27
-  store i8 0, ptr %8, align 1, !tbaa !21
+  store i8 0, ptr %8, align 1, !tbaa !17
   br label %28
 
 13:                                               ; preds = %11, %27
@@ -343,7 +343,7 @@ atomic_load_u.exit:
   store i64 %22, ptr %23, align 8, !tbaa !15
   %24 = add nuw nsw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %24, 5
-  br i1 %exitcond.not.i, label %18, label %20, !llvm.loop !16
+  br i1 %exitcond.not.i, label %18, label %20
 
 seq_try_load_hooks.exit.thread:                   ; preds = %13, %18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
@@ -366,7 +366,7 @@ seq_try_load_hooks.exit:                          ; preds = %18
 27:                                               ; preds = %seq_try_load_hooks.exit.thread, %26, %seq_try_load_hooks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %12, label %13, !llvm.loop !25
+  br i1 %exitcond.not, label %12, label %13
 
 28:                                               ; preds = %12, %7, %atomic_load_u.exit
   ret void
@@ -374,16 +374,16 @@ seq_try_load_hooks.exit:                          ; preds = %18
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc nonnull ptr @hook_reentrantp() unnamed_addr #0 {
-  %1 = load i8, ptr @duckdb_je_tsd_booted, align 1, !tbaa !21, !range !23, !noundef !24
+  %1 = load i8, ptr @duckdb_je_tsd_booted, align 1, !tbaa !17, !range !19, !noundef !20
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %tsdn_in_hookp_get.exit
 
 3:                                                ; preds = %0
   %4 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 824
-  %6 = load i8, ptr %5, align 8, !tbaa !26
+  %6 = load i8, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %tsdn_fetch.exit.thread8, label %tsdn_fetch.exit, !prof !20
+  br i1 %.not.i, label %tsdn_fetch.exit.thread8, label %tsdn_fetch.exit, !prof !16
 
 tsdn_fetch.exit:                                  ; preds = %3
   %7 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %4, i1 noundef zeroext false) #6
@@ -408,23 +408,23 @@ atomic_load_u.exit:
   %3 = alloca [5 x i64], align 16
   %4 = load atomic i32, ptr @nhooks.0 monotonic, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %27, label %6, !prof !20
+  br i1 %5, label %27, label %6, !prof !16
 
 6:                                                ; preds = %atomic_load_u.exit
   %7 = tail call fastcc ptr @hook_reentrantp()
-  %8 = load i8, ptr %7, align 1, !tbaa !21, !range !23, !noundef !24
+  %8 = load i8, ptr %7, align 1, !tbaa !17, !range !19, !noundef !20
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %6
-  store i8 1, ptr %7, align 1, !tbaa !21
+  store i8 1, ptr %7, align 1, !tbaa !17
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %12
 
 11:                                               ; preds = %26
-  store i8 0, ptr %7, align 1, !tbaa !21
+  store i8 0, ptr %7, align 1, !tbaa !17
   br label %27
 
 12:                                               ; preds = %10, %26
@@ -454,7 +454,7 @@ atomic_load_u.exit:
   store i64 %21, ptr %22, align 8, !tbaa !15
   %23 = add nuw nsw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %23, 5
-  br i1 %exitcond.not.i, label %17, label %19, !llvm.loop !16
+  br i1 %exitcond.not.i, label %17, label %19
 
 seq_try_load_hooks.exit.thread:                   ; preds = %12, %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
@@ -477,7 +477,7 @@ seq_try_load_hooks.exit:                          ; preds = %17
 26:                                               ; preds = %seq_try_load_hooks.exit.thread, %25, %seq_try_load_hooks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %11, label %12, !llvm.loop !27
+  br i1 %exitcond.not, label %11, label %12
 
 27:                                               ; preds = %11, %6, %atomic_load_u.exit
   ret void
@@ -489,23 +489,23 @@ atomic_load_u.exit:
   %6 = alloca [5 x i64], align 16
   %7 = load atomic i32, ptr @nhooks.0 monotonic, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %30, label %9, !prof !20
+  br i1 %8, label %30, label %9, !prof !16
 
 9:                                                ; preds = %atomic_load_u.exit
   %10 = tail call fastcc ptr @hook_reentrantp()
-  %11 = load i8, ptr %10, align 1, !tbaa !21, !range !23, !noundef !24
+  %11 = load i8, ptr %10, align 1, !tbaa !17, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %30, label %13
 
 13:                                               ; preds = %9
-  store i8 1, ptr %10, align 1, !tbaa !21
+  store i8 1, ptr %10, align 1, !tbaa !17
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %15
 
 14:                                               ; preds = %29
-  store i8 0, ptr %10, align 1, !tbaa !21
+  store i8 0, ptr %10, align 1, !tbaa !17
   br label %30
 
 15:                                               ; preds = %13, %29
@@ -535,7 +535,7 @@ atomic_load_u.exit:
   store i64 %24, ptr %25, align 8, !tbaa !15
   %26 = add nuw nsw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %26, 5
-  br i1 %exitcond.not.i, label %20, label %22, !llvm.loop !16
+  br i1 %exitcond.not.i, label %20, label %22
 
 seq_try_load_hooks.exit.thread:                   ; preds = %15, %20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
@@ -558,7 +558,7 @@ seq_try_load_hooks.exit:                          ; preds = %20
 29:                                               ; preds = %seq_try_load_hooks.exit.thread, %28, %seq_try_load_hooks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %15, !llvm.loop !28
+  br i1 %exitcond.not, label %14, label %15
 
 30:                                               ; preds = %14, %9, %atomic_load_u.exit
   ret void
@@ -606,16 +606,9 @@ attributes #6 = { nounwind }
 !13 = !{!4, !11, i64 48}
 !14 = !{!4, !6, i64 40}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"_Bool", !7, i64 0}
-!23 = !{i8 0, i8 2}
-!24 = !{}
-!25 = distinct !{!25, !17}
-!26 = !{!7, !7, i64 0}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"_Bool", !7, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!7, !7, i64 0}

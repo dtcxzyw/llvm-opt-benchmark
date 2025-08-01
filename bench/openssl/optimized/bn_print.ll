@@ -79,9 +79,9 @@ define range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) local_unnam
 17:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ 60, %.preheader ], [ %indvars.iv.next, %28 ]
   %.128 = phi i32 [ %.01730, %.preheader ], [ %.2, %28 ]
-  %18 = load ptr, ptr %1, align 8, !tbaa !14
+  %18 = load ptr, ptr %1, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.next35
-  %20 = load i64, ptr %19, align 8, !tbaa !15
+  %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = lshr i64 %20, %indvars.iv
   %22 = icmp ne i32 %.128, 0
   %23 = and i64 %21, 15
@@ -99,7 +99,7 @@ define range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) local_unnam
   %.2 = phi i32 [ 0, %17 ], [ 1, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %.not37 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !17
+  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !16
 
 .loopexit24:                                      ; preds = %.loopexit, %25, %11, %9, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %11 ], [ 0, %25 ], [ 1, %.loopexit ]
@@ -145,10 +145,9 @@ attributes #2 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!4, !9, i64 8}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!4, !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
-!17 = distinct !{!17, !12, !13}
+!13 = !{!4, !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = distinct !{!16, !12}

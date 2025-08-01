@@ -1731,7 +1731,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !11
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !11
-  br label %6, !llvm.loop !16
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3113,7 +3113,7 @@ lean_obj_tag.exit:                                ; preds = %83, %86
 101:                                              ; preds = %100, %97
   %102 = phi i32 [ %.pr, %100 ], [ %98, %97 ]
   %103 = icmp sgt i32 %102, 1
-  br i1 %103, label %104, label %106, !prof !18
+  br i1 %103, label %104, label %106, !prof !16
 
 104:                                              ; preds = %101
   %105 = add nsw i32 %102, -1
@@ -3909,7 +3909,7 @@ lean_obj_tag.exit:                                ; preds = %67, %70
 85:                                               ; preds = %84, %81
   %86 = phi i32 [ %.pr, %84 ], [ %82, %81 ]
   %87 = icmp sgt i32 %86, 1
-  br i1 %87, label %88, label %90, !prof !18
+  br i1 %87, label %88, label %90, !prof !16
 
 88:                                               ; preds = %85
   %89 = add nsw i32 %86, -1
@@ -9792,9 +9792,9 @@ _init_l_Lean_Elab_Structural_instBEqIndGroupInfo___closed__1.exit: ; preds = %le
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_26____boxed, ptr %22, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 2, ptr %23, align 8, !tbaa !19
+  store i16 2, ptr %23, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 0, ptr %24, align 2, !tbaa !19
+  store i16 0, ptr %24, align 2, !tbaa !17
   store ptr %18, ptr @l_Lean_Elab_Structural_instBEqIndGroupInfo___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %18) #4
   %25 = load ptr, ptr @l_Lean_Elab_Structural_instBEqIndGroupInfo___closed__1, align 8, !tbaa !11
@@ -10154,9 +10154,9 @@ _init_l_Lean_Elab_Structural_instReprIndGroupInfo___closed__1.exit: ; preds = %_
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____boxed, ptr %153, align 8, !tbaa !11
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  store i16 2, ptr %154, align 8, !tbaa !19
+  store i16 2, ptr %154, align 8, !tbaa !17
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 18
-  store i16 0, ptr %155, align 2, !tbaa !19
+  store i16 0, ptr %155, align 2, !tbaa !17
   store ptr %149, ptr @l_Lean_Elab_Structural_instReprIndGroupInfo___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %149) #4
   %156 = load ptr, ptr @l_Lean_Elab_Structural_instReprIndGroupInfo___closed__1, align 8, !tbaa !11
@@ -10312,9 +10312,9 @@ _init_l_Lean_Elab_Structural_instReprIndGroupInst___closed__1.exit: ; preds = %_
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInst____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_298____boxed, ptr %207, align 8, !tbaa !11
   %208 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  store i16 2, ptr %208, align 8, !tbaa !19
+  store i16 2, ptr %208, align 8, !tbaa !17
   %209 = getelementptr inbounds nuw i8, ptr %203, i64 18
-  store i16 0, ptr %209, align 2, !tbaa !19
+  store i16 0, ptr %209, align 2, !tbaa !17
   store ptr %203, ptr @l_Lean_Elab_Structural_instReprIndGroupInst___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %203) #4
   %210 = load ptr, ptr @l_Lean_Elab_Structural_instReprIndGroupInst___closed__1, align 8, !tbaa !11
@@ -10336,9 +10336,9 @@ _init_l_Lean_Elab_Structural_instToMessageDataIndGroupInst___closed__1.exit: ; p
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store ptr @l_Lean_Elab_Structural_IndGroupInst_toMessageData, ptr %215, align 8, !tbaa !11
   %216 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  store i16 1, ptr %216, align 8, !tbaa !19
+  store i16 1, ptr %216, align 8, !tbaa !17
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 18
-  store i16 0, ptr %217, align 2, !tbaa !19
+  store i16 0, ptr %217, align 2, !tbaa !17
   store ptr %211, ptr @l_Lean_Elab_Structural_instToMessageDataIndGroupInst___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %211) #4
   %218 = load ptr, ptr @l_Lean_Elab_Structural_instToMessageDataIndGroupInst___closed__1, align 8, !tbaa !11
@@ -10360,9 +10360,9 @@ _init_l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__2___closed__1.exit: 
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store ptr @l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__1___boxed, ptr %223, align 8, !tbaa !11
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  store i16 6, ptr %224, align 8, !tbaa !19
+  store i16 6, ptr %224, align 8, !tbaa !17
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 18
-  store i16 0, ptr %225, align 2, !tbaa !19
+  store i16 0, ptr %225, align 2, !tbaa !17
   store ptr %219, ptr @l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__2___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %219) #4
   tail call void @lean_inc_heartbeat() #4
@@ -10381,9 +10381,9 @@ _init_l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__5___closed__1.exit: 
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store ptr @l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__4___boxed, ptr %230, align 8, !tbaa !11
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  store i16 1, ptr %231, align 8, !tbaa !19
+  store i16 1, ptr %231, align 8, !tbaa !17
   %232 = getelementptr inbounds nuw i8, ptr %226, i64 18
-  store i16 0, ptr %232, align 2, !tbaa !19
+  store i16 0, ptr %232, align 2, !tbaa !17
   store ptr %226, ptr @l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__5___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %226) #4
   %233 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.12, i64 noundef 1, i64 noundef 1) #4
@@ -10416,9 +10416,9 @@ _init_l_panic___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__3
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 8
   store ptr @l_Lean_Meta_instInhabitedMetaM___boxed, ptr %243, align 8, !tbaa !11
   %244 = getelementptr inbounds nuw i8, ptr %239, i64 16
-  store i16 5, ptr %244, align 8, !tbaa !19
+  store i16 5, ptr %244, align 8, !tbaa !17
   %245 = getelementptr inbounds nuw i8, ptr %239, i64 18
-  store i16 1, ptr %245, align 2, !tbaa !19
+  store i16 1, ptr %245, align 2, !tbaa !17
   %246 = getelementptr inbounds nuw i8, ptr %239, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %246, align 8, !tbaa !11
   store ptr %239, ptr @l_panic___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__3___closed__1, align 8, !tbaa !11
@@ -10462,9 +10462,9 @@ _init_l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFo
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5___lambda__1___boxed, ptr %262, align 8, !tbaa !11
   %263 = getelementptr inbounds nuw i8, ptr %258, i64 16
-  store i16 7, ptr %263, align 8, !tbaa !19
+  store i16 7, ptr %263, align 8, !tbaa !17
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 18
-  store i16 0, ptr %264, align 2, !tbaa !19
+  store i16 0, ptr %264, align 2, !tbaa !17
   store ptr %258, ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %258) #4
   %265 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.18, i64 noundef 3, i64 noundef 3) #4
@@ -10588,8 +10588,6 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !8, i64 0}
 !15 = !{!"branch_weights", i32 4000000, i32 4001}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !8, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !8, i64 0}

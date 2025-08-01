@@ -232,7 +232,7 @@ _ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %33, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %42 = trunc nuw i64 %indvars.iv.next to i32
   %43 = icmp sgt i32 %9, %42
-  br i1 %43, label %.lr.ph, label %.thread, !llvm.loop !16
+  br i1 %43, label %.lr.ph, label %.thread, !llvm.loop !15
 
 .thread:                                          ; preds = %41, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %21, %23, %27
   %.1 = phi i32 [ %spec.select, %27 ], [ 100, %21 ], [ 100, %23 ], [ 10, %3 ], [ %40, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %40, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %40, %41 ]
@@ -264,7 +264,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   br i1 %10, label %.lr.ph.preheader, label %.thread77
 
 .lr.ph.preheader:                                 ; preds = %3
-  %11 = load ptr, ptr %0, align 8, !tbaa !17
+  %11 = load ptr, ptr %0, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, i32 noundef 0)
@@ -280,7 +280,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   %.052 = phi i32 [ %.1, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.03951 = phi i32 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.04250 = phi i32 [ %.143, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %17 = load ptr, ptr %0, align 8, !tbaa !17
+  %17 = load ptr, ptr %0, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, i32 noundef %.03951)
@@ -295,7 +295,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   %.1 = add nuw nsw i32 %.052, %23
   %24 = add nuw nsw i32 %.03951, 4
   %25 = icmp slt i32 %24, %9
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 26:                                               ; preds = %._crit_edge
   %27 = mul nuw nsw i32 %.143, 10
@@ -422,10 +422,9 @@ attributes #10 = { noreturn nounwind }
 !10 = !{!"p1 short", !6, i64 0}
 !11 = !{!4, !9, i64 48}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"vtable pointer", !8, i64 0}
-!19 = distinct !{!19, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !8, i64 0}
+!18 = distinct !{!18, !14}

@@ -574,7 +574,7 @@ define dso_local range(i32 0, -2147483648) i32 @xopen(ptr noundef %0, i32 nounde
   %26 = tail call ptr @__errno_location() #26
   %27 = load i32, ptr %26, align 4, !tbaa !9
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %22, label %29, !llvm.loop !11
+  br i1 %28, label %22, label %29
 
 29:                                               ; preds = %25
   %30 = and i32 %1, 192
@@ -650,7 +650,7 @@ define dso_local noundef i64 @xread(i32 noundef %0, ptr noundef captures(none) %
 .backedge:                                        ; preds = %9, %handle_nonblock.exit
   %13 = call i64 @read(i32 noundef %0, ptr noundef %1, i64 noundef %spec.store.select) #20
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %9, label %.loopexit, !llvm.loop !13
+  br i1 %14, label %9, label %.loopexit
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -662,8 +662,8 @@ handle_nonblock.exit.thread:                      ; preds = %15
   br label %.loopexit
 
 handle_nonblock.exit:                             ; preds = %15
-  store i32 %0, ptr %4, align 4, !tbaa !14
-  store i16 1, ptr %8, align 4, !tbaa !17
+  store i32 %0, ptr %4, align 4, !tbaa !11
+  store i16 1, ptr %8, align 4, !tbaa !14
   %16 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %.backedge
@@ -698,7 +698,7 @@ define dso_local noundef i64 @xwrite(i32 noundef %0, ptr noundef readonly captur
 .backedge:                                        ; preds = %9, %handle_nonblock.exit
   %13 = call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %spec.store.select) #20
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %9, label %.loopexit, !llvm.loop !18
+  br i1 %14, label %9, label %.loopexit
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -710,8 +710,8 @@ handle_nonblock.exit.thread:                      ; preds = %15
   br label %.loopexit
 
 handle_nonblock.exit:                             ; preds = %15
-  store i32 %0, ptr %4, align 4, !tbaa !14
-  store i16 4, ptr %8, align 4, !tbaa !17
+  store i32 %0, ptr %4, align 4, !tbaa !11
+  store i16 4, ptr %8, align 4, !tbaa !14
   %16 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %.backedge
@@ -746,7 +746,7 @@ define dso_local i64 @xpread(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64
 11:                                               ; preds = %8, %8
   %12 = tail call i64 @pread64(i32 noundef %0, ptr noundef %1, i64 noundef %spec.store.select, i64 noundef %3) #20
   %13 = icmp slt i64 %12, 0
-  br i1 %13, label %8, label %._crit_edge, !llvm.loop !19
+  br i1 %13, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %8, %4
   %.lcssa = phi i64 [ %5, %4 ], [ %9, %8 ], [ %12, %11 ]
@@ -786,7 +786,7 @@ define dso_local i64 @read_in_full(i32 noundef %0, ptr noundef captures(none) %1
 .backedge.i:                                      ; preds = %handle_nonblock.exit.i, %10
   %13 = call i64 @read(i32 noundef %0, ptr noundef %.01932, i64 noundef %spec.store.select.i) #20
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %10, label %.loopexit, !llvm.loop !13
+  br i1 %14, label %10, label %.loopexit
 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -794,8 +794,8 @@ define dso_local i64 @read_in_full(i32 noundef %0, ptr noundef captures(none) %1
   br i1 %.not.i.i, label %handle_nonblock.exit.i, label %xread.exit
 
 handle_nonblock.exit.i:                           ; preds = %15
-  store i32 %0, ptr %4, align 4, !tbaa !14
-  store i16 1, ptr %5, align 4, !tbaa !17
+  store i32 %0, ptr %4, align 4, !tbaa !11
+  store i16 1, ptr %5, align 4, !tbaa !14
   %16 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %.backedge.i
@@ -814,7 +814,7 @@ xread.exit:                                       ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.01932, i64 %.ph
   %21 = add nuw nsw i64 %.ph, %.01733
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %.thread, label %6, !llvm.loop !20
+  br i1 %.not, label %.thread, label %6, !llvm.loop !15
 
 .thread:                                          ; preds = %18, %.loopexit, %3, %xread.exit
   %.2 = phi i64 [ -1, %xread.exit ], [ 0, %3 ], [ %21, %18 ], [ %.01733, %.loopexit ]
@@ -852,7 +852,7 @@ define dso_local i64 @write_in_full(i32 noundef %0, ptr noundef readonly capture
 .backedge.i:                                      ; preds = %handle_nonblock.exit.i, %10
   %13 = call i64 @write(i32 noundef %0, ptr noundef readonly %.01828, i64 noundef %spec.store.select.i) #20
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %10, label %.loopexit, !llvm.loop !18
+  br i1 %14, label %10, label %.loopexit
 
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -860,8 +860,8 @@ define dso_local i64 @write_in_full(i32 noundef %0, ptr noundef readonly capture
   br i1 %.not.i.i, label %handle_nonblock.exit.i, label %xwrite.exit
 
 handle_nonblock.exit.i:                           ; preds = %15
-  store i32 %0, ptr %4, align 4, !tbaa !14
-  store i16 4, ptr %5, align 4, !tbaa !17
+  store i32 %0, ptr %4, align 4, !tbaa !11
+  store i16 4, ptr %5, align 4, !tbaa !14
   %16 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %.backedge.i
@@ -885,7 +885,7 @@ xwrite.exit:                                      ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %.01828, i64 %.ph
   %22 = add nuw nsw i64 %.ph, %.01629
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %.critedge, label %6, !llvm.loop !22
+  br i1 %.not, label %.critedge, label %6, !llvm.loop !17
 
 .critedge:                                        ; preds = %19, %3, %xwrite.exit, %17
   %.2 = phi i64 [ -1, %xwrite.exit ], [ -1, %17 ], [ 0, %3 ], [ %22, %19 ]
@@ -921,7 +921,7 @@ define dso_local i64 @pread_in_full(i32 noundef %0, ptr noundef %1, i64 noundef 
 10:                                               ; preds = %8, %8
   %11 = tail call i64 @pread64(i32 noundef %0, ptr noundef %.02244, i64 noundef %spec.store.select.i, i64 noundef %.02443) #20
   %12 = icmp slt i64 %11, 0
-  br i1 %12, label %8, label %.loopexit, !llvm.loop !19
+  br i1 %12, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.lr.ph
   %.lcssa.i.ph = phi i64 [ %5, %.lr.ph ], [ %11, %10 ]
@@ -934,7 +934,7 @@ xpread.exit:                                      ; preds = %.loopexit
   %16 = add nuw nsw i64 %.lcssa.i.ph, %.02045
   %17 = add nsw i64 %.lcssa.i.ph, %.02443
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %xpread.exit.thread32, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %xpread.exit.thread32, label %.lr.ph, !llvm.loop !18
 
 xpread.exit.thread32:                             ; preds = %xpread.exit, %.loopexit, %8, %4
   %.2 = phi i64 [ 0, %4 ], [ -1, %8 ], [ %16, %xpread.exit ], [ %.02045, %.loopexit ]
@@ -1210,7 +1210,7 @@ define dso_local range(i32 -1, -2147483648) i32 @git_mkstemps_mode(ptr noundef c
   %28 = udiv i64 %23, 62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %29, label %22, !llvm.loop !24
+  br i1 %exitcond.not, label %29, label %22, !llvm.loop !19
 
 29:                                               ; preds = %22
   %30 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %0, i32 noundef 194, i32 noundef %2) #20
@@ -1225,7 +1225,7 @@ define dso_local range(i32 -1, -2147483648) i32 @git_mkstemps_mode(ptr noundef c
   %35 = add nuw nsw i32 %.02237, 1
   %exitcond42.not = icmp eq i32 %35, 16384
   %or.cond = select i1 %.not26, i1 true, i1 %exitcond42.not
-  br i1 %or.cond, label %.loopexit, label %.preheader33, !llvm.loop !25
+  br i1 %or.cond, label %.loopexit, label %.preheader33, !llvm.loop !20
 
 .thread:                                          ; preds = %29, %20
   %.2.ph = phi i32 [ -1, %20 ], [ %30, %29 ]
@@ -1276,7 +1276,7 @@ define dso_local range(i32 -1, 1) i32 @csprng_bytes(ptr noundef captures(none) %
 .backedge.i:                                      ; preds = %handle_nonblock.exit.i, %12
   %15 = call i64 @read(i32 noundef %5, ptr noundef %.01518, i64 noundef %spec.store.select.i) #20
   %16 = icmp slt i64 %15, 0
-  br i1 %16, label %12, label %.loopexit, !llvm.loop !13
+  br i1 %16, label %12, label %.loopexit
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -1284,8 +1284,8 @@ define dso_local range(i32 -1, 1) i32 @csprng_bytes(ptr noundef captures(none) %
   br i1 %.not.i.i, label %handle_nonblock.exit.i, label %19
 
 handle_nonblock.exit.i:                           ; preds = %17
-  store i32 %5, ptr %4, align 4, !tbaa !14
-  store i16 1, ptr %7, align 4, !tbaa !17
+  store i32 %5, ptr %4, align 4, !tbaa !11
+  store i16 1, ptr %7, align 4, !tbaa !14
   %18 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %.backedge.i
@@ -1302,7 +1302,7 @@ handle_nonblock.exit.i:                           ; preds = %17
   %22 = sub i64 %.01419, %.ph
   %23 = getelementptr inbounds nuw i8, ptr %.01518, i64 %.ph
   %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %24 = call i32 @close(i32 noundef %5) #20
@@ -1371,7 +1371,7 @@ define dso_local i32 @git_fsync(i32 noundef %0, i32 noundef %1) local_unnamed_ad
   %10 = tail call ptr @__errno_location() #26
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %6, label %fsync_loop.exit, !llvm.loop !27
+  br i1 %12, label %6, label %fsync_loop.exit, !llvm.loop !22
 
 13:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.15, i32 noundef 597, ptr noundef nonnull @.str.16, i32 noundef %1) #21
@@ -1629,13 +1629,13 @@ define dso_local void @write_file(ptr noundef %0, ptr noundef %1, ...) local_unn
   call void @strbuf_vaddf(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !28
+  %6 = load i64, ptr %5, align 8, !tbaa !23
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %strbuf_complete_line.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = getelementptr i8, ptr %9, i64 %6
   %11 = getelementptr i8, ptr %10, i64 -1
   %12 = load i8, ptr %11, align 1, !tbaa !8
@@ -1643,7 +1643,7 @@ define dso_local void @write_file(ptr noundef %0, ptr noundef %1, ...) local_unn
   br i1 %.not6.i.i, label %strbuf_complete_line.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = load i64, ptr %4, align 8, !tbaa !33
+  %14 = load i64, ptr %4, align 8, !tbaa !28
   %.not.i.i.i.i = icmp eq i64 %14, 0
   %.neg.i.i.i = add i64 %6, 1
   %.not.i.i.i = icmp eq i64 %14, %.neg.i.i.i
@@ -1652,29 +1652,29 @@ define dso_local void @write_file(ptr noundef %0, ptr noundef %1, ...) local_unn
 
 strbuf_avail.exit.thread.i.i.i:                   ; preds = %13
   call void @strbuf_grow(ptr noundef nonnull %4, i64 noundef 1) #20
-  %.pre.i.i.i = load i64, ptr %5, align 8, !tbaa !28
+  %.pre.i.i.i = load i64, ptr %5, align 8, !tbaa !23
   %.pre7.i.i.i = add i64 %.pre.i.i.i, 1
-  %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !32
+  %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !27
   br label %strbuf_addch.exit.i.i
 
 strbuf_addch.exit.i.i:                            ; preds = %strbuf_avail.exit.thread.i.i.i, %13
   %15 = phi ptr [ %.pre.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %9, %13 ]
   %.pre-phi.i.i.i = phi i64 [ %.pre7.i.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %.neg.i.i.i, %13 ]
   %16 = phi i64 [ %.pre.i.i.i, %strbuf_avail.exit.thread.i.i.i ], [ %6, %13 ]
-  store i64 %.pre-phi.i.i.i, ptr %5, align 8, !tbaa !28
+  store i64 %.pre-phi.i.i.i, ptr %5, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   store i8 10, ptr %17, align 1, !tbaa !8
-  %18 = load ptr, ptr %8, align 8, !tbaa !32
-  %19 = load i64, ptr %5, align 8, !tbaa !28
+  %18 = load ptr, ptr %8, align 8, !tbaa !27
+  %19 = load i64, ptr %5, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !8
-  %.pre = load i64, ptr %5, align 8, !tbaa !28
+  %.pre = load i64, ptr %5, align 8, !tbaa !23
   br label %strbuf_complete_line.exit
 
 strbuf_complete_line.exit:                        ; preds = %2, %7, %strbuf_addch.exit.i.i
   %21 = phi i64 [ 0, %2 ], [ %6, %7 ], [ %.pre, %strbuf_addch.exit.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
   call void @write_file_buf(ptr noundef %0, ptr noundef %23, i64 noundef %21)
   call void @strbuf_release(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
@@ -1734,7 +1734,7 @@ define dso_local range(i32 0, 2) i32 @is_empty_or_missing_file(ptr noundef %0) l
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %13 = load i64, ptr %12, align 8, !tbaa !34
+  %13 = load i64, ptr %12, align 8, !tbaa !29
   %.not = icmp eq i64 %13, 0
   %14 = zext i1 %.not to i32
   br label %15
@@ -1837,29 +1837,24 @@ attributes #26 = { nounwind willreturn memory(none) }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !6, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !10, i64 0}
-!15 = !{!"pollfd", !10, i64 0, !16, i64 4, !16, i64 6}
-!16 = !{!"short", !6, i64 0}
-!17 = !{!15, !16, i64 4}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !21, !12}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21, !12}
-!23 = distinct !{!23, !21, !12}
-!24 = distinct !{!24, !21, !12}
-!25 = distinct !{!25, !21, !12}
-!26 = distinct !{!26, !21, !12}
-!27 = distinct !{!27, !21, !12}
-!28 = !{!29, !5, i64 8}
-!29 = !{!"strbuf", !5, i64 0, !5, i64 8, !30, i64 16}
-!30 = !{!"p1 omnipotent char", !31, i64 0}
-!31 = !{!"any pointer", !6, i64 0}
-!32 = !{!29, !30, i64 16}
-!33 = !{!29, !5, i64 0}
-!34 = !{!35, !5, i64 48}
-!35 = !{!"stat", !5, i64 0, !5, i64 8, !5, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !36, i64 72, !36, i64 88, !36, i64 104, !6, i64 120}
-!36 = !{!"timespec", !5, i64 0, !5, i64 8}
+!11 = !{!12, !10, i64 0}
+!12 = !{!"pollfd", !10, i64 0, !13, i64 4, !13, i64 6}
+!13 = !{!"short", !6, i64 0}
+!14 = !{!12, !13, i64 4}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = !{!24, !5, i64 8}
+!24 = !{!"strbuf", !5, i64 0, !5, i64 8, !25, i64 16}
+!25 = !{!"p1 omnipotent char", !26, i64 0}
+!26 = !{!"any pointer", !6, i64 0}
+!27 = !{!24, !25, i64 16}
+!28 = !{!24, !5, i64 0}
+!29 = !{!30, !5, i64 48}
+!30 = !{!"stat", !5, i64 0, !5, i64 8, !5, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !31, i64 72, !31, i64 88, !31, i64 104, !6, i64 120}
+!31 = !{!"timespec", !5, i64 0, !5, i64 8}

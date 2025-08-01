@@ -259,7 +259,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 .loopexit26:                                      ; preds = %33, %.preheader
   %24 = load ptr, ptr %26, align 8
   %25 = icmp eq ptr %24, @prm_module_list
-  br i1 %25, label %.loopexit25, label %.preheader, !llvm.loop !10
+  br i1 %25, label %.loopexit25, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %20, %.loopexit26
   %26 = phi ptr [ %24, %.loopexit26 ], [ %22, %20 ]
@@ -276,7 +276,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 33:                                               ; preds = %36
   %34 = add nuw nsw i64 %37, 1
   %35 = icmp eq i64 %34, %32
-  br i1 %35, label %.loopexit26, label %36, !llvm.loop !11
+  br i1 %35, label %.loopexit26, label %36, !llvm.loop !10
 
 36:                                               ; preds = %33, %30
   %37 = phi i64 [ 0, %30 ], [ %34, %33 ]
@@ -292,7 +292,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 .loopexit:                                        ; preds = %52, %44
   %42 = load ptr, ptr %45, align 8
   %43 = icmp eq ptr %42, @prm_module_list
-  br i1 %43, label %.thread20, label %44, !llvm.loop !12
+  br i1 %43, label %.thread20, label %44, !llvm.loop !9
 
 44:                                               ; preds = %.loopexit25, %.loopexit
   %45 = phi ptr [ %42, %.loopexit ], [ %22, %.loopexit25 ]
@@ -309,7 +309,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 52:                                               ; preds = %55
   %53 = add nuw nsw i64 %56, 1
   %54 = icmp eq i64 %53, %51
-  br i1 %54, label %.loopexit, label %55, !llvm.loop !13
+  br i1 %54, label %.loopexit, label %55, !llvm.loop !10
 
 55:                                               ; preds = %52, %49
   %56 = phi i64 [ 0, %49 ], [ %53, %52 ]
@@ -368,7 +368,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 .loopexit28:                                      ; preds = %97, %.preheader29
   %88 = load ptr, ptr %90, align 8
   %89 = icmp eq ptr %88, @prm_module_list
-  br i1 %89, label %.thread20, label %.preheader29, !llvm.loop !14
+  br i1 %89, label %.thread20, label %.preheader29, !llvm.loop !9
 
 .preheader29:                                     ; preds = %84, %.loopexit28
   %90 = phi ptr [ %88, %.loopexit28 ], [ %86, %84 ]
@@ -385,7 +385,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 97:                                               ; preds = %100
   %98 = add nuw nsw i64 %101, 1
   %99 = icmp eq i64 %98, %96
-  br i1 %99, label %.loopexit28, label %100, !llvm.loop !15
+  br i1 %99, label %.loopexit28, label %100, !llvm.loop !10
 
 100:                                              ; preds = %97, %94
   %101 = phi i64 [ 0, %94 ], [ %98, %97 ]
@@ -401,7 +401,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 108:                                              ; preds = %105
   %109 = getelementptr i8, ptr %90, i64 -8
-  %110 = load i8, ptr %109, align 8, !range !16, !noundef !17
+  %110 = load i8, ptr %109, align 8, !range !11, !noundef !12
   %111 = icmp eq i8 %110, 0
   br i1 %111, label %113, label %112
 
@@ -422,7 +422,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 .loopexit31:                                      ; preds = %127, %.preheader32
   %118 = load ptr, ptr %120, align 8
   %119 = icmp eq ptr %118, @prm_module_list
-  br i1 %119, label %.thread20, label %.preheader32, !llvm.loop !18
+  br i1 %119, label %.thread20, label %.preheader32, !llvm.loop !9
 
 .preheader32:                                     ; preds = %114, %.loopexit31
   %120 = phi ptr [ %118, %.loopexit31 ], [ %116, %114 ]
@@ -439,7 +439,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 127:                                              ; preds = %130
   %128 = add nuw nsw i64 %131, 1
   %129 = icmp eq i64 %128, %126
-  br i1 %129, label %.loopexit31, label %130, !llvm.loop !19
+  br i1 %129, label %.loopexit31, label %130, !llvm.loop !10
 
 130:                                              ; preds = %127, %124
   %131 = phi i64 [ 0, %124 ], [ %128, %127 ]
@@ -455,7 +455,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 138:                                              ; preds = %135
   %139 = getelementptr i8, ptr %120, i64 -8
-  %140 = load i8, ptr %139, align 8, !range !16, !noundef !17
+  %140 = load i8, ptr %139, align 8, !range !11, !noundef !12
   %141 = icmp eq i8 %140, 0
   br i1 %141, label %143, label %142
 
@@ -529,7 +529,7 @@ define internal fastcc i64 @efi_pa_va_lookup(i64 noundef %0) unnamed_addr #6 ali
   %27 = getelementptr i8, ptr %9, i64 %3
   %28 = icmp ule ptr %27, %4
   %29 = select i1 %26, i1 %28, i1 false
-  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !20
+  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %25, %20, %1
   %30 = phi i64 [ %24, %20 ], [ 0, %1 ], [ 0, %25 ]
@@ -594,18 +594,11 @@ attributes #15 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}

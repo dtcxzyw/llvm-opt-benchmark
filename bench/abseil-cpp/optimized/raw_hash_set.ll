@@ -88,7 +88,7 @@ define dso_local noalias noundef ptr @_ZN4absl18container_internal15EmptyGenerat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled41should_rehash_for_bug_detection_on_insertEPKNS0_6ctrl_tEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %0, align 8, !tbaa !18
+  %4 = load i64, ptr %0, align 8, !tbaa !17
   switch i64 %4, label %5 [
     i64 -1, label %21
     i64 0, label %6
@@ -99,9 +99,9 @@ define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFields
 
 6:                                                ; preds = %3
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl18container_internal12_GLOBAL__N_110RandomSeedEvE7counter)
-  %8 = load i64, ptr %7, align 8, !tbaa !22
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = add i64 %8, 1
-  store i64 %9, ptr %7, align 8, !tbaa !22
+  store i64 %9, ptr %7, align 8, !tbaa !21
   %10 = ptrtoint ptr %7 to i64
   %11 = xor i64 %10, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %12 = xor i64 %11, %9
@@ -123,9 +123,9 @@ define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFields
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled39should_rehash_for_bug_detection_on_moveEPKNS0_6ctrl_tEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl18container_internal12_GLOBAL__N_110RandomSeedEvE7counter)
-  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = add i64 %5, 1
-  store i64 %6, ptr %4, align 8, !tbaa !22
+  store i64 %6, ptr %4, align 8, !tbaa !21
   %7 = ptrtoint ptr %4 to i64
   %8 = xor i64 %7, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
   %9 = xor i64 %8, %6
@@ -150,9 +150,9 @@ define dso_local noundef zeroext i1 @_ZN4absl18container_internal29ShouldInsertB
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 12
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl18container_internal12_GLOBAL__N_110RandomSeedEvE7counter)
-  %10 = load i64, ptr %9, align 8, !tbaa !22
+  %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8, !tbaa !22
+  store i64 %11, ptr %9, align 8, !tbaa !21
   %12 = ptrtoint ptr %9 to i64
   %13 = xor i64 %6, %12
   %14 = xor i64 %13, %8
@@ -202,11 +202,11 @@ define dso_local void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_
   %23 = add i64 %.sroa.041.061, -1
   %24 = and i64 %23, %.sroa.041.061
   %.not49 = icmp eq i64 %24, 0
-  br i1 %.not49, label %.loopexit, label %.lr.ph63, !llvm.loop !23
+  br i1 %.not49, label %.loopexit, label %.lr.ph63
 
 25:                                               ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !24
+  %27 = load i64, ptr %26, align 8, !tbaa !22
   %.not54 = icmp ult i64 %27, 2
   br i1 %.not54, label %.loopexit, label %.lr.ph59
 
@@ -236,7 +236,7 @@ define dso_local void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_
   %37 = add i64 %29, %36
   %38 = inttoptr i64 %37 to ptr
   %.not = icmp eq i64 %.1.lcssa, 0
-  br i1 %.not, label %.loopexit, label %30, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %30, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.153 = phi i64 [ %44, %.lr.ph ], [ %.03155, %.lr.ph.preheader ]
@@ -251,7 +251,7 @@ define dso_local void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_
   %45 = add i16 %.sroa.035.052, -1
   %46 = and i16 %45, %.sroa.035.052
   %.not48 = icmp eq i16 %46, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph63, %25, %10
   ret void
@@ -260,9 +260,9 @@ define dso_local void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i64 0, 3) i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !24
+  %5 = load i64, ptr %4, align 8, !tbaa !22
   %6 = add i64 %5, 2
-  store i64 %6, ptr %4, align 8, !tbaa !24
+  store i64 %6, ptr %4, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
@@ -270,9 +270,9 @@ define dso_local noundef range(i64 0, 3) i64 @_ZN4absl18container_internal21Prep
   %11 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %12 = and i64 %11, 2
   %13 = getelementptr inbounds i8, ptr %8, i64 -8
-  %14 = load i64, ptr %13, align 8, !tbaa !27
+  %14 = load i64, ptr %13, align 8, !tbaa !24
   %15 = add i64 %14, -1
-  store i64 %15, ptr %13, align 8, !tbaa !27
+  store i64 %15, ptr %13, align 8, !tbaa !24
   %16 = trunc i64 %0 to i8
   %17 = and i8 %16, 127
   %18 = load ptr, ptr %7, align 8, !tbaa !4
@@ -307,14 +307,14 @@ define dso_local void @_ZN4absl18container_internal37ConvertDeletedToEmptyAndFul
   store <2 x i64> %8, ptr %.012, align 1, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %10 = icmp ult ptr %9, %3
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !4, !noalias !30
-  %5 = load i64, ptr %0, align 8, !tbaa !10, !noalias !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !4, !noalias !27
+  %5 = load i64, ptr %0, align 8, !tbaa !10, !noalias !27
   %6 = lshr i64 %1, 7
   %7 = ptrtoint ptr %4 to i64
   %8 = lshr i64 %7, 12
@@ -366,9 +366,9 @@ _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Commo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !24
+  %5 = load i64, ptr %4, align 8, !tbaa !22
   %6 = add i64 %5, -2
-  store i64 %6, ptr %4, align 8, !tbaa !24
+  store i64 %6, ptr %4, align 8, !tbaa !22
   %.val = load i64, ptr %0, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val11 = load ptr, ptr %7, align 8
@@ -409,16 +409,16 @@ _ZN4absl18container_internal12_GLOBAL__N_112WasNeverFullERNS0_12CommonFieldsEm.e
   store i8 -128, ptr %30, align 1, !tbaa !13
   %31 = load ptr, ptr %7, align 8, !tbaa !4
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
-  %33 = load i64, ptr %32, align 8, !tbaa !27
+  %33 = load i64, ptr %32, align 8, !tbaa !24
   %34 = add i64 %33, 1
-  store i64 %34, ptr %32, align 8, !tbaa !27
+  store i64 %34, ptr %32, align 8, !tbaa !24
   br label %45
 
 _ZN4absl18container_internal12_GLOBAL__N_112WasNeverFullERNS0_12CommonFieldsEm.exit.thread13: ; preds = %9, %_ZN4absl18container_internal12_GLOBAL__N_112WasNeverFullERNS0_12CommonFieldsEm.exit
   %35 = getelementptr inbounds i8, ptr %.val11, i64 -8
-  %36 = load i64, ptr %35, align 8, !tbaa !27
+  %36 = load i64, ptr %35, align 8, !tbaa !24
   %37 = or i64 %36, -9223372036854775808
-  store i64 %37, ptr %35, align 8, !tbaa !27
+  store i64 %37, ptr %35, align 8, !tbaa !24
   %38 = load ptr, ptr %7, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %1
   store i8 -2, ptr %39, align 1, !tbaa !13
@@ -437,9 +437,9 @@ _ZN4absl18container_internal12_GLOBAL__N_112WasNeverFullERNS0_12CommonFieldsEm.e
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEPvbb(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !24
+  %7 = load i64, ptr %6, align 8, !tbaa !22
   %8 = and i64 %7, 1
-  store i64 %8, ptr %6, align 8, !tbaa !24
+  store i64 %8, ptr %6, align 8, !tbaa !22
   br i1 %3, label %9, label %23
 
 9:                                                ; preds = %5
@@ -454,23 +454,23 @@ define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12Co
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load i64, ptr %0, align 8, !tbaa !10
   %18 = lshr i64 %17, 3
-  %19 = load i64, ptr %6, align 8, !tbaa !24
+  %19 = load i64, ptr %6, align 8, !tbaa !22
   %20 = lshr i64 %19, 1
   %21 = add nuw i64 %18, %20
   %22 = sub i64 %17, %21
-  store i64 %22, ptr %16, align 8, !tbaa !27
+  store i64 %22, ptr %16, align 8, !tbaa !24
   br label %35
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = load i64, ptr %0, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !4
-  %29 = load i32, ptr %1, align 8, !tbaa !36
+  %29 = load i32, ptr %1, align 8, !tbaa !33
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !37
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = zext i32 %32 to i64
   %34 = icmp ne i64 %8, 0
   tail call void %25(ptr noundef %2, i64 noundef %26, ptr noundef %28, i64 noundef %30, i64 noundef %33, i1 noundef zeroext %34)
@@ -487,7 +487,7 @@ define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12Co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noalias noundef writeonly captures(none) initializes((0, 16)) %1, i64 noundef %2) local_unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !35
   %6 = icmp ult i64 %5, 8
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ne i64 %5, 0
@@ -517,7 +517,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !38
+  %5 = load i64, ptr %4, align 8, !tbaa !35
   %6 = icmp ne i64 %5, 0
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -533,29 +533,29 @@ define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSi
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = load i64, ptr %1, align 8, !tbaa !10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !38, !noalias !41
+  %8 = load i64, ptr %7, align 8, !tbaa !35, !noalias !38
   %9 = icmp ult i64 %8, 8
   tail call void @llvm.assume(i1 %9)
   %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
-  %11 = load ptr, ptr %0, align 8, !tbaa !4, !noalias !41
+  %11 = load ptr, ptr %0, align 8, !tbaa !4, !noalias !38
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %8
-  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !41
+  %.0.copyload.i.i.i = load i64, ptr %12, align 1, !noalias !38
   %13 = xor i64 %.0.copyload.i.i.i, 127
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 -9187201950435737472, ptr %14, align 1, !alias.scope !41
+  store i64 -9187201950435737472, ptr %14, align 1, !alias.scope !38
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 %6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 -9187201950435737472, ptr %16, align 1, !alias.scope !41
-  store i64 %13, ptr %5, align 1, !alias.scope !41
-  store i8 -1, ptr %15, align 1, !tbaa !13, !alias.scope !41
+  store i64 -9187201950435737472, ptr %16, align 1, !alias.scope !38
+  store i64 %13, ptr %5, align 1, !alias.scope !38
+  store i8 -1, ptr %15, align 1, !tbaa !13, !alias.scope !38
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i64 %13, ptr %17, align 1, !alias.scope !41
+  store i64 %13, ptr %17, align 1, !alias.scope !38
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i = load ptr, ptr %18, align 8, !tbaa !4
-  %19 = load i64, ptr %7, align 8, !tbaa !38
+  %19 = load i64, ptr %7, align 8, !tbaa !35
   %20 = icmp ne i64 %19, 0
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -576,15 +576,15 @@ define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper46Insert
   %12 = and i64 %7, %11
   %13 = icmp eq i64 %12, %7
   %14 = select i1 %13, i64 0, i64 %12
-  %15 = load i32, ptr %5, align 8, !tbaa !36
+  %15 = load i32, ptr %5, align 8, !tbaa !33
   %16 = zext i32 %15 to i64
   %17 = mul i64 %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !44
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void %20(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull %21)
-  store ptr %3, ptr %21, align 8, !tbaa !45
+  store ptr %3, ptr %21, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %22, align 8, !tbaa !4
   %23 = load i64, ptr %1, align 8, !tbaa !10
@@ -686,18 +686,18 @@ define dso_local noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load i64, ptr %8, align 8, !tbaa !27
+  %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = icmp sgt i64 %9, 0
-  br i1 %10, label %28, label %11, !prof !46
+  br i1 %10, label %28, label %11, !prof !43
 
 11:                                               ; preds = %5
   %12 = icmp eq i64 %9, 0
-  br i1 %12, label %13, label %21, !prof !46
+  br i1 %12, label %13, label %21, !prof !43
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %0, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !44
   %17 = shl i64 %14, 1
   %18 = or disjoint i64 %17, 1
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %18, i1 noundef zeroext false)
@@ -708,7 +708,7 @@ define dso_local noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooE
 21:                                               ; preds = %11
   %22 = and i64 %9, 9223372036854775807
   %.not38 = icmp eq i64 %22, 0
-  br i1 %.not38, label %25, label %23, !prof !48
+  br i1 %.not38, label %25, label %23, !prof !45
 
 23:                                               ; preds = %21
   %24 = tail call { i64, i64 } @_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1)
@@ -726,18 +726,18 @@ define dso_local noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooE
 28:                                               ; preds = %13, %27, %5
   %.sroa.035.0 = phi i64 [ %20, %13 ], [ %.sroa.035.1, %27 ], [ %2, %5 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !24
+  %30 = load i64, ptr %29, align 8, !tbaa !22
   %31 = add i64 %30, 2
-  store i64 %31, ptr %29, align 8, !tbaa !24
+  store i64 %31, ptr %29, align 8, !tbaa !22
   %32 = load ptr, ptr %6, align 8, !tbaa !4
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.035.0
   %35 = load i8, ptr %34, align 1, !tbaa !13
   %36 = icmp eq i8 %35, -128
   %.neg.i = sext i1 %36 to i64
-  %37 = load i64, ptr %33, align 8, !tbaa !27
+  %37 = load i64, ptr %33, align 8, !tbaa !24
   %38 = add i64 %37, %.neg.i
-  store i64 %38, ptr %33, align 8, !tbaa !27
+  store i64 %38, ptr %33, align 8, !tbaa !24
   %39 = trunc i64 %1 to i8
   %40 = and i8 %39, 127
   %41 = load ptr, ptr %6, align 8, !tbaa !4
@@ -761,7 +761,7 @@ define internal fastcc { i64, i64 } @_ZN4absl18container_internal12_GLOBAL__N_13
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !24
+  %8 = load i64, ptr %7, align 8, !tbaa !22
   %9 = shl i64 %8, 4
   %10 = and i64 %9, -32
   %11 = mul i64 %4, 25
@@ -786,20 +786,20 @@ define internal fastcc { i64, i64 } @_ZN4absl18container_internal12_GLOBAL__N_13
   store <2 x i64> %20, ptr %.012.i.i, align 1, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %22 = icmp ult ptr %21, %16
-  br i1 %22, label %.lr.ph.i.i, label %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit.i, !llvm.loop !29
+  br i1 %22, label %.lr.ph.i.i, label %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit.i, !llvm.loop !26
 
 _ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit.i: ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %23, ptr noundef nonnull align 1 dereferenceable(15) %15, i64 15, i1 false)
   store i8 -1, ptr %16, align 1, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !50
+  %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !44
-  %31 = load i32, ptr %2, align 8, !tbaa !36
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
+  %31 = load i32, ptr %2, align 8, !tbaa !33
   %32 = zext i32 %31 to i64
   br label %.lr.ph.i
 
@@ -816,8 +816,8 @@ _ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_t
 
 35:                                               ; preds = %.lr.ph.i
   %36 = tail call noundef i64 %28(ptr noundef %26, ptr noundef %.088117.i)
-  %37 = load ptr, ptr %14, align 8, !tbaa !4, !noalias !51
-  %38 = load i64, ptr %0, align 8, !tbaa !10, !noalias !51
+  %37 = load ptr, ptr %14, align 8, !tbaa !4, !noalias !48
+  %38 = load i64, ptr %0, align 8, !tbaa !10, !noalias !48
   %39 = lshr i64 %36, 7
   %40 = ptrtoint ptr %37 to i64
   %41 = lshr i64 %40, 12
@@ -864,7 +864,7 @@ _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Commo
   %63 = xor i64 %61, %62
   %.unshifted.i = and i64 %63, %4
   %64 = icmp ult i64 %.unshifted.i, 16
-  br i1 %64, label %65, label %74, !prof !46
+  br i1 %64, label %65, label %74, !prof !43
 
 65:                                               ; preds = %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit.i
   %66 = trunc i64 %36 to i8
@@ -930,7 +930,7 @@ _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Commo
 104:                                              ; preds = %.lr.ph.i104.i
   %105 = add i64 %.0811.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %105, %4
-  br i1 %exitcond.not.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_113FindEmptySlotEmmPKNS0_6ctrl_tE.exit.i, label %.lr.ph.i104.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %_ZN4absl18container_internal12_GLOBAL__N_113FindEmptySlotEmmPKNS0_6ctrl_tE.exit.i, label %.lr.ph.i104.i, !llvm.loop !51
 
 _ZN4absl18container_internal12_GLOBAL__N_113FindEmptySlotEmmPKNS0_6ctrl_tE.exit.i: ; preds = %104, %.lr.ph.i104.i, %99, %97
   %.4.i = phi i64 [ %.090116.i, %97 ], [ -1, %99 ], [ %.0811.i.i, %.lr.ph.i104.i ], [ -1, %104 ]
@@ -957,23 +957,23 @@ _ZN4absl18container_internal12_GLOBAL__N_113FindEmptySlotEmmPKNS0_6ctrl_tE.exit.
   %115 = add i64 %114, %32
   %116 = inttoptr i64 %115 to ptr
   %.not.i = icmp eq i64 %113, %4
-  br i1 %.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_124DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %.not.i, label %_ZN4absl18container_internal12_GLOBAL__N_124DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE.exit, label %.lr.ph.i, !llvm.loop !52
 
 _ZN4absl18container_internal12_GLOBAL__N_124DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE.exit: ; preds = %112
   %117 = load ptr, ptr %14, align 8, !tbaa !4
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
   %119 = load i64, ptr %0, align 8, !tbaa !10
   %120 = lshr i64 %119, 3
-  %121 = load i64, ptr %7, align 8, !tbaa !24
+  %121 = load i64, ptr %7, align 8, !tbaa !22
   %122 = lshr i64 %121, 1
   %123 = add nuw i64 %120, %122
   %124 = sub i64 %119, %123
-  store i64 %124, ptr %118, align 8, !tbaa !27
+  store i64 %124, ptr %118, align 8, !tbaa !24
   br label %130
 
 125:                                              ; preds = %6, %3
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %127 = load ptr, ptr %126, align 8, !tbaa !47
+  %127 = load ptr, ptr %126, align 8, !tbaa !44
   %128 = shl i64 %4, 1
   %129 = or disjoint i64 %128, 1
   tail call void %127(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %129, i1 noundef zeroext false)
@@ -981,8 +981,8 @@ _ZN4absl18container_internal12_GLOBAL__N_124DropDeletesWithoutResizeERNS0_12Comm
 
 130:                                              ; preds = %125, %_ZN4absl18container_internal12_GLOBAL__N_124DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE.exit
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !4, !noalias !56
-  %133 = load i64, ptr %0, align 8, !tbaa !10, !noalias !56
+  %132 = load ptr, ptr %131, align 8, !tbaa !4, !noalias !53
+  %133 = load i64, ptr %0, align 8, !tbaa !10, !noalias !53
   %134 = lshr i64 %1, 7
   %135 = ptrtoint ptr %132 to i64
   %136 = lshr i64 %135, 12
@@ -1112,47 +1112,44 @@ attributes #24 = { nounwind }
 !12 = !{!"long", !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"_ZTSN4absl18container_internal6ctrl_tE", !5, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !12, i64 0}
-!19 = !{!"_ZTSN4absl18container_internal33CommonFieldsGenerationInfoEnabledE", !12, i64 0, !12, i64 8, !20, i64 16}
-!20 = !{!"p1 omnipotent char", !21, i64 0}
-!21 = !{!"any pointer", !5, i64 0}
-!22 = !{!12, !12, i64 0}
-!23 = distinct !{!23, !17}
-!24 = !{!11, !12, i64 8}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !17}
-!27 = !{!28, !12, i64 0}
-!28 = !{!"_ZTSN4absl18container_internal10GrowthInfoE", !12, i64 0}
-!29 = distinct !{!29, !16, !17}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
-!32 = distinct !{!32, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
-!33 = !{!34, !21, i64 40}
-!34 = !{!"_ZTSN4absl18container_internal15PolicyFunctionsE", !35, i64 0, !35, i64 4, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48}
-!35 = !{!"int", !5, i64 0}
-!36 = !{!34, !35, i64 0}
-!37 = !{!34, !35, i64 4}
-!38 = !{!39, !12, i64 16}
-!39 = !{!"_ZTSN4absl18container_internal19HashSetResizeHelperE", !5, i64 0, !12, i64 16, !40, i64 24, !40, i64 25, !40, i64 26, !40, i64 27, !40, i64 28}
-!40 = !{!"bool", !5, i64 0}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm: argument 0"}
-!43 = distinct !{!43, !"_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm"}
-!44 = !{!34, !21, i64 24}
-!45 = !{!21, !21, i64 0}
-!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!47 = !{!34, !21, i64 48}
-!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!49 = !{!34, !21, i64 8}
-!50 = !{!34, !21, i64 16}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
-!53 = distinct !{!53, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
-!54 = distinct !{!54, !16, !17}
-!55 = distinct !{!55, !16, !17}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
-!58 = distinct !{!58, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
+!17 = !{!18, !12, i64 0}
+!18 = !{!"_ZTSN4absl18container_internal33CommonFieldsGenerationInfoEnabledE", !12, i64 0, !12, i64 8, !19, i64 16}
+!19 = !{!"p1 omnipotent char", !20, i64 0}
+!20 = !{!"any pointer", !5, i64 0}
+!21 = !{!12, !12, i64 0}
+!22 = !{!11, !12, i64 8}
+!23 = distinct !{!23, !16}
+!24 = !{!25, !12, i64 0}
+!25 = !{!"_ZTSN4absl18container_internal10GrowthInfoE", !12, i64 0}
+!26 = distinct !{!26, !16}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
+!29 = distinct !{!29, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
+!30 = !{!31, !20, i64 40}
+!31 = !{!"_ZTSN4absl18container_internal15PolicyFunctionsE", !32, i64 0, !32, i64 4, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48}
+!32 = !{!"int", !5, i64 0}
+!33 = !{!31, !32, i64 0}
+!34 = !{!31, !32, i64 4}
+!35 = !{!36, !12, i64 16}
+!36 = !{!"_ZTSN4absl18container_internal19HashSetResizeHelperE", !5, i64 0, !12, i64 16, !37, i64 24, !37, i64 25, !37, i64 26, !37, i64 27, !37, i64 28}
+!37 = !{!"bool", !5, i64 0}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm: argument 0"}
+!40 = distinct !{!40, !"_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm"}
+!41 = !{!31, !20, i64 24}
+!42 = !{!20, !20, i64 0}
+!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!44 = !{!31, !20, i64 48}
+!45 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!46 = !{!31, !20, i64 8}
+!47 = !{!31, !20, i64 16}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
+!50 = distinct !{!50, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
+!51 = distinct !{!51, !16}
+!52 = distinct !{!52, !16}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: argument 0"}
+!55 = distinct !{!55, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}

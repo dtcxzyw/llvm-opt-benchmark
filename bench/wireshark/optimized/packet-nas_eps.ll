@@ -3931,7 +3931,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   %40 = add nuw nsw i32 %.0108142, 1
   %41 = add i32 %.1111141, 2
   %exitcond164.not = icmp eq i32 %40, %.0109
-  br i1 %exitcond164.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond164.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 42:                                               ; preds = %25
   %43 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %26, i32 noundef 6, i1 noundef zeroext true)
@@ -3966,7 +3966,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
 proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
   %59 = add nuw nsw i32 %.1140, 1
   %exitcond163.not = icmp eq i32 %59, %.0109
-  br i1 %exitcond163.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond163.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 60:                                               ; preds = %25
   %61 = mul nuw nsw i32 %.0109, 5
@@ -3989,7 +3989,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
   %68 = add i32 %65, 2
   %69 = add nuw nsw i32 %.2139, 1
   %exitcond.not = icmp eq i32 %69, %.0109
-  br i1 %exitcond.not, label %.loopexit, label %.preheader123, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.preheader123, !llvm.loop !10
 
 default.unreachable165:                           ; preds = %25
   unreachable
@@ -3998,7 +3998,7 @@ default.unreachable165:                           ; preds = %25
   %.2112 = phi i32 [ %46, %42 ], [ %41, %.preheader ], [ %46, %proto_item_set_generated.exit ], [ %68, %.preheader123 ]
   %70 = sub i32 %.2112, %3
   %71 = icmp ult i32 %70, %4
-  br i1 %71, label %.lr.ph147, label %.loopexit125, !llvm.loop !12
+  br i1 %71, label %.lr.ph147, label %.loopexit125, !llvm.loop !11
 
 .loopexit125:                                     ; preds = %.loopexit, %7, %62, %35, %27
   %.0.in = phi i32 [ %4, %27 ], [ %4, %35 ], [ %4, %62 ], [ 0, %7 ], [ %70, %.loopexit ]
@@ -4110,7 +4110,7 @@ define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, p
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %44)
   %45 = sub i32 %.2, %3
   %46 = icmp ult i32 %45, %4
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %42, %7
   %47 = trunc i32 %4 to i16
@@ -4520,7 +4520,7 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
   call void @proto_item_set_len(ptr noundef %104, i32 noundef %105)
   %106 = sub i32 %.2, %3
   %107 = icmp ult i32 %106, %4
-  br i1 %107, label %24, label %._crit_edge, !llvm.loop !14
+  br i1 %107, label %24, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %103, %7
   %108 = trunc i32 %4 to i16
@@ -4591,7 +4591,7 @@ define internal noundef zeroext i16 @de_emm_wus_assist_info(ptr noundef %0, ptr 
   %20 = add i32 %.01618, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   %exitcond.not = icmp eq i32 %.01618, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %7
   %21 = trunc i32 %4 to i16
@@ -5084,7 +5084,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   %79 = add nuw i32 %.0103105, 1
   %80 = load i32, ptr %10, align 4
   %81 = icmp ult i32 %79, %80
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %78, %22
   %.1.lcssa = phi i32 [ %34, %22 ], [ %.2, %78 ]
@@ -5125,7 +5125,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
 
 105:                                              ; preds = %._crit_edge, %100, %93
   %.3 = phi i32 [ %91, %._crit_edge ], [ %99, %93 ], [ %104, %100 ]
-  %106 = load i8, ptr %14, align 1, !range !17, !noundef !18
+  %106 = load i8, ptr %14, align 1, !range !16, !noundef !17
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %108, label %115
 
@@ -5140,7 +5140,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
 
 115:                                              ; preds = %108, %105
   %.4 = phi i32 [ %114, %108 ], [ %.3, %105 ]
-  %116 = load i8, ptr %15, align 1, !range !17, !noundef !18
+  %116 = load i8, ptr %15, align 1, !range !16, !noundef !17
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %125
 
@@ -5158,7 +5158,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   %126 = add i32 %.0104108, 1
   %127 = load i32, ptr %8, align 4
   %.not = icmp ugt i32 %126, %127
-  br i1 %.not, label %._crit_edge112, label %22, !llvm.loop !19
+  br i1 %.not, label %._crit_edge112, label %22, !llvm.loop !18
 
 ._crit_edge112:                                   ; preds = %125, %7
   %128 = trunc i32 %4 to i16
@@ -5597,7 +5597,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader42, label %12, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader42, label %12, !llvm.loop !19
 
 .preheader42:                                     ; preds = %12, %.preheader42
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader42 ], [ 23, %12 ]
@@ -5608,7 +5608,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next62, 33
-  br i1 %exitcond68.not, label %.preheader41, label %.preheader42, !llvm.loop !21
+  br i1 %exitcond68.not, label %.preheader41, label %.preheader42, !llvm.loop !20
 
 .preheader41:                                     ; preds = %.preheader42, %.preheader41
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader41 ], [ 56, %.preheader42 ]
@@ -5619,7 +5619,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next70, 82
-  br i1 %exitcond76.not, label %.preheader40, label %.preheader41, !llvm.loop !22
+  br i1 %exitcond76.not, label %.preheader40, label %.preheader41, !llvm.loop !21
 
 .preheader40:                                     ; preds = %.preheader41, %.preheader40
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader40 ], [ 138, %.preheader41 ]
@@ -5630,7 +5630,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next78, 28
-  br i1 %exitcond84.not, label %.preheader, label %.preheader40, !llvm.loop !23
+  br i1 %exitcond84.not, label %.preheader, label %.preheader40, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader40, %.preheader
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader ], [ 166, %.preheader40 ]
@@ -5641,7 +5641,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next86, 34
-  br i1 %exitcond92.not, label %23, label %.preheader, !llvm.loop !24
+  br i1 %exitcond92.not, label %23, label %.preheader, !llvm.loop !23
 
 23:                                               ; preds = %.preheader
   %24 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.850, ptr noundef nonnull @.str.851, ptr noundef nonnull @.str.852)
@@ -5720,7 +5720,7 @@ define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %93
 
 12:                                               ; preds = %4
-  %13 = load i8, ptr @g_nas_eps_dissect_plain, align 1, !range !17, !noundef !18
+  %13 = load i8, ptr @g_nas_eps_dissect_plain, align 1, !range !16, !noundef !17
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %18
 
@@ -5804,7 +5804,7 @@ define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef
   %60 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %61 = zext i8 %60 to i32
   store i32 %61, ptr %5, align 4
-  %62 = load i8, ptr @g_nas_eps_null_decipher, align 1, !range !17, !noundef !18
+  %62 = load i8, ptr @g_nas_eps_null_decipher, align 1, !range !16, !noundef !17
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %67
 
@@ -10856,22 +10856,21 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

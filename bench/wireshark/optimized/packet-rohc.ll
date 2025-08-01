@@ -1333,7 +1333,7 @@ proto_item_set_generated.exit.i:                  ; preds = %374, %368, %366, %3
   %381 = add nsw i16 %.0157171.i, %380
   %382 = add i32 %319, %378
   %383 = icmp sgt i16 %381, 0
-  br i1 %383, label %311, label %._crit_edge.i, !llvm.loop !11
+  br i1 %383, label %311, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %proto_item_set_generated.exit.i, %289
   %.0.lcssa.i = phi i32 [ %305, %289 ], [ %.1.i, %proto_item_set_generated.exit.i ]
@@ -1352,7 +1352,7 @@ dissect_rohc_feedback_data.exit:                  ; preds = %256, %270, %273, %2
   %390 = zext i8 %.0313 to i32
   %391 = add i32 %.6, %390
   %392 = icmp slt i32 %391, %16
-  br i1 %392, label %138, label %393, !llvm.loop !12
+  br i1 %392, label %138, label %393
 
 393:                                              ; preds = %dissect_rohc_feedback_data.exit
   %394 = load ptr, ptr %.0307.sroa.phi333, align 8
@@ -4021,8 +4021,6 @@ attributes #9 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
+!10 = distinct !{!10, !9}

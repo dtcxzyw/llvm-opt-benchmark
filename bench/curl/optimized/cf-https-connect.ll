@@ -111,20 +111,20 @@ cf_hc_baller_reset.exit.i:                        ; preds = %30, %25
   br i1 %35, label %25, label %._crit_edge.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %cf_hc_baller_reset.exit.i, %.preheader.i
-  store i32 0, ptr %.val, align 8, !tbaa !93
+  store i32 0, ptr %.val, align 8, !tbaa !92
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  store i32 0, ptr %36, align 8, !tbaa !94
+  store i32 0, ptr %36, align 8, !tbaa !93
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 2536
-  %38 = load i32, ptr %37, align 8, !tbaa !95
+  %38 = load i32, ptr %37, align 8, !tbaa !94
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 164
-  store i32 %38, ptr %39, align 4, !tbaa !96
+  store i32 %38, ptr %39, align 4, !tbaa !95
   %40 = lshr i32 %38, 1
   %41 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  store i32 %40, ptr %41, align 8, !tbaa !97
+  store i32 %40, ptr %41, align 8, !tbaa !96
   br label %cf_hc_reset.exit
 
 cf_hc_reset.exit:                                 ; preds = %thread-pre-split, %._crit_edge.i
-  %42 = load ptr, ptr @Curl_cfree, align 8, !tbaa !98
+  %42 = load ptr, ptr @Curl_cfree, align 8, !tbaa !97
   tail call void %42(ptr noundef %4) #4
   ret void
 }
@@ -140,20 +140,20 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %4
-  store i8 1, ptr %3, align 1, !tbaa !99
-  br label %318
+  store i8 1, ptr %3, align 1, !tbaa !98
+  br label %322
 
 11:                                               ; preds = %4
-  store i8 0, ptr %3, align 1, !tbaa !99
+  store i8 0, ptr %3, align 1, !tbaa !98
   %12 = tail call { i64, i32 } @Curl_now() #4
   %13 = extractvalue { i64, i32 } %12, 0
   %14 = extractvalue { i64, i32 } %12, 1
-  %15 = load i32, ptr %6, align 8, !tbaa !93
-  switch i32 %15, label %296 [
+  %15 = load i32, ptr %6, align 8, !tbaa !92
+  switch i32 %15, label %300 [
     i32 0, label %.preheader
     i32 1, label %83
-    i32 3, label %288
-    i32 2, label %293
+    i32 3, label %292
+    i32 2, label %297
   ]
 
 .preheader:                                       ; preds = %11
@@ -193,24 +193,24 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
 
 34:                                               ; preds = %33, %28, %24, %17, %.preheader
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %13, ptr %35, align 8, !tbaa !101
+  store i64 %13, ptr %35, align 8, !tbaa !100
   %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %14, ptr %.sroa.529.0..sroa_idx, align 8, !tbaa !102
+  store i32 %14, ptr %.sroa.529.0..sroa_idx, align 8, !tbaa !101
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !103
+  %37 = load ptr, ptr %36, align 8, !tbaa !102
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1410
-  %39 = load i8, ptr %38, align 2, !tbaa !104
+  %39 = load i8, ptr %38, align 2, !tbaa !103
   %40 = load ptr, ptr %5, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !113
-  store ptr null, ptr %41, align 8, !tbaa !113
+  %42 = load ptr, ptr %41, align 8, !tbaa !112
+  store ptr null, ptr %41, align 8, !tbaa !112
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %44 = tail call { i64, i32 } @Curl_now() #4
   %45 = extractvalue { i64, i32 } %44, 0
   %46 = extractvalue { i64, i32 } %44, 1
-  store i64 %45, ptr %43, align 8, !tbaa !101
+  store i64 %45, ptr %43, align 8, !tbaa !100
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i32 %46, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !102
+  store i32 %46, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !101
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %48 = load i32, ptr %47, align 8, !tbaa !88
   %.not.i = icmp eq i32 %48, 0
@@ -219,27 +219,27 @@ define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2
 49:                                               ; preds = %34
   %50 = zext i8 %39 to i32
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  %52 = load i32, ptr %51, align 4, !tbaa !114
+  %52 = load i32, ptr %51, align 4, !tbaa !113
   %cond.i = icmp eq i32 %52, 32
   %spec.select.i = select i1 %cond.i, i32 5, i32 %50
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !115
+  %54 = load ptr, ptr %53, align 8, !tbaa !114
   %55 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %54, i32 noundef %spec.select.i, i32 noundef 1) #4
   store i32 %55, ptr %47, align 8, !tbaa !88
   br label %cf_hc_baller_init.exit
 
 cf_hc_baller_init.exit:                           ; preds = %34, %49
-  %56 = load ptr, ptr %41, align 8, !tbaa !113
+  %56 = load ptr, ptr %41, align 8, !tbaa !112
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %56, ptr %57, align 8, !tbaa !86
-  store ptr %42, ptr %41, align 8, !tbaa !113
+  store ptr %42, ptr %41, align 8, !tbaa !112
   %58 = load i64, ptr %16, align 8, !tbaa !84
   %59 = icmp ugt i64 %58, 1
   br i1 %59, label %60, label %82
 
 60:                                               ; preds = %cf_hc_baller_init.exit
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %62 = load i32, ptr %61, align 8, !tbaa !97
+  %62 = load i32, ptr %61, align 8, !tbaa !96
   %63 = zext i32 %62 to i64
   tail call void @Curl_expire(ptr noundef %1, i64 noundef %63, i32 noundef 14) #4
   br i1 %.not147, label %82, label %64
@@ -271,12 +271,12 @@ cf_hc_baller_init.exit:                           ; preds = %34, %49
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %75
-  %81 = load i32, ptr %61, align 8, !tbaa !97
+  %81 = load i32, ptr %61, align 8, !tbaa !96
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %81) #4
   br label %82
 
 82:                                               ; preds = %60, %64, %71, %75, %80, %cf_hc_baller_init.exit
-  store i32 1, ptr %6, align 8, !tbaa !93
+  store i32 1, ptr %6, align 8, !tbaa !92
   br label %83
 
 83:                                               ; preds = %82, %11
@@ -294,24 +294,24 @@ cf_hc_baller_is_active.exit:                      ; preds = %83
 
 89:                                               ; preds = %cf_hc_baller_is_active.exit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !113
-  store ptr %86, ptr %90, align 8, !tbaa !113
+  %91 = load ptr, ptr %90, align 8, !tbaa !112
+  store ptr %86, ptr %90, align 8, !tbaa !112
   %92 = tail call i32 @Curl_conn_cf_connect(ptr noundef nonnull %86, ptr noundef %1, i1 noundef zeroext false, ptr noundef nonnull %3) #4
   store i32 %92, ptr %87, align 8, !tbaa !88
-  %93 = load ptr, ptr %90, align 8, !tbaa !113
+  %93 = load ptr, ptr %90, align 8, !tbaa !112
   store ptr %93, ptr %85, align 8, !tbaa !86
-  store ptr %91, ptr %90, align 8, !tbaa !113
+  store ptr %91, ptr %90, align 8, !tbaa !112
   %.not152 = icmp eq i32 %92, 0
   br i1 %.not152, label %94, label %cf_hc_baller_is_active.exit.thread
 
 94:                                               ; preds = %89
-  %95 = load i8, ptr %3, align 1, !tbaa !99, !range !116, !noundef !117
+  %95 = load i8, ptr %3, align 1, !tbaa !98, !range !115, !noundef !116
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %cf_hc_baller_is_active.exit.thread
 
 97:                                               ; preds = %94
   tail call fastcc void @baller_connected(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %84)
-  br label %296
+  br label %300
 
 cf_hc_baller_is_active.exit.thread:               ; preds = %83, %89, %94, %cf_hc_baller_is_active.exit
   %.0126 = phi i32 [ %92, %89 ], [ 0, %94 ], [ 0, %cf_hc_baller_is_active.exit ], [ 0, %83 ]
@@ -366,7 +366,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %83, %89, %94, %cf_h
   br i1 %124, label %125, label %199
 
 125:                                              ; preds = %120
-  %126 = load ptr, ptr %104, align 8, !tbaa !118
+  %126 = load ptr, ptr %104, align 8, !tbaa !117
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i64 noundef 1, ptr noundef %126) #4
   br label %199
 
@@ -377,7 +377,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %83, %89, %94, %cf_h
   %131 = load i32, ptr %130, align 8
   %132 = tail call i64 @Curl_timediff(i64 %13, i32 %14, i64 %129, i32 %131) #4
   %133 = getelementptr inbounds nuw i8, ptr %98, i64 164
-  %134 = load i32, ptr %133, align 4, !tbaa !96
+  %134 = load i32, ptr %133, align 4, !tbaa !95
   %135 = zext i32 %134 to i64
   %.not73.i = icmp slt i64 %132, %135
   br i1 %.not73.i, label %155, label %136
@@ -413,13 +413,13 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %83, %89, %94, %cf_h
   br i1 %152, label %153, label %199
 
 153:                                              ; preds = %148
-  %154 = load ptr, ptr %104, align 8, !tbaa !118
+  %154 = load ptr, ptr %104, align 8, !tbaa !117
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %134, ptr noundef %154) #4
   br label %199
 
 155:                                              ; preds = %127
   %156 = getelementptr inbounds nuw i8, ptr %98, i64 160
-  %157 = load i32, ptr %156, align 8, !tbaa !97
+  %157 = load i32, ptr %156, align 8, !tbaa !96
   %158 = zext i32 %157 to i64
   %.not74.i = icmp slt i64 %132, %158
   br i1 %.not74.i, label %time_to_start_next.exit, label %159
@@ -439,7 +439,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %83, %89, %94, %cf_h
 166:                                              ; preds = %162
   %167 = load ptr, ptr %161, align 8, !tbaa !81
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 112
-  %169 = load ptr, ptr %168, align 8, !tbaa !119
+  %169 = load ptr, ptr %168, align 8, !tbaa !118
   %170 = tail call i32 %169(ptr noundef nonnull %161, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %163, ptr noundef null) #4
   br label %cf_hc_baller_reply_ms.exit.i
 
@@ -480,14 +480,14 @@ cf_hc_baller_reply_ms.exit.i:                     ; preds = %166, %162, %159
   br i1 %190, label %191, label %199
 
 191:                                              ; preds = %186
-  %192 = load i32, ptr %156, align 8, !tbaa !97
-  %193 = load ptr, ptr %103, align 8, !tbaa !118
-  %194 = load ptr, ptr %104, align 8, !tbaa !118
+  %192 = load i32, ptr %156, align 8, !tbaa !96
+  %193 = load ptr, ptr %103, align 8, !tbaa !117
+  %194 = load ptr, ptr %104, align 8, !tbaa !117
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %192, ptr noundef %193, ptr noundef %194) #4
   br label %199
 
 195:                                              ; preds = %cf_hc_baller_reply_ms.exit.i
-  %196 = load i32, ptr %133, align 4, !tbaa !96
+  %196 = load i32, ptr %133, align 4, !tbaa !95
   %197 = zext i32 %196 to i64
   %198 = sub nsw i64 %197, %132
   tail call void @Curl_expire(ptr noundef %1, i64 noundef %198, i32 noundef 14) #4
@@ -495,20 +495,20 @@ cf_hc_baller_reply_ms.exit.i:                     ; preds = %166, %162, %159
 
 199:                                              ; preds = %125, %120, %116, %109, %108, %153, %148, %144, %137, %136, %191, %186, %182, %175, %174
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %201 = load ptr, ptr %200, align 8, !tbaa !103
+  %201 = load ptr, ptr %200, align 8, !tbaa !102
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1410
-  %203 = load i8, ptr %202, align 2, !tbaa !104
+  %203 = load i8, ptr %202, align 2, !tbaa !103
   %204 = load ptr, ptr %5, align 8, !tbaa !3
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %206 = load ptr, ptr %205, align 8, !tbaa !113
-  store ptr null, ptr %205, align 8, !tbaa !113
+  %206 = load ptr, ptr %205, align 8, !tbaa !112
+  store ptr null, ptr %205, align 8, !tbaa !112
   %207 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %208 = tail call { i64, i32 } @Curl_now() #4
   %209 = extractvalue { i64, i32 } %208, 0
   %210 = extractvalue { i64, i32 } %208, 1
-  store i64 %209, ptr %207, align 8, !tbaa !101
+  store i64 %209, ptr %207, align 8, !tbaa !100
   %.sroa.4.0..sroa_idx.i167 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i32 %210, ptr %.sroa.4.0..sroa_idx.i167, align 8, !tbaa !102
+  store i32 %210, ptr %.sroa.4.0..sroa_idx.i167, align 8, !tbaa !101
   %211 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %212 = load i32, ptr %211, align 8, !tbaa !88
   %.not.i168 = icmp eq i32 %212, 0
@@ -517,20 +517,20 @@ cf_hc_baller_reply_ms.exit.i:                     ; preds = %166, %162, %159
 213:                                              ; preds = %199
   %214 = zext i8 %203 to i32
   %215 = getelementptr inbounds nuw i8, ptr %6, i64 140
-  %216 = load i32, ptr %215, align 4, !tbaa !114
+  %216 = load i32, ptr %215, align 4, !tbaa !113
   %cond.i169 = icmp eq i32 %216, 32
   %spec.select.i170 = select i1 %cond.i169, i32 5, i32 %214
   %217 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %218 = load ptr, ptr %217, align 8, !tbaa !115
+  %218 = load ptr, ptr %217, align 8, !tbaa !114
   %219 = tail call i32 @Curl_cf_setup_insert_after(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %218, i32 noundef %spec.select.i170, i32 noundef 1) #4
   store i32 %219, ptr %211, align 8, !tbaa !88
   br label %cf_hc_baller_init.exit171
 
 cf_hc_baller_init.exit171:                        ; preds = %199, %213
-  %220 = load ptr, ptr %205, align 8, !tbaa !113
+  %220 = load ptr, ptr %205, align 8, !tbaa !112
   %221 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %220, ptr %221, align 8, !tbaa !86
-  store ptr %206, ptr %205, align 8, !tbaa !113
+  store ptr %206, ptr %205, align 8, !tbaa !112
   br label %time_to_start_next.exit
 
 time_to_start_next.exit:                          ; preds = %195, %155, %102, %cf_hc_baller_is_active.exit.thread, %cf_hc_baller_init.exit171
@@ -583,7 +583,7 @@ cf_hc_baller_is_active.exit174:                   ; preds = %225
   br i1 %247, label %248, label %250
 
 248:                                              ; preds = %243
-  %249 = load ptr, ptr %226, align 8, !tbaa !118
+  %249 = load ptr, ptr %226, align 8, !tbaa !117
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef %249) #4
   %.pre = load ptr, ptr %227, align 8, !tbaa !86
   br label %250
@@ -591,24 +591,24 @@ cf_hc_baller_is_active.exit174:                   ; preds = %225
 250:                                              ; preds = %248, %243, %239, %232, %231
   %251 = phi ptr [ %.pre, %248 ], [ %228, %243 ], [ %228, %239 ], [ %228, %232 ], [ %228, %231 ]
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %253 = load ptr, ptr %252, align 8, !tbaa !113
-  store ptr %251, ptr %252, align 8, !tbaa !113
+  %253 = load ptr, ptr %252, align 8, !tbaa !112
+  store ptr %251, ptr %252, align 8, !tbaa !112
   %254 = tail call i32 @Curl_conn_cf_connect(ptr noundef %251, ptr noundef %1, i1 noundef zeroext false, ptr noundef nonnull %3) #4
   store i32 %254, ptr %229, align 8, !tbaa !88
-  %255 = load ptr, ptr %252, align 8, !tbaa !113
+  %255 = load ptr, ptr %252, align 8, !tbaa !112
   store ptr %255, ptr %227, align 8, !tbaa !86
-  store ptr %253, ptr %252, align 8, !tbaa !113
+  store ptr %253, ptr %252, align 8, !tbaa !112
   %.not156 = icmp eq i32 %254, 0
   br i1 %.not156, label %256, label %cf_hc_baller_is_active.exit174.threadthread-pre-split
 
 256:                                              ; preds = %250
-  %257 = load i8, ptr %3, align 1, !tbaa !99, !range !116, !noundef !117
+  %257 = load i8, ptr %3, align 1, !tbaa !98, !range !115, !noundef !116
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %cf_hc_baller_is_active.exit174.threadthread-pre-split
 
 259:                                              ; preds = %256
   tail call fastcc void @baller_connected(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %226)
-  br label %296
+  br label %300
 
 cf_hc_baller_is_active.exit174.threadthread-pre-split: ; preds = %cf_hc_baller_is_active.exit174, %256, %250, %225
   %.1.ph = phi i32 [ %.0126, %225 ], [ %.0126, %cf_hc_baller_is_active.exit174 ], [ 0, %256 ], [ %254, %250 ]
@@ -618,150 +618,151 @@ cf_hc_baller_is_active.exit174.threadthread-pre-split: ; preds = %cf_hc_baller_i
 cf_hc_baller_is_active.exit174.thread:            ; preds = %cf_hc_baller_is_active.exit174.threadthread-pre-split, %time_to_start_next.exit
   %260 = phi i64 [ %.pr, %cf_hc_baller_is_active.exit174.threadthread-pre-split ], [ %223, %time_to_start_next.exit ]
   %.1 = phi i32 [ %.1.ph, %cf_hc_baller_is_active.exit174.threadthread-pre-split ], [ %.0126, %time_to_start_next.exit ]
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %.not189 = icmp eq i64 %260, 0
-  br i1 %.not189, label %._crit_edge.thread, label %.lr.ph
+  %.not187 = icmp eq i64 %260, 0
+  br i1 %.not187, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %cf_hc_baller_is_active.exit174.thread, %.lr.ph
-  %.1128178 = phi i64 [ %263, %.lr.ph ], [ 0, %cf_hc_baller_is_active.exit174.thread ]
+  %.1128178 = phi i64 [ %265, %.lr.ph ], [ 0, %cf_hc_baller_is_active.exit174.thread ]
   %.0130177 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %cf_hc_baller_is_active.exit174.thread ]
   %.idx161 = mul nuw nsw i64 %.1128178, 56
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx161
-  %261 = load i32, ptr %gep, align 8, !tbaa !88
-  %.not162 = icmp ne i32 %261, 0
-  %262 = zext i1 %.not162 to i64
-  %spec.select = add i64 %.0130177, %262
-  %263 = add nuw i64 %.1128178, 1
-  %exitcond.not = icmp eq i64 %263, %260
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
+  %261 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx161
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
+  %263 = load i32, ptr %262, align 8, !tbaa !88
+  %.not162 = icmp ne i32 %263, 0
+  %264 = zext i1 %.not162 to i64
+  %spec.select = add i64 %.0130177, %264
+  %265 = add nuw i64 %.1128178, 1
+  %exitcond.not = icmp eq i64 %265, %260
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %264 = icmp eq i64 %spec.select, %260
-  br i1 %264, label %._crit_edge.thread, label %287
+  %266 = icmp eq i64 %spec.select, %260
+  br i1 %266, label %._crit_edge.thread, label %291
 
 ._crit_edge.thread:                               ; preds = %cf_hc_baller_is_active.exit174.thread, %._crit_edge
   %.not157 = icmp eq ptr %1, null
-  br i1 %.not157, label %282, label %265
+  br i1 %.not157, label %284, label %267
 
-265:                                              ; preds = %._crit_edge.thread
-  %266 = getelementptr inbounds nuw i8, ptr %1, i64 2658
-  %267 = load i64, ptr %266, align 2
-  %268 = and i64 %267, 2147483648
-  %.not158 = icmp eq i64 %268, 0
-  br i1 %.not158, label %282, label %269
+267:                                              ; preds = %._crit_edge.thread
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 2658
+  %269 = load i64, ptr %268, align 2
+  %270 = and i64 %269, 2147483648
+  %.not158 = icmp eq i64 %270, 0
+  br i1 %.not158, label %284, label %271
 
-269:                                              ; preds = %265
-  %270 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %271 = load ptr, ptr %270, align 8, !tbaa !12
-  %.not159 = icmp eq ptr %271, null
-  br i1 %.not159, label %276, label %272
+271:                                              ; preds = %267
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 4864
+  %273 = load ptr, ptr %272, align 8, !tbaa !12
+  %.not159 = icmp eq ptr %273, null
+  br i1 %.not159, label %278, label %274
 
-272:                                              ; preds = %269
-  %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  %274 = load i32, ptr %273, align 8, !tbaa !79
-  %275 = icmp sgt i32 %274, 0
-  br i1 %275, label %276, label %282
+274:                                              ; preds = %271
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  %276 = load i32, ptr %275, align 8, !tbaa !79
+  %277 = icmp sgt i32 %276, 0
+  br i1 %277, label %278, label %284
 
-276:                                              ; preds = %269, %272
-  %277 = load ptr, ptr %0, align 8, !tbaa !81
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 12
-  %279 = load i32, ptr %278, align 4, !tbaa !82
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %281, label %282
+278:                                              ; preds = %271, %274
+  %279 = load ptr, ptr %0, align 8, !tbaa !81
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 12
+  %281 = load i32, ptr %280, align 4, !tbaa !82
+  %282 = icmp sgt i32 %281, 0
+  br i1 %282, label %283, label %284
 
-281:                                              ; preds = %276
+283:                                              ; preds = %278
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #4
-  %.pre192 = load i64, ptr %222, align 8, !tbaa !84
-  br label %282
+  %.pre190 = load i64, ptr %222, align 8, !tbaa !84
+  br label %284
 
-282:                                              ; preds = %281, %276, %272, %265, %._crit_edge.thread
-  %283 = phi i64 [ %.pre192, %281 ], [ %260, %276 ], [ %260, %272 ], [ %260, %265 ], [ %260, %._crit_edge.thread ]
-  %.not190 = icmp eq i64 %283, 0
-  br i1 %.not190, label %._crit_edge185, label %.lr.ph184
+284:                                              ; preds = %283, %278, %274, %267, %._crit_edge.thread
+  %285 = phi i64 [ %.pre190, %283 ], [ %260, %278 ], [ %260, %274 ], [ %260, %267 ], [ %260, %._crit_edge.thread ]
+  %.not188 = icmp eq i64 %285, 0
+  br i1 %.not188, label %._crit_edge183, label %.lr.ph182
 
-284:                                              ; preds = %.lr.ph184
-  %285 = add nuw i64 %.2129182, 1
-  %exitcond191.not = icmp eq i64 %285, %283
-  br i1 %exitcond191.not, label %._crit_edge185, label %.lr.ph184, !llvm.loop !121
+286:                                              ; preds = %.lr.ph182
+  %287 = add nuw i64 %.2129180, 1
+  %exitcond189.not = icmp eq i64 %287, %285
+  br i1 %exitcond189.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !120
 
-.lr.ph184:                                        ; preds = %282, %284
-  %.2129182 = phi i64 [ %285, %284 ], [ 0, %282 ]
-  %.idx = mul nuw nsw i64 %.2129182, 56
-  %gep181 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %286 = load i32, ptr %gep181, align 8, !tbaa !88
-  %.not160 = icmp eq i32 %286, 0
-  br i1 %.not160, label %284, label %._crit_edge185
+.lr.ph182:                                        ; preds = %284, %286
+  %.2129180 = phi i64 [ %287, %286 ], [ 0, %284 ]
+  %.idx = mul nuw nsw i64 %.2129180, 56
+  %288 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
+  %290 = load i32, ptr %289, align 8, !tbaa !88
+  %.not160 = icmp eq i32 %290, 0
+  br i1 %.not160, label %286, label %._crit_edge183
 
-._crit_edge185:                                   ; preds = %284, %.lr.ph184, %282
-  %.2 = phi i32 [ %.1, %282 ], [ %286, %.lr.ph184 ], [ %.1, %284 ]
-  store i32 3, ptr %6, align 8, !tbaa !93
-  br label %296
+._crit_edge183:                                   ; preds = %286, %.lr.ph182, %284
+  %.2 = phi i32 [ %.1, %284 ], [ %290, %.lr.ph182 ], [ %.1, %286 ]
+  store i32 3, ptr %6, align 8, !tbaa !92
+  br label %300
 
-287:                                              ; preds = %._crit_edge
-  store i8 0, ptr %3, align 1, !tbaa !99
-  br label %296
+291:                                              ; preds = %._crit_edge
+  store i8 0, ptr %3, align 1, !tbaa !98
+  br label %300
 
-288:                                              ; preds = %11
-  %289 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %290 = load i32, ptr %289, align 8, !tbaa !94
-  %291 = load i8, ptr %7, align 4
-  %292 = and i8 %291, -2
-  store i8 %292, ptr %7, align 4
-  store i8 0, ptr %3, align 1, !tbaa !99
-  br label %296
+292:                                              ; preds = %11
+  %293 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %294 = load i32, ptr %293, align 8, !tbaa !93
+  %295 = load i8, ptr %7, align 4
+  %296 = and i8 %295, -2
+  store i8 %296, ptr %7, align 4
+  store i8 0, ptr %3, align 1, !tbaa !98
+  br label %300
 
-293:                                              ; preds = %11
-  %294 = load i8, ptr %7, align 4
-  %295 = or i8 %294, 1
-  store i8 %295, ptr %7, align 4
-  store i8 1, ptr %3, align 1, !tbaa !99
-  br label %296
+297:                                              ; preds = %11
+  %298 = load i8, ptr %7, align 4
+  %299 = or i8 %298, 1
+  store i8 %299, ptr %7, align 4
+  store i8 1, ptr %3, align 1, !tbaa !98
+  br label %300
 
-296:                                              ; preds = %97, %259, %._crit_edge185, %293, %288, %287, %11
-  %.3 = phi i32 [ 0, %11 ], [ %.2, %._crit_edge185 ], [ 0, %287 ], [ 0, %259 ], [ 0, %97 ], [ %290, %288 ], [ 0, %293 ]
+300:                                              ; preds = %97, %259, %._crit_edge183, %297, %292, %291, %11
+  %.3 = phi i32 [ 0, %11 ], [ %.2, %._crit_edge183 ], [ 0, %291 ], [ 0, %259 ], [ 0, %97 ], [ %294, %292 ], [ 0, %297 ]
   %.not163 = icmp eq ptr %1, null
-  br i1 %.not163, label %318, label %297
+  br i1 %.not163, label %322, label %301
 
-297:                                              ; preds = %296
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 2658
-  %299 = load i64, ptr %298, align 2
-  %300 = and i64 %299, 2147483648
-  %.not164 = icmp eq i64 %300, 0
-  br i1 %.not164, label %318, label %301
+301:                                              ; preds = %300
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 2658
+  %303 = load i64, ptr %302, align 2
+  %304 = and i64 %303, 2147483648
+  %.not164 = icmp eq i64 %304, 0
+  br i1 %.not164, label %322, label %305
 
-301:                                              ; preds = %297
-  %302 = getelementptr inbounds nuw i8, ptr %1, i64 4864
-  %303 = load ptr, ptr %302, align 8, !tbaa !12
-  %.not165 = icmp eq ptr %303, null
-  br i1 %.not165, label %309, label %304
+305:                                              ; preds = %301
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 4864
+  %307 = load ptr, ptr %306, align 8, !tbaa !12
+  %.not165 = icmp eq ptr %307, null
+  br i1 %.not165, label %313, label %308
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  %306 = load i32, ptr %305, align 8, !tbaa !79
-  %307 = icmp sgt i32 %306, 0
-  %308 = icmp ne ptr %0, null
-  %or.cond13 = and i1 %308, %307
-  br i1 %or.cond13, label %310, label %318
+308:                                              ; preds = %305
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  %310 = load i32, ptr %309, align 8, !tbaa !79
+  %311 = icmp sgt i32 %310, 0
+  %312 = icmp ne ptr %0, null
+  %or.cond13 = and i1 %312, %311
+  br i1 %or.cond13, label %314, label %322
 
-309:                                              ; preds = %301
+313:                                              ; preds = %305
   %.old12.not = icmp eq ptr %0, null
-  br i1 %.old12.not, label %318, label %310
+  br i1 %.old12.not, label %322, label %314
 
-310:                                              ; preds = %304, %309
-  %311 = load ptr, ptr %0, align 8, !tbaa !81
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 12
-  %313 = load i32, ptr %312, align 4, !tbaa !82
-  %314 = icmp sgt i32 %313, 0
-  br i1 %314, label %315, label %318
+314:                                              ; preds = %308, %313
+  %315 = load ptr, ptr %0, align 8, !tbaa !81
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 12
+  %317 = load i32, ptr %316, align 4, !tbaa !82
+  %318 = icmp sgt i32 %317, 0
+  br i1 %318, label %319, label %322
 
-315:                                              ; preds = %310
-  %316 = load i8, ptr %3, align 1, !tbaa !99, !range !116, !noundef !117
-  %317 = zext nneg i8 %316 to i32
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.3, i32 noundef %317) #4
-  br label %318
+319:                                              ; preds = %314
+  %320 = load i8, ptr %3, align 1, !tbaa !98, !range !115, !noundef !116
+  %321 = zext nneg i8 %320 to i32
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.3, i32 noundef %321) #4
+  br label %322
 
-318:                                              ; preds = %296, %297, %304, %309, %310, %315, %10
-  %.0 = phi i32 [ 0, %10 ], [ %.3, %315 ], [ %.3, %310 ], [ %.3, %309 ], [ %.3, %304 ], [ %.3, %297 ], [ %.3, %296 ]
+322:                                              ; preds = %300, %301, %308, %313, %314, %319, %10
+  %.0 = phi i32 [ 0, %10 ], [ %.3, %319 ], [ %.3, %314 ], [ %.3, %313 ], [ %.3, %308 ], [ %.3, %301 ], [ %.3, %300 ]
   ret i32 %.0
 }
 
@@ -849,16 +850,16 @@ cf_hc_baller_reset.exit.i:                        ; preds = %32, %27
   br i1 %37, label %27, label %._crit_edge.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %cf_hc_baller_reset.exit.i, %.preheader.i
-  store i32 0, ptr %.val, align 8, !tbaa !93
+  store i32 0, ptr %.val, align 8, !tbaa !92
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  store i32 0, ptr %38, align 8, !tbaa !94
+  store i32 0, ptr %38, align 8, !tbaa !93
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 2536
-  %40 = load i32, ptr %39, align 8, !tbaa !95
+  %40 = load i32, ptr %39, align 8, !tbaa !94
   %41 = getelementptr inbounds nuw i8, ptr %.val, i64 164
-  store i32 %40, ptr %41, align 4, !tbaa !96
+  store i32 %40, ptr %41, align 4, !tbaa !95
   %42 = lshr i32 %40, 1
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 160
-  store i32 %42, ptr %43, align 8, !tbaa !97
+  store i32 %42, ptr %43, align 8, !tbaa !96
   br label %cf_hc_reset.exit
 
 cf_hc_reset.exit:                                 ; preds = %22, %._crit_edge.i
@@ -867,14 +868,14 @@ cf_hc_reset.exit:                                 ; preds = %22, %._crit_edge.i
   %46 = and i8 %45, -2
   store i8 %46, ptr %44, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !113
+  %48 = load ptr, ptr %47, align 8, !tbaa !112
   %.not22 = icmp eq ptr %48, null
   br i1 %.not22, label %53, label %49
 
 49:                                               ; preds = %cf_hc_reset.exit
   %50 = load ptr, ptr %48, align 8, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !122
+  %52 = load ptr, ptr %51, align 8, !tbaa !121
   tail call void %52(ptr noundef nonnull %48, ptr noundef %1) #4
   tail call void @Curl_conn_cf_discard_chain(ptr noundef nonnull %47, ptr noundef %1) #4
   br label %53
@@ -901,7 +902,7 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not70, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader59
-  store i8 1, ptr %2, align 1, !tbaa !99
+  store i8 1, ptr %2, align 1, !tbaa !98
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader59
@@ -909,14 +910,14 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %14
 
 13:                                               ; preds = %3
-  store i8 1, ptr %2, align 1, !tbaa !99
+  store i8 1, ptr %2, align 1, !tbaa !98
   br label %75
 
 14:                                               ; preds = %.lr.ph, %cf_hc_baller_is_active.exit.thread
   %.04660 = phi i64 [ 0, %.lr.ph ], [ %35, %cf_hc_baller_is_active.exit.thread ]
   %15 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %12, i64 0, i64 %.04660
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
-  store i8 0, ptr %4, align 1, !tbaa !99
+  store i8 0, ptr %4, align 1, !tbaa !98
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !86
   %.not.i = icmp eq ptr %17, null
@@ -938,11 +939,11 @@ cf_hc_baller_is_active.exit:                      ; preds = %14
 24:                                               ; preds = %20
   %25 = load ptr, ptr %17, align 8, !tbaa !81
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !123
+  %27 = load ptr, ptr %26, align 8, !tbaa !122
   %28 = call i32 %27(ptr noundef nonnull %17, ptr noundef %1, ptr noundef nonnull %4) #4
   store i32 %28, ptr %18, align 8, !tbaa !88
   %29 = icmp ne i32 %28, 0
-  %30 = load i8, ptr %4, align 1, !range !116
+  %30 = load i8, ptr %4, align 1, !range !115
   %31 = trunc nuw i8 %30 to i1
   %or.cond = select i1 %29, i1 true, i1 %31
   br i1 %or.cond, label %32, label %cf_hc_baller_is_active.exit.thread
@@ -958,56 +959,56 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %32, %24, %cf_h
   %35 = add nuw i64 %.04660, 1
   %36 = load i64, ptr %10, align 8, !tbaa !84
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %14, label %._crit_edge, !llvm.loop !124
+  br i1 %37, label %14, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %cf_hc_baller_is_active.exit.thread
-  store i8 1, ptr %2, align 1, !tbaa !99
+  store i8 1, ptr %2, align 1, !tbaa !98
   %.not71 = icmp eq i64 %36, 0
   br i1 %.not71, label %.loopexit, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %._crit_edge
-  %38 = getelementptr i8, ptr %6, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %39
 
 39:                                               ; preds = %.lr.ph63, %45
   %40 = phi i8 [ 1, %.lr.ph63 ], [ %46, %45 ]
   %.14761 = phi i64 [ 0, %.lr.ph63 ], [ %47, %45 ]
   %.idx56 = mul nuw nsw i64 %.14761, 56
-  %41 = getelementptr i8, ptr %38, i64 %.idx56
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx56
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 1
   %.not57 = icmp eq i8 %43, 0
   br i1 %.not57, label %44, label %45
 
 44:                                               ; preds = %39
-  store i8 0, ptr %2, align 1, !tbaa !99
+  store i8 0, ptr %2, align 1, !tbaa !98
   br label %45
 
 45:                                               ; preds = %39, %44
   %46 = phi i8 [ %40, %39 ], [ 0, %44 ]
   %47 = add nuw i64 %.14761, 1
   %exitcond.not = icmp eq i64 %47, %36
-  br i1 %exitcond.not, label %._crit_edge64, label %39, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge64, label %39, !llvm.loop !124
 
 ._crit_edge64:                                    ; preds = %45
   %48 = trunc nuw i8 %46 to i1
   br i1 %48, label %.lr.ph67, label %.loopexit
 
 .lr.ph67:                                         ; preds = %._crit_edge64
-  %49 = getelementptr i8, ptr %6, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %50
 
 50:                                               ; preds = %.lr.ph67, %50
   %.04566 = phi i32 [ 0, %.lr.ph67 ], [ %spec.select, %50 ]
   %.24865 = phi i64 [ 0, %.lr.ph67 ], [ %53, %50 ]
   %.idx = mul nuw nsw i64 %.24865, 56
-  %51 = getelementptr i8, ptr %49, i64 %.idx
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   %52 = load i32, ptr %51, align 8, !tbaa !88
   %.not55 = icmp eq i32 %52, 0
   %spec.select = select i1 %.not55, i32 %.04566, i32 %52
   %53 = add nuw i64 %.24865, 1
   %exitcond73.not = icmp eq i64 %53, %36
-  br i1 %exitcond73.not, label %.loopexit, label %50, !llvm.loop !126
+  br i1 %exitcond73.not, label %.loopexit, label %50, !llvm.loop !125
 
 .loopexit:                                        ; preds = %50, %._crit_edge.thread, %._crit_edge, %._crit_edge64
   %54 = phi i8 [ %46, %._crit_edge64 ], [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 1, %50 ]
@@ -1103,7 +1104,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %13, %cf_hc_baller_i
   %21 = phi i64 [ %14, %13 ], [ %14, %cf_hc_baller_is_active.exit ], [ %.pre, %20 ]
   %22 = add nuw i64 %.025, 1
   %23 = icmp ult i64 %22, %21
-  br i1 %23, label %13, label %._crit_edge, !llvm.loop !127
+  br i1 %23, label %13, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %cf_hc_baller_is_active.exit.thread, %7
   %.not22 = icmp eq ptr %1, null
@@ -1143,7 +1144,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %13, %cf_hc_baller_i
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %44 = load i32, ptr %43, align 4, !tbaa !128
+  %44 = load i32, ptr %43, align 4, !tbaa !127
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef %44) #4
   br label %45
 
@@ -1163,10 +1164,10 @@ define internal zeroext i1 @cf_hc_data_pending(ptr noundef %0, ptr noundef %1) #
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !113
+  %10 = load ptr, ptr %9, align 8, !tbaa !112
   %11 = load ptr, ptr %10, align 8, !tbaa !81
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !129
+  %13 = load ptr, ptr %12, align 8, !tbaa !128
   %14 = tail call zeroext i1 %13(ptr noundef nonnull %10, ptr noundef %1) #4
   br label %.loopexit
 
@@ -1232,7 +1233,7 @@ define internal zeroext i1 @cf_hc_data_pending(ptr noundef %0, ptr noundef %1) #
 cf_hc_baller_data_pending.exit:                   ; preds = %42
   %45 = load ptr, ptr %41, align 8, !tbaa !81
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !129
+  %47 = load ptr, ptr %46, align 8, !tbaa !128
   %48 = tail call zeroext i1 %47(ptr noundef nonnull %41, ptr noundef %1) #4
   br i1 %48, label %.loopexit, label %cf_hc_baller_data_pending.exit.cf_hc_baller_data_pending.exit.thread_crit_edge
 
@@ -1244,7 +1245,7 @@ cf_hc_baller_data_pending.exit.thread:            ; preds = %cf_hc_baller_data_p
   %49 = phi i64 [ %.pre, %cf_hc_baller_data_pending.exit.cf_hc_baller_data_pending.exit.thread_crit_edge ], [ %38, %37 ], [ %38, %42 ]
   %50 = add nuw i64 %.026, 1
   %51 = icmp ult i64 %50, %49
-  br i1 %51, label %37, label %.loopexit, !llvm.loop !130
+  br i1 %51, label %37, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %cf_hc_baller_data_pending.exit, %cf_hc_baller_data_pending.exit.thread, %33, %8
   %.020 = phi i1 [ %14, %8 ], [ false, %33 ], [ true, %cf_hc_baller_data_pending.exit ], [ false, %cf_hc_baller_data_pending.exit.thread ]
@@ -1300,7 +1301,7 @@ cf_hc_baller_cntrl.exit.thread:                   ; preds = %14, %18, %cf_hc_bal
   %22 = add nuw i64 %.017, 1
   %23 = load i64, ptr %11, align 8, !tbaa !84
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %14, label %.loopexit, !llvm.loop !131
+  br i1 %24, label %14, label %.loopexit, !llvm.loop !130
 
 .loopexit:                                        ; preds = %cf_hc_baller_cntrl.exit, %cf_hc_baller_cntrl.exit.thread, %.preheader, %5
   %.014 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ %21, %cf_hc_baller_cntrl.exit ], [ 0, %cf_hc_baller_cntrl.exit.thread ]
@@ -1348,7 +1349,7 @@ define internal i32 @cf_hc_query(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not5.i, label %cf_get_max_baller_time.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
-  %20 = getelementptr i8, ptr %9, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %22
 
@@ -1357,7 +1358,7 @@ define internal i32 @cf_hc_query(ptr noundef readonly captures(none) %0, ptr nou
   %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %39 ]
   %.sroa.4.01.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.4.1.i, %39 ]
   %.idx.i = mul nuw nsw i64 %.02.i, 56
-  %23 = getelementptr i8, ptr %20, i64 %.idx.i
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
   %24 = load ptr, ptr %23, align 8, !tbaa !86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %.not.i = icmp eq ptr %24, null
@@ -1366,13 +1367,13 @@ define internal i32 @cf_hc_query(ptr noundef readonly captures(none) %0, ptr nou
 25:                                               ; preds = %22
   %26 = load ptr, ptr %24, align 8, !tbaa !81
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !119
+  %28 = load ptr, ptr %27, align 8, !tbaa !118
   %29 = call i32 %28(ptr noundef nonnull %24, ptr noundef %1, i32 noundef 4, ptr noundef null, ptr noundef nonnull %7) #4
   %.not15.i = icmp eq i32 %29, 0
   br i1 %.not15.i, label %30, label %39
 
 30:                                               ; preds = %25
-  %31 = load i64, ptr %7, align 8, !tbaa !132
+  %31 = load i64, ptr %7, align 8, !tbaa !131
   %32 = icmp ne i64 %31, 0
   %33 = load i32, ptr %21, align 8
   %34 = icmp ne i32 %33, 0
@@ -1385,8 +1386,8 @@ define internal i32 @cf_hc_query(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
-  %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !101
-  %.sroa.4.0.copyload.i = load i32, ptr %21, align 8, !tbaa !102
+  %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !100
+  %.sroa.4.0.copyload.i = load i32, ptr %21, align 8, !tbaa !101
   br label %39
 
 39:                                               ; preds = %38, %35, %30, %25, %22
@@ -1395,15 +1396,15 @@ define internal i32 @cf_hc_query(ptr noundef readonly captures(none) %0, ptr nou
   %40 = add nuw i64 %.02.i, 1
   %41 = load i64, ptr %18, align 8, !tbaa !84
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %22, label %cf_get_max_baller_time.exit, !llvm.loop !133
+  br i1 %42, label %22, label %cf_get_max_baller_time.exit, !llvm.loop !132
 
 cf_get_max_baller_time.exit:                      ; preds = %39, %17
   %.sroa.4.0.lcssa.i = phi i32 [ 0, %17 ], [ %.sroa.4.1.i, %39 ]
   %.sroa.0.0.lcssa.i = phi i64 [ 0, %17 ], [ %.sroa.0.1.i, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  store i64 %.sroa.0.0.lcssa.i, ptr %4, align 8, !tbaa !101
+  store i64 %.sroa.0.0.lcssa.i, ptr %4, align 8, !tbaa !100
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sroa.4.0.lcssa.i, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !102
+  store i32 %.sroa.4.0.lcssa.i, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !101
   br label %89
 
 43:                                               ; preds = %13
@@ -1414,7 +1415,7 @@ cf_get_max_baller_time.exit:                      ; preds = %39, %17
   br i1 %.not5.i32, label %cf_get_max_baller_time.exit49, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %43
-  %46 = getelementptr i8, ptr %9, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %48
 
@@ -1423,7 +1424,7 @@ cf_get_max_baller_time.exit:                      ; preds = %39, %17
   %.02.i35 = phi i64 [ 0, %.lr.ph.i33 ], [ %66, %65 ]
   %.sroa.4.01.i36 = phi i32 [ 0, %.lr.ph.i33 ], [ %.sroa.4.1.i40, %65 ]
   %.idx.i37 = mul nuw nsw i64 %.02.i35, 56
-  %49 = getelementptr i8, ptr %46, i64 %.idx.i37
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i37
   %50 = load ptr, ptr %49, align 8, !tbaa !86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %.not.i38 = icmp eq ptr %50, null
@@ -1432,13 +1433,13 @@ cf_get_max_baller_time.exit:                      ; preds = %39, %17
 51:                                               ; preds = %48
   %52 = load ptr, ptr %50, align 8, !tbaa !81
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
-  %54 = load ptr, ptr %53, align 8, !tbaa !119
+  %54 = load ptr, ptr %53, align 8, !tbaa !118
   %55 = call i32 %54(ptr noundef nonnull %50, ptr noundef %1, i32 noundef 5, ptr noundef null, ptr noundef nonnull %6) #4
   %.not15.i39 = icmp eq i32 %55, 0
   br i1 %.not15.i39, label %56, label %65
 
 56:                                               ; preds = %51
-  %57 = load i64, ptr %6, align 8, !tbaa !132
+  %57 = load i64, ptr %6, align 8, !tbaa !131
   %58 = icmp ne i64 %57, 0
   %59 = load i32, ptr %47, align 8
   %60 = icmp ne i32 %59, 0
@@ -1451,8 +1452,8 @@ cf_get_max_baller_time.exit:                      ; preds = %39, %17
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %61
-  %.sroa.0.0.copyload.i47 = load i64, ptr %6, align 8, !tbaa !101
-  %.sroa.4.0.copyload.i48 = load i32, ptr %47, align 8, !tbaa !102
+  %.sroa.0.0.copyload.i47 = load i64, ptr %6, align 8, !tbaa !100
+  %.sroa.4.0.copyload.i48 = load i32, ptr %47, align 8, !tbaa !101
   br label %65
 
 65:                                               ; preds = %64, %61, %56, %51, %48
@@ -1461,15 +1462,15 @@ cf_get_max_baller_time.exit:                      ; preds = %39, %17
   %66 = add nuw i64 %.02.i35, 1
   %67 = load i64, ptr %44, align 8, !tbaa !84
   %68 = icmp ult i64 %66, %67
-  br i1 %68, label %48, label %cf_get_max_baller_time.exit49, !llvm.loop !133
+  br i1 %68, label %48, label %cf_get_max_baller_time.exit49, !llvm.loop !132
 
 cf_get_max_baller_time.exit49:                    ; preds = %65, %43
   %.sroa.4.0.lcssa.i42 = phi i32 [ 0, %43 ], [ %.sroa.4.1.i40, %65 ]
   %.sroa.0.0.lcssa.i43 = phi i64 [ 0, %43 ], [ %.sroa.0.1.i41, %65 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
-  store i64 %.sroa.0.0.lcssa.i43, ptr %4, align 8, !tbaa !101
+  store i64 %.sroa.0.0.lcssa.i43, ptr %4, align 8, !tbaa !100
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sroa.4.0.lcssa.i42, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !102
+  store i32 %.sroa.4.0.lcssa.i42, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !101
   br label %89
 
 69:                                               ; preds = %.lr.ph, %cf_hc_baller_needs_flush.exit.thread
@@ -1496,25 +1497,25 @@ cf_hc_baller_needs_flush.exit.cf_hc_baller_needs_flush.exit.thread_crit_edge: ; 
   br label %cf_hc_baller_needs_flush.exit.thread
 
 78:                                               ; preds = %cf_hc_baller_needs_flush.exit
-  store i32 1, ptr %3, align 4, !tbaa !102
+  store i32 1, ptr %3, align 4, !tbaa !101
   br label %89
 
 cf_hc_baller_needs_flush.exit.thread:             ; preds = %cf_hc_baller_needs_flush.exit.cf_hc_baller_needs_flush.exit.thread_crit_edge, %69, %74
   %79 = phi i64 [ %.pre, %cf_hc_baller_needs_flush.exit.cf_hc_baller_needs_flush.exit.thread_crit_edge ], [ %70, %69 ], [ %70, %74 ]
   %80 = add nuw i64 %.02851, 1
   %81 = icmp ult i64 %80, %79
-  br i1 %81, label %69, label %.loopexit, !llvm.loop !134
+  br i1 %81, label %69, label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %cf_hc_baller_needs_flush.exit.thread, %.preheader, %13, %5
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !113
+  %83 = load ptr, ptr %82, align 8, !tbaa !112
   %.not30 = icmp eq ptr %83, null
   br i1 %.not30, label %89, label %84
 
 84:                                               ; preds = %.loopexit
   %85 = load ptr, ptr %83, align 8, !tbaa !81
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 112
-  %87 = load ptr, ptr %86, align 8, !tbaa !119
+  %87 = load ptr, ptr %86, align 8, !tbaa !118
   %88 = tail call i32 %87(ptr noundef nonnull %83, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #4
   br label %89
 
@@ -1537,7 +1538,7 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 5032
-  %12 = load i8, ptr %11, align 8, !tbaa !135
+  %12 = load i8, ptr %11, align 8, !tbaa !134
   switch i8 %12, label %24 [
     i8 0, label %13
     i8 31, label %14
@@ -1550,7 +1551,7 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
   ]
 
 13:                                               ; preds = %10
-  store i32 16, ptr %6, align 4, !tbaa !102
+  store i32 16, ptr %6, align 4, !tbaa !101
   br label %25
 
 14:                                               ; preds = %10
@@ -1559,7 +1560,7 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not25, label %16, label %cf_http_connect_add.exit
 
 16:                                               ; preds = %14
-  store i32 32, ptr %6, align 4, !tbaa !102
+  store i32 32, ptr %6, align 4, !tbaa !101
   br label %25
 
 17:                                               ; preds = %10
@@ -1568,39 +1569,39 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  store i32 32, ptr %6, align 4, !tbaa !102
+  store i32 32, ptr %6, align 4, !tbaa !101
   br label %21
 
 21:                                               ; preds = %20, %17
   %.122.sroa.phi = phi ptr [ %.122.sroa.gep, %20 ], [ %6, %17 ]
   %.122 = phi i64 [ 2, %20 ], [ 1, %17 ]
-  store i32 16, ptr %.122.sroa.phi, align 4, !tbaa !102
+  store i32 16, ptr %.122.sroa.phi, align 4, !tbaa !101
   br label %25
 
 22:                                               ; preds = %10, %10, %10
-  store i32 16, ptr %6, align 4, !tbaa !102
+  store i32 16, ptr %6, align 4, !tbaa !101
   br label %25
 
 23:                                               ; preds = %10, %10
-  store i32 8, ptr %6, align 4, !tbaa !102
+  store i32 8, ptr %6, align 4, !tbaa !101
   br label %25
 
 24:                                               ; preds = %10
-  store i32 16, ptr %6, align 4, !tbaa !102
+  store i32 16, ptr %6, align 4, !tbaa !101
   br label %25
 
 25:                                               ; preds = %24, %13, %16, %21, %22, %23
   %.021.ph = phi i64 [ 1, %23 ], [ 1, %22 ], [ %.122, %21 ], [ 1, %16 ], [ 1, %13 ], [ 1, %24 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !136
-  %26 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !98
+  store ptr null, ptr %5, align 8, !tbaa !135
+  %26 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !97
   %27 = tail call ptr %26(i64 noundef 1, i64 noundef 168) #4
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %cf_hc_create.exit.i, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %3, ptr %29, align 8, !tbaa !115
+  store ptr %3, ptr %29, align 8, !tbaa !114
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
   br label %33
 
@@ -1610,16 +1611,16 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 140
-  store i32 0, ptr %32, align 4, !tbaa !114
+  store i32 0, ptr %32, align 4, !tbaa !113
   br label %._crit_edge.i.i
 
 33:                                               ; preds = %cf_hc_baller_assign.exit.i.i, %28
   %.060.i.i = phi i64 [ 0, %28 ], [ %43, %cf_hc_baller_assign.exit.i.i ]
   %34 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %30, i64 0, i64 %.060.i.i
   %35 = getelementptr inbounds nuw i32, ptr %6, i64 %.060.i.i
-  %36 = load i32, ptr %35, align 4, !tbaa !102
+  %36 = load i32, ptr %35, align 4, !tbaa !101
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 44
-  store i32 %36, ptr %37, align 4, !tbaa !114
+  store i32 %36, ptr %37, align 4, !tbaa !113
   switch i32 %36, label %41 [
     i32 32, label %38
     i32 16, label %39
@@ -1627,15 +1628,15 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
   ]
 
 38:                                               ; preds = %33
-  store ptr @.str.18, ptr %34, align 8, !tbaa !118
+  store ptr @.str.18, ptr %34, align 8, !tbaa !117
   br label %cf_hc_baller_assign.exit.i.i
 
 39:                                               ; preds = %33
-  store ptr @.str.19, ptr %34, align 8, !tbaa !118
+  store ptr @.str.19, ptr %34, align 8, !tbaa !117
   br label %cf_hc_baller_assign.exit.i.i
 
 40:                                               ; preds = %33
-  store ptr @.str.20, ptr %34, align 8, !tbaa !118
+  store ptr @.str.20, ptr %34, align 8, !tbaa !117
   br label %cf_hc_baller_assign.exit.i.i
 
 41:                                               ; preds = %33
@@ -1646,7 +1647,7 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
 cf_hc_baller_assign.exit.i.i:                     ; preds = %41, %40, %39, %38
   %43 = add nuw nsw i64 %.060.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %43, %.021.ph
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %33, !llvm.loop !137
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %33, !llvm.loop !136
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 152
@@ -1678,7 +1679,7 @@ cf_hc_baller_assign.exit.i.i:                     ; preds = %41, %40, %39, %38
   br i1 %or.cond3.i.i, label %60, label %68
 
 59:                                               ; preds = %50
-  %.old.i.i = load ptr, ptr %5, align 8, !tbaa !136
+  %.old.i.i = load ptr, ptr %5, align 8, !tbaa !135
   %.old2.not.i.i = icmp eq ptr %.old.i.i, null
   br i1 %.old2.not.i.i, label %68, label %60
 
@@ -1700,7 +1701,7 @@ cf_hc_baller_assign.exit.i.i:                     ; preds = %41, %40, %39, %38
   br i1 %.not50.i.i, label %69, label %cf_hc_create.exit.i
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr %5, align 8, !tbaa !136
+  %70 = load ptr, ptr %5, align 8, !tbaa !135
   %71 = getelementptr i8, ptr %70, i64 16
   %.val.i.i = load ptr, ptr %71, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %.val.i.i, null
@@ -1743,29 +1744,29 @@ cf_hc_baller_reset.exit.i.i.i:                    ; preds = %80, %75
   br i1 %85, label %75, label %._crit_edge.i.i.i, !llvm.loop !90
 
 ._crit_edge.i.i.i:                                ; preds = %cf_hc_baller_reset.exit.i.i.i, %.preheader.i.i.i
-  store i32 0, ptr %.val.i.i, align 8, !tbaa !93
+  store i32 0, ptr %.val.i.i, align 8, !tbaa !92
   %86 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
-  store i32 0, ptr %86, align 8, !tbaa !94
+  store i32 0, ptr %86, align 8, !tbaa !93
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 2536
-  %88 = load i32, ptr %87, align 8, !tbaa !95
+  %88 = load i32, ptr %87, align 8, !tbaa !94
   %89 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 164
-  store i32 %88, ptr %89, align 4, !tbaa !96
+  store i32 %88, ptr %89, align 4, !tbaa !95
   %90 = lshr i32 %88, 1
   %91 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 160
-  store i32 %90, ptr %91, align 8, !tbaa !97
+  store i32 %90, ptr %91, align 8, !tbaa !96
   %.pre.i.i = load ptr, ptr %5, align 8
   br label %93
 
 cf_hc_create.exit.i:                              ; preds = %68, %25
   %.03758.i.i = phi i32 [ %45, %68 ], [ 27, %25 ]
-  %92 = load ptr, ptr @Curl_cfree, align 8, !tbaa !98
+  %92 = load ptr, ptr @Curl_cfree, align 8, !tbaa !97
   call void %92(ptr noundef %27) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   br label %cf_http_connect_add.exit
 
 93:                                               ; preds = %._crit_edge.i.i.i, %69
   %.ph.i = phi ptr [ %.pre.i.i, %._crit_edge.i.i.i ], [ %70, %69 ]
-  %94 = load ptr, ptr @Curl_cfree, align 8, !tbaa !98
+  %94 = load ptr, ptr @Curl_cfree, align 8, !tbaa !97
   call void %94(ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @Curl_conn_cf_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.ph.i) #4
@@ -1842,7 +1843,7 @@ cf_hc_baller_reset.exit:                          ; preds = %12, %15
   %19 = phi i64 [ %10, %9 ], [ %.pre, %cf_hc_baller_reset.exit ]
   %20 = add nuw i64 %.058, 1
   %21 = icmp ult i64 %20, %19
-  br i1 %21, label %9, label %._crit_edge, !llvm.loop !138
+  br i1 %21, label %9, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %18, %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1859,7 +1860,7 @@ cf_hc_baller_reset.exit:                          ; preds = %12, %15
 28:                                               ; preds = %24
   %29 = load ptr, ptr %23, align 8, !tbaa !81
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  %31 = load ptr, ptr %30, align 8, !tbaa !119
+  %31 = load ptr, ptr %30, align 8, !tbaa !118
   %32 = tail call i32 %31(ptr noundef nonnull %23, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %25, ptr noundef null) #4
   br label %cf_hc_baller_reply_ms.exit
 
@@ -1906,7 +1907,7 @@ cf_hc_baller_reply_ms.exit:                       ; preds = %._crit_edge, %24, %
   br i1 %54, label %55, label %96
 
 55:                                               ; preds = %50
-  %56 = load ptr, ptr %2, align 8, !tbaa !118
+  %56 = load ptr, ptr %2, align 8, !tbaa !117
   %57 = tail call { i64, i32 } @Curl_now() #4
   %58 = extractvalue { i64, i32 } %57, 0
   %59 = extractvalue { i64, i32 } %57, 1
@@ -1955,7 +1956,7 @@ cf_hc_baller_reply_ms.exit:                       ; preds = %._crit_edge, %24, %
   br i1 %84, label %85, label %96
 
 85:                                               ; preds = %80
-  %86 = load ptr, ptr %2, align 8, !tbaa !118
+  %86 = load ptr, ptr %2, align 8, !tbaa !117
   %87 = tail call { i64, i32 } @Curl_now() #4
   %88 = extractvalue { i64, i32 } %87, 0
   %89 = extractvalue { i64, i32 } %87, 1
@@ -1971,9 +1972,9 @@ cf_hc_baller_reply_ms.exit:                       ; preds = %._crit_edge, %24, %
 96:                                               ; preds = %66, %67, %74, %79, %80, %85, %36, %37, %44, %49, %50, %55
   %97 = load ptr, ptr %22, align 8, !tbaa !86
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %97, ptr %98, align 8, !tbaa !113
+  store ptr %97, ptr %98, align 8, !tbaa !112
   store ptr null, ptr %22, align 8, !tbaa !86
-  store i32 2, ptr %5, align 8, !tbaa !93
+  store i32 2, ptr %5, align 8, !tbaa !92
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %100 = load i8, ptr %99, align 4
   %101 = or i8 %100, 1
@@ -2100,52 +2101,51 @@ attributes #4 = { nounwind }
 !87 = !{!"cf_hc_baller", !33, i64 0, !9, i64 8, !11, i64 16, !27, i64 24, !11, i64 40, !11, i64 44, !11, i64 48}
 !88 = !{!87, !11, i64 16}
 !89 = !{!87, !11, i64 40}
-!90 = distinct !{!90, !91, !92}
+!90 = distinct !{!90, !91}
 !91 = !{!"llvm.loop.mustprogress"}
-!92 = !{!"llvm.loop.estimated_trip_count"}
-!93 = !{!85, !11, i64 0}
-!94 = !{!85, !11, i64 32}
-!95 = !{!13, !11, i64 2536}
-!96 = !{!85, !11, i64 164}
-!97 = !{!85, !11, i64 160}
-!98 = !{!6, !6, i64 0}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"_Bool", !7, i64 0}
-!101 = !{!14, !14, i64 0}
-!102 = !{!11, !11, i64 0}
-!103 = !{!4, !10, i64 24}
-!104 = !{!105, !7, i64 1410}
-!105 = !{!"connectdata", !15, i64 0, !6, i64 32, !6, i64 40, !14, i64 48, !33, i64 56, !14, i64 64, !63, i64 72, !106, i64 80, !107, i64 88, !33, i64 120, !33, i64 128, !107, i64 136, !108, i64 168, !108, i64 224, !75, i64 280, !75, i64 380, !33, i64 480, !33, i64 488, !33, i64 496, !33, i64 504, !33, i64 512, !27, i64 520, !27, i64 536, !27, i64 552, !7, i64 568, !7, i64 576, !7, i64 592, !7, i64 608, !109, i64 624, !20, i64 664, !46, i64 696, !46, i64 824, !110, i64 952, !111, i64 960, !111, i64 968, !27, i64 976, !11, i64 992, !11, i64 996, !67, i64 1000, !11, i64 1032, !11, i64 1036, !112, i64 1040, !112, i64 1064, !7, i64 1088, !33, i64 1368, !33, i64 1376, !48, i64 1384, !11, i64 1388, !11, i64 1392, !11, i64 1396, !11, i64 1400, !48, i64 1404, !48, i64 1406, !7, i64 1408, !7, i64 1409, !7, i64 1410, !7, i64 1411, !7, i64 1412, !7, i64 1413, !7, i64 1414}
-!106 = !{!"p1 _ZTS16Curl_sockaddr_ex", !6, i64 0}
-!107 = !{!"hostname", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24}
-!108 = !{!"proxy_info", !107, i64 0, !11, i64 32, !7, i64 36, !33, i64 40, !33, i64 48}
-!109 = !{!"", !7, i64 0, !11, i64 32}
-!110 = !{!"ConnectBits", !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 4, !11, i64 4}
-!111 = !{!"p1 _ZTS12Curl_handler", !6, i64 0}
-!112 = !{!"ntlmdata", !11, i64 0, !7, i64 4, !11, i64 12, !6, i64 16}
-!113 = !{!4, !9, i64 8}
-!114 = !{!87, !11, i64 44}
-!115 = !{!85, !63, i64 8}
-!116 = !{i8 0, i8 2}
-!117 = !{}
-!118 = !{!87, !33, i64 0}
-!119 = !{!83, !6, i64 112}
-!120 = distinct !{!120, !91, !92}
-!121 = distinct !{!121, !91, !92}
-!122 = !{!83, !6, i64 32}
-!123 = !{!83, !6, i64 40}
-!124 = distinct !{!124, !91, !92}
-!125 = distinct !{!125, !91, !92}
-!126 = distinct !{!126, !91, !92}
-!127 = distinct !{!127, !91, !92}
-!128 = !{!20, !11, i64 20}
-!129 = !{!83, !6, i64 64}
-!130 = distinct !{!130, !91, !92}
-!131 = distinct !{!131, !91, !92}
-!132 = !{!27, !14, i64 0}
-!133 = distinct !{!133, !91, !92}
-!134 = distinct !{!134, !91, !92}
-!135 = !{!13, !7, i64 5032}
-!136 = !{!9, !9, i64 0}
-!137 = distinct !{!137, !91, !92}
-!138 = distinct !{!138, !91, !92}
+!92 = !{!85, !11, i64 0}
+!93 = !{!85, !11, i64 32}
+!94 = !{!13, !11, i64 2536}
+!95 = !{!85, !11, i64 164}
+!96 = !{!85, !11, i64 160}
+!97 = !{!6, !6, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"_Bool", !7, i64 0}
+!100 = !{!14, !14, i64 0}
+!101 = !{!11, !11, i64 0}
+!102 = !{!4, !10, i64 24}
+!103 = !{!104, !7, i64 1410}
+!104 = !{!"connectdata", !15, i64 0, !6, i64 32, !6, i64 40, !14, i64 48, !33, i64 56, !14, i64 64, !63, i64 72, !105, i64 80, !106, i64 88, !33, i64 120, !33, i64 128, !106, i64 136, !107, i64 168, !107, i64 224, !75, i64 280, !75, i64 380, !33, i64 480, !33, i64 488, !33, i64 496, !33, i64 504, !33, i64 512, !27, i64 520, !27, i64 536, !27, i64 552, !7, i64 568, !7, i64 576, !7, i64 592, !7, i64 608, !108, i64 624, !20, i64 664, !46, i64 696, !46, i64 824, !109, i64 952, !110, i64 960, !110, i64 968, !27, i64 976, !11, i64 992, !11, i64 996, !67, i64 1000, !11, i64 1032, !11, i64 1036, !111, i64 1040, !111, i64 1064, !7, i64 1088, !33, i64 1368, !33, i64 1376, !48, i64 1384, !11, i64 1388, !11, i64 1392, !11, i64 1396, !11, i64 1400, !48, i64 1404, !48, i64 1406, !7, i64 1408, !7, i64 1409, !7, i64 1410, !7, i64 1411, !7, i64 1412, !7, i64 1413, !7, i64 1414}
+!105 = !{!"p1 _ZTS16Curl_sockaddr_ex", !6, i64 0}
+!106 = !{!"hostname", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24}
+!107 = !{!"proxy_info", !106, i64 0, !11, i64 32, !7, i64 36, !33, i64 40, !33, i64 48}
+!108 = !{!"", !7, i64 0, !11, i64 32}
+!109 = !{!"ConnectBits", !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 0, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 1, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 2, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 3, !11, i64 4, !11, i64 4}
+!110 = !{!"p1 _ZTS12Curl_handler", !6, i64 0}
+!111 = !{!"ntlmdata", !11, i64 0, !7, i64 4, !11, i64 12, !6, i64 16}
+!112 = !{!4, !9, i64 8}
+!113 = !{!87, !11, i64 44}
+!114 = !{!85, !63, i64 8}
+!115 = !{i8 0, i8 2}
+!116 = !{}
+!117 = !{!87, !33, i64 0}
+!118 = !{!83, !6, i64 112}
+!119 = distinct !{!119, !91}
+!120 = distinct !{!120, !91}
+!121 = !{!83, !6, i64 32}
+!122 = !{!83, !6, i64 40}
+!123 = distinct !{!123, !91}
+!124 = distinct !{!124, !91}
+!125 = distinct !{!125, !91}
+!126 = distinct !{!126, !91}
+!127 = !{!20, !11, i64 20}
+!128 = !{!83, !6, i64 64}
+!129 = distinct !{!129, !91}
+!130 = distinct !{!130, !91}
+!131 = !{!27, !14, i64 0}
+!132 = distinct !{!132, !91}
+!133 = distinct !{!133, !91}
+!134 = !{!13, !7, i64 5032}
+!135 = !{!9, !9, i64 0}
+!136 = distinct !{!136, !91}
+!137 = distinct !{!137, !91}

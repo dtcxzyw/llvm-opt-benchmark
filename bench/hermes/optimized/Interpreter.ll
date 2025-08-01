@@ -275,7 +275,7 @@ entry:
   br i1 %or.cond, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %invariant.gep = getelementptr i8, ptr %retval.sroa.0.0.copyload.i, i64 -64
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 -56
   %1 = ptrtoint ptr %runtime to i64
   %level_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %effectiveEnd_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
@@ -287,8 +287,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %argIndex.012 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit ]
   %conv.i = sext i32 %argIndex.012 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i
-  %agg.tmp12.sroa.0.0.copyload = load i64, ptr %gep, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  %agg.tmp12.sroa.0.0.copyload = load i64, ptr %incdec.ptr.i.i.i, align 8
   %shr.i.i = ashr i64 %agg.tmp12.sroa.0.0.copyload, 47
   switch i64 %shr.i.i, label %sw.default.i [
     i64 -14, label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
@@ -923,17 +924,17 @@ if.end13:                                         ; preds = %if.end
   %9 = load ptr, ptr %functionPtr_, align 8
   %context_ = getelementptr inbounds nuw i8, ptr %self, i64 24
   %10 = load ptr, ptr %context_, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -56
   %arrayidx.i.i1.i = getelementptr inbounds i8, ptr %1, i64 -32
-  %11 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !7
+  %11 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !6
   %conv.i.i.i = trunc i64 %11 to i32
   %arrayidx.i.i16 = getelementptr inbounds i8, ptr %1, i64 -40
-  store ptr %arrayidx.i.i.i, ptr %agg.tmp14, align 8, !alias.scope !7
+  store ptr %arrayidx.i.i.i, ptr %agg.tmp14, align 8, !alias.scope !6
   %argCount_.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 8
-  store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !7
+  store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !6
   %newTarget_.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 16
-  store ptr %arrayidx.i.i16, ptr %newTarget_.i.i, align 8, !alias.scope !7
+  store ptr %arrayidx.i.i16, ptr %newTarget_.i.i, align 8, !alias.scope !6
   %call15 = call { i32, i64 } %9(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp14) #9
   %12 = extractvalue { i32, i64 } %call15, 0
   %13 = extractvalue { i32, i64 } %call15, 1
@@ -1420,16 +1421,16 @@ if.then.i259.i:                                   ; preds = %if.end59.i
   br i1 %tobool.not.i.i.i, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i.i, label %if.end.i.i260.i
 
 if.end.i.i260.i:                                  ; preds = %if.then.i259.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %7, align 8, !noalias !10
+  %retval.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %7, align 8, !noalias !9
   %and.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i, 281474976710655
   %30 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i.i.i.i = load i32, ptr %30, align 4, !noalias !10
+  %bf.load.i.i.i.i.i.i.i = load i32, ptr %30, align 4, !noalias !9
   %cmp.i.i.i.i261.i = icmp ugt i32 %bf.load.i.i.i.i.i.i.i, 150994943
   br i1 %cmp.i.i.i.i261.i, label %if.then.i.i.i266.i, label %if.else.i.i.i.i
 
 if.then.i.i.i266.i:                               ; preds = %if.end.i.i260.i
   %contents_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %call.i.i.i.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i, i64 noundef 0) #9, !noalias !10
+  %call.i.i.i.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i, i64 noundef 0) #9, !noalias !9
   br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i260.i
@@ -1449,11 +1450,11 @@ if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
 
 if.else13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
   %concatBufferHV_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i.i.i, align 8, !noalias !10
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i.i.i, align 8, !noalias !9
   %and.i.i.i.i.i1.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 281474976710655
   %31 = inttoptr i64 %and.i.i.i.i.i1.i.i.i to ptr
   %contents_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %call.i.i.i.i.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i.i, i64 noundef 0) #9, !noalias !10
+  %call.i.i.i.i.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i.i, i64 noundef 0) #9, !noalias !9
   br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i.i
 
 _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i.i: ; preds = %if.else13.i.i.i.i, %if.then10.i.i.i.i, %if.then5.i.i.i.i, %if.then.i.i.i266.i, %if.then.i259.i
@@ -1471,16 +1472,16 @@ if.end.i258.i:                                    ; preds = %if.end59.i
   br i1 %tobool.not.i5.i.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i, label %if.end.i6.i.i
 
 if.end.i6.i.i:                                    ; preds = %if.end.i258.i
-  %retval.sroa.0.0.copyload.i.i.i.i7.i.i = load i64, ptr %7, align 8, !noalias !10
+  %retval.sroa.0.0.copyload.i.i.i.i7.i.i = load i64, ptr %7, align 8, !noalias !9
   %and.i.i.i.i.i.i8.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i7.i.i, 281474976710655
   %32 = inttoptr i64 %and.i.i.i.i.i.i8.i.i to ptr
-  %bf.load.i.i.i.i.i9.i.i = load i32, ptr %32, align 4, !noalias !10
+  %bf.load.i.i.i.i.i9.i.i = load i32, ptr %32, align 4, !noalias !9
   %cmp.i.i.i10.i.i = icmp ugt i32 %bf.load.i.i.i.i.i9.i.i, 150994943
   br i1 %cmp.i.i.i10.i.i, label %if.then.i.i26.i.i, label %if.else.i.i11.i.i
 
 if.then.i.i26.i.i:                                ; preds = %if.end.i6.i.i
   %contents_.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %33 = load ptr, ptr %contents_.i.i.i27.i.i, align 8, !noalias !10
+  %33 = load ptr, ptr %contents_.i.i.i27.i.i, align 8, !noalias !9
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i
 
 if.else.i.i11.i.i:                                ; preds = %if.end.i6.i.i
@@ -1500,11 +1501,11 @@ if.then10.i.i13.i.i:                              ; preds = %if.else.i.i11.i.i
 
 if.else13.i.i21.i.i:                              ; preds = %if.else.i.i11.i.i
   %concatBufferHV_.i.i.i.i22.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i23.i.i = load i64, ptr %concatBufferHV_.i.i.i.i22.i.i, align 8, !noalias !10
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i23.i.i = load i64, ptr %concatBufferHV_.i.i.i.i22.i.i, align 8, !noalias !9
   %and.i.i.i.i.i1.i24.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i23.i.i, 281474976710655
   %34 = inttoptr i64 %and.i.i.i.i.i1.i24.i.i to ptr
   %contents_.i.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %35 = load ptr, ptr %contents_.i.i.i.i25.i.i, align 8, !noalias !10
+  %35 = load ptr, ptr %contents_.i.i.i.i25.i.i, align 8, !noalias !9
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i
 
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i: ; preds = %if.else13.i.i21.i.i, %if.then10.i.i13.i.i, %if.then5.i.i19.i.i, %if.then.i.i26.i.i, %if.end.i258.i
@@ -1516,17 +1517,17 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i: ; preds = %if.else13.i.i
 36:                                               ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i, %if.else.i.i263.i
   %newRight.sroa.0.0.copyload.i.i.ph.i = phi ptr [ %add.ptr10.i.i.i, %if.else.i.i263.i ], [ %add.ptr10.i18.i.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i ]
   %.ph.i = phi i32 [ 3, %if.else.i.i263.i ], [ 4, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i ]
-  store ptr @.str.6, ptr %ref.tmp69.i, align 8, !alias.scope !13
+  store ptr @.str.6, ptr %ref.tmp69.i, align 8, !alias.scope !12
   %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !13
+  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !12
   %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 16
-  store ptr %newRight.sroa.0.0.copyload.i.i.ph.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !13
+  store ptr %newRight.sroa.0.0.copyload.i.i.ph.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !12
   %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 24
-  store i32 %.ph.i, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !13
+  store i32 %.ph.i, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !12
   %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 32
-  store i64 24, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !13
+  store i64 24, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !12
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp69.i, i64 40
-  store i64 %propName.sroa.6.8.extract.shift.i, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !13
+  store i64 %propName.sroa.6.8.extract.shift.i, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !12
   %37 = add nuw nsw i64 %propName.sroa.6.8.extract.shift.i, 24
   br label %39
 
@@ -1546,71 +1547,71 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i: ; preds = %if.else13.i.i
   %40 = phi i32 [ 3, %38 ], [ 2, %36 ]
   %add.i.i.i54.i8791 = phi i64 [ 24, %38 ], [ %37, %36 ]
   %41 = phi ptr [ @.str.6, %38 ], [ %ref.tmp69.i, %36 ]
-  store ptr %41, ptr %ref.tmp68.i, align 8, !alias.scope !18
+  store ptr %41, ptr %ref.tmp68.i, align 8, !alias.scope !17
   %leftKind_.i22.i.i68.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 8
-  store i32 %40, ptr %leftKind_.i22.i.i68.i, align 8, !alias.scope !18
+  store i32 %40, ptr %leftKind_.i22.i.i68.i, align 8, !alias.scope !17
   %rightChild_.i.i.i69.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 16
-  store ptr @.str.7, ptr %rightChild_.i.i.i69.i, align 8, !alias.scope !18
+  store ptr @.str.7, ptr %rightChild_.i.i.i69.i, align 8, !alias.scope !17
   %rightKind_.i23.i.i70.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i70.i, align 8, !alias.scope !18
+  store i32 3, ptr %rightKind_.i23.i.i70.i, align 8, !alias.scope !17
   %leftSize_.i24.i.i71.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 32
-  store i64 %add.i.i.i54.i8791, ptr %leftSize_.i24.i.i71.i, align 8, !alias.scope !18
+  store i64 %add.i.i.i54.i8791, ptr %leftSize_.i24.i.i71.i, align 8, !alias.scope !17
   %rightSize_.i25.i.i72.i = getelementptr inbounds nuw i8, ptr %ref.tmp68.i, i64 40
-  store i64 5, ptr %rightSize_.i25.i.i72.i, align 8, !alias.scope !18
+  store i64 5, ptr %rightSize_.i25.i.i72.i, align 8, !alias.scope !17
   %call.i.i = call { ptr, i64 } @_ZNK6hermes2vm10StringView11getUTF16RefERN4llvh15SmallVectorImplIDsEEb(ptr noundef nonnull align 8 dereferenceable(16) %baseTypeAsString.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp1.i, i1 noundef zeroext false) #9
   %add.i.i.i92.i = add nuw nsw i64 %add.i.i.i54.i8791, 5
   %42 = extractvalue { ptr, i64 } %call.i.i, 0
   %43 = extractvalue { ptr, i64 } %call.i.i, 1
-  store ptr %ref.tmp68.i, ptr %ref.tmp67.i, align 8, !alias.scope !23
+  store ptr %ref.tmp68.i, ptr %ref.tmp67.i, align 8, !alias.scope !22
   %leftKind_.i22.i.i106.i = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 8
-  store i32 2, ptr %leftKind_.i22.i.i106.i, align 8, !alias.scope !23
+  store i32 2, ptr %leftKind_.i22.i.i106.i, align 8, !alias.scope !22
   %rightChild_.i.i.i107.i = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 16
-  store ptr %42, ptr %rightChild_.i.i.i107.i, align 8, !alias.scope !23
+  store ptr %42, ptr %rightChild_.i.i.i107.i, align 8, !alias.scope !22
   %rightKind_.i23.i.i108.i = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 24
-  store i32 4, ptr %rightKind_.i23.i.i108.i, align 8, !alias.scope !23
+  store i32 4, ptr %rightKind_.i23.i.i108.i, align 8, !alias.scope !22
   %leftSize_.i24.i.i109.i = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 32
-  store i64 %add.i.i.i92.i, ptr %leftSize_.i24.i.i109.i, align 8, !alias.scope !23
+  store i64 %add.i.i.i92.i, ptr %leftSize_.i24.i.i109.i, align 8, !alias.scope !22
   %rightSize_.i25.i.i110.i = getelementptr inbounds nuw i8, ptr %ref.tmp67.i, i64 40
-  store i64 %43, ptr %rightSize_.i25.i.i110.i, align 8, !alias.scope !23
+  store i64 %43, ptr %rightSize_.i25.i.i110.i, align 8, !alias.scope !22
   %add.i.i.i138.i = add i64 %43, %add.i.i.i92.i
-  store ptr %ref.tmp67.i, ptr %ref.tmp66.i, align 8, !alias.scope !28
+  store ptr %ref.tmp67.i, ptr %ref.tmp66.i, align 8, !alias.scope !27
   %leftKind_.i22.i.i152.i = getelementptr inbounds nuw i8, ptr %ref.tmp66.i, i64 8
-  store i32 2, ptr %leftKind_.i22.i.i152.i, align 8, !alias.scope !28
+  store i32 2, ptr %leftKind_.i22.i.i152.i, align 8, !alias.scope !27
   %rightChild_.i.i.i153.i = getelementptr inbounds nuw i8, ptr %ref.tmp66.i, i64 16
-  store ptr @.str.8, ptr %rightChild_.i.i.i153.i, align 8, !alias.scope !28
+  store ptr @.str.8, ptr %rightChild_.i.i.i153.i, align 8, !alias.scope !27
   %rightKind_.i23.i.i154.i = getelementptr inbounds nuw i8, ptr %ref.tmp66.i, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i154.i, align 8, !alias.scope !28
+  store i32 3, ptr %rightKind_.i23.i.i154.i, align 8, !alias.scope !27
   %leftSize_.i24.i.i155.i = getelementptr inbounds nuw i8, ptr %ref.tmp66.i, i64 32
-  store i64 %add.i.i.i138.i, ptr %leftSize_.i24.i.i155.i, align 8, !alias.scope !28
+  store i64 %add.i.i.i138.i, ptr %leftSize_.i24.i.i155.i, align 8, !alias.scope !27
   %rightSize_.i25.i.i156.i = getelementptr inbounds nuw i8, ptr %ref.tmp66.i, i64 40
-  store i64 2, ptr %rightSize_.i25.i.i156.i, align 8, !alias.scope !28
+  store i64 2, ptr %rightSize_.i25.i.i156.i, align 8, !alias.scope !27
   %call.i164.i = call { ptr, i64 } @_ZNK6hermes2vm10StringView11getUTF16RefERN4llvh15SmallVectorImplIDsEEb(ptr noundef nonnull align 8 dereferenceable(16) %valueAsStringPrintable.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp2.i, i1 noundef zeroext false) #9
   %44 = extractvalue { ptr, i64 } %call.i164.i, 0
   %45 = extractvalue { ptr, i64 } %call.i164.i, 1
   %add.i.i.i181.i = add i64 %add.i.i.i138.i, 2
-  store ptr %ref.tmp66.i, ptr %ref.tmp65.i, align 8, !alias.scope !33
+  store ptr %ref.tmp66.i, ptr %ref.tmp65.i, align 8, !alias.scope !32
   %leftKind_.i22.i.i195.i = getelementptr inbounds nuw i8, ptr %ref.tmp65.i, i64 8
-  store i32 2, ptr %leftKind_.i22.i.i195.i, align 8, !alias.scope !33
+  store i32 2, ptr %leftKind_.i22.i.i195.i, align 8, !alias.scope !32
   %rightChild_.i.i.i196.i = getelementptr inbounds nuw i8, ptr %ref.tmp65.i, i64 16
-  store ptr %44, ptr %rightChild_.i.i.i196.i, align 8, !alias.scope !33
+  store ptr %44, ptr %rightChild_.i.i.i196.i, align 8, !alias.scope !32
   %rightKind_.i23.i.i197.i = getelementptr inbounds nuw i8, ptr %ref.tmp65.i, i64 24
-  store i32 4, ptr %rightKind_.i23.i.i197.i, align 8, !alias.scope !33
+  store i32 4, ptr %rightKind_.i23.i.i197.i, align 8, !alias.scope !32
   %leftSize_.i24.i.i198.i = getelementptr inbounds nuw i8, ptr %ref.tmp65.i, i64 32
-  store i64 %add.i.i.i181.i, ptr %leftSize_.i24.i.i198.i, align 8, !alias.scope !33
+  store i64 %add.i.i.i181.i, ptr %leftSize_.i24.i.i198.i, align 8, !alias.scope !32
   %rightSize_.i25.i.i199.i = getelementptr inbounds nuw i8, ptr %ref.tmp65.i, i64 40
-  store i64 %45, ptr %rightSize_.i25.i.i199.i, align 8, !alias.scope !33
+  store i64 %45, ptr %rightSize_.i25.i.i199.i, align 8, !alias.scope !32
   %add.i.i.i227.i = add i64 %45, %add.i.i.i181.i
-  store ptr %ref.tmp65.i, ptr %ref.tmp64.i, align 8, !alias.scope !38
+  store ptr %ref.tmp65.i, ptr %ref.tmp64.i, align 8, !alias.scope !37
   %leftKind_.i22.i.i241.i = getelementptr inbounds nuw i8, ptr %ref.tmp64.i, i64 8
-  store i32 2, ptr %leftKind_.i22.i.i241.i, align 8, !alias.scope !38
+  store i32 2, ptr %leftKind_.i22.i.i241.i, align 8, !alias.scope !37
   %rightChild_.i.i.i242.i = getelementptr inbounds nuw i8, ptr %ref.tmp64.i, i64 16
-  store ptr @.str.9, ptr %rightChild_.i.i.i242.i, align 8, !alias.scope !38
+  store ptr @.str.9, ptr %rightChild_.i.i.i242.i, align 8, !alias.scope !37
   %rightKind_.i23.i.i243.i = getelementptr inbounds nuw i8, ptr %ref.tmp64.i, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i243.i, align 8, !alias.scope !38
+  store i32 3, ptr %rightKind_.i23.i.i243.i, align 8, !alias.scope !37
   %leftSize_.i24.i.i244.i = getelementptr inbounds nuw i8, ptr %ref.tmp64.i, i64 32
-  store i64 %add.i.i.i227.i, ptr %leftSize_.i24.i.i244.i, align 8, !alias.scope !38
+  store i64 %add.i.i.i227.i, ptr %leftSize_.i24.i.i244.i, align 8, !alias.scope !37
   %rightSize_.i25.i.i245.i = getelementptr inbounds nuw i8, ptr %ref.tmp64.i, i64 40
-  store i64 1, ptr %rightSize_.i25.i.i245.i, align 8, !alias.scope !38
+  store i64 1, ptr %rightSize_.i25.i.i245.i, align 8, !alias.scope !37
   %call81.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp64.i) #9
   %46 = load ptr, ptr %tmp2.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %46, %add.ptr.i.i.i.i.i.i30.i
@@ -1874,22 +1875,22 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
   %rootClazzes_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9512
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %rootClazzes_.i.i, align 8
   %or.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i, -281474976710656
-  %7 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8, !noalias !43
+  %7 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8, !noalias !42
   %next_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %8 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i, align 8, !noalias !43
+  %8 = load ptr, ptr %next_.i.i.i.i.i.i.i.i.i, align 8, !noalias !42
   %curChunkEnd_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %9 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i.i, align 8, !noalias !43
+  %9 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i.i, align 8, !noalias !42
   %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i.i, align 8, !noalias !43
-  store i64 %or.i.i.i.i.i.i.i, ptr %8, align 8, !noalias !43
+  store ptr %incdec.ptr.i.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i.i, align 8, !noalias !42
+  store i64 %or.i.i.i.i.i.i.i, ptr %8, align 8, !noalias !42
   br label %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_.exit.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
-  %call7.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %7, i64 %or.i.i.i.i.i.i.i) #9, !noalias !43
+  %call7.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %7, i64 %or.i.i.i.i.i.i.i) #9, !noalias !42
   br label %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_.exit.i
 
 _ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -1949,7 +1950,7 @@ if.end.i.i:                                       ; preds = %while.body.i
   store ptr %11, ptr %next_.i.i.i, align 8
   %18 = load i32, ptr %elemsLeft_.i.i, align 8
   %cmp.i.not.i = icmp eq i32 %18, 0
-  br i1 %cmp.i.not.i, label %while.end.i, label %while.body.i, !llvm.loop !46
+  br i1 %cmp.i.not.i, label %while.end.i, label %while.body.i, !llvm.loop !45
 
 while.end.i:                                      ; preds = %"_ZZN6hermes2vmL23getHiddenClassForBufferERNS0_7RuntimeEPNS0_9CodeBlockEjjENK3$_0clEv.exit.i", %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_.exit.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i.i.i, align 8
@@ -2169,7 +2170,7 @@ _ZN6hermes2vm8JSObject23setNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13He
   %inc = add i32 %propIndex.023, 1
   %41 = load i32, ptr %elemsLeft_.i, align 8
   %cmp.i.not = icmp eq i32 %41, 0
-  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !47
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %_ZN6hermes2vm8JSObject23setNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE0EEEvPS1_RNS0_7RuntimeEjS4_.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   %retval.sroa.0.0.copyload.i.i.i18 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
@@ -2361,7 +2362,7 @@ _ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13Her
   store i32 %retval.sroa.0.0.i, ptr %retval.0.i.i.i.i, align 4
   %15 = load i32, ptr %elemsLeft_.i, align 8
   %cmp.i7.not = icmp eq i32 %15, 0
-  br i1 %cmp.i7.not, label %while.end, label %while.body, !llvm.loop !48
+  br i1 %cmp.i7.not, label %while.end, label %while.body, !llvm.loop !47
 
 while.end:                                        ; preds = %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, %if.end
   %retval.sroa.0.0.copyload.i.i.i9 = load i64, ptr %call, align 8
@@ -2626,7 +2627,7 @@ indirectgoto.backedge:                            ; preds = %case_Mov, %case_Mov
   %strictMode.1.be = phi i8 [ %strictMode.1, %case_Mov ], [ %strictMode.1, %case_MovLong ], [ %strictMode.1, %if.then66 ], [ %strictMode.1, %if.end80 ], [ %strictMode.1, %if.then98 ], [ %strictMode.1, %if.end112 ], [ %strictMode.1, %if.end160 ], [ %strictMode.1, %if.end202 ], [ %strictMode.1, %if.end217 ], [ %strictMode.1, %if.end370 ], [ %strictMode.1, %case_GetBuiltinClosure ], [ %strictMode.1, %if.end447 ], [ %strictMode.1, %if.end459 ], [ %strictMode.1, %case_CompleteGenerator ], [ %strictMode.1, %do.body473 ], [ %strictMode.1, %do.body483 ], [ %strictMode.1, %if.end506 ], [ %strictMode.1, %if.end544 ], [ %.lobit, %do.body578 ], [ %strictMode.1, %case_Catch ], [ %strictMode.1, %if.end628 ], [ %strictMode.1, %do.end642 ], [ %strictMode.1, %if.end658 ], [ %strictMode.1, %case_ProfilePoint ], [ %strictMode.1, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2624 ], [ %strictMode.1, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2661 ], [ %strictMode.1, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2698 ], [ %strictMode.1, %if.end818 ], [ %strictMode.1, %if.end854 ], [ %strictMode.1, %for.end ], [ %strictMode.1, %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit ], [ %strictMode.1, %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit2822 ], [ %strictMode.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit ], [ %strictMode.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit2839 ], [ %strictMode.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit ], [ %strictMode.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit2863 ], [ %strictMode.1, %case_LoadFromEnvironment ], [ %strictMode.1, %case_LoadFromEnvironmentL ], [ %strictMode.1, %case_GetGlobalObject ], [ %strictMode.1, %case_GetNewTarget ], [ %strictMode.1, %if.end1079 ], [ %strictMode.1, %if.end1090 ], [ %strictMode.1, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit2934 ], [ %strictMode.1, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit3013 ], [ %strictMode.1, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE0EEES4_PS1_RNS0_11PointerBaseEj.exit ], [ %strictMode.1, %if.end1284 ], [ %strictMode.1, %if.end1462 ], [ %strictMode.1, %if.end1514 ], [ %strictMode.1, %if.end1590 ], [ %strictMode.1, %putOwnByIndex ], [ %strictMode.1, %if.end1640 ], [ %strictMode.1, %if.end1740 ], [ %strictMode.1, %if.end1779 ], [ %strictMode.1, %if.end1817 ], [ %strictMode.1, %if.end1834 ], [ %strictMode.1, %if.end1897 ], [ %strictMode.1, %case_Jmp ], [ %strictMode.1, %case_JmpLong ], [ %strictMode.1, %if.end1927 ], [ %strictMode.1, %if.end1943 ], [ %strictMode.1, %if.end1960 ], [ %strictMode.1, %if.end1976 ], [ %strictMode.1, %if.end1991 ], [ %strictMode.1, %if.end2005 ], [ %strictMode.1, %if.then2014 ], [ %strictMode.1, %if.end2045 ], [ %strictMode.1, %if.then2060 ], [ %strictMode.1, %if.end2091 ], [ %strictMode.1, %case_AddN ], [ %strictMode.1, %if.end2152 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit ], [ %strictMode.1, %if.end2197 ], [ %strictMode.1, %if.then2211 ], [ %strictMode.1, %if.end2247 ], [ %strictMode.1, %if.then2278 ], [ %strictMode.1, %if.end2314 ], [ %strictMode.1, %if.then2331 ], [ %strictMode.1, %if.end2355 ], [ %strictMode.1, %case_NewObject ], [ %strictMode.1, %case_NewObjectWithParent ], [ %strictMode.1, %if.end2439 ], [ %strictMode.1, %if.end2462 ], [ %strictMode.1, %if.end2486 ], [ %strictMode.1, %if.end2511 ], [ %strictMode.1, %if.end2535 ], [ %strictMode.1, %if.end2596 ], [ %strictMode.1, %case_SelectObject ], [ %strictMode.1, %if.end2646 ], [ %strictMode.1, %case_StrictEq ], [ %strictMode.1, %case_StrictNeq ], [ %strictMode.1, %case_Not ], [ %strictMode.1, %if.then2734 ], [ %strictMode.1, %if.end2763 ], [ %strictMode.1, %case_TypeOf ], [ %strictMode.1, %if.then2802 ], [ %strictMode.1, %if.end2843 ], [ %strictMode.1, %if.end2870 ], [ %strictMode.1, %if.end2913 ], [ %strictMode.1, %if.end2976 ], [ %strictMode.1, %if.end3083 ], [ %strictMode.1, %if.end3173 ], [ %strictMode.1, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEPS5_.exit3912 ], [ %strictMode.1, %if.then3250 ], [ %strictMode.1, %if.end3266 ], [ %strictMode.1, %case_LoadConstUInt8 ], [ %strictMode.1, %case_LoadConstInt ], [ %strictMode.1, %case_LoadConstDouble ], [ %strictMode.1, %case_LoadConstString ], [ %strictMode.1, %case_LoadConstStringLongIndex ], [ %strictMode.1, %case_LoadConstEmpty ], [ %strictMode.1, %case_LoadConstUndefined ], [ %strictMode.1, %case_LoadConstNull ], [ %strictMode.1, %case_LoadConstTrue ], [ %strictMode.1, %case_LoadConstFalse ], [ %strictMode.1, %case_LoadConstZero ], [ %strictMode.1, %if.end3420 ], [ %strictMode.1, %case_SubN ], [ %strictMode.1, %if.end3480 ], [ %strictMode.1, %case_MulN ], [ %strictMode.1, %if.end3541 ], [ %strictMode.1, %case_DivN ], [ %strictMode.1, %if.end3602 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit4038 ], [ %strictMode.1, %if.end3666 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit4090 ], [ %strictMode.1, %if.end3730 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit4141 ], [ %strictMode.1, %if.end3794 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit4192 ], [ %strictMode.1, %if.end3858 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit4244 ], [ %strictMode.1, %if.end3925 ], [ %strictMode.1, %_ZN6hermes15truncateToInt32Ed.exit4296 ], [ %strictMode.1, %if.end3992 ], [ %strictMode.1, %if.then4013 ], [ %strictMode.1, %if.end4052 ], [ %strictMode.1, %if.then4076 ], [ %strictMode.1, %if.end4115 ], [ %strictMode.1, %if.then4139 ], [ %strictMode.1, %if.end4178 ], [ %strictMode.1, %if.then4202 ], [ %strictMode.1, %if.end4241 ], [ %strictMode.1, %if.then4275 ], [ %strictMode.1, %if.end4283 ], [ %strictMode.1, %if.then4308 ], [ %strictMode.1, %if.end4316 ], [ %strictMode.1, %if.then4342 ], [ %strictMode.1, %if.end4349 ], [ %strictMode.1, %if.then4374 ], [ %strictMode.1, %if.end4381 ], [ %strictMode.1, %if.then4407 ], [ %strictMode.1, %if.end4412 ], [ %strictMode.1, %if.then4440 ], [ %strictMode.1, %if.end4445 ], [ %strictMode.1, %if.then4474 ], [ %strictMode.1, %if.end4479 ], [ %strictMode.1, %if.then4506 ], [ %strictMode.1, %if.end4511 ], [ %strictMode.1, %if.then4539 ], [ %strictMode.1, %if.end4547 ], [ %strictMode.1, %if.then4572 ], [ %strictMode.1, %if.end4580 ], [ %strictMode.1, %if.then4606 ], [ %strictMode.1, %if.end4613 ], [ %strictMode.1, %if.then4638 ], [ %strictMode.1, %if.end4645 ], [ %strictMode.1, %if.then4671 ], [ %strictMode.1, %if.end4676 ], [ %strictMode.1, %if.then4704 ], [ %strictMode.1, %if.end4709 ], [ %strictMode.1, %if.then4738 ], [ %strictMode.1, %if.end4743 ], [ %strictMode.1, %if.then4770 ], [ %strictMode.1, %if.end4775 ], [ %strictMode.1, %if.then4803 ], [ %strictMode.1, %if.end4811 ], [ %strictMode.1, %if.then4836 ], [ %strictMode.1, %if.end4844 ], [ %strictMode.1, %if.then4870 ], [ %strictMode.1, %if.end4877 ], [ %strictMode.1, %if.then4902 ], [ %strictMode.1, %if.end4909 ], [ %strictMode.1, %if.then4935 ], [ %strictMode.1, %if.end4940 ], [ %strictMode.1, %if.then4968 ], [ %strictMode.1, %if.end4973 ], [ %strictMode.1, %if.then5002 ], [ %strictMode.1, %if.end5007 ], [ %strictMode.1, %if.then5034 ], [ %strictMode.1, %if.end5039 ], [ %strictMode.1, %if.then5067 ], [ %strictMode.1, %if.end5075 ], [ %strictMode.1, %if.then5100 ], [ %strictMode.1, %if.end5108 ], [ %strictMode.1, %if.then5134 ], [ %strictMode.1, %if.end5141 ], [ %strictMode.1, %if.then5166 ], [ %strictMode.1, %if.end5173 ], [ %strictMode.1, %if.then5199 ], [ %strictMode.1, %if.end5204 ], [ %strictMode.1, %if.then5232 ], [ %strictMode.1, %if.end5237 ], [ %strictMode.1, %if.then5266 ], [ %strictMode.1, %if.end5271 ], [ %strictMode.1, %if.then5298 ], [ %strictMode.1, %if.end5303 ], [ %strictMode.1, %if.then5321 ], [ %strictMode.1, %if.end5329 ], [ %strictMode.1, %if.then5345 ], [ %strictMode.1, %if.end5352 ], [ %strictMode.1, %if.then5368 ], [ %strictMode.1, %if.end5373 ], [ %strictMode.1, %if.then5392 ], [ %strictMode.1, %if.end5397 ], [ %strictMode.1, %if.then5423 ], [ %strictMode.1, %if.end5431 ], [ %strictMode.1, %if.then5455 ], [ %strictMode.1, %if.end5462 ], [ %strictMode.1, %if.then5486 ], [ %strictMode.1, %if.end5491 ], [ %strictMode.1, %if.then5518 ], [ %strictMode.1, %if.end5523 ], [ %strictMode.1, %if.end5536 ], [ %strictMode.1, %if.end5547 ], [ %strictMode.1, %if.end5558 ], [ %strictMode.1, %if.end5569 ], [ %strictMode.1, %if.end5580 ], [ %strictMode.1, %if.end5623 ], [ %strictMode.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ], [ %strictMode.1, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE1EEEvjS2_RNS0_7HadesGCE.exit.i ], [ %strictMode.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i3214 ], [ %strictMode.1, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i ]
   %frameRegs.1.be = phi ptr [ %frameRegs.1, %case_Mov ], [ %frameRegs.1, %case_MovLong ], [ %frameRegs.1, %if.then66 ], [ %frameRegs.1, %if.end80 ], [ %frameRegs.1, %if.then98 ], [ %frameRegs.1, %if.end112 ], [ %frameRegs.1, %if.end160 ], [ %frameRegs.1, %if.end202 ], [ %frameRegs.1, %if.end217 ], [ %frameRegs.1, %if.end370 ], [ %frameRegs.1, %case_GetBuiltinClosure ], [ %frameRegs.1, %if.end447 ], [ %frameRegs.1, %if.end459 ], [ %frameRegs.1, %case_CompleteGenerator ], [ %frameRegs.1, %do.body473 ], [ %frameRegs.1, %do.body483 ], [ %frameRegs.1, %if.end506 ], [ %frameRegs.1, %if.end544 ], [ %arrayidx.i5858, %do.body578 ], [ %frameRegs.1, %case_Catch ], [ %frameRegs.1, %if.end628 ], [ %frameRegs.1, %do.end642 ], [ %frameRegs.1, %if.end658 ], [ %frameRegs.1, %case_ProfilePoint ], [ %frameRegs.1, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2624 ], [ %frameRegs.1, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2661 ], [ %frameRegs.1, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2698 ], [ %frameRegs.1, %if.end818 ], [ %frameRegs.1, %if.end854 ], [ %frameRegs.1, %for.end ], [ %frameRegs.1, %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit ], [ %frameRegs.1, %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit2822 ], [ %frameRegs.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit ], [ %frameRegs.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit2839 ], [ %frameRegs.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit ], [ %frameRegs.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit2863 ], [ %frameRegs.1, %case_LoadFromEnvironment ], [ %frameRegs.1, %case_LoadFromEnvironmentL ], [ %frameRegs.1, %case_GetGlobalObject ], [ %frameRegs.1, %case_GetNewTarget ], [ %frameRegs.1, %if.end1079 ], [ %frameRegs.1, %if.end1090 ], [ %frameRegs.1, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit2934 ], [ %frameRegs.1, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit3013 ], [ %frameRegs.1, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE0EEES4_PS1_RNS0_11PointerBaseEj.exit ], [ %frameRegs.1, %if.end1284 ], [ %frameRegs.1, %if.end1462 ], [ %frameRegs.1, %if.end1514 ], [ %frameRegs.1, %if.end1590 ], [ %frameRegs.1, %putOwnByIndex ], [ %frameRegs.1, %if.end1640 ], [ %frameRegs.1, %if.end1740 ], [ %frameRegs.1, %if.end1779 ], [ %frameRegs.1, %if.end1817 ], [ %frameRegs.1, %if.end1834 ], [ %frameRegs.1, %if.end1897 ], [ %frameRegs.1, %case_Jmp ], [ %frameRegs.1, %case_JmpLong ], [ %frameRegs.1, %if.end1927 ], [ %frameRegs.1, %if.end1943 ], [ %frameRegs.1, %if.end1960 ], [ %frameRegs.1, %if.end1976 ], [ %frameRegs.1, %if.end1991 ], [ %frameRegs.1, %if.end2005 ], [ %frameRegs.1, %if.then2014 ], [ %frameRegs.1, %if.end2045 ], [ %frameRegs.1, %if.then2060 ], [ %frameRegs.1, %if.end2091 ], [ %frameRegs.1, %case_AddN ], [ %frameRegs.1, %if.end2152 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit ], [ %frameRegs.1, %if.end2197 ], [ %frameRegs.1, %if.then2211 ], [ %frameRegs.1, %if.end2247 ], [ %frameRegs.1, %if.then2278 ], [ %frameRegs.1, %if.end2314 ], [ %frameRegs.1, %if.then2331 ], [ %frameRegs.1, %if.end2355 ], [ %frameRegs.1, %case_NewObject ], [ %frameRegs.1, %case_NewObjectWithParent ], [ %frameRegs.1, %if.end2439 ], [ %frameRegs.1, %if.end2462 ], [ %frameRegs.1, %if.end2486 ], [ %frameRegs.1, %if.end2511 ], [ %frameRegs.1, %if.end2535 ], [ %frameRegs.1, %if.end2596 ], [ %frameRegs.1, %case_SelectObject ], [ %frameRegs.1, %if.end2646 ], [ %frameRegs.1, %case_StrictEq ], [ %frameRegs.1, %case_StrictNeq ], [ %frameRegs.1, %case_Not ], [ %frameRegs.1, %if.then2734 ], [ %frameRegs.1, %if.end2763 ], [ %frameRegs.1, %case_TypeOf ], [ %frameRegs.1, %if.then2802 ], [ %frameRegs.1, %if.end2843 ], [ %frameRegs.1, %if.end2870 ], [ %frameRegs.1, %if.end2913 ], [ %frameRegs.1, %if.end2976 ], [ %frameRegs.1, %if.end3083 ], [ %frameRegs.1, %if.end3173 ], [ %frameRegs.1, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEPS5_.exit3912 ], [ %frameRegs.1, %if.then3250 ], [ %frameRegs.1, %if.end3266 ], [ %frameRegs.1, %case_LoadConstUInt8 ], [ %frameRegs.1, %case_LoadConstInt ], [ %frameRegs.1, %case_LoadConstDouble ], [ %frameRegs.1, %case_LoadConstString ], [ %frameRegs.1, %case_LoadConstStringLongIndex ], [ %frameRegs.1, %case_LoadConstEmpty ], [ %frameRegs.1, %case_LoadConstUndefined ], [ %frameRegs.1, %case_LoadConstNull ], [ %frameRegs.1, %case_LoadConstTrue ], [ %frameRegs.1, %case_LoadConstFalse ], [ %frameRegs.1, %case_LoadConstZero ], [ %frameRegs.1, %if.end3420 ], [ %frameRegs.1, %case_SubN ], [ %frameRegs.1, %if.end3480 ], [ %frameRegs.1, %case_MulN ], [ %frameRegs.1, %if.end3541 ], [ %frameRegs.1, %case_DivN ], [ %frameRegs.1, %if.end3602 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit4038 ], [ %frameRegs.1, %if.end3666 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit4090 ], [ %frameRegs.1, %if.end3730 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit4141 ], [ %frameRegs.1, %if.end3794 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit4192 ], [ %frameRegs.1, %if.end3858 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit4244 ], [ %frameRegs.1, %if.end3925 ], [ %frameRegs.1, %_ZN6hermes15truncateToInt32Ed.exit4296 ], [ %frameRegs.1, %if.end3992 ], [ %frameRegs.1, %if.then4013 ], [ %frameRegs.1, %if.end4052 ], [ %frameRegs.1, %if.then4076 ], [ %frameRegs.1, %if.end4115 ], [ %frameRegs.1, %if.then4139 ], [ %frameRegs.1, %if.end4178 ], [ %frameRegs.1, %if.then4202 ], [ %frameRegs.1, %if.end4241 ], [ %frameRegs.1, %if.then4275 ], [ %frameRegs.1, %if.end4283 ], [ %frameRegs.1, %if.then4308 ], [ %frameRegs.1, %if.end4316 ], [ %frameRegs.1, %if.then4342 ], [ %frameRegs.1, %if.end4349 ], [ %frameRegs.1, %if.then4374 ], [ %frameRegs.1, %if.end4381 ], [ %frameRegs.1, %if.then4407 ], [ %frameRegs.1, %if.end4412 ], [ %frameRegs.1, %if.then4440 ], [ %frameRegs.1, %if.end4445 ], [ %frameRegs.1, %if.then4474 ], [ %frameRegs.1, %if.end4479 ], [ %frameRegs.1, %if.then4506 ], [ %frameRegs.1, %if.end4511 ], [ %frameRegs.1, %if.then4539 ], [ %frameRegs.1, %if.end4547 ], [ %frameRegs.1, %if.then4572 ], [ %frameRegs.1, %if.end4580 ], [ %frameRegs.1, %if.then4606 ], [ %frameRegs.1, %if.end4613 ], [ %frameRegs.1, %if.then4638 ], [ %frameRegs.1, %if.end4645 ], [ %frameRegs.1, %if.then4671 ], [ %frameRegs.1, %if.end4676 ], [ %frameRegs.1, %if.then4704 ], [ %frameRegs.1, %if.end4709 ], [ %frameRegs.1, %if.then4738 ], [ %frameRegs.1, %if.end4743 ], [ %frameRegs.1, %if.then4770 ], [ %frameRegs.1, %if.end4775 ], [ %frameRegs.1, %if.then4803 ], [ %frameRegs.1, %if.end4811 ], [ %frameRegs.1, %if.then4836 ], [ %frameRegs.1, %if.end4844 ], [ %frameRegs.1, %if.then4870 ], [ %frameRegs.1, %if.end4877 ], [ %frameRegs.1, %if.then4902 ], [ %frameRegs.1, %if.end4909 ], [ %frameRegs.1, %if.then4935 ], [ %frameRegs.1, %if.end4940 ], [ %frameRegs.1, %if.then4968 ], [ %frameRegs.1, %if.end4973 ], [ %frameRegs.1, %if.then5002 ], [ %frameRegs.1, %if.end5007 ], [ %frameRegs.1, %if.then5034 ], [ %frameRegs.1, %if.end5039 ], [ %frameRegs.1, %if.then5067 ], [ %frameRegs.1, %if.end5075 ], [ %frameRegs.1, %if.then5100 ], [ %frameRegs.1, %if.end5108 ], [ %frameRegs.1, %if.then5134 ], [ %frameRegs.1, %if.end5141 ], [ %frameRegs.1, %if.then5166 ], [ %frameRegs.1, %if.end5173 ], [ %frameRegs.1, %if.then5199 ], [ %frameRegs.1, %if.end5204 ], [ %frameRegs.1, %if.then5232 ], [ %frameRegs.1, %if.end5237 ], [ %frameRegs.1, %if.then5266 ], [ %frameRegs.1, %if.end5271 ], [ %frameRegs.1, %if.then5298 ], [ %frameRegs.1, %if.end5303 ], [ %frameRegs.1, %if.then5321 ], [ %frameRegs.1, %if.end5329 ], [ %frameRegs.1, %if.then5345 ], [ %frameRegs.1, %if.end5352 ], [ %frameRegs.1, %if.then5368 ], [ %frameRegs.1, %if.end5373 ], [ %frameRegs.1, %if.then5392 ], [ %frameRegs.1, %if.end5397 ], [ %frameRegs.1, %if.then5423 ], [ %frameRegs.1, %if.end5431 ], [ %frameRegs.1, %if.then5455 ], [ %frameRegs.1, %if.end5462 ], [ %frameRegs.1, %if.then5486 ], [ %frameRegs.1, %if.end5491 ], [ %frameRegs.1, %if.then5518 ], [ %frameRegs.1, %if.end5523 ], [ %frameRegs.1, %if.end5536 ], [ %frameRegs.1, %if.end5547 ], [ %frameRegs.1, %if.end5558 ], [ %frameRegs.1, %if.end5569 ], [ %frameRegs.1, %if.end5580 ], [ %frameRegs.1, %if.end5623 ], [ %frameRegs.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ], [ %frameRegs.1, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE1EEEvjS2_RNS0_7HadesGCE.exit.i ], [ %frameRegs.1, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i3214 ], [ %frameRegs.1, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i ]
   %curCodeBlock.2.be = phi ptr [ %curCodeBlock.2, %case_Mov ], [ %curCodeBlock.2, %case_MovLong ], [ %curCodeBlock.2, %if.then66 ], [ %curCodeBlock.2, %if.end80 ], [ %curCodeBlock.2, %if.then98 ], [ %curCodeBlock.2, %if.end112 ], [ %curCodeBlock.2, %if.end160 ], [ %curCodeBlock.2, %if.end202 ], [ %curCodeBlock.2, %if.end217 ], [ %curCodeBlock.2, %if.end370 ], [ %curCodeBlock.2, %case_GetBuiltinClosure ], [ %curCodeBlock.2, %if.end447 ], [ %curCodeBlock.2, %if.end459 ], [ %curCodeBlock.2, %case_CompleteGenerator ], [ %curCodeBlock.2, %do.body473 ], [ %curCodeBlock.2, %do.body483 ], [ %curCodeBlock.2, %if.end506 ], [ %curCodeBlock.2, %if.end544 ], [ %150, %do.body578 ], [ %curCodeBlock.2, %case_Catch ], [ %curCodeBlock.2, %if.end628 ], [ %curCodeBlock.2, %do.end642 ], [ %curCodeBlock.2, %if.end658 ], [ %curCodeBlock.2, %case_ProfilePoint ], [ %curCodeBlock.2, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2624 ], [ %curCodeBlock.2, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2661 ], [ %curCodeBlock.2, %_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj.exit2698 ], [ %curCodeBlock.2, %if.end818 ], [ %curCodeBlock.2, %if.end854 ], [ %curCodeBlock.2, %for.end ], [ %curCodeBlock.2, %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit ], [ %curCodeBlock.2, %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit2822 ], [ %curCodeBlock.2, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit ], [ %curCodeBlock.2, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit2839 ], [ %curCodeBlock.2, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit ], [ %curCodeBlock.2, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit2863 ], [ %curCodeBlock.2, %case_LoadFromEnvironment ], [ %curCodeBlock.2, %case_LoadFromEnvironmentL ], [ %curCodeBlock.2, %case_GetGlobalObject ], [ %curCodeBlock.2, %case_GetNewTarget ], [ %curCodeBlock.2, %if.end1079 ], [ %curCodeBlock.2, %if.end1090 ], [ %curCodeBlock.2, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit2934 ], [ %curCodeBlock.2, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit3013 ], [ %curCodeBlock.2, %_ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeILNS0_16ArrayStorageBaseINS0_13HermesValue32EE6InlineE0EEES4_PS1_RNS0_11PointerBaseEj.exit ], [ %curCodeBlock.2, %if.end1284 ], [ %curCodeBlock.2, %if.end1462 ], [ %curCodeBlock.2, %if.end1514 ], [ %curCodeBlock.2, %if.end1590 ], [ %curCodeBlock.2, %putOwnByIndex ], [ %curCodeBlock.2, %if.end1640 ], [ %curCodeBlock.2, %if.end1740 ], [ %curCodeBlock.2, %if.end1779 ], [ %curCodeBlock.2, %if.end1817 ], [ %curCodeBlock.2, %if.end1834 ], [ %curCodeBlock.2, %if.end1897 ], [ %curCodeBlock.2, %case_Jmp ], [ %curCodeBlock.2, %case_JmpLong ], [ %curCodeBlock.2, %if.end1927 ], [ %curCodeBlock.2, %if.end1943 ], [ %curCodeBlock.2, %if.end1960 ], [ %curCodeBlock.2, %if.end1976 ], [ %curCodeBlock.2, %if.end1991 ], [ %curCodeBlock.2, %if.end2005 ], [ %curCodeBlock.2, %if.then2014 ], [ %curCodeBlock.2, %if.end2045 ], [ %curCodeBlock.2, %if.then2060 ], [ %curCodeBlock.2, %if.end2091 ], [ %curCodeBlock.2, %case_AddN ], [ %curCodeBlock.2, %if.end2152 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit ], [ %curCodeBlock.2, %if.end2197 ], [ %curCodeBlock.2, %if.then2211 ], [ %curCodeBlock.2, %if.end2247 ], [ %curCodeBlock.2, %if.then2278 ], [ %curCodeBlock.2, %if.end2314 ], [ %curCodeBlock.2, %if.then2331 ], [ %curCodeBlock.2, %if.end2355 ], [ %curCodeBlock.2, %case_NewObject ], [ %curCodeBlock.2, %case_NewObjectWithParent ], [ %curCodeBlock.2, %if.end2439 ], [ %curCodeBlock.2, %if.end2462 ], [ %curCodeBlock.2, %if.end2486 ], [ %curCodeBlock.2, %if.end2511 ], [ %curCodeBlock.2, %if.end2535 ], [ %curCodeBlock.2, %if.end2596 ], [ %curCodeBlock.2, %case_SelectObject ], [ %curCodeBlock.2, %if.end2646 ], [ %curCodeBlock.2, %case_StrictEq ], [ %curCodeBlock.2, %case_StrictNeq ], [ %curCodeBlock.2, %case_Not ], [ %curCodeBlock.2, %if.then2734 ], [ %curCodeBlock.2, %if.end2763 ], [ %curCodeBlock.2, %case_TypeOf ], [ %curCodeBlock.2, %if.then2802 ], [ %curCodeBlock.2, %if.end2843 ], [ %curCodeBlock.2, %if.end2870 ], [ %curCodeBlock.2, %if.end2913 ], [ %curCodeBlock.2, %if.end2976 ], [ %curCodeBlock.2, %if.end3083 ], [ %curCodeBlock.2, %if.end3173 ], [ %curCodeBlock.2, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEPS5_.exit3912 ], [ %curCodeBlock.2, %if.then3250 ], [ %curCodeBlock.2, %if.end3266 ], [ %curCodeBlock.2, %case_LoadConstUInt8 ], [ %curCodeBlock.2, %case_LoadConstInt ], [ %curCodeBlock.2, %case_LoadConstDouble ], [ %curCodeBlock.2, %case_LoadConstString ], [ %curCodeBlock.2, %case_LoadConstStringLongIndex ], [ %curCodeBlock.2, %case_LoadConstEmpty ], [ %curCodeBlock.2, %case_LoadConstUndefined ], [ %curCodeBlock.2, %case_LoadConstNull ], [ %curCodeBlock.2, %case_LoadConstTrue ], [ %curCodeBlock.2, %case_LoadConstFalse ], [ %curCodeBlock.2, %case_LoadConstZero ], [ %curCodeBlock.2, %if.end3420 ], [ %curCodeBlock.2, %case_SubN ], [ %curCodeBlock.2, %if.end3480 ], [ %curCodeBlock.2, %case_MulN ], [ %curCodeBlock.2, %if.end3541 ], [ %curCodeBlock.2, %case_DivN ], [ %curCodeBlock.2, %if.end3602 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit4038 ], [ %curCodeBlock.2, %if.end3666 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit4090 ], [ %curCodeBlock.2, %if.end3730 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit4141 ], [ %curCodeBlock.2, %if.end3794 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit4192 ], [ %curCodeBlock.2, %if.end3858 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit4244 ], [ %curCodeBlock.2, %if.end3925 ], [ %curCodeBlock.2, %_ZN6hermes15truncateToInt32Ed.exit4296 ], [ %curCodeBlock.2, %if.end3992 ], [ %curCodeBlock.2, %if.then4013 ], [ %curCodeBlock.2, %if.end4052 ], [ %curCodeBlock.2, %if.then4076 ], [ %curCodeBlock.2, %if.end4115 ], [ %curCodeBlock.2, %if.then4139 ], [ %curCodeBlock.2, %if.end4178 ], [ %curCodeBlock.2, %if.then4202 ], [ %curCodeBlock.2, %if.end4241 ], [ %curCodeBlock.2, %if.then4275 ], [ %curCodeBlock.2, %if.end4283 ], [ %curCodeBlock.2, %if.then4308 ], [ %curCodeBlock.2, %if.end4316 ], [ %curCodeBlock.2, %if.then4342 ], [ %curCodeBlock.2, %if.end4349 ], [ %curCodeBlock.2, %if.then4374 ], [ %curCodeBlock.2, %if.end4381 ], [ %curCodeBlock.2, %if.then4407 ], [ %curCodeBlock.2, %if.end4412 ], [ %curCodeBlock.2, %if.then4440 ], [ %curCodeBlock.2, %if.end4445 ], [ %curCodeBlock.2, %if.then4474 ], [ %curCodeBlock.2, %if.end4479 ], [ %curCodeBlock.2, %if.then4506 ], [ %curCodeBlock.2, %if.end4511 ], [ %curCodeBlock.2, %if.then4539 ], [ %curCodeBlock.2, %if.end4547 ], [ %curCodeBlock.2, %if.then4572 ], [ %curCodeBlock.2, %if.end4580 ], [ %curCodeBlock.2, %if.then4606 ], [ %curCodeBlock.2, %if.end4613 ], [ %curCodeBlock.2, %if.then4638 ], [ %curCodeBlock.2, %if.end4645 ], [ %curCodeBlock.2, %if.then4671 ], [ %curCodeBlock.2, %if.end4676 ], [ %curCodeBlock.2, %if.then4704 ], [ %curCodeBlock.2, %if.end4709 ], [ %curCodeBlock.2, %if.then4738 ], [ %curCodeBlock.2, %if.end4743 ], [ %curCodeBlock.2, %if.then4770 ], [ %curCodeBlock.2, %if.end4775 ], [ %curCodeBlock.2, %if.then4803 ], [ %curCodeBlock.2, %if.end4811 ], [ %curCodeBlock.2, %if.then4836 ], [ %curCodeBlock.2, %if.end4844 ], [ %curCodeBlock.2, %if.then4870 ], [ %curCodeBlock.2, %if.end4877 ], [ %curCodeBlock.2, %if.then4902 ], [ %curCodeBlock.2, %if.end4909 ], [ %curCodeBlock.2, %if.then4935 ], [ %curCodeBlock.2, %if.end4940 ], [ %curCodeBlock.2, %if.then4968 ], [ %curCodeBlock.2, %if.end4973 ], [ %curCodeBlock.2, %if.then5002 ], [ %curCodeBlock.2, %if.end5007 ], [ %curCodeBlock.2, %if.then5034 ], [ %curCodeBlock.2, %if.end5039 ], [ %curCodeBlock.2, %if.then5067 ], [ %curCodeBlock.2, %if.end5075 ], [ %curCodeBlock.2, %if.then5100 ], [ %curCodeBlock.2, %if.end5108 ], [ %curCodeBlock.2, %if.then5134 ], [ %curCodeBlock.2, %if.end5141 ], [ %curCodeBlock.2, %if.then5166 ], [ %curCodeBlock.2, %if.end5173 ], [ %curCodeBlock.2, %if.then5199 ], [ %curCodeBlock.2, %if.end5204 ], [ %curCodeBlock.2, %if.then5232 ], [ %curCodeBlock.2, %if.end5237 ], [ %curCodeBlock.2, %if.then5266 ], [ %curCodeBlock.2, %if.end5271 ], [ %curCodeBlock.2, %if.then5298 ], [ %curCodeBlock.2, %if.end5303 ], [ %curCodeBlock.2, %if.then5321 ], [ %curCodeBlock.2, %if.end5329 ], [ %curCodeBlock.2, %if.then5345 ], [ %curCodeBlock.2, %if.end5352 ], [ %curCodeBlock.2, %if.then5368 ], [ %curCodeBlock.2, %if.end5373 ], [ %curCodeBlock.2, %if.then5392 ], [ %curCodeBlock.2, %if.end5397 ], [ %curCodeBlock.2, %if.then5423 ], [ %curCodeBlock.2, %if.end5431 ], [ %curCodeBlock.2, %if.then5455 ], [ %curCodeBlock.2, %if.end5462 ], [ %curCodeBlock.2, %if.then5486 ], [ %curCodeBlock.2, %if.end5491 ], [ %curCodeBlock.2, %if.then5518 ], [ %curCodeBlock.2, %if.end5523 ], [ %curCodeBlock.2, %if.end5536 ], [ %curCodeBlock.2, %if.end5547 ], [ %curCodeBlock.2, %if.end5558 ], [ %curCodeBlock.2, %if.end5569 ], [ %curCodeBlock.2, %if.end5580 ], [ %curCodeBlock.2, %if.end5623 ], [ %curCodeBlock.2, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ], [ %curCodeBlock.2, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE1EEEvjS2_RNS0_7HadesGCE.exit.i ], [ %curCodeBlock.2, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i3214 ], [ %curCodeBlock.2, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit.i ]
-  br label %indirectgoto, !llvm.loop !49
+  br label %indirectgoto
 
 case_MovLong:                                     ; preds = %indirectgoto
   %op249 = getelementptr inbounds nuw i8, ptr %.sink.sink.in, i64 5
@@ -2988,7 +2989,7 @@ tailCall.backedge:                                ; preds = %if.end359, %if.end4
   %storemerge = phi ptr [ %102, %if.end425 ], [ %.sink.sink.in, %if.end359 ]
   %curCodeBlock.0.be = phi ptr [ %cond, %if.end425 ], [ %84, %if.end359 ]
   store ptr %storemerge, ptr %currentIP_.i.i, align 8
-  br label %tailCall, !llvm.loop !50
+  br label %tailCall
 
 if.end360:                                        ; preds = %cond.true.i, %doCall
   store ptr %.sink.sink.in, ptr %currentIP_.i.i, align 8
@@ -3777,15 +3778,15 @@ case_CreateGenerator:                             ; preds = %indirectgoto
   %219 = load i8, ptr %op2800, align 1
   %idxprom801 = zext i8 %219 to i64
   %arrayidx802 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom801
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %arrayidx.i.i.i2709 = getelementptr inbounds i8, ptr %frameRegs.1, i64 -64
   %arrayidx.i.i1.i = getelementptr inbounds i8, ptr %frameRegs.1, i64 -40
-  %220 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !51
+  %220 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !48
   %conv.i.i.i = trunc i64 %220 to i32
   %arrayidx.i.i2710 = getelementptr inbounds i8, ptr %frameRegs.1, i64 -48
-  store ptr %arrayidx.i.i.i2709, ptr %agg.tmp806, align 8, !alias.scope !51
-  store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !51
-  store ptr %arrayidx.i.i2710, ptr %newTarget_.i.i, align 8, !alias.scope !51
+  store ptr %arrayidx.i.i.i2709, ptr %agg.tmp806, align 8, !alias.scope !48
+  store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !48
+  store ptr %arrayidx.i.i2710, ptr %newTarget_.i.i, align 8, !alias.scope !48
   %call811 = call ptr @_ZN6hermes2vm11Interpreter19createGenerator_RJSERNS0_7RuntimeEPNS0_13RuntimeModuleEjNS0_6HandleINS0_11EnvironmentEEENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %217, i32 noundef %conv798, ptr %arrayidx802, ptr noundef nonnull %agg.tmp806)
   %221 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i2712.not = icmp eq ptr %call811, inttoptr (i64 -1 to ptr)
@@ -3814,15 +3815,15 @@ case_CreateGeneratorLongIndex:                    ; preds = %indirectgoto
   %226 = load i8, ptr %op2836, align 1
   %idxprom837 = zext i8 %226 to i64
   %arrayidx838 = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs.1, i64 %idxprom837
-  call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %arrayidx.i.i.i2723 = getelementptr inbounds i8, ptr %frameRegs.1, i64 -64
   %arrayidx.i.i1.i2724 = getelementptr inbounds i8, ptr %frameRegs.1, i64 -40
-  %227 = load i64, ptr %arrayidx.i.i1.i2724, align 8, !noalias !54
+  %227 = load i64, ptr %arrayidx.i.i1.i2724, align 8, !noalias !51
   %conv.i.i.i2725 = trunc i64 %227 to i32
   %arrayidx.i.i2726 = getelementptr inbounds i8, ptr %frameRegs.1, i64 -48
-  store ptr %arrayidx.i.i.i2723, ptr %agg.tmp842, align 8, !alias.scope !54
-  store i32 %conv.i.i.i2725, ptr %argCount_.i.i2727, align 8, !alias.scope !54
-  store ptr %arrayidx.i.i2726, ptr %newTarget_.i.i2728, align 8, !alias.scope !54
+  store ptr %arrayidx.i.i.i2723, ptr %agg.tmp842, align 8, !alias.scope !51
+  store i32 %conv.i.i.i2725, ptr %argCount_.i.i2727, align 8, !alias.scope !51
+  store ptr %arrayidx.i.i2726, ptr %newTarget_.i.i2728, align 8, !alias.scope !51
   %call847 = call ptr @_ZN6hermes2vm11Interpreter19createGenerator_RJSERNS0_7RuntimeEPNS0_13RuntimeModuleEjNS0_6HandleINS0_11EnvironmentEEENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %224, i32 noundef %225, ptr %arrayidx838, ptr noundef nonnull %agg.tmp842)
   %228 = load ptr, ptr %currentIP_.i.i, align 8
   %cmp.i.i2730.not = icmp eq ptr %call847, inttoptr (i64 -1 to ptr)
@@ -3873,7 +3874,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %234 = inttoptr i64 %add.i.i.i.i.i.i2751 to ptr
   %dec = add nsw i32 %level.05244, -1
   %tobool875.not = icmp eq i32 %dec, 0
-  br i1 %tobool875.not, label %for.end.loopexit, label %for.body, !llvm.loop !57
+  br i1 %tobool875.not, label %for.end.loopexit, label %for.body, !llvm.loop !54
 
 for.end.loopexit:                                 ; preds = %for.body
   %cmp.i.not.i.i.i.i.i2749 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i2748, 0
@@ -3955,7 +3956,7 @@ for.body5.i.i.i.i.i.i.i.i:                        ; preds = %_ZN6hermes2vm9GCPoi
   store i64 -1688849860263936, ptr %cur2.012.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr9.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cur2.012.i.i.i.i.i.i.i.i, i64 8
   %cmp4.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr9.i.i.i.i.i.i.i.i, %add.ptr.i.i3.i.i.i.i.i
-  br i1 %cmp4.not.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit, label %for.body5.i.i.i.i.i.i.i.i, !llvm.loop !58
+  br i1 %cmp4.not.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit, label %for.body5.i.i.i.i.i.i.i.i, !llvm.loop !55
 
 _ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit: ; preds = %for.body5.i.i.i.i.i.i.i.i, %_ZN6hermes2vm9GCPointerINS0_11EnvironmentEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit.i.i.i.i.i.i.i
   %bf.value.i.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i, 16777208
@@ -4063,7 +4064,7 @@ for.body5.i.i.i.i.i.i.i.i2812:                    ; preds = %_ZN6hermes2vm9GCPoi
   store i64 -1688849860263936, ptr %cur2.012.i.i.i.i.i.i.i.i2813, align 8
   %incdec.ptr9.i.i.i.i.i.i.i.i2814 = getelementptr inbounds nuw i8, ptr %cur2.012.i.i.i.i.i.i.i.i2813, i64 8
   %cmp4.not.i.i.i.i.i.i.i.i2815 = icmp eq ptr %incdec.ptr9.i.i.i.i.i.i.i.i2814, %add.ptr.i.i3.i.i.i.i.i2810
-  br i1 %cmp4.not.i.i.i.i.i.i.i.i2815, label %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit2822, label %for.body5.i.i.i.i.i.i.i.i2812, !llvm.loop !58
+  br i1 %cmp4.not.i.i.i.i.i.i.i.i2815, label %_ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit2822, label %for.body5.i.i.i.i.i.i.i.i2812, !llvm.loop !55
 
 _ZN6hermes2vm11Environment6createERNS0_7RuntimeENS0_6HandleIS1_EEj.exit2822: ; preds = %for.body5.i.i.i.i.i.i.i.i2812, %_ZN6hermes2vm9GCPointerINS0_11EnvironmentEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit.i.i.i.i.i.i.i2805
   %bf.value.i.i.i.i.i.i.i2816 = and i32 %sub.i.i.i.i.i2783, 16777208
@@ -5539,7 +5540,7 @@ if.end1696:                                       ; preds = %if.end1692
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv1667
-  br i1 %exitcond.not, label %if.end1740, label %while.body, !llvm.loop !59
+  br i1 %exitcond.not, label %if.end1740, label %while.body, !llvm.loop !56
 
 if.then1698:                                      ; preds = %if.end1692
   %492 = trunc nuw i64 %indvars.iv to i32
@@ -10117,7 +10118,7 @@ while.cond5677.us:                                ; preds = %while.cond5677.us, 
   store ptr %1293, ptr %currentFrame_.i, align 8
   %arrayidx.i5852.us = getelementptr inbounds nuw i8, ptr %1293, i64 8
   %tobool5703.not.us = icmp eq i64 %1289, 0
-  br i1 %tobool5703.not.us, label %cleanup, label %while.cond5677.us, !llvm.loop !60
+  br i1 %tobool5703.not.us, label %cleanup, label %while.cond5677.us, !llvm.loop !57
 
 while.cond5677:                                   ; preds = %while.cond5677.preheader, %while.body5686
   %frameRegs.3 = phi ptr [ %arrayidx.i5852, %while.body5686 ], [ %frameRegs.2, %while.cond5677.preheader ]
@@ -10148,7 +10149,7 @@ while.body5686:                                   ; preds = %while.cond5677
   store ptr %1300, ptr %currentFrame_.i, align 8
   %arrayidx.i5852 = getelementptr inbounds nuw i8, ptr %1300, i64 8
   %tobool5703.not = icmp eq i64 %1295, 0
-  br i1 %tobool5703.not, label %cleanup, label %while.cond5677, !llvm.loop !60
+  br i1 %tobool5703.not, label %cleanup, label %while.cond5677, !llvm.loop !57
 
 do.body5710:                                      ; preds = %while.cond5677
   %bytecode_.i4826.le = getelementptr inbounds nuw i8, ptr %curCodeBlock.4, i64 16
@@ -10166,7 +10167,7 @@ do.body5710:                                      ; preds = %while.cond5677
   %sub.ptr.sub5727.neg = sub i64 %sub.ptr.rhs.cast5726, %sub.ptr.lhs.cast
   %1304 = getelementptr i8, ptr %ip.25, i64 %sub.ptr.sub5727.neg
   %add.ptr5729 = getelementptr i8, ptr %1304, i64 %conv5723
-  br label %for.cond, !llvm.loop !61
+  br label %for.cond, !llvm.loop !58
 
 cleanup:                                          ; preds = %handleExceptionInParent, %while.body5686, %case_Ret, %while.cond5677.us
   %retval.sroa.0.1 = phi i32 [ 0, %while.cond5677.us ], [ 1, %case_Ret ], [ 0, %while.body5686 ], [ 0, %handleExceptionInParent ]
@@ -10679,61 +10680,58 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv: %agg.result"}
-!9 = distinct !{!9, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK6hermes2vm10StringView7toTwineEv: %agg.result"}
-!12 = distinct !{!12, !"_ZNK6hermes2vm10StringView7toTwineEv"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!15 = distinct !{!15, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!16 = distinct !{!16, !17, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!17 = distinct !{!17, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!20 = distinct !{!20, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!21 = distinct !{!21, !22, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!22 = distinct !{!22, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!23 = !{!24, !26}
-!24 = distinct !{!24, !25, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!25 = distinct !{!25, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!26 = distinct !{!26, !27, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!27 = distinct !{!27, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!30 = distinct !{!30, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!31 = distinct !{!31, !32, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!32 = distinct !{!32, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!35 = distinct !{!35, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!36 = distinct !{!36, !37, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!37 = distinct !{!37, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!40 = distinct !{!40, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!41 = distinct !{!41, !42, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
-!42 = distinct !{!42, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_: %agg.result"}
-!45 = distinct !{!45, !"_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_"}
-!46 = distinct !{!46, !5, !6}
-!47 = distinct !{!47, !5, !6}
-!48 = distinct !{!48, !5, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv: %agg.result"}
+!8 = distinct !{!8, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK6hermes2vm10StringView7toTwineEv: %agg.result"}
+!11 = distinct !{!11, !"_ZNK6hermes2vm10StringView7toTwineEv"}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!14 = distinct !{!14, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!15 = distinct !{!15, !16, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!16 = distinct !{!16, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!19 = distinct !{!19, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!20 = distinct !{!20, !21, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!21 = distinct !{!21, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!24 = distinct !{!24, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!25 = distinct !{!25, !26, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!26 = distinct !{!26, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!29 = distinct !{!29, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!30 = distinct !{!30, !31, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!31 = distinct !{!31, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!34 = distinct !{!34, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!35 = distinct !{!35, !36, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!36 = distinct !{!36, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!39 = distinct !{!39, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!40 = distinct !{!40, !41, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
+!41 = distinct !{!41, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_: %agg.result"}
+!44 = distinct !{!44, !"_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_11HiddenClassEEENS0_13MutableHandleIT_EEPS5_"}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv: %agg.result"}
+!50 = distinct !{!50, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv"}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv: %agg.result"}
 !53 = distinct !{!53, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv: %agg.result"}
-!56 = distinct !{!56, !"_ZNK6hermes2vm14StackFramePtrTILb0EE13getNativeArgsEv"}
-!57 = distinct !{!57, !5, !6}
-!58 = distinct !{!58, !5, !6}
-!59 = distinct !{!59, !5, !6}
-!60 = distinct !{!60, !5, !6}
-!61 = distinct !{!61, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}
+!58 = distinct !{!58, !5}

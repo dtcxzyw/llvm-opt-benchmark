@@ -265,7 +265,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.add = add nuw nsw i64 %.idx, 112
   %38 = add nuw nsw i64 %.idx, 104
   %39 = icmp eq i64 %38, %30
-  br i1 %39, label %.loopexit90, label %36, !llvm.loop !43
+  br i1 %39, label %.loopexit90, label %36
 
 .loopexit90:                                      ; preds = %37, %21
   %40 = phi ptr [ null, %21 ], [ %.ptr74, %37 ]
@@ -284,15 +284,15 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %46, align 8, !tbaa !45
+  store i16 2, ptr %46, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713FieldPositionE, i64 16), ptr %8, align 8, !tbaa !34
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 -1, ptr %47, align 8, !tbaa !46
+  store i32 -1, ptr %47, align 8, !tbaa !44
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %48, align 4, !tbaa !48
+  store i32 0, ptr %48, align 4, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %49, align 8, !tbaa !49
+  store i32 0, ptr %49, align 8, !tbaa !47
   %50 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MessageFormat6formatEPKNS_11FormattableEiRNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %40, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %163 unwind label %176
 
@@ -308,7 +308,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.ptr78 = getelementptr inbounds i8, ptr %33, i64 %.add76
   tail call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr78) #10
   %54 = icmp eq i64 %.add76, 8
-  br i1 %54, label %.loopexit89, label %.preheader88, !llvm.loop !50
+  br i1 %54, label %.loopexit89, label %.preheader88
 
 .loopexit89:                                      ; preds = %.preheader88, %51
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %33) #10
@@ -317,7 +317,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 55:                                               ; preds = %.lr.ph, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %56 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4, !tbaa !51
+  %57 = load i32, ptr %56, align 4, !tbaa !48
   switch i32 %57, label %161 [
     i32 0, label %58
     i32 1, label %73
@@ -349,7 +349,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 69:                                               ; preds = %66, %61
   %70 = phi ptr [ %64, %61 ], [ %67, %66 ]
-  %71 = load double, ptr %70, align 8, !tbaa !53
+  %71 = load double, ptr %70, align 8, !tbaa !50
   %72 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable7setDateEd(ptr noundef nonnull align 8 dereferenceable(112) %72, double noundef %71)
   br label %162
@@ -375,7 +375,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 84:                                               ; preds = %81, %76
   %85 = phi ptr [ %79, %76 ], [ %82, %81 ]
-  %86 = load double, ptr %85, align 8, !tbaa !53
+  %86 = load double, ptr %85, align 8, !tbaa !50
   %87 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %87, double noundef %86)
   br label %162
@@ -427,7 +427,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 114:                                              ; preds = %111, %106
   %115 = phi ptr [ %109, %106 ], [ %112, %111 ]
-  %116 = load i64, ptr %115, align 8, !tbaa !55
+  %116 = load i64, ptr %115, align 8, !tbaa !52
   %117 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable8setInt64El(ptr noundef nonnull align 8 dereferenceable(112) %117, i64 noundef %116)
   br label %162
@@ -453,23 +453,23 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 129:                                              ; preds = %126, %121
   %130 = phi ptr [ %124, %121 ], [ %127, %126 ]
-  %131 = load ptr, ptr %130, align 8, !tbaa !57
+  %131 = load ptr, ptr %130, align 8, !tbaa !54
   %.not83 = icmp eq ptr %131, null
   br i1 %.not83, label %144, label %132
 
 132:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !34
-  store i16 2, ptr %44, align 8, !tbaa !45
+  store i16 2, ptr %44, align 8, !tbaa !43
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %132, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %136, %.preheader.i.i ], [ 0, %132 ]
   %133 = getelementptr inbounds nuw i16, ptr %131, i64 %.0.i.i.i.i
-  %134 = load i16, ptr %133, align 2, !tbaa !58
+  %134 = load i16, ptr %133, align 2, !tbaa !55
   %135 = icmp eq i16 %134, 0
   %136 = add i64 %.0.i.i.i.i, 1
-  br i1 %135, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !60
+  br i1 %135, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !57
 
 .loopexit.i:                                      ; preds = %.preheader.i.i
   %137 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %6, i64 %.0.i.i.i.i, ptr nonnull %131)
@@ -545,7 +545,7 @@ _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
 162:                                              ; preds = %156, %158, %148, %150, %141, %144, %114, %99, %84, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !59
 
 163:                                              ; preds = %._crit_edge
   %164 = icmp eq ptr %40, null
@@ -567,7 +567,7 @@ _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
   %171 = getelementptr inbounds i8, ptr %170, i64 -112
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %171) #10
   %172 = icmp eq ptr %171, %40
-  br i1 %172, label %.loopexit, label %.preheader, !llvm.loop !63
+  br i1 %172, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %165
   call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %166) #10
@@ -584,20 +584,20 @@ _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
   br label %186
 
 178:                                              ; preds = %173
-  store ptr %1, ptr %9, align 8, !tbaa !64
+  store ptr %1, ptr %9, align 8, !tbaa !60
   %179 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %180 unwind label %182
 
 180:                                              ; preds = %178
-  %181 = load ptr, ptr %9, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %181) #10, !srcloc !66
+  %181 = load ptr, ptr %9, align 8, !tbaa !60
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %181) #10, !srcloc !62
   br label %185
 
 182:                                              ; preds = %178
   %183 = landingpad { ptr, i32 }
           cleanup
-  %184 = load ptr, ptr %9, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %184) #10, !srcloc !66
+  %184 = load ptr, ptr %9, align 8, !tbaa !60
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %184) #10, !srcloc !62
   br label %186
 
 185:                                              ; preds = %173, %180
@@ -775,7 +775,7 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 2, ptr %29, align 8, !tbaa !45
+  store i16 2, ptr %29, align 8, !tbaa !43
   %30 = load i32, ptr %3, align 4, !tbaa !32
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %._crit_edge
@@ -838,14 +838,14 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 55:                                               ; preds = %52, %47
   %56 = phi ptr [ %50, %47 ], [ %53, %52 ]
-  %57 = load ptr, ptr %56, align 8, !tbaa !67
+  %57 = load ptr, ptr %56, align 8, !tbaa !63
   %.not88 = icmp eq ptr %57, null
   br i1 %.not88, label %61, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %60 = load double, ptr %59, align 8, !tbaa !45
-  store double %60, ptr %57, align 8, !tbaa !53
+  %60 = load double, ptr %59, align 8, !tbaa !43
+  store double %60, ptr %57, align 8, !tbaa !50
   br label %149
 
 61:                                               ; preds = %55
@@ -873,14 +873,14 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 73:                                               ; preds = %70, %65
   %74 = phi ptr [ %68, %65 ], [ %71, %70 ]
-  %75 = load ptr, ptr %74, align 8, !tbaa !67
+  %75 = load ptr, ptr %74, align 8, !tbaa !63
   %.not87 = icmp eq ptr %75, null
   br i1 %.not87, label %79, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %78 = load double, ptr %77, align 8, !tbaa !45
-  store double %78, ptr %75, align 8, !tbaa !53
+  %78 = load double, ptr %77, align 8, !tbaa !43
+  store double %78, ptr %75, align 8, !tbaa !50
   br label %149
 
 79:                                               ; preds = %73
@@ -908,13 +908,13 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 91:                                               ; preds = %88, %83
   %92 = phi ptr [ %86, %83 ], [ %89, %88 ]
-  %93 = load ptr, ptr %92, align 8, !tbaa !68
+  %93 = load ptr, ptr %92, align 8, !tbaa !64
   %.not86 = icmp eq ptr %93, null
   br i1 %.not86, label %98, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %96 = load i64, ptr %95, align 8, !tbaa !45
+  %96 = load i64, ptr %95, align 8, !tbaa !43
   %97 = trunc i64 %96 to i32
   store i32 %97, ptr %93, align 4, !tbaa !32
   br label %149
@@ -944,14 +944,14 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 110:                                              ; preds = %107, %102
   %111 = phi ptr [ %105, %102 ], [ %108, %107 ]
-  %112 = load ptr, ptr %111, align 8, !tbaa !70
+  %112 = load ptr, ptr %111, align 8, !tbaa !66
   %.not85 = icmp eq ptr %112, null
   br i1 %.not85, label %116, label %113
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %115 = load i64, ptr %114, align 8, !tbaa !45
-  store i64 %115, ptr %112, align 8, !tbaa !55
+  %115 = load i64, ptr %114, align 8, !tbaa !43
+  store i64 %115, ptr %112, align 8, !tbaa !52
   br label %149
 
 116:                                              ; preds = %110
@@ -979,18 +979,18 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 128:                                              ; preds = %125, %120
   %129 = phi ptr [ %123, %120 ], [ %126, %125 ]
-  %130 = load ptr, ptr %129, align 8, !tbaa !57
+  %130 = load ptr, ptr %129, align 8, !tbaa !54
   %.not81 = icmp eq ptr %130, null
   br i1 %.not81, label %146, label %131
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !45
+  %133 = load ptr, ptr %132, align 8, !tbaa !43
   %134 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %133)
           to label %135 unwind label %42
 
 135:                                              ; preds = %131
-  %136 = load i16, ptr %29, align 8, !tbaa !45
+  %136 = load i16, ptr %29, align 8, !tbaa !43
   %137 = icmp slt i16 %136, 0
   %138 = ashr i16 %136, 5
   %139 = sext i16 %138 to i32
@@ -1000,16 +1000,16 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
           to label %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit unwind label %144
 
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %135
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %130) #10, !srcloc !66
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %130) #10, !srcloc !62
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i16, ptr %130, i64 %142
-  store i16 0, ptr %143, align 2, !tbaa !58
+  store i16 0, ptr %143, align 2, !tbaa !55
   br label %149
 
 144:                                              ; preds = %135
   %145 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %130) #10, !srcloc !66
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %130) #10, !srcloc !62
   br label %153
 
 146:                                              ; preds = %128
@@ -1029,7 +1029,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %135
   %150 = load i32, ptr %3, align 4, !tbaa !32
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next, %151
-  br i1 %152, label %38, label %._crit_edge.thread, !llvm.loop !72
+  br i1 %152, label %38, label %._crit_edge.thread, !llvm.loop !68
 
 153:                                              ; preds = %144, %42
   %.pn = phi { ptr, i32 } [ %145, %144 ], [ %43, %42 ]
@@ -1053,7 +1053,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %135
   %159 = getelementptr inbounds i8, ptr %158, i64 -112
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %159) #10
   %160 = icmp eq ptr %159, %27
-  br i1 %160, label %.loopexit, label %.preheader, !llvm.loop !73
+  br i1 %160, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge.thread
   call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %154) #10
@@ -1221,7 +1221,7 @@ define ptr @umsg_getLocale_77(ptr noundef %0) local_unnamed_addr #1 {
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(217) ptr %6(ptr noundef nonnull align 8 dereferenceable(512) %0)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %8, align 8, !tbaa !69
   br label %10
 
 10:                                               ; preds = %1, %3
@@ -1321,7 +1321,7 @@ define noundef i32 @umsg_toPattern_77(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i16 2, ptr %19, align 8, !tbaa !45
+  store i16 2, ptr %19, align 8, !tbaa !43
   %20 = icmp eq i32 %2, 0
   %or.cond5 = and i1 %16, %20
   br i1 %or.cond5, label %25, label %21
@@ -1343,13 +1343,13 @@ define noundef i32 @umsg_toPattern_77(ptr noundef %0, ptr noundef %1, i32 nounde
           to label %30 unwind label %23
 
 30:                                               ; preds = %25
-  store ptr %1, ptr %6, align 8, !tbaa !64
+  store ptr %1, ptr %6, align 8, !tbaa !60
   %31 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %32 unwind label %34
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %6, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #10, !srcloc !66
+  %33 = load ptr, ptr %6, align 8, !tbaa !60
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #10, !srcloc !62
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
   br label %38
@@ -1357,8 +1357,8 @@ define noundef i32 @umsg_toPattern_77(ptr noundef %0, ptr noundef %1, i32 nounde
 34:                                               ; preds = %30
   %35 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %6, align 8, !tbaa !64
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #10, !srcloc !66
+  %36 = load ptr, ptr %6, align 8, !tbaa !60
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #10, !srcloc !62
   br label %37
 
 37:                                               ; preds = %34, %23
@@ -1486,7 +1486,7 @@ define i32 @umsg_autoQuoteApostrophe_77(ptr noundef %0, i32 noundef %1, ptr noun
   %.05166 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %51 ]
   %.05365 = phi i32 [ 0, %.lr.ph.preheader ], [ %.154, %51 ]
   %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %26 = load i16, ptr %25, align 2, !tbaa !58
+  %26 = load i16, ptr %25, align 2, !tbaa !55
   switch i32 %.05365, label %default.unreachable71 [
     i32 0, label %27
     i32 1, label %31
@@ -1524,7 +1524,7 @@ define i32 @umsg_autoQuoteApostrophe_77(ptr noundef %0, i32 noundef %1, ptr noun
 35:                                               ; preds = %33
   %36 = sext i32 %.05067 to i64
   %37 = getelementptr inbounds i16, ptr %2, i64 %36
-  store i16 39, ptr %37, align 2, !tbaa !58
+  store i16 39, ptr %37, align 2, !tbaa !55
   br label %38
 
 38:                                               ; preds = %33, %35
@@ -1565,14 +1565,14 @@ default.unreachable71:                            ; preds = %.lr.ph
 48:                                               ; preds = %46
   %49 = sext i32 %.1 to i64
   %50 = getelementptr inbounds i16, ptr %2, i64 %49
-  store i16 %26, ptr %50, align 2, !tbaa !58
+  store i16 %26, ptr %50, align 2, !tbaa !55
   br label %51
 
 51:                                               ; preds = %46, %48
   %.3 = add nsw i32 %.1, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 52:                                               ; preds = %._crit_edge
   %53 = icmp slt i32 %.3, %3
@@ -1582,7 +1582,7 @@ default.unreachable71:                            ; preds = %.lr.ph
 55:                                               ; preds = %52
   %56 = sext i32 %.3 to i64
   %57 = getelementptr inbounds i16, ptr %2, i64 %56
-  store i16 39, ptr %57, align 2, !tbaa !58
+  store i16 39, ptr %57, align 2, !tbaa !55
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %52, %21, %55, %._crit_edge
@@ -1667,36 +1667,31 @@ attributes #11 = { noreturn nounwind }
 !40 = !{!"p1 char16_t", !8, i64 0}
 !41 = !{i64 2149934897}
 !42 = !{!4, !9, i64 408}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!9, !9, i64 0}
-!46 = !{!47, !12, i64 8}
-!47 = !{!"_ZTSN6icu_7713FieldPositionE", !6, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!48 = !{!47, !12, i64 12}
-!49 = !{!47, !12, i64 16}
-!50 = distinct !{!50, !44}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"_ZTSN6icu_7711Formattable4TypeE", !9, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"double", !9, i64 0}
+!43 = !{!9, !9, i64 0}
+!44 = !{!45, !12, i64 8}
+!45 = !{!"_ZTSN6icu_7713FieldPositionE", !6, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!46 = !{!45, !12, i64 12}
+!47 = !{!45, !12, i64 16}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"_ZTSN6icu_7711Formattable4TypeE", !9, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"double", !9, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"long", !9, i64 0}
+!54 = !{!40, !40, i64 0}
 !55 = !{!56, !56, i64 0}
-!56 = !{!"long", !9, i64 0}
-!57 = !{!40, !40, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"char16_t", !9, i64 0}
-!60 = distinct !{!60, !61, !44}
-!61 = !{!"llvm.loop.mustprogress"}
-!62 = distinct !{!62, !61, !44}
-!63 = distinct !{!63, !44}
-!64 = !{!65, !40, i64 0}
-!65 = !{!"_ZTSN6icu_779Char16PtrE", !40, i64 0}
-!66 = !{i64 2149934791}
-!67 = !{!21, !21, i64 0}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"p1 int", !8, i64 0}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"p1 long", !8, i64 0}
-!72 = distinct !{!72, !61, !44}
-!73 = distinct !{!73, !44}
-!74 = !{!11, !13, i64 40}
-!75 = distinct !{!75, !61, !44}
+!56 = !{!"char16_t", !9, i64 0}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.mustprogress"}
+!59 = distinct !{!59, !58}
+!60 = !{!61, !40, i64 0}
+!61 = !{!"_ZTSN6icu_779Char16PtrE", !40, i64 0}
+!62 = !{i64 2149934791}
+!63 = !{!21, !21, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 int", !8, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 long", !8, i64 0}
+!68 = distinct !{!68, !58}
+!69 = !{!11, !13, i64 40}
+!70 = distinct !{!70, !58}

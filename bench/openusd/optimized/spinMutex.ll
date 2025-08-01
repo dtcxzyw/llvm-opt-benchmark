@@ -25,7 +25,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfSpinMutex17_AcquireContend
   %8 = tail call noundef i32 @sched_yield() #1
   %9 = atomicrmw xchg ptr %0, i8 1 acquire, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %.preheader.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit", !llvm.loop !7
+  br i1 %10, label %.preheader.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit", !llvm.loop !6
 
 "_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit": ; preds = %.preheader1.i, %.preheader.i, %1
   ret void
@@ -49,7 +49,6 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

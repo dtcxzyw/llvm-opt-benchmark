@@ -516,7 +516,7 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %35 = load i8, ptr %34, align 8, !range !7, !noundef !8
+  %35 = load i8, ptr %34, align 8, !range !6, !noundef !7
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %42
 
@@ -756,7 +756,7 @@ tarRead.exit.i:                                   ; preds = %99, %.thread.i.i, %
   %119 = sub i64 %117, %115
   %spec.select.i.i = select i1 %118, i64 %119, i64 4095
   %120 = icmp eq i64 %spec.select.i.i, 0
-  br i1 %120, label %tarRead.exit.thread.i, label %80, !llvm.loop !9
+  br i1 %120, label %tarRead.exit.thread.i, label %80, !llvm.loop !8
 
 tarRead.exit.thread.i:                            ; preds = %113, %tarRead.exit.i, %66
   call void @EndRestoreLO(ptr noundef nonnull %0, i32 noundef %65) #17
@@ -775,7 +775,7 @@ tarRead.exit.thread.i:                            ; preds = %113, %tarRead.exit.
   %.2.i = phi i1 [ %.1.i, %121 ], [ false, %122 ]
   %124 = call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef null, i8 noundef signext 114)
   %.not.i = icmp eq ptr %124, null
-  br i1 %.not.i, label %_LoadLOs.exit, label %57, !llvm.loop !10
+  br i1 %.not.i, label %_LoadLOs.exit, label %57, !llvm.loop !9
 
 _LoadLOs.exit:                                    ; preds = %122, %123, %54
   call void @EndRestoreLOs(ptr noundef nonnull %0) #17
@@ -820,7 +820,7 @@ tarRead.exit.i28:                                 ; preds = %125, %141
   %147 = sub i64 %145, %143
   %spec.select.i.i30 = select i1 %146, i64 %147, i64 4095
   %148 = icmp eq i64 %spec.select.i.i30, 0
-  br i1 %148, label %_PrintFileData.exit, label %tarRead.exit.i28, !llvm.loop !11
+  br i1 %148, label %_PrintFileData.exit, label %tarRead.exit.i28, !llvm.loop !10
 
 _PrintFileData.exit:                              ; preds = %tarRead.exit.i28, %141, %125
   call fastcc void @tarClose(ptr noundef nonnull %0, ptr noundef nonnull %126)
@@ -1008,7 +1008,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
 14:                                               ; preds = %10
   %15 = load i32, ptr @__pg_log_level, align 4
   %16 = icmp ult i32 %15, 2
-  br i1 %16, label %17, label %20, !prof !12
+  br i1 %16, label %17, label %20, !prof !11
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1034,13 +1034,13 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   %29 = load i64, ptr %12, align 8
   %30 = load i64, ptr %22, align 8
   %31 = icmp slt i64 %29, %30
-  br i1 %31, label %26, label %.loopexit.i, !llvm.loop !13
+  br i1 %31, label %26, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %26, %20, %10
   %32 = phi i64 [ %21, %20 ], [ 0, %10 ], [ %29, %26 ]
   %33 = load i32, ptr @__pg_log_level, align 4
   %34 = icmp ult i32 %33, 2
-  br i1 %34, label %35, label %36, !prof !12
+  br i1 %34, label %35, label %36, !prof !11
 
 35:                                               ; preds = %.loopexit.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.18, i64 noundef %32) #17
@@ -1077,7 +1077,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
 47:                                               ; preds = %.preheader.split.i
   %48 = load i32, ptr @__pg_log_level, align 4
   %49 = icmp ult i32 %48, 2
-  br i1 %49, label %50, label %51, !prof !12
+  br i1 %49, label %50, label %51, !prof !11
 
 50:                                               ; preds = %47
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull %45) #17
@@ -1166,12 +1166,12 @@ _tarReadRaw.exit.i:                               ; preds = %74, %71, %.thread.i
   store i64 %83, ptr %81, align 8
   %84 = add nuw nsw i64 %.04355.i, 1
   %exitcond.not.i = icmp eq i64 %84, %62
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph56.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph56.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %_tarReadRaw.exit.i, %59
   %85 = tail call fastcc i32 @_tarGetHeader(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not51.i = icmp eq i32 %85, 0
-  br i1 %.not51.i, label %86, label %.preheader.split.i, !llvm.loop !15
+  br i1 %.not51.i, label %86, label %.preheader.split.i, !llvm.loop !14
 
 86:                                               ; preds = %._crit_edge.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #17
@@ -1349,7 +1349,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   %38 = add i64 %.03.i, %40
   %39 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 32768, ptr noundef %15)
   %.not34.i = icmp eq i64 %39, 0
-  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %_tarWriteHeader.exit.i, %37
   %40 = phi i64 [ %39, %37 ], [ %36, %_tarWriteHeader.exit.i ]
@@ -1415,7 +1415,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
 59:                                               ; preds = %.lr.ph6.i
   %60 = add nuw i64 %.0284.i, 1
   %exitcond.not.i = icmp eq i64 %60, %58
-  br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !16
 
 .lr.ph6.i:                                        ; preds = %55, %59
   %.0284.i = phi i64 [ %60, %59 ], [ 0, %55 ]
@@ -1625,7 +1625,7 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %21
-  br label %.loopexit, !llvm.loop !18
+  br label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
   %10 = load i64, ptr %7, align 8
@@ -1653,7 +1653,7 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
 21:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %16, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %16 ]
@@ -1669,7 +1669,7 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr noundef captures(n
   %27 = call i64 @read_tar_number(ptr noundef nonnull %26, i32 noundef 12) #17
   %28 = load i32, ptr @__pg_log_level, align 4
   %29 = icmp ult i32 %28, 2
-  br i1 %29, label %30, label %31, !prof !12
+  br i1 %29, label %30, label %31, !prof !11
 
 30:                                               ; preds = %.critedge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull %4, i64 noundef %10, i64 noundef %27, i32 noundef %24) #17
@@ -1786,7 +1786,7 @@ define internal void @tarPrintf(ptr noundef captures(none) %0, ptr noundef %1, .
   %12 = call i64 @pvsnprintf(ptr noundef %11, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %3) #17
   call void @llvm.va_end.p0(ptr nonnull %3)
   %13 = icmp ult i64 %12, %9
-  br i1 %13, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa19 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
@@ -1877,19 +1877,17 @@ attributes #20 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

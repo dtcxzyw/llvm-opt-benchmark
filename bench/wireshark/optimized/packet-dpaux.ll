@@ -432,7 +432,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 dissect_dpaux_register.exit.i:                    ; preds = %149, %158, %155, %154
   %exitcond.not.i = icmp eq i32 %139, %119
-  br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %137, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_dpaux_from_source.exit, label %137, !llvm.loop !10
 
 dissect_dpaux_from_source.exit:                   ; preds = %dissect_dpaux_register.exit.i, %133, %128, %114, %72, %67
   %165 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -517,7 +517,6 @@ attributes #3 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

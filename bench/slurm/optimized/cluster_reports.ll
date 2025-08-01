@@ -291,7 +291,7 @@ _set_usage_column_width.exit:                     ; preds = %54, %45
 .loopexit:                                        ; preds = %.backedge, %.lr.ph63
   %71 = call ptr @list_next(ptr noundef %69) #9
   %.not57 = icmp eq ptr %71, null
-  br i1 %.not57, label %._crit_edge, label %.lr.ph63, !llvm.loop !12
+  br i1 %.not57, label %._crit_edge, label %.lr.ph63, !llvm.loop !11
 
 .lr.ph63:                                         ; preds = %66, %.loopexit
   %72 = phi ptr [ %71, %.loopexit ], [ %70, %66 ]
@@ -314,13 +314,13 @@ _set_usage_column_width.exit:                     ; preds = %54, %45
 .backedge:                                        ; preds = %78, %.lr.ph
   %79 = call ptr @list_next(ptr noundef %58) #9
   %.not58 = icmp eq ptr %79, null
-  br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %66
   call void @list_iterator_destroy(ptr noundef %69) #9
   %80 = call ptr @list_next(ptr noundef %59) #9
   %.not53 = icmp eq ptr %80, null
-  br i1 %.not53, label %._crit_edge67, label %.lr.ph66, !llvm.loop !14
+  br i1 %.not53, label %._crit_edge67, label %.lr.ph66, !llvm.loop !13
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %_set_usage_column_width.exit
   %.1.lcssa = phi ptr [ null, %_set_usage_column_width.exit ], [ %.2, %._crit_edge ]
@@ -493,7 +493,7 @@ define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) 
   %67 = load ptr, ptr %33, align 8
   %68 = sext i32 %.0113148 to i64
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  %70 = load i8, ptr @user_case_norm, align 1, !range !15, !noundef !16
+  %70 = load i8, ptr @user_case_norm, align 1, !range !14, !noundef !15
   %71 = trunc nuw i8 %70 to i1
   %72 = tail call i32 @slurm_addto_char_list_with_case(ptr noundef %66, ptr noundef %69, i1 noundef zeroext %71) #9
   br label %147
@@ -635,7 +635,7 @@ define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %147, %24
   %.0116.lcssa = phi i32 [ %25, %24 ], [ %1, %147 ]
@@ -749,7 +749,7 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %30, ptr %32, align 8
-  %33 = load i8, ptr @tree_display, align 1, !range !15, !noundef !16
+  %33 = load i8, ptr @tree_display, align 1, !range !14, !noundef !15
   %34 = trunc nuw i8 %33 to i1
   %. = select i1 %34, i32 -20, i32 15
   store i32 %., ptr %31, align 8
@@ -1068,7 +1068,7 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
   %185 = load ptr, ptr %2, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store ptr %184, ptr %186, align 8
-  %187 = load i8, ptr @tree_display, align 1, !range !15, !noundef !16
+  %187 = load i8, ptr @tree_display, align 1, !range !14, !noundef !15
   %188 = trunc nuw i8 %187 to i1
   %.178 = select i1 %188, i32 20, i32 15
   store i32 %.178, ptr %185, align 8
@@ -1099,7 +1099,7 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
   %199 = load ptr, ptr @stderr, align 8
   %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.71, ptr noundef nonnull %15) #11
   call void @slurm_xfree(ptr noundef nonnull %2) #9
-  br label %208, !llvm.loop !18
+  br label %208, !llvm.loop !17
 
 201:                                              ; preds = %37, %56, %74, %95, %115, %133, %156, %172, %191, %181, %164, %141, %123, %106, %82, %65, %46, %27
   %print_fields_str.sink = phi ptr [ @print_fields_str, %37 ], [ @print_fields_str, %56 ], [ @print_fields_str, %74 ], [ @print_fields_str, %95 ], [ @print_fields_str, %115 ], [ @print_fields_uint32, %133 ], [ @print_fields_uint32, %156 ], [ @print_fields_str, %172 ], [ @print_fields_str, %191 ], [ @print_fields_str, %181 ], [ @print_fields_str, %164 ], [ @print_fields_str, %141 ], [ @print_fields_str, %123 ], [ @print_fields_str, %106 ], [ @print_fields_str, %82 ], [ @print_fields_str, %65 ], [ @print_fields_str, %46 ], [ @print_fields_str, %27 ]
@@ -1123,7 +1123,7 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
 208:                                              ; preds = %205, %198
   %209 = call ptr @list_next(ptr noundef %13) #9
   %.not119 = icmp eq ptr %209, null
-  br i1 %.not119, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %208, %12
   call void @list_iterator_destroy(ptr noundef %13) #9
@@ -1193,7 +1193,7 @@ define internal fastcc void @_merge_cluster_reps(ptr noundef nonnull %0) unnamed
 .outer:                                           ; preds = %22, %21
   %24 = tail call ptr @list_next(ptr noundef %5) #9
   %.not33 = icmp eq ptr %24, null
-  br i1 %.not33, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not33, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
 
 25:                                               ; preds = %13
   store ptr %20, ptr %11, align 8
@@ -1224,7 +1224,7 @@ define internal fastcc void @_merge_cluster_reps(ptr noundef nonnull %0) unnamed
   %34 = tail call i32 @list_delete_item(ptr noundef %5) #9
   %35 = tail call ptr @list_next(ptr noundef %5) #9
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %.outer._crit_edge, label %13, !llvm.loop !20
+  br i1 %.not, label %.outer._crit_edge, label %13, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %33, %4
   tail call void @list_iterator_destroy(ptr noundef %5) #9
@@ -1315,7 +1315,7 @@ define internal fastcc void @_cluster_account_by_user_tres_report(ptr noundef no
   ]
 
 30:                                               ; preds = %26
-  %31 = load i8, ptr @tree_display, align 1, !range !15, !noundef !16
+  %31 = load i8, ptr @tree_display, align 1, !range !14, !noundef !15
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %42
 
@@ -1524,7 +1524,7 @@ define internal fastcc void @_cluster_account_by_user_tres_report(ptr noundef no
   %136 = add nuw nsw i32 %.080100, 1
   %137 = call ptr @list_next(ptr noundef %18) #9
   %.not = icmp eq ptr %137, null
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %135, %4
   call void @list_iterator_destroy(ptr noundef %18) #9
@@ -1722,7 +1722,7 @@ _set_usage_column_width.exit:                     ; preds = %57, %48
 .loopexit:                                        ; preds = %.backedge, %.lr.ph65
   %74 = call ptr @list_next(ptr noundef %72) #9
   %.not59 = icmp eq ptr %74, null
-  br i1 %.not59, label %._crit_edge, label %.lr.ph65, !llvm.loop !22
+  br i1 %.not59, label %._crit_edge, label %.lr.ph65, !llvm.loop !20
 
 .lr.ph65:                                         ; preds = %69, %.loopexit
   %75 = phi ptr [ %74, %.loopexit ], [ %73, %69 ]
@@ -1745,13 +1745,13 @@ _set_usage_column_width.exit:                     ; preds = %57, %48
 .backedge:                                        ; preds = %81, %.lr.ph
   %82 = call ptr @list_next(ptr noundef %61) #9
   %.not60 = icmp eq ptr %82, null
-  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit, %69
   call void @list_iterator_destroy(ptr noundef %72) #9
   %83 = call ptr @list_next(ptr noundef %62) #9
   %.not55 = icmp eq ptr %83, null
-  br i1 %.not55, label %._crit_edge69, label %.lr.ph68, !llvm.loop !24
+  br i1 %.not55, label %._crit_edge69, label %.lr.ph68, !llvm.loop !22
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %_set_usage_column_width.exit
   %.1.lcssa = phi ptr [ null, %_set_usage_column_width.exit ], [ %.2, %._crit_edge ]
@@ -2168,7 +2168,7 @@ _set_usage_column_width.exit:                     ; preds = %58, %49
   %176 = add nuw nsw i32 %.05874.i, 1
   %177 = call ptr @list_next(ptr noundef %88) #9
   %.not.i49 = icmp eq ptr %177, null
-  br i1 %.not.i49, label %_cluster_user_by_account_tres_report.exit, label %92, !llvm.loop !25
+  br i1 %.not.i49, label %_cluster_user_by_account_tres_report.exit, label %92, !llvm.loop !23
 
 _cluster_user_by_account_tres_report.exit:        ; preds = %175, %82
   call void @list_iterator_destroy(ptr noundef %88) #9
@@ -2183,19 +2183,19 @@ _cluster_user_by_account_tres_report.exit:        ; preds = %175, %82
 .backedge:                                        ; preds = %_cluster_user_by_account_tres_report.exit, %77
   %178 = call ptr @list_next(ptr noundef %73) #9
   %.not46 = icmp eq ptr %178, null
-  br i1 %.not46, label %._crit_edge, label %77, !llvm.loop !26
+  br i1 %.not46, label %._crit_edge, label %77, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.backedge, %70
   call void @list_iterator_destroy(ptr noundef %73) #9
   %179 = call ptr @list_next(ptr noundef %66) #9
   %.not45 = icmp eq ptr %179, null
-  br i1 %.not45, label %._crit_edge54, label %70, !llvm.loop !27
+  br i1 %.not45, label %._crit_edge54, label %70, !llvm.loop !25
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %.lr.ph56
   call void @list_iterator_destroy(ptr noundef %66) #9
   %180 = call ptr @list_next(ptr noundef %61) #9
   %.not43 = icmp eq ptr %180, null
-  br i1 %.not43, label %._crit_edge57, label %.lr.ph56, !llvm.loop !28
+  br i1 %.not43, label %._crit_edge57, label %.lr.ph56, !llvm.loop !26
 
 ._crit_edge57:                                    ; preds = %._crit_edge54, %_set_usage_column_width.exit
   call void @list_iterator_destroy(ptr noundef %61) #9
@@ -2599,7 +2599,7 @@ _set_usage_column_width.exit:                     ; preds = %58, %49
   %176 = add nuw nsw i32 %.05874.i, 1
   %177 = call ptr @list_next(ptr noundef %88) #9
   %.not.i49 = icmp eq ptr %177, null
-  br i1 %.not.i49, label %_cluster_user_by_wckey_tres_report.exit, label %92, !llvm.loop !29
+  br i1 %.not.i49, label %_cluster_user_by_wckey_tres_report.exit, label %92, !llvm.loop !27
 
 _cluster_user_by_wckey_tres_report.exit:          ; preds = %175, %82
   call void @list_iterator_destroy(ptr noundef %88) #9
@@ -2614,19 +2614,19 @@ _cluster_user_by_wckey_tres_report.exit:          ; preds = %175, %82
 .backedge:                                        ; preds = %_cluster_user_by_wckey_tres_report.exit, %77
   %178 = call ptr @list_next(ptr noundef %73) #9
   %.not46 = icmp eq ptr %178, null
-  br i1 %.not46, label %._crit_edge, label %77, !llvm.loop !30
+  br i1 %.not46, label %._crit_edge, label %77, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.backedge, %70
   call void @list_iterator_destroy(ptr noundef %73) #9
   %179 = call ptr @list_next(ptr noundef %66) #9
   %.not45 = icmp eq ptr %179, null
-  br i1 %.not45, label %._crit_edge54, label %70, !llvm.loop !31
+  br i1 %.not45, label %._crit_edge54, label %70, !llvm.loop !29
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %.lr.ph56
   call void @list_iterator_destroy(ptr noundef %66) #9
   %180 = call ptr @list_next(ptr noundef %61) #9
   %.not43 = icmp eq ptr %180, null
-  br i1 %.not43, label %._crit_edge57, label %.lr.ph56, !llvm.loop !32
+  br i1 %.not43, label %._crit_edge57, label %.lr.ph56, !llvm.loop !30
 
 ._crit_edge57:                                    ; preds = %._crit_edge54, %_set_usage_column_width.exit
   call void @list_iterator_destroy(ptr noundef %61) #9
@@ -2874,7 +2874,7 @@ define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) 
   %117 = load ptr, ptr %31, align 8
   %118 = sext i32 %.0102141 to i64
   %119 = getelementptr inbounds i8, ptr %117, i64 %118
-  %120 = load i8, ptr @user_case_norm, align 1, !range !15, !noundef !16
+  %120 = load i8, ptr @user_case_norm, align 1, !range !14, !noundef !15
   %121 = trunc nuw i8 %120 to i1
   %122 = tail call i32 @slurm_addto_char_list_with_case(ptr noundef %116, ptr noundef nonnull %119, i1 noundef zeroext %121) #9
   %.not132 = icmp eq i32 %122, 0
@@ -2894,7 +2894,7 @@ define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %127, %22
   %.0105.lcssa = phi i32 [ %23, %22 ], [ %1, %127 ]
@@ -3104,7 +3104,7 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef re
   %.1.i.i = phi i32 [ %.073110.i.i, %85 ], [ %.073110.i.i, %80 ], [ %.073110.i.i, %72 ], [ %.073110.i.i, %71 ], [ %.073110.i.i, %64 ], [ %.073110.i.i, %54 ], [ 1, %48 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %90 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %90, label %._crit_edge.i.i, label %32, !llvm.loop !34
+  br i1 %90, label %._crit_edge.i.i, label %32, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %89, %28
   %.073.lcssa.i.i = phi i32 [ %18, %28 ], [ %.1.i.i, %89 ]
@@ -3209,7 +3209,7 @@ _get_cluster_list.exit.thread:                    ; preds = %_set_cluster_cond.e
   %.1.i26.i = phi ptr [ %.024.i.i, %130 ], [ %.024.i.i, %128 ], [ %118, %122 ], [ %118, %123 ]
   %134 = call ptr @list_next(ptr noundef %116) #9
   %.not.i27.i = icmp eq ptr %134, null
-  br i1 %.not.i27.i, label %._crit_edge.i28.i, label %.lr.ph.i25.i, !llvm.loop !35
+  br i1 %.not.i27.i, label %._crit_edge.i28.i, label %.lr.ph.i25.i, !llvm.loop !33
 
 ._crit_edge.i28.i:                                ; preds = %133, %115
   call void @list_iterator_destroy(ptr noundef %116) #9
@@ -3307,12 +3307,12 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   store ptr null, ptr %12, align 8
   %165 = load ptr, ptr %164, align 8
   %.not131 = icmp eq ptr %165, null
-  br i1 %.not131, label %221, label %166, !llvm.loop !36
+  br i1 %.not131, label %221, label %166, !llvm.loop !34
 
 166:                                              ; preds = %.lr.ph182
   %167 = call i32 @list_count(ptr noundef nonnull %165) #9
   %.not132 = icmp eq i32 %167, 0
-  br i1 %.not132, label %221, label %168, !llvm.loop !36
+  br i1 %.not132, label %221, label %168, !llvm.loop !34
 
 168:                                              ; preds = %166
   %169 = load ptr, ptr %164, align 8
@@ -3326,7 +3326,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   %173 = call i32 @slurmdb_sum_accounting_list(ptr noundef nonnull %172, ptr noundef nonnull %12) #9
   %174 = call ptr @list_next(ptr noundef %170) #9
   %.not133 = icmp eq ptr %174, null
-  br i1 %.not133, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not133, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %168
   call void @list_iterator_destroy(ptr noundef %170) #9
@@ -3370,7 +3370,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
 .backedge140:                                     ; preds = %183, %189
   %188 = call ptr @list_next(ptr noundef %180) #9
   %.not135 = icmp eq ptr %188, null
-  br i1 %.not135, label %.outer._crit_edge, label %183, !llvm.loop !38
+  br i1 %.not135, label %.outer._crit_edge, label %183, !llvm.loop !36
 
 189:                                              ; preds = %183
   %190 = load ptr, ptr %164, align 8
@@ -3412,7 +3412,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   %219 = call i64 @llvm.umax.i64(i64 %.sroa.28.2.ph165, i64 %218)
   %220 = call ptr @list_next(ptr noundef %180) #9
   %.not135142 = icmp eq ptr %220, null
-  br i1 %.not135142, label %.outer._crit_edge, label %.lr.ph143, !llvm.loop !38
+  br i1 %.not135142, label %.outer._crit_edge, label %.lr.ph143, !llvm.loop !36
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge140, %177
   %.sroa.0.2.ph.lcssa = phi i64 [ %.sroa.0.0174, %177 ], [ %.sroa.0.2.ph159, %.backedge140 ], [ %.sroa.0.2., %.outer ]
@@ -3436,7 +3436,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
   %222 = call ptr @list_next(ptr noundef %162) #9
   %.not124 = icmp eq ptr %222, null
-  br i1 %.not124, label %._crit_edge183, label %.lr.ph182, !llvm.loop !39
+  br i1 %.not124, label %._crit_edge183, label %.lr.ph182
 
 ._crit_edge183:                                   ; preds = %221, %161
   %.sroa.0.0.lcssa = phi i64 [ 0, %161 ], [ %.sroa.0.1, %221 ]
@@ -3493,7 +3493,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
 235:                                              ; preds = %.sink.split231, %.lr.ph193
   %236 = call ptr @list_next(ptr noundef %224) #9
   %.not125 = icmp eq ptr %236, null
-  br i1 %.not125, label %._crit_edge194, label %.lr.ph193, !llvm.loop !40
+  br i1 %.not125, label %._crit_edge194, label %.lr.ph193, !llvm.loop !37
 
 ._crit_edge194:                                   ; preds = %235, %._crit_edge183
   call void @list_iterator_destroy(ptr noundef %224) #9
@@ -3522,7 +3522,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
 .backedge139:                                     ; preds = %241, %244, %._crit_edge198
   %246 = call ptr @list_next(ptr noundef %238) #9
   %.not126 = icmp eq ptr %246, null
-  br i1 %.not126, label %._crit_edge202, label %241, !llvm.loop !41
+  br i1 %.not126, label %._crit_edge202, label %241, !llvm.loop !38
 
 247:                                              ; preds = %244
   %248 = load ptr, ptr @tres_list, align 8
@@ -3779,7 +3779,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   %383 = add nuw nsw i32 %.089102.i, 1
   %384 = call ptr @list_next(ptr noundef %284) #9
   %.not97.i = icmp eq ptr %384, null
-  br i1 %.not97.i, label %._crit_edge.i, label %293, !llvm.loop !42
+  br i1 %.not97.i, label %._crit_edge.i, label %293, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %382, %280
   call void @list_iterator_destroy(ptr noundef %284) #9
@@ -3795,7 +3795,7 @@ _cluster_util_tres_report.exit:                   ; preds = %260, %263, %._crit_
 .backedge:                                        ; preds = %_cluster_util_tres_report.exit, %252
   %385 = call ptr @list_next(ptr noundef %249) #9
   %.not130 = icmp eq ptr %385, null
-  br i1 %.not130, label %._crit_edge198, label %252, !llvm.loop !43
+  br i1 %.not130, label %._crit_edge198, label %252, !llvm.loop !40
 
 ._crit_edge198:                                   ; preds = %.backedge, %247
   call void @list_iterator_destroy(ptr noundef %249) #9
@@ -3994,7 +3994,7 @@ _set_usage_column_width.exit:                     ; preds = %57, %48
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %69) #9
-  br label %185, !llvm.loop !44
+  br label %185, !llvm.loop !41
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4212,7 +4212,7 @@ _set_usage_column_width.exit:                     ; preds = %57, %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   %182 = call ptr @list_next(ptr noundef %96) #9
   %.not.i55 = icmp eq ptr %182, null
-  br i1 %.not.i55, label %_cluster_wckey_by_user_tres_report.exit, label %100, !llvm.loop !45
+  br i1 %.not.i55, label %_cluster_wckey_by_user_tres_report.exit, label %100, !llvm.loop !42
 
 _cluster_wckey_by_user_tres_report.exit:          ; preds = %180, %90
   call void @list_iterator_destroy(ptr noundef %96) #9
@@ -4225,13 +4225,13 @@ _cluster_wckey_by_user_tres_report.exit:          ; preds = %180, %90
 .backedge:                                        ; preds = %_cluster_wckey_by_user_tres_report.exit, %85
   %183 = call ptr @list_next(ptr noundef %80) #9
   %.not53 = icmp eq ptr %183, null
-  br i1 %.not53, label %._crit_edge, label %85, !llvm.loop !46
+  br i1 %.not53, label %._crit_edge, label %85, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.backedge, %77
   call void @list_iterator_destroy(ptr noundef %80) #9
   %184 = call ptr @list_next(ptr noundef %74) #9
   %.not52 = icmp eq ptr %184, null
-  br i1 %.not52, label %._crit_edge60, label %77, !llvm.loop !47
+  br i1 %.not52, label %._crit_edge60, label %77, !llvm.loop !44
 
 ._crit_edge60:                                    ; preds = %._crit_edge, %71
   call void @list_iterator_destroy(ptr noundef %74) #9
@@ -4240,7 +4240,7 @@ _cluster_wckey_by_user_tres_report.exit:          ; preds = %180, %90
 185:                                              ; preds = %._crit_edge60, %67
   %186 = call ptr @list_next(ptr noundef %60) #9
   %.not48 = icmp eq ptr %186, null
-  br i1 %.not48, label %._crit_edge63, label %.lr.ph62, !llvm.loop !48
+  br i1 %.not48, label %._crit_edge63, label %.lr.ph62
 
 ._crit_edge63:                                    ; preds = %185, %_set_usage_column_width.exit
   call void @list_iterator_destroy(ptr noundef %60) #9
@@ -4382,44 +4382,40 @@ attributes #12 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
 !18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
-!33 = distinct !{!33, !9, !10, !11}
-!34 = distinct !{!34, !9, !10, !11}
-!35 = distinct !{!35, !9, !10, !11}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
 !36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10, !11}
-!38 = distinct !{!38, !9, !10, !11}
-!39 = distinct !{!39, !11}
-!40 = distinct !{!40, !9, !10, !11}
-!41 = distinct !{!41, !9, !10, !11}
-!42 = distinct !{!42, !9, !10, !11}
-!43 = distinct !{!43, !9, !10, !11}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}
+!42 = distinct !{!42, !9, !10}
+!43 = distinct !{!43, !9, !10}
 !44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10, !11}
-!46 = distinct !{!46, !9, !10, !11}
-!47 = distinct !{!47, !9, !10, !11}
-!48 = distinct !{!48, !11}

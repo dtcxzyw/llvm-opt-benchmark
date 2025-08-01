@@ -209,7 +209,7 @@ declare i64 @rb_const_remove(i64 noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @ruby_show_version() local_unnamed_addr #4 {
   %1 = load ptr, ptr @rb_dynamic_description, align 8, !tbaa !12
   %2 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %1)
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !19
   %4 = tail call i32 @fflush(ptr noundef %3)
   ret void
 }
@@ -223,7 +223,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @ruby_show_copyright() local_unnamed_addr #4 {
   %1 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @ruby_copyright)
-  %2 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %2 = load ptr, ptr @stdout, align 8, !tbaa !19
   %3 = tail call i32 @fflush(ptr noundef %2)
   ret void
 }
@@ -269,8 +269,7 @@ attributes #8 = { nounwind }
 !14 = !{!"any pointer", !9, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !9, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}

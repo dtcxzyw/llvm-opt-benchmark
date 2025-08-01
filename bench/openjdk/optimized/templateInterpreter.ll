@@ -361,7 +361,7 @@ define hidden noundef zeroext i1 @_ZN10EntryPointeqERKS_(ptr noundef nonnull rea
   %8 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %7, %9
-  br i1 %.not, label %3, label %10, !llvm.loop !9
+  br i1 %.not, label %3, label %10, !llvm.loop !8
 
 10:                                               ; preds = %3, %5
   ret i1 %4
@@ -519,73 +519,73 @@ define hidden noundef zeroext i1 @_ZN13DispatchTableeqERS_(ptr noundef nonnull r
 
 _ZN10EntryPointeqERKS_.exit.loopexit:             ; preds = %83
   %41 = icmp samesign ult i64 %indvars.iv, 2
-  br i1 %41, label %_ZN10EntryPointeqERKS_.exit.thread, label %42, !llvm.loop !10
+  br i1 %41, label %_ZN10EntryPointeqERKS_.exit.thread, label %42, !llvm.loop !9
 
 42:                                               ; preds = %2, %_ZN10EntryPointeqERKS_.exit.loopexit
   %indvars.iv = phi i64 [ 256, %2 ], [ %indvars.iv.next, %_ZN10EntryPointeqERKS_.exit.loopexit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %43 = getelementptr inbounds nuw [256 x ptr], ptr %1, i64 0, i64 %indvars.iv.next
-  %44 = load ptr, ptr %43, align 8, !noalias !11
+  %44 = load ptr, ptr %43, align 8, !noalias !10
   %45 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv.next
-  %46 = load ptr, ptr %45, align 8, !noalias !11
+  %46 = load ptr, ptr %45, align 8, !noalias !10
   %47 = getelementptr inbounds nuw [256 x ptr], ptr %6, i64 0, i64 %indvars.iv.next
-  %48 = load ptr, ptr %47, align 8, !noalias !11
+  %48 = load ptr, ptr %47, align 8, !noalias !10
   %49 = getelementptr inbounds nuw [256 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
-  %50 = load ptr, ptr %49, align 8, !noalias !11
+  %50 = load ptr, ptr %49, align 8, !noalias !10
   %51 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %indvars.iv.next
-  %52 = load ptr, ptr %51, align 8, !noalias !11
+  %52 = load ptr, ptr %51, align 8, !noalias !10
   %53 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %indvars.iv.next
-  %54 = load ptr, ptr %53, align 8, !noalias !11
+  %54 = load ptr, ptr %53, align 8, !noalias !10
   %55 = getelementptr inbounds nuw [256 x ptr], ptr %10, i64 0, i64 %indvars.iv.next
-  %56 = load ptr, ptr %55, align 8, !noalias !11
+  %56 = load ptr, ptr %55, align 8, !noalias !10
   %57 = getelementptr inbounds nuw [256 x ptr], ptr %11, i64 0, i64 %indvars.iv.next
-  %58 = load ptr, ptr %57, align 8, !noalias !11
+  %58 = load ptr, ptr %57, align 8, !noalias !10
   %59 = getelementptr inbounds nuw [256 x ptr], ptr %12, i64 0, i64 %indvars.iv.next
-  %60 = load ptr, ptr %59, align 8, !noalias !11
+  %60 = load ptr, ptr %59, align 8, !noalias !10
   %61 = getelementptr inbounds nuw [256 x ptr], ptr %13, i64 0, i64 %indvars.iv.next
-  %62 = load ptr, ptr %61, align 8, !noalias !11
-  store ptr %44, ptr %3, align 8, !alias.scope !11
-  store ptr %46, ptr %14, align 8, !alias.scope !11
-  store ptr %48, ptr %15, align 8, !alias.scope !11
-  store ptr %50, ptr %16, align 8, !alias.scope !11
-  store ptr %52, ptr %17, align 8, !alias.scope !11
-  store ptr %54, ptr %18, align 8, !alias.scope !11
-  store ptr %56, ptr %19, align 8, !alias.scope !11
-  store ptr %58, ptr %20, align 8, !alias.scope !11
-  store ptr %60, ptr %21, align 8, !alias.scope !11
-  store ptr %62, ptr %22, align 8, !alias.scope !11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  %62 = load ptr, ptr %61, align 8, !noalias !10
+  store ptr %44, ptr %3, align 8, !alias.scope !10
+  store ptr %46, ptr %14, align 8, !alias.scope !10
+  store ptr %48, ptr %15, align 8, !alias.scope !10
+  store ptr %50, ptr %16, align 8, !alias.scope !10
+  store ptr %52, ptr %17, align 8, !alias.scope !10
+  store ptr %54, ptr %18, align 8, !alias.scope !10
+  store ptr %56, ptr %19, align 8, !alias.scope !10
+  store ptr %58, ptr %20, align 8, !alias.scope !10
+  store ptr %60, ptr %21, align 8, !alias.scope !10
+  store ptr %62, ptr %22, align 8, !alias.scope !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %63 = getelementptr inbounds nuw [256 x ptr], ptr %0, i64 0, i64 %indvars.iv.next
-  %64 = load ptr, ptr %63, align 8, !noalias !14
+  %64 = load ptr, ptr %63, align 8, !noalias !13
   %65 = getelementptr inbounds nuw [256 x ptr], ptr %23, i64 0, i64 %indvars.iv.next
-  %66 = load ptr, ptr %65, align 8, !noalias !14
+  %66 = load ptr, ptr %65, align 8, !noalias !13
   %67 = getelementptr inbounds nuw [256 x ptr], ptr %24, i64 0, i64 %indvars.iv.next
-  %68 = load ptr, ptr %67, align 8, !noalias !14
+  %68 = load ptr, ptr %67, align 8, !noalias !13
   %69 = getelementptr inbounds nuw [256 x ptr], ptr %25, i64 0, i64 %indvars.iv.next
-  %70 = load ptr, ptr %69, align 8, !noalias !14
+  %70 = load ptr, ptr %69, align 8, !noalias !13
   %71 = getelementptr inbounds nuw [256 x ptr], ptr %26, i64 0, i64 %indvars.iv.next
-  %72 = load ptr, ptr %71, align 8, !noalias !14
+  %72 = load ptr, ptr %71, align 8, !noalias !13
   %73 = getelementptr inbounds nuw [256 x ptr], ptr %27, i64 0, i64 %indvars.iv.next
-  %74 = load ptr, ptr %73, align 8, !noalias !14
+  %74 = load ptr, ptr %73, align 8, !noalias !13
   %75 = getelementptr inbounds nuw [256 x ptr], ptr %28, i64 0, i64 %indvars.iv.next
-  %76 = load ptr, ptr %75, align 8, !noalias !14
+  %76 = load ptr, ptr %75, align 8, !noalias !13
   %77 = getelementptr inbounds nuw [256 x ptr], ptr %29, i64 0, i64 %indvars.iv.next
-  %78 = load ptr, ptr %77, align 8, !noalias !14
+  %78 = load ptr, ptr %77, align 8, !noalias !13
   %79 = getelementptr inbounds nuw [256 x ptr], ptr %30, i64 0, i64 %indvars.iv.next
-  %80 = load ptr, ptr %79, align 8, !noalias !14
+  %80 = load ptr, ptr %79, align 8, !noalias !13
   %81 = getelementptr inbounds nuw [256 x ptr], ptr %31, i64 0, i64 %indvars.iv.next
-  %82 = load ptr, ptr %81, align 8, !noalias !14
-  store ptr %64, ptr %4, align 8, !alias.scope !14
-  store ptr %66, ptr %32, align 8, !alias.scope !14
-  store ptr %68, ptr %33, align 8, !alias.scope !14
-  store ptr %70, ptr %34, align 8, !alias.scope !14
-  store ptr %72, ptr %35, align 8, !alias.scope !14
-  store ptr %74, ptr %36, align 8, !alias.scope !14
-  store ptr %76, ptr %37, align 8, !alias.scope !14
-  store ptr %78, ptr %38, align 8, !alias.scope !14
-  store ptr %80, ptr %39, align 8, !alias.scope !14
-  store ptr %82, ptr %40, align 8, !alias.scope !14
+  %82 = load ptr, ptr %81, align 8, !noalias !13
+  store ptr %64, ptr %4, align 8, !alias.scope !13
+  store ptr %66, ptr %32, align 8, !alias.scope !13
+  store ptr %68, ptr %33, align 8, !alias.scope !13
+  store ptr %70, ptr %34, align 8, !alias.scope !13
+  store ptr %72, ptr %35, align 8, !alias.scope !13
+  store ptr %74, ptr %36, align 8, !alias.scope !13
+  store ptr %76, ptr %37, align 8, !alias.scope !13
+  store ptr %78, ptr %38, align 8, !alias.scope !13
+  store ptr %80, ptr %39, align 8, !alias.scope !13
+  store ptr %82, ptr %40, align 8, !alias.scope !13
   br label %83
 
 83:                                               ; preds = %85, %42
@@ -600,7 +600,7 @@ _ZN10EntryPointeqERKS_.exit.loopexit:             ; preds = %83
   %88 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %indvars.iv.next.i
   %89 = load ptr, ptr %88, align 8
   %.not.i = icmp eq ptr %87, %89
-  br i1 %.not.i, label %83, label %_ZN10EntryPointeqERKS_.exit.thread, !llvm.loop !9
+  br i1 %.not.i, label %83, label %_ZN10EntryPointeqERKS_.exit.thread, !llvm.loop !8
 
 _ZN10EntryPointeqERKS_.exit.thread:               ; preds = %_ZN10EntryPointeqERKS_.exit.loopexit, %85
   ret i1 %84
@@ -753,7 +753,7 @@ define hidden void @_ZN19TemplateInterpreter17notice_safepointsEv() local_unname
   %13 = load volatile ptr, ptr %.02022.i.i.i.i, align 8
   store volatile ptr %13, ptr %.01923.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.exit, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.exit, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 14:                                               ; preds = %0
   br i1 %.not1, label %_ZL10copy_tablePPhS0_i.exit, label %15
@@ -815,7 +815,7 @@ define hidden void @_ZN19TemplateInterpreter17ignore_safepointsEv() local_unname
   %16 = load volatile ptr, ptr %.02022.i.i.i.i, align 8
   store volatile ptr %16, ptr %.01923.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.exit, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i, label %_ZL10copy_tablePPhS0_i.exit, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 17:                                               ; preds = %3
   br i1 %.not2, label %_ZL10copy_tablePPhS0_i.exit, label %18
@@ -1072,15 +1072,14 @@ attributes #16 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK13DispatchTable5entryEi: argument 0"}
-!13 = distinct !{!13, !"_ZNK13DispatchTable5entryEi"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK13DispatchTable5entryEi: argument 0"}
-!16 = distinct !{!16, !"_ZNK13DispatchTable5entryEi"}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK13DispatchTable5entryEi: argument 0"}
+!12 = distinct !{!12, !"_ZNK13DispatchTable5entryEi"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK13DispatchTable5entryEi: argument 0"}
+!15 = distinct !{!15, !"_ZNK13DispatchTable5entryEi"}
+!16 = distinct !{!16, !7}

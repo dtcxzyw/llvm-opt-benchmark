@@ -8188,7 +8188,7 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %1604, %1603, %1601,
   store ptr %1605, ptr %1606, align 8, !tbaa !15
   %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
   %exitcond1171.not = icmp eq i64 %indvars.iv.next1168, %wide.trip.count1170
-  br i1 %exitcond1171.not, label %.preheader, label %1594, !llvm.loop !25
+  br i1 %exitcond1171.not, label %.preheader, label %1594, !llvm.loop !24
 
 1607:                                             ; preds = %.preheader
   %1608 = add nsw i32 %1592, -1
@@ -8266,7 +8266,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1630, %1629, %1627,
   store ptr %1631, ptr %1632, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1150, label %1620, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader1150, label %1620, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph1153, %.preheader1150
   %1633 = getelementptr i8, ptr %0, i64 8
@@ -8308,7 +8308,7 @@ _ZL12lean_dec_refP11lean_object.exit547:          ; preds = %1637, %1639, %1640
   store ptr %1646, ptr %1650, align 8, !tbaa !15
   %indvars.iv.next1163 = add nuw nsw i64 %indvars.iv1162, 1
   %exitcond1166.not = icmp eq i64 %indvars.iv.next1163, %wide.trip.count1165
-  br i1 %exitcond1166.not, label %._crit_edge, label %.lr.ph1153, !llvm.loop !27
+  br i1 %exitcond1166.not, label %._crit_edge, label %.lr.ph1153, !llvm.loop !26
 
 1651:                                             ; preds = %1611
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
@@ -11926,7 +11926,7 @@ _ZL8lean_incP11lean_object.exit561:               ; preds = %1420, %1419, %1417,
   store ptr %1421, ptr %1422, align 8, !tbaa !15
   %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
   %exitcond1081.not = icmp eq i64 %indvars.iv.next1078, %wide.trip.count1080
-  br i1 %exitcond1081.not, label %.preheader, label %1410, !llvm.loop !28
+  br i1 %exitcond1081.not, label %.preheader, label %1410, !llvm.loop !27
 
 1423:                                             ; preds = %.preheader
   %1424 = add nsw i32 %1408, -1
@@ -12006,7 +12006,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1447, %1446, %1444,
   store ptr %1448, ptr %1449, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1060, label %1437, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader1060, label %1437, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph1063, %.preheader1060
   %1450 = getelementptr i8, ptr %0, i64 8
@@ -12048,7 +12048,7 @@ _ZL12lean_dec_refP11lean_object.exit530:          ; preds = %1454, %1456, %1457
   store ptr %1463, ptr %1467, align 8, !tbaa !15
   %indvars.iv.next1073 = add nuw nsw i64 %indvars.iv1072, 1
   %exitcond1076.not = icmp eq i64 %indvars.iv.next1073, %wide.trip.count1075
-  br i1 %exitcond1076.not, label %._crit_edge, label %.lr.ph1063, !llvm.loop !30
+  br i1 %exitcond1076.not, label %._crit_edge, label %.lr.ph1063, !llvm.loop !29
 
 1468:                                             ; preds = %1427
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
@@ -14923,7 +14923,7 @@ _ZL8lean_incP11lean_object.exit541:               ; preds = %1249, %1248, %1246,
   store ptr %1250, ptr %1251, align 8, !tbaa !15
   %indvars.iv.next992 = add nuw nsw i64 %indvars.iv991, 1
   %exitcond995.not = icmp eq i64 %indvars.iv.next992, %wide.trip.count994
-  br i1 %exitcond995.not, label %.preheader, label %1239, !llvm.loop !31
+  br i1 %exitcond995.not, label %.preheader, label %1239, !llvm.loop !30
 
 1252:                                             ; preds = %.preheader
   %1253 = add nsw i32 %1237, -1
@@ -15005,7 +15005,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1277, %1276, %1274,
   store ptr %1278, ptr %1279, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader974, label %1267, !llvm.loop !32
+  br i1 %exitcond.not, label %.preheader974, label %1267, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph977, %.preheader974
   %1280 = getelementptr i8, ptr %0, i64 8
@@ -15047,7 +15047,7 @@ _ZL12lean_dec_refP11lean_object.exit512:          ; preds = %1284, %1286, %1287
   store ptr %1293, ptr %1297, align 8, !tbaa !15
   %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
   %exitcond990.not = icmp eq i64 %indvars.iv.next987, %wide.trip.count989
-  br i1 %exitcond990.not, label %._crit_edge, label %.lr.ph977, !llvm.loop !33
+  br i1 %exitcond990.not, label %._crit_edge, label %.lr.ph977, !llvm.loop !32
 
 1298:                                             ; preds = %1256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #9
@@ -17571,7 +17571,7 @@ _ZL8lean_incP11lean_object.exit520:               ; preds = %1091, %1090, %1088,
   store ptr %1092, ptr %1093, align 8, !tbaa !15
   %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
   %exitcond913.not = icmp eq i64 %indvars.iv.next910, %wide.trip.count912
-  br i1 %exitcond913.not, label %.preheader, label %1081, !llvm.loop !34
+  br i1 %exitcond913.not, label %.preheader, label %1081, !llvm.loop !33
 
 1094:                                             ; preds = %.preheader
   %1095 = add nsw i32 %1079, -1
@@ -17655,7 +17655,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1120, %1119, %1117,
   store ptr %1121, ptr %1122, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader892, label %1110, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader892, label %1110, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph895, %.preheader892
   %1123 = getelementptr i8, ptr %0, i64 8
@@ -17697,7 +17697,7 @@ _ZL12lean_dec_refP11lean_object.exit493:          ; preds = %1127, %1129, %1130
   store ptr %1136, ptr %1140, align 8, !tbaa !15
   %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
   %exitcond908.not = icmp eq i64 %indvars.iv.next905, %wide.trip.count907
-  br i1 %exitcond908.not, label %._crit_edge, label %.lr.ph895, !llvm.loop !36
+  br i1 %exitcond908.not, label %._crit_edge, label %.lr.ph895, !llvm.loop !35
 
 1141:                                             ; preds = %1098
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
@@ -19899,7 +19899,7 @@ _ZL8lean_incP11lean_object.exit498:               ; preds = %946, %945, %943, %9
   store ptr %947, ptr %948, align 8, !tbaa !15
   %indvars.iv.next832 = add nuw nsw i64 %indvars.iv831, 1
   %exitcond835.not = icmp eq i64 %indvars.iv.next832, %wide.trip.count834
-  br i1 %exitcond835.not, label %.preheader, label %936, !llvm.loop !37
+  br i1 %exitcond835.not, label %.preheader, label %936, !llvm.loop !36
 
 949:                                              ; preds = %.preheader
   %950 = add nsw i32 %934, -1
@@ -19985,7 +19985,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %976, %975, %973, %9
   store ptr %977, ptr %978, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader814, label %966, !llvm.loop !38
+  br i1 %exitcond.not, label %.preheader814, label %966, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph817, %.preheader814
   %979 = getelementptr i8, ptr %0, i64 8
@@ -20027,7 +20027,7 @@ _ZL12lean_dec_refP11lean_object.exit473:          ; preds = %983, %985, %986
   store ptr %992, ptr %996, align 8, !tbaa !15
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %exitcond830.not = icmp eq i64 %indvars.iv.next827, %wide.trip.count829
-  br i1 %exitcond830.not, label %._crit_edge, label %.lr.ph817, !llvm.loop !39
+  br i1 %exitcond830.not, label %._crit_edge, label %.lr.ph817, !llvm.loop !38
 
 997:                                              ; preds = %953
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
@@ -21936,7 +21936,7 @@ _ZL8lean_incP11lean_object.exit475:               ; preds = %814, %813, %811, %8
   store ptr %815, ptr %816, align 8, !tbaa !15
   %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
   %exitcond761.not = icmp eq i64 %indvars.iv.next758, %wide.trip.count760
-  br i1 %exitcond761.not, label %.preheader, label %804, !llvm.loop !40
+  br i1 %exitcond761.not, label %.preheader, label %804, !llvm.loop !39
 
 817:                                              ; preds = %.preheader
   %818 = add nsw i32 %802, -1
@@ -22024,7 +22024,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %845, %844, %842, %8
   store ptr %846, ptr %847, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader740, label %835, !llvm.loop !41
+  br i1 %exitcond.not, label %.preheader740, label %835, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph743, %.preheader740
   %848 = getelementptr i8, ptr %0, i64 8
@@ -22066,7 +22066,7 @@ _ZL12lean_dec_refP11lean_object.exit452:          ; preds = %852, %854, %855
   store ptr %861, ptr %865, align 8, !tbaa !15
   %indvars.iv.next753 = add nuw nsw i64 %indvars.iv752, 1
   %exitcond756.not = icmp eq i64 %indvars.iv.next753, %wide.trip.count755
-  br i1 %exitcond756.not, label %._crit_edge, label %.lr.ph743, !llvm.loop !42
+  br i1 %exitcond756.not, label %._crit_edge, label %.lr.ph743, !llvm.loop !41
 
 866:                                              ; preds = %821
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #9
@@ -23711,7 +23711,7 @@ _ZL8lean_incP11lean_object.exit451:               ; preds = %695, %694, %692, %6
   store ptr %696, ptr %697, align 8, !tbaa !15
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
   %exitcond691.not = icmp eq i64 %indvars.iv.next688, %wide.trip.count690
-  br i1 %exitcond691.not, label %.preheader, label %685, !llvm.loop !43
+  br i1 %exitcond691.not, label %.preheader, label %685, !llvm.loop !42
 
 698:                                              ; preds = %.preheader
   %699 = add nsw i32 %683, -1
@@ -23801,7 +23801,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %727, %726, %724, %7
   store ptr %728, ptr %729, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader670, label %717, !llvm.loop !44
+  br i1 %exitcond.not, label %.preheader670, label %717, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph673, %.preheader670
   %730 = getelementptr i8, ptr %0, i64 8
@@ -23843,7 +23843,7 @@ _ZL12lean_dec_refP11lean_object.exit430:          ; preds = %734, %736, %737
   store ptr %743, ptr %747, align 8, !tbaa !15
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
   %exitcond686.not = icmp eq i64 %indvars.iv.next683, %wide.trip.count685
-  br i1 %exitcond686.not, label %._crit_edge, label %.lr.ph673, !llvm.loop !45
+  br i1 %exitcond686.not, label %._crit_edge, label %.lr.ph673, !llvm.loop !44
 
 748:                                              ; preds = %702
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #9
@@ -25253,7 +25253,7 @@ _ZL8lean_incP11lean_object.exit426:               ; preds = %589, %588, %586, %5
   store ptr %590, ptr %591, align 8, !tbaa !15
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond625.not = icmp eq i64 %indvars.iv.next622, %wide.trip.count624
-  br i1 %exitcond625.not, label %.preheader, label %579, !llvm.loop !46
+  br i1 %exitcond625.not, label %.preheader, label %579, !llvm.loop !45
 
 592:                                              ; preds = %.preheader
   %593 = add nsw i32 %577, -1
@@ -25345,7 +25345,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %622, %621, %619, %6
   store ptr %623, ptr %624, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader604, label %612, !llvm.loop !47
+  br i1 %exitcond.not, label %.preheader604, label %612, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph607, %.preheader604
   %625 = getelementptr i8, ptr %0, i64 8
@@ -25387,7 +25387,7 @@ _ZL12lean_dec_refP11lean_object.exit407:          ; preds = %629, %631, %632
   store ptr %638, ptr %642, align 8, !tbaa !15
   %indvars.iv.next617 = add nuw nsw i64 %indvars.iv616, 1
   %exitcond620.not = icmp eq i64 %indvars.iv.next617, %wide.trip.count619
-  br i1 %exitcond620.not, label %._crit_edge, label %.lr.ph607, !llvm.loop !48
+  br i1 %exitcond620.not, label %._crit_edge, label %.lr.ph607, !llvm.loop !47
 
 643:                                              ; preds = %596
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #9
@@ -26591,7 +26591,7 @@ _ZL8lean_incP11lean_object.exit400:               ; preds = %496, %495, %493, %4
   store ptr %497, ptr %498, align 8, !tbaa !15
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
   %exitcond563.not = icmp eq i64 %indvars.iv.next560, %wide.trip.count562
-  br i1 %exitcond563.not, label %.preheader, label %486, !llvm.loop !49
+  br i1 %exitcond563.not, label %.preheader, label %486, !llvm.loop !48
 
 499:                                              ; preds = %.preheader
   %500 = add nsw i32 %484, -1
@@ -26685,7 +26685,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %530, %529, %527, %5
   store ptr %531, ptr %532, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader542, label %520, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader542, label %520, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph545, %.preheader542
   %533 = getelementptr i8, ptr %0, i64 8
@@ -26727,7 +26727,7 @@ _ZL12lean_dec_refP11lean_object.exit383:          ; preds = %537, %539, %540
   store ptr %546, ptr %550, align 8, !tbaa !15
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %exitcond558.not = icmp eq i64 %indvars.iv.next555, %wide.trip.count557
-  br i1 %exitcond558.not, label %._crit_edge, label %.lr.ph545, !llvm.loop !51
+  br i1 %exitcond558.not, label %._crit_edge, label %.lr.ph545, !llvm.loop !50
 
 551:                                              ; preds = %503
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #9
@@ -27754,7 +27754,7 @@ _ZL8lean_incP11lean_object.exit373:               ; preds = %416, %415, %413, %4
   store ptr %417, ptr %418, align 8, !tbaa !15
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count504
-  br i1 %exitcond505.not, label %.preheader, label %406, !llvm.loop !52
+  br i1 %exitcond505.not, label %.preheader, label %406, !llvm.loop !51
 
 419:                                              ; preds = %.preheader
   %420 = add nsw i32 %404, -1
@@ -27850,7 +27850,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %451, %450, %448, %4
   store ptr %452, ptr %453, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader484, label %441, !llvm.loop !53
+  br i1 %exitcond.not, label %.preheader484, label %441, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph487, %.preheader484
   %454 = getelementptr i8, ptr %0, i64 8
@@ -27892,7 +27892,7 @@ _ZL12lean_dec_refP11lean_object.exit358:          ; preds = %458, %460, %461
   store ptr %467, ptr %471, align 8, !tbaa !15
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count499
-  br i1 %exitcond500.not, label %._crit_edge, label %.lr.ph487, !llvm.loop !54
+  br i1 %exitcond500.not, label %._crit_edge, label %.lr.ph487, !llvm.loop !53
 
 472:                                              ; preds = %423
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %14) #9
@@ -28771,7 +28771,7 @@ _ZL8lean_incP11lean_object.exit345:               ; preds = %349, %348, %346, %3
   store ptr %350, ptr %351, align 8, !tbaa !15
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond451.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count450
-  br i1 %exitcond451.not, label %.preheader, label %339, !llvm.loop !55
+  br i1 %exitcond451.not, label %.preheader, label %339, !llvm.loop !54
 
 352:                                              ; preds = %.preheader
   %353 = add nsw i32 %337, -1
@@ -28869,7 +28869,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %385, %384, %382, %3
   store ptr %386, ptr %387, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader430, label %375, !llvm.loop !56
+  br i1 %exitcond.not, label %.preheader430, label %375, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph433, %.preheader430
   %388 = getelementptr i8, ptr %0, i64 8
@@ -28911,7 +28911,7 @@ _ZL12lean_dec_refP11lean_object.exit332:          ; preds = %392, %394, %395
   store ptr %401, ptr %405, align 8, !tbaa !15
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
   %exitcond446.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count445
-  br i1 %exitcond446.not, label %._crit_edge, label %.lr.ph433, !llvm.loop !57
+  br i1 %exitcond446.not, label %._crit_edge, label %.lr.ph433, !llvm.loop !56
 
 406:                                              ; preds = %356
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15) #9
@@ -29671,7 +29671,7 @@ _ZL8lean_incP11lean_object.exit316:               ; preds = %295, %294, %292, %2
   store ptr %296, ptr %297, align 8, !tbaa !15
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count400
-  br i1 %exitcond401.not, label %.preheader, label %285, !llvm.loop !58
+  br i1 %exitcond401.not, label %.preheader, label %285, !llvm.loop !57
 
 298:                                              ; preds = %.preheader
   %299 = add nsw i32 %283, -1
@@ -29771,7 +29771,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %332, %331, %329, %3
   store ptr %333, ptr %334, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader380, label %322, !llvm.loop !59
+  br i1 %exitcond.not, label %.preheader380, label %322, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph383, %.preheader380
   %335 = getelementptr i8, ptr %0, i64 8
@@ -29813,7 +29813,7 @@ _ZL12lean_dec_refP11lean_object.exit305:          ; preds = %339, %341, %342
   store ptr %348, ptr %352, align 8, !tbaa !15
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %._crit_edge, label %.lr.ph383, !llvm.loop !60
+  br i1 %exitcond396.not, label %._crit_edge, label %.lr.ph383, !llvm.loop !59
 
 353:                                              ; preds = %302
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %16) #9
@@ -30483,7 +30483,7 @@ _ZL8lean_incP11lean_object.exit286:               ; preds = %254, %253, %251, %2
   store ptr %255, ptr %256, align 8, !tbaa !15
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
-  br i1 %exitcond355.not, label %.preheader, label %244, !llvm.loop !61
+  br i1 %exitcond355.not, label %.preheader, label %244, !llvm.loop !60
 
 257:                                              ; preds = %.preheader
   %258 = add nsw i32 %242, -1
@@ -30585,7 +30585,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %292, %291, %289, %2
   store ptr %293, ptr %294, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader334, label %282, !llvm.loop !62
+  br i1 %exitcond.not, label %.preheader334, label %282, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph337, %.preheader334
   %295 = getelementptr i8, ptr %0, i64 8
@@ -30627,7 +30627,7 @@ _ZL12lean_dec_refP11lean_object.exit277:          ; preds = %299, %301, %302
   store ptr %308, ptr %312, align 8, !tbaa !15
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
-  br i1 %exitcond350.not, label %._crit_edge, label %.lr.ph337, !llvm.loop !63
+  br i1 %exitcond350.not, label %._crit_edge, label %.lr.ph337, !llvm.loop !62
 
 313:                                              ; preds = %261
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %17) #9
@@ -31236,7 +31236,7 @@ _ZL8lean_incP11lean_object.exit255:               ; preds = %226, %225, %223, %2
   store ptr %227, ptr %228, align 8, !tbaa !15
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count312
-  br i1 %exitcond313.not, label %.preheader, label %216, !llvm.loop !64
+  br i1 %exitcond313.not, label %.preheader, label %216, !llvm.loop !63
 
 229:                                              ; preds = %.preheader
   %230 = add nsw i32 %214, -1
@@ -31340,7 +31340,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %265, %264, %262, %2
   store ptr %266, ptr %267, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader292, label %255, !llvm.loop !65
+  br i1 %exitcond.not, label %.preheader292, label %255, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph295, %.preheader292
   %268 = getelementptr i8, ptr %0, i64 8
@@ -31382,7 +31382,7 @@ _ZL12lean_dec_refP11lean_object.exit248:          ; preds = %272, %274, %275
   store ptr %281, ptr %285, align 8, !tbaa !15
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
-  br i1 %exitcond308.not, label %._crit_edge, label %.lr.ph295, !llvm.loop !66
+  br i1 %exitcond308.not, label %._crit_edge, label %.lr.ph295, !llvm.loop !65
 
 286:                                              ; preds = %233
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %18) #9
@@ -31954,7 +31954,7 @@ _ZL8lean_incP11lean_object.exit222:               ; preds = %210, %209, %207, %2
   store ptr %211, ptr %212, align 8, !tbaa !15
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count273
-  br i1 %exitcond274.not, label %.preheader, label %200, !llvm.loop !67
+  br i1 %exitcond274.not, label %.preheader, label %200, !llvm.loop !66
 
 213:                                              ; preds = %.preheader
   %214 = add nsw i32 %198, -1
@@ -32060,7 +32060,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %250, %249, %247, %2
   store ptr %251, ptr %252, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader253, label %240, !llvm.loop !68
+  br i1 %exitcond.not, label %.preheader253, label %240, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph256, %.preheader253
   %253 = getelementptr i8, ptr %0, i64 8
@@ -32102,7 +32102,7 @@ _ZL12lean_dec_refP11lean_object.exit217:          ; preds = %257, %259, %260
   store ptr %266, ptr %270, align 8, !tbaa !15
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %._crit_edge, label %.lr.ph256, !llvm.loop !69
+  br i1 %exitcond269.not, label %._crit_edge, label %.lr.ph256, !llvm.loop !68
 
 271:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %19) #9
@@ -32191,7 +32191,7 @@ define ptr @lean_apply_m(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
 _ZL8lean_decP11lean_object.exit:                  ; preds = %16, %15, %13, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL12lean_dec_refP11lean_object.exit83, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %_ZL12lean_dec_refP11lean_object.exit83, label %.lr.ph, !llvm.loop !69
 
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %0, i64 16
@@ -32258,7 +32258,7 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
   store ptr %40, ptr %41, align 8, !tbaa !15
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %.preheader, label %29, !llvm.loop !71
+  br i1 %exitcond128.not, label %.preheader, label %29, !llvm.loop !70
 
 ._crit_edge107:                                   ; preds = %.lr.ph106, %.preheader
   %42 = getelementptr i8, ptr %0, i64 8
@@ -32292,7 +32292,7 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
   store ptr %51, ptr %55, align 8, !tbaa !15
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !72
+  br i1 %exitcond133.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !71
 
 56:                                               ; preds = %17
   %57 = icmp ugt i32 %22, %19
@@ -32353,7 +32353,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %74, %73, %71, %64
   store ptr %75, ptr %76, align 8, !tbaa !15
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.preheader95, label %64, !llvm.loop !73
+  br i1 %exitcond118.not, label %.preheader95, label %64, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph101, %.preheader95
   %77 = getelementptr i8, ptr %0, i64 8
@@ -32394,7 +32394,7 @@ _ZL12lean_dec_refP11lean_object.exit81:           ; preds = %81, %83, %84
   store ptr %90, ptr %94, align 8, !tbaa !15
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph101, !llvm.loop !74
+  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph101, !llvm.loop !73
 
 95:                                               ; preds = %56
   %96 = tail call fastcc noundef ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2)
@@ -32521,7 +32521,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %45, %44, %42, %.lr.
   %47 = getelementptr inbounds nuw i8, ptr %.03745, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.03646, i64 8
   %exitcond.not = icmp eq i32 %46, %6
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge52:                                    ; preds = %.lr.ph51.preheader, %.preheader
   %.2.lcssa = phi ptr [ %23, %.preheader ], [ %scevgep, %.lr.ph51.preheader ]
@@ -32546,7 +32546,7 @@ _ZL12lean_dec_refP11lean_object.exit:             ; preds = %36, %35, %33, %._cr
   %51 = getelementptr inbounds nuw i8, ptr %.03954, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.355, i64 8
   %exitcond63.not = icmp eq i32 %50, %1
-  br i1 %exitcond63.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !76
+  br i1 %exitcond63.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32619,58 +32619,57 @@ attributes #11 = { builtin nounwind }
 !19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"short", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = distinct !{!26, !23, !24}
-!27 = distinct !{!27, !23, !24}
-!28 = distinct !{!28, !23, !24}
-!29 = distinct !{!29, !23, !24}
-!30 = distinct !{!30, !23, !24}
-!31 = distinct !{!31, !23, !24}
-!32 = distinct !{!32, !23, !24}
-!33 = distinct !{!33, !23, !24}
-!34 = distinct !{!34, !23, !24}
-!35 = distinct !{!35, !23, !24}
-!36 = distinct !{!36, !23, !24}
-!37 = distinct !{!37, !23, !24}
-!38 = distinct !{!38, !23, !24}
-!39 = distinct !{!39, !23, !24}
-!40 = distinct !{!40, !23, !24}
-!41 = distinct !{!41, !23, !24}
-!42 = distinct !{!42, !23, !24}
-!43 = distinct !{!43, !23, !24}
-!44 = distinct !{!44, !23, !24}
-!45 = distinct !{!45, !23, !24}
-!46 = distinct !{!46, !23, !24}
-!47 = distinct !{!47, !23, !24}
-!48 = distinct !{!48, !23, !24}
-!49 = distinct !{!49, !23, !24}
-!50 = distinct !{!50, !23, !24}
-!51 = distinct !{!51, !23, !24}
-!52 = distinct !{!52, !23, !24}
-!53 = distinct !{!53, !23, !24}
-!54 = distinct !{!54, !23, !24}
-!55 = distinct !{!55, !23, !24}
-!56 = distinct !{!56, !23, !24}
-!57 = distinct !{!57, !23, !24}
-!58 = distinct !{!58, !23, !24}
-!59 = distinct !{!59, !23, !24}
-!60 = distinct !{!60, !23, !24}
-!61 = distinct !{!61, !23, !24}
-!62 = distinct !{!62, !23, !24}
-!63 = distinct !{!63, !23, !24}
-!64 = distinct !{!64, !23, !24}
-!65 = distinct !{!65, !23, !24}
-!66 = distinct !{!66, !23, !24}
-!67 = distinct !{!67, !23, !24}
-!68 = distinct !{!68, !23, !24}
-!69 = distinct !{!69, !23, !24}
-!70 = distinct !{!70, !23, !24}
-!71 = distinct !{!71, !23, !24}
-!72 = distinct !{!72, !23, !24}
-!73 = distinct !{!73, !23, !24}
-!74 = distinct !{!74, !23, !24}
-!75 = distinct !{!75, !23, !24}
-!76 = distinct !{!76, !23, !24}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !23}
+!29 = distinct !{!29, !23}
+!30 = distinct !{!30, !23}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !23}
+!33 = distinct !{!33, !23}
+!34 = distinct !{!34, !23}
+!35 = distinct !{!35, !23}
+!36 = distinct !{!36, !23}
+!37 = distinct !{!37, !23}
+!38 = distinct !{!38, !23}
+!39 = distinct !{!39, !23}
+!40 = distinct !{!40, !23}
+!41 = distinct !{!41, !23}
+!42 = distinct !{!42, !23}
+!43 = distinct !{!43, !23}
+!44 = distinct !{!44, !23}
+!45 = distinct !{!45, !23}
+!46 = distinct !{!46, !23}
+!47 = distinct !{!47, !23}
+!48 = distinct !{!48, !23}
+!49 = distinct !{!49, !23}
+!50 = distinct !{!50, !23}
+!51 = distinct !{!51, !23}
+!52 = distinct !{!52, !23}
+!53 = distinct !{!53, !23}
+!54 = distinct !{!54, !23}
+!55 = distinct !{!55, !23}
+!56 = distinct !{!56, !23}
+!57 = distinct !{!57, !23}
+!58 = distinct !{!58, !23}
+!59 = distinct !{!59, !23}
+!60 = distinct !{!60, !23}
+!61 = distinct !{!61, !23}
+!62 = distinct !{!62, !23}
+!63 = distinct !{!63, !23}
+!64 = distinct !{!64, !23}
+!65 = distinct !{!65, !23}
+!66 = distinct !{!66, !23}
+!67 = distinct !{!67, !23}
+!68 = distinct !{!68, !23}
+!69 = distinct !{!69, !23}
+!70 = distinct !{!70, !23}
+!71 = distinct !{!71, !23}
+!72 = distinct !{!72, !23}
+!73 = distinct !{!73, !23}
+!74 = distinct !{!74, !23}
+!75 = distinct !{!75, !23}

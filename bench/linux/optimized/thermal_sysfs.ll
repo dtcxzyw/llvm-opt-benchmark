@@ -399,7 +399,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @weight_show(ptr
 define dso_local i64 @weight_store(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %6 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
@@ -463,7 +463,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @temp_show(ptr noundef %0
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 -24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  store i32 0, ptr %4, align 4, !annotation !10
+  store i32 0, ptr %4, align 4, !annotation !9
   %6 = call i32 @thermal_zone_get_temp(ptr noundef %5, ptr noundef nonnull %4) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
@@ -497,7 +497,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @policy_store(ptr noundef
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr i8, ptr %0, i64 -24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !9
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.6, ptr noundef %2) #15
   %8 = call i32 @thermal_zone_device_set_policy(ptr noundef %6, ptr noundef nonnull %5) #15
   %9 = icmp eq i32 %8, 0
@@ -556,7 +556,7 @@ define internal noundef i64 @sustainable_power_store(ptr noundef readonly captur
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -606,7 +606,7 @@ define internal noundef i64 @k_po_store(ptr noundef readonly captures(none) %0, 
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -653,7 +653,7 @@ define internal noundef i64 @k_pu_store(ptr noundef readonly captures(none) %0, 
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -700,7 +700,7 @@ define internal noundef i64 @k_i_store(ptr noundef readonly captures(none) %0, p
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -747,7 +747,7 @@ define internal noundef i64 @k_d_store(ptr noundef readonly captures(none) %0, p
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -794,7 +794,7 @@ define internal noundef i64 @integral_cutoff_store(ptr noundef readonly captures
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -841,7 +841,7 @@ define internal noundef i64 @slope_store(ptr noundef readonly captures(none) %0,
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -888,7 +888,7 @@ define internal noundef i64 @offset_store(ptr noundef readonly captures(none) %0
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
@@ -969,7 +969,7 @@ declare dso_local i32 @thermal_zone_device_disable(ptr noundef) local_unnamed_ad
 define internal noundef range(i64 -22, 10) i64 @trip_point_type_show(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  store i32 0, ptr %4, align 4, !annotation !10
+  store i32 0, ptr %4, align 4, !annotation !9
   %5 = load ptr, ptr %1, align 8
   %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %5, ptr noundef nonnull @.str.20, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 1
@@ -1019,7 +1019,7 @@ define internal noundef range(i64 -22, 10) i64 @trip_point_type_show(ptr noundef
 define internal noundef range(i64 -2147483648, 2147483648) i64 @trip_point_temp_show(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  store i32 0, ptr %4, align 4, !annotation !10
+  store i32 0, ptr %4, align 4, !annotation !9
   %5 = load ptr, ptr %1, align 8
   %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %5, ptr noundef nonnull @.str.21, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 1
@@ -1048,9 +1048,9 @@ define internal i64 @trip_point_temp_store(ptr noundef %0, ptr noundef readonly 
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 -24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  store i32 0, ptr %6, align 4, !annotation !10
+  store i32 0, ptr %6, align 4, !annotation !9
   %8 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #15
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %38
@@ -1117,7 +1117,7 @@ define internal i64 @trip_point_temp_store(ptr noundef %0, ptr noundef readonly 
 define internal noundef range(i64 -2147483648, 2147483648) i64 @trip_point_hyst_show(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  store i32 0, ptr %4, align 4, !annotation !10
+  store i32 0, ptr %4, align 4, !annotation !9
   %5 = load ptr, ptr %1, align 8
   %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %5, ptr noundef nonnull @.str.22, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 1
@@ -1146,9 +1146,9 @@ define internal i64 @trip_point_hyst_store(ptr noundef %0, ptr noundef readonly 
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 -24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  store i32 0, ptr %5, align 4, !annotation !10
+  store i32 0, ptr %5, align 4, !annotation !9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  store i32 0, ptr %6, align 4, !annotation !10
+  store i32 0, ptr %6, align 4, !annotation !9
   %8 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #15
   %9 = icmp ne i32 %8, 0
   %10 = load i32, ptr %6, align 4
@@ -1250,7 +1250,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_state_show(ptr nound
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %0, i64 -24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store i64 0, ptr %4, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !9
   %6 = getelementptr i8, ptr %0, i64 752
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1276,7 +1276,7 @@ define internal i64 @cur_state_store(ptr noundef %0, ptr readnone captures(none)
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %0, i64 -24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !9
   %7 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %5)
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %27
@@ -1341,8 +1341,7 @@ attributes #15 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"auto-init"}
+!9 = !{!"auto-init"}

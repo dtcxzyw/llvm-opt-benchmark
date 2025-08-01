@@ -76,11 +76,11 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i": ; preds = %26, %.lr.ph.i
   %29 = icmp eq ptr %23, %20
-  br i1 %29, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i, !llvm.loop !15
+  br i1 %29, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 16
-  %32 = load i8, ptr %31, align 8, !range !17, !noalias !7, !noundef !4
+  %32 = load i8, ptr %31, align 8, !range !15, !noalias !7, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 17
   %34 = load i8, ptr %33, align 1, !noalias !7, !noundef !4
   %35 = add i64 %6, 1
@@ -127,6 +127,4 @@ attributes #3 = { noreturn }
 !12 = distinct !{!12, !13, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E: argument 0"}
 !13 = distinct !{!13, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E"}
 !14 = distinct !{!14, !13, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E: argument 1"}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{i8 0, i8 3}
+!15 = !{i8 0, i8 3}

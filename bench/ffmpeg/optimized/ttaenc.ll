@@ -186,7 +186,7 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %indvars = trunc i64 %indvars.iv.next273 to i32
   %62 = load i32, ptr %25, align 4, !tbaa !31
-  %63 = load ptr, ptr %2, align 8, !tbaa !54
+  %63 = load ptr, ptr %2, align 8, !tbaa !53
   switch i32 %62, label %73 [
     i32 0, label %64
     i32 1, label %69
@@ -201,19 +201,19 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
 
 69:                                               ; preds = %55
   %70 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv272
-  %71 = load i16, ptr %70, align 2, !tbaa !55
+  %71 = load i16, ptr %70, align 2, !tbaa !54
   %72 = sext i16 %71 to i32
   br label %get_sample.exit
 
 73:                                               ; preds = %55
   %74 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv272
-  %75 = load i32, ptr %74, align 4, !tbaa !57
+  %75 = load i32, ptr %74, align 4, !tbaa !56
   %76 = ashr i32 %75, 8
   br label %get_sample.exit
 
 get_sample.exit:                                  ; preds = %64, %69, %73
   %.0.i = phi i32 [ %68, %64 ], [ %72, %69 ], [ %76, %73 ]
-  store i32 %.0.i, ptr %5, align 4, !tbaa !57
+  store i32 %.0.i, ptr %5, align 4, !tbaa !56
   %77 = icmp sgt i32 %56, 1
   br i1 %77, label %78, label %98
 
@@ -237,13 +237,13 @@ get_sample.exit:                                  ; preds = %64, %69, %73
 
 87:                                               ; preds = %81
   %88 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv.next273
-  %89 = load i16, ptr %88, align 2, !tbaa !55
+  %89 = load i16, ptr %88, align 2, !tbaa !54
   %90 = sext i16 %89 to i32
   br label %get_sample.exit135
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.next273
-  %93 = load i32, ptr %92, align 4, !tbaa !57
+  %93 = load i32, ptr %92, align 4, !tbaa !56
   %94 = ashr i32 %93, 8
   br label %get_sample.exit135
 
@@ -260,7 +260,7 @@ get_sample.exit135:                               ; preds = %82, %87, %91
 .sink.split:                                      ; preds = %96, %get_sample.exit135
   %.sink = phi i32 [ %95, %get_sample.exit135 ], [ %97, %96 ]
   %.1113.ph = phi i32 [ %95, %get_sample.exit135 ], [ %.0112237, %96 ]
-  store i32 %.sink, ptr %5, align 4, !tbaa !57
+  store i32 %.sink, ptr %5, align 4, !tbaa !56
   br label %98
 
 98:                                               ; preds = %.sink.split, %get_sample.exit
@@ -284,40 +284,40 @@ switch.lookup:                                    ; preds = %98
   %107 = lshr i64 %106, %switch.load320
   %108 = trunc i64 %107 to i32
   %109 = sub nsw i32 %99, %108
-  store i32 %109, ptr %5, align 4, !tbaa !57
+  store i32 %109, ptr %5, align 4, !tbaa !56
   br label %110
 
 110:                                              ; preds = %98, %switch.lookup
   store i32 %99, ptr %59, align 4, !tbaa !46
-  %111 = load ptr, ptr %26, align 8, !tbaa !58
+  %111 = load ptr, ptr %26, align 8, !tbaa !57
   %112 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %113 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %114 = getelementptr inbounds nuw i8, ptr %59, i64 144
   %115 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %116 = load i32, ptr %60, align 4, !tbaa !59
+  %116 = load i32, ptr %60, align 4, !tbaa !58
   %117 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %118 = load i32, ptr %117, align 4, !tbaa !60
+  %118 = load i32, ptr %117, align 4, !tbaa !59
   call void %111(ptr noundef nonnull %112, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %5, i32 noundef %116, i32 noundef %118) #7
-  %119 = load i32, ptr %5, align 4, !tbaa !57
+  %119 = load i32, ptr %5, align 4, !tbaa !56
   %120 = icmp sgt i32 %119, 0
   %121 = shl nuw i32 %119, 1
   %122 = add nsw i32 %121, -1
   %.neg128 = mul i32 %119, -2
   %123 = select i1 %120, i32 %122, i32 %.neg128
-  %124 = load i32, ptr %61, align 4, !tbaa !61
+  %124 = load i32, ptr %61, align 4, !tbaa !60
   %125 = getelementptr inbounds nuw i8, ptr %59, i64 216
-  %126 = load i32, ptr %125, align 4, !tbaa !62
+  %126 = load i32, ptr %125, align 4, !tbaa !61
   %127 = lshr i32 %126, 4
   %128 = sub i32 %123, %127
   %129 = add i32 %128, %126
-  store i32 %129, ptr %125, align 4, !tbaa !62
+  store i32 %129, ptr %125, align 4, !tbaa !61
   %.not = icmp eq i32 %124, 0
   br i1 %.not, label %137, label %130
 
 130:                                              ; preds = %110
   %131 = zext i32 %124 to i64
   %132 = getelementptr inbounds nuw i32, ptr %27, i64 %131
-  %133 = load i32, ptr %132, align 4, !tbaa !57
+  %133 = load i32, ptr %132, align 4, !tbaa !56
   %134 = icmp ult i32 %129, %133
   br i1 %134, label %135, label %137
 
@@ -329,39 +329,39 @@ switch.lookup:                                    ; preds = %98
   %138 = add i32 %124, 1
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds nuw i32, ptr %27, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !57
+  %141 = load i32, ptr %140, align 4, !tbaa !56
   %142 = icmp ugt i32 %129, %141
   br i1 %142, label %.sink.split302, label %143
 
 .sink.split302:                                   ; preds = %137, %135
   %.sink303 = phi i32 [ %136, %135 ], [ %138, %137 ]
-  store i32 %.sink303, ptr %61, align 4, !tbaa !61
+  store i32 %.sink303, ptr %61, align 4, !tbaa !60
   br label %143
 
 143:                                              ; preds = %.sink.split302, %137
   %144 = zext i32 %124 to i64
   %145 = getelementptr inbounds nuw [0 x i32], ptr @ff_tta_shift_1, i64 0, i64 %144
-  %146 = load i32, ptr %145, align 4, !tbaa !57
+  %146 = load i32, ptr %145, align 4, !tbaa !56
   %.not129 = icmp ult i32 %123, %146
   br i1 %.not129, label %216, label %147
 
 147:                                              ; preds = %143
   %148 = sub nuw i32 %123, %146
   %149 = getelementptr inbounds nuw i8, ptr %59, i64 212
-  %150 = load i32, ptr %149, align 4, !tbaa !63
+  %150 = load i32, ptr %149, align 4, !tbaa !62
   %151 = getelementptr inbounds nuw i8, ptr %59, i64 220
-  %152 = load i32, ptr %151, align 4, !tbaa !64
+  %152 = load i32, ptr %151, align 4, !tbaa !63
   %153 = lshr i32 %152, 4
   %154 = sub i32 %148, %153
   %155 = add i32 %154, %152
-  store i32 %155, ptr %151, align 4, !tbaa !64
+  store i32 %155, ptr %151, align 4, !tbaa !63
   %.not130 = icmp eq i32 %150, 0
   br i1 %.not130, label %163, label %156
 
 156:                                              ; preds = %147
   %157 = zext i32 %150 to i64
   %158 = getelementptr inbounds nuw i32, ptr %27, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !57
+  %159 = load i32, ptr %158, align 4, !tbaa !56
   %160 = icmp ult i32 %155, %159
   br i1 %160, label %161, label %163
 
@@ -373,13 +373,13 @@ switch.lookup:                                    ; preds = %98
   %164 = add i32 %150, 1
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i32, ptr %27, i64 %165
-  %167 = load i32, ptr %166, align 4, !tbaa !57
+  %167 = load i32, ptr %166, align 4, !tbaa !56
   %168 = icmp ugt i32 %155, %167
   br i1 %168, label %.sink.split304, label %169
 
 .sink.split304:                                   ; preds = %163, %161
   %.sink305 = phi i32 [ %162, %161 ], [ %164, %163 ]
-  store i32 %.sink305, ptr %149, align 4, !tbaa !63
+  store i32 %.sink305, ptr %149, align 4, !tbaa !62
   br label %169
 
 169:                                              ; preds = %.sink.split304, %163
@@ -531,7 +531,7 @@ put_bits.exit143:                                 ; preds = %216, %224
 227:                                              ; preds = %put_bits.exit143
   %228 = zext i32 %.0106 to i64
   %229 = getelementptr inbounds nuw [0 x i32], ptr @ff_tta_shift_1, i64 0, i64 %228
-  %230 = load i32, ptr %229, align 4, !tbaa !57
+  %230 = load i32, ptr %229, align 4, !tbaa !56
   %231 = add i32 %230, -1
   %232 = and i32 %231, %.0103
   %233 = sub nsw i32 33, %.0.i.i142
@@ -589,7 +589,7 @@ put_bits.exit147:                                 ; preds = %227, %243
   %256 = load i32, ptr %8, align 8, !tbaa !38
   %257 = mul nsw i32 %252, %256
   %258 = icmp sgt i32 %257, %indvars
-  br i1 %258, label %55, label %.preheader210._crit_edge, !llvm.loop !65
+  br i1 %258, label %55, label %.preheader210._crit_edge, !llvm.loop !64
 
 .preheader210._crit_edge:                         ; preds = %251
   %259 = icmp slt i32 %.sroa.21.5, 32
@@ -614,7 +614,7 @@ put_bits.exit147:                                 ; preds = %227, %243
   %265 = lshr i32 %.sroa.0.6, 8
   %266 = add nsw i32 %.sroa.21.6, 8
   %267 = icmp slt i32 %.sroa.21.6, 24
-  br i1 %267, label %.lr.ph.i, label %flush_put_bits.exit, !llvm.loop !66
+  br i1 %267, label %.lr.ph.i, label %flush_put_bits.exit, !llvm.loop !65
 
 flush_put_bits.exit:                              ; preds = %.preheader210, %262, %.preheader210._crit_edge
   %.sroa.43.15 = phi ptr [ %.sroa.43.5, %.preheader210._crit_edge ], [ %264, %262 ], [ %spec.select.i, %.preheader210 ]
@@ -644,7 +644,7 @@ flush_put_bits.exit:                              ; preds = %.preheader210, %262
 flush_put_bits.exit149:                           ; preds = %281, %275
   %282 = add nsw i32 %271, 4
   store i32 %282, ptr %23, align 8, !tbaa !45
-  store i32 1, ptr %3, align 4, !tbaa !57
+  store i32 1, ptr %3, align 4, !tbaa !56
   br label %.loopexit
 
 .loopexit:                                        ; preds = %247, %4, %.thread191, %flush_put_bits.exit149
@@ -758,19 +758,18 @@ attributes #9 = { nounwind willreturn memory(read) }
 !48 = !{!"TTAFilter", !10, i64 0, !10, i64 4, !10, i64 8, !8, i64 12, !8, i64 76, !8, i64 140}
 !49 = !{!"TTARice", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
 !50 = !{!8, !8, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!14, !14, i64 0}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"short", !8, i64 0}
-!57 = !{!10, !10, i64 0}
-!58 = !{!28, !7, i64 24}
-!59 = !{!48, !10, i64 0}
-!60 = !{!48, !10, i64 4}
-!61 = !{!49, !10, i64 0}
-!62 = !{!49, !10, i64 8}
-!63 = !{!49, !10, i64 4}
-!64 = !{!49, !10, i64 12}
-!65 = distinct !{!65, !52, !53}
-!66 = distinct !{!66, !52, !53}
+!53 = !{!14, !14, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"short", !8, i64 0}
+!56 = !{!10, !10, i64 0}
+!57 = !{!28, !7, i64 24}
+!58 = !{!48, !10, i64 0}
+!59 = !{!48, !10, i64 4}
+!60 = !{!49, !10, i64 0}
+!61 = !{!49, !10, i64 8}
+!62 = !{!49, !10, i64 4}
+!63 = !{!49, !10, i64 12}
+!64 = distinct !{!64, !52}
+!65 = distinct !{!65, !52}

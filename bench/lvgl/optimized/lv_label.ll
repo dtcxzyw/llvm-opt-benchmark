@@ -213,7 +213,7 @@ lv_label_revert_dots.exit:                        ; preds = %52, %.critedge.i
   br i1 %72, label %73, label %.preheader.i73
 
 .preheader.i73:                                   ; preds = %lv_label_revert_dots.exit, %.preheader.i73
-  br label %.preheader.i73, !llvm.loop !29
+  br label %.preheader.i73
 
 73:                                               ; preds = %lv_label_revert_dots.exit
   br i1 %.not.i, label %lv_label_set_dots.exit, label %74
@@ -242,11 +242,11 @@ lv_label_revert_dots.exit:                        ; preds = %52, %.critedge.i
   store i8 46, ptr %85, align 1, !tbaa !25
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, 3
-  br i1 %exitcond.not.i77, label %..critedge_crit_edge.i, label %80, !llvm.loop !30
+  br i1 %exitcond.not.i77, label %..critedge_crit_edge.i, label %80, !llvm.loop !28
 
 ..critedge_crit_edge.i:                           ; preds = %87
   %.pre.i = load ptr, ptr %69, align 8, !tbaa !3
-  br label %.critedge.i78, !llvm.loop !30
+  br label %.critedge.i78, !llvm.loop !28
 
 .critedge.i78:                                    ; preds = %80, %..critedge_crit_edge.i
   %88 = phi ptr [ %.pre.i, %..critedge_crit_edge.i ], [ %81, %80 ]
@@ -259,7 +259,7 @@ lv_label_revert_dots.exit:                        ; preds = %52, %.critedge.i
 
 lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %93 = load i32, ptr %92, align 4, !tbaa !31
+  %93 = load i32, ptr %92, align 4, !tbaa !29
   %94 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 7) #7
   %95 = ptrtoint ptr %94 to i64
   %.sroa.0.0.extract.trunc.i79 = trunc i64 %95 to i32
@@ -267,7 +267,7 @@ lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %lv_label_set_dots.exit
-  %98 = load i32, ptr %92, align 4, !tbaa !31
+  %98 = load i32, ptr %92, align 4, !tbaa !29
   br label %102
 
 99:                                               ; preds = %lv_label_set_dots.exit
@@ -278,7 +278,7 @@ lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
 
 102:                                              ; preds = %99, %97
   %103 = phi i32 [ %98, %97 ], [ %.sroa.0.0.extract.trunc.i80, %99 ]
-  store i32 %103, ptr %92, align 4, !tbaa !31
+  store i32 %103, ptr %92, align 4, !tbaa !29
   %104 = load i8, ptr %22, align 4
   %105 = and i8 %104, 127
   store i8 %105, ptr %22, align 4
@@ -286,17 +286,17 @@ lv_label_set_dots.exit:                           ; preds = %73, %.critedge.i78
 
 106:                                              ; preds = %102, %21
   %107 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
-  %108 = load i32, ptr %107, align 4, !tbaa !32
+  %108 = load i32, ptr %107, align 4, !tbaa !30
   %109 = getelementptr inbounds nuw i8, ptr %13, i64 100
-  %110 = load i32, ptr %109, align 4, !tbaa !33
+  %110 = load i32, ptr %109, align 4, !tbaa !31
   %. = tail call i32 @llvm.smax.i32(i32 %108, i32 %110)
-  store i32 %., ptr %107, align 4, !tbaa !32
+  store i32 %., ptr %107, align 4, !tbaa !30
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %112 = load i32, ptr %111, align 4, !tbaa !34
+  %112 = load i32, ptr %111, align 4, !tbaa !32
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %114 = load i32, ptr %113, align 4, !tbaa !31
+  %114 = load i32, ptr %113, align 4, !tbaa !29
   %115 = tail call i32 @llvm.smax.i32(i32 %112, i32 %114)
-  store i32 %115, ptr %111, align 4, !tbaa !34
+  store i32 %115, ptr %111, align 4, !tbaa !32
   br label %262
 
 116:                                              ; preds = %16
@@ -341,7 +341,7 @@ get_label_flags.exit.i:                           ; preds = %134, %129, %116
   %139 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %140 = load ptr, ptr %139, align 8, !tbaa !3
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %140, ptr %141, align 8, !tbaa !35
+  store ptr %140, ptr %141, align 8, !tbaa !33
   %142 = load i8, ptr %119, align 4
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %144 = load i8, ptr %143, align 8
@@ -351,13 +351,13 @@ get_label_flags.exit.i:                           ; preds = %134, %129, %116
   %148 = or disjoint i8 %147, %146
   store i8 %148, ptr %143, align 8
   %149 = getelementptr inbounds nuw i8, ptr %117, i64 108
-  %150 = load i32, ptr %149, align 4, !tbaa !43
+  %150 = load i32, ptr %149, align 4, !tbaa !41
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  store i32 %150, ptr %151, align 4, !tbaa !44
+  store i32 %150, ptr %151, align 4, !tbaa !42
   %152 = getelementptr inbounds nuw i8, ptr %117, i64 112
-  %153 = load i32, ptr %152, align 4, !tbaa !45
+  %153 = load i32, ptr %152, align 4, !tbaa !43
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %153, ptr %154, align 8, !tbaa !46
+  store i32 %153, ptr %154, align 8, !tbaa !44
   %155 = and i8 %142, 15
   %.not.i81 = icmp eq i8 %155, 3
   br i1 %.not.i81, label %162, label %156
@@ -370,33 +370,33 @@ get_label_flags.exit.i:                           ; preds = %134, %129, %116
 159:                                              ; preds = %156
   %160 = getelementptr inbounds nuw i8, ptr %117, i64 80
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr %160, ptr %161, align 8, !tbaa !47
+  store ptr %160, ptr %161, align 8, !tbaa !45
   br label %162
 
 162:                                              ; preds = %159, %156, %get_label_flags.exit.i
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 124
-  store i32 %.2.i.i, ptr %163, align 4, !tbaa !48
+  store i32 %.2.i.i, ptr %163, align 4, !tbaa !46
   %164 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %118, ptr %164, align 8, !tbaa !49
+  store ptr %118, ptr %164, align 8, !tbaa !47
   call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %117, i32 noundef 0, ptr noundef nonnull %4) #7
   %165 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %166 = load i32, ptr %165, align 8, !tbaa !50
+  %166 = load i32, ptr %165, align 8, !tbaa !48
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %lv_label_get_text_selection_end.exit.i
 
 168:                                              ; preds = %162
-  store i32 1, ptr %165, align 8, !tbaa !50
+  store i32 1, ptr %165, align 8, !tbaa !48
   br label %lv_label_get_text_selection_end.exit.i
 
 lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   %169 = getelementptr inbounds nuw i8, ptr %117, i64 92
   %170 = load i32, ptr %169, align 4, !tbaa !23
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 %170, ptr %171, align 8, !tbaa !51
+  store i32 %170, ptr %171, align 8, !tbaa !49
   %172 = getelementptr inbounds nuw i8, ptr %117, i64 96
   %173 = load i32, ptr %172, align 8, !tbaa !24
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 %173, ptr %174, align 4, !tbaa !52
+  store i32 %173, ptr %174, align 4, !tbaa !50
   %175 = icmp ne i32 %170, 65535
   %176 = icmp ne i32 %173, 65535
   %or.cond.i = select i1 %175, i1 %176, i1 false
@@ -423,7 +423,7 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br i1 %switch.i, label %188, label %204
 
 188:                                              ; preds = %185
-  %189 = load i32, ptr %165, align 8, !tbaa !53
+  %189 = load i32, ptr %165, align 8, !tbaa !51
   %190 = and i32 %189, -2
   %or.cond5.i = icmp eq i32 %190, 2
   br i1 %or.cond5.i, label %191, label %204
@@ -432,19 +432,19 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %192 = load ptr, ptr %139, align 8, !tbaa !3
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %194 = load ptr, ptr %193, align 8, !tbaa !54
+  %194 = load ptr, ptr %193, align 8, !tbaa !52
   %195 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %196 = load i32, ptr %195, align 8, !tbaa !55
+  %196 = load i32, ptr %195, align 8, !tbaa !53
   %197 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %198 = load i32, ptr %197, align 4, !tbaa !56
+  %198 = load i32, ptr %197, align 4, !tbaa !54
   call void @lv_text_get_size(ptr noundef nonnull %5, ptr noundef %192, ptr noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef 536870911, i32 noundef %.2.i.i) #7
-  %199 = load i32, ptr %5, align 4, !tbaa !32
+  %199 = load i32, ptr %5, align 4, !tbaa !30
   %200 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
   %201 = icmp sgt i32 %199, %200
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %191
-  store i32 1, ptr %165, align 8, !tbaa !53
+  store i32 1, ptr %165, align 8, !tbaa !51
   br label %203
 
 203:                                              ; preds = %202, %191
@@ -468,9 +468,9 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   %213 = sub nsw i32 0, %212
   call void @lv_area_move(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %213) #7
   %214 = getelementptr inbounds nuw i8, ptr %117, i64 52
-  %215 = load i32, ptr %214, align 4, !tbaa !57
+  %215 = load i32, ptr %214, align 4, !tbaa !55
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %215, ptr %216, align 4, !tbaa !58
+  store i32 %215, ptr %216, align 4, !tbaa !56
   %.pre.i82 = load i8, ptr %119, align 4
   br label %217
 
@@ -482,10 +482,10 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
 
 220:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !57
   call void @lv_draw_label(ptr noundef nonnull %118, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %222
 
@@ -495,8 +495,8 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
 
 222:                                              ; preds = %221, %220
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %205, i64 16, i1 false), !tbaa.struct !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !57
   %223 = load i8, ptr %119, align 4
   %224 = and i8 %223, 15
   %225 = icmp eq i8 %224, 3
@@ -506,49 +506,49 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   %227 = load ptr, ptr %139, align 8, !tbaa !3
   %228 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %229 = load ptr, ptr %228, align 8, !tbaa !54
+  %229 = load ptr, ptr %228, align 8, !tbaa !52
   %230 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %231 = load i32, ptr %230, align 8, !tbaa !55
+  %231 = load i32, ptr %230, align 8, !tbaa !53
   %232 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %233 = load i32, ptr %232, align 4, !tbaa !56
+  %233 = load i32, ptr %232, align 4, !tbaa !54
   call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef %227, ptr noundef %229, i32 noundef %231, i32 noundef %233, i32 noundef 536870911, i32 noundef %.2.i.i) #7
-  %234 = load i32, ptr %9, align 4, !tbaa !32
+  %234 = load i32, ptr %9, align 4, !tbaa !30
   %235 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
   %236 = icmp sgt i32 %234, %235
   br i1 %236, label %237, label %247
 
 237:                                              ; preds = %226
-  %238 = load i32, ptr %149, align 4, !tbaa !43
-  %239 = load i32, ptr %9, align 4, !tbaa !32
+  %238 = load i32, ptr %149, align 4, !tbaa !41
+  %239 = load i32, ptr %9, align 4, !tbaa !30
   %240 = add nsw i32 %239, %238
-  %241 = load ptr, ptr %228, align 8, !tbaa !54
+  %241 = load ptr, ptr %228, align 8, !tbaa !52
   %242 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %241, i32 noundef 32, i32 noundef 32) #7
   %243 = zext i16 %242 to i32
   %244 = mul nuw nsw i32 %243, 3
   %245 = add nsw i32 %240, %244
-  store i32 %245, ptr %151, align 4, !tbaa !44
-  %246 = load i32, ptr %152, align 4, !tbaa !45
-  store i32 %246, ptr %154, align 8, !tbaa !46
+  store i32 %245, ptr %151, align 4, !tbaa !42
+  %246 = load i32, ptr %152, align 4, !tbaa !43
+  store i32 %246, ptr %154, align 8, !tbaa !44
   call void @lv_draw_label(ptr noundef nonnull %118, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   br label %247
 
 247:                                              ; preds = %237, %226
   %248 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %249 = load i32, ptr %248, align 4, !tbaa !34
+  %249 = load i32, ptr %248, align 4, !tbaa !32
   %250 = call i32 @lv_area_get_height(ptr noundef nonnull %3) #7
   %251 = icmp sgt i32 %249, %250
   br i1 %251, label %252, label %260
 
 252:                                              ; preds = %247
-  %253 = load i32, ptr %149, align 4, !tbaa !43
-  store i32 %253, ptr %151, align 4, !tbaa !44
-  %254 = load i32, ptr %152, align 4, !tbaa !45
-  %255 = load i32, ptr %248, align 4, !tbaa !34
+  %253 = load i32, ptr %149, align 4, !tbaa !41
+  store i32 %253, ptr %151, align 4, !tbaa !42
+  %254 = load i32, ptr %152, align 4, !tbaa !43
+  %255 = load i32, ptr %248, align 4, !tbaa !32
   %256 = add nsw i32 %255, %254
-  %257 = load ptr, ptr %228, align 8, !tbaa !54
+  %257 = load ptr, ptr %228, align 8, !tbaa !52
   %258 = call i32 @lv_font_get_line_height(ptr noundef %257) #7
   %259 = add nsw i32 %256, %258
-  store i32 %259, ptr %154, align 8, !tbaa !46
+  store i32 %259, ptr %154, align 8, !tbaa !44
   call void @lv_draw_label(ptr noundef nonnull %118, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   br label %260
 
@@ -557,7 +557,7 @@ lv_label_get_text_selection_end.exit.i:           ; preds = %168, %162
   br label %261
 
 261:                                              ; preds = %260, %222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %draw_main.exit
 
@@ -594,7 +594,7 @@ define void @lv_label_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !60
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = icmp eq ptr %1, null
@@ -662,7 +662,7 @@ lv_label_revert_dots.exit:                        ; preds = %8, %.critedge.i
   br i1 %.not31, label %.preheader32, label %49
 
 .preheader32:                                     ; preds = %33, %.preheader32
-  br label %.preheader32, !llvm.loop !61
+  br label %.preheader32
 
 35:                                               ; preds = %28, %lv_label_revert_dots.exit
   %.not29 = icmp eq ptr %26, null
@@ -687,7 +687,7 @@ lv_label_revert_dots.exit:                        ; preds = %8, %.critedge.i
   br i1 %.not30, label %.preheader33, label %44
 
 .preheader33:                                     ; preds = %42, %.preheader33
-  br label %.preheader33, !llvm.loop !62
+  br label %.preheader33
 
 44:                                               ; preds = %42
   %45 = tail call ptr @lv_strcpy(ptr noundef nonnull %43, ptr noundef %.0) #7
@@ -834,16 +834,16 @@ lv_label_revert_dots.exit:                        ; preds = %get_label_flags.exi
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %4, i32 noundef -1) #7
   call void @lv_anim_set_reverse_delay(ptr noundef nonnull %4, i32 noundef 300) #7
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %67 = load i32, ptr %66, align 4, !tbaa !63
+  %67 = load i32, ptr %66, align 4, !tbaa !58
   call void @lv_anim_set_repeat_delay(ptr noundef nonnull %4, i32 noundef %67) #7
-  %68 = load i32, ptr %3, align 4, !tbaa !32
+  %68 = load i32, ptr %3, align 4, !tbaa !30
   %69 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
   %.not146 = icmp sgt i32 %68, %69
   br i1 %.not146, label %70, label %138
 
 70:                                               ; preds = %65
   %71 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
-  %72 = load i32, ptr %3, align 4, !tbaa !32
+  %72 = load i32, ptr %3, align 4, !tbaa !30
   %73 = sub nsw i32 %71, %72
   call void @lv_anim_set_values(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %73) #7
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %4, ptr noundef nonnull @set_ofs_x_anim) #7
@@ -853,7 +853,7 @@ lv_label_revert_dots.exit:                        ; preds = %get_label_flags.exi
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 88
-  %77 = load i32, ptr %76, align 8, !tbaa !65
+  %77 = load i32, ptr %76, align 8, !tbaa !60
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 128
   %79 = load i8, ptr %78, align 8
   %80 = call i32 @lv_anim_resolve_speed(i32 noundef %.0116, i32 noundef 0, i32 noundef %73) #7
@@ -867,14 +867,14 @@ lv_label_revert_dots.exit:                        ; preds = %get_label_flags.exi
 
 .thread163:                                       ; preds = %.thread
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 0, ptr %84, align 8, !tbaa !65
+  store i32 0, ptr %84, align 8, !tbaa !60
   br label %96
 
 85:                                               ; preds = %75
   %86 = and i8 %79, 2
   %.not174 = icmp eq i8 %86, 0
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %77, ptr %87, align 8, !tbaa !65
+  store i32 %77, ptr %87, align 8, !tbaa !60
   br i1 %.not174, label %96, label %88
 
 88:                                               ; preds = %85
@@ -883,11 +883,11 @@ lv_label_revert_dots.exit:                        ; preds = %get_label_flags.exi
   %91 = or i8 %90, 2
   store i8 %91, ptr %89, align 8
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %93 = load i32, ptr %92, align 8, !tbaa !66
+  %93 = load i32, ptr %92, align 8, !tbaa !61
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %95 = load i32, ptr %94, align 8, !tbaa !67
-  store i32 %95, ptr %92, align 8, !tbaa !66
-  store i32 %93, ptr %94, align 8, !tbaa !67
+  %95 = load i32, ptr %94, align 8, !tbaa !62
+  store i32 %95, ptr %92, align 8, !tbaa !61
+  store i32 %93, ptr %94, align 8, !tbaa !62
   br label %96
 
 96:                                               ; preds = %.thread163, %.thread, %85, %88, %75
@@ -907,59 +907,59 @@ lv_label_revert_dots.exit:                        ; preds = %get_label_flags.exi
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %102 = load i32, ptr %101, align 8, !tbaa !65
+  %102 = load i32, ptr %101, align 8, !tbaa !60
   %103 = icmp slt i32 %102, 1
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  %106 = load i32, ptr %105, align 8, !tbaa !65
-  store i32 %106, ptr %101, align 8, !tbaa !65
+  %106 = load i32, ptr %105, align 8, !tbaa !60
+  store i32 %106, ptr %101, align 8, !tbaa !60
   br label %107
 
 107:                                              ; preds = %104, %100
   %108 = getelementptr inbounds nuw i8, ptr %59, i64 104
-  %109 = load i32, ptr %108, align 8, !tbaa !68
+  %109 = load i32, ptr %108, align 8, !tbaa !63
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %109, ptr %110, align 8, !tbaa !68
+  store i32 %109, ptr %110, align 8, !tbaa !63
   %111 = getelementptr inbounds nuw i8, ptr %59, i64 100
-  %112 = load i32, ptr %111, align 4, !tbaa !69
+  %112 = load i32, ptr %111, align 4, !tbaa !64
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  store i32 %112, ptr %113, align 4, !tbaa !69
+  store i32 %112, ptr %113, align 4, !tbaa !64
   %114 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %115 = load ptr, ptr %114, align 8, !tbaa !70
+  %115 = load ptr, ptr %114, align 8, !tbaa !65
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %115, ptr %116, align 8, !tbaa !70
+  store ptr %115, ptr %116, align 8, !tbaa !65
   %117 = getelementptr inbounds nuw i8, ptr %59, i64 92
-  %118 = load i32, ptr %117, align 4, !tbaa !63
-  store i32 %118, ptr %66, align 4, !tbaa !63
+  %118 = load i32, ptr %117, align 4, !tbaa !58
+  store i32 %118, ptr %66, align 4, !tbaa !58
   br label %overwrite_anim_property.exit
 
 119:                                              ; preds = %97
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %121 = load i32, ptr %120, align 8, !tbaa !65
+  %121 = load i32, ptr %120, align 8, !tbaa !60
   %122 = icmp slt i32 %121, 1
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  %125 = load i32, ptr %124, align 8, !tbaa !65
-  store i32 %125, ptr %120, align 8, !tbaa !65
+  %125 = load i32, ptr %124, align 8, !tbaa !60
+  store i32 %125, ptr %120, align 8, !tbaa !60
   br label %126
 
 126:                                              ; preds = %123, %119
   %127 = getelementptr inbounds nuw i8, ptr %59, i64 104
-  %128 = load i32, ptr %127, align 8, !tbaa !68
+  %128 = load i32, ptr %127, align 8, !tbaa !63
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %128, ptr %129, align 8, !tbaa !68
+  store i32 %128, ptr %129, align 8, !tbaa !63
   %130 = getelementptr inbounds nuw i8, ptr %59, i64 100
-  %131 = load i32, ptr %130, align 4, !tbaa !69
+  %131 = load i32, ptr %130, align 4, !tbaa !64
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  store i32 %131, ptr %132, align 4, !tbaa !69
+  store i32 %131, ptr %132, align 4, !tbaa !64
   %133 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %134 = load ptr, ptr %133, align 8, !tbaa !70
+  %134 = load ptr, ptr %133, align 8, !tbaa !65
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %134, ptr %135, align 8, !tbaa !70
+  store ptr %134, ptr %135, align 8, !tbaa !65
   br label %overwrite_anim_property.exit
 
 overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
@@ -973,12 +973,12 @@ overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
 
 .sink.split:                                      ; preds = %overwrite_anim_property.exit, %138
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 0, ptr %140, align 4, !tbaa !43
+  store i32 0, ptr %140, align 4, !tbaa !41
   br label %141
 
 141:                                              ; preds = %.sink.split, %overwrite_anim_property.exit
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %143 = load i32, ptr %142, align 4, !tbaa !34
+  %143 = load i32, ptr %142, align 4, !tbaa !32
   %144 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
   %145 = icmp sle i32 %143, %144
   %brmerge = or i1 %.not146, %145
@@ -986,7 +986,7 @@ overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
 
 146:                                              ; preds = %141
   %147 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
-  %148 = load i32, ptr %142, align 4, !tbaa !34
+  %148 = load i32, ptr %142, align 4, !tbaa !32
   %149 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
   %150 = add i32 %148, %149
   %151 = sub i32 %147, %150
@@ -998,21 +998,21 @@ overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
 
 153:                                              ; preds = %146
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 88
-  %155 = load i32, ptr %154, align 8, !tbaa !65
+  %155 = load i32, ptr %154, align 8, !tbaa !60
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %157 = load i32, ptr %156, align 4, !tbaa !71
+  %157 = load i32, ptr %156, align 4, !tbaa !66
   %158 = icmp slt i32 %155, %157
   br i1 %158, label %163, label %176
 
 .thread166:                                       ; preds = %146
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %160 = load i32, ptr %159, align 4, !tbaa !71
+  %160 = load i32, ptr %159, align 4, !tbaa !66
   %161 = icmp sgt i32 %160, 0
   br i1 %161, label %.thread171, label %176
 
 .thread171:                                       ; preds = %.thread166
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 0, ptr %162, align 8, !tbaa !65
+  store i32 0, ptr %162, align 8, !tbaa !60
   br label %176
 
 163:                                              ; preds = %153
@@ -1021,7 +1021,7 @@ overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
   %166 = and i8 %165, 2
   %.not175 = icmp eq i8 %166, 0
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %155, ptr %167, align 8, !tbaa !65
+  store i32 %155, ptr %167, align 8, !tbaa !60
   br i1 %.not175, label %176, label %168
 
 168:                                              ; preds = %163
@@ -1030,11 +1030,11 @@ overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
   %171 = or i8 %170, 2
   store i8 %171, ptr %169, align 8
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %173 = load i32, ptr %172, align 8, !tbaa !66
+  %173 = load i32, ptr %172, align 8, !tbaa !61
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %175 = load i32, ptr %174, align 8, !tbaa !67
-  store i32 %175, ptr %172, align 8, !tbaa !66
-  store i32 %173, ptr %174, align 8, !tbaa !67
+  %175 = load i32, ptr %174, align 8, !tbaa !62
+  store i32 %175, ptr %172, align 8, !tbaa !61
+  store i32 %173, ptr %174, align 8, !tbaa !62
   br label %176
 
 176:                                              ; preds = %.thread171, %.thread166, %163, %168, %153
@@ -1053,59 +1053,59 @@ overwrite_anim_property.exit:                     ; preds = %126, %107, %97, %96
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %182 = load i32, ptr %181, align 8, !tbaa !65
+  %182 = load i32, ptr %181, align 8, !tbaa !60
   %183 = icmp slt i32 %182, 1
   br i1 %183, label %184, label %187
 
 184:                                              ; preds = %180
   %185 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  %186 = load i32, ptr %185, align 8, !tbaa !65
-  store i32 %186, ptr %181, align 8, !tbaa !65
+  %186 = load i32, ptr %185, align 8, !tbaa !60
+  store i32 %186, ptr %181, align 8, !tbaa !60
   br label %187
 
 187:                                              ; preds = %184, %180
   %188 = getelementptr inbounds nuw i8, ptr %59, i64 104
-  %189 = load i32, ptr %188, align 8, !tbaa !68
+  %189 = load i32, ptr %188, align 8, !tbaa !63
   %190 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %189, ptr %190, align 8, !tbaa !68
+  store i32 %189, ptr %190, align 8, !tbaa !63
   %191 = getelementptr inbounds nuw i8, ptr %59, i64 100
-  %192 = load i32, ptr %191, align 4, !tbaa !69
+  %192 = load i32, ptr %191, align 4, !tbaa !64
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  store i32 %192, ptr %193, align 4, !tbaa !69
+  store i32 %192, ptr %193, align 4, !tbaa !64
   %194 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %195 = load ptr, ptr %194, align 8, !tbaa !70
+  %195 = load ptr, ptr %194, align 8, !tbaa !65
   %196 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %195, ptr %196, align 8, !tbaa !70
+  store ptr %195, ptr %196, align 8, !tbaa !65
   %197 = getelementptr inbounds nuw i8, ptr %59, i64 92
-  %198 = load i32, ptr %197, align 4, !tbaa !63
-  store i32 %198, ptr %66, align 4, !tbaa !63
+  %198 = load i32, ptr %197, align 4, !tbaa !58
+  store i32 %198, ptr %66, align 4, !tbaa !58
   br label %overwrite_anim_property.exit154
 
 199:                                              ; preds = %177
   %200 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %201 = load i32, ptr %200, align 8, !tbaa !65
+  %201 = load i32, ptr %200, align 8, !tbaa !60
   %202 = icmp slt i32 %201, 1
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  %205 = load i32, ptr %204, align 8, !tbaa !65
-  store i32 %205, ptr %200, align 8, !tbaa !65
+  %205 = load i32, ptr %204, align 8, !tbaa !60
+  store i32 %205, ptr %200, align 8, !tbaa !60
   br label %206
 
 206:                                              ; preds = %203, %199
   %207 = getelementptr inbounds nuw i8, ptr %59, i64 104
-  %208 = load i32, ptr %207, align 8, !tbaa !68
+  %208 = load i32, ptr %207, align 8, !tbaa !63
   %209 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i32 %208, ptr %209, align 8, !tbaa !68
+  store i32 %208, ptr %209, align 8, !tbaa !63
   %210 = getelementptr inbounds nuw i8, ptr %59, i64 100
-  %211 = load i32, ptr %210, align 4, !tbaa !69
+  %211 = load i32, ptr %210, align 4, !tbaa !64
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  store i32 %211, ptr %212, align 4, !tbaa !69
+  store i32 %211, ptr %212, align 4, !tbaa !64
   %213 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %214 = load ptr, ptr %213, align 8, !tbaa !70
+  %214 = load ptr, ptr %213, align 8, !tbaa !65
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %214, ptr %215, align 8, !tbaa !70
+  store ptr %214, ptr %215, align 8, !tbaa !65
   br label %overwrite_anim_property.exit154
 
 overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %176
@@ -1115,7 +1115,7 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
 217:                                              ; preds = %141
   %218 = call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @set_ofs_y_anim) #7
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 0, ptr %219, align 4, !tbaa !45
+  store i32 0, ptr %219, align 4, !tbaa !43
   br label %220
 
 220:                                              ; preds = %217, %overwrite_anim_property.exit154
@@ -1140,13 +1140,13 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
   call void @lv_anim_init(ptr noundef nonnull %5) #7
   call void @lv_anim_set_var(ptr noundef nonnull %5, ptr noundef nonnull %0) #7
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %5, i32 noundef -1) #7
-  %229 = load i32, ptr %3, align 4, !tbaa !32
+  %229 = load i32, ptr %3, align 4, !tbaa !30
   %230 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
   %.not141 = icmp sgt i32 %229, %230
   br i1 %.not141, label %231, label %292
 
 231:                                              ; preds = %228
-  %232 = load i32, ptr %3, align 4, !tbaa !32
+  %232 = load i32, ptr %3, align 4, !tbaa !30
   %233 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %17, i32 noundef 32, i32 noundef 32) #7
   %234 = zext i16 %233 to i32
   %.neg138 = mul nsw i32 %234, -3
@@ -1160,22 +1160,22 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
 
 237:                                              ; preds = %231
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 88
-  %239 = load i32, ptr %238, align 8, !tbaa !65
+  %239 = load i32, ptr %238, align 8, !tbaa !60
   br label %240
 
 240:                                              ; preds = %231, %237
   %241 = phi i32 [ %239, %237 ], [ 0, %231 ]
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %243 = load i32, ptr %242, align 8, !tbaa !66
+  %243 = load i32, ptr %242, align 8, !tbaa !61
   %244 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %245 = load i32, ptr %244, align 8, !tbaa !67
+  %245 = load i32, ptr %244, align 8, !tbaa !62
   %246 = call i32 @lv_anim_resolve_speed(i32 noundef %.0122, i32 noundef %243, i32 noundef %245) #7
   %247 = icmp slt i32 %241, %246
   br i1 %247, label %248, label %250
 
 248:                                              ; preds = %240
   %249 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i32 %241, ptr %249, align 8, !tbaa !65
+  store i32 %241, ptr %249, align 8, !tbaa !60
   br label %250
 
 250:                                              ; preds = %248, %240
@@ -1192,60 +1192,60 @@ overwrite_anim_property.exit154:                  ; preds = %206, %187, %177, %1
 
 254:                                              ; preds = %251
   %255 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %256 = load i32, ptr %255, align 8, !tbaa !65
+  %256 = load i32, ptr %255, align 8, !tbaa !60
   %257 = icmp slt i32 %256, 1
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %254
   %259 = getelementptr inbounds nuw i8, ptr %222, i64 88
-  %260 = load i32, ptr %259, align 8, !tbaa !65
-  store i32 %260, ptr %255, align 8, !tbaa !65
+  %260 = load i32, ptr %259, align 8, !tbaa !60
+  store i32 %260, ptr %255, align 8, !tbaa !60
   br label %261
 
 261:                                              ; preds = %258, %254
   %262 = getelementptr inbounds nuw i8, ptr %222, i64 104
-  %263 = load i32, ptr %262, align 8, !tbaa !68
+  %263 = load i32, ptr %262, align 8, !tbaa !63
   %264 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %263, ptr %264, align 8, !tbaa !68
+  store i32 %263, ptr %264, align 8, !tbaa !63
   %265 = getelementptr inbounds nuw i8, ptr %222, i64 100
-  %266 = load i32, ptr %265, align 4, !tbaa !69
+  %266 = load i32, ptr %265, align 4, !tbaa !64
   %267 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  store i32 %266, ptr %267, align 4, !tbaa !69
+  store i32 %266, ptr %267, align 4, !tbaa !64
   %268 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  %269 = load ptr, ptr %268, align 8, !tbaa !70
+  %269 = load ptr, ptr %268, align 8, !tbaa !65
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %269, ptr %270, align 8, !tbaa !70
+  store ptr %269, ptr %270, align 8, !tbaa !65
   %271 = getelementptr inbounds nuw i8, ptr %222, i64 92
-  %272 = load i32, ptr %271, align 4, !tbaa !63
+  %272 = load i32, ptr %271, align 4, !tbaa !58
   %273 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store i32 %272, ptr %273, align 4, !tbaa !63
+  store i32 %272, ptr %273, align 4, !tbaa !58
   br label %overwrite_anim_property.exit156
 
 274:                                              ; preds = %251
   %275 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %276 = load i32, ptr %275, align 8, !tbaa !65
+  %276 = load i32, ptr %275, align 8, !tbaa !60
   %277 = icmp slt i32 %276, 1
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %274
   %279 = getelementptr inbounds nuw i8, ptr %222, i64 88
-  %280 = load i32, ptr %279, align 8, !tbaa !65
-  store i32 %280, ptr %275, align 8, !tbaa !65
+  %280 = load i32, ptr %279, align 8, !tbaa !60
+  store i32 %280, ptr %275, align 8, !tbaa !60
   br label %281
 
 281:                                              ; preds = %278, %274
   %282 = getelementptr inbounds nuw i8, ptr %222, i64 104
-  %283 = load i32, ptr %282, align 8, !tbaa !68
+  %283 = load i32, ptr %282, align 8, !tbaa !63
   %284 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %283, ptr %284, align 8, !tbaa !68
+  store i32 %283, ptr %284, align 8, !tbaa !63
   %285 = getelementptr inbounds nuw i8, ptr %222, i64 100
-  %286 = load i32, ptr %285, align 4, !tbaa !69
+  %286 = load i32, ptr %285, align 4, !tbaa !64
   %287 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  store i32 %286, ptr %287, align 4, !tbaa !69
+  store i32 %286, ptr %287, align 4, !tbaa !64
   %288 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  %289 = load ptr, ptr %288, align 8, !tbaa !70
+  %289 = load ptr, ptr %288, align 8, !tbaa !65
   %290 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %289, ptr %290, align 8, !tbaa !70
+  store ptr %289, ptr %290, align 8, !tbaa !65
   br label %overwrite_anim_property.exit156
 
 overwrite_anim_property.exit156:                  ; preds = %281, %261, %251, %250
@@ -1255,19 +1255,19 @@ overwrite_anim_property.exit156:                  ; preds = %281, %261, %251, %2
 292:                                              ; preds = %228
   %293 = call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @set_ofs_x_anim) #7
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 0, ptr %294, align 4, !tbaa !43
+  store i32 0, ptr %294, align 4, !tbaa !41
   br label %295
 
 295:                                              ; preds = %292, %overwrite_anim_property.exit156
   %296 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %297 = load i32, ptr %296, align 4, !tbaa !34
+  %297 = load i32, ptr %296, align 4, !tbaa !32
   %298 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
   %299 = icmp sle i32 %297, %298
   %brmerge151 = or i1 %.not141, %299
   br i1 %brmerge151, label %358, label %300
 
 300:                                              ; preds = %295
-  %301 = load i32, ptr %296, align 4, !tbaa !34
+  %301 = load i32, ptr %296, align 4, !tbaa !32
   %302 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
   %303 = add i32 %301, %302
   %304 = sub i32 0, %303
@@ -1280,7 +1280,7 @@ overwrite_anim_property.exit156:                  ; preds = %281, %261, %251, %2
 
 306:                                              ; preds = %300
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 88
-  %308 = load i32, ptr %307, align 8, !tbaa !65
+  %308 = load i32, ptr %307, align 8, !tbaa !60
   br label %309
 
 309:                                              ; preds = %300, %306
@@ -1298,71 +1298,71 @@ overwrite_anim_property.exit156:                  ; preds = %281, %261, %251, %2
 
 314:                                              ; preds = %311
   %315 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %316 = load i32, ptr %315, align 8, !tbaa !65
+  %316 = load i32, ptr %315, align 8, !tbaa !60
   %317 = icmp slt i32 %316, 1
   br i1 %317, label %318, label %321
 
 318:                                              ; preds = %314
   %319 = getelementptr inbounds nuw i8, ptr %222, i64 88
-  %320 = load i32, ptr %319, align 8, !tbaa !65
-  store i32 %320, ptr %315, align 8, !tbaa !65
+  %320 = load i32, ptr %319, align 8, !tbaa !60
+  store i32 %320, ptr %315, align 8, !tbaa !60
   br label %321
 
 321:                                              ; preds = %318, %314
   %322 = getelementptr inbounds nuw i8, ptr %222, i64 104
-  %323 = load i32, ptr %322, align 8, !tbaa !68
+  %323 = load i32, ptr %322, align 8, !tbaa !63
   %324 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %323, ptr %324, align 8, !tbaa !68
+  store i32 %323, ptr %324, align 8, !tbaa !63
   %325 = getelementptr inbounds nuw i8, ptr %222, i64 100
-  %326 = load i32, ptr %325, align 4, !tbaa !69
+  %326 = load i32, ptr %325, align 4, !tbaa !64
   %327 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  store i32 %326, ptr %327, align 4, !tbaa !69
+  store i32 %326, ptr %327, align 4, !tbaa !64
   %328 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  %329 = load ptr, ptr %328, align 8, !tbaa !70
+  %329 = load ptr, ptr %328, align 8, !tbaa !65
   %330 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %329, ptr %330, align 8, !tbaa !70
+  store ptr %329, ptr %330, align 8, !tbaa !65
   %331 = getelementptr inbounds nuw i8, ptr %222, i64 92
-  %332 = load i32, ptr %331, align 4, !tbaa !63
+  %332 = load i32, ptr %331, align 4, !tbaa !58
   %333 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store i32 %332, ptr %333, align 4, !tbaa !63
+  store i32 %332, ptr %333, align 4, !tbaa !58
   br label %overwrite_anim_property.exit157
 
 334:                                              ; preds = %311
   %335 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %336 = load i32, ptr %335, align 8, !tbaa !65
+  %336 = load i32, ptr %335, align 8, !tbaa !60
   %337 = icmp slt i32 %336, 1
   br i1 %337, label %338, label %341
 
 338:                                              ; preds = %334
   %339 = getelementptr inbounds nuw i8, ptr %222, i64 88
-  %340 = load i32, ptr %339, align 8, !tbaa !65
-  store i32 %340, ptr %335, align 8, !tbaa !65
+  %340 = load i32, ptr %339, align 8, !tbaa !60
+  store i32 %340, ptr %335, align 8, !tbaa !60
   br label %341
 
 341:                                              ; preds = %338, %334
   %342 = getelementptr inbounds nuw i8, ptr %222, i64 104
-  %343 = load i32, ptr %342, align 8, !tbaa !68
+  %343 = load i32, ptr %342, align 8, !tbaa !63
   %344 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %343, ptr %344, align 8, !tbaa !68
+  store i32 %343, ptr %344, align 8, !tbaa !63
   %345 = getelementptr inbounds nuw i8, ptr %222, i64 100
-  %346 = load i32, ptr %345, align 4, !tbaa !69
+  %346 = load i32, ptr %345, align 4, !tbaa !64
   %347 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  store i32 %346, ptr %347, align 4, !tbaa !69
+  store i32 %346, ptr %347, align 4, !tbaa !64
   %348 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  %349 = load ptr, ptr %348, align 8, !tbaa !70
+  %349 = load ptr, ptr %348, align 8, !tbaa !65
   %350 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %349, ptr %350, align 8, !tbaa !70
+  store ptr %349, ptr %350, align 8, !tbaa !65
   br label %overwrite_anim_property.exit157
 
 351:                                              ; preds = %309
   %352 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %353 = load i32, ptr %352, align 4, !tbaa !71
+  %353 = load i32, ptr %352, align 4, !tbaa !66
   %354 = icmp slt i32 %310, %353
   br i1 %354, label %355, label %overwrite_anim_property.exit157
 
 355:                                              ; preds = %351
   %356 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i32 %310, ptr %356, align 8, !tbaa !65
+  store i32 %310, ptr %356, align 8, !tbaa !60
   br label %overwrite_anim_property.exit157
 
 overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %351, %355
@@ -1372,7 +1372,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 358:                                              ; preds = %295
   %359 = call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @set_ofs_y_anim) #7
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 0, ptr %360, align 4, !tbaa !45
+  store i32 0, ptr %360, align 4, !tbaa !43
   br label %361
 
 361:                                              ; preds = %358, %overwrite_anim_property.exit157
@@ -1381,19 +1381,19 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 
 362:                                              ; preds = %lv_label_revert_dots.exit
   %363 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %364 = load i32, ptr %363, align 4, !tbaa !34
+  %364 = load i32, ptr %363, align 4, !tbaa !32
   %365 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
   %366 = icmp sgt i32 %364, %365
   br i1 %366, label %367, label %413
 
 367:                                              ; preds = %362
-  %368 = load i32, ptr %363, align 4, !tbaa !34
+  %368 = load i32, ptr %363, align 4, !tbaa !32
   %369 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
   %370 = icmp sgt i32 %368, %369
   br i1 %370, label %371, label %413
 
 371:                                              ; preds = %367
-  %372 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !72
+  %372 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !67
   %373 = load ptr, ptr %8, align 8, !tbaa !3
   %374 = call i32 %372(ptr noundef %373) #7
   %375 = icmp ugt i32 %374, 3
@@ -1407,7 +1407,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
   %380 = add nsw i32 %379, %.sroa.0.0.extract.trunc.i152
   %.neg = mul i32 %380, -3
   %381 = add i32 %.neg, %377
-  store i32 %381, ptr %6, align 4, !tbaa !32
+  store i32 %381, ptr %6, align 4, !tbaa !30
   %382 = call i32 @lv_area_get_height(ptr noundef nonnull %2) #7
   %383 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %384 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
@@ -1430,32 +1430,32 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 
 395:                                              ; preds = %392, %388
   %storemerge = phi i32 [ %394, %392 ], [ %391, %388 ]
-  store i32 %storemerge, ptr %383, align 4, !tbaa !34
+  store i32 %storemerge, ptr %383, align 4, !tbaa !32
   %396 = call i32 @lv_label_get_letter_on(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 zeroext poison)
   %397 = load ptr, ptr %8, align 8, !tbaa !3
   %398 = call i64 @lv_strlen(ptr noundef %397) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  %399 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !72
+  %399 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !67
   %400 = load ptr, ptr %8, align 8, !tbaa !3
   %401 = call i32 %399(ptr noundef %400, i32 noundef %396) #7
-  store i32 %401, ptr %7, align 4, !tbaa !50
+  store i32 %401, ptr %7, align 4, !tbaa !48
   %402 = add i32 %401, 3
   %403 = zext i32 %402 to i64
   %404 = icmp ult i64 %398, %403
   br i1 %404, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %395
-  %405 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !72
+  %405 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
   %406 = trunc nuw i64 %398 to i32
   br label %407
 
 407:                                              ; preds = %.lr.ph, %407
   %408 = load ptr, ptr %8, align 8, !tbaa !3
   %409 = call i32 %405(ptr noundef %408, ptr noundef nonnull %7) #7
-  %410 = load i32, ptr %7, align 4, !tbaa !50
+  %410 = load i32, ptr %7, align 4, !tbaa !48
   %411 = add i32 %410, 3
   %412 = icmp ugt i32 %411, %406
-  br i1 %412, label %407, label %._crit_edge, !llvm.loop !73
+  br i1 %412, label %407, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %407, %395
   %.lcssa = phi i32 [ %401, %395 ], [ %410, %407 ]
@@ -1481,14 +1481,14 @@ define void @lv_label_set_text_fmt(ptr noundef %0, ptr noundef %1, ...) local_un
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !74
+  br label %.preheader
 
 4:                                                ; preds = %2
   %.not16 = icmp eq ptr %1, null
   br i1 %.not16, label %.preheader18, label %5
 
 .preheader18:                                     ; preds = %4, %.preheader18
-  br label %.preheader18, !llvm.loop !75
+  br label %.preheader18
 
 5:                                                ; preds = %4
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
@@ -1540,7 +1540,7 @@ define void @lv_label_set_text_static(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !76
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1583,7 +1583,7 @@ define void @lv_label_set_long_mode(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !77
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @set_ofs_x_anim) #7
@@ -1611,7 +1611,7 @@ declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal void @set_ofs_x_anim(ptr noundef initializes((108, 112)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %1, ptr %3, align 4, !tbaa !43
+  store i32 %1, ptr %3, align 4, !tbaa !41
   tail call void @lv_obj_invalidate(ptr noundef %0) #7
   ret void
 }
@@ -1619,7 +1619,7 @@ define internal void @set_ofs_x_anim(ptr noundef initializes((108, 112)) %0, i32
 ; Function Attrs: nounwind uwtable
 define internal void @set_ofs_y_anim(ptr noundef initializes((112, 116)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %1, ptr %3, align 4, !tbaa !45
+  store i32 %1, ptr %3, align 4, !tbaa !43
   tail call void @lv_obj_invalidate(ptr noundef %0) #7
   ret void
 }
@@ -1632,7 +1632,7 @@ define void @lv_label_set_text_selection_start(ptr noundef %0, i32 noundef %1) l
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !78
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1647,7 +1647,7 @@ define void @lv_label_set_text_selection_end(ptr noundef %0, i32 noundef %1) loc
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !79
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1662,7 +1662,7 @@ define void @lv_label_set_recolor(ptr noundef %0, i1 noundef zeroext %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !80
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1690,7 +1690,7 @@ define ptr @lv_label_get_text(ptr noundef readonly captures(address_is_null) %0)
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !81
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1704,7 +1704,7 @@ define range(i32 0, 16) i32 @lv_label_get_long_mode(ptr noundef readonly capture
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !82
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1721,14 +1721,14 @@ define void @lv_label_get_letter_pos(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !83
+  br label %.preheader
 
 5:                                                ; preds = %3
   %.not97 = icmp eq ptr %2, null
   br i1 %.not97, label %.preheader109, label %lv_label_get_text.exit
 
 .preheader109:                                    ; preds = %5, %.preheader109
-  br label %.preheader109, !llvm.loop !84
+  br label %.preheader109
 
 lv_label_get_text.exit:                           ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1740,7 +1740,7 @@ lv_label_get_text.exit:                           ; preds = %5
 
 11:                                               ; preds = %lv_label_get_text.exit
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %12, align 4, !tbaa !34
+  store i32 0, ptr %12, align 4, !tbaa !32
   switch i32 %8, label %19 [
     i32 1, label %13
     i32 3, label %14
@@ -1748,22 +1748,22 @@ lv_label_get_text.exit:                           ; preds = %5
   ]
 
 13:                                               ; preds = %11
-  store i32 0, ptr %2, align 4, !tbaa !32
+  store i32 0, ptr %2, align 4, !tbaa !30
   br label %105
 
 14:                                               ; preds = %11
   %15 = tail call i32 @lv_obj_get_content_width(ptr noundef nonnull %0) #7
-  store i32 %15, ptr %2, align 4, !tbaa !32
+  store i32 %15, ptr %2, align 4, !tbaa !30
   br label %105
 
 16:                                               ; preds = %11
   %17 = tail call i32 @lv_obj_get_content_width(ptr noundef nonnull %0) #7
   %18 = sdiv i32 %17, 2
-  store i32 %18, ptr %2, align 4, !tbaa !32
+  store i32 %18, ptr %2, align 4, !tbaa !30
   br label %105
 
 19:                                               ; preds = %11
-  store i32 0, ptr %2, align 4, !tbaa !32
+  store i32 0, ptr %2, align 4, !tbaa !30
   br label %105
 
 20:                                               ; preds = %lv_label_get_text.exit
@@ -1799,7 +1799,7 @@ lv_label_get_text.exit:                           ; preds = %5
 
 get_label_flags.exit:                             ; preds = %20, %31, %36
   %.2.i = phi i32 [ %.1.i, %31 ], [ %.1.i, %20 ], [ %spec.select11.i, %36 ]
-  %41 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !72
+  %41 = load ptr, ptr @lv_text_encoded_get_byte_id, align 8, !tbaa !67
   %42 = tail call i32 %41(ptr noundef nonnull %7, i32 noundef %1) #7
   %43 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 92) #7
   %44 = ptrtoint ptr %43 to i64
@@ -1923,9 +1923,9 @@ get_label_flags.exit:                             ; preds = %20, %31, %36
 
 calculate_x_coordinate.exit:                      ; preds = %87, %.sink.split.i
   %.0104 = phi i32 [ %spec.select101, %87 ], [ %103, %.sink.split.i ]
-  store i32 %.0104, ptr %2, align 4, !tbaa !32
+  store i32 %.0104, ptr %2, align 4, !tbaa !30
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %.3, ptr %104, align 4, !tbaa !34
+  store i32 %.3, ptr %104, align 4, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   br label %105
 
@@ -1961,23 +1961,23 @@ define i32 @lv_label_get_letter_on(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not, label %.preheader, label %10
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !85
+  br label %.preheader
 
 10:                                               ; preds = %3
   %.not93 = icmp eq ptr %1, null
   br i1 %.not93, label %.preheader120, label %lv_label_get_text.exit
 
 .preheader120:                                    ; preds = %10, %.preheader120
-  br label %.preheader120, !llvm.loop !86
+  br label %.preheader120
 
 lv_label_get_text.exit:                           ; preds = %10
-  %11 = load i32, ptr %1, align 4, !tbaa !32
+  %11 = load i32, ptr %1, align 4, !tbaa !30
   %12 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #7
   %13 = ptrtoint ptr %12 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %13 to i32
   %14 = sub nsw i32 %11, %.sroa.0.0.extract.trunc.i
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !34
+  %16 = load i32, ptr %15, align 4, !tbaa !32
   %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #7
   %18 = ptrtoint ptr %17 to i64
   %.sroa.0.0.extract.trunc.i102 = trunc i64 %18 to i32
@@ -2065,8 +2065,8 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  store i32 %63, ptr %5, align 4, !tbaa !50
-  %65 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !72
+  store i32 %63, ptr %5, align 4, !tbaa !48
+  %65 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
   %66 = call i32 %65(ptr noundef nonnull %21, ptr noundef nonnull %5) #7
   %.not96 = icmp eq i32 %66, 10
   br i1 %.not96, label %.thread, label %67
@@ -2091,7 +2091,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   %76 = getelementptr inbounds nuw i8, ptr %21, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !25
   %.not94 = icmp eq i8 %77, 0
-  br i1 %.not94, label %.loopexit122, label %52, !llvm.loop !87
+  br i1 %.not94, label %.loopexit122, label %52
 
 .loopexit122:                                     ; preds = %73, %get_label_flags.exit, %.thread
   %.076125 = phi i32 [ %.076131, %.thread ], [ 0, %get_label_flags.exit ], [ %63, %73 ]
@@ -2124,9 +2124,9 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit122
   %.2108 = phi i32 [ 0, %.loopexit122 ], [ %91, %88 ], [ %87, %83 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 0, ptr %6, align 4, !tbaa !50
+  store i32 0, ptr %6, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  store i32 0, ptr %7, align 4, !tbaa !50
+  store i32 0, ptr %7, align 4, !tbaa !48
   %.not97 = icmp ne i32 %.177, 0
   %92 = icmp ult i32 %.076125, %.177
   %or.cond = select i1 %.not97, i1 %92, i1 false
@@ -2146,22 +2146,22 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
   br i1 %.not98, label %102, label %95
 
 95:                                               ; preds = %94
-  %96 = load i32, ptr %7, align 4, !tbaa !50
+  %96 = load i32, ptr %7, align 4, !tbaa !48
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr %79, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !25
   %100 = sext i8 %99 to i32
   %101 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %6, i32 noundef %100) #7
-  br i1 %101, label %._crit_edge, label %102, !llvm.loop !88
+  br i1 %101, label %._crit_edge, label %102, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %95
-  %.pre = load i32, ptr %7, align 4, !tbaa !50
+  %.pre = load i32, ptr %7, align 4, !tbaa !48
   %.pre140 = add i32 %.pre, %.076125
-  br label %121, !llvm.loop !88
+  br label %121, !llvm.loop !69
 
 102:                                              ; preds = %95, %94
-  %103 = load i32, ptr %8, align 4, !tbaa !50
-  %104 = load i32, ptr %9, align 4, !tbaa !50
+  %103 = load i32, ptr %8, align 4, !tbaa !48
+  %104 = load i32, ptr %9, align 4, !tbaa !48
   %105 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %24, i32 noundef %103, i32 noundef %104) #7
   %106 = zext i16 %105 to i32
   %107 = add nsw i32 %.0106133, %106
@@ -2169,7 +2169,7 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
   br i1 %108, label %.thread114, label %109
 
 109:                                              ; preds = %102
-  %110 = load i32, ptr %7, align 4, !tbaa !50
+  %110 = load i32, ptr %7, align 4, !tbaa !48
   %111 = add i32 %110, %.076125
   %112 = icmp eq i32 %111, %.177
   br i1 %112, label %.thread114, label %113
@@ -2183,7 +2183,7 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
   br i1 %118, label %.thread114, label %119
 
 .thread114:                                       ; preds = %102, %109, %113
-  store i32 %.079134, ptr %7, align 4, !tbaa !50
+  store i32 %.079134, ptr %7, align 4, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   br label %.loopexit
@@ -2204,7 +2204,7 @@ calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit
 
 .loopexit:                                        ; preds = %121, %.thread114, %calculate_x_coordinate.exit
   %124 = phi i32 [ %.079134, %.thread114 ], [ 0, %calculate_x_coordinate.exit ], [ %122, %121 ]
-  %125 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !72
+  %125 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !67
   %126 = call i32 %125(ptr noundef nonnull %79, i32 noundef %124) #7
   %127 = call i32 %125(ptr noundef nonnull %21, i32 noundef %.076125) #7
   %128 = add i32 %127, %126
@@ -2231,14 +2231,14 @@ define zeroext i1 @lv_label_is_char_under_pos(ptr noundef %0, ptr noundef readon
   br i1 %.not, label %.preheader, label %8
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !89
+  br label %.preheader
 
 8:                                                ; preds = %2
   %.not96 = icmp eq ptr %1, null
   br i1 %.not96, label %.preheader104, label %lv_label_get_text.exit
 
 .preheader104:                                    ; preds = %8, %.preheader104
-  br label %.preheader104, !llvm.loop !90
+  br label %.preheader104
 
 lv_label_get_text.exit:                           ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
@@ -2321,10 +2321,10 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   %.285 = phi i32 [ %.083, %46 ], [ %spec.select, %49 ]
   %55 = call i32 @lv_text_get_next_line(ptr noundef nonnull %44, i32 noundef -1, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %11, ptr noundef null, i32 noundef %.285) #7
   %56 = add i32 %55, %42
-  %57 = load i32, ptr %39, align 4, !tbaa !34
+  %57 = load i32, ptr %39, align 4, !tbaa !32
   %.not98 = icmp sgt i32 %57, %47
   %58 = add nsw i32 %40, %.088
-  br i1 %.not98, label %41, label %59, !llvm.loop !91
+  br i1 %.not98, label %41, label %59
 
 59:                                               ; preds = %54, %41
   %.184 = phi i32 [ %.285, %54 ], [ %.083, %41 ]
@@ -2356,13 +2356,13 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 73:                                               ; preds = %59, %68, %62
   %.086 = phi i32 [ %67, %62 ], [ %72, %68 ], [ 0, %59 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !50
+  store i32 0, ptr %4, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  store i32 %42, ptr %5, align 4, !tbaa !50
+  store i32 %42, ptr %5, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 0, ptr %6, align 4, !tbaa !50
+  store i32 0, ptr %6, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  store i32 0, ptr %7, align 4, !tbaa !50
+  store i32 0, ptr %7, align 4, !tbaa !48
   %.not99 = icmp eq i32 %.182, 0
   br i1 %.not99, label %.loopexit, label %.preheader105
 
@@ -2378,33 +2378,33 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 .split.us.us.preheader:                           ; preds = %.preheader105.split.us
   call void @lv_text_encoded_letter_next_2(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %76 = load i32, ptr %6, align 4, !tbaa !50
-  %77 = load i32, ptr %7, align 4, !tbaa !50
+  %76 = load i32, ptr %6, align 4, !tbaa !48
+  %77 = load i32, ptr %7, align 4, !tbaa !48
   %78 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %76, i32 noundef %77) #7
   %79 = zext i16 %78 to i32
   %80 = add nsw i32 %.086, %79
-  %81 = load i32, ptr %1, align 4, !tbaa !32
+  %81 = load i32, ptr %1, align 4, !tbaa !30
   %82 = icmp slt i32 %81, %80
   br i1 %82, label %.split110.us, label %.outer.us
 
 .outer.us:                                        ; preds = %.split.us.us.preheader, %.split.us.us
   %83 = phi i32 [ %90, %.split.us.us ], [ %80, %.split.us.us.preheader ]
   %.187.ph.us115140 = phi i32 [ %85, %.split.us.us ], [ %.086, %.split.us.us.preheader ]
-  %84 = load i32, ptr %5, align 4, !tbaa !50
+  %84 = load i32, ptr %5, align 4, !tbaa !48
   %.not100.us.us = icmp ugt i32 %84, %74
-  br i1 %.not100.us.us, label %.loopexit, label %.split.us.us, !llvm.loop !92
+  br i1 %.not100.us.us, label %.loopexit, label %.split.us.us, !llvm.loop !70
 
 .split.us.us:                                     ; preds = %.outer.us
   %85 = add nsw i32 %83, %.sroa.0.0.extract.trunc.i103
   call void @lv_text_encoded_letter_next_2(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %86 = load i32, ptr %6, align 4, !tbaa !50
-  %87 = load i32, ptr %7, align 4, !tbaa !50
+  %86 = load i32, ptr %6, align 4, !tbaa !48
+  %87 = load i32, ptr %7, align 4, !tbaa !48
   %88 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %86, i32 noundef %87) #7
   %89 = zext i16 %88 to i32
   %90 = add nsw i32 %85, %89
-  %91 = load i32, ptr %1, align 4, !tbaa !32
+  %91 = load i32, ptr %1, align 4, !tbaa !30
   %92 = icmp slt i32 %91, %90
-  br i1 %92, label %.split110.us, label %.outer.us, !llvm.loop !92
+  br i1 %92, label %.split110.us, label %.outer.us, !llvm.loop !70
 
 .outer:                                           ; preds = %.preheader105, %109
   %.187.ph = phi i32 [ %110, %109 ], [ %.086, %.preheader105 ]
@@ -2413,47 +2413,47 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br label %93
 
 93:                                               ; preds = %.outer, %95
-  %94 = load i32, ptr %5, align 4, !tbaa !50
+  %94 = load i32, ptr %5, align 4, !tbaa !48
   %.not100 = icmp ugt i32 %94, %74
   br i1 %.not100, label %.loopexit, label %95
 
 95:                                               ; preds = %93
   call void @lv_text_encoded_letter_next_2(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %96 = load i32, ptr %5, align 4, !tbaa !50
+  %96 = load i32, ptr %5, align 4, !tbaa !48
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !25
   %100 = sext i8 %99 to i32
   %101 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %4, i32 noundef %100) #7
-  br i1 %101, label %93, label %.split, !llvm.loop !94
+  br i1 %101, label %93, label %.split, !llvm.loop !72
 
 .split:                                           ; preds = %95
-  %102 = load i32, ptr %6, align 4, !tbaa !50
-  %103 = load i32, ptr %7, align 4, !tbaa !50
+  %102 = load i32, ptr %6, align 4, !tbaa !48
+  %103 = load i32, ptr %7, align 4, !tbaa !48
   %104 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %102, i32 noundef %103) #7
   %105 = zext i16 %104 to i32
   %106 = add nsw i32 %.187.ph, %105
-  %107 = load i32, ptr %1, align 4, !tbaa !32
+  %107 = load i32, ptr %1, align 4, !tbaa !30
   %108 = icmp slt i32 %107, %106
   br i1 %108, label %.split110.us, label %109
 
 .split110.us:                                     ; preds = %.split, %.split.us.us, %.split.us.us.preheader
   %.us-phi111 = phi i32 [ %.086, %.split.us.us.preheader ], [ %85, %.split.us.us ], [ %.187.ph, %.split ]
   %.us-phi112 = phi i32 [ %42, %.split.us.us.preheader ], [ %84, %.split.us.us ], [ %.078.ph, %.split ]
-  store i32 %.us-phi112, ptr %5, align 4, !tbaa !50
+  store i32 %.us-phi112, ptr %5, align 4, !tbaa !48
   br label %.loopexit
 
 109:                                              ; preds = %.split
   %110 = add nsw i32 %106, %.sroa.0.0.extract.trunc.i103
-  %111 = load i32, ptr %5, align 4, !tbaa !50
-  br label %.outer, !llvm.loop !94
+  %111 = load i32, ptr %5, align 4, !tbaa !48
+  br label %.outer, !llvm.loop !72
 
 .loopexit:                                        ; preds = %93, %.outer.us, %.preheader105.split.us, %.split110.us, %73
   %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %73 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115140, %.outer.us ], [ %.180.ph, %93 ]
-  %112 = load i32, ptr %6, align 4, !tbaa !50
-  %113 = load i32, ptr %7, align 4, !tbaa !50
+  %112 = load i32, ptr %6, align 4, !tbaa !48
+  %113 = load i32, ptr %7, align 4, !tbaa !48
   %114 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %112, i32 noundef %113) #7
-  %115 = load i32, ptr %1, align 4, !tbaa !32
+  %115 = load i32, ptr %1, align 4, !tbaa !30
   %116 = sub nsw i32 %.079, %.sroa.0.0.extract.trunc.i103
   %.not102 = icmp slt i32 %115, %116
   br i1 %.not102, label %123, label %117
@@ -2482,7 +2482,7 @@ define i32 @lv_label_get_text_selection_start(ptr noundef readonly captures(addr
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !95
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -2496,7 +2496,7 @@ define i32 @lv_label_get_text_selection_end(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !96
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2510,7 +2510,7 @@ define zeroext i1 @lv_label_get_recolor(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !97
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2526,14 +2526,14 @@ define void @lv_label_ins_text(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !98
+  br label %.preheader
 
 4:                                                ; preds = %3
   %.not23 = icmp eq ptr %2, null
   br i1 %.not23, label %.preheader26, label %5
 
 .preheader26:                                     ; preds = %4, %.preheader26
-  br label %.preheader26, !llvm.loop !99
+  br label %.preheader26
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2557,14 +2557,14 @@ define void @lv_label_ins_text(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %.not25, label %.preheader27, label %18
 
 .preheader27:                                     ; preds = %9, %.preheader27
-  br label %.preheader27, !llvm.loop !100
+  br label %.preheader27
 
 18:                                               ; preds = %9
   %19 = icmp eq i32 %1, 65535
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !72
+  %21 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !67
   %22 = tail call i32 %21(ptr noundef nonnull %17) #7
   %.pre = load ptr, ptr %10, align 8, !tbaa !3
   br label %23
@@ -2590,7 +2590,7 @@ define void @lv_label_cut_text(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !101
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2635,7 +2635,7 @@ define internal fastcc void @lv_label_set_dots(ptr noundef %0, i32 noundef %1) u
   br i1 %5, label %6, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader
 
 6:                                                ; preds = %2
   %.not = icmp eq i32 %1, -1
@@ -2666,11 +2666,11 @@ define internal fastcc void @lv_label_set_dots(ptr noundef %0, i32 noundef %1) u
   store i8 46, ptr %19, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %..critedge_crit_edge, label %14, !llvm.loop !30
+  br i1 %exitcond.not, label %..critedge_crit_edge, label %14, !llvm.loop !28
 
 ..critedge_crit_edge:                             ; preds = %21
   %.pre = load ptr, ptr %9, align 8, !tbaa !3
-  br label %.critedge, !llvm.loop !30
+  br label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %14, %..critedge_crit_edge
   %22 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %15, %14 ]
@@ -2778,79 +2778,50 @@ attributes #7 = { nounwind }
 !23 = !{!4, !14, i64 92}
 !24 = !{!4, !14, i64 96}
 !25 = !{!8, !8, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !28}
-!30 = distinct !{!30, !27, !28}
-!31 = !{!4, !14, i64 104}
-!32 = !{!18, !14, i64 0}
-!33 = !{!4, !14, i64 100}
-!34 = !{!18, !14, i64 4}
-!35 = !{!36, !16, i64 48}
-!36 = !{!"", !37, i64 0, !16, i64 48, !14, i64 56, !40, i64 64, !14, i64 72, !14, i64 76, !41, i64 80, !41, i64 83, !41, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !42, i64 136}
-!37 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !38, i64 24, !39, i64 32, !7, i64 40}
-!38 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!39 = !{!"long", !8, i64 0}
-!40 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
-!41 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!42 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
-!43 = !{!4, !14, i64 108}
-!44 = !{!36, !14, i64 100}
-!45 = !{!4, !14, i64 112}
-!46 = !{!36, !14, i64 104}
-!47 = !{!36, !42, i64 136}
-!48 = !{!36, !14, i64 124}
-!49 = !{!36, !38, i64 24}
-!50 = !{!14, !14, i64 0}
-!51 = !{!36, !14, i64 72}
-!52 = !{!36, !14, i64 76}
-!53 = !{!36, !14, i64 120}
-!54 = !{!36, !40, i64 64}
-!55 = !{!36, !14, i64 96}
-!56 = !{!36, !14, i64 92}
-!57 = !{!5, !14, i64 52}
-!58 = !{!13, !14, i64 12}
-!59 = !{i64 0, i64 4, !50, i64 4, i64 4, !50, i64 8, i64 4, !50, i64 12, i64 4, !50}
-!60 = distinct !{!60, !28}
-!61 = distinct !{!61, !28}
-!62 = distinct !{!62, !28}
-!63 = !{!64, !14, i64 92}
-!64 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}
-!65 = !{!64, !14, i64 88}
-!66 = !{!64, !14, i64 72}
-!67 = !{!64, !14, i64 80}
-!68 = !{!64, !14, i64 104}
-!69 = !{!64, !14, i64 100}
-!70 = !{!64, !7, i64 32}
-!71 = !{!64, !14, i64 84}
-!72 = !{!7, !7, i64 0}
-!73 = distinct !{!73, !27, !28}
-!74 = distinct !{!74, !28}
-!75 = distinct !{!75, !28}
-!76 = distinct !{!76, !28}
-!77 = distinct !{!77, !28}
-!78 = distinct !{!78, !28}
-!79 = distinct !{!79, !28}
-!80 = distinct !{!80, !28}
-!81 = distinct !{!81, !28}
-!82 = distinct !{!82, !28}
-!83 = distinct !{!83, !28}
-!84 = distinct !{!84, !28}
-!85 = distinct !{!85, !28}
-!86 = distinct !{!86, !28}
-!87 = distinct !{!87, !28}
-!88 = distinct !{!88, !27}
-!89 = distinct !{!89, !28}
-!90 = distinct !{!90, !28}
-!91 = distinct !{!91, !28}
-!92 = distinct !{!92, !27, !28, !93}
-!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!94 = distinct !{!94, !27, !28}
-!95 = distinct !{!95, !28}
-!96 = distinct !{!96, !28}
-!97 = distinct !{!97, !28}
-!98 = distinct !{!98, !28}
-!99 = distinct !{!99, !28}
-!100 = distinct !{!100, !28}
-!101 = distinct !{!101, !28}
+!28 = distinct !{!28, !27}
+!29 = !{!4, !14, i64 104}
+!30 = !{!18, !14, i64 0}
+!31 = !{!4, !14, i64 100}
+!32 = !{!18, !14, i64 4}
+!33 = !{!34, !16, i64 48}
+!34 = !{!"", !35, i64 0, !16, i64 48, !14, i64 56, !38, i64 64, !14, i64 72, !14, i64 76, !39, i64 80, !39, i64 83, !39, i64 86, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !8, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 128, !8, i64 128, !8, i64 128, !40, i64 136}
+!35 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !36, i64 24, !37, i64 32, !7, i64 40}
+!36 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!37 = !{!"long", !8, i64 0}
+!38 = !{!"p1 _ZTS10_lv_font_t", !7, i64 0}
+!39 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!40 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !7, i64 0}
+!41 = !{!4, !14, i64 108}
+!42 = !{!34, !14, i64 100}
+!43 = !{!4, !14, i64 112}
+!44 = !{!34, !14, i64 104}
+!45 = !{!34, !40, i64 136}
+!46 = !{!34, !14, i64 124}
+!47 = !{!34, !36, i64 24}
+!48 = !{!14, !14, i64 0}
+!49 = !{!34, !14, i64 72}
+!50 = !{!34, !14, i64 76}
+!51 = !{!34, !14, i64 120}
+!52 = !{!34, !38, i64 64}
+!53 = !{!34, !14, i64 96}
+!54 = !{!34, !14, i64 92}
+!55 = !{!5, !14, i64 52}
+!56 = !{!13, !14, i64 12}
+!57 = !{i64 0, i64 4, !48, i64 4, i64 4, !48, i64 8, i64 4, !48, i64 12, i64 4, !48}
+!58 = !{!59, !14, i64 92}
+!59 = !{!"_lv_anim_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !8, i64 108, !14, i64 116, !14, i64 120, !14, i64 124, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128, !8, i64 128}
+!60 = !{!59, !14, i64 88}
+!61 = !{!59, !14, i64 72}
+!62 = !{!59, !14, i64 80}
+!63 = !{!59, !14, i64 104}
+!64 = !{!59, !14, i64 100}
+!65 = !{!59, !7, i64 32}
+!66 = !{!59, !14, i64 84}
+!67 = !{!7, !7, i64 0}
+!68 = distinct !{!68, !27}
+!69 = distinct !{!69, !27}
+!70 = distinct !{!70, !27, !71}
+!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !27}

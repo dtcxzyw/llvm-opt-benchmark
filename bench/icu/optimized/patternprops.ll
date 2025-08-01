@@ -248,7 +248,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
   %35 = trunc nsw i64 %indvars.iv.next to i32
   %36 = icmp ugt i32 %10, %35
   %or.cond = and i1 %34, %36
-  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge, !llvm.loop !13
+  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge, !llvm.loop !12
 
 .critedge.loopexit.split.loop.exit:               ; preds = %23
   %37 = trunc nsw i64 %indvars.iv to i32
@@ -348,56 +348,56 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
 47:                                               ; preds = %43, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge28, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %37, %43
   %48 = trunc nuw nsw i64 %indvars.iv to i32
-  %invariant.gep = getelementptr i8, ptr %0, i64 -2
   %49 = zext nneg i32 %3 to i64
   br label %50
 
-50:                                               ; preds = %.critedge, %63
-  %indvars.iv53 = phi i64 [ %49, %.critedge ], [ %indvars.iv.next54, %63 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv53
-  %51 = load i16, ptr %gep, align 2, !tbaa !8
-  %52 = icmp ult i16 %51, 256
-  br i1 %52, label %53, label %59
+50:                                               ; preds = %.critedge, %65
+  %indvars.iv53 = phi i64 [ %49, %.critedge ], [ %indvars.iv.next54, %65 ]
+  %51 = getelementptr i16, ptr %0, i64 %indvars.iv53
+  %52 = getelementptr i8, ptr %51, i64 -2
+  %53 = load i16, ptr %52, align 2, !tbaa !8
+  %54 = icmp ult i16 %53, 256
+  br i1 %54, label %55, label %61
 
-53:                                               ; preds = %50
-  %54 = zext nneg i16 %51 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !3
-  %57 = and i8 %56, 4
-  %58 = icmp eq i8 %57, 0
-  br i1 %58, label %.critedge28.loopexit, label %63
+55:                                               ; preds = %50
+  %56 = zext nneg i16 %53 to i64
+  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !3
+  %59 = and i8 %58, 4
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %.critedge28.loopexit, label %65
 
-59:                                               ; preds = %50
-  %60 = add i16 %51, -8234
-  %or.cond.i35 = icmp ult i16 %60, -28
-  %61 = add nsw i16 %51, -8208
-  %62 = icmp ult i16 %61, 24
-  %or.cond65 = select i1 %or.cond.i35, i1 true, i1 %62
-  br i1 %or.cond65, label %.critedge28.loopexit, label %63
+61:                                               ; preds = %50
+  %62 = add i16 %53, -8234
+  %or.cond.i35 = icmp ult i16 %62, -28
+  %63 = add nsw i16 %53, -8208
+  %64 = icmp ult i16 %63, 24
+  %or.cond65 = select i1 %or.cond.i35, i1 true, i1 %64
+  br i1 %or.cond65, label %.critedge28.loopexit, label %65
 
-63:                                               ; preds = %59, %53
+65:                                               ; preds = %61, %55
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
-  br label %50, !llvm.loop !15
+  br label %50, !llvm.loop !14
 
-.critedge28.loopexit:                             ; preds = %53, %59
-  %64 = trunc nsw i64 %indvars.iv53 to i32
+.critedge28.loopexit:                             ; preds = %55, %61
+  %66 = trunc nsw i64 %indvars.iv53 to i32
   br label %.critedge28
 
 .critedge28:                                      ; preds = %47, %.critedge28.loopexit
   %.02148 = phi i32 [ %48, %.critedge28.loopexit ], [ %3, %47 ]
-  %.0 = phi i32 [ %64, %.critedge28.loopexit ], [ %3, %47 ]
-  %65 = sub nsw i32 %.0, %.02148
-  store i32 %65, ptr %1, align 4, !tbaa !6
-  %66 = zext nneg i32 %.02148 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %0, i64 %66
+  %.0 = phi i32 [ %66, %.critedge28.loopexit ], [ %3, %47 ]
+  %67 = sub nsw i32 %.0, %.02148
+  store i32 %67, ptr %1, align 4, !tbaa !6
+  %68 = zext nneg i32 %.02148 to i64
+  %69 = getelementptr inbounds nuw i16, ptr %0, i64 %68
   br label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread
 
 _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread: ; preds = %23, %29, %2, %.critedge28
-  %.022 = phi ptr [ %67, %.critedge28 ], [ %0, %2 ], [ %0, %29 ], [ %0, %23 ]
+  %.022 = phi ptr [ %69, %.critedge28 ], [ %0, %2 ], [ %0, %29 ], [ %0, %23 ]
   ret ptr %.022
 }
 
@@ -467,7 +467,7 @@ _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %11, %20, %35
 _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread: ; preds = %33, %16, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
   %39 = getelementptr inbounds nuw i8, ptr %.06, i64 2
   %40 = icmp ult ptr %39, %6
-  br i1 %40, label %7, label %.loopexit, !llvm.loop !16
+  br i1 %40, label %7, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, %2
   %.0 = phi i8 [ 0, %2 ], [ 1, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread ], [ 0, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit ]
@@ -537,7 +537,7 @@ _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread: ; preds = %29, %12
   %35 = getelementptr inbounds nuw i8, ptr %.047, i64 2
   %36 = add nsw i32 %.08, -1
   %37 = icmp sgt i32 %.08, 1
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !17
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, %2
   %.04.lcssa = phi ptr [ %0, %2 ], [ %35, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread ], [ %.047, %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit ]
@@ -561,11 +561,10 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !7 = !{!"int", !4, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"char16_t", !4, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

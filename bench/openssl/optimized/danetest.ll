@@ -287,7 +287,7 @@ allws.exit.i:                                     ; preds = %48
   %72 = add nuw nsw i32 %.04547.i, 1
   %73 = load i32, ptr %6, align 4, !tbaa !12
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %74, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %68, %71
   %.04547.i = phi i32 [ %72, %71 ], [ 0, %68 ]
@@ -301,7 +301,7 @@ allws.exit.i:                                     ; preds = %48
   %.01625.i.i = phi ptr [ %80, %86 ], [ %75, %.lr.ph.i ]
   %.01724.i.i = phi ptr [ %87, %86 ], [ @tlsa_import_rr.tlsa_fields, %.lr.ph.i ]
   %78 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !21
+  %79 = load ptr, ptr %78, align 8, !tbaa !20
   %80 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 %.026.i.i
   %81 = call i64 %79(ptr noundef %80, ptr noundef nonnull %77) #9
   %82 = icmp slt i64 %81, 1
@@ -309,15 +309,15 @@ allws.exit.i:                                     ; preds = %48
 
 83:                                               ; preds = %.preheader.i
   %84 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !23
+  %85 = load ptr, ptr %84, align 8, !tbaa !22
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.48, ptr noundef %85, ptr noundef nonnull %75) #9
   br label %tlsa_import_rr.exit.thread.i
 
 86:                                               ; preds = %.preheader.i
   %87 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 24
-  %88 = load ptr, ptr %87, align 8, !tbaa !24
+  %88 = load ptr, ptr %87, align 8, !tbaa !23
   %.not.i61.i = icmp eq ptr %88, null
-  br i1 %.not.i61.i, label %89, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i61.i, label %89, label %.preheader.i, !llvm.loop !24
 
 89:                                               ; preds = %86
   %90 = load i8, ptr @tlsa_import_rr.usage, align 1, !tbaa !9
@@ -394,8 +394,8 @@ tlsa_import_rr.exit.thread.i:                     ; preds = %.lr.ph.i, %99, %97,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %119 = load ptr, ptr %3, align 8, !tbaa !4
   store ptr %119, ptr %5, align 8, !tbaa !4
-  %120 = load i64, ptr %4, align 8, !tbaa !26
-  %121 = call ptr %118(ptr noundef null, ptr noundef nonnull %5, i64 noundef %120) #9, !callees !28
+  %120 = load i64, ptr %4, align 8, !tbaa !25
+  %121 = call ptr %118(ptr noundef null, ptr noundef nonnull %5, i64 noundef %120) #9, !callees !27
   %122 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 117, ptr noundef nonnull @.str.56, ptr noundef %121) #9
   %.not17.i.i = icmp eq i32 %122, 0
   br i1 %.not17.i.i, label %131, label %123
@@ -406,7 +406,7 @@ tlsa_import_rr.exit.thread.i:                     ; preds = %.lr.ph.i, %99, %97,
   %126 = ptrtoint ptr %124 to i64
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
-  %129 = load i64, ptr %4, align 8, !tbaa !26
+  %129 = load i64, ptr %4, align 8, !tbaa !25
   %130 = call i32 @test_long_eq(ptr noundef nonnull @.str.14, i32 noundef 118, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i64 noundef %128, i64 noundef %129) #9
   %.not18.i.i = icmp eq i32 %130, 0
   br i1 %.not18.i.i, label %131, label %132
@@ -444,7 +444,7 @@ tlsa_import_rr.exit.thread.i:                     ; preds = %.lr.ph.i, %99, %97,
   store ptr null, ptr %3, align 8, !tbaa !4
   %142 = add nuw nsw i32 %.01528.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %142, %100
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.015.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.01528.i.i, %.lr.ph.i.i ]
@@ -731,7 +731,7 @@ define internal fastcc noundef ptr @read_to_eol(ptr noundef %0) unnamed_addr #1 
 26:                                               ; preds = %18
   store i8 0, ptr %20, align 1, !tbaa !9
   %27 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %27, label %18, label %.critedge, !llvm.loop !30
+  br i1 %27, label %18, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %26, %18, %.preheader, %16, %17, %1
   %.06 = phi ptr [ null, %1 ], [ null, %17 ], [ null, %16 ], [ @read_to_eol.buf, %.preheader ], [ @read_to_eol.buf, %18 ], [ @read_to_eol.buf, %26 ]
@@ -829,7 +829,7 @@ define internal noundef i64 @checked_uint8(ptr noundef %0, ptr noundef writeonly
   %30 = and i16 %29, 8192
   %.not21 = icmp eq i16 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %.017, i64 1
-  br i1 %.not21, label %32, label %25, !llvm.loop !31
+  br i1 %.not21, label %32, label %25, !llvm.loop !30
 
 32:                                               ; preds = %25
   %33 = ptrtoint ptr %.017 to i64
@@ -905,7 +905,7 @@ define internal i64 @hexdecode(ptr noundef readonly captures(none) %0, ptr nound
   %27 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %.not33 = icmp eq i8 %28, 0
-  br i1 %.not33, label %._crit_edge, label %9, !llvm.loop !32
+  br i1 %.not33, label %._crit_edge, label %9, !llvm.loop !31
 
 .thread:                                          ; preds = %19
   %29 = or i8 %.02448, %20
@@ -914,7 +914,7 @@ define internal i64 @hexdecode(ptr noundef readonly captures(none) %0, ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !9
   %.not3357 = icmp eq i8 %32, 0
-  br i1 %.not3357, label %._crit_edge.thread, label %.outer, !llvm.loop !32
+  br i1 %.not3357, label %._crit_edge.thread, label %.outer, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %26
   %33 = icmp eq i32 %.123.ph, 0
@@ -1037,18 +1037,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !15 = !{!"p1 short", !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !7, i64 0}
-!18 = distinct !{!18, !11, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !11, !19}
-!21 = !{!22, !6, i64 16}
-!22 = !{!"tlsa_field", !6, i64 0, !5, i64 8, !6, i64 16}
-!23 = !{!22, !5, i64 8}
-!24 = !{!22, !6, i64 0}
-!25 = distinct !{!25, !11, !19}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"long", !7, i64 0}
-!28 = !{ptr @d2i_X509, ptr @d2i_X509_AUX}
-!29 = distinct !{!29, !11, !19}
-!30 = distinct !{!30, !11, !19}
-!31 = distinct !{!31, !11, !19}
-!32 = distinct !{!32, !11, !19}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = !{!21, !6, i64 16}
+!21 = !{!"tlsa_field", !6, i64 0, !5, i64 8, !6, i64 16}
+!22 = !{!21, !5, i64 8}
+!23 = !{!21, !6, i64 0}
+!24 = distinct !{!24, !11}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !7, i64 0}
+!27 = !{ptr @d2i_X509, ptr @d2i_X509_AUX}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}

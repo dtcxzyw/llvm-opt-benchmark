@@ -247,7 +247,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %10 = getelementptr inbounds nuw i8, ptr %.04.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit", label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit", label %.lr.ph.i, !llvm.loop !8
 
 "_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit": ; preds = %9, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
   %.06.i = phi i1 [ %8, %7 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ true, %9 ]
@@ -278,7 +278,7 @@ define hidden void @_ZN27MetaspaceCriticalAllocation14wait_for_purgeEP25Metadata
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1092
   store volatile i32 10, ptr %5, align 4
   %6 = load ptr, ptr @MetaspaceCritical_lock, align 8
@@ -300,7 +300,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %7
   %12 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 0) #7
   %13 = load i8, ptr %8, align 8
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %14, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %15
@@ -311,11 +311,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %7
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge, %15
   store volatile i32 6, ptr %5, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   %17 = load volatile i64, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %18 = and i64 %17, 1
   %.not.i.i2 = icmp eq i64 %18, 0
   br i1 %.not.i.i2, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %19
@@ -340,7 +340,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge, %15
 
 27:                                               ; preds = %24, %21, %19
   %28 = load volatile i64, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %29 = and i64 %28, 1
   %.not.i1.i = icmp eq i64 %29, 0
   br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %30
@@ -424,7 +424,7 @@ define hidden void @_ZN27MetaspaceCriticalAllocation7processEv() local_unnamed_a
   %21 = getelementptr inbounds nuw i8, ptr %.01324, i64 24
   %.013 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .thread:                                          ; preds = %12
   store ptr null, ptr %1, align 8
@@ -433,7 +433,7 @@ define hidden void @_ZN27MetaspaceCriticalAllocation7processEv() local_unnamed_a
   %23 = getelementptr inbounds nuw i8, ptr %.01324, i64 24
   %.01326 = load ptr, ptr %23, align 8
   %.not27 = icmp eq ptr %.01326, null
-  br i1 %.not27, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !13
+  br i1 %.not27, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %20
   br i1 %.01423.ph, label %.critedge, label %._crit_edge.thread
@@ -536,7 +536,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %22, %_ZN2
   %29 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 24
   %.0.i.i = load ptr, ptr %29, align 8
   %.not.i.i3 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i3, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i", label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i3, label %"_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i", label %.lr.ph.i.i, !llvm.loop !8
 
 "_ZZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequestENK3$_0clEv.exit.i": ; preds = %28, %26, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %.06.i.i = phi i1 [ %27, %26 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ true, %28 ]
@@ -788,11 +788,10 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i64 2145392998}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !7}
+!11 = !{i64 2145392998}
+!12 = distinct !{!12, !7}

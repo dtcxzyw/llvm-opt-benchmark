@@ -193,14 +193,14 @@ xor_newprovctx.exit:                              ; preds = %12
 .loopexit.i:                                      ; preds = %.lr.ph.i
   %17 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 4, i32 noundef 0) #16
   %18 = icmp slt i32 %17, 1
-  br i1 %18, label %randomize_tls_alg_id.exit, label %.lr.ph15.i, !llvm.loop !11
+  br i1 %18, label %randomize_tls_alg_id.exit, label %.lr.ph15.i
 
 .lr.ph15.i:                                       ; preds = %xor_newprovctx.exit, %.loopexit.i
-  %19 = load i32, ptr %8, align 4, !tbaa !13
+  %19 = load i32, ptr %8, align 4, !tbaa !11
   %20 = urem i32 %19, 205
   %21 = or disjoint i32 %20, 65024
-  store i32 %21, ptr %8, align 4, !tbaa !13
-  %22 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %21, ptr %8, align 4, !tbaa !11
+  %22 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -211,27 +211,27 @@ xor_newprovctx.exit:                              ; preds = %12
 24:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
   %25 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i
-  %26 = load i32, ptr %25, align 4, !tbaa !13
+  %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = icmp eq i32 %26, %21
   br i1 %27, label %.loopexit.i, label %24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph15.i, %24
   %28 = add nsw i32 %22, 1
-  store i32 %28, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %28, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %29 = sext i32 %22 to i64
   %30 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %29
-  store i32 %21, ptr %30, align 4, !tbaa !13
+  store i32 %21, ptr %30, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit
 
 randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_newprovctx.exit, %._crit_edge.i
   %.04.i = phi i32 [ %21, %._crit_edge.i ], [ 0, %xor_newprovctx.exit ], [ 0, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  store i32 %.04.i, ptr @xor_group, align 4, !tbaa !17
+  store i32 %.04.i, ptr @xor_group, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
   %31 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %7, i64 noundef 4, i32 noundef 0) #16
   %32 = icmp slt i32 %31, 1
@@ -240,14 +240,14 @@ randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_n
 .loopexit.i50:                                    ; preds = %.lr.ph.i46
   %33 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %7, i64 noundef 4, i32 noundef 0) #16
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %randomize_tls_alg_id.exit51, label %.lr.ph15.i41, !llvm.loop !11
+  br i1 %34, label %randomize_tls_alg_id.exit51, label %.lr.ph15.i41
 
 .lr.ph15.i41:                                     ; preds = %randomize_tls_alg_id.exit, %.loopexit.i50
-  %35 = load i32, ptr %7, align 4, !tbaa !13
+  %35 = load i32, ptr %7, align 4, !tbaa !11
   %36 = urem i32 %35, 205
   %37 = or disjoint i32 %36, 65024
-  store i32 %37, ptr %7, align 4, !tbaa !13
-  %38 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %37, ptr %7, align 4, !tbaa !11
+  %38 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph.preheader.i44, label %._crit_edge.i42
 
@@ -258,27 +258,27 @@ randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_n
 40:                                               ; preds = %.lr.ph.i46
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i45
-  br i1 %exitcond.not.i49, label %._crit_edge.i42, label %.lr.ph.i46, !llvm.loop !15
+  br i1 %exitcond.not.i49, label %._crit_edge.i42, label %.lr.ph.i46, !llvm.loop !13
 
 .lr.ph.i46:                                       ; preds = %40, %.lr.ph.preheader.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i44 ], [ %indvars.iv.next.i48, %40 ]
   %41 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i47
-  %42 = load i32, ptr %41, align 4, !tbaa !13
+  %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = icmp eq i32 %42, %37
   br i1 %43, label %.loopexit.i50, label %40
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph15.i41, %40
   %44 = add nsw i32 %38, 1
-  store i32 %44, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %44, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %45 = sext i32 %38 to i64
   %46 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %45
-  store i32 %37, ptr %46, align 4, !tbaa !13
+  store i32 %37, ptr %46, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit51
 
 randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %randomize_tls_alg_id.exit, %._crit_edge.i42
   %.04.i43 = phi i32 [ %37, %._crit_edge.i42 ], [ 0, %randomize_tls_alg_id.exit ], [ 0, %.loopexit.i50 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  store i32 %.04.i43, ptr @xor_kemgroup, align 4, !tbaa !17
+  store i32 %.04.i43, ptr @xor_kemgroup, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   %47 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0) #16
   %48 = icmp slt i32 %47, 1
@@ -287,14 +287,14 @@ randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %ran
 .loopexit.i61:                                    ; preds = %.lr.ph.i57
   %49 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0) #16
   %50 = icmp slt i32 %49, 1
-  br i1 %50, label %randomize_tls_alg_id.exit62, label %.lr.ph15.i52, !llvm.loop !11
+  br i1 %50, label %randomize_tls_alg_id.exit62, label %.lr.ph15.i52
 
 .lr.ph15.i52:                                     ; preds = %randomize_tls_alg_id.exit51, %.loopexit.i61
-  %51 = load i32, ptr %6, align 4, !tbaa !13
+  %51 = load i32, ptr %6, align 4, !tbaa !11
   %52 = urem i32 %51, 205
   %53 = or disjoint i32 %52, 65024
-  store i32 %53, ptr %6, align 4, !tbaa !13
-  %54 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %53, ptr %6, align 4, !tbaa !11
+  %54 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.preheader.i55, label %._crit_edge.i53
 
@@ -305,27 +305,27 @@ randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %ran
 56:                                               ; preds = %.lr.ph.i57
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i56
-  br i1 %exitcond.not.i60, label %._crit_edge.i53, label %.lr.ph.i57, !llvm.loop !15
+  br i1 %exitcond.not.i60, label %._crit_edge.i53, label %.lr.ph.i57, !llvm.loop !13
 
 .lr.ph.i57:                                       ; preds = %56, %.lr.ph.preheader.i55
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %56 ]
   %57 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i58
-  %58 = load i32, ptr %57, align 4, !tbaa !13
+  %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = icmp eq i32 %58, %53
   br i1 %59, label %.loopexit.i61, label %56
 
 ._crit_edge.i53:                                  ; preds = %.lr.ph15.i52, %56
   %60 = add nsw i32 %54, 1
-  store i32 %60, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %60, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %61 = sext i32 %54 to i64
   %62 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %61
-  store i32 %53, ptr %62, align 4, !tbaa !13
+  store i32 %53, ptr %62, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit62
 
 randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %randomize_tls_alg_id.exit51, %._crit_edge.i53
   %.04.i54 = phi i32 [ %53, %._crit_edge.i53 ], [ 0, %randomize_tls_alg_id.exit51 ], [ 0, %.loopexit.i61 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  store i32 %.04.i54, ptr @xor_sigalg, align 4, !tbaa !19
+  store i32 %.04.i54, ptr @xor_sigalg, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   %63 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef 4, i32 noundef 0) #16
   %64 = icmp slt i32 %63, 1
@@ -334,14 +334,14 @@ randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %ran
 .loopexit.i72:                                    ; preds = %.lr.ph.i68
   %65 = call i32 @RAND_bytes_ex(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef 4, i32 noundef 0) #16
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %randomize_tls_alg_id.exit73, label %.lr.ph15.i63, !llvm.loop !11
+  br i1 %66, label %randomize_tls_alg_id.exit73, label %.lr.ph15.i63
 
 .lr.ph15.i63:                                     ; preds = %randomize_tls_alg_id.exit62, %.loopexit.i72
-  %67 = load i32, ptr %5, align 4, !tbaa !13
+  %67 = load i32, ptr %5, align 4, !tbaa !11
   %68 = urem i32 %67, 205
   %69 = or disjoint i32 %68, 65024
-  store i32 %69, ptr %5, align 4, !tbaa !13
-  %70 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %69, ptr %5, align 4, !tbaa !11
+  %70 = load i32, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph.preheader.i66, label %._crit_edge.i64
 
@@ -352,34 +352,34 @@ randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %ran
 72:                                               ; preds = %.lr.ph.i68
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
-  br i1 %exitcond.not.i71, label %._crit_edge.i64, label %.lr.ph.i68, !llvm.loop !15
+  br i1 %exitcond.not.i71, label %._crit_edge.i64, label %.lr.ph.i68, !llvm.loop !13
 
 .lr.ph.i68:                                       ; preds = %72, %.lr.ph.preheader.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %72 ]
   %73 = getelementptr inbounds nuw [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %indvars.iv.i69
-  %74 = load i32, ptr %73, align 4, !tbaa !13
+  %74 = load i32, ptr %73, align 4, !tbaa !11
   %75 = icmp eq i32 %74, %69
   br i1 %75, label %.loopexit.i72, label %72
 
 ._crit_edge.i64:                                  ; preds = %.lr.ph15.i63, %72
   %76 = add nsw i32 %70, 1
-  store i32 %76, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !13
+  store i32 %76, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %77 = sext i32 %70 to i64
   %78 = getelementptr inbounds [10 x i32], ptr @randomize_tls_alg_id.mem, i64 0, i64 %77
-  store i32 %69, ptr %78, align 4, !tbaa !13
+  store i32 %69, ptr %78, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit73
 
 randomize_tls_alg_id.exit73:                      ; preds = %.loopexit.i72, %randomize_tls_alg_id.exit62, %._crit_edge.i64
   %.04.i65 = phi i32 [ %69, %._crit_edge.i64 ], [ 0, %randomize_tls_alg_id.exit62 ], [ 0, %.loopexit.i72 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  store i32 %.04.i65, ptr @xor_sigalg_hash, align 4, !tbaa !19
+  store i32 %.04.i65, ptr @xor_sigalg_hash, align 4, !tbaa !17
   br label %79
 
 79:                                               ; preds = %85, %randomize_tls_alg_id.exit73
   %.032 = phi ptr [ %1, %randomize_tls_alg_id.exit73 ], [ %86, %85 ]
   %.030 = phi ptr [ null, %randomize_tls_alg_id.exit73 ], [ %.131, %85 ]
   %.029 = phi ptr [ null, %randomize_tls_alg_id.exit73 ], [ %.1, %85 ]
-  %80 = load i32, ptr %.032, align 8, !tbaa !21
+  %80 = load i32, ptr %.032, align 8, !tbaa !19
   switch i32 %80, label %85 [
     i32 0, label %87
     i32 12, label %81
@@ -388,19 +388,19 @@ randomize_tls_alg_id.exit73:                      ; preds = %.loopexit.i72, %ran
 
 81:                                               ; preds = %79
   %82 = getelementptr i8, ptr %.032, i64 8
-  %.032.val = load ptr, ptr %82, align 8, !tbaa !23
+  %.032.val = load ptr, ptr %82, align 8, !tbaa !21
   br label %85
 
 83:                                               ; preds = %79
   %84 = getelementptr i8, ptr %.032, i64 8
-  %.032.val40 = load ptr, ptr %84, align 8, !tbaa !23
+  %.032.val40 = load ptr, ptr %84, align 8, !tbaa !21
   br label %85
 
 85:                                               ; preds = %79, %81, %83
   %.131 = phi ptr [ %.032.val, %81 ], [ %.030, %83 ], [ %.030, %79 ]
   %.1 = phi ptr [ %.029, %81 ], [ %.032.val40, %83 ], [ %.029, %79 ]
   %86 = getelementptr inbounds nuw i8, ptr %.032, i64 16
-  br label %79, !llvm.loop !24
+  br label %79, !llvm.loop !22
 
 87:                                               ; preds = %79
   %88 = call i32 %.030(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1) #16
@@ -447,7 +447,7 @@ randomize_tls_alg_id.exit73:                      ; preds = %.loopexit.i72, %ran
   br label %xor_newprovctx.exit.thread
 
 99:                                               ; preds = %96
-  store ptr @tls_prov_dispatch_table, ptr %2, align 8, !tbaa !25
+  store ptr @tls_prov_dispatch_table, ptr %2, align 8, !tbaa !23
   br label %100
 
 xor_newprovctx.exit.thread:                       ; preds = %4, %14, %98, %95, %92, %89
@@ -493,12 +493,12 @@ define internal void @tls_prov_teardown(ptr noundef %0) #0 {
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = getelementptr inbounds nuw [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 3167) #16
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !29
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !27
 
 6:                                                ; preds = %3
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 3170) #16
@@ -507,7 +507,7 @@ define internal void @tls_prov_teardown(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef ptr @tls_prov_query(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #3 {
-  store i32 0, ptr %2, align 4, !tbaa !13
+  store i32 0, ptr %2, align 4, !tbaa !11
   %switch.tableidx = add i32 %1, -10
   %4 = icmp ult i32 %switch.tableidx, 12
   br i1 %4, label %switch.lookup, label %6
@@ -532,7 +532,7 @@ define internal i32 @tls_prov_get_capabilities(ptr readnone captures(none) %0, p
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr @xor_group, align 4, !tbaa !17
+  %10 = load i32, ptr @xor_group, align 4, !tbaa !15
   %11 = add i32 %10, -65024
   %or.cond = icmp ult i32 %11, 205
   br i1 %or.cond, label %13, label %12
@@ -557,39 +557,39 @@ define internal i32 @tls_prov_get_capabilities(ptr readnone captures(none) %0, p
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %5, ptr noundef nonnull align 16 dereferenceable(440) @xor_group_params, i64 440, i1 false)
   %21 = getelementptr inbounds nuw [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
   %25 = call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef 407) #16
-  store ptr %25, ptr %21, align 8, !tbaa !27
+  store ptr %25, ptr %21, align 8, !tbaa !25
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %24
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %25, i64 noundef 8, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.75, i32 noundef %28) #16
-  %.pre = load ptr, ptr %21, align 8, !tbaa !27
+  %.pre = load ptr, ptr %21, align 8, !tbaa !25
   br label %30
 
 30:                                               ; preds = %27, %20
   %31 = phi ptr [ %.pre, %27 ], [ %22, %20 ]
-  store ptr %31, ptr %17, align 16, !tbaa !30
+  store ptr %31, ptr %17, align 16, !tbaa !28
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #17
   %33 = add i64 %32, 1
-  store i64 %33, ptr %18, align 8, !tbaa !33
+  store i64 %33, ptr %18, align 8, !tbaa !31
   %34 = trunc i64 %indvars.iv to i32
   %35 = add i32 %34, 65229
-  store i32 %35, ptr %6, align 4, !tbaa !13
-  store ptr %6, ptr %19, align 8, !tbaa !30
+  store i32 %35, ptr %6, align 4, !tbaa !11
+  store ptr %6, ptr %19, align 8, !tbaa !28
   %36 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #16
   %37 = and i32 %36, %.13743
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %5) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !32
 
 .loopexit:                                        ; preds = %30, %4
   %.036 = phi i32 [ 0, %4 ], [ %37, %30 ]
@@ -623,7 +623,7 @@ define internal noalias ptr @xor_newkey(ptr readnone captures(none) %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store atomic i32 1, ptr %5 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %5 seq_cst, align 4, !tbaa !33
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -643,27 +643,27 @@ define internal ptr @xor_gen_init(ptr noundef readonly captures(none) %0, i32 no
 
 .split:                                           ; preds = %6
   %8 = load ptr, ptr %0, align 8, !tbaa !4
-  store ptr %8, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !37
+  store ptr %8, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !35
   br label %22
 
 9:                                                ; preds = %6
-  store i32 %1, ptr %7, align 8, !tbaa !39
+  store i32 %1, ptr %7, align 8, !tbaa !37
   %10 = load ptr, ptr %0, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %11, align 8, !tbaa !37
+  store ptr %10, ptr %11, align 8, !tbaa !35
   %12 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.11) #16
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %xor_gen_set_params.exit, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !40
+  %15 = load i32, ptr %14, align 8, !tbaa !38
   %.not8.i = icmp eq i32 %15, 4
   br i1 %.not8.i, label %16, label %22
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(13) @.str.12) #17
   %.not9.i = icmp eq i32 %19, 0
   br i1 %.not9.i, label %xor_gen_set_params.exit, label %20
@@ -694,13 +694,13 @@ define internal range(i32 0, 2) i32 @xor_gen_set_params(ptr noundef readnone cap
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !40
+  %8 = load i32, ptr %7, align 8, !tbaa !38
   %.not8 = icmp eq i32 %8, 4
   br i1 %.not8, label %9, label %16
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(13) @.str.12) #17
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %15, label %13
@@ -731,15 +731,15 @@ define internal ptr @xor_gen(ptr noundef readonly captures(none) %0, ptr readnon
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store atomic i32 1, ptr %7 seq_cst, align 4, !tbaa !35
-  %8 = load i32, ptr %0, align 8, !tbaa !39
+  store atomic i32 1, ptr %7 seq_cst, align 4, !tbaa !33
+  %8 = load i32, ptr %0, align 8, !tbaa !37
   %9 = and i32 %8, 3
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %xor_newkey.exit.thread, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = tail call i32 @RAND_bytes_ex(ptr noundef %12, ptr noundef nonnull %4, i64 noundef 32, i32 noundef 0) #16
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %16, label %.preheader
@@ -755,21 +755,21 @@ define internal ptr @xor_gen(ptr noundef readonly captures(none) %0, ptr readnon
 17:                                               ; preds = %.preheader, %17
   %.018 = phi i64 [ 0, %.preheader ], [ %24, %17 ]
   %18 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.018
-  %19 = load i8, ptr %18, align 1, !tbaa !41
+  %19 = load i8, ptr %18, align 1, !tbaa !39
   %20 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018
-  %21 = load i8, ptr %20, align 1, !tbaa !41
+  %21 = load i8, ptr %20, align 1, !tbaa !39
   %22 = xor i8 %21, %19
   %23 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.018
-  store i8 %22, ptr %23, align 1, !tbaa !41
+  store i8 %22, ptr %23, align 1, !tbaa !39
   %24 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %24, 32
-  br i1 %exitcond.not, label %25, label %17, !llvm.loop !42
+  br i1 %exitcond.not, label %25, label %17, !llvm.loop !40
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 1, ptr %26, align 8, !tbaa !43
+  store i32 1, ptr %26, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 1, ptr %27, align 4, !tbaa !45
+  store i32 1, ptr %27, align 4, !tbaa !43
   br label %xor_newkey.exit.thread
 
 xor_newkey.exit.thread:                           ; preds = %3, %6, %25, %16
@@ -800,7 +800,7 @@ define internal range(i32 0, 2) i32 @xor_get_params(ptr noundef readonly capture
   br i1 %.not17, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xor_group, i64 4), align 4, !tbaa !46
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xor_group, i64 4), align 4, !tbaa !44
   %10 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %7, i32 noundef %9) #16
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %26, label %11
@@ -812,21 +812,21 @@ define internal range(i32 0, 2) i32 @xor_get_params(ptr noundef readonly capture
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !40
+  %15 = load i32, ptr %14, align 8, !tbaa !38
   %.not20 = icmp eq i32 %15, 5
   br i1 %.not20, label %16, label %26
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i64 32, ptr %17, align 8, !tbaa !47
+  store i64 32, ptr %17, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   %.not21 = icmp eq ptr %19, null
   br i1 %.not21, label %26, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !33
+  %22 = load i64, ptr %21, align 8, !tbaa !31
   %23 = icmp ugt i64 %22, 31
   br i1 %23, label %24, label %26
 
@@ -853,23 +853,23 @@ define internal range(i32 0, 2) i32 @xor_set_params(ptr noundef writeonly captur
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !40
+  %6 = load i32, ptr %5, align 8, !tbaa !38
   %.not9 = icmp eq i32 %6, 5
   br i1 %.not9, label %7, label %15
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !33
+  %9 = load i64, ptr %8, align 8, !tbaa !31
   %.not10 = icmp eq i64 %9, 32
   br i1 %.not10, label %10, label %15
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(32) %13, i64 32, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 1, ptr %14, align 4, !tbaa !45
+  store i32 1, ptr %14, align 4, !tbaa !43
   br label %15
 
 15:                                               ; preds = %2, %10, %4, %7
@@ -894,7 +894,7 @@ define internal range(i32 0, 2) i32 @xor_has(ptr noundef readonly captures(addre
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %7 = load i32, ptr %6, align 4, !tbaa !45
+  %7 = load i32, ptr %6, align 4, !tbaa !43
   %8 = icmp ne i32 %7, 0
   %9 = and i32 %1, 1
   %.not10 = icmp eq i32 %9, 0
@@ -910,7 +910,7 @@ define internal range(i32 0, 2) i32 @xor_has(ptr noundef readonly captures(addre
 
 .thread15:                                        ; preds = %5, %.thread
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !43
+  %12 = load i32, ptr %11, align 8, !tbaa !41
   %13 = icmp ne i32 %12, 0
   br label %14
 
@@ -928,7 +928,7 @@ define internal ptr @xor_dup(ptr noundef readonly captures(address_is_null) %0, 
 
 xor_newkey.exit:                                  ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store atomic i32 1, ptr %5 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %5 seq_cst, align 4, !tbaa !33
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.critedge, label %7
 
@@ -939,7 +939,7 @@ xor_newkey.exit:                                  ; preds = %2
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %11 = load i32, ptr %10, align 4, !tbaa !45
+  %11 = load i32, ptr %10, align 4, !tbaa !43
   %.not25 = icmp eq i32 %11, 0
   br i1 %.not25, label %.sink.split, label %12
 
@@ -952,7 +952,7 @@ xor_newkey.exit:                                  ; preds = %2
 .sink.split:                                      ; preds = %9, %12
   %.sink = phi i32 [ 1, %12 ], [ 0, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  store i32 %.sink, ptr %15, align 4, !tbaa !45
+  store i32 %.sink, ptr %15, align 4, !tbaa !43
   br label %16
 
 16:                                               ; preds = %.sink.split, %7
@@ -962,7 +962,7 @@ xor_newkey.exit:                                  ; preds = %2
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !43
+  %20 = load i32, ptr %19, align 8, !tbaa !41
   %.not27 = icmp eq i32 %20, 0
   br i1 %.not27, label %.sink.split34, label %21
 
@@ -973,19 +973,19 @@ xor_newkey.exit:                                  ; preds = %2
 .sink.split34:                                    ; preds = %18, %21
   %.sink35 = phi i32 [ 1, %21 ], [ 0, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 %.sink35, ptr %22, align 8, !tbaa !43
+  store i32 %.sink35, ptr %22, align 8, !tbaa !41
   br label %23
 
 23:                                               ; preds = %.sink.split34, %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %25 = load ptr, ptr %24, align 8, !tbaa !48
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %xor_freekey.exit, label %26
 
 26:                                               ; preds = %23
   %27 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %25, ptr noundef nonnull @.str.2, i32 noundef 780) #16
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %27, ptr %28, align 8, !tbaa !48
+  store ptr %27, ptr %28, align 8, !tbaa !46
   br label %xor_freekey.exit
 
 .critedge:                                        ; preds = %xor_newkey.exit
@@ -1003,9 +1003,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %.critedge
 
 32:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %34 = load ptr, ptr %33, align 8, !tbaa !48
+  %34 = load ptr, ptr %33, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %33, align 8, !tbaa !48
+  store ptr null, ptr %33, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
@@ -1035,9 +1035,9 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 
 8:                                                ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %9, align 8, !tbaa !48
+  store ptr null, ptr %9, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %11
 
@@ -1060,9 +1060,9 @@ define internal range(i32 0, 2) i32 @xor_import(ptr noundef writeonly captures(a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store ptr %5, ptr %7, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  store i64 0, ptr %8, align 8, !tbaa !49
+  store i64 0, ptr %8, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
-  store i64 0, ptr %9, align 8, !tbaa !49
+  store i64 0, ptr %9, align 8, !tbaa !47
   %10 = icmp eq ptr %0, null
   %11 = and i32 %1, 3
   %12 = icmp eq i32 %11, 0
@@ -1092,18 +1092,18 @@ define internal range(i32 0, 2) i32 @xor_import(ptr noundef writeonly captures(a
   br i1 %.not22, label %30, label %21
 
 21:                                               ; preds = %19, %18
-  %22 = load i64, ptr %8, align 8, !tbaa !49
+  %22 = load i64, ptr %8, align 8, !tbaa !47
   %.not23 = icmp eq i64 %22, 0
   br i1 %.not23, label %25, label %23
 
 23:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 16 %4, i64 %22, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 1, ptr %24, align 8, !tbaa !43
+  store i32 1, ptr %24, align 8, !tbaa !41
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = load i64, ptr %9, align 8, !tbaa !49
+  %26 = load i64, ptr %9, align 8, !tbaa !47
   %.not24 = icmp eq i64 %26, 0
   br i1 %.not24, label %30, label %27
 
@@ -1111,7 +1111,7 @@ define internal range(i32 0, 2) i32 @xor_import(ptr noundef writeonly captures(a
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 16 %5, i64 %26, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 1, ptr %29, align 4, !tbaa !45
+  store i32 1, ptr %29, align 4, !tbaa !43
   br label %30
 
 30:                                               ; preds = %19, %16, %27, %25, %3
@@ -1162,11 +1162,11 @@ define internal i32 @xor_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.20, ptr noundef nonnull %14, i64 noundef 32) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
   %15 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #16
   br label %16
@@ -1228,15 +1228,15 @@ define internal ptr @xor_xorhmacsig_gen(ptr noundef readonly captures(none) %0, 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store atomic i32 1, ptr %7 seq_cst, align 4, !tbaa !35
-  %8 = load i32, ptr %0, align 8, !tbaa !39
+  store atomic i32 1, ptr %7 seq_cst, align 4, !tbaa !33
+  %8 = load i32, ptr %0, align 8, !tbaa !37
   %9 = and i32 %8, 3
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %xor_gen.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = tail call i32 @RAND_bytes_ex(ptr noundef %12, ptr noundef nonnull %4, i64 noundef 32, i32 noundef 0) #16
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %xor_freekey.exit.sink.split, label %.preheader.i
@@ -1248,27 +1248,27 @@ define internal ptr @xor_xorhmacsig_gen(ptr noundef readonly captures(none) %0, 
 16:                                               ; preds = %16, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %23, %16 ]
   %17 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.018.i
-  %18 = load i8, ptr %17, align 1, !tbaa !41
+  %18 = load i8, ptr %17, align 1, !tbaa !39
   %19 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018.i
-  %20 = load i8, ptr %19, align 1, !tbaa !41
+  %20 = load i8, ptr %19, align 1, !tbaa !39
   %21 = xor i8 %20, %18
   %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.018.i
-  store i8 %21, ptr %22, align 1, !tbaa !41
+  store i8 %21, ptr %22, align 1, !tbaa !39
   %23 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %23, 32
-  br i1 %exitcond.not.i, label %24, label %16, !llvm.loop !42
+  br i1 %exitcond.not.i, label %24, label %16, !llvm.loop !40
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 1, ptr %25, align 8, !tbaa !43
+  store i32 1, ptr %25, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 1, ptr %26, align 4, !tbaa !45
+  store i32 1, ptr %26, align 4, !tbaa !43
   br label %xor_gen.exit
 
 xor_gen.exit:                                     ; preds = %24, %6
   %27 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1125) #16
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %27, ptr %28, align 8, !tbaa !48
+  store ptr %27, ptr %28, align 8, !tbaa !46
   %29 = icmp eq ptr %27, null
   br i1 %29, label %30, label %xor_freekey.exit
 
@@ -1286,9 +1286,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %30
   br i1 %33, label %xor_freekey.exit, label %34
 
 34:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %35 = load ptr, ptr %28, align 8, !tbaa !48
+  %35 = load ptr, ptr %28, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %28, align 8, !tbaa !48
+  store ptr null, ptr %28, align 8, !tbaa !46
   br label %xor_freekey.exit.sink.split
 
 xor_freekey.exit.sink.split:                      ; preds = %10, %34
@@ -1307,8 +1307,8 @@ define internal ptr @xor_load(ptr noundef captures(none) %0, i64 noundef %1) #10
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8, !tbaa !51
-  store ptr null, ptr %0, align 8, !tbaa !51
+  %5 = load ptr, ptr %0, align 8, !tbaa !49
+  store ptr null, ptr %0, align 8, !tbaa !49
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -1319,13 +1319,13 @@ define internal ptr @xor_load(ptr noundef captures(none) %0, i64 noundef %1) #10
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @xor_match(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
   %.not35 = icmp eq ptr %8, null
   br i1 %.not35, label %13, label %9
 
@@ -1343,10 +1343,10 @@ define internal range(i32 0, 2) i32 @xor_match(ptr noundef %0, ptr noundef %1, i
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i32, ptr %16, align 8, !tbaa !43
+  %17 = load i32, ptr %16, align 8, !tbaa !41
   %.not37 = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %19 = load i32, ptr %18, align 8, !tbaa !43
+  %19 = load i32, ptr %18, align 8, !tbaa !41
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not37, label %37, label %20
 
@@ -1366,16 +1366,16 @@ define internal range(i32 0, 2) i32 @xor_match(ptr noundef %0, ptr noundef %1, i
 27:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %xor_recreate.exit, label %28, !llvm.loop !53
+  br i1 %exitcond.not.i, label %xor_recreate.exit, label %28, !llvm.loop !51
 
 28:                                               ; preds = %27, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %30 = load i8, ptr %29, align 1, !tbaa !41
+  %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.i
-  %32 = load i8, ptr %31, align 1, !tbaa !41
+  %32 = load i8, ptr %31, align 1, !tbaa !39
   %33 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i
-  %34 = load i8, ptr %33, align 1, !tbaa !41
+  %34 = load i8, ptr %33, align 1, !tbaa !39
   %35 = xor i8 %34, %32
   %.not.i = icmp eq i8 %30, %35
   br i1 %.not.i, label %27, label %xor_recreate.exit
@@ -1395,16 +1395,16 @@ xor_recreate.exit:                                ; preds = %27, %28
 40:                                               ; preds = %41
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 32
-  br i1 %exitcond.not.i48, label %xor_recreate.exit49, label %41, !llvm.loop !53
+  br i1 %exitcond.not.i48, label %xor_recreate.exit49, label %41, !llvm.loop !51
 
 41:                                               ; preds = %40, %38
   %indvars.iv.i44 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i47, %40 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i44
-  %43 = load i8, ptr %42, align 1, !tbaa !41
+  %43 = load i8, ptr %42, align 1, !tbaa !39
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i44
-  %45 = load i8, ptr %44, align 1, !tbaa !41
+  %45 = load i8, ptr %44, align 1, !tbaa !39
   %46 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i44
-  %47 = load i8, ptr %46, align 1, !tbaa !41
+  %47 = load i8, ptr %46, align 1, !tbaa !39
   %48 = xor i8 %47, %45
   %.not.i45 = icmp eq i8 %43, %48
   br i1 %.not.i45, label %40, label %xor_recreate.exit49
@@ -1422,10 +1422,10 @@ xor_recreate.exit49:                              ; preds = %40, %41
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %54 = load i32, ptr %53, align 4, !tbaa !45
+  %54 = load i32, ptr %53, align 4, !tbaa !43
   %.not41 = icmp eq i32 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %56 = load i32, ptr %55, align 4, !tbaa !45
+  %56 = load i32, ptr %55, align 4, !tbaa !43
   %.not42 = icmp eq i32 %56, 0
   br i1 %.not41, label %73, label %57
 
@@ -1443,16 +1443,16 @@ xor_recreate.exit49:                              ; preds = %40, %41
 64:                                               ; preds = %.preheader
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 32
-  br i1 %exitcond.not.i54, label %xor_recreate.exit55, label %.preheader, !llvm.loop !53
+  br i1 %exitcond.not.i54, label %xor_recreate.exit55, label %.preheader, !llvm.loop !51
 
 .preheader:                                       ; preds = %57, %64
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i53, %64 ], [ 0, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv.i50
-  %66 = load i8, ptr %65, align 1, !tbaa !41
+  %66 = load i8, ptr %65, align 1, !tbaa !39
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i50
-  %68 = load i8, ptr %67, align 1, !tbaa !41
+  %68 = load i8, ptr %67, align 1, !tbaa !39
   %69 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i50
-  %70 = load i8, ptr %69, align 1, !tbaa !41
+  %70 = load i8, ptr %69, align 1, !tbaa !39
   %71 = xor i8 %70, %68
   %.not.i51 = icmp eq i8 %66, %71
   br i1 %.not.i51, label %64, label %xor_recreate.exit55
@@ -1472,16 +1472,16 @@ xor_recreate.exit55:                              ; preds = %64, %.preheader
 76:                                               ; preds = %77
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, 32
-  br i1 %exitcond.not.i60, label %xor_recreate.exit61, label %77, !llvm.loop !53
+  br i1 %exitcond.not.i60, label %xor_recreate.exit61, label %77, !llvm.loop !51
 
 77:                                               ; preds = %76, %74
   %indvars.iv.i56 = phi i64 [ 0, %74 ], [ %indvars.iv.next.i59, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv.i56
-  %79 = load i8, ptr %78, align 1, !tbaa !41
+  %79 = load i8, ptr %78, align 1, !tbaa !39
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i56
-  %81 = load i8, ptr %80, align 1, !tbaa !41
+  %81 = load i8, ptr %80, align 1, !tbaa !39
   %82 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv.i56
-  %83 = load i8, ptr %82, align 1, !tbaa !41
+  %83 = load i8, ptr %82, align 1, !tbaa !39
   %84 = xor i8 %83, %81
   %.not.i57 = icmp eq i8 %79, %84
   br i1 %.not.i57, label %76, label %xor_recreate.exit61
@@ -1506,15 +1506,15 @@ define internal ptr @xor_xorhmacsha2sig_gen(ptr noundef readonly captures(none) 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store atomic i32 1, ptr %7 seq_cst, align 4, !tbaa !35
-  %8 = load i32, ptr %0, align 8, !tbaa !39
+  store atomic i32 1, ptr %7 seq_cst, align 4, !tbaa !33
+  %8 = load i32, ptr %0, align 8, !tbaa !37
   %9 = and i32 %8, 3
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %xor_gen.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = tail call i32 @RAND_bytes_ex(ptr noundef %12, ptr noundef nonnull %4, i64 noundef 32, i32 noundef 0) #16
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %xor_freekey.exit.sink.split, label %.preheader.i
@@ -1526,27 +1526,27 @@ define internal ptr @xor_xorhmacsha2sig_gen(ptr noundef readonly captures(none) 
 16:                                               ; preds = %16, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %23, %16 ]
   %17 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.018.i
-  %18 = load i8, ptr %17, align 1, !tbaa !41
+  %18 = load i8, ptr %17, align 1, !tbaa !39
   %19 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018.i
-  %20 = load i8, ptr %19, align 1, !tbaa !41
+  %20 = load i8, ptr %19, align 1, !tbaa !39
   %21 = xor i8 %20, %18
   %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %.018.i
-  store i8 %21, ptr %22, align 1, !tbaa !41
+  store i8 %21, ptr %22, align 1, !tbaa !39
   %23 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %23, 32
-  br i1 %exitcond.not.i, label %24, label %16, !llvm.loop !42
+  br i1 %exitcond.not.i, label %24, label %16, !llvm.loop !40
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 1, ptr %25, align 8, !tbaa !43
+  store i32 1, ptr %25, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 1, ptr %26, align 4, !tbaa !45
+  store i32 1, ptr %26, align 4, !tbaa !43
   br label %xor_gen.exit
 
 xor_gen.exit:                                     ; preds = %24, %6
   %27 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 1139) #16
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %27, ptr %28, align 8, !tbaa !48
+  store ptr %27, ptr %28, align 8, !tbaa !46
   %29 = icmp eq ptr %27, null
   br i1 %29, label %30, label %xor_freekey.exit
 
@@ -1564,9 +1564,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %30
   br i1 %33, label %xor_freekey.exit, label %34
 
 34:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %35 = load ptr, ptr %28, align 8, !tbaa !48
+  %35 = load ptr, ptr %28, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %28, align 8, !tbaa !48
+  store ptr null, ptr %28, align 8, !tbaa !46
   br label %xor_freekey.exit.sink.split
 
 xor_freekey.exit.sink.split:                      ; preds = %10, %34
@@ -1587,7 +1587,7 @@ define internal noalias ptr @xor_newkemkexctx(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %0, ptr %5, align 8, !tbaa !54
+  store ptr %0, ptr %5, align 8, !tbaa !52
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1602,7 +1602,7 @@ define internal range(i32 0, 2) i32 @xor_init(ptr noundef writeonly captures(add
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !56
+  store ptr %1, ptr %0, align 8, !tbaa !54
   br label %7
 
 7:                                                ; preds = %3, %6
@@ -1612,18 +1612,18 @@ define internal range(i32 0, 2) i32 @xor_init(ptr noundef writeonly captures(add
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @xor_derive(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #11 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !56
+  %5 = load ptr, ptr %0, align 8, !tbaa !54
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !57
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  store i64 32, ptr %2, align 8, !tbaa !49
+  store i64 32, ptr %2, align 8, !tbaa !47
   %12 = icmp eq ptr %1, null
   br i1 %12, label %.loopexit, label %13
 
@@ -1633,19 +1633,19 @@ define internal range(i32 0, 2) i32 @xor_derive(ptr noundef readonly captures(no
 
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %13 ]
-  %15 = load ptr, ptr %0, align 8, !tbaa !56
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %indvars.iv
-  %17 = load i8, ptr %16, align 1, !tbaa !41
-  %18 = load ptr, ptr %8, align 8, !tbaa !57
+  %17 = load i8, ptr %16, align 1, !tbaa !39
+  %18 = load ptr, ptr %8, align 8, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %indvars.iv
-  %21 = load i8, ptr %20, align 1, !tbaa !41
+  %21 = load i8, ptr %20, align 1, !tbaa !39
   %22 = xor i8 %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %22, ptr %23, align 1, !tbaa !41
+  store i8 %22, ptr %23, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %13, %11, %4, %7
   %.014 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %11 ], [ 0, %13 ], [ 1, %.preheader ]
@@ -1661,7 +1661,7 @@ define internal range(i32 0, 2) i32 @xor_set_peer(ptr noundef writeonly captures
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %6, align 8, !tbaa !57
+  store ptr %1, ptr %6, align 8, !tbaa !55
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -1682,7 +1682,7 @@ define internal noalias ptr @xor_dupctx(ptr noundef readonly captures(none) %0) 
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !57
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -1706,19 +1706,19 @@ define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captur
   br i1 %9, label %13, label %12
 
 12:                                               ; preds = %11
-  store i64 32, ptr %2, align 8, !tbaa !49
+  store i64 32, ptr %2, align 8, !tbaa !47
   br label %13
 
 13:                                               ; preds = %12, %11
   br i1 %10, label %68, label %14
 
 14:                                               ; preds = %13
-  store i64 32, ptr %4, align 8, !tbaa !49
+  store i64 32, ptr %4, align 8, !tbaa !47
   br label %68
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !54
+  %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = tail call ptr @xor_gen_init(ptr noundef %17, i32 noundef 3, ptr noundef null)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %xor_derive.exit, label %20
@@ -1730,15 +1730,15 @@ define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captur
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store atomic i32 1, ptr %24 seq_cst, align 4, !tbaa !35
-  %25 = load i32, ptr %18, align 8, !tbaa !39
+  store atomic i32 1, ptr %24 seq_cst, align 4, !tbaa !33
+  %25 = load i32, ptr %18, align 8, !tbaa !37
   %26 = and i32 %25, 3
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %xor_gen.exit, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !37
+  %29 = load ptr, ptr %28, align 8, !tbaa !35
   %30 = tail call i32 @RAND_bytes_ex(ptr noundef %29, ptr noundef nonnull %21, i64 noundef 32, i32 noundef 0) #16
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %33, label %.preheader.i
@@ -1754,59 +1754,59 @@ define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captur
 34:                                               ; preds = %34, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %41, %34 ]
   %35 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %.018.i
-  %36 = load i8, ptr %35, align 1, !tbaa !41
+  %36 = load i8, ptr %35, align 1, !tbaa !39
   %37 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %.018.i
-  %38 = load i8, ptr %37, align 1, !tbaa !41
+  %38 = load i8, ptr %37, align 1, !tbaa !39
   %39 = xor i8 %38, %36
   %40 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 0, i64 %.018.i
-  store i8 %39, ptr %40, align 1, !tbaa !41
+  store i8 %39, ptr %40, align 1, !tbaa !39
   %41 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %41, 32
-  br i1 %exitcond.not.i, label %42, label %34, !llvm.loop !42
+  br i1 %exitcond.not.i, label %42, label %34, !llvm.loop !40
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  store i32 1, ptr %43, align 8, !tbaa !43
+  store i32 1, ptr %43, align 8, !tbaa !41
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 68
-  store i32 1, ptr %44, align 4, !tbaa !45
+  store i32 1, ptr %44, align 4, !tbaa !43
   br label %xor_gen.exit
 
 xor_gen.exit:                                     ; preds = %42, %23
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
-  store i64 32, ptr %2, align 8, !tbaa !49
-  %46 = load ptr, ptr %16, align 8, !tbaa !54
+  store i64 32, ptr %2, align 8, !tbaa !47
+  %46 = load ptr, ptr %16, align 8, !tbaa !52
   %47 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 467) #16
   %48 = icmp eq ptr %47, null
   br i1 %48, label %xor_newkemkexctx.exit.thread, label %49
 
 49:                                               ; preds = %xor_gen.exit
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %46, ptr %50, align 8, !tbaa !54
-  store ptr %21, ptr %47, align 8, !tbaa !56
-  %51 = load ptr, ptr %0, align 8, !tbaa !56
+  store ptr %46, ptr %50, align 8, !tbaa !52
+  store ptr %21, ptr %47, align 8, !tbaa !54
+  %51 = load ptr, ptr %0, align 8, !tbaa !54
   %52 = icmp eq ptr %51, null
   br i1 %52, label %xor_newkemkexctx.exit.thread, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %51, ptr %54, align 8, !tbaa !57
-  store i64 32, ptr %4, align 8, !tbaa !49
+  store ptr %51, ptr %54, align 8, !tbaa !55
+  store i64 32, ptr %4, align 8, !tbaa !47
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 32
   br label %.preheader.i49
 
 .preheader.i49:                                   ; preds = %.preheader.i49, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i49 ], [ 0, %53 ]
   %56 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %indvars.iv.i
-  %57 = load i8, ptr %56, align 1, !tbaa !41
+  %57 = load i8, ptr %56, align 1, !tbaa !39
   %58 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 0, i64 %indvars.iv.i
-  %59 = load i8, ptr %58, align 1, !tbaa !41
+  %59 = load i8, ptr %58, align 1, !tbaa !39
   %60 = xor i8 %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
-  store i8 %60, ptr %61, align 1, !tbaa !41
+  store i8 %60, ptr %61, align 1, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i50, label %xor_newkemkexctx.exit.thread, label %.preheader.i49, !llvm.loop !58
+  br i1 %exitcond.not.i50, label %xor_newkemkexctx.exit.thread, label %.preheader.i49, !llvm.loop !56
 
 xor_derive.exit:                                  ; preds = %20, %33, %15
   tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 1091) #16
@@ -1829,9 +1829,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_newkemkexctx.ex
 
 65:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %66 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %67 = load ptr, ptr %66, align 8, !tbaa !48
+  %67 = load ptr, ptr %66, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %67, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %66, align 8, !tbaa !48
+  store ptr null, ptr %66, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
@@ -1856,7 +1856,7 @@ define internal range(i32 0, 2) i32 @xor_decapsulate(ptr noundef readonly captur
   br i1 %8, label %39, label %9
 
 9:                                                ; preds = %7
-  store i64 32, ptr %2, align 8, !tbaa !49
+  store i64 32, ptr %2, align 8, !tbaa !47
   br label %39
 
 10:                                               ; preds = %5
@@ -1871,40 +1871,40 @@ define internal range(i32 0, 2) i32 @xor_decapsulate(ptr noundef readonly captur
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store atomic i32 1, ptr %16 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %16 seq_cst, align 4, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %3, i64 32, i1 false)
-  %18 = load ptr, ptr %15, align 8, !tbaa !54
+  %18 = load ptr, ptr %15, align 8, !tbaa !52
   %19 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 467) #16
   %20 = icmp eq ptr %19, null
   br i1 %20, label %xor_newkemkexctx.exit.thread, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %18, ptr %22, align 8, !tbaa !54
-  %23 = load ptr, ptr %0, align 8, !tbaa !56
+  store ptr %18, ptr %22, align 8, !tbaa !52
+  %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = icmp eq ptr %23, null
   br i1 %24, label %xor_newkemkexctx.exit.thread, label %25
 
 25:                                               ; preds = %21
-  store ptr %23, ptr %19, align 8, !tbaa !56
+  store ptr %23, ptr %19, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %12, ptr %26, align 8, !tbaa !57
-  store i64 32, ptr %2, align 8, !tbaa !49
+  store ptr %12, ptr %26, align 8, !tbaa !55
+  store i64 32, ptr %2, align 8, !tbaa !47
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %25 ]
   %27 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 0, i64 %indvars.iv.i
-  %28 = load i8, ptr %27, align 1, !tbaa !41
+  %28 = load i8, ptr %27, align 1, !tbaa !39
   %29 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 0, i64 %indvars.iv.i
-  %30 = load i8, ptr %29, align 1, !tbaa !41
+  %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = xor i8 %30, %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  store i8 %31, ptr %32, align 1, !tbaa !41
+  store i8 %31, ptr %32, align 1, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %xor_newkemkexctx.exit.thread, label %.preheader.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %xor_newkemkexctx.exit.thread, label %.preheader.i, !llvm.loop !56
 
 xor_newkemkexctx.exit.thread:                     ; preds = %.preheader.i, %21, %14
   %.022.ph = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %.preheader.i ]
@@ -1922,9 +1922,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_newkemkexctx.ex
 
 36:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %38 = load ptr, ptr %37, align 8, !tbaa !48
+  %38 = load ptr, ptr %37, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %37, align 8, !tbaa !48
+  store ptr null, ptr %37, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
@@ -1946,9 +1946,9 @@ define internal noalias ptr @key2any_newctx(ptr noundef %0) #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !60
+  store ptr %0, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !63
+  store i32 1, ptr %4, align 8, !tbaa !61
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -1958,7 +1958,7 @@ define internal noalias ptr @key2any_newctx(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @key2any_freectx(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
   tail call void @EVP_CIPHER_free(ptr noundef %3) #16
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 1747) #16
   ret void
@@ -1973,7 +1973,7 @@ define internal noundef nonnull ptr @key2any_settable_ctx_params(ptr readnone ca
 define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr %0, align 8, !tbaa !60
+  %5 = load ptr, ptr %0, align 8, !tbaa !58
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.33) #16
   %8 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.34) #16
@@ -1983,9 +1983,9 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  store ptr null, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %3, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !25
   %11 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %7, ptr noundef nonnull %3) #16
   %.not23 = icmp eq i32 %11, 0
   br i1 %.not23, label %26, label %12
@@ -2001,21 +2001,21 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
 
 15:                                               ; preds = %13, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !64
+  %17 = load ptr, ptr %16, align 8, !tbaa !62
   call void @EVP_CIPHER_free(ptr noundef %17) #16
-  store ptr null, ptr %16, align 8, !tbaa !64
-  %18 = load ptr, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %16, align 8, !tbaa !62
+  %18 = load ptr, ptr %3, align 8, !tbaa !25
   %19 = icmp ne ptr %18, null
   %20 = zext i1 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %20, ptr %21, align 4, !tbaa !65
+  store i32 %20, ptr %21, align 4, !tbaa !63
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %.critedge, label %22
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %4, align 8, !tbaa !27
+  %23 = load ptr, ptr %4, align 8, !tbaa !25
   %24 = call ptr @EVP_CIPHER_fetch(ptr noundef %6, ptr noundef nonnull %18, ptr noundef %23) #16
-  store ptr %24, ptr %16, align 8, !tbaa !64
+  store ptr %24, ptr %16, align 8, !tbaa !62
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %.critedge
 
@@ -2055,12 +2055,12 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_der_does_selec
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -2082,7 +2082,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -2090,12 +2090,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -2103,7 +2103,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -2111,11 +2111,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -2128,7 +2128,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -2148,7 +2148,7 @@ define internal void @xorhmacsig_to_PrivateKeyInfo_der_free_object(ptr noundef %
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -2156,11 +2156,11 @@ define internal void @xorhmacsig_to_PrivateKeyInfo_der_free_object(ptr noundef %
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -2202,7 +2202,7 @@ define internal i32 @xorhmacsig_to_PrivateKeyInfo_der_encode(ptr noundef capture
   br label %key2any_encode.exit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !60
+  %17 = load ptr, ptr %0, align 8, !tbaa !58
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call ptr @BIO_new_from_core_bio(ptr noundef %18, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %19, null
@@ -2210,9 +2210,9 @@ define internal i32 @xorhmacsig_to_PrivateKeyInfo_der_encode(ptr noundef capture
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %21, align 8, !tbaa !69
+  store ptr %5, ptr %21, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %22, align 8, !tbaa !70
+  store ptr %6, ptr %22, align 8, !tbaa !68
   %23 = tail call fastcc i32 @key_to_pki_der_priv_bio(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef %12, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %0) #16
   br label %24
 
@@ -2249,9 +2249,9 @@ define internal fastcc i32 @key_to_pki_der_priv_bio(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   store ptr null, ptr %9, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
-  store i32 -1, ptr %10, align 4, !tbaa !13
+  store i32 -1, ptr %10, align 4, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !65
+  %12 = load i32, ptr %11, align 4, !tbaa !63
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %25, label %13
 
@@ -2259,20 +2259,20 @@ define internal fastcc i32 @key_to_pki_der_priv_bio(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store ptr null, ptr %7, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  store i32 -1, ptr %8, align 4, !tbaa !13
+  store i32 -1, ptr %8, align 4, !tbaa !11
   %.not18.i = icmp eq ptr %3, null
   br i1 %.not18.i, label %18, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !63
+  %16 = load i32, ptr %15, align 8, !tbaa !61
   %17 = call i32 %3(ptr noundef %1, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not19.i = icmp eq i32 %17, 0
   br i1 %.not19.i, label %key_to_epki_der_priv_bio.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !10
-  %.pre21.i = load i32, ptr %8, align 4, !tbaa !13
+  %.pre21.i = load i32, ptr %8, align 4, !tbaa !11
   br label %18
 
 18:                                               ; preds = %._crit_edge.i, %13
@@ -2303,7 +2303,7 @@ key_to_epki_der_priv_bio.exit:                    ; preds = %14, %24
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !63
+  %28 = load i32, ptr %27, align 8, !tbaa !61
   %29 = call i32 %3(ptr noundef %1, i32 noundef %2, i32 noundef %28, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
   %.not25 = icmp eq i32 %29, 0
   br i1 %.not25, label %38, label %._crit_edge
@@ -2318,7 +2318,7 @@ key_to_epki_der_priv_bio.exit:                    ; preds = %14, %24
   br label %free_asn1_data.exit
 
 33:                                               ; preds = %._crit_edge
-  %34 = load i32, ptr %10, align 4, !tbaa !13
+  %34 = load i32, ptr %10, align 4, !tbaa !11
   %35 = load ptr, ptr %9, align 8, !tbaa !10
   switch i32 %34, label %free_asn1_data.exit [
     i32 6, label %36
@@ -2348,7 +2348,7 @@ free_asn1_data.exit:                              ; preds = %37, %36, %33, %31
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @prepare_xorx_params(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
@@ -2392,7 +2392,7 @@ define internal range(i32 0, 2) i32 @prepare_xorx_params(ptr noundef readonly ca
 
 21:                                               ; preds = %17
   store ptr %15, ptr %3, align 8, !tbaa !10
-  store i32 6, ptr %4, align 4, !tbaa !13
+  store i32 6, ptr %4, align 4, !tbaa !11
   br label %22
 
 22:                                               ; preds = %21, %20, %13, %10
@@ -2417,10 +2417,10 @@ define internal range(i32 0, -2147483648) i32 @xorx_pki_priv_to_der(ptr noundef 
   %7 = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef 1692) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %7, ptr %8, align 8, !tbaa !71
-  store i32 32, ptr %3, align 8, !tbaa !73
+  store ptr %7, ptr %8, align 8, !tbaa !69
+  store i32 32, ptr %3, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %9, align 8, !tbaa !74
+  store i64 0, ptr %9, align 8, !tbaa !72
   %10 = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %3, ptr noundef %1) #16
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %13
@@ -2452,7 +2452,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @key_to_p8info(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !25
   %5 = tail call ptr @PKCS8_PRIV_KEY_INFO_new() #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
@@ -2464,7 +2464,7 @@ define internal fastcc ptr @key_to_p8info(ptr noundef %0, i32 noundef %1, ptr no
 
 10:                                               ; preds = %7
   %11 = call ptr @OBJ_nid2obj(i32 noundef %1) #16
-  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = call i32 @PKCS8_pkey_set0(ptr noundef nonnull %5, ptr noundef %11, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %12, i32 noundef %8) #16
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %16
@@ -2474,7 +2474,7 @@ define internal fastcc ptr @key_to_p8info(ptr noundef %0, i32 noundef %1, ptr no
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1365, ptr noundef nonnull @__func__.key_to_p8info) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 786688, ptr noundef null) #16
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %5) #16
-  %15 = load ptr, ptr %4, align 8, !tbaa !27
+  %15 = load ptr, ptr %4, align 8, !tbaa !25
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.2, i32 noundef 1367) #16
   br label %16
 
@@ -2513,23 +2513,23 @@ define internal fastcc ptr @key_to_encp8(ptr noundef %0, i32 noundef %1, ptr nou
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  store i64 0, ptr %8, align 8, !tbaa !49
-  %15 = load ptr, ptr %5, align 8, !tbaa !60
+  store i64 0, ptr %8, align 8, !tbaa !47
+  %15 = load ptr, ptr %5, align 8, !tbaa !58
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !64
+  %18 = load ptr, ptr %17, align 8, !tbaa !62
   %19 = icmp eq ptr %18, null
   br i1 %19, label %p8info_to_encp8.exit, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !69
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = icmp eq ptr %22, null
   br i1 %23, label %p8info_to_encp8.exit, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !70
+  %26 = load ptr, ptr %25, align 8, !tbaa !68
   %27 = call i32 %22(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull %8, ptr noundef null, ptr noundef %26) #16
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %28, label %29
@@ -2541,11 +2541,11 @@ define internal fastcc ptr @key_to_encp8(ptr noundef %0, i32 noundef %1, ptr nou
   br label %p8info_to_encp8.exit
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %17, align 8, !tbaa !64
-  %31 = load i64, ptr %8, align 8, !tbaa !49
+  %30 = load ptr, ptr %17, align 8, !tbaa !62
+  %31 = load i64, ptr %8, align 8, !tbaa !47
   %32 = trunc i64 %31 to i32
   %33 = call ptr @PKCS8_encrypt_ex(i32 noundef -1, ptr noundef %30, ptr noundef nonnull %7, i32 noundef %32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9, ptr noundef %16, ptr noundef null) #16
-  %34 = load i64, ptr %8, align 8, !tbaa !49
+  %34 = load i64, ptr %8, align 8, !tbaa !47
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef %34) #16
   br label %p8info_to_encp8.exit
 
@@ -2595,12 +2595,12 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_pem_does_selec
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -2622,7 +2622,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -2630,12 +2630,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -2643,7 +2643,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -2651,11 +2651,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -2668,7 +2668,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -2688,7 +2688,7 @@ define internal void @xorhmacsig_to_PrivateKeyInfo_pem_free_object(ptr noundef %
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -2696,11 +2696,11 @@ define internal void @xorhmacsig_to_PrivateKeyInfo_pem_free_object(ptr noundef %
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -2742,7 +2742,7 @@ define internal i32 @xorhmacsig_to_PrivateKeyInfo_pem_encode(ptr noundef capture
   br label %key2any_encode.exit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !60
+  %17 = load ptr, ptr %0, align 8, !tbaa !58
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call ptr @BIO_new_from_core_bio(ptr noundef %18, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %19, null
@@ -2750,9 +2750,9 @@ define internal i32 @xorhmacsig_to_PrivateKeyInfo_pem_encode(ptr noundef capture
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %21, align 8, !tbaa !69
+  store ptr %5, ptr %21, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %22, align 8, !tbaa !70
+  store ptr %6, ptr %22, align 8, !tbaa !68
   %23 = tail call fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef %12, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %0) #16
   br label %24
 
@@ -2781,9 +2781,9 @@ define internal fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   store ptr null, ptr %9, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
-  store i32 -1, ptr %10, align 4, !tbaa !13
+  store i32 -1, ptr %10, align 4, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !65
+  %12 = load i32, ptr %11, align 4, !tbaa !63
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %25, label %13
 
@@ -2791,20 +2791,20 @@ define internal fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store ptr null, ptr %7, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  store i32 -1, ptr %8, align 4, !tbaa !13
+  store i32 -1, ptr %8, align 4, !tbaa !11
   %.not18.i = icmp eq ptr %3, null
   br i1 %.not18.i, label %18, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !63
+  %16 = load i32, ptr %15, align 8, !tbaa !61
   %17 = call i32 %3(ptr noundef %1, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not19.i = icmp eq i32 %17, 0
   br i1 %.not19.i, label %key_to_epki_pem_priv_bio.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !10
-  %.pre21.i = load i32, ptr %8, align 4, !tbaa !13
+  %.pre21.i = load i32, ptr %8, align 4, !tbaa !11
   br label %18
 
 18:                                               ; preds = %._crit_edge.i, %13
@@ -2835,7 +2835,7 @@ key_to_epki_pem_priv_bio.exit:                    ; preds = %14, %24
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !63
+  %28 = load i32, ptr %27, align 8, !tbaa !61
   %29 = call i32 %3(ptr noundef %1, i32 noundef %2, i32 noundef %28, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
   %.not25 = icmp eq i32 %29, 0
   br i1 %.not25, label %38, label %._crit_edge
@@ -2850,7 +2850,7 @@ key_to_epki_pem_priv_bio.exit:                    ; preds = %14, %24
   br label %free_asn1_data.exit
 
 33:                                               ; preds = %._crit_edge
-  %34 = load i32, ptr %10, align 4, !tbaa !13
+  %34 = load i32, ptr %10, align 4, !tbaa !11
   %35 = load ptr, ptr %9, align 8, !tbaa !10
   switch i32 %34, label %free_asn1_data.exit [
     i32 6, label %36
@@ -2889,12 +2889,12 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_d
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -2916,7 +2916,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -2924,12 +2924,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -2937,7 +2937,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -2945,11 +2945,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -2962,7 +2962,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -2982,7 +2982,7 @@ define internal void @xorhmacsig_to_EncryptedPrivateKeyInfo_der_free_object(ptr 
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -2990,11 +2990,11 @@ define internal void @xorhmacsig_to_EncryptedPrivateKeyInfo_der_free_object(ptr 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -3038,7 +3038,7 @@ define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_encode(ptr nounde
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -3046,15 +3046,15 @@ define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_encode(ptr nounde
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !65
+  %26 = load i32, ptr %25, align 4, !tbaa !63
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %key_to_epki_der_priv_bio.exit, label %27
 
@@ -3065,7 +3065,7 @@ define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_encode(ptr nounde
 
 ._crit_edge.i:                                    ; preds = %27
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !10
-  %.pre21.i = load i32, ptr %9, align 4, !tbaa !13
+  %.pre21.i = load i32, ptr %9, align 4, !tbaa !11
   %29 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %.pre.i, i32 noundef %.pre21.i, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull readonly %0)
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %32, label %30
@@ -3109,12 +3109,12 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_d
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -3136,7 +3136,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -3144,12 +3144,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -3157,7 +3157,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3165,11 +3165,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -3182,7 +3182,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -3202,7 +3202,7 @@ define internal void @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_free_object(ptr 
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3210,11 +3210,11 @@ define internal void @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_free_object(ptr 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -3258,7 +3258,7 @@ define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_encode(ptr nounde
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -3266,15 +3266,15 @@ define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_encode(ptr nounde
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !65
+  %26 = load i32, ptr %25, align 4, !tbaa !63
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %key_to_epki_pem_priv_bio.exit, label %27
 
@@ -3285,7 +3285,7 @@ define internal i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_encode(ptr nounde
 
 ._crit_edge.i:                                    ; preds = %27
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !10
-  %.pre21.i = load i32, ptr %9, align 4, !tbaa !13
+  %.pre21.i = load i32, ptr %9, align 4, !tbaa !11
   %29 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %.pre.i, i32 noundef %.pre21.i, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull readonly %0)
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %32, label %30
@@ -3329,12 +3329,12 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_does
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -3356,7 +3356,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -3364,12 +3364,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -3377,7 +3377,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3385,11 +3385,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -3402,7 +3402,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -3422,7 +3422,7 @@ define internal void @xorhmacsig_to_SubjectPublicKeyInfo_der_free_object(ptr nou
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3430,11 +3430,11 @@ define internal void @xorhmacsig_to_SubjectPublicKeyInfo_der_free_object(ptr nou
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -3478,7 +3478,7 @@ define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_encode(ptr noundef c
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -3486,12 +3486,12 @@ define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_encode(ptr noundef c
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = call i32 @prepare_xorx_params(ptr noundef nonnull %2, i32 noundef %14, i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %.not16.i = icmp eq i32 %25, 0
   br i1 %.not16.i, label %key_to_spki_der_pub_bio.exit, label %._crit_edge.i
@@ -3556,7 +3556,7 @@ define internal range(i32 0, 33) i32 @xorx_spki_pub_to_der(ptr noundef %0, ptr n
   br label %11
 
 10:                                               ; preds = %5
-  store ptr %7, ptr %1, align 8, !tbaa !27
+  store ptr %7, ptr %1, align 8, !tbaa !25
   br label %11
 
 11:                                               ; preds = %10, %9, %4
@@ -3568,7 +3568,7 @@ define internal range(i32 0, 33) i32 @xorx_spki_pub_to_der(ptr noundef %0, ptr n
 define internal fastcc ptr @xorx_key_to_pubkey(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !25
   %5 = tail call ptr @X509_PUBKEY_new() #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
@@ -3580,7 +3580,7 @@ define internal fastcc ptr @xorx_key_to_pubkey(ptr noundef %0, i32 noundef %1, p
 
 10:                                               ; preds = %7
   %11 = call ptr @OBJ_nid2obj(i32 noundef %1) #16
-  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = call i32 @X509_PUBKEY_set0_param(ptr noundef nonnull %5, ptr noundef %11, i32 noundef -1, ptr noundef null, ptr noundef %12, i32 noundef %8) #16
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %16
@@ -3590,7 +3590,7 @@ define internal fastcc ptr @xorx_key_to_pubkey(ptr noundef %0, i32 noundef %1, p
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1427, ptr noundef nonnull @__func__.xorx_key_to_pubkey) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 786688, ptr noundef null) #16
   call void @X509_PUBKEY_free(ptr noundef %5) #16
-  %15 = load ptr, ptr %4, align 8, !tbaa !27
+  %15 = load ptr, ptr %4, align 8, !tbaa !25
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.2, i32 noundef 1429) #16
   br label %16
 
@@ -3618,12 +3618,12 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_does
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -3645,7 +3645,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -3653,12 +3653,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -3666,7 +3666,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3674,11 +3674,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -3691,7 +3691,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -3711,7 +3711,7 @@ define internal void @xorhmacsig_to_SubjectPublicKeyInfo_pem_free_object(ptr nou
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3719,11 +3719,11 @@ define internal void @xorhmacsig_to_SubjectPublicKeyInfo_pem_free_object(ptr nou
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -3767,7 +3767,7 @@ define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_encode(ptr noundef c
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -3775,19 +3775,19 @@ define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_encode(ptr noundef c
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = call i32 @prepare_xorx_params(ptr noundef nonnull %2, i32 noundef %14, i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %.not16.i = icmp eq i32 %25, 0
   br i1 %.not16.i, label %key_to_spki_pem_pub_bio.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %22
-  %.pre.i = load i32, ptr %9, align 4, !tbaa !13
+  %.pre.i = load i32, ptr %9, align 4, !tbaa !11
   %26 = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %2, i32 noundef %14, ptr noundef nonnull @xorx_spki_pub_to_der)
   %.not17.i = icmp eq ptr %26, null
   br i1 %.not17.i, label %29, label %27
@@ -3848,12 +3848,12 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_does_s
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -3875,7 +3875,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -3883,12 +3883,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -3896,7 +3896,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3904,11 +3904,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -3921,7 +3921,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -3941,7 +3941,7 @@ define internal void @xorhmacsha2sig_to_PrivateKeyInfo_der_free_object(ptr nound
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3949,11 +3949,11 @@ define internal void @xorhmacsha2sig_to_PrivateKeyInfo_der_free_object(ptr nound
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -3995,7 +3995,7 @@ define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_encode(ptr noundef cap
   br label %key2any_encode.exit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !60
+  %17 = load ptr, ptr %0, align 8, !tbaa !58
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call ptr @BIO_new_from_core_bio(ptr noundef %18, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %19, null
@@ -4003,9 +4003,9 @@ define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_encode(ptr noundef cap
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %21, align 8, !tbaa !69
+  store ptr %5, ptr %21, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %22, align 8, !tbaa !70
+  store ptr %6, ptr %22, align 8, !tbaa !68
   %23 = tail call fastcc i32 @key_to_pki_der_priv_bio(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef %12, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %0) #16
   br label %24
 
@@ -4033,12 +4033,12 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_does_s
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -4060,7 +4060,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -4068,12 +4068,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -4081,7 +4081,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4089,11 +4089,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -4106,7 +4106,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -4126,7 +4126,7 @@ define internal void @xorhmacsha2sig_to_PrivateKeyInfo_pem_free_object(ptr nound
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4134,11 +4134,11 @@ define internal void @xorhmacsha2sig_to_PrivateKeyInfo_pem_free_object(ptr nound
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -4180,7 +4180,7 @@ define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_encode(ptr noundef cap
   br label %key2any_encode.exit
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !60
+  %17 = load ptr, ptr %0, align 8, !tbaa !58
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call ptr @BIO_new_from_core_bio(ptr noundef %18, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %19, null
@@ -4188,9 +4188,9 @@ define internal i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_encode(ptr noundef cap
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %21, align 8, !tbaa !69
+  store ptr %5, ptr %21, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %22, align 8, !tbaa !70
+  store ptr %6, ptr %22, align 8, !tbaa !68
   %23 = tail call fastcc i32 @key_to_pki_pem_priv_bio(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef %12, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull %0) #16
   br label %24
 
@@ -4218,12 +4218,12 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_d
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -4245,7 +4245,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -4253,12 +4253,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -4266,7 +4266,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4274,11 +4274,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -4291,7 +4291,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -4311,7 +4311,7 @@ define internal void @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_free_object(
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4319,11 +4319,11 @@ define internal void @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_free_object(
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -4367,7 +4367,7 @@ define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_encode(ptr no
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -4375,15 +4375,15 @@ define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_encode(ptr no
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !65
+  %26 = load i32, ptr %25, align 4, !tbaa !63
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %key_to_epki_der_priv_bio.exit, label %27
 
@@ -4394,7 +4394,7 @@ define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_der_encode(ptr no
 
 ._crit_edge.i:                                    ; preds = %27
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !10
-  %.pre21.i = load i32, ptr %9, align 4, !tbaa !13
+  %.pre21.i = load i32, ptr %9, align 4, !tbaa !11
   %29 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %.pre.i, i32 noundef %.pre21.i, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull readonly %0)
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %32, label %30
@@ -4438,12 +4438,12 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_p
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -4465,7 +4465,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -4473,12 +4473,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -4486,7 +4486,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4494,11 +4494,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -4511,7 +4511,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -4531,7 +4531,7 @@ define internal void @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_free_object(
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4539,11 +4539,11 @@ define internal void @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_free_object(
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -4587,7 +4587,7 @@ define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_encode(ptr no
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -4595,15 +4595,15 @@ define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_encode(ptr no
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !65
+  %26 = load i32, ptr %25, align 4, !tbaa !63
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %key_to_epki_pem_priv_bio.exit, label %27
 
@@ -4614,7 +4614,7 @@ define internal i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_pem_encode(ptr no
 
 ._crit_edge.i:                                    ; preds = %27
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !10
-  %.pre21.i = load i32, ptr %9, align 4, !tbaa !13
+  %.pre21.i = load i32, ptr %9, align 4, !tbaa !11
   %29 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %.pre.i, i32 noundef %.pre21.i, ptr noundef nonnull @xorx_pki_priv_to_der, ptr noundef nonnull readonly %0)
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %32, label %30
@@ -4658,12 +4658,12 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -4685,7 +4685,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -4693,12 +4693,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -4706,7 +4706,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4714,11 +4714,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -4731,7 +4731,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -4751,7 +4751,7 @@ define internal void @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_free_object(ptr
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4759,11 +4759,11 @@ define internal void @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_free_object(ptr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -4807,7 +4807,7 @@ define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_encode(ptr nound
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -4815,12 +4815,12 @@ define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_encode(ptr nound
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = call i32 @prepare_xorx_params(ptr noundef nonnull %2, i32 noundef %14, i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %.not16.i = icmp eq i32 %25, 0
   br i1 %.not16.i, label %key_to_spki_der_pub_bio.exit, label %._crit_edge.i
@@ -4869,12 +4869,12 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.01117.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %key2any_check_selection.exit, label %.preheader.i, !llvm.loop !64
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.01117.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %.loopexit.split.loop.exit.i
@@ -4896,7 +4896,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 3:                                                ; preds = %7, %xor_prov_get_keymgmt_new.exit.i
   %.0.i21.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %8, %7 ]
-  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !21
+  %4 = load i32, ptr %.0.i21.i, align 8, !tbaa !19
   switch i32 %4, label %7 [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %5
@@ -4904,12 +4904,12 @@ xor_prov_get_keymgmt_new.exit.i:
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %.0.i21.i, i64 8
-  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i22.i = load ptr, ptr %6, align 8, !tbaa !21
   br label %xor_prov_get_keymgmt_free.exit.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 16
-  br label %3, !llvm.loop !67
+  br label %3, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
   %.05.i23.i = phi ptr [ %.0.val.i22.i, %5 ], [ null, %3 ]
@@ -4917,7 +4917,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 9:                                                ; preds = %11, %xor_prov_get_keymgmt_free.exit.i
   %.0.i24.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %12, %11 ]
-  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !21
+  %10 = load i32, ptr %.0.i24.i, align 8, !tbaa !19
   switch i32 %10, label %11 [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4925,11 +4925,11 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %3, %5
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 16
-  br label %9, !llvm.loop !68
+  br label %9, !llvm.loop !66
 
 xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
   %13 = getelementptr i8, ptr %.0.i24.i, i64 8
-  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !23
+  %.0.val.i25.i = load ptr, ptr %13, align 8, !tbaa !21
   %14 = icmp ne ptr %.0.val.i25.i, null
   %15 = icmp ne ptr %.05.i23.i, null
   %or.cond3.i = select i1 %14, i1 %15, i1 false
@@ -4942,7 +4942,7 @@ xor_prov_get_keymgmt_import.exit.i:               ; preds = %9
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %21 = tail call i32 %.0.val.i25.i(ptr noundef nonnull %17, i32 noundef %1, ptr noundef %2) #16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %xor_newkey.exit.thread, label %xor_prov_import_key.exit
@@ -4962,7 +4962,7 @@ define internal void @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_free_object(ptr
 
 2:                                                ; preds = %4, %1
   %.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %1 ], [ %5, %4 ]
-  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !21
+  %3 = load i32, ptr %.0.i.i, align 8, !tbaa !19
   switch i32 %3, label %4 [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4970,11 +4970,11 @@ define internal void @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_free_object(ptr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  br label %2, !llvm.loop !67
+  br label %2, !llvm.loop !65
 
 xor_prov_get_keymgmt_free.exit.i:                 ; preds = %2
   %6 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !23
+  %.0.val.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.0.val.i.i, null
   br i1 %.not.i, label %xor_prov_free_key.exit, label %7
 
@@ -5018,7 +5018,7 @@ define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_encode(ptr nound
   br label %key2any_encode.exit
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !60
+  %19 = load ptr, ptr %0, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = tail call ptr @BIO_new_from_core_bio(ptr noundef %20, ptr noundef %1) #16
   %.not25.i = icmp eq ptr %21, null
@@ -5026,19 +5026,19 @@ define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_encode(ptr nound
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %23, align 8, !tbaa !69
+  store ptr %5, ptr %23, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %24, align 8, !tbaa !70
+  store ptr %6, ptr %24, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  store i32 -1, ptr %9, align 4, !tbaa !13
+  store i32 -1, ptr %9, align 4, !tbaa !11
   %25 = call i32 @prepare_xorx_params(ptr noundef nonnull %2, i32 noundef %14, i32 poison, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %.not16.i = icmp eq i32 %25, 0
   br i1 %.not16.i, label %key_to_spki_pem_pub_bio.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %22
-  %.pre.i = load i32, ptr %9, align 4, !tbaa !13
+  %.pre.i = load i32, ptr %9, align 4, !tbaa !11
   %26 = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %2, i32 noundef %14, ptr noundef nonnull @xorx_spki_pub_to_der)
   %.not17.i = icmp eq ptr %26, null
   br i1 %.not17.i, label %29, label %27
@@ -5096,16 +5096,16 @@ define internal noalias ptr @PrivateKeyInfo_der2xorhmacsig_newctx(ptr noundef %0
   br i1 %.not.i, label %der2key_newctx.exit, label %3
 
 3:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !75
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @PrivateKeyInfo_xorhmacsig_desc, ptr %4, align 8, !tbaa !78
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !79
+  store ptr @PrivateKeyInfo_xorhmacsig_desc, ptr %4, align 8, !tbaa !76
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !77
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %der2key_newctx.exit
 
 7:                                                ; preds = %3
   %8 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.1) #16
-  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !79
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !77
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %1, %3, %7
@@ -5127,12 +5127,12 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selectio
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.0103.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !79
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -5162,12 +5162,12 @@ define internal i32 @xor_der2key_decode(ptr noundef initializes((16, 20)) %0, pt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   store ptr null, ptr %10, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %16, align 8, !tbaa !82
+  store i32 %2, ptr %16, align 8, !tbaa !80
   %17 = icmp eq i32 %2, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  %19 = load ptr, ptr %18, align 8, !tbaa !76
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !83
+  %21 = load i32, ptr %20, align 4, !tbaa !81
   %. = select i1 %17, i32 %21, i32 %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = and i32 %21, %.
@@ -5181,10 +5181,10 @@ define internal i32 @xor_der2key_decode(ptr noundef initializes((16, 20)) %0, pt
   br label %105
 
 26:                                               ; preds = %7
-  %27 = load ptr, ptr %0, align 8, !tbaa !75
+  %27 = load ptr, ptr %0, align 8, !tbaa !73
   %.val = load ptr, ptr %27, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  store ptr null, ptr %8, align 8, !tbaa !84
+  store ptr null, ptr %8, align 8, !tbaa !82
   %28 = tail call ptr @BIO_new_from_core_bio(ptr noundef %.val, ptr noundef %1) #16
   %29 = call i32 @asn1_d2i_read_bio(ptr noundef %28, ptr noundef nonnull %8) #16
   %30 = icmp sgt i32 %29, -1
@@ -5196,10 +5196,10 @@ xor_read_der.exit.thread:                         ; preds = %26
   br label %.thread113
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %8, align 8, !tbaa !84
+  %33 = load ptr, ptr %8, align 8, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !86
-  %36 = load i64, ptr %33, align 8, !tbaa !88
+  %35 = load ptr, ptr %34, align 8, !tbaa !84
+  %36 = load i64, ptr %33, align 8, !tbaa !86
   call void @CRYPTO_free(ptr noundef nonnull %33, ptr noundef nonnull @.str.2, i32 noundef 2215) #16
   %37 = call i32 @BIO_free(ptr noundef %28) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
@@ -5208,10 +5208,10 @@ xor_read_der.exit.thread:                         ; preds = %26
   br i1 %.not50, label %56, label %39
 
 39:                                               ; preds = %32
-  store ptr %35, ptr %9, align 8, !tbaa !27
-  %40 = load ptr, ptr %22, align 8, !tbaa !78
+  store ptr %35, ptr %9, align 8, !tbaa !25
+  %40 = load ptr, ptr %22, align 8, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %42 = load ptr, ptr %41, align 8, !tbaa !89
+  %42 = load ptr, ptr %41, align 8, !tbaa !87
   %.not51 = icmp eq ptr %42, null
   br i1 %.not51, label %48, label %43
 
@@ -5226,7 +5226,7 @@ xor_read_der.exit.thread:                         ; preds = %26
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !90
+  %50 = load ptr, ptr %49, align 8, !tbaa !88
   %.not52 = icmp eq ptr %50, null
   br i1 %.not52, label %thread-pre-split.thread, label %51
 
@@ -5241,7 +5241,7 @@ thread-pre-split:                                 ; preds = %51, %43
   br i1 %54, label %thread-pre-split.thread, label %thread-pre-split84
 
 thread-pre-split.thread:                          ; preds = %48, %thread-pre-split
-  %55 = load i32, ptr %16, align 8, !tbaa !82
+  %55 = load i32, ptr %16, align 8, !tbaa !80
   %.not54 = icmp eq i32 %55, 0
   br i1 %.not54, label %56, label %.thread113
 
@@ -5251,16 +5251,16 @@ thread-pre-split.thread:                          ; preds = %48, %thread-pre-spl
   br i1 %.not55, label %71, label %58
 
 58:                                               ; preds = %56
-  store ptr %35, ptr %9, align 8, !tbaa !27
-  %59 = load ptr, ptr %22, align 8, !tbaa !78
+  store ptr %35, ptr %9, align 8, !tbaa !25
+  %59 = load ptr, ptr %22, align 8, !tbaa !76
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %61 = load ptr, ptr %60, align 8, !tbaa !91
+  %61 = load ptr, ptr %60, align 8, !tbaa !89
   %.not56 = icmp eq ptr %61, null
   br i1 %.not56, label %62, label %65
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !92
+  %64 = load ptr, ptr %63, align 8, !tbaa !90
   br label %65
 
 65:                                               ; preds = %58, %62
@@ -5271,7 +5271,7 @@ thread-pre-split.thread:                          ; preds = %48, %thread-pre-spl
   br i1 %67, label %68, label %thread-pre-split84
 
 68:                                               ; preds = %65
-  %69 = load i32, ptr %16, align 8, !tbaa !82
+  %69 = load i32, ptr %16, align 8, !tbaa !80
   %.not57 = icmp ne i32 %69, 0
   %70 = and i32 %., 132
   %.not58 = icmp eq i32 %70, 0
@@ -5284,10 +5284,10 @@ thread-pre-split.thread:                          ; preds = %48, %thread-pre-spl
   br i1 %.not58.old, label %.thread113, label %72
 
 72:                                               ; preds = %68, %71
-  store ptr %35, ptr %9, align 8, !tbaa !27
-  %73 = load ptr, ptr %22, align 8, !tbaa !78
+  store ptr %35, ptr %9, align 8, !tbaa !25
+  %73 = load ptr, ptr %22, align 8, !tbaa !76
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !93
+  %75 = load ptr, ptr %74, align 8, !tbaa !91
   %.not59 = icmp eq ptr %75, null
   br i1 %.not59, label %.thread113, label %thread-pre-split82
 
@@ -5299,9 +5299,9 @@ thread-pre-split82:                               ; preds = %72
 
 thread-pre-split84:                               ; preds = %thread-pre-split, %65, %thread-pre-split82
   %78 = phi ptr [ %76, %thread-pre-split82 ], [ %66, %65 ], [ %53, %thread-pre-split ]
-  %79 = load ptr, ptr %22, align 8, !tbaa !78
+  %79 = load ptr, ptr %22, align 8, !tbaa !76
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
-  %81 = load ptr, ptr %80, align 8, !tbaa !94
+  %81 = load ptr, ptr %80, align 8, !tbaa !92
   %.not62 = icmp eq ptr %81, null
   br i1 %.not62, label %.thread108, label %82
 
@@ -5312,9 +5312,9 @@ thread-pre-split84:                               ; preds = %thread-pre-split, %
   br i1 %.not63, label %.thread, label %87
 
 .thread:                                          ; preds = %82
-  %84 = load ptr, ptr %22, align 8, !tbaa !78
+  %84 = load ptr, ptr %22, align 8, !tbaa !76
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 88
-  %86 = load ptr, ptr %85, align 8, !tbaa !95
+  %86 = load ptr, ptr %85, align 8, !tbaa !93
   call void %86(ptr noundef %.pr87.pre) #16
   store ptr null, ptr %10, align 8, !tbaa !10
   br label %.thread113
@@ -5325,9 +5325,9 @@ thread-pre-split84:                               ; preds = %thread-pre-split, %
 
 .thread108:                                       ; preds = %thread-pre-split84, %87
   %.pr87111 = phi ptr [ %.pr87.pre, %87 ], [ %78, %thread-pre-split84 ]
-  %88 = load ptr, ptr %22, align 8, !tbaa !78
+  %88 = load ptr, ptr %22, align 8, !tbaa !76
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 80
-  %90 = load ptr, ptr %89, align 8, !tbaa !96
+  %90 = load ptr, ptr %89, align 8, !tbaa !94
   %.not65 = icmp eq ptr %90, null
   br i1 %.not65, label %.thread116, label %91
 
@@ -5350,24 +5350,24 @@ thread-pre-split84:                               ; preds = %thread-pre-split, %
 93:                                               ; preds = %.thread116, %91
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
-  store i32 2, ptr %12, align 4, !tbaa !13
+  store i32 2, ptr %12, align 4, !tbaa !11
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.55, ptr noundef nonnull %12) #16
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #16
-  %95 = load ptr, ptr %22, align 8, !tbaa !78
-  %96 = load ptr, ptr %95, align 8, !tbaa !97
+  %95 = load ptr, ptr %22, align 8, !tbaa !76
+  %96 = load ptr, ptr %95, align 8, !tbaa !95
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.56, ptr noundef %96, i64 noundef 0) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #16
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #16
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.57, ptr noundef nonnull %10, i64 noundef 8) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #16
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #16
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #16
   %99 = call i32 %3(ptr noundef nonnull %11, ptr noundef %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
@@ -5379,9 +5379,9 @@ thread-pre-split84:                               ; preds = %thread-pre-split, %
   %101 = phi ptr [ null, %91 ], [ %.pre93, %93 ], [ %44, %43 ], [ null, %.thread113 ]
   %.077 = phi ptr [ null, %91 ], [ null, %93 ], [ %35, %43 ], [ null, %.thread113 ]
   %.0 = phi i32 [ 1, %91 ], [ %99, %93 ], [ 0, %43 ], [ 1, %.thread113 ]
-  %102 = load ptr, ptr %22, align 8, !tbaa !78
+  %102 = load ptr, ptr %22, align 8, !tbaa !76
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 88
-  %104 = load ptr, ptr %103, align 8, !tbaa !95
+  %104 = load ptr, ptr %103, align 8, !tbaa !93
   call void %104(ptr noundef %101) #16
   call void @CRYPTO_free(ptr noundef %.077, ptr noundef nonnull @.str.2, i32 noundef 2441) #16
   br label %105
@@ -5396,14 +5396,14 @@ thread-pre-split84:                               ; preds = %thread-pre-split, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @der2key_export_object(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %6, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !98
+  %9 = load ptr, ptr %8, align 8, !tbaa !96
   br label %10
 
 10:                                               ; preds = %12, %5
   %.0.i = phi ptr [ %9, %5 ], [ %13, %12 ]
-  %11 = load i32, ptr %.0.i, align 8, !tbaa !21
+  %11 = load i32, ptr %.0.i, align 8, !tbaa !19
   switch i32 %11, label %12 [
     i32 0, label %xor_prov_get_keymgmt_export.exit.thread
     i32 42, label %xor_prov_get_keymgmt_export.exit
@@ -5411,11 +5411,11 @@ define internal i32 @der2key_export_object(ptr noundef readonly captures(none) %
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  br label %10, !llvm.loop !99
+  br label %10, !llvm.loop !97
 
 xor_prov_get_keymgmt_export.exit:                 ; preds = %10
   %14 = getelementptr i8, ptr %.0.i, i64 8
-  %.0.val.i = load ptr, ptr %14, align 8, !tbaa !23
+  %.0.val.i = load ptr, ptr %14, align 8, !tbaa !21
   %15 = icmp eq i64 %2, 8
   %16 = icmp ne ptr %.0.val.i, null
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -5424,7 +5424,7 @@ xor_prov_get_keymgmt_export.exit:                 ; preds = %10
 17:                                               ; preds = %xor_prov_get_keymgmt_export.exit
   %18 = load ptr, ptr %1, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !82
+  %20 = load i32, ptr %19, align 8, !tbaa !80
   %21 = tail call i32 %.0.val.i(ptr noundef %18, i32 noundef %20, ptr noundef %3, ptr noundef %4) #16
   br label %xor_prov_get_keymgmt_export.exit.thread
 
@@ -5440,7 +5440,7 @@ define internal ptr @xorx_d2i_PKCS8(ptr readnone captures(none) %0, ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  store ptr null, ptr %8, align 8, !tbaa !100
+  store ptr null, ptr %8, align 8, !tbaa !98
   %9 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef %1, i64 noundef %2) #16
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %xor_der2key_decode_p8.exit, label %10
@@ -5451,13 +5451,13 @@ define internal ptr @xorx_d2i_PKCS8(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not9.i, label %xor_der2key_decode_p8.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %8, align 8, !tbaa !100
-  %14 = load ptr, ptr %13, align 8, !tbaa !102
+  %13 = load ptr, ptr %8, align 8, !tbaa !98
+  %14 = load ptr, ptr %13, align 8, !tbaa !100
   %15 = call i32 @OBJ_obj2nid(ptr noundef %14) #16
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !78
+  %17 = load ptr, ptr %16, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !79
+  %19 = load i32, ptr %18, align 8, !tbaa !77
   %20 = icmp eq i32 %15, %19
   br i1 %20, label %21, label %xor_der2key_decode_p8.exit
 
@@ -5470,28 +5470,28 @@ define internal ptr @xorx_d2i_PKCS8(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not.i2, label %xor_key_from_pkcs8.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = load i32, ptr %6, align 4, !tbaa !13
+  %24 = load i32, ptr %6, align 4, !tbaa !11
   %25 = sext i32 %24 to i64
   %26 = call ptr @d2i_ASN1_OCTET_STRING(ptr noundef null, ptr noundef nonnull %5, i64 noundef %25) #16
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %23
-  store ptr null, ptr %5, align 8, !tbaa !27
+  store ptr null, ptr %5, align 8, !tbaa !25
   br label %32
 
 29:                                               ; preds = %23
   %30 = call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %26) #16
-  store ptr %30, ptr %5, align 8, !tbaa !27
+  store ptr %30, ptr %5, align 8, !tbaa !25
   %31 = call i32 @ASN1_STRING_length(ptr noundef nonnull %26) #16
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !25
   br label %32
 
 32:                                               ; preds = %29, %28
   %33 = phi ptr [ %.pre.i, %29 ], [ null, %28 ]
   %storemerge.i = phi i32 [ %31, %29 ], [ 0, %28 ]
-  store i32 %storemerge.i, ptr %6, align 4, !tbaa !13
-  %34 = load ptr, ptr %7, align 8, !tbaa !100
+  store i32 %storemerge.i, ptr %6, align 4, !tbaa !11
+  %34 = load ptr, ptr %7, align 8, !tbaa !98
   %35 = call fastcc ptr @xor_key_op(ptr noundef %34, ptr noundef %33, i32 noundef %storemerge.i, i32 noundef 1)
   call void @ASN1_OCTET_STRING_free(ptr noundef %26) #16
   br label %xor_key_from_pkcs8.exit
@@ -5536,12 +5536,12 @@ define internal fastcc ptr @xor_key_op(ptr noundef %0, ptr noundef readonly capt
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   call void @X509_ALGOR_get0(ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %0) #16
-  %7 = load i32, ptr %5, align 4, !tbaa !13
+  %7 = load i32, ptr %5, align 4, !tbaa !11
   %.not35 = icmp eq i32 %7, -1
   br i1 %.not35, label %8, label %.critedge
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %0, align 8, !tbaa !102
+  %9 = load ptr, ptr %0, align 8, !tbaa !100
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %11
 
@@ -5579,7 +5579,7 @@ define internal fastcc ptr @xor_key_op(ptr noundef %0, ptr noundef readonly capt
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !35
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %.not36 = icmp eq i32 %2, 32
   br i1 %.not36, label %22, label %21
 
@@ -5597,20 +5597,20 @@ define internal fastcc ptr @xor_key_op(ptr noundef %0, ptr noundef readonly capt
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 68
-  store i32 1, ptr %26, align 4, !tbaa !45
+  store i32 1, ptr %26, align 4, !tbaa !43
   br label %29
 
 27:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i32 1, ptr %28, align 8, !tbaa !43
+  store i32 1, ptr %28, align 8, !tbaa !41
   br label %29
 
 29:                                               ; preds = %27, %24
   %30 = call ptr @OBJ_nid2sn(i32 noundef %12) #16
   %31 = call noalias ptr @CRYPTO_strdup(ptr noundef %30, ptr noundef nonnull @.str.2, i32 noundef 1247) #16
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %31, ptr %32, align 8, !tbaa !48
+  store ptr %31, ptr %32, align 8, !tbaa !46
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %xor_freekey.exit
 
@@ -5629,9 +5629,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %34
 
 38:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %39 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %40 = load ptr, ptr %39, align 8, !tbaa !48
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
   call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %39, align 8, !tbaa !48
+  store ptr null, ptr %39, align 8, !tbaa !46
   call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
@@ -5659,16 +5659,16 @@ define internal noalias ptr @SubjectPublicKeyInfo_der2xorhmacsig_newctx(ptr noun
   br i1 %.not.i, label %der2key_newctx.exit, label %3
 
 3:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !75
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @SubjectPublicKeyInfo_xorhmacsig_desc, ptr %4, align 8, !tbaa !78
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !79
+  store ptr @SubjectPublicKeyInfo_xorhmacsig_desc, ptr %4, align 8, !tbaa !76
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !77
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %der2key_newctx.exit
 
 7:                                                ; preds = %3
   %8 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.1) #16
-  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !79
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsig_desc, i64 24), align 8, !tbaa !77
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %1, %3, %7
@@ -5684,12 +5684,12 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_se
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.0103.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !79
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -5713,7 +5713,7 @@ define internal ptr @xor_d2i_PUBKEY(ptr noundef captures(address_is_null) %0, pt
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   %8 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.2, i32 noundef 2183) #16
-  store ptr %8, ptr %7, align 8, !tbaa !106
+  store ptr %8, ptr %7, align 8, !tbaa !104
   %9 = icmp eq ptr %8, null
   br i1 %9, label %xorx_d2i_X509_PUBKEY_INTERNAL.exit.thread, label %xorx_d2i_X509_PUBKEY_INTERNAL.exit
 
@@ -5746,9 +5746,9 @@ xor_key_from_x509pubkey.exit.thread:              ; preds = %11, %xorx_d2i_X509_
   br label %30
 
 xor_key_from_x509pubkey.exit:                     ; preds = %11
-  %13 = load ptr, ptr %6, align 8, !tbaa !100
-  %14 = load ptr, ptr %4, align 8, !tbaa !27
-  %15 = load i32, ptr %5, align 4, !tbaa !13
+  %13 = load ptr, ptr %6, align 8, !tbaa !98
+  %14 = load ptr, ptr %4, align 8, !tbaa !25
+  %15 = load i32, ptr %5, align 4, !tbaa !11
   %16 = call fastcc ptr @xor_key_op(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
@@ -5759,7 +5759,7 @@ xor_key_from_x509pubkey.exit:                     ; preds = %11
   br i1 %or.cond, label %19, label %30
 
 19:                                               ; preds = %xor_key_from_x509pubkey.exit
-  %20 = load ptr, ptr %0, align 8, !tbaa !51
+  %20 = load ptr, ptr %0, align 8, !tbaa !49
   %21 = icmp eq ptr %20, null
   br i1 %21, label %xor_freekey.exit, label %22
 
@@ -5779,14 +5779,14 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %22
 
 27:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %29 = load ptr, ptr %28, align 8, !tbaa !48
+  %29 = load ptr, ptr %28, align 8, !tbaa !46
   call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %28, align 8, !tbaa !48
+  store ptr null, ptr %28, align 8, !tbaa !46
   call void @CRYPTO_free(ptr noundef nonnull %20, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %19, %CRYPTO_DOWN_REF.exit.i, %27
-  store ptr %16, ptr %0, align 8, !tbaa !51
+  store ptr %16, ptr %0, align 8, !tbaa !49
   br label %30
 
 30:                                               ; preds = %xor_key_from_x509pubkey.exit.thread, %xor_freekey.exit, %xor_key_from_x509pubkey.exit
@@ -5811,16 +5811,16 @@ define internal noalias ptr @PrivateKeyInfo_der2xorhmacsha2sig_newctx(ptr nounde
   br i1 %.not.i, label %der2key_newctx.exit, label %3
 
 3:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !75
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @PrivateKeyInfo_xorhmacsha2sig_desc, ptr %4, align 8, !tbaa !78
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !79
+  store ptr @PrivateKeyInfo_xorhmacsha2sig_desc, ptr %4, align 8, !tbaa !76
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !77
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %der2key_newctx.exit
 
 7:                                                ; preds = %3
   %8 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.5) #16
-  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !79
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @PrivateKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !77
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %1, %3, %7
@@ -5836,12 +5836,12 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_sele
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.0103.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !79
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -5864,16 +5864,16 @@ define internal noalias ptr @SubjectPublicKeyInfo_der2xorhmacsha2sig_newctx(ptr 
   br i1 %.not.i, label %der2key_newctx.exit, label %3
 
 3:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8, !tbaa !75
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, ptr %4, align 8, !tbaa !78
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !79
+  store ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, ptr %4, align 8, !tbaa !76
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !77
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %der2key_newctx.exit
 
 7:                                                ; preds = %3
   %8 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.5) #16
-  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !79
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @SubjectPublicKeyInfo_xorhmacsha2sig_desc, i64 24), align 8, !tbaa !77
   br label %der2key_newctx.exit
 
 der2key_newctx.exit:                              ; preds = %1, %3, %7
@@ -5889,12 +5889,12 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_doe
 4:                                                ; preds = %.preheader.i
   %5 = add nuw nsw i64 %.0103.i, 1
   %exitcond.not.i = icmp eq i64 %5, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %.preheader.i, !llvm.loop !79
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %.0103.i
-  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %4, label %9
@@ -5918,7 +5918,7 @@ define internal ptr @xor_sig_newctx(ptr noundef readonly captures(none) %0, ptr 
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  store ptr %6, ptr %3, align 8, !tbaa !108
+  store ptr %6, ptr %3, align 8, !tbaa !106
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, -2
@@ -5929,7 +5929,7 @@ define internal ptr @xor_sig_newctx(ptr noundef readonly captures(none) %0, ptr 
 10:                                               ; preds = %5
   %11 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i32 noundef 2660) #16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !112
+  store ptr %11, ptr %12, align 8, !tbaa !110
   %13 = icmp eq ptr %11, null
   br i1 %13, label %14, label %15
 
@@ -5954,7 +5954,7 @@ define internal range(i32 0, 2) i32 @xor_sig_sign_init(ptr noundef captures(addr
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !113
+  %8 = load ptr, ptr %7, align 8, !tbaa !111
   %9 = icmp eq ptr %8, null
   br i1 %9, label %xor_freekey.exit.i, label %10
 
@@ -5974,9 +5974,9 @@ CRYPTO_DOWN_REF.exit.i.i:                         ; preds = %10
 
 15:                                               ; preds = %CRYPTO_DOWN_REF.exit.i.i, %CRYPTO_DOWN_REF.exit.thread.i.i
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !48
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %16, align 8, !tbaa !48
+  store ptr null, ptr %16, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit.i
 
@@ -5987,9 +5987,9 @@ xor_freekey.exit.i:                               ; preds = %15, %CRYPTO_DOWN_RE
   br i1 %20, label %xor_sig_signverify_init.exit, label %21
 
 21:                                               ; preds = %xor_freekey.exit.i
-  store ptr %1, ptr %7, align 8, !tbaa !113
+  store ptr %1, ptr %7, align 8, !tbaa !111
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 16, ptr %22, align 8, !tbaa !114
+  store i32 16, ptr %22, align 8, !tbaa !112
   br label %xor_sig_signverify_init.exit
 
 xor_sig_signverify_init.exit:                     ; preds = %3, %xor_freekey.exit.i, %21
@@ -6001,15 +6001,15 @@ xor_sig_signverify_init.exit:                     ; preds = %3, %xor_freekey.exi
 define internal range(i32 0, 2) i32 @xor_sig_sign(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i64 %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !113
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  store i64 0, ptr %7, align 8, !tbaa !49
+  store i64 0, ptr %7, align 8, !tbaa !47
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %13 = load i32, ptr %12, align 8, !tbaa !43
+  %13 = load i32, ptr %12, align 8, !tbaa !41
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %15
 
@@ -6024,11 +6024,11 @@ define internal range(i32 0, 2) i32 @xor_sig_sign(ptr noundef readonly captures(
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
-  store i64 64, ptr %2, align 8, !tbaa !49
+  store i64 64, ptr %2, align 8, !tbaa !47
   br label %28
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr %2, align 8, !tbaa !49
+  %19 = load i64, ptr %2, align 8, !tbaa !47
   %20 = icmp ult i64 %19, 64
   br i1 %20, label %21, label %22
 
@@ -6039,7 +6039,7 @@ define internal range(i32 0, 2) i32 @xor_sig_sign(ptr noundef readonly captures(
   br label %28
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %0, align 8, !tbaa !108
+  %23 = load ptr, ptr %0, align 8, !tbaa !106
   %24 = call ptr @EVP_Q_mac(ptr noundef %23, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %9, i64 noundef 32, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull %7) #16
   %.not21 = icmp eq ptr %24, null
   br i1 %.not21, label %25, label %26
@@ -6051,8 +6051,8 @@ define internal range(i32 0, 2) i32 @xor_sig_sign(ptr noundef readonly captures(
   br label %28
 
 26:                                               ; preds = %22
-  %27 = load i64, ptr %7, align 8, !tbaa !49
-  store i64 %27, ptr %2, align 8, !tbaa !49
+  %27 = load i64, ptr %7, align 8, !tbaa !47
+  store i64 %27, ptr %2, align 8, !tbaa !47
   br label %28
 
 28:                                               ; preds = %25, %26, %21, %17, %14
@@ -6070,7 +6070,7 @@ define internal range(i32 0, 2) i32 @xor_sig_verify_init(ptr noundef captures(ad
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !113
+  %8 = load ptr, ptr %7, align 8, !tbaa !111
   %9 = icmp eq ptr %8, null
   br i1 %9, label %xor_freekey.exit.i, label %10
 
@@ -6090,9 +6090,9 @@ CRYPTO_DOWN_REF.exit.i.i:                         ; preds = %10
 
 15:                                               ; preds = %CRYPTO_DOWN_REF.exit.i.i, %CRYPTO_DOWN_REF.exit.thread.i.i
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !48
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %16, align 8, !tbaa !48
+  store ptr null, ptr %16, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit.i
 
@@ -6103,9 +6103,9 @@ xor_freekey.exit.i:                               ; preds = %15, %CRYPTO_DOWN_RE
   br i1 %20, label %xor_sig_signverify_init.exit, label %21
 
 21:                                               ; preds = %xor_freekey.exit.i
-  store ptr %1, ptr %7, align 8, !tbaa !113
+  store ptr %1, ptr %7, align 8, !tbaa !111
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 32, ptr %22, align 8, !tbaa !114
+  store i32 32, ptr %22, align 8, !tbaa !112
   br label %xor_sig_signverify_init.exit
 
 xor_sig_signverify_init.exit:                     ; preds = %3, %xor_freekey.exit.i, %21
@@ -6118,7 +6118,7 @@ define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly capture
   %6 = alloca [64 x i8], align 16
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !113
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   %10 = icmp eq ptr %9, null
@@ -6141,18 +6141,18 @@ define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly capture
 15:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
   %16 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %indvars.iv
-  %17 = load i8, ptr %16, align 1, !tbaa !41
+  %17 = load i8, ptr %16, align 1, !tbaa !39
   %18 = getelementptr inbounds nuw [32 x i8], ptr @private_constant, i64 0, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !tbaa !41
+  %19 = load i8, ptr %18, align 1, !tbaa !39
   %20 = xor i8 %19, %17
   %21 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
-  store i8 %20, ptr %21, align 1, !tbaa !41
+  store i8 %20, ptr %21, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %22, label %15, !llvm.loop !115
+  br i1 %exitcond.not, label %22, label %15, !llvm.loop !113
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %0, align 8, !tbaa !108
+  %23 = load ptr, ptr %0, align 8, !tbaa !106
   %24 = call ptr @EVP_Q_mac(ptr noundef %23, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %7) #16
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -6164,7 +6164,7 @@ define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly capture
   br label %30
 
 26:                                               ; preds = %22
-  %27 = load i64, ptr %7, align 8, !tbaa !49
+  %27 = load i64, ptr %7, align 8, !tbaa !47
   %.not27 = icmp eq i64 %2, %27
   br i1 %.not27, label %28, label %29
 
@@ -6199,7 +6199,7 @@ define internal i32 @xor_sig_digest_signverify_update(ptr noundef readonly captu
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !116
+  %7 = load ptr, ptr %6, align 8, !tbaa !114
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
 
@@ -6218,19 +6218,19 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef captu
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
-  store i32 0, ptr %6, align 4, !tbaa !13
+  store i32 0, ptr %6, align 4, !tbaa !11
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %15
 
 .split:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !113
+  %8 = load ptr, ptr %7, align 8, !tbaa !111
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %.split
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !43
+  %12 = load i32, ptr %11, align 8, !tbaa !41
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %14
 
@@ -6241,7 +6241,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef captu
   br label %xor_sig_sign.exit
 
 14:                                               ; preds = %10
-  store i64 64, ptr %2, align 8, !tbaa !49
+  store i64 64, ptr %2, align 8, !tbaa !47
   br label %xor_sig_sign.exit
 
 15:                                               ; preds = %4
@@ -6250,7 +6250,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef captu
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %19 = load ptr, ptr %18, align 8, !tbaa !116
+  %19 = load ptr, ptr %18, align 8, !tbaa !114
   %20 = icmp eq ptr %19, null
   br i1 %20, label %xor_sig_sign.exit, label %21
 
@@ -6264,7 +6264,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_sign_final(ptr noundef captu
   %24 = load i8, ptr %23, align 8
   %25 = or i8 %24, 1
   store i8 %25, ptr %23, align 8
-  %26 = load i32, ptr %6, align 4, !tbaa !13
+  %26 = load i32, ptr %6, align 4, !tbaa !11
   %27 = zext i32 %26 to i64
   %28 = call i32 @xor_sig_sign(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 poison, ptr noundef nonnull %5, i64 noundef %27)
   br label %xor_sig_sign.exit
@@ -6288,13 +6288,13 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_verify_final(ptr noundef cap
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  store i32 0, ptr %5, align 4, !tbaa !13
+  store i32 0, ptr %5, align 4, !tbaa !11
   %6 = icmp eq ptr %0, null
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = load ptr, ptr %8, align 8, !tbaa !116
+  %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
 
@@ -6308,7 +6308,7 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_verify_final(ptr noundef cap
   %15 = load i8, ptr %14, align 8
   %16 = or i8 %15, 1
   store i8 %16, ptr %14, align 8
-  %17 = load i32, ptr %5, align 4, !tbaa !13
+  %17 = load i32, ptr %5, align 4, !tbaa !11
   %18 = zext i32 %17 to i64
   %19 = call i32 @xor_sig_verify(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4, i64 noundef %18)
   br label %20
@@ -6323,18 +6323,18 @@ define internal range(i32 0, 2) i32 @xor_sig_digest_verify_final(ptr noundef cap
 ; Function Attrs: nounwind uwtable
 define internal void @xor_sig_freectx(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !112
+  %3 = load ptr, ptr %2, align 8, !tbaa !110
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 2920) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load ptr, ptr %4, align 8, !tbaa !116
+  %5 = load ptr, ptr %4, align 8, !tbaa !114
   tail call void @EVP_MD_CTX_free(ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !117
+  %7 = load ptr, ptr %6, align 8, !tbaa !115
   tail call void @EVP_MD_free(ptr noundef %7) #16
-  store ptr null, ptr %2, align 8, !tbaa !112
+  store ptr null, ptr %2, align 8, !tbaa !110
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %9 = load ptr, ptr %8, align 8, !tbaa !113
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   %10 = icmp eq ptr %9, null
   br i1 %10, label %xor_freekey.exit, label %11
 
@@ -6354,16 +6354,16 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %11
 
 16:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %18 = load ptr, ptr %17, align 8, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %17, align 8, !tbaa !48
+  store ptr null, ptr %17, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
 xor_freekey.exit:                                 ; preds = %1, %CRYPTO_DOWN_REF.exit.i, %16
-  store ptr null, ptr %8, align 8, !tbaa !113
+  store ptr null, ptr %8, align 8, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !118
+  %20 = load ptr, ptr %19, align 8, !tbaa !116
   tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str.2, i32 noundef 2928) #16
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 2929) #16
   ret void
@@ -6376,16 +6376,16 @@ define internal ptr @xor_sig_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 120, i1 false), !tbaa.struct !119
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 120, i1 false), !tbaa.struct !117
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr null, ptr %5, align 8, !tbaa !113
+  store ptr null, ptr %5, align 8, !tbaa !111
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr null, ptr %8, align 8, !tbaa !118
+  store ptr null, ptr %8, align 8, !tbaa !116
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %10 = load ptr, ptr %9, align 8, !tbaa !113
+  %10 = load ptr, ptr %9, align 8, !tbaa !111
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %15, label %11
 
@@ -6396,14 +6396,14 @@ define internal ptr @xor_sig_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br i1 %14, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11
-  %.pre = load ptr, ptr %9, align 8, !tbaa !113
+  %.pre = load ptr, ptr %9, align 8, !tbaa !111
   br label %15
 
 15:                                               ; preds = %._crit_edge, %4
   %16 = phi ptr [ %.pre, %._crit_edge ], [ null, %4 ]
-  store ptr %16, ptr %5, align 8, !tbaa !113
+  store ptr %16, ptr %5, align 8, !tbaa !111
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !117
+  %18 = load ptr, ptr %17, align 8, !tbaa !115
   %.not29 = icmp eq ptr %18, null
   br i1 %.not29, label %21, label %19
 
@@ -6413,25 +6413,25 @@ define internal ptr @xor_sig_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not30, label %31, label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %19
-  %.pre34 = load ptr, ptr %17, align 8, !tbaa !117
+  %.pre34 = load ptr, ptr %17, align 8, !tbaa !115
   br label %21
 
 21:                                               ; preds = %._crit_edge33, %15
   %22 = phi ptr [ %.pre34, %._crit_edge33 ], [ null, %15 ]
-  store ptr %22, ptr %6, align 8, !tbaa !117
+  store ptr %22, ptr %6, align 8, !tbaa !115
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load ptr, ptr %23, align 8, !tbaa !116
+  %24 = load ptr, ptr %23, align 8, !tbaa !114
   %.not31 = icmp eq ptr %24, null
   br i1 %.not31, label %32, label %25
 
 25:                                               ; preds = %21
   %26 = tail call ptr @EVP_MD_CTX_new() #16
-  store ptr %26, ptr %7, align 8, !tbaa !116
+  store ptr %26, ptr %7, align 8, !tbaa !114
   %27 = icmp eq ptr %26, null
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %23, align 8, !tbaa !116
+  %29 = load ptr, ptr %23, align 8, !tbaa !114
   %30 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %26, ptr noundef %29) #16
   %.not32 = icmp eq i32 %30, 0
   br i1 %.not32, label %31, label %32
@@ -6455,15 +6455,15 @@ define internal range(i32 0, 2) i32 @xor_sig_get_ctx_params(ptr noundef %0, ptr 
 5:                                                ; preds = %2
   %6 = tail call ptr @OSSL_PARAM_locate(ptr noundef nonnull %1, ptr noundef nonnull @.str.71) #16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !118
+  %8 = load ptr, ptr %7, align 8, !tbaa !116
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !113
+  %12 = load ptr, ptr %11, align 8, !tbaa !111
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %15 = tail call ptr @X509_ALGOR_new() #16
   %16 = tail call ptr @OBJ_txt2obj(ptr noundef %14, i32 noundef 0) #16
   %17 = tail call i32 @X509_ALGOR_set0(ptr noundef %15, ptr noundef %16, i32 noundef -1, ptr noundef null) #16
@@ -6471,7 +6471,7 @@ define internal range(i32 0, 2) i32 @xor_sig_get_ctx_params(ptr noundef %0, ptr 
   tail call void @X509_ALGOR_free(ptr noundef %15) #16
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %19, ptr %20, align 8, !tbaa !123
+  store i64 %19, ptr %20, align 8, !tbaa !121
   br label %21
 
 21:                                               ; preds = %10, %5
@@ -6479,9 +6479,9 @@ define internal range(i32 0, 2) i32 @xor_sig_get_ctx_params(ptr noundef %0, ptr 
   br i1 %.not, label %27, label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %7, align 8, !tbaa !118
+  %23 = load ptr, ptr %7, align 8, !tbaa !116
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = load i64, ptr %24, align 8, !tbaa !123
+  %25 = load i64, ptr %24, align 8, !tbaa !121
   %26 = tail call i32 @OSSL_PARAM_set_octet_string(ptr noundef nonnull %6, ptr noundef %23, i64 noundef %25) #16
   %.not21 = icmp eq i32 %26, 0
   br i1 %.not21, label %33, label %27
@@ -6537,11 +6537,11 @@ define internal range(i32 0, 2) i32 @xor_sig_set_ctx_params(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %3, i8 0, i64 50, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store ptr %3, ptr %4, align 8, !tbaa !27
+  store ptr %3, ptr %4, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  store ptr %5, ptr %6, align 8, !tbaa !27
+  store ptr %5, ptr %6, align 8, !tbaa !25
   %16 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.34) #16
   %17 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %10, ptr noundef nonnull %4, i64 noundef 50) #16
   %.not20 = icmp eq i32 %17, 0
@@ -6588,7 +6588,7 @@ define internal noundef nonnull ptr @xor_sig_settable_ctx_params(ptr readnone ca
 ; Function Attrs: nounwind uwtable
 define internal i32 @xor_sig_get_ctx_md_params(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !116
+  %4 = load ptr, ptr %3, align 8, !tbaa !114
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
 
@@ -6604,7 +6604,7 @@ define internal i32 @xor_sig_get_ctx_md_params(ptr noundef readonly captures(non
 ; Function Attrs: nounwind uwtable
 define internal ptr @xor_sig_gettable_ctx_md_params(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !117
+  %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
@@ -6620,7 +6620,7 @@ define internal ptr @xor_sig_gettable_ctx_md_params(ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define internal i32 @xor_sig_set_ctx_md_params(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !116
+  %4 = load ptr, ptr %3, align 8, !tbaa !114
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
 
@@ -6636,7 +6636,7 @@ define internal i32 @xor_sig_set_ctx_md_params(ptr noundef readonly captures(non
 ; Function Attrs: nounwind uwtable
 define internal ptr @xor_sig_settable_ctx_md_params(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !117
+  %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
@@ -6664,7 +6664,7 @@ define internal fastcc range(i32 0, 2) i32 @xor_sig_digest_signverify_init(ptr n
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !113
+  %12 = load ptr, ptr %11, align 8, !tbaa !111
   %13 = icmp eq ptr %12, null
   br i1 %13, label %xor_freekey.exit.i, label %14
 
@@ -6684,9 +6684,9 @@ CRYPTO_DOWN_REF.exit.i.i:                         ; preds = %14
 
 19:                                               ; preds = %CRYPTO_DOWN_REF.exit.i.i, %CRYPTO_DOWN_REF.exit.thread.i.i
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %20, align 8, !tbaa !48
+  store ptr null, ptr %20, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit.i
 
@@ -6697,9 +6697,9 @@ xor_freekey.exit.i:                               ; preds = %19, %CRYPTO_DOWN_RE
   br i1 %24, label %xor_sig_signverify_init.exit.thread, label %25
 
 25:                                               ; preds = %xor_freekey.exit.i
-  store ptr %2, ptr %11, align 8, !tbaa !113
+  store ptr %2, ptr %11, align 8, !tbaa !111
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %3, ptr %26, align 8, !tbaa !114
+  store i32 %3, ptr %26, align 8, !tbaa !112
   %27 = icmp eq ptr %1, null
   %spec.store.select = select i1 %27, ptr @.str.69, ptr %1
   %28 = tail call fastcc i32 @xor_sig_setup_md(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef null)
@@ -6709,26 +6709,26 @@ xor_freekey.exit.i:                               ; preds = %19, %CRYPTO_DOWN_RE
 29:                                               ; preds = %25
   %30 = tail call ptr @EVP_MD_CTX_new() #16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %30, ptr %31, align 8, !tbaa !116
+  store ptr %30, ptr %31, align 8, !tbaa !114
   %32 = icmp eq ptr %30, null
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %35 = load ptr, ptr %34, align 8, !tbaa !117
+  %35 = load ptr, ptr %34, align 8, !tbaa !115
   %36 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %30, ptr noundef %35, ptr noundef null) #16
   %.not19 = icmp eq i32 %36, 0
   br i1 %.not19, label %._crit_edge, label %xor_sig_signverify_init.exit.thread
 
 ._crit_edge:                                      ; preds = %33
-  %.pre = load ptr, ptr %31, align 8, !tbaa !116
+  %.pre = load ptr, ptr %31, align 8, !tbaa !114
   br label %37
 
 37:                                               ; preds = %._crit_edge, %29
   %38 = phi ptr [ %.pre, %._crit_edge ], [ null, %29 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %38) #16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %40 = load ptr, ptr %39, align 8, !tbaa !117
+  %40 = load ptr, ptr %39, align 8, !tbaa !115
   tail call void @EVP_MD_free(ptr noundef %40) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %xor_sig_signverify_init.exit.thread
@@ -6745,12 +6745,12 @@ define internal fastcc range(i32 0, 2) i32 @xor_sig_setup_md(ptr noundef %0, ptr
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !112
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
   br label %8
 
 8:                                                ; preds = %5, %3
   %.026 = phi ptr [ %7, %5 ], [ %2, %3 ]
-  %9 = load ptr, ptr %0, align 8, !tbaa !108
+  %9 = load ptr, ptr %0, align 8, !tbaa !106
   %10 = tail call ptr @EVP_MD_fetch(ptr noundef %9, ptr noundef %1, ptr noundef %.026) #16
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.critedge, label %12
@@ -6772,21 +6772,21 @@ define internal fastcc range(i32 0, 2) i32 @xor_sig_setup_md(ptr noundef %0, ptr
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !116
+  %18 = load ptr, ptr %17, align 8, !tbaa !114
   tail call void @EVP_MD_CTX_free(ptr noundef %18) #16
-  store ptr null, ptr %17, align 8, !tbaa !116
+  store ptr null, ptr %17, align 8, !tbaa !114
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %20 = load ptr, ptr %19, align 8, !tbaa !117
+  %20 = load ptr, ptr %19, align 8, !tbaa !115
   tail call void @EVP_MD_free(ptr noundef %20) #16
-  store ptr null, ptr %19, align 8, !tbaa !117
+  store ptr null, ptr %19, align 8, !tbaa !115
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load ptr, ptr %21, align 8, !tbaa !118
+  %22 = load ptr, ptr %21, align 8, !tbaa !116
   tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef 2691) #16
-  store ptr null, ptr %21, align 8, !tbaa !118
+  store ptr null, ptr %21, align 8, !tbaa !116
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !113
+  %24 = load ptr, ptr %23, align 8, !tbaa !111
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %26 = load ptr, ptr %25, align 8, !tbaa !48
+  %26 = load ptr, ptr %25, align 8, !tbaa !46
   %27 = tail call ptr @X509_ALGOR_new() #16
   %28 = tail call ptr @OBJ_txt2obj(ptr noundef %26, i32 noundef 0) #16
   %29 = tail call i32 @X509_ALGOR_set0(ptr noundef %27, ptr noundef %28, i32 noundef -1, ptr noundef null) #16
@@ -6794,7 +6794,7 @@ define internal fastcc range(i32 0, 2) i32 @xor_sig_setup_md(ptr noundef %0, ptr
   tail call void @X509_ALGOR_free(ptr noundef %27) #16
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %31, ptr %32, align 8, !tbaa !123
+  store i64 %31, ptr %32, align 8, !tbaa !121
   %33 = icmp eq i32 %30, 0
   br i1 %33, label %34, label %35
 
@@ -6803,8 +6803,8 @@ define internal fastcc range(i32 0, 2) i32 @xor_sig_setup_md(ptr noundef %0, ptr
   br label %38
 
 35:                                               ; preds = %16
-  store ptr null, ptr %17, align 8, !tbaa !116
-  store ptr %10, ptr %19, align 8, !tbaa !117
+  store ptr null, ptr %17, align 8, !tbaa !114
+  store ptr %10, ptr %19, align 8, !tbaa !115
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %37 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %36, ptr noundef %1, i64 noundef 50) #16
   br label %38
@@ -6904,116 +6904,114 @@ attributes #18 = { noreturn nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !8, i64 0}
-!15 = distinct !{!15, !16, !12}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !14, i64 0}
-!18 = !{!"tls_group_st", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24}
-!19 = !{!20, !14, i64 0}
-!20 = !{!"tls_sigalg_st", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!21 = !{!22, !14, i64 0}
-!22 = !{!"ossl_dispatch_st", !14, i64 0, !7, i64 8}
-!23 = !{!22, !7, i64 8}
-!24 = distinct !{!24, !16, !12}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !8, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !12, i64 0}
+!16 = !{!"tls_group_st", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24}
+!17 = !{!18, !12, i64 0}
+!18 = !{!"tls_sigalg_st", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
+!19 = !{!20, !12, i64 0}
+!20 = !{!"ossl_dispatch_st", !12, i64 0, !7, i64 8}
+!21 = !{!20, !7, i64 8}
+!22 = distinct !{!22, !14}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS16ossl_dispatch_st", !7, i64 0}
 !25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS16ossl_dispatch_st", !7, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 omnipotent char", !7, i64 0}
-!29 = distinct !{!29, !16, !12}
-!30 = !{!31, !7, i64 16}
-!31 = !{!"ossl_param_st", !28, i64 0, !14, i64 8, !7, i64 16, !32, i64 24, !32, i64 32}
-!32 = !{!"long", !8, i64 0}
-!33 = !{!31, !32, i64 24}
-!34 = distinct !{!34, !16, !12}
-!35 = !{!36, !8, i64 0}
-!36 = !{!"", !8, i64 0}
-!37 = !{!38, !6, i64 8}
-!38 = !{!"xor_gen_ctx", !14, i64 0, !6, i64 8}
-!39 = !{!38, !14, i64 0}
-!40 = !{!31, !14, i64 8}
-!41 = !{!8, !8, i64 0}
-!42 = distinct !{!42, !16, !12}
-!43 = !{!44, !14, i64 64}
-!44 = !{!"xorkey_st", !8, i64 0, !8, i64 32, !14, i64 64, !14, i64 68, !28, i64 72, !36, i64 80}
-!45 = !{!44, !14, i64 68}
-!46 = !{!18, !14, i64 4}
-!47 = !{!31, !32, i64 32}
-!48 = !{!44, !28, i64 72}
-!49 = !{!32, !32, i64 0}
-!50 = !{i64 0, i64 8, !27, i64 8, i64 4, !13, i64 16, i64 8, !10, i64 24, i64 8, !49, i64 32, i64 8, !49}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS9xorkey_st", !7, i64 0}
-!53 = distinct !{!53, !16, !12}
-!54 = !{!55, !7, i64 16}
-!55 = !{!"", !52, i64 0, !52, i64 8, !7, i64 16}
-!56 = !{!55, !52, i64 0}
-!57 = !{!55, !52, i64 8}
-!58 = distinct !{!58, !16, !12}
-!59 = !{i64 0, i64 8, !51, i64 8, i64 8, !51, i64 16, i64 8, !10}
-!60 = !{!61, !7, i64 0}
-!61 = !{!"key2any_ctx_st", !7, i64 0, !14, i64 8, !14, i64 12, !62, i64 16, !7, i64 24, !7, i64 32}
-!62 = !{!"p1 _ZTS13evp_cipher_st", !7, i64 0}
-!63 = !{!61, !14, i64 8}
-!64 = !{!61, !62, i64 16}
-!65 = !{!61, !14, i64 12}
-!66 = distinct !{!66, !16, !12}
-!67 = distinct !{!67, !16, !12}
-!68 = distinct !{!68, !16, !12}
-!69 = !{!61, !7, i64 24}
-!70 = !{!61, !7, i64 32}
-!71 = !{!72, !28, i64 8}
-!72 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !28, i64 8, !32, i64 16}
-!73 = !{!72, !14, i64 0}
-!74 = !{!72, !32, i64 16}
-!75 = !{!76, !7, i64 0}
-!76 = !{!"der2key_ctx_st", !7, i64 0, !77, i64 8, !14, i64 16, !14, i64 20}
-!77 = !{!"p1 _ZTS15keytype_desc_st", !7, i64 0}
-!78 = !{!76, !77, i64 8}
-!79 = !{!80, !14, i64 24}
-!80 = !{!"keytype_desc_st", !28, i64 0, !26, i64 8, !28, i64 16, !14, i64 24, !14, i64 28, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88}
-!81 = distinct !{!81, !16, !12}
-!82 = !{!76, !14, i64 16}
-!83 = !{!80, !14, i64 28}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTS10buf_mem_st", !7, i64 0}
-!86 = !{!87, !28, i64 8}
-!87 = !{!"buf_mem_st", !32, i64 0, !28, i64 8, !32, i64 16, !32, i64 24}
-!88 = !{!87, !32, i64 0}
-!89 = !{!80, !7, i64 56}
-!90 = !{!80, !7, i64 32}
-!91 = !{!80, !7, i64 64}
-!92 = !{!80, !7, i64 40}
-!93 = !{!80, !7, i64 48}
-!94 = !{!80, !7, i64 72}
-!95 = !{!80, !7, i64 88}
-!96 = !{!80, !7, i64 80}
-!97 = !{!80, !28, i64 0}
-!98 = !{!80, !26, i64 8}
-!99 = distinct !{!99, !16, !12}
-!100 = !{!101, !101, i64 0}
-!101 = !{!"p1 _ZTS13X509_algor_st", !7, i64 0}
-!102 = !{!103, !104, i64 0}
-!103 = !{!"X509_algor_st", !104, i64 0, !105, i64 8}
-!104 = !{!"p1 _ZTS14asn1_object_st", !7, i64 0}
-!105 = !{!"p1 _ZTS12asn1_type_st", !7, i64 0}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"p1 _ZTS14X509_pubkey_st", !7, i64 0}
-!108 = !{!109, !6, i64 0}
-!109 = !{!"", !6, i64 0, !28, i64 8, !52, i64 16, !14, i64 24, !8, i64 25, !28, i64 80, !32, i64 88, !110, i64 96, !111, i64 104, !14, i64 112}
-!110 = !{!"p1 _ZTS9evp_md_st", !7, i64 0}
-!111 = !{!"p1 _ZTS13evp_md_ctx_st", !7, i64 0}
-!112 = !{!109, !28, i64 8}
-!113 = !{!109, !52, i64 16}
-!114 = !{!109, !14, i64 112}
-!115 = distinct !{!115, !16, !12}
-!116 = !{!109, !111, i64 104}
-!117 = !{!109, !110, i64 96}
-!118 = !{!109, !28, i64 80}
-!119 = !{i64 0, i64 8, !120, i64 8, i64 8, !27, i64 16, i64 8, !51, i64 24, i64 1, !41, i64 25, i64 50, !41, i64 80, i64 8, !27, i64 88, i64 8, !49, i64 96, i64 8, !121, i64 104, i64 8, !122, i64 112, i64 4, !13}
-!120 = !{!6, !6, i64 0}
-!121 = !{!110, !110, i64 0}
-!122 = !{!111, !111, i64 0}
-!123 = !{!109, !32, i64 88}
+!26 = !{!"p1 omnipotent char", !7, i64 0}
+!27 = distinct !{!27, !14}
+!28 = !{!29, !7, i64 16}
+!29 = !{!"ossl_param_st", !26, i64 0, !12, i64 8, !7, i64 16, !30, i64 24, !30, i64 32}
+!30 = !{!"long", !8, i64 0}
+!31 = !{!29, !30, i64 24}
+!32 = distinct !{!32, !14}
+!33 = !{!34, !8, i64 0}
+!34 = !{!"", !8, i64 0}
+!35 = !{!36, !6, i64 8}
+!36 = !{!"xor_gen_ctx", !12, i64 0, !6, i64 8}
+!37 = !{!36, !12, i64 0}
+!38 = !{!29, !12, i64 8}
+!39 = !{!8, !8, i64 0}
+!40 = distinct !{!40, !14}
+!41 = !{!42, !12, i64 64}
+!42 = !{!"xorkey_st", !8, i64 0, !8, i64 32, !12, i64 64, !12, i64 68, !26, i64 72, !34, i64 80}
+!43 = !{!42, !12, i64 68}
+!44 = !{!16, !12, i64 4}
+!45 = !{!29, !30, i64 32}
+!46 = !{!42, !26, i64 72}
+!47 = !{!30, !30, i64 0}
+!48 = !{i64 0, i64 8, !25, i64 8, i64 4, !11, i64 16, i64 8, !10, i64 24, i64 8, !47, i64 32, i64 8, !47}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS9xorkey_st", !7, i64 0}
+!51 = distinct !{!51, !14}
+!52 = !{!53, !7, i64 16}
+!53 = !{!"", !50, i64 0, !50, i64 8, !7, i64 16}
+!54 = !{!53, !50, i64 0}
+!55 = !{!53, !50, i64 8}
+!56 = distinct !{!56, !14}
+!57 = !{i64 0, i64 8, !49, i64 8, i64 8, !49, i64 16, i64 8, !10}
+!58 = !{!59, !7, i64 0}
+!59 = !{!"key2any_ctx_st", !7, i64 0, !12, i64 8, !12, i64 12, !60, i64 16, !7, i64 24, !7, i64 32}
+!60 = !{!"p1 _ZTS13evp_cipher_st", !7, i64 0}
+!61 = !{!59, !12, i64 8}
+!62 = !{!59, !60, i64 16}
+!63 = !{!59, !12, i64 12}
+!64 = distinct !{!64, !14}
+!65 = distinct !{!65, !14}
+!66 = distinct !{!66, !14}
+!67 = !{!59, !7, i64 24}
+!68 = !{!59, !7, i64 32}
+!69 = !{!70, !26, i64 8}
+!70 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !26, i64 8, !30, i64 16}
+!71 = !{!70, !12, i64 0}
+!72 = !{!70, !30, i64 16}
+!73 = !{!74, !7, i64 0}
+!74 = !{!"der2key_ctx_st", !7, i64 0, !75, i64 8, !12, i64 16, !12, i64 20}
+!75 = !{!"p1 _ZTS15keytype_desc_st", !7, i64 0}
+!76 = !{!74, !75, i64 8}
+!77 = !{!78, !12, i64 24}
+!78 = !{!"keytype_desc_st", !26, i64 0, !24, i64 8, !26, i64 16, !12, i64 24, !12, i64 28, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88}
+!79 = distinct !{!79, !14}
+!80 = !{!74, !12, i64 16}
+!81 = !{!78, !12, i64 28}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTS10buf_mem_st", !7, i64 0}
+!84 = !{!85, !26, i64 8}
+!85 = !{!"buf_mem_st", !30, i64 0, !26, i64 8, !30, i64 16, !30, i64 24}
+!86 = !{!85, !30, i64 0}
+!87 = !{!78, !7, i64 56}
+!88 = !{!78, !7, i64 32}
+!89 = !{!78, !7, i64 64}
+!90 = !{!78, !7, i64 40}
+!91 = !{!78, !7, i64 48}
+!92 = !{!78, !7, i64 72}
+!93 = !{!78, !7, i64 88}
+!94 = !{!78, !7, i64 80}
+!95 = !{!78, !26, i64 0}
+!96 = !{!78, !24, i64 8}
+!97 = distinct !{!97, !14}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS13X509_algor_st", !7, i64 0}
+!100 = !{!101, !102, i64 0}
+!101 = !{!"X509_algor_st", !102, i64 0, !103, i64 8}
+!102 = !{!"p1 _ZTS14asn1_object_st", !7, i64 0}
+!103 = !{!"p1 _ZTS12asn1_type_st", !7, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS14X509_pubkey_st", !7, i64 0}
+!106 = !{!107, !6, i64 0}
+!107 = !{!"", !6, i64 0, !26, i64 8, !50, i64 16, !12, i64 24, !8, i64 25, !26, i64 80, !30, i64 88, !108, i64 96, !109, i64 104, !12, i64 112}
+!108 = !{!"p1 _ZTS9evp_md_st", !7, i64 0}
+!109 = !{!"p1 _ZTS13evp_md_ctx_st", !7, i64 0}
+!110 = !{!107, !26, i64 8}
+!111 = !{!107, !50, i64 16}
+!112 = !{!107, !12, i64 112}
+!113 = distinct !{!113, !14}
+!114 = !{!107, !109, i64 104}
+!115 = !{!107, !108, i64 96}
+!116 = !{!107, !26, i64 80}
+!117 = !{i64 0, i64 8, !118, i64 8, i64 8, !25, i64 16, i64 8, !49, i64 24, i64 1, !39, i64 25, i64 50, !39, i64 80, i64 8, !25, i64 88, i64 8, !47, i64 96, i64 8, !119, i64 104, i64 8, !120, i64 112, i64 4, !11}
+!118 = !{!6, !6, i64 0}
+!119 = !{!108, !108, i64 0}
+!120 = !{!109, !109, i64 0}
+!121 = !{!107, !30, i64 88}

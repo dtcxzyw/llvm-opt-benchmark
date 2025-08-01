@@ -681,12 +681,12 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
   %spec.select.us = select i1 %29, i32 1, i32 %.02056.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge.us, label %25
 
 .thread.us:                                       ; preds = %23, %._crit_edge.us, %18, %.lr.ph58.split.us
   %30 = tail call ptr @readdir(ptr noundef nonnull %11) #16
   %.not32.us = icmp eq ptr %30, null
-  br i1 %.not32.us, label %.thread49, label %.lr.ph58.split.us, !llvm.loop !45
+  br i1 %.not32.us, label %.thread49, label %.lr.ph58.split.us, !llvm.loop !43
 
 ._crit_edge.us:                                   ; preds = %25
   %.not36.us = icmp eq i32 %spec.select.us, 0
@@ -723,7 +723,7 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr noundef readonly ca
 .thread:                                          ; preds = %41, %39, %.lr.ph58.split
   %43 = tail call ptr @readdir(ptr noundef nonnull %11) #16
   %.not32 = icmp eq ptr %43, null
-  br i1 %.not32, label %.thread49, label %.lr.ph58.split, !llvm.loop !47
+  br i1 %.not32, label %.thread49, label %.lr.ph58.split
 
 .split.us:                                        ; preds = %23, %41
   %.us-phi = phi ptr [ %37, %41 ], [ %16, %23 ]
@@ -787,7 +787,7 @@ define range(i32 -1, 2) i32 @version_string_compare(ptr noundef readonly capture
   %13 = add i32 %12, %10
   %14 = add i64 %.13337, 1
   %exitcond.not = icmp eq i64 %14, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %9, %.preheader
   %.133.lcssa = phi i64 [ %.03251, %.preheader ], [ %1, %9 ], [ %.13337, %.lr.ph ]
@@ -810,7 +810,7 @@ define range(i32 -1, 2) i32 @version_string_compare(ptr noundef readonly capture
   %22 = add i32 %21, %19
   %23 = add i64 %.13143, 1
   %exitcond58.not = icmp eq i64 %23, %3
-  br i1 %exitcond58.not, label %.critedge2, label %.lr.ph45, !llvm.loop !49
+  br i1 %exitcond58.not, label %.critedge2, label %.lr.ph45
 
 .critedge2:                                       ; preds = %.lr.ph45, %18, %.critedge
   %.131.lcssa = phi i64 [ %.03052, %.critedge ], [ %3, %18 ], [ %.13143, %.lr.ph45 ]
@@ -828,7 +828,7 @@ define range(i32 -1, 2) i32 @version_string_compare(ptr noundef readonly capture
   %30 = icmp ult i64 %28, %1
   %31 = icmp ult i64 %29, %3
   %32 = or i1 %30, %31
-  br i1 %32, label %.preheader, label %._crit_edge, !llvm.loop !50
+  br i1 %32, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge2, %25, %27, %4
   %.034 = phi i32 [ 0, %4 ], [ 0, %27 ], [ -1, %25 ], [ 1, %.critedge2 ]
@@ -855,9 +855,9 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %13 = load i64, ptr %12, align 8, !tbaa !51
+  %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = or i64 %13, 1
-  store i64 %14, ptr %12, align 8, !tbaa !51
+  store i64 %14, ptr %12, align 8, !tbaa !45
   tail call void @cl_engine_set_clcb_stats_submit(ptr noundef nonnull %9, ptr noundef null) #16
   %15 = call i32 @cl_load(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 270362) #16
   %.not = icmp eq i32 %15, 0
@@ -875,9 +875,9 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 416
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  %23 = load ptr, ptr %22, align 8, !tbaa !72
+  %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load i32, ptr %24, align 4, !tbaa !73
+  %25 = load i32, ptr %24, align 4, !tbaa !67
   %26 = call i32 @cli_bytecode_prepare2(ptr noundef nonnull %9, ptr noundef nonnull %21, i32 noundef %25) #16
   %.not25 = icmp eq i32 %26, 0
   br i1 %.not25, label %30, label %27
@@ -895,13 +895,13 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
 33:                                               ; preds = %16, %27, %30
   %.018.ph = phi i32 [ 0, %30 ], [ 8, %27 ], [ 8, %16 ]
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %35 = load ptr, ptr %34, align 8, !tbaa !75
+  %35 = load ptr, ptr %34, align 8, !tbaa !69
   %.not27 = icmp eq ptr %35, null
   br i1 %.not27, label %40, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 904
-  %38 = load ptr, ptr %37, align 8, !tbaa !76
+  %38 = load ptr, ptr %37, align 8, !tbaa !70
   %.not28 = icmp eq ptr %38, null
   br i1 %.not28, label %40, label %39
 
@@ -1214,7 +1214,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly capt
   %51 = load i32, ptr @g_maxAttempts, align 4, !tbaa !35
   %52 = zext i32 %51 to i64
   %.not56.us.not = icmp samesign ult i64 %.04682.us, %52
-  br i1 %.not56.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !97
+  br i1 %.not56.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !91
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %124
   %53 = phi i64 [ %127, %124 ], [ %29, %.lr.ph ]
@@ -1413,13 +1413,13 @@ fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.
   %126 = load i32, ptr @g_maxAttempts, align 4, !tbaa !35
   %127 = zext i32 %126 to i64
   %.not56.not = icmp samesign ult i64 %.04682, %127
-  br i1 %.not56.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !98
+  br i1 %.not56.not, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %124, %49, %.preheader
   %128 = phi i32 [ 0, %.preheader ], [ %51, %49 ], [ %126, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !99
+  br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %62, %60, %.thread, %120, %103, %fc_strerror.exit, %.split124.us, %22, %16
   %.043 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ %36, %.split124.us ], [ %.144, %103 ], [ 19, %120 ], [ 0, %.thread ], [ 0, %60 ], [ 0, %62 ], [ 0, %24 ], [ 0, %._crit_edge ]
@@ -1470,7 +1470,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is
   store i32 0, ptr %8, align 4, !tbaa !35
   %19 = load ptr, ptr @g_freshclamDat, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load i64, ptr %20, align 8, !tbaa !100
+  %21 = load i64, ptr %20, align 8, !tbaa !92
   %22 = icmp sgt i64 %21, 0
   br i1 %22, label %23, label %.lr.ph.preheader
 
@@ -1528,7 +1528,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is
 56:                                               ; preds = %23
   %57 = load ptr, ptr @g_freshclamDat, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  store i64 0, ptr %58, align 8, !tbaa !100
+  store i64 0, ptr %58, align 8, !tbaa !92
   %59 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.109) #16
   %60 = tail call i32 @save_freshclam_dat() #16
   br label %.lr.ph.preheader
@@ -1554,7 +1554,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is
   %spec.select = add i32 %.03044, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %64
   store i32 %spec.select, ptr %8, align 4, !tbaa !35
@@ -1737,7 +1737,7 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
   %87 = load i32, ptr @g_maxAttempts, align 4, !tbaa !35
   %88 = zext i32 %87 to i64
   %.not35.not = icmp samesign ult i64 %.02857, %88
-  br i1 %.not35.not, label %.lr.ph, label %.loopexit, !llvm.loop !103
+  br i1 %.not35.not, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %83, %18, %.thread42, %.thread49, %81, %.thread, %16, %10
   %.025 = phi i32 [ 16, %10 ], [ 3, %16 ], [ 19, %81 ], [ %.227.ph, %.thread ], [ 0, %.thread49 ], [ 0, %.thread42 ], [ 0, %18 ], [ 0, %83 ]
@@ -1871,7 +1871,7 @@ fc_strerror.exit:                                 ; preds = %12, %fc_strerror.ex
   %spec.select = add i32 %.01963, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !104
+  br i1 %exitcond.not, label %33, label %12
 
 33:                                               ; preds = %30
   store i32 %spec.select, ptr %3, align 4, !tbaa !35
@@ -1885,7 +1885,7 @@ fc_strerror.exit:                                 ; preds = %12, %fc_strerror.ex
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @fc_set_fccb_download_complete(ptr noundef %0) local_unnamed_addr #12 {
-  store ptr %0, ptr @g_cb_download_complete, align 8, !tbaa !105
+  store ptr %0, ptr @g_cb_download_complete, align 8, !tbaa !94
   ret void
 }
 
@@ -1964,65 +1964,54 @@ attributes #18 = { nounwind allocsize(0) }
 !41 = !{!42, !8, i64 0}
 !42 = !{!"dirent", !8, i64 0, !8, i64 8, !11, i64 16, !6, i64 18, !6, i64 19}
 !43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = distinct !{!45, !44, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !44}
-!48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44}
-!50 = distinct !{!50, !44}
-!51 = !{!52, !8, i64 48}
-!52 = !{!"cl_engine", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 12, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !5, i64 40, !8, i64 48, !5, i64 56, !5, i64 60, !8, i64 64, !8, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !53, i64 96, !54, i64 104, !54, i64 112, !54, i64 120, !54, i64 128, !55, i64 136, !56, i64 144, !56, i64 152, !57, i64 160, !58, i64 168, !59, i64 176, !59, i64 184, !60, i64 192, !54, i64 200, !54, i64 208, !9, i64 216, !61, i64 224, !62, i64 232, !63, i64 240, !8, i64 248, !64, i64 256, !65, i64 264, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !10, i64 376, !10, i64 384, !10, i64 392, !10, i64 400, !10, i64 408, !67, i64 416, !6, i64 936, !6, i64 992, !5, i64 1020, !5, i64 1024, !5, i64 1028, !5, i64 1032, !8, i64 1040, !8, i64 1048, !8, i64 1056, !8, i64 1064, !8, i64 1072, !10, i64 1080, !10, i64 1088, !10, i64 1096, !10, i64 1104, !10, i64 1112, !10, i64 1120, !10, i64 1128, !10, i64 1136, !10, i64 1144, !5, i64 1152, !5, i64 1156, !5, i64 1160, !8, i64 1168, !8, i64 1176, !8, i64 1184, !71, i64 1192}
-!53 = !{!"p2 _ZTS11cli_matcher", !10, i64 0}
-!54 = !{!"p1 _ZTS11cli_matcher", !10, i64 0}
-!55 = !{!"p1 _ZTS7cli_cdb", !10, i64 0}
-!56 = !{!"p1 _ZTS13regex_matcher", !10, i64 0}
-!57 = !{!"p1 _ZTS10phishcheck", !10, i64 0}
-!58 = !{!"p1 _ZTS9cli_dconf", !10, i64 0}
-!59 = !{!"p1 _ZTS9cli_ftype", !10, i64 0}
-!60 = !{!"p2 _ZTS8cli_pwdb", !10, i64 0}
-!61 = !{!"p1 _ZTS12icon_matcher", !10, i64 0}
-!62 = !{!"p1 _ZTS5CACHE", !10, i64 0}
-!63 = !{!"p1 _ZTS10cli_dbinfo", !10, i64 0}
-!64 = !{!"p1 _ZTS2MP", !10, i64 0}
-!65 = !{!"", !66, i64 0, !5, i64 8}
-!66 = !{!"p1 _ZTS9cli_crt_t", !10, i64 0}
-!67 = !{!"cli_all_bc", !68, i64 0, !5, i64 8, !69, i64 16, !70, i64 24, !5, i64 516}
-!68 = !{!"p1 _ZTS6cli_bc", !10, i64 0}
-!69 = !{!"p1 _ZTS12cli_bcengine", !10, i64 0}
-!70 = !{!"cli_environment", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
-!71 = !{!"p1 _ZTS12_yara_global", !10, i64 0}
-!72 = !{!52, !58, i64 168}
-!73 = !{!74, !5, i64 32}
-!74 = !{!"cli_dconf", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
-!75 = !{!52, !56, i64 152}
-!76 = !{!77, !83, i64 904}
-!77 = !{!"regex_matcher", !78, i64 0, !8, i64 32, !80, i64 40, !8, i64 48, !8, i64 56, !10, i64 64, !81, i64 72, !81, i64 488, !95, i64 904, !81, i64 944, !96, i64 1360, !64, i64 132440, !5, i64 132448, !5, i64 132448, !5, i64 132448}
-!78 = !{!"cli_hashtable", !79, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
-!79 = !{!"p1 _ZTS11cli_element", !10, i64 0}
-!80 = !{!"p1 _ZTS13regex_list_ht", !10, i64 0}
-!81 = !{!"cli_matcher", !5, i64 0, !9, i64 8, !82, i64 16, !82, i64 24, !83, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !84, i64 64, !85, i64 160, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !86, i64 256, !87, i64 264, !88, i64 272, !89, i64 280, !90, i64 288, !90, i64 296, !5, i64 304, !5, i64 308, !6, i64 312, !6, i64 313, !91, i64 320, !11, i64 328, !6, i64 330, !5, i64 332, !92, i64 336, !5, i64 344, !5, i64 348, !5, i64 352, !93, i64 360, !10, i64 368, !5, i64 376, !94, i64 384, !8, i64 392, !8, i64 400, !64, i64 408}
-!82 = !{!"p2 _ZTS11cli_bm_patt", !10, i64 0}
-!83 = !{!"p1 int", !10, i64 0}
-!84 = !{!"cli_hash_patt", !6, i64 0}
-!85 = !{!"cli_hash_wild", !6, i64 0}
-!86 = !{!"p2 _ZTS11cli_ac_lsig", !10, i64 0}
-!87 = !{!"p1 _ZTS11cli_ac_node", !10, i64 0}
-!88 = !{!"p2 _ZTS11cli_ac_node", !10, i64 0}
-!89 = !{!"p2 _ZTS11cli_ac_list", !10, i64 0}
-!90 = !{!"p2 _ZTS11cli_ac_patt", !10, i64 0}
-!91 = !{!"p1 _ZTS6filter", !10, i64 0}
-!92 = !{!"p2 _ZTS13cli_pcre_meta", !10, i64 0}
-!93 = !{!"p2 _ZTS14cli_bcomp_meta", !10, i64 0}
-!94 = !{!"p3 _ZTS11cli_ac_node", !10, i64 0}
-!95 = !{!"cli_hashset", !83, i64 0, !83, i64 8, !64, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
-!96 = !{!"filter", !6, i64 0, !6, i64 65536, !8, i64 131072}
-!97 = distinct !{!97, !44, !46}
-!98 = distinct !{!98, !44}
-!99 = distinct !{!99, !44}
-!100 = !{!101, !8, i64 48}
-!101 = !{!"_freshclam_dat_v1", !5, i64 0, !6, i64 4, !8, i64 48}
-!102 = distinct !{!102, !44}
-!103 = distinct !{!103, !44}
-!104 = distinct !{!104, !44}
-!105 = !{!10, !10, i64 0}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = !{!46, !8, i64 48}
+!46 = !{!"cl_engine", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 12, !5, i64 20, !5, i64 24, !5, i64 28, !9, i64 32, !5, i64 40, !8, i64 48, !5, i64 56, !5, i64 60, !8, i64 64, !8, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !47, i64 96, !48, i64 104, !48, i64 112, !48, i64 120, !48, i64 128, !49, i64 136, !50, i64 144, !50, i64 152, !51, i64 160, !52, i64 168, !53, i64 176, !53, i64 184, !54, i64 192, !48, i64 200, !48, i64 208, !9, i64 216, !55, i64 224, !56, i64 232, !57, i64 240, !8, i64 248, !58, i64 256, !59, i64 264, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !10, i64 376, !10, i64 384, !10, i64 392, !10, i64 400, !10, i64 408, !61, i64 416, !6, i64 936, !6, i64 992, !5, i64 1020, !5, i64 1024, !5, i64 1028, !5, i64 1032, !8, i64 1040, !8, i64 1048, !8, i64 1056, !8, i64 1064, !8, i64 1072, !10, i64 1080, !10, i64 1088, !10, i64 1096, !10, i64 1104, !10, i64 1112, !10, i64 1120, !10, i64 1128, !10, i64 1136, !10, i64 1144, !5, i64 1152, !5, i64 1156, !5, i64 1160, !8, i64 1168, !8, i64 1176, !8, i64 1184, !65, i64 1192}
+!47 = !{!"p2 _ZTS11cli_matcher", !10, i64 0}
+!48 = !{!"p1 _ZTS11cli_matcher", !10, i64 0}
+!49 = !{!"p1 _ZTS7cli_cdb", !10, i64 0}
+!50 = !{!"p1 _ZTS13regex_matcher", !10, i64 0}
+!51 = !{!"p1 _ZTS10phishcheck", !10, i64 0}
+!52 = !{!"p1 _ZTS9cli_dconf", !10, i64 0}
+!53 = !{!"p1 _ZTS9cli_ftype", !10, i64 0}
+!54 = !{!"p2 _ZTS8cli_pwdb", !10, i64 0}
+!55 = !{!"p1 _ZTS12icon_matcher", !10, i64 0}
+!56 = !{!"p1 _ZTS5CACHE", !10, i64 0}
+!57 = !{!"p1 _ZTS10cli_dbinfo", !10, i64 0}
+!58 = !{!"p1 _ZTS2MP", !10, i64 0}
+!59 = !{!"", !60, i64 0, !5, i64 8}
+!60 = !{!"p1 _ZTS9cli_crt_t", !10, i64 0}
+!61 = !{!"cli_all_bc", !62, i64 0, !5, i64 8, !63, i64 16, !64, i64 24, !5, i64 516}
+!62 = !{!"p1 _ZTS6cli_bc", !10, i64 0}
+!63 = !{!"p1 _ZTS12cli_bcengine", !10, i64 0}
+!64 = !{!"cli_environment", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
+!65 = !{!"p1 _ZTS12_yara_global", !10, i64 0}
+!66 = !{!46, !52, i64 168}
+!67 = !{!68, !5, i64 32}
+!68 = !{!"cli_dconf", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
+!69 = !{!46, !50, i64 152}
+!70 = !{!71, !77, i64 904}
+!71 = !{!"regex_matcher", !72, i64 0, !8, i64 32, !74, i64 40, !8, i64 48, !8, i64 56, !10, i64 64, !75, i64 72, !75, i64 488, !89, i64 904, !75, i64 944, !90, i64 1360, !58, i64 132440, !5, i64 132448, !5, i64 132448, !5, i64 132448}
+!72 = !{!"cli_hashtable", !73, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!73 = !{!"p1 _ZTS11cli_element", !10, i64 0}
+!74 = !{!"p1 _ZTS13regex_list_ht", !10, i64 0}
+!75 = !{!"cli_matcher", !5, i64 0, !9, i64 8, !76, i64 16, !76, i64 24, !77, i64 32, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !78, i64 64, !79, i64 160, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !80, i64 256, !81, i64 264, !82, i64 272, !83, i64 280, !84, i64 288, !84, i64 296, !5, i64 304, !5, i64 308, !6, i64 312, !6, i64 313, !85, i64 320, !11, i64 328, !6, i64 330, !5, i64 332, !86, i64 336, !5, i64 344, !5, i64 348, !5, i64 352, !87, i64 360, !10, i64 368, !5, i64 376, !88, i64 384, !8, i64 392, !8, i64 400, !58, i64 408}
+!76 = !{!"p2 _ZTS11cli_bm_patt", !10, i64 0}
+!77 = !{!"p1 int", !10, i64 0}
+!78 = !{!"cli_hash_patt", !6, i64 0}
+!79 = !{!"cli_hash_wild", !6, i64 0}
+!80 = !{!"p2 _ZTS11cli_ac_lsig", !10, i64 0}
+!81 = !{!"p1 _ZTS11cli_ac_node", !10, i64 0}
+!82 = !{!"p2 _ZTS11cli_ac_node", !10, i64 0}
+!83 = !{!"p2 _ZTS11cli_ac_list", !10, i64 0}
+!84 = !{!"p2 _ZTS11cli_ac_patt", !10, i64 0}
+!85 = !{!"p1 _ZTS6filter", !10, i64 0}
+!86 = !{!"p2 _ZTS13cli_pcre_meta", !10, i64 0}
+!87 = !{!"p2 _ZTS14cli_bcomp_meta", !10, i64 0}
+!88 = !{!"p3 _ZTS11cli_ac_node", !10, i64 0}
+!89 = !{!"cli_hashset", !77, i64 0, !77, i64 8, !58, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36}
+!90 = !{!"filter", !6, i64 0, !6, i64 65536, !8, i64 131072}
+!91 = distinct !{!91, !44}
+!92 = !{!93, !8, i64 48}
+!93 = !{!"_freshclam_dat_v1", !5, i64 0, !6, i64 4, !8, i64 48}
+!94 = !{!10, !10, i64 0}

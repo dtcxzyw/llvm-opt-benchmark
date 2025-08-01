@@ -502,14 +502,14 @@ define dso_local noundef ptr @hashfd_check(ptr noundef %0) local_unnamed_addr #0
   store i32 0, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2480
   store i32 0, ptr %10, align 8, !tbaa !14
-  %11 = load ptr, ptr @the_repository, align 8, !tbaa !35
+  %11 = load ptr, ptr @the_repository, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 400
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = tail call ptr @unsafe_hash_algo(ptr noundef %13) #13
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 2472
   store ptr %14, ptr %15, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !54
+  %17 = load ptr, ptr %16, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void %17(ptr noundef nonnull %18) #13
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 2448
@@ -544,14 +544,14 @@ define dso_local noundef ptr @hashfd(i32 noundef %0, ptr noundef %1) local_unnam
   store i32 0, ptr %8, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2480
   store i32 0, ptr %9, align 8, !tbaa !14
-  %10 = load ptr, ptr @the_repository, align 8, !tbaa !35
+  %10 = load ptr, ptr @the_repository, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 400
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = tail call ptr @unsafe_hash_algo(ptr noundef %12) #13
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 2472
   store ptr %13, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !54
+  %16 = load ptr, ptr %15, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void %16(ptr noundef nonnull %17) #13
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 2448
@@ -584,14 +584,14 @@ define dso_local noundef ptr @hashfd_throughput(i32 noundef %0, ptr noundef %1, 
   store i32 0, ptr %10, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 2480
   store i32 0, ptr %11, align 8, !tbaa !14
-  %12 = load ptr, ptr @the_repository, align 8, !tbaa !35
+  %12 = load ptr, ptr @the_repository, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 400
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = tail call ptr @unsafe_hash_algo(ptr noundef %14) #13
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 2472
   store ptr %15, ptr %16, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !54
+  %18 = load ptr, ptr %17, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void %18(ptr noundef nonnull %19) #13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 2448
@@ -610,7 +610,7 @@ define dso_local void @hashfile_checkpoint_init(ptr noundef readonly captures(no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %6(ptr noundef nonnull %7) #13
   ret void
@@ -654,11 +654,11 @@ define dso_local void @hashfile_checkpoint(ptr noundef %0, ptr noundef initializ
 hashflush.exit:                                   ; preds = %2, %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %21 = load i64, ptr %20, align 8, !tbaa !25
-  store i64 %21, ptr %1, align 8, !tbaa !55
+  store i64 %21, ptr %1, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !57
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void %25(ptr noundef nonnull %26, ptr noundef nonnull %27) #13
@@ -667,7 +667,7 @@ hashflush.exit:                                   ; preds = %2, %17
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @hashfile_truncate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i64, ptr %1, align 8, !tbaa !55
+  %3 = load i64, ptr %1, align 8, !tbaa !54
   %4 = load i32, ptr %0, align 8, !tbaa !23
   %5 = tail call i32 @ftruncate64(i32 noundef %4, i64 noundef %3) #13
   %.not = icmp eq i32 %5, 0
@@ -685,7 +685,7 @@ define dso_local range(i32 -1, 1) i32 @hashfile_truncate(ptr noundef %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !57
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %14(ptr noundef nonnull %15, ptr noundef nonnull %16) #13
@@ -730,9 +730,9 @@ define dso_local range(i32 0, 2) i32 @hashfile_checksum_valid(ptr noundef %0, i6
   %4 = alloca %union.git_hash_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %4) #13
-  %5 = load ptr, ptr @the_repository, align 8, !tbaa !35
+  %5 = load ptr, ptr @the_repository, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = tail call ptr @unsafe_hash_algo(ptr noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !27
@@ -742,7 +742,7 @@ define dso_local range(i32 0, 2) i32 @hashfile_checksum_valid(ptr noundef %0, i6
 12:                                               ; preds = %2
   %13 = sub nuw i64 %1, %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   call void %15(ptr noundef nonnull %4) #13
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !16
@@ -832,29 +832,28 @@ attributes #15 = { nounwind willreturn memory(none) }
 !29 = !{!5, !9, i64 2448}
 !30 = !{!5, !6, i64 2440}
 !31 = !{!5, !6, i64 2444}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS10repository", !11, i64 0}
-!37 = !{!38, !13, i64 400}
-!38 = !{!"repository", !12, i64 0, !12, i64 8, !39, i64 16, !40, i64 24, !41, i64 32, !42, i64 40, !42, i64 104, !46, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !47, i64 256, !49, i64 368, !50, i64 376, !51, i64 384, !52, i64 392, !13, i64 400, !13, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !12, i64 432, !53, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
-!39 = !{!"p1 _ZTS16raw_object_store", !11, i64 0}
-!40 = !{!"p1 _ZTS18parsed_object_pool", !11, i64 0}
-!41 = !{!"p1 _ZTS9ref_store", !11, i64 0}
-!42 = !{!"strmap", !43, i64 0, !45, i64 48, !6, i64 56}
-!43 = !{!"hashmap", !44, i64 0, !11, i64 8, !11, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
-!44 = !{!"p2 _ZTS13hashmap_entry", !11, i64 0}
-!45 = !{!"p1 _ZTS8mem_pool", !11, i64 0}
-!46 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
-!47 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !48, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
-!48 = !{!"p1 _ZTS18fsmonitor_settings", !11, i64 0}
-!49 = !{!"p1 _ZTS10config_set", !11, i64 0}
-!50 = !{!"p1 _ZTS15submodule_cache", !11, i64 0}
-!51 = !{!"p1 _ZTS11index_state", !11, i64 0}
-!52 = !{!"p1 _ZTS12remote_state", !11, i64 0}
-!53 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
-!54 = !{!17, !11, i64 40}
-!55 = !{!56, !9, i64 0}
-!56 = !{!"hashfile_checkpoint", !9, i64 0, !7, i64 8}
-!57 = !{!17, !11, i64 48}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS10repository", !11, i64 0}
+!36 = !{!37, !13, i64 400}
+!37 = !{!"repository", !12, i64 0, !12, i64 8, !38, i64 16, !39, i64 24, !40, i64 32, !41, i64 40, !41, i64 104, !45, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !46, i64 256, !48, i64 368, !49, i64 376, !50, i64 384, !51, i64 392, !13, i64 400, !13, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !12, i64 432, !52, i64 440, !6, i64 448, !6, i64 452, !6, i64 456}
+!38 = !{!"p1 _ZTS16raw_object_store", !11, i64 0}
+!39 = !{!"p1 _ZTS18parsed_object_pool", !11, i64 0}
+!40 = !{!"p1 _ZTS9ref_store", !11, i64 0}
+!41 = !{!"strmap", !42, i64 0, !44, i64 48, !6, i64 56}
+!42 = !{!"hashmap", !43, i64 0, !11, i64 8, !11, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40}
+!43 = !{!"p2 _ZTS13hashmap_entry", !11, i64 0}
+!44 = !{!"p1 _ZTS8mem_pool", !11, i64 0}
+!45 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!46 = !{!"repo_settings", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !47, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !9, i64 88, !9, i64 96, !9, i64 104}
+!47 = !{!"p1 _ZTS18fsmonitor_settings", !11, i64 0}
+!48 = !{!"p1 _ZTS10config_set", !11, i64 0}
+!49 = !{!"p1 _ZTS15submodule_cache", !11, i64 0}
+!50 = !{!"p1 _ZTS11index_state", !11, i64 0}
+!51 = !{!"p1 _ZTS12remote_state", !11, i64 0}
+!52 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
+!53 = !{!17, !11, i64 40}
+!54 = !{!55, !9, i64 0}
+!55 = !{!"hashfile_checkpoint", !9, i64 0, !7, i64 8}
+!56 = !{!17, !11, i64 48}

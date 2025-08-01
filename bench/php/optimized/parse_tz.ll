@@ -809,7 +809,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %131 = zext i32 %130 to i64
   %132 = load i64, ptr %51, align 8, !tbaa !32
   %133 = icmp ugt i64 %132, %131
-  br i1 %133, label %85, label %.preheader, !llvm.loop !58
+  br i1 %133, label %85, label %.preheader
 
 134:                                              ; preds = %.lr.ph68, %134
   %135 = phi i64 [ 0, %.lr.ph68 ], [ %160, %134 ]
@@ -833,22 +833,22 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %151 = load i64, ptr %150, align 8, !tbaa !55
   %152 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %139, i64 noundef 64, ptr noundef nonnull @.str.622, i64 noundef %141, i64 noundef %143, i64 noundef %145, i64 noundef %147, i64 noundef %149, i64 noundef %151) #17
   tail call void @timelib_time_dtor(ptr noundef nonnull %140) #17
-  %153 = load ptr, ptr %84, align 8, !tbaa !60
+  %153 = load ptr, ptr %84, align 8, !tbaa !58
   %154 = getelementptr inbounds nuw %struct._tlinfo, ptr %153, i64 %135
-  %155 = load i64, ptr %154, align 8, !tbaa !61
+  %155 = load i64, ptr %154, align 8, !tbaa !59
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !63
+  %157 = load i32, ptr %156, align 8, !tbaa !61
   %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.615, ptr noundef nonnull %139, i64 noundef %155, i32 noundef %157)
   tail call void @_efree(ptr noundef nonnull %139) #17
   %159 = add i32 %.167, 1
   %160 = zext i32 %159 to i64
   %161 = load i64, ptr %48, align 8, !tbaa !31
   %162 = icmp ugt i64 %161, %160
-  br i1 %162, label %134, label %._crit_edge, !llvm.loop !64
+  br i1 %162, label %134, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %134, %.preheader
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %164 = load ptr, ptr %163, align 8, !tbaa !65
+  %164 = load ptr, ptr %163, align 8, !tbaa !62
   %.not60 = icmp eq ptr %164, null
   br i1 %.not60, label %165, label %167
 
@@ -868,18 +868,18 @@ detect_slim_file.exit:                            ; preds = %35, %39
 171:                                              ; preds = %167
   %172 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.618, ptr noundef nonnull @.str.613, ptr noundef nonnull %164)
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %174 = load ptr, ptr %173, align 8, !tbaa !66
+  %174 = load ptr, ptr %173, align 8, !tbaa !63
   %.not61 = icmp eq ptr %174, null
   br i1 %.not61, label %224, label %175
 
 175:                                              ; preds = %171
-  %176 = load ptr, ptr %174, align 8, !tbaa !67
+  %176 = load ptr, ptr %174, align 8, !tbaa !64
   %.not62 = icmp eq ptr %176, null
   br i1 %.not62, label %224, label %177
 
 177:                                              ; preds = %175
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 48
-  %179 = load i32, ptr %178, align 8, !tbaa !70
+  %179 = load i32, ptr %178, align 8, !tbaa !67
   %180 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %181 = load ptr, ptr %61, align 8, !tbaa !35
   %182 = sext i32 %179 to i64
@@ -900,15 +900,15 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %197 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %180, i64 noundef 64, ptr noundef nonnull @.str.621, i32 noundef %179, i64 noundef %185, i32 noundef %187, i32 noundef %189, ptr noundef %192, i32 noundef %194, i32 noundef %196) #17
   %198 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.619, ptr noundef nonnull @.str.613, ptr noundef nonnull %180)
   tail call void @_efree(ptr noundef nonnull %180) #17
-  %199 = load ptr, ptr %173, align 8, !tbaa !66
+  %199 = load ptr, ptr %173, align 8, !tbaa !63
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %201 = load ptr, ptr %200, align 8, !tbaa !71
+  %201 = load ptr, ptr %200, align 8, !tbaa !68
   %.not63 = icmp eq ptr %201, null
   br i1 %.not63, label %224, label %202
 
 202:                                              ; preds = %177
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 52
-  %204 = load i32, ptr %203, align 4, !tbaa !72
+  %204 = load i32, ptr %203, align 4, !tbaa !69
   %205 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %206 = load ptr, ptr %61, align 8, !tbaa !35
   %207 = sext i32 %204 to i64
@@ -957,17 +957,17 @@ define hidden noundef nonnull ptr @timelib_builtin_db() local_unnamed_addr #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden ptr @timelib_timezone_identifiers_list(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !73
-  store i32 %4, ptr %1, align 4, !tbaa !76
+  %4 = load i32, ptr %3, align 8, !tbaa !70
+  store i32 %4, ptr %1, align 4, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !77
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !73
+  %4 = load i32, ptr %3, align 8, !tbaa !70
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %seek_to_tz_position.exit, label %.preheader.i
 
@@ -981,10 +981,10 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   %.018.i = phi i32 [ %.220.i, %22 ], [ 0, %.preheader.i ]
   %9 = add i32 %.018.i, %.022.i
   %10 = lshr i32 %9, 1
-  %11 = load ptr, ptr %7, align 8, !tbaa !77
+  %11 = load ptr, ptr %7, align 8, !tbaa !74
   %12 = zext nneg i32 %10 to i64
   %13 = getelementptr inbounds nuw %struct._timelib_tzdb_index_entry, ptr %11, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !78
+  %14 = load ptr, ptr %13, align 8, !tbaa !75
   %15 = tail call i32 @timelib_strcasecmp(ptr noundef %0, ptr noundef %14) #17
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %19
@@ -1005,7 +1005,7 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   %.224.i = phi i32 [ %18, %17 ], [ %.022.i, %20 ]
   %.220.i = phi i32 [ %.018.i, %17 ], [ %21, %20 ]
   %.not26.i = icmp sgt i32 %.220.i, %.224.i
-  br i1 %.not26.i, label %seek_to_tz_position.exit, label %8, !llvm.loop !80
+  br i1 %.not26.i, label %seek_to_tz_position.exit, label %8
 
 seek_to_tz_position.exit:                         ; preds = %19, %22, %2
   %.0.i = phi i32 [ 0, %2 ], [ 1, %19 ], [ 0, %22 ]
@@ -1016,9 +1016,9 @@ seek_to_tz_position.exit:                         ; preds = %19, %22, %2
 define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  store i32 0, ptr %2, align 4, !tbaa !76
+  store i32 0, ptr %2, align 4, !tbaa !73
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !73
+  %6 = load i32, ptr %5, align 8, !tbaa !70
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit93, label %.preheader.i
 
@@ -1032,10 +1032,10 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   %.018.i = phi i32 [ %.220.i, %24 ], [ 0, %.preheader.i ]
   %11 = add i32 %.018.i, %.022.i
   %12 = lshr i32 %11, 1
-  %13 = load ptr, ptr %9, align 8, !tbaa !77
+  %13 = load ptr, ptr %9, align 8, !tbaa !74
   %14 = zext nneg i32 %12 to i64
   %15 = getelementptr inbounds nuw %struct._timelib_tzdb_index_entry, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !78
+  %16 = load ptr, ptr %15, align 8, !tbaa !75
   %17 = tail call i32 @timelib_strcasecmp(ptr noundef %0, ptr noundef %16) #17
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %21
@@ -1056,19 +1056,19 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   %.224.i = phi i32 [ %20, %19 ], [ %.022.i, %22 ]
   %.220.i = phi i32 [ %.018.i, %19 ], [ %23, %22 ]
   %.not26.i = icmp sgt i32 %.220.i, %.224.i
-  br i1 %.not26.i, label %.loopexit93, label %10, !llvm.loop !80
+  br i1 %.not26.i, label %.loopexit93, label %10
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !81
-  %28 = load ptr, ptr %9, align 8, !tbaa !77
+  %27 = load ptr, ptr %26, align 8, !tbaa !77
+  %28 = load ptr, ptr %9, align 8, !tbaa !74
   %29 = getelementptr inbounds nuw %struct._timelib_tzdb_index_entry, ptr %28, i64 %14, i32 1
-  %30 = load i32, ptr %29, align 8, !tbaa !82
+  %30 = load i32, ptr %29, align 8, !tbaa !78
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 %31
   %33 = tail call noalias dereferenceable_or_null(176) ptr @_ecalloc(i64 noundef 1, i64 noundef 176) #16
   %34 = tail call noalias ptr @_estrdup(ptr noundef %0) #17
-  store ptr %34, ptr %33, align 8, !tbaa !83
+  store ptr %34, ptr %33, align 8, !tbaa !79
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %32, ptr noundef nonnull dereferenceable(3) @.str.623, i64 3)
   %35 = icmp eq i32 %bcmp.i, 0
   br i1 %35, label %36, label %49
@@ -1079,7 +1079,7 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %39, -48
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store ptr %41, ptr %4, align 8, !tbaa !84
+  store ptr %41, ptr %4, align 8, !tbaa !80
   %42 = load i8, ptr %41, align 1, !tbaa !57
   %43 = icmp eq i8 %42, 1
   %44 = zext i1 %43 to i8
@@ -1134,7 +1134,7 @@ read_preamble.exit:                               ; preds = %36, %57
   br i1 %or.cond, label %read_preamble.exit.thread, label %skip_32bit_transitions.exit
 
 read_preamble.exit.thread:                        ; preds = %51, %49, %read_preamble.exit
-  store i32 5, ptr %2, align 4, !tbaa !76
+  store i32 5, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef nonnull %33)
   br label %305
 
@@ -1203,13 +1203,13 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   br i1 %97, label %99, label %98
 
 98:                                               ; preds = %96
-  store i32 3, ptr %2, align 4, !tbaa !76
+  store i32 3, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef nonnull %33)
   br label %305
 
 99:                                               ; preds = %96, %94, %skip_32bit_transitions.exit
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 20
-  store ptr %100, ptr %4, align 8, !tbaa !84
+  store ptr %100, ptr %4, align 8, !tbaa !80
   %.sroa.0.0.copyload.i47 = load i32, ptr %100, align 1
   %.sroa.4.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %.sroa.4.0.copyload.i49 = load i32, ptr %.sroa.4.0..sroa_idx.i48, align 1
@@ -1260,7 +1260,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %125 = shl i64 %124, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %122, ptr nonnull align 1 %119, i64 %125, i1 false)
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 %125
-  store ptr %126, ptr %4, align 8, !tbaa !84
+  store ptr %126, ptr %4, align 8, !tbaa !80
   %.not113.i = icmp eq i64 %124, 0
   br i1 %.not113.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1286,7 +1286,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %138 = add i32 %.0100112.i, 1
   %139 = zext i32 %138 to i64
   %140 = icmp ugt i64 %124, %139
-  br i1 %140, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !85
+  br i1 %140, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %137, %123
   %141 = tail call noalias ptr @_emalloc(i64 noundef %124) #18
@@ -1301,13 +1301,13 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %144 = load i64, ptr %112, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr nonnull align 1 %126, i64 %144, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %126, i64 %144
-  store ptr %145, ptr %4, align 8, !tbaa !84
+  store ptr %145, ptr %4, align 8, !tbaa !80
   %.pre = load i64, ptr %115, align 8, !tbaa !33
   br label %146
 
 .loopexit:                                        ; preds = %131, %142, %120
   %.0102.i.ph = phi i32 [ 1, %120 ], [ 1, %142 ], [ 2, %131 ]
-  store i32 %.0102.i.ph, ptr %2, align 4, !tbaa !76
+  store i32 %.0102.i.ph, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef %33)
   br label %305
 
@@ -1330,7 +1330,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %155 = mul i64 %154, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %147, i64 %155, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %147, i64 %155
-  store ptr %156, ptr %4, align 8, !tbaa !84
+  store ptr %156, ptr %4, align 8, !tbaa !80
   %157 = mul i64 %154, 20
   %158 = add i64 %157, 40
   %159 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %158) #16
@@ -1392,7 +1392,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %202 = add i32 %.0308335.i, 1
   %203 = zext i32 %202 to i64
   %204 = icmp ugt i64 %161, %203
-  br i1 %204, label %.lr.ph.i61, label %._crit_edge.i62, !llvm.loop !86
+  br i1 %204, label %.lr.ph.i61, label %._crit_edge.i62
 
 ._crit_edge.i62:                                  ; preds = %.lr.ph.i61, %.preheader334.i
   tail call void @_efree(ptr noundef nonnull %152) #17
@@ -1407,7 +1407,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %209 = load i64, ptr %118, align 8, !tbaa !34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %206, ptr align 1 %156, i64 %209, i1 false)
   %210 = getelementptr inbounds nuw i8, ptr %156, i64 %209
-  store ptr %210, ptr %4, align 8, !tbaa !84
+  store ptr %210, ptr %4, align 8, !tbaa !80
   %211 = load i64, ptr %109, align 8, !tbaa !31
   %.not327.i = icmp eq i64 %211, 0
   br i1 %.not327.i, label %247, label %212
@@ -1423,11 +1423,11 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %217 = mul i64 %216, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %214, ptr align 1 %210, i64 %217, i1 false)
   %218 = getelementptr inbounds nuw i8, ptr %210, i64 %217
-  store ptr %218, ptr %4, align 8, !tbaa !84
+  store ptr %218, ptr %4, align 8, !tbaa !80
   %219 = shl i64 %216, 4
   %220 = tail call noalias ptr @_emalloc(i64 noundef %219) #18
   %221 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  store ptr %220, ptr %221, align 8, !tbaa !60
+  store ptr %220, ptr %221, align 8, !tbaa !58
   %.not329.i = icmp eq ptr %220, null
   br i1 %.not329.i, label %read_64bit_types.exit, label %.preheader.i63
 
@@ -1443,28 +1443,28 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %225 = add i32 %224, 1
   %226 = zext i32 %225 to i64
   %227 = getelementptr inbounds nuw i32, ptr %214, i64 %226
-  %228 = load i32, ptr %227, align 4, !tbaa !76
+  %228 = load i32, ptr %227, align 4, !tbaa !73
   %229 = sext i32 %228 to i64
   %230 = shl nsw i64 %229, 32
   %231 = zext i32 %224 to i64
   %232 = getelementptr inbounds nuw i32, ptr %214, i64 %231
-  %233 = load i32, ptr %232, align 4, !tbaa !76
+  %233 = load i32, ptr %232, align 4, !tbaa !73
   %234 = sext i32 %233 to i64
   %235 = add i64 %230, %234
   %236 = tail call noundef i64 @llvm.bswap.i64(i64 %235)
   %237 = getelementptr inbounds nuw %struct._tlinfo, ptr %220, i64 %223
-  store i64 %236, ptr %237, align 8, !tbaa !61
+  store i64 %236, ptr %237, align 8, !tbaa !59
   %238 = add i32 %224, 2
   %239 = zext i32 %238 to i64
   %240 = getelementptr inbounds nuw i32, ptr %214, i64 %239
-  %241 = load i32, ptr %240, align 4, !tbaa !76
+  %241 = load i32, ptr %240, align 4, !tbaa !73
   %242 = tail call noundef i32 @llvm.bswap.i32(i32 %241)
   %243 = getelementptr inbounds nuw %struct._tlinfo, ptr %220, i64 %223, i32 1
-  store i32 %242, ptr %243, align 8, !tbaa !63
+  store i32 %242, ptr %243, align 8, !tbaa !61
   %244 = add i32 %.1336.i, 1
   %245 = zext i32 %244 to i64
   %246 = icmp ugt i64 %222, %245
-  br i1 %246, label %.lr.ph337.i, label %._crit_edge338.i, !llvm.loop !87
+  br i1 %246, label %.lr.ph337.i, label %._crit_edge338.i
 
 ._crit_edge338.i:                                 ; preds = %.lr.ph337.i, %.preheader.i63
   tail call void @_efree(ptr noundef nonnull %214) #17
@@ -1485,7 +1485,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %253 = load i64, ptr %106, align 8, !tbaa !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %251, ptr align 1 %248, i64 %253, i1 false)
   %254 = getelementptr inbounds nuw i8, ptr %248, i64 %253
-  store ptr %254, ptr %4, align 8, !tbaa !84
+  store ptr %254, ptr %4, align 8, !tbaa !80
   %.not349.i = icmp eq i64 %253, 0
   br i1 %.not349.i, label %._crit_edge342.i, label %.lr.ph341.i
 
@@ -1504,7 +1504,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %262 = add i32 %.2339.i, 1
   %263 = zext i32 %262 to i64
   %264 = icmp ugt i64 %253, %263
-  br i1 %264, label %256, label %._crit_edge342.i, !llvm.loop !88
+  br i1 %264, label %256, label %._crit_edge342.i
 
 ._crit_edge342.i:                                 ; preds = %256, %252
   tail call void @_efree(ptr noundef nonnull %251) #17
@@ -1525,7 +1525,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %271 = load i64, ptr %103, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %269, ptr align 1 %266, i64 %271, i1 false)
   %272 = getelementptr inbounds nuw i8, ptr %266, i64 %271
-  store ptr %272, ptr %4, align 8, !tbaa !84
+  store ptr %272, ptr %4, align 8, !tbaa !80
   %.not350.i = icmp eq i64 %271, 0
   br i1 %.not350.i, label %read_64bit_types.exit.thread86, label %.lr.ph345.i
 
@@ -1544,7 +1544,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %280 = add i32 %.3343.i, 1
   %281 = zext i32 %280 to i64
   %282 = icmp ugt i64 %271, %281
-  br i1 %282, label %274, label %read_64bit_types.exit.thread86, !llvm.loop !89
+  br i1 %282, label %274, label %read_64bit_types.exit.thread86
 
 read_64bit_types.exit.thread86:                   ; preds = %274, %270
   tail call void @_efree(ptr noundef nonnull %269) #17
@@ -1557,7 +1557,7 @@ read_64bit_types.exit:                            ; preds = %153, %215
 
 read_64bit_types.exit.thread:                     ; preds = %268, %250, %212, %._crit_edge.i62, %146, %read_64bit_types.exit
   %.0.i6681 = phi i32 [ 1, %read_64bit_types.exit ], [ 1, %268 ], [ 1, %250 ], [ 1, %212 ], [ 4, %._crit_edge.i62 ], [ 1, %146 ]
-  store i32 %.0.i6681, ptr %2, align 4, !tbaa !76
+  store i32 %.0.i6681, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef nonnull %33)
   br label %305
 
@@ -1571,7 +1571,7 @@ read_64bit_types.exit.thread82:                   ; preds = %265, %read_64bit_ty
   %286 = load i8, ptr %storemerge.i, align 1, !tbaa !57
   %.not.i67 = icmp eq i8 %286, 10
   %287 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
-  br i1 %.not.i67, label %read_posix_string.exit, label %285, !llvm.loop !90
+  br i1 %.not.i67, label %read_posix_string.exit, label %285
 
 read_posix_string.exit:                           ; preds = %285
   %288 = ptrtoint ptr %storemerge.i to i64
@@ -1580,15 +1580,15 @@ read_posix_string.exit:                           ; preds = %285
   %290 = add i64 %reass.sub.i, 1
   %291 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %290) #16
   %292 = getelementptr inbounds nuw i8, ptr %33, i64 160
-  store ptr %291, ptr %292, align 8, !tbaa !65
+  store ptr %291, ptr %292, align 8, !tbaa !62
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %291, ptr nonnull align 1 %284, i64 %reass.sub.i, i1 false)
-  store ptr %287, ptr %4, align 8, !tbaa !84
+  store ptr %287, ptr %4, align 8, !tbaa !80
   %strcmpload = load i8, ptr %291, align 1
   %293 = icmp eq i8 %strcmpload, 0
   br i1 %293, label %294, label %295
 
 294:                                              ; preds = %read_posix_string.exit
-  store i32 9, ptr %2, align 4, !tbaa !76
+  store i32 9, ptr %2, align 4, !tbaa !73
   br label %298
 
 295:                                              ; preds = %read_posix_string.exit
@@ -1597,7 +1597,7 @@ read_posix_string.exit:                           ; preds = %285
   br i1 %.not41, label %297, label %298
 
 297:                                              ; preds = %295
-  store i32 8, ptr %2, align 4, !tbaa !76
+  store i32 8, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef nonnull %33)
   br label %305
 
@@ -1620,7 +1620,7 @@ read_posix_string.exit:                           ; preds = %285
   br label %305
 
 .loopexit93:                                      ; preds = %24, %3
-  store i32 6, ptr %2, align 4, !tbaa !76
+  store i32 6, ptr %2, align 4, !tbaa !73
   br label %305
 
 305:                                              ; preds = %.loopexit93, %300, %299, %297, %read_64bit_types.exit.thread, %.loopexit, %98, %read_preamble.exit.thread
@@ -1631,13 +1631,13 @@ read_posix_string.exit:                           ; preds = %285
 
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !83
+  %2 = load ptr, ptr %0, align 8, !tbaa !79
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @_efree(ptr noundef nonnull %2) #17
-  store ptr null, ptr %0, align 8, !tbaa !83
+  store ptr null, ptr %0, align 8, !tbaa !79
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -1686,13 +1686,13 @@ define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %19, %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %22 = load ptr, ptr %21, align 8, !tbaa !60
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
   %.not40 = icmp eq ptr %22, null
   br i1 %.not40, label %24, label %23
 
 23:                                               ; preds = %20
   tail call void @_efree(ptr noundef nonnull %22) #17
-  store ptr null, ptr %21, align 8, !tbaa !60
+  store ptr null, ptr %21, align 8, !tbaa !58
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -1708,18 +1708,18 @@ define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %27, %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %30 = load ptr, ptr %29, align 8, !tbaa !65
+  %30 = load ptr, ptr %29, align 8, !tbaa !62
   %.not42 = icmp eq ptr %30, null
   br i1 %.not42, label %32, label %31
 
 31:                                               ; preds = %28
   tail call void @_efree(ptr noundef nonnull %30) #17
-  store ptr null, ptr %29, align 8, !tbaa !65
+  store ptr null, ptr %29, align 8, !tbaa !62
   br label %32
 
 32:                                               ; preds = %31, %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %34 = load ptr, ptr %33, align 8, !tbaa !66
+  %34 = load ptr, ptr %33, align 8, !tbaa !63
   %.not43 = icmp eq ptr %34, null
   br i1 %.not43, label %36, label %35
 
@@ -1735,18 +1735,18 @@ define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr noundef captures(none) initializes((168, 176)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = tail call ptr @timelib_parse_posix_str(ptr noundef %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %4, ptr %5, align 8, !tbaa !66
+  store ptr %4, ptr %5, align 8, !tbaa !63
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %112, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !91
+  %8 = load i64, ptr %7, align 8, !tbaa !81
   %9 = trunc i64 %8 to i32
-  %10 = load ptr, ptr %4, align 8, !tbaa !67
+  %10 = load ptr, ptr %4, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !tbaa !33
   %.not.i = icmp eq i64 %12, 0
@@ -1784,11 +1784,11 @@ define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr noundef c
 30:                                               ; preds = %22, %18, %14
   %31 = add nuw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %31, %12
-  br i1 %exitcond.not.i, label %find_ttinfo_index.exit.thread, label %14, !llvm.loop !92
+  br i1 %exitcond.not.i, label %find_ttinfo_index.exit.thread, label %14
 
 find_ttinfo_index.exit.thread:                    ; preds = %30, %6
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 -9999999, ptr %32, align 8, !tbaa !70
+  store i32 -9999999, ptr %32, align 8, !tbaa !67
   %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8, !tbaa !40
   br label %36
@@ -1796,7 +1796,7 @@ find_ttinfo_index.exit.thread:                    ; preds = %30, %6
 find_ttinfo_index.exit:                           ; preds = %22
   %33 = trunc i64 %.016.i to i32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 %33, ptr %34, align 8, !tbaa !70
+  store i32 %33, ptr %34, align 8, !tbaa !67
   %35 = icmp eq i32 %33, -9999999
   br i1 %35, label %36, label %62
 
@@ -1834,20 +1834,20 @@ find_ttinfo_index.exit:                           ; preds = %22
   %58 = add i64 %54, 1
   store i64 %58, ptr %11, align 8, !tbaa !33
   %59 = trunc i64 %54 to i32
-  %60 = load ptr, ptr %5, align 8, !tbaa !66
+  %60 = load ptr, ptr %5, align 8, !tbaa !63
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store i32 %59, ptr %61, align 8, !tbaa !70
+  store i32 %59, ptr %61, align 8, !tbaa !67
   br label %112
 
 62:                                               ; preds = %find_ttinfo_index.exit
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !71
+  %64 = load ptr, ptr %63, align 8, !tbaa !68
   %.not24 = icmp eq ptr %64, null
   br i1 %.not24, label %112, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %66 = load i64, ptr %65, align 8, !tbaa !93
+  %66 = load i64, ptr %65, align 8, !tbaa !82
   %67 = trunc i64 %66 to i32
   br label %68
 
@@ -1876,17 +1876,17 @@ find_ttinfo_index.exit:                           ; preds = %22
 83:                                               ; preds = %76, %72, %68
   %84 = add nuw i64 %.016.i27, 1
   %exitcond.not.i28 = icmp eq i64 %84, %12
-  br i1 %exitcond.not.i28, label %find_ttinfo_index.exit30.thread, label %68, !llvm.loop !92
+  br i1 %exitcond.not.i28, label %find_ttinfo_index.exit30.thread, label %68
 
 find_ttinfo_index.exit30.thread:                  ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 -9999999, ptr %85, align 4, !tbaa !72
+  store i32 -9999999, ptr %85, align 4, !tbaa !69
   br label %89
 
 find_ttinfo_index.exit30:                         ; preds = %76
   %86 = trunc i64 %.016.i27 to i32
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 %86, ptr %87, align 4, !tbaa !72
+  store i32 %86, ptr %87, align 4, !tbaa !69
   %88 = icmp eq i32 %86, -9999999
   br i1 %88, label %89, label %112
 
@@ -1921,9 +1921,9 @@ find_ttinfo_index.exit30:                         ; preds = %76
   %108 = add i64 %104, 1
   store i64 %108, ptr %11, align 8, !tbaa !33
   %109 = trunc i64 %104 to i32
-  %110 = load ptr, ptr %5, align 8, !tbaa !66
+  %110 = load ptr, ptr %5, align 8, !tbaa !63
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 52
-  store i32 %109, ptr %111, align 4, !tbaa !72
+  store i32 %109, ptr %111, align 4, !tbaa !69
   br label %112
 
 112:                                              ; preds = %find_ttinfo_index.exit30, %62, %1, %89, %36
@@ -1933,7 +1933,7 @@ find_ttinfo_index.exit30:                         ; preds = %76
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @read_location(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) initializes((136, 160)) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !84
+  %3 = load ptr, ptr %0, align 8, !tbaa !80
   %.sroa.0.0.copyload = load i32, ptr %3, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
@@ -1953,19 +1953,19 @@ define internal fastcc void @read_location(ptr noundef nonnull captures(none) %0
   store double %13, ptr %11, align 8, !tbaa !20
   %14 = tail call noundef i32 @llvm.bswap.i32(i32 %.sroa.5.0.copyload)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store ptr %15, ptr %0, align 8, !tbaa !84
+  store ptr %15, ptr %0, align 8, !tbaa !80
   %16 = add i32 %14, 1
   %17 = zext i32 %16 to i64
   %18 = tail call noalias ptr @_emalloc(i64 noundef %17) #18
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %18, ptr %19, align 8, !tbaa !21
-  %20 = load ptr, ptr %0, align 8, !tbaa !84
+  %20 = load ptr, ptr %0, align 8, !tbaa !80
   %21 = zext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %20, i64 %21, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !57
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %21
-  store ptr %23, ptr %0, align 8, !tbaa !84
+  store ptr %23, ptr %0, align 8, !tbaa !80
   ret void
 }
 
@@ -1973,10 +1973,10 @@ declare void @timelib_posix_str_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @timelib_tzinfo_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !83
+  %2 = load ptr, ptr %0, align 8, !tbaa !79
   %3 = tail call noalias dereferenceable_or_null(176) ptr @_ecalloc(i64 noundef 1, i64 noundef 176) #16
   %4 = tail call noalias ptr @_estrdup(ptr noundef %2) #17
-  store ptr %4, ptr %3, align 8, !tbaa !83
+  store ptr %4, ptr %3, align 8, !tbaa !79
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2075,9 +2075,9 @@ define hidden noalias noundef ptr @timelib_tzinfo_clone(ptr noundef readonly cap
   %71 = shl i64 %69, 4
   %72 = tail call noalias ptr @_emalloc(i64 noundef %71) #18
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr %72, ptr %73, align 8, !tbaa !60
+  store ptr %72, ptr %73, align 8, !tbaa !58
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %75 = load ptr, ptr %74, align 8, !tbaa !60
+  %75 = load ptr, ptr %74, align 8, !tbaa !58
   %76 = load i64, ptr %29, align 8, !tbaa !31
   %77 = shl i64 %76, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %72, ptr align 8 %75, i64 %77, i1 false)
@@ -2085,14 +2085,14 @@ define hidden noalias noundef ptr @timelib_tzinfo_clone(ptr noundef readonly cap
 
 78:                                               ; preds = %70, %54
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %80 = load ptr, ptr %79, align 8, !tbaa !65
+  %80 = load ptr, ptr %79, align 8, !tbaa !62
   %.not234 = icmp eq ptr %80, null
   br i1 %.not234, label %84, label %81
 
 81:                                               ; preds = %78
   %82 = tail call noalias ptr @_estrdup(ptr noundef nonnull %80) #17
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  store ptr %82, ptr %83, align 8, !tbaa !65
+  store ptr %82, ptr %83, align 8, !tbaa !62
   br label %84
 
 84:                                               ; preds = %81, %78
@@ -2124,12 +2124,12 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %11 = load ptr, ptr %10, align 8, !tbaa !66
+  %11 = load ptr, ptr %10, align 8, !tbaa !63
   %.not50 = icmp eq ptr %11, null
   br i1 %.not50, label %14, label %12
 
 12:                                               ; preds = %9
-  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !94
+  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !83
   %13 = tail call ptr @timelib_fetch_posix_timezone_offset(ptr noundef nonnull %0, i64 noundef %1, ptr noundef null) #17
   br label %67
 
@@ -2140,7 +2140,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   br i1 %17, label %18, label %67
 
 18:                                               ; preds = %14
-  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !94
+  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   br label %67
@@ -2151,7 +2151,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !94
+  store i64 -9223372036854775808, ptr %2, align 8, !tbaa !83
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   br label %67
@@ -2165,7 +2165,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %33 = load ptr, ptr %32, align 8, !tbaa !66
+  %33 = load ptr, ptr %32, align 8, !tbaa !63
   %.not52 = icmp eq ptr %33, null
   br i1 %.not52, label %36, label %34
 
@@ -2174,7 +2174,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   br label %67
 
 36:                                               ; preds = %31
-  store i64 %30, ptr %2, align 8, !tbaa !94
+  store i64 %30, ptr %2, align 8, !tbaa !83
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load ptr, ptr %37, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2204,7 +2204,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   %..042 = select i1 %54, i32 %50, i32 %.04254
   %55 = sub i32 %..042, %.043.
   %56 = icmp ugt i32 %55, 1
-  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !95
+  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.phi.trans.insert = zext nneg i32 %.043. to i64
@@ -2216,7 +2216,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
 ._crit_edge:                                      ; preds = %46, %._crit_edge.loopexit
   %58 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %22, %46 ]
   %.043.lcssa = phi i64 [ %57, %._crit_edge.loopexit ], [ 0, %46 ]
-  store i64 %58, ptr %2, align 8, !tbaa !94
+  store i64 %58, ptr %2, align 8, !tbaa !83
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = load ptr, ptr %59, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2272,7 +2272,7 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !38
-  %16 = load i64, ptr %3, align 8, !tbaa !94
+  %16 = load i64, ptr %3, align 8, !tbaa !83
   br label %20
 
 17:                                               ; preds = %2
@@ -2286,9 +2286,9 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
   %.021 = phi ptr [ %19, %17 ], [ %13, %6 ]
   %.0 = phi i32 [ 0, %17 ], [ %7, %6 ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink29, ptr %21, align 8, !tbaa !96
+  store i32 %.sink29, ptr %21, align 8, !tbaa !84
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sink, ptr %22, align 8, !tbaa !98
+  store i64 %.sink, ptr %22, align 8, !tbaa !86
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load i64, ptr %23, align 8, !tbaa !31
   %.not.i = icmp eq i64 %24, 0
@@ -2296,7 +2296,7 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %27 = load ptr, ptr %26, align 8, !tbaa !58
   %.not12.i = icmp eq ptr %27, null
   br i1 %.not12.i, label %fetch_leaptime_offset.exit.thread, label %.preheader
 
@@ -2310,26 +2310,26 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
 29:                                               ; preds = %.preheader
   %30 = and i64 %indvars.iv.next.i, 2147483647
   %31 = getelementptr inbounds nuw %struct._tlinfo, ptr %27, i64 %30
-  %32 = load i64, ptr %31, align 8, !tbaa !61
+  %32 = load i64, ptr %31, align 8, !tbaa !59
   %33 = icmp sgt i64 %0, %32
-  br i1 %33, label %fetch_leaptime_offset.exit, label %.preheader, !llvm.loop !99
+  br i1 %33, label %fetch_leaptime_offset.exit, label %.preheader
 
 fetch_leaptime_offset.exit:                       ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !63
+  %35 = load i32, ptr %34, align 8, !tbaa !61
   %36 = sub i32 0, %35
   br label %fetch_leaptime_offset.exit.thread
 
 fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %20, %25, %fetch_leaptime_offset.exit
   %.022 = phi i32 [ %36, %fetch_leaptime_offset.exit ], [ 0, %25 ], [ 0, %20 ], [ 0, %.preheader ]
-  store i32 %.0, ptr %4, align 8, !tbaa !100
+  store i32 %.0, ptr %4, align 8, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.022, ptr %37, align 4, !tbaa !101
+  store i32 %.022, ptr %37, align 4, !tbaa !88
   %.not26 = icmp eq ptr %.021, null
   %.str.493..021 = select i1 %.not26, ptr @.str.493, ptr %.021
   %38 = call noalias ptr @_estrdup(ptr noundef nonnull %.str.493..021) #17
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %38, ptr %39, align 8, !tbaa !102
+  store ptr %38, ptr %39, align 8, !tbaa !89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret ptr %4
 }
@@ -2354,7 +2354,7 @@ define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %9, align 4, !tbaa !36
-  store i32 %12, ptr %2, align 4, !tbaa !76
+  store i32 %12, ptr %2, align 4, !tbaa !73
   br label %13
 
 13:                                               ; preds = %11, %10
@@ -2364,7 +2364,7 @@ define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !38
-  store i32 %16, ptr %4, align 4, !tbaa !76
+  store i32 %16, ptr %4, align 4, !tbaa !73
   br label %17
 
 17:                                               ; preds = %14, %13
@@ -2372,8 +2372,8 @@ define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef
   br i1 %.not18, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = load i64, ptr %6, align 8, !tbaa !94
-  store i64 %19, ptr %3, align 8, !tbaa !94
+  %19 = load i64, ptr %6, align 8, !tbaa !83
+  store i64 %19, ptr %3, align 8, !tbaa !83
   br label %20
 
 20:                                               ; preds = %8, %17, %18, %5
@@ -2386,7 +2386,7 @@ define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef
 define hidden range(i64 -2147483648, 2147483648) i64 @timelib_get_current_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %4 = load i32, ptr %3, align 8, !tbaa !103
+  %4 = load i32, ptr %3, align 8, !tbaa !90
   switch i32 %4, label %24 [
     i32 2, label %5
     i32 1, label %5
@@ -2395,9 +2395,9 @@ define hidden range(i64 -2147483648, 2147483648) i64 @timelib_get_current_offset
 
 5:                                                ; preds = %1, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load i32, ptr %6, align 8, !tbaa !104
+  %7 = load i32, ptr %6, align 8, !tbaa !91
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load i32, ptr %8, align 8, !tbaa !105
+  %9 = load i32, ptr %8, align 8, !tbaa !92
   %10 = mul i32 %9, 3600
   %11 = add i32 %10, %7
   %12 = sext i32 %11 to i64
@@ -2405,9 +2405,9 @@ define hidden range(i64 -2147483648, 2147483648) i64 @timelib_get_current_offset
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %15 = load i64, ptr %14, align 8, !tbaa !106
+  %15 = load i64, ptr %14, align 8, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !107
+  %17 = load ptr, ptr %16, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   %18 = icmp eq ptr %17, null
   br i1 %18, label %timelib_get_time_zone_offset_info.exit, label %19
@@ -2435,9 +2435,9 @@ timelib_get_time_zone_offset_info.exit:           ; preds = %13, %19, %21
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %4 = load i32, ptr %3, align 8, !tbaa !103
+  %4 = load i32, ptr %3, align 8, !tbaa !90
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %6 = load i32, ptr %5, align 8, !tbaa !103
+  %6 = load i32, ptr %5, align 8, !tbaa !90
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %32
 
@@ -2450,15 +2450,15 @@ define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr noundef readonly ca
 
 8:                                                ; preds = %7, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i32, ptr %9, align 8, !tbaa !104
+  %10 = load i32, ptr %9, align 8, !tbaa !91
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %12 = load i32, ptr %11, align 8, !tbaa !105
+  %12 = load i32, ptr %11, align 8, !tbaa !92
   %13 = mul i32 %12, 3600
   %14 = add i32 %13, %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %16 = load i32, ptr %15, align 8, !tbaa !104
+  %16 = load i32, ptr %15, align 8, !tbaa !91
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %18 = load i32, ptr %17, align 8, !tbaa !105
+  %18 = load i32, ptr %17, align 8, !tbaa !92
   %19 = mul i32 %18, 3600
   %20 = add i32 %19, %16
   %21 = icmp eq i32 %14, %20
@@ -2467,11 +2467,11 @@ define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr noundef readonly ca
 
 22:                                               ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !107
-  %25 = load ptr, ptr %24, align 8, !tbaa !83
+  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %25 = load ptr, ptr %24, align 8, !tbaa !79
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !107
-  %28 = load ptr, ptr %27, align 8, !tbaa !83
+  %27 = load ptr, ptr %26, align 8, !tbaa !94
+  %28 = load ptr, ptr %27, align 8, !tbaa !79
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %28) #19
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %32, label %31
@@ -2603,53 +2603,40 @@ attributes #20 = { nounwind allocsize(1) }
 !55 = !{!46, !47, i64 40}
 !56 = !{!5, !6, i64 88}
 !57 = !{!8, !8, i64 0}
-!58 = distinct !{!58, !59}
-!59 = !{!"llvm.loop.estimated_trip_count"}
-!60 = !{!5, !16, i64 112}
-!61 = !{!62, !13, i64 0}
-!62 = !{!"_tlinfo", !13, i64 0, !11, i64 8}
-!63 = !{!62, !11, i64 8}
-!64 = distinct !{!64, !59}
-!65 = !{!5, !6, i64 160}
-!66 = !{!5, !19, i64 168}
-!67 = !{!68, !6, i64 0}
-!68 = !{!"_timelib_posix_str", !6, i64 0, !47, i64 8, !6, i64 16, !47, i64 24, !69, i64 32, !69, i64 40, !11, i64 48, !11, i64 52}
-!69 = !{!"p1 _ZTS25_timelib_posix_trans_info", !7, i64 0}
-!70 = !{!68, !11, i64 48}
-!71 = !{!68, !6, i64 16}
-!72 = !{!68, !11, i64 52}
-!73 = !{!74, !11, i64 8}
-!74 = !{!"_timelib_tzdb", !6, i64 0, !11, i64 8, !75, i64 16, !6, i64 24}
-!75 = !{!"p1 _ZTS25_timelib_tzdb_index_entry", !7, i64 0}
-!76 = !{!11, !11, i64 0}
-!77 = !{!74, !75, i64 16}
-!78 = !{!79, !6, i64 0}
-!79 = !{!"_timelib_tzdb_index_entry", !6, i64 0, !11, i64 8}
-!80 = distinct !{!80, !59}
-!81 = !{!74, !6, i64 24}
-!82 = !{!79, !11, i64 8}
-!83 = !{!5, !6, i64 0}
-!84 = !{!6, !6, i64 0}
-!85 = distinct !{!85, !59}
-!86 = distinct !{!86, !59}
-!87 = distinct !{!87, !59}
-!88 = distinct !{!88, !59}
-!89 = distinct !{!89, !59}
-!90 = distinct !{!90, !59}
-!91 = !{!68, !47, i64 8}
-!92 = distinct !{!92, !59}
-!93 = !{!68, !47, i64 24}
-!94 = !{!47, !47, i64 0}
-!95 = distinct !{!95, !59}
-!96 = !{!97, !11, i64 8}
-!97 = !{!"_timelib_time_offset", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 16, !47, i64 24}
-!98 = !{!97, !47, i64 24}
-!99 = distinct !{!99, !59}
-!100 = !{!97, !11, i64 0}
-!101 = !{!97, !11, i64 4}
-!102 = !{!97, !6, i64 16}
-!103 = !{!46, !11, i64 232}
-!104 = !{!46, !11, i64 56}
-!105 = !{!46, !11, i64 80}
-!106 = !{!46, !47, i64 192}
-!107 = !{!46, !48, i64 72}
+!58 = !{!5, !16, i64 112}
+!59 = !{!60, !13, i64 0}
+!60 = !{!"_tlinfo", !13, i64 0, !11, i64 8}
+!61 = !{!60, !11, i64 8}
+!62 = !{!5, !6, i64 160}
+!63 = !{!5, !19, i64 168}
+!64 = !{!65, !6, i64 0}
+!65 = !{!"_timelib_posix_str", !6, i64 0, !47, i64 8, !6, i64 16, !47, i64 24, !66, i64 32, !66, i64 40, !11, i64 48, !11, i64 52}
+!66 = !{!"p1 _ZTS25_timelib_posix_trans_info", !7, i64 0}
+!67 = !{!65, !11, i64 48}
+!68 = !{!65, !6, i64 16}
+!69 = !{!65, !11, i64 52}
+!70 = !{!71, !11, i64 8}
+!71 = !{!"_timelib_tzdb", !6, i64 0, !11, i64 8, !72, i64 16, !6, i64 24}
+!72 = !{!"p1 _ZTS25_timelib_tzdb_index_entry", !7, i64 0}
+!73 = !{!11, !11, i64 0}
+!74 = !{!71, !72, i64 16}
+!75 = !{!76, !6, i64 0}
+!76 = !{!"_timelib_tzdb_index_entry", !6, i64 0, !11, i64 8}
+!77 = !{!71, !6, i64 24}
+!78 = !{!76, !11, i64 8}
+!79 = !{!5, !6, i64 0}
+!80 = !{!6, !6, i64 0}
+!81 = !{!65, !47, i64 8}
+!82 = !{!65, !47, i64 24}
+!83 = !{!47, !47, i64 0}
+!84 = !{!85, !11, i64 8}
+!85 = !{!"_timelib_time_offset", !11, i64 0, !11, i64 4, !11, i64 8, !6, i64 16, !47, i64 24}
+!86 = !{!85, !47, i64 24}
+!87 = !{!85, !11, i64 0}
+!88 = !{!85, !11, i64 4}
+!89 = !{!85, !6, i64 16}
+!90 = !{!46, !11, i64 232}
+!91 = !{!46, !11, i64 56}
+!92 = !{!46, !11, i64 80}
+!93 = !{!46, !47, i64 192}
+!94 = !{!46, !48, i64 72}

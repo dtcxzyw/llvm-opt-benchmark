@@ -600,23 +600,23 @@ for.body23:                                       ; preds = %for.cond27.for.cond
   %10 = load ptr, ptr %vm, align 8, !tbaa !55
   %m_area = getelementptr inbounds nuw i8, ptr %10, i64 8
   %Z.i145 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %11 = load i16, ptr %Z.i145, align 2, !tbaa !97
+  %11 = load i16, ptr %Z.i145, align 2, !tbaa !96
   %conv2.i = sext i16 %11 to i32
   %sub.i146 = sub nsw i32 %conv.i, %conv2.i
   %m_cache_extent.i = getelementptr inbounds nuw i8, ptr %10, i64 20
   %Y.i147 = getelementptr inbounds nuw i8, ptr %10, i64 22
-  %12 = load i16, ptr %Y.i147, align 2, !tbaa !99
+  %12 = load i16, ptr %Y.i147, align 2, !tbaa !98
   %conv3.i = sext i16 %12 to i32
   %mul.i148 = mul nsw i32 %sub.i146, %conv3.i
-  %13 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !100
+  %13 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !99
   %conv5.i = sext i16 %13 to i32
   %Y9.i = getelementptr inbounds nuw i8, ptr %10, i64 10
-  %14 = load i16, ptr %Y9.i, align 2, !tbaa !101
+  %14 = load i16, ptr %Y9.i, align 2, !tbaa !100
   %conv10.i = sext i16 %14 to i32
   %sub11.i = add nsw i32 %mul.i148, %conv18158
   %mul622.i = sub i32 %sub11.i, %conv10.i
   %add.i149 = mul i32 %mul622.i, %conv5.i
-  %15 = load i16, ptr %m_area, align 2, !tbaa !102
+  %15 = load i16, ptr %m_area, align 2, !tbaa !101
   %conv19.i = sext i16 %15 to i32
   %sub20.i = sub nsw i32 %conv16.i, %conv19.i
   %add21.i = add nsw i32 %sub20.i, %add.i149
@@ -626,22 +626,22 @@ for.cond27.for.cond.cleanup32_crit_edge:          ; preds = %if.end
   %inc44 = add i16 %y.0157, 1
   %conv18 = sext i16 %inc44 to i32
   %cmp21.not = icmp slt i32 %conv20, %conv18
-  br i1 %cmp21.not, label %for.cond17.for.cond.cleanup22_crit_edge.split, label %for.body23, !llvm.loop !103
+  br i1 %cmp21.not, label %for.cond17.for.cond.cleanup22_crit_edge.split, label %for.body23, !llvm.loop !102
 
 for.body33:                                       ; preds = %if.end, %for.body23
   %i.0154 = phi i32 [ %add21.i, %for.body23 ], [ %inc, %if.end ]
   %x.0153 = phi i16 [ %mul.i, %for.body23 ], [ %inc42, %if.end ]
   %16 = load ptr, ptr %vm, align 8, !tbaa !55
   %m_data = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %17 = load ptr, ptr %m_data, align 8, !tbaa !104
+  %17 = load ptr, ptr %m_data, align 8, !tbaa !103
   %idxprom = zext i32 %i.0154 to i64
   %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %17, i64 %idxprom
-  %18 = load i16, ptr %arrayidx, align 4, !tbaa !106
+  %18 = load i16, ptr %arrayidx, align 4, !tbaa !105
   %cmp37 = icmp eq i16 %18, 127
   br i1 %cmp37, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body33
-  store i32 %n_node.sroa.0.0.insert.ext, ptr %arrayidx, align 4, !tbaa.struct !108
+  store i32 %n_node.sroa.0.0.insert.ext, ptr %arrayidx, align 4, !tbaa.struct !107
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body33
@@ -649,7 +649,7 @@ if.end:                                           ; preds = %if.then, %for.body3
   %inc42 = add i16 %x.0153, 1
   %conv28 = sext i16 %inc42 to i32
   %cmp31.not = icmp slt i32 %conv30, %conv28
-  br i1 %cmp31.not, label %for.cond27.for.cond.cleanup32_crit_edge, label %for.body33, !llvm.loop !109
+  br i1 %cmp31.not, label %for.cond27.for.cond.cleanup32_crit_edge, label %for.body33, !llvm.loop !108
 
 if.then52:                                        ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit
   %transforming_liquid = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -658,7 +658,7 @@ if.then52:                                        ; preds = %_ZNK14NodeDefManage
 
 if.end55:                                         ; preds = %if.then52, %_ZNK14NodeDefManager3getERK7MapNode.exit
   %flags = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %19 = load i32, ptr %flags, align 4, !tbaa !110
+  %19 = load i32, ptr %flags, align 4, !tbaa !109
   %and = and i32 %19, 16
   %tobool.not = icmp ne i32 %and, 0
   %set_light = getelementptr inbounds nuw i8, ptr %this, i64 202
@@ -981,7 +981,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !111
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -1135,21 +1135,19 @@ attributes #13 = { nounwind }
 !91 = !{!"_ZTSSt12__shared_ptrI16NodeBoxConnectedLN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0, !92, i64 8}
 !92 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
 !93 = !{!"_ZTS9SoundSpec", !5, i64 0, !30, i64 32, !30, i64 36, !30, i64 40, !30, i64 44, !17, i64 48, !17, i64 49}
-!94 = distinct !{!94, !95, !96}
+!94 = distinct !{!94, !95}
 !95 = !{!"llvm.loop.mustprogress"}
-!96 = !{!"llvm.loop.estimated_trip_count"}
-!97 = !{!98, !19, i64 4}
-!98 = !{!"_ZTS9VoxelArea", !18, i64 0, !18, i64 6, !18, i64 12}
-!99 = !{!98, !19, i64 14}
-!100 = !{!98, !19, i64 12}
-!101 = !{!98, !19, i64 2}
-!102 = !{!98, !19, i64 0}
-!103 = distinct !{!103, !95, !96}
-!104 = !{!105, !7, i64 32}
-!105 = !{!"_ZTS16VoxelManipulator", !98, i64 8, !7, i64 32, !7, i64 40}
-!106 = !{!107, !19, i64 0}
-!107 = !{!"_ZTS7MapNode", !19, i64 0, !8, i64 2, !8, i64 3}
-!108 = !{i64 0, i64 2, !57, i64 2, i64 1, !33, i64 3, i64 1, !33}
-!109 = distinct !{!109, !95, !96}
-!110 = !{!15, !16, i64 20}
-!111 = distinct !{!111, !96}
+!96 = !{!97, !19, i64 4}
+!97 = !{!"_ZTS9VoxelArea", !18, i64 0, !18, i64 6, !18, i64 12}
+!98 = !{!97, !19, i64 14}
+!99 = !{!97, !19, i64 12}
+!100 = !{!97, !19, i64 2}
+!101 = !{!97, !19, i64 0}
+!102 = distinct !{!102, !95}
+!103 = !{!104, !7, i64 32}
+!104 = !{!"_ZTS16VoxelManipulator", !97, i64 8, !7, i64 32, !7, i64 40}
+!105 = !{!106, !19, i64 0}
+!106 = !{!"_ZTS7MapNode", !19, i64 0, !8, i64 2, !8, i64 3}
+!107 = !{i64 0, i64 2, !57, i64 2, i64 1, !33, i64 3, i64 1, !33}
+!108 = distinct !{!108, !95}
+!109 = !{!15, !16, i64 20}

@@ -1167,12 +1167,12 @@ define hidden noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr nounde
   %14 = zext nneg i32 %10 to i64
   %15 = lshr i64 %13, %14
   %16 = trunc i64 %15 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile i32 %16, ptr %5, align 4
   br label %_ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit
 
 17:                                               ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile ptr %4, ptr %5, align 8
   br label %_ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit
 
@@ -1222,12 +1222,12 @@ _ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit: ; preds = %_ZN7oopDesc13set_
   %23 = zext nneg i32 %19 to i64
   %24 = lshr i64 %22, %23
   %25 = trunc i64 %24 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile i32 %25, ptr %14, align 4
   br label %_ZNK12MemAllocator6finishEPP12HeapWordImpl.exit
 
 26:                                               ; preds = %_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile ptr %13, ptr %14, align 8
   br label %_ZNK12MemAllocator6finishEPP12HeapWordImpl.exit
 
@@ -1291,12 +1291,12 @@ _ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit: ; preds = %.lr.ph.i.i.i.preh
   %32 = zext nneg i32 %28 to i64
   %33 = lshr i64 %31, %32
   %34 = trunc i64 %33 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile i32 %34, ptr %23, align 4
   br label %_ZNK12MemAllocator6finishEPP12HeapWordImpl.exit
 
 35:                                               ; preds = %_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile ptr %22, ptr %23, align 8
   br label %_ZNK12MemAllocator6finishEPP12HeapWordImpl.exit
 
@@ -1349,12 +1349,12 @@ _ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit: ; preds = %_ZN7oopDesc13set_
   %24 = zext nneg i32 %20 to i64
   %25 = lshr i64 %23, %24
   %26 = trunc i64 %25 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile i32 %26, ptr %15, align 4
   br label %_ZNK12MemAllocator6finishEPP12HeapWordImpl.exit
 
 27:                                               ; preds = %_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile ptr %14, ptr %15, align 8
   br label %_ZNK12MemAllocator6finishEPP12HeapWordImpl.exit
 
@@ -1534,7 +1534,6 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2145392468}
+!8 = !{i64 2145392468}

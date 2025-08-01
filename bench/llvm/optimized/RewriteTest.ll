@@ -86,24 +86,24 @@ define dso_local void @_ZN5clang13DoRewriteTestERNS_12PreprocessorEPN4llvm11raw_
   %.sroa.011.025 = phi ptr [ %.sroa.011.023, %.lr.ph26 ], [ %.sroa.011.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.011.025, i64 16
-  %21 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !255
-  %22 = load ptr, ptr %7, align 8, !tbaa !243, !noalias !255
+  %21 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !254
+  %22 = load ptr, ptr %7, align 8, !tbaa !243, !noalias !254
   call void @_ZN5clang5Lexer11getSpellingB5cxx11ERKNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEPb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(696) %21, ptr noundef nonnull align 8 dereferenceable(849) %22, ptr noundef null) #6
-  %23 = load ptr, ptr %4, align 8, !tbaa !258
-  %24 = load i64, ptr %10, align 8, !tbaa !259
+  %23 = load ptr, ptr %4, align 8, !tbaa !257
+  %24 = load i64, ptr %10, align 8, !tbaa !258
   %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %23, i64 noundef %24) #6
-  %26 = load ptr, ptr %4, align 8, !tbaa !258
+  %26 = load ptr, ptr %4, align 8, !tbaa !257
   %27 = icmp eq ptr %26, %11
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %19
-  %28 = load i64, ptr %10, align 8, !tbaa !259
+  %28 = load i64, ptr %10, align 8, !tbaa !258
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %19
-  %30 = load i64, ptr %11, align 8, !tbaa !260
+  %30 = load i64, ptr %11, align 8, !tbaa !259
   %31 = add i64 %30, 1
   call void @_ZdlPvm(ptr noundef %26, i64 noundef %31) #7
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -112,7 +112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
   %.sroa.011.0 = load ptr, ptr %.sroa.011.025, align 8, !tbaa !245
   %.not18 = icmp eq ptr %.sroa.011.0, %3
-  br i1 %.not18, label %._crit_edge, label %19, !llvm.loop !261
+  br i1 %.not18, label %._crit_edge, label %19, !llvm.loop !260
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -401,13 +401,12 @@ attributes #7 = { builtin nounwind }
 !249 = !{!"_ZTSN5clang5TokenE", !39, i64 0, !39, i64 4, !14, i64 8, !250, i64 16, !251, i64 18}
 !250 = !{!"_ZTSN5clang3tok9TokenKindE", !7, i64 0}
 !251 = !{!"short", !7, i64 0}
-!252 = distinct !{!252, !253, !254}
+!252 = distinct !{!252, !253}
 !253 = !{!"llvm.loop.mustprogress"}
-!254 = !{!"llvm.loop.estimated_trip_count"}
-!255 = !{!256}
-!256 = distinct !{!256, !257, !"_ZNK5clang12Preprocessor11getSpellingB5cxx11ERKNS_5TokenEPb: argument 0"}
-!257 = distinct !{!257, !"_ZNK5clang12Preprocessor11getSpellingB5cxx11ERKNS_5TokenEPb"}
-!258 = !{!94, !33, i64 0}
-!259 = !{!94, !45, i64 8}
-!260 = !{!7, !7, i64 0}
-!261 = distinct !{!261, !253, !254}
+!254 = !{!255}
+!255 = distinct !{!255, !256, !"_ZNK5clang12Preprocessor11getSpellingB5cxx11ERKNS_5TokenEPb: argument 0"}
+!256 = distinct !{!256, !"_ZNK5clang12Preprocessor11getSpellingB5cxx11ERKNS_5TokenEPb"}
+!257 = !{!94, !33, i64 0}
+!258 = !{!94, !45, i64 8}
+!259 = !{!7, !7, i64 0}
+!260 = distinct !{!260, !253}

@@ -589,7 +589,7 @@ define internal noundef range(i32 -95, 2) i32 @ethnl_set_coalesce_validate(ptr n
 define internal i32 @ethnl_set_coalesce(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
-  store i8 0, ptr %3, align 1, !annotation !9
+  store i8 0, ptr %3, align 1, !annotation !8
   %.val = load ptr, ptr %0, align 8
   %4 = call fastcc i32 @__ethnl_set_coalesce(ptr %.val, ptr noundef %1, ptr noundef nonnull %3)
   %5 = icmp slt i32 %4, 0
@@ -597,7 +597,7 @@ define internal i32 @ethnl_set_coalesce(ptr noundef readonly captures(none) %0, 
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %4, 0
-  %8 = load i8, ptr %3, align 1, !range !10
+  %8 = load i8, ptr %3, align 1, !range !9
   %9 = icmp eq i8 %8, 0
   %10 = select i1 %7, i1 true, i1 %9
   br i1 %10, label %14, label %11
@@ -1248,9 +1248,8 @@ attributes #5 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{i8 0, i8 2}
+!8 = !{!"auto-init"}
+!9 = !{i8 0, i8 2}

@@ -101,7 +101,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 .backedge:                                        ; preds = %41, %53
   %.not35.i.i = icmp ult i64 %39, %38
-  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i, !llvm.loop !4
+  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.backedge, %36
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
@@ -260,7 +260,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 .backedge:                                        ; preds = %41, %53
   %.not35.i.i = icmp ult i64 %39, %38
-  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i, !llvm.loop !4
+  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.backedge, %36
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
@@ -419,7 +419,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 .backedge:                                        ; preds = %41, %53
   %.not35.i.i = icmp ult i64 %39, %38
-  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i, !llvm.loop !4
+  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.backedge, %36
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
@@ -488,7 +488,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h3ac30de6b6fec082E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr align 8 %1, i64 %2)
   %6 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %6)
@@ -499,7 +499,7 @@ define i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h47e2a64f65152cb3E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr align 8 %1, i64 %2)
   %6 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %6)
@@ -510,7 +510,7 @@ define i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h997efc6061635962E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr align 8 %1, i64 %2)
   %6 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %6)
@@ -599,9 +599,9 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_inser
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7ee6dcc85c52e4b4E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !6, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = tail call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %5, i64 %1)
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -612,9 +612,9 @@ define zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hd0489a1e709b16a8E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !6, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = tail call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %5, i64 %1)
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -730,14 +730,14 @@ define ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h5343712ae0d2a
   call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %45, i64 -8
   %48 = call zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hf9e419f0502e615dE"(ptr nonnull align 8 %2, ptr nonnull align 8 %47)
-  br i1 %48, label %54, label %30, !llvm.loop !7
+  br i1 %48, label %54, label %30
 
 49:                                               ; preds = %34
   %50 = load i64, ptr %18, align 8, !noundef !3
   %51 = add i64 %.sroa.7.0.i, 16
   %52 = add i64 %.sroa.01.0.i, %51
   %53 = and i64 %50, %52
-  br label %22, !llvm.loop !8
+  br label %22
 
 54:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -858,14 +858,14 @@ define ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd470d9e3a56d7
   call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %45, i64 -8
   %48 = call zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17he609b8baeda9c6d6E"(ptr nonnull align 8 %2, ptr nonnull align 8 %47)
-  br i1 %48, label %54, label %30, !llvm.loop !7
+  br i1 %48, label %54, label %30
 
 49:                                               ; preds = %34
   %50 = load i64, ptr %18, align 8, !noundef !3
   %51 = add i64 %.sroa.7.0.i, 16
   %52 = add i64 %.sroa.01.0.i, %51
   %53 = and i64 %50, %52
-  br label %22, !llvm.loop !8
+  br label %22
 
 54:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -890,9 +890,9 @@ define ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd470d9e3a56d7
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2aaa6139b6de5170E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !6, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = tail call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %5, i64 %1)
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -903,9 +903,9 @@ define zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h94c5c2bc2f956285E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !6, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = tail call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %5, i64 %1)
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1139,8 +1139,4 @@ attributes #10 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i64 8}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!4 = !{i64 8}

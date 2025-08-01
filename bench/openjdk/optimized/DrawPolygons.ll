@@ -301,7 +301,7 @@ define internal fastcc void @RefineBounds(ptr noundef nonnull captures(none) %0,
   %.150 = tail call i32 @llvm.smax.i32(i32 %.04970, i32 %15)
   %.1 = tail call i32 @llvm.smax.i32(i32 %.04871, i32 %17)
   %18 = icmp samesign ugt i32 %.05667, 2
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.054.lcssa = phi i32 [ %10, %8 ], [ %spec.select, %.lr.ph ]
@@ -535,7 +535,7 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr noundef rea
   %.1186 = getelementptr inbounds nuw i8, ptr %.1186253, i64 4
   %.1183 = getelementptr inbounds nuw i8, ptr %.1183254, i64 4
   %105 = icmp samesign ugt i32 %.0192249, 2
-  br i1 %105, label %43, label %106, !llvm.loop !10
+  br i1 %105, label %43, label %106, !llvm.loop !9
 
 106:                                              ; preds = %104
   br i1 %.not, label %161, label %107
@@ -658,7 +658,7 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr noundef rea
   %.2184 = phi ptr [ %.1183, %124 ], [ %.1183, %114 ], [ %.1183, %111 ], [ %.1183, %109 ], [ %.1183, %142 ], [ %.1183, %132 ], [ %.1183, %129 ], [ %.1183, %127 ], [ %.1183, %147 ], [ %.1183, %144 ], [ %.1183, %106 ], [ %159, %158 ], [ %.0182257, %156 ], [ %.1183, %107 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %161, %12
   ret void
@@ -686,9 +686,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

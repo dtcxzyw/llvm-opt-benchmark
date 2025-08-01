@@ -106,7 +106,7 @@ define void @RC2_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   %56 = add nsw i32 %.2102118, 1
   %57 = and i32 %56, 7
   %.not107 = icmp eq i64 %37, 0
-  br i1 %.not107, label %.loopexit, label %36, !llvm.loop !13
+  br i1 %.not107, label %.loopexit, label %36, !llvm.loop !12
 
 .loopexit:                                        ; preds = %26, %48, %.preheader109, %.preheader
   %.1101 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %57, %48 ], [ %35, %26 ]
@@ -140,7 +140,6 @@ attributes #3 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

@@ -143,7 +143,7 @@ define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32
   %.195 = phi i32 [ %67, %65 ], [ %.094158, %52 ]
   %.2 = phi i32 [ %66, %65 ], [ %.3, %52 ]
   %69 = icmp slt i32 %.2, %25
-  br i1 %69, label %28, label %._crit_edge161, !llvm.loop !6
+  br i1 %69, label %28, label %._crit_edge161
 
 .thread:                                          ; preds = %29, %31, %34, %36, %41, %.lr.ph
   %.2102.ph = phi i32 [ %40, %.lr.ph ], [ %42, %41 ], [ %30, %29 ], [ %32, %31 ], [ %35, %34 ], [ %37, %36 ]
@@ -238,7 +238,7 @@ define i32 @wc_PBKDF2_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 32:                                               ; preds = %.preheader.us
   %33 = add nuw nsw i32 %.0100.us, 1
   %exitcond146.not = icmp eq i32 %33, 4
-  br i1 %exitcond146.not, label %34, label %.preheader.us, !llvm.loop !7
+  br i1 %exitcond146.not, label %34, label %.preheader.us, !llvm.loop !5
 
 34:                                               ; preds = %32
   %35 = call i32 @wc_HmacFinal(ptr noundef nonnull %12, ptr noundef nonnull %11) #6
@@ -278,14 +278,14 @@ define i32 @wc_PBKDF2_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %.sroa.0.0.i.us = phi ptr [ %48, %.lr.ph.i.i.us ], [ %11, %47 ]
   %.04.i.i.us = phi i32 [ %53, %.lr.ph.i.i.us ], [ 0, %47 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.us, i64 8
-  %49 = load i64, ptr %.sroa.0.0.i.us, align 8, !tbaa !8
+  %49 = load i64, ptr %.sroa.0.0.i.us, align 8, !tbaa !6
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.i.us, i64 8
-  %51 = load i64, ptr %.sroa.026.0.i.us, align 8, !tbaa !8
+  %51 = load i64, ptr %.sroa.026.0.i.us, align 8, !tbaa !6
   %52 = xor i64 %51, %49
-  store i64 %52, ptr %.sroa.026.0.i.us, align 8, !tbaa !8
+  store i64 %52, ptr %.sroa.026.0.i.us, align 8, !tbaa !6
   %53 = add nuw nsw i32 %.04.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %53, %41
-  br i1 %exitcond.not.i.i.us, label %XorWords.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !12
+  br i1 %exitcond.not.i.i.us, label %XorWords.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !10
 
 XorWords.exit.i.us:                               ; preds = %.lr.ph.i.i.us, %47
   %.022.i.us = phi i32 [ %.mux, %47 ], [ %42, %.lr.ph.i.i.us ]
@@ -301,19 +301,19 @@ XorWords.exit.i.us:                               ; preds = %.lr.ph.i.i.us, %47
 .lr.ph38.i.us:                                    ; preds = %.lr.ph38.i.us, %.lr.ph38.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph38.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph38.i.us ]
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 %indvars.iv.i.us
-  %55 = load i8, ptr %54, align 1, !tbaa !13
+  %55 = load i8, ptr %54, align 1, !tbaa !11
   %56 = getelementptr inbounds nuw i8, ptr %.019.i.us, i64 %indvars.iv.i.us
-  %57 = load i8, ptr %56, align 1, !tbaa !13
+  %57 = load i8, ptr %56, align 1, !tbaa !11
   %58 = xor i8 %57, %55
-  store i8 %58, ptr %56, align 1, !tbaa !13
+  store i8 %58, ptr %56, align 1, !tbaa !11
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %xorbuf.exit.us, label %.lr.ph38.i.us, !llvm.loop !14
+  br i1 %exitcond.not.i.us, label %xorbuf.exit.us, label %.lr.ph38.i.us, !llvm.loop !12
 
 xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %XorWords.exit.i.us
   %59 = add nuw nsw i32 %.1101.us, 1
   %exitcond147.not = icmp eq i32 %59, %5
-  br i1 %exitcond147.not, label %._crit_edge.us, label %43, !llvm.loop !15
+  br i1 %exitcond147.not, label %._crit_edge.us, label %43, !llvm.loop !13
 
 .preheader.us:                                    ; preds = %.lr.ph106.split.us, %32
   %.0100.us = phi i32 [ %33, %32 ], [ 0, %.lr.ph106.split.us ]
@@ -322,7 +322,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   %61 = sub nuw nsw i32 24, %60
   %62 = lshr i32 %.053104.us, %61
   %63 = trunc i32 %62 to i8
-  store i8 %63, ptr %13, align 1, !tbaa !13
+  store i8 %63, ptr %13, align 1, !tbaa !11
   %64 = call i32 @wc_HmacUpdate(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1) #6
   %.not76.us = icmp eq i32 %64, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
@@ -333,7 +333,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   %66 = sub nsw i32 %.061102.us, %36
   %67 = add i32 %.053104.us, 1
   %.not133 = icmp eq i32 %66, 0
-  br i1 %.not133, label %.thread88, label %.lr.ph106.split.us, !llvm.loop !16
+  br i1 %.not133, label %.thread88, label %.lr.ph106.split.us, !llvm.loop !14
 
 .lr.ph106.split.split:                            ; preds = %.lr.ph106, %78
   %.053104 = phi i32 [ %83, %78 ], [ 1, %.lr.ph106 ]
@@ -346,7 +346,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
 69:                                               ; preds = %.preheader
   %70 = add nuw nsw i32 %.0100, 1
   %exitcond.not = icmp eq i32 %70, 4
-  br i1 %exitcond.not, label %76, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not, label %76, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %.lr.ph106.split.split, %69
   %.0100 = phi i32 [ %70, %69 ], [ 0, %.lr.ph106.split.split ]
@@ -355,7 +355,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   %72 = sub nuw nsw i32 24, %71
   %73 = lshr i32 %.053104, %72
   %74 = trunc i32 %73 to i8
-  store i8 %74, ptr %13, align 1, !tbaa !13
+  store i8 %74, ptr %13, align 1, !tbaa !11
   %75 = call i32 @wc_HmacUpdate(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1) #6
   %.not76 = icmp eq i32 %75, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
@@ -374,7 +374,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %Xor
   %82 = sub nsw i32 %.061102, %79
   %83 = add i32 %.053104, 1
   %.not132 = icmp eq i32 %82, 0
-  br i1 %.not132, label %.thread88, label %.lr.ph106.split.split, !llvm.loop !18
+  br i1 %.not132, label %.thread88, label %.lr.ph106.split.split
 
 .thread88:                                        ; preds = %78, %.lr.ph106.split.split, %76, %.preheader, %._crit_edge.us, %.lr.ph106.split.us, %34, %.preheader.us, %45, %43, %25
   %.2 = phi i32 [ %26, %25 ], [ %44, %43 ], [ %46, %45 ], [ %64, %.preheader.us ], [ 0, %._crit_edge.us ], [ %31, %.lr.ph106.split.us ], [ %35, %34 ], [ %75, %.preheader ], [ 0, %78 ], [ %68, %.lr.ph106.split.split ], [ %77, %76 ]
@@ -502,12 +502,12 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %58 = urem i32 %57, %4
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 %59
-  %61 = load i8, ptr %60, align 1, !tbaa !13
+  %61 = load i8, ptr %60, align 1, !tbaa !11
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv
-  store i8 %61, ptr %62, align 1, !tbaa !13
+  store i8 %61, ptr %62, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %63, label %.lr.ph, label %.preheader175, !llvm.loop !19
+  br i1 %63, label %.lr.ph, label %.preheader175, !llvm.loop !16
 
 .preheader173:                                    ; preds = %.lr.ph178, %.preheader175
   %.not205 = icmp eq i32 %6, 0
@@ -525,12 +525,12 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %67 = urem i32 %66, %2
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 %68
-  %70 = load i8, ptr %69, align 1, !tbaa !13
+  %70 = load i8, ptr %69, align 1, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv195
-  store i8 %70, ptr %71, align 1, !tbaa !13
+  store i8 %70, ptr %71, align 1, !tbaa !11
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %72 = icmp samesign ult i64 %indvars.iv.next196, %56
-  br i1 %72, label %.lr.ph178, label %.preheader173, !llvm.loop !20
+  br i1 %72, label %.lr.ph178, label %.preheader173, !llvm.loop !17
 
 73:                                               ; preds = %.lr.ph186, %.thread159.thread201
   %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %137, %.thread159.thread201 ]
@@ -573,7 +573,7 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %.3.i = phi i32 [ %87, %86 ], [ %84, %83 ], [ %.133.i, %.lr.ph.i ]
   %88 = add nuw nsw i32 %.02632.i, 1
   %exitcond.not.i = icmp eq i32 %5, %88
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %81
   %.1.lcssa.i = phi i32 [ %.025.i, %81 ], [ %.3.i, %.thread.i ]
@@ -592,12 +592,12 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %92 = urem i32 %91, %25
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !13
+  %95 = load i8, ptr %94, align 1, !tbaa !11
   %96 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 0, i64 %indvars.iv198
-  store i8 %95, ptr %96, align 1, !tbaa !13
+  store i8 %95, ptr %96, align 1, !tbaa !11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next199, %51
-  br i1 %exitcond.not, label %97, label %.preheader172, !llvm.loop !22
+  br i1 %exitcond.not, label %97, label %.preheader172, !llvm.loop !19
 
 97:                                               ; preds = %.preheader172
   %98 = call i32 @sp_init(ptr noundef nonnull %15) #6
@@ -683,7 +683,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %132 = add i32 %.3131180, %.fr
   %133 = icmp ult i32 %132, %43
   %or.cond189 = select i1 %131, i1 %133, i1 false
-  br i1 %or.cond189, label %.lr.ph181, label %.thread159, !llvm.loop !23
+  br i1 %or.cond189, label %.lr.ph181, label %.thread159, !llvm.loop !20
 
 .thread159:                                       ; preds = %130
   %134 = icmp slt i32 %.7.fr, 0
@@ -698,7 +698,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %138 = sub nsw i32 %.0122184, %135
   call void @sp_clear(ptr noundef nonnull %15) #6
   %139 = icmp sgt i32 %138, 0
-  br i1 %139, label %73, label %.thread164, !llvm.loop !24
+  br i1 %139, label %73, label %.thread164
 
 .thread164.sink.split:                            ; preds = %.thread159, %103, %97, %99, %101, %.lr.ph181
   %.1127.ph = phi i32 [ -110, %.lr.ph181 ], [ %.0.i, %103 ], [ -115, %101 ], [ -111, %99 ], [ -110, %97 ], [ %.7.fr, %.thread159 ]
@@ -767,25 +767,21 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"long", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = distinct !{!12, !4, !5}
-!13 = !{!10, !10, i64 0}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !5, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !5}
+!5 = distinct !{!5, !4}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !4}
+!11 = !{!8, !8, i64 0}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}

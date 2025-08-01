@@ -102,18 +102,18 @@ define dso_local noundef zeroext i1 @_Z19cmCTestSleepCommandRKSt6vectorINSt7__cx
 .noexc.i:                                         ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %55, ptr %6, align 8, !tbaa !24
+  store ptr %55, ptr %6, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store i64 41, ptr %3, align 8, !tbaa !25
+  store i64 41, ptr %3, align 8, !tbaa !24
   %56 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %56, ptr %6, align 8, !tbaa !11
-  %57 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %57, ptr %55, align 8, !tbaa !26
+  %57 = load i64, ptr %3, align 8, !tbaa !24
+  store i64 %57, ptr %55, align 8, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %56, ptr noundef nonnull align 1 dereferenceable(41) @.str, i64 41, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %57, ptr %58, align 8, !tbaa !27
+  store i64 %57, ptr %58, align 8, !tbaa !26
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  store i8 0, ptr %59, align 1, !tbaa !26
+  store i8 0, ptr %59, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -125,13 +125,13 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %63 = load i64, ptr %58, align 8, !tbaa !27
+  %63 = load i64, ptr %58, align 8, !tbaa !26
   %64 = icmp ult i64 %63, 16
   call void @llvm.assume(i1 %64)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %65 = load i64, ptr %55, align 8, !tbaa !26
+  %65 = load i64, ptr %55, align 8, !tbaa !25
   %66 = add i64 %65, 1
   call void @_ZdlPvm(ptr noundef %61, i64 noundef %66) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -148,13 +148,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22: ; preds = %67
-  %71 = load i64, ptr %58, align 8, !tbaa !27
+  %71 = load i64, ptr %58, align 8, !tbaa !26
   %72 = icmp ult i64 %71, 16
   call void @llvm.assume(i1 %72)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21: ; preds = %67
-  %73 = load i64, ptr %55, align 8, !tbaa !26
+  %73 = load i64, ptr %55, align 8, !tbaa !25
   %74 = add i64 %73, 1
   call void @_ZdlPvm(ptr noundef %69, i64 noundef %74) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
@@ -232,10 +232,9 @@ attributes #10 = { builtin nounwind }
 !18 = !{!17, !15, i64 8}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !8, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!13, !14, i64 0}
-!25 = !{!15, !15, i64 0}
-!26 = !{!8, !8, i64 0}
-!27 = !{!12, !15, i64 8}
+!23 = !{!13, !14, i64 0}
+!24 = !{!15, !15, i64 0}
+!25 = !{!8, !8, i64 0}
+!26 = !{!12, !15, i64 8}

@@ -110,12 +110,12 @@ define noundef i32 @pmix_psensor_base_select() local_unnamed_addr #0 {
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %27
   %38 = load i32, ptr %2, align 4, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  store i32 %38, ptr %39, align 8, !tbaa !43
+  store i32 %38, ptr %39, align 8, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 144
-  store ptr %7, ptr %40, align 8, !tbaa !46
-  %41 = load ptr, ptr %1, align 8, !tbaa !47
+  store ptr %7, ptr %40, align 8, !tbaa !45
+  %41 = load ptr, ptr %1, align 8, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 152
-  store ptr %41, ptr %42, align 8, !tbaa !49
+  store ptr %41, ptr %42, align 8, !tbaa !48
   %.02230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 240), align 8, !tbaa !20
   %.not28.not31 = icmp eq ptr %.02230, getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not28.not31, label %.critedge, label %.lr.ph
@@ -123,7 +123,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %2
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %52
   %.02232 = phi ptr [ %.022, %52 ], [ %.02230, %pmix_obj_new_tma.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %.02232, i64 160
-  %44 = load i32, ptr %43, align 8, !tbaa !43
+  %44 = load i32, ptr %43, align 8, !tbaa !42
   %45 = icmp sgt i32 %38, %44
   br i1 %45, label %46, label %52
 
@@ -131,42 +131,42 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %2
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store ptr %.02232, ptr %47, align 8, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %.02232, i64 128
-  %49 = load ptr, ptr %48, align 8, !tbaa !50
+  %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  store ptr %49, ptr %50, align 8, !tbaa !50
+  store ptr %49, ptr %50, align 8, !tbaa !49
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
   store volatile ptr %22, ptr %51, align 8, !tbaa !20
-  store ptr %22, ptr %48, align 8, !tbaa !50
+  store ptr %22, ptr %48, align 8, !tbaa !49
   br label %.sink.split
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr inbounds nuw i8, ptr %.02232, i64 120
   %.022 = load ptr, ptr %53, align 8, !tbaa !20
   %.not28.not = icmp eq ptr %.022, getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 120)
-  br i1 %.not28.not, label %.critedge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not28.not, label %.critedge, label %.lr.ph, !llvm.loop !50
 
 .critedge:                                        ; preds = %52, %pmix_obj_new_tma.exit
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 248), align 8, !tbaa !50
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 248), align 8, !tbaa !49
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  store ptr %54, ptr %55, align 8, !tbaa !50
+  store ptr %54, ptr %55, align 8, !tbaa !49
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 120
   store volatile ptr %22, ptr %56, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 120), ptr %57, align 8, !tbaa !20
-  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 248), align 8, !tbaa !50
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 248), align 8, !tbaa !49
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %46
-  %58 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8, !tbaa !52
+  %58 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8, !tbaa !51
   %59 = add i64 %58, 1
-  store volatile i64 %59, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8, !tbaa !52
+  store volatile i64 %59, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 264), align 8, !tbaa !51
   br label %60
 
 60:                                               ; preds = %.sink.split, %16
   %61 = getelementptr inbounds nuw i8, ptr %.02435, i64 120
   %.024 = load ptr, ptr %61, align 8, !tbaa !20
   %.not = icmp eq ptr %.024, getelementptr inbounds nuw (i8, ptr @pmix_psensor_base_framework, i64 200)
-  br i1 %.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %60, %5
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_psensor_base_framework, i64 76), align 4, !tbaa !24
@@ -183,15 +183,15 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %2
 .lr.ph41:                                         ; preds = %65, %.lr.ph41
   %.139 = phi ptr [ %.1, %.lr.ph41 ], [ %.137, %65 ]
   %66 = getelementptr inbounds nuw i8, ptr %.139, i64 144
-  %67 = load ptr, ptr %66, align 8, !tbaa !46
+  %67 = load ptr, ptr %66, align 8, !tbaa !45
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 84
   %69 = getelementptr inbounds nuw i8, ptr %.139, i64 160
-  %70 = load i32, ptr %69, align 8, !tbaa !43
+  %70 = load i32, ptr %69, align 8, !tbaa !42
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %68, i32 noundef %70) #6
   %71 = getelementptr inbounds nuw i8, ptr %.139, i64 120
   %.1 = load ptr, ptr %71, align 8, !tbaa !20
   %.not26 = icmp eq ptr %.1, getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 120)
-  br i1 %.not26, label %.loopexit, label %.lr.ph41, !llvm.loop !54
+  br i1 %.not26, label %.loopexit, label %.lr.ph41, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph41, %65, %._crit_edge, %0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
@@ -271,18 +271,17 @@ attributes #7 = { nounwind allocsize(0) }
 !37 = !{!6, !11, i64 48}
 !38 = !{!33, !10, i64 40}
 !39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !11, i64 160}
-!44 = !{!"", !13, i64 0, !23, i64 144, !45, i64 152, !11, i64 160}
-!45 = !{!"p1 _ZTS32pmix_psensor_base_module_1_0_0_t", !10, i64 0}
-!46 = !{!44, !23, i64 144}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !10, i64 0}
-!49 = !{!44, !45, i64 152}
-!50 = !{!13, !14, i64 128}
-!51 = distinct !{!51, !41, !42}
-!52 = !{!5, !15, i64 264}
-!53 = distinct !{!53, !41, !42}
-!54 = distinct !{!54, !41, !42}
+!42 = !{!43, !11, i64 160}
+!43 = !{!"", !13, i64 0, !23, i64 144, !44, i64 152, !11, i64 160}
+!44 = !{!"p1 _ZTS32pmix_psensor_base_module_1_0_0_t", !10, i64 0}
+!45 = !{!43, !23, i64 144}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !10, i64 0}
+!48 = !{!43, !44, i64 152}
+!49 = !{!13, !14, i64 128}
+!50 = distinct !{!50, !41}
+!51 = !{!5, !15, i64 264}
+!52 = distinct !{!52, !41}
+!53 = distinct !{!53, !41}

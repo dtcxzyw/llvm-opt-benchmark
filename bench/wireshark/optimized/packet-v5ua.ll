@@ -874,7 +874,7 @@ dissect_info_string_parameter.exit.i.i.i:         ; preds = %230, %225
   %260 = add nuw nsw i32 %255, 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %indvars.iv.next.i.i.i.i, %253
-  br i1 %exitcond.not.i.i.i.i, label %dissect_integer_range_interface_identifier_parameter.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i, label %dissect_integer_range_interface_identifier_parameter.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 dissect_integer_range_interface_identifier_parameter.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %248
   %261 = add i16 %250, -12
@@ -1072,7 +1072,7 @@ dissect_parameter.exit.i.i:                       ; preds = %379, %dissect_relea
   %382 = add i32 %.030.i.i, %.02.i.i
   %383 = call i32 @tvb_reported_length_remaining(ptr noundef %67, i32 noundef %382)
   %.not.i21.i = icmp eq i32 %383, 0
-  br i1 %.not.i21.i, label %dissect_parameters.exit.i, label %70, !llvm.loop !10
+  br i1 %.not.i21.i, label %dissect_parameters.exit.i, label %70, !llvm.loop !9
 
 dissect_parameters.exit.i:                        ; preds = %dissect_parameter.exit.i.i, %dissect_common_header.exit.i
   %384 = load i32, ptr @dlci_efa, align 4
@@ -1257,7 +1257,7 @@ define internal fastcc void @dissect_int_interface_identifier_parameter(ptr noun
   %20 = add nuw nsw i32 %.027, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.239)
@@ -1418,9 +1418,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

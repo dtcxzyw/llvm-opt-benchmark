@@ -308,7 +308,7 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %.0..0..0..0.26 = load volatile i8, ptr %8, align 1, !range !9, !noundef !10
+  %.0..0..0..0.26 = load volatile i8, ptr %8, align 1, !range !8, !noundef !9
   %49 = trunc nuw i8 %.0..0..0..0.26 to i1
   br i1 %49, label %50, label %check_which.exit
 
@@ -568,7 +568,7 @@ lookup_block.exit:                                ; preds = %14, %18
   %45 = load i32, ptr %6, align 8
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 48:                                               ; preds = %3, %._crit_edge
   %.024 = phi i1 [ %9, %._crit_edge ], [ false, %3 ]
@@ -645,7 +645,7 @@ ip_is_link_local.exit:                            ; preds = %14, %19, %23
   %29 = load i32, ptr %5, align 8
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next.i, %30
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %8, %._crit_edge.i ], [ false, %3 ]
@@ -716,7 +716,7 @@ ip_is_multicast.exit:                             ; preds = %14, %19
   %24 = load i32, ptr %5, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next.i, %25
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %8, %._crit_edge.i ], [ false, %3 ]
@@ -786,7 +786,7 @@ ipv4_is_rfc1918.exit:                             ; preds = %.lr.ph.i, %14, %19,
   %31 = load i32, ptr %5, align 8
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next.i, %32
-  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %8, %._crit_edge.i ], [ false, %3 ]
@@ -869,7 +869,7 @@ ipv6_is_ula.exit:                                 ; preds = %.lr.ph.i, %14
   %20 = load i32, ptr %5, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next.i, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 df_func_ip_is_any.exit:                           ; preds = %3, %._crit_edge.i
   %.012.i = phi i1 [ %8, %._crit_edge.i ], [ false, %3 ]
@@ -926,10 +926,9 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

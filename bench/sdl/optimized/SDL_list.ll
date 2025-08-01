@@ -76,7 +76,7 @@ define hidden void @SDL_ListRemove(ptr noundef captures(none) %0, ptr noundef re
 .lr.ph:                                           ; preds = %.lr.ph20
   %6 = load ptr, ptr %13, align 8
   %7 = icmp eq ptr %6, %1
-  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph20, !llvm.loop !6
+  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph20, !llvm.loop !5
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -96,7 +96,7 @@ define hidden void @SDL_ListRemove(ptr noundef captures(none) %0, ptr noundef re
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph20, %2, %.lr.ph._crit_edge
   ret void
@@ -115,7 +115,7 @@ define hidden void @SDL_ListClear(ptr noundef captures(none) %0) local_unnamed_a
   %4 = load ptr, ptr %3, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.07) #2
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -130,8 +130,7 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

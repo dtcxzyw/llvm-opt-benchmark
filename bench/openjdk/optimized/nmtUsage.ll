@@ -119,7 +119,7 @@ define hidden void @_ZN8NMTUsage15update_vm_usageEv(ptr noundef nonnull align 8 
   store i64 %17, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %18, label %5, !llvm.loop !9
+  br i1 %exitcond.not, label %18, label %5, !llvm.loop !8
 
 18:                                               ; preds = %5
   ret void
@@ -222,7 +222,7 @@ _ZN8NMTUsage19update_malloc_usageEv.exit:         ; preds = %8
   store i64 %58, ptr %44, align 8
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i2, 28
-  br i1 %exitcond.not.i3, label %_ZN8NMTUsage15update_vm_usageEv.exit, label %46, !llvm.loop !9
+  br i1 %exitcond.not.i3, label %_ZN8NMTUsage15update_vm_usageEv.exit, label %46, !llvm.loop !8
 
 _ZN8NMTUsage15update_vm_usageEv.exit:             ; preds = %46, %34
   ret void
@@ -299,7 +299,6 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

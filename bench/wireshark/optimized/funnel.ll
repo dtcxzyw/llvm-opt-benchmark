@@ -165,7 +165,7 @@ define hidden void @funnel_deregister_menus(ptr noundef %0) local_unnamed_addr #
   %.1.i = phi ptr [ %.0194.i, %23 ], [ %.03.i, %21 ]
   %.019.i = load ptr, ptr %.120.in.i, align 8
   %.not.i = icmp eq ptr %.019.i, null
-  br i1 %.not.i, label %funnel_remove_menu.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %funnel_remove_menu.exit, label %.lr.ph.i, !llvm.loop !8
 
 funnel_remove_menu.exit:                          ; preds = %25, %1
   %26 = load ptr, ptr @removed_menus, align 8
@@ -216,7 +216,7 @@ funnel_insert_menu.exit:                          ; preds = %27, %30
   tail call void @g_free(ptr noundef nonnull %33)
   %43 = load ptr, ptr @registered_packet_menus, align 8
   %.not.i17 = icmp eq ptr %43, null
-  br i1 %.not.i17, label %funnel_clear_packet_menu.exit, label %.lr.ph.i16, !llvm.loop !10
+  br i1 %.not.i17, label %funnel_clear_packet_menu.exit, label %.lr.ph.i16, !llvm.loop !9
 
 funnel_clear_packet_menu.exit:                    ; preds = %42, %funnel_insert_menu.exit
   store ptr null, ptr @registered_packet_menus, align 8
@@ -243,13 +243,13 @@ define void @funnel_register_all_menus(ptr noundef readonly captures(none) %0) l
   %7 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.010, i64 40
-  %10 = load i8, ptr %9, align 8, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 8, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   tail call void %0(ptr noundef %2, i32 noundef %4, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %11)
   %12 = getelementptr inbounds nuw i8, ptr %.010, i64 48
   %.0 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i1 true, ptr @menus_registered, align 1
@@ -275,7 +275,7 @@ define void @funnel_reload_menus(ptr noundef readonly captures(none) %0, ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %.019, i64 48
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !13
 
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
   %.122 = phi ptr [ %.1, %.lr.ph23 ], [ %.120, %.preheader ]
@@ -287,13 +287,13 @@ define void @funnel_reload_menus(ptr noundef readonly captures(none) %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %.122, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.122, i64 40
-  %14 = load i8, ptr %13, align 8, !range !11, !noundef !12
+  %14 = load i8, ptr %13, align 8, !range !10, !noundef !11
   %15 = trunc nuw i8 %14 to i1
   tail call void %1(ptr noundef %6, i32 noundef %8, ptr noundef %10, ptr noundef %12, i1 noundef zeroext %15)
   %16 = getelementptr inbounds nuw i8, ptr %.122, i64 48
   %.1 = load ptr, ptr %16, align 8
   %.not12 = icmp eq ptr %.1, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph23, !llvm.loop !15
+  br i1 %.not12, label %._crit_edge, label %.lr.ph23, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %.preheader
   %17 = load ptr, ptr @removed_menus, align 8
@@ -310,7 +310,7 @@ define void @funnel_reload_menus(ptr noundef readonly captures(none) %0, ptr nou
   tail call void @g_free(ptr noundef nonnull %18)
   %22 = load ptr, ptr @removed_menus, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %funnel_clear_menu.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %funnel_clear_menu.exit, label %.lr.ph.i, !llvm.loop !15
 
 funnel_clear_menu.exit:                           ; preds = %.lr.ph.i, %._crit_edge
   store ptr null, ptr @removed_menus, align 8
@@ -328,7 +328,7 @@ funnel_clear_menu.exit:                           ; preds = %.lr.ph.i, %._crit_e
   tail call void @g_free(ptr noundef nonnull %24)
   %28 = load ptr, ptr @added_menus, align 8
   %.not.i15 = icmp eq ptr %28, null
-  br i1 %.not.i15, label %funnel_clear_menu.exit16, label %.lr.ph.i14, !llvm.loop !16
+  br i1 %.not.i15, label %funnel_clear_menu.exit16, label %.lr.ph.i14, !llvm.loop !15
 
 funnel_clear_menu.exit16:                         ; preds = %.lr.ph.i14, %funnel_clear_menu.exit
   store ptr null, ptr @added_menus, align 8
@@ -365,7 +365,7 @@ define void @funnel_register_packet_menu(ptr noundef %0, ptr noundef %1, ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not10.i = icmp eq ptr %18, null
-  br i1 %.not10.i, label %19, label %.preheader.i, !llvm.loop !17
+  br i1 %.not10.i, label %19, label %.preheader.i, !llvm.loop !16
 
 19:                                               ; preds = %.preheader.i
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
@@ -393,13 +393,13 @@ define void @funnel_register_all_packet_menus(ptr noundef readonly captures(none
   %7 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.010, i64 32
-  %10 = load i8, ptr %9, align 8, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 8, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   tail call void %0(ptr noundef %2, ptr noundef %4, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %11)
   %12 = getelementptr inbounds nuw i8, ptr %.010, i64 40
   %.0 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i1 false, ptr @packet_menus_modified, align 1
@@ -428,7 +428,7 @@ define void @funnel_cleanup() local_unnamed_addr #2 {
   tail call void @g_free(ptr noundef nonnull %2)
   %6 = load ptr, ptr @registered_menus, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %funnel_clear_menu.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %funnel_clear_menu.exit, label %.lr.ph.i, !llvm.loop !15
 
 funnel_clear_menu.exit:                           ; preds = %.lr.ph.i, %0
   store ptr null, ptr @registered_menus, align 8
@@ -459,7 +459,7 @@ funnel_clear_menu.exit:                           ; preds = %.lr.ph.i, %0
   tail call void @g_free(ptr noundef nonnull %8)
   %18 = load ptr, ptr @registered_packet_menus, align 8
   %.not.i2 = icmp eq ptr %18, null
-  br i1 %.not.i2, label %funnel_clear_packet_menu.exit, label %.lr.ph.i1, !llvm.loop !10
+  br i1 %.not.i2, label %funnel_clear_packet_menu.exit, label %.lr.ph.i1, !llvm.loop !9
 
 funnel_clear_packet_menu.exit:                    ; preds = %17, %funnel_clear_menu.exit
   store ptr null, ptr @registered_packet_menus, align 8
@@ -494,7 +494,7 @@ funnel_clear_packet_menu.exit:                    ; preds = %17, %funnel_clear_m
   %29 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %.0.i = load ptr, ptr %29, align 8
   %.not.i4 = icmp eq ptr %.0.i, null
-  br i1 %.not.i4, label %._crit_edge.loopexit.i, label %.lr.ph.i3, !llvm.loop !19
+  br i1 %.not.i4, label %._crit_edge.loopexit.i, label %.lr.ph.i3, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %27
   %.pre.i = load ptr, ptr @registered_console_menus, align 8
@@ -553,7 +553,7 @@ define void @funnel_register_all_console_menus(ptr noundef readonly captures(non
   %12 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %.0 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -582,18 +582,17 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

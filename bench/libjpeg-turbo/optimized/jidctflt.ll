@@ -199,7 +199,7 @@ define void @jpeg_idct_float(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %146 ]
   %.2206 = phi ptr [ %6, %.preheader ], [ %247, %146 ]
   %147 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %148 = load ptr, ptr %147, align 8, !tbaa !38
+  %148 = load ptr, ptr %147, align 8, !tbaa !37
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 %11
   %150 = load float, ptr %.2206, align 4, !tbaa !33
   %151 = fadd float %150, 1.285000e+02
@@ -248,68 +248,68 @@ define void @jpeg_idct_float(ptr noundef readonly captures(none) %0, ptr noundef
   %194 = and i32 %193, 1023
   %195 = zext nneg i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %8, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !39
-  store i8 %197, ptr %149, align 1, !tbaa !39
+  %197 = load i8, ptr %196, align 1, !tbaa !38
+  store i8 %197, ptr %149, align 1, !tbaa !38
   %198 = fsub float %164, %180
   %199 = fptosi float %198 to i32
   %200 = and i32 %199, 1023
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 %201
-  %203 = load i8, ptr %202, align 1, !tbaa !39
+  %203 = load i8, ptr %202, align 1, !tbaa !38
   %204 = getelementptr inbounds nuw i8, ptr %149, i64 7
-  store i8 %203, ptr %204, align 1, !tbaa !39
+  store i8 %203, ptr %204, align 1, !tbaa !38
   %205 = fadd float %166, %189
   %206 = fptosi float %205 to i32
   %207 = and i32 %206, 1023
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw i8, ptr %8, i64 %208
-  %210 = load i8, ptr %209, align 1, !tbaa !39
+  %210 = load i8, ptr %209, align 1, !tbaa !38
   %211 = getelementptr inbounds nuw i8, ptr %149, i64 1
-  store i8 %210, ptr %211, align 1, !tbaa !39
+  store i8 %210, ptr %211, align 1, !tbaa !38
   %212 = fsub float %166, %189
   %213 = fptosi float %212 to i32
   %214 = and i32 %213, 1023
   %215 = zext nneg i32 %214 to i64
   %216 = getelementptr inbounds nuw i8, ptr %8, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !39
+  %217 = load i8, ptr %216, align 1, !tbaa !38
   %218 = getelementptr inbounds nuw i8, ptr %149, i64 6
-  store i8 %217, ptr %218, align 1, !tbaa !39
+  store i8 %217, ptr %218, align 1, !tbaa !38
   %219 = fadd float %167, %190
   %220 = fptosi float %219 to i32
   %221 = and i32 %220, 1023
   %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds nuw i8, ptr %8, i64 %222
-  %224 = load i8, ptr %223, align 1, !tbaa !39
+  %224 = load i8, ptr %223, align 1, !tbaa !38
   %225 = getelementptr inbounds nuw i8, ptr %149, i64 2
-  store i8 %224, ptr %225, align 1, !tbaa !39
+  store i8 %224, ptr %225, align 1, !tbaa !38
   %226 = fsub float %167, %190
   %227 = fptosi float %226 to i32
   %228 = and i32 %227, 1023
   %229 = zext nneg i32 %228 to i64
   %230 = getelementptr inbounds nuw i8, ptr %8, i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !39
+  %231 = load i8, ptr %230, align 1, !tbaa !38
   %232 = getelementptr inbounds nuw i8, ptr %149, i64 5
-  store i8 %231, ptr %232, align 1, !tbaa !39
+  store i8 %231, ptr %232, align 1, !tbaa !38
   %233 = fadd float %165, %191
   %234 = fptosi float %233 to i32
   %235 = and i32 %234, 1023
   %236 = zext nneg i32 %235 to i64
   %237 = getelementptr inbounds nuw i8, ptr %8, i64 %236
-  %238 = load i8, ptr %237, align 1, !tbaa !39
+  %238 = load i8, ptr %237, align 1, !tbaa !38
   %239 = getelementptr inbounds nuw i8, ptr %149, i64 3
-  store i8 %238, ptr %239, align 1, !tbaa !39
+  store i8 %238, ptr %239, align 1, !tbaa !38
   %240 = fsub float %165, %191
   %241 = fptosi float %240 to i32
   %242 = and i32 %241, 1023
   %243 = zext nneg i32 %242 to i64
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 %243
-  %245 = load i8, ptr %244, align 1, !tbaa !39
+  %245 = load i8, ptr %244, align 1, !tbaa !38
   %246 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  store i8 %245, ptr %246, align 1, !tbaa !39
+  store i8 %245, ptr %246, align 1, !tbaa !38
   %247 = getelementptr inbounds nuw i8, ptr %.2206, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %248, label %146, !llvm.loop !40
+  br i1 %exitcond.not, label %248, label %146, !llvm.loop !39
 
 248:                                              ; preds = %146
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #3
@@ -367,9 +367,8 @@ attributes #3 = { nounwind }
 !32 = !{!16, !16, i64 0}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"float", !7, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!18, !18, i64 0}
-!39 = !{!7, !7, i64 0}
-!40 = distinct !{!40, !36, !37}
+!37 = !{!18, !18, i64 0}
+!38 = !{!7, !7, i64 0}
+!39 = distinct !{!39, !36}

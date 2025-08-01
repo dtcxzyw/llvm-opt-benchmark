@@ -515,7 +515,7 @@ kmac_init.exit.thread.i:                          ; preds = %88, %82, %switch.ea
   store i8 %126, ptr %100, align 1, !tbaa !31
   %127 = call ptr @EVP_MAC_CTX_dup(ptr noundef %57) #7
   %.not75.i = icmp eq ptr %127, null
-  br i1 %.not75.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not75.i, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %117, %111, %109, %106, %104, %.lr.ph.i, %116, %114, %.preheader.i, %93, %91
   %.064.i = phi i32 [ 0, %93 ], [ 0, %114 ], [ 0, %91 ], [ 1, %116 ], [ 0, %.preheader.i ], [ 1, %111 ], [ 0, %109 ], [ 0, %117 ], [ 0, %.lr.ph.i ], [ 0, %104 ], [ 0, %106 ]
@@ -863,7 +863,7 @@ define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef nonnull %
   store i8 %50, ptr %28, align 1, !tbaa !31
   %51 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %20, ptr noundef nonnull %21) #7
   %.not64.us = icmp eq i32 %51, 0
-  br i1 %.not64.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %.not64.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !32
 
 .thread:                                          ; preds = %.lr.ph, %65
   %.080 = phi ptr [ %66, %65 ], [ %6, %.lr.ph ]
@@ -924,7 +924,7 @@ define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef nonnull %
   store i8 %74, ptr %28, align 1, !tbaa !31
   %75 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %20, ptr noundef nonnull %21) #7
   %.not64 = icmp eq i32 %75, 0
-  br i1 %.not64, label %.loopexit, label %.thread, !llvm.loop !36
+  br i1 %.not64, label %.loopexit, label %.thread
 
 .loopexit:                                        ; preds = %55, %53, %65, %58, %60, %.thread, %33, %31, %.lr.ph.split.us, %41, %36, %38, %.preheader, %64, %.split.us, %24, %18
   %.055 = phi i32 [ 0, %18 ], [ 0, %.split.us ], [ 0, %24 ], [ 1, %64 ], [ 0, %.preheader ], [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph.split.us ], [ 0, %41 ], [ 0, %36 ], [ 1, %38 ], [ 0, %55 ], [ 0, %53 ], [ 0, %65 ], [ 0, %58 ], [ 1, %60 ], [ 0, %.thread ]
@@ -1216,7 +1216,4 @@ attributes #7 = { nounwind }
 !30 = !{!5, !5, i64 0}
 !31 = !{!6, !6, i64 0}
 !32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !33, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}

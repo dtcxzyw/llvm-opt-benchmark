@@ -1334,7 +1334,7 @@ dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacp
   call void @proto_item_set_len(ptr noundef %266, i32 noundef %265)
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i, %114
   %.1.lcssa.i.i.i = phi i32 [ %121, %114 ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i ]
@@ -1345,7 +1345,7 @@ dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
   %indvars.iv.next.i.i = add nuw nsw i32 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i
   %269 = add i32 %.1.lcssa.i.i.i, -4
@@ -1994,7 +1994,7 @@ dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i: ; preds = %dissect_wim
   call void @proto_item_set_len(ptr noundef %773, i32 noundef %772)
   %indvars.iv.next.i.i.i.i123 = add nuw nsw i32 %indvars.iv.i.i.i.i120, 1
   %exitcond.not.i.i.i.i124 = icmp eq i32 %indvars.iv.next.i.i.i.i123, %wide.trip.count.i.i.i.i118
-  br i1 %exitcond.not.i.i.i.i124, label %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, label %.lr.ph.i.i.i.i119, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i.i124, label %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, label %.lr.ph.i.i.i.i119, !llvm.loop !10
 
 dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i, %613
   %.1.lcssa.i.i.i.i125 = phi i32 [ %620, %613 ], [ %.0.i.i.i.i.i122, %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i ]
@@ -2004,7 +2004,7 @@ dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacp
   call void @proto_item_set_len(ptr noundef %775, i32 noundef %774)
   %indvars.iv.next.i.i.i126 = add nuw nsw i32 %indvars.iv.i.i.i113, 1
   %exitcond.not.i.i.i127 = icmp eq i32 %indvars.iv.next.i.i.i126, %wide.trip.count.i.i.i111
-  br i1 %exitcond.not.i.i.i127, label %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i, label %.lr.ph.i.i.i112, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i127, label %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i, label %.lr.ph.i.i.i112, !llvm.loop !11
 
 dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, %400
   %.1.lcssa.i.i.i128 = phi i32 [ %407, %400 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i ]
@@ -2015,7 +2015,7 @@ dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   %indvars.iv.next.i.i129 = add nuw nsw i32 %indvars.iv.i.i106, 1
   %exitcond.not.i.i130 = icmp eq i32 %indvars.iv.next.i.i129, %wide.trip.count.i.i104
-  br i1 %exitcond.not.i.i130, label %._crit_edge.loopexit.i.i131, label %.lr.ph.i.i105, !llvm.loop !13
+  br i1 %exitcond.not.i.i130, label %._crit_edge.loopexit.i.i131, label %.lr.ph.i.i105, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i131:                      ; preds = %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i
   %778 = add i32 %.1.lcssa.i.i.i128, -4
@@ -2176,7 +2176,7 @@ dissect_wimaxmacphy_phy_rxstart_request.exit:     ; preds = %dissect_wimaxmacphy
   %903 = add i32 %.0.i133, 2
   %904 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %903)
   %.not.i = icmp eq i32 %904, 0
-  br i1 %.not.i, label %dissect_wimaxmacphy_phy_rxend_indication.exit, label %900, !llvm.loop !14
+  br i1 %.not.i, label %dissect_wimaxmacphy_phy_rxend_indication.exit, label %900, !llvm.loop !13
 
 905:                                              ; preds = %15
   %906 = load i32, ptr @hf_wimaxmacphy_prim_zonexid, align 4
@@ -2319,12 +2319,11 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

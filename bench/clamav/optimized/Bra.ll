@@ -86,7 +86,7 @@ define range(i64 4, 1) i64 @ARM_Convert(ptr noundef captures(none) %0, i64 nound
 55:                                               ; preds = %.split, %37
   %56 = add nuw i64 %.03337, 4
   %.not = icmp ugt i64 %56, %7
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %55, %31, %4
   %.034 = phi i64 [ 0, %4 ], [ %32, %31 ], [ %56, %55 ]
@@ -162,7 +162,7 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
   %.1.us = phi i64 [ %31, %21 ], [ %.04145.us, %15 ], [ %.04145.us, %.split.us ]
   %51 = add i64 %.1.us, 2
   %.not.us = icmp ugt i64 %51, %7
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !10
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %6, %93
   %.04145 = phi i64 [ %94, %93 ], [ 0, %6 ]
@@ -222,7 +222,7 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
   %.1 = phi i64 [ %74, %64 ], [ %.04145, %58 ], [ %.04145, %.split ]
   %94 = add i64 %.1, 2
   %.not = icmp ugt i64 %94, %7
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %93, %50, %4
   %.042 = phi i64 [ 0, %4 ], [ %51, %50 ], [ %94, %93 ]
@@ -294,7 +294,7 @@ define range(i64 4, 1) i64 @PPC_Convert(ptr noundef captures(none) %0, i64 nound
 46:                                               ; preds = %18, %12, %.split.us
   %47 = add nuw i64 %.04043.us, 4
   %.not.us = icmp ugt i64 %47, %7
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !12
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %6, %86
   %.04043 = phi i64 [ %87, %86 ], [ 0, %6 ]
@@ -351,7 +351,7 @@ define range(i64 4, 1) i64 @PPC_Convert(ptr noundef captures(none) %0, i64 nound
 86:                                               ; preds = %.split, %52, %58
   %87 = add nuw i64 %.04043, 4
   %.not = icmp ugt i64 %87, %7
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %86, %46, %4
   %.039 = phi i64 [ 0, %4 ], [ %47, %46 ], [ %87, %86 ]
@@ -443,7 +443,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr noundef captures(none) %0
   %60 = add i32 %.04550.us, 4
   %61 = zext i32 %60 to i64
   %.not.us = icmp ult i64 %7, %61
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !14
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %6, %.thread
   %62 = phi i64 [ %115, %.thread ], [ 0, %6 ]
@@ -520,7 +520,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr noundef captures(none) %0
   %114 = add i32 %.04550, 4
   %115 = zext i32 %114 to i64
   %.not = icmp ult i64 %7, %115
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %4
   %.046 = phi i64 [ 0, %4 ], [ %61, %.thread.us ], [ %115, %.thread ]
@@ -537,13 +537,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7}
+!10 = distinct !{!10, !7}

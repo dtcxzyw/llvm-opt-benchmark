@@ -104,7 +104,7 @@ define dso_local range(i32 0, 2) i32 @mac_main(i32 noundef %0, ptr noundef %1) l
 .loopexit:                                        ; preds = %7, %30, %26, %20, %.thread, %36, %45
   %.163 = phi ptr [ %.062, %45 ], [ %.062, %36 ], [ %.062, %7 ], [ null, %30 ], [ %.062, %26 ], [ %.062, %.thread ], [ %.062, %20 ]
   %.1 = phi ptr [ %.061, %45 ], [ %.061, %36 ], [ %.061, %7 ], [ %.061, %30 ], [ null, %26 ], [ %.061, %.thread ], [ %.061, %20 ]
-  %9 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %9 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.32, ptr noundef %5) #4
   br label %.thread111
 
@@ -168,15 +168,15 @@ define dso_local range(i32 0, 2) i32 @mac_main(i32 noundef %0, ptr noundef %1) l
 38:                                               ; preds = %36
   %39 = tail call ptr @opt_rest() #4
   %40 = tail call ptr @app_get0_libctx() #4
-  %41 = load ptr, ptr %39, align 8, !tbaa !14
+  %41 = load ptr, ptr %39, align 8, !tbaa !13
   %42 = tail call ptr @app_get0_propq() #4
   %43 = tail call ptr @EVP_MAC_fetch(ptr noundef %40, ptr noundef %41, ptr noundef %42) #4
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %38
-  %46 = load ptr, ptr @bio_err, align 8, !tbaa !12
-  %47 = load ptr, ptr %39, align 8, !tbaa !14
+  %46 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %47 = load ptr, ptr %39, align 8, !tbaa !13
   %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.35, ptr noundef %47) #4
   br label %.loopexit
 
@@ -206,9 +206,9 @@ define dso_local range(i32 0, 2) i32 @mac_main(i32 noundef %0, ptr noundef %1) l
   br label %64
 
 select.unfold:                                    ; preds = %58
-  %61 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %61 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %62 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.36) #4
-  %63 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %63 = load ptr, ptr @bio_err, align 8, !tbaa !11
   tail call void @ERR_print_errors(ptr noundef %63) #4
   tail call void @app_params_free(ptr noundef nonnull %56) #4
   br label %.thread111
@@ -231,7 +231,7 @@ select.unfold:                                    ; preds = %58
   br i1 %.not102, label %73, label %.preheader138
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %74 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %75 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.37) #4
   br label %.thread111
 
@@ -253,9 +253,9 @@ select.unfold:                                    ; preds = %58
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %.critedge
-  %84 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %84 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %85 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %84, ptr noundef nonnull @.str.38, ptr noundef %.069) #4
-  %86 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %86 = load ptr, ptr @bio_err, align 8, !tbaa !11
   tail call void @ERR_print_errors(ptr noundef %86) #4
   br label %.thread111
 
@@ -267,10 +267,10 @@ select.unfold:                                    ; preds = %58
   %90 = zext nneg i32 %81 to i64
   %91 = tail call i32 @EVP_MAC_update(ptr noundef nonnull %50, ptr noundef %6, i64 noundef %90) #4
   %.not105 = icmp eq i32 %91, 0
-  br i1 %.not105, label %92, label %.preheader138, !llvm.loop !16
+  br i1 %.not105, label %92, label %.preheader138, !llvm.loop !15
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %93 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %93, ptr noundef nonnull @.str.39) #4
   br label %.thread111
 
@@ -280,17 +280,17 @@ select.unfold:                                    ; preds = %58
   br i1 %.not106, label %97, label %100
 
 97:                                               ; preds = %95
-  %98 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %98 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %99 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %98, ptr noundef nonnull @.str.40) #4
   br label %.thread111
 
 100:                                              ; preds = %95
-  %101 = load i64, ptr %4, align 8, !tbaa !17
+  %101 = load i64, ptr %4, align 8, !tbaa !16
   %102 = icmp ugt i64 %101, 8192
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %104 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %105 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %104, ptr noundef nonnull @.str.41) #4
   br label %.thread111
 
@@ -300,12 +300,12 @@ select.unfold:                                    ; preds = %58
   br i1 %.not107, label %108, label %111
 
 108:                                              ; preds = %106
-  %109 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %109 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %110 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %109, ptr noundef nonnull @.str.40) #4
   br label %.thread111
 
 111:                                              ; preds = %106
-  %112 = load i64, ptr %4, align 8, !tbaa !17
+  %112 = load i64, ptr %4, align 8, !tbaa !16
   %113 = trunc i64 %112 to i32
   br i1 %.not101, label %.preheader, label %115
 
@@ -320,15 +320,15 @@ select.unfold:                                    ; preds = %58
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
-  %118 = load i8, ptr %117, align 1, !tbaa !19
+  %118 = load i8, ptr %117, align 1, !tbaa !18
   %119 = zext i8 %118 to i32
   %120 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %69, ptr noundef nonnull @.str.42, i32 noundef %119) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %121 = load i64, ptr %4, align 8, !tbaa !17
+  %121 = load i64, ptr %4, align 8, !tbaa !16
   %sext = shl i64 %121, 32
   %122 = ashr exact i64 %sext, 32
   %123 = icmp slt i64 %indvars.iv.next, %122
-  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %124 = icmp eq ptr %.071, null
@@ -345,7 +345,7 @@ select.unfold:                                    ; preds = %58
   %.073.ph = phi ptr [ %69, %73 ], [ %69, %92 ], [ %69, %97 ], [ %69, %108 ], [ %69, %103 ], [ %69, %83 ], [ null, %67 ], [ null, %64 ], [ null, %49 ], [ null, %.loopexit ], [ null, %54 ], [ null, %select.unfold ], [ null, %34 ]
   %.264.ph = phi ptr [ %.062, %73 ], [ %.062, %92 ], [ %.062, %97 ], [ %.062, %108 ], [ %.062, %103 ], [ %.062, %83 ], [ %.062, %67 ], [ %.062, %64 ], [ %.062, %49 ], [ %.163, %.loopexit ], [ %.062, %54 ], [ %.062, %select.unfold ], [ %.062, %34 ]
   %.2.ph = phi ptr [ %.061, %73 ], [ %.061, %92 ], [ %.061, %97 ], [ %.061, %108 ], [ %.061, %103 ], [ %.061, %83 ], [ %.061, %67 ], [ %.061, %64 ], [ %.061, %49 ], [ %.1, %.loopexit ], [ %.061, %54 ], [ %.061, %select.unfold ], [ %.061, %34 ]
-  %127 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %127 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %127) #4
   br label %128
 
@@ -499,15 +499,14 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !6, i64 0}
-!16 = distinct !{!16, !10, !11}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !6, i64 0}
+!15 = distinct !{!15, !10}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !10}

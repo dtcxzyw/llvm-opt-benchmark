@@ -131,7 +131,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %107, label %10
+  br i1 %.not, label %109, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -144,7 +144,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = tail call i32 %16(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str) #6
-  br label %107
+  br label %109
 
 18:                                               ; preds = %10
   %.not145 = icmp eq ptr %2, null
@@ -162,7 +162,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = tail call i32 (ptr, i32, ptr, ...) %26(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %24) #6
-  br label %107
+  br label %109
 
 28:                                               ; preds = %19
   %29 = icmp sgt i32 %3, %13
@@ -172,7 +172,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !22
   %33 = tail call i32 (ptr, i32, ptr, ...) %32(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %13, ptr noundef nonnull %2, i32 noundef %3) #6
-  br label %107
+  br label %109
 
 34:                                               ; preds = %28
   %or.cond7 = icmp ugt i32 %4, 2
@@ -182,7 +182,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !22
   %38 = tail call i32 (ptr, i32, ptr, ...) %37(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef %4, ptr noundef nonnull %2) #6
-  br label %107
+  br label %109
 
 39:                                               ; preds = %34
   %or.cond9 = icmp ugt i32 %5, 1
@@ -192,7 +192,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = tail call i32 (ptr, i32, ptr, ...) %42(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %5, ptr noundef nonnull %2) #6
-  br label %107
+  br label %109
 
 44:                                               ; preds = %39
   %45 = icmp slt i32 %6, 1
@@ -204,7 +204,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %49 = load ptr, ptr %48, align 8, !tbaa !22
   %50 = tail call i32 (ptr, i32, ptr, ...) %49(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.7, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %2) #6
-  br label %107
+  br label %109
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -238,7 +238,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8, !tbaa !22
   %66 = tail call i32 (ptr, i32, ptr, ...) %65(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #6
-  br label %107
+  br label %109
 
 .thread157.loopexit:                              ; preds = %.lr.ph
   %67 = trunc nuw nsw i64 %indvars.iv to i32
@@ -248,20 +248,20 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %.1127162 = phi i32 [ 0, %51 ], [ %67, %.thread157.loopexit ], [ %54, %62 ]
   %68 = call i32 @exr_attr_string_create_with_length(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %2, i32 noundef %3) #6
   %.not146 = icmp eq i32 %68, 0
-  br i1 %.not146, label %69, label %107
+  br i1 %.not146, label %69, label %109
 
 69:                                               ; preds = %.thread157
   %70 = load i32, ptr %1, align 8, !tbaa !30
   %71 = add nsw i32 %70, 1
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %4, ptr %72, align 8, !tbaa !36
+  store i32 %4, ptr %72, align 8, !tbaa !35
   %73 = trunc nuw i32 %5 to i8
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i8 %73, ptr %74, align 4, !tbaa !37
+  store i8 %73, ptr %74, align 4, !tbaa !36
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %6, ptr %75, align 8, !tbaa !38
+  store i32 %6, ptr %75, align 8, !tbaa !37
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %7, ptr %76, align 4, !tbaa !39
+  store i32 %7, ptr %76, align 4, !tbaa !38
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !27
   %.not147 = icmp slt i32 %70, %78
@@ -285,7 +285,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load ptr, ptr %88, align 8, !tbaa !24
   %90 = call i32 %89(ptr noundef nonnull %0, i32 noundef 1) #6
-  br label %107
+  br label %109
 
 91:                                               ; preds = %79
   store i32 %spec.select, ptr %77, align 4, !tbaa !27
@@ -297,7 +297,6 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
 
 94:                                               ; preds = %91, %92
   %.0125 = phi ptr [ %86, %91 ], [ %93, %92 ]
-  %invariant.gep = getelementptr i8, ptr %53, i64 -32
   %95 = icmp sgt i32 %70, %.1127162
   br i1 %95, label %.lr.ph175.preheader, label %.._crit_edge_crit_edge
 
@@ -313,11 +312,11 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
 ._crit_edge:                                      ; preds = %.lr.ph175, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %97, %.lr.ph175 ]
   %98 = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %.pre-phi
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !39
   %.not150 = icmp eq ptr %53, null
   %.not151 = icmp eq ptr %.0125, %53
   %or.cond152 = select i1 %.not150, i1 true, i1 %.not151
-  br i1 %or.cond152, label %106, label %.preheader
+  br i1 %or.cond152, label %108, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   %99 = icmp sgt i32 %.1127162, 0
@@ -330,34 +329,35 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %.lr.ph175
   %indvars.iv183 = phi i64 [ %96, %.lr.ph175.preheader ], [ %indvars.iv.next184, %.lr.ph175 ]
   %100 = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %indvars.iv183
-  %gep = getelementptr %struct.exr_attr_chlist_entry_t, ptr %invariant.gep, i64 %indvars.iv183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %gep, i64 32, i1 false), !tbaa.struct !40
+  %101 = getelementptr %struct.exr_attr_chlist_entry_t, ptr %53, i64 %indvars.iv183
+  %102 = getelementptr i8, ptr %101, i64 -32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false), !tbaa.struct !39
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, -1
-  %101 = icmp sgt i64 %indvars.iv.next184, %97
-  br i1 %101, label %.lr.ph175, label %._crit_edge, !llvm.loop !43
+  %103 = icmp sgt i64 %indvars.iv.next184, %97
+  br i1 %103, label %.lr.ph175, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge178:                                   ; preds = %.lr.ph177, %.preheader
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %103 = load ptr, ptr %102, align 8, !tbaa !44
-  call void %103(ptr noundef nonnull %53) #6
-  br label %106
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %105 = load ptr, ptr %104, align 8, !tbaa !43
+  call void %105(ptr noundef nonnull %53) #6
+  br label %108
 
 .lr.ph177:                                        ; preds = %.lr.ph177.preheader, %.lr.ph177
   %indvars.iv186 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next187, %.lr.ph177 ]
-  %104 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %indvars.iv186
-  %105 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %53, i64 %indvars.iv186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false), !tbaa.struct !40
+  %106 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %.0125, i64 %indvars.iv186
+  %107 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %53, i64 %indvars.iv186
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %107, i64 32, i1 false), !tbaa.struct !39
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge178, label %.lr.ph177, !llvm.loop !45
+  br i1 %exitcond190.not, label %._crit_edge178, label %.lr.ph177, !llvm.loop !44
 
-106:                                              ; preds = %._crit_edge178, %._crit_edge
+108:                                              ; preds = %._crit_edge178, %._crit_edge
   store i32 %71, ptr %1, align 8, !tbaa !30
   store ptr %.0125, ptr %52, align 8, !tbaa !25
-  br label %107
+  br label %109
 
-107:                                              ; preds = %.thread169, %63, %.thread157, %8, %106, %47, %40, %35, %30, %23, %14
-  %.0120 = phi i32 [ %27, %23 ], [ %33, %30 ], [ %38, %35 ], [ %43, %40 ], [ %50, %47 ], [ 0, %106 ], [ %66, %63 ], [ %17, %14 ], [ 2, %8 ], [ %68, %.thread157 ], [ %90, %.thread169 ]
+109:                                              ; preds = %.thread169, %63, %.thread157, %8, %108, %47, %40, %35, %30, %23, %14
+  %.0120 = phi i32 [ %27, %23 ], [ %33, %30 ], [ %38, %35 ], [ %43, %40 ], [ %50, %47 ], [ 0, %108 ], [ %66, %63 ], [ %17, %14 ], [ 2, %8 ], [ %68, %.thread157 ], [ %90, %.thread169 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
   ret i32 %.0120
 }
@@ -436,7 +436,7 @@ exr_attr_chlist_destroy.exit.lr.ph:               ; preds = %.preheader
 29:                                               ; preds = %exr_attr_chlist_destroy.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %exr_attr_chlist_init.exit.thread, label %exr_attr_chlist_destroy.exit, !llvm.loop !46
+  br i1 %exitcond.not, label %exr_attr_chlist_init.exit.thread, label %exr_attr_chlist_destroy.exit, !llvm.loop !45
 
 exr_attr_chlist_destroy.exit:                     ; preds = %exr_attr_chlist_destroy.exit.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %exr_attr_chlist_destroy.exit.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -444,16 +444,16 @@ exr_attr_chlist_destroy.exit:                     ; preds = %exr_attr_chlist_des
   %31 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !31
-  %34 = load i32, ptr %31, align 8, !tbaa !47
+  %34 = load i32, ptr %31, align 8, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !36
+  %36 = load i32, ptr %35, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %38 = load i8, ptr %37, align 4, !tbaa !37
+  %38 = load i8, ptr %37, align 4, !tbaa !36
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !38
+  %41 = load i32, ptr %40, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  %43 = load i32, ptr %42, align 4, !tbaa !39
+  %43 = load i32, ptr %42, align 4, !tbaa !38
   %44 = tail call i32 @exr_attr_chlist_add_with_length(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %33, i32 noundef %34, i32 noundef %36, i32 noundef %39, i32 noundef %41, i32 noundef %43)
   %.not40 = icmp eq i32 %44, 0
   br i1 %.not40, label %29, label %45
@@ -479,11 +479,11 @@ exr_attr_chlist_destroy.exit:                     ; preds = %exr_attr_chlist_des
   %51 = tail call i32 @exr_attr_string_destroy(ptr noundef nonnull %0, ptr noundef %50) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 52:                                               ; preds = %._crit_edge.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %54 = load ptr, ptr %53, align 8, !tbaa !44
+  %54 = load ptr, ptr %53, align 8, !tbaa !43
   tail call void %54(ptr noundef nonnull %48) #6
   br label %55
 
@@ -526,11 +526,11 @@ define hidden range(i32 0, 3) i32 @exr_attr_chlist_destroy(ptr noundef %0, ptr n
   %10 = tail call i32 @exr_attr_string_destroy(ptr noundef nonnull %0, ptr noundef %9) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 11:                                               ; preds = %._crit_edge
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
   tail call void %13(ptr noundef nonnull %7) #6
   br label %14
 
@@ -587,19 +587,18 @@ attributes #7 = { nounwind willreturn memory(read) }
 !30 = !{!26, !8, i64 0}
 !31 = !{!32, !9, i64 8}
 !32 = !{!"", !7, i64 0, !8, i64 16, !5, i64 20, !5, i64 21, !8, i64 24, !8, i64 28}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!32, !8, i64 16}
-!37 = !{!32, !5, i64 20}
-!38 = !{!32, !8, i64 24}
-!39 = !{!32, !8, i64 28}
-!40 = !{i64 0, i64 4, !41, i64 4, i64 4, !41, i64 8, i64 8, !42, i64 16, i64 4, !41, i64 20, i64 1, !29, i64 21, i64 3, !29, i64 24, i64 4, !41, i64 28, i64 4, !41}
-!41 = !{!8, !8, i64 0}
-!42 = !{!9, !9, i64 0}
-!43 = distinct !{!43, !34, !35}
-!44 = !{!4, !10, i64 96}
-!45 = distinct !{!45, !34, !35}
-!46 = distinct !{!46, !34, !35}
-!47 = !{!32, !8, i64 0}
-!48 = distinct !{!48, !34, !35}
+!35 = !{!32, !8, i64 16}
+!36 = !{!32, !5, i64 20}
+!37 = !{!32, !8, i64 24}
+!38 = !{!32, !8, i64 28}
+!39 = !{i64 0, i64 4, !40, i64 4, i64 4, !40, i64 8, i64 8, !41, i64 16, i64 4, !40, i64 20, i64 1, !29, i64 21, i64 3, !29, i64 24, i64 4, !40, i64 28, i64 4, !40}
+!40 = !{!8, !8, i64 0}
+!41 = !{!9, !9, i64 0}
+!42 = distinct !{!42, !34}
+!43 = !{!4, !10, i64 96}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
+!46 = !{!32, !8, i64 0}
+!47 = distinct !{!47, !34}

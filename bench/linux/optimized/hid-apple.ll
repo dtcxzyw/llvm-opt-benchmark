@@ -189,7 +189,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr noundef readonly captures(n
 37:                                               ; preds = %40
   %38 = add nuw i32 %41, 1
   %39 = icmp eq i32 %38, %33
-  br i1 %39, label %.loopexit, label %40, !llvm.loop !9
+  br i1 %39, label %.loopexit, label %40, !llvm.loop !8
 
 40:                                               ; preds = %37, %35
   %41 = phi i32 [ 0, %35 ], [ %38, %37 ]
@@ -340,7 +340,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 336
-  %36 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %35, i64 6) #10, !srcloc !10
+  %36 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %35, i64 6) #10, !srcloc !9
   %37 = icmp ult i8 %36, 2
   tail call void @llvm.assume(i1 %37)
   %38 = xor i8 %36, 1
@@ -387,7 +387,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %64 = getelementptr i8, ptr %61, i64 6
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %.thread, label %.preheader34, !llvm.loop !11
+  br i1 %66, label %.thread, label %.preheader34, !llvm.loop !10
 
 67:                                               ; preds = %.preheader34
   %68 = icmp eq ptr %61, null
@@ -430,7 +430,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %89 = getelementptr i8, ptr %86, i64 6
   %90 = load i16, ptr %89, align 2
   %91 = icmp eq i16 %90, 0
-  br i1 %91, label %.thread21, label %84, !llvm.loop !12
+  br i1 %91, label %.thread21, label %84, !llvm.loop !10
 
 92:                                               ; preds = %84
   %93 = icmp eq ptr %86, null
@@ -459,7 +459,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %103 = getelementptr i8, ptr %100, i64 6
   %104 = load i16, ptr %103, align 2
   %105 = icmp eq i16 %104, 0
-  br i1 %105, label %.thread22, label %.preheader31, !llvm.loop !13
+  br i1 %105, label %.thread22, label %.preheader31, !llvm.loop !10
 
 .preheader30:                                     ; preds = %.thread21, %109
   %106 = phi i16 [ %111, %109 ], [ 56, %.thread21 ]
@@ -471,7 +471,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %110 = getelementptr i8, ptr %107, i64 6
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
-  br i1 %112, label %.thread22, label %.preheader30, !llvm.loop !14
+  br i1 %112, label %.thread22, label %.preheader30, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader31, %.preheader30
   %113 = phi ptr [ %107, %.preheader30 ], [ %100, %.preheader31 ]
@@ -499,7 +499,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %125 = getelementptr i8, ptr %122, i64 6
   %126 = load i16, ptr %125, align 2
   %127 = icmp eq i16 %126, 0
-  br i1 %127, label %.thread23, label %.preheader29, !llvm.loop !15
+  br i1 %127, label %.thread23, label %.preheader29, !llvm.loop !10
 
 128:                                              ; preds = %.preheader29
   %129 = icmp eq ptr %122, null
@@ -596,7 +596,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %164 = getelementptr i8, ptr %161, i64 6
   %165 = load i16, ptr %164, align 2
   %166 = icmp eq i16 %165, 0
-  br i1 %166, label %.thread25, label %.preheader, !llvm.loop !16
+  br i1 %166, label %.thread25, label %.preheader, !llvm.loop !10
 
 167:                                              ; preds = %.preheader
   %168 = icmp eq ptr %161, null
@@ -605,13 +605,13 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
 169:                                              ; preds = %167
   %170 = getelementptr inbounds nuw i8, ptr %49, i64 336
   %171 = zext i16 %133 to i64
-  %172 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %170, i64 %171) #10, !srcloc !10
+  %172 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %170, i64 %171) #10, !srcloc !9
   %173 = icmp ult i8 %172, 2
   tail call void @llvm.assume(i1 %173)
   %174 = getelementptr inbounds nuw i8, ptr %161, i64 2
   %175 = load i16, ptr %174, align 2
   %176 = zext i16 %175 to i64
-  %177 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %170, i64 %176) #10, !srcloc !10
+  %177 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %170, i64 %176) #10, !srcloc !9
   %178 = icmp ult i8 %177, 2
   tail call void @llvm.assume(i1 %178)
   %179 = or i8 %177, %172
@@ -673,7 +673,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
 208:                                              ; preds = %.thread25
   %209 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %210 = zext i16 %204 to i64
-  %211 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 %210) #10, !srcloc !10
+  %211 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 %210) #10, !srcloc !9
   %212 = icmp ult i8 %211, 2
   tail call void @llvm.assume(i1 %212)
   %213 = icmp eq i8 %211, 0
@@ -699,7 +699,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %224 = getelementptr i8, ptr %221, i64 6
   %225 = load i16, ptr %224, align 2
   %226 = icmp eq i16 %225, 0
-  br i1 %226, label %.thread27, label %219, !llvm.loop !17
+  br i1 %226, label %.thread27, label %219, !llvm.loop !10
 
 227:                                              ; preds = %219
   %228 = icmp eq ptr %221, null
@@ -710,11 +710,11 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   br i1 %230, label %232, label %231
 
 231:                                              ; preds = %229
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 %210) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 %210) #10, !srcloc !11
   br label %233
 
 232:                                              ; preds = %229
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 %210) #10, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 %210) #10, !srcloc !12
   br label %233
 
 233:                                              ; preds = %232, %231
@@ -737,7 +737,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
 243:                                              ; preds = %239
   %244 = getelementptr inbounds nuw i8, ptr %49, i64 336
   %245 = zext i16 %236 to i64
-  %246 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %244, i64 %245) #10, !srcloc !10
+  %246 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %244, i64 %245) #10, !srcloc !9
   %247 = icmp ult i8 %246, 2
   tail call void @llvm.assume(i1 %247)
   %248 = xor i8 %246, 1
@@ -884,7 +884,7 @@ define internal noundef range(i32 0, 2) i32 @apple_input_mapping(ptr noundef rea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 42
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 16, ptr elementtype(i8) %13) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 16, ptr elementtype(i8) %13) #10, !srcloc !13
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -895,13 +895,13 @@ define internal noundef range(i32 0, 2) i32 @apple_input_mapping(ptr noundef rea
   store ptr %15, ptr %4, align 8
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, i64 %19) #10, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, i64 %19) #10, !srcloc !12
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 1, ptr %20, align 4
   %21 = load ptr, ptr %11, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = getelementptr i8, ptr %21, i64 56
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23, i32 32, ptr elementtype(i8) %23) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23, i32 32, ptr elementtype(i8) %23) #10, !srcloc !13
   br label %24
 
 24:                                               ; preds = %24, %8
@@ -909,99 +909,99 @@ define internal noundef range(i32 0, 2) i32 @apple_input_mapping(ptr noundef rea
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %28) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %28) #10, !srcloc !11
   %29 = getelementptr i8, ptr %25, i64 6
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 0
-  br i1 %31, label %.preheader8, label %24, !llvm.loop !21
+  br i1 %31, label %.preheader8, label %24, !llvm.loop !14
 
 .preheader8:                                      ; preds = %24, %.preheader8
   %32 = phi ptr [ %36, %.preheader8 ], [ @powerbook_fn_keys, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %35) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %35) #10, !srcloc !11
   %36 = getelementptr i8, ptr %32, i64 6
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
-  br i1 %38, label %.preheader7, label %.preheader8, !llvm.loop !22
+  br i1 %38, label %.preheader7, label %.preheader8, !llvm.loop !14
 
 .preheader7:                                      ; preds = %.preheader8, %.preheader7
   %39 = phi ptr [ %43, %.preheader7 ], [ @powerbook_numlock_keys, %.preheader8 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %42) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %42) #10, !srcloc !11
   %43 = getelementptr i8, ptr %39, i64 6
   %44 = load i16, ptr %43, align 2
   %45 = icmp eq i16 %44, 0
-  br i1 %45, label %.preheader6, label %.preheader7, !llvm.loop !23
+  br i1 %45, label %.preheader6, label %.preheader7, !llvm.loop !14
 
 .preheader6:                                      ; preds = %.preheader7, %.preheader6
   %46 = phi ptr [ %50, %.preheader6 ], [ @apple_iso_keyboard, %.preheader7 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %49) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %49) #10, !srcloc !11
   %50 = getelementptr i8, ptr %46, i64 6
   %51 = load i16, ptr %50, align 2
   %52 = icmp eq i16 %51, 0
-  br i1 %52, label %.preheader5, label %.preheader6, !llvm.loop !24
+  br i1 %52, label %.preheader5, label %.preheader6, !llvm.loop !14
 
 .preheader5:                                      ; preds = %.preheader6, %.preheader5
   %53 = phi ptr [ %57, %.preheader5 ], [ @magic_keyboard_alu_fn_keys, %.preheader6 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %56) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %56) #10, !srcloc !11
   %57 = getelementptr i8, ptr %53, i64 6
   %58 = load i16, ptr %57, align 2
   %59 = icmp eq i16 %58, 0
-  br i1 %59, label %.preheader4, label %.preheader5, !llvm.loop !25
+  br i1 %59, label %.preheader4, label %.preheader5, !llvm.loop !14
 
 .preheader4:                                      ; preds = %.preheader5, %.preheader4
   %60 = phi ptr [ %64, %.preheader4 ], [ @magic_keyboard_2015_fn_keys, %.preheader5 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %63) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %63) #10, !srcloc !11
   %64 = getelementptr i8, ptr %60, i64 6
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %.preheader3, label %.preheader4, !llvm.loop !26
+  br i1 %66, label %.preheader3, label %.preheader4, !llvm.loop !14
 
 .preheader3:                                      ; preds = %.preheader4, %.preheader3
   %67 = phi ptr [ %71, %.preheader3 ], [ @apple2021_fn_keys, %.preheader4 ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %70) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %70) #10, !srcloc !11
   %71 = getelementptr i8, ptr %67, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 0
-  br i1 %73, label %.preheader2, label %.preheader3, !llvm.loop !27
+  br i1 %73, label %.preheader2, label %.preheader3, !llvm.loop !14
 
 .preheader2:                                      ; preds = %.preheader3, %.preheader2
   %74 = phi ptr [ %78, %.preheader2 ], [ @macbookpro_no_esc_fn_keys, %.preheader3 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %77) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %77) #10, !srcloc !11
   %78 = getelementptr i8, ptr %74, i64 6
   %79 = load i16, ptr %78, align 2
   %80 = icmp eq i16 %79, 0
-  br i1 %80, label %.preheader, label %.preheader2, !llvm.loop !28
+  br i1 %80, label %.preheader, label %.preheader2, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader2, %.preheader
   %81 = phi ptr [ %85, %.preheader ], [ @macbookpro_dedicated_esc_fn_keys, %.preheader2 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %84) #10, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %84) #10, !srcloc !11
   %85 = getelementptr i8, ptr %81, i64 6
   %86 = load i16, ptr %85, align 2
   %87 = icmp eq i16 %86, 0
-  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %6
   %88 = phi i32 [ 0, %6 ], [ 1, %.preheader ]
@@ -1104,7 +1104,7 @@ define internal noundef i32 @apple_input_configured(ptr noundef %0, ptr readnone
   %21 = phi i64 [ %22, %24 ], [ 0, %17 ]
   %22 = add nuw nsw i64 %21, 1
   %23 = icmp eq i64 %22, 9
-  br i1 %23, label %.thread, label %24, !llvm.loop !30
+  br i1 %23, label %.thread, label %24, !llvm.loop !15
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr [9 x %struct.apple_non_apple_keyboard], ptr @non_apple_keyboards, i64 0, i64 %22
@@ -1112,7 +1112,7 @@ define internal noundef i32 @apple_input_configured(ptr noundef %0, ptr readnone
   %27 = tail call i64 @strlen(ptr noundef %26) #10
   %28 = tail call i32 @strncmp(ptr noundef nonnull %18, ptr noundef %26, i64 noundef %27) #10
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.preheader, !llvm.loop !31
+  br i1 %29, label %30, label %.preheader, !llvm.loop !15
 
 30:                                               ; preds = %24
   %31 = icmp samesign ult i64 %21, 8
@@ -1238,30 +1238,14 @@ attributes #13 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{i64 2148422936, i64 2148423010}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = !{i64 2148409609, i64 2148409648, i64 2148409669, i64 2148409706, i64 2148409729, i64 2148409599}
-!19 = !{i64 2148410897, i64 2148410936, i64 2148410957, i64 2148410994, i64 2148411017, i64 2148410887}
-!20 = !{i64 2148409324, i64 2148409363, i64 2148409384, i64 2148409421, i64 2148409444, i64 2148409314}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = distinct !{!28, !6, !7, !8}
-!29 = distinct !{!29, !6, !7, !8}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i64 2148422936, i64 2148423010}
+!10 = distinct !{!10, !6, !7}
+!11 = !{i64 2148409609, i64 2148409648, i64 2148409669, i64 2148409706, i64 2148409729, i64 2148409599}
+!12 = !{i64 2148410897, i64 2148410936, i64 2148410957, i64 2148410994, i64 2148411017, i64 2148410887}
+!13 = !{i64 2148409324, i64 2148409363, i64 2148409384, i64 2148409421, i64 2148409444, i64 2148409314}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

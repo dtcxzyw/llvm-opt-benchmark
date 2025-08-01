@@ -83,7 +83,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #3
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !12
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -126,7 +126,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %1) #3
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit, !llvm.loop !12
+  br i1 %19, label %3, label %l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit
 
 l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit.i ]
@@ -167,7 +167,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #3
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit, !llvm.loop !12
+  br i1 %19, label %3, label %l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit
 
 l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -257,7 +257,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %1) #3
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Lean_Meta_FVarSubst_contains.exit, !llvm.loop !12
+  br i1 %19, label %3, label %l_Lean_Meta_FVarSubst_contains.exit
 
 l_Lean_Meta_FVarSubst_contains.exit:              ; preds = %lean_obj_tag.exit.i.i, %13
   %.1.i.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i.i ]
@@ -355,7 +355,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = tail call zeroext i8 @lean_name_eq(ptr noundef %16, ptr noundef %1) #3
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %4, label %l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit, !llvm.loop !12
+  br i1 %20, label %4, label %l_Lean_AssocList_contains___at_Lean_Meta_FVarSubst_contains___spec__1.exit
 
 21:                                               ; preds = %lean_obj_tag.exit.i
   %22 = ptrtoint ptr %2 to i64
@@ -422,9 +422,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit22
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @l_Lean_Meta_FVarSubst_insert___lambda__1___boxed, ptr %42, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i16 3, ptr %43, align 8, !tbaa !14
+  store i16 3, ptr %43, align 8, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 18
-  store i16 2, ptr %44, align 2, !tbaa !14
+  store i16 2, ptr %44, align 2, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %1, ptr %45, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -1523,9 +1523,9 @@ lean_alloc_closure.exit:                          ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @l_Lean_Meta_FVarSubst_apply___lambda__1___boxed, ptr %31, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i16 2, ptr %32, align 8, !tbaa !14
+  store i16 2, ptr %32, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 18
-  store i16 1, ptr %33, align 2, !tbaa !14
+  store i16 1, ptr %33, align 2, !tbaa !12
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %0, ptr %34, align 8, !tbaa !10
   %35 = tail call ptr @lean_replace_expr(ptr noundef nonnull %27, ptr noundef %1) #3
@@ -1746,7 +1746,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   store ptr %16, ptr %31, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %.0, ptr %32, align 8, !tbaa !10
-  br label %3, !llvm.loop !16
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1823,7 +1823,7 @@ lean_alloc_ctor.exit.i:                           ; preds = %lean_inc.exit.i
   store ptr %14, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %.0.i, ptr %30, align 8, !tbaa !10
-  br label %2, !llvm.loop !16
+  br label %2
 
 l_Lean_AssocList_foldlM___at_Lean_Meta_FVarSubst_domain___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   ret ptr %.0.i
@@ -1903,7 +1903,7 @@ lean_alloc_ctor.exit.i:                           ; preds = %lean_inc.exit.i
   store ptr %15, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %.0.i, ptr %31, align 8, !tbaa !10
-  br label %3, !llvm.loop !16
+  br label %3
 
 l_Lean_AssocList_foldlM___at_Lean_Meta_FVarSubst_domain___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %32 = ptrtoint ptr %1 to i64
@@ -2007,7 +2007,7 @@ lean_alloc_ctor.exit.i.i:                         ; preds = %lean_inc.exit.i.i
   store ptr %14, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %.0.i.i, ptr %30, align 8, !tbaa !10
-  br label %2, !llvm.loop !16
+  br label %2
 
 l_Lean_Meta_FVarSubst_domain.exit:                ; preds = %lean_obj_tag.exit.i.i
   %31 = ptrtoint ptr %0 to i64
@@ -2254,7 +2254,7 @@ lean_inc.exit:                                    ; preds = %67, %66, %64, %lean
 
 lean_dec.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit
   %76 = tail call ptr @l_Lean_Meta_FVarSubst_insert(ptr noundef %.0, ptr noundef %26, ptr noundef %68)
-  br label %6, !llvm.loop !17
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2356,9 +2356,9 @@ lean_dec.exit94:                                  ; preds = %26, %25, %23, %14
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %37 = load i8, ptr %36, align 1, !tbaa !18
+  %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %39 = load i8, ptr %38, align 1, !tbaa !18
+  %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = ptrtoint ptr %35 to i64
   %41 = and i64 %40, 1
   %.not164 = icmp eq i64 %41, 0
@@ -2510,7 +2510,7 @@ lean_dec.exit92:                                  ; preds = %86, %85, %83, %lean
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit92
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  store i64 0, ptr %91, align 8, !tbaa !19
+  store i64 0, ptr %91, align 8, !tbaa !15
   store i32 1, ptr %87, align 4, !tbaa !4
   store i32 262192, ptr %90, align 4
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -2521,9 +2521,9 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit92
   store ptr %33, ptr %94, align 8, !tbaa !10
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store ptr %79, ptr %95, align 8, !tbaa !10
-  store i8 %37, ptr %91, align 1, !tbaa !18
+  store i8 %37, ptr %91, align 1, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 41
-  store i8 %39, ptr %96, align 1, !tbaa !18
+  store i8 %39, ptr %96, align 1, !tbaa !14
   br label %228
 
 97:                                               ; preds = %lean_obj_tag.exit
@@ -2624,9 +2624,9 @@ lean_dec.exit90:                                  ; preds = %130, %129, %127, %l
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %141 = load ptr, ptr %140, align 8, !tbaa !10
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %143 = load i8, ptr %142, align 1, !tbaa !18
+  %143 = load i8, ptr %142, align 1, !tbaa !14
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 49
-  %145 = load i8, ptr %144, align 1, !tbaa !18
+  %145 = load i8, ptr %144, align 1, !tbaa !14
   %146 = ptrtoint ptr %141 to i64
   %147 = and i64 %146, 1
   %.not = icmp eq i64 %147, 0
@@ -2848,7 +2848,7 @@ lean_dec.exit:                                    ; preds = %216, %215, %213, %l
 lean_alloc_ctor.exit154:                          ; preds = %lean_dec.exit
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 4
   %221 = getelementptr inbounds nuw i8, ptr %217, i64 48
-  store i64 0, ptr %221, align 8, !tbaa !19
+  store i64 0, ptr %221, align 8, !tbaa !15
   store i32 1, ptr %217, align 4, !tbaa !4
   store i32 17104952, ptr %220, align 4
   %222 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -2861,9 +2861,9 @@ lean_alloc_ctor.exit154:                          ; preds = %lean_dec.exit
   store ptr %201, ptr %225, align 8, !tbaa !10
   %226 = getelementptr inbounds nuw i8, ptr %217, i64 40
   store ptr %209, ptr %226, align 8, !tbaa !10
-  store i8 %143, ptr %221, align 1, !tbaa !18
+  store i8 %143, ptr %221, align 1, !tbaa !14
   %227 = getelementptr inbounds nuw i8, ptr %217, i64 49
-  store i8 %145, ptr %227, align 1, !tbaa !18
+  store i8 %145, ptr %227, align 1, !tbaa !14
   br label %228
 
 228:                                              ; preds = %lean_dec.exit90, %lean_alloc_ctor.exit154, %lean_dec.exit94, %lean_alloc_ctor.exit
@@ -3098,12 +3098,8 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !7, i64 0}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = !{!7, !7, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !7, i64 0}
+!14 = !{!7, !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !7, i64 0}

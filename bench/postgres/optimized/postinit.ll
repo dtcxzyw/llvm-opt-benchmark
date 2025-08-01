@@ -157,7 +157,7 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   %28 = getelementptr inbounds nuw i8, ptr %.327, i64 1
   %29 = load i8, ptr %28, align 1
   %.not19 = icmp eq i8 %29, 0
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.3.lcssa.ph = phi ptr [ %.327, %.lr.ph ], [ %28, %27 ]
@@ -171,7 +171,7 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   store ptr %31, ptr %35, align 8
   %36 = load i8, ptr %.3.lcssa.ph, align 1
   %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %.thread, label %.lr.ph34, !llvm.loop !8
+  br i1 %.not, label %.thread, label %.lr.ph34
 
 .thread:                                          ; preds = %._crit_edge, %15, %3
   %37 = load ptr, ptr %4, align 8
@@ -257,7 +257,7 @@ define dso_local void @InitializeFastPathLocks() local_unnamed_addr #5 {
 4:                                                ; preds = %2
   %5 = shl i32 %storemerge1, 1
   %6 = icmp slt i32 %5, 1024
-  br i1 %6, label %2, label %7, !llvm.loop !9
+  br i1 %6, label %2, label %7, !llvm.loop !7
 
 7:                                                ; preds = %2, %4
   %storemerge.lcssa = phi i32 [ %storemerge1, %2 ], [ %5, %4 ]
@@ -324,7 +324,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
 18:                                               ; preds = %16, %6
   tail call void @InitProcessPhase2() #12
   tail call void @SharedInvalBackendInit(i1 noundef zeroext false) #12
-  %19 = load i8, ptr @MyCancelKeyValid, align 1, !range !10, !noundef !11
+  %19 = load i8, ptr @MyCancelKeyValid, align 1, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   %21 = load i32, ptr @MyCancelKey, align 4
   tail call void @ProcSignalInit(i1 noundef zeroext %20, i32 noundef %21) #12
@@ -342,7 +342,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %31
 
 31:                                               ; preds = %22, %18
-  %32 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
+  %32 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %35, label %34
 
@@ -389,7 +389,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread115
 
 42:                                               ; preds = %40
-  %43 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
+  %43 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %61, label %45
 
@@ -451,20 +451,20 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.22, i64 noundef 14) #12
   tail call void @ClientAuthentication(ptr noundef %72) #12
   tail call void @disable_timeout(i32 noundef 3, i1 noundef zeroext false) #12
-  %75 = load i8, ptr @Log_connections, align 1, !range !10, !noundef !11
+  %75 = load i8, ptr @Log_connections, align 1, !range !8, !noundef !9
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %PerformAuthentication.exit
 
 77:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #12
   call void @initStringInfo(ptr noundef nonnull %10) #12
-  %78 = load i8, ptr @am_walsender, align 1, !range !10, !noundef !11
+  %78 = load i8, ptr @am_walsender, align 1, !range !8, !noundef !9
   %79 = trunc nuw i8 %78 to i1
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 328
   %81 = load ptr, ptr %80, align 8
   %.str.23..str.24.i = select i1 %79, ptr @.str.23, ptr @.str.24
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %10, ptr noundef nonnull %.str.23..str.24.i, ptr noundef %81) #12
-  %82 = load i8, ptr @am_walsender, align 1, !range !10, !noundef !11
+  %82 = load i8, ptr @am_walsender, align 1, !range !8, !noundef !9
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %87, label %84
 
@@ -520,7 +520,7 @@ PerformAuthentication.exit:                       ; preds = %71, %96
 
 104:                                              ; preds = %67, %102
   %.070.shrunk = phi i1 [ %70, %67 ], [ %103, %102 ]
-  %105 = load i8, ptr @IsBinaryUpgrade, align 1, !range !10, !noundef !11
+  %105 = load i8, ptr @IsBinaryUpgrade, align 1, !range !8, !noundef !9
   %106 = trunc nuw i8 %105 to i1
   %.not = xor i1 %106, true
   %or.cond7 = select i1 %.not, i1 true, i1 %.070.shrunk
@@ -580,7 +580,7 @@ PerformAuthentication.exit:                       ; preds = %71, %96
 
 .thread115:                                       ; preds = %.thread, %66, %45, %56, %54, %129, %119, %114, %111
   %.070.shrunk114118 = phi i1 [ false, %129 ], [ false, %119 ], [ false, %114 ], [ %.070.shrunk, %111 ], [ true, %54 ], [ true, %56 ], [ true, %45 ], [ true, %66 ], [ true, %.thread ]
-  %136 = load i8, ptr @am_walsender, align 1, !range !10, !noundef !11
+  %136 = load i8, ptr @am_walsender, align 1, !range !8, !noundef !9
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %.thread126
 
@@ -599,10 +599,10 @@ PerformAuthentication.exit:                       ; preds = %71, %96
   unreachable
 
 146:                                              ; preds = %138
-  %.pre = load i8, ptr @am_walsender, align 1, !range !10
+  %.pre = load i8, ptr @am_walsender, align 1, !range !8
   %147 = trunc nuw i8 %.pre to i1
   %148 = xor i1 %147, true
-  %149 = load i8, ptr @am_db_walsender, align 1, !range !10
+  %149 = load i8, ptr @am_db_walsender, align 1, !range !8
   %150 = trunc nuw i8 %149 to i1
   %or.cond12 = select i1 %148, i1 true, i1 %150
   br i1 %or.cond12, label %.thread126, label %151
@@ -645,7 +645,7 @@ PerformAuthentication.exit:                       ; preds = %71, %96
   %163 = ptrtoint ptr %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %163) #12
   %164 = call ptr @table_open(i32 noundef 1262, i32 noundef 1) #12
-  %165 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !10, !noundef !11
+  %165 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !8, !noundef !9
   %166 = trunc nuw i8 %165 to i1
   %167 = call ptr @systable_beginscan(ptr noundef %164, i32 noundef 2671, i1 noundef zeroext %166, ptr noundef null, i32 noundef 1, ptr noundef nonnull %9) #12
   %168 = call ptr @systable_getnext(ptr noundef %167) #12
@@ -702,7 +702,7 @@ GetDatabaseTuple.exit:                            ; preds = %162, %169
   %186 = zext i32 %.069.ph to i64
   call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %186) #12
   %187 = call ptr @table_open(i32 noundef 1262, i32 noundef 1) #12
-  %188 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !10, !noundef !11
+  %188 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !8, !noundef !9
   %189 = trunc nuw i8 %188 to i1
   %190 = call ptr @systable_beginscan(ptr noundef %187, i32 noundef 2672, i1 noundef zeroext %189, ptr noundef null, i32 noundef 1, ptr noundef nonnull %8) #12
   %191 = call ptr @systable_getnext(ptr noundef %190) #12
@@ -776,7 +776,7 @@ GetDatabaseTupleByOid.exit:                       ; preds = %185, %192
   %222 = load i32, ptr %221, align 4
   store i32 %222, ptr @MyDatabaseTableSpace, align 4
   %223 = getelementptr inbounds nuw i8, ptr %199, i64 79
-  %224 = load i8, ptr %223, align 1, !range !10, !noundef !11
+  %224 = load i8, ptr %223, align 1, !range !8, !noundef !9
   store i8 %224, ptr @MyDatabaseHasLoginEventTriggers, align 1
   %.not93 = icmp eq ptr %5, null
   br i1 %.not93, label %.critedge, label %225
@@ -869,13 +869,13 @@ GetDatabaseTupleByOid.exit:                       ; preds = %185, %192
   unreachable
 
 271:                                              ; preds = %257
-  %272 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
+  %272 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
   %273 = trunc nuw i8 %272 to i1
   br i1 %273, label %274, label %307
 
 274:                                              ; preds = %271
   %275 = getelementptr inbounds nuw i8, ptr %262, i64 78
-  %276 = load i8, ptr %275, align 2, !range !10, !noundef !11
+  %276 = load i8, ptr %275, align 2, !range !8, !noundef !9
   %277 = trunc nuw i8 %276 to i1
   %or.cond.i = or i1 %249, %277
   br i1 %or.cond.i, label %282, label %278
@@ -997,7 +997,7 @@ sub_0.i:                                          ; preds = %325
 340:                                              ; preds = %339, %.tail.thread.i
   call void @init_database_collation() #12
   %341 = call i64 @SysCacheGetAttr(i32 noundef 21, ptr noundef nonnull %252, i16 noundef signext 17, ptr noundef nonnull %7) #12
-  %342 = load i8, ptr %7, align 1, !range !10, !noundef !11
+  %342 = load i8, ptr %7, align 1, !range !8, !noundef !9
   %343 = trunc nuw i8 %342 to i1
   br i1 %343, label %CheckMyDatabase.exit, label %344
 
@@ -1076,7 +1076,7 @@ CheckMyDatabase.exit:                             ; preds = %340, %357, %361, %3
 373:                                              ; preds = %372, %370
   %374 = load i32, ptr @MyDatabaseId, align 4
   %375 = call i32 @GetSessionUserId() #12
-  %376 = load i8, ptr @IsUnderPostmaster, align 1, !range !10, !noundef !11
+  %376 = load i8, ptr @IsUnderPostmaster, align 1, !range !8, !noundef !9
   %377 = trunc nuw i8 %376 to i1
   br i1 %377, label %378, label %process_settings.exit
 
@@ -1143,7 +1143,7 @@ declare void @CheckDeadLockAlert() #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @StatementTimeoutHandler() #0 {
-  %1 = load i8, ptr @ClientAuthInProgress, align 1, !range !10, !noundef !11
+  %1 = load i8, ptr @ClientAuthInProgress, align 1, !range !8, !noundef !9
   %2 = trunc nuw i8 %1 to i1
   %spec.store.select = select i1 %2, i32 15, i32 2
   %3 = load i32, ptr @MyProcPid, align 4
@@ -1485,11 +1485,9 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}

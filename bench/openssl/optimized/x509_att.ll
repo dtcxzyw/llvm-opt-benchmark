@@ -189,7 +189,7 @@ define ptr @ossl_x509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr 
   br label %25
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !13
+  %7 = load ptr, ptr %0, align 8, !tbaa !12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12
 
@@ -210,12 +210,12 @@ define ptr @ossl_x509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr 
   br i1 %.not, label %.sink.split, label %17
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %0, align 8, !tbaa !13
+  %18 = load ptr, ptr %0, align 8, !tbaa !12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
-  store ptr %.1, ptr %0, align 8, !tbaa !13
+  store ptr %.1, ptr %0, align 8, !tbaa !12
   br label %25
 
 .sink.split:                                      ; preds = %15, %9
@@ -231,7 +231,7 @@ define ptr @ossl_x509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr 
   %.016 = phi ptr [ null, %12 ], [ %.016.ph, %.sink.split ]
   %.0 = phi ptr [ %.1, %12 ], [ %.0.ph, %.sink.split ]
   tail call void @X509_ATTRIBUTE_free(ptr noundef %.016) #4
-  %22 = load ptr, ptr %0, align 8, !tbaa !13
+  %22 = load ptr, ptr %0, align 8, !tbaa !12
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
 
@@ -268,7 +268,7 @@ define ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr nound
   br label %23
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !13
+  %7 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %X509at_get_attr_by_OBJ.exit.thread, label %8
 
@@ -340,7 +340,7 @@ define ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef captures(address_is_null) %
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !15
+  %8 = load ptr, ptr %0, align 8, !tbaa !14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14
 
@@ -383,19 +383,19 @@ X509_ATTRIBUTE_set1_object.exit:                  ; preds = %14
   br i1 %6, label %29, label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !15
+  %22 = load ptr, ptr %0, align 8, !tbaa !14
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
-  store ptr %.0, ptr %0, align 8, !tbaa !15
+  store ptr %.0, ptr %0, align 8, !tbaa !14
   br label %29
 
 25:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit.thread, %18, %X509_ATTRIBUTE_set1_object.exit
   br i1 %6, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %0, align 8, !tbaa !15
+  %27 = load ptr, ptr %0, align 8, !tbaa !14
   %.not23 = icmp eq ptr %.0, %27
   br i1 %.not23, label %29, label %28
 
@@ -422,7 +422,7 @@ define ptr @X509at_add1_attr_by_OBJ(ptr noundef captures(address_is_null) %0, pt
   br label %ossl_x509at_add1_attr_by_OBJ.exit
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %0, align 8, !tbaa !13
+  %10 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %X509at_get_attr_by_OBJ.exit.thread, label %11
 
@@ -541,7 +541,7 @@ define ptr @X509at_add1_attr_by_NID(ptr noundef captures(address_is_null) %0, i3
   br label %24
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %0, align 8, !tbaa !13
+  %9 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %X509at_get_attr_by_NID.exit.thread, label %10
 
@@ -727,7 +727,7 @@ X509at_get_attr_by_OBJ.exit19.thread:             ; preds = %21
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !17
+  %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = tail call i32 @OPENSSL_sk_num(ptr noundef %32) #4
   %.not15 = icmp eq i32 %33, 1
   br i1 %.not15, label %34, label %X509at_get_attr_by_OBJ.exit.thread
@@ -749,7 +749,7 @@ define i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(address_is_null) 
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #4
   br label %7
 
@@ -771,7 +771,7 @@ X509_ATTRIBUTE_get0_type.exit.thread:             ; preds = %4
 
 X509_ATTRIBUTE_get0_type.exit:                    ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %1) #4
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
@@ -794,7 +794,7 @@ X509_ATTRIBUTE_get0_type.exit:                    ; preds = %4
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !18
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   br label %18
 
 18:                                               ; preds = %X509_ATTRIBUTE_get0_type.exit.thread, %X509_ATTRIBUTE_get0_type.exit, %15, %14
@@ -807,14 +807,14 @@ define ptr @ossl_x509at_dup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  store ptr null, ptr %2, align 8, !tbaa !13
+  store ptr null, ptr %2, align 8, !tbaa !12
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 5:                                                ; preds = %.lr.ph
   %6 = add nuw nsw i32 %.067, 1
   %exitcond.not = icmp eq i32 %6, %3
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %1, %5
   %.067 = phi i32 [ %6, %5 ], [ 0, %1 ]
@@ -824,12 +824,12 @@ define ptr @ossl_x509at_dup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %.lr.ph
-  %11 = load ptr, ptr %2, align 8, !tbaa !13
+  %11 = load ptr, ptr %2, align 8, !tbaa !12
   call void @OPENSSL_sk_pop_free(ptr noundef %11, ptr noundef nonnull @X509_ATTRIBUTE_free) #4
   br label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %5
-  %.pre = load ptr, ptr %2, align 8, !tbaa !13
+  %.pre = load ptr, ptr %2, align 8, !tbaa !12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %._crit_edge.loopexit, %10
@@ -902,7 +902,7 @@ define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly captur
 
 .thread:                                          ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !20
+  %16 = load i32, ptr %15, align 4, !tbaa !19
   br label %26
 
 17:                                               ; preds = %7
@@ -953,7 +953,7 @@ define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly captur
 34:                                               ; preds = %31, %33
   %.2 = phi ptr [ %.02844, %31 ], [ null, %33 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = tail call i32 @OPENSSL_sk_push(ptr noundef %36, ptr noundef nonnull %27) #4
   %.not41 = icmp eq i32 %37, 0
   br i1 %.not41, label %38, label %39
@@ -1028,7 +1028,7 @@ define ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(address_is_nu
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %1) #4
   br label %9
 
@@ -1060,18 +1060,17 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"p1 _ZTS18stack_st_ASN1_TYPE", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS18x509_attributes_st", !6, i64 0}
-!17 = !{!4, !9, i64 8}
-!18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !11, !12}
-!20 = !{!21, !22, i64 4}
-!21 = !{!"asn1_string_st", !22, i64 0, !22, i64 4, !23, i64 8, !24, i64 16}
-!22 = !{!"int", !7, i64 0}
-!23 = !{!"p1 omnipotent char", !6, i64 0}
-!24 = !{!"long", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS18x509_attributes_st", !6, i64 0}
+!16 = !{!4, !9, i64 8}
+!17 = !{!7, !7, i64 0}
+!18 = distinct !{!18, !11}
+!19 = !{!20, !21, i64 4}
+!20 = !{!"asn1_string_st", !21, i64 0, !21, i64 4, !22, i64 8, !23, i64 16}
+!21 = !{!"int", !7, i64 0}
+!22 = !{!"p1 omnipotent char", !6, i64 0}
+!23 = !{!"long", !7, i64 0}

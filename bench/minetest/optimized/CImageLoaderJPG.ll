@@ -565,8 +565,8 @@ for.body.epil:                                    ; preds = %while.cond.preheade
 while.cond.preheader:                             ; preds = %for.body.epil, %while.cond.preheader.loopexit.unr-lcssa, %if.end35
   %output_scanline = getelementptr inbounds nuw i8, ptr %cinfo, i64 168
   %output_height = getelementptr inbounds nuw i8, ptr %cinfo, i64 140
-  %18 = load i32, ptr %output_scanline, align 8, !tbaa !53
-  %19 = load i32, ptr %output_height, align 4, !tbaa !54
+  %18 = load i32, ptr %output_scanline, align 8, !tbaa !52
+  %19 = load i32, ptr %output_height, align 4, !tbaa !53
   %cmp49186 = icmp ult i32 %18, %19
   br i1 %cmp49186, label %while.body, label %delete.notnull55
 
@@ -601,7 +601,7 @@ for.body:                                         ; preds = %for.body, %for.body
   store ptr %arrayidx.3, ptr %arrayidx48.3, align 8, !tbaa !49
   %indvars.iv.next.3 = add nuw nsw i64 %indvars.iv, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.3, %unroll_iter
-  br i1 %niter.ncmp.3, label %while.cond.preheader.loopexit.unr-lcssa, label %for.body, !llvm.loop !55
+  br i1 %niter.ncmp.3, label %while.cond.preheader.loopexit.unr-lcssa, label %for.body, !llvm.loop !54
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %24 = phi i32 [ %26, %while.body ], [ %19, %while.cond.preheader ]
@@ -611,10 +611,10 @@ while.body:                                       ; preds = %while.cond.preheade
   %sub = sub i32 %24, %rowsRead.0187
   %call53 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %cinfo, ptr noundef nonnull %arrayidx51, i32 noundef %sub) #21
   %add = add i32 %call53, %rowsRead.0187
-  %25 = load i32, ptr %output_scanline, align 8, !tbaa !53
-  %26 = load i32, ptr %output_height, align 4, !tbaa !54
+  %25 = load i32, ptr %output_scanline, align 8, !tbaa !52
+  %26 = load i32, ptr %output_height, align 4, !tbaa !53
   %cmp49 = icmp ult i32 %25, %26
-  br i1 %cmp49, label %while.body, label %delete.notnull55, !llvm.loop !57
+  br i1 %cmp49, label %while.body, label %delete.notnull55, !llvm.loop !56
 
 delete.notnull55:                                 ; preds = %while.body, %while.cond.preheader
   call void @_ZdaPv(ptr noundef nonnull %call44) #20
@@ -625,15 +625,15 @@ delete.notnull55:                                 ; preds = %while.body, %while.
 
 if.then59:                                        ; preds = %delete.notnull55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21
-  store i32 %12, ptr %ref.tmp, align 4, !tbaa !58
+  store i32 %12, ptr %ref.tmp, align 4, !tbaa !57
   %Height.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
-  store i32 %14, ptr %Height.i, align 4, !tbaa !60
+  store i32 %14, ptr %Height.i, align 4, !tbaa !59
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call60, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   %mul61 = mul i32 %12, 3
   %mul62 = mul i32 %mul61, %14
   %Data.i = getelementptr inbounds nuw i8, ptr %call60, i64 24
-  %27 = load ptr, ptr %Data.i, align 8, !tbaa !61
+  %27 = load ptr, ptr %Data.i, align 8, !tbaa !60
   %tobool64.not = icmp ne ptr %27, null
   %cmp68188 = icmp ne i32 %mul62, 0
   %or.cond = and i1 %cmp68188, %tobool64.not
@@ -688,7 +688,7 @@ for.body70:                                       ; preds = %if.then59, %for.bod
   %add119 = add i32 %i66.0189, 3
   %add120 = add i32 %j.0190, 4
   %cmp68 = icmp ult i32 %add119, %mul62
-  br i1 %cmp68, label %for.body70, label %delete.notnull124, !llvm.loop !65
+  br i1 %cmp68, label %for.body70, label %delete.notnull124, !llvm.loop !64
 
 delete.notnull124:                                ; preds = %for.body70, %if.then59
   call void @_ZdaPv(ptr noundef nonnull %call42) #20
@@ -696,9 +696,9 @@ delete.notnull124:                                ; preds = %for.body70, %if.the
 
 if.else126:                                       ; preds = %delete.notnull55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp128) #21
-  store i32 %12, ptr %ref.tmp128, align 4, !tbaa !58
+  store i32 %12, ptr %ref.tmp128, align 4, !tbaa !57
   %Height.i177 = getelementptr inbounds nuw i8, ptr %ref.tmp128, i64 4
-  store i32 %14, ptr %Height.i177, align 4, !tbaa !60
+  store i32 %14, ptr %Height.i177, align 4, !tbaa !59
   call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr noundef nonnull align 8 dereferenceable(50) %call60, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp128, ptr noundef nonnull %call42, i1 noundef zeroext true, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp128) #21
   br label %delete.notnull131
@@ -867,7 +867,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !17
   %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !66
+  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !65
 
 land.rhs21.loopexit.i:                            ; preds = %for.inc.i
   %8 = zext i32 %inc.i to i64
@@ -914,7 +914,7 @@ for.inc.i42:                                      ; preds = %for.body.i32
   %arrayidx.i46 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !17
   %tobool.not.i47 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !67
+  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !65
 
 land.rhs21.loopexit.i48:                          ; preds = %for.inc.i42
   %15 = zext i32 %inc.i43 to i64
@@ -961,7 +961,7 @@ for.inc.i79:                                      ; preds = %for.body.i69
   %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !17
   %tobool.not.i84 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !68
+  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !65
 
 land.rhs21.loopexit.i85:                          ; preds = %for.inc.i79
   %22 = zext i32 %inc.i80 to i64
@@ -1080,22 +1080,19 @@ attributes #24 = { nounwind returns_twice }
 !47 = !{!20, !10, i64 52}
 !48 = !{!20, !10, i64 144}
 !49 = !{!8, !8, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.unroll.disable"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!20, !10, i64 168}
-!54 = !{!20, !10, i64 140}
-!55 = distinct !{!55, !56, !52}
-!56 = !{!"llvm.loop.mustprogress"}
-!57 = distinct !{!57, !56, !52}
-!58 = !{!59, !10, i64 0}
-!59 = !{!"_ZTSN3irr4core11dimension2dIjEE", !10, i64 0, !10, i64 4}
-!60 = !{!59, !10, i64 4}
-!61 = !{!62, !8, i64 24}
-!62 = !{!"_ZTSN3irr5video6IImageE", !63, i64 8, !59, i64 12, !8, i64 24, !8, i64 32, !10, i64 40, !10, i64 44, !64, i64 48, !64, i64 49}
-!63 = !{!"_ZTSN3irr5video13ECOLOR_FORMATE", !9, i64 0}
-!64 = !{!"bool", !9, i64 0}
-!65 = distinct !{!65, !56, !52}
-!66 = distinct !{!66, !56, !52}
-!67 = distinct !{!67, !56, !52}
-!68 = distinct !{!68, !56, !52}
+!52 = !{!20, !10, i64 168}
+!53 = !{!20, !10, i64 140}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.mustprogress"}
+!56 = distinct !{!56, !55}
+!57 = !{!58, !10, i64 0}
+!58 = !{!"_ZTSN3irr4core11dimension2dIjEE", !10, i64 0, !10, i64 4}
+!59 = !{!58, !10, i64 4}
+!60 = !{!61, !8, i64 24}
+!61 = !{!"_ZTSN3irr5video6IImageE", !62, i64 8, !58, i64 12, !8, i64 24, !8, i64 32, !10, i64 40, !10, i64 44, !63, i64 48, !63, i64 49}
+!62 = !{!"_ZTSN3irr5video13ECOLOR_FORMATE", !9, i64 0}
+!63 = !{!"bool", !9, i64 0}
+!64 = distinct !{!64, !55}
+!65 = distinct !{!65, !55}

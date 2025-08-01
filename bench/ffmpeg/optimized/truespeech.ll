@@ -381,7 +381,7 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   store i16 %252, ptr %253, align 2, !tbaa !44
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 8
-  br i1 %exitcond34.not.i, label %.preheader.i, label %228, !llvm.loop !50
+  br i1 %exitcond34.not.i, label %.preheader.i, label %228, !llvm.loop !49
 
 .preheader.i:                                     ; preds = %.loopexit.i, %.preheader.i
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.preheader.i ], [ 0, %.loopexit.i ]
@@ -397,13 +397,13 @@ define internal i32 @truespeech_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   store i16 %262, ptr %254, align 2, !tbaa !44
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond38.not.i, label %truespeech_correlate_filter.exit, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond38.not.i, label %truespeech_correlate_filter.exit, label %.preheader.i, !llvm.loop !50
 
 truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
   %263 = getelementptr inbounds nuw i8, ptr %.04080, i64 32
   %264 = shl i32 %226, 8
   %265 = ashr i32 %264, 16
-  store i32 %265, ptr %79, align 4, !tbaa !52
+  store i32 %265, ptr %79, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
   %266 = load i32, ptr %39, align 8, !tbaa !46
   %.not.i46 = icmp eq i32 %266, 0
@@ -421,7 +421,7 @@ truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
   store i16 %269, ptr %272, align 2, !tbaa !44
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 8
-  br i1 %exitcond44.not.i, label %.loopexit.i50.preheader, label %.preheader.i51, !llvm.loop !53
+  br i1 %exitcond44.not.i, label %.loopexit.i50.preheader, label %.preheader.i51, !llvm.loop !52
 
 .preheader34.i:                                   ; preds = %truespeech_correlate_filter.exit, %.preheader34.i
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader34.i ], [ 0, %truespeech_correlate_filter.exit ]
@@ -449,7 +449,7 @@ truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
   store i16 %290, ptr %292, align 2, !tbaa !44
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 8
-  br i1 %exitcond.not.i49, label %.loopexit.i50.preheader, label %.preheader34.i, !llvm.loop !54
+  br i1 %exitcond.not.i49, label %.loopexit.i50.preheader, label %.preheader34.i, !llvm.loop !53
 
 .loopexit.i50.preheader:                          ; preds = %.preheader34.i, %.preheader.i51
   br label %.loopexit.i50
@@ -466,7 +466,7 @@ truespeech_correlate_filter.exit:                 ; preds = %.preheader.i
   store i16 %294, ptr %298, align 2, !tbaa !44
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond48.not.i, label %truespeech_filters_merge.exit.preheader, label %.loopexit.i50, !llvm.loop !55
+  br i1 %exitcond48.not.i, label %truespeech_filters_merge.exit.preheader, label %.loopexit.i50, !llvm.loop !54
 
 truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %truespeech_synth.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %truespeech_synth.exit ], [ 0, %.loopexit.i50 ]
@@ -490,7 +490,7 @@ truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %tru
   store i16 %305, ptr %306, align 2, !tbaa !44
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, 146
-  br i1 %exitcond.not.i55, label %307, label %.preheader.i52, !llvm.loop !56
+  br i1 %exitcond.not.i55, label %307, label %.preheader.i52, !llvm.loop !55
 
 307:                                              ; preds = %.preheader.i52
   %308 = sdiv i32 %300, 25
@@ -535,7 +535,7 @@ truespeech_filters_merge.exit.preheader:          ; preds = %.loopexit.i50, %tru
   store i16 %338, ptr %340, align 2, !tbaa !44
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, 60
-  br i1 %exitcond36.not.i, label %truespeech_apply_twopoint_filter.exit, label %327, !llvm.loop !57
+  br i1 %exitcond36.not.i, label %truespeech_apply_twopoint_filter.exit, label %327, !llvm.loop !56
 
 truespeech_apply_twopoint_filter.exit:            ; preds = %327, %302
   call void @llvm.lifetime.end.p0(i64 412, ptr nonnull %7) #7
@@ -562,7 +562,7 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %327, %302
   store i16 %352, ptr %354, align 2, !tbaa !44
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 7
-  br i1 %exitcond.not.i59, label %355, label %345, !llvm.loop !58
+  br i1 %exitcond.not.i59, label %355, label %345, !llvm.loop !57
 
 355:                                              ; preds = %345
   store i32 %348, ptr %341, align 4, !tbaa !28
@@ -605,7 +605,7 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %327, %302
   %372 = icmp samesign ult i64 %indvars.iv70.i, 29
   %373 = icmp sgt i32 %.149.i, 0
   %374 = select i1 %372, i1 %373, i1 false
-  br i1 %374, label %359, label %375, !llvm.loop !59
+  br i1 %374, label %359, label %375, !llvm.loop !58
 
 375:                                              ; preds = %371
   %376 = and i32 %357, 32767
@@ -645,7 +645,7 @@ truespeech_apply_twopoint_filter.exit:            ; preds = %327, %302
   %390 = icmp samesign ult i64 %indvars.iv73.i, 59
   %391 = icmp sgt i32 %.351.i, 0
   %392 = select i1 %390, i1 %391, i1 false
-  br i1 %392, label %377, label %truespeech_place_pulses.exit, !llvm.loop !60
+  br i1 %392, label %377, label %truespeech_place_pulses.exit, !llvm.loop !59
 
 truespeech_place_pulses.exit:                     ; preds = %389
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %6) #7
@@ -670,7 +670,7 @@ truespeech_place_pulses.exit:                     ; preds = %389
   store i16 %405, ptr %394, align 2, !tbaa !44
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 60
-  br i1 %exitcond.not.i63, label %truespeech_update_filters.exit, label %393, !llvm.loop !61
+  br i1 %exitcond.not.i63, label %truespeech_update_filters.exit, label %393, !llvm.loop !60
 
 truespeech_update_filters.exit:                   ; preds = %393
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
@@ -695,7 +695,7 @@ truespeech_update_filters.exit:                   ; preds = %393
   %415 = add i32 %414, %.088105.i
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, 8
-  br i1 %exitcond.not.i66, label %416, label %407, !llvm.loop !62
+  br i1 %exitcond.not.i66, label %416, label %407, !llvm.loop !61
 
 416:                                              ; preds = %407
   %417 = getelementptr inbounds nuw i16, ptr %.177, i64 %indvars.iv124.i
@@ -713,7 +713,7 @@ truespeech_update_filters.exit:                   ; preds = %393
   store i16 %425, ptr %85, align 2, !tbaa !44
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %exitcond127.not.i = icmp eq i64 %indvars.iv.next125.i, 60
-  br i1 %exitcond127.not.i, label %.preheader102.i, label %.preheader103.i, !llvm.loop !63
+  br i1 %exitcond127.not.i, label %.preheader102.i, label %.preheader103.i, !llvm.loop !62
 
 .preheader102.i:                                  ; preds = %416, %.preheader102.i
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %.preheader102.i ], [ 0, %416 ]
@@ -729,7 +729,7 @@ truespeech_update_filters.exit:                   ; preds = %393
   store i32 %433, ptr %434, align 4, !tbaa !28
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond131.not.i = icmp eq i64 %indvars.iv.next129.i, 8
-  br i1 %exitcond131.not.i, label %.preheader101.i, label %.preheader102.i, !llvm.loop !64
+  br i1 %exitcond131.not.i, label %.preheader101.i, label %.preheader102.i, !llvm.loop !63
 
 .preheader101.i:                                  ; preds = %.preheader102.i, %.preheader100.i
   %indvars.iv140.i = phi i64 [ %indvars.iv.next141.i, %.preheader100.i ], [ 0, %.preheader102.i ]
@@ -747,7 +747,7 @@ truespeech_update_filters.exit:                   ; preds = %393
   store i16 %440, ptr %435, align 2, !tbaa !44
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next141.i, 60
-  br i1 %exitcond143.not.i, label %.preheader99.i, label %.preheader101.i, !llvm.loop !65
+  br i1 %exitcond143.not.i, label %.preheader99.i, label %.preheader101.i, !llvm.loop !64
 
 441:                                              ; preds = %441, %.preheader101.i
   %indvars.iv132.i = phi i64 [ 0, %.preheader101.i ], [ %indvars.iv.next133.i, %441 ]
@@ -761,7 +761,7 @@ truespeech_update_filters.exit:                   ; preds = %393
   %448 = add nsw i32 %447, %.087110.i
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %exitcond135.not.i = icmp eq i64 %indvars.iv.next133.i, 8
-  br i1 %exitcond135.not.i, label %.preheader100.i, label %441, !llvm.loop !66
+  br i1 %exitcond135.not.i, label %.preheader100.i, label %441, !llvm.loop !65
 
 .preheader99.i:                                   ; preds = %.preheader100.i, %.preheader99.i
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %.preheader99.i ], [ 0, %.preheader100.i ]
@@ -777,10 +777,10 @@ truespeech_update_filters.exit:                   ; preds = %393
   store i32 %456, ptr %457, align 4, !tbaa !28
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next145.i, 8
-  br i1 %exitcond147.not.i, label %458, label %.preheader99.i, !llvm.loop !67
+  br i1 %exitcond147.not.i, label %458, label %.preheader99.i, !llvm.loop !66
 
 458:                                              ; preds = %.preheader99.i
-  %459 = load i32, ptr %79, align 4, !tbaa !52
+  %459 = load i32, ptr %79, align 4, !tbaa !51
   %460 = ashr i32 %459, 2
   %461 = sub nsw i32 %459, %460
   br label %462
@@ -816,7 +816,7 @@ truespeech_update_filters.exit:                   ; preds = %393
   store i16 %481, ptr %463, align 2, !tbaa !44
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next156.i, 60
-  br i1 %exitcond158.not.i, label %truespeech_synth.exit, label %462, !llvm.loop !68
+  br i1 %exitcond158.not.i, label %truespeech_synth.exit, label %462, !llvm.loop !67
 
 482:                                              ; preds = %482, %462
   %indvars.iv148.i = phi i64 [ 0, %462 ], [ %indvars.iv.next149.i, %482 ]
@@ -830,14 +830,14 @@ truespeech_update_filters.exit:                   ; preds = %393
   %489 = add nsw i32 %488, %.0115.i
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next149.i, 8
-  br i1 %exitcond151.not.i, label %.preheader.i67, label %482, !llvm.loop !69
+  br i1 %exitcond151.not.i, label %.preheader.i67, label %482, !llvm.loop !68
 
 truespeech_synth.exit:                            ; preds = %.preheader.i67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
   %490 = getelementptr inbounds nuw i8, ptr %.177, i64 120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %truespeech_filters_merge.exit.preheader, !llvm.loop !70
+  br i1 %exitcond.not, label %.preheader, label %truespeech_filters_merge.exit.preheader, !llvm.loop !69
 
 .preheader:                                       ; preds = %truespeech_synth.exit, %.preheader
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %.preheader ], [ 0, %truespeech_synth.exit ]
@@ -848,12 +848,12 @@ truespeech_synth.exit:                            ; preds = %.preheader.i67
   store i32 %493, ptr %494, align 4, !tbaa !28
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 8
-  br i1 %exitcond.not.i70, label %truespeech_save_prevvec.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond.not.i70, label %truespeech_save_prevvec.exit, label %.preheader, !llvm.loop !70
 
 truespeech_save_prevvec.exit:                     ; preds = %.preheader
   %495 = add nuw nsw i32 %.04278, 1
   %exitcond87.not = icmp eq i32 %495, %15
-  br i1 %exitcond87.not, label %._crit_edge, label %91, !llvm.loop !72
+  br i1 %exitcond87.not, label %._crit_edge, label %91, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %truespeech_save_prevvec.exit, %22
   store i32 1, ptr %2, align 4, !tbaa !28
@@ -956,29 +956,28 @@ attributes #7 = { nounwind }
 !44 = !{!45, !45, i64 0}
 !45 = !{!"short", !8, i64 0}
 !46 = !{!42, !10, i64 136}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = distinct !{!51, !48, !49}
-!52 = !{!42, !10, i64 820}
-!53 = distinct !{!53, !48, !49}
-!54 = distinct !{!54, !48, !49}
-!55 = distinct !{!55, !48, !49}
-!56 = distinct !{!56, !48, !49}
-!57 = distinct !{!57, !48, !49}
-!58 = distinct !{!58, !48, !49}
-!59 = distinct !{!59, !48, !49}
-!60 = distinct !{!60, !48, !49}
-!61 = distinct !{!61, !48, !49}
-!62 = distinct !{!62, !48, !49}
-!63 = distinct !{!63, !48, !49}
-!64 = distinct !{!64, !48, !49}
-!65 = distinct !{!65, !48, !49}
-!66 = distinct !{!66, !48, !49}
-!67 = distinct !{!67, !48, !49}
-!68 = distinct !{!68, !48, !49}
-!69 = distinct !{!69, !48, !49}
-!70 = distinct !{!70, !48, !49}
-!71 = distinct !{!71, !48, !49}
-!72 = distinct !{!72, !48, !49}
+!49 = distinct !{!49, !48}
+!50 = distinct !{!50, !48}
+!51 = !{!42, !10, i64 820}
+!52 = distinct !{!52, !48}
+!53 = distinct !{!53, !48}
+!54 = distinct !{!54, !48}
+!55 = distinct !{!55, !48}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}
+!58 = distinct !{!58, !48}
+!59 = distinct !{!59, !48}
+!60 = distinct !{!60, !48}
+!61 = distinct !{!61, !48}
+!62 = distinct !{!62, !48}
+!63 = distinct !{!63, !48}
+!64 = distinct !{!64, !48}
+!65 = distinct !{!65, !48}
+!66 = distinct !{!66, !48}
+!67 = distinct !{!67, !48}
+!68 = distinct !{!68, !48}
+!69 = distinct !{!69, !48}
+!70 = distinct !{!70, !48}
+!71 = distinct !{!71, !48}

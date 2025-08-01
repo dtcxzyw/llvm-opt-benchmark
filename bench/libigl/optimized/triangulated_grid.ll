@@ -63,7 +63,6 @@ define weak_odr dso_local void @_ZN3igl17triangulated_gridIiiN5Eigen6MatrixIdLin
   %25 = load ptr, ptr %3, align 8, !tbaa !8
   %26 = load i64, ptr %19, align 8, !tbaa !13
   %27 = shl nsw i64 %26, 1
-  %invariant.gep.i = getelementptr i8, ptr %25, i64 4
   br label %32
 
 ._crit_edge.loopexit.i:                           ; preds = %32
@@ -73,14 +72,14 @@ define weak_odr dso_local void @_ZN3igl17triangulated_gridIiiN5Eigen6MatrixIdLin
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre47.i, %.preheader.._crit_edge_crit_edge.i ], [ %24, %._crit_edge.loopexit.i ]
   %28 = phi i32 [ %20, %.preheader.._crit_edge_crit_edge.i ], [ %.pre46.i, %._crit_edge.loopexit.i ]
-  %29 = phi i32 [ %21, %.preheader.._crit_edge_crit_edge.i ], [ %51, %._crit_edge.loopexit.i ]
+  %29 = phi i32 [ %21, %.preheader.._crit_edge_crit_edge.i ], [ %52, %._crit_edge.loopexit.i ]
   %30 = add nsw i32 %28, -1
   %31 = icmp slt i32 %.pre-phi.i, %30
   br i1 %31, label %.preheader.i, label %_ZN3igl17triangulated_gridIiiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKT0_RNS1_15PlainObjectBaseIT1_EE.exit, !llvm.loop !14
 
 32:                                               ; preds = %32, %.lr.ph.i
-  %33 = phi i32 [ %23, %.lr.ph.i ], [ %52, %32 ]
-  %34 = phi i32 [ %21, %.lr.ph.i ], [ %51, %32 ]
+  %33 = phi i32 [ %23, %.lr.ph.i ], [ %53, %32 ]
+  %34 = phi i32 [ %21, %.lr.ph.i ], [ %52, %32 ]
   %.04143.i = phi i32 [ 0, %.lr.ph.i ], [ %37, %32 ]
   %35 = mul nsw i32 %34, %.044.i
   %36 = add nsw i32 %35, %.04143.i
@@ -99,16 +98,16 @@ define weak_odr dso_local void @_ZN3igl17triangulated_gridIiiN5Eigen6MatrixIdLin
   store i32 %38, ptr %47, align 4, !tbaa !4
   %48 = getelementptr i32, ptr %46, i64 %27
   store i32 %41, ptr %48, align 4, !tbaa !4
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %45
-  store i32 %38, ptr %gep.i, align 4, !tbaa !4
-  %49 = getelementptr i32, ptr %gep.i, i64 %26
-  store i32 %40, ptr %49, align 4, !tbaa !4
-  %50 = getelementptr i32, ptr %gep.i, i64 %27
-  store i32 %41, ptr %50, align 4, !tbaa !4
-  %51 = load i32, ptr %0, align 4, !tbaa !4
-  %52 = add nsw i32 %51, -1
-  %53 = icmp slt i32 %37, %52
-  br i1 %53, label %32, label %._crit_edge.loopexit.i, !llvm.loop !17
+  %49 = getelementptr i8, ptr %46, i64 4
+  store i32 %38, ptr %49, align 4, !tbaa !4
+  %50 = getelementptr i32, ptr %49, i64 %26
+  store i32 %40, ptr %50, align 4, !tbaa !4
+  %51 = getelementptr i32, ptr %49, i64 %27
+  store i32 %41, ptr %51, align 4, !tbaa !4
+  %52 = load i32, ptr %0, align 4, !tbaa !4
+  %53 = add nsw i32 %52, -1
+  %54 = icmp slt i32 %37, %53
+  br i1 %54, label %32, label %._crit_edge.loopexit.i, !llvm.loop !16
 
 _ZN3igl17triangulated_gridIiiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKT0_RNS1_15PlainObjectBaseIT1_EE.exit: ; preds = %._crit_edge.i, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
@@ -158,7 +157,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %19 = load ptr, ptr %2, align 8, !tbaa !8
   %20 = load i64, ptr %13, align 8, !tbaa !13
   %21 = shl nsw i64 %20, 1
-  %invariant.gep = getelementptr i8, ptr %19, i64 4
   br label %26
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -171,14 +169,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 ._crit_edge:                                      ; preds = %.preheader.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi = phi i32 [ %.pre47, %.preheader.._crit_edge_crit_edge ], [ %18, %._crit_edge.loopexit ]
   %22 = phi i32 [ %14, %.preheader.._crit_edge_crit_edge ], [ %.pre46, %._crit_edge.loopexit ]
-  %23 = phi i32 [ %15, %.preheader.._crit_edge_crit_edge ], [ %45, %._crit_edge.loopexit ]
+  %23 = phi i32 [ %15, %.preheader.._crit_edge_crit_edge ], [ %46, %._crit_edge.loopexit ]
   %24 = add nsw i32 %22, -1
   %25 = icmp slt i32 %.pre-phi, %24
   br i1 %25, label %.preheader, label %._crit_edge45, !llvm.loop !14
 
 26:                                               ; preds = %.lr.ph, %26
-  %27 = phi i32 [ %17, %.lr.ph ], [ %46, %26 ]
-  %28 = phi i32 [ %15, %.lr.ph ], [ %45, %26 ]
+  %27 = phi i32 [ %17, %.lr.ph ], [ %47, %26 ]
+  %28 = phi i32 [ %15, %.lr.ph ], [ %46, %26 ]
   %.04143 = phi i32 [ 0, %.lr.ph ], [ %31, %26 ]
   %29 = mul nsw i32 %28, %.044
   %30 = add nsw i32 %29, %.04143
@@ -197,16 +195,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store i32 %32, ptr %41, align 4, !tbaa !4
   %42 = getelementptr i32, ptr %40, i64 %21
   store i32 %35, ptr %42, align 4, !tbaa !4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %39
-  store i32 %32, ptr %gep, align 4, !tbaa !4
-  %43 = getelementptr i32, ptr %gep, i64 %20
-  store i32 %34, ptr %43, align 4, !tbaa !4
-  %44 = getelementptr i32, ptr %gep, i64 %21
-  store i32 %35, ptr %44, align 4, !tbaa !4
-  %45 = load i32, ptr %0, align 4, !tbaa !4
-  %46 = add nsw i32 %45, -1
-  %47 = icmp slt i32 %31, %46
-  br i1 %47, label %26, label %._crit_edge.loopexit, !llvm.loop !17
+  %43 = getelementptr i8, ptr %40, i64 4
+  store i32 %32, ptr %43, align 4, !tbaa !4
+  %44 = getelementptr i32, ptr %43, i64 %20
+  store i32 %34, ptr %44, align 4, !tbaa !4
+  %45 = getelementptr i32, ptr %43, i64 %21
+  store i32 %35, ptr %45, align 4, !tbaa !4
+  %46 = load i32, ptr %0, align 4, !tbaa !4
+  %47 = add nsw i32 %46, -1
+  %48 = icmp slt i32 %31, %47
+  br i1 %48, label %26, label %._crit_edge.loopexit, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -217,7 +215,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !18
+  %8 = load i64, ptr %7, align 8, !tbaa !17
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
@@ -234,7 +232,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0E
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #7
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %16, align 8, !tbaa !18
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #8
   unreachable
 
@@ -246,7 +244,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i: ; preds = %13
 
 20:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i
   %21 = tail call ptr @__cxa_allocate_exception(i64 8) #7
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8, !tbaa !18
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #8
   unreachable
 
@@ -257,7 +255,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i: ; preds = %13
 
 22:                                               ; preds = %.sink.split, %4
   store i64 %2, ptr %5, align 8, !tbaa !13
-  store i64 %3, ptr %7, align 8, !tbaa !18
+  store i64 %3, ptr %7, align 8, !tbaa !17
   ret void
 }
 
@@ -304,10 +302,9 @@ attributes #9 = { nounwind allocsize(0) }
 !11 = !{!"any pointer", !6, i64 0}
 !12 = !{!"long", !6, i64 0}
 !13 = !{!9, !12, i64 8}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!9, !12, i64 16}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"vtable pointer", !7, i64 0}
+!16 = distinct !{!16, !15}
+!17 = !{!9, !12, i64 16}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"vtable pointer", !7, i64 0}

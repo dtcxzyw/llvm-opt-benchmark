@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @_ZN19Abstract_VM_Version30print_matching_lines
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8
   %.not16 = icmp eq ptr %12, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader ]
@@ -243,7 +243,7 @@ define hidden noundef zeroext i1 @_ZN19Abstract_VM_Version30print_matching_lines
 .loopexit:                                        ; preds = %10, %.preheader, %17
   %18 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 500, ptr noundef nonnull %5)
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %19 = call i32 @fclose(ptr noundef nonnull %5)
@@ -342,8 +342,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

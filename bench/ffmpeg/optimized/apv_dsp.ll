@@ -42,10 +42,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 18:                                               ; preds = %.preheader122, %18
   %indvars.iv = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next, %18 ]
   %19 = getelementptr inbounds nuw [8 x i16], ptr %13, i64 0, i64 %indvars.iv
-  %20 = load i16, ptr %19, align 2, !tbaa !12
+  %20 = load i16, ptr %19, align 2, !tbaa !11
   %21 = sext i16 %20 to i32
   %22 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 0, i64 %indvars.iv
-  %23 = load i16, ptr %22, align 2, !tbaa !12
+  %23 = load i16, ptr %22, align 2, !tbaa !11
   %24 = sext i16 %23 to i32
   %25 = mul nsw i32 %24, %21
   %26 = shl i32 %25, %5
@@ -55,10 +55,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %.0.i = tail call i32 @llvm.smin.i32(i32 %29, i32 32767)
   %30 = trunc nsw i32 %.0.i to i16
   %31 = getelementptr inbounds nuw [8 x i16], ptr %15, i64 0, i64 %indvars.iv
-  store i16 %30, ptr %31, align 2, !tbaa !12
+  store i16 %30, ptr %31, align 2, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %18, !llvm.loop !14
+  br i1 %exitcond.not, label %17, label %18, !llvm.loop !13
 
 .preheader121:                                    ; preds = %16, %32
   %indvars.iv164 = phi i64 [ 0, %16 ], [ %indvars.iv.next165, %32 ]
@@ -74,29 +74,29 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 32:                                               ; preds = %33
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 8
-  br i1 %exitcond167.not, label %.preheader118, label %.preheader121, !llvm.loop !15
+  br i1 %exitcond167.not, label %.preheader118, label %.preheader121, !llvm.loop !14
 
 33:                                               ; preds = %34
   %gep130 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %invariant.gep129, i64 0, i64 %indvars.iv160
-  store i32 %40, ptr %gep130, align 4, !tbaa !16
+  store i32 %40, ptr %gep130, align 4, !tbaa !15
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 8
-  br i1 %exitcond163.not, label %32, label %.preheader120, !llvm.loop !18
+  br i1 %exitcond163.not, label %32, label %.preheader120, !llvm.loop !17
 
 34:                                               ; preds = %.preheader120, %34
   %indvars.iv156 = phi i64 [ 0, %.preheader120 ], [ %indvars.iv.next157, %34 ]
   %.0104127 = phi i32 [ 0, %.preheader120 ], [ %40, %34 ]
   %gep = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv156
-  %35 = load i8, ptr %gep, align 1, !tbaa !19
+  %35 = load i8, ptr %gep, align 1, !tbaa !18
   %36 = sext i8 %35 to i32
   %gep126 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %invariant.gep125, i64 0, i64 %indvars.iv156
-  %37 = load i16, ptr %gep126, align 2, !tbaa !12
+  %37 = load i16, ptr %gep126, align 2, !tbaa !11
   %38 = sext i16 %37 to i32
   %39 = mul nsw i32 %38, %36
   %40 = add nsw i32 %39, %.0104127
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next157, 8
-  br i1 %exitcond159.not, label %33, label %34, !llvm.loop !20
+  br i1 %exitcond159.not, label %33, label %34, !llvm.loop !19
 
 .preheader118:                                    ; preds = %32, %41
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %41 ], [ 0, %32 ]
@@ -106,18 +106,18 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 41:                                               ; preds = %42
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next173, 8
-  br i1 %exitcond175.not, label %.preheader116, label %.preheader118, !llvm.loop !21
+  br i1 %exitcond175.not, label %.preheader116, label %.preheader118, !llvm.loop !20
 
 42:                                               ; preds = %.preheader118, %42
   %indvars.iv168 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next169, %42 ]
   %gep134 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %invariant.gep133, i64 0, i64 %indvars.iv168
-  %43 = load i32, ptr %gep134, align 4, !tbaa !16
+  %43 = load i32, ptr %gep134, align 4, !tbaa !15
   %44 = add nsw i32 %43, 64
   %45 = ashr i32 %44, 7
-  store i32 %45, ptr %gep134, align 4, !tbaa !16
+  store i32 %45, ptr %gep134, align 4, !tbaa !15
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 8
-  br i1 %exitcond171.not, label %41, label %42, !llvm.loop !22
+  br i1 %exitcond171.not, label %41, label %42, !llvm.loop !21
 
 .preheader116:                                    ; preds = %41, %50
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %50 ], [ 0, %41 ]
@@ -138,28 +138,28 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 50:                                               ; preds = %51
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next185, 8
-  br i1 %exitcond187.not, label %48, label %.preheader116, !llvm.loop !23
+  br i1 %exitcond187.not, label %48, label %.preheader116, !llvm.loop !22
 
 51:                                               ; preds = %53
   %52 = getelementptr inbounds nuw [8 x i32], ptr %47, i64 0, i64 %indvars.iv180
-  store i32 %59, ptr %52, align 4, !tbaa !16
+  store i32 %59, ptr %52, align 4, !tbaa !15
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next181, 8
-  br i1 %exitcond183.not, label %50, label %.preheader115, !llvm.loop !24
+  br i1 %exitcond183.not, label %50, label %.preheader115, !llvm.loop !23
 
 53:                                               ; preds = %.preheader115, %53
   %indvars.iv176 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next177, %53 ]
   %.098139 = phi i32 [ 0, %.preheader115 ], [ %59, %53 ]
   %gep138 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep137, i64 0, i64 %indvars.iv176
-  %54 = load i8, ptr %gep138, align 1, !tbaa !19
+  %54 = load i8, ptr %gep138, align 1, !tbaa !18
   %55 = sext i8 %54 to i32
   %56 = getelementptr inbounds nuw [8 x i32], ptr %46, i64 0, i64 %indvars.iv176
-  %57 = load i32, ptr %56, align 4, !tbaa !16
+  %57 = load i32, ptr %56, align 4, !tbaa !15
   %58 = mul nsw i32 %57, %55
   %59 = add nsw i32 %58, %.098139
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, 8
-  br i1 %exitcond179.not, label %51, label %53, !llvm.loop !25
+  br i1 %exitcond179.not, label %51, label %53, !llvm.loop !24
 
 .preheader:                                       ; preds = %48, %61
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %61 ], [ 0, %48 ]
@@ -171,12 +171,12 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %62 = getelementptr inbounds i8, ptr %.096147, i64 %1
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next201, 8
-  br i1 %exitcond203.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %exitcond203.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
 63:                                               ; preds = %.preheader, %63
   %indvars.iv196 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next197, %63 ]
   %64 = getelementptr inbounds nuw [8 x i32], ptr %60, i64 0, i64 %indvars.iv196
-  %65 = load i32, ptr %64, align 4, !tbaa !16
+  %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = add nsw i32 %65, 2048
   %67 = ashr i32 %66, 12
   %68 = add nsw i32 %67, 128
@@ -186,10 +186,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %.0.i108 = select i1 %.not.i, i32 %68, i32 %69
   %70 = trunc i32 %.0.i108 to i8
   %71 = getelementptr inbounds nuw i8, ptr %.096147, i64 %indvars.iv196
-  store i8 %70, ptr %71, align 1, !tbaa !19
+  store i8 %70, ptr %71, align 1, !tbaa !18
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next197, 8
-  br i1 %exitcond199.not, label %61, label %63, !llvm.loop !27
+  br i1 %exitcond199.not, label %61, label %63, !llvm.loop !26
 
 72:                                               ; preds = %48
   %73 = sub nsw i32 20, %4
@@ -212,12 +212,12 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %82 = getelementptr inbounds i16, ptr %.092144, i64 %74
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, 8
-  br i1 %exitcond195.not, label %.loopexit, label %.preheader113, !llvm.loop !28
+  br i1 %exitcond195.not, label %.loopexit, label %.preheader113, !llvm.loop !27
 
 83:                                               ; preds = %.preheader113, %83
   %indvars.iv188 = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next189, %83 ]
   %84 = getelementptr inbounds nuw [8 x i32], ptr %80, i64 0, i64 %indvars.iv188
-  %85 = load i32, ptr %84, align 4, !tbaa !16
+  %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = add nsw i32 %85, %76
   %87 = ashr i32 %86, %73
   %88 = add nsw i32 %87, %78
@@ -228,10 +228,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %.0.i111 = select i1 %.not.i109, i32 %88, i32 %90
   %91 = trunc i32 %.0.i111 to i16
   %92 = getelementptr inbounds nuw i16, ptr %.092144, i64 %indvars.iv188
-  store i16 %91, ptr %92, align 2, !tbaa !12
+  store i16 %91, ptr %92, align 2, !tbaa !11
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next189, 8
-  br i1 %exitcond191.not, label %81, label %83, !llvm.loop !29
+  br i1 %exitcond191.not, label %81, label %83, !llvm.loop !28
 
 .loopexit:                                        ; preds = %81, %61
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #4
@@ -268,24 +268,23 @@ attributes #4 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"short", !7, i64 0}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !7, i64 0}
-!18 = distinct !{!18, !10, !11}
-!19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
-!29 = distinct !{!29, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"short", !7, i64 0}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = distinct !{!17, !10}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}

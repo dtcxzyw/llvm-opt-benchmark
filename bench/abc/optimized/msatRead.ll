@@ -63,7 +63,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   switch i8 %18, label %21 [
     i8 0, label %skipLine.exit.i.backedge
     i8 10, label %19
-  ], !llvm.loop !9
+  ]
 
 19:                                               ; preds = %.preheader.i
   %20 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
@@ -72,7 +72,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
 21:                                               ; preds = %.preheader.i
   %22 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %22, align 1, !tbaa !3
-  br label %.preheader.i, !llvm.loop !10
+  br label %.preheader.i
 
 .preheader47.i:                                   ; preds = %15, %.preheader47.i.backedge
   %.2.pn.i = phi ptr [ %.5.i, %.preheader47.i.backedge ], [ %.2.i, %15 ]
@@ -108,7 +108,7 @@ Msat_ReadNotWhitespace.exit.i.preheader:          ; preds = %Msat_ReadWhitespace
 25:                                               ; preds = %Msat_ReadWhitespace.exit23.i
   %26 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
   %.pre.i = load i8, ptr %26, align 1, !tbaa !3
-  br label %Msat_ReadWhitespace.exit23.i, !llvm.loop !11
+  br label %Msat_ReadWhitespace.exit23.i, !llvm.loop !8
 
 Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitespace.exit.i.preheader, %.critedge.i.i.i
   %27 = phi i8 [ %.pre127.i, %.critedge.i.i.i ], [ %24, %Msat_ReadNotWhitespace.exit.i.preheader ]
@@ -142,7 +142,7 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
   br i1 %or.cond.i.i, label %33, label %.lr.ph.i.i
 
 33:                                               ; preds = %.loopexit46.i
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !9
   %35 = sext i8 %31 to i32
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.1, i32 noundef %35) #9
   tail call void @exit(i32 noundef 1) #10
@@ -160,7 +160,7 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
   %43 = load i8, ptr %42, align 1, !tbaa !3
   %44 = add i8 %43, -48
   %or.cond19.i.i = icmp ult i8 %44, 10
-  br i1 %or.cond19.i.i, label %.lr.ph.i.i, label %Msat_ReadInt.exit.i, !llvm.loop !15
+  br i1 %or.cond19.i.i, label %.lr.ph.i.i, label %Msat_ReadInt.exit.i, !llvm.loop !12
 
 Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
   %.not.i.i = icmp eq i8 %27, 45
@@ -200,7 +200,7 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
   br i1 %or.cond.i33.i, label %54, label %.lr.ph.i34.i
 
 54:                                               ; preds = %.loopexit.i
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !9
   %56 = sext i8 %52 to i32
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.1, i32 noundef %56) #9
   tail call void @exit(i32 noundef 1) #10
@@ -212,7 +212,7 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
   %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = add i8 %60, -48
   %or.cond19.i37.i = icmp ult i8 %61, 10
-  br i1 %or.cond19.i37.i, label %.lr.ph.i34.i, label %Msat_ReadInt.exit40.i, !llvm.loop !15
+  br i1 %or.cond19.i37.i, label %.lr.ph.i34.i, label %Msat_ReadInt.exit40.i, !llvm.loop !12
 
 Msat_ReadInt.exit40.i:                            ; preds = %.lr.ph.i34.i, %65
   %62 = phi i8 [ %.pre131.i, %65 ], [ %60, %.lr.ph.i34.i ]
@@ -229,7 +229,7 @@ Msat_ReadInt.exit40.i:                            ; preds = %.lr.ph.i34.i, %65
 65:                                               ; preds = %Msat_ReadInt.exit40.i
   %66 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
   %.pre131.i = load i8, ptr %66, align 1, !tbaa !3
-  br label %Msat_ReadInt.exit40.i, !llvm.loop !10
+  br label %Msat_ReadInt.exit40.i
 
 skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40.i, %63
   %.8.i = phi ptr [ %64, %63 ], [ %.7.i, %Msat_ReadInt.exit40.i ]
@@ -237,7 +237,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   tail call void @Msat_SolverClean(ptr noundef %67, i32 noundef %46) #11
   tail call void @Msat_SolverSetVerbosity(ptr noundef %67, i32 noundef %2) #11
   %68 = tail call ptr @Msat_IntVecAlloc(i32 noundef %46) #11
-  br label %skipLine.exit.i.outer, !llvm.loop !9
+  br label %skipLine.exit.i.outer
 
 69:                                               ; preds = %15
   br i1 %14, label %70, label %71
@@ -272,7 +272,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
 
 .backedge:                                        ; preds = %.critedge.i.i.i.i, %99
   %.be = phi ptr [ %76, %.critedge.i.i.i.i ], [ %89, %99 ]
-  br label %73, !llvm.loop !16
+  br label %73, !llvm.loop !6
 
 .sink.split.i.i.i:                                ; preds = %73, %73
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
@@ -287,7 +287,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   br i1 %or.cond.i.i.i, label %80, label %.lr.ph.i.i.i
 
 80:                                               ; preds = %.loopexit.i.i
-  %81 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !9
   %82 = sext i8 %78 to i32
   %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.1, i32 noundef %82) #9
   tail call void @exit(i32 noundef 1) #10
@@ -305,7 +305,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   %90 = load i8, ptr %89, align 1, !tbaa !3
   %91 = add i8 %90, -48
   %or.cond19.i.i.i = icmp ult i8 %91, 10
-  br i1 %or.cond19.i.i.i, label %.lr.ph.i.i.i, label %Msat_ReadInt.exit.i.i, !llvm.loop !15
+  br i1 %or.cond19.i.i.i, label %.lr.ph.i.i.i, label %Msat_ReadInt.exit.i.i, !llvm.loop !12
 
 Msat_ReadInt.exit.i.i:                            ; preds = %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq i8 %75, 45
@@ -340,11 +340,11 @@ Msat_ReadClause.exit.i:                           ; preds = %Msat_ReadInt.exit.i
 
 skipLine.exit.i.backedge:                         ; preds = %.preheader.i, %Msat_ReadClause.exit.i, %19
   %.044.i.be = phi ptr [ %89, %Msat_ReadClause.exit.i ], [ %20, %19 ], [ %.3.i, %.preheader.i ]
-  br label %skipLine.exit.i, !llvm.loop !9
+  br label %skipLine.exit.i
 
 106:                                              ; preds = %15
   tail call void @Msat_IntVecFree(ptr noundef %.017.i.ph) #11
-  store ptr %.016.i.ph, ptr %1, align 8, !tbaa !17
+  store ptr %.016.i.ph, ptr %1, align 8, !tbaa !13
   %107 = tail call i32 @Msat_SolverSimplifyDB(ptr noundef %.016.i.ph) #11
   br label %Msat_ReadDimacs.exit
 
@@ -435,16 +435,12 @@ attributes #11 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!14 = !{!"any pointer", !4, i64 0}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !8}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS14Msat_Solver_t_", !14, i64 0}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = distinct !{!12, !7}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS14Msat_Solver_t_", !11, i64 0}

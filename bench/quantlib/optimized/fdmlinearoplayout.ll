@@ -277,13 +277,13 @@ _ZNSt6vectorImSaImEED2Ev.exit81:                  ; preds = %for.body.i.i, %invo
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i25141, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !15
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store ptr %add.ptr.i.i.i25141, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !21
+  store ptr %add.ptr.i.i.i25141, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !20
   %coordinates_.i61 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %call5.i.i.i.i2.i6.i4458.sink, ptr %coordinates_.i61, align 8, !tbaa !13
   %_M_finish.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr %add.ptr.i.i.i48, ptr %_M_finish.i.i.i.i1.i, align 8, !tbaa !15
   %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  store ptr %add.ptr.i.i.i48, ptr %_M_end_of_storage.i.i.i.i3.i, align 8, !tbaa !21
+  store ptr %add.ptr.i.i.i48, ptr %_M_end_of_storage.i.i.i.i3.i, align 8, !tbaa !20
   tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i131, i64 noundef %sub.ptr.sub.i.i39) #9
   ret void
 
@@ -363,7 +363,6 @@ attributes #9 = { builtin nounwind }
 !15 = !{!11, !12, i64 8}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !17 = !{!12, !12, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!11, !12, i64 16}
+!20 = !{!11, !12, i64 16}

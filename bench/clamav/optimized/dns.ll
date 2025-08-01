@@ -161,7 +161,7 @@ define noalias noundef ptr @dnsquery(ptr noundef %0, i32 noundef %1, ptr noundef
   switch i16 %trunc, label %87 [
     i16 5, label %51
     i16 16, label %89
-  ], !llvm.loop !8
+  ]
 
 87:                                               ; preds = %80
   %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.8) #7
@@ -274,5 +274,3 @@ attributes #8 = { nounwind allocsize(0) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

@@ -366,7 +366,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
   store i8 %68, ptr %67, align 1, !tbaa !12
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 7
-  br i1 %exitcond120.not, label %.loopexit, label %.preheader101, !llvm.loop !16
+  br i1 %exitcond120.not, label %.loopexit, label %.preheader101, !llvm.loop !15
 
 .preheader103:                                    ; preds = %13, %.preheader103
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader103 ], [ 0, %13 ]
@@ -390,7 +390,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
   store i8 %81, ptr %80, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader103, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.preheader103, !llvm.loop !16
 
 83:                                               ; preds = %13
   %84 = icmp ugt i32 %43, 32
@@ -425,7 +425,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
   %99 = lshr i32 %98, 2
   %100 = zext nneg i32 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next126, %100
-  br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader103, %.preheader101, %.preheader99, %.lr.ph, %.preheader, %83
   %102 = phi i32 [ 0, %83 ], [ 1, %.preheader ], [ 1, %.lr.ph ], [ 1, %.preheader99 ], [ 1, %.preheader101 ], [ 1, %.preheader103 ]
@@ -467,9 +467,8 @@ attributes #5 = { nounwind }
 !10 = !{!8, !4, i64 36}
 !11 = !{!8, !4, i64 104}
 !12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}

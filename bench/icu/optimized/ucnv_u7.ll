@@ -373,7 +373,7 @@ switch.early.test:                                ; preds = %.lr.ph268
   %.4158 = phi i8 [ %.3157254, %83 ], [ 1, %84 ], [ %91, %86 ], [ 3, %101 ], [ 6, %113 ], [ 0, %122 ], [ 0, %116 ]
   %.8 = phi i32 [ %.4148255, %83 ], [ %.4148255, %84 ], [ %.4148255, %86 ], [ %.5149, %101 ], [ %.6, %113 ], [ %67, %122 ], [ %.4148255, %116 ]
   %exitcond.not = icmp eq ptr %62, %8
-  br i1 %exitcond.not, label %.loopexit206, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit206, label %.lr.ph, !llvm.loop !34
 
 .loopexit206.sink.split:                          ; preds = %.lr.ph, %131, %79, %78, %.loopexit, %77
   %.sink = phi i32 [ 12, %77 ], [ 15, %.loopexit ], [ 12, %78 ], [ 12, %79 ], [ 12, %131 ], [ 15, %.lr.ph ]
@@ -401,7 +401,7 @@ switch.early.test:                                ; preds = %.lr.ph268
 
 135:                                              ; preds = %.loopexit206
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %137 = load i8, ptr %136, align 2, !tbaa !36
+  %137 = load i8, ptr %136, align 2, !tbaa !35
   %.not202 = icmp eq i8 %137, 0
   br i1 %.not202, label %141, label %138
 
@@ -430,17 +430,17 @@ switch.early.test:                                ; preds = %.lr.ph268
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !43
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = load i32, ptr %15, align 8, !tbaa !14
   %17 = icmp ult i32 %16, 268435456
@@ -557,7 +557,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i8 45, ptr %70, align 8, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 91
-  store i8 1, ptr %71, align 1, !tbaa !44
+  store i8 1, ptr %71, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %.loopexit
 
@@ -584,7 +584,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.1232369.be = phi i32 [ %.3234, %75 ], [ %.4235, %56 ]
   %.1247368.be = phi ptr [ %.3249, %75 ], [ %.4250, %56 ]
   %.1265367.be = phi i32 [ %76, %75 ], [ %spec.select, %56 ]
-  br label %.lr.ph372, !llvm.loop !45
+  br label %.lr.ph372, !llvm.loop !44
 
 .loopexit:                                        ; preds = %56, %75, %.preheader, %69
   %.2248 = phi ptr [ %.5251, %69 ], [ %.0246.ph, %.preheader ], [ %.4250, %56 ], [ %.3249, %75 ]
@@ -681,7 +681,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 
 114:                                              ; preds = %107
   store i8 45, ptr %81, align 8, !tbaa !28
-  store i8 1, ptr %83, align 1, !tbaa !44
+  store i8 1, ptr %83, align 1, !tbaa !43
   br label %.loopexit322.sink.split
 
 115:                                              ; preds = %91, %86
@@ -739,7 +739,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %142 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !28
   store i8 %143, ptr %81, align 8, !tbaa !28
-  store i8 1, ptr %83, align 1, !tbaa !44
+  store i8 1, ptr %83, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %144
 
@@ -817,7 +817,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %185 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !28
   store i8 %186, ptr %81, align 8, !tbaa !28
-  store i8 1, ptr %83, align 1, !tbaa !44
+  store i8 1, ptr %83, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %202
 
@@ -846,7 +846,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %200 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !28
   store i8 %201, ptr %82, align 1, !tbaa !28
-  store i8 2, ptr %83, align 1, !tbaa !44
+  store i8 2, ptr %83, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %202
 
@@ -922,7 +922,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %241 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %240
   %242 = load i8, ptr %241, align 1, !tbaa !28
   store i8 %242, ptr %81, align 8, !tbaa !28
-  store i8 1, ptr %83, align 1, !tbaa !44
+  store i8 1, ptr %83, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %257
 
@@ -950,7 +950,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %255 = getelementptr inbounds nuw [64 x i8], ptr @_ZL8toBase64, i64 0, i64 %254
   %256 = load i8, ptr %255, align 1, !tbaa !28
   store i8 %256, ptr %82, align 1, !tbaa !28
-  store i8 2, ptr %83, align 1, !tbaa !44
+  store i8 2, ptr %83, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %257
 
@@ -961,7 +961,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.4224 = phi i8 [ %.3223359, %115 ], [ %146, %144 ], [ %204, %202 ], [ 0, %228 ], [ 0, %222 ], [ 0, %238 ], [ 0, %247 ]
   %.4219 = phi i8 [ %.3218360, %115 ], [ 1, %144 ], [ 2, %202 ], [ 0, %228 ], [ 0, %222 ], [ 0, %238 ], [ 0, %247 ]
   %258 = icmp ult ptr %87, %8
-  br i1 %258, label %84, label %.loopexit322, !llvm.loop !46
+  br i1 %258, label %84, label %.loopexit322, !llvm.loop !45
 
 .loopexit322.sink.split:                          ; preds = %84, %.loopexit, %114
   %.8254.ph = phi ptr [ %.10256, %114 ], [ %.2248, %.loopexit ], [ %.9255356, %84 ]
@@ -985,7 +985,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.2214 = phi i32 [ 16777216, %.loopexit ], [ 0, %79 ], [ %.2214.ph, %.loopexit322.sink.split ], [ 0, %257 ]
   %.4 = phi ptr [ %.2, %.loopexit ], [ %.3, %79 ], [ %.4.ph, %.loopexit322.sink.split ], [ %87, %257 ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %260 = load i8, ptr %259, align 2, !tbaa !47
+  %260 = load i8, ptr %259, align 2, !tbaa !46
   %.not301 = icmp eq i8 %260, 0
   %.not302 = icmp ult ptr %.4, %8
   %or.cond309 = select i1 %.not301, i1 true, i1 %.not302
@@ -1020,9 +1020,9 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 273:                                              ; preds = %263
   %274 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %275 = getelementptr inbounds nuw i8, ptr %4, i64 91
-  %276 = load i8, ptr %275, align 1, !tbaa !44
+  %276 = load i8, ptr %275, align 1, !tbaa !43
   %277 = add i8 %276, 1
-  store i8 %277, ptr %275, align 1, !tbaa !44
+  store i8 %277, ptr %275, align 1, !tbaa !43
   %278 = sext i8 %276 to i64
   %279 = getelementptr inbounds [32 x i8], ptr %274, i64 0, i64 %278
   store i8 %267, ptr %279, align 1, !tbaa !28
@@ -1061,9 +1061,9 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.22314 = phi ptr [ null, %.thread310 ], [ %.22, %280 ]
   %290 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %291 = getelementptr inbounds nuw i8, ptr %4, i64 91
-  %292 = load i8, ptr %291, align 1, !tbaa !44
+  %292 = load i8, ptr %291, align 1, !tbaa !43
   %293 = add i8 %292, 1
-  store i8 %293, ptr %291, align 1, !tbaa !44
+  store i8 %293, ptr %291, align 1, !tbaa !43
   %294 = sext i8 %292 to i64
   %295 = getelementptr inbounds [32 x i8], ptr %290, i64 0, i64 %294
   store i8 45, ptr %295, align 1, !tbaa !28
@@ -1094,9 +1094,9 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.23 = phi ptr [ %.8254, %300 ], [ %.21, %296 ]
   %.14 = phi ptr [ %.4229, %300 ], [ %.12, %296 ]
   store i32 %storemerge, ptr %15, align 8, !tbaa !14
-  store ptr %.4, ptr %5, align 8, !tbaa !39
-  store ptr %.14, ptr %9, align 8, !tbaa !41
-  store ptr %.23, ptr %13, align 8, !tbaa !43
+  store ptr %.4, ptr %5, align 8, !tbaa !38
+  store ptr %.14, ptr %9, align 8, !tbaa !40
+  store ptr %.23, ptr %13, align 8, !tbaa !42
   ret void
 }
 
@@ -1203,7 +1203,7 @@ define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %.3164 = phi i32 [ %46, %45 ], [ %.1162362, %42 ]
   %51 = add nsw i32 %.1198359, -1
   %52 = icmp sgt i32 %.1198359, 1
-  br i1 %52, label %.lr.ph364, label %.loopexit, !llvm.loop !48
+  br i1 %52, label %.lr.ph364, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %50, %27, %40
   %.1189259 = phi ptr [ %.1189360, %40 ], [ %.0188, %27 ], [ %.3191, %50 ]
@@ -1431,7 +1431,7 @@ define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %.6173 = phi ptr [ %.3170350, %.thread ], [ %.3170350, %75 ], [ %.3170350, %77 ], [ %92, %95 ], [ %107, %110 ], [ %121, %122 ], [ %121, %119 ]
   %.8 = phi i32 [ %.4165351, %.thread ], [ %.4165351, %75 ], [ %.4165351, %77 ], [ %.5166, %95 ], [ %.6, %110 ], [ %64, %122 ], [ %.4165351, %119 ]
   %exitcond.not = icmp eq ptr %59, %8
-  br i1 %exitcond.not, label %.loopexit249, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit249, label %.lr.ph, !llvm.loop !48
 
 .loopexit249:                                     ; preds = %139, %54, %138
   %.2201321 = phi i8 [ %.2201346, %138 ], [ %.1200, %54 ], [ %.5204, %139 ]
@@ -1448,7 +1448,7 @@ define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
 
 143:                                              ; preds = %.loopexit249
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %145 = load i8, ptr %144, align 2, !tbaa !36
+  %145 = load i8, ptr %144, align 2, !tbaa !35
   %.not226 = icmp eq i8 %145, 0
   %.not227 = icmp ult ptr %.4270, %8
   %or.cond230 = select i1 %.not226, i1 true, i1 %.not227
@@ -1497,17 +1497,17 @@ define internal void @_ZL25_IMAPToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !41
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !43
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = load i32, ptr %15, align 8, !tbaa !14
   %17 = lshr i32 %16, 16
@@ -1617,7 +1617,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i8 45, ptr %65, align 8, !tbaa !28
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 91
-  store i8 1, ptr %66, align 1, !tbaa !44
+  store i8 1, ptr %66, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %.loopexit
 
@@ -1642,7 +1642,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.1270416.be = phi ptr [ %35, %70 ], [ %46, %51 ]
   %.1284415.be = phi i32 [ %71, %70 ], [ %spec.select, %51 ]
   %.1286414.be = phi ptr [ %.3288, %70 ], [ %.4289, %51 ]
-  br label %.lr.ph419, !llvm.loop !50
+  br label %.lr.ph419, !llvm.loop !49
 
 .loopexit:                                        ; preds = %51, %70, %.preheader, %64
   %.2287 = phi ptr [ %.5290, %64 ], [ %.0285.ph, %.preheader ], [ %.4289, %51 ], [ %.3288, %70 ]
@@ -1745,7 +1745,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.6275363 = phi ptr [ %94, %.thread ], [ %.6275, %98 ]
   %.10295361 = phi ptr [ null, %.thread ], [ %.10295, %98 ]
   store i8 45, ptr %76, align 8, !tbaa !28
-  store i8 1, ptr %78, align 1, !tbaa !44
+  store i8 1, ptr %78, align 1, !tbaa !43
   br label %.loopexit379.sink.split
 
 108:                                              ; preds = %81
@@ -1829,7 +1829,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 146:                                              ; preds = %138, %142
   %147 = phi i8 [ %145, %142 ], [ 44, %138 ]
   store i8 %147, ptr %76, align 8, !tbaa !28
-  store i8 1, ptr %78, align 1, !tbaa !44
+  store i8 1, ptr %78, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %148
 
@@ -1940,7 +1940,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 203:                                              ; preds = %196, %199
   %204 = phi i8 [ %202, %199 ], [ 44, %196 ]
   store i8 %204, ptr %76, align 8, !tbaa !28
-  store i8 1, ptr %78, align 1, !tbaa !44
+  store i8 1, ptr %78, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %227
 
@@ -1986,7 +1986,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 225:                                              ; preds = %217, %221
   %226 = phi i8 [ %224, %221 ], [ 44, %217 ]
   store i8 %226, ptr %77, align 1, !tbaa !28
-  store i8 2, ptr %78, align 1, !tbaa !44
+  store i8 2, ptr %78, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %227
 
@@ -2097,7 +2097,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 282:                                              ; preds = %275, %278
   %283 = phi i8 [ %281, %278 ], [ 44, %275 ]
   store i8 %283, ptr %76, align 8, !tbaa !28
-  store i8 1, ptr %78, align 1, !tbaa !44
+  store i8 1, ptr %78, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %306
 
@@ -2143,7 +2143,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 304:                                              ; preds = %296, %300
   %305 = phi i8 [ %303, %300 ], [ 44, %296 ]
   store i8 %305, ptr %77, align 1, !tbaa !28
-  store i8 2, ptr %78, align 1, !tbaa !44
+  store i8 2, ptr %78, align 1, !tbaa !43
   store i32 15, ptr %1, align 4, !tbaa !15
   br label %306
 
@@ -2154,7 +2154,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.4262 = phi i8 [ %.3261406, %108 ], [ %150, %148 ], [ %229, %227 ], [ 0, %265 ], [ 0, %262 ], [ 0, %282 ], [ 0, %304 ]
   %.4257 = phi i8 [ %.3256407, %108 ], [ 1, %148 ], [ 2, %227 ], [ 0, %265 ], [ 0, %262 ], [ 0, %282 ], [ 0, %304 ]
   %307 = icmp ult ptr %82, %8
-  br i1 %307, label %79, label %.loopexit379, !llvm.loop !51
+  br i1 %307, label %79, label %.loopexit379, !llvm.loop !50
 
 .loopexit379.sink.split:                          ; preds = %79, %.loopexit, %107
   %.8293.ph = phi ptr [ %.10295361, %107 ], [ %.2287, %.loopexit ], [ %.9294403, %79 ]
@@ -2178,7 +2178,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.2252 = phi i32 [ 16777216, %.loopexit ], [ 0, %74 ], [ %.2252.ph, %.loopexit379.sink.split ], [ 0, %306 ]
   %.4 = phi ptr [ %.2, %.loopexit ], [ %.3, %74 ], [ %.4.ph, %.loopexit379.sink.split ], [ %82, %306 ]
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %309 = load i8, ptr %308, align 2, !tbaa !47
+  %309 = load i8, ptr %308, align 2, !tbaa !46
   %.not348 = icmp eq i8 %309, 0
   %.not349 = icmp ult ptr %.4, %8
   %or.cond357 = select i1 %.not348, i1 true, i1 %.not349
@@ -2231,9 +2231,9 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %332 = phi i8 [ %330, %327 ], [ 44, %326 ]
   %333 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %334 = getelementptr inbounds nuw i8, ptr %4, i64 91
-  %335 = load i8, ptr %334, align 1, !tbaa !44
+  %335 = load i8, ptr %334, align 1, !tbaa !43
   %336 = add i8 %335, 1
-  store i8 %336, ptr %334, align 1, !tbaa !44
+  store i8 %336, ptr %334, align 1, !tbaa !43
   %337 = sext i8 %335 to i64
   %338 = getelementptr inbounds [32 x i8], ptr %333, i64 0, i64 %337
   store i8 %332, ptr %338, align 1, !tbaa !28
@@ -2272,9 +2272,9 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.22372 = phi ptr [ null, %.thread368 ], [ %.22, %339 ]
   %349 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %350 = getelementptr inbounds nuw i8, ptr %4, i64 91
-  %351 = load i8, ptr %350, align 1, !tbaa !44
+  %351 = load i8, ptr %350, align 1, !tbaa !43
   %352 = add i8 %351, 1
-  store i8 %352, ptr %350, align 1, !tbaa !44
+  store i8 %352, ptr %350, align 1, !tbaa !43
   %353 = sext i8 %351 to i64
   %354 = getelementptr inbounds [32 x i8], ptr %349, i64 0, i64 %353
   store i8 45, ptr %354, align 1, !tbaa !28
@@ -2305,9 +2305,9 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %.23 = phi ptr [ %.8293, %359 ], [ %.21, %355 ]
   %.13282 = phi ptr [ %.4273, %359 ], [ %.11280, %355 ]
   store i32 %storemerge, ptr %15, align 8, !tbaa !14
-  store ptr %.4, ptr %5, align 8, !tbaa !39
-  store ptr %.13282, ptr %9, align 8, !tbaa !41
-  store ptr %.23, ptr %13, align 8, !tbaa !43
+  store ptr %.4, ptr %5, align 8, !tbaa !38
+  store ptr %.13282, ptr %9, align 8, !tbaa !40
+  store ptr %.23, ptr %13, align 8, !tbaa !42
   ret void
 }
 
@@ -2354,23 +2354,22 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !29 = !{!30, !30, i64 0}
 !30 = !{!"char16_t", !6, i64 0}
 !31 = !{!10, !10, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34}
-!36 = !{!18, !6, i64 2}
-!37 = !{!38, !20, i64 8}
-!38 = !{!"_ZTS25UConverterFromUnicodeArgs", !19, i64 0, !6, i64 2, !20, i64 8, !21, i64 16, !21, i64 24, !8, i64 32, !8, i64 40, !22, i64 48}
-!39 = !{!38, !21, i64 16}
-!40 = !{!38, !21, i64 24}
-!41 = !{!38, !8, i64 32}
-!42 = !{!38, !8, i64 40}
-!43 = !{!38, !22, i64 48}
-!44 = !{!4, !6, i64 91}
-!45 = distinct !{!45, !34}
-!46 = distinct !{!46, !33, !34}
-!47 = !{!38, !6, i64 2}
-!48 = distinct !{!48, !33, !34}
-!49 = distinct !{!49, !33, !34}
-!50 = distinct !{!50, !34}
-!51 = distinct !{!51, !33, !34}
+!34 = distinct !{!34, !33}
+!35 = !{!18, !6, i64 2}
+!36 = !{!37, !20, i64 8}
+!37 = !{!"_ZTS25UConverterFromUnicodeArgs", !19, i64 0, !6, i64 2, !20, i64 8, !21, i64 16, !21, i64 24, !8, i64 32, !8, i64 40, !22, i64 48}
+!38 = !{!37, !21, i64 16}
+!39 = !{!37, !21, i64 24}
+!40 = !{!37, !8, i64 32}
+!41 = !{!37, !8, i64 40}
+!42 = !{!37, !22, i64 48}
+!43 = !{!4, !6, i64 91}
+!44 = distinct !{!44, !33}
+!45 = distinct !{!45, !33}
+!46 = !{!37, !6, i64 2}
+!47 = distinct !{!47, !33}
+!48 = distinct !{!48, !33}
+!49 = distinct !{!49, !33}
+!50 = distinct !{!50, !33}

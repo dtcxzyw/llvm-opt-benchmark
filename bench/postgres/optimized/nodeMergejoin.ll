@@ -743,7 +743,7 @@ MJEvalInnerValues.exit.thread409:                 ; preds = %114
   %144 = load i32, ptr %37, align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next.i282, %145
-  br i1 %146, label %.lr.ph.i278, label %MJEvalInnerValues.exit, !llvm.loop !10
+  br i1 %146, label %.lr.ph.i278, label %MJEvalInnerValues.exit, !llvm.loop !9
 
 MJEvalInnerValues.exit:                           ; preds = %143
   store ptr %118, ptr @CurrentMemoryContext, align 8
@@ -998,7 +998,7 @@ MJEvalInnerValues.exit299.thread412:              ; preds = %231
   %261 = load i32, ptr %37, align 8
   %262 = sext i32 %261 to i64
   %263 = icmp slt i64 %indvars.iv.next.i297, %262
-  br i1 %263, label %.lr.ph.i293, label %MJEvalInnerValues.exit299, !llvm.loop !10
+  br i1 %263, label %.lr.ph.i293, label %MJEvalInnerValues.exit299, !llvm.loop !9
 
 MJEvalInnerValues.exit299:                        ; preds = %260
   store ptr %235, ptr @CurrentMemoryContext, align 8
@@ -1046,7 +1046,7 @@ MJEvalInnerValues.exit299:                        ; preds = %260
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 33
   %287 = load i8, ptr %286, align 1, !range !4, !noundef !5
   %288 = trunc nuw i8 %287 to i1
-  br i1 %285, label %289, label %._crit_edge556, !llvm.loop !11
+  br i1 %285, label %289, label %._crit_edge556, !llvm.loop !10
 
 289:                                              ; preds = %.lr.ph555, %281
   %290 = phi i1 [ %279, %.lr.ph555 ], [ %288, %281 ]
@@ -1102,12 +1102,12 @@ ApplySortComparator.exit.thread33.i:              ; preds = %ApplySortComparator
   %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i301.lcssa, 1
   %314 = sext i32 %.pre.i to i64
   %315 = icmp slt i64 %indvars.iv.next.i303, %314
-  br i1 %315, label %.outer, label %ApplySortComparator.exit.thread.i, !llvm.loop !11
+  br i1 %315, label %.outer, label %ApplySortComparator.exit.thread.i, !llvm.loop !10
 
 ApplySortComparator.exit.thread33.i.thread:       ; preds = %289
   %indvars.iv.next.i303415 = add nuw nsw i64 %indvars.iv.i301554, 1
   %316 = icmp slt i64 %indvars.iv.next.i303415, %280
-  br i1 %316, label %281, label %.thread, !llvm.loop !11
+  br i1 %316, label %281, label %.thread, !llvm.loop !10
 
 ApplySortComparator.exit.thread.i:                ; preds = %ApplySortComparator.exit.thread33.i
   br i1 %.02251.i.lcssa, label %.thread, label %ApplySortComparator.exit.thread.thread65.i
@@ -1330,7 +1330,7 @@ MJEvalOuterValues.exit316.thread:                 ; preds = %ExecProcNode.exit30
   %410 = load i32, ptr %37, align 8
   %411 = sext i32 %410 to i64
   %412 = icmp slt i64 %indvars.iv.next.i325, %411
-  br i1 %412, label %.lr.ph.i321, label %._crit_edge.i319, !llvm.loop !10
+  br i1 %412, label %.lr.ph.i321, label %._crit_edge.i319, !llvm.loop !9
 
 ._crit_edge.i319:                                 ; preds = %.lr.ph.i321, %393
   store ptr %397, ptr @CurrentMemoryContext, align 8
@@ -1374,7 +1374,7 @@ MJEvalInnerValues.exit327:                        ; preds = %385, %389, %._crit_
   %434 = getelementptr inbounds nuw i8, ptr %430, i64 33
   %435 = load i8, ptr %434, align 1, !range !4, !noundef !5
   %436 = trunc nuw i8 %435 to i1
-  br i1 %433, label %437, label %._crit_edge549, !llvm.loop !11
+  br i1 %433, label %437, label %._crit_edge549, !llvm.loop !10
 
 437:                                              ; preds = %.lr.ph548, %429
   %438 = phi i1 [ %427, %.lr.ph548 ], [ %436, %429 ]
@@ -1430,12 +1430,12 @@ ApplySortComparator.exit.thread33.i339:           ; preds = %ApplySortComparator
   %indvars.iv.next.i341 = add nuw nsw i64 %indvars.iv.i331.lcssa, 1
   %462 = sext i32 %.pre.i338 to i64
   %463 = icmp slt i64 %indvars.iv.next.i341, %462
-  br i1 %463, label %.outer468, label %ApplySortComparator.exit.thread.i342, !llvm.loop !11
+  br i1 %463, label %.outer468, label %ApplySortComparator.exit.thread.i342, !llvm.loop !10
 
 ApplySortComparator.exit.thread33.i339.thread:    ; preds = %437
   %indvars.iv.next.i341429 = add nuw nsw i64 %indvars.iv.i331547, 1
   %464 = icmp slt i64 %indvars.iv.next.i341429, %428
-  br i1 %464, label %429, label %.thread437, !llvm.loop !11
+  br i1 %464, label %429, label %.thread437, !llvm.loop !10
 
 ApplySortComparator.exit.thread.i342:             ; preds = %ApplySortComparator.exit.thread33.i339
   br i1 %.02251.i332.lcssa, label %.thread437, label %ApplySortComparator.exit.thread.thread65.i328
@@ -1545,7 +1545,7 @@ MJEvalInnerValues.exit356.thread443:              ; preds = %482
   %512 = load i32, ptr %37, align 8
   %513 = sext i32 %512 to i64
   %514 = icmp slt i64 %indvars.iv.next.i354, %513
-  br i1 %514, label %.lr.ph.i350, label %MJEvalInnerValues.exit356, !llvm.loop !10
+  br i1 %514, label %.lr.ph.i350, label %MJEvalInnerValues.exit356, !llvm.loop !9
 
 MJEvalInnerValues.exit356:                        ; preds = %511
   store ptr %486, ptr @CurrentMemoryContext, align 8
@@ -1615,7 +1615,7 @@ MJEvalInnerValues.exit356.thread:                 ; preds = %474, %478, %MJEvalI
   %542 = getelementptr inbounds nuw i8, ptr %538, i64 33
   %543 = load i8, ptr %542, align 1, !range !4, !noundef !5
   %544 = trunc nuw i8 %543 to i1
-  br i1 %541, label %545, label %._crit_edge, !llvm.loop !11
+  br i1 %541, label %545, label %._crit_edge, !llvm.loop !10
 
 545:                                              ; preds = %.lr.ph, %537
   %546 = phi i1 [ %535, %.lr.ph ], [ %544, %537 ]
@@ -1671,12 +1671,12 @@ ApplySortComparator.exit.thread33.i368:           ; preds = %ApplySortComparator
   %indvars.iv.next.i370 = add nuw nsw i64 %indvars.iv.i360.lcssa, 1
   %570 = sext i32 %.pre.i367 to i64
   %571 = icmp slt i64 %indvars.iv.next.i370, %570
-  br i1 %571, label %.outer471, label %ApplySortComparator.exit.thread.i371, !llvm.loop !11
+  br i1 %571, label %.outer471, label %ApplySortComparator.exit.thread.i371, !llvm.loop !10
 
 ApplySortComparator.exit.thread33.i368.thread:    ; preds = %545
   %indvars.iv.next.i370446 = add nuw nsw i64 %indvars.iv.i360543, 1
   %572 = icmp slt i64 %indvars.iv.next.i370446, %536
-  br i1 %572, label %537, label %.thread454, !llvm.loop !11
+  br i1 %572, label %537, label %.thread454, !llvm.loop !10
 
 ApplySortComparator.exit.thread.i371:             ; preds = %ApplySortComparator.exit.thread33.i368
   br i1 %.02251.i361.lcssa, label %.thread454, label %ApplySortComparator.exit.thread.thread65.i357
@@ -1968,7 +1968,7 @@ MJEvalInnerValues.exit400.thread463:              ; preds = %670
   %700 = load i32, ptr %37, align 8
   %701 = sext i32 %700 to i64
   %702 = icmp slt i64 %indvars.iv.next.i398, %701
-  br i1 %702, label %.lr.ph.i394, label %MJEvalInnerValues.exit400, !llvm.loop !10
+  br i1 %702, label %.lr.ph.i394, label %MJEvalInnerValues.exit400, !llvm.loop !9
 
 MJEvalInnerValues.exit400:                        ; preds = %699
   store ptr %674, ptr @CurrentMemoryContext, align 8
@@ -2083,7 +2083,7 @@ ExecProcNode.exit404:                             ; preds = %736, %738
   br i1 %.not246, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %742, %727, %703, %704, %711, %640, %641, %648, %579, %589, %588, %471, %515, %516, %517, %376, %377, %384, %325, %MJEvalInnerValues.exit299.thread, %322, %319, %202, %204, %210, %208, %170, %147, %155, %153, %152, %98, %102, %100, %99, %165
-  br label %52, !llvm.loop !12
+  br label %52
 
 746:                                              ; preds = %52
   %747 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -2426,9 +2426,7 @@ attributes #8 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

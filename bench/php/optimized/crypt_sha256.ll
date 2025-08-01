@@ -266,7 +266,7 @@ sub_2:                                            ; preds = %sub_1
   store i32 %123, ptr %124, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %sha256_finish_ctx.exit.preheader, label %120, !llvm.loop !15
+  br i1 %exitcond.not.i, label %sha256_finish_ctx.exit.preheader, label %120
 
 sha256_finish_ctx.exit.preheader:                 ; preds = %120
   %125 = icmp ugt i64 %36, 32
@@ -277,7 +277,7 @@ sha256_finish_ctx.exit:                           ; preds = %sha256_finish_ctx.e
   call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef %6)
   %126 = add i64 %.0391475, -32
   %127 = icmp ugt i64 %126, 32
-  br i1 %127, label %sha256_finish_ctx.exit, label %sha256_finish_ctx.exit._crit_edge.thread, !llvm.loop !17
+  br i1 %127, label %sha256_finish_ctx.exit, label %sha256_finish_ctx.exit._crit_edge.thread
 
 sha256_finish_ctx.exit._crit_edge.thread:         ; preds = %sha256_finish_ctx.exit
   call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef %126, ptr noundef %6)
@@ -308,7 +308,7 @@ sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.e
 131:                                              ; preds = %129, %130
   %132 = lshr i64 %.1392477, 1
   %.not428 = icmp ult i64 %.1392477, 2
-  br i1 %.not428, label %._crit_edge, label %.lr.ph478, !llvm.loop !18
+  br i1 %.not428, label %._crit_edge, label %.lr.ph478
 
 ._crit_edge:                                      ; preds = %131, %sha256_finish_ctx.exit._crit_edge
   %.not428476627 = phi i1 [ true, %sha256_finish_ctx.exit._crit_edge ], [ false, %131 ]
@@ -374,7 +374,7 @@ sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.e
   store i32 %174, ptr %175, align 4, !tbaa !11
   %indvars.iv.next.i443 = add nuw nsw i64 %indvars.iv.i442, 1
   %exitcond.not.i444 = icmp eq i64 %indvars.iv.next.i443, 8
-  br i1 %exitcond.not.i444, label %sha256_finish_ctx.exit445, label %171, !llvm.loop !15
+  br i1 %exitcond.not.i444, label %sha256_finish_ctx.exit445, label %171
 
 sha256_finish_ctx.exit445:                        ; preds = %171
   store i32 1779033703, ptr %7, align 4, !tbaa !11
@@ -395,7 +395,7 @@ sha256_finish_ctx.exit445:                        ; preds = %171
   call fastcc void @sha256_process_bytes(ptr noundef nonnull %.0371, i64 noundef %36, ptr noundef %7)
   %176 = add nuw i64 %.2393479, 1
   %exitcond.not = icmp eq i64 %176, %36
-  br i1 %exitcond.not, label %._crit_edge481, label %.lr.ph480, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge481, label %.lr.ph480
 
 ._crit_edge481:                                   ; preds = %.lr.ph480
   %.pre = load i32, ptr %81, align 4, !tbaa !13
@@ -459,11 +459,11 @@ sha256_finish_ctx.exit445:                        ; preds = %171
   store i32 %210, ptr %211, align 4, !tbaa !11
   %indvars.iv.next.i450 = add nuw nsw i64 %indvars.iv.i449, 1
   %exitcond.not.i451 = icmp eq i64 %indvars.iv.next.i450, 8
-  br i1 %exitcond.not.i451, label %sha256_finish_ctx.exit452, label %207, !llvm.loop !15
+  br i1 %exitcond.not.i451, label %sha256_finish_ctx.exit452, label %207
 
 sha256_finish_ctx.exit452:                        ; preds = %207
   %212 = icmp ugt i64 %36, 32768
-  br i1 %212, label %213, label %215, !prof !20
+  br i1 %212, label %213, label %215, !prof !15
 
 213:                                              ; preds = %sha256_finish_ctx.exit452
   %214 = call noalias ptr @_emalloc(i64 noundef %36) #17
@@ -485,7 +485,7 @@ sha256_finish_ctx.exit452:                        ; preds = %207
   %219 = getelementptr inbounds nuw i8, ptr %.0398482, i64 32
   %220 = add i64 %.3394483, -32
   %221 = icmp ugt i64 %220, 31
-  br i1 %221, label %.lr.ph485, label %._crit_edge486, !llvm.loop !21
+  br i1 %221, label %.lr.ph485, label %._crit_edge486
 
 ._crit_edge486:                                   ; preds = %.lr.ph485, %215
   %222 = phi ptr [ %216, %215 ], [ %218, %.lr.ph485 ]
@@ -513,7 +513,7 @@ sha256_finish_ctx.exit452:                        ; preds = %207
   %226 = zext i8 %225 to i64
   %227 = add nuw nsw i64 %226, 16
   %228 = icmp samesign ult i64 %224, %227
-  br i1 %228, label %223, label %229, !llvm.loop !22
+  br i1 %228, label %223, label %229
 
 229:                                              ; preds = %223
   %230 = load i32, ptr %81, align 4, !tbaa !13
@@ -577,7 +577,7 @@ sha256_finish_ctx.exit452:                        ; preds = %207
   store i32 %270, ptr %271, align 4, !tbaa !11
   %indvars.iv.next.i457 = add nuw nsw i64 %indvars.iv.i456, 1
   %exitcond.not.i458 = icmp eq i64 %indvars.iv.next.i457, 8
-  br i1 %exitcond.not.i458, label %sha256_finish_ctx.exit459, label %267, !llvm.loop !15
+  br i1 %exitcond.not.i458, label %sha256_finish_ctx.exit459, label %267
 
 sha256_finish_ctx.exit459:                        ; preds = %267
   %272 = alloca i8, i64 %spec.select437, align 16
@@ -701,12 +701,12 @@ sha256_finish_ctx.exit459:                        ; preds = %267
   store i32 %326, ptr %327, align 4, !tbaa !11
   %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i463, 1
   %exitcond.not.i465 = icmp eq i64 %indvars.iv.next.i464, 8
-  br i1 %exitcond.not.i465, label %sha256_finish_ctx.exit466, label %323, !llvm.loop !15
+  br i1 %exitcond.not.i465, label %sha256_finish_ctx.exit466, label %323
 
 sha256_finish_ctx.exit466:                        ; preds = %323
   %328 = add nuw i64 %.6397490, 1
   %exitcond621.not = icmp eq i64 %328, %.0388
-  br i1 %exitcond621.not, label %._crit_edge492, label %.lr.ph491, !llvm.loop !23
+  br i1 %exitcond621.not, label %._crit_edge492, label %.lr.ph491
 
 ._crit_edge492:                                   ; preds = %sha256_finish_ctx.exit466, %sha256_finish_ctx.exit459
   %329 = call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -781,7 +781,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %374 = icmp samesign ugt i32 %.0368496, 1
   %375 = icmp samesign ugt i32 %.2382494, 1
   %376 = select i1 %374, i1 %375, i1 false
-  br i1 %376, label %.lr.ph498, label %._crit_edge499, !llvm.loop !24
+  br i1 %376, label %.lr.ph498, label %._crit_edge499
 
 ._crit_edge499:                                   ; preds = %.lr.ph498
   %.not680 = icmp eq i32 %372, 0
@@ -820,7 +820,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %398 = icmp samesign ugt i32 %.0366505, 1
   %399 = icmp samesign ugt i32 %.3383503, 1
   %400 = select i1 %398, i1 %399, i1 false
-  br i1 %400, label %.lr.ph507, label %._crit_edge508, !llvm.loop !25
+  br i1 %400, label %.lr.ph507, label %._crit_edge508
 
 ._crit_edge508:                                   ; preds = %.lr.ph507
   %.not681 = icmp eq i32 %396, 0
@@ -859,7 +859,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %422 = icmp samesign ugt i32 %.0364514, 1
   %423 = icmp samesign ugt i32 %.4384512, 1
   %424 = select i1 %422, i1 %423, i1 false
-  br i1 %424, label %.lr.ph516, label %._crit_edge517, !llvm.loop !26
+  br i1 %424, label %.lr.ph516, label %._crit_edge517
 
 ._crit_edge517:                                   ; preds = %.lr.ph516
   %.not682 = icmp eq i32 %420, 0
@@ -898,7 +898,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %446 = icmp samesign ugt i32 %.0362523, 1
   %447 = icmp samesign ugt i32 %.5521, 1
   %448 = select i1 %446, i1 %447, i1 false
-  br i1 %448, label %.lr.ph525, label %._crit_edge526, !llvm.loop !27
+  br i1 %448, label %.lr.ph525, label %._crit_edge526
 
 ._crit_edge526:                                   ; preds = %.lr.ph525
   %.not683 = icmp eq i32 %444, 0
@@ -937,7 +937,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %470 = icmp samesign ugt i32 %.0360532, 1
   %471 = icmp samesign ugt i32 %.6530, 1
   %472 = select i1 %470, i1 %471, i1 false
-  br i1 %472, label %.lr.ph534, label %._crit_edge535, !llvm.loop !28
+  br i1 %472, label %.lr.ph534, label %._crit_edge535
 
 ._crit_edge535:                                   ; preds = %.lr.ph534
   %.not684 = icmp eq i32 %468, 0
@@ -976,7 +976,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %494 = icmp samesign ugt i32 %.0358541, 1
   %495 = icmp samesign ugt i32 %.7539, 1
   %496 = select i1 %494, i1 %495, i1 false
-  br i1 %496, label %.lr.ph543, label %._crit_edge544, !llvm.loop !29
+  br i1 %496, label %.lr.ph543, label %._crit_edge544
 
 ._crit_edge544:                                   ; preds = %.lr.ph543
   %.not685 = icmp eq i32 %492, 0
@@ -1015,7 +1015,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %518 = icmp samesign ugt i32 %.0356550, 1
   %519 = icmp samesign ugt i32 %.8548, 1
   %520 = select i1 %518, i1 %519, i1 false
-  br i1 %520, label %.lr.ph552, label %._crit_edge553, !llvm.loop !30
+  br i1 %520, label %.lr.ph552, label %._crit_edge553
 
 ._crit_edge553:                                   ; preds = %.lr.ph552
   %.not686 = icmp eq i32 %516, 0
@@ -1054,7 +1054,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %542 = icmp samesign ugt i32 %.0354559, 1
   %543 = icmp samesign ugt i32 %.9557, 1
   %544 = select i1 %542, i1 %543, i1 false
-  br i1 %544, label %.lr.ph561, label %._crit_edge562, !llvm.loop !31
+  br i1 %544, label %.lr.ph561, label %._crit_edge562
 
 ._crit_edge562:                                   ; preds = %.lr.ph561
   %.not687 = icmp eq i32 %540, 0
@@ -1093,7 +1093,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %566 = icmp samesign ugt i32 %.0352568, 1
   %567 = icmp samesign ugt i32 %.10566, 1
   %568 = select i1 %566, i1 %567, i1 false
-  br i1 %568, label %.lr.ph570, label %._crit_edge571, !llvm.loop !32
+  br i1 %568, label %.lr.ph570, label %._crit_edge571
 
 ._crit_edge571:                                   ; preds = %.lr.ph570
   %.not688 = icmp eq i32 %564, 0
@@ -1132,7 +1132,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %590 = icmp samesign ugt i32 %.0350577, 1
   %591 = icmp samesign ugt i32 %.11575, 1
   %592 = select i1 %590, i1 %591, i1 false
-  br i1 %592, label %.lr.ph579, label %._crit_edge580, !llvm.loop !33
+  br i1 %592, label %.lr.ph579, label %._crit_edge580
 
 ._crit_edge580:                                   ; preds = %.lr.ph579
   %.not689 = icmp eq i32 %588, 0
@@ -1161,7 +1161,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   %604 = icmp samesign ugt i32 %.0586, 1
   %605 = icmp samesign ugt i32 %.12584, 1
   %606 = select i1 %604, i1 %605, i1 false
-  br i1 %606, label %.lr.ph588, label %._crit_edge589, !llvm.loop !34
+  br i1 %606, label %.lr.ph588, label %._crit_edge589
 
 ._crit_edge589:                                   ; preds = %.lr.ph588
   %607 = icmp samesign ult i32 %.12584, 2
@@ -1204,7 +1204,7 @@ sha256_finish_ctx.exit466:                        ; preds = %323
   store i32 %615, ptr %616, align 4, !tbaa !11
   %indvars.iv.next.i472 = add nuw nsw i64 %indvars.iv.i471, 1
   %exitcond.not.i473 = icmp eq i64 %indvars.iv.next.i472, 8
-  br i1 %exitcond.not.i473, label %sha256_finish_ctx.exit474, label %612, !llvm.loop !15
+  br i1 %exitcond.not.i473, label %sha256_finish_ctx.exit474, label %612
 
 sha256_finish_ctx.exit474:                        ; preds = %612
   call void @explicit_bzero(ptr noundef nonnull %5, i64 noundef 32) #16
@@ -1230,7 +1230,7 @@ sha256_finish_ctx.exit474:                        ; preds = %612
 620:                                              ; preds = %619, %618
   %.not431 = icmp eq ptr %.0377, null
   %brmerge = or i1 %.not431, %.0376
-  br i1 %brmerge, label %622, label %621, !prof !35
+  br i1 %brmerge, label %622, label %621, !prof !16
 
 621:                                              ; preds = %620
   call void @_efree(ptr noundef nonnull %.0377) #16
@@ -1239,14 +1239,14 @@ sha256_finish_ctx.exit474:                        ; preds = %612
 622:                                              ; preds = %620, %621
   %.not432 = icmp eq ptr %.0375, null
   %brmerge438 = or i1 %.not427, %.not432
-  br i1 %brmerge438, label %624, label %623, !prof !35
+  br i1 %brmerge438, label %624, label %623, !prof !16
 
 623:                                              ; preds = %622
   call void @_efree(ptr noundef nonnull %.0375) #16
   br label %624
 
 624:                                              ; preds = %622, %623
-  br i1 %212, label %625, label %626, !prof !20
+  br i1 %212, label %625, label %626, !prof !15
 
 625:                                              ; preds = %624
   call void @_efree(ptr noundef %222) #16
@@ -1347,7 +1347,7 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   %34 = getelementptr inbounds nuw i8, ptr %.272, i64 64
   %35 = add i64 %.25971, -64
   %36 = icmp ugt i64 %35, 64
-  br i1 %36, label %33, label %.thread, !llvm.loop !36
+  br i1 %36, label %33, label %.thread
 
 37:                                               ; preds = %29
   %38 = and i64 %.057, -64
@@ -1502,7 +1502,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %35 = getelementptr inbounds nuw i8, ptr %.1137, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader135, label %31, !llvm.loop !37
+  br i1 %exitcond.not, label %.preheader135, label %31
 
 36:                                               ; preds = %.preheader135, %36
   %37 = phi i32 [ %.pre, %.preheader135 ], [ %52, %36 ]
@@ -1533,7 +1533,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   store i32 %59, ptr %60, align 4, !tbaa !11
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 64
-  br i1 %exitcond180.not, label %.preheader, label %36, !llvm.loop !38
+  br i1 %exitcond180.not, label %.preheader, label %36
 
 .preheader:                                       ; preds = %36, %.preheader
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.preheader ], [ 0, %36 ]
@@ -1576,7 +1576,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %89 = add i32 %87, %77
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 64
-  br i1 %exitcond184.not, label %90, label %.preheader, !llvm.loop !39
+  br i1 %exitcond184.not, label %90, label %.preheader
 
 90:                                               ; preds = %.preheader
   %91 = add i32 %89, %.0119156
@@ -1590,7 +1590,7 @@ define internal fastcc void @sha256_process_block(ptr noundef readonly captures(
   %99 = add i64 %.0116157, -16
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #16
   %.not = icmp eq i64 %99, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %90
   store i32 %91, ptr %2, align 4, !tbaa !11
@@ -1660,29 +1660,5 @@ attributes #19 = { nounwind allocsize(1) }
 !12 = !{!"int", !7, i64 0}
 !13 = !{!14, !12, i64 40}
 !14 = !{!"sha256_ctx", !7, i64 0, !7, i64 32, !12, i64 40, !7, i64 44}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = distinct !{!25, !16}
-!26 = distinct !{!26, !16}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
-!30 = distinct !{!30, !16}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16}
-!34 = distinct !{!34, !16}
-!35 = !{!"branch_weights", i32 4001, i32 1}
-!36 = distinct !{!36, !16}
-!37 = distinct !{!37, !16}
-!38 = distinct !{!38, !16}
-!39 = distinct !{!39, !16}
-!40 = distinct !{!40, !16}
+!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = !{!"branch_weights", i32 4001, i32 1}

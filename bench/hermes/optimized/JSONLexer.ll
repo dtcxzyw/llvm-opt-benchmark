@@ -205,7 +205,7 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !7
+  store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   store i16 %7, ptr %ch.addr.i, align 2
   store ptr @.str, ptr %ref.tmp.i, align 8
@@ -220,17 +220,17 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %i
   store i32 12, ptr %token_9, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load ptr, ptr %.in.i, align 8
-  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !10
+  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !9
   %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !10
+  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !9
   %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !10
+  store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !9
   %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !10
+  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !9
   %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !10
+  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !9
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !10
+  store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !9
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %12, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
@@ -295,7 +295,7 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %w
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !13
+  store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   store i16 %6, ptr %ch.addr.i, align 2
   store ptr @.str, ptr %ref.tmp.i, align 8
@@ -311,17 +311,17 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %w
   store i32 12, ptr %11, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load ptr, ptr %.in.i, align 8
-  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !16
+  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !15
   %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !16
+  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !15
   %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !16
+  store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !15
   %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !16
+  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !15
   %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !16
+  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !15
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !16
+  store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !15
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %12, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
@@ -334,7 +334,7 @@ if.end:                                           ; preds = %while.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %word.addr.038, i64 1
   %13 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %13, 0
-  br i1 %tobool.not, label %if.end14, label %land.rhs, !llvm.loop !19
+  br i1 %tobool.not, label %if.end14, label %land.rhs, !llvm.loop !18
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
   %.pr = load i8, ptr %word.addr.038, align 1
@@ -346,7 +346,7 @@ _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %while.end
   %runtime_.i33 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %14 = load ptr, ptr %runtime_.i33, align 8
   %rightChild_.i.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 16
-  store ptr @.str.4, ptr %rightChild_.i.i.i24, align 8, !alias.scope !20
+  store ptr @.str.4, ptr %rightChild_.i.i.i24, align 8, !alias.scope !19
   %15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %15, align 8
   store ptr @.str.8, ptr %ref.tmp.i17, align 8
@@ -448,7 +448,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.end, 
   %11 = load ptr, ptr %this, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
-  br label %while.cond, !llvm.loop !23
+  br label %while.cond, !llvm.loop !22
 
 while.end:                                        ; preds = %lor.lhs.false9, %_ZN6hermes11UTF16Stream7hasCharEv.exit
   %12 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -471,7 +471,7 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %l
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !24
+  store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   %conv3782 = zext nneg i8 %15 to i16
   store i16 %conv3782, ptr %ch.addr.i, align 2
@@ -488,17 +488,17 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %l
   store i32 12, ptr %21, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %22 = load ptr, ptr %.in.i, align 8
-  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !27
+  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !26
   %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !27
+  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !26
   %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !27
+  store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !26
   %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !27
+  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !26
   %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !27
+  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !26
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
-  store i64 33, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !27
+  store i64 33, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !26
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %22, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
@@ -538,7 +538,7 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit78: ; preds = 
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i37)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i38)
   %rightChild_.i.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 16
-  store ptr %ch.addr.i37, ptr %rightChild_.i.i.i72, align 8, !alias.scope !30
+  store ptr %ch.addr.i37, ptr %rightChild_.i.i.i72, align 8, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i36)
   %conv4785 = sext i8 %29 to i16
   store i16 %conv4785, ptr %ch.addr.i37, align 2
@@ -555,17 +555,17 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit78: ; preds = 
   store i32 12, ptr %34, align 8
   %.in.i46 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %35 = load ptr, ptr %.in.i46, align 8
-  store ptr @.str.8, ptr %ref.tmp.i.i36, align 8, !alias.scope !33
+  store ptr @.str.8, ptr %ref.tmp.i.i36, align 8, !alias.scope !32
   %leftKind_.i22.i.i.i47 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i47, align 8, !alias.scope !33
+  store i32 3, ptr %leftKind_.i22.i.i.i47, align 8, !alias.scope !32
   %rightChild_.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 16
-  store ptr %ref.tmp.i38, ptr %rightChild_.i.i.i.i48, align 8, !alias.scope !33
+  store ptr %ref.tmp.i38, ptr %rightChild_.i.i.i.i48, align 8, !alias.scope !32
   %rightKind_.i23.i.i.i49 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 24
-  store i32 2, ptr %rightKind_.i23.i.i.i49, align 8, !alias.scope !33
+  store i32 2, ptr %rightKind_.i23.i.i.i49, align 8, !alias.scope !32
   %leftSize_.i24.i.i.i50 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i.i50, align 8, !alias.scope !33
+  store i64 18, ptr %leftSize_.i24.i.i.i50, align 8, !alias.scope !32
   %rightSize_.i25.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 40
-  store i64 33, ptr %rightSize_.i25.i.i.i51, align 8, !alias.scope !33
+  store i64 33, ptr %rightSize_.i25.i.i.i51, align 8, !alias.scope !32
   %call.i.i52 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %35, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i36) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i36)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i37)
@@ -687,7 +687,7 @@ _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %if.else
   %runtime_.i187 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %10 = load ptr, ptr %runtime_.i187, align 8
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr @.str.9, ptr %rightChild_.i.i.i, align 8, !alias.scope !36
+  store ptr @.str.9, ptr %rightChild_.i.i.i, align 8, !alias.scope !35
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %11, align 8
   store ptr @.str.8, ptr %ref.tmp.i, align 8
@@ -773,17 +773,17 @@ if.then48:                                        ; preds = %_ZN6hermes11UTF16St
   store i32 12, ptr %token_.i17190, align 8
   %runtime_.i18191 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %25 = load ptr, ptr %runtime_.i18191, align 8
-  store ptr @.str.8, ptr %ref.tmp.i16, align 8, !alias.scope !39
+  store ptr @.str.8, ptr %ref.tmp.i16, align 8, !alias.scope !38
   %leftKind_.i22.i.i39 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i39, align 8, !alias.scope !39
+  store i32 3, ptr %leftKind_.i22.i.i39, align 8, !alias.scope !38
   %rightChild_.i.i.i40 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 16
-  store ptr @.str.1, ptr %rightChild_.i.i.i40, align 8, !alias.scope !39
+  store ptr @.str.1, ptr %rightChild_.i.i.i40, align 8, !alias.scope !38
   %rightKind_.i23.i.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i41, align 8, !alias.scope !39
+  store i32 3, ptr %rightKind_.i23.i.i41, align 8, !alias.scope !38
   %leftSize_.i24.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i42, align 8, !alias.scope !39
+  store i64 18, ptr %leftSize_.i24.i.i42, align 8, !alias.scope !38
   %rightSize_.i25.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i43, align 8, !alias.scope !39
+  store i64 23, ptr %rightSize_.i25.i.i43, align 8, !alias.scope !38
   %call.i25 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %25, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i16) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i16)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
@@ -1048,7 +1048,7 @@ if.end102:                                        ; preds = %if.end99, %sw.epilo
   %add.i1.i = mul i32 %add.i.i143, 1025
   %shr.i.i = lshr i32 %add.i1.i, 6
   %xor.i.i = xor i32 %shr.i.i, %add.i1.i
-  br label %while.cond, !llvm.loop !42
+  br label %while.cond, !llvm.loop !41
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i152)
@@ -1056,17 +1056,17 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   store i32 12, ptr %token_.i153194, align 8
   %runtime_.i154195 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %81 = load ptr, ptr %runtime_.i154195, align 8
-  store ptr @.str.8, ptr %ref.tmp.i152, align 8, !alias.scope !43
+  store ptr @.str.8, ptr %ref.tmp.i152, align 8, !alias.scope !42
   %leftKind_.i22.i.i175 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i175, align 8, !alias.scope !43
+  store i32 3, ptr %leftKind_.i22.i.i175, align 8, !alias.scope !42
   %rightChild_.i.i.i176 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 16
-  store ptr @.str.1, ptr %rightChild_.i.i.i176, align 8, !alias.scope !43
+  store ptr @.str.1, ptr %rightChild_.i.i.i176, align 8, !alias.scope !42
   %rightKind_.i23.i.i177 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i177, align 8, !alias.scope !43
+  store i32 3, ptr %rightKind_.i23.i.i177, align 8, !alias.scope !42
   %leftSize_.i24.i.i178 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i178, align 8, !alias.scope !43
+  store i64 18, ptr %leftSize_.i24.i.i178, align 8, !alias.scope !42
   %rightSize_.i25.i.i179 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i179, align 8, !alias.scope !43
+  store i64 23, ptr %rightSize_.i25.i.i179, align 8, !alias.scope !42
   %call.i161 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %81, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i152) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i152)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
@@ -1167,9 +1167,9 @@ if.then.i:                                        ; preds = %cond.end
 
 if.then.i.i.i.i:                                  ; preds = %cond.end
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr %10, ptr %ref.tmp.i, align 8, !alias.scope !46
+  store ptr %10, ptr %ref.tmp.i, align 8, !alias.scope !45
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store i64 0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !46
+  store i64 0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !45
   %cmp.i.i.i.i.i = icmp ugt i64 %strRef.sroa.3.0, 2305843009213693951
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i
 
@@ -1181,10 +1181,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %strRef.sroa.3.0, 1
   %mul.i.i.i.i.i.i.i = add nuw nsw i64 %add.ptr.i.idx.i.i, 2
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #13
-  store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !46
-  store i64 %strRef.sroa.3.0, ptr %10, align 8, !alias.scope !46
+  store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !45
+  store i64 %strRef.sroa.3.0, ptr %10, align 8, !alias.scope !45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %strRef.sroa.0.0, i64 %add.ptr.i.idx.i.i, i1 false)
-  store i64 %strRef.sroa.3.0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !46
+  store i64 %strRef.sroa.3.0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !45
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
@@ -1254,7 +1254,7 @@ _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %if.else
   %runtime_.i190 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %20 = load ptr, ptr %runtime_.i190, align 8
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 16
-  store ptr @.str.9, ptr %rightChild_.i.i.i, align 8, !alias.scope !49
+  store ptr @.str.9, ptr %rightChild_.i.i.i, align 8, !alias.scope !48
   %21 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %21, align 8
   store ptr @.str.8, ptr %ref.tmp.i8, align 8
@@ -1340,17 +1340,17 @@ if.then51:                                        ; preds = %_ZN6hermes11UTF16St
   store i32 12, ptr %token_.i19193, align 8
   %runtime_.i20194 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %35 = load ptr, ptr %runtime_.i20194, align 8
-  store ptr @.str.8, ptr %ref.tmp.i18, align 8, !alias.scope !52
+  store ptr @.str.8, ptr %ref.tmp.i18, align 8, !alias.scope !51
   %leftKind_.i22.i.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i41, align 8, !alias.scope !52
+  store i32 3, ptr %leftKind_.i22.i.i41, align 8, !alias.scope !51
   %rightChild_.i.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 16
-  store ptr @.str.1, ptr %rightChild_.i.i.i42, align 8, !alias.scope !52
+  store ptr @.str.1, ptr %rightChild_.i.i.i42, align 8, !alias.scope !51
   %rightKind_.i23.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i43, align 8, !alias.scope !52
+  store i32 3, ptr %rightKind_.i23.i.i43, align 8, !alias.scope !51
   %leftSize_.i24.i.i44 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i44, align 8, !alias.scope !52
+  store i64 18, ptr %leftSize_.i24.i.i44, align 8, !alias.scope !51
   %rightSize_.i25.i.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i45, align 8, !alias.scope !52
+  store i64 23, ptr %rightSize_.i25.i.i45, align 8, !alias.scope !51
   %call.i27 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %35, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i18) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i18)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
@@ -1612,7 +1612,7 @@ if.end105:                                        ; preds = %if.end102, %sw.epil
   %hasEscape.1 = phi i8 [ 1, %sw.epilog ], [ %hasEscape.0, %if.end102 ]
   %cmp.i146 = icmp ult i16 %scannedChar.0, 128
   %and4 = and i1 %allAscii.0, %cmp.i146
-  br label %while.cond, !llvm.loop !55
+  br label %while.cond, !llvm.loop !54
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i155)
@@ -1620,17 +1620,17 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   store i32 12, ptr %token_.i156197, align 8
   %runtime_.i157198 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %91 = load ptr, ptr %runtime_.i157198, align 8
-  store ptr @.str.8, ptr %ref.tmp.i155, align 8, !alias.scope !56
+  store ptr @.str.8, ptr %ref.tmp.i155, align 8, !alias.scope !55
   %leftKind_.i22.i.i178 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i178, align 8, !alias.scope !56
+  store i32 3, ptr %leftKind_.i22.i.i178, align 8, !alias.scope !55
   %rightChild_.i.i.i179 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 16
-  store ptr @.str.1, ptr %rightChild_.i.i.i179, align 8, !alias.scope !56
+  store ptr @.str.1, ptr %rightChild_.i.i.i179, align 8, !alias.scope !55
   %rightKind_.i23.i.i180 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i180, align 8, !alias.scope !56
+  store i32 3, ptr %rightKind_.i23.i.i180, align 8, !alias.scope !55
   %leftSize_.i24.i.i181 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i181, align 8, !alias.scope !56
+  store i64 18, ptr %leftSize_.i24.i.i181, align 8, !alias.scope !55
   %rightSize_.i25.i.i182 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i182, align 8, !alias.scope !56
+  store i64 23, ptr %rightSize_.i25.i.i182, align 8, !alias.scope !55
   %call.i164 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %91, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i155) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i155)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
@@ -1657,9 +1657,9 @@ entry:
   %ch.addr = alloca i16, align 2
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   store i16 %ch, ptr %ch.addr, align 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %leftKind_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 8
-  %0 = load i32, ptr %leftKind_.i.i, align 8, !noalias !59
+  %0 = load i32, ptr %leftKind_.i.i, align 8, !noalias !58
   switch i32 %0, label %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit [
     i32 0, label %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10
     i32 1, label %5
@@ -1667,47 +1667,47 @@ entry:
 
 _ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10: ; preds = %entry
   %leftKind_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i32 0, ptr %leftKind_.i.i.i, align 8, !alias.scope !62
+  store i32 0, ptr %leftKind_.i.i.i, align 8, !alias.scope !61
   %rightKind_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store i32 1, ptr %rightKind_.i.i.i, align 8, !alias.scope !62
+  store i32 1, ptr %rightKind_.i.i.i, align 8, !alias.scope !61
   %leftSize_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i, i8 0, i64 16, i1 false), !alias.scope !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i, i8 0, i64 16, i1 false), !alias.scope !61
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %token_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i13, align 8
   %runtime_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %runtime_.i14, align 8
   %leftKind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store i32 0, ptr %leftKind_.i.i.i.i, align 8, !alias.scope !65
+  store i32 0, ptr %leftKind_.i.i.i.i, align 8, !alias.scope !64
   %rightKind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store i32 1, ptr %rightKind_.i.i.i.i, align 8, !alias.scope !65
+  store i32 1, ptr %rightKind_.i.i.i.i, align 8, !alias.scope !64
   %leftSize_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !64
   br label %_ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit
 
 _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
   %leftSize_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 32
-  %2 = load i64, ptr %leftSize_.i.i, align 8, !noalias !59
+  %2 = load i64, ptr %leftSize_.i.i, align 8, !noalias !58
   %rightSize_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 40
-  %3 = load i64, ptr %rightSize_.i.i, align 8, !noalias !59
+  %3 = load i64, ptr %rightSize_.i.i, align 8, !noalias !58
   %add.i.i = add i64 %3, %2
   %rightKind_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 24
-  %4 = load i32, ptr %rightKind_.i.i, align 8, !noalias !59
+  %4 = load i32, ptr %rightKind_.i.i, align 8, !noalias !58
   %cmp.i17.i = icmp eq i32 %4, 1
-  %newLeft.sroa.0.0.copyload.i = load ptr, ptr %msg, align 8, !noalias !59
+  %newLeft.sroa.0.0.copyload.i = load ptr, ptr %msg, align 8, !noalias !58
   %newLeftKind.0.i = select i1 %cmp.i17.i, i32 %0, i32 2
   %newLeft.sroa.0.0.i = select i1 %cmp.i17.i, ptr %newLeft.sroa.0.0.copyload.i, ptr %msg
-  store ptr %newLeft.sroa.0.0.i, ptr %ref.tmp, align 8, !alias.scope !59
+  store ptr %newLeft.sroa.0.0.i, ptr %ref.tmp, align 8, !alias.scope !58
   %leftKind_.i22.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i32 %newLeftKind.0.i, ptr %leftKind_.i22.i, align 8, !alias.scope !59
+  store i32 %newLeftKind.0.i, ptr %leftKind_.i22.i, align 8, !alias.scope !58
   %rightChild_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %ch.addr, ptr %rightChild_.i.i, align 8, !alias.scope !59
+  store ptr %ch.addr, ptr %rightChild_.i.i, align 8, !alias.scope !58
   %rightKind_.i23.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store i32 4, ptr %rightKind_.i23.i, align 8, !alias.scope !59
+  store i32 4, ptr %rightKind_.i23.i, align 8, !alias.scope !58
   %leftSize_.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  store i64 %add.i.i, ptr %leftSize_.i24.i, align 8, !alias.scope !59
+  store i64 %add.i.i, ptr %leftSize_.i24.i, align 8, !alias.scope !58
   %rightSize_.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
-  store i64 1, ptr %rightSize_.i25.i, align 8, !alias.scope !59
+  store i64 1, ptr %rightSize_.i25.i, align 8, !alias.scope !58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i, align 8
@@ -1735,17 +1735,17 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
   %8 = phi ptr [ %ch.addr, %5 ], [ %ref.tmp, %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit ]
   %.in = getelementptr inbounds nuw i8, ptr %this, i64 64
   %9 = load ptr, ptr %.in, align 8
-  store ptr @.str.8, ptr %ref.tmp.i, align 8, !alias.scope !70
+  store ptr @.str.8, ptr %ref.tmp.i, align 8, !alias.scope !69
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !70
+  store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !69
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr %8, ptr %rightChild_.i.i.i, align 8, !alias.scope !70
+  store ptr %8, ptr %rightChild_.i.i.i, align 8, !alias.scope !69
   %rightKind_.i23.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store i32 %7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !70
+  store i32 %7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !69
   %leftSize_.i24.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i, align 8, !alias.scope !70
+  store i64 18, ptr %leftSize_.i24.i.i, align 8, !alias.scope !69
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store i64 %add.i16.i.i2227, ptr %rightSize_.i25.i.i, align 8, !alias.scope !70
+  store i64 %add.i16.i.i2227, ptr %rightSize_.i25.i.i, align 8, !alias.scope !69
   br label %_ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit
 
 _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10, %6
@@ -1788,17 +1788,17 @@ if.then:                                          ; preds = %_ZN6hermes11UTF16St
   store i32 12, ptr %token_.i22, align 8
   %runtime_.i23 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %runtime_.i23, align 8
-  store ptr @.str.8, ptr %ref.tmp.i, align 8, !alias.scope !71
+  store ptr @.str.8, ptr %ref.tmp.i, align 8, !alias.scope !70
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !71
+  store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !70
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr @.str.1, ptr %rightChild_.i.i.i, align 8, !alias.scope !71
+  store ptr @.str.1, ptr %rightChild_.i.i.i, align 8, !alias.scope !70
   %rightKind_.i23.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store i32 3, ptr %rightKind_.i23.i.i, align 8, !alias.scope !71
+  store i32 3, ptr %rightKind_.i23.i.i, align 8, !alias.scope !70
   %leftSize_.i24.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i, align 8, !alias.scope !71
+  store i64 18, ptr %leftSize_.i24.i.i, align 8, !alias.scope !70
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store i64 23, ptr %rightSize_.i25.i.i, align 8, !alias.scope !71
+  store i64 23, ptr %rightSize_.i25.i.i, align 8, !alias.scope !70
   %call.i10 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
   br label %return
@@ -1824,7 +1824,7 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i11)
   %rightChild_.i.i.i17 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 16
-  store ptr %ch.addr.i, ptr %rightChild_.i.i.i17, align 8, !alias.scope !74
+  store ptr %ch.addr.i, ptr %rightChild_.i.i.i17, align 8, !alias.scope !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   store i16 %4, ptr %ch.addr.i, align 2
   store ptr @.str.2, ptr %ref.tmp.i11, align 8
@@ -1840,17 +1840,17 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %i
   store i32 12, ptr %12, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load ptr, ptr %.in.i, align 8
-  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !77
+  store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !76
   %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !77
+  store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !76
   %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
-  store ptr %ref.tmp.i11, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !77
+  store ptr %ref.tmp.i11, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !76
   %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !77
+  store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !76
   %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
-  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !77
+  store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !76
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
-  store i64 34, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !77
+  store i64 34, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !76
   %call.i.i12 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
@@ -1865,7 +1865,7 @@ if.end19:                                         ; preds = %if.end, %if.then11
   store ptr %incdec.ptr.i, ptr %this, align 8
   %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, 4
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !80
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !79
 
 return.loopexit:                                  ; preds = %if.end19
   %14 = zext i16 %add to i64
@@ -1954,80 +1954,79 @@ attributes #14 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!9 = distinct !{!9, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!12 = distinct !{!12, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!15 = distinct !{!15, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!18 = distinct !{!18, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!19 = distinct !{!19, !5, !6}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!22 = distinct !{!22, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!23 = distinct !{!23, !5, !6}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!26 = distinct !{!26, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!29 = distinct !{!29, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!32 = distinct !{!32, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!35 = distinct !{!35, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!38 = distinct !{!38, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!41 = distinct !{!41, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!42 = distinct !{!42, !5, !6}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!45 = distinct !{!45, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
-!48 = distinct !{!48, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!51 = distinct !{!51, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!54 = distinct !{!54, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!55 = distinct !{!55, !5, !6}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!58 = distinct !{!58, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!61 = distinct !{!61, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!62 = !{!63, !60}
-!63 = distinct !{!63, !64, !"_ZN6hermes2vm11TwineChar1610createNullEv: %agg.result"}
-!64 = distinct !{!64, !"_ZN6hermes2vm11TwineChar1610createNullEv"}
-!65 = !{!66, !68}
-!66 = distinct !{!66, !67, !"_ZN6hermes2vm11TwineChar1610createNullEv: %agg.result"}
-!67 = distinct !{!67, !"_ZN6hermes2vm11TwineChar1610createNullEv"}
-!68 = distinct !{!68, !69, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!69 = distinct !{!69, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!70 = !{!68}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!73 = distinct !{!73, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!76 = distinct !{!76, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
-!79 = distinct !{!79, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
-!80 = distinct !{!80, !5, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!8 = distinct !{!8, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!11 = distinct !{!11, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!14 = distinct !{!14, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!17 = distinct !{!17, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!18 = distinct !{!18, !5}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!21 = distinct !{!21, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!22 = distinct !{!22, !5}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!25 = distinct !{!25, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!28 = distinct !{!28, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!31 = distinct !{!31, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!34 = distinct !{!34, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!37 = distinct !{!37, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!40 = distinct !{!40, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!41 = distinct !{!41, !5}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!44 = distinct !{!44, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE: %agg.result"}
+!47 = distinct !{!47, !"_ZN6hermes2vm15StringPrimitive13arrayToStringIDsEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!50 = distinct !{!50, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!53 = distinct !{!53, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!54 = distinct !{!54, !5}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!57 = distinct !{!57, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!60 = distinct !{!60, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!61 = !{!62, !59}
+!62 = distinct !{!62, !63, !"_ZN6hermes2vm11TwineChar1610createNullEv: %agg.result"}
+!63 = distinct !{!63, !"_ZN6hermes2vm11TwineChar1610createNullEv"}
+!64 = !{!65, !67}
+!65 = distinct !{!65, !66, !"_ZN6hermes2vm11TwineChar1610createNullEv: %agg.result"}
+!66 = distinct !{!66, !"_ZN6hermes2vm11TwineChar1610createNullEv"}
+!67 = distinct !{!67, !68, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!68 = distinct !{!68, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!69 = !{!67}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!72 = distinct !{!72, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!75 = distinct !{!75, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK6hermes2vm11TwineChar166concatERKS1_: %agg.result"}
+!78 = distinct !{!78, !"_ZNK6hermes2vm11TwineChar166concatERKS1_"}
+!79 = distinct !{!79, !5}

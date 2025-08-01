@@ -277,7 +277,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 %84
   %88 = getelementptr inbounds nuw i8, ptr %.0100146, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !26
+  %89 = load ptr, ptr %88, align 8, !tbaa !25
   %.not129 = icmp eq ptr %89, null
   br i1 %.not129, label %92, label %90
 
@@ -295,24 +295,24 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 96:                                               ; preds = %92
   store i8 0, ptr %94, align 1, !tbaa !21
   %97 = getelementptr inbounds nuw i8, ptr %.0100146, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !28
+  %98 = load ptr, ptr %97, align 8, !tbaa !27
   %99 = getelementptr inbounds nuw i8, ptr %.0100146, i64 24
-  %100 = load i32, ptr %99, align 8, !tbaa !29
+  %100 = load i32, ptr %99, align 8, !tbaa !28
   call void %98(ptr noundef %0, ptr noundef nonnull %87, i32 noundef %100) #14
   %101 = getelementptr i8, ptr %94, i64 1
   br label %105
 
 102:                                              ; preds = %82
   %103 = getelementptr inbounds nuw i8, ptr %.0100146, i64 32
-  %104 = load ptr, ptr %103, align 8, !tbaa !30
+  %104 = load ptr, ptr %103, align 8, !tbaa !29
   %.not127 = icmp eq ptr %104, null
-  br i1 %.not127, label %107, label %82, !llvm.loop !31
+  br i1 %.not127, label %107, label %82, !llvm.loop !30
 
 105:                                              ; preds = %96, %92
   %.3.ph = phi ptr [ %87, %92 ], [ %101, %96 ]
   %106 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.3.ph, ptr noundef nonnull dereferenceable(1) @.str.9) #18
   %.not126 = icmp eq ptr %106, null
-  br i1 %.not126, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not126, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 107:                                              ; preds = %102
   %108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
@@ -327,7 +327,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %105, %.critedge, %71, %.critedge132, %.critedge.preheader
   %113 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %.098)
   %.not116 = icmp eq ptr %113, null
-  br i1 %.not116, label %._crit_edge, label %.lr.ph152, !llvm.loop !33
+  br i1 %.not116, label %._crit_edge, label %.lr.ph152
 
 ._crit_edge:                                      ; preds = %.loopexit, %43
   %114 = call i32 @fclose(ptr noundef %.098)
@@ -346,7 +346,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %120, ptr %19, align 8, !tbaa !19
   %121 = load ptr, ptr %119, align 8, !tbaa !20
   %.not = icmp eq ptr %121, null
-  br i1 %.not, label %._crit_edge155, label %25, !llvm.loop !34
+  br i1 %.not, label %._crit_edge155, label %25, !llvm.loop !32
 
 ._crit_edge155:                                   ; preds = %118, %.thread
   %122 = load i32, ptr %3, align 8, !tbaa !4
@@ -390,7 +390,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %144 = load ptr, ptr %135, align 8, !tbaa !17
   %145 = call i64 @fwrite(ptr nonnull @.str.17, i64 11, i64 1, ptr %144)
   %146 = icmp samesign ugt i32 %.097.in161, 2
-  br i1 %146, label %.lr.ph163, label %._crit_edge164, !llvm.loop !35
+  br i1 %146, label %.lr.ph163, label %._crit_edge164, !llvm.loop !33
 
 ._crit_edge164:                                   ; preds = %.lr.ph163, %134
   %147 = load ptr, ptr %135, align 8, !tbaa !17
@@ -416,7 +416,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %160 = getelementptr i8, ptr %159, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !21
   %.not114 = icmp eq i8 %161, 0
-  br i1 %.not114, label %._crit_edge160, label %.lr.ph159, !llvm.loop !36
+  br i1 %.not114, label %._crit_edge160, label %.lr.ph159, !llvm.loop !34
 
 ._crit_edge160:                                   ; preds = %.lr.ph159, %149
   %162 = load ptr, ptr %150, align 8, !tbaa !17
@@ -521,7 +521,7 @@ define internal fastcc void @libdef_endmodule(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i8, ptr %.01012, i64 1
   %30 = load ptr, ptr @optr, align 8, !tbaa !20
   %31 = icmp ult ptr %29, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %28, %10
   %32 = load ptr, ptr %11, align 8, !tbaa !17
@@ -562,7 +562,7 @@ define internal void @libdef_module(ptr noundef readonly captures(none) %0, ptr 
 
 19:                                               ; preds = %7, %3
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  store i64 %20, ptr @modnamelen, align 8, !tbaa !38
+  store i64 %20, ptr @modnamelen, align 8, !tbaa !36
   %21 = icmp ugt i64 %20, 79
   br i1 %21, label %22, label %25
 
@@ -720,7 +720,7 @@ define internal void @libdef_func(ptr noundef readonly captures(none) %0, ptr no
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
   %70 = load i8, ptr %69, align 1, !tbaa !21
   %.not = icmp eq i8 %70, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !37
 
 .critedge:                                        ; preds = %.lr.ph, %68, %.preheader
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -737,13 +737,13 @@ define internal void @libdef_func(ptr noundef readonly captures(none) %0, ptr no
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !17
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %80 = load i32, ptr %79, align 4, !tbaa !40
+  %80 = load i32, ptr %79, align 4, !tbaa !38
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %83 = load ptr, ptr %82, align 8, !tbaa !41
+  %83 = load ptr, ptr %82, align 8, !tbaa !39
   %wide.trip.count.i = zext nneg i32 %80 to i64
   br label %84
 
@@ -776,7 +776,7 @@ define internal void @libdef_func(ptr noundef readonly captures(none) %0, ptr no
 100:                                              ; preds = %97, %93, %89, %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %84, !llvm.loop !42
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %84, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %100, %76
   %101 = load ptr, ptr @stderr, align 8, !tbaa !22
@@ -786,11 +786,11 @@ define internal void @libdef_func(ptr noundef readonly captures(none) %0, ptr no
 
 find_ffofs.exit:                                  ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %104 = load ptr, ptr %103, align 8, !tbaa !43
+  %104 = load ptr, ptr %103, align 8, !tbaa !41
   %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv.i
-  %106 = load ptr, ptr %105, align 8, !tbaa !44
+  %106 = load ptr, ptr %105, align 8, !tbaa !42
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %108 = load ptr, ptr %107, align 8, !tbaa !45
+  %108 = load ptr, ptr %107, align 8, !tbaa !43
   %109 = ptrtoint ptr %106 to i64
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
@@ -820,10 +820,10 @@ define internal void @libdef_lua(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader:                                       ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw [9 x %struct.anon], ptr @libbc_map, i64 0, i64 %indvars.iv.next
-  %9 = load ptr, ptr %8, align 16, !tbaa !46
+  %9 = load ptr, ptr %8, align 16, !tbaa !44
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #18
   %.not13 = icmp eq i32 %10, 0
-  br i1 %.not13, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not13, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !46
 
 .preheader._crit_edge:                            ; preds = %.preheader
   %11 = add nuw i64 %indvars.iv41, 2
@@ -834,9 +834,9 @@ define internal void @libdef_lua(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv.lcssa = phi i64 [ %12, %.preheader._crit_edge ], [ 1, %.preheader.preheader ]
   %.lcssa37 = phi ptr [ %8, %.preheader._crit_edge ], [ @libbc_map, %.preheader.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.lcssa37, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !49
+  %15 = load i32, ptr %14, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw [9 x %struct.anon], ptr @libbc_map, i64 0, i64 %indvars.iv.lcssa, i32 1
-  %17 = load i32, ptr %16, align 8, !tbaa !49
+  %17 = load i32, ptr %16, align 8, !tbaa !47
   %18 = sub nsw i32 %17, %15
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @obuf, i64 2), align 2, !tbaa !21
   %20 = add i8 %19, 1
@@ -862,7 +862,7 @@ define internal void @libdef_lua(ptr noundef readonly captures(none) %0, ptr nou
   %31 = load i8, ptr %.111.i.i, align 1, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %.111.i.i, i64 1
   %33 = icmp slt i8 %31, 0
-  br i1 %33, label %.preheader39.i, label %libdef_uleb128.exit.i, !llvm.loop !50
+  br i1 %33, label %.preheader39.i, label %libdef_uleb128.exit.i, !llvm.loop !48
 
 libdef_uleb128.exit.i:                            ; preds = %.preheader39.i, %13
   %.010.i.i = phi ptr [ %28, %13 ], [ %32, %.preheader39.i ]
@@ -876,7 +876,7 @@ libdef_uleb128.exit.i:                            ; preds = %.preheader39.i, %13
   %37 = load i8, ptr %.111.i29.i, align 1, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %.111.i29.i, i64 1
   %39 = icmp slt i8 %37, 0
-  br i1 %39, label %.preheader.i, label %libdef_uleb128.exit32.i, !llvm.loop !50
+  br i1 %39, label %.preheader.i, label %libdef_uleb128.exit32.i, !llvm.loop !48
 
 libdef_uleb128.exit32.i:                          ; preds = %.preheader.i, %libdef_uleb128.exit.i
   %.010.i27.i = phi ptr [ %34, %libdef_uleb128.exit.i ], [ %38, %.preheader.i ]
@@ -902,7 +902,7 @@ libdef_uleb128.exit32.i:                          ; preds = %.preheader.i, %libd
   %52 = or i32 %51, %.1.i36.i
   %53 = getelementptr inbounds nuw i8, ptr %.111.i35.i, i64 1
   %54 = icmp slt i8 %47, 0
-  br i1 %54, label %46, label %libdef_uleb128.exit38.i, !llvm.loop !50
+  br i1 %54, label %46, label %libdef_uleb128.exit38.i, !llvm.loop !48
 
 libdef_uleb128.exit38.i:                          ; preds = %46, %libdef_uleb128.exit32.i
   %.010.i33.i = phi ptr [ %40, %libdef_uleb128.exit32.i ], [ %53, %46 ]
@@ -926,7 +926,7 @@ libdef_uleb128.exit38.i:                          ; preds = %46, %libdef_uleb128
   %60 = add nuw i32 %.02443.i, 1
   %61 = getelementptr inbounds nuw i8, ptr %.044.i, i64 4
   %exitcond.not.i = icmp eq i32 %60, %.09.i34.i
-  br i1 %exitcond.not.i, label %libdef_fixupbc.exit.loopexit, label %.lr.ph.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %libdef_fixupbc.exit.loopexit, label %.lr.ph.i, !llvm.loop !49
 
 libdef_fixupbc.exit.loopexit:                     ; preds = %.lr.ph.i
   %.pre = load ptr, ptr @optr, align 8, !tbaa !20
@@ -942,7 +942,7 @@ libdef_fixupbc.exit:                              ; preds = %libdef_fixupbc.exit
   %indvars.iv41 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv41, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %64, label %.preheader, !llvm.loop !48
+  br i1 %exitcond, label %64, label %.preheader, !llvm.loop !46
 
 64:                                               ; preds = %.lr.ph
   %65 = load ptr, ptr @stderr, align 8, !tbaa !22
@@ -981,7 +981,7 @@ define internal void @libdef_rec(ptr noundef readonly captures(none) %0, ptr nou
   %17 = add nsw i32 %15, 2
   %18 = load i32, ptr @ffid, align 4, !tbaa !18
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %12, label %._crit_edge, !llvm.loop !52
+  br i1 %19, label %12, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   %.lcssa16 = phi i32 [ %9, %.preheader ], [ %18, %12 ]
@@ -1020,7 +1020,7 @@ define internal void @libdef_rec(ptr noundef readonly captures(none) %0, ptr nou
   %.012.ptr.i = getelementptr inbounds nuw i8, ptr @obuf, i64 %.012.add15.i
   %33 = load i8, ptr %.012.ptr.i, align 1, !tbaa !21
   %.not.i = icmp eq i8 %33, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !51
 
 ._crit_edge.i:                                    ; preds = %29, %25
   %.012.idx.lcssa.i = phi i64 [ 0, %25 ], [ %.012.add15.i, %29 ]
@@ -1305,7 +1305,7 @@ define internal fastcc void @libdef_name(ptr noundef %0, i32 noundef %1) unnamed
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr @modnamelen, align 8, !tbaa !38
+  %5 = load i64, ptr @modnamelen, align 8, !tbaa !36
   %6 = icmp ugt i64 %3, %5
   br i1 %6, label %7, label %17
 
@@ -1429,34 +1429,32 @@ attributes #19 = { cold }
 !20 = !{!12, !12, i64 0}
 !21 = !{!8, !8, i64 0}
 !22 = !{!11, !11, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !12, i64 8}
-!27 = !{!"LibDefHandler", !12, i64 0, !12, i64 8, !7, i64 16, !10, i64 24}
-!28 = !{!27, !7, i64 16}
-!29 = !{!27, !10, i64 24}
-!30 = !{!27, !12, i64 0}
-!31 = distinct !{!31, !24, !25}
-!32 = distinct !{!32, !24, !25}
-!33 = distinct !{!33, !25}
-!34 = distinct !{!34, !24, !25}
-!35 = distinct !{!35, !24, !25}
-!36 = distinct !{!36, !24, !25}
-!37 = distinct !{!37, !24, !25}
-!38 = !{!14, !14, i64 0}
-!39 = distinct !{!39, !24, !25}
-!40 = !{!5, !10, i64 60}
-!41 = !{!5, !13, i64 120}
-!42 = distinct !{!42, !24, !25}
-!43 = !{!5, !7, i64 80}
-!44 = !{!7, !7, i64 0}
-!45 = !{!5, !12, i64 40}
-!46 = !{!47, !12, i64 0}
-!47 = !{!"", !12, i64 0, !10, i64 8}
-!48 = distinct !{!48, !24, !25}
-!49 = !{!47, !10, i64 8}
-!50 = distinct !{!50, !24, !25}
-!51 = distinct !{!51, !24, !25}
-!52 = distinct !{!52, !24, !25}
-!53 = distinct !{!53, !24, !25}
+!25 = !{!26, !12, i64 8}
+!26 = !{!"LibDefHandler", !12, i64 0, !12, i64 8, !7, i64 16, !10, i64 24}
+!27 = !{!26, !7, i64 16}
+!28 = !{!26, !10, i64 24}
+!29 = !{!26, !12, i64 0}
+!30 = distinct !{!30, !24}
+!31 = distinct !{!31, !24}
+!32 = distinct !{!32, !24}
+!33 = distinct !{!33, !24}
+!34 = distinct !{!34, !24}
+!35 = distinct !{!35, !24}
+!36 = !{!14, !14, i64 0}
+!37 = distinct !{!37, !24}
+!38 = !{!5, !10, i64 60}
+!39 = !{!5, !13, i64 120}
+!40 = distinct !{!40, !24}
+!41 = !{!5, !7, i64 80}
+!42 = !{!7, !7, i64 0}
+!43 = !{!5, !12, i64 40}
+!44 = !{!45, !12, i64 0}
+!45 = !{!"", !12, i64 0, !10, i64 8}
+!46 = distinct !{!46, !24}
+!47 = !{!45, !10, i64 8}
+!48 = distinct !{!48, !24}
+!49 = distinct !{!49, !24}
+!50 = distinct !{!50, !24}
+!51 = distinct !{!51, !24}

@@ -8192,7 +8192,7 @@ if.end63:                                         ; preds = %if.end55
   %.xl.1 = select i1 %cmp70, double %36, double %xl.1119
   %37 = load i64, ptr %maxEvaluations_, align 8, !tbaa !27
   %cmp38.not = icmp ugt i64 %inc69, %37
-  br i1 %cmp38.not, label %do.body76, label %while.body, !llvm.loop !43
+  br i1 %cmp38.not, label %do.body76, label %while.body, !llvm.loop !42
 
 do.body76:                                        ; preds = %if.end63, %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream77) #16
@@ -8448,7 +8448,6 @@ attributes #19 = { builtin nounwind }
 !37 = !{!28, !22, i64 24}
 !38 = !{!28, !22, i64 16}
 !39 = !{!28, !5, i64 48}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = distinct !{!43, !41, !42}
+!42 = distinct !{!42, !41}

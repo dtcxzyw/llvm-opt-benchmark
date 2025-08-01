@@ -307,14 +307,14 @@ PyObject_TypeCheck.exit:                          ; preds = %2
   %8 = load ptr, ptr @PyCurses_API, align 8, !tbaa !16
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef %11, ptr noundef nonnull %1) #4
   br label %_curses_panel_new_panel_impl.exit
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCheck.exit
   %12 = tail call ptr @PyModule_GetState(ptr noundef %0) #4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = tail call ptr @new_panel(ptr noundef %14) #4
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
@@ -341,7 +341,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
 27:                                               ; preds = %23
   %28 = tail call ptr @PyErr_NoMemory() #4
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr null, ptr %29, align 8, !tbaa !41
+  store ptr null, ptr %29, align 8, !tbaa !40
   %30 = load i32, ptr %21, align 8, !tbaa !14
   %.not.i.i.i = icmp sgt i32 %30, -1
   br i1 %.not.i.i.i, label %31, label %_curses_panel_new_panel_impl.exit
@@ -373,7 +373,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
 
 _Py_NewRef.exit.i.i:                              ; preds = %40, %35
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %1, ptr %42, align 8, !tbaa !41
+  store ptr %1, ptr %42, align 8, !tbaa !40
   br label %_curses_panel_new_panel_impl.exit
 
 _curses_panel_new_panel_impl.exit:                ; preds = %_Py_NewRef.exit.i.i, %34, %31, %27, %19, %17, %7
@@ -609,7 +609,7 @@ Py_DECREF.exit17:                                 ; preds = %13, %10, %6, %1
   %14 = load ptr, ptr %3, align 8, !tbaa !21
   %15 = tail call i32 @del_panel(ptr noundef %14) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
   %.not13 = icmp eq ptr %17, null
   br i1 %.not13, label %remove_lop.exit, label %18
 
@@ -651,7 +651,7 @@ Py_DECREF.exit15:                                 ; preds = %18, %20, %23
 33:                                               ; preds = %.critedge.i
   %34 = load ptr, ptr %31, align 8, !tbaa !19
   %.not.i20 = icmp eq ptr %34, %0
-  br i1 %.not.i20, label %37, label %.critedge.i, !llvm.loop !42
+  br i1 %.not.i20, label %37, label %.critedge.i, !llvm.loop !41
 
 35:                                               ; preds = %.critedge.i
   %36 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !13
@@ -799,7 +799,7 @@ define internal noundef ptr @_curses_panel_panel_bottom(ptr noundef readonly cap
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !43
+  %.val = load i64, ptr %8, align 8, !tbaa !42
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -847,7 +847,7 @@ define internal noundef ptr @_curses_panel_panel_hide(ptr noundef readonly captu
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !43
+  %.val = load i64, ptr %8, align 8, !tbaa !42
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -978,7 +978,7 @@ PyObject_TypeCheck.exit:                          ; preds = %.thread
   %19 = load ptr, ptr @PyCurses_API, align 8, !tbaa !16
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !27
   call void @_PyArg_BadArgument(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.37, ptr noundef %22, ptr noundef %.pre) #4
   br label %_curses_panel_panel_replace_impl.exit
 
@@ -1011,7 +1011,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
 
 find_po.exit.i:                                   ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !38
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
   %40 = call i32 @replace_panel(ptr noundef %26, ptr noundef %39) #4
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %44
@@ -1161,7 +1161,7 @@ define internal noundef ptr @_curses_panel_panel_show(ptr noundef readonly captu
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !43
+  %.val = load i64, ptr %8, align 8, !tbaa !42
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -1199,7 +1199,7 @@ define internal noundef ptr @_curses_panel_panel_top(ptr noundef readonly captur
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !43
+  %.val = load i64, ptr %8, align 8, !tbaa !42
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -1237,7 +1237,7 @@ define internal ptr @_curses_panel_panel_userptr(ptr noundef readonly captures(n
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !43
+  %.val = load i64, ptr %8, align 8, !tbaa !42
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -1285,7 +1285,7 @@ _curses_panel_panel_userptr_impl.exit:            ; preds = %27, %24, %22, %11, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_curses_panel_panel_window(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %3, align 8, !tbaa !41
+  %.val = load ptr, ptr %3, align 8, !tbaa !40
   %4 = load i32, ptr %.val, align 8, !tbaa !14
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %_curses_panel_panel_window_impl.exit, label %6
@@ -1354,22 +1354,21 @@ attributes #4 = { nounwind }
 !22 = !{!"", !4, i64 0, !23, i64 16, !8, i64 24}
 !23 = !{!"p1 _ZTS5panel", !8, i64 0}
 !24 = !{!20, !18, i64 8}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !32, i64 24}
-!29 = !{!"_typeobject", !30, i64 0, !32, i64 24, !31, i64 32, !31, i64 40, !8, i64 48, !31, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !31, i64 168, !32, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !31, i64 208, !8, i64 216, !8, i64 224, !33, i64 232, !34, i64 240, !35, i64 248, !7, i64 256, !11, i64 264, !8, i64 272, !8, i64 280, !31, i64 288, !8, i64 296, !8, i64 304, !8, i64 312, !8, i64 320, !8, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !8, i64 360, !11, i64 368, !8, i64 376, !36, i64 384, !8, i64 392, !8, i64 400, !5, i64 408, !37, i64 410}
-!30 = !{!"", !4, i64 0, !31, i64 16}
-!31 = !{!"long", !5, i64 0}
-!32 = !{!"p1 omnipotent char", !8, i64 0}
-!33 = !{!"p1 _ZTS11PyMethodDef", !8, i64 0}
-!34 = !{!"p1 _ZTS11PyMemberDef", !8, i64 0}
-!35 = !{!"p1 _ZTS11PyGetSetDef", !8, i64 0}
-!36 = !{!"int", !5, i64 0}
-!37 = !{!"short", !5, i64 0}
-!38 = !{!39, !40, i64 16}
-!39 = !{!"", !4, i64 0, !40, i64 16, !32, i64 24}
-!40 = !{!"p1 _ZTS7_win_st", !8, i64 0}
-!41 = !{!22, !8, i64 24}
-!42 = distinct !{!42, !26, !27}
-!43 = !{!30, !31, i64 16}
+!27 = !{!28, !31, i64 24}
+!28 = !{!"_typeobject", !29, i64 0, !31, i64 24, !30, i64 32, !30, i64 40, !8, i64 48, !30, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !30, i64 168, !31, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !30, i64 208, !8, i64 216, !8, i64 224, !32, i64 232, !33, i64 240, !34, i64 248, !7, i64 256, !11, i64 264, !8, i64 272, !8, i64 280, !30, i64 288, !8, i64 296, !8, i64 304, !8, i64 312, !8, i64 320, !8, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !8, i64 360, !11, i64 368, !8, i64 376, !35, i64 384, !8, i64 392, !8, i64 400, !5, i64 408, !36, i64 410}
+!29 = !{!"", !4, i64 0, !30, i64 16}
+!30 = !{!"long", !5, i64 0}
+!31 = !{!"p1 omnipotent char", !8, i64 0}
+!32 = !{!"p1 _ZTS11PyMethodDef", !8, i64 0}
+!33 = !{!"p1 _ZTS11PyMemberDef", !8, i64 0}
+!34 = !{!"p1 _ZTS11PyGetSetDef", !8, i64 0}
+!35 = !{!"int", !5, i64 0}
+!36 = !{!"short", !5, i64 0}
+!37 = !{!38, !39, i64 16}
+!38 = !{!"", !4, i64 0, !39, i64 16, !31, i64 24}
+!39 = !{!"p1 _ZTS7_win_st", !8, i64 0}
+!40 = !{!22, !8, i64 24}
+!41 = distinct !{!41, !26}
+!42 = !{!29, !30, i64 16}

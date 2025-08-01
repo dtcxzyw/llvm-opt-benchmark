@@ -353,7 +353,7 @@ define internal noundef i32 @_ZL24u_printf_pad_and_justifyPvPK18u_printf_spec_in
   %28 = load i32, ptr %5, align 4, !tbaa !12
   %29 = sub nsw i32 %28, %3
   %30 = icmp slt i32 %27, %29
-  br i1 %30, label %24, label %._crit_edge, !llvm.loop !19
+  br i1 %30, label %24, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %24
   %31 = tail call i32 @u_file_write_77(ptr noundef %2, i32 noundef %3, ptr noundef %0)
@@ -399,7 +399,6 @@ attributes #8 = { allocsize(0) }
 !13 = !{!"_ZTS18u_printf_spec_info", !11, i64 0, !11, i64 4, !14, i64 8, !14, i64 10, !14, i64 12, !6, i64 14, !6, i64 15, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !6, i64 20, !6, i64 21, !6, i64 22}
 !14 = !{!"char16_t", !6, i64 0}
 !15 = !{!13, !6, i64 16}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
+!18 = distinct !{!18, !17}

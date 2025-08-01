@@ -139,7 +139,7 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly cap
   store i32 %.sroa.22.0.insert.ext.i, ptr %97, align 2
   %98 = add nuw nsw i64 %.07893, 1
   %exitcond107.not = icmp eq i64 %98, 32
-  br i1 %exitcond107.not, label %.loopexit, label %96, !llvm.loop !13
+  br i1 %exitcond107.not, label %.loopexit, label %96, !llvm.loop !12
 
 .preheader:                                       ; preds = %91, %._crit_edge
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %._crit_edge ], [ 1, %91 ]
@@ -182,14 +182,14 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly cap
   %116 = getelementptr inbounds %struct.HuffmanCode, ptr %113, i64 %115
   store i32 %.sroa.0.0.insert.insert.i, ptr %116, align 2
   %117 = icmp sgt i64 %115, 0
-  br i1 %117, label %114, label %ReplicateValue.exit, !llvm.loop !14
+  br i1 %117, label %114, label %ReplicateValue.exit, !llvm.loop !13
 
 ReplicateValue.exit:                              ; preds = %114
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, 1
   %118 = add i64 %.28089, %.082
   %119 = add nsw i32 %.07690, -1
   %.not84 = icmp eq i32 %119, 0
-  br i1 %.not84, label %._crit_edge.loopexit, label %107, !llvm.loop !15
+  br i1 %.not84, label %._crit_edge.loopexit, label %107, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %ReplicateValue.exit
   %120 = trunc nsw i64 %indvars.iv.next101 to i32
@@ -202,7 +202,7 @@ ReplicateValue.exit:                              ; preds = %114
   %122 = lshr i64 %.082, 1
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 6
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #4
@@ -231,7 +231,7 @@ define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr n
   %8 = icmp eq i16 %7, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next199 = add i32 %indvars.iv198, -1
-  br i1 %8, label %5, label %9, !llvm.loop !17
+  br i1 %8, label %5, label %9, !llvm.loop !16
 
 9:                                                ; preds = %5
   %10 = trunc nsw i64 %indvars.iv to i32
@@ -284,13 +284,13 @@ define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr n
   %35 = getelementptr inbounds %struct.HuffmanCode, ptr %31, i64 %34
   store i32 %.sroa.0.0.insert.insert.i125, ptr %35, align 2
   %36 = icmp sgt i32 %33, 0
-  br i1 %36, label %32, label %ReplicateValue.exit127, !llvm.loop !14
+  br i1 %36, label %32, label %ReplicateValue.exit127, !llvm.loop !13
 
 ReplicateValue.exit127:                           ; preds = %32
   %37 = add i64 %.1103131, %.0101
   %38 = add nsw i32 %.085132, -1
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %ReplicateValue.exit127, %16
   %.1103.lcssa = phi i64 [ %.0102, %16 ], [ %37, %ReplicateValue.exit127 ]
@@ -298,7 +298,7 @@ ReplicateValue.exit127:                           ; preds = %32
   %40 = lshr i64 %.0101, 1
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %.not113.not = icmp slt i64 %indvars.iv186, %15
-  br i1 %.not113.not, label %16, label %.preheader, !llvm.loop !19
+  br i1 %.not113.not, label %16, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %._crit_edge
   %.not114133 = icmp eq i32 %12, %spec.select117
@@ -312,7 +312,7 @@ ReplicateValue.exit127:                           ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %0, i64 %43, i1 false)
   %44 = shl i32 %.192134, 1
   %.not114 = icmp eq i32 %12, %44
-  br i1 %.not114, label %._crit_edge136, label %.lr.ph135, !llvm.loop !20
+  br i1 %.not114, label %._crit_edge136, label %.lr.ph135, !llvm.loop !19
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %.preheader
   %45 = add nsw i32 %1, -1
@@ -387,7 +387,7 @@ ReplicateValue.exit127:                           ; preds = %32
   %69 = shl nuw i32 %66, 1
   %70 = and i64 %indvars.iv.next193, 4294967295
   %exitcond.not = icmp eq i64 %70, 15
-  br i1 %exitcond.not, label %NextTableBitSize.exit.us, label %62, !llvm.loop !21
+  br i1 %exitcond.not, label %NextTableBitSize.exit.us, label %62, !llvm.loop !20
 
 NextTableBitSize.exit.us.split.loop.exit:         ; preds = %62
   %71 = trunc nsw i64 %indvars.iv192 to i32
@@ -439,7 +439,7 @@ NextTableBitSize.exit.us:                         ; preds = %68, %NextTableBitSi
   %97 = getelementptr inbounds %struct.HuffmanCode, ptr %93, i64 %96
   store i32 %.sroa.0.0.insert.insert.i.us, ptr %97, align 2
   %98 = icmp sgt i32 %95, 0
-  br i1 %98, label %94, label %ReplicateValue.exit.us, !llvm.loop !14
+  br i1 %98, label %94, label %ReplicateValue.exit.us, !llvm.loop !13
 
 ReplicateValue.exit.us:                           ; preds = %94
   %99 = add i64 %.2100.us, %.097168
@@ -447,7 +447,7 @@ ReplicateValue.exit.us:                           ; preds = %94
   %101 = add i16 %100, -1
   store i16 %101, ptr %52, align 2, !tbaa !3
   %.not116.us = icmp eq i16 %101, 0
-  br i1 %.not116.us, label %._crit_edge154, label %.lr.ph153.split.us, !llvm.loop !22
+  br i1 %.not116.us, label %._crit_edge154, label %.lr.ph153.split.us, !llvm.loop !21
 
 .lr.ph153.split:                                  ; preds = %.lr.ph153
   %102 = trunc nuw nsw i64 %indvars.iv.next196 to i32
@@ -509,7 +509,7 @@ NextTableBitSize.exit:                            ; preds = %104
   %131 = getelementptr inbounds %struct.HuffmanCode, ptr %127, i64 %130
   store i32 %.sroa.0.0.insert.insert.i, ptr %131, align 2
   %132 = icmp sgt i32 %129, 0
-  br i1 %132, label %128, label %ReplicateValue.exit, !llvm.loop !14
+  br i1 %132, label %128, label %ReplicateValue.exit, !llvm.loop !13
 
 ReplicateValue.exit:                              ; preds = %128
   %133 = add i64 %.2100, %.097168
@@ -517,7 +517,7 @@ ReplicateValue.exit:                              ; preds = %128
   %135 = add i16 %134, -1
   store i16 %135, ptr %52, align 2, !tbaa !3
   %.not116 = icmp eq i16 %135, 0
-  br i1 %.not116, label %._crit_edge154, label %104, !llvm.loop !24
+  br i1 %.not116, label %._crit_edge154, label %104, !llvm.loop !23
 
 ._crit_edge154:                                   ; preds = %ReplicateValue.exit, %ReplicateValue.exit.us, %50
   %.3105.lcssa = phi i64 [ %.2104166, %50 ], [ %.4106.us, %ReplicateValue.exit.us ], [ %.4106, %ReplicateValue.exit ]
@@ -528,7 +528,7 @@ ReplicateValue.exit:                              ; preds = %128
   %136 = shl i32 %.196170, 1
   %137 = lshr i64 %.097168, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
-  br i1 %exitcond200.not, label %._crit_edge179, label %50, !llvm.loop !25
+  br i1 %exitcond200.not, label %._crit_edge179, label %50, !llvm.loop !24
 
 ._crit_edge179:                                   ; preds = %._crit_edge154, %._crit_edge136
   %.088.lcssa = phi i32 [ %12, %._crit_edge136 ], [ %.189.lcssa, %._crit_edge154 ]
@@ -633,7 +633,7 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
 .loopexit:                                        ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, 3
-  br i1 %exitcond186.not, label %42, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond186.not, label %42, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %4, %.loopexit
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.loopexit ], [ 0, %4 ]
@@ -660,7 +660,7 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
   %41 = phi i16 [ %35, %34 ], [ %37, %39 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next181, 4
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !26
 
 42:                                               ; preds = %.loopexit
   %43 = load i16, ptr %2, align 2, !tbaa !3
@@ -768,7 +768,7 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %0, i64 %80, i1 false)
   %81 = shl i32 %.1178, 1
   %.not = icmp eq i32 %81, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph179, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph179, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph179, %77
   ret i32 %5
@@ -795,22 +795,21 @@ attributes #4 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12}
-!28 = distinct !{!28, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !11}
+!27 = distinct !{!27, !11}

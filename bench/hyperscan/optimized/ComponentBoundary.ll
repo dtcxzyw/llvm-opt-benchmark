@@ -476,14 +476,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i ], [ %37, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i.i ], [ %25, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %39 = load i64, ptr %.0911.i.i.i.i.i.i, align 4, !alias.scope !12, !noalias !9
-  store i64 %39, ptr %.012.i.i.i.i.i.i, align 4, !alias.scope !9, !noalias !12
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  %39 = load i64, ptr %.0911.i.i.i.i.i.i, align 4, !alias.scope !11, !noalias !8
+  store i64 %39, ptr %.012.i.i.i.i.i.i, align 4, !alias.scope !8, !noalias !11
   %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %40, %18
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %37, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %41, %.lr.ph.i.i.i.i.i.i ]
@@ -548,14 +548,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i.i.i.i ], [ %63, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i.i.i ], [ %51, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %65 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !18, !noalias !15
-  store i64 %65, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !15, !noalias !18
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %65 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !17, !noalias !14
+  store i64 %65, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !14, !noalias !17
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %66, %45
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %63, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %67, %.lr.ph.i.i.i.i.i.i.i ]
@@ -627,14 +627,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i8: ; preds
 .lr.ph.i.i.i.i.i.i12:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i8, %.lr.ph.i.i.i.i.i.i12
   %.012.i.i.i.i.i.i13 = phi ptr [ %98, %.lr.ph.i.i.i.i.i.i12 ], [ %94, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i8 ]
   %.0911.i.i.i.i.i.i14 = phi ptr [ %97, %.lr.ph.i.i.i.i.i.i12 ], [ %82, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i8 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %96 = load i64, ptr %.0911.i.i.i.i.i.i14, align 4, !alias.scope !23, !noalias !20
-  store i64 %96, ptr %.012.i.i.i.i.i.i13, align 4, !alias.scope !20, !noalias !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %96 = load i64, ptr %.0911.i.i.i.i.i.i14, align 4, !alias.scope !22, !noalias !19
+  store i64 %96, ptr %.012.i.i.i.i.i.i13, align 4, !alias.scope !19, !noalias !22
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i14, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i13, i64 8
   %.not.i.i.i.i.i.i15 = icmp eq ptr %97, %75
-  br i1 %.not.i.i.i.i.i.i15, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i16, label %.lr.ph.i.i.i.i.i.i12, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i15, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i16, label %.lr.ph.i.i.i.i.i.i12, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i16: ; preds = %.lr.ph.i.i.i.i.i.i12, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i8
   %.0.lcssa.i.i.i.i.i.i17 = phi ptr [ %94, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i8 ], [ %98, %.lr.ph.i.i.i.i.i.i12 ]
@@ -699,14 +699,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i22: ; pr
 .lr.ph.i.i.i.i.i.i.i26:                           ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i22, %.lr.ph.i.i.i.i.i.i.i26
   %.012.i.i.i.i.i.i.i27 = phi ptr [ %124, %.lr.ph.i.i.i.i.i.i.i26 ], [ %120, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i22 ]
   %.0911.i.i.i.i.i.i.i28 = phi ptr [ %123, %.lr.ph.i.i.i.i.i.i.i26 ], [ %108, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i22 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %122 = load i64, ptr %.0911.i.i.i.i.i.i.i28, align 4, !alias.scope !28, !noalias !25
-  store i64 %122, ptr %.012.i.i.i.i.i.i.i27, align 4, !alias.scope !25, !noalias !28
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  %122 = load i64, ptr %.0911.i.i.i.i.i.i.i28, align 4, !alias.scope !27, !noalias !24
+  store i64 %122, ptr %.012.i.i.i.i.i.i.i27, align 4, !alias.scope !24, !noalias !27
   %123 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i28, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i27, i64 8
   %.not.i.i.i.i.i.i.i29 = icmp eq ptr %123, %102
-  br i1 %.not.i.i.i.i.i.i.i29, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i30, label %.lr.ph.i.i.i.i.i.i.i26, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i29, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i30, label %.lr.ph.i.i.i.i.i.i.i26, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i30: ; preds = %.lr.ph.i.i.i.i.i.i.i26, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i22
   %.0.lcssa.i.i.i.i.i.i.i31 = phi ptr [ %120, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i22 ], [ %124, %.lr.ph.i.i.i.i.i.i.i26 ]
@@ -802,14 +802,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i36: ; pred
 .lr.ph.i.i.i.i.i.i40:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i36, %.lr.ph.i.i.i.i.i.i40
   %.012.i.i.i.i.i.i41 = phi ptr [ %171, %.lr.ph.i.i.i.i.i.i40 ], [ %167, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i36 ]
   %.0911.i.i.i.i.i.i42 = phi ptr [ %170, %.lr.ph.i.i.i.i.i.i40 ], [ %155, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i36 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %169 = load i64, ptr %.0911.i.i.i.i.i.i42, align 4, !alias.scope !33, !noalias !30
-  store i64 %169, ptr %.012.i.i.i.i.i.i41, align 4, !alias.scope !30, !noalias !33
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %169 = load i64, ptr %.0911.i.i.i.i.i.i42, align 4, !alias.scope !32, !noalias !29
+  store i64 %169, ptr %.012.i.i.i.i.i.i41, align 4, !alias.scope !29, !noalias !32
   %170 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i42, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i41, i64 8
   %.not.i.i.i.i.i.i43 = icmp eq ptr %170, %149
-  br i1 %.not.i.i.i.i.i.i43, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i44, label %.lr.ph.i.i.i.i.i.i40, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i43, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i44, label %.lr.ph.i.i.i.i.i.i40, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i44: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i36
   %.0.lcssa.i.i.i.i.i.i45 = phi ptr [ %167, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i36 ], [ %171, %.lr.ph.i.i.i.i.i.i40 ]
@@ -879,14 +879,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i50: ; pred
 .lr.ph.i.i.i.i.i.i54:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i50, %.lr.ph.i.i.i.i.i.i54
   %.012.i.i.i.i.i.i55 = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i54 ], [ %196, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i50 ]
   %.0911.i.i.i.i.i.i56 = phi ptr [ %199, %.lr.ph.i.i.i.i.i.i54 ], [ %184, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i50 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %198 = load i64, ptr %.0911.i.i.i.i.i.i56, align 4, !alias.scope !38, !noalias !35
-  store i64 %198, ptr %.012.i.i.i.i.i.i55, align 4, !alias.scope !35, !noalias !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %198 = load i64, ptr %.0911.i.i.i.i.i.i56, align 4, !alias.scope !37, !noalias !34
+  store i64 %198, ptr %.012.i.i.i.i.i.i55, align 4, !alias.scope !34, !noalias !37
   %199 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i56, i64 8
   %200 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i55, i64 8
   %.not.i.i.i.i.i.i57 = icmp eq ptr %199, %177
-  br i1 %.not.i.i.i.i.i.i57, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i58, label %.lr.ph.i.i.i.i.i.i54, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i57, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i58, label %.lr.ph.i.i.i.i.i.i54, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i58: ; preds = %.lr.ph.i.i.i.i.i.i54, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i50
   %.0.lcssa.i.i.i.i.i.i59 = phi ptr [ %196, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i50 ], [ %200, %.lr.ph.i.i.i.i.i.i54 ]
@@ -963,14 +963,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i64: ; pred
 .lr.ph.i.i.i.i.i.i68:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i64, %.lr.ph.i.i.i.i.i.i68
   %.012.i.i.i.i.i.i69 = phi ptr [ %233, %.lr.ph.i.i.i.i.i.i68 ], [ %229, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i64 ]
   %.0911.i.i.i.i.i.i70 = phi ptr [ %232, %.lr.ph.i.i.i.i.i.i68 ], [ %217, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i64 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %231 = load i64, ptr %.0911.i.i.i.i.i.i70, align 4, !alias.scope !43, !noalias !40
-  store i64 %231, ptr %.012.i.i.i.i.i.i69, align 4, !alias.scope !40, !noalias !43
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %231 = load i64, ptr %.0911.i.i.i.i.i.i70, align 4, !alias.scope !42, !noalias !39
+  store i64 %231, ptr %.012.i.i.i.i.i.i69, align 4, !alias.scope !39, !noalias !42
   %232 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i70, i64 8
   %233 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i69, i64 8
   %.not.i.i.i.i.i.i71 = icmp eq ptr %232, %210
-  br i1 %.not.i.i.i.i.i.i71, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i72, label %.lr.ph.i.i.i.i.i.i68, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i71, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i72, label %.lr.ph.i.i.i.i.i.i68, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i72: ; preds = %.lr.ph.i.i.i.i.i.i68, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i64
   %.0.lcssa.i.i.i.i.i.i73 = phi ptr [ %229, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i64 ], [ %233, %.lr.ph.i.i.i.i.i.i68 ]
@@ -1041,14 +1041,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i78: ; pred
 .lr.ph.i.i.i.i.i.i82:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i78, %.lr.ph.i.i.i.i.i.i82
   %.012.i.i.i.i.i.i83 = phi ptr [ %264, %.lr.ph.i.i.i.i.i.i82 ], [ %260, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i78 ]
   %.0911.i.i.i.i.i.i84 = phi ptr [ %263, %.lr.ph.i.i.i.i.i.i82 ], [ %248, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i78 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %262 = load i64, ptr %.0911.i.i.i.i.i.i84, align 4, !alias.scope !48, !noalias !45
-  store i64 %262, ptr %.012.i.i.i.i.i.i83, align 4, !alias.scope !45, !noalias !48
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %262 = load i64, ptr %.0911.i.i.i.i.i.i84, align 4, !alias.scope !47, !noalias !44
+  store i64 %262, ptr %.012.i.i.i.i.i.i83, align 4, !alias.scope !44, !noalias !47
   %263 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i84, i64 8
   %264 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i83, i64 8
   %.not.i.i.i.i.i.i85 = icmp eq ptr %263, %241
-  br i1 %.not.i.i.i.i.i.i85, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i86, label %.lr.ph.i.i.i.i.i.i82, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i85, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i86, label %.lr.ph.i.i.i.i.i.i82, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i86: ; preds = %.lr.ph.i.i.i.i.i.i82, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i78
   %.0.lcssa.i.i.i.i.i.i87 = phi ptr [ %260, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i78 ], [ %264, %.lr.ph.i.i.i.i.i.i82 ]
@@ -1119,14 +1119,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i92: ; pred
 .lr.ph.i.i.i.i.i.i96:                             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i92, %.lr.ph.i.i.i.i.i.i96
   %.012.i.i.i.i.i.i97 = phi ptr [ %295, %.lr.ph.i.i.i.i.i.i96 ], [ %291, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i92 ]
   %.0911.i.i.i.i.i.i98 = phi ptr [ %294, %.lr.ph.i.i.i.i.i.i96 ], [ %279, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i92 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %293 = load i64, ptr %.0911.i.i.i.i.i.i98, align 4, !alias.scope !53, !noalias !50
-  store i64 %293, ptr %.012.i.i.i.i.i.i97, align 4, !alias.scope !50, !noalias !53
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  %293 = load i64, ptr %.0911.i.i.i.i.i.i98, align 4, !alias.scope !52, !noalias !49
+  store i64 %293, ptr %.012.i.i.i.i.i.i97, align 4, !alias.scope !49, !noalias !52
   %294 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i98, i64 8
   %295 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i97, i64 8
   %.not.i.i.i.i.i.i99 = icmp eq ptr %294, %272
-  br i1 %.not.i.i.i.i.i.i99, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i100, label %.lr.ph.i.i.i.i.i.i96, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i99, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i100, label %.lr.ph.i.i.i.i.i.i96, !llvm.loop !13
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i100: ; preds = %.lr.ph.i.i.i.i.i.i96, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i92
   %.0.lcssa.i.i.i.i.i.i101 = phi ptr [ %291, %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i92 ], [ %295, %.lr.ph.i.i.i.i.i.i96 ]
@@ -1405,52 +1405,51 @@ attributes #17 = { builtin allocsize(0) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!11 = distinct !{!11, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!12 = !{!13}
-!13 = distinct !{!13, !11, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!18 = !{!19}
-!19 = distinct !{!19, !17, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!22 = distinct !{!22, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!23 = !{!24}
-!24 = distinct !{!24, !22, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!27 = distinct !{!27, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!28 = !{!29}
-!29 = distinct !{!29, !27, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!32 = distinct !{!32, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!33 = !{!34}
-!34 = distinct !{!34, !32, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!37 = distinct !{!37, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!38 = !{!39}
-!39 = distinct !{!39, !37, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!42 = distinct !{!42, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!47 = distinct !{!47, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!48 = !{!49}
-!49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
-!53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!10 = distinct !{!10, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!11 = !{!12}
+!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!13 = distinct !{!13, !7}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!17 = !{!18}
+!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!22 = !{!23}
+!23 = distinct !{!23, !21, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!26 = distinct !{!26, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!27 = !{!28}
+!28 = distinct !{!28, !26, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!31 = distinct !{!31, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!32 = !{!33}
+!33 = distinct !{!33, !31, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!36 = distinct !{!36, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!37 = !{!38}
+!38 = distinct !{!38, !36, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!41 = distinct !{!41, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!42 = !{!43}
+!43 = distinct !{!43, !41, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!47 = !{!48}
+!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!51 = distinct !{!51, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_"}
+!52 = !{!53}
+!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aIN3ue212PositionInfoES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}

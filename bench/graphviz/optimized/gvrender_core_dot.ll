@@ -203,7 +203,7 @@ agxblen.exit.i:                                   ; preds = %5, %agxbstart.exit.
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i
   %14 = load i8, ptr %13, align 1, !tbaa !37
   %15 = icmp eq i8 %14, 46
-  br i1 %15, label %16, label %10, !llvm.loop !48
+  br i1 %15, label %16, label %10
 
 16:                                               ; preds = %12
   br i1 %.not.i.i, label %19, label %17
@@ -254,7 +254,7 @@ agxblen.exit38.i:                                 ; preds = %19, %17
 35:                                               ; preds = %32, %30
   %.val.i39.i = phi i8 [ %.val.i3951.i, %32 ], [ %31, %30 ]
   %.val3250.i = phi i8 [ -1, %32 ], [ %31, %30 ]
-  br i1 %24, label %.critedge.i, label %23, !llvm.loop !50
+  br i1 %24, label %.critedge.i, label %23
 
 .critedge.i:                                      ; preds = %35
   %.not.i40.i = icmp eq i8 %.val.i39.i, -1
@@ -372,7 +372,7 @@ define internal void @dot_begin_graph(ptr noundef readonly captures(none) %0) #0
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %9 = load i32, ptr %8, align 8, !tbaa !51
+  %9 = load i32, ptr %8, align 8, !tbaa !48
   switch i32 %9, label %141 [
     i32 0, label %10
     i32 1, label %11
@@ -400,17 +400,17 @@ define internal void @dot_begin_graph(ptr noundef readonly captures(none) %0) #0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
   %15 = call double @attach_attrs_and_arrows(ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull %2) #18
-  %16 = load i8, ptr %3, align 1, !tbaa !52, !range !53, !noundef !54
+  %16 = load i8, ptr %3, align 1, !tbaa !49, !range !50, !noundef !51
   %17 = trunc nuw i8 %16 to i1
-  %18 = load i8, ptr %2, align 1, !tbaa !52, !range !53, !noundef !54
+  %18 = load i8, ptr %2, align 1, !tbaa !49, !range !50, !noundef !51
   %19 = trunc nuw i8 %18 to i1
-  %20 = load i32, ptr %8, align 8, !tbaa !51
+  %20 = load i32, ptr %8, align 8, !tbaa !48
   %21 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #20
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %gv_alloc.exit.i
 
 23:                                               ; preds = %14
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !52
   %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.13, i64 noundef 104) #21
   call fastcc void @graphviz_exit() #22
   unreachable
@@ -473,7 +473,7 @@ versionStr2Version.exit.thread.i:                 ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !37
   %.not.i.i = icmp eq i8 %48, 0
-  br i1 %.not.i.i, label %versionStr2Version.exit.i, label %.lr.ph.i.i, !llvm.loop !56
+  br i1 %.not.i.i, label %versionStr2Version.exit.i, label %.lr.ph.i.i, !llvm.loop !53
 
 versionStr2Version.exit.i:                        ; preds = %45
   %49 = icmp ugt i16 %.2.i.i, 10
@@ -519,7 +519,7 @@ versionStr2Version.exit.i:                        ; preds = %45
   %68 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !37
   %exitcond.i = icmp eq i64 %67, 3
-  br i1 %exitcond.i, label %versionStr2Version.exit44.i, label %.lr.ph.i35.i, !llvm.loop !56
+  br i1 %exitcond.i, label %versionStr2Version.exit44.i, label %.lr.ph.i35.i, !llvm.loop !53
 
 versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %.020.i40.i = phi i16 [ %.023.i36.i, %.thread.i43.i ], [ %.2.i38.i, %66 ]
@@ -531,32 +531,32 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %.sink.i = phi i16 [ 12, %26 ], [ %.020.i40.i, %versionStr2Version.exit44.i ], [ %.020.i46.i, %50 ], [ 14, %gv_alloc.exit.i ]
   %.str.20.sink.i = phi ptr [ @.str.20, %26 ], [ @.str.22, %versionStr2Version.exit44.i ], [ %28, %50 ], [ @.str.19, %gv_alloc.exit.i ]
   %72 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 80
-  store i16 %.sink.i, ptr %72, align 8, !tbaa !58
+  store i16 %.sink.i, ptr %72, align 8, !tbaa !55
   %73 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 88
-  store ptr %.str.20.sink.i, ptr %73, align 8, !tbaa !59
+  store ptr %.str.20.sink.i, ptr %73, align 8, !tbaa !56
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !60
+  %75 = load ptr, ptr %74, align 8, !tbaa !57
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 236
-  %77 = load i32, ptr %76, align 4, !tbaa !64
+  %77 = load i32, ptr %76, align 4, !tbaa !61
   %.not30.i = icmp eq i32 %77, 0
   br i1 %.not30.i, label %81, label %78
 
 78:                                               ; preds = %71
   %79 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1) #18
   %80 = load ptr, ptr @xd, align 8, !tbaa !36
-  store ptr %79, ptr %80, align 8, !tbaa !77
-  %.pre.i = load ptr, ptr %74, align 8, !tbaa !60
+  store ptr %79, ptr %80, align 8, !tbaa !74
+  %.pre.i = load ptr, ptr %74, align 8, !tbaa !57
   br label %82
 
 81:                                               ; preds = %71
-  store ptr null, ptr %.sink63.i, align 8, !tbaa !77
+  store ptr null, ptr %.sink63.i, align 8, !tbaa !74
   br label %82
 
 82:                                               ; preds = %81, %78
   %83 = phi ptr [ %.sink63.i, %81 ], [ %80, %78 ]
   %84 = phi ptr [ %75, %81 ], [ %.pre.i, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 129
-  %86 = load i8, ptr %85, align 1, !tbaa !78
+  %86 = load i8, ptr %85, align 1, !tbaa !75
   %87 = and i8 %86, 8
   %.not31.i = icmp eq i8 %87, 0
   br i1 %.not31.i, label %91, label %88
@@ -570,19 +570,19 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %.sink66.i = phi ptr [ %90, %88 ], [ %83, %82 ]
   %.sink64.i = phi ptr [ %89, %88 ], [ null, %82 ]
   %92 = getelementptr inbounds nuw i8, ptr %.sink66.i, i64 8
-  store ptr %.sink64.i, ptr %92, align 8, !tbaa !79
+  store ptr %.sink64.i, ptr %92, align 8, !tbaa !76
   %93 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1) #18
   %94 = load ptr, ptr @xd, align 8, !tbaa !36
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store ptr %93, ptr %95, align 8, !tbaa !80
+  store ptr %93, ptr %95, align 8, !tbaa !77
   %96 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1) #18
   %97 = load ptr, ptr @xd, align 8, !tbaa !36
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr %96, ptr %98, align 8, !tbaa !81
+  store ptr %96, ptr %98, align 8, !tbaa !78
   %99 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1) #18
   %100 = load ptr, ptr @xd, align 8, !tbaa !36
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store ptr %99, ptr %101, align 8, !tbaa !82
+  store ptr %99, ptr %101, align 8, !tbaa !79
   br i1 %19, label %102, label %105
 
 102:                                              ; preds = %91
@@ -594,7 +594,7 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %.sink69.i = phi ptr [ %104, %102 ], [ %100, %91 ]
   %.sink67.i = phi ptr [ %103, %102 ], [ null, %91 ]
   %106 = getelementptr inbounds nuw i8, ptr %.sink69.i, i64 40
-  store ptr %.sink67.i, ptr %106, align 8, !tbaa !83
+  store ptr %.sink67.i, ptr %106, align 8, !tbaa !80
   br i1 %17, label %107, label %110
 
 107:                                              ; preds = %105
@@ -606,10 +606,10 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %.sink72.i = phi ptr [ %109, %107 ], [ %.sink69.i, %105 ]
   %.sink70.i = phi ptr [ %108, %107 ], [ null, %105 ]
   %111 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 48
-  store ptr %.sink70.i, ptr %111, align 8, !tbaa !84
-  %112 = load ptr, ptr %74, align 8, !tbaa !60
+  store ptr %.sink70.i, ptr %111, align 8, !tbaa !81
+  %112 = load ptr, ptr %74, align 8, !tbaa !57
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 129
-  %114 = load i8, ptr %113, align 1, !tbaa !78
+  %114 = load i8, ptr %113, align 1, !tbaa !75
   %115 = and i8 %114, 33
   %.not32.i = icmp eq i8 %115, 0
   br i1 %.not32.i, label %120, label %116
@@ -618,15 +618,15 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %117 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1) #18
   %118 = load ptr, ptr @xd, align 8, !tbaa !36
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
-  store ptr %117, ptr %119, align 8, !tbaa !85
-  %.pre54.i = load ptr, ptr %74, align 8, !tbaa !60
+  store ptr %117, ptr %119, align 8, !tbaa !82
+  %.pre54.i = load ptr, ptr %74, align 8, !tbaa !57
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre54.i, i64 129
-  %.pre55.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !78
+  %.pre55.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !75
   br label %122
 
 120:                                              ; preds = %110
   %121 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 56
-  store ptr null, ptr %121, align 8, !tbaa !85
+  store ptr null, ptr %121, align 8, !tbaa !82
   br label %122
 
 122:                                              ; preds = %120, %116
@@ -640,15 +640,15 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %127 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1) #18
   %128 = load ptr, ptr @xd, align 8, !tbaa !36
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 64
-  store ptr %127, ptr %129, align 8, !tbaa !86
-  %.pre56.i = load ptr, ptr %74, align 8, !tbaa !60
+  store ptr %127, ptr %129, align 8, !tbaa !83
+  %.pre56.i = load ptr, ptr %74, align 8, !tbaa !57
   %.phi.trans.insert57.i = getelementptr inbounds nuw i8, ptr %.pre56.i, i64 129
-  %.pre58.i = load i8, ptr %.phi.trans.insert57.i, align 1, !tbaa !78
+  %.pre58.i = load i8, ptr %.phi.trans.insert57.i, align 1, !tbaa !75
   br label %132
 
 130:                                              ; preds = %122
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  store ptr null, ptr %131, align 8, !tbaa !86
+  store ptr null, ptr %131, align 8, !tbaa !83
   br label %132
 
 132:                                              ; preds = %130, %126
@@ -667,7 +667,7 @@ xdot_begin_graph.exit:                            ; preds = %136, %132
   %.sink75.i = phi ptr [ %138, %136 ], [ %133, %132 ]
   %.sink73.i = phi ptr [ %137, %136 ], [ null, %132 ]
   %139 = getelementptr inbounds nuw i8, ptr %.sink75.i, i64 72
-  store ptr %.sink73.i, ptr %139, align 8, !tbaa !87
+  store ptr %.sink73.i, ptr %139, align 8, !tbaa !84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @xbuf, i8 0, i64 256, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %.sink75.i, i64 96
   store double %15, ptr %140, align 8, !tbaa !38
@@ -676,7 +676,7 @@ xdot_begin_graph.exit:                            ; preds = %136, %132
   br label %144
 
 141:                                              ; preds = %1
-  %142 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %142 = load ptr, ptr @stderr, align 8, !tbaa !52
   %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 423) #21
   tail call void @abort() #23
   unreachable
@@ -691,25 +691,25 @@ define internal void @dot_end_graph(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  %6 = load ptr, ptr @dot_end_graph.io, align 8, !tbaa !88
+  %6 = load ptr, ptr @dot_end_graph.io, align 8, !tbaa !85
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr @AgIoDisc, align 8, !tbaa !88
-  store ptr %9, ptr @dot_end_graph.io, align 8, !tbaa !88
-  store ptr @gvputs, ptr getelementptr inbounds nuw (i8, ptr @dot_end_graph.io, i64 8), align 8, !tbaa !90
-  store ptr @gvflush, ptr getelementptr inbounds nuw (i8, ptr @dot_end_graph.io, i64 16), align 8, !tbaa !91
+  %9 = load ptr, ptr @AgIoDisc, align 8, !tbaa !85
+  store ptr %9, ptr @dot_end_graph.io, align 8, !tbaa !85
+  store ptr @gvputs, ptr getelementptr inbounds nuw (i8, ptr @dot_end_graph.io, i64 8), align 8, !tbaa !87
+  store ptr @gvflush, ptr getelementptr inbounds nuw (i8, ptr @dot_end_graph.io, i64 16), align 8, !tbaa !88
   br label %10
 
 10:                                               ; preds = %8, %1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %12 = load ptr, ptr %11, align 8, !tbaa !92
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !98
-  store ptr @dot_end_graph.io, ptr %13, align 8, !tbaa !98
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
+  store ptr @dot_end_graph.io, ptr %13, align 8, !tbaa !95
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %16 = load i32, ptr %15, align 8, !tbaa !51
+  %16 = load i32, ptr %15, align 8, !tbaa !48
   switch i32 %16, label %104 [
     i32 2, label %17
     i32 3, label %18
@@ -730,7 +730,7 @@ define internal void @dot_end_graph(ptr noundef %0) #0 {
 
 19:                                               ; preds = %10, %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %21 = load i32, ptr %20, align 8, !tbaa !105
+  %21 = load i32, ptr %20, align 8, !tbaa !102
   %22 = and i32 %21, 134217728
   %.not19 = icmp eq i32 %22, 0
   br i1 %.not19, label %23, label %107
@@ -750,14 +750,14 @@ define internal void @dot_end_graph(ptr noundef %0) #0 {
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @xd, align 8, !tbaa !36
-  %30 = load ptr, ptr %29, align 8, !tbaa !77
+  %30 = load ptr, ptr %29, align 8, !tbaa !74
   %.not7.i = icmp eq ptr %30, null
   br i1 %.not7.i, label %31, label %34
 
 31:                                               ; preds = %28
   %32 = tail call ptr @safe_dcl(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1) #18
   %33 = load ptr, ptr @xd, align 8, !tbaa !36
-  store ptr %32, ptr %33, align 8, !tbaa !77
+  store ptr %32, ptr %33, align 8, !tbaa !74
   %.val.i9.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @xbuf, i64 31), align 1, !tbaa !37
   br label %34
 
@@ -835,16 +835,16 @@ agxbuse.exit.i:                                   ; preds = %53, %agxbclear.exit
 
 57:                                               ; preds = %agxbuse.exit.i, %25
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !60
+  %59 = load ptr, ptr %58, align 8, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !106
+  %61 = load ptr, ptr %60, align 8, !tbaa !103
   %.not8.i = icmp eq ptr %61, null
   br i1 %.not8.i, label %86, label %62
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr @xd, align 8, !tbaa !36
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !79
+  %65 = load ptr, ptr %64, align 8, !tbaa !76
   %.val.i10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @xbuf, i64 159), align 1, !tbaa !37
   switch i8 %.val.i10.i, label %agxblen.exit.i.i23.i [
     i8 -1, label %67
@@ -918,7 +918,7 @@ agxbuse.exit24.i:                                 ; preds = %83, %agxbclear.exit
 86:                                               ; preds = %agxbuse.exit24.i, %57
   %87 = load ptr, ptr @xd, align 8, !tbaa !36
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 88
-  %89 = load ptr, ptr %88, align 8, !tbaa !59
+  %89 = load ptr, ptr %88, align 8, !tbaa !56
   %90 = tail call i32 @agsafeset(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef %89, ptr noundef nonnull @.str.1) #18
   br label %91
 
@@ -938,17 +938,17 @@ agxbuse.exit24.i:                                 ; preds = %83, %agxbclear.exit
 agxbfree.exit.i:                                  ; preds = %96, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %xdot_end_graph.exit, label %91, !llvm.loop !107
+  br i1 %exitcond.not.i, label %xdot_end_graph.exit, label %91, !llvm.loop !104
 
 xdot_end_graph.exit:                              ; preds = %agxbfree.exit.i
   %98 = load ptr, ptr @xd, align 8, !tbaa !36
   tail call void @free(ptr noundef %98) #18
-  store double 1.000000e+00, ptr @penwidth, align 16, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 32), align 16, !tbaa !108
-  store i32 0, ptr @textflags, align 16, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 16), align 16, !tbaa !109
+  store double 1.000000e+00, ptr @penwidth, align 16, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 32), align 16, !tbaa !105
+  store i32 0, ptr @textflags, align 16, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 16), align 16, !tbaa !106
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %100 = load i32, ptr %99, align 8, !tbaa !105
+  %100 = load i32, ptr %99, align 8, !tbaa !102
   %101 = and i32 %100, 134217728
   %.not = icmp eq i32 %101, 0
   br i1 %.not, label %102, label %107
@@ -958,15 +958,15 @@ xdot_end_graph.exit:                              ; preds = %agxbfree.exit.i
   br label %107
 
 104:                                              ; preds = %10
-  %105 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %105 = load ptr, ptr @stderr, align 8, !tbaa !52
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 485) #21
   tail call void @abort() #23
   unreachable
 
 107:                                              ; preds = %xdot_end_graph.exit, %102, %19, %23, %18, %17
-  %108 = load ptr, ptr %11, align 8, !tbaa !92
+  %108 = load ptr, ptr %11, align 8, !tbaa !89
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store ptr %14, ptr %109, align 8, !tbaa !98
+  store ptr %14, ptr %109, align 8, !tbaa !95
   ret void
 }
 
@@ -977,7 +977,7 @@ define internal void @xdot_end_cluster(ptr noundef readonly captures(none) %0) #
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = load ptr, ptr @xd, align 8, !tbaa !36
-  %7 = load ptr, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @xbuf, i64 63), align 1, !tbaa !37
   switch i8 %.val.i, label %agxblen.exit.i.i [
     i8 -1, label %9
@@ -1047,16 +1047,16 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %27 = phi ptr [ %26, %25 ], [ getelementptr inbounds nuw (i8, ptr @xbuf, i64 32), %agxbclear.exit.thread.i ]
   %28 = tail call i32 @agxset(ptr noundef %5, ptr noundef %7, ptr noundef %27) #18
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !60
+  %30 = load ptr, ptr %29, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !106
+  %32 = load ptr, ptr %31, align 8, !tbaa !103
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %58, label %33
 
 33:                                               ; preds = %agxbuse.exit
   %34 = load ptr, ptr @xd, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !79
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
   %.val.i4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @xbuf, i64 191), align 1, !tbaa !37
   switch i8 %.val.i4, label %agxblen.exit.i.i17 [
     i8 -1, label %38
@@ -1128,10 +1128,10 @@ agxbuse.exit18:                                   ; preds = %agxbclear.exit.thre
   br label %58
 
 58:                                               ; preds = %agxbuse.exit18, %agxbuse.exit
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 8), align 8, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 40), align 8, !tbaa !108
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 4), align 4, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 20), align 4, !tbaa !109
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 8), align 8, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 40), align 8, !tbaa !105
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 4), align 4, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 20), align 4, !tbaa !106
   ret void
 }
 
@@ -1153,7 +1153,7 @@ agxblen.exit:
 7:                                                ; preds = %agxblen.exit
   %8 = load ptr, ptr @xd, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !80
+  %10 = load ptr, ptr %9, align 8, !tbaa !77
   switch i8 %.val.i, label %agxbsizeof.exit.i.i [
     i8 -1, label %11
     i8 31, label %agxbclear.exit.thread.i
@@ -1230,7 +1230,7 @@ agxblen.exit8:                                    ; preds = %agxbuse.exit, %agxb
 32:                                               ; preds = %agxblen.exit8
   %33 = load ptr, ptr @xd, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !81
+  %35 = load ptr, ptr %34, align 8, !tbaa !78
   switch i8 %.val.i5, label %agxbsizeof.exit.i.i11 [
     i8 -1, label %36
     i8 31, label %agxbclear.exit.thread.i10
@@ -1296,10 +1296,10 @@ agxbuse.exit23:                                   ; preds = %agxbclear.exit.thre
   br label %54
 
 54:                                               ; preds = %agxbuse.exit23, %agxblen.exit8
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 64), align 16, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 80), align 16, !tbaa !108
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 32), align 16, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 40), align 8, !tbaa !109
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 64), align 16, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 80), align 16, !tbaa !105
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 32), align 16, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 40), align 8, !tbaa !106
   ret void
 }
 
@@ -1321,7 +1321,7 @@ agxblen.exit:
 7:                                                ; preds = %agxblen.exit
   %8 = load ptr, ptr @xd, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !82
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   switch i8 %.val.i, label %agxbsizeof.exit.i.i [
     i8 -1, label %11
     i8 31, label %agxbclear.exit.thread.i
@@ -1398,7 +1398,7 @@ agxblen.exit16:                                   ; preds = %agxbuse.exit, %agxb
 32:                                               ; preds = %agxblen.exit16
   %33 = load ptr, ptr @xd, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !84
+  %35 = load ptr, ptr %34, align 8, !tbaa !81
   switch i8 %.val.i13, label %agxbsizeof.exit.i.i19 [
     i8 -1, label %36
     i8 31, label %agxbclear.exit.thread.i18
@@ -1475,7 +1475,7 @@ agxblen.exit35:                                   ; preds = %agxbuse.exit31, %ag
 57:                                               ; preds = %agxblen.exit35
   %58 = load ptr, ptr @xd, align 8, !tbaa !36
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !83
+  %60 = load ptr, ptr %59, align 8, !tbaa !80
   switch i8 %.val.i32, label %agxbsizeof.exit.i.i38 [
     i8 -1, label %61
     i8 31, label %agxbclear.exit.thread.i37
@@ -1552,7 +1552,7 @@ agxblen.exit54:                                   ; preds = %agxbuse.exit50, %ag
 82:                                               ; preds = %agxblen.exit54
   %83 = load ptr, ptr @xd, align 8, !tbaa !36
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
-  %85 = load ptr, ptr %84, align 8, !tbaa !85
+  %85 = load ptr, ptr %84, align 8, !tbaa !82
   switch i8 %.val.i51, label %agxbsizeof.exit.i.i57 [
     i8 -1, label %86
     i8 31, label %agxbclear.exit.thread.i56
@@ -1629,7 +1629,7 @@ agxblen.exit73:                                   ; preds = %agxbuse.exit69, %ag
 106:                                              ; preds = %agxblen.exit73
   %107 = load ptr, ptr @xd, align 8, !tbaa !36
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 72
-  %109 = load ptr, ptr %108, align 8, !tbaa !87
+  %109 = load ptr, ptr %108, align 8, !tbaa !84
   switch i8 %.val.i70, label %agxbsizeof.exit.i.i76 [
     i8 -1, label %110
     i8 31, label %agxbclear.exit.thread.i75
@@ -1706,7 +1706,7 @@ agxblen.exit92:                                   ; preds = %agxbuse.exit88, %ag
 131:                                              ; preds = %agxblen.exit92
   %132 = load ptr, ptr @xd, align 8, !tbaa !36
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  %134 = load ptr, ptr %133, align 8, !tbaa !86
+  %134 = load ptr, ptr %133, align 8, !tbaa !83
   switch i8 %.val.i89, label %agxbsizeof.exit.i.i95 [
     i8 -1, label %135
     i8 31, label %agxbclear.exit.thread.i94
@@ -1772,18 +1772,18 @@ agxbuse.exit107:                                  ; preds = %agxbclear.exit.thre
   br label %154
 
 154:                                              ; preds = %agxbuse.exit107, %agxblen.exit92
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 72), align 8, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 88), align 8, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 16), align 16, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 24), align 8, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 48), align 16, !tbaa !108
-  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 56), align 8, !tbaa !108
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 36), align 4, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 44), align 4, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 8), align 8, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 12), align 4, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 24), align 8, !tbaa !109
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 28), align 4, !tbaa !109
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 72), align 8, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 88), align 8, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 16), align 16, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 24), align 8, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 48), align 16, !tbaa !105
+  store double 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @penwidth, i64 56), align 8, !tbaa !105
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 36), align 4, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 44), align 4, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 8), align 8, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 12), align 4, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 24), align 8, !tbaa !106
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @textflags, i64 28), align 4, !tbaa !106
   ret void
 }
 
@@ -1851,12 +1851,12 @@ agxblen.exit.i.i:                                 ; preds = %14, %agxbsizeof.exi
 
 agxbput.exit:                                     ; preds = %23, %28
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !110
+  %36 = load ptr, ptr %35, align 8, !tbaa !107
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load double, ptr %37, align 8, !tbaa !112
+  %38 = load double, ptr %37, align 8, !tbaa !109
   tail call fastcc void @xdot_fmt_num(ptr noundef nonnull %11, double noundef %38)
-  %39 = load ptr, ptr %35, align 8, !tbaa !110
-  %40 = load ptr, ptr %39, align 8, !tbaa !115
+  %39 = load ptr, ptr %35, align 8, !tbaa !107
+  %40 = load ptr, ptr %39, align 8, !tbaa !112
   %.val35 = load ptr, ptr %5, align 8, !tbaa !3
   %41 = getelementptr i8, ptr %.val35, i64 24
   %.val35.val = load i32, ptr %41, align 8, !tbaa !30
@@ -1904,8 +1904,8 @@ agxbput.exit:                                     ; preds = %23, %28
 
 xdot_pencolor.exit:                               ; preds = %54, %63
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %74 = load i8, ptr %73, align 8, !tbaa !116
-  %75 = load ptr, ptr %35, align 8, !tbaa !110
+  %74 = load i8, ptr %73, align 8, !tbaa !113
+  %75 = load ptr, ptr %35, align 8, !tbaa !107
   %.not = icmp eq ptr %75, null
   br i1 %.not, label %80, label %76
 
@@ -1919,7 +1919,7 @@ xdot_pencolor.exit:                               ; preds = %54, %63
   %.0 = phi i32 [ %79, %76 ], [ 0, %xdot_pencolor.exit ]
   %81 = load ptr, ptr @xd, align 8, !tbaa !36
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
-  %83 = load i16, ptr %82, align 8, !tbaa !58
+  %83 = load i16, ptr %82, align 8, !tbaa !55
   %84 = add i16 %83, -15
   %or.cond = icmp ult i16 %84, 3
   br i1 %or.cond, label %85, label %95
@@ -1929,21 +1929,21 @@ xdot_pencolor.exit:                               ; preds = %54, %63
   %87 = add nuw nsw i64 %86, 4294967281
   %88 = and i64 %87, 4294967295
   %89 = getelementptr inbounds nuw [3 x i32], ptr @flag_masks, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !109
+  %90 = load i32, ptr %89, align 4, !tbaa !106
   %91 = and i32 %90, %.0
   %92 = getelementptr inbounds nuw [12 x i32], ptr @textflags, i64 0, i64 %9
-  %93 = load i32, ptr %92, align 4, !tbaa !109
+  %93 = load i32, ptr %92, align 4, !tbaa !106
   %.not31 = icmp eq i32 %93, %91
   br i1 %.not31, label %95, label %94
 
 94:                                               ; preds = %85
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %11, ptr noundef nonnull @.str.31, i32 noundef %91)
-  store i32 %91, ptr %92, align 4, !tbaa !109
+  store i32 %91, ptr %92, align 4, !tbaa !106
   br label %95
 
 95:                                               ; preds = %85, %94, %80
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %97 = load double, ptr %96, align 8, !tbaa !117
+  %97 = load double, ptr %96, align 8, !tbaa !114
   %.val.i.i.i37 = load i8, ptr %12, align 1, !tbaa !37
   %.not.i.i.i38 = icmp eq i8 %.val.i.i.i37, -1
   br i1 %.not.i.i.i38, label %99, label %agxbsizeof.exit.i.i39
@@ -2010,9 +2010,9 @@ agxbput.exit46:                                   ; preds = %108, %113
   tail call fastcc void @xdot_fmt_num(ptr noundef nonnull %11, double noundef %124)
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %11, ptr noundef nonnull @.str.33, i32 noundef %switch.select33)
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %126 = load double, ptr %125, align 8, !tbaa !118
+  %126 = load double, ptr %125, align 8, !tbaa !115
   tail call fastcc void @xdot_fmt_num(ptr noundef nonnull %11, double noundef %126)
-  %127 = load ptr, ptr %3, align 8, !tbaa !119
+  %127 = load ptr, ptr %3, align 8, !tbaa !116
   %.val = load ptr, ptr %5, align 8, !tbaa !3
   %128 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load i32, ptr %128, align 8, !tbaa !30
@@ -2245,13 +2245,13 @@ agxbput.exit:                                     ; preds = %112, %107, %85, %80
   %126 = tail call double @yDir(double noundef %122, double noundef %125) #18
   tail call fastcc void @xdot_fmt_num(ptr noundef nonnull %119, double noundef %126)
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %128 = load double, ptr %127, align 8, !tbaa !120
-  %129 = load double, ptr %1, align 8, !tbaa !120
+  %128 = load double, ptr %127, align 8, !tbaa !117
+  %129 = load double, ptr %1, align 8, !tbaa !117
   %130 = fsub double %128, %129
   tail call fastcc void @xdot_fmt_num(ptr noundef nonnull %119, double noundef %130)
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %132 = load double, ptr %131, align 8, !tbaa !121
-  %133 = load double, ptr %121, align 8, !tbaa !121
+  %132 = load double, ptr %131, align 8, !tbaa !118
+  %133 = load double, ptr %121, align 8, !tbaa !118
   %134 = fsub double %132, %133
   tail call fastcc void @xdot_fmt_num(ptr noundef nonnull %119, double noundef %134)
   ret void
@@ -2374,7 +2374,7 @@ xdot_fillcolor.exit:                              ; preds = %54, %45, %35
   tail call fastcc void @xdot_fmt_num(ptr noundef %67, double noundef %75)
   %76 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %76, %2
-  br i1 %exitcond.not.i, label %xdot_points.exit, label %.lr.ph.i, !llvm.loop !122
+  br i1 %exitcond.not.i, label %xdot_points.exit, label %.lr.ph.i, !llvm.loop !119
 
 77:                                               ; preds = %xdot_pencolor.exit
   %.val17 = load ptr, ptr %5, align 8, !tbaa !3
@@ -2401,7 +2401,7 @@ xdot_fillcolor.exit:                              ; preds = %54, %45, %35
   tail call fastcc void @xdot_fmt_num(ptr noundef %81, double noundef %89)
   %90 = add nuw i64 %.01.i22, 1
   %exitcond.not.i23 = icmp eq i64 %90, %2
-  br i1 %exitcond.not.i23, label %xdot_points.exit, label %.lr.ph.i21, !llvm.loop !122
+  br i1 %exitcond.not.i23, label %xdot_points.exit, label %.lr.ph.i21, !llvm.loop !119
 
 xdot_points.exit:                                 ; preds = %.lr.ph.i, %.lr.ph.i21, %77, %xdot_fillcolor.exit
   ret void
@@ -2524,7 +2524,7 @@ xdot_fillcolor.exit:                              ; preds = %54, %45, %35
   tail call fastcc void @xdot_fmt_num(ptr noundef %67, double noundef %75)
   %76 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %76, %2
-  br i1 %exitcond.not.i, label %xdot_points.exit, label %.lr.ph.i, !llvm.loop !122
+  br i1 %exitcond.not.i, label %xdot_points.exit, label %.lr.ph.i, !llvm.loop !119
 
 77:                                               ; preds = %xdot_pencolor.exit
   %.val17 = load ptr, ptr %5, align 8, !tbaa !3
@@ -2551,7 +2551,7 @@ xdot_fillcolor.exit:                              ; preds = %54, %45, %35
   tail call fastcc void @xdot_fmt_num(ptr noundef %81, double noundef %89)
   %90 = add nuw i64 %.01.i22, 1
   %exitcond.not.i23 = icmp eq i64 %90, %2
-  br i1 %exitcond.not.i23, label %xdot_points.exit, label %.lr.ph.i21, !llvm.loop !122
+  br i1 %exitcond.not.i23, label %xdot_points.exit, label %.lr.ph.i21, !llvm.loop !119
 
 xdot_points.exit:                                 ; preds = %.lr.ph.i, %.lr.ph.i21, %77, %xdot_fillcolor.exit
   ret void
@@ -2623,7 +2623,7 @@ xdot_pencolor.exit:                               ; preds = %13, %22
   tail call fastcc void @xdot_fmt_num(ptr noundef %35, double noundef %43)
   %44 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %44, %2
-  br i1 %exitcond.not.i, label %xdot_points.exit, label %.lr.ph.i, !llvm.loop !122
+  br i1 %exitcond.not.i, label %xdot_points.exit, label %.lr.ph.i, !llvm.loop !119
 
 xdot_points.exit:                                 ; preds = %.lr.ph.i, %xdot_pencolor.exit
   ret void
@@ -2662,7 +2662,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !52
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.13, i64 noundef %spec.select34) #21
   tail call fastcc void @graphviz_exit() #22
   unreachable
@@ -2685,7 +2685,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !52
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.13, i64 noundef %spec.select) #21
   tail call fastcc void @graphviz_exit() #22
   unreachable
@@ -3005,7 +3005,7 @@ agxbputc.exit:                                    ; preds = %20, %15, %8
 agxbputc.exit17:                                  ; preds = %31, %36
   %.val.i.i722 = phi i8 [ %35, %31 ], [ -1, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %8, !llvm.loop !123
+  br label %8, !llvm.loop !120
 
 42:                                               ; preds = %8
   switch i8 %.val.i.i721, label %agxblen.exit.i.i [
@@ -3091,19 +3091,19 @@ define internal fastcc void @xdot_style(ptr noundef readonly captures(none) %0) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %6 = load double, ptr %5, align 8, !tbaa !124
+  %6 = load double, ptr %5, align 8, !tbaa !121
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !30
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw [12 x double], ptr @penwidth, i64 0, i64 %9
-  %11 = load double, ptr %10, align 8, !tbaa !108
+  %11 = load double, ptr %10, align 8, !tbaa !105
   %12 = fsub double %6, %11
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp ult double %13, 5.000000e-04
   br i1 %14, label %97, label %agxbput.exit
 
 agxbput.exit:                                     ; preds = %1
-  store double %6, ptr %10, align 8, !tbaa !108
+  store double %6, ptr %10, align 8, !tbaa !105
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3129,7 +3129,7 @@ agxbput.exit:                                     ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i
   %26 = load i8, ptr %25, align 1, !tbaa !37
   %27 = icmp eq i8 %26, 46
-  br i1 %27, label %agxblen.exit38.i, label %22, !llvm.loop !48
+  br i1 %27, label %agxblen.exit38.i, label %22
 
 agxblen.exit38.i:                                 ; preds = %24, %39
   %28 = phi i64 [ %40, %39 ], [ %20, %24 ]
@@ -3164,7 +3164,7 @@ agxblen.exit38.i:                                 ; preds = %24, %39
   %40 = phi i64 [ %38, %37 ], [ %28, %35 ]
   %.val.i39.i = phi i8 [ %.val.i3951.i, %37 ], [ %36, %35 ]
   %.val3250.i = phi i8 [ -1, %37 ], [ %36, %35 ]
-  br i1 %29, label %.critedge.i, label %agxblen.exit38.i, !llvm.loop !50
+  br i1 %29, label %.critedge.i, label %agxblen.exit38.i
 
 .critedge.i:                                      ; preds = %39
   %.not.i40.i = icmp eq i8 %.val.i39.i, -1
@@ -3327,12 +3327,12 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 97:                                               ; preds = %agxbuse.exit, %1
   %98 = phi ptr [ %.pre103, %agxbuse.exit ], [ %4, %1 ]
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 184
-  %100 = load ptr, ptr %99, align 8, !tbaa !125
+  %100 = load ptr, ptr %99, align 8, !tbaa !122
   %.not = icmp eq ptr %100, null
   br i1 %.not, label %105, label %.preheader
 
 .preheader:                                       ; preds = %97
-  %101 = load ptr, ptr %100, align 8, !tbaa !126
+  %101 = load ptr, ptr %100, align 8, !tbaa !123
   %.not2896 = icmp eq ptr %101, null
   br i1 %.not2896, label %._crit_edge, label %.lr.ph97
 
@@ -3367,9 +3367,9 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br i1 %119, label %.backedge, label %121
 
 .backedge:                                        ; preds = %109, %114, %117, %agxbuse.exit89
-  %120 = load ptr, ptr %111, align 8, !tbaa !126
+  %120 = load ptr, ptr %111, align 8, !tbaa !123
   %.not28 = icmp eq ptr %120, null
-  br i1 %.not28, label %._crit_edge, label %109, !llvm.loop !127
+  br i1 %.not28, label %._crit_edge, label %109, !llvm.loop !124
 
 121:                                              ; preds = %117
   %122 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %110) #19
@@ -3522,7 +3522,7 @@ agxbsizeof.exit.i66:                              ; preds = %.lr.ph, %agxbputc.e
   %178 = getelementptr inbounds nuw i8, ptr %scevgep101, i64 1
   %179 = load i8, ptr %178, align 1, !tbaa !37
   %.not31 = icmp eq i8 %179, 0
-  br i1 %.not31, label %agxbsizeof.exit.i66, label %.lr.ph, !llvm.loop !128
+  br i1 %.not31, label %agxbsizeof.exit.i66, label %.lr.ph, !llvm.loop !125
 
 agxbputc.exit73:                                  ; preds = %172, %167, %agxbput.exit51
   %.val.i74 = phi i8 [ %.val.i74.pre, %172 ], [ %171, %167 ], [ %.val.i74.pre104, %agxbput.exit51 ]
@@ -3625,14 +3625,14 @@ define internal fastcc void @xdot_gradient_fillcolor(ptr noundef readonly captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %10 = load i32, ptr %9, align 8, !tbaa !129
+  %10 = load i32, ptr %9, align 8, !tbaa !126
   %11 = sitofp i32 %10 to double
   %12 = fmul double %11, 0x400921FB54442D18
   %13 = fdiv double %12, 1.800000e+02
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   %14 = load ptr, ptr @xd, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %16 = load i16, ptr %15, align 8, !tbaa !58
+  %16 = load i16, ptr %15, align 8, !tbaa !55
   %17 = icmp ult i16 %16, 14
   br i1 %17, label %18, label %46
 
@@ -3747,25 +3747,25 @@ agxbputc.exit:                                    ; preds = %56, %61
 82:                                               ; preds = %46
   call void @get_gradient_points(ptr noundef %2, ptr noundef nonnull %5, i64 noundef %3, double noundef 0.000000e+00, i32 noundef 3) #18
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %84 = load double, ptr %83, align 8, !tbaa !121
-  %85 = load i32, ptr %9, align 8, !tbaa !129
+  %84 = load double, ptr %83, align 8, !tbaa !118
+  %85 = load i32, ptr %9, align 8, !tbaa !126
   %86 = icmp eq i32 %85, 0
-  %87 = load double, ptr %5, align 16, !tbaa !120
+  %87 = load double, ptr %5, align 16, !tbaa !117
   br i1 %86, label %88, label %91
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %90 = load double, ptr %89, align 8, !tbaa !121
+  %90 = load double, ptr %89, align 8, !tbaa !118
   %.pre = fmul double %84, 2.500000e-01
   br label %agxbsizeof.exit.i30
 
 91:                                               ; preds = %82
   %92 = fmul double %84, 2.500000e-01
-  %93 = call double @cos(double noundef %13) #18, !tbaa !109
+  %93 = call double @cos(double noundef %13) #18, !tbaa !106
   %94 = call double @llvm.fmuladd.f64(double %92, double %93, double %87)
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %96 = load double, ptr %95, align 8, !tbaa !121
-  %97 = call double @sin(double noundef %13) #18, !tbaa !109
+  %96 = load double, ptr %95, align 8, !tbaa !118
+  %97 = call double @sin(double noundef %13) #18, !tbaa !106
   %98 = call double @llvm.fmuladd.f64(double %92, double %97, double %96)
   br label %agxbsizeof.exit.i30
 
@@ -3880,14 +3880,14 @@ agxblen.exit.i.i:                                 ; preds = %agxbputc.exit, %agx
 
 agxbput.exit:                                     ; preds = %137, %142
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %149 = load double, ptr %148, align 8, !tbaa !130
+  %149 = load double, ptr %148, align 8, !tbaa !127
   %150 = fcmp ogt double %149, 0.000000e+00
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 72
   br i1 %150, label %152, label %154
 
 152:                                              ; preds = %agxbput.exit
   call fastcc void @xdot_color_stop(ptr noundef %6, double noundef %149, ptr noundef nonnull %151)
-  %153 = load double, ptr %148, align 8, !tbaa !130
+  %153 = load double, ptr %148, align 8, !tbaa !127
   br label %155
 
 154:                                              ; preds = %agxbput.exit
@@ -4130,7 +4130,7 @@ agxblen.exit.i:                                   ; preds = %6, %agxbstart.exit.
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.0.i
   %15 = load i8, ptr %14, align 1, !tbaa !37
   %16 = icmp eq i8 %15, 46
-  br i1 %16, label %17, label %11, !llvm.loop !48
+  br i1 %16, label %17, label %11
 
 17:                                               ; preds = %13
   br i1 %.not.i.i, label %20, label %18
@@ -4181,7 +4181,7 @@ agxblen.exit38.i:                                 ; preds = %20, %18
 36:                                               ; preds = %33, %31
   %.val.i39.i = phi i8 [ %.val.i3951.i, %33 ], [ %32, %31 ]
   %.val3250.i = phi i8 [ -1, %33 ], [ %32, %31 ]
-  br i1 %25, label %.critedge.i, label %24, !llvm.loop !50
+  br i1 %25, label %.critedge.i, label %24
 
 .critedge.i:                                      ; preds = %36
   %.not.i40.i = icmp eq i8 %.val.i39.i, -1
@@ -4398,86 +4398,83 @@ attributes #25 = { cold noreturn nounwind }
 !45 = !{!"usershape_s", !46, i64 0, !12, i64 16, !13, i64 24, !25, i64 28, !25, i64 29, !14, i64 32, !13, i64 40, !12, i64 48, !24, i64 56, !24, i64 64, !24, i64 72, !24, i64 80, !13, i64 88, !6, i64 96, !15, i64 104, !6, i64 112}
 !46 = !{!"dtlink_s_", !47, i64 0, !7, i64 8}
 !47 = !{!"p1 _ZTS9dtlink_s_", !6, i64 0}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !49}
-!51 = !{!4, !13, i64 128}
-!52 = !{!25, !25, i64 0}
-!53 = !{i8 0, i8 2}
-!54 = !{}
-!55 = !{!14, !14, i64 0}
-!56 = distinct !{!56, !57, !49}
-!57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!39, !41, i64 80}
-!59 = !{!39, !12, i64 88}
-!60 = !{!61, !63, i64 16}
-!61 = !{!"Agobj_s", !62, i64 0, !63, i64 16}
-!62 = !{!"Agtag_s", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !15, i64 8}
-!63 = !{!"p1 _ZTS7Agrec_s", !6, i64 0}
-!64 = !{!65, !13, i64 236}
-!65 = !{!"Agraphinfo_t", !66, i64 0, !67, i64 16, !68, i64 24, !27, i64 32, !7, i64 64, !7, i64 128, !7, i64 129, !25, i64 130, !7, i64 131, !13, i64 132, !24, i64 136, !24, i64 144, !41, i64 152, !6, i64 160, !5, i64 168, !6, i64 176, !69, i64 184, !13, i64 192, !70, i64 200, !70, i64 208, !70, i64 216, !71, i64 224, !41, i64 232, !41, i64 234, !13, i64 236, !72, i64 240, !73, i64 248, !74, i64 256, !75, i64 264, !73, i64 272, !13, i64 280, !74, i64 288, !74, i64 296, !76, i64 304, !74, i64 320, !74, i64 328, !13, i64 336, !13, i64 340, !25, i64 344, !7, i64 345, !13, i64 348, !13, i64 352, !13, i64 356, !74, i64 360, !74, i64 368, !74, i64 376, !69, i64 384, !25, i64 392, !7, i64 393, !7, i64 394, !7, i64 395, !25, i64 396}
-!66 = !{!"Agrec_s", !12, i64 0, !63, i64 8}
-!67 = !{!"p1 _ZTS8layout_t", !6, i64 0}
-!68 = !{!"p1 _ZTS11textlabel_t", !6, i64 0}
-!69 = !{!"p2 _ZTS8Agnode_s", !6, i64 0}
-!70 = !{!"p2 double", !6, i64 0}
-!71 = !{!"p3 double", !6, i64 0}
-!72 = !{!"p2 _ZTS8Agraph_s", !6, i64 0}
-!73 = !{!"p1 _ZTS8Agraph_s", !6, i64 0}
-!74 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
-!75 = !{!"p1 _ZTS6rank_t", !6, i64 0}
-!76 = !{!"nlist_t", !69, i64 0, !15, i64 8}
-!77 = !{!39, !40, i64 0}
-!78 = !{!65, !7, i64 129}
-!79 = !{!39, !40, i64 8}
-!80 = !{!39, !40, i64 16}
-!81 = !{!39, !40, i64 24}
-!82 = !{!39, !40, i64 32}
-!83 = !{!39, !40, i64 40}
-!84 = !{!39, !40, i64 48}
-!85 = !{!39, !40, i64 56}
-!86 = !{!39, !40, i64 64}
-!87 = !{!39, !40, i64 72}
-!88 = !{!89, !6, i64 0}
-!89 = !{!"Agiodisc_s", !6, i64 0, !6, i64 8, !6, i64 16}
-!90 = !{!89, !6, i64 8}
-!91 = !{!89, !6, i64 16}
-!92 = !{!93, !97, i64 128}
-!93 = !{!"Agraph_s", !61, i64 0, !94, i64 24, !46, i64 32, !46, i64 48, !95, i64 64, !96, i64 72, !95, i64 80, !95, i64 88, !95, i64 96, !95, i64 104, !73, i64 112, !73, i64 120, !97, i64 128}
-!94 = !{!"Agdesc_s", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0}
-!95 = !{!"p1 _ZTS5dt_s_", !6, i64 0}
-!96 = !{!"p1 _ZTS17graphviz_node_set", !6, i64 0}
-!97 = !{!"p1 _ZTS8Agclos_s", !6, i64 0}
-!98 = !{!99, !102, i64 8}
-!99 = !{!"Agclos_s", !100, i64 0, !103, i64 16, !6, i64 24, !7, i64 32, !104, i64 56, !7, i64 64, !7, i64 88}
-!100 = !{!"Agdisc_s", !101, i64 0, !102, i64 8}
-!101 = !{!"p1 _ZTS10Agiddisc_s", !6, i64 0}
-!102 = !{!"p1 _ZTS10Agiodisc_s", !6, i64 0}
-!103 = !{!"Agdstate_s", !6, i64 0}
-!104 = !{!"p1 _ZTS11Agcbstack_s", !6, i64 0}
-!105 = !{!4, !13, i64 280}
-!106 = !{!65, !68, i64 24}
-!107 = distinct !{!107, !57, !49}
-!108 = !{!24, !24, i64 0}
-!109 = !{!13, !13, i64 0}
-!110 = !{!111, !6, i64 8}
-!111 = !{!"", !12, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !24, i64 32, !24, i64 40, !23, i64 48, !7, i64 64}
-!112 = !{!113, !24, i64 24}
-!113 = !{!"", !12, i64 0, !12, i64 8, !114, i64 16, !24, i64 24, !13, i64 32, !13, i64 32}
-!114 = !{!"p1 _ZTS16_PostscriptAlias", !6, i64 0}
-!115 = !{!113, !12, i64 0}
-!116 = !{!111, !7, i64 64}
-!117 = !{!111, !24, i64 40}
-!118 = !{!111, !24, i64 48}
-!119 = !{!111, !12, i64 0}
-!120 = !{!23, !24, i64 0}
-!121 = !{!23, !24, i64 8}
-!122 = distinct !{!122, !57, !49}
-!123 = distinct !{!123, !57, !49}
-!124 = !{!31, !24, i64 176}
-!125 = !{!31, !33, i64 184}
-!126 = !{!12, !12, i64 0}
-!127 = distinct !{!127, !57, !49}
-!128 = distinct !{!128, !57, !49}
-!129 = !{!31, !13, i64 152}
-!130 = !{!31, !24, i64 160}
+!48 = !{!4, !13, i64 128}
+!49 = !{!25, !25, i64 0}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = !{!14, !14, i64 0}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = !{!39, !41, i64 80}
+!56 = !{!39, !12, i64 88}
+!57 = !{!58, !60, i64 16}
+!58 = !{!"Agobj_s", !59, i64 0, !60, i64 16}
+!59 = !{!"Agtag_s", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !15, i64 8}
+!60 = !{!"p1 _ZTS7Agrec_s", !6, i64 0}
+!61 = !{!62, !13, i64 236}
+!62 = !{!"Agraphinfo_t", !63, i64 0, !64, i64 16, !65, i64 24, !27, i64 32, !7, i64 64, !7, i64 128, !7, i64 129, !25, i64 130, !7, i64 131, !13, i64 132, !24, i64 136, !24, i64 144, !41, i64 152, !6, i64 160, !5, i64 168, !6, i64 176, !66, i64 184, !13, i64 192, !67, i64 200, !67, i64 208, !67, i64 216, !68, i64 224, !41, i64 232, !41, i64 234, !13, i64 236, !69, i64 240, !70, i64 248, !71, i64 256, !72, i64 264, !70, i64 272, !13, i64 280, !71, i64 288, !71, i64 296, !73, i64 304, !71, i64 320, !71, i64 328, !13, i64 336, !13, i64 340, !25, i64 344, !7, i64 345, !13, i64 348, !13, i64 352, !13, i64 356, !71, i64 360, !71, i64 368, !71, i64 376, !66, i64 384, !25, i64 392, !7, i64 393, !7, i64 394, !7, i64 395, !25, i64 396}
+!63 = !{!"Agrec_s", !12, i64 0, !60, i64 8}
+!64 = !{!"p1 _ZTS8layout_t", !6, i64 0}
+!65 = !{!"p1 _ZTS11textlabel_t", !6, i64 0}
+!66 = !{!"p2 _ZTS8Agnode_s", !6, i64 0}
+!67 = !{!"p2 double", !6, i64 0}
+!68 = !{!"p3 double", !6, i64 0}
+!69 = !{!"p2 _ZTS8Agraph_s", !6, i64 0}
+!70 = !{!"p1 _ZTS8Agraph_s", !6, i64 0}
+!71 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
+!72 = !{!"p1 _ZTS6rank_t", !6, i64 0}
+!73 = !{!"nlist_t", !66, i64 0, !15, i64 8}
+!74 = !{!39, !40, i64 0}
+!75 = !{!62, !7, i64 129}
+!76 = !{!39, !40, i64 8}
+!77 = !{!39, !40, i64 16}
+!78 = !{!39, !40, i64 24}
+!79 = !{!39, !40, i64 32}
+!80 = !{!39, !40, i64 40}
+!81 = !{!39, !40, i64 48}
+!82 = !{!39, !40, i64 56}
+!83 = !{!39, !40, i64 64}
+!84 = !{!39, !40, i64 72}
+!85 = !{!86, !6, i64 0}
+!86 = !{!"Agiodisc_s", !6, i64 0, !6, i64 8, !6, i64 16}
+!87 = !{!86, !6, i64 8}
+!88 = !{!86, !6, i64 16}
+!89 = !{!90, !94, i64 128}
+!90 = !{!"Agraph_s", !58, i64 0, !91, i64 24, !46, i64 32, !46, i64 48, !92, i64 64, !93, i64 72, !92, i64 80, !92, i64 88, !92, i64 96, !92, i64 104, !70, i64 112, !70, i64 120, !94, i64 128}
+!91 = !{!"Agdesc_s", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0}
+!92 = !{!"p1 _ZTS5dt_s_", !6, i64 0}
+!93 = !{!"p1 _ZTS17graphviz_node_set", !6, i64 0}
+!94 = !{!"p1 _ZTS8Agclos_s", !6, i64 0}
+!95 = !{!96, !99, i64 8}
+!96 = !{!"Agclos_s", !97, i64 0, !100, i64 16, !6, i64 24, !7, i64 32, !101, i64 56, !7, i64 64, !7, i64 88}
+!97 = !{!"Agdisc_s", !98, i64 0, !99, i64 8}
+!98 = !{!"p1 _ZTS10Agiddisc_s", !6, i64 0}
+!99 = !{!"p1 _ZTS10Agiodisc_s", !6, i64 0}
+!100 = !{!"Agdstate_s", !6, i64 0}
+!101 = !{!"p1 _ZTS11Agcbstack_s", !6, i64 0}
+!102 = !{!4, !13, i64 280}
+!103 = !{!62, !65, i64 24}
+!104 = distinct !{!104, !54}
+!105 = !{!24, !24, i64 0}
+!106 = !{!13, !13, i64 0}
+!107 = !{!108, !6, i64 8}
+!108 = !{!"", !12, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !24, i64 32, !24, i64 40, !23, i64 48, !7, i64 64}
+!109 = !{!110, !24, i64 24}
+!110 = !{!"", !12, i64 0, !12, i64 8, !111, i64 16, !24, i64 24, !13, i64 32, !13, i64 32}
+!111 = !{!"p1 _ZTS16_PostscriptAlias", !6, i64 0}
+!112 = !{!110, !12, i64 0}
+!113 = !{!108, !7, i64 64}
+!114 = !{!108, !24, i64 40}
+!115 = !{!108, !24, i64 48}
+!116 = !{!108, !12, i64 0}
+!117 = !{!23, !24, i64 0}
+!118 = !{!23, !24, i64 8}
+!119 = distinct !{!119, !54}
+!120 = distinct !{!120, !54}
+!121 = !{!31, !24, i64 176}
+!122 = !{!31, !33, i64 184}
+!123 = !{!12, !12, i64 0}
+!124 = distinct !{!124, !54}
+!125 = distinct !{!125, !54}
+!126 = !{!31, !13, i64 152}
+!127 = !{!31, !24, i64 160}

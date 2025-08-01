@@ -298,7 +298,7 @@ _set_cond.exit:                                   ; preds = %145, %26
   %.098.lcssa.i = phi i32 [ %.094, %26 ], [ %0, %145 ]
   %146 = add nsw i32 %.098.lcssa.i, 1
   %147 = icmp slt i32 %146, %0
-  br i1 %147, label %10, label %._crit_edge, !llvm.loop !14
+  br i1 %147, label %10, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
   %148 = load i32, ptr @exit_code, align 4
@@ -429,14 +429,14 @@ _set_cond.exit:                                   ; preds = %145, %26
   %202 = add nuw nsw i32 %.097, 1
   %203 = tail call ptr @list_next(ptr noundef %174) #7
   %.not86 = icmp eq ptr %203, null
-  br i1 %.not86, label %._crit_edge99, label %183, !llvm.loop !15
+  br i1 %.not86, label %._crit_edge99, label %183, !llvm.loop !14
 
 ._crit_edge99:                                    ; preds = %199, %.preheader
   tail call void @list_iterator_reset(ptr noundef %174) #7
   %putchar = tail call i32 @putchar(i32 10)
   %204 = tail call ptr @list_next(ptr noundef %173) #7
   %.not84 = icmp eq ptr %204, null
-  br i1 %.not84, label %._crit_edge101, label %.preheader, !llvm.loop !16
+  br i1 %.not84, label %._crit_edge101, label %.preheader, !llvm.loop !15
 
 ._crit_edge101:                                   ; preds = %._crit_edge99, %172
   tail call void @list_iterator_destroy(ptr noundef %174) #7
@@ -535,10 +535,9 @@ attributes #10 = { nounwind willreturn memory(none) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}

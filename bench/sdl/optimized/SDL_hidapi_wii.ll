@@ -205,9 +205,9 @@ define internal void @HIDAPI_DriverWii_SetDevicePlayerIndex(ptr noundef readonly
   store i32 %2, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %30
 
@@ -361,7 +361,7 @@ HandleInput.exit.us:                              ; preds = %ReadInput.exit.us
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 136
   %66 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %65) #7
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %ReadInput.exit.thread, label %ReadInput.exit.us, !llvm.loop !8
+  br i1 %67, label %ReadInput.exit.thread, label %ReadInput.exit.us, !llvm.loop !7
 
 ReadInput.exit:                                   ; preds = %ReadInput.exit.lr.ph, %HandleInput.exit
   %68 = load ptr, ptr %12, align 8
@@ -424,7 +424,7 @@ ReadInput.exit:                                   ; preds = %ReadInput.exit.lr.p
 
 .sink.split.i.i.i.i:                              ; preds = %92, %91, %91
   %.sink4.i.i.i.i = phi i8 [ 48, %92 ], [ 50, %91 ], [ 50, %91 ]
-  %93 = load i8, ptr %30, align 1, !range !6, !noundef !7
+  %93 = load i8, ptr %30, align 1, !range !5, !noundef !6
   %94 = trunc nuw i8 %93 to i1
   %95 = select i1 %94, i8 53, i8 %.sink4.i.i.i.i
   br label %GetButtonPacketType.exit.i.i.i
@@ -432,7 +432,7 @@ ReadInput.exit:                                   ; preds = %ReadInput.exit.lr.p
 GetButtonPacketType.exit.i.i.i:                   ; preds = %.sink.split.i.i.i.i, %91, %78
   %.0.i.i.i.i = phi i8 [ 61, %91 ], [ %95, %.sink.split.i.i.i.i ], [ 61, %78 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #7
-  %96 = load i8, ptr %31, align 8, !range !6, !noundef !7
+  %96 = load i8, ptr %31, align 8, !range !5, !noundef !6
   %97 = or disjoint i8 %96, 4
   store i8 18, ptr %8, align 1
   store i8 %97, ptr %54, align 1
@@ -511,7 +511,7 @@ HandleStatus.exit.i:                              ; preds = %111, %109, %107, %1
 124:                                              ; preds = %118
   %125 = select i1 %123, i32 1, i32 2
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %125) #7
-  %126 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %126 = load i8, ptr %44, align 1, !range !5, !noundef !6
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %.sink.split.i.i, label %128
 
@@ -525,7 +525,7 @@ HandleStatus.exit.i:                              ; preds = %111, %109, %107, %1
 130:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5) #7
   store i8 23, ptr %5, align 1
-  %131 = load i8, ptr %31, align 8, !range !6, !noundef !7
+  %131 = load i8, ptr %31, align 8, !range !5, !noundef !6
   %132 = or disjoint i8 %131, 4
   store i8 %132, ptr %46, align 1
   store i8 -90, ptr %47, align 1
@@ -547,7 +547,7 @@ ReadRegister.exit.i.i:                            ; preds = %WriteOutput.exit.i.
 
 136:                                              ; preds = %129
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.17, i32 noundef 2) #7
-  %137 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %137 = load i8, ptr %44, align 1, !range !5, !noundef !6
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %.sink.split.i.i
 
@@ -586,7 +586,7 @@ HandleResponse.exit.i:                            ; preds = %140, %114
 
 .sink.split.i.i.i:                                ; preds = %145, %143, %143
   %.sink4.i.i.i = phi i32 [ 48, %145 ], [ 50, %143 ], [ 50, %143 ]
-  %146 = load i8, ptr %30, align 1, !range !6, !noundef !7
+  %146 = load i8, ptr %30, align 1, !range !5, !noundef !6
   %147 = trunc nuw i8 %146 to i1
   %.3.i.i.i = select i1 %147, i32 53, i32 %.sink4.i.i.i
   br label %GetButtonPacketType.exit.i.i
@@ -602,7 +602,7 @@ GetButtonPacketType.exit.i.i:                     ; preds = %.sink.split.i.i.i, 
 150:                                              ; preds = %GetButtonPacketType.exit.i.i
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.18, i32 noundef %.0.i.i17.i) #7
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
-  %151 = load i8, ptr %31, align 8, !range !6, !noundef !7
+  %151 = load i8, ptr %31, align 8, !range !5, !noundef !6
   %152 = or disjoint i8 %151, 4
   store i8 18, ptr %3, align 1
   store i8 %152, ptr %32, align 1
@@ -657,7 +657,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 163:                                              ; preds = %164
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %GetExtensionData.exit.i.i, label %164, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %GetExtensionData.exit.i.i, label %164, !llvm.loop !9
 
 164:                                              ; preds = %163, %162
   %indvars.iv.i.i.i = phi i64 [ 0, %162 ], [ %indvars.iv.next.i.i.i, %163 ]
@@ -680,7 +680,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 170:                                              ; preds = %171
   %indvars.iv.next.i32.i.i = add nuw nsw i64 %indvars.iv.i30.i.i, 1
   %exitcond.not.i33.i.i = icmp eq i64 %indvars.iv.next.i32.i.i, 19
-  br i1 %exitcond.not.i33.i.i, label %GetExtensionData.exit.i.i, label %171, !llvm.loop !10
+  br i1 %exitcond.not.i33.i.i, label %GetExtensionData.exit.i.i, label %171, !llvm.loop !9
 
 171:                                              ; preds = %170, %169
   %indvars.iv.i30.i.i = phi i64 [ 0, %169 ], [ %indvars.iv.next.i32.i.i, %170 ]
@@ -704,7 +704,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 176:                                              ; preds = %177
   %indvars.iv.next.i37.i.i = add nuw nsw i64 %indvars.iv.i35.i.i, 1
   %exitcond.not.i38.i.i = icmp eq i64 %indvars.iv.next.i37.i.i, 16
-  br i1 %exitcond.not.i38.i.i, label %GetExtensionData.exit.i.i, label %177, !llvm.loop !10
+  br i1 %exitcond.not.i38.i.i, label %GetExtensionData.exit.i.i, label %177, !llvm.loop !9
 
 177:                                              ; preds = %176, %175
   %indvars.iv.i35.i.i = phi i64 [ 0, %175 ], [ %indvars.iv.next.i37.i.i, %176 ]
@@ -726,7 +726,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 182:                                              ; preds = %183
   %indvars.iv.next.i42.i.i = add nuw nsw i64 %indvars.iv.i40.i.i, 1
   %exitcond.not.i43.i.i = icmp eq i64 %indvars.iv.next.i42.i.i, 9
-  br i1 %exitcond.not.i43.i.i, label %GetExtensionData.exit.i.i, label %183, !llvm.loop !10
+  br i1 %exitcond.not.i43.i.i, label %GetExtensionData.exit.i.i, label %183, !llvm.loop !9
 
 183:                                              ; preds = %182, %181
   %indvars.iv.i40.i.i = phi i64 [ 0, %181 ], [ %indvars.iv.next.i42.i.i, %182 ]
@@ -748,7 +748,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 188:                                              ; preds = %189
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i45.i.i, 1
   %exitcond.not.i48.i.i = icmp eq i64 %indvars.iv.next.i47.i.i, 6
-  br i1 %exitcond.not.i48.i.i, label %GetExtensionData.exit.i.i, label %189, !llvm.loop !10
+  br i1 %exitcond.not.i48.i.i, label %GetExtensionData.exit.i.i, label %189, !llvm.loop !9
 
 189:                                              ; preds = %188, %187
   %indvars.iv.i45.i.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i47.i.i, %188 ]
@@ -764,7 +764,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 193:                                              ; preds = %.preheader
   %indvars.iv.next.i52.i.i = add nuw nsw i64 %indvars.iv.i50.i.i, 1
   %exitcond.not.i53.i.i = icmp eq i64 %indvars.iv.next.i52.i.i, 21
-  br i1 %exitcond.not.i53.i.i, label %GetExtensionData.exit.i.i, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not.i53.i.i, label %GetExtensionData.exit.i.i, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %158, %193
   %indvars.iv.i50.i.i = phi i64 [ %indvars.iv.next.i52.i.i, %193 ], [ 0, %158 ]
@@ -806,7 +806,7 @@ HandleInput.exit:                                 ; preds = %199, %HandleButtonP
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 136
   %202 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %201) #7
   %203 = icmp sgt i32 %202, 0
-  br i1 %203, label %ReadInput.exit.thread, label %ReadInput.exit, !llvm.loop !11
+  br i1 %203, label %ReadInput.exit.thread, label %ReadInput.exit, !llvm.loop !10
 
 ReadInput.exit.thread:                            ; preds = %ReadInput.exit, %HandleInput.exit, %ReadInput.exit.us, %HandleInput.exit.us, %16
   %.0.i49 = phi i32 [ 0, %16 ], [ 0, %HandleInput.exit.us ], [ %62, %ReadInput.exit.us ], [ 0, %HandleInput.exit ], [ %71, %ReadInput.exit ]
@@ -835,7 +835,7 @@ ReadInput.exit.thread:                            ; preds = %ReadInput.exit, %Ha
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2) #7
   store i8 23, ptr %2, align 1
   %215 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %216 = load i8, ptr %215, align 8, !range !6, !noundef !7
+  %216 = load i8, ptr %215, align 8, !range !5, !noundef !6
   %217 = or disjoint i8 %216, 4
   %218 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %217, ptr %218, align 1
@@ -894,7 +894,7 @@ NeedsPeriodicMotionPlusCheck.exit:                ; preds = %CheckMotionPlusConn
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #7
   store i8 21, ptr %10, align 1
   %241 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %242 = load i8, ptr %241, align 8, !range !6, !noundef !7
+  %242 = load i8, ptr %241, align 8, !range !5, !noundef !6
   %243 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %242, ptr %243, align 1
   %244 = call zeroext i1 @SDL_HIDAPI_LockRumble() #7
@@ -916,7 +916,7 @@ WriteOutput.exit:                                 ; preds = %240, %245
 
 250:                                              ; preds = %248
   %251 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %252 = load i8, ptr %251, align 8, !range !6, !noundef !7
+  %252 = load i8, ptr %251, align 8, !range !5, !noundef !6
   %253 = trunc nuw i8 %252 to i1
   br i1 %253, label %254, label %257
 
@@ -994,7 +994,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
   store i16 100, ptr %25, align 2
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 4
-  br i1 %exitcond49.not.i.i, label %GetButtonPacketType.exit.i.i, label %21, !llvm.loop !12
+  br i1 %exitcond49.not.i.i, label %GetButtonPacketType.exit.i.i, label %21, !llvm.loop !11
 
 26:                                               ; preds = %26, %.preheader33.i.i
   %indvars.iv43.i.i = phi i64 [ 0, %.preheader33.i.i ], [ %indvars.iv.next44.i.i, %26 ]
@@ -1012,12 +1012,12 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
   store i16 %33, ptr %34, align 2
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, 4
-  br i1 %exitcond.not.i.i, label %.sink.split.i.i.i, label %26, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.sink.split.i.i.i, label %26, !llvm.loop !12
 
 .sink.split.i.i.i:                                ; preds = %26, %.preheader35.i.i, %2
   %.sink4.i.i.i = phi i8 [ 50, %.preheader35.i.i ], [ 48, %2 ], [ 50, %26 ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 43
-  %36 = load i8, ptr %35, align 1, !range !6, !noundef !7
+  %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
   %37 = trunc nuw i8 %36 to i1
   %38 = select i1 %37, i8 53, i8 %.sink4.i.i.i
   br label %GetButtonPacketType.exit.i.i
@@ -1026,7 +1026,7 @@ GetButtonPacketType.exit.i.i:                     ; preds = %21, %.sink.split.i.
   %.0.i.i.i = phi i8 [ %38, %.sink.split.i.i.i ], [ 61, %21 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %40 = load i8, ptr %39, align 8, !range !6, !noundef !7
+  %40 = load i8, ptr %39, align 8, !range !5, !noundef !6
   %41 = or disjoint i8 %40, 4
   store i8 18, ptr %5, align 1
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1131,7 +1131,7 @@ NeedsPeriodicMotionPlusCheck.exit.thread:         ; preds = %75, %NeedsPeriodicM
   br label %85
 
 85:                                               ; preds = %84, %81
-  %86 = load i8, ptr %48, align 1, !range !6, !noundef !7
+  %86 = load i8, ptr %48, align 1, !range !5, !noundef !6
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %NeedsPeriodicMotionPlusCheck.exit.thread.thread
 
@@ -1148,7 +1148,7 @@ NeedsPeriodicMotionPlusCheck.exit.thread.thread:  ; preds = %GetMotionPlusState.
   %93 = zext i1 %91 to i8
   store i8 %93, ptr %92, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
-  %94 = load i8, ptr %39, align 8, !range !6, !noundef !7
+  %94 = load i8, ptr %39, align 8, !range !5, !noundef !6
   br i1 %91, label %95, label %110
 
 95:                                               ; preds = %NeedsPeriodicMotionPlusCheck.exit.thread.thread
@@ -1233,7 +1233,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_RumbleJoystick(ptr noundef 
   %8 = or i16 %3, %2
   %9 = icmp ne i16 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = zext i1 %9 to i8
   %.not = icmp eq i8 %11, %12
   br i1 %.not, label %19, label %13
@@ -1289,7 +1289,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_SetJoystickSensorsEnabled(p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 43
-  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = zext i1 %2 to i8
   %.not = icmp eq i8 %8, %9
   br i1 %.not, label %51, label %10
@@ -1297,7 +1297,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_SetJoystickSensorsEnabled(p
 10:                                               ; preds = %3
   store i8 %9, ptr %7, align 1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 41
-  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
   %.not9 = xor i1 %13, true
   %brmerge = or i1 %2, %.not9
@@ -1344,7 +1344,7 @@ ReadInput.exit.us.i.i:                            ; preds = %.split.us.i.i
   br label %.split.us.i.i.backedge
 
 .split.us.i.i.backedge:                           ; preds = %32, %28
-  br label %.split.us.i.i, !llvm.loop !14
+  br label %.split.us.i.i, !llvm.loop !13
 
 .split17.us.i.i:                                  ; preds = %.thread.us.i.i, %ReadInput.exit.us.i.i
   %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
@@ -1369,7 +1369,7 @@ DeactivateMotionPlus.exit:                        ; preds = %28, %.split17.us.i.
 
 .sink.split.i.i:                                  ; preds = %38, %35, %35
   %.sink4.i.i = phi i8 [ 48, %38 ], [ 50, %35 ], [ 50, %35 ]
-  %39 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %39 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %40 = trunc nuw i8 %39 to i1
   %41 = select i1 %40, i8 53, i8 %.sink4.i.i
   br label %GetButtonPacketType.exit.i
@@ -1378,7 +1378,7 @@ GetButtonPacketType.exit.i:                       ; preds = %.sink.split.i.i, %3
   %.0.i.i = phi i8 [ 61, %35 ], [ %41, %.sink.split.i.i ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #7
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %43 = load i8, ptr %42, align 8, !range !6, !noundef !7
+  %43 = load i8, ptr %42, align 8, !range !5, !noundef !6
   %44 = or disjoint i8 %43, 4
   store i8 18, ptr %4, align 1
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -1504,7 +1504,7 @@ define internal fastcc noundef zeroext i1 @ParseExtensionIdentifyResponse(ptr no
   store i16 %35, ptr %1, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !14
 
 .loopexit:                                        ; preds = %29, %20, %24, %21, %13, %5
   %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %21 ], [ false, %24 ], [ true, %20 ], [ true, %29 ]
@@ -1517,7 +1517,7 @@ define internal fastcc noundef zeroext i1 @ReadRegister(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #7
   store i8 23, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %7 = or disjoint i8 %6, 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %7, ptr %8, align 1
@@ -1596,7 +1596,7 @@ ReadInput.exit.us.i:                              ; preds = %.split.us.i
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %48, %44
-  br label %.split.us.i, !llvm.loop !14
+  br label %.split.us.i, !llvm.loop !13
 
 ReadInputSync.exit:                               ; preds = %ReadInput.exit.us.i, %.thread.us.i
   %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
@@ -1634,7 +1634,7 @@ define internal fastcc void @WriteRegister(ptr noundef %0, i32 noundef range(i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %3, i8 0, i64 22, i1 false)
   store i8 22, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %6 = or disjoint i8 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %6, ptr %7, align 1
@@ -1700,7 +1700,7 @@ ReadInput.exit.i:                                 ; preds = %.split.i
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %40, %36, %33
-  br label %.split.i, !llvm.loop !16
+  br label %.split.i, !llvm.loop !15
 
 ReadInputSync.exit:                               ; preds = %ReadInput.exit.i, %.thread.i
   %41 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
@@ -1786,12 +1786,12 @@ define internal fastcc void @HandleButtonData(ptr noundef %0, ptr noundef nonnul
 29:                                               ; preds = %23, %20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %30, label %20, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %30, label %20, !llvm.loop !16
 
 30:                                               ; preds = %29
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next23.i.i, 3
-  br i1 %exitcond25.not.i.i, label %PostPackedButtonData.exit.i, label %.preheader.i.i, !llvm.loop !18
+  br i1 %exitcond25.not.i.i, label %PostPackedButtonData.exit.i, label %.preheader.i.i, !llvm.loop !17
 
 PostPackedButtonData.exit.i:                      ; preds = %30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -1905,7 +1905,7 @@ PostPackedButtonData.exit.i:                      ; preds = %30
 PostStickCalibrated.exit.i:                       ; preds = %98, %57
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %101, label %40, !llvm.loop !19
+  br i1 %exitcond.not.i, label %101, label %40, !llvm.loop !18
 
 101:                                              ; preds = %PostStickCalibrated.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -1981,7 +1981,7 @@ UpdatePowerLevelWiiU.exit.i:                      ; preds = %108, %switch.lookup
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %134 = load i8, ptr %133, align 1, !range !6, !noundef !7
+  %134 = load i8, ptr %133, align 1, !range !5, !noundef !6
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %136, label %HandleMotionPlusData.exit
 
@@ -2055,7 +2055,7 @@ HandleMotionPlusData.exit:                        ; preds = %132, %136
 
 183:                                              ; preds = %129, %HandleMotionPlusData.exit, %115, %112
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %185 = load i8, ptr %184, align 1, !range !6, !noundef !7
+  %185 = load i8, ptr %184, align 1, !range !5, !noundef !6
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %187, label %HandleWiiRemoteButtonData.exit
 
@@ -2090,12 +2090,12 @@ HandleMotionPlusData.exit:                        ; preds = %132, %136
 201:                                              ; preds = %195, %192
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 8
-  br i1 %exitcond.not.i.i45, label %202, label %192, !llvm.loop !17
+  br i1 %exitcond.not.i.i45, label %202, label %192, !llvm.loop !16
 
 202:                                              ; preds = %201
   %indvars.iv.next23.i.i46 = add nuw nsw i64 %indvars.iv22.i.i40, 1
   %exitcond25.not.i.i47 = icmp eq i64 %indvars.iv.next23.i.i46, 2
-  br i1 %exitcond25.not.i.i47, label %HandleWiiRemoteButtonData.exit, label %.preheader.i.i39, !llvm.loop !18
+  br i1 %exitcond25.not.i.i47, label %HandleWiiRemoteButtonData.exit, label %.preheader.i.i39, !llvm.loop !17
 
 HandleWiiRemoteButtonData.exit:                   ; preds = %202, %183
   %203 = load i32, ptr %7, align 4
@@ -2303,7 +2303,7 @@ PostStickCalibrated.exit.i51:                     ; preds = %276, %235
 
 PostStickCalibrated.exit55.i:                     ; preds = %325, %284
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %329 = load i8, ptr %328, align 1, !range !6, !noundef !7
+  %329 = load i8, ptr %328, align 1, !range !5, !noundef !6
   %330 = trunc nuw i8 %329 to i1
   br i1 %330, label %331, label %HandleNunchuckButtonData.exit
 
@@ -2377,7 +2377,7 @@ PostStickCalibrated.exit55.i:                     ; preds = %325, %284
   br label %HandleNunchuckButtonData.exit
 
 HandleNunchuckButtonData.exit:                    ; preds = %360, %PostStickCalibrated.exit55.i, %204, %HandleWiiRemoteButtonData.exit
-  %378 = load i8, ptr %184, align 1, !range !6, !noundef !7
+  %378 = load i8, ptr %184, align 1, !range !5, !noundef !6
   %379 = trunc nuw i8 %378 to i1
   br i1 %379, label %380, label %HandleWiiRemoteButtonDataAsMainController.exit
 
@@ -2412,12 +2412,12 @@ HandleNunchuckButtonData.exit:                    ; preds = %360, %PostStickCali
 394:                                              ; preds = %388, %385
   %indvars.iv.next.i.i59 = add nuw nsw i64 %indvars.iv.i.i56, 1
   %exitcond.not.i.i60 = icmp eq i64 %indvars.iv.next.i.i59, 8
-  br i1 %exitcond.not.i.i60, label %395, label %385, !llvm.loop !17
+  br i1 %exitcond.not.i.i60, label %395, label %385, !llvm.loop !16
 
 395:                                              ; preds = %394
   %indvars.iv.next23.i.i61 = add nuw nsw i64 %indvars.iv22.i.i55, 1
   %exitcond25.not.i.i62 = icmp eq i64 %indvars.iv.next23.i.i61, 2
-  br i1 %exitcond25.not.i.i62, label %HandleWiiRemoteButtonDataAsMainController.exit, label %.preheader.i.i54, !llvm.loop !18
+  br i1 %exitcond25.not.i.i62, label %HandleWiiRemoteButtonDataAsMainController.exit, label %.preheader.i.i54, !llvm.loop !17
 
 396:                                              ; preds = %HandleWiiRemoteButtonData.exit
   %397 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2460,12 +2460,12 @@ HandleNunchuckButtonData.exit:                    ; preds = %360, %PostStickCali
 418:                                              ; preds = %412, %409
   %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i65, 1
   %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, 8
-  br i1 %exitcond.not.i.i69, label %419, label %409, !llvm.loop !17
+  br i1 %exitcond.not.i.i69, label %419, label %409, !llvm.loop !16
 
 419:                                              ; preds = %418
   %indvars.iv.next23.i.i70 = add nuw nsw i64 %indvars.iv22.i.i64, 1
   %exitcond25.not.i.i71 = icmp eq i64 %indvars.iv.next23.i.i70, 2
-  br i1 %exitcond25.not.i.i71, label %PostPackedButtonData.exit.i72, label %.preheader.i.i63, !llvm.loop !18
+  br i1 %exitcond25.not.i.i71, label %PostPackedButtonData.exit.i72, label %.preheader.i.i63, !llvm.loop !17
 
 PostPackedButtonData.exit.i72:                    ; preds = %419
   %420 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -2500,12 +2500,12 @@ PostPackedButtonData.exit.i72:                    ; preds = %419
 434:                                              ; preds = %428, %425
   %indvars.iv.next.i49.i = add nuw nsw i64 %indvars.iv.i46.i, 1
   %exitcond.not.i50.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i50.i, label %435, label %425, !llvm.loop !17
+  br i1 %exitcond.not.i50.i, label %435, label %425, !llvm.loop !16
 
 435:                                              ; preds = %434
   %indvars.iv.next23.i51.i = add nuw nsw i64 %indvars.iv22.i45.i, 1
   %exitcond25.not.i52.i = icmp eq i64 %indvars.iv.next23.i51.i, 2
-  br i1 %exitcond25.not.i52.i, label %PostPackedButtonData.exit53.loopexit.i, label %.preheader.i44.i, !llvm.loop !18
+  br i1 %exitcond25.not.i52.i, label %PostPackedButtonData.exit53.loopexit.i, label %.preheader.i44.i, !llvm.loop !17
 
 PostPackedButtonData.exit53.loopexit.i:           ; preds = %435
   %.pre.i77 = load i64, ptr %404, align 8
@@ -2856,7 +2856,7 @@ PostStickCalibrated.exit61.i:                     ; preds = %602, %561
 HandleWiiRemoteButtonDataAsMainController.exit:   ; preds = %395, %649, %608, %396, %HandleNunchuckButtonData.exit, %HandleWiiRemoteButtonData.exit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %653 = load i8, ptr %652, align 1, !range !6, !noundef !7
+  %653 = load i8, ptr %652, align 1, !range !5, !noundef !6
   %654 = trunc nuw i8 %653 to i1
   br i1 %654, label %655, label %HandleWiiRemoteAccelData.exit
 
@@ -2938,7 +2938,7 @@ define internal void @SDL_PlayerLEDHintChanged(ptr noundef captures(none) %0, pt
   %5 = alloca [2 x i8], align 1
   %6 = tail call zeroext i1 @SDL_GetStringBoolean(ptr noundef %3, i1 noundef zeroext true) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = zext i1 %6 to i8
   %.not = icmp eq i8 %8, %9
   br i1 %.not, label %35, label %10
@@ -2947,7 +2947,7 @@ define internal void @SDL_PlayerLEDHintChanged(ptr noundef captures(none) %0, pt
   store i8 %9, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i8, ptr %11, align 8, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   br i1 %6, label %13, label %29
 
 13:                                               ; preds = %10
@@ -3034,20 +3034,19 @@ attributes #8 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5, !9}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4, !8}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}

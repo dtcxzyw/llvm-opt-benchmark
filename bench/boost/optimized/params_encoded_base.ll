@@ -194,17 +194,17 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #8
   call void @_ZNK5boost4urls6detail16params_iter_impl3keyEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %15, ptr noundef nonnull align 8 dereferenceable(104) %2) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12)
-  %.sroa.01.0.copyload.i = load ptr, ptr %15, align 8, !noalias !17
-  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !17
-  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !17
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %12, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !17
-  %.0.copyload.i = load i24, ptr %12, align 4, !noalias !17
+  %.sroa.01.0.copyload.i = load ptr, ptr %15, align 8, !noalias !16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !16
+  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !16
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %12, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !16
+  %.0.copyload.i = load i24, ptr %12, align 4, !noalias !16
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %14, ptr %.sroa.01.0.copyload.i, i64 %.sroa.2.0.copyload.i, i64 noundef %.sroa.3.0.copyload.i, i24 %.0.copyload.i) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11)
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %11, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !20
-  %.0.copyload.i6 = load i24, ptr %11, align 4, !noalias !20
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %11, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !19
+  %.0.copyload.i6 = load i24, ptr %11, align 4, !noalias !19
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr %.sroa.01.0.copyload.i1, i64 %.sroa.2.0.copyload.i3, i64 noundef %.sroa.3.0.copyload.i5, i24 %.0.copyload.i6) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -222,43 +222,43 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   %38 = load i64, ptr %21, align 8, !tbaa !6
   %39 = load i64, ptr %22, align 8, !tbaa !6
   %40 = icmp eq i64 %38, %39
-  br i1 %40, label %._crit_edge, label %34, !llvm.loop !23
+  br i1 %40, label %._crit_edge, label %34, !llvm.loop !22
 
 41:                                               ; preds = %.lr.ph21, %70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #8
   call void @_ZNK5boost4urls6detail16params_iter_impl3keyEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %18, ptr noundef nonnull align 8 dereferenceable(104) %2) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9)
-  %.sroa.01.0.copyload.i7 = load ptr, ptr %18, align 8, !noalias !24
-  %.sroa.2.0.copyload.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i8, align 8, !noalias !24
-  %.sroa.3.0.copyload.i11 = load i64, ptr %.sroa.3.0..sroa_idx.i10, align 8, !noalias !24
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !24
-  %.0.copyload.i12 = load i24, ptr %9, align 4, !noalias !24
+  %.sroa.01.0.copyload.i7 = load ptr, ptr %18, align 8, !noalias !23
+  %.sroa.2.0.copyload.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i8, align 8, !noalias !23
+  %.sroa.3.0.copyload.i11 = load i64, ptr %.sroa.3.0..sroa_idx.i10, align 8, !noalias !23
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !23
+  %.0.copyload.i12 = load i24, ptr %9, align 4, !noalias !23
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %17, ptr %.sroa.01.0.copyload.i7, i64 %.sroa.2.0.copyload.i9, i64 noundef %.sroa.3.0.copyload.i11, i24 %.0.copyload.i12) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8)
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !27
-  %.0.copyload.i18 = load i24, ptr %8, align 4, !noalias !27
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !26
+  %.0.copyload.i18 = load i24, ptr %8, align 4, !noalias !26
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %19, ptr %.sroa.01.0.copyload.i13, i64 %.sroa.2.0.copyload.i15, i64 noundef %.sroa.3.0.copyload.i17, i24 %.0.copyload.i18) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %42 = load ptr, ptr %17, align 8, !tbaa !33, !noalias !30
-  %43 = load i8, ptr %26, align 8, !tbaa !35, !range !36, !noalias !30, !noundef !37
-  store ptr %42, ptr %6, align 8, !tbaa !38, !alias.scope !30
-  store ptr %42, ptr %27, align 8, !tbaa !40, !alias.scope !30
-  store i8 %43, ptr %28, align 8, !tbaa !41, !alias.scope !30
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  %42 = load ptr, ptr %17, align 8, !tbaa !32, !noalias !29
+  %43 = load i8, ptr %26, align 8, !tbaa !34, !range !35, !noalias !29, !noundef !36
+  store ptr %42, ptr %6, align 8, !tbaa !37, !alias.scope !29
+  store ptr %42, ptr %27, align 8, !tbaa !39, !alias.scope !29
+  store i8 %43, ptr %28, align 8, !tbaa !40, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %44 = load ptr, ptr %19, align 8, !tbaa !33, !noalias !42
-  %45 = load i8, ptr %29, align 8, !tbaa !35, !range !36, !noalias !42, !noundef !37
-  store ptr %44, ptr %7, align 8, !tbaa !38, !alias.scope !42
-  store ptr %44, ptr %30, align 8, !tbaa !40, !alias.scope !42
-  store i8 %45, ptr %31, align 8, !tbaa !41, !alias.scope !42
-  %46 = load i64, ptr %32, align 8, !tbaa !45, !noalias !46
+  call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %44 = load ptr, ptr %19, align 8, !tbaa !32, !noalias !41
+  %45 = load i8, ptr %29, align 8, !tbaa !34, !range !35, !noalias !41, !noundef !36
+  store ptr %44, ptr %7, align 8, !tbaa !37, !alias.scope !41
+  store ptr %44, ptr %30, align 8, !tbaa !39, !alias.scope !41
+  store i8 %45, ptr %31, align 8, !tbaa !40, !alias.scope !41
+  %46 = load i64, ptr %32, align 8, !tbaa !44, !noalias !45
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 %46
-  %48 = load i64, ptr %33, align 8, !tbaa !45, !noalias !49
+  %48 = load i64, ptr %33, align 8, !tbaa !44, !noalias !48
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
   %50 = icmp samesign eq i64 %46, 0
   br i1 %50, label %.loopexit, label %.lr.ph.i5.i
@@ -283,20 +283,20 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   br i1 %.not.i8.i, label %62, label %.thread
 
 62:                                               ; preds = %53
-  %63 = load ptr, ptr %27, align 8, !tbaa !40
-  %64 = load i8, ptr %63, align 1, !tbaa !52
+  %63 = load ptr, ptr %27, align 8, !tbaa !39
+  %64 = load i8, ptr %63, align 1, !tbaa !51
   %.not.i.i10.i = icmp eq i8 %64, 37
   %storemerge.v.i.i11.i = select i1 %.not.i.i10.i, i64 3, i64 1
   %storemerge.i.i12.i = getelementptr inbounds nuw i8, ptr %63, i64 %storemerge.v.i.i11.i
-  store ptr %storemerge.i.i12.i, ptr %27, align 8, !tbaa !40
-  %65 = load ptr, ptr %30, align 8, !tbaa !40
-  %66 = load i8, ptr %65, align 1, !tbaa !52
+  store ptr %storemerge.i.i12.i, ptr %27, align 8, !tbaa !39
+  %65 = load ptr, ptr %30, align 8, !tbaa !39
+  %66 = load i8, ptr %65, align 1, !tbaa !51
   %.not.i6.i13.i = icmp eq i8 %66, 37
   %storemerge.v.i7.i14.i = select i1 %.not.i6.i13.i, i64 3, i64 1
   %storemerge.i8.i15.i = getelementptr inbounds nuw i8, ptr %65, i64 %storemerge.v.i7.i14.i
-  store ptr %storemerge.i8.i15.i, ptr %30, align 8, !tbaa !40
+  store ptr %storemerge.i8.i15.i, ptr %30, align 8, !tbaa !39
   %67 = icmp eq ptr %storemerge.i.i12.i, %47
-  br i1 %67, label %.loopexit, label %.lr.ph.i5.i, !llvm.loop !53
+  br i1 %67, label %.loopexit, label %.lr.ph.i5.i, !llvm.loop !52
 
 .thread:                                          ; preds = %.lr.ph.i5.i, %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
@@ -321,7 +321,7 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   %71 = load i64, ptr %21, align 8, !tbaa !6
   %72 = load i64, ptr %22, align 8, !tbaa !6
   %73 = icmp eq i64 %71, %72
-  br i1 %73, label %._crit_edge, label %41, !llvm.loop !54
+  br i1 %73, label %._crit_edge, label %41, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %34, %37, %.loopexit, %70, %.preheader, %.preheader20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
@@ -408,17 +408,17 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #8
   call void @_ZNK5boost4urls6detail16params_iter_impl3keyEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %15, ptr noundef nonnull align 8 dereferenceable(104) %2) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12)
-  %.sroa.01.0.copyload.i = load ptr, ptr %15, align 8, !noalias !55
-  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !55
-  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !55
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %12, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !55
-  %.0.copyload.i = load i24, ptr %12, align 4, !noalias !55
+  %.sroa.01.0.copyload.i = load ptr, ptr %15, align 8, !noalias !54
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !54
+  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !54
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %12, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !54
+  %.0.copyload.i = load i24, ptr %12, align 4, !noalias !54
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %14, ptr %.sroa.01.0.copyload.i, i64 %.sroa.2.0.copyload.i, i64 noundef %.sroa.3.0.copyload.i, i24 %.0.copyload.i) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11)
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %11, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !58
-  %.0.copyload.i6 = load i24, ptr %11, align 4, !noalias !58
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %11, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !57
+  %.0.copyload.i6 = load i24, ptr %11, align 4, !noalias !57
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr %.sroa.01.0.copyload.i1, i64 %.sroa.2.0.copyload.i3, i64 noundef %.sroa.3.0.copyload.i5, i24 %.0.copyload.i6) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -429,7 +429,7 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
-  br i1 %41, label %42, label %34, !llvm.loop !61
+  br i1 %41, label %42, label %34, !llvm.loop !60
 
 42:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
@@ -445,36 +445,36 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #8
   call void @_ZNK5boost4urls6detail16params_iter_impl3keyEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %18, ptr noundef nonnull align 8 dereferenceable(104) %2) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9)
-  %.sroa.01.0.copyload.i7 = load ptr, ptr %18, align 8, !noalias !62
-  %.sroa.2.0.copyload.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i8, align 8, !noalias !62
-  %.sroa.3.0.copyload.i11 = load i64, ptr %.sroa.3.0..sroa_idx.i10, align 8, !noalias !62
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !62
-  %.0.copyload.i12 = load i24, ptr %9, align 4, !noalias !62
+  %.sroa.01.0.copyload.i7 = load ptr, ptr %18, align 8, !noalias !61
+  %.sroa.2.0.copyload.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i8, align 8, !noalias !61
+  %.sroa.3.0.copyload.i11 = load i64, ptr %.sroa.3.0..sroa_idx.i10, align 8, !noalias !61
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !61
+  %.0.copyload.i12 = load i24, ptr %9, align 4, !noalias !61
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %17, ptr %.sroa.01.0.copyload.i7, i64 %.sroa.2.0.copyload.i9, i64 noundef %.sroa.3.0.copyload.i11, i24 %.0.copyload.i12) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8)
-  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !65
-  %.0.copyload.i18 = load i24, ptr %8, align 4, !noalias !65
+  call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %8, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8, !noalias !64
+  %.0.copyload.i18 = load i24, ptr %8, align 4, !noalias !64
   call void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull align 8 dereferenceable(25) %19, ptr %.sroa.01.0.copyload.i13, i64 %.sroa.2.0.copyload.i15, i64 noundef %.sroa.3.0.copyload.i17, i24 %.0.copyload.i18) #8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %44 = load ptr, ptr %17, align 8, !tbaa !33, !noalias !68
-  %45 = load i8, ptr %26, align 8, !tbaa !35, !range !36, !noalias !68, !noundef !37
-  store ptr %44, ptr %6, align 8, !tbaa !38, !alias.scope !68
-  store ptr %44, ptr %27, align 8, !tbaa !40, !alias.scope !68
-  store i8 %45, ptr %28, align 8, !tbaa !41, !alias.scope !68
+  call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  %44 = load ptr, ptr %17, align 8, !tbaa !32, !noalias !67
+  %45 = load i8, ptr %26, align 8, !tbaa !34, !range !35, !noalias !67, !noundef !36
+  store ptr %44, ptr %6, align 8, !tbaa !37, !alias.scope !67
+  store ptr %44, ptr %27, align 8, !tbaa !39, !alias.scope !67
+  store i8 %45, ptr %28, align 8, !tbaa !40, !alias.scope !67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %46 = load ptr, ptr %19, align 8, !tbaa !33, !noalias !71
-  %47 = load i8, ptr %29, align 8, !tbaa !35, !range !36, !noalias !71, !noundef !37
-  store ptr %46, ptr %7, align 8, !tbaa !38, !alias.scope !71
-  store ptr %46, ptr %30, align 8, !tbaa !40, !alias.scope !71
-  store i8 %47, ptr %31, align 8, !tbaa !41, !alias.scope !71
-  %48 = load i64, ptr %32, align 8, !tbaa !45, !noalias !74
+  call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  %46 = load ptr, ptr %19, align 8, !tbaa !32, !noalias !70
+  %47 = load i8, ptr %29, align 8, !tbaa !34, !range !35, !noalias !70, !noundef !36
+  store ptr %46, ptr %7, align 8, !tbaa !37, !alias.scope !70
+  store ptr %46, ptr %30, align 8, !tbaa !39, !alias.scope !70
+  store i8 %47, ptr %31, align 8, !tbaa !40, !alias.scope !70
+  %48 = load i64, ptr %32, align 8, !tbaa !44, !noalias !73
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
-  %50 = load i64, ptr %33, align 8, !tbaa !45, !noalias !77
+  %50 = load i64, ptr %33, align 8, !tbaa !44, !noalias !76
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
   %52 = icmp samesign eq i64 %48, 0
   br i1 %52, label %._crit_edge.i16.i, label %.lr.ph.i5.i
@@ -493,7 +493,7 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   %55 = load i64, ptr %21, align 8, !tbaa !6
   %56 = load i64, ptr %22, align 8, !tbaa !6
   %57 = icmp eq i64 %55, %56
-  br i1 %57, label %._crit_edge, label %43, !llvm.loop !80
+  br i1 %57, label %._crit_edge, label %43, !llvm.loop !79
 
 .lr.ph.i5.i:                                      ; preds = %43, %69
   %58 = phi ptr [ %storemerge.i8.i15.i, %69 ], [ %46, %43 ]
@@ -515,20 +515,20 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   br i1 %.not.i8.i, label %69, label %75
 
 69:                                               ; preds = %60
-  %70 = load ptr, ptr %27, align 8, !tbaa !40
-  %71 = load i8, ptr %70, align 1, !tbaa !52
+  %70 = load ptr, ptr %27, align 8, !tbaa !39
+  %71 = load i8, ptr %70, align 1, !tbaa !51
   %.not.i.i10.i = icmp eq i8 %71, 37
   %storemerge.v.i.i11.i = select i1 %.not.i.i10.i, i64 3, i64 1
   %storemerge.i.i12.i = getelementptr inbounds nuw i8, ptr %70, i64 %storemerge.v.i.i11.i
-  store ptr %storemerge.i.i12.i, ptr %27, align 8, !tbaa !40
-  %72 = load ptr, ptr %30, align 8, !tbaa !40
-  %73 = load i8, ptr %72, align 1, !tbaa !52
+  store ptr %storemerge.i.i12.i, ptr %27, align 8, !tbaa !39
+  %72 = load ptr, ptr %30, align 8, !tbaa !39
+  %73 = load i8, ptr %72, align 1, !tbaa !51
   %.not.i6.i13.i = icmp eq i8 %73, 37
   %storemerge.v.i7.i14.i = select i1 %.not.i6.i13.i, i64 3, i64 1
   %storemerge.i8.i15.i = getelementptr inbounds nuw i8, ptr %72, i64 %storemerge.v.i7.i14.i
-  store ptr %storemerge.i8.i15.i, ptr %30, align 8, !tbaa !40
+  store ptr %storemerge.i8.i15.i, ptr %30, align 8, !tbaa !39
   %74 = icmp eq ptr %storemerge.i.i12.i, %49
-  br i1 %74, label %._crit_edge.i16.i, label %.lr.ph.i5.i, !llvm.loop !53
+  br i1 %74, label %._crit_edge.i16.i, label %.lr.ph.i5.i, !llvm.loop !52
 
 75:                                               ; preds = %60, %.lr.ph.i5.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
@@ -603,70 +603,69 @@ attributes #8 = { nounwind }
 !11 = !{!"Simple C++ TBAA"}
 !12 = !{!"long", !10, i64 0}
 !13 = !{!"bool", !10, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!19 = distinct !{!19, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!22 = distinct !{!22, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!23 = distinct !{!23, !15, !16}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!26 = distinct !{!26, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!29 = distinct !{!29, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
-!32 = distinct !{!32, !"_ZNK5boost4urls11decode_view5beginEv"}
-!33 = !{!34, !9, i64 0}
-!34 = !{!"_ZTSN5boost4urls11decode_viewE", !9, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
-!35 = !{!34, !13, i64 24}
-!36 = !{i8 0, i8 2}
-!37 = !{}
-!38 = !{!39, !9, i64 0}
-!39 = !{!"_ZTSN5boost4urls11decode_view8iteratorE", !9, i64 0, !9, i64 8, !13, i64 16}
-!40 = !{!39, !9, i64 8}
-!41 = !{!39, !13, i64 16}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK5boost4urls11decode_view5beginEv"}
-!45 = !{!34, !12, i64 8}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
-!48 = distinct !{!48, !"_ZNK5boost4urls11decode_view3endEv"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
-!51 = distinct !{!51, !"_ZNK5boost4urls11decode_view3endEv"}
-!52 = !{!10, !10, i64 0}
-!53 = distinct !{!53, !15, !16}
-!54 = distinct !{!54, !15, !16}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!57 = distinct !{!57, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!60 = distinct !{!60, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!61 = distinct !{!61, !15, !16}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!64 = distinct !{!64, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
-!67 = distinct !{!67, !"_ZNK5boost4urls15pct_string_viewdeEv"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
-!70 = distinct !{!70, !"_ZNK5boost4urls11decode_view5beginEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
-!73 = distinct !{!73, !"_ZNK5boost4urls11decode_view5beginEv"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
-!76 = distinct !{!76, !"_ZNK5boost4urls11decode_view3endEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
-!79 = distinct !{!79, !"_ZNK5boost4urls11decode_view3endEv"}
-!80 = distinct !{!80, !15, !16}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!18 = distinct !{!18, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!21 = distinct !{!21, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!22 = distinct !{!22, !15}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!25 = distinct !{!25, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!28 = distinct !{!28, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
+!31 = distinct !{!31, !"_ZNK5boost4urls11decode_view5beginEv"}
+!32 = !{!33, !9, i64 0}
+!33 = !{!"_ZTSN5boost4urls11decode_viewE", !9, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
+!34 = !{!33, !13, i64 24}
+!35 = !{i8 0, i8 2}
+!36 = !{}
+!37 = !{!38, !9, i64 0}
+!38 = !{!"_ZTSN5boost4urls11decode_view8iteratorE", !9, i64 0, !9, i64 8, !13, i64 16}
+!39 = !{!38, !9, i64 8}
+!40 = !{!38, !13, i64 16}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK5boost4urls11decode_view5beginEv"}
+!44 = !{!33, !12, i64 8}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
+!47 = distinct !{!47, !"_ZNK5boost4urls11decode_view3endEv"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
+!50 = distinct !{!50, !"_ZNK5boost4urls11decode_view3endEv"}
+!51 = !{!10, !10, i64 0}
+!52 = distinct !{!52, !15}
+!53 = distinct !{!53, !15}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!56 = distinct !{!56, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!59 = distinct !{!59, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!60 = distinct !{!60, !15}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!63 = distinct !{!63, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNK5boost4urls15pct_string_viewdeEv: argument 0"}
+!66 = distinct !{!66, !"_ZNK5boost4urls15pct_string_viewdeEv"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
+!69 = distinct !{!69, !"_ZNK5boost4urls11decode_view5beginEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNK5boost4urls11decode_view5beginEv: argument 0"}
+!72 = distinct !{!72, !"_ZNK5boost4urls11decode_view5beginEv"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK5boost4urls11decode_view3endEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK5boost4urls11decode_view3endEv: argument 0"}
+!78 = distinct !{!78, !"_ZNK5boost4urls11decode_view3endEv"}
+!79 = distinct !{!79, !15}

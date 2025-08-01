@@ -2169,7 +2169,7 @@ _ZN7QStringD2Ev.exit77:                           ; preds = %179, %_ZN17QArrayDa
 185:                                              ; preds = %171, %_ZN7QStringD2Ev.exit73
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.critedge95, label %132, !llvm.loop !12
+  br i1 %exitcond109.not, label %.critedge95, label %132, !llvm.loop !11
 
 .critedge95:                                      ; preds = %86, %185, %.preheader96, %.preheader
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #15
@@ -2420,7 +2420,7 @@ define void @_ZN13WirelessFrame13updateWidgetsEv(ptr noundef readonly align 8 ca
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load i8, ptr %32, align 8, !range !13, !noundef !14
+  %33 = load i8, ptr %32, align 8, !range !12, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   %not. = xor i1 %34, true
   %35 = and i1 %7, %not.
@@ -3078,7 +3078,7 @@ _ZN7QStringD2Ev.exit143:                          ; preds = %_ZN7QStringD2Ev.exi
   %235 = load i32, ptr %234, align 8
   %236 = zext i32 %235 to i64
   %237 = icmp samesign ult i64 %indvars.iv.next, %236
-  br i1 %237, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %237, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 238:                                              ; preds = %223, %222
   %.pn70 = phi { ptr, i32 } [ %224, %223 ], [ %.pn68, %222 ]
@@ -3761,7 +3761,7 @@ _ZN7QStringD2Ev.exit235:                          ; preds = %449, %_ZN17QArrayDa
   %454 = load i32, ptr %453, align 8
   %455 = zext i32 %454 to i64
   %456 = icmp samesign ult i64 %indvars.iv.next268, %455
-  br i1 %456, label %98, label %._crit_edge263.invoke, !llvm.loop !16
+  br i1 %456, label %98, label %._crit_edge263.invoke, !llvm.loop !15
 
 457:                                              ; preds = %._crit_edge263.invoke
   %458 = load ptr, ptr %16, align 8
@@ -3928,7 +3928,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %44 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %44, %39
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %34
   %45 = load ptr, ptr %6, align 8
@@ -4105,7 +4105,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -5297,7 +5297,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM13WirelessFrameFvPKciiENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !14
+  %17 = load ptr, ptr %16, align 8, !nosanitize !13
   br label %_ZN9QtPrivate15FunctionPointerIM13WirelessFrameFvPKciiEE4callINS_4ListIJS3_iiEEEvEEvS5_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -5369,12 +5369,11 @@ attributes #17 = { noreturn nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN7QObject7connectIM15MainApplicationFvPKciiEM13WirelessFrameFvS3_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
 !8 = distinct !{!8, !"_ZN7QObject7connectIM15MainApplicationFvPKciiEM13WirelessFrameFvS3_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}

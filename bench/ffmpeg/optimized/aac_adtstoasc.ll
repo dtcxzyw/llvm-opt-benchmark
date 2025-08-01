@@ -1434,7 +1434,7 @@ put_bits.exit118:                                 ; preds = %672, %680, %662
   store i32 %681, ptr %8, align 4, !tbaa !42
   %682 = add nsw i32 %.050124, -1
   %683 = icmp sgt i32 %.050124, 1
-  br i1 %683, label %645, label %._crit_edge126, !llvm.loop !49
+  br i1 %683, label %645, label %._crit_edge126, !llvm.loop !48
 
 ._crit_edge126:                                   ; preds = %put_bits.exit118, %put_bits.exit114
   %684 = phi i32 [ %643, %put_bits.exit114 ], [ %681, %put_bits.exit118 ]
@@ -1495,7 +1495,7 @@ define internal fastcc void @flush_put_bits(ptr noundef nonnull captures(none) %
   %22 = add nsw i32 %21, 8
   store i32 %22, ptr %2, align 4, !tbaa !42
   %23 = icmp slt i32 %21, 24
-  br i1 %23, label %9, label %._crit_edge, !llvm.loop !50
+  br i1 %23, label %9, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %14, %1
   store i32 32, ptr %2, align 4, !tbaa !42
@@ -1637,8 +1637,7 @@ attributes #8 = { noreturn nounwind }
 !43 = !{!39, !13, i64 0}
 !44 = !{!28, !8, i64 13}
 !45 = !{!28, !8, i64 14}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = distinct !{!50, !47, !48}
+!48 = distinct !{!48, !47}
+!49 = distinct !{!49, !47}

@@ -235,7 +235,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit32
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit
   %.029.be = phi ptr [ %.0, %lean_dec.exit ], [ %64, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !12
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -732,7 +732,7 @@ lean_obj_tag.exit:                                ; preds = %18, %21
 36:                                               ; preds = %35, %32
   %37 = phi i32 [ %.pr, %35 ], [ %33, %32 ]
   %38 = icmp sgt i32 %37, 1
-  br i1 %38, label %39, label %41, !prof !14
+  br i1 %38, label %39, label %41, !prof !12
 
 39:                                               ; preds = %36
   %40 = add nsw i32 %37, -1
@@ -3899,9 +3899,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit75
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr @l_Lean_Elab_Tactic_evalInjection___lambda__1___boxed, ptr %144, align 8, !tbaa !9
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  store i16 11, ptr %145, align 8, !tbaa !15
+  store i16 11, ptr %145, align 8, !tbaa !13
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 18
-  store i16 2, ptr %146, align 2, !tbaa !15
+  store i16 2, ptr %146, align 2, !tbaa !13
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store ptr %88, ptr %147, align 8, !tbaa !9
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 32
@@ -6847,9 +6847,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @l_Lean_Elab_Tactic_evalInjections___lambda__1___boxed, ptr %28, align 8, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i16 11, ptr %29, align 8, !tbaa !15
+  store i16 11, ptr %29, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 18
-  store i16 2, ptr %30, align 2, !tbaa !15
+  store i16 2, ptr %30, align 2, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %23, ptr %31, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -7182,9 +7182,9 @@ _init_l_Lean_Elab_Tactic_evalInjection___regBuiltin_Lean_Elab_Tactic_evalInjecti
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr @l_Lean_Elab_Tactic_evalInjection___boxed, ptr %70, align 8, !tbaa !9
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i16 10, ptr %71, align 8, !tbaa !15
+  store i16 10, ptr %71, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 18
-  store i16 0, ptr %72, align 2, !tbaa !15
+  store i16 0, ptr %72, align 2, !tbaa !13
   store ptr %66, ptr @l_Lean_Elab_Tactic_evalInjection___regBuiltin_Lean_Elab_Tactic_evalInjection__1___closed__9, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %66) #4
   %.not = icmp eq i8 %0, 0
@@ -7439,9 +7439,9 @@ _init_l_Lean_Elab_Tactic_evalInjections___regBuiltin_Lean_Elab_Tactic_evalInject
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store ptr @l_Lean_Elab_Tactic_evalInjections___boxed, ptr %171, align 8, !tbaa !9
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  store i16 10, ptr %172, align 8, !tbaa !15
+  store i16 10, ptr %172, align 8, !tbaa !13
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 18
-  store i16 0, ptr %173, align 2, !tbaa !15
+  store i16 0, ptr %173, align 2, !tbaa !13
   store ptr %167, ptr @l_Lean_Elab_Tactic_evalInjections___regBuiltin_Lean_Elab_Tactic_evalInjections__1___closed__4, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %167) #4
   br i1 %.not, label %lean_dec_ref.exit38, label %174
@@ -7733,8 +7733,6 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !7, i64 0}
+!12 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !7, i64 0}

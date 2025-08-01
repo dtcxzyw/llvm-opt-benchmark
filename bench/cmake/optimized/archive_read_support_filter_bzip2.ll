@@ -323,7 +323,7 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
 89:                                               ; preds = %88, %73
   %90 = load i32, ptr %17, align 8, !tbaa !28
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %21, !llvm.loop !34
+  br i1 %91, label %92, label %21
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %11, align 8, !tbaa !23
@@ -438,5 +438,3 @@ attributes #9 = { nounwind allocsize(0) }
 !31 = !{!9, !9, i64 0}
 !32 = !{!21, !15, i64 0}
 !33 = !{!21, !16, i64 8}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}

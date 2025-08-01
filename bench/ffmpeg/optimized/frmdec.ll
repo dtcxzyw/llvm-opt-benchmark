@@ -159,7 +159,7 @@ define internal range(i32 -2147483648, 1) i32 @frm_read_packet(ptr noundef reado
 
 .loopexit:                                        ; preds = %31, %.preheader, %25
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %38, align 4, !tbaa !55
+  store i32 0, ptr %38, align 4, !tbaa !54
   %39 = load i32, ptr %4, align 4, !tbaa !45
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %4, align 4, !tbaa !45
@@ -241,7 +241,6 @@ attributes #3 = { nounwind }
 !49 = !{!"p1 _ZTS8AVStream", !7, i64 0}
 !50 = !{!32, !10, i64 32}
 !51 = !{!32, !6, i64 24}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{!32, !10, i64 36}
+!54 = !{!32, !10, i64 36}

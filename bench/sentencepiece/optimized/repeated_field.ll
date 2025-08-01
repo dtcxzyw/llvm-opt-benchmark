@@ -1921,7 +1921,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE15ExtractSubrangeEiiP
   store i8 %26, ptr %27, align 1, !tbaa !31
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %28 = icmp slt i64 %indvars.iv.next27, %19
-  br i1 %28, label %23, label %._crit_edge, !llvm.loop !38
+  br i1 %28, label %23, label %._crit_edge, !llvm.loop !37
 
 _ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit: ; preds = %21, %._crit_edge, %.loopexit
   ret void
@@ -2263,7 +2263,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE6rbeginEv(ptr dead_on
   %5 = load i32, ptr %1, align 8, !tbaa !3
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !39
+  store ptr %7, ptr %0, align 8, !tbaa !38
   ret void
 }
 
@@ -2274,7 +2274,7 @@ define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIbE6rbeginEv(ptr dead_o
   %5 = load i32, ptr %1, align 8, !tbaa !3
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !42
+  store ptr %7, ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2282,7 +2282,7 @@ define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIbE6rbeginEv(ptr dead_o
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !10
-  store ptr %4, ptr %0, align 8, !tbaa !39
+  store ptr %4, ptr %0, align 8, !tbaa !38
   ret void
 }
 
@@ -2290,7 +2290,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE4rendEv(ptr dead_on_u
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIbE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !10
-  store ptr %4, ptr %0, align 8, !tbaa !42
+  store ptr %4, ptr %0, align 8, !tbaa !41
   ret void
 }
 
@@ -2428,32 +2428,32 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIiEC5EPNS0_5ArenaE) align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !44
+  store i32 0, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !46
+  store i32 0, ptr %3, align 4, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !47
+  store ptr %1, ptr %4, align 8, !tbaa !46
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat($_ZN6google8protobuf13RepeatedFieldIiEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %1, align 8, !tbaa !44
+  %3 = load i32, ptr %1, align 8, !tbaa !43
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3)
-  %6 = load i32, ptr %1, align 8, !tbaa !44
-  %7 = load ptr, ptr %5, align 8, !tbaa !47
-  %8 = load i32, ptr %0, align 8, !tbaa !44
+  %6 = load i32, ptr %1, align 8, !tbaa !43
+  %7 = load ptr, ptr %5, align 8, !tbaa !46
+  %8 = load i32, ptr %0, align 8, !tbaa !43
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %0, align 8, !tbaa !44
+  store i32 %9, ptr %0, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !47
-  %12 = load i32, ptr %1, align 8, !tbaa !44
+  %11 = load ptr, ptr %10, align 8, !tbaa !46
+  %12 = load i32, ptr %1, align 8, !tbaa !43
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %11, i64 %14, i1 false)
@@ -2466,7 +2466,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2ERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !46
+  %4 = load i32, ptr %3, align 4, !tbaa !45
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -2528,12 +2528,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 36:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
   %.018 = phi ptr [ %22, %20 ], [ %35, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
-  store ptr %11, ptr %.018, align 8, !tbaa !48
-  %37 = load i32, ptr %3, align 4, !tbaa !46
-  store i32 %.0.i, ptr %3, align 4, !tbaa !46
+  store ptr %11, ptr %.018, align 8, !tbaa !47
+  %37 = load i32, ptr %3, align 4, !tbaa !45
+  store i32 %.0.i, ptr %3, align 4, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %38, ptr %7, align 8, !tbaa !47
-  %39 = load i32, ptr %0, align 8, !tbaa !44
+  store ptr %38, ptr %7, align 8, !tbaa !46
+  %39 = load i32, ptr %0, align 8, !tbaa !43
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -2547,7 +2547,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8, !tbaa !48
+  %46 = load ptr, ptr %9, align 8, !tbaa !47
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -2564,19 +2564,19 @@ _ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !44
+  %2 = load i32, ptr %0, align 8, !tbaa !43
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
-  %5 = load i32, ptr %0, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  %5 = load i32, ptr %0, align 8, !tbaa !43
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
   %8 = add nsw i32 %5, %1
-  store i32 %8, ptr %0, align 8, !tbaa !44
+  store i32 %8, ptr %0, align 8, !tbaa !43
   ret ptr %7
 }
 
@@ -2591,7 +2591,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE9CopyArrayEPiPKii(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -2600,7 +2600,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE7MutableEi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIiE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -2609,15 +2609,15 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldIiED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !46
+  %3 = load i32, ptr %2, align 4, !tbaa !45
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !48
+  %9 = load ptr, ptr %8, align 8, !tbaa !47
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -2638,7 +2638,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateE
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !48
+  %5 = load ptr, ptr %1, align 8, !tbaa !47
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
@@ -2656,7 +2656,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateE
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3repEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   ret ptr %4
 }
@@ -2667,22 +2667,22 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit, label %3
 
 3:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !44
-  %4 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 0, ptr %0, align 8, !tbaa !43
+  %4 = load i32, ptr %1, align 8, !tbaa !43
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4)
-  %6 = load i32, ptr %1, align 8, !tbaa !44
+  %6 = load i32, ptr %1, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
-  %9 = load i32, ptr %0, align 8, !tbaa !44
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %9 = load i32, ptr %0, align 8, !tbaa !43
   %10 = add nsw i32 %9, %6
-  store i32 %10, ptr %0, align 8, !tbaa !44
+  store i32 %10, ptr %0, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !47
-  %13 = load i32, ptr %1, align 8, !tbaa !44
+  %12 = load ptr, ptr %11, align 8, !tbaa !46
+  %13 = load i32, ptr %1, align 8, !tbaa !43
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr nonnull align 4 %12, i64 %15, i1 false)
@@ -2698,22 +2698,22 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_(ptr n
   br i1 %3, label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !44
-  %5 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 0, ptr %0, align 8, !tbaa !43
+  %5 = load i32, ptr %1, align 8, !tbaa !43
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5)
-  %7 = load i32, ptr %1, align 8, !tbaa !44
+  %7 = load i32, ptr %1, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = load i32, ptr %0, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
+  %10 = load i32, ptr %0, align 8, !tbaa !43
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !44
+  store i32 %11, ptr %0, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
-  %14 = load i32, ptr %1, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
+  %14 = load i32, ptr %1, align 8, !tbaa !43
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %13, i64 %16, i1 false)
@@ -2727,7 +2727,7 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIiEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !46
+  %4 = load i32, ptr %3, align 4, !tbaa !45
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2742,7 +2742,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2EOS2_(ptr noundef n
   br i1 %11, label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8, !tbaa !44
+  %13 = load i32, ptr %1, align 8, !tbaa !43
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit, label %14
 
@@ -2751,14 +2751,14 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2EOS2_(ptr noundef n
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  %15 = load i32, ptr %1, align 8, !tbaa !44
+  %15 = load i32, ptr %1, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !47
-  %18 = load i32, ptr %0, align 8, !tbaa !44
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  %18 = load i32, ptr %0, align 8, !tbaa !43
   %19 = add nsw i32 %18, %15
-  store i32 %19, ptr %0, align 8, !tbaa !44
-  %20 = load ptr, ptr %6, align 8, !tbaa !47
-  %21 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 %19, ptr %0, align 8, !tbaa !43
+  %20 = load ptr, ptr %6, align 8, !tbaa !46
+  %21 = load i32, ptr %1, align 8, !tbaa !43
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %20, i64 %23, i1 false)
@@ -2783,7 +2783,7 @@ _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !46
+  %3 = load i32, ptr %2, align 4, !tbaa !45
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2808,7 +2808,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !46
+  %5 = load i32, ptr %4, align 4, !tbaa !45
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2816,7 +2816,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %.in.i = select i1 %6, ptr %7, ptr %9
   %10 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !46
+  %12 = load i32, ptr %11, align 4, !tbaa !45
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -2827,8 +2827,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not6, label %29, label %18
 
 18:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !44
-  %19 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 0, ptr %0, align 8, !tbaa !43
+  %19 = load i32, ptr %1, align 8, !tbaa !43
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit, label %20
 
@@ -2837,13 +2837,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %20
-  %21 = load i32, ptr %1, align 8, !tbaa !44
-  %22 = load ptr, ptr %7, align 8, !tbaa !47
-  %23 = load i32, ptr %0, align 8, !tbaa !44
+  %21 = load i32, ptr %1, align 8, !tbaa !43
+  %22 = load ptr, ptr %7, align 8, !tbaa !46
+  %23 = load i32, ptr %0, align 8, !tbaa !43
   %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %0, align 8, !tbaa !44
-  %25 = load ptr, ptr %14, align 8, !tbaa !47
-  %26 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 %24, ptr %0, align 8, !tbaa !43
+  %25 = load ptr, ptr %14, align 8, !tbaa !46
+  %26 = load i32, ptr %1, align 8, !tbaa !43
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %25, i64 %28, i1 false)
@@ -2868,7 +2868,7 @@ _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIiE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !44
+  %2 = load i32, ptr %0, align 8, !tbaa !43
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -2876,14 +2876,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIiE5empty
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -2892,7 +2892,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf13RepeatedFieldIiEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -2929,7 +2929,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !44
+  %13 = load i32, ptr %0, align 8, !tbaa !43
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -2956,7 +2956,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !47
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   ret ptr %21
@@ -3031,7 +3031,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !44
+  %13 = load i32, ptr %0, align 8, !tbaa !43
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -3058,7 +3058,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !47
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   ret ptr %21
@@ -3104,54 +3104,54 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE3SetEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %2, align 4, !tbaa !50
+  %4 = load i32, ptr %2, align 4, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i32, ptr %6, i64 %7
-  store i32 %4, ptr %8, align 4, !tbaa !50
+  store i32 %4, ptr %8, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !44
+  %3 = load i32, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !46
+  %5 = load i32, ptr %4, align 4, !tbaa !45
   %6 = icmp eq i32 %3, %5
-  %7 = load i32, ptr %1, align 4, !tbaa !50
+  %7 = load i32, ptr %1, align 4, !tbaa !49
   br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   %9 = add i32 %3, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !47
+  %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  store i32 %7, ptr %13, align 4, !tbaa !50
+  store i32 %7, ptr %13, align 4, !tbaa !49
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = zext i32 %3 to i64
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
-  store i32 %7, ptr %18, align 4, !tbaa !50
+  store i32 %7, ptr %18, align 4, !tbaa !49
   %.pre = add i32 %3, 1
   br label %19
 
 19:                                               ; preds = %14, %8
   %.pre-phi = phi i32 [ %.pre, %14 ], [ %9, %8 ]
-  store i32 %.pre-phi, ptr %0, align 8, !tbaa !44
+  store i32 %.pre-phi, ptr %0, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !44
+  %2 = load i32, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !46
+  %4 = load i32, ptr %3, align 4, !tbaa !45
   %5 = icmp eq i32 %2, %4
   %6 = add i32 %2, 1
   br i1 %5, label %7, label %._crit_edge
@@ -3162,18 +3162,18 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3AddEv(ptr nou
 
 ._crit_edge:                                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = zext i32 %2 to i64
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
-  store i32 %6, ptr %0, align 8, !tbaa !44
+  store i32 %6, ptr %0, align 8, !tbaa !43
   ret ptr %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !44
+  %2 = load i32, ptr %0, align 8, !tbaa !43
   %3 = add nsw i32 %2, -1
-  store i32 %3, ptr %0, align 8, !tbaa !44
+  store i32 %3, ptr %0, align 8, !tbaa !43
   ret void
 }
 
@@ -3186,7 +3186,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE15ExtractSubrangeEiiP
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr i32, ptr %7, i64 %8
@@ -3195,25 +3195,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE15ExtractSubrangeEiiP
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load i32, ptr %gep, align 4, !tbaa !50
+  %10 = load i32, ptr %gep, align 4, !tbaa !49
   %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %10, ptr %11, align 4, !tbaa !50
+  store i32 %10, ptr %11, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !50
 
 .loopexit:                                        ; preds = %4
   br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %12 = add nsw i32 %2, %1
-  %13 = load i32, ptr %0, align 8, !tbaa !44
+  %13 = load i32, ptr %0, align 8, !tbaa !43
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %.loopexit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = sext i32 %12 to i64
   %18 = zext nneg i32 %2 to i64
   br label %22
@@ -3225,21 +3225,21 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE15ExtractSubrangeEiiP
 
 20:                                               ; preds = %._crit_edge
   %21 = sub nsw i32 %.lcssa, %2
-  store i32 %21, ptr %0, align 8, !tbaa !44
+  store i32 %21, ptr %0, align 8, !tbaa !43
   br label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
 22:                                               ; preds = %.lr.ph23, %22
   %indvars.iv26 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next27, %22 ]
   %23 = sub nsw i64 %indvars.iv26, %18
   %24 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv26
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !49
   %26 = getelementptr inbounds i32, ptr %16, i64 %23
-  store i32 %25, ptr %26, align 4, !tbaa !50
+  store i32 %25, ptr %26, align 4, !tbaa !49
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8, !tbaa !44
+  %27 = load i32, ptr %0, align 8, !tbaa !43
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %22, label %._crit_edge, !llvm.loop !52
+  br i1 %29, label %22, label %._crit_edge, !llvm.loop !51
 
 _ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit: ; preds = %20, %._crit_edge, %.loopexit
   ret void
@@ -3247,12 +3247,12 @@ _ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit: ; preds = %20, %._crit_ed
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !44
+  %3 = load i32, ptr %0, align 8, !tbaa !43
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %0, align 8, !tbaa !44
+  store i32 %1, ptr %0, align 8, !tbaa !43
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -3261,31 +3261,31 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !44
+  store i32 0, ptr %0, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !44
+  %3 = load i32, ptr %1, align 8, !tbaa !43
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !44
+  %5 = load i32, ptr %0, align 8, !tbaa !43
   %6 = add nsw i32 %5, %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  %7 = load i32, ptr %1, align 8, !tbaa !44
+  %7 = load i32, ptr %1, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = load i32, ptr %0, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
+  %10 = load i32, ptr %0, align 8, !tbaa !43
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !44
+  store i32 %11, ptr %0, align 8, !tbaa !43
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds i32, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !47
-  %16 = load i32, ptr %1, align 8, !tbaa !44
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %16 = load i32, ptr %1, align 8, !tbaa !43
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %15, i64 %18, i1 false)
@@ -3305,25 +3305,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE9MoveArrayEPiS3_i(ptr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE18AddAlreadyReservedERKi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 4, !tbaa !50
+  %3 = load i32, ptr %1, align 4, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
-  %6 = load i32, ptr %0, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %6 = load i32, ptr %0, align 8, !tbaa !43
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %0, align 8, !tbaa !44
+  store i32 %7, ptr %0, align 8, !tbaa !43
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  store i32 %3, ptr %9, align 4, !tbaa !50
+  store i32 %3, ptr %9, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE18AddAlreadyReservedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
-  %4 = load i32, ptr %0, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = load i32, ptr %0, align 8, !tbaa !43
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %0, align 8, !tbaa !44
+  store i32 %5, ptr %0, align 8, !tbaa !43
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds i32, ptr %3, i64 %6
   ret ptr %7
@@ -3332,31 +3332,31 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE18AddAlreadyRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !46
+  %3 = load i32, ptr %2, align 4, !tbaa !45
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !44
+  %4 = load i32, ptr %0, align 8, !tbaa !43
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
-  %9 = load i32, ptr %0, align 8, !tbaa !44
+  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %9 = load i32, ptr %0, align 8, !tbaa !43
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i32, ptr %8, i64 %10
-  %12 = load i32, ptr %2, align 4, !tbaa !50
+  %12 = load i32, ptr %2, align 4, !tbaa !49
   %.not5.i.i.i = icmp eq i32 %9, %1
   br i1 %.not5.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -3367,27 +3367,27 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE6ResizeEiRKi(ptr noun
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %.lr.ph.i.i.i.preheader ]
-  store i32 %12, ptr %.06.i.i.i, align 4, !tbaa !50
+  store i32 %12, ptr %.06.i.i.i, align 4, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %15, %11
-  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !53
+  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !52
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %6, %3
-  store i32 %1, ptr %0, align 8, !tbaa !44
+  store i32 %1, ptr %0, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
@@ -3399,7 +3399,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE4SwapEPS2_(ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !46
+  %7 = load i32, ptr %6, align 4, !tbaa !45
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -3407,7 +3407,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE4SwapEPS2_(ptr nounde
   %.in.i = select i1 %8, ptr %9, ptr %11
   %12 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !46
+  %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -3426,34 +3426,34 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE4SwapEPS2_(ptr nounde
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %19)
-  %23 = load i32, ptr %0, align 8, !tbaa !44
+  %23 = load i32, ptr %0, align 8, !tbaa !43
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 16, !tbaa !44
+  %25 = load i32, ptr %3, align 16, !tbaa !43
   %26 = add nsw i32 %25, %23
   invoke void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %26)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %24
-  %27 = load i32, ptr %0, align 8, !tbaa !44
+  %27 = load i32, ptr %0, align 8, !tbaa !43
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !47
-  %30 = load i32, ptr %3, align 16, !tbaa !44
+  %29 = load ptr, ptr %28, align 8, !tbaa !46
+  %30 = load i32, ptr %3, align 16, !tbaa !43
   %31 = add nsw i32 %30, %27
-  store i32 %31, ptr %3, align 16, !tbaa !44
+  store i32 %31, ptr %3, align 16, !tbaa !43
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds i32, ptr %29, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !47
+  %34 = load ptr, ptr %9, align 8, !tbaa !46
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
-  store i32 0, ptr %0, align 8, !tbaa !44
-  %37 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 0, ptr %0, align 8, !tbaa !43
+  %37 = load i32, ptr %1, align 8, !tbaa !43
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit, label %38
 
@@ -3462,13 +3462,13 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %22, %.noe
           to label %.noexc11 unwind label %49
 
 .noexc11:                                         ; preds = %38
-  %39 = load i32, ptr %1, align 8, !tbaa !44
-  %40 = load ptr, ptr %9, align 8, !tbaa !47
-  %41 = load i32, ptr %0, align 8, !tbaa !44
+  %39 = load i32, ptr %1, align 8, !tbaa !43
+  %40 = load ptr, ptr %9, align 8, !tbaa !46
+  %41 = load i32, ptr %0, align 8, !tbaa !43
   %42 = add nsw i32 %41, %39
-  store i32 %42, ptr %0, align 8, !tbaa !44
-  %43 = load ptr, ptr %16, align 8, !tbaa !47
-  %44 = load i32, ptr %1, align 8, !tbaa !44
+  store i32 %42, ptr %0, align 8, !tbaa !43
+  %43 = load ptr, ptr %16, align 8, !tbaa !46
+  %44 = load i32, ptr %1, align 8, !tbaa !43
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr nonnull align 4 %43, i64 %46, i1 false)
@@ -3518,44 +3518,44 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE15UnsafeArenaSwapEPS2
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  %10 = load i32, ptr %7, align 4, !tbaa !50
-  %11 = load i32, ptr %9, align 4, !tbaa !50
-  store i32 %11, ptr %7, align 4, !tbaa !50
-  store i32 %10, ptr %9, align 4, !tbaa !50
+  %10 = load i32, ptr %7, align 4, !tbaa !49
+  %11 = load i32, ptr %9, align 4, !tbaa !49
+  store i32 %11, ptr %7, align 4, !tbaa !49
+  store i32 %10, ptr %9, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
-  %4 = load i32, ptr %0, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = load i32, ptr %0, align 8, !tbaa !43
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %3, i64 %5
   ret ptr %6
@@ -3564,8 +3564,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3endEv(ptr nou
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
-  %4 = load i32, ptr %0, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = load i32, ptr %0, align 8, !tbaa !43
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %3, i64 %5
   ret ptr %6
@@ -3574,8 +3574,8 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
-  %4 = load i32, ptr %0, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %4 = load i32, ptr %0, align 8, !tbaa !43
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %3, i64 %5
   ret ptr %6
@@ -3584,45 +3584,45 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE4cendEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
-  %5 = load i32, ptr %1, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  %5 = load i32, ptr %1, align 8, !tbaa !43
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !54
+  store ptr %7, ptr %0, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIiE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.5") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
-  %5 = load i32, ptr %1, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  %5 = load i32, ptr %1, align 8, !tbaa !43
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !57
+  store ptr %7, ptr %0, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
-  store ptr %4, ptr %0, align 8, !tbaa !54
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  store ptr %4, ptr %0, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIiE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.5") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !47
-  store ptr %4, ptr %0, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  store ptr %4, ptr %0, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIiE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !46
+  %3 = load i32, ptr %2, align 4, !tbaa !45
   %4 = icmp sgt i32 %3, 0
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 2
@@ -3634,7 +3634,7 @@ define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIiE26SpaceUsedEx
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !46
+  %3 = load i32, ptr %2, align 4, !tbaa !45
   %4 = icmp sgt i32 %3, 0
   %5 = shl i32 %3, 2
   %6 = add i32 %5, 8
@@ -3646,11 +3646,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE22SpaceUsedEx
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE5eraseEPKi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = load i32, ptr %0, align 8, !tbaa !44
+  %9 = load i32, ptr %0, align 8, !tbaa !43
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %5, i64 %10
   %sext.i = shl i64 %8, 30
@@ -3664,8 +3664,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE5eraseEPKi(ptr
 
 17:                                               ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %3, i64 %16, i1 false)
-  %.pre.i = load i32, ptr %0, align 8, !tbaa !44
-  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !47
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !43
+  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !46
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit.i:               ; preds = %17, %2
@@ -3681,7 +3681,7 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit.i:               ; preds = %17, %2
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 2
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %0, align 8, !tbaa !44
+  store i32 %26, ptr %0, align 8, !tbaa !43
   br label %_ZN6google8protobuf13RepeatedFieldIiE5eraseEPKiS4_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE5eraseEPKiS4_.exit: ; preds = %_ZSt4copyIPKiPiET0_T_S4_S3_.exit.i, %20
@@ -3692,7 +3692,7 @@ _ZN6google8protobuf13RepeatedFieldIiE5eraseEPKiS4_.exit: ; preds = %_ZSt4copyIPK
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE5eraseEPKiS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -3705,7 +3705,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE5eraseEPKiS4_(
   br label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !44
+  %10 = load i32, ptr %0, align 8, !tbaa !43
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %5, i64 %11
   %sext = shl i64 %8, 30
@@ -3719,8 +3719,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE5eraseEPKiS4_(
 
 18:                                               ; preds = %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %14, ptr align 4 %2, i64 %17, i1 false)
-  %.pre = load i32, ptr %0, align 8, !tbaa !44
-  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !47
+  %.pre = load i32, ptr %0, align 8, !tbaa !43
+  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !46
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit:                 ; preds = %9, %18
@@ -3736,7 +3736,7 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit:                 ; preds = %9, %18
   %25 = sub i64 %23, %24
   %26 = lshr exact i64 %25, 2
   %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %0, align 8, !tbaa !44
+  store i32 %27, ptr %0, align 8, !tbaa !43
   br label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit: ; preds = %._ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit_crit_edge, %21, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit
@@ -3754,32 +3754,32 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIjEC5EPNS0_5ArenaE) align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !59
+  store i32 0, ptr %0, align 8, !tbaa !58
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !61
+  store i32 0, ptr %3, align 4, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !61
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat($_ZN6google8protobuf13RepeatedFieldIjEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %1, align 8, !tbaa !59
+  %3 = load i32, ptr %1, align 8, !tbaa !58
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3)
-  %6 = load i32, ptr %1, align 8, !tbaa !59
-  %7 = load ptr, ptr %5, align 8, !tbaa !62
-  %8 = load i32, ptr %0, align 8, !tbaa !59
+  %6 = load i32, ptr %1, align 8, !tbaa !58
+  %7 = load ptr, ptr %5, align 8, !tbaa !61
+  %8 = load i32, ptr %0, align 8, !tbaa !58
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %0, align 8, !tbaa !59
+  store i32 %9, ptr %0, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !62
-  %12 = load i32, ptr %1, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !61
+  %12 = load i32, ptr %1, align 8, !tbaa !58
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %11, i64 %14, i1 false)
@@ -3792,7 +3792,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2ERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !61
+  %4 = load i32, ptr %3, align 4, !tbaa !60
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -3854,12 +3854,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 36:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
   %.018 = phi ptr [ %22, %20 ], [ %35, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
-  store ptr %11, ptr %.018, align 8, !tbaa !63
-  %37 = load i32, ptr %3, align 4, !tbaa !61
-  store i32 %.0.i, ptr %3, align 4, !tbaa !61
+  store ptr %11, ptr %.018, align 8, !tbaa !62
+  %37 = load i32, ptr %3, align 4, !tbaa !60
+  store i32 %.0.i, ptr %3, align 4, !tbaa !60
   %38 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %38, ptr %7, align 8, !tbaa !62
-  %39 = load i32, ptr %0, align 8, !tbaa !59
+  store ptr %38, ptr %7, align 8, !tbaa !61
+  %39 = load i32, ptr %0, align 8, !tbaa !58
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -3873,7 +3873,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8, !tbaa !63
+  %46 = load ptr, ptr %9, align 8, !tbaa !62
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -3890,19 +3890,19 @@ _ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !59
+  %2 = load i32, ptr %0, align 8, !tbaa !58
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
-  %5 = load i32, ptr %0, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %5 = load i32, ptr %0, align 8, !tbaa !58
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
   %8 = add nsw i32 %5, %1
-  store i32 %8, ptr %0, align 8, !tbaa !59
+  store i32 %8, ptr %0, align 8, !tbaa !58
   ret ptr %7
 }
 
@@ -3917,7 +3917,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE9CopyArrayEPjPKji(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -3926,7 +3926,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE7MutableEi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIjE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -3935,15 +3935,15 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldIjED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !61
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !62
+  %7 = load ptr, ptr %6, align 8, !tbaa !61
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !63
+  %9 = load ptr, ptr %8, align 8, !tbaa !62
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -3964,7 +3964,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateE
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !63
+  %5 = load ptr, ptr %1, align 8, !tbaa !62
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
@@ -3982,7 +3982,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateE
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE3repEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   ret ptr %4
 }
@@ -3993,22 +3993,22 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit, label %3
 
 3:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !59
-  %4 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 0, ptr %0, align 8, !tbaa !58
+  %4 = load i32, ptr %1, align 8, !tbaa !58
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4)
-  %6 = load i32, ptr %1, align 8, !tbaa !59
+  %6 = load i32, ptr %1, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
-  %9 = load i32, ptr %0, align 8, !tbaa !59
+  %8 = load ptr, ptr %7, align 8, !tbaa !61
+  %9 = load i32, ptr %0, align 8, !tbaa !58
   %10 = add nsw i32 %9, %6
-  store i32 %10, ptr %0, align 8, !tbaa !59
+  store i32 %10, ptr %0, align 8, !tbaa !58
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = load i32, ptr %1, align 8, !tbaa !59
+  %12 = load ptr, ptr %11, align 8, !tbaa !61
+  %13 = load i32, ptr %1, align 8, !tbaa !58
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr nonnull align 4 %12, i64 %15, i1 false)
@@ -4024,22 +4024,22 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_(ptr n
   br i1 %3, label %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !59
-  %5 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 0, ptr %0, align 8, !tbaa !58
+  %5 = load i32, ptr %1, align 8, !tbaa !58
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5)
-  %7 = load i32, ptr %1, align 8, !tbaa !59
+  %7 = load i32, ptr %1, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !62
-  %10 = load i32, ptr %0, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !61
+  %10 = load i32, ptr %0, align 8, !tbaa !58
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !59
+  store i32 %11, ptr %0, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !62
-  %14 = load i32, ptr %1, align 8, !tbaa !59
+  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %14 = load i32, ptr %1, align 8, !tbaa !58
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %13, i64 %16, i1 false)
@@ -4053,7 +4053,7 @@ _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIjEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !61
+  %4 = load i32, ptr %3, align 4, !tbaa !60
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4068,7 +4068,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2EOS2_(ptr noundef n
   br i1 %11, label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8, !tbaa !59
+  %13 = load i32, ptr %1, align 8, !tbaa !58
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit, label %14
 
@@ -4077,14 +4077,14 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2EOS2_(ptr noundef n
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  %15 = load i32, ptr %1, align 8, !tbaa !59
+  %15 = load i32, ptr %1, align 8, !tbaa !58
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !62
-  %18 = load i32, ptr %0, align 8, !tbaa !59
+  %17 = load ptr, ptr %16, align 8, !tbaa !61
+  %18 = load i32, ptr %0, align 8, !tbaa !58
   %19 = add nsw i32 %18, %15
-  store i32 %19, ptr %0, align 8, !tbaa !59
-  %20 = load ptr, ptr %6, align 8, !tbaa !62
-  %21 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 %19, ptr %0, align 8, !tbaa !58
+  %20 = load ptr, ptr %6, align 8, !tbaa !61
+  %21 = load i32, ptr %1, align 8, !tbaa !58
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %20, i64 %23, i1 false)
@@ -4109,7 +4109,7 @@ _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !61
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4134,7 +4134,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !61
+  %5 = load i32, ptr %4, align 4, !tbaa !60
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -4142,7 +4142,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %.in.i = select i1 %6, ptr %7, ptr %9
   %10 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !61
+  %12 = load i32, ptr %11, align 4, !tbaa !60
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -4153,8 +4153,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not6, label %29, label %18
 
 18:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !59
-  %19 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 0, ptr %0, align 8, !tbaa !58
+  %19 = load i32, ptr %1, align 8, !tbaa !58
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit, label %20
 
@@ -4163,13 +4163,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %20
-  %21 = load i32, ptr %1, align 8, !tbaa !59
-  %22 = load ptr, ptr %7, align 8, !tbaa !62
-  %23 = load i32, ptr %0, align 8, !tbaa !59
+  %21 = load i32, ptr %1, align 8, !tbaa !58
+  %22 = load ptr, ptr %7, align 8, !tbaa !61
+  %23 = load i32, ptr %0, align 8, !tbaa !58
   %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %0, align 8, !tbaa !59
-  %25 = load ptr, ptr %14, align 8, !tbaa !62
-  %26 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 %24, ptr %0, align 8, !tbaa !58
+  %25 = load ptr, ptr %14, align 8, !tbaa !61
+  %26 = load i32, ptr %1, align 8, !tbaa !58
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %25, i64 %28, i1 false)
@@ -4194,7 +4194,7 @@ _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !59
+  %2 = load i32, ptr %0, align 8, !tbaa !58
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -4202,14 +4202,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIjE5empty
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIjEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -4218,7 +4218,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf13RepeatedFieldIjEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   ret ptr %6
@@ -4255,7 +4255,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !59
+  %13 = load i32, ptr %0, align 8, !tbaa !58
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -4282,7 +4282,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !62
+  %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   ret ptr %21
@@ -4357,7 +4357,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !59
+  %13 = load i32, ptr %0, align 8, !tbaa !58
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -4384,7 +4384,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !62
+  %19 = load ptr, ptr %18, align 8, !tbaa !61
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   ret ptr %21
@@ -4430,54 +4430,54 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE3SetEiRKj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %2, align 4, !tbaa !50
+  %4 = load i32, ptr %2, align 4, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !62
+  %6 = load ptr, ptr %5, align 8, !tbaa !61
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i32, ptr %6, i64 %7
-  store i32 %4, ptr %8, align 4, !tbaa !50
+  store i32 %4, ptr %8, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE3AddERKj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !59
+  %3 = load i32, ptr %0, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !61
+  %5 = load i32, ptr %4, align 4, !tbaa !60
   %6 = icmp eq i32 %3, %5
-  %7 = load i32, ptr %1, align 4, !tbaa !50
+  %7 = load i32, ptr %1, align 4, !tbaa !49
   br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   %9 = add i32 %3, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !62
+  %11 = load ptr, ptr %10, align 8, !tbaa !61
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  store i32 %7, ptr %13, align 4, !tbaa !50
+  store i32 %7, ptr %13, align 4, !tbaa !49
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !62
+  %16 = load ptr, ptr %15, align 8, !tbaa !61
   %17 = zext i32 %3 to i64
   %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
-  store i32 %7, ptr %18, align 4, !tbaa !50
+  store i32 %7, ptr %18, align 4, !tbaa !49
   %.pre = add i32 %3, 1
   br label %19
 
 19:                                               ; preds = %14, %8
   %.pre-phi = phi i32 [ %.pre, %14 ], [ %9, %8 ]
-  store i32 %.pre-phi, ptr %0, align 8, !tbaa !59
+  store i32 %.pre-phi, ptr %0, align 8, !tbaa !58
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !59
+  %2 = load i32, ptr %0, align 8, !tbaa !58
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !61
+  %4 = load i32, ptr %3, align 4, !tbaa !60
   %5 = icmp eq i32 %2, %4
   %6 = add i32 %2, 1
   br i1 %5, label %7, label %._crit_edge
@@ -4488,18 +4488,18 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE3AddEv(ptr nou
 
 ._crit_edge:                                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !62
+  %9 = load ptr, ptr %8, align 8, !tbaa !61
   %10 = zext i32 %2 to i64
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
-  store i32 %6, ptr %0, align 8, !tbaa !59
+  store i32 %6, ptr %0, align 8, !tbaa !58
   ret ptr %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !59
+  %2 = load i32, ptr %0, align 8, !tbaa !58
   %3 = add nsw i32 %2, -1
-  store i32 %3, ptr %0, align 8, !tbaa !59
+  store i32 %3, ptr %0, align 8, !tbaa !58
   ret void
 }
 
@@ -4512,7 +4512,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE15ExtractSubrangeEiiP
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !62
+  %7 = load ptr, ptr %6, align 8, !tbaa !61
   %8 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr i32, ptr %7, i64 %8
@@ -4521,25 +4521,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE15ExtractSubrangeEiiP
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load i32, ptr %gep, align 4, !tbaa !50
+  %10 = load i32, ptr %gep, align 4, !tbaa !49
   %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %10, ptr %11, align 4, !tbaa !50
+  store i32 %10, ptr %11, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !64
 
 .loopexit:                                        ; preds = %4
   br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %12 = add nsw i32 %2, %1
-  %13 = load i32, ptr %0, align 8, !tbaa !59
+  %13 = load i32, ptr %0, align 8, !tbaa !58
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %.loopexit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !62
+  %16 = load ptr, ptr %15, align 8, !tbaa !61
   %17 = sext i32 %12 to i64
   %18 = zext nneg i32 %2 to i64
   br label %22
@@ -4551,21 +4551,21 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE15ExtractSubrangeEiiP
 
 20:                                               ; preds = %._crit_edge
   %21 = sub nsw i32 %.lcssa, %2
-  store i32 %21, ptr %0, align 8, !tbaa !59
+  store i32 %21, ptr %0, align 8, !tbaa !58
   br label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
 22:                                               ; preds = %.lr.ph23, %22
   %indvars.iv26 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next27, %22 ]
   %23 = sub nsw i64 %indvars.iv26, %18
   %24 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv26
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !49
   %26 = getelementptr inbounds i32, ptr %16, i64 %23
-  store i32 %25, ptr %26, align 4, !tbaa !50
+  store i32 %25, ptr %26, align 4, !tbaa !49
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8, !tbaa !59
+  %27 = load i32, ptr %0, align 8, !tbaa !58
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %22, label %._crit_edge, !llvm.loop !66
+  br i1 %29, label %22, label %._crit_edge, !llvm.loop !65
 
 _ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit: ; preds = %20, %._crit_edge, %.loopexit
   ret void
@@ -4573,12 +4573,12 @@ _ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit: ; preds = %20, %._crit_ed
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !59
+  %3 = load i32, ptr %0, align 8, !tbaa !58
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %0, align 8, !tbaa !59
+  store i32 %1, ptr %0, align 8, !tbaa !58
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -4587,31 +4587,31 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !59
+  store i32 0, ptr %0, align 8, !tbaa !58
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !59
+  %3 = load i32, ptr %1, align 8, !tbaa !58
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !59
+  %5 = load i32, ptr %0, align 8, !tbaa !58
   %6 = add nsw i32 %5, %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  %7 = load i32, ptr %1, align 8, !tbaa !59
+  %7 = load i32, ptr %1, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !62
-  %10 = load i32, ptr %0, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !61
+  %10 = load i32, ptr %0, align 8, !tbaa !58
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !59
+  store i32 %11, ptr %0, align 8, !tbaa !58
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds i32, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !62
-  %16 = load i32, ptr %1, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
+  %16 = load i32, ptr %1, align 8, !tbaa !58
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %15, i64 %18, i1 false)
@@ -4631,25 +4631,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE9MoveArrayEPjS3_i(ptr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE18AddAlreadyReservedERKj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 4, !tbaa !50
+  %3 = load i32, ptr %1, align 4, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
-  %6 = load i32, ptr %0, align 8, !tbaa !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  %6 = load i32, ptr %0, align 8, !tbaa !58
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %0, align 8, !tbaa !59
+  store i32 %7, ptr %0, align 8, !tbaa !58
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  store i32 %3, ptr %9, align 4, !tbaa !50
+  store i32 %3, ptr %9, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE18AddAlreadyReservedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
-  %4 = load i32, ptr %0, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %4 = load i32, ptr %0, align 8, !tbaa !58
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %0, align 8, !tbaa !59
+  store i32 %5, ptr %0, align 8, !tbaa !58
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds i32, ptr %3, i64 %6
   ret ptr %7
@@ -4658,31 +4658,31 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE18AddAlreadyRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !61
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !59
+  %4 = load i32, ptr %0, align 8, !tbaa !58
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
-  %9 = load i32, ptr %0, align 8, !tbaa !59
+  %8 = load ptr, ptr %7, align 8, !tbaa !61
+  %9 = load i32, ptr %0, align 8, !tbaa !58
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i32, ptr %8, i64 %10
-  %12 = load i32, ptr %2, align 4, !tbaa !50
+  %12 = load i32, ptr %2, align 4, !tbaa !49
   %.not5.i.i.i = icmp eq i32 %9, %1
   br i1 %.not5.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -4693,27 +4693,27 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE6ResizeEiRKj(ptr noun
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %.lr.ph.i.i.i.preheader ]
-  store i32 %12, ptr %.06.i.i.i, align 4, !tbaa !50
+  store i32 %12, ptr %.06.i.i.i, align 4, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %15, %11
-  br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !67
+  br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !66
 
 _ZSt4fillIPjjEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %6, %3
-  store i32 %1, ptr %0, align 8, !tbaa !59
+  store i32 %1, ptr %0, align 8, !tbaa !58
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
@@ -4725,7 +4725,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE4SwapEPS2_(ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !61
+  %7 = load i32, ptr %6, align 4, !tbaa !60
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4733,7 +4733,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE4SwapEPS2_(ptr nounde
   %.in.i = select i1 %8, ptr %9, ptr %11
   %12 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !61
+  %14 = load i32, ptr %13, align 4, !tbaa !60
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -4752,34 +4752,34 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE4SwapEPS2_(ptr nounde
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @_ZN6google8protobuf13RepeatedFieldIjEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %19)
-  %23 = load i32, ptr %0, align 8, !tbaa !59
+  %23 = load i32, ptr %0, align 8, !tbaa !58
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 16, !tbaa !59
+  %25 = load i32, ptr %3, align 16, !tbaa !58
   %26 = add nsw i32 %25, %23
   invoke void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %26)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %24
-  %27 = load i32, ptr %0, align 8, !tbaa !59
+  %27 = load i32, ptr %0, align 8, !tbaa !58
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
-  %30 = load i32, ptr %3, align 16, !tbaa !59
+  %29 = load ptr, ptr %28, align 8, !tbaa !61
+  %30 = load i32, ptr %3, align 16, !tbaa !58
   %31 = add nsw i32 %30, %27
-  store i32 %31, ptr %3, align 16, !tbaa !59
+  store i32 %31, ptr %3, align 16, !tbaa !58
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds i32, ptr %29, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !62
+  %34 = load ptr, ptr %9, align 8, !tbaa !61
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
-  store i32 0, ptr %0, align 8, !tbaa !59
-  %37 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 0, ptr %0, align 8, !tbaa !58
+  %37 = load i32, ptr %1, align 8, !tbaa !58
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit, label %38
 
@@ -4788,13 +4788,13 @@ _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %22, %.noe
           to label %.noexc11 unwind label %49
 
 .noexc11:                                         ; preds = %38
-  %39 = load i32, ptr %1, align 8, !tbaa !59
-  %40 = load ptr, ptr %9, align 8, !tbaa !62
-  %41 = load i32, ptr %0, align 8, !tbaa !59
+  %39 = load i32, ptr %1, align 8, !tbaa !58
+  %40 = load ptr, ptr %9, align 8, !tbaa !61
+  %41 = load i32, ptr %0, align 8, !tbaa !58
   %42 = add nsw i32 %41, %39
-  store i32 %42, ptr %0, align 8, !tbaa !59
-  %43 = load ptr, ptr %16, align 8, !tbaa !62
-  %44 = load i32, ptr %1, align 8, !tbaa !59
+  store i32 %42, ptr %0, align 8, !tbaa !58
+  %43 = load ptr, ptr %16, align 8, !tbaa !61
+  %44 = load i32, ptr %1, align 8, !tbaa !58
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr nonnull align 4 %43, i64 %46, i1 false)
@@ -4844,44 +4844,44 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE15UnsafeArenaSwapEPS2
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds i32, ptr %5, i64 %8
-  %10 = load i32, ptr %7, align 4, !tbaa !50
-  %11 = load i32, ptr %9, align 4, !tbaa !50
-  store i32 %11, ptr %7, align 4, !tbaa !50
-  store i32 %10, ptr %9, align 4, !tbaa !50
+  %10 = load i32, ptr %7, align 4, !tbaa !49
+  %11 = load i32, ptr %9, align 4, !tbaa !49
+  store i32 %11, ptr %7, align 4, !tbaa !49
+  store i32 %10, ptr %9, align 4, !tbaa !49
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
-  %4 = load i32, ptr %0, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %4 = load i32, ptr %0, align 8, !tbaa !58
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %3, i64 %5
   ret ptr %6
@@ -4890,8 +4890,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE3endEv(ptr nou
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
-  %4 = load i32, ptr %0, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %4 = load i32, ptr %0, align 8, !tbaa !58
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %3, i64 %5
   ret ptr %6
@@ -4900,8 +4900,8 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE3endEv(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE4cendEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
-  %4 = load i32, ptr %0, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %4 = load i32, ptr %0, align 8, !tbaa !58
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %3, i64 %5
   ret ptr %6
@@ -4910,45 +4910,45 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIjE4cendEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.9") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
-  %5 = load i32, ptr %1, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %5 = load i32, ptr %1, align 8, !tbaa !58
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !68
+  store ptr %7, ptr %0, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIjE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
-  %5 = load i32, ptr %1, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %5 = load i32, ptr %1, align 8, !tbaa !58
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !70
+  store ptr %7, ptr %0, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.9") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
-  store ptr %4, ptr %0, align 8, !tbaa !68
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  store ptr %4, ptr %0, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIjE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
-  store ptr %4, ptr %0, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  store ptr %4, ptr %0, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIjE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !61
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = icmp sgt i32 %3, 0
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 2
@@ -4960,7 +4960,7 @@ define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIjE26SpaceUsedEx
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !61
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = icmp sgt i32 %3, 0
   %5 = shl i32 %3, 2
   %6 = add i32 %5, 8
@@ -4972,11 +4972,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE22SpaceUsedEx
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE5eraseEPKj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = load i32, ptr %0, align 8, !tbaa !59
+  %9 = load i32, ptr %0, align 8, !tbaa !58
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %5, i64 %10
   %sext.i = shl i64 %8, 30
@@ -4990,8 +4990,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE5eraseEPKj(ptr
 
 17:                                               ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %3, i64 %16, i1 false)
-  %.pre.i = load i32, ptr %0, align 8, !tbaa !59
-  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !62
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !58
+  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !61
   br label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %17, %2
@@ -5007,7 +5007,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %17, %2
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 2
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %0, align 8, !tbaa !59
+  store i32 %26, ptr %0, align 8, !tbaa !58
   br label %_ZN6google8protobuf13RepeatedFieldIjE5eraseEPKjS4_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE5eraseEPKjS4_.exit: ; preds = %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i, %20
@@ -5018,7 +5018,7 @@ _ZN6google8protobuf13RepeatedFieldIjE5eraseEPKjS4_.exit: ; preds = %_ZSt4copyIPK
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE5eraseEPKjS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -5031,7 +5031,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE5eraseEPKjS4_(
   br label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !59
+  %10 = load i32, ptr %0, align 8, !tbaa !58
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %5, i64 %11
   %sext = shl i64 %8, 30
@@ -5045,8 +5045,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE5eraseEPKjS4_(
 
 18:                                               ; preds = %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %14, ptr align 4 %2, i64 %17, i1 false)
-  %.pre = load i32, ptr %0, align 8, !tbaa !59
-  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !62
+  %.pre = load i32, ptr %0, align 8, !tbaa !58
+  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !61
   br label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit
 
 _ZSt4copyIPKjPjET0_T_S4_S3_.exit:                 ; preds = %9, %18
@@ -5062,7 +5062,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit:                 ; preds = %9, %18
   %25 = sub i64 %23, %24
   %26 = lshr exact i64 %25, 2
   %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %0, align 8, !tbaa !59
+  store i32 %27, ptr %0, align 8, !tbaa !58
   br label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit: ; preds = %._ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit_crit_edge, %21, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit
@@ -5080,32 +5080,32 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIlEC5EPNS0_5ArenaE) align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !72
+  store i32 0, ptr %0, align 8, !tbaa !71
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !74
+  store i32 0, ptr %3, align 4, !tbaa !73
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !74
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat($_ZN6google8protobuf13RepeatedFieldIlEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %1, align 8, !tbaa !72
+  %3 = load i32, ptr %1, align 8, !tbaa !71
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3)
-  %6 = load i32, ptr %1, align 8, !tbaa !72
-  %7 = load ptr, ptr %5, align 8, !tbaa !75
-  %8 = load i32, ptr %0, align 8, !tbaa !72
+  %6 = load i32, ptr %1, align 8, !tbaa !71
+  %7 = load ptr, ptr %5, align 8, !tbaa !74
+  %8 = load i32, ptr %0, align 8, !tbaa !71
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %0, align 8, !tbaa !72
+  store i32 %9, ptr %0, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
-  %12 = load i32, ptr %1, align 8, !tbaa !72
+  %11 = load ptr, ptr %10, align 8, !tbaa !74
+  %12 = load i32, ptr %1, align 8, !tbaa !71
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %11, i64 %14, i1 false)
@@ -5118,7 +5118,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2ERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !74
+  %4 = load i32, ptr %3, align 4, !tbaa !73
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -5180,12 +5180,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 36:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
   %.018 = phi ptr [ %22, %20 ], [ %35, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
-  store ptr %11, ptr %.018, align 8, !tbaa !76
-  %37 = load i32, ptr %3, align 4, !tbaa !74
-  store i32 %.0.i, ptr %3, align 4, !tbaa !74
+  store ptr %11, ptr %.018, align 8, !tbaa !75
+  %37 = load i32, ptr %3, align 4, !tbaa !73
+  store i32 %.0.i, ptr %3, align 4, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %38, ptr %7, align 8, !tbaa !75
-  %39 = load i32, ptr %0, align 8, !tbaa !72
+  store ptr %38, ptr %7, align 8, !tbaa !74
+  %39 = load i32, ptr %0, align 8, !tbaa !71
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -5199,7 +5199,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8, !tbaa !76
+  %46 = load ptr, ptr %9, align 8, !tbaa !75
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -5216,19 +5216,19 @@ _ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !72
+  %2 = load i32, ptr %0, align 8, !tbaa !71
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
-  %5 = load i32, ptr %0, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = load i32, ptr %0, align 8, !tbaa !71
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
   %8 = add nsw i32 %5, %1
-  store i32 %8, ptr %0, align 8, !tbaa !72
+  store i32 %8, ptr %0, align 8, !tbaa !71
   ret ptr %7
 }
 
@@ -5243,7 +5243,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE9CopyArrayEPlPKli(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -5252,7 +5252,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE7MutableEi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf13RepeatedFieldIlE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -5261,15 +5261,15 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldIlED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !74
+  %3 = load i32, ptr %2, align 4, !tbaa !73
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %9 = load ptr, ptr %8, align 8, !tbaa !75
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -5290,7 +5290,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateE
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !76
+  %5 = load ptr, ptr %1, align 8, !tbaa !75
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
@@ -5308,7 +5308,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateE
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE3repEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   ret ptr %4
 }
@@ -5319,22 +5319,22 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %3
 
 3:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !72
-  %4 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 0, ptr %0, align 8, !tbaa !71
+  %4 = load i32, ptr %1, align 8, !tbaa !71
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4)
-  %6 = load i32, ptr %1, align 8, !tbaa !72
+  %6 = load i32, ptr %1, align 8, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
-  %9 = load i32, ptr %0, align 8, !tbaa !72
+  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %9 = load i32, ptr %0, align 8, !tbaa !71
   %10 = add nsw i32 %9, %6
-  store i32 %10, ptr %0, align 8, !tbaa !72
+  store i32 %10, ptr %0, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !75
-  %13 = load i32, ptr %1, align 8, !tbaa !72
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
+  %13 = load i32, ptr %1, align 8, !tbaa !71
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %12, i64 %15, i1 false)
@@ -5350,22 +5350,22 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_(ptr n
   br i1 %3, label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !72
-  %5 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 0, ptr %0, align 8, !tbaa !71
+  %5 = load i32, ptr %1, align 8, !tbaa !71
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5)
-  %7 = load i32, ptr %1, align 8, !tbaa !72
+  %7 = load i32, ptr %1, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
-  %10 = load i32, ptr %0, align 8, !tbaa !72
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = load i32, ptr %0, align 8, !tbaa !71
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !72
+  store i32 %11, ptr %0, align 8, !tbaa !71
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !75
-  %14 = load i32, ptr %1, align 8, !tbaa !72
+  %13 = load ptr, ptr %12, align 8, !tbaa !74
+  %14 = load i32, ptr %1, align 8, !tbaa !71
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %13, i64 %16, i1 false)
@@ -5379,7 +5379,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIlEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !74
+  %4 = load i32, ptr %3, align 4, !tbaa !73
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -5394,7 +5394,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2EOS2_(ptr noundef n
   br i1 %11, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8, !tbaa !72
+  %13 = load i32, ptr %1, align 8, !tbaa !71
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %14
 
@@ -5403,14 +5403,14 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2EOS2_(ptr noundef n
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  %15 = load i32, ptr %1, align 8, !tbaa !72
+  %15 = load i32, ptr %1, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !75
-  %18 = load i32, ptr %0, align 8, !tbaa !72
+  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %18 = load i32, ptr %0, align 8, !tbaa !71
   %19 = add nsw i32 %18, %15
-  store i32 %19, ptr %0, align 8, !tbaa !72
-  %20 = load ptr, ptr %6, align 8, !tbaa !75
-  %21 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 %19, ptr %0, align 8, !tbaa !71
+  %20 = load ptr, ptr %6, align 8, !tbaa !74
+  %21 = load i32, ptr %1, align 8, !tbaa !71
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %20, i64 %23, i1 false)
@@ -5435,7 +5435,7 @@ _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !74
+  %3 = load i32, ptr %2, align 4, !tbaa !73
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -5460,7 +5460,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !74
+  %5 = load i32, ptr %4, align 4, !tbaa !73
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5468,7 +5468,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %.in.i = select i1 %6, ptr %7, ptr %9
   %10 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !74
+  %12 = load i32, ptr %11, align 4, !tbaa !73
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -5479,8 +5479,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not6, label %29, label %18
 
 18:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !72
-  %19 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 0, ptr %0, align 8, !tbaa !71
+  %19 = load i32, ptr %1, align 8, !tbaa !71
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %20
 
@@ -5489,13 +5489,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %20
-  %21 = load i32, ptr %1, align 8, !tbaa !72
-  %22 = load ptr, ptr %7, align 8, !tbaa !75
-  %23 = load i32, ptr %0, align 8, !tbaa !72
+  %21 = load i32, ptr %1, align 8, !tbaa !71
+  %22 = load ptr, ptr %7, align 8, !tbaa !74
+  %23 = load i32, ptr %0, align 8, !tbaa !71
   %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %0, align 8, !tbaa !72
-  %25 = load ptr, ptr %14, align 8, !tbaa !75
-  %26 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 %24, ptr %0, align 8, !tbaa !71
+  %25 = load ptr, ptr %14, align 8, !tbaa !74
+  %26 = load i32, ptr %1, align 8, !tbaa !71
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr nonnull align 8 %25, i64 %28, i1 false)
@@ -5520,7 +5520,7 @@ _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIlE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !72
+  %2 = load i32, ptr %0, align 8, !tbaa !71
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -5528,14 +5528,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIlE5empty
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf13RepeatedFieldIlEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -5544,7 +5544,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuf13RepeatedFieldIlEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -5581,7 +5581,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !72
+  %13 = load i32, ptr %0, align 8, !tbaa !71
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -5608,7 +5608,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !75
+  %19 = load ptr, ptr %18, align 8, !tbaa !74
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i64, ptr %19, i64 %20
   ret ptr %21
@@ -5683,7 +5683,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !72
+  %13 = load i32, ptr %0, align 8, !tbaa !71
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -5710,7 +5710,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !75
+  %19 = load ptr, ptr %18, align 8, !tbaa !74
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i64, ptr %19, i64 %20
   ret ptr %21
@@ -5756,54 +5756,54 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE3SetEiRKl(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %2, align 8, !tbaa !78
+  %4 = load i64, ptr %2, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i64, ptr %6, i64 %7
-  store i64 %4, ptr %8, align 8, !tbaa !78
+  store i64 %4, ptr %8, align 8, !tbaa !77
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE3AddERKl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !72
+  %3 = load i32, ptr %0, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !74
+  %5 = load i32, ptr %4, align 4, !tbaa !73
   %6 = icmp eq i32 %3, %5
-  %7 = load i64, ptr %1, align 8, !tbaa !78
+  %7 = load i64, ptr %1, align 8, !tbaa !77
   br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   %9 = add i32 %3, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
-  store i64 %7, ptr %13, align 8, !tbaa !78
+  store i64 %7, ptr %13, align 8, !tbaa !77
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !75
+  %16 = load ptr, ptr %15, align 8, !tbaa !74
   %17 = zext i32 %3 to i64
   %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
-  store i64 %7, ptr %18, align 8, !tbaa !78
+  store i64 %7, ptr %18, align 8, !tbaa !77
   %.pre = add i32 %3, 1
   br label %19
 
 19:                                               ; preds = %14, %8
   %.pre-phi = phi i32 [ %.pre, %14 ], [ %9, %8 ]
-  store i32 %.pre-phi, ptr %0, align 8, !tbaa !72
+  store i32 %.pre-phi, ptr %0, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !72
+  %2 = load i32, ptr %0, align 8, !tbaa !71
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !74
+  %4 = load i32, ptr %3, align 4, !tbaa !73
   %5 = icmp eq i32 %2, %4
   %6 = add i32 %2, 1
   br i1 %5, label %7, label %._crit_edge
@@ -5814,18 +5814,18 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE3AddEv(ptr nou
 
 ._crit_edge:                                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = zext i32 %2 to i64
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
-  store i32 %6, ptr %0, align 8, !tbaa !72
+  store i32 %6, ptr %0, align 8, !tbaa !71
   ret ptr %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !72
+  %2 = load i32, ptr %0, align 8, !tbaa !71
   %3 = add nsw i32 %2, -1
-  store i32 %3, ptr %0, align 8, !tbaa !72
+  store i32 %3, ptr %0, align 8, !tbaa !71
   ret void
 }
 
@@ -5838,7 +5838,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE15ExtractSubrangeEiiP
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr i64, ptr %7, i64 %8
@@ -5847,25 +5847,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE15ExtractSubrangeEiiP
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load i64, ptr %gep, align 8, !tbaa !78
+  %10 = load i64, ptr %gep, align 8, !tbaa !77
   %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  store i64 %10, ptr %11, align 8, !tbaa !78
+  store i64 %10, ptr %11, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !78
 
 .loopexit:                                        ; preds = %4
   br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %12 = add nsw i32 %2, %1
-  %13 = load i32, ptr %0, align 8, !tbaa !72
+  %13 = load i32, ptr %0, align 8, !tbaa !71
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %.loopexit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !75
+  %16 = load ptr, ptr %15, align 8, !tbaa !74
   %17 = sext i32 %12 to i64
   %18 = zext nneg i32 %2 to i64
   %19 = sext i32 %13 to i64
@@ -5877,19 +5877,19 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE15ExtractSubrangeEiiP
 
 21:                                               ; preds = %._crit_edge
   %22 = sub nsw i32 %13, %2
-  store i32 %22, ptr %0, align 8, !tbaa !72
+  store i32 %22, ptr %0, align 8, !tbaa !71
   br label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
 23:                                               ; preds = %.lr.ph23, %23
   %indvars.iv26 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next27, %23 ]
   %24 = sub nsw i64 %indvars.iv26, %18
   %25 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv26
-  %26 = load i64, ptr %25, align 8, !tbaa !78
+  %26 = load i64, ptr %25, align 8, !tbaa !77
   %27 = getelementptr inbounds i64, ptr %16, i64 %24
-  store i64 %26, ptr %27, align 8, !tbaa !78
+  store i64 %26, ptr %27, align 8, !tbaa !77
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %28 = icmp slt i64 %indvars.iv.next27, %19
-  br i1 %28, label %23, label %._crit_edge, !llvm.loop !80
+  br i1 %28, label %23, label %._crit_edge, !llvm.loop !79
 
 _ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit: ; preds = %21, %._crit_edge, %.loopexit
   ret void
@@ -5897,12 +5897,12 @@ _ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit: ; preds = %21, %._crit_ed
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !72
+  %3 = load i32, ptr %0, align 8, !tbaa !71
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %0, align 8, !tbaa !72
+  store i32 %1, ptr %0, align 8, !tbaa !71
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -5911,31 +5911,31 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !72
+  store i32 0, ptr %0, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !72
+  %3 = load i32, ptr %1, align 8, !tbaa !71
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !72
+  %5 = load i32, ptr %0, align 8, !tbaa !71
   %6 = add nsw i32 %5, %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  %7 = load i32, ptr %1, align 8, !tbaa !72
+  %7 = load i32, ptr %1, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
-  %10 = load i32, ptr %0, align 8, !tbaa !72
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = load i32, ptr %0, align 8, !tbaa !71
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !72
+  store i32 %11, ptr %0, align 8, !tbaa !71
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds i64, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !75
-  %16 = load i32, ptr %1, align 8, !tbaa !72
+  %15 = load ptr, ptr %14, align 8, !tbaa !74
+  %16 = load i32, ptr %1, align 8, !tbaa !71
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %15, i64 %18, i1 false)
@@ -5955,25 +5955,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE9MoveArrayEPlS3_i(ptr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE18AddAlreadyReservedERKl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i64, ptr %1, align 8, !tbaa !78
+  %3 = load i64, ptr %1, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
-  %6 = load i32, ptr %0, align 8, !tbaa !72
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %6 = load i32, ptr %0, align 8, !tbaa !71
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %0, align 8, !tbaa !72
+  store i32 %7, ptr %0, align 8, !tbaa !71
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
-  store i64 %3, ptr %9, align 8, !tbaa !78
+  store i64 %3, ptr %9, align 8, !tbaa !77
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE18AddAlreadyReservedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
-  %4 = load i32, ptr %0, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = load i32, ptr %0, align 8, !tbaa !71
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %0, align 8, !tbaa !72
+  store i32 %5, ptr %0, align 8, !tbaa !71
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds i64, ptr %3, i64 %6
   ret ptr %7
@@ -5982,31 +5982,31 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE18AddAlreadyRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !74
+  %3 = load i32, ptr %2, align 4, !tbaa !73
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !72
+  %4 = load i32, ptr %0, align 8, !tbaa !71
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPllEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
-  %9 = load i32, ptr %0, align 8, !tbaa !72
+  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %9 = load i32, ptr %0, align 8, !tbaa !71
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i64, ptr %8, i64 %10
-  %12 = load i64, ptr %2, align 8, !tbaa !78
+  %12 = load i64, ptr %2, align 8, !tbaa !77
   %.not5.i.i.i = icmp eq i32 %9, %1
   br i1 %.not5.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -6017,27 +6017,27 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE6ResizeEiRKl(ptr noun
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %.lr.ph.i.i.i.preheader ]
-  store i64 %12, ptr %.06.i.i.i, align 8, !tbaa !78
+  store i64 %12, ptr %.06.i.i.i, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %11
-  br i1 %.not.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !81
+  br i1 %.not.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !80
 
 _ZSt4fillIPllEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %6, %3
-  store i32 %1, ptr %0, align 8, !tbaa !72
+  store i32 %1, ptr %0, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
@@ -6049,7 +6049,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !74
+  %7 = load i32, ptr %6, align 4, !tbaa !73
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -6057,7 +6057,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr nounde
   %.in.i = select i1 %8, ptr %9, ptr %11
   %12 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !74
+  %14 = load i32, ptr %13, align 4, !tbaa !73
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -6076,34 +6076,34 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr nounde
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @_ZN6google8protobuf13RepeatedFieldIlEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %19)
-  %23 = load i32, ptr %0, align 8, !tbaa !72
+  %23 = load i32, ptr %0, align 8, !tbaa !71
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 16, !tbaa !72
+  %25 = load i32, ptr %3, align 16, !tbaa !71
   %26 = add nsw i32 %25, %23
   invoke void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %26)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %24
-  %27 = load i32, ptr %0, align 8, !tbaa !72
+  %27 = load i32, ptr %0, align 8, !tbaa !71
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !75
-  %30 = load i32, ptr %3, align 16, !tbaa !72
+  %29 = load ptr, ptr %28, align 8, !tbaa !74
+  %30 = load i32, ptr %3, align 16, !tbaa !71
   %31 = add nsw i32 %30, %27
-  store i32 %31, ptr %3, align 16, !tbaa !72
+  store i32 %31, ptr %3, align 16, !tbaa !71
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds i64, ptr %29, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !75
+  %34 = load ptr, ptr %9, align 8, !tbaa !74
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 8 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
-  store i32 0, ptr %0, align 8, !tbaa !72
-  %37 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 0, ptr %0, align 8, !tbaa !71
+  %37 = load i32, ptr %1, align 8, !tbaa !71
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %38
 
@@ -6112,13 +6112,13 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %.noe
           to label %.noexc11 unwind label %49
 
 .noexc11:                                         ; preds = %38
-  %39 = load i32, ptr %1, align 8, !tbaa !72
-  %40 = load ptr, ptr %9, align 8, !tbaa !75
-  %41 = load i32, ptr %0, align 8, !tbaa !72
+  %39 = load i32, ptr %1, align 8, !tbaa !71
+  %40 = load ptr, ptr %9, align 8, !tbaa !74
+  %41 = load i32, ptr %0, align 8, !tbaa !71
   %42 = add nsw i32 %41, %39
-  store i32 %42, ptr %0, align 8, !tbaa !72
-  %43 = load ptr, ptr %16, align 8, !tbaa !75
-  %44 = load i32, ptr %1, align 8, !tbaa !72
+  store i32 %42, ptr %0, align 8, !tbaa !71
+  %43 = load ptr, ptr %16, align 8, !tbaa !74
+  %44 = load i32, ptr %1, align 8, !tbaa !71
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %43, i64 %46, i1 false)
@@ -6168,44 +6168,44 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i64, ptr %5, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
-  %10 = load i64, ptr %7, align 8, !tbaa !78
-  %11 = load i64, ptr %9, align 8, !tbaa !78
-  store i64 %11, ptr %7, align 8, !tbaa !78
-  store i64 %10, ptr %9, align 8, !tbaa !78
+  %10 = load i64, ptr %7, align 8, !tbaa !77
+  %11 = load i64, ptr %9, align 8, !tbaa !77
+  store i64 %11, ptr %7, align 8, !tbaa !77
+  store i64 %10, ptr %9, align 8, !tbaa !77
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
-  %4 = load i32, ptr %0, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = load i32, ptr %0, align 8, !tbaa !71
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i64, ptr %3, i64 %5
   ret ptr %6
@@ -6214,8 +6214,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE3endEv(ptr nou
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
-  %4 = load i32, ptr %0, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = load i32, ptr %0, align 8, !tbaa !71
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i64, ptr %3, i64 %5
   ret ptr %6
@@ -6224,8 +6224,8 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE3endEv(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE4cendEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
-  %4 = load i32, ptr %0, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = load i32, ptr %0, align 8, !tbaa !71
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i64, ptr %3, i64 %5
   ret ptr %6
@@ -6234,45 +6234,45 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE4cendEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
-  %5 = load i32, ptr %1, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = load i32, ptr %1, align 8, !tbaa !71
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !82
+  store ptr %7, ptr %0, align 8, !tbaa !81
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIlE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
-  %5 = load i32, ptr %1, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = load i32, ptr %1, align 8, !tbaa !71
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !85
+  store ptr %7, ptr %0, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
-  store ptr %4, ptr %0, align 8, !tbaa !82
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  store ptr %4, ptr %0, align 8, !tbaa !81
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIlE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
-  store ptr %4, ptr %0, align 8, !tbaa !85
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  store ptr %4, ptr %0, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIlE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !74
+  %3 = load i32, ptr %2, align 4, !tbaa !73
   %4 = icmp sgt i32 %3, 0
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 3
@@ -6284,7 +6284,7 @@ define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIlE26SpaceUsedEx
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !74
+  %3 = load i32, ptr %2, align 4, !tbaa !73
   %4 = icmp sgt i32 %3, 0
   %5 = shl i32 %3, 3
   %6 = add i32 %5, 8
@@ -6296,11 +6296,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE22SpaceUsedEx
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE5eraseEPKl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = load i32, ptr %0, align 8, !tbaa !72
+  %9 = load i32, ptr %0, align 8, !tbaa !71
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i64, ptr %5, i64 %10
   %sext.i = shl i64 %8, 29
@@ -6314,8 +6314,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE5eraseEPKl(ptr
 
 17:                                               ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %3, i64 %16, i1 false)
-  %.pre.i = load i32, ptr %0, align 8, !tbaa !72
-  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !75
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !71
+  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !74
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKlPlET0_T_S4_S3_.exit.i:               ; preds = %17, %2
@@ -6331,7 +6331,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit.i:               ; preds = %17, %2
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 3
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %0, align 8, !tbaa !72
+  store i32 %26, ptr %0, align 8, !tbaa !71
   br label %_ZN6google8protobuf13RepeatedFieldIlE5eraseEPKlS4_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE5eraseEPKlS4_.exit: ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit.i, %20
@@ -6342,7 +6342,7 @@ _ZN6google8protobuf13RepeatedFieldIlE5eraseEPKlS4_.exit: ; preds = %_ZSt4copyIPK
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE5eraseEPKlS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -6355,7 +6355,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE5eraseEPKlS4_(
   br label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !72
+  %10 = load i32, ptr %0, align 8, !tbaa !71
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i64, ptr %5, i64 %11
   %sext = shl i64 %8, 29
@@ -6369,8 +6369,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE5eraseEPKlS4_(
 
 18:                                               ; preds = %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %2, i64 %17, i1 false)
-  %.pre = load i32, ptr %0, align 8, !tbaa !72
-  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !75
+  %.pre = load i32, ptr %0, align 8, !tbaa !71
+  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !74
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
 
 _ZSt4copyIPKlPlET0_T_S4_S3_.exit:                 ; preds = %9, %18
@@ -6386,7 +6386,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit:                 ; preds = %9, %18
   %25 = sub i64 %23, %24
   %26 = lshr exact i64 %25, 3
   %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %0, align 8, !tbaa !72
+  store i32 %27, ptr %0, align 8, !tbaa !71
   br label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit: ; preds = %._ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit_crit_edge, %21, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
@@ -6404,32 +6404,32 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldImEC5EPNS0_5ArenaE) align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !87
+  store i32 0, ptr %0, align 8, !tbaa !86
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !89
+  store i32 0, ptr %3, align 4, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !90
+  store ptr %1, ptr %4, align 8, !tbaa !89
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat($_ZN6google8protobuf13RepeatedFieldImEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %1, align 8, !tbaa !87
+  %3 = load i32, ptr %1, align 8, !tbaa !86
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3)
-  %6 = load i32, ptr %1, align 8, !tbaa !87
-  %7 = load ptr, ptr %5, align 8, !tbaa !90
-  %8 = load i32, ptr %0, align 8, !tbaa !87
+  %6 = load i32, ptr %1, align 8, !tbaa !86
+  %7 = load ptr, ptr %5, align 8, !tbaa !89
+  %8 = load i32, ptr %0, align 8, !tbaa !86
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %0, align 8, !tbaa !87
+  store i32 %9, ptr %0, align 8, !tbaa !86
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
-  %12 = load i32, ptr %1, align 8, !tbaa !87
+  %11 = load ptr, ptr %10, align 8, !tbaa !89
+  %12 = load i32, ptr %1, align 8, !tbaa !86
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %11, i64 %14, i1 false)
@@ -6442,7 +6442,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2ERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !89
+  %4 = load i32, ptr %3, align 4, !tbaa !88
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -6504,12 +6504,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 36:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
   %.018 = phi ptr [ %22, %20 ], [ %35, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
-  store ptr %11, ptr %.018, align 8, !tbaa !91
-  %37 = load i32, ptr %3, align 4, !tbaa !89
-  store i32 %.0.i, ptr %3, align 4, !tbaa !89
+  store ptr %11, ptr %.018, align 8, !tbaa !90
+  %37 = load i32, ptr %3, align 4, !tbaa !88
+  store i32 %.0.i, ptr %3, align 4, !tbaa !88
   %38 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %38, ptr %7, align 8, !tbaa !90
-  %39 = load i32, ptr %0, align 8, !tbaa !87
+  store ptr %38, ptr %7, align 8, !tbaa !89
+  %39 = load i32, ptr %0, align 8, !tbaa !86
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -6523,7 +6523,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8, !tbaa !91
+  %46 = load ptr, ptr %9, align 8, !tbaa !90
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -6540,19 +6540,19 @@ _ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !87
+  %2 = load i32, ptr %0, align 8, !tbaa !86
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
-  %5 = load i32, ptr %0, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  %5 = load i32, ptr %0, align 8, !tbaa !86
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
   %8 = add nsw i32 %5, %1
-  store i32 %8, ptr %0, align 8, !tbaa !87
+  store i32 %8, ptr %0, align 8, !tbaa !86
   ret ptr %7
 }
 
@@ -6567,7 +6567,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE9CopyArrayEPmPKmi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -6576,7 +6576,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE7MutableEi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf13RepeatedFieldImE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -6585,15 +6585,15 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldImED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !89
+  %3 = load i32, ptr %2, align 4, !tbaa !88
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -6614,7 +6614,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateE
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !91
+  %5 = load ptr, ptr %1, align 8, !tbaa !90
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
@@ -6632,7 +6632,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateE
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE3repEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   ret ptr %4
 }
@@ -6643,22 +6643,22 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %3
 
 3:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !87
-  %4 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 0, ptr %0, align 8, !tbaa !86
+  %4 = load i32, ptr %1, align 8, !tbaa !86
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4)
-  %6 = load i32, ptr %1, align 8, !tbaa !87
+  %6 = load i32, ptr %1, align 8, !tbaa !86
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !90
-  %9 = load i32, ptr %0, align 8, !tbaa !87
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %9 = load i32, ptr %0, align 8, !tbaa !86
   %10 = add nsw i32 %9, %6
-  store i32 %10, ptr %0, align 8, !tbaa !87
+  store i32 %10, ptr %0, align 8, !tbaa !86
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !90
-  %13 = load i32, ptr %1, align 8, !tbaa !87
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
+  %13 = load i32, ptr %1, align 8, !tbaa !86
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %12, i64 %15, i1 false)
@@ -6674,22 +6674,22 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_(ptr n
   br i1 %3, label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !87
-  %5 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 0, ptr %0, align 8, !tbaa !86
+  %5 = load i32, ptr %1, align 8, !tbaa !86
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5)
-  %7 = load i32, ptr %1, align 8, !tbaa !87
+  %7 = load i32, ptr %1, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
-  %10 = load i32, ptr %0, align 8, !tbaa !87
+  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %10 = load i32, ptr %0, align 8, !tbaa !86
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !87
+  store i32 %11, ptr %0, align 8, !tbaa !86
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !90
-  %14 = load i32, ptr %1, align 8, !tbaa !87
+  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %14 = load i32, ptr %1, align 8, !tbaa !86
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %13, i64 %16, i1 false)
@@ -6703,7 +6703,7 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldImEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !89
+  %4 = load i32, ptr %3, align 4, !tbaa !88
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -6718,7 +6718,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2EOS2_(ptr noundef n
   br i1 %11, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8, !tbaa !87
+  %13 = load i32, ptr %1, align 8, !tbaa !86
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %14
 
@@ -6727,14 +6727,14 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2EOS2_(ptr noundef n
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  %15 = load i32, ptr %1, align 8, !tbaa !87
+  %15 = load i32, ptr %1, align 8, !tbaa !86
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !90
-  %18 = load i32, ptr %0, align 8, !tbaa !87
+  %17 = load ptr, ptr %16, align 8, !tbaa !89
+  %18 = load i32, ptr %0, align 8, !tbaa !86
   %19 = add nsw i32 %18, %15
-  store i32 %19, ptr %0, align 8, !tbaa !87
-  %20 = load ptr, ptr %6, align 8, !tbaa !90
-  %21 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 %19, ptr %0, align 8, !tbaa !86
+  %20 = load ptr, ptr %6, align 8, !tbaa !89
+  %21 = load i32, ptr %1, align 8, !tbaa !86
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %20, i64 %23, i1 false)
@@ -6759,7 +6759,7 @@ _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !89
+  %3 = load i32, ptr %2, align 4, !tbaa !88
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6784,7 +6784,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !89
+  %5 = load i32, ptr %4, align 4, !tbaa !88
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -6792,7 +6792,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %.in.i = select i1 %6, ptr %7, ptr %9
   %10 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !89
+  %12 = load i32, ptr %11, align 4, !tbaa !88
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -6803,8 +6803,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not6, label %29, label %18
 
 18:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !87
-  %19 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 0, ptr %0, align 8, !tbaa !86
+  %19 = load i32, ptr %1, align 8, !tbaa !86
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %20
 
@@ -6813,13 +6813,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %20
-  %21 = load i32, ptr %1, align 8, !tbaa !87
-  %22 = load ptr, ptr %7, align 8, !tbaa !90
-  %23 = load i32, ptr %0, align 8, !tbaa !87
+  %21 = load i32, ptr %1, align 8, !tbaa !86
+  %22 = load ptr, ptr %7, align 8, !tbaa !89
+  %23 = load i32, ptr %0, align 8, !tbaa !86
   %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %0, align 8, !tbaa !87
-  %25 = load ptr, ptr %14, align 8, !tbaa !90
-  %26 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 %24, ptr %0, align 8, !tbaa !86
+  %25 = load ptr, ptr %14, align 8, !tbaa !89
+  %26 = load i32, ptr %1, align 8, !tbaa !86
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr nonnull align 8 %25, i64 %28, i1 false)
@@ -6844,7 +6844,7 @@ _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !87
+  %2 = load i32, ptr %0, align 8, !tbaa !86
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -6852,14 +6852,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldImE5empty
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf13RepeatedFieldImEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -6868,7 +6868,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuf13RepeatedFieldImEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i64, ptr %4, i64 %5
   ret ptr %6
@@ -6905,7 +6905,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !87
+  %13 = load i32, ptr %0, align 8, !tbaa !86
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -6932,7 +6932,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !90
+  %19 = load ptr, ptr %18, align 8, !tbaa !89
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i64, ptr %19, i64 %20
   ret ptr %21
@@ -7007,7 +7007,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !87
+  %13 = load i32, ptr %0, align 8, !tbaa !86
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -7034,7 +7034,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !90
+  %19 = load ptr, ptr %18, align 8, !tbaa !89
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i64, ptr %19, i64 %20
   ret ptr %21
@@ -7080,54 +7080,54 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE3SetEiRKm(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %2, align 8, !tbaa !78
+  %4 = load i64, ptr %2, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %5, align 8, !tbaa !89
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i64, ptr %6, i64 %7
-  store i64 %4, ptr %8, align 8, !tbaa !78
+  store i64 %4, ptr %8, align 8, !tbaa !77
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE3AddERKm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !87
+  %3 = load i32, ptr %0, align 8, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !89
+  %5 = load i32, ptr %4, align 4, !tbaa !88
   %6 = icmp eq i32 %3, %5
-  %7 = load i64, ptr %1, align 8, !tbaa !78
+  %7 = load i64, ptr %1, align 8, !tbaa !77
   br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   %9 = add i32 %3, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
+  %11 = load ptr, ptr %10, align 8, !tbaa !89
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
-  store i64 %7, ptr %13, align 8, !tbaa !78
+  store i64 %7, ptr %13, align 8, !tbaa !77
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !90
+  %16 = load ptr, ptr %15, align 8, !tbaa !89
   %17 = zext i32 %3 to i64
   %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
-  store i64 %7, ptr %18, align 8, !tbaa !78
+  store i64 %7, ptr %18, align 8, !tbaa !77
   %.pre = add i32 %3, 1
   br label %19
 
 19:                                               ; preds = %14, %8
   %.pre-phi = phi i32 [ %.pre, %14 ], [ %9, %8 ]
-  store i32 %.pre-phi, ptr %0, align 8, !tbaa !87
+  store i32 %.pre-phi, ptr %0, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !87
+  %2 = load i32, ptr %0, align 8, !tbaa !86
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !89
+  %4 = load i32, ptr %3, align 4, !tbaa !88
   %5 = icmp eq i32 %2, %4
   %6 = add i32 %2, 1
   br i1 %5, label %7, label %._crit_edge
@@ -7138,18 +7138,18 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE3AddEv(ptr nou
 
 ._crit_edge:                                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
+  %9 = load ptr, ptr %8, align 8, !tbaa !89
   %10 = zext i32 %2 to i64
   %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
-  store i32 %6, ptr %0, align 8, !tbaa !87
+  store i32 %6, ptr %0, align 8, !tbaa !86
   ret ptr %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !87
+  %2 = load i32, ptr %0, align 8, !tbaa !86
   %3 = add nsw i32 %2, -1
-  store i32 %3, ptr %0, align 8, !tbaa !87
+  store i32 %3, ptr %0, align 8, !tbaa !86
   ret void
 }
 
@@ -7162,7 +7162,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE15ExtractSubrangeEiiP
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr i64, ptr %7, i64 %8
@@ -7171,25 +7171,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE15ExtractSubrangeEiiP
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load i64, ptr %gep, align 8, !tbaa !78
+  %10 = load i64, ptr %gep, align 8, !tbaa !77
   %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  store i64 %10, ptr %11, align 8, !tbaa !78
+  store i64 %10, ptr %11, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !93
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !92
 
 .loopexit:                                        ; preds = %4
   br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %12 = add nsw i32 %2, %1
-  %13 = load i32, ptr %0, align 8, !tbaa !87
+  %13 = load i32, ptr %0, align 8, !tbaa !86
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %.loopexit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !90
+  %16 = load ptr, ptr %15, align 8, !tbaa !89
   %17 = sext i32 %12 to i64
   %18 = zext nneg i32 %2 to i64
   %19 = sext i32 %13 to i64
@@ -7201,19 +7201,19 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE15ExtractSubrangeEiiP
 
 21:                                               ; preds = %._crit_edge
   %22 = sub nsw i32 %13, %2
-  store i32 %22, ptr %0, align 8, !tbaa !87
+  store i32 %22, ptr %0, align 8, !tbaa !86
   br label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
 23:                                               ; preds = %.lr.ph23, %23
   %indvars.iv26 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next27, %23 ]
   %24 = sub nsw i64 %indvars.iv26, %18
   %25 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv26
-  %26 = load i64, ptr %25, align 8, !tbaa !78
+  %26 = load i64, ptr %25, align 8, !tbaa !77
   %27 = getelementptr inbounds i64, ptr %16, i64 %24
-  store i64 %26, ptr %27, align 8, !tbaa !78
+  store i64 %26, ptr %27, align 8, !tbaa !77
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %28 = icmp slt i64 %indvars.iv.next27, %19
-  br i1 %28, label %23, label %._crit_edge, !llvm.loop !94
+  br i1 %28, label %23, label %._crit_edge, !llvm.loop !93
 
 _ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit: ; preds = %21, %._crit_edge, %.loopexit
   ret void
@@ -7221,12 +7221,12 @@ _ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit: ; preds = %21, %._crit_ed
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE8TruncateEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !87
+  %3 = load i32, ptr %0, align 8, !tbaa !86
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %0, align 8, !tbaa !87
+  store i32 %1, ptr %0, align 8, !tbaa !86
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -7235,31 +7235,31 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE8TruncateEi(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !87
+  store i32 0, ptr %0, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !87
+  %3 = load i32, ptr %1, align 8, !tbaa !86
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !87
+  %5 = load i32, ptr %0, align 8, !tbaa !86
   %6 = add nsw i32 %5, %3
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  %7 = load i32, ptr %1, align 8, !tbaa !87
+  %7 = load i32, ptr %1, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
-  %10 = load i32, ptr %0, align 8, !tbaa !87
+  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  %10 = load i32, ptr %0, align 8, !tbaa !86
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !87
+  store i32 %11, ptr %0, align 8, !tbaa !86
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds i64, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !90
-  %16 = load i32, ptr %1, align 8, !tbaa !87
+  %15 = load ptr, ptr %14, align 8, !tbaa !89
+  %16 = load i32, ptr %1, align 8, !tbaa !86
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %15, i64 %18, i1 false)
@@ -7279,25 +7279,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE9MoveArrayEPmS3_i(ptr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE18AddAlreadyReservedERKm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i64, ptr %1, align 8, !tbaa !78
+  %3 = load i64, ptr %1, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
-  %6 = load i32, ptr %0, align 8, !tbaa !87
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
+  %6 = load i32, ptr %0, align 8, !tbaa !86
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %0, align 8, !tbaa !87
+  store i32 %7, ptr %0, align 8, !tbaa !86
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
-  store i64 %3, ptr %9, align 8, !tbaa !78
+  store i64 %3, ptr %9, align 8, !tbaa !77
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE18AddAlreadyReservedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
-  %4 = load i32, ptr %0, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %4 = load i32, ptr %0, align 8, !tbaa !86
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %0, align 8, !tbaa !87
+  store i32 %5, ptr %0, align 8, !tbaa !86
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds i64, ptr %3, i64 %6
   ret ptr %7
@@ -7306,31 +7306,31 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE18AddAlreadyRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !89
+  %3 = load i32, ptr %2, align 4, !tbaa !88
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !87
+  %4 = load i32, ptr %0, align 8, !tbaa !86
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !90
-  %9 = load i32, ptr %0, align 8, !tbaa !87
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %9 = load i32, ptr %0, align 8, !tbaa !86
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i64, ptr %8, i64 %10
-  %12 = load i64, ptr %2, align 8, !tbaa !78
+  %12 = load i64, ptr %2, align 8, !tbaa !77
   %.not5.i.i.i = icmp eq i32 %9, %1
   br i1 %.not5.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -7341,27 +7341,27 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE6ResizeEiRKm(ptr noun
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %.lr.ph.i.i.i.preheader ]
-  store i64 %12, ptr %.06.i.i.i, align 8, !tbaa !78
+  store i64 %12, ptr %.06.i.i.i, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %11
-  br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !95
+  br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !94
 
 _ZSt4fillIPmmEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %6, %3
-  store i32 %1, ptr %0, align 8, !tbaa !87
+  store i32 %1, ptr %0, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
@@ -7373,7 +7373,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !89
+  %7 = load i32, ptr %6, align 4, !tbaa !88
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -7381,7 +7381,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr nounde
   %.in.i = select i1 %8, ptr %9, ptr %11
   %12 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !89
+  %14 = load i32, ptr %13, align 4, !tbaa !88
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -7400,34 +7400,34 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr nounde
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @_ZN6google8protobuf13RepeatedFieldImEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %19)
-  %23 = load i32, ptr %0, align 8, !tbaa !87
+  %23 = load i32, ptr %0, align 8, !tbaa !86
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 16, !tbaa !87
+  %25 = load i32, ptr %3, align 16, !tbaa !86
   %26 = add nsw i32 %25, %23
   invoke void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %26)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %24
-  %27 = load i32, ptr %0, align 8, !tbaa !87
+  %27 = load i32, ptr %0, align 8, !tbaa !86
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !90
-  %30 = load i32, ptr %3, align 16, !tbaa !87
+  %29 = load ptr, ptr %28, align 8, !tbaa !89
+  %30 = load i32, ptr %3, align 16, !tbaa !86
   %31 = add nsw i32 %30, %27
-  store i32 %31, ptr %3, align 16, !tbaa !87
+  store i32 %31, ptr %3, align 16, !tbaa !86
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds i64, ptr %29, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !90
+  %34 = load ptr, ptr %9, align 8, !tbaa !89
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 8 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
-  store i32 0, ptr %0, align 8, !tbaa !87
-  %37 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 0, ptr %0, align 8, !tbaa !86
+  %37 = load i32, ptr %1, align 8, !tbaa !86
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %38
 
@@ -7436,13 +7436,13 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %.noe
           to label %.noexc11 unwind label %49
 
 .noexc11:                                         ; preds = %38
-  %39 = load i32, ptr %1, align 8, !tbaa !87
-  %40 = load ptr, ptr %9, align 8, !tbaa !90
-  %41 = load i32, ptr %0, align 8, !tbaa !87
+  %39 = load i32, ptr %1, align 8, !tbaa !86
+  %40 = load ptr, ptr %9, align 8, !tbaa !89
+  %41 = load i32, ptr %0, align 8, !tbaa !86
   %42 = add nsw i32 %41, %39
-  store i32 %42, ptr %0, align 8, !tbaa !87
-  %43 = load ptr, ptr %16, align 8, !tbaa !90
-  %44 = load i32, ptr %1, align 8, !tbaa !87
+  store i32 %42, ptr %0, align 8, !tbaa !86
+  %43 = load ptr, ptr %16, align 8, !tbaa !89
+  %44 = load i32, ptr %1, align 8, !tbaa !86
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %43, i64 %46, i1 false)
@@ -7492,44 +7492,44 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i64, ptr %5, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
-  %10 = load i64, ptr %7, align 8, !tbaa !78
-  %11 = load i64, ptr %9, align 8, !tbaa !78
-  store i64 %11, ptr %7, align 8, !tbaa !78
-  store i64 %10, ptr %9, align 8, !tbaa !78
+  %10 = load i64, ptr %7, align 8, !tbaa !77
+  %11 = load i64, ptr %9, align 8, !tbaa !77
+  store i64 %11, ptr %7, align 8, !tbaa !77
+  store i64 %10, ptr %9, align 8, !tbaa !77
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
-  %4 = load i32, ptr %0, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %4 = load i32, ptr %0, align 8, !tbaa !86
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i64, ptr %3, i64 %5
   ret ptr %6
@@ -7538,8 +7538,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE3endEv(ptr nou
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
-  %4 = load i32, ptr %0, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %4 = load i32, ptr %0, align 8, !tbaa !86
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i64, ptr %3, i64 %5
   ret ptr %6
@@ -7548,8 +7548,8 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE3endEv(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE4cendEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
-  %4 = load i32, ptr %0, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %4 = load i32, ptr %0, align 8, !tbaa !86
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i64, ptr %3, i64 %5
   ret ptr %6
@@ -7558,45 +7558,45 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE4cendEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.21") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
-  %5 = load i32, ptr %1, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  %5 = load i32, ptr %1, align 8, !tbaa !86
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !96
+  store ptr %7, ptr %0, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldImE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.23") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
-  %5 = load i32, ptr %1, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  %5 = load i32, ptr %1, align 8, !tbaa !86
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !98
+  store ptr %7, ptr %0, align 8, !tbaa !97
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.21") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
-  store ptr %4, ptr %0, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  store ptr %4, ptr %0, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldImE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.23") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
-  store ptr %4, ptr %0, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  store ptr %4, ptr %0, align 8, !tbaa !97
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldImE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !89
+  %3 = load i32, ptr %2, align 4, !tbaa !88
   %4 = icmp sgt i32 %3, 0
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 3
@@ -7608,7 +7608,7 @@ define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldImE26SpaceUsedEx
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !89
+  %3 = load i32, ptr %2, align 4, !tbaa !88
   %4 = icmp sgt i32 %3, 0
   %5 = shl i32 %3, 3
   %6 = add i32 %5, 8
@@ -7620,11 +7620,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE22SpaceUsedEx
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE5eraseEPKm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = load i32, ptr %0, align 8, !tbaa !87
+  %9 = load i32, ptr %0, align 8, !tbaa !86
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i64, ptr %5, i64 %10
   %sext.i = shl i64 %8, 29
@@ -7638,8 +7638,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE5eraseEPKm(ptr
 
 17:                                               ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %3, i64 %16, i1 false)
-  %.pre.i = load i32, ptr %0, align 8, !tbaa !87
-  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !90
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !86
+  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !89
   br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit.i:               ; preds = %17, %2
@@ -7655,7 +7655,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit.i:               ; preds = %17, %2
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 3
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %0, align 8, !tbaa !87
+  store i32 %26, ptr %0, align 8, !tbaa !86
   br label %_ZN6google8protobuf13RepeatedFieldImE5eraseEPKmS4_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE5eraseEPKmS4_.exit: ; preds = %_ZSt4copyIPKmPmET0_T_S4_S3_.exit.i, %20
@@ -7666,7 +7666,7 @@ _ZN6google8protobuf13RepeatedFieldImE5eraseEPKmS4_.exit: ; preds = %_ZSt4copyIPK
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE5eraseEPKmS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -7679,7 +7679,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE5eraseEPKmS4_(
   br label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !87
+  %10 = load i32, ptr %0, align 8, !tbaa !86
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i64, ptr %5, i64 %11
   %sext = shl i64 %8, 29
@@ -7693,8 +7693,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldImE5eraseEPKmS4_(
 
 18:                                               ; preds = %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %2, i64 %17, i1 false)
-  %.pre = load i32, ptr %0, align 8, !tbaa !87
-  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !90
+  %.pre = load i32, ptr %0, align 8, !tbaa !86
+  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !89
   br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit:                 ; preds = %9, %18
@@ -7710,7 +7710,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit:                 ; preds = %9, %18
   %25 = sub i64 %23, %24
   %26 = lshr exact i64 %25, 3
   %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %0, align 8, !tbaa !87
+  store i32 %27, ptr %0, align 8, !tbaa !86
   br label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
 _ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit: ; preds = %._ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit_crit_edge, %21, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit
@@ -7728,32 +7728,32 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIfEC5EPNS0_5ArenaE) align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !100
+  store i32 0, ptr %0, align 8, !tbaa !99
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !102
+  store i32 0, ptr %3, align 4, !tbaa !101
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !103
+  store ptr %1, ptr %4, align 8, !tbaa !102
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat($_ZN6google8protobuf13RepeatedFieldIfEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %1, align 8, !tbaa !100
+  %3 = load i32, ptr %1, align 8, !tbaa !99
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3)
-  %6 = load i32, ptr %1, align 8, !tbaa !100
-  %7 = load ptr, ptr %5, align 8, !tbaa !103
-  %8 = load i32, ptr %0, align 8, !tbaa !100
+  %6 = load i32, ptr %1, align 8, !tbaa !99
+  %7 = load ptr, ptr %5, align 8, !tbaa !102
+  %8 = load i32, ptr %0, align 8, !tbaa !99
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %0, align 8, !tbaa !100
+  store i32 %9, ptr %0, align 8, !tbaa !99
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
-  %12 = load i32, ptr %1, align 8, !tbaa !100
+  %11 = load ptr, ptr %10, align 8, !tbaa !102
+  %12 = load i32, ptr %1, align 8, !tbaa !99
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %11, i64 %14, i1 false)
@@ -7766,7 +7766,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2ERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !102
+  %4 = load i32, ptr %3, align 4, !tbaa !101
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -7828,12 +7828,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 36:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
   %.018 = phi ptr [ %22, %20 ], [ %35, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
-  store ptr %11, ptr %.018, align 8, !tbaa !104
-  %37 = load i32, ptr %3, align 4, !tbaa !102
-  store i32 %.0.i, ptr %3, align 4, !tbaa !102
+  store ptr %11, ptr %.018, align 8, !tbaa !103
+  %37 = load i32, ptr %3, align 4, !tbaa !101
+  store i32 %.0.i, ptr %3, align 4, !tbaa !101
   %38 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %38, ptr %7, align 8, !tbaa !103
-  %39 = load i32, ptr %0, align 8, !tbaa !100
+  store ptr %38, ptr %7, align 8, !tbaa !102
+  %39 = load i32, ptr %0, align 8, !tbaa !99
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -7847,7 +7847,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8, !tbaa !104
+  %46 = load ptr, ptr %9, align 8, !tbaa !103
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -7864,19 +7864,19 @@ _ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !100
+  %2 = load i32, ptr %0, align 8, !tbaa !99
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
-  %5 = load i32, ptr %0, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
+  %5 = load i32, ptr %0, align 8, !tbaa !99
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds float, ptr %4, i64 %6
   %8 = add nsw i32 %5, %1
-  store i32 %8, ptr %0, align 8, !tbaa !100
+  store i32 %8, ptr %0, align 8, !tbaa !99
   ret ptr %7
 }
 
@@ -7891,7 +7891,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE9CopyArrayEPfPKfi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds float, ptr %4, i64 %5
   ret ptr %6
@@ -7900,7 +7900,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE7MutableEi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIfE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds float, ptr %4, i64 %5
   ret ptr %6
@@ -7909,15 +7909,15 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldIfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !102
+  %3 = load i32, ptr %2, align 4, !tbaa !101
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !103
+  %7 = load ptr, ptr %6, align 8, !tbaa !102
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !104
+  %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -7938,7 +7938,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateE
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !104
+  %5 = load ptr, ptr %1, align 8, !tbaa !103
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
@@ -7956,7 +7956,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateE
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE3repEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   ret ptr %4
 }
@@ -7967,22 +7967,22 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit, label %3
 
 3:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !100
-  %4 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 0, ptr %0, align 8, !tbaa !99
+  %4 = load i32, ptr %1, align 8, !tbaa !99
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4)
-  %6 = load i32, ptr %1, align 8, !tbaa !100
+  %6 = load i32, ptr %1, align 8, !tbaa !99
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !103
-  %9 = load i32, ptr %0, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !102
+  %9 = load i32, ptr %0, align 8, !tbaa !99
   %10 = add nsw i32 %9, %6
-  store i32 %10, ptr %0, align 8, !tbaa !100
+  store i32 %10, ptr %0, align 8, !tbaa !99
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !103
-  %13 = load i32, ptr %1, align 8, !tbaa !100
+  %12 = load ptr, ptr %11, align 8, !tbaa !102
+  %13 = load i32, ptr %1, align 8, !tbaa !99
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr nonnull align 4 %12, i64 %15, i1 false)
@@ -7998,22 +7998,22 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_(ptr n
   br i1 %3, label %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !100
-  %5 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 0, ptr %0, align 8, !tbaa !99
+  %5 = load i32, ptr %1, align 8, !tbaa !99
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5)
-  %7 = load i32, ptr %1, align 8, !tbaa !100
+  %7 = load i32, ptr %1, align 8, !tbaa !99
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
-  %10 = load i32, ptr %0, align 8, !tbaa !100
+  %9 = load ptr, ptr %8, align 8, !tbaa !102
+  %10 = load i32, ptr %0, align 8, !tbaa !99
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !100
+  store i32 %11, ptr %0, align 8, !tbaa !99
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !103
-  %14 = load i32, ptr %1, align 8, !tbaa !100
+  %13 = load ptr, ptr %12, align 8, !tbaa !102
+  %14 = load i32, ptr %1, align 8, !tbaa !99
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %13, i64 %16, i1 false)
@@ -8027,7 +8027,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIfEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !102
+  %4 = load i32, ptr %3, align 4, !tbaa !101
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -8042,7 +8042,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2EOS2_(ptr noundef n
   br i1 %11, label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8, !tbaa !100
+  %13 = load i32, ptr %1, align 8, !tbaa !99
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit, label %14
 
@@ -8051,14 +8051,14 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2EOS2_(ptr noundef n
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  %15 = load i32, ptr %1, align 8, !tbaa !100
+  %15 = load i32, ptr %1, align 8, !tbaa !99
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !103
-  %18 = load i32, ptr %0, align 8, !tbaa !100
+  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %18 = load i32, ptr %0, align 8, !tbaa !99
   %19 = add nsw i32 %18, %15
-  store i32 %19, ptr %0, align 8, !tbaa !100
-  %20 = load ptr, ptr %6, align 8, !tbaa !103
-  %21 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 %19, ptr %0, align 8, !tbaa !99
+  %20 = load ptr, ptr %6, align 8, !tbaa !102
+  %21 = load i32, ptr %1, align 8, !tbaa !99
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %20, i64 %23, i1 false)
@@ -8083,7 +8083,7 @@ _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !102
+  %3 = load i32, ptr %2, align 4, !tbaa !101
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -8108,7 +8108,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !102
+  %5 = load i32, ptr %4, align 4, !tbaa !101
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -8116,7 +8116,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %.in.i = select i1 %6, ptr %7, ptr %9
   %10 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !102
+  %12 = load i32, ptr %11, align 4, !tbaa !101
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -8127,8 +8127,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not6, label %29, label %18
 
 18:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !100
-  %19 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 0, ptr %0, align 8, !tbaa !99
+  %19 = load i32, ptr %1, align 8, !tbaa !99
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit, label %20
 
@@ -8137,13 +8137,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %20
-  %21 = load i32, ptr %1, align 8, !tbaa !100
-  %22 = load ptr, ptr %7, align 8, !tbaa !103
-  %23 = load i32, ptr %0, align 8, !tbaa !100
+  %21 = load i32, ptr %1, align 8, !tbaa !99
+  %22 = load ptr, ptr %7, align 8, !tbaa !102
+  %23 = load i32, ptr %0, align 8, !tbaa !99
   %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %0, align 8, !tbaa !100
-  %25 = load ptr, ptr %14, align 8, !tbaa !103
-  %26 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 %24, ptr %0, align 8, !tbaa !99
+  %25 = load ptr, ptr %14, align 8, !tbaa !102
+  %26 = load i32, ptr %1, align 8, !tbaa !99
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %25, i64 %28, i1 false)
@@ -8168,7 +8168,7 @@ _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIfE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !100
+  %2 = load i32, ptr %0, align 8, !tbaa !99
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -8176,14 +8176,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIfE5empty
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf13RepeatedFieldIfEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds float, ptr %4, i64 %5
   ret ptr %6
@@ -8192,7 +8192,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf13RepeatedFieldIfEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds float, ptr %4, i64 %5
   ret ptr %6
@@ -8229,7 +8229,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !100
+  %13 = load i32, ptr %0, align 8, !tbaa !99
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -8256,7 +8256,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8prot
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !103
+  %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds float, ptr %19, i64 %20
   ret ptr %21
@@ -8331,7 +8331,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !100
+  %13 = load i32, ptr %0, align 8, !tbaa !99
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -8358,7 +8358,7 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !103
+  %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds float, ptr %19, i64 %20
   ret ptr %21
@@ -8404,54 +8404,54 @@ define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8proto
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE3SetEiRKf(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load float, ptr %2, align 4, !tbaa !106
+  %4 = load float, ptr %2, align 4, !tbaa !105
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !103
+  %6 = load ptr, ptr %5, align 8, !tbaa !102
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %6, i64 %7
-  store float %4, ptr %8, align 4, !tbaa !106
+  store float %4, ptr %8, align 4, !tbaa !105
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !100
+  %3 = load i32, ptr %0, align 8, !tbaa !99
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !102
+  %5 = load i32, ptr %4, align 4, !tbaa !101
   %6 = icmp eq i32 %3, %5
-  %7 = load float, ptr %1, align 4, !tbaa !106
+  %7 = load float, ptr %1, align 4, !tbaa !105
   br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   %9 = add i32 %3, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !103
+  %11 = load ptr, ptr %10, align 8, !tbaa !102
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw float, ptr %11, i64 %12
-  store float %7, ptr %13, align 4, !tbaa !106
+  store float %7, ptr %13, align 4, !tbaa !105
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !103
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   %17 = zext i32 %3 to i64
   %18 = getelementptr inbounds nuw float, ptr %16, i64 %17
-  store float %7, ptr %18, align 4, !tbaa !106
+  store float %7, ptr %18, align 4, !tbaa !105
   %.pre = add i32 %3, 1
   br label %19
 
 19:                                               ; preds = %14, %8
   %.pre-phi = phi i32 [ %.pre, %14 ], [ %9, %8 ]
-  store i32 %.pre-phi, ptr %0, align 8, !tbaa !100
+  store i32 %.pre-phi, ptr %0, align 8, !tbaa !99
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !100
+  %2 = load i32, ptr %0, align 8, !tbaa !99
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !102
+  %4 = load i32, ptr %3, align 4, !tbaa !101
   %5 = icmp eq i32 %2, %4
   %6 = add i32 %2, 1
   br i1 %5, label %7, label %._crit_edge
@@ -8462,18 +8462,18 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE3AddEv(ptr nou
 
 ._crit_edge:                                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %8, align 8, !tbaa !102
   %10 = zext i32 %2 to i64
   %11 = getelementptr inbounds nuw float, ptr %9, i64 %10
-  store i32 %6, ptr %0, align 8, !tbaa !100
+  store i32 %6, ptr %0, align 8, !tbaa !99
   ret ptr %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !100
+  %2 = load i32, ptr %0, align 8, !tbaa !99
   %3 = add nsw i32 %2, -1
-  store i32 %3, ptr %0, align 8, !tbaa !100
+  store i32 %3, ptr %0, align 8, !tbaa !99
   ret void
 }
 
@@ -8486,7 +8486,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE15ExtractSubrangeEiiP
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !103
+  %7 = load ptr, ptr %6, align 8, !tbaa !102
   %8 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr float, ptr %7, i64 %8
@@ -8495,25 +8495,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE15ExtractSubrangeEiiP
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load float, ptr %gep, align 4, !tbaa !106
+  %10 = load float, ptr %gep, align 4, !tbaa !105
   %11 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
-  store float %10, ptr %11, align 4, !tbaa !106
+  store float %10, ptr %11, align 4, !tbaa !105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !108
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !107
 
 .loopexit:                                        ; preds = %4
   br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %12 = add nsw i32 %2, %1
-  %13 = load i32, ptr %0, align 8, !tbaa !100
+  %13 = load i32, ptr %0, align 8, !tbaa !99
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %.loopexit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !103
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   %17 = sext i32 %12 to i64
   %18 = zext nneg i32 %2 to i64
   %19 = sext i32 %13 to i64
@@ -8525,19 +8525,19 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE15ExtractSubrangeEiiP
 
 21:                                               ; preds = %._crit_edge
   %22 = sub nsw i32 %13, %2
-  store i32 %22, ptr %0, align 8, !tbaa !100
+  store i32 %22, ptr %0, align 8, !tbaa !99
   br label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
 23:                                               ; preds = %.lr.ph23, %23
   %indvars.iv26 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next27, %23 ]
   %24 = sub nsw i64 %indvars.iv26, %18
   %25 = getelementptr inbounds float, ptr %16, i64 %indvars.iv26
-  %26 = load float, ptr %25, align 4, !tbaa !106
+  %26 = load float, ptr %25, align 4, !tbaa !105
   %27 = getelementptr inbounds float, ptr %16, i64 %24
-  store float %26, ptr %27, align 4, !tbaa !106
+  store float %26, ptr %27, align 4, !tbaa !105
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %28 = icmp slt i64 %indvars.iv.next27, %19
-  br i1 %28, label %23, label %._crit_edge, !llvm.loop !109
+  br i1 %28, label %23, label %._crit_edge, !llvm.loop !108
 
 _ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit: ; preds = %21, %._crit_edge, %.loopexit
   ret void
@@ -8545,12 +8545,12 @@ _ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit: ; preds = %21, %._crit_ed
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !100
+  %3 = load i32, ptr %0, align 8, !tbaa !99
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %0, align 8, !tbaa !100
+  store i32 %1, ptr %0, align 8, !tbaa !99
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -8559,31 +8559,31 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !100
+  store i32 0, ptr %0, align 8, !tbaa !99
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !100
+  %3 = load i32, ptr %1, align 8, !tbaa !99
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !100
+  %5 = load i32, ptr %0, align 8, !tbaa !99
   %6 = add nsw i32 %5, %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  %7 = load i32, ptr %1, align 8, !tbaa !100
+  %7 = load i32, ptr %1, align 8, !tbaa !99
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
-  %10 = load i32, ptr %0, align 8, !tbaa !100
+  %9 = load ptr, ptr %8, align 8, !tbaa !102
+  %10 = load i32, ptr %0, align 8, !tbaa !99
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !100
+  store i32 %11, ptr %0, align 8, !tbaa !99
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds float, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !103
-  %16 = load i32, ptr %1, align 8, !tbaa !100
+  %15 = load ptr, ptr %14, align 8, !tbaa !102
+  %16 = load i32, ptr %1, align 8, !tbaa !99
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %15, i64 %18, i1 false)
@@ -8603,25 +8603,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE9MoveArrayEPfS3_i(ptr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE18AddAlreadyReservedERKf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load float, ptr %1, align 4, !tbaa !106
+  %3 = load float, ptr %1, align 4, !tbaa !105
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
-  %6 = load i32, ptr %0, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !102
+  %6 = load i32, ptr %0, align 8, !tbaa !99
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %0, align 8, !tbaa !100
+  store i32 %7, ptr %0, align 8, !tbaa !99
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds float, ptr %5, i64 %8
-  store float %3, ptr %9, align 4, !tbaa !106
+  store float %3, ptr %9, align 4, !tbaa !105
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE18AddAlreadyReservedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
-  %4 = load i32, ptr %0, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
+  %4 = load i32, ptr %0, align 8, !tbaa !99
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %0, align 8, !tbaa !100
+  store i32 %5, ptr %0, align 8, !tbaa !99
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds float, ptr %3, i64 %6
   ret ptr %7
@@ -8630,31 +8630,31 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE18AddAlreadyRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !102
+  %3 = load i32, ptr %2, align 4, !tbaa !101
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !100
+  %4 = load i32, ptr %0, align 8, !tbaa !99
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !103
-  %9 = load i32, ptr %0, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !102
+  %9 = load i32, ptr %0, align 8, !tbaa !99
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds float, ptr %8, i64 %10
-  %12 = load float, ptr %2, align 4, !tbaa !106
+  %12 = load float, ptr %2, align 4, !tbaa !105
   %.not6.i.i.i = icmp eq i32 %9, %1
   br i1 %.not6.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -8665,27 +8665,27 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE6ResizeEiRKf(ptr noun
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %.lr.ph.i.i.i.preheader ]
-  store float %12, ptr %.07.i.i.i, align 4, !tbaa !106
+  store float %12, ptr %.07.i.i.i, align 4, !tbaa !105
   %15 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %15, %11
-  br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !110
+  br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !109
 
 _ZSt4fillIPffEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %6, %3
-  store i32 %1, ptr %0, align 8, !tbaa !100
+  store i32 %1, ptr %0, align 8, !tbaa !99
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
@@ -8697,7 +8697,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE4SwapEPS2_(ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !102
+  %7 = load i32, ptr %6, align 4, !tbaa !101
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -8705,7 +8705,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE4SwapEPS2_(ptr nounde
   %.in.i = select i1 %8, ptr %9, ptr %11
   %12 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !102
+  %14 = load i32, ptr %13, align 4, !tbaa !101
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -8724,34 +8724,34 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE4SwapEPS2_(ptr nounde
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @_ZN6google8protobuf13RepeatedFieldIfEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %19)
-  %23 = load i32, ptr %0, align 8, !tbaa !100
+  %23 = load i32, ptr %0, align 8, !tbaa !99
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 16, !tbaa !100
+  %25 = load i32, ptr %3, align 16, !tbaa !99
   %26 = add nsw i32 %25, %23
   invoke void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %26)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %24
-  %27 = load i32, ptr %0, align 8, !tbaa !100
+  %27 = load i32, ptr %0, align 8, !tbaa !99
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !103
-  %30 = load i32, ptr %3, align 16, !tbaa !100
+  %29 = load ptr, ptr %28, align 8, !tbaa !102
+  %30 = load i32, ptr %3, align 16, !tbaa !99
   %31 = add nsw i32 %30, %27
-  store i32 %31, ptr %3, align 16, !tbaa !100
+  store i32 %31, ptr %3, align 16, !tbaa !99
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds float, ptr %29, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !103
+  %34 = load ptr, ptr %9, align 8, !tbaa !102
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
-  store i32 0, ptr %0, align 8, !tbaa !100
-  %37 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 0, ptr %0, align 8, !tbaa !99
+  %37 = load i32, ptr %1, align 8, !tbaa !99
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit, label %38
 
@@ -8760,13 +8760,13 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %22, %.noe
           to label %.noexc11 unwind label %49
 
 .noexc11:                                         ; preds = %38
-  %39 = load i32, ptr %1, align 8, !tbaa !100
-  %40 = load ptr, ptr %9, align 8, !tbaa !103
-  %41 = load i32, ptr %0, align 8, !tbaa !100
+  %39 = load i32, ptr %1, align 8, !tbaa !99
+  %40 = load ptr, ptr %9, align 8, !tbaa !102
+  %41 = load i32, ptr %0, align 8, !tbaa !99
   %42 = add nsw i32 %41, %39
-  store i32 %42, ptr %0, align 8, !tbaa !100
-  %43 = load ptr, ptr %16, align 8, !tbaa !103
-  %44 = load i32, ptr %1, align 8, !tbaa !100
+  store i32 %42, ptr %0, align 8, !tbaa !99
+  %43 = load ptr, ptr %16, align 8, !tbaa !102
+  %44 = load i32, ptr %1, align 8, !tbaa !99
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr nonnull align 4 %43, i64 %46, i1 false)
@@ -8816,44 +8816,44 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE15UnsafeArenaSwapEPS2
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %5 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds float, ptr %5, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds float, ptr %5, i64 %8
-  %10 = load float, ptr %7, align 4, !tbaa !106
-  %11 = load float, ptr %9, align 4, !tbaa !106
-  store float %11, ptr %7, align 4, !tbaa !106
-  store float %10, ptr %9, align 4, !tbaa !106
+  %10 = load float, ptr %7, align 4, !tbaa !105
+  %11 = load float, ptr %9, align 4, !tbaa !105
+  store float %11, ptr %7, align 4, !tbaa !105
+  store float %10, ptr %9, align 4, !tbaa !105
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
-  %4 = load i32, ptr %0, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
+  %4 = load i32, ptr %0, align 8, !tbaa !99
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %3, i64 %5
   ret ptr %6
@@ -8862,8 +8862,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE3endEv(ptr nou
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
-  %4 = load i32, ptr %0, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
+  %4 = load i32, ptr %0, align 8, !tbaa !99
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %3, i64 %5
   ret ptr %6
@@ -8872,8 +8872,8 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE3endEv(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE4cendEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
-  %4 = load i32, ptr %0, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
+  %4 = load i32, ptr %0, align 8, !tbaa !99
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %3, i64 %5
   ret ptr %6
@@ -8882,45 +8882,45 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIfE4cendEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
-  %5 = load i32, ptr %1, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
+  %5 = load i32, ptr %1, align 8, !tbaa !99
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds float, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !111
+  store ptr %7, ptr %0, align 8, !tbaa !110
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIfE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
-  %5 = load i32, ptr %1, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
+  %5 = load i32, ptr %1, align 8, !tbaa !99
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds float, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !114
+  store ptr %7, ptr %0, align 8, !tbaa !113
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
-  store ptr %4, ptr %0, align 8, !tbaa !111
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
+  store ptr %4, ptr %0, align 8, !tbaa !110
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIfE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !103
-  store ptr %4, ptr %0, align 8, !tbaa !114
+  %4 = load ptr, ptr %3, align 8, !tbaa !102
+  store ptr %4, ptr %0, align 8, !tbaa !113
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIfE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !102
+  %3 = load i32, ptr %2, align 4, !tbaa !101
   %4 = icmp sgt i32 %3, 0
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 2
@@ -8932,7 +8932,7 @@ define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIfE26SpaceUsedEx
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !102
+  %3 = load i32, ptr %2, align 4, !tbaa !101
   %4 = icmp sgt i32 %3, 0
   %5 = shl i32 %3, 2
   %6 = add i32 %5, 8
@@ -8944,11 +8944,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE22SpaceUsedEx
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE5eraseEPKf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %5 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = load i32, ptr %0, align 8, !tbaa !100
+  %9 = load i32, ptr %0, align 8, !tbaa !99
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds float, ptr %5, i64 %10
   %sext.i = shl i64 %8, 30
@@ -8962,8 +8962,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE5eraseEPKf(ptr
 
 17:                                               ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %3, i64 %16, i1 false)
-  %.pre.i = load i32, ptr %0, align 8, !tbaa !100
-  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !103
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !99
+  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !102
   br label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit.i:               ; preds = %17, %2
@@ -8979,7 +8979,7 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.i:               ; preds = %17, %2
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 2
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %0, align 8, !tbaa !100
+  store i32 %26, ptr %0, align 8, !tbaa !99
   br label %_ZN6google8protobuf13RepeatedFieldIfE5eraseEPKfS4_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE5eraseEPKfS4_.exit: ; preds = %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.i, %20
@@ -8990,7 +8990,7 @@ _ZN6google8protobuf13RepeatedFieldIfE5eraseEPKfS4_.exit: ; preds = %_ZSt4copyIPK
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE5eraseEPKfS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %5 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -9003,7 +9003,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE5eraseEPKfS4_(
   br label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !100
+  %10 = load i32, ptr %0, align 8, !tbaa !99
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds float, ptr %5, i64 %11
   %sext = shl i64 %8, 30
@@ -9017,8 +9017,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE5eraseEPKfS4_(
 
 18:                                               ; preds = %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %14, ptr align 4 %2, i64 %17, i1 false)
-  %.pre = load i32, ptr %0, align 8, !tbaa !100
-  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !103
+  %.pre = load i32, ptr %0, align 8, !tbaa !99
+  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !102
   br label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit:                 ; preds = %9, %18
@@ -9034,7 +9034,7 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit:                 ; preds = %9, %18
   %25 = sub i64 %23, %24
   %26 = lshr exact i64 %25, 2
   %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %0, align 8, !tbaa !100
+  store i32 %27, ptr %0, align 8, !tbaa !99
   br label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit: ; preds = %._ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit_crit_edge, %21, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit
@@ -9052,32 +9052,32 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIdEC5EPNS0_5ArenaE) align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !116
+  store i32 0, ptr %0, align 8, !tbaa !115
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !118
+  store i32 0, ptr %3, align 4, !tbaa !117
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !119
+  store ptr %1, ptr %4, align 8, !tbaa !118
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat($_ZN6google8protobuf13RepeatedFieldIdEC5ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %1, align 8, !tbaa !116
+  %3 = load i32, ptr %1, align 8, !tbaa !115
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3)
-  %6 = load i32, ptr %1, align 8, !tbaa !116
-  %7 = load ptr, ptr %5, align 8, !tbaa !119
-  %8 = load i32, ptr %0, align 8, !tbaa !116
+  %6 = load i32, ptr %1, align 8, !tbaa !115
+  %7 = load ptr, ptr %5, align 8, !tbaa !118
+  %8 = load i32, ptr %0, align 8, !tbaa !115
   %9 = add nsw i32 %8, %6
-  store i32 %9, ptr %0, align 8, !tbaa !116
+  store i32 %9, ptr %0, align 8, !tbaa !115
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !119
-  %12 = load i32, ptr %1, align 8, !tbaa !116
+  %11 = load ptr, ptr %10, align 8, !tbaa !118
+  %12 = load i32, ptr %1, align 8, !tbaa !115
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %11, i64 %14, i1 false)
@@ -9090,7 +9090,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2ERKS2_(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !118
+  %4 = load i32, ptr %3, align 4, !tbaa !117
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -9152,12 +9152,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 36:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
   %.018 = phi ptr [ %22, %20 ], [ %35, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
-  store ptr %11, ptr %.018, align 8, !tbaa !120
-  %37 = load i32, ptr %3, align 4, !tbaa !118
-  store i32 %.0.i, ptr %3, align 4, !tbaa !118
+  store ptr %11, ptr %.018, align 8, !tbaa !119
+  %37 = load i32, ptr %3, align 4, !tbaa !117
+  store i32 %.0.i, ptr %3, align 4, !tbaa !117
   %38 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %38, ptr %7, align 8, !tbaa !119
-  %39 = load i32, ptr %0, align 8, !tbaa !116
+  store ptr %38, ptr %7, align 8, !tbaa !118
+  %39 = load i32, ptr %0, align 8, !tbaa !115
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -9171,7 +9171,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8, !tbaa !120
+  %46 = load ptr, ptr %9, align 8, !tbaa !119
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -9188,19 +9188,19 @@ _ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !116
+  %2 = load i32, ptr %0, align 8, !tbaa !115
   ret i32 %2
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE19AddNAlreadyReservedEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
-  %5 = load i32, ptr %0, align 8, !tbaa !116
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  %5 = load i32, ptr %0, align 8, !tbaa !115
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds double, ptr %4, i64 %6
   %8 = add nsw i32 %5, %1
-  store i32 %8, ptr %0, align 8, !tbaa !116
+  store i32 %8, ptr %0, align 8, !tbaa !115
   ret ptr %7
 }
 
@@ -9215,7 +9215,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE9CopyArrayEPdPKdi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE7MutableEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds double, ptr %4, i64 %5
   ret ptr %6
@@ -9224,7 +9224,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE7MutableEi(ptr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf13RepeatedFieldIdE3GetEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds double, ptr %4, i64 %5
   ret ptr %6
@@ -9233,15 +9233,15 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat($_ZN6google8protobuf13RepeatedFieldIdED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !118
+  %3 = load i32, ptr %2, align 4, !tbaa !117
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !119
+  %7 = load ptr, ptr %6, align 8, !tbaa !118
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !120
+  %9 = load ptr, ptr %8, align 8, !tbaa !119
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
@@ -9262,7 +9262,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateE
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !120
+  %5 = load ptr, ptr %1, align 8, !tbaa !119
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
@@ -9280,7 +9280,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateE
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE3repEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   ret ptr %4
 }
@@ -9291,22 +9291,22 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %3
 
 3:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !116
-  %4 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 0, ptr %0, align 8, !tbaa !115
+  %4 = load i32, ptr %1, align 8, !tbaa !115
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %5
 
 5:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %4)
-  %6 = load i32, ptr %1, align 8, !tbaa !116
+  %6 = load i32, ptr %1, align 8, !tbaa !115
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !119
-  %9 = load i32, ptr %0, align 8, !tbaa !116
+  %8 = load ptr, ptr %7, align 8, !tbaa !118
+  %9 = load i32, ptr %0, align 8, !tbaa !115
   %10 = add nsw i32 %9, %6
-  store i32 %10, ptr %0, align 8, !tbaa !116
+  store i32 %10, ptr %0, align 8, !tbaa !115
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !119
-  %13 = load i32, ptr %1, align 8, !tbaa !116
+  %12 = load ptr, ptr %11, align 8, !tbaa !118
+  %13 = load i32, ptr %1, align 8, !tbaa !115
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %12, i64 %15, i1 false)
@@ -9322,22 +9322,22 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_(ptr n
   br i1 %3, label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit, label %4
 
 4:                                                ; preds = %2
-  store i32 0, ptr %0, align 8, !tbaa !116
-  %5 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 0, ptr %0, align 8, !tbaa !115
+  %5 = load i32, ptr %1, align 8, !tbaa !115
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %5)
-  %7 = load i32, ptr %1, align 8, !tbaa !116
+  %7 = load i32, ptr %1, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !119
-  %10 = load i32, ptr %0, align 8, !tbaa !116
+  %9 = load ptr, ptr %8, align 8, !tbaa !118
+  %10 = load i32, ptr %0, align 8, !tbaa !115
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !116
+  store i32 %11, ptr %0, align 8, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !119
-  %14 = load i32, ptr %1, align 8, !tbaa !116
+  %13 = load ptr, ptr %12, align 8, !tbaa !118
+  %14 = load i32, ptr %1, align 8, !tbaa !115
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %13, i64 %16, i1 false)
@@ -9351,7 +9351,7 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat($_ZN6google8protobuf13RepeatedFieldIdEC5EOS2_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !118
+  %4 = load i32, ptr %3, align 4, !tbaa !117
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -9366,7 +9366,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2EOS2_(ptr noundef n
   br i1 %11, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %1, align 8, !tbaa !116
+  %13 = load i32, ptr %1, align 8, !tbaa !115
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %14
 
@@ -9375,14 +9375,14 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2EOS2_(ptr noundef n
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %14
-  %15 = load i32, ptr %1, align 8, !tbaa !116
+  %15 = load i32, ptr %1, align 8, !tbaa !115
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !119
-  %18 = load i32, ptr %0, align 8, !tbaa !116
+  %17 = load ptr, ptr %16, align 8, !tbaa !118
+  %18 = load i32, ptr %0, align 8, !tbaa !115
   %19 = add nsw i32 %18, %15
-  store i32 %19, ptr %0, align 8, !tbaa !116
-  %20 = load ptr, ptr %6, align 8, !tbaa !119
-  %21 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 %19, ptr %0, align 8, !tbaa !115
+  %20 = load ptr, ptr %6, align 8, !tbaa !118
+  %21 = load i32, ptr %1, align 8, !tbaa !115
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %20, i64 %23, i1 false)
@@ -9407,7 +9407,7 @@ _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !118
+  %3 = load i32, ptr %2, align 4, !tbaa !117
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -9432,7 +9432,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !118
+  %5 = load i32, ptr %4, align 4, !tbaa !117
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -9440,7 +9440,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %.in.i = select i1 %6, ptr %7, ptr %9
   %10 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !118
+  %12 = load i32, ptr %11, align 4, !tbaa !117
   %13 = icmp eq i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -9451,8 +9451,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   br i1 %.not6, label %29, label %18
 
 18:                                               ; preds = %3
-  store i32 0, ptr %0, align 8, !tbaa !116
-  %19 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 0, ptr %0, align 8, !tbaa !115
+  %19 = load i32, ptr %1, align 8, !tbaa !115
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %20
 
@@ -9461,13 +9461,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %20
-  %21 = load i32, ptr %1, align 8, !tbaa !116
-  %22 = load ptr, ptr %7, align 8, !tbaa !119
-  %23 = load i32, ptr %0, align 8, !tbaa !116
+  %21 = load i32, ptr %1, align 8, !tbaa !115
+  %22 = load ptr, ptr %7, align 8, !tbaa !118
+  %23 = load i32, ptr %0, align 8, !tbaa !115
   %24 = add nsw i32 %23, %21
-  store i32 %24, ptr %0, align 8, !tbaa !116
-  %25 = load ptr, ptr %14, align 8, !tbaa !119
-  %26 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 %24, ptr %0, align 8, !tbaa !115
+  %25 = load ptr, ptr %14, align 8, !tbaa !118
+  %26 = load i32, ptr %1, align 8, !tbaa !115
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr nonnull align 8 %25, i64 %28, i1 false)
@@ -9492,7 +9492,7 @@ _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc, %1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIdE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = load i32, ptr %0, align 8, !tbaa !116
+  %2 = load i32, ptr %0, align 8, !tbaa !115
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
@@ -9500,14 +9500,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIdE5empty
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE8elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf13RepeatedFieldIdEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds double, ptr %4, i64 %5
   ret ptr %6
@@ -9516,7 +9516,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuf13RepeatedFieldIdEixEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds double, ptr %4, i64 %5
   ret ptr %6
@@ -9553,7 +9553,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !116
+  %13 = load i32, ptr %0, align 8, !tbaa !115
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -9580,7 +9580,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8prot
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !119
+  %19 = load ptr, ptr %18, align 8, !tbaa !118
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds double, ptr %19, i64 %20
   ret ptr %21
@@ -9655,7 +9655,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
   br label %.critedge25
 
 .critedge25:                                      ; preds = %11, %12
-  %13 = load i32, ptr %0, align 8, !tbaa !116
+  %13 = load i32, ptr %0, align 8, !tbaa !115
   %.not = icmp slt i32 %1, %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %14
@@ -9682,7 +9682,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 .critedge29:                                      ; preds = %.thread30, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !119
+  %19 = load ptr, ptr %18, align 8, !tbaa !118
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds double, ptr %19, i64 %20
   ret ptr %21
@@ -9728,54 +9728,54 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8proto
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE3SetEiRKd(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load double, ptr %2, align 8, !tbaa !122
+  %4 = load double, ptr %2, align 8, !tbaa !121
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !119
+  %6 = load ptr, ptr %5, align 8, !tbaa !118
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds double, ptr %6, i64 %7
-  store double %4, ptr %8, align 8, !tbaa !122
+  store double %4, ptr %8, align 8, !tbaa !121
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE3AddERKd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !116
+  %3 = load i32, ptr %0, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !118
+  %5 = load i32, ptr %4, align 4, !tbaa !117
   %6 = icmp eq i32 %3, %5
-  %7 = load double, ptr %1, align 8, !tbaa !122
+  %7 = load double, ptr %1, align 8, !tbaa !121
   br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   %9 = add i32 %3, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !119
+  %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw double, ptr %11, i64 %12
-  store double %7, ptr %13, align 8, !tbaa !122
+  store double %7, ptr %13, align 8, !tbaa !121
   br label %19
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !119
+  %16 = load ptr, ptr %15, align 8, !tbaa !118
   %17 = zext i32 %3 to i64
   %18 = getelementptr inbounds nuw double, ptr %16, i64 %17
-  store double %7, ptr %18, align 8, !tbaa !122
+  store double %7, ptr %18, align 8, !tbaa !121
   %.pre = add i32 %3, 1
   br label %19
 
 19:                                               ; preds = %14, %8
   %.pre-phi = phi i32 [ %.pre, %14 ], [ %9, %8 ]
-  store i32 %.pre-phi, ptr %0, align 8, !tbaa !116
+  store i32 %.pre-phi, ptr %0, align 8, !tbaa !115
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !116
+  %2 = load i32, ptr %0, align 8, !tbaa !115
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !118
+  %4 = load i32, ptr %3, align 4, !tbaa !117
   %5 = icmp eq i32 %2, %4
   %6 = add i32 %2, 1
   br i1 %5, label %7, label %._crit_edge
@@ -9786,18 +9786,18 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE3AddEv(ptr nou
 
 ._crit_edge:                                      ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !119
+  %9 = load ptr, ptr %8, align 8, !tbaa !118
   %10 = zext i32 %2 to i64
   %11 = getelementptr inbounds nuw double, ptr %9, i64 %10
-  store i32 %6, ptr %0, align 8, !tbaa !116
+  store i32 %6, ptr %0, align 8, !tbaa !115
   ret ptr %11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !116
+  %2 = load i32, ptr %0, align 8, !tbaa !115
   %3 = add nsw i32 %2, -1
-  store i32 %3, ptr %0, align 8, !tbaa !116
+  store i32 %3, ptr %0, align 8, !tbaa !115
   ret void
 }
 
@@ -9810,7 +9810,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE15ExtractSubrangeEiiP
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !119
+  %7 = load ptr, ptr %6, align 8, !tbaa !118
   %8 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %invariant.gep = getelementptr double, ptr %7, i64 %8
@@ -9819,25 +9819,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE15ExtractSubrangeEiiP
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load double, ptr %gep, align 8, !tbaa !122
+  %10 = load double, ptr %gep, align 8, !tbaa !121
   %11 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  store double %10, ptr %11, align 8, !tbaa !122
+  store double %10, ptr %11, align 8, !tbaa !121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !124
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !123
 
 .loopexit:                                        ; preds = %4
   br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %12 = add nsw i32 %2, %1
-  %13 = load i32, ptr %0, align 8, !tbaa !116
+  %13 = load i32, ptr %0, align 8, !tbaa !115
   %14 = icmp slt i32 %12, %13
   br i1 %14, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %.loopexit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !119
+  %16 = load ptr, ptr %15, align 8, !tbaa !118
   %17 = sext i32 %12 to i64
   %18 = zext nneg i32 %2 to i64
   %19 = sext i32 %13 to i64
@@ -9849,19 +9849,19 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE15ExtractSubrangeEiiP
 
 21:                                               ; preds = %._crit_edge
   %22 = sub nsw i32 %13, %2
-  store i32 %22, ptr %0, align 8, !tbaa !116
+  store i32 %22, ptr %0, align 8, !tbaa !115
   br label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
 23:                                               ; preds = %.lr.ph23, %23
   %indvars.iv26 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next27, %23 ]
   %24 = sub nsw i64 %indvars.iv26, %18
   %25 = getelementptr inbounds double, ptr %16, i64 %indvars.iv26
-  %26 = load double, ptr %25, align 8, !tbaa !122
+  %26 = load double, ptr %25, align 8, !tbaa !121
   %27 = getelementptr inbounds double, ptr %16, i64 %24
-  store double %26, ptr %27, align 8, !tbaa !122
+  store double %26, ptr %27, align 8, !tbaa !121
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %28 = icmp slt i64 %indvars.iv.next27, %19
-  br i1 %28, label %23, label %._crit_edge, !llvm.loop !125
+  br i1 %28, label %23, label %._crit_edge, !llvm.loop !124
 
 _ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit: ; preds = %21, %._crit_edge, %.loopexit
   ret void
@@ -9869,12 +9869,12 @@ _ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit: ; preds = %21, %._crit_ed
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !116
+  %3 = load i32, ptr %0, align 8, !tbaa !115
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %0, align 8, !tbaa !116
+  store i32 %1, ptr %0, align 8, !tbaa !115
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -9883,31 +9883,31 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
-  store i32 0, ptr %0, align 8, !tbaa !116
+  store i32 0, ptr %0, align 8, !tbaa !115
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !116
+  %3 = load i32, ptr %1, align 8, !tbaa !115
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !116
+  %5 = load i32, ptr %0, align 8, !tbaa !115
   %6 = add nsw i32 %5, %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
-  %7 = load i32, ptr %1, align 8, !tbaa !116
+  %7 = load i32, ptr %1, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !119
-  %10 = load i32, ptr %0, align 8, !tbaa !116
+  %9 = load ptr, ptr %8, align 8, !tbaa !118
+  %10 = load i32, ptr %0, align 8, !tbaa !115
   %11 = add nsw i32 %10, %7
-  store i32 %11, ptr %0, align 8, !tbaa !116
+  store i32 %11, ptr %0, align 8, !tbaa !115
   %12 = sext i32 %5 to i64
   %13 = getelementptr inbounds double, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !119
-  %16 = load i32, ptr %1, align 8, !tbaa !116
+  %15 = load ptr, ptr %14, align 8, !tbaa !118
+  %16 = load i32, ptr %1, align 8, !tbaa !115
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %15, i64 %18, i1 false)
@@ -9927,25 +9927,25 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE9MoveArrayEPdS3_i(ptr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE18AddAlreadyReservedERKd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load double, ptr %1, align 8, !tbaa !122
+  %3 = load double, ptr %1, align 8, !tbaa !121
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !119
-  %6 = load i32, ptr %0, align 8, !tbaa !116
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
+  %6 = load i32, ptr %0, align 8, !tbaa !115
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %0, align 8, !tbaa !116
+  store i32 %7, ptr %0, align 8, !tbaa !115
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds double, ptr %5, i64 %8
-  store double %3, ptr %9, align 8, !tbaa !122
+  store double %3, ptr %9, align 8, !tbaa !121
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE18AddAlreadyReservedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
-  %4 = load i32, ptr %0, align 8, !tbaa !116
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %4 = load i32, ptr %0, align 8, !tbaa !115
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr %0, align 8, !tbaa !116
+  store i32 %5, ptr %0, align 8, !tbaa !115
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds double, ptr %3, i64 %6
   ret ptr %7
@@ -9954,31 +9954,31 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE18AddAlreadyRe
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE15unsafe_elementsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !118
+  %3 = load i32, ptr %2, align 4, !tbaa !117
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !116
+  %4 = load i32, ptr %0, align 8, !tbaa !115
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZSt4fillIPddEvT_S1_RKT0_.exit
 
 6:                                                ; preds = %3
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !119
-  %9 = load i32, ptr %0, align 8, !tbaa !116
+  %8 = load ptr, ptr %7, align 8, !tbaa !118
+  %9 = load i32, ptr %0, align 8, !tbaa !115
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds double, ptr %8, i64 %10
-  %12 = load double, ptr %2, align 8, !tbaa !122
+  %12 = load double, ptr %2, align 8, !tbaa !121
   %.not6.i.i.i = icmp eq i32 %9, %1
   br i1 %.not6.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -9989,27 +9989,27 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE6ResizeEiRKd(ptr noun
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %14, %.lr.ph.i.i.i.preheader ]
-  store double %12, ptr %.07.i.i.i, align 8, !tbaa !122
+  store double %12, ptr %.07.i.i.i, align 8, !tbaa !121
   %15 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %11
-  br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !126
+  br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !125
 
 _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %6, %3
-  store i32 %1, ptr %0, align 8, !tbaa !116
+  store i32 %1, ptr %0, align 8, !tbaa !115
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
@@ -10021,7 +10021,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !118
+  %7 = load i32, ptr %6, align 4, !tbaa !117
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -10029,7 +10029,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr nounde
   %.in.i = select i1 %8, ptr %9, ptr %11
   %12 = load ptr, ptr %.in.i, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !118
+  %14 = load i32, ptr %13, align 4, !tbaa !117
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -10048,34 +10048,34 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr nounde
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   call void @_ZN6google8protobuf13RepeatedFieldIdEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %19)
-  %23 = load i32, ptr %0, align 8, !tbaa !116
+  %23 = load i32, ptr %0, align 8, !tbaa !115
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = load i32, ptr %3, align 16, !tbaa !116
+  %25 = load i32, ptr %3, align 16, !tbaa !115
   %26 = add nsw i32 %25, %23
   invoke void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %26)
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %24
-  %27 = load i32, ptr %0, align 8, !tbaa !116
+  %27 = load i32, ptr %0, align 8, !tbaa !115
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !119
-  %30 = load i32, ptr %3, align 16, !tbaa !116
+  %29 = load ptr, ptr %28, align 8, !tbaa !118
+  %30 = load i32, ptr %3, align 16, !tbaa !115
   %31 = add nsw i32 %30, %27
-  store i32 %31, ptr %3, align 16, !tbaa !116
+  store i32 %31, ptr %3, align 16, !tbaa !115
   %32 = sext i32 %25 to i64
   %33 = getelementptr inbounds double, ptr %29, i64 %32
-  %34 = load ptr, ptr %9, align 8, !tbaa !119
+  %34 = load ptr, ptr %9, align 8, !tbaa !118
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 8 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
-  store i32 0, ptr %0, align 8, !tbaa !116
-  %37 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 0, ptr %0, align 8, !tbaa !115
+  %37 = load i32, ptr %1, align 8, !tbaa !115
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %38
 
@@ -10084,13 +10084,13 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %.noe
           to label %.noexc11 unwind label %49
 
 .noexc11:                                         ; preds = %38
-  %39 = load i32, ptr %1, align 8, !tbaa !116
-  %40 = load ptr, ptr %9, align 8, !tbaa !119
-  %41 = load i32, ptr %0, align 8, !tbaa !116
+  %39 = load i32, ptr %1, align 8, !tbaa !115
+  %40 = load ptr, ptr %9, align 8, !tbaa !118
+  %41 = load i32, ptr %0, align 8, !tbaa !115
   %42 = add nsw i32 %41, %39
-  store i32 %42, ptr %0, align 8, !tbaa !116
-  %43 = load ptr, ptr %16, align 8, !tbaa !119
-  %44 = load i32, ptr %1, align 8, !tbaa !116
+  store i32 %42, ptr %0, align 8, !tbaa !115
+  %43 = load ptr, ptr %16, align 8, !tbaa !118
+  %44 = load i32, ptr %1, align 8, !tbaa !115
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %43, i64 %46, i1 false)
@@ -10140,44 +10140,44 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !119
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds double, ptr %5, i64 %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds double, ptr %5, i64 %8
-  %10 = load double, ptr %7, align 8, !tbaa !122
-  %11 = load double, ptr %9, align 8, !tbaa !122
-  store double %11, ptr %7, align 8, !tbaa !122
-  store double %10, ptr %9, align 8, !tbaa !122
+  %10 = load double, ptr %7, align 8, !tbaa !121
+  %11 = load double, ptr %9, align 8, !tbaa !121
+  store double %11, ptr %7, align 8, !tbaa !121
+  store double %10, ptr %9, align 8, !tbaa !121
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
   ret ptr %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
-  %4 = load i32, ptr %0, align 8, !tbaa !116
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %4 = load i32, ptr %0, align 8, !tbaa !115
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds double, ptr %3, i64 %5
   ret ptr %6
@@ -10186,8 +10186,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE3endEv(ptr nou
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
-  %4 = load i32, ptr %0, align 8, !tbaa !116
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %4 = load i32, ptr %0, align 8, !tbaa !115
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds double, ptr %3, i64 %5
   ret ptr %6
@@ -10196,8 +10196,8 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE3endEv(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE4cendEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !119
-  %4 = load i32, ptr %0, align 8, !tbaa !116
+  %3 = load ptr, ptr %2, align 8, !tbaa !118
+  %4 = load i32, ptr %0, align 8, !tbaa !115
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds double, ptr %3, i64 %5
   ret ptr %6
@@ -10206,45 +10206,45 @@ define weak_odr noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE4cendEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.33") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
-  %5 = load i32, ptr %1, align 8, !tbaa !116
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  %5 = load i32, ptr %1, align 8, !tbaa !115
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds double, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !127
+  store ptr %7, ptr %0, align 8, !tbaa !126
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIdE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
-  %5 = load i32, ptr %1, align 8, !tbaa !116
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  %5 = load i32, ptr %1, align 8, !tbaa !115
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds double, ptr %4, i64 %6
-  store ptr %7, ptr %0, align 8, !tbaa !130
+  store ptr %7, ptr %0, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.33") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
-  store ptr %4, ptr %0, align 8, !tbaa !127
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  store ptr %4, ptr %0, align 8, !tbaa !126
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf13RepeatedFieldIdE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !119
-  store ptr %4, ptr %0, align 8, !tbaa !130
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  store ptr %4, ptr %0, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIdE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !118
+  %3 = load i32, ptr %2, align 4, !tbaa !117
   %4 = icmp sgt i32 %3, 0
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 3
@@ -10256,7 +10256,7 @@ define weak_odr noundef i64 @_ZNK6google8protobuf13RepeatedFieldIdE26SpaceUsedEx
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !118
+  %3 = load i32, ptr %2, align 4, !tbaa !117
   %4 = icmp sgt i32 %3, 0
   %5 = shl i32 %3, 3
   %6 = add i32 %5, 8
@@ -10268,11 +10268,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE22SpaceUsedEx
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE5eraseEPKd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !119
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = load i32, ptr %0, align 8, !tbaa !116
+  %9 = load i32, ptr %0, align 8, !tbaa !115
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds double, ptr %5, i64 %10
   %sext.i = shl i64 %8, 29
@@ -10286,8 +10286,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE5eraseEPKd(ptr
 
 17:                                               ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %3, i64 %16, i1 false)
-  %.pre.i = load i32, ptr %0, align 8, !tbaa !116
-  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !119
+  %.pre.i = load i32, ptr %0, align 8, !tbaa !115
+  %.pre7.pre.i = load ptr, ptr %4, align 8, !tbaa !118
   br label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKdPdET0_T_S4_S3_.exit.i:               ; preds = %17, %2
@@ -10303,7 +10303,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit.i:               ; preds = %17, %2
   %24 = sub i64 %22, %23
   %25 = lshr exact i64 %24, 3
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %0, align 8, !tbaa !116
+  store i32 %26, ptr %0, align 8, !tbaa !115
   br label %_ZN6google8protobuf13RepeatedFieldIdE5eraseEPKdS4_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE5eraseEPKdS4_.exit: ; preds = %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i, %20
@@ -10314,7 +10314,7 @@ _ZN6google8protobuf13RepeatedFieldIdE5eraseEPKdS4_.exit: ; preds = %_ZSt4copyIPK
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE5eraseEPKdS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !119
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -10327,7 +10327,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE5eraseEPKdS4_(
   br label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %0, align 8, !tbaa !116
+  %10 = load i32, ptr %0, align 8, !tbaa !115
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds double, ptr %5, i64 %11
   %sext = shl i64 %8, 29
@@ -10341,8 +10341,8 @@ define weak_odr noundef ptr @_ZN6google8protobuf13RepeatedFieldIdE5eraseEPKdS4_(
 
 18:                                               ; preds = %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %2, i64 %17, i1 false)
-  %.pre = load i32, ptr %0, align 8, !tbaa !116
-  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !119
+  %.pre = load i32, ptr %0, align 8, !tbaa !115
+  %.pre7.pre = load ptr, ptr %4, align 8, !tbaa !118
   br label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit
 
 _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %9, %18
@@ -10358,7 +10358,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %9, %18
   %25 = sub i64 %23, %24
   %26 = lshr exact i64 %25, 3
   %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %0, align 8, !tbaa !116
+  store i32 %27, ptr %0, align 8, !tbaa !115
   br label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit: ; preds = %._ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit_crit_edge, %21, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit
@@ -10376,7 +10376,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 comdat($_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5EPNS0_5ArenaE) align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !132
+  store ptr %1, ptr %0, align 8, !tbaa !131
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
@@ -10386,32 +10386,32 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat($_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5ERKS8_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !135
+  %4 = load i32, ptr %3, align 8, !tbaa !134
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_.exit, label %.noexc
 
 .noexc:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !136
-  %12 = load i32, ptr %11, align 8, !tbaa !137
+  %11 = load ptr, ptr %10, align 8, !tbaa !135
+  %12 = load i32, ptr %11, align 8, !tbaa !136
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !135
+  %14 = load i32, ptr %13, align 8, !tbaa !134
   %15 = sub nsw i32 %12, %14
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %4, i32 noundef %15)
-  %16 = load i32, ptr %13, align 8, !tbaa !135
+  %16 = load i32, ptr %13, align 8, !tbaa !134
   %17 = add nsw i32 %16, %4
-  store i32 %17, ptr %13, align 8, !tbaa !135
-  %18 = load ptr, ptr %10, align 8, !tbaa !136
-  %19 = load i32, ptr %18, align 8, !tbaa !137
+  store i32 %17, ptr %13, align 8, !tbaa !134
+  %18 = load ptr, ptr %10, align 8, !tbaa !135
+  %19 = load i32, ptr %18, align 8, !tbaa !136
   %20 = icmp slt i32 %19, %17
   br i1 %20, label %21, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_.exit
 
 21:                                               ; preds = %.noexc
-  store i32 %17, ptr %18, align 8, !tbaa !137
+  store i32 %17, ptr %18, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_.exit: ; preds = %21, %.noexc, %2
@@ -10421,32 +10421,32 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !135
+  %4 = load i32, ptr %3, align 8, !tbaa !134
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !136
+  %8 = load ptr, ptr %7, align 8, !tbaa !135
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !136
-  %13 = load i32, ptr %12, align 8, !tbaa !137
+  %12 = load ptr, ptr %11, align 8, !tbaa !135
+  %13 = load i32, ptr %12, align 8, !tbaa !136
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !135
+  %15 = load i32, ptr %14, align 8, !tbaa !134
   %16 = sub nsw i32 %13, %15
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef %4, i32 noundef %16)
-  %17 = load i32, ptr %14, align 8, !tbaa !135
+  %17 = load i32, ptr %14, align 8, !tbaa !134
   %18 = add nsw i32 %17, %4
-  store i32 %18, ptr %14, align 8, !tbaa !135
-  %19 = load ptr, ptr %11, align 8, !tbaa !136
-  %20 = load i32, ptr %19, align 8, !tbaa !137
+  store i32 %18, ptr %14, align 8, !tbaa !134
+  %19 = load ptr, ptr %11, align 8, !tbaa !135
+  %20 = load i32, ptr %19, align 8, !tbaa !136
   %21 = icmp slt i32 %20, %18
   br i1 %21, label %22, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
 
 22:                                               ; preds = %6
-  store i32 %18, ptr %19, align 8, !tbaa !137
+  store i32 %18, ptr %19, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit: ; preds = %2, %6, %22
@@ -10456,7 +10456,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat($_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp ne ptr %3, null
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -10464,7 +10464,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %or.cond.i, label %6, label %28
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr %3, align 8, !tbaa !137
+  %7 = load i32, ptr %3, align 8, !tbaa !136
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -10474,13 +10474,13 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
-  %.pre.i = load ptr, ptr %2, align 8, !tbaa !136
+  %.pre.i = load ptr, ptr %2, align 8, !tbaa !135
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %6
   %10 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %3, %6 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !139
+  %12 = load i32, ptr %11, align 4, !tbaa !138
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
   %15 = add nsw i64 %14, 8
@@ -10495,20 +10495,20 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %18, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = load ptr, ptr %17, align 8, !tbaa !140
+  %20 = load ptr, ptr %17, align 8, !tbaa !139
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !144
+  %24 = load i64, ptr %23, align 8, !tbaa !143
   %25 = icmp ult i64 %24, 16
   tail call void @llvm.assume(i1 %25)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %19
-  %26 = load i64, ptr %21, align 8, !tbaa !145
+  %26 = load i64, ptr %21, align 8, !tbaa !144
   %27 = add i64 %26, 1
   tail call void @_ZdlPvm(ptr noundef %20, i64 noundef %27) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
@@ -10520,10 +10520,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !146
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !145
 
 28:                                               ; preds = %._crit_edge.i, %1
-  store ptr null, ptr %2, align 8, !tbaa !136
+  store ptr null, ptr %2, align 8, !tbaa !135
   ret void
 }
 
@@ -10534,13 +10534,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8prot
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !135
+  %5 = load i32, ptr %4, align 8, !tbaa !134
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !136
+  %9 = load ptr, ptr %8, align 8, !tbaa !135
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %5 to i64
   br label %11
@@ -10551,43 +10551,43 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8prot
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 0, ptr %14, align 8, !tbaa !144
-  %15 = load ptr, ptr %13, align 8, !tbaa !140
-  store i8 0, ptr %15, align 1, !tbaa !145
+  store i64 0, ptr %14, align 8, !tbaa !143
+  %15 = load ptr, ptr %13, align 8, !tbaa !139
+  store i8 0, ptr %15, align 1, !tbaa !144
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %16, label %11, !llvm.loop !147
+  br i1 %exitcond.not.i.i.i, label %16, label %11, !llvm.loop !146
 
 16:                                               ; preds = %11
-  store i32 0, ptr %4, align 8, !tbaa !135
+  store i32 0, ptr %4, align 8, !tbaa !134
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i: ; preds = %16, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !135
+  %18 = load i32, ptr %17, align 8, !tbaa !134
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit, label %20
 
 20:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !136
+  %22 = load ptr, ptr %21, align 8, !tbaa !135
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %18)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !136
-  %27 = load i32, ptr %26, align 8, !tbaa !137
-  %28 = load i32, ptr %4, align 8, !tbaa !135
+  %26 = load ptr, ptr %25, align 8, !tbaa !135
+  %27 = load i32, ptr %26, align 8, !tbaa !136
+  %28 = load i32, ptr %4, align 8, !tbaa !134
   %29 = sub nsw i32 %27, %28
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %24, ptr noundef nonnull %23, i32 noundef %18, i32 noundef %29)
-  %30 = load i32, ptr %4, align 8, !tbaa !135
+  %30 = load i32, ptr %4, align 8, !tbaa !134
   %31 = add nsw i32 %30, %18
-  store i32 %31, ptr %4, align 8, !tbaa !135
-  %32 = load ptr, ptr %25, align 8, !tbaa !136
-  %33 = load i32, ptr %32, align 8, !tbaa !137
+  store i32 %31, ptr %4, align 8, !tbaa !134
+  %32 = load ptr, ptr %25, align 8, !tbaa !135
+  %33 = load i32, ptr %32, align 8, !tbaa !136
   %34 = icmp slt i32 %33, %31
   br i1 %34, label %35, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit
 
 35:                                               ; preds = %20
-  store i32 %31, ptr %32, align 8, !tbaa !137
+  store i32 %31, ptr %32, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit: ; preds = %35, %20, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i, %2
@@ -10601,13 +10601,13 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !136
+  %10 = load ptr, ptr %9, align 8, !tbaa !135
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
   br label %12
@@ -10618,43 +10618,43 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %15, align 8, !tbaa !144
-  %16 = load ptr, ptr %14, align 8, !tbaa !140
-  store i8 0, ptr %16, align 1, !tbaa !145
+  store i64 0, ptr %15, align 8, !tbaa !143
+  %16 = load ptr, ptr %14, align 8, !tbaa !139
+  store i8 0, ptr %16, align 1, !tbaa !144
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %17, label %12, !llvm.loop !147
+  br i1 %exitcond.not.i.i, label %17, label %12, !llvm.loop !146
 
 17:                                               ; preds = %12
-  store i32 0, ptr %5, align 8, !tbaa !135
+  store i32 0, ptr %5, align 8, !tbaa !134
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i: ; preds = %17, %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !135
+  %19 = load i32, ptr %18, align 8, !tbaa !134
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CopyFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit, label %21
 
 21:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !136
+  %23 = load ptr, ptr %22, align 8, !tbaa !135
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %19)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !136
-  %28 = load i32, ptr %27, align 8, !tbaa !137
-  %29 = load i32, ptr %5, align 8, !tbaa !135
+  %27 = load ptr, ptr %26, align 8, !tbaa !135
+  %28 = load i32, ptr %27, align 8, !tbaa !136
+  %29 = load i32, ptr %5, align 8, !tbaa !134
   %30 = sub nsw i32 %28, %29
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef %19, i32 noundef %30)
-  %31 = load i32, ptr %5, align 8, !tbaa !135
+  %31 = load i32, ptr %5, align 8, !tbaa !134
   %32 = add nsw i32 %31, %19
-  store i32 %32, ptr %5, align 8, !tbaa !135
-  %33 = load ptr, ptr %26, align 8, !tbaa !136
-  %34 = load i32, ptr %33, align 8, !tbaa !137
+  store i32 %32, ptr %5, align 8, !tbaa !134
+  %33 = load ptr, ptr %26, align 8, !tbaa !135
+  %34 = load i32, ptr %33, align 8, !tbaa !136
   %35 = icmp slt i32 %34, %32
   br i1 %35, label %36, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CopyFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
 
 36:                                               ; preds = %21
-  store i32 %32, ptr %33, align 8, !tbaa !137
+  store i32 %32, ptr %33, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CopyFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase8CopyFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit: ; preds = %2, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i, %21, %36
@@ -10664,7 +10664,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase8CopyFromINS0_16RepeatedPtrFie
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat($_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5EOS8_) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %3 = load ptr, ptr %1, align 8, !tbaa !132
+  %3 = load ptr, ptr %1, align 8, !tbaa !131
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %4
 
@@ -10675,37 +10675,37 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i: ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !135
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !134
   %7 = icmp eq i32 %.pre, 0
   br i1 %7, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit, label %8
 
 8:                                                ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !136
+  %10 = load ptr, ptr %9, align 8, !tbaa !135
   %11 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.pre)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = load i32, ptr %14, align 8, !tbaa !137
-  %16 = load i32, ptr %6, align 8, !tbaa !135
+  %14 = load ptr, ptr %13, align 8, !tbaa !135
+  %15 = load i32, ptr %14, align 8, !tbaa !136
+  %16 = load i32, ptr %6, align 8, !tbaa !134
   %17 = sub nsw i32 %15, %16
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %.pre, i32 noundef %17)
           to label %.noexc4 unwind label %27
 
 .noexc4:                                          ; preds = %.noexc
-  %18 = load i32, ptr %6, align 8, !tbaa !135
+  %18 = load i32, ptr %6, align 8, !tbaa !134
   %19 = add nsw i32 %18, %.pre
-  store i32 %19, ptr %6, align 8, !tbaa !135
-  %20 = load ptr, ptr %13, align 8, !tbaa !136
-  %21 = load i32, ptr %20, align 8, !tbaa !137
+  store i32 %19, ptr %6, align 8, !tbaa !134
+  %20 = load ptr, ptr %13, align 8, !tbaa !135
+  %21 = load i32, ptr %20, align 8, !tbaa !136
   %22 = icmp slt i32 %21, %19
   br i1 %22, label %23, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit
 
 23:                                               ; preds = %.noexc4
-  store i32 %19, ptr %20, align 8, !tbaa !137
+  store i32 %19, ptr %20, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit
 
 24:                                               ; preds = %2
@@ -10728,7 +10728,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !132
+  %2 = load ptr, ptr %0, align 8, !tbaa !131
   ret ptr %2
 }
 
@@ -10748,20 +10748,20 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8prot
   br i1 %.not, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !132
-  %5 = load ptr, ptr %1, align 8, !tbaa !132
+  %4 = load ptr, ptr %0, align 8, !tbaa !131
+  %5 = load ptr, ptr %1, align 8, !tbaa !131
   %.not6 = icmp eq ptr %4, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not6, label %39, label %7
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %6, align 8, !tbaa !135
+  %8 = load i32, ptr %6, align 8, !tbaa !134
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !136
+  %12 = load ptr, ptr %11, align 8, !tbaa !135
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %8 to i64
   br label %14
@@ -10772,49 +10772,49 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8prot
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %17, align 8, !tbaa !144
-  %18 = load ptr, ptr %16, align 8, !tbaa !140
-  store i8 0, ptr %18, align 1, !tbaa !145
+  store i64 0, ptr %17, align 8, !tbaa !143
+  %18 = load ptr, ptr %16, align 8, !tbaa !139
+  store i8 0, ptr %18, align 1, !tbaa !144
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %19, label %14, !llvm.loop !147
+  br i1 %exitcond.not.i.i.i, label %19, label %14, !llvm.loop !146
 
 19:                                               ; preds = %14
-  store i32 0, ptr %6, align 8, !tbaa !135
+  store i32 0, ptr %6, align 8, !tbaa !134
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i: ; preds = %19, %7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !135
+  %21 = load i32, ptr %20, align 8, !tbaa !134
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit, label %23
 
 23:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit.i.i
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !136
+  %25 = load ptr, ptr %24, align 8, !tbaa !135
   %26 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %21)
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !136
-  %30 = load i32, ptr %29, align 8, !tbaa !137
-  %31 = load i32, ptr %6, align 8, !tbaa !135
+  %29 = load ptr, ptr %28, align 8, !tbaa !135
+  %30 = load i32, ptr %29, align 8, !tbaa !136
+  %31 = load i32, ptr %6, align 8, !tbaa !134
   %32 = sub nsw i32 %30, %31
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %26, ptr noundef nonnull %27, i32 noundef %21, i32 noundef %32)
           to label %.noexc7 unwind label %41
 
 .noexc7:                                          ; preds = %.noexc
-  %33 = load i32, ptr %6, align 8, !tbaa !135
+  %33 = load i32, ptr %6, align 8, !tbaa !134
   %34 = add nsw i32 %33, %21
-  store i32 %34, ptr %6, align 8, !tbaa !135
-  %35 = load ptr, ptr %28, align 8, !tbaa !136
-  %36 = load i32, ptr %35, align 8, !tbaa !137
+  store i32 %34, ptr %6, align 8, !tbaa !134
+  %35 = load ptr, ptr %28, align 8, !tbaa !135
+  %36 = load i32, ptr %35, align 8, !tbaa !136
   %37 = icmp slt i32 %36, %34
   br i1 %37, label %38, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit
 
 38:                                               ; preds = %.noexc7
-  store i32 %34, ptr %35, align 8, !tbaa !137
+  store i32 %34, ptr %35, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CopyFromERKS8_.exit
 
 39:                                               ; preds = %3
@@ -10838,7 +10838,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !135
+  %3 = load i32, ptr %2, align 8, !tbaa !134
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
@@ -10846,14 +10846,14 @@ define weak_odr noundef zeroext i1 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7_
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !135
+  %3 = load i32, ptr %2, align 8, !tbaa !134
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [268435454 x ptr], ptr %5, i64 0, i64 %6
@@ -10864,7 +10864,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8pro
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7MutableEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [268435454 x ptr], ptr %5, i64 0, i64 %6
@@ -10875,28 +10875,28 @@ define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %..thread_crit_edge.i, label %4
 
 ..thread_crit_edge.i:                             ; preds = %1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !139
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !138
   %.phi.trans.insert10.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre11.i = load i32, ptr %.phi.trans.insert10.i, align 8, !tbaa !135
+  %.pre11.i = load i32, ptr %.phi.trans.insert10.i, align 8, !tbaa !134
   br label %.thread.i
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
-  %7 = load i32, ptr %3, align 8, !tbaa !137
+  %6 = load i32, ptr %5, align 8, !tbaa !134
+  %7 = load i32, ptr %3, align 8, !tbaa !136
   %8 = icmp slt i32 %6, %7
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = add nsw i32 %6, 1
-  store i32 %11, ptr %5, align 8, !tbaa !135
+  store i32 %11, ptr %5, align 8, !tbaa !134
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds [268435454 x ptr], ptr %10, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !11
@@ -10904,7 +10904,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !139
+  %17 = load i32, ptr %16, align 4, !tbaa !138
   %18 = icmp eq i32 %7, %17
   br i1 %18, label %.thread.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit.i
 
@@ -10918,15 +10918,15 @@ define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
   %reass.sub = sub i32 %20, %19
   %22 = add i32 %reass.sub, 1
   %23 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %22)
-  %.pre12.i = load ptr, ptr %2, align 8, !tbaa !136
+  %.pre12.i = load ptr, ptr %2, align 8, !tbaa !135
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit.i
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit.i: ; preds = %21, %.thread.i, %15
   %24 = phi ptr [ %.pre12.i, %21 ], [ %3, %.thread.i ], [ %3, %15 ]
-  %25 = load i32, ptr %24, align 8, !tbaa !137
+  %25 = load i32, ptr %24, align 8, !tbaa !136
   %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %24, align 8, !tbaa !137
-  %27 = load ptr, ptr %0, align 8, !tbaa !132
+  store i32 %26, ptr %24, align 8, !tbaa !136
+  %27 = load ptr, ptr %0, align 8, !tbaa !131
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
 
@@ -10959,16 +10959,16 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i:
 _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i, %29
   %.sink6.i.i.i = phi ptr [ %30, %29 ], [ %43, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i, i64 16
-  store ptr %44, ptr %.sink6.i.i.i, align 8, !tbaa !148
+  store ptr %44, ptr %.sink6.i.i.i, align 8, !tbaa !147
   %45 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i, i64 8
-  store i64 0, ptr %45, align 8, !tbaa !144
-  store i8 0, ptr %44, align 1, !tbaa !145
-  %46 = load ptr, ptr %2, align 8, !tbaa !136
+  store i64 0, ptr %45, align 8, !tbaa !143
+  store i8 0, ptr %44, align 1, !tbaa !144
+  %46 = load ptr, ptr %2, align 8, !tbaa !135
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !135
+  %49 = load i32, ptr %48, align 8, !tbaa !134
   %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %48, align 8, !tbaa !135
+  store i32 %50, ptr %48, align 8, !tbaa !134
   %51 = sext i32 %49 to i64
   %52 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %51
   store ptr %.sink6.i.i.i, ptr %52, align 8, !tbaa !11
@@ -10988,48 +10988,48 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerETnPNSt9enable_ifIXsrNT_7MovableE5valueEvE4typeELPv0EEEvONSE_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %..thread_crit_edge, label %5
 
 ..thread_crit_edge:                               ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !139
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !138
   %.phi.trans.insert9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre10 = load i32, ptr %.phi.trans.insert9, align 8, !tbaa !135
+  %.pre10 = load i32, ptr %.phi.trans.insert9, align 8, !tbaa !134
   br label %.thread
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
-  %8 = load i32, ptr %4, align 8, !tbaa !137
+  %7 = load i32, ptr %6, align 8, !tbaa !134
+  %8 = load i32, ptr %4, align 8, !tbaa !136
   %9 = icmp slt i32 %7, %8
   br i1 %9, label %10, label %54
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = add nsw i32 %7, 1
-  store i32 %12, ptr %6, align 8, !tbaa !135
+  store i32 %12, ptr %6, align 8, !tbaa !134
   %13 = sext i32 %7 to i64
   %14 = getelementptr inbounds [268435454 x ptr], ptr %11, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !11
-  %16 = load ptr, ptr %15, align 8, !tbaa !140
+  %16 = load ptr, ptr %15, align 8, !tbaa !139
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !144
+  %20 = load i64, ptr %19, align 8, !tbaa !143
   %21 = icmp ult i64 %20, 16
   tail call void @llvm.assume(i1 %21)
-  %22 = load ptr, ptr %1, align 8, !tbaa !140
+  %22 = load ptr, ptr %1, align 8, !tbaa !139
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %28, label %.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %10
-  %25 = load ptr, ptr %1, align 8, !tbaa !140
+  %25 = load ptr, ptr %1, align 8, !tbaa !139
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = icmp eq ptr %25, %26
   br i1 %27, label %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
@@ -11037,11 +11037,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 28:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
   %29 = phi ptr [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !144
+  %31 = load i64, ptr %30, align 8, !tbaa !143
   %32 = icmp ult i64 %31, 16
   tail call void @llvm.assume(i1 %32)
   %.not22.i = icmp eq ptr %1, %15
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %33, !prof !149
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %33, !prof !148
 
 33:                                               ; preds = %28
   switch i64 %31, label %36 [
@@ -11050,8 +11050,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   ]
 
 34:                                               ; preds = %33
-  %35 = load i8, ptr %29, align 1, !tbaa !145
-  store i8 %35, ptr %16, align 1, !tbaa !145
+  %35 = load i8, ptr %29, align 1, !tbaa !144
+  store i8 %35, ptr %16, align 1, !tbaa !144
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
 
 36:                                               ; preds = %33
@@ -11059,56 +11059,56 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %36, %34, %33
-  %37 = load i64, ptr %30, align 8, !tbaa !144
+  %37 = load i64, ptr %30, align 8, !tbaa !143
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %37, ptr %38, align 8, !tbaa !144
-  %39 = load ptr, ptr %15, align 8, !tbaa !140
+  store i64 %37, ptr %38, align 8, !tbaa !143
+  %39 = load ptr, ptr %15, align 8, !tbaa !139
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
-  store i8 0, ptr %40, align 1, !tbaa !145
-  %.pre.i = load ptr, ptr %1, align 8, !tbaa !140
+  store i8 0, ptr %40, align 1, !tbaa !144
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !139
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  store ptr %22, ptr %15, align 8, !tbaa !140
+  store ptr %22, ptr %15, align 8, !tbaa !139
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !144
-  store i64 %42, ptr %19, align 8, !tbaa !144
-  %43 = load i64, ptr %23, align 8, !tbaa !145
-  store i64 %43, ptr %17, align 8, !tbaa !145
+  %42 = load i64, ptr %41, align 8, !tbaa !143
+  store i64 %42, ptr %19, align 8, !tbaa !143
+  %43 = load i64, ptr %23, align 8, !tbaa !144
+  store i64 %43, ptr %17, align 8, !tbaa !144
   br label %50
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
-  %44 = load i64, ptr %17, align 8, !tbaa !145
-  store ptr %25, ptr %15, align 8, !tbaa !140
+  %44 = load i64, ptr %17, align 8, !tbaa !144
+  store ptr %25, ptr %15, align 8, !tbaa !139
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !144
+  %46 = load i64, ptr %45, align 8, !tbaa !143
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %46, ptr %47, align 8, !tbaa !144
-  %48 = load i64, ptr %26, align 8, !tbaa !145
-  store i64 %48, ptr %17, align 8, !tbaa !145
+  store i64 %46, ptr %47, align 8, !tbaa !143
+  %48 = load i64, ptr %26, align 8, !tbaa !144
+  store i64 %48, ptr %17, align 8, !tbaa !144
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %50, label %49
 
 49:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
-  store ptr %16, ptr %1, align 8, !tbaa !140
-  store i64 %44, ptr %26, align 8, !tbaa !145
+  store ptr %16, ptr %1, align 8, !tbaa !139
+  store i64 %44, ptr %26, align 8, !tbaa !144
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i, %.thread.i
   %51 = phi ptr [ %23, %.thread.i ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i ]
-  store ptr %51, ptr %1, align 8, !tbaa !140
+  store ptr %51, ptr %1, align 8, !tbaa !139
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i, %49, %50
   %52 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %16, %49 ], [ %51, %50 ], [ %29, %28 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %53, align 8, !tbaa !144
-  store i8 0, ptr %52, align 1, !tbaa !145
+  store i64 0, ptr %53, align 8, !tbaa !143
+  store i8 0, ptr %52, align 1, !tbaa !144
   br label %117
 
 54:                                               ; preds = %5
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %56 = load i32, ptr %55, align 4, !tbaa !139
+  %56 = load i32, ptr %55, align 4, !tbaa !138
   %57 = icmp eq i32 %8, %56
   br i1 %57, label %.thread, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
@@ -11122,30 +11122,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %28
   %61 = add nsw i32 %59, 1
   %62 = sub i32 %61, %58
   %63 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %62)
-  %.pre11 = load ptr, ptr %3, align 8, !tbaa !136
+  %.pre11 = load ptr, ptr %3, align 8, !tbaa !135
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %60, %.thread, %54
   %64 = phi ptr [ %.pre11, %60 ], [ %4, %.thread ], [ %4, %54 ]
-  %65 = load i32, ptr %64, align 8, !tbaa !137
+  %65 = load i32, ptr %64, align 8, !tbaa !136
   %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %64, align 8, !tbaa !137
-  %67 = load ptr, ptr %0, align 8, !tbaa !132
+  store i32 %66, ptr %64, align 8, !tbaa !136
+  %67 = load ptr, ptr %0, align 8, !tbaa !131
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %84
 
 69:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
   %70 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store ptr %71, ptr %70, align 8, !tbaa !148
-  %72 = load ptr, ptr %1, align 8, !tbaa !140
+  store ptr %71, ptr %70, align 8, !tbaa !147
+  %72 = load ptr, ptr %1, align 8, !tbaa !139
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 75:                                               ; preds = %69
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !144
+  %77 = load i64, ptr %76, align 8, !tbaa !143
   %78 = icmp ult i64 %77, 16
   tail call void @llvm.assume(i1 %78)
   %79 = add nuw nsw i64 %77, 1
@@ -11153,21 +11153,21 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %60
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %69
-  store ptr %72, ptr %70, align 8, !tbaa !140
-  %80 = load i64, ptr %73, align 8, !tbaa !145
-  store i64 %80, ptr %71, align 8, !tbaa !145
+  store ptr %72, ptr %70, align 8, !tbaa !139
+  %80 = load i64, ptr %73, align 8, !tbaa !144
+  store i64 %80, ptr %71, align 8, !tbaa !144
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre.i7 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !144
+  %.pre.i7 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !143
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %75
   %81 = phi i64 [ %77, %75 ], [ %.pre.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 %81, ptr %83, align 8, !tbaa !144
-  store ptr %73, ptr %1, align 8, !tbaa !140
-  store i64 0, ptr %82, align 8, !tbaa !144
-  store i8 0, ptr %73, align 8, !tbaa !145
+  store i64 %81, ptr %83, align 8, !tbaa !143
+  store ptr %73, ptr %1, align 8, !tbaa !139
+  store i64 0, ptr %82, align 8, !tbaa !143
+  store i8 0, ptr %73, align 8, !tbaa !144
   br label %_ZN6google8protobuf8internal17StringTypeHandler3NewEPNS0_5ArenaEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 84:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
@@ -11191,15 +11191,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %88, %84
   %96 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %67, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %97, ptr %96, align 8, !tbaa !148
-  %98 = load ptr, ptr %1, align 8, !tbaa !140
+  store ptr %97, ptr %96, align 8, !tbaa !147
+  %98 = load ptr, ptr %1, align 8, !tbaa !139
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %100 = icmp eq ptr %98, %99
   br i1 %100, label %101, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i2.i
 
 101:                                              ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %103 = load i64, ptr %102, align 8, !tbaa !144
+  %103 = load i64, ptr %102, align 8, !tbaa !143
   %104 = icmp ult i64 %103, 16
   tail call void @llvm.assume(i1 %104)
   %105 = add nuw nsw i64 %103, 1
@@ -11207,29 +11207,29 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; p
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit3.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i2.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  store ptr %98, ptr %96, align 8, !tbaa !140
-  %106 = load i64, ptr %99, align 8, !tbaa !145
-  store i64 %106, ptr %97, align 8, !tbaa !145
+  store ptr %98, ptr %96, align 8, !tbaa !139
+  %106 = load i64, ptr %99, align 8, !tbaa !144
+  store i64 %106, ptr %97, align 8, !tbaa !144
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit3.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit3.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i2.i, %101
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %108 = load i64, ptr %107, align 8, !tbaa !144
+  %108 = load i64, ptr %107, align 8, !tbaa !143
   %109 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %108, ptr %109, align 8, !tbaa !144
-  store ptr %99, ptr %1, align 8, !tbaa !140
-  store i64 0, ptr %107, align 8, !tbaa !144
-  store i8 0, ptr %99, align 8, !tbaa !145
+  store i64 %108, ptr %109, align 8, !tbaa !143
+  store ptr %99, ptr %1, align 8, !tbaa !139
+  store i64 0, ptr %107, align 8, !tbaa !143
+  store i8 0, ptr %99, align 8, !tbaa !144
   br label %_ZN6google8protobuf8internal17StringTypeHandler3NewEPNS0_5ArenaEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal17StringTypeHandler3NewEPNS0_5ArenaEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit3.i
   %.0.i.i = phi ptr [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit3.i ]
-  %110 = load ptr, ptr %3, align 8, !tbaa !136
+  %110 = load ptr, ptr %3, align 8, !tbaa !135
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %113 = load i32, ptr %112, align 8, !tbaa !135
+  %113 = load i32, ptr %112, align 8, !tbaa !134
   %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %112, align 8, !tbaa !135
+  store i32 %114, ptr %112, align 8, !tbaa !134
   %115 = sext i32 %113 to i64
   %116 = getelementptr inbounds [268435454 x ptr], ptr %111, i64 0, i64 %115
   store ptr %.0.i.i, ptr %116, align 8, !tbaa !11
@@ -11242,7 +11242,7 @@ _ZN6google8protobuf8internal17StringTypeHandler3NewEPNS0_5ArenaEONSt7__cxx1112ba
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [268435454 x ptr], ptr %5, i64 0, i64 %6
@@ -11253,7 +11253,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8pro
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [268435454 x ptr], ptr %5, i64 0, i64 %6
@@ -11299,7 +11299,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google
 
 .critedge25:                                      ; preds = %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !135
+  %14 = load i32, ptr %13, align 8, !tbaa !134
   %.not = icmp slt i32 %1, %14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %15
@@ -11326,7 +11326,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google
 
 .critedge29:                                      ; preds = %.thread30, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !136
+  %20 = load ptr, ptr %19, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = sext i32 %1 to i64
   %23 = getelementptr inbounds [268435454 x ptr], ptr %21, i64 0, i64 %22
@@ -11410,7 +11410,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
 
 .critedge25:                                      ; preds = %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !135
+  %14 = load i32, ptr %13, align 8, !tbaa !134
   %.not = icmp slt i32 %1, %14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #20
   br i1 %.not, label %.thread30, label %15
@@ -11437,7 +11437,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
 
 .critedge29:                                      ; preds = %.thread30, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !136
+  %20 = load ptr, ptr %19, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = sext i32 %1 to i64
   %23 = getelementptr inbounds [268435454 x ptr], ptr %21, i64 0, i64 %22
@@ -11486,19 +11486,19 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = add nsw i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !135
+  store i32 %7, ptr %5, align 8, !tbaa !134
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [268435454 x ptr], ptr %4, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !144
-  %12 = load ptr, ptr %10, align 8, !tbaa !140
-  store i8 0, ptr %12, align 1, !tbaa !145
+  store i64 0, ptr %11, align 8, !tbaa !143
+  %12 = load ptr, ptr %10, align 8, !tbaa !139
+  store i8 0, ptr %12, align 1, !tbaa !144
   ret void
 }
 
@@ -11515,13 +11515,13 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !136
+  %8 = load ptr, ptr %7, align 8, !tbaa !135
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15ExtractSubrangeEiiPPS7_.exit, label %10
 
 10:                                               ; preds = %._crit_edge
   %11 = add nsw i32 %2, %1
-  %12 = load i32, ptr %8, align 8, !tbaa !137
+  %12 = load i32, ptr %8, align 8, !tbaa !136
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
@@ -11534,11 +11534,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %.lcssa9.i.i.i = phi ptr [ %8, %10 ], [ %26, %.lr.ph.i.i.i ]
   %.lcssa.i.i.i = phi i32 [ %12, %10 ], [ %27, %.lr.ph.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !135
+  %17 = load i32, ptr %16, align 8, !tbaa !134
   %18 = sub nsw i32 %17, %2
-  store i32 %18, ptr %16, align 8, !tbaa !135
+  store i32 %18, ptr %16, align 8, !tbaa !134
   %19 = sub nsw i32 %.lcssa.i.i.i, %2
-  store i32 %19, ptr %.lcssa9.i.i.i, align 8, !tbaa !137
+  store i32 %19, ptr %.lcssa9.i.i.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15ExtractSubrangeEiiPPS7_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -11551,11 +11551,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %25 = getelementptr inbounds [268435454 x ptr], ptr %21, i64 0, i64 %24
   store ptr %23, ptr %25, align 8, !tbaa !11
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
-  %26 = load ptr, ptr %7, align 8, !tbaa !136
-  %27 = load i32, ptr %26, align 8, !tbaa !137
+  %26 = load ptr, ptr %7, align 8, !tbaa !135
+  %27 = load i32, ptr %26, align 8, !tbaa !136
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i.i, %28
-  br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !150
+  br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !149
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15ExtractSubrangeEiiPPS7_.exit: ; preds = %3, %._crit_edge, %._crit_edge.i.i.i
   ret void
@@ -11563,31 +11563,31 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 30:                                               ; preds = %.lr.ph, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit ]
   %31 = add nsw i64 %indvars.iv, %6
-  %32 = load ptr, ptr %5, align 8, !tbaa !136
+  %32 = load ptr, ptr %5, align 8, !tbaa !135
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = getelementptr inbounds [268435454 x ptr], ptr %33, i64 0, i64 %31
   %35 = load ptr, ptr %34, align 8, !tbaa !11
-  %36 = load ptr, ptr %0, align 8, !tbaa !132
+  %36 = load ptr, ptr %0, align 8, !tbaa !131
   %37 = icmp ne ptr %36, null
   %38 = icmp eq ptr %35, null
   %or.cond.i.i = or i1 %38, %37
   br i1 %or.cond.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit, label %39
 
 39:                                               ; preds = %30
-  %40 = load ptr, ptr %35, align 8, !tbaa !140
+  %40 = load ptr, ptr %35, align 8, !tbaa !139
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %42 = icmp eq ptr %40, %41
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !144
+  %44 = load i64, ptr %43, align 8, !tbaa !143
   %45 = icmp ult i64 %44, 16
   tail call void @llvm.assume(i1 %45)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %39
-  %46 = load i64, ptr %41, align 8, !tbaa !145
+  %46 = load i64, ptr %41, align 8, !tbaa !144
   %47 = add i64 %46, 1
   tail call void @_ZdlPvm(ptr noundef %40, i64 noundef %47) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
@@ -11599,7 +11599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit: ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !150
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -11612,7 +11612,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %.not.i, label %.loopexit.i, label %7
 
 7:                                                ; preds = %6
-  %8 = load ptr, ptr %0, align 8, !tbaa !132
+  %8 = load ptr, ptr %0, align 8, !tbaa !131
   %.not25.i = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not25.i, label %.lr.ph31.i, label %.lr.ph.i
@@ -11623,7 +11623,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br label %14
 
 .lr.ph31.i:                                       ; preds = %7
-  %11 = load ptr, ptr %9, align 8, !tbaa !136
+  %11 = load ptr, ptr %9, align 8, !tbaa !135
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = sext i32 %1 to i64
   %wide.trip.count38.i = zext nneg i32 %2 to i64
@@ -11632,22 +11632,22 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %15 = add nsw i64 %indvars.iv.i, %10
-  %16 = load ptr, ptr %9, align 8, !tbaa !136
+  %16 = load ptr, ptr %9, align 8, !tbaa !135
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds [268435454 x ptr], ptr %17, i64 0, i64 %15
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %21, ptr %20, align 8, !tbaa !148
+  store ptr %21, ptr %20, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 0, ptr %22, align 8, !tbaa !144
-  store i8 0, ptr %21, align 1, !tbaa !145
+  store i64 0, ptr %22, align 8, !tbaa !143
+  store i8 0, ptr %21, align 1, !tbaa !144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %23 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %20, ptr %23, align 8, !tbaa !152
+  store ptr %20, ptr %23, align 8, !tbaa !151
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %14, !llvm.loop !154
+  br i1 %exitcond.not.i, label %.loopexit.i, label %14, !llvm.loop !153
 
 24:                                               ; preds = %24, %.lr.ph31.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next36.i, %24 ]
@@ -11655,20 +11655,20 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %26 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv35.i
-  store ptr %27, ptr %28, align 8, !tbaa !152
+  store ptr %27, ptr %28, align 8, !tbaa !151
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %.loopexit.i, label %24, !llvm.loop !155
+  br i1 %exitcond39.not.i, label %.loopexit.i, label %24, !llvm.loop !154
 
 .loopexit.i:                                      ; preds = %14, %24, %6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !136
+  %30 = load ptr, ptr %29, align 8, !tbaa !135
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit, label %32
 
 32:                                               ; preds = %.loopexit.i
   %33 = add nsw i32 %2, %1
-  %34 = load i32, ptr %30, align 8, !tbaa !137
+  %34 = load i32, ptr %30, align 8, !tbaa !136
   %35 = icmp slt i32 %33, %34
   br i1 %35, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -11681,11 +11681,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %.lcssa9.i.i = phi ptr [ %30, %32 ], [ %48, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i32 [ %34, %32 ], [ %49, %.lr.ph.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !135
+  %39 = load i32, ptr %38, align 8, !tbaa !134
   %40 = sub nsw i32 %39, %2
-  store i32 %40, ptr %38, align 8, !tbaa !135
+  store i32 %40, ptr %38, align 8, !tbaa !134
   %41 = sub nsw i32 %.lcssa.i.i, %2
-  store i32 %41, ptr %.lcssa9.i.i, align 8, !tbaa !137
+  store i32 %41, ptr %.lcssa9.i.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -11698,11 +11698,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %47 = getelementptr inbounds [268435454 x ptr], ptr %43, i64 0, i64 %46
   store ptr %45, ptr %47, align 8, !tbaa !11
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %48 = load ptr, ptr %29, align 8, !tbaa !136
-  %49 = load i32, ptr %48, align 8, !tbaa !137
+  %48 = load ptr, ptr %29, align 8, !tbaa !135
+  %49 = load i32, ptr %48, align 8, !tbaa !136
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next.i.i, %50
-  br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !150
+  br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !149
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE23ExtractSubrangeInternalEiiPPS7_St17integral_constantIbLb1EE.exit: ; preds = %4, %.loopexit.i, %._crit_edge.i.i
   ret void
@@ -11711,13 +11711,13 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !135
+  %3 = load i32, ptr %2, align 8, !tbaa !134
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %9
@@ -11728,14 +11728,14 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !144
-  %13 = load ptr, ptr %11, align 8, !tbaa !140
-  store i8 0, ptr %13, align 1, !tbaa !145
+  store i64 0, ptr %12, align 8, !tbaa !143
+  %13 = load ptr, ptr %11, align 8, !tbaa !139
+  store i8 0, ptr %13, align 1, !tbaa !144
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %14, label %9, !llvm.loop !147
+  br i1 %exitcond.not.i, label %14, label %9, !llvm.loop !146
 
 14:                                               ; preds = %9
-  store i32 0, ptr %2, align 8, !tbaa !135
+  store i32 0, ptr %2, align 8, !tbaa !134
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit: ; preds = %1, %14
@@ -11745,7 +11745,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !135
+  %4 = load i32, ptr %3, align 8, !tbaa !134
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
@@ -11761,7 +11761,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %2,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !135
+  %4 = load i32, ptr %3, align 8, !tbaa !134
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %9
 
@@ -11777,14 +11777,14 @@ define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8CapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !139
+  %3 = load i32, ptr %2, align 4, !tbaa !138
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12mutable_dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %4
@@ -11794,7 +11794,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %4
@@ -11807,8 +11807,8 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %3, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase4SwapINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPS2_.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !132
-  %6 = load ptr, ptr %0, align 8, !tbaa !132
+  %5 = load ptr, ptr %1, align 8, !tbaa !131
+  %6 = load ptr, ptr %0, align 8, !tbaa !131
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %8, label %11
 
@@ -11848,7 +11848,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !135
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds [268435454 x ptr], ptr %6, i64 0, i64 %7
@@ -11864,7 +11864,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
@@ -11874,7 +11874,7 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
@@ -11884,7 +11884,7 @@ define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %4
@@ -11894,12 +11894,12 @@ define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %spec.select.i, i64 %7
   ret ptr %8
@@ -11908,12 +11908,12 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %spec.select.i, i64 %7
   ret ptr %8
@@ -11922,12 +11922,12 @@ define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4cendEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %7
   ret ptr %8
@@ -11936,59 +11936,59 @@ define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.39") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %6, align 8, !tbaa !134
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %8
-  store ptr %9, ptr %0, align 8, !tbaa !156
+  store ptr %9, ptr %0, align 8, !tbaa !155
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.41") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %6, align 8, !tbaa !134
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %8
-  store ptr %9, ptr %0, align 8, !tbaa !156
+  store ptr %9, ptr %0, align 8, !tbaa !155
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.39") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %5
-  store ptr %spec.select.i.i, ptr %0, align 8, !tbaa !156
+  store ptr %spec.select.i.i, ptr %0, align 8, !tbaa !155
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.41") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %5
-  store ptr %spec.select.i.i, ptr %0, align 8, !tbaa !156
+  store ptr %spec.select.i.i, ptr %0, align 8, !tbaa !155
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13pointer_beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
@@ -11998,7 +11998,7 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13pointer_beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
@@ -12008,12 +12008,12 @@ define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11pointer_endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %spec.select.i, i64 %7
   ret ptr %8
@@ -12022,12 +12022,12 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11pointer_endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %spec.select.i, i64 %7
   ret ptr %8
@@ -12036,16 +12036,16 @@ define weak_odr ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef i64 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !139
+  %3 = load i32, ptr %2, align 4, !tbaa !138
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase26SpaceUsedExcludingSelfLongINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEmv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %8 = load i32, ptr %7, align 8, !tbaa !137
+  %8 = load i32, ptr %7, align 8, !tbaa !136
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %._crit_edge.i
 
@@ -12065,11 +12065,11 @@ define weak_odr noundef i64 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx111
   %16 = add i64 %.17.i, 32
   %17 = add i64 %16, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = load ptr, ptr %6, align 8, !tbaa !136
-  %19 = load i32, ptr %18, align 8, !tbaa !137
+  %18 = load ptr, ptr %6, align 8, !tbaa !135
+  %19 = load i32, ptr %18, align 8, !tbaa !136
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !158
+  br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !157
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase26SpaceUsedExcludingSelfLongINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEmv.exit: ; preds = %1, %._crit_edge.i
   %.06.i = phi i64 [ %10, %._crit_edge.i ], [ %5, %1 ]
@@ -12079,16 +12079,16 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase26SpaceUsedExcludingSelfLongI
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !139
+  %3 = load i32, ptr %2, align 4, !tbaa !138
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26SpaceUsedExcludingSelfLongEv.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1
-  %8 = load i32, ptr %7, align 8, !tbaa !137
+  %8 = load i32, ptr %7, align 8, !tbaa !136
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -12108,11 +12108,11 @@ define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx111
   %16 = add i64 %.17.i.i, 32
   %17 = add i64 %16, %15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %18 = load ptr, ptr %6, align 8, !tbaa !136
-  %19 = load i32, ptr %18, align 8, !tbaa !137
+  %18 = load ptr, ptr %6, align 8, !tbaa !135
+  %19 = load i32, ptr %18, align 8, !tbaa !136
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i.i, %20
-  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !158
+  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !157
 
 _ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26SpaceUsedExcludingSelfLongEv.exit: ; preds = %1, %._crit_edge.i.i
   %.06.i.i = phi i64 [ %10, %._crit_edge.i.i ], [ %5, %1 ]
@@ -12122,27 +12122,27 @@ _ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_trait
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12AddAllocatedEPS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !132
+  %3 = load ptr, ptr %0, align 8, !tbaa !131
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %29
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %29, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %7, align 8, !tbaa !137
+  %9 = load i32, ptr %7, align 8, !tbaa !136
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !139
+  %11 = load i32, ptr %10, align 4, !tbaa !138
   %12 = icmp slt i32 %9, %11
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !135
+  %16 = load i32, ptr %15, align 8, !tbaa !134
   %17 = icmp slt i32 %16, %9
   %18 = sext i32 %16 to i64
   br i1 %17, label %19, label %._crit_edge.i.i
@@ -12159,11 +12159,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %24 = getelementptr inbounds ptr, ptr %14, i64 %18
   store ptr %1, ptr %24, align 8, !tbaa !11
   %25 = add nsw i32 %16, 1
-  store i32 %25, ptr %15, align 8, !tbaa !135
-  %26 = load ptr, ptr %6, align 8, !tbaa !136
-  %27 = load i32, ptr %26, align 8, !tbaa !137
+  store i32 %25, ptr %15, align 8, !tbaa !134
+  %26 = load ptr, ptr %6, align 8, !tbaa !135
+  %27 = load i32, ptr %26, align 8, !tbaa !136
   %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %26, align 8, !tbaa !137
+  store i32 %28, ptr %26, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase12AddAllocatedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE.exit
 
 29:                                               ; preds = %8, %5, %2
@@ -12177,18 +12177,18 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase12AddAllocatedINS0_16RepeatedP
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11ReleaseLastEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = add nsw i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !135
+  store i32 %7, ptr %5, align 8, !tbaa !134
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [268435454 x ptr], ptr %4, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = load i32, ptr %3, align 8, !tbaa !137
+  %11 = load i32, ptr %3, align 8, !tbaa !136
   %12 = add nsw i32 %11, -1
-  store i32 %12, ptr %3, align 8, !tbaa !137
+  store i32 %12, ptr %3, align 8, !tbaa !136
   %13 = icmp slt i32 %6, %11
   br i1 %13, label %14, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit.i.i
 
@@ -12200,17 +12200,17 @@ define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit.i.i
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit.i.i: ; preds = %14, %1
-  %18 = load ptr, ptr %0, align 8, !tbaa !132
+  %18 = load ptr, ptr %0, align 8, !tbaa !131
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11ReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit, label %20
 
 20:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit.i.i
   %21 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %22, ptr %21, align 8, !tbaa !148
+  store ptr %22, ptr %21, align 8, !tbaa !147
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 0, ptr %23, align 8, !tbaa !144
-  store i8 0, ptr %22, align 1, !tbaa !145
+  store i64 0, ptr %23, align 8, !tbaa !143
+  store i8 0, ptr %22, align 1, !tbaa !144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %10)
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11ReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit
 
@@ -12228,23 +12228,23 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %6, align 8, !tbaa !134
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !139
+  %9 = load i32, ptr %8, align 4, !tbaa !138
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %.thread, label %19
 
 11:                                               ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !139
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !138
   %.phi.trans.insert6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre7 = load i32, ptr %.phi.trans.insert6, align 8, !tbaa !135
+  %.pre7 = load i32, ptr %.phi.trans.insert6, align 8, !tbaa !134
   %.not5 = icmp sge i32 %.pre, %.pre7
   tail call void @llvm.assume(i1 %.not5)
   br label %.thread
@@ -12255,14 +12255,14 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23Un
   %14 = add nsw i32 %12, 1
   %15 = sub i32 %14, %13
   %16 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %15)
-  %.pre8 = load ptr, ptr %3, align 8, !tbaa !136
-  %17 = load i32, ptr %.pre8, align 8, !tbaa !137
+  %.pre8 = load ptr, ptr %3, align 8, !tbaa !135
+  %17 = load i32, ptr %.pre8, align 8, !tbaa !136
   %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %.pre8, align 8, !tbaa !137
+  store i32 %18, ptr %.pre8, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 19:                                               ; preds = %5
-  %20 = load i32, ptr %4, align 8, !tbaa !137
+  %20 = load i32, ptr %4, align 8, !tbaa !136
   %21 = icmp eq i32 %20, %9
   br i1 %21, label %22, label %39
 
@@ -12271,34 +12271,34 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23Un
   %24 = sext i32 %7 to i64
   %25 = getelementptr inbounds [268435454 x ptr], ptr %23, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !11
-  %27 = load ptr, ptr %0, align 8, !tbaa !132
+  %27 = load ptr, ptr %0, align 8, !tbaa !131
   %28 = icmp ne ptr %27, null
   %29 = icmp eq ptr %26, null
   %or.cond.i = or i1 %29, %28
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, label %30
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr %26, align 8, !tbaa !140
+  %31 = load ptr, ptr %26, align 8, !tbaa !139
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !144
+  %35 = load i64, ptr %34, align 8, !tbaa !143
   %36 = icmp ult i64 %35, 16
   tail call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %30
-  %37 = load i64, ptr %32, align 8, !tbaa !145
+  %37 = load i64, ptr %32, align 8, !tbaa !144
   %38 = add i64 %37, 1
   tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %38) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 32) #22
-  %.pre9 = load ptr, ptr %3, align 8, !tbaa !136
+  %.pre9 = load ptr, ptr %3, align 8, !tbaa !135
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 39:                                               ; preds = %19
@@ -12313,24 +12313,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %46 = sext i32 %20 to i64
   %47 = getelementptr inbounds [268435454 x ptr], ptr %42, i64 0, i64 %46
   store ptr %45, ptr %47, align 8, !tbaa !11
-  %48 = load ptr, ptr %3, align 8, !tbaa !136
-  %49 = load i32, ptr %48, align 8, !tbaa !137
+  %48 = load ptr, ptr %3, align 8, !tbaa !135
+  %49 = load i32, ptr %48, align 8, !tbaa !136
   %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %48, align 8, !tbaa !137
+  store i32 %50, ptr %48, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 51:                                               ; preds = %39
   %52 = add nsw i32 %20, 1
-  store i32 %52, ptr %4, align 8, !tbaa !137
+  store i32 %52, ptr %4, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %22, %51, %41, %.thread
   %53 = phi ptr [ %.pre9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %4, %22 ], [ %4, %51 ], [ %48, %41 ], [ %.pre8, %.thread ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !135
+  %56 = load i32, ptr %55, align 8, !tbaa !134
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 8, !tbaa !135
+  store i32 %57, ptr %55, align 8, !tbaa !134
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds [268435454 x ptr], ptr %54, i64 0, i64 %58
   store ptr %1, ptr %59, align 8, !tbaa !11
@@ -12340,18 +12340,18 @@ _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_strin
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE22UnsafeArenaReleaseLastEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !135
+  %6 = load i32, ptr %5, align 8, !tbaa !134
   %7 = add nsw i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !135
+  store i32 %7, ptr %5, align 8, !tbaa !134
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [268435454 x ptr], ptr %4, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = load i32, ptr %3, align 8, !tbaa !137
+  %11 = load i32, ptr %3, align 8, !tbaa !136
   %12 = add nsw i32 %11, -1
-  store i32 %12, ptr %3, align 8, !tbaa !137
+  store i32 %12, ptr %3, align 8, !tbaa !136
   %13 = icmp slt i32 %6, %11
   br i1 %13, label %14, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase22UnsafeArenaReleaseLastINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEPNT_4TypeEv.exit
 
@@ -12376,7 +12376,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %6
-  %8 = load ptr, ptr %0, align 8, !tbaa !132
+  %8 = load ptr, ptr %0, align 8, !tbaa !131
   %.not25 = icmp eq ptr %8, null
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not25, label %.lr.ph31, label %.lr.ph
@@ -12387,7 +12387,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   br label %14
 
 .lr.ph31:                                         ; preds = %7
-  %11 = load ptr, ptr %9, align 8, !tbaa !136
+  %11 = load ptr, ptr %9, align 8, !tbaa !135
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = sext i32 %1 to i64
   %wide.trip.count38 = zext nneg i32 %2 to i64
@@ -12396,22 +12396,22 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = add nsw i64 %indvars.iv, %10
-  %16 = load ptr, ptr %9, align 8, !tbaa !136
+  %16 = load ptr, ptr %9, align 8, !tbaa !135
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds [268435454 x ptr], ptr %17, i64 0, i64 %15
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %21, ptr %20, align 8, !tbaa !148
+  store ptr %21, ptr %20, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 0, ptr %22, align 8, !tbaa !144
-  store i8 0, ptr %21, align 1, !tbaa !145
+  store i64 0, ptr %22, align 8, !tbaa !143
+  store i8 0, ptr %21, align 1, !tbaa !144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %23 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  store ptr %20, ptr %23, align 8, !tbaa !152
+  store ptr %20, ptr %23, align 8, !tbaa !151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !154
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !153
 
 24:                                               ; preds = %.lr.ph31, %24
   %indvars.iv35 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next36, %24 ]
@@ -12419,20 +12419,20 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %26 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv35
-  store ptr %27, ptr %28, align 8, !tbaa !152
+  store ptr %27, ptr %28, align 8, !tbaa !151
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %.loopexit, label %24, !llvm.loop !155
+  br i1 %exitcond39.not, label %.loopexit, label %24, !llvm.loop !154
 
 .loopexit:                                        ; preds = %14, %24, %6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !136
+  %30 = load ptr, ptr %29, align 8, !tbaa !135
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit, label %32
 
 32:                                               ; preds = %.loopexit
   %33 = add nsw i32 %2, %1
-  %34 = load i32, ptr %30, align 8, !tbaa !137
+  %34 = load i32, ptr %30, align 8, !tbaa !136
   %35 = icmp slt i32 %33, %34
   br i1 %35, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -12445,11 +12445,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %.lcssa9.i = phi ptr [ %30, %32 ], [ %48, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %34, %32 ], [ %49, %.lr.ph.i ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !135
+  %39 = load i32, ptr %38, align 8, !tbaa !134
   %40 = sub nsw i32 %39, %2
-  store i32 %40, ptr %38, align 8, !tbaa !135
+  store i32 %40, ptr %38, align 8, !tbaa !134
   %41 = sub nsw i32 %.lcssa.i, %2
-  store i32 %41, ptr %.lcssa9.i, align 8, !tbaa !137
+  store i32 %41, ptr %.lcssa9.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -12462,11 +12462,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %47 = getelementptr inbounds [268435454 x ptr], ptr %43, i64 0, i64 %46
   store ptr %45, ptr %47, align 8, !tbaa !11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %48 = load ptr, ptr %29, align 8, !tbaa !136
-  %49 = load i32, ptr %48, align 8, !tbaa !137
+  %48 = load ptr, ptr %29, align 8, !tbaa !135
+  %49 = load i32, ptr %48, align 8, !tbaa !136
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next.i, %50
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !150
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !149
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit: ; preds = %._crit_edge.i, %.loopexit, %4
   ret void
@@ -12480,7 +12480,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 6:                                                ; preds = %4
   %.not.not = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !136
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !135
   br i1 %.not.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
@@ -12495,10 +12495,10 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %11 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  store ptr %12, ptr %13, align 8, !tbaa !152
+  store ptr %12, ptr %13, align 8, !tbaa !151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !159
+  br i1 %exitcond.not, label %.loopexit.thread, label %9, !llvm.loop !158
 
 .loopexit:                                        ; preds = %6
   %14 = icmp eq ptr %.pre, null
@@ -12507,7 +12507,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 .loopexit.thread:                                 ; preds = %9, %.loopexit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = add nsw i32 %2, %1
-  %17 = load i32, ptr %.pre, align 8, !tbaa !137
+  %17 = load i32, ptr %.pre, align 8, !tbaa !136
   %18 = icmp slt i32 %16, %17
   br i1 %18, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -12520,11 +12520,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %.lcssa9.i = phi ptr [ %.pre, %.loopexit.thread ], [ %31, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %17, %.loopexit.thread ], [ %32, %.lr.ph.i ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !135
+  %22 = load i32, ptr %21, align 8, !tbaa !134
   %23 = sub nsw i32 %22, %2
-  store i32 %23, ptr %21, align 8, !tbaa !135
+  store i32 %23, ptr %21, align 8, !tbaa !134
   %24 = sub nsw i32 %.lcssa.i, %2
-  store i32 %24, ptr %.lcssa9.i, align 8, !tbaa !137
+  store i32 %24, ptr %.lcssa9.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -12537,11 +12537,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %30 = getelementptr inbounds [268435454 x ptr], ptr %26, i64 0, i64 %29
   store ptr %28, ptr %30, align 8, !tbaa !11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %31 = load ptr, ptr %15, align 8, !tbaa !136
-  %32 = load i32, ptr %31, align 8, !tbaa !137
+  %31 = load ptr, ptr %15, align 8, !tbaa !135
+  %32 = load i32, ptr %31, align 8, !tbaa !136
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !150
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !149
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit: ; preds = %._crit_edge.i, %.loopexit, %4
   ret void
@@ -12550,13 +12550,13 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii.exit: ; preds = %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !135
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %3
   %8 = add nsw i32 %2, %1
-  %9 = load i32, ptr %5, align 8, !tbaa !137
+  %9 = load i32, ptr %5, align 8, !tbaa !136
   %10 = icmp slt i32 %8, %9
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -12569,11 +12569,11 @@ define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii(ptr 
   %.lcssa9 = phi ptr [ %5, %7 ], [ %23, %.lr.ph ]
   %.lcssa = phi i32 [ %9, %7 ], [ %24, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !135
+  %14 = load i32, ptr %13, align 8, !tbaa !134
   %15 = sub nsw i32 %14, %2
-  store i32 %15, ptr %13, align 8, !tbaa !135
+  store i32 %15, ptr %13, align 8, !tbaa !134
   %16 = sub nsw i32 %.lcssa, %2
-  store i32 %16, ptr %.lcssa9, align 8, !tbaa !137
+  store i32 %16, ptr %.lcssa9, align 8, !tbaa !136
   br label %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -12586,11 +12586,11 @@ define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii(ptr 
   %22 = getelementptr inbounds [268435454 x ptr], ptr %18, i64 0, i64 %21
   store ptr %20, ptr %22, align 8, !tbaa !11
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %23 = load ptr, ptr %4, align 8, !tbaa !136
-  %24 = load i32, ptr %23, align 8, !tbaa !137
+  %23 = load ptr, ptr %4, align 8, !tbaa !135
+  %24 = load i32, ptr %23, align 8, !tbaa !136
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !150
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
 27:                                               ; preds = %3, %._crit_edge
   ret void
@@ -12599,14 +12599,14 @@ define void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapEii(ptr 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12ClearedCountEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %3, align 8, !tbaa !137
+  %5 = load i32, ptr %3, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %6, align 8, !tbaa !134
   %8 = sub nsw i32 %5, %7
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit
 
@@ -12618,26 +12618,26 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit: ; pred
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10AddClearedEPS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %._crit_edge.i, label %5
 
 ._crit_edge.i:                                    ; preds = %2
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !139
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !138
   br label %10
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %4, align 8, !tbaa !137
+  %6 = load i32, ptr %4, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !139
+  %8 = load i32, ptr %7, align 4, !tbaa !138
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %10, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddClearedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE.exit
 
 10:                                               ; preds = %5, %._crit_edge.i
   %11 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %6, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !135
+  %13 = load i32, ptr %12, align 8, !tbaa !134
   %.not2.i = icmp slt i32 %11, %13
   br i1 %.not2.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddClearedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE.exit, label %14
 
@@ -12645,15 +12645,15 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %15 = add nsw i32 %11, 1
   %16 = sub i32 %15, %13
   %17 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %16)
-  %.pre3.i = load ptr, ptr %3, align 8, !tbaa !136
+  %.pre3.i = load ptr, ptr %3, align 8, !tbaa !135
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddClearedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddClearedINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPNT_4TypeE.exit: ; preds = %5, %10, %14
   %18 = phi ptr [ %.pre3.i, %14 ], [ %4, %10 ], [ %4, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i32, ptr %18, align 8, !tbaa !137
+  %20 = load i32, ptr %18, align 8, !tbaa !136
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %18, align 8, !tbaa !137
+  store i32 %21, ptr %18, align 8, !tbaa !136
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds [268435454 x ptr], ptr %19, i64 0, i64 %22
   store ptr %1, ptr %23, align 8, !tbaa !11
@@ -12663,11 +12663,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddClearedINS0_16RepeatedPtr
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ReleaseClearedEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !136
+  %3 = load ptr, ptr %2, align 8, !tbaa !135
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %3, align 8, !tbaa !137
+  %5 = load i32, ptr %3, align 8, !tbaa !136
   %6 = add nsw i32 %5, -1
-  store i32 %6, ptr %3, align 8, !tbaa !137
+  store i32 %6, ptr %3, align 8, !tbaa !136
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds [268435454 x ptr], ptr %4, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !11
@@ -12678,7 +12678,7 @@ define weak_odr noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112
 define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5eraseENS0_8internal19RepeatedPtrIteratorIKS7_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !135
   %.not.i.i.i.i = icmp eq ptr %5, null
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %6
@@ -12702,12 +12702,12 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   br label %39
 
 ._crit_edge.i.i:                                  ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i.i
-  %19 = load ptr, ptr %4, align 8, !tbaa !136
+  %19 = load ptr, ptr %4, align 8, !tbaa !135
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5eraseENS0_8internal19RepeatedPtrIteratorIKS7_EESC_.exit, label %21
 
 21:                                               ; preds = %._crit_edge.i.i
-  %22 = load i32, ptr %19, align 8, !tbaa !137
+  %22 = load i32, ptr %19, align 8, !tbaa !136
   %23 = icmp sgt i32 %22, %15
   br i1 %23, label %.lr.ph.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
@@ -12720,11 +12720,11 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   %.lcssa9.i.i.i.i.i = phi ptr [ %19, %21 ], [ %35, %.lr.ph.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i = phi i32 [ %22, %21 ], [ %36, %.lr.ph.i.i.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !135
+  %26 = load i32, ptr %25, align 8, !tbaa !134
   %27 = sub nsw i32 %26, %16
-  store i32 %27, ptr %25, align 8, !tbaa !135
+  store i32 %27, ptr %25, align 8, !tbaa !134
   %28 = sub nsw i32 %.lcssa.i.i.i.i.i, %16
-  store i32 %28, ptr %.lcssa9.i.i.i.i.i, align 8, !tbaa !137
+  store i32 %28, ptr %.lcssa9.i.i.i.i.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5eraseENS0_8internal19RepeatedPtrIteratorIKS7_EESC_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
@@ -12737,40 +12737,40 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   %34 = getelementptr inbounds [268435454 x ptr], ptr %30, i64 0, i64 %33
   store ptr %32, ptr %34, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %35 = load ptr, ptr %4, align 8, !tbaa !136
-  %36 = load i32, ptr %35, align 8, !tbaa !137
+  %35 = load ptr, ptr %4, align 8, !tbaa !135
+  %36 = load i32, ptr %35, align 8, !tbaa !136
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i.i.i.i.i, %37
-  br i1 %38, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !150
+  br i1 %38, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !149
 
 39:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i.i ]
   %40 = add nsw i64 %indvars.iv.i.i, %18
-  %41 = load ptr, ptr %4, align 8, !tbaa !136
+  %41 = load ptr, ptr %4, align 8, !tbaa !135
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds [268435454 x ptr], ptr %42, i64 0, i64 %40
   %44 = load ptr, ptr %43, align 8, !tbaa !11
-  %45 = load ptr, ptr %0, align 8, !tbaa !132
+  %45 = load ptr, ptr %0, align 8, !tbaa !131
   %46 = icmp ne ptr %45, null
   %47 = icmp eq ptr %44, null
   %or.cond.i.i.i.i = or i1 %47, %46
   br i1 %or.cond.i.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i.i, label %48
 
 48:                                               ; preds = %39
-  %49 = load ptr, ptr %44, align 8, !tbaa !140
+  %49 = load ptr, ptr %44, align 8, !tbaa !139
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !144
+  %53 = load i64, ptr %52, align 8, !tbaa !143
   %54 = icmp ult i64 %53, 16
   tail call void @llvm.assume(i1 %54)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %48
-  %55 = load i64, ptr %50, align 8, !tbaa !145
+  %55 = load i64, ptr %50, align 8, !tbaa !144
   %56 = add i64 %55, 1
   tail call void @_ZdlPvm(ptr noundef %49, i64 noundef %56) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i
@@ -12782,7 +12782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i, %39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %39, !llvm.loop !151
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %39, !llvm.loop !150
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5eraseENS0_8internal19RepeatedPtrIteratorIKS7_EESC_.exit: ; preds = %2, %._crit_edge.i.i, %._crit_edge.i.i.i.i.i
   %57 = phi ptr [ null, %._crit_edge.i.i ], [ %.lcssa9.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %5, %2 ]
@@ -12797,7 +12797,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5eraseENS0_8internal19RepeatedPtrIteratorIKS7_EESC_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !135
   %.not.i.i.i = icmp eq ptr %5, null
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %6
@@ -12821,12 +12821,12 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   br label %39
 
 ._crit_edge.i:                                    ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i
-  %19 = load ptr, ptr %4, align 8, !tbaa !136
+  %19 = load ptr, ptr %4, align 8, !tbaa !135
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14DeleteSubrangeEii.exit, label %21
 
 21:                                               ; preds = %._crit_edge.i
-  %22 = load i32, ptr %19, align 8, !tbaa !137
+  %22 = load i32, ptr %19, align 8, !tbaa !136
   %23 = icmp sgt i32 %22, %15
   br i1 %23, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -12839,11 +12839,11 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   %.lcssa9.i.i.i.i = phi ptr [ %19, %21 ], [ %35, %.lr.ph.i.i.i.i ]
   %.lcssa.i.i.i.i = phi i32 [ %22, %21 ], [ %36, %.lr.ph.i.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !135
+  %26 = load i32, ptr %25, align 8, !tbaa !134
   %27 = sub nsw i32 %26, %16
-  store i32 %27, ptr %25, align 8, !tbaa !135
+  store i32 %27, ptr %25, align 8, !tbaa !134
   %28 = sub nsw i32 %.lcssa.i.i.i.i, %16
-  store i32 %28, ptr %.lcssa9.i.i.i.i, align 8, !tbaa !137
+  store i32 %28, ptr %.lcssa9.i.i.i.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14DeleteSubrangeEii.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
@@ -12856,40 +12856,40 @@ define weak_odr ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_st
   %34 = getelementptr inbounds [268435454 x ptr], ptr %30, i64 0, i64 %33
   store ptr %32, ptr %34, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
-  %35 = load ptr, ptr %4, align 8, !tbaa !136
-  %36 = load i32, ptr %35, align 8, !tbaa !137
+  %35 = load ptr, ptr %4, align 8, !tbaa !135
+  %36 = load i32, ptr %35, align 8, !tbaa !136
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i.i.i.i, %37
-  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !150
+  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !149
 
 39:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i ]
   %40 = add nsw i64 %indvars.iv.i, %18
-  %41 = load ptr, ptr %4, align 8, !tbaa !136
+  %41 = load ptr, ptr %4, align 8, !tbaa !135
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds [268435454 x ptr], ptr %42, i64 0, i64 %40
   %44 = load ptr, ptr %43, align 8, !tbaa !11
-  %45 = load ptr, ptr %0, align 8, !tbaa !132
+  %45 = load ptr, ptr %0, align 8, !tbaa !131
   %46 = icmp ne ptr %45, null
   %47 = icmp eq ptr %44, null
   %or.cond.i.i.i = or i1 %47, %46
   br i1 %or.cond.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i, label %48
 
 48:                                               ; preds = %39
-  %49 = load ptr, ptr %44, align 8, !tbaa !140
+  %49 = load ptr, ptr %44, align 8, !tbaa !139
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !144
+  %53 = load i64, ptr %52, align 8, !tbaa !143
   %54 = icmp ult i64 %53, 16
   tail call void @llvm.assume(i1 %54)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %48
-  %55 = load i64, ptr %50, align 8, !tbaa !145
+  %55 = load i64, ptr %50, align 8, !tbaa !144
   %56 = add i64 %55, 1
   tail call void @_ZdlPvm(ptr noundef %49, i64 noundef %56) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
@@ -12901,7 +12901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvi.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %39, !llvm.loop !151
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %39, !llvm.loop !150
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14DeleteSubrangeEii.exit: ; preds = %3, %._crit_edge.i, %._crit_edge.i.i.i.i
   %57 = phi ptr [ null, %._crit_edge.i ], [ %.lcssa9.i.i.i.i, %._crit_edge.i.i.i.i ], [ %5, %3 ]
@@ -12924,7 +12924,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 6:                                                ; preds = %4
   %.not.not.i = icmp eq ptr %3, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !136
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !135
   br i1 %.not.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
@@ -12939,10 +12939,10 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %11 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %12, ptr %13, align 8, !tbaa !152
+  store ptr %12, ptr %13, align 8, !tbaa !151
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %9, !llvm.loop !159
+  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %9, !llvm.loop !158
 
 .loopexit.i:                                      ; preds = %6
   %14 = icmp eq ptr %.pre.i, null
@@ -12950,7 +12950,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
 
 .loopexit.thread.i:                               ; preds = %9, %.loopexit.i
   %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %.pre.i, align 8, !tbaa !137
+  %16 = load i32, ptr %.pre.i, align 8, !tbaa !136
   %17 = icmp slt i32 %15, %16
   br i1 %17, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -12963,11 +12963,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %.lcssa9.i.i = phi ptr [ %.pre.i, %.loopexit.thread.i ], [ %30, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i32 [ %16, %.loopexit.thread.i ], [ %31, %.lr.ph.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !135
+  %21 = load i32, ptr %20, align 8, !tbaa !134
   %22 = sub nsw i32 %21, %2
-  store i32 %22, ptr %20, align 8, !tbaa !135
+  store i32 %22, ptr %20, align 8, !tbaa !134
   %23 = sub nsw i32 %.lcssa.i.i, %2
-  store i32 %23, ptr %.lcssa9.i.i, align 8, !tbaa !137
+  store i32 %23, ptr %.lcssa9.i.i, align 8, !tbaa !136
   br label %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26UnsafeArenaExtractSubrangeEiiPPS7_.exit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -12980,11 +12980,11 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %29 = getelementptr inbounds [268435454 x ptr], ptr %25, i64 0, i64 %28
   store ptr %27, ptr %29, align 8, !tbaa !11
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %30 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !136
-  %31 = load i32, ptr %30, align 8, !tbaa !137
+  %30 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !135
+  %31 = load i32, ptr %30, align 8, !tbaa !136
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i.i, %32
-  br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !150
+  br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !149
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26UnsafeArenaExtractSubrangeEiiPPS7_.exit: ; preds = %4, %.loopexit.i, %._crit_edge.i.i
   ret void
@@ -12993,17 +12993,17 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !135
+  %4 = load i32, ptr %3, align 8, !tbaa !134
   %5 = add nsw i32 %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !139
+  %7 = load i32, ptr %6, align 4, !tbaa !138
   %.not = icmp slt i32 %7, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !136
+  %9 = load ptr, ptr %8, align 8, !tbaa !135
   br i1 %.not, label %.critedge32, label %55
 
 .critedge32:                                      ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !132
+  %10 = load ptr, ptr %0, align 8, !tbaa !131
   %11 = shl nsw i32 %7, 1
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 %5)
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 4)
@@ -13043,14 +13043,14 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 
 33:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %17
   %storemerge = phi ptr [ %32, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ], [ %19, %17 ]
-  store ptr %storemerge, ptr %8, align 8, !tbaa !136
-  %34 = load i32, ptr %6, align 4, !tbaa !139
-  store i32 %13, ptr %6, align 4, !tbaa !139
+  store ptr %storemerge, ptr %8, align 8, !tbaa !135
+  %34 = load i32, ptr %6, align 4, !tbaa !138
+  store i32 %13, ptr %6, align 4, !tbaa !138
   %.not30 = icmp eq ptr %9, null
   br i1 %.not30, label %45, label %35
 
 35:                                               ; preds = %33
-  %36 = load i32, ptr %9, align 8, !tbaa !137
+  %36 = load i32, ptr %9, align 8, !tbaa !136
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %45
 
@@ -13060,13 +13060,13 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   %41 = zext nneg i32 %36 to i64
   %42 = shl nuw nsw i64 %41, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %40, i64 %42, i1 false)
-  %43 = load i32, ptr %9, align 8, !tbaa !137
-  %44 = load ptr, ptr %8, align 8, !tbaa !136
-  store i32 %43, ptr %44, align 8, !tbaa !137
+  %43 = load i32, ptr %9, align 8, !tbaa !136
+  %44 = load ptr, ptr %8, align 8, !tbaa !135
+  store i32 %43, ptr %44, align 8, !tbaa !136
   br label %46
 
 45:                                               ; preds = %35, %33
-  store i32 0, ptr %storemerge, align 8, !tbaa !137
+  store i32 0, ptr %storemerge, align 8, !tbaa !136
   br label %46
 
 46:                                               ; preds = %45, %38
@@ -13078,12 +13078,12 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
   %50 = shl nsw i64 %49, 3
   %51 = add nsw i64 %50, 8
   tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %51) #20
-  %.pre = load ptr, ptr %8, align 8, !tbaa !136
+  %.pre = load ptr, ptr %8, align 8, !tbaa !135
   br label %52
 
 52:                                               ; preds = %48, %46
   %53 = phi ptr [ %.pre, %48 ], [ %47, %46 ]
-  %54 = load i32, ptr %3, align 8, !tbaa !135
+  %54 = load i32, ptr %3, align 8, !tbaa !134
   br label %55
 
 55:                                               ; preds = %2, %52
@@ -13098,28 +13098,28 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8p
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7AddWeakEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %..thread_crit_edge, label %5
 
 ..thread_crit_edge:                               ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !139
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !138
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre15 = load i32, ptr %.phi.trans.insert14, align 8, !tbaa !135
+  %.pre15 = load i32, ptr %.phi.trans.insert14, align 8, !tbaa !134
   br label %.thread
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
-  %8 = load i32, ptr %4, align 8, !tbaa !137
+  %7 = load i32, ptr %6, align 8, !tbaa !134
+  %8 = load i32, ptr %4, align 8, !tbaa !136
   %9 = icmp slt i32 %7, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = add nsw i32 %7, 1
-  store i32 %12, ptr %6, align 8, !tbaa !135
+  store i32 %12, ptr %6, align 8, !tbaa !134
   %13 = sext i32 %7 to i64
   %14 = getelementptr inbounds [268435454 x ptr], ptr %11, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !11
@@ -13127,7 +13127,7 @@ define noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7AddWeakEP
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !139
+  %18 = load i32, ptr %17, align 4, !tbaa !138
   %19 = icmp eq i32 %8, %18
   br i1 %19, label %.thread, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
@@ -13141,16 +13141,16 @@ define noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7AddWeakEP
   %23 = add nsw i32 %21, 1
   %24 = sub i32 %23, %20
   %25 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %24)
-  %.pre16 = load ptr, ptr %3, align 8, !tbaa !136
+  %.pre16 = load ptr, ptr %3, align 8, !tbaa !135
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %22, %.thread, %16
   %26 = phi ptr [ %.pre16, %22 ], [ %4, %.thread ], [ %4, %16 ]
-  %27 = load i32, ptr %26, align 8, !tbaa !137
+  %27 = load i32, ptr %26, align 8, !tbaa !136
   %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %26, align 8, !tbaa !137
+  store i32 %28, ptr %26, align 8, !tbaa !136
   %.not11 = icmp eq ptr %1, null
-  %29 = load ptr, ptr %0, align 8, !tbaa !132
+  %29 = load ptr, ptr %0, align 8, !tbaa !131
   br i1 %.not11, label %35, label %30
 
 30:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
@@ -13167,14 +13167,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %22
 37:                                               ; preds = %35
   %38 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr null, ptr %39, align 8, !tbaa !160
+  store ptr null, ptr %39, align 8, !tbaa !159
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %38, align 8, !tbaa !26
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store ptr %41, ptr %40, align 8, !tbaa !148
+  store ptr %41, ptr %40, align 8, !tbaa !147
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i64 0, ptr %42, align 8, !tbaa !144
-  store i8 0, ptr %41, align 1, !tbaa !145
+  store i64 0, ptr %42, align 8, !tbaa !143
+  store i8 0, ptr %41, align 1, !tbaa !144
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 43:                                               ; preds = %35
@@ -13198,24 +13198,24 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %22
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %43, %47
   %55 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %29, i64 noundef 48, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv)
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %29, ptr %56, align 8, !tbaa !160
+  store ptr %29, ptr %56, align 8, !tbaa !159
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %55, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store ptr %58, ptr %57, align 8, !tbaa !148
+  store ptr %58, ptr %57, align 8, !tbaa !147
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store i64 0, ptr %59, align 8, !tbaa !144
-  store i8 0, ptr %58, align 1, !tbaa !145
+  store i64 0, ptr %59, align 8, !tbaa !143
+  store i8 0, ptr %58, align 1, !tbaa !144
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %37, %30
   %60 = phi ptr [ %34, %30 ], [ %55, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ], [ %38, %37 ]
-  %61 = load ptr, ptr %3, align 8, !tbaa !136
+  %61 = load ptr, ptr %3, align 8, !tbaa !135
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !135
+  %64 = load i32, ptr %63, align 8, !tbaa !134
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %63, align 8, !tbaa !135
+  store i32 %65, ptr %63, align 8, !tbaa !134
   %66 = sext i32 %64 to i64
   %67 = getelementptr inbounds [268435454 x ptr], ptr %62, i64 0, i64 %66
   store ptr %60, ptr %67, align 8, !tbaa !11
@@ -13230,20 +13230,20 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #3 comdat personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !140
+  %2 = load ptr, ptr %0, align 8, !tbaa !139
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
   br i1 %4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !144
+  %6 = load i64, ptr %5, align 8, !tbaa !143
   %7 = icmp ult i64 %6, 16
   tail call void @llvm.assume(i1 %7)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %8 = load i64, ptr %3, align 8, !tbaa !145
+  %8 = load i64, ptr %3, align 8, !tbaa !144
   %9 = add i64 %8, 1
   tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %9) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -13278,7 +13278,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18Me
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !132
+  %7 = load ptr, ptr %0, align 8, !tbaa !131
   %8 = icmp slt i32 %4, %3
   br i1 %8, label %.lr.ph28, label %._crit_edge29
 
@@ -13299,16 +13299,16 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %16, ptr %15, align 8, !tbaa !148
+  store ptr %16, ptr %15, align 8, !tbaa !147
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 0, ptr %17, align 8, !tbaa !144
-  store i8 0, ptr %16, align 1, !tbaa !145
+  store i64 0, ptr %17, align 8, !tbaa !143
+  store i8 0, ptr %16, align 1, !tbaa !144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14)
   %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv36
   store ptr %15, ptr %18, align 8, !tbaa !11
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge29, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, !llvm.loop !162
+  br i1 %exitcond40.not, label %._crit_edge29, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, !llvm.loop !161
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -13319,7 +13319,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !164
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge
   ret void
@@ -13346,62 +13346,62 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %27, %.lr.ph28.split
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %35, ptr %34, align 8, !tbaa !148
+  store ptr %35, ptr %34, align 8, !tbaa !147
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 0, ptr %36, align 8, !tbaa !144
-  store i8 0, ptr %35, align 1, !tbaa !145
+  store i64 0, ptr %36, align 8, !tbaa !143
+  store i8 0, ptr %35, align 1, !tbaa !144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv32
   store ptr %34, ptr %37, align 8, !tbaa !11
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
   %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !165
+  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !164
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::internal::RepeatedPtrFieldBase", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
-  %4 = load ptr, ptr %1, align 8, !tbaa !132
-  store ptr %4, ptr %3, align 8, !tbaa !132
+  %4 = load ptr, ptr %1, align 8, !tbaa !131
+  store ptr %4, ptr %3, align 8, !tbaa !131
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !135
+  %7 = load i32, ptr %6, align 8, !tbaa !134
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit, label %.noexc
 
 .noexc:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !136
+  %10 = load ptr, ptr %9, align 8, !tbaa !135
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %7)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !136
-  %15 = load i32, ptr %14, align 8, !tbaa !137
-  %16 = load i32, ptr %5, align 8, !tbaa !135
+  %14 = load ptr, ptr %13, align 8, !tbaa !135
+  %15 = load i32, ptr %14, align 8, !tbaa !136
+  %16 = load i32, ptr %5, align 8, !tbaa !134
   %17 = sub nsw i32 %15, %16
   call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef %7, i32 noundef %17)
-  %18 = load i32, ptr %5, align 8, !tbaa !135
+  %18 = load i32, ptr %5, align 8, !tbaa !134
   %19 = add nsw i32 %18, %7
-  store i32 %19, ptr %5, align 8, !tbaa !135
-  %20 = load ptr, ptr %13, align 8, !tbaa !136
-  %21 = load i32, ptr %20, align 8, !tbaa !137
+  store i32 %19, ptr %5, align 8, !tbaa !134
+  %20 = load ptr, ptr %13, align 8, !tbaa !135
+  %21 = load i32, ptr %20, align 8, !tbaa !136
   %22 = icmp slt i32 %21, %19
   br i1 %22, label %23, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
 
 23:                                               ; preds = %.noexc
-  store i32 %19, ptr %20, align 8, !tbaa !137
+  store i32 %19, ptr %20, align 8, !tbaa !136
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit: ; preds = %23, %.noexc
-  %.pr = load i32, ptr %6, align 8, !tbaa !135
+  %.pr = load i32, ptr %6, align 8, !tbaa !134
   %24 = icmp sgt i32 %.pr, 0
   br i1 %24, label %25, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit
 
 25:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
-  %26 = load ptr, ptr %9, align 8, !tbaa !136
+  %26 = load ptr, ptr %9, align 8, !tbaa !135
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %wide.trip.count.i = zext nneg i32 %.pr to i64
   br label %28
@@ -13412,43 +13412,43 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 0, ptr %31, align 8, !tbaa !144
-  %32 = load ptr, ptr %30, align 8, !tbaa !140
-  store i8 0, ptr %32, align 1, !tbaa !145
+  store i64 0, ptr %31, align 8, !tbaa !143
+  %32 = load ptr, ptr %30, align 8, !tbaa !139
+  store i8 0, ptr %32, align 1, !tbaa !144
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %33, label %28, !llvm.loop !147
+  br i1 %exitcond.not.i, label %33, label %28, !llvm.loop !146
 
 33:                                               ; preds = %28
-  store i32 0, ptr %6, align 8, !tbaa !135
+  store i32 0, ptr %6, align 8, !tbaa !134
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit: ; preds = %2, %33, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvRKS2_.exit
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !135
+  %35 = load i32, ptr %34, align 8, !tbaa !134
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %52, label %.noexc6
 
 .noexc6:                                          ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !136
+  %38 = load ptr, ptr %37, align 8, !tbaa !135
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %35)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !136
-  %43 = load i32, ptr %42, align 8, !tbaa !137
-  %44 = load i32, ptr %6, align 8, !tbaa !135
+  %42 = load ptr, ptr %41, align 8, !tbaa !135
+  %43 = load i32, ptr %42, align 8, !tbaa !136
+  %44 = load i32, ptr %6, align 8, !tbaa !134
   %45 = sub nsw i32 %43, %44
   call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %40, ptr noundef nonnull %39, i32 noundef %35, i32 noundef %45)
-  %46 = load i32, ptr %6, align 8, !tbaa !135
+  %46 = load i32, ptr %6, align 8, !tbaa !134
   %47 = add nsw i32 %46, %35
-  store i32 %47, ptr %6, align 8, !tbaa !135
-  %48 = load ptr, ptr %41, align 8, !tbaa !136
-  %49 = load i32, ptr %48, align 8, !tbaa !137
+  store i32 %47, ptr %6, align 8, !tbaa !134
+  %48 = load ptr, ptr %41, align 8, !tbaa !135
+  %49 = load i32, ptr %48, align 8, !tbaa !136
   %50 = icmp slt i32 %49, %47
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.noexc6
-  store i32 %47, ptr %48, align 8, !tbaa !137
+  store i32 %47, ptr %48, align 8, !tbaa !136
   br label %52
 
 52:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit, %.noexc6, %51
@@ -13468,7 +13468,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %59 = lshr i128 %.0.copyload.i.i.i, 32
   %60 = trunc i128 %59 to i32
   %61 = inttoptr i64 %55 to ptr
-  %62 = load i32, ptr %61, align 8, !tbaa !137
+  %62 = load i32, ptr %61, align 8, !tbaa !136
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = icmp sgt i32 %62, 0
   br i1 %64, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -13478,9 +13478,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   br label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
-  %.pre.i = load ptr, ptr %53, align 8, !tbaa !136
+  %.pre.i = load ptr, ptr %53, align 8, !tbaa !135
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !139
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !138
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %58
@@ -13500,20 +13500,20 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   br i1 %72, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %73
 
 73:                                               ; preds = %.lr.ph.i
-  %74 = load ptr, ptr %71, align 8, !tbaa !140
+  %74 = load ptr, ptr %71, align 8, !tbaa !139
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %76 = icmp eq ptr %74, %75
   br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !144
+  %78 = load i64, ptr %77, align 8, !tbaa !143
   %79 = icmp ult i64 %78, 16
   call void @llvm.assume(i1 %79)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %73
-  %80 = load i64, ptr %75, align 8, !tbaa !145
+  %80 = load i64, ptr %75, align 8, !tbaa !144
   %81 = add i64 %80, 1
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %81) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
@@ -13525,7 +13525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i9
-  br i1 %exitcond.not.i12, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !146
+  br i1 %exitcond.not.i12, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !145
 
 82:                                               ; preds = %._crit_edge.i, %52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
@@ -13582,28 +13582,28 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
 _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %11, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
   %.sink6.i.i = phi ptr [ %12, %11 ], [ %25, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 16
-  store ptr %26, ptr %.sink6.i.i, align 8, !tbaa !148
+  store ptr %26, ptr %.sink6.i.i, align 8, !tbaa !147
   %27 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 8
-  store i64 0, ptr %27, align 8, !tbaa !144
-  store i8 0, ptr %26, align 1, !tbaa !145
+  store i64 0, ptr %27, align 8, !tbaa !143
+  store i8 0, ptr %26, align 1, !tbaa !144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink6.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %6, label %28, label %_ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 28:                                               ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
-  %29 = load ptr, ptr %1, align 8, !tbaa !140
+  %29 = load ptr, ptr %1, align 8, !tbaa !139
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !144
+  %33 = load i64, ptr %32, align 8, !tbaa !143
   %34 = icmp ult i64 %33, 16
   tail call void @llvm.assume(i1 %34)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %28
-  %35 = load i64, ptr %30, align 8, !tbaa !145
+  %35 = load i64, ptr %30, align 8, !tbaa !144
   %36 = add i64 %35, 1
   tail call void @_ZdlPvm(ptr noundef %29, i64 noundef %36) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -13639,20 +13639,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectINSt7
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !140
+  %4 = load ptr, ptr %0, align 8, !tbaa !139
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !144
+  %8 = load i64, ptr %7, align 8, !tbaa !143
   %9 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %9)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %3
-  %10 = load i64, ptr %5, align 8, !tbaa !145
+  %10 = load i64, ptr %5, align 8, !tbaa !144
   %11 = add i64 %10, 1
   tail call void @_ZdlPvm(ptr noundef %4, i64 noundef %11) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -13746,134 +13746,133 @@ attributes #23 = { builtin allocsize(0) }
 !32 = !{!"bool", !6, i64 0}
 !33 = !{i8 0, i8 2}
 !34 = !{}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSSt16reverse_iteratorIPbE", !41, i64 0}
-!41 = !{!"p1 bool", !8, i64 0}
-!42 = !{!43, !41, i64 0}
-!43 = !{!"_ZTSSt16reverse_iteratorIPKbE", !41, i64 0}
-!44 = !{!45, !5, i64 0}
-!45 = !{!"_ZTSN6google8protobuf13RepeatedFieldIiEE", !5, i64 0, !5, i64 4, !8, i64 8}
-!46 = !{!45, !5, i64 4}
-!47 = !{!45, !8, i64 8}
-!48 = !{!49, !30, i64 0}
-!49 = !{!"_ZTSN6google8protobuf13RepeatedFieldIiE3RepE", !30, i64 0, !6, i64 8}
-!50 = !{!5, !5, i64 0}
-!51 = distinct !{!51, !36, !37}
-!52 = distinct !{!52, !36, !37}
-!53 = distinct !{!53, !36, !37}
-!54 = !{!55, !56, i64 0}
-!55 = !{!"_ZTSSt16reverse_iteratorIPiE", !56, i64 0}
-!56 = !{!"p1 int", !8, i64 0}
-!57 = !{!58, !56, i64 0}
-!58 = !{!"_ZTSSt16reverse_iteratorIPKiE", !56, i64 0}
-!59 = !{!60, !5, i64 0}
-!60 = !{!"_ZTSN6google8protobuf13RepeatedFieldIjEE", !5, i64 0, !5, i64 4, !8, i64 8}
-!61 = !{!60, !5, i64 4}
-!62 = !{!60, !8, i64 8}
-!63 = !{!64, !30, i64 0}
-!64 = !{!"_ZTSN6google8protobuf13RepeatedFieldIjE3RepE", !30, i64 0, !6, i64 8}
-!65 = distinct !{!65, !36, !37}
-!66 = distinct !{!66, !36, !37}
-!67 = distinct !{!67, !36, !37}
-!68 = !{!69, !56, i64 0}
-!69 = !{!"_ZTSSt16reverse_iteratorIPjE", !56, i64 0}
-!70 = !{!71, !56, i64 0}
-!71 = !{!"_ZTSSt16reverse_iteratorIPKjE", !56, i64 0}
-!72 = !{!73, !5, i64 0}
-!73 = !{!"_ZTSN6google8protobuf13RepeatedFieldIlEE", !5, i64 0, !5, i64 4, !8, i64 8}
-!74 = !{!73, !5, i64 4}
-!75 = !{!73, !8, i64 8}
-!76 = !{!77, !30, i64 0}
-!77 = !{!"_ZTSN6google8protobuf13RepeatedFieldIlE3RepE", !30, i64 0, !6, i64 8}
-!78 = !{!19, !19, i64 0}
-!79 = distinct !{!79, !36, !37}
-!80 = distinct !{!80, !36, !37}
-!81 = distinct !{!81, !36, !37}
-!82 = !{!83, !84, i64 0}
-!83 = !{!"_ZTSSt16reverse_iteratorIPlE", !84, i64 0}
-!84 = !{!"p1 long", !8, i64 0}
-!85 = !{!86, !84, i64 0}
-!86 = !{!"_ZTSSt16reverse_iteratorIPKlE", !84, i64 0}
-!87 = !{!88, !5, i64 0}
-!88 = !{!"_ZTSN6google8protobuf13RepeatedFieldImEE", !5, i64 0, !5, i64 4, !8, i64 8}
-!89 = !{!88, !5, i64 4}
-!90 = !{!88, !8, i64 8}
-!91 = !{!92, !30, i64 0}
-!92 = !{!"_ZTSN6google8protobuf13RepeatedFieldImE3RepE", !30, i64 0, !6, i64 8}
-!93 = distinct !{!93, !36, !37}
-!94 = distinct !{!94, !36, !37}
-!95 = distinct !{!95, !36, !37}
-!96 = !{!97, !84, i64 0}
-!97 = !{!"_ZTSSt16reverse_iteratorIPmE", !84, i64 0}
-!98 = !{!99, !84, i64 0}
-!99 = !{!"_ZTSSt16reverse_iteratorIPKmE", !84, i64 0}
-!100 = !{!101, !5, i64 0}
-!101 = !{!"_ZTSN6google8protobuf13RepeatedFieldIfEE", !5, i64 0, !5, i64 4, !8, i64 8}
-!102 = !{!101, !5, i64 4}
-!103 = !{!101, !8, i64 8}
-!104 = !{!105, !30, i64 0}
-!105 = !{!"_ZTSN6google8protobuf13RepeatedFieldIfE3RepE", !30, i64 0, !6, i64 8}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"float", !6, i64 0}
-!108 = distinct !{!108, !36, !37}
-!109 = distinct !{!109, !36, !37}
-!110 = distinct !{!110, !36, !37}
-!111 = !{!112, !113, i64 0}
-!112 = !{!"_ZTSSt16reverse_iteratorIPfE", !113, i64 0}
-!113 = !{!"p1 float", !8, i64 0}
-!114 = !{!115, !113, i64 0}
-!115 = !{!"_ZTSSt16reverse_iteratorIPKfE", !113, i64 0}
-!116 = !{!117, !5, i64 0}
-!117 = !{!"_ZTSN6google8protobuf13RepeatedFieldIdEE", !5, i64 0, !5, i64 4, !8, i64 8}
-!118 = !{!117, !5, i64 4}
-!119 = !{!117, !8, i64 8}
-!120 = !{!121, !30, i64 0}
-!121 = !{!"_ZTSN6google8protobuf13RepeatedFieldIdE3RepE", !30, i64 0, !6, i64 8}
-!122 = !{!123, !123, i64 0}
-!123 = !{!"double", !6, i64 0}
-!124 = distinct !{!124, !36, !37}
-!125 = distinct !{!125, !36, !37}
-!126 = distinct !{!126, !36, !37}
-!127 = !{!128, !129, i64 0}
-!128 = !{!"_ZTSSt16reverse_iteratorIPdE", !129, i64 0}
-!129 = !{!"p1 double", !8, i64 0}
-!130 = !{!131, !129, i64 0}
-!131 = !{!"_ZTSSt16reverse_iteratorIPKdE", !129, i64 0}
-!132 = !{!133, !30, i64 0}
-!133 = !{!"_ZTSN6google8protobuf8internal20RepeatedPtrFieldBaseE", !30, i64 0, !5, i64 8, !5, i64 12, !134, i64 16}
-!134 = !{!"p1 _ZTSN6google8protobuf8internal20RepeatedPtrFieldBase3RepE", !8, i64 0}
-!135 = !{!133, !5, i64 8}
-!136 = !{!133, !134, i64 16}
-!137 = !{!138, !5, i64 0}
-!138 = !{!"_ZTSN6google8protobuf8internal20RepeatedPtrFieldBase3RepE", !5, i64 0, !6, i64 8}
-!139 = !{!133, !5, i64 12}
-!140 = !{!141, !143, i64 0}
-!141 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !142, i64 0, !19, i64 8, !6, i64 16}
-!142 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !143, i64 0}
-!143 = !{!"p1 omnipotent char", !8, i64 0}
-!144 = !{!141, !19, i64 8}
-!145 = !{!6, !6, i64 0}
-!146 = distinct !{!146, !36, !37}
-!147 = distinct !{!147, !36, !37}
-!148 = !{!142, !143, i64 0}
-!149 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!150 = distinct !{!150, !36, !37}
-!151 = distinct !{!151, !36, !37}
-!152 = !{!153, !153, i64 0}
-!153 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !8, i64 0}
-!154 = distinct !{!154, !36, !37}
-!155 = distinct !{!155, !36, !37}
-!156 = !{!157, !157, i64 0}
-!157 = !{!"any p2 pointer", !8, i64 0}
-!158 = distinct !{!158, !36, !37}
-!159 = distinct !{!159, !36, !37}
-!160 = !{!161, !8, i64 0}
-!161 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !8, i64 0}
-!162 = distinct !{!162, !36, !37, !163}
-!163 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!164 = distinct !{!164, !36, !37}
-!165 = distinct !{!165, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"_ZTSSt16reverse_iteratorIPbE", !40, i64 0}
+!40 = !{!"p1 bool", !8, i64 0}
+!41 = !{!42, !40, i64 0}
+!42 = !{!"_ZTSSt16reverse_iteratorIPKbE", !40, i64 0}
+!43 = !{!44, !5, i64 0}
+!44 = !{!"_ZTSN6google8protobuf13RepeatedFieldIiEE", !5, i64 0, !5, i64 4, !8, i64 8}
+!45 = !{!44, !5, i64 4}
+!46 = !{!44, !8, i64 8}
+!47 = !{!48, !30, i64 0}
+!48 = !{!"_ZTSN6google8protobuf13RepeatedFieldIiE3RepE", !30, i64 0, !6, i64 8}
+!49 = !{!5, !5, i64 0}
+!50 = distinct !{!50, !36}
+!51 = distinct !{!51, !36}
+!52 = distinct !{!52, !36}
+!53 = !{!54, !55, i64 0}
+!54 = !{!"_ZTSSt16reverse_iteratorIPiE", !55, i64 0}
+!55 = !{!"p1 int", !8, i64 0}
+!56 = !{!57, !55, i64 0}
+!57 = !{!"_ZTSSt16reverse_iteratorIPKiE", !55, i64 0}
+!58 = !{!59, !5, i64 0}
+!59 = !{!"_ZTSN6google8protobuf13RepeatedFieldIjEE", !5, i64 0, !5, i64 4, !8, i64 8}
+!60 = !{!59, !5, i64 4}
+!61 = !{!59, !8, i64 8}
+!62 = !{!63, !30, i64 0}
+!63 = !{!"_ZTSN6google8protobuf13RepeatedFieldIjE3RepE", !30, i64 0, !6, i64 8}
+!64 = distinct !{!64, !36}
+!65 = distinct !{!65, !36}
+!66 = distinct !{!66, !36}
+!67 = !{!68, !55, i64 0}
+!68 = !{!"_ZTSSt16reverse_iteratorIPjE", !55, i64 0}
+!69 = !{!70, !55, i64 0}
+!70 = !{!"_ZTSSt16reverse_iteratorIPKjE", !55, i64 0}
+!71 = !{!72, !5, i64 0}
+!72 = !{!"_ZTSN6google8protobuf13RepeatedFieldIlEE", !5, i64 0, !5, i64 4, !8, i64 8}
+!73 = !{!72, !5, i64 4}
+!74 = !{!72, !8, i64 8}
+!75 = !{!76, !30, i64 0}
+!76 = !{!"_ZTSN6google8protobuf13RepeatedFieldIlE3RepE", !30, i64 0, !6, i64 8}
+!77 = !{!19, !19, i64 0}
+!78 = distinct !{!78, !36}
+!79 = distinct !{!79, !36}
+!80 = distinct !{!80, !36}
+!81 = !{!82, !83, i64 0}
+!82 = !{!"_ZTSSt16reverse_iteratorIPlE", !83, i64 0}
+!83 = !{!"p1 long", !8, i64 0}
+!84 = !{!85, !83, i64 0}
+!85 = !{!"_ZTSSt16reverse_iteratorIPKlE", !83, i64 0}
+!86 = !{!87, !5, i64 0}
+!87 = !{!"_ZTSN6google8protobuf13RepeatedFieldImEE", !5, i64 0, !5, i64 4, !8, i64 8}
+!88 = !{!87, !5, i64 4}
+!89 = !{!87, !8, i64 8}
+!90 = !{!91, !30, i64 0}
+!91 = !{!"_ZTSN6google8protobuf13RepeatedFieldImE3RepE", !30, i64 0, !6, i64 8}
+!92 = distinct !{!92, !36}
+!93 = distinct !{!93, !36}
+!94 = distinct !{!94, !36}
+!95 = !{!96, !83, i64 0}
+!96 = !{!"_ZTSSt16reverse_iteratorIPmE", !83, i64 0}
+!97 = !{!98, !83, i64 0}
+!98 = !{!"_ZTSSt16reverse_iteratorIPKmE", !83, i64 0}
+!99 = !{!100, !5, i64 0}
+!100 = !{!"_ZTSN6google8protobuf13RepeatedFieldIfEE", !5, i64 0, !5, i64 4, !8, i64 8}
+!101 = !{!100, !5, i64 4}
+!102 = !{!100, !8, i64 8}
+!103 = !{!104, !30, i64 0}
+!104 = !{!"_ZTSN6google8protobuf13RepeatedFieldIfE3RepE", !30, i64 0, !6, i64 8}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"float", !6, i64 0}
+!107 = distinct !{!107, !36}
+!108 = distinct !{!108, !36}
+!109 = distinct !{!109, !36}
+!110 = !{!111, !112, i64 0}
+!111 = !{!"_ZTSSt16reverse_iteratorIPfE", !112, i64 0}
+!112 = !{!"p1 float", !8, i64 0}
+!113 = !{!114, !112, i64 0}
+!114 = !{!"_ZTSSt16reverse_iteratorIPKfE", !112, i64 0}
+!115 = !{!116, !5, i64 0}
+!116 = !{!"_ZTSN6google8protobuf13RepeatedFieldIdEE", !5, i64 0, !5, i64 4, !8, i64 8}
+!117 = !{!116, !5, i64 4}
+!118 = !{!116, !8, i64 8}
+!119 = !{!120, !30, i64 0}
+!120 = !{!"_ZTSN6google8protobuf13RepeatedFieldIdE3RepE", !30, i64 0, !6, i64 8}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"double", !6, i64 0}
+!123 = distinct !{!123, !36}
+!124 = distinct !{!124, !36}
+!125 = distinct !{!125, !36}
+!126 = !{!127, !128, i64 0}
+!127 = !{!"_ZTSSt16reverse_iteratorIPdE", !128, i64 0}
+!128 = !{!"p1 double", !8, i64 0}
+!129 = !{!130, !128, i64 0}
+!130 = !{!"_ZTSSt16reverse_iteratorIPKdE", !128, i64 0}
+!131 = !{!132, !30, i64 0}
+!132 = !{!"_ZTSN6google8protobuf8internal20RepeatedPtrFieldBaseE", !30, i64 0, !5, i64 8, !5, i64 12, !133, i64 16}
+!133 = !{!"p1 _ZTSN6google8protobuf8internal20RepeatedPtrFieldBase3RepE", !8, i64 0}
+!134 = !{!132, !5, i64 8}
+!135 = !{!132, !133, i64 16}
+!136 = !{!137, !5, i64 0}
+!137 = !{!"_ZTSN6google8protobuf8internal20RepeatedPtrFieldBase3RepE", !5, i64 0, !6, i64 8}
+!138 = !{!132, !5, i64 12}
+!139 = !{!140, !142, i64 0}
+!140 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !141, i64 0, !19, i64 8, !6, i64 16}
+!141 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !142, i64 0}
+!142 = !{!"p1 omnipotent char", !8, i64 0}
+!143 = !{!140, !19, i64 8}
+!144 = !{!6, !6, i64 0}
+!145 = distinct !{!145, !36}
+!146 = distinct !{!146, !36}
+!147 = !{!141, !142, i64 0}
+!148 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!149 = distinct !{!149, !36}
+!150 = distinct !{!150, !36}
+!151 = !{!152, !152, i64 0}
+!152 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !8, i64 0}
+!153 = distinct !{!153, !36}
+!154 = distinct !{!154, !36}
+!155 = !{!156, !156, i64 0}
+!156 = !{!"any p2 pointer", !8, i64 0}
+!157 = distinct !{!157, !36}
+!158 = distinct !{!158, !36}
+!159 = !{!160, !8, i64 0}
+!160 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !8, i64 0}
+!161 = distinct !{!161, !36, !162}
+!162 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!163 = distinct !{!163, !36}
+!164 = distinct !{!164, !36}

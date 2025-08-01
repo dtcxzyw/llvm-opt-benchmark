@@ -422,7 +422,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   store i8 %229, ptr %226, align 1, !tbaa !25
   store i8 %227, ptr %228, align 1, !tbaa !25
   %exitcond236.not = icmp eq i64 %224, %220
-  br i1 %exitcond236.not, label %.loopexit, label %.lr.ph228, !llvm.loop !33
+  br i1 %exitcond236.not, label %.loopexit, label %.lr.ph228, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph228, %217, %208
   %230 = icmp eq ptr %.0183, %10
@@ -456,7 +456,7 @@ define range(i32 -1, 1) i32 @H5T__conv_b_b(ptr noundef %0, ptr noundef readonly 
   %.2186 = getelementptr inbounds i8, ptr %.1185229, i64 %.pn
   %246 = add nuw i64 %.0170231, 1
   %exitcond237.not = icmp eq i64 %246, %4
-  br i1 %exitcond237.not, label %.loopexit225, label %106, !llvm.loop !34
+  br i1 %exitcond237.not, label %.loopexit225, label %106, !llvm.loop !33
 
 247:                                              ; preds = %18
   %248 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !14
@@ -555,8 +555,7 @@ attributes #9 = { nounwind allocsize(0,1) }
 !27 = !{!28, !15, i64 16}
 !28 = !{!"H5T_shared_t", !15, i64 0, !12, i64 8, !12, i64 12, !15, i64 16, !12, i64 24, !4, i64 28, !29, i64 32, !24, i64 40, !5, i64 48}
 !29 = !{!"p1 _ZTS5H5T_t", !13, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
-!34 = distinct !{!34, !31, !32}
+!32 = distinct !{!32, !31}
+!33 = distinct !{!33, !31}

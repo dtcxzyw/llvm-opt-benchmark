@@ -636,7 +636,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 .critedge:                                        ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
   %28 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %.not = icmp eq ptr %28, %10
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !228
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.critedge, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %29 = load ptr, ptr %3, align 8, !tbaa !208
@@ -663,7 +663,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm24RISCVELFTargetObjectFile24isCons
   %4 = alloca %"class.llvm::TypeSize", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !230
+  %6 = load ptr, ptr %5, align 8, !tbaa !228
   %7 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %6)
   %.fca.0.extract.i13.i = extractvalue { i64, i8 } %7, 0
   %.fca.1.extract.i14.i = extractvalue { i64, i8 } %7, 1
@@ -701,7 +701,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile21getSectionFor
 7:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !230
+  %9 = load ptr, ptr %8, align 8, !tbaa !228
   %10 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %9)
   %.fca.0.extract.i13.i.i = extractvalue { i64, i8 } %10, 0
   %.fca.1.extract.i14.i.i = extractvalue { i64, i8 } %10, 1
@@ -774,15 +774,15 @@ declare noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF21getSectionForConsta
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm27TargetLoweringObjectFileELFD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 280) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8, !tbaa !231
+  store ptr getelementptr inbounds nuw inrange(-16, 280) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8, !tbaa !229
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1004
-  %3 = load i8, ptr %2, align 4, !tbaa !233, !range !234, !noundef !235
+  %3 = load i8, ptr %2, align 4, !tbaa !231, !range !232, !noundef !233
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %7 = load ptr, ptr %6, align 8, !tbaa !236
+  %7 = load ptr, ptr %6, align 8, !tbaa !234
   tail call void @free(ptr noundef %7) #10
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
@@ -793,15 +793,15 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %1, %5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm24RISCVELFTargetObjectFileD0Ev(ptr noundef nonnull align 8 dereferenceable(1092) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 280) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8, !tbaa !231
+  store ptr getelementptr inbounds nuw inrange(-16, 280) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8, !tbaa !229
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1004
-  %3 = load i8, ptr %2, align 4, !tbaa !233, !range !234, !noundef !235
+  %3 = load i8, ptr %2, align 4, !tbaa !231, !range !232, !noundef !233
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %7 = load ptr, ptr %6, align 8, !tbaa !236
+  %7 = load ptr, ptr %6, align 8, !tbaa !234
   tail call void @free(ptr noundef %7) #10
   br label %_ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit
 
@@ -923,7 +923,7 @@ define linkonce_odr hidden { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBits
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %0, i32 noundef 0) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !237
+  %8 = load i32, ptr %7, align 4, !tbaa !235
   %9 = zext i32 %8 to i64
   br label %58
 
@@ -931,15 +931,15 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   %10 = lshr i32 %4, 8
   %11 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %0, i32 noundef %10) #10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !237
+  %13 = load i32, ptr %12, align 4, !tbaa !235
   %14 = zext i32 %13 to i64
   br label %58
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !240
+  %17 = load i64, ptr %16, align 8, !tbaa !238
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !245
+  %19 = load ptr, ptr %18, align 8, !tbaa !243
   %20 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %19)
   %.fca.0.extract.i13.i = extractvalue { i64, i8 } %20, 0
   %.fca.1.extract.i14.i = extractvalue { i64, i8 } %20, 1
@@ -988,11 +988,11 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 43:                                               ; preds = %2, %2
   %44 = and i32 %4, 255
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !246
+  %46 = load i32, ptr %45, align 8, !tbaa !244
   %47 = icmp eq i32 %44, 18
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !248
+  %50 = load ptr, ptr %49, align 8, !tbaa !246
   %51 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %50)
   %.fca.0.extract1 = extractvalue { i64, i8 } %51, 0
   %52 = mul i64 %.fca.0.extract1, %48
@@ -1280,24 +1280,22 @@ attributes #11 = { builtin nounwind }
 !225 = !{!226, !8, i64 8}
 !226 = !{!"_ZTSN4llvm5APIntE", !6, i64 0, !8, i64 8}
 !227 = !{!186, !8, i64 1088}
-!228 = distinct !{!228, !229}
-!229 = !{!"llvm.loop.estimated_trip_count"}
-!230 = !{!197, !198, i64 8}
-!231 = !{!232, !232, i64 0}
-!232 = !{!"vtable pointer", !7, i64 0}
-!233 = !{!177, !5, i64 20}
-!234 = !{i8 0, i8 2}
-!235 = !{}
-!236 = !{!177, !10, i64 0}
-!237 = !{!238, !8, i64 4}
-!238 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !8, i64 0, !8, i64 4, !239, i64 8, !239, i64 9, !8, i64 12, !5, i64 16}
-!239 = !{!"_ZTSN4llvm5AlignE", !6, i64 0}
-!240 = !{!241, !18, i64 32}
-!241 = !{!"_ZTSN4llvm9ArrayTypeE", !242, i64 0, !198, i64 24, !18, i64 32}
-!242 = !{!"_ZTSN4llvm4TypeE", !221, i64 0, !243, i64 8, !8, i64 9, !8, i64 12, !244, i64 16}
-!243 = !{!"_ZTSN4llvm4Type6TypeIDE", !6, i64 0}
-!244 = !{!"p2 _ZTSN4llvm4TypeE", !10, i64 0}
-!245 = !{!241, !198, i64 24}
-!246 = !{!247, !8, i64 32}
-!247 = !{!"_ZTSN4llvm10VectorTypeE", !242, i64 0, !198, i64 24, !8, i64 32}
-!248 = !{!247, !198, i64 24}
+!228 = !{!197, !198, i64 8}
+!229 = !{!230, !230, i64 0}
+!230 = !{!"vtable pointer", !7, i64 0}
+!231 = !{!177, !5, i64 20}
+!232 = !{i8 0, i8 2}
+!233 = !{}
+!234 = !{!177, !10, i64 0}
+!235 = !{!236, !8, i64 4}
+!236 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !8, i64 0, !8, i64 4, !237, i64 8, !237, i64 9, !8, i64 12, !5, i64 16}
+!237 = !{!"_ZTSN4llvm5AlignE", !6, i64 0}
+!238 = !{!239, !18, i64 32}
+!239 = !{!"_ZTSN4llvm9ArrayTypeE", !240, i64 0, !198, i64 24, !18, i64 32}
+!240 = !{!"_ZTSN4llvm4TypeE", !221, i64 0, !241, i64 8, !8, i64 9, !8, i64 12, !242, i64 16}
+!241 = !{!"_ZTSN4llvm4Type6TypeIDE", !6, i64 0}
+!242 = !{!"p2 _ZTSN4llvm4TypeE", !10, i64 0}
+!243 = !{!239, !198, i64 24}
+!244 = !{!245, !8, i64 32}
+!245 = !{!"_ZTSN4llvm10VectorTypeE", !240, i64 0, !198, i64 24, !8, i64 32}
+!246 = !{!245, !198, i64 24}

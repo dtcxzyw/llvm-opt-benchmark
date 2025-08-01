@@ -488,7 +488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
   %164 = getelementptr inbounds i8, ptr %163, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %164) #9
   %165 = icmp eq ptr %164, %18
-  br i1 %165, label %.loopexit, label %162, !llvm.loop !36
+  br i1 %165, label %.loopexit, label %162
 
 166:                                              ; preds = %90, %88
   %.0 = phi ptr [ %91, %90 ], [ %89, %88 ]
@@ -501,7 +501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
   %170 = getelementptr inbounds i8, ptr %169, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %170) #9
   %171 = icmp eq ptr %170, %19
-  br i1 %171, label %.loopexit104, label %168, !llvm.loop !38
+  br i1 %171, label %.loopexit104, label %168
 
 172:                                              ; preds = %93, %92
   %173 = landingpad { ptr, i32 }
@@ -615,7 +615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   %205 = getelementptr inbounds i8, ptr %204, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %205) #9
   %206 = icmp eq ptr %205, %19
-  br i1 %206, label %207, label %203, !llvm.loop !39
+  br i1 %206, label %207, label %203
 
 207:                                              ; preds = %203
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %19) #9
@@ -627,7 +627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   %211 = getelementptr inbounds i8, ptr %210, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %211) #9
   %212 = icmp eq ptr %211, %19
-  br i1 %212, label %.loopexit104, label %209, !llvm.loop !40
+  br i1 %212, label %.loopexit104, label %209
 
 .loopexit104:                                     ; preds = %168, %209, %.thread102
   %.pn69.pn.pn.pn = phi { ptr, i32 } [ %87, %.thread102 ], [ %.pn69.pn.pn, %209 ], [ %167, %168 ]
@@ -640,7 +640,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   %216 = getelementptr inbounds i8, ptr %215, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %216) #9
   %217 = icmp eq ptr %216, %18
-  br i1 %217, label %218, label %214, !llvm.loop !41
+  br i1 %217, label %218, label %214
 
 218:                                              ; preds = %214
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %18) #9
@@ -665,7 +665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   %221 = getelementptr inbounds i8, ptr %220, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %221) #9
   %222 = icmp eq ptr %221, %18
-  br i1 %222, label %.loopexit, label %219, !llvm.loop !42
+  br i1 %222, label %.loopexit, label %219
 
 .loopexit:                                        ; preds = %162, %219, %.thread
   %.pn69.pn.pn.pn.pn = phi { ptr, i32 } [ %81, %.thread ], [ %.pn69.pn.pn.pn, %219 ], [ %161, %162 ]
@@ -815,10 +815,3 @@ attributes #10 = { builtin nounwind }
 !33 = !{!32, !17, i64 4}
 !34 = !{!32, !17, i64 8}
 !35 = !{!32, !17, i64 12}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !37}
-!39 = distinct !{!39, !37}
-!40 = distinct !{!40, !37}
-!41 = distinct !{!41, !37}
-!42 = distinct !{!42, !37}

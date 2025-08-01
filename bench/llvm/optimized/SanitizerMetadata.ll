@@ -360,7 +360,7 @@ _ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_
 61:                                               ; preds = %.lr.ph.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i, i64 8
   %.not.i.i.i10.i = icmp eq ptr %62, %52
-  br i1 %.not.i.i.i10.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !377
+  br i1 %.not.i.i.i10.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !376
 
 63:                                               ; preds = %53
   %.not2.i3.i.i.i = icmp eq ptr %52, %.sroa.03.0.i
@@ -377,7 +377,7 @@ _ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_
 68:                                               ; preds = %.lr.ph.i4.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %.not.i5.i.i.i = icmp eq ptr %69, %.sroa.03.0.i
-  br i1 %.not.i5.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread.i, label %.lr.ph.i4.i.i.i, !llvm.loop !377
+  br i1 %.not.i5.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread.i, label %.lr.ph.i4.i.i.i, !llvm.loop !376
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i: ; preds = %.lr.ph.i4.i.i.i, %.lr.ph.i.i.i.i
   %.sroa.07.0.i.i.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.03.0.i, %.lr.ph.i4.i.i.i ]
@@ -406,15 +406,15 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorI
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i16, ptr %81, align 8
   %83 = icmp eq i16 %82, 273
-  br i1 %83, label %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !378
+  br i1 %83, label %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !377
 
 _ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i: ; preds = %.lr.ph.i.i.i, %73
   %.sroa.03.1.i = phi ptr [ %.sroa.03.0.i, %73 ], [ %79, %.lr.ph.i.i.i ]
   %84 = phi ptr [ %74, %73 ], [ %80, %.lr.ph.i.i.i ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  %86 = load ptr, ptr %85, align 8, !tbaa !379
+  %86 = load ptr, ptr %85, align 8, !tbaa !378
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 36
-  %88 = load i32, ptr %87, align 4, !tbaa !388
+  %88 = load i32, ptr %87, align 4, !tbaa !387
   %89 = zext i32 %88 to i64
   %.idx.i.i = shl nuw nsw i64 %89, 4
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i
@@ -425,9 +425,9 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i: ; preds = %_ZNK5clang22speci
   %.020.i.i = phi ptr [ %101, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ], [ %86, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
   %91 = phi i64 [ %99, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
   %92 = phi i64 [ %100, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
-  %.sroa.04.0.copyload.i.i = load ptr, ptr %.020.i.i, align 8, !tbaa !389
+  %.sroa.04.0.copyload.i.i = load ptr, ptr %.020.i.i, align 8, !tbaa !388
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 8
-  %.sroa.45.0.copyload.i.i = load i64, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !tbaa !390
+  %.sroa.45.0.copyload.i.i = load i64, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !tbaa !389
   %93 = call { i64, i64 } @_ZN5clang19parseSanitizerValueEN4llvm9StringRefEb(ptr %.sroa.04.0.copyload.i.i, i64 %.sroa.45.0.copyload.i.i, i1 noundef zeroext true) #9
   %94 = extractvalue { i64, i64 } %93, 0
   %95 = extractvalue { i64, i64 } %93, 1
@@ -438,7 +438,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i: ; preds = %_ZNK5clang22speci
   %100 = or i64 %98, %92
   %101 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 16
   %.not.i11.i = icmp eq ptr %101, %90
-  br i1 %.not.i11.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i, !llvm.loop !391
+  br i1 %.not.i11.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i
 
 _ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i:      ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i
   %.lcssa18.i.i = phi i64 [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ], [ %100, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ]
@@ -446,13 +446,13 @@ _ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i:      ; preds = %_ZN5clang13Sanitize
   %102 = or i64 %.lcssa.i.i, %55
   %103 = or i64 %.lcssa18.i.i, %54
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.03.1.i, i64 8
-  br label %53, !llvm.loop !392
+  br label %53
 
 105:                                              ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread.i
   %.sroa.0.0.copyload.i12.i = load i64, ptr %22, align 8, !tbaa !348
   %106 = and i64 %.sroa.0.0.copyload.i12.i, -16
   %107 = inttoptr i64 %106 to ptr
-  %108 = load ptr, ptr %107, align 16, !tbaa !393
+  %108 = load ptr, ptr %107, align 16, !tbaa !390
   %109 = call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %108, ptr noundef null) #9
   br i1 %109, label %.critedge.i, label %"_ZZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableERKNS_7VarDeclEbENK3$_0clES7_.exit"
 
@@ -469,7 +469,7 @@ _ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i:      ; preds = %_ZN5clang13Sanitize
   call void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableENS_14SourceLocationENS2_9StringRefENS_8QualTypeENS_13SanitizerMaskEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 %.sroa.0.0.copyload.i, ptr poison, i64 poison, i64 %.sroa.0.0.copyload.i8, ptr noundef nonnull byval(%"class.clang::SanitizerMask") align 8 %7, i1 noundef zeroext %3)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #9
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
-  %112 = load ptr, ptr %5, align 8, !tbaa !396
+  %112 = load ptr, ptr %5, align 8, !tbaa !393
   %113 = icmp eq ptr %112, %14
   br i1 %113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -917,26 +917,23 @@ attributes #10 = { builtin nounwind }
 !371 = !{!148, !17, i64 8}
 !372 = !{!373, !373, i64 0}
 !373 = !{!"p1 _ZTSN5clang4AttrE", !5, i64 0}
-!374 = distinct !{!374, !375, !376}
+!374 = distinct !{!374, !375}
 !375 = !{!"llvm.loop.mustprogress"}
-!376 = !{!"llvm.loop.estimated_trip_count"}
-!377 = distinct !{!377, !375, !376}
-!378 = distinct !{!378, !375, !376}
-!379 = !{!380, !387, i64 40}
-!380 = !{!"_ZTSN5clang14NoSanitizeAttrE", !381, i64 0, !17, i64 36, !387, i64 40}
-!381 = !{!"_ZTSN5clang15InheritableAttrE", !382, i64 0}
-!382 = !{!"_ZTSN5clang4AttrE", !383, i64 0, !17, i64 32, !17, i64 34, !17, i64 34, !17, i64 34, !17, i64 34, !17, i64 34}
-!383 = !{!"_ZTSN5clang19AttributeCommonInfoE", !384, i64 0, !384, i64 8, !385, i64 16, !386, i64 24, !17, i64 28, !17, i64 30, !17, i64 30, !17, i64 31, !17, i64 31}
-!384 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
-!385 = !{!"_ZTSN5clang11SourceRangeE", !386, i64 0, !386, i64 4}
-!386 = !{!"_ZTSN5clang14SourceLocationE", !17, i64 0}
-!387 = !{!"p1 _ZTSN4llvm9StringRefE", !5, i64 0}
-!388 = !{!380, !17, i64 36}
-!389 = !{!38, !38, i64 0}
-!390 = !{!39, !39, i64 0}
-!391 = distinct !{!391, !376}
-!392 = distinct !{!392, !376}
-!393 = !{!394, !395, i64 0}
-!394 = !{!"_ZTSN5clang22ExtQualsTypeCommonBaseE", !395, i64 0, !288, i64 8}
-!395 = !{!"p1 _ZTSN5clang4TypeE", !5, i64 0}
-!396 = !{!36, !38, i64 0}
+!376 = distinct !{!376, !375}
+!377 = distinct !{!377, !375}
+!378 = !{!379, !386, i64 40}
+!379 = !{!"_ZTSN5clang14NoSanitizeAttrE", !380, i64 0, !17, i64 36, !386, i64 40}
+!380 = !{!"_ZTSN5clang15InheritableAttrE", !381, i64 0}
+!381 = !{!"_ZTSN5clang4AttrE", !382, i64 0, !17, i64 32, !17, i64 34, !17, i64 34, !17, i64 34, !17, i64 34, !17, i64 34}
+!382 = !{!"_ZTSN5clang19AttributeCommonInfoE", !383, i64 0, !383, i64 8, !384, i64 16, !385, i64 24, !17, i64 28, !17, i64 30, !17, i64 30, !17, i64 31, !17, i64 31}
+!383 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
+!384 = !{!"_ZTSN5clang11SourceRangeE", !385, i64 0, !385, i64 4}
+!385 = !{!"_ZTSN5clang14SourceLocationE", !17, i64 0}
+!386 = !{!"p1 _ZTSN4llvm9StringRefE", !5, i64 0}
+!387 = !{!379, !17, i64 36}
+!388 = !{!38, !38, i64 0}
+!389 = !{!39, !39, i64 0}
+!390 = !{!391, !392, i64 0}
+!391 = !{!"_ZTSN5clang22ExtQualsTypeCommonBaseE", !392, i64 0, !288, i64 8}
+!392 = !{!"p1 _ZTSN5clang4TypeE", !5, i64 0}
+!393 = !{!36, !38, i64 0}

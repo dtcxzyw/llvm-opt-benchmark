@@ -709,6 +709,5 @@ attributes #14 = { noreturn nounwind }
 !30 = !{}
 !31 = !{!32, !18, i64 0}
 !32 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !18, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}

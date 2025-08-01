@@ -147,7 +147,7 @@ define noundef i32 @dtbmv_thread_TLN(i64 noundef %0, i64 noundef %1, ptr noundef
   %81 = zext i32 %78 to i64
   %82 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !17
-  %84 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %83, i32 %76) #7, !srcloc !29
+  %84 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %83, i32 %76) #7, !srcloc !28
   %85 = extractvalue { i32, i32 } %84, 0
   store volatile i32 %85, ptr %9, align 4, !tbaa !17
   %.0..0..0..0..0..0..i = load volatile i32, ptr %9, align 4, !tbaa !17
@@ -189,19 +189,19 @@ blas_quickdivide.exit:                            ; preds = %71, %80
   store ptr %101, ptr %102, align 8, !tbaa !25
   %103 = sub nsw i64 %.1120136, %spec.select133
   %104 = icmp sgt i64 %103, 0
-  br i1 %104, label %71, label %.loopexit, !llvm.loop !30
+  br i1 %104, label %71, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %blas_quickdivide.exit, %48
   %.1123 = phi i64 [ %51, %48 ], [ %90, %blas_quickdivide.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr null, ptr %105, align 16, !tbaa !31
+  store ptr null, ptr %105, align 16, !tbaa !30
   %106 = add nsw i64 %0, 255
   %107 = and i64 %106, -256
   %108 = or disjoint i64 %107, 16
   %109 = mul nsw i64 %.1123, %108
   %110 = getelementptr inbounds double, ptr %6, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %110, ptr %111, align 8, !tbaa !32
+  store ptr %110, ptr %111, align 8, !tbaa !31
   %112 = add nsw i64 %.1123, -1
   %113 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %112, i32 8
   store ptr null, ptr %113, align 8, !tbaa !25
@@ -217,7 +217,7 @@ blas_quickdivide.exit:                            ; preds = %71, %80
   %119 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %118, i64 noundef 1, ptr noundef %6, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
   %120 = add nuw i64 %.2121141, 1
   %exitcond.not = icmp eq i64 %120, %.1123
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph142, %25, %66, %.loopexit
   %121 = call i32 @dcopy_k(i64 noundef %0, ptr noundef %6, i64 noundef 1, ptr noundef %4, i64 noundef %5) #7
@@ -301,13 +301,13 @@ define internal noundef i32 @trmv_kernel(ptr noundef readonly captures(none) %0,
   %37 = xor i64 %.04860, -1
   %38 = add i64 %36, %37
   %spec.select = tail call i64 @llvm.smin.i64(i64 %38, i64 %13)
-  %39 = load double, ptr %.161, align 8, !tbaa !34
+  %39 = load double, ptr %.161, align 8, !tbaa !33
   %40 = getelementptr inbounds double, ptr %.051, i64 %.04860
-  %41 = load double, ptr %40, align 8, !tbaa !34
+  %41 = load double, ptr %40, align 8, !tbaa !33
   %42 = getelementptr inbounds double, ptr %.052, i64 %.04860
-  %43 = load double, ptr %42, align 8, !tbaa !34
+  %43 = load double, ptr %42, align 8, !tbaa !33
   %44 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %43)
-  store double %44, ptr %42, align 8, !tbaa !34
+  store double %44, ptr %42, align 8, !tbaa !33
   %45 = icmp sgt i64 %spec.select, 0
   br i1 %45, label %46, label %52
 
@@ -315,16 +315,16 @@ define internal noundef i32 @trmv_kernel(ptr noundef readonly captures(none) %0,
   %47 = getelementptr inbounds nuw i8, ptr %.161, i64 8
   %48 = getelementptr i8, ptr %40, i64 8
   %49 = tail call double @ddot_k(i64 noundef %spec.select, ptr noundef nonnull %47, i64 noundef 1, ptr noundef %48, i64 noundef 1) #7
-  %50 = load double, ptr %42, align 8, !tbaa !34
+  %50 = load double, ptr %42, align 8, !tbaa !33
   %51 = fadd double %49, %50
-  store double %51, ptr %42, align 8, !tbaa !34
+  store double %51, ptr %42, align 8, !tbaa !33
   br label %52
 
 52:                                               ; preds = %46, %.lr.ph
   %53 = getelementptr inbounds double, ptr %.161, i64 %16
   %54 = add i64 %.04860, 1
   %exitcond.not = icmp eq i64 %54, %.049
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %52, %32
   ret i32 0
@@ -392,14 +392,13 @@ attributes #7 = { nounwind }
 !23 = !{!19, !5, i64 32}
 !24 = !{!19, !5, i64 40}
 !25 = !{!19, !20, i64 64}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{i64 1033135}
-!30 = distinct !{!30, !27, !28}
-!31 = !{!19, !5, i64 48}
-!32 = !{!19, !5, i64 56}
-!33 = distinct !{!33, !27, !28}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
-!36 = distinct !{!36, !27, !28}
+!28 = !{i64 1033135}
+!29 = distinct !{!29, !27}
+!30 = !{!19, !5, i64 48}
+!31 = !{!19, !5, i64 56}
+!32 = distinct !{!32, !27}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"double", !6, i64 0}
+!35 = distinct !{!35, !27}

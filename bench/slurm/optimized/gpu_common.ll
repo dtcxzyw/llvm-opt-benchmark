@@ -390,7 +390,7 @@ define dso_local void @gpu_common_print_freqs(ptr noundef readonly captures(none
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %10, i32 noundef %11) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 12:                                               ; preds = %5
   %13 = add i32 %1, -2
@@ -451,7 +451,7 @@ define dso_local void @gpu_common_underscorify_tolower(ptr noundef captures(none
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -652,7 +652,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr noundef nonnul
 43:                                               ; preds = %33, %39, %42, %36, %34, %23, %26, %20, %18, %30, %27
   %44 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull %8) #7
   %.not25 = icmp eq ptr %44, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %43, %11
   call void @slurm_xfree(ptr noundef nonnull %7) #7
@@ -743,10 +743,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

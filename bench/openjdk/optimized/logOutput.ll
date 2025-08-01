@@ -134,7 +134,7 @@ define hidden void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull 
   %spec.select129 = select i1 %11, i32 %12, i32 %.0109149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %13, label %8, !llvm.loop !9
+  br i1 %exitcond.not, label %13, label %8, !llvm.loop !8
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %spec.select129 to i64
@@ -190,7 +190,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit:       ; preds = %.lr.ph, %30
   %.1116 = phi i64 [ %.0115152, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ], [ %35, %34 ]
   %.0113 = load ptr, ptr %.0113153, align 8
   %.not = icmp eq ptr %.0113, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %37
   %.old2.not = icmp eq i64 %.1116, 0
@@ -257,7 +257,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit133:    ; preds = %50, %55
   %.1 = phi i32 [ %.0103154, %46 ], [ %spec.select130, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit133 ]
   %62 = add nuw i64 %.0102155, 1
   %exitcond202.not = icmp eq i64 %62, %.2117
-  br i1 %exitcond202.not, label %._crit_edge157, label %46, !llvm.loop !11
+  br i1 %exitcond202.not, label %._crit_edge157, label %46, !llvm.loop !10
 
 ._crit_edge157:                                   ; preds = %61
   %63 = icmp slt i32 %.1, %.0107166
@@ -302,7 +302,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit135:    ; preds = %68, %72
   %.3 = phi i32 [ %.2161, %66 ], [ %spec.select131, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit135 ]
   %.0101 = load ptr, ptr %.0101162, align 8
   %.not127 = icmp eq ptr %.0101, null
-  br i1 %.not127, label %._crit_edge164, label %66, !llvm.loop !12
+  br i1 %.not127, label %._crit_edge164, label %66, !llvm.loop !11
 
 ._crit_edge164:                                   ; preds = %77, %.preheader142
   %.2.lcssa = phi i32 [ %.1, %.preheader142 ], [ %.3, %77 ]
@@ -332,7 +332,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit135:    ; preds = %68, %72
   %91 = add nuw i64 %.0104168, 1
   %92 = load i64, ptr %4, align 8
   %93 = icmp ult i64 %91, %92
-  br i1 %93, label %.preheader143, label %._crit_edge169, !llvm.loop !13
+  br i1 %93, label %.preheader143, label %._crit_edge169, !llvm.loop !12
 
 ._crit_edge169:                                   ; preds = %90
   %94 = load i64, ptr %38, align 8
@@ -389,12 +389,12 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit137:    ; preds = %96, %102
   %112 = load ptr, ptr %111, align 8
   store ptr %112, ptr %97, align 8
   %113 = icmp ult i64 %.0100171, %110
-  br i1 %113, label %.lr.ph172, label %.preheader144, !llvm.loop !14
+  br i1 %113, label %.lr.ph172, label %.preheader144, !llvm.loop !13
 
 114:                                              ; preds = %107, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit137
   %115 = add nuw i64 %.0100171, 1
   %116 = icmp ult i64 %115, %.3118.ph175
-  br i1 %116, label %96, label %.preheader144, !llvm.loop !14
+  br i1 %116, label %96, label %.preheader144, !llvm.loop !13
 
 .lr.ph184:                                        ; preds = %.preheader144, %.loopexit
   %.099183 = phi ptr [ %.099, %.loopexit ], [ %.099180, %.preheader144 ]
@@ -426,7 +426,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit139:    ; preds = %.lr.ph184, %120
 127:                                              ; preds = %.lr.ph179
   %128 = add nuw i64 %.097178, 1
   %exitcond203.not = icmp eq i64 %128, %.4182
-  br i1 %exitcond203.not, label %.critedge, label %.lr.ph179, !llvm.loop !15
+  br i1 %exitcond203.not, label %.critedge, label %.lr.ph179, !llvm.loop !14
 
 .lr.ph179:                                        ; preds = %.preheader, %127
   %.097178 = phi i64 [ %128, %127 ], [ 0, %.preheader ]
@@ -445,7 +445,7 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit139:    ; preds = %.lr.ph184, %120
   %.5 = phi i64 [ %.4182, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit139 ], [ %132, %.critedge ], [ %.4182, %125 ], [ %.4182, %.lr.ph179 ]
   %.099 = load ptr, ptr %.099183, align 8
   %.not123 = icmp eq ptr %.099, null
-  br i1 %.not123, label %._crit_edge185, label %.lr.ph184, !llvm.loop !16
+  br i1 %.not123, label %._crit_edge185, label %.lr.ph184, !llvm.loop !15
 
 ._crit_edge185:                                   ; preds = %.loopexit, %.preheader144
   %.4.lcssa = phi i64 [ %.3118.ph.lcssa, %.preheader144 ], [ %.5, %.loopexit ]
@@ -472,14 +472,14 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit141:    ; preds = %.lr.ph189, %139
   call fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSetN8LogLevel4typeE(ptr noundef %6, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(112) %135, i32 noundef %.0.i.i140)
   %142 = add nuw i64 %.0187, 1
   %exitcond204.not = icmp eq i64 %142, %.4.lcssa
-  br i1 %exitcond204.not, label %._crit_edge190, label %.lr.ph189, !llvm.loop !17
+  br i1 %exitcond204.not, label %._crit_edge190, label %.lr.ph189, !llvm.loop !16
 
 ._crit_edge190:                                   ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit141
   %.pre = load i64, ptr %4, align 8
   %143 = icmp ne i64 %.4.lcssa, 1
   %144 = icmp ne i64 %.pre, 0
   %or.cond.not126 = select i1 %143, i1 true, i1 %144
-  br i1 %or.cond.not126, label %39, label %.loopexit145, !llvm.loop !18
+  br i1 %or.cond.not126, label %39, label %.loopexit145, !llvm.loop !17
 
 .loopexit145:                                     ; preds = %._crit_edge185, %._crit_edge190, %22, %._crit_edge
   call void @_Z8FreeHeapPv(ptr noundef %26) #13
@@ -548,7 +548,7 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
   %27 = add nuw i64 %.04660, 1
   %28 = load i64, ptr %1, align 8
   %.not = icmp ult i64 %27, %28
-  br i1 %.not, label %.lr.ph62, label %.critedge, !llvm.loop !19
+  br i1 %.not, label %.lr.ph62, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %26, %.lr.ph73
   call void @_ZN12LogSelectionC1EPKN6LogTag4typeEbN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %16, i1 noundef zeroext false, i32 noundef %4) #13
@@ -571,7 +571,7 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
   %.245 = phi i1 [ true, %30 ], [ %.04365, %.lr.ph68 ]
   %.0 = load ptr, ptr %.066, align 8
   %.not51.not = icmp eq ptr %.0, null
-  br i1 %.not51.not, label %._crit_edge69, label %.lr.ph68, !llvm.loop !20
+  br i1 %.not51.not, label %._crit_edge69, label %.lr.ph68, !llvm.loop !19
 
 ._crit_edge69:                                    ; preds = %32
   br i1 %.245, label %.thread, label %.loopexit
@@ -624,7 +624,7 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
 .loopexit:                                        ; preds = %22, %.critedge, %46, %._crit_edge69
   %51 = add nuw i64 %.04871, 1
   %exitcond.not = icmp eq i64 %51, %15
-  br i1 %exitcond.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !20
 
 ._crit_edge74:                                    ; preds = %.loopexit, %._crit_edge
   ret void
@@ -695,7 +695,7 @@ define hidden noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStrea
 
 33:                                               ; preds = %17
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %11, !llvm.loop !21
 
 .loopexit.sink.split:                             ; preds = %14, %25
   %35 = load ptr, ptr %0, align 8
@@ -862,20 +862,19 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

@@ -264,10 +264,10 @@ define range(i32 -2147481748, -2147483648) i32 @getCurrentYear() local_unnamed_a
 4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #23
   %5 = tail call i64 @time(ptr noundef null) #23
-  store i64 %5, ptr %1, align 8, !tbaa !22
+  store i64 %5, ptr %1, align 8, !tbaa !21
   %6 = call ptr @gmtime(ptr noundef nonnull %1) #23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !24
+  %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = add nsw i32 %8, 1900
   store i32 %9, ptr @_ZL11currentYear, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #23
@@ -312,7 +312,7 @@ define noundef ptr @findDirname(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %14 = zext nneg i32 %.016 to i64
   %15 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull %.017, i64 noundef %14) #23
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  store i8 0, ptr %16, align 1, !tbaa !26
+  store i8 0, ptr %16, align 1, !tbaa !25
   br label %18
 
 17:                                               ; preds = %7
@@ -403,7 +403,7 @@ define i32 @uprv_compareGoldenFiles(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 15:                                               ; preds = %.noexc
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !27
+  %17 = load i32, ptr %16, align 8, !tbaa !26
   %18 = or i32 %17, 4
   br label %19
 
@@ -431,7 +431,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode.exit: ; pre
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %5, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %30 = load i32, ptr %29, align 8, !tbaa !27
+  %30 = load i32, ptr %29, align 8, !tbaa !26
   %31 = or i32 %30, 4
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %28, i32 noundef %31)
           to label %_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit unwind label %32
@@ -466,7 +466,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc21, %2
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %37, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load i32, ptr %43, align 8, !tbaa !27
+  %44 = load i32, ptr %43, align 8, !tbaa !26
   %45 = and i32 %44, 5
   %.not.i23 = icmp eq i32 %45, 0
   %46 = icmp slt i64 %indvars.iv, %35
@@ -474,9 +474,9 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc21, %2
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %38
-  %49 = load i8, ptr %7, align 1, !tbaa !26
+  %49 = load i8, ptr %7, align 1, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %51 = load i8, ptr %50, align 1, !tbaa !26
+  %51 = load i8, ptr %50, align 1, !tbaa !25
   %.not = icmp eq i8 %49, %51
   br i1 %.not, label %53, label %54
 
@@ -499,7 +499,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc21, %2
 
 53:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %36, !llvm.loop !36
+  br label %36, !llvm.loop !35
 
 54:                                               ; preds = %48, %38
   %55 = trunc nuw nsw i64 %indvars.iv to i32
@@ -512,7 +512,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc21, %2
   %60 = load i64, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %6, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load i32, ptr %62, align 8, !tbaa !27
+  %63 = load i32, ptr %62, align 8, !tbaa !26
   %64 = and i32 %63, 2
   %.not27 = icmp eq i32 %64, 0
   %spec.select = select i1 %.not27, i32 %1, i32 -1
@@ -534,7 +534,7 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc21, %2
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %6, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load i32, ptr %73, align 8, !tbaa !27
+  %74 = load i32, ptr %73, align 8, !tbaa !26
   %75 = or i32 %74, 4
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %72, i32 noundef %75)
           to label %_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit unwind label %.loopexit.split-lp
@@ -589,16 +589,16 @@ define nonnull ptr @utm_open(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %spec.select = tail call i32 @llvm.smax.i32(i32 %2, i32 %1)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %14, ptr %15, align 16, !tbaa !37
+  store ptr %14, ptr %15, align 16, !tbaa !36
   %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #23
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %1, ptr %17, align 16, !tbaa !39
+  store i32 %1, ptr %17, align 16, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  store i32 %spec.select, ptr %18, align 4, !tbaa !40
+  store i32 %spec.select, ptr %18, align 4, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %3, ptr %19, align 8, !tbaa !41
+  store i32 %3, ptr %19, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  store i32 0, ptr %20, align 4, !tbaa !42
+  store i32 0, ptr %20, align 4, !tbaa !41
   ret ptr %8
 }
 
@@ -615,7 +615,7 @@ define void @utm_close(ptr noundef %0) local_unnamed_addr #8 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 16, !tbaa !37
+  %4 = load ptr, ptr %3, align 16, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.not6 = icmp eq ptr %4, %5
   br i1 %.not6, label %7, label %6
@@ -637,31 +637,31 @@ declare void @uprv_free_77(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @utm_getStart(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 16, !tbaa !37
+  %3 = load ptr, ptr %2, align 16, !tbaa !36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @utm_countItems(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %3 = load i32, ptr %2, align 4, !tbaa !42
+  %3 = load i32, ptr %2, align 4, !tbaa !41
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_alloc(ptr noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %3 = load i32, ptr %2, align 4, !tbaa !42
+  %3 = load i32, ptr %2, align 4, !tbaa !41
   %4 = add nsw i32 %3, 1
   tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0, i32 noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 16, !tbaa !37
+  %6 = load ptr, ptr %5, align 16, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i32, ptr %7, align 8, !tbaa !41
+  %8 = load i32, ptr %7, align 8, !tbaa !40
   %9 = mul nsw i32 %8, %3
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
-  store i32 %4, ptr %2, align 4, !tbaa !42
+  store i32 %4, ptr %2, align 4, !tbaa !41
   %12 = sext i32 %8 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 %12, i1 false)
   ret ptr %11
@@ -670,13 +670,13 @@ define ptr @utm_alloc(ptr noundef %0) local_unnamed_addr #8 {
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0, i32 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i32, ptr %3, align 16, !tbaa !39
+  %4 = load i32, ptr %3, align 16, !tbaa !38
   %5 = icmp slt i32 %4, %1
   br i1 %5, label %6, label %41
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %8 = load i32, ptr %7, align 4, !tbaa !40
+  %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = icmp slt i32 %8, %1
   br i1 %9, label %10, label %14
 
@@ -701,26 +701,26 @@ define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0,
 18:                                               ; preds = %16, %14
   %.0 = phi i32 [ %1, %14 ], [ %., %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 16, !tbaa !37
+  %20 = load ptr, ptr %19, align 16, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = icmp eq ptr %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load i32, ptr %23, align 8, !tbaa !41
+  %24 = load i32, ptr %23, align 8, !tbaa !40
   %25 = mul nsw i32 %24, %.0
   %26 = sext i32 %25 to i64
   br i1 %22, label %27, label %35
 
 27:                                               ; preds = %18
   %28 = tail call noalias ptr @uprv_malloc_77(i64 noundef %26) #28
-  store ptr %28, ptr %19, align 16, !tbaa !37
+  store ptr %28, ptr %19, align 16, !tbaa !36
   %.not38 = icmp eq ptr %28, null
   br i1 %.not38, label %.thread, label %.thread39
 
 .thread39:                                        ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %30 = load i32, ptr %29, align 4, !tbaa !42
+  %30 = load i32, ptr %29, align 4, !tbaa !41
   %31 = sext i32 %30 to i64
-  %32 = load i32, ptr %23, align 8, !tbaa !41
+  %32 = load i32, ptr %23, align 8, !tbaa !40
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 16 %21, i64 %34, i1 false)
@@ -728,7 +728,7 @@ define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0,
 
 35:                                               ; preds = %18
   %36 = tail call ptr @uprv_realloc_77(ptr noundef %20, i64 noundef %26) #30
-  store ptr %36, ptr %19, align 16, !tbaa !37
+  store ptr %36, ptr %19, align 16, !tbaa !36
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %40
 
@@ -739,7 +739,7 @@ define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0,
   unreachable
 
 40:                                               ; preds = %.thread39, %35
-  store i32 %.0, ptr %3, align 16, !tbaa !39
+  store i32 %.0, ptr %3, align 16, !tbaa !38
   br label %41
 
 41:                                               ; preds = %40, %2
@@ -752,17 +752,17 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_allocN(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %4 = load i32, ptr %3, align 4, !tbaa !42
+  %4 = load i32, ptr %3, align 4, !tbaa !41
   %5 = add nsw i32 %4, %1
   tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 16, !tbaa !37
+  %7 = load ptr, ptr %6, align 16, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load i32, ptr %8, align 8, !tbaa !41
+  %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = mul nsw i32 %9, %4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  store i32 %5, ptr %3, align 4, !tbaa !42
+  store i32 %5, ptr %3, align 4, !tbaa !41
   %13 = mul nsw i32 %9, %1
   %14 = sext i32 %13 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 0, i64 %14, i1 false)
@@ -840,27 +840,26 @@ attributes #30 = { allocsize(1) }
 !16 = !{!8, !8, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"int", !9, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !9, i64 0}
-!24 = !{!25, !18, i64 20}
-!25 = !{!"_ZTS2tm", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !23, i64 40, !15, i64 48}
-!26 = !{!9, !9, i64 0}
-!27 = !{!28, !30, i64 32}
-!28 = !{!"_ZTSSt8ios_base", !23, i64 8, !23, i64 16, !29, i64 24, !30, i64 28, !30, i64 32, !31, i64 40, !32, i64 48, !9, i64 64, !18, i64 192, !33, i64 200, !34, i64 208}
-!29 = !{!"_ZTSSt13_Ios_Fmtflags", !9, i64 0}
-!30 = !{!"_ZTSSt12_Ios_Iostate", !9, i64 0}
-!31 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !12, i64 0}
-!32 = !{!"_ZTSNSt8ios_base6_WordsE", !12, i64 0, !23, i64 8}
-!33 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !12, i64 0}
-!34 = !{!"_ZTSSt6locale", !35, i64 0}
-!35 = !{!"p1 _ZTSNSt6locale5_ImplE", !12, i64 0}
-!36 = distinct !{!36, !20, !21}
-!37 = !{!38, !12, i64 80}
-!38 = !{!"_ZTS11UToolMemory", !9, i64 0, !18, i64 64, !18, i64 68, !18, i64 72, !18, i64 76, !12, i64 80, !9, i64 96}
-!39 = !{!38, !18, i64 64}
-!40 = !{!38, !18, i64 68}
-!41 = !{!38, !18, i64 72}
-!42 = !{!38, !18, i64 76}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !9, i64 0}
+!23 = !{!24, !18, i64 20}
+!24 = !{!"_ZTS2tm", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24, !18, i64 28, !18, i64 32, !22, i64 40, !15, i64 48}
+!25 = !{!9, !9, i64 0}
+!26 = !{!27, !29, i64 32}
+!27 = !{!"_ZTSSt8ios_base", !22, i64 8, !22, i64 16, !28, i64 24, !29, i64 28, !29, i64 32, !30, i64 40, !31, i64 48, !9, i64 64, !18, i64 192, !32, i64 200, !33, i64 208}
+!28 = !{!"_ZTSSt13_Ios_Fmtflags", !9, i64 0}
+!29 = !{!"_ZTSSt12_Ios_Iostate", !9, i64 0}
+!30 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !12, i64 0}
+!31 = !{!"_ZTSNSt8ios_base6_WordsE", !12, i64 0, !22, i64 8}
+!32 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !12, i64 0}
+!33 = !{!"_ZTSSt6locale", !34, i64 0}
+!34 = !{!"p1 _ZTSNSt6locale5_ImplE", !12, i64 0}
+!35 = distinct !{!35, !20}
+!36 = !{!37, !12, i64 80}
+!37 = !{!"_ZTS11UToolMemory", !9, i64 0, !18, i64 64, !18, i64 68, !18, i64 72, !18, i64 76, !12, i64 80, !9, i64 96}
+!38 = !{!37, !18, i64 64}
+!39 = !{!37, !18, i64 68}
+!40 = !{!37, !18, i64 72}
+!41 = !{!37, !18, i64 76}

@@ -78,17 +78,17 @@ define hidden i32 @Curl_output_digest(ptr noundef %0, i1 noundef zeroext %1, ptr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.67
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.68
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.69
-  %.044 = load ptr, ptr %10, align 8, !tbaa !9
-  %.045 = load ptr, ptr %9, align 8, !tbaa !9
-  %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !12
-  %13 = load ptr, ptr %8, align 8, !tbaa !9
+  %.044 = load ptr, ptr %10, align 8, !tbaa !8
+  %.045 = load ptr, ptr %9, align 8, !tbaa !8
+  %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11
+  %13 = load ptr, ptr %8, align 8, !tbaa !8
   tail call void %12(ptr noundef %13) #4
-  store ptr null, ptr %8, align 8, !tbaa !9
+  store ptr null, ptr %8, align 8, !tbaa !8
   %.not = icmp eq ptr %.045, null
   %spec.store.select1 = select i1 %.not, ptr @.str.1, ptr %.045
   %.not52 = icmp eq ptr %.044, null
   %spec.store.select = select i1 %.not52, ptr @.str.1, ptr %.044
-  %14 = load ptr, ptr %7, align 8, !tbaa !13
+  %14 = load ptr, ptr %7, align 8, !tbaa !12
   %.not53 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i8, ptr %15, align 8
@@ -117,7 +117,7 @@ define hidden i32 @Curl_output_digest(ptr noundef %0, i1 noundef zeroext %1, ptr
   br label %32
 
 29:                                               ; preds = %21, %19
-  %30 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !12
+  %30 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !11
   %31 = tail call ptr %30(ptr noundef %3) #4
   br label %32
 
@@ -128,20 +128,20 @@ define hidden i32 @Curl_output_digest(ptr noundef %0, i1 noundef zeroext %1, ptr
 
 33:                                               ; preds = %32
   %34 = call i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.store.select, ptr noundef %2, ptr noundef nonnull %.1, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
-  %35 = load ptr, ptr @Curl_cfree, align 8, !tbaa !12
+  %35 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11
   call void %35(ptr noundef nonnull %.1) #4
   %.not58 = icmp eq i32 %34, 0
   br i1 %.not58, label %36, label %46
 
 36:                                               ; preds = %33
   %37 = select i1 %1, ptr @.str.4, ptr @.str.1
-  %38 = load ptr, ptr %5, align 8, !tbaa !9
+  %38 = load ptr, ptr %5, align 8, !tbaa !8
   %39 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, ptr noundef nonnull %37, ptr noundef %38) #4
-  store ptr %39, ptr %8, align 8, !tbaa !9
-  %40 = load ptr, ptr @Curl_cfree, align 8, !tbaa !12
-  %41 = load ptr, ptr %5, align 8, !tbaa !9
+  store ptr %39, ptr %8, align 8, !tbaa !8
+  %40 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11
+  %41 = load ptr, ptr %5, align 8, !tbaa !8
   call void %40(ptr noundef %41) #4
-  %42 = load ptr, ptr %8, align 8, !tbaa !9
+  %42 = load ptr, ptr %8, align 8, !tbaa !8
   %.not59 = icmp eq ptr %42, null
   br i1 %.not59, label %46, label %43
 
@@ -195,13 +195,12 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}
-!12 = !{!11, !11, i64 0}
-!13 = !{!14, !10, i64 0}
-!14 = !{!"digestdata", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !15, i64 48, !4, i64 52, !15, i64 53, !15, i64 53}
-!15 = !{!"int", !4, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}
+!11 = !{!10, !10, i64 0}
+!12 = !{!13, !9, i64 0}
+!13 = !{!"digestdata", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !14, i64 48, !4, i64 52, !14, i64 53, !14, i64 53}
+!14 = !{!"int", !4, i64 0}

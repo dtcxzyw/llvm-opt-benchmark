@@ -852,7 +852,7 @@ define hidden void @_glfwInitGamepadMappings() local_unnamed_addr #0 {
 13:                                               ; preds = %2, %10
   %14 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %14, 395
-  br i1 %exitcond.not, label %15, label %2, !llvm.loop !152
+  br i1 %exitcond.not, label %15, label %2
 
 15:                                               ; preds = %13
   ret void
@@ -867,114 +867,114 @@ define internal fastcc range(i32 0, 2) i32 @parseMapping(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr %1, ptr %3, align 8, !tbaa !151
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4) #12
-  store ptr @.str.406, ptr %4, align 16, !tbaa !154
+  store ptr @.str.406, ptr %4, align 16, !tbaa !152
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %5, align 8, !tbaa !157
+  store ptr null, ptr %5, align 8, !tbaa !155
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @.str.407, ptr %6, align 16, !tbaa !154
+  store ptr @.str.407, ptr %6, align 16, !tbaa !152
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  store ptr %8, ptr %7, align 8, !tbaa !157
+  store ptr %8, ptr %7, align 8, !tbaa !155
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr @.str.408, ptr %9, align 16, !tbaa !154
+  store ptr @.str.408, ptr %9, align 16, !tbaa !152
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 165
-  store ptr %11, ptr %10, align 8, !tbaa !157
+  store ptr %11, ptr %10, align 8, !tbaa !155
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @.str.409, ptr %12, align 16, !tbaa !154
+  store ptr @.str.409, ptr %12, align 16, !tbaa !152
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  store ptr %14, ptr %13, align 8, !tbaa !157
+  store ptr %14, ptr %13, align 8, !tbaa !155
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @.str.410, ptr %15, align 16, !tbaa !154
+  store ptr @.str.410, ptr %15, align 16, !tbaa !152
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 173
-  store ptr %17, ptr %16, align 8, !tbaa !157
+  store ptr %17, ptr %16, align 8, !tbaa !155
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr @.str.411, ptr %18, align 16, !tbaa !154
+  store ptr @.str.411, ptr %18, align 16, !tbaa !152
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  store ptr %20, ptr %19, align 8, !tbaa !157
+  store ptr %20, ptr %19, align 8, !tbaa !155
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr @.str.412, ptr %21, align 16, !tbaa !154
+  store ptr @.str.412, ptr %21, align 16, !tbaa !152
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 189
-  store ptr %23, ptr %22, align 8, !tbaa !157
+  store ptr %23, ptr %22, align 8, !tbaa !155
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr @.str.413, ptr %24, align 16, !tbaa !154
+  store ptr @.str.413, ptr %24, align 16, !tbaa !152
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  store ptr %26, ptr %25, align 8, !tbaa !157
+  store ptr %26, ptr %25, align 8, !tbaa !155
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr @.str.414, ptr %27, align 16, !tbaa !154
+  store ptr @.str.414, ptr %27, align 16, !tbaa !152
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store ptr %29, ptr %28, align 8, !tbaa !157
+  store ptr %29, ptr %28, align 8, !tbaa !155
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store ptr @.str.415, ptr %30, align 16, !tbaa !154
+  store ptr @.str.415, ptr %30, align 16, !tbaa !152
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 181
-  store ptr %32, ptr %31, align 8, !tbaa !157
+  store ptr %32, ptr %31, align 8, !tbaa !155
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  store ptr @.str.416, ptr %33, align 16, !tbaa !154
+  store ptr @.str.416, ptr %33, align 16, !tbaa !152
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 197
-  store ptr %35, ptr %34, align 8, !tbaa !157
+  store ptr %35, ptr %34, align 8, !tbaa !155
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store ptr @.str.417, ptr %36, align 16, !tbaa !154
+  store ptr @.str.417, ptr %36, align 16, !tbaa !152
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 201
-  store ptr %38, ptr %37, align 8, !tbaa !157
+  store ptr %38, ptr %37, align 8, !tbaa !155
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  store ptr @.str.418, ptr %39, align 16, !tbaa !154
+  store ptr @.str.418, ptr %39, align 16, !tbaa !152
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 205
-  store ptr %41, ptr %40, align 8, !tbaa !157
+  store ptr %41, ptr %40, align 8, !tbaa !155
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  store ptr @.str.419, ptr %42, align 16, !tbaa !154
+  store ptr @.str.419, ptr %42, align 16, !tbaa !152
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 209
-  store ptr %44, ptr %43, align 8, !tbaa !157
+  store ptr %44, ptr %43, align 8, !tbaa !155
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr @.str.420, ptr %45, align 16, !tbaa !154
+  store ptr @.str.420, ptr %45, align 16, !tbaa !152
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 213
-  store ptr %47, ptr %46, align 8, !tbaa !157
+  store ptr %47, ptr %46, align 8, !tbaa !155
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  store ptr @.str.421, ptr %48, align 16, !tbaa !154
+  store ptr @.str.421, ptr %48, align 16, !tbaa !152
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 217
-  store ptr %50, ptr %49, align 8, !tbaa !157
+  store ptr %50, ptr %49, align 8, !tbaa !155
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  store ptr @.str.422, ptr %51, align 16, !tbaa !154
+  store ptr @.str.422, ptr %51, align 16, !tbaa !152
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 221
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 237
-  store ptr %54, ptr %52, align 8, !tbaa !157
+  store ptr %54, ptr %52, align 8, !tbaa !155
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  store ptr @.str.423, ptr %55, align 16, !tbaa !154
+  store ptr @.str.423, ptr %55, align 16, !tbaa !152
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 241
-  store ptr %57, ptr %56, align 8, !tbaa !157
+  store ptr %57, ptr %56, align 8, !tbaa !155
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  store ptr @.str.424, ptr %58, align 16, !tbaa !154
+  store ptr @.str.424, ptr %58, align 16, !tbaa !152
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  store ptr %53, ptr %59, align 8, !tbaa !157
+  store ptr %53, ptr %59, align 8, !tbaa !155
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 304
-  store ptr @.str.425, ptr %60, align 16, !tbaa !154
+  store ptr @.str.425, ptr %60, align 16, !tbaa !152
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  store ptr %62, ptr %61, align 8, !tbaa !157
+  store ptr %62, ptr %61, align 8, !tbaa !155
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 320
-  store ptr @.str.426, ptr %63, align 16, !tbaa !154
+  store ptr @.str.426, ptr %63, align 16, !tbaa !152
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  store ptr %65, ptr %64, align 8, !tbaa !157
+  store ptr %65, ptr %64, align 8, !tbaa !155
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 336
-  store ptr @.str.427, ptr %66, align 16, !tbaa !154
+  store ptr @.str.427, ptr %66, align 16, !tbaa !152
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 233
-  store ptr %68, ptr %67, align 8, !tbaa !157
+  store ptr %68, ptr %67, align 8, !tbaa !155
   %69 = tail call i64 @strcspn(ptr noundef %1, ptr noundef nonnull @.str.428) #13
   %.not = icmp eq i64 %69, 32
   br i1 %.not, label %70, label %73
@@ -1025,7 +1025,7 @@ define internal fastcc range(i32 0, 2) i32 @parseMapping(ptr noundef %0, ptr nou
 .preheader94:                                     ; preds = %85, %140
   %.07398 = phi i64 [ %141, %140 ], [ 0, %85 ]
   %87 = getelementptr inbounds nuw [22 x %struct.anon.39], ptr %4, i64 0, i64 %.07398
-  %88 = load ptr, ptr %87, align 16, !tbaa !154
+  %88 = load ptr, ptr %87, align 16, !tbaa !152
   %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #13
   %90 = tail call i32 @strncmp(ptr noundef nonnull %storemerge, ptr noundef nonnull %88, i64 noundef %89) #13
   %.not89 = icmp eq i32 %90, 0
@@ -1042,7 +1042,7 @@ define internal fastcc range(i32 0, 2) i32 @parseMapping(ptr noundef %0, ptr nou
   %96 = getelementptr i8, ptr %95, i64 1
   store ptr %96, ptr %3, align 8, !tbaa !151
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !157
+  %98 = load ptr, ptr %97, align 8, !tbaa !155
   %.not91 = icmp eq ptr %98, null
   br i1 %.not91, label %135, label %99
 
@@ -1079,7 +1079,7 @@ thread-pre-split:                                 ; preds = %99, %101
   br label %115
 
 107:                                              ; preds = %103
-  store i8 3, ptr %98, align 1, !tbaa !158
+  store i8 3, ptr %98, align 1, !tbaa !156
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %109 = call i64 @strtoul(ptr noundef nonnull %108, ptr noundef nonnull %3, i32 noundef 10) #12
   %110 = load ptr, ptr %3, align 8, !tbaa !151
@@ -1091,7 +1091,7 @@ thread-pre-split:                                 ; preds = %99, %101
 
 115:                                              ; preds = %103, %106
   %storemerge93 = phi i8 [ 2, %106 ], [ 1, %103 ]
-  store i8 %storemerge93, ptr %98, align 1, !tbaa !158
+  store i8 %storemerge93, ptr %98, align 1, !tbaa !156
   %116 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %117 = call i64 @strtoul(ptr noundef nonnull %116, ptr noundef nonnull %3, i32 noundef 10) #12
   br label %118
@@ -1100,8 +1100,8 @@ thread-pre-split:                                 ; preds = %99, %101
   %.sink108 = phi i64 [ %117, %115 ], [ %114, %107 ]
   %119 = trunc i64 %.sink108 to i8
   %120 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  store i8 %119, ptr %120, align 1, !tbaa !160
-  %121 = load i8, ptr %98, align 1, !tbaa !158
+  store i8 %119, ptr %120, align 1, !tbaa !158
+  %121 = load i8, ptr %98, align 1, !tbaa !156
   %122 = icmp eq i8 %121, 1
   %.pre = load ptr, ptr %3, align 8, !tbaa !151
   br i1 %122, label %123, label %.loopexit
@@ -1111,24 +1111,24 @@ thread-pre-split:                                 ; preds = %99, %101
   %.rhs.trunc = trunc nuw nsw i32 %124 to i8
   %125 = udiv i8 2, %.rhs.trunc
   %126 = getelementptr inbounds nuw i8, ptr %98, i64 2
-  store i8 %125, ptr %126, align 1, !tbaa !161
+  store i8 %125, ptr %126, align 1, !tbaa !159
   %127 = add nsw i32 %.075, %.076
   %128 = trunc nsw i32 %127 to i8
   %129 = sub nsw i8 0, %128
   %130 = getelementptr inbounds nuw i8, ptr %98, i64 3
-  store i8 %129, ptr %130, align 1, !tbaa !162
+  store i8 %129, ptr %130, align 1, !tbaa !160
   %131 = load i8, ptr %.pre, align 1, !tbaa !3
   %132 = icmp eq i8 %131, 126
   br i1 %132, label %133, label %.loopexit
 
 133:                                              ; preds = %123
   %134 = sub nsw i8 0, %125
-  store i8 %134, ptr %126, align 1, !tbaa !161
-  store i8 %128, ptr %130, align 1, !tbaa !162
+  store i8 %134, ptr %126, align 1, !tbaa !159
+  store i8 %128, ptr %130, align 1, !tbaa !160
   br label %.loopexit
 
 135:                                              ; preds = %94
-  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 192), align 8, !tbaa !163
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 192), align 8, !tbaa !161
   %137 = tail call ptr %136() #12
   %138 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %137) #13
   %139 = tail call i32 @strncmp(ptr noundef %96, ptr noundef nonnull %137, i64 noundef %138) #13
@@ -1138,7 +1138,7 @@ thread-pre-split:                                 ; preds = %99, %101
 140:                                              ; preds = %.preheader94, %91
   %141 = add nuw nsw i64 %.07398, 1
   %exitcond.not = icmp eq i64 %141, 22
-  br i1 %exitcond.not, label %.loopexit, label %.preheader94, !llvm.loop !164
+  br i1 %exitcond.not, label %.loopexit, label %.preheader94
 
 .loopexit:                                        ; preds = %140, %103, %123, %133, %118, %135
   %142 = phi ptr [ %105, %103 ], [ %.pre, %123 ], [ %.pre, %133 ], [ %.pre, %118 ], [ %96, %135 ], [ %storemerge, %140 ]
@@ -1147,7 +1147,7 @@ thread-pre-split:                                 ; preds = %99, %101
   store ptr %144, ptr %3, align 8, !tbaa !151
   %145 = tail call i64 @strspn(ptr noundef %144, ptr noundef nonnull @.str.428) #13
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 %145
-  br label %85, !llvm.loop !165
+  br label %85
 
 .preheader:                                       ; preds = %85, %152
   %.17499 = phi i64 [ %153, %152 ], [ 0, %85 ]
@@ -1165,10 +1165,10 @@ thread-pre-split:                                 ; preds = %99, %101
 152:                                              ; preds = %.preheader, %150
   %153 = add nuw nsw i64 %.17499, 1
   %exitcond103.not = icmp eq i64 %153, 32
-  br i1 %exitcond103.not, label %154, label %.preheader, !llvm.loop !166
+  br i1 %exitcond103.not, label %154, label %.preheader
 
 154:                                              ; preds = %152
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 200), align 8, !tbaa !167
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 200), align 8, !tbaa !162
   tail call void %155(ptr noundef nonnull %75) #12
   br label %.loopexit95
 
@@ -1186,19 +1186,19 @@ define hidden noundef ptr @_glfwAllocJoystick(ptr noundef readonly captures(none
 6:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
   %7 = getelementptr inbounds nuw [16 x %struct._GLFWjoystick], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 0, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 8, !tbaa !168
+  %8 = load i32, ptr %7, align 8, !tbaa !163
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.thread, label %6, !llvm.loop !169
+  br i1 %exitcond.not, label %.thread, label %6
 
 10:                                               ; preds = %6
   %11 = and i64 %indvars.iv, 4294967295
   %12 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %11
-  store i32 1, ptr %12, align 8, !tbaa !168
+  store i32 1, ptr %12, align 8, !tbaa !163
   %13 = sext i32 %2 to i64
   %14 = tail call ptr @_glfw_calloc(i64 noundef %13, i64 noundef 4) #12
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1214,18 +1214,18 @@ define hidden noundef ptr @_glfwAllocJoystick(ptr noundef readonly captures(none
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %22, ptr %23, align 8, !tbaa !148
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 %2, ptr %24, align 8, !tbaa !170
+  store i32 %2, ptr %24, align 8, !tbaa !164
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %3, ptr %25, align 8, !tbaa !147
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store i32 %4, ptr %26, align 8, !tbaa !171
+  store i32 %4, ptr %26, align 8, !tbaa !165
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %28 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 127) #12
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %30 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #12
   %31 = tail call fastcc ptr @findValidMapping(ptr noundef nonnull %12)
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 232
-  store ptr %31, ptr %32, align 8, !tbaa !172
+  store ptr %31, ptr %32, align 8, !tbaa !166
   br label %.thread
 
 .thread:                                          ; preds = %9, %10
@@ -1251,7 +1251,7 @@ define internal fastcc ptr @findValidMapping(ptr noundef readonly captures(none)
 6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %7, !llvm.loop !173
+  br i1 %exitcond.not.i, label %.critedge, label %7
 
 7:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
@@ -1275,7 +1275,7 @@ findMapping.exit.preheader:                       ; preds = %7
 17:                                               ; preds = %findMapping.exit.preheader, %isValidElementForJoystick.exit
   %indvars.iv = phi i64 [ 0, %findMapping.exit.preheader ], [ %indvars.iv.next, %isValidElementForJoystick.exit ]
   %18 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %12, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !tbaa !158
+  %19 = load i8, ptr %18, align 1, !tbaa !156
   switch i8 %19, label %isValidElementForJoystick.exit [
     i8 3, label %20
     i8 2, label %26
@@ -1284,16 +1284,16 @@ findMapping.exit.preheader:                       ; preds = %7
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !160
+  %22 = load i8, ptr %21, align 1, !tbaa !158
   %23 = lshr i8 %22, 4
   %24 = zext nneg i8 %23 to i32
-  %25 = load i32, ptr %15, align 8, !tbaa !171
+  %25 = load i32, ptr %15, align 8, !tbaa !165
   %.not.i = icmp sgt i32 %25, %24
   br i1 %.not.i, label %isValidElementForJoystick.exit, label %.critedge
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !160
+  %28 = load i8, ptr %27, align 1, !tbaa !158
   %29 = zext i8 %28 to i32
   %30 = load i32, ptr %14, align 8, !tbaa !147
   %.not9.i = icmp sgt i32 %30, %29
@@ -1301,21 +1301,21 @@ findMapping.exit.preheader:                       ; preds = %7
 
 31:                                               ; preds = %17
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !160
+  %33 = load i8, ptr %32, align 1, !tbaa !158
   %34 = zext i8 %33 to i32
-  %35 = load i32, ptr %13, align 8, !tbaa !170
+  %35 = load i32, ptr %13, align 8, !tbaa !164
   %.not10.i = icmp sgt i32 %35, %34
   br i1 %.not10.i, label %isValidElementForJoystick.exit, label %.critedge
 
 isValidElementForJoystick.exit:                   ; preds = %31, %26, %20, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %.preheader, label %17, !llvm.loop !174
+  br i1 %exitcond.not, label %.preheader, label %17
 
 36:                                               ; preds = %.preheader, %isValidElementForJoystick.exit25
   %indvars.iv41 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next42, %isValidElementForJoystick.exit25 ]
   %37 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %16, i64 %indvars.iv41
-  %38 = load i8, ptr %37, align 1, !tbaa !158
+  %38 = load i8, ptr %37, align 1, !tbaa !156
   switch i8 %38, label %isValidElementForJoystick.exit25 [
     i8 3, label %39
     i8 2, label %45
@@ -1324,16 +1324,16 @@ isValidElementForJoystick.exit:                   ; preds = %31, %26, %20, %17
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !160
+  %41 = load i8, ptr %40, align 1, !tbaa !158
   %42 = lshr i8 %41, 4
   %43 = zext nneg i8 %42 to i32
-  %44 = load i32, ptr %15, align 8, !tbaa !171
+  %44 = load i32, ptr %15, align 8, !tbaa !165
   %.not.i24 = icmp sgt i32 %44, %43
   br i1 %.not.i24, label %isValidElementForJoystick.exit25, label %.critedge
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %47 = load i8, ptr %46, align 1, !tbaa !160
+  %47 = load i8, ptr %46, align 1, !tbaa !158
   %48 = zext i8 %47 to i32
   %49 = load i32, ptr %14, align 8, !tbaa !147
   %.not9.i23 = icmp sgt i32 %49, %48
@@ -1341,16 +1341,16 @@ isValidElementForJoystick.exit:                   ; preds = %31, %26, %20, %17
 
 50:                                               ; preds = %36
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !160
+  %52 = load i8, ptr %51, align 1, !tbaa !158
   %53 = zext i8 %52 to i32
-  %54 = load i32, ptr %13, align 8, !tbaa !170
+  %54 = load i32, ptr %13, align 8, !tbaa !164
   %.not10.i20 = icmp sgt i32 %54, %53
   br i1 %.not10.i20, label %isValidElementForJoystick.exit25, label %.critedge
 
 isValidElementForJoystick.exit25:                 ; preds = %50, %45, %39, %36
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 6
-  br i1 %exitcond44.not, label %.critedge, label %36, !llvm.loop !175
+  br i1 %exitcond44.not, label %.critedge, label %36
 
 .critedge:                                        ; preds = %6, %31, %26, %20, %50, %45, %39, %isValidElementForJoystick.exit25, %1
   %.116 = phi ptr [ null, %1 ], [ null, %50 ], [ null, %45 ], [ null, %39 ], [ %8, %isValidElementForJoystick.exit25 ], [ null, %20 ], [ null, %26 ], [ null, %31 ], [ null, %6 ]
@@ -1383,13 +1383,13 @@ define hidden void @_glfwCenterCursorInContentArea(ptr noundef %0) local_unnamed
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 320), align 8, !tbaa !176
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 320), align 8, !tbaa !167
   call void %4(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 72), align 8, !tbaa !177
-  %6 = load i32, ptr %2, align 4, !tbaa !178
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 72), align 8, !tbaa !168
+  %6 = load i32, ptr %2, align 4, !tbaa !169
   %7 = sitofp i32 %6 to double
   %8 = fmul double %7, 5.000000e-01
-  %9 = load i32, ptr %3, align 4, !tbaa !178
+  %9 = load i32, ptr %3, align 4, !tbaa !169
   %10 = sitofp i32 %9 to double
   %11 = fmul double %10, 5.000000e-01
   call void %5(ptr noundef %0, double noundef %8, double noundef %11) #12
@@ -1400,7 +1400,7 @@ define hidden void @_glfwCenterCursorInContentArea(ptr noundef %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwGetInputMode(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1419,7 +1419,7 @@ define i32 @glfwGetInputMode(ptr noundef readonly captures(none) %0, i32 noundef
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %8 = load i32, ptr %7, align 4, !tbaa !180
+  %8 = load i32, ptr %7, align 4, !tbaa !171
   br label %22
 
 9:                                                ; preds = %5
@@ -1439,7 +1439,7 @@ define i32 @glfwGetInputMode(ptr noundef readonly captures(none) %0, i32 noundef
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %20 = load i32, ptr %19, align 8, !tbaa !181
+  %20 = load i32, ptr %19, align 8, !tbaa !172
   br label %22
 
 21:                                               ; preds = %5
@@ -1455,7 +1455,7 @@ declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1483,17 +1483,17 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %12 = load i32, ptr %11, align 4, !tbaa !180
+  %12 = load i32, ptr %11, align 4, !tbaa !171
   %13 = icmp eq i32 %12, %2
   br i1 %13, label %60, label %14
 
 14:                                               ; preds = %10
-  store i32 %2, ptr %11, align 4, !tbaa !180
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 64), align 8, !tbaa !182
+  store i32 %2, ptr %11, align 4, !tbaa !171
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 64), align 8, !tbaa !173
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 80), align 8, !tbaa !183
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 80), align 8, !tbaa !174
   tail call void %18(ptr noundef nonnull %0, i32 noundef %2) #12
   br label %60
 
@@ -1526,7 +1526,7 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 31:                                               ; preds = %26, %30
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 349
-  br i1 %exitcond72.not, label %.loopexit, label %26, !llvm.loop !184
+  br i1 %exitcond72.not, label %.loopexit, label %26
 
 .loopexit:                                        ; preds = %31, %24
   store i32 %20, ptr %21, align 8, !tbaa !6
@@ -1561,7 +1561,7 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 44:                                               ; preds = %39, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit65, label %39, !llvm.loop !185
+  br i1 %exitcond.not, label %.loopexit65, label %39
 
 .loopexit65:                                      ; preds = %44, %37
   store i32 %33, ptr %34, align 4, !tbaa !56
@@ -1575,7 +1575,7 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br label %60
 
 48:                                               ; preds = %6
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 96), align 8, !tbaa !186
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 96), align 8, !tbaa !175
   %50 = tail call i32 %49() #12
   %.not59 = icmp eq i32 %50, 0
   br i1 %.not59, label %51, label %52
@@ -1588,13 +1588,13 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %.not60 = icmp ne i32 %2, 0
   %53 = zext i1 %.not60 to i32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %55 = load i32, ptr %54, align 8, !tbaa !181
+  %55 = load i32, ptr %54, align 8, !tbaa !172
   %56 = icmp eq i32 %55, %53
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %52
-  store i32 %53, ptr %54, align 8, !tbaa !181
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 88), align 8, !tbaa !187
+  store i32 %53, ptr %54, align 8, !tbaa !172
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 88), align 8, !tbaa !176
   tail call void %58(ptr noundef nonnull %0, i32 noundef %53) #12
   br label %60
 
@@ -1608,7 +1608,7 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwRawMouseMotionSupported() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -1617,7 +1617,7 @@ define i32 @glfwRawMouseMotionSupported() local_unnamed_addr #0 {
   br label %6
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 96), align 8, !tbaa !186
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 96), align 8, !tbaa !175
   %5 = tail call i32 %4() #12
   br label %6
 
@@ -1628,7 +1628,7 @@ define i32 @glfwRawMouseMotionSupported() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetKeyName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1660,13 +1660,13 @@ define ptr @glfwGetKeyName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %or.cond21, label %18, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !188
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !177
   %14 = tail call i32 %13(i32 noundef %0) #12
   br label %15
 
 15:                                               ; preds = %12, %5
   %.0 = phi i32 [ %14, %12 ], [ %1, %5 ]
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 136), align 8, !tbaa !189
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 136), align 8, !tbaa !178
   %17 = tail call ptr %16(i32 noundef %.0) #12
   br label %18
 
@@ -1677,7 +1677,7 @@ define ptr @glfwGetKeyName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwGetKeyScancode(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1695,7 +1695,7 @@ define i32 @glfwGetKeyScancode(i32 noundef %0) local_unnamed_addr #0 {
   br label %10
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !188
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 144), align 8, !tbaa !177
   %9 = tail call i32 %8(i32 noundef %0) #12
   br label %10
 
@@ -1706,7 +1706,7 @@ define i32 @glfwGetKeyScancode(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -128, 128) i32 @glfwGetKey(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1746,7 +1746,7 @@ define range(i32 -128, 128) i32 @glfwGetKey(ptr noundef captures(none) %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -128, 128) i32 @glfwGetMouseButton(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -1789,7 +1789,7 @@ define void @glfwGetCursorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store double 0.000000e+00, ptr %1, align 8, !tbaa !190
+  store double 0.000000e+00, ptr %1, align 8, !tbaa !179
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -1797,11 +1797,11 @@ define void @glfwGetCursorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not17, label %7, label %6
 
 6:                                                ; preds = %5
-  store double 0.000000e+00, ptr %2, align 8, !tbaa !190
+  store double 0.000000e+00, ptr %2, align 8, !tbaa !179
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %8 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %9, label %10
 
@@ -1811,7 +1811,7 @@ define void @glfwGetCursorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %12 = load i32, ptr %11, align 4, !tbaa !180
+  %12 = load i32, ptr %11, align 4, !tbaa !171
   %13 = icmp eq i32 %12, 212995
   br i1 %13, label %14, label %22
 
@@ -1821,7 +1821,7 @@ define void @glfwGetCursorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %17 = load double, ptr %16, align 8, !tbaa !58
-  store double %17, ptr %1, align 8, !tbaa !190
+  store double %17, ptr %1, align 8, !tbaa !179
   br label %18
 
 18:                                               ; preds = %15, %14
@@ -1830,11 +1830,11 @@ define void @glfwGetCursorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %21 = load double, ptr %20, align 8, !tbaa !59
-  store double %21, ptr %2, align 8, !tbaa !190
+  store double %21, ptr %2, align 8, !tbaa !179
   br label %24
 
 22:                                               ; preds = %10
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 64), align 8, !tbaa !182
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 64), align 8, !tbaa !173
   tail call void %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #12
   br label %24
 
@@ -1844,7 +1844,7 @@ define void @glfwGetCursorPos(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetCursorPos(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1871,14 +1871,14 @@ define void @glfwSetCursorPos(ptr noundef %0, double noundef %1, double noundef 
   br label %27
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 440), align 8, !tbaa !191
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 440), align 8, !tbaa !180
   %17 = tail call i32 %16(ptr noundef %0) #12
   %.not28 = icmp eq i32 %17, 0
   br i1 %.not28, label %27, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %20 = load i32, ptr %19, align 4, !tbaa !180
+  %20 = load i32, ptr %19, align 4, !tbaa !171
   %21 = icmp eq i32 %20, 212995
   br i1 %21, label %22, label %25
 
@@ -1890,7 +1890,7 @@ define void @glfwSetCursorPos(ptr noundef %0, double noundef %1, double noundef 
   br label %27
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 72), align 8, !tbaa !177
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 72), align 8, !tbaa !168
   tail call void %26(ptr noundef nonnull %0, double noundef %1, double noundef %2) #12
   br label %27
 
@@ -1900,7 +1900,7 @@ define void @glfwSetCursorPos(ptr noundef %0, double noundef %1, double noundef 
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @glfwCreateCursor(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
 
@@ -1909,13 +1909,13 @@ define noundef ptr @glfwCreateCursor(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %glfwDestroyCursor.exit
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %0, align 8, !tbaa !192
+  %7 = load i32, ptr %0, align 8, !tbaa !181
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !194
+  %11 = load i32, ptr %10, align 4, !tbaa !183
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %14
 
@@ -1925,16 +1925,16 @@ define noundef ptr @glfwCreateCursor(ptr noundef %0, i32 noundef %1, i32 noundef
 
 14:                                               ; preds = %9
   %15 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 64) #12
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !195
-  store ptr %16, ptr %15, align 8, !tbaa !196
-  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !195
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 104), align 8, !tbaa !201
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !184
+  store ptr %16, ptr %15, align 8, !tbaa !185
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !184
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 104), align 8, !tbaa !190
   %18 = tail call i32 %17(ptr noundef nonnull %15, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #12
   %.not10 = icmp eq i32 %18, 0
   br i1 %.not10, label %19, label %glfwDestroyCursor.exit
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %20 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %21, label %.preheader.i
 
@@ -1943,19 +1943,19 @@ define noundef ptr @glfwCreateCursor(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %glfwDestroyCursor.exit
 
 .preheader.i:                                     ; preds = %19
-  %.01419.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !202
+  %.01419.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !191
   %.not1720.i = icmp eq ptr %.01419.i, null
   br i1 %.not1720.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %glfwSetCursor.exit.i
   %.01421.i = phi ptr [ %.014.i, %glfwSetCursor.exit.i ], [ %.01419.i, %.preheader.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.01421.i, i64 88
-  %23 = load ptr, ptr %22, align 8, !tbaa !203
+  %23 = load ptr, ptr %22, align 8, !tbaa !192
   %24 = icmp eq ptr %23, %15
   br i1 %24, label %25, label %glfwSetCursor.exit.i
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %26 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %27, label %28
 
@@ -1964,30 +1964,30 @@ define noundef ptr @glfwCreateCursor(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %glfwSetCursor.exit.i
 
 28:                                               ; preds = %25
-  store ptr null, ptr %22, align 8, !tbaa !203
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !204
+  store ptr null, ptr %22, align 8, !tbaa !192
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !193
   tail call void %29(ptr noundef nonnull %.01421.i, ptr noundef null) #12
   br label %glfwSetCursor.exit.i
 
 glfwSetCursor.exit.i:                             ; preds = %28, %27, %.lr.ph.i
-  %.014.i = load ptr, ptr %.01421.i, align 8, !tbaa !202
+  %.014.i = load ptr, ptr %.01421.i, align 8, !tbaa !191
   %.not17.i = icmp eq ptr %.014.i, null
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !205
+  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %glfwSetCursor.exit.i, %.preheader.i
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 120), align 8, !tbaa !206
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 120), align 8, !tbaa !194
   tail call void %30(ptr noundef nonnull %15) #12
   br label %31
 
 31:                                               ; preds = %31, %._crit_edge.i
   %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), %._crit_edge.i ], [ %32, %31 ]
-  %32 = load ptr, ptr %.0.i, align 8, !tbaa !207
+  %32 = load ptr, ptr %.0.i, align 8, !tbaa !195
   %.not18.i = icmp eq ptr %32, %15
-  br i1 %.not18.i, label %33, label %31, !llvm.loop !208
+  br i1 %.not18.i, label %33, label %31
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %15, align 8, !tbaa !196
-  store ptr %34, ptr %.0.i, align 8, !tbaa !207
+  %34 = load ptr, ptr %15, align 8, !tbaa !185
+  store ptr %34, ptr %.0.i, align 8, !tbaa !195
   tail call void @_glfw_free(ptr noundef nonnull %15) #12
   br label %glfwDestroyCursor.exit
 
@@ -1998,7 +1998,7 @@ glfwDestroyCursor.exit:                           ; preds = %33, %21, %14, %13, 
 
 ; Function Attrs: nounwind uwtable
 define void @glfwDestroyCursor(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2011,19 +2011,19 @@ define void @glfwDestroyCursor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %19, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.01419 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !202
+  %.01419 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !191
   %.not1720 = icmp eq ptr %.01419, null
   br i1 %.not1720, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %glfwSetCursor.exit
   %.01421 = phi ptr [ %.014, %glfwSetCursor.exit ], [ %.01419, %.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %.01421, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !203
+  %7 = load ptr, ptr %6, align 8, !tbaa !192
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %9, label %glfwSetCursor.exit
 
 9:                                                ; preds = %.lr.ph
-  %10 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %10 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %12
 
@@ -2032,30 +2032,30 @@ define void @glfwDestroyCursor(ptr noundef %0) local_unnamed_addr #0 {
   br label %glfwSetCursor.exit
 
 12:                                               ; preds = %9
-  store ptr null, ptr %6, align 8, !tbaa !203
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !204
+  store ptr null, ptr %6, align 8, !tbaa !192
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !193
   tail call void %13(ptr noundef nonnull %.01421, ptr noundef null) #12
   br label %glfwSetCursor.exit
 
 glfwSetCursor.exit:                               ; preds = %12, %11, %.lr.ph
-  %.014 = load ptr, ptr %.01421, align 8, !tbaa !202
+  %.014 = load ptr, ptr %.01421, align 8, !tbaa !191
   %.not17 = icmp eq ptr %.014, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !205
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %glfwSetCursor.exit, %.preheader
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 120), align 8, !tbaa !206
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 120), align 8, !tbaa !194
   tail call void %14(ptr noundef nonnull %0) #12
   br label %15
 
 15:                                               ; preds = %15, %._crit_edge
   %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), %._crit_edge ], [ %16, %15 ]
-  %16 = load ptr, ptr %.0, align 8, !tbaa !207
+  %16 = load ptr, ptr %.0, align 8, !tbaa !195
   %.not18 = icmp eq ptr %16, %0
-  br i1 %.not18, label %17, label %15, !llvm.loop !208
+  br i1 %.not18, label %17, label %15
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %0, align 8, !tbaa !196
-  store ptr %18, ptr %.0, align 8, !tbaa !207
+  %18 = load ptr, ptr %0, align 8, !tbaa !185
+  store ptr %18, ptr %.0, align 8, !tbaa !195
   tail call void @_glfw_free(ptr noundef nonnull %0) #12
   br label %19
 
@@ -2065,7 +2065,7 @@ glfwSetCursor.exit:                               ; preds = %12, %11, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @glfwCreateStandardCursor(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2084,16 +2084,16 @@ define noundef ptr @glfwCreateStandardCursor(i32 noundef %0) local_unnamed_addr 
 
 7:                                                ; preds = %4
   %8 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 64) #12
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !195
-  store ptr %9, ptr %8, align 8, !tbaa !196
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !195
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 112), align 8, !tbaa !209
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !184
+  store ptr %9, ptr %8, align 8, !tbaa !185
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), align 8, !tbaa !184
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 112), align 8, !tbaa !196
   %11 = tail call i32 %10(ptr noundef nonnull %8, i32 noundef %0) #12
   %.not34 = icmp eq i32 %11, 0
   br i1 %.not34, label %12, label %glfwDestroyCursor.exit
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %13 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %.preheader.i
 
@@ -2102,19 +2102,19 @@ define noundef ptr @glfwCreateStandardCursor(i32 noundef %0) local_unnamed_addr 
   br label %glfwDestroyCursor.exit
 
 .preheader.i:                                     ; preds = %12
-  %.01419.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !202
+  %.01419.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !191
   %.not1720.i = icmp eq ptr %.01419.i, null
   br i1 %.not1720.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %glfwSetCursor.exit.i
   %.01421.i = phi ptr [ %.014.i, %glfwSetCursor.exit.i ], [ %.01419.i, %.preheader.i ]
   %15 = getelementptr inbounds nuw i8, ptr %.01421.i, i64 88
-  %16 = load ptr, ptr %15, align 8, !tbaa !203
+  %16 = load ptr, ptr %15, align 8, !tbaa !192
   %17 = icmp eq ptr %16, %8
   br i1 %17, label %18, label %glfwSetCursor.exit.i
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %19 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %20, label %21
 
@@ -2123,30 +2123,30 @@ define noundef ptr @glfwCreateStandardCursor(i32 noundef %0) local_unnamed_addr 
   br label %glfwSetCursor.exit.i
 
 21:                                               ; preds = %18
-  store ptr null, ptr %15, align 8, !tbaa !203
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !204
+  store ptr null, ptr %15, align 8, !tbaa !192
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !193
   tail call void %22(ptr noundef nonnull %.01421.i, ptr noundef null) #12
   br label %glfwSetCursor.exit.i
 
 glfwSetCursor.exit.i:                             ; preds = %21, %20, %.lr.ph.i
-  %.014.i = load ptr, ptr %.01421.i, align 8, !tbaa !202
+  %.014.i = load ptr, ptr %.01421.i, align 8, !tbaa !191
   %.not17.i = icmp eq ptr %.014.i, null
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !205
+  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %glfwSetCursor.exit.i, %.preheader.i
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 120), align 8, !tbaa !206
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 120), align 8, !tbaa !194
   tail call void %23(ptr noundef nonnull %8) #12
   br label %24
 
 24:                                               ; preds = %24, %._crit_edge.i
   %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_glfw, i64 1904), %._crit_edge.i ], [ %25, %24 ]
-  %25 = load ptr, ptr %.0.i, align 8, !tbaa !207
+  %25 = load ptr, ptr %.0.i, align 8, !tbaa !195
   %.not18.i = icmp eq ptr %25, %8
-  br i1 %.not18.i, label %26, label %24, !llvm.loop !208
+  br i1 %.not18.i, label %26, label %24
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr %8, align 8, !tbaa !196
-  store ptr %27, ptr %.0.i, align 8, !tbaa !207
+  %27 = load ptr, ptr %8, align 8, !tbaa !185
+  store ptr %27, ptr %.0.i, align 8, !tbaa !195
   tail call void @_glfw_free(ptr noundef nonnull %8) #12
   br label %glfwDestroyCursor.exit
 
@@ -2157,7 +2157,7 @@ glfwDestroyCursor.exit:                           ; preds = %26, %14, %7, %6, %3
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetCursor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2167,8 +2167,8 @@ define void @glfwSetCursor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %1, ptr %6, align 8, !tbaa !203
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !204
+  store ptr %1, ptr %6, align 8, !tbaa !192
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 128), align 8, !tbaa !193
   tail call void %7(ptr noundef %0, ptr noundef %1) #12
   br label %8
 
@@ -2178,7 +2178,7 @@ define void @glfwSetCursor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetKeyCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2199,7 +2199,7 @@ define ptr @glfwSetKeyCallback(ptr noundef captures(none) %0, ptr noundef %1) lo
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetCharCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2220,7 +2220,7 @@ define ptr @glfwSetCharCallback(ptr noundef captures(none) %0, ptr noundef %1) l
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetCharModsCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2241,7 +2241,7 @@ define ptr @glfwSetCharModsCallback(ptr noundef captures(none) %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetMouseButtonCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2262,7 +2262,7 @@ define ptr @glfwSetMouseButtonCallback(ptr noundef captures(none) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetCursorPosCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2283,7 +2283,7 @@ define ptr @glfwSetCursorPosCallback(ptr noundef captures(none) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetCursorEnterCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2304,7 +2304,7 @@ define ptr @glfwSetCursorEnterCallback(ptr noundef captures(none) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetScrollCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2325,7 +2325,7 @@ define ptr @glfwSetScrollCallback(ptr noundef captures(none) %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetDropCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2346,7 +2346,7 @@ define ptr @glfwSetDropCallback(ptr noundef captures(none) %0, ptr noundef %1) l
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwJoystickPresent(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2363,23 +2363,23 @@ define i32 @glfwJoystickPresent(i32 noundef %0) local_unnamed_addr #0 {
   br label %20
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %10 = tail call i32 %9() #12
   %.not1.i = icmp eq i32 %10, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %12
 
 initJoysticks.exit.thread:                        ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %11() #12
   br label %20
 
 12:                                               ; preds = %8, %6
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
   %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2388,7 +2388,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br i1 %.not9, label %20, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %19 = tail call i32 %18(ptr noundef nonnull %14, i32 noundef 0) #12
   br label %20
 
@@ -2399,8 +2399,8 @@ initJoysticks.exit.thread:                        ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetJoystickAxes(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
-  store i32 0, ptr %1, align 4, !tbaa !178
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  store i32 0, ptr %1, align 4, !tbaa !169
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2417,23 +2417,23 @@ define ptr @glfwGetJoystickAxes(i32 noundef %0, ptr noundef writeonly captures(n
   br label %26
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %11 = tail call i32 %10() #12
   %.not1.i = icmp eq i32 %11, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %13
 
 initJoysticks.exit.thread:                        ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %12() #12
   br label %26
 
 13:                                               ; preds = %9, %7
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
   %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2442,15 +2442,15 @@ initJoysticks.exit.thread:                        ; preds = %9
   br i1 %.not13, label %26, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %20 = tail call i32 %19(ptr noundef nonnull %15, i32 noundef 1) #12
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %26, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !170
-  store i32 %23, ptr %1, align 4, !tbaa !178
+  %23 = load i32, ptr %22, align 8, !tbaa !164
+  store i32 %23, ptr %1, align 4, !tbaa !169
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !144
   br label %26
@@ -2462,8 +2462,8 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetJoystickButtons(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
-  store i32 0, ptr %1, align 4, !tbaa !178
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  store i32 0, ptr %1, align 4, !tbaa !169
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2480,23 +2480,23 @@ define ptr @glfwGetJoystickButtons(i32 noundef %0, ptr noundef writeonly capture
   br label %33
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %11 = tail call i32 %10() #12
   %.not1.i = icmp eq i32 %11, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %13
 
 initJoysticks.exit.thread:                        ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %12() #12
   br label %33
 
 13:                                               ; preds = %9, %7
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
   %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2505,13 +2505,13 @@ initJoysticks.exit.thread:                        ; preds = %9
   br i1 %.not16, label %33, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %20 = tail call i32 %19(ptr noundef nonnull %15, i32 noundef 2) #12
   %.not17 = icmp eq i32 %20, 0
   br i1 %.not17, label %33, label %21
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 616), align 8, !tbaa !214
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 616), align 8, !tbaa !201
   %.not18 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !147
@@ -2519,14 +2519,14 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %27 = load i32, ptr %26, align 8, !tbaa !171
+  %27 = load i32, ptr %26, align 8, !tbaa !165
   %28 = shl nsw i32 %27, 2
   %29 = add nsw i32 %28, %24
   br label %30
 
 30:                                               ; preds = %21, %25
   %storemerge = phi i32 [ %29, %25 ], [ %24, %21 ]
-  store i32 %storemerge, ptr %1, align 4, !tbaa !178
+  store i32 %storemerge, ptr %1, align 4, !tbaa !169
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !146
   br label %33
@@ -2538,8 +2538,8 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetJoystickHats(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
-  store i32 0, ptr %1, align 4, !tbaa !178
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  store i32 0, ptr %1, align 4, !tbaa !169
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2556,23 +2556,23 @@ define ptr @glfwGetJoystickHats(i32 noundef %0, ptr noundef writeonly captures(n
   br label %26
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %11 = tail call i32 %10() #12
   %.not1.i = icmp eq i32 %11, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %13
 
 initJoysticks.exit.thread:                        ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %12() #12
   br label %26
 
 13:                                               ; preds = %9, %7
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
   %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2581,15 +2581,15 @@ initJoysticks.exit.thread:                        ; preds = %9
   br i1 %.not13, label %26, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %20 = tail call i32 %19(ptr noundef nonnull %15, i32 noundef 2) #12
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %26, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %23 = load i32, ptr %22, align 8, !tbaa !171
-  store i32 %23, ptr %1, align 4, !tbaa !178
+  %23 = load i32, ptr %22, align 8, !tbaa !165
+  store i32 %23, ptr %1, align 4, !tbaa !169
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !148
   br label %26
@@ -2601,7 +2601,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetJoystickName(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2618,23 +2618,23 @@ define ptr @glfwGetJoystickName(i32 noundef %0) local_unnamed_addr #0 {
   br label %21
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %10 = tail call i32 %9() #12
   %.not1.i = icmp eq i32 %10, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %12
 
 initJoysticks.exit.thread:                        ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %11() #12
   br label %21
 
 12:                                               ; preds = %8, %6
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
   %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2643,7 +2643,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br i1 %.not10, label %21, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %19 = tail call i32 %18(ptr noundef nonnull %14, i32 noundef 0) #12
   %.not11 = icmp eq i32 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 52
@@ -2657,7 +2657,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetJoystickGUID(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2674,23 +2674,23 @@ define ptr @glfwGetJoystickGUID(i32 noundef %0) local_unnamed_addr #0 {
   br label %21
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %10 = tail call i32 %9() #12
   %.not1.i = icmp eq i32 %10, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %12
 
 initJoysticks.exit.thread:                        ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %11() #12
   br label %21
 
 12:                                               ; preds = %8, %6
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
   %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2699,7 +2699,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br i1 %.not10, label %21, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %19 = tail call i32 %18(ptr noundef nonnull %14, i32 noundef 0) #12
   %.not11 = icmp eq i32 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 192
@@ -2713,7 +2713,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetJoystickUserPointer(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -2724,13 +2724,13 @@ define void @glfwSetJoystickUserPointer(i32 noundef %0, ptr noundef %1) local_un
 5:                                                ; preds = %2
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %6
-  %8 = load i32, ptr %7, align 8, !tbaa !168
+  %8 = load i32, ptr %7, align 8, !tbaa !163
   %.not3 = icmp eq i32 %8, 0
   br i1 %.not3, label %11, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  store ptr %1, ptr %10, align 8, !tbaa !215
+  store ptr %1, ptr %10, align 8, !tbaa !202
   br label %11
 
 11:                                               ; preds = %5, %9, %4
@@ -2739,7 +2739,7 @@ define void @glfwSetJoystickUserPointer(i32 noundef %0, ptr noundef %1) local_un
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetJoystickUserPointer(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2750,13 +2750,13 @@ define ptr @glfwGetJoystickUserPointer(i32 noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %5
-  %7 = load i32, ptr %6, align 8, !tbaa !168
+  %7 = load i32, ptr %6, align 8, !tbaa !163
   %.not3 = icmp eq i32 %7, 0
   br i1 %.not3, label %11, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %10 = load ptr, ptr %9, align 8, !tbaa !215
+  %10 = load ptr, ptr %9, align 8, !tbaa !202
   br label %11
 
 11:                                               ; preds = %4, %8, %3
@@ -2766,7 +2766,7 @@ define ptr @glfwGetJoystickUserPointer(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwSetJoystickCallback(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2775,23 +2775,23 @@ define ptr @glfwSetJoystickCallback(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %8 = tail call i32 %7() #12
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %10
 
 initJoysticks.exit.thread:                        ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %9() #12
   br label %12
 
 10:                                               ; preds = %6, %4
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133880), align 8, !tbaa !68
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133880), align 8, !tbaa !68
   br label %12
@@ -2805,7 +2805,7 @@ initJoysticks.exit.thread:                        ; preds = %6
 define range(i32 0, 2) i32 @glfwUpdateGamepadMappings(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct._GLFWmapping, align 1
-  %4 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %4 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %.preheader46
 
@@ -2875,7 +2875,7 @@ switch.early.test:                                ; preds = %8
 20:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit45, label %21, !llvm.loop !173
+  br i1 %exitcond.not.i, label %.loopexit45, label %21
 
 21:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
@@ -2923,7 +2923,7 @@ switch.early.test:                                ; preds = %8
   %.1 = phi ptr [ %36, %35 ], [ %41, %37 ]
   %43 = load i8, ptr %.1, align 1, !tbaa !3
   %.not35 = icmp eq i8 %43, 0
-  br i1 %.not35, label %.preheader.preheader, label %8, !llvm.loop !216
+  br i1 %.not35, label %.preheader.preheader, label %8
 
 .preheader.preheader:                             ; preds = %42, %.preheader46
   br label %.preheader
@@ -2939,13 +2939,13 @@ switch.early.test:                                ; preds = %8
 47:                                               ; preds = %.preheader
   %48 = call fastcc ptr @findValidMapping(ptr noundef nonnull %44)
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 232
-  store ptr %48, ptr %49, align 8, !tbaa !172
+  store ptr %48, ptr %49, align 8, !tbaa !166
   br label %50
 
 50:                                               ; preds = %47, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !217
+  br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %50, %7
   %.0 = phi i32 [ 0, %7 ], [ 1, %50 ]
@@ -2965,7 +2965,7 @@ declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @glfwJoystickIsGamepad(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2982,23 +2982,23 @@ define range(i32 0, 2) i32 @glfwJoystickIsGamepad(i32 noundef %0) local_unnamed_
   br label %25
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %10 = tail call i32 %9() #12
   %.not1.i = icmp eq i32 %10, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %12
 
 initJoysticks.exit.thread:                        ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %11() #12
   br label %25
 
 12:                                               ; preds = %8, %6
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
   %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -3007,14 +3007,14 @@ initJoysticks.exit.thread:                        ; preds = %8
   br i1 %.not10, label %25, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %19 = tail call i32 %18(ptr noundef nonnull %14, i32 noundef 0) #12
   %.not11 = icmp eq i32 %19, 0
   br i1 %.not11, label %25, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 232
-  %22 = load ptr, ptr %21, align 8, !tbaa !172
+  %22 = load ptr, ptr %21, align 8, !tbaa !166
   %23 = icmp ne ptr %22, null
   %24 = zext i1 %23 to i32
   br label %25
@@ -3026,7 +3026,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetGamepadName(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -3043,23 +3043,23 @@ define ptr @glfwGetGamepadName(i32 noundef %0) local_unnamed_addr #0 {
   br label %23
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %10 = tail call i32 %9() #12
   %.not1.i = icmp eq i32 %10, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %12
 
 initJoysticks.exit.thread:                        ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %11() #12
   br label %23
 
 12:                                               ; preds = %8, %6
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
   %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -3068,14 +3068,14 @@ initJoysticks.exit.thread:                        ; preds = %8
   br i1 %.not12, label %23, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %19 = tail call i32 %18(ptr noundef nonnull %14, i32 noundef 0) #12
   %.not13 = icmp eq i32 %19, 0
   br i1 %.not13, label %23, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 232
-  %22 = load ptr, ptr %21, align 8, !tbaa !172
+  %22 = load ptr, ptr %21, align 8, !tbaa !166
   br label %23
 
 23:                                               ; preds = %initJoysticks.exit.thread, %20, %17, %12, %5, %3
@@ -3086,7 +3086,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @glfwGetGamepadState(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -3103,23 +3103,23 @@ define range(i32 0, 2) i32 @glfwGetGamepadState(i32 noundef %0, ptr noundef writ
   br label %.loopexit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !211
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 168), align 8, !tbaa !198
   %11 = tail call i32 %10() #12
   %.not1.i = icmp eq i32 %11, 0
   br i1 %.not1.i, label %initJoysticks.exit.thread, label %13
 
 initJoysticks.exit.thread:                        ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !212
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 176), align 8, !tbaa !199
   tail call void %12() #12
   br label %.loopexit
 
 13:                                               ; preds = %9, %7
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !210
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
   %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -3128,14 +3128,14 @@ initJoysticks.exit.thread:                        ; preds = %9
   br i1 %.not73, label %.loopexit, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !213
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 184), align 8, !tbaa !200
   %20 = tail call i32 %19(ptr noundef nonnull %15, i32 noundef 3) #12
   %.not74 = icmp eq i32 %20, 0
   br i1 %.not74, label %.loopexit, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 232
-  %23 = load ptr, ptr %22, align 8, !tbaa !172
+  %23 = load ptr, ptr %22, align 8, !tbaa !166
   %.not75 = icmp eq ptr %23, null
   br i1 %.not75, label %.loopexit, label %.preheader81
 
@@ -3146,17 +3146,17 @@ initJoysticks.exit.thread:                        ; preds = %9
   br label %30
 
 .preheader:                                       ; preds = %78
-  %27 = load ptr, ptr %22, align 8, !tbaa !172
+  %27 = load ptr, ptr %22, align 8, !tbaa !166
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 221
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %79
 
 30:                                               ; preds = %.preheader81, %78
   %indvars.iv = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next, %78 ]
-  %31 = load ptr, ptr %22, align 8, !tbaa !172
+  %31 = load ptr, ptr %22, align 8, !tbaa !166
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 161
   %33 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %32, i64 %indvars.iv
-  %34 = load i8, ptr %33, align 1, !tbaa !158
+  %34 = load i8, ptr %33, align 1, !tbaa !156
   switch i8 %34, label %78 [
     i8 1, label %35
     i8 3, label %58
@@ -3166,16 +3166,16 @@ initJoysticks.exit.thread:                        ; preds = %9
 35:                                               ; preds = %30
   %36 = load ptr, ptr %26, align 8, !tbaa !144
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !160
+  %38 = load i8, ptr %37, align 1, !tbaa !158
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw float, ptr %36, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !145
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 2
-  %43 = load i8, ptr %42, align 1, !tbaa !161
+  %43 = load i8, ptr %42, align 1, !tbaa !159
   %44 = sitofp i8 %43 to float
   %45 = fmul float %41, %44
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !162
+  %47 = load i8, ptr %46, align 1, !tbaa !160
   %48 = sitofp i8 %47 to float
   %49 = fadd float %45, %48
   %50 = icmp slt i8 %47, 0
@@ -3197,7 +3197,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 58:                                               ; preds = %30
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %60 = load i8, ptr %59, align 1, !tbaa !160
+  %60 = load i8, ptr %59, align 1, !tbaa !158
   %61 = zext i8 %60 to i32
   %62 = lshr i32 %61, 4
   %63 = and i32 %61, 15
@@ -3213,7 +3213,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 70:                                               ; preds = %30
   %71 = load ptr, ptr %24, align 8, !tbaa !146
   %72 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %73 = load i8, ptr %72, align 1, !tbaa !160
+  %73 = load i8, ptr %72, align 1, !tbaa !158
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !3
@@ -3228,12 +3228,12 @@ initJoysticks.exit.thread:                        ; preds = %9
 78:                                               ; preds = %.sink.split, %30, %58, %54, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %.preheader, label %30, !llvm.loop !218
+  br i1 %exitcond.not, label %.preheader, label %30
 
 79:                                               ; preds = %.preheader, %126
   %indvars.iv85 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next86, %126 ]
   %80 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %28, i64 %indvars.iv85
-  %81 = load i8, ptr %80, align 1, !tbaa !158
+  %81 = load i8, ptr %80, align 1, !tbaa !156
   switch i8 %81, label %126 [
     i8 1, label %82
     i8 3, label %100
@@ -3243,16 +3243,16 @@ initJoysticks.exit.thread:                        ; preds = %9
 82:                                               ; preds = %79
   %83 = load ptr, ptr %26, align 8, !tbaa !144
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %85 = load i8, ptr %84, align 1, !tbaa !160
+  %85 = load i8, ptr %84, align 1, !tbaa !158
   %86 = zext i8 %85 to i64
   %87 = getelementptr inbounds nuw float, ptr %83, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !145
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 2
-  %90 = load i8, ptr %89, align 1, !tbaa !161
+  %90 = load i8, ptr %89, align 1, !tbaa !159
   %91 = sitofp i8 %90 to float
   %92 = fmul float %88, %91
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 3
-  %94 = load i8, ptr %93, align 1, !tbaa !162
+  %94 = load i8, ptr %93, align 1, !tbaa !160
   %95 = sitofp i8 %94 to float
   %96 = fadd float %92, %95
   %97 = tail call float @llvm.maxnum.f32(float %96, float -1.000000e+00)
@@ -3263,7 +3263,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 100:                                              ; preds = %79
   %101 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %102 = load i8, ptr %101, align 1, !tbaa !160
+  %102 = load i8, ptr %101, align 1, !tbaa !158
   %103 = zext i8 %102 to i32
   %104 = lshr i32 %103, 4
   %105 = and i32 %103, 15
@@ -3288,7 +3288,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 115:                                              ; preds = %79
   %116 = load ptr, ptr %24, align 8, !tbaa !146
   %117 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %118 = load i8, ptr %117, align 1, !tbaa !160
+  %118 = load i8, ptr %117, align 1, !tbaa !158
   %119 = zext i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !3
@@ -3302,7 +3302,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 126:                                              ; preds = %79, %113, %114, %115, %82
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 6
-  br i1 %exitcond88.not, label %.loopexit, label %79, !llvm.loop !219
+  br i1 %exitcond88.not, label %.loopexit, label %79
 
 .loopexit:                                        ; preds = %126, %initJoysticks.exit.thread, %21, %18, %13, %6, %4
   %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %13 ], [ 0, %18 ], [ 0, %21 ], [ 0, %initJoysticks.exit.thread ], [ 1, %126 ]
@@ -3317,7 +3317,7 @@ declare float @llvm.minnum.f32(float, float) #9
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetClipboardString(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %3 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
 
@@ -3326,7 +3326,7 @@ define void @glfwSetClipboardString(ptr noundef readnone captures(none) %0, ptr 
   br label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 152), align 8, !tbaa !220
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 152), align 8, !tbaa !203
   tail call void %6(ptr noundef %1) #12
   br label %7
 
@@ -3336,7 +3336,7 @@ define void @glfwSetClipboardString(ptr noundef readnone captures(none) %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetClipboardString(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -3345,7 +3345,7 @@ define ptr @glfwGetClipboardString(ptr noundef readnone captures(none) %0) local
   br label %7
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 160), align 8, !tbaa !221
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 160), align 8, !tbaa !204
   %6 = tail call ptr %5() #12
   br label %7
 
@@ -3356,7 +3356,7 @@ define ptr @glfwGetClipboardString(ptr noundef readnone captures(none) %0) local
 
 ; Function Attrs: nounwind uwtable
 define double @glfwGetTime() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -3366,7 +3366,7 @@ define double @glfwGetTime() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = tail call i64 @_glfwPlatformGetTimerValue() #12
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133472), align 8, !tbaa !222
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133472), align 8, !tbaa !205
   %6 = sub i64 %4, %5
   %7 = uitofp i64 %6 to double
   %8 = tail call i64 @_glfwPlatformGetTimerFrequency() #12
@@ -3385,7 +3385,7 @@ declare i64 @_glfwPlatformGetTimerFrequency() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @glfwSetTime(double noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -3410,7 +3410,7 @@ define void @glfwSetTime(double noundef %0) local_unnamed_addr #0 {
   %11 = fmul double %0, %10
   %12 = fptoui double %11 to i64
   %13 = sub i64 %8, %12
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133472), align 8, !tbaa !222
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133472), align 8, !tbaa !205
   br label %14
 
 14:                                               ; preds = %7, %6, %3
@@ -3419,7 +3419,7 @@ define void @glfwSetTime(double noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @glfwGetTimerValue() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -3438,7 +3438,7 @@ define i64 @glfwGetTimerValue() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @glfwGetTimerFrequency() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !179
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !170
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -3639,74 +3639,57 @@ attributes #13 = { nounwind willreturn memory(read) }
 !149 = !{!69, !66, i64 133392}
 !150 = !{!69, !10, i64 133400}
 !151 = !{!14, !14, i64 0}
-!152 = distinct !{!152, !153}
-!153 = !{!"llvm.loop.estimated_trip_count"}
-!154 = !{!155, !14, i64 0}
-!155 = !{!"", !14, i64 0, !156, i64 8}
-!156 = !{!"p1 _ZTS15_GLFWmapelement", !9, i64 0}
-!157 = !{!155, !156, i64 8}
-!158 = !{!159, !4, i64 0}
-!159 = !{!"_GLFWmapelement", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3}
-!160 = !{!159, !4, i64 1}
-!161 = !{!159, !4, i64 2}
-!162 = !{!159, !4, i64 3}
-!163 = !{!69, !9, i64 192}
-!164 = distinct !{!164, !153}
-!165 = distinct !{!165, !153}
-!166 = distinct !{!166, !153}
-!167 = !{!69, !9, i64 200}
-!168 = !{!64, !10, i64 0}
-!169 = distinct !{!169, !153}
-!170 = !{!64, !10, i64 16}
-!171 = !{!64, !10, i64 48}
-!172 = !{!64, !66, i64 232}
-!173 = distinct !{!173, !153}
-!174 = distinct !{!174, !153}
-!175 = distinct !{!175, !153}
-!176 = !{!69, !9, i64 320}
-!177 = !{!69, !9, i64 72}
-!178 = !{!10, !10, i64 0}
-!179 = !{!69, !10, i64 0}
-!180 = !{!7, !10, i64 140}
-!181 = !{!7, !10, i64 520}
-!182 = !{!69, !9, i64 64}
-!183 = !{!69, !9, i64 80}
-!184 = distinct !{!184, !153}
-!185 = distinct !{!185, !153}
-!186 = !{!69, !9, i64 96}
-!187 = !{!69, !9, i64 88}
-!188 = !{!69, !9, i64 144}
-!189 = !{!69, !9, i64 136}
-!190 = !{!15, !15, i64 0}
-!191 = !{!69, !9, i64 440}
-!192 = !{!193, !10, i64 0}
-!193 = !{!"GLFWimage", !10, i64 0, !10, i64 4, !14, i64 8}
-!194 = !{!193, !10, i64 4}
-!195 = !{!69, !13, i64 1904}
-!196 = !{!197, !13, i64 0}
-!197 = !{!"_GLFWcursor", !13, i64 0, !198, i64 8, !200, i64 56}
-!198 = !{!"_GLFWcursorWayland", !199, i64 0, !199, i64 8, !44, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
-!199 = !{!"p1 _ZTS9wl_cursor", !9, i64 0}
-!200 = !{!"_GLFWcursorX11", !21, i64 0}
-!201 = !{!69, !9, i64 104}
-!202 = !{!8, !8, i64 0}
-!203 = !{!7, !13, i64 88}
-!204 = !{!69, !9, i64 128}
-!205 = distinct !{!205, !153}
-!206 = !{!69, !9, i64 120}
-!207 = !{!13, !13, i64 0}
-!208 = distinct !{!208, !153}
-!209 = !{!69, !9, i64 112}
-!210 = !{!69, !10, i64 1932}
-!211 = !{!69, !9, i64 168}
-!212 = !{!69, !9, i64 176}
-!213 = !{!69, !9, i64 184}
-!214 = !{!69, !10, i64 616}
-!215 = !{!64, !9, i64 184}
-!216 = distinct !{!216, !153}
-!217 = distinct !{!217, !153}
-!218 = distinct !{!218, !153}
-!219 = distinct !{!219, !153}
-!220 = !{!69, !9, i64 152}
-!221 = !{!69, !9, i64 160}
-!222 = !{!69, !21, i64 133472}
+!152 = !{!153, !14, i64 0}
+!153 = !{!"", !14, i64 0, !154, i64 8}
+!154 = !{!"p1 _ZTS15_GLFWmapelement", !9, i64 0}
+!155 = !{!153, !154, i64 8}
+!156 = !{!157, !4, i64 0}
+!157 = !{!"_GLFWmapelement", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3}
+!158 = !{!157, !4, i64 1}
+!159 = !{!157, !4, i64 2}
+!160 = !{!157, !4, i64 3}
+!161 = !{!69, !9, i64 192}
+!162 = !{!69, !9, i64 200}
+!163 = !{!64, !10, i64 0}
+!164 = !{!64, !10, i64 16}
+!165 = !{!64, !10, i64 48}
+!166 = !{!64, !66, i64 232}
+!167 = !{!69, !9, i64 320}
+!168 = !{!69, !9, i64 72}
+!169 = !{!10, !10, i64 0}
+!170 = !{!69, !10, i64 0}
+!171 = !{!7, !10, i64 140}
+!172 = !{!7, !10, i64 520}
+!173 = !{!69, !9, i64 64}
+!174 = !{!69, !9, i64 80}
+!175 = !{!69, !9, i64 96}
+!176 = !{!69, !9, i64 88}
+!177 = !{!69, !9, i64 144}
+!178 = !{!69, !9, i64 136}
+!179 = !{!15, !15, i64 0}
+!180 = !{!69, !9, i64 440}
+!181 = !{!182, !10, i64 0}
+!182 = !{!"GLFWimage", !10, i64 0, !10, i64 4, !14, i64 8}
+!183 = !{!182, !10, i64 4}
+!184 = !{!69, !13, i64 1904}
+!185 = !{!186, !13, i64 0}
+!186 = !{!"_GLFWcursor", !13, i64 0, !187, i64 8, !189, i64 56}
+!187 = !{!"_GLFWcursorWayland", !188, i64 0, !188, i64 8, !44, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
+!188 = !{!"p1 _ZTS9wl_cursor", !9, i64 0}
+!189 = !{!"_GLFWcursorX11", !21, i64 0}
+!190 = !{!69, !9, i64 104}
+!191 = !{!8, !8, i64 0}
+!192 = !{!7, !13, i64 88}
+!193 = !{!69, !9, i64 128}
+!194 = !{!69, !9, i64 120}
+!195 = !{!13, !13, i64 0}
+!196 = !{!69, !9, i64 112}
+!197 = !{!69, !10, i64 1932}
+!198 = !{!69, !9, i64 168}
+!199 = !{!69, !9, i64 176}
+!200 = !{!69, !9, i64 184}
+!201 = !{!69, !10, i64 616}
+!202 = !{!64, !9, i64 184}
+!203 = !{!69, !9, i64 152}
+!204 = !{!69, !9, i64 160}
+!205 = !{!69, !21, i64 133472}

@@ -349,10 +349,10 @@ define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unna
   %.01528.i = phi ptr [ %37, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
   %.01827.i = phi i32 [ %38, %.lr.ph29.i ], [ %34, %.lr.ph29.i.preheader ]
   %37 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !17
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !16
   %38 = add nsw i32 %.01827.i, -8
   %39 = icmp ugt i32 %38, 7
-  br i1 %39, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !18
+  br i1 %39, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !17
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %41, %.lr.ph35.i ], [ %37, %.preheader.i ]
@@ -361,7 +361,7 @@ define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unna
   %41 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
   store volatile i8 0, ptr %.11734.i, align 1, !tbaa !13
   %.not22.i = icmp eq i32 %40, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !19
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !18
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %5, %2
   %.020 = phi i32 [ -173, %2 ], [ -192, %5 ], [ %.3, %.preheader.i ], [ %.3, %.lr.ph35.i ]
@@ -458,7 +458,7 @@ define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %0, ptr noundef %1, ptr noun
   %53 = or i32 %.010.i.i, %52
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %wc_ChaCha20Poly1305_CheckTag.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %wc_ChaCha20Poly1305_CheckTag.exit, label %.preheader.i, !llvm.loop !19
 
 wc_ChaCha20Poly1305_CheckTag.exit:                ; preds = %.preheader.i
   %.not.i = icmp eq i32 %53, 0
@@ -494,7 +494,7 @@ define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly
   %11 = or i32 %.010.i, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.preheader, !llvm.loop !19
 
 ConstantCompare.exit:                             ; preds = %.preheader
   %.not = icmp eq i32 %11, 0
@@ -545,10 +545,9 @@ attributes #5 = { nounwind }
 !11 = !{!4, !8, i64 168}
 !12 = !{!4, !8, i64 172}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!10, !10, i64 0}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
+!16 = !{!10, !10, i64 0}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}

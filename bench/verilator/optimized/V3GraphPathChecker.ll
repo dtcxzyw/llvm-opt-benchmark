@@ -253,7 +253,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %83
   br label %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit.backedge
 
 _ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit.backedge: ; preds = %87, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %77
-  br label %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit, !llvm.loop !42
+  br label %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit
 
 88:                                               ; preds = %85, %68, %56
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %86, %85 ], [ %69, %68 ]
@@ -507,7 +507,7 @@ _ZN20GraphStreamUnordered5nextpEv.exit:           ; preds = %52, %54
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.035.056, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !44
+  %73 = load ptr, ptr %72, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %75 = load ptr, ptr %74, align 8, !tbaa !32
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -553,7 +553,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %85
   br label %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit.backedge
 
 _ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit.backedge: ; preds = %89, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %79
-  br label %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit, !llvm.loop !45
+  br label %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit
 
 90:                                               ; preds = %87, %69, %56
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %88, %87 ], [ %70, %69 ]
@@ -602,7 +602,7 @@ define dso_local void @_ZN16GraphPathCheckerC2EP7V3GraphPFbPK11V3GraphEdgeE(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %5, align 8, !tbaa !46
+  store i64 0, ptr %5, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.07.012 = load ptr, ptr %6, align 8, !tbaa !27
   %.not13 = icmp eq ptr %.sroa.07.012, null
@@ -616,7 +616,7 @@ define dso_local void @_ZN16GraphPathCheckerC2EP7V3GraphPFbPK11V3GraphEdgeE(ptr 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.07.014 = phi ptr [ %.sroa.07.0, %.lr.ph ], [ %.sroa.07.012, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not.i = icmp eq ptr %8, null
   %9 = select i1 %.not.i, ptr %.sroa.07.014, ptr %8
   tail call void @llvm.prefetch.p0(ptr nonnull %9, i32 1, i32 3, i32 1)
@@ -626,7 +626,7 @@ define dso_local void @_ZN16GraphPathCheckerC2EP7V3GraphPFbPK11V3GraphEdgeE(ptr 
   store ptr %10, ptr %11, align 8, !tbaa !32
   %.sroa.07.0 = load ptr, ptr %7, align 8, !tbaa !27
   %.not = icmp eq ptr %.sroa.07.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -649,7 +649,7 @@ define dso_local void @_ZN16GraphPathCheckerD2Ev(ptr noundef nonnull readonly al
 .lr.ph:                                           ; preds = %1, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit
   %.sroa.07.014 = phi ptr [ %.sroa.07.0, %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit ], [ %.sroa.07.012, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %.not.i = icmp eq ptr %5, null
   %6 = select i1 %.not.i, ptr %.sroa.07.014, ptr %5
   tail call void @llvm.prefetch.p0(ptr nonnull %6, i32 1, i32 3, i32 1)
@@ -678,9 +678,9 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !51
+  %11 = load i64, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !46
+  %13 = load i64, ptr %12, align 8, !tbaa !43
   %14 = icmp eq i64 %11, %13
   br i1 %14, label %15, label %17
 
@@ -693,7 +693,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   br label %.loopexit
 
 17:                                               ; preds = %4
-  store i64 %13, ptr %10, align 8, !tbaa !51
+  store i64 %13, ptr %10, align 8, !tbaa !47
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %18
 
@@ -746,7 +746,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
 41:                                               ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.032.041.us, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !44
+  %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = call noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %spec.select.us = select i1 %44, i1 true, i1 %.02440.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
@@ -756,7 +756,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   %.1.us = phi i1 [ %spec.select.us, %41 ], [ %.02440.us, %.lr.ph.split.us ]
   %.sroa.032.0.us = load ptr, ptr %36, align 8, !tbaa !30
   %.not37.us = icmp eq ptr %.sroa.032.0.us, null
-  br i1 %.not37.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !54
+  br i1 %.not37.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %58
   %.sroa.032.041 = phi ptr [ %.sroa.032.0, %58 ], [ %.sroa.032.038, %.lr.ph ]
@@ -773,7 +773,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
 51:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.041, i64 48
-  %53 = load ptr, ptr %52, align 8, !tbaa !44
+  %53 = load ptr, ptr %52, align 8, !tbaa !42
   %54 = call noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %53, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %spec.select = select i1 %54, i1 true, i1 %.02440
   %55 = load i32, ptr %5, align 4, !tbaa !40
@@ -787,7 +787,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   %.1 = phi i1 [ %spec.select, %51 ], [ %.02440, %.lr.ph.split ]
   %.sroa.032.0 = load ptr, ptr %46, align 8, !tbaa !30
   %.not37 = icmp eq ptr %.sroa.032.0, null
-  br i1 %.not37, label %.loopexit, label %.lr.ph.split, !llvm.loop !56
+  br i1 %.not37, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %58, %45, %33, %28, %21, %19, %15, %16
   %.0 = phi i1 [ false, %16 ], [ false, %15 ], [ true, %19 ], [ false, %21 ], [ false, %28 ], [ false, %33 ], [ %.1.us, %45 ], [ %.1, %58 ]
@@ -797,9 +797,9 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN16GraphPathChecker14pathExistsFromEPK13V3GraphVertexS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !46
+  %5 = load i64, ptr %4, align 8, !tbaa !43
   %6 = add i64 %5, 1
-  store i64 %6, ptr %4, align 8, !tbaa !46
+  store i64 %6, ptr %4, align 8, !tbaa !43
   %7 = tail call noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret i1 %7
 }
@@ -809,11 +809,11 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker16isTransitiveEdgeEPK1
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !44
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !46
+  %8 = load i64, ptr %7, align 8, !tbaa !43
   %9 = add i64 %8, 1
-  store i64 %9, ptr %7, align 8, !tbaa !46
+  store i64 %9, ptr %7, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.015.021 = load ptr, ptr %10, align 8, !tbaa !30
   %.not = icmp eq ptr %.sroa.015.021, null
@@ -831,7 +831,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker16isTransitiveEdgeEPK1
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !44
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = tail call noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %17, ptr noundef %6, ptr noundef null)
   br i1 %18, label %.critedge, label %._crit_edge
 
@@ -842,7 +842,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker16isTransitiveEdgeEPK1
 19:                                               ; preds = %._crit_edge, %.lr.ph
   %.sroa.015.0 = phi ptr [ %.sroa.015.0.pre, %._crit_edge ], [ %12, %.lr.ph ]
   %.not25 = icmp eq ptr %.sroa.015.0, null
-  br i1 %.not25, label %.critedge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %15, %19, %2
   %.lcssa = phi i1 [ false, %2 ], [ false, %19 ], [ true, %15 ]
@@ -867,7 +867,7 @@ define linkonce_odr dso_local void @_ZN20GraphStreamUnordered4initILh0EEEvP7V3Gr
 6:                                                ; preds = %.lr.ph, %17
   %.sroa.09.017 = phi ptr [ %.sroa.09.015, %.lr.ph ], [ %.sroa.09.0, %17 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not.i = icmp eq ptr %8, null
   %9 = select i1 %.not.i, ptr %.sroa.09.017, ptr %8
   call void @llvm.prefetch.p0(ptr nonnull %9, i32 1, i32 3, i32 1)
@@ -878,7 +878,7 @@ define linkonce_odr dso_local void @_ZN20GraphStreamUnordered4initILh0EEEvP7V3Gr
 
 _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit.thread: ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 64
-  store i32 0, ptr %11, align 8, !tbaa !58
+  store i32 0, ptr %11, align 8, !tbaa !52
   br label %16
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
@@ -888,13 +888,13 @@ _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit.thread: ; preds =
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 24
   %.sroa.02.0.i = load ptr, ptr %13, align 8, !tbaa !30
   %.not.i8 = icmp eq ptr %.sroa.02.0.i, null
-  br i1 %.not.i8, label %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %.not.i8, label %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit, label %.lr.ph.i, !llvm.loop !57
 
 _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit: ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 64
-  store i32 %12, ptr %14, align 8, !tbaa !58
+  store i32 %12, ptr %14, align 8, !tbaa !52
   %15 = icmp eq i32 %12, 0
-  br i1 %15, label %16, label %17, !prof !65
+  br i1 %15, label %16, label %17, !prof !59
 
 16:                                               ; preds = %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit.thread, %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -907,7 +907,7 @@ _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit: ; preds = %.lr.p
 17:                                               ; preds = %16, %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit
   %.sroa.09.0 = phi ptr [ %.sroa.09.0.pre, %16 ], [ %8, %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E4sizeEv.exit ]
   %.not = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !66
+  br i1 %.not, label %._crit_edge, label %6
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -928,7 +928,7 @@ define linkonce_odr dso_local void @_ZN20GraphStreamUnordered4initILh1EEEvP7V3Gr
 6:                                                ; preds = %.lr.ph, %17
   %.sroa.09.017 = phi ptr [ %.sroa.09.015, %.lr.ph ], [ %.sroa.09.0, %17 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not.i = icmp eq ptr %8, null
   %9 = select i1 %.not.i, ptr %.sroa.09.017, ptr %8
   call void @llvm.prefetch.p0(ptr nonnull %9, i32 1, i32 3, i32 1)
@@ -939,7 +939,7 @@ define linkonce_odr dso_local void @_ZN20GraphStreamUnordered4initILh1EEEvP7V3Gr
 
 _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit.thread: ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 64
-  store i32 0, ptr %11, align 8, !tbaa !58
+  store i32 0, ptr %11, align 8, !tbaa !52
   br label %16
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
@@ -949,13 +949,13 @@ _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit.thread: ; preds =
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 8
   %.sroa.02.0.i = load ptr, ptr %13, align 8, !tbaa !30
   %.not.i8 = icmp eq ptr %.sroa.02.0.i, null
-  br i1 %.not.i8, label %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit, label %.lr.ph.i, !llvm.loop !67
+  br i1 %.not.i8, label %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit, label %.lr.ph.i, !llvm.loop !60
 
 _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit: ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 64
-  store i32 %12, ptr %14, align 8, !tbaa !58
+  store i32 %12, ptr %14, align 8, !tbaa !52
   %15 = icmp eq i32 %12, 0
-  br i1 %15, label %16, label %17, !prof !65
+  br i1 %15, label %16, label %17, !prof !59
 
 16:                                               ; preds = %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit.thread, %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -968,7 +968,7 @@ _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit: ; preds = %.lr.p
 17:                                               ; preds = %16, %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit
   %.sroa.09.0 = phi ptr [ %.sroa.09.0.pre, %16 ], [ %8, %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit ]
   %.not = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1070,11 +1070,11 @@ define linkonce_odr dso_local noundef ptr @_ZN20GraphStreamUnordered7unblockILh0
   %10 = select i1 %.not.i, ptr %.sroa.09.017, ptr %9
   tail call void @llvm.prefetch.p0(ptr nonnull %10, i32 1, i32 3, i32 1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !44
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %14 = load i32, ptr %13, align 8, !tbaa !58
+  %14 = load i32, ptr %13, align 8, !tbaa !52
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !58
+  store i32 %15, ptr %13, align 8, !tbaa !52
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE9push_backERKS2_.exit
 
@@ -1141,7 +1141,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
 _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %19, %7
   %.sroa.09.0 = load ptr, ptr %8, align 8, !tbaa !30
   %.not14 = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not14, label %._crit_edge, label %7, !llvm.loop !69
+  br i1 %.not14, label %._crit_edge, label %7
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -1170,9 +1170,9 @@ define linkonce_odr dso_local noundef ptr @_ZN20GraphStreamUnordered7unblockILh1
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %14 = load i32, ptr %13, align 8, !tbaa !58
+  %14 = load i32, ptr %13, align 8, !tbaa !52
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !58
+  store i32 %15, ptr %13, align 8, !tbaa !52
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE9push_backERKS2_.exit
 
@@ -1239,7 +1239,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
 _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %19, %7
   %.sroa.09.0 = load ptr, ptr %8, align 8, !tbaa !30
   %.not14 = icmp eq ptr %.sroa.09.0, null
-  br i1 %.not14, label %._crit_edge, label %7, !llvm.loop !70
+  br i1 %.not14, label %._crit_edge, label %7
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -1331,32 +1331,22 @@ attributes #19 = { noreturn }
 !39 = !{!"bool", !8, i64 0}
 !40 = !{!38, !38, i64 0}
 !41 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!37, !28, i64 48}
-!45 = distinct !{!45, !43}
-!46 = !{!47, !20, i64 16}
-!47 = !{!"_ZTS16GraphPathChecker", !5, i64 0, !20, i64 16}
-!48 = !{!49, !28, i64 0}
-!49 = !{!"_ZTS11V3ListLinksI13V3GraphVertexE", !28, i64 0, !28, i64 8}
-!50 = distinct !{!50, !43}
-!51 = !{!52, !20, i64 8}
-!52 = !{!"_ZTS11GraphPCNode", !53, i64 0, !20, i64 8}
-!53 = !{!"_ZTSSt5arrayIjLm2EE", !8, i64 0}
-!54 = distinct !{!54, !43, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = distinct !{!56, !43}
-!57 = distinct !{!57, !43}
-!58 = !{!59, !38, i64 64}
-!59 = !{!"_ZTS13V3GraphVertex", !49, i64 8, !60, i64 24, !61, i64 40, !62, i64 56, !38, i64 64, !38, i64 68, !8, i64 72}
-!60 = !{!"_ZTS6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E", !31, i64 0, !31, i64 8}
-!61 = !{!"_ZTS6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E", !31, i64 0, !31, i64 8}
-!62 = !{!"double", !8, i64 0}
-!63 = distinct !{!63, !64, !43}
-!64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!66 = distinct !{!66, !43}
-!67 = distinct !{!67, !64, !43}
-!68 = distinct !{!68, !43}
-!69 = distinct !{!69, !43}
-!70 = distinct !{!70, !43}
+!42 = !{!37, !28, i64 48}
+!43 = !{!44, !20, i64 16}
+!44 = !{!"_ZTS16GraphPathChecker", !5, i64 0, !20, i64 16}
+!45 = !{!46, !28, i64 0}
+!46 = !{!"_ZTS11V3ListLinksI13V3GraphVertexE", !28, i64 0, !28, i64 8}
+!47 = !{!48, !20, i64 8}
+!48 = !{!"_ZTS11GraphPCNode", !49, i64 0, !20, i64 8}
+!49 = !{!"_ZTSSt5arrayIjLm2EE", !8, i64 0}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!53, !38, i64 64}
+!53 = !{!"_ZTS13V3GraphVertex", !46, i64 8, !54, i64 24, !55, i64 40, !56, i64 56, !38, i64 64, !38, i64 68, !8, i64 72}
+!54 = !{!"_ZTS6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E", !31, i64 0, !31, i64 8}
+!55 = !{!"_ZTS6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E", !31, i64 0, !31, i64 8}
+!56 = !{!"double", !8, i64 0}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.mustprogress"}
+!59 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!60 = distinct !{!60, !58}

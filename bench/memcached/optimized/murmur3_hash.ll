@@ -46,7 +46,7 @@ define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %0,
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %21 = load i8, ptr %20, align 1, !tbaa !11
+  %21 = load i8, ptr %20, align 1, !tbaa !10
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 16
   br label %24
@@ -54,7 +54,7 @@ define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %0,
 24:                                               ; preds = %._crit_edge, %19
   %.0 = phi i32 [ %23, %19 ], [ 0, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !11
+  %26 = load i8, ptr %25, align 1, !tbaa !10
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 8
   %29 = or disjoint i32 %28, %.0
@@ -62,7 +62,7 @@ define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %0,
 
 30:                                               ; preds = %._crit_edge, %24
   %.1 = phi i32 [ %29, %24 ], [ 0, %._crit_edge ]
-  %31 = load i8, ptr %7, align 1, !tbaa !11
+  %31 = load i8, ptr %7, align 1, !tbaa !10
   %32 = zext i8 %31 to i32
   %33 = xor i32 %.1, %32
   %34 = mul i32 %33, -862048943
@@ -105,7 +105,6 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
+!10 = !{!6, !6, i64 0}

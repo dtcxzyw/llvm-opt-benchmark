@@ -117,7 +117,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %.sroa.015.0 = select i1 %14, i64 %15, i64 %.sroa.03.020
   %16 = sub i64 %.sroa.016.0, %.sroa.015.0
   %17 = icmp ult i64 %.sroa.015.0, %.sroa.016.0
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !3
+  br i1 %17, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -599,7 +599,7 @@ tailrecurse:                                      ; preds = %116, %6
   br i1 %131, label %.backedge.backedge, label %156
 
 .backedge.backedge:                               ; preds = %155, %159
-  br label %.backedge, !llvm.loop !5
+  br label %.backedge
 
 156:                                              ; preds = %155
   %157 = load i32, ptr %29, align 4
@@ -665,7 +665,7 @@ tailrecurse:                                      ; preds = %116, %6
   %186 = extractvalue { ptr, i32 } %184, 0
   %187 = extractvalue { ptr, i32 } %184, 1
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %37, ptr align 4 %186, i32 %187, ptr align 8 %0)
-          to label %166 unwind label %.loopexit155, !llvm.loop !6
+          to label %166 unwind label %.loopexit155
 
 .loopexit155:                                     ; preds = %166, %178, %183, %185
   %lpad.loopexit157 = landingpad { ptr, i32 }
@@ -803,7 +803,7 @@ tailrecurse:                                      ; preds = %116, %6
   %244 = extractvalue { ptr, i32 } %238, 0
   %245 = extractvalue { ptr, i32 } %238, 1
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %20, ptr align 4 %244, i32 %245, ptr align 8 %0)
-          to label %230 unwind label %231, !llvm.loop !7
+          to label %230 unwind label %231
 
 .thread127:                                       ; preds = %231, %.thread136
   %.pn131 = phi { ptr, i32 } [ %lpad.thr_comm134, %.thread136 ], [ %232, %231 ]
@@ -864,7 +864,7 @@ tailrecurse:                                      ; preds = %116, %6
   %.sroa.2100.0.extract.shift = lshr i24 %255, 8
   %.sroa.2100.0.extract.trunc = trunc i24 %.sroa.2100.0.extract.shift to i8
   invoke void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc69ebf5E(ptr nonnull align 8 %14, i8 %.sroa.2100.0.extract.trunc, i8 %.sroa.3101.0.extract.trunc, i32 %2, ptr align 8 %0)
-          to label %254 unwind label %256, !llvm.loop !8
+          to label %254 unwind label %256
 
 263:                                              ; preds = %261
   %264 = load ptr, ptr %14, align 8
@@ -1048,7 +1048,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   %50 = load i32, ptr %38, align 4
   %51 = load i32, ptr %39, align 4
   %52 = invoke fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_unchecked17hced68f017f069d4eE"(ptr align 8 %0, i32 %46, i32 %50, i32 %51)
-          to label %42 unwind label %43, !llvm.loop !9
+          to label %42 unwind label %43
 
 53:                                               ; preds = %63, %61, %60, %43
   %54 = landingpad { ptr, i32 }
@@ -1062,7 +1062,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   br i1 %57, label %58, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %55, %59
-  br label %.backedge, !llvm.loop !10
+  br label %.backedge
 
 58:                                               ; preds = %55
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdb38f6ce2da6b964E"(ptr nonnull sret([12 x i8]) align 4 %9, ptr nonnull align 8 %28, i64 %35, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.17)
@@ -1193,7 +1193,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   %48 = load i32, ptr %36, align 4
   %49 = load i32, ptr %37, align 4
   %50 = invoke fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_unchecked17hced68f017f069d4eE"(ptr align 8 %0, i32 %44, i32 %48, i32 %49)
-          to label %40 unwind label %41, !llvm.loop !11
+          to label %40 unwind label %41
 
 51:                                               ; preds = %61, %59, %58, %41
   %52 = landingpad { ptr, i32 }
@@ -1207,7 +1207,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   br i1 %55, label %56, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %53, %57
-  br label %.backedge, !llvm.loop !12
+  br label %.backedge
 
 56:                                               ; preds = %53
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hdb38f6ce2da6b964E"(ptr nonnull sret([12 x i8]) align 4 %8, ptr nonnull align 8 %26, i64 %33, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.17)
@@ -2380,7 +2380,7 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   %162 = phi ptr [ %.pre, %"._ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit36_crit_edge" ], [ %139, %138 ]
   store i32 0, ptr %82, align 8
   invoke void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E(ptr nonnull align 8 %14, ptr align 4 %162, i32 %161, ptr align 8 %0)
-          to label %103 unwind label %163, !llvm.loop !13
+          to label %103 unwind label %163
 
 163:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit36"
   %lpad.thr_comm.split-lp52 = landingpad { ptr, i32 }
@@ -2891,7 +2891,7 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
   br i1 %43, label %.backedge.backedge, label %44
 
 .backedge.backedge:                               ; preds = %42, %49
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge
 
 44:                                               ; preds = %42
   store i64 -9223372036854775804, ptr %3, align 8
@@ -3470,15 +3470,3 @@ attributes #14 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}

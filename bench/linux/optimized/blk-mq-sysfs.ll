@@ -129,7 +129,7 @@ define dso_local void @blk_mq_sysfs_init(ptr noundef readonly captures(none) %0)
   %26 = add nuw nsw i64 %12, 1
   %27 = and i64 %26, 127
   %28 = icmp samesign ugt i64 %27, 63
-  br i1 %28, label %.thread, label %5, !prof !6, !llvm.loop !11
+  br i1 %28, label %.thread, label %5, !prof !6, !llvm.loop !10
 
 .thread:                                          ; preds = %5, %15, %11
   ret void
@@ -173,7 +173,7 @@ define dso_local i32 @blk_mq_sysfs_register(ptr noundef readonly captures(none) 
 22:                                               ; preds = %.preheader6
   %23 = call ptr @xa_find_after(ptr noundef nonnull %16, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.loopexit7, label %.preheader6, !llvm.loop !12
+  br i1 %24, label %.loopexit7, label %.preheader6, !llvm.loop !11
 
 .loopexit7:                                       ; preds = %22, %13
   %25 = phi i32 [ %11, %13 ], [ 0, %22 ]
@@ -215,7 +215,7 @@ define dso_local i32 @blk_mq_sysfs_register(ptr noundef readonly captures(none) 
   %47 = load i16, ptr %35, align 2
   %48 = zext i16 %47 to i64
   %49 = icmp samesign ult i64 %46, %48
-  br i1 %49, label %40, label %50, !llvm.loop !13
+  br i1 %49, label %40, label %50, !llvm.loop !12
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 384
@@ -225,7 +225,7 @@ define dso_local i32 @blk_mq_sysfs_register(ptr noundef readonly captures(none) 
 52:                                               ; preds = %50, %34, %.preheader
   %53 = call ptr @xa_find_after(ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %54, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %52, %27
   %55 = load ptr, ptr %6, align 8
@@ -299,7 +299,7 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   %34 = add nuw nsw i64 %21, 1
   %35 = zext i16 %30 to i64
   %36 = icmp samesign ult i64 %34, %35
-  br i1 %36, label %20, label %.loopexit5, !llvm.loop !15
+  br i1 %36, label %20, label %.loopexit5, !llvm.loop !14
 
 .preheader:                                       ; preds = %31, %45
   %37 = phi i16 [ %46, %45 ], [ %30, %31 ]
@@ -321,7 +321,7 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   %47 = add nuw nsw i64 %38, 1
   %48 = zext i16 %46 to i64
   %49 = icmp samesign ult i64 %47, %48
-  br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %45, %31
   tail call void @kobject_del(ptr noundef nonnull %8) #5
@@ -372,7 +372,7 @@ define dso_local void @blk_mq_sysfs_unregister(ptr noundef readonly captures(non
   %21 = load i16, ptr %9, align 2
   %22 = zext i16 %21 to i64
   %23 = icmp samesign ult i64 %20, %22
-  br i1 %23, label %14, label %24, !llvm.loop !17
+  br i1 %23, label %14, label %24, !llvm.loop !12
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 384
@@ -382,7 +382,7 @@ define dso_local void @blk_mq_sysfs_unregister(ptr noundef readonly captures(non
 26:                                               ; preds = %24, %.preheader
   %27 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %26, %1
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -400,11 +400,11 @@ define dso_local void @blk_mq_sysfs_unregister(ptr noundef readonly captures(non
 define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store i64 0, ptr %2, align 8, !annotation !19
+  store i64 0, ptr %2, align 8, !annotation !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
   tail call void @mutex_lock(ptr noundef nonnull %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %5 = load i8, ptr %4, align 8, !range !20, !noundef !21
+  %5 = load i8, ptr %4, align 8, !range !18, !noundef !19
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -437,7 +437,7 @@ define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnam
   %24 = load i16, ptr %12, align 2
   %25 = zext i16 %24 to i64
   %26 = icmp samesign ult i64 %23, %25
-  br i1 %26, label %17, label %27, !llvm.loop !22
+  br i1 %26, label %17, label %27, !llvm.loop !12
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 384
@@ -447,7 +447,7 @@ define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnam
 29:                                               ; preds = %27, %.preheader
   %30 = call ptr @xa_find_after(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %29, %7, %1
   call void @mutex_unlock(ptr noundef nonnull %3) #5
@@ -465,11 +465,11 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @blk_mq_sysfs_register_hctxs(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store i64 0, ptr %2, align 8, !annotation !19
+  store i64 0, ptr %2, align 8, !annotation !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
   tail call void @mutex_lock(ptr noundef nonnull %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %5 = load i8, ptr %4, align 8, !range !20, !noundef !21
+  %5 = load i8, ptr %4, align 8, !range !18, !noundef !19
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -489,7 +489,7 @@ define dso_local i32 @blk_mq_sysfs_register_hctxs(ptr noundef %0) local_unnamed_
 14:                                               ; preds = %.preheader
   %15 = call ptr @xa_find_after(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %14, %.preheader, %7, %1
   %17 = phi i32 [ 0, %1 ], [ 0, %7 ], [ %12, %.preheader ], [ 0, %14 ]
@@ -612,7 +612,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_cpus_sho
   %25 = add nuw nsw i64 %13, 1
   %26 = and i64 %25, 127
   %27 = icmp samesign ugt i64 %26, 63
-  br i1 %27, label %.thread, label %4, !prof !6, !llvm.loop !25
+  br i1 %27, label %.thread, label %4, !prof !6, !llvm.loop !22
 
 .thread:                                          ; preds = %4, %23, %16, %12
   %.lcssa = phi i32 [ %6, %4 ], [ %24, %23 ], [ %6, %16 ], [ %6, %12 ]
@@ -662,22 +662,19 @@ attributes #6 = { nounwind memory(read) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 298223}
 !6 = !{!"branch_weights", i32 1, i32 1999}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
-!19 = !{!"auto-init"}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = distinct !{!22, !8, !9, !10}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = distinct !{!24, !8, !9, !10}
-!25 = distinct !{!25, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = !{!"auto-init"}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}

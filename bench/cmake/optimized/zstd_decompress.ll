@@ -1067,7 +1067,7 @@ define dso_local i64 @ZSTD_decompressionMargin(ptr noundef %0, i64 noundef %1) l
   %.not40 = icmp eq i32 %26, 0
   %27 = select i1 %.not40, i64 0, i64 4
   %28 = add i64 %25, %27
-  %29 = load i64, ptr %3, align 8, !tbaa !72
+  %29 = load i64, ptr %3, align 8, !tbaa !71
   %30 = mul i64 %29, 3
   %31 = add i64 %28, %30
   %32 = load i32, ptr %10, align 8, !tbaa !50
@@ -1092,7 +1092,7 @@ define dso_local i64 @ZSTD_decompressionMargin(ptr noundef %0, i64 noundef %1) l
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !73
+  br i1 %.not, label %._crit_edge.loopexit, label %11, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %36
   %39 = zext i32 %.235 to i64
@@ -1109,7 +1109,7 @@ define dso_local noundef i64 @ZSTD_insertBlock(ptr noundef %0, ptr noundef %1, i
   tail call void @ZSTD_checkContinuity(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 29888
-  store ptr %4, ptr %5, align 8, !tbaa !74
+  store ptr %4, ptr %5, align 8, !tbaa !73
   ret i64 %2
 }
 
@@ -1255,24 +1255,24 @@ readSkippableFrameSize.exit:                      ; preds = %70
 
 ZSTD_decompressBegin_usingDDict.exit:             ; preds = %87, %80
   %89 = phi i64 [ %88, %87 ], [ 0, %80 ]
-  store i64 %89, ptr %21, align 8, !tbaa !75
+  store i64 %89, ptr %21, align 8, !tbaa !74
   %90 = load i32, ptr %15, align 8, !tbaa !29
   %91 = icmp eq i32 %90, 0
   %92 = select i1 %91, i64 5, i64 1
-  store i64 %92, ptr %22, align 8, !tbaa !76
-  store i32 0, ptr %23, align 4, !tbaa !77
+  store i64 %92, ptr %22, align 8, !tbaa !75
+  store i32 0, ptr %23, align 4, !tbaa !76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %27, align 8, !tbaa !41
-  store i32 0, ptr %28, align 4, !tbaa !78
-  store i32 0, ptr %29, align 8, !tbaa !79
-  store i32 0, ptr %30, align 8, !tbaa !80
-  store i32 3, ptr %31, align 8, !tbaa !81
+  store i32 0, ptr %28, align 4, !tbaa !77
+  store i32 0, ptr %29, align 8, !tbaa !78
+  store i32 0, ptr %30, align 8, !tbaa !79
+  store i32 3, ptr %31, align 8, !tbaa !80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  store ptr %26, ptr %0, align 8, !tbaa !82
-  store ptr %33, ptr %34, align 8, !tbaa !83
-  store ptr %35, ptr %36, align 8, !tbaa !84
-  store ptr %27, ptr %37, align 8, !tbaa !85
+  store ptr %26, ptr %0, align 8, !tbaa !81
+  store ptr %33, ptr %34, align 8, !tbaa !82
+  store ptr %35, ptr %36, align 8, !tbaa !83
+  store ptr %27, ptr %37, align 8, !tbaa !84
   call void @ZSTD_copyDDictParameters(ptr noundef nonnull %0, ptr noundef nonnull %7) #15
   br label %ZSTD_decompressBegin_usingDict.exit.thread
 
@@ -1287,23 +1287,23 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %87, %80
 96:                                               ; preds = %94, %93
   %97 = phi i32 [ %.pre, %94 ], [ %60, %93 ]
   %98 = phi i64 [ %95, %94 ], [ 0, %93 ]
-  store i64 %98, ptr %21, align 8, !tbaa !75
+  store i64 %98, ptr %21, align 8, !tbaa !74
   %99 = icmp eq i32 %97, 0
   %100 = select i1 %99, i64 5, i64 1
-  store i64 %100, ptr %22, align 8, !tbaa !76
-  store i32 0, ptr %23, align 4, !tbaa !77
+  store i64 %100, ptr %22, align 8, !tbaa !75
+  store i32 0, ptr %23, align 4, !tbaa !76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %27, align 8, !tbaa !41
-  store i32 0, ptr %28, align 4, !tbaa !78
-  store i32 0, ptr %29, align 8, !tbaa !79
-  store i32 0, ptr %30, align 8, !tbaa !80
-  store i32 3, ptr %31, align 8, !tbaa !81
+  store i32 0, ptr %28, align 4, !tbaa !77
+  store i32 0, ptr %29, align 8, !tbaa !78
+  store i32 0, ptr %30, align 8, !tbaa !79
+  store i32 3, ptr %31, align 8, !tbaa !80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  store ptr %26, ptr %0, align 8, !tbaa !82
-  store ptr %33, ptr %34, align 8, !tbaa !83
-  store ptr %35, ptr %36, align 8, !tbaa !84
-  store ptr %27, ptr %37, align 8, !tbaa !85
+  store ptr %26, ptr %0, align 8, !tbaa !81
+  store ptr %33, ptr %34, align 8, !tbaa !82
+  store ptr %35, ptr %36, align 8, !tbaa !83
+  store ptr %27, ptr %37, align 8, !tbaa !84
   br i1 %or.cond.i, label %101, label %ZSTD_decompressBegin_usingDict.exit.thread
 
 101:                                              ; preds = %96
@@ -1316,17 +1316,17 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %87, %80
 
 103:                                              ; preds = %102
   %.val.i.i = load i32, ptr %41, align 1, !tbaa !41
-  store i32 %.val.i.i, ptr %30, align 8, !tbaa !80
+  store i32 %.val.i.i, ptr %30, align 8, !tbaa !79
   %104 = call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %26, ptr noundef nonnull %.058, i64 noundef range(i64 1, 0) %.059)
   %105 = icmp ult i64 %104, -119
   br i1 %105, label %106, label %.thread
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %.058, i64 %104
-  store i32 1, ptr %28, align 4, !tbaa !78
-  store i32 1, ptr %29, align 8, !tbaa !79
-  %.pre.i = load ptr, ptr %25, align 8, !tbaa !74
-  %.pre16.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !86
+  store i32 1, ptr %28, align 4, !tbaa !77
+  store i32 1, ptr %29, align 8, !tbaa !78
+  %.pre.i = load ptr, ptr %25, align 8, !tbaa !73
+  %.pre16.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !85
   %108 = ptrtoint ptr %.pre16.i to i64
   br label %ZSTD_decompress_insertDictionary.exit.thread.i
 
@@ -1338,9 +1338,9 @@ ZSTD_decompress_insertDictionary.exit.thread.i:   ; preds = %106, %102, %101
   %111 = ptrtoint ptr %110 to i64
   %.neg.i35.i.i = sub i64 %109, %111
   %112 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 %.neg.i35.i.i
-  store ptr %112, ptr %42, align 8, !tbaa !87
-  store ptr %.sink42.i.i, ptr %.phi.trans.insert.i, align 8, !tbaa !86
-  store ptr %43, ptr %25, align 8, !tbaa !74
+  store ptr %112, ptr %42, align 8, !tbaa !86
+  store ptr %.sink42.i.i, ptr %.phi.trans.insert.i, align 8, !tbaa !85
+  store ptr %43, ptr %25, align 8, !tbaa !73
   br label %ZSTD_decompressBegin_usingDict.exit.thread
 
 ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %96, %ZSTD_decompress_insertDictionary.exit.thread.i, %ZSTD_decompressBegin_usingDDict.exit
@@ -1421,7 +1421,7 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %ZSTD_decompressBegi
   %163 = sub i64 %161, %162
   %164 = getelementptr inbounds i8, ptr %.0105175.i, i64 %163
   %.0109.i = select i1 %or.cond.i75, ptr %164, ptr %113
-  %165 = load i32, ptr %10, align 4, !tbaa !88
+  %165 = load i32, ptr %10, align 4, !tbaa !87
   switch i32 %165, label %.thread156.i [
     i32 2, label %ZSTD_copyRawBlock.exit.i
     i32 0, label %166
@@ -1449,7 +1449,7 @@ ZSTD_frameHeaderSize_internal.exit.i:             ; preds = %ZSTD_decompressBegi
   %175 = ptrtoint ptr %.0109.i to i64
   %176 = sub i64 %175, %162
   %177 = load i8, ptr %156, align 1, !tbaa !42
-  %178 = load i32, ptr %44, align 4, !tbaa !89
+  %178 = load i32, ptr %44, align 4, !tbaa !88
   %179 = zext i32 %178 to i64
   %180 = icmp ult i64 %176, %179
   br i1 %180, label %.thread156.i, label %181
@@ -1475,7 +1475,7 @@ ZSTD_copyRawBlock.exit.i:                         ; preds = %159
 
 ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.exit.i, %ZSTD_copyRawBlock.exit.thread151.i, %183, %173, %171
   %.0108154.i = phi i64 [ %179, %ZSTD_copyRawBlock.exit.thread151.i ], [ %187, %ZSTD_copyRawBlock.exit.i ], [ %155, %173 ], [ 0, %171 ], [ 0, %183 ]
-  %189 = load i32, ptr %45, align 8, !tbaa !90
+  %189 = load i32, ptr %45, align 8, !tbaa !89
   %.not129.i = icmp eq i32 %189, 0
   br i1 %.not129.i, label %192, label %190
 
@@ -1504,7 +1504,7 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
   br i1 %199, label %154, label %.thread156.i
 
 200:                                              ; preds = %192
-  %201 = load i64, ptr %48, align 8, !tbaa !91
+  %201 = load i64, ptr %48, align 8, !tbaa !90
   %.not132.i = icmp eq i64 %201, -1
   %202 = ptrtoint ptr %193 to i64
   %203 = ptrtoint ptr %.047.ph139 to i64
@@ -1514,7 +1514,7 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
   br i1 %or.cond139.i, label %205, label %ZSTD_decompressFrame.exit
 
 205:                                              ; preds = %200
-  %206 = load i32, ptr %49, align 8, !tbaa !92
+  %206 = load i32, ptr %49, align 8, !tbaa !91
   %.not134.i = icmp eq i32 %206, 0
   br i1 %.not134.i, label %217, label %207
 
@@ -1545,7 +1545,7 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
   %218 = ptrtoint ptr %.3104.i to i64
   %219 = ptrtoint ptr %.088129 to i64
   %220 = sub i64 %218, %219
-  %221 = load i64, ptr %21, align 8, !tbaa !75
+  %221 = load i64, ptr %21, align 8, !tbaa !74
   %222 = icmp ne i64 %221, 0
   %or.cond.i.i = and i1 %51, %222
   br i1 %or.cond.i.i, label %223, label %ZSTD_decompressFrame.exit
@@ -1553,28 +1553,28 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
 223:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, i8 0, i64 48, i1 false)
-  store i32 10505, ptr %9, align 8, !tbaa !93
-  store i32 0, ptr %53, align 4, !tbaa !98
-  %224 = load ptr, ptr %54, align 8, !tbaa !99
+  store i32 10505, ptr %9, align 8, !tbaa !92
+  store i32 0, ptr %53, align 4, !tbaa !97
+  %224 = load ptr, ptr %54, align 8, !tbaa !98
   %.not.i144.i = icmp eq ptr %224, null
   br i1 %.not.i144.i, label %230, label %225
 
 225:                                              ; preds = %223
   %226 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %224) #15
-  store i32 %226, ptr %52, align 8, !tbaa !100
-  %227 = load ptr, ptr %54, align 8, !tbaa !99
+  store i32 %226, ptr %52, align 8, !tbaa !99
+  %227 = load ptr, ptr %54, align 8, !tbaa !98
   %228 = call i64 @ZSTD_DDict_dictSize(ptr noundef %227) #15
-  store i64 %228, ptr %55, align 8, !tbaa !101
+  store i64 %228, ptr %55, align 8, !tbaa !100
   %229 = load i32, ptr %20, align 4, !tbaa !23
-  store i32 %229, ptr %56, align 4, !tbaa !102
-  %.pre.i.i = load i64, ptr %21, align 8, !tbaa !75
+  store i32 %229, ptr %56, align 4, !tbaa !101
+  %.pre.i.i = load i64, ptr %21, align 8, !tbaa !74
   br label %230
 
 230:                                              ; preds = %225, %223
   %231 = phi i64 [ %.pre.i.i, %225 ], [ %221, %223 ]
-  store i64 %204, ptr %57, align 8, !tbaa !103
-  store i64 %220, ptr %58, align 8, !tbaa !104
-  store ptr %0, ptr %59, align 8, !tbaa !105
+  store i64 %204, ptr %57, align 8, !tbaa !102
+  store i64 %220, ptr %58, align 8, !tbaa !103
+  store ptr %0, ptr %59, align 8, !tbaa !104
   call void @ZSTD_trace_decompress_end(i64 noundef %231, ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
   br label %ZSTD_decompressFrame.exit
@@ -1599,7 +1599,7 @@ ZSTD_decompressFrame.exit:                        ; preds = %217, %230, %ZSTD_de
   %239 = icmp eq i32 %238, 0
   %240 = select i1 %239, i64 5, i64 1
   %.not64128 = icmp ult i64 %.387, %240
-  br i1 %.not64128, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !106
+  br i1 %.not64128, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !105
 
 .outer._crit_edge:                                ; preds = %.outer, %77, %14
   %.047.ph.lcssa127 = phi ptr [ %1, %14 ], [ %.047.ph139, %77 ], [ %236, %.outer ]
@@ -1637,13 +1637,13 @@ define dso_local i64 @ZSTD_decompressDCtx(ptr noundef %0, ptr noundef %1, i64 no
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %14 = load ptr, ptr %13, align 8, !tbaa !99
+  %14 = load ptr, ptr %13, align 8, !tbaa !98
   br label %ZSTD_getDDict.exit
 
 15:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %17 = load ptr, ptr %16, align 8, !tbaa !99
+  %17 = load ptr, ptr %16, align 8, !tbaa !98
   br label %ZSTD_getDDict.exit
 
 ZSTD_getDDict.exit:                               ; preds = %8, %12, %15
@@ -1677,13 +1677,13 @@ define internal fastcc ptr @ZSTD_getDDict(ptr noundef captures(none) %0) unnamed
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %10 = load ptr, ptr %9, align 8, !tbaa !99
+  %10 = load ptr, ptr %9, align 8, !tbaa !98
   br label %14
 
 11:                                               ; preds = %1
   store i32 0, ptr %2, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %13 = load ptr, ptr %12, align 8, !tbaa !99
+  %13 = load ptr, ptr %12, align 8, !tbaa !98
   br label %14
 
 14:                                               ; preds = %11, %8, %4
@@ -1748,14 +1748,14 @@ ZSTD_createDCtx_internal.exit.thread:             ; preds = %ZSTD_customMalloc.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @ZSTD_nextSrcSizeToDecompress(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  %3 = load i64, ptr %2, align 8, !tbaa !76
+  %3 = load i64, ptr %2, align 8, !tbaa !75
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 6) i32 @ZSTD_nextInputType(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 29996
-  %3 = load i32, ptr %2, align 4, !tbaa !77
+  %3 = load i32, ptr %2, align 4, !tbaa !76
   %switch.tableidx = add i32 %3, -2
   %4 = icmp ult i32 %switch.tableidx, 6
   br i1 %4, label %switch.lookup, label %6
@@ -1776,22 +1776,22 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
   %6 = alloca %struct.ZSTD_Trace, align 8
   %7 = alloca %struct.blockProperties_t, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 29996
-  %9 = load i32, ptr %8, align 4, !tbaa !77
+  %9 = load i32, ptr %8, align 4, !tbaa !76
   %.off.i = add i32 %9, -3
   %switch.i = icmp ult i32 %.off.i, 2
   br i1 %switch.i, label %13, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  %12 = load i64, ptr %11, align 8, !tbaa !76
+  %12 = load i64, ptr %11, align 8, !tbaa !75
   br label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 29992
-  %15 = load i32, ptr %14, align 8, !tbaa !81
+  %15 = load i32, ptr %14, align 8, !tbaa !80
   %.not.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  %17 = load i64, ptr %16, align 8, !tbaa !76
+  %17 = load i64, ptr %16, align 8, !tbaa !75
   br i1 %.not.i, label %18, label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 18:                                               ; preds = %13
@@ -1807,10 +1807,10 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %10, %13, %18
 19:                                               ; preds = %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
   tail call void @ZSTD_checkContinuity(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 29976
-  %21 = load i64, ptr %20, align 8, !tbaa !107
+  %21 = load i64, ptr %20, align 8, !tbaa !106
   %22 = add i64 %21, %4
-  store i64 %22, ptr %20, align 8, !tbaa !107
-  %23 = load i32, ptr %8, align 4, !tbaa !77
+  store i64 %22, ptr %20, align 8, !tbaa !106
+  %23 = load i32, ptr %8, align 4, !tbaa !76
   switch i32 %23, label %ZSTD_copyRawBlock.exit.thread [
     i32 0, label %24
     i32 1, label %67
@@ -1839,8 +1839,8 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %10, %13, %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 1 %3, i64 %4, i1 false)
   %33 = sub i64 8, %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %33, ptr %34, align 8, !tbaa !76
-  store i32 6, ptr %8, align 4, !tbaa !77
+  store i64 %33, ptr %34, align 8, !tbaa !75
+  store i32 6, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 35:                                               ; preds = %28, %24
@@ -1850,7 +1850,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %10, %13, %18
 
 ZSTD_frameHeaderSize_internal.exit.thread:        ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 30096
-  store i64 -72, ptr %38, align 8, !tbaa !108
+  store i64 -72, ptr %38, align 8, !tbaa !107
   br label %ZSTD_copyRawBlock.exit.thread
 
 ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
@@ -1878,7 +1878,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   %59 = add i64 %58, %48
   %60 = add i64 %59, %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 30096
-  store i64 %60, ptr %61, align 8, !tbaa !108
+  store i64 %60, ptr %61, align 8, !tbaa !107
   %62 = icmp ult i64 %60, -119
   br i1 %62, label %63, label %ZSTD_copyRawBlock.exit.thread
 
@@ -1887,14 +1887,14 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %64, ptr nonnull align 1 %3, i64 %4, i1 false)
   %65 = sub i64 %60, %4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %65, ptr %66, align 8, !tbaa !76
-  store i32 1, ptr %8, align 4, !tbaa !77
+  store i64 %65, ptr %66, align 8, !tbaa !75
+  store i32 1, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 67:                                               ; preds = %19
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 95932
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 30096
-  %70 = load i64, ptr %69, align 8, !tbaa !108
+  %70 = load i64, ptr %69, align 8, !tbaa !107
   %71 = sub i64 %70, %4
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr align 1 %3, i64 %4, i1 false)
@@ -1904,8 +1904,8 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
 
 75:                                               ; preds = %67
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 3, ptr %76, align 8, !tbaa !76
-  store i32 2, ptr %8, align 4, !tbaa !77
+  store i64 3, ptr %76, align 8, !tbaa !75
+  store i32 2, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 77:                                               ; preds = %19
@@ -1916,22 +1916,22 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 29944
-  %82 = load i32, ptr %81, align 8, !tbaa !109
+  %82 = load i32, ptr %81, align 8, !tbaa !108
   %83 = zext i32 %82 to i64
   %84 = icmp ugt i64 %78, %83
   br i1 %84, label %104, label %85
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %78, ptr %86, align 8, !tbaa !76
-  %87 = load i32, ptr %7, align 4, !tbaa !88
+  store i64 %78, ptr %86, align 8, !tbaa !75
+  %87 = load i32, ptr %7, align 4, !tbaa !87
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 29992
-  store i32 %87, ptr %88, align 8, !tbaa !81
+  store i32 %87, ptr %88, align 8, !tbaa !80
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %90 = load i32, ptr %89, align 4, !tbaa !89
+  %90 = load i32, ptr %89, align 4, !tbaa !88
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 30160
-  store i64 %91, ptr %92, align 8, !tbaa !110
+  store i64 %91, ptr %92, align 8, !tbaa !109
   %.not154 = icmp eq i64 %78, 0
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !65
@@ -1947,25 +1947,25 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
 
 98:                                               ; preds = %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 29960
-  %100 = load i32, ptr %99, align 8, !tbaa !92
+  %100 = load i32, ptr %99, align 8, !tbaa !91
   %.not156 = icmp eq i32 %100, 0
   br i1 %.not156, label %102, label %101
 
 101:                                              ; preds = %98
-  store i64 4, ptr %86, align 8, !tbaa !76
+  store i64 4, ptr %86, align 8, !tbaa !75
   br label %.sink.split
 
 102:                                              ; preds = %98
-  store i64 0, ptr %86, align 8, !tbaa !76
+  store i64 0, ptr %86, align 8, !tbaa !75
   br label %.sink.split
 
 103:                                              ; preds = %97
-  store i64 3, ptr %86, align 8, !tbaa !76
+  store i64 3, ptr %86, align 8, !tbaa !75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %95, %101, %102, %103
   %.sink = phi i32 [ 2, %103 ], [ 0, %102 ], [ 5, %101 ], [ %96, %95 ]
-  store i32 %.sink, ptr %8, align 4, !tbaa !77
+  store i32 %.sink, ptr %8, align 4, !tbaa !76
   br label %104
 
 104:                                              ; preds = %.sink.split, %80, %77
@@ -1975,7 +1975,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
 
 105:                                              ; preds = %19, %19
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 29992
-  %107 = load i32, ptr %106, align 8, !tbaa !81
+  %107 = load i32, ptr %106, align 8, !tbaa !80
   switch i32 %107, label %ZSTD_copyRawBlock.exit.thread [
     i32 2, label %108
     i32 0, label %110
@@ -2005,15 +2005,15 @@ ZSTD_copyRawBlock.exit:                           ; preds = %112
 
 .thread:                                          ; preds = %ZSTD_copyRawBlock.exit, %114
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  %118 = load i64, ptr %117, align 8, !tbaa !76
+  %118 = load i64, ptr %117, align 8, !tbaa !75
   %119 = sub i64 %118, %4
-  store i64 %119, ptr %117, align 8, !tbaa !76
+  store i64 %119, ptr %117, align 8, !tbaa !75
   br label %132
 
 120:                                              ; preds = %105
   %121 = load i8, ptr %3, align 1, !tbaa !42
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 30160
-  %123 = load i64, ptr %122, align 8, !tbaa !110
+  %123 = load i64, ptr %122, align 8, !tbaa !109
   %124 = icmp ugt i64 %123, %2
   br i1 %124, label %ZSTD_setRleBlock.exit, label %125
 
@@ -2033,7 +2033,7 @@ ZSTD_copyRawBlock.exit:                           ; preds = %112
 ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %108
   %.0140 = phi i64 [ %109, %108 ], [ %123, %129 ], [ -70, %120 ], [ %..i169, %127 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 0, ptr %130, align 8, !tbaa !76
+  store i64 0, ptr %130, align 8, !tbaa !75
   %131 = icmp ult i64 %.0140, -119
   br i1 %131, label %132, label %ZSTD_copyRawBlock.exit.thread
 
@@ -2042,18 +2042,18 @@ ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %1
   %133 = phi i64 [ %119, %.thread ], [ 0, %ZSTD_setRleBlock.exit ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 29928
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 29944
-  %136 = load i32, ptr %135, align 8, !tbaa !109
+  %136 = load i32, ptr %135, align 8, !tbaa !108
   %137 = zext i32 %136 to i64
   %138 = icmp ugt i64 %.0140183, %137
   br i1 %138, label %ZSTD_copyRawBlock.exit.thread, label %139
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 29984
-  %141 = load i64, ptr %140, align 8, !tbaa !111
+  %141 = load i64, ptr %140, align 8, !tbaa !110
   %142 = add i64 %141, %.0140183
-  store i64 %142, ptr %140, align 8, !tbaa !111
+  store i64 %142, ptr %140, align 8, !tbaa !110
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %144 = load i32, ptr %143, align 8, !tbaa !90
+  %144 = load i32, ptr %143, align 8, !tbaa !89
   %.not148 = icmp eq i32 %144, 0
   br i1 %.not148, label %148, label %145
 
@@ -2061,60 +2061,60 @@ ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %1
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 30008
   %147 = tail call i32 @ZSTD_XXH64_update(ptr noundef nonnull %146, ptr noundef %1, i64 noundef %.0140183) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  %.pre176 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !76
+  %.pre176 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !75
   br label %148
 
 148:                                              ; preds = %145, %139
   %149 = phi i64 [ %.pre176, %145 ], [ %133, %139 ]
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 %.0140183
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 29888
-  store ptr %150, ptr %151, align 8, !tbaa !74
+  store ptr %150, ptr %151, align 8, !tbaa !73
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 29920
   %.not149 = icmp eq i64 %149, 0
   br i1 %.not149, label %153, label %ZSTD_copyRawBlock.exit.thread
 
 153:                                              ; preds = %148
-  %154 = load i32, ptr %8, align 4, !tbaa !77
+  %154 = load i32, ptr %8, align 4, !tbaa !76
   %155 = icmp eq i32 %154, 4
   br i1 %155, label %156, label %167
 
 156:                                              ; preds = %153
-  %157 = load i64, ptr %134, align 8, !tbaa !91
+  %157 = load i64, ptr %134, align 8, !tbaa !90
   %.not150 = icmp eq i64 %157, -1
   br i1 %.not150, label %160, label %158
 
 158:                                              ; preds = %156
-  %159 = load i64, ptr %140, align 8, !tbaa !111
+  %159 = load i64, ptr %140, align 8, !tbaa !110
   %.not151 = icmp eq i64 %159, %157
   br i1 %.not151, label %160, label %ZSTD_copyRawBlock.exit.thread
 
 160:                                              ; preds = %158, %156
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 29960
-  %162 = load i32, ptr %161, align 8, !tbaa !92
+  %162 = load i32, ptr %161, align 8, !tbaa !91
   %.not152 = icmp eq i32 %162, 0
   br i1 %.not152, label %164, label %163
 
 163:                                              ; preds = %160
-  store i64 4, ptr %152, align 8, !tbaa !76
-  store i32 5, ptr %8, align 4, !tbaa !77
+  store i64 4, ptr %152, align 8, !tbaa !75
+  store i32 5, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 164:                                              ; preds = %160
-  %165 = load i64, ptr %140, align 8, !tbaa !111
-  %166 = load i64, ptr %20, align 8, !tbaa !107
+  %165 = load i64, ptr %140, align 8, !tbaa !110
+  %166 = load i64, ptr %20, align 8, !tbaa !106
   tail call fastcc void @ZSTD_DCtx_trace_end(ptr noundef nonnull %0, i64 noundef %165, i64 noundef %166, i32 noundef 1)
-  store i64 0, ptr %152, align 8, !tbaa !76
-  store i32 0, ptr %8, align 4, !tbaa !77
+  store i64 0, ptr %152, align 8, !tbaa !75
+  store i32 0, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 167:                                              ; preds = %153
-  store i32 2, ptr %8, align 4, !tbaa !77
-  store i64 3, ptr %152, align 8, !tbaa !76
+  store i32 2, ptr %8, align 4, !tbaa !76
+  store i64 3, ptr %152, align 8, !tbaa !75
   br label %ZSTD_copyRawBlock.exit.thread
 
 168:                                              ; preds = %19
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  %170 = load i32, ptr %169, align 8, !tbaa !90
+  %170 = load i32, ptr %169, align 8, !tbaa !89
   %.not144 = icmp eq i32 %170, 0
   br i1 %.not144, label %175, label %171
 
@@ -2127,15 +2127,15 @@ ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %1
   br i1 %.not145.not, label %._crit_edge, label %ZSTD_copyRawBlock.exit.thread
 
 ._crit_edge:                                      ; preds = %171
-  %.pre = load i64, ptr %20, align 8, !tbaa !107
+  %.pre = load i64, ptr %20, align 8, !tbaa !106
   br label %175
 
 175:                                              ; preds = %._crit_edge, %168
   %176 = phi i64 [ %.pre, %._crit_edge ], [ %22, %168 ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 29984
-  %178 = load i64, ptr %177, align 8, !tbaa !111
+  %178 = load i64, ptr %177, align 8, !tbaa !110
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 95960
-  %180 = load i64, ptr %179, align 8, !tbaa !75
+  %180 = load i64, ptr %179, align 8, !tbaa !74
   %181 = icmp ne i64 %180, 0
   %182 = icmp ne ptr @ZSTD_trace_decompress_end, null
   %or.cond.i = and i1 %182, %181
@@ -2145,44 +2145,44 @@ ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
   %184 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %184, i8 0, i64 48, i1 false)
-  store i32 10505, ptr %6, align 8, !tbaa !93
+  store i32 10505, ptr %6, align 8, !tbaa !92
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 1, ptr %185, align 4, !tbaa !98
+  store i32 1, ptr %185, align 4, !tbaa !97
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %187 = load ptr, ptr %186, align 8, !tbaa !99
+  %187 = load ptr, ptr %186, align 8, !tbaa !98
   %.not.i170 = icmp eq ptr %187, null
   br i1 %.not.i170, label %196, label %188
 
 188:                                              ; preds = %183
   %189 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %187) #15
-  store i32 %189, ptr %184, align 8, !tbaa !100
-  %190 = load ptr, ptr %186, align 8, !tbaa !99
+  store i32 %189, ptr %184, align 8, !tbaa !99
+  %190 = load ptr, ptr %186, align 8, !tbaa !98
   %191 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %190) #15
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %191, ptr %192, align 8, !tbaa !101
+  store i64 %191, ptr %192, align 8, !tbaa !100
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 30196
   %194 = load i32, ptr %193, align 4, !tbaa !23
   %195 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %194, ptr %195, align 4, !tbaa !102
-  %.pre.i = load i64, ptr %179, align 8, !tbaa !75
+  store i32 %194, ptr %195, align 4, !tbaa !101
+  %.pre.i = load i64, ptr %179, align 8, !tbaa !74
   br label %196
 
 196:                                              ; preds = %188, %183
   %197 = phi i64 [ %.pre.i, %188 ], [ %180, %183 ]
   %198 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %178, ptr %198, align 8, !tbaa !103
+  store i64 %178, ptr %198, align 8, !tbaa !102
   %199 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %176, ptr %199, align 8, !tbaa !104
+  store i64 %176, ptr %199, align 8, !tbaa !103
   %200 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %0, ptr %200, align 8, !tbaa !105
+  store ptr %0, ptr %200, align 8, !tbaa !104
   call void @ZSTD_trace_decompress_end(i64 noundef %197, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   br label %ZSTD_DCtx_trace_end.exit
 
 ZSTD_DCtx_trace_end.exit:                         ; preds = %175, %196
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 0, ptr %201, align 8, !tbaa !76
-  store i32 0, ptr %8, align 4, !tbaa !77
+  store i64 0, ptr %201, align 8, !tbaa !75
+  store i32 0, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 202:                                              ; preds = %19
@@ -2194,14 +2194,14 @@ ZSTD_DCtx_trace_end.exit:                         ; preds = %175, %196
   %.val = load i32, ptr %206, align 1, !tbaa !41
   %207 = zext i32 %.val to i64
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %207, ptr %208, align 8, !tbaa !76
-  store i32 7, ptr %8, align 4, !tbaa !77
+  store i64 %207, ptr %208, align 8, !tbaa !75
+  store i32 7, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 209:                                              ; preds = %19
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 0, ptr %210, align 8, !tbaa !76
-  store i32 0, ptr %8, align 4, !tbaa !77
+  store i64 0, ptr %210, align 8, !tbaa !75
+  store i32 0, ptr %8, align 4, !tbaa !76
   br label %ZSTD_copyRawBlock.exit.thread
 
 ZSTD_copyRawBlock.exit.thread:                    ; preds = %114, %110, %ZSTD_frameHeaderSize_internal.exit, %ZSTD_frameHeaderSize_internal.exit.thread, %171, %67, %19, %ZSTD_setRleBlock.exit, %ZSTD_copyRawBlock.exit, %105, %132, %148, %158, %163, %164, %167, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit, %209, %202, %ZSTD_DCtx_trace_end.exit, %104, %75, %63, %31
@@ -2237,18 +2237,18 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %20 = load ptr, ptr %19, align 8, !tbaa !99
+  %20 = load ptr, ptr %19, align 8, !tbaa !98
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %ZSTD_DCtx_selectFrameDDict.exit, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 29956
-  %23 = load i32, ptr %22, align 4, !tbaa !112
+  %23 = load i32, ptr %22, align 4, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %23, ptr %4, align 4, !tbaa !41
   %24 = call i64 @ZSTD_XXH64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #15
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !113
+  %26 = load i64, ptr %25, align 8, !tbaa !112
   %27 = add i64 %26, -1
   %28 = and i64 %27, %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -2258,19 +2258,19 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr nounde
   %.014.i.i = phi i64 [ %28, %21 ], [ %37, %29 ]
   %30 = load ptr, ptr %17, align 8, !tbaa !38
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.014.i.i
-  %32 = load ptr, ptr %31, align 8, !tbaa !114
+  %32 = load ptr, ptr %31, align 8, !tbaa !113
   %33 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %32) #15
   %34 = icmp eq i32 %33, %23
   %35 = icmp eq i32 %33, 0
   %or.cond.i.i = or i1 %34, %35
   %36 = and i64 %.014.i.i, %27
   %37 = add i64 %36, 1
-  br i1 %or.cond.i.i, label %ZSTD_DDictHashSet_getDDict.exit.i, label %29, !llvm.loop !115
+  br i1 %or.cond.i.i, label %ZSTD_DDictHashSet_getDDict.exit.i, label %29
 
 ZSTD_DDictHashSet_getDDict.exit.i:                ; preds = %29
   %38 = load ptr, ptr %17, align 8, !tbaa !38
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.014.i.i
-  %40 = load ptr, ptr %39, align 8, !tbaa !114
+  %40 = load ptr, ptr %39, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %40, null
   br i1 %.not10.i, label %ZSTD_DCtx_selectFrameDDict.exit, label %41
 
@@ -2280,28 +2280,28 @@ ZSTD_DDictHashSet_getDDict.exit.i:                ; preds = %29
   %44 = call i64 @ZSTD_freeDDict(ptr noundef %43) #15
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 30200
   store i64 0, ptr %42, align 8
-  %46 = load i32, ptr %22, align 4, !tbaa !112
+  %46 = load i32, ptr %22, align 4, !tbaa !111
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 30192
-  store i32 %46, ptr %47, align 8, !tbaa !80
-  store ptr %40, ptr %19, align 8, !tbaa !99
+  store i32 %46, ptr %47, align 8, !tbaa !79
+  store ptr %40, ptr %19, align 8, !tbaa !98
   store i32 -1, ptr %45, align 8, !tbaa !24
   br label %ZSTD_DCtx_selectFrameDDict.exit
 
 ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %41, %ZSTD_DDictHashSet_getDDict.exit.i, %18, %15, %11
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 29956
-  %49 = load i32, ptr %48, align 4, !tbaa !112
+  %49 = load i32, ptr %48, align 4, !tbaa !111
   %.not23 = icmp eq i32 %49, 0
   br i1 %.not23, label %53, label %50
 
 50:                                               ; preds = %ZSTD_DCtx_selectFrameDDict.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 30192
-  %52 = load i32, ptr %51, align 8, !tbaa !80
+  %52 = load i32, ptr %51, align 8, !tbaa !79
   %.not24 = icmp eq i32 %52, %49
   br i1 %.not24, label %53, label %69
 
 53:                                               ; preds = %50, %ZSTD_DCtx_selectFrameDDict.exit
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 29960
-  %55 = load i32, ptr %54, align 8, !tbaa !92
+  %55 = load i32, ptr %54, align 8, !tbaa !91
   %.not25 = icmp eq i32 %55, 0
   br i1 %.not25, label %.critedge, label %56
 
@@ -2311,7 +2311,7 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %41, %ZSTD_DDictHash
   %.not26 = icmp eq i32 %58, 0
   %59 = zext i1 %.not26 to i32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  store i32 %59, ptr %60, align 8, !tbaa !90
+  store i32 %59, ptr %60, align 8, !tbaa !89
   br i1 %.not26, label %61, label %65
 
 61:                                               ; preds = %56
@@ -2321,14 +2321,14 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %41, %ZSTD_DDictHash
 
 .critedge:                                        ; preds = %53
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 30112
-  store i32 0, ptr %64, align 8, !tbaa !90
+  store i32 0, ptr %64, align 8, !tbaa !89
   br label %65
 
 65:                                               ; preds = %.critedge, %61, %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 29976
-  %67 = load i64, ptr %66, align 8, !tbaa !107
+  %67 = load i64, ptr %66, align 8, !tbaa !106
   %68 = add i64 %67, %2
-  store i64 %68, ptr %66, align 8, !tbaa !107
+  store i64 %68, ptr %66, align 8, !tbaa !106
   br label %69
 
 69:                                               ; preds = %50, %10, %3, %65
@@ -2346,7 +2346,7 @@ declare i32 @ZSTD_XXH64_update(ptr noundef, ptr noundef, i64 noundef) local_unna
 define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.ZSTD_Trace, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 95960
-  %7 = load i64, ptr %6, align 8, !tbaa !75
+  %7 = load i64, ptr %6, align 8, !tbaa !74
   %8 = icmp ne i64 %7, 0
   %9 = icmp ne ptr @ZSTD_trace_decompress_end, null
   %or.cond = and i1 %9, %8
@@ -2356,37 +2356,37 @@ define internal fastcc void @ZSTD_DCtx_trace_end(ptr noundef %0, i64 noundef %1,
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
-  store i32 10505, ptr %5, align 8, !tbaa !93
+  store i32 10505, ptr %5, align 8, !tbaa !92
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %3, ptr %12, align 4, !tbaa !98
+  store i32 %3, ptr %12, align 4, !tbaa !97
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  %14 = load ptr, ptr %13, align 8, !tbaa !99
+  %14 = load ptr, ptr %13, align 8, !tbaa !98
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %10
   %16 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %14) #15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %16, ptr %17, align 8, !tbaa !100
-  %18 = load ptr, ptr %13, align 8, !tbaa !99
+  store i32 %16, ptr %17, align 8, !tbaa !99
+  %18 = load ptr, ptr %13, align 8, !tbaa !98
   %19 = tail call i64 @ZSTD_DDict_dictSize(ptr noundef %18) #15
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %19, ptr %20, align 8, !tbaa !101
+  store i64 %19, ptr %20, align 8, !tbaa !100
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 30196
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %22, ptr %23, align 4, !tbaa !102
-  %.pre = load i64, ptr %6, align 8, !tbaa !75
+  store i32 %22, ptr %23, align 4, !tbaa !101
+  %.pre = load i64, ptr %6, align 8, !tbaa !74
   br label %24
 
 24:                                               ; preds = %15, %10
   %25 = phi i64 [ %.pre, %15 ], [ %7, %10 ]
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %1, ptr %26, align 8, !tbaa !103
+  store i64 %1, ptr %26, align 8, !tbaa !102
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %2, ptr %27, align 8, !tbaa !104
+  store i64 %2, ptr %27, align 8, !tbaa !103
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %0, ptr %28, align 8, !tbaa !105
+  store ptr %0, ptr %28, align 8, !tbaa !104
   call void @ZSTD_trace_decompress_end(i64 noundef %25, ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
   br label %29
@@ -2529,7 +2529,7 @@ define dso_local i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, i64 noun
   store i32 %.469.val, ptr %70, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %71, label %65, !llvm.loop !116
+  br i1 %exitcond, label %71, label %65, !llvm.loop !114
 
 71:                                               ; preds = %.critedge95
   %72 = ptrtoint ptr %69 to i64
@@ -2578,15 +2578,15 @@ define dso_local noundef i64 @ZSTD_decompressBegin(ptr noundef %0) local_unnamed
 4:                                                ; preds = %1, %2
   %5 = phi i64 [ %3, %2 ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 95960
-  store i64 %5, ptr %6, align 8, !tbaa !75
+  store i64 %5, ptr %6, align 8, !tbaa !74
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 30104
   %8 = load i32, ptr %7, align 8, !tbaa !29
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, i64 5, i64 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %10, ptr %11, align 8, !tbaa !76
+  store i64 %10, ptr %11, align 8, !tbaa !75
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 29996
-  store i32 0, ptr %12, align 4, !tbaa !77
+  store i32 0, ptr %12, align 4, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 29976
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 29888
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2595,24 +2595,24 @@ define dso_local noundef i64 @ZSTD_decompressBegin(ptr noundef %0) local_unnamed
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %16, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 30004
-  store i32 0, ptr %17, align 4, !tbaa !78
+  store i32 0, ptr %17, align 4, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30000
-  store i32 0, ptr %18, align 8, !tbaa !79
+  store i32 0, ptr %18, align 8, !tbaa !78
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30192
-  store i32 0, ptr %19, align 8, !tbaa !80
+  store i32 0, ptr %19, align 8, !tbaa !79
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 29992
-  store i32 3, ptr %20, align 8, !tbaa !81
+  store i32 3, ptr %20, align 8, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 26684
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  store ptr %15, ptr %0, align 8, !tbaa !82
+  store ptr %15, ptr %0, align 8, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 6192
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %22, ptr %23, align 8, !tbaa !83
+  store ptr %22, ptr %23, align 8, !tbaa !82
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4136
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %24, ptr %25, align 8, !tbaa !84
+  store ptr %24, ptr %25, align 8, !tbaa !83
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %16, ptr %26, align 8, !tbaa !85
+  store ptr %16, ptr %26, align 8, !tbaa !84
   ret i64 0
 }
 
@@ -2630,15 +2630,15 @@ define dso_local range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr nound
 6:                                                ; preds = %4, %3
   %7 = phi i64 [ %5, %4 ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 95960
-  store i64 %7, ptr %8, align 8, !tbaa !75
+  store i64 %7, ptr %8, align 8, !tbaa !74
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 30104
   %10 = load i32, ptr %9, align 8, !tbaa !29
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i64 5, i64 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %12, ptr %13, align 8, !tbaa !76
+  store i64 %12, ptr %13, align 8, !tbaa !75
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 29996
-  store i32 0, ptr %14, align 4, !tbaa !77
+  store i32 0, ptr %14, align 4, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 29976
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 29888
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2647,24 +2647,24 @@ define dso_local range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %18, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30004
-  store i32 0, ptr %19, align 4, !tbaa !78
+  store i32 0, ptr %19, align 4, !tbaa !77
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30000
-  store i32 0, ptr %20, align 8, !tbaa !79
+  store i32 0, ptr %20, align 8, !tbaa !78
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 30192
-  store i32 0, ptr %21, align 8, !tbaa !80
+  store i32 0, ptr %21, align 8, !tbaa !79
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 29992
-  store i32 3, ptr %22, align 8, !tbaa !81
+  store i32 3, ptr %22, align 8, !tbaa !80
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 26684
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  store ptr %17, ptr %0, align 8, !tbaa !82
+  store ptr %17, ptr %0, align 8, !tbaa !81
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 6192
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8, !tbaa !83
+  store ptr %24, ptr %25, align 8, !tbaa !82
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4136
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %27, align 8, !tbaa !84
+  store ptr %26, ptr %27, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %18, ptr %28, align 8, !tbaa !85
+  store ptr %18, ptr %28, align 8, !tbaa !84
   %29 = icmp ne ptr %1, null
   %30 = icmp ne i64 %2, 0
   %or.cond = and i1 %29, %30
@@ -2682,18 +2682,18 @@ define dso_local range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr nound
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val.i = load i32, ptr %35, align 1, !tbaa !41
-  store i32 %.val.i, ptr %21, align 8, !tbaa !80
+  store i32 %.val.i, ptr %21, align 8, !tbaa !79
   %36 = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef range(i64 1, 0) %2)
   %37 = icmp ult i64 %36, -119
   br i1 %37, label %38, label %ZSTD_decompress_insertDictionary.exit
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %36
-  store i32 1, ptr %19, align 4, !tbaa !78
-  store i32 1, ptr %20, align 8, !tbaa !79
-  %.pre = load ptr, ptr %16, align 8, !tbaa !74
+  store i32 1, ptr %19, align 4, !tbaa !77
+  store i32 1, ptr %20, align 8, !tbaa !78
+  %.pre = load ptr, ptr %16, align 8, !tbaa !73
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 29896
-  %.pre16 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !86
+  %.pre16 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !85
   %40 = ptrtoint ptr %.pre16 to i64
   br label %ZSTD_decompress_insertDictionary.exit.thread
 
@@ -2708,10 +2708,10 @@ ZSTD_decompress_insertDictionary.exit.thread:     ; preds = %31, %33, %38
   %.neg.i35.i = sub i64 %41, %45
   %46 = getelementptr inbounds i8, ptr %.sink42.i, i64 %.neg.i35.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 29904
-  store ptr %46, ptr %47, align 8, !tbaa !87
-  store ptr %.sink42.i, ptr %44, align 8, !tbaa !86
+  store ptr %46, ptr %47, align 8, !tbaa !86
+  store ptr %.sink42.i, ptr %44, align 8, !tbaa !85
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  store ptr %48, ptr %16, align 8, !tbaa !74
+  store ptr %48, ptr %16, align 8, !tbaa !73
   br label %ZSTD_decompress_insertDictionary.exit
 
 ZSTD_decompress_insertDictionary.exit:            ; preds = %34, %6, %ZSTD_decompress_insertDictionary.exit.thread
@@ -2747,15 +2747,15 @@ define dso_local noundef i64 @ZSTD_decompressBegin_usingDDict(ptr noundef %0, pt
 ZSTD_decompressBegin.exit:                        ; preds = %12, %13
   %15 = phi i64 [ %14, %13 ], [ 0, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 95960
-  store i64 %15, ptr %16, align 8, !tbaa !75
+  store i64 %15, ptr %16, align 8, !tbaa !74
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 30104
   %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = icmp eq i32 %18, 0
   %20 = select i1 %19, i64 5, i64 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 29920
-  store i64 %20, ptr %21, align 8, !tbaa !76
+  store i64 %20, ptr %21, align 8, !tbaa !75
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 29996
-  store i32 0, ptr %22, align 4, !tbaa !77
+  store i32 0, ptr %22, align 4, !tbaa !76
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 29976
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 29888
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2764,24 +2764,24 @@ ZSTD_decompressBegin.exit:                        ; preds = %12, %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %26, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 30004
-  store i32 0, ptr %27, align 4, !tbaa !78
+  store i32 0, ptr %27, align 4, !tbaa !77
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 30000
-  store i32 0, ptr %28, align 8, !tbaa !79
+  store i32 0, ptr %28, align 8, !tbaa !78
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 30192
-  store i32 0, ptr %29, align 8, !tbaa !80
+  store i32 0, ptr %29, align 8, !tbaa !79
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 29992
-  store i32 3, ptr %30, align 8, !tbaa !81
+  store i32 3, ptr %30, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 26684
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  store ptr %25, ptr %0, align 8, !tbaa !82
+  store ptr %25, ptr %0, align 8, !tbaa !81
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 6192
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %32, ptr %33, align 8, !tbaa !83
+  store ptr %32, ptr %33, align 8, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4136
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %34, ptr %35, align 8, !tbaa !84
+  store ptr %34, ptr %35, align 8, !tbaa !83
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %26, ptr %36, align 8, !tbaa !85
+  store ptr %26, ptr %36, align 8, !tbaa !84
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %ZSTD_decompressBegin.exit
@@ -3052,7 +3052,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advanced(ptr no
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %17, ptr %20, align 8, !tbaa !99
+  store ptr %17, ptr %20, align 8, !tbaa !98
   store i32 -1, ptr %12, align 8, !tbaa !24
   br label %21
 
@@ -3091,7 +3091,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byReference(ptr
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %15, ptr %18, align 8, !tbaa !99
+  store ptr %15, ptr %18, align 8, !tbaa !98
   store i32 -1, ptr %10, align 8, !tbaa !24
   br label %ZSTD_DCtx_loadDictionary_advanced.exit
 
@@ -3128,7 +3128,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr noundef cap
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %15, ptr %18, align 8, !tbaa !99
+  store ptr %15, ptr %18, align 8, !tbaa !98
   store i32 -1, ptr %10, align 8, !tbaa !24
   br label %ZSTD_DCtx_loadDictionary_advanced.exit
 
@@ -3165,7 +3165,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr noundef
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %16, ptr %19, align 8, !tbaa !99
+  store ptr %16, ptr %19, align 8, !tbaa !98
   br label %20
 
 20:                                               ; preds = %18, %7
@@ -3205,7 +3205,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef captures
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %15, ptr %18, align 8, !tbaa !99
+  store ptr %15, ptr %18, align 8, !tbaa !98
   br label %19
 
 19:                                               ; preds = %17, %6
@@ -3243,7 +3243,7 @@ define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef c
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %14, ptr %17, align 8, !tbaa !99
+  store ptr %14, ptr %17, align 8, !tbaa !98
   store i32 -1, ptr %9, align 8, !tbaa !24
   br label %18
 
@@ -3350,7 +3350,7 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef captures(
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 30184
-  store ptr %1, ptr %13, align 8, !tbaa !99
+  store ptr %1, ptr %13, align 8, !tbaa !98
   store i32 -1, ptr %11, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 30216
   %15 = load i32, ptr %14, align 8, !tbaa !33
@@ -3414,9 +3414,9 @@ ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.e
 .thread:                                          ; preds = %ZSTD_customCalloc.exit.i, %ZSTD_customCalloc.exit.thread.i
   %.0.i202227.i = phi ptr [ %24, %ZSTD_customCalloc.exit.thread.i ], [ %23, %ZSTD_customCalloc.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i202227.i, i64 8
-  store i64 64, ptr %30, align 8, !tbaa !113
+  store i64 64, ptr %30, align 8, !tbaa !112
   %31 = getelementptr inbounds nuw i8, ptr %.0.i202227.i, i64 16
-  store i64 0, ptr %31, align 8, !tbaa !117
+  store i64 0, ptr %31, align 8, !tbaa !115
   store ptr %.0.i202227.i, ptr %18, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %.0.i202227.i, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %.0.i202227.i, i64 8
@@ -3424,9 +3424,9 @@ ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.e
 
 34:                                               ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !117
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !115
   %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !113
+  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !112
   %35 = shl i64 %.pre, 2
   %36 = icmp ugt i64 %.pre42, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 30128
@@ -3447,7 +3447,7 @@ ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.e
 42:                                               ; preds = %40
   %43 = tail call ptr %.sroa.024.0.copyload(ptr noundef %.sroa.526.0.copyload, i64 noundef %41) #15
   tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %41, i1 false)
-  %.pre.i.i = load i64, ptr %39, align 8, !tbaa !113
+  %.pre.i.i = load i64, ptr %39, align 8, !tbaa !112
   br label %ZSTD_customCalloc.exit.i.i
 
 44:                                               ; preds = %40
@@ -3464,15 +3464,15 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
 48:                                               ; preds = %ZSTD_customCalloc.exit.i.i
   %49 = shl i64 %.pre42, 1
   store ptr %.0.i.i.i, ptr %19, align 8, !tbaa !38
-  store i64 %49, ptr %39, align 8, !tbaa !113
-  store i64 0, ptr %38, align 8, !tbaa !117
+  store i64 %49, ptr %39, align 8, !tbaa !112
+  store i64 0, ptr %38, align 8, !tbaa !115
   %.not40.i.i = icmp eq i64 %46, 0
   br i1 %.not40.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %48, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
   %.02339.i.i = phi i64 [ %78, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i ], [ 0, %48 ]
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02339.i.i
-  %51 = load ptr, ptr %50, align 8, !tbaa !114
+  %51 = load ptr, ptr %50, align 8, !tbaa !113
   %.not26.i.i = icmp eq ptr %51, null
   br i1 %.not26.i.i, label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, label %52
 
@@ -3481,10 +3481,10 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %53, ptr %4, align 4, !tbaa !41
   %54 = call i64 @ZSTD_XXH64(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 0) #15
-  %55 = load i64, ptr %39, align 8, !tbaa !113
+  %55 = load i64, ptr %39, align 8, !tbaa !112
   %56 = add i64 %55, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %57 = load i64, ptr %38, align 8, !tbaa !117
+  %57 = load i64, ptr %38, align 8, !tbaa !115
   %58 = icmp eq i64 %57, %55
   br i1 %58, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %.preheader.i.i.i
 
@@ -3492,7 +3492,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
   %59 = and i64 %56, %54
   %60 = load ptr, ptr %19, align 8, !tbaa !38
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
-  %62 = load ptr, ptr %61, align 8, !tbaa !114
+  %62 = load ptr, ptr %61, align 8, !tbaa !113
   %.not26.i.i.i = icmp eq ptr %62, null
   br i1 %.not26.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -3506,7 +3506,7 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
 66:                                               ; preds = %.lr.ph.i.i.i
   %67 = load ptr, ptr %19, align 8, !tbaa !38
   %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.02127.i.i.i
-  store ptr %51, ptr %68, align 8, !tbaa !114
+  store ptr %51, ptr %68, align 8, !tbaa !113
   br label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
 
 69:                                               ; preds = %.lr.ph.i.i.i
@@ -3514,12 +3514,12 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
   %71 = add i64 %70, 1
   %72 = load ptr, ptr %19, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %71
-  %74 = load ptr, ptr %73, align 8, !tbaa !114
+  %74 = load ptr, ptr %73, align 8, !tbaa !113
   %.not.i31.i.i = icmp eq ptr %74, null
-  br i1 %.not.i31.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !118
+  br i1 %.not.i31.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !116
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %69
-  %.pre.i.i.i = load i64, ptr %38, align 8, !tbaa !117
+  %.pre.i.i.i = load i64, ptr %38, align 8, !tbaa !115
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i
@@ -3527,15 +3527,15 @@ ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
   %.021.lcssa.i.i.i = phi i64 [ %59, %.preheader.i.i.i ], [ %71, %._crit_edge.loopexit.i.i.i ]
   %.lcssa25.i.i.i = phi ptr [ %60, %.preheader.i.i.i ], [ %72, %._crit_edge.loopexit.i.i.i ]
   %76 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
-  store ptr %51, ptr %76, align 8, !tbaa !114
+  store ptr %51, ptr %76, align 8, !tbaa !113
   %77 = add i64 %75, 1
-  store i64 %77, ptr %38, align 8, !tbaa !117
+  store i64 %77, ptr %38, align 8, !tbaa !115
   br label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
 
 ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i:   ; preds = %._crit_edge.i.i.i, %66, %.lr.ph.i.i
   %78 = add nuw i64 %.02339.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %78, %46
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !119
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !117
 
 ._crit_edge.i.i:                                  ; preds = %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, %48
   %.not.i33.i.i = icmp eq ptr %47, null
@@ -3561,10 +3561,10 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %81, %80, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %85, ptr %3, align 4, !tbaa !41
   %86 = call i64 @ZSTD_XXH64(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 0) #15
-  %87 = load i64, ptr %82, align 8, !tbaa !113
+  %87 = load i64, ptr %82, align 8, !tbaa !112
   %88 = add i64 %87, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %89 = load i64, ptr %83, align 8, !tbaa !117
+  %89 = load i64, ptr %83, align 8, !tbaa !115
   %.not25.i = icmp eq i64 %89, %87
   br i1 %.not25.i, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %.preheader.i.i
 
@@ -3572,7 +3572,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %81, %80, 
   %90 = and i64 %88, %86
   %91 = load ptr, ptr %84, align 8, !tbaa !38
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
-  %93 = load ptr, ptr %92, align 8, !tbaa !114
+  %93 = load ptr, ptr %92, align 8, !tbaa !113
   %.not26.i17.i = icmp eq ptr %93, null
   br i1 %.not26.i17.i, label %._crit_edge.i21.i, label %.lr.ph.i18.i
 
@@ -3586,7 +3586,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %81, %80, 
 97:                                               ; preds = %.lr.ph.i18.i
   %98 = load ptr, ptr %84, align 8, !tbaa !38
   %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %.02127.i.i
-  store ptr %1, ptr %99, align 8, !tbaa !114
+  store ptr %1, ptr %99, align 8, !tbaa !113
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
 100:                                              ; preds = %.lr.ph.i18.i
@@ -3594,12 +3594,12 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %81, %80, 
   %102 = add i64 %101, 1
   %103 = load ptr, ptr %84, align 8, !tbaa !38
   %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %102
-  %105 = load ptr, ptr %104, align 8, !tbaa !114
+  %105 = load ptr, ptr %104, align 8, !tbaa !113
   %.not.i19.i = icmp eq ptr %105, null
-  br i1 %.not.i19.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i, !llvm.loop !118
+  br i1 %.not.i19.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i, !llvm.loop !116
 
 ._crit_edge.loopexit.i.i:                         ; preds = %100
-  %.pre.i20.i = load i64, ptr %83, align 8, !tbaa !117
+  %.pre.i20.i = load i64, ptr %83, align 8, !tbaa !115
   br label %._crit_edge.i21.i
 
 ._crit_edge.i21.i:                                ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
@@ -3607,9 +3607,9 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %81, %80, 
   %.021.lcssa.i.i = phi i64 [ %90, %.preheader.i.i ], [ %102, %._crit_edge.loopexit.i.i ]
   %.lcssa25.i.i = phi ptr [ %91, %.preheader.i.i ], [ %103, %._crit_edge.loopexit.i.i ]
   %107 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
-  store ptr %1, ptr %107, align 8, !tbaa !114
+  store ptr %1, ptr %107, align 8, !tbaa !113
   %108 = add i64 %106, 1
-  store i64 %108, ptr %83, align 8, !tbaa !117
+  store i64 %108, ptr %83, align 8, !tbaa !115
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
 ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %52, %._crit_edge.i21.i, %97, %ZSTD_DDictHashSet_expand.exit.thread.i, %ZSTD_customCalloc.exit.i.i, %7, %12, %ZSTD_createDDictHashSet.exit.thread, %2
@@ -3937,19 +3937,19 @@ define dso_local range(i64 -119, 2147972897) i64 @ZSTD_estimateDStreamSize_fromF
 define dso_local i64 @ZSTD_decompressStream(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ZSTD_frameSizeInfo, align 8
   %5 = alloca i32, align 4
-  %6 = load ptr, ptr %2, align 8, !tbaa !120
+  %6 = load ptr, ptr %2, align 8, !tbaa !118
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !122
+  %8 = load i64, ptr %7, align 8, !tbaa !120
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !123
+  %11 = load i64, ptr %10, align 8, !tbaa !121
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  %13 = load ptr, ptr %1, align 8, !tbaa !124
+  %13 = load ptr, ptr %1, align 8, !tbaa !122
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !125
+  %15 = load i64, ptr %14, align 8, !tbaa !123
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !126
+  %18 = load i64, ptr %17, align 8, !tbaa !124
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
   %20 = icmp ugt i64 %8, %11
   br i1 %20, label %ZSTD_checkOutBuffer.exit.thread, label %21
@@ -4057,19 +4057,19 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %31, %23, %27
   ]
 
 ._crit_edge555:                                   ; preds = %.thread476
-  %.pre556 = load i64, ptr %58, align 8, !tbaa !76
-  %.val396.pre = load i32, ptr %62, align 4, !tbaa !77
+  %.pre556 = load i64, ptr %58, align 8, !tbaa !75
+  %.val396.pre = load i32, ptr %62, align 4, !tbaa !76
   br label %289
 
 ._crit_edge:                                      ; preds = %.thread476
-  %.pre552 = load i64, ptr %44, align 8, !tbaa !127
+  %.pre552 = load i64, ptr %44, align 8, !tbaa !125
   br label %88
 
 87:                                               ; preds = %.thread476
   store i32 1, ptr %35, align 8, !tbaa !25
-  store i64 0, ptr %43, align 8, !tbaa !128
+  store i64 0, ptr %43, align 8, !tbaa !126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %37, i8 0, i64 28, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !129
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !127
   br label %88
 
 88:                                               ; preds = %._crit_edge, %87
@@ -4086,17 +4086,17 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %31, %23, %27
   br i1 %.not362, label %ZSTD_DCtx_selectFrameDDict.exit, label %95
 
 95:                                               ; preds = %93
-  %96 = load ptr, ptr %50, align 8, !tbaa !99
+  %96 = load ptr, ptr %50, align 8, !tbaa !98
   %.not.i397 = icmp eq ptr %96, null
   br i1 %.not.i397, label %ZSTD_DCtx_selectFrameDDict.exit, label %97
 
 97:                                               ; preds = %95
-  %98 = load i32, ptr %51, align 4, !tbaa !112
+  %98 = load i32, ptr %51, align 4, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %98, ptr %5, align 4, !tbaa !41
   %99 = call i64 @ZSTD_XXH64(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 0) #15
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !113
+  %101 = load i64, ptr %100, align 8, !tbaa !112
   %102 = add i64 %101, -1
   %103 = and i64 %102, %99
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4106,19 +4106,19 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %31, %23, %27
   %.014.i.i = phi i64 [ %103, %97 ], [ %112, %104 ]
   %105 = load ptr, ptr %94, align 8, !tbaa !38
   %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.014.i.i
-  %107 = load ptr, ptr %106, align 8, !tbaa !114
+  %107 = load ptr, ptr %106, align 8, !tbaa !113
   %108 = call i32 @ZSTD_getDictID_fromDDict(ptr noundef %107) #15
   %109 = icmp eq i32 %108, %98
   %110 = icmp eq i32 %108, 0
   %or.cond.i.i = or i1 %109, %110
   %111 = and i64 %.014.i.i, %102
   %112 = add i64 %111, 1
-  br i1 %or.cond.i.i, label %ZSTD_DDictHashSet_getDDict.exit.i, label %104, !llvm.loop !115
+  br i1 %or.cond.i.i, label %ZSTD_DDictHashSet_getDDict.exit.i, label %104
 
 ZSTD_DDictHashSet_getDDict.exit.i:                ; preds = %104
   %113 = load ptr, ptr %94, align 8, !tbaa !38
   %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %.014.i.i
-  %115 = load ptr, ptr %114, align 8, !tbaa !114
+  %115 = load ptr, ptr %114, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %115, null
   br i1 %.not10.i, label %ZSTD_DCtx_selectFrameDDict.exit, label %116
 
@@ -4126,9 +4126,9 @@ ZSTD_DDictHashSet_getDDict.exit.i:                ; preds = %104
   %117 = load ptr, ptr %52, align 8, !tbaa !4
   %118 = call i64 @ZSTD_freeDDict(ptr noundef %117) #15
   store i64 0, ptr %52, align 8
-  %119 = load i32, ptr %51, align 4, !tbaa !112
-  store i32 %119, ptr %54, align 8, !tbaa !80
-  store ptr %115, ptr %50, align 8, !tbaa !99
+  %119 = load i32, ptr %51, align 4, !tbaa !111
+  store i32 %119, ptr %54, align 8, !tbaa !79
+  store ptr %115, ptr %50, align 8, !tbaa !98
   store i32 -1, ptr %53, align 8, !tbaa !24
   br label %ZSTD_DCtx_selectFrameDDict.exit
 
@@ -4141,7 +4141,7 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %116, %ZSTD_DDictHas
   br i1 %.not364, label %147, label %122
 
 122:                                              ; preds = %121
-  %123 = load i64, ptr %44, align 8, !tbaa !127
+  %123 = load i64, ptr %44, align 8, !tbaa !125
   %124 = sub i64 %91, %123
   %125 = ptrtoint ptr %.0295547.ph to i64
   %126 = sub i64 %55, %125
@@ -4156,13 +4156,13 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %116, %ZSTD_DDictHas
   %130 = getelementptr inbounds nuw i8, ptr %46, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr align 1 %.0295547.ph, i64 %126, i1 false)
   %131 = add i64 %123, %126
-  store i64 %131, ptr %44, align 8, !tbaa !127
+  store i64 %131, ptr %44, align 8, !tbaa !125
   br label %132
 
 132:                                              ; preds = %129, %128
   %133 = phi i64 [ %131, %129 ], [ %123, %128 ]
-  %134 = load i64, ptr %10, align 8, !tbaa !123
-  store i64 %134, ptr %7, align 8, !tbaa !122
+  %134 = load i64, ptr %10, align 8, !tbaa !121
+  store i64 %134, ptr %7, align 8, !tbaa !120
   %135 = load i32, ptr %47, align 8, !tbaa !29
   %136 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %41, ptr noundef nonnull %46, i64 noundef %133, i32 noundef %135)
   %137 = icmp ult i64 %136, -119
@@ -4173,7 +4173,7 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %116, %ZSTD_DDictHas
   %140 = icmp eq i32 %139, 0
   %141 = select i1 %140, i64 6, i64 2
   %. = call i64 @llvm.umax.i64(i64 %141, i64 %91)
-  %142 = load i64, ptr %44, align 8, !tbaa !127
+  %142 = load i64, ptr %44, align 8, !tbaa !125
   %reass.sub = sub i64 %., %142
   %143 = add i64 %reass.sub, 3
   br label %ZSTD_checkOutBuffer.exit.thread
@@ -4181,17 +4181,17 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %116, %ZSTD_DDictHas
 144:                                              ; preds = %122
   %145 = getelementptr inbounds nuw i8, ptr %46, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %145, ptr align 1 %.0295547.ph, i64 %124, i1 false)
-  store i64 %91, ptr %44, align 8, !tbaa !127
+  store i64 %91, ptr %44, align 8, !tbaa !125
   %146 = getelementptr inbounds nuw i8, ptr %.0295547.ph, i64 %124
   br label %.thread476.outer.backedge
 
 147:                                              ; preds = %121
-  %148 = load i64, ptr %41, align 8, !tbaa !91
+  %148 = load i64, ptr %41, align 8, !tbaa !90
   %.not367 = icmp eq i64 %148, -1
   br i1 %.not367, label %.thread456, label %149
 
 149:                                              ; preds = %147
-  %150 = load i32, ptr %56, align 4, !tbaa !130
+  %150 = load i32, ptr %56, align 4, !tbaa !128
   %.not368 = icmp eq i32 %150, 1
   br i1 %.not368, label %.thread456, label %151
 
@@ -4220,7 +4220,7 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %116, %ZSTD_DDictHas
   %.not372 = icmp eq ptr %.0431544, null
   %162 = getelementptr inbounds nuw i8, ptr %.0431544, i64 %158
   %163 = select i1 %.not372, ptr null, ptr %162
-  store i64 0, ptr %58, align 8, !tbaa !76
+  store i64 0, ptr %58, align 8, !tbaa !75
   br label %.loopexit.sink.split
 
 .thread456:                                       ; preds = %154, %151, %149, %147
@@ -4229,12 +4229,12 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %116, %ZSTD_DDictHas
   br i1 %165, label %166, label %173
 
 166:                                              ; preds = %.thread456
-  %167 = load i32, ptr %56, align 4, !tbaa !130
+  %167 = load i32, ptr %56, align 4, !tbaa !128
   %.not373 = icmp eq i32 %167, 1
   br i1 %.not373, label %173, label %168
 
 168:                                              ; preds = %166
-  %169 = load i64, ptr %41, align 8, !tbaa !91
+  %169 = load i64, ptr %41, align 8, !tbaa !90
   %.not374 = icmp ne i64 %169, -1
   %170 = ptrtoint ptr %.0431544 to i64
   %171 = sub i64 %38, %170
@@ -4261,7 +4261,7 @@ ZSTD_getDDict.exit.thread:                        ; preds = %173
   br label %ZSTD_getDDict.exit
 
 ZSTD_getDDict.exit:                               ; preds = %173, %177
-  %.0.i398 = load ptr, ptr %50, align 8, !tbaa !99
+  %.0.i398 = load ptr, ptr %50, align 8, !tbaa !98
   %.not.i399 = icmp eq ptr %.0.i398, null
   br i1 %.not.i399, label %185, label %178
 
@@ -4286,24 +4286,24 @@ ZSTD_getDDict.exit:                               ; preds = %173, %177
 
 ZSTD_decompressBegin.exit.i:                      ; preds = %186, %185
   %188 = phi i64 [ %187, %186 ], [ 0, %185 ]
-  store i64 %188, ptr %61, align 8, !tbaa !75
+  store i64 %188, ptr %61, align 8, !tbaa !74
   %189 = load i32, ptr %47, align 8, !tbaa !29
   %190 = icmp eq i32 %189, 0
   %191 = select i1 %190, i64 5, i64 1
-  store i64 %191, ptr %58, align 8, !tbaa !76
-  store i32 0, ptr %62, align 4, !tbaa !77
+  store i64 %191, ptr %58, align 8, !tbaa !75
+  store i32 0, ptr %62, align 4, !tbaa !76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %66, align 8, !tbaa !41
-  store i32 0, ptr %67, align 4, !tbaa !78
-  store i32 0, ptr %68, align 8, !tbaa !79
-  store i32 0, ptr %54, align 8, !tbaa !80
-  store i32 3, ptr %69, align 8, !tbaa !81
+  store i32 0, ptr %67, align 4, !tbaa !77
+  store i32 0, ptr %68, align 8, !tbaa !78
+  store i32 0, ptr %54, align 8, !tbaa !79
+  store i32 3, ptr %69, align 8, !tbaa !80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  store ptr %65, ptr %0, align 8, !tbaa !82
-  store ptr %71, ptr %72, align 8, !tbaa !83
-  store ptr %73, ptr %74, align 8, !tbaa !84
-  store ptr %66, ptr %75, align 8, !tbaa !85
+  store ptr %65, ptr %0, align 8, !tbaa !81
+  store ptr %71, ptr %72, align 8, !tbaa !82
+  store ptr %73, ptr %74, align 8, !tbaa !83
+  store ptr %66, ptr %75, align 8, !tbaa !84
   br i1 %.not.i399465, label %ZSTD_decompressBegin_usingDDict.exit, label %192
 
 192:                                              ; preds = %ZSTD_decompressBegin.exit.i
@@ -4322,7 +4322,7 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %192, %ZSTD_decompre
   br label %201
 
 197:                                              ; preds = %ZSTD_decompressBegin_usingDDict.exit
-  %198 = load i64, ptr %44, align 8, !tbaa !127
+  %198 = load i64, ptr %44, align 8, !tbaa !125
   %199 = call fastcc i64 @ZSTD_decodeFrameHeader(ptr noundef nonnull %0, ptr noundef nonnull %46, i64 noundef %198)
   %200 = icmp ult i64 %199, -119
   br i1 %200, label %201, label %ZSTD_checkOutBuffer.exit.thread
@@ -4330,17 +4330,17 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %192, %ZSTD_decompre
 201:                                              ; preds = %197, %195
   %storemerge531 = phi i64 [ %196, %195 ], [ 3, %197 ]
   %storemerge = phi i32 [ 7, %195 ], [ 2, %197 ]
-  store i64 %storemerge531, ptr %58, align 8, !tbaa !76
-  store i32 %storemerge, ptr %62, align 4, !tbaa !77
-  %202 = load i64, ptr %77, align 8, !tbaa !131
+  store i64 %storemerge531, ptr %58, align 8, !tbaa !75
+  store i32 %storemerge, ptr %62, align 4, !tbaa !76
+  %202 = load i64, ptr %77, align 8, !tbaa !129
   %spec.select = call i64 @llvm.umax.i64(i64 %202, i64 1024)
-  store i64 %spec.select, ptr %77, align 8, !tbaa !131
+  store i64 %spec.select, ptr %77, align 8, !tbaa !129
   %203 = load i64, ptr %78, align 8, !tbaa !30
   %204 = icmp ugt i64 %spec.select, %203
   br i1 %204, label %ZSTD_checkOutBuffer.exit.thread, label %205
 
 205:                                              ; preds = %201
-  %206 = load i32, ptr %42, align 8, !tbaa !109
+  %206 = load i32, ptr %42, align 8, !tbaa !108
   %narrow = call i32 @llvm.umax.i32(i32 %206, i32 4)
   %spec.select383 = zext i32 %narrow to i64
   %207 = load i32, ptr %25, align 8, !tbaa !31
@@ -4348,7 +4348,7 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %192, %ZSTD_decompre
   br i1 %208, label %209, label %215
 
 209:                                              ; preds = %205
-  %210 = load i64, ptr %41, align 8, !tbaa !91
+  %210 = load i64, ptr %41, align 8, !tbaa !90
   %211 = call i64 @llvm.umin.i64(i64 %spec.select, i64 131072)
   %212 = add i64 %spec.select, 131136
   %213 = add i64 %212, %211
@@ -4418,7 +4418,7 @@ ZSTD_DCtx_updateOversizedDuration.exit:           ; preds = %215, %220
 ZSTD_customFree.exit:                             ; preds = %231, %234, %235
   store i64 0, ptr %79, align 8, !tbaa !20
   store i64 0, ptr %40, align 8, !tbaa !21
-  %.val = load ptr, ptr %83, align 8, !tbaa !132
+  %.val = load ptr, ptr %83, align 8, !tbaa !130
   %.not.i401 = icmp eq ptr %.val, null
   br i1 %.not.i401, label %238, label %236
 
@@ -4441,7 +4441,7 @@ ZSTD_customMalloc.exit:                           ; preds = %236, %238
   %242 = phi ptr [ %.pre554, %._crit_edge553 ], [ %.0.i402, %ZSTD_customMalloc.exit ]
   store i64 %spec.select383, ptr %79, align 8, !tbaa !20
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 %spec.select383
-  store ptr %243, ptr %39, align 8, !tbaa !133
+  store ptr %243, ptr %39, align 8, !tbaa !131
   store i64 %216, ptr %40, align 8, !tbaa !21
   br label %244
 
@@ -4452,19 +4452,19 @@ ZSTD_customMalloc.exit:                           ; preds = %236, %238
 .loopexit594:                                     ; preds = %.thread476, %244
   %245 = ptrtoint ptr %.0295547.ph to i64
   %246 = sub i64 %55, %245
-  %247 = load i32, ptr %62, align 4, !tbaa !77
+  %247 = load i32, ptr %62, align 4, !tbaa !76
   %.off.i = add i32 %247, -3
   %switch.i = icmp ult i32 %.off.i, 2
   br i1 %switch.i, label %250, label %248
 
 248:                                              ; preds = %.loopexit594
-  %249 = load i64, ptr %58, align 8, !tbaa !76
+  %249 = load i64, ptr %58, align 8, !tbaa !75
   br label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 250:                                              ; preds = %.loopexit594
-  %251 = load i32, ptr %69, align 8, !tbaa !81
+  %251 = load i32, ptr %69, align 8, !tbaa !80
   %.not.i404 = icmp eq i32 %251, 0
-  %252 = load i64, ptr %58, align 8, !tbaa !76
+  %252 = load i64, ptr %58, align 8, !tbaa !75
   br i1 %.not.i404, label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit.thread, label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 ZSTD_nextSrcSizeToDecompressWithInputSize.exit.thread: ; preds = %250
@@ -4493,19 +4493,19 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %248, %250
   br i1 %257, label %._crit_edge.i, label %261
 
 ._crit_edge.i:                                    ; preds = %260
-  %.pre50.i = load i64, ptr %37, align 8, !tbaa !134
+  %.pre50.i = load i64, ptr %37, align 8, !tbaa !132
   br label %265
 
 261:                                              ; preds = %260
   %262 = load i64, ptr %40, align 8, !tbaa !21
-  %263 = load i64, ptr %37, align 8, !tbaa !134
+  %263 = load i64, ptr %37, align 8, !tbaa !132
   %264 = sub i64 %262, %263
   br label %265
 
 265:                                              ; preds = %261, %._crit_edge.i
   %266 = phi i64 [ %263, %261 ], [ %.pre50.i, %._crit_edge.i ]
   %267 = phi i64 [ %264, %261 ], [ 0, %._crit_edge.i ]
-  %268 = load ptr, ptr %39, align 8, !tbaa !133
+  %268 = load ptr, ptr %39, align 8, !tbaa !131
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 %266
   %270 = call i64 @ZSTD_decompressContinue(ptr noundef nonnull %0, ptr noundef %269, i64 noundef %267, ptr noundef %.0295547.ph, i64 noundef %.0.i403474)
   %271 = icmp ult i64 %270, -119
@@ -4517,9 +4517,9 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %248, %250
   br i1 %or.cond.i, label %274, label %select.unfold
 
 274:                                              ; preds = %272
-  %275 = load i64, ptr %37, align 8, !tbaa !134
+  %275 = load i64, ptr %37, align 8, !tbaa !132
   %276 = add i64 %275, %270
-  store i64 %276, ptr %36, align 8, !tbaa !135
+  store i64 %276, ptr %36, align 8, !tbaa !133
   br label %select.unfold
 
 277:                                              ; preds = %256
@@ -4552,7 +4552,7 @@ select.unfold:                                    ; preds = %283, %274, %272
 289:                                              ; preds = %._crit_edge555, %288
   %.val396 = phi i32 [ %.val396.pre, %._crit_edge555 ], [ %247, %288 ]
   %290 = phi i64 [ %.pre556, %._crit_edge555 ], [ %255, %288 ]
-  %291 = load i64, ptr %43, align 8, !tbaa !128
+  %291 = load i64, ptr %43, align 8, !tbaa !126
   %292 = sub i64 %290, %291
   %.not532 = icmp eq i32 %.val396, 7
   br i1 %.not532, label %ZSTD_limitCopy.exit, label %293
@@ -4574,7 +4574,7 @@ ZSTD_limitCopy.exit.thread491:                    ; preds = %297
   %301 = load ptr, ptr %82, align 8, !tbaa !36
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 %291
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr readonly align 1 %.0295547.ph, i64 %300, i1 false)
-  %.pre558 = load i64, ptr %43, align 8, !tbaa !128
+  %.pre558 = load i64, ptr %43, align 8, !tbaa !126
   br label %306
 
 ZSTD_limitCopy.exit:                              ; preds = %289
@@ -4589,7 +4589,7 @@ ZSTD_limitCopy.exit:                              ; preds = %289
   %.0316494 = phi i64 [ %300, %ZSTD_limitCopy.exit.thread491 ], [ %305, %ZSTD_limitCopy.exit ]
   %308 = getelementptr inbounds nuw i8, ptr %.0295547.ph, i64 %.0316494
   %309 = add i64 %307, %.0316494
-  store i64 %309, ptr %43, align 8, !tbaa !128
+  store i64 %309, ptr %43, align 8, !tbaa !126
   br label %ZSTD_limitCopy.exit.thread
 
 ZSTD_limitCopy.exit.thread:                       ; preds = %297, %306, %ZSTD_limitCopy.exit
@@ -4599,9 +4599,9 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %297, %306, %ZSTD_li
   br i1 %310, label %.loopexit, label %311
 
 311:                                              ; preds = %ZSTD_limitCopy.exit.thread
-  store i64 0, ptr %43, align 8, !tbaa !128
+  store i64 0, ptr %43, align 8, !tbaa !126
   %312 = load ptr, ptr %82, align 8, !tbaa !36
-  %.val.i408 = load i32, ptr %62, align 4, !tbaa !77
+  %.val.i408 = load i32, ptr %62, align 4, !tbaa !76
   %313 = icmp eq i32 %.val.i408, 7
   %314 = load i32, ptr %25, align 8, !tbaa !31
   %315 = icmp eq i32 %314, 0
@@ -4611,19 +4611,19 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %297, %306, %ZSTD_li
   br i1 %313, label %._crit_edge.i414, label %317
 
 ._crit_edge.i414:                                 ; preds = %316
-  %.pre50.i416 = load i64, ptr %37, align 8, !tbaa !134
+  %.pre50.i416 = load i64, ptr %37, align 8, !tbaa !132
   br label %321
 
 317:                                              ; preds = %316
   %318 = load i64, ptr %40, align 8, !tbaa !21
-  %319 = load i64, ptr %37, align 8, !tbaa !134
+  %319 = load i64, ptr %37, align 8, !tbaa !132
   %320 = sub i64 %318, %319
   br label %321
 
 321:                                              ; preds = %317, %._crit_edge.i414
   %322 = phi i64 [ %319, %317 ], [ %.pre50.i416, %._crit_edge.i414 ]
   %323 = phi i64 [ %320, %317 ], [ 0, %._crit_edge.i414 ]
-  %324 = load ptr, ptr %39, align 8, !tbaa !133
+  %324 = load ptr, ptr %39, align 8, !tbaa !131
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 %322
   %326 = call i64 @ZSTD_decompressContinue(ptr noundef nonnull %0, ptr noundef %325, i64 noundef %323, ptr noundef %312, i64 noundef %290)
   %327 = icmp ult i64 %326, -119
@@ -4635,9 +4635,9 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %297, %306, %ZSTD_li
   br i1 %or.cond.i413, label %330, label %341
 
 330:                                              ; preds = %328
-  %331 = load i64, ptr %37, align 8, !tbaa !134
+  %331 = load i64, ptr %37, align 8, !tbaa !132
   %332 = add i64 %331, %326
-  store i64 %332, ptr %36, align 8, !tbaa !135
+  store i64 %332, ptr %36, align 8, !tbaa !133
   br label %341
 
 333:                                              ; preds = %311
@@ -4661,11 +4661,11 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %297, %306, %ZSTD_li
 .thread476.outer.backedge:                        ; preds = %341, %144, %select.unfold
   %.0295547.ph.be = phi ptr [ %285, %select.unfold ], [ %146, %144 ], [ %.11306, %341 ]
   %.0431544.ph.be = phi ptr [ %.8436, %select.unfold ], [ %.0431544, %144 ], [ %.10, %341 ]
-  br label %.thread476.outer, !llvm.loop !136
+  br label %.thread476.outer, !llvm.loop !134
 
 342:                                              ; preds = %.thread476
-  %343 = load i64, ptr %36, align 8, !tbaa !135
-  %344 = load i64, ptr %37, align 8, !tbaa !134
+  %343 = load i64, ptr %36, align 8, !tbaa !133
+  %344 = load i64, ptr %37, align 8, !tbaa !132
   %345 = sub i64 %343, %344
   %346 = ptrtoint ptr %.0431544 to i64
   %347 = sub i64 %38, %346
@@ -4674,10 +4674,10 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %297, %306, %ZSTD_li
   br i1 %.not.i418, label %ZSTD_limitCopy.exit419, label %349
 
 349:                                              ; preds = %342
-  %350 = load ptr, ptr %39, align 8, !tbaa !133
+  %350 = load ptr, ptr %39, align 8, !tbaa !131
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 %344
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0431544, ptr readonly align 1 %351, i64 %348, i1 false)
-  %.pre = load i64, ptr %37, align 8, !tbaa !134
+  %.pre = load i64, ptr %37, align 8, !tbaa !132
   br label %ZSTD_limitCopy.exit419
 
 ZSTD_limitCopy.exit419:                           ; preds = %342, %349
@@ -4686,22 +4686,22 @@ ZSTD_limitCopy.exit419:                           ; preds = %342, %349
   %353 = getelementptr inbounds nuw i8, ptr %.0431544, i64 %348
   %354 = select i1 %.not360, ptr null, ptr %353
   %355 = add i64 %352, %348
-  store i64 %355, ptr %37, align 8, !tbaa !134
+  store i64 %355, ptr %37, align 8, !tbaa !132
   %.not = icmp ugt i64 %345, %347
   br i1 %.not, label %.loopexit, label %356
 
 356:                                              ; preds = %ZSTD_limitCopy.exit419
   store i32 2, ptr %35, align 8, !tbaa !25
   %357 = load i64, ptr %40, align 8, !tbaa !21
-  %358 = load i64, ptr %41, align 8, !tbaa !91
+  %358 = load i64, ptr %41, align 8, !tbaa !90
   %359 = icmp ult i64 %357, %358
   br i1 %359, label %360, label %.thread476.backedge
 
 .thread476.backedge:                              ; preds = %356, %360, %365
-  br label %.thread476, !llvm.loop !136
+  br label %.thread476, !llvm.loop !134
 
 360:                                              ; preds = %356
-  %361 = load i32, ptr %42, align 8, !tbaa !109
+  %361 = load i32, ptr %42, align 8, !tbaa !108
   %362 = zext i32 %361 to i64
   %363 = add i64 %355, %362
   %364 = icmp ugt i64 %363, %357
@@ -4720,17 +4720,17 @@ ZSTD_limitCopy.exit419:                           ; preds = %342, %349
 .loopexit:                                        ; preds = %ZSTD_limitCopy.exit419, %286, %ZSTD_limitCopy.exit.thread, %.loopexit.sink.split
   %.3433.ph = phi ptr [ %.3433.ph.ph, %.loopexit.sink.split ], [ %354, %ZSTD_limitCopy.exit419 ], [ %.0431544, %286 ], [ %.0431544, %ZSTD_limitCopy.exit.thread ]
   %.5300.ph = phi ptr [ %.5300.ph.ph, %.loopexit.sink.split ], [ %.0295547.ph, %ZSTD_limitCopy.exit419 ], [ %.11306, %ZSTD_limitCopy.exit.thread ], [ %12, %286 ]
-  %366 = load ptr, ptr %2, align 8, !tbaa !120
+  %366 = load ptr, ptr %2, align 8, !tbaa !118
   %367 = ptrtoint ptr %.5300.ph to i64
   %368 = ptrtoint ptr %366 to i64
   %369 = sub i64 %367, %368
-  store i64 %369, ptr %7, align 8, !tbaa !122
-  %370 = load ptr, ptr %1, align 8, !tbaa !124
+  store i64 %369, ptr %7, align 8, !tbaa !120
+  %370 = load ptr, ptr %1, align 8, !tbaa !122
   %371 = ptrtoint ptr %.3433.ph to i64
   %372 = ptrtoint ptr %370 to i64
   %373 = sub i64 %371, %372
-  store i64 %373, ptr %14, align 8, !tbaa !125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !129
+  store i64 %373, ptr %14, align 8, !tbaa !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !127
   %374 = icmp eq ptr %.5300.ph, %9
   %375 = icmp eq ptr %.3433.ph, %16
   %or.cond386 = select i1 %374, i1 %375, i1 false
@@ -4757,15 +4757,15 @@ ZSTD_limitCopy.exit419:                           ; preds = %342, %349
   br label %386
 
 386:                                              ; preds = %377, %383, %385
-  %387 = load i64, ptr %58, align 8, !tbaa !76
+  %387 = load i64, ptr %58, align 8, !tbaa !75
   %.not356 = icmp eq i64 %387, 0
   br i1 %.not356, label %388, label %ZSTD_nextInputType.exit
 
 388:                                              ; preds = %386
-  %389 = load i64, ptr %36, align 8, !tbaa !135
-  %390 = load i64, ptr %37, align 8, !tbaa !134
+  %389 = load i64, ptr %36, align 8, !tbaa !133
+  %390 = load i64, ptr %37, align 8, !tbaa !132
   %391 = icmp eq i64 %389, %390
-  %392 = load i32, ptr %45, align 8, !tbaa !137
+  %392 = load i32, ptr %45, align 8, !tbaa !135
   %.not358 = icmp eq i32 %392, 0
   br i1 %391, label %393, label %400
 
@@ -4773,8 +4773,8 @@ ZSTD_limitCopy.exit419:                           ; preds = %342, %349
   br i1 %.not358, label %ZSTD_checkOutBuffer.exit.thread, label %394
 
 394:                                              ; preds = %393
-  %395 = load i64, ptr %7, align 8, !tbaa !122
-  %396 = load i64, ptr %10, align 8, !tbaa !123
+  %395 = load i64, ptr %7, align 8, !tbaa !120
+  %396 = load i64, ptr %10, align 8, !tbaa !121
   %.not359 = icmp ult i64 %395, %396
   br i1 %.not359, label %398, label %397
 
@@ -4784,24 +4784,24 @@ ZSTD_limitCopy.exit419:                           ; preds = %342, %349
 
 398:                                              ; preds = %394
   %399 = add nuw i64 %395, 1
-  store i64 %399, ptr %7, align 8, !tbaa !122
+  store i64 %399, ptr %7, align 8, !tbaa !120
   br label %ZSTD_checkOutBuffer.exit.thread
 
 400:                                              ; preds = %388
   br i1 %.not358, label %401, label %ZSTD_checkOutBuffer.exit.thread
 
 401:                                              ; preds = %400
-  %402 = load i64, ptr %7, align 8, !tbaa !122
+  %402 = load i64, ptr %7, align 8, !tbaa !120
   %403 = add i64 %402, -1
-  store i64 %403, ptr %7, align 8, !tbaa !122
-  store i32 1, ptr %45, align 8, !tbaa !137
+  store i64 %403, ptr %7, align 8, !tbaa !120
+  store i32 1, ptr %45, align 8, !tbaa !135
   br label %ZSTD_checkOutBuffer.exit.thread
 
 ZSTD_nextInputType.exit:                          ; preds = %386
-  %404 = load i32, ptr %62, align 4, !tbaa !77
+  %404 = load i32, ptr %62, align 4, !tbaa !76
   %cond = icmp eq i32 %404, 3
   %spec.select530 = select i1 %cond, i64 3, i64 0
-  %405 = load i64, ptr %43, align 8, !tbaa !128
+  %405 = load i64, ptr %43, align 8, !tbaa !126
   %406 = sub i64 %387, %405
   %407 = add i64 %406, %spec.select530
   br label %ZSTD_checkOutBuffer.exit.thread
@@ -4817,22 +4817,22 @@ define dso_local i64 @ZSTD_decompressStream_simpleArgs(ptr noundef %0, ptr nound
   %9 = alloca %struct.ZSTD_inBuffer_s, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
-  store ptr %1, ptr %8, align 8, !tbaa !124
+  store ptr %1, ptr %8, align 8, !tbaa !122
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %2, ptr %10, align 8, !tbaa !126
+  store i64 %2, ptr %10, align 8, !tbaa !124
   %11 = load i64, ptr %3, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %11, ptr %12, align 8, !tbaa !125
-  store ptr %4, ptr %9, align 8, !tbaa !120
+  store i64 %11, ptr %12, align 8, !tbaa !123
+  store ptr %4, ptr %9, align 8, !tbaa !118
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %5, ptr %13, align 8, !tbaa !123
+  store i64 %5, ptr %13, align 8, !tbaa !121
   %14 = load i64, ptr %6, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %14, ptr %15, align 8, !tbaa !122
+  store i64 %14, ptr %15, align 8, !tbaa !120
   %16 = call i64 @ZSTD_decompressStream(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %17 = load i64, ptr %12, align 8, !tbaa !125
+  %17 = load i64, ptr %12, align 8, !tbaa !123
   store i64 %17, ptr %3, align 8, !tbaa !43
-  %18 = load i64, ptr %15, align 8, !tbaa !122
+  %18 = load i64, ptr %15, align 8, !tbaa !120
   store i64 %18, ptr %6, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
@@ -4966,71 +4966,69 @@ attributes #17 = { nounwind allocsize(0,1) }
 !67 = !{!68}
 !68 = distinct !{!68, !69, !"ZSTD_errorFrameSizeInfo: argument 0"}
 !69 = distinct !{!69, !"ZSTD_errorFrameSizeInfo"}
-!70 = distinct !{!70, !54, !71}
-!71 = !{!"llvm.loop.estimated_trip_count"}
-!72 = !{!56, !11, i64 0}
-!73 = distinct !{!73, !54, !71}
-!74 = !{!5, !6, i64 29888}
-!75 = !{!5, !13, i64 95960}
-!76 = !{!5, !11, i64 29920}
-!77 = !{!5, !14, i64 29996}
-!78 = !{!5, !14, i64 30004}
-!79 = !{!5, !14, i64 30000}
-!80 = !{!5, !14, i64 30192}
-!81 = !{!5, !14, i64 29992}
-!82 = !{!5, !6, i64 0}
-!83 = !{!5, !6, i64 8}
-!84 = !{!5, !6, i64 16}
-!85 = !{!5, !9, i64 24}
-!86 = !{!5, !6, i64 29896}
-!87 = !{!5, !6, i64 29904}
-!88 = !{!66, !14, i64 0}
-!89 = !{!66, !14, i64 8}
-!90 = !{!5, !14, i64 30112}
-!91 = !{!5, !13, i64 29928}
-!92 = !{!5, !14, i64 29960}
-!93 = !{!94, !14, i64 0}
-!94 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !11, i64 16, !11, i64 24, !11, i64 32, !95, i64 40, !96, i64 48, !97, i64 56}
-!95 = !{!"p1 _ZTS18ZSTD_CCtx_params_s", !6, i64 0}
-!96 = !{!"p1 _ZTS11ZSTD_CCtx_s", !6, i64 0}
-!97 = !{!"p1 _ZTS11ZSTD_DCtx_s", !6, i64 0}
-!98 = !{!94, !14, i64 4}
-!99 = !{!5, !18, i64 30184}
-!100 = !{!94, !14, i64 8}
-!101 = !{!94, !11, i64 16}
-!102 = !{!94, !14, i64 12}
-!103 = !{!94, !11, i64 24}
-!104 = !{!94, !11, i64 32}
-!105 = !{!94, !97, i64 56}
-!106 = distinct !{!106, !71}
-!107 = !{!5, !11, i64 29976}
-!108 = !{!5, !11, i64 30096}
-!109 = !{!5, !14, i64 29944}
-!110 = !{!5, !11, i64 30160}
-!111 = !{!5, !11, i64 29984}
-!112 = !{!5, !14, i64 29956}
-!113 = !{!39, !11, i64 8}
-!114 = !{!18, !18, i64 0}
-!115 = distinct !{!115, !71}
-!116 = distinct !{!116, !54, !71}
-!117 = !{!39, !11, i64 16}
-!118 = distinct !{!118, !54, !71}
-!119 = distinct !{!119, !54, !71}
-!120 = !{!121, !6, i64 0}
-!121 = !{!"ZSTD_inBuffer_s", !6, i64 0, !11, i64 8, !11, i64 16}
-!122 = !{!121, !11, i64 16}
-!123 = !{!121, !11, i64 8}
-!124 = !{!19, !6, i64 0}
-!125 = !{!19, !11, i64 16}
-!126 = !{!19, !11, i64 8}
-!127 = !{!5, !11, i64 30296}
-!128 = !{!5, !11, i64 30248}
-!129 = !{i64 0, i64 8, !37, i64 8, i64 8, !43, i64 16, i64 8, !43}
-!130 = !{!5, !14, i64 29948}
-!131 = !{!5, !13, i64 29936}
-!132 = !{!17, !6, i64 0}
-!133 = !{!5, !16, i64 30264}
-!134 = !{!5, !11, i64 30280}
-!135 = !{!5, !11, i64 30288}
-!136 = distinct !{!136, !54, !71}
-!137 = !{!5, !14, i64 30304}
+!70 = distinct !{!70, !54}
+!71 = !{!56, !11, i64 0}
+!72 = distinct !{!72, !54}
+!73 = !{!5, !6, i64 29888}
+!74 = !{!5, !13, i64 95960}
+!75 = !{!5, !11, i64 29920}
+!76 = !{!5, !14, i64 29996}
+!77 = !{!5, !14, i64 30004}
+!78 = !{!5, !14, i64 30000}
+!79 = !{!5, !14, i64 30192}
+!80 = !{!5, !14, i64 29992}
+!81 = !{!5, !6, i64 0}
+!82 = !{!5, !6, i64 8}
+!83 = !{!5, !6, i64 16}
+!84 = !{!5, !9, i64 24}
+!85 = !{!5, !6, i64 29896}
+!86 = !{!5, !6, i64 29904}
+!87 = !{!66, !14, i64 0}
+!88 = !{!66, !14, i64 8}
+!89 = !{!5, !14, i64 30112}
+!90 = !{!5, !13, i64 29928}
+!91 = !{!5, !14, i64 29960}
+!92 = !{!93, !14, i64 0}
+!93 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !11, i64 16, !11, i64 24, !11, i64 32, !94, i64 40, !95, i64 48, !96, i64 56}
+!94 = !{!"p1 _ZTS18ZSTD_CCtx_params_s", !6, i64 0}
+!95 = !{!"p1 _ZTS11ZSTD_CCtx_s", !6, i64 0}
+!96 = !{!"p1 _ZTS11ZSTD_DCtx_s", !6, i64 0}
+!97 = !{!93, !14, i64 4}
+!98 = !{!5, !18, i64 30184}
+!99 = !{!93, !14, i64 8}
+!100 = !{!93, !11, i64 16}
+!101 = !{!93, !14, i64 12}
+!102 = !{!93, !11, i64 24}
+!103 = !{!93, !11, i64 32}
+!104 = !{!93, !96, i64 56}
+!105 = distinct !{!105, !54}
+!106 = !{!5, !11, i64 29976}
+!107 = !{!5, !11, i64 30096}
+!108 = !{!5, !14, i64 29944}
+!109 = !{!5, !11, i64 30160}
+!110 = !{!5, !11, i64 29984}
+!111 = !{!5, !14, i64 29956}
+!112 = !{!39, !11, i64 8}
+!113 = !{!18, !18, i64 0}
+!114 = distinct !{!114, !54}
+!115 = !{!39, !11, i64 16}
+!116 = distinct !{!116, !54}
+!117 = distinct !{!117, !54}
+!118 = !{!119, !6, i64 0}
+!119 = !{!"ZSTD_inBuffer_s", !6, i64 0, !11, i64 8, !11, i64 16}
+!120 = !{!119, !11, i64 16}
+!121 = !{!119, !11, i64 8}
+!122 = !{!19, !6, i64 0}
+!123 = !{!19, !11, i64 16}
+!124 = !{!19, !11, i64 8}
+!125 = !{!5, !11, i64 30296}
+!126 = !{!5, !11, i64 30248}
+!127 = !{i64 0, i64 8, !37, i64 8, i64 8, !43, i64 16, i64 8, !43}
+!128 = !{!5, !14, i64 29948}
+!129 = !{!5, !13, i64 29936}
+!130 = !{!17, !6, i64 0}
+!131 = !{!5, !16, i64 30264}
+!132 = !{!5, !11, i64 30280}
+!133 = !{!5, !11, i64 30288}
+!134 = distinct !{!134, !54}
+!135 = !{!5, !14, i64 30304}

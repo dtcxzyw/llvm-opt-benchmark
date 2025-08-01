@@ -285,7 +285,7 @@ define dso_local void @RmgrCleanup() local_unnamed_addr #1 {
 9:                                                ; preds = %5, %8, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !7
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !6
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
@@ -343,7 +343,7 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
   unreachable
 
 18:                                               ; preds = %11
-  %19 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1, !range !8, !noundef !9
+  %19 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %26, label %21
 
@@ -404,7 +404,7 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
 49:                                               ; preds = %40, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !9
 
 50:                                               ; preds = %36
   %51 = load ptr, ptr %1, align 8
@@ -467,7 +467,7 @@ GetRmgr.exit:                                     ; preds = %11
 20:                                               ; preds = %11, %GetRmgr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %10, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %10, label %11, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -499,11 +499,10 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

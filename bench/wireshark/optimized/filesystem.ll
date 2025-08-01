@@ -1088,7 +1088,7 @@ test_for_directory.exit14.thread20:               ; preds = %23, %test_for_direc
   tail call void @g_free(ptr noundef %20)
   %30 = tail call ptr @g_dir_read_name(ptr noundef nonnull %15)
   %.not11.not = icmp eq ptr %30, null
-  br i1 %.not11.not, label %.loopexit, label %18, !llvm.loop !13
+  br i1 %.not11.not, label %.loopexit, label %18, !llvm.loop !12
 
 .loopexit:                                        ; preds = %test_for_directory.exit14.thread20, %.preheader, %.loopexit22
   %.not1125 = phi i1 [ true, %.loopexit22 ], [ false, %.preheader ], [ false, %test_for_directory.exit14.thread20 ]
@@ -1143,7 +1143,7 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @profile_register_persconffile(ptr noundef %0) local_unnamed_addr #7 {
-  %2 = load i8, ptr @do_store_persconffiles, align 1, !range !14, !noundef !15
+  %2 = load i8, ptr @do_store_persconffiles, align 1, !range !13, !noundef !14
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %12
 
@@ -1562,7 +1562,7 @@ file_exists.exit.thread.i:                        ; preds = %18, %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %reset_default_profile.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %reset_default_profile.exit, label %.lr.ph.i, !llvm.loop !15
 
 reset_default_profile.exit:                       ; preds = %25, %8, %24
   %.1.i = phi i32 [ %23, %24 ], [ 0, %8 ], [ 0, %25 ]
@@ -1640,7 +1640,7 @@ test_for_directory.exit.thread24.i:               ; preds = %test_for_directory.
   tail call void @g_free(ptr noundef %45)
   %55 = tail call ptr @g_dir_read_name(ptr noundef nonnull %40)
   %.not18.i = icmp eq ptr %55, null
-  br i1 %.not18.i, label %.thread31.i, label %43, !llvm.loop !17
+  br i1 %.not18.i, label %.thread31.i, label %43, !llvm.loop !16
 
 56:                                               ; preds = %test_for_directory.exit.thread24.i
   store ptr %45, ptr %1, align 8
@@ -1717,7 +1717,7 @@ define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr nound
   %12 = tail call ptr @get_profile_dir(ptr noundef %1, i1 noundef zeroext %2)
   %13 = load ptr, ptr @profile_files, align 8
   %14 = icmp eq ptr %13, null
-  %15 = load i8, ptr @do_store_persconffiles, align 1, !range !14
+  %15 = load i8, ptr @do_store_persconffiles, align 1, !range !13
   %16 = trunc nuw i8 %15 to i1
   %or.cond = select i1 %14, i1 true, i1 %16
   br i1 %or.cond, label %17, label %36
@@ -1771,7 +1771,7 @@ test_for_directory.exit.thread.i:                 ; preds = %34, %test_for_direc
   tail call void @g_free(ptr noundef %23)
   %35 = tail call ptr @g_dir_read_name(ptr noundef nonnull %18)
   %.not18.i = icmp eq ptr %35, null
-  br i1 %.not18.i, label %copy_directory.exit.thread41, label %21, !llvm.loop !18
+  br i1 %.not18.i, label %copy_directory.exit.thread41, label %21, !llvm.loop !17
 
 36:                                               ; preds = %6
   call void @g_hash_table_iter_init(ptr noundef nonnull %9, ptr noundef nonnull %13)
@@ -1823,7 +1823,7 @@ copy_directory.exit.thread36:                     ; preds = %48
   call void @g_free(ptr noundef %41)
   %52 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null)
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %copy_directory.exit.thread, label %39, !llvm.loop !19
+  br i1 %.not, label %copy_directory.exit.thread, label %39, !llvm.loop !18
 
 copy_directory.exit.thread41:                     ; preds = %test_for_directory.exit.thread.i, %.preheader.i
   tail call void @g_dir_close(ptr noundef nonnull %18)
@@ -1896,7 +1896,7 @@ define noundef zeroext i1 @copy_file_binary_mode(ptr noundef %0, ptr noundef %1)
 20:                                               ; preds = %17
   %21 = tail call i64 @write(i32 noundef %9, ptr noundef %16, i64 noundef %18)
   %22 = icmp slt i64 %21, %18
-  br i1 %22, label %23, label %17, !llvm.loop !20
+  br i1 %22, label %23, label %17, !llvm.loop !19
 
 23:                                               ; preds = %20
   %24 = icmp slt i64 %21, 0
@@ -2000,7 +2000,7 @@ define noalias ptr @get_persconffile_path(ptr noundef %0, i1 noundef zeroext %1)
   br i1 %1, label %3, label %16
 
 3:                                                ; preds = %2
-  %4 = load i8, ptr @do_store_persconffiles, align 1, !range !14, !noundef !15
+  %4 = load i8, ptr @do_store_persconffiles, align 1, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %profile_register_persconffile.exit
 
@@ -2214,7 +2214,7 @@ define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly 
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp ult ptr %7, %9
-  br i1 %.not.i, label %12, label %10, !prof !21
+  br i1 %.not.i, label %12, label %10, !prof !20
 
 10:                                               ; preds = %.split16
   %11 = tail call i32 @__uflow(ptr noundef nonnull %4)
@@ -2268,13 +2268,13 @@ getc_unlocked.exit27:                             ; preds = %getc_unlocked.exit2
 34:                                               ; preds = %27, %33
   %.1 = phi i1 [ %26, %33 ], [ %.014, %27 ]
   %.not23 = icmp eq i32 %phi.call, -1
-  br i1 %.not23, label %43, label %.split, !llvm.loop !22
+  br i1 %.not23, label %43, label %.split, !llvm.loop !21
 
 .split:                                           ; preds = %34
   %35 = load ptr, ptr %6, align 8
   %36 = load ptr, ptr %8, align 8
   %.not.i26 = icmp ult ptr %35, %36
-  br i1 %.not.i26, label %39, label %37, !prof !21
+  br i1 %.not.i26, label %39, label %37, !prof !20
 
 37:                                               ; preds = %.split
   %38 = tail call i32 @__uflow(ptr noundef nonnull %4)
@@ -2282,7 +2282,7 @@ getc_unlocked.exit27:                             ; preds = %getc_unlocked.exit2
 
 getc_unlocked.exit27.backedge:                    ; preds = %37, %39
   %phi.call.be = phi i32 [ %38, %37 ], [ %42, %39 ]
-  br label %getc_unlocked.exit27, !llvm.loop !23
+  br label %getc_unlocked.exit27, !llvm.loop !21
 
 39:                                               ; preds = %.split
   %40 = getelementptr i8, ptr %35, i64 1
@@ -2431,7 +2431,7 @@ define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr noundef re
   %19 = sub i64 %.02428, %9
   %20 = getelementptr i8, ptr %.02129, i64 %9
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %21 = tail call i32 @close(i32 noundef %4)
@@ -2712,18 +2712,16 @@ attributes #25 = { allocsize(0) }
 !7 = distinct !{!7, !8, !"memcpy.inline: argument 0"}
 !8 = distinct !{!8, !"memcpy.inline"}
 !9 = distinct !{!9, !8, !"memcpy.inline: argument 1"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !11}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!21 = distinct !{!21, !11}
 !22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}

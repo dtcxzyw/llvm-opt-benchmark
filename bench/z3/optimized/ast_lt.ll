@@ -478,9 +478,9 @@ _ZNK4decl18get_num_parametersEv.exit315.split._crit_edge: ; preds = %67, %66, %_
 
 214:                                              ; preds = %205
   %215 = getelementptr inbounds nuw i8, ptr %.02361148, i64 32
-  %216 = load i32, ptr %215, align 8, !tbaa !42
+  %216 = load i32, ptr %215, align 8, !tbaa !41
   %217 = getelementptr inbounds nuw i8, ptr %.02461147, i64 32
-  %218 = load i32, ptr %217, align 8, !tbaa !42
+  %218 = load i32, ptr %217, align 8, !tbaa !41
   %.not293 = icmp eq i32 %216, %218
   br i1 %.not293, label %221, label %219
 
@@ -846,10 +846,10 @@ _ZNK9parameter11get_zstringEv.exit435:            ; preds = %_ZNK9parameter11get
 _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9parameter11get_zstringEv.exit429, %_ZNK9parameter10get_ext_idEv.exit421, %_ZNK9parameter10get_doubleEv.exit413, %_ZneRK8rationalS1_.exit405, %_ZNK9parameter10get_symbolEv.exit390, %_ZNK9parameter7get_astEv.exit381, %_ZNK9parameter7get_intEv.exit373, %399
   %indvars.iv.next1579 = add nuw nsw i64 %indvars.iv1578, 1
   %exitcond1582.not = icmp eq i64 %indvars.iv.next1579, %wide.trip.count1581
-  br i1 %exitcond1582.not, label %._crit_edge1132.loopexit, label %268, !llvm.loop !45
+  br i1 %exitcond1582.not, label %._crit_edge1132.loopexit, label %268, !llvm.loop !44
 
 ._crit_edge1132.loopexit:                         ; preds = %_ZltRK8rationalS1_.exit411
-  %.pre = load i32, ptr %215, align 8, !tbaa !42
+  %.pre = load i32, ptr %215, align 8, !tbaa !41
   br label %._crit_edge1132
 
 ._crit_edge1132:                                  ; preds = %262, %261, %._crit_edge1132.loopexit, %_ZNK4decl18get_num_parametersEv.exit371.split
@@ -866,35 +866,35 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 403:                                              ; preds = %404
   %indvars.iv.next1584 = add nuw nsw i64 %indvars.iv1583, 1
   %exitcond1587.not = icmp eq i64 %indvars.iv.next1584, %wide.trip.count1586
-  br i1 %exitcond1587.not, label %.thread472, label %404, !llvm.loop !46
+  br i1 %exitcond1587.not, label %.thread472, label %404, !llvm.loop !45
 
 404:                                              ; preds = %.lr.ph1135, %403
   %indvars.iv1583 = phi i64 [ 0, %.lr.ph1135 ], [ %indvars.iv.next1584, %403 ]
   %405 = getelementptr inbounds nuw [0 x ptr], ptr %401, i64 0, i64 %indvars.iv1583
-  %406 = load ptr, ptr %405, align 8, !tbaa !47
+  %406 = load ptr, ptr %405, align 8, !tbaa !46
   %407 = getelementptr inbounds nuw [0 x ptr], ptr %402, i64 0, i64 %indvars.iv1583
-  %408 = load ptr, ptr %407, align 8, !tbaa !47
+  %408 = load ptr, ptr %407, align 8, !tbaa !46
   %.not299 = icmp eq ptr %406, %408
-  br i1 %.not299, label %403, label %.backedge, !llvm.loop !48
+  br i1 %.not299, label %403, label %.backedge
 
 .thread472:                                       ; preds = %403, %._crit_edge1132
   %409 = getelementptr inbounds nuw i8, ptr %.02361148, i64 40
-  %410 = load ptr, ptr %409, align 8, !tbaa !49
+  %410 = load ptr, ptr %409, align 8, !tbaa !47
   %411 = getelementptr inbounds nuw i8, ptr %.02461147, i64 40
-  %412 = load ptr, ptr %411, align 8, !tbaa !49
+  %412 = load ptr, ptr %411, align 8, !tbaa !47
   br label %.backedge
 
 .backedge:                                        ; preds = %490, %503, %516, %436, %_ZNK9parameter7get_astEv.exit381, %404, %_ZNK9parameter7get_astEv.exit, %.thread472, %._crit_edge1121, %532, %428
   %.0246.be = phi ptr [ %412, %.thread472 ], [ %524, %._crit_edge1121 ], [ %534, %532 ], [ %432, %428 ], [ %93, %_ZNK9parameter7get_astEv.exit ], [ %408, %404 ], [ %288, %_ZNK9parameter7get_astEv.exit381 ], [ %440, %436 ], [ %520, %516 ], [ %507, %503 ], [ %494, %490 ]
   %.0236.be = phi ptr [ %410, %.thread472 ], [ %522, %._crit_edge1121 ], [ %533, %532 ], [ %430, %428 ], [ %92, %_ZNK9parameter7get_astEv.exit ], [ %406, %404 ], [ %287, %_ZNK9parameter7get_astEv.exit381 ], [ %438, %436 ], [ %518, %516 ], [ %505, %503 ], [ %492, %490 ]
   %413 = icmp eq ptr %.0236.be, %.0246.be
-  br i1 %413, label %.thread448, label %.lr.ph1150, !llvm.loop !48
+  br i1 %413, label %.thread448, label %.lr.ph1150
 
 414:                                              ; preds = %16
   %415 = getelementptr inbounds nuw i8, ptr %.02361148, i64 24
-  %416 = load i32, ptr %415, align 8, !tbaa !50
+  %416 = load i32, ptr %415, align 8, !tbaa !48
   %417 = getelementptr inbounds nuw i8, ptr %.02461147, i64 24
-  %418 = load i32, ptr %417, align 8, !tbaa !50
+  %418 = load i32, ptr %417, align 8, !tbaa !48
   %.not289 = icmp eq i32 %416, %418
   br i1 %.not289, label %421, label %419
 
@@ -916,9 +916,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 428:                                              ; preds = %421
   %429 = getelementptr inbounds nuw i8, ptr %.02361148, i64 16
-  %430 = load ptr, ptr %429, align 8, !tbaa !55
+  %430 = load ptr, ptr %429, align 8, !tbaa !53
   %431 = getelementptr inbounds nuw i8, ptr %.02461147, i64 16
-  %432 = load ptr, ptr %431, align 8, !tbaa !55
+  %432 = load ptr, ptr %431, align 8, !tbaa !53
   %.not291 = icmp eq ptr %430, %432
   br i1 %.not291, label %.preheader, label %.backedge
 
@@ -935,16 +935,16 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 435:                                              ; preds = %436
   %indvars.iv.next1574 = add nuw nsw i64 %indvars.iv1573, 1
   %exitcond1577.not = icmp eq i64 %indvars.iv.next1574, %wide.trip.count1576
-  br i1 %exitcond1577.not, label %.thread480, label %436, !llvm.loop !56
+  br i1 %exitcond1577.not, label %.thread480, label %436, !llvm.loop !54
 
 436:                                              ; preds = %.lr.ph1123, %435
   %indvars.iv1573 = phi i64 [ 0, %.lr.ph1123 ], [ %indvars.iv.next1574, %435 ]
   %437 = getelementptr inbounds nuw [0 x ptr], ptr %433, i64 0, i64 %indvars.iv1573
-  %438 = load ptr, ptr %437, align 8, !tbaa !57
+  %438 = load ptr, ptr %437, align 8, !tbaa !55
   %439 = getelementptr inbounds nuw [0 x ptr], ptr %434, i64 0, i64 %indvars.iv1573
-  %440 = load ptr, ptr %439, align 8, !tbaa !57
+  %440 = load ptr, ptr %439, align 8, !tbaa !55
   %.not292 = icmp eq ptr %438, %440
-  br i1 %.not292, label %435, label %.backedge, !llvm.loop !48
+  br i1 %.not292, label %435, label %.backedge
 
 .thread480:                                       ; preds = %.preheader, %435
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.1)
@@ -953,9 +953,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 441:                                              ; preds = %16
   %442 = getelementptr inbounds nuw i8, ptr %.02361148, i64 16
-  %443 = load i32, ptr %442, align 8, !tbaa !59
+  %443 = load i32, ptr %442, align 8, !tbaa !57
   %444 = getelementptr inbounds nuw i8, ptr %.02461147, i64 16
-  %445 = load i32, ptr %444, align 8, !tbaa !59
+  %445 = load i32, ptr %444, align 8, !tbaa !57
   %.not281 = icmp eq i32 %443, %445
   br i1 %.not281, label %448, label %446
 
@@ -965,9 +965,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 448:                                              ; preds = %441
   %449 = getelementptr inbounds nuw i8, ptr %.02361148, i64 20
-  %450 = load i32, ptr %449, align 4, !tbaa !63
+  %450 = load i32, ptr %449, align 4, !tbaa !61
   %451 = getelementptr inbounds nuw i8, ptr %.02461147, i64 20
-  %452 = load i32, ptr %451, align 4, !tbaa !63
+  %452 = load i32, ptr %451, align 4, !tbaa !61
   %.not282 = icmp eq i32 %450, %452
   br i1 %.not282, label %455, label %453
 
@@ -977,9 +977,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 455:                                              ; preds = %448
   %456 = getelementptr inbounds nuw i8, ptr %.02361148, i64 72
-  %457 = load i32, ptr %456, align 8, !tbaa !64
+  %457 = load i32, ptr %456, align 8, !tbaa !62
   %458 = getelementptr inbounds nuw i8, ptr %.02461147, i64 72
-  %459 = load i32, ptr %458, align 8, !tbaa !64
+  %459 = load i32, ptr %458, align 8, !tbaa !62
   %.not283 = icmp eq i32 %457, %459
   br i1 %.not283, label %462, label %460
 
@@ -989,9 +989,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 462:                                              ; preds = %455
   %463 = getelementptr inbounds nuw i8, ptr %.02361148, i64 76
-  %464 = load i32, ptr %463, align 4, !tbaa !65
+  %464 = load i32, ptr %463, align 4, !tbaa !63
   %465 = getelementptr inbounds nuw i8, ptr %.02461147, i64 76
-  %466 = load i32, ptr %465, align 4, !tbaa !65
+  %466 = load i32, ptr %465, align 4, !tbaa !63
   %.not284 = icmp eq i32 %464, %466
   br i1 %.not284, label %469, label %467
 
@@ -1001,9 +1001,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 469:                                              ; preds = %462
   %470 = getelementptr inbounds nuw i8, ptr %.02361148, i64 44
-  %471 = load i32, ptr %470, align 4, !tbaa !66
+  %471 = load i32, ptr %470, align 4, !tbaa !64
   %472 = getelementptr inbounds nuw i8, ptr %.02461147, i64 44
-  %473 = load i32, ptr %472, align 4, !tbaa !66
+  %473 = load i32, ptr %472, align 4, !tbaa !64
   %.not285 = icmp eq i32 %471, %473
   br i1 %.not285, label %.preheader525, label %479
 
@@ -1026,7 +1026,7 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 481:                                              ; preds = %490
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %475
-  br i1 %exitcond.not, label %._crit_edge, label %482, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %482, !llvm.loop !65
 
 482:                                              ; preds = %.lr.ph, %481
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %481 ]
@@ -1045,9 +1045,9 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 
 490:                                              ; preds = %482
   %491 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv
-  %492 = load ptr, ptr %491, align 8, !tbaa !47
+  %492 = load ptr, ptr %491, align 8, !tbaa !46
   %493 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv
-  %494 = load ptr, ptr %493, align 8, !tbaa !47
+  %494 = load ptr, ptr %493, align 8, !tbaa !46
   %.not286 = icmp eq ptr %492, %494
   br i1 %.not286, label %481, label %.backedge
 
@@ -1069,14 +1069,14 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 502:                                              ; preds = %503
   %indvars.iv.next1564 = add nuw nsw i64 %indvars.iv1563, 1
   %exitcond1567.not = icmp eq i64 %indvars.iv.next1564, %wide.trip.count1566
-  br i1 %exitcond1567.not, label %._crit_edge1117, label %503, !llvm.loop !68
+  br i1 %exitcond1567.not, label %._crit_edge1117, label %503, !llvm.loop !66
 
 503:                                              ; preds = %.lr.ph1116, %502
   %indvars.iv1563 = phi i64 [ 0, %.lr.ph1116 ], [ %indvars.iv.next1564, %502 ]
   %504 = getelementptr inbounds nuw ptr, ptr %498, i64 %indvars.iv1563
-  %505 = load ptr, ptr %504, align 8, !tbaa !57
+  %505 = load ptr, ptr %504, align 8, !tbaa !55
   %506 = getelementptr inbounds nuw ptr, ptr %501, i64 %indvars.iv1563
-  %507 = load ptr, ptr %506, align 8, !tbaa !57
+  %507 = load ptr, ptr %506, align 8, !tbaa !55
   %.not287 = icmp eq ptr %505, %507
   br i1 %.not287, label %502, label %.backedge
 
@@ -1098,29 +1098,29 @@ _ZltRK8rationalS1_.exit411:                       ; preds = %320, %_ZNK9paramete
 515:                                              ; preds = %516
   %indvars.iv.next1569 = add nuw nsw i64 %indvars.iv1568, 1
   %exitcond1572.not = icmp eq i64 %indvars.iv.next1569, %wide.trip.count1571
-  br i1 %exitcond1572.not, label %._crit_edge1121, label %516, !llvm.loop !69
+  br i1 %exitcond1572.not, label %._crit_edge1121, label %516, !llvm.loop !67
 
 516:                                              ; preds = %.lr.ph1120, %515
   %indvars.iv1568 = phi i64 [ 0, %.lr.ph1120 ], [ %indvars.iv.next1569, %515 ]
   %517 = getelementptr inbounds nuw ptr, ptr %511, i64 %indvars.iv1568
-  %518 = load ptr, ptr %517, align 8, !tbaa !57
+  %518 = load ptr, ptr %517, align 8, !tbaa !55
   %519 = getelementptr inbounds nuw ptr, ptr %514, i64 %indvars.iv1568
-  %520 = load ptr, ptr %519, align 8, !tbaa !57
+  %520 = load ptr, ptr %519, align 8, !tbaa !55
   %.not288 = icmp eq ptr %518, %520
   br i1 %.not288, label %515, label %.backedge
 
 ._crit_edge1121:                                  ; preds = %515, %._crit_edge1117
   %521 = getelementptr inbounds nuw i8, ptr %.02361148, i64 24
-  %522 = load ptr, ptr %521, align 8, !tbaa !70
+  %522 = load ptr, ptr %521, align 8, !tbaa !68
   %523 = getelementptr inbounds nuw i8, ptr %.02461147, i64 24
-  %524 = load ptr, ptr %523, align 8, !tbaa !70
+  %524 = load ptr, ptr %523, align 8, !tbaa !68
   br label %.backedge
 
 525:                                              ; preds = %16
   %526 = getelementptr inbounds nuw i8, ptr %.02361148, i64 16
-  %527 = load i32, ptr %526, align 8, !tbaa !71
+  %527 = load i32, ptr %526, align 8, !tbaa !69
   %528 = getelementptr inbounds nuw i8, ptr %.02461147, i64 16
-  %529 = load i32, ptr %528, align 8, !tbaa !71
+  %529 = load i32, ptr %528, align 8, !tbaa !69
   %.not280 = icmp eq i32 %527, %529
   br i1 %.not280, label %532, label %530
 
@@ -1168,23 +1168,23 @@ define hidden noundef zeroext i1 @_Z9is_sortedjPKP4expr(i32 noundef %0, ptr noun
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext i32 %0 to i64
-  %invariant.gep = getelementptr i8, ptr %1, i64 -8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %4 = load ptr, ptr %gep, align 8, !tbaa !57
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !57
-  %7 = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %6, ptr noundef %4)
+  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr i8, ptr %4, i64 -8
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %9 = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %8, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %7, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !73
+  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.lcssa.ph = xor i1 %7, true
+  %.lcssa.ph = xor i1 %9, true
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -1204,7 +1204,7 @@ define hidden noundef zeroext i1 @_Z6lex_ltjPKP3astS2_(i32 noundef %0, ptr nound
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
@@ -1318,39 +1318,37 @@ attributes #12 = { builtin nounwind }
 !36 = !{!"double", !7, i64 0}
 !37 = !{!38, !38, i64 0}
 !38 = !{!"p1 _ZTS7zstring", !6, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !12, i64 32}
-!43 = !{!"_ZTS9func_decl", !10, i64 0, !12, i64 32, !44, i64 40, !7, i64 48}
-!44 = !{!"p1 _ZTS4sort", !6, i64 0}
-!45 = distinct !{!45, !40, !41}
-!46 = distinct !{!46, !40, !41}
-!47 = !{!44, !44, i64 0}
-!48 = distinct !{!48, !41}
-!49 = !{!43, !44, i64 40}
-!50 = !{!51, !12, i64 24}
-!51 = !{!"_ZTS3app", !52, i64 0, !53, i64 16, !12, i64 24, !54, i64 28, !7, i64 32}
-!52 = !{!"_ZTS4expr", !11, i64 0}
-!53 = !{!"p1 _ZTS9func_decl", !6, i64 0}
-!54 = !{!"_ZTS9app_flags", !12, i64 0, !12, i64 2, !12, i64 2, !12, i64 2}
-!55 = !{!51, !53, i64 16}
-!56 = distinct !{!56, !40, !41}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS4expr", !6, i64 0}
-!59 = !{!60, !61, i64 16}
-!60 = !{!"_ZTS10quantifier", !52, i64 0, !61, i64 16, !12, i64 20, !58, i64 24, !44, i64 32, !12, i64 40, !12, i64 44, !62, i64 48, !62, i64 49, !4, i64 56, !4, i64 64, !12, i64 72, !12, i64 76, !7, i64 80}
-!61 = !{!"_ZTS15quantifier_kind", !7, i64 0}
-!62 = !{!"bool", !7, i64 0}
-!63 = !{!60, !12, i64 20}
-!64 = !{!60, !12, i64 72}
-!65 = !{!60, !12, i64 76}
-!66 = !{!60, !12, i64 44}
-!67 = distinct !{!67, !40, !41}
-!68 = distinct !{!68, !40, !41}
-!69 = distinct !{!69, !40, !41}
-!70 = !{!60, !58, i64 24}
-!71 = !{!72, !12, i64 16}
-!72 = !{!"_ZTS3var", !52, i64 0, !12, i64 16, !44, i64 24}
-!73 = distinct !{!73, !40, !41}
-!74 = distinct !{!74, !40, !41}
+!41 = !{!42, !12, i64 32}
+!42 = !{!"_ZTS9func_decl", !10, i64 0, !12, i64 32, !43, i64 40, !7, i64 48}
+!43 = !{!"p1 _ZTS4sort", !6, i64 0}
+!44 = distinct !{!44, !40}
+!45 = distinct !{!45, !40}
+!46 = !{!43, !43, i64 0}
+!47 = !{!42, !43, i64 40}
+!48 = !{!49, !12, i64 24}
+!49 = !{!"_ZTS3app", !50, i64 0, !51, i64 16, !12, i64 24, !52, i64 28, !7, i64 32}
+!50 = !{!"_ZTS4expr", !11, i64 0}
+!51 = !{!"p1 _ZTS9func_decl", !6, i64 0}
+!52 = !{!"_ZTS9app_flags", !12, i64 0, !12, i64 2, !12, i64 2, !12, i64 2}
+!53 = !{!49, !51, i64 16}
+!54 = distinct !{!54, !40}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS4expr", !6, i64 0}
+!57 = !{!58, !59, i64 16}
+!58 = !{!"_ZTS10quantifier", !50, i64 0, !59, i64 16, !12, i64 20, !56, i64 24, !43, i64 32, !12, i64 40, !12, i64 44, !60, i64 48, !60, i64 49, !4, i64 56, !4, i64 64, !12, i64 72, !12, i64 76, !7, i64 80}
+!59 = !{!"_ZTS15quantifier_kind", !7, i64 0}
+!60 = !{!"bool", !7, i64 0}
+!61 = !{!58, !12, i64 20}
+!62 = !{!58, !12, i64 72}
+!63 = !{!58, !12, i64 76}
+!64 = !{!58, !12, i64 44}
+!65 = distinct !{!65, !40}
+!66 = distinct !{!66, !40}
+!67 = distinct !{!67, !40}
+!68 = !{!58, !56, i64 24}
+!69 = !{!70, !12, i64 16}
+!70 = !{!"_ZTS3var", !50, i64 0, !12, i64 16, !43, i64 24}
+!71 = distinct !{!71, !40}
+!72 = distinct !{!72, !40}

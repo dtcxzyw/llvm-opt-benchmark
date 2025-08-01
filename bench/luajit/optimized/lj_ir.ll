@@ -391,7 +391,7 @@ define hidden i32 @lj_ir_call(ptr noundef initializes((184, 190)) %0, i32 nounde
 
 50:                                               ; preds = %._crit_edge
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 181
-  store i8 1, ptr %51, align 1, !tbaa !42
+  store i8 1, ptr %51, align 1, !tbaa !41
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge
@@ -447,7 +447,7 @@ define hidden i32 @lj_ir_kint(ptr noundef captures(none) %0, i32 noundef %1) loc
   %7 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %.0.in = load i16, ptr %7, align 2, !tbaa !33
   %.not = icmp eq i16 %.0.in, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %2, %6
   %.0.in21 = phi i16 [ %.0.in, %6 ], [ %.0.in19, %2 ]
@@ -459,7 +459,7 @@ define hidden i32 @lj_ir_kint(ptr noundef captures(none) %0, i32 noundef %1) loc
 
 ._crit_edge:                                      ; preds = %6, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i32, ptr %12, align 8, !tbaa !44
+  %13 = load i32, ptr %12, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %.not.i = icmp ugt i32 %13, %15
@@ -473,7 +473,7 @@ define hidden i32 @lj_ir_kint(ptr noundef captures(none) %0, i32 noundef %1) loc
 ir_nextk.exit:                                    ; preds = %._crit_edge, %16
   %17 = phi ptr [ %4, %._crit_edge ], [ %.pre, %16 ]
   %18 = add i32 %13, -1
-  store i32 %18, ptr %12, align 8, !tbaa !44
+  store i32 %18, ptr %12, align 8, !tbaa !43
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %19
   store i32 %1, ptr %20, align 8, !tbaa !33
@@ -515,7 +515,7 @@ define hidden i32 @lj_ir_k64(ptr noundef captures(none) %0, i32 noundef %1, i64 
   %12 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %.0.in = load i16, ptr %12, align 2, !tbaa !33
   %.not = icmp eq i16 %.0.in, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %3, %11
   %.0.in29 = phi i16 [ %.0.in, %11 ], [ %.0.in27, %3 ]
@@ -528,12 +528,12 @@ define hidden i32 @lj_ir_k64(ptr noundef captures(none) %0, i32 noundef %1, i64 
 
 ._crit_edge:                                      ; preds = %11, %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !44
+  %19 = load i32, ptr %18, align 8, !tbaa !43
   %20 = add i32 %19, -2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = icmp ult i32 %20, %22
-  br i1 %23, label %24, label %ir_nextk64.exit, !prof !46
+  br i1 %23, label %24, label %ir_nextk64.exit, !prof !45
 
 24:                                               ; preds = %._crit_edge
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
@@ -542,7 +542,7 @@ define hidden i32 @lj_ir_k64(ptr noundef captures(none) %0, i32 noundef %1, i64 
 
 ir_nextk64.exit:                                  ; preds = %._crit_edge, %24
   %25 = phi ptr [ %5, %._crit_edge ], [ %.pre, %24 ]
-  store i32 %20, ptr %18, align 8, !tbaa !44
+  store i32 %20, ptr %18, align 8, !tbaa !43
   %26 = zext i32 %20 to i64
   %27 = getelementptr inbounds nuw %union.IRIns, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -585,7 +585,7 @@ define hidden i32 @lj_ir_knum_u64(ptr noundef captures(none) %0, i64 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %.0.in.i = load i16, ptr %7, align 2, !tbaa !33
   %.not.i = icmp eq i16 %.0.in.i, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 .lr.ph.i:                                         ; preds = %2, %6
   %.0.in29.i = phi i16 [ %.0.in.i, %6 ], [ %.0.in27.i, %2 ]
@@ -598,12 +598,12 @@ define hidden i32 @lj_ir_knum_u64(ptr noundef captures(none) %0, i64 noundef %1)
 
 ._crit_edge.i:                                    ; preds = %6, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !44
+  %14 = load i32, ptr %13, align 8, !tbaa !43
   %15 = add i32 %14, -2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = icmp ult i32 %15, %17
-  br i1 %18, label %19, label %ir_nextk64.exit.i, !prof !46
+  br i1 %18, label %19, label %ir_nextk64.exit.i, !prof !45
 
 19:                                               ; preds = %._crit_edge.i
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
@@ -612,7 +612,7 @@ define hidden i32 @lj_ir_knum_u64(ptr noundef captures(none) %0, i64 noundef %1)
 
 ir_nextk64.exit.i:                                ; preds = %19, %._crit_edge.i
   %20 = phi ptr [ %4, %._crit_edge.i ], [ %.pre.i, %19 ]
-  store i32 %15, ptr %13, align 8, !tbaa !44
+  store i32 %15, ptr %13, align 8, !tbaa !43
   %21 = zext i32 %15 to i64
   %22 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -652,7 +652,7 @@ define hidden i32 @lj_ir_kint64(ptr noundef captures(none) %0, i64 noundef %1) l
   %7 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %.0.in.i = load i16, ptr %7, align 2, !tbaa !33
   %.not.i = icmp eq i16 %.0.in.i, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 .lr.ph.i:                                         ; preds = %2, %6
   %.0.in29.i = phi i16 [ %.0.in.i, %6 ], [ %.0.in27.i, %2 ]
@@ -665,12 +665,12 @@ define hidden i32 @lj_ir_kint64(ptr noundef captures(none) %0, i64 noundef %1) l
 
 ._crit_edge.i:                                    ; preds = %6, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !44
+  %14 = load i32, ptr %13, align 8, !tbaa !43
   %15 = add i32 %14, -2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = icmp ult i32 %15, %17
-  br i1 %18, label %19, label %ir_nextk64.exit.i, !prof !46
+  br i1 %18, label %19, label %ir_nextk64.exit.i, !prof !45
 
 19:                                               ; preds = %._crit_edge.i
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
@@ -679,7 +679,7 @@ define hidden i32 @lj_ir_kint64(ptr noundef captures(none) %0, i64 noundef %1) l
 
 ir_nextk64.exit.i:                                ; preds = %19, %._crit_edge.i
   %20 = phi ptr [ %4, %._crit_edge.i ], [ %.pre.i, %19 ]
-  store i32 %15, ptr %13, align 8, !tbaa !44
+  store i32 %15, ptr %13, align 8, !tbaa !43
   %21 = zext i32 %15 to i64
   %22 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -736,7 +736,7 @@ numistrueint.exit:                                ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %.0.in.i = load i16, ptr %13, align 2, !tbaa !33
   %.not.i4 = icmp eq i16 %.0.in.i, 0
-  br i1 %.not.i4, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i4, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
 
 .lr.ph.i:                                         ; preds = %8, %12
   %.0.in21.i = phi i16 [ %.0.in.i, %12 ], [ %.0.in19.i, %8 ]
@@ -748,7 +748,7 @@ numistrueint.exit:                                ; preds = %2
 
 ._crit_edge.i:                                    ; preds = %12, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !44
+  %19 = load i32, ptr %18, align 8, !tbaa !43
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %.not.i.i = icmp ugt i32 %19, %21
@@ -762,7 +762,7 @@ numistrueint.exit:                                ; preds = %2
 ir_nextk.exit.i:                                  ; preds = %22, %._crit_edge.i
   %23 = phi ptr [ %10, %._crit_edge.i ], [ %.pre.i, %22 ]
   %24 = add i32 %19, -1
-  store i32 %24, ptr %18, align 8, !tbaa !44
+  store i32 %24, ptr %18, align 8, !tbaa !43
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw %union.IRIns, ptr %23, i64 %25
   store i32 %3, ptr %26, align 8, !tbaa !33
@@ -799,7 +799,7 @@ numistrueint.exit.thread:                         ; preds = %.numistrueint.exit.
   %37 = getelementptr inbounds nuw i8, ptr %39, i64 6
   %.0.in.i.i = load i16, ptr %37, align 2, !tbaa !33
   %.not.i.i6 = icmp eq i16 %.0.in.i.i, 0
-  br i1 %.not.i.i6, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %.not.i.i6, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 .lr.ph.i.i:                                       ; preds = %numistrueint.exit.thread, %36
   %.0.in29.i.i = phi i16 [ %.0.in.i.i, %36 ], [ %.0.in27.i.i, %numistrueint.exit.thread ]
@@ -812,12 +812,12 @@ numistrueint.exit.thread:                         ; preds = %.numistrueint.exit.
 
 ._crit_edge.i.i:                                  ; preds = %36, %numistrueint.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = load i32, ptr %43, align 8, !tbaa !44
+  %44 = load i32, ptr %43, align 8, !tbaa !43
   %45 = add i32 %44, -2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %47 = load i32, ptr %46, align 4, !tbaa !4
   %48 = icmp ult i32 %45, %47
-  br i1 %48, label %49, label %ir_nextk64.exit.i.i, !prof !46
+  br i1 %48, label %49, label %ir_nextk64.exit.i.i, !prof !45
 
 49:                                               ; preds = %._crit_edge.i.i
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
@@ -826,7 +826,7 @@ numistrueint.exit.thread:                         ; preds = %.numistrueint.exit.
 
 ir_nextk64.exit.i.i:                              ; preds = %49, %._crit_edge.i.i
   %50 = phi ptr [ %34, %._crit_edge.i.i ], [ %.pre.i.i, %49 ]
-  store i32 %45, ptr %43, align 8, !tbaa !44
+  store i32 %45, ptr %43, align 8, !tbaa !43
   %51 = zext i32 %45 to i64
   %52 = getelementptr inbounds nuw %union.IRIns, ptr %50, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -870,7 +870,7 @@ define hidden i32 @lj_ir_kgc(ptr noundef captures(none) %0, ptr noundef %1, i32 
   %8 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %.0.in = load i16, ptr %8, align 2, !tbaa !33
   %.not = icmp eq i16 %.0.in, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %3, %7
   %.0.in24 = phi i16 [ %.0.in, %7 ], [ %.0.in22, %3 ]
@@ -884,12 +884,12 @@ define hidden i32 @lj_ir_kgc(ptr noundef captures(none) %0, ptr noundef %1, i32 
 
 ._crit_edge:                                      ; preds = %7, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i32, ptr %15, align 8, !tbaa !44
+  %16 = load i32, ptr %15, align 8, !tbaa !43
   %17 = add i32 %16, -2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = icmp ult i32 %17, %19
-  br i1 %20, label %21, label %ir_nextk64.exit, !prof !46
+  br i1 %20, label %21, label %ir_nextk64.exit, !prof !45
 
 21:                                               ; preds = %._crit_edge
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
@@ -898,7 +898,7 @@ define hidden i32 @lj_ir_kgc(ptr noundef captures(none) %0, ptr noundef %1, i32 
 
 ir_nextk64.exit:                                  ; preds = %._crit_edge, %21
   %22 = phi ptr [ %5, %._crit_edge ], [ %.pre, %21 ]
-  store i32 %17, ptr %15, align 8, !tbaa !44
+  store i32 %17, ptr %15, align 8, !tbaa !43
   %23 = zext i32 %17 to i64
   %24 = getelementptr inbounds nuw %union.IRIns, ptr %22, i64 %23
   store i32 0, ptr %24, align 8, !tbaa !33
@@ -931,19 +931,19 @@ ir_nextk64.exit:                                  ; preds = %._crit_edge, %21
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_ir_ktrace(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !44
+  %3 = load i32, ptr %2, align 8, !tbaa !43
   %4 = add i32 %3, -2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp ult i32 %4, %6
-  br i1 %7, label %8, label %ir_nextk64.exit, !prof !46
+  br i1 %7, label %8, label %ir_nextk64.exit, !prof !45
 
 8:                                                ; preds = %1
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
   br label %ir_nextk64.exit
 
 ir_nextk64.exit:                                  ; preds = %1, %8
-  store i32 %4, ptr %2, align 8, !tbaa !44
+  store i32 %4, ptr %2, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = zext i32 %4 to i64
@@ -974,7 +974,7 @@ define hidden i32 @lj_ir_kptr_(ptr noundef captures(none) %0, i32 noundef %1, pt
   %10 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %.0.in = load i16, ptr %10, align 2, !tbaa !33
   %.not = icmp eq i16 %.0.in, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %3, %9
   %.0.in26 = phi i16 [ %.0.in, %9 ], [ %.0.in24, %3 ]
@@ -988,12 +988,12 @@ define hidden i32 @lj_ir_kptr_(ptr noundef captures(none) %0, i32 noundef %1, pt
 
 ._crit_edge:                                      ; preds = %9, %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !44
+  %18 = load i32, ptr %17, align 8, !tbaa !43
   %19 = add i32 %18, -2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = icmp ult i32 %19, %21
-  br i1 %22, label %23, label %ir_nextk64.exit, !prof !46
+  br i1 %22, label %23, label %ir_nextk64.exit, !prof !45
 
 23:                                               ; preds = %._crit_edge
   tail call fastcc void @lj_ir_growbot(ptr noundef nonnull %0)
@@ -1002,7 +1002,7 @@ define hidden i32 @lj_ir_kptr_(ptr noundef captures(none) %0, i32 noundef %1, pt
 
 ir_nextk64.exit:                                  ; preds = %._crit_edge, %23
   %24 = phi ptr [ %5, %._crit_edge ], [ %.pre, %23 ]
-  store i32 %19, ptr %17, align 8, !tbaa !44
+  store i32 %19, ptr %17, align 8, !tbaa !43
   %25 = zext i32 %19 to i64
   %26 = getelementptr inbounds nuw %union.IRIns, ptr %24, i64 %25
   store i32 0, ptr %26, align 8, !tbaa !33
@@ -1044,7 +1044,7 @@ define hidden i32 @lj_ir_knull(ptr noundef captures(none) %0, i32 noundef %1) lo
   %7 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %.0.in = load i16, ptr %7, align 2, !tbaa !33
   %.not = icmp eq i16 %.0.in, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 .lr.ph:                                           ; preds = %2, %6
   %.0.in22 = phi i16 [ %.0.in, %6 ], [ %.0.in20, %2 ]
@@ -1058,7 +1058,7 @@ define hidden i32 @lj_ir_knull(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 ._crit_edge:                                      ; preds = %6, %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !44
+  %15 = load i32, ptr %14, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %.not.i = icmp ugt i32 %15, %17
@@ -1072,7 +1072,7 @@ define hidden i32 @lj_ir_knull(ptr noundef captures(none) %0, i32 noundef %1) lo
 ir_nextk.exit:                                    ; preds = %._crit_edge, %18
   %19 = phi ptr [ %4, %._crit_edge ], [ %.pre, %18 ]
   %20 = add i32 %15, -1
-  store i32 %20, ptr %14, align 8, !tbaa !44
+  store i32 %20, ptr %14, align 8, !tbaa !43
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw %union.IRIns, ptr %19, i64 %21
   store i32 0, ptr %22, align 8, !tbaa !33
@@ -1115,7 +1115,7 @@ define hidden i32 @lj_ir_kslot(ptr noundef captures(none) %0, i32 noundef %1, i3
   %11 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %.0.in = load i16, ptr %11, align 2, !tbaa !33
   %.not = icmp eq i16 %.0.in, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %3, %10
   %.0.in23 = phi i16 [ %.0.in, %10 ], [ %.0.in21, %3 ]
@@ -1127,7 +1127,7 @@ define hidden i32 @lj_ir_kslot(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 ._crit_edge:                                      ; preds = %10, %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load i32, ptr %16, align 8, !tbaa !44
+  %17 = load i32, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %.not.i = icmp ugt i32 %17, %19
@@ -1141,7 +1141,7 @@ define hidden i32 @lj_ir_kslot(ptr noundef captures(none) %0, i32 noundef %1, i3
 ir_nextk.exit:                                    ; preds = %._crit_edge, %20
   %21 = phi ptr [ %5, %._crit_edge ], [ %.pre, %20 ]
   %22 = add i32 %17, -1
-  store i32 %22, ptr %16, align 8, !tbaa !44
+  store i32 %22, ptr %16, align 8, !tbaa !43
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw %union.IRIns, ptr %21, i64 %23
   store i32 %8, ptr %24, align 8, !tbaa !33
@@ -1230,13 +1230,13 @@ define hidden void @lj_ir_kvalue(ptr noundef %0, ptr noundef writeonly captures(
 34:                                               ; preds = %3
   %35 = tail call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #12
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  store i8 10, ptr %36, align 1, !tbaa !51
+  store i8 10, ptr %36, align 1, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 10
-  store i16 11, ptr %37, align 2, !tbaa !53
+  store i16 11, ptr %37, align 2, !tbaa !52
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 %39, ptr %40, align 8, !tbaa !54
+  store i64 %39, ptr %40, align 8, !tbaa !53
   %41 = ptrtoint ptr %35 to i64
   %42 = or i64 %41, -1548112371908608
   store i64 %42, ptr %1, align 8, !tbaa !33
@@ -1478,7 +1478,7 @@ define hidden void @lj_ir_rollback(ptr noundef captures(none) %0, i32 noundef %1
   %19 = getelementptr inbounds nuw [101 x i16], ptr %8, i64 0, i64 %18
   store i16 %15, ptr %19, align 2, !tbaa !34
   %.wide = icmp ugt i64 %12, %10
-  br i1 %.wide, label %11, label %._crit_edge.loopexit, !llvm.loop !55
+  br i1 %.wide, label %11, label %._crit_edge.loopexit, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %11
   %20 = trunc nuw i64 %12 to i32
@@ -1541,17 +1541,17 @@ define internal fastcc void @lj_ir_growbot(ptr noundef captures(none) initialize
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %7, i64 %42, i1 false)
   %43 = load ptr, ptr %28, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !56
+  %45 = load i64, ptr %44, align 8, !tbaa !55
   %46 = inttoptr i64 %45 to ptr
   %47 = zext i32 %10 to i64
   %48 = shl nuw nsw i64 %47, 3
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !59
+  %50 = load i64, ptr %49, align 8, !tbaa !58
   %51 = sub i64 %50, %48
-  store i64 %51, ptr %49, align 8, !tbaa !59
-  %52 = load ptr, ptr %46, align 8, !tbaa !68
+  store i64 %51, ptr %49, align 8, !tbaa !58
+  %52 = load ptr, ptr %46, align 8, !tbaa !67
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !69
+  %54 = load ptr, ptr %53, align 8, !tbaa !68
   %55 = tail call ptr %52(ptr noundef %54, ptr noundef %7, i64 noundef range(i64 0, 34359738361) %48, i64 noundef 0) #12
   %56 = load i32, ptr %4, align 4, !tbaa !4
   %57 = sub i32 %56, %35
@@ -1632,34 +1632,33 @@ attributes #13 = { noreturn nounwind }
 !36 = !{!37, !12, i64 8}
 !37 = !{!"CCallInfo", !14, i64 0, !12, i64 8}
 !38 = !{!12, !12, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!5, !9, i64 181}
-!43 = distinct !{!43, !40, !41}
-!44 = !{!5, !12, i64 40}
-!45 = distinct !{!45, !40, !41}
-!46 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!47 = distinct !{!47, !40, !41}
-!48 = distinct !{!48, !40, !41}
-!49 = distinct !{!49, !40, !41}
-!50 = distinct !{!50, !40, !41}
-!51 = !{!52, !9, i64 9}
-!52 = !{!"GCcdata", !7, i64 0, !9, i64 8, !9, i64 9, !11, i64 10}
-!53 = !{!52, !11, i64 10}
-!54 = !{!8, !8, i64 0}
-!55 = distinct !{!55, !40, !41}
-!56 = !{!57, !8, i64 16}
-!57 = !{!"lua_State", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !17, i64 16, !7, i64 24, !58, i64 32, !58, i64 40, !17, i64 48, !17, i64 56, !7, i64 64, !7, i64 72, !14, i64 80, !12, i64 88}
-!58 = !{!"p1 _ZTS6TValue", !14, i64 0}
-!59 = !{!60, !8, i64 16}
-!60 = !{!"global_State", !14, i64 0, !14, i64 8, !61, i64 16, !62, i64 120, !9, i64 144, !9, i64 145, !9, i64 146, !9, i64 147, !63, i64 152, !12, i64 184, !7, i64 192, !64, i64 200, !9, i64 232, !9, i64 240, !65, i64 248, !9, i64 272, !66, i64 280, !12, i64 328, !12, i64 332, !14, i64 336, !14, i64 344, !14, i64 352, !12, i64 360, !12, i64 364, !7, i64 368, !17, i64 376, !17, i64 384, !67, i64 392, !9, i64 424}
-!61 = !{!"GCState", !8, i64 0, !8, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !9, i64 19, !12, i64 20, !7, i64 24, !17, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !8, i64 72, !8, i64 80, !12, i64 88, !12, i64 92, !17, i64 96}
-!62 = !{!"GCstr", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !12, i64 12, !12, i64 16, !12, i64 20}
-!63 = !{!"StrInternState", !25, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !9, i64 20, !9, i64 21, !9, i64 22, !9, i64 23, !8, i64 24}
-!64 = !{!"SBuf", !18, i64 0, !18, i64 8, !18, i64 16, !17, i64 24}
-!65 = !{!"Node", !9, i64 0, !9, i64 8, !17, i64 16}
-!66 = !{!"GCupval", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !9, i64 16, !17, i64 32, !12, i64 40}
-!67 = !{!"PRNGState", !9, i64 0}
-!68 = !{!60, !14, i64 0}
-!69 = !{!60, !14, i64 8}
+!41 = !{!5, !9, i64 181}
+!42 = distinct !{!42, !40}
+!43 = !{!5, !12, i64 40}
+!44 = distinct !{!44, !40}
+!45 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!46 = distinct !{!46, !40}
+!47 = distinct !{!47, !40}
+!48 = distinct !{!48, !40}
+!49 = distinct !{!49, !40}
+!50 = !{!51, !9, i64 9}
+!51 = !{!"GCcdata", !7, i64 0, !9, i64 8, !9, i64 9, !11, i64 10}
+!52 = !{!51, !11, i64 10}
+!53 = !{!8, !8, i64 0}
+!54 = distinct !{!54, !40}
+!55 = !{!56, !8, i64 16}
+!56 = !{!"lua_State", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !17, i64 16, !7, i64 24, !57, i64 32, !57, i64 40, !17, i64 48, !17, i64 56, !7, i64 64, !7, i64 72, !14, i64 80, !12, i64 88}
+!57 = !{!"p1 _ZTS6TValue", !14, i64 0}
+!58 = !{!59, !8, i64 16}
+!59 = !{!"global_State", !14, i64 0, !14, i64 8, !60, i64 16, !61, i64 120, !9, i64 144, !9, i64 145, !9, i64 146, !9, i64 147, !62, i64 152, !12, i64 184, !7, i64 192, !63, i64 200, !9, i64 232, !9, i64 240, !64, i64 248, !9, i64 272, !65, i64 280, !12, i64 328, !12, i64 332, !14, i64 336, !14, i64 344, !14, i64 352, !12, i64 360, !12, i64 364, !7, i64 368, !17, i64 376, !17, i64 384, !66, i64 392, !9, i64 424}
+!60 = !{!"GCState", !8, i64 0, !8, i64 8, !9, i64 16, !9, i64 17, !9, i64 18, !9, i64 19, !12, i64 20, !7, i64 24, !17, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !8, i64 72, !8, i64 80, !12, i64 88, !12, i64 92, !17, i64 96}
+!61 = !{!"GCstr", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !12, i64 12, !12, i64 16, !12, i64 20}
+!62 = !{!"StrInternState", !25, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !9, i64 20, !9, i64 21, !9, i64 22, !9, i64 23, !8, i64 24}
+!63 = !{!"SBuf", !18, i64 0, !18, i64 8, !18, i64 16, !17, i64 24}
+!64 = !{!"Node", !9, i64 0, !9, i64 8, !17, i64 16}
+!65 = !{!"GCupval", !7, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !9, i64 16, !17, i64 32, !12, i64 40}
+!66 = !{!"PRNGState", !9, i64 0}
+!67 = !{!59, !14, i64 0}
+!68 = !{!59, !14, i64 8}

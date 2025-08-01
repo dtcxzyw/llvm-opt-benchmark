@@ -25,7 +25,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03a56a92aa38b8b9E(ptr 
   call void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h417b83ca9ddf1dd0E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr align 8 %0)
   %10 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !3
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %8, %2
   %.sroa.0.0.lcssa = phi i64 [ %1, %2 ], [ %9, %8 ]
@@ -54,7 +54,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h65e7e893e
   %12 = call { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h5d1cee23199dd74eE"(i64 %10, i64 %11)
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = trunc nuw i64 %13 to i1
-  br i1 %14, label %15, label %6, !llvm.loop !5
+  br i1 %14, label %15, label %6
 
 15:                                               ; preds = %8
   %16 = extractvalue { i64, i64 } %12, 1
@@ -104,6 +104,3 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}

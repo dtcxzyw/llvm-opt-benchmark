@@ -878,7 +878,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %186 = add nuw nsw i32 %.2783836, 1
   %187 = add nuw nsw i32 %.1837, 1
   %exitcond924.not = icmp eq i32 %.1837, %181
-  br i1 %exitcond924.not, label %classify_lg8979_packet.exit.sink.split, label %.lr.ph838, !llvm.loop !11
+  br i1 %exitcond924.not, label %classify_lg8979_packet.exit.sink.split, label %.lr.ph838, !llvm.loop !10
 
 188:                                              ; preds = %51
   %189 = udiv i8 %64, 3
@@ -899,7 +899,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %198 = add nuw nsw i32 %.3784834, 3
   %199 = add nuw nsw i32 %.2835, 1
   %exitcond.not = icmp eq i32 %199, %190
-  br i1 %exitcond.not, label %classify_lg8979_packet.exit.sink.split, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %classify_lg8979_packet.exit.sink.split, label %.lr.ph, !llvm.loop !11
 
 200:                                              ; preds = %31, %4, %19, %23, %25, %33, %35, %37, %39
   %201 = load ptr, ptr %5, align 8
@@ -993,7 +993,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %251 = add i32 %.5786889, 3
   %252 = add nuw nsw i32 %.3890, 1
   %exitcond939.not = icmp eq i32 %252, %232
-  br i1 %exitcond939.not, label %.loopexit, label %.lr.ph891, !llvm.loop !13
+  br i1 %exitcond939.not, label %.loopexit, label %.lr.ph891, !llvm.loop !12
 
 253:                                              ; preds = %.lr.ph992
   %254 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %229)
@@ -1065,7 +1065,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %295 = add i16 %.1776885, 1
   %296 = add nuw nsw i32 %.4886, 1
   %exitcond938.not = icmp eq i32 %296, %.0774941
-  br i1 %exitcond938.not, label %.loopexit, label %266, !llvm.loop !14
+  br i1 %exitcond938.not, label %.loopexit, label %266, !llvm.loop !13
 
 297:                                              ; preds = %.lr.ph992
   %298 = load i32, ptr @hf_lg8979_start_ptnum16, align 4
@@ -1136,7 +1136,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %353 = add i32 %.9790880, 2
   %354 = add nuw nsw i32 %.5881, 1
   %exitcond937.not = icmp eq i32 %354, %335
-  br i1 %exitcond937.not, label %.loopexit, label %.lr.ph882, !llvm.loop !15
+  br i1 %exitcond937.not, label %.loopexit, label %.lr.ph882, !llvm.loop !14
 
 355:                                              ; preds = %.lr.ph992
   %356 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %229)
@@ -1198,7 +1198,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %401 = add i16 %.2777876, 8
   %402 = add nuw nsw i32 %.6877, 1
   %exitcond936.not = icmp eq i32 %402, %smax935
-  br i1 %exitcond936.not, label %.loopexit, label %.lr.ph878, !llvm.loop !16
+  br i1 %exitcond936.not, label %.loopexit, label %.lr.ph878, !llvm.loop !15
 
 403:                                              ; preds = %.lr.ph992
   %404 = lshr i8 %226, 1
@@ -1231,7 +1231,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %423 = add i32 %.11792871, 2
   %424 = add nuw nsw i32 %.7872, 1
   %exitcond934.not = icmp eq i32 %424, %405
-  br i1 %exitcond934.not, label %.loopexit, label %.lr.ph873, !llvm.loop !17
+  br i1 %exitcond934.not, label %.loopexit, label %.lr.ph873, !llvm.loop !16
 
 425:                                              ; preds = %.lr.ph992
   %426 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %229)
@@ -1293,7 +1293,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %471 = add i16 %.3778867, 8
   %472 = add nuw nsw i32 %.8868, 1
   %exitcond933.not = icmp eq i32 %472, %smax932
-  br i1 %exitcond933.not, label %.loopexit, label %.lr.ph869, !llvm.loop !18
+  br i1 %exitcond933.not, label %.loopexit, label %.lr.ph869, !llvm.loop !17
 
 473:                                              ; preds = %.lr.ph992
   %474 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
@@ -1352,7 +1352,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %516 = add i32 %.13861, 2
   %517 = add nuw nsw i32 %.9863, 1
   %exitcond931.not = icmp eq i32 %517, %.sext817
-  br i1 %exitcond931.not, label %.loopexit, label %.lr.ph864, !llvm.loop !19
+  br i1 %exitcond931.not, label %.loopexit, label %.lr.ph864, !llvm.loop !18
 
 518:                                              ; preds = %.lr.ph992, %.lr.ph992
   %519 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
@@ -1380,7 +1380,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %529 = add i8 %.1780857, 1
   %530 = add nuw nsw i32 %.10858, 1
   %exitcond929.not = icmp eq i32 %530, %.sext819
-  br i1 %exitcond929.not, label %.loopexit, label %.lr.ph859, !llvm.loop !20
+  br i1 %exitcond929.not, label %.loopexit, label %.lr.ph859, !llvm.loop !19
 
 531:                                              ; preds = %.lr.ph992
   %532 = udiv i8 %226, 9
@@ -1439,7 +1439,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %578 = add i32 %.15852, 9
   %579 = add nuw nsw i32 %.11853, 1
   %exitcond928.not = icmp eq i32 %579, %533
-  br i1 %exitcond928.not, label %.loopexit, label %.lr.ph854, !llvm.loop !21
+  br i1 %exitcond928.not, label %.loopexit, label %.lr.ph854, !llvm.loop !20
 
 580:                                              ; preds = %.lr.ph992
   %581 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %229)
@@ -1499,12 +1499,12 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %617 = add nuw nsw i32 %.0846, 1
   %.17 = add i32 %.17847, 1
   %exitcond926.not = icmp eq i32 %617, 16
-  br i1 %exitcond926.not, label %618, label %614, !llvm.loop !22
+  br i1 %exitcond926.not, label %618, label %614, !llvm.loop !21
 
 618:                                              ; preds = %614
   %619 = add nuw nsw i32 %.12849, 1
   %exitcond927.not = icmp eq i32 %619, %611
-  br i1 %exitcond927.not, label %.loopexit, label %.lr.ph850, !llvm.loop !23
+  br i1 %exitcond927.not, label %.loopexit, label %.lr.ph850, !llvm.loop !22
 
 620:                                              ; preds = %.lr.ph992
   %621 = load i32, ptr @hf_lg8979_timebias_proctime, align 4
@@ -1640,19 +1640,18 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}

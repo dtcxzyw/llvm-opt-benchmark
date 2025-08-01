@@ -957,7 +957,7 @@ switch.lookup:                                    ; preds = %140
   %.reass.i.i = add i32 %218, 5
   %254 = add i32 %.reass.i.i, %252
   %255 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %254)
-  br i1 %255, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !6
+  br i1 %255, label %.lr.ph.i.i, label %.critedge.i.i
 
 256:                                              ; preds = %327, %.preheader172.i.i
   %.2135.i.i = phi i32 [ %257, %327 ], [ 0, %.preheader172.i.i ]
@@ -1104,7 +1104,7 @@ switch.lookup:                                    ; preds = %140
   %330 = icmp eq i16 %322, 0
   %331 = icmp eq i8 %320, 35
   %332 = select i1 %330, i1 %331, i1 false
-  br i1 %332, label %256, label %.critedge.i.i, !llvm.loop !8
+  br i1 %332, label %256, label %.critedge.i.i, !llvm.loop !6
 
 333:                                              ; preds = %.split133.i
   %334 = call ptr @wmem_packet_scope()
@@ -1201,7 +1201,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   %373 = icmp eq i16 %365, 0
   %374 = icmp eq i8 %363, 48
   %375 = select i1 %373, i1 %374, i1 false
-  br i1 %375, label %.preheader.i157.i, label %.critedge.i150.i, !llvm.loop !10
+  br i1 %375, label %.preheader.i157.i, label %.critedge.i150.i, !llvm.loop !8
 
 376:                                              ; preds = %342
   %377 = add i32 %.0125205.i, %170
@@ -1325,7 +1325,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   %460 = icmp eq i16 %452, 0
   %461 = icmp eq i8 %450, 50
   %462 = select i1 %460, i1 %461, i1 false
-  br i1 %462, label %.preheader350.i.i, label %.critedge.i150.i, !llvm.loop !11
+  br i1 %462, label %.preheader350.i.i, label %.critedge.i150.i, !llvm.loop !9
 
 .lr.ph.i155.i:                                    ; preds = %.preheader352.i.i, %.backedge.i156.i
   %463 = phi i32 [ %499, %.backedge.i156.i ], [ %346, %.preheader352.i.i ]
@@ -1399,7 +1399,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   %.reass388.i.i = add i32 %463, 5
   %499 = add i32 %.reass388.i.i, %497
   %500 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %499)
-  br i1 %500, label %.lr.ph.i155.i, label %.critedge.i150.i, !llvm.loop !12
+  br i1 %500, label %.lr.ph.i155.i, label %.critedge.i150.i
 
 .critedge14.i.i:                                  ; preds = %.critedge14.i.i.preheader, %556
   %.5297.i.i = phi i32 [ %542, %556 ], [ %.0125205.i, %.critedge14.i.i.preheader ]
@@ -1498,7 +1498,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   %560 = add i8 %546, -53
   %561 = icmp ult i8 %560, 2
   %or.cond17.i.i = or i1 %559, %561
-  br i1 %or.cond17.i.i, label %.critedge14.i.i, label %.critedge.i150.i, !llvm.loop !13
+  br i1 %or.cond17.i.i, label %.critedge14.i.i, label %.critedge.i150.i, !llvm.loop !10
 
 .preheader355.i.i:                                ; preds = %342, %583
   %.6298.i.i = phi i32 [ %566, %583 ], [ %.0125205.i, %342 ]
@@ -1551,7 +1551,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %333
   %586 = icmp eq i16 %578, 0
   %587 = icmp eq i8 %576, 52
   %588 = select i1 %586, i1 %587, i1 false
-  br i1 %588, label %.preheader355.i.i, label %.critedge.i150.i, !llvm.loop !14
+  br i1 %588, label %.preheader355.i.i, label %.critedge.i150.i, !llvm.loop !11
 
 589:                                              ; preds = %342
   %.not306.i.i = icmp eq i16 %177, 0
@@ -1917,7 +1917,7 @@ add_octetstring_value.exit.i:                     ; preds = %724, %718, %715, %7
   %798 = add i8 %784, -53
   %799 = icmp ult i8 %798, 2
   %or.cond12.i.i = or i1 %797, %799
-  br i1 %or.cond12.i.i, label %.critedge9.i.i, label %800, !llvm.loop !15
+  br i1 %or.cond12.i.i, label %.critedge9.i.i, label %800, !llvm.loop !12
 
 800:                                              ; preds = %794, %791, %783, %777
   %801 = sub i32 %780, %.0125205.i
@@ -1985,7 +1985,7 @@ add_charstring_value.exit.i:                      ; preds = %825, %818, %817, %8
   %.1119.i = phi ptr [ %49, %162 ], [ %.4.i, %add_charstring_value.exit.i ]
   %.1.i = phi ptr [ %164, %162 ], [ %.0213.i, %add_charstring_value.exit.i ]
   %833 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.2127.i)
-  br i1 %833, label %.lr.ph.i, label %parse_attributes.exit, !llvm.loop !16
+  br i1 %833, label %.lr.ph.i, label %parse_attributes.exit, !llvm.loop !13
 
 parse_attributes.exit:                            ; preds = %162, %832, %150
   %.1126.i = phi i32 [ 8, %150 ], [ %.2127.i, %832 ], [ %165, %162 ]
@@ -2432,7 +2432,7 @@ define internal fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef %1, i
   %.277 = phi i32 [ %57, %68 ], [ %54, %51 ], [ %50, %.thread ]
   %.5 = phi i32 [ %.3, %68 ], [ %.0, %51 ], [ %.2, %.thread ]
   %.not89 = icmp eq i8 %16, 55
-  br i1 %.not89, label %70, label %12, !llvm.loop !17
+  br i1 %.not89, label %70, label %12, !llvm.loop !14
 
 70:                                               ; preds = %23, %15, %12, %69
   %.179 = phi ptr [ %.583, %69 ], [ %.078, %23 ], [ %.078, %15 ], [ %.078, %12 ]
@@ -2510,14 +2510,11 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

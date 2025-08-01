@@ -462,7 +462,7 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 define internal void @_GLOBAL__sub_I_KleeExtension.cpp() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, i64 16), ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, i64 16), ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, align 8, !tbaa !51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, i64 8), align 8, !tbaa !33
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN13KleeExtension16input_base_name_B5cxx11E, i64 21), align 1, !tbaa !48
@@ -540,7 +540,6 @@ attributes #14 = { noreturn }
 !46 = !{!"p1 int", !10, i64 0}
 !47 = !{!"p1 short", !10, i64 0}
 !48 = !{!11, !11, i64 0}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!32, !16, i64 0}
+!51 = !{!32, !16, i64 0}

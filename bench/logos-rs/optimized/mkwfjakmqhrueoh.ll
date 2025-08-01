@@ -189,7 +189,7 @@ define hidden void @_ZN13logos_codegen9generator4rope18byte_slice_literal17h3d08
 70:                                               ; preds = %72, %68
   %71 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN49_$LT$u8$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6faafa724b6f128bE"(ptr nonnull align 1 %62, ptr nonnull align 8 %14)
-          to label %61 unwind label %63, !llvm.loop !3
+          to label %61 unwind label %63
 
 72:                                               ; preds = %68
   invoke void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr nonnull align 8 %14)
@@ -281,5 +281,3 @@ attributes #8 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}

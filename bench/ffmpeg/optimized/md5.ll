@@ -142,7 +142,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %13 = xor i32 %8, %9
   %14 = and i32 %13, %10
   %15 = xor i32 %14, %8
-  %16 = load i32, ptr %12, align 1, !tbaa !14
+  %16 = load i32, ptr %12, align 1, !tbaa !13
   %17 = add i32 %11, -680876936
   %18 = add i32 %17, %16
   %19 = add i32 %18, %15
@@ -152,7 +152,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %23 = and i32 %21, %22
   %24 = xor i32 %23, %9
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %26 = load i32, ptr %25, align 1, !tbaa !14
+  %26 = load i32, ptr %25, align 1, !tbaa !13
   %27 = add i32 %8, -389564586
   %28 = add i32 %27, %26
   %29 = add i32 %28, %24
@@ -162,7 +162,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %33 = and i32 %31, %32
   %34 = xor i32 %33, %10
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = load i32, ptr %35, align 1, !tbaa !14
+  %36 = load i32, ptr %35, align 1, !tbaa !13
   %37 = add i32 %9, 606105819
   %38 = add i32 %37, %36
   %39 = add i32 %38, %34
@@ -172,7 +172,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %43 = and i32 %41, %42
   %44 = xor i32 %43, %21
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %46 = load i32, ptr %45, align 1, !tbaa !14
+  %46 = load i32, ptr %45, align 1, !tbaa !13
   %47 = add i32 %10, -1044525330
   %48 = add i32 %47, %46
   %49 = add i32 %48, %44
@@ -182,7 +182,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %53 = and i32 %51, %52
   %54 = xor i32 %53, %31
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %56 = load i32, ptr %55, align 1, !tbaa !14
+  %56 = load i32, ptr %55, align 1, !tbaa !13
   %57 = add i32 %56, -176418897
   %58 = add i32 %57, %21
   %59 = add i32 %58, %54
@@ -192,7 +192,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %63 = and i32 %61, %62
   %64 = xor i32 %63, %41
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %66 = load i32, ptr %65, align 1, !tbaa !14
+  %66 = load i32, ptr %65, align 1, !tbaa !13
   %67 = add i32 %66, 1200080426
   %68 = add i32 %67, %31
   %69 = add i32 %68, %64
@@ -202,7 +202,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %73 = and i32 %71, %72
   %74 = xor i32 %73, %51
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %76 = load i32, ptr %75, align 1, !tbaa !14
+  %76 = load i32, ptr %75, align 1, !tbaa !13
   %77 = add i32 %76, -1473231341
   %78 = add i32 %77, %41
   %79 = add i32 %78, %74
@@ -212,7 +212,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %83 = and i32 %81, %82
   %84 = xor i32 %83, %61
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %86 = load i32, ptr %85, align 1, !tbaa !14
+  %86 = load i32, ptr %85, align 1, !tbaa !13
   %87 = add i32 %86, -45705983
   %88 = add i32 %87, %51
   %89 = add i32 %88, %84
@@ -222,7 +222,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %93 = and i32 %91, %92
   %94 = xor i32 %93, %71
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %96 = load i32, ptr %95, align 1, !tbaa !14
+  %96 = load i32, ptr %95, align 1, !tbaa !13
   %97 = add i32 %96, 1770035416
   %98 = add i32 %97, %61
   %99 = add i32 %98, %94
@@ -232,7 +232,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %103 = and i32 %101, %102
   %104 = xor i32 %103, %81
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  %106 = load i32, ptr %105, align 1, !tbaa !14
+  %106 = load i32, ptr %105, align 1, !tbaa !13
   %107 = add i32 %106, -1958414417
   %108 = add i32 %107, %71
   %109 = add i32 %108, %104
@@ -242,7 +242,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %113 = and i32 %111, %112
   %114 = xor i32 %113, %91
   %115 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %116 = load i32, ptr %115, align 1, !tbaa !14
+  %116 = load i32, ptr %115, align 1, !tbaa !13
   %117 = add i32 %116, -42063
   %118 = add i32 %117, %81
   %119 = add i32 %118, %114
@@ -252,7 +252,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %123 = and i32 %121, %122
   %124 = xor i32 %123, %101
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  %126 = load i32, ptr %125, align 1, !tbaa !14
+  %126 = load i32, ptr %125, align 1, !tbaa !13
   %127 = add i32 %126, -1990404162
   %128 = add i32 %127, %91
   %129 = add i32 %128, %124
@@ -262,7 +262,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %133 = and i32 %131, %132
   %134 = xor i32 %133, %111
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %136 = load i32, ptr %135, align 1, !tbaa !14
+  %136 = load i32, ptr %135, align 1, !tbaa !13
   %137 = add i32 %136, 1804603682
   %138 = add i32 %137, %101
   %139 = add i32 %138, %134
@@ -272,7 +272,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %143 = and i32 %141, %142
   %144 = xor i32 %143, %121
   %145 = getelementptr inbounds nuw i8, ptr %12, i64 52
-  %146 = load i32, ptr %145, align 1, !tbaa !14
+  %146 = load i32, ptr %145, align 1, !tbaa !13
   %147 = add i32 %146, -40341101
   %148 = add i32 %147, %111
   %149 = add i32 %148, %144
@@ -282,7 +282,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %153 = and i32 %151, %152
   %154 = xor i32 %153, %131
   %155 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %156 = load i32, ptr %155, align 1, !tbaa !14
+  %156 = load i32, ptr %155, align 1, !tbaa !13
   %157 = add i32 %156, -1502002290
   %158 = add i32 %157, %121
   %159 = add i32 %158, %154
@@ -292,7 +292,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   %163 = and i32 %161, %162
   %164 = xor i32 %163, %141
   %165 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  %166 = load i32, ptr %165, align 1, !tbaa !14
+  %166 = load i32, ptr %165, align 1, !tbaa !13
   %167 = add i32 %166, 1236535329
   %168 = add i32 %167, %131
   %169 = add i32 %168, %164
@@ -691,7 +691,7 @@ define internal fastcc void @body(ptr noundef captures(none) %0, ptr noundef rea
   store i32 %558, ptr %4, align 4, !tbaa !9
   %559 = add nuw nsw i64 %.0752, 1
   %exitcond.not = icmp eq i64 %559, %2
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -703,7 +703,7 @@ define void @av_md5_final(ptr noundef captures(none) %0, ptr noundef writeonly c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = load i64, ptr %0, align 8, !tbaa !4
   %5 = shl i64 %4, 3
-  store i64 %5, ptr %3, align 8, !tbaa !16
+  store i64 %5, ptr %3, align 8, !tbaa !15
   %6 = trunc i64 %4 to i32
   %7 = and i32 %6, 63
   %8 = add i64 %4, 1
@@ -767,7 +767,7 @@ av_md5_update.exit17:                             ; preds = %.loopexit.i15, %26,
   %30 = load i64, ptr %0, align 8, !tbaa !4
   %31 = and i64 %30, 63
   %.not = icmp eq i64 %31, 56
-  br i1 %.not, label %av_md5_update.exit25, label %20, !llvm.loop !17
+  br i1 %.not, label %av_md5_update.exit25, label %20, !llvm.loop !16
 
 av_md5_update.exit25:                             ; preds = %av_md5_update.exit17, %av_md5_update.exit
   %.lcssa26 = phi i64 [ %16, %av_md5_update.exit ], [ %30, %av_md5_update.exit17 ]
@@ -789,10 +789,10 @@ av_md5_update.exit25:                             ; preds = %av_md5_update.exit1
   %40 = load i32, ptr %39, align 4, !tbaa !9
   %41 = shl nuw nsw i64 %indvars.iv, 2
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
-  store i32 %40, ptr %42, align 1, !tbaa !14
+  store i32 %40, ptr %42, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %43, label %37, !llvm.loop !18
+  br i1 %exitcond.not, label %43, label %37, !llvm.loop !17
 
 43:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
@@ -885,11 +885,10 @@ attributes #7 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !12, !13}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
+!13 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !12}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}

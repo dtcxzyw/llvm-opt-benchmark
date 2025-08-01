@@ -230,7 +230,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   %49 = call ptr @get_argument(ptr noundef %0, i32 noundef %19, ptr noundef %48, ptr noundef nonnull %9) #10
   store ptr %49, ptr %8, align 8
   %.not40 = icmp eq ptr %49, null
-  br i1 %.not40, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not40, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %42
   %50 = trunc nsw i64 %indvars.iv.next to i32
@@ -247,7 +247,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %5, align 8
-  call void %.036(i32 noundef %.033.ph, ptr noundef %54) #10, !callees !13
+  call void %.036(i32 noundef %.033.ph, ptr noundef %54) #10, !callees !12
   %.not63 = icmp eq i32 %.033.ph, 1
   br i1 %.not63, label %._crit_edge52, label %.lr.ph51.preheader
 
@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   call void @slurm_xfree(ptr noundef nonnull %56) #10
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !13
 
 ._crit_edge52:                                    ; preds = %.lr.ph51, %51, %53
   call void @slurm_xfree(ptr noundef nonnull %5) #10
@@ -338,7 +338,7 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   %17 = load ptr, ptr %5, align 8
   %strchr22 = call ptr @strchr(ptr nonnull dereferenceable(1) %17, i32 32)
   %.not23 = icmp eq ptr %strchr22, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 18:                                               ; preds = %.lr.ph32
   %19 = load ptr, ptr @optarg, align 8
@@ -413,7 +413,7 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   %53 = call i32 @getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
   %.not = icmp eq i32 %53, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %54 = load i32, ptr @optind, align 4
@@ -570,7 +570,7 @@ define internal void @_set_pbs_options(i32 noundef %0, ptr noundef %1) unnamed_a
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %51 = trunc nsw i64 %indvars.iv.next.i.i to i32
   store i32 %51, ptr %7, align 4
-  br label %47, !llvm.loop !17
+  br label %47, !llvm.loop !16
 
 52:                                               ; preds = %47
   %53 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -770,7 +770,7 @@ _get_pbs_option_value.exit126.i:                  ; preds = %107, %.critedge.i12
   %indvars.iv.next.i129.i = add nsw i64 %indvars.iv.i128.i, 1
   %139 = trunc nsw i64 %indvars.iv.next.i129.i to i32
   store i32 %139, ptr %7, align 4
-  br label %135, !llvm.loop !17
+  br label %135, !llvm.loop !16
 
 140:                                              ; preds = %135
   %141 = trunc nsw i64 %indvars.iv.i128.i to i32
@@ -1235,7 +1235,7 @@ _get_pbs_option_value.exit214.i:                  ; preds = %315, %.critedge.i21
 
 332:                                              ; preds = %329
   %indvars.iv.next.i.i.i = add i64 %indvars.iv.i.i.i, 1
-  br label %329, !llvm.loop !18
+  br label %329, !llvm.loop !17
 
 .critedge.i.i.i:                                  ; preds = %329, %329, %329
   %indvars76.i.i = trunc i64 %indvars.iv.i.i.i to i32
@@ -1285,7 +1285,7 @@ _get_pbs_option_value.exit214.i:                  ; preds = %315, %.critedge.i21
 
 355:                                              ; preds = %352
   %indvars.iv.next.i32.i.i = add i64 %indvars.iv.i31.i.i, 1
-  br label %352, !llvm.loop !19
+  br label %352, !llvm.loop !18
 
 356:                                              ; preds = %352, %352
   %indvars75.le.i.i = trunc i64 %indvars.iv.i31.i.i to i32
@@ -1324,7 +1324,7 @@ _get_pbs_option_value.exit214.i:                  ; preds = %315, %.critedge.i21
 374:                                              ; preds = %371
   %indvars.iv.next.i35.i.i = add nsw i64 %indvars.iv.i34.i.i, 1
   %375 = trunc nsw i64 %indvars.iv.next.i35.i.i to i32
-  br label %371, !llvm.loop !19
+  br label %371, !llvm.loop !18
 
 376:                                              ; preds = %371, %371
   %377 = trunc nsw i64 %indvars.iv.i34.i.i to i32
@@ -1350,7 +1350,7 @@ _get_pbs_option_value.exit214.i:                  ; preds = %315, %.critedge.i21
 383:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i41.i.i = add nsw i64 %indvars.iv.i37.i.i, 1
   %384 = trunc nsw i64 %indvars.iv.next.i41.i.i to i32
-  br label %.preheader.i.i, !llvm.loop !18
+  br label %.preheader.i.i, !llvm.loop !17
 
 .critedge.i38.i.i:                                ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
   %385 = trunc nsw i64 %indvars.iv.i37.i.i to i32
@@ -1388,7 +1388,7 @@ _get_next_pbs_node_part.exit.i.i:                 ; preds = %371, %_get_next_pbs
   %399 = getelementptr inbounds i8, ptr %307, i64 %398
   %400 = load i8, ptr %399, align 1
   %.not.i216.i = icmp eq i8 %400, 0
-  br i1 %.not.i216.i, label %._crit_edge.i.i, label %.lr.ph.i215.i, !llvm.loop !20
+  br i1 %.not.i216.i, label %._crit_edge.i.i, label %.lr.ph.i215.i, !llvm.loop !19
 
 ._crit_edge.i.i:                                  ; preds = %_get_next_pbs_node_part.exit.i.i
   %.not25.i.i = icmp eq i32 %.124.i.i, 0
@@ -1461,7 +1461,7 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %409, %.thread.i.i
   %indvars.iv.next.i220.i = add nsw i64 %indvars.iv.i219.i, 1
   %423 = trunc nsw i64 %indvars.iv.next.i220.i to i32
   store i32 %423, ptr %7, align 4
-  br label %419, !llvm.loop !17
+  br label %419, !llvm.loop !16
 
 424:                                              ; preds = %419
   %425 = trunc nsw i64 %indvars.iv.i219.i to i32
@@ -1496,7 +1496,7 @@ _parse_pbs_nodes_opts.exit.i:                     ; preds = %409, %.thread.i.i
   %indvars.iv.next.i224.i = add nsw i64 %indvars.iv.i223.i, 1
   %439 = trunc nsw i64 %indvars.iv.next.i224.i to i32
   store i32 %439, ptr %7, align 4
-  br label %435, !llvm.loop !17
+  br label %435, !llvm.loop !16
 
 440:                                              ; preds = %435
   %441 = trunc nsw i64 %indvars.iv.i223.i to i32
@@ -1603,7 +1603,7 @@ _get_pbs_option_value.exit239.i:                  ; preds = %466, %.critedge.i23
   %indvars.iv.next.i242.i = add nsw i64 %indvars.iv.i241.i, 1
   %484 = trunc nsw i64 %indvars.iv.next.i242.i to i32
   store i32 %484, ptr %7, align 4
-  br label %480, !llvm.loop !17
+  br label %480, !llvm.loop !16
 
 485:                                              ; preds = %480
   %486 = trunc nsw i64 %indvars.iv.i241.i to i32
@@ -1654,7 +1654,7 @@ _get_pbs_option_value.exit239.i:                  ; preds = %466, %.critedge.i23
   %indvars.iv.next.i246.i = add nsw i64 %indvars.iv.i245.i, 1
   %505 = trunc nsw i64 %indvars.iv.next.i246.i to i32
   store i32 %505, ptr %7, align 4
-  br label %501, !llvm.loop !17
+  br label %501, !llvm.loop !16
 
 506:                                              ; preds = %501
   %507 = trunc nsw i64 %indvars.iv.i245.i to i32
@@ -1689,7 +1689,7 @@ _get_pbs_option_value.exit239.i:                  ; preds = %466, %.critedge.i23
   %indvars.iv.next.i250.i = add nsw i64 %indvars.iv.i249.i, 1
   %521 = trunc nsw i64 %indvars.iv.next.i250.i to i32
   store i32 %521, ptr %7, align 4
-  br label %517, !llvm.loop !17
+  br label %517, !llvm.loop !16
 
 522:                                              ; preds = %517
   %523 = trunc nsw i64 %indvars.iv.i249.i to i32
@@ -1746,7 +1746,7 @@ _get_pbs_option_value.exit239.i:                  ; preds = %466, %.critedge.i23
   %indvars.iv.next.i254.i = add nsw i64 %indvars.iv.i253.i, 1
   %547 = trunc nsw i64 %indvars.iv.next.i254.i to i32
   store i32 %547, ptr %7, align 4
-  br label %543, !llvm.loop !17
+  br label %543, !llvm.loop !16
 
 548:                                              ; preds = %543
   %549 = trunc nsw i64 %indvars.iv.i253.i to i32
@@ -1781,7 +1781,7 @@ _get_pbs_option_value.exit239.i:                  ; preds = %466, %.critedge.i23
   %indvars.iv.next.i258.i = add nsw i64 %indvars.iv.i257.i, 1
   %563 = trunc nsw i64 %indvars.iv.next.i258.i to i32
   store i32 %563, ptr %7, align 4
-  br label %559, !llvm.loop !17
+  br label %559, !llvm.loop !16
 
 564:                                              ; preds = %559
   %565 = trunc nsw i64 %indvars.iv.i257.i to i32
@@ -1829,7 +1829,7 @@ _get_next_pbs_option.exit.i:                      ; preds = %559, %543, %517, %5
   %583 = getelementptr inbounds i8, ptr %27, i64 %582
   %584 = load i8, ptr %583, align 1
   %.not.i = icmp eq i8 %584, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %_get_next_pbs_option.exit.i
   %585 = icmp eq i32 %.162.i, 7
@@ -2055,7 +2055,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
   %673 = call i32 @getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %10, ptr noundef nonnull %9) #10
   %.not = icmp eq i32 %673, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %672, %2
   %674 = load i32, ptr @optind, align 4
@@ -2144,7 +2144,7 @@ define internal fastcc ptr @_get_pbs_option_value(ptr noundef readonly captures(
   %.not = icmp eq i8 %10, 0
   %.not17 = icmp eq i8 %10, %2
   %or.cond = or i1 %.not, %.not17
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %3
   %.lcssa = phi i32 [ %4, %3 ], [ %8, %.lr.ph ]
@@ -2225,19 +2225,18 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = !{ptr @_set_bsub_options, ptr @_set_pbs_options}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = !{ptr @_set_bsub_options, ptr @_set_pbs_options}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}

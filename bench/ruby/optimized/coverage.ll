@@ -711,7 +711,7 @@ define internal noundef i32 @coverage_peek_result_i(i64 noundef %0, i64 noundef 
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %1 to ptr
-  %9 = load i64, ptr %8, align 8, !tbaa !15
+  %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = and i64 %9, 8192
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %13, label %11
@@ -722,7 +722,7 @@ define internal noundef i32 @coverage_peek_result_i(i64 noundef %0, i64 noundef 
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   br label %RARRAY_AREF.exit
 
 RARRAY_AREF.exit:                                 ; preds = %11, %13
@@ -741,7 +741,7 @@ RARRAY_AREF.exit:                                 ; preds = %11, %13
 
 23:                                               ; preds = %19
   %24 = inttoptr i64 %1 to ptr
-  %25 = load i64, ptr %24, align 8, !tbaa !15
+  %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = and i64 %25, 8192
   %.not.i.i24 = icmp eq i64 %26, 0
   br i1 %.not.i.i24, label %29, label %27
@@ -752,7 +752,7 @@ RARRAY_AREF.exit:                                 ; preds = %11, %13
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !17
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
   br label %RARRAY_AREF.exit26
 
 RARRAY_AREF.exit26:                               ; preds = %27, %29
@@ -777,7 +777,7 @@ RARRAY_AREF.exit26:                               ; preds = %27, %29
 
 43:                                               ; preds = %40
   %44 = inttoptr i64 %1 to ptr
-  %45 = load i64, ptr %44, align 8, !tbaa !15
+  %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = and i64 %45, 8192
   %.not.i.i27 = icmp eq i64 %46, 0
   br i1 %.not.i.i27, label %49, label %47
@@ -788,7 +788,7 @@ RARRAY_AREF.exit26:                               ; preds = %27, %29
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  %51 = load ptr, ptr %50, align 8, !tbaa !16
   br label %RARRAY_AREF.exit29
 
 RARRAY_AREF.exit29:                               ; preds = %47, %49
@@ -809,7 +809,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %RARRAY_A
   %.lcssa.i = phi i64 [ %.pr.i, %RARRAY_AREF.exit29 ], [ %54, %.lr.ph.i ]
   %55 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #9
   %56 = inttoptr i64 %53 to ptr
-  %57 = load i64, ptr %56, align 8, !tbaa !15
+  %57 = load i64, ptr %56, align 8, !tbaa !14
   %58 = and i64 %57, 8192
   %.not.i.i.i = icmp eq i64 %58, 0
   br i1 %.not.i.i.i, label %61, label %59
@@ -820,18 +820,18 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %RARRAY_A
 
 61:                                               ; preds = %rbimpl_intern_const.exit
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %63 = load ptr, ptr %62, align 8, !tbaa !16
   br label %RARRAY_AREF.exit.i
 
 RARRAY_AREF.exit.i:                               ; preds = %61, %59
   %.0.i.i.i = phi ptr [ %60, %59 ], [ %63, %61 ]
   %64 = load i64, ptr %.0.i.i.i, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  store i32 0, ptr %4, align 8, !tbaa !18
+  store i32 0, ptr %4, align 8, !tbaa !17
   %65 = tail call i64 @rb_hash_new() #9
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %65, ptr %66, align 8, !tbaa !20
-  %67 = load i64, ptr %56, align 8, !tbaa !15
+  store i64 %65, ptr %66, align 8, !tbaa !19
+  %67 = load i64, ptr %56, align 8, !tbaa !14
   %68 = and i64 %67, 8192
   %.not.i.i3.i = icmp eq i64 %68, 0
   br i1 %.not.i.i3.i, label %71, label %69
@@ -842,7 +842,7 @@ RARRAY_AREF.exit.i:                               ; preds = %61, %59
 
 71:                                               ; preds = %RARRAY_AREF.exit.i
   %72 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !17
+  %73 = load ptr, ptr %72, align 8, !tbaa !16
   br label %branch_coverage.exit
 
 branch_coverage.exit:                             ; preds = %69, %71
@@ -850,10 +850,10 @@ branch_coverage.exit:                             ; preds = %69, %71
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !10
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %75, ptr %76, align 8, !tbaa !21
+  store i64 %75, ptr %76, align 8, !tbaa !20
   %77 = ptrtoint ptr %4 to i64
   call void @rb_hash_foreach(i64 noundef %64, ptr noundef nonnull @branch_coverage_i, i64 noundef %77) #9
-  %78 = load i64, ptr %66, align 8, !tbaa !20
+  %78 = load i64, ptr %66, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   %79 = call i64 @rb_hash_aset(i64 noundef %20, i64 noundef %55, i64 noundef %78) #9
   %.pre38 = load i32, ptr @current_mode, align 4, !tbaa !6
@@ -919,7 +919,7 @@ define internal noundef i32 @method_coverage_i(ptr noundef %0, ptr noundef %1, i
 
 rbimpl_RB_TYPE_P_fastpath.exit52:                 ; preds = %13
   %19 = inttoptr i64 %.04456 to ptr
-  %20 = load i64, ptr %19, align 8, !tbaa !15
+  %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = and i64 %20, 61471
   %or.cond = icmp eq i64 %21, 24602
   br i1 %or.cond, label %22, label %rbimpl_RB_TYPE_P_fastpath.exit52.thread
@@ -945,7 +945,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %22
 
 26:                                               ; preds = %rbimpl_intern_const.exit
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %28 = load i64, ptr %27, align 8, !tbaa !22
+  %28 = load i64, ptr %27, align 8, !tbaa !21
   %29 = icmp eq i64 %28, 0
   %30 = and i64 %28, 7
   %31 = icmp ne i64 %30, 0
@@ -954,7 +954,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %22
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %26
   %33 = inttoptr i64 %28 to ptr
-  %34 = load i64, ptr %33, align 8, !tbaa !15
+  %34 = load i64, ptr %33, align 8, !tbaa !14
   %35 = and i64 %34, 31
   %36 = icmp eq i64 %35, 28
   br i1 %36, label %37, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -980,9 +980,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %26, %rbimpl_RB_TYPE
 .critedge:                                        ; preds = %43
   %47 = call i64 @rb_hash_aref(i64 noundef %45, i64 noundef %24) #9
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !26
+  %49 = load ptr, ptr %48, align 8, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = load i64, ptr %50, align 8, !tbaa !27
+  %51 = load i64, ptr %50, align 8, !tbaa !26
   %52 = call i64 @rb_id2sym(i64 noundef %51) #9
   %53 = load i64, ptr @me2counter, align 8, !tbaa !10
   %54 = call i64 @rb_hash_aref(i64 noundef %53, i64 noundef %.04456) #9
@@ -1018,7 +1018,7 @@ rbimpl_RB_TYPE_P_fastpath.exit52.thread:          ; preds = %13, %.critedge, %rb
 70:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit52.thread, %69, %68
   %71 = add i64 %.04456, %2
   %.not = icmp eq i64 %71, %7
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %70, %4
   ret i32 0
@@ -1037,7 +1037,7 @@ declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @branch_coverage_i(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %1 to ptr
-  %5 = load i64, ptr %4, align 8, !tbaa !15
+  %5 = load i64, ptr %4, align 8, !tbaa !14
   %6 = and i64 %5, 8192
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %13, label %7
@@ -1052,7 +1052,7 @@ define internal noundef i32 @branch_coverage_i(i64 %0, i64 noundef %1, i64 nound
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1075,17 +1075,17 @@ RARRAY_AREF.exit32:                               ; preds = %7, %13
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = tail call i64 @rb_hash_new() #9
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !20
-  %31 = load i32, ptr %25, align 8, !tbaa !18
+  %30 = load i64, ptr %29, align 8, !tbaa !19
+  %31 = load i32, ptr %25, align 8, !tbaa !17
   %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %25, align 8, !tbaa !18
+  store i32 %32, ptr %25, align 8, !tbaa !17
   %33 = sext i32 %31 to i64
   %34 = shl nsw i64 %33, 1
   %35 = or disjoint i64 %34, 1
   %36 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %22, i64 noundef %35, i64 noundef %21, i64 noundef %23, i64 noundef %20, i64 noundef %24) #9
   %37 = tail call i64 @rb_hash_aset(i64 noundef %30, i64 noundef %36, i64 noundef %28) #9
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %28, ptr %38, align 8, !tbaa !30
+  store i64 %28, ptr %38, align 8, !tbaa !29
   tail call void @rb_hash_foreach(i64 noundef %27, ptr noundef nonnull @branch_coverage_ii, i64 noundef %2) #9
   ret i32 0
 }
@@ -1096,7 +1096,7 @@ declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #2
 define internal noundef i32 @branch_coverage_ii(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = inttoptr i64 %1 to ptr
-  %6 = load i64, ptr %5, align 8, !tbaa !15
+  %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = and i64 %6, 8192
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %14, label %8
@@ -1111,7 +1111,7 @@ define internal noundef i32 @branch_coverage_ii(i64 %0, i64 noundef %1, i64 noun
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -1132,18 +1132,18 @@ RARRAY_AREF.exit29:                               ; preds = %8, %14
   %26 = getelementptr inbounds nuw i8, ptr %.in39, i64 40
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !30
-  %30 = load i32, ptr %4, align 8, !tbaa !18
+  %29 = load i64, ptr %28, align 8, !tbaa !29
+  %30 = load i32, ptr %4, align 8, !tbaa !17
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %4, align 8, !tbaa !18
+  store i32 %31, ptr %4, align 8, !tbaa !17
   %32 = sext i32 %30 to i64
   %33 = shl nsw i64 %32, 1
   %34 = or disjoint i64 %33, 1
   %35 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %23, i64 noundef %34, i64 noundef %22, i64 noundef %24, i64 noundef %21, i64 noundef %25) #9
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !21
+  %37 = load i64, ptr %36, align 8, !tbaa !20
   %38 = inttoptr i64 %37 to ptr
-  %39 = load i64, ptr %38, align 8, !tbaa !15
+  %39 = load i64, ptr %38, align 8, !tbaa !14
   %40 = and i64 %39, 8192
   %.not.i.i30 = icmp eq i64 %40, 0
   br i1 %.not.i.i30, label %43, label %41
@@ -1154,7 +1154,7 @@ RARRAY_AREF.exit29:                               ; preds = %8, %14
 
 43:                                               ; preds = %RARRAY_AREF.exit29
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !17
+  %45 = load ptr, ptr %44, align 8, !tbaa !16
   br label %RARRAY_AREF.exit32
 
 RARRAY_AREF.exit32:                               ; preds = %41, %43
@@ -1209,22 +1209,21 @@ attributes #11 = { cold noreturn nounwind }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !8, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !11, i64 0}
-!16 = !{!"RBasic", !11, i64 0, !11, i64 8}
-!17 = !{!8, !8, i64 0}
-!18 = !{!19, !7, i64 0}
-!19 = !{!"branch_coverage_result_builder", !7, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!20 = !{!19, !11, i64 8}
-!21 = !{!19, !11, i64 24}
-!22 = !{!23, !11, i64 32}
-!23 = !{!"rb_method_entry_struct", !11, i64 0, !11, i64 8, !24, i64 16, !11, i64 24, !11, i64 32}
-!24 = !{!"p1 _ZTS27rb_method_definition_struct", !25, i64 0}
-!25 = !{!"any pointer", !8, i64 0}
-!26 = !{!23, !24, i64 16}
-!27 = !{!28, !11, i64 32}
-!28 = !{!"rb_method_definition_struct", !7, i64 0, !7, i64 0, !7, i64 0, !7, i64 0, !7, i64 4, !8, i64 8, !11, i64 32, !11, i64 40}
-!29 = distinct !{!29, !13, !14}
-!30 = !{!19, !11, i64 16}
+!14 = !{!15, !11, i64 0}
+!15 = !{!"RBasic", !11, i64 0, !11, i64 8}
+!16 = !{!8, !8, i64 0}
+!17 = !{!18, !7, i64 0}
+!18 = !{!"branch_coverage_result_builder", !7, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!19 = !{!18, !11, i64 8}
+!20 = !{!18, !11, i64 24}
+!21 = !{!22, !11, i64 32}
+!22 = !{!"rb_method_entry_struct", !11, i64 0, !11, i64 8, !23, i64 16, !11, i64 24, !11, i64 32}
+!23 = !{!"p1 _ZTS27rb_method_definition_struct", !24, i64 0}
+!24 = !{!"any pointer", !8, i64 0}
+!25 = !{!22, !23, i64 16}
+!26 = !{!27, !11, i64 32}
+!27 = !{!"rb_method_definition_struct", !7, i64 0, !7, i64 0, !7, i64 0, !7, i64 0, !7, i64 4, !8, i64 8, !11, i64 32, !11, i64 40}
+!28 = distinct !{!28, !13}
+!29 = !{!18, !11, i64 16}

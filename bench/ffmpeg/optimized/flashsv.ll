@@ -581,7 +581,7 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %328 = load ptr, ptr %8, align 8, !tbaa !4
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 120
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 32
-  %331 = load ptr, ptr %330, align 8, !tbaa !65
+  %331 = load ptr, ptr %330, align 8, !tbaa !64
   %332 = call i32 @inflateReset(ptr noundef nonnull %329) #7
   %.not.i.us = icmp eq i32 %332, 0
   br i1 %.not.i.us, label %334, label %333
@@ -606,31 +606,31 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %341 = getelementptr inbounds nuw i8, ptr %328, i64 88
   %342 = load ptr, ptr %341, align 8, !tbaa !53
   %343 = getelementptr inbounds nuw %struct.BlockInfo, ptr %342, i64 %327
-  %344 = load ptr, ptr %343, align 8, !tbaa !66
-  %345 = load ptr, ptr %330, align 8, !tbaa !65
+  %344 = load ptr, ptr %343, align 8, !tbaa !65
+  %345 = load ptr, ptr %330, align 8, !tbaa !64
   %.not.i.i.us = icmp eq ptr %344, null
   br i1 %.not.i.i.us, label %474, label %346
 
 346:                                              ; preds = %340
   %347 = getelementptr inbounds nuw i8, ptr %343, i64 8
-  %348 = load i32, ptr %347, align 8, !tbaa !68
-  store ptr %344, ptr %329, align 8, !tbaa !69
+  %348 = load i32, ptr %347, align 8, !tbaa !67
+  store ptr %344, ptr %329, align 8, !tbaa !68
   %349 = getelementptr inbounds nuw i8, ptr %328, i64 128
-  store i32 %348, ptr %349, align 8, !tbaa !70
+  store i32 %348, ptr %349, align 8, !tbaa !69
   %350 = getelementptr inbounds nuw i8, ptr %328, i64 144
-  store ptr %345, ptr %350, align 8, !tbaa !71
+  store ptr %345, ptr %350, align 8, !tbaa !70
   %351 = getelementptr inbounds nuw i8, ptr %328, i64 40
   %352 = load i32, ptr %351, align 8, !tbaa !46
   %353 = mul nsw i32 %352, 3
   %354 = getelementptr inbounds nuw i8, ptr %328, i64 152
-  store i32 %353, ptr %354, align 8, !tbaa !72
+  store i32 %353, ptr %354, align 8, !tbaa !71
   %355 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 2) #7
   %or.cond.i.i275.us = icmp ugt i32 %355, 1
   br i1 %or.cond.i.i275.us, label %474, label %356
 
 356:                                              ; preds = %346
   %357 = load i32, ptr %351, align 8, !tbaa !46
-  %358 = load i32, ptr %354, align 8, !tbaa !72
+  %358 = load i32, ptr %354, align 8, !tbaa !71
   %359 = call i32 @inflateReset(ptr noundef nonnull %329) #7
   %.not54.i.i.us = icmp eq i32 %359, 0
   br i1 %.not54.i.i.us, label %362, label %360
@@ -643,8 +643,8 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 362:                                              ; preds = %356
   %363 = mul nsw i32 %357, 3
   %364 = sub i32 %363, %358
-  store ptr @flashsv2_prime.zlib_header, ptr %329, align 8, !tbaa !69
-  store i32 2, ptr %349, align 8, !tbaa !70
+  store ptr @flashsv2_prime.zlib_header, ptr %329, align 8, !tbaa !68
+  store i32 2, ptr %349, align 8, !tbaa !69
   %365 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 2) #7
   %.not55.i.i.us = icmp eq i32 %365, 0
   br i1 %.not55.i.i.us, label %.preheader.i.i.us, label %474
@@ -667,17 +667,17 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   store i16 %369, ptr %194, align 1, !tbaa !42
   %370 = xor i16 %369, -1
   store i16 %370, ptr %195, align 1, !tbaa !42
-  store ptr %5, ptr %329, align 8, !tbaa !69
-  store i32 5, ptr %349, align 8, !tbaa !70
-  store ptr %366, ptr %350, align 8, !tbaa !71
-  store i32 65535, ptr %354, align 8, !tbaa !72
+  store ptr %5, ptr %329, align 8, !tbaa !68
+  store i32 5, ptr %349, align 8, !tbaa !69
+  store ptr %366, ptr %350, align 8, !tbaa !70
+  store i32 65535, ptr %354, align 8, !tbaa !71
   %371 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 2) #7
   %.not57.i.i.us = icmp eq i32 %371, 0
   br i1 %.not57.i.i.us, label %372, label %.critedge.i.i.us
 
 372:                                              ; preds = %367
-  store ptr %.05060.i.i.us, ptr %329, align 8, !tbaa !69
-  store i32 %368, ptr %349, align 8, !tbaa !70
+  store ptr %.05060.i.i.us, ptr %329, align 8, !tbaa !68
+  store i32 %368, ptr %349, align 8, !tbaa !69
   %373 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 2) #7
   %.not58.i.i.us = icmp eq i32 %373, 0
   br i1 %.not58.i.i.us, label %374, label %.critedge.i.i.us
@@ -692,24 +692,24 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %377 = sub i32 %.04861.i.i.us, %368
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
   %.not56.i.i.us = icmp eq i32 %377, 0
-  br i1 %.not56.i.i.us, label %flashsv2_prime.exit.i.us, label %367, !llvm.loop !73
+  br i1 %.not56.i.i.us, label %flashsv2_prime.exit.i.us, label %367, !llvm.loop !72
 
 flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.i.us, %337
   %378 = load ptr, ptr %18, align 8, !tbaa !41
   %379 = sdiv i32 %.sroa.19.4336.us, 8
   %380 = sext i32 %379 to i64
   %381 = getelementptr inbounds i8, ptr %378, i64 %380
-  store ptr %381, ptr %329, align 8, !tbaa !69
+  store ptr %381, ptr %329, align 8, !tbaa !68
   %382 = getelementptr inbounds nuw i8, ptr %328, i64 128
-  store i32 %.0224337.us, ptr %382, align 8, !tbaa !70
-  %383 = load ptr, ptr %330, align 8, !tbaa !65
+  store i32 %.0224337.us, ptr %382, align 8, !tbaa !69
+  %383 = load ptr, ptr %330, align 8, !tbaa !64
   %384 = getelementptr inbounds nuw i8, ptr %328, i64 144
-  store ptr %383, ptr %384, align 8, !tbaa !71
+  store ptr %383, ptr %384, align 8, !tbaa !70
   %385 = getelementptr inbounds nuw i8, ptr %328, i64 40
   %386 = load i32, ptr %385, align 8, !tbaa !46
   %387 = mul nsw i32 %386, 3
   %388 = getelementptr inbounds nuw i8, ptr %328, i64 152
-  store i32 %387, ptr %388, align 8, !tbaa !72
+  store i32 %387, ptr %388, align 8, !tbaa !71
   %389 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 4) #7
   %390 = icmp eq i32 %389, -3
   br i1 %390, label %391, label %394
@@ -733,9 +733,9 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
   %401 = getelementptr inbounds nuw i8, ptr %328, i64 88
   %402 = load ptr, ptr %401, align 8, !tbaa !53
   %403 = getelementptr inbounds nuw %struct.BlockInfo, ptr %402, i64 %327
-  store ptr %400, ptr %403, align 8, !tbaa !66
+  store ptr %400, ptr %403, align 8, !tbaa !65
   %404 = getelementptr inbounds nuw %struct.BlockInfo, ptr %402, i64 %327, i32 1
-  store i32 %.0224337.us, ptr %404, align 8, !tbaa !68
+  store i32 %.0224337.us, ptr %404, align 8, !tbaa !67
   br label %405
 
 405:                                              ; preds = %397, %394
@@ -748,8 +748,8 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
   br i1 %.not83.i.us, label %.preheader.i.us, label %411
 
 411:                                              ; preds = %405
-  %412 = load ptr, ptr %330, align 8, !tbaa !65
-  %413 = load ptr, ptr %384, align 8, !tbaa !71
+  %412 = load ptr, ptr %330, align 8, !tbaa !64
+  %413 = load ptr, ptr %384, align 8, !tbaa !70
   %414 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %415 = load ptr, ptr %414, align 8, !tbaa !36
   %416 = getelementptr inbounds nuw i8, ptr %328, i64 20
@@ -762,7 +762,7 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
   %421 = getelementptr inbounds nuw i8, ptr %415, i64 64
   %422 = load i32, ptr %421, align 8, !tbaa !60
   %423 = getelementptr inbounds nuw i8, ptr %328, i64 48
-  %424 = load ptr, ptr %423, align 8, !tbaa !74
+  %424 = load ptr, ptr %423, align 8, !tbaa !73
   %425 = icmp sgt i32 %419, 0
   br i1 %425, label %.lr.ph55.i.i.us, label %decode_hybrid.exit.i.us
 
@@ -845,12 +845,12 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
   %.1.us.i.i.us = getelementptr inbounds nuw i8, ptr %.050.us.i.i.us, i64 3
   %468 = add nuw nsw i32 %.03651.us.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %468, %.267.us
-  br i1 %exitcond.not.i.i.us, label %..critedge_crit_edge.us.i.i.us, label %433, !llvm.loop !75
+  br i1 %exitcond.not.i.i.us, label %..critedge_crit_edge.us.i.i.us, label %433, !llvm.loop !74
 
 ..critedge_crit_edge.us.i.i.us:                   ; preds = %465
   %indvars.iv.next.i.i.us = add nsw i64 %indvars.iv.i.i.us, -1
   %469 = icmp sgt i64 %indvars.iv.next.i.i.us, %431
-  br i1 %469, label %.lr.ph.us.i.i.us, label %decode_hybrid.exit.i.us, !llvm.loop !76
+  br i1 %469, label %.lr.ph.us.i.i.us, label %decode_hybrid.exit.i.us, !llvm.loop !75
 
 decode_hybrid.exit.i.us:                          ; preds = %..critedge_crit_edge.us.i.i.us, %.lr.ph55.i.i.us, %411
   %.033.lcssa.i.i.us = phi ptr [ %412, %411 ], [ %412, %.lr.ph55.i.i.us ], [ %.235.us.i.i.us, %..critedge_crit_edge.us.i.i.us ]
@@ -903,7 +903,7 @@ decode_hybrid.exit.thread.i.us:                   ; preds = %433, %decode_hybrid
   %496 = add nuw nsw i32 %.07395.i.us, 1
   %497 = load i32, ptr %475, align 8, !tbaa !54
   %.not84.not.i.us = icmp slt i32 %.07395.i.us, %497
-  br i1 %.not84.not.i.us, label %483, label %flashsv_decode_block.exit.us, !llvm.loop !78
+  br i1 %.not84.not.i.us, label %483, label %flashsv_decode_block.exit.us, !llvm.loop !77
 
 flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.us, %decode_hybrid.exit.i.us
   %498 = shl nuw nsw i32 %.0224337.us, 3
@@ -919,7 +919,7 @@ flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.
   %.sroa.19.3.us = phi i32 [ %.sroa.19.4336.us, %.thread332.us ], [ %502, %flashsv_decode_block.exit.us ], [ %.sroa.19.4336.us, %474 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond462.not = icmp eq i64 %indvars.iv.next, %198
-  br i1 %exitcond462.not, label %._crit_edge.us, label %206, !llvm.loop !79
+  br i1 %exitcond462.not, label %._crit_edge.us, label %206, !llvm.loop !78
 
 .lr.ph.us:                                        ; preds = %312
   %504 = load ptr, ptr %177, align 8, !tbaa !36
@@ -937,7 +937,7 @@ flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.
 ._crit_edge.us:                                   ; preds = %503
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466
-  br i1 %exitcond467.not, label %._crit_edge406, label %.lr.ph402.us, !llvm.loop !80
+  br i1 %exitcond467.not, label %._crit_edge406, label %.lr.ph402.us, !llvm.loop !79
 
 .split.us:                                        ; preds = %206
   %514 = load ptr, ptr %177, align 8, !tbaa !36
@@ -1084,7 +1084,7 @@ define internal range(i32 -2147483648, 1) i32 @flashsv2_decode_init(ptr noundef 
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @ff_flashsv2_default_palette, ptr %7, align 8, !tbaa !74
+  store ptr @ff_flashsv2_default_palette, ptr %7, align 8, !tbaa !73
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 2, ptr %8, align 4, !tbaa !45
   br label %9
@@ -1246,22 +1246,21 @@ attributes #8 = { cold }
 !59 = !{!28, !10, i64 108}
 !60 = !{!10, !10, i64 0}
 !61 = !{!14, !14, i64 0}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!28, !14, i64 32}
-!66 = !{!67, !14, i64 0}
-!67 = !{!"BlockInfo", !14, i64 0, !10, i64 8}
-!68 = !{!67, !10, i64 8}
-!69 = !{!33, !14, i64 0}
-!70 = !{!33, !10, i64 8}
-!71 = !{!33, !14, i64 24}
-!72 = !{!33, !10, i64 32}
-!73 = distinct !{!73, !63, !64}
-!74 = !{!28, !24, i64 48}
-!75 = distinct !{!75, !63, !64}
-!76 = distinct !{!76, !63, !64, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !63, !64}
-!79 = distinct !{!79, !63, !64}
-!80 = distinct !{!80, !63, !64, !77}
+!64 = !{!28, !14, i64 32}
+!65 = !{!66, !14, i64 0}
+!66 = !{!"BlockInfo", !14, i64 0, !10, i64 8}
+!67 = !{!66, !10, i64 8}
+!68 = !{!33, !14, i64 0}
+!69 = !{!33, !10, i64 8}
+!70 = !{!33, !14, i64 24}
+!71 = !{!33, !10, i64 32}
+!72 = distinct !{!72, !63}
+!73 = !{!28, !24, i64 48}
+!74 = distinct !{!74, !63}
+!75 = distinct !{!75, !63, !76}
+!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!77 = distinct !{!77, !63}
+!78 = distinct !{!78, !63}
+!79 = distinct !{!79, !63, !76}

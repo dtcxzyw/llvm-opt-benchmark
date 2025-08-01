@@ -585,7 +585,7 @@ X11_GL_GetProcAddress.exit110:                    ; preds = %71, %73
 97:                                               ; preds = %95, %91
   %98 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %89, ptr noundef nonnull @.str.31) #6
   %.not22.i = icmp eq ptr %98, null
-  br i1 %.not22.i, label %.thread228, label %.lr.ph.i, !llvm.loop !3
+  br i1 %.not22.i, label %.thread228, label %.lr.ph.i
 
 HasExtension.exit:                                ; preds = %95, %95
   %99 = load ptr, ptr %67, align 8
@@ -642,7 +642,7 @@ X11_GL_GetProcAddress.exit115:                    ; preds = %102, %104
 123:                                              ; preds = %121, %117
   %124 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %115, ptr noundef nonnull @.str.33) #6
   %.not22.i122 = icmp eq ptr %124, null
-  br i1 %.not22.i122, label %.thread228, label %.lr.ph.i120, !llvm.loop !3
+  br i1 %.not22.i122, label %.thread228, label %.lr.ph.i120
 
 HasExtension.exit123:                             ; preds = %121, %121
   %125 = load ptr, ptr %67, align 8
@@ -684,7 +684,7 @@ HasExtension.exit123:                             ; preds = %121, %121
 140:                                              ; preds = %138, %134
   %141 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %132, ptr noundef nonnull @.str.34) #6
   %.not22.i130 = icmp eq ptr %141, null
-  br i1 %.not22.i130, label %HasExtension.exit131.thread.thread312, label %.lr.ph.i128, !llvm.loop !3
+  br i1 %.not22.i130, label %HasExtension.exit131.thread.thread312, label %.lr.ph.i128
 
 HasExtension.exit131:                             ; preds = %138, %138
   %142 = load ptr, ptr %67, align 8
@@ -765,7 +765,7 @@ HasExtension.exit131.thread.thread312:            ; preds = %140, %162, %.thread
 178:                                              ; preds = %176, %172
   %179 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %170, ptr noundef nonnull @.str.37) #6
   %.not22.i144 = icmp eq ptr %179, null
-  br i1 %.not22.i144, label %HasExtension.exit145.thread.thread318, label %.lr.ph.i142, !llvm.loop !3
+  br i1 %.not22.i144, label %HasExtension.exit145.thread.thread318, label %.lr.ph.i142
 
 HasExtension.exit145:                             ; preds = %176, %176
   %180 = load ptr, ptr %67, align 8
@@ -825,7 +825,7 @@ HasExtension.exit145.thread.thread318:            ; preds = %178, %189, %HasExte
 205:                                              ; preds = %203, %199
   %206 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %197, ptr noundef nonnull @.str.39) #6
   %.not22.i155 = icmp eq ptr %206, null
-  br i1 %.not22.i155, label %HasExtension.exit156.thread.thread324, label %.lr.ph.i153, !llvm.loop !3
+  br i1 %.not22.i155, label %HasExtension.exit156.thread.thread324, label %.lr.ph.i153
 
 HasExtension.exit156:                             ; preds = %203, %203
   %207 = load ptr, ptr %67, align 8
@@ -927,7 +927,7 @@ HasExtension.exit156.thread.thread324:            ; preds = %205, %238, %HasExte
 254:                                              ; preds = %252, %248
   %255 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %246, ptr noundef nonnull @.str.43) #6
   %.not22.i172 = icmp eq ptr %255, null
-  br i1 %.not22.i172, label %HasExtension.exit173.thread.thread330, label %.lr.ph.i170, !llvm.loop !3
+  br i1 %.not22.i172, label %HasExtension.exit173.thread.thread330, label %.lr.ph.i170
 
 256:                                              ; preds = %252, %252
   %257 = load ptr, ptr %67, align 8
@@ -969,7 +969,7 @@ HasExtension.exit173.thread.thread330:            ; preds = %254, %256, %HasExte
 272:                                              ; preds = %270, %266
   %273 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %264, ptr noundef nonnull @.str.44) #6
   %.not22.i180 = icmp eq ptr %273, null
-  br i1 %.not22.i180, label %HasExtension.exit181.thread.thread336, label %.lr.ph.i178, !llvm.loop !3
+  br i1 %.not22.i180, label %HasExtension.exit181.thread.thread336, label %.lr.ph.i178
 
 274:                                              ; preds = %270, %270
   %275 = load ptr, ptr %67, align 8
@@ -1011,7 +1011,7 @@ HasExtension.exit181.thread.thread336:            ; preds = %272, %274, %HasExte
 290:                                              ; preds = %288, %284
   %291 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %282, ptr noundef nonnull @.str.45) #6
   %.not22.i188 = icmp eq ptr %291, null
-  br i1 %.not22.i188, label %HasExtension.exit189.thread, label %.lr.ph.i186, !llvm.loop !3
+  br i1 %.not22.i188, label %HasExtension.exit189.thread, label %.lr.ph.i186
 
 HasExtension.exit189.thread.thread:               ; preds = %.thread, %79
   %.not362 = icmp eq ptr %.093, null
@@ -1071,7 +1071,7 @@ HasExtension.exit189:                             ; preds = %288, %288
 313:                                              ; preds = %311, %307
   %314 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %305, ptr noundef nonnull @.str.46) #6
   %.not22.i196 = icmp eq ptr %314, null
-  br i1 %.not22.i196, label %HasExtension.exit197.thread.thread349, label %.lr.ph.i194, !llvm.loop !3
+  br i1 %.not22.i196, label %HasExtension.exit197.thread.thread349, label %.lr.ph.i194
 
 315:                                              ; preds = %311, %311
   %316 = load ptr, ptr %67, align 8
@@ -1113,7 +1113,7 @@ HasExtension.exit197.thread.thread349:            ; preds = %313, %315, %298, %3
 331:                                              ; preds = %329, %325
   %332 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %323, ptr noundef nonnull @.str.47) #6
   %.not22.i204 = icmp eq ptr %332, null
-  br i1 %.not22.i204, label %HasExtension.exit205.thread.thread357, label %.lr.ph.i202, !llvm.loop !3
+  br i1 %.not22.i204, label %HasExtension.exit205.thread.thread357, label %.lr.ph.i202
 
 333:                                              ; preds = %329, %329
   %334 = load ptr, ptr %67, align 8
@@ -1155,7 +1155,7 @@ HasExtension.exit205.thread.thread357:            ; preds = %331, %333, %HasExte
 349:                                              ; preds = %347, %343
   %350 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %341, ptr noundef nonnull @.str.48) #6
   %.not22.i212 = icmp eq ptr %350, null
-  br i1 %.not22.i212, label %HasExtension.exit213.thread, label %.lr.ph.i210, !llvm.loop !3
+  br i1 %.not22.i212, label %HasExtension.exit213.thread, label %.lr.ph.i210
 
 HasExtension.exit213.thread:                      ; preds = %349, %HasExtension.exit205.thread.thread357, %337
   br i1 %299, label %354, label %369
@@ -1390,7 +1390,7 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %55 = load i32, ptr %9, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %.loopexit.thread, !llvm.loop !5
+  br i1 %57, label %.lr.ph, label %.loopexit.thread, !llvm.loop !3
 
 .loopexit:                                        ; preds = %31
   %.not129 = icmp eq ptr %.0102, null
@@ -1553,7 +1553,7 @@ X11_GL_GetTransparentVisualInfo.exit.thread174:   ; preds = %.thread193
   %111 = load i32, ptr %6, align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next.i, %112
-  br i1 %113, label %.lr.ph.i, label %X11_GL_GetTransparentVisualInfo.exit.thread, !llvm.loop !7
+  br i1 %113, label %.lr.ph.i, label %X11_GL_GetTransparentVisualInfo.exit.thread, !llvm.loop !5
 
 X11_GL_GetTransparentVisualInfo.exit.thread:      ; preds = %.thread.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
@@ -1870,7 +1870,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load i8, ptr %150, align 8, !range !8, !noundef !9
+  %151 = load i8, ptr %150, align 8, !range !6, !noundef !7
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %160
 
@@ -1898,7 +1898,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 9
-  %167 = load i8, ptr %166, align 1, !range !8, !noundef !9
+  %167 = load i8, ptr %166, align 1, !range !6, !noundef !7
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %169, label %174
 
@@ -2054,7 +2054,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %.1132 = phi i32 [ %76, %72 ], [ %.0131, %69 ]
   %80 = load ptr, ptr %28, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 11
-  %82 = load i8, ptr %81, align 1, !range !8, !noundef !9
+  %82 = load i8, ptr %81, align 1, !range !6, !noundef !7
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %95
 
@@ -2078,7 +2078,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 95:                                               ; preds = %88, %84, %79
   %.2133 = phi i32 [ %92, %88 ], [ %.1132, %84 ], [ %.1132, %79 ]
   %96 = getelementptr inbounds nuw i8, ptr %80, i64 12
-  %97 = load i8, ptr %96, align 4, !range !8, !noundef !9
+  %97 = load i8, ptr %96, align 4, !range !6, !noundef !7
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %109
 
@@ -2102,7 +2102,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 109:                                              ; preds = %102, %99, %95
   %.3134 = phi i32 [ %106, %102 ], [ %.2133, %99 ], [ %.2133, %95 ]
   %110 = getelementptr inbounds nuw i8, ptr %80, i64 13
-  %111 = load i8, ptr %110, align 1, !range !8, !noundef !9
+  %111 = load i8, ptr %110, align 1, !range !6, !noundef !7
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %113, label %123
 
@@ -2251,7 +2251,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %180 = load i32, ptr %8, align 4
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next, %181
-  br i1 %182, label %.lr.ph, label %.thread192, !llvm.loop !10
+  br i1 %182, label %.lr.ph, label %.thread192, !llvm.loop !8
 
 183:                                              ; preds = %147
   %.not163 = icmp eq ptr %.0124, null
@@ -2506,7 +2506,7 @@ define hidden zeroext i1 @X11_GL_SetSwapInterval(ptr noundef readonly captures(n
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %9 = load i8, ptr %8, align 2, !range !8, !noundef !9
+  %9 = load i8, ptr %8, align 2, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %._crit_edge, label %11
 
@@ -2622,7 +2622,7 @@ define hidden zeroext i1 @X11_GL_GetSwapInterval(ptr noundef readonly captures(n
   store i32 0, ptr %5, align 4
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  %21 = load i8, ptr %20, align 2, !range !8, !noundef !9
+  %21 = load i8, ptr %20, align 2, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %26
 
@@ -2650,7 +2650,7 @@ define hidden zeroext i1 @X11_GL_GetSwapInterval(ptr noundef readonly captures(n
 
 36:                                               ; preds = %26
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 10
-  %38 = load i8, ptr %37, align 2, !range !8, !noundef !9
+  %38 = load i8, ptr %37, align 2, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %41, label %40
 
@@ -2821,10 +2821,8 @@ attributes #7 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !4}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4}

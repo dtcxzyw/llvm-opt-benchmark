@@ -712,7 +712,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 359:                                              ; preds = %.sink.split664, %334, %317
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit616, label %317, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit616, label %317, !llvm.loop !11
 
 .loopexit616:                                     ; preds = %359, %308, %307
   br i1 %.not554597, label %.loopexit615, label %360
@@ -779,7 +779,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 399:                                              ; preds = %373, %369, %380
   %indvars.iv.next647 = add nuw nsw i64 %indvars.iv646, 1
   %exitcond650.not = icmp eq i64 %indvars.iv.next647, %wide.trip.count649
-  br i1 %exitcond650.not, label %.loopexit615, label %369, !llvm.loop !13
+  br i1 %exitcond650.not, label %.loopexit615, label %369, !llvm.loop !12
 
 .loopexit615:                                     ; preds = %399, %360, %.loopexit616
   br i1 %.not552592, label %401, label %400
@@ -866,7 +866,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %428 = load i32, ptr %27, align 4, !tbaa !3
   %429 = sext i32 %428 to i64
   %.not566.not = icmp slt i64 %indvars.iv651, %429
-  br i1 %.not566.not, label %.lr.ph633, label %.loopexit, !llvm.loop !14
+  br i1 %.not566.not, label %.lr.ph633, label %.loopexit, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %249, %254, %256
   %.sink684 = phi i32 [ %257, %256 ], [ %255, %254 ], [ %248, %249 ]
@@ -970,9 +970,8 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}

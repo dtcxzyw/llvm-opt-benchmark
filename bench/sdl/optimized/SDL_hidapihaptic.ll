@@ -200,7 +200,7 @@ define hidden zeroext i1 @SDL_HIDAPI_HapticOpenFromJoystick(ptr noundef %0, ptr 
   %60 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not55 = icmp eq ptr %61, null
-  br i1 %.not55, label %62, label %.preheader, !llvm.loop !6
+  br i1 %.not55, label %62, label %.preheader, !llvm.loop !5
 
 62:                                               ; preds = %.preheader
   %63 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -268,7 +268,7 @@ define hidden void @SDL_HIDAPI_HapticClose(ptr noundef readonly captures(address
 .lr.ph:                                           ; preds = %.lr.ph31
   %5 = load ptr, ptr %.0, align 8
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !7
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.023.lcssa = phi ptr [ %.020, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
@@ -311,7 +311,7 @@ define hidden void @SDL_HIDAPI_HapticClose(ptr noundef readonly captures(address
   %25 = getelementptr inbounds nuw i8, ptr %.02330, i64 8
   %.0 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %1, %22
   %26 = load ptr, ptr @haptic_list_mutex, align 8
@@ -480,8 +480,7 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

@@ -219,8 +219,8 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_attr_short_name(ptr noundef
 
 _ZL23oid_x520_attr_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
-  store ptr %19, ptr %1, align 8, !tbaa !20
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  store ptr %19, ptr %1, align 8, !tbaa !19
   br label %_ZL23oid_x520_attr_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL23oid_x520_attr_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL23oid_x520_attr_from_asn1PK16mbedtls_asn1_buf.exit
@@ -257,12 +257,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_x509_ext_type(ptr noundef r
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL22oid_x509_ext_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !21
+  br i1 %.not.i, label %_ZL22oid_x509_ext_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !20
 
 _ZL22oid_x509_ext_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !22
-  store i32 %19, ptr %1, align 4, !tbaa !24
+  %19 = load i32, ptr %18, align 8, !tbaa !21
+  store i32 %19, ptr %1, align 4, !tbaa !23
   br label %_ZL22oid_x509_ext_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL22oid_x509_ext_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL22oid_x509_ext_from_asn1PK16mbedtls_asn1_buf.exit
@@ -299,12 +299,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_extended_key_usage(ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL27oid_ext_key_usage_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !25
+  br i1 %.not.i, label %_ZL27oid_ext_key_usage_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !24
 
 _ZL27oid_ext_key_usage_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
-  store ptr %19, ptr %1, align 8, !tbaa !20
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  store ptr %19, ptr %1, align 8, !tbaa !19
   br label %_ZL27oid_ext_key_usage_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL27oid_ext_key_usage_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL27oid_ext_key_usage_from_asn1PK16mbedtls_asn1_buf.exit
@@ -331,7 +331,7 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_certificate_policies(ptr no
   br i1 %10, label %_ZL34oid_certificate_policies_from_asn1PK16mbedtls_asn1_buf.exit, label %_ZL34oid_certificate_policies_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL34oid_certificate_policies_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %7
-  store ptr @.str.120, ptr %1, align 8, !tbaa !20
+  store ptr @.str.120, ptr %1, align 8, !tbaa !19
   br label %_ZL34oid_certificate_policies_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL34oid_certificate_policies_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %.preheader.i, %7, %2, %_ZL34oid_certificate_policies_from_asn1PK16mbedtls_asn1_buf.exit
@@ -368,12 +368,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_sig_alg_desc(ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !27
+  br i1 %.not.i, label %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !26
 
 _ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !28
-  store ptr %19, ptr %1, align 8, !tbaa !20
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  store ptr %19, ptr %1, align 8, !tbaa !19
   br label %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit
@@ -410,15 +410,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_sig_alg(ptr noundef readonl
   %17 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %8, !llvm.loop !27
+  br i1 %.not.i, label %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %8, !llvm.loop !26
 
 _ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !32
-  store i32 %20, ptr %1, align 4, !tbaa !33
+  %20 = load i32, ptr %19, align 8, !tbaa !31
+  store i32 %20, ptr %1, align 4, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %.018.i, i64 36
-  %22 = load i32, ptr %21, align 4, !tbaa !34
-  store i32 %22, ptr %2, align 4, !tbaa !35
+  %22 = load i32, ptr %21, align 4, !tbaa !33
+  store i32 %22, ptr %2, align 4, !tbaa !34
   br label %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %16, %3, %_ZL21oid_sig_alg_from_asn1PK16mbedtls_asn1_buf.exit
@@ -434,28 +434,28 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_sig_alg(i32 noundef 
   %6 = phi ptr [ @.str.121, %4 ], [ %19, %17 ]
   %.014 = phi ptr [ @_ZL11oid_sig_alg, %4 ], [ %18, %17 ]
   %7 = getelementptr inbounds nuw i8, ptr %.014, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !34
+  %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.014, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !32
+  %12 = load i32, ptr %11, align 8, !tbaa !31
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  store ptr %6, ptr %2, align 8, !tbaa !20
+  store ptr %6, ptr %2, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %3, align 8, !tbaa !37
+  %16 = load i64, ptr %15, align 8, !tbaa !35
+  store i64 %16, ptr %3, align 8, !tbaa !36
   br label %.loopexit
 
 17:                                               ; preds = %10, %5
   %18 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !38
 
 .loopexit:                                        ; preds = %17, %14
   %.010 = phi i32 [ 0, %14 ], [ -46, %17 ]
@@ -491,12 +491,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_pk_alg(ptr noundef readonly
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL20oid_pk_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !40
+  br i1 %.not.i, label %_ZL20oid_pk_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !39
 
 _ZL20oid_pk_alg_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !41
-  store i32 %19, ptr %1, align 4, !tbaa !35
+  %19 = load i32, ptr %18, align 8, !tbaa !40
+  store i32 %19, ptr %1, align 4, !tbaa !34
   br label %_ZL20oid_pk_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL20oid_pk_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL20oid_pk_alg_from_asn1PK16mbedtls_asn1_buf.exit
@@ -511,25 +511,25 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_pk_alg(i32 noundef %
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 72
-  %7 = load i32, ptr %6, align 8, !tbaa !41
+  %7 = load i32, ptr %6, align 8, !tbaa !40
   %8 = icmp eq i32 %7, %0
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %5, %3
   %.lcssa = phi ptr [ @.str.133, %3 ], [ %12, %5 ]
   %.012.lcssa = phi ptr [ @_ZL10oid_pk_alg, %3 ], [ %11, %5 ]
-  store ptr %.lcssa, ptr %1, align 8, !tbaa !20
+  store ptr %.lcssa, ptr %1, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %.012.lcssa, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !44
-  store i64 %10, ptr %2, align 8, !tbaa !37
+  %10 = load i64, ptr %9, align 8, !tbaa !43
+  store i64 %10, ptr %2, align 8, !tbaa !36
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %5
   %.01219 = phi ptr [ %11, %5 ], [ @_ZL10oid_pk_alg, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %.01219, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.08 = phi i32 [ 0, %._crit_edge ], [ -46, %.lr.ph ]
@@ -565,12 +565,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_cipher_alg(ptr noundef read
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL24oid_cipher_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !46
+  br i1 %.not.i, label %_ZL24oid_cipher_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !45
 
 _ZL24oid_cipher_alg_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !47
-  store i32 %19, ptr %1, align 4, !tbaa !50
+  %19 = load i32, ptr %18, align 8, !tbaa !46
+  store i32 %19, ptr %1, align 4, !tbaa !49
   br label %_ZL24oid_cipher_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL24oid_cipher_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL24oid_cipher_alg_from_asn1PK16mbedtls_asn1_buf.exit
@@ -607,12 +607,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_md_alg(ptr noundef readonly
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL20oid_md_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !51
+  br i1 %.not.i, label %_ZL20oid_md_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !50
 
 _ZL20oid_md_alg_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !52
-  store i32 %19, ptr %1, align 4, !tbaa !33
+  %19 = load i32, ptr %18, align 8, !tbaa !51
+  store i32 %19, ptr %1, align 4, !tbaa !32
   br label %_ZL20oid_md_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL20oid_md_alg_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL20oid_md_alg_from_asn1PK16mbedtls_asn1_buf.exit
@@ -627,25 +627,25 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_md(i32 noundef %0, p
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 72
-  %7 = load i32, ptr %6, align 8, !tbaa !52
+  %7 = load i32, ptr %6, align 8, !tbaa !51
   %8 = icmp eq i32 %7, %0
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %5, %3
   %.lcssa = phi ptr [ @.str.148, %3 ], [ %12, %5 ]
   %.012.lcssa = phi ptr [ @_ZL10oid_md_alg, %3 ], [ %11, %5 ]
-  store ptr %.lcssa, ptr %1, align 8, !tbaa !20
+  store ptr %.lcssa, ptr %1, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %.012.lcssa, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !55
-  store i64 %10, ptr %2, align 8, !tbaa !37
+  %10 = load i64, ptr %9, align 8, !tbaa !54
+  store i64 %10, ptr %2, align 8, !tbaa !36
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %5
   %.01219 = phi ptr [ %11, %5 ], [ @_ZL10oid_md_alg, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %.01219, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !55
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !54
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.08 = phi i32 [ 0, %._crit_edge ], [ -46, %.lr.ph ]
@@ -681,12 +681,12 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_md_hmac(ptr noundef readonl
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZL21oid_md_hmac_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !57
+  br i1 %.not.i, label %_ZL21oid_md_hmac_from_asn1PK16mbedtls_asn1_buf.exit.thread, label %7, !llvm.loop !56
 
 _ZL21oid_md_hmac_from_asn1PK16mbedtls_asn1_buf.exit: ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !58
-  store i32 %19, ptr %1, align 4, !tbaa !33
+  %19 = load i32, ptr %18, align 8, !tbaa !57
+  store i32 %19, ptr %1, align 4, !tbaa !32
   br label %_ZL21oid_md_hmac_from_asn1PK16mbedtls_asn1_buf.exit.thread
 
 _ZL21oid_md_hmac_from_asn1PK16mbedtls_asn1_buf.exit.thread: ; preds = %15, %2, %_ZL21oid_md_hmac_from_asn1PK16mbedtls_asn1_buf.exit
@@ -725,48 +725,47 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !12 = !{!"_ZTS24mbedtls_oid_descriptor_t", !9, i64 0, !8, i64 8, !9, i64 16, !9, i64 24}
 !13 = !{!4, !9, i64 16}
 !14 = !{!12, !9, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !9, i64 32}
-!19 = !{!"_ZTS15oid_x520_attr_t", !12, i64 0, !9, i64 32}
-!20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !16, !17}
-!22 = !{!23, !5, i64 32}
-!23 = !{!"_ZTS14oid_x509_ext_t", !12, i64 0, !5, i64 32}
-!24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !16, !17}
-!26 = !{!12, !9, i64 24}
-!27 = distinct !{!27, !16, !17}
-!28 = !{!29, !9, i64 24}
-!29 = !{!"_ZTS13oid_sig_alg_t", !12, i64 0, !30, i64 32, !31, i64 36}
-!30 = !{!"_ZTS17mbedtls_md_type_t", !6, i64 0}
-!31 = !{!"_ZTS17mbedtls_pk_type_t", !6, i64 0}
-!32 = !{!29, !30, i64 32}
-!33 = !{!30, !30, i64 0}
-!34 = !{!29, !31, i64 36}
-!35 = !{!31, !31, i64 0}
-!36 = !{!29, !8, i64 8}
-!37 = !{!8, !8, i64 0}
-!38 = !{!29, !9, i64 0}
-!39 = distinct !{!39, !16, !17}
-!40 = distinct !{!40, !16, !17}
-!41 = !{!42, !31, i64 32}
-!42 = !{!"_ZTS12oid_pk_alg_t", !12, i64 0, !31, i64 32}
-!43 = distinct !{!43, !16, !17}
-!44 = !{!42, !8, i64 8}
-!45 = !{!42, !9, i64 0}
-!46 = distinct !{!46, !16, !17}
-!47 = !{!48, !49, i64 32}
-!48 = !{!"_ZTS16oid_cipher_alg_t", !12, i64 0, !49, i64 32}
-!49 = !{!"_ZTS21mbedtls_cipher_type_t", !6, i64 0}
-!50 = !{!49, !49, i64 0}
-!51 = distinct !{!51, !16, !17}
-!52 = !{!53, !30, i64 32}
-!53 = !{!"_ZTS12oid_md_alg_t", !12, i64 0, !30, i64 32}
-!54 = distinct !{!54, !16, !17}
-!55 = !{!53, !8, i64 8}
-!56 = !{!53, !9, i64 0}
-!57 = distinct !{!57, !16, !17}
-!58 = !{!59, !30, i64 32}
-!59 = !{!"_ZTS13oid_md_hmac_t", !12, i64 0, !30, i64 32}
+!17 = !{!18, !9, i64 32}
+!18 = !{!"_ZTS15oid_x520_attr_t", !12, i64 0, !9, i64 32}
+!19 = !{!9, !9, i64 0}
+!20 = distinct !{!20, !16}
+!21 = !{!22, !5, i64 32}
+!22 = !{!"_ZTS14oid_x509_ext_t", !12, i64 0, !5, i64 32}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !16}
+!25 = !{!12, !9, i64 24}
+!26 = distinct !{!26, !16}
+!27 = !{!28, !9, i64 24}
+!28 = !{!"_ZTS13oid_sig_alg_t", !12, i64 0, !29, i64 32, !30, i64 36}
+!29 = !{!"_ZTS17mbedtls_md_type_t", !6, i64 0}
+!30 = !{!"_ZTS17mbedtls_pk_type_t", !6, i64 0}
+!31 = !{!28, !29, i64 32}
+!32 = !{!29, !29, i64 0}
+!33 = !{!28, !30, i64 36}
+!34 = !{!30, !30, i64 0}
+!35 = !{!28, !8, i64 8}
+!36 = !{!8, !8, i64 0}
+!37 = !{!28, !9, i64 0}
+!38 = distinct !{!38, !16}
+!39 = distinct !{!39, !16}
+!40 = !{!41, !30, i64 32}
+!41 = !{!"_ZTS12oid_pk_alg_t", !12, i64 0, !30, i64 32}
+!42 = distinct !{!42, !16}
+!43 = !{!41, !8, i64 8}
+!44 = !{!41, !9, i64 0}
+!45 = distinct !{!45, !16}
+!46 = !{!47, !48, i64 32}
+!47 = !{!"_ZTS16oid_cipher_alg_t", !12, i64 0, !48, i64 32}
+!48 = !{!"_ZTS21mbedtls_cipher_type_t", !6, i64 0}
+!49 = !{!48, !48, i64 0}
+!50 = distinct !{!50, !16}
+!51 = !{!52, !29, i64 32}
+!52 = !{!"_ZTS12oid_md_alg_t", !12, i64 0, !29, i64 32}
+!53 = distinct !{!53, !16}
+!54 = !{!52, !8, i64 8}
+!55 = !{!52, !9, i64 0}
+!56 = distinct !{!56, !16}
+!57 = !{!58, !29, i64 32}
+!58 = !{!"_ZTS13oid_md_hmac_t", !12, i64 0, !29, i64 32}

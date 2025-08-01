@@ -29,7 +29,7 @@ define zeroext i8 @softfloat_addComplCarryM(i8 noundef zeroext %0, ptr noundef r
   %.1 = select i1 %.not, i8 %.0, i8 %20
   %21 = icmp eq i64 %indvars.iv, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %21, label %22, label %9, !llvm.loop !7
+  br i1 %21, label %22, label %9
 
 22:                                               ; preds = %9
   ret i8 %.1
@@ -46,5 +46,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}

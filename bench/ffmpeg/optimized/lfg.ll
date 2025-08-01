@@ -40,7 +40,7 @@ define void @av_lfg_init(ptr noundef writeonly captures(none) %0, i32 noundef %1
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %22, align 4, !tbaa !12
+  store i32 0, ptr %22, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret void
 }
@@ -59,7 +59,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @av_bmg_get(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.promoted = load i32, ptr %3, align 4, !tbaa !12
+  %.promoted = load i32, ptr %3, align 4, !tbaa !11
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -103,19 +103,19 @@ define void @av_bmg_get(ptr noundef captures(none) %0, ptr noundef writeonly cap
   %40 = fmul nsz double %39, %39
   %41 = tail call nsz double @llvm.fmuladd.f64(double %22, double %22, double %40)
   %42 = fcmp nsz ult double %41, 1.000000e+00
-  br i1 %42, label %43, label %4, !llvm.loop !14
+  br i1 %42, label %43, label %4, !llvm.loop !13
 
 43:                                               ; preds = %4
-  store i32 %37, ptr %3, align 4, !tbaa !12
+  store i32 %37, ptr %3, align 4, !tbaa !11
   %44 = tail call nsz double @llvm.log.f64(double %41)
   %45 = fmul nsz double %44, -2.000000e+00
   %46 = fdiv nsz double %45, %41
   %47 = tail call nsz double @llvm.sqrt.f64(double %46)
   %48 = fmul nsz double %22, %47
-  store double %48, ptr %1, align 8, !tbaa !15
+  store double %48, ptr %1, align 8, !tbaa !14
   %49 = fmul nsz double %39, %47
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %49, ptr %50, align 8, !tbaa !15
+  store double %49, ptr %50, align 8, !tbaa !14
   ret void
 }
 
@@ -135,7 +135,7 @@ define range(i32 -22, 1) i32 @av_lfg_init_from_data(ptr noundef writeonly captur
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %6, align 4, !tbaa !12
+  store i32 0, ptr %6, align 4, !tbaa !11
   %7 = tail call ptr @av_crc_get_table(i32 noundef 3) #8
   br label %8
 
@@ -155,7 +155,7 @@ define range(i32 -22, 1) i32 @av_lfg_init_from_data(ptr noundef writeonly captur
   %17 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !16
 
 .loopexit:                                        ; preds = %8, %3
   %.016 = phi i32 [ -22, %3 ], [ 0, %8 ]
@@ -189,12 +189,11 @@ attributes #9 = { nounwind willreturn memory(read) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !8, i64 256}
-!13 = !{!"AVLFG", !5, i64 0, !8, i64 256}
-!14 = distinct !{!14, !10, !11}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"double", !5, i64 0}
-!17 = distinct !{!17, !10, !11}
+!11 = !{!12, !8, i64 256}
+!12 = !{!"AVLFG", !5, i64 0, !8, i64 256}
+!13 = distinct !{!13, !10}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !5, i64 0}
+!16 = distinct !{!16, !10}

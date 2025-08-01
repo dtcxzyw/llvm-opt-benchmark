@@ -30,7 +30,7 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
 
 16:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !8
   %17 = icmp eq i64 %12, 0
   br i1 %17, label %.thread, label %18
 
@@ -99,7 +99,7 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %7 = getelementptr i8, ptr %11, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !10
+  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %2, %6
   %10 = phi i8 [ %8, %6 ], [ %4, %2 ]
@@ -112,7 +112,7 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
 
 16:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !8
   %17 = icmp eq i64 %12, 0
   br i1 %17, label %.thread, label %18
 
@@ -175,7 +175,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %7 = getelementptr i8, ptr %11, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !11
+  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %2, %6
   %10 = phi i8 [ %8, %6 ], [ %4, %2 ]
@@ -191,7 +191,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
 18:                                               ; preds = %.preheader
   %19 = zext i8 %10 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !8
   %20 = icmp eq i64 %12, 0
   br i1 %20, label %.thread, label %21
 
@@ -256,7 +256,7 @@ define dso_local zeroext range(i8 49, 48) i8 @acpi_ut_remove_leading_zeros(ptr n
   store ptr %6, ptr %0, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 48
-  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %1
   %9 = phi i8 [ %3, %1 ], [ %7, %.preheader ]
@@ -284,7 +284,7 @@ define dso_local zeroext i8 @acpi_ut_remove_whitespace(ptr noundef captures(none
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 32
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %1
   %17 = phi i8 [ %3, %1 ], [ %11, %.preheader ]
@@ -385,12 +385,11 @@ attributes #5 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}

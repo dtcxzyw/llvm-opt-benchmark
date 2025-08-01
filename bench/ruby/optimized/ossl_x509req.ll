@@ -837,7 +837,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %2
   %8 = load i64, ptr %7, align 8, !tbaa !16
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 7
-  br i1 %10, label %Check_Type.exit.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !39
+  br i1 %10, label %Check_Type.exit.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !38
 
 Check_Type.exit.preheader:                        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -856,7 +856,7 @@ Check_Type.exit:                                  ; preds = %Check_Type.exit.pre
   br i1 %.not.i, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %Check_Type.exit
-  %15 = load i64, ptr %11, align 8, !tbaa !40
+  %15 = load i64, ptr %11, align 8, !tbaa !39
   %16 = icmp slt i64 %.0, %15
   br i1 %16, label %20, label %38
 
@@ -867,7 +867,7 @@ rb_array_len.exit.thread:                         ; preds = %Check_Type.exit
   br i1 %19, label %rb_array_const_ptr.exit, label %38
 
 20:                                               ; preds = %rb_array_len.exit
-  %21 = load ptr, ptr %12, align 8, !tbaa !40
+  %21 = load ptr, ptr %12, align 8, !tbaa !39
   br label %rb_array_const_ptr.exit
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %20
@@ -887,7 +887,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
   br i1 %.not.i27, label %30, label %rb_array_const_ptr.exit29
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %12, align 8, !tbaa !40
+  %31 = load ptr, ptr %12, align 8, !tbaa !39
   br label %rb_array_const_ptr.exit29
 
 rb_array_const_ptr.exit29:                        ; preds = %27, %30
@@ -901,7 +901,7 @@ rb_array_const_ptr.exit29:                        ; preds = %27, %30
 
 36:                                               ; preds = %rb_array_const_ptr.exit
   %37 = add nuw nsw i64 %.0, 1
-  br label %Check_Type.exit, !llvm.loop !41
+  br label %Check_Type.exit, !llvm.loop !40
 
 38:                                               ; preds = %rb_array_len.exit.thread, %rb_array_len.exit
   %39 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509req_type) #5
@@ -928,7 +928,7 @@ rb_array_const_ptr.exit29:                        ; preds = %27, %30
   tail call void @X509_ATTRIBUTE_free(ptr noundef %46) #5
   %47 = add nsw i64 %.140, -1
   %48 = icmp samesign ugt i64 %.140, 1
-  br i1 %48, label %.lr.ph, label %.preheader.preheader, !llvm.loop !42
+  br i1 %48, label %.lr.ph, label %.preheader.preheader, !llvm.loop !41
 
 .preheader.preheader:                             ; preds = %.lr.ph, %42
   br label %.preheader
@@ -941,7 +941,7 @@ rb_array_const_ptr.exit29:                        ; preds = %27, %30
   br i1 %.not.i30, label %rb_array_len.exit32, label %rb_array_len.exit32.thread
 
 rb_array_len.exit32:                              ; preds = %.preheader
-  %51 = load i64, ptr %11, align 8, !tbaa !40
+  %51 = load i64, ptr %11, align 8, !tbaa !39
   %52 = icmp slt i64 %.2, %51
   br i1 %52, label %56, label %65
 
@@ -952,7 +952,7 @@ rb_array_len.exit32.thread:                       ; preds = %.preheader
   br i1 %55, label %rb_array_const_ptr.exit35, label %65
 
 56:                                               ; preds = %rb_array_len.exit32
-  %57 = load ptr, ptr %12, align 8, !tbaa !40
+  %57 = load ptr, ptr %12, align 8, !tbaa !39
   br label %rb_array_const_ptr.exit35
 
 rb_array_const_ptr.exit35:                        ; preds = %rb_array_len.exit32.thread, %56
@@ -963,7 +963,7 @@ rb_array_const_ptr.exit35:                        ; preds = %rb_array_len.exit32
   %61 = tail call i32 @X509_REQ_add1_attr(ptr noundef nonnull %39, ptr noundef %60) #5
   %.not23 = icmp eq i32 %61, 0
   %62 = add nuw nsw i64 %.2, 1
-  br i1 %.not23, label %63, label %.preheader, !llvm.loop !43
+  br i1 %.not23, label %63, label %.preheader, !llvm.loop !42
 
 63:                                               ; preds = %rb_array_const_ptr.exit35
   %64 = load i64, ptr @eX509ReqError, align 8, !tbaa !6
@@ -1168,11 +1168,10 @@ attributes #7 = { cold noreturn nounwind }
 !33 = !{!"p1 _ZTS14asn1_object_st", !14, i64 0}
 !34 = !{!35, !35, i64 0}
 !35 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!40 = !{!8, !8, i64 0}
-!41 = distinct !{!41, !37, !38}
-!42 = distinct !{!42, !37, !38}
-!43 = distinct !{!43, !37, !38}
+!38 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!39 = !{!8, !8, i64 0}
+!40 = distinct !{!40, !37}
+!41 = distinct !{!41, !37}
+!42 = distinct !{!42, !37}

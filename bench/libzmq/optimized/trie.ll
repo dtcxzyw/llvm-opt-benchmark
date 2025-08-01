@@ -272,7 +272,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   store ptr null, ptr %54, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not54 = icmp eq i64 %indvars.iv.next, %46
-  br i1 %.not54, label %._crit_edge96, label %.lr.ph95, !llvm.loop !22
+  br i1 %.not54, label %._crit_edge96, label %.lr.ph95, !llvm.loop !21
 
 55:                                               ; preds = %22
   %56 = zext i8 %9 to i32
@@ -315,7 +315,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   store ptr null, ptr %77, align 8, !tbaa !17
   %78 = add i16 %.03189, 1
   %.not52 = icmp eq i16 %78, %74
-  br i1 %.not52, label %.loopexit, label %.lr.ph91, !llvm.loop !23
+  br i1 %.not52, label %.loopexit, label %.lr.ph91, !llvm.loop !22
 
 79:                                               ; preds = %55
   %80 = sub nsw i32 %56, %57
@@ -371,7 +371,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %108 = add i16 %.03087, 1
   %109 = zext i16 %108 to i32
   %.not50 = icmp eq i32 %104, %109
-  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph91, %._crit_edge, %._crit_edge96, %11
   %110 = phi i16 [ %.pre108, %._crit_edge ], [ %45, %._crit_edge96 ], [ %15, %11 ], [ %74, %.lr.ph91 ]
@@ -417,7 +417,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %130 = add i16 %129, 1
   store i16 %130, ptr %128, align 8, !tbaa !11
   %.not60 = icmp eq i16 %129, 0
-  br i1 %.not60, label %tailrecurse.backedge, label %131, !prof !25
+  br i1 %.not60, label %tailrecurse.backedge, label %131, !prof !24
 
 131:                                              ; preds = %127
   %132 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -616,7 +616,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %52 = add i16 %51, -1
   store i16 %52, ptr %50, align 8, !tbaa !11
   %.not71 = icmp eq i16 %52, 0
-  br i1 %.not71, label %193, label %53, !prof !25
+  br i1 %.not71, label %193, label %53, !prof !24
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -689,7 +689,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %99 = phi ptr [ %83, %82 ], [ %96, %95 ]
   %.044 = phi ptr [ %87, %82 ], [ %97, %95 ]
   %.not70 = icmp eq ptr %.044, null
-  br i1 %.not70, label %.thread, label %104, !prof !26
+  br i1 %.not70, label %.thread, label %104, !prof !25
 
 .thread:                                          ; preds = %90, %98
   %100 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -731,14 +731,14 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
 113:                                              ; preds = %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count99
-  br i1 %exitcond100.not, label %.thread77, label %110, !llvm.loop !27
+  br i1 %exitcond100.not, label %.thread77, label %110, !llvm.loop !26
 
 114:                                              ; preds = %110
   %115 = trunc i64 %indvars.iv to i8
   %116 = add i8 %13, %115
   %117 = zext i8 %116 to i32
   %.not66 = icmp eq i8 %115, 0
-  br i1 %.not66, label %.thread77, label %123, !prof !26
+  br i1 %.not66, label %.thread77, label %123, !prof !25
 
 .thread77:                                        ; preds = %113, %.preheader, %114
   %118 = phi i32 [ %117, %114 ], [ %14, %.preheader ], [ %14, %113 ]
@@ -758,7 +758,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %126 = phi i32 [ %118, %.thread77 ], [ %117, %114 ]
   %.04380 = phi i8 [ %.04381, %.thread77 ], [ %116, %114 ]
   %.not67 = icmp ugt i8 %.04380, %124
-  br i1 %.not67, label %132, label %127, !prof !25
+  br i1 %.not67, label %132, label %127, !prof !24
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -776,7 +776,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %136 = zext i8 %133 to i32
   %137 = sub nsw i32 %126, %136
   %.not68 = icmp slt i32 %137, %135
-  br i1 %.not68, label %143, label %138, !prof !25
+  br i1 %.not68, label %143, label %138, !prof !24
 
 138:                                              ; preds = %132
   %139 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -860,7 +860,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
 173:                                              ; preds = %170
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond.not, label %.thread82, label %170, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread82, label %170, !llvm.loop !27
 
 174:                                              ; preds = %170
   %175 = trunc i64 %indvars.iv95 to i16
@@ -972,7 +972,7 @@ define noundef zeroext i1 @_ZNK3zmq6trie_t5checkEPKhm(ptr noundef nonnull readon
   %.not = icmp ne i32 %28, 0
   %.not30 = icmp eq i64 %27, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not30
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !29
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %25, %20, %.lr.ph, %11, %3
   %.not.lcssa = phi i1 [ %.not33, %3 ], [ false, %11 ], [ false, %.lr.ph ], [ false, %20 ], [ %.not, %25 ]
@@ -983,9 +983,9 @@ define noundef zeroext i1 @_ZNK3zmq6trie_t5checkEPKhm(ptr noundef nonnull readon
 define void @_ZN3zmq6trie_t5applyEPFvPhmPvES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store ptr null, ptr %4, align 8, !tbaa !30
+  store ptr null, ptr %4, align 8, !tbaa !29
   call void @_ZNK3zmq6trie_t12apply_helperEPPhmmPFvS1_mPvES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %4, i64 noundef 0, i64 noundef 0, ptr noundef %1, ptr noundef %2)
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   tail call void @free(ptr noundef %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret void
@@ -1004,7 +1004,7 @@ tailrecurse:                                      ; preds = %27, %6
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %tailrecurse
-  %9 = load ptr, ptr %1, align 8, !tbaa !30
+  %9 = load ptr, ptr %1, align 8, !tbaa !29
   tail call void %4(ptr noundef %9, i64 noundef %.tr42, ptr noundef %5)
   br label %10
 
@@ -1014,9 +1014,9 @@ tailrecurse:                                      ; preds = %27, %6
 
 11:                                               ; preds = %10
   %12 = add i64 %.tr42, 256
-  %13 = load ptr, ptr %1, align 8, !tbaa !30
+  %13 = load ptr, ptr %1, align 8, !tbaa !29
   %14 = tail call ptr @realloc(ptr noundef %13, i64 noundef %12) #22
-  store ptr %14, ptr %1, align 8, !tbaa !30
+  store ptr %14, ptr %1, align 8, !tbaa !29
   %.not38 = icmp eq ptr %14, null
   br i1 %.not38, label %15, label %20, !prof !13
 
@@ -1047,7 +1047,7 @@ tailrecurse:                                      ; preds = %27, %6
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %29 = load i8, ptr %28, align 4, !tbaa !9
-  %30 = load ptr, ptr %1, align 8, !tbaa !30
+  %30 = load ptr, ptr %1, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.tr42
   store i8 %29, ptr %31, align 1, !tbaa !12
   %32 = add i64 %.tr42, 1
@@ -1060,7 +1060,7 @@ tailrecurse:                                      ; preds = %27, %6
   %36 = trunc i16 %.053 to i8
   %37 = load i8, ptr %24, align 4, !tbaa !9
   %38 = add i8 %37, %36
-  %39 = load ptr, ptr %1, align 8, !tbaa !30
+  %39 = load ptr, ptr %1, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.tr42
   store i8 %38, ptr %40, align 1, !tbaa !12
   %41 = load ptr, ptr %25, align 8, !tbaa !12
@@ -1078,7 +1078,7 @@ tailrecurse:                                      ; preds = %27, %6
   %47 = add i16 %.053, 1
   %48 = load i16, ptr %23, align 2, !tbaa !10
   %.not39 = icmp eq i16 %47, %48
-  br i1 %.not39, label %.loopexit, label %35, !llvm.loop !32
+  br i1 %.not39, label %.loopexit, label %35, !llvm.loop !31
 
 .loopexit:                                        ; preds = %20, %46
   ret void
@@ -1133,17 +1133,16 @@ attributes #23 = { builtin nounwind allocsize(0) }
 !16 = !{!"any pointer", !6, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 _ZTSN3zmq6trie_tE", !16, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
-!25 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!26 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!27 = distinct !{!27, !20, !21}
-!28 = distinct !{!28, !20, !21}
-!29 = distinct !{!29, !20, !21}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 omnipotent char", !16, i64 0}
-!32 = distinct !{!32, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!25 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 omnipotent char", !16, i64 0}
+!31 = distinct !{!31, !20}

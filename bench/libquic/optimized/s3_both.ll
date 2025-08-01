@@ -581,7 +581,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ssl3_get_message(ptr nound
   br label %.backedge
 
 .backedge:                                        ; preds = %62, %60
-  br label %43, !llvm.loop !86
+  br label %43
 
 65:                                               ; preds = %._crit_edge, %59
   %66 = icmp slt i32 %3, 0
@@ -686,7 +686,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ssl3_get_message(ptr nound
   %117 = zext nneg i32 %111 to i64
   %118 = sub nsw i64 %.091119, %117
   %119 = icmp sgt i64 %118, 0
-  br i1 %119, label %.lr.ph121, label %._crit_edge122, !llvm.loop !87
+  br i1 %119, label %.lr.ph121, label %._crit_edge122, !llvm.loop !85
 
 ._crit_edge122:                                   ; preds = %114, %99
   %120 = phi i32 [ %.pre136, %99 ], [ %116, %114 ]
@@ -764,7 +764,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   call void @EVP_MD_CTX_init(ptr noundef nonnull %6) #7
-  %11 = load ptr, ptr %3, align 8, !tbaa !88
+  %11 = load ptr, ptr %3, align 8, !tbaa !86
   %12 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %6, ptr noundef %11, ptr noundef null) #7
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %26, label %13
@@ -773,10 +773,10 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  %17 = load ptr, ptr %16, align 8, !tbaa !89
+  %17 = load ptr, ptr %16, align 8, !tbaa !87
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !35
-  %20 = load i64, ptr %17, align 8, !tbaa !90
+  %20 = load i64, ptr %17, align 8, !tbaa !88
   %21 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %6, ptr noundef %19, i64 noundef %20) #7
   %.not24 = icmp eq i32 %21, 0
   br i1 %.not24, label %26, label %22
@@ -813,7 +813,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 280
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !91
+  %35 = load ptr, ptr %34, align 8, !tbaa !89
   %36 = tail call i32 %35(ptr noundef %0, i32 noundef 4, ptr noundef %1) #7
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %61, label %38
@@ -823,7 +823,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 280
   %41 = load ptr, ptr %40, align 8, !tbaa !47
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !91
+  %43 = load ptr, ptr %42, align 8, !tbaa !89
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = tail call i32 %43(ptr noundef nonnull %0, i32 noundef 64, ptr noundef nonnull %44) #7
   %46 = icmp eq i32 %45, 0
@@ -832,7 +832,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
 47:                                               ; preds = %38
   store i64 36, ptr %2, align 8, !tbaa !79
   %48 = tail call ptr @EVP_md5_sha1() #7
-  store ptr %48, ptr %3, align 8, !tbaa !88
+  store ptr %48, ptr %3, align 8, !tbaa !86
   br label %61
 
 49:                                               ; preds = %28
@@ -841,7 +841,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 280
   %53 = load ptr, ptr %52, align 8, !tbaa !47
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !91
+  %55 = load ptr, ptr %54, align 8, !tbaa !89
   %56 = tail call i32 %55(ptr noundef %0, i32 noundef 64, ptr noundef %1) #7
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %61, label %58
@@ -849,7 +849,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
 58:                                               ; preds = %49
   store i64 20, ptr %2, align 8, !tbaa !79
   %59 = tail call ptr @EVP_sha1() #7
-  store ptr %59, ptr %3, align 8, !tbaa !88
+  store ptr %59, ptr %3, align 8, !tbaa !86
   br label %61
 
 60:                                               ; preds = %28
@@ -1034,12 +1034,10 @@ attributes #7 = { nounwind }
 !80 = !{!48, !8, i64 452}
 !81 = !{!48, !8, i64 432}
 !82 = !{!48, !25, i64 424}
-!83 = distinct !{!83, !84, !85}
+!83 = distinct !{!83, !84}
 !84 = !{!"llvm.loop.mustprogress"}
-!85 = !{!"llvm.loop.estimated_trip_count"}
-!86 = distinct !{!86, !85}
-!87 = distinct !{!87, !84, !85}
-!88 = !{!52, !52, i64 0}
-!89 = !{!48, !15, i64 168}
-!90 = !{!36, !25, i64 0}
-!91 = !{!62, !13, i64 16}
+!85 = distinct !{!85, !84}
+!86 = !{!52, !52, i64 0}
+!87 = !{!48, !15, i64 168}
+!88 = !{!36, !25, i64 0}
+!89 = !{!62, !13, i64 16}

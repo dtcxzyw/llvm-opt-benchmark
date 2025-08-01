@@ -932,7 +932,7 @@ define internal noundef i32 @blend_slice_yuva420(ptr noundef readonly captures(n
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %.0286.i3881, i64 %147
   %149 = icmp slt i32 %93, %39
-  br i1 %149, label %87, label %blend_plane_8_8bits.exit59.loopexit, !llvm.loop !88
+  br i1 %149, label %87, label %blend_plane_8_8bits.exit59.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit59.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -1238,7 +1238,7 @@ blend_plane_8_8bits.exit59:                       ; preds = %blend_plane_8_8bits
   %368 = sext i32 %367 to i64
   %369 = getelementptr inbounds i8, ptr %.0286.i12100, i64 %368
   %370 = icmp slt i32 %231, %176
-  br i1 %370, label %225, label %blend_plane_8_8bits.exit33, !llvm.loop !88
+  br i1 %370, label %225, label %blend_plane_8_8bits.exit33, !llvm.loop !87
 
 blend_plane_8_8bits.exit33:                       ; preds = %._crit_edge97
   %.pre124 = load ptr, ptr %22, align 8, !tbaa !53
@@ -1510,7 +1510,7 @@ blend_plane_8_8bits.exit33:                       ; preds = %._crit_edge97
   %562 = sext i32 %561 to i64
   %563 = getelementptr inbounds i8, ptr %.0286.i118, i64 %562
   %564 = icmp slt i32 %425, %176
-  br i1 %564, label %419, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %564, label %419, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge115, %blend_plane_8_8bits.exit59
   %565 = add nsw i32 %35, %29
@@ -1601,7 +1601,7 @@ blend_plane_8_8bits.exit:                         ; preds = %._crit_edge115, %bl
   %614 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %615 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %615, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %586, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %586, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %612
   %616 = load i32, ptr %47, align 4, !tbaa !81
@@ -1612,7 +1612,7 @@ blend_plane_8_8bits.exit:                         ; preds = %._crit_edge115, %bl
   %621 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %620
   %622 = add nsw i32 %.098113.us.i, 1
   %623 = icmp slt i32 %622, %39
-  br i1 %623, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %623, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %blend_plane_8_8bits.exit, %.lr.ph117.i
   ret i32 0
@@ -1786,7 +1786,7 @@ define internal noundef i32 @blend_slice_yuv420(ptr noundef readonly captures(no
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %.0286.i3560, i64 %135
   %137 = icmp slt i32 %92, %39
-  br i1 %137, label %87, label %blend_plane_8_8bits.exit53.loopexit, !llvm.loop !88
+  br i1 %137, label %87, label %blend_plane_8_8bits.exit53.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit53.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -1961,7 +1961,7 @@ blend_plane_8_8bits.exit53:                       ; preds = %blend_plane_8_8bits
   %264 = getelementptr inbounds i8, ptr %.1284.i2568.us, i64 %212
   %265 = getelementptr inbounds nuw i8, ptr %.1288.i2466.us, i64 2
   %exitcond95.not = icmp eq i32 %237, %.306.i15
-  br i1 %exitcond95.not, label %._crit_edge72, label %.lr.ph71.split.us, !llvm.loop !92
+  br i1 %exitcond95.not, label %._crit_edge72, label %.lr.ph71.split.us, !llvm.loop !91
 
 .lr.ph71.split:                                   ; preds = %235, %290
   %.1281.i2669 = phi ptr [ %303, %290 ], [ %.0280.i21, %235 ]
@@ -2035,7 +2035,7 @@ blend_plane_8_8bits.exit53:                       ; preds = %blend_plane_8_8bits
   %318 = sext i32 %317 to i64
   %319 = getelementptr inbounds i8, ptr %.0286.i1275, i64 %318
   %320 = icmp slt i32 %220, %164
-  br i1 %320, label %214, label %blend_plane_8_8bits.exit30, !llvm.loop !88
+  br i1 %320, label %214, label %blend_plane_8_8bits.exit30, !llvm.loop !87
 
 blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   %.pre99 = load ptr, ptr %22, align 8, !tbaa !53
@@ -2176,7 +2176,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   %420 = getelementptr inbounds i8, ptr %.1284.i82.us, i64 %368
   %421 = getelementptr inbounds nuw i8, ptr %.1288.i80.us, i64 2
   %exitcond97.not = icmp eq i32 %393, %.306.i
-  br i1 %exitcond97.not, label %._crit_edge86, label %.lr.ph85.split.us, !llvm.loop !93
+  br i1 %exitcond97.not, label %._crit_edge86, label %.lr.ph85.split.us, !llvm.loop !92
 
 .lr.ph85.split:                                   ; preds = %391, %446
   %.1281.i83 = phi ptr [ %459, %446 ], [ %.0280.i, %391 ]
@@ -2250,7 +2250,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   %474 = sext i32 %473 to i64
   %475 = getelementptr inbounds i8, ptr %.0286.i89, i64 %474
   %476 = icmp slt i32 %376, %164
-  br i1 %476, label %370, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %476, label %370, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge86, %blend_plane_8_8bits.exit53
   ret i32 0
@@ -2377,7 +2377,7 @@ define internal noundef i32 @blend_slice_yuva420p10(ptr noundef readonly capture
   %.0253.i3664.us = phi ptr [ %97, %.lr.ph.us ], [ %127, %113 ]
   %.0255.i3563.us = phi ptr [ %98, %.lr.ph.us ], [ %126, %113 ]
   %100 = add nuw nsw i32 %.0251.i3765.us, 1
-  %101 = load i16, ptr %.0253.i3664.us, align 2, !tbaa !94
+  %101 = load i16, ptr %.0253.i3664.us, align 2, !tbaa !93
   %102 = zext i16 %101 to i32
   switch i16 %101, label %103 [
     i16 1023, label %113
@@ -2385,7 +2385,7 @@ define internal noundef i32 @blend_slice_yuva420p10(ptr noundef readonly capture
   ]
 
 103:                                              ; preds = %99
-  %104 = load i16, ptr %.0255.i3563.us, align 2, !tbaa !94
+  %104 = load i16, ptr %.0255.i3563.us, align 2, !tbaa !93
   %105 = mul nuw i32 %102, 65025
   %106 = and i16 %104, 255
   %107 = zext nneg i16 %106 to i32
@@ -2398,23 +2398,23 @@ define internal noundef i32 @blend_slice_yuva420p10(ptr noundef readonly capture
 
 113:                                              ; preds = %103, %99, %99
   %.1.i42.us = phi i32 [ %112, %103 ], [ %102, %99 ], [ %102, %99 ]
-  %114 = load i16, ptr %.0248.i3866.us, align 2, !tbaa !94
+  %114 = load i16, ptr %.0248.i3866.us, align 2, !tbaa !93
   %115 = zext i16 %114 to i32
   %116 = sub nsw i32 1023, %.1.i42.us
   %117 = mul nsw i32 %116, %115
-  %118 = load i16, ptr %.0246.i3967.us, align 2, !tbaa !94
+  %118 = load i16, ptr %.0246.i3967.us, align 2, !tbaa !93
   %119 = zext i16 %118 to i32
   %120 = mul nsw i32 %.1.i42.us, %119
   %121 = add nsw i32 %120, %117
   %122 = sdiv i32 %121, 1023
   %123 = trunc i32 %122 to i16
-  store i16 %123, ptr %.0248.i3866.us, align 2, !tbaa !94
+  store i16 %123, ptr %.0248.i3866.us, align 2, !tbaa !93
   %124 = getelementptr inbounds nuw i8, ptr %.0246.i3967.us, i64 2
   %125 = getelementptr inbounds i16, ptr %.0248.i3866.us, i64 %65
   %126 = getelementptr inbounds nuw i8, ptr %.0255.i3563.us, i64 2
   %127 = getelementptr inbounds nuw i8, ptr %.0253.i3664.us, i64 2
   %exitcond.not = icmp eq i32 %100, %.264.i34
-  br i1 %exitcond.not, label %._crit_edge.us, label %99, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %99, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %113
   %128 = getelementptr inbounds i16, ptr %.0249.i3271.us, i64 %67
@@ -2423,7 +2423,7 @@ define internal noundef i32 @blend_slice_yuva420p10(ptr noundef readonly capture
   %131 = getelementptr inbounds i16, ptr %.0250.i3170.us, i64 %73
   %132 = add nsw i32 %.0252.i3069.us, 1
   %133 = icmp slt i32 %132, %35
-  br i1 %133, label %.lr.ph.us, label %blend_plane_16_10bits.exit45, !llvm.loop !97
+  br i1 %133, label %.lr.ph.us, label %blend_plane_16_10bits.exit45, !llvm.loop !96
 
 blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.lr.ph74, %4
   %134 = add nsw i32 %15, 1
@@ -2534,7 +2534,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   %215 = add nuw nsw i32 %.0251.i1877.us, 1
   %216 = icmp slt i32 %215, %135
   %or.cond268.i21.us = select i1 %213, i1 %216, i1 false
-  %217 = load i16, ptr %.0253.i1776.us, align 2, !tbaa !94
+  %217 = load i16, ptr %.0253.i1776.us, align 2, !tbaa !93
   %218 = zext i16 %217 to i32
   br i1 %or.cond268.i21.us, label %259, label %219
 
@@ -2543,7 +2543,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 220:                                              ; preds = %219
   %221 = getelementptr inbounds nuw i8, ptr %.0253.i1776.us, i64 2
-  %222 = load i16, ptr %221, align 2, !tbaa !94
+  %222 = load i16, ptr %221, align 2, !tbaa !93
   %223 = zext i16 %222 to i32
   %224 = add nuw nsw i32 %223, %218
   %225 = lshr i32 %224, 1
@@ -2556,7 +2556,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds i16, ptr %.0253.i1776.us, i64 %188
-  %231 = load i16, ptr %230, align 2, !tbaa !94
+  %231 = load i16, ptr %230, align 2, !tbaa !93
   %232 = zext i16 %231 to i32
   %233 = add nuw nsw i32 %232, %228
   %234 = lshr i32 %233, 1
@@ -2572,13 +2572,13 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   ]
 
 .thread52.us:                                     ; preds = %.thread.us
-  %238 = load i16, ptr %.0255.i1675.us, align 2, !tbaa !94
+  %238 = load i16, ptr %.0255.i1675.us, align 2, !tbaa !93
   %239 = zext i16 %238 to i32
   br i1 %216, label %240, label %246
 
 240:                                              ; preds = %.thread52.us
   %241 = getelementptr inbounds nuw i8, ptr %.0255.i1675.us, i64 2
-  %242 = load i16, ptr %241, align 2, !tbaa !94
+  %242 = load i16, ptr %241, align 2, !tbaa !93
   %243 = zext i16 %242 to i32
   %244 = add nuw nsw i32 %243, %239
   %245 = lshr i32 %244, 1
@@ -2591,7 +2591,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 249:                                              ; preds = %246
   %250 = getelementptr inbounds i16, ptr %.0255.i1675.us, i64 %189
-  %251 = load i16, ptr %250, align 2, !tbaa !94
+  %251 = load i16, ptr %250, align 2, !tbaa !93
   %252 = zext i16 %251 to i32
   %253 = add nuw nsw i32 %252, %248
   %254 = lshr i32 %253, 1
@@ -2605,15 +2605,15 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 259:                                              ; preds = %214
   %260 = getelementptr inbounds i16, ptr %.0253.i1776.us, i64 %188
-  %261 = load i16, ptr %260, align 2, !tbaa !94
+  %261 = load i16, ptr %260, align 2, !tbaa !93
   %262 = zext i16 %261 to i32
   %263 = add nuw nsw i32 %262, %218
   %264 = getelementptr inbounds nuw i8, ptr %.0253.i1776.us, i64 2
-  %265 = load i16, ptr %264, align 2, !tbaa !94
+  %265 = load i16, ptr %264, align 2, !tbaa !93
   %266 = zext i16 %265 to i32
   %267 = add nuw nsw i32 %263, %266
   %268 = getelementptr i8, ptr %260, i64 2
-  %269 = load i16, ptr %268, align 2, !tbaa !94
+  %269 = load i16, ptr %268, align 2, !tbaa !93
   %270 = zext i16 %269 to i32
   %271 = add nuw nsw i32 %267, %270
   %272 = lshr i32 %271, 2
@@ -2623,15 +2623,15 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   ]
 
 273:                                              ; preds = %259
-  %274 = load i16, ptr %.0255.i1675.us, align 2, !tbaa !94
+  %274 = load i16, ptr %.0255.i1675.us, align 2, !tbaa !93
   %275 = getelementptr inbounds i16, ptr %.0255.i1675.us, i64 %189
-  %276 = load i16, ptr %275, align 2, !tbaa !94
+  %276 = load i16, ptr %275, align 2, !tbaa !93
   %277 = add i16 %276, %274
   %278 = getelementptr inbounds nuw i8, ptr %.0255.i1675.us, i64 2
-  %279 = load i16, ptr %278, align 2, !tbaa !94
+  %279 = load i16, ptr %278, align 2, !tbaa !93
   %280 = add i16 %277, %279
   %281 = getelementptr i8, ptr %275, i64 2
-  %282 = load i16, ptr %281, align 2, !tbaa !94
+  %282 = load i16, ptr %281, align 2, !tbaa !93
   %283 = add i16 %280, %282
   %284 = lshr i16 %283, 2
   %285 = zext nneg i16 %284 to i32
@@ -2651,23 +2651,23 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 294:                                              ; preds = %286, %259, %259, %.thread.us, %.thread.us
   %.1.i23.us = phi i32 [ %293, %286 ], [ %272, %259 ], [ %237, %.thread.us ], [ %272, %259 ], [ %237, %.thread.us ]
-  %295 = load i16, ptr %.0248.i1978.us, align 2, !tbaa !94
+  %295 = load i16, ptr %.0248.i1978.us, align 2, !tbaa !93
   %296 = zext i16 %295 to i32
   %297 = sub nsw i32 1023, %.1.i23.us
   %298 = mul nsw i32 %297, %296
-  %299 = load i16, ptr %.0246.i2079.us, align 2, !tbaa !94
+  %299 = load i16, ptr %.0246.i2079.us, align 2, !tbaa !93
   %300 = zext i16 %299 to i32
   %301 = mul nsw i32 %.1.i23.us, %300
   %302 = add nsw i32 %301, %298
   %303 = sdiv i32 %302, 1023
   %304 = trunc i32 %303 to i16
-  store i16 %304, ptr %.0248.i1978.us, align 2, !tbaa !94
+  store i16 %304, ptr %.0248.i1978.us, align 2, !tbaa !93
   %305 = getelementptr inbounds nuw i8, ptr %.0246.i2079.us, i64 2
   %306 = getelementptr inbounds i16, ptr %.0248.i1978.us, i64 %190
   %307 = getelementptr inbounds nuw i8, ptr %.0255.i1675.us, i64 4
   %308 = getelementptr inbounds nuw i8, ptr %.0253.i1776.us, i64 4
   %exitcond105.not = icmp eq i32 %215, %.264.i15
-  br i1 %exitcond105.not, label %._crit_edge.us87, label %214, !llvm.loop !96
+  br i1 %exitcond105.not, label %._crit_edge.us87, label %214, !llvm.loop !95
 
 ._crit_edge.us87:                                 ; preds = %294
   %309 = getelementptr inbounds i16, ptr %.0249.i1383.us, i64 %192
@@ -2676,7 +2676,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   %312 = getelementptr inbounds i16, ptr %.0250.i1282.us, i64 %189
   %313 = add nsw i32 %.0252.i1181.us, 1
   %314 = icmp slt i32 %313, %155
-  br i1 %314, label %.lr.ph.us86, label %.lr.ph99, !llvm.loop !98
+  br i1 %314, label %.lr.ph.us86, label %.lr.ph99, !llvm.loop !97
 
 .lr.ph99:                                         ; preds = %._crit_edge.us87, %.lr.ph85
   %315 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -2750,7 +2750,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   %364 = add nuw nsw i32 %.0251.i90.us, 1
   %365 = icmp slt i32 %364, %135
   %or.cond268.i.us = select i1 %362, i1 %365, i1 false
-  %366 = load i16, ptr %.0253.i89.us, align 2, !tbaa !94
+  %366 = load i16, ptr %.0253.i89.us, align 2, !tbaa !93
   %367 = zext i16 %366 to i32
   br i1 %or.cond268.i.us, label %408, label %368
 
@@ -2759,7 +2759,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 369:                                              ; preds = %368
   %370 = getelementptr inbounds nuw i8, ptr %.0253.i89.us, i64 2
-  %371 = load i16, ptr %370, align 2, !tbaa !94
+  %371 = load i16, ptr %370, align 2, !tbaa !93
   %372 = zext i16 %371 to i32
   %373 = add nuw nsw i32 %372, %367
   %374 = lshr i32 %373, 1
@@ -2772,7 +2772,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 378:                                              ; preds = %375
   %379 = getelementptr inbounds i16, ptr %.0253.i89.us, i64 %337
-  %380 = load i16, ptr %379, align 2, !tbaa !94
+  %380 = load i16, ptr %379, align 2, !tbaa !93
   %381 = zext i16 %380 to i32
   %382 = add nuw nsw i32 %381, %377
   %383 = lshr i32 %382, 1
@@ -2788,13 +2788,13 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   ]
 
 .thread59.us:                                     ; preds = %.thread56.us
-  %387 = load i16, ptr %.0255.i88.us, align 2, !tbaa !94
+  %387 = load i16, ptr %.0255.i88.us, align 2, !tbaa !93
   %388 = zext i16 %387 to i32
   br i1 %365, label %389, label %395
 
 389:                                              ; preds = %.thread59.us
   %390 = getelementptr inbounds nuw i8, ptr %.0255.i88.us, i64 2
-  %391 = load i16, ptr %390, align 2, !tbaa !94
+  %391 = load i16, ptr %390, align 2, !tbaa !93
   %392 = zext i16 %391 to i32
   %393 = add nuw nsw i32 %392, %388
   %394 = lshr i32 %393, 1
@@ -2807,7 +2807,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 398:                                              ; preds = %395
   %399 = getelementptr inbounds i16, ptr %.0255.i88.us, i64 %338
-  %400 = load i16, ptr %399, align 2, !tbaa !94
+  %400 = load i16, ptr %399, align 2, !tbaa !93
   %401 = zext i16 %400 to i32
   %402 = add nuw nsw i32 %401, %397
   %403 = lshr i32 %402, 1
@@ -2821,15 +2821,15 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 408:                                              ; preds = %363
   %409 = getelementptr inbounds i16, ptr %.0253.i89.us, i64 %337
-  %410 = load i16, ptr %409, align 2, !tbaa !94
+  %410 = load i16, ptr %409, align 2, !tbaa !93
   %411 = zext i16 %410 to i32
   %412 = add nuw nsw i32 %411, %367
   %413 = getelementptr inbounds nuw i8, ptr %.0253.i89.us, i64 2
-  %414 = load i16, ptr %413, align 2, !tbaa !94
+  %414 = load i16, ptr %413, align 2, !tbaa !93
   %415 = zext i16 %414 to i32
   %416 = add nuw nsw i32 %412, %415
   %417 = getelementptr i8, ptr %409, i64 2
-  %418 = load i16, ptr %417, align 2, !tbaa !94
+  %418 = load i16, ptr %417, align 2, !tbaa !93
   %419 = zext i16 %418 to i32
   %420 = add nuw nsw i32 %416, %419
   %421 = lshr i32 %420, 2
@@ -2839,15 +2839,15 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   ]
 
 422:                                              ; preds = %408
-  %423 = load i16, ptr %.0255.i88.us, align 2, !tbaa !94
+  %423 = load i16, ptr %.0255.i88.us, align 2, !tbaa !93
   %424 = getelementptr inbounds i16, ptr %.0255.i88.us, i64 %338
-  %425 = load i16, ptr %424, align 2, !tbaa !94
+  %425 = load i16, ptr %424, align 2, !tbaa !93
   %426 = add i16 %425, %423
   %427 = getelementptr inbounds nuw i8, ptr %.0255.i88.us, i64 2
-  %428 = load i16, ptr %427, align 2, !tbaa !94
+  %428 = load i16, ptr %427, align 2, !tbaa !93
   %429 = add i16 %426, %428
   %430 = getelementptr i8, ptr %424, i64 2
-  %431 = load i16, ptr %430, align 2, !tbaa !94
+  %431 = load i16, ptr %430, align 2, !tbaa !93
   %432 = add i16 %429, %431
   %433 = lshr i16 %432, 2
   %434 = zext nneg i16 %433 to i32
@@ -2867,23 +2867,23 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
 
 443:                                              ; preds = %435, %408, %408, %.thread56.us, %.thread56.us
   %.1.i.us = phi i32 [ %442, %435 ], [ %421, %408 ], [ %386, %.thread56.us ], [ %421, %408 ], [ %386, %.thread56.us ]
-  %444 = load i16, ptr %.0248.i91.us, align 2, !tbaa !94
+  %444 = load i16, ptr %.0248.i91.us, align 2, !tbaa !93
   %445 = zext i16 %444 to i32
   %446 = sub nsw i32 1023, %.1.i.us
   %447 = mul nsw i32 %446, %445
-  %448 = load i16, ptr %.0246.i92.us, align 2, !tbaa !94
+  %448 = load i16, ptr %.0246.i92.us, align 2, !tbaa !93
   %449 = zext i16 %448 to i32
   %450 = mul nsw i32 %.1.i.us, %449
   %451 = add nsw i32 %450, %447
   %452 = sdiv i32 %451, 1023
   %453 = trunc i32 %452 to i16
-  store i16 %453, ptr %.0248.i91.us, align 2, !tbaa !94
+  store i16 %453, ptr %.0248.i91.us, align 2, !tbaa !93
   %454 = getelementptr inbounds nuw i8, ptr %.0246.i92.us, i64 2
   %455 = getelementptr inbounds i16, ptr %.0248.i91.us, i64 %339
   %456 = getelementptr inbounds nuw i8, ptr %.0255.i88.us, i64 4
   %457 = getelementptr inbounds nuw i8, ptr %.0253.i89.us, i64 4
   %exitcond106.not = icmp eq i32 %364, %.264.i
-  br i1 %exitcond106.not, label %._crit_edge.us101, label %363, !llvm.loop !96
+  br i1 %exitcond106.not, label %._crit_edge.us101, label %363, !llvm.loop !95
 
 ._crit_edge.us101:                                ; preds = %443
   %458 = getelementptr inbounds i16, ptr %.0249.i97.us, i64 %341
@@ -2892,7 +2892,7 @@ blend_plane_16_10bits.exit45:                     ; preds = %._crit_edge.us, %.l
   %461 = getelementptr inbounds i16, ptr %.0250.i96.us, i64 %338
   %462 = add nsw i32 %.0252.i95.us, 1
   %463 = icmp slt i32 %462, %155
-  br i1 %463, label %.lr.ph.us100, label %blend_plane_16_10bits.exit, !llvm.loop !99
+  br i1 %463, label %.lr.ph.us100, label %blend_plane_16_10bits.exit, !llvm.loop !98
 
 blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us101, %blend_plane_16_10bits.exit45, %.lr.ph99
   br i1 %45, label %.lr.ph12.i, label %alpha_composite_16_10bits.exit
@@ -2935,7 +2935,7 @@ blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us101, 
   %.0947.us.i = phi ptr [ %482, %.lr.ph.us.i ], [ %511, %509 ]
   %.0966.us.i = phi ptr [ %484, %.lr.ph.us.i ], [ %510, %509 ]
   %.0995.us.i = phi i32 [ %465, %.lr.ph.us.i ], [ %512, %509 ]
-  %486 = load i16, ptr %.0947.us.i, align 2, !tbaa !94
+  %486 = load i16, ptr %.0947.us.i, align 2, !tbaa !93
   switch i16 %486, label %487 [
     i16 1023, label %499
     i16 0, label %499
@@ -2943,7 +2943,7 @@ blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us101, 
 
 487:                                              ; preds = %485
   %488 = zext i16 %486 to i32
-  %489 = load i16, ptr %.0966.us.i, align 2, !tbaa !94
+  %489 = load i16, ptr %.0966.us.i, align 2, !tbaa !93
   %490 = mul nuw i32 %488, 65025
   %491 = and i16 %489, 255
   %492 = zext nneg i16 %491 to i32
@@ -2963,7 +2963,7 @@ blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us101, 
   ]
 
 500:                                              ; preds = %499
-  %501 = load i16, ptr %.0966.us.i, align 2, !tbaa !94
+  %501 = load i16, ptr %.0966.us.i, align 2, !tbaa !93
   %502 = zext i16 %501 to i32
   %503 = sub nsw i32 1023, %502
   %504 = zext i16 %486 to i32
@@ -2975,7 +2975,7 @@ blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us101, 
 
 .sink.split.i:                                    ; preds = %500, %499
   %.sink.i = phi i16 [ %508, %500 ], [ %486, %499 ]
-  store i16 %.sink.i, ptr %.0966.us.i, align 2, !tbaa !94
+  store i16 %.sink.i, ptr %.0966.us.i, align 2, !tbaa !93
   br label %509
 
 509:                                              ; preds = %.sink.split.i, %499
@@ -2983,14 +2983,14 @@ blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us101, 
   %511 = getelementptr inbounds nuw i8, ptr %.0947.us.i, i64 2
   %512 = add nuw nsw i32 %.0995.us.i, 1
   %exitcond.not.i = icmp eq i32 %512, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %485, !llvm.loop !100
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %485, !llvm.loop !99
 
 ._crit_edge.us.i:                                 ; preds = %509
   %513 = getelementptr inbounds i16, ptr %.0979.us.i, i64 %471
   %514 = getelementptr inbounds i16, ptr %.09510.us.i, i64 %473
   %515 = add nsw i32 %.0988.us.i, 1
   %516 = icmp slt i32 %515, %35
-  br i1 %516, label %.lr.ph.us.i, label %alpha_composite_16_10bits.exit, !llvm.loop !101
+  br i1 %516, label %.lr.ph.us.i, label %alpha_composite_16_10bits.exit, !llvm.loop !100
 
 alpha_composite_16_10bits.exit:                   ; preds = %._crit_edge.us.i, %blend_plane_16_10bits.exit, %.lr.ph12.i
   ret i32 0
@@ -3104,24 +3104,24 @@ define internal noundef i32 @blend_slice_yuv420p10(ptr noundef readonly captures
   %.0251.i3441.us = phi i32 [ %53, %.lr.ph.us ], [ %89, %88 ]
   %.0253.i3340.us = phi ptr [ %87, %.lr.ph.us ], [ %104, %88 ]
   %89 = add nuw nsw i32 %.0251.i3441.us, 1
-  %90 = load i16, ptr %.0253.i3340.us, align 2, !tbaa !94
+  %90 = load i16, ptr %.0253.i3340.us, align 2, !tbaa !93
   %91 = zext i16 %90 to i32
-  %92 = load i16, ptr %.0248.i3542.us, align 2, !tbaa !94
+  %92 = load i16, ptr %.0248.i3542.us, align 2, !tbaa !93
   %93 = zext i16 %92 to i32
   %94 = sub nsw i32 1023, %91
   %95 = mul nsw i32 %94, %93
-  %96 = load i16, ptr %.0246.i3643.us, align 2, !tbaa !94
+  %96 = load i16, ptr %.0246.i3643.us, align 2, !tbaa !93
   %97 = zext i16 %96 to i32
   %98 = mul nuw nsw i32 %97, %91
   %99 = add nsw i32 %98, %95
   %100 = sdiv i32 %99, 1023
   %101 = trunc i32 %100 to i16
-  store i16 %101, ptr %.0248.i3542.us, align 2, !tbaa !94
+  store i16 %101, ptr %.0248.i3542.us, align 2, !tbaa !93
   %102 = getelementptr inbounds nuw i8, ptr %.0246.i3643.us, i64 2
   %103 = getelementptr inbounds i16, ptr %.0248.i3542.us, i64 %60
   %104 = getelementptr inbounds nuw i8, ptr %.0253.i3340.us, i64 2
   %exitcond.not = icmp eq i32 %89, %.264.i31
-  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %88
   %105 = getelementptr inbounds i16, ptr %.0249.i2946.us, i64 %62
@@ -3129,7 +3129,7 @@ define internal noundef i32 @blend_slice_yuv420p10(ptr noundef readonly captures
   %107 = getelementptr inbounds i16, ptr %.0254.i2644.us, i64 %66
   %108 = add nsw i32 %.0252.i2745.us, 1
   %109 = icmp slt i32 %108, %35
-  br i1 %109, label %.lr.ph.us, label %blend_plane_16_10bits.exit39, !llvm.loop !102
+  br i1 %109, label %.lr.ph.us, label %blend_plane_16_10bits.exit39, !llvm.loop !101
 
 blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.lr.ph49, %4
   %110 = add nsw i32 %15, 1
@@ -3230,10 +3230,10 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %.0253.i1750.us62 = phi ptr [ %217, %204 ], [ %180, %.lr.ph.us63 ]
   %182 = add nuw nsw i32 %.0251.i1851.us61, 1
   %183 = icmp slt i32 %182, %111
-  %184 = load i16, ptr %.0253.i1750.us62, align 2, !tbaa !94
+  %184 = load i16, ptr %.0253.i1750.us62, align 2, !tbaa !93
   %185 = zext i16 %184 to i32
   %186 = getelementptr inbounds i16, ptr %.0253.i1750.us62, i64 %158
-  %187 = load i16, ptr %186, align 2, !tbaa !94
+  %187 = load i16, ptr %186, align 2, !tbaa !93
   %188 = zext i16 %187 to i32
   %189 = add nuw nsw i32 %188, %185
   br i1 %183, label %194, label %190
@@ -3246,11 +3246,11 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
 
 194:                                              ; preds = %.lr.ph.split.us65
   %195 = getelementptr inbounds nuw i8, ptr %.0253.i1750.us62, i64 2
-  %196 = load i16, ptr %195, align 2, !tbaa !94
+  %196 = load i16, ptr %195, align 2, !tbaa !93
   %197 = zext i16 %196 to i32
   %198 = add nuw nsw i32 %189, %197
   %199 = getelementptr i8, ptr %186, i64 2
-  %200 = load i16, ptr %199, align 2, !tbaa !94
+  %200 = load i16, ptr %199, align 2, !tbaa !93
   %201 = zext i16 %200 to i32
   %202 = add nuw nsw i32 %198, %201
   %203 = lshr i32 %202, 2
@@ -3258,22 +3258,22 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
 
 204:                                              ; preds = %194, %190
   %.0245.i22.us = phi i32 [ %203, %194 ], [ %193, %190 ]
-  %205 = load i16, ptr %.0248.i1952.us60, align 2, !tbaa !94
+  %205 = load i16, ptr %.0248.i1952.us60, align 2, !tbaa !93
   %206 = zext i16 %205 to i32
   %207 = sub nsw i32 1023, %.0245.i22.us
   %208 = mul nsw i32 %207, %206
-  %209 = load i16, ptr %.0246.i2053.us59, align 2, !tbaa !94
+  %209 = load i16, ptr %.0246.i2053.us59, align 2, !tbaa !93
   %210 = zext i16 %209 to i32
   %211 = mul nuw nsw i32 %.0245.i22.us, %210
   %212 = add nsw i32 %211, %208
   %213 = sdiv i32 %212, 1023
   %214 = trunc i32 %213 to i16
-  store i16 %214, ptr %.0248.i1952.us60, align 2, !tbaa !94
+  store i16 %214, ptr %.0248.i1952.us60, align 2, !tbaa !93
   %215 = getelementptr inbounds nuw i8, ptr %.0246.i2053.us59, i64 2
   %216 = getelementptr inbounds i16, ptr %.0248.i1952.us60, i64 %159
   %217 = getelementptr inbounds nuw i8, ptr %.0253.i1750.us62, i64 4
   %exitcond94.not = icmp eq i32 %182, %.264.i15
-  br i1 %exitcond94.not, label %._crit_edge.us66, label %.lr.ph.split.us65, !llvm.loop !96
+  br i1 %exitcond94.not, label %._crit_edge.us66, label %.lr.ph.split.us65, !llvm.loop !95
 
 ._crit_edge.us66:                                 ; preds = %233, %204
   %218 = getelementptr inbounds i16, ptr %.0249.i1356.us, i64 %161
@@ -3281,7 +3281,7 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %220 = getelementptr inbounds i16, ptr %.0254.i1054.us, i64 %158
   %221 = add nsw i32 %.0252.i1155.us, 1
   %222 = icmp slt i32 %221, %131
-  br i1 %222, label %.lr.ph.us63, label %.lr.ph76, !llvm.loop !103
+  br i1 %222, label %.lr.ph.us63, label %.lr.ph76, !llvm.loop !102
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us63, %233
   %.0246.i2053.us.us = phi ptr [ %247, %233 ], [ %179, %.lr.ph.us63 ]
@@ -3290,13 +3290,13 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %.0253.i1750.us.us = phi ptr [ %249, %233 ], [ %180, %.lr.ph.us63 ]
   %223 = add nuw nsw i32 %.0251.i1851.us.us, 1
   %224 = icmp slt i32 %223, %111
-  %225 = load i16, ptr %.0253.i1750.us.us, align 2, !tbaa !94
+  %225 = load i16, ptr %.0253.i1750.us.us, align 2, !tbaa !93
   %226 = zext i16 %225 to i32
   br i1 %224, label %227, label %233
 
 227:                                              ; preds = %.lr.ph.split.us.us
   %228 = getelementptr inbounds nuw i8, ptr %.0253.i1750.us.us, i64 2
-  %229 = load i16, ptr %228, align 2, !tbaa !94
+  %229 = load i16, ptr %228, align 2, !tbaa !93
   %230 = zext i16 %229 to i32
   %231 = add nuw nsw i32 %230, %226
   %232 = lshr i32 %231, 1
@@ -3306,22 +3306,22 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %234 = phi i32 [ %232, %227 ], [ %226, %.lr.ph.split.us.us ]
   %235 = add nuw nsw i32 %234, %226
   %236 = lshr i32 %235, 1
-  %237 = load i16, ptr %.0248.i1952.us.us, align 2, !tbaa !94
+  %237 = load i16, ptr %.0248.i1952.us.us, align 2, !tbaa !93
   %238 = zext i16 %237 to i32
   %239 = sub nsw i32 1023, %236
   %240 = mul nsw i32 %239, %238
-  %241 = load i16, ptr %.0246.i2053.us.us, align 2, !tbaa !94
+  %241 = load i16, ptr %.0246.i2053.us.us, align 2, !tbaa !93
   %242 = zext i16 %241 to i32
   %243 = mul nuw nsw i32 %236, %242
   %244 = add nsw i32 %243, %240
   %245 = sdiv i32 %244, 1023
   %246 = trunc i32 %245 to i16
-  store i16 %246, ptr %.0248.i1952.us.us, align 2, !tbaa !94
+  store i16 %246, ptr %.0248.i1952.us.us, align 2, !tbaa !93
   %247 = getelementptr inbounds nuw i8, ptr %.0246.i2053.us.us, i64 2
   %248 = getelementptr inbounds i16, ptr %.0248.i1952.us.us, i64 %159
   %249 = getelementptr inbounds nuw i8, ptr %.0253.i1750.us.us, i64 4
   %exitcond93.not = icmp eq i32 %223, %.264.i15
-  br i1 %exitcond93.not, label %._crit_edge.us66, label %.lr.ph.split.us.us, !llvm.loop !104
+  br i1 %exitcond93.not, label %._crit_edge.us66, label %.lr.ph.split.us.us, !llvm.loop !103
 
 .lr.ph76:                                         ; preds = %._crit_edge.us66, %.lr.ph58
   %250 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -3389,10 +3389,10 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %.0253.i67.us80 = phi ptr [ %329, %316 ], [ %292, %.lr.ph.us81 ]
   %294 = add nuw nsw i32 %.0251.i68.us79, 1
   %295 = icmp slt i32 %294, %111
-  %296 = load i16, ptr %.0253.i67.us80, align 2, !tbaa !94
+  %296 = load i16, ptr %.0253.i67.us80, align 2, !tbaa !93
   %297 = zext i16 %296 to i32
   %298 = getelementptr inbounds i16, ptr %.0253.i67.us80, i64 %270
-  %299 = load i16, ptr %298, align 2, !tbaa !94
+  %299 = load i16, ptr %298, align 2, !tbaa !93
   %300 = zext i16 %299 to i32
   %301 = add nuw nsw i32 %300, %297
   br i1 %295, label %306, label %302
@@ -3405,11 +3405,11 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
 
 306:                                              ; preds = %.lr.ph.split.us84
   %307 = getelementptr inbounds nuw i8, ptr %.0253.i67.us80, i64 2
-  %308 = load i16, ptr %307, align 2, !tbaa !94
+  %308 = load i16, ptr %307, align 2, !tbaa !93
   %309 = zext i16 %308 to i32
   %310 = add nuw nsw i32 %301, %309
   %311 = getelementptr i8, ptr %298, i64 2
-  %312 = load i16, ptr %311, align 2, !tbaa !94
+  %312 = load i16, ptr %311, align 2, !tbaa !93
   %313 = zext i16 %312 to i32
   %314 = add nuw nsw i32 %310, %313
   %315 = lshr i32 %314, 2
@@ -3417,22 +3417,22 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
 
 316:                                              ; preds = %306, %302
   %.0245.i.us = phi i32 [ %315, %306 ], [ %305, %302 ]
-  %317 = load i16, ptr %.0248.i69.us78, align 2, !tbaa !94
+  %317 = load i16, ptr %.0248.i69.us78, align 2, !tbaa !93
   %318 = zext i16 %317 to i32
   %319 = sub nsw i32 1023, %.0245.i.us
   %320 = mul nsw i32 %319, %318
-  %321 = load i16, ptr %.0246.i70.us77, align 2, !tbaa !94
+  %321 = load i16, ptr %.0246.i70.us77, align 2, !tbaa !93
   %322 = zext i16 %321 to i32
   %323 = mul nuw nsw i32 %.0245.i.us, %322
   %324 = add nsw i32 %323, %320
   %325 = sdiv i32 %324, 1023
   %326 = trunc i32 %325 to i16
-  store i16 %326, ptr %.0248.i69.us78, align 2, !tbaa !94
+  store i16 %326, ptr %.0248.i69.us78, align 2, !tbaa !93
   %327 = getelementptr inbounds nuw i8, ptr %.0246.i70.us77, i64 2
   %328 = getelementptr inbounds i16, ptr %.0248.i69.us78, i64 %271
   %329 = getelementptr inbounds nuw i8, ptr %.0253.i67.us80, i64 4
   %exitcond96.not = icmp eq i32 %294, %.264.i
-  br i1 %exitcond96.not, label %._crit_edge.us85, label %.lr.ph.split.us84, !llvm.loop !96
+  br i1 %exitcond96.not, label %._crit_edge.us85, label %.lr.ph.split.us84, !llvm.loop !95
 
 ._crit_edge.us85:                                 ; preds = %345, %316
   %330 = getelementptr inbounds i16, ptr %.0249.i74.us, i64 %273
@@ -3440,7 +3440,7 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %332 = getelementptr inbounds i16, ptr %.0254.i72.us, i64 %270
   %333 = add nsw i32 %.0252.i73.us, 1
   %334 = icmp slt i32 %333, %131
-  br i1 %334, label %.lr.ph.us81, label %blend_plane_16_10bits.exit, !llvm.loop !105
+  br i1 %334, label %.lr.ph.us81, label %blend_plane_16_10bits.exit, !llvm.loop !104
 
 .lr.ph.split.us.us86:                             ; preds = %.lr.ph.us81, %345
   %.0246.i70.us.us = phi ptr [ %359, %345 ], [ %291, %.lr.ph.us81 ]
@@ -3449,13 +3449,13 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %.0253.i67.us.us = phi ptr [ %361, %345 ], [ %292, %.lr.ph.us81 ]
   %335 = add nuw nsw i32 %.0251.i68.us.us, 1
   %336 = icmp slt i32 %335, %111
-  %337 = load i16, ptr %.0253.i67.us.us, align 2, !tbaa !94
+  %337 = load i16, ptr %.0253.i67.us.us, align 2, !tbaa !93
   %338 = zext i16 %337 to i32
   br i1 %336, label %339, label %345
 
 339:                                              ; preds = %.lr.ph.split.us.us86
   %340 = getelementptr inbounds nuw i8, ptr %.0253.i67.us.us, i64 2
-  %341 = load i16, ptr %340, align 2, !tbaa !94
+  %341 = load i16, ptr %340, align 2, !tbaa !93
   %342 = zext i16 %341 to i32
   %343 = add nuw nsw i32 %342, %338
   %344 = lshr i32 %343, 1
@@ -3465,22 +3465,22 @@ blend_plane_16_10bits.exit39:                     ; preds = %._crit_edge.us, %.l
   %346 = phi i32 [ %344, %339 ], [ %338, %.lr.ph.split.us.us86 ]
   %347 = add nuw nsw i32 %346, %338
   %348 = lshr i32 %347, 1
-  %349 = load i16, ptr %.0248.i69.us.us, align 2, !tbaa !94
+  %349 = load i16, ptr %.0248.i69.us.us, align 2, !tbaa !93
   %350 = zext i16 %349 to i32
   %351 = sub nsw i32 1023, %348
   %352 = mul nsw i32 %351, %350
-  %353 = load i16, ptr %.0246.i70.us.us, align 2, !tbaa !94
+  %353 = load i16, ptr %.0246.i70.us.us, align 2, !tbaa !93
   %354 = zext i16 %353 to i32
   %355 = mul nuw nsw i32 %348, %354
   %356 = add nsw i32 %355, %352
   %357 = sdiv i32 %356, 1023
   %358 = trunc i32 %357 to i16
-  store i16 %358, ptr %.0248.i69.us.us, align 2, !tbaa !94
+  store i16 %358, ptr %.0248.i69.us.us, align 2, !tbaa !93
   %359 = getelementptr inbounds nuw i8, ptr %.0246.i70.us.us, i64 2
   %360 = getelementptr inbounds i16, ptr %.0248.i69.us.us, i64 %271
   %361 = getelementptr inbounds nuw i8, ptr %.0253.i67.us.us, i64 4
   %exitcond95.not = icmp eq i32 %335, %.264.i
-  br i1 %exitcond95.not, label %._crit_edge.us85, label %.lr.ph.split.us.us86, !llvm.loop !106
+  br i1 %exitcond95.not, label %._crit_edge.us85, label %.lr.ph.split.us.us86, !llvm.loop !105
 
 blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us85, %blend_plane_16_10bits.exit39, %.lr.ph76
   ret i32 0
@@ -3676,7 +3676,7 @@ define internal noundef i32 @blend_slice_yuva422(ptr noundef readonly captures(n
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %.0286.i3466, i64 %147
   %149 = icmp slt i32 %93, %40
-  br i1 %149, label %87, label %blend_plane_8_8bits.exit51.loopexit, !llvm.loop !88
+  br i1 %149, label %87, label %blend_plane_8_8bits.exit51.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit51.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -3881,7 +3881,7 @@ blend_plane_8_8bits.exit51:                       ; preds = %blend_plane_8_8bits
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds i8, ptr %.0286.i1282, i64 %288
   %290 = icmp slt i32 %210, %40
-  br i1 %290, label %204, label %blend_plane_8_8bits.exit29, !llvm.loop !88
+  br i1 %290, label %204, label %blend_plane_8_8bits.exit29, !llvm.loop !87
 
 blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge79
   %.pre103 = load ptr, ptr %22, align 8, !tbaa !53
@@ -4074,7 +4074,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge79
   %423 = sext i32 %422 to i64
   %424 = getelementptr inbounds i8, ptr %.0286.i97, i64 %423
   %425 = icmp slt i32 %345, %40
-  br i1 %425, label %339, label %.lr.ph117.i, !llvm.loop !88
+  br i1 %425, label %339, label %.lr.ph117.i, !llvm.loop !87
 
 .lr.ph117.i:                                      ; preds = %._crit_edge94
   %426 = sub nsw i32 0, %11
@@ -4160,7 +4160,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge79
   %473 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %474 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %474, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %445, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %445, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %471
   %475 = load i32, ptr %49, align 4, !tbaa !81
@@ -4171,7 +4171,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge79
   %480 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %479
   %481 = add nsw i32 %.098113.us.i, 1
   %482 = icmp slt i32 %481, %40
-  br i1 %482, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %482, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %blend_plane_8_8bits.exit51, %.lr.ph117.i
   ret i32 0
@@ -4345,7 +4345,7 @@ define internal noundef i32 @blend_slice_yuv422(ptr noundef readonly captures(no
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %.0286.i3356, i64 %135
   %137 = icmp slt i32 %92, %40
-  br i1 %137, label %87, label %blend_plane_8_8bits.exit49.loopexit, !llvm.loop !88
+  br i1 %137, label %87, label %blend_plane_8_8bits.exit49.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit49.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -4506,7 +4506,7 @@ blend_plane_8_8bits.exit49:                       ; preds = %blend_plane_8_8bits
   %253 = sext i32 %252 to i64
   %254 = getelementptr inbounds i8, ptr %.0286.i1270, i64 %253
   %255 = icmp slt i32 %197, %40
-  br i1 %255, label %192, label %blend_plane_8_8bits.exit28, !llvm.loop !88
+  br i1 %255, label %192, label %blend_plane_8_8bits.exit28, !llvm.loop !87
 
 blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge67
   %.pre89 = load ptr, ptr %22, align 8, !tbaa !53
@@ -4655,7 +4655,7 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge67
   %365 = sext i32 %364 to i64
   %366 = getelementptr inbounds i8, ptr %.0286.i83, i64 %365
   %367 = icmp slt i32 %309, %40
-  br i1 %367, label %304, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %367, label %304, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge80, %blend_plane_8_8bits.exit49
   ret i32 0
@@ -4782,7 +4782,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %.0253.i3249.us = phi ptr [ %97, %.lr.ph.us ], [ %127, %113 ]
   %.0255.i3148.us = phi ptr [ %98, %.lr.ph.us ], [ %126, %113 ]
   %100 = add nuw nsw i32 %.0251.i3350.us, 1
-  %101 = load i16, ptr %.0253.i3249.us, align 2, !tbaa !94
+  %101 = load i16, ptr %.0253.i3249.us, align 2, !tbaa !93
   %102 = zext i16 %101 to i32
   switch i16 %101, label %103 [
     i16 1023, label %113
@@ -4790,7 +4790,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   ]
 
 103:                                              ; preds = %99
-  %104 = load i16, ptr %.0255.i3148.us, align 2, !tbaa !94
+  %104 = load i16, ptr %.0255.i3148.us, align 2, !tbaa !93
   %105 = mul nuw i32 %102, 65025
   %106 = and i16 %104, 255
   %107 = zext nneg i16 %106 to i32
@@ -4803,23 +4803,23 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
 
 113:                                              ; preds = %103, %99, %99
   %.1.i36.us = phi i32 [ %112, %103 ], [ %102, %99 ], [ %102, %99 ]
-  %114 = load i16, ptr %.0248.i3451.us, align 2, !tbaa !94
+  %114 = load i16, ptr %.0248.i3451.us, align 2, !tbaa !93
   %115 = zext i16 %114 to i32
   %116 = sub nsw i32 1023, %.1.i36.us
   %117 = mul nsw i32 %116, %115
-  %118 = load i16, ptr %.0246.i3552.us, align 2, !tbaa !94
+  %118 = load i16, ptr %.0246.i3552.us, align 2, !tbaa !93
   %119 = zext i16 %118 to i32
   %120 = mul nsw i32 %.1.i36.us, %119
   %121 = add nsw i32 %120, %117
   %122 = sdiv i32 %121, 1023
   %123 = trunc i32 %122 to i16
-  store i16 %123, ptr %.0248.i3451.us, align 2, !tbaa !94
+  store i16 %123, ptr %.0248.i3451.us, align 2, !tbaa !93
   %124 = getelementptr inbounds nuw i8, ptr %.0246.i3552.us, i64 2
   %125 = getelementptr inbounds i16, ptr %.0248.i3451.us, i64 %73
   %126 = getelementptr inbounds nuw i8, ptr %.0255.i3148.us, i64 2
   %127 = getelementptr inbounds nuw i8, ptr %.0253.i3249.us, i64 2
   %exitcond.not = icmp eq i32 %100, %.264.i30
-  br i1 %exitcond.not, label %._crit_edge.us, label %99, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %99, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %113
   %128 = getelementptr inbounds i16, ptr %.0249.i2856.us, i64 %75
@@ -4828,7 +4828,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %131 = getelementptr inbounds i16, ptr %.0250.i2755.us, i64 %81
   %132 = add nsw i32 %.0252.i2654.us, 1
   %133 = icmp slt i32 %132, %36
-  br i1 %133, label %.lr.ph.us, label %.lr.ph70, !llvm.loop !107
+  br i1 %133, label %.lr.ph.us, label %.lr.ph70, !llvm.loop !106
 
 .lr.ph70:                                         ; preds = %._crit_edge.us, %.lr.ph59
   %.in97 = add nsw i32 %15, 1
@@ -4907,7 +4907,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %.0255.i1660.us = phi ptr [ %185, %.lr.ph.us71 ], [ %234, %221 ]
   %187 = add nuw nsw i32 %.0251.i1862.us, 1
   %188 = icmp slt i32 %187, %134
-  %189 = load i16, ptr %.0253.i1761.us, align 2, !tbaa !94
+  %189 = load i16, ptr %.0253.i1761.us, align 2, !tbaa !93
   %190 = zext i16 %189 to i32
   br i1 %188, label %193, label %.thread.us
 
@@ -4918,13 +4918,13 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   ]
 
 .thread42.us:                                     ; preds = %.thread.us
-  %191 = load i16, ptr %.0255.i1660.us, align 2, !tbaa !94
+  %191 = load i16, ptr %.0255.i1660.us, align 2, !tbaa !93
   %192 = zext i16 %191 to i32
   br label %209
 
 193:                                              ; preds = %186
   %194 = getelementptr inbounds nuw i8, ptr %.0253.i1761.us, i64 2
-  %195 = load i16, ptr %194, align 2, !tbaa !94
+  %195 = load i16, ptr %194, align 2, !tbaa !93
   %196 = zext i16 %195 to i32
   %197 = add nuw nsw i32 %196, %190
   %198 = lshr i32 %197, 1
@@ -4937,10 +4937,10 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   ]
 
 201:                                              ; preds = %193
-  %202 = load i16, ptr %.0255.i1660.us, align 2, !tbaa !94
+  %202 = load i16, ptr %.0255.i1660.us, align 2, !tbaa !93
   %203 = zext i16 %202 to i32
   %204 = getelementptr inbounds nuw i8, ptr %.0255.i1660.us, i64 2
-  %205 = load i16, ptr %204, align 2, !tbaa !94
+  %205 = load i16, ptr %204, align 2, !tbaa !93
   %206 = zext i16 %205 to i32
   %207 = add nuw nsw i32 %206, %203
   %208 = lshr i32 %207, 1
@@ -4963,23 +4963,23 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
 
 221:                                              ; preds = %209, %193, %193, %.thread.us, %.thread.us
   %.1.i21.us = phi i32 [ %220, %209 ], [ %200, %193 ], [ %190, %.thread.us ], [ %200, %193 ], [ %190, %.thread.us ]
-  %222 = load i16, ptr %.0248.i1963.us, align 2, !tbaa !94
+  %222 = load i16, ptr %.0248.i1963.us, align 2, !tbaa !93
   %223 = zext i16 %222 to i32
   %224 = sub nsw i32 1023, %.1.i21.us
   %225 = mul nsw i32 %224, %223
-  %226 = load i16, ptr %.0246.i2064.us, align 2, !tbaa !94
+  %226 = load i16, ptr %.0246.i2064.us, align 2, !tbaa !93
   %227 = zext i16 %226 to i32
   %228 = mul nsw i32 %.1.i21.us, %227
   %229 = add nsw i32 %228, %225
   %230 = sdiv i32 %229, 1023
   %231 = trunc i32 %230 to i16
-  store i16 %231, ptr %.0248.i1963.us, align 2, !tbaa !94
+  store i16 %231, ptr %.0248.i1963.us, align 2, !tbaa !93
   %232 = getelementptr inbounds nuw i8, ptr %.0246.i2064.us, i64 2
   %233 = getelementptr inbounds i16, ptr %.0248.i1963.us, i64 %159
   %234 = getelementptr inbounds nuw i8, ptr %.0255.i1660.us, i64 4
   %235 = getelementptr inbounds nuw i8, ptr %.0253.i1761.us, i64 4
   %exitcond89.not = icmp eq i32 %187, %.264.i15
-  br i1 %exitcond89.not, label %._crit_edge.us72, label %186, !llvm.loop !96
+  br i1 %exitcond89.not, label %._crit_edge.us72, label %186, !llvm.loop !95
 
 ._crit_edge.us72:                                 ; preds = %221
   %236 = getelementptr inbounds i16, ptr %.0249.i1368.us, i64 %161
@@ -4988,7 +4988,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %239 = getelementptr inbounds i16, ptr %.0250.i1267.us, i64 %167
   %240 = add nsw i32 %.0252.i1166.us, 1
   %241 = icmp slt i32 %240, %36
-  br i1 %241, label %.lr.ph.us71, label %.lr.ph83, !llvm.loop !108
+  br i1 %241, label %.lr.ph.us71, label %.lr.ph83, !llvm.loop !107
 
 .lr.ph83:                                         ; preds = %._crit_edge.us72, %.lr.ph70
   %242 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -5062,7 +5062,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %.0255.i73.us = phi ptr [ %290, %.lr.ph.us84 ], [ %339, %326 ]
   %292 = add nuw nsw i32 %.0251.i75.us, 1
   %293 = icmp slt i32 %292, %134
-  %294 = load i16, ptr %.0253.i74.us, align 2, !tbaa !94
+  %294 = load i16, ptr %.0253.i74.us, align 2, !tbaa !93
   %295 = zext i16 %294 to i32
   br i1 %293, label %298, label %.thread43.us
 
@@ -5073,13 +5073,13 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   ]
 
 .thread44.us:                                     ; preds = %.thread43.us
-  %296 = load i16, ptr %.0255.i73.us, align 2, !tbaa !94
+  %296 = load i16, ptr %.0255.i73.us, align 2, !tbaa !93
   %297 = zext i16 %296 to i32
   br label %314
 
 298:                                              ; preds = %291
   %299 = getelementptr inbounds nuw i8, ptr %.0253.i74.us, i64 2
-  %300 = load i16, ptr %299, align 2, !tbaa !94
+  %300 = load i16, ptr %299, align 2, !tbaa !93
   %301 = zext i16 %300 to i32
   %302 = add nuw nsw i32 %301, %295
   %303 = lshr i32 %302, 1
@@ -5092,10 +5092,10 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   ]
 
 306:                                              ; preds = %298
-  %307 = load i16, ptr %.0255.i73.us, align 2, !tbaa !94
+  %307 = load i16, ptr %.0255.i73.us, align 2, !tbaa !93
   %308 = zext i16 %307 to i32
   %309 = getelementptr inbounds nuw i8, ptr %.0255.i73.us, i64 2
-  %310 = load i16, ptr %309, align 2, !tbaa !94
+  %310 = load i16, ptr %309, align 2, !tbaa !93
   %311 = zext i16 %310 to i32
   %312 = add nuw nsw i32 %311, %308
   %313 = lshr i32 %312, 1
@@ -5118,23 +5118,23 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
 
 326:                                              ; preds = %314, %298, %298, %.thread43.us, %.thread43.us
   %.1.i.us = phi i32 [ %325, %314 ], [ %305, %298 ], [ %295, %.thread43.us ], [ %305, %298 ], [ %295, %.thread43.us ]
-  %327 = load i16, ptr %.0248.i76.us, align 2, !tbaa !94
+  %327 = load i16, ptr %.0248.i76.us, align 2, !tbaa !93
   %328 = zext i16 %327 to i32
   %329 = sub nsw i32 1023, %.1.i.us
   %330 = mul nsw i32 %329, %328
-  %331 = load i16, ptr %.0246.i77.us, align 2, !tbaa !94
+  %331 = load i16, ptr %.0246.i77.us, align 2, !tbaa !93
   %332 = zext i16 %331 to i32
   %333 = mul nsw i32 %.1.i.us, %332
   %334 = add nsw i32 %333, %330
   %335 = sdiv i32 %334, 1023
   %336 = trunc i32 %335 to i16
-  store i16 %336, ptr %.0248.i76.us, align 2, !tbaa !94
+  store i16 %336, ptr %.0248.i76.us, align 2, !tbaa !93
   %337 = getelementptr inbounds nuw i8, ptr %.0246.i77.us, i64 2
   %338 = getelementptr inbounds i16, ptr %.0248.i76.us, i64 %264
   %339 = getelementptr inbounds nuw i8, ptr %.0255.i73.us, i64 4
   %340 = getelementptr inbounds nuw i8, ptr %.0253.i74.us, i64 4
   %exitcond90.not = icmp eq i32 %292, %.264.i
-  br i1 %exitcond90.not, label %._crit_edge.us85, label %291, !llvm.loop !96
+  br i1 %exitcond90.not, label %._crit_edge.us85, label %291, !llvm.loop !95
 
 ._crit_edge.us85:                                 ; preds = %326
   %341 = getelementptr inbounds i16, ptr %.0249.i81.us, i64 %266
@@ -5143,7 +5143,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %344 = getelementptr inbounds i16, ptr %.0250.i80.us, i64 %272
   %345 = add nsw i32 %.0252.i79.us, 1
   %346 = icmp slt i32 %345, %36
-  br i1 %346, label %.lr.ph.us84, label %.lr.ph12.i, !llvm.loop !109
+  br i1 %346, label %.lr.ph.us84, label %.lr.ph12.i, !llvm.loop !108
 
 .lr.ph12.i:                                       ; preds = %._crit_edge.us85, %.lr.ph83
   %347 = sub nsw i32 0, %11
@@ -5172,7 +5172,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %.0947.us.i = phi ptr [ %357, %.lr.ph.us.i ], [ %386, %384 ]
   %.0966.us.i = phi ptr [ %359, %.lr.ph.us.i ], [ %385, %384 ]
   %.0995.us.i = phi i32 [ %348, %.lr.ph.us.i ], [ %387, %384 ]
-  %361 = load i16, ptr %.0947.us.i, align 2, !tbaa !94
+  %361 = load i16, ptr %.0947.us.i, align 2, !tbaa !93
   switch i16 %361, label %362 [
     i16 1023, label %374
     i16 0, label %374
@@ -5180,7 +5180,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
 
 362:                                              ; preds = %360
   %363 = zext i16 %361 to i32
-  %364 = load i16, ptr %.0966.us.i, align 2, !tbaa !94
+  %364 = load i16, ptr %.0966.us.i, align 2, !tbaa !93
   %365 = mul nuw i32 %363, 65025
   %366 = and i16 %364, 255
   %367 = zext nneg i16 %366 to i32
@@ -5200,7 +5200,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   ]
 
 375:                                              ; preds = %374
-  %376 = load i16, ptr %.0966.us.i, align 2, !tbaa !94
+  %376 = load i16, ptr %.0966.us.i, align 2, !tbaa !93
   %377 = zext i16 %376 to i32
   %378 = sub nsw i32 1023, %377
   %379 = zext i16 %361 to i32
@@ -5212,7 +5212,7 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
 
 .sink.split.i:                                    ; preds = %375, %374
   %.sink.i = phi i16 [ %383, %375 ], [ %361, %374 ]
-  store i16 %.sink.i, ptr %.0966.us.i, align 2, !tbaa !94
+  store i16 %.sink.i, ptr %.0966.us.i, align 2, !tbaa !93
   br label %384
 
 384:                                              ; preds = %.sink.split.i, %374
@@ -5220,14 +5220,14 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   %386 = getelementptr inbounds nuw i8, ptr %.0947.us.i, i64 2
   %387 = add nuw nsw i32 %.0995.us.i, 1
   %exitcond.not.i = icmp eq i32 %387, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %360, !llvm.loop !100
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %360, !llvm.loop !99
 
 ._crit_edge.us.i:                                 ; preds = %384
   %388 = getelementptr inbounds i16, ptr %.0979.us.i, i64 %354
   %389 = getelementptr inbounds i16, ptr %.09510.us.i, i64 %356
   %390 = add nsw i32 %.0988.us.i, 1
   %391 = icmp slt i32 %390, %36
-  br i1 %391, label %.lr.ph.us.i, label %alpha_composite_16_10bits.exit, !llvm.loop !101
+  br i1 %391, label %.lr.ph.us.i, label %alpha_composite_16_10bits.exit, !llvm.loop !100
 
 alpha_composite_16_10bits.exit:                   ; preds = %._crit_edge.us.i, %4, %.lr.ph12.i
   ret i32 0
@@ -5341,24 +5341,24 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %.0251.i3237.us = phi i32 [ %58, %.lr.ph.us ], [ %89, %88 ]
   %.0253.i3136.us = phi ptr [ %87, %.lr.ph.us ], [ %104, %88 ]
   %89 = add nuw nsw i32 %.0251.i3237.us, 1
-  %90 = load i16, ptr %.0253.i3136.us, align 2, !tbaa !94
+  %90 = load i16, ptr %.0253.i3136.us, align 2, !tbaa !93
   %91 = zext i16 %90 to i32
-  %92 = load i16, ptr %.0248.i3338.us, align 2, !tbaa !94
+  %92 = load i16, ptr %.0248.i3338.us, align 2, !tbaa !93
   %93 = zext i16 %92 to i32
   %94 = sub nsw i32 1023, %91
   %95 = mul nsw i32 %94, %93
-  %96 = load i16, ptr %.0246.i3439.us, align 2, !tbaa !94
+  %96 = load i16, ptr %.0246.i3439.us, align 2, !tbaa !93
   %97 = zext i16 %96 to i32
   %98 = mul nuw nsw i32 %97, %91
   %99 = add nsw i32 %98, %95
   %100 = sdiv i32 %99, 1023
   %101 = trunc i32 %100 to i16
-  store i16 %101, ptr %.0248.i3338.us, align 2, !tbaa !94
+  store i16 %101, ptr %.0248.i3338.us, align 2, !tbaa !93
   %102 = getelementptr inbounds nuw i8, ptr %.0246.i3439.us, i64 2
   %103 = getelementptr inbounds i16, ptr %.0248.i3338.us, i64 %65
   %104 = getelementptr inbounds nuw i8, ptr %.0253.i3136.us, i64 2
   %exitcond.not = icmp eq i32 %89, %.264.i29
-  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %88
   %105 = getelementptr inbounds i16, ptr %.0249.i2742.us, i64 %67
@@ -5366,7 +5366,7 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %107 = getelementptr inbounds i16, ptr %.0254.i2440.us, i64 %71
   %108 = add nsw i32 %.0252.i2541.us, 1
   %109 = icmp slt i32 %108, %36
-  br i1 %109, label %.lr.ph.us, label %.lr.ph54, !llvm.loop !110
+  br i1 %109, label %.lr.ph.us, label %.lr.ph54, !llvm.loop !109
 
 .lr.ph54:                                         ; preds = %._crit_edge.us, %.lr.ph45
   %.in78 = add nsw i32 %15, 1
@@ -5438,13 +5438,13 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %.0253.i1746.us = phi ptr [ %156, %.lr.ph.us55 ], [ %184, %168 ]
   %158 = add nuw nsw i32 %.0251.i1847.us, 1
   %159 = icmp slt i32 %158, %110
-  %160 = load i16, ptr %.0253.i1746.us, align 2, !tbaa !94
+  %160 = load i16, ptr %.0253.i1746.us, align 2, !tbaa !93
   %161 = zext i16 %160 to i32
   br i1 %159, label %162, label %168
 
 162:                                              ; preds = %157
   %163 = getelementptr inbounds nuw i8, ptr %.0253.i1746.us, i64 2
-  %164 = load i16, ptr %163, align 2, !tbaa !94
+  %164 = load i16, ptr %163, align 2, !tbaa !93
   %165 = zext i16 %164 to i32
   %166 = add nuw nsw i32 %165, %161
   %167 = lshr i32 %166, 1
@@ -5454,22 +5454,22 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %169 = phi i32 [ %167, %162 ], [ %161, %157 ]
   %170 = add nuw nsw i32 %169, %161
   %171 = lshr i32 %170, 1
-  %172 = load i16, ptr %.0248.i1948.us, align 2, !tbaa !94
+  %172 = load i16, ptr %.0248.i1948.us, align 2, !tbaa !93
   %173 = zext i16 %172 to i32
   %174 = sub nsw i32 1023, %171
   %175 = mul nsw i32 %174, %173
-  %176 = load i16, ptr %.0246.i2049.us, align 2, !tbaa !94
+  %176 = load i16, ptr %.0246.i2049.us, align 2, !tbaa !93
   %177 = zext i16 %176 to i32
   %178 = mul nuw nsw i32 %171, %177
   %179 = add nsw i32 %175, %178
   %180 = sdiv i32 %179, 1023
   %181 = trunc i32 %180 to i16
-  store i16 %181, ptr %.0248.i1948.us, align 2, !tbaa !94
+  store i16 %181, ptr %.0248.i1948.us, align 2, !tbaa !93
   %182 = getelementptr inbounds nuw i8, ptr %.0246.i2049.us, i64 2
   %183 = getelementptr inbounds i16, ptr %.0248.i1948.us, i64 %133
   %184 = getelementptr inbounds nuw i8, ptr %.0253.i1746.us, i64 4
   %exitcond71.not = icmp eq i32 %158, %.264.i15
-  br i1 %exitcond71.not, label %._crit_edge.us56, label %157, !llvm.loop !96
+  br i1 %exitcond71.not, label %._crit_edge.us56, label %157, !llvm.loop !95
 
 ._crit_edge.us56:                                 ; preds = %168
   %185 = getelementptr inbounds i16, ptr %.0249.i1352.us, i64 %135
@@ -5477,7 +5477,7 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %187 = getelementptr inbounds i16, ptr %.0254.i1050.us, i64 %139
   %188 = add nsw i32 %.0252.i1151.us, 1
   %189 = icmp slt i32 %188, %36
-  br i1 %189, label %.lr.ph.us55, label %.lr.ph65, !llvm.loop !111
+  br i1 %189, label %.lr.ph.us55, label %.lr.ph65, !llvm.loop !110
 
 .lr.ph65:                                         ; preds = %._crit_edge.us56, %.lr.ph54
   %190 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -5544,13 +5544,13 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %.0253.i57.us = phi ptr [ %233, %.lr.ph.us66 ], [ %261, %245 ]
   %235 = add nuw nsw i32 %.0251.i58.us, 1
   %236 = icmp slt i32 %235, %110
-  %237 = load i16, ptr %.0253.i57.us, align 2, !tbaa !94
+  %237 = load i16, ptr %.0253.i57.us, align 2, !tbaa !93
   %238 = zext i16 %237 to i32
   br i1 %236, label %239, label %245
 
 239:                                              ; preds = %234
   %240 = getelementptr inbounds nuw i8, ptr %.0253.i57.us, i64 2
-  %241 = load i16, ptr %240, align 2, !tbaa !94
+  %241 = load i16, ptr %240, align 2, !tbaa !93
   %242 = zext i16 %241 to i32
   %243 = add nuw nsw i32 %242, %238
   %244 = lshr i32 %243, 1
@@ -5560,22 +5560,22 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %246 = phi i32 [ %244, %239 ], [ %238, %234 ]
   %247 = add nuw nsw i32 %246, %238
   %248 = lshr i32 %247, 1
-  %249 = load i16, ptr %.0248.i59.us, align 2, !tbaa !94
+  %249 = load i16, ptr %.0248.i59.us, align 2, !tbaa !93
   %250 = zext i16 %249 to i32
   %251 = sub nsw i32 1023, %248
   %252 = mul nsw i32 %251, %250
-  %253 = load i16, ptr %.0246.i60.us, align 2, !tbaa !94
+  %253 = load i16, ptr %.0246.i60.us, align 2, !tbaa !93
   %254 = zext i16 %253 to i32
   %255 = mul nuw nsw i32 %248, %254
   %256 = add nsw i32 %252, %255
   %257 = sdiv i32 %256, 1023
   %258 = trunc i32 %257 to i16
-  store i16 %258, ptr %.0248.i59.us, align 2, !tbaa !94
+  store i16 %258, ptr %.0248.i59.us, align 2, !tbaa !93
   %259 = getelementptr inbounds nuw i8, ptr %.0246.i60.us, i64 2
   %260 = getelementptr inbounds i16, ptr %.0248.i59.us, i64 %210
   %261 = getelementptr inbounds nuw i8, ptr %.0253.i57.us, i64 4
   %exitcond72.not = icmp eq i32 %235, %.264.i
-  br i1 %exitcond72.not, label %._crit_edge.us67, label %234, !llvm.loop !96
+  br i1 %exitcond72.not, label %._crit_edge.us67, label %234, !llvm.loop !95
 
 ._crit_edge.us67:                                 ; preds = %245
   %262 = getelementptr inbounds i16, ptr %.0249.i63.us, i64 %212
@@ -5583,7 +5583,7 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   %264 = getelementptr inbounds i16, ptr %.0254.i61.us, i64 %216
   %265 = add nsw i32 %.0252.i62.us, 1
   %266 = icmp slt i32 %265, %36
-  br i1 %266, label %.lr.ph.us66, label %blend_plane_16_10bits.exit, !llvm.loop !112
+  br i1 %266, label %.lr.ph.us66, label %blend_plane_16_10bits.exit, !llvm.loop !111
 
 blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us67, %4, %.lr.ph65
   ret i32 0
@@ -5779,7 +5779,7 @@ define internal noundef i32 @blend_slice_yuva444(ptr noundef readonly captures(n
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %.0286.i3460, i64 %147
   %149 = icmp slt i32 %93, %40
-  br i1 %149, label %87, label %blend_plane_8_8bits.exit51, !llvm.loop !88
+  br i1 %149, label %87, label %blend_plane_8_8bits.exit51, !llvm.loop !87
 
 blend_plane_8_8bits.exit51:                       ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -5930,7 +5930,7 @@ blend_plane_8_8bits.exit51:                       ; preds = %._crit_edge
   %255 = sext i32 %254 to i64
   %256 = getelementptr inbounds i8, ptr %.0286.i1275, i64 %255
   %257 = icmp slt i32 %201, %40
-  br i1 %257, label %195, label %blend_plane_8_8bits.exit29, !llvm.loop !88
+  br i1 %257, label %195, label %blend_plane_8_8bits.exit29, !llvm.loop !87
 
 blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge72
   %.pre95 = load ptr, ptr %22, align 8, !tbaa !53
@@ -6081,7 +6081,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge72
   %363 = sext i32 %362 to i64
   %364 = getelementptr inbounds i8, ptr %.0286.i89, i64 %363
   %365 = icmp slt i32 %309, %40
-  br i1 %365, label %303, label %.lr.ph117.i, !llvm.loop !88
+  br i1 %365, label %303, label %.lr.ph117.i, !llvm.loop !87
 
 .lr.ph117.i:                                      ; preds = %._crit_edge86
   %366 = sub nsw i32 0, %11
@@ -6167,7 +6167,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge72
   %413 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %414 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %414, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %385, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %385, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %411
   %415 = load i32, ptr %49, align 4, !tbaa !81
@@ -6178,7 +6178,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge72
   %420 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %419
   %421 = add nsw i32 %.098113.us.i, 1
   %422 = icmp slt i32 %421, %40
-  br i1 %422, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %422, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %4, %.lr.ph117.i
   ret i32 0
@@ -6352,7 +6352,7 @@ define internal noundef i32 @blend_slice_yuv444(ptr noundef readonly captures(no
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %.0286.i3356, i64 %135
   %137 = icmp slt i32 %92, %40
-  br i1 %137, label %87, label %blend_plane_8_8bits.exit49, !llvm.loop !88
+  br i1 %137, label %87, label %blend_plane_8_8bits.exit49, !llvm.loop !87
 
 blend_plane_8_8bits.exit49:                       ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -6481,7 +6481,7 @@ blend_plane_8_8bits.exit49:                       ; preds = %._crit_edge
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i8, ptr %.0286.i1270, i64 %231
   %233 = icmp slt i32 %188, %40
-  br i1 %233, label %183, label %blend_plane_8_8bits.exit28, !llvm.loop !88
+  br i1 %233, label %183, label %blend_plane_8_8bits.exit28, !llvm.loop !87
 
 blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge67
   %.pre89 = load ptr, ptr %22, align 8, !tbaa !53
@@ -6610,7 +6610,7 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge67
   %327 = sext i32 %326 to i64
   %328 = getelementptr inbounds i8, ptr %.0286.i83, i64 %327
   %329 = icmp slt i32 %284, %40
-  br i1 %329, label %279, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %329, label %279, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge80, %4
   ret i32 0
@@ -6737,7 +6737,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %.0253.i3243.us = phi ptr [ %97, %.lr.ph.us ], [ %127, %113 ]
   %.0255.i3142.us = phi ptr [ %98, %.lr.ph.us ], [ %126, %113 ]
   %100 = add nuw nsw i32 %.0251.i3344.us, 1
-  %101 = load i16, ptr %.0253.i3243.us, align 2, !tbaa !94
+  %101 = load i16, ptr %.0253.i3243.us, align 2, !tbaa !93
   %102 = zext i16 %101 to i32
   switch i16 %101, label %103 [
     i16 1023, label %113
@@ -6745,7 +6745,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   ]
 
 103:                                              ; preds = %99
-  %104 = load i16, ptr %.0255.i3142.us, align 2, !tbaa !94
+  %104 = load i16, ptr %.0255.i3142.us, align 2, !tbaa !93
   %105 = mul nuw i32 %102, 65025
   %106 = and i16 %104, 255
   %107 = zext nneg i16 %106 to i32
@@ -6758,23 +6758,23 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
 
 113:                                              ; preds = %103, %99, %99
   %.1.i36.us = phi i32 [ %112, %103 ], [ %102, %99 ], [ %102, %99 ]
-  %114 = load i16, ptr %.0248.i3445.us, align 2, !tbaa !94
+  %114 = load i16, ptr %.0248.i3445.us, align 2, !tbaa !93
   %115 = zext i16 %114 to i32
   %116 = sub nsw i32 1023, %.1.i36.us
   %117 = mul nsw i32 %116, %115
-  %118 = load i16, ptr %.0246.i3546.us, align 2, !tbaa !94
+  %118 = load i16, ptr %.0246.i3546.us, align 2, !tbaa !93
   %119 = zext i16 %118 to i32
   %120 = mul nsw i32 %.1.i36.us, %119
   %121 = add nsw i32 %120, %117
   %122 = sdiv i32 %121, 1023
   %123 = trunc i32 %122 to i16
-  store i16 %123, ptr %.0248.i3445.us, align 2, !tbaa !94
+  store i16 %123, ptr %.0248.i3445.us, align 2, !tbaa !93
   %124 = getelementptr inbounds nuw i8, ptr %.0246.i3546.us, i64 2
   %125 = getelementptr inbounds i16, ptr %.0248.i3445.us, i64 %73
   %126 = getelementptr inbounds nuw i8, ptr %.0255.i3142.us, i64 2
   %127 = getelementptr inbounds nuw i8, ptr %.0253.i3243.us, i64 2
   %exitcond.not = icmp eq i32 %100, %.264.i30
-  br i1 %exitcond.not, label %._crit_edge.us, label %99, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %99, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %113
   %128 = getelementptr inbounds i16, ptr %.0249.i2850.us, i64 %75
@@ -6783,7 +6783,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %131 = getelementptr inbounds i16, ptr %.0250.i2749.us, i64 %81
   %132 = add nsw i32 %.0252.i2648.us, 1
   %133 = icmp slt i32 %132, %36
-  br i1 %133, label %.lr.ph.us, label %.lr.ph64, !llvm.loop !113
+  br i1 %133, label %.lr.ph.us, label %.lr.ph64, !llvm.loop !112
 
 .lr.ph64:                                         ; preds = %._crit_edge.us, %.lr.ph53
   %134 = getelementptr inbounds nuw i8, ptr %23, i64 44
@@ -6853,7 +6853,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %.0253.i1755.us = phi ptr [ %178, %.lr.ph.us65 ], [ %208, %194 ]
   %.0255.i1654.us = phi ptr [ %179, %.lr.ph.us65 ], [ %207, %194 ]
   %181 = add nuw nsw i32 %.0251.i1856.us, 1
-  %182 = load i16, ptr %.0253.i1755.us, align 2, !tbaa !94
+  %182 = load i16, ptr %.0253.i1755.us, align 2, !tbaa !93
   %183 = zext i16 %182 to i32
   switch i16 %182, label %184 [
     i16 1023, label %194
@@ -6861,7 +6861,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   ]
 
 184:                                              ; preds = %180
-  %185 = load i16, ptr %.0255.i1654.us, align 2, !tbaa !94
+  %185 = load i16, ptr %.0255.i1654.us, align 2, !tbaa !93
   %186 = mul nuw i32 %183, 65025
   %187 = and i16 %185, 255
   %188 = zext nneg i16 %187 to i32
@@ -6874,23 +6874,23 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
 
 194:                                              ; preds = %184, %180, %180
   %.1.i21.us = phi i32 [ %193, %184 ], [ %183, %180 ], [ %183, %180 ]
-  %195 = load i16, ptr %.0248.i1957.us, align 2, !tbaa !94
+  %195 = load i16, ptr %.0248.i1957.us, align 2, !tbaa !93
   %196 = zext i16 %195 to i32
   %197 = sub nsw i32 1023, %.1.i21.us
   %198 = mul nsw i32 %197, %196
-  %199 = load i16, ptr %.0246.i2058.us, align 2, !tbaa !94
+  %199 = load i16, ptr %.0246.i2058.us, align 2, !tbaa !93
   %200 = zext i16 %199 to i32
   %201 = mul nsw i32 %.1.i21.us, %200
   %202 = add nsw i32 %201, %198
   %203 = sdiv i32 %202, 1023
   %204 = trunc i32 %203 to i16
-  store i16 %204, ptr %.0248.i1957.us, align 2, !tbaa !94
+  store i16 %204, ptr %.0248.i1957.us, align 2, !tbaa !93
   %205 = getelementptr inbounds nuw i8, ptr %.0246.i2058.us, i64 2
   %206 = getelementptr inbounds i16, ptr %.0248.i1957.us, i64 %153
   %207 = getelementptr inbounds nuw i8, ptr %.0255.i1654.us, i64 2
   %208 = getelementptr inbounds nuw i8, ptr %.0253.i1755.us, i64 2
   %exitcond83.not = icmp eq i32 %181, %.264.i15
-  br i1 %exitcond83.not, label %._crit_edge.us66, label %180, !llvm.loop !96
+  br i1 %exitcond83.not, label %._crit_edge.us66, label %180, !llvm.loop !95
 
 ._crit_edge.us66:                                 ; preds = %194
   %209 = getelementptr inbounds i16, ptr %.0249.i1362.us, i64 %155
@@ -6899,7 +6899,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %212 = getelementptr inbounds i16, ptr %.0250.i1261.us, i64 %161
   %213 = add nsw i32 %.0252.i1160.us, 1
   %214 = icmp slt i32 %213, %36
-  br i1 %214, label %.lr.ph.us65, label %.lr.ph77, !llvm.loop !114
+  br i1 %214, label %.lr.ph.us65, label %.lr.ph77, !llvm.loop !113
 
 .lr.ph77:                                         ; preds = %._crit_edge.us66, %.lr.ph64
   %215 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -6969,7 +6969,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %.0253.i68.us = phi ptr [ %259, %.lr.ph.us78 ], [ %289, %275 ]
   %.0255.i67.us = phi ptr [ %260, %.lr.ph.us78 ], [ %288, %275 ]
   %262 = add nuw nsw i32 %.0251.i69.us, 1
-  %263 = load i16, ptr %.0253.i68.us, align 2, !tbaa !94
+  %263 = load i16, ptr %.0253.i68.us, align 2, !tbaa !93
   %264 = zext i16 %263 to i32
   switch i16 %263, label %265 [
     i16 1023, label %275
@@ -6977,7 +6977,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   ]
 
 265:                                              ; preds = %261
-  %266 = load i16, ptr %.0255.i67.us, align 2, !tbaa !94
+  %266 = load i16, ptr %.0255.i67.us, align 2, !tbaa !93
   %267 = mul nuw i32 %264, 65025
   %268 = and i16 %266, 255
   %269 = zext nneg i16 %268 to i32
@@ -6990,23 +6990,23 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
 
 275:                                              ; preds = %265, %261, %261
   %.1.i.us = phi i32 [ %274, %265 ], [ %264, %261 ], [ %264, %261 ]
-  %276 = load i16, ptr %.0248.i70.us, align 2, !tbaa !94
+  %276 = load i16, ptr %.0248.i70.us, align 2, !tbaa !93
   %277 = zext i16 %276 to i32
   %278 = sub nsw i32 1023, %.1.i.us
   %279 = mul nsw i32 %278, %277
-  %280 = load i16, ptr %.0246.i71.us, align 2, !tbaa !94
+  %280 = load i16, ptr %.0246.i71.us, align 2, !tbaa !93
   %281 = zext i16 %280 to i32
   %282 = mul nsw i32 %.1.i.us, %281
   %283 = add nsw i32 %282, %279
   %284 = sdiv i32 %283, 1023
   %285 = trunc i32 %284 to i16
-  store i16 %285, ptr %.0248.i70.us, align 2, !tbaa !94
+  store i16 %285, ptr %.0248.i70.us, align 2, !tbaa !93
   %286 = getelementptr inbounds nuw i8, ptr %.0246.i71.us, i64 2
   %287 = getelementptr inbounds i16, ptr %.0248.i70.us, i64 %234
   %288 = getelementptr inbounds nuw i8, ptr %.0255.i67.us, i64 2
   %289 = getelementptr inbounds nuw i8, ptr %.0253.i68.us, i64 2
   %exitcond84.not = icmp eq i32 %262, %.264.i
-  br i1 %exitcond84.not, label %._crit_edge.us79, label %261, !llvm.loop !96
+  br i1 %exitcond84.not, label %._crit_edge.us79, label %261, !llvm.loop !95
 
 ._crit_edge.us79:                                 ; preds = %275
   %290 = getelementptr inbounds i16, ptr %.0249.i75.us, i64 %236
@@ -7015,7 +7015,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %293 = getelementptr inbounds i16, ptr %.0250.i74.us, i64 %242
   %294 = add nsw i32 %.0252.i73.us, 1
   %295 = icmp slt i32 %294, %36
-  br i1 %295, label %.lr.ph.us78, label %.lr.ph12.i, !llvm.loop !115
+  br i1 %295, label %.lr.ph.us78, label %.lr.ph12.i, !llvm.loop !114
 
 .lr.ph12.i:                                       ; preds = %._crit_edge.us79, %.lr.ph77
   %296 = sub nsw i32 0, %11
@@ -7044,7 +7044,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %.0947.us.i = phi ptr [ %306, %.lr.ph.us.i ], [ %335, %333 ]
   %.0966.us.i = phi ptr [ %308, %.lr.ph.us.i ], [ %334, %333 ]
   %.0995.us.i = phi i32 [ %297, %.lr.ph.us.i ], [ %336, %333 ]
-  %310 = load i16, ptr %.0947.us.i, align 2, !tbaa !94
+  %310 = load i16, ptr %.0947.us.i, align 2, !tbaa !93
   switch i16 %310, label %311 [
     i16 1023, label %323
     i16 0, label %323
@@ -7052,7 +7052,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
 
 311:                                              ; preds = %309
   %312 = zext i16 %310 to i32
-  %313 = load i16, ptr %.0966.us.i, align 2, !tbaa !94
+  %313 = load i16, ptr %.0966.us.i, align 2, !tbaa !93
   %314 = mul nuw i32 %312, 65025
   %315 = and i16 %313, 255
   %316 = zext nneg i16 %315 to i32
@@ -7072,7 +7072,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   ]
 
 324:                                              ; preds = %323
-  %325 = load i16, ptr %.0966.us.i, align 2, !tbaa !94
+  %325 = load i16, ptr %.0966.us.i, align 2, !tbaa !93
   %326 = zext i16 %325 to i32
   %327 = sub nsw i32 1023, %326
   %328 = zext i16 %310 to i32
@@ -7084,7 +7084,7 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
 
 .sink.split.i:                                    ; preds = %324, %323
   %.sink.i = phi i16 [ %332, %324 ], [ %310, %323 ]
-  store i16 %.sink.i, ptr %.0966.us.i, align 2, !tbaa !94
+  store i16 %.sink.i, ptr %.0966.us.i, align 2, !tbaa !93
   br label %333
 
 333:                                              ; preds = %.sink.split.i, %323
@@ -7092,14 +7092,14 @@ define internal noundef i32 @blend_slice_yuva444p10(ptr noundef readonly capture
   %335 = getelementptr inbounds nuw i8, ptr %.0947.us.i, i64 2
   %336 = add nuw nsw i32 %.0995.us.i, 1
   %exitcond.not.i = icmp eq i32 %336, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %309, !llvm.loop !100
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %309, !llvm.loop !99
 
 ._crit_edge.us.i:                                 ; preds = %333
   %337 = getelementptr inbounds i16, ptr %.0979.us.i, i64 %303
   %338 = getelementptr inbounds i16, ptr %.09510.us.i, i64 %305
   %339 = add nsw i32 %.0988.us.i, 1
   %340 = icmp slt i32 %339, %36
-  br i1 %340, label %.lr.ph.us.i, label %alpha_composite_16_10bits.exit, !llvm.loop !101
+  br i1 %340, label %.lr.ph.us.i, label %alpha_composite_16_10bits.exit, !llvm.loop !100
 
 alpha_composite_16_10bits.exit:                   ; preds = %._crit_edge.us.i, %4, %.lr.ph12.i
   ret i32 0
@@ -7213,24 +7213,24 @@ define internal noundef i32 @blend_slice_yuv444p10(ptr noundef readonly captures
   %.0251.i3237.us = phi i32 [ %58, %.lr.ph.us ], [ %89, %88 ]
   %.0253.i3136.us = phi ptr [ %87, %.lr.ph.us ], [ %104, %88 ]
   %89 = add nuw nsw i32 %.0251.i3237.us, 1
-  %90 = load i16, ptr %.0253.i3136.us, align 2, !tbaa !94
+  %90 = load i16, ptr %.0253.i3136.us, align 2, !tbaa !93
   %91 = zext i16 %90 to i32
-  %92 = load i16, ptr %.0248.i3338.us, align 2, !tbaa !94
+  %92 = load i16, ptr %.0248.i3338.us, align 2, !tbaa !93
   %93 = zext i16 %92 to i32
   %94 = sub nsw i32 1023, %91
   %95 = mul nsw i32 %94, %93
-  %96 = load i16, ptr %.0246.i3439.us, align 2, !tbaa !94
+  %96 = load i16, ptr %.0246.i3439.us, align 2, !tbaa !93
   %97 = zext i16 %96 to i32
   %98 = mul nuw nsw i32 %97, %91
   %99 = add nsw i32 %98, %95
   %100 = sdiv i32 %99, 1023
   %101 = trunc i32 %100 to i16
-  store i16 %101, ptr %.0248.i3338.us, align 2, !tbaa !94
+  store i16 %101, ptr %.0248.i3338.us, align 2, !tbaa !93
   %102 = getelementptr inbounds nuw i8, ptr %.0246.i3439.us, i64 2
   %103 = getelementptr inbounds i16, ptr %.0248.i3338.us, i64 %65
   %104 = getelementptr inbounds nuw i8, ptr %.0253.i3136.us, i64 2
   %exitcond.not = icmp eq i32 %89, %.264.i29
-  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %88, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %88
   %105 = getelementptr inbounds i16, ptr %.0249.i2742.us, i64 %67
@@ -7238,7 +7238,7 @@ define internal noundef i32 @blend_slice_yuv444p10(ptr noundef readonly captures
   %107 = getelementptr inbounds i16, ptr %.0254.i2440.us, i64 %71
   %108 = add nsw i32 %.0252.i2541.us, 1
   %109 = icmp slt i32 %108, %36
-  br i1 %109, label %.lr.ph.us, label %.lr.ph54, !llvm.loop !116
+  br i1 %109, label %.lr.ph.us, label %.lr.ph54, !llvm.loop !115
 
 .lr.ph54:                                         ; preds = %._crit_edge.us, %.lr.ph45
   %110 = getelementptr inbounds nuw i8, ptr %23, i64 44
@@ -7302,24 +7302,24 @@ define internal noundef i32 @blend_slice_yuv444p10(ptr noundef readonly captures
   %.0251.i1847.us = phi i32 [ %121, %.lr.ph.us55 ], [ %153, %152 ]
   %.0253.i1746.us = phi ptr [ %151, %.lr.ph.us55 ], [ %168, %152 ]
   %153 = add nuw nsw i32 %.0251.i1847.us, 1
-  %154 = load i16, ptr %.0253.i1746.us, align 2, !tbaa !94
+  %154 = load i16, ptr %.0253.i1746.us, align 2, !tbaa !93
   %155 = zext i16 %154 to i32
-  %156 = load i16, ptr %.0248.i1948.us, align 2, !tbaa !94
+  %156 = load i16, ptr %.0248.i1948.us, align 2, !tbaa !93
   %157 = zext i16 %156 to i32
   %158 = sub nsw i32 1023, %155
   %159 = mul nsw i32 %158, %157
-  %160 = load i16, ptr %.0246.i2049.us, align 2, !tbaa !94
+  %160 = load i16, ptr %.0246.i2049.us, align 2, !tbaa !93
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %161, %155
   %163 = add nsw i32 %162, %159
   %164 = sdiv i32 %163, 1023
   %165 = trunc i32 %164 to i16
-  store i16 %165, ptr %.0248.i1948.us, align 2, !tbaa !94
+  store i16 %165, ptr %.0248.i1948.us, align 2, !tbaa !93
   %166 = getelementptr inbounds nuw i8, ptr %.0246.i2049.us, i64 2
   %167 = getelementptr inbounds i16, ptr %.0248.i1948.us, i64 %128
   %168 = getelementptr inbounds nuw i8, ptr %.0253.i1746.us, i64 2
   %exitcond71.not = icmp eq i32 %153, %.264.i15
-  br i1 %exitcond71.not, label %._crit_edge.us56, label %152, !llvm.loop !96
+  br i1 %exitcond71.not, label %._crit_edge.us56, label %152, !llvm.loop !95
 
 ._crit_edge.us56:                                 ; preds = %152
   %169 = getelementptr inbounds i16, ptr %.0249.i1352.us, i64 %130
@@ -7327,7 +7327,7 @@ define internal noundef i32 @blend_slice_yuv444p10(ptr noundef readonly captures
   %171 = getelementptr inbounds i16, ptr %.0254.i1050.us, i64 %134
   %172 = add nsw i32 %.0252.i1151.us, 1
   %173 = icmp slt i32 %172, %36
-  br i1 %173, label %.lr.ph.us55, label %.lr.ph65, !llvm.loop !117
+  br i1 %173, label %.lr.ph.us55, label %.lr.ph65, !llvm.loop !116
 
 .lr.ph65:                                         ; preds = %._crit_edge.us56, %.lr.ph54
   %174 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -7391,24 +7391,24 @@ define internal noundef i32 @blend_slice_yuv444p10(ptr noundef readonly captures
   %.0251.i58.us = phi i32 [ %185, %.lr.ph.us66 ], [ %217, %216 ]
   %.0253.i57.us = phi ptr [ %215, %.lr.ph.us66 ], [ %232, %216 ]
   %217 = add nuw nsw i32 %.0251.i58.us, 1
-  %218 = load i16, ptr %.0253.i57.us, align 2, !tbaa !94
+  %218 = load i16, ptr %.0253.i57.us, align 2, !tbaa !93
   %219 = zext i16 %218 to i32
-  %220 = load i16, ptr %.0248.i59.us, align 2, !tbaa !94
+  %220 = load i16, ptr %.0248.i59.us, align 2, !tbaa !93
   %221 = zext i16 %220 to i32
   %222 = sub nsw i32 1023, %219
   %223 = mul nsw i32 %222, %221
-  %224 = load i16, ptr %.0246.i60.us, align 2, !tbaa !94
+  %224 = load i16, ptr %.0246.i60.us, align 2, !tbaa !93
   %225 = zext i16 %224 to i32
   %226 = mul nuw nsw i32 %225, %219
   %227 = add nsw i32 %226, %223
   %228 = sdiv i32 %227, 1023
   %229 = trunc i32 %228 to i16
-  store i16 %229, ptr %.0248.i59.us, align 2, !tbaa !94
+  store i16 %229, ptr %.0248.i59.us, align 2, !tbaa !93
   %230 = getelementptr inbounds nuw i8, ptr %.0246.i60.us, i64 2
   %231 = getelementptr inbounds i16, ptr %.0248.i59.us, i64 %192
   %232 = getelementptr inbounds nuw i8, ptr %.0253.i57.us, i64 2
   %exitcond72.not = icmp eq i32 %217, %.264.i
-  br i1 %exitcond72.not, label %._crit_edge.us67, label %216, !llvm.loop !96
+  br i1 %exitcond72.not, label %._crit_edge.us67, label %216, !llvm.loop !95
 
 ._crit_edge.us67:                                 ; preds = %216
   %233 = getelementptr inbounds i16, ptr %.0249.i63.us, i64 %194
@@ -7416,7 +7416,7 @@ define internal noundef i32 @blend_slice_yuv444p10(ptr noundef readonly captures
   %235 = getelementptr inbounds i16, ptr %.0254.i61.us, i64 %198
   %236 = add nsw i32 %.0252.i62.us, 1
   %237 = icmp slt i32 %236, %36
-  br i1 %237, label %.lr.ph.us66, label %blend_plane_16_10bits.exit, !llvm.loop !118
+  br i1 %237, label %.lr.ph.us66, label %blend_plane_16_10bits.exit, !llvm.loop !117
 
 blend_plane_16_10bits.exit:                       ; preds = %._crit_edge.us67, %4, %.lr.ph65
   ret i32 0
@@ -7639,7 +7639,7 @@ define internal noundef i32 @blend_slice_rgba(ptr noundef readonly captures(none
   %174 = getelementptr inbounds i8, ptr %.0195.i10.us, i64 %76
   %175 = add nuw nsw i32 %.0196.i9.us, 1
   %exitcond.not = icmp eq i32 %175, %.209.i
-  br i1 %exitcond.not, label %._crit_edge.us, label %90, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %90, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %.thread.us
   %176 = load i32, ptr %30, align 8, !tbaa !81
@@ -7650,7 +7650,7 @@ define internal noundef i32 @blend_slice_rgba(ptr noundef readonly captures(none
   %181 = getelementptr inbounds i8, ptr %.0194.i12.us, i64 %180
   %182 = add nsw i32 %.0.i14.us, 1
   %183 = icmp slt i32 %182, %28
-  br i1 %183, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !120
+  br i1 %183, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !119
 
 blend_slice_packed_rgb.exit:                      ; preds = %._crit_edge.us, %.lr.ph16, %4
   ret i32 0
@@ -7834,7 +7834,7 @@ define internal noundef i32 @blend_slice_rgb(ptr noundef readonly captures(none)
   %144 = getelementptr inbounds i8, ptr %.0195.i9.us, i64 %73
   %145 = add nuw nsw i32 %.0196.i8.us, 1
   %exitcond.not = icmp eq i32 %145, %.209.i
-  br i1 %exitcond.not, label %._crit_edge.us, label %87, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %87, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %142
   %146 = load i32, ptr %30, align 8, !tbaa !81
@@ -7845,7 +7845,7 @@ define internal noundef i32 @blend_slice_rgb(ptr noundef readonly captures(none)
   %151 = getelementptr inbounds i8, ptr %.0194.i11.us, i64 %150
   %152 = add nsw i32 %.0.i13.us, 1
   %153 = icmp slt i32 %152, %28
-  br i1 %153, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !121
+  br i1 %153, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !120
 
 blend_slice_packed_rgb.exit:                      ; preds = %._crit_edge.us, %.lr.ph15, %4
   ret i32 0
@@ -8041,7 +8041,7 @@ define internal noundef i32 @blend_slice_gbrap(ptr noundef readonly captures(non
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %.0286.i95.i15, i64 %147
   %149 = icmp slt i32 %93, %40
-  br i1 %149, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !88
+  br i1 %149, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -8192,7 +8192,7 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %255 = sext i32 %254 to i64
   %256 = getelementptr inbounds i8, ptr %.0286.i71.i30, i64 %255
   %257 = icmp slt i32 %201, %40
-  br i1 %257, label %195, label %blend_plane_8_8bits.exit90.i, !llvm.loop !88
+  br i1 %257, label %195, label %blend_plane_8_8bits.exit90.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %.pre50 = load ptr, ptr %22, align 8, !tbaa !53
@@ -8343,7 +8343,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %363 = sext i32 %362 to i64
   %364 = getelementptr inbounds i8, ptr %.0286.i.i44, i64 %363
   %365 = icmp slt i32 %309, %40
-  br i1 %365, label %303, label %.lr.ph117.i, !llvm.loop !88
+  br i1 %365, label %303, label %.lr.ph117.i, !llvm.loop !87
 
 .lr.ph117.i:                                      ; preds = %._crit_edge41
   %366 = sub nsw i32 0, %11
@@ -8429,7 +8429,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %413 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %414 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %414, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %385, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %385, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %411
   %415 = load i32, ptr %49, align 4, !tbaa !81
@@ -8440,7 +8440,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %420 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %419
   %421 = add nsw i32 %.098113.us.i, 1
   %422 = icmp slt i32 %421, %40
-  br i1 %422, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %422, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %4, %.lr.ph117.i
   ret i32 0
@@ -8614,7 +8614,7 @@ define internal noundef i32 @blend_slice_gbrp(ptr noundef readonly captures(none
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %.0286.i95.i14, i64 %135
   %137 = icmp slt i32 %92, %40
-  br i1 %137, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !88
+  br i1 %137, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -8743,7 +8743,7 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i8, ptr %.0286.i71.i28, i64 %231
   %233 = icmp slt i32 %188, %40
-  br i1 %233, label %183, label %blend_plane_8_8bits.exit90.i, !llvm.loop !88
+  br i1 %233, label %183, label %blend_plane_8_8bits.exit90.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge25
   %.pre47 = load ptr, ptr %22, align 8, !tbaa !53
@@ -8872,7 +8872,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge25
   %327 = sext i32 %326 to i64
   %328 = getelementptr inbounds i8, ptr %.0286.i.i41, i64 %327
   %329 = icmp slt i32 %284, %40
-  br i1 %329, label %279, label %blend_slice_planar_rgb.exit, !llvm.loop !88
+  br i1 %329, label %279, label %blend_slice_planar_rgb.exit, !llvm.loop !87
 
 blend_slice_planar_rgb.exit:                      ; preds = %._crit_edge38, %4
   ret i32 0
@@ -9077,7 +9077,7 @@ define internal noundef i32 @blend_slice_yuva420_pm(ptr noundef readonly capture
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %.0286.i3887, i64 %148
   %150 = icmp slt i32 %93, %39
-  br i1 %150, label %87, label %blend_plane_8_8bits.exit59.loopexit, !llvm.loop !88
+  br i1 %150, label %87, label %blend_plane_8_8bits.exit59.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit59.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -9385,7 +9385,7 @@ blend_plane_8_8bits.exit59:                       ; preds = %blend_plane_8_8bits
   %371 = sext i32 %370 to i64
   %372 = getelementptr inbounds i8, ptr %.0286.i12106, i64 %371
   %373 = icmp slt i32 %232, %177
-  br i1 %373, label %226, label %blend_plane_8_8bits.exit33, !llvm.loop !88
+  br i1 %373, label %226, label %blend_plane_8_8bits.exit33, !llvm.loop !87
 
 blend_plane_8_8bits.exit33:                       ; preds = %._crit_edge103
   %.pre130 = load ptr, ptr %22, align 8, !tbaa !53
@@ -9659,7 +9659,7 @@ blend_plane_8_8bits.exit33:                       ; preds = %._crit_edge103
   %567 = sext i32 %566 to i64
   %568 = getelementptr inbounds i8, ptr %.0286.i124, i64 %567
   %569 = icmp slt i32 %428, %177
-  br i1 %569, label %422, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %569, label %422, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge121, %blend_plane_8_8bits.exit59
   %570 = add nsw i32 %35, %29
@@ -9750,7 +9750,7 @@ blend_plane_8_8bits.exit:                         ; preds = %._crit_edge121, %bl
   %619 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %620 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %620, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %591, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %591, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %617
   %621 = load i32, ptr %47, align 4, !tbaa !81
@@ -9761,7 +9761,7 @@ blend_plane_8_8bits.exit:                         ; preds = %._crit_edge121, %bl
   %626 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %625
   %627 = add nsw i32 %.098113.us.i, 1
   %628 = icmp slt i32 %627, %39
-  br i1 %628, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %628, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %blend_plane_8_8bits.exit, %.lr.ph117.i
   ret i32 0
@@ -9939,7 +9939,7 @@ define internal noundef i32 @blend_slice_yuv420_pm(ptr noundef readonly captures
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %.0286.i3565, i64 %136
   %138 = icmp slt i32 %92, %39
-  br i1 %138, label %87, label %blend_plane_8_8bits.exit53.loopexit, !llvm.loop !88
+  br i1 %138, label %87, label %blend_plane_8_8bits.exit53.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit53.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -10116,7 +10116,7 @@ blend_plane_8_8bits.exit53:                       ; preds = %blend_plane_8_8bits
   %267 = getelementptr inbounds i8, ptr %.1284.i2573.us, i64 %213
   %268 = getelementptr inbounds nuw i8, ptr %.1288.i2471.us, i64 2
   %exitcond100.not = icmp eq i32 %238, %.306.i15
-  br i1 %exitcond100.not, label %._crit_edge77, label %.lr.ph76.split.us, !llvm.loop !122
+  br i1 %exitcond100.not, label %._crit_edge77, label %.lr.ph76.split.us, !llvm.loop !121
 
 .lr.ph76.split:                                   ; preds = %236, %293
   %.1281.i2674 = phi ptr [ %308, %293 ], [ %.0280.i21, %236 ]
@@ -10192,7 +10192,7 @@ blend_plane_8_8bits.exit53:                       ; preds = %blend_plane_8_8bits
   %323 = sext i32 %322 to i64
   %324 = getelementptr inbounds i8, ptr %.0286.i1280, i64 %323
   %325 = icmp slt i32 %221, %165
-  br i1 %325, label %215, label %blend_plane_8_8bits.exit30, !llvm.loop !88
+  br i1 %325, label %215, label %blend_plane_8_8bits.exit30, !llvm.loop !87
 
 blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge77
   %.pre104 = load ptr, ptr %22, align 8, !tbaa !53
@@ -10335,7 +10335,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge77
   %427 = getelementptr inbounds i8, ptr %.1284.i87.us, i64 %373
   %428 = getelementptr inbounds nuw i8, ptr %.1288.i85.us, i64 2
   %exitcond102.not = icmp eq i32 %398, %.306.i
-  br i1 %exitcond102.not, label %._crit_edge91, label %.lr.ph90.split.us, !llvm.loop !123
+  br i1 %exitcond102.not, label %._crit_edge91, label %.lr.ph90.split.us, !llvm.loop !122
 
 .lr.ph90.split:                                   ; preds = %396, %453
   %.1281.i88 = phi ptr [ %468, %453 ], [ %.0280.i, %396 ]
@@ -10411,7 +10411,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge77
   %483 = sext i32 %482 to i64
   %484 = getelementptr inbounds i8, ptr %.0286.i94, i64 %483
   %485 = icmp slt i32 %381, %165
-  br i1 %485, label %375, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %485, label %375, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge91, %blend_plane_8_8bits.exit53
   ret i32 0
@@ -10611,7 +10611,7 @@ define internal noundef i32 @blend_slice_yuva422_pm(ptr noundef readonly capture
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %.0286.i3471, i64 %148
   %150 = icmp slt i32 %93, %40
-  br i1 %150, label %87, label %blend_plane_8_8bits.exit51.loopexit, !llvm.loop !88
+  br i1 %150, label %87, label %blend_plane_8_8bits.exit51.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit51.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -10818,7 +10818,7 @@ blend_plane_8_8bits.exit51:                       ; preds = %blend_plane_8_8bits
   %291 = sext i32 %290 to i64
   %292 = getelementptr inbounds i8, ptr %.0286.i1287, i64 %291
   %293 = icmp slt i32 %211, %40
-  br i1 %293, label %205, label %blend_plane_8_8bits.exit29, !llvm.loop !88
+  br i1 %293, label %205, label %blend_plane_8_8bits.exit29, !llvm.loop !87
 
 blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge84
   %.pre108 = load ptr, ptr %22, align 8, !tbaa !53
@@ -11013,7 +11013,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge84
   %428 = sext i32 %427 to i64
   %429 = getelementptr inbounds i8, ptr %.0286.i102, i64 %428
   %430 = icmp slt i32 %348, %40
-  br i1 %430, label %342, label %.lr.ph117.i, !llvm.loop !88
+  br i1 %430, label %342, label %.lr.ph117.i, !llvm.loop !87
 
 .lr.ph117.i:                                      ; preds = %._crit_edge99
   %431 = sub nsw i32 0, %11
@@ -11099,7 +11099,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge84
   %478 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %479 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %479, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %450, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %450, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %476
   %480 = load i32, ptr %49, align 4, !tbaa !81
@@ -11110,7 +11110,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge84
   %485 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %484
   %486 = add nsw i32 %.098113.us.i, 1
   %487 = icmp slt i32 %486, %40
-  br i1 %487, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %487, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %blend_plane_8_8bits.exit51, %.lr.ph117.i
   ret i32 0
@@ -11288,7 +11288,7 @@ define internal noundef i32 @blend_slice_yuv422_pm(ptr noundef readonly captures
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %.0286.i3361, i64 %136
   %138 = icmp slt i32 %92, %40
-  br i1 %138, label %87, label %blend_plane_8_8bits.exit49.loopexit, !llvm.loop !88
+  br i1 %138, label %87, label %blend_plane_8_8bits.exit49.loopexit, !llvm.loop !87
 
 blend_plane_8_8bits.exit49.loopexit:              ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -11451,7 +11451,7 @@ blend_plane_8_8bits.exit49:                       ; preds = %blend_plane_8_8bits
   %256 = sext i32 %255 to i64
   %257 = getelementptr inbounds i8, ptr %.0286.i1275, i64 %256
   %258 = icmp slt i32 %198, %40
-  br i1 %258, label %193, label %blend_plane_8_8bits.exit28, !llvm.loop !88
+  br i1 %258, label %193, label %blend_plane_8_8bits.exit28, !llvm.loop !87
 
 blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge72
   %.pre94 = load ptr, ptr %22, align 8, !tbaa !53
@@ -11602,7 +11602,7 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge72
   %370 = sext i32 %369 to i64
   %371 = getelementptr inbounds i8, ptr %.0286.i88, i64 %370
   %372 = icmp slt i32 %312, %40
-  br i1 %372, label %307, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %372, label %307, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge85, %blend_plane_8_8bits.exit49
   ret i32 0
@@ -11802,7 +11802,7 @@ define internal noundef i32 @blend_slice_yuva444_pm(ptr noundef readonly capture
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %.0286.i3465, i64 %148
   %150 = icmp slt i32 %93, %40
-  br i1 %150, label %87, label %blend_plane_8_8bits.exit51, !llvm.loop !88
+  br i1 %150, label %87, label %blend_plane_8_8bits.exit51, !llvm.loop !87
 
 blend_plane_8_8bits.exit51:                       ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -11955,7 +11955,7 @@ blend_plane_8_8bits.exit51:                       ; preds = %._crit_edge
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds i8, ptr %.0286.i1280, i64 %258
   %260 = icmp slt i32 %202, %40
-  br i1 %260, label %196, label %blend_plane_8_8bits.exit29, !llvm.loop !88
+  br i1 %260, label %196, label %blend_plane_8_8bits.exit29, !llvm.loop !87
 
 blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge77
   %.pre100 = load ptr, ptr %22, align 8, !tbaa !53
@@ -12108,7 +12108,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge77
   %368 = sext i32 %367 to i64
   %369 = getelementptr inbounds i8, ptr %.0286.i94, i64 %368
   %370 = icmp slt i32 %312, %40
-  br i1 %370, label %306, label %.lr.ph117.i, !llvm.loop !88
+  br i1 %370, label %306, label %.lr.ph117.i, !llvm.loop !87
 
 .lr.ph117.i:                                      ; preds = %._crit_edge91
   %371 = sub nsw i32 0, %11
@@ -12194,7 +12194,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge77
   %418 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %419 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %419, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %390, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %390, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %416
   %420 = load i32, ptr %49, align 4, !tbaa !81
@@ -12205,7 +12205,7 @@ blend_plane_8_8bits.exit29:                       ; preds = %._crit_edge77
   %425 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %424
   %426 = add nsw i32 %.098113.us.i, 1
   %427 = icmp slt i32 %426, %40
-  br i1 %427, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %427, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %4, %.lr.ph117.i
   ret i32 0
@@ -12383,7 +12383,7 @@ define internal noundef i32 @blend_slice_yuv444_pm(ptr noundef readonly captures
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %.0286.i3361, i64 %136
   %138 = icmp slt i32 %92, %40
-  br i1 %138, label %87, label %blend_plane_8_8bits.exit49, !llvm.loop !88
+  br i1 %138, label %87, label %blend_plane_8_8bits.exit49, !llvm.loop !87
 
 blend_plane_8_8bits.exit49:                       ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -12514,7 +12514,7 @@ blend_plane_8_8bits.exit49:                       ; preds = %._crit_edge
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i8, ptr %.0286.i1275, i64 %234
   %236 = icmp slt i32 %189, %40
-  br i1 %236, label %184, label %blend_plane_8_8bits.exit28, !llvm.loop !88
+  br i1 %236, label %184, label %blend_plane_8_8bits.exit28, !llvm.loop !87
 
 blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge72
   %.pre94 = load ptr, ptr %22, align 8, !tbaa !53
@@ -12645,7 +12645,7 @@ blend_plane_8_8bits.exit28:                       ; preds = %._crit_edge72
   %332 = sext i32 %331 to i64
   %333 = getelementptr inbounds i8, ptr %.0286.i88, i64 %332
   %334 = icmp slt i32 %287, %40
-  br i1 %334, label %282, label %blend_plane_8_8bits.exit, !llvm.loop !88
+  br i1 %334, label %282, label %blend_plane_8_8bits.exit, !llvm.loop !87
 
 blend_plane_8_8bits.exit:                         ; preds = %._crit_edge85, %4
   ret i32 0
@@ -12866,7 +12866,7 @@ define internal noundef i32 @blend_slice_rgba_pm(ptr noundef readonly captures(n
   %169 = getelementptr inbounds i8, ptr %.0195.i10.us, i64 %76
   %170 = add nuw nsw i32 %.0196.i9.us, 1
   %exitcond.not = icmp eq i32 %170, %.209.i
-  br i1 %exitcond.not, label %._crit_edge.us, label %90, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %90, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %.thread.us
   %171 = load i32, ptr %30, align 8, !tbaa !81
@@ -12877,7 +12877,7 @@ define internal noundef i32 @blend_slice_rgba_pm(ptr noundef readonly captures(n
   %176 = getelementptr inbounds i8, ptr %.0194.i12.us, i64 %175
   %177 = add nsw i32 %.0.i14.us, 1
   %178 = icmp slt i32 %177, %28
-  br i1 %178, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !124
+  br i1 %178, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !123
 
 blend_slice_packed_rgb.exit:                      ; preds = %._crit_edge.us, %.lr.ph16, %4
   ret i32 0
@@ -13059,7 +13059,7 @@ define internal noundef i32 @blend_slice_rgb_pm(ptr noundef readonly captures(no
   %139 = getelementptr inbounds i8, ptr %.0195.i9.us, i64 %73
   %140 = add nuw nsw i32 %.0196.i8.us, 1
   %exitcond.not = icmp eq i32 %140, %.209.i
-  br i1 %exitcond.not, label %._crit_edge.us, label %87, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %87, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %137
   %141 = load i32, ptr %30, align 8, !tbaa !81
@@ -13070,7 +13070,7 @@ define internal noundef i32 @blend_slice_rgb_pm(ptr noundef readonly captures(no
   %146 = getelementptr inbounds i8, ptr %.0194.i11.us, i64 %145
   %147 = add nsw i32 %.0.i13.us, 1
   %148 = icmp slt i32 %147, %28
-  br i1 %148, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !125
+  br i1 %148, label %.lr.ph.us, label %blend_slice_packed_rgb.exit, !llvm.loop !124
 
 blend_slice_packed_rgb.exit:                      ; preds = %._crit_edge.us, %.lr.ph15, %4
   ret i32 0
@@ -13270,7 +13270,7 @@ define internal noundef i32 @blend_slice_gbrap_pm(ptr noundef readonly captures(
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %.0286.i95.i15, i64 %148
   %150 = icmp slt i32 %93, %40
-  br i1 %150, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !88
+  br i1 %150, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -13425,7 +13425,7 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds i8, ptr %.0286.i71.i30, i64 %257
   %259 = icmp slt i32 %202, %40
-  br i1 %259, label %196, label %blend_plane_8_8bits.exit90.i, !llvm.loop !88
+  br i1 %259, label %196, label %blend_plane_8_8bits.exit90.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %.pre50 = load ptr, ptr %22, align 8, !tbaa !53
@@ -13580,7 +13580,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %366 = sext i32 %365 to i64
   %367 = getelementptr inbounds i8, ptr %.0286.i.i44, i64 %366
   %368 = icmp slt i32 %311, %40
-  br i1 %368, label %305, label %.lr.ph117.i, !llvm.loop !88
+  br i1 %368, label %305, label %.lr.ph117.i, !llvm.loop !87
 
 .lr.ph117.i:                                      ; preds = %._crit_edge41
   %369 = sub nsw i32 0, %11
@@ -13666,7 +13666,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %416 = getelementptr inbounds nuw i8, ptr %.094112.us.i, i64 1
   %417 = add nuw nsw i32 %.099110.us.i, 1
   %exitcond.not.i = icmp eq i32 %417, %.109.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %388, !llvm.loop !89
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %388, !llvm.loop !88
 
 ._crit_edge.us.i:                                 ; preds = %414
   %418 = load i32, ptr %49, align 4, !tbaa !81
@@ -13677,7 +13677,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge27
   %423 = getelementptr inbounds i8, ptr %.095115.us.i, i64 %422
   %424 = add nsw i32 %.098113.us.i, 1
   %425 = icmp slt i32 %424, %40
-  br i1 %425, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !90
+  br i1 %425, label %.lr.ph.us.i, label %alpha_composite_8_8bits.exit, !llvm.loop !89
 
 alpha_composite_8_8bits.exit:                     ; preds = %._crit_edge.us.i, %4, %.lr.ph117.i
   ret i32 0
@@ -13855,7 +13855,7 @@ define internal noundef i32 @blend_slice_gbrp_pm(ptr noundef readonly captures(n
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %.0286.i95.i14, i64 %136
   %138 = icmp slt i32 %92, %40
-  br i1 %138, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !88
+  br i1 %138, label %87, label %blend_plane_8_8bits.exit114.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %22, align 8, !tbaa !53
@@ -13988,7 +13988,7 @@ blend_plane_8_8bits.exit114.i:                    ; preds = %._crit_edge
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds i8, ptr %.0286.i71.i28, i64 %233
   %235 = icmp slt i32 %189, %40
-  br i1 %235, label %184, label %blend_plane_8_8bits.exit90.i, !llvm.loop !88
+  br i1 %235, label %184, label %blend_plane_8_8bits.exit90.i, !llvm.loop !87
 
 blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge25
   %.pre47 = load ptr, ptr %22, align 8, !tbaa !53
@@ -14121,7 +14121,7 @@ blend_plane_8_8bits.exit90.i:                     ; preds = %._crit_edge25
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds i8, ptr %.0286.i.i41, i64 %330
   %332 = icmp slt i32 %286, %40
-  br i1 %332, label %281, label %blend_slice_planar_rgb.exit, !llvm.loop !88
+  br i1 %332, label %281, label %blend_slice_planar_rgb.exit, !llvm.loop !87
 
 blend_slice_planar_rgb.exit:                      ; preds = %._crit_edge38, %4
   ret i32 0
@@ -14140,7 +14140,7 @@ declare double @av_expr_eval(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !126
+  %2 = load ptr, ptr %0, align 8, !tbaa !125
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -14196,7 +14196,7 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.ThreadData, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !127
+  %6 = load ptr, ptr %5, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -14209,15 +14209,15 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   br i1 %13, label %152, label %14
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr %3, align 8, !tbaa !128
+  %15 = load ptr, ptr %3, align 8, !tbaa !127
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %22
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !129
+  %18 = load ptr, ptr %17, align 8, !tbaa !128
   %19 = load ptr, ptr %18, align 8, !tbaa !59
-  %20 = load ptr, ptr %2, align 8, !tbaa !128
+  %20 = load ptr, ptr %2, align 8, !tbaa !127
   %21 = call i32 @ff_filter_frame(ptr noundef %19, ptr noundef %20) #10
   br label %152
 
@@ -14229,14 +14229,14 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 240
-  %28 = load i64, ptr %27, align 8, !tbaa !130
+  %28 = load i64, ptr %27, align 8, !tbaa !129
   %29 = sitofp i64 %28 to double
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 280
   store double %29, ptr %31, align 8, !tbaa !36
-  %32 = load ptr, ptr %2, align 8, !tbaa !128
+  %32 = load ptr, ptr %2, align 8, !tbaa !127
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 136
-  %34 = load i64, ptr %33, align 8, !tbaa !132
+  %34 = load i64, ptr %33, align 8, !tbaa !131
   %35 = icmp eq i64 %34, -9223372036854775808
   br i1 %35, label %44, label %36
 
@@ -14334,14 +14334,14 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
 100:                                              ; preds = %44, %22
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %102 = load i32, ptr %101, align 8, !tbaa !39
-  %103 = load ptr, ptr %2, align 8, !tbaa !128
+  %103 = load ptr, ptr %2, align 8, !tbaa !127
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %105 = load i32, ptr %104, align 8, !tbaa !71
   %106 = icmp slt i32 %102, %105
   br i1 %106, label %107, label %146
 
 107:                                              ; preds = %100
-  %108 = load ptr, ptr %3, align 8, !tbaa !128
+  %108 = load ptr, ptr %3, align 8, !tbaa !127
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 104
   %110 = load i32, ptr %109, align 8, !tbaa !71
   %111 = add nsw i32 %110, %102
@@ -14419,13 +14419,13 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %144 = phi i32 [ 1, %138 ], [ %136, %134 ], [ %spec.select130, %142 ], [ %spec.select131, %.thread123 ]
   %145 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %127, ptr noundef nonnull %4, ptr noundef null, i32 noundef %144) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  %.pre = load ptr, ptr %2, align 8, !tbaa !128
+  %.pre = load ptr, ptr %2, align 8, !tbaa !127
   br label %146
 
 146:                                              ; preds = %143, %119, %113, %107, %100
   %147 = phi ptr [ %.pre, %143 ], [ %103, %119 ], [ %103, %113 ], [ %103, %107 ], [ %103, %100 ]
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %149 = load ptr, ptr %148, align 8, !tbaa !129
+  %149 = load ptr, ptr %148, align 8, !tbaa !128
   %150 = load ptr, ptr %149, align 8, !tbaa !59
   %151 = call i32 @ff_filter_frame(ptr noundef %150, ptr noundef %147) #10
   br label %152
@@ -14566,51 +14566,50 @@ attributes #12 = { nounwind willreturn memory(read) }
 !82 = !{!78, !15, i64 8}
 !83 = !{!7, !7, i64 0}
 !84 = !{!8, !8, i64 0}
-!85 = distinct !{!85, !86, !87}
+!85 = distinct !{!85, !86}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!"llvm.loop.estimated_trip_count"}
-!88 = distinct !{!88, !86, !87}
-!89 = distinct !{!89, !86, !87}
-!90 = distinct !{!90, !86, !87, !91}
-!91 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!92 = distinct !{!92, !86, !87, !91}
-!93 = distinct !{!93, !86, !87, !91}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"short", !8, i64 0}
-!96 = distinct !{!96, !86, !87}
-!97 = distinct !{!97, !86, !87, !91}
-!98 = distinct !{!98, !86, !87, !91}
-!99 = distinct !{!99, !86, !87, !91}
-!100 = distinct !{!100, !86, !87}
-!101 = distinct !{!101, !86, !87, !91}
-!102 = distinct !{!102, !86, !87, !91}
-!103 = distinct !{!103, !86, !87, !91}
-!104 = distinct !{!104, !86, !87, !91}
-!105 = distinct !{!105, !86, !87, !91}
-!106 = distinct !{!106, !86, !87, !91}
-!107 = distinct !{!107, !86, !87, !91}
-!108 = distinct !{!108, !86, !87, !91}
-!109 = distinct !{!109, !86, !87, !91}
-!110 = distinct !{!110, !86, !87, !91}
-!111 = distinct !{!111, !86, !87, !91}
-!112 = distinct !{!112, !86, !87, !91}
-!113 = distinct !{!113, !86, !87, !91}
-!114 = distinct !{!114, !86, !87, !91}
-!115 = distinct !{!115, !86, !87, !91}
-!116 = distinct !{!116, !86, !87, !91}
-!117 = distinct !{!117, !86, !87, !91}
-!118 = distinct !{!118, !86, !87, !91}
-!119 = distinct !{!119, !86, !87}
-!120 = distinct !{!120, !86, !87, !91}
-!121 = distinct !{!121, !86, !87, !91}
-!122 = distinct !{!122, !86, !87, !91}
-!123 = distinct !{!123, !86, !87, !91}
-!124 = distinct !{!124, !86, !87, !91}
-!125 = distinct !{!125, !86, !87, !91}
-!126 = !{!43, !23, i64 0}
-!127 = !{!22, !23, i64 8}
-!128 = !{!69, !69, i64 0}
-!129 = !{!5, !13, i64 56}
-!130 = !{!131, !25, i64 240}
-!131 = !{!"FilterLink", !43, i64 0, !16, i64 200, !25, i64 208, !25, i64 216, !15, i64 224, !15, i64 228, !25, i64 232, !25, i64 240, !25, i64 248, !25, i64 256, !24, i64 264, !19, i64 272}
-!132 = !{!72, !25, i64 136}
+!87 = distinct !{!87, !86}
+!88 = distinct !{!88, !86}
+!89 = distinct !{!89, !86, !90}
+!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !86, !90}
+!92 = distinct !{!92, !86, !90}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"short", !8, i64 0}
+!95 = distinct !{!95, !86}
+!96 = distinct !{!96, !86, !90}
+!97 = distinct !{!97, !86, !90}
+!98 = distinct !{!98, !86, !90}
+!99 = distinct !{!99, !86}
+!100 = distinct !{!100, !86, !90}
+!101 = distinct !{!101, !86, !90}
+!102 = distinct !{!102, !86, !90}
+!103 = distinct !{!103, !86, !90}
+!104 = distinct !{!104, !86, !90}
+!105 = distinct !{!105, !86, !90}
+!106 = distinct !{!106, !86, !90}
+!107 = distinct !{!107, !86, !90}
+!108 = distinct !{!108, !86, !90}
+!109 = distinct !{!109, !86, !90}
+!110 = distinct !{!110, !86, !90}
+!111 = distinct !{!111, !86, !90}
+!112 = distinct !{!112, !86, !90}
+!113 = distinct !{!113, !86, !90}
+!114 = distinct !{!114, !86, !90}
+!115 = distinct !{!115, !86, !90}
+!116 = distinct !{!116, !86, !90}
+!117 = distinct !{!117, !86, !90}
+!118 = distinct !{!118, !86}
+!119 = distinct !{!119, !86, !90}
+!120 = distinct !{!120, !86, !90}
+!121 = distinct !{!121, !86, !90}
+!122 = distinct !{!122, !86, !90}
+!123 = distinct !{!123, !86, !90}
+!124 = distinct !{!124, !86, !90}
+!125 = !{!43, !23, i64 0}
+!126 = !{!22, !23, i64 8}
+!127 = !{!69, !69, i64 0}
+!128 = !{!5, !13, i64 56}
+!129 = !{!130, !25, i64 240}
+!130 = !{!"FilterLink", !43, i64 0, !16, i64 200, !25, i64 208, !25, i64 216, !15, i64 224, !15, i64 228, !25, i64 232, !25, i64 240, !25, i64 248, !25, i64 256, !24, i64 264, !19, i64 272}
+!131 = !{!72, !25, i64 136}

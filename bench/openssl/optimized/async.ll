@@ -47,7 +47,7 @@ define void @async_start_func() local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1196
   store i32 3, ptr %13, align 4, !tbaa !26
   tail call fastcc void @async_fibre_swapcontext(ptr noundef %6, ptr noundef nonnull %1)
-  br label %5, !llvm.loop !27
+  br label %5
 }
 
 declare void @ERR_new() local_unnamed_addr #1
@@ -59,7 +59,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @async_fibre_swapcontext(ptr noundef initializes((1168, 1172)) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  store i32 1, ptr %3, align 8, !tbaa !29
+  store i32 1, ptr %3, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = call i32 @_setjmp(ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %5, 0
@@ -67,7 +67,7 @@ define internal fastcc void @async_fibre_swapcontext(ptr noundef initializes((11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1168
-  %8 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = load i32, ptr %7, align 8, !tbaa !27
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %11, label %9
 
@@ -109,7 +109,7 @@ define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %0, ptr n
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1176
   store ptr null, ptr %17, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1184
-  store i32 0, ptr %18, align 8, !tbaa !30
+  store i32 0, ptr %18, align 8, !tbaa !28
   %19 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @ctxkey, ptr noundef nonnull %14) #8
   %.not8.i = icmp eq i32 %19, 0
   br i1 %.not8.i, label %20, label %async_ctx_new.exit
@@ -120,7 +120,7 @@ define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %0, ptr n
 
 async_ctx_new.exit:                               ; preds = %8, %16
   %.0 = phi ptr [ %9, %8 ], [ %14, %16 ]
-  %21 = load ptr, ptr %0, align 8, !tbaa !31
+  %21 = load ptr, ptr %0, align 8, !tbaa !29
   %.not65 = icmp eq ptr %21, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0, i64 1176
   br i1 %.not65, label %async_ctx_new.exit._crit_edge, label %22
@@ -156,9 +156,9 @@ async_ctx_new.exit._crit_edge:                    ; preds = %async_ctx_new.exit
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 1192
   %32 = load i32, ptr %31, align 8, !tbaa !25
-  store i32 %32, ptr %2, align 4, !tbaa !32
+  store i32 %32, ptr %2, align 4, !tbaa !30
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 1200
-  store ptr null, ptr %33, align 8, !tbaa !33
+  store ptr null, ptr %33, align 8, !tbaa !31
   %34 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @poolkey) #8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
@@ -174,17 +174,17 @@ async_ctx_new.exit._crit_edge:                    ; preds = %async_ctx_new.exit
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str, i32 noundef 141) #8
   store ptr null, ptr %38, align 8, !tbaa !24
-  %40 = load ptr, ptr %34, align 8, !tbaa !34
+  %40 = load ptr, ptr %34, align 8, !tbaa !32
   %41 = tail call i32 @OPENSSL_sk_push(ptr noundef %40, ptr noundef nonnull %26) #8
   br label %async_release_job.exit
 
 async_release_job.exit:                           ; preds = %36, %37
   store ptr null, ptr %24, align 8, !tbaa !3
-  store ptr null, ptr %0, align 8, !tbaa !31
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %async_ctx_new.exit.thread
 
 42:                                               ; preds = %27
-  store ptr %26, ptr %0, align 8, !tbaa !31
+  store ptr %26, ptr %0, align 8, !tbaa !29
   %43 = load ptr, ptr %24, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1196
   store i32 2, ptr %44, align 4, !tbaa !26
@@ -192,14 +192,14 @@ async_release_job.exit:                           ; preds = %36, %37
   br label %async_ctx_new.exit.thread
 
 45:                                               ; preds = %27
-  %46 = load ptr, ptr %0, align 8, !tbaa !31
+  %46 = load ptr, ptr %0, align 8, !tbaa !29
   %47 = icmp eq ptr %46, null
   br i1 %47, label %async_ctx_new.exit.thread, label %48
 
 48:                                               ; preds = %45
   store ptr %46, ptr %24, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 1208
-  %50 = load ptr, ptr %49, align 8, !tbaa !37
+  %50 = load ptr, ptr %49, align 8, !tbaa !35
   %51 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %50) #8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %.backedge
@@ -224,13 +224,13 @@ async_release_job.exit:                           ; preds = %36, %37
   %60 = load ptr, ptr %59, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %60, ptr noundef nonnull @.str, i32 noundef 141) #8
   store ptr null, ptr %59, align 8, !tbaa !24
-  %61 = load ptr, ptr %55, align 8, !tbaa !34
+  %61 = load ptr, ptr %55, align 8, !tbaa !32
   %62 = tail call i32 @OPENSSL_sk_push(ptr noundef %61, ptr noundef %54) #8
   br label %async_release_job.exit68
 
 async_release_job.exit68:                         ; preds = %57, %58
   store ptr null, ptr %24, align 8, !tbaa !3
-  store ptr null, ptr %0, align 8, !tbaa !31
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %async_ctx_new.exit.thread
 
 .backedge:                                        ; preds = %48, %125
@@ -240,8 +240,8 @@ async_release_job.exit68:                         ; preds = %57, %58
   %64 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %.sink118) #8
   %65 = load ptr, ptr %24, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1208
-  store ptr %64, ptr %66, align 8, !tbaa !37
-  br label %25, !llvm.loop !38
+  store ptr %64, ptr %66, align 8, !tbaa !35
+  br label %25
 
 67:                                               ; preds = %27
   tail call void @ERR_new() #8
@@ -263,13 +263,13 @@ async_release_job.exit68:                         ; preds = %57, %58
   %74 = load ptr, ptr %73, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %74, ptr noundef nonnull @.str, i32 noundef 141) #8
   store ptr null, ptr %73, align 8, !tbaa !24
-  %75 = load ptr, ptr %69, align 8, !tbaa !34
+  %75 = load ptr, ptr %69, align 8, !tbaa !32
   %76 = tail call i32 @OPENSSL_sk_push(ptr noundef %75, ptr noundef %68) #8
   br label %async_release_job.exit69
 
 async_release_job.exit69:                         ; preds = %71, %72
   store ptr null, ptr %24, align 8, !tbaa !3
-  store ptr null, ptr %0, align 8, !tbaa !31
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %async_ctx_new.exit.thread
 
 77:                                               ; preds = %25
@@ -288,20 +288,20 @@ async_release_job.exit69:                         ; preds = %71, %72
 
 85:                                               ; preds = %83, %77
   %.0.i70 = phi ptr [ %84, %83 ], [ %78, %77 ]
-  %86 = load ptr, ptr %.0.i70, align 8, !tbaa !34
+  %86 = load ptr, ptr %.0.i70, align 8, !tbaa !32
   %87 = tail call ptr @OPENSSL_sk_pop(ptr noundef %86) #8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %107
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 16
-  %91 = load i64, ptr %90, align 8, !tbaa !39
+  %91 = load i64, ptr %90, align 8, !tbaa !36
   %.not.i71 = icmp eq i64 %91, 0
   br i1 %.not.i71, label %95, label %92
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 8
-  %94 = load i64, ptr %93, align 8, !tbaa !40
+  %94 = load i64, ptr %93, align 8, !tbaa !37
   %.not18.i = icmp ult i64 %94, %91
   br i1 %.not18.i, label %95, label %async_get_pool_job.exit.thread
 
@@ -327,9 +327,9 @@ async_job_free.exit.i:                            ; preds = %98
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !40
+  %105 = load i64, ptr %104, align 8, !tbaa !37
   %106 = add i64 %105, 1
-  store i64 %106, ptr %104, align 8, !tbaa !40
+  store i64 %106, ptr %104, align 8, !tbaa !37
   br label %107
 
 async_get_pool_job.exit.thread:                   ; preds = %80, %92, %95, %async_job_free.exit.i
@@ -365,7 +365,7 @@ async_get_pool_job.exit.thread:                   ; preds = %80, %92, %95, %asyn
   %119 = load ptr, ptr %118, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %119, ptr noundef nonnull @.str, i32 noundef 141) #8
   store ptr null, ptr %118, align 8, !tbaa !24
-  %120 = load ptr, ptr %114, align 8, !tbaa !34
+  %120 = load ptr, ptr %114, align 8, !tbaa !32
   %121 = tail call i32 @OPENSSL_sk_push(ptr noundef %120, ptr noundef nonnull %110) #8
   br label %async_release_job.exit72
 
@@ -388,7 +388,7 @@ async_release_job.exit72:                         ; preds = %116, %117
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 1176
   store ptr %3, ptr %127, align 8, !tbaa !20
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 1200
-  store ptr %1, ptr %128, align 8, !tbaa !33
+  store ptr %1, ptr %128, align 8, !tbaa !31
   %129 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef null) #8
   br label %.backedge
 
@@ -422,7 +422,7 @@ define noundef i32 @ASYNC_pause_job() local_unnamed_addr #0 {
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1184
-  %9 = load i32, ptr %8, align 8, !tbaa !30
+  %9 = load i32, ptr %8, align 8, !tbaa !28
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %14
 
@@ -431,7 +431,7 @@ define noundef i32 @ASYNC_pause_job() local_unnamed_addr #0 {
   store i32 1, ptr %11, align 4, !tbaa !26
   tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %5, ptr noundef nonnull %1)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1200
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
   tail call void @async_wait_ctx_reset_counts(ptr noundef %13) #8
   br label %14
 
@@ -510,7 +510,7 @@ define range(i32 0, 2) i32 @ASYNC_init_thread(i64 noundef %0, i64 noundef %1) lo
 12:                                               ; preds = %9
   %13 = trunc i64 %1 to i32
   %14 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %13) #8
-  store ptr %14, ptr %10, align 8, !tbaa !34
+  store ptr %14, ptr %10, align 8, !tbaa !32
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -523,7 +523,7 @@ define range(i32 0, 2) i32 @ASYNC_init_thread(i64 noundef %0, i64 noundef %1) lo
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %0, ptr %18, align 8, !tbaa !39
+  store i64 %0, ptr %18, align 8, !tbaa !36
   %.not3341 = icmp eq i64 %1, 0
   br i1 %.not3341, label %.split.thread, label %.lr.ph
 
@@ -552,16 +552,16 @@ async_job_free.exit:                              ; preds = %22
 
 .split:                                           ; preds = %22
   store ptr null, ptr %25, align 8, !tbaa !24
-  %27 = load ptr, ptr %10, align 8, !tbaa !34
+  %27 = load ptr, ptr %10, align 8, !tbaa !32
   %28 = tail call i32 @OPENSSL_sk_push(ptr noundef %27, ptr noundef nonnull %20) #8
   %29 = add nuw i64 %.02542, 1
   %.not33 = icmp eq i64 %19, 0
-  br i1 %.not33, label %.split.thread, label %.lr.ph, !llvm.loop !41
+  br i1 %.not33, label %.split.thread, label %.lr.ph
 
 .split.thread:                                    ; preds = %.split, %.lr.ph, %17, %async_job_free.exit
   %.02540 = phi i64 [ %.02542, %async_job_free.exit ], [ 0, %17 ], [ %1, %.split ], [ %.02542, %.lr.ph ]
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.02540, ptr %30, align 8, !tbaa !40
+  store i64 %.02540, ptr %30, align 8, !tbaa !37
   %31 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @poolkey, ptr noundef nonnull %10) #8
   %.not35 = icmp eq i32 %31, 0
   br i1 %.not35, label %32, label %41
@@ -570,14 +570,14 @@ async_job_free.exit:                              ; preds = %22
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.ASYNC_init_thread) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 51, i32 noundef 101, ptr noundef null) #8
-  %33 = load ptr, ptr %10, align 8, !tbaa !34
+  %33 = load ptr, ptr %10, align 8, !tbaa !32
   %34 = icmp eq ptr %33, null
   br i1 %34, label %async_empty_pool.exit, label %.split5.i
 
 .split5.i:                                        ; preds = %32
   %35 = tail call ptr @OPENSSL_sk_pop(ptr noundef nonnull %33) #8
   %cond.i = icmp eq ptr %35, null
-  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !42
+  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 .split.i:                                         ; preds = %.split5.i, %.split.i
   %.sink14.i = phi ptr [ %39, %.split.i ], [ %35, %.split5.i ]
@@ -586,13 +586,13 @@ async_job_free.exit:                              ; preds = %22
   tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 94) #8
   tail call void @async_fibre_free(ptr noundef nonnull %.sink14.i) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %.sink14.i, ptr noundef nonnull @.str, i32 noundef 96) #8
-  %38 = load ptr, ptr %10, align 8, !tbaa !34
+  %38 = load ptr, ptr %10, align 8, !tbaa !32
   %39 = tail call ptr @OPENSSL_sk_pop(ptr noundef %38) #8
   %cond10.i = icmp eq ptr %39, null
-  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !42
+  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 async_empty_pool.exit:                            ; preds = %.split.i, %32, %.split5.i
-  %40 = load ptr, ptr %10, align 8, !tbaa !34
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
   tail call void @OPENSSL_sk_free(ptr noundef %40) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 403) #8
   br label %41
@@ -611,14 +611,14 @@ define internal void @async_delete_thread_state(ptr readnone captures(none) %0) 
   br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = load ptr, ptr %2, align 8, !tbaa !32
   %5 = icmp eq ptr %4, null
   br i1 %5, label %async_empty_pool.exit, label %.split5.i
 
 .split5.i:                                        ; preds = %3
   %6 = tail call ptr @OPENSSL_sk_pop(ptr noundef nonnull %4) #8
   %cond.i = icmp eq ptr %6, null
-  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !42
+  br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 .split.i:                                         ; preds = %.split5.i, %.split.i
   %.sink14.i = phi ptr [ %10, %.split.i ], [ %6, %.split5.i ]
@@ -627,13 +627,13 @@ define internal void @async_delete_thread_state(ptr readnone captures(none) %0) 
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 94) #8
   tail call void @async_fibre_free(ptr noundef nonnull %.sink14.i) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %.sink14.i, ptr noundef nonnull @.str, i32 noundef 96) #8
-  %9 = load ptr, ptr %2, align 8, !tbaa !34
+  %9 = load ptr, ptr %2, align 8, !tbaa !32
   %10 = tail call ptr @OPENSSL_sk_pop(ptr noundef %9) #8
   %cond10.i = icmp eq ptr %10, null
-  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !42
+  br i1 %cond10.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 async_empty_pool.exit:                            ; preds = %.split.i, %3, %.split5.i
-  %11 = load ptr, ptr %2, align 8, !tbaa !34
+  %11 = load ptr, ptr %2, align 8, !tbaa !32
   tail call void @OPENSSL_sk_free(ptr noundef %11) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef 414) #8
   %12 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @poolkey, ptr noundef null) #8
@@ -700,7 +700,7 @@ define ptr @ASYNC_get_current_job() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ASYNC_get_wait_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   ret ptr %3
 }
 
@@ -723,9 +723,9 @@ define void @ASYNC_block_pause() local_unnamed_addr #0 {
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1184
-  %11 = load i32, ptr %10, align 8, !tbaa !30
+  %11 = load i32, ptr %10, align 8, !tbaa !28
   %12 = add i32 %11, 1
-  store i32 %12, ptr %10, align 8, !tbaa !30
+  store i32 %12, ptr %10, align 8, !tbaa !28
   br label %13
 
 13:                                               ; preds = %2, %5, %0, %9
@@ -751,13 +751,13 @@ define void @ASYNC_unblock_pause() local_unnamed_addr #0 {
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1184
-  %11 = load i32, ptr %10, align 8, !tbaa !30
+  %11 = load i32, ptr %10, align 8, !tbaa !28
   %.not5 = icmp eq i32 %11, 0
   br i1 %.not5, label %14, label %12
 
 12:                                               ; preds = %9
   %13 = add i32 %11, -1
-  store i32 %13, ptr %10, align 8, !tbaa !30
+  store i32 %13, ptr %10, align 8, !tbaa !28
   br label %14
 
 14:                                               ; preds = %9, %12, %2, %5, %0
@@ -826,20 +826,16 @@ attributes #10 = { noreturn nounwind }
 !24 = !{!21, !11, i64 1184}
 !25 = !{!21, !13, i64 1192}
 !26 = !{!21, !13, i64 1196}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!5, !13, i64 1168}
-!30 = !{!4, !13, i64 1184}
-!31 = !{!19, !19, i64 0}
-!32 = !{!13, !13, i64 0}
-!33 = !{!21, !22, i64 1200}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"async_pool_st", !36, i64 0, !7, i64 8, !7, i64 16}
-!36 = !{!"p1 _ZTS18stack_st_ASYNC_JOB", !11, i64 0}
-!37 = !{!21, !23, i64 1208}
-!38 = distinct !{!38, !28}
-!39 = !{!35, !7, i64 16}
-!40 = !{!35, !7, i64 8}
-!41 = distinct !{!41, !28}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.mustprogress"}
+!27 = !{!5, !13, i64 1168}
+!28 = !{!4, !13, i64 1184}
+!29 = !{!19, !19, i64 0}
+!30 = !{!13, !13, i64 0}
+!31 = !{!21, !22, i64 1200}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"async_pool_st", !34, i64 0, !7, i64 8, !7, i64 16}
+!34 = !{!"p1 _ZTS18stack_st_ASYNC_JOB", !11, i64 0}
+!35 = !{!21, !23, i64 1208}
+!36 = !{!33, !7, i64 16}
+!37 = !{!33, !7, i64 8}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}

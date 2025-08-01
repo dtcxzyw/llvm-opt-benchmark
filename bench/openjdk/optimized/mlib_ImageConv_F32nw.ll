@@ -163,7 +163,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %87 = add nsw i32 %spec.select.us.fr.i, %.029982.us.i
   %88 = icmp slt i32 %87, %38
   %scevgep1046 = getelementptr i8, ptr %indvars.iv1045, i64 %74
-  br i1 %88, label %.lr.ph69.us.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %88, label %.lr.ph69.us.i, label %._crit_edge.i, !llvm.loop !8
 
 .lr.ph69.split.us.us.i:                           ; preds = %..loopexit6_crit_edge.us.us.i, %.lr.ph69.split.us.us.preheader.i
   %indvars.iv1047 = phi ptr [ %scevgep1048, %..loopexit6_crit_edge.us.us.i ], [ %indvars.iv1045, %.lr.ph69.split.us.us.preheader.i ]
@@ -244,7 +244,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %127 = getelementptr inbounds float, ptr %.230722.us.us.i, i64 %62
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 2
   %.not334.us.us.i = icmp sgt i64 %indvars.iv.next115.i, %82
-  br i1 %.not334.us.us.i, label %._crit_edge25.us.us.loopexit.i, label %.lr.ph24.us.us.i, !llvm.loop !11
+  br i1 %.not334.us.us.i, label %._crit_edge25.us.us.loopexit.i, label %.lr.ph24.us.us.i, !llvm.loop !10
 
 ._crit_edge25.us.us.loopexit.i:                   ; preds = %.lr.ph24.us.us.i
   %128 = trunc nuw nsw i64 %indvars.iv.next115.i to i32
@@ -300,7 +300,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %155 = getelementptr inbounds float, ptr %.130634.us.us.i, i64 %62
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 2
   %.not335.us.us.i = icmp sgt i64 %indvars.iv.next118.i, %82
-  br i1 %.not335.us.us.i, label %._crit_edge37.us.us.loopexit.i, label %.lr.ph36.us.us.i, !llvm.loop !12
+  br i1 %.not335.us.us.i, label %._crit_edge37.us.us.loopexit.i, label %.lr.ph36.us.us.i, !llvm.loop !11
 
 ._crit_edge37.us.us.loopexit.i:                   ; preds = %.lr.ph36.us.us.i
   %156 = trunc nuw nsw i64 %indvars.iv.next118.i to i32
@@ -366,7 +366,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %189 = getelementptr inbounds float, ptr %.030548.us.us.i, i64 %62
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 2
   %.not336.us.us.i = icmp sgt i64 %indvars.iv.next121.i, %82
-  br i1 %.not336.us.us.i, label %._crit_edge52.us.us.loopexit.i, label %.lr.ph51.us.us.i, !llvm.loop !13
+  br i1 %.not336.us.us.i, label %._crit_edge52.us.us.loopexit.i, label %.lr.ph51.us.us.i, !llvm.loop !12
 
 ._crit_edge52.us.us.loopexit.i:                   ; preds = %.lr.ph51.us.us.i
   %190 = trunc nuw nsw i64 %indvars.iv.next121.i to i32
@@ -402,7 +402,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %204 = add nuw nsw i32 %.030466.us.us.i, 1
   %exitcond127.not.i = icmp eq i32 %204, %.val337.fr.i
   %scevgep1050 = getelementptr i8, ptr %indvars.iv1049, i64 %75
-  br i1 %exitcond127.not.i, label %..loopexit6_crit_edge.us.us.i, label %.preheader4.us.us.i, !llvm.loop !14
+  br i1 %exitcond127.not.i, label %..loopexit6_crit_edge.us.us.i, label %.preheader4.us.us.i, !llvm.loop !13
 
 .lr.ph62.us.us.i:                                 ; preds = %.preheader.us.us.i, %.lr.ph62.us.us.i
   %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %.lr.ph62.us.us.i ], [ 0, %.preheader.us.us.i ]
@@ -418,13 +418,13 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %210 = getelementptr inbounds float, ptr %.330860.us.us.i, i64 %60
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %exitcond126.not.i = icmp eq i64 %indvars.iv.next124.i, %79
-  br i1 %exitcond126.not.i, label %.loopexit.us.us.i, label %.lr.ph62.us.us.i, !llvm.loop !15
+  br i1 %exitcond126.not.i, label %.loopexit.us.us.i, label %.lr.ph62.us.us.i, !llvm.loop !14
 
 ..loopexit6_crit_edge.us.us.i:                    ; preds = %.loopexit.us.us.i, %.lr.ph69.split.us.us.i
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count131.i
   %scevgep1048 = getelementptr i8, ptr %indvars.iv1047, i64 4
-  br i1 %exitcond132.not.i, label %._crit_edge70.us.i, label %.lr.ph69.split.us.us.i, !llvm.loop !16
+  br i1 %exitcond132.not.i, label %._crit_edge70.us.i, label %.lr.ph69.split.us.us.i, !llvm.loop !15
 
 .preheader.us.us.i:                               ; preds = %._crit_edge17.us.us.i
   br i1 %77, label %.lr.ph62.us.us.i, label %.loopexit.us.us.i
@@ -492,13 +492,13 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
   %242 = getelementptr inbounds float, ptr %.031411.us.us.i.us, i64 %55
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 2
   %243 = icmp slt i64 %indvars.iv.next.i.us, %81
-  br i1 %243, label %.lr.ph13.us.us.i.us, label %._crit_edge.us.us.i.loopexit.us, !llvm.loop !17
+  br i1 %243, label %.lr.ph13.us.us.i.us, label %._crit_edge.us.us.i.loopexit.us, !llvm.loop !16
 
 ._crit_edge.us.us.i.loopexit.us:                  ; preds = %.lr.ph13.us.us.i.us
   %244 = getelementptr inbounds float, ptr %.031114.us.us.i.us, i64 %59
   %indvars.iv.next112.i.us = add nuw nsw i64 %indvars.iv111.i.us, 4
   %245 = icmp slt i64 %indvars.iv.next112.i.us, %69
-  br i1 %245, label %.lr.ph16.us.us.i.us, label %._crit_edge17.us.us.loopexit.i, !llvm.loop !18
+  br i1 %245, label %.lr.ph16.us.us.i.us, label %._crit_edge17.us.us.loopexit.i, !llvm.loop !17
 
 .lr.ph69.split.split.us.us.i:                     ; preds = %..preheader5_crit_edge.us76.us.i, %.lr.ph69.split.split.us.us.preheader.i
   %.030267.us71.us.i = phi i32 [ %250, %..preheader5_crit_edge.us76.us.i ], [ 0, %.lr.ph69.split.split.us.us.preheader.i ]
@@ -516,7 +516,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_f32(ptr noundef readonly captu
 ..preheader5_crit_edge.us76.us.i:                 ; preds = %.lr.ph.us75.us.preheader.i, %.lr.ph69.split.split.us.us.i
   %250 = add nuw nsw i32 %.030267.us71.us.i, 1
   %exitcond.not.i = icmp eq i32 %250, %.val342.i
-  br i1 %exitcond.not.i, label %._crit_edge70.us.i, label %.lr.ph69.split.split.us.us.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge70.us.i, label %.lr.ph69.split.split.us.us.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %._crit_edge70.us.i, %.lr.ph.i, %49
   %.not332.i = icmp eq ptr %.0300.i, %9
@@ -592,7 +592,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %.1590.us = phi ptr [ %.0589931.us, %.lr.ph935.split.us ], [ %.0589931.us, %.preheader707.lr.ph.split.split.split.us945 ], [ %.0589931.us, %.preheader707.lr.ph.split.us942 ], [ %.us-phi.us.us1057, %282 ]
   %indvars.iv.next1041 = add nuw nsw i64 %indvars.iv1040, 1
   %exitcond1044.not = icmp eq i64 %indvars.iv.next1041, %262
-  br i1 %exitcond1044.not, label %._crit_edge936, label %.lr.ph935.split.us, !llvm.loop !20
+  br i1 %exitcond1044.not, label %._crit_edge936, label %.lr.ph935.split.us, !llvm.loop !19
 
 .preheader707.lr.ph.split.us942:                  ; preds = %.preheader707.lr.ph.us
   br i1 %.not660.not, label %.preheader707.lr.ph.split.split.split.us945, label %..loopexit708_crit_edge.us
@@ -616,7 +616,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %284 = getelementptr inbounds float, ptr %.0607881.us.us, i64 %272
   %285 = add nuw nsw i32 %.0576885.us.us, 1
   %exitcond1039.not = icmp eq i32 %.0576885.us.us, %reass.sub948
-  br i1 %exitcond1039.not, label %..loopexit708_crit_edge.us, label %.preheader707.us.us, !llvm.loop !21
+  br i1 %exitcond1039.not, label %..loopexit708_crit_edge.us, label %.preheader707.us.us, !llvm.loop !20
 
 ._crit_edge859.us.us:                             ; preds = %._crit_edge850.us.us.us
   br i1 %.not660.not, label %.lr.ph875.us.us, label %282
@@ -703,7 +703,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %334 = getelementptr inbounds nuw float, ptr %.14603724.us.us.us, i64 %263
   %335 = add nuw nsw i32 %.15725.us.us.us, 2
   %.not663.us.us.us = icmp sgt i32 %335, %266
-  br i1 %.not663.us.us.us, label %.loopexit.us.us.us, label %.lr.ph727.us.us.us, !llvm.loop !22
+  br i1 %.not663.us.us.us, label %.loopexit.us.us.us, label %.lr.ph727.us.us.us, !llvm.loop !21
 
 .lr.ph736.us.us.us:                               ; preds = %.preheader703.us.us.us, %.lr.ph736.us.us.us
   %.8735.us.us.us = phi ptr [ %346, %.lr.ph736.us.us.us ], [ %317, %.preheader703.us.us.us ]
@@ -727,7 +727,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %347 = getelementptr inbounds nuw float, ptr %.13602733.us.us.us, i64 %263
   %348 = add nuw nsw i32 %.14734.us.us.us, 2
   %.not664.us.us.us = icmp sgt i32 %348, %266
-  br i1 %.not664.us.us.us, label %.loopexit.us.us.us, label %.lr.ph736.us.us.us, !llvm.loop !23
+  br i1 %.not664.us.us.us, label %.loopexit.us.us.us, label %.lr.ph736.us.us.us, !llvm.loop !22
 
 349:                                              ; preds = %288
   %350 = icmp eq ptr %.1573846.us.us.us, %.05741053
@@ -762,7 +762,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %368 = getelementptr inbounds nuw float, ptr %.12601743.us.us.us, i64 %263
   %369 = add nuw nsw i32 %.13744.us.us.us, 2
   %.not665.us.us.us = icmp sgt i32 %369, %266
-  br i1 %.not665.us.us.us, label %.loopexit.us.us.us, label %.lr.ph746.us.us.us, !llvm.loop !24
+  br i1 %.not665.us.us.us, label %.loopexit.us.us.us, label %.lr.ph746.us.us.us, !llvm.loop !23
 
 .lr.ph756.us.us.us:                               ; preds = %.preheader699.us.us.us, %.lr.ph756.us.us.us
   %.6755.us.us.us = phi ptr [ %382, %.lr.ph756.us.us.us ], [ %298, %.preheader699.us.us.us ]
@@ -789,7 +789,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %383 = getelementptr inbounds nuw float, ptr %.11600753.us.us.us, i64 %263
   %384 = add nuw nsw i32 %.12754.us.us.us, 2
   %.not666.us.us.us = icmp sgt i32 %384, %266
-  br i1 %.not666.us.us.us, label %.loopexit.us.us.us, label %.lr.ph756.us.us.us, !llvm.loop !25
+  br i1 %.not666.us.us.us, label %.loopexit.us.us.us, label %.lr.ph756.us.us.us, !llvm.loop !24
 
 385:                                              ; preds = %288
   %386 = icmp eq ptr %.1573846.us.us.us, %.05741053
@@ -827,7 +827,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %406 = getelementptr inbounds nuw float, ptr %.10599764.us.us.us, i64 %263
   %407 = add nuw nsw i32 %.11588765.us.us.us, 2
   %.not667.us.us.us = icmp sgt i32 %407, %266
-  br i1 %.not667.us.us.us, label %.loopexit.us.us.us, label %.lr.ph767.us.us.us, !llvm.loop !26
+  br i1 %.not667.us.us.us, label %.loopexit.us.us.us, label %.lr.ph767.us.us.us, !llvm.loop !25
 
 .lr.ph778.us.us.us:                               ; preds = %.preheader695.us.us.us, %.lr.ph778.us.us.us
   %.4777.us.us.us = phi ptr [ %422, %.lr.ph778.us.us.us ], [ %300, %.preheader695.us.us.us ]
@@ -857,7 +857,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %423 = getelementptr inbounds nuw float, ptr %.9598775.us.us.us, i64 %263
   %424 = add nuw nsw i32 %.10587776.us.us.us, 2
   %.not668.us.us.us = icmp sgt i32 %424, %266
-  br i1 %.not668.us.us.us, label %.loopexit.us.us.us, label %.lr.ph778.us.us.us, !llvm.loop !27
+  br i1 %.not668.us.us.us, label %.loopexit.us.us.us, label %.lr.ph778.us.us.us, !llvm.loop !26
 
 425:                                              ; preds = %288
   %426 = icmp eq ptr %.1573846.us.us.us, %.05741053
@@ -898,7 +898,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %448 = getelementptr inbounds nuw float, ptr %.8597787.us.us.us, i64 %263
   %449 = add nuw nsw i32 %.9586788.us.us.us, 2
   %.not669.us.us.us = icmp sgt i32 %449, %266
-  br i1 %.not669.us.us.us, label %.loopexit.us.us.us, label %.lr.ph790.us.us.us, !llvm.loop !28
+  br i1 %.not669.us.us.us, label %.loopexit.us.us.us, label %.lr.ph790.us.us.us, !llvm.loop !27
 
 .lr.ph802.us.us.us:                               ; preds = %.preheader691.us.us.us, %.lr.ph802.us.us.us
   %.2801.us.us.us = phi ptr [ %466, %.lr.ph802.us.us.us ], [ %302, %.preheader691.us.us.us ]
@@ -931,7 +931,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %467 = getelementptr inbounds nuw float, ptr %.7596799.us.us.us, i64 %263
   %468 = add nuw nsw i32 %.8585800.us.us.us, 2
   %.not670.us.us.us = icmp sgt i32 %468, %266
-  br i1 %.not670.us.us.us, label %.loopexit.us.us.us, label %.lr.ph802.us.us.us, !llvm.loop !29
+  br i1 %.not670.us.us.us, label %.loopexit.us.us.us, label %.lr.ph802.us.us.us, !llvm.loop !28
 
 469:                                              ; preds = %288
   %470 = getelementptr inbounds nuw float, ptr %298, i64 %264
@@ -977,7 +977,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %497 = getelementptr inbounds nuw float, ptr %.6595811.us.us.us, i64 %263
   %498 = add nuw nsw i32 %.7584812.us.us.us, 2
   %.not671.us.us.us = icmp sgt i32 %498, %266
-  br i1 %.not671.us.us.us, label %.loopexit.us.us.us, label %.lr.ph814.us.us.us, !llvm.loop !30
+  br i1 %.not671.us.us.us, label %.loopexit.us.us.us, label %.lr.ph814.us.us.us, !llvm.loop !29
 
 .lr.ph826.us.us.us:                               ; preds = %.preheader687.us.us.us, %.lr.ph826.us.us.us
   %.0568825.us.us.us = phi ptr [ %519, %.lr.ph826.us.us.us ], [ %470, %.preheader687.us.us.us ]
@@ -1014,7 +1014,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %520 = getelementptr inbounds nuw float, ptr %.5594823.us.us.us, i64 %263
   %521 = add nuw nsw i32 %.6583824.us.us.us, 2
   %.not672.us.us.us = icmp sgt i32 %521, %266
-  br i1 %.not672.us.us.us, label %.loopexit.us.us.us, label %.lr.ph826.us.us.us, !llvm.loop !31
+  br i1 %.not672.us.us.us, label %.loopexit.us.us.us, label %.lr.ph826.us.us.us, !llvm.loop !30
 
 522:                                              ; preds = %288
   %523 = getelementptr inbounds float, ptr %298, i64 %269
@@ -1044,7 +1044,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %538 = getelementptr inbounds nuw float, ptr %.16605831.us.us.us, i64 %263
   %539 = add nuw nsw i32 %.17832.us.us.us, 2
   %.not661.us.us.us = icmp sgt i32 %539, %266
-  br i1 %.not661.us.us.us, label %.loopexit.us.us.us, label %.lr.ph834.us.us.us, !llvm.loop !32
+  br i1 %.not661.us.us.us, label %.loopexit.us.us.us, label %.lr.ph834.us.us.us, !llvm.loop !31
 
 .lr.ph842.us.us.us:                               ; preds = %.preheader.us.us.us, %.lr.ph842.us.us.us
   %.10841.us.us.us = phi ptr [ %548, %.lr.ph842.us.us.us ], [ %523, %.preheader.us.us.us ]
@@ -1065,7 +1065,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %549 = getelementptr inbounds nuw float, ptr %.15604839.us.us.us, i64 %263
   %550 = add nuw nsw i32 %.16840.us.us.us, 2
   %.not662.us.us.us = icmp sgt i32 %550, %266
-  br i1 %.not662.us.us.us, label %.loopexit.us.us.us, label %.lr.ph842.us.us.us, !llvm.loop !33
+  br i1 %.not662.us.us.us, label %.loopexit.us.us.us, label %.lr.ph842.us.us.us, !llvm.loop !32
 
 .loopexit.us.us.us:                               ; preds = %.lr.ph727.us.us.us, %.lr.ph736.us.us.us, %.lr.ph746.us.us.us, %.lr.ph756.us.us.us, %.lr.ph767.us.us.us, %.lr.ph778.us.us.us, %.lr.ph790.us.us.us, %.lr.ph802.us.us.us, %.lr.ph814.us.us.us, %.lr.ph826.us.us.us, %.lr.ph834.us.us.us, %.lr.ph842.us.us.us, %.preheader705.us.us.us, %.preheader703.us.us.us, %.preheader701.us.us.us, %.preheader699.us.us.us, %.preheader697.us.us.us, %.preheader695.us.us.us, %.preheader693.us.us.us, %.preheader691.us.us.us, %.preheader689.us.us.us, %.preheader687.us.us.us, %.preheader685.us.us.us, %.preheader.us.us.us
   %.17606.us.us.us = phi ptr [ %.0607881.us.us, %.preheader.us.us.us ], [ %.0607881.us.us, %.preheader685.us.us.us ], [ %.0607881.us.us, %.preheader687.us.us.us ], [ %.0607881.us.us, %.preheader689.us.us.us ], [ %.0607881.us.us, %.preheader691.us.us.us ], [ %.0607881.us.us, %.preheader693.us.us.us ], [ %.0607881.us.us, %.preheader695.us.us.us ], [ %.0607881.us.us, %.preheader697.us.us.us ], [ %.0607881.us.us, %.preheader699.us.us.us ], [ %.0607881.us.us, %.preheader701.us.us.us ], [ %.0607881.us.us, %.preheader703.us.us.us ], [ %.0607881.us.us, %.preheader705.us.us.us ], [ %549, %.lr.ph842.us.us.us ], [ %538, %.lr.ph834.us.us.us ], [ %520, %.lr.ph826.us.us.us ], [ %497, %.lr.ph814.us.us.us ], [ %467, %.lr.ph802.us.us.us ], [ %448, %.lr.ph790.us.us.us ], [ %423, %.lr.ph778.us.us.us ], [ %406, %.lr.ph767.us.us.us ], [ %383, %.lr.ph756.us.us.us ], [ %368, %.lr.ph746.us.us.us ], [ %347, %.lr.ph736.us.us.us ], [ %334, %.lr.ph727.us.us.us ]
@@ -1076,7 +1076,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %553 = getelementptr inbounds float, ptr %.1573846.us.us.us, i64 %552
   %554 = getelementptr inbounds nuw float, ptr %.1571.us.us.us, i64 %262
   %555 = icmp slt i32 %551, %3
-  br i1 %555, label %288, label %._crit_edge850.us.us.us, !llvm.loop !34
+  br i1 %555, label %288, label %._crit_edge850.us.us.us, !llvm.loop !33
 
 .preheader.us.us.us:                              ; preds = %522
   br i1 %.not663721, label %.loopexit.us.us.us, label %.lr.ph842.us.us.us
@@ -1117,7 +1117,7 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
 ._crit_edge850.us.us.us:                          ; preds = %.loopexit.us.us.us
   %indvars.iv.next1025 = add nuw nsw i64 %indvars.iv1024, 1
   %exitcond1028.not = icmp eq i64 %indvars.iv.next1025, %wide.trip.count1027
-  br i1 %exitcond1028.not, label %._crit_edge859.us.us, label %.lr.ph849.us.us.us, !llvm.loop !35
+  br i1 %exitcond1028.not, label %._crit_edge859.us.us, label %.lr.ph849.us.us.us, !llvm.loop !34
 
 .lr.ph875.us.us:                                  ; preds = %._crit_edge859.us.us
   %556 = mul nsw i32 %.18.us.us.us, %.val678
@@ -1145,12 +1145,12 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %251
   %567 = call float @llvm.fmuladd.f32(float %564, float %566, float %.1567863.us.us.us)
   %indvars.iv.next1030 = add nuw nsw i64 %indvars.iv1029, 1
   %exitcond1033.not = icmp eq i64 %indvars.iv.next1030, %wide.trip.count1032
-  br i1 %exitcond1033.not, label %._crit_edge868.us.us.us, label %561, !llvm.loop !36
+  br i1 %exitcond1033.not, label %._crit_edge868.us.us.us, label %561, !llvm.loop !35
 
 ._crit_edge868.us.us.us:                          ; preds = %561
   %indvars.iv.next1035 = add nuw nsw i64 %indvars.iv1034, 1
   %exitcond1038.not = icmp eq i64 %indvars.iv.next1035, %wide.trip.count1037
-  br i1 %exitcond1038.not, label %._crit_edge876.us.us, label %.lr.ph867.us.us.us, !llvm.loop !37
+  br i1 %exitcond1038.not, label %._crit_edge876.us.us, label %.lr.ph867.us.us.us, !llvm.loop !36
 
 .preheader707.lr.ph.split.split.split.us945:      ; preds = %.preheader707.lr.ph.split.us942
   store float 0.000000e+00, ptr %.0589931.us, align 4
@@ -1207,35 +1207,34 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8, !10}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8, !10}
-!19 = distinct !{!19, !7, !8, !10}
-!20 = distinct !{!20, !7, !8, !10}
-!21 = distinct !{!21, !7, !8, !10}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8, !10}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8, !10}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7, !9}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7, !9}
+!18 = distinct !{!18, !7, !9}
+!19 = distinct !{!19, !7, !9}
+!20 = distinct !{!20, !7, !9}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7, !9}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7, !9}

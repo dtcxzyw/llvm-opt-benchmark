@@ -81,7 +81,7 @@ define hidden void @avifFillAlpha(ptr noundef readonly captures(none) %0) local_
   %38 = phi i32 [ %35, %._crit_edge43.loopexit ], [ 0, %.lr.ph46.split ]
   %39 = add nuw i32 %.03044, 1
   %40 = icmp ult i32 %39, %37
-  br i1 %40, label %.lr.ph46.split, label %.loopexit, !llvm.loop !7
+  br i1 %40, label %.lr.ph46.split, label %.loopexit, !llvm.loop !6
 
 .lr.ph38.split:                                   ; preds = %.lr.ph38, %._crit_edge
   %41 = phi i32 [ %56, %._crit_edge ], [ %6, %.lr.ph38 ]
@@ -110,7 +110,7 @@ define hidden void @avifFillAlpha(ptr noundef readonly captures(none) %0) local_
   %53 = add nuw i32 %.036, 1
   %54 = load i32, ptr %0, align 8
   %55 = icmp ult i32 %53, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %5, align 4
@@ -121,7 +121,7 @@ define hidden void @avifFillAlpha(ptr noundef readonly captures(none) %0) local_
   %57 = phi i32 [ %54, %._crit_edge.loopexit ], [ 0, %.lr.ph38.split ]
   %58 = add nuw i32 %.02937, 1
   %59 = icmp ult i32 %58, %56
-  br i1 %59, label %.lr.ph38.split, label %.loopexit, !llvm.loop !10
+  br i1 %59, label %.lr.ph38.split, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge43, %.lr.ph46, %.lr.ph38, %.preheader, %12
   ret void
@@ -215,7 +215,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %57 = add nuw i32 %.0138182, 1
   %58 = load i32, ptr %0, align 8
   %59 = icmp ult i32 %57, %58
-  br i1 %59, label %.lr.ph184, label %._crit_edge185.loopexit, !llvm.loop !11
+  br i1 %59, label %.lr.ph184, label %._crit_edge185.loopexit, !llvm.loop !10
 
 ._crit_edge185.loopexit:                          ; preds = %.lr.ph184
   %.pre210 = load i32, ptr %13, align 4
@@ -226,7 +226,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %61 = phi i32 [ %58, %._crit_edge185.loopexit ], [ 0, %31 ]
   %62 = add nuw i32 %.0186, 1
   %63 = icmp ult i32 %62, %60
-  br i1 %63, label %31, label %.loopexit, !llvm.loop !12
+  br i1 %63, label %31, label %.loopexit, !llvm.loop !11
 
 64:                                               ; preds = %.lr.ph181, %._crit_edge179
   %65 = phi i32 [ %14, %.lr.ph181 ], [ %93, %._crit_edge179 ]
@@ -264,7 +264,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %90 = add nuw i32 %.0141176, 1
   %91 = load i32, ptr %0, align 8
   %92 = icmp ult i32 %90, %91
-  br i1 %92, label %.lr.ph178, label %._crit_edge179.loopexit, !llvm.loop !13
+  br i1 %92, label %.lr.ph178, label %._crit_edge179.loopexit, !llvm.loop !12
 
 ._crit_edge179.loopexit:                          ; preds = %.lr.ph178
   %.pre208 = load i32, ptr %13, align 4
@@ -275,7 +275,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %94 = phi i32 [ %91, %._crit_edge179.loopexit ], [ 0, %64 ]
   %95 = add nuw i32 %.0140180, 1
   %96 = icmp ult i32 %95, %93
-  br i1 %96, label %64, label %.loopexit, !llvm.loop !14
+  br i1 %96, label %64, label %.loopexit, !llvm.loop !13
 
 97:                                               ; preds = %1
   br i1 %11, label %109, label %.preheader159
@@ -380,7 +380,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %163 = add nuw i32 %.0144170, 1
   %164 = load i32, ptr %0, align 8
   %165 = icmp ult i32 %163, %164
-  br i1 %165, label %.lr.ph172, label %._crit_edge173.loopexit, !llvm.loop !15
+  br i1 %165, label %.lr.ph172, label %._crit_edge173.loopexit, !llvm.loop !14
 
 ._crit_edge173.loopexit:                          ; preds = %.lr.ph172
   %.pre206 = load i32, ptr %111, align 4
@@ -391,7 +391,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %167 = phi i32 [ %164, %._crit_edge173.loopexit ], [ 0, %129 ]
   %168 = add nuw i32 %.0143174, 1
   %169 = icmp ult i32 %168, %166
-  br i1 %169, label %129, label %.loopexit, !llvm.loop !16
+  br i1 %169, label %129, label %.loopexit, !llvm.loop !15
 
 170:                                              ; preds = %.lr.ph169, %._crit_edge167
   %171 = phi i32 [ %112, %.lr.ph169 ], [ %207, %._crit_edge167 ]
@@ -437,7 +437,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %204 = add nuw i32 %.0145164, 1
   %205 = load i32, ptr %0, align 8
   %206 = icmp ult i32 %204, %205
-  br i1 %206, label %.lr.ph166, label %._crit_edge167.loopexit, !llvm.loop !17
+  br i1 %206, label %.lr.ph166, label %._crit_edge167.loopexit, !llvm.loop !16
 
 ._crit_edge167.loopexit:                          ; preds = %.lr.ph166
   %.pre204 = load i32, ptr %111, align 4
@@ -448,7 +448,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %208 = phi i32 [ %205, %._crit_edge167.loopexit ], [ 0, %170 ]
   %209 = add nuw i32 %.0146168, 1
   %210 = icmp ult i32 %209, %207
-  br i1 %210, label %170, label %.loopexit, !llvm.loop !18
+  br i1 %210, label %170, label %.loopexit, !llvm.loop !17
 
 .lr.ph163.split:                                  ; preds = %.lr.ph163, %._crit_edge
   %211 = phi i32 [ %247, %._crit_edge ], [ %99, %.lr.ph163 ]
@@ -494,7 +494,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %244 = add nuw i32 %.0139161, 1
   %245 = load i32, ptr %0, align 8
   %246 = icmp ult i32 %244, %245
-  br i1 %246, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %246, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %98, align 4
@@ -505,7 +505,7 @@ define hidden void @avifReformatAlpha(ptr noundef readonly captures(none) %0) lo
   %248 = phi i32 [ %245, %._crit_edge.loopexit ], [ 0, %.lr.ph163.split ]
   %249 = add nuw i32 %.0142162, 1
   %250 = icmp ult i32 %249, %247
-  br i1 %250, label %.lr.ph163.split, label %.loopexit, !llvm.loop !20
+  br i1 %250, label %.lr.ph163.split, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge167, %._crit_edge173, %._crit_edge179, %._crit_edge185, %.lr.ph163, %.preheader159, %.preheader157, %.preheader155, %.preheader153, %.preheader
   ret void
@@ -644,7 +644,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %69 = load i32, ptr %0, align 8
   %70 = zext i32 %69 to i64
   %71 = icmp samesign ult i64 %indvars.iv.next204, %70
-  br i1 %71, label %.lr.ph169, label %._crit_edge170.loopexit, !llvm.loop !21
+  br i1 %71, label %.lr.ph169, label %._crit_edge170.loopexit, !llvm.loop !20
 
 ._crit_edge170.loopexit:                          ; preds = %68
   %.pre210 = load i32, ptr %25, align 4
@@ -655,7 +655,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %73 = phi i32 [ %69, %._crit_edge170.loopexit ], [ 0, %.lr.ph173.split ]
   %74 = add nuw i32 %.0133171, 1
   %75 = icmp ult i32 %74, %72
-  br i1 %75, label %.lr.ph173.split, label %.loopexit, !llvm.loop !22
+  br i1 %75, label %.lr.ph173.split, label %.loopexit, !llvm.loop !21
 
 .lr.ph179.split:                                  ; preds = %.lr.ph179, %._crit_edge177
   %76 = phi i32 [ %120, %._crit_edge177 ], [ %22, %.lr.ph179 ]
@@ -724,7 +724,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %117 = load i32, ptr %0, align 8
   %118 = zext i32 %117 to i64
   %119 = icmp samesign ult i64 %indvars.iv.next207, %118
-  br i1 %119, label %.lr.ph176, label %._crit_edge177.loopexit, !llvm.loop !23
+  br i1 %119, label %.lr.ph176, label %._crit_edge177.loopexit, !llvm.loop !22
 
 ._crit_edge177.loopexit:                          ; preds = %116
   %.pre211 = load i32, ptr %21, align 4
@@ -735,7 +735,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %121 = phi i32 [ %117, %._crit_edge177.loopexit ], [ 0, %.lr.ph179.split ]
   %122 = add nuw i32 %.0137178, 1
   %123 = icmp ult i32 %122, %120
-  br i1 %123, label %.lr.ph179.split, label %.loopexit, !llvm.loop !24
+  br i1 %123, label %.lr.ph179.split, label %.loopexit, !llvm.loop !23
 
 124:                                              ; preds = %13
   switch i32 %19, label %.preheader154 [
@@ -832,7 +832,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %174 = load i32, ptr %0, align 8
   %175 = zext i32 %174 to i64
   %176 = icmp samesign ult i64 %indvars.iv.next, %175
-  br i1 %176, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %176, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %173
   %.pre = load i32, ptr %129, align 4
@@ -843,7 +843,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %178 = phi i32 [ %174, %._crit_edge.loopexit ], [ 0, %.lr.ph160.split ]
   %179 = add nuw i32 %.0140158, 1
   %180 = icmp ult i32 %179, %177
-  br i1 %180, label %.lr.ph160.split, label %.loopexit, !llvm.loop !26
+  br i1 %180, label %.lr.ph160.split, label %.loopexit, !llvm.loop !25
 
 .lr.ph166.split:                                  ; preds = %.lr.ph166, %._crit_edge164
   %181 = phi i32 [ %226, %._crit_edge164 ], [ %126, %.lr.ph166 ]
@@ -912,7 +912,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %223 = load i32, ptr %0, align 8
   %224 = zext i32 %223 to i64
   %225 = icmp samesign ult i64 %indvars.iv.next201, %224
-  br i1 %225, label %.lr.ph163, label %._crit_edge164.loopexit, !llvm.loop !27
+  br i1 %225, label %.lr.ph163, label %._crit_edge164.loopexit, !llvm.loop !26
 
 ._crit_edge164.loopexit:                          ; preds = %222
   %.pre209 = load i32, ptr %125, align 4
@@ -923,7 +923,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImagePremultiplyAlpha(ptr noundef %0
   %227 = phi i32 [ %223, %._crit_edge164.loopexit ], [ 0, %.lr.ph166.split ]
   %228 = add nuw i32 %.0136165, 1
   %229 = icmp ult i32 %228, %226
-  br i1 %229, label %.lr.ph166.split, label %.loopexit, !llvm.loop !28
+  br i1 %229, label %.lr.ph166.split, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge164, %._crit_edge170, %._crit_edge177, %.lr.ph160, %.lr.ph166, %.lr.ph173, %.lr.ph179, %128, %.preheader154, %24, %.preheader, %11, %7, %1, %4
   %.0 = phi i32 [ 5, %4 ], [ 5, %1 ], [ 24, %7 ], [ %12, %11 ], [ 0, %.preheader ], [ 0, %24 ], [ 0, %.preheader154 ], [ 0, %128 ], [ 0, %.lr.ph179 ], [ 0, %.lr.ph173 ], [ 0, %.lr.ph166 ], [ 0, %.lr.ph160 ], [ 0, %._crit_edge177 ], [ 0, %._crit_edge170 ], [ 0, %._crit_edge164 ], [ 0, %._crit_edge ]
@@ -1072,7 +1072,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %75 = load i32, ptr %0, align 8
   %76 = zext i32 %75 to i64
   %77 = icmp samesign ult i64 %indvars.iv.next252, %76
-  br i1 %77, label %.lr.ph217, label %._crit_edge218.loopexit, !llvm.loop !29
+  br i1 %77, label %.lr.ph217, label %._crit_edge218.loopexit, !llvm.loop !28
 
 ._crit_edge218.loopexit:                          ; preds = %74
   %.pre258 = load i32, ptr %25, align 4
@@ -1083,7 +1083,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %79 = phi i32 [ %75, %._crit_edge218.loopexit ], [ 0, %.lr.ph221.split ]
   %80 = add nuw i32 %.0181219, 1
   %81 = icmp ult i32 %80, %78
-  br i1 %81, label %.lr.ph221.split, label %.loopexit, !llvm.loop !30
+  br i1 %81, label %.lr.ph221.split, label %.loopexit, !llvm.loop !29
 
 .lr.ph227.split:                                  ; preds = %.lr.ph227, %._crit_edge225
   %82 = phi i32 [ %132, %._crit_edge225 ], [ %22, %.lr.ph227 ]
@@ -1158,7 +1158,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %129 = load i32, ptr %0, align 8
   %130 = zext i32 %129 to i64
   %131 = icmp samesign ult i64 %indvars.iv.next255, %130
-  br i1 %131, label %.lr.ph224, label %._crit_edge225.loopexit, !llvm.loop !31
+  br i1 %131, label %.lr.ph224, label %._crit_edge225.loopexit, !llvm.loop !30
 
 ._crit_edge225.loopexit:                          ; preds = %128
   %.pre259 = load i32, ptr %21, align 4
@@ -1169,7 +1169,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %133 = phi i32 [ %129, %._crit_edge225.loopexit ], [ 0, %.lr.ph227.split ]
   %134 = add nuw i32 %.0183226, 1
   %135 = icmp ult i32 %134, %132
-  br i1 %135, label %.lr.ph227.split, label %.loopexit, !llvm.loop !32
+  br i1 %135, label %.lr.ph227.split, label %.loopexit, !llvm.loop !31
 
 136:                                              ; preds = %13
   switch i32 %19, label %.preheader202 [
@@ -1272,7 +1272,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %192 = load i32, ptr %0, align 8
   %193 = zext i32 %192 to i64
   %194 = icmp samesign ult i64 %indvars.iv.next, %193
-  br i1 %194, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+  br i1 %194, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %191
   %.pre = load i32, ptr %141, align 4
@@ -1283,7 +1283,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %196 = phi i32 [ %192, %._crit_edge.loopexit ], [ 0, %.lr.ph208.split ]
   %197 = add nuw i32 %.0186206, 1
   %198 = icmp ult i32 %197, %195
-  br i1 %198, label %.lr.ph208.split, label %.loopexit, !llvm.loop !34
+  br i1 %198, label %.lr.ph208.split, label %.loopexit, !llvm.loop !33
 
 .lr.ph214.split:                                  ; preds = %.lr.ph214, %._crit_edge212
   %199 = phi i32 [ %250, %._crit_edge212 ], [ %138, %.lr.ph214 ]
@@ -1358,7 +1358,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %247 = load i32, ptr %0, align 8
   %248 = zext i32 %247 to i64
   %249 = icmp samesign ult i64 %indvars.iv.next249, %248
-  br i1 %249, label %.lr.ph211, label %._crit_edge212.loopexit, !llvm.loop !35
+  br i1 %249, label %.lr.ph211, label %._crit_edge212.loopexit, !llvm.loop !34
 
 ._crit_edge212.loopexit:                          ; preds = %246
   %.pre257 = load i32, ptr %137, align 4
@@ -1369,7 +1369,7 @@ define hidden range(i32 26, 25) i32 @avifRGBImageUnpremultiplyAlpha(ptr noundef 
   %251 = phi i32 [ %247, %._crit_edge212.loopexit ], [ 0, %.lr.ph214.split ]
   %252 = add nuw i32 %.0187213, 1
   %253 = icmp ult i32 %252, %250
-  br i1 %253, label %.lr.ph214.split, label %.loopexit, !llvm.loop !36
+  br i1 %253, label %.lr.ph214.split, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge212, %._crit_edge218, %._crit_edge225, %.lr.ph208, %.lr.ph214, %.lr.ph221, %.lr.ph227, %140, %.preheader202, %24, %.preheader, %11, %7, %1, %4
   %.0 = phi i32 [ 5, %4 ], [ 5, %1 ], [ 5, %7 ], [ %12, %11 ], [ 0, %.preheader ], [ 0, %24 ], [ 0, %.preheader202 ], [ 0, %140 ], [ 0, %.lr.ph227 ], [ 0, %.lr.ph221 ], [ 0, %.lr.ph214 ], [ 0, %.lr.ph208 ], [ 0, %._crit_edge225 ], [ 0, %._crit_edge218 ], [ 0, %._crit_edge212 ], [ 0, %._crit_edge ]
@@ -1395,36 +1395,35 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6, !8}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6, !8}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6, !8}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6, !8}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6, !8}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6, !8}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6, !8}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6, !8}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6, !8}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6, !8}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !7}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5, !7}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5, !7}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5, !7}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5, !7}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5, !7}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5, !7}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5, !7}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5, !7}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5, !7}

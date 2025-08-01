@@ -98,7 +98,7 @@ define internal void @bswap_buf(ptr noundef writeonly captures(none) %0, ptr nou
   store i32 %49, ptr %50, align 4, !tbaa !10
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph45, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %.preheader
   ret void
@@ -115,12 +115,12 @@ define internal void @bswap16_buf(ptr noundef writeonly captures(none) %0, ptr n
   %.035 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %4 = add nsw i32 %.07, -1
   %5 = getelementptr inbounds nuw i8, ptr %.026, i64 2
-  %6 = load i16, ptr %.026, align 2, !tbaa !16
+  %6 = load i16, ptr %.026, align 2, !tbaa !15
   %7 = tail call i16 @llvm.bswap.i16(i16 %6)
   %8 = getelementptr inbounds nuw i8, ptr %.035, i64 2
-  store i16 %7, ptr %.035, align 2, !tbaa !16
+  store i16 %7, ptr %.035, align 2, !tbaa !15
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -150,10 +150,9 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = !{!5, !6, i64 8}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
-!18 = distinct !{!18, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !7, i64 0}
+!17 = distinct !{!17, !13}

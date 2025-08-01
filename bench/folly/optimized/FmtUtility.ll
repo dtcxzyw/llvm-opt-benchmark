@@ -186,8 +186,8 @@ define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash4hashENS_5RangeIPhEEPK9evp_m
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %5
-  %9 = load ptr, ptr %7, align 8, !tbaa !21
-  store ptr %8, ptr %7, align 8, !tbaa !21
+  %9 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %8, ptr %7, align 8, !tbaa !20
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i, label %10
 
@@ -203,7 +203,7 @@ define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash4hashENS_5RangeIPhEEPK9evp_m
   unreachable
 
 _ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exitthread-pre-split.i: ; preds = %10
-  %.pr.i = load ptr, ptr %7, align 8, !tbaa !21
+  %.pr.i = load ptr, ptr %7, align 8, !tbaa !20
   br label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
 
 _ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exitthread-pre-split.i, %.noexc
@@ -217,11 +217,11 @@ _ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP
 
 .noexc9:                                          ; preds = %15
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %.invoke, !prof !23
+  br i1 %17, label %18, label %.invoke, !prof !22
 
 18:                                               ; preds = %.noexc9
-  store ptr %2, ptr %6, align 8, !tbaa !24
-  %19 = load ptr, ptr %7, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %19 = load ptr, ptr %7, align 8, !tbaa !20
   %.not.i.i11 = icmp eq ptr %19, null
   br i1 %.not.i.i11, label %.invoke, label %20
 
@@ -234,7 +234,7 @@ _ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP
 
 .noexc13:                                         ; preds = %20
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit, label %.invoke, !prof !23
+  br i1 %25, label %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit, label %.invoke, !prof !22
 
 .invoke:                                          ; preds = %.noexc13, %18, %.noexc9, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
   %26 = phi ptr [ @.str, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i ], [ @.str.1, %.noexc9 ], [ @.str.2, %18 ], [ @.str.1, %.noexc13 ]
@@ -249,7 +249,7 @@ _ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit: ; preds = %
           to label %27 unwind label %33
 
 27:                                               ; preds = %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit
-  %28 = load ptr, ptr %7, align 8, !tbaa !21
+  %28 = load ptr, ptr %7, align 8, !tbaa !20
   %.not.i.i15 = icmp eq ptr %28, null
   br i1 %.not.i.i15, label %_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit, label %29
 
@@ -282,7 +282,7 @@ declare ptr @EVP_blake2s256() local_unnamed_addr #5
 define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash6Digest10hash_finalENS_5RangeIPhEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %8
 
@@ -291,14 +291,14 @@ define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash6Digest10hash_finalENS_5Rang
   unreachable
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %0, align 8, !tbaa !24
+  %9 = load ptr, ptr %0, align 8, !tbaa !23
   %10 = tail call i32 @EVP_MD_get_size(ptr noundef %9)
   %11 = sext i32 %10 to i64
   %12 = ptrtoint ptr %2 to i64
   %13 = ptrtoint ptr %1 to i64
   %14 = sub i64 %12, %13
   %15 = icmp eq i64 %14, %11
-  br i1 %15, label %_ZN5folly3ssl11OpenSSLHash14check_out_sizeEmNS_5RangeIPhEE.exit, label %16, !prof !23
+  br i1 %15, label %_ZN5folly3ssl11OpenSSLHash14check_out_sizeEmNS_5RangeIPhEE.exit, label %16, !prof !22
 
 16:                                               ; preds = %8
   tail call void @_ZN5folly3ssl11OpenSSLHash20check_out_size_throwEmNS_5RangeIPhEE(i64 noundef %11, ptr %1, ptr %2) #18
@@ -306,28 +306,28 @@ define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash6Digest10hash_finalENS_5Rang
 
 _ZN5folly3ssl11OpenSSLHash14check_out_sizeEmNS_5RangeIPhEE.exit: ; preds = %8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  store i32 0, ptr %4, align 4, !tbaa !33
-  %17 = load ptr, ptr %5, align 8, !tbaa !21
+  store i32 0, ptr %4, align 4, !tbaa !32
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
   %18 = call i32 @EVP_DigestFinal_ex(ptr noundef %17, ptr noundef %1, ptr noundef nonnull %4)
   %19 = icmp eq i32 %18, 1
-  br i1 %19, label %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit, label %20, !prof !23
+  br i1 %19, label %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit, label %20, !prof !22
 
 20:                                               ; preds = %_ZN5folly3ssl11OpenSSLHash14check_out_sizeEmNS_5RangeIPhEE.exit
   call void @_ZN5folly6detail16throw_exception_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.1) #10
   unreachable
 
 _ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit: ; preds = %_ZN5folly3ssl11OpenSSLHash14check_out_sizeEmNS_5RangeIPhEE.exit
-  %21 = load i32, ptr %4, align 4, !tbaa !33
+  %21 = load i32, ptr %4, align 4, !tbaa !32
   %22 = icmp eq i32 %21, %10
-  br i1 %22, label %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit2, label %23, !prof !23
+  br i1 %22, label %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit2, label %23, !prof !22
 
 23:                                               ; preds = %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit
   call void @_ZN5folly6detail16throw_exception_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.1) #10
   unreachable
 
 _ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit2: ; preds = %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit
-  %24 = load ptr, ptr %5, align 8, !tbaa !21
-  store ptr null, ptr %5, align 8, !tbaa !21
+  %24 = load ptr, ptr %5, align 8, !tbaa !20
+  store ptr null, ptr %5, align 8, !tbaa !20
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN5folly3ssl11OpenSSLHash6Digest10hash_resetEv.exit, label %25
 
@@ -343,7 +343,7 @@ _ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit2: ; preds = %_ZN5folly3s
   unreachable
 
 _ZN5folly3ssl11OpenSSLHash6Digest10hash_resetEv.exit: ; preds = %_ZN5folly3ssl11OpenSSLHash19check_libssl_resultEii.exit2, %25
-  store ptr null, ptr %0, align 8, !tbaa !24
+  store ptr null, ptr %0, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   ret void
 }
@@ -351,7 +351,7 @@ _ZN5folly3ssl11OpenSSLHash6Digest10hash_resetEv.exit: ; preds = %_ZN5folly3ssl11
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash6DigestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit, label %4
 
@@ -367,7 +367,7 @@ define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash6DigestD2Ev(ptr noundef nonn
   unreachable
 
 _ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit: ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !21
+  store ptr null, ptr %2, align 8, !tbaa !20
   ret void
 }
 
@@ -470,7 +470,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %4, %_ZNKSt17basic_s
 19:                                               ; preds = %15
   %20 = add i64 %10, 2
   %21 = icmp ugt i64 %20, %.sroa.06.050.i
-  br i1 %21, label %.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, !llvm.loop !35
+  br i1 %21, label %.invoke, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, !llvm.loop !34
 
 .invoke:                                          ; preds = %.thread27.i, %19
   %22 = phi i64 [ %20, %19 ], [ %34, %.thread27.i ]
@@ -649,21 +649,20 @@ attributes #18 = { noreturn }
 !15 = !{!"long", !11, i64 0}
 !16 = !{!11, !11, i64 0}
 !17 = !{!14, !9, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS13evp_md_ctx_st", !10, i64 0}
-!23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"_ZTSN5folly3ssl11OpenSSLHash6DigestE", !26, i64 0, !27, i64 8}
-!26 = !{!"p1 _ZTS9evp_md_st", !10, i64 0}
-!27 = !{!"_ZTSSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE", !28, i64 0}
-!28 = !{!"_ZTSSt15__uniq_ptr_dataI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEELb1ELb1EE", !29, i64 0}
-!29 = !{!"_ZTSSt15__uniq_ptr_implI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE", !30, i64 0}
-!30 = !{!"_ZTSSt5tupleIJP13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEEE", !31, i64 0}
-!31 = !{!"_ZTSSt11_Tuple_implILm0EJP13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEEE", !32, i64 0}
-!32 = !{!"_ZTSSt10_Head_baseILm0EP13evp_md_ctx_stLb0EE", !22, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"int", !11, i64 0}
-!35 = distinct !{!35, !19}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS13evp_md_ctx_st", !10, i64 0}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTSN5folly3ssl11OpenSSLHash6DigestE", !25, i64 0, !26, i64 8}
+!25 = !{!"p1 _ZTS9evp_md_st", !10, i64 0}
+!26 = !{!"_ZTSSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE", !27, i64 0}
+!27 = !{!"_ZTSSt15__uniq_ptr_dataI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEELb1ELb1EE", !28, i64 0}
+!28 = !{!"_ZTSSt15__uniq_ptr_implI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE", !29, i64 0}
+!29 = !{!"_ZTSSt5tupleIJP13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEEE", !30, i64 0}
+!30 = !{!"_ZTSSt11_Tuple_implILm0EJP13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEEE", !31, i64 0}
+!31 = !{!"_ZTSSt10_Head_baseILm0EP13evp_md_ctx_stLb0EE", !21, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"int", !11, i64 0}
+!34 = distinct !{!34, !19}

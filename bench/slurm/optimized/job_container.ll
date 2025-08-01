@@ -244,7 +244,7 @@ define dso_local range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %.09.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %14 ]
@@ -289,7 +289,7 @@ define dso_local i32 @container_g_join(ptr noundef %0, i32 noundef %1, i1 nounde
   %12 = icmp slt i64 %indvars.iv.next, %11
   %13 = icmp eq i32 %9, 0
   %14 = select i1 %12, i1 %13, i1 false
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %9, %.lr.ph ]
@@ -314,7 +314,7 @@ define dso_local i32 @container_g_join_external(i32 noundef %0) local_unnamed_ad
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -339,7 +339,7 @@ define dso_local i32 @container_g_restore(ptr noundef %0, i1 noundef zeroext %1)
   %11 = icmp slt i64 %indvars.iv.next, %10
   %12 = icmp eq i32 %8, 0
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -364,7 +364,7 @@ define dso_local i32 @container_g_stepd_create(i32 noundef %0, ptr noundef %1) l
   %11 = icmp slt i64 %indvars.iv.next, %10
   %12 = icmp eq i32 %8, 0
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
@@ -389,7 +389,7 @@ define dso_local i32 @container_g_stepd_delete(i32 noundef %0) local_unnamed_add
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -414,7 +414,7 @@ define dso_local i32 @container_g_send_stepd(i32 noundef %0) local_unnamed_addr 
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -439,7 +439,7 @@ define dso_local i32 @container_g_recv_stepd(i32 noundef %0) local_unnamed_addr 
   %10 = icmp slt i64 %indvars.iv.next, %9
   %11 = icmp eq i32 %7, 0
   %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
@@ -467,15 +467,14 @@ attributes #9 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

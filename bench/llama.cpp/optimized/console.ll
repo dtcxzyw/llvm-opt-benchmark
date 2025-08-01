@@ -522,7 +522,7 @@ _ZN7consoleL9getchar32Ev.exit86.i:                ; preds = %.preheader.i
   %137 = add nuw nsw i64 %.011.i.i, 1
   %.09.i.i = add i64 %.0912.i.i, -1
   %exitcond.not.i.i = icmp eq i64 %.011.i.i, %umin.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %138, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %138, !llvm.loop !52
 
 138:                                              ; preds = %136, %.lr.ph.i.i
   %.0912.i.i = phi i64 [ %.0910.i.i, %.lr.ph.i.i ], [ %.09.i.i, %136 ]
@@ -559,13 +559,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i.i: ; preds
   %147 = call i32 @putc(i32 noundef 8, ptr noundef %146)
   %148 = add nuw nsw i32 %.064174.i, 1
   %exitcond.not.i = icmp eq i32 %148, %130
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !54
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !53
 
 _ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i.i, %._crit_edge.i
   %149 = icmp ne i32 %130, 0
   %150 = icmp eq ptr %.sroa.0.0.i, %129
   %or.cond130.i = select i1 %149, i1 true, i1 %150
-  br i1 %or.cond130.i, label %.critedge.i, label %.preheader131.i, !llvm.loop !55
+  br i1 %or.cond130.i, label %.critedge.i, label %.preheader131.i, !llvm.loop !54
 
 151:                                              ; preds = %142
   %152 = landingpad { ptr, i32 }
@@ -1004,7 +1004,7 @@ _ZN7consoleL11append_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 355:                                              ; preds = %350
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
   %356 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %7) #17
-  %357 = load i16, ptr %91, align 2, !tbaa !56
+  %357 = load i16, ptr %91, align 2, !tbaa !55
   %358 = zext i16 %357 to i32
   %359 = add nsw i32 %353, %358
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
@@ -1145,7 +1145,7 @@ _ZN7console11set_displayENS_9display_tE.exit106.i: ; preds = %395, %391
 
 .backedge:                                        ; preds = %_ZN7console11set_displayENS_9display_tE.exit106.i, %386, %.critedge.i
   %.0.i.be = phi i1 [ true, %_ZN7console11set_displayENS_9display_tE.exit106.i ], [ false, %386 ], [ false, %.critedge.i ]
-  br label %92, !llvm.loop !59
+  br label %92, !llvm.loop !58
 
 406:                                              ; preds = %_ZN7consoleL9getchar32Ev.exit.i, %_ZN7consoleL9getchar32Ev.exit.i, %_ZN7consoleL9getchar32Ev.exit.i, %_ZN7consoleL9getchar32Ev.exit.i
   br i1 %.0.i, label %407, label %454
@@ -1475,13 +1475,12 @@ attributes #21 = { builtin nounwind }
 !47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !48, i64 0}
 !48 = !{!"p1 omnipotent char", !15, i64 0}
 !49 = !{!46, !48, i64 0}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = distinct !{!53, !51, !52}
-!54 = distinct !{!54, !51, !52}
-!55 = distinct !{!55, !51, !52}
-!56 = !{!57, !58, i64 2}
-!57 = !{!"_ZTS7winsize", !58, i64 0, !58, i64 2, !58, i64 4, !58, i64 6}
-!58 = !{!"short", !5, i64 0}
-!59 = distinct !{!59, !51, !52}
+!52 = distinct !{!52, !51}
+!53 = distinct !{!53, !51}
+!54 = distinct !{!54, !51}
+!55 = !{!56, !57, i64 2}
+!56 = !{!"_ZTS7winsize", !57, i64 0, !57, i64 2, !57, i64 4, !57, i64 6}
+!57 = !{!"short", !5, i64 0}
+!58 = distinct !{!58, !51}

@@ -263,7 +263,7 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
   %85 = add i32 %84, 6
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next127, %86
-  br i1 %87, label %81, label %.loopexit99, !llvm.loop !9
+  br i1 %87, label %81, label %.loopexit99, !llvm.loop !8
 
 .loopexit99:                                      ; preds = %81, %.loopexit101..loopexit99_crit_edge, %.loopexit100
   %.pre-phi136 = phi i32 [ %.pre135, %.loopexit101..loopexit99_crit_edge ], [ %78, %.loopexit100 ], [ %85, %81 ]
@@ -334,7 +334,7 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
   %121 = add i32 %120, 6
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next131, %122
-  br i1 %123, label %117, label %.loopexit, !llvm.loop !10
+  br i1 %123, label %117, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %117, %.loopexit98, %.loopexit99
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #11
@@ -368,10 +368,10 @@ define internal void @pgstat_beshutdown_hook(i32 %0, i64 %1) #0 {
   %6 = load volatile i32, ptr %3, align 8
   %7 = add i32 %6, 1
   store volatile i32 %7, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store volatile i32 0, ptr %8, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   %9 = load volatile i32, ptr %3, align 8
   %10 = add i32 %9, 1
   store volatile i32 %10, ptr %3, align 8
@@ -458,7 +458,7 @@ define dso_local void @pgstat_bestart() local_unnamed_addr #0 {
   %14 = load volatile i32, ptr %1, align 8
   %15 = add i32 %14, 1
   store volatile i32 %15, ptr %1, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %16 = load volatile i32, ptr %1, align 8
   store i32 %2, ptr %.sroa.5.0..sroa_idx, align 4
   store i32 %3, ptr %.sroa.6.0..sroa_idx, align 8
@@ -511,7 +511,7 @@ define dso_local void @pgstat_bestart() local_unnamed_addr #0 {
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %.sroa.23.0.copyload, i64 %29
   store i8 0, ptr %30, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
   %31 = load volatile i32, ptr %1, align 8
   %32 = add i32 %31, 1
   store volatile i32 %32, ptr %1, align 8
@@ -547,7 +547,7 @@ define dso_local void @pgstat_bestart() local_unnamed_addr #0 {
   %49 = load volatile i32, ptr %42, align 8
   %50 = add i32 %49, 1
   store volatile i32 %50, ptr %42, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 240
   %52 = load volatile ptr, ptr %51, align 8
   %53 = sext i32 %46 to i64
@@ -555,7 +555,7 @@ define dso_local void @pgstat_bestart() local_unnamed_addr #0 {
   %54 = load volatile ptr, ptr %51, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 %53
   store i8 0, ptr %55, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   %56 = load volatile i32, ptr %42, align 8
   %57 = add i32 %56, 1
   store volatile i32 %57, ptr %42, align 8
@@ -600,7 +600,7 @@ define dso_local void @pgstat_report_appname(ptr noundef %0) local_unnamed_addr 
   %9 = load volatile i32, ptr %2, align 8
   %10 = add i32 %9, 1
   store volatile i32 %10, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %12 = load volatile ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
@@ -608,7 +608,7 @@ define dso_local void @pgstat_report_appname(ptr noundef %0) local_unnamed_addr 
   %14 = load volatile ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 0, ptr %15, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   %16 = load volatile i32, ptr %2, align 8
   %17 = add i32 %16, 1
   store volatile i32 %17, ptr %2, align 8
@@ -667,7 +667,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %16 = load volatile i32, ptr %5, align 8
   %17 = add i32 %16, 1
   store volatile i32 %17, ptr %5, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   store volatile i32 6, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store volatile i64 0, ptr %18, align 8
@@ -682,7 +682,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   store volatile i64 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 712
   store volatile i32 0, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   br label %.sink.split
 
 25:                                               ; preds = %6
@@ -765,7 +765,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %69 = load volatile i32, ptr %5, align 8
   %70 = add i32 %69, 1
   store volatile i32 %70, ptr %5, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   store volatile i32 %0, ptr %36, align 8
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store volatile i64 %35, ptr %71, align 8
@@ -792,7 +792,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   br label %82
 
 82:                                               ; preds = %75, %76
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %82, %12
@@ -840,9 +840,9 @@ define dso_local void @pgstat_report_query_id(i64 noundef %0, i1 noundef zeroext
   %14 = load volatile i32, ptr %3, align 8
   %15 = add i32 %14, 1
   store volatile i32 %15, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   store volatile i64 %0, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   %16 = load volatile i32, ptr %3, align 8
   %17 = add i32 %16, 1
   store volatile i32 %17, ptr %3, align 8
@@ -873,10 +873,10 @@ define dso_local void @pgstat_report_xact_timestamp(i64 noundef %0) local_unname
   %9 = load volatile i32, ptr %2, align 8
   %10 = add i32 %9, 1
   store volatile i32 %10, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store volatile i64 %0, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %12 = load volatile i32, ptr %2, align 8
   %13 = add i32 %12, 1
   store volatile i32 %13, ptr %2, align 8
@@ -903,10 +903,10 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   %.02037 = phi ptr [ %46, %45 ], [ %4, %.preheader.preheader ]
   %.02236 = phi i32 [ %47, %45 ], [ 1, %.preheader.preheader ]
   %5 = load volatile i32, ptr %.02037, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
   %6 = getelementptr inbounds nuw i8, ptr %.02037, i64 4
   %7 = load volatile i32, ptr %6, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
   %8 = load volatile i32, ptr %.02037, align 8
   %9 = icmp eq i32 %5, %8
   %10 = and i32 %5, 1
@@ -917,7 +917,7 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
 .lr.ph:                                           ; preds = %.preheader, %14
   %12 = load volatile i32, ptr @InterruptPending, align 4
   %.not24 = icmp eq i32 %12, 0
-  br i1 %.not24, label %14, label %13, !prof !27
+  br i1 %.not24, label %14, label %13, !prof !26
 
 13:                                               ; preds = %.lr.ph
   tail call void @ProcessInterrupts() #11
@@ -925,15 +925,15 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
 
 14:                                               ; preds = %.lr.ph, %13
   %15 = load volatile i32, ptr %.02037, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
   %16 = load volatile i32, ptr %6, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
   %17 = load volatile i32, ptr %.02037, align 8
   %18 = icmp eq i32 %15, %17
   %19 = and i32 %15, 1
   %20 = icmp eq i32 %19, 0
   %or.cond = and i1 %20, %18
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %.lcssa = phi i32 [ %7, %.preheader ], [ %16, %14 ]
@@ -981,7 +981,7 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   %47 = add i32 %.02236, 1
   %48 = load i32, ptr @MaxBackends, align 4
   %.not = icmp sgt i32 %47, %48
-  br i1 %.not, label %.thread30, label %.preheader, !llvm.loop !29
+  br i1 %.not, label %.thread30, label %.preheader, !llvm.loop !27
 
 .thread30:                                        ; preds = %45, %2, %33, %24, %28
   %.2 = phi ptr [ @.str.5, %28 ], [ @.str.4, %24 ], [ %37, %33 ], [ @.str.6, %2 ], [ @.str.6, %45 ]
@@ -1064,7 +1064,7 @@ define dso_local noundef ptr @pgstat_get_crashed_backend_activity(i32 noundef %0
   %31 = getelementptr inbounds nuw i8, ptr %.01724, i64 432
   %32 = add i32 %.01823, 1
   %.not = icmp sgt i32 %32, %8
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %30, %.preheader, %27, %17, %12, %24, %3
   %.0 = phi ptr [ null, %3 ], [ %1, %27 ], [ null, %17 ], [ null, %12 ], [ null, %24 ], [ null, %.preheader ], [ null, %30 ]
@@ -1135,7 +1135,7 @@ define dso_local ptr @pgstat_get_beentry_by_proc_number(i32 noundef %0) local_un
   %.118.i.i = phi i64 [ %.01720.i.i, %14 ], [ %6, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %15, %14 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %17 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %17, label %.lr.ph.i.i, label %pgstat_get_local_beentry_by_proc_number.exit, !llvm.loop !31
+  br i1 %17, label %.lr.ph.i.i, label %pgstat_get_local_beentry_by_proc_number.exit, !llvm.loop !29
 
 pgstat_get_local_beentry_by_proc_number.exit:     ; preds = %13, %16, %1
   %.0.i.i = phi ptr [ null, %1 ], [ null, %16 ], [ %8, %13 ]
@@ -1179,7 +1179,7 @@ define dso_local ptr @pgstat_get_local_beentry_by_proc_number(i32 noundef %0) lo
   %.118.i = phi i64 [ %.01720.i, %14 ], [ %6, %.lr.ph.i ]
   %.1.i = phi i64 [ %15, %14 ], [ %.01621.i, %.lr.ph.i ]
   %17 = icmp ult i64 %.1.i, %.118.i
-  br i1 %17, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !31
+  br i1 %17, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !29
 
 bsearch.exit:                                     ; preds = %13, %16, %1
   %.0.i = phi ptr [ null, %1 ], [ %8, %13 ], [ null, %16 ]
@@ -1259,7 +1259,7 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
 
 45:                                               ; preds = %.backedge, %.preheader
   %46 = load volatile i32, ptr %.058, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !32
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !30
   %47 = load volatile i32, ptr %37, align 4
   store i32 %47, ptr %38, align 4
   %48 = icmp sgt i32 %47, 0
@@ -1279,7 +1279,7 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   br label %56
 
 56:                                               ; preds = %45, %49
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
   %57 = load volatile i32, ptr %.058, align 8
   %58 = icmp eq i32 %46, %57
   %59 = and i32 %46, 1
@@ -1290,10 +1290,10 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
 61:                                               ; preds = %56
   %62 = load volatile i32, ptr @InterruptPending, align 4
   %.not49 = icmp eq i32 %62, 0
-  br i1 %.not49, label %.backedge, label %63, !prof !27
+  br i1 %.not49, label %.backedge, label %63, !prof !26
 
 .backedge:                                        ; preds = %61, %63
-  br label %45, !llvm.loop !34
+  br label %45
 
 63:                                               ; preds = %61
   tail call void @ProcessInterrupts() #11
@@ -1333,7 +1333,7 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   %84 = load i32, ptr @MaxBackends, align 4
   %85 = add i32 %84, 6
   %86 = icmp slt i32 %83, %85
-  br i1 %86, label %.preheader, label %._crit_edge, !llvm.loop !35
+  br i1 %86, label %.preheader, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %81, %pgstat_setup_backend_status_context.exit
   store ptr %12, ptr @localBackendStatusTable, align 8
@@ -1409,33 +1409,30 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i64 2151603739}
-!12 = !{i64 2151603995}
-!13 = !{i64 2151602642}
-!14 = !{i64 2151603412}
-!15 = !{i64 2151607153}
-!16 = !{i64 2151607409}
-!17 = !{i64 2151605046}
-!18 = !{i64 2151605330}
-!19 = !{i64 2151605939}
-!20 = !{i64 2151606234}
-!21 = !{i64 2151606567}
-!22 = !{i64 2151606823}
-!23 = !{i64 2151607736}
-!24 = !{i64 2151607992}
-!25 = !{i64 2151609747}
-!26 = !{i64 2151609958}
-!27 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = !{i64 2151608506}
-!33 = !{i64 2151609215}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i64 2151603739}
+!11 = !{i64 2151603995}
+!12 = !{i64 2151602642}
+!13 = !{i64 2151603412}
+!14 = !{i64 2151607153}
+!15 = !{i64 2151607409}
+!16 = !{i64 2151605046}
+!17 = !{i64 2151605330}
+!18 = !{i64 2151605939}
+!19 = !{i64 2151606234}
+!20 = !{i64 2151606567}
+!21 = !{i64 2151606823}
+!22 = !{i64 2151607736}
+!23 = !{i64 2151607992}
+!24 = !{i64 2151609747}
+!25 = !{i64 2151609958}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = !{i64 2151608506}
+!31 = !{i64 2151609215}
+!32 = distinct !{!32, !7}

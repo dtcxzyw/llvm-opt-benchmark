@@ -783,13 +783,13 @@ define internal noundef ptr @_sha2_sha512(ptr noundef readonly captures(none) %0
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 21
   store i8 0, ptr %56, align 1, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  store i8 0, ptr %57, align 4, !tbaa !47
+  store i8 0, ptr %57, align 4, !tbaa !46
   call void @PyObject_GC_Track(ptr noundef nonnull %55) #3
   %58 = call ptr @python_hashlib_Hacl_Hash_SHA2_malloc_512() #3
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !50
+  store ptr %58, ptr %59, align 8, !tbaa !49
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 64, ptr %60, align 8, !tbaa !51
+  store i32 64, ptr %60, align 8, !tbaa !50
   %61 = call ptr @PyErr_Occurred() #3
   %.not22.i = icmp eq ptr %61, null
   br i1 %.not22.i, label %69, label %62
@@ -827,7 +827,7 @@ Py_DECREF.exit.i:                                 ; preds = %67, %64, %62
 
 74:                                               ; preds = %70
   %75 = call ptr @PyEval_SaveThread() #3
-  %76 = load ptr, ptr %59, align 8, !tbaa !50
+  %76 = load ptr, ptr %59, align 8, !tbaa !49
   %77 = load ptr, ptr %5, align 8, !tbaa !43
   %78 = load i64, ptr %71, align 8, !tbaa !42
   %79 = icmp sgt i64 %78, 4294967295
@@ -840,7 +840,7 @@ Py_DECREF.exit.i:                                 ; preds = %67, %64, %62
   %81 = add nsw i64 %.09.i.i, -4294967295
   %82 = getelementptr i8, ptr %.078.i.i, i64 4294967295
   %83 = icmp samesign ugt i64 %.09.i.i, 8589934590
-  br i1 %83, label %.lr.ph.i.i, label %update_512.exit.i, !llvm.loop !52
+  br i1 %83, label %.lr.ph.i.i, label %update_512.exit.i, !llvm.loop !51
 
 update_512.exit.i:                                ; preds = %.lr.ph.i.i, %74
   %.07.lcssa.i.i = phi ptr [ %77, %74 ], [ %82, %.lr.ph.i.i ]
@@ -851,7 +851,7 @@ update_512.exit.i:                                ; preds = %.lr.ph.i.i, %74
   br label %90
 
 update_512.exit32.i:                              ; preds = %70
-  %86 = load ptr, ptr %59, align 8, !tbaa !50
+  %86 = load ptr, ptr %59, align 8, !tbaa !49
   %87 = load ptr, ptr %5, align 8, !tbaa !43
   %88 = trunc i64 %72 to i32
   %89 = call zeroext i8 @python_hashlib_Hacl_Hash_SHA2_update_512(ptr noundef %86, ptr noundef %87, i32 noundef %88) #3
@@ -1004,13 +1004,13 @@ define internal noundef ptr @_sha2_sha384(ptr noundef readonly captures(none) %0
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 21
   store i8 0, ptr %56, align 1, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  store i8 0, ptr %57, align 4, !tbaa !47
+  store i8 0, ptr %57, align 4, !tbaa !46
   call void @PyObject_GC_Track(ptr noundef nonnull %55) #3
   %58 = call ptr @python_hashlib_Hacl_Hash_SHA2_malloc_384() #3
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !50
+  store ptr %58, ptr %59, align 8, !tbaa !49
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 48, ptr %60, align 8, !tbaa !51
+  store i32 48, ptr %60, align 8, !tbaa !50
   %61 = call ptr @PyErr_Occurred() #3
   %.not22.i = icmp eq ptr %61, null
   br i1 %.not22.i, label %69, label %62
@@ -1048,7 +1048,7 @@ Py_DECREF.exit.i:                                 ; preds = %67, %64, %62
 
 74:                                               ; preds = %70
   %75 = call ptr @PyEval_SaveThread() #3
-  %76 = load ptr, ptr %59, align 8, !tbaa !50
+  %76 = load ptr, ptr %59, align 8, !tbaa !49
   %77 = load ptr, ptr %5, align 8, !tbaa !43
   %78 = load i64, ptr %71, align 8, !tbaa !42
   %79 = icmp sgt i64 %78, 4294967295
@@ -1061,7 +1061,7 @@ Py_DECREF.exit.i:                                 ; preds = %67, %64, %62
   %81 = add nsw i64 %.09.i.i, -4294967295
   %82 = getelementptr i8, ptr %.078.i.i, i64 4294967295
   %83 = icmp samesign ugt i64 %.09.i.i, 8589934590
-  br i1 %83, label %.lr.ph.i.i, label %update_512.exit.i, !llvm.loop !52
+  br i1 %83, label %.lr.ph.i.i, label %update_512.exit.i, !llvm.loop !51
 
 update_512.exit.i:                                ; preds = %.lr.ph.i.i, %74
   %.07.lcssa.i.i = phi ptr [ %77, %74 ], [ %82, %.lr.ph.i.i ]
@@ -1072,7 +1072,7 @@ update_512.exit.i:                                ; preds = %.lr.ph.i.i, %74
   br label %90
 
 update_512.exit32.i:                              ; preds = %70
-  %86 = load ptr, ptr %59, align 8, !tbaa !50
+  %86 = load ptr, ptr %59, align 8, !tbaa !49
   %87 = load ptr, ptr %5, align 8, !tbaa !43
   %88 = trunc i64 %72 to i32
   %89 = call zeroext i8 @python_hashlib_Hacl_Hash_SHA2_update_512(ptr noundef %86, ptr noundef %87, i32 noundef %88) #3
@@ -1273,7 +1273,7 @@ define internal noundef ptr @SHA256Type_copy(ptr noundef %0, ptr noundef readonl
 
 11:                                               ; preds = %7, %6
   %12 = getelementptr i8, ptr %1, i64 888
-  %.val8 = load ptr, ptr %12, align 8, !tbaa !53
+  %.val8 = load ptr, ptr %12, align 8, !tbaa !52
   %13 = getelementptr i8, ptr %.val8, i64 32
   %.val8.val = load ptr, ptr %13, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %.val8.val, i64 8
@@ -1302,7 +1302,7 @@ newSHA256object.exit.i:                           ; preds = %19, %17
   store i8 0, ptr %22, align 4, !tbaa !35
   tail call void @PyObject_GC_Track(ptr noundef nonnull %.sink4.i) #3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %24 = load i8, ptr %23, align 4, !tbaa !35, !range !62, !noundef !63
+  %24 = load i8, ptr %23, align 4, !tbaa !35, !range !61, !noundef !62
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %_PyMutex_Lock.exit.i
 
@@ -1326,7 +1326,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %30, %26, %newSHA256
   %34 = tail call ptr @python_hashlib_Hacl_Hash_SHA2_copy_256(ptr noundef %.val20.i) #3
   %35 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 24
   store ptr %34, ptr %35, align 8, !tbaa !40
-  %36 = load i8, ptr %23, align 4, !tbaa !35, !range !62, !noundef !63
+  %36 = load i8, ptr %23, align 4, !tbaa !35, !range !61, !noundef !62
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %SHA256Type_copy_impl.exit
 
@@ -1350,7 +1350,7 @@ define internal ptr @SHA256Type_digest(ptr noundef %0, ptr readnone captures(non
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !35, !range !62, !noundef !63
+  %5 = load i8, ptr %4, align 4, !tbaa !35, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -1368,7 +1368,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   call void @python_hashlib_Hacl_Hash_SHA2_digest_256(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 4, !tbaa !35, !range !62, !noundef !63
+  %14 = load i8, ptr %4, align 4, !tbaa !35, !range !61, !noundef !62
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %SHA256Type_digest_impl.exit
 
@@ -1396,7 +1396,7 @@ define internal ptr @SHA256Type_hexdigest(ptr noundef %0, ptr readnone captures(
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !35, !range !62, !noundef !63
+  %5 = load i8, ptr %4, align 4, !tbaa !35, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -1414,7 +1414,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   call void @python_hashlib_Hacl_Hash_SHA2_digest_256(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 4, !tbaa !35, !range !62, !noundef !63
+  %14 = load i8, ptr %4, align 4, !tbaa !35, !range !61, !noundef !62
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %SHA256Type_hexdigest_impl.exit
 
@@ -1483,7 +1483,7 @@ define internal noundef ptr @SHA256Type_update(ptr noundef %0, ptr noundef %1) #
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %24 = load i8, ptr %23, align 4, !tbaa !35, !range !62, !noundef !63
+  %24 = load i8, ptr %23, align 4, !tbaa !35, !range !61, !noundef !62
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i64, ptr %26, align 8
@@ -1621,7 +1621,7 @@ declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal void @SHA512_dealloc(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
   tail call void @python_hashlib_Hacl_Hash_SHA2_free_512(ptr noundef %3) #3
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !23
@@ -1669,7 +1669,7 @@ define internal noundef ptr @SHA512Type_copy(ptr noundef %0, ptr noundef readonl
 
 11:                                               ; preds = %7, %6
   %12 = getelementptr i8, ptr %1, i64 888
-  %.val8 = load ptr, ptr %12, align 8, !tbaa !53
+  %.val8 = load ptr, ptr %12, align 8, !tbaa !52
   %13 = getelementptr i8, ptr %.val8, i64 32
   %.val8.val = load ptr, ptr %13, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %.val8.val, i64 24
@@ -1696,10 +1696,10 @@ newSHA512object.exit.i:                           ; preds = %19, %17
   %22 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 21
   store i8 0, ptr %22, align 1, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 20
-  store i8 0, ptr %23, align 4, !tbaa !47
+  store i8 0, ptr %23, align 4, !tbaa !46
   tail call void @PyObject_GC_Track(ptr noundef nonnull %.sink4.i) #3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %25 = load i8, ptr %24, align 4, !tbaa !47, !range !62, !noundef !63
+  %25 = load i8, ptr %24, align 4, !tbaa !46, !range !61, !noundef !62
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %_PyMutex_Lock.exit.i
 
@@ -1715,15 +1715,15 @@ newSHA512object.exit.i:                           ; preds = %19, %17
 
 _PyMutex_Lock.exit.i:                             ; preds = %31, %27, %newSHA512object.exit.i
   %32 = getelementptr i8, ptr %0, i64 16
-  %.val19.i = load i32, ptr %32, align 8, !tbaa !51
+  %.val19.i = load i32, ptr %32, align 8, !tbaa !50
   %33 = getelementptr i8, ptr %0, i64 24
-  %.val20.i = load ptr, ptr %33, align 8, !tbaa !50
+  %.val20.i = load ptr, ptr %33, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 16
-  store i32 %.val19.i, ptr %34, align 8, !tbaa !51
+  store i32 %.val19.i, ptr %34, align 8, !tbaa !50
   %35 = tail call ptr @python_hashlib_Hacl_Hash_SHA2_copy_512(ptr noundef %.val20.i) #3
   %36 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 24
-  store ptr %35, ptr %36, align 8, !tbaa !50
-  %37 = load i8, ptr %24, align 4, !tbaa !47, !range !62, !noundef !63
+  store ptr %35, ptr %36, align 8, !tbaa !49
+  %37 = load i8, ptr %24, align 4, !tbaa !46, !range !61, !noundef !62
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %SHA512Type_copy_impl.exit
 
@@ -1747,7 +1747,7 @@ define internal ptr @SHA512Type_digest(ptr noundef %0, ptr readnone captures(non
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !47, !range !62, !noundef !63
+  %5 = load i8, ptr %4, align 4, !tbaa !46, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -1763,9 +1763,9 @@ define internal ptr @SHA512Type_digest(ptr noundef %0, ptr readnone captures(non
 
 _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
   call void @python_hashlib_Hacl_Hash_SHA2_digest_512(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 4, !tbaa !47, !range !62, !noundef !63
+  %14 = load i8, ptr %4, align 4, !tbaa !46, !range !61, !noundef !62
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %SHA512Type_digest_impl.exit
 
@@ -1781,7 +1781,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 
 SHA512Type_digest_impl.exit:                      ; preds = %_PyMutex_Lock.exit.i, %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !51
+  %22 = load i32, ptr %21, align 8, !tbaa !50
   %23 = sext i32 %22 to i64
   %24 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef %23) #3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #3
@@ -1793,7 +1793,7 @@ define internal ptr @SHA512Type_hexdigest(ptr noundef %0, ptr readnone captures(
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i8, ptr %4, align 4, !tbaa !47, !range !62, !noundef !63
+  %5 = load i8, ptr %4, align 4, !tbaa !46, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -1809,9 +1809,9 @@ define internal ptr @SHA512Type_hexdigest(ptr noundef %0, ptr readnone captures(
 
 _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
   call void @python_hashlib_Hacl_Hash_SHA2_digest_512(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 4, !tbaa !47, !range !62, !noundef !63
+  %14 = load i8, ptr %4, align 4, !tbaa !46, !range !61, !noundef !62
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %SHA512Type_hexdigest_impl.exit
 
@@ -1827,7 +1827,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 
 SHA512Type_hexdigest_impl.exit:                   ; preds = %_PyMutex_Lock.exit.i, %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !51
+  %22 = load i32, ptr %21, align 8, !tbaa !50
   %23 = sext i32 %22 to i64
   %24 = call ptr @_Py_strhex(ptr noundef nonnull %3, i64 noundef %23) #3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #3
@@ -1880,7 +1880,7 @@ define internal noundef ptr @SHA512Type_update(ptr noundef %0, ptr noundef %1) #
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %24 = load i8, ptr %23, align 4, !tbaa !47, !range !62, !noundef !63
+  %24 = load i8, ptr %23, align 4, !tbaa !46, !range !61, !noundef !62
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i64, ptr %26, align 8
@@ -1889,7 +1889,7 @@ define internal noundef ptr @SHA512Type_update(ptr noundef %0, ptr noundef %1) #
   br i1 %or.cond.not, label %29, label %.thread
 
 .thread:                                          ; preds = %22
-  store i8 1, ptr %23, align 4, !tbaa !47
+  store i8 1, ptr %23, align 4, !tbaa !46
   br label %31
 
 29:                                               ; preds = %22
@@ -1909,7 +1909,7 @@ define internal noundef ptr @SHA512Type_update(ptr noundef %0, ptr noundef %1) #
 
 _PyMutex_Lock.exit:                               ; preds = %31, %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !50
+  %38 = load ptr, ptr %37, align 8, !tbaa !49
   %39 = load ptr, ptr %3, align 8, !tbaa !43
   %40 = load i64, ptr %26, align 8, !tbaa !42
   %41 = icmp sgt i64 %40, 4294967295
@@ -1922,7 +1922,7 @@ _PyMutex_Lock.exit:                               ; preds = %31, %36
   %43 = add nsw i64 %.09.i, -4294967295
   %44 = getelementptr i8, ptr %.078.i, i64 4294967295
   %45 = icmp samesign ugt i64 %.09.i, 8589934590
-  br i1 %45, label %.lr.ph.i, label %update_512.exit, !llvm.loop !52
+  br i1 %45, label %.lr.ph.i, label %update_512.exit, !llvm.loop !51
 
 update_512.exit:                                  ; preds = %.lr.ph.i, %_PyMutex_Lock.exit
   %.07.lcssa.i = phi ptr [ %39, %_PyMutex_Lock.exit ], [ %44, %.lr.ph.i ]
@@ -1943,7 +1943,7 @@ _PyMutex_Unlock.exit:                             ; preds = %update_512.exit, %5
 
 51:                                               ; preds = %29
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !50
+  %53 = load ptr, ptr %52, align 8, !tbaa !49
   %54 = load ptr, ptr %3, align 8, !tbaa !43
   %55 = icmp sgt i64 %27, 4294967295
   br i1 %55, label %.lr.ph.i20, label %update_512.exit23
@@ -1955,7 +1955,7 @@ _PyMutex_Unlock.exit:                             ; preds = %update_512.exit, %5
   %57 = add nsw i64 %.09.i21, -4294967295
   %58 = getelementptr i8, ptr %.078.i22, i64 4294967295
   %59 = icmp samesign ugt i64 %.09.i21, 8589934590
-  br i1 %59, label %.lr.ph.i20, label %update_512.exit23, !llvm.loop !52
+  br i1 %59, label %.lr.ph.i20, label %update_512.exit23, !llvm.loop !51
 
 update_512.exit23:                                ; preds = %.lr.ph.i20, %51
   %.07.lcssa.i18 = phi ptr [ %54, %51 ], [ %58, %.lr.ph.i20 ]
@@ -1987,7 +1987,7 @@ define internal ptr @SHA512_get_block_size(ptr readnone captures(none) %0, ptr r
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA512_get_name(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !51
+  %4 = load i32, ptr %3, align 8, !tbaa !50
   %5 = icmp eq i32 %4, 64
   %.str.3..str.4 = select i1 %5, ptr @.str.3, ptr @.str.4
   %6 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %.str.3..str.4, i64 noundef 6) #3
@@ -1997,7 +1997,7 @@ define internal ptr @SHA512_get_name(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA512_get_digest_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !51
+  %4 = load i32, ptr %3, align 8, !tbaa !50
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #3
   ret ptr %6
@@ -2054,23 +2054,22 @@ attributes #3 = { nounwind }
 !41 = !{!36, !30, i64 16}
 !42 = !{!33, !21, i64 16}
 !43 = !{!33, !9, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !37, i64 20}
-!48 = !{!"", !5, i64 0, !30, i64 16, !37, i64 20, !38, i64 21, !49, i64 24}
-!49 = !{!"p1 _ZTS28Hacl_Streaming_MD_state_64_s", !9, i64 0}
-!50 = !{!48, !49, i64 24}
-!51 = !{!48, !30, i64 16}
-!52 = distinct !{!52, !45, !46}
-!53 = !{!54, !10, i64 888}
-!54 = !{!"_heaptypeobject", !25, i64 0, !55, i64 416, !56, i64 448, !57, i64 736, !58, i64 760, !59, i64 840, !10, i64 856, !10, i64 864, !10, i64 872, !60, i64 880, !10, i64 888, !26, i64 896, !9, i64 904, !61, i64 912}
-!55 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!56 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !9, i64 272, !9, i64 280}
-!57 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16}
-!58 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72}
-!59 = !{!"", !9, i64 0, !9, i64 8}
-!60 = !{!"p1 _ZTS15_dictkeysobject", !9, i64 0}
-!61 = !{!"_specialization_cache", !10, i64 0, !30, i64 8, !10, i64 16}
-!62 = !{i8 0, i8 2}
-!63 = !{}
+!46 = !{!47, !37, i64 20}
+!47 = !{!"", !5, i64 0, !30, i64 16, !37, i64 20, !38, i64 21, !48, i64 24}
+!48 = !{!"p1 _ZTS28Hacl_Streaming_MD_state_64_s", !9, i64 0}
+!49 = !{!47, !48, i64 24}
+!50 = !{!47, !30, i64 16}
+!51 = distinct !{!51, !45}
+!52 = !{!53, !10, i64 888}
+!53 = !{!"_heaptypeobject", !25, i64 0, !54, i64 416, !55, i64 448, !56, i64 736, !57, i64 760, !58, i64 840, !10, i64 856, !10, i64 864, !10, i64 872, !59, i64 880, !10, i64 888, !26, i64 896, !9, i64 904, !60, i64 912}
+!54 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!55 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !9, i64 256, !9, i64 264, !9, i64 272, !9, i64 280}
+!56 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16}
+!57 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72}
+!58 = !{!"", !9, i64 0, !9, i64 8}
+!59 = !{!"p1 _ZTS15_dictkeysobject", !9, i64 0}
+!60 = !{!"_specialization_cache", !10, i64 0, !30, i64 8, !10, i64 16}
+!61 = !{i8 0, i8 2}
+!62 = !{}

@@ -361,7 +361,7 @@ conversation_element_count.exit:                  ; preds = %conversation_elemen
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %.015, ptr noundef %20)
   %21 = add nuw nsw i64 %.01114, 1
   %exitcond.not = icmp eq i64 %21, %indvars.iv
-  br i1 %exitcond.not, label %12, label %conversation_element_count.exit.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %12, label %conversation_element_count.exit.preheader, !llvm.loop !8
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -414,7 +414,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %16 = xor i32 %15, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit106, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit106, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.preheader.i36:                             ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -432,7 +432,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %24 = xor i32 %23, %22
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 4
-  br i1 %exitcond.not.i42, label %add_address_to_hash.exit106, label %.lr.ph.i38, !llvm.loop !10
+  br i1 %exitcond.not.i42, label %add_address_to_hash.exit106, label %.lr.ph.i38, !llvm.loop !9
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -458,7 +458,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %37 = xor i32 %36, %35
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i46
-  br i1 %exitcond.not.i51, label %add_address_to_hash.exit106, label %.lr.ph.i47, !llvm.loop !10
+  br i1 %exitcond.not.i51, label %add_address_to_hash.exit106, label %.lr.ph.i47, !llvm.loop !9
 
 .lr.ph.preheader.i54:                             ; preds = %2
   %38 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -476,7 +476,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %45 = xor i32 %44, %43
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, 4
-  br i1 %exitcond.not.i60, label %add_address_to_hash.exit106, label %.lr.ph.i56, !llvm.loop !10
+  br i1 %exitcond.not.i60, label %add_address_to_hash.exit106, label %.lr.ph.i56, !llvm.loop !9
 
 .lr.ph.preheader.i63:                             ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -494,7 +494,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %53 = xor i32 %52, %51
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 8
-  br i1 %exitcond.not.i69, label %add_address_to_hash.exit106, label %.lr.ph.i65, !llvm.loop !10
+  br i1 %exitcond.not.i69, label %add_address_to_hash.exit106, label %.lr.ph.i65, !llvm.loop !9
 
 .lr.ph.preheader.i72:                             ; preds = %2
   %54 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -512,7 +512,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %61 = xor i32 %60, %59
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 4
-  br i1 %exitcond.not.i78, label %add_address_to_hash.exit106, label %.lr.ph.i74, !llvm.loop !10
+  br i1 %exitcond.not.i78, label %add_address_to_hash.exit106, label %.lr.ph.i74, !llvm.loop !9
 
 .lr.ph.preheader.i81:                             ; preds = %2
   %62 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -530,7 +530,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %69 = xor i32 %68, %67
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 8
-  br i1 %exitcond.not.i87, label %add_address_to_hash.exit106, label %.lr.ph.i83, !llvm.loop !10
+  br i1 %exitcond.not.i87, label %add_address_to_hash.exit106, label %.lr.ph.i83, !llvm.loop !9
 
 70:                                               ; preds = %2
   %71 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -557,7 +557,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %83 = xor i32 %82, %81
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i91
-  br i1 %exitcond.not.i96, label %add_address_to_hash.exit106, label %.lr.ph.i92, !llvm.loop !10
+  br i1 %exitcond.not.i96, label %add_address_to_hash.exit106, label %.lr.ph.i92, !llvm.loop !9
 
 .lr.ph.preheader.i99:                             ; preds = %2
   %84 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -575,7 +575,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %91 = xor i32 %90, %89
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 4
-  br i1 %exitcond.not.i105, label %93, label %.lr.ph.i101, !llvm.loop !10
+  br i1 %exitcond.not.i105, label %93, label %.lr.ph.i101, !llvm.loop !9
 
 add_address_to_hash.exit106:                      ; preds = %.lr.ph.i92, %.lr.ph.i83, %.lr.ph.i74, %.lr.ph.i65, %.lr.ph.i56, %.lr.ph.i47, %.lr.ph.i38, %.lr.ph.i, %2, %4, %25, %70
   %.1 = phi i32 [ %.031, %2 ], [ %.031, %4 ], [ %.031, %25 ], [ %.031, %70 ], [ %16, %.lr.ph.i ], [ %24, %.lr.ph.i38 ], [ %37, %.lr.ph.i47 ], [ %45, %.lr.ph.i56 ], [ %53, %.lr.ph.i65 ], [ %61, %.lr.ph.i74 ], [ %69, %.lr.ph.i83 ], [ %83, %.lr.ph.i92 ]
@@ -728,7 +728,7 @@ addresses_equal.exit.thread:                      ; preds = %18, %20, %65, %66, 
   %76 = load i32, ptr %74, align 8
   %77 = load i32, ptr %75, align 8
   %.not = icmp eq i32 %76, %77
-  br i1 %.not, label %.lr.ph, label %addresses_equal.exit, !llvm.loop !11
+  br i1 %.not, label %.lr.ph, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %addresses_equal.exit.thread, %27, %32, %38, %43, %48, %53, %66, %58, %6, %12, %20, %2, %69
   %.030 = phi i32 [ %., %69 ], [ 0, %2 ], [ 0, %20 ], [ 0, %12 ], [ 0, %6 ], [ 0, %58 ], [ 0, %66 ], [ 0, %53 ], [ 0, %48 ], [ 0, %43 ], [ 0, %38 ], [ 0, %32 ], [ 0, %27 ], [ 0, %addresses_equal.exit.thread ]
@@ -889,7 +889,7 @@ conversation_element_count.exit:                  ; preds = %24
 copy_address_wmem.exit:                           ; preds = %52, %42, %39, %64, %58
   %72 = add nuw nsw i64 %.04047, 1
   %exitcond.not = icmp eq i64 %72, %indvars.iv
-  br i1 %exitcond.not, label %30, label %39, !llvm.loop !12
+  br i1 %exitcond.not, label %30, label %39, !llvm.loop !10
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
@@ -939,10 +939,10 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %21 = load ptr, ptr %5, align 8
   %.not4164 = icmp eq ptr %21, null
-  br i1 %.not4164, label %.critedge, label %.lr.ph66, !llvm.loop !13
+  br i1 %.not4164, label %.critedge, label %.lr.ph66, !llvm.loop !11
 
 .lr.ph66:                                         ; preds = %.lr.ph.preheader
-  br label %23, !llvm.loop !13
+  br label %23, !llvm.loop !11
 
 22:                                               ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
@@ -956,15 +956,15 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = icmp ugt i32 %15, %26
-  br i1 %27, label %.lr.ph, label %.critedge.thread53, !llvm.loop !13
+  br i1 %27, label %.lr.ph, label %.critedge.thread53, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %23
   %28 = load ptr, ptr %24, align 8
   %.not41 = icmp eq ptr %28, null
-  br i1 %.not41, label %.lr.ph..critedge_crit_edge, label %23, !llvm.loop !13
+  br i1 %.not41, label %.lr.ph..critedge_crit_edge, label %23, !llvm.loop !11
 
 .lr.ph..critedge_crit_edge:                       ; preds = %.lr.ph
-  br label %.critedge, !llvm.loop !13
+  br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph..critedge_crit_edge, %.lr.ph.preheader
   %.043.lcssa = phi ptr [ %.0384265, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
@@ -1834,13 +1834,13 @@ define void @conversation_set_port2(ptr noundef %0, i32 noundef %1) local_unname
 
 36:                                               ; preds = %.lr.ph.i
   %.not.i = icmp eq ptr %37, %0
-  br i1 %.not.i, label %.critedge43.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %.critedge43.i, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %34, %36
   %.03646.i = phi ptr [ %37, %36 ], [ %35, %34 ]
   %37 = load ptr, ptr %.03646.i, align 8
   %.not42.i = icmp eq ptr %37, null
-  br i1 %.not42.i, label %conversation_remove_from_hashtable.exit, label %36, !llvm.loop !14
+  br i1 %.not42.i, label %conversation_remove_from_hashtable.exit, label %36, !llvm.loop !12
 
 .critedge43.i:                                    ; preds = %36, %34
   %.0.lcssa.i = phi ptr [ %15, %34 ], [ %.03646.i, %36 ]
@@ -1903,13 +1903,13 @@ define void @conversation_set_port2(ptr noundef %0, i32 noundef %1) local_unname
 
 70:                                               ; preds = %.lr.ph.i24
   %.not.i27 = icmp eq ptr %71, %0
-  br i1 %.not.i27, label %.critedge43.i28, label %.lr.ph.i24, !llvm.loop !14
+  br i1 %.not.i27, label %.critedge43.i28, label %.lr.ph.i24, !llvm.loop !12
 
 .lr.ph.i24:                                       ; preds = %68, %70
   %.03646.i25 = phi ptr [ %71, %70 ], [ %69, %68 ]
   %71 = load ptr, ptr %.03646.i25, align 8
   %.not42.i26 = icmp eq ptr %71, null
-  br i1 %.not42.i26, label %conversation_remove_from_hashtable.exit, label %70, !llvm.loop !14
+  br i1 %.not42.i26, label %conversation_remove_from_hashtable.exit, label %70, !llvm.loop !12
 
 .critedge43.i28:                                  ; preds = %70, %68
   %.0.lcssa.i29 = phi ptr [ %49, %68 ], [ %.03646.i25, %70 ]
@@ -2032,13 +2032,13 @@ define void @conversation_set_addr2(ptr noundef %0, ptr noundef %1) local_unname
 
 38:                                               ; preds = %.lr.ph.i
   %.not.i = icmp eq ptr %39, %0
-  br i1 %.not.i, label %.critedge43.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %.critedge43.i, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %36, %38
   %.03646.i = phi ptr [ %39, %38 ], [ %37, %36 ]
   %39 = load ptr, ptr %.03646.i, align 8
   %.not42.i = icmp eq ptr %39, null
-  br i1 %.not42.i, label %conversation_remove_from_hashtable.exit, label %38, !llvm.loop !14
+  br i1 %.not42.i, label %conversation_remove_from_hashtable.exit, label %38, !llvm.loop !12
 
 .critedge43.i:                                    ; preds = %38, %36
   %.0.lcssa.i = phi ptr [ %17, %36 ], [ %.03646.i, %38 ]
@@ -2101,13 +2101,13 @@ define void @conversation_set_addr2(ptr noundef %0, ptr noundef %1) local_unname
 
 72:                                               ; preds = %.lr.ph.i24
   %.not.i27 = icmp eq ptr %73, %0
-  br i1 %.not.i27, label %.critedge43.i28, label %.lr.ph.i24, !llvm.loop !14
+  br i1 %.not.i27, label %.critedge43.i28, label %.lr.ph.i24, !llvm.loop !12
 
 .lr.ph.i24:                                       ; preds = %70, %72
   %.03646.i25 = phi ptr [ %73, %72 ], [ %71, %70 ]
   %73 = load ptr, ptr %.03646.i25, align 8
   %.not42.i26 = icmp eq ptr %73, null
-  br i1 %.not42.i26, label %conversation_remove_from_hashtable.exit, label %72, !llvm.loop !14
+  br i1 %.not42.i26, label %conversation_remove_from_hashtable.exit, label %72, !llvm.loop !12
 
 .critedge43.i28:                                  ; preds = %72, %70
   %.0.lcssa.i29 = phi ptr [ %51, %70 ], [ %.03646.i25, %72 ]
@@ -2261,7 +2261,7 @@ define ptr @find_conversation_full(i32 noundef %0, ptr noundef %1) local_unnamed
   %spec.select41.i = select i1 %29, ptr %.02644.i, ptr %.245.i
   %30 = load ptr, ptr %.02644.i, align 8
   %.not38.i = icmp eq ptr %30, null
-  br i1 %.not38.i, label %.critedge.i, label %23, !llvm.loop !15
+  br i1 %.not38.i, label %.critedge.i, label %23, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %26, %23
   %.2.lcssa.i = phi ptr [ %.245.i, %23 ], [ %spec.select41.i, %26 ]
@@ -2394,7 +2394,7 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   %spec.select41.i.i = select i1 %60, ptr %.02644.i.i, ptr %.245.i.i
   %61 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %61, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %54, !llvm.loop !15
+  br i1 %.not38.i.i, label %.critedge.i.i, label %54, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %57, %54
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %54 ], [ %spec.select41.i.i, %57 ]
@@ -2489,7 +2489,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.cri
   %spec.select41.i.i209 = select i1 %97, ptr %.02644.i.i207, ptr %.245.i.i206
   %98 = load ptr, ptr %.02644.i.i207, align 8
   %.not38.i.i210 = icmp eq ptr %98, null
-  br i1 %.not38.i.i210, label %.critedge.i.i211, label %91, !llvm.loop !15
+  br i1 %.not38.i.i210, label %.critedge.i.i211, label %91, !llvm.loop !13
 
 .critedge.i.i211:                                 ; preds = %94, %91
   %.2.lcssa.i.i212 = phi ptr [ %.245.i.i206, %91 ], [ %spec.select41.i.i209, %94 ]
@@ -2607,7 +2607,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.cri
   %spec.select41.i.i227 = select i1 %147, ptr %.02644.i.i225, ptr %.245.i.i224
   %148 = load ptr, ptr %.02644.i.i225, align 8
   %.not38.i.i228 = icmp eq ptr %148, null
-  br i1 %.not38.i.i228, label %.critedge.i.i229, label %141, !llvm.loop !15
+  br i1 %.not38.i.i228, label %.critedge.i.i229, label %141, !llvm.loop !13
 
 .critedge.i.i229:                                 ; preds = %144, %141
   %.2.lcssa.i.i230 = phi ptr [ %.245.i.i224, %141 ], [ %spec.select41.i.i227, %144 ]
@@ -2708,7 +2708,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.cri
   %spec.select41.i.i245 = select i1 %184, ptr %.02644.i.i243, ptr %.245.i.i242
   %185 = load ptr, ptr %.02644.i.i243, align 8
   %.not38.i.i246 = icmp eq ptr %185, null
-  br i1 %.not38.i.i246, label %.critedge.i.i247, label %178, !llvm.loop !15
+  br i1 %.not38.i.i246, label %.critedge.i.i247, label %178, !llvm.loop !13
 
 .critedge.i.i247:                                 ; preds = %181, %178
   %.2.lcssa.i.i248 = phi ptr [ %.245.i.i242, %178 ], [ %spec.select41.i.i245, %181 ]
@@ -2806,7 +2806,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.cri
   %spec.select41.i.i262 = select i1 %222, ptr %.02644.i.i260, ptr %.245.i.i259
   %223 = load ptr, ptr %.02644.i.i260, align 8
   %.not38.i.i263 = icmp eq ptr %223, null
-  br i1 %.not38.i.i263, label %.critedge.i.i264, label %216, !llvm.loop !15
+  br i1 %.not38.i.i263, label %.critedge.i.i264, label %216, !llvm.loop !13
 
 .critedge.i.i264:                                 ; preds = %219, %216
   %.2.lcssa.i.i265 = phi ptr [ %.245.i.i259, %216 ], [ %spec.select41.i.i262, %219 ]
@@ -2930,7 +2930,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.cri
   %spec.select41.i.i280 = select i1 %270, ptr %.02644.i.i278, ptr %.245.i.i277
   %271 = load ptr, ptr %.02644.i.i278, align 8
   %.not38.i.i281 = icmp eq ptr %271, null
-  br i1 %.not38.i.i281, label %.critedge.i.i282, label %264, !llvm.loop !15
+  br i1 %.not38.i.i281, label %.critedge.i.i282, label %264, !llvm.loop !13
 
 .critedge.i.i282:                                 ; preds = %267, %264
   %.2.lcssa.i.i283 = phi ptr [ %.245.i.i277, %264 ], [ %spec.select41.i.i280, %267 ]
@@ -3048,7 +3048,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   %spec.select41.i.i298 = select i1 %316, ptr %.02644.i.i296, ptr %.245.i.i295
   %317 = load ptr, ptr %.02644.i.i296, align 8
   %.not38.i.i299 = icmp eq ptr %317, null
-  br i1 %.not38.i.i299, label %.critedge.i.i300, label %310, !llvm.loop !15
+  br i1 %.not38.i.i299, label %.critedge.i.i300, label %310, !llvm.loop !13
 
 .critedge.i.i300:                                 ; preds = %313, %310
   %.2.lcssa.i.i301 = phi ptr [ %.245.i.i295, %310 ], [ %spec.select41.i.i298, %313 ]
@@ -3147,7 +3147,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   %spec.select41.i.i315 = select i1 %355, ptr %.02644.i.i313, ptr %.245.i.i312
   %356 = load ptr, ptr %.02644.i.i313, align 8
   %.not38.i.i316 = icmp eq ptr %356, null
-  br i1 %.not38.i.i316, label %.critedge.i.i317, label %349, !llvm.loop !15
+  br i1 %.not38.i.i316, label %.critedge.i.i317, label %349, !llvm.loop !13
 
 .critedge.i.i317:                                 ; preds = %352, %349
   %.2.lcssa.i.i318 = phi ptr [ %.245.i.i312, %349 ], [ %spec.select41.i.i315, %352 ]
@@ -3272,7 +3272,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   %spec.select41.i.i333 = select i1 %404, ptr %.02644.i.i331, ptr %.245.i.i330
   %405 = load ptr, ptr %.02644.i.i331, align 8
   %.not38.i.i334 = icmp eq ptr %405, null
-  br i1 %.not38.i.i334, label %.critedge.i.i335, label %398, !llvm.loop !15
+  br i1 %.not38.i.i334, label %.critedge.i.i335, label %398, !llvm.loop !13
 
 .critedge.i.i335:                                 ; preds = %401, %398
   %.2.lcssa.i.i336 = phi ptr [ %.245.i.i330, %398 ], [ %spec.select41.i.i333, %401 ]
@@ -3379,7 +3379,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   %spec.select41.i.i351 = select i1 %445, ptr %.02644.i.i349, ptr %.245.i.i348
   %446 = load ptr, ptr %.02644.i.i349, align 8
   %.not38.i.i352 = icmp eq ptr %446, null
-  br i1 %.not38.i.i352, label %.critedge.i.i353, label %439, !llvm.loop !15
+  br i1 %.not38.i.i352, label %.critedge.i.i353, label %439, !llvm.loop !13
 
 .critedge.i.i353:                                 ; preds = %442, %439
   %.2.lcssa.i.i354 = phi ptr [ %.245.i.i348, %439 ], [ %spec.select41.i.i351, %442 ]
@@ -3508,7 +3508,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   %spec.select41.i.i368 = select i1 %496, ptr %.02644.i.i366, ptr %.245.i.i365
   %497 = load ptr, ptr %.02644.i.i366, align 8
   %.not38.i.i369 = icmp eq ptr %497, null
-  br i1 %.not38.i.i369, label %.critedge.i.i370, label %490, !llvm.loop !15
+  br i1 %.not38.i.i369, label %.critedge.i.i370, label %490, !llvm.loop !13
 
 .critedge.i.i370:                                 ; preds = %493, %490
   %.2.lcssa.i.i371 = phi ptr [ %.245.i.i365, %490 ], [ %spec.select41.i.i368, %493 ]
@@ -3595,7 +3595,7 @@ conversation_lookup_no_addr2_or_port2.exit373:    ; preds = %466, %475, %481, %.
   %spec.select41.i.i386 = select i1 %529, ptr %.02644.i.i384, ptr %.245.i.i383
   %530 = load ptr, ptr %.02644.i.i384, align 8
   %.not38.i.i387 = icmp eq ptr %530, null
-  br i1 %.not38.i.i387, label %.critedge.i.i388, label %523, !llvm.loop !15
+  br i1 %.not38.i.i387, label %.critedge.i.i388, label %523, !llvm.loop !13
 
 .critedge.i.i388:                                 ; preds = %526, %523
   %.2.lcssa.i.i389 = phi ptr [ %.245.i.i383, %523 ], [ %spec.select41.i.i386, %526 ]
@@ -3713,7 +3713,7 @@ conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %499, %508, %514, %.
   %spec.select41.i.i404 = select i1 %574, ptr %.02644.i.i402, ptr %.245.i.i401
   %575 = load ptr, ptr %.02644.i.i402, align 8
   %.not38.i.i405 = icmp eq ptr %575, null
-  br i1 %.not38.i.i405, label %.critedge.i.i406, label %568, !llvm.loop !15
+  br i1 %.not38.i.i405, label %.critedge.i.i406, label %568, !llvm.loop !13
 
 .critedge.i.i406:                                 ; preds = %571, %568
   %.2.lcssa.i.i407 = phi ptr [ %.245.i.i401, %568 ], [ %spec.select41.i.i404, %571 ]
@@ -3759,7 +3759,7 @@ define internal fastcc noundef ptr @conversation_create_from_template(ptr nounde
 9:                                                ; preds = %6
   %10 = add nuw nsw i64 %.0.i, 1
   %exitcond.not.i = icmp eq i64 %10, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !14
 
 11:                                               ; preds = %9
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @.str.28) #16
@@ -3972,7 +3972,7 @@ define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr nou
   %spec.select41.i = select i1 %36, ptr %.02644.i, ptr %.245.i
   %37 = load ptr, ptr %.02644.i, align 8
   %.not38.i = icmp eq ptr %37, null
-  br i1 %.not38.i, label %.critedge.i, label %30, !llvm.loop !15
+  br i1 %.not38.i, label %.critedge.i, label %30, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %33, %30
   %.2.lcssa.i = phi ptr [ %.245.i, %30 ], [ %spec.select41.i, %33 ]
@@ -4090,7 +4090,7 @@ define ptr @find_conversation_deinterlaced(i32 noundef %0, ptr noundef readonly 
   %spec.select41.i.i = select i1 %55, ptr %.02644.i.i, ptr %.245.i.i
   %56 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %56, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %49, !llvm.loop !15
+  br i1 %.not38.i.i, label %.critedge.i.i, label %49, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %52, %49
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %49 ], [ %spec.select41.i.i, %52 ]
@@ -4190,7 +4190,7 @@ conversation_lookup_exact_anc.exit:               ; preds = %18, %34, %40, %.cri
   %spec.select41.i.i104 = select i1 %94, ptr %.02644.i.i102, ptr %.245.i.i101
   %95 = load ptr, ptr %.02644.i.i102, align 8
   %.not38.i.i105 = icmp eq ptr %95, null
-  br i1 %.not38.i.i105, label %.critedge.i.i106, label %88, !llvm.loop !15
+  br i1 %.not38.i.i105, label %.critedge.i.i106, label %88, !llvm.loop !13
 
 .critedge.i.i106:                                 ; preds = %91, %88
   %.2.lcssa.i.i107 = phi ptr [ %.245.i.i101, %88 ], [ %spec.select41.i.i104, %91 ]
@@ -4307,7 +4307,7 @@ conversation_lookup_exact_anc.exit109.thread:     ; preds = %.critedge.i.i106, %
   %spec.select41.i.i122 = select i1 %141, ptr %.02644.i.i120, ptr %.245.i.i119
   %142 = load ptr, ptr %.02644.i.i120, align 8
   %.not38.i.i123 = icmp eq ptr %142, null
-  br i1 %.not38.i.i123, label %.critedge.i.i124, label %135, !llvm.loop !15
+  br i1 %.not38.i.i123, label %.critedge.i.i124, label %135, !llvm.loop !13
 
 .critedge.i.i124:                                 ; preds = %138, %135
   %.2.lcssa.i.i125 = phi ptr [ %.245.i.i119, %135 ], [ %spec.select41.i.i122, %138 ]
@@ -4402,7 +4402,7 @@ conversation_lookup_no_port2_anc.exit:            ; preds = %106, %120, %126, %.
   %spec.select41.i.i139 = select i1 %178, ptr %.02644.i.i137, ptr %.245.i.i136
   %179 = load ptr, ptr %.02644.i.i137, align 8
   %.not38.i.i140 = icmp eq ptr %179, null
-  br i1 %.not38.i.i140, label %.critedge.i.i141, label %172, !llvm.loop !15
+  br i1 %.not38.i.i140, label %.critedge.i.i141, label %172, !llvm.loop !13
 
 .critedge.i.i141:                                 ; preds = %175, %172
   %.2.lcssa.i.i142 = phi ptr [ %.245.i.i136, %172 ], [ %spec.select41.i.i139, %175 ]
@@ -4514,7 +4514,7 @@ conversation_lookup_no_port2_anc.exit144.thread:  ; preds = %.critedge.i.i141, %
   %spec.select41.i.i157 = select i1 %223, ptr %.02644.i.i155, ptr %.245.i.i154
   %224 = load ptr, ptr %.02644.i.i155, align 8
   %.not38.i.i158 = icmp eq ptr %224, null
-  br i1 %.not38.i.i158, label %.critedge.i.i159, label %217, !llvm.loop !15
+  br i1 %.not38.i.i158, label %.critedge.i.i159, label %217, !llvm.loop !13
 
 .critedge.i.i159:                                 ; preds = %220, %217
   %.2.lcssa.i.i160 = phi ptr [ %.245.i.i154, %217 ], [ %spec.select41.i.i157, %220 ]
@@ -4604,7 +4604,7 @@ conversation_lookup_no_ports_anc.exit:            ; preds = %190, %202, %208, %.
   %spec.select41.i.i174 = select i1 %258, ptr %.02644.i.i172, ptr %.245.i.i171
   %259 = load ptr, ptr %.02644.i.i172, align 8
   %.not38.i.i175 = icmp eq ptr %259, null
-  br i1 %.not38.i.i175, label %.critedge.i.i176, label %252, !llvm.loop !15
+  br i1 %.not38.i.i175, label %.critedge.i.i176, label %252, !llvm.loop !13
 
 .critedge.i.i176:                                 ; preds = %255, %252
   %.2.lcssa.i.i177 = phi ptr [ %.245.i.i171, %252 ], [ %spec.select41.i.i174, %255 ]
@@ -4706,7 +4706,7 @@ conversation_lookup_no_ports_anc.exit179.thread:  ; preds = %.critedge.i.i176, %
   %spec.select41.i.i192 = select i1 %299, ptr %.02644.i.i190, ptr %.245.i.i189
   %300 = load ptr, ptr %.02644.i.i190, align 8
   %.not38.i.i193 = icmp eq ptr %300, null
-  br i1 %.not38.i.i193, label %.critedge.i.i194, label %293, !llvm.loop !15
+  br i1 %.not38.i.i193, label %.critedge.i.i194, label %293, !llvm.loop !13
 
 .critedge.i.i194:                                 ; preds = %296, %293
   %.2.lcssa.i.i195 = phi ptr [ %.245.i.i189, %293 ], [ %spec.select41.i.i192, %296 ]
@@ -4791,7 +4791,7 @@ conversation_lookup_no_anc_anc.exit:              ; preds = %268, %278, %284, %.
   %spec.select41.i.i209 = select i1 %332, ptr %.02644.i.i207, ptr %.245.i.i206
   %333 = load ptr, ptr %.02644.i.i207, align 8
   %.not38.i.i210 = icmp eq ptr %333, null
-  br i1 %.not38.i.i210, label %.critedge.i.i211, label %326, !llvm.loop !15
+  br i1 %.not38.i.i210, label %.critedge.i.i211, label %326, !llvm.loop !13
 
 .critedge.i.i211:                                 ; preds = %329, %326
   %.2.lcssa.i.i212 = phi ptr [ %.245.i.i206, %326 ], [ %spec.select41.i.i209, %329 ]
@@ -4916,7 +4916,7 @@ define ptr @find_conversation_deinterlacer(i32 noundef %0, ptr noundef readonly 
   %spec.select41.i.i = select i1 %46, ptr %.02644.i.i, ptr %.245.i.i
   %47 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %47, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %40, !llvm.loop !15
+  br i1 %.not38.i.i, label %.critedge.i.i, label %40, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %43, %40
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %40 ], [ %spec.select41.i.i, %43 ]
@@ -5016,7 +5016,7 @@ conversation_lookup_deinterlacer.exit:            ; preds = %7, %25, %31, %.crit
   %spec.select41.i.i35 = select i1 %85, ptr %.02644.i.i33, ptr %.245.i.i32
   %86 = load ptr, ptr %.02644.i.i33, align 8
   %.not38.i.i36 = icmp eq ptr %86, null
-  br i1 %.not38.i.i36, label %.critedge.i.i37, label %79, !llvm.loop !15
+  br i1 %.not38.i.i36, label %.critedge.i.i37, label %79, !llvm.loop !13
 
 .critedge.i.i37:                                  ; preds = %82, %79
   %.2.lcssa.i.i38 = phi ptr [ %.245.i.i32, %79 ], [ %spec.select41.i.i35, %82 ]
@@ -5116,7 +5116,7 @@ define ptr @find_conversation_by_id(i32 noundef %0, i32 noundef %1, i32 noundef 
   %spec.select41.i = select i1 %30, ptr %.02644.i, ptr %.245.i
   %31 = load ptr, ptr %.02644.i, align 8
   %.not38.i = icmp eq ptr %31, null
-  br i1 %.not38.i, label %.critedge.i, label %24, !llvm.loop !15
+  br i1 %.not38.i, label %.critedge.i, label %24, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %27, %24
   %.2.lcssa.i = phi ptr [ %.245.i, %24 ], [ %spec.select41.i, %27 ]
@@ -5458,7 +5458,7 @@ define zeroext i1 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef 
   %spec.select41.i.i = select i1 %35, ptr %.02644.i.i, ptr %.245.i.i
   %36 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %36, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %29, !llvm.loop !15
+  br i1 %.not38.i.i, label %.critedge.i.i, label %29, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %32, %29
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %29 ], [ %spec.select41.i.i, %32 ]
@@ -5610,7 +5610,7 @@ find_conversation_deinterlacer_pinfo.exit:        ; preds = %26, %31, %34
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %4 = load i8, ptr %3, align 8, !range !17, !noundef !18
+  %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %27
 
@@ -5732,7 +5732,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @find_conversation_pinfo_ro(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %4 = load i8, ptr %3, align 8, !range !17, !noundef !18
+  %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %21
 
@@ -5801,7 +5801,7 @@ define ptr @find_or_create_conversation(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %6 = load i8, ptr %5, align 8, !range !17, !noundef !18
+  %6 = load i8, ptr %5, align 8, !range !15, !noundef !16
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %21
 
@@ -5927,7 +5927,7 @@ define ptr @find_or_create_conversation_by_id(ptr noundef readonly captures(none
   %spec.select41.i.i = select i1 %32, ptr %.02644.i.i, ptr %.245.i.i
   %33 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %33, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %26, !llvm.loop !15
+  br i1 %.not38.i.i, label %.critedge.i.i, label %26, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %29, %26
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %26 ], [ %spec.select41.i.i, %29 ]
@@ -6273,16 +6273,14 @@ attributes #19 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i8 0, i8 2}
-!18 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{i8 0, i8 2}
+!16 = !{}

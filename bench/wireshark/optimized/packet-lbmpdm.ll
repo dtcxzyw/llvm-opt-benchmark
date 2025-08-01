@@ -575,7 +575,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %154 = load i32, ptr %.sroa.10101.0107, align 8
   %155 = zext i32 %154 to i64
   %156 = icmp samesign ult i64 %indvars.iv.next.i, %155
-  br i1 %156, label %143, label %dissect_segment_data.exit, !llvm.loop !9
+  br i1 %156, label %143, label %dissect_segment_data.exit, !llvm.loop !8
 
 157:                                              ; preds = %107
   %158 = load i32, ptr @hf_lbmpdm_segment, align 4
@@ -649,7 +649,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %.1.i = call i32 @llvm.smin.i32(i32 %196, i32 %.0132.i)
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph134.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph134.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %201
   %202 = add nuw i32 %spec.select.i, 1
@@ -702,7 +702,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 220:                                              ; preds = %219, %.lr.ph140.i
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
-  br i1 %exitcond151.not.i, label %dissect_segment_data.exit, label %.lr.ph140.i, !llvm.loop !11
+  br i1 %exitcond151.not.i, label %dissect_segment_data.exit, label %.lr.ph140.i, !llvm.loop !10
 
 221:                                              ; preds = %107
   %222 = load ptr, ptr %72, align 8
@@ -1058,7 +1058,7 @@ switch.lookup:                                    ; preds = %383
   %414 = icmp sgt i32 %412, 0
   %415 = icmp ne i32 %413, 0
   %416 = select i1 %414, i1 %415, i1 false
-  br i1 %416, label %307, label %dissect_segment_data.exit, !llvm.loop !12
+  br i1 %416, label %307, label %dissect_segment_data.exit, !llvm.loop !11
 
 417:                                              ; preds = %107
   %418 = load i32, ptr @hf_lbmpdm_segment, align 4
@@ -1092,7 +1092,7 @@ dissect_segment_data.exit:                        ; preds = %410, %220, %153, %d
   %438 = icmp ne i8 %108, -1
   %439 = icmp sgt i32 %436, 7
   %440 = select i1 %438, i1 %439, i1 false
-  br i1 %440, label %107, label %.loopexit, !llvm.loop !13
+  br i1 %440, label %107, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %dissect_segment_data.exit, %63, %proto_item_set_generated.exit, %5
   %.088 = phi i32 [ 0, %5 ], [ 16, %proto_item_set_generated.exit ], [ 16, %63 ], [ %435, %dissect_segment_data.exit ]
@@ -1389,7 +1389,7 @@ proto_item_set_generated.exit75:                  ; preds = %proto_item_set_gene
   %124 = mul i64 %.0146.i, 10
   %125 = add nsw i8 %.0137145.i, -1
   %126 = icmp samesign ugt i8 %.0137145.i, 1
-  br i1 %126, label %.lr.ph147.i, label %._crit_edge148.i, !llvm.loop !14
+  br i1 %126, label %.lr.ph147.i, label %._crit_edge148.i, !llvm.loop !13
 
 ._crit_edge148.i:                                 ; preds = %.lr.ph147.i, %.preheader.i
   %.0.lcssa.i = phi i64 [ %121, %.preheader.i ], [ %124, %.lr.ph147.i ]
@@ -1409,7 +1409,7 @@ proto_item_set_generated.exit75:                  ; preds = %proto_item_set_gene
   %133 = mul i64 %.0136144.i, 10
   %134 = add nsw i8 %.1138143.i, -1
   %135 = icmp samesign ugt i8 %.1138143.i, 1
-  br i1 %135, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %135, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %129
   %.0136.lcssa.i = phi i64 [ 1, %129 ], [ %133, %.lr.ph.i ]
@@ -1472,7 +1472,7 @@ dissect_field_value.exit:                         ; preds = %83, %85, %88, %91, 
   %169 = add i32 %.061, %.180
   %170 = add nuw i32 %.06379, 1
   %exitcond.not = icmp eq i32 %170, %.064
-  br i1 %exitcond.not, label %171, label %70, !llvm.loop !16
+  br i1 %exitcond.not, label %171, label %70, !llvm.loop !15
 
 171:                                              ; preds = %dissect_field_value.exit
   ret i32 %169
@@ -1552,14 +1552,13 @@ attributes #10 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

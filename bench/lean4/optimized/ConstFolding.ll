@@ -3346,7 +3346,7 @@ lean_inc.exit88:                                  ; preds = %45, %44, %42, %36
 .backedge:                                        ; preds = %lean_inc.exit88, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit128
   %.075.be = phi ptr [ %185, %lean_alloc_ctor.exit128 ], [ %.0, %lean_alloc_ctor.exit ], [ %.0, %lean_inc.exit88 ]
   %.0.be = phi ptr [ %93, %lean_alloc_ctor.exit128 ], [ %33, %lean_alloc_ctor.exit ], [ %33, %lean_inc.exit88 ]
-  br label %5, !llvm.loop !15
+  br label %5
 
 47:                                               ; preds = %30
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -3857,7 +3857,7 @@ lean_dec.exit:                                    ; preds = %41, %40, %38, %lean
   %42 = load ptr, ptr @l_Lean_Compiler_preUIntBinFoldFns, align 8, !tbaa !4
   %43 = tail call ptr @l_List_mapTR_loop___at_Lean_Compiler_uintBinFoldFns___spec__1(ptr noundef %16, ptr noundef %42, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %44 = tail call ptr @l_List_appendTR___rarg(ptr noundef %.0, ptr noundef %43) #5
-  br label %3, !llvm.loop !17
+  br label %3
 }
 
 declare ptr @l_List_appendTR___rarg(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4605,7 +4605,7 @@ lean_obj_tag.exit90:                              ; preds = %44, %47
   %69 = and i64 %68, 1
   %70 = icmp ne i64 %69, 0
   %or.cond = select i1 %67, i1 %70, i1 false
-  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !18
+  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !15
 
 lean_nat_lt.exit:                                 ; preds = %63
   %71 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %62, ptr noundef %64) #5
@@ -6687,9 +6687,9 @@ lean_obj_tag.exit37:                              ; preds = %40, %43
 
 54:                                               ; preds = %47
   %55 = getelementptr i8, ptr %51, i64 8
-  %.val.i.i = load i64, ptr %55, align 8, !tbaa !19
+  %.val.i.i = load i64, ptr %55, align 8, !tbaa !16
   %56 = getelementptr i8, ptr %52, i64 8
-  %.val7.i.i = load i64, ptr %56, align 8, !tbaa !19
+  %.val7.i.i = load i64, ptr %56, align 8, !tbaa !16
   %57 = icmp eq i64 %.val.i.i, %.val7.i.i
   br i1 %57, label %lean_string_dec_eq.exit, label %lean_string_dec_eq.exit.thread
 
@@ -6704,9 +6704,9 @@ lean_string_dec_eq.exit.thread44:                 ; preds = %47, %lean_string_de
 
 61:                                               ; preds = %lean_string_dec_eq.exit.thread44
   %62 = getelementptr i8, ptr %49, i64 8
-  %.val.i.i38 = load i64, ptr %62, align 8, !tbaa !19
+  %.val.i.i38 = load i64, ptr %62, align 8, !tbaa !16
   %63 = getelementptr i8, ptr %59, i64 8
-  %.val7.i.i39 = load i64, ptr %63, align 8, !tbaa !19
+  %.val7.i.i39 = load i64, ptr %63, align 8, !tbaa !16
   %64 = icmp eq i64 %.val.i.i38, %.val7.i.i39
   br i1 %64, label %lean_string_dec_eq.exit40, label %lean_string_dec_eq.exit40.thread
 
@@ -6720,9 +6720,9 @@ lean_string_dec_eq.exit40.thread:                 ; preds = %61, %lean_string_de
   br i1 %67, label %lean_string_dec_eq.exit43.thread46, label %68
 
 68:                                               ; preds = %lean_string_dec_eq.exit40.thread
-  %.val.i.i41 = load i64, ptr %62, align 8, !tbaa !19
+  %.val.i.i41 = load i64, ptr %62, align 8, !tbaa !16
   %69 = getelementptr i8, ptr %66, i64 8
-  %.val7.i.i42 = load i64, ptr %69, align 8, !tbaa !19
+  %.val7.i.i42 = load i64, ptr %69, align 8, !tbaa !16
   %70 = icmp eq i64 %.val.i.i41, %.val7.i.i42
   br i1 %70, label %lean_string_dec_eq.exit43, label %lean_string_dec_eq.exit.thread
 
@@ -9395,7 +9395,7 @@ lean_alloc_ctor.exit77:                           ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit77, %lean_alloc_ctor.exit
   %.0.be = phi ptr [ %129, %lean_alloc_ctor.exit77 ], [ %.044, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !21
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12948,10 +12948,6 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = !{!"branch_weights", i32 4000000, i32 4001}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !6, i64 0}
-!21 = distinct !{!21, !16}
+!15 = !{!"branch_weights", i32 4000000, i32 4001}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}

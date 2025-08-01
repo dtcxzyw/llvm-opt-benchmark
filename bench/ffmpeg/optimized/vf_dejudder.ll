@@ -220,7 +220,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %103 = load i32, ptr %95, align 4, !tbaa !20
   %104 = sext i32 %103 to i64
   %.not73 = icmp sgt i64 %indvars.iv75, %104
-  br i1 %.not73, label %._crit_edge.loopexit, label %.lr.ph71, !llvm.loop !52
+  br i1 %.not73, label %._crit_edge.loopexit, label %.lr.ph71, !llvm.loop !51
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph71
   %.pre84 = load i64, ptr %12, align 8, !tbaa !43
@@ -242,11 +242,11 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_out_props(ptr noundef captures(none) initializes((96, 104), (264, 272)) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !54
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -340,9 +340,8 @@ attributes #5 = { nounwind willreturn memory(none) }
 !46 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
 !47 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !48 = !{!23, !23, i64 0}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = distinct !{!52, !50, !51}
-!53 = !{!32, !33, i64 0}
-!54 = !{!5, !13, i64 32}
+!51 = distinct !{!51, !50}
+!52 = !{!32, !33, i64 0}
+!53 = !{!5, !13, i64 32}

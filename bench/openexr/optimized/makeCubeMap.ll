@@ -439,7 +439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %_
 
 159:                                              ; preds = %157
   %160 = add nuw nsw i32 %.032.i, 1
-  br label %.preheader8.i, !llvm.loop !57
+  br label %.preheader8.i, !llvm.loop !56
 
 161:                                              ; preds = %163, %.preheader.i
   %162 = landingpad { ptr, i32 }
@@ -452,7 +452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %_
 
 164:                                              ; preds = %163
   %165 = add nuw nsw i32 %.0.i, 1
-  br label %.preheader.i, !llvm.loop !58
+  br label %.preheader.i, !llvm.loop !57
 
 166:                                              ; preds = %161, %154, %152
   %.pn45.pn.i = phi { ptr, i32 } [ %153, %152 ], [ %162, %161 ], [ %155, %154 ]
@@ -625,9 +625,9 @@ _ZN12_GLOBAL__N_119makeCubeMapSixFilesER11EnvmapImageRN7Imf_3_46HeaderENS2_12Rgb
   %231 = getelementptr inbounds nuw i8, ptr %221, i64 12
   store i32 %230, ptr %231, align 4, !tbaa !9
   %232 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
-  store i32 %8, ptr %232, align 4, !tbaa !59
+  store i32 %8, ptr %232, align 4, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
-  store i32 1, ptr %14, align 4, !tbaa !61
+  store i32 1, ptr %14, align 4, !tbaa !60
   call void @_ZN7Imf_3_49addEnvmapERNS_6HeaderERKNS_6EnvmapE(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #13
@@ -800,7 +800,7 @@ _ZNSolsEPFRSoS_E.exit63.us.i:                     ; preds = %.noexc82.us.i
 297:                                              ; preds = %295
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #13
   %298 = add nuw nsw i32 %.039.us.i, 1
-  br label %.preheader107.split.us.i, !llvm.loop !63
+  br label %.preheader107.split.us.i, !llvm.loop !62
 
 .preheader.us.i:                                  ; preds = %295, %305
   %.0.us.i = phi i32 [ %306, %305 ], [ 0, %295 ]
@@ -813,7 +813,7 @@ _ZNSolsEPFRSoS_E.exit63.us.i:                     ; preds = %.noexc82.us.i
 
 302:                                              ; preds = %300
   %303 = add nuw nsw i32 %.038.us.i, 1
-  br label %.preheader106.us.i, !llvm.loop !65
+  br label %.preheader106.us.i, !llvm.loop !64
 
 304:                                              ; preds = %300
   invoke void @_ZN7Imf_3_419TiledRgbaOutputFile9writeTileEiii(ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef %.0.us.i, i32 noundef %.038.us.i, i32 noundef %.039.us.i)
@@ -821,7 +821,7 @@ _ZNSolsEPFRSoS_E.exit63.us.i:                     ; preds = %.noexc82.us.i
 
 305:                                              ; preds = %304
   %306 = add nuw nsw i32 %.0.us.i, 1
-  br label %.preheader.us.i, !llvm.loop !66
+  br label %.preheader.us.i, !llvm.loop !65
 
 .loopexit.split.us.i:                             ; preds = %.noexc82.us.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i77.us.i, %.noexc80.us.i, %278, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61.us.i, %263, %.preheader107.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -913,7 +913,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %311
 327:                                              ; preds = %325
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #13
   %328 = add nuw nsw i32 %.039.i, 1
-  br label %.preheader107.split.i, !llvm.loop !67
+  br label %.preheader107.split.i, !llvm.loop !66
 
 .split111.i:                                      ; preds = %318, %316, %315, %_ZNSolsEPFRSoS_E.exit63.i
   %329 = landingpad { ptr, i32 }
@@ -936,7 +936,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %311
 
 334:                                              ; preds = %332
   %335 = add nuw nsw i32 %.038.i, 1
-  br label %.preheader106.i, !llvm.loop !65
+  br label %.preheader106.i, !llvm.loop !64
 
 .split117.i:                                      ; preds = %337, %.preheader.i27
   %336 = landingpad { ptr, i32 }
@@ -949,7 +949,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %311
 
 338:                                              ; preds = %337
   %339 = add nuw nsw i32 %.0.i28, 1
-  br label %.preheader.i27, !llvm.loop !66
+  br label %.preheader.i27, !llvm.loop !65
 
 340:                                              ; preds = %.split117.i, %.split114.i, %.split111.i, %.split117.us.i, %.split114.us.i, %.split111.us.i
   %.pn.pn.i = phi { ptr, i32 } [ %329, %.split111.i ], [ %307, %.split111.us.i ], [ %330, %.split114.i ], [ %308, %.split114.us.i ], [ %336, %.split117.i ], [ %309, %.split117.us.i ]
@@ -1228,17 +1228,16 @@ attributes #15 = { builtin nounwind }
 !51 = !{!49, !50, i64 4}
 !52 = !{!53, !6, i64 8}
 !53 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !5, i64 0, !5, i64 8}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = distinct !{!57, !55, !56}
-!58 = distinct !{!58, !55, !56}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"_ZTSN7Imf_3_411CompressionE", !7, i64 0}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"_ZTSN7Imf_3_46EnvmapE", !7, i64 0}
-!63 = distinct !{!63, !55, !56, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !55, !56}
-!66 = distinct !{!66, !55, !56}
-!67 = distinct !{!67, !55, !56}
+!56 = distinct !{!56, !55}
+!57 = distinct !{!57, !55}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"_ZTSN7Imf_3_411CompressionE", !7, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"_ZTSN7Imf_3_46EnvmapE", !7, i64 0}
+!62 = distinct !{!62, !55, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !55}
+!65 = distinct !{!65, !55}
+!66 = distinct !{!66, !55}

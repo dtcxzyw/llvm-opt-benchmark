@@ -131,12 +131,12 @@ for.inc.i:                                        ; preds = %if.end10.i
   store i32 %9, ptr %add.ptr.i.i20.i, align 4
   store i32 %8, ptr %add.ptr.i4.i.i, align 4
   %cmp3.not.i = icmp eq i32 %sub.i, %begin
-  br i1 %cmp3.not.i, label %for.inc16.i, label %for.body4.i, !llvm.loop !7
+  br i1 %cmp3.not.i, label %for.inc16.i, label %for.body4.i, !llvm.loop !6
 
 for.inc16.i:                                      ; preds = %cond.true.i.i, %for.inc.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i, %for.cond2.preheader.i
   %i.0.i = add i32 %i.030.i, 1
   %cmp1.not.i = icmp eq i32 %i.0.i, %end
-  br i1 %cmp1.not.i, label %if.then.i.i.i, label %for.cond2.preheader.i, !llvm.loop !8
+  br i1 %cmp1.not.i, label %if.then.i.i.i, label %for.cond2.preheader.i, !llvm.loop !7
 
 cleanup:                                          ; preds = %for.end
   %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
@@ -195,7 +195,7 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end.
 do.cond.i:                                        ; preds = %do.body.i
   %dec.i = add i32 %start.0.i, -1
   %cmp6.not.i = icmp eq i32 %start.0.i, %l.addr.0.lcssa
-  br i1 %cmp6.not.i, label %while.cond.preheader.i, label %do.body.i, !llvm.loop !9
+  br i1 %cmp6.not.i, label %while.cond.preheader.i, label %do.body.i, !llvm.loop !8
 
 while.cond.preheader.i:                           ; preds = %do.cond.i
   %conv.i.i = zext i32 %l.addr.0.lcssa to i64
@@ -226,7 +226,7 @@ if.end13.i:                                       ; preds = %while.body.i
   store i32 %2, ptr %add.ptr.i4.i.i, align 4
   %call14.i = tail call fastcc noundef i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef nonnull %sm, ptr noundef nonnull readonly align 8 dereferenceable(24) %index, i32 noundef %l.addr.0.lcssa, i32 noundef %l.addr.0.lcssa, i32 noundef %dec9.i)
   %cmp15.i = icmp eq i32 %call14.i, 0
-  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !10
+  br i1 %cmp15.i, label %return, label %while.cond.i, !llvm.loop !9
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then71
   %limit.addr.0389 = phi i32 [ %limit.addr.0.ph396, %if.end.lr.ph ], [ %dec, %if.then71 ]
@@ -434,7 +434,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i: 
 for.inc.i:                                        ; preds = %cond.true.i.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i
   %inc.i = add i32 %i.183.i, 1
   %cmp.not.i174 = icmp ugt i32 %inc.i, %j.0.i
-  br i1 %cmp.not.i174, label %for.end.i, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.not.i174, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %cond.true.i.i, %for.inc.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i, %for.cond.i
   %i.1.lcssa.i = phi i32 [ %i.0.i, %for.cond.i ], [ %i.183.i, %cond.true.i.i ], [ %inc.i, %for.inc.i ], [ %i.183.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i ]
@@ -472,7 +472,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit45.i
 for.inc18.i:                                      ; preds = %cond.true.i34.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit45.i
   %dec.i173 = add i32 %j.186.i, -1
   %cmp8.not.i = icmp ugt i32 %i.1.lcssa.i, %dec.i173
-  br i1 %cmp8.not.i, label %for.end19.i, label %for.body9.i, !llvm.loop !12
+  br i1 %cmp8.not.i, label %for.end19.i, label %for.body9.i, !llvm.loop !11
 
 for.end19.i:                                      ; preds = %cond.true.i34.i, %for.inc18.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit45.i, %for.end.i
   %j.1.lcssa.i = phi i32 [ %j.0.i, %for.end.i ], [ %j.186.i, %cond.true.i34.i ], [ %dec.i173, %for.inc18.i ], [ %j.186.i, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit45.i ]
@@ -498,7 +498,7 @@ if.end26.i:                                       ; preds = %if.end22.i
   store i32 %47, ptr %add.ptr.i4.i.i172, align 4
   %inc27.i = add nuw i32 %i.1.lcssa.i, 1
   %dec28.i = add i32 %j.1.lcssa.i, -1
-  br label %for.cond.i, !llvm.loop !13
+  br label %for.cond.i, !llvm.loop !12
 
 for.end29.i:                                      ; preds = %for.end19.i
   %cmp30.not.i = icmp eq i32 %j.1.lcssa.i, %add1
@@ -599,12 +599,12 @@ for.inc.i192:                                     ; preds = %if.end10.i
   store i32 %61, ptr %add.ptr.i.i20.i, align 4
   store i32 %60, ptr %add.ptr.i4.i.i194, align 4
   %cmp3.not.i = icmp eq i32 %sub.i179, %l.addr.0388
-  br i1 %cmp3.not.i, label %for.inc16.i, label %for.body4.i, !llvm.loop !7
+  br i1 %cmp3.not.i, label %for.inc16.i, label %for.body4.i, !llvm.loop !6
 
 for.inc16.i:                                      ; preds = %cond.true.i.i186, %for.inc.i192, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i188, %for.cond2.preheader.i
   %i.0.i190 = add i32 %i.030.i, 1
   %cmp1.not.i = icmp eq i32 %i.0.i190, %retval.sroa.6.0.i
-  br i1 %cmp1.not.i, label %if.end69, label %for.cond2.preheader.i, !llvm.loop !8
+  br i1 %cmp1.not.i, label %if.end69, label %for.cond2.preheader.i, !llvm.loop !7
 
 if.end69:                                         ; preds = %for.inc16.i, %if.else, %if.then58
   %cmp70 = icmp ugt i32 %sub54, 6
@@ -614,7 +614,7 @@ if.end69:                                         ; preds = %for.inc16.i, %if.el
 if.then71:                                        ; preds = %if.end69
   %dec = add nsw i32 %limit.addr.0389, -1
   %cmp = icmp slt i32 %limit.addr.0389, 2
-  br i1 %cmp, label %if.then, label %if.end, !llvm.loop !14
+  br i1 %cmp, label %if.then, label %if.end
 
 if.else73:                                        ; preds = %if.end69
   %cmp.i201 = icmp eq i32 %retval.sroa.6.0.i, %r.addr.0.ph394
@@ -679,12 +679,12 @@ for.inc.i229:                                     ; preds = %if.end10.i225
   store i32 %70, ptr %add.ptr.i.i20.i231, align 4
   store i32 %69, ptr %add.ptr.i4.i.i233, align 4
   %cmp3.not.i234 = icmp eq i32 %sub.i210, %add72
-  br i1 %cmp3.not.i234, label %for.inc16.i221, label %for.body4.i208, !llvm.loop !7
+  br i1 %cmp3.not.i234, label %for.inc16.i221, label %for.body4.i208, !llvm.loop !6
 
 for.inc16.i221:                                   ; preds = %cond.true.i.i217, %for.inc.i229, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i219, %for.cond2.preheader.i205
   %i.0.i222 = add i32 %i.030.i206, 1
   %cmp1.not.i223 = icmp eq i32 %i.030.i206, %r.addr.0.ph394
-  br i1 %cmp1.not.i223, label %return, label %for.cond2.preheader.i205, !llvm.loop !8
+  br i1 %cmp1.not.i223, label %return, label %for.cond2.preheader.i205, !llvm.loop !7
 
 if.else81:                                        ; preds = %if.end51
   %cmp82 = icmp ugt i32 %sub54, 6
@@ -761,12 +761,12 @@ for.inc.i270:                                     ; preds = %if.end10.i266
   store i32 %79, ptr %add.ptr.i.i20.i272, align 4
   store i32 %78, ptr %add.ptr.i4.i.i274, align 4
   %cmp3.not.i275 = icmp eq i32 %sub.i251, %add91
-  br i1 %cmp3.not.i275, label %for.inc16.i262, label %for.body4.i249, !llvm.loop !7
+  br i1 %cmp3.not.i275, label %for.inc16.i262, label %for.body4.i249, !llvm.loop !6
 
 for.inc16.i262:                                   ; preds = %cond.true.i.i258, %for.inc.i270, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i260, %for.cond2.preheader.i246
   %i.0.i263 = add i32 %i.030.i247, 1
   %cmp1.not.i264 = icmp eq i32 %i.030.i247, %r.addr.0.ph394
-  br i1 %cmp1.not.i264, label %if.end97, label %for.cond2.preheader.i246, !llvm.loop !8
+  br i1 %cmp1.not.i264, label %if.end97, label %for.cond2.preheader.i246, !llvm.loop !7
 
 if.end97:                                         ; preds = %for.inc16.i262, %if.else90, %if.then83
   %cmp98 = icmp ugt i32 %sub53, 6
@@ -776,7 +776,7 @@ if.then99:                                        ; preds = %if.end97
   %sub100 = add i32 %retval.sroa.6.0.i, -1
   %dec101 = add nsw i32 %limit.addr.0389, -1
   %cmp387 = icmp slt i32 %limit.addr.0389, 2
-  br i1 %cmp387, label %if.then, label %if.end.lr.ph, !llvm.loop !14
+  br i1 %cmp387, label %if.then, label %if.end.lr.ph
 
 if.else102:                                       ; preds = %if.end97
   %cmp.i283 = icmp eq i32 %l.addr.0388, %retval.sroa.6.0.i
@@ -837,12 +837,12 @@ for.inc.i311:                                     ; preds = %if.end10.i307
   store i32 %88, ptr %add.ptr.i.i20.i313, align 4
   store i32 %87, ptr %add.ptr.i4.i.i315, align 4
   %cmp3.not.i316 = icmp eq i32 %sub.i292, %l.addr.0388
-  br i1 %cmp3.not.i316, label %for.inc16.i303, label %for.body4.i290, !llvm.loop !7
+  br i1 %cmp3.not.i316, label %for.inc16.i303, label %for.body4.i290, !llvm.loop !6
 
 for.inc16.i303:                                   ; preds = %cond.true.i.i299, %for.inc.i311, %_ZN6hermes2vm12_GLOBAL__N_15_lessEPNS0_9SortModelERKSt6vectorIjSaIjEEjj.exit.i301, %for.cond2.preheader.i287
   %i.0.i304 = add i32 %i.030.i288, 1
   %cmp1.not.i305 = icmp eq i32 %i.0.i304, %retval.sroa.6.0.i
-  br i1 %cmp1.not.i305, label %return, label %for.cond2.preheader.i287, !llvm.loop !8
+  br i1 %cmp1.not.i305, label %return, label %for.cond2.preheader.i287, !llvm.loop !7
 
 return:                                           ; preds = %if.then83, %if.end33, %if.end19, %if.end6, %if.then31.i, %if.then41, %if.then27, %if.then13, %if.end, %if.then58, %if.end22.i, %for.body4.i249, %if.end10.i266, %for.body.i, %for.body9.i, %for.body4.i, %if.end10.i, %for.inc16.i221, %for.body4.i208, %if.end10.i225, %for.inc16.i303, %for.body4.i290, %if.end10.i307, %do.body.i, %if.end13.i, %while.body.i, %while.cond.i, %if.else73, %if.else102, %if.then
   %retval.0 = phi i32 [ 1, %if.then ], [ 1, %if.else102 ], [ 1, %if.else73 ], [ 0, %if.end13.i ], [ 1, %while.cond.i ], [ 0, %while.body.i ], [ 0, %do.body.i ], [ 0, %if.end10.i307 ], [ 0, %for.body4.i290 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i225 ], [ 0, %for.body4.i208 ], [ 1, %for.inc16.i221 ], [ 0, %if.end10.i ], [ 0, %for.body4.i ], [ 0, %for.body9.i ], [ 0, %for.body.i ], [ 0, %if.end10.i266 ], [ 0, %for.body4.i249 ], [ 0, %if.end22.i ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.end33 ], [ 0, %if.then83 ]
@@ -961,7 +961,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit: ; p
   store i32 %13, ptr %add.ptr.i.i53, align 4
   store i32 %12, ptr %add.ptr.i4.i, align 4
   %cmp3.not = icmp ugt i32 %j.0, %add
-  br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !15
+  br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !13
 
 return:                                           ; preds = %if.end17, %if.then9, %if.end22, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit, %if.end25, %if.end, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end ], [ 0, %if.end17 ], [ 0, %if.then9 ], [ 1, %if.end22 ], [ 1, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit ], [ 0, %if.end25 ]
@@ -999,15 +999,13 @@ attributes #11 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

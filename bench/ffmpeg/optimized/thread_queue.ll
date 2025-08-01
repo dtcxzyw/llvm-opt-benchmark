@@ -316,11 +316,11 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
 
 34:                                               ; preds = %31
   call void @av_frame_unref(ptr noundef %2) #5
-  br label %36, !llvm.loop !23
+  br label %36, !llvm.loop !22
 
 35:                                               ; preds = %31
   call void @av_packet_unref(ptr noundef %2) #5
-  br label %36, !llvm.loop !23
+  br label %36, !llvm.loop !22
 
 .thread.i:                                        ; preds = %24
   store i32 %26, ptr %1, align 4, !tbaa !19
@@ -332,7 +332,7 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
   %37 = load ptr, ptr %7, align 8, !tbaa !17
   %38 = call i32 @av_container_fifo_read(ptr noundef %37, ptr noundef %2, i32 noundef 0) #5
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %.lr.ph.i, label %.preheader.i, !llvm.loop !24
+  br i1 %39, label %.lr.ph.i, label %.preheader.i
 
 40:                                               ; preds = %50, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next.i, %50 ]
@@ -363,7 +363,7 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
   %.130.i = phi i32 [ %49, %48 ], [ %.02946.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %40, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %40, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %50
   %51 = icmp eq i32 %.130.i, %18
@@ -488,9 +488,7 @@ attributes #6 = { noreturn nounwind }
 !17 = !{!10, !13, i64 16}
 !18 = !{!10, !14, i64 24}
 !19 = !{!12, !12, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !21}
 !23 = distinct !{!23, !21}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !21, !22}

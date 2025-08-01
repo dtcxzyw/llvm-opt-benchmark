@@ -269,25 +269,25 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManage
 define linkonce_odr hidden noundef ptr @_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang6SrcMgr9SLocEntryEEEPT_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = mul i64 %1, 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load i64, ptr %4, align 8, !tbaa !269
+  %5 = load i64, ptr %4, align 8, !tbaa !268
   %6 = add i64 %5, %3
-  store i64 %6, ptr %4, align 8, !tbaa !269
-  %7 = load ptr, ptr %0, align 8, !tbaa !270
+  store i64 %6, ptr %4, align 8, !tbaa !268
+  %7 = load ptr, ptr %0, align 8, !tbaa !269
   %8 = ptrtoint ptr %7 to i64
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = add i64 %10, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !271
+  %13 = load ptr, ptr %12, align 8, !tbaa !270
   %14 = ptrtoint ptr %13 to i64
   %.not.i.i.i = icmp ule i64 %11, %14
   %15 = icmp ne ptr %7, null
   %16 = and i1 %15, %.not.i.i.i
-  br i1 %16, label %17, label %20, !prof !272
+  br i1 %16, label %17, label %20, !prof !271
 
 17:                                               ; preds = %2
   %18 = inttoptr i64 %11 to ptr
-  store ptr %18, ptr %0, align 8, !tbaa !270
+  store ptr %18, ptr %0, align 8, !tbaa !269
   %19 = inttoptr i64 %10 to ptr
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateEmm.exit
 
@@ -317,7 +317,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = load i32, ptr %15, align 4, !tbaa !29
   %.not.i.i.not.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !272
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !271
 
 17:                                               ; preds = %10
   %18 = zext i32 %14 to i64
@@ -358,7 +358,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !29
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !272
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !271
 
 43:                                               ; preds = %32
   %44 = zext i32 %40 to i64
@@ -380,13 +380,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   store i32 %53, ptr %34, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !271
+  store ptr %54, ptr %55, align 8, !tbaa !270
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !270
+  store ptr %60, ptr %0, align 8, !tbaa !269
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -691,10 +691,9 @@ attributes #11 = { noreturn nounwind }
 !263 = !{!264, !264, i64 0}
 !264 = !{!"p1 _ZTSN5clang6SrcMgr9SLocEntryE", !9, i64 0}
 !265 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!266 = distinct !{!266, !267, !268}
+!266 = distinct !{!266, !267}
 !267 = !{!"llvm.loop.mustprogress"}
-!268 = !{!"llvm.loop.estimated_trip_count"}
-!269 = !{!56, !67, i64 80}
-!270 = !{!56, !57, i64 0}
-!271 = !{!56, !57, i64 8}
-!272 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!268 = !{!56, !67, i64 80}
+!269 = !{!56, !57, i64 0}
+!270 = !{!56, !57, i64 8}
+!271 = !{!"branch_weights", !"expected", i32 2000, i32 1}

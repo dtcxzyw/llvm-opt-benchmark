@@ -237,7 +237,7 @@ define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) lo
 39:                                               ; preds = %38, %26
   %40 = call i32 %0(ptr noundef nonnull %3, ptr noundef %1)
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %18, label %41, !llvm.loop !15
+  br i1 %.not, label %18, label %41
 
 41:                                               ; preds = %39
   %42 = call zeroext i1 @logUnwinding()
@@ -281,20 +281,20 @@ define ptr @_Unwind_Find_FDE(ptr noundef %0, ptr noundef writeonly captures(none
   %9 = call i32 @__unw_set_reg(ptr noundef nonnull %3, i32 noundef -1, i64 noundef %8)
   %10 = call i32 @__unw_get_proc_info(ptr noundef nonnull %3, ptr noundef nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %12 = load i64, ptr %11, align 8, !tbaa !17
-  store i64 %12, ptr %1, align 8, !tbaa !18
+  %12 = load i64, ptr %11, align 8, !tbaa !15
+  store i64 %12, ptr %1, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !20
+  store i64 0, ptr %13, align 8, !tbaa !18
   %14 = load i64, ptr %5, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %14, ptr %15, align 8, !tbaa !21
+  store i64 %14, ptr %15, align 8, !tbaa !19
   %16 = call zeroext i1 @logAPIs()
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr @stderr, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %20 = load i64, ptr %19, align 8, !tbaa !22
+  %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = inttoptr i64 %20 to ptr
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.12, ptr noundef %0, ptr noundef %21) #6
   %23 = load ptr, ptr @stderr, align 8, !tbaa !3
@@ -303,7 +303,7 @@ define ptr @_Unwind_Find_FDE(ptr noundef %0, ptr noundef writeonly captures(none
 
 25:                                               ; preds = %17, %2
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !22
+  %27 = load i64, ptr %26, align 8, !tbaa !20
   %28 = inttoptr i64 %27 to ptr
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
@@ -321,14 +321,14 @@ define i64 @_Unwind_GetCFA(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %7 = load i64, ptr %2, align 8, !tbaa !23
+  %7 = load i64, ptr %2, align 8, !tbaa !21
   %8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef %0, i64 noundef %7) #6
   %9 = load ptr, ptr @stderr, align 8, !tbaa !3
   %10 = call i32 @fflush(ptr noundef %9)
   br label %11
 
 11:                                               ; preds = %5, %1
-  %12 = load i64, ptr %2, align 8, !tbaa !23
+  %12 = load i64, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i64 %12
 }
@@ -351,7 +351,7 @@ define i64 @_Unwind_GetIPInfo(ptr noundef %0, ptr noundef writeonly captures(non
   %10 = tail call i32 @__unw_is_signal_frame(ptr noundef %0)
   %11 = icmp sgt i32 %10, 0
   %. = zext i1 %11 to i32
-  store i32 %., ptr %1, align 4, !tbaa !24
+  store i32 %., ptr %1, align 4, !tbaa !22
   %12 = tail call i64 @_Unwind_GetIP(ptr noundef %0)
   ret i64 %12
 }
@@ -427,13 +427,11 @@ attributes #8 = { nounwind }
 !12 = !{!"unw_proc_info_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !10, i64 56, !10, i64 64}
 !13 = !{!"int", !6, i64 0}
 !14 = !{!12, !10, i64 16}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!12, !10, i64 64}
-!18 = !{!19, !10, i64 0}
-!19 = !{!"dwarf_eh_bases", !10, i64 0, !10, i64 8, !10, i64 16}
-!20 = !{!19, !10, i64 8}
-!21 = !{!19, !10, i64 16}
-!22 = !{!12, !10, i64 56}
-!23 = !{!10, !10, i64 0}
-!24 = !{!13, !13, i64 0}
+!15 = !{!12, !10, i64 64}
+!16 = !{!17, !10, i64 0}
+!17 = !{!"dwarf_eh_bases", !10, i64 0, !10, i64 8, !10, i64 16}
+!18 = !{!17, !10, i64 8}
+!19 = !{!17, !10, i64 16}
+!20 = !{!12, !10, i64 56}
+!21 = !{!10, !10, i64 0}
+!22 = !{!13, !13, i64 0}

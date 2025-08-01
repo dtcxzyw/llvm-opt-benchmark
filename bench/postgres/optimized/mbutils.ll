@@ -794,7 +794,7 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %.03556, i64 1
   %21 = add nsw i32 %.03954, -1
-  br label %33, !llvm.loop !7
+  br label %33, !llvm.loop !6
 
 22:                                               ; preds = %18
   br i1 %3, label %.thread, label %23
@@ -926,7 +926,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
 32:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pg_verify_mbstr.exit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %pg_verify_mbstr.exit, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
@@ -1595,7 +1595,7 @@ define dso_local i32 @pg_mbstrlen(ptr noundef %0) local_unnamed_addr #0 {
   %22 = add i32 %.010, 1
   %23 = load i8, ptr %21, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
   %.07 = phi i32 [ %12, %10 ], [ 0, %.preheader ], [ %22, %.lr.ph ]
@@ -1649,7 +1649,7 @@ define dso_local i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %1) local
   %22 = getelementptr inbounds i8, ptr %.01213, i64 %21
   %23 = add i32 %.01015, 1
   %24 = icmp sgt i32 %20, 0
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %12, %.lr.ph, %.preheader, %2
   %.0 = phi i32 [ %1, %2 ], [ 0, %.preheader ], [ %23, %12 ], [ %.01015, %.lr.ph ]
@@ -1684,7 +1684,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
 14:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %pg_encoding_mbcliplen.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %pg_encoding_mbcliplen.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit13.i.i:         ; preds = %.lr.ph.i.i
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -1720,7 +1720,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   %30 = sext i32 %23 to i64
   %31 = getelementptr inbounds i8, ptr %.02229.i, i64 %30
   %32 = icmp sgt i32 %29, 0
-  br i1 %32, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !12
+  br i1 %32, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !11
 
 pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %22, %26, %28, %14, %9, %.critedge.loopexit.split.loop.exit13.i.i, %16
   %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %.02130.i, %22 ], [ %2, %26 ], [ %24, %28 ]
@@ -1752,7 +1752,7 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
 12:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit13.i:           ; preds = %.lr.ph.i
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1788,7 +1788,7 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
   %28 = sext i32 %21 to i64
   %29 = getelementptr inbounds i8, ptr %.02229, i64 %28
   %30 = icmp sgt i32 %27, 0
-  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !12
+  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %26, %24, %20, %.lr.ph, %12, %14, %.critedge.loopexit.split.loop.exit13.i, %7
   %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %22, %26 ], [ %3, %24 ], [ %.02130, %20 ], [ %.02130, %.lr.ph ]
@@ -1831,7 +1831,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
 17:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit13.i:           ; preds = %.lr.ph.i
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1864,7 +1864,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   %33 = sext i32 %27 to i64
   %34 = getelementptr inbounds i8, ptr %.01824, i64 %33
   %35 = icmp sgt i32 %32, 0
-  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !13
+  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %30, %20, %.lr.ph, %17, %.preheader, %.critedge.loopexit.split.loop.exit13.i, %12
   %.0 = phi i32 [ 0, %12 ], [ %18, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %.preheader ], [ %13, %17 ], [ %31, %30 ], [ %.01725, %20 ], [ %.01725, %.lr.ph ]
@@ -2071,7 +2071,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none
 16:                                               ; preds = %25
   %17 = add nsw i32 %.051, -1
   %18 = icmp samesign ugt i32 %.051, 1
-  br i1 %18, label %.preheader42, label %.loopexit, !llvm.loop !14
+  br i1 %18, label %.preheader42, label %.loopexit, !llvm.loop !13
 
 .preheader42:                                     ; preds = %15, %16
   %.051 = phi i32 [ %17, %16 ], [ 2, %15 ]
@@ -2107,7 +2107,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none
 32:                                               ; preds = %40
   %33 = add nsw i32 %.154, -1
   %.not66 = icmp eq i32 %.154, 0
-  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %.not66, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %31, %32
   %.154 = phi i32 [ %33, %32 ], [ 1, %31 ]
@@ -2169,7 +2169,7 @@ define internal noundef zeroext i1 @pg_generic_charinc(ptr noundef %0, i32 nound
   store i8 %15, ptr %5, align 1
   %16 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1) #13
   %17 = icmp eq i32 %16, %1
-  br i1 %17, label %18, label %12, !llvm.loop !16
+  br i1 %17, label %18, label %12, !llvm.loop !15
 
 18:                                               ; preds = %12, %14
   ret i1 %.not.not.not.not.not.not
@@ -2237,7 +2237,7 @@ define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i
   %.1 = phi ptr [ %22, %19 ], [ %17, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %3
   %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2372,7 +2372,7 @@ define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1
   %.1 = phi ptr [ %23, %20 ], [ %18, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %24, %4
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2422,18 +2422,17 @@ attributes #16 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

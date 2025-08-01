@@ -419,8 +419,8 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit58: ; pre
   %.144.lcssa = phi i32 [ %.043, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit58 ], [ %86, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit66 ]
   %.1.lcssa = phi i32 [ %.0, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit58 ], [ %70, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit66 ]
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !44
-  %73 = load ptr, ptr %6, align 8, !tbaa !47
+  %72 = load ptr, ptr %71, align 8, !tbaa !43
+  %73 = load ptr, ptr %6, align 8, !tbaa !46
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
@@ -516,7 +516,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit66: ; pre
   %114 = phi ptr [ %93, %91 ], [ %111, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i65 ]
   %115 = getelementptr inbounds nuw i8, ptr %.046194, i64 1
   %.not = icmp eq ptr %115, %64
-  br i1 %.not, label %._crit_edge, label %84, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %84
 
 116:                                              ; preds = %._crit_edge
   %117 = icmp eq i32 %2, 128
@@ -734,8 +734,8 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit74: ; preds = %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i89, %187, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i73, %129
   %210 = phi ptr [ %131, %129 ], [ %149, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i73 ], [ %189, %187 ], [ %207, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i89 ]
   %.2 = phi i32 [ %119, %129 ], [ %119, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i73 ], [ %153, %187 ], [ %153, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i89 ]
-  %211 = load ptr, ptr %6, align 8, !tbaa !49
-  %212 = load ptr, ptr %71, align 8, !tbaa !49
+  %211 = load ptr, ptr %6, align 8, !tbaa !47
+  %212 = load ptr, ptr %71, align 8, !tbaa !47
   %.not190198 = icmp eq ptr %211, %212
   br i1 %.not190198, label %._crit_edge203, label %.lr.ph202
 
@@ -903,7 +903,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit106: ; pr
   %280 = add i32 %.045200, 16
   %281 = getelementptr inbounds nuw i8, ptr %.sroa.0128.0199, i64 1
   %.not190 = icmp eq ptr %281, %212
-  br i1 %.not190, label %._crit_edge203, label %219, !llvm.loop !50
+  br i1 %.not190, label %._crit_edge203, label %219
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -985,12 +985,12 @@ define dso_local noundef range(i64 -768614336404564650, 768614336404564651) i64 
   %37 = getelementptr inbounds nuw i8, ptr %.019, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 12
   %.not = icmp eq ptr %38, %9
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %24
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWinD2Ev(ptr noundef nonnull align 8 dereferenceable(1099) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %0, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %0, align 8, !tbaa !48
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1026,7 +1026,7 @@ _ZNSt6vectorIN4Luau7CodeGen17UnwindFunctionWinESaIS2_EED2Ev.exit: ; preds = %_ZN
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWinD0Ev(ptr noundef nonnull align 8 dereferenceable(1099) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %0, align 8, !tbaa !52
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %0, align 8, !tbaa !48
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -1144,16 +1144,12 @@ attributes #15 = { builtin nounwind }
 !38 = !{!"_ZTSN4Luau7CodeGen17UnwindFunctionWinE", !28, i64 0, !28, i64 4, !28, i64 8}
 !39 = !{!38, !28, i64 4}
 !40 = !{!21, !21, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!45, !46, i64 8}
-!45 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
-!46 = !{!"p1 _ZTSN4Luau7CodeGen3X6411RegisterX64E", !11, i64 0}
-!47 = !{!45, !46, i64 0}
-!48 = distinct !{!48, !43}
-!49 = !{!46, !46, i64 0}
-!50 = distinct !{!50, !43}
-!51 = distinct !{!51, !43}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"vtable pointer", !9, i64 0}
+!43 = !{!44, !45, i64 8}
+!44 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE17_Vector_impl_dataE", !45, i64 0, !45, i64 8, !45, i64 16}
+!45 = !{!"p1 _ZTSN4Luau7CodeGen3X6411RegisterX64E", !11, i64 0}
+!46 = !{!44, !45, i64 0}
+!47 = !{!45, !45, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"vtable pointer", !9, i64 0}

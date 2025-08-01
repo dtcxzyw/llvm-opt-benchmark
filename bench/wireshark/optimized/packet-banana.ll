@@ -191,7 +191,7 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   %27 = tail call fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %.12933)
   %28 = add i32 %27, %.12933
   %29 = icmp sgt i32 %28, %.12933
-  br i1 %29, label %26, label %30, !llvm.loop !9
+  br i1 %29, label %26, label %30, !llvm.loop !8
 
 30:                                               ; preds = %26
   %31 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -280,7 +280,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   %.197 = phi i32 [ %.096107, %12 ], [ %15, %19 ]
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8)
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23, %10
   %.098.lcssa.ph = phi i64 [ %.199, %23 ], [ %.098106, %10 ]
@@ -318,7 +318,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   %39 = add i32 %.0118, 1
   %40 = sext i32 %39 to i64
   %41 = icmp sgt i64 %.098.lcssa.ph, %40
-  br i1 %41, label %.lr.ph120, label %.loopexit, !llvm.loop !11
+  br i1 %41, label %.lr.ph120, label %.loopexit, !llvm.loop !10
 
 .lr.ph120:                                        ; preds = %30, %38
   %.0118 = phi i32 [ %39, %38 ], [ 0, %30 ]
@@ -454,9 +454,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

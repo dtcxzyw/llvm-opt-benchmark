@@ -238,7 +238,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 68:                                               ; preds = %63
   %69 = call i32 @H5Pclose(i64 noundef %59) #12
   %70 = call i32 @H5Fclose(i64 noundef %54) #12
-  %71 = load i64, ptr %3, align 8, !tbaa !16
+  %71 = load i64, ptr %3, align 8, !tbaa !15
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %73, label %75
 
@@ -264,7 +264,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 82:                                               ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %84 = load i64, ptr %83, align 8, !tbaa !18
+  %84 = load i64, ptr %83, align 8, !tbaa !17
   %85 = load i32, ptr @do_delete, align 4, !tbaa !11
   %86 = icmp ne i32 %85, 0
   %87 = load ptr, ptr @ub_file, align 8
@@ -294,7 +294,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 96:                                               ; preds = %95
   %97 = load ptr, ptr @rawinstream, align 8, !tbaa !9
   %98 = load ptr, ptr @rawoutstream, align 8, !tbaa !9
-  %99 = load i64, ptr %3, align 8, !tbaa !16
+  %99 = load i64, ptr %3, align 8, !tbaa !15
   %100 = call i32 @copy_to_file(ptr noundef %97, ptr noundef %98, i64 noundef 0, i64 noundef %99)
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %104
@@ -308,7 +308,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 104:                                              ; preds = %96, %95
   %105 = load ptr, ptr @rawinstream, align 8, !tbaa !9
   %106 = load ptr, ptr @rawdatastream, align 8, !tbaa !9
-  %107 = load i64, ptr %3, align 8, !tbaa !16
+  %107 = load i64, ptr %3, align 8, !tbaa !15
   %108 = sub nsw i64 %84, %107
   %109 = call i32 @copy_to_file(ptr noundef %105, ptr noundef %106, i64 noundef %107, i64 noundef %108)
   %110 = icmp slt i32 %109, 0
@@ -438,7 +438,7 @@ define dso_local range(i32 -1, 1) i32 @copy_to_file(ptr noundef captures(none) %
 
 24:                                               ; preds = %21, %22
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %.thread, label %8, !llvm.loop !21
+  br i1 %.not, label %.thread, label %8
 
 .thread:                                          ; preds = %.critedge, %22, %14, %12, %24, %4
   %.033 = phi i32 [ 0, %4 ], [ -1, %12 ], [ 0, %14 ], [ -1, %22 ], [ -1, %.critedge ], [ 0, %24 ]
@@ -588,12 +588,10 @@ attributes #13 = { noreturn nounwind }
 !10 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!19, !17, i64 48}
-!19 = !{!"stat", !17, i64 0, !17, i64 8, !17, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !20, i64 72, !20, i64 88, !20, i64 104, !7, i64 120}
-!20 = !{!"timespec", !17, i64 0, !17, i64 8}
-!21 = distinct !{!21, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!18, !16, i64 48}
+!18 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !19, i64 72, !19, i64 88, !19, i64 104, !7, i64 120}
+!19 = !{!"timespec", !16, i64 0, !16, i64 8}

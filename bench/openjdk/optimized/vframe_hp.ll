@@ -284,14 +284,14 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %86
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %121 = sext i32 %119 to i64
   %122 = icmp slt i64 %indvars.iv.next.i, %121
-  br i1 %122, label %.lr.ph.i, label %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit, !llvm.loop !9
+  br i1 %122, label %.lr.ph.i, label %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %82, %86, %74
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %123 = load i32, ptr %69, align 4
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next36, %124
-  br i1 %125, label %74, label %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit, !llvm.loop !10
+  br i1 %125, label %74, label %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit, !llvm.loop !9
 
 _ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit.sink.split: ; preds = %5, %1
   %126 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #12
@@ -427,7 +427,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackVa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %28 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %27, %2
   ret void
@@ -501,7 +501,7 @@ define hidden void @_ZN14compiledVFrame21update_deferred_valueE9BasicTypei6jvalu
   %32 = load i32, ptr %10, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %15, label %.thread, !llvm.loop !11
+  br i1 %34, label %15, label %.thread, !llvm.loop !10
 
 35:                                               ; preds = %4
   tail call void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr noundef nonnull %6) #12
@@ -611,7 +611,7 @@ _ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayI
 94:                                               ; preds = %95
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %95, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %95, !llvm.loop !11
 
 95:                                               ; preds = %94, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %94 ]
@@ -745,7 +745,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet12set_value_atEi9BasicType
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !11
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -875,7 +875,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %29, %36
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %13, label %.loopexit49, !llvm.loop !13
+  br i1 %45, label %13, label %.loopexit49, !llvm.loop !12
 
 .loopexit49:                                      ; preds = %41, %.preheader48, %1
   %46 = load ptr, ptr %2, align 8
@@ -957,7 +957,7 @@ _ZNK6HandleclEv.exit44:                           ; preds = %72, %79
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next57, %97
-  br i1 %98, label %56, label %.loopexit47, !llvm.loop !14
+  br i1 %98, label %56, label %.loopexit47, !llvm.loop !13
 
 .loopexit47:                                      ; preds = %94, %.preheader46, %.loopexit49
   %99 = load ptr, ptr %0, align 8
@@ -1034,7 +1034,7 @@ _ZN14compiledVFrame14update_monitorEiP11MonitorInfo.exit: ; preds = %114, %117
   %144 = phi i32 [ %107, %._crit_edge ], [ %.pre65, %_ZN14compiledVFrame14update_monitorEiP11MonitorInfo.exit ]
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next60.pre-phi, %145
-  br i1 %146, label %106, label %.loopexit, !llvm.loop !15
+  br i1 %146, label %106, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %143, %.preheader, %.loopexit47
   ret void
@@ -1151,7 +1151,7 @@ _ZNK20StackValueCollection3addEP10StackValue.exit: ; preds = %_ZNK14compiledVFra
   store ptr %40, ptr %59, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZNK20StackValueCollection3addEP10StackValue.exit, %_ZN20StackValueCollectionC2Ei.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 5032
@@ -1263,14 +1263,14 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %86
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %126 = sext i32 %124 to i64
   %127 = icmp slt i64 %indvars.iv.next.i, %126
-  br i1 %127, label %.lr.ph.i, label %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit, !llvm.loop !17
+  br i1 %127, label %.lr.ph.i, label %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %82, %86, %74
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %128 = load i32, ptr %69, align 4
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next36, %129
-  br i1 %130, label %74, label %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit, !llvm.loop !18
+  br i1 %130, label %74, label %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit, !llvm.loop !17
 
 _ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit.sink.split: ; preds = %5, %1
   %131 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #12
@@ -1343,7 +1343,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackVal
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %33 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %32, %2
   ret void
@@ -1647,7 +1647,7 @@ _ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.e
   %156 = load i32, ptr %43, align 4
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %158, label %69, label %._crit_edge, !llvm.loop !19
+  br i1 %158, label %69, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit48, %_ZN13GrowableArrayIP11MonitorInfoEC2Ei.exit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 5048
@@ -1757,14 +1757,14 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %181
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %231 = sext i32 %229 to i64
   %232 = icmp slt i64 %indvars.iv.next.i, %231
-  br i1 %232, label %.lr.ph.i, label %_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit, !llvm.loop !20
+  br i1 %232, label %.lr.ph.i, label %_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %177, %181, %169
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %233 = load i32, ptr %164, align 4
   %234 = sext i32 %233 to i64
   %235 = icmp slt i64 %indvars.iv.next73, %234
-  br i1 %235, label %169, label %_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit, !llvm.loop !21
+  br i1 %235, label %169, label %_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit, !llvm.loop !20
 
 _ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit: ; preds = %.critedge.i, %228, %.preheader, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit, %._crit_edge, %46, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit, %16
   %.038 = phi ptr [ %13, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %13, %16 ], [ %45, %46 ], [ %45, %._crit_edge ], [ %45, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %45, %.preheader ], [ %45, %228 ], [ %45, %.critedge.i ]
@@ -1852,7 +1852,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13Growa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = sext i32 %45 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %8, label %._crit_edge, !llvm.loop !20
+  br i1 %48, label %8, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %44, %2
   ret void
@@ -2227,7 +2227,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSetD2Ev(ptr noundef nonnull r
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %14, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %16, %14 ]
@@ -2432,7 +2432,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %20 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %19, %2
   ret void
@@ -2622,7 +2622,7 @@ _ZN13GrowableArrayIP10StackValueE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !23
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2638,7 +2638,7 @@ _ZN13GrowableArrayIP10StackValueE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !25
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !24
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2741,7 +2741,7 @@ _ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE8allocateEv.exit: ; preds = 
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !26
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !25
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2757,7 +2757,7 @@ _ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE8allocateEv.exit: ; preds = 
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !27
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !26
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2838,7 +2838,7 @@ _ZN13GrowableArrayIP11MonitorInfoE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !27
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2854,7 +2854,7 @@ _ZN13GrowableArrayIP11MonitorInfoE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !28
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2927,7 +2927,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP26jvmtiDeferre
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3018,7 +3018,7 @@ _ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE8allocateEv.exit: ; preds = %7,
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !31
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !30
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3034,7 +3034,7 @@ _ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE8allocateEv.exit: ; preds = %7,
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !32
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !31
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3080,30 +3080,29 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}

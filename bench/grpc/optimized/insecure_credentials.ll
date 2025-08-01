@@ -221,7 +221,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInte
 
 19:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !34
+  %21 = load ptr, ptr %20, align 8, !tbaa !33
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
@@ -248,13 +248,13 @@ define internal void @_ZN4grpc12_GLOBAL__N_130InsecureChannelCredentialsImpl29Cr
   call void @_ZNK4grpc16ChannelArguments14SetChannelArgsEP17grpc_channel_args(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %8, ptr %6, align 8, !tbaa !35
+  store ptr %8, ptr %6, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !37
+  store i64 0, ptr %9, align 8, !tbaa !36
   store i8 0, ptr %8, align 8, !tbaa !24
-  %10 = load ptr, ptr %2, align 8, !tbaa !40
+  %10 = load ptr, ptr %2, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = invoke ptr @grpc_channel_create(ptr noundef %10, ptr noundef %12, ptr noundef nonnull %5)
           to label %14 unwind label %42
 
@@ -267,8 +267,8 @@ define internal void @_ZN4grpc12_GLOBAL__N_130InsecureChannelCredentialsImpl29Cr
   store ptr %18, ptr %16, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !34
-  store ptr %21, ptr %19, align 8, !tbaa !34
+  %21 = load ptr, ptr %20, align 8, !tbaa !33
+  store ptr %21, ptr %19, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZN4grpc21CreateChannelInternalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12grpc_channelSt6vectorISt10unique_ptrINS_12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteISD_EESaISG_EE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.4") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %13, ptr noundef nonnull %7)
           to label %22 unwind label %44
@@ -308,7 +308,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInte
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %32 = load ptr, ptr %19, align 8, !tbaa !34
+  %32 = load ptr, ptr %19, align 8, !tbaa !33
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
@@ -316,12 +316,12 @@ _ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInte
   br label %_ZNSt6vectorISt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %31
-  %36 = load ptr, ptr %6, align 8, !tbaa !40
+  %36 = load ptr, ptr %6, align 8, !tbaa !39
   %37 = icmp eq ptr %36, %8
   br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EESaIS6_EED2Ev.exit
-  %38 = load i64, ptr %9, align 8, !tbaa !37
+  %38 = load i64, ptr %9, align 8, !tbaa !36
   %39 = icmp ult i64 %38, 16
   call void @llvm.assume(i1 %39)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -350,12 +350,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  %47 = load ptr, ptr %6, align 8, !tbaa !40
+  %47 = load ptr, ptr %6, align 8, !tbaa !39
   %48 = icmp eq ptr %47, %8
   br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %46
-  %49 = load i64, ptr %9, align 8, !tbaa !37
+  %49 = load i64, ptr %9, align 8, !tbaa !36
   %50 = icmp ult i64 %49, 16
   call void @llvm.assume(i1 %50)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
@@ -416,7 +416,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInte
 
 11:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
@@ -497,18 +497,17 @@ attributes #16 = { nounwind }
 !28 = !{!26, !27, i64 8}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"p1 _ZTSN4grpc12experimental33ClientInterceptorFactoryInterfaceE", !17, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!26, !27, i64 16}
-!35 = !{!36, !23, i64 0}
-!36 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
-!37 = !{!38, !39, i64 8}
-!38 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !36, i64 0, !39, i64 8, !9, i64 16}
-!39 = !{!"long", !9, i64 0}
-!40 = !{!38, !23, i64 0}
-!41 = !{!42, !45, i64 16}
-!42 = !{!"_ZTSN4grpc18ChannelCredentialsE", !43, i64 0, !45, i64 16}
-!43 = !{!"_ZTSN4grpc8internal11GrpcLibraryE", !44, i64 8}
-!44 = !{!"bool", !9, i64 0}
-!45 = !{!"p1 _ZTS24grpc_channel_credentials", !17, i64 0}
+!33 = !{!26, !27, i64 16}
+!34 = !{!35, !23, i64 0}
+!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !38, i64 8, !9, i64 16}
+!38 = !{!"long", !9, i64 0}
+!39 = !{!37, !23, i64 0}
+!40 = !{!41, !44, i64 16}
+!41 = !{!"_ZTSN4grpc18ChannelCredentialsE", !42, i64 0, !44, i64 16}
+!42 = !{!"_ZTSN4grpc8internal11GrpcLibraryE", !43, i64 8}
+!43 = !{!"bool", !9, i64 0}
+!44 = !{!"p1 _ZTS24grpc_channel_credentials", !17, i64 0}

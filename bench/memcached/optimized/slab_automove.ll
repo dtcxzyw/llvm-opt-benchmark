@@ -89,11 +89,11 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !27
+  %16 = load i32, ptr %15, align 4, !tbaa !26
   %17 = add i32 %16, 1
-  store i32 %17, ptr %15, align 4, !tbaa !27
+  store i32 %17, ptr %15, align 4, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = getelementptr i8, ptr %0, i64 3112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3112
   %20 = uitofp i64 %13 to float
   %.pre = load i32, ptr %18, align 8, !tbaa !19
   %.pre163 = load ptr, ptr %0, align 8, !tbaa !16
@@ -110,7 +110,7 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %.0107145 = phi i64 [ -1, %14 ], [ %.2109.ph, %108 ]
   %24 = trunc nuw nsw i64 %indvars.iv160 to i32
   %25 = mul i32 %23, %24
-  %26 = load i32, ptr %15, align 4, !tbaa !27
+  %26 = load i32, ptr %15, align 4, !tbaa !26
   %27 = urem i32 %26, %23
   %28 = add i32 %27, %25
   %29 = zext i32 %28 to i64
@@ -128,46 +128,46 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %37 = uitofp i64 %36 to float
   %38 = fdiv float %37, %20
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store float %38, ptr %39, align 8, !tbaa !28
+  store float %38, ptr %39, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i64 1, ptr %40, align 8, !tbaa !31
+  store i64 1, ptr %40, align 8, !tbaa !30
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 1, ptr %41, align 8, !tbaa !32
+  store i64 1, ptr %41, align 8, !tbaa !31
   br label %42
 
 42:                                               ; preds = %35, %21
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !33
+  %44 = load i64, ptr %43, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !33
+  %46 = load i64, ptr %45, align 8, !tbaa !32
   %47 = icmp sgt i64 %44, %46
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 1, ptr %49, align 8, !tbaa !32
+  store i64 1, ptr %49, align 8, !tbaa !31
   br label %50
 
 50:                                               ; preds = %48, %42
   %51 = getelementptr inbounds nuw [64 x %struct.slab_stats_automove], ptr %5, i64 0, i64 %indvars.iv160
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !34
+  %53 = load i64, ptr %52, align 8, !tbaa !33
   %.idx = mul nuw nsw i64 %indvars.iv160, 24
-  %54 = getelementptr i8, ptr %19, i64 %.idx
-  %55 = load i64, ptr %54, align 8, !tbaa !34
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
+  %55 = load i64, ptr %54, align 8, !tbaa !33
   %56 = icmp sgt i64 %53, %55
   br i1 %56, label %57, label %.lr.ph.i
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 1, ptr %58, align 8, !tbaa !32
+  store i64 1, ptr %58, align 8, !tbaa !31
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57, %50
   %59 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %60 = load i32, ptr %59, align 8, !tbaa !36
+  %60 = load i32, ptr %59, align 8, !tbaa !35
   %61 = zext i32 %60 to i64
-  store i64 %61, ptr %30, align 8, !tbaa !37
+  store i64 %61, ptr %30, align 8, !tbaa !36
   %62 = load ptr, ptr %0, align 8, !tbaa !16
   %63 = sext i32 %25 to i64
   %64 = getelementptr inbounds %struct.window_data, ptr %62, i64 %63
@@ -184,28 +184,28 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %69 = phi i64 [ 0, %.lr.ph.i ], [ %76, %66 ]
   %70 = phi i64 [ 0, %.lr.ph.i ], [ %73, %66 ]
   %71 = getelementptr inbounds nuw %struct.window_data, ptr %64, i64 %indvars.iv.i
-  %72 = load i64, ptr %71, align 8, !tbaa !37
+  %72 = load i64, ptr %71, align 8, !tbaa !36
   %73 = add i64 %72, %70
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !32
+  %75 = load i64, ptr %74, align 8, !tbaa !31
   %76 = add i64 %75, %69
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %78 = load float, ptr %77, align 8, !tbaa !28
+  %78 = load float, ptr %77, align 8, !tbaa !27
   %79 = fadd float %68, %78
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %81 = load i64, ptr %80, align 8, !tbaa !31
+  %81 = load i64, ptr %80, align 8, !tbaa !30
   %82 = add i64 %81, %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %window_sum.exit.loopexit, label %66, !llvm.loop !38
+  br i1 %exitcond.not.i, label %window_sum.exit.loopexit, label %66, !llvm.loop !37
 
 window_sum.exit.loopexit:                         ; preds = %66
   %83 = icmp eq i64 %76, 0
   %84 = udiv i64 %73, %wide.trip.count.i
   %85 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !39
+  %86 = load i64, ptr %85, align 8, !tbaa !38
   %87 = sitofp i64 %86 to double
-  %88 = load i32, ptr %51, align 8, !tbaa !40
+  %88 = load i32, ptr %51, align 8, !tbaa !39
   %89 = uitofp i32 %88 to double
   %90 = fmul double %89, 2.500000e+00
   %91 = fcmp olt double %90, %87
@@ -248,7 +248,7 @@ window_sum.exit.loopexit:                         ; preds = %66
   %.2100.ph = phi i32 [ %.098147, %92 ], [ %.098147, %102 ], [ %24, %106 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next161, 64
-  br i1 %exitcond162.not, label %.loopexit, label %21, !llvm.loop !41
+  br i1 %exitcond162.not, label %.loopexit, label %21, !llvm.loop !40
 
 .loopexit:                                        ; preds = %108, %107
   %.0107142 = phi i64 [ %.0107145, %107 ], [ %.2109.ph, %108 ]
@@ -265,7 +265,7 @@ window_sum.exit.loopexit:                         ; preds = %66
   br i1 %or.cond, label %112, label %124
 
 112:                                              ; preds = %.loopexit
-  %113 = load i32, ptr %15, align 4, !tbaa !27
+  %113 = load i32, ptr %15, align 4, !tbaa !26
   %114 = load i32, ptr %18, align 8, !tbaa !19
   %115 = icmp ugt i32 %113, %114
   br i1 %115, label %116, label %124
@@ -339,21 +339,20 @@ attributes #10 = { nounwind }
 !21 = !{!9, !9, i64 0}
 !22 = !{!23, !6, i64 0}
 !23 = !{!"", !6, i64 0, !6, i64 8, !9, i64 16}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!17, !9, i64 12}
-!28 = !{!29, !30, i64 16}
-!29 = !{!"window_data", !6, i64 0, !6, i64 8, !30, i64 16, !6, i64 24}
-!30 = !{!"float", !7, i64 0}
-!31 = !{!29, !6, i64 24}
-!32 = !{!29, !6, i64 8}
-!33 = !{!23, !6, i64 8}
-!34 = !{!35, !6, i64 16}
-!35 = !{!"", !9, i64 0, !9, i64 4, !6, i64 8, !6, i64 16}
-!36 = !{!23, !9, i64 16}
-!37 = !{!29, !6, i64 0}
-!38 = distinct !{!38, !25, !26}
-!39 = !{!35, !6, i64 8}
-!40 = !{!35, !9, i64 0}
-!41 = distinct !{!41, !25, !26}
+!26 = !{!17, !9, i64 12}
+!27 = !{!28, !29, i64 16}
+!28 = !{!"window_data", !6, i64 0, !6, i64 8, !29, i64 16, !6, i64 24}
+!29 = !{!"float", !7, i64 0}
+!30 = !{!28, !6, i64 24}
+!31 = !{!28, !6, i64 8}
+!32 = !{!23, !6, i64 8}
+!33 = !{!34, !6, i64 16}
+!34 = !{!"", !9, i64 0, !9, i64 4, !6, i64 8, !6, i64 16}
+!35 = !{!23, !9, i64 16}
+!36 = !{!28, !6, i64 0}
+!37 = distinct !{!37, !25}
+!38 = !{!34, !6, i64 8}
+!39 = !{!34, !9, i64 0}
+!40 = distinct !{!40, !25}

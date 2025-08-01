@@ -163,7 +163,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %226, label %5
+  br i1 %4, label %230, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7932
@@ -171,8 +171,8 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
-  %.pre50 = zext i32 %1 to i64
-  br i1 %9, label %._crit_edge49, label %10
+  %.pre44 = zext i32 %1 to i64
+  br i1 %9, label %._crit_edge43, label %10
 
 10:                                               ; preds = %5
   %11 = zext i32 %2 to i64
@@ -193,7 +193,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %23 = load i32, ptr %22, align 8
   %24 = zext nneg i32 %23 to i64
   %25 = shl nuw i64 1, %24
-  %26 = and i64 %25, %.pre50
+  %26 = and i64 %25, %.pre44
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %55, label %28
 
@@ -255,9 +255,9 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %.us-phi28 = phi i32 [ %57, %55 ], [ %118, %116 ]
   %.us-phi29 = phi i8 [ %58, %55 ], [ %119, %116 ]
   %61 = icmp eq i8 %.us-phi29, 0
-  br label %._crit_edge49
+  br label %._crit_edge43
 
-._crit_edge49:                                    ; preds = %5, %.split27.us
+._crit_edge43:                                    ; preds = %5, %.split27.us
   %62 = phi i32 [ %.us-phi, %.split27.us ], [ 0, %5 ]
   %63 = phi i32 [ %.us-phi28, %.split27.us ], [ 0, %5 ]
   %64 = phi i1 [ %61, %.split27.us ], [ true, %5 ]
@@ -271,14 +271,12 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %72 = icmp eq ptr %0, null
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2624
-  %invariant.gep = getelementptr i8, ptr %0, i64 6156
-  %invariant.gep30 = getelementptr i8, ptr %0, i64 6152
   br label %.outer
 
-.outer:                                           ; preds = %.thread11, %._crit_edge49
-  %.ph = phi i64 [ %208, %.thread11 ], [ 1, %._crit_edge49 ]
-  %75 = phi i1 [ false, %.thread11 ], [ true, %._crit_edge49 ]
-  %.ph16 = phi i8 [ 1, %.thread11 ], [ 0, %._crit_edge49 ]
+.outer:                                           ; preds = %.thread11, %._crit_edge43
+  %.ph = phi i64 [ %212, %.thread11 ], [ 1, %._crit_edge43 ]
+  %75 = phi i1 [ false, %.thread11 ], [ true, %._crit_edge43 ]
+  %.ph16 = phi i8 [ 1, %.thread11 ], [ 0, %._crit_edge43 ]
   br label %122
 
 .split:                                           ; preds = %10, %116
@@ -292,7 +290,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %83 = load i32, ptr %82, align 8
   %84 = zext nneg i32 %83 to i64
   %85 = shl nuw i64 1, %84
-  %86 = and i64 %85, %.pre50
+  %86 = and i64 %85, %.pre44
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %116, label %88
 
@@ -348,203 +346,204 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %119 = phi i8 [ %77, %.split ], [ %77, %91 ], [ 1, %108 ], [ 1, %112 ], [ %77, %88 ]
   %120 = load ptr, ptr %76, align 8
   %121 = icmp eq ptr %120, %7
-  br i1 %121, label %.split27.us, label %.split, !llvm.loop !17
+  br i1 %121, label %.split27.us, label %.split, !llvm.loop !16
 
-122:                                              ; preds = %.outer, %198
-  %123 = phi i64 [ %200, %198 ], [ %.ph, %.outer ]
-  %124 = phi i8 [ %199, %198 ], [ %.ph16, %.outer ]
+122:                                              ; preds = %.outer, %202
+  %123 = phi i64 [ %204, %202 ], [ %.ph, %.outer ]
+  %124 = phi i8 [ %203, %202 ], [ %.ph16, %.outer ]
   %125 = shl nuw nsw i64 1, %123
-  %126 = and i64 %125, %.pre50
+  %126 = and i64 %125, %.pre44
   %127 = icmp eq i64 %126, 0
-  br i1 %127, label %198, label %128
+  br i1 %127, label %202, label %128
 
 128:                                              ; preds = %122
   %.idx = shl i64 %123, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %129 = load i32, ptr %gep, align 4
-  switch i32 %129, label %198 [
-    i32 1, label %130
-    i32 0, label %150
+  %129 = getelementptr i8, ptr %65, i64 %.idx
+  %130 = getelementptr i8, ptr %129, i64 12
+  %131 = load i32, ptr %130, align 4
+  switch i32 %131, label %202 [
+    i32 1, label %132
+    i32 0, label %152
   ]
 
-130:                                              ; preds = %128
-  %131 = load ptr, ptr %74, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 28
-  %133 = load i16, ptr %132, align 4
-  %134 = and i16 %133, 128
-  %135 = icmp ne i16 %134, 0
-  %136 = load i1, ptr @intel_hpd_irq_handler.__already_done, align 1
-  %137 = select i1 %135, i1 true, i1 %136
-  br i1 %137, label %198, label %138, !prof !6
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %74, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 28
+  %135 = load i16, ptr %134, align 4
+  %136 = and i16 %135, 128
+  %137 = icmp ne i16 %136, 0
+  %138 = load i1, ptr @intel_hpd_irq_handler.__already_done, align 1
+  %139 = select i1 %137, i1 true, i1 %138
+  br i1 %139, label %202, label %140, !prof !6
 
-138:                                              ; preds = %130
+140:                                              ; preds = %132
   store i1 true, ptr @intel_hpd_irq_handler.__already_done, align 1
-  tail call void asm sideeffect "593: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 593b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 593) #8, !srcloc !18
-  %139 = load ptr, ptr %73, align 8
-  %140 = tail call ptr @dev_driver_string(ptr noundef %139) #8
+  tail call void asm sideeffect "593: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 593b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 593) #8, !srcloc !17
   %141 = load ptr, ptr %73, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 80
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %145, label %147
+  %142 = tail call ptr @dev_driver_string(ptr noundef %141) #8
+  %143 = load ptr, ptr %73, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 80
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %147, label %149
 
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %141, align 8
-  br label %147
+147:                                              ; preds = %140
+  %148 = load ptr, ptr %143, align 8
+  br label %149
 
-147:                                              ; preds = %145, %138
-  %148 = phi ptr [ %146, %145 ], [ %143, %138 ]
-  %149 = trunc i64 %123 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef %140, ptr noundef %148, i32 noundef %149) #8
-  tail call void asm sideeffect "594: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 594b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 594) #8, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 560, i32 2313, i64 12) #8, !srcloc !20
-  tail call void asm sideeffect "595: nop\0A\09.pushsection .discard.instr_end\0A\09.long 595b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 595) #8, !srcloc !21
-  tail call void asm sideeffect "596: nop\0A\09.pushsection .discard.instr_end\0A\09.long 596b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 596) #8, !srcloc !22
-  br label %198
+149:                                              ; preds = %147, %140
+  %150 = phi ptr [ %148, %147 ], [ %145, %140 ]
+  %151 = trunc i64 %123 to i32
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef %142, ptr noundef %150, i32 noundef %151) #8
+  tail call void asm sideeffect "594: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 594b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 594) #8, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 560, i32 2313, i64 12) #8, !srcloc !19
+  tail call void asm sideeffect "595: nop\0A\09.pushsection .discard.instr_end\0A\09.long 595b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 595) #8, !srcloc !20
+  tail call void asm sideeffect "596: nop\0A\09.pushsection .discard.instr_end\0A\09.long 596b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 596) #8, !srcloc !21
+  br label %202
 
-150:                                              ; preds = %128
-  %151 = and i64 %125, %67
-  %152 = icmp eq i64 %151, 0
-  br i1 %152, label %.thread9, label %153
+152:                                              ; preds = %128
+  %153 = and i64 %125, %67
+  %154 = icmp eq i64 %153, 0
+  br i1 %154, label %.thread9, label %155
 
-153:                                              ; preds = %150
-  %154 = getelementptr [15 x %struct.anon.36], ptr %65, i64 0, i64 %123
-  %155 = load i64, ptr %154, align 8
-  %156 = load i32, ptr %70, align 4
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %198, label %165
+155:                                              ; preds = %152
+  %156 = getelementptr [15 x %struct.anon.36], ptr %65, i64 0, i64 %123
+  %157 = load i64, ptr %156, align 8
+  %158 = load i32, ptr %70, align 4
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %202, label %167
 
-.thread9:                                         ; preds = %150
-  %158 = load i32, ptr %69, align 8
-  %159 = trunc i64 %125 to i32
-  %160 = or i32 %158, %159
-  store i32 %160, ptr %69, align 8
-  %161 = getelementptr [15 x %struct.anon.36], ptr %65, i64 0, i64 %123
-  %162 = load i64, ptr %161, align 8
-  %163 = load i32, ptr %70, align 4
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %198, label %.thread10
+.thread9:                                         ; preds = %152
+  %160 = load i32, ptr %69, align 8
+  %161 = trunc i64 %125 to i32
+  %162 = or i32 %160, %161
+  store i32 %162, ptr %69, align 8
+  %163 = getelementptr [15 x %struct.anon.36], ptr %65, i64 0, i64 %123
+  %164 = load i64, ptr %163, align 8
+  %165 = load i32, ptr %70, align 4
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %202, label %.thread10
 
-165:                                              ; preds = %153
-  %166 = and i64 %125, %68
-  %.fr = freeze i64 %166
+167:                                              ; preds = %155
+  %168 = and i64 %125, %68
+  %.fr = freeze i64 %168
   %.not = icmp eq i64 %.fr, 0
-  br i1 %.not, label %167, label %.thread10
+  br i1 %.not, label %169, label %.thread10
 
-167:                                              ; preds = %165
-  %168 = load i8, ptr %71, align 8
-  %169 = icmp eq i8 %168, 0
-  br i1 %169, label %198, label %.thread10
+169:                                              ; preds = %167
+  %170 = load i8, ptr %71, align 8
+  %171 = icmp eq i8 %170, 0
+  br i1 %171, label %202, label %.thread10
 
-.thread10:                                        ; preds = %.thread9, %167, %165
-  %170 = phi i64 [ %155, %167 ], [ %155, %165 ], [ %162, %.thread9 ]
-  %171 = phi ptr [ %154, %167 ], [ %154, %165 ], [ %161, %.thread9 ]
-  %172 = phi i8 [ %124, %167 ], [ %124, %165 ], [ 1, %.thread9 ]
-  %173 = phi i32 [ 1, %167 ], [ 10, %165 ], [ 10, %.thread9 ]
-  %174 = phi i32 [ %156, %167 ], [ %156, %165 ], [ %163, %.thread9 ]
-  %175 = load volatile i64, ptr @jiffies, align 64
-  %176 = sub i64 %175, %170
-  %177 = icmp sgt i64 %176, -1
-  br i1 %177, label %178, label %183
+.thread10:                                        ; preds = %.thread9, %169, %167
+  %172 = phi i64 [ %157, %169 ], [ %157, %167 ], [ %164, %.thread9 ]
+  %173 = phi ptr [ %156, %169 ], [ %156, %167 ], [ %163, %.thread9 ]
+  %174 = phi i8 [ %124, %169 ], [ %124, %167 ], [ 1, %.thread9 ]
+  %175 = phi i32 [ 1, %169 ], [ 10, %167 ], [ 10, %.thread9 ]
+  %176 = phi i32 [ %158, %169 ], [ %158, %167 ], [ %165, %.thread9 ]
+  %177 = load volatile i64, ptr @jiffies, align 64
+  %178 = sub i64 %177, %172
+  %179 = icmp sgt i64 %178, -1
+  br i1 %179, label %180, label %185
 
-178:                                              ; preds = %.thread10
-  %179 = add i64 %170, 1000
-  %180 = load volatile i64, ptr @jiffies, align 64
-  %181 = sub i64 %179, %180
-  %182 = icmp sgt i64 %181, -1
-  br i1 %182, label %._crit_edge, label %183
+180:                                              ; preds = %.thread10
+  %181 = add i64 %172, 1000
+  %182 = load volatile i64, ptr @jiffies, align 64
+  %183 = sub i64 %181, %182
+  %184 = icmp sgt i64 %183, -1
+  br i1 %184, label %._crit_edge, label %185
 
-._crit_edge:                                      ; preds = %178
-  %gep33.phi.trans.insert = getelementptr i8, ptr %invariant.gep30, i64 %.idx
-  %.pre = load i32, ptr %gep33.phi.trans.insert, align 8
-  br label %185
+._crit_edge:                                      ; preds = %180
+  %.phi.trans.insert = getelementptr i8, ptr %129, i64 8
+  %.pre = load i32, ptr %.phi.trans.insert, align 8
+  br label %187
 
-183:                                              ; preds = %178, %.thread10
-  %184 = load volatile i64, ptr @jiffies, align 64
-  store i64 %184, ptr %171, align 8
-  br label %185
+185:                                              ; preds = %180, %.thread10
+  %186 = load volatile i64, ptr @jiffies, align 64
+  store i64 %186, ptr %173, align 8
+  br label %187
 
-185:                                              ; preds = %._crit_edge, %183
-  %186 = phi i32 [ %.pre, %._crit_edge ], [ 0, %183 ]
-  %gep33 = getelementptr i8, ptr %invariant.gep30, i64 %.idx
-  %187 = add i32 %186, %173
-  store i32 %187, ptr %gep33, align 8
-  %188 = icmp sgt i32 %187, %174
-  br i1 %188, label %189, label %192
+187:                                              ; preds = %._crit_edge, %185
+  %188 = phi i32 [ %.pre, %._crit_edge ], [ 0, %185 ]
+  %189 = getelementptr i8, ptr %129, i64 8
+  %190 = add i32 %188, %175
+  store i32 %190, ptr %189, align 8
+  %191 = icmp sgt i32 %190, %176
+  br i1 %191, label %192, label %196
 
-189:                                              ; preds = %185
-  %gep.le = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  store i32 2, ptr %gep.le, align 4
-  br i1 %72, label %.thread11, label %190
+192:                                              ; preds = %187
+  %193 = getelementptr i8, ptr %129, i64 12
+  store i32 2, ptr %193, align 4
+  br i1 %72, label %.thread11, label %194
 
-190:                                              ; preds = %189
-  %191 = load ptr, ptr %73, align 8
+194:                                              ; preds = %192
+  %195 = load ptr, ptr %73, align 8
   br label %.thread11
 
-192:                                              ; preds = %185
-  br i1 %72, label %195, label %193
+196:                                              ; preds = %187
+  br i1 %72, label %199, label %197
 
-193:                                              ; preds = %192
-  %194 = load ptr, ptr %73, align 8
-  br label %195
+197:                                              ; preds = %196
+  %198 = load ptr, ptr %73, align 8
+  br label %199
 
-195:                                              ; preds = %193, %192
-  %196 = phi ptr [ %194, %193 ], [ null, %192 ]
-  %197 = trunc i64 %123 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %196, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %197, i32 noundef %187) #8
-  br label %198
+199:                                              ; preds = %197, %196
+  %200 = phi ptr [ %198, %197 ], [ null, %196 ]
+  %201 = trunc i64 %123 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %200, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %201, i32 noundef %190) #8
+  br label %202
 
-198:                                              ; preds = %.thread9, %195, %167, %153, %147, %130, %128, %122
-  %199 = phi i8 [ %124, %122 ], [ %124, %130 ], [ %124, %147 ], [ %124, %128 ], [ %172, %195 ], [ %124, %153 ], [ %124, %167 ], [ 1, %.thread9 ]
-  %200 = add nuw nsw i64 %123, 1
-  %201 = icmp eq i64 %200, 15
-  br i1 %201, label %210, label %122, !llvm.loop !23
+202:                                              ; preds = %.thread9, %199, %169, %155, %149, %132, %128, %122
+  %203 = phi i8 [ %124, %122 ], [ %124, %132 ], [ %124, %149 ], [ %124, %128 ], [ %174, %199 ], [ %124, %155 ], [ %124, %169 ], [ 1, %.thread9 ]
+  %204 = add nuw nsw i64 %123, 1
+  %205 = icmp eq i64 %204, 15
+  br i1 %205, label %214, label %122, !llvm.loop !22
 
-.thread11:                                        ; preds = %189, %190
-  %202 = phi ptr [ %191, %190 ], [ null, %189 ]
-  %203 = trunc i64 %123 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %202, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %203) #8
-  %204 = load i32, ptr %69, align 8
-  %205 = trunc i64 %125 to i32
-  %206 = xor i32 %205, -1
-  %207 = and i32 %204, %206
-  store i32 %207, ptr %69, align 8
-  %208 = add nuw nsw i64 %123, 1
-  %209 = icmp eq i64 %208, 15
-  br i1 %209, label %.thread12, label %.outer, !llvm.loop !23
+.thread11:                                        ; preds = %192, %194
+  %206 = phi ptr [ %195, %194 ], [ null, %192 ]
+  %207 = trunc i64 %123 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %206, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %207) #8
+  %208 = load i32, ptr %69, align 8
+  %209 = trunc i64 %125 to i32
+  %210 = xor i32 %209, -1
+  %211 = and i32 %208, %210
+  store i32 %211, ptr %69, align 8
+  %212 = add nuw nsw i64 %123, 1
+  %213 = icmp eq i64 %212, 15
+  br i1 %213, label %.thread12, label %.outer, !llvm.loop !22
 
-210:                                              ; preds = %198
-  br i1 %75, label %212, label %.thread12
+214:                                              ; preds = %202
+  br i1 %75, label %216, label %.thread12
 
-.thread12:                                        ; preds = %.thread11, %210
-  %211 = phi i8 [ %199, %210 ], [ 1, %.thread11 ]
+.thread12:                                        ; preds = %.thread11, %214
+  %215 = phi i8 [ %203, %214 ], [ 1, %.thread11 ]
   tail call void @intel_hpd_irq_setup(ptr noundef %0) #8
-  br label %212
+  br label %216
 
-212:                                              ; preds = %.thread12, %210
-  %213 = phi i8 [ %211, %.thread12 ], [ %199, %210 ]
+216:                                              ; preds = %.thread12, %214
+  %217 = phi i8 [ %215, %.thread12 ], [ %203, %214 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %6) #8
-  br i1 %64, label %219, label %214
+  br i1 %64, label %223, label %218
 
-214:                                              ; preds = %212
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 6576
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 6488
-  %218 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %216, ptr noundef nonnull %217) #8
-  br label %219
+218:                                              ; preds = %216
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 6576
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 6488
+  %222 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %220, ptr noundef nonnull %221) #8
+  br label %223
 
-219:                                              ; preds = %214, %212
-  %220 = icmp eq i8 %213, 0
-  br i1 %220, label %226, label %221
+223:                                              ; preds = %218, %216
+  %224 = icmp eq i8 %217, 0
+  br i1 %224, label %230, label %225
 
-221:                                              ; preds = %219
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8096
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 6040
-  %225 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %223, ptr noundef nonnull %224, i64 noundef 0) #8
-  br label %226
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8096
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 6040
+  %229 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %227, ptr noundef nonnull %228, i64 noundef 0) #8
+  br label %230
 
-226:                                              ; preds = %221, %219, %3
+230:                                              ; preds = %225, %223, %3
   ret void
 }
 
@@ -580,7 +579,7 @@ define dso_local void @intel_hpd_init(ptr noundef %0) local_unnamed_addr #1 alig
   store i32 0, ptr %11, align 4
   %12 = add nuw nsw i64 %8, 1
   %13 = icmp eq i64 %12, 15
-  br i1 %13, label %14, label %7, !llvm.loop !24
+  br i1 %13, label %14, label %7, !llvm.loop !23
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 7932
@@ -710,7 +709,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
 
 10:                                               ; preds = %7, %1
   %11 = phi ptr [ %9, %7 ], [ null, %1 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !24
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.16) #8
   %12 = getelementptr i8, ptr %0, i64 1892
   tail call void @_raw_spin_lock_irq(ptr noundef %12) #8
@@ -721,7 +720,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %16 = load i32, ptr %15, align 4
   store i32 0, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   call void @drm_connector_list_iter_begin(ptr noundef %4, ptr noundef nonnull %2) #8
   %17 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %18 = icmp eq ptr %17, null
@@ -738,7 +737,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1536
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 1
-  br i1 %26, label %27, label %.thread.us, !llvm.loop !26
+  br i1 %26, label %27, label %.thread.us, !llvm.loop !25
 
 27:                                               ; preds = %.split.us
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 1976
@@ -750,7 +749,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 368
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread.us, label %35, !llvm.loop !26
+  br i1 %34, label %.thread.us, label %35, !llvm.loop !25
 
 35:                                               ; preds = %31
   %36 = zext i32 %33 to i64
@@ -758,7 +757,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %37 = getelementptr i8, ptr %21, i64 %.idx.us
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 2
-  br i1 %39, label %40, label %.thread.us, !llvm.loop !26
+  br i1 %39, label %40, label %.thread.us, !llvm.loop !25
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 96
@@ -772,7 +771,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %43 = phi i8 [ 1, %40 ], [ %23, %.split.us ], [ %23, %35 ], [ %23, %31 ], [ %23, %27 ]
   %44 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.split18.us, label %.split.us, !llvm.loop !27
+  br i1 %45, label %.split18.us, label %.split.us, !llvm.loop !26
 
 .split:                                           ; preds = %19, %.thread
   %46 = phi ptr [ %69, %.thread ], [ %17, %19 ]
@@ -780,7 +779,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 1536
   %49 = load i8, ptr %48, align 8
   %50 = icmp eq i8 %49, 1
-  br i1 %50, label %51, label %.thread, !llvm.loop !26
+  br i1 %50, label %51, label %.thread, !llvm.loop !25
 
 51:                                               ; preds = %.split
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 1976
@@ -792,7 +791,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 368
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread, label %59, !llvm.loop !26
+  br i1 %58, label %.thread, label %59, !llvm.loop !25
 
 59:                                               ; preds = %55
   %60 = zext i32 %57 to i64
@@ -800,7 +799,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %61 = getelementptr i8, ptr %21, i64 %.idx
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 2
-  br i1 %63, label %64, label %.thread, !llvm.loop !26
+  br i1 %63, label %64, label %.thread, !llvm.loop !25
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %20, align 8
@@ -815,7 +814,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %68 = phi i8 [ 1, %64 ], [ %47, %.split ], [ %47, %59 ], [ %47, %55 ], [ %47, %51 ]
   %69 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.split18.us, label %.split, !llvm.loop !28
+  br i1 %70, label %.split18.us, label %.split
 
 .split18.us:                                      ; preds = %.thread, %.thread.us
   %.us-phi = phi i8 [ %43, %.thread.us ], [ %68, %.thread ]
@@ -839,7 +838,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
   call void @_raw_spin_unlock_irq(ptr noundef %12) #8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %80 = load i8, ptr %79, align 8, !range !29, !noundef !30
+  %80 = load i8, ptr %79, align 8, !range !27, !noundef !28
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %88, label %82
 
@@ -883,7 +882,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 368
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.thread12.us, label %106, !llvm.loop !31
+  br i1 %105, label %.thread12.us, label %106, !llvm.loop !29
 
 106:                                              ; preds = %102
   %107 = zext nneg i32 %104 to i64
@@ -940,7 +939,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %137 = phi i32 [ %95, %102 ], [ %95, %106 ], [ %95, %119 ], [ %128, %126 ], [ %128, %130 ], [ %95, %132 ], [ %95, %.split19.us ]
   %138 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %.split21.us, label %.split19.us, !llvm.loop !32
+  br i1 %139, label %.split21.us, label %.split19.us, !llvm.loop !30
 
 .split19:                                         ; preds = %91, %.thread12
   %140 = phi ptr [ %185, %.thread12 ], [ %89, %91 ]
@@ -957,7 +956,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 368
   %150 = load i32, ptr %149, align 8
   %151 = icmp eq i32 %150, 0
-  br i1 %151, label %.thread12, label %152, !llvm.loop !31
+  br i1 %151, label %.thread12, label %152, !llvm.loop !29
 
 152:                                              ; preds = %148
   %153 = zext nneg i32 %150 to i64
@@ -1015,7 +1014,7 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %184 = phi i32 [ %141, %148 ], [ %141, %152 ], [ %141, %165 ], [ %175, %173 ], [ %175, %177 ], [ %141, %179 ], [ %141, %.split19 ]
   %185 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.split21.us, label %.split19, !llvm.loop !33
+  br i1 %186, label %.split21.us, label %.split19
 
 .split21.us:                                      ; preds = %.thread12, %.thread12.us
   %.us-phi22 = phi i32 [ %134, %.thread12.us ], [ %181, %.thread12 ]
@@ -1168,7 +1167,7 @@ define internal void @i915_digport_work_func(ptr noundef %0) #1 align 16 {
   %50 = phi i32 [ %16, %22 ], [ %16, %26 ], [ %48, %42 ], [ %16, %36 ], [ %16, %14 ]
   %51 = load ptr, ptr %15, align 8
   %52 = icmp eq ptr %51, %8
-  br i1 %52, label %53, label %14, !llvm.loop !34
+  br i1 %52, label %53, label %14, !llvm.loop !31
 
 53:                                               ; preds = %49
   %54 = icmp eq i32 %50, 0
@@ -1196,22 +1195,22 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   %3 = alloca %struct.drm_connector_list_iter, align 8
   %4 = getelementptr i8, ptr %0, i64 -6520
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !24
   %5 = getelementptr i8, ptr %0, i64 -6152
   tail call void @mutex_lock(ptr noundef %5) #8
   %6 = getelementptr i8, ptr %0, i64 32
-  %7 = load volatile i8, ptr %6, align 8, !range !29, !noundef !30
+  %7 = load volatile i8, ptr %6, align 8, !range !27, !noundef !28
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %26
 
 8:                                                ; preds = %1
   %9 = tail call i64 @intel_display_power_get(ptr noundef %4, i32 noundef 0) #8
-  %10 = load volatile i8, ptr %6, align 8, !range !29, !noundef !30
+  %10 = load volatile i8, ptr %6, align 8, !range !27, !noundef !28
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %24, label %12, !prof !6
 
 12:                                               ; preds = %8
-  tail call void asm sideeffect "599: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 599b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 599) #8, !srcloc !35
+  tail call void asm sideeffect "599: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 599b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 599) #8, !srcloc !32
   %13 = getelementptr i8, ptr %0, i64 -6512
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @dev_driver_string(ptr noundef %14) #8
@@ -1228,10 +1227,10 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
 22:                                               ; preds = %20, %12
   %23 = phi ptr [ %21, %20 ], [ %18, %12 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %15, ptr noundef %23, ptr noundef nonnull @.str.20) #8
-  tail call void asm sideeffect "600: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 600b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 600) #8, !srcloc !36
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 709, i32 2313, i64 12) #8, !srcloc !37
-  tail call void asm sideeffect "601: nop\0A\09.pushsection .discard.instr_end\0A\09.long 601b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 601) #8, !srcloc !38
-  tail call void asm sideeffect "602: nop\0A\09.pushsection .discard.instr_end\0A\09.long 602b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 602) #8, !srcloc !39
+  tail call void asm sideeffect "600: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 600b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 600) #8, !srcloc !33
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 709, i32 2313, i64 12) #8, !srcloc !34
+  tail call void asm sideeffect "601: nop\0A\09.pushsection .discard.instr_end\0A\09.long 601b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 601) #8, !srcloc !35
+  tail call void asm sideeffect "602: nop\0A\09.pushsection .discard.instr_end\0A\09.long 602b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 602) #8, !srcloc !36
   br label %24
 
 24:                                               ; preds = %22, %8
@@ -1258,7 +1257,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 368
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.critedge.us, label %37, !llvm.loop !40
+  br i1 %36, label %.critedge.us, label %37, !llvm.loop !37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 2412
@@ -1270,7 +1269,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
 .critedge.us:                                     ; preds = %37, %33, %.preheader9.split.us
   %41 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit10, label %.preheader9.split.us, !llvm.loop !41
+  br i1 %42, label %.loopexit10, label %.preheader9.split.us, !llvm.loop !38
 
 .preheader9.split:                                ; preds = %.preheader9, %.critedge
   %43 = phi ptr [ %56, %.critedge ], [ %27, %.preheader9 ]
@@ -1283,7 +1282,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 368
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.critedge, label %51, !llvm.loop !40
+  br i1 %50, label %.critedge, label %51, !llvm.loop !37
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 2412
@@ -1297,7 +1296,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
 .critedge:                                        ; preds = %.preheader9.split, %51, %47
   %56 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit10, label %.preheader9.split, !llvm.loop !42
+  br i1 %57, label %.loopexit10, label %.preheader9.split
 
 .loopexit10:                                      ; preds = %.critedge, %.critedge.us, %26
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #8
@@ -1311,10 +1310,10 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
 59:                                               ; preds = %.loopexit10
   call void @mutex_unlock(ptr noundef %5) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   call void @mutex_lock(ptr noundef %5) #8
   %60 = getelementptr i8, ptr %0, i64 -5712
-  %61 = load i8, ptr %60, align 8, !range !29, !noundef !30
+  %61 = load i8, ptr %60, align 8, !range !27, !noundef !28
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %.thread, label %63
 
@@ -1350,7 +1349,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
 75:                                               ; preds = %78, %69
   %76 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.loopexit, label %69, !llvm.loop !43
+  br i1 %77, label %.loopexit, label %69, !llvm.loop !39
 
 78:                                               ; preds = %69
   %79 = call fastcc i32 @intel_hotplug_detect_connector(ptr noundef nonnull %70), !range !5
@@ -1371,7 +1370,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   %87 = phi ptr [ %70, %84 ], [ %67, %81 ]
   %88 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !44
+  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !39
 
 .loopexit:                                        ; preds = %86, %75
   %90 = phi i32 [ %68, %75 ], [ %82, %86 ]
@@ -1411,7 +1410,7 @@ define internal void @intel_hpd_irq_storm_reenable_work(ptr noundef %0) #1 align
   %2 = alloca %struct.drm_connector_list_iter, align 8
   %3 = getelementptr i8, ptr %0, i64 -6392
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   %4 = getelementptr i8, ptr %0, i64 2536
   %5 = tail call i64 @intel_runtime_pm_get(ptr noundef %4) #8
   %6 = getelementptr i8, ptr %0, i64 1540
@@ -1471,7 +1470,7 @@ define internal void @intel_hpd_irq_storm_reenable_work(ptr noundef %0) #1 align
 .thread.us:                                       ; preds = %35, %21, %17, %.split.us
   %37 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %.split.us, !llvm.loop !45
+  br i1 %38, label %.loopexit, label %.split.us, !llvm.loop !40
 
 .split:                                           ; preds = %9, %.thread
   %39 = phi ptr [ %52, %.thread ], [ %7, %9 ]
@@ -1497,7 +1496,7 @@ define internal void @intel_hpd_irq_storm_reenable_work(ptr noundef %0) #1 align
 .thread:                                          ; preds = %.split, %64, %47, %43
   %52 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.loopexit, label %.split, !llvm.loop !46
+  br i1 %53, label %.loopexit, label %.split, !llvm.loop !41
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 1536
@@ -1540,7 +1539,7 @@ define internal void @intel_hpd_irq_storm_reenable_work(ptr noundef %0) #1 align
 73:                                               ; preds = %72, %67
   %74 = add nuw nsw i64 %68, 1
   %75 = icmp eq i64 %74, 15
-  br i1 %75, label %76, label %67, !llvm.loop !47
+  br i1 %75, label %76, label %67, !llvm.loop !42
 
 76:                                               ; preds = %73
   call void @intel_hpd_irq_setup(ptr noundef %3) #8
@@ -1760,8 +1759,8 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_storm_ctl_write(ptr nou
   br i1 %11, label %57, label %12
 
 12:                                               ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !25
+  store i32 0, ptr %5, align 4, !annotation !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !24
   %13 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %57
@@ -1842,7 +1841,7 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_storm_ctl_write(ptr nou
   store i32 0, ptr %51, align 8
   %52 = add nuw nsw i64 %50, 1
   %53 = icmp eq i64 %52, 15
-  br i1 %53, label %54, label %49, !llvm.loop !48
+  br i1 %53, label %54, label %49, !llvm.loop !43
 
 54:                                               ; preds = %49
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %45) #8
@@ -1927,8 +1926,8 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_short_storm_ctl_write(p
   br i1 %11, label %56, label %12
 
 12:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !25
-  store i8 0, ptr %6, align 1, !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !24
+  store i8 0, ptr %6, align 1, !annotation !24
   %13 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %56
@@ -1976,13 +1975,13 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_short_storm_ctl_write(p
 
 39:                                               ; preds = %36, %34
   %40 = phi ptr [ %38, %36 ], [ null, %34 ]
-  %41 = load i8, ptr %6, align 1, !range !29, !noundef !30
+  %41 = load i8, ptr %6, align 1, !range !27, !noundef !28
   %42 = icmp eq i8 %41, 0
   %43 = select i1 %42, ptr @.str.32, ptr @.str.31
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %40, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %43) #8
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 7932
   call void @_raw_spin_lock_irq(ptr noundef nonnull %44) #8
-  %45 = load i8, ptr %6, align 1, !range !29, !noundef !30
+  %45 = load i8, ptr %6, align 1, !range !27, !noundef !28
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 6560
   store i8 %45, ptr %46, align 8
   %47 = getelementptr i8, ptr %10, i64 6152
@@ -1995,7 +1994,7 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_short_storm_ctl_write(p
   store i32 0, ptr %50, align 8
   %51 = add nuw nsw i64 %49, 1
   %52 = icmp eq i64 %51, 15
-  br i1 %52, label %53, label %48, !llvm.loop !49
+  br i1 %52, label %53, label %48, !llvm.loop !44
 
 53:                                               ; preds = %48
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %44) #8
@@ -2061,41 +2060,36 @@ attributes #9 = { cold nounwind }
 !9 = !{i64 2160373043, i64 2160373072, i64 2160373118, i64 2160373176, i64 2160373230, i64 2160373284, i64 2160373339, i64 2160373370, i64 2160373678, i64 2160373684, i64 2160373731, i64 2160373754, i64 2160373780}
 !10 = !{i64 2160374257, i64 2160374068, i64 2160374118, i64 2160374164, i64 2160374192}
 !11 = !{i64 2160374563, i64 2160374374, i64 2160374424, i64 2160374470, i64 2160374498}
-!12 = distinct !{!12, !13, !14, !15, !16}
+!12 = distinct !{!12, !13, !14, !15}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !13, !14, !15}
-!18 = !{i64 2160393420, i64 2160393229, i64 2160393281, i64 2160393327, i64 2160393355}
-!19 = !{i64 2160393978, i64 2160393787, i64 2160393839, i64 2160393885, i64 2160393913}
-!20 = !{i64 2160394052, i64 2160394081, i64 2160394127, i64 2160394185, i64 2160394239, i64 2160394293, i64 2160394348, i64 2160394379, i64 2160394687, i64 2160394693, i64 2160394740, i64 2160394763, i64 2160394789}
-!21 = !{i64 2160395266, i64 2160395077, i64 2160395127, i64 2160395173, i64 2160395201}
-!22 = !{i64 2160395572, i64 2160395383, i64 2160395433, i64 2160395479, i64 2160395507}
-!23 = distinct !{!23, !13, !14, !15}
-!24 = distinct !{!24, !13, !14, !15}
-!25 = !{!"auto-init"}
-!26 = distinct !{!26, !13, !14}
-!27 = distinct !{!27, !15, !16}
-!28 = distinct !{!28, !15}
-!29 = !{i8 0, i8 2}
-!30 = !{}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !13, !14}
+!17 = !{i64 2160393420, i64 2160393229, i64 2160393281, i64 2160393327, i64 2160393355}
+!18 = !{i64 2160393978, i64 2160393787, i64 2160393839, i64 2160393885, i64 2160393913}
+!19 = !{i64 2160394052, i64 2160394081, i64 2160394127, i64 2160394185, i64 2160394239, i64 2160394293, i64 2160394348, i64 2160394379, i64 2160394687, i64 2160394693, i64 2160394740, i64 2160394763, i64 2160394789}
+!20 = !{i64 2160395266, i64 2160395077, i64 2160395127, i64 2160395173, i64 2160395201}
+!21 = !{i64 2160395572, i64 2160395383, i64 2160395433, i64 2160395479, i64 2160395507}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}
+!24 = !{!"auto-init"}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !15}
+!27 = !{i8 0, i8 2}
+!28 = !{}
+!29 = distinct !{!29, !13, !14}
+!30 = distinct !{!30, !15}
 !31 = distinct !{!31, !13, !14}
-!32 = distinct !{!32, !15, !16}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !13, !14, !15}
-!35 = !{i64 2160417962, i64 2160417771, i64 2160417823, i64 2160417869, i64 2160417897}
-!36 = !{i64 2160418520, i64 2160418329, i64 2160418381, i64 2160418427, i64 2160418455}
-!37 = !{i64 2160418594, i64 2160418623, i64 2160418669, i64 2160418727, i64 2160418781, i64 2160418835, i64 2160418890, i64 2160418921, i64 2160419229, i64 2160419235, i64 2160419282, i64 2160419305, i64 2160419331}
-!38 = !{i64 2160419808, i64 2160419619, i64 2160419669, i64 2160419715, i64 2160419743}
-!39 = !{i64 2160420114, i64 2160419925, i64 2160419975, i64 2160420021, i64 2160420049}
-!40 = distinct !{!40, !13, !14}
-!41 = distinct !{!41, !15, !16}
-!42 = distinct !{!42, !15}
-!43 = distinct !{!43, !13, !14, !15}
-!44 = distinct !{!44, !13, !14, !15}
-!45 = distinct !{!45, !13, !14, !15, !16}
-!46 = distinct !{!46, !13, !14, !15}
-!47 = distinct !{!47, !13, !14, !15}
-!48 = distinct !{!48, !13, !14, !15}
-!49 = distinct !{!49, !13, !14, !15}
+!32 = !{i64 2160417962, i64 2160417771, i64 2160417823, i64 2160417869, i64 2160417897}
+!33 = !{i64 2160418520, i64 2160418329, i64 2160418381, i64 2160418427, i64 2160418455}
+!34 = !{i64 2160418594, i64 2160418623, i64 2160418669, i64 2160418727, i64 2160418781, i64 2160418835, i64 2160418890, i64 2160418921, i64 2160419229, i64 2160419235, i64 2160419282, i64 2160419305, i64 2160419331}
+!35 = !{i64 2160419808, i64 2160419619, i64 2160419669, i64 2160419715, i64 2160419743}
+!36 = !{i64 2160420114, i64 2160419925, i64 2160419975, i64 2160420021, i64 2160420049}
+!37 = distinct !{!37, !13, !14}
+!38 = distinct !{!38, !15}
+!39 = distinct !{!39, !13, !14}
+!40 = distinct !{!40, !13, !14, !15}
+!41 = distinct !{!41, !13, !14}
+!42 = distinct !{!42, !13, !14}
+!43 = distinct !{!43, !13, !14}
+!44 = distinct !{!44, !13, !14}

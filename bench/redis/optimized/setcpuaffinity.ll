@@ -27,16 +27,16 @@ define dso_local void @setcpuaffinity(ptr noundef %0) local_unnamed_addr #0 {
   %6 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %.0111, i32 noundef 44) #8
   %.not7.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %8 = load i8, ptr %.0111, align 1, !tbaa !13
+  %8 = load i8, ptr %.0111, align 1, !tbaa !12
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %5
   %11 = tail call ptr @__ctype_b_loc() #9
-  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = sext i8 %8 to i64
   %14 = getelementptr inbounds i16, ptr %12, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !16
+  %15 = load i16, ptr %14, align 2, !tbaa !15
   %16 = and i16 %15, 2048
   %.not.i44 = icmp eq i16 %16, 0
   br i1 %.not.i44, label %.critedge, label %next_num.exit
@@ -66,15 +66,15 @@ next_token.exit55:                                ; preds = %20
   br i1 %or.cond107, label %26, label %.preheader.preheader
 
 26:                                               ; preds = %next_token.exit55
-  %27 = load i8, ptr %22, align 1, !tbaa !13
+  %27 = load i8, ptr %22, align 1, !tbaa !12
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %11, align 8, !tbaa !14
+  %30 = load ptr, ptr %11, align 8, !tbaa !13
   %31 = sext i8 %27 to i64
   %32 = getelementptr inbounds i16, ptr %30, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !16
+  %33 = load i16, ptr %32, align 2, !tbaa !15
   %34 = and i16 %33, 2048
   %.not.i56 = icmp eq i16 %34, 0
   br i1 %.not.i56, label %.critedge, label %next_num.exit59
@@ -91,7 +91,7 @@ next_num.exit59:                                  ; preds = %29
   br i1 %.not35, label %next_token.exit55.thread, label %39
 
 39:                                               ; preds = %38
-  %40 = load i8, ptr %37, align 1, !tbaa !13
+  %40 = load i8, ptr %37, align 1, !tbaa !12
   %.not36 = icmp eq i8 %40, 0
   br i1 %.not36, label %next_token.exit55.thread, label %41
 
@@ -106,15 +106,15 @@ next_num.exit59:                                  ; preds = %29
   br i1 %or.cond41, label %45, label %next_token.exit55.thread
 
 45:                                               ; preds = %41
-  %46 = load i8, ptr %43, align 1, !tbaa !13
+  %46 = load i8, ptr %43, align 1, !tbaa !12
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %11, align 8, !tbaa !14
+  %49 = load ptr, ptr %11, align 8, !tbaa !13
   %50 = sext i8 %46 to i64
   %51 = getelementptr inbounds i16, ptr %49, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !16
+  %52 = load i16, ptr %51, align 2, !tbaa !15
   %53 = and i16 %52, 2048
   %.not.i65 = icmp eq i16 %53, 0
   br i1 %.not.i65, label %.critedge, label %next_num.exit68
@@ -151,22 +151,22 @@ next_token.exit55.thread:                         ; preds = %38, %39, %next_num.
   %66 = shl nuw i64 1, %65
   %67 = lshr i64 %64, 6
   %68 = getelementptr inbounds nuw i64, ptr %3, i64 %67
-  %69 = load i64, ptr %68, align 8, !tbaa !18
+  %69 = load i64, ptr %68, align 8, !tbaa !17
   %70 = or i64 %69, %66
-  store i64 %70, ptr %68, align 8, !tbaa !18
+  store i64 %70, ptr %68, align 8, !tbaa !17
   br label %71
 
 71:                                               ; preds = %.preheader, %63
   %72 = add nsw i32 %.180110, %.076115
   %.not39 = icmp sgt i32 %72, %.077114
-  br i1 %.not39, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.not39, label %.loopexit, label %.preheader, !llvm.loop !19
 
 73:                                               ; preds = %.loopexit
   %.not30 = icmp eq ptr %61, null
   br i1 %.not30, label %76, label %74
 
 74:                                               ; preds = %73
-  %75 = load i8, ptr %61, align 1, !tbaa !13
+  %75 = load i8, ptr %61, align 1, !tbaa !12
   %.not31 = icmp eq i8 %75, 0
   br i1 %.not31, label %76, label %.critedge
 
@@ -224,14 +224,13 @@ attributes #9 = { nounwind willreturn memory(none) }
 !7 = !{!"any pointer", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!8, !8, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 short", !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !8, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !8, i64 0}
-!20 = distinct !{!20, !11, !12}
+!12 = !{!8, !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 short", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !8, i64 0}
+!19 = distinct !{!19, !11}

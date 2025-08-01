@@ -386,7 +386,7 @@ define noundef i64 @_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2
   tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.08)
   %3 = add nuw nsw i64 %.057, 1
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %3, %.lr.ph ]
@@ -406,7 +406,7 @@ define void @_ZN3tbb6detail2r122small_object_pool_impl7destroyEv(ptr noundef non
   tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.08.i)
   %4 = add nuw nsw i64 %.057.i, 1
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit, label %.lr.ph.i, !llvm.loop !73
+  br i1 %.not.i, label %_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit, label %.lr.ph.i, !llvm.loop !72
 
 _ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit: ; preds = %.lr.ph.i, %1
   %.05.lcssa.i = phi i64 [ 0, %1 ], [ %4, %.lr.ph.i ]
@@ -430,7 +430,7 @@ _ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exi
   tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.08.i4)
   %11 = add nuw nsw i64 %.057.i5, 1
   %.not.i6 = icmp eq ptr %10, null
-  br i1 %.not.i6, label %_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit8, label %.lr.ph.i3, !llvm.loop !73
+  br i1 %.not.i6, label %_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit8, label %.lr.ph.i3, !llvm.loop !72
 
 _ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit8: ; preds = %.lr.ph.i3, %_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit
   %.05.lcssa.i7 = phi i64 [ 0, %_ZN3tbb6detail2r122small_object_pool_impl12cleanup_listEPNS2_12small_objectE.exit ], [ %11, %.lr.ph.i3 ]
@@ -532,7 +532,6 @@ attributes #3 = { nounwind }
 !67 = !{!"p1 _ZTSN3tbb6detail2d117small_object_poolE", !7, i64 0}
 !68 = !{!69, !38, i64 0}
 !69 = !{!"_ZTSN3tbb6detail2r19basic_tlsIPNS1_11thread_dataEEE", !38, i64 0}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = distinct !{!73, !71, !72}
+!72 = distinct !{!72, !71}

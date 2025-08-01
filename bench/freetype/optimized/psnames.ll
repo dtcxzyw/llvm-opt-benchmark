@@ -113,7 +113,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %45 = add nsw i32 %.062122, -1
   %.058 = getelementptr inbounds nuw i8, ptr %.058124, i64 1
   %46 = icmp samesign ugt i32 %.062122, 1
-  br i1 %46, label %33, label %.thread93, !llvm.loop !9
+  br i1 %46, label %33, label %.thread93, !llvm.loop !8
 
 47:                                               ; preds = %33
   %48 = icmp samesign ult i32 %.062122, 3
@@ -147,7 +147,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %.0.add = add nuw nsw i64 %.0.idx, 1
   %.0.ptr.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
   %.pre = load i8, ptr %.0.ptr.phi.trans.insert, align 1, !tbaa !3
-  br label %.thread91, !llvm.loop !10
+  br label %.thread91, !llvm.loop !9
 
 .critedge:                                        ; preds = %.thread91, %.thread91
   %.0.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
@@ -239,7 +239,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %100 = phi i8 [ %96, %98 ], [ %113, %.backedge.i.loopexit ]
   %.2.be.i = phi ptr [ %95, %98 ], [ %99, %.backedge.i.loopexit ]
   %exitcond.not.i = icmp eq ptr %93, %.0.ptr.le
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph83.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph83.i
 
 101:                                              ; preds = %.lr.ph83.i
   %.not84.i = icmp eq i8 %97, 0
@@ -267,13 +267,13 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %113 = load i8, ptr %112, align 1, !tbaa !3
   %114 = and i8 %113, 127
   %115 = icmp eq i8 %94, %114
-  br i1 %115, label %.backedge.i.loopexit, label %116, !llvm.loop !11
+  br i1 %115, label %.backedge.i.loopexit, label %116
 
 116:                                              ; preds = %.lr.ph.i
   %117 = add nsw i32 %.05278.i, -1
   %118 = getelementptr inbounds nuw i8, ptr %.477.i, i64 2
   %119 = icmp sgt i32 %.05278.i, 1
-  br i1 %119, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !12
+  br i1 %119, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !10
 
 ft_get_adobe_glyph_index.exit:                    ; preds = %72, %98, %101, %116, %._crit_edge.i, %80, %83
   %.0.i = phi i32 [ %91, %83 ], [ 0, %._crit_edge.i ], [ 0, %80 ], [ 0, %116 ], [ 0, %101 ], [ 0, %98 ], [ 0, %72 ]
@@ -297,13 +297,13 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #11
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %10, align 8, !tbaa !13
+  store i32 0, ptr %10, align 8, !tbaa !11
   %11 = add i32 %2, 10
   %12 = zext i32 %11 to i64
   %13 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef 0, i64 noundef %12, ptr noundef null, ptr noundef nonnull %7) #11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %13, ptr %14, align 8, !tbaa !23
-  %15 = load i32, ptr %7, align 4, !tbaa !24
+  store ptr %13, ptr %14, align 8, !tbaa !21
+  %15 = load i32, ptr %7, align 4, !tbaa !22
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.preheader67, label %76
 
@@ -330,12 +330,12 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none)
 20:                                               ; preds = %.preheader66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %ps_check_extra_glyph_name.exit, label %.preheader66, !llvm.loop !25
+  br i1 %exitcond.not.i, label %ps_check_extra_glyph_name.exit, label %.preheader66, !llvm.loop !23
 
 .preheader66:                                     ; preds = %18, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %18 ]
   %21 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_name_offsets, i64 0, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4, !tbaa !24
+  %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr @ft_extra_glyph_names, i64 %23
   %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %17) #12
@@ -344,14 +344,14 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none)
 
 27:                                               ; preds = %.preheader66
   %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
-  %29 = load i32, ptr %28, align 4, !tbaa !24
+  %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %ps_check_extra_glyph_name.exit
 
 31:                                               ; preds = %27
-  store i32 1, ptr %28, align 4, !tbaa !24
+  store i32 1, ptr %28, align 4, !tbaa !22
   %32 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
-  store i32 %.071, ptr %32, align 4, !tbaa !24
+  store i32 %.071, ptr %32, align 4, !tbaa !22
   br label %ps_check_extra_glyph_name.exit
 
 ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
@@ -363,24 +363,24 @@ ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
 35:                                               ; preds = %.preheader65
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 10
-  br i1 %exitcond.not.i64, label %ps_check_extra_glyph_unicode.exit, label %.preheader65, !llvm.loop !26
+  br i1 %exitcond.not.i64, label %ps_check_extra_glyph_unicode.exit, label %.preheader65, !llvm.loop !24
 
 .preheader65:                                     ; preds = %ps_check_extra_glyph_name.exit, %35
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %35 ], [ 0, %ps_check_extra_glyph_name.exit ]
   %36 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv.i62
-  %37 = load i32, ptr %36, align 4, !tbaa !24
+  %37 = load i32, ptr %36, align 4, !tbaa !22
   %38 = icmp eq i32 %33, %37
   br i1 %38, label %39, label %35
 
 39:                                               ; preds = %.preheader65
   %40 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i62
-  store i32 2, ptr %40, align 4, !tbaa !24
+  store i32 2, ptr %40, align 4, !tbaa !22
   br label %ps_check_extra_glyph_unicode.exit
 
 ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
-  store i32 %33, ptr %.05170, align 4, !tbaa !27
+  store i32 %33, ptr %.05170, align 4, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %.05170, i64 4
-  store i32 %.071, ptr %41, align 4, !tbaa !29
+  store i32 %.071, ptr %41, align 4, !tbaa !27
   %42 = getelementptr inbounds nuw i8, ptr %.05170, i64 8
   br label %43
 
@@ -396,7 +396,7 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   %.152 = phi ptr [ %.2, %44 ], [ %.2, %43 ], [ %.05170, %18 ], [ %.05170, %16 ]
   %46 = add nuw i32 %.071, 1
   %exitcond.not = icmp eq i32 %46, %2
-  br i1 %exitcond.not, label %.preheader.preheader, label %16, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader.preheader, label %16, !llvm.loop !28
 
 .preheader.preheader:                             ; preds = %45, %.preheader67
   %.373.ph = phi ptr [ %13, %.preheader67 ], [ %.152, %45 ]
@@ -406,18 +406,18 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.preheader.preheader ]
   %.373 = phi ptr [ %.4, %57 ], [ %.373.ph, %.preheader.preheader ]
   %47 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv
-  %48 = load i32, ptr %47, align 4, !tbaa !24
+  %48 = load i32, ptr %47, align 4, !tbaa !22
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %.preheader
   %51 = getelementptr inbounds nuw [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4, !tbaa !24
-  store i32 %52, ptr %.373, align 4, !tbaa !27
+  %52 = load i32, ptr %51, align 4, !tbaa !22
+  store i32 %52, ptr %.373, align 4, !tbaa !25
   %53 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4, !tbaa !24
+  %54 = load i32, ptr %53, align 4, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %.373, i64 4
-  store i32 %54, ptr %55, align 4, !tbaa !29
+  store i32 %54, ptr %55, align 4, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %.373, i64 8
   br label %57
 
@@ -425,10 +425,10 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   %.4 = phi ptr [ %56, %50 ], [ %.373, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond79.not, label %58, label %.preheader, !llvm.loop !31
+  br i1 %exitcond79.not, label %58, label %.preheader, !llvm.loop !29
 
 58:                                               ; preds = %57
-  %59 = load ptr, ptr %14, align 8, !tbaa !23
+  %59 = load ptr, ptr %14, align 8, !tbaa !21
   %60 = ptrtoint ptr %.4 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
@@ -439,8 +439,8 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 
 66:                                               ; preds = %58
   call void @ft_mem_free(ptr noundef %0, ptr noundef %59) #11
-  store ptr null, ptr %14, align 8, !tbaa !23
-  %67 = load i32, ptr %7, align 4, !tbaa !24
+  store ptr null, ptr %14, align 8, !tbaa !21
+  %67 = load i32, ptr %7, align 4, !tbaa !22
   %.not57 = icmp eq i32 %67, 0
   %spec.select = select i1 %.not57, i32 163, i32 %67
   br label %75
@@ -453,19 +453,19 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 
 72:                                               ; preds = %68
   %73 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef %12, i64 noundef %71, ptr noundef %59, ptr noundef nonnull %7) #11
-  store ptr %73, ptr %14, align 8, !tbaa !23
-  store i32 0, ptr %7, align 4, !tbaa !24
+  store ptr %73, ptr %14, align 8, !tbaa !21
+  store i32 0, ptr %7, align 4, !tbaa !22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %68, %72
   %74 = phi ptr [ %73, %72 ], [ %59, %68 ]
   call void @qsort(ptr noundef %74, i64 noundef %71, i64 noundef 8, ptr noundef nonnull @compare_uni_maps) #11
-  %.pre.pre = load i32, ptr %7, align 4, !tbaa !24
+  %.pre.pre = load i32, ptr %7, align 4, !tbaa !22
   br label %75
 
 75:                                               ; preds = %66, %._crit_edge
   %.pre = phi i32 [ %.pre.pre, %._crit_edge ], [ %spec.select, %66 ]
-  store i32 %64, ptr %10, align 8, !tbaa !13
+  store i32 %64, ptr %10, align 8, !tbaa !11
   br label %76
 
 76:                                               ; preds = %75, %6
@@ -479,13 +479,13 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !13
+  %4 = load i32, ptr %3, align 8, !tbaa !11
   %.not63 = icmp eq i32 %4, 0
   br i1 %.not63, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = zext i32 %4 to i64
   %8 = lshr i64 %7, 1
   %9 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %6, i64 %8
@@ -498,7 +498,7 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   %.03461 = phi ptr [ %.236, %13 ], [ %10, %.lr.ph.preheader ]
   %.03760 = phi ptr [ %.239, %13 ], [ %6, %.lr.ph.preheader ]
   %.04059 = phi ptr [ %spec.select, %13 ], [ null, %.lr.ph.preheader ]
-  %11 = load i32, ptr %.03362, align 4, !tbaa !27
+  %11 = load i32, ptr %.03362, align 4, !tbaa !25
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %.thread53, label %13
 
@@ -523,7 +523,7 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   %26 = getelementptr inbounds %struct.PS_UniMap_, ptr %.239, i64 %25
   %.2 = select i1 %or.cond, ptr %26, ptr %20
   %27 = icmp ult ptr %.239, %.236
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
   %.not46 = icmp eq ptr %spec.select, null
@@ -532,7 +532,7 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
 .thread53:                                        ; preds = %.lr.ph, %._crit_edge
   %.14156 = phi ptr [ %spec.select, %._crit_edge ], [ %.03362, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %.14156, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !29
+  %29 = load i32, ptr %28, align 4, !tbaa !27
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %.thread53
@@ -542,17 +542,17 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #3 {
-  %3 = load i32, ptr %1, align 4, !tbaa !24
+  %3 = load i32, ptr %1, align 4, !tbaa !22
   %4 = add i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !13
+  %6 = load i32, ptr %5, align 8, !tbaa !11
   %.not63 = icmp eq i32 %6, 0
   br i1 %.not63, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = lshr i32 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   br label %10
 
 10:                                               ; preds = %.lr.ph, %24
@@ -562,13 +562,13 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
   %.04958 = phi i32 [ 0, %.lr.ph ], [ %.2, %24 ]
   %11 = zext i32 %.04261 to i64
   %12 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %9, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !27
+  %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = icmp eq i32 %13, %4
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !29
+  %17 = load i32, ptr %16, align 4, !tbaa !27
   br label %44
 
 18:                                               ; preds = %10
@@ -578,7 +578,7 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !29
+  %23 = load i32, ptr %22, align 4, !tbaa !27
   br label %24
 
 24:                                               ; preds = %21, %18
@@ -597,7 +597,7 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
   %32 = add i32 %31, %.146
   %.1 = select i1 %or.cond, i32 %32, i32 %28
   %33 = icmp ult i32 %.146, %.144
-  br i1 %33, label %10, label %._crit_edge, !llvm.loop !33
+  br i1 %33, label %10, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %24
   %.not = icmp eq i32 %.2, 0
@@ -610,19 +610,19 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
 
 35:                                               ; preds = %._crit_edge.thread
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  %37 = load ptr, ptr %36, align 8, !tbaa !21
   %38 = zext i32 %.045.lcssa68 to i64
   %39 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !29
-  %42 = load i32, ptr %39, align 4, !tbaa !27
+  %41 = load i32, ptr %40, align 4, !tbaa !27
+  %42 = load i32, ptr %39, align 4, !tbaa !25
   %43 = and i32 %42, 2147483647
   br label %44
 
 44:                                               ; preds = %15, %._crit_edge, %35, %._crit_edge.thread
   %.150 = phi i32 [ %17, %15 ], [ %.2, %._crit_edge ], [ %41, %35 ], [ 0, %._crit_edge.thread ]
   %.047 = phi i32 [ %4, %15 ], [ %4, %._crit_edge ], [ %43, %35 ], [ 0, %._crit_edge.thread ]
-  store i32 %.047, ptr %1, align 4, !tbaa !24
+  store i32 %.047, ptr %1, align 4, !tbaa !22
   ret i32 %.150
 }
 
@@ -632,7 +632,7 @@ define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #4 {
   %spec.store.select = select i1 %2, i32 0, i32 %0
   %3 = zext nneg i32 %spec.store.select to i64
   %4 = getelementptr inbounds nuw [258 x i16], ptr @ft_mac_names, i64 0, i64 %3
-  %5 = load i16, ptr %4, align 2, !tbaa !34
+  %5 = load i16, ptr %4, align 2, !tbaa !31
   %6 = sext i16 %5 to i64
   %7 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %6
   ret ptr %7
@@ -646,7 +646,7 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr inbounds nuw [391 x i16], ptr @ft_sid_names, i64 0, i64 %4
-  %6 = load i16, ptr %5, align 2, !tbaa !34
+  %6 = load i16, ptr %5, align 2, !tbaa !31
   %7 = sext i16 %6 to i64
   %8 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %7
   br label %9
@@ -674,9 +674,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load i32, ptr %0, align 4, !tbaa !27
+  %3 = load i32, ptr %0, align 4, !tbaa !25
   %4 = and i32 %3, 2147483647
-  %5 = load i32, ptr %1, align 4, !tbaa !27
+  %5 = load i32, ptr %1, align 4, !tbaa !25
   %6 = and i32 %5, 2147483647
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %12
@@ -731,32 +731,29 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!14, !19, i64 24}
-!14 = !{!"PS_UnicodesRec_", !15, i64 0, !19, i64 24, !22, i64 32}
-!15 = !{!"FT_CMapRec_", !16, i64 0, !21, i64 16}
-!16 = !{!"FT_CharMapRec_", !17, i64 0, !19, i64 8, !20, i64 12, !20, i64 14}
-!17 = !{!"p1 _ZTS11FT_FaceRec_", !18, i64 0}
-!18 = !{!"any pointer", !4, i64 0}
-!19 = !{!"int", !4, i64 0}
-!20 = !{!"short", !4, i64 0}
-!21 = !{!"p1 _ZTS17FT_CMap_ClassRec_", !18, i64 0}
-!22 = !{!"p1 _ZTS10PS_UniMap_", !18, i64 0}
-!23 = !{!14, !22, i64 32}
-!24 = !{!19, !19, i64 0}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = !{!28, !19, i64 0}
-!28 = !{!"PS_UniMap_", !19, i64 0, !19, i64 4}
-!29 = !{!28, !19, i64 4}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = !{!20, !20, i64 0}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{!12, !17, i64 24}
+!12 = !{!"PS_UnicodesRec_", !13, i64 0, !17, i64 24, !20, i64 32}
+!13 = !{!"FT_CMapRec_", !14, i64 0, !19, i64 16}
+!14 = !{!"FT_CharMapRec_", !15, i64 0, !17, i64 8, !18, i64 12, !18, i64 14}
+!15 = !{!"p1 _ZTS11FT_FaceRec_", !16, i64 0}
+!16 = !{!"any pointer", !4, i64 0}
+!17 = !{!"int", !4, i64 0}
+!18 = !{!"short", !4, i64 0}
+!19 = !{!"p1 _ZTS17FT_CMap_ClassRec_", !16, i64 0}
+!20 = !{!"p1 _ZTS10PS_UniMap_", !16, i64 0}
+!21 = !{!12, !20, i64 32}
+!22 = !{!17, !17, i64 0}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = !{!26, !17, i64 0}
+!26 = !{!"PS_UniMap_", !17, i64 0, !17, i64 4}
+!27 = !{!26, !17, i64 4}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = !{!18, !18, i64 0}

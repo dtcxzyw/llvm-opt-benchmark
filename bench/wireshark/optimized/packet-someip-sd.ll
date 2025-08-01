@@ -1027,7 +1027,7 @@ dissect_someip_sd_pdu_entry.exit.i:               ; preds = %323, %someip_sd_reg
   %354 = add i32 %.04385.i, -16
   %355 = add nuw i32 %.04286.i, 16
   %356 = icmp ugt i32 %354, 15
-  br i1 %356, label %90, label %357, !llvm.loop !9
+  br i1 %356, label %90, label %357, !llvm.loop !8
 
 357:                                              ; preds = %.thread55.i
   %358 = icmp ne i32 %.13944.i, 0
@@ -1395,7 +1395,7 @@ define internal fastcc void @dissect_someip_sd_pdu_options(ptr noundef %0, ptr n
   %80 = zext i8 %77 to i32
   %81 = icmp sgt i32 %50, %80
   %82 = and i1 %81, %79
-  br i1 %82, label %.lr.ph.i, label %dissect_someip_sd_pdu_option_configuration.exit, !llvm.loop !10
+  br i1 %82, label %.lr.ph.i, label %dissect_someip_sd_pdu_option_configuration.exit, !llvm.loop !9
 
 dissect_someip_sd_pdu_option_configuration.exit:  ; preds = %.lr.ph.i, %73, %41, %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
@@ -1591,7 +1591,7 @@ dissect_someip_sd_pdu_option_unknown.exit:        ; preds = %178, %191, %194
   %199 = add i32 %.0643, 1
   %200 = add i32 %.04, %31
   %201 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %200, i32 noundef 3)
-  br i1 %201, label %24, label %._crit_edge, !llvm.loop !11
+  br i1 %201, label %24, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %198, %.preheader
   %.064.lcssa = phi i32 [ 0, %.preheader ], [ %199, %198 ]
@@ -1892,9 +1892,8 @@ attributes #9 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

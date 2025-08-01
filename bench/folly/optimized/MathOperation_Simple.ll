@@ -61,9 +61,9 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
 28:                                               ; preds = %21, %28
   %.04857 = phi i64 [ 0, %21 ], [ %43, %28 ]
   %29 = getelementptr inbounds nuw i64, ptr %22, i64 %.04857
-  %30 = load i64, ptr %29, align 8, !tbaa !16
+  %30 = load i64, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i64, ptr %23, i64 %.04857
-  %32 = load i64, ptr %31, align 8, !tbaa !16
+  %32 = load i64, ptr %31, align 8, !tbaa !15
   %33 = and i64 %30, %15
   %34 = and i64 %30, %16
   %35 = and i64 %32, %15
@@ -74,10 +74,10 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
   %40 = and i64 %39, %16
   %41 = or disjoint i64 %38, %40
   %42 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.04857
-  store i64 %41, ptr %42, align 8, !tbaa !16
+  store i64 %41, ptr %42, align 8, !tbaa !15
   %43 = add nuw nsw i64 %.04857, 1
   %exitcond.not = icmp eq i64 %43, 8
-  br i1 %exitcond.not, label %24, label %28, !llvm.loop !18
+  br i1 %exitcond.not, label %24, label %28, !llvm.loop !17
 
 44:                                               ; preds = %.lr.ph61, %47
   %.04960 = phi i64 [ 0, %.lr.ph61 ], [ %49, %47 ]
@@ -90,21 +90,21 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
   %49 = add i64 %.04960, 64
   %50 = icmp ult i64 %49, %11
-  br i1 %50, label %44, label %.loopexit, !llvm.loop !19
+  br i1 %50, label %44, label %.loopexit, !llvm.loop !18
 
 51:                                               ; preds = %44, %51
   %.04759 = phi i64 [ 0, %44 ], [ %59, %51 ]
   %52 = getelementptr inbounds nuw i64, ptr %45, i64 %.04759
-  %53 = load i64, ptr %52, align 8, !tbaa !16
+  %53 = load i64, ptr %52, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw i64, ptr %46, i64 %.04759
-  %55 = load i64, ptr %54, align 8, !tbaa !16
+  %55 = load i64, ptr %54, align 8, !tbaa !15
   %56 = add i64 %55, %53
   %57 = and i64 %56, %0
   %58 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.04759
-  store i64 %57, ptr %58, align 8, !tbaa !16
+  store i64 %57, ptr %58, align 8, !tbaa !15
   %59 = add nuw nsw i64 %.04759, 1
   %exitcond64.not = icmp eq i64 %59, 8
-  br i1 %exitcond64.not, label %47, label %51, !llvm.loop !20
+  br i1 %exitcond64.not, label %47, label %51, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %47, %13, %.preheader
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
@@ -168,14 +168,14 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %26, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
   %27 = add i64 %.063, 64
   %28 = icmp ult i64 %27, %20
-  br i1 %28, label %22, label %.loopexit, !llvm.loop !21
+  br i1 %28, label %22, label %.loopexit, !llvm.loop !20
 
 29:                                               ; preds = %22, %29
   %.05262 = phi i64 [ 0, %22 ], [ %45, %29 ]
   %30 = getelementptr inbounds nuw i64, ptr %23, i64 %.05262
-  %31 = load i64, ptr %30, align 8, !tbaa !16
+  %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i64, ptr %24, i64 %.05262
-  %33 = load i64, ptr %32, align 8, !tbaa !16
+  %33 = load i64, ptr %32, align 8, !tbaa !15
   %34 = and i64 %31, %16
   %35 = and i64 %33, %16
   %36 = and i64 %33, %17
@@ -187,10 +187,10 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
   %42 = and i64 %41, %17
   %43 = or disjoint i64 %39, %42
   %44 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.05262
-  store i64 %43, ptr %44, align 8, !tbaa !16
+  store i64 %43, ptr %44, align 8, !tbaa !15
   %45 = add nuw nsw i64 %.05262, 1
   %exitcond.not = icmp eq i64 %45, 8
-  br i1 %exitcond.not, label %25, label %29, !llvm.loop !22
+  br i1 %exitcond.not, label %25, label %29, !llvm.loop !21
 
 46:                                               ; preds = %.lr.ph66, %49
   %.05365 = phi i64 [ 0, %.lr.ph66 ], [ %51, %49 ]
@@ -203,23 +203,23 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %50, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
   %51 = add i64 %.05365, 64
   %52 = icmp ult i64 %51, %11
-  br i1 %52, label %46, label %.loopexit, !llvm.loop !23
+  br i1 %52, label %46, label %.loopexit, !llvm.loop !22
 
 53:                                               ; preds = %46, %53
   %.05164 = phi i64 [ 0, %46 ], [ %63, %53 ]
   %54 = getelementptr inbounds nuw i64, ptr %47, i64 %.05164
-  %55 = load i64, ptr %54, align 8, !tbaa !16
+  %55 = load i64, ptr %54, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i64, ptr %48, i64 %.05164
-  %57 = load i64, ptr %56, align 8, !tbaa !16
+  %57 = load i64, ptr %56, align 8, !tbaa !15
   %58 = sub i64 %12, %57
   %59 = and i64 %58, %0
   %60 = add i64 %59, %55
   %61 = and i64 %60, %0
   %62 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.05164
-  store i64 %61, ptr %62, align 8, !tbaa !16
+  store i64 %61, ptr %62, align 8, !tbaa !15
   %63 = add nuw nsw i64 %.05164, 1
   %exitcond69.not = icmp eq i64 %63, 8
-  br i1 %exitcond69.not, label %49, label %53, !llvm.loop !24
+  br i1 %exitcond69.not, label %49, label %53, !llvm.loop !23
 
 .loopexit:                                        ; preds = %25, %49, %14, %.preheader
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
@@ -253,18 +253,18 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE16clear
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %10, ptr noundef nonnull align 64 dereferenceable(64) %4, i64 64, i1 false)
   %12 = add i64 %.01015, 64
   %13 = icmp ult i64 %12, %9
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 14:                                               ; preds = %.lr.ph, %14
   %.014 = phi i64 [ 0, %.lr.ph ], [ %19, %14 ]
   %15 = getelementptr inbounds nuw i64, ptr %10, i64 %.014
-  %16 = load i64, ptr %15, align 8, !tbaa !16
+  %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = and i64 %16, %0
   %18 = getelementptr inbounds nuw [8 x i64], ptr %4, i64 0, i64 %.014
-  store i64 %17, ptr %18, align 8, !tbaa !16
+  store i64 %17, ptr %18, align 8, !tbaa !15
   %19 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %19, 8
-  br i1 %exitcond.not, label %11, label %14, !llvm.loop !26
+  br i1 %exitcond.not, label %11, label %14, !llvm.loop !25
 
 20:                                               ; preds = %3, %._crit_edge
   ret void
@@ -289,13 +289,13 @@ define noundef zeroext i1 @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEng
 10:                                               ; preds = %10, %.lr.ph
   %.01013 = phi i64 [ 0, %.lr.ph ], [ %14, %10 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.01013
-  %12 = load i64, ptr %11, align 8, !tbaa !16
+  %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = and i64 %12, %9
   %.not = icmp eq i64 %13, 0
   %14 = add i64 %.01013, 8
   %.not16 = icmp ult i64 %14, %7
   %or.cond = select i1 %.not, i1 %.not16, i1 false
-  br i1 %or.cond, label %10, label %.loopexit, !llvm.loop !27
+  br i1 %or.cond, label %10, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %10, %.preheader, %3
   %.0 = phi i1 [ true, %3 ], [ true, %.preheader ], [ %.not, %10 ]
@@ -325,18 +325,17 @@ attributes #6 = { nounwind }
 !10 = !{!"any pointer", !11, i64 0}
 !11 = !{!"omnipotent char", !12, i64 0}
 !12 = !{!"Simple C++ TBAA"}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !11, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = distinct !{!23, !14, !15}
-!24 = distinct !{!24, !14, !15}
-!25 = distinct !{!25, !14, !15}
-!26 = distinct !{!26, !14, !15}
-!27 = distinct !{!27, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !11, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}
+!26 = distinct !{!26, !14}

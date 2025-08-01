@@ -232,7 +232,7 @@ get_hex_uint.exit:                                ; preds = %.lr.ph.i
 
 74:                                               ; preds = %72
   %75 = add i32 %.08.i, 1
-  br label %72, !llvm.loop !9
+  br label %72, !llvm.loop !8
 
 skip_space.exit:                                  ; preds = %72
   %76 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.08.i)
@@ -290,7 +290,7 @@ get_hex_uint.exit147:                             ; preds = %.lr.ph.i141
 
 98:                                               ; preds = %96
   %99 = add i32 %.08.i148, 1
-  br label %96, !llvm.loop !9
+  br label %96, !llvm.loop !8
 
 skip_space.exit150:                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -325,7 +325,7 @@ get_unquoted_string.exit:                         ; preds = %skip_space.exit150
 
 112:                                              ; preds = %.preheader
   %113 = add i32 %.08.i152, 1
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !8
 
 skip_space.exit154:                               ; preds = %.preheader
   %114 = load ptr, ptr %100, align 8
@@ -362,7 +362,7 @@ get_quoted_string.exit:                           ; preds = %117
 
 129:                                              ; preds = %127
   %130 = add i32 %.08.i157, 1
-  br label %127, !llvm.loop !9
+  br label %127, !llvm.loop !8
 
 skip_space.exit159:                               ; preds = %127
   %131 = load ptr, ptr %100, align 8
@@ -453,7 +453,7 @@ define internal fastcc noundef zeroext i1 @skip_space(ptr noundef %0, i32 nounde
 
 6:                                                ; preds = %4
   %7 = add i32 %.08, 1
-  br label %4, !llvm.loop !9
+  br label %4, !llvm.loop !8
 
 8:                                                ; preds = %4
   store i32 %.08, ptr %2, align 4
@@ -533,7 +533,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

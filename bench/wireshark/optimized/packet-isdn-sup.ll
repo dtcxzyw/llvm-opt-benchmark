@@ -969,7 +969,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
 20:                                               ; preds = %13, %16
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %.preheader, label %.preheader18, !llvm.loop !9
+  br i1 %exitcond26.not, label %.preheader, label %.preheader18, !llvm.loop !8
 
 .preheader:                                       ; preds = %20, %.preheader
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.preheader ], [ 0, %20 ]
@@ -979,7 +979,7 @@ define hidden void @proto_reg_handoff_isdn_sup() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.4, i32 noundef %22, ptr noundef %23)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 31
-  br i1 %exitcond30.not, label %24, label %.preheader, !llvm.loop !10
+  br i1 %exitcond30.not, label %24, label %.preheader, !llvm.loop !9
 
 24:                                               ; preds = %.preheader
   ret void
@@ -1073,7 +1073,7 @@ define internal i32 @dissect_isdn_sup_arg(ptr noundef %0, ptr noundef %1, ptr no
 19:                                               ; preds = %21
   %20 = add nsw i32 %.06.i, -1
   %.not.i = icmp eq i32 %.06.i, 0
-  br i1 %.not.i, label %get_op.exit.thread, label %21, !llvm.loop !11
+  br i1 %.not.i, label %get_op.exit.thread, label %21, !llvm.loop !10
 
 21:                                               ; preds = %19, %16
   %.06.i = phi i32 [ 31, %16 ], [ %20, %19 ]
@@ -1174,7 +1174,7 @@ define internal i32 @dissect_isdn_sup_res(ptr noundef %0, ptr noundef %1, ptr no
 18:                                               ; preds = %20
   %19 = add nsw i32 %.06.i, -1
   %.not.i = icmp eq i32 %.06.i, 0
-  br i1 %.not.i, label %get_op.exit.thread, label %20, !llvm.loop !11
+  br i1 %.not.i, label %get_op.exit.thread, label %20, !llvm.loop !10
 
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 31, %15 ], [ %19, %18 ]
@@ -1275,7 +1275,7 @@ define internal i32 @dissect_isdn_sup_err(ptr noundef %0, ptr noundef %1, ptr no
 18:                                               ; preds = %20
   %19 = add nsw i32 %.06.i, -1
   %.not.i = icmp eq i32 %.06.i, 0
-  br i1 %.not.i, label %get_err.exit.thread, label %20, !llvm.loop !12
+  br i1 %.not.i, label %get_err.exit.thread, label %20, !llvm.loop !11
 
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 30, %15 ], [ %19, %18 ]
@@ -2447,10 +2447,9 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

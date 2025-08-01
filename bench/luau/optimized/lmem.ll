@@ -1008,7 +1008,7 @@ define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1069,7 +1069,7 @@ define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(pt
 
 _Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit: ; preds = %33, %36, %.lr.ph
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1144,63 +1144,63 @@ _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %20, %39
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) @_ZL16kSizeClassConfig, i8 0, i64 160, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1025) getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i8 -1, i64 1025, i1 false)
   br label %1
 
 1:                                                ; preds = %1, %0
   %.02530.i.i = phi i32 [ 8, %0 ], [ %6, %1 ]
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %3 = add nsw i32 %2, 1
-  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %4
   store i32 %.02530.i.i, ptr %5, align 4, !tbaa !54
   %6 = add nuw nsw i32 %.02530.i.i, 8
   %7 = icmp samesign ult i32 %.02530.i.i, 56
-  br i1 %7, label %1, label %.preheader29.i.i, !llvm.loop !62
+  br i1 %7, label %1, label %.preheader29.i.i, !llvm.loop !61
 
 .preheader29.i.i:                                 ; preds = %1, %.preheader29.i.i
   %.02431.i.i = phi i32 [ %12, %.preheader29.i.i ], [ 64, %1 ]
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %10 = sext i32 %8 to i64
   %11 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %10
   store i32 %.02431.i.i, ptr %11, align 4, !tbaa !54
   %12 = add nuw nsw i32 %.02431.i.i, 16
   %13 = icmp samesign ult i32 %.02431.i.i, 240
-  br i1 %13, label %.preheader29.i.i, label %.preheader28.i.i, !llvm.loop !63
+  br i1 %13, label %.preheader29.i.i, label %.preheader28.i.i, !llvm.loop !62
 
 .preheader28.i.i:                                 ; preds = %.preheader29.i.i, %.preheader28.i.i
   %.02332.i.i = phi i32 [ %18, %.preheader28.i.i ], [ 256, %.preheader29.i.i ]
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %16 = sext i32 %14 to i64
   %17 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %16
   store i32 %.02332.i.i, ptr %17, align 4, !tbaa !54
   %18 = add nuw nsw i32 %.02332.i.i, 32
   %19 = icmp samesign ult i32 %.02332.i.i, 480
-  br i1 %19, label %.preheader28.i.i, label %.preheader27.i.i, !llvm.loop !64
+  br i1 %19, label %.preheader28.i.i, label %.preheader27.i.i, !llvm.loop !63
 
 .preheader26.i.i:                                 ; preds = %.preheader27.i.i
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i.i, label %.preheader.i.i.preheader
 
 .preheader27.i.i:                                 ; preds = %.preheader28.i.i, %.preheader27.i.i
   %.02233.i.i = phi i32 [ %26, %.preheader27.i.i ], [ 512, %.preheader28.i.i ]
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %24 = sext i32 %22 to i64
   %25 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %24
   store i32 %.02233.i.i, ptr %25, align 4, !tbaa !54
   %26 = add nuw nsw i32 %.02233.i.i, 64
   %27 = icmp samesign ult i32 %.02233.i.i, 961
-  br i1 %27, label %.preheader27.i.i, label %.preheader26.i.i, !llvm.loop !65
+  br i1 %27, label %.preheader27.i.i, label %.preheader26.i.i, !llvm.loop !64
 
 .lr.ph.i.i:                                       ; preds = %.preheader26.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader26.i.i ]
@@ -1211,10 +1211,10 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
   %32 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %31
   store i8 %28, ptr %32, align 1, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !60
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i.i, %34
-  br i1 %35, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !66
+  br i1 %35, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !65
 
 .preheader.i.i.preheader:                         ; preds = %.lr.ph.i.i, %.preheader26.i.i
   br label %.preheader.i.i
@@ -1236,7 +1236,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
 43:                                               ; preds = %39, %.preheader.i.i
   %indvars.iv.next38.i.i = add nsw i64 %indvars.iv37.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv37.i.i, 0
-  br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %.preheader.i.i, !llvm.loop !67
+  br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %.preheader.i.i, !llvm.loop !66
 
 __cxx_global_var_init.exit:                       ; preds = %43
   %44 = tail call ptr @llvm.invariant.start.p0(i64 1192, ptr nonnull @_ZL16kSizeClassConfig)
@@ -1316,16 +1316,15 @@ attributes #11 = { noreturn }
 !52 = !{!53, !53, i64 0}
 !53 = !{!"p1 omnipotent char", !10, i64 0}
 !54 = !{!13, !13, i64 0}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = !{!31, !21, i64 744}
-!59 = distinct !{!59, !56, !57}
-!60 = !{!61, !13, i64 1188}
-!61 = !{!"_ZTS15SizeClassConfig", !6, i64 0, !6, i64 160, !13, i64 1188}
-!62 = distinct !{!62, !56, !57}
-!63 = distinct !{!63, !56, !57}
-!64 = distinct !{!64, !56, !57}
-!65 = distinct !{!65, !56, !57}
-!66 = distinct !{!66, !56, !57}
-!67 = distinct !{!67, !56, !57}
+!57 = !{!31, !21, i64 744}
+!58 = distinct !{!58, !56}
+!59 = !{!60, !13, i64 1188}
+!60 = !{!"_ZTS15SizeClassConfig", !6, i64 0, !6, i64 160, !13, i64 1188}
+!61 = distinct !{!61, !56}
+!62 = distinct !{!62, !56}
+!63 = distinct !{!63, !56}
+!64 = distinct !{!64, !56}
+!65 = distinct !{!65, !56}
+!66 = distinct !{!66, !56}

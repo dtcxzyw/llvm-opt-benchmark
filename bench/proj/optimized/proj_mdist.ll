@@ -57,11 +57,11 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
 
 26:                                               ; preds = %.split.loop.exit87
   %27 = add nsw i32 %.051.lcssa, -1
-  store i32 %27, ptr %24, align 8, !tbaa !10
+  store i32 %27, ptr %24, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store double %0, ptr %28, align 8, !tbaa !13
+  store double %0, ptr %28, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store double %12, ptr %29, align 8, !tbaa !14
+  store double %12, ptr %29, align 8, !tbaa !13
   %30 = fsub double 1.000000e+00, %12
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store double %30, ptr %31, align 8, !tbaa !3
@@ -88,7 +88,7 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %42 = fadd double %.16177, 2.000000e+00
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, %21
-  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %.split.loop.exit87
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #9
@@ -111,14 +111,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define hidden noundef double @_Z10proj_mdistdddPKv(double noundef %0, double noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %5 = fmul double %1, %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load double, ptr %6, align 8, !tbaa !14
+  %7 = load double, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load double, ptr %8, align 8, !tbaa !13
+  %9 = load double, ptr %8, align 8, !tbaa !12
   %10 = fneg double %9
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %5, double 1.000000e+00)
-  %12 = tail call double @sqrt(double noundef %11) #9, !tbaa !16
+  %12 = tail call double @sqrt(double noundef %11) #9, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load i32, ptr %3, align 8, !tbaa !10
+  %14 = load i32, ptr %3, align 8, !tbaa !9
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [1 x double], ptr %13, i64 0, i64 %15
   %17 = load double, ptr %16, align 8, !tbaa !3
@@ -133,7 +133,7 @@ define hidden noundef double @_Z10proj_mdistdddPKv(double noundef %0, double nou
   %19 = load double, ptr %18, align 8, !tbaa !3
   %20 = tail call double @llvm.fmuladd.f64(double %5, double %.02022, double %19)
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.020.lcssa = phi double [ %17, %4 ], [ %20, %.lr.ph ]
@@ -155,11 +155,11 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 ; Function Attrs: mustprogress uwtable
 define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, double noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load double, ptr %4, align 8, !tbaa !13
+  %5 = load double, ptr %4, align 8, !tbaa !12
   %6 = fsub double 1.000000e+00, %5
   %7 = fdiv double 1.000000e+00, %6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load double, ptr %8, align 8, !tbaa !14
+  %9 = load double, ptr %8, align 8, !tbaa !13
   %10 = fneg double %5
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %12
@@ -172,15 +172,15 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
 
 13:                                               ; preds = %12
   %14 = add nsw i32 %.0, -1
-  %15 = tail call double @sin(double noundef %.022) #9, !tbaa !16
+  %15 = tail call double @sin(double noundef %.022) #9, !tbaa !15
   %16 = fneg double %15
   %17 = fmul double %5, %16
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %15, double 1.000000e+00)
-  %19 = tail call double @cos(double noundef %.022) #9, !tbaa !16
+  %19 = tail call double @cos(double noundef %.022) #9, !tbaa !15
   %20 = fmul double %15, %15
   %21 = tail call double @llvm.fmuladd.f64(double %10, double %20, double 1.000000e+00)
-  %22 = tail call double @sqrt(double noundef %21) #9, !tbaa !16
-  %23 = load i32, ptr %2, align 8, !tbaa !10
+  %22 = tail call double @sqrt(double noundef %21) #9, !tbaa !15
+  %23 = load i32, ptr %2, align 8, !tbaa !9
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds [1 x double], ptr %11, i64 0, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !3
@@ -195,7 +195,7 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   %28 = load double, ptr %27, align 8, !tbaa !3
   %29 = tail call double @llvm.fmuladd.f64(double %20, double %.02022.i, double %28)
   %.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %.not.i, label %_Z10proj_mdistdddPKv.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_Z10proj_mdistdddPKv.exit, label %.lr.ph.i, !llvm.loop !16
 
 _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %13
   %.020.lcssa.i = phi double [ %26, %13 ], [ %29, %.lr.ph.i ]
@@ -206,14 +206,14 @@ _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %13
   %34 = tail call double @llvm.fmuladd.f64(double %.022, double %9, double %33)
   %35 = tail call noundef double @llvm.fmuladd.f64(double %30, double %.020.lcssa.i, double %34)
   %36 = fsub double %35, %1
-  %37 = tail call double @sqrt(double noundef %18) #9, !tbaa !16
+  %37 = tail call double @sqrt(double noundef %18) #9, !tbaa !15
   %38 = fmul double %18, %37
   %39 = fmul double %36, %38
   %40 = fmul double %7, %39
   %41 = fsub double %.022, %40
   %42 = tail call double @llvm.fabs.f64(double %40)
   %43 = fcmp olt double %42, 0x3D06849B86A12B9B
-  br i1 %43, label %.loopexit, label %12, !llvm.loop !18
+  br i1 %43, label %.loopexit, label %12, !llvm.loop !17
 
 44:                                               ; preds = %12
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %0, i32 noundef 2050)
@@ -256,15 +256,14 @@ attributes #10 = { nounwind allocsize(0) }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !12, i64 0}
-!11 = !{!"_ZTSN12_GLOBAL__N_15MDISTE", !12, i64 0, !4, i64 8, !4, i64 16, !5, i64 24}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!11, !4, i64 8}
-!14 = !{!11, !4, i64 16}
-!15 = distinct !{!15, !8, !9}
-!16 = !{!12, !12, i64 0}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTSN12_GLOBAL__N_15MDISTE", !11, i64 0, !4, i64 8, !4, i64 16, !5, i64 24}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!10, !4, i64 8}
+!13 = !{!10, !4, i64 16}
+!14 = distinct !{!14, !8}
+!15 = !{!11, !11, i64 0}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

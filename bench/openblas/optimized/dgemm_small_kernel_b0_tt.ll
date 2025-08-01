@@ -311,7 +311,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   store <8 x double> %188, ptr %gep1813, align 1, !tbaa !3
   %205 = add nuw nsw i64 %.016171814, 16
   %206 = icmp slt i64 %205, %16
-  br i1 %206, label %.preheader1747, label %.preheader1748, !llvm.loop !9
+  br i1 %206, label %.preheader1747, label %.preheader1748, !llvm.loop !8
 
 207:                                              ; preds = %.lr.ph1857, %315
   %.116181856 = phi i64 [ %.01617.lcssa, %.lr.ph1857 ], [ %316, %315 ]
@@ -389,7 +389,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %258 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %248, <8 x double> %250, <8 x double> %.016851818)
   %259 = add nuw nsw i64 %.116251826, 1
   %exitcond2271.not = icmp eq i64 %259, %2
-  br i1 %exitcond2271.not, label %._crit_edge1829, label %215, !llvm.loop !10
+  br i1 %exitcond2271.not, label %._crit_edge1829, label %215, !llvm.loop !9
 
 ._crit_edge1829:                                  ; preds = %215, %207
   %.01685.lcssa = phi <8 x double> [ zeroinitializer, %207 ], [ %258, %215 ]
@@ -501,12 +501,12 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 315:                                              ; preds = %313, %._crit_edge1829
   %316 = add nuw nsw i64 %.116181856, 8
   %317 = icmp slt i64 %316, %1
-  br i1 %317, label %207, label %._crit_edge1858, !llvm.loop !11
+  br i1 %317, label %207, label %._crit_edge1858, !llvm.loop !10
 
 ._crit_edge1858:                                  ; preds = %315, %.preheader1748
   %318 = add nuw nsw i64 %.01859, 8
   %319 = icmp slt i64 %318, %12
-  br i1 %319, label %.preheader1749, label %.preheader1746, !llvm.loop !12
+  br i1 %319, label %.preheader1749, label %.preheader1746, !llvm.loop !11
 
 320:                                              ; preds = %.lr.ph2055, %._crit_edge2053
   %.12054 = phi i64 [ %.0.lcssa, %.lr.ph2055 ], [ %713, %._crit_edge2053 ]
@@ -605,7 +605,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %376 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %352, <8 x double> %360, <8 x double> %.017091863)
   %377 = add nuw nsw i64 %.216261879, 1
   %exitcond2272.not = icmp eq i64 %377, %2
-  br i1 %exitcond2272.not, label %._crit_edge1881, label %.lr.ph1880, !llvm.loop !13
+  br i1 %exitcond2272.not, label %._crit_edge1881, label %.lr.ph1880, !llvm.loop !12
 
 ._crit_edge1881:                                  ; preds = %.lr.ph1880, %.preheader1743
   %.01709.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1743 ], [ %376, %.lr.ph1880 ]
@@ -833,7 +833,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   store <4 x double> %518, ptr %gep1961, align 1, !tbaa !3
   %521 = add nuw nsw i64 %.216191962, 32
   %522 = icmp slt i64 %521, %15
-  br i1 %522, label %.preheader1743, label %.preheader1745, !llvm.loop !14
+  br i1 %522, label %.preheader1743, label %.preheader1745, !llvm.loop !13
 
 .preheader1744:                                   ; preds = %._crit_edge1976, %.preheader1745
   %.31620.lcssa = phi i64 [ %.21619.lcssa, %.preheader1745 ], [ %632, %._crit_edge1976 ]
@@ -897,7 +897,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %559 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %547, <8 x double> %551, <8 x double> %.017171966)
   %560 = add nuw nsw i64 %.316271974, 1
   %exitcond2273.not = icmp eq i64 %560, %2
-  br i1 %exitcond2273.not, label %._crit_edge1976, label %.lr.ph1975, !llvm.loop !15
+  br i1 %exitcond2273.not, label %._crit_edge1976, label %.lr.ph1975, !llvm.loop !14
 
 ._crit_edge1976:                                  ; preds = %.lr.ph1975, %.preheader1742
   %.01717.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1742 ], [ %559, %.lr.ph1975 ]
@@ -1013,7 +1013,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   store <4 x double> %629, ptr %gep2016, align 1, !tbaa !3
   %632 = add nuw nsw i64 %.316202017, 16
   %633 = icmp slt i64 %632, %16
-  br i1 %633, label %.preheader1742, label %.preheader1744, !llvm.loop !16
+  br i1 %633, label %.preheader1742, label %.preheader1744, !llvm.loop !15
 
 634:                                              ; preds = %.lr.ph2052, %710
   %.42051 = phi i64 [ %.31620.lcssa, %.lr.ph2052 ], [ %711, %710 ]
@@ -1067,7 +1067,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %665 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %659, <8 x double> %661, <8 x double> %.016862024)
   %666 = add nuw nsw i64 %.416282025, 1
   %exitcond2274.not = icmp eq i64 %666, %2
-  br i1 %exitcond2274.not, label %._crit_edge2028, label %642, !llvm.loop !17
+  br i1 %exitcond2274.not, label %._crit_edge2028, label %642, !llvm.loop !16
 
 ._crit_edge2028:                                  ; preds = %642, %634
   %.01689.lcssa = phi <8 x double> [ zeroinitializer, %634 ], [ %662, %642 ]
@@ -1163,12 +1163,12 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 710:                                              ; preds = %707, %._crit_edge2028
   %711 = add nuw nsw i64 %.42051, 8
   %712 = icmp slt i64 %711, %1
-  br i1 %712, label %634, label %._crit_edge2053, !llvm.loop !18
+  br i1 %712, label %634, label %._crit_edge2053, !llvm.loop !17
 
 ._crit_edge2053:                                  ; preds = %710, %.preheader1744
   %713 = add nuw nsw i64 %.12054, 4
   %714 = icmp slt i64 %713, %13
-  br i1 %714, label %320, label %._crit_edge2056, !llvm.loop !19
+  br i1 %714, label %320, label %._crit_edge2056, !llvm.loop !18
 
 ._crit_edge2056:                                  ; preds = %._crit_edge2053, %.preheader1746
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader1746 ], [ %713, %._crit_edge2053 ]
@@ -1193,10 +1193,10 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %indvars.iv = phi i64 [ 0, %716 ], [ %indvars.iv.next, %722 ]
   %723 = mul nsw i64 %9, %indvars.iv
   %724 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv
-  store i64 %723, ptr %724, align 8, !tbaa !20
+  store i64 %723, ptr %724, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond2276.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond2276.not, label %717, label %722, !llvm.loop !22
+  br i1 %exitcond2276.not, label %717, label %722, !llvm.loop !21
 
 .preheader1741:                                   ; preds = %.preheader1741.lr.ph, %._crit_edge2124
   %.22125 = phi i64 [ %.1.lcssa, %.preheader1741.lr.ph ], [ %843, %._crit_edge2124 ]
@@ -1274,7 +1274,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %760 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %744, <8 x double> %752, <8 x double> %.016692068)
   %761 = add nuw nsw i64 %.516292069, 1
   %exitcond2277.not = icmp eq i64 %761, %2
-  br i1 %exitcond2277.not, label %._crit_edge2071, label %.lr.ph2070, !llvm.loop !23
+  br i1 %exitcond2277.not, label %._crit_edge2071, label %.lr.ph2070, !llvm.loop !22
 
 ._crit_edge2071:                                  ; preds = %.lr.ph2070, %.preheader1738
   %.01676.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1738 ], [ %753, %.lr.ph2070 ]
@@ -1318,7 +1318,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %780, <8 x i1> splat (i1 true), <8 x i64> %718, <8 x double> %779, i32 8)
   %781 = add nuw nsw i64 %.52088, 32
   %782 = icmp slt i64 %781, %15
-  br i1 %782, label %.preheader1738, label %.preheader1740, !llvm.loop !24
+  br i1 %782, label %.preheader1738, label %.preheader1740, !llvm.loop !23
 
 .preheader1739:                                   ; preds = %._crit_edge2098, %.preheader1740
   %.6.lcssa = phi i64 [ %.5.lcssa, %.preheader1740 ], [ %814, %._crit_edge2098 ]
@@ -1362,7 +1362,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %803 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %795, <8 x double> %799, <8 x double> %.016572095)
   %804 = add nuw nsw i64 %.616302096, 1
   %exitcond2278.not = icmp eq i64 %804, %2
-  br i1 %exitcond2278.not, label %._crit_edge2098, label %.lr.ph2097, !llvm.loop !25
+  br i1 %exitcond2278.not, label %._crit_edge2098, label %.lr.ph2097, !llvm.loop !24
 
 ._crit_edge2098:                                  ; preds = %.lr.ph2097, %.preheader1737
   %.01660.lcssa = phi <8 x double> [ zeroinitializer, %.preheader1737 ], [ %800, %.lr.ph2097 ]
@@ -1386,7 +1386,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %813, <8 x i1> splat (i1 true), <8 x i64> %718, <8 x double> %812, i32 8)
   %814 = add nuw nsw i64 %.62107, 16
   %815 = icmp slt i64 %814, %16
-  br i1 %815, label %.preheader1737, label %.preheader1739, !llvm.loop !26
+  br i1 %815, label %.preheader1737, label %.preheader1739, !llvm.loop !25
 
 816:                                              ; preds = %.lr.ph2123, %._crit_edge2116
   %.72122 = phi i64 [ %.6.lcssa, %.lr.ph2123 ], [ %841, %._crit_edge2116 ]
@@ -1422,7 +1422,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %835 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %831, <8 x double> %833, <8 x double> %.016492112)
   %836 = add nuw nsw i64 %.716312113, 1
   %exitcond2279.not = icmp eq i64 %836, %2
-  br i1 %exitcond2279.not, label %._crit_edge2116, label %.lr.ph2115, !llvm.loop !27
+  br i1 %exitcond2279.not, label %._crit_edge2116, label %.lr.ph2115, !llvm.loop !26
 
 ._crit_edge2116:                                  ; preds = %.lr.ph2115, %816
   %.01650.lcssa = phi <8 x double> [ zeroinitializer, %816 ], [ %834, %.lr.ph2115 ]
@@ -1436,12 +1436,12 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %840, <8 x i1> %822, <8 x i64> %718, <8 x double> %839, i32 8)
   %841 = add nuw nsw i64 %.72122, 8
   %842 = icmp slt i64 %841, %1
-  br i1 %842, label %816, label %._crit_edge2124, !llvm.loop !28
+  br i1 %842, label %816, label %._crit_edge2124, !llvm.loop !27
 
 ._crit_edge2124:                                  ; preds = %._crit_edge2116, %.preheader1739
   %843 = add nuw nsw i64 %.22125, 2
   %844 = icmp slt i64 %843, %14
-  br i1 %844, label %.preheader1741, label %.preheader1736, !llvm.loop !29
+  br i1 %844, label %.preheader1741, label %.preheader1736, !llvm.loop !28
 
 .preheader1735:                                   ; preds = %.preheader1735.lr.ph, %._crit_edge2184
   %.32185 = phi i64 [ %.2.lcssa, %.preheader1735.lr.ph ], [ %915, %._crit_edge2184 ]
@@ -1485,7 +1485,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %857 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %851, <8 x double> %855, <8 x double> %.016352155.us)
   %858 = add nuw nsw i64 %.916332156.us, 1
   %exitcond2281.not = icmp eq i64 %858, %2
-  br i1 %exitcond2281.not, label %._crit_edge2158.us, label %848, !llvm.loop !30
+  br i1 %exitcond2281.not, label %._crit_edge2158.us, label %848, !llvm.loop !29
 
 ._crit_edge2158.us:                               ; preds = %848
   %859 = fmul <8 x double> %18, %856
@@ -1499,7 +1499,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2166.us, <8 x i1> splat (i1 true), <8 x i64> %718, <8 x double> %861, i32 8)
   %864 = add nuw nsw i64 %.92167.us, 16
   %865 = icmp slt i64 %864, %16
-  br i1 %865, label %.preheader.us, label %.preheader1733, !llvm.loop !31
+  br i1 %865, label %.preheader.us, label %.preheader1733, !llvm.loop !30
 
 .preheader1732:                                   ; preds = %.preheader1732.lr.ph, %._crit_edge2135
   %.82150 = phi i64 [ 0, %.preheader1732.lr.ph ], [ %889, %._crit_edge2135 ]
@@ -1531,7 +1531,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %880 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %868, <8 x double> %876, <8 x double> %.016422132)
   %881 = add nuw nsw i64 %.816322133, 1
   %exitcond2280.not = icmp eq i64 %881, %2
-  br i1 %exitcond2280.not, label %._crit_edge2135.loopexit, label %.lr.ph2134, !llvm.loop !33
+  br i1 %exitcond2280.not, label %._crit_edge2135.loopexit, label %.lr.ph2134, !llvm.loop !32
 
 ._crit_edge2135.loopexit:                         ; preds = %.lr.ph2134
   %.pre = fmul <8 x double> %18, %877
@@ -1562,7 +1562,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2149, <8 x i1> splat (i1 true), <8 x i64> %718, <8 x double> %.pre-phi2289, i32 8)
   %889 = add nuw nsw i64 %.82150, 32
   %890 = icmp slt i64 %889, %15
-  br i1 %890, label %.preheader1732, label %.preheader1734, !llvm.loop !34
+  br i1 %890, label %.preheader1732, label %.preheader1734, !llvm.loop !33
 
 .preheader1733:                                   ; preds = %.preheader, %._crit_edge2158.us, %.preheader1734
   %.9.lcssa = phi i64 [ %.8.lcssa, %.preheader1734 ], [ %864, %._crit_edge2158.us ], [ %896, %.preheader ]
@@ -1585,7 +1585,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2166, <8 x i1> splat (i1 true), <8 x i64> %718, <8 x double> %731, i32 8)
   %896 = add nuw nsw i64 %.92167, 16
   %897 = icmp slt i64 %896, %16
-  br i1 %897, label %.preheader, label %.preheader1733, !llvm.loop !35
+  br i1 %897, label %.preheader, label %.preheader1733, !llvm.loop !34
 
 898:                                              ; preds = %.lr.ph2183, %._crit_edge2175
   %.102182 = phi i64 [ %.9.lcssa, %.lr.ph2183 ], [ %913, %._crit_edge2175 ]
@@ -1614,7 +1614,7 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %910 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %907, <8 x double> %909, <8 x double> %.016212172)
   %911 = add nuw nsw i64 %.1016342171, 1
   %exitcond2282.not = icmp eq i64 %911, %2
-  br i1 %exitcond2282.not, label %._crit_edge2175.loopexit, label %.lr.ph2174, !llvm.loop !36
+  br i1 %exitcond2282.not, label %._crit_edge2175.loopexit, label %.lr.ph2174, !llvm.loop !35
 
 ._crit_edge2175.loopexit:                         ; preds = %.lr.ph2174
   %.pre2290 = fmul <8 x double> %18, %910
@@ -1627,12 +1627,12 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2180, <8 x i1> %904, <8 x i64> %718, <8 x double> %.pre-phi2291, i32 8)
   %913 = add nuw nsw i64 %.102182, 8
   %914 = icmp slt i64 %913, %1
-  br i1 %914, label %898, label %._crit_edge2184, !llvm.loop !37
+  br i1 %914, label %898, label %._crit_edge2184, !llvm.loop !36
 
 ._crit_edge2184:                                  ; preds = %._crit_edge2175, %.preheader1733
   %915 = add i64 %.32185, 1
   %exitcond2283.not = icmp eq i64 %915, %0
-  br i1 %exitcond2283.not, label %._crit_edge2186, label %.preheader1735, !llvm.loop !38
+  br i1 %exitcond2283.not, label %._crit_edge2186, label %.preheader1735, !llvm.loop !37
 
 ._crit_edge2186:                                  ; preds = %._crit_edge2184, %.preheader1736
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #2
@@ -1675,36 +1675,35 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long long", !4, i64 0}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long long", !4, i64 0}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

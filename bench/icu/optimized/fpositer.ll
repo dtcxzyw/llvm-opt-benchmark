@@ -228,14 +228,14 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph:   ; preds = %.preheader
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %17
   %indvars.iv = phi i64 [ 2, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %17 ]
   %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4, !tbaa !23
+  %21 = load i32, ptr %20, align 4, !tbaa !22
   %22 = or disjoint i64 %indvars.iv, 1
   %23 = icmp samesign ult i64 %22, %16
   br i1 %23, label %24, label %_ZNK6icu_779UVector3210elementAtiEi.exit25
 
 24:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
   %25 = getelementptr inbounds nuw i32, ptr %15, i64 %22
-  %26 = load i32, ptr %25, align 4, !tbaa !23
+  %26 = load i32, ptr %25, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit25
 
 _ZNK6icu_779UVector3210elementAtiEi.exit25:       ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit, %24
@@ -322,13 +322,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7721FieldPositionIterator4next
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = zext nneg i32 %7 to i64
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !23
+  %20 = load i32, ptr %19, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %6, %15
   %21 = phi i32 [ %20, %15 ], [ 0, %6 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %21, ptr %22, align 8, !tbaa !24
+  store i32 %21, ptr %22, align 8, !tbaa !23
   %23 = add nsw i32 %4, 3
   store i32 %23, ptr %3, align 8, !tbaa !13
   %24 = icmp sgt i32 %4, -3
@@ -342,13 +342,13 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %6, %15
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = zext nneg i32 %10 to i64
   %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !23
+  %32 = load i32, ptr %31, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit6
 
 _ZNK6icu_779UVector3210elementAtiEi.exit6:        ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit, %27
   %33 = phi i32 [ %32, %27 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %33, ptr %34, align 4, !tbaa !26
+  store i32 %33, ptr %34, align 4, !tbaa !25
   %35 = add nsw i32 %4, 4
   store i32 %35, ptr %3, align 8, !tbaa !13
   %36 = icmp sgt i32 %4, -4
@@ -362,13 +362,13 @@ _ZNK6icu_779UVector3210elementAtiEi.exit6:        ; preds = %_ZNK6icu_779UVector
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = zext nneg i32 %23 to i64
   %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !23
+  %44 = load i32, ptr %43, align 4, !tbaa !22
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit8
 
 _ZNK6icu_779UVector3210elementAtiEi.exit8:        ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit6, %39
   %45 = phi i32 [ %44, %39 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit6 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %45, ptr %46, align 8, !tbaa !27
+  store i32 %45, ptr %46, align 8, !tbaa !26
   %47 = icmp eq i32 %35, %37
   br i1 %47, label %48, label %49
 
@@ -418,11 +418,10 @@ attributes #8 = { nounwind }
 !17 = !{!"_ZTSN6icu_779UVector32E", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !18, i64 24}
 !18 = !{!"p1 int", !10, i64 0}
 !19 = !{!17, !18, i64 24}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!12, !12, i64 0}
-!24 = !{!25, !12, i64 8}
-!25 = !{!"_ZTSN6icu_7713FieldPositionE", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!26 = !{!25, !12, i64 12}
-!27 = !{!25, !12, i64 16}
+!22 = !{!12, !12, i64 0}
+!23 = !{!24, !12, i64 8}
+!24 = !{!"_ZTSN6icu_7713FieldPositionE", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!25 = !{!24, !12, i64 12}
+!26 = !{!24, !12, i64 16}

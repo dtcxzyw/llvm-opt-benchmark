@@ -174,7 +174,7 @@ define dso_local void @php_dom_xpath_callbacks_clean_argument_stack(ptr noundef 
   tail call void @xmlXPathFreeObject(ptr noundef %3) #9
   %4 = add nuw i32 %.04, 1
   %exitcond.not = icmp eq i32 %4, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -189,19 +189,19 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @php_dom_xpath_callbacks_dtor(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !28
+  %2 = load ptr, ptr %0, align 8, !tbaa !26
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
   tail call void @zend_hash_destroy(ptr noundef nonnull %2) #9
-  %4 = load ptr, ptr %0, align 8, !tbaa !28
+  %4 = load ptr, ptr %0, align 8, !tbaa !26
   tail call void @_efree(ptr noundef %4) #9
   br label %5
 
 5:                                                ; preds = %3, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not22 = icmp eq ptr %7, null
   br i1 %.not22, label %27, label %8
 
@@ -209,7 +209,7 @@ define dso_local void @php_dom_xpath_callbacks_dtor(ptr noundef captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !30
+  %12 = load i32, ptr %11, align 8, !tbaa !28
   %13 = zext i32 %12 to i64
   %.idx = shl nuw nsw i64 %13, 5
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
@@ -237,16 +237,16 @@ define dso_local void @php_dom_xpath_callbacks_dtor(ptr noundef captures(none) %
 23:                                               ; preds = %.lr.ph, %21
   %24 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %.not24 = icmp eq ptr %24, %14
-  br i1 %.not24, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not24, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %23
-  %.pre = load ptr, ptr %6, align 8, !tbaa !29
+  %.pre = load ptr, ptr %6, align 8, !tbaa !27
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
   %25 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %8 ]
   tail call void @zend_hash_destroy(ptr noundef %25) #9
-  %26 = load ptr, ptr %6, align 8, !tbaa !29
+  %26 = load ptr, ptr %6, align 8, !tbaa !27
   tail call void @_efree_56(ptr noundef %26) #9
   br label %27
 
@@ -274,7 +274,7 @@ declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @php_dom_xpath_callbacks_get_gc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !28
+  %3 = load ptr, ptr %0, align 8, !tbaa !26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %php_dom_xpath_callback_ns_get_gc.exit, label %4
 
@@ -282,7 +282,7 @@ define dso_local void @php_dom_xpath_callbacks_get_gc(ptr noundef readonly captu
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !30
+  %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
@@ -316,14 +316,14 @@ define dso_local void @php_dom_xpath_callbacks_get_gc(ptr noundef readonly captu
   br i1 %.not.i.i, label %34, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %1, align 8, !tbaa !32
-  %27 = load ptr, ptr %14, align 8, !tbaa !35
+  %26 = load ptr, ptr %1, align 8, !tbaa !29
+  %27 = load ptr, ptr %14, align 8, !tbaa !32
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %29, label %zend_get_gc_buffer_add_obj.exit14.i, !prof !21
 
 29:                                               ; preds = %25
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #9
-  %.pre.i = load ptr, ptr %1, align 8, !tbaa !32
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !29
   br label %zend_get_gc_buffer_add_obj.exit14.i
 
 zend_get_gc_buffer_add_obj.exit14.i:              ; preds = %29, %25
@@ -331,9 +331,9 @@ zend_get_gc_buffer_add_obj.exit14.i:              ; preds = %29, %25
   store ptr %24, ptr %30, align 8, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 776, ptr %31, align 8, !tbaa !13
-  %32 = load ptr, ptr %1, align 8, !tbaa !32
+  %32 = load ptr, ptr %1, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %33, ptr %1, align 8, !tbaa !32
+  store ptr %33, ptr %1, align 8, !tbaa !29
   br label %34
 
 34:                                               ; preds = %zend_get_gc_buffer_add_obj.exit14.i, %19
@@ -343,14 +343,14 @@ zend_get_gc_buffer_add_obj.exit14.i:              ; preds = %29, %25
   br i1 %.not8.i.i, label %zend_get_gc_buffer_add_fcc.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %1, align 8, !tbaa !32
-  %39 = load ptr, ptr %14, align 8, !tbaa !35
+  %38 = load ptr, ptr %1, align 8, !tbaa !29
+  %39 = load ptr, ptr %14, align 8, !tbaa !32
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %41, label %zend_get_gc_buffer_add_obj.exit.i, !prof !21
 
 41:                                               ; preds = %37
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #9
-  %.pre17.i = load ptr, ptr %1, align 8, !tbaa !32
+  %.pre17.i = load ptr, ptr %1, align 8, !tbaa !29
   br label %zend_get_gc_buffer_add_obj.exit.i
 
 zend_get_gc_buffer_add_obj.exit.i:                ; preds = %41, %37
@@ -358,19 +358,19 @@ zend_get_gc_buffer_add_obj.exit.i:                ; preds = %41, %37
   store ptr %36, ptr %42, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 776, ptr %43, align 8, !tbaa !13
-  %44 = load ptr, ptr %1, align 8, !tbaa !32
+  %44 = load ptr, ptr %1, align 8, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %45, ptr %1, align 8, !tbaa !32
+  store ptr %45, ptr %1, align 8, !tbaa !29
   br label %zend_get_gc_buffer_add_fcc.exit.i
 
 zend_get_gc_buffer_add_fcc.exit.i:                ; preds = %zend_get_gc_buffer_add_obj.exit.i, %34, %15
   %46 = getelementptr inbounds nuw i8, ptr %.016.i, i64 32
   %.not13.i = icmp eq ptr %46, %10
-  br i1 %.not13.i, label %php_dom_xpath_callback_ns_get_gc.exit, label %15, !llvm.loop !36
+  br i1 %.not13.i, label %php_dom_xpath_callback_ns_get_gc.exit, label %15
 
 php_dom_xpath_callback_ns_get_gc.exit:            ; preds = %zend_get_gc_buffer_add_fcc.exit.i, %4, %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !29
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
   %.not19 = icmp eq ptr %48, null
   br i1 %.not19, label %.loopexit, label %49
 
@@ -378,7 +378,7 @@ php_dom_xpath_callback_ns_get_gc.exit:            ; preds = %zend_get_gc_buffer_
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %53 = load i32, ptr %52, align 8, !tbaa !30
+  %53 = load i32, ptr %52, align 8, !tbaa !28
   %54 = zext i32 %53 to i64
   %.idx = shl nuw nsw i64 %54, 5
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
@@ -406,7 +406,7 @@ php_dom_xpath_callback_ns_get_gc.exit:            ; preds = %zend_get_gc_buffer_
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !13
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %69 = load i32, ptr %68, align 8, !tbaa !30
+  %69 = load i32, ptr %68, align 8, !tbaa !28
   %70 = zext i32 %69 to i64
   %.idx.i22 = shl nuw nsw i64 %70, 5
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i22
@@ -436,14 +436,14 @@ php_dom_xpath_callback_ns_get_gc.exit:            ; preds = %zend_get_gc_buffer_
   br i1 %.not.i.i27, label %93, label %84
 
 84:                                               ; preds = %78
-  %85 = load ptr, ptr %1, align 8, !tbaa !32
-  %86 = load ptr, ptr %59, align 8, !tbaa !35
+  %85 = load ptr, ptr %1, align 8, !tbaa !29
+  %86 = load ptr, ptr %59, align 8, !tbaa !32
   %87 = icmp eq ptr %85, %86
   br i1 %87, label %88, label %zend_get_gc_buffer_add_obj.exit14.i28, !prof !21
 
 88:                                               ; preds = %84
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #9
-  %.pre.i34 = load ptr, ptr %1, align 8, !tbaa !32
+  %.pre.i34 = load ptr, ptr %1, align 8, !tbaa !29
   br label %zend_get_gc_buffer_add_obj.exit14.i28
 
 zend_get_gc_buffer_add_obj.exit14.i28:            ; preds = %88, %84
@@ -451,9 +451,9 @@ zend_get_gc_buffer_add_obj.exit14.i28:            ; preds = %88, %84
   store ptr %83, ptr %89, align 8, !tbaa !13
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 776, ptr %90, align 8, !tbaa !13
-  %91 = load ptr, ptr %1, align 8, !tbaa !32
+  %91 = load ptr, ptr %1, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store ptr %92, ptr %1, align 8, !tbaa !32
+  store ptr %92, ptr %1, align 8, !tbaa !29
   br label %93
 
 93:                                               ; preds = %zend_get_gc_buffer_add_obj.exit14.i28, %78
@@ -463,14 +463,14 @@ zend_get_gc_buffer_add_obj.exit14.i28:            ; preds = %88, %84
   br i1 %.not8.i.i29, label %zend_get_gc_buffer_add_fcc.exit.i31, label %96
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %1, align 8, !tbaa !32
-  %98 = load ptr, ptr %59, align 8, !tbaa !35
+  %97 = load ptr, ptr %1, align 8, !tbaa !29
+  %98 = load ptr, ptr %59, align 8, !tbaa !32
   %99 = icmp eq ptr %97, %98
   br i1 %99, label %100, label %zend_get_gc_buffer_add_obj.exit.i30, !prof !21
 
 100:                                              ; preds = %96
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #9
-  %.pre17.i33 = load ptr, ptr %1, align 8, !tbaa !32
+  %.pre17.i33 = load ptr, ptr %1, align 8, !tbaa !29
   br label %zend_get_gc_buffer_add_obj.exit.i30
 
 zend_get_gc_buffer_add_obj.exit.i30:              ; preds = %100, %96
@@ -478,20 +478,20 @@ zend_get_gc_buffer_add_obj.exit.i30:              ; preds = %100, %96
   store ptr %95, ptr %101, align 8, !tbaa !13
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 776, ptr %102, align 8, !tbaa !13
-  %103 = load ptr, ptr %1, align 8, !tbaa !32
+  %103 = load ptr, ptr %1, align 8, !tbaa !29
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  store ptr %104, ptr %1, align 8, !tbaa !32
+  store ptr %104, ptr %1, align 8, !tbaa !29
   br label %zend_get_gc_buffer_add_fcc.exit.i31
 
 zend_get_gc_buffer_add_fcc.exit.i31:              ; preds = %zend_get_gc_buffer_add_obj.exit.i30, %93, %.lr.ph.i25
   %105 = getelementptr inbounds nuw i8, ptr %.016.i26, i64 32
   %.not13.i32 = icmp eq ptr %105, %71
-  br i1 %.not13.i32, label %php_dom_xpath_callback_ns_get_gc.exit35, label %.lr.ph.i25, !llvm.loop !36
+  br i1 %.not13.i32, label %php_dom_xpath_callback_ns_get_gc.exit35, label %.lr.ph.i25
 
 php_dom_xpath_callback_ns_get_gc.exit35:          ; preds = %zend_get_gc_buffer_add_fcc.exit.i31, %64, %60
   %106 = getelementptr inbounds nuw i8, ptr %.037, i64 32
   %.not21 = icmp eq ptr %106, %55
-  br i1 %.not21, label %.loopexit, label %60, !llvm.loop !37
+  br i1 %.not21, label %.loopexit, label %60
 
 .loopexit:                                        ; preds = %php_dom_xpath_callback_ns_get_gc.exit35, %49, %php_dom_xpath_callback_ns_get_gc.exit
   ret void
@@ -499,13 +499,13 @@ php_dom_xpath_callback_ns_get_gc.exit35:          ; preds = %zend_get_gc_buffer_
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @php_dom_xpath_callbacks_get_gc_for_whole_object(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !28
+  %5 = load ptr, ptr %0, align 8, !tbaa !26
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %30, label %9
 
@@ -513,25 +513,25 @@ define dso_local ptr @php_dom_xpath_callbacks_get_gc_for_whole_object(ptr nounde
   %10 = tail call ptr @zend_get_gc_buffer_create() #9
   tail call void @php_dom_xpath_callbacks_get_gc(ptr noundef nonnull %0, ptr noundef %10)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !38
-  store ptr %12, ptr %2, align 8, !tbaa !39
-  %13 = load ptr, ptr %10, align 8, !tbaa !32
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  store ptr %12, ptr %2, align 8, !tbaa !34
+  %13 = load ptr, ptr %10, align 8, !tbaa !29
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %12 to i64
   %16 = sub i64 %14, %15
   %17 = lshr exact i64 %16, 4
   %18 = trunc i64 %17 to i32
-  store i32 %18, ptr %3, align 4, !tbaa !40
+  store i32 %18, ptr %3, align 4, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !44
+  %24 = load ptr, ptr %23, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !45
+  %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %32, label %28
 
@@ -557,7 +557,7 @@ declare ptr @zend_std_get_gc(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit34, label %6
 
@@ -565,7 +565,7 @@ define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !28
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -586,12 +586,12 @@ define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noun
 
 19:                                               ; preds = %.lr.ph39
   %20 = getelementptr inbounds nuw i8, ptr %.038, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !56
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
   %22 = load ptr, ptr %.038, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !30
+  %26 = load i32, ptr %25, align 8, !tbaa !28
   %27 = zext i32 %26 to i64
   %.idx40 = shl nuw nsw i64 %27, 5
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx40
@@ -612,19 +612,19 @@ define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noun
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds nuw i8, ptr %.02836, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !56
+  %37 = load ptr, ptr %36, align 8, !tbaa !51
   tail call void %2(ptr noundef %1, ptr noundef %21, ptr noundef %37) #9
   br label %38
 
 38:                                               ; preds = %.lr.ph, %35
   %39 = getelementptr inbounds nuw i8, ptr %.02836, i64 32
   %.not33 = icmp eq ptr %39, %28
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !59
+  br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %38, %19, %.lr.ph39
   %40 = getelementptr inbounds nuw i8, ptr %.038, i64 32
   %.not31 = icmp eq ptr %40, %12
-  br i1 %.not31, label %.loopexit34, label %.lr.ph39, !llvm.loop !60
+  br i1 %.not31, label %.loopexit34, label %.lr.ph39
 
 .loopexit34:                                      ; preds = %.loopexit, %6, %3
   ret void
@@ -644,7 +644,7 @@ define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_han
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !30
+  %16 = load i32, ptr %15, align 8, !tbaa !28
   %.not107162.i = icmp eq i32 %16, 0
   br i1 %.not107162.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -673,7 +673,7 @@ define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_han
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %.089164.i, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %.089164.i, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %29 = load ptr, ptr %28, align 8, !tbaa !51
   br label %30
 
 30:                                               ; preds = %26, %24
@@ -691,14 +691,14 @@ define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_han
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %9, align 8, !tbaa !61
+  %38 = load ptr, ptr %9, align 8, !tbaa !54
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %38) #9
   call void @_efree(ptr noundef %35) #9
-  %39 = load ptr, ptr %9, align 8, !tbaa !61
+  %39 = load ptr, ptr %9, align 8, !tbaa !54
   br label %169
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr %35, align 8, !tbaa !14, !nonnull !63, !noundef !63
+  %41 = load ptr, ptr %35, align 8, !tbaa !14, !nonnull !56, !noundef !56
   %42 = icmp eq ptr %41, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384)
   br i1 %42, label %43, label %47, !prof !21
 
@@ -744,7 +744,7 @@ zend_fcc_addref.exit.i:                           ; preds = %56, %53
 59:                                               ; preds = %zend_fcc_addref.exit.i
   %60 = load i8, ptr %31, align 8, !tbaa !13
   %61 = icmp eq i8 %60, 6
-  br i1 %61, label %62, label %zval_try_get_string.exit.i, !prof !64
+  br i1 %61, label %62, label %zval_try_get_string.exit.i, !prof !57
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %.089164.i, align 8, !tbaa !13
@@ -768,7 +768,7 @@ zval_try_get_string.exit.i:                       ; preds = %59
 zval_try_get_string.exit.thread.i:                ; preds = %zval_try_get_string.exit.i, %67, %62
   %.0.i136.i = phi ptr [ %70, %zval_try_get_string.exit.i ], [ %63, %67 ], [ %63, %62 ]
   %71 = getelementptr inbounds nuw i8, ptr %.0.i136.i, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !65
+  %72 = load i64, ptr %71, align 8, !tbaa !58
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %php_dom_xpath_is_callback_name_valid_and_throw.exit.i, label %74
 
@@ -891,7 +891,7 @@ zend_fcc_dtor.exit.i:                             ; preds = %122, %117, %116, %z
 
 123:                                              ; preds = %zend_fcc_addref.exit.i
   %124 = getelementptr inbounds nuw i8, ptr %.186.i, i64 16
-  %125 = load i64, ptr %124, align 8, !tbaa !65
+  %125 = load i64, ptr %124, align 8, !tbaa !58
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %134, label %127
 
@@ -996,7 +996,7 @@ zend_fcc_dtor.exit117.i:                          ; preds = %164, %159, %158, %z
 .thread.i:                                        ; preds = %.thread140.i, %30
   %168 = add i32 %.097163.i, -1
   %.not107.i = icmp eq i32 %168, 0
-  br i1 %.not107.i, label %._crit_edge.i, label %21, !llvm.loop !67
+  br i1 %.not107.i, label %._crit_edge.i, label %21
 
 169:                                              ; preds = %zend_fcc_dtor.exit117.i, %zend_fcc_dtor.exit.i, %37
   %.sink.i = phi ptr [ %35, %zend_fcc_dtor.exit.i ], [ %35, %zend_fcc_dtor.exit117.i ], [ %39, %37 ]
@@ -1015,7 +1015,7 @@ zend_fcc_dtor.exit117.i:                          ; preds = %164, %159, %158, %z
 
 172:                                              ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %174 = load i64, ptr %173, align 8, !tbaa !65
+  %174 = load i64, ptr %173, align 8, !tbaa !58
   %175 = icmp eq i64 %174, 0
   br i1 %175, label %184, label %176
 
@@ -1058,7 +1058,7 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %182, %181, %176
   br i1 %191, label %192, label %215
 
 192:                                              ; preds = %php_dom_xpath_is_callback_name_valid.exit.i
-  %193 = load ptr, ptr %185, align 8, !tbaa !14, !nonnull !63, !noundef !63
+  %193 = load ptr, ptr %185, align 8, !tbaa !14, !nonnull !56, !noundef !56
   %194 = icmp eq ptr %193, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384)
   br i1 %194, label %195, label %199, !prof !21
 
@@ -1115,10 +1115,10 @@ zend_fcc_addref.exit124.i:                        ; preds = %208, %205
   br label %php_dom_xpath_callback_ns_update_method_handler.exit
 
 215:                                              ; preds = %php_dom_xpath_is_callback_name_valid.exit.i
-  %216 = load ptr, ptr %10, align 8, !tbaa !61
+  %216 = load ptr, ptr %10, align 8, !tbaa !54
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %216) #9
   call void @_efree(ptr noundef %185) #9
-  %217 = load ptr, ptr %10, align 8, !tbaa !61
+  %217 = load ptr, ptr %10, align 8, !tbaa !54
   call void @_efree(ptr noundef %217) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
@@ -1142,28 +1142,28 @@ define internal fastcc ptr @php_dom_xpath_callbacks_ensure_ns(ptr noundef captur
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !28
+  %6 = load ptr, ptr %0, align 8, !tbaa !26
   %.not19 = icmp eq ptr %6, null
   br i1 %.not19, label %7, label %24
 
 7:                                                ; preds = %5
   %8 = tail call noalias ptr @_emalloc_64() #9
-  store ptr %8, ptr %0, align 8, !tbaa !28
+  store ptr %8, ptr %0, align 8, !tbaa !26
   tail call void @_zend_hash_init(ptr noundef %8, i32 noundef 0, ptr noundef nonnull @xpath_callbacks_entry_dtor, i1 noundef zeroext false) #9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %9, align 8, !tbaa !4
-  %.pre = load ptr, ptr %0, align 8, !tbaa !28
+  %.pre = load ptr, ptr %0, align 8, !tbaa !26
   br label %24
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !29
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %15
 
 13:                                               ; preds = %10
   %14 = tail call ptr @_zend_new_array_0() #9
-  store ptr %14, ptr %11, align 8, !tbaa !29
+  store ptr %14, ptr %11, align 8, !tbaa !27
   br label %15
 
 15:                                               ; preds = %13, %10
@@ -1173,7 +1173,7 @@ define internal fastcc ptr @php_dom_xpath_callbacks_ensure_ns(ptr noundef captur
   br i1 %.not.i, label %zend_hash_add_new_ptr.exit, label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %15
-  %18 = load ptr, ptr %17, align 8, !tbaa !13, !nonnull !63, !noundef !63
+  %18 = load ptr, ptr %17, align 8, !tbaa !13, !nonnull !56, !noundef !56
   br label %24
 
 zend_hash_add_new_ptr.exit:                       ; preds = %15
@@ -1181,7 +1181,7 @@ zend_hash_add_new_ptr.exit:                       ; preds = %15
   tail call void @_zend_hash_init(ptr noundef %19, i32 noundef 0, ptr noundef nonnull @xpath_callbacks_entry_dtor, i1 noundef zeroext false) #9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store i32 0, ptr %20, align 8, !tbaa !4
-  %21 = load ptr, ptr %11, align 8, !tbaa !29
+  %21 = load ptr, ptr %11, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   store ptr %19, ptr %3, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1199,7 +1199,7 @@ zend_hash_add_new_ptr.exit:                       ; preds = %15
 define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !65
+  %10 = load i64, ptr %9, align 8, !tbaa !58
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %php_dom_xpath_is_callback_name_valid_and_throw.exit, label %12
 
@@ -1230,7 +1230,7 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit: ; preds = %7, %14, %18
   %21 = tail call fastcc ptr @php_dom_xpath_callbacks_ensure_ns(ptr noundef %0, ptr noundef %2)
   %22 = tail call noalias ptr @_emalloc_40() #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %23 = load ptr, ptr %22, align 8, !tbaa !14, !nonnull !63, !noundef !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !14, !nonnull !56, !noundef !56
   %24 = icmp eq ptr %23, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384)
   br i1 %24, label %25, label %27, !prof !21
 
@@ -1307,7 +1307,7 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
   %10 = tail call fastcc ptr @php_dom_xpath_callback_fetch_args(ptr noundef %1, i32 noundef %9, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %11 = tail call ptr @valuePop(ptr noundef %1) #9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !68
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16, !prof !21
 
@@ -1317,7 +1317,7 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
 
 16:                                               ; preds = %8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
-  %18 = load ptr, ptr %0, align 8, !tbaa !28
+  %18 = load ptr, ptr %0, align 8, !tbaa !26
   %19 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %1, ptr noundef %10, i32 noundef %9, ptr noundef nonnull %13, i64 noundef %17)
   %20 = icmp eq i32 %19, 0
   br label %21
@@ -1346,10 +1346,10 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
   tail call void @zval_ptr_dtor(ptr noundef nonnull %22) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 php_dom_xpath_callback_cleanup_args.exit:         ; preds = %._crit_edge.i, %21
-  br i1 %.1, label %26, label %23, !prof !73
+  br i1 %.1, label %26, label %23, !prof !64
 
 23:                                               ; preds = %php_dom_xpath_callback_cleanup_args.exit.thread, %php_dom_xpath_callback_cleanup_args.exit
   %24 = tail call ptr @xmlXPathNewString(ptr noundef nonnull @.str.2) #9
@@ -1384,7 +1384,7 @@ define internal fastcc ptr @php_dom_xpath_callback_fetch_args(ptr noundef %0, i3
   %12 = call ptr @valuePop(ptr noundef %0) #9
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
-  %14 = load i32, ptr %12, align 8, !tbaa !74
+  %14 = load i32, ptr %12, align 8, !tbaa !65
   switch i32 %14, label %zend_string_alloc.exit [
     i32 4, label %zend_string_alloc.exit87
     i32 2, label %27
@@ -1394,7 +1394,7 @@ define internal fastcc ptr @php_dom_xpath_callback_fetch_args(ptr noundef %0, i3
 
 zend_string_alloc.exit87:                         ; preds = %.lr.ph94
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
   %18 = and i64 %17, -8
   %19 = add i64 %18, 32
@@ -1403,9 +1403,9 @@ zend_string_alloc.exit87:                         ; preds = %.lr.ph94
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 22, ptr %21, align 4, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 0, ptr %22, align 8, !tbaa !75
+  store i64 0, ptr %22, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 %17, ptr %23, align 8, !tbaa !65
+  store i64 %17, ptr %23, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %16, i64 %17, i1 false)
   %25 = getelementptr inbounds nuw [1 x i8], ptr %24, i64 0, i64 %17
@@ -1417,7 +1417,7 @@ zend_string_alloc.exit87:                         ; preds = %.lr.ph94
 
 27:                                               ; preds = %.lr.ph94
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !76
+  %29 = load i32, ptr %28, align 8, !tbaa !67
   %.not85 = icmp eq i32 %29, 0
   %30 = select i1 %.not85, i32 2, i32 3
   %31 = getelementptr inbounds i8, ptr %.pn92, i64 -8
@@ -1426,7 +1426,7 @@ zend_string_alloc.exit87:                         ; preds = %.lr.ph94
 
 32:                                               ; preds = %.lr.ph94
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %34 = load double, ptr %33, align 8, !tbaa !77
+  %34 = load double, ptr %33, align 8, !tbaa !68
   store double %34, ptr %.07793, align 8, !tbaa !13
   %35 = getelementptr inbounds i8, ptr %.pn92, i64 -8
   store i32 5, ptr %35, align 8, !tbaa !13
@@ -1448,9 +1448,9 @@ zend_string_alloc.exit86:                         ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 22, ptr %42, align 4, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 0, ptr %43, align 8, !tbaa !75
+  store i64 0, ptr %43, align 8, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i64 %38, ptr %44, align 8, !tbaa !65
+  store i64 %38, ptr %44, align 8, !tbaa !58
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 1 %37, i64 %38, i1 false)
   %46 = getelementptr inbounds nuw [1 x i8], ptr %45, i64 0, i64 %38
@@ -1458,18 +1458,18 @@ zend_string_alloc.exit86:                         ; preds = %36
   store ptr %41, ptr %.07793, align 8, !tbaa !13
   %47 = getelementptr inbounds i8, ptr %.pn92, i64 -8
   store i32 262, ptr %47, align 8, !tbaa !13
-  %48 = load ptr, ptr @xmlFree, align 8, !tbaa !78
+  %48 = load ptr, ptr @xmlFree, align 8, !tbaa !69
   call void %48(ptr noundef nonnull %37) #9
   br label %.loopexit
 
 49:                                               ; preds = %36
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !79
+  %51 = load ptr, ptr %50, align 8, !tbaa !70
   %.not84 = icmp eq ptr %51, null
   br i1 %.not84, label %83, label %52
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr %51, align 8, !tbaa !80
+  %53 = load i32, ptr %51, align 8, !tbaa !71
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %83
 
@@ -1479,8 +1479,8 @@ zend_string_alloc.exit86:                         ; preds = %36
   %57 = getelementptr inbounds i8, ptr %.pn92, i64 -8
   store i32 775, ptr %57, align 8, !tbaa !13
   call void @zend_hash_real_init_packed(ptr noundef %56) #9
-  %58 = load ptr, ptr %50, align 8, !tbaa !79
-  %59 = load i32, ptr %58, align 8, !tbaa !80
+  %58 = load ptr, ptr %50, align 8, !tbaa !70
+  %59 = load i32, ptr %58, align 8, !tbaa !71
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph, label %.loopexit
 
@@ -1488,17 +1488,17 @@ zend_string_alloc.exit86:                         ; preds = %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %55 ]
   %61 = phi ptr [ %79, %76 ], [ %58, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !83
+  %63 = load ptr, ptr %62, align 8, !tbaa !74
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8, !tbaa !84
+  %65 = load ptr, ptr %64, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !86
+  %67 = load i32, ptr %66, align 8, !tbaa !77
   %68 = icmp eq i32 %67, 18
   br i1 %68, label %69, label %75, !prof !21
 
 69:                                               ; preds = %.lr.ph
-  %70 = load ptr, ptr %65, align 8, !tbaa !92
+  %70 = load ptr, ptr %65, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   %71 = call zeroext i1 @php_dom_create_object(ptr noundef %70, ptr noundef nonnull %7, ptr noundef %3) #9
   %72 = load ptr, ptr %7, align 8, !tbaa !13
@@ -1516,11 +1516,11 @@ zend_string_alloc.exit86:                         ; preds = %36
   %78 = call ptr @zend_hash_next_index_insert_new(ptr noundef %77, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load ptr, ptr %50, align 8, !tbaa !79
-  %80 = load i32, ptr %79, align 8, !tbaa !80
+  %79 = load ptr, ptr %50, align 8, !tbaa !70
+  %80 = load i32, ptr %79, align 8, !tbaa !71
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !93
+  br i1 %82, label %.lr.ph, label %.loopexit
 
 83:                                               ; preds = %49, %52
   store ptr @zend_empty_array, ptr %.07793, align 8, !tbaa !13
@@ -1538,9 +1538,9 @@ zend_string_alloc.exit:                           ; preds = %.lr.ph94
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 22, ptr %90, align 4, !tbaa !13
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i64 0, ptr %91, align 8, !tbaa !75
+  store i64 0, ptr %91, align 8, !tbaa !66
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i64 %86, ptr %92, align 8, !tbaa !65
+  store i64 %86, ptr %92, align 8, !tbaa !58
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 1 %85, i64 %86, i1 false)
   %94 = getelementptr inbounds nuw [1 x i8], ptr %93, i64 0, i64 %86
@@ -1548,7 +1548,7 @@ zend_string_alloc.exit:                           ; preds = %.lr.ph94
   store ptr %89, ptr %.07793, align 8, !tbaa !13
   %95 = getelementptr inbounds i8, ptr %.pn92, i64 -8
   store i32 262, ptr %95, align 8, !tbaa !13
-  %96 = load ptr, ptr @xmlFree, align 8, !tbaa !78
+  %96 = load ptr, ptr @xmlFree, align 8, !tbaa !69
   call void %96(ptr noundef nonnull %85) #9
   br label %.loopexit
 
@@ -1556,7 +1556,7 @@ zend_string_alloc.exit:                           ; preds = %.lr.ph94
   call void @xmlXPathFreeObject(ptr noundef nonnull %12) #9
   %.077 = getelementptr inbounds i8, ptr %.07793, i64 -16
   %.not = icmp ult ptr %.077, %10
-  br i1 %.not, label %.loopexit88, label %.lr.ph94, !llvm.loop !94
+  br i1 %.not, label %.loopexit88, label %.lr.ph94
 
 .loopexit88:                                      ; preds = %.loopexit, %5
   %.0 = phi ptr [ null, %5 ], [ %10, %.loopexit ]
@@ -1588,17 +1588,17 @@ define internal fastcc range(i32 -1, 1) i32 @php_dom_xpath_callback_dispatch(ptr
 
 zend_string_alloc.exit:                           ; preds = %12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
-  store i64 64, ptr %9, align 8, !tbaa !95
+  store i64 64, ptr %9, align 8, !tbaa !84
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %16, align 8, !tbaa !97
+  store ptr null, ptr %16, align 8, !tbaa !86
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %8, ptr %17, align 8, !tbaa !98
+  store ptr %8, ptr %17, align 8, !tbaa !87
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %4, ptr %18, align 8, !tbaa !99
+  store i32 %4, ptr %18, align 8, !tbaa !88
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %3, ptr %19, align 8, !tbaa !100
+  store ptr %3, ptr %19, align 8, !tbaa !89
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr null, ptr %20, align 8, !tbaa !101
+  store ptr null, ptr %20, align 8, !tbaa !90
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = and i64 %6, -8
   %23 = add i64 %22, 32
@@ -1607,9 +1607,9 @@ zend_string_alloc.exit:                           ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 22, ptr %25, align 4, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 0, ptr %26, align 8, !tbaa !75
+  store i64 0, ptr %26, align 8, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 %6, ptr %27, align 8, !tbaa !65
+  store i64 %6, ptr %27, align 8, !tbaa !58
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 1 %5, i64 %6, i1 false)
   %29 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %6
@@ -1639,7 +1639,7 @@ zend_string_alloc.exit:                           ; preds = %12
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %zend_string_alloc.exit, %36, %41
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !102
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !91
   %.not = icmp eq ptr %42, null
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #9
   br i1 %.not, label %68, label %128
@@ -1658,7 +1658,7 @@ zend_string_release_ex.exit:                      ; preds = %zend_string_alloc.e
   %50 = load i32, ptr %49, align 4, !tbaa !13
   %51 = and i32 %50, 262144
   %.not.i39 = icmp eq i32 %51, 0
-  br i1 %.not.i39, label %63, label %52, !prof !64
+  br i1 %.not.i39, label %63, label %52, !prof !57
 
 52:                                               ; preds = %46
   %53 = tail call noalias ptr @_emalloc_256() #9
@@ -1687,7 +1687,7 @@ zend_string_release_ex.exit:                      ; preds = %zend_string_alloc.e
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !19
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !125
+  %67 = load ptr, ptr %66, align 8, !tbaa !114
   call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %65, ptr noundef %67, ptr noundef nonnull %8, i32 noundef %4, ptr noundef %3, ptr noundef null) #9
   br label %68
 
@@ -1702,8 +1702,8 @@ zend_string_release_ex.exit:                      ; preds = %zend_string_alloc.e
 71:                                               ; preds = %68
   %72 = load ptr, ptr %8, align 8, !tbaa !13
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !44
-  %75 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !126
+  %74 = load ptr, ptr %73, align 8, !tbaa !39
+  %75 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !115
   %76 = icmp eq ptr %74, %75
   br i1 %76, label %instanceof_function.exit.thread, label %instanceof_function.exit
 
@@ -1751,7 +1751,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
     i8 3, label %99
     i8 8, label %104
     i8 6, label %105
-  ], !prof !127
+  ], !prof !116
 
 99:                                               ; preds = %97, %97
   %100 = icmp eq i8 %98, 3
@@ -1826,19 +1826,19 @@ define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_call_custom_ns(pt
 zend_hash_str_find_ptr.exit:
   %6 = tail call fastcc ptr @php_dom_xpath_callback_fetch_args(ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !128
+  %8 = load ptr, ptr %7, align 8, !tbaa !117
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %10 = load ptr, ptr %9, align 8, !tbaa !134
+  %10 = load ptr, ptr %9, align 8, !tbaa !123
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !29, !nonnull !63, !noundef !63
+  %12 = load ptr, ptr %11, align 8, !tbaa !27, !nonnull !56, !noundef !56
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %14 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef %13) #9
   %.not.i = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %.not.i)
-  %15 = load ptr, ptr %14, align 8, !tbaa !13, !nonnull !63, !noundef !63
-  %16 = load ptr, ptr %7, align 8, !tbaa !128
+  %15 = load ptr, ptr %14, align 8, !tbaa !13, !nonnull !56, !noundef !56
+  %16 = load ptr, ptr %7, align 8, !tbaa !117
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 168
-  %18 = load ptr, ptr %17, align 8, !tbaa !142
+  %18 = load ptr, ptr %17, align 8, !tbaa !131
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
   %20 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %1, ptr noundef %6, i32 noundef %2, ptr noundef nonnull %18, i64 noundef %19)
   %.not.i25 = icmp eq ptr %6, null
@@ -1862,11 +1862,11 @@ zend_hash_str_find_ptr.exit:
   tail call void @zval_ptr_dtor(ptr noundef nonnull %21) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 php_dom_xpath_callback_cleanup_args.exit:         ; preds = %zend_hash_str_find_ptr.exit, %._crit_edge.i
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %25, label %22, !prof !64
+  br i1 %.not, label %25, label %22, !prof !57
 
 22:                                               ; preds = %php_dom_xpath_callback_cleanup_args.exit
   %23 = tail call ptr @xmlXPathNewString(ptr noundef nonnull @.str.2) #9
@@ -1987,120 +1987,109 @@ attributes #11 = { nounwind allocsize(0) }
 !23 = !{!24, !25, i64 16}
 !24 = !{!"", !12, i64 0, !25, i64 8, !25, i64 16}
 !25 = !{!"p1 _ZTS11_zend_array", !12, i64 0}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!24, !12, i64 0}
-!29 = !{!24, !25, i64 8}
-!30 = !{!6, !8, i64 24}
-!31 = distinct !{!31, !27}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"", !34, i64 0, !34, i64 8, !34, i64 16}
-!34 = !{!"p1 _ZTS12_zval_struct", !12, i64 0}
-!35 = !{!33, !34, i64 8}
-!36 = distinct !{!36, !27}
-!37 = distinct !{!37, !27}
-!38 = !{!33, !34, i64 16}
-!39 = !{!34, !34, i64 0}
-!40 = !{!8, !8, i64 0}
-!41 = !{!42, !25, i64 32}
-!42 = !{!"_zend_object", !7, i64 0, !8, i64 8, !8, i64 12, !17, i64 16, !43, i64 24, !25, i64 32, !9, i64 40}
-!43 = !{!"p1 _ZTS21_zend_object_handlers", !12, i64 0}
-!44 = !{!42, !17, i64 16}
-!45 = !{!46, !8, i64 32}
-!46 = !{!"_zend_class_entry", !9, i64 0, !47, i64 8, !9, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !34, i64 40, !34, i64 48, !34, i64 56, !6, i64 64, !6, i64 120, !6, i64 176, !48, i64 232, !49, i64 240, !50, i64 248, !16, i64 256, !16, i64 264, !16, i64 272, !16, i64 280, !16, i64 288, !16, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !43, i64 360, !51, i64 368, !52, i64 376, !9, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !8, i64 424, !8, i64 428, !8, i64 432, !8, i64 436, !9, i64 440, !53, i64 448, !54, i64 456, !55, i64 464, !25, i64 472, !8, i64 480, !25, i64 488, !47, i64 496, !9, i64 504}
-!47 = !{!"p1 _ZTS12_zend_string", !12, i64 0}
-!48 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
-!49 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
-!50 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
-!51 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !12, i64 0}
-!52 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !12, i64 0}
-!53 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
-!54 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
-!55 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
-!56 = !{!57, !47, i64 24}
-!57 = !{!"_Bucket", !58, i64 0, !11, i64 16, !47, i64 24}
-!58 = !{!"_zval_struct", !9, i64 0, !9, i64 8, !9, i64 12}
-!59 = distinct !{!59, !27}
-!60 = distinct !{!60, !27}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 omnipotent char", !12, i64 0}
-!63 = !{}
-!64 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!65 = !{!66, !11, i64 16}
-!66 = !{!"_zend_string", !7, i64 0, !11, i64 8, !11, i64 16, !9, i64 24}
-!67 = distinct !{!67, !27}
-!68 = !{!69, !62, i64 32}
-!69 = !{!"_xmlXPathObject", !8, i64 0, !70, i64 8, !8, i64 16, !71, i64 24, !62, i64 32, !12, i64 40, !8, i64 48, !12, i64 56, !8, i64 64}
-!70 = !{!"p1 _ZTS11_xmlNodeSet", !12, i64 0}
-!71 = !{!"double", !9, i64 0}
-!72 = distinct !{!72, !27}
-!73 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!74 = !{!69, !8, i64 0}
-!75 = !{!66, !11, i64 8}
-!76 = !{!69, !8, i64 16}
-!77 = !{!69, !71, i64 24}
-!78 = !{!12, !12, i64 0}
-!79 = !{!69, !70, i64 8}
-!80 = !{!81, !8, i64 0}
-!81 = !{!"_xmlNodeSet", !8, i64 0, !8, i64 4, !82, i64 8}
-!82 = !{!"p2 _ZTS8_xmlNode", !12, i64 0}
-!83 = !{!81, !82, i64 8}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTS8_xmlNode", !12, i64 0}
-!86 = !{!87, !8, i64 8}
-!87 = !{!"_xmlNode", !12, i64 0, !8, i64 8, !62, i64 16, !85, i64 24, !85, i64 32, !85, i64 40, !85, i64 48, !85, i64 56, !88, i64 64, !89, i64 72, !62, i64 80, !90, i64 88, !89, i64 96, !12, i64 104, !91, i64 112, !91, i64 114}
-!88 = !{!"p1 _ZTS7_xmlDoc", !12, i64 0}
-!89 = !{!"p1 _ZTS6_xmlNs", !12, i64 0}
-!90 = !{!"p1 _ZTS8_xmlAttr", !12, i64 0}
-!91 = !{!"short", !9, i64 0}
-!92 = !{!87, !12, i64 0}
-!93 = distinct !{!93, !27}
-!94 = distinct !{!94, !27}
-!95 = !{!96, !11, i64 0}
-!96 = !{!"_zend_fcall_info", !11, i64 0, !58, i64 8, !34, i64 24, !34, i64 32, !18, i64 40, !8, i64 48, !25, i64 56}
-!97 = !{!96, !18, i64 40}
-!98 = !{!96, !34, i64 24}
-!99 = !{!96, !8, i64 48}
-!100 = !{!96, !34, i64 32}
-!101 = !{!96, !25, i64 56}
-!102 = !{!103, !18, i64 960}
-!103 = !{!"_zend_executor_globals", !58, i64 0, !58, i64 16, !9, i64 32, !104, i64 288, !104, i64 296, !6, i64 304, !6, i64 360, !105, i64 416, !8, i64 424, !106, i64 428, !58, i64 432, !8, i64 448, !25, i64 456, !25, i64 464, !25, i64 472, !34, i64 480, !34, i64 488, !107, i64 496, !11, i64 504, !108, i64 512, !17, i64 520, !8, i64 528, !108, i64 536, !8, i64 544, !11, i64 552, !8, i64 560, !8, i64 564, !8, i64 568, !106, i64 572, !106, i64 573, !109, i64 574, !109, i64 575, !25, i64 576, !11, i64 584, !12, i64 592, !12, i64 600, !6, i64 608, !6, i64 664, !8, i64 720, !106, i64 724, !58, i64 728, !58, i64 744, !110, i64 760, !110, i64 784, !110, i64 808, !17, i64 832, !8, i64 840, !8, i64 844, !11, i64 848, !25, i64 856, !25, i64 864, !111, i64 872, !112, i64 880, !114, i64 904, !18, i64 960, !18, i64 968, !115, i64 976, !9, i64 984, !116, i64 1080, !106, i64 1088, !9, i64 1089, !11, i64 1096, !8, i64 1104, !8, i64 1108, !117, i64 1112, !9, i64 1120, !12, i64 1376, !9, i64 1384, !118, i64 1640, !6, i64 1672, !11, i64 1728, !33, i64 1736, !119, i64 1760, !119, i64 1768, !120, i64 1776, !11, i64 1784, !106, i64 1792, !8, i64 1796, !121, i64 1800, !47, i64 1808, !11, i64 1816, !122, i64 1824, !11, i64 1840, !11, i64 1848, !123, i64 1856, !9, i64 1936}
-!104 = !{!"p2 _ZTS11_zend_array", !12, i64 0}
-!105 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
-!106 = !{!"_Bool", !9, i64 0}
-!107 = !{!"p1 _ZTS14_zend_vm_stack", !12, i64 0}
-!108 = !{!"p1 _ZTS18_zend_execute_data", !12, i64 0}
-!109 = !{!"zend_atomic_bool_s", !9, i64 0}
-!110 = !{!"_zend_stack", !8, i64 0, !8, i64 4, !8, i64 8, !12, i64 16}
-!111 = !{!"p1 _ZTS15_zend_ini_entry", !12, i64 0}
-!112 = !{!"_zend_objects_store", !113, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!113 = !{!"p2 _ZTS12_zend_object", !12, i64 0}
-!114 = !{!"_zend_lazy_objects_store", !6, i64 0}
-!115 = !{!"p1 _ZTS8_zend_op", !12, i64 0}
-!116 = !{!"p1 _ZTS18_zend_module_entry", !12, i64 0}
-!117 = !{!"p1 _ZTS18_HashTableIterator", !12, i64 0}
-!118 = !{!"_zend_op", !12, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !8, i64 20, !8, i64 24, !9, i64 28, !9, i64 29, !9, i64 30, !9, i64 31}
-!119 = !{!"p1 _ZTS19_zend_fiber_context", !12, i64 0}
-!120 = !{!"p1 _ZTS11_zend_fiber", !12, i64 0}
-!121 = !{!"p2 _ZTS16_zend_error_info", !12, i64 0}
-!122 = !{!"_zend_call_stack", !12, i64 0, !11, i64 8}
-!123 = !{!"_zend_strtod_state", !9, i64 0, !124, i64 64, !62, i64 72}
-!124 = !{!"p1 _ZTS19_zend_strtod_bigint", !12, i64 0}
-!125 = !{!15, !17, i64 16}
-!126 = !{!17, !17, i64 0}
-!127 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2000}
-!128 = !{!129, !130, i64 24}
-!129 = !{!"_xmlXPathParserContext", !62, i64 0, !62, i64 8, !8, i64 16, !130, i64 24, !131, i64 32, !8, i64 40, !8, i64 44, !132, i64 48, !133, i64 56, !8, i64 64, !85, i64 72, !8, i64 80}
-!130 = !{!"p1 _ZTS16_xmlXPathContext", !12, i64 0}
-!131 = !{!"p1 _ZTS15_xmlXPathObject", !12, i64 0}
-!132 = !{!"p2 _ZTS15_xmlXPathObject", !12, i64 0}
-!133 = !{!"p1 _ZTS17_xmlXPathCompExpr", !12, i64 0}
-!134 = !{!135, !62, i64 176}
-!135 = !{!"_xmlXPathContext", !88, i64 0, !85, i64 8, !8, i64 16, !8, i64 20, !136, i64 24, !8, i64 32, !8, i64 36, !137, i64 40, !8, i64 48, !8, i64 52, !136, i64 56, !8, i64 64, !8, i64 68, !138, i64 72, !139, i64 80, !8, i64 88, !12, i64 96, !8, i64 104, !8, i64 108, !8, i64 112, !85, i64 120, !85, i64 128, !136, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !62, i64 168, !62, i64 176, !12, i64 184, !12, i64 192, !139, i64 200, !8, i64 208, !12, i64 216, !12, i64 224, !140, i64 232, !85, i64 320, !141, i64 328, !8, i64 336, !12, i64 344, !11, i64 352, !11, i64 360, !8, i64 368}
-!136 = !{!"p1 _ZTS13_xmlHashTable", !12, i64 0}
-!137 = !{!"p1 _ZTS13_xmlXPathType", !12, i64 0}
-!138 = !{!"p1 _ZTS13_xmlXPathAxis", !12, i64 0}
-!139 = !{!"p2 _ZTS6_xmlNs", !12, i64 0}
-!140 = !{!"_xmlError", !8, i64 0, !8, i64 4, !62, i64 8, !8, i64 16, !62, i64 24, !8, i64 32, !62, i64 40, !62, i64 48, !62, i64 56, !8, i64 64, !8, i64 68, !12, i64 72, !12, i64 80}
-!141 = !{!"p1 _ZTS8_xmlDict", !12, i64 0}
-!142 = !{!135, !62, i64 168}
+!26 = !{!24, !12, i64 0}
+!27 = !{!24, !25, i64 8}
+!28 = !{!6, !8, i64 24}
+!29 = !{!30, !31, i64 0}
+!30 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16}
+!31 = !{!"p1 _ZTS12_zval_struct", !12, i64 0}
+!32 = !{!30, !31, i64 8}
+!33 = !{!30, !31, i64 16}
+!34 = !{!31, !31, i64 0}
+!35 = !{!8, !8, i64 0}
+!36 = !{!37, !25, i64 32}
+!37 = !{!"_zend_object", !7, i64 0, !8, i64 8, !8, i64 12, !17, i64 16, !38, i64 24, !25, i64 32, !9, i64 40}
+!38 = !{!"p1 _ZTS21_zend_object_handlers", !12, i64 0}
+!39 = !{!37, !17, i64 16}
+!40 = !{!41, !8, i64 32}
+!41 = !{!"_zend_class_entry", !9, i64 0, !42, i64 8, !9, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !31, i64 40, !31, i64 48, !31, i64 56, !6, i64 64, !6, i64 120, !6, i64 176, !43, i64 232, !44, i64 240, !45, i64 248, !16, i64 256, !16, i64 264, !16, i64 272, !16, i64 280, !16, i64 288, !16, i64 296, !16, i64 304, !16, i64 312, !16, i64 320, !16, i64 328, !16, i64 336, !16, i64 344, !16, i64 352, !38, i64 360, !46, i64 368, !47, i64 376, !9, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !8, i64 424, !8, i64 428, !8, i64 432, !8, i64 436, !9, i64 440, !48, i64 448, !49, i64 456, !50, i64 464, !25, i64 472, !8, i64 480, !25, i64 488, !42, i64 496, !9, i64 504}
+!42 = !{!"p1 _ZTS12_zend_string", !12, i64 0}
+!43 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
+!44 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
+!45 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
+!46 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !12, i64 0}
+!47 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !12, i64 0}
+!48 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
+!49 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
+!50 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
+!51 = !{!52, !42, i64 24}
+!52 = !{!"_Bucket", !53, i64 0, !11, i64 16, !42, i64 24}
+!53 = !{!"_zval_struct", !9, i64 0, !9, i64 8, !9, i64 12}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 omnipotent char", !12, i64 0}
+!56 = !{}
+!57 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!58 = !{!59, !11, i64 16}
+!59 = !{!"_zend_string", !7, i64 0, !11, i64 8, !11, i64 16, !9, i64 24}
+!60 = !{!61, !55, i64 32}
+!61 = !{!"_xmlXPathObject", !8, i64 0, !62, i64 8, !8, i64 16, !63, i64 24, !55, i64 32, !12, i64 40, !8, i64 48, !12, i64 56, !8, i64 64}
+!62 = !{!"p1 _ZTS11_xmlNodeSet", !12, i64 0}
+!63 = !{!"double", !9, i64 0}
+!64 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!65 = !{!61, !8, i64 0}
+!66 = !{!59, !11, i64 8}
+!67 = !{!61, !8, i64 16}
+!68 = !{!61, !63, i64 24}
+!69 = !{!12, !12, i64 0}
+!70 = !{!61, !62, i64 8}
+!71 = !{!72, !8, i64 0}
+!72 = !{!"_xmlNodeSet", !8, i64 0, !8, i64 4, !73, i64 8}
+!73 = !{!"p2 _ZTS8_xmlNode", !12, i64 0}
+!74 = !{!72, !73, i64 8}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTS8_xmlNode", !12, i64 0}
+!77 = !{!78, !8, i64 8}
+!78 = !{!"_xmlNode", !12, i64 0, !8, i64 8, !55, i64 16, !76, i64 24, !76, i64 32, !76, i64 40, !76, i64 48, !76, i64 56, !79, i64 64, !80, i64 72, !55, i64 80, !81, i64 88, !80, i64 96, !12, i64 104, !82, i64 112, !82, i64 114}
+!79 = !{!"p1 _ZTS7_xmlDoc", !12, i64 0}
+!80 = !{!"p1 _ZTS6_xmlNs", !12, i64 0}
+!81 = !{!"p1 _ZTS8_xmlAttr", !12, i64 0}
+!82 = !{!"short", !9, i64 0}
+!83 = !{!78, !12, i64 0}
+!84 = !{!85, !11, i64 0}
+!85 = !{!"_zend_fcall_info", !11, i64 0, !53, i64 8, !31, i64 24, !31, i64 32, !18, i64 40, !8, i64 48, !25, i64 56}
+!86 = !{!85, !18, i64 40}
+!87 = !{!85, !31, i64 24}
+!88 = !{!85, !8, i64 48}
+!89 = !{!85, !31, i64 32}
+!90 = !{!85, !25, i64 56}
+!91 = !{!92, !18, i64 960}
+!92 = !{!"_zend_executor_globals", !53, i64 0, !53, i64 16, !9, i64 32, !93, i64 288, !93, i64 296, !6, i64 304, !6, i64 360, !94, i64 416, !8, i64 424, !95, i64 428, !53, i64 432, !8, i64 448, !25, i64 456, !25, i64 464, !25, i64 472, !31, i64 480, !31, i64 488, !96, i64 496, !11, i64 504, !97, i64 512, !17, i64 520, !8, i64 528, !97, i64 536, !8, i64 544, !11, i64 552, !8, i64 560, !8, i64 564, !8, i64 568, !95, i64 572, !95, i64 573, !98, i64 574, !98, i64 575, !25, i64 576, !11, i64 584, !12, i64 592, !12, i64 600, !6, i64 608, !6, i64 664, !8, i64 720, !95, i64 724, !53, i64 728, !53, i64 744, !99, i64 760, !99, i64 784, !99, i64 808, !17, i64 832, !8, i64 840, !8, i64 844, !11, i64 848, !25, i64 856, !25, i64 864, !100, i64 872, !101, i64 880, !103, i64 904, !18, i64 960, !18, i64 968, !104, i64 976, !9, i64 984, !105, i64 1080, !95, i64 1088, !9, i64 1089, !11, i64 1096, !8, i64 1104, !8, i64 1108, !106, i64 1112, !9, i64 1120, !12, i64 1376, !9, i64 1384, !107, i64 1640, !6, i64 1672, !11, i64 1728, !30, i64 1736, !108, i64 1760, !108, i64 1768, !109, i64 1776, !11, i64 1784, !95, i64 1792, !8, i64 1796, !110, i64 1800, !42, i64 1808, !11, i64 1816, !111, i64 1824, !11, i64 1840, !11, i64 1848, !112, i64 1856, !9, i64 1936}
+!93 = !{!"p2 _ZTS11_zend_array", !12, i64 0}
+!94 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
+!95 = !{!"_Bool", !9, i64 0}
+!96 = !{!"p1 _ZTS14_zend_vm_stack", !12, i64 0}
+!97 = !{!"p1 _ZTS18_zend_execute_data", !12, i64 0}
+!98 = !{!"zend_atomic_bool_s", !9, i64 0}
+!99 = !{!"_zend_stack", !8, i64 0, !8, i64 4, !8, i64 8, !12, i64 16}
+!100 = !{!"p1 _ZTS15_zend_ini_entry", !12, i64 0}
+!101 = !{!"_zend_objects_store", !102, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!102 = !{!"p2 _ZTS12_zend_object", !12, i64 0}
+!103 = !{!"_zend_lazy_objects_store", !6, i64 0}
+!104 = !{!"p1 _ZTS8_zend_op", !12, i64 0}
+!105 = !{!"p1 _ZTS18_zend_module_entry", !12, i64 0}
+!106 = !{!"p1 _ZTS18_HashTableIterator", !12, i64 0}
+!107 = !{!"_zend_op", !12, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !8, i64 20, !8, i64 24, !9, i64 28, !9, i64 29, !9, i64 30, !9, i64 31}
+!108 = !{!"p1 _ZTS19_zend_fiber_context", !12, i64 0}
+!109 = !{!"p1 _ZTS11_zend_fiber", !12, i64 0}
+!110 = !{!"p2 _ZTS16_zend_error_info", !12, i64 0}
+!111 = !{!"_zend_call_stack", !12, i64 0, !11, i64 8}
+!112 = !{!"_zend_strtod_state", !9, i64 0, !113, i64 64, !55, i64 72}
+!113 = !{!"p1 _ZTS19_zend_strtod_bigint", !12, i64 0}
+!114 = !{!15, !17, i64 16}
+!115 = !{!17, !17, i64 0}
+!116 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2000}
+!117 = !{!118, !119, i64 24}
+!118 = !{!"_xmlXPathParserContext", !55, i64 0, !55, i64 8, !8, i64 16, !119, i64 24, !120, i64 32, !8, i64 40, !8, i64 44, !121, i64 48, !122, i64 56, !8, i64 64, !76, i64 72, !8, i64 80}
+!119 = !{!"p1 _ZTS16_xmlXPathContext", !12, i64 0}
+!120 = !{!"p1 _ZTS15_xmlXPathObject", !12, i64 0}
+!121 = !{!"p2 _ZTS15_xmlXPathObject", !12, i64 0}
+!122 = !{!"p1 _ZTS17_xmlXPathCompExpr", !12, i64 0}
+!123 = !{!124, !55, i64 176}
+!124 = !{!"_xmlXPathContext", !79, i64 0, !76, i64 8, !8, i64 16, !8, i64 20, !125, i64 24, !8, i64 32, !8, i64 36, !126, i64 40, !8, i64 48, !8, i64 52, !125, i64 56, !8, i64 64, !8, i64 68, !127, i64 72, !128, i64 80, !8, i64 88, !12, i64 96, !8, i64 104, !8, i64 108, !8, i64 112, !76, i64 120, !76, i64 128, !125, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !55, i64 168, !55, i64 176, !12, i64 184, !12, i64 192, !128, i64 200, !8, i64 208, !12, i64 216, !12, i64 224, !129, i64 232, !76, i64 320, !130, i64 328, !8, i64 336, !12, i64 344, !11, i64 352, !11, i64 360, !8, i64 368}
+!125 = !{!"p1 _ZTS13_xmlHashTable", !12, i64 0}
+!126 = !{!"p1 _ZTS13_xmlXPathType", !12, i64 0}
+!127 = !{!"p1 _ZTS13_xmlXPathAxis", !12, i64 0}
+!128 = !{!"p2 _ZTS6_xmlNs", !12, i64 0}
+!129 = !{!"_xmlError", !8, i64 0, !8, i64 4, !55, i64 8, !8, i64 16, !55, i64 24, !8, i64 32, !55, i64 40, !55, i64 48, !55, i64 56, !8, i64 64, !8, i64 68, !12, i64 72, !12, i64 80}
+!130 = !{!"p1 _ZTS8_xmlDict", !12, i64 0}
+!131 = !{!124, !55, i64 168}

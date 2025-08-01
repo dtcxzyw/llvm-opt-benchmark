@@ -122,10 +122,10 @@ define void @BN_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr %0, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 392
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
-  store ptr %16, ptr %6, align 8, !tbaa !25
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %6, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 306) #6
-  %17 = load ptr, ptr %6, align 8, !tbaa !25
+  %17 = load ptr, ptr %6, align 8, !tbaa !24
   store ptr %17, ptr %0, align 8, !tbaa !16
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %BN_POOL_finish.exit, label %.preheader.i.backedge
@@ -143,29 +143,29 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @BN_CTX_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !26
+  %3 = load i32, ptr %2, align 4, !tbaa !25
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i32, ptr %5, align 8, !tbaa !27
+  %6 = load i32, ptr %5, align 8, !tbaa !26
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %9, label %7
 
 7:                                                ; preds = %4, %1
   %8 = add nsw i32 %3, 1
-  store i32 %8, ptr %2, align 4, !tbaa !26
+  store i32 %8, ptr %2, align 4, !tbaa !25
   br label %39
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i32, ptr %11, align 8, !tbaa !28
+  %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !29
+  %14 = load i32, ptr %13, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %16 = load i32, ptr %15, align 4, !tbaa !30
+  %16 = load i32, ptr %15, align 4, !tbaa !29
   %17 = icmp eq i32 %14, %16
   br i1 %17, label %18, label %._crit_edge.i
 
@@ -185,7 +185,7 @@ define void @BN_CTX_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %18
-  %27 = load i32, ptr %13, align 8, !tbaa !29
+  %27 = load i32, ptr %13, align 8, !tbaa !28
   %.not22.i = icmp eq i32 %27, 0
   %.pre.i = load ptr, ptr %10, align 8, !tbaa !15
   br i1 %.not22.i, label %.thread.i, label %28
@@ -199,27 +199,27 @@ define void @BN_CTX_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 .thread.i:                                        ; preds = %28, %26
   tail call void @CRYPTO_free(ptr noundef %.pre.i, ptr noundef nonnull @.str, i32 noundef 273) #6
   store ptr %24, ptr %10, align 8, !tbaa !15
-  store i32 %21, ptr %15, align 4, !tbaa !30
-  %.pre25.i = load i32, ptr %13, align 8, !tbaa !29
+  store i32 %21, ptr %15, align 4, !tbaa !29
+  %.pre25.i = load i32, ptr %13, align 8, !tbaa !28
   br label %BN_STACK_push.exit
 
 BN_STACK_push.exit:                               ; preds = %._crit_edge.i, %.thread.i
   %31 = phi i32 [ %14, %._crit_edge.i ], [ %.pre25.i, %.thread.i ]
   %32 = phi ptr [ %.pre24.i, %._crit_edge.i ], [ %24, %.thread.i ]
   %33 = add i32 %31, 1
-  store i32 %33, ptr %13, align 8, !tbaa !29
+  store i32 %33, ptr %13, align 8, !tbaa !28
   %34 = zext i32 %31 to i64
   %35 = getelementptr inbounds nuw i32, ptr %32, i64 %34
-  store i32 %12, ptr %35, align 4, !tbaa !31
+  store i32 %12, ptr %35, align 4, !tbaa !30
   br label %39
 
 36:                                               ; preds = %18
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.BN_CTX_start) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 109, ptr noundef null) #6
-  %37 = load i32, ptr %2, align 4, !tbaa !26
+  %37 = load i32, ptr %2, align 4, !tbaa !25
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %2, align 4, !tbaa !26
+  store i32 %38, ptr %2, align 4, !tbaa !25
   br label %39
 
 39:                                               ; preds = %BN_STACK_push.exit, %7, %36
@@ -239,36 +239,36 @@ define void @BN_CTX_end(ptr noundef captures(address_is_null) %0) local_unnamed_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %5 = load i32, ptr %4, align 4, !tbaa !26
+  %5 = load i32, ptr %4, align 4, !tbaa !25
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = add nsw i32 %5, -1
-  store i32 %7, ptr %4, align 4, !tbaa !26
+  store i32 %7, ptr %4, align 4, !tbaa !25
   br label %38
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i32, ptr %11, align 8, !tbaa !29
+  %12 = load i32, ptr %11, align 8, !tbaa !28
   %13 = add i32 %12, -1
-  store i32 %13, ptr %11, align 8, !tbaa !29
+  store i32 %13, ptr %11, align 8, !tbaa !28
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw i32, ptr %10, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !31
+  %16 = load i32, ptr %15, align 4, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load i32, ptr %17, align 8, !tbaa !28
+  %18 = load i32, ptr %17, align 8, !tbaa !27
   %19 = icmp ult i32 %16, %18
   br i1 %19, label %.lr.ph.i, label %BN_POOL_release.exit
 
 .lr.ph.i:                                         ; preds = %8
   %20 = sub nuw i32 %18, %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !32
+  %22 = load i32, ptr %21, align 8, !tbaa !31
   %23 = sub i32 %22, %20
-  store i32 %23, ptr %21, align 8, !tbaa !32
+  store i32 %23, ptr %21, align 8, !tbaa !31
   %24 = add i32 %22, 15
   %25 = and i32 %24, 15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -282,10 +282,10 @@ define void @BN_CTX_end(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %26, align 8, !tbaa !25
+  %31 = load ptr, ptr %26, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 384
-  %33 = load ptr, ptr %32, align 8, !tbaa !33
-  store ptr %33, ptr %26, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  store ptr %33, ptr %26, align 8, !tbaa !24
   br label %36
 
 34:                                               ; preds = %27
@@ -295,12 +295,12 @@ define void @BN_CTX_end(ptr noundef captures(address_is_null) %0) local_unnamed_
 36:                                               ; preds = %34, %30
   %.1.i = phi i32 [ 15, %30 ], [ %35, %34 ]
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %BN_POOL_release.exit, label %27, !llvm.loop !34
+  br i1 %.not.i, label %BN_POOL_release.exit, label %27, !llvm.loop !33
 
 BN_POOL_release.exit:                             ; preds = %36, %8
-  store i32 %16, ptr %17, align 8, !tbaa !28
+  store i32 %16, ptr %17, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %37, align 8, !tbaa !27
+  store i32 0, ptr %37, align 8, !tbaa !26
   br label %38
 
 38:                                               ; preds = %BN_POOL_release.exit, %6, %1
@@ -310,13 +310,13 @@ BN_POOL_release.exit:                             ; preds = %36, %8
 ; Function Attrs: nounwind uwtable
 define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %3 = load i32, ptr %2, align 4, !tbaa !26
+  %3 = load i32, ptr %2, align 4, !tbaa !25
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %63
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i32, ptr %5, align 8, !tbaa !27
+  %6 = load i32, ptr %5, align 8, !tbaa !26
   %.not11 = icmp eq i32 %6, 0
   br i1 %.not11, label %7, label %63
 
@@ -324,9 +324,9 @@ define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !32
+  %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !35
+  %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = icmp eq i32 %11, %13
   br i1 %14, label %15, label %39
 
@@ -347,7 +347,7 @@ define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr
   %20 = getelementptr inbounds nuw i8, ptr %.03438.us.i, i64 24
   %21 = add nuw nsw i32 %19, 1
   %exitcond40.not.i = icmp eq i32 %21, 17
-  br i1 %exitcond40.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !36
+  br i1 %exitcond40.not.i, label %.split.us.i, label %.preheader.split.us.i, !llvm.loop !35
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
   %22 = phi i32 [ %24, %.preheader.split.i ], [ 1, %.preheader.i ]
@@ -357,15 +357,15 @@ define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = getelementptr inbounds nuw i8, ptr %.03438.i, i64 24
   %24 = add nuw nsw i32 %22, 1
   %exitcond.not.i = icmp eq i32 %24, 17
-  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !37
 
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.split.us.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
+  %26 = load ptr, ptr %25, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 384
-  store ptr %26, ptr %27, align 8, !tbaa !33
+  store ptr %26, ptr %27, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 392
-  store ptr null, ptr %28, align 8, !tbaa !23
+  store ptr null, ptr %28, align 8, !tbaa !22
   %29 = load ptr, ptr %0, align 8, !tbaa !16
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
@@ -376,19 +376,19 @@ define noundef ptr @BN_CTX_get(ptr noundef captures(none) %0) local_unnamed_addr
 
 32:                                               ; preds = %.split.us.i
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 392
-  store ptr %16, ptr %33, align 8, !tbaa !23
+  store ptr %16, ptr %33, align 8, !tbaa !22
   br label %BN_POOL_get.exit.thread13
 
 BN_POOL_get.exit.thread13:                        ; preds = %31, %32
-  store ptr %16, ptr %25, align 8, !tbaa !39
+  store ptr %16, ptr %25, align 8, !tbaa !38
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %34, align 8, !tbaa !25
-  %35 = load i32, ptr %12, align 4, !tbaa !35
+  store ptr %16, ptr %34, align 8, !tbaa !24
+  %35 = load i32, ptr %12, align 4, !tbaa !34
   %36 = add i32 %35, 16
-  store i32 %36, ptr %12, align 4, !tbaa !35
-  %37 = load i32, ptr %10, align 8, !tbaa !32
+  store i32 %36, ptr %12, align 4, !tbaa !34
+  %37 = load i32, ptr %10, align 8, !tbaa !31
   %38 = add i32 %37, 1
-  store i32 %38, ptr %10, align 8, !tbaa !32
+  store i32 %38, ptr %10, align 8, !tbaa !31
   br label %56
 
 39:                                               ; preds = %7
@@ -398,14 +398,14 @@ BN_POOL_get.exit.thread13:                        ; preds = %31, %32
 40:                                               ; preds = %39
   %41 = load ptr, ptr %0, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !25
+  store ptr %41, ptr %42, align 8, !tbaa !24
   br label %BN_POOL_get.exit
 
 43:                                               ; preds = %39
   %44 = and i32 %11, 15
   %45 = icmp eq i32 %44, 0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  %47 = load ptr, ptr %46, align 8, !tbaa !24
   br i1 %45, label %49, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %43
@@ -414,21 +414,21 @@ BN_POOL_get.exit.thread13:                        ; preds = %31, %32
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 392
-  %51 = load ptr, ptr %50, align 8, !tbaa !23
-  store ptr %51, ptr %46, align 8, !tbaa !25
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
+  store ptr %51, ptr %46, align 8, !tbaa !24
   br label %BN_POOL_get.exit
 
 BN_POOL_get.exit:                                 ; preds = %40, %._crit_edge.i, %49
   %.pre-phi.i = phi i64 [ %48, %._crit_edge.i ], [ 0, %49 ], [ 0, %40 ]
   %52 = phi ptr [ %47, %._crit_edge.i ], [ %51, %49 ], [ %41, %40 ]
   %53 = add i32 %11, 1
-  store i32 %53, ptr %10, align 8, !tbaa !32
+  store i32 %53, ptr %10, align 8, !tbaa !31
   %54 = getelementptr inbounds nuw %struct.bignum_st, ptr %52, i64 %.pre-phi.i
   %55 = icmp eq ptr %52, null
   br i1 %55, label %BN_POOL_get.exit.thread, label %56
 
 BN_POOL_get.exit.thread:                          ; preds = %15, %BN_POOL_get.exit
-  store i32 1, ptr %5, align 8, !tbaa !27
+  store i32 1, ptr %5, align 8, !tbaa !26
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @__func__.BN_CTX_get) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 109, ptr noundef null) #6
@@ -438,13 +438,13 @@ BN_POOL_get.exit.thread:                          ; preds = %15, %BN_POOL_get.ex
   %.1.i15 = phi ptr [ %16, %BN_POOL_get.exit.thread13 ], [ %54, %BN_POOL_get.exit ]
   tail call void @BN_zero_ex(ptr noundef nonnull %.1.i15) #6
   %57 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !40
+  %58 = load i32, ptr %57, align 4, !tbaa !39
   %59 = and i32 %58, -5
-  store i32 %59, ptr %57, align 4, !tbaa !40
+  store i32 %59, ptr %57, align 4, !tbaa !39
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %61 = load i32, ptr %60, align 8, !tbaa !28
+  %61 = load i32, ptr %60, align 8, !tbaa !27
   %62 = add i32 %61, 1
-  store i32 %62, ptr %60, align 8, !tbaa !28
+  store i32 %62, ptr %60, align 8, !tbaa !27
   br label %63
 
 63:                                               ; preds = %1, %4, %56, %BN_POOL_get.exit.thread
@@ -513,24 +513,23 @@ attributes #6 = { nounwind }
 !17 = !{!18, !19, i64 0}
 !18 = !{!"bignum_st", !19, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
 !19 = !{!"p1 long", !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !6, i64 392}
-!24 = !{!"bignum_pool_item", !8, i64 0, !6, i64 384, !6, i64 392}
-!25 = !{!5, !6, i64 8}
-!26 = !{!4, !10, i64 52}
-!27 = !{!4, !10, i64 56}
-!28 = !{!4, !10, i64 48}
-!29 = !{!11, !10, i64 8}
-!30 = !{!11, !10, i64 12}
-!31 = !{!10, !10, i64 0}
-!32 = !{!5, !10, i64 24}
-!33 = !{!24, !6, i64 384}
-!34 = distinct !{!34, !21, !22}
-!35 = !{!5, !10, i64 28}
-!36 = distinct !{!36, !21, !22, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !21, !22}
-!39 = !{!5, !6, i64 16}
-!40 = !{!18, !10, i64 20}
+!22 = !{!23, !6, i64 392}
+!23 = !{!"bignum_pool_item", !8, i64 0, !6, i64 384, !6, i64 392}
+!24 = !{!5, !6, i64 8}
+!25 = !{!4, !10, i64 52}
+!26 = !{!4, !10, i64 56}
+!27 = !{!4, !10, i64 48}
+!28 = !{!11, !10, i64 8}
+!29 = !{!11, !10, i64 12}
+!30 = !{!10, !10, i64 0}
+!31 = !{!5, !10, i64 24}
+!32 = !{!23, !6, i64 384}
+!33 = distinct !{!33, !21}
+!34 = !{!5, !10, i64 28}
+!35 = distinct !{!35, !21, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !21}
+!38 = !{!5, !6, i64 16}
+!39 = !{!18, !10, i64 20}

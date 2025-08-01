@@ -5570,7 +5570,7 @@ get_request.exit:                                 ; preds = %71, %77, %100, %115
   call fastcc void @col_append_info_by_handle(ptr noundef %1, i16 noundef zeroext %303, i8 noundef zeroext 5, ptr noundef %3)
   %310 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %306)
   %311 = icmp sgt i32 %310, 0
-  br i1 %311, label %295, label %proto_item_set_generated.exit, !llvm.loop !9
+  br i1 %311, label %295, label %proto_item_set_generated.exit, !llvm.loop !8
 
 312:                                              ; preds = %268
   %313 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %270, ptr noundef nonnull @ei_btatt_uuid_format_unknown)
@@ -5653,7 +5653,7 @@ get_request.exit:                                 ; preds = %71, %77, %100, %115
 364:                                              ; preds = %360, %345
   %365 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %359)
   %366 = icmp sgt i32 %365, 0
-  br i1 %366, label %345, label %proto_item_set_generated.exit, !llvm.loop !10
+  br i1 %366, label %345, label %proto_item_set_generated.exit, !llvm.loop !9
 
 367:                                              ; preds = %get_request.exit, %get_request.exit
   %368 = load ptr, ptr %47, align 8
@@ -5803,7 +5803,7 @@ get_request.exit:                                 ; preds = %71, %77, %100, %115
   %.7 = phi i32 [ %449, %442 ], [ %455, %450 ]
   %457 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7)
   %.not981 = icmp slt i32 %457, %427
-  br i1 %.not981, label %.loopexit, label %435, !llvm.loop !11
+  br i1 %.not981, label %.loopexit, label %435, !llvm.loop !10
 
 .loopexit:                                        ; preds = %456, %428, %423
   %.5 = phi i32 [ 2, %423 ], [ 2, %428 ], [ %.7, %456 ]
@@ -6097,7 +6097,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %620 = call fastcc i32 @dissect_attribute_value(ptr noundef %46, ptr noundef null, ptr noundef %1, ptr noundef %0, i32 noundef %615, i32 noundef 0, i16 noundef zeroext %617, ptr noundef nonnull byval(%struct._uuid_t) align 8 %21, ptr noundef nonnull %20)
   %621 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %615)
   %622 = icmp sgt i32 %621, 1
-  br i1 %622, label %.lr.ph1065, label %._crit_edge, !llvm.loop !12
+  br i1 %622, label %.lr.ph1065, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph1065, %610
   %.8.lcssa = phi i32 [ 1, %610 ], [ %615, %.lr.ph1065 ]
@@ -6179,7 +6179,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %665 = load i32, ptr %650, align 8
   %666 = zext i32 %665 to i64
   %667 = icmp samesign ult i64 %indvars.iv.next, %666
-  br i1 %667, label %653, label %proto_item_set_generated.exit.thread, !llvm.loop !13
+  br i1 %667, label %653, label %proto_item_set_generated.exit.thread, !llvm.loop !12
 
 668:                                              ; preds = %.lr.ph1056, %675
   %669 = phi i32 [ %647, %.lr.ph1056 ], [ %689, %675 ]
@@ -6208,7 +6208,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %688 = add i32 %671, %673
   %689 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %688)
   %690 = icmp slt i32 %689, 2
-  br i1 %690, label %proto_item_set_generated.exit, label %668, !llvm.loop !14
+  br i1 %690, label %proto_item_set_generated.exit, label %668
 
 691:                                              ; preds = %640, %639
   %692 = load i32, ptr @hf_btatt_value, align 4
@@ -6276,7 +6276,7 @@ is_long_attribute_value.exit:                     ; preds = %488, %517
   %.15 = phi i32 [ %725, %724 ], [ %729, %726 ]
   %731 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.15)
   %.not973 = icmp slt i32 %731, %699
-  br i1 %.not973, label %.loopexit1051, label %707, !llvm.loop !15
+  br i1 %.not973, label %.loopexit1051, label %707, !llvm.loop !13
 
 .loopexit1051:                                    ; preds = %730, %700, %695
   %.13 = phi i32 [ 2, %695 ], [ 2, %700 ], [ %.15, %730 ]
@@ -6888,7 +6888,7 @@ define hidden void @proto_reg_handoff_btatt() local_unnamed_addr #1 {
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %37, %0
   %43 = tail call ptr @g_string_free(ptr noundef %1, i32 noundef 1)
@@ -7005,7 +7005,7 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
   %14 = getelementptr [36 x %struct.uuid_dissectors_t], ptr @__const.proto_reg_handoff_btgatt.uuid_dissectors, i64 0, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %1, label %2, !llvm.loop !17
+  br i1 %exitcond, label %1, label %2, !llvm.loop !15
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -7430,7 +7430,7 @@ switch.early.test:                                ; preds = %4
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %13, ptr noundef nonnull @.str.3291, i32 noundef %25, i32 noundef %21)
   %26 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %26, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %switch.early.test, %switch.early.test, %4
   %.024 = phi i32 [ -1, %switch.early.test ], [ -1, %4 ], [ -1, %switch.early.test ], [ 0, %9 ], [ %24, %.lr.ph ]
@@ -7879,20 +7879,20 @@ proto_item_set_generated.exit:                    ; preds = %21, %23, %26
   call fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %13, ptr noundef %1, i32 noundef %32, i8 noundef zeroext %8, ptr noundef %5)
   call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %14, ptr noundef %1, i32 noundef %32, i8 noundef zeroext %8, ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16)
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  store i32 %32, ptr %10, align 4, !noalias !19
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #14, !noalias !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14, !noalias !19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !19
+  store i32 %32, ptr %10, align 4, !noalias !17
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #14, !noalias !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14, !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !17
   %.not.i73 = icmp eq ptr %5, null
   br i1 %.not.i73, label %get_gatt_bluetooth_uuid_from_handle.exit, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %35 = load i32, ptr %34, align 4, !noalias !19
+  %35 = load i32, ptr %34, align 4, !noalias !17
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %37 = load i32, ptr %36, align 4, !noalias !19
+  %37 = load i32, ptr %36, align 4, !noalias !17
   %38 = and i8 %8, -7
   %switch.selectcmp.i.i.i = icmp eq i8 %38, 8
   %39 = and i8 %8, -5
@@ -7903,34 +7903,34 @@ proto_item_set_generated.exit:                    ; preds = %21, %23, %26
   %.not.i.i = icmp eq i32 %37, 0
   %41 = zext i1 %.not.i.i to i32
   %.0.i.i = select i1 %or.cond24.i.i, i32 %41, i32 %37
-  store i32 %.0.i.i, ptr %12, align 4, !noalias !19
-  store i32 1, ptr %11, align 16, !noalias !19
+  store i32 %.0.i.i, ptr %12, align 4, !noalias !17
+  store i32 1, ptr %11, align 16, !noalias !17
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %5, ptr %42, align 8, !noalias !19
+  store ptr %5, ptr %42, align 8, !noalias !17
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 1, ptr %43, align 16, !noalias !19
+  store i32 1, ptr %43, align 16, !noalias !17
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %44, ptr %45, align 8, !noalias !19
+  store ptr %44, ptr %45, align 8, !noalias !17
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 1, ptr %46, align 16, !noalias !19
+  store i32 1, ptr %46, align 16, !noalias !17
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %12, ptr %47, align 8, !noalias !19
+  store ptr %12, ptr %47, align 8, !noalias !17
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i32 1, ptr %48, align 16, !noalias !19
+  store i32 1, ptr %48, align 16, !noalias !17
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %10, ptr %49, align 8, !noalias !19
+  store ptr %10, ptr %49, align 8, !noalias !17
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i32 0, ptr %50, align 16, !noalias !19
+  store i32 0, ptr %50, align 16, !noalias !17
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr null, ptr %51, align 8, !noalias !19
-  %52 = load ptr, ptr @handle_to_uuid, align 8, !noalias !19
-  %53 = call ptr @wmem_tree_lookup32_array(ptr noundef %52, ptr noundef nonnull %11), !noalias !19
+  store ptr null, ptr %51, align 8, !noalias !17
+  %52 = load ptr, ptr @handle_to_uuid, align 8, !noalias !17
+  %53 = call ptr @wmem_tree_lookup32_array(ptr noundef %52, ptr noundef nonnull %11), !noalias !17
   %.not12.i = icmp eq ptr %53, null
   br i1 %.not12.i, label %get_gatt_bluetooth_uuid_from_handle.exit, label %54
 
 54:                                               ; preds = %33
-  %55 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %53, i32 noundef %35), !noalias !19
+  %55 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %53, i32 noundef %35), !noalias !17
   %.not13.i = icmp eq ptr %55, null
   br i1 %.not13.i, label %get_gatt_bluetooth_uuid_from_handle.exit, label %56
 
@@ -7939,8 +7939,8 @@ proto_item_set_generated.exit:                    ; preds = %21, %23, %26
   br label %get_gatt_bluetooth_uuid_from_handle.exit
 
 get_gatt_bluetooth_uuid_from_handle.exit:         ; preds = %31, %33, %54, %56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #14, !noalias !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #14, !noalias !17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, ptr noundef nonnull align 2 dereferenceable(20) %16, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
@@ -8200,7 +8200,7 @@ define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noa
   %38 = add i32 %37, -1
   store i32 %38, ptr %6, align 4
   %.not13 = icmp eq i32 %38, 0
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.thread, %9, %5, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
@@ -8231,16 +8231,16 @@ define internal fastcc void @col_append_info_by_handle(ptr noundef readonly capt
   call fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %8, ptr noundef %0, i32 noundef %13, i8 noundef zeroext %2, ptr noundef nonnull %3)
   call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %9, ptr noundef %0, i32 noundef %13, i8 noundef zeroext %2, ptr noundef nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %13, ptr %5, align 4, !noalias !23
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #14, !noalias !23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14, !noalias !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %11, i8 0, i64 20, i1 false), !alias.scope !23
+  store i32 %13, ptr %5, align 4, !noalias !21
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #14, !noalias !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14, !noalias !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %11, i8 0, i64 20, i1 false), !alias.scope !21
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4, !noalias !23
+  %15 = load i32, ptr %14, align 4, !noalias !21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %17 = load i32, ptr %16, align 4, !noalias !23
+  %17 = load i32, ptr %16, align 4, !noalias !21
   %18 = and i8 %2, -7
   %switch.selectcmp.i.i.i = icmp eq i8 %18, 8
   %19 = and i8 %2, -5
@@ -8251,34 +8251,34 @@ define internal fastcc void @col_append_info_by_handle(ptr noundef readonly capt
   %.not.i.i = icmp eq i32 %17, 0
   %21 = zext i1 %.not.i.i to i32
   %.0.i.i = select i1 %or.cond24.i.i, i32 %21, i32 %17
-  store i32 %.0.i.i, ptr %7, align 4, !noalias !23
-  store i32 1, ptr %6, align 16, !noalias !23
+  store i32 %.0.i.i, ptr %7, align 4, !noalias !21
+  store i32 1, ptr %6, align 16, !noalias !21
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %22, align 8, !noalias !23
+  store ptr %3, ptr %22, align 8, !noalias !21
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 1, ptr %23, align 16, !noalias !23
+  store i32 1, ptr %23, align 16, !noalias !21
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %24, ptr %25, align 8, !noalias !23
+  store ptr %24, ptr %25, align 8, !noalias !21
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 1, ptr %26, align 16, !noalias !23
+  store i32 1, ptr %26, align 16, !noalias !21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %7, ptr %27, align 8, !noalias !23
+  store ptr %7, ptr %27, align 8, !noalias !21
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 1, ptr %28, align 16, !noalias !23
+  store i32 1, ptr %28, align 16, !noalias !21
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %5, ptr %29, align 8, !noalias !23
+  store ptr %5, ptr %29, align 8, !noalias !21
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 0, ptr %30, align 16, !noalias !23
+  store i32 0, ptr %30, align 16, !noalias !21
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %31, align 8, !noalias !23
-  %32 = load ptr, ptr @handle_to_uuid, align 8, !noalias !23
-  %33 = call ptr @wmem_tree_lookup32_array(ptr noundef %32, ptr noundef nonnull %6), !noalias !23
+  store ptr null, ptr %31, align 8, !noalias !21
+  %32 = load ptr, ptr @handle_to_uuid, align 8, !noalias !21
+  %33 = call ptr @wmem_tree_lookup32_array(ptr noundef %32, ptr noundef nonnull %6), !noalias !21
   %.not12.i = icmp eq ptr %33, null
   br i1 %.not12.i, label %get_gatt_bluetooth_uuid_from_handle.exit, label %34
 
 34:                                               ; preds = %12
-  %35 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %33, i32 noundef %15), !noalias !23
+  %35 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %33, i32 noundef %15), !noalias !21
   %.not13.i = icmp eq ptr %35, null
   br i1 %.not13.i, label %get_gatt_bluetooth_uuid_from_handle.exit, label %36
 
@@ -8287,8 +8287,8 @@ define internal fastcc void @col_append_info_by_handle(ptr noundef readonly capt
   br label %get_gatt_bluetooth_uuid_from_handle.exit
 
 get_gatt_bluetooth_uuid_from_handle.exit:         ; preds = %12, %34, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14, !noalias !23
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #14, !noalias !23
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14, !noalias !21
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #14, !noalias !21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %10, ptr noundef nonnull align 2 dereferenceable(20) %11, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
@@ -8569,7 +8569,7 @@ get_gatt_service_handle_from_handle.exit.thread41: ; preds = %29
   %57 = add i32 %56, -1
   store i32 %57, ptr %9, align 4
   %.not13.i = icmp eq i32 %57, 0
-  br i1 %.not13.i, label %get_gatt_service_handle_from_handle.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not13.i, label %get_gatt_service_handle_from_handle.exit, label %.lr.ph.i, !llvm.loop !24
 
 get_gatt_service_handle_from_handle.exit:         ; preds = %.thread.i, %53
   %.0.i = phi i16 [ %55, %53 ], [ 0, %.thread.i ]
@@ -8638,7 +8638,7 @@ get_gatt_service_handle_from_handle.exit:         ; preds = %.thread.i, %53
   %82 = add i32 %81, -1
   store i32 %82, ptr %6, align 4
   %.not15.i38 = icmp eq i32 %82, 0
-  br i1 %.not15.i38, label %get_gatt_char_decl_handle_from_handle.exit, label %.lr.ph.i36, !llvm.loop !27
+  br i1 %.not15.i38, label %get_gatt_char_decl_handle_from_handle.exit, label %.lr.ph.i36, !llvm.loop !25
 
 get_gatt_char_decl_handle_from_handle.exit:       ; preds = %.thread.i37, %get_gatt_service_handle_from_handle.exit.thread, %59, %78
   %.0.i39 = phi i16 [ %80, %78 ], [ 0, %59 ], [ 0, %get_gatt_service_handle_from_handle.exit.thread ], [ 0, %.thread.i37 ]
@@ -8869,7 +8869,7 @@ thread-pre-split.i:                               ; preds = %77, %75, %72
 
 83:                                               ; preds = %81, %78
   %.4.i = phi i1 [ %.266.i, %78 ], [ false, %81 ]
-  %84 = load i8, ptr %42, align 8, !range !28, !noundef !29
+  %84 = load i8, ptr %42, align 8, !range !26, !noundef !27
   %85 = tail call i32 @tvb_captured_length(ptr noundef %.061.i)
   %86 = icmp ult i32 %.0.i79.i, %85
   br i1 %86, label %87, label %btatt_dissect_with_reassmbly.exit
@@ -9846,7 +9846,7 @@ switch.early.test6030:                            ; preds = %387
   %402 = call fastcc i32 @dissect_handle(ptr noundef %397, ptr noundef %2, i32 noundef %400, ptr noundef %19, i32 noundef %.16633, ptr noundef %22, ptr noundef null, i32 noundef -1, i8 noundef zeroext %401)
   %403 = call i32 @tvb_captured_length(ptr noundef %19)
   %404 = icmp ult i32 %402, %403
-  br i1 %404, label %.lr.ph6635, label %.thread6013, !llvm.loop !30
+  br i1 %404, label %.lr.ph6635, label %.thread6013, !llvm.loop !28
 
 405:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #14
@@ -12022,7 +12022,7 @@ switch.early.test6091:                            ; preds = %1275
   %1341 = call ptr @proto_tree_add_item(ptr noundef %1337, i32 noundef %1340, ptr noundef %19, i32 noundef %.176626, i32 noundef 2, i32 noundef -2147483648)
   %1342 = add i32 %.176626, 2
   %.not4860 = icmp eq i16 %1339, 0
-  br i1 %.not4860, label %.thread6004, label %1338, !llvm.loop !31
+  br i1 %.not4860, label %.thread6004, label %1338, !llvm.loop !29
 
 1343:                                             ; preds = %.lr.ph6631
   %1344 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_regulation_bit_field_type, align 4
@@ -12050,7 +12050,7 @@ switch.early.test6091:                            ; preds = %1275
 
 1355:                                             ; preds = %1353, %.thread6004
   %.not4858 = icmp eq i16 %1286, 0
-  br i1 %.not4858, label %.thread6013, label %.lr.ph6631, !llvm.loop !32
+  br i1 %.not4858, label %.thread6013, label %.lr.ph6631, !llvm.loop !30
 
 1356:                                             ; preds = %144
   %1357 = icmp eq i16 %.sroa.0270.0.copyload, 6170
@@ -12607,7 +12607,7 @@ switch.early.test6105.thread:                     ; preds = %1557, %switch.early
   %1595 = add i32 %.046336621, 1
   %1596 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %1594)
   %.not4837 = icmp eq i32 %1596, 0
-  br i1 %.not4837, label %._crit_edge, label %.lr.ph6622, !llvm.loop !33
+  br i1 %.not4837, label %._crit_edge, label %.lr.ph6622, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph6622, %1585
   %.31.lcssa = phi i32 [ %.30, %1585 ], [ %1594, %.lr.ph6622 ]
@@ -13828,7 +13828,7 @@ switch.early.test6141:                            ; preds = %2074
   %2105 = add i32 %.346616, 1
   %2106 = call i32 @tvb_captured_length_remaining(ptr noundef %19, i32 noundef %2105)
   %.not4818 = icmp eq i32 %2106, 0
-  br i1 %.not4818, label %.thread6013, label %.lr.ph6617, !llvm.loop !34
+  br i1 %.not4818, label %.thread6013, label %.lr.ph6617, !llvm.loop !32
 
 2107:                                             ; preds = %144
   %2108 = icmp eq i16 %.sroa.0270.0.copyload, 6165
@@ -14699,7 +14699,7 @@ switch.early.test6160.thread:                     ; preds = %2482, %switch.early
   %2514 = add i32 %.566609, 2
   %2515 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %2514)
   %2516 = icmp sgt i32 %2515, 0
-  br i1 %2516, label %.lr.ph6610, label %.loopexit, !llvm.loop !35
+  br i1 %2516, label %.lr.ph6610, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph6610, %.preheader6602, %2508
   %.55 = phi i32 [ %.54, %2508 ], [ %.54, %.preheader6602 ], [ %2514, %.lr.ph6610 ]
@@ -14719,7 +14719,7 @@ switch.early.test6160.thread:                     ; preds = %2482, %switch.early
   %2522 = add i32 %.576612, 2
   %2523 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %2522)
   %2524 = icmp sgt i32 %2523, 0
-  br i1 %2524, label %.lr.ph6613, label %.thread6013, !llvm.loop !36
+  br i1 %2524, label %.lr.ph6613, label %.thread6013, !llvm.loop !34
 
 2525:                                             ; preds = %144
   %2526 = icmp eq i16 %.sroa.0270.0.copyload, 6168
@@ -14890,7 +14890,7 @@ switch.early.test6164:                            ; preds = %2546
   %2597 = add i32 %.586608, 1
   %2598 = call i32 @tvb_captured_length_remaining(ptr noundef %19, i32 noundef %2597)
   %.not4779 = icmp eq i32 %2598, 0
-  br i1 %.not4779, label %.thread6013, label %.lr.ph, !llvm.loop !37
+  br i1 %.not4779, label %.thread6013, label %.lr.ph, !llvm.loop !35
 
 2599:                                             ; preds = %2583
   %2600 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %2586)
@@ -18179,7 +18179,7 @@ switch.early.test6276:                            ; preds = %3975
   %3988 = add i32 %.85, 1
   %3989 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %.85)
   %.not4713 = icmp sgt i8 %3989, -1
-  br i1 %.not4713, label %.thread6013, label %.preheader6605, !llvm.loop !38
+  br i1 %.not4713, label %.thread6013, label %.preheader6605, !llvm.loop !36
 
 3990:                                             ; preds = %144
   %3991 = icmp ne i16 %.sroa.0270.0.copyload, 6144
@@ -21550,7 +21550,7 @@ define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unw
   %37 = add i32 %36, -1
   store i32 %37, ptr %6, align 4
   %.not15 = icmp eq i32 %37, 0
-  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.critedge, %32, %9, %5, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
@@ -21840,37 +21840,35 @@ attributes #17 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"get_gatt_bluetooth_uuid_from_handle: argument 0"}
-!21 = distinct !{!21, !"get_gatt_bluetooth_uuid_from_handle"}
-!22 = distinct !{!22, !7, !8}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"get_gatt_bluetooth_uuid_from_handle: argument 0"}
-!25 = distinct !{!25, !"get_gatt_bluetooth_uuid_from_handle"}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = !{i8 0, i8 2}
-!29 = !{}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"get_gatt_bluetooth_uuid_from_handle: argument 0"}
+!19 = distinct !{!19, !"get_gatt_bluetooth_uuid_from_handle"}
+!20 = distinct !{!20, !7}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"get_gatt_bluetooth_uuid_from_handle: argument 0"}
+!23 = distinct !{!23, !"get_gatt_bluetooth_uuid_from_handle"}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = !{i8 0, i8 2}
+!27 = !{}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}

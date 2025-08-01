@@ -47,7 +47,7 @@ define dso_local i32 @autofs_expire_wait(ptr noundef %0, i32 noundef %1) local_u
   %23 = load i32, ptr %11, align 8
   %24 = and i32 %23, 3
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !6
+  br i1 %25, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %17
   %26 = phi i32 [ %19, %17 ], [ %23, %.preheader ]
@@ -213,7 +213,7 @@ define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr no
   %45 = getelementptr i8, ptr %43, i64 -152
   %46 = icmp eq ptr %45, null
   %47 = or i1 %44, %46
-  br i1 %47, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %47, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.critedge, %38, %16
   %48 = phi ptr [ %30, %38 ], [ null, %16 ], [ null, %.critedge ]
@@ -240,7 +240,7 @@ define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr no
   br i1 %59, label %.backedge, label %60
 
 .backedge:                                        ; preds = %57, %50
-  br label %16, !llvm.loop !11
+  br label %16, !llvm.loop !9
 
 60:                                               ; preds = %57
   tail call void @_raw_spin_lock(ptr noundef nonnull %11) #7
@@ -291,7 +291,7 @@ define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr no
   br label %.backedge34
 
 .backedge34:                                      ; preds = %80, %68
-  br label %13, !llvm.loop !12
+  br label %13, !llvm.loop !9
 
 .loopexit1:                                       ; preds = %.loopexit, %75, %3
   %81 = phi ptr [ %58, %75 ], [ null, %3 ], [ null, %.loopexit ]
@@ -497,7 +497,7 @@ define dso_local i32 @autofs_expire_multi(ptr noundef readonly captures(none) %0
 
 6:                                                ; preds = %4
   %7 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 4, i64 %7) #7, !srcloc !13
+  %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 4, i64 %7) #7, !srcloc !10
   %9 = extractvalue { ptr, i32, i64 } %8, 0
   %10 = extractvalue { ptr, i32, i64 } %8, 1
   %11 = extractvalue { ptr, i32, i64 } %8, 2
@@ -768,7 +768,7 @@ autofs_mount_busy.exit11.us:                      ; preds = %131
 146:                                              ; preds = %135, %autofs_mount_busy.exit11.us
   %147 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %111, ptr noundef nonnull %0)
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.split40.us, label %.split34.us, !llvm.loop !14
+  br i1 %148, label %.split40.us, label %.split34.us, !llvm.loop !11
 
 .split34:                                         ; preds = %108, %185
   %149 = phi ptr [ %186, %185 ], [ %0, %108 ]
@@ -838,7 +838,7 @@ autofs_mount_busy.exit11.thread:                  ; preds = %153, %160, %122, %1
 185:                                              ; preds = %autofs_mount_busy.exit11, %174
   %186 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %149, ptr noundef nonnull %0)
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %.split40.us, label %.split34, !llvm.loop !16
+  br i1 %187, label %.split40.us, label %.split34, !llvm.loop !13
 
 .split40.us:                                      ; preds = %185, %146
   br i1 %92, label %188, label %.thread15
@@ -964,7 +964,7 @@ autofs_mount_busy.exit12.thread.us:               ; preds = %253, %227, %220
 258:                                              ; preds = %autofs_mount_busy.exit12.thread.us, %246, %245, %240, %.split.us
   %259 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %216, ptr noundef nonnull %0)
   %260 = icmp eq ptr %259, null
-  br i1 %260, label %.loopexit25, label %.split.us, !llvm.loop !17
+  br i1 %260, label %.loopexit25, label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %210, %282
   %261 = phi ptr [ %283, %282 ], [ %0, %210 ]
@@ -1012,7 +1012,7 @@ autofs_mount_busy.exit12.thread:                  ; preds = %272, %265
 282:                                              ; preds = %autofs_mount_busy.exit12.thread, %.split
   %283 = tail call fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %261, ptr noundef nonnull %0)
   %284 = icmp eq ptr %283, null
-  br i1 %284, label %.loopexit25, label %.split, !llvm.loop !18
+  br i1 %284, label %.loopexit25, label %.split, !llvm.loop !15
 
 .loopexit24:                                      ; preds = %246, %244, %281
   %285 = phi ptr [ %261, %281 ], [ %216, %244 ], [ %216, %246 ]
@@ -1106,7 +1106,7 @@ define internal fastcc ptr @get_next_positive_dentry(ptr noundef nonnull %0, ptr
   %31 = getelementptr i8, ptr %29, i64 -152
   %32 = icmp eq ptr %31, null
   %33 = or i1 %30, %32
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.critedge, %8
   %.not6 = icmp eq ptr %.sink22, %1
@@ -1163,17 +1163,13 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !10, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10, !7}
-!12 = distinct !{!12, !9, !10, !7}
-!13 = !{i64 2154081143}
-!14 = distinct !{!14, !9, !10, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !9, !10, !7}
-!17 = distinct !{!17, !9, !10, !7, !15}
-!18 = distinct !{!18, !9, !10, !7}
-!19 = distinct !{!19, !9, !10, !7}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unroll.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2154081143}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !12}
+!15 = distinct !{!15, !7, !8}

@@ -7980,7 +7980,7 @@ lean_inc.exit:                                    ; preds = %30, %29, %27, %lean
 
 lean_dec.exit13:                                  ; preds = %37, %36, %34, %lean_inc.exit
   %38 = tail call ptr @lean_array_push(ptr noundef %.012, ptr noundef %12) #5
-  br label %3, !llvm.loop !19
+  br label %3
 
 .thread:                                          ; preds = %lean_obj_tag.exit.thread
   %39 = load i32, ptr %.0, align 4, !tbaa !8
@@ -33493,7 +33493,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit24.backedge:                         ; preds = %67, %69, %79, %78, %76
   %.023.be = phi ptr [ %71, %69 ], [ %73, %76 ], [ %73, %78 ], [ %73, %79 ], [ inttoptr (i64 1 to ptr), %67 ]
   %.022.be = phi ptr [ %.1.i3943, %69 ], [ %72, %76 ], [ %72, %78 ], [ %72, %79 ], [ %.1.i3943, %67 ]
-  br label %lean_dec.exit24, !llvm.loop !21
+  br label %lean_dec.exit24
 
 69:                                               ; preds = %67
   %70 = add i64 %44, -2
@@ -36651,6 +36651,3 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!"short", !6, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}

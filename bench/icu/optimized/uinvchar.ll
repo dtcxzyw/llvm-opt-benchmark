@@ -54,7 +54,7 @@ define void @u_UCharsToChars_77(ptr noundef readonly captures(none) %0, ptr noun
   %10 = lshr i32 %9, 5
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = and i32 %9, 31
   %15 = shl nuw i32 1, %14
   %16 = and i32 %13, %15
@@ -71,7 +71,7 @@ define void @u_UCharsToChars_77(ptr noundef readonly captures(none) %0, ptr noun
   store i8 %19, ptr %.0812, align 1, !tbaa !3
   %21 = add nsw i32 %.0713, -1
   %22 = icmp sgt i32 %.0713, 1
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %3
   ret void
@@ -107,7 +107,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantString_77(ptr noundef readonly
 .backedge.backedge:                               ; preds = %10, %17
   %.011.be = phi ptr [ %.112, %17 ], [ %12, %10 ]
   %.010.be = phi i32 [ %.1, %17 ], [ %11, %10 ]
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge, !llvm.loop !13
 
 15:                                               ; preds = %10, %4
   %.112 = phi ptr [ %5, %4 ], [ %12, %10 ]
@@ -121,7 +121,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantString_77(ptr noundef readonly
   %19 = lshr i32 %18, 5
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !11
+  %22 = load i32, ptr %21, align 4, !tbaa !10
   %23 = and i32 %18, 31
   %24 = shl nuw i32 1, %23
   %25 = and i32 %22, %24
@@ -169,12 +169,12 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantUString_77(ptr noundef readonl
   %17 = lshr i32 %16, 5
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !11
+  %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = and i32 %16, 31
   %22 = shl nuw i32 1, %21
   %23 = and i32 %20, %22
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %24, label %3, !llvm.loop !15
+  br i1 %.not, label %24, label %3, !llvm.loop !14
 
 24:                                               ; preds = %5, %8, %13, %15
   %.012 = phi i8 [ 0, %15 ], [ 0, %13 ], [ 1, %8 ], [ 1, %5 ]
@@ -187,7 +187,7 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %4, align 4, !tbaa !16
+  %8 = load i32, ptr %4, align 4, !tbaa !15
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %.loopexit
 
@@ -223,7 +223,7 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
   %22 = lshr i32 %21, 5
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !11
+  %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %21, 31
   %27 = shl nuw i32 1, %26
   %28 = and i32 %25, %27
@@ -243,11 +243,11 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
   store i8 %34, ptr %.03141, align 1, !tbaa !3
   %36 = add nsw i32 %.042, -1
   %37 = icmp sgt i32 %.042, 1
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit.sink.split:                             ; preds = %10, %14, %29
   %.sink = phi i32 [ 10, %29 ], [ 1, %14 ], [ 1, %10 ]
-  store i32 %.sink, ptr %4, align 4, !tbaa !16
+  store i32 %.sink, ptr %4, align 4, !tbaa !15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.loopexit.sink.split, %.preheader, %5, %7
@@ -263,7 +263,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
   br i1 %6, label %._crit_edge.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %4, align 4, !tbaa !16
+  %8 = load i32, ptr %4, align 4, !tbaa !15
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %._crit_edge.thread
 
@@ -286,7 +286,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 17:                                               ; preds = %14, %10
-  store i32 1, ptr %4, align 4, !tbaa !16
+  store i32 1, ptr %4, align 4, !tbaa !15
   br label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader, %32
@@ -302,7 +302,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
   %23 = lshr i32 %22, 5
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !11
+  %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = and i32 %22, 31
   %28 = shl nuw i32 1, %27
   %29 = and i32 %26, %28
@@ -312,13 +312,13 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
 30:                                               ; preds = %21, %.lr.ph
   %31 = sub nsw i32 %2, %.047
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %2, i32 noundef %31)
-  store i32 10, ptr %4, align 4, !tbaa !16
+  store i32 10, ptr %4, align 4, !tbaa !15
   br label %._crit_edge.thread
 
 32:                                               ; preds = %21
   %33 = add nsw i32 %.047, -1
   %34 = icmp sgt i32 %.047, 1
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %32
   %.not41 = icmp ne ptr %1, %3
@@ -344,7 +344,7 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %4, align 4, !tbaa !16
+  %8 = load i32, ptr %4, align 4, !tbaa !15
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %.loopexit
 
@@ -387,7 +387,7 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
   %25 = lshr i32 %24, 5
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !11
+  %28 = load i32, ptr %27, align 4, !tbaa !10
   %29 = and i32 %24, 31
   %30 = shl nuw i32 1, %29
   %31 = and i32 %28, %30
@@ -405,11 +405,11 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
   store i8 %.035, ptr %.03649, align 1, !tbaa !3
   %36 = add nsw i32 %.050, -1
   %37 = icmp sgt i32 %.050, 1
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %10, %14, %32
   %.sink = phi i32 [ 10, %32 ], [ 1, %14 ], [ 1, %10 ]
-  store i32 %.sink, ptr %4, align 4, !tbaa !16
+  store i32 %.sink, ptr %4, align 4, !tbaa !15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.loopexit.sink.split, %.preheader, %5, %7
@@ -423,7 +423,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr nou
   br i1 %6, label %._crit_edge.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %4, align 4, !tbaa !16
+  %8 = load i32, ptr %4, align 4, !tbaa !15
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %._crit_edge.thread
 
@@ -446,7 +446,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr nou
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 17:                                               ; preds = %14, %10
-  store i32 1, ptr %4, align 4, !tbaa !16
+  store i32 1, ptr %4, align 4, !tbaa !15
   br label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader, %35
@@ -469,7 +469,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr nou
   %26 = lshr i32 %25, 5
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !11
+  %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = and i32 %25, 31
   %31 = shl nuw i32 1, %30
   %32 = and i32 %29, %31
@@ -479,13 +479,13 @@ define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr nou
 33:                                               ; preds = %24, %20
   %34 = sub nsw i32 %2, %.054
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %2, i32 noundef %34)
-  store i32 10, ptr %4, align 4, !tbaa !16
+  store i32 10, ptr %4, align 4, !tbaa !15
   br label %._crit_edge.thread
 
 35:                                               ; preds = %24, %.lr.ph
   %36 = add nsw i32 %.054, -1
   %37 = icmp sgt i32 %.054, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %35
   %.not46 = icmp ne ptr %1, %3
@@ -557,7 +557,7 @@ define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr 
 22:                                               ; preds = %52
   %23 = add nsw i32 %.03551, -1
   %24 = icmp sgt i32 %.03551, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %19, %22
   %.03551 = phi i32 [ %23, %22 ], [ %20, %19 ]
@@ -573,7 +573,7 @@ define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr 
   %30 = lshr i32 %29, 5
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !11
+  %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %29, 31
   %35 = shl nuw i32 1, %34
   %36 = and i32 %33, %35
@@ -595,7 +595,7 @@ define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr 
   %44 = lshr i32 %43, 5
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !11
+  %47 = load i32, ptr %46, align 4, !tbaa !10
   %48 = and i32 %43, 31
   %49 = shl nuw i32 1, %48
   %50 = and i32 %47, %49
@@ -663,7 +663,7 @@ define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr
 22:                                               ; preds = %56
   %23 = add nsw i32 %.03855, -1
   %24 = icmp sgt i32 %.03855, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %19, %22
   %.03855 = phi i32 [ %23, %22 ], [ %20, %19 ]
@@ -686,7 +686,7 @@ define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr
   %34 = lshr i32 %33, 5
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !11
+  %37 = load i32, ptr %36, align 4, !tbaa !10
   %38 = and i32 %33, 31
   %39 = shl nuw i32 1, %38
   %40 = and i32 %37, %39
@@ -708,7 +708,7 @@ define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr
   %48 = lshr i32 %47, 5
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !11
+  %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = and i32 %47, 31
   %53 = shl nuw i32 1, %52
   %54 = and i32 %51, %53
@@ -758,7 +758,7 @@ define range(i32 -382, 383) i32 @uprv_compareInvEbcdicAsAscii_77(ptr noundef rea
   %11 = lshr i32 %10, 5
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !11
+  %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = and i32 %10, 31
   %16 = shl nuw i32 1, %15
   %17 = and i32 %14, %16
@@ -787,7 +787,7 @@ define range(i32 -382, 383) i32 @uprv_compareInvEbcdicAsAscii_77(ptr noundef rea
   %28 = lshr i32 %27, 5
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw [4 x i32], ptr @_ZL14invariantChars, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !11
+  %31 = load i32, ptr %30, align 4, !tbaa !10
   %32 = and i32 %27, 31
   %33 = shl nuw i32 1, %32
   %34 = and i32 %31, %33
@@ -817,7 +817,7 @@ define range(i32 -382, 383) i32 @uprv_compareInvEbcdicAsAscii_77(ptr noundef rea
   %45 = load i8, ptr %43, align 1, !tbaa !3
   %46 = load i8, ptr %44, align 1, !tbaa !3
   %.not = icmp eq i8 %45, %46
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %38
   %.027 = phi i32 [ %39, %38 ], [ 0, %.lr.ph ]
@@ -886,7 +886,7 @@ define noundef ptr @uprv_aestrncpy_77(ptr noundef returned writeonly captures(re
   %24 = icmp ne i8 %23, 0
   %25 = icmp samesign ugt i32 %.11217, 1
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph, label %.preheader, !llvm.loop !25
+  br i1 %26, label %.lr.ph, label %.preheader, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph22.preheader, %.preheader
   ret ptr %0
@@ -940,7 +940,7 @@ define noundef ptr @uprv_eastrncpy_77(ptr noundef returned writeonly captures(re
   %25 = icmp ne i8 %24, 0
   %26 = icmp samesign ugt i32 %.11520, 1
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph, label %.preheader, !llvm.loop !26
+  br i1 %27, label %.lr.ph, label %.preheader, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph25.preheader, %.preheader
   ret ptr %0
@@ -978,22 +978,21 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"char16_t", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !4, i64 0}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"_ZTS10UErrorCode", !4, i64 0}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !4, i64 0}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_ZTS10UErrorCode", !4, i64 0}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}

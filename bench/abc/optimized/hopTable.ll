@@ -136,9 +136,9 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = shl nsw i32 %10, 1
   %12 = getelementptr i8, ptr %0, i64 88
-  %.val = load i32, ptr %12, align 8, !tbaa !23
+  %.val = load i32, ptr %12, align 8, !tbaa !22
   %13 = getelementptr i8, ptr %0, i64 92
-  %.val8 = load i32, ptr %13, align 4, !tbaa !23
+  %.val8 = load i32, ptr %13, align 4, !tbaa !22
   %14 = add nsw i32 %.val8, %.val
   %15 = icmp slt i32 %11, %14
   br i1 %15, label %16, label %Hop_TableResize.exit
@@ -150,8 +150,8 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = load i32, ptr %9, align 8, !tbaa !17
-  %.val36.i = load i32, ptr %12, align 8, !tbaa !23
-  %.val37.i = load i32, ptr %13, align 4, !tbaa !23
+  %.val36.i = load i32, ptr %12, align 8, !tbaa !22
+  %.val37.i = load i32, ptr %13, align 4, !tbaa !22
   %21 = add nsw i32 %.val37.i, %.val36.i
   %22 = shl nsw i32 %21, 1
   %23 = add i32 %22, -1
@@ -165,7 +165,7 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   br i1 %.not.not.i.i, label %.preheader.i.i, label %.loopexit.i.i.backedge
 
 .loopexit.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.loopexit.i.i
-  br label %.loopexit.i.i, !llvm.loop !24
+  br label %.loopexit.i.i, !llvm.loop !23
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i
   %.not15.i.i = icmp ult i32 %24, 9
@@ -175,13 +175,13 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %27 = add nuw nsw i32 %.01116.i.i, 2
   %28 = mul nuw nsw i32 %27, %27
   %.not.i.i = icmp ugt i32 %28, %24
-  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !25
+  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %26
   %.01116.i.i = phi i32 [ %27, %26 ], [ 3, %.preheader.i.i ]
   %29 = urem i32 %24, %.01116.i.i
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit.i.i.backedge, label %26, !llvm.loop !24
+  br i1 %30, label %.loopexit.i.i.backedge, label %26, !llvm.loop !23
 
 Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   store i32 %24, ptr %9, align 8, !tbaa !17
@@ -199,7 +199,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
 .lr.ph50.i:                                       ; preds = %._crit_edge.i, %.lr.ph50.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph50.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %34 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !26
+  %35 = load ptr, ptr %34, align 8, !tbaa !25
   %.not32.i = icmp eq ptr %35, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -247,23 +247,23 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
 
 69:                                               ; preds = %69, %.lr.ph.i
   %.0.i40.i = phi ptr [ %68, %.lr.ph.i ], [ %72, %69 ]
-  %70 = load ptr, ptr %.0.i40.i, align 8, !tbaa !26
+  %70 = load ptr, ptr %.0.i40.i, align 8, !tbaa !25
   %.not.i41.i = icmp eq ptr %70, null
   %71 = icmp eq ptr %70, %.sink59.i
   %or.cond.i.i = or i1 %.not.i41.i, %71
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %69, !llvm.loop !27
+  br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %69, !llvm.loop !26
 
 Hop_TableFind.exit.i:                             ; preds = %69
-  store ptr %.sink59.i, ptr %.0.i40.i, align 8, !tbaa !26
+  store ptr %.sink59.i, ptr %.0.i40.i, align 8, !tbaa !25
   store ptr null, ptr %36, align 8, !tbaa !19
   %.not34.i = icmp eq ptr %37, null
-  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %Hop_TableFind.exit.i, %.lr.ph50.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !28
 
 ._crit_edge51.i:                                  ; preds = %._crit_edge.i, %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %19, null
@@ -316,15 +316,15 @@ Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.
 
 107:                                              ; preds = %107, %Hop_TableResize.exit
   %.0.i = phi ptr [ %106, %Hop_TableResize.exit ], [ %110, %107 ]
-  %108 = load ptr, ptr %.0.i, align 8, !tbaa !26
+  %108 = load ptr, ptr %.0.i, align 8, !tbaa !25
   %.not.i11 = icmp eq ptr %108, null
   %109 = icmp eq ptr %108, %1
   %or.cond.i = or i1 %.not.i11, %109
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  br i1 %or.cond.i, label %Hop_TableFind.exit, label %107, !llvm.loop !27
+  br i1 %or.cond.i, label %Hop_TableFind.exit, label %107, !llvm.loop !26
 
 Hop_TableFind.exit:                               ; preds = %107
-  store ptr %1, ptr %.0.i, align 8, !tbaa !26
+  store ptr %1, ptr %.0.i, align 8, !tbaa !25
   ret void
 }
 
@@ -372,17 +372,17 @@ define void @Hop_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef
 
 36:                                               ; preds = %36, %2
   %.0.i = phi ptr [ %35, %2 ], [ %39, %36 ]
-  %37 = load ptr, ptr %.0.i, align 8, !tbaa !26
+  %37 = load ptr, ptr %.0.i, align 8, !tbaa !25
   %.not.i = icmp eq ptr %37, null
   %38 = icmp eq ptr %37, %1
   %or.cond.i = or i1 %.not.i, %38
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  br i1 %or.cond.i, label %Hop_TableFind.exit, label %36, !llvm.loop !27
+  br i1 %or.cond.i, label %Hop_TableFind.exit, label %36, !llvm.loop !26
 
 Hop_TableFind.exit:                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !19
-  store ptr %41, ptr %.0.i, align 8, !tbaa !26
+  store ptr %41, ptr %.0.i, align 8, !tbaa !25
   store ptr null, ptr %40, align 8, !tbaa !19
   ret void
 }
@@ -415,13 +415,13 @@ define range(i32 -2147483647, -2147483648) i32 @Hop_TableCountEntries(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %.0913, i64 8
   %.09 = load ptr, ptr %10, align 8, !tbaa !19
   %.not = icmp eq ptr %.09, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.1.lcssa = phi i32 [ %.015, %7 ], [ %9, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge18, label %7, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge18, label %7, !llvm.loop !30
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
@@ -455,7 +455,7 @@ define void @Hop_TableProfile(ptr noundef readonly captures(none) %0) local_unna
   %11 = getelementptr inbounds nuw i8, ptr %.01015, i64 8
   %.010 = load ptr, ptr %11, align 8, !tbaa !19
   %.not = icmp eq ptr %.010, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %10)
@@ -467,7 +467,7 @@ define void @Hop_TableProfile(ptr noundef readonly captures(none) %0) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %._crit_edge19, !llvm.loop !33
+  br i1 %15, label %6, label %._crit_edge19, !llvm.loop !32
 
 ._crit_edge19:                                    ; preds = %._crit_edge.thread, %1
   ret void
@@ -518,17 +518,16 @@ attributes #9 = { nounwind }
 !17 = !{!4, !11, i64 112}
 !18 = !{!10, !11, i64 36}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!11, !11, i64 0}
-!24 = distinct !{!24, !21, !22}
-!25 = distinct !{!25, !21, !22}
-!26 = !{!9, !9, i64 0}
-!27 = distinct !{!27, !21, !22}
-!28 = distinct !{!28, !21, !22}
-!29 = distinct !{!29, !21, !22}
-!30 = distinct !{!30, !21, !22}
-!31 = distinct !{!31, !21, !22}
-!32 = distinct !{!32, !21, !22}
-!33 = distinct !{!33, !21, !22}
+!22 = !{!11, !11, i64 0}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = !{!9, !9, i64 0}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}
+!29 = distinct !{!29, !21}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}

@@ -522,7 +522,7 @@ _ZN6icu_779BytesTrie9skipDeltaEPKh.exit:          ; preds = %88, %86, %82, %75, 
 _ZN6icu_779BytesTrie9skipValueEPKh.exit:          ; preds = %169, %176, %180, %182
   %.0.i.i = phi ptr [ %177, %176 ], [ %181, %180 ], [ %187, %182 ], [ %171, %169 ]
   %188 = icmp sgt i32 %.360, 2
-  br i1 %188, label %.preheader, label %189, !llvm.loop !16
+  br i1 %188, label %.preheader, label %189, !llvm.loop !15
 
 189:                                              ; preds = %_ZN6icu_779BytesTrie9skipValueEPKh.exit
   %190 = load i8, ptr %.0.i.i, align 1, !tbaa !10
@@ -909,7 +909,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_779BytesTrie4nextEPKci(ptr noundef n
   %54 = add nsw i32 %.192203, -1
   %55 = load i8, ptr %45, align 1, !tbaa !10
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %.preheader._crit_edge, label %.lr.ph205, !llvm.loop !17
+  br i1 %56, label %.preheader._crit_edge, label %.lr.ph205, !llvm.loop !16
 
 .preheader155._crit_edge.loopexit:                ; preds = %77
   %scevgep.le = getelementptr i8, ptr %.076, i64 1
@@ -964,7 +964,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_779BytesTrie4nextEPKci(ptr noundef n
   %78 = getelementptr inbounds nuw i8, ptr %.480197, i64 1
   %79 = add nsw i32 %.495196, -1
   %80 = icmp eq i32 %71, 0
-  br i1 %80, label %.preheader155._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %80, label %.preheader155._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph205
   %storemerge = phi i32 [ %smin279, %.lr.ph205 ], [ %smin, %.lr.ph ]
@@ -1087,7 +1087,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit.backedge: ; preds = %122, %120, %116, %
 128:                                              ; preds = %105
   %129 = getelementptr inbounds nuw i8, ptr %.581, i64 2
   %130 = add nsw i32 %83, -17
-  br label %32, !llvm.loop !19
+  br label %32, !llvm.loop !18
 
 _ZNK6icu_779BytesTrie7currentEv.exit:             ; preds = %93, %90, %85, %100, %111, %108, %64, %61, %.preheader155._crit_edge, %41, %38, %.preheader._crit_edge, %76, %51, %21, %18, %14, %10, %25
   %.0 = phi i32 [ 0, %25 ], [ 0, %10 ], [ %24, %21 ], [ 1, %18 ], [ 1, %14 ], [ 1, %.preheader155._crit_edge ], [ 1, %61 ], [ %67, %64 ], [ 1, %.preheader._crit_edge ], [ 1, %38 ], [ %44, %41 ], [ 0, %76 ], [ 0, %51 ], [ 0, %111 ], [ 0, %108 ], [ 0, %100 ], [ 0, %85 ], [ %86, %90 ], [ %86, %93 ]
@@ -1215,7 +1215,7 @@ _ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit:       ; preds = %.lr.ph, %13, %22, %
 _ZN6icu_779BytesTrie9skipDeltaEPKh.exit:          ; preds = %66, %72, %76, %78
   %.0.i41 = phi ptr [ %73, %72 ], [ %77, %76 ], [ %82, %78 ], [ %7, %66 ]
   %83 = icmp sgt i32 %67, 5
-  br i1 %83, label %.lr.ph, label %.preheader.preheader, !llvm.loop !20
+  br i1 %83, label %.lr.ph, label %.preheader.preheader, !llvm.loop !19
 
 .preheader.preheader:                             ; preds = %_ZN6icu_779BytesTrie9skipDeltaEPKh.exit, %4
   %.133.ph = phi i32 [ %1, %4 ], [ %67, %_ZN6icu_779BytesTrie9skipDeltaEPKh.exit ]
@@ -1320,12 +1320,12 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %_ZN6icu_779BytesTri
   br i1 %.not39, label %148, label %146
 
 146:                                              ; preds = %145
-  %147 = load i32, ptr %3, align 4, !tbaa !21
+  %147 = load i32, ptr %3, align 4, !tbaa !20
   %.not40 = icmp eq i32 %.0.i4281, %147
   br i1 %.not40, label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit, label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread
 
 148:                                              ; preds = %145
-  store i32 %.0.i4281, ptr %3, align 4, !tbaa !21
+  store i32 %.0.i4281, ptr %3, align 4, !tbaa !20
   br label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit
 
 149:                                              ; preds = %_ZN6icu_779BytesTrie9skipValueEPKhi.exit
@@ -1372,7 +1372,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit46:       ; preds = %_ZN6icu_779BytesTri
   %169 = zext nneg i8 %153 to i64
   %170 = getelementptr i8, ptr %152, i64 %169
   %171 = getelementptr i8, ptr %170, i64 -15
-  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46, !llvm.loop !22
+  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46
 
 172:                                              ; preds = %166
   %173 = zext i8 %153 to i32
@@ -1451,12 +1451,12 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit48:       ; preds = %177, %181, %189, %2
   br i1 %.not.i, label %227, label %225
 
 225:                                              ; preds = %_ZN6icu_779BytesTrie9readValueEPKhi.exit48
-  %226 = load i32, ptr %3, align 4, !tbaa !21
+  %226 = load i32, ptr %3, align 4, !tbaa !20
   %.not41.i = icmp eq i32 %.0.i47, %226
   br i1 %.not41.i, label %228, label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread
 
 227:                                              ; preds = %_ZN6icu_779BytesTrie9readValueEPKhi.exit48
-  store i32 %.0.i47, ptr %3, align 4, !tbaa !21
+  store i32 %.0.i47, ptr %3, align 4, !tbaa !20
   br label %228
 
 228:                                              ; preds = %227, %225
@@ -1471,7 +1471,7 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit48:       ; preds = %177, %181, %189, %2
 _ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer.backedge: ; preds = %229, %233, %237, %239, %162
   %.032.i.ph.be = phi i8 [ 1, %162 ], [ %.436.i, %239 ], [ %.436.i, %237 ], [ %.436.i, %233 ], [ %.436.i, %229 ]
   %.025.i.ph.be = phi ptr [ %164, %162 ], [ %243, %239 ], [ %238, %237 ], [ %234, %233 ], [ %152, %229 ]
-  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer, !llvm.loop !22
+  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer
 
 231:                                              ; preds = %229
   %232 = icmp samesign ult i8 %153, -40
@@ -1500,7 +1500,7 @@ _ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit: ; preds = %228, %146, %148
   %.135.ph = phi i8 [ 1, %148 ], [ %.034, %146 ], [ 1, %228 ]
   %244 = add nsw i32 %.133, -1
   %245 = icmp sgt i32 %.133, 2
-  br i1 %245, label %.preheader, label %246, !llvm.loop !23
+  br i1 %245, label %.preheader, label %246, !llvm.loop !21
 
 246:                                              ; preds = %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit
   %247 = getelementptr inbounds nuw i8, ptr %.0.i43, i64 1
@@ -1554,7 +1554,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %_ZN6icu_779BytesTri
   %21 = zext nneg i8 %5 to i64
   %22 = getelementptr i8, ptr %4, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -15
-  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit, !llvm.loop !22
+  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit
 
 24:                                               ; preds = %18
   %25 = zext i8 %5 to i32
@@ -1633,12 +1633,12 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit:         ; preds = %29, %33, %41, %62, 
   br i1 %.not, label %79, label %77
 
 77:                                               ; preds = %_ZN6icu_779BytesTrie9readValueEPKhi.exit
-  %78 = load i32, ptr %2, align 4, !tbaa !21
+  %78 = load i32, ptr %2, align 4, !tbaa !20
   %.not41 = icmp eq i32 %.0.i, %78
   br i1 %.not41, label %80, label %96
 
 79:                                               ; preds = %_ZN6icu_779BytesTrie9readValueEPKhi.exit
-  store i32 %.0.i, ptr %2, align 4, !tbaa !21
+  store i32 %.0.i, ptr %2, align 4, !tbaa !20
   br label %80
 
 80:                                               ; preds = %77, %79
@@ -1653,7 +1653,7 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit:         ; preds = %29, %33, %41, %62, 
 _ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer.backedge: ; preds = %81, %85, %89, %91, %14
   %.032.ph.be = phi i8 [ 1, %14 ], [ %.436, %91 ], [ %.436, %89 ], [ %.436, %85 ], [ %.436, %81 ]
   %.025.ph.be = phi ptr [ %16, %14 ], [ %95, %91 ], [ %90, %89 ], [ %86, %85 ], [ %4, %81 ]
-  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer, !llvm.loop !22
+  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer
 
 83:                                               ; preds = %81
   %84 = icmp samesign ult i8 %5, -40
@@ -1702,7 +1702,7 @@ define noundef range(i32 0, 257) i32 @_ZNK6icu_779BytesTrie12getNextBytesERNS_8B
   %13 = load i8, ptr %6, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 %13, ptr %4, align 1, !tbaa !10
-  %14 = load ptr, ptr %1, align 8, !tbaa !24
+  %14 = load ptr, ptr %1, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i32 noundef 1)
@@ -1783,7 +1783,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %24, %28, %32, %34
   %54 = load i8, ptr %.019, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
   store i8 %54, ptr %3, align 1, !tbaa !10
-  %55 = load ptr, ptr %1, align 8, !tbaa !24
+  %55 = load ptr, ptr %1, align 8, !tbaa !22
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i32 noundef 1)
@@ -1801,7 +1801,7 @@ define void @_ZN6icu_779BytesTrie6appendERNS_8ByteSinkEi(ptr noundef nonnull ali
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1, !tbaa !10
-  %5 = load ptr, ptr %0, align 8, !tbaa !24
+  %5 = load ptr, ptr %0, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
@@ -1928,7 +1928,7 @@ _ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit:       ; preds = %.lr.ph, %14, %23, %
 _ZN6icu_779BytesTrie9skipDeltaEPKh.exit:          ; preds = %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit, %70, %74, %76
   %.0.i15 = phi ptr [ %71, %70 ], [ %75, %74 ], [ %80, %76 ], [ %8, %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit ]
   %81 = icmp sgt i32 %65, 5
-  br i1 %81, label %.lr.ph, label %.preheader.preheader, !llvm.loop !26
+  br i1 %81, label %.lr.ph, label %.preheader.preheader, !llvm.loop !24
 
 .preheader.preheader:                             ; preds = %_ZN6icu_779BytesTrie9skipDeltaEPKh.exit, %3
   %.114.ph = phi i32 [ %1, %3 ], [ %65, %_ZN6icu_779BytesTrie9skipDeltaEPKh.exit ]
@@ -1942,7 +1942,7 @@ _ZN6icu_779BytesTrie9skipDeltaEPKh.exit:          ; preds = %_ZN6icu_779BytesTri
   %83 = load i8, ptr %.1, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   store i8 %83, ptr %5, align 1, !tbaa !10
-  %84 = load ptr, ptr %2, align 8, !tbaa !24
+  %84 = load ptr, ptr %2, align 8, !tbaa !22
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5, i32 noundef 1)
@@ -1980,13 +1980,13 @@ _ZN6icu_779BytesTrie9skipValueEPKh.exit:          ; preds = %.preheader, %92, %9
   %.0.i.i = phi ptr [ %93, %92 ], [ %97, %96 ], [ %103, %98 ], [ %87, %.preheader ]
   %104 = add nsw i32 %.114, -1
   %105 = icmp sgt i32 %.114, 2
-  br i1 %105, label %.preheader, label %106, !llvm.loop !27
+  br i1 %105, label %.preheader, label %106, !llvm.loop !25
 
 106:                                              ; preds = %_ZN6icu_779BytesTrie9skipValueEPKh.exit
   %107 = load i8, ptr %.0.i.i, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   store i8 %107, ptr %4, align 1, !tbaa !10
-  %108 = load ptr, ptr %2, align 8, !tbaa !24
+  %108 = load ptr, ptr %2, align 8, !tbaa !22
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load ptr, ptr %109, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %4, i32 noundef 1)
@@ -2027,18 +2027,16 @@ attributes #13 = { nounwind }
 !10 = !{!7, !7, i64 0}
 !11 = !{!4, !5, i64 16}
 !12 = !{!4, !9, i64 24}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = !{!9, !9, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !14, !15}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"vtable pointer", !8, i64 0}
-!26 = distinct !{!26, !14, !15}
-!27 = distinct !{!27, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}
+!20 = !{!9, !9, i64 0}
+!21 = distinct !{!21, !14}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"vtable pointer", !8, i64 0}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}

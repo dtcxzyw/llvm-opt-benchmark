@@ -220,7 +220,7 @@ define hidden void @asn1_param_push_boolean(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %.0.i, align 8
   %.not9.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !9
+  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !8
 
 push_new_par.exit:                                ; preds = %14
   %17 = zext i1 %1 to i8
@@ -258,7 +258,7 @@ define hidden void @asn1_param_push_integer(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %.0.i, align 8
   %.not9.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !9
+  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !8
 
 push_new_par.exit:                                ; preds = %14
   store ptr %11, ptr %.0.i, align 8
@@ -297,7 +297,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(n
   %10 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %9, %5
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.4) #13
@@ -305,7 +305,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(n
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
-  %12 = load i8, ptr %11, align 8, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
   %13 = trunc nuw i8 %12 to i1
   ret i1 %13
 }
@@ -338,7 +338,7 @@ define hidden i32 @asn1_param_get_integer(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %9, %5
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.4) #13
@@ -505,7 +505,7 @@ default.unreachable:                              ; preds = %9
   %32 = getelementptr i8, ptr %.05068.us, i64 1
   %33 = add nuw nsw i32 %.05667.us, 1
   %exitcond83.not = icmp eq i32 %33, %20
-  br i1 %exitcond83.not, label %.split71.us, label %.split.us, !llvm.loop !13
+  br i1 %exitcond83.not, label %.split71.us, label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %25, %.split
   %.04869 = phi i32 [ %37, %.split ], [ 0, %25 ]
@@ -518,7 +518,7 @@ default.unreachable:                              ; preds = %9
   %38 = getelementptr i8, ptr %.05068, i64 1
   %39 = add nuw nsw i32 %.05667, 1
   %exitcond.not = icmp eq i32 %39, %20
-  br i1 %exitcond.not, label %.split71.us, label %.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.split71.us, label %.split, !llvm.loop !14
 
 .split71.us:                                      ; preds = %.split, %.split.us
   %.us-phi72 = phi i32 [ %31, %.split.us ], [ %37, %.split ]
@@ -557,7 +557,7 @@ default.unreachable:                              ; preds = %9
   %50 = getelementptr i8, ptr %.15174, i64 1
   %51 = add nuw nsw i32 %.15773, 1
   %exitcond84.not = icmp eq i32 %51, %43
-  br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %52 = uitofp i64 %49 to double
@@ -644,14 +644,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

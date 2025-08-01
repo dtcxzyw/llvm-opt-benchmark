@@ -136,7 +136,7 @@ appendStringInfoVA.exit:                          ; preds = %13
   %.0.i10 = phi i32 [ 32, %appendStringInfoVA.exit.thread8 ], [ %26, %appendStringInfoVA.exit ]
   call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %.0.i10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
-  br label %8, !llvm.loop !4
+  br label %8
 
 .loopexit:                                        ; preds = %appendStringInfoVA.exit, %appendStringInfoVA.exit.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
@@ -237,7 +237,7 @@ define dso_local void @enlargeStringInfo(ptr noundef captures(none) %0, i32 noun
   %.0.in = phi i32 [ %.0, %.preheader ], [ %23, %19 ]
   %.0 = shl i32 %.0.in, 1
   %24 = icmp sgt i32 %21, %.0
-  br i1 %24, label %.preheader, label %25, !llvm.loop !6
+  br i1 %24, label %.preheader, label %25, !llvm.loop !4
 
 25:                                               ; preds = %.preheader
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 1073741823)
@@ -440,6 +440,4 @@ attributes #15 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -3385,7 +3385,7 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   %1416 = getelementptr inbounds nuw i8, ptr %.3649, i64 %40
   %1417 = add nsw i32 %.2669, -1
   %1418 = icmp sgt i32 %.2669, 1
-  br i1 %1418, label %45, label %1419, !llvm.loop !7
+  br i1 %1418, label %45, label %1419, !llvm.loop !6
 
 default.unreachable675:                           ; preds = %43
   unreachable
@@ -3394,7 +3394,7 @@ default.unreachable675:                           ; preds = %43
   %1420 = getelementptr inbounds i8, ptr %1415, i64 %41
   %1421 = getelementptr inbounds i8, ptr %1416, i64 %42
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %1419, %1
   ret void
@@ -3547,7 +3547,7 @@ define internal void @Blit1to1(ptr noundef readonly captures(none) %0) #1 {
   %78 = getelementptr inbounds nuw i8, ptr %.762, i64 1
   %79 = add nsw i32 %.6, -1
   %80 = icmp sgt i32 %.6, 1
-  br i1 %80, label %23, label %81, !llvm.loop !9
+  br i1 %80, label %23, label %81, !llvm.loop !8
 
 default.unreachable76:                            ; preds = %21
   unreachable
@@ -3556,7 +3556,7 @@ default.unreachable76:                            ; preds = %21
   %82 = getelementptr inbounds i8, ptr %78, i64 %19
   %83 = getelementptr inbounds i8, ptr %77, i64 %20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %81, %1
   ret void
@@ -3709,7 +3709,7 @@ define internal void @Blit1to2(ptr noundef readonly captures(none) %0) #1 {
   %78 = getelementptr inbounds nuw i8, ptr %.762, i64 2
   %79 = add nsw i32 %.6, -1
   %80 = icmp sgt i32 %.6, 1
-  br i1 %80, label %23, label %81, !llvm.loop !11
+  br i1 %80, label %23, label %81, !llvm.loop !10
 
 default.unreachable68:                            ; preds = %21
   unreachable
@@ -3718,7 +3718,7 @@ default.unreachable68:                            ; preds = %21
   %82 = getelementptr inbounds i8, ptr %73, i64 %19
   %83 = getelementptr inbounds i8, ptr %78, i64 %20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %81, %1
   ret void
@@ -3851,7 +3851,7 @@ define internal void @Blit1to3(ptr noundef readonly captures(none) %0) #1 {
   %78 = getelementptr inbounds nuw i8, ptr %.366, i64 3
   %79 = add nsw i32 %.2, -1
   %80 = icmp sgt i32 %.2, 1
-  br i1 %80, label %23, label %81, !llvm.loop !13
+  br i1 %80, label %23, label %81, !llvm.loop !12
 
 default.unreachable76:                            ; preds = %21
   unreachable
@@ -3860,7 +3860,7 @@ default.unreachable76:                            ; preds = %21
   %82 = getelementptr inbounds i8, ptr %77, i64 %19
   %83 = getelementptr inbounds i8, ptr %78, i64 %20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %81, %1
   ret void
@@ -4014,7 +4014,7 @@ define internal void @Blit1to4(ptr noundef readonly captures(none) %0) #1 {
   store i32 %78, ptr %.754, align 4
   %80 = add nsw i32 %.6, -1
   %81 = icmp sgt i32 %.6, 1
-  br i1 %81, label %24, label %82, !llvm.loop !15
+  br i1 %81, label %24, label %82, !llvm.loop !14
 
 default.unreachable60:                            ; preds = %22
   unreachable
@@ -4023,7 +4023,7 @@ default.unreachable60:                            ; preds = %22
   %83 = getelementptr inbounds i8, ptr %74, i64 %20
   %84 = getelementptr inbounds i32, ptr %79, i64 %21
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %82, %1
   ret void
@@ -4263,13 +4263,13 @@ default.unreachable:                              ; preds = %.lr.ph194.split
   %108 = getelementptr inbounds nuw i8, ptr %.7146, i64 1
   %109 = add nsw i32 %.6135, -1
   %110 = icmp sgt i32 %.6135, 1
-  br i1 %110, label %29, label %111, !llvm.loop !17
+  br i1 %110, label %29, label %111, !llvm.loop !16
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %108, i64 %21
   %113 = getelementptr inbounds i8, ptr %107, i64 %22
   %.not176 = icmp eq i32 %28, 0
-  br i1 %.not176, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not176, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .lr.ph194.split:                                  ; preds = %.lr.ph194, %173
   %.in196 = phi i32 [ %114, %173 ], [ %5, %.lr.ph194 ]
@@ -4431,13 +4431,13 @@ default.unreachable:                              ; preds = %.lr.ph194.split
   %170 = getelementptr inbounds nuw i8, ptr %.16, i64 1
   %171 = add nsw i32 %.6, -1
   %172 = icmp sgt i32 %.6, 1
-  br i1 %172, label %115, label %173, !llvm.loop !19
+  br i1 %172, label %115, label %173, !llvm.loop !18
 
 173:                                              ; preds = %168
   %174 = getelementptr inbounds i8, ptr %170, i64 %26
   %175 = getelementptr inbounds i8, ptr %169, i64 %27
   %.not167 = icmp eq i32 %114, 0
-  br i1 %.not167, label %.loopexit, label %.lr.ph194.split, !llvm.loop !20
+  br i1 %.not167, label %.loopexit, label %.lr.ph194.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %111, %173, %.preheader185, %.preheader
   ret void
@@ -4657,7 +4657,7 @@ define internal void @Blit1to2Key(ptr noundef readonly captures(none) %0) #1 {
   %105 = getelementptr inbounds nuw i8, ptr %.788, i64 2
   %106 = add nsw i32 %.6, -1
   %107 = icmp sgt i32 %.6, 1
-  br i1 %107, label %26, label %108, !llvm.loop !21
+  br i1 %107, label %26, label %108, !llvm.loop !20
 
 default.unreachable102:                           ; preds = %24
   unreachable
@@ -4666,7 +4666,7 @@ default.unreachable102:                           ; preds = %24
   %109 = getelementptr inbounds i8, ptr %104, i64 %22
   %110 = getelementptr inbounds i16, ptr %105, i64 %23
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %108, %1
   ret void
@@ -4833,7 +4833,7 @@ define internal void @Blit1to3Key(ptr noundef readonly captures(none) %0) #1 {
   %92 = getelementptr inbounds nuw i8, ptr %.379, i64 3
   %93 = add nsw i32 %.2, -1
   %94 = icmp sgt i32 %.2, 1
-  br i1 %94, label %25, label %95, !llvm.loop !23
+  br i1 %94, label %25, label %95, !llvm.loop !22
 
 default.unreachable93:                            ; preds = %23
   unreachable
@@ -4842,7 +4842,7 @@ default.unreachable93:                            ; preds = %23
   %96 = getelementptr inbounds i8, ptr %91, i64 %21
   %97 = getelementptr inbounds i8, ptr %92, i64 %22
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %95, %1
   ret void
@@ -5062,7 +5062,7 @@ define internal void @Blit1to4Key(ptr noundef readonly captures(none) %0) #1 {
   %105 = getelementptr inbounds nuw i8, ptr %.788, i64 4
   %106 = add nsw i32 %.6, -1
   %107 = icmp sgt i32 %.6, 1
-  br i1 %107, label %26, label %108, !llvm.loop !25
+  br i1 %107, label %26, label %108, !llvm.loop !24
 
 default.unreachable102:                           ; preds = %24
   unreachable
@@ -5071,7 +5071,7 @@ default.unreachable102:                           ; preds = %24
   %109 = getelementptr inbounds i8, ptr %104, i64 %22
   %110 = getelementptr inbounds i32, ptr %105, i64 %23
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %108, %1
   ret void
@@ -5087,25 +5087,24 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4, !6}
+!8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !6}
+!10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4, !6}
+!12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !6}
+!14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !6}
+!16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4, !6}
+!18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4, !6}
+!20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4, !6}
+!22 = distinct !{!22, !4}
 !23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4, !6}
+!24 = distinct !{!24, !4}
 !25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4, !6}

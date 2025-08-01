@@ -409,7 +409,7 @@ define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !37
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -600,17 +600,17 @@ is_slider_horizontal.exit:                        ; preds = %9, %14, %18
   br i1 %.0.i, label %24, label %29
 
 24:                                               ; preds = %23
-  %25 = load i32, ptr %4, align 4, !tbaa !39
+  %25 = load i32, ptr %4, align 4, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %27 = load i32, ptr %26, align 8, !tbaa !40
+  %27 = load i32, ptr %26, align 8, !tbaa !38
   %28 = sub nsw i32 %25, %27
   br label %35
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !41
+  %31 = load i32, ptr %30, align 4, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %33 = load i32, ptr %32, align 4, !tbaa !42
+  %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = sub nsw i32 %31, %33
   br label %35
 
@@ -618,7 +618,7 @@ is_slider_horizontal.exit:                        ; preds = %9, %14, %18
   %36 = phi i32 [ %28, %24 ], [ %34, %29 ]
   %37 = call i32 @llvm.abs.i32(i32 %36, i1 true)
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %39 = load i8, ptr %38, align 8, !tbaa !43
+  %39 = load i8, ptr %38, align 8, !tbaa !41
   %40 = zext i8 %39 to i32
   %.not99 = icmp samesign ult i32 %37, %40
   br i1 %.not99, label %242, label %41
@@ -662,14 +662,14 @@ is_slider_horizontal.exit:                        ; preds = %9, %14, %18
 
 is_slider_horizontal.exit.thread.i:               ; preds = %51
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %61 = load i8, ptr %60, align 8, !tbaa !49, !range !50, !noundef !51
+  %61 = load i8, ptr %60, align 8, !tbaa !47, !range !48, !noundef !49
   %62 = zext i1 %56 to i8
   %.not109.i = icmp eq i8 %61, %62
   br i1 %.not109.i, label %73, label %.critedge.i
 
 is_slider_horizontal.exit.thread111.i:            ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %64 = load i8, ptr %63, align 8, !tbaa !49, !range !50, !noundef !51
+  %64 = load i8, ptr %63, align 8, !tbaa !47, !range !48, !noundef !49
   %.not113.i = icmp eq i8 %64, 0
   br i1 %.not113.i, label %118, label %.critedge103.i
 
@@ -678,7 +678,7 @@ is_slider_horizontal.exit.i:                      ; preds = %51
   %66 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #5
   %67 = icmp sge i32 %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %69 = load i8, ptr %68, align 8, !tbaa !49, !range !50, !noundef !51
+  %69 = load i8, ptr %68, align 8, !tbaa !47, !range !48, !noundef !49
   %70 = and i1 %56, %67
   %71 = zext i1 %70 to i8
   %.not.i = icmp eq i8 %69, %71
@@ -688,16 +688,16 @@ is_slider_horizontal.exit.i:                      ; preds = %51
   br i1 %.not.i, label %73, label %.critedge.i
 
 73:                                               ; preds = %72, %is_slider_horizontal.exit.thread.i
-  %74 = load i32, ptr %3, align 4, !tbaa !39
+  %74 = load i32, ptr %3, align 4, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %76 = load i32, ptr %75, align 8, !tbaa !52
+  %76 = load i32, ptr %75, align 8, !tbaa !50
   %77 = icmp sgt i32 %74, %76
   br i1 %77, label %82, label %.critedge99.i
 
 .critedge.i:                                      ; preds = %72, %is_slider_horizontal.exit.thread.i
-  %78 = load i32, ptr %3, align 4, !tbaa !39
+  %78 = load i32, ptr %3, align 4, !tbaa !37
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %80 = load i32, ptr %79, align 8, !tbaa !53
+  %80 = load i32, ptr %79, align 8, !tbaa !51
   %81 = icmp slt i32 %78, %80
   br i1 %81, label %82, label %.critedge101.i
 
@@ -708,28 +708,28 @@ is_slider_horizontal.exit.i:                      ; preds = %51
 
 .critedge99.i:                                    ; preds = %73
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %85 = load i32, ptr %84, align 8, !tbaa !54
+  %85 = load i32, ptr %84, align 8, !tbaa !52
   %86 = icmp slt i32 %74, %85
   br i1 %86, label %90, label %.critedge99._crit_edge.i
 
 .critedge99._crit_edge.i:                         ; preds = %.critedge99.i
   %.phi.trans.insert123.i = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.pre124.i = load i32, ptr %.phi.trans.insert123.i, align 8, !tbaa !55
+  %.pre124.i = load i32, ptr %.phi.trans.insert123.i, align 8, !tbaa !53
   %.phi.trans.insert125.i = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.pre126.i = load i32, ptr %.phi.trans.insert125.i, align 8, !tbaa !53
+  %.pre126.i = load i32, ptr %.phi.trans.insert125.i, align 8, !tbaa !51
   br label %92
 
 .critedge101.i:                                   ; preds = %.critedge.i
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %88 = load i32, ptr %87, align 8, !tbaa !55
+  %88 = load i32, ptr %87, align 8, !tbaa !53
   %89 = icmp sgt i32 %78, %88
   br i1 %89, label %90, label %.critedge101._crit_edge.i
 
 .critedge101._crit_edge.i:                        ; preds = %.critedge101.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !52
   %.phi.trans.insert127.i = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.pre128.i = load i32, ptr %.phi.trans.insert127.i, align 8, !tbaa !52
+  %.pre128.i = load i32, ptr %.phi.trans.insert127.i, align 8, !tbaa !50
   br label %92
 
 90:                                               ; preds = %.critedge101.i, %.critedge99.i
@@ -777,17 +777,17 @@ is_slider_horizontal.exit.i:                      ; preds = %51
 
 118:                                              ; preds = %117, %is_slider_horizontal.exit.thread111.i
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !41
+  %120 = load i32, ptr %119, align 4, !tbaa !39
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %122 = load i32, ptr %121, align 4, !tbaa !56
+  %122 = load i32, ptr %121, align 4, !tbaa !54
   %123 = icmp slt i32 %120, %122
   br i1 %123, label %129, label %.critedge105.i
 
 .critedge103.i:                                   ; preds = %117, %is_slider_horizontal.exit.thread111.i
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %125 = load i32, ptr %124, align 4, !tbaa !41
+  %125 = load i32, ptr %124, align 4, !tbaa !39
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %127 = load i32, ptr %126, align 4, !tbaa !57
+  %127 = load i32, ptr %126, align 4, !tbaa !55
   %128 = icmp sgt i32 %125, %127
   br i1 %128, label %129, label %.critedge107.i
 
@@ -798,28 +798,28 @@ is_slider_horizontal.exit.i:                      ; preds = %51
 
 .critedge105.i:                                   ; preds = %118
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %132 = load i32, ptr %131, align 4, !tbaa !58
+  %132 = load i32, ptr %131, align 4, !tbaa !56
   %133 = icmp sgt i32 %120, %132
   br i1 %133, label %137, label %.critedge105._crit_edge.i
 
 .critedge105._crit_edge.i:                        ; preds = %.critedge105.i
   %.phi.trans.insert129.i = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %.pre130.i = load i32, ptr %.phi.trans.insert129.i, align 4, !tbaa !59
+  %.pre130.i = load i32, ptr %.phi.trans.insert129.i, align 4, !tbaa !57
   %.phi.trans.insert135.i = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %.pre136.i = load i32, ptr %.phi.trans.insert135.i, align 4, !tbaa !57
+  %.pre136.i = load i32, ptr %.phi.trans.insert135.i, align 4, !tbaa !55
   br label %139
 
 .critedge107.i:                                   ; preds = %.critedge103.i
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %135 = load i32, ptr %134, align 4, !tbaa !59
+  %135 = load i32, ptr %134, align 4, !tbaa !57
   %136 = icmp slt i32 %125, %135
   br i1 %136, label %137, label %.critedge107._crit_edge.i
 
 .critedge107._crit_edge.i:                        ; preds = %.critedge107.i
   %.phi.trans.insert131.i = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %.pre132.i = load i32, ptr %.phi.trans.insert131.i, align 4, !tbaa !58
+  %.pre132.i = load i32, ptr %.phi.trans.insert131.i, align 4, !tbaa !56
   %.phi.trans.insert133.i = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %.pre134.i = load i32, ptr %.phi.trans.insert133.i, align 4, !tbaa !56
+  %.pre134.i = load i32, ptr %.phi.trans.insert133.i, align 4, !tbaa !54
   br label %139
 
 137:                                              ; preds = %.critedge107.i, %.critedge105.i
@@ -868,9 +868,9 @@ drag_start.exit:                                  ; preds = %49, %82, %90, %109,
 
 164:                                              ; preds = %drag_start.exit, %41
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %166 = load i32, ptr %165, align 8, !tbaa !60
+  %166 = load i32, ptr %165, align 8, !tbaa !58
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %168 = load i32, ptr %167, align 4, !tbaa !61
+  %168 = load i32, ptr %167, align 4, !tbaa !59
   %169 = sub nsw i32 %166, %168
   %170 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 39) #5
   %171 = ptrtoint ptr %170 to i64
@@ -896,7 +896,7 @@ drag_start.exit:                                  ; preds = %49, %82, %90, %109,
 is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
   %.0.i105 = phi i1 [ %180, %177 ], [ false, %181 ], [ true, %164 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %183 = load i8, ptr %182, align 8, !tbaa !49, !range !50, !noundef !51
+  %183 = load i8, ptr %182, align 8, !tbaa !47, !range !48, !noundef !49
   %184 = select i1 %173, i1 %.0.i105, i1 false
   %185 = zext i1 %184 to i8
   %.not101 = icmp eq i8 %183, %185
@@ -916,16 +916,16 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
 
 194:                                              ; preds = %186
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %196 = load i32, ptr %195, align 8, !tbaa !62
-  %197 = load i32, ptr %4, align 4, !tbaa !39
+  %196 = load i32, ptr %195, align 8, !tbaa !60
+  %197 = load i32, ptr %4, align 4, !tbaa !37
   %198 = add i32 %197, %.sroa.0.0.extract.trunc.i108
   %199 = sub i32 %196, %198
   br label %206
 
 200:                                              ; preds = %186
-  %201 = load i32, ptr %4, align 4, !tbaa !39
+  %201 = load i32, ptr %4, align 4, !tbaa !37
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %203 = load i32, ptr %202, align 8, !tbaa !63
+  %203 = load i32, ptr %202, align 8, !tbaa !61
   %204 = add i32 %203, %.sroa.0.0.extract.trunc.i107
   %205 = sub i32 %201, %204
   br label %206
@@ -946,19 +946,19 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
   %213 = add i32 %.sroa.0.0.extract.trunc.i109, %.sroa.0.0.extract.trunc.i110
   %214 = sub i32 %212, %213
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %216 = load i32, ptr %215, align 4, !tbaa !41
+  %216 = load i32, ptr %215, align 4, !tbaa !39
   br i1 %.not101, label %222, label %217
 
 217:                                              ; preds = %207
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %219 = load i32, ptr %218, align 4, !tbaa !64
+  %219 = load i32, ptr %218, align 4, !tbaa !62
   %220 = add i32 %219, %.sroa.0.0.extract.trunc.i109
   %221 = sub i32 %216, %220
   br label %.sink.split
 
 222:                                              ; preds = %207
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %224 = load i32, ptr %223, align 4, !tbaa !65
+  %224 = load i32, ptr %223, align 4, !tbaa !63
   %225 = sub i32 %.sroa.0.0.extract.trunc.i110, %216
   %.neg = add i32 %225, %224
   br label %.sink.split
@@ -970,7 +970,7 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
   %227 = sdiv i32 %.sink, 2
   %228 = add nsw i32 %226, %227
   %229 = sdiv i32 %228, %.sink
-  %230 = load i32, ptr %167, align 4, !tbaa !61
+  %230 = load i32, ptr %167, align 4, !tbaa !59
   %231 = add nsw i32 %230, %229
   br label %232
 
@@ -1087,7 +1087,7 @@ define internal fastcc void @draw_knob(ptr noundef %0) unnamed_addr #0 {
 is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   %.0.i = phi i1 [ %18, %15 ], [ false, %19 ], [ true, %1 ]
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %21 = load i8, ptr %20, align 8, !tbaa !49, !range !50, !noundef !51
+  %21 = load i8, ptr %20, align 8, !tbaa !47, !range !48, !noundef !49
   %22 = select i1 %10, i1 %.0.i, i1 false
   %23 = zext i1 %22 to i8
   %.not = icmp eq i8 %21, %23
@@ -1101,7 +1101,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %29 = load i32, ptr %28, align 8, !tbaa !66
+  %29 = load i32, ptr %28, align 8, !tbaa !64
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %33
 
@@ -1125,7 +1125,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %39 = load i32, ptr %38, align 8, !tbaa !66
+  %39 = load i32, ptr %38, align 8, !tbaa !64
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -1150,7 +1150,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #5
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #5
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %6, ptr %48, align 8, !tbaa !67
+  store ptr %6, ptr %48, align 8, !tbaa !65
   call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %5, i32 noundef 196608, ptr noundef nonnull %3) #5
   call fastcc void @position_knob(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %.0, i1 noundef zeroext %.0.i)
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -1245,11 +1245,11 @@ define internal fastcc void @position_knob(ptr noundef %0, ptr noundef nonnull c
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %10, ptr %11, align 4, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %13 = load i32, ptr %12, align 4, !tbaa !64
+  %13 = load i32, ptr %12, align 4, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %13, ptr %14, align 4, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %16 = load i32, ptr %15, align 4, !tbaa !65
+  %16 = load i32, ptr %15, align 4, !tbaa !63
   br label %28
 
 17:                                               ; preds = %4
@@ -1260,10 +1260,10 @@ define internal fastcc void @position_knob(ptr noundef %0, ptr noundef nonnull c
   %21 = add i32 %2, -1
   %22 = add i32 %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !63
+  %24 = load i32, ptr %23, align 8, !tbaa !61
   store i32 %24, ptr %1, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load i32, ptr %25, align 8, !tbaa !62
+  %26 = load i32, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %26, ptr %27, align 4, !tbaa !31
   br label %28
@@ -1370,40 +1370,38 @@ attributes #5 = { nounwind }
 !34 = !{!"_lv_hit_test_info_t", !8, i64 0, !17, i64 8}
 !35 = !{!34, !17, i64 8}
 !36 = !{!15, !15, i64 0}
-!37 = distinct !{!37, !38}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!19, !15, i64 0}
-!40 = !{!4, !15, i64 192}
-!41 = !{!19, !15, i64 4}
-!42 = !{!4, !15, i64 196}
-!43 = !{!44, !9, i64 72}
-!44 = !{!"_lv_indev_t", !15, i64 0, !8, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !15, i64 32, !15, i64 36, !8, i64 40, !8, i64 48, !45, i64 56, !46, i64 64, !9, i64 72, !9, i64 73, !9, i64 74, !9, i64 75, !16, i64 76, !16, i64 78, !15, i64 80, !47, i64 88, !19, i64 232, !11, i64 240, !25, i64 248, !8, i64 256, !26, i64 264, !48, i64 296, !15, i64 304, !8, i64 312}
-!45 = !{!"p1 _ZTS13_lv_display_t", !8, i64 0}
-!46 = !{!"p1 _ZTS11_lv_timer_t", !8, i64 0}
-!47 = !{!"", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !14, i64 96, !19, i64 112, !15, i64 120, !9, i64 124, !19, i64 128, !15, i64 136, !9, i64 140, !9, i64 140, !9, i64 141, !9, i64 141, !9, i64 141}
-!48 = !{!"p1 _ZTS10_lv_anim_t", !8, i64 0}
-!49 = !{!4, !17, i64 96}
-!50 = !{i8 0, i8 2}
-!51 = !{}
-!52 = !{!4, !15, i64 184}
-!53 = !{!4, !15, i64 176}
-!54 = !{!4, !15, i64 160}
-!55 = !{!4, !15, i64 168}
-!56 = !{!4, !15, i64 180}
-!57 = !{!4, !15, i64 188}
-!58 = !{!4, !15, i64 172}
-!59 = !{!4, !15, i64 164}
-!60 = !{!4, !15, i64 72}
-!61 = !{!4, !15, i64 68}
-!62 = !{!6, !15, i64 48}
-!63 = !{!6, !15, i64 40}
-!64 = !{!6, !15, i64 44}
-!65 = !{!6, !15, i64 52}
-!66 = !{!4, !15, i64 64}
-!67 = !{!68, !70, i64 24}
-!68 = !{!"", !69, i64 0, !15, i64 48, !9, i64 52, !72, i64 53, !73, i64 56, !8, i64 72, !8, i64 80, !72, i64 88, !9, i64 91, !9, i64 92, !9, i64 93, !72, i64 94, !15, i64 100, !9, i64 104, !15, i64 105, !9, i64 105, !72, i64 106, !15, i64 112, !15, i64 116, !9, i64 120, !72, i64 121, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !9, i64 140}
-!69 = !{!"", !11, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !70, i64 24, !71, i64 32, !8, i64 40}
-!70 = !{!"p1 _ZTS11_lv_layer_t", !8, i64 0}
-!71 = !{!"long", !9, i64 0}
-!72 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2}
-!73 = !{!"", !9, i64 0, !9, i64 10, !15, i64 11, !15, i64 11}
+!37 = !{!19, !15, i64 0}
+!38 = !{!4, !15, i64 192}
+!39 = !{!19, !15, i64 4}
+!40 = !{!4, !15, i64 196}
+!41 = !{!42, !9, i64 72}
+!42 = !{!"_lv_indev_t", !15, i64 0, !8, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !15, i64 32, !15, i64 36, !8, i64 40, !8, i64 48, !43, i64 56, !44, i64 64, !9, i64 72, !9, i64 73, !9, i64 74, !9, i64 75, !16, i64 76, !16, i64 78, !15, i64 80, !45, i64 88, !19, i64 232, !11, i64 240, !25, i64 248, !8, i64 256, !26, i64 264, !46, i64 296, !15, i64 304, !8, i64 312}
+!43 = !{!"p1 _ZTS13_lv_display_t", !8, i64 0}
+!44 = !{!"p1 _ZTS11_lv_timer_t", !8, i64 0}
+!45 = !{!"", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !14, i64 96, !19, i64 112, !15, i64 120, !9, i64 124, !19, i64 128, !15, i64 136, !9, i64 140, !9, i64 140, !9, i64 141, !9, i64 141, !9, i64 141}
+!46 = !{!"p1 _ZTS10_lv_anim_t", !8, i64 0}
+!47 = !{!4, !17, i64 96}
+!48 = !{i8 0, i8 2}
+!49 = !{}
+!50 = !{!4, !15, i64 184}
+!51 = !{!4, !15, i64 176}
+!52 = !{!4, !15, i64 160}
+!53 = !{!4, !15, i64 168}
+!54 = !{!4, !15, i64 180}
+!55 = !{!4, !15, i64 188}
+!56 = !{!4, !15, i64 172}
+!57 = !{!4, !15, i64 164}
+!58 = !{!4, !15, i64 72}
+!59 = !{!4, !15, i64 68}
+!60 = !{!6, !15, i64 48}
+!61 = !{!6, !15, i64 40}
+!62 = !{!6, !15, i64 44}
+!63 = !{!6, !15, i64 52}
+!64 = !{!4, !15, i64 64}
+!65 = !{!66, !68, i64 24}
+!66 = !{!"", !67, i64 0, !15, i64 48, !9, i64 52, !70, i64 53, !71, i64 56, !8, i64 72, !8, i64 80, !70, i64 88, !9, i64 91, !9, i64 92, !9, i64 93, !70, i64 94, !15, i64 100, !9, i64 104, !15, i64 105, !9, i64 105, !70, i64 106, !15, i64 112, !15, i64 116, !9, i64 120, !70, i64 121, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !9, i64 140}
+!67 = !{!"", !11, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !68, i64 24, !69, i64 32, !8, i64 40}
+!68 = !{!"p1 _ZTS11_lv_layer_t", !8, i64 0}
+!69 = !{!"long", !9, i64 0}
+!70 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2}
+!71 = !{!"", !9, i64 0, !9, i64 10, !15, i64 11, !15, i64 11}

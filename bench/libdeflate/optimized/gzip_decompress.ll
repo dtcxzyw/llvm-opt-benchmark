@@ -64,7 +64,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %35 = icmp ne i8 %34, 0
   %36 = icmp ne ptr %33, %9
   %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %.preheader83, label %38, !llvm.loop !7
+  br i1 %37, label %.preheader83, label %38
 
 38:                                               ; preds = %.preheader83
   %39 = ptrtoint ptr %9 to i64
@@ -85,7 +85,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %46 = icmp ne i8 %45, 0
   %47 = icmp ne ptr %44, %9
   %48 = select i1 %46, i1 %47, i1 false
-  br i1 %48, label %.preheader, label %49, !llvm.loop !9
+  br i1 %48, label %.preheader, label %49
 
 49:                                               ; preds = %.preheader
   %50 = ptrtoint ptr %9 to i64
@@ -127,12 +127,12 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not77, label %70, label %68
 
 68:                                               ; preds = %67
-  %69 = load i64, ptr %6, align 8, !tbaa !10
+  %69 = load i64, ptr %6, align 8, !tbaa !7
   br label %70
 
 70:                                               ; preds = %67, %68
   %.064 = phi i64 [ %69, %68 ], [ %4, %67 ]
-  %71 = load i64, ptr %8, align 8, !tbaa !10
+  %71 = load i64, ptr %8, align 8, !tbaa !7
   %72 = getelementptr inbounds nuw i8, ptr %.6, i64 %71
   %73 = call i32 @libdeflate_crc32(i32 noundef 0, ptr noundef %3, i64 noundef %.064) #3
   %.0.copyload.i82 = load i32, ptr %72, align 1
@@ -155,7 +155,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   %80 = ptrtoint ptr %79 to i64
   %81 = ptrtoint ptr %1 to i64
   %82 = sub i64 %80, %81
-  store i64 %82, ptr %5, align 8, !tbaa !10
+  store i64 %82, ptr %5, align 8, !tbaa !7
   br label %83
 
 83:                                               ; preds = %77, %78, %74, %70, %62, %56, %49, %38, %19, %16, %13, %11, %7, %26
@@ -195,8 +195,5 @@ attributes #3 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"long", !5, i64 0}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}

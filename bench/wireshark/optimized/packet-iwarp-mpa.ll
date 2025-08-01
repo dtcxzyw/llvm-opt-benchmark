@@ -804,7 +804,7 @@ dissect_mpa_fpdu.exit.i:                          ; preds = %129, %159
   %207 = sub i32 %195, %204
   %208 = tail call i32 @llvm.umin.i32(i32 %207, i32 512)
   %209 = icmp ult i32 %204, %195
-  br i1 %209, label %.lr.ph.i.i, label %remove_markers.exit.i, !llvm.loop !11
+  br i1 %209, label %.lr.ph.i.i, label %remove_markers.exit.i, !llvm.loop !10
 
 remove_markers.exit.i:                            ; preds = %.lr.ph.i.i
   %210 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %199, i32 noundef %195, i32 noundef %195)
@@ -1175,7 +1175,6 @@ attributes #8 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

@@ -1088,5 +1088,4 @@ attributes #11 = { nounwind allocsize(0,1) }
 !41 = !{!13, !13, i64 0}
 !42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !43}

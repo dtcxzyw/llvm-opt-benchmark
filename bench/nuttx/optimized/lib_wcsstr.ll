@@ -94,7 +94,7 @@ define ptr @wcsstr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.1129.i = phi i64 [ %.0128171.i, %30 ], [ %.0128171.i, %32 ], [ %37, %36 ], [ 1, %38 ]
   %40 = add i64 %.1131.i, %.1137.i
   %41 = icmp ult i64 %40, %18
-  br i1 %41, label %.lr.ph172.i, label %.lr.ph179.i, !llvm.loop !9
+  br i1 %41, label %.lr.ph172.i, label %.lr.ph179.i, !llvm.loop !8
 
 .lr.ph179.i:                                      ; preds = %.critedge.i, %61
   %42 = phi i64 [ %62, %61 ], [ 1, %.critedge.i ]
@@ -141,7 +141,7 @@ define ptr @wcsstr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.3.i = phi i64 [ %.2178.i, %51 ], [ %.2178.i, %53 ], [ %58, %57 ], [ 1, %59 ]
   %62 = add i64 %.3133.i, %.3139.i
   %63 = icmp ult i64 %62, %18
-  br i1 %63, label %.lr.ph179.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %63, label %.lr.ph179.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %61, %.critedge.preheader.i
   %.0128.lcssa197.i = phi i64 [ 1, %.critedge.preheader.i ], [ %.1129.i, %61 ]
@@ -226,7 +226,7 @@ define ptr @wcsstr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %102 = getelementptr inbounds i32, ptr %1, i64 %101
   %103 = load i32, ptr %102, align 4
   %.not158.i = icmp eq i32 %103, 0
-  br i1 %.not158.i, label %.critedge2.i.preheader, label %.lr.ph185.i, !llvm.loop !11
+  br i1 %.not158.i, label %.critedge2.i.preheader, label %.lr.ph185.i, !llvm.loop !10
 
 104:                                              ; preds = %.lr.ph185.i
   %105 = sub i64 %.4134183.i, %.2142..0140.i
@@ -236,7 +236,7 @@ define ptr @wcsstr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.0125.be.i = phi i64 [ 0, %104 ], [ %.0124.i, %107 ]
   %.pn.i = phi i64 [ %105, %104 ], [ %.5.i, %107 ]
   %.0123.be.i = getelementptr inbounds i32, ptr %.0123.i, i64 %.pn.i
-  br label %77, !llvm.loop !12
+  br label %77
 
 .critedge2.i:                                     ; preds = %.critedge2.i.preheader, %107
   %.5135.i = phi i64 [ %108, %107 ], [ %68, %.critedge2.i.preheader ]
@@ -250,7 +250,7 @@ define ptr @wcsstr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %111 = getelementptr inbounds i32, ptr %.0123.i, i64 %108
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %110, %112
-  br i1 %113, label %.critedge2.i, label %.backedge.i, !llvm.loop !13
+  br i1 %113, label %.critedge2.i, label %.backedge.i, !llvm.loop !11
 
 twoway_wcsstr.exit:                               ; preds = %.lr.ph.i, %85, %.critedge2.i, %11, %6, %8, %4, %2
   %.0 = phi ptr [ %0, %2 ], [ null, %4 ], [ %7, %8 ], [ null, %6 ], [ null, %11 ], [ %.0123.i, %.critedge2.i ], [ null, %85 ], [ null, %.lr.ph.i ]
@@ -284,11 +284,9 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

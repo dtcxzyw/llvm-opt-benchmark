@@ -419,7 +419,7 @@ define dso_local zeroext i16 @_hash_binsearch_last(ptr noundef readonly captures
   %.114 = select i1 %27, i16 %.01318, i16 %16
   %.1 = select i1 %27, i16 %28, i16 %.019
   %29 = icmp ugt i16 %.1, %.114
-  br i1 %29, label %10, label %._crit_edge, !llvm.loop !9
+  br i1 %29, label %10, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %10, %2
   %.013.lcssa = phi i16 [ 0, %2 ], [ %.114, %10 ]
@@ -667,7 +667,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 52:                                               ; preds = %.lr.ph
   %53 = add i16 %.04458, 1
   %.not = icmp ugt i16 %53, %.0.i
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %52
   %.04458 = phi i16 [ %53, %52 ], [ %51, %44 ]
@@ -684,7 +684,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 .loopexit:                                        ; preds = %52, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !9
 
 .loopexit.thread:                                 ; preds = %.lr.ph
   %61 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %43, i64 0, i64 %55
@@ -693,7 +693,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   store i32 %63, ptr %61, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not65 = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond.not65, label %._crit_edge.thread, label %.outer, !llvm.loop !11
+  br i1 %exitcond.not65, label %._crit_edge.thread, label %.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %.04659.ph, label %._crit_edge.thread, label %.critedge
@@ -757,9 +757,7 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

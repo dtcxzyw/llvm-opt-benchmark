@@ -186,7 +186,7 @@ define noundef zeroext i1 @_ZNK12TimeStatList4UsedEv(ptr noundef nonnull readonl
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 24
   %14 = icmp ugt i64 %13, %7
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %1, %5
   %15 = phi ptr [ %9, %5 ], [ %4, %1 ]
@@ -227,7 +227,7 @@ define void @_ZNK12TimeStatList4ListB5cxx11Ev(ptr dead_on_unwind noalias writabl
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 24
   %21 = icmp ugt i64 %20, %14
-  br i1 %21, label %.lr.ph.i, label %.loopexit19, !llvm.loop !7
+  br i1 %21, label %.lr.ph.i, label %.loopexit19, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %2, %12
   %22 = phi ptr [ %16, %12 ], [ %11, %2 ]
@@ -375,7 +375,7 @@ _ZNK12TimeStatList4UsedEv.exit:                   ; preds = %.lr.ph.i
   %74 = sub i64 %72, %73
   %75 = sdiv exact i64 %74, 24
   %76 = icmp ugt i64 %75, %69
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 77:                                               ; preds = %64
   %78 = landingpad { ptr, i32 }
@@ -534,7 +534,7 @@ _ZSt10_ConstructI8TimeStatJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %19 = add i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 24
   %.not.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !8
 
 21:                                               ; preds = %.lr.ph.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -606,7 +606,7 @@ _ZSt10_ConstructI8TimeStatJEEvPT_DpOT0_.exit.i.i.i38: ; preds = %.lr.ph.i.i.i30
   %40 = add i64 %.01013.i.i.i32, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i31, i64 24
   %.not.i.i.i39 = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i39, label %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41, label %.lr.ph.i.i.i30, !llvm.loop !9
+  br i1 %.not.i.i.i39, label %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41, label %.lr.ph.i.i.i30, !llvm.loop !8
 
 42:                                               ; preds = %.lr.ph.i.i.i30
   %43 = landingpad { ptr, i32 }
@@ -663,13 +663,13 @@ _ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41: ; pred
 .lr.ph.i.i.i43:                                   ; preds = %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41, %.lr.ph.i.i.i43
   %.012.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i43 ], [ %38, %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41 ]
   %.0911.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i43 ], [ %6, %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i64 24, i1 false), !alias.scope !13
-  tail call void @_ZN8TimeStatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i) #17, !noalias !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i64 24, i1 false), !alias.scope !12
+  tail call void @_ZN8TimeStatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i) #17, !noalias !9
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i44 = icmp eq ptr %57, %5
-  br i1 %.not.i.i.i44, label %_ZNSt6vectorI8TimeStatSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i43, !llvm.loop !15
+  br i1 %.not.i.i.i44, label %_ZNSt6vectorI8TimeStatSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i43, !llvm.loop !14
 
 _ZNSt6vectorI8TimeStatSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i43, %_ZSt27__uninitialized_default_n_aIP8TimeStatmS0_ET_S2_T0_RSaIT1_E.exit41
   %.not.i46 = icmp eq ptr %6, null
@@ -862,15 +862,14 @@ attributes #21 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aI8TimeStatS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!12 = distinct !{!12, !"_ZSt19__relocate_object_aI8TimeStatS0_SaIS0_EEvPT_PT0_RT1_"}
-!13 = !{!11, !14}
-!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aI8TimeStatS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!15 = distinct !{!15, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZSt19__relocate_object_aI8TimeStatS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!11 = distinct !{!11, !"_ZSt19__relocate_object_aI8TimeStatS0_SaIS0_EEvPT_PT0_RT1_"}
+!12 = !{!10, !13}
+!13 = distinct !{!13, !11, !"_ZSt19__relocate_object_aI8TimeStatS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!14 = distinct !{!14, !5}

@@ -186,7 +186,7 @@ unescape.exit.i:                                  ; preds = %46
   %.3.i = phi i8 [ %.2133174178.i, %61 ], [ %.1132.i, %49 ], [ 0, %65 ], [ 0, %62 ]
   %69 = load i32, ptr %4, align 4, !tbaa !4
   %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %getStringToken.exit, label %37, !llvm.loop !14
+  br i1 %70, label %getStringToken.exit, label %37
 
 71:                                               ; preds = %28
   %72 = load i32, ptr %26, align 8, !tbaa !8
@@ -329,7 +329,7 @@ unescape.exit168.i:                               ; preds = %110
   call void @ustr_uscat(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %.2140.i, ptr noundef nonnull %4) #5
   %129 = load i32, ptr %4, align 4, !tbaa !4
   %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %getStringToken.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %130, label %getStringToken.exit, label %.preheader.i
 
 isWhitespace.exit.thread.i:                       ; preds = %110, %110, %110, %110, %43, %112, %111
   %.1151.i = phi i8 [ 0, %111 ], [ 0, %112 ], [ 1, %43 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ]
@@ -346,7 +346,7 @@ isWhitespace.exit.thread.i:                       ; preds = %110, %110, %110, %1
     i32 123, label %unescape.exit165.thread.sink.split.i
     i32 58, label %unescape.exit165.thread.sink.split.i
     i32 44, label %unescape.exit165.thread.sink.split.i
-  ], !llvm.loop !17
+  ]
 
 unescape.exit165.thread.sink.split.i:             ; preds = %134, %134, %134, %134, %.preheader.i
   %.lcssa.sink.i = phi i32 [ -1, %.preheader.i ], [ %131, %134 ], [ %131, %134 ], [ %131, %134 ], [ %131, %134 ]
@@ -439,7 +439,7 @@ isWhitespace.exit.thread:                         ; preds = %9
 24:                                               ; preds = %.preheader.i
   %25 = load i32, ptr %3, align 4, !tbaa !4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.preheader.i, label %.backedge, !llvm.loop !18
+  br i1 %26, label %.preheader.i, label %.backedge, !llvm.loop !14
 
 27:                                               ; preds = %15
   %28 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
@@ -487,7 +487,7 @@ isNewline.exit.thread.us.i:                       ; preds = %.split.us.i, %.spli
 42:                                               ; preds = %isNewline.exit.thread.us.i, %39, %.split.us.i
   %43 = load i32, ptr %3, align 4, !tbaa !4
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.split.us.i, label %.backedge, !llvm.loop !20
+  br i1 %44, label %.split.us.i, label %.backedge, !llvm.loop !16
 
 .split23.us.i:                                    ; preds = %.split.us.i
   store i32 3, ptr %3, align 4, !tbaa !4
@@ -501,7 +501,7 @@ isNewline.exit.thread.us.i:                       ; preds = %.split.us.i, %.spli
 .backedge:                                        ; preds = %37, %42, %.preheader.i, %.preheader.i, %24, %30, %17, %21, %31, %.split23.us.i, %12, %11, %11, %11, %11
   %46 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
   %47 = icmp eq i32 %46, -1
-  br i1 %47, label %.loopexit, label %9, !llvm.loop !22
+  br i1 %47, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %.backedge, %isWhitespace.exit.thread, %15, %11, %.preheader, %4, %45
   %.0 = phi i32 [ 47, %45 ], [ -1, %4 ], [ -1, %.preheader ], [ -1, %.backedge ], [ %10, %isWhitespace.exit.thread ], [ %16, %15 ], [ %10, %11 ]
@@ -586,7 +586,7 @@ isNewline.exit.thread.us:                         ; preds = %.split.us, %.split.
 14:                                               ; preds = %11, %.split.us, %isNewline.exit.thread.us
   %15 = load i32, ptr %2, align 4, !tbaa !4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.split.us, label %.critedge, !llvm.loop !20
+  br i1 %16, label %.split.us, label %.critedge, !llvm.loop !16
 
 .split:                                           ; preds = %6, %24
   %17 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %2) #5
@@ -620,7 +620,7 @@ isNewline.exit.thread:                            ; preds = %21, %21
 24:                                               ; preds = %.thread, %21, %isNewline.exit.thread
   %25 = load i32, ptr %2, align 4, !tbaa !4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.split, label %.critedge, !llvm.loop !23
+  br i1 %26, label %.split, label %.critedge, !llvm.loop !18
 
 .split23.us:                                      ; preds = %21, %.split.us
   store i32 3, ptr %2, align 4, !tbaa !4
@@ -659,12 +659,7 @@ attributes #5 = { nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !6, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !19, !15}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19, !15, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !19, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !15}

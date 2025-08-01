@@ -609,9 +609,9 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   %51 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
-  %.sroa.049.0.copyload = load double, ptr %4, align 8, !tbaa !62
+  %.sroa.049.0.copyload = load double, ptr %4, align 8, !tbaa !61
   %.sroa.350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.350.0.copyload = load double, ptr %.sroa.350.0..sroa_idx, align 8, !tbaa !62
+  %.sroa.350.0.copyload = load double, ptr %.sroa.350.0..sroa_idx, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
   br label %82
 
@@ -991,7 +991,6 @@ attributes #8 = { nounwind }
 !56 = !{!4, !14, i64 456}
 !57 = !{!4, !14, i64 464}
 !58 = !{!4, !14, i64 440}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!14, !14, i64 0}
+!61 = !{!14, !14, i64 0}

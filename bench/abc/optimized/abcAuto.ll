@@ -250,7 +250,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %114 = tail call ptr @Cudd_bddNewVar(ptr noundef %.val53.val.val.val) #11
   %115 = add nuw nsw i32 %.164, 1
   %exitcond.not = icmp eq i32 %115, %.val.val
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph65, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph65, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph65, %112
   %116 = tail call i32 @Cudd_zddVarsFromBddVars(ptr noundef %.val53.val.val.val, i32 noundef 2) #11
@@ -264,10 +264,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %120, label %Abc_Clock.exit.i, label %121
 
 121:                                              ; preds = %118
-  %122 = load i64, ptr %6, align 8, !tbaa !44
+  %122 = load i64, ptr %6, align 8, !tbaa !43
   %.neg1.i = mul i64 %122, -1000000
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %124 = load i64, ptr %123, align 8, !tbaa !47
+  %124 = load i64, ptr %123, align 8, !tbaa !46
   %.neg.i = sdiv i64 %124, -1000
   %.neg2.i = add i64 %.neg.i, %.neg1.i
   br label %Abc_Clock.exit.i
@@ -289,12 +289,12 @@ Abc_Clock.exit.i:                                 ; preds = %121, %118
   %.0674.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.168.i, %145 ]
   %.0693.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.170.i, %145 ]
   %125 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv.i
-  %126 = load ptr, ptr %125, align 8, !tbaa !48
+  %126 = load ptr, ptr %125, align 8, !tbaa !47
   %127 = call ptr @Extra_bddSpaceFromFunction(ptr noundef %.val53.val.val.val, ptr noundef %126, ptr noundef %126) #11
   call void @Cudd_Ref(ptr noundef %127) #11
   %128 = call ptr @Extra_bddSpaceCanonVars(ptr noundef %.val53.val.val.val, ptr noundef %127) #11
   call void @Cudd_Ref(ptr noundef %128) #11
-  %129 = load ptr, ptr %125, align 8, !tbaa !48
+  %129 = load ptr, ptr %125, align 8, !tbaa !47
   %130 = call ptr @Extra_bddSpaceReduce(ptr noundef %.val53.val.val.val, ptr noundef %129, ptr noundef %128) #11
   call void @Cudd_Ref(ptr noundef %130) #11
   %131 = call ptr @Extra_bddSpaceEquations(ptr noundef %.val53.val.val.val, ptr noundef %127) #11
@@ -338,7 +338,7 @@ Abc_Clock.exit.i:                                 ; preds = %121, %118
   call void @Cudd_RecursiveDerefZdd(ptr noundef %.val53.val.val.val, ptr noundef %131) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !50
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %145, %Abc_Clock.exit.i
   %.069.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.170.i, %145 ]
@@ -360,10 +360,10 @@ Abc_Clock.exit.i:                                 ; preds = %121, %118
   br i1 %154, label %Abc_NtkAutoPrintAll.exit, label %155
 
 155:                                              ; preds = %._crit_edge.i
-  %156 = load i64, ptr %5, align 8, !tbaa !44
+  %156 = load i64, ptr %5, align 8, !tbaa !43
   %157 = mul nsw i64 %156, 1000000
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %159 = load i64, ptr %158, align 8, !tbaa !47
+  %159 = load i64, ptr %158, align 8, !tbaa !46
   %160 = sdiv i64 %159, 1000
   %161 = add nsw i64 %160, %157
   br label %Abc_NtkAutoPrintAll.exit
@@ -382,12 +382,12 @@ Abc_NtkAutoPrintAll.exit:                         ; preds = %._crit_edge.i, %155
 167:                                              ; preds = %._crit_edge
   %168 = sext i32 %1 to i64
   %169 = getelementptr inbounds ptr, ptr %.val57, i64 %168
-  %170 = load ptr, ptr %169, align 8, !tbaa !48
+  %170 = load ptr, ptr %169, align 8, !tbaa !47
   %171 = tail call ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %.val53.val.val.val, ptr noundef %170) #11
   tail call void @Cudd_Ref(ptr noundef %171) #11
   %172 = tail call ptr @Extra_bddSpaceCanonVars(ptr noundef %.val53.val.val.val, ptr noundef %171) #11
   tail call void @Cudd_Ref(ptr noundef %172) #11
-  %173 = load ptr, ptr %169, align 8, !tbaa !48
+  %173 = load ptr, ptr %169, align 8, !tbaa !47
   %174 = tail call ptr @Extra_bddSpaceReduce(ptr noundef %.val53.val.val.val, ptr noundef %173, ptr noundef %172) #11
   tail call void @Cudd_Ref(ptr noundef %174) #11
   %175 = tail call ptr @Extra_bddSpaceEquations(ptr noundef %.val53.val.val.val, ptr noundef %171) #11
@@ -563,14 +563,13 @@ attributes #13 = { nounwind allocsize(1) }
 !37 = !{!31, !5, i64 0}
 !38 = !{!31, !9, i64 8}
 !39 = !{!31, !9, i64 32}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = distinct !{!43, !41, !42}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"timespec", !46, i64 0, !46, i64 8}
-!46 = !{!"long", !6, i64 0}
-!47 = !{!45, !46, i64 8}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS6DdNode", !9, i64 0}
-!50 = distinct !{!50, !41, !42}
+!42 = distinct !{!42, !41}
+!43 = !{!44, !45, i64 0}
+!44 = !{!"timespec", !45, i64 0, !45, i64 8}
+!45 = !{!"long", !6, i64 0}
+!46 = !{!44, !45, i64 8}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS6DdNode", !9, i64 0}
+!49 = distinct !{!49, !41}

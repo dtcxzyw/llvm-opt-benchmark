@@ -91,7 +91,7 @@ define void @wc_PKCS12_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %6
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %freeSafe.exit, label %17
 
@@ -105,30 +105,30 @@ freeSafe.exit:                                    ; preds = %._crit_edge.i, %17
 
 18:                                               ; preds = %freeSafe.exit, %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %30, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %20, align 8, !tbaa !24
+  %22 = load ptr, ptr %20, align 8, !tbaa !23
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %24, label %23
 
 23:                                               ; preds = %21
   tail call void @wolfSSL_Free(ptr noundef nonnull %22) #9
-  %.pre = load ptr, ptr %19, align 8, !tbaa !23
+  %.pre = load ptr, ptr %19, align 8, !tbaa !22
   br label %24
 
 24:                                               ; preds = %23, %21
   %25 = phi ptr [ %.pre, %23 ], [ %20, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !26
+  %27 = load ptr, ptr %26, align 8, !tbaa !25
   %.not25 = icmp eq ptr %27, null
   br i1 %.not25, label %.thread, label %28
 
 28:                                               ; preds = %24
   tail call void @wolfSSL_Free(ptr noundef nonnull %27) #9
-  %.pr = load ptr, ptr %19, align 8, !tbaa !23
+  %.pr = load ptr, ptr %19, align 8, !tbaa !22
   %.not26 = icmp eq ptr %.pr, null
   br i1 %.not26, label %30, label %.thread
 
@@ -165,7 +165,7 @@ define internal fastcc void @freeSafe(ptr noundef nonnull %0) unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
 
@@ -194,12 +194,12 @@ define i32 @wc_PKCS12_verify_ex(ptr noundef readonly captures(address_is_null) %
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !27
+  %14 = load i32, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = icmp eq ptr %16, null
   %18 = icmp eq ptr %12, null
   %or.cond.i = or i1 %18, %17
@@ -207,7 +207,7 @@ define i32 @wc_PKCS12_verify_ex(ptr noundef readonly captures(address_is_null) %
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %21 = load i32, ptr %20, align 4, !tbaa !28
+  %21 = load i32, ptr %20, align 4, !tbaa !27
   %22 = icmp ugt i32 %21, 64
   br i1 %22, label %wc_PKCS12_verify.exit, label %23
 
@@ -217,8 +217,8 @@ define i32 @wc_PKCS12_verify_ex(ptr noundef readonly captures(address_is_null) %
   br i1 %25, label %wc_PKCS12_verify.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %16, align 8, !tbaa !24
-  %28 = load i32, ptr %20, align 4, !tbaa !28
+  %27 = load ptr, ptr %16, align 8, !tbaa !23
+  %28 = load i32, ptr %20, align 4, !tbaa !27
   %29 = zext i32 %28 to i64
   %30 = call i32 @memcmp(ptr noundef nonnull %4, ptr noundef %27, i64 noundef %29) #10
   br label %wc_PKCS12_verify.exit
@@ -239,11 +239,11 @@ define i32 @wc_d2i_PKCS12(ptr noundef %0, i32 noundef %1, ptr noundef writeonly 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  store i32 0, ptr %4, align 4, !tbaa !29
+  store i32 0, ptr %4, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4, !tbaa !29
+  store i32 0, ptr %5, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !29
+  store i32 0, ptr %6, align 4, !tbaa !28
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %2, null
   %or.cond = or i1 %7, %8
@@ -261,8 +261,8 @@ define i32 @wc_d2i_PKCS12(ptr noundef %0, i32 noundef %1, ptr noundef writeonly 
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i8 0, ptr %16, align 4, !tbaa !30
-  %17 = load i32, ptr %6, align 4, !tbaa !29
+  store i8 0, ptr %16, align 4, !tbaa !29
+  %17 = load i32, ptr %6, align 4, !tbaa !28
   %.not = icmp eq i32 %17, 3
   br i1 %.not, label %18, label %35
 
@@ -272,8 +272,8 @@ define i32 @wc_d2i_PKCS12(ptr noundef %0, i32 noundef %1, ptr noundef writeonly 
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %5, align 4, !tbaa !29
-  %23 = load i32, ptr %4, align 4, !tbaa !29
+  %22 = load i32, ptr %5, align 4, !tbaa !28
+  %23 = load i32, ptr %4, align 4, !tbaa !28
   %24 = add i32 %23, %22
   %25 = call fastcc i32 @GetSafeContent(ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef %24)
   %26 = icmp sgt i32 %25, -1
@@ -315,10 +315,10 @@ define internal fastcc i32 @GetSafeContent(ptr noundef nonnull writeonly capture
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  %11 = load i32, ptr %2, align 4, !tbaa !29
-  store i32 %11, ptr %6, align 4, !tbaa !29
+  %11 = load i32, ptr %2, align 4, !tbaa !28
+  store i32 %11, ptr %6, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  store i32 0, ptr %7, align 4, !tbaa !29
+  store i32 0, ptr %7, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
   %12 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #9
   %13 = icmp eq ptr %12, null
@@ -349,7 +349,7 @@ define internal fastcc i32 @GetSafeContent(ptr noundef nonnull writeonly capture
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %17
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !22
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %freeSafe.exit, label %28
 
@@ -362,9 +362,9 @@ freeSafe.exit:                                    ; preds = %._crit_edge.i, %28
   br label %185
 
 29:                                               ; preds = %14
-  %30 = load i32, ptr %5, align 4, !tbaa !29
+  %30 = load i32, ptr %5, align 4, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 %30, ptr %31, align 8, !tbaa !31
+  store i32 %30, ptr %31, align 8, !tbaa !30
   %32 = call i32 @GetASNTag(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %3) #9
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %46
@@ -388,7 +388,7 @@ freeSafe.exit:                                    ; preds = %._crit_edge.i, %28
 
 ._crit_edge.i90:                                  ; preds = %.lr.ph.i92, %34
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !22
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
   %.not.i91 = icmp eq ptr %44, null
   br i1 %.not.i91, label %freeSafe.exit94, label %45
 
@@ -401,7 +401,7 @@ freeSafe.exit94:                                  ; preds = %._crit_edge.i90, %4
   br label %185
 
 46:                                               ; preds = %29
-  %47 = load i8, ptr %8, align 1, !tbaa !32
+  %47 = load i8, ptr %8, align 1, !tbaa !31
   %.not = icmp eq i8 %47, -96
   br i1 %.not, label %60, label %48
 
@@ -424,7 +424,7 @@ freeSafe.exit94:                                  ; preds = %._crit_edge.i90, %4
 
 ._crit_edge.i95:                                  ; preds = %.lr.ph.i97, %48
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !22
+  %58 = load ptr, ptr %57, align 8, !tbaa !21
   %.not.i96 = icmp eq ptr %58, null
   br i1 %.not.i96, label %freeSafe.exit99, label %59
 
@@ -460,7 +460,7 @@ freeSafe.exit99:                                  ; preds = %._crit_edge.i95, %5
 
 ._crit_edge.i100:                                 ; preds = %.lr.ph.i102, %63
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !22
+  %73 = load ptr, ptr %72, align 8, !tbaa !21
   %.not.i101 = icmp eq ptr %73, null
   br i1 %.not.i101, label %freeSafe.exit104, label %74
 
@@ -473,7 +473,7 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %185
 
 75:                                               ; preds = %60
-  %76 = load i32, ptr %5, align 4, !tbaa !29
+  %76 = load i32, ptr %5, align 4, !tbaa !28
   %cond2 = icmp eq i32 %76, 651
   br i1 %cond2, label %77, label %88
 
@@ -487,7 +487,7 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %185
 
 81:                                               ; preds = %77
-  %82 = load i8, ptr %8, align 1, !tbaa !32
+  %82 = load i8, ptr %8, align 1, !tbaa !31
   %.not89 = icmp eq i8 %82, 4
   br i1 %.not89, label %84, label %83
 
@@ -505,13 +505,13 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %185
 
 88:                                               ; preds = %75, %84
-  %89 = load i32, ptr %7, align 4, !tbaa !29
+  %89 = load i32, ptr %7, align 4, !tbaa !28
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 %89, ptr %90, align 8, !tbaa !27
+  store i32 %89, ptr %90, align 8, !tbaa !26
   %91 = sext i32 %89 to i64
   %92 = call ptr @wolfSSL_Malloc(i64 noundef %91) #9
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %92, ptr %93, align 8, !tbaa !22
+  store ptr %92, ptr %93, align 8, !tbaa !21
   %94 = icmp eq ptr %92, null
   br i1 %94, label %95, label %96
 
@@ -520,18 +520,18 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %185
 
 96:                                               ; preds = %88
-  %97 = load i32, ptr %6, align 4, !tbaa !29
+  %97 = load i32, ptr %6, align 4, !tbaa !28
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 %98
-  %100 = load i32, ptr %7, align 4, !tbaa !29
+  %100 = load i32, ptr %7, align 4, !tbaa !28
   %101 = sext i32 %100 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %99, i64 %101, i1 false)
-  %102 = load i32, ptr %6, align 4, !tbaa !29
-  store i32 %102, ptr %2, align 4, !tbaa !29
-  store i32 0, ptr %6, align 4, !tbaa !29
-  %103 = load ptr, ptr %93, align 8, !tbaa !22
-  %104 = load i32, ptr %90, align 8, !tbaa !27
-  store i32 %104, ptr %7, align 4, !tbaa !29
+  %102 = load i32, ptr %6, align 4, !tbaa !28
+  store i32 %102, ptr %2, align 4, !tbaa !28
+  store i32 0, ptr %6, align 4, !tbaa !28
+  %103 = load ptr, ptr %93, align 8, !tbaa !21
+  %104 = load i32, ptr %90, align 8, !tbaa !26
+  store i32 %104, ptr %7, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   %105 = call i32 @GetSequence(ptr noundef %103, ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef %104) #9
   %106 = icmp slt i32 %105, 0
@@ -542,10 +542,10 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %.thread129
 
 108:                                              ; preds = %96
-  %109 = load i32, ptr %6, align 4, !tbaa !29
-  %110 = load i32, ptr %9, align 4, !tbaa !29
+  %109 = load i32, ptr %6, align 4, !tbaa !28
+  %110 = load i32, ptr %9, align 4, !tbaa !28
   %111 = add nsw i32 %110, %109
-  store i32 %111, ptr %9, align 4, !tbaa !29
+  store i32 %111, ptr %9, align 4, !tbaa !28
   %112 = icmp ult i32 %109, %111
   br i1 %112, label %.lr.ph, label %._crit_edge
 
@@ -555,8 +555,8 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
 
 114:                                              ; preds = %.lr.ph, %166
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  store i32 0, ptr %10, align 4, !tbaa !29
-  %115 = load i32, ptr %7, align 4, !tbaa !29
+  store i32 0, ptr %10, align 4, !tbaa !28
+  %115 = load i32, ptr %7, align 4, !tbaa !28
   %116 = call i32 @GetSequence(ptr noundef %103, ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef %115) #9
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %118, label %127
@@ -578,13 +578,13 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br i1 %125, label %.lr.ph.i107, label %._crit_edge.i105, !llvm.loop !19
 
 ._crit_edge.i105:                                 ; preds = %.lr.ph.i107, %118
-  %126 = load ptr, ptr %93, align 8, !tbaa !22
+  %126 = load ptr, ptr %93, align 8, !tbaa !21
   %.not.i106 = icmp eq ptr %126, null
   br i1 %.not.i106, label %.thread, label %.thread.sink.split
 
 127:                                              ; preds = %114
-  %128 = load i32, ptr %10, align 4, !tbaa !29
-  %129 = load i32, ptr %9, align 4, !tbaa !29
+  %128 = load i32, ptr %10, align 4, !tbaa !28
+  %129 = load i32, ptr %9, align 4, !tbaa !28
   %130 = icmp sgt i32 %128, %129
   br i1 %130, label %131, label %140
 
@@ -605,13 +605,13 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br i1 %138, label %.lr.ph.i112, label %._crit_edge.i110, !llvm.loop !19
 
 ._crit_edge.i110:                                 ; preds = %.lr.ph.i112, %131
-  %139 = load ptr, ptr %93, align 8, !tbaa !22
+  %139 = load ptr, ptr %93, align 8, !tbaa !21
   %.not.i111 = icmp eq ptr %139, null
   br i1 %.not.i111, label %.thread, label %.thread.sink.split
 
 140:                                              ; preds = %127
-  %141 = load i32, ptr %6, align 4, !tbaa !29
-  %142 = load i32, ptr %7, align 4, !tbaa !29
+  %141 = load i32, ptr %6, align 4, !tbaa !28
+  %142 = load i32, ptr %7, align 4, !tbaa !28
   %143 = call i32 @GetObjectId(ptr noundef %103, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 21, i32 noundef %142) #9
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %145, label %154
@@ -633,7 +633,7 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br i1 %152, label %.lr.ph.i117, label %._crit_edge.i115, !llvm.loop !19
 
 ._crit_edge.i115:                                 ; preds = %.lr.ph.i117, %145
-  %153 = load ptr, ptr %93, align 8, !tbaa !22
+  %153 = load ptr, ptr %93, align 8, !tbaa !21
   %.not.i116 = icmp eq ptr %153, null
   br i1 %.not.i116, label %.thread, label %.thread.sink.split
 
@@ -659,7 +659,7 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br i1 %164, label %.lr.ph.i122, label %._crit_edge.i120, !llvm.loop !19
 
 ._crit_edge.i120:                                 ; preds = %.lr.ph.i122, %157
-  %165 = load ptr, ptr %93, align 8, !tbaa !22
+  %165 = load ptr, ptr %93, align 8, !tbaa !21
   %.not.i121 = icmp eq ptr %165, null
   br i1 %.not.i121, label %.thread, label %.thread.sink.split
 
@@ -676,19 +676,19 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %.thread129
 
 166:                                              ; preds = %154
-  %167 = load i32, ptr %5, align 4, !tbaa !29
+  %167 = load i32, ptr %5, align 4, !tbaa !28
   %168 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  store i32 %167, ptr %168, align 8, !tbaa !33
-  %169 = load i32, ptr %10, align 4, !tbaa !29
-  %170 = load i32, ptr %6, align 4, !tbaa !29
+  store i32 %167, ptr %168, align 8, !tbaa !32
+  %169 = load i32, ptr %10, align 4, !tbaa !28
+  %170 = load i32, ptr %6, align 4, !tbaa !28
   %.neg = add i32 %169, %141
   %171 = sub i32 %.neg, %170
   %172 = getelementptr inbounds nuw i8, ptr %155, i64 20
-  store i32 %171, ptr %172, align 4, !tbaa !34
+  store i32 %171, ptr %172, align 4, !tbaa !33
   %173 = zext i32 %170 to i64
   %174 = getelementptr inbounds nuw i8, ptr %103, i64 %173
-  store ptr %174, ptr %155, align 8, !tbaa !35
-  store i32 %.neg, ptr %6, align 4, !tbaa !29
+  store ptr %174, ptr %155, align 8, !tbaa !34
+  store i32 %.neg, ptr %6, align 4, !tbaa !28
   %175 = load ptr, ptr %12, align 8, !tbaa !16
   %176 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %175, ptr %176, align 8, !tbaa !17
@@ -697,9 +697,9 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   %178 = add i32 %177, 1
   store i32 %178, ptr %113, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  %179 = load i32, ptr %9, align 4, !tbaa !29
+  %179 = load i32, ptr %9, align 4, !tbaa !28
   %180 = icmp ult i32 %.neg, %179
-  br i1 %180, label %114, label %._crit_edge, !llvm.loop !36
+  br i1 %180, label %114, label %._crit_edge, !llvm.loop !35
 
 .thread129:                                       ; preds = %107, %.thread
   %.1.ph = phi i32 [ %.3.ph, %.thread ], [ -140, %107 ]
@@ -712,9 +712,9 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %182, align 8, !tbaa !11
-  %183 = load i32, ptr %2, align 4, !tbaa !29
+  %183 = load i32, ptr %2, align 4, !tbaa !28
   %184 = add i32 %183, %181
-  store i32 %184, ptr %2, align 4, !tbaa !29
+  store i32 %184, ptr %2, align 4, !tbaa !28
   br label %185
 
 185:                                              ; preds = %.thread129, %4, %._crit_edge, %95, %87, %83, %80, %freeSafe.exit104, %freeSafe.exit99, %freeSafe.exit94, %freeSafe.exit
@@ -734,10 +734,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  %10 = load i32, ptr %2, align 4, !tbaa !29
-  store i32 %10, ptr %5, align 4, !tbaa !29
+  %10 = load i32, ptr %2, align 4, !tbaa !28
+  store i32 %10, ptr %5, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !29
+  store i32 0, ptr %6, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
   %11 = call i32 @GetSequence(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %3) #9
@@ -760,9 +760,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   br label %89
 
 20:                                               ; preds = %16
-  %21 = load i32, ptr %6, align 4, !tbaa !29
+  %21 = load i32, ptr %6, align 4, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 %21, ptr %22, align 8, !tbaa !37
+  store i32 %21, ptr %22, align 8, !tbaa !36
   %23 = call i32 @GetASNTag(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %3) #9
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %26
@@ -772,7 +772,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   br label %89
 
 26:                                               ; preds = %20
-  %27 = load i8, ptr %8, align 1, !tbaa !32
+  %27 = load i8, ptr %8, align 1, !tbaa !31
   %.not = icmp eq i8 %27, 4
   br i1 %.not, label %29, label %28
 
@@ -790,18 +790,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   br label %89
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr %7, align 4, !tbaa !29
+  %34 = load i32, ptr %7, align 4, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  store i32 %34, ptr %35, align 4, !tbaa !28
+  store i32 %34, ptr %35, align 4, !tbaa !27
   %36 = zext i32 %34 to i64
   %37 = call ptr @wolfSSL_Malloc(i64 noundef %36) #9
-  store ptr %37, ptr %14, align 8, !tbaa !24
+  store ptr %37, ptr %14, align 8, !tbaa !23
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread81, label %39
 
 39:                                               ; preds = %33
-  %40 = load i32, ptr %35, align 4, !tbaa !28
-  %41 = load i32, ptr %5, align 4, !tbaa !29
+  %40 = load i32, ptr %35, align 4, !tbaa !27
+  %41 = load i32, ptr %5, align 4, !tbaa !28
   %42 = add i32 %41, %40
   %43 = icmp ugt i32 %42, %3
   br i1 %43, label %87, label %44
@@ -811,10 +811,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
   %47 = zext i32 %40 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %46, i64 %47, i1 false)
-  %48 = load i32, ptr %35, align 4, !tbaa !28
-  %49 = load i32, ptr %5, align 4, !tbaa !29
+  %48 = load i32, ptr %35, align 4, !tbaa !27
+  %49 = load i32, ptr %5, align 4, !tbaa !28
   %50 = add i32 %49, %48
-  store i32 %50, ptr %5, align 4, !tbaa !29
+  store i32 %50, ptr %5, align 4, !tbaa !28
   %51 = call i32 @GetASNTag(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %3) #9
   %52 = icmp sgt i32 %51, -1
   %53 = load i8, ptr %8, align 1
@@ -828,19 +828,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   br i1 %56, label %87, label %57
 
 57:                                               ; preds = %54
-  %58 = load i32, ptr %7, align 4, !tbaa !29
+  %58 = load i32, ptr %7, align 4, !tbaa !28
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 %58, ptr %59, align 8, !tbaa !38
+  store i32 %58, ptr %59, align 8, !tbaa !37
   %60 = zext i32 %58 to i64
   %61 = call ptr @wolfSSL_Malloc(i64 noundef %60) #9
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !26
+  store ptr %61, ptr %62, align 8, !tbaa !25
   %63 = icmp eq ptr %61, null
   br i1 %63, label %87, label %64
 
 64:                                               ; preds = %57
-  %65 = load i32, ptr %59, align 8, !tbaa !38
-  %66 = load i32, ptr %5, align 4, !tbaa !29
+  %65 = load i32, ptr %59, align 8, !tbaa !37
+  %66 = load i32, ptr %5, align 4, !tbaa !28
   %67 = add i32 %66, %65
   %68 = icmp ugt i32 %67, %3
   br i1 %68, label %87, label %69
@@ -850,42 +850,42 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
   %72 = zext i32 %65 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %71, i64 %72, i1 false)
-  %73 = load i32, ptr %59, align 8, !tbaa !38
-  %74 = load i32, ptr %5, align 4, !tbaa !29
+  %73 = load i32, ptr %59, align 8, !tbaa !37
+  %74 = load i32, ptr %5, align 4, !tbaa !28
   %75 = add i32 %74, %73
-  store i32 %75, ptr %5, align 4, !tbaa !29
+  store i32 %75, ptr %5, align 4, !tbaa !28
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  store i32 1, ptr %76, align 4, !tbaa !39
+  store i32 1, ptr %76, align 4, !tbaa !38
   %77 = icmp ult i32 %75, %3
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  store i32 0, ptr %9, align 4, !tbaa !29
+  store i32 0, ptr %9, align 4, !tbaa !28
   %79 = call i32 @GetShortInt(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %3) #9
   %80 = icmp sgt i32 %79, -1
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %78
-  %82 = load i32, ptr %9, align 4, !tbaa !29
-  store i32 %82, ptr %76, align 4, !tbaa !39
+  %82 = load i32, ptr %9, align 4, !tbaa !28
+  store i32 %82, ptr %76, align 4, !tbaa !38
   br label %83
 
 83:                                               ; preds = %81, %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  %.pre = load i32, ptr %5, align 4, !tbaa !29
+  %.pre = load i32, ptr %5, align 4, !tbaa !28
   br label %84
 
 84:                                               ; preds = %69, %83
   %85 = phi i32 [ %75, %69 ], [ %.pre, %83 ]
-  store i32 %85, ptr %2, align 4, !tbaa !29
+  store i32 %85, ptr %2, align 4, !tbaa !28
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %86, align 8, !tbaa !23
+  store ptr %14, ptr %86, align 8, !tbaa !22
   br label %89
 
 87:                                               ; preds = %54, %39, %44, %64, %57
   %.067.ph.ph = phi i32 [ %55, %54 ], [ -125, %39 ], [ -140, %44 ], [ -125, %64 ], [ -125, %57 ]
-  %.pr = load ptr, ptr %14, align 8, !tbaa !24
+  %.pr = load ptr, ptr %14, align 8, !tbaa !23
   %.not77 = icmp eq ptr %.pr, null
   br i1 %.not77, label %.thread81, label %88
 
@@ -912,9 +912,9 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_nul
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !tbaa !40
+  store ptr null, ptr %3, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store i64 0, ptr %4, align 8, !tbaa !41
+  store i64 0, ptr %4, align 8, !tbaa !40
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread27.thread, label %5
 
@@ -924,7 +924,7 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_nul
   br i1 %7, label %8, label %.thread27
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %1, align 8, !tbaa !43
+  %9 = load ptr, ptr %1, align 8, !tbaa !42
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
@@ -935,13 +935,13 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_nul
 
 14:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  store ptr %12, ptr %1, align 8, !tbaa !43
+  store ptr %12, ptr %1, align 8, !tbaa !42
   br label %15
 
 15:                                               ; preds = %8, %14
   %16 = phi ptr [ %9, %8 ], [ %12, %14 ]
-  %17 = load ptr, ptr %3, align 8, !tbaa !40
-  %18 = load i64, ptr %4, align 8, !tbaa !41
+  %17 = load ptr, ptr %3, align 8, !tbaa !39
+  %18 = load i64, ptr %4, align 8, !tbaa !40
   %19 = trunc i64 %18 to i32
   %20 = call i32 @wc_d2i_PKCS12(ptr noundef %17, i32 noundef %19, ptr noundef nonnull %16)
   %21 = icmp ne i32 %20, 0
@@ -949,18 +949,18 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_nul
   br i1 %or.cond, label %22, label %.thread27
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %1, align 8, !tbaa !43
+  %23 = load ptr, ptr %1, align 8, !tbaa !42
   %.not23 = icmp eq ptr %23, null
   br i1 %.not23, label %.thread27, label %24
 
 24:                                               ; preds = %22
   call void @wc_PKCS12_free(ptr noundef nonnull %23)
-  store ptr null, ptr %1, align 8, !tbaa !43
+  store ptr null, ptr %1, align 8, !tbaa !42
   br label %.thread27
 
 .thread27:                                        ; preds = %11, %5, %15, %22, %24
   %.330.ph = phi i32 [ -125, %11 ], [ %6, %5 ], [ %20, %24 ], [ %20, %22 ], [ %20, %15 ]
-  %.pr = load ptr, ptr %3, align 8, !tbaa !40
+  %.pr = load ptr, ptr %3, align 8, !tbaa !39
   %.not24 = icmp eq ptr %.pr, null
   br i1 %.not24, label %.thread27.thread, label %25
 
@@ -1006,7 +1006,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.thread208, label %23
 
@@ -1015,23 +1015,23 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  store i32 0, ptr %9, align 4, !tbaa !29
+  store i32 0, ptr %9, align 4, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !37
+  %25 = load i32, ptr %24, align 8, !tbaa !36
   %26 = call i32 @SetAlgoID(i32 noundef %25, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0) #9
   %27 = add i32 %26, 1
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  %29 = load i32, ptr %28, align 4, !tbaa !28
+  %29 = load i32, ptr %28, align 4, !tbaa !27
   %30 = call i32 @SetLength(i32 noundef %29, ptr noundef nonnull %6) #9
   %31 = add i32 %27, %30
-  %32 = load i32, ptr %28, align 4, !tbaa !28
+  %32 = load i32, ptr %28, align 4, !tbaa !27
   %33 = add i32 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !38
+  %35 = load i32, ptr %34, align 8, !tbaa !37
   %36 = call i32 @SetLength(i32 noundef %35, ptr noundef nonnull %6) #9
-  %37 = load i32, ptr %34, align 8, !tbaa !38
+  %37 = load i32, ptr %34, align 8, !tbaa !37
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %39 = load i32, ptr %38, align 4, !tbaa !39
+  %39 = load i32, ptr %38, align 4, !tbaa !38
   %40 = call i32 @SetShortInt(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %39, i32 noundef 6) #9
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %42, label %.critedge.critedge
@@ -1060,7 +1060,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %55
   %57 = call i32 @SetSequence(i32 noundef %33, ptr noundef nonnull %56) #9
   %58 = add i32 %57, %54
-  %59 = load i32, ptr %24, align 8, !tbaa !37
+  %59 = load i32, ptr %24, align 8, !tbaa !36
   %60 = zext i32 %58 to i64
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 %60
   %62 = call i32 @SetAlgoID(i32 noundef %59, ptr noundef nonnull %61, i32 noundef 0, i32 noundef 0) #9
@@ -1069,20 +1069,20 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
 
 64:                                               ; preds = %53
   %65 = add i32 %62, %58
-  %66 = load i32, ptr %28, align 4, !tbaa !28
+  %66 = load i32, ptr %28, align 4, !tbaa !27
   %67 = zext i32 %65 to i64
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 %67
   %69 = call i32 @SetOctetString(i32 noundef %66, ptr noundef nonnull %68) #9
   %70 = add i32 %69, %65
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %52, i64 %71
-  %73 = load ptr, ptr %22, align 8, !tbaa !24
-  %74 = load i32, ptr %28, align 4, !tbaa !28
+  %73 = load ptr, ptr %22, align 8, !tbaa !23
+  %74 = load i32, ptr %28, align 4, !tbaa !27
   %75 = zext i32 %74 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr align 1 %73, i64 %75, i1 false)
-  %76 = load i32, ptr %28, align 4, !tbaa !28
+  %76 = load i32, ptr %28, align 4, !tbaa !27
   %77 = add i32 %76, %70
-  %78 = load i32, ptr %34, align 8, !tbaa !38
+  %78 = load i32, ptr %34, align 8, !tbaa !37
   %79 = zext i32 %77 to i64
   %80 = getelementptr inbounds nuw i8, ptr %52, i64 %79
   %81 = call i32 @SetOctetString(i32 noundef %78, ptr noundef nonnull %80) #9
@@ -1090,15 +1090,15 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %83 = zext i32 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %52, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !26
-  %87 = load i32, ptr %34, align 8, !tbaa !38
+  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %87 = load i32, ptr %34, align 8, !tbaa !37
   %88 = zext i32 %87 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %86, i64 %88, i1 false)
-  %89 = load i32, ptr %34, align 8, !tbaa !38
+  %89 = load i32, ptr %34, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  store i32 0, ptr %10, align 4, !tbaa !29
+  store i32 0, ptr %10, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %11) #9
-  %90 = load i32, ptr %38, align 4, !tbaa !39
+  %90 = load i32, ptr %38, align 4, !tbaa !38
   %91 = call i32 @SetShortInt(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %90, i32 noundef 6) #9
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %97, label %.thread224
@@ -1124,7 +1124,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %.0174218 = phi i32 [ %50, %.thread224 ], [ 0, %20 ]
   %.0180215 = phi ptr [ %52, %.thread224 ], [ null, %20 ]
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %100 = load i32, ptr %99, align 8, !tbaa !27
+  %100 = load i32, ptr %99, align 8, !tbaa !26
   %101 = call i32 @SetMyVersion(i32 noundef 3, ptr noundef nonnull %4, i32 noundef 0) #9
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %.thread227
@@ -1140,7 +1140,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br i1 %or.cond4, label %110, label %112
 
 110:                                              ; preds = %103
-  store i32 %108, ptr %2, align 4, !tbaa !29
+  store i32 %108, ptr %2, align 4, !tbaa !28
   %.not202 = icmp eq ptr %.0180215, null
   br i1 %.not202, label %.critedge, label %111
 
@@ -1149,7 +1149,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %.critedge
 
 112:                                              ; preds = %103
-  %113 = load ptr, ptr %1, align 8, !tbaa !40
+  %113 = load ptr, ptr %1, align 8, !tbaa !39
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %118
 
@@ -1162,7 +1162,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br i1 %109, label %119, label %122
 
 119:                                              ; preds = %118
-  %120 = load i32, ptr %2, align 4, !tbaa !29
+  %120 = load i32, ptr %2, align 4, !tbaa !28
   %121 = icmp slt i32 %120, %108
   %spec.select203 = select i1 %121, i32 -132, i32 0
   br label %122
@@ -1202,7 +1202,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %144 = add i32 %140, 10
   %145 = zext i32 %143 to i64
   %146 = getelementptr inbounds nuw i8, ptr %.0182, i64 %145
-  store i8 -96, ptr %146, align 1, !tbaa !32
+  store i8 -96, ptr %146, align 1, !tbaa !31
   %147 = sub i32 %130, %140
   %148 = add i32 %147, -13
   %149 = zext i32 %144 to i64
@@ -1219,19 +1219,19 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %160 = getelementptr inbounds nuw i8, ptr %.0182, i64 %159
   %161 = load ptr, ptr %14, align 8, !tbaa !11
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !22
+  %163 = load ptr, ptr %162, align 8, !tbaa !21
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %165 = load i32, ptr %164, align 8, !tbaa !27
+  %165 = load i32, ptr %164, align 8, !tbaa !26
   %166 = zext i32 %165 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %160, ptr align 1 %163, i64 %166, i1 false)
-  %167 = load ptr, ptr %21, align 8, !tbaa !23
+  %167 = load ptr, ptr %21, align 8, !tbaa !22
   %.not200 = icmp eq ptr %167, null
   br i1 %.not200, label %176, label %168
 
 168:                                              ; preds = %125
   %169 = load ptr, ptr %14, align 8, !tbaa !11
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %171 = load i32, ptr %170, align 8, !tbaa !27
+  %171 = load i32, ptr %170, align 8, !tbaa !26
   %172 = add i32 %171, %158
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds nuw i8, ptr %.0182, i64 %173
@@ -1240,12 +1240,12 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %176
 
 176:                                              ; preds = %168, %125
-  %177 = load ptr, ptr %1, align 8, !tbaa !40
+  %177 = load ptr, ptr %1, align 8, !tbaa !39
   %178 = icmp eq ptr %177, null
   %179 = zext i32 %108 to i64
   %storemerge.idx = select i1 %178, i64 0, i64 %179
   %storemerge = getelementptr inbounds nuw i8, ptr %.0182, i64 %storemerge.idx
-  store ptr %storemerge, ptr %1, align 8, !tbaa !40
+  store ptr %storemerge, ptr %1, align 8, !tbaa !39
   br label %.thread227
 
 .thread227:                                       ; preds = %.thread208, %122, %176
@@ -1298,8 +1298,8 @@ define void @wc_FreeCertList(ptr noundef %0, ptr noundef readnone captures(none)
 .preheader:                                       ; preds = %2, %8
   %.014 = phi ptr [ %5, %8 ], [ %0, %2 ]
   %4 = getelementptr inbounds nuw i8, ptr %.014, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !45
-  %6 = load ptr, ptr %.014, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %6 = load ptr, ptr %.014, align 8, !tbaa !47
   %.not13 = icmp eq ptr %6, null
   br i1 %.not13, label %8, label %7
 
@@ -1310,7 +1310,7 @@ define void @wc_FreeCertList(ptr noundef %0, ptr noundef readnone captures(none)
 8:                                                ; preds = %.preheader, %7
   tail call void @wolfSSL_Free(ptr noundef nonnull %.014) #9
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %8, %2
   ret void
@@ -1346,18 +1346,18 @@ define i32 @wc_PKCS12_parse(ptr noundef readonly captures(address_is_null) %0, p
 24:                                               ; preds = %7
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %26 = trunc i64 %25 to i32
-  store ptr null, ptr %4, align 8, !tbaa !40
-  store ptr null, ptr %2, align 8, !tbaa !40
+  store ptr null, ptr %4, align 8, !tbaa !39
+  store ptr null, ptr %2, align 8, !tbaa !39
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %24
-  store ptr null, ptr %6, align 8, !tbaa !50
+  store ptr null, ptr %6, align 8, !tbaa !49
   br label %28
 
 28:                                               ; preds = %27, %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !23
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
   %.not251 = icmp eq ptr %30, null
   br i1 %.not251, label %49, label %31
 
@@ -1365,16 +1365,16 @@ define i32 @wc_PKCS12_parse(ptr noundef readonly captures(address_is_null) %0, p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !22
+  %35 = load ptr, ptr %34, align 8, !tbaa !21
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %37 = load i32, ptr %36, align 8, !tbaa !27
+  %37 = load i32, ptr %36, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
   %38 = icmp eq ptr %35, null
   br i1 %38, label %wc_PKCS12_verify.exit.thread, label %39
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  %41 = load i32, ptr %40, align 4, !tbaa !28
+  %41 = load i32, ptr %40, align 4, !tbaa !27
   %42 = icmp ugt i32 %41, 64
   br i1 %42, label %wc_PKCS12_verify.exit.thread, label %43
 
@@ -1388,8 +1388,8 @@ wc_PKCS12_verify.exit.thread:                     ; preds = %31, %39, %43
   br label %wc_FreeCertList.exit281
 
 wc_PKCS12_verify.exit:                            ; preds = %43
-  %46 = load ptr, ptr %30, align 8, !tbaa !24
-  %47 = load i32, ptr %40, align 4, !tbaa !28
+  %46 = load ptr, ptr %30, align 8, !tbaa !23
+  %47 = load i32, ptr %40, align 4, !tbaa !27
   %48 = zext i32 %47 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %9, ptr %46, i64 %48)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #9
@@ -1418,20 +1418,20 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %.0193390 = phi i32 [ %299, %296 ], [ 0, %.lr.ph394.preheader ]
   %.0286389 = phi ptr [ %.2288.lcssa, %296 ], [ null, %.lr.ph394.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
-  store i32 0, ptr %12, align 4, !tbaa !29
+  store i32 0, ptr %12, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #9
-  %57 = load ptr, ptr %.0185392, align 8, !tbaa !35
+  %57 = load ptr, ptr %.0185392, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %.0185392, i64 24
-  %59 = load i32, ptr %58, align 8, !tbaa !33
+  %59 = load i32, ptr %58, align 8, !tbaa !32
   %60 = icmp eq i32 %59, 656
   br i1 %60, label %61, label %106
 
 61:                                               ; preds = %.lr.ph394
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #9
   %62 = getelementptr inbounds nuw i8, ptr %.0185392, i64 20
-  %63 = load i32, ptr %62, align 4, !tbaa !34
+  %63 = load i32, ptr %62, align 4, !tbaa !33
   %64 = call i32 @GetASNTag(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %63) #9
   %65 = icmp sgt i32 %64, -1
   %66 = load i8, ptr %15, align 1
@@ -1440,31 +1440,31 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond268, label %67, label %.thread
 
 67:                                               ; preds = %61
-  %68 = load i32, ptr %62, align 4, !tbaa !34
+  %68 = load i32, ptr %62, align 4, !tbaa !33
   %69 = call i32 @GetLength(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %68) #9
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %67
-  %72 = load i32, ptr %62, align 4, !tbaa !34
+  %72 = load i32, ptr %62, align 4, !tbaa !33
   %73 = call i32 @GetSequence(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %72) #9
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %71
-  %76 = load i32, ptr %62, align 4, !tbaa !34
+  %76 = load i32, ptr %62, align 4, !tbaa !33
   %77 = call i32 @GetShortInt(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %16, i32 noundef %76) #9
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = load i32, ptr %62, align 4, !tbaa !34
+  %80 = load i32, ptr %62, align 4, !tbaa !33
   %81 = call i32 @GetSequence(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %80) #9
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %.thread, label %83
 
 83:                                               ; preds = %79
-  %84 = load i32, ptr %62, align 4, !tbaa !34
+  %84 = load i32, ptr %62, align 4, !tbaa !33
   %85 = call i32 @GetObjectId(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 21, i32 noundef %84) #9
   %86 = icmp slt i32 %85, 0
   %87 = load i32, ptr %10, align 4
@@ -1473,23 +1473,23 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond16, label %.thread, label %89
 
 89:                                               ; preds = %83
-  %90 = load i32, ptr %62, align 4, !tbaa !34
-  %91 = load i32, ptr %12, align 4, !tbaa !29
+  %90 = load i32, ptr %62, align 4, !tbaa !33
+  %91 = load i32, ptr %12, align 4, !tbaa !28
   %92 = sub i32 %90, %91
-  store i32 %92, ptr %13, align 4, !tbaa !29
+  store i32 %92, ptr %13, align 4, !tbaa !28
   %93 = sext i32 %92 to i64
   %94 = call ptr @wolfSSL_Malloc(i64 noundef %93) #9
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %89
-  %97 = load i32, ptr %12, align 4, !tbaa !29
+  %97 = load i32, ptr %12, align 4, !tbaa !28
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %57, i64 %98
-  %100 = load i32, ptr %13, align 4, !tbaa !29
+  %100 = load i32, ptr %13, align 4, !tbaa !28
   %101 = sext i32 %100 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %99, i64 %101, i1 false)
-  %102 = load i32, ptr %13, align 4, !tbaa !29
+  %102 = load i32, ptr %13, align 4, !tbaa !28
   %103 = call i32 @DecryptContent(ptr noundef nonnull %94, i32 noundef %102, ptr noundef nonnull %1, i32 noundef %26) #9
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %.thread, label %105
@@ -1501,13 +1501,13 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %wc_FreeCertList.exit.thread339
 
 105:                                              ; preds = %96
-  store i32 0, ptr %12, align 4, !tbaa !29
+  store i32 0, ptr %12, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #9
   br label %125
 
 106:                                              ; preds = %.lr.ph394
   %107 = getelementptr inbounds nuw i8, ptr %.0185392, i64 20
-  %108 = load i32, ptr %107, align 4, !tbaa !34
+  %108 = load i32, ptr %107, align 4, !tbaa !33
   %109 = call i32 @GetASNTag(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %108) #9
   %110 = icmp sgt i32 %109, -1
   %111 = load i8, ptr %15, align 1
@@ -1516,13 +1516,13 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond269, label %112, label %wc_FreeCertList.exit.thread339
 
 112:                                              ; preds = %106
-  %113 = load i32, ptr %107, align 4, !tbaa !34
+  %113 = load i32, ptr %107, align 4, !tbaa !33
   %114 = call i32 @GetLength(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %113) #9
   %115 = icmp slt i32 %114, 1
   br i1 %115, label %wc_FreeCertList.exit.thread339, label %116
 
 116:                                              ; preds = %112
-  %117 = load i32, ptr %107, align 4, !tbaa !34
+  %117 = load i32, ptr %107, align 4, !tbaa !33
   %118 = call i32 @GetASNTag(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %117) #9
   %119 = icmp sgt i32 %118, -1
   %120 = load i8, ptr %15, align 1
@@ -1531,7 +1531,7 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond270, label %121, label %wc_FreeCertList.exit.thread339
 
 121:                                              ; preds = %116
-  %122 = load i32, ptr %107, align 4, !tbaa !34
+  %122 = load i32, ptr %107, align 4, !tbaa !33
   %123 = call i32 @GetLength(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %122) #9
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %wc_FreeCertList.exit.thread339, label %125
@@ -1540,16 +1540,16 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %.1208 = phi ptr [ %94, %105 ], [ %57, %121 ]
   %.3191 = phi ptr [ %94, %105 ], [ null, %121 ]
   %126 = getelementptr inbounds nuw i8, ptr %.0185392, i64 20
-  %127 = load i32, ptr %126, align 4, !tbaa !34
+  %127 = load i32, ptr %126, align 4, !tbaa !33
   %128 = call i32 @GetSequence(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %14, i32 noundef %127) #9
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %wc_FreeCertList.exit.thread339, label %130
 
 130:                                              ; preds = %125
-  %131 = load i32, ptr %12, align 4, !tbaa !29
-  %132 = load i32, ptr %14, align 4, !tbaa !29
+  %131 = load i32, ptr %12, align 4, !tbaa !28
+  %132 = load i32, ptr %14, align 4, !tbaa !28
   %133 = add nsw i32 %132, %131
-  store i32 %133, ptr %14, align 4, !tbaa !29
+  store i32 %133, ptr %14, align 4, !tbaa !28
   %134 = icmp sgt i32 %132, 0
   br i1 %134, label %.lr.ph, label %._crit_edge
 
@@ -1557,23 +1557,23 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %.2387 = phi ptr [ %.4, %291 ], [ %.0186391, %130 ]
   %.2288386 = phi ptr [ %.4290, %291 ], [ %.0286389, %130 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #9
-  %135 = load i32, ptr %126, align 4, !tbaa !34
+  %135 = load i32, ptr %126, align 4, !tbaa !33
   %136 = call i32 @GetSequence(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %17, i32 noundef %135) #9
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %wc_FreeCertList.exit, label %138
 
 138:                                              ; preds = %.lr.ph
-  %139 = load i32, ptr %12, align 4, !tbaa !29
-  %140 = load i32, ptr %17, align 4, !tbaa !29
+  %139 = load i32, ptr %12, align 4, !tbaa !28
+  %140 = load i32, ptr %17, align 4, !tbaa !28
   %141 = add nsw i32 %140, %139
-  store i32 %141, ptr %17, align 4, !tbaa !29
-  %142 = load i32, ptr %126, align 4, !tbaa !34
+  store i32 %141, ptr %17, align 4, !tbaa !28
+  %142 = load i32, ptr %126, align 4, !tbaa !33
   %143 = call i32 @GetObjectId(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 21, i32 noundef %142) #9
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %wc_FreeCertList.exit, label %145
 
 145:                                              ; preds = %138
-  %146 = load i32, ptr %10, align 4, !tbaa !29
+  %146 = load i32, ptr %10, align 4, !tbaa !28
   switch i32 %146, label %._crit_edge431 [
     i32 667, label %147
     i32 668, label %179
@@ -1581,11 +1581,11 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   ]
 
 ._crit_edge431:                                   ; preds = %145
-  %.pre432 = load i32, ptr %12, align 4, !tbaa !29
+  %.pre432 = load i32, ptr %12, align 4, !tbaa !28
   br label %286
 
 147:                                              ; preds = %145
-  %148 = load i32, ptr %126, align 4, !tbaa !34
+  %148 = load i32, ptr %126, align 4, !tbaa !33
   %149 = call i32 @GetASNTag(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %148) #9
   %150 = icmp sgt i32 %149, -1
   %151 = load i8, ptr %15, align 1
@@ -1594,7 +1594,7 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond271, label %152, label %wc_FreeCertList.exit
 
 152:                                              ; preds = %147
-  %153 = load i32, ptr %126, align 4, !tbaa !34
+  %153 = load i32, ptr %126, align 4, !tbaa !33
   %154 = call i32 @GetLength(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %153) #9
   %155 = icmp slt i32 %154, 1
   br i1 %155, label %156, label %158
@@ -1605,40 +1605,40 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %wc_FreeCertList.exit
 
 158:                                              ; preds = %152
-  %159 = load ptr, ptr %2, align 8, !tbaa !40
+  %159 = load ptr, ptr %2, align 8, !tbaa !39
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %175
 
 161:                                              ; preds = %158
-  %162 = load i32, ptr %13, align 4, !tbaa !29
+  %162 = load i32, ptr %13, align 4, !tbaa !28
   %163 = sext i32 %162 to i64
   %164 = call ptr @wolfSSL_Malloc(i64 noundef %163) #9
-  store ptr %164, ptr %2, align 8, !tbaa !40
+  store ptr %164, ptr %2, align 8, !tbaa !39
   %165 = icmp eq ptr %164, null
   br i1 %165, label %wc_FreeCertList.exit, label %166
 
 166:                                              ; preds = %161
-  %167 = load i32, ptr %12, align 4, !tbaa !29
+  %167 = load i32, ptr %12, align 4, !tbaa !28
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.1208, i64 %168
-  %170 = load i32, ptr %13, align 4, !tbaa !29
+  %170 = load i32, ptr %13, align 4, !tbaa !28
   %171 = sext i32 %170 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %164, ptr align 1 %169, i64 %171, i1 false)
-  %172 = load ptr, ptr %2, align 8, !tbaa !40
-  %173 = load i32, ptr %13, align 4, !tbaa !29
+  %172 = load ptr, ptr %2, align 8, !tbaa !39
+  %173 = load i32, ptr %13, align 4, !tbaa !28
   %174 = call i32 @ToTraditional_ex(ptr noundef %172, i32 noundef %173, ptr noundef nonnull %11) #9
-  store i32 %174, ptr %3, align 4, !tbaa !29
+  store i32 %174, ptr %3, align 4, !tbaa !28
   br label %175
 
 175:                                              ; preds = %166, %158
-  %176 = load i32, ptr %13, align 4, !tbaa !29
-  %177 = load i32, ptr %12, align 4, !tbaa !29
+  %176 = load i32, ptr %13, align 4, !tbaa !28
+  %177 = load i32, ptr %12, align 4, !tbaa !28
   %178 = add i32 %177, %176
-  store i32 %178, ptr %12, align 4, !tbaa !29
+  store i32 %178, ptr %12, align 4, !tbaa !28
   br label %286
 
 179:                                              ; preds = %145
-  %180 = load i32, ptr %126, align 4, !tbaa !34
+  %180 = load i32, ptr %126, align 4, !tbaa !33
   %181 = call i32 @GetASNTag(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %180) #9
   %182 = icmp sgt i32 %181, -1
   %183 = load i8, ptr %15, align 1
@@ -1647,26 +1647,26 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond272, label %184, label %wc_FreeCertList.exit
 
 184:                                              ; preds = %179
-  %185 = load i32, ptr %126, align 4, !tbaa !34
+  %185 = load i32, ptr %126, align 4, !tbaa !33
   %186 = call i32 @GetLength(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %185) #9
   %187 = icmp slt i32 %186, 0
   br i1 %187, label %wc_FreeCertList.exit, label %188
 
 188:                                              ; preds = %184
-  %189 = load i32, ptr %13, align 4, !tbaa !29
+  %189 = load i32, ptr %13, align 4, !tbaa !28
   %190 = sext i32 %189 to i64
   %191 = call ptr @wolfSSL_Malloc(i64 noundef %190) #9
   %192 = icmp eq ptr %191, null
   br i1 %192, label %wc_FreeCertList.exit, label %193
 
 193:                                              ; preds = %188
-  %194 = load i32, ptr %12, align 4, !tbaa !29
+  %194 = load i32, ptr %12, align 4, !tbaa !28
   %195 = zext i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %.1208, i64 %195
-  %197 = load i32, ptr %13, align 4, !tbaa !29
+  %197 = load i32, ptr %13, align 4, !tbaa !28
   %198 = sext i32 %197 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %191, ptr align 1 %196, i64 %198, i1 false)
-  %199 = load i32, ptr %13, align 4, !tbaa !29
+  %199 = load i32, ptr %13, align 4, !tbaa !28
   %200 = call i32 @ToTraditionalEnc(ptr noundef nonnull %191, i32 noundef %199, ptr noundef nonnull %1, i32 noundef %26, ptr noundef nonnull %11) #9
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %202, label %203
@@ -1676,7 +1676,7 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %wc_FreeCertList.exit
 
 203:                                              ; preds = %193
-  %204 = load i32, ptr %13, align 4, !tbaa !29
+  %204 = load i32, ptr %13, align 4, !tbaa !28
   %205 = icmp slt i32 %200, %204
   br i1 %205, label %206, label %210
 
@@ -1697,30 +1697,30 @@ wc_PKCS12_verify.exit:                            ; preds = %43
 
 210:                                              ; preds = %209, %203
   %.0209 = phi ptr [ %208, %209 ], [ %191, %203 ]
-  store i32 %200, ptr %13, align 4, !tbaa !29
-  %211 = load ptr, ptr %2, align 8, !tbaa !40
+  store i32 %200, ptr %13, align 4, !tbaa !28
+  %211 = load ptr, ptr %2, align 8, !tbaa !39
   %212 = icmp eq ptr %211, null
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %210
-  store ptr %.0209, ptr %2, align 8, !tbaa !40
-  store i32 %200, ptr %3, align 4, !tbaa !29
+  store ptr %.0209, ptr %2, align 8, !tbaa !39
+  store i32 %200, ptr %3, align 4, !tbaa !28
   br label %215
 
 214:                                              ; preds = %210
   call void @wolfSSL_Free(ptr noundef nonnull %.0209) #9
-  %.pre = load i32, ptr %13, align 4, !tbaa !29
+  %.pre = load i32, ptr %13, align 4, !tbaa !28
   br label %215
 
 215:                                              ; preds = %213, %214
   %216 = phi i32 [ %200, %213 ], [ %.pre, %214 ]
-  %217 = load i32, ptr %12, align 4, !tbaa !29
+  %217 = load i32, ptr %12, align 4, !tbaa !28
   %218 = add i32 %217, %216
-  store i32 %218, ptr %12, align 4, !tbaa !29
+  store i32 %218, ptr %12, align 4, !tbaa !28
   br label %286
 
 219:                                              ; preds = %145
-  %220 = load i32, ptr %126, align 4, !tbaa !34
+  %220 = load i32, ptr %126, align 4, !tbaa !33
   %221 = call i32 @GetASNTag(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %220) #9
   %222 = icmp sgt i32 %221, -1
   %223 = load i8, ptr %15, align 1
@@ -1729,30 +1729,30 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond273, label %224, label %wc_FreeCertList.exit
 
 224:                                              ; preds = %219
-  %225 = load i32, ptr %126, align 4, !tbaa !34
+  %225 = load i32, ptr %126, align 4, !tbaa !33
   %226 = call i32 @GetLength(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %225) #9
   %227 = icmp slt i32 %226, 0
   br i1 %227, label %wc_FreeCertList.exit, label %228
 
 228:                                              ; preds = %224
-  %229 = load i32, ptr %126, align 4, !tbaa !34
+  %229 = load i32, ptr %126, align 4, !tbaa !33
   %230 = call i32 @GetSequence(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %229) #9
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %wc_FreeCertList.exit, label %232
 
 232:                                              ; preds = %228
-  %233 = load i32, ptr %126, align 4, !tbaa !34
+  %233 = load i32, ptr %126, align 4, !tbaa !33
   %234 = call i32 @GetObjectId(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 21, i32 noundef %233) #9
   %235 = icmp slt i32 %234, 0
   br i1 %235, label %wc_FreeCertList.exit, label %236
 
 236:                                              ; preds = %232
-  %237 = load i32, ptr %10, align 4, !tbaa !29
+  %237 = load i32, ptr %10, align 4, !tbaa !28
   %cond1 = icmp eq i32 %237, 675
   br i1 %cond1, label %238, label %258
 
 238:                                              ; preds = %236
-  %239 = load i32, ptr %126, align 4, !tbaa !34
+  %239 = load i32, ptr %126, align 4, !tbaa !33
   %240 = call i32 @GetASNTag(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %239) #9
   %241 = icmp sgt i32 %240, -1
   %242 = load i8, ptr %15, align 1
@@ -1761,7 +1761,7 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond274, label %243, label %wc_FreeCertList.exit
 
 243:                                              ; preds = %238
-  %244 = load i32, ptr %126, align 4, !tbaa !34
+  %244 = load i32, ptr %126, align 4, !tbaa !33
   %245 = call i32 @GetLength(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %244) #9
   %246 = icmp slt i32 %245, 1
   br i1 %246, label %247, label %249
@@ -1772,7 +1772,7 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %wc_FreeCertList.exit
 
 249:                                              ; preds = %243
-  %250 = load i32, ptr %126, align 4, !tbaa !34
+  %250 = load i32, ptr %126, align 4, !tbaa !33
   %251 = call i32 @GetASNTag(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %250) #9
   %252 = icmp sgt i32 %251, -1
   %253 = load i8, ptr %15, align 1
@@ -1781,16 +1781,16 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %or.cond275, label %254, label %wc_FreeCertList.exit
 
 254:                                              ; preds = %249
-  %255 = load i32, ptr %126, align 4, !tbaa !34
+  %255 = load i32, ptr %126, align 4, !tbaa !33
   %256 = call i32 @GetLength(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %255) #9
   %257 = icmp slt i32 %256, 0
   br i1 %257, label %wc_FreeCertList.exit, label %258
 
 258:                                              ; preds = %236, %254
-  %259 = load i32, ptr %13, align 4, !tbaa !29
-  %260 = load i32, ptr %12, align 4, !tbaa !29
+  %259 = load i32, ptr %13, align 4, !tbaa !28
+  %260 = load i32, ptr %12, align 4, !tbaa !28
   %261 = add nsw i32 %260, %259
-  %262 = load i32, ptr %17, align 4, !tbaa !29
+  %262 = load i32, ptr %17, align 4, !tbaa !28
   %263 = icmp sgt i32 %261, %262
   br i1 %263, label %wc_FreeCertList.exit, label %264
 
@@ -1801,10 +1801,10 @@ wc_PKCS12_verify.exit:                            ; preds = %43
 
 267:                                              ; preds = %264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %265, i8 0, i64 24, i1 false)
-  %268 = load i32, ptr %13, align 4, !tbaa !29
+  %268 = load i32, ptr %13, align 4, !tbaa !28
   %269 = sext i32 %268 to i64
   %270 = call ptr @wolfSSL_Malloc(i64 noundef %269) #9
-  store ptr %270, ptr %265, align 8, !tbaa !48
+  store ptr %270, ptr %265, align 8, !tbaa !47
   %271 = icmp eq ptr %270, null
   br i1 %271, label %272, label %273
 
@@ -1813,48 +1813,48 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %wc_FreeCertList.exit
 
 273:                                              ; preds = %267
-  %274 = load i32, ptr %12, align 4, !tbaa !29
+  %274 = load i32, ptr %12, align 4, !tbaa !28
   %275 = zext i32 %274 to i64
   %276 = getelementptr inbounds nuw i8, ptr %.1208, i64 %275
-  %277 = load i32, ptr %13, align 4, !tbaa !29
+  %277 = load i32, ptr %13, align 4, !tbaa !28
   %278 = sext i32 %277 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %270, ptr align 1 %276, i64 %278, i1 false)
-  %279 = load i32, ptr %13, align 4, !tbaa !29
+  %279 = load i32, ptr %13, align 4, !tbaa !28
   %280 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  store i32 %279, ptr %280, align 8, !tbaa !51
+  store i32 %279, ptr %280, align 8, !tbaa !50
   %.not261 = icmp eq ptr %.2288386, null
   br i1 %.not261, label %283, label %281
 
 281:                                              ; preds = %273
   %282 = getelementptr inbounds nuw i8, ptr %.2387, i64 16
-  store ptr %265, ptr %282, align 8, !tbaa !45
+  store ptr %265, ptr %282, align 8, !tbaa !44
   br label %283
 
 283:                                              ; preds = %281, %273
   %.6 = phi ptr [ %.2288386, %281 ], [ %265, %273 ]
-  %284 = load i32, ptr %12, align 4, !tbaa !29
+  %284 = load i32, ptr %12, align 4, !tbaa !28
   %285 = add i32 %284, %279
-  store i32 %285, ptr %12, align 4, !tbaa !29
+  store i32 %285, ptr %12, align 4, !tbaa !28
   br label %286
 
 286:                                              ; preds = %._crit_edge431, %283, %215, %175
   %287 = phi i32 [ %.pre432, %._crit_edge431 ], [ %178, %175 ], [ %218, %215 ], [ %285, %283 ]
   %.4290 = phi ptr [ %.2288386, %._crit_edge431 ], [ %.2288386, %175 ], [ %.2288386, %215 ], [ %.6, %283 ]
   %.4 = phi ptr [ %.2387, %._crit_edge431 ], [ %.2387, %175 ], [ %.2387, %215 ], [ %265, %283 ]
-  %288 = load i32, ptr %17, align 4, !tbaa !29
+  %288 = load i32, ptr %17, align 4, !tbaa !28
   %289 = icmp slt i32 %287, %288
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %286
-  store i32 %288, ptr %12, align 4, !tbaa !29
+  store i32 %288, ptr %12, align 4, !tbaa !28
   br label %291
 
 291:                                              ; preds = %286, %290
   %292 = phi i32 [ %287, %286 ], [ %288, %290 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #9
-  %293 = load i32, ptr %14, align 4, !tbaa !29
+  %293 = load i32, ptr %14, align 4, !tbaa !28
   %294 = icmp slt i32 %292, %293
-  br i1 %294, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %294, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %291, %130
   %.2288.lcssa = phi ptr [ %.0286389, %130 ], [ %.4290, %291 ]
@@ -1878,15 +1878,15 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 20
   %302 = load i32, ptr %301, align 4, !tbaa !12
   %303 = icmp ult i32 %299, %302
-  br i1 %303, label %.lr.ph394, label %._crit_edge395, !llvm.loop !53
+  br i1 %303, label %.lr.ph394, label %._crit_edge395, !llvm.loop !52
 
 ._crit_edge395:                                   ; preds = %296
-  %304 = load ptr, ptr %2, align 8, !tbaa !40
+  %304 = load ptr, ptr %2, align 8, !tbaa !39
   %.not253 = icmp eq ptr %304, null
   br i1 %.not253, label %331, label %306
 
 ._crit_edge395.thread:                            ; preds = %53
-  %305 = load ptr, ptr %2, align 8, !tbaa !40
+  %305 = load ptr, ptr %2, align 8, !tbaa !39
   %.not253434 = icmp eq ptr %305, null
   br i1 %.not253434, label %.thread439, label %.thread436
 
@@ -1903,35 +1903,35 @@ wc_PKCS12_verify.exit:                            ; preds = %43
 .lr.ph.i:                                         ; preds = %306, %328
   %.027.i = phi ptr [ %330, %328 ], [ %.2288.lcssa, %306 ]
   %.02226.i = phi ptr [ %.027.i, %328 ], [ null, %306 ]
-  %308 = load ptr, ptr %.027.i, align 8, !tbaa !48
+  %308 = load ptr, ptr %.027.i, align 8, !tbaa !47
   %309 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
-  %310 = load i32, ptr %309, align 8, !tbaa !51
+  %310 = load i32, ptr %309, align 8, !tbaa !50
   call void @InitDecodedCert(ptr noundef nonnull %8, ptr noundef %308, i32 noundef %310, ptr noundef %307) #9
   %311 = call i32 @ParseCertRelative(ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %313, label %328
 
 313:                                              ; preds = %.lr.ph.i
-  %314 = load ptr, ptr %2, align 8, !tbaa !40
-  %315 = load i32, ptr %3, align 4, !tbaa !29
+  %314 = load ptr, ptr %2, align 8, !tbaa !39
+  %315 = load i32, ptr %3, align 4, !tbaa !28
   %316 = call i32 @wc_CheckPrivateKeyCert(ptr noundef %314, i32 noundef %315, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %307) #9
   %317 = icmp eq i32 %316, 1
   br i1 %317, label %318, label %328
 
 318:                                              ; preds = %313
   %319 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
-  %320 = load ptr, ptr %.027.i, align 8, !tbaa !48
-  store ptr %320, ptr %4, align 8, !tbaa !40
-  %321 = load i32, ptr %319, align 8, !tbaa !51
-  store i32 %321, ptr %5, align 4, !tbaa !29
+  %320 = load ptr, ptr %.027.i, align 8, !tbaa !47
+  store ptr %320, ptr %4, align 8, !tbaa !39
+  %321 = load i32, ptr %319, align 8, !tbaa !50
+  store i32 %321, ptr %5, align 4, !tbaa !28
   %322 = icmp eq ptr %.02226.i, null
   %323 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
-  %324 = load ptr, ptr %323, align 8, !tbaa !45
+  %324 = load ptr, ptr %323, align 8, !tbaa !44
   br i1 %322, label %327, label %325
 
 325:                                              ; preds = %318
   %326 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 16
-  store ptr %324, ptr %326, align 8, !tbaa !45
+  store ptr %324, ptr %326, align 8, !tbaa !44
   br label %327
 
 327:                                              ; preds = %318, %325
@@ -1943,9 +1943,9 @@ wc_PKCS12_verify.exit:                            ; preds = %43
 328:                                              ; preds = %313, %.lr.ph.i
   call void @FreeDecodedCert(ptr noundef nonnull %8) #9
   %329 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
-  %330 = load ptr, ptr %329, align 8, !tbaa !45
+  %330 = load ptr, ptr %329, align 8, !tbaa !44
   %.not.i = icmp eq ptr %330, null
-  br i1 %.not.i, label %freeDecCertList.exit, label %.lr.ph.i, !llvm.loop !54
+  br i1 %.not.i, label %freeDecCertList.exit, label %.lr.ph.i, !llvm.loop !53
 
 freeDecCertList.exit:                             ; preds = %328, %.thread436, %306, %327
   %.10295 = phi ptr [ null, %306 ], [ %.9294, %327 ], [ null, %.thread436 ], [ %.2288.lcssa, %328 ]
@@ -1961,7 +1961,7 @@ freeDecCertList.exit:                             ; preds = %328, %.thread436, %
 
 332:                                              ; preds = %.thread439, %331
   %.8293442 = phi ptr [ null, %.thread439 ], [ %.8293, %331 ]
-  store ptr %.8293442, ptr %6, align 8, !tbaa !50
+  store ptr %.8293442, ptr %6, align 8, !tbaa !49
   br label %wc_FreeCertList.exit281
 
 333:                                              ; preds = %331
@@ -1971,8 +1971,8 @@ freeDecCertList.exit:                             ; preds = %328, %.thread436, %
 .preheader.i:                                     ; preds = %333, %339
   %.014.i = phi ptr [ %336, %339 ], [ %.8293, %333 ]
   %335 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
-  %336 = load ptr, ptr %335, align 8, !tbaa !45
-  %337 = load ptr, ptr %.014.i, align 8, !tbaa !48
+  %336 = load ptr, ptr %335, align 8, !tbaa !44
+  %337 = load ptr, ptr %.014.i, align 8, !tbaa !47
   %.not13.i = icmp eq ptr %337, null
   br i1 %.not13.i, label %339, label %338
 
@@ -1983,7 +1983,7 @@ freeDecCertList.exit:                             ; preds = %328, %.thread436, %
 339:                                              ; preds = %338, %.preheader.i
   call void @wolfSSL_Free(ptr noundef nonnull %.014.i) #9
   %.not.i276 = icmp eq ptr %336, null
-  br i1 %.not.i276, label %wc_FreeCertList.exit281, label %.preheader.i, !llvm.loop !49
+  br i1 %.not.i276, label %wc_FreeCertList.exit281, label %.preheader.i, !llvm.loop !48
 
 wc_FreeCertList.exit:                             ; preds = %264, %258, %254, %249, %238, %232, %228, %224, %219, %188, %184, %179, %.lr.ph, %138, %147, %161, %156, %272, %247, %.thread303, %202
   %.3197.ph = phi i32 [ -125, %.thread303 ], [ %200, %202 ], [ -125, %272 ], [ %spec.store.select17, %247 ], [ %spec.select, %156 ], [ -140, %219 ], [ %226, %224 ], [ %230, %228 ], [ %234, %232 ], [ -140, %238 ], [ -140, %249 ], [ %256, %254 ], [ -140, %258 ], [ -125, %264 ], [ -140, %179 ], [ %186, %184 ], [ -125, %188 ], [ %136, %.lr.ph ], [ %143, %138 ], [ -140, %147 ], [ -125, %161 ]
@@ -1998,13 +1998,13 @@ wc_FreeCertList.exit.thread339:                   ; preds = %106, %112, %116, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  %340 = load ptr, ptr %2, align 8, !tbaa !40
+  %340 = load ptr, ptr %2, align 8, !tbaa !39
   %.not266 = icmp eq ptr %340, null
   br i1 %.not266, label %342, label %341
 
 341:                                              ; preds = %wc_FreeCertList.exit.thread339
   call void @wolfSSL_Free(ptr noundef nonnull %340) #9
-  store ptr null, ptr %2, align 8, !tbaa !40
+  store ptr null, ptr %2, align 8, !tbaa !39
   br label %342
 
 342:                                              ; preds = %wc_FreeCertList.exit.thread339, %341
@@ -2022,8 +2022,8 @@ wc_FreeCertList.exit.thread339:                   ; preds = %106, %112, %116, %1
 .preheader.i277:                                  ; preds = %344, %350
   %.014.i278 = phi ptr [ %347, %350 ], [ %.1287.ph344, %344 ]
   %346 = getelementptr inbounds nuw i8, ptr %.014.i278, i64 16
-  %347 = load ptr, ptr %346, align 8, !tbaa !45
-  %348 = load ptr, ptr %.014.i278, align 8, !tbaa !48
+  %347 = load ptr, ptr %346, align 8, !tbaa !44
+  %348 = load ptr, ptr %.014.i278, align 8, !tbaa !47
   %.not13.i279 = icmp eq ptr %348, null
   br i1 %.not13.i279, label %350, label %349
 
@@ -2034,7 +2034,7 @@ wc_FreeCertList.exit.thread339:                   ; preds = %106, %112, %116, %1
 350:                                              ; preds = %349, %.preheader.i277
   call void @wolfSSL_Free(ptr noundef nonnull %.014.i278) #9
   %.not.i280 = icmp eq ptr %347, null
-  br i1 %.not.i280, label %wc_FreeCertList.exit281, label %.preheader.i277, !llvm.loop !49
+  br i1 %.not.i280, label %wc_FreeCertList.exit281, label %.preheader.i277, !llvm.loop !48
 
 wc_FreeCertList.exit281:                          ; preds = %350, %339, %.thread439, %333, %332, %344, %wc_PKCS12_verify.exit.thread, %49, %wc_PKCS12_verify.exit, %7
   %.0 = phi i32 [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -173, %49 ], [ -213, %wc_PKCS12_verify.exit.thread ], [ %.1195.ph345, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread439 ], [ 0, %339 ], [ %.1195.ph345, %350 ]
@@ -2097,7 +2097,7 @@ define ptr @wc_PKCS12_create(ptr noundef %0, i32 noundef %1, ptr noundef readnon
   store ptr %13, ptr %30, align 8, !tbaa !3
   %36 = icmp slt i32 %10, 1
   %spec.store.select = select i1 %36, i32 2048, i32 %10
-  store i32 0, ptr %26, align 4, !tbaa !29
+  store i32 0, ptr %26, align 4, !tbaa !28
   switch i32 %8, label %109 [
     i32 1, label %37
     i32 2, label %37
@@ -2107,7 +2107,7 @@ define ptr @wc_PKCS12_create(ptr noundef %0, i32 noundef %1, ptr noundef readnon
 
 37:                                               ; preds = %34, %34, %34, %34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #9
-  store i32 0, ptr %23, align 4, !tbaa !29
+  store i32 0, ptr %23, align 4, !tbaa !28
   %38 = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly %30, ptr noundef nonnull %24, ptr noundef null, ptr noundef %23, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 -1, 4) %8, ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select)
   %39 = icmp ne i32 %38, -202
   %40 = icmp slt i32 %38, 0
@@ -2115,7 +2115,7 @@ define ptr @wc_PKCS12_create(ptr noundef %0, i32 noundef %1, ptr noundef readnon
   br i1 %or.cond.i.i, label %wc_PKCS12_create_key_bag.exit.i, label %wc_PKCS12_create_key_bag.exit.thread.i
 
 wc_PKCS12_create_key_bag.exit.thread.i:           ; preds = %37
-  %41 = load i32, ptr %23, align 4, !tbaa !29
+  %41 = load i32, ptr %23, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #9
   %42 = add i32 %41, 29
   %43 = zext i32 %42 to i64
@@ -2130,7 +2130,7 @@ wc_PKCS12_create_key_bag.exit.i:                  ; preds = %37
 46:                                               ; preds = %wc_PKCS12_create_key_bag.exit.thread.i
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #9
-  store i32 0, ptr %22, align 4, !tbaa !29
+  store i32 0, ptr %22, align 4, !tbaa !28
   %48 = call fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly %30, ptr noundef nonnull %24, ptr noundef null, ptr noundef %22, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 -1, 4) %8, ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select)
   %49 = icmp ne i32 %48, -202
   %50 = icmp slt i32 %48, 0
@@ -2140,7 +2140,7 @@ wc_PKCS12_create_key_bag.exit.i:                  ; preds = %37
 51:                                               ; preds = %46
   %52 = icmp slt i32 %8, 0
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i8 6, ptr %53, align 1, !tbaa !32
+  store i8 6, ptr %53, align 1, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 13
   %55 = call i32 @SetLength(i32 noundef 11, ptr noundef nonnull %54) #9
   %56 = add i32 %55, 7
@@ -2150,32 +2150,32 @@ wc_PKCS12_create_key_bag.exit.i:                  ; preds = %37
   %indvars.iv103.i.i = phi i64 [ %indvars.iv.next104.i.i, %.preheader.i ], [ 0, %51 ]
   %.07898.i.i = phi i32 [ %59, %.preheader.i ], [ %56, %51 ]
   %57 = getelementptr inbounds nuw [11 x i8], ptr @WC_PKCS12_KeyBag_OID, i64 0, i64 %indvars.iv103.i.i
-  %58 = load i8, ptr %57, align 1, !tbaa !32
+  %58 = load i8, ptr %57, align 1, !tbaa !31
   %59 = add i32 %.07898.i.i, 1
   %60 = zext i32 %.07898.i.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 %60
-  store i8 %58, ptr %61, align 1, !tbaa !32
+  store i8 %58, ptr %61, align 1, !tbaa !31
   %indvars.iv.next104.i.i = add nuw nsw i64 %indvars.iv103.i.i, 1
   %exitcond106.not.i.i = icmp eq i64 %indvars.iv.next104.i.i, 11
-  br i1 %exitcond106.not.i.i, label %.loopexit.i.i, label %.preheader.i, !llvm.loop !55
+  br i1 %exitcond106.not.i.i, label %.loopexit.i.i, label %.preheader.i, !llvm.loop !54
 
 .preheader88.i:                                   ; preds = %51, %.preheader88.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader88.i ], [ 0, %51 ]
   %.294.i.i = phi i32 [ %64, %.preheader88.i ], [ %56, %51 ]
   %62 = getelementptr inbounds nuw [11 x i8], ptr @WC_PKCS12_ShroudedKeyBag_OID, i64 0, i64 %indvars.iv.i.i
-  %63 = load i8, ptr %62, align 1, !tbaa !32
+  %63 = load i8, ptr %62, align 1, !tbaa !31
   %64 = add i32 %.294.i.i, 1
   %65 = zext i32 %.294.i.i to i64
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 %65
-  store i8 %63, ptr %66, align 1, !tbaa !32
+  store i8 %63, ptr %66, align 1, !tbaa !31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader88.i, !llvm.loop !56
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.preheader88.i, !llvm.loop !55
 
 .loopexit.i.i:                                    ; preds = %.preheader88.i, %.preheader.i
   %.1.i.i = phi i32 [ %59, %.preheader.i ], [ %64, %.preheader88.i ]
   %.180.i.i = add i32 %55, 12
-  %67 = load i32, ptr %22, align 4, !tbaa !29
+  %67 = load i32, ptr %22, align 4, !tbaa !28
   %68 = zext i32 %67 to i64
   %69 = call ptr @wolfSSL_Malloc(i64 noundef %68) #9
   %70 = icmp eq ptr %69, null
@@ -2232,7 +2232,7 @@ wc_PKCS12_create_key_bag.exit77.i:                ; preds = %71
   %98 = add i32 %97, %95
   %99 = call i32 @SetSequence(i32 noundef %98, ptr noundef nonnull %21) #9
   %100 = add i32 %98, %99
-  store i32 %100, ptr %26, align 4, !tbaa !29
+  store i32 %100, ptr %26, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %21) #9
   %101 = zext i32 %100 to i64
   %102 = call ptr @wolfSSL_Malloc(i64 noundef %101) #9
@@ -2281,13 +2281,13 @@ switch.lookup:                                    ; preds = %111
   %.095121.i = phi ptr [ %120, %.preheader118.i ], [ %7, %switch.lookup ]
   %.1120.i = phi i32 [ %118, %.preheader118.i ], [ %114, %switch.lookup ]
   %115 = getelementptr inbounds nuw i8, ptr %.095121.i, i64 8
-  %116 = load i32, ptr %115, align 8, !tbaa !51
+  %116 = load i32, ptr %115, align 8, !tbaa !50
   %117 = add i32 %.1120.i, 55
   %118 = add i32 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %.095121.i, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !45
+  %120 = load ptr, ptr %119, align 8, !tbaa !44
   %.not105.i = icmp eq ptr %120, null
-  br i1 %.not105.i, label %.critedge.i, label %.preheader118.i, !llvm.loop !57
+  br i1 %.not105.i, label %.critedge.i, label %.preheader118.i, !llvm.loop !56
 
 .critedge.i:                                      ; preds = %.preheader118.i, %switch.lookup
   %.0117.i = phi i32 [ %114, %switch.lookup ], [ %118, %.preheader118.i ]
@@ -2298,7 +2298,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %124, label %158, label %125
 
 125:                                              ; preds = %.critedge.i
-  store i32 %.0117.i, ptr %20, align 4, !tbaa !29
+  store i32 %.0117.i, ptr %20, align 4, !tbaa !28
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 6
   %127 = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %126, ptr noundef %20, ptr noundef readonly %5, i32 noundef %6)
   %128 = icmp slt i32 %127, 0
@@ -2315,12 +2315,12 @@ switch.lookup:                                    ; preds = %111
   %.092123.i = phi ptr [ %142, %139 ], [ %7, %.preheader.preheader.i ]
   %.194122.i = phi i32 [ %140, %139 ], [ %130, %.preheader.preheader.i ]
   %131 = sub i32 %121, %.194122.i
-  store i32 %131, ptr %20, align 4, !tbaa !29
+  store i32 %131, ptr %20, align 4, !tbaa !28
   %132 = zext i32 %.194122.i to i64
   %133 = getelementptr inbounds nuw i8, ptr %123, i64 %132
-  %134 = load ptr, ptr %.092123.i, align 8, !tbaa !48
+  %134 = load ptr, ptr %.092123.i, align 8, !tbaa !47
   %135 = getelementptr inbounds nuw i8, ptr %.092123.i, i64 8
-  %136 = load i32, ptr %135, align 8, !tbaa !51
+  %136 = load i32, ptr %135, align 8, !tbaa !50
   %137 = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %133, ptr noundef %20, ptr noundef %134, i32 noundef %136)
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %.sink.split, label %139
@@ -2328,9 +2328,9 @@ switch.lookup:                                    ; preds = %111
 139:                                              ; preds = %.preheader.i84
   %140 = add i32 %137, %.194122.i
   %141 = getelementptr inbounds nuw i8, ptr %.092123.i, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !45
+  %142 = load ptr, ptr %141, align 8, !tbaa !44
   %.not107.i = icmp eq ptr %142, null
-  br i1 %.not107.i, label %.critedge110.loopexit.i, label %.preheader.i84, !llvm.loop !58
+  br i1 %.not107.i, label %.critedge110.loopexit.i, label %.preheader.i84, !llvm.loop !57
 
 .critedge110.loopexit.i:                          ; preds = %139
   %143 = add i32 %140, -6
@@ -2350,7 +2350,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %.not108.i, label %150, label %.sink.split
 
 150:                                              ; preds = %.critedge110.i
-  %151 = load i32, ptr %25, align 4, !tbaa !29
+  %151 = load i32, ptr %25, align 4, !tbaa !28
   %152 = zext i32 %151 to i64
   %153 = call ptr @wolfSSL_Malloc(i64 noundef %152) #9
   %154 = icmp eq ptr %153, null
@@ -2394,7 +2394,7 @@ switch.lookup:                                    ; preds = %111
   %170 = add i32 %169, %167
   %171 = call i32 @SetSequence(i32 noundef %170, ptr noundef nonnull %15) #9
   %172 = add i32 %170, %171
-  store i32 %172, ptr %18, align 4, !tbaa !29
+  store i32 %172, ptr %18, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %15) #9
   %173 = zext i32 %172 to i64
   %174 = call ptr @wolfSSL_Malloc(i64 noundef %173) #9
@@ -2423,8 +2423,8 @@ switch.lookup:                                    ; preds = %111
   br i1 %188, label %.critedge89.sink.split, label %189
 
 189:                                              ; preds = %180
-  store i32 0, ptr %19, align 4, !tbaa !29
-  %190 = load i32, ptr %18, align 4, !tbaa !29
+  store i32 0, ptr %19, align 4, !tbaa !28
+  %190 = load i32, ptr %18, align 4, !tbaa !28
   %191 = call i32 @GetSequence(ptr noundef nonnull %174, ptr noundef nonnull %19, ptr noundef nonnull %16, i32 noundef %190) #9
   %192 = icmp slt i32 %191, 0
   br i1 %192, label %.critedge89.sink.split, label %PKCS12_create_safe.exit
@@ -2472,21 +2472,21 @@ PKCS12_create_safe.exit:                          ; preds = %189
 202:                                              ; preds = %199
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %200, i8 0, i64 24, i1 false)
   %203 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %200, ptr %203, align 8, !tbaa !23
+  store ptr %200, ptr %203, align 8, !tbaa !22
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i32 414, ptr %204, align 8, !tbaa !37
+  store i32 414, ptr %204, align 8, !tbaa !36
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 28
-  store i32 %11, ptr %205, align 4, !tbaa !39
+  store i32 %11, ptr %205, align 4, !tbaa !38
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  store i32 8, ptr %206, align 8, !tbaa !38
+  store i32 8, ptr %206, align 8, !tbaa !37
   %207 = call ptr @wolfSSL_Malloc(i64 noundef 8) #9
   %208 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store ptr %207, ptr %208, align 8, !tbaa !26
+  store ptr %207, ptr %208, align 8, !tbaa !25
   %209 = icmp eq ptr %207, null
   br i1 %209, label %.critedge, label %210
 
 210:                                              ; preds = %202
-  %211 = load i32, ptr %206, align 8, !tbaa !38
+  %211 = load i32, ptr %206, align 8, !tbaa !37
   %212 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %24, ptr noundef nonnull %207, i32 noundef %211) #9
   %.not83 = icmp eq i32 %212, 0
   br i1 %.not83, label %213, label %.critedge
@@ -2494,24 +2494,24 @@ PKCS12_create_safe.exit:                          ; preds = %189
 213:                                              ; preds = %210
   %214 = load ptr, ptr %35, align 8, !tbaa !11
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %216 = load ptr, ptr %215, align 8, !tbaa !22
+  %216 = load ptr, ptr %215, align 8, !tbaa !21
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %218 = load i32, ptr %217, align 8, !tbaa !27
+  %218 = load i32, ptr %217, align 8, !tbaa !26
   %219 = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef %30, ptr noundef %216, i32 noundef %218, ptr noundef %0, i32 noundef %1, ptr noundef %27)
   %220 = icmp slt i32 %219, 0
   br i1 %220, label %.critedge, label %221
 
 221:                                              ; preds = %213
   %222 = getelementptr inbounds nuw i8, ptr %200, i64 20
-  store i32 %219, ptr %222, align 4, !tbaa !28
+  store i32 %219, ptr %222, align 4, !tbaa !27
   %223 = zext nneg i32 %219 to i64
   %224 = call ptr @wolfSSL_Malloc(i64 noundef %223) #9
-  store ptr %224, ptr %200, align 8, !tbaa !24
+  store ptr %224, ptr %200, align 8, !tbaa !23
   %225 = icmp eq ptr %224, null
   br i1 %225, label %.critedge, label %226
 
 226:                                              ; preds = %221
-  %227 = load i32, ptr %222, align 4, !tbaa !28
+  %227 = load i32, ptr %222, align 4, !tbaa !27
   %228 = zext i32 %227 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %224, ptr nonnull align 16 %27, i64 %228, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #9
@@ -2519,7 +2519,7 @@ PKCS12_create_safe.exit:                          ; preds = %189
 
 229:                                              ; preds = %197
   %230 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr null, ptr %230, align 8, !tbaa !23
+  store ptr null, ptr %230, align 8, !tbaa !22
   br label %231
 
 231:                                              ; preds = %226, %229
@@ -2555,7 +2555,7 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = icmp eq ptr %11, null
   %13 = icmp eq ptr %1, null
   %or.cond = or i1 %13, %12
@@ -2580,15 +2580,15 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = or disjoint i64 %indvars.iv103, 1
   %19 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %indvars.iv103
-  store i8 0, ptr %19, align 2, !tbaa !32
+  store i8 0, ptr %19, align 2, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %21 = load i8, ptr %20, align 1, !tbaa !32
+  %21 = load i8, ptr %20, align 1, !tbaa !31
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 2
   %22 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %18
-  store i8 %21, ptr %22, align 1, !tbaa !32
+  store i8 %21, ptr %22, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %23 = trunc nuw i64 %indvars.iv.next104 to i32
@@ -2599,13 +2599,13 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
   %24 = or disjoint i32 %.047.lcssa, 1
   %25 = zext nneg i32 %.047.lcssa to i64
   %26 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %25
-  store i8 0, ptr %26, align 1, !tbaa !32
+  store i8 0, ptr %26, align 1, !tbaa !31
   %27 = add nuw nsw i32 %.047.lcssa, 2
   %28 = zext nneg i32 %24 to i64
   %29 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %28
-  store i8 0, ptr %29, align 1, !tbaa !32
+  store i8 0, ptr %29, align 1, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !37
+  %31 = load i32, ptr %30, align 8, !tbaa !36
   %32 = tail call i32 @wc_OidGetHash(i32 noundef %31) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.lr.ph29.i, label %36
@@ -2614,10 +2614,10 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
   %.01528.i = phi ptr [ %34, %.lr.ph29.i ], [ %8, %._crit_edge ]
   %.01827.i = phi i32 [ %35, %.lr.ph29.i ], [ 256, %._crit_edge ]
   %34 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !41
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !40
   %35 = add nsw i32 %.01827.i, -8
   %.not97 = icmp eq i32 %35, 0
-  br i1 %.not97, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !60
+  br i1 %.not97, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !59
 
 36:                                               ; preds = %._crit_edge
   %37 = tail call i32 @wc_HashGetDigestSize(i32 noundef %32) #9
@@ -2628,18 +2628,18 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
   %.01528.i68 = phi ptr [ %39, %.lr.ph29.i67 ], [ %8, %36 ]
   %.01827.i69 = phi i32 [ %40, %.lr.ph29.i67 ], [ 256, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %.01528.i68, i64 8
-  store volatile i64 0, ptr %.01528.i68, align 8, !tbaa !41
+  store volatile i64 0, ptr %.01528.i68, align 8, !tbaa !40
   %40 = add nsw i32 %.01827.i69, -8
   %.not96 = icmp eq i32 %40, 0
-  br i1 %.not96, label %ForceZero.exit, label %.lr.ph29.i67, !llvm.loop !60
+  br i1 %.not96, label %ForceZero.exit, label %.lr.ph29.i67, !llvm.loop !59
 
 .lr.ph29.preheader.i82:                           ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !26
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !38
+  %44 = load i32, ptr %43, align 8, !tbaa !37
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %46 = load i32, ptr %45, align 4, !tbaa !39
+  %46 = load i32, ptr %45, align 4, !tbaa !38
   %47 = load ptr, ptr %0, align 8, !tbaa !3
   %48 = call i32 @wc_PKCS12_PBKDF_ex(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %27, ptr noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %37, i32 noundef %32, i32 noundef 3, ptr noundef %47) #9
   br label %.lr.ph29.i84
@@ -2648,10 +2648,10 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
   %.01528.i85 = phi ptr [ %49, %.lr.ph29.i84 ], [ %8, %.lr.ph29.preheader.i82 ]
   %.01827.i86 = phi i32 [ %50, %.lr.ph29.i84 ], [ 256, %.lr.ph29.preheader.i82 ]
   %49 = getelementptr inbounds nuw i8, ptr %.01528.i85, i64 8
-  store volatile i64 0, ptr %.01528.i85, align 8, !tbaa !41
+  store volatile i64 0, ptr %.01528.i85, align 8, !tbaa !40
   %50 = add nsw i32 %.01827.i86, -8
   %.not95 = icmp eq i32 %50, 0
-  br i1 %.not95, label %ForceZero.exit93, label %.lr.ph29.i84, !llvm.loop !60
+  br i1 %.not95, label %ForceZero.exit93, label %.lr.ph29.i84, !llvm.loop !59
 
 ForceZero.exit93:                                 ; preds = %.lr.ph29.i84
   %51 = icmp slt i32 %48, 0
@@ -2748,7 +2748,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   ]
 
 13:                                               ; preds = %10
-  store i32 %4, ptr %11, align 4, !tbaa !29
+  store i32 %4, ptr %11, align 4, !tbaa !28
   %14 = call i32 @EncryptContent(ptr noundef null, i32 noundef %4, ptr noundef null, ptr noundef nonnull %11, ptr noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %5, ptr noundef null, i32 noundef 0, i32 noundef %8, ptr noundef nonnull %0, ptr noundef %.0.val) #9
   %15 = icmp slt i32 %14, 0
   %16 = icmp ne i32 %14, -202
@@ -2760,7 +2760,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %19 = call i32 @SetMyVersion(i32 noundef 0, ptr noundef nonnull %12, i32 noundef 0) #9
   %20 = call i32 @SetObjectId(i32 noundef 9, ptr noundef nonnull %12) #9
   %21 = add i32 %20, 9
-  %22 = load i32, ptr %11, align 4, !tbaa !29
+  %22 = load i32, ptr %11, align 4, !tbaa !28
   %23 = add i32 %21, %22
   %24 = call i32 @SetSequence(i32 noundef %23, ptr noundef nonnull %12) #9
   %25 = add i32 %23, %19
@@ -2777,11 +2777,11 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
 34:                                               ; preds = %17
   %35 = call i32 @SetSequence(i32 noundef %32, ptr noundef nonnull %12) #9
   %36 = add i32 %35, %32
-  store i32 %36, ptr %2, align 4, !tbaa !29
+  store i32 %36, ptr %2, align 4, !tbaa !28
   br label %164
 
 37:                                               ; preds = %17
-  %38 = load i32, ptr %2, align 4, !tbaa !29
+  %38 = load i32, ptr %2, align 4, !tbaa !28
   %39 = call i32 @SetSequence(i32 noundef %32, ptr noundef nonnull %12) #9
   %40 = add i32 %39, %32
   %41 = icmp ult i32 %38, %40
@@ -2795,7 +2795,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %47 = add i32 %46, %43
   %48 = zext i32 %47 to i64
   %49 = add nuw nsw i64 %48, 9
-  %50 = load i32, ptr %2, align 4, !tbaa !29
+  %50 = load i32, ptr %2, align 4, !tbaa !28
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ugt i64 %49, %51
   br i1 %52, label %164, label %53
@@ -2804,7 +2804,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %54, ptr noundef nonnull align 1 dereferenceable(9) @WC_PKCS12_ENCRYPTED_OID, i64 9, i1 false)
   %55 = add i32 %47, 10
-  %56 = load i32, ptr %2, align 4, !tbaa !29
+  %56 = load i32, ptr %2, align 4, !tbaa !28
   %57 = icmp ugt i32 %55, %56
   br i1 %57, label %164, label %58
 
@@ -2812,7 +2812,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %59 = add i32 %47, 9
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %60
-  store i8 -96, ptr %61, align 1, !tbaa !32
+  store i8 -96, ptr %61, align 1, !tbaa !31
   %62 = zext i32 %55 to i64
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %62
   %64 = call i32 @SetLength(i32 noundef %28, ptr noundef nonnull %63) #9
@@ -2825,7 +2825,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
   %72 = call i32 @SetMyVersion(i32 noundef 0, ptr noundef nonnull %71, i32 noundef 0) #9
   %73 = add i32 %69, %72
-  %74 = load i32, ptr %11, align 4, !tbaa !29
+  %74 = load i32, ptr %11, align 4, !tbaa !28
   %75 = zext i32 %74 to i64
   %76 = call ptr @wolfSSL_Malloc(i64 noundef %75) #9
   %77 = icmp eq ptr %76, null
@@ -2841,7 +2841,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   br label %164
 
 82:                                               ; preds = %78
-  store i32 %79, ptr %11, align 4, !tbaa !29
+  store i32 %79, ptr %11, align 4, !tbaa !28
   %83 = add nuw i32 %79, 11
   %84 = zext i32 %73 to i64
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 %84
@@ -2853,7 +2853,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %91 = add i32 %87, %90
   %92 = zext i32 %91 to i64
   %93 = add nuw nsw i64 %92, 9
-  %94 = load i32, ptr %2, align 4, !tbaa !29
+  %94 = load i32, ptr %2, align 4, !tbaa !28
   %95 = zext i32 %94 to i64
   %96 = icmp samesign ugt i64 %93, %95
   br i1 %96, label %97, label %98
@@ -2866,9 +2866,9 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %99, ptr noundef nonnull align 1 dereferenceable(9) @WC_PKCS12_DATA_OID, i64 9, i1 false)
   %100 = add i32 %91, 9
-  %101 = load i32, ptr %11, align 4, !tbaa !29
+  %101 = load i32, ptr %11, align 4, !tbaa !28
   %102 = add i32 %101, %100
-  %103 = load i32, ptr %2, align 4, !tbaa !29
+  %103 = load i32, ptr %2, align 4, !tbaa !28
   %104 = icmp ugt i32 %102, %103
   br i1 %104, label %105, label %106
 
@@ -2882,7 +2882,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %109 = zext i32 %101 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %76, i64 %109, i1 false)
   call void @wolfSSL_Free(ptr noundef nonnull %76) #9
-  %110 = load i32, ptr %11, align 4, !tbaa !29
+  %110 = load i32, ptr %11, align 4, !tbaa !28
   %111 = add i32 %110, %100
   br label %164
 
@@ -2900,11 +2900,11 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
 121:                                              ; preds = %112
   %122 = call i32 @SetSequence(i32 noundef %119, ptr noundef nonnull %12) #9
   %123 = add i32 %122, %119
-  store i32 %123, ptr %2, align 4, !tbaa !29
+  store i32 %123, ptr %2, align 4, !tbaa !28
   br label %164
 
 124:                                              ; preds = %112
-  %125 = load i32, ptr %2, align 4, !tbaa !29
+  %125 = load i32, ptr %2, align 4, !tbaa !28
   %126 = call i32 @SetSequence(i32 noundef %119, ptr noundef nonnull %12) #9
   %127 = add i32 %126, %119
   %128 = icmp ult i32 %125, %127
@@ -2918,7 +2918,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %134 = add i32 %133, %130
   %135 = zext i32 %134 to i64
   %136 = add nuw nsw i64 %135, 9
-  %137 = load i32, ptr %2, align 4, !tbaa !29
+  %137 = load i32, ptr %2, align 4, !tbaa !28
   %138 = zext i32 %137 to i64
   %139 = icmp samesign ugt i64 %136, %138
   br i1 %139, label %164, label %140
@@ -2927,7 +2927,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %141, ptr noundef nonnull align 1 dereferenceable(9) @WC_PKCS12_DATA_OID, i64 9, i1 false)
   %142 = add i32 %134, 10
-  %143 = load i32, ptr %2, align 4, !tbaa !29
+  %143 = load i32, ptr %2, align 4, !tbaa !28
   %144 = icmp ugt i32 %142, %143
   br i1 %144, label %164, label %145
 
@@ -2935,7 +2935,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %146 = add i32 %134, 9
   %147 = zext i32 %146 to i64
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 %147
-  store i8 -96, ptr %148, align 1, !tbaa !32
+  store i8 -96, ptr %148, align 1, !tbaa !31
   %149 = zext i32 %142 to i64
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 %149
   %151 = call i32 @SetLength(i32 noundef %116, ptr noundef nonnull %150) #9
@@ -2945,7 +2945,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   %155 = call i32 @SetOctetString(i32 noundef %4, ptr noundef nonnull %154) #9
   %156 = add i32 %152, %155
   %157 = add i32 %156, %4
-  %158 = load i32, ptr %2, align 4, !tbaa !29
+  %158 = load i32, ptr %2, align 4, !tbaa !28
   %159 = icmp ugt i32 %157, %158
   br i1 %159, label %164, label %160
 
@@ -2981,9 +2981,9 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = load i32, ptr %3, align 4, !tbaa !29
+  %20 = load i32, ptr %3, align 4, !tbaa !28
   %21 = add i32 %20, -6
-  store i32 %21, ptr %11, align 4, !tbaa !29
+  store i32 %21, ptr %11, align 4, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 6
   br label %23
 
@@ -2995,18 +2995,18 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  store ptr null, ptr %12, align 8, !tbaa !40
+  store ptr null, ptr %12, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  store i32 0, ptr %13, align 4, !tbaa !29
+  store i32 0, ptr %13, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
   %26 = call i32 @wc_GetKeyOID(ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %18) #9
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %25
-  %29 = load i32, ptr %14, align 4, !tbaa !29
-  %30 = load ptr, ptr %12, align 8, !tbaa !40
-  %31 = load i32, ptr %13, align 4, !tbaa !29
+  %29 = load i32, ptr %14, align 4, !tbaa !28
+  %30 = load ptr, ptr %12, align 8, !tbaa !39
+  %31 = load i32, ptr %13, align 4, !tbaa !28
   %32 = call i32 @wc_CreatePKCS8Key(ptr noundef %.057, ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %29, ptr noundef %30, i32 noundef %31) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
@@ -3026,9 +3026,9 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = load i32, ptr %11, align 4, !tbaa !29
+  %39 = load i32, ptr %11, align 4, !tbaa !28
   %40 = add i32 %39, 6
-  store i32 %40, ptr %3, align 4, !tbaa !29
+  store i32 %40, ptr %3, align 4, !tbaa !28
   br label %53
 
 41:                                               ; preds = %36
@@ -3079,18 +3079,18 @@ define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   %7 = add nsw i32 %3, 55
-  store i32 %7, ptr %1, align 4, !tbaa !29
+  store i32 %7, ptr %1, align 4, !tbaa !28
   br label %94
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %1, align 4, !tbaa !29
+  %9 = load i32, ptr %1, align 4, !tbaa !28
   %10 = add nsw i32 %3, 55
   %11 = icmp ult i32 %9, %10
   br i1 %11, label %94, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 6, ptr %13, align 1, !tbaa !32
+  store i8 6, ptr %13, align 1, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %15 = tail call i32 @SetLength(i32 noundef 11, ptr noundef nonnull %14) #9
   %16 = add i32 %15, 7
@@ -3100,24 +3100,24 @@ define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %17 ]
   %.01215 = phi i32 [ %16, %12 ], [ %20, %17 ]
   %18 = getelementptr inbounds nuw [11 x i8], ptr @WC_PKCS12_CertBag_OID, i64 0, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !tbaa !32
+  %19 = load i8, ptr %18, align 1, !tbaa !31
   %20 = add i32 %.01215, 1
   %21 = zext i32 %.01215 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  store i8 %19, ptr %22, align 1, !tbaa !32
+  store i8 %19, ptr %22, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %23, label %17, !llvm.loop !61
+  br i1 %exitcond.not, label %23, label %17, !llvm.loop !60
 
 23:                                               ; preds = %17
   %24 = zext i32 %20 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
-  store i8 -96, ptr %25, align 1, !tbaa !32
+  store i8 -96, ptr %25, align 1, !tbaa !31
   %26 = add i32 %.01215, 13
   %27 = add i32 %.01215, 14
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
-  store i8 6, ptr %29, align 1, !tbaa !32
+  store i8 6, ptr %29, align 1, !tbaa !31
   %30 = zext i32 %27 to i64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
   %32 = tail call i32 @SetLength(i32 noundef 10, ptr noundef nonnull %31) #9
@@ -3128,25 +3128,25 @@ define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %0, ptr nounde
   %indvars.iv12 = phi i64 [ 0, %23 ], [ %indvars.iv.next13, %34 ]
   %.11227 = phi i32 [ %33, %23 ], [ %37, %34 ]
   %35 = getelementptr inbounds nuw [10 x i8], ptr @WC_PKCS12_CertBag_Type1_OID, i64 0, i64 %indvars.iv12
-  %36 = load i8, ptr %35, align 1, !tbaa !32
+  %36 = load i8, ptr %35, align 1, !tbaa !31
   %37 = add i32 %.11227, 1
   %38 = zext i32 %.11227 to i64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
-  store i8 %36, ptr %39, align 1, !tbaa !32
+  store i8 %36, ptr %39, align 1, !tbaa !31
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond15.not = icmp eq i64 %indvars.iv.next13, 10
-  br i1 %exitcond15.not, label %40, label %34, !llvm.loop !62
+  br i1 %exitcond15.not, label %40, label %34, !llvm.loop !61
 
 40:                                               ; preds = %34
   %41 = zext i32 %37 to i64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
-  store i8 -96, ptr %42, align 1, !tbaa !32
+  store i8 -96, ptr %42, align 1, !tbaa !31
   %43 = add i32 %32, 12
   %44 = add i32 %.11227, 7
   %45 = add i32 %.11227, 8
   %46 = zext i32 %44 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
-  store i8 4, ptr %47, align 1, !tbaa !32
+  store i8 4, ptr %47, align 1, !tbaa !31
   %48 = zext i32 %45 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   %50 = tail call i32 @SetLength(i32 noundef %3, ptr noundef nonnull %49) #9
@@ -3259,47 +3259,46 @@ attributes #10 = { nounwind willreturn memory(read) }
 !16 = !{!13, !14, i64 0}
 !17 = !{!18, !14, i64 8}
 !18 = !{!"ContentInfo", !15, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!13, !15, i64 8}
-!23 = !{!4, !9, i64 16}
-!24 = !{!25, !15, i64 0}
-!25 = !{!"MacData", !15, i64 0, !15, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
-!26 = !{!25, !15, i64 8}
-!27 = !{!13, !10, i64 24}
-!28 = !{!25, !10, i64 20}
-!29 = !{!10, !10, i64 0}
-!30 = !{!4, !6, i64 28}
-!31 = !{!13, !10, i64 16}
-!32 = !{!6, !6, i64 0}
-!33 = !{!18, !10, i64 24}
-!34 = !{!18, !10, i64 20}
-!35 = !{!18, !15, i64 0}
-!36 = distinct !{!36, !20, !21}
-!37 = !{!25, !10, i64 16}
-!38 = !{!25, !10, i64 24}
-!39 = !{!25, !10, i64 28}
-!40 = !{!15, !15, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"long", !6, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS9WC_PKCS12", !5, i64 0}
-!45 = !{!46, !47, i64 16}
-!46 = !{!"WC_DerCertList", !15, i64 0, !10, i64 8, !47, i64 16}
-!47 = !{!"p1 _ZTS14WC_DerCertList", !5, i64 0}
-!48 = !{!46, !15, i64 0}
-!49 = distinct !{!49, !20, !21}
-!50 = !{!47, !47, i64 0}
-!51 = !{!46, !10, i64 8}
-!52 = distinct !{!52, !20, !21}
-!53 = distinct !{!53, !20, !21}
-!54 = distinct !{!54, !20, !21}
-!55 = distinct !{!55, !20, !21}
-!56 = distinct !{!56, !20, !21}
-!57 = distinct !{!57, !20, !21}
-!58 = distinct !{!58, !20, !21}
-!59 = distinct !{!59, !20, !21}
-!60 = distinct !{!60, !20, !21}
-!61 = distinct !{!61, !20, !21}
-!62 = distinct !{!62, !20, !21}
+!21 = !{!13, !15, i64 8}
+!22 = !{!4, !9, i64 16}
+!23 = !{!24, !15, i64 0}
+!24 = !{!"MacData", !15, i64 0, !15, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
+!25 = !{!24, !15, i64 8}
+!26 = !{!13, !10, i64 24}
+!27 = !{!24, !10, i64 20}
+!28 = !{!10, !10, i64 0}
+!29 = !{!4, !6, i64 28}
+!30 = !{!13, !10, i64 16}
+!31 = !{!6, !6, i64 0}
+!32 = !{!18, !10, i64 24}
+!33 = !{!18, !10, i64 20}
+!34 = !{!18, !15, i64 0}
+!35 = distinct !{!35, !20}
+!36 = !{!24, !10, i64 16}
+!37 = !{!24, !10, i64 24}
+!38 = !{!24, !10, i64 28}
+!39 = !{!15, !15, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"long", !6, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS9WC_PKCS12", !5, i64 0}
+!44 = !{!45, !46, i64 16}
+!45 = !{!"WC_DerCertList", !15, i64 0, !10, i64 8, !46, i64 16}
+!46 = !{!"p1 _ZTS14WC_DerCertList", !5, i64 0}
+!47 = !{!45, !15, i64 0}
+!48 = distinct !{!48, !20}
+!49 = !{!46, !46, i64 0}
+!50 = !{!45, !10, i64 8}
+!51 = distinct !{!51, !20}
+!52 = distinct !{!52, !20}
+!53 = distinct !{!53, !20}
+!54 = distinct !{!54, !20}
+!55 = distinct !{!55, !20}
+!56 = distinct !{!56, !20}
+!57 = distinct !{!57, !20}
+!58 = distinct !{!58, !20}
+!59 = distinct !{!59, !20}
+!60 = distinct !{!60, !20}
+!61 = distinct !{!61, !20}

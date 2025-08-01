@@ -451,7 +451,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %260 = and i64 %259, -97
   %261 = icmp eq i64 %260, 0
-  br i1 %261, label %228, label %262, !llvm.loop !12
+  br i1 %261, label %228, label %262, !llvm.loop !11
 
 262:                                              ; preds = %256
   %263 = getelementptr i8, ptr %257, i64 8
@@ -773,8 +773,7 @@ attributes #6 = { nounwind }
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{!"auto-init"}
 !7 = !{i64 2149592047, i64 2149592080, i64 2149592086, i64 2149592102, i64 2149592121, i64 2149592152, i64 2149593105, i64 2149591694, i64 2149593111, i64 2149593159, i64 2149593223, i64 2149593287, i64 2149593344, i64 2149593551, i64 2149593599, i64 2149593663, i64 2149593727, i64 2149593784, i64 2149591812, i64 2149591837, i64 2149593994, i64 2149594122, i64 2149594055, i64 2149594136, i64 2149594150, i64 2149594266, i64 2149594211, i64 2149594280, i64 2149591971, i64 1142872, i64 1142912, i64 1142921, i64 1142971, i64 1142992, i64 1143012}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

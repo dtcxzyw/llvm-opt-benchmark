@@ -561,7 +561,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readMapBeginERNS1_5TTypeES4_Rj.exi
   %144 = add nuw i32 %.056108, 1
   %145 = load i32, ptr %15, align 4, !tbaa !16
   %146 = icmp ult i32 %144, %145
-  br i1 %146, label %.lr.ph109, label %_ZN13duckdb_apache6thrift8protocol9TProtocol12readMapBeginERNS1_5TTypeES4_Rj.exit._crit_edge, !llvm.loop !41
+  br i1 %146, label %.lr.ph109, label %_ZN13duckdb_apache6thrift8protocol9TProtocol12readMapBeginERNS1_5TTypeES4_Rj.exit._crit_edge, !llvm.loop !40
 
 .loopexit83:                                      ; preds = %.lr.ph109, %139
   %lpad.loopexit85 = landingpad { ptr, i32 }
@@ -621,7 +621,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readSetBeginERNS1_5TTypeERj.exit: 
   %162 = add nuw i32 %.054104, 1
   %163 = load i32, ptr %17, align 4, !tbaa !16
   %164 = icmp ult i32 %162, %163
-  br i1 %164, label %.lr.ph105, label %_ZN13duckdb_apache6thrift8protocol9TProtocol12readSetBeginERNS1_5TTypeERj.exit._crit_edge, !llvm.loop !42
+  br i1 %164, label %.lr.ph105, label %_ZN13duckdb_apache6thrift8protocol9TProtocol12readSetBeginERNS1_5TTypeERj.exit._crit_edge, !llvm.loop !41
 
 .loopexit88:                                      ; preds = %.lr.ph105
   %lpad.loopexit90 = landingpad { ptr, i32 }
@@ -679,7 +679,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readListBeginERNS1_5TTypeERj.exit:
   %180 = add nuw i32 %.052102, 1
   %181 = load i32, ptr %19, align 4, !tbaa !16
   %182 = icmp ult i32 %180, %181
-  br i1 %182, label %.lr.ph, label %_ZN13duckdb_apache6thrift8protocol9TProtocol13readListBeginERNS1_5TTypeERj.exit._crit_edge, !llvm.loop !43
+  br i1 %182, label %.lr.ph, label %_ZN13duckdb_apache6thrift8protocol9TProtocol13readListBeginERNS1_5TTypeERj.exit._crit_edge, !llvm.loop !42
 
 .loopexit93:                                      ; preds = %.lr.ph
   %lpad.loopexit95 = landingpad { ptr, i32 }
@@ -796,8 +796,8 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift8protocol16TProtocolFactory11getProtocolESt10shared_ptrINS0_9transport10TTransportEES6_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
-  %6 = load ptr, ptr %2, align 8, !tbaa !44
-  store ptr %6, ptr %5, align 8, !tbaa !44
+  %6 = load ptr, ptr %2, align 8, !tbaa !43
+  store ptr %6, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
@@ -948,7 +948,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift8protocol18TProtocolException
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store i64 %9, ptr %4, align 8, !tbaa !45
+  store i64 %9, ptr %4, align 8, !tbaa !44
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -958,7 +958,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift8protocol18TProtocolException
 
 .noexc.i:                                         ; preds = %.noexc.i.i
   store ptr %11, ptr %5, align 8, !tbaa !35
-  %12 = load i64, ptr %4, align 8, !tbaa !45
+  %12 = load i64, ptr %4, align 8, !tbaa !44
   store i64 %12, ptr %6, align 8, !tbaa !15
   br label %._crit_edge.i.i.i
 
@@ -985,7 +985,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift8protocol18TProtocolException
   resume { ptr, i32 } %18
 
 _ZN13duckdb_apache6thrift10TExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %._crit_edge.i.i.i, %14, %16
-  %19 = load i64, ptr %4, align 8, !tbaa !45
+  %19 = load i64, ptr %4, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %19, ptr %20, align 8, !tbaa !27
   %21 = load ptr, ptr %5, align 8, !tbaa !35
@@ -1192,11 +1192,10 @@ attributes #16 = { builtin nounwind }
 !35 = !{!28, !26, i64 0}
 !36 = !{!37, !37, i64 0}
 !37 = !{!"_ZTSN13duckdb_apache6thrift8protocol5TTypeE", !10, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = distinct !{!41, !39, !40}
-!42 = distinct !{!42, !39, !40}
-!43 = distinct !{!43, !39, !40}
-!44 = !{!21, !22, i64 0}
-!45 = !{!29, !29, i64 0}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !39}
+!42 = distinct !{!42, !39}
+!43 = !{!21, !22, i64 0}
+!44 = !{!29, !29, i64 0}

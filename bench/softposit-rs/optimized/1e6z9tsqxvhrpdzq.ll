@@ -53,7 +53,7 @@ define noundef i32 @_ZN9softposit5p32e24math7mul_add7mul_add17h3ac49e312fbde14aE
   %26 = add i8 %.0916.i, -1
   %27 = shl nuw i32 %.017.i, 1
   %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %28, label %.lr.ph18.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %26, %.lr.ph18.i ]
@@ -67,7 +67,7 @@ define noundef i32 @_ZN9softposit5p32e24math7mul_add7mul_add17h3ac49e312fbde14aE
   %30 = add nuw nsw i8 %.11013.i, 1
   %31 = shl i32 %.114.i, 1
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %32, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit, label %.lr.ph.i
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %30, %.lr.ph.i ]
@@ -92,7 +92,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %39 = add i8 %.0916.i258, -1
   %40 = shl nuw i32 %.017.i257, 1
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.lr.ph18.i256, label %._crit_edge.i253, !llvm.loop !4
+  br i1 %41, label %.lr.ph18.i256, label %._crit_edge.i253
 
 ._crit_edge.i253:                                 ; preds = %.lr.ph18.i256, %.preheader.i252
   %.09.lcssa.i254 = phi i8 [ -1, %.preheader.i252 ], [ %39, %.lr.ph18.i256 ]
@@ -106,7 +106,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %43 = add nuw nsw i8 %.11013.i249, 1
   %44 = shl i32 %.114.i248, 1
   %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259, label %.lr.ph.i247, !llvm.loop !6
+  br i1 %45, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259, label %.lr.ph.i247
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259: ; preds = %.lr.ph.i247, %.preheader12.i246, %._crit_edge.i253
   %.211.i250 = phi i8 [ %.09.lcssa.i254, %._crit_edge.i253 ], [ 0, %.preheader12.i246 ], [ %43, %.lr.ph.i247 ]
@@ -164,7 +164,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259: ; pred
   %70 = add i8 %.0916.i272, -1
   %71 = shl nuw i32 %.017.i271, 1
   %72 = icmp sgt i32 %71, -1
-  br i1 %72, label %.lr.ph18.i270, label %._crit_edge.i267, !llvm.loop !4
+  br i1 %72, label %.lr.ph18.i270, label %._crit_edge.i267
 
 ._crit_edge.i267:                                 ; preds = %.lr.ph18.i270, %.preheader.i266
   %.09.lcssa.i268 = phi i8 [ -1, %.preheader.i266 ], [ %70, %.lr.ph18.i270 ]
@@ -178,7 +178,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit259: ; pred
   %74 = add nuw nsw i8 %.11013.i263, 1
   %75 = shl i32 %.114.i262, 1
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273, label %.lr.ph.i261, !llvm.loop !6
+  br i1 %76, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273, label %.lr.ph.i261
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; preds = %.lr.ph.i261, %.preheader12.i260, %._crit_edge.i267
   %.211.i264 = phi i8 [ %.09.lcssa.i268, %._crit_edge.i267 ], [ 0, %.preheader12.i260 ], [ %74, %.lr.ph.i261 ]
@@ -380,7 +380,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %165 = add i8 %.2211311, -1
   %166 = shl nuw nsw i64 %.9191312, 4
   %167 = icmp samesign ult i64 %.9191312, 36028797018963968
-  br i1 %167, label %.lr.ph, label %.preheader, !llvm.loop !7
+  br i1 %167, label %.lr.ph, label %.preheader
 
 .lr.ph317:                                        ; preds = %.preheader, %.lr.ph317
   %.5316 = phi i32 [ %spec.select243, %.lr.ph317 ], [ %.4283340, %.preheader ]
@@ -394,7 +394,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %spec.select242 = add i8 %.3212314, %171
   %spec.select243 = select i1 %170, i32 3, i32 %168
   %172 = icmp samesign ult i64 %.10315, 2305843009213693952
-  br i1 %172, label %.lr.ph317, label %.loopexit, !llvm.loop !8
+  br i1 %172, label %.lr.ph317, label %.loopexit
 
 173:                                              ; preds = %.loopexit
   %174 = add nuw i8 %.0209, 1
@@ -483,8 +483,3 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

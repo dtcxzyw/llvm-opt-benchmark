@@ -130,7 +130,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %44 = add nuw nsw i32 %.02976, 1
   %exitcond97.not = icmp eq i32 %44, 5
-  br i1 %exitcond97.not, label %4, label %10, !llvm.loop !13
+  br i1 %exitcond97.not, label %4, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %13, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -194,7 +194,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %.lr.ph, %4
   %.1 = select i1 %61, i32 %.02178, i32 %spec.select
   %62 = add nuw i64 %.080, 1
   %exitcond98.not = icmp eq i64 %62, %9
-  br i1 %exitcond98.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit35, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond98.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit35, label %.lr.ph, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -270,8 +270,7 @@ attributes #14 = { builtin nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}

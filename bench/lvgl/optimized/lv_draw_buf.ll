@@ -193,16 +193,16 @@ define void @lv_draw_buf_invalidate_cache(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !13
+  br label %.preheader
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %.preheader14, label %7
 
 .preheader14:                                     ; preds = %4, %.preheader14
-  br label %.preheader14, !llvm.loop !21
+  br label %.preheader14
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -252,16 +252,16 @@ define void @lv_draw_buf_flush_cache(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !13
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %.preheader14, label %7
 
 .preheader14:                                     ; preds = %4, %.preheader14
-  br label %.preheader14, !llvm.loop !23
+  br label %.preheader14
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -307,7 +307,7 @@ define void @lv_draw_buf_clear(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -318,7 +318,7 @@ define void @lv_draw_buf_clear(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = load i64, ptr %0, align 8
   %15 = lshr i64 %14, 8
   %trunc.i = trunc i64 %15 to i8
@@ -347,12 +347,12 @@ switch.lookup:                                    ; preds = %11
   %28 = zext i32 %27 to i64
   tail call void @lv_memset(ptr noundef %24, i8 noundef zeroext 0, i64 noundef range(i64 0, 4294967296) %28) #9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !15
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
   %.not12.i = icmp eq ptr %30, null
   br i1 %.not12.i, label %.preheader14.i, label %31
 
 .preheader14.i:                                   ; preds = %22, %.preheader14.i
-  br label %.preheader14.i, !llvm.loop !23
+  br label %.preheader14.i
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -378,21 +378,21 @@ switch.lookup:                                    ; preds = %11
 
 42:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
-  store i32 0, ptr %4, align 4, !tbaa !26
+  store i32 0, ptr %4, align 4, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %43, align 4, !tbaa !28
+  store i32 0, ptr %43, align 4, !tbaa !22
   %44 = load i64, ptr %0, align 8
   %45 = lshr i64 %44, 32
   %46 = trunc nuw i64 %45 to i32
   %47 = and i32 %46, 65535
   %48 = add nsw i32 %47, -1
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %48, ptr %49, align 4, !tbaa !29
+  store i32 %48, ptr %49, align 4, !tbaa !23
   %50 = lshr i64 %44, 48
   %51 = trunc nuw nsw i64 %50 to i32
   %52 = add nsw i32 %51, -1
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %52, ptr %53, align 4, !tbaa !30
+  store i32 %52, ptr %53, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   %54 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   br i1 %54, label %55, label %lv_draw_buf_flush_cache.exit42
@@ -408,11 +408,11 @@ switch.lookup:                                    ; preds = %11
   br i1 %60, label %lv_draw_buf_flush_cache.exit42, label %61
 
 61:                                               ; preds = %58
-  %62 = load i32, ptr %5, align 4, !tbaa !26
+  %62 = load i32, ptr %5, align 4, !tbaa !20
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !28
+  %64 = load i32, ptr %63, align 4, !tbaa !22
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !25
+  %66 = load ptr, ptr %65, align 8, !tbaa !19
   %67 = load i64, ptr %0, align 8
   %68 = trunc i64 %67 to i32
   %69 = lshr i32 %68, 8
@@ -462,9 +462,9 @@ lv_draw_buf_goto_xy.exit34:                       ; preds = %76, %85
   %.1.i = phi ptr [ %83, %76 ], [ %91, %85 ]
   %92 = call zeroext i8 @lv_color_format_get_bpp(i32 noundef %.pre-phi50) #9
   %93 = call i32 @lv_area_get_width(ptr noundef nonnull %5) #9
-  %94 = load i32, ptr %63, align 4, !tbaa !28
+  %94 = load i32, ptr %63, align 4, !tbaa !22
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %96 = load i32, ptr %95, align 4, !tbaa !30
+  %96 = load i32, ptr %95, align 4, !tbaa !24
   %.not2643 = icmp sgt i32 %94, %96
   br i1 %.not2643, label %._crit_edge, label %.lr.ph
 
@@ -483,18 +483,18 @@ lv_draw_buf_goto_xy.exit34:                       ; preds = %76, %85
   call void @lv_memset(ptr noundef %.02344, i8 noundef zeroext 0, i64 noundef range(i64 0, 4294967296) %101) #9
   %104 = getelementptr inbounds nuw i8, ptr %.02344, i64 %102
   %105 = add nsw i32 %.045, 1
-  %106 = load i32, ptr %95, align 4, !tbaa !30
+  %106 = load i32, ptr %95, align 4, !tbaa !24
   %.not26.not = icmp slt i32 %.045, %106
-  br i1 %.not26.not, label %103, label %._crit_edge, !llvm.loop !31
+  br i1 %.not26.not, label %103, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %103, %lv_draw_buf_goto_xy.exit34
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %108 = load ptr, ptr %107, align 8, !tbaa !15
+  %108 = load ptr, ptr %107, align 8, !tbaa !13
   %.not12.i36 = icmp eq ptr %108, null
   br i1 %.not12.i36, label %.preheader14.i40, label %109
 
 .preheader14.i40:                                 ; preds = %._crit_edge, %.preheader14.i40
-  br label %.preheader14.i40, !llvm.loop !23
+  br label %.preheader14.i40
 
 109:                                              ; preds = %._crit_edge
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 32
@@ -521,11 +521,11 @@ define ptr @lv_draw_buf_goto_xy(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !33
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = load i64, ptr %0, align 8
   %8 = trunc i64 %7 to i32
   %9 = lshr i32 %8, 8
@@ -590,7 +590,7 @@ define void @lv_draw_buf_copy(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %9, label %10, label %.preheader
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader, !llvm.loop !34
+  br label %.preheader
 
 10:                                               ; preds = %4
   %11 = icmp eq ptr %1, null
@@ -625,9 +625,9 @@ define void @lv_draw_buf_copy(ptr noundef readonly captures(none) %0, ptr nounde
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %28 = load ptr, ptr %27, align 8, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %30 = load ptr, ptr %29, align 8, !tbaa !19
   %switch.tableidx = add nsw i32 %24, -7
   %31 = icmp ult i32 %switch.tableidx, 3
   br i1 %31, label %switch.lookup, label %33
@@ -664,14 +664,14 @@ switch.lookup:                                    ; preds = %26
   br label %43
 
 43:                                               ; preds = %.preheader127, %43
-  br label %43, !llvm.loop !35
+  br label %43
 
 44:                                               ; preds = %.thread109
-  %45 = load i32, ptr %3, align 4, !tbaa !26
+  %45 = load i32, ptr %3, align 4, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !28
+  %47 = load i32, ptr %46, align 4, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !25
+  %49 = load ptr, ptr %48, align 8, !tbaa !19
   %50 = load i64, ptr %2, align 8
   %51 = trunc i64 %50 to i32
   %52 = lshr i32 %51, 8
@@ -715,7 +715,7 @@ switch.lookup111:                                 ; preds = %44
 
 .critedge:                                        ; preds = %37
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !25
+  %77 = load ptr, ptr %76, align 8, !tbaa !19
   %78 = lshr i64 %38, 8
   %trunc.i67 = trunc i64 %78 to i8
   %switch.tableidx116 = add i8 %trunc.i67, -7
@@ -745,11 +745,11 @@ lv_draw_buf_goto_xy.exit:                         ; preds = %69, %59, %lv_draw_b
   br i1 %11, label %119, label %87
 
 87:                                               ; preds = %lv_draw_buf_goto_xy.exit
-  %88 = load i32, ptr %1, align 4, !tbaa !26
+  %88 = load i32, ptr %1, align 4, !tbaa !20
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !28
+  %90 = load i32, ptr %89, align 4, !tbaa !22
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !25
+  %92 = load ptr, ptr %91, align 8, !tbaa !19
   %93 = load i64, ptr %0, align 8
   %94 = trunc i64 %93 to i32
   %95 = lshr i32 %94, 8
@@ -789,13 +789,13 @@ switch.lookup119:                                 ; preds = %87
   %116 = lshr i32 %115, 3
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 %117
-  %.pre106 = load i32, ptr %89, align 4, !tbaa !28
+  %.pre106 = load i32, ptr %89, align 4, !tbaa !22
   %.pre107.pre = load i64, ptr %0, align 8
   br label %129
 
 119:                                              ; preds = %lv_draw_buf_goto_xy.exit
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %121 = load ptr, ptr %120, align 8, !tbaa !25
+  %121 = load ptr, ptr %120, align 8, !tbaa !19
   %122 = load i64, ptr %0, align 8
   %123 = lshr i64 %122, 8
   %trunc.i81 = trunc i64 %123 to i8
@@ -814,7 +814,7 @@ switch.lookup119:                                 ; preds = %87
   %130 = phi i32 [ %90, %102 ], [ %.pre106, %112 ]
   %.0.ph = phi ptr [ %110, %102 ], [ %118, %112 ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %132 = load i32, ptr %131, align 4, !tbaa !30
+  %132 = load i32, ptr %131, align 4, !tbaa !24
   br label %140
 
 switch.lookup123:                                 ; preds = %119
@@ -868,7 +868,7 @@ switch.lookup123:                                 ; preds = %119
   %162 = getelementptr inbounds nuw i8, ptr %.150103, i64 %158
   %163 = add i32 %.154102, 1
   %exitcond.not = icmp eq i32 %.154102, %.052
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %159, %140
   ret void
@@ -882,7 +882,7 @@ define range(i32 0, 2) i32 @lv_draw_buf_init(ptr noundef %0, i32 noundef %1, i32
   br i1 %.not, label %.preheader, label %8
 
 .preheader:                                       ; preds = %7, %.preheader
-  br label %.preheader, !llvm.loop !37
+  br label %.preheader
 
 8:                                                ; preds = %7
   tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 40) #9
@@ -925,13 +925,13 @@ lv_draw_buf_width_to_stride.exit:                 ; preds = %12, %10, %8
   %32 = or disjoint i64 %31, 25
   store i64 %32, ptr %0, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %33, align 8, !tbaa !25
+  store ptr %5, ptr %33, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %34, align 8, !tbaa !38
+  store ptr %5, ptr %34, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 352), ptr %35, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 352), ptr %35, align 8, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %6, ptr %36, align 4, !tbaa !39
+  store i32 %6, ptr %36, align 4, !tbaa !29
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 368), align 8, !tbaa !9
   %.not.i.i34 = icmp eq ptr %37, null
   br i1 %.not.i.i34, label %lv_draw_buf_align.exit, label %38
@@ -958,7 +958,7 @@ define ptr @lv_draw_buf_create_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %5, %.preheader
-  br label %.preheader, !llvm.loop !40
+  br label %.preheader
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %4, 0
@@ -1069,13 +1069,13 @@ draw_buf_malloc.exit.thread:                      ; preds = %_calculate_draw_buf
 lv_draw_buf_align.exit:                           ; preds = %36, %54
   %.0.i.i40 = phi ptr [ %55, %54 ], [ null, %36 ]
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.0.i.i40, ptr %56, align 8, !tbaa !25
+  store ptr %.0.i.i40, ptr %56, align 8, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %34, ptr %57, align 8, !tbaa !38
+  store ptr %34, ptr %57, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %.0.i, ptr %58, align 4, !tbaa !39
+  store i32 %.0.i, ptr %58, align 4, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %0, ptr %59, align 8, !tbaa !15
+  store ptr %0, ptr %59, align 8, !tbaa !13
   br label %60
 
 60:                                               ; preds = %draw_buf_malloc.exit.thread, %lv_draw_buf_align.exit
@@ -1114,14 +1114,14 @@ define ptr @lv_draw_buf_dup(ptr noundef readonly captures(none) %0) local_unname
   %22 = or disjoint i64 %21, 3145728
   store i64 %22, ptr %14, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !39
+  %24 = load i32, ptr %23, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !39
+  %26 = load i32, ptr %25, align 4, !tbaa !29
   %..i = tail call i32 @llvm.umin.i32(i32 %24, i32 %26)
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %28 = load ptr, ptr %27, align 8, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = zext i32 %..i to i64
   %32 = tail call ptr @lv_memcpy(ptr noundef %28, ptr noundef %30, i64 noundef %31) #9
   br label %lv_draw_buf_dup_ex.exit
@@ -1157,14 +1157,14 @@ define ptr @lv_draw_buf_dup_ex(ptr noundef %0, ptr noundef readonly captures(non
   %23 = or disjoint i64 %22, 3145728
   store i64 %23, ptr %15, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !39
+  %25 = load i32, ptr %24, align 4, !tbaa !29
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %27 = load i32, ptr %26, align 4, !tbaa !39
+  %27 = load i32, ptr %26, align 4, !tbaa !29
   %. = tail call i32 @llvm.umin.i32(i32 %25, i32 %27)
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !25
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = zext i32 %. to i64
   %33 = tail call ptr @lv_memcpy(ptr noundef %29, ptr noundef %31, i64 noundef %32) #9
   br label %34
@@ -1255,7 +1255,7 @@ lv_draw_buf_width_to_stride.exit.i:               ; preds = %16, %14, %21, %20, 
 _calculate_draw_buf_size.exit:                    ; preds = %25, %29, %37
   %.0.i = phi i32 [ %28, %25 ], [ %39, %37 ], [ %23, %29 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %41 = load i32, ptr %40, align 4, !tbaa !39
+  %41 = load i32, ptr %40, align 4, !tbaa !29
   %42 = icmp ugt i32 %.0.i, %41
   br i1 %42, label %63, label %43
 
@@ -1294,7 +1294,7 @@ define void @lv_draw_buf_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !41
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 8
@@ -1304,12 +1304,12 @@ define void @lv_draw_buf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %.preheader11, label %8
 
 .preheader11:                                     ; preds = %5, %.preheader11
-  br label %.preheader11, !llvm.loop !42
+  br label %.preheader11
 
 8:                                                ; preds = %5
   %9 = getelementptr i8, ptr %7, i64 8
@@ -1319,7 +1319,7 @@ define void @lv_draw_buf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !38
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   tail call void %.val(ptr noundef %12) #9
   br label %draw_buf_free.exit
 
@@ -1337,16 +1337,16 @@ define range(i32 0, 2) i32 @lv_draw_buf_adjust_stride(ptr noundef captures(addre
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !43
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %.not76 = icmp eq ptr %5, null
   br i1 %.not76, label %.preheader79, label %6
 
 .preheader79:                                     ; preds = %3, %.preheader79
-  br label %.preheader79, !llvm.loop !44
+  br label %.preheader79
 
 6:                                                ; preds = %3
   %7 = load i64, ptr %0, align 4
@@ -1454,7 +1454,7 @@ lv_draw_buf_width_to_stride.exit.i:               ; preds = %46, %44, %38
 _calculate_draw_buf_size.exit:                    ; preds = %50, %54, %62
   %.0.i = phi i32 [ %53, %50 ], [ %64, %62 ], [ %48, %54 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %66 = load i32, ptr %65, align 4, !tbaa !39
+  %66 = load i32, ptr %65, align 4, !tbaa !29
   %67 = icmp ugt i32 %.0.i, %66
   br i1 %67, label %121, label %68
 
@@ -1490,7 +1490,7 @@ switch.lookup:                                    ; preds = %68
   br i1 %.not89, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %82
-  %83 = load ptr, ptr %4, align 8, !tbaa !25
+  %83 = load ptr, ptr %4, align 8, !tbaa !19
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %78
   %85 = add nsw i32 %12, -1
   %86 = mul i32 %.070, %85
@@ -1517,13 +1517,13 @@ switch.lookup:                                    ; preds = %68
   %102 = getelementptr inbounds i8, ptr %.06785, i64 %94
   %103 = add nuw nsw i32 %.06686, 1
   %exitcond91.not = icmp eq i32 %103, %12
-  br i1 %exitcond91.not, label %.loopexit, label %95, !llvm.loop !45
+  br i1 %exitcond91.not, label %.loopexit, label %95, !llvm.loop !30
 
 104:                                              ; preds = %77
   br i1 %.not89, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %104
-  %105 = load ptr, ptr %4, align 8, !tbaa !25
+  %105 = load ptr, ptr %4, align 8, !tbaa !19
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %78
   %107 = zext nneg i32 %36 to i64
   %108 = zext nneg i32 %.070 to i64
@@ -1541,7 +1541,7 @@ switch.lookup:                                    ; preds = %68
   %115 = getelementptr inbounds nuw i8, ptr %.06482, i64 %108
   %116 = add nuw nsw i32 %.083, 1
   %exitcond.not = icmp eq i32 %116, %12
-  br i1 %exitcond.not, label %.loopexit, label %109, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %109, !llvm.loop !31
 
 .loopexit:                                        ; preds = %109, %95, %104, %82
   %117 = phi i32 [ %79, %104 ], [ %79, %82 ], [ %97, %95 ], [ %111, %109 ]
@@ -1574,7 +1574,7 @@ define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef captures(address
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !47
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 8
@@ -1609,7 +1609,7 @@ switch.lookup:                                    ; preds = %10
 .lr.ph.preheader:                                 ; preds = %switch.lookup, %12
   %wide.trip.count143 = phi i64 [ %14, %12 ], [ %switch.load, %switch.lookup ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %.in, align 8, !tbaa !25
+  %16 = load ptr, ptr %.in, align 8, !tbaa !19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1618,7 +1618,7 @@ switch.lookup:                                    ; preds = %10
   tail call void @lv_color_premultiply(ptr noundef %17) #9
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 18:                                               ; preds = %6
   %trunc = trunc i32 %7 to i8
@@ -1647,7 +1647,7 @@ switch.lookup:                                    ; preds = %10
 
 .preheader100.us.preheader:                       ; preds = %.preheader100.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %30 = load ptr, ptr %29, align 8, !tbaa !19
   br label %.preheader100.us
 
 .preheader100.us:                                 ; preds = %.preheader100.us.preheader, %._crit_edge.us120
@@ -1662,13 +1662,13 @@ switch.lookup:                                    ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %.093117.us, i64 4
   %33 = add nuw nsw i32 %.094116.us, 1
   %exitcond138.not = icmp eq i32 %33, %24
-  br i1 %exitcond138.not, label %._crit_edge.us120, label %31, !llvm.loop !49
+  br i1 %exitcond138.not, label %._crit_edge.us120, label %31, !llvm.loop !33
 
 ._crit_edge.us120:                                ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.086119.us, i64 %28
   %35 = add nuw nsw i32 %.087118.us, 1
   %exitcond139.not = icmp eq i32 %35, %21
-  br i1 %exitcond139.not, label %.loopexit, label %.preheader100.us, !llvm.loop !50
+  br i1 %exitcond139.not, label %.loopexit, label %.preheader100.us, !llvm.loop !34
 
 36:                                               ; preds = %18
   %37 = lshr i64 %3, 48
@@ -1690,7 +1690,7 @@ switch.lookup:                                    ; preds = %10
 
 .preheader102.us.preheader:                       ; preds = %.preheader102.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !25
+  %48 = load ptr, ptr %47, align 8, !tbaa !19
   %49 = mul nuw i32 %42, %38
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
@@ -1707,19 +1707,19 @@ switch.lookup:                                    ; preds = %10
   %indvars.iv = phi i64 [ 0, %.preheader102.us ], [ %indvars.iv.next, %52 ]
   %.089110.us = phi ptr [ %.092112.us, %.preheader102.us ], [ %55, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %.091113.us, i64 %indvars.iv
-  %54 = load i8, ptr %53, align 1, !tbaa !52
+  %54 = load i8, ptr %53, align 1, !tbaa !36
   tail call void @lv_color16_premultiply(ptr noundef %.089110.us, i8 noundef zeroext %54) #9
   %55 = getelementptr inbounds nuw i8, ptr %.089110.us, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond136.not, label %._crit_edge.us115, label %52, !llvm.loop !53
+  br i1 %exitcond136.not, label %._crit_edge.us115, label %52, !llvm.loop !37
 
 ._crit_edge.us115:                                ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.092112.us, i64 %45
   %57 = getelementptr inbounds nuw i8, ptr %.091113.us, i64 %46
   %58 = add nuw nsw i32 %.090114.us, 1
   %exitcond137.not = icmp eq i32 %58, %38
-  br i1 %exitcond137.not, label %.loopexit, label %.preheader102.us, !llvm.loop !54
+  br i1 %exitcond137.not, label %.loopexit, label %.preheader102.us, !llvm.loop !38
 
 59:                                               ; preds = %18
   %60 = lshr i64 %3, 48
@@ -1740,7 +1740,7 @@ switch.lookup:                                    ; preds = %10
 
 .preheader104.us.preheader:                       ; preds = %.preheader104.lr.ph
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !25
+  %70 = load ptr, ptr %69, align 8, !tbaa !19
   br label %.preheader104.us
 
 .preheader104.us:                                 ; preds = %.preheader104.us.preheader, %._crit_edge.us
@@ -1752,18 +1752,18 @@ switch.lookup:                                    ; preds = %10
   %.081107.us = phi i32 [ 0, %.preheader104.us ], [ %75, %71 ]
   %.082106.us = phi ptr [ %.084108.us, %.preheader104.us ], [ %74, %71 ]
   %72 = getelementptr inbounds nuw i8, ptr %.082106.us, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !52
+  %73 = load i8, ptr %72, align 1, !tbaa !36
   tail call void @lv_color16_premultiply(ptr noundef %.082106.us, i8 noundef zeroext %73) #9
   %74 = getelementptr inbounds nuw i8, ptr %.082106.us, i64 3
   %75 = add nuw nsw i32 %.081107.us, 1
   %exitcond.not = icmp eq i32 %75, %64
-  br i1 %exitcond.not, label %._crit_edge.us, label %71, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge.us, label %71, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %.084108.us, i64 %68
   %77 = add nuw nsw i32 %.083109.us, 1
   %exitcond134.not = icmp eq i32 %77, %61
-  br i1 %exitcond134.not, label %.loopexit, label %.preheader104.us, !llvm.loop !56
+  br i1 %exitcond134.not, label %.loopexit, label %.preheader104.us, !llvm.loop !40
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us115, %._crit_edge.us120, %.lr.ph, %.preheader104.lr.ph, %.preheader102.lr.ph, %.preheader100.lr.ph, %59, %36, %19, %12, %18
   %78 = load i64, ptr %0, align 8
@@ -1786,7 +1786,7 @@ define void @lv_draw_buf_set_palette(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !57
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = load i64, ptr %0, align 8
@@ -1799,7 +1799,7 @@ define void @lv_draw_buf_set_palette(ptr noundef readonly captures(address_is_nu
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = zext i8 %1 to i64
   %14 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %12, i64 %13
   store i32 %2, ptr %14, align 1
@@ -1849,14 +1849,14 @@ define void @lv_draw_buf_from_image(ptr noundef %0, ptr noundef readonly capture
   %10 = lshr i32 %9, 8
   %11 = and i32 %10, 255
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !58
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !60
+  %15 = load i32, ptr %14, align 4, !tbaa !43
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %16
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
-  br label %.preheader.i, !llvm.loop !37
+  br label %.preheader.i
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1895,13 +1895,13 @@ lv_draw_buf_width_to_stride.exit.i:               ; preds = %23, %21, %16
   %36 = or disjoint i64 %35, 25
   store i64 %36, ptr %0, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %37, align 8, !tbaa !25
+  store ptr %13, ptr %37, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %38, align 8, !tbaa !38
+  store ptr %13, ptr %38, align 8, !tbaa !28
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 352), ptr %39, align 8, !tbaa !15
+  store ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 352), ptr %39, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %15, ptr %40, align 4, !tbaa !39
+  store i32 %15, ptr %40, align 4, !tbaa !29
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 368), align 8, !tbaa !9
   %.not.i.i34.i = icmp eq ptr %41, null
   br i1 %.not.i.i34.i, label %lv_draw_buf_init.exit, label %42
@@ -1932,7 +1932,7 @@ define void @lv_image_buf_set_palette(ptr noundef readonly captures(address_is_n
   br i1 %.not.i, label %.preheader.i, label %4
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
-  br label %.preheader.i, !llvm.loop !57
+  br label %.preheader.i
 
 4:                                                ; preds = %3
   %5 = load i64, ptr %0, align 8
@@ -1945,7 +1945,7 @@ define void @lv_image_buf_set_palette(ptr noundef readonly captures(address_is_n
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = zext i8 %1 to i64
   %14 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %12, i64 %13
   store i32 %2, ptr %14, align 1
@@ -1962,7 +1962,7 @@ define void @lv_image_buf_free(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !41
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %6, label %5
 
@@ -2016,51 +2016,34 @@ attributes #9 = { nounwind }
 !10 = !{!4, !5, i64 40}
 !11 = !{!4, !5, i64 24}
 !12 = !{!4, !5, i64 32}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !20, i64 32}
-!16 = !{!"_lv_draw_buf_t", !17, i64 0, !18, i64 12, !19, i64 16, !5, i64 24, !20, i64 32}
-!17 = !{!"", !18, i64 0, !18, i64 1, !18, i64 2, !18, i64 4, !18, i64 6, !18, i64 8, !18, i64 10}
-!18 = !{!"int", !6, i64 0}
-!19 = !{!"p1 omnipotent char", !5, i64 0}
-!20 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !5, i64 0}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = !{!16, !19, i64 16}
-!26 = !{!27, !18, i64 0}
-!27 = !{!"", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12}
-!28 = !{!27, !18, i64 4}
-!29 = !{!27, !18, i64 8}
-!30 = !{!27, !18, i64 12}
-!31 = distinct !{!31, !32, !14}
-!32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !14}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = distinct !{!36, !32, !14}
-!37 = distinct !{!37, !14}
-!38 = !{!16, !5, i64 24}
-!39 = !{!16, !18, i64 12}
-!40 = distinct !{!40, !14}
-!41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14}
-!44 = distinct !{!44, !14}
-!45 = distinct !{!45, !32, !14}
-!46 = distinct !{!46, !32, !14}
-!47 = distinct !{!47, !14}
-!48 = distinct !{!48, !32, !14}
-!49 = distinct !{!49, !32, !14}
-!50 = distinct !{!50, !32, !14, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = !{!6, !6, i64 0}
-!53 = distinct !{!53, !32, !14}
-!54 = distinct !{!54, !32, !14, !51}
-!55 = distinct !{!55, !32, !14}
-!56 = distinct !{!56, !32, !14, !51}
-!57 = distinct !{!57, !14}
-!58 = !{!59, !19, i64 16}
-!59 = !{!"", !17, i64 0, !18, i64 12, !19, i64 16, !5, i64 24}
-!60 = !{!59, !18, i64 12}
+!13 = !{!14, !18, i64 32}
+!14 = !{!"_lv_draw_buf_t", !15, i64 0, !16, i64 12, !17, i64 16, !5, i64 24, !18, i64 32}
+!15 = !{!"", !16, i64 0, !16, i64 1, !16, i64 2, !16, i64 4, !16, i64 6, !16, i64 8, !16, i64 10}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !5, i64 0}
+!19 = !{!14, !17, i64 16}
+!20 = !{!21, !16, i64 0}
+!21 = !{!"", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12}
+!22 = !{!21, !16, i64 4}
+!23 = !{!21, !16, i64 8}
+!24 = !{!21, !16, i64 12}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26}
+!28 = !{!14, !5, i64 24}
+!29 = !{!14, !16, i64 12}
+!30 = distinct !{!30, !26}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = distinct !{!33, !26}
+!34 = distinct !{!34, !26, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = !{!6, !6, i64 0}
+!37 = distinct !{!37, !26}
+!38 = distinct !{!38, !26, !35}
+!39 = distinct !{!39, !26}
+!40 = distinct !{!40, !26, !35}
+!41 = !{!42, !17, i64 16}
+!42 = !{!"", !15, i64 0, !16, i64 12, !17, i64 16, !5, i64 24}
+!43 = !{!42, !16, i64 12}

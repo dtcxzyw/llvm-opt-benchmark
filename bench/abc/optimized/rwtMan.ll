@@ -335,7 +335,7 @@ Dec_GraphFree.exit:                               ; preds = %.lr.ph, %20
   %.val = load i32, ptr %29, align 4, !tbaa !49
   %30 = sext i32 %.val to i64
   %31 = icmp slt i64 %indvars.iv.next69, %30
-  br i1 %31, label %.preheader, label %._crit_edge, !llvm.loop !63
+  br i1 %31, label %.preheader, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.critedge
   %32 = getelementptr i8, ptr %28, i64 4
@@ -375,7 +375,7 @@ Vec_PtrFree.exit.i:                               ; preds = %41, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = sext i32 %.val.i to i64
   %44 = icmp slt i64 %indvars.iv.next.i, %43
-  br i1 %44, label %35, label %.critedge.i, !llvm.loop !64
+  br i1 %44, label %35, label %.critedge.i, !llvm.loop !63
 
 .critedge.i:                                      ; preds = %42, %.preheader60, %._crit_edge
   %.lcssa74 = phi ptr [ %28, %._crit_edge ], [ %3, %.preheader60 ], [ %28, %42 ]
@@ -462,13 +462,13 @@ Vec_PtrFree.exit58:                               ; preds = %Vec_PtrFree.exit56,
   %74 = load ptr, ptr %73, align 8, !tbaa !29
   tail call void @Mem_FixedStop(ptr noundef %74, i32 noundef 0) #16
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !65
+  %76 = load ptr, ptr %75, align 8, !tbaa !64
   %.not41 = icmp eq ptr %76, null
   br i1 %.not41, label %78, label %77
 
 77:                                               ; preds = %Vec_PtrFree.exit58
   tail call void @free(ptr noundef nonnull %76) #16
-  store ptr null, ptr %75, align 8, !tbaa !65
+  store ptr null, ptr %75, align 8, !tbaa !64
   br label %78
 
 78:                                               ; preds = %Vec_PtrFree.exit58, %77
@@ -519,34 +519,34 @@ define void @Rwt_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.021 = phi i32 [ 0, %1 ], [ %8, %3 ]
   %4 = getelementptr inbounds nuw [222 x i32], ptr %2, i64 0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !66
+  %5 = load i32, ptr %4, align 4, !tbaa !65
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32
   %8 = add nuw nsw i32 %.021, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 222
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !67
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !66
 
 9:                                                ; preds = %3
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1076
-  %11 = load i32, ptr %10, align 4, !tbaa !68
+  %11 = load i32, ptr %10, align 4, !tbaa !67
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %14 = load i32, ptr %13, align 8, !tbaa !69
+  %14 = load i32, ptr %13, align 8, !tbaa !68
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %14)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1084
-  %17 = load i32, ptr %16, align 4, !tbaa !70
+  %17 = load i32, ptr %16, align 4, !tbaa !69
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %17)
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %8)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %21 = load i32, ptr %20, align 8, !tbaa !71
+  %21 = load i32, ptr %20, align 8, !tbaa !70
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %21)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %24 = load i32, ptr %23, align 4, !tbaa !72
+  %24 = load i32, ptr %23, align 4, !tbaa !71
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %24)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %27 = load i32, ptr %26, align 8, !tbaa !73
+  %27 = load i32, ptr %26, align 8, !tbaa !72
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %27)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -556,43 +556,43 @@ define void @Rwt_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %32)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %34 = load i64, ptr %33, align 8, !tbaa !74
+  %34 = load i64, ptr %33, align 8, !tbaa !73
   %35 = sitofp i64 %34 to double
   %36 = fdiv double %35, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %36)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %38 = load i64, ptr %37, align 8, !tbaa !75
+  %38 = load i64, ptr %37, align 8, !tbaa !74
   %39 = sitofp i64 %38 to double
   %40 = fdiv double %39, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %40)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %42 = load i64, ptr %41, align 8, !tbaa !76
+  %42 = load i64, ptr %41, align 8, !tbaa !75
   %43 = sitofp i64 %42 to double
   %44 = fdiv double %43, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %44)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %46 = load i64, ptr %45, align 8, !tbaa !77
+  %46 = load i64, ptr %45, align 8, !tbaa !76
   %47 = sitofp i64 %46 to double
   %48 = fdiv double %47, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %48)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.15)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %50 = load i64, ptr %49, align 8, !tbaa !78
+  %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = sitofp i64 %50 to double
   %52 = fdiv double %51, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %52)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  %54 = load i64, ptr %53, align 8, !tbaa !79
+  %54 = load i64, ptr %53, align 8, !tbaa !78
   %55 = sitofp i64 %54 to double
   %56 = fdiv double %55, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %56)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.17)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %58 = load i64, ptr %57, align 8, !tbaa !80
+  %58 = load i64, ptr %57, align 8, !tbaa !79
   %59 = sitofp i64 %58 to double
   %60 = fdiv double %59, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %60)
@@ -606,7 +606,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !66
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !65
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -619,7 +619,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #16
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !81
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !80
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #16
@@ -627,7 +627,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !81, !noalias !83
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !80, !noalias !82
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #16
   br label %17
 
@@ -644,16 +644,16 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
 define void @Rwt_ManPrintStatsFile(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1076
-  %4 = load i32, ptr %3, align 4, !tbaa !68
+  %4 = load i32, ptr %3, align 4, !tbaa !67
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, i32 noundef %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1084
-  %7 = load i32, ptr %6, align 4, !tbaa !70
+  %7 = load i32, ptr %6, align 4, !tbaa !69
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, i32 noundef %7) #16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %10 = load i32, ptr %9, align 4, !tbaa !72
+  %10 = load i32, ptr %9, align 4, !tbaa !71
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, i32 noundef %10) #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %13 = load i32, ptr %12, align 8, !tbaa !73
+  %13 = load i32, ptr %12, align 8, !tbaa !72
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, i32 noundef %13) #16
   %fputc = tail call i32 @fputc(i32 10, ptr %2)
   %15 = tail call i32 @fclose(ptr noundef %2)
@@ -672,7 +672,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Rwt_ManReadDecs(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !86
+  %3 = load ptr, ptr %2, align 8, !tbaa !85
   ret ptr %3
 }
 
@@ -686,34 +686,34 @@ define ptr @Rwt_ManReadLeaves(ptr noundef readonly captures(none) %0) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Rwt_ManReadCompl(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i32, ptr %2, align 8, !tbaa !87
+  %3 = load i32, ptr %2, align 8, !tbaa !86
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Rwt_ManAddTimeCuts(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %4 = load i64, ptr %3, align 8, !tbaa !74
+  %4 = load i64, ptr %3, align 8, !tbaa !73
   %5 = add nsw i64 %4, %1
-  store i64 %5, ptr %3, align 8, !tbaa !74
+  store i64 %5, ptr %3, align 8, !tbaa !73
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Rwt_ManAddTimeUpdate(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  %4 = load i64, ptr %3, align 8, !tbaa !79
+  %4 = load i64, ptr %3, align 8, !tbaa !78
   %5 = add nsw i64 %4, %1
-  store i64 %5, ptr %3, align 8, !tbaa !79
+  store i64 %5, ptr %3, align 8, !tbaa !78
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Rwt_ManAddTimeTotal(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %4 = load i64, ptr %3, align 8, !tbaa !80
+  %4 = load i64, ptr %3, align 8, !tbaa !79
   %5 = add nsw i64 %4, %1
-  store i64 %5, ptr %3, align 8, !tbaa !80
+  store i64 %5, ptr %3, align 8, !tbaa !79
   ret void
 }
 
@@ -836,31 +836,30 @@ attributes #18 = { nounwind willreturn memory(read) }
 !57 = !{!"Dec_Graph_t_", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !58, i64 16, !59, i64 24}
 !58 = !{!"p1 _ZTS11Dec_Node_t_", !5, i64 0}
 !59 = !{!"Dec_Edge_t_", !16, i64 0, !16, i64 0}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = distinct !{!63, !61, !62}
-!64 = distinct !{!64, !61, !62}
-!65 = !{!15, !4, i64 40}
-!66 = !{!16, !16, i64 0}
-!67 = distinct !{!67, !61, !62}
-!68 = !{!15, !16, i64 1076}
-!69 = !{!15, !16, i64 1080}
-!70 = !{!15, !16, i64 1084}
-!71 = !{!15, !16, i64 176}
-!72 = !{!15, !16, i64 180}
-!73 = !{!15, !16, i64 184}
-!74 = !{!15, !12, i64 1104}
-!75 = !{!15, !12, i64 1096}
-!76 = !{!15, !12, i64 1112}
-!77 = !{!15, !12, i64 1128}
-!78 = !{!15, !12, i64 1120}
-!79 = !{!15, !12, i64 1136}
-!80 = !{!15, !12, i64 1144}
-!81 = !{!82, !82, i64 0}
-!82 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"vprintf: argument 0"}
-!85 = distinct !{!85, !"vprintf"}
-!86 = !{!15, !5, i64 128}
-!87 = !{!15, !16, i64 112}
+!62 = distinct !{!62, !61}
+!63 = distinct !{!63, !61}
+!64 = !{!15, !4, i64 40}
+!65 = !{!16, !16, i64 0}
+!66 = distinct !{!66, !61}
+!67 = !{!15, !16, i64 1076}
+!68 = !{!15, !16, i64 1080}
+!69 = !{!15, !16, i64 1084}
+!70 = !{!15, !16, i64 176}
+!71 = !{!15, !16, i64 180}
+!72 = !{!15, !16, i64 184}
+!73 = !{!15, !12, i64 1104}
+!74 = !{!15, !12, i64 1096}
+!75 = !{!15, !12, i64 1112}
+!76 = !{!15, !12, i64 1128}
+!77 = !{!15, !12, i64 1120}
+!78 = !{!15, !12, i64 1136}
+!79 = !{!15, !12, i64 1144}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"vprintf: argument 0"}
+!84 = distinct !{!84, !"vprintf"}
+!85 = !{!15, !5, i64 128}
+!86 = !{!15, !16, i64 112}

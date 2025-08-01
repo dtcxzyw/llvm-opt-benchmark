@@ -138,15 +138,15 @@ define dso_local noundef range(i32 -12, 1) i32 @byd_init(ptr noundef %0) local_u
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %32, i64 0) #5, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %32, i64 0) #5, !srcloc !8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 330) #5, !srcloc !9
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 325) #5, !srcloc !9
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 272) #5, !srcloc !9
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 273) #5, !srcloc !9
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 274) #5, !srcloc !10
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 330) #5, !srcloc !8
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 325) #5, !srcloc !8
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 272) #5, !srcloc !8
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 273) #5, !srcloc !8
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 274) #5, !srcloc !9
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 3) #5, !srcloc !9
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 3) #5, !srcloc !8
   call void @input_set_abs_params(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 11264, i32 noundef 0, i32 noundef 0) #5
   call void @input_set_abs_params(ptr noundef %4, i32 noundef 1, i32 noundef 0, i32 noundef 6656, i32 noundef 0, i32 noundef 0) #5
   call void @input_alloc_absinfo(ptr noundef %4) #5
@@ -172,10 +172,10 @@ define dso_local noundef range(i32 -12, 1) i32 @byd_init(ptr noundef %0) local_u
   br label %45
 
 45:                                               ; preds = %43, %40
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 2) #5, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 2) #5, !srcloc !9
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 0) #5, !srcloc !10
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 1) #5, !srcloc !10
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 0) #5, !srcloc !9
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 1) #5, !srcloc !9
   br label %48
 
 47:                                               ; preds = %12
@@ -207,10 +207,10 @@ define internal void @byd_clear_touch(ptr noundef captures(none) initializes((48
   %8 = getelementptr i8, ptr %3, i64 8
   %.val1 = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 66
-  %10 = load i8, ptr %9, align 2, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
   %11 = zext nneg i8 %10 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 330, i32 noundef %11) #5
-  %12 = load i8, ptr %9, align 2, !range !11, !noundef !12
+  %12 = load i8, ptr %9, align 2, !range !10, !noundef !11
   %13 = zext nneg i8 %12 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 325, i32 noundef %13) #5
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -220,11 +220,11 @@ define internal void @byd_clear_touch(ptr noundef captures(none) initializes((48
   %17 = load i32, ptr %16, align 4
   tail call void @input_event(ptr noundef %.val1, i32 noundef 3, i32 noundef 1, i32 noundef %17) #5
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %19 = load i8, ptr %18, align 8, !range !11, !noundef !12
+  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
   %20 = zext nneg i8 %19 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 272, i32 noundef %20) #5
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 65
-  %22 = load i8, ptr %21, align 1, !range !11, !noundef !12
+  %22 = load i8, ptr %21, align 1, !range !10, !noundef !11
   %23 = zext nneg i8 %22 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 273, i32 noundef %23) #5
   tail call void @input_event(ptr noundef %.val1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
@@ -271,12 +271,12 @@ define internal range(i32 -19, 1) i32 @byd_reconnect(ptr noundef %0) #0 align 16
   br label %8
 
 8:                                                ; preds = %7, %3
-  %9 = tail call i32 @byd_detect(ptr noundef %0, i1 noundef zeroext false), !range !13
+  %9 = tail call i32 @byd_detect(ptr noundef %0, i1 noundef zeroext false), !range !12
   %10 = icmp ne i32 %9, 0
   %11 = add nuw nsw i32 %4, 1
   %12 = icmp samesign ult i32 %4, 2
   %13 = select i1 %10, i1 %12, i1 false
-  br i1 %13, label %3, label %14, !llvm.loop !14
+  br i1 %13, label %3, label %14, !llvm.loop !13
 
 14:                                               ; preds = %8
   br i1 %10, label %32, label %15
@@ -289,7 +289,7 @@ define internal range(i32 -19, 1) i32 @byd_reconnect(ptr noundef %0) #0 align 16
 17:                                               ; preds = %20
   %18 = add nuw nsw i64 %21, 1
   %19 = icmp eq i64 %18, 25
-  br i1 %19, label %.thread, label %20, !llvm.loop !15
+  br i1 %19, label %.thread, label %20, !llvm.loop !5
 
 20:                                               ; preds = %17, %15
   %21 = phi i64 [ 0, %15 ], [ %18, %17 ]
@@ -361,7 +361,7 @@ define internal noundef range(i32 0, 3) i32 @byd_process_byte(ptr noundef readon
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 66
-  %26 = load i8, ptr %25, align 2, !range !11, !noundef !12
+  %26 = load i8, ptr %25, align 2, !range !10, !noundef !11
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %86
 
@@ -455,10 +455,10 @@ define internal noundef range(i32 0, 3) i32 @byd_process_byte(ptr noundef readon
   %94 = getelementptr i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.val, i64 66
-  %96 = load i8, ptr %95, align 2, !range !11, !noundef !12
+  %96 = load i8, ptr %95, align 2, !range !10, !noundef !11
   %97 = zext nneg i8 %96 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 330, i32 noundef %97) #5
-  %98 = load i8, ptr %95, align 2, !range !11, !noundef !12
+  %98 = load i8, ptr %95, align 2, !range !10, !noundef !11
   %99 = zext nneg i8 %98 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 325, i32 noundef %99) #5
   %100 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -468,16 +468,16 @@ define internal noundef range(i32 0, 3) i32 @byd_process_byte(ptr noundef readon
   %103 = load i32, ptr %102, align 4
   tail call void @input_event(ptr noundef %.val1, i32 noundef 3, i32 noundef 1, i32 noundef %103) #5
   %104 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %105 = load i8, ptr %104, align 8, !range !11, !noundef !12
+  %105 = load i8, ptr %104, align 8, !range !10, !noundef !11
   %106 = zext nneg i8 %105 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 272, i32 noundef %106) #5
   %107 = getelementptr inbounds nuw i8, ptr %.val, i64 65
-  %108 = load i8, ptr %107, align 1, !range !11, !noundef !12
+  %108 = load i8, ptr %107, align 1, !range !10, !noundef !11
   %109 = zext nneg i8 %108 to i32
   tail call void @input_event(ptr noundef %.val1, i32 noundef 1, i32 noundef 273, i32 noundef %109) #5
   tail call void @input_event(ptr noundef %.val1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 66
-  %111 = load i8, ptr %110, align 2, !range !11, !noundef !12
+  %111 = load i8, ptr %110, align 2, !range !10, !noundef !11
   %112 = icmp eq i8 %111, 0
   br i1 %112, label %119, label %113
 
@@ -550,14 +550,12 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2148339812}
-!10 = !{i64 2148341345}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{i32 -19, i32 1}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
+!8 = !{i64 2148339812}
+!9 = !{i64 2148341345}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{i32 -19, i32 1}
+!13 = distinct !{!13, !6, !7}

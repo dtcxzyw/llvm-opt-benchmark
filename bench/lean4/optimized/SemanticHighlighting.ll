@@ -12385,7 +12385,7 @@ lean_obj_tag.exit:                                ; preds = %8, %11
   br i1 %30, label %.backedge.backedge, label %31
 
 .backedge.backedge:                               ; preds = %15, %31, %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit
-  br label %.backedge, !llvm.loop !18
+  br label %.backedge
 
 31:                                               ; preds = %15
   %32 = tail call zeroext i8 @l_Lean_Lsp_beqPosition____x40_Lean_Data_Lsp_Basic___hyg_41_(ptr noundef %23, ptr noundef %27) #7
@@ -12740,7 +12740,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %70, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !20
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13524,7 +13524,7 @@ l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWork
   br i1 %119, label %lean_array_uget.exit314.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit
 
 lean_array_uget.exit314.backedge:                 ; preds = %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i, %115, %99
-  br label %lean_array_uget.exit314, !llvm.loop !18
+  br label %lean_array_uget.exit314
 
 120:                                              ; preds = %lean_obj_tag.exit.i
   %121 = load ptr, ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_toJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_381____closed__1, align 8, !tbaa !11
@@ -13906,7 +13906,7 @@ l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWork
   br i1 %284, label %.backedge.i345.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit347
 
 .backedge.i345.backedge:                          ; preds = %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i343, %280, %264
-  br label %.backedge.i345, !llvm.loop !18
+  br label %.backedge.i345
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit347: ; preds = %lean_obj_tag.exit.i341, %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i343
   br i1 %.not455, label %285, label %lean_dec.exit250
@@ -14189,7 +14189,7 @@ l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWork
   br i1 %410, label %lean_array_uget.exit364.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit373
 
 lean_array_uget.exit364.backedge:                 ; preds = %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i369, %406, %390
-  br label %lean_array_uget.exit364, !llvm.loop !18
+  br label %lean_array_uget.exit364
 
 411:                                              ; preds = %lean_obj_tag.exit.i367
   %412 = load ptr, ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_toJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_381____closed__1, align 8, !tbaa !11
@@ -14598,7 +14598,7 @@ l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWork
   br i1 %585, label %.backedge.i411.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit413
 
 .backedge.i411.backedge:                          ; preds = %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i409, %581, %565
-  br label %.backedge.i411, !llvm.loop !18
+  br label %.backedge.i411
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit413: ; preds = %lean_obj_tag.exit.i407, %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i409
   br i1 %.not451, label %586, label %lean_dec.exit242
@@ -14859,7 +14859,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !11
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #7
-  br label %3, !llvm.loop !21
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15385,7 +15385,7 @@ l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWork
   br i1 %35, label %.backedge.i.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit
 
 .backedge.i.backedge:                             ; preds = %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i, %31, %15
-  br label %.backedge.i, !llvm.loop !18
+  br label %.backedge.i
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Server_FileWorker_filterDuplicateSemanticTokens___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i
   %.1.i = phi i64 [ 3, %l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96_.exit.i ], [ 1, %lean_obj_tag.exit.i ]
@@ -17255,7 +17255,7 @@ lean_nat_le.exit.thread:                          ; preds = %62
 
 67:                                               ; preds = %lean_nat_le.exit
   %68 = tail call ptr @l_Array_qsort_sort___at_Lean_Server_FileWorker_computeDeltaLspSemanticTokens___spec__2(ptr noundef %0, ptr noundef %44, ptr noundef %.035, ptr noundef %34, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not88, label %80, label %69, !prof !22
+  br i1 %.not88, label %80, label %69, !prof !18
 
 69:                                               ; preds = %67, %.thread69
   %70 = phi ptr [ %66, %.thread69 ], [ %68, %67 ]
@@ -21785,7 +21785,7 @@ lean_inc.exit25:                                  ; preds = %41, %40, %38, %35
   br i1 %.not.i31, label %42, label %lean_dec.exit23.backedge
 
 lean_dec.exit23.backedge:                         ; preds = %lean_inc.exit25, %45, %47, %48
-  br label %lean_dec.exit23, !llvm.loop !23
+  br label %lean_dec.exit23
 
 42:                                               ; preds = %lean_inc.exit25
   %43 = load i32, ptr %.0, align 4, !tbaa !8
@@ -21896,7 +21896,7 @@ lean_inc.exit:                                    ; preds = %72, %71, %69, %lean
 
 lean_dec.exit:                                    ; preds = %79, %78, %76, %lean_inc.exit
   %80 = tail call ptr @lean_array_push(ptr noundef %.020.ph, ptr noundef %64) #7
-  br label %lean_dec.exit23.outer, !llvm.loop !23
+  br label %lean_dec.exit23.outer
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #2
@@ -22008,7 +22008,7 @@ lean_inc.exit:                                    ; preds = %35, %34, %32, %lean
 
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit
   %43 = tail call ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef %.012, ptr noundef %17) #7
-  br label %3, !llvm.loop !24
+  br label %3
 }
 
 declare ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -22359,7 +22359,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit51
   %.042.be = phi ptr [ %.0, %lean_inc.exit51 ], [ %114, %lean_alloc_ctor.exit ]
-  br label %12, !llvm.loop !25
+  br label %12
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -22493,7 +22493,7 @@ lean_inc.exit167:                                 ; preds = %44, %43, %41, %lean
   %.sink = phi ptr [ %117, %142 ], [ %117, %141 ], [ %117, %139 ], [ %117, %lean_inc.exit165 ], [ %26, %51 ], [ %26, %50 ], [ %26, %48 ], [ %26, %lean_inc.exit167 ]
   %.0130.be = phi ptr [ %127, %142 ], [ %127, %141 ], [ %127, %139 ], [ %127, %lean_inc.exit165 ], [ %36, %51 ], [ %36, %50 ], [ %36, %48 ], [ %36, %lean_inc.exit167 ]
   %52 = tail call ptr @l_Lean_Elab_PartialContextInfo_mergeIntoOuter_x3f(ptr noundef %.sink, ptr noundef %.0129) #7
-  br label %5, !llvm.loop !26
+  br label %5
 
 53:                                               ; preds = %lean_obj_tag.exit209
   br i1 %.not.i206, label %54, label %lean_dec.exit147
@@ -23520,9 +23520,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2___lambda__2, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 5, ptr %8, align 8, !tbaa !27
+  store i16 5, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 1, ptr %9, align 2, !tbaa !27
+  store i16 1, ptr %9, align 2, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %10, align 8, !tbaa !11
   %11 = load ptr, ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2___closed__1, align 8, !tbaa !11
@@ -23841,9 +23841,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_Elab_InfoTree_deepestNodesM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__1___lambda__1___boxed, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 5, ptr %8, align 8, !tbaa !27
+  store i16 5, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 1, ptr %9, align 2, !tbaa !27
+  store i16 1, ptr %9, align 2, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %10, align 8, !tbaa !11
   %11 = tail call ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2(ptr noundef nonnull %3, ptr noundef %1)
@@ -24859,9 +24859,9 @@ l_Lean_Elab_InfoTree_deepestNodesM___at_Lean_Server_FileWorker_collectInfoBasedS
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_Elab_InfoTree_deepestNodesM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__1___lambda__1___boxed, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 5, ptr %8, align 8, !tbaa !27
+  store i16 5, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 1, ptr %9, align 2, !tbaa !27
+  store i16 1, ptr %9, align 2, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %2, ptr %10, align 8, !tbaa !11
   %11 = tail call ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2(ptr noundef nonnull %3, ptr noundef %0)
@@ -25106,9 +25106,9 @@ l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens.exit: ; preds = %lean_in
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_Lean_Elab_InfoTree_deepestNodesM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__1___lambda__1___boxed, ptr %23, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 5, ptr %24, align 8, !tbaa !27
+  store i16 5, ptr %24, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 1, ptr %25, align 2, !tbaa !27
+  store i16 1, ptr %25, align 2, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %18, ptr %26, align 8, !tbaa !11
   %27 = tail call ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2(ptr noundef nonnull %19, ptr noundef %17)
@@ -27150,9 +27150,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lean_Server_FileWorker_SemanticTokensState_noConfusion___rarg___boxed, ptr %9, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !27
+  store i16 1, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !27
+  store i16 0, ptr %11, align 2, !tbaa !19
   ret ptr %5
 }
 
@@ -27185,7 +27185,7 @@ define noundef ptr @l_Lean_Server_FileWorker_SemanticTokensState_noConfusion___r
 10:                                               ; preds = %6, %9
   %11 = phi i32 [ %7, %6 ], [ %.pr, %9 ]
   %12 = icmp sgt i32 %11, 1
-  br i1 %12, label %13, label %15, !prof !29
+  br i1 %12, label %13, label %15, !prof !21
 
 13:                                               ; preds = %10
   %14 = add nsw i32 %11, -1
@@ -27222,9 +27222,9 @@ l_Lean_Server_FileWorker_SemanticTokensState_noConfusion.exit: ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lean_Server_FileWorker_SemanticTokensState_noConfusion___rarg___boxed, ptr %9, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !27
+  store i16 1, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !27
+  store i16 0, ptr %11, align 2, !tbaa !19
   %12 = ptrtoint ptr %2 to i64
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
@@ -28451,9 +28451,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensFull___rarg___boxed, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 2, ptr %8, align 8, !tbaa !27
+  store i16 2, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !27
+  store i16 0, ptr %9, align 2, !tbaa !19
   ret ptr %3
 }
 
@@ -28505,9 +28505,9 @@ l_Lean_Server_FileWorker_handleSemanticTokensFull.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensFull___rarg___boxed, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 2, ptr %8, align 8, !tbaa !27
+  store i16 2, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !27
+  store i16 0, ptr %9, align 2, !tbaa !19
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -28616,9 +28616,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensDidChange___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !27
+  store i16 3, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !27
+  store i16 0, ptr %8, align 2, !tbaa !19
   ret ptr %2
 }
 
@@ -28703,9 +28703,9 @@ l_Lean_Server_FileWorker_handleSemanticTokensDidChange.exit: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensDidChange___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !27
+  store i16 3, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !27
+  store i16 0, ptr %8, align 2, !tbaa !19
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -29237,9 +29237,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit51
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensRange___lambda__1___boxed, ptr %138, align 8, !tbaa !11
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store i16 2, ptr %139, align 8, !tbaa !27
+  store i16 2, ptr %139, align 8, !tbaa !19
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 18
-  store i16 1, ptr %140, align 2, !tbaa !27
+  store i16 1, ptr %140, align 2, !tbaa !19
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %118, ptr %141, align 8, !tbaa !11
   %142 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -29306,9 +29306,9 @@ lean_alloc_closure.exit98:                        ; preds = %lean_dec.exit
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensRange___lambda__2___boxed, ptr %164, align 8, !tbaa !11
   %165 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  store i16 6, ptr %165, align 8, !tbaa !27
+  store i16 6, ptr %165, align 8, !tbaa !19
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 18
-  store i16 3, ptr %166, align 2, !tbaa !27
+  store i16 3, ptr %166, align 2, !tbaa !19
   %167 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store ptr %118, ptr %167, align 8, !tbaa !11
   %168 = getelementptr inbounds nuw i8, ptr %160, i64 32
@@ -30659,9 +30659,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__2, ptr %9, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 4, ptr %10, align 8, !tbaa !27
+  store i16 4, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 1, ptr %11, align 2, !tbaa !27
+  store i16 1, ptr %11, align 2, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %12, align 8, !tbaa !11
   %13 = load ptr, ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__3___closed__1, align 8, !tbaa !11
@@ -31345,7 +31345,7 @@ define ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_
 15:                                               ; preds = %14, %11
   %16 = phi i32 [ %.pr, %14 ], [ %12, %11 ]
   %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !29
+  br i1 %17, label %18, label %20, !prof !21
 
 18:                                               ; preds = %15
   %19 = add nsw i32 %16, -1
@@ -34923,9 +34923,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__3___boxed, ptr %14, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 8, ptr %15, align 8, !tbaa !27
+  store i16 8, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 5, ptr %16, align 2, !tbaa !27
+  store i16 5, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -35246,9 +35246,9 @@ lean_alloc_closure.exit:                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__5___boxed, ptr %13, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 9, ptr %14, align 8, !tbaa !27
+  store i16 9, ptr %14, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 5, ptr %15, align 2, !tbaa !27
+  store i16 5, ptr %15, align 2, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %0, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -35276,9 +35276,9 @@ lean_alloc_closure.exit19:                        ; preds = %lean_alloc_closure.
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @l_ReaderT_bind___at___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___spec__2___rarg, ptr %26, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i16 5, ptr %27, align 8, !tbaa !27
+  store i16 5, ptr %27, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  store i16 2, ptr %28, align 2, !tbaa !27
+  store i16 2, ptr %28, align 2, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %21, ptr %29, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -37115,9 +37115,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__8___boxed, ptr %14, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 8, ptr %15, align 8, !tbaa !27
+  store i16 8, ptr %15, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 5, ptr %16, align 2, !tbaa !27
+  store i16 5, ptr %16, align 2, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -37413,9 +37413,9 @@ lean_alloc_closure.exit:                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__9___boxed, ptr %13, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 9, ptr %14, align 8, !tbaa !27
+  store i16 9, ptr %14, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 5, ptr %15, align 2, !tbaa !27
+  store i16 5, ptr %15, align 2, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %0, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -37443,9 +37443,9 @@ lean_alloc_closure.exit19:                        ; preds = %lean_alloc_closure.
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @l_ReaderT_bind___at___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___spec__2___rarg, ptr %26, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i16 5, ptr %27, align 8, !tbaa !27
+  store i16 5, ptr %27, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  store i16 2, ptr %28, align 2, !tbaa !27
+  store i16 2, ptr %28, align 2, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %21, ptr %29, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -37711,9 +37711,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit261
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__2___boxed, ptr %89, align 8, !tbaa !11
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i16 7, ptr %90, align 8, !tbaa !27
+  store i16 7, ptr %90, align 8, !tbaa !19
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 18
-  store i16 3, ptr %91, align 2, !tbaa !27
+  store i16 3, ptr %91, align 2, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %2, ptr %92, align 8, !tbaa !11
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 32
@@ -37823,9 +37823,9 @@ lean_alloc_closure.exit313:                       ; preds = %lean_inc.exit257
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__6, ptr %125, align 8, !tbaa !11
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store i16 8, ptr %126, align 8, !tbaa !27
+  store i16 8, ptr %126, align 8, !tbaa !19
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 18
-  store i16 5, ptr %127, align 2, !tbaa !27
+  store i16 5, ptr %127, align 2, !tbaa !19
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr %35, ptr %128, align 8, !tbaa !11
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 32
@@ -37918,9 +37918,9 @@ lean_alloc_closure.exit323:                       ; preds = %lean_inc.exit254
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__7___boxed, ptr %157, align 8, !tbaa !11
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store i16 7, ptr %158, align 8, !tbaa !27
+  store i16 7, ptr %158, align 8, !tbaa !19
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 18
-  store i16 3, ptr %159, align 2, !tbaa !27
+  store i16 3, ptr %159, align 2, !tbaa !19
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store ptr %2, ptr %160, align 8, !tbaa !11
   %161 = getelementptr inbounds nuw i8, ptr %153, i64 32
@@ -38006,9 +38006,9 @@ lean_alloc_closure.exit333:                       ; preds = %lean_inc.exit251
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__10, ptr %185, align 8, !tbaa !11
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i16 8, ptr %186, align 8, !tbaa !27
+  store i16 8, ptr %186, align 8, !tbaa !19
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 18
-  store i16 5, ptr %187, align 2, !tbaa !27
+  store i16 5, ptr %187, align 2, !tbaa !19
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store ptr %35, ptr %188, align 8, !tbaa !11
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 32
@@ -38507,9 +38507,9 @@ lean_alloc_closure.exit375:                       ; preds = %lean_inc.exit238
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__2___boxed, ptr %372, align 8, !tbaa !11
   %373 = getelementptr inbounds nuw i8, ptr %368, i64 16
-  store i16 7, ptr %373, align 8, !tbaa !27
+  store i16 7, ptr %373, align 8, !tbaa !19
   %374 = getelementptr inbounds nuw i8, ptr %368, i64 18
-  store i16 3, ptr %374, align 2, !tbaa !27
+  store i16 3, ptr %374, align 2, !tbaa !19
   %375 = getelementptr inbounds nuw i8, ptr %368, i64 24
   store ptr %2, ptr %375, align 8, !tbaa !11
   %376 = getelementptr inbounds nuw i8, ptr %368, i64 32
@@ -38616,9 +38616,9 @@ lean_alloc_closure.exit388:                       ; preds = %lean_inc.exit234
   %406 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__6, ptr %406, align 8, !tbaa !11
   %407 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  store i16 8, ptr %407, align 8, !tbaa !27
+  store i16 8, ptr %407, align 8, !tbaa !19
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 18
-  store i16 5, ptr %408, align 2, !tbaa !27
+  store i16 5, ptr %408, align 2, !tbaa !19
   %409 = getelementptr inbounds nuw i8, ptr %402, i64 24
   store ptr %318, ptr %409, align 8, !tbaa !11
   %410 = getelementptr inbounds nuw i8, ptr %402, i64 32
@@ -38711,9 +38711,9 @@ lean_alloc_closure.exit398:                       ; preds = %lean_inc.exit231
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__7___boxed, ptr %438, align 8, !tbaa !11
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 16
-  store i16 7, ptr %439, align 8, !tbaa !27
+  store i16 7, ptr %439, align 8, !tbaa !19
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 18
-  store i16 3, ptr %440, align 2, !tbaa !27
+  store i16 3, ptr %440, align 2, !tbaa !19
   %441 = getelementptr inbounds nuw i8, ptr %434, i64 24
   store ptr %2, ptr %441, align 8, !tbaa !11
   %442 = getelementptr inbounds nuw i8, ptr %434, i64 32
@@ -38799,9 +38799,9 @@ lean_alloc_closure.exit408:                       ; preds = %lean_inc.exit228
   %466 = getelementptr inbounds nuw i8, ptr %462, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__10, ptr %466, align 8, !tbaa !11
   %467 = getelementptr inbounds nuw i8, ptr %462, i64 16
-  store i16 8, ptr %467, align 8, !tbaa !27
+  store i16 8, ptr %467, align 8, !tbaa !19
   %468 = getelementptr inbounds nuw i8, ptr %462, i64 18
-  store i16 5, ptr %468, align 2, !tbaa !27
+  store i16 5, ptr %468, align 2, !tbaa !19
   %469 = getelementptr inbounds nuw i8, ptr %462, i64 24
   store ptr %318, ptr %469, align 8, !tbaa !11
   %470 = getelementptr inbounds nuw i8, ptr %462, i64 32
@@ -39239,7 +39239,7 @@ define ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspR
 20:                                               ; preds = %19, %16
   %21 = phi i32 [ %.pr, %19 ], [ %17, %16 ]
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %23, label %25, !prof !29
+  br i1 %22, label %23, label %25, !prof !21
 
 23:                                               ; preds = %20
   %24 = add nsw i32 %21, -1
@@ -40927,9 +40927,9 @@ _init_l_Lean_Server_FileWorker_instBEqAbsoluteLspSemanticToken___closed__1.exit:
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr @l_Lean_Server_FileWorker_beqAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_96____boxed, ptr %144, align 8, !tbaa !11
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  store i16 2, ptr %145, align 8, !tbaa !27
+  store i16 2, ptr %145, align 8, !tbaa !19
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 18
-  store i16 0, ptr %146, align 2, !tbaa !27
+  store i16 0, ptr %146, align 2, !tbaa !19
   store ptr %140, ptr @l_Lean_Server_FileWorker_instBEqAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %140) #7
   %147 = load ptr, ptr @l_Lean_Server_FileWorker_instBEqAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
@@ -40951,9 +40951,9 @@ _init_l_Lean_Server_FileWorker_instHashableAbsoluteLspSemanticToken___closed__1.
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_hashAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_186____boxed, ptr %152, align 8, !tbaa !11
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  store i16 1, ptr %153, align 8, !tbaa !27
+  store i16 1, ptr %153, align 8, !tbaa !19
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 18
-  store i16 0, ptr %154, align 2, !tbaa !27
+  store i16 0, ptr %154, align 2, !tbaa !19
   store ptr %148, ptr @l_Lean_Server_FileWorker_instHashableAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %148) #7
   %155 = load ptr, ptr @l_Lean_Server_FileWorker_instHashableAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
@@ -40994,9 +40994,9 @@ _init_l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_Fil
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_fromJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_236____lambda__1___boxed, ptr %169, align 8, !tbaa !11
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  store i16 1, ptr %170, align 8, !tbaa !27
+  store i16 1, ptr %170, align 8, !tbaa !19
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 18
-  store i16 0, ptr %171, align 2, !tbaa !27
+  store i16 0, ptr %171, align 2, !tbaa !19
   store ptr %165, ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_fromJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_236____closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %165) #7
   %172 = load ptr, ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_fromJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_236____closed__5, align 8, !tbaa !11
@@ -41091,9 +41091,9 @@ _init_l_Lean_Server_FileWorker_instFromJsonAbsoluteLspSemanticToken___closed__1.
   %218 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_fromJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_236_, ptr %218, align 8, !tbaa !11
   %219 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  store i16 1, ptr %219, align 8, !tbaa !27
+  store i16 1, ptr %219, align 8, !tbaa !19
   %220 = getelementptr inbounds nuw i8, ptr %214, i64 18
-  store i16 0, ptr %220, align 2, !tbaa !27
+  store i16 0, ptr %220, align 2, !tbaa !19
   store ptr %214, ptr @l_Lean_Server_FileWorker_instFromJsonAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %214) #7
   %221 = load ptr, ptr @l_Lean_Server_FileWorker_instFromJsonAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
@@ -41118,9 +41118,9 @@ _init_l_Lean_Server_FileWorker_instToJsonAbsoluteLspSemanticToken___closed__1.ex
   %227 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store ptr @l___private_Lean_Server_FileWorker_SemanticHighlighting_0__Lean_Server_FileWorker_toJsonAbsoluteLspSemanticToken____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_381_, ptr %227, align 8, !tbaa !11
   %228 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store i16 1, ptr %228, align 8, !tbaa !27
+  store i16 1, ptr %228, align 8, !tbaa !19
   %229 = getelementptr inbounds nuw i8, ptr %223, i64 18
-  store i16 0, ptr %229, align 2, !tbaa !27
+  store i16 0, ptr %229, align 2, !tbaa !19
   store ptr %223, ptr @l_Lean_Server_FileWorker_instToJsonAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %223) #7
   %230 = load ptr, ptr @l_Lean_Server_FileWorker_instToJsonAbsoluteLspSemanticToken___closed__1, align 8, !tbaa !11
@@ -41169,9 +41169,9 @@ _init_l_Lean_Server_FileWorker_filterDuplicateSemanticTokens___closed__1.exit: ;
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store ptr @l_id___rarg___boxed, ptr %245, align 8, !tbaa !11
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  store i16 1, ptr %246, align 8, !tbaa !27
+  store i16 1, ptr %246, align 8, !tbaa !19
   %247 = getelementptr inbounds nuw i8, ptr %241, i64 18
-  store i16 0, ptr %247, align 2, !tbaa !27
+  store i16 0, ptr %247, align 2, !tbaa !19
   store ptr %241, ptr @l_Lean_Server_FileWorker_filterDuplicateSemanticTokens___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %241) #7
   tail call void @lean_inc_heartbeat() #7
@@ -41209,9 +41209,9 @@ _init_l_Array_qsort_sort___at_Lean_Server_FileWorker_computeDeltaLspSemanticToke
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store ptr @l_Array_qsort_sort___at_Lean_Server_FileWorker_computeDeltaLspSemanticTokens___spec__2___lambda__1___boxed, ptr %258, align 8, !tbaa !11
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  store i16 2, ptr %259, align 8, !tbaa !27
+  store i16 2, ptr %259, align 8, !tbaa !19
   %260 = getelementptr inbounds nuw i8, ptr %254, i64 18
-  store i16 0, ptr %260, align 2, !tbaa !27
+  store i16 0, ptr %260, align 2, !tbaa !19
   store ptr %254, ptr @l_Array_qsort_sort___at_Lean_Server_FileWorker_computeDeltaLspSemanticTokens___spec__2___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %254) #7
   tail call void @lean_inc_heartbeat() #7
@@ -41313,9 +41313,9 @@ _init_l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_col
   %304 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2___lambda__1___boxed, ptr %304, align 8, !tbaa !11
   %305 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  store i16 3, ptr %305, align 8, !tbaa !27
+  store i16 3, ptr %305, align 8, !tbaa !19
   %306 = getelementptr inbounds nuw i8, ptr %300, i64 18
-  store i16 0, ptr %306, align 2, !tbaa !27
+  store i16 0, ptr %306, align 2, !tbaa !19
   store ptr %300, ptr @l_Lean_Elab_InfoTree_collectNodesBottomUpM___at_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___spec__2___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %300) #7
   tail call void @lean_inc_heartbeat() #7
@@ -41334,9 +41334,9 @@ _init_l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___lambda__2___clos
   %311 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store ptr @l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___lambda__1___boxed, ptr %311, align 8, !tbaa !11
   %312 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  store i16 1, ptr %312, align 8, !tbaa !27
+  store i16 1, ptr %312, align 8, !tbaa !19
   %313 = getelementptr inbounds nuw i8, ptr %307, i64 18
-  store i16 0, ptr %313, align 2, !tbaa !27
+  store i16 0, ptr %313, align 2, !tbaa !19
   store ptr %307, ptr @l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___lambda__2___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %307) #7
   %314 = load ptr, ptr @l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___lambda__2___closed__1, align 8, !tbaa !11
@@ -41359,9 +41359,9 @@ _init_l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___closed__1.exit: 
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store ptr @l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___lambda__3___boxed, ptr %320, align 8, !tbaa !11
   %321 = getelementptr inbounds nuw i8, ptr %316, i64 16
-  store i16 3, ptr %321, align 8, !tbaa !27
+  store i16 3, ptr %321, align 8, !tbaa !19
   %322 = getelementptr inbounds nuw i8, ptr %316, i64 18
-  store i16 0, ptr %322, align 2, !tbaa !27
+  store i16 0, ptr %322, align 2, !tbaa !19
   store ptr %316, ptr @l_Lean_Server_FileWorker_collectInfoBasedSemanticTokens___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %316) #7
   %323 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.27, i64 noundef 19, i64 noundef 19) #7
@@ -41407,9 +41407,9 @@ _init_l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn
   %338 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store ptr @l___private_Lean_Data_Lsp_LanguageFeatures_0__Lean_Lsp_toJsonSemanticTokens____x40_Lean_Data_Lsp_LanguageFeatures___hyg_10712_, ptr %338, align 8, !tbaa !11
   %339 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  store i16 1, ptr %339, align 8, !tbaa !27
+  store i16 1, ptr %339, align 8, !tbaa !19
   %340 = getelementptr inbounds nuw i8, ptr %334, i64 18
-  store i16 0, ptr %340, align 2, !tbaa !27
+  store i16 0, ptr %340, align 2, !tbaa !19
   store ptr %334, ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__2___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %334) #7
   %341 = load ptr, ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__2___closed__1, align 8, !tbaa !11
@@ -41429,9 +41429,9 @@ _init_l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn
   %346 = getelementptr inbounds nuw i8, ptr %342, i64 8
   store ptr @l_Except_map___rarg, ptr %346, align 8, !tbaa !11
   %347 = getelementptr inbounds nuw i8, ptr %342, i64 16
-  store i16 2, ptr %347, align 8, !tbaa !27
+  store i16 2, ptr %347, align 8, !tbaa !19
   %348 = getelementptr inbounds nuw i8, ptr %342, i64 18
-  store i16 1, ptr %348, align 2, !tbaa !27
+  store i16 1, ptr %348, align 2, !tbaa !19
   %349 = getelementptr inbounds nuw i8, ptr %342, i64 24
   store ptr %341, ptr %349, align 8, !tbaa !11
   store ptr %342, ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__2___closed__2, align 8, !tbaa !11
@@ -41455,9 +41455,9 @@ _init_l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn
   %355 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__1, ptr %355, align 8, !tbaa !11
   %356 = getelementptr inbounds nuw i8, ptr %351, i64 16
-  store i16 1, ptr %356, align 8, !tbaa !27
+  store i16 1, ptr %356, align 8, !tbaa !19
   %357 = getelementptr inbounds nuw i8, ptr %351, i64 18
-  store i16 0, ptr %357, align 2, !tbaa !27
+  store i16 0, ptr %357, align 2, !tbaa !19
   store ptr %351, ptr @l_Lean_Server_registerLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__1___lambda__3___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %351) #7
   %358 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.31, i64 noundef 44, i64 noundef 44) #7
@@ -41485,9 +41485,9 @@ _init_l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequest
   %365 = getelementptr inbounds nuw i8, ptr %361, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__4___boxed, ptr %365, align 8, !tbaa !11
   %366 = getelementptr inbounds nuw i8, ptr %361, i64 16
-  store i16 1, ptr %366, align 8, !tbaa !27
+  store i16 1, ptr %366, align 8, !tbaa !19
   %367 = getelementptr inbounds nuw i8, ptr %361, i64 18
-  store i16 0, ptr %367, align 2, !tbaa !27
+  store i16 0, ptr %367, align 2, !tbaa !19
   store ptr %361, ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__5___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %361) #7
   tail call void @lean_inc_heartbeat() #7
@@ -41506,9 +41506,9 @@ _init_l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequest
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store ptr @l_StateRefT_x27_get___at___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___spec__1___boxed, ptr %372, align 8, !tbaa !11
   %373 = getelementptr inbounds nuw i8, ptr %368, i64 16
-  store i16 3, ptr %373, align 8, !tbaa !27
+  store i16 3, ptr %373, align 8, !tbaa !19
   %374 = getelementptr inbounds nuw i8, ptr %368, i64 18
-  store i16 0, ptr %374, align 2, !tbaa !27
+  store i16 0, ptr %374, align 2, !tbaa !19
   store ptr %368, ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__6___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %368) #7
   %375 = tail call ptr @lean_task_pure(ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
@@ -41533,9 +41533,9 @@ _init_l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequest
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__1, ptr %381, align 8, !tbaa !11
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 16
-  store i16 1, ptr %382, align 8, !tbaa !27
+  store i16 1, ptr %382, align 8, !tbaa !19
   %383 = getelementptr inbounds nuw i8, ptr %377, i64 18
-  store i16 0, ptr %383, align 2, !tbaa !27
+  store i16 0, ptr %383, align 2, !tbaa !19
   store ptr %377, ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____spec__6___lambda__11___closed__3, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %377) #7
   %384 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.34, i64 noundef 53, i64 noundef 53) #7
@@ -41560,9 +41560,9 @@ _init_l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHigh
   %390 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensRange, ptr %390, align 8, !tbaa !11
   %391 = getelementptr inbounds nuw i8, ptr %386, i64 16
-  store i16 3, ptr %391, align 8, !tbaa !27
+  store i16 3, ptr %391, align 8, !tbaa !19
   %392 = getelementptr inbounds nuw i8, ptr %386, i64 18
-  store i16 0, ptr %392, align 2, !tbaa !27
+  store i16 0, ptr %392, align 2, !tbaa !19
   store ptr %386, ptr @l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %386) #7
   %393 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.36, i64 noundef 32, i64 noundef 32) #7
@@ -41587,9 +41587,9 @@ _init_l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHigh
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensFull___boxed, ptr %399, align 8, !tbaa !11
   %400 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  store i16 2, ptr %400, align 8, !tbaa !27
+  store i16 2, ptr %400, align 8, !tbaa !19
   %401 = getelementptr inbounds nuw i8, ptr %395, i64 18
-  store i16 0, ptr %401, align 2, !tbaa !27
+  store i16 0, ptr %401, align 2, !tbaa !19
   store ptr %395, ptr @l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____closed__5, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %395) #7
   tail call void @lean_inc_heartbeat() #7
@@ -41608,9 +41608,9 @@ _init_l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHigh
   %406 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store ptr @l_Lean_Server_FileWorker_handleSemanticTokensDidChange___boxed, ptr %406, align 8, !tbaa !11
   %407 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  store i16 1, ptr %407, align 8, !tbaa !27
+  store i16 1, ptr %407, align 8, !tbaa !19
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 18
-  store i16 0, ptr %408, align 2, !tbaa !27
+  store i16 0, ptr %408, align 2, !tbaa !19
   store ptr %402, ptr @l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_SemanticHighlighting___hyg_2982____closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %402) #7
   %.not = icmp eq i8 %0, 0
@@ -41771,15 +41771,7 @@ attributes #8 = { noreturn nounwind }
 !15 = !{!"branch_weights", i32 4001, i32 4000000}
 !16 = !{!"branch_weights", i32 4000000, i32 4001}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"short", !6, i64 0}
-!29 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!18 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}
+!21 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

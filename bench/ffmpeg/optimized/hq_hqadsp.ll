@@ -213,7 +213,7 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   store i16 %174, ptr %95, align 2, !tbaa !9
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
-  br i1 %exitcond31.not, label %.preheader20, label %.preheader21, !llvm.loop !14
+  br i1 %exitcond31.not, label %.preheader20, label %.preheader21, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader20, %180
   %indvars.iv36 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next37, %180 ]
@@ -232,16 +232,16 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   %178 = trunc i16 %176 to i8
   %.0.i = select i1 %.not.i, i8 %178, i8 %177
   %179 = getelementptr inbounds nuw i8, ptr %.01925, i64 %indvars.iv32
-  store i8 %.0.i, ptr %179, align 1, !tbaa !15
+  store i8 %.0.i, ptr %179, align 1, !tbaa !14
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond35.not, label %180, label %175, !llvm.loop !16
+  br i1 %exitcond35.not, label %180, label %175, !llvm.loop !15
 
 180:                                              ; preds = %175
   %181 = getelementptr inbounds i8, ptr %.01925, i64 %81
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %182, label %.preheader, !llvm.loop !17
+  br i1 %exitcond39.not, label %182, label %.preheader, !llvm.loop !16
 
 182:                                              ; preds = %180
   ret void
@@ -263,10 +263,9 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!7, !7, i64 0}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = !{!7, !7, i64 0}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}

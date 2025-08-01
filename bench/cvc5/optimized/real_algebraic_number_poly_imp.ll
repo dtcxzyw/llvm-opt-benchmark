@@ -1794,6 +1794,5 @@ attributes #22 = { nounwind willreturn memory(read) }
 !35 = !{!"_ZTS12__mpq_struct", !4, i64 0, !4, i64 16}
 !36 = !{!4, !8, i64 8}
 !37 = !{!22, !22, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}

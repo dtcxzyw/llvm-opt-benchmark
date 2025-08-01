@@ -96,17 +96,17 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %28 = or i1 %.03758, %.not54
   %29 = getelementptr inbounds nuw i8, ptr %.03957, i64 1
   %.not = icmp eq ptr %29, %17
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .critedge:                                        ; preds = %_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE.exit, %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !12
   br label %80
 
 30:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %4, i64 noundef %27)
-  %31 = load ptr, ptr %4, align 8, !tbaa !17
+  %31 = load ptr, ptr %4, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %31, null
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -164,10 +164,10 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %.144 = phi ptr [ %52, %51 ], [ %65, %53 ]
   %67 = getelementptr inbounds nuw i8, ptr %.03863, i64 1
   %.not45 = icmp eq ptr %67, %42
-  br i1 %.not45, label %._crit_edge66.loopexit, label %.lr.ph65, !llvm.loop !19
+  br i1 %.not45, label %._crit_edge66.loopexit, label %.lr.ph65
 
 ._crit_edge66.loopexit:                           ; preds = %66
-  %.pre = load ptr, ptr %4, align 8, !tbaa !17
+  %.pre = load ptr, ptr %4, align 8, !tbaa !15
   %.pre69 = load ptr, ptr %32, align 8
   br label %._crit_edge66
 
@@ -183,7 +183,7 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %74 = select i1 %.not.i.i52, i64 %73, i64 %72
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 %74
   %.not46.not = icmp eq ptr %.043.lcssa, %75
-  br i1 %.not46.not, label %_ZN9grpc_core12MutableSliceD2Ev.exit, label %76, !prof !20
+  br i1 %.not46.not, label %_ZN9grpc_core12MutableSliceD2Ev.exit, label %76, !prof !17
 
 76:                                               ; preds = %._crit_edge66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
@@ -238,7 +238,7 @@ define linkonce_odr void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull al
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit unwind label %10
 
@@ -275,7 +275,7 @@ define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %.03783, i64 1
   %.not.not = icmp eq ptr %17, %15
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %16
   %.03783 = phi ptr [ %17, %16 ], [ %10, %2 ]
@@ -285,7 +285,7 @@ define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_
 
 .critedge:                                        ; preds = %16, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !22
   br label %93
 
 19:                                               ; preds = %.lr.ph
@@ -297,17 +297,17 @@ define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_
   ]
 
 20:                                               ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !25
   br label %26
 
 21:                                               ; preds = %19
-  %22 = load atomic i64, ptr %6 monotonic, align 8, !noalias !31
+  %22 = load atomic i64, ptr %6 monotonic, align 8, !noalias !27
   %23 = icmp eq i64 %22, 1
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !30
   br label %26
 
 25:                                               ; preds = %21, %19
@@ -315,7 +315,7 @@ define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr dead_on_
   br label %26
 
 26:                                               ; preds = %20, %24, %25
-  %27 = load ptr, ptr %4, align 8, !tbaa !17
+  %27 = load ptr, ptr %4, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -471,10 +471,10 @@ _ZN9grpc_coreL5DeHexEh.exit65:                    ; preds = %66, %62, %_ZN9grpc_
   %.127 = phi ptr [ %70, %_ZN9grpc_coreL5DeHexEh.exit65 ], [ %39, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70 ], [ %39, %71 ]
   %.136 = getelementptr inbounds nuw i8, ptr %.03586, i64 1
   %.not41 = icmp eq ptr %.127, %36
-  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph88, !llvm.loop !37
+  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph88, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %72
-  %.pre = load ptr, ptr %4, align 8, !tbaa !17
+  %.pre = load ptr, ptr %4, align 8, !tbaa !15
   %.pre89 = load ptr, ptr %28, align 8
   br label %._crit_edge
 
@@ -489,8 +489,8 @@ _ZN9grpc_coreL5DeHexEh.exit65:                    ; preds = %66, %62, %_ZN9grpc_
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !29, !noalias !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !25, !noalias !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !38
   invoke void @grpc_slice_sub_no_ref(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %5, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %3, i64 noundef 0, i64 noundef %78)
           to label %_ZN9grpc_core12MutableSliceD2Ev.exit unwind label %90
 
@@ -509,7 +509,7 @@ _ZN9grpc_core12MutableSliceD2Ev.exit:             ; preds = %._crit_edge
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !21
+  %86 = load ptr, ptr %85, align 8, !tbaa !18
   invoke void %86(ptr noundef nonnull align 8 dereferenceable(16) %79)
           to label %_ZN9grpc_core12MutableSliceD2Ev.exit68 unwind label %87
 
@@ -607,36 +607,32 @@ attributes #17 = { noreturn nounwind }
 !9 = !{!7, !7, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
-!16 = distinct !{!16, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!17 = !{!18, !5, i64 0}
-!18 = !{!"_ZTSN9grpc_core12slice_detail9BaseSliceE", !4, i64 0}
-!19 = distinct !{!19, !13}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = !{!22, !6, i64 8}
-!22 = !{!"_ZTS19grpc_slice_refcount", !23, i64 0, !6, i64 8}
-!23 = !{!"_ZTSSt6atomicImE", !24, i64 0}
-!24 = !{!"_ZTSSt13__atomic_baseImE", !11, i64 0}
-!25 = distinct !{!25, !13}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
-!28 = distinct !{!28, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!29 = !{i64 0, i64 8, !30, i64 8, i64 24, !9}
-!30 = !{!5, !5, i64 0}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN9grpc_core5Slice11TakeMutableEv: argument 0"}
-!33 = distinct !{!33, !"_ZN9grpc_core5Slice11TakeMutableEv"}
-!34 = !{!35, !32}
-!35 = distinct !{!35, !36, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
-!36 = distinct !{!36, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
-!37 = distinct !{!37, !38, !13}
-!38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm: argument 0"}
-!41 = distinct !{!41, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm"}
-!42 = !{!43, !40}
-!43 = distinct !{!43, !44, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
-!44 = distinct !{!44, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
+!14 = distinct !{!14, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"_ZTSN9grpc_core12slice_detail9BaseSliceE", !4, i64 0}
+!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!18 = !{!19, !6, i64 8}
+!19 = !{!"_ZTS19grpc_slice_refcount", !20, i64 0, !6, i64 8}
+!20 = !{!"_ZTSSt6atomicImE", !21, i64 0}
+!21 = !{!"_ZTSSt13__atomic_baseImE", !11, i64 0}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
+!24 = distinct !{!24, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!25 = !{i64 0, i64 8, !26, i64 8, i64 24, !9}
+!26 = !{!5, !5, i64 0}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN9grpc_core5Slice11TakeMutableEv: argument 0"}
+!29 = distinct !{!29, !"_ZN9grpc_core5Slice11TakeMutableEv"}
+!30 = !{!31, !28}
+!31 = distinct !{!31, !32, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
+!32 = distinct !{!32, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm: argument 0"}
+!37 = distinct !{!37, !"_ZN9grpc_core12MutableSlice12TakeSubSliceEmm"}
+!38 = !{!39, !36}
+!39 = distinct !{!39, !40, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv: argument 0"}
+!40 = distinct !{!40, !"_ZN9grpc_core12slice_detail9BaseSlice10TakeCSliceEv"}

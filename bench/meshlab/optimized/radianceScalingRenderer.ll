@@ -324,7 +324,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
   %.pr = phi i64 [ %.pr20, %28 ], [ %41, %.noexc7 ]
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
   %.not.i = icmp eq ptr %42, %11
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit: ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i, %5
   ret void
@@ -441,7 +441,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -501,7 +501,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, %2
   ret void
@@ -657,9 +657,9 @@ define void @_ZNK29RadianceScalingRendererPlugin10pluginNameEv(ptr dead_on_unwin
 
 ; Function Attrs: uwtable
 define void @_ZTv0_n40_NK29RadianceScalingRendererPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 21), !noalias !11
-  store ptr %3, ptr %0, align 8, !alias.scope !11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 21), !noalias !10
+  store ptr %3, ptr %0, align 8, !alias.scope !10
   ret void
 }
 
@@ -1771,7 +1771,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 .noexc137:                                        ; preds = %.noexc136
   %160 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.08.i) #20
   %.not.i = icmp eq ptr %160, %151
-  br i1 %.not.i, label %_ZN10GPUProgram6enableEv.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZN10GPUProgram6enableEv.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZN10GPUProgram6enableEv.exit:                    ; preds = %.noexc137, %.noexc134
   %161 = load ptr, ptr %81, align 8
@@ -1945,7 +1945,7 @@ _ZN10GPUProgram6enableEv.exit:                    ; preds = %.noexc137, %.noexc1
   %203 = load ptr, ptr %81, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 136
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 152
-  %206 = load ptr, ptr %205, align 8, !noalias !15
+  %206 = load ptr, ptr %205, align 8, !noalias !14
   %.not3.i = icmp eq ptr %204, %206
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i138
 
@@ -1967,9 +1967,9 @@ _ZN10GPUProgram6enableEv.exit:                    ; preds = %.noexc137, %.noexc1
 
 .noexc141:                                        ; preds = %.noexc140
   %214 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.04.i) #20
-  %215 = load ptr, ptr %205, align 8, !noalias !15
+  %215 = load ptr, ptr %205, align 8, !noalias !14
   %.not.i139 = icmp eq ptr %214, %215
-  br i1 %.not.i139, label %._crit_edge.i, label %.lr.ph.i138, !llvm.loop !20
+  br i1 %.not.i139, label %._crit_edge.i, label %.lr.ph.i138, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.noexc141, %202
   %216 = load ptr, ptr @__glewUseProgramObjectARB, align 8
@@ -2305,7 +2305,7 @@ _ZN10GPUProgram7disableEv.exit:                   ; preds = %._crit_edge.i
   call void @glEnable(i32 noundef %343)
   %344 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.08.i145) #20
   %.not.i146 = icmp eq ptr %344, %335
-  br i1 %.not.i146, label %_ZN10GPUProgram6enableEv.exit148, label %.lr.ph.i144, !llvm.loop !14
+  br i1 %.not.i146, label %_ZN10GPUProgram6enableEv.exit148, label %.lr.ph.i144, !llvm.loop !13
 
 _ZN10GPUProgram6enableEv.exit148:                 ; preds = %.lr.ph.i144, %321
   %345 = load ptr, ptr %328, align 8
@@ -2656,7 +2656,7 @@ _ZNK9Texture2DIhE6formatEv.exit188:               ; preds = %485
   %493 = load ptr, ptr %328, align 8
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 136
   %495 = getelementptr inbounds nuw i8, ptr %493, i64 152
-  %496 = load ptr, ptr %495, align 8, !noalias !21
+  %496 = load ptr, ptr %495, align 8, !noalias !20
   %.not3.i189 = icmp eq ptr %494, %496
   br i1 %.not3.i189, label %_ZN10GPUProgram7disableEv.exit194, label %.lr.ph.i190
 
@@ -2672,9 +2672,9 @@ _ZNK9Texture2DIhE6formatEv.exit188:               ; preds = %485
   %503 = load i32, ptr %502, align 4
   call void @glDisable(i32 noundef %503)
   %504 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.04.i191) #20
-  %505 = load ptr, ptr %495, align 8, !noalias !21
+  %505 = load ptr, ptr %495, align 8, !noalias !20
   %.not.i192 = icmp eq ptr %504, %505
-  br i1 %.not.i192, label %_ZN10GPUProgram7disableEv.exit194, label %.lr.ph.i190, !llvm.loop !20
+  br i1 %.not.i192, label %_ZN10GPUProgram7disableEv.exit194, label %.lr.ph.i190, !llvm.loop !19
 
 _ZN10GPUProgram7disableEv.exit194:                ; preds = %.lr.ph.i190, %492
   %506 = load ptr, ptr @__glewUseProgramObjectARB, align 8
@@ -3023,7 +3023,7 @@ _ZN29RadianceScalingRendererPlugin13checkViewportEv.exit: ; preds = %18, %._crit
   call void @glEnable(i32 noundef %48)
   %49 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.08.i) #20
   %.not.i19 = icmp eq ptr %49, %40
-  br i1 %.not.i19, label %_ZN10GPUProgram6enableEv.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i19, label %_ZN10GPUProgram6enableEv.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZN10GPUProgram6enableEv.exit:                    ; preds = %.lr.ph.i, %_ZN29RadianceScalingRendererPlugin13checkViewportEv.exit
   %50 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %2)
@@ -3058,13 +3058,13 @@ _ZN10GPUProgram6enableEv.exit:                    ; preds = %.lr.ph.i, %_ZN29Rad
 65:                                               ; preds = %54, %60
   %66 = load ptr, ptr %.sroa.036.042, align 8
   %.not = icmp eq ptr %66, %52
-  br i1 %.not, label %._crit_edge, label %54, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %65, %_ZN10GPUProgram6enableEv.exit
   %67 = load ptr, ptr %33, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 152
-  %70 = load ptr, ptr %69, align 8, !noalias !27
+  %70 = load ptr, ptr %69, align 8, !noalias !25
   %.not3.i = icmp eq ptr %68, %70
   br i1 %.not3.i, label %_ZN10GPUProgram7disableEv.exit, label %.lr.ph.i21
 
@@ -3080,9 +3080,9 @@ _ZN10GPUProgram6enableEv.exit:                    ; preds = %.lr.ph.i, %_ZN29Rad
   %77 = load i32, ptr %76, align 4
   call void @glDisable(i32 noundef %77)
   %78 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.04.i) #20
-  %79 = load ptr, ptr %69, align 8, !noalias !27
+  %79 = load ptr, ptr %69, align 8, !noalias !25
   %.not.i22 = icmp eq ptr %78, %79
-  br i1 %.not.i22, label %_ZN10GPUProgram7disableEv.exit, label %.lr.ph.i21, !llvm.loop !20
+  br i1 %.not.i22, label %_ZN10GPUProgram7disableEv.exit, label %.lr.ph.i21, !llvm.loop !19
 
 _ZN10GPUProgram7disableEv.exit:                   ; preds = %.lr.ph.i21, %._crit_edge
   %80 = load ptr, ptr @__glewUseProgramObjectARB, align 8
@@ -3122,7 +3122,7 @@ _ZN10GPUProgram7disableEv.exit:                   ; preds = %.lr.ph.i21, %._crit
   call void @glEnable(i32 noundef %97)
   %98 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.08.i26) #20
   %.not.i27 = icmp eq ptr %98, %89
-  br i1 %.not.i27, label %_ZN10GPUProgram6enableEv.exit29, label %.lr.ph.i25, !llvm.loop !14
+  br i1 %.not.i27, label %_ZN10GPUProgram6enableEv.exit29, label %.lr.ph.i25, !llvm.loop !13
 
 _ZN10GPUProgram6enableEv.exit29:                  ; preds = %.lr.ph.i25, %_ZN10GPUProgram7disableEv.exit
   call void @glBegin(i32 noundef 7)
@@ -3138,7 +3138,7 @@ _ZN10GPUProgram6enableEv.exit29:                  ; preds = %.lr.ph.i25, %_ZN10G
   %99 = load ptr, ptr %82, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 136
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 152
-  %102 = load ptr, ptr %101, align 8, !noalias !32
+  %102 = load ptr, ptr %101, align 8, !noalias !30
   %.not3.i30 = icmp eq ptr %100, %102
   br i1 %.not3.i30, label %_ZN10GPUProgram7disableEv.exit35, label %.lr.ph.i31
 
@@ -3154,9 +3154,9 @@ _ZN10GPUProgram6enableEv.exit29:                  ; preds = %.lr.ph.i25, %_ZN10G
   %109 = load i32, ptr %108, align 4
   call void @glDisable(i32 noundef %109)
   %110 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.04.i32) #20
-  %111 = load ptr, ptr %101, align 8, !noalias !32
+  %111 = load ptr, ptr %101, align 8, !noalias !30
   %.not.i33 = icmp eq ptr %110, %111
-  br i1 %.not.i33, label %_ZN10GPUProgram7disableEv.exit35, label %.lr.ph.i31, !llvm.loop !20
+  br i1 %.not.i33, label %_ZN10GPUProgram7disableEv.exit35, label %.lr.ph.i31, !llvm.loop !19
 
 _ZN10GPUProgram7disableEv.exit35:                 ; preds = %.lr.ph.i31, %_ZN10GPUProgram6enableEv.exit29
   %112 = load ptr, ptr @__glewUseProgramObjectARB, align 8
@@ -3215,7 +3215,7 @@ _ZN4QMapIibE6detachEv.exit:                       ; preds = %2, %6
   %.1.i.i = select i1 %15, ptr %.011.i.i, ptr %.0810.i.i
   %.19.i.i = load ptr, ptr %.19.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.19.i.i, null
-  br i1 %.not.i.i, label %_ZN8QMapNodeIibE10lowerBoundERKi.exit.i, label %12, !llvm.loop !37
+  br i1 %.not.i.i, label %_ZN8QMapNodeIibE10lowerBoundERKi.exit.i, label %12, !llvm.loop !35
 
 _ZN8QMapNodeIibE10lowerBoundERKi.exit.i:          ; preds = %12
   %.not11.i = icmp eq ptr %.1.i.i, null
@@ -3261,7 +3261,7 @@ _ZN4QMapIibE6detachEv.exit.i:                     ; preds = %23, %20
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.027.i, i64 %.1.in.v.i
   %.0.i7 = load ptr, ptr %.1.in.i, align 8
   %.not.i8 = icmp eq ptr %.0.i7, null
-  br i1 %.not.i8, label %._crit_edge.i, label %27, !llvm.loop !38
+  br i1 %.not.i8, label %._crit_edge.i, label %27, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %27
   %.not23.i = icmp eq ptr %.121.i, null
@@ -4081,7 +4081,7 @@ define linkonce_odr void @_ZN10GPUProgram17setUniformTextureERKNSt7__cxx1112basi
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %13 = icmp eq ptr %.19.i.i.i, %9
@@ -4162,7 +4162,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE11lower_boundERS9_.exit, label %.lr.ph.i.i.i, !llvm.loop !40
+  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE11lower_boundERS9_.exit, label %.lr.ph.i.i.i, !llvm.loop !38
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE11lower_boundERS9_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %14 = icmp eq ptr %.19.i.i.i, %7
@@ -4359,7 +4359,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i = getelementptr inbounds nuw i8, ptr %.02127.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   br i1 %27, label %._crit_edge.thread.i, label %33
@@ -4467,7 +4467,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i18 = getelementptr inbounds nuw i8, ptr %.02127.i15, i64 %.in.v.i17
   %.021.i19 = load ptr, ptr %.in.i18, align 8
   %.not.i20 = icmp eq ptr %.021.i19, null
-  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !41
+  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !39
 
 ._crit_edge.i21:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i16
   br i1 %70, label %._crit_edge.thread.i31, label %75
@@ -4573,7 +4573,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in.i42 = getelementptr inbounds nuw i8, ptr %.02127.i39, i64 %.in.v.i41
   %.021.i43 = load ptr, ptr %.in.i42, align 8
   %.not.i44 = icmp eq ptr %.021.i43, null
-  br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !41
+  br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !39
 
 ._crit_edge.i45:                                  ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40
   br i1 %111, label %._crit_edge.thread.i55, label %117
@@ -4662,7 +4662,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3mapIjS
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE11lower_boundERS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i, label %_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE11lower_boundERS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE11lower_boundERS4_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -4772,7 +4772,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !42
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -4844,7 +4844,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !42
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !40
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -4909,7 +4909,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !42
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !40
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -6460,7 +6460,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i120.i
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; preds = %53, %48
   %54 = icmp eq ptr %50, %1
-  br i1 %54, label %__cxx_global_var_init.5.exit, label %48, !llvm.loop !43
+  br i1 %54, label %__cxx_global_var_init.5.exit, label %48
 
 .body.thread724.i:                                ; preds = %0
   %55 = landingpad { ptr, i32 }
@@ -6508,7 +6508,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; pred
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i: ; preds = %72, %67
   %73 = icmp eq ptr %69, %1
-  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67, !llvm.loop !44
+  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i, %62
   %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i ]
@@ -6560,7 +6560,7 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; preds = %80, %.preheader.i
   %81 = icmp eq ptr %77, %1
-  br i1 %81, label %.body.thread.i, label %.preheader.i, !llvm.loop !45
+  br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
@@ -6622,44 +6622,39 @@ attributes #22 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNK29RadianceScalingRendererPlugin10pluginNameEv: argument 0"}
-!13 = distinct !{!13, !"_ZNK29RadianceScalingRendererPlugin10pluginNameEv"}
-!14 = distinct !{!14, !6, !7}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
-!17 = distinct !{!17, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
-!18 = distinct !{!18, !19, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
-!19 = distinct !{!19, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
-!20 = distinct !{!20, !6, !7}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
-!23 = distinct !{!23, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
-!24 = distinct !{!24, !25, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
-!25 = distinct !{!25, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
-!26 = distinct !{!26, !7}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
-!29 = distinct !{!29, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
-!30 = distinct !{!30, !31, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
-!31 = distinct !{!31, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
-!32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
-!34 = distinct !{!34, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
-!35 = distinct !{!35, !36, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
-!36 = distinct !{!36, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZNK29RadianceScalingRendererPlugin10pluginNameEv: argument 0"}
+!12 = distinct !{!12, !"_ZNK29RadianceScalingRendererPlugin10pluginNameEv"}
+!13 = distinct !{!13, !6}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
+!16 = distinct !{!16, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
+!17 = distinct !{!17, !18, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
+!18 = distinct !{!18, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
+!19 = distinct !{!19, !6}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
+!22 = distinct !{!22, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
+!23 = distinct !{!23, !24, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
+!24 = distinct !{!24, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
+!27 = distinct !{!27, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
+!28 = distinct !{!28, !29, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
+!29 = distinct !{!29, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv: argument 0"}
+!32 = distinct !{!32, !"_ZNSt8_Rb_treeIjSt4pairIKjS0_IjjEESt10_Select1stIS3_ESt4lessIjESaIS3_EE4rendEv"}
+!33 = distinct !{!33, !34, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv: argument 0"}
+!34 = distinct !{!34, !"_ZNSt3mapIjSt4pairIjjESt4lessIjESaIS0_IKjS1_EEE4rendEv"}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}

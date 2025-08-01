@@ -148,11 +148,11 @@ sub_132:                                          ; preds = %.tail
 51:                                               ; preds = %.tail30.thread, %50, %.tail, %.tail30
   %52 = call ptr @ReadDir(ptr noundef %12, ptr noundef %0) #7
   %.not27 = icmp eq ptr %52, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not27, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %51, %32, %11
   %53 = call i32 @FreeDir(ptr noundef %12) #7
-  %54 = load i8, ptr @enableFsync, align 1, !range !11, !noundef !12
+  %54 = load i8, ptr @enableFsync, align 1, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %76
 
@@ -190,7 +190,7 @@ sub_140:                                          ; preds = %.tail34
 .backedge:                                        ; preds = %.tail38.thread, %74, %.tail34, %.tail38
   %70 = call ptr @ReadDir(ptr noundef %57, ptr noundef %1) #7
   %.not28 = icmp eq ptr %70, null
-  br i1 %.not28, label %._crit_edge45, label %sub_035, !llvm.loop !13
+  br i1 %.not28, label %._crit_edge45, label %sub_035, !llvm.loop !11
 
 .tail38.thread:                                   ; preds = %sub_035, %sub_140, %.tail38
   %71 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %60) #7
@@ -340,7 +340,7 @@ define dso_local void @copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %50 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %50, align 4
   %51 = add i64 %38, %.035
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader
 
 52:                                               ; preds = %33
   %53 = icmp sgt i64 %.035, %.1
@@ -431,11 +431,8 @@ attributes #9 = { nounwind willreturn memory(none) }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !6, !8}
-!14 = distinct !{!14, !8}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6}

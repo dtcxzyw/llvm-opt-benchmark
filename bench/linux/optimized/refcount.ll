@@ -229,11 +229,11 @@ define dso_local noundef zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0,
 
 15:                                               ; preds = %9
   %16 = extractvalue { i8, i32 } %11, 1
-  br label %4, !llvm.loop !48
+  br label %4, !llvm.loop !44
 
 17:                                               ; preds = %4
   tail call void @mutex_lock(ptr noundef %1) #3
-  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !49
+  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !47
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %23, label %20
 
@@ -246,7 +246,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0,
   br label %24
 
 23:                                               ; preds = %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !50
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !48
   br label %.critedge
 
 24:                                               ; preds = %22, %20
@@ -302,11 +302,11 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
 
 15:                                               ; preds = %9
   %16 = extractvalue { i8, i32 } %11, 1
-  br label %4, !llvm.loop !51
+  br label %4, !llvm.loop !44
 
 17:                                               ; preds = %4
   tail call void @_raw_spin_lock(ptr noundef %1) #3
-  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !49
+  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !47
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %23, label %20
 
@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
   br label %24
 
 23:                                               ; preds = %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !50
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !48
   br label %.critedge
 
 24:                                               ; preds = %22, %20
@@ -369,12 +369,12 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %
 
 16:                                               ; preds = %10
   %17 = extractvalue { i8, i32 } %12, 1
-  br label %5, !llvm.loop !52
+  br label %5, !llvm.loop !44
 
 18:                                               ; preds = %5
   %19 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #3
   store i64 %19, ptr %2, align 8
-  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !49
+  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !47
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %25, label %22
 
@@ -387,7 +387,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %
   br label %26
 
 25:                                               ; preds = %18
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !50
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !48
   br label %.critedge
 
 26:                                               ; preds = %24, %22
@@ -466,12 +466,8 @@ attributes #3 = { nounwind }
 !41 = !{i64 2149836716, i64 2149836532, i64 2149836582, i64 2149836628, i64 2149836656}
 !42 = !{i64 2149837014, i64 2149836830, i64 2149836880, i64 2149836926, i64 2149836954}
 !43 = !{!"branch_weights", i32 1, i32 2000}
-!44 = distinct !{!44, !45, !46, !47}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
 !46 = !{!"llvm.loop.unroll.disable"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = distinct !{!48, !45, !46, !47}
-!49 = !{i64 2148476041, i64 2148476080, i64 2148476101, i64 2148476138, i64 2148476161, i64 2148476170}
-!50 = !{i64 2149575191}
-!51 = distinct !{!51, !45, !46, !47}
-!52 = distinct !{!52, !45, !46, !47}
+!47 = !{i64 2148476041, i64 2148476080, i64 2148476101, i64 2148476138, i64 2148476161, i64 2148476170}
+!48 = !{i64 2149575191}

@@ -117,13 +117,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %18 = load i8, ptr %17, align 16, !tbaa !19
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %19, ptr %3, align 16, !tbaa !23
+  store i32 %19, ptr %3, align 16, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %22 = load i8, ptr %21, align 2, !tbaa !19
   %23 = sext i8 %22 to i32
   %24 = add nsw i32 %23, 23
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %24, ptr %20, align 4, !tbaa !23
+  store i32 %24, ptr %20, align 4, !tbaa !22
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %11
@@ -136,14 +136,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = sext i8 %29 to i32
   %31 = getelementptr inbounds nuw i32, ptr %25, i64 %.01920.i
-  store i32 %30, ptr %31, align 4, !tbaa !23
+  store i32 %30, ptr %31, align 4, !tbaa !22
   %32 = add nuw nsw i64 %.01920.i, 1
   %exitcond.not.i = icmp eq i64 %32, 16
-  br i1 %exitcond.not.i, label %_ZN5boost3log11v2_mt_posix3aux9format_idILm8EwmEEvPT0_mT1_b.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %_ZN5boost3log11v2_mt_posix3aux9format_idILm8EwmEEvPT0_mT1_b.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN5boost3log11v2_mt_posix3aux9format_idILm8EwmEEvPT0_mT1_b.exit: ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i32 0, ptr %33, align 8, !tbaa !23
+  store i32 0, ptr %33, align 8, !tbaa !22
   %34 = call noundef i64 @wcslen(ptr noundef nonnull %3) #15
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef %34)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %3) #14
@@ -173,20 +173,20 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v2_mt_posix3aux11this_thread6get_idEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.boost::log::v2_mt_posix::aux::once_block_sentry", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
-  store ptr @_ZZN5boost3log11v2_mt_posix3aux11this_thread6get_idEvE30_boost_log_once_block_flag_210, ptr %1, align 8, !tbaa !26
-  %2 = load i8, ptr @_ZZN5boost3log11v2_mt_posix3aux11this_thread6get_idEvE30_boost_log_once_block_flag_210, align 1, !tbaa !27
+  store ptr @_ZZN5boost3log11v2_mt_posix3aux11this_thread6get_idEvE30_boost_log_once_block_flag_210, ptr %1, align 8, !tbaa !25
+  %2 = load i8, ptr @_ZZN5boost3log11v2_mt_posix3aux11this_thread6get_idEvE30_boost_log_once_block_flag_210, align 1, !tbaa !26
   %3 = icmp eq i8 %2, 2
   br i1 %3, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit, label %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit
 
 _ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit: ; preds = %0, %18
   %4 = call noundef zeroext i1 @_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry16enter_once_blockEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
-  br i1 %4, label %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit.thread, label %9, !prof !29
+  br i1 %4, label %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit.thread, label %9, !prof !28
 
 _ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit.thread: ; preds = %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit
-  %.pre.pre = load ptr, ptr %1, align 8, !tbaa !30
-  %.pre10.pre = load i8, ptr %.pre.pre, align 1, !tbaa !27
+  %.pre.pre = load ptr, ptr %1, align 8, !tbaa !29
+  %.pre10.pre = load i8, ptr %.pre.pre, align 1, !tbaa !26
   %5 = icmp eq i8 %.pre10.pre, 2
-  br i1 %5, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit, label %6, !prof !32
+  br i1 %5, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit, label %6, !prof !31
 
 6:                                                ; preds = %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit.thread
   call void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry8rollbackEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
@@ -194,10 +194,10 @@ _ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit.thread: ; pre
 
 _ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit: ; preds = %18, %0, %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit.thread, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
-  %7 = load i32, ptr @_ZN5boost3log11v2_mt_posix3aux11this_thread9anonymous5g_keyE, align 4, !tbaa !33
+  %7 = load i32, ptr @_ZN5boost3log11v2_mt_posix3aux11this_thread9anonymous5g_keyE, align 4, !tbaa !32
   %8 = call ptr @pthread_getspecific(i32 noundef %7) #14
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %22, label %27, !prof !34
+  br i1 %.not, label %22, label %27, !prof !33
 
 9:                                                ; preds = %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit
   %10 = call i32 @pthread_key_create(ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux11this_thread9anonymous5g_keyE, ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux11this_thread9anonymous7deleterEPv) #14
@@ -214,10 +214,10 @@ _ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit: ; preds = %18, %0, %
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %1, align 8, !tbaa !30
-  %16 = load i8, ptr %15, align 1, !tbaa !27
+  %15 = load ptr, ptr %1, align 8, !tbaa !29
+  %16 = load i8, ptr %15, align 1, !tbaa !26
   %.not.i8 = icmp eq i8 %16, 2
-  br i1 %.not.i8, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit9, label %17, !prof !35
+  br i1 %.not.i8, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit9, label %17, !prof !34
 
 17:                                               ; preds = %13
   call void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry8rollbackEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
@@ -229,16 +229,16 @@ _ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit9: ; preds = %13, %17
 
 18:                                               ; preds = %9
   call void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry6commitEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
-  %19 = load ptr, ptr %1, align 8, !tbaa !30
-  %20 = load i8, ptr %19, align 1, !tbaa !27
+  %19 = load ptr, ptr %1, align 8, !tbaa !29
+  %20 = load i8, ptr %19, align 1, !tbaa !26
   %21 = icmp eq i8 %20, 2
-  br i1 %21, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit, label %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit, !llvm.loop !36
+  br i1 %21, label %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit, label %_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry8executedEv.exit, !llvm.loop !35
 
 22:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit
   %23 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
   %24 = tail call i64 @pthread_self() #19
   store i64 %24, ptr %23, align 8
-  %25 = load i32, ptr @_ZN5boost3log11v2_mt_posix3aux11this_thread9anonymous5g_keyE, align 4, !tbaa !33
+  %25 = load i32, ptr @_ZN5boost3log11v2_mt_posix3aux11this_thread9anonymous5g_keyE, align 4, !tbaa !32
   %26 = call i32 @pthread_setspecific(i32 noundef %25, ptr noundef nonnull %23) #14
   br label %27
 
@@ -376,20 +376,19 @@ attributes #19 = { nounwind willreturn memory(none) }
 !17 = !{!"_ZTSN5boost3log11v2_mt_posix3aux2idINS2_6threadEEE", !8, i64 0}
 !18 = !{!7, !10, i64 24}
 !19 = !{!9, !9, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"wchar_t", !9, i64 0}
-!25 = distinct !{!25, !21, !22}
-!26 = !{!12, !12, i64 0}
-!27 = !{!28, !9, i64 0}
-!28 = !{!"_ZTSN5boost3log11v2_mt_posix15once_block_flagE", !9, i64 0}
-!29 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
-!30 = !{!31, !12, i64 0}
-!31 = !{!"_ZTSN5boost3log11v2_mt_posix3aux17once_block_sentryE", !12, i64 0}
-!32 = !{!"branch_weights", !"expected", i32 2145337172, i32 2146476}
-!33 = !{!14, !14, i64 0}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!36 = distinct !{!36, !21, !22}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"wchar_t", !9, i64 0}
+!24 = distinct !{!24, !21}
+!25 = !{!12, !12, i64 0}
+!26 = !{!27, !9, i64 0}
+!27 = !{!"_ZTSN5boost3log11v2_mt_posix15once_block_flagE", !9, i64 0}
+!28 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
+!29 = !{!30, !12, i64 0}
+!30 = !{!"_ZTSN5boost3log11v2_mt_posix3aux17once_block_sentryE", !12, i64 0}
+!31 = !{!"branch_weights", !"expected", i32 2145337172, i32 2146476}
+!32 = !{!14, !14, i64 0}
+!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!35 = distinct !{!35, !21}

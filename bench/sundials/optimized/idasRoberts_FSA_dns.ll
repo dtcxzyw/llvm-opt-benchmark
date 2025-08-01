@@ -379,7 +379,7 @@ check_retval.exit175:                             ; preds = %135, %check_retval.
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %146) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %147, label %check_retval.exit175, !llvm.loop !28
+  br i1 %exitcond.not, label %147, label %check_retval.exit175
 
 147:                                              ; preds = %check_retval.exit175
   %148 = call ptr @N_VCloneVectorArray(i32 noundef 3, ptr noundef nonnull %62) #15
@@ -398,7 +398,7 @@ check_retval.exit177:                             ; preds = %147, %check_retval.
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %153) #15
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 3
-  br i1 %exitcond281.not, label %154, label %check_retval.exit177, !llvm.loop !30
+  br i1 %exitcond281.not, label %154, label %check_retval.exit177
 
 154:                                              ; preds = %check_retval.exit177
   %155 = call i32 @IDASensInit(ptr noundef nonnull %81, i32 noundef 3, i32 noundef %.0220, ptr noundef nonnull @resS, ptr noundef nonnull %141, ptr noundef nonnull %148) #15
@@ -473,7 +473,7 @@ check_retval.exit185:                             ; preds = %169
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %190) #15
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 3
-  br i1 %exitcond285.not, label %191, label %188, !llvm.loop !31
+  br i1 %exitcond285.not, label %191, label %188
 
 191:                                              ; preds = %188
   %192 = call i32 @IDAQuadSensInit(ptr noundef nonnull %81, ptr noundef null, ptr noundef nonnull %187) #15
@@ -556,7 +556,7 @@ check_retval.exit193:                             ; preds = %217
   %225 = add nuw nsw i32 %.0105273, 1
   %226 = fmul double %.0106272, 1.000000e+01
   %exitcond286.not = icmp eq i32 %225, 13
-  br i1 %exitcond286.not, label %.loopexit, label %210, !llvm.loop !32
+  br i1 %exitcond286.not, label %.loopexit, label %210
 
 .loopexit:                                        ; preds = %223, %check_retval.exit193, %check_retval.exit191
   %puts138 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
@@ -841,7 +841,7 @@ default.unreachable:                              ; preds = %34
   store double %61, ptr %78, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %79, label %34, !llvm.loop !33
+  br i1 %exitcond.not, label %79, label %34
 
 79:                                               ; preds = %71
   ret i32 0
@@ -1017,9 +1017,9 @@ check_retval.exit9:                               ; preds = %check_retval.exit, 
   br label %check_retval.exit11
 
 check_retval.exit11:                              ; preds = %check_retval.exit9, %20
-  %23 = load i32, ptr %5, align 4, !tbaa !34
+  %23 = load i32, ptr %5, align 4, !tbaa !28
   %24 = load double, ptr %6, align 8, !tbaa !11
-  %25 = load i64, ptr %4, align 8, !tbaa !35
+  %25 = load i64, ptr %4, align 8, !tbaa !29
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %1, i32 noundef %23, double noundef %24, i64 noundef %25)
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72)
   %28 = load double, ptr %7, align 8, !tbaa !11
@@ -1183,11 +1183,5 @@ attributes #19 = { nounwind allocsize(0) }
 !25 = !{!6, !6, i64 0}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
-!32 = distinct !{!32, !29}
-!33 = distinct !{!33, !29}
-!34 = !{!23, !23, i64 0}
-!35 = !{!22, !22, i64 0}
+!28 = !{!23, !23, i64 0}
+!29 = !{!22, !22, i64 0}

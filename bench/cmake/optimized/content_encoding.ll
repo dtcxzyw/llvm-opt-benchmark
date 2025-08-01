@@ -106,7 +106,7 @@ define dso_local void @Curl_all_content_encodings(ptr noundef initializes((0, 1)
   %32 = getelementptr inbounds nuw i8, ptr %.12435, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %.not30 = icmp eq ptr %33, null
-  br i1 %.not30, label %34, label %.preheader, !llvm.loop !17
+  br i1 %.not30, label %34, label %.preheader, !llvm.loop !16
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %.1, i64 -2
@@ -165,7 +165,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
 
 .backedge:                                        ; preds = %.critedge, %.thread150
   %.1109.be = phi ptr [ %16, %.critedge ], [ %.2110, %.thread150 ]
-  br label %13, !llvm.loop !18
+  br label %13, !llvm.loop !17
 
 17:                                               ; preds = %.preheader, %24
   %18 = phi i8 [ %.pr, %24 ], [ %14, %.preheader ]
@@ -193,7 +193,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %.1105 = phi i64 [ %23, %21 ], [ %.0104, %17 ], [ %.0104, %17 ], [ %.0104, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
   %.pr = load i8, ptr %25, align 1, !tbaa !4
-  br label %17, !llvm.loop !19
+  br label %17, !llvm.loop !18
 
 .critedge3:                                       ; preds = %17, %17
   %.not125 = icmp eq i64 %.0104, 0
@@ -210,13 +210,13 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not127, label %41, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %8, align 8, !tbaa !20
+  %31 = load ptr, ptr %8, align 8, !tbaa !19
   %.not128 = icmp eq ptr %31, null
   br i1 %.not128, label %38, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !88
+  %34 = load i32, ptr %33, align 8, !tbaa !87
   %35 = icmp sgt i32 %34, 0
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8
   %37 = icmp sgt i32 %36, 0
@@ -224,7 +224,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %39, label %41
 
 38:                                               ; preds = %30
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !88
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !87
   %.old4 = icmp sgt i32 %.old, 0
   br i1 %.old4, label %39, label %41
 
@@ -268,13 +268,13 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not130, label %.thread154, label %55
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %8, align 8, !tbaa !20
+  %56 = load ptr, ptr %8, align 8, !tbaa !19
   %.not131 = icmp eq ptr %56, null
   br i1 %.not131, label %63, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !88
+  %59 = load i32, ptr %58, align 8, !tbaa !87
   %60 = icmp sgt i32 %59, 0
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8
   %62 = icmp sgt i32 %61, 0
@@ -282,7 +282,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %or.cond13, label %64, label %.thread154
 
 63:                                               ; preds = %55
-  %.old11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !88
+  %.old11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !87
   %.old12 = icmp sgt i32 %.old11, 0
   br i1 %.old12, label %64, label %.thread154
 
@@ -353,7 +353,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
 
 93:                                               ; preds = %89, %85
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !90
+  %95 = load ptr, ptr %94, align 8, !tbaa !89
   %.not45.i = icmp eq ptr %95, null
   br i1 %.not45.i, label %102, label %96
 
@@ -363,7 +363,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not46.i, label %102, label %98
 
 98:                                               ; preds = %96
-  %99 = load ptr, ptr %94, align 8, !tbaa !90
+  %99 = load ptr, ptr %94, align 8, !tbaa !89
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.0104
   %101 = load i8, ptr %100, align 1, !tbaa !4
   %.not47.i = icmp eq i8 %101, 0
@@ -373,7 +373,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %103 = getelementptr inbounds nuw i8, ptr %.13762.i, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !12
   %.not42.i = icmp eq ptr %104, null
-  br i1 %.not42.i, label %find_unencode_writer.exit.thread, label %85, !llvm.loop !91
+  br i1 %.not42.i, label %find_unencode_writer.exit.thread, label %85, !llvm.loop !90
 
 find_unencode_writer.exit:                        ; preds = %89, %98, %75, %81
   %105 = phi i1 [ %48, %81 ], [ %48, %75 ], [ %84, %98 ], [ %84, %89 ]
@@ -395,13 +395,13 @@ find_unencode_writer.exit:                        ; preds = %89, %98, %75, %81
   br i1 %.not138, label %.thread154, label %112
 
 112:                                              ; preds = %109
-  %113 = load ptr, ptr %8, align 8, !tbaa !20
+  %113 = load ptr, ptr %8, align 8, !tbaa !19
   %.not139 = icmp eq ptr %113, null
   br i1 %.not139, label %120, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = load i32, ptr %115, align 8, !tbaa !88
+  %116 = load i32, ptr %115, align 8, !tbaa !87
   %117 = icmp sgt i32 %116, 0
   %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8
   %119 = icmp sgt i32 %118, 0
@@ -409,7 +409,7 @@ find_unencode_writer.exit:                        ; preds = %89, %98, %75, %81
   br i1 %or.cond19, label %121, label %.thread154
 
 120:                                              ; preds = %112
-  %.old17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !88
+  %.old17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !87
   %.old18 = icmp sgt i32 %.old17, 0
   br i1 %.old18, label %121, label %.thread154
 
@@ -444,13 +444,13 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   br i1 %.not134, label %141, label %130
 
 130:                                              ; preds = %127
-  %131 = load ptr, ptr %8, align 8, !tbaa !20
+  %131 = load ptr, ptr %8, align 8, !tbaa !19
   %.not135 = icmp eq ptr %131, null
   br i1 %.not135, label %138, label %132
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !88
+  %134 = load i32, ptr %133, align 8, !tbaa !87
   %135 = icmp sgt i32 %134, 0
   %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8
   %137 = icmp sgt i32 %136, 0
@@ -458,7 +458,7 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   br i1 %or.cond25, label %139, label %141
 
 138:                                              ; preds = %130
-  %.old23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !88
+  %.old23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !87
   %.old24 = icmp sgt i32 %.old23, 0
   br i1 %.old24, label %139, label %141
 
@@ -472,13 +472,13 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   br i1 %.not136, label %142, label %.thread154
 
 142:                                              ; preds = %141
-  %143 = load ptr, ptr %4, align 8, !tbaa !92
+  %143 = load ptr, ptr %4, align 8, !tbaa !91
   %144 = call i32 @Curl_cwriter_add(ptr noundef %0, ptr noundef %143) #8
   %.not137 = icmp eq i32 %144, 0
   br i1 %.not137, label %147, label %145
 
 145:                                              ; preds = %142
-  %146 = load ptr, ptr %4, align 8, !tbaa !92
+  %146 = load ptr, ptr %4, align 8, !tbaa !91
   call void @Curl_cwriter_free(ptr noundef %0, ptr noundef %146) #8
   br label %.thread154
 
@@ -530,16 +530,16 @@ declare void @Curl_cwriter_def_close(ptr noundef, ptr noundef) #2
 define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr noundef initializes((104, 120)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr @zalloc_cb, ptr %4, align 8, !tbaa !93
+  store ptr @zalloc_cb, ptr %4, align 8, !tbaa !92
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr @zfree_cb, ptr %5, align 8, !tbaa !96
+  store ptr @zfree_cb, ptr %5, align 8, !tbaa !95
   %6 = tail call i32 @cm_zlib_inflateInit_(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef 112) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr i8, ptr %1, i64 88
-  %.val = load ptr, ptr %8, align 8, !tbaa !97
+  %.val = load ptr, ptr %8, align 8, !tbaa !96
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %10, label %9
 
@@ -553,7 +553,7 @@ define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 1, ptr %12, align 8, !tbaa !98
+  store i32 1, ptr %12, align 8, !tbaa !97
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %10, %9, %11
@@ -571,18 +571,18 @@ define internal i32 @deflate_do_write(ptr noundef %0, ptr noundef %1, i32 nounde
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !101
+  %11 = load ptr, ptr %10, align 8, !tbaa !100
   %12 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %11, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %24
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %3, ptr %14, align 8, !tbaa !102
+  store ptr %3, ptr %14, align 8, !tbaa !101
   %15 = trunc i64 %4 to i32
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %15, ptr %16, align 8, !tbaa !103
+  store i32 %15, ptr %16, align 8, !tbaa !102
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !98
+  %18 = load i32, ptr %17, align 8, !tbaa !97
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %20, label %22
 
@@ -603,16 +603,16 @@ define internal i32 @deflate_do_write(ptr noundef %0, ptr noundef %1, i32 nounde
 define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i32, ptr %4, align 4, !tbaa !104
+  %5 = load i32, ptr %4, align 4, !tbaa !103
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %9 = load ptr, ptr %3, align 8, !tbaa !102
+  %8 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %9 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void %8(ptr noundef %9) #8
-  store ptr null, ptr %3, align 8, !tbaa !102
-  %.pr.i = load i32, ptr %4, align 4, !tbaa !104
+  store ptr null, ptr %3, align 8, !tbaa !101
+  %.pr.i = load i32, ptr %4, align 4, !tbaa !103
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -627,7 +627,7 @@ define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %12
   %15 = getelementptr i8, ptr %1, i64 88
-  %.val.i = load ptr, ptr %15, align 8, !tbaa !97
+  %.val.i = load ptr, ptr %15, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %17, label %16
 
@@ -640,7 +640,7 @@ define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
   br label %process_zlib_error.exit.i
 
 process_zlib_error.exit.i:                        ; preds = %17, %16, %12
-  store i32 0, ptr %4, align 4, !tbaa !104
+  store i32 0, ptr %4, align 4, !tbaa !103
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %10, %process_zlib_error.exit.i
@@ -649,7 +649,7 @@ exit_zlib.exit:                                   ; preds = %10, %process_zlib_e
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zalloc_cb(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !105
+  %4 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !104
   %5 = zext i32 %1 to i64
   %6 = zext i32 %2 to i64
   %7 = tail call ptr %4(i64 noundef %5, i64 noundef %6) #8
@@ -658,7 +658,7 @@ define internal ptr @zalloc_cb(ptr readnone captures(none) %0, i32 noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define internal void @zfree_cb(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %3(ptr noundef %1) #8
   ret void
 }
@@ -671,32 +671,32 @@ declare i32 @Curl_cwriter_write(ptr noundef, ptr noundef, i32 noundef, ptr nound
 define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !103
+  %5 = load i32, ptr %4, align 8, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !106
+  %7 = load i32, ptr %6, align 4, !tbaa !105
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %7)
   %8 = sub i32 %7, %.
-  store i32 %8, ptr %6, align 4, !tbaa !106
+  store i32 %8, ptr %6, align 4, !tbaa !105
   %9 = sub i32 %5, %.
-  store i32 %9, ptr %4, align 8, !tbaa !103
-  %10 = load ptr, ptr %3, align 8, !tbaa !102
+  store i32 %9, ptr %4, align 8, !tbaa !102
+  %10 = load ptr, ptr %3, align 8, !tbaa !101
   %11 = zext i32 %. to i64
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
-  store ptr %12, ptr %3, align 8, !tbaa !102
+  store ptr %12, ptr %3, align 8, !tbaa !101
   %.not.not = icmp ugt i32 %5, %7
   br i1 %.not.not, label %.split, label %21
 
 .split:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load i32, ptr %13, align 4, !tbaa !104
+  %14 = load i32, ptr %13, align 4, !tbaa !103
   %15 = icmp eq i32 %14, 4
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.split
-  %17 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %17 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %17(ptr noundef %12) #8
-  store ptr null, ptr %3, align 8, !tbaa !102
-  %.pr.i = load i32, ptr %13, align 4, !tbaa !104
+  store ptr null, ptr %3, align 8, !tbaa !101
+  %.pr.i = load i32, ptr %13, align 4, !tbaa !103
   br label %18
 
 18:                                               ; preds = %16, %.split
@@ -706,7 +706,7 @@ define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %0, ptr
 
 process_zlib_error.exit.i:                        ; preds = %18
   %20 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %3) #8
-  store i32 0, ptr %13, align 4, !tbaa !104
+  store i32 0, ptr %13, align 4, !tbaa !103
   br label %exit_zlib.exit
 
 21:                                               ; preds = %2
@@ -715,15 +715,15 @@ process_zlib_error.exit.i:                        ; preds = %18
   br i1 %.not23.not, label %35, label %.split19
 
 .split19:                                         ; preds = %21
-  %23 = load i32, ptr %22, align 4, !tbaa !104
+  %23 = load i32, ptr %22, align 4, !tbaa !103
   %24 = icmp eq i32 %23, 4
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.split19
-  %26 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %26 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %26(ptr noundef %12) #8
-  store ptr null, ptr %3, align 8, !tbaa !102
-  %.pr.i31 = load i32, ptr %22, align 4, !tbaa !104
+  store ptr null, ptr %3, align 8, !tbaa !101
+  %.pr.i31 = load i32, ptr %22, align 4, !tbaa !103
   br label %27
 
 27:                                               ; preds = %25, %.split19
@@ -738,7 +738,7 @@ process_zlib_error.exit.i:                        ; preds = %18
 
 31:                                               ; preds = %29
   %32 = getelementptr i8, ptr %1, i64 88
-  %.val.i29 = load ptr, ptr %32, align 8, !tbaa !97
+  %.val.i29 = load ptr, ptr %32, align 8, !tbaa !96
   %.not.i.i30 = icmp eq ptr %.val.i29, null
   br i1 %.not.i.i30, label %34, label %33
 
@@ -752,11 +752,11 @@ process_zlib_error.exit.i:                        ; preds = %18
 
 process_zlib_error.exit.i26:                      ; preds = %34, %33, %29
   %.1.i27 = phi i32 [ 0, %29 ], [ 61, %33 ], [ 61, %34 ]
-  store i32 0, ptr %22, align 4, !tbaa !104
+  store i32 0, ptr %22, align 4, !tbaa !103
   br label %exit_zlib.exit
 
 35:                                               ; preds = %21
-  store i32 3, ptr %22, align 8, !tbaa !98
+  store i32 3, ptr %22, align 8, !tbaa !97
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %process_zlib_error.exit.i26, %27, %process_zlib_error.exit.i, %18, %35
@@ -768,10 +768,10 @@ exit_zlib.exit:                                   ; preds = %process_zlib_error.
 define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !103
-  %8 = load ptr, ptr %5, align 8, !tbaa !102
+  %7 = load i32, ptr %6, align 8, !tbaa !102
+  %8 = load ptr, ptr %5, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !98
+  %10 = load i32, ptr %9, align 8, !tbaa !97
   switch i32 %10, label %13 [
     i32 1, label %17
     i32 2, label %17
@@ -781,10 +781,10 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %12(ptr noundef %8) #8
-  store ptr null, ptr %5, align 8, !tbaa !102
-  %.pr.i = load i32, ptr %9, align 4, !tbaa !104
+  store ptr null, ptr %5, align 8, !tbaa !101
+  %.pr.i = load i32, ptr %9, align 4, !tbaa !103
   br label %13
 
 13:                                               ; preds = %4, %11
@@ -794,11 +794,11 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
 
 15:                                               ; preds = %13
   %16 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %5) #8
-  store i32 0, ptr %9, align 4, !tbaa !104
+  store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit
 
 17:                                               ; preds = %4, %4, %4, %4
-  %18 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !105
+  %18 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !104
   %19 = tail call ptr %18(i64 noundef 16384) #8
   %.not77 = icmp eq ptr %19, null
   br i1 %.not77, label %25, label %.preheader
@@ -812,16 +812,16 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
   br label %exit_zlib.exit90
 
 25:                                               ; preds = %17
-  %26 = load i32, ptr %9, align 4, !tbaa !104
+  %26 = load i32, ptr %9, align 4, !tbaa !103
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %30 = load ptr, ptr %5, align 8, !tbaa !102
+  %29 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %30 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %29(ptr noundef %30) #8
-  store ptr null, ptr %5, align 8, !tbaa !102
-  %.pr.i85 = load i32, ptr %9, align 4, !tbaa !104
+  store ptr null, ptr %5, align 8, !tbaa !101
+  %.pr.i85 = load i32, ptr %9, align 4, !tbaa !103
   br label %31
 
 31:                                               ; preds = %28, %25
@@ -831,22 +831,22 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
 
 33:                                               ; preds = %31
   %34 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %5) #8
-  store i32 0, ptr %9, align 4, !tbaa !104
+  store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit
 
 exit_zlib.exit90:                                 ; preds = %exit_zlib.exit90.backedge, %.preheader
-  store ptr %19, ptr %20, align 8, !tbaa !107
-  store i32 16384, ptr %21, align 8, !tbaa !108
+  store ptr %19, ptr %20, align 8, !tbaa !106
+  store i32 16384, ptr %21, align 8, !tbaa !107
   %35 = tail call i32 @cm_zlib_inflate(ptr noundef nonnull %5, i32 noundef 5) #8
-  %36 = load i32, ptr %21, align 8, !tbaa !108
+  %36 = load i32, ptr %21, align 8, !tbaa !107
   %.not78 = icmp ne i32 %36, 16384
   %or.cond = icmp ult i32 %35, 2
   %or.cond81 = select i1 %.not78, i1 %or.cond, i1 false
   br i1 %or.cond81, label %37, label %51
 
 37:                                               ; preds = %exit_zlib.exit90
-  store i32 %3, ptr %9, align 8, !tbaa !98
-  %38 = load ptr, ptr %22, align 8, !tbaa !101
+  store i32 %3, ptr %9, align 8, !tbaa !97
+  %38 = load ptr, ptr %22, align 8, !tbaa !100
   %39 = sub i32 16384, %36
   %40 = zext i32 %39 to i64
   %41 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %38, i32 noundef %2, ptr noundef nonnull %19, i64 noundef %40) #8
@@ -854,16 +854,16 @@ exit_zlib.exit90:                                 ; preds = %exit_zlib.exit90.ba
   br i1 %.not79, label %51, label %42
 
 42:                                               ; preds = %37
-  %43 = load i32, ptr %9, align 4, !tbaa !104
+  %43 = load i32, ptr %9, align 4, !tbaa !103
   %44 = icmp eq i32 %43, 4
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %47 = load ptr, ptr %5, align 8, !tbaa !102
+  %46 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %47 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %46(ptr noundef %47) #8
-  store ptr null, ptr %5, align 8, !tbaa !102
-  %.pr.i89 = load i32, ptr %9, align 4, !tbaa !104
+  store ptr null, ptr %5, align 8, !tbaa !101
+  %.pr.i89 = load i32, ptr %9, align 4, !tbaa !103
   br label %48
 
 48:                                               ; preds = %45, %42
@@ -873,7 +873,7 @@ exit_zlib.exit90:                                 ; preds = %exit_zlib.exit90.ba
 
 process_zlib_error.exit.i:                        ; preds = %48
   %50 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %5) #8
-  store i32 0, ptr %9, align 4, !tbaa !104
+  store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit90.thread
 
 51:                                               ; preds = %37, %exit_zlib.exit90
@@ -885,14 +885,14 @@ process_zlib_error.exit.i:                        ; preds = %48
   ]
 
 exit_zlib.exit90.backedge:                        ; preds = %51, %61
-  br label %exit_zlib.exit90, !llvm.loop !109
+  br label %exit_zlib.exit90
 
 52:                                               ; preds = %51
   %53 = tail call fastcc i32 @process_trailer(ptr noundef %0, ptr noundef nonnull %1)
   br label %exit_zlib.exit90.thread
 
 54:                                               ; preds = %51
-  %55 = load i32, ptr %9, align 8, !tbaa !98
+  %55 = load i32, ptr %9, align 8, !tbaa !97
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %57, label %.loopexit
 
@@ -903,18 +903,18 @@ exit_zlib.exit90.backedge:                        ; preds = %51, %61
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %57
-  store ptr %8, ptr %5, align 8, !tbaa !102
-  store i32 %7, ptr %6, align 8, !tbaa !103
-  store i32 2, ptr %9, align 8, !tbaa !98
-  store i32 4, ptr %24, align 4, !tbaa !106
+  store ptr %8, ptr %5, align 8, !tbaa !101
+  store i32 %7, ptr %6, align 8, !tbaa !102
+  store i32 2, ptr %9, align 8, !tbaa !97
+  store i32 4, ptr %24, align 4, !tbaa !105
   br label %exit_zlib.exit90.backedge
 
 62:                                               ; preds = %57
-  store i32 0, ptr %9, align 8, !tbaa !98
+  store i32 0, ptr %9, align 8, !tbaa !97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %62
-  %.val82 = load ptr, ptr %23, align 8, !tbaa !97
+  %.val82 = load ptr, ptr %23, align 8, !tbaa !96
   %.not.i91 = icmp eq ptr %.val82, null
   br i1 %.not.i91, label %64, label %63
 
@@ -927,16 +927,16 @@ exit_zlib.exit90.backedge:                        ; preds = %51, %61
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %63, %64
-  %65 = load i32, ptr %9, align 4, !tbaa !104
+  %65 = load i32, ptr %9, align 4, !tbaa !103
   %66 = icmp eq i32 %65, 4
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %process_zlib_error.exit
-  %68 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %69 = load ptr, ptr %5, align 8, !tbaa !102
+  %68 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %69 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %68(ptr noundef %69) #8
-  store ptr null, ptr %5, align 8, !tbaa !102
-  %.pr.i99 = load i32, ptr %9, align 4, !tbaa !104
+  store ptr null, ptr %5, align 8, !tbaa !101
+  %.pr.i99 = load i32, ptr %9, align 4, !tbaa !103
   br label %70
 
 70:                                               ; preds = %67, %process_zlib_error.exit
@@ -946,11 +946,11 @@ process_zlib_error.exit:                          ; preds = %63, %64
 
 72:                                               ; preds = %70
   %73 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %5) #8
-  store i32 0, ptr %9, align 4, !tbaa !104
+  store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit90.thread
 
 74:                                               ; preds = %51
-  %.val = load ptr, ptr %23, align 8, !tbaa !97
+  %.val = load ptr, ptr %23, align 8, !tbaa !96
   %.not.i101 = icmp eq ptr %.val, null
   br i1 %.not.i101, label %76, label %75
 
@@ -963,16 +963,16 @@ process_zlib_error.exit:                          ; preds = %63, %64
   br label %process_zlib_error.exit102
 
 process_zlib_error.exit102:                       ; preds = %75, %76
-  %77 = load i32, ptr %9, align 4, !tbaa !104
+  %77 = load i32, ptr %9, align 4, !tbaa !103
   %78 = icmp eq i32 %77, 4
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %process_zlib_error.exit102
-  %80 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %81 = load ptr, ptr %5, align 8, !tbaa !102
+  %80 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %81 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void %80(ptr noundef %81) #8
-  store ptr null, ptr %5, align 8, !tbaa !102
-  %.pr.i110 = load i32, ptr %9, align 4, !tbaa !104
+  store ptr null, ptr %5, align 8, !tbaa !101
+  %.pr.i110 = load i32, ptr %9, align 4, !tbaa !103
   br label %82
 
 82:                                               ; preds = %79, %process_zlib_error.exit102
@@ -982,23 +982,23 @@ process_zlib_error.exit102:                       ; preds = %75, %76
 
 84:                                               ; preds = %82
   %85 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %5) #8
-  store i32 0, ptr %9, align 4, !tbaa !104
+  store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit90.thread
 
 exit_zlib.exit90.thread:                          ; preds = %51, %84, %82, %72, %70, %52, %process_zlib_error.exit.i, %48
   %.169 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %84 ], [ 61, %82 ], [ 61, %72 ], [ 61, %70 ], [ %53, %52 ], [ 0, %51 ]
-  %86 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %86 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %86(ptr noundef nonnull %19) #8
   %.not80 = icmp eq i32 %7, 0
   br i1 %.not80, label %exit_zlib.exit, label %87
 
 87:                                               ; preds = %exit_zlib.exit90.thread
-  %88 = load i32, ptr %9, align 8, !tbaa !98
+  %88 = load i32, ptr %9, align 8, !tbaa !97
   %89 = icmp eq i32 %88, 1
   br i1 %89, label %90, label %exit_zlib.exit
 
 90:                                               ; preds = %87
-  store i32 %3, ptr %9, align 8, !tbaa !98
+  store i32 %3, ptr %9, align 8, !tbaa !97
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %33, %31, %15, %13, %exit_zlib.exit90.thread, %87, %90
@@ -1008,16 +1008,16 @@ exit_zlib.exit:                                   ; preds = %33, %31, %15, %13, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @exit_zlib(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %2, align 4, !tbaa !104
+  %5 = load i32, ptr %2, align 4, !tbaa !103
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %9 = load ptr, ptr %1, align 8, !tbaa !102
+  %8 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %9 = load ptr, ptr %1, align 8, !tbaa !101
   tail call void %8(ptr noundef %9) #8
-  store ptr null, ptr %1, align 8, !tbaa !102
-  %.pr = load i32, ptr %2, align 4, !tbaa !104
+  store ptr null, ptr %1, align 8, !tbaa !101
+  %.pr = load i32, ptr %2, align 4, !tbaa !103
   br label %10
 
 10:                                               ; preds = %7, %4
@@ -1034,7 +1034,7 @@ define internal fastcc noundef i32 @exit_zlib(ptr noundef %0, ptr noundef %1, pt
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %1, i64 48
-  %.val = load ptr, ptr %17, align 8, !tbaa !97
+  %.val = load ptr, ptr %17, align 8, !tbaa !96
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %19, label %18
 
@@ -1048,7 +1048,7 @@ define internal fastcc noundef i32 @exit_zlib(ptr noundef %0, ptr noundef %1, pt
 
 process_zlib_error.exit:                          ; preds = %19, %18, %12
   %.1 = phi i32 [ %3, %12 ], [ 61, %18 ], [ 61, %19 ]
-  store i32 0, ptr %2, align 4, !tbaa !104
+  store i32 0, ptr %2, align 4, !tbaa !103
   br label %20
 
 20:                                               ; preds = %process_zlib_error.exit, %10
@@ -1066,9 +1066,9 @@ declare i32 @cm_zlib_inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 no
 define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef initializes((104, 120)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr @zalloc_cb, ptr %4, align 8, !tbaa !93
+  store ptr @zalloc_cb, ptr %4, align 8, !tbaa !92
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr @zfree_cb, ptr %5, align 8, !tbaa !96
+  store ptr @zfree_cb, ptr %5, align 8, !tbaa !95
   %6 = tail call ptr @cm_zlib_zlibVersion() #8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.17) #9
   %8 = icmp sgt i32 %7, -1
@@ -1081,7 +1081,7 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
 
 11:                                               ; preds = %9
   %12 = getelementptr i8, ptr %1, i64 88
-  %.val14 = load ptr, ptr %12, align 8, !tbaa !97
+  %.val14 = load ptr, ptr %12, align 8, !tbaa !96
   %.not.i = icmp eq ptr %.val14, null
   br i1 %.not.i, label %14, label %13
 
@@ -1095,7 +1095,7 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 6, ptr %16, align 8, !tbaa !98
+  store i32 6, ptr %16, align 8, !tbaa !97
   br label %process_zlib_error.exit
 
 17:                                               ; preds = %2
@@ -1105,7 +1105,7 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
 
 19:                                               ; preds = %17
   %20 = getelementptr i8, ptr %1, i64 88
-  %.val = load ptr, ptr %20, align 8, !tbaa !97
+  %.val = load ptr, ptr %20, align 8, !tbaa !96
   %.not.i15 = icmp eq ptr %.val, null
   br i1 %.not.i15, label %22, label %21
 
@@ -1119,9 +1119,9 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 8, ptr %24, align 4, !tbaa !106
+  store i32 8, ptr %24, align 4, !tbaa !105
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 1, ptr %25, align 8, !tbaa !98
+  store i32 1, ptr %25, align 8, !tbaa !97
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %22, %21, %14, %13, %15, %23
@@ -1140,13 +1140,13 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !101
+  %12 = load ptr, ptr %11, align 8, !tbaa !100
   %13 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %12, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %exit_zlib.exit.thread
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !98
+  %16 = load i32, ptr %15, align 8, !tbaa !97
   switch i32 %16, label %184 [
     i32 6, label %17
     i32 1, label %21
@@ -1155,10 +1155,10 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   ]
 
 17:                                               ; preds = %14
-  store ptr %3, ptr %6, align 8, !tbaa !102
+  store ptr %3, ptr %6, align 8, !tbaa !101
   %18 = trunc i64 %4 to i32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %18, ptr %19, align 8, !tbaa !103
+  store i32 %18, ptr %19, align 8, !tbaa !102
   %20 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 6)
   br label %exit_zlib.exit.thread
 
@@ -1233,7 +1233,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 53:                                               ; preds = %.lr.ph.i
   %.not62.i = icmp eq i64 %51, 0
-  br i1 %.not62.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !110
+  br i1 %.not62.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !108
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %48
   %.251.i = phi i64 [ %.049.i, %48 ], [ %51, %.lr.ph.i ]
@@ -1256,7 +1256,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 56:                                               ; preds = %.lr.ph85.i
   %57 = getelementptr inbounds nuw i8, ptr %.484.i, i64 1
   %.not66.i = icmp eq i64 %55, 0
-  br i1 %.not66.i, label %.loopexit, label %.lr.ph85.i, !llvm.loop !111
+  br i1 %.not66.i, label %.loopexit, label %.lr.ph85.i, !llvm.loop !109
 
 .critedge2.i:                                     ; preds = %.lr.ph85.i, %.critedge.i
   %.453.i = phi i64 [ %.251.i, %.critedge.i ], [ %55, %.lr.ph85.i ]
@@ -1275,11 +1275,11 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 .loopexit:                                        ; preds = %53, %56, %21, %59, %40, %38, %.preheader.i, %.preheader74.i
   %63 = trunc i64 %4 to i32
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %63, ptr %64, align 8, !tbaa !103
-  %65 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !105
+  store i32 %63, ptr %64, align 8, !tbaa !102
+  %65 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !104
   %66 = and i64 %4, 4294967295
   %67 = tail call ptr %65(i64 noundef %66) #8
-  store ptr %67, ptr %6, align 8, !tbaa !102
+  store ptr %67, ptr %6, align 8, !tbaa !101
   %.not95 = icmp eq ptr %67, null
   br i1 %.not95, label %68, label %70
 
@@ -1288,15 +1288,15 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %exit_zlib.exit.thread
 
 70:                                               ; preds = %.loopexit
-  %71 = load i32, ptr %64, align 8, !tbaa !103
+  %71 = load i32, ptr %64, align 8, !tbaa !102
   %72 = zext i32 %71 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %3, i64 %72, i1 false)
-  store i32 4, ptr %15, align 8, !tbaa !98
+  store i32 4, ptr %15, align 8, !tbaa !97
   br label %exit_zlib.exit.thread
 
 73:                                               ; preds = %25, %23, %28
   %74 = getelementptr i8, ptr %1, i64 88
-  %.val96 = load ptr, ptr %74, align 8, !tbaa !97
+  %.val96 = load ptr, ptr %74, align 8, !tbaa !96
   %.not.i97 = icmp eq ptr %.val96, null
   br i1 %.not.i97, label %76, label %75
 
@@ -1309,16 +1309,16 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %75, %76
-  %77 = load i32, ptr %15, align 4, !tbaa !104
+  %77 = load i32, ptr %15, align 4, !tbaa !103
   %78 = icmp eq i32 %77, 4
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %process_zlib_error.exit
-  %80 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %81 = load ptr, ptr %6, align 8, !tbaa !102
+  %80 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %81 = load ptr, ptr %6, align 8, !tbaa !101
   tail call void %80(ptr noundef %81) #8
-  store ptr null, ptr %6, align 8, !tbaa !102
-  %.pr.i = load i32, ptr %15, align 4, !tbaa !104
+  store ptr null, ptr %6, align 8, !tbaa !101
+  %.pr.i = load i32, ptr %15, align 4, !tbaa !103
   br label %82
 
 82:                                               ; preds = %79, %process_zlib_error.exit
@@ -1328,43 +1328,43 @@ process_zlib_error.exit:                          ; preds = %75, %76
 
 84:                                               ; preds = %82
   %85 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %6) #8
-  store i32 0, ptr %15, align 4, !tbaa !104
+  store i32 0, ptr %15, align 4, !tbaa !103
   br label %exit_zlib.exit.thread
 
 exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   %.6.i = phi i64 [ %62, %61 ], [ %.453.i, %.critedge2.i ]
   %86 = sub nsw i64 %4, %.6.i
   %87 = getelementptr inbounds i8, ptr %3, i64 %86
-  store ptr %87, ptr %6, align 8, !tbaa !102
+  store ptr %87, ptr %6, align 8, !tbaa !101
   %88 = trunc i64 %.6.i to i32
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %88, ptr %89, align 8, !tbaa !103
-  store i32 5, ptr %15, align 8, !tbaa !98
+  store i32 %88, ptr %89, align 8, !tbaa !102
+  store i32 5, ptr %15, align 8, !tbaa !97
   br label %187
 
 90:                                               ; preds = %14
   %91 = trunc i64 %4 to i32
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %93 = load i32, ptr %92, align 8, !tbaa !103
+  %93 = load i32, ptr %92, align 8, !tbaa !102
   %94 = add i32 %93, %91
-  store i32 %94, ptr %92, align 8, !tbaa !103
-  %95 = load ptr, ptr %6, align 8, !tbaa !102
+  store i32 %94, ptr %92, align 8, !tbaa !102
+  %95 = load ptr, ptr %6, align 8, !tbaa !101
   %96 = zext i32 %94 to i64
   %97 = tail call ptr @Curl_saferealloc(ptr noundef %95, i64 noundef %96) #8
-  store ptr %97, ptr %6, align 8, !tbaa !102
+  store ptr %97, ptr %6, align 8, !tbaa !101
   %.not = icmp eq ptr %97, null
   br i1 %.not, label %98, label %107
 
 98:                                               ; preds = %90
-  %99 = load i32, ptr %15, align 4, !tbaa !104
+  %99 = load i32, ptr %15, align 4, !tbaa !103
   %100 = icmp eq i32 %99, 4
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %98
-  %102 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %102 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %102(ptr noundef null) #8
-  store ptr null, ptr %6, align 8, !tbaa !102
-  %.pr.i104 = load i32, ptr %15, align 4, !tbaa !104
+  store ptr null, ptr %6, align 8, !tbaa !101
+  %.pr.i104 = load i32, ptr %15, align 4, !tbaa !103
   br label %103
 
 103:                                              ; preds = %101, %98
@@ -1374,18 +1374,18 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
 
 105:                                              ; preds = %103
   %106 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %6) #8
-  store i32 0, ptr %15, align 4, !tbaa !104
+  store i32 0, ptr %15, align 4, !tbaa !103
   br label %exit_zlib.exit.thread
 
 107:                                              ; preds = %90
-  %108 = load i32, ptr %92, align 8, !tbaa !103
+  %108 = load i32, ptr %92, align 8, !tbaa !102
   %109 = zext i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %97, i64 %109
   %111 = sub i64 0, %4
   %112 = getelementptr inbounds i8, ptr %110, i64 %111
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr align 1 %3, i64 %4, i1 false)
-  %113 = load ptr, ptr %6, align 8, !tbaa !102
-  %114 = load i32, ptr %92, align 8, !tbaa !103
+  %113 = load ptr, ptr %6, align 8, !tbaa !101
+  %114 = load i32, ptr %92, align 8, !tbaa !102
   %115 = zext i32 %114 to i64
   %116 = icmp ult i32 %114, 10
   br i1 %116, label %exit_zlib.exit.thread, label %117
@@ -1457,7 +1457,7 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
 
 147:                                              ; preds = %.lr.ph.i118
   %.not62.i122 = icmp eq i64 %145, 0
-  br i1 %.not62.i122, label %exit_zlib.exit.thread, label %.lr.ph.i118, !llvm.loop !110
+  br i1 %.not62.i122, label %exit_zlib.exit.thread, label %.lr.ph.i118, !llvm.loop !108
 
 .critedge.i123:                                   ; preds = %.lr.ph.i118, %142
   %.251.i124 = phi i64 [ %.049.i113, %142 ], [ %145, %.lr.ph.i118 ]
@@ -1480,7 +1480,7 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
 150:                                              ; preds = %.lr.ph85.i129
   %151 = getelementptr inbounds nuw i8, ptr %.484.i130, i64 1
   %.not66.i133 = icmp eq i64 %149, 0
-  br i1 %.not66.i133, label %exit_zlib.exit.thread, label %.lr.ph85.i129, !llvm.loop !111
+  br i1 %.not66.i133, label %exit_zlib.exit.thread, label %.lr.ph85.i129, !llvm.loop !109
 
 .critedge2.i134:                                  ; preds = %.lr.ph85.i129, %.critedge.i123
   %.453.i135 = phi i64 [ %.251.i124, %.critedge.i123 ], [ %149, %.lr.ph85.i129 ]
@@ -1498,7 +1498,7 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
 
 157:                                              ; preds = %119, %117, %122
   %158 = getelementptr i8, ptr %1, i64 88
-  %.val = load ptr, ptr %158, align 8, !tbaa !97
+  %.val = load ptr, ptr %158, align 8, !tbaa !96
   %.not.i139 = icmp eq ptr %.val, null
   br i1 %.not.i139, label %160, label %159
 
@@ -1511,16 +1511,16 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   br label %process_zlib_error.exit140
 
 process_zlib_error.exit140:                       ; preds = %159, %160
-  %161 = load i32, ptr %15, align 4, !tbaa !104
+  %161 = load i32, ptr %15, align 4, !tbaa !103
   %162 = icmp eq i32 %161, 4
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %process_zlib_error.exit140
-  %164 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %165 = load ptr, ptr %6, align 8, !tbaa !102
+  %164 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %165 = load ptr, ptr %6, align 8, !tbaa !101
   tail call void %164(ptr noundef %165) #8
-  store ptr null, ptr %6, align 8, !tbaa !102
-  %.pr.i144 = load i32, ptr %15, align 4, !tbaa !104
+  store ptr null, ptr %6, align 8, !tbaa !101
+  %.pr.i144 = load i32, ptr %15, align 4, !tbaa !103
   br label %166
 
 166:                                              ; preds = %163, %process_zlib_error.exit140
@@ -1530,40 +1530,40 @@ process_zlib_error.exit140:                       ; preds = %159, %160
 
 168:                                              ; preds = %166
   %169 = tail call i32 @cm_zlib_inflateEnd(ptr noundef nonnull %6) #8
-  store i32 0, ptr %15, align 4, !tbaa !104
+  store i32 0, ptr %15, align 4, !tbaa !103
   br label %exit_zlib.exit.thread
 
 exit_zlib.exit105:                                ; preds = %.critedge2.i134, %155
   %.6.i137 = phi i64 [ %156, %155 ], [ %.453.i135, %.critedge2.i134 ]
   %170 = sub nsw i64 %115, %.6.i137
-  %171 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
+  %171 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %171(ptr noundef nonnull %113) #8
   %172 = getelementptr inbounds i8, ptr %3, i64 %170
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 %4
-  %174 = load i32, ptr %92, align 8, !tbaa !103
+  %174 = load i32, ptr %92, align 8, !tbaa !102
   %175 = zext i32 %174 to i64
   %176 = sub nsw i64 0, %175
   %177 = getelementptr inbounds i8, ptr %173, i64 %176
-  store ptr %177, ptr %6, align 8, !tbaa !102
+  store ptr %177, ptr %6, align 8, !tbaa !101
   %178 = trunc i64 %170 to i32
   %179 = sub i32 %174, %178
-  store i32 %179, ptr %92, align 8, !tbaa !103
-  store i32 5, ptr %15, align 8, !tbaa !98
+  store i32 %179, ptr %92, align 8, !tbaa !102
+  store i32 5, ptr %15, align 8, !tbaa !97
   br label %187
 
 180:                                              ; preds = %14
-  store ptr %3, ptr %6, align 8, !tbaa !102
+  store ptr %3, ptr %6, align 8, !tbaa !101
   %181 = trunc i64 %4 to i32
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %181, ptr %182, align 8, !tbaa !103
+  store i32 %181, ptr %182, align 8, !tbaa !102
   %183 = tail call fastcc i32 @process_trailer(ptr noundef %0, ptr noundef nonnull %1)
   br label %exit_zlib.exit.thread
 
 184:                                              ; preds = %14
-  store ptr %3, ptr %6, align 8, !tbaa !102
+  store ptr %3, ptr %6, align 8, !tbaa !101
   %185 = trunc i64 %4 to i32
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %185, ptr %186, align 8, !tbaa !103
+  store i32 %185, ptr %186, align 8, !tbaa !102
   br label %187
 
 187:                                              ; preds = %exit_zlib.exit105, %exit_zlib.exit, %184
@@ -1584,16 +1584,16 @@ exit_zlib.exit.thread:                            ; preds = %147, %150, %.prehea
 define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i32, ptr %4, align 4, !tbaa !104
+  %5 = load i32, ptr %4, align 4, !tbaa !103
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr @Curl_cfree, align 8, !tbaa !105
-  %9 = load ptr, ptr %3, align 8, !tbaa !102
+  %8 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
+  %9 = load ptr, ptr %3, align 8, !tbaa !101
   tail call void %8(ptr noundef %9) #8
-  store ptr null, ptr %3, align 8, !tbaa !102
-  %.pr.i = load i32, ptr %4, align 4, !tbaa !104
+  store ptr null, ptr %3, align 8, !tbaa !101
+  %.pr.i = load i32, ptr %4, align 4, !tbaa !103
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -1608,7 +1608,7 @@ define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %12
   %15 = getelementptr i8, ptr %1, i64 88
-  %.val.i = load ptr, ptr %15, align 8, !tbaa !97
+  %.val.i = load ptr, ptr %15, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %17, label %16
 
@@ -1621,7 +1621,7 @@ define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
   br label %process_zlib_error.exit.i
 
 process_zlib_error.exit.i:                        ; preds = %17, %16, %12
-  store i32 0, ptr %4, align 4, !tbaa !104
+  store i32 0, ptr %4, align 4, !tbaa !103
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %10, %process_zlib_error.exit.i
@@ -1654,7 +1654,7 @@ define internal i32 @error_do_write(ptr noundef %0, ptr noundef readonly capture
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !101
+  %12 = load ptr, ptr %11, align 8, !tbaa !100
   %13 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %12, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %15
 
@@ -1705,101 +1705,99 @@ attributes #9 = { nounwind willreturn memory(read) }
 !11 = !{!"long", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS11Curl_cwtype", !10, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = !{!21, !79, i64 4712}
-!21 = !{!"Curl_easy", !22, i64 0, !11, i64 8, !11, i64 16, !23, i64 24, !24, i64 32, !24, i64 64, !22, i64 96, !22, i64 100, !27, i64 104, !29, i64 160, !30, i64 192, !32, i64 208, !32, i64 216, !33, i64 224, !34, i64 232, !42, i64 456, !61, i64 2576, !62, i64 2584, !63, i64 2592, !66, i64 3008, !82, i64 4880, !83, i64 4888, !87, i64 5120}
-!22 = !{!"int", !5, i64 0}
-!23 = !{!"p1 _ZTS11connectdata", !10, i64 0}
-!24 = !{!"Curl_llist_node", !25, i64 0, !10, i64 8, !26, i64 16, !26, i64 24}
-!25 = !{!"p1 _ZTS10Curl_llist", !10, i64 0}
-!26 = !{!"p1 _ZTS15Curl_llist_node", !10, i64 0}
-!27 = !{!"Curl_message", !24, i64 0, !28, i64 32}
-!28 = !{!"CURLMsg", !22, i64 0, !10, i64 8, !5, i64 16}
-!29 = !{!"easy_pollset", !5, i64 0, !22, i64 20, !5, i64 24}
-!30 = !{!"Names", !31, i64 0, !22, i64 8}
-!31 = !{!"p1 _ZTS9Curl_hash", !10, i64 0}
-!32 = !{!"p1 _ZTS10Curl_multi", !10, i64 0}
-!33 = !{!"p1 _ZTS10Curl_share", !10, i64 0}
-!34 = !{!"SingleRequest", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !35, i64 32, !22, i64 48, !22, i64 52, !22, i64 56, !22, i64 60, !11, i64 64, !22, i64 72, !22, i64 76, !22, i64 80, !22, i64 84, !36, i64 88, !37, i64 96, !38, i64 104, !11, i64 168, !11, i64 176, !9, i64 184, !9, i64 192, !5, i64 200, !41, i64 208, !5, i64 216, !22, i64 217, !22, i64 217, !22, i64 217, !22, i64 217, !22, i64 217, !22, i64 217, !22, i64 217, !22, i64 217, !22, i64 218, !22, i64 218, !22, i64 218, !22, i64 218, !22, i64 218, !22, i64 218, !22, i64 218, !22, i64 218, !22, i64 219, !22, i64 219, !22, i64 219, !22, i64 219, !22, i64 219, !22, i64 219}
-!35 = !{!"curltime", !11, i64 0, !22, i64 8}
-!36 = !{!"p1 _ZTS12Curl_cwriter", !10, i64 0}
-!37 = !{!"p1 _ZTS12Curl_creader", !10, i64 0}
-!38 = !{!"bufq", !39, i64 0, !39, i64 8, !39, i64 16, !40, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !22, i64 56}
-!39 = !{!"p1 _ZTS9buf_chunk", !10, i64 0}
-!40 = !{!"p1 _ZTS9bufc_pool", !10, i64 0}
-!41 = !{!"p1 _ZTS10doh_probes", !10, i64 0}
-!42 = !{!"UserDefined", !43, i64 0, !10, i64 8, !9, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !44, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !10, i64 80, !10, i64 88, !11, i64 96, !44, i64 104, !44, i64 106, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !22, i64 296, !22, i64 300, !22, i64 304, !22, i64 308, !22, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !11, i64 368, !11, i64 376, !45, i64 384, !46, i64 392, !47, i64 400, !45, i64 840, !45, i64 848, !11, i64 856, !5, i64 864, !5, i64 865, !5, i64 866, !53, i64 872, !53, i64 1056, !45, i64 1240, !44, i64 1248, !5, i64 1250, !5, i64 1251, !56, i64 1256, !22, i64 1272, !22, i64 1276, !22, i64 1280, !10, i64 1288, !45, i64 1296, !5, i64 1304, !11, i64 1312, !5, i64 1320, !5, i64 1321, !5, i64 1322, !22, i64 1324, !45, i64 1328, !45, i64 1336, !45, i64 1344, !5, i64 1352, !5, i64 1353, !22, i64 1356, !5, i64 1360, !5, i64 1864, !22, i64 1928, !22, i64 1932, !22, i64 1936, !10, i64 1944, !10, i64 1952, !10, i64 1960, !10, i64 1968, !10, i64 1976, !5, i64 1984, !22, i64 1988, !22, i64 1992, !22, i64 1996, !11, i64 2000, !57, i64 2008, !10, i64 2032, !10, i64 2040, !11, i64 2048, !10, i64 2056, !11, i64 2064, !60, i64 2072, !10, i64 2080, !10, i64 2088, !5, i64 2096, !22, i64 2100, !5, i64 2104, !5, i64 2105, !22, i64 2106, !22, i64 2106, !22, i64 2106, !22, i64 2106, !22, i64 2106, !22, i64 2106, !22, i64 2106, !22, i64 2106, !22, i64 2107, !22, i64 2107, !22, i64 2107, !22, i64 2107, !22, i64 2107, !22, i64 2107, !22, i64 2107, !22, i64 2107, !22, i64 2108, !22, i64 2108, !22, i64 2108, !22, i64 2108, !22, i64 2108, !22, i64 2108, !22, i64 2108, !22, i64 2108, !22, i64 2109, !22, i64 2109, !22, i64 2109, !22, i64 2109, !22, i64 2109, !22, i64 2109, !22, i64 2109, !22, i64 2109, !22, i64 2110, !22, i64 2110, !22, i64 2110, !22, i64 2110, !22, i64 2110, !22, i64 2110, !22, i64 2110, !22, i64 2110, !22, i64 2111, !22, i64 2111, !22, i64 2111, !22, i64 2111, !22, i64 2111, !22, i64 2111, !22, i64 2111, !22, i64 2111, !22, i64 2112, !22, i64 2112, !22, i64 2112, !22, i64 2112}
-!43 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!44 = !{!"short", !5, i64 0}
-!45 = !{!"p1 _ZTS10curl_slist", !10, i64 0}
-!46 = !{!"p1 _ZTS13curl_httppost", !10, i64 0}
-!47 = !{!"curl_mimepart", !48, i64 0, !49, i64 8, !22, i64 16, !22, i64 20, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !43, i64 64, !45, i64 72, !45, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !11, i64 112, !50, i64 120, !51, i64 144, !52, i64 152, !11, i64 432}
-!48 = !{!"p1 _ZTS9curl_mime", !10, i64 0}
-!49 = !{!"p1 _ZTS13curl_mimepart", !10, i64 0}
-!50 = !{!"mime_state", !22, i64 0, !10, i64 8, !11, i64 16}
-!51 = !{!"p1 _ZTS12mime_encoder", !10, i64 0}
-!52 = !{!"mime_encoder_state", !11, i64 0, !11, i64 8, !11, i64 16, !5, i64 24}
-!53 = !{!"ssl_config_data", !54, i64 0, !11, i64 112, !10, i64 120, !10, i64 128, !9, i64 136, !9, i64 144, !55, i64 152, !9, i64 160, !9, i64 168, !22, i64 176, !22, i64 176, !22, i64 176, !22, i64 176, !22, i64 176, !22, i64 176, !22, i64 176, !22, i64 176, !22, i64 177}
-!54 = !{!"ssl_primary_config", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !55, i64 64, !55, i64 72, !55, i64 80, !9, i64 88, !5, i64 96, !22, i64 100, !5, i64 104, !22, i64 105, !22, i64 105, !22, i64 105, !22, i64 105}
-!55 = !{!"p1 _ZTS9curl_blob", !10, i64 0}
-!56 = !{!"ssl_general_config", !11, i64 0, !22, i64 8}
-!57 = !{!"Curl_data_priority", !58, i64 0, !59, i64 8, !22, i64 16, !22, i64 20}
-!58 = !{!"p1 _ZTS9Curl_easy", !10, i64 0}
-!59 = !{!"p1 _ZTS19Curl_data_prio_node", !10, i64 0}
-!60 = !{!"p1 _ZTS8Curl_URL", !10, i64 0}
-!61 = !{!"p1 _ZTS10CookieInfo", !10, i64 0}
-!62 = !{!"p1 _ZTS4hsts", !10, i64 0}
-!63 = !{!"Progress", !11, i64 0, !64, i64 8, !64, i64 56, !11, i64 104, !11, i64 112, !22, i64 120, !22, i64 124, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !35, i64 200, !35, i64 216, !35, i64 232, !35, i64 248, !5, i64 264, !5, i64 312, !22, i64 408, !22, i64 412, !22, i64 412}
-!64 = !{!"pgrs_dir", !11, i64 0, !11, i64 8, !11, i64 16, !65, i64 24}
-!65 = !{!"pgrs_measure", !35, i64 0, !11, i64 16}
-!66 = !{!"UrlState", !35, i64 0, !11, i64 16, !11, i64 24, !67, i64 32, !45, i64 64, !11, i64 72, !9, i64 80, !22, i64 88, !22, i64 92, !22, i64 96, !68, i64 104, !11, i64 112, !22, i64 120, !11, i64 128, !22, i64 136, !10, i64 144, !69, i64 152, !69, i64 208, !70, i64 264, !70, i64 296, !71, i64 328, !10, i64 376, !35, i64 384, !74, i64 400, !76, i64 456, !5, i64 488, !9, i64 1328, !9, i64 1336, !11, i64 1344, !11, i64 1352, !57, i64 1360, !10, i64 1384, !10, i64 1392, !60, i64 1400, !77, i64 1408, !9, i64 1472, !9, i64 1480, !45, i64 1488, !49, i64 1496, !49, i64 1504, !11, i64 1512, !67, i64 1520, !76, i64 1552, !5, i64 1584, !78, i64 1680, !22, i64 1688, !45, i64 1696, !79, i64 1704, !80, i64 1712, !81, i64 1760, !5, i64 1864, !5, i64 1865, !5, i64 1866, !5, i64 1867, !22, i64 1868, !22, i64 1868, !22, i64 1868, !22, i64 1868, !22, i64 1868, !22, i64 1868, !22, i64 1868, !22, i64 1869, !22, i64 1869, !22, i64 1869, !22, i64 1869, !22, i64 1869, !22, i64 1869, !22, i64 1869, !22, i64 1869, !22, i64 1870, !22, i64 1870, !22, i64 1870, !22, i64 1870, !22, i64 1870}
-!67 = !{!"dynbuf", !9, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!68 = !{!"p1 _ZTS16Curl_ssl_session", !10, i64 0}
-!69 = !{!"digestdata", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !22, i64 48, !5, i64 52, !22, i64 53, !22, i64 53}
-!70 = !{!"auth", !11, i64 0, !11, i64 8, !11, i64 16, !22, i64 24, !22, i64 24, !22, i64 24}
-!71 = !{!"Curl_async", !9, i64 0, !72, i64 8, !73, i64 16, !10, i64 24, !22, i64 32, !22, i64 36, !22, i64 40}
-!72 = !{!"p1 _ZTS14Curl_dns_entry", !10, i64 0}
-!73 = !{!"p1 _ZTS11thread_data", !10, i64 0}
-!74 = !{!"Curl_tree", !75, i64 0, !75, i64 8, !75, i64 16, !75, i64 24, !35, i64 32, !10, i64 48}
-!75 = !{!"p1 _ZTS9Curl_tree", !10, i64 0}
-!76 = !{!"Curl_llist", !26, i64 0, !26, i64 8, !10, i64 16, !11, i64 24}
-!77 = !{!"urlpieces", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
-!78 = !{!"p1 _ZTS17Curl_header_store", !10, i64 0}
-!79 = !{!"p1 _ZTS13curl_trc_feat", !10, i64 0}
-!80 = !{!"store_netrc", !67, i64 0, !9, i64 32, !22, i64 40}
-!81 = !{!"dynamically_allocated_data", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96}
-!82 = !{!"p1 _ZTS12WildcardData", !10, i64 0}
-!83 = !{!"PureInfo", !22, i64 0, !22, i64 4, !22, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !9, i64 56, !9, i64 64, !11, i64 72, !22, i64 80, !84, i64 84, !22, i64 184, !9, i64 192, !22, i64 200, !85, i64 208, !22, i64 224, !22, i64 228, !22, i64 228}
-!84 = !{!"ip_quadruple", !5, i64 0, !5, i64 46, !22, i64 92, !22, i64 96}
-!85 = !{!"curl_certinfo", !22, i64 0, !86, i64 8}
-!86 = !{!"p2 _ZTS10curl_slist", !10, i64 0}
-!87 = !{!"curl_tlssessioninfo", !22, i64 0, !10, i64 8}
-!88 = !{!89, !22, i64 8}
-!89 = !{!"curl_trc_feat", !9, i64 0, !22, i64 8}
-!90 = !{!8, !9, i64 8}
-!91 = distinct !{!91, !15, !16}
-!92 = !{!36, !36, i64 0}
-!93 = !{!94, !10, i64 64}
-!94 = !{!"z_stream_s", !9, i64 0, !22, i64 8, !11, i64 16, !9, i64 24, !22, i64 32, !11, i64 40, !9, i64 48, !95, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !22, i64 88, !11, i64 96, !11, i64 104}
-!95 = !{!"p1 _ZTS14internal_state", !10, i64 0}
-!96 = !{!94, !10, i64 72}
-!97 = !{!94, !9, i64 48}
-!98 = !{!99, !22, i64 32}
-!99 = !{!"zlib_writer", !100, i64 0, !22, i64 32, !22, i64 36, !94, i64 40}
-!100 = !{!"Curl_cwriter", !13, i64 0, !36, i64 8, !10, i64 16, !22, i64 24}
-!101 = !{!100, !36, i64 8}
-!102 = !{!94, !9, i64 0}
-!103 = !{!94, !22, i64 8}
-!104 = !{!22, !22, i64 0}
-!105 = !{!10, !10, i64 0}
-!106 = !{!99, !22, i64 36}
-!107 = !{!94, !9, i64 24}
-!108 = !{!94, !22, i64 32}
-!109 = distinct !{!109, !16}
-!110 = distinct !{!110, !15, !16}
-!111 = distinct !{!111, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = !{!20, !78, i64 4712}
+!20 = !{!"Curl_easy", !21, i64 0, !11, i64 8, !11, i64 16, !22, i64 24, !23, i64 32, !23, i64 64, !21, i64 96, !21, i64 100, !26, i64 104, !28, i64 160, !29, i64 192, !31, i64 208, !31, i64 216, !32, i64 224, !33, i64 232, !41, i64 456, !60, i64 2576, !61, i64 2584, !62, i64 2592, !65, i64 3008, !81, i64 4880, !82, i64 4888, !86, i64 5120}
+!21 = !{!"int", !5, i64 0}
+!22 = !{!"p1 _ZTS11connectdata", !10, i64 0}
+!23 = !{!"Curl_llist_node", !24, i64 0, !10, i64 8, !25, i64 16, !25, i64 24}
+!24 = !{!"p1 _ZTS10Curl_llist", !10, i64 0}
+!25 = !{!"p1 _ZTS15Curl_llist_node", !10, i64 0}
+!26 = !{!"Curl_message", !23, i64 0, !27, i64 32}
+!27 = !{!"CURLMsg", !21, i64 0, !10, i64 8, !5, i64 16}
+!28 = !{!"easy_pollset", !5, i64 0, !21, i64 20, !5, i64 24}
+!29 = !{!"Names", !30, i64 0, !21, i64 8}
+!30 = !{!"p1 _ZTS9Curl_hash", !10, i64 0}
+!31 = !{!"p1 _ZTS10Curl_multi", !10, i64 0}
+!32 = !{!"p1 _ZTS10Curl_share", !10, i64 0}
+!33 = !{!"SingleRequest", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !34, i64 32, !21, i64 48, !21, i64 52, !21, i64 56, !21, i64 60, !11, i64 64, !21, i64 72, !21, i64 76, !21, i64 80, !21, i64 84, !35, i64 88, !36, i64 96, !37, i64 104, !11, i64 168, !11, i64 176, !9, i64 184, !9, i64 192, !5, i64 200, !40, i64 208, !5, i64 216, !21, i64 217, !21, i64 217, !21, i64 217, !21, i64 217, !21, i64 217, !21, i64 217, !21, i64 217, !21, i64 217, !21, i64 218, !21, i64 218, !21, i64 218, !21, i64 218, !21, i64 218, !21, i64 218, !21, i64 218, !21, i64 218, !21, i64 219, !21, i64 219, !21, i64 219, !21, i64 219, !21, i64 219, !21, i64 219}
+!34 = !{!"curltime", !11, i64 0, !21, i64 8}
+!35 = !{!"p1 _ZTS12Curl_cwriter", !10, i64 0}
+!36 = !{!"p1 _ZTS12Curl_creader", !10, i64 0}
+!37 = !{!"bufq", !38, i64 0, !38, i64 8, !38, i64 16, !39, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !21, i64 56}
+!38 = !{!"p1 _ZTS9buf_chunk", !10, i64 0}
+!39 = !{!"p1 _ZTS9bufc_pool", !10, i64 0}
+!40 = !{!"p1 _ZTS10doh_probes", !10, i64 0}
+!41 = !{!"UserDefined", !42, i64 0, !10, i64 8, !9, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !43, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !10, i64 80, !10, i64 88, !11, i64 96, !43, i64 104, !43, i64 106, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !21, i64 296, !21, i64 300, !21, i64 304, !21, i64 308, !21, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !11, i64 368, !11, i64 376, !44, i64 384, !45, i64 392, !46, i64 400, !44, i64 840, !44, i64 848, !11, i64 856, !5, i64 864, !5, i64 865, !5, i64 866, !52, i64 872, !52, i64 1056, !44, i64 1240, !43, i64 1248, !5, i64 1250, !5, i64 1251, !55, i64 1256, !21, i64 1272, !21, i64 1276, !21, i64 1280, !10, i64 1288, !44, i64 1296, !5, i64 1304, !11, i64 1312, !5, i64 1320, !5, i64 1321, !5, i64 1322, !21, i64 1324, !44, i64 1328, !44, i64 1336, !44, i64 1344, !5, i64 1352, !5, i64 1353, !21, i64 1356, !5, i64 1360, !5, i64 1864, !21, i64 1928, !21, i64 1932, !21, i64 1936, !10, i64 1944, !10, i64 1952, !10, i64 1960, !10, i64 1968, !10, i64 1976, !5, i64 1984, !21, i64 1988, !21, i64 1992, !21, i64 1996, !11, i64 2000, !56, i64 2008, !10, i64 2032, !10, i64 2040, !11, i64 2048, !10, i64 2056, !11, i64 2064, !59, i64 2072, !10, i64 2080, !10, i64 2088, !5, i64 2096, !21, i64 2100, !5, i64 2104, !5, i64 2105, !21, i64 2106, !21, i64 2106, !21, i64 2106, !21, i64 2106, !21, i64 2106, !21, i64 2106, !21, i64 2106, !21, i64 2106, !21, i64 2107, !21, i64 2107, !21, i64 2107, !21, i64 2107, !21, i64 2107, !21, i64 2107, !21, i64 2107, !21, i64 2107, !21, i64 2108, !21, i64 2108, !21, i64 2108, !21, i64 2108, !21, i64 2108, !21, i64 2108, !21, i64 2108, !21, i64 2108, !21, i64 2109, !21, i64 2109, !21, i64 2109, !21, i64 2109, !21, i64 2109, !21, i64 2109, !21, i64 2109, !21, i64 2109, !21, i64 2110, !21, i64 2110, !21, i64 2110, !21, i64 2110, !21, i64 2110, !21, i64 2110, !21, i64 2110, !21, i64 2110, !21, i64 2111, !21, i64 2111, !21, i64 2111, !21, i64 2111, !21, i64 2111, !21, i64 2111, !21, i64 2111, !21, i64 2111, !21, i64 2112, !21, i64 2112, !21, i64 2112, !21, i64 2112}
+!42 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!43 = !{!"short", !5, i64 0}
+!44 = !{!"p1 _ZTS10curl_slist", !10, i64 0}
+!45 = !{!"p1 _ZTS13curl_httppost", !10, i64 0}
+!46 = !{!"curl_mimepart", !47, i64 0, !48, i64 8, !21, i64 16, !21, i64 20, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !42, i64 64, !44, i64 72, !44, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !11, i64 112, !49, i64 120, !50, i64 144, !51, i64 152, !11, i64 432}
+!47 = !{!"p1 _ZTS9curl_mime", !10, i64 0}
+!48 = !{!"p1 _ZTS13curl_mimepart", !10, i64 0}
+!49 = !{!"mime_state", !21, i64 0, !10, i64 8, !11, i64 16}
+!50 = !{!"p1 _ZTS12mime_encoder", !10, i64 0}
+!51 = !{!"mime_encoder_state", !11, i64 0, !11, i64 8, !11, i64 16, !5, i64 24}
+!52 = !{!"ssl_config_data", !53, i64 0, !11, i64 112, !10, i64 120, !10, i64 128, !9, i64 136, !9, i64 144, !54, i64 152, !9, i64 160, !9, i64 168, !21, i64 176, !21, i64 176, !21, i64 176, !21, i64 176, !21, i64 176, !21, i64 176, !21, i64 176, !21, i64 176, !21, i64 177}
+!53 = !{!"ssl_primary_config", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !54, i64 64, !54, i64 72, !54, i64 80, !9, i64 88, !5, i64 96, !21, i64 100, !5, i64 104, !21, i64 105, !21, i64 105, !21, i64 105, !21, i64 105}
+!54 = !{!"p1 _ZTS9curl_blob", !10, i64 0}
+!55 = !{!"ssl_general_config", !11, i64 0, !21, i64 8}
+!56 = !{!"Curl_data_priority", !57, i64 0, !58, i64 8, !21, i64 16, !21, i64 20}
+!57 = !{!"p1 _ZTS9Curl_easy", !10, i64 0}
+!58 = !{!"p1 _ZTS19Curl_data_prio_node", !10, i64 0}
+!59 = !{!"p1 _ZTS8Curl_URL", !10, i64 0}
+!60 = !{!"p1 _ZTS10CookieInfo", !10, i64 0}
+!61 = !{!"p1 _ZTS4hsts", !10, i64 0}
+!62 = !{!"Progress", !11, i64 0, !63, i64 8, !63, i64 56, !11, i64 104, !11, i64 112, !21, i64 120, !21, i64 124, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !34, i64 200, !34, i64 216, !34, i64 232, !34, i64 248, !5, i64 264, !5, i64 312, !21, i64 408, !21, i64 412, !21, i64 412}
+!63 = !{!"pgrs_dir", !11, i64 0, !11, i64 8, !11, i64 16, !64, i64 24}
+!64 = !{!"pgrs_measure", !34, i64 0, !11, i64 16}
+!65 = !{!"UrlState", !34, i64 0, !11, i64 16, !11, i64 24, !66, i64 32, !44, i64 64, !11, i64 72, !9, i64 80, !21, i64 88, !21, i64 92, !21, i64 96, !67, i64 104, !11, i64 112, !21, i64 120, !11, i64 128, !21, i64 136, !10, i64 144, !68, i64 152, !68, i64 208, !69, i64 264, !69, i64 296, !70, i64 328, !10, i64 376, !34, i64 384, !73, i64 400, !75, i64 456, !5, i64 488, !9, i64 1328, !9, i64 1336, !11, i64 1344, !11, i64 1352, !56, i64 1360, !10, i64 1384, !10, i64 1392, !59, i64 1400, !76, i64 1408, !9, i64 1472, !9, i64 1480, !44, i64 1488, !48, i64 1496, !48, i64 1504, !11, i64 1512, !66, i64 1520, !75, i64 1552, !5, i64 1584, !77, i64 1680, !21, i64 1688, !44, i64 1696, !78, i64 1704, !79, i64 1712, !80, i64 1760, !5, i64 1864, !5, i64 1865, !5, i64 1866, !5, i64 1867, !21, i64 1868, !21, i64 1868, !21, i64 1868, !21, i64 1868, !21, i64 1868, !21, i64 1868, !21, i64 1868, !21, i64 1869, !21, i64 1869, !21, i64 1869, !21, i64 1869, !21, i64 1869, !21, i64 1869, !21, i64 1869, !21, i64 1869, !21, i64 1870, !21, i64 1870, !21, i64 1870, !21, i64 1870, !21, i64 1870}
+!66 = !{!"dynbuf", !9, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!67 = !{!"p1 _ZTS16Curl_ssl_session", !10, i64 0}
+!68 = !{!"digestdata", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !21, i64 48, !5, i64 52, !21, i64 53, !21, i64 53}
+!69 = !{!"auth", !11, i64 0, !11, i64 8, !11, i64 16, !21, i64 24, !21, i64 24, !21, i64 24}
+!70 = !{!"Curl_async", !9, i64 0, !71, i64 8, !72, i64 16, !10, i64 24, !21, i64 32, !21, i64 36, !21, i64 40}
+!71 = !{!"p1 _ZTS14Curl_dns_entry", !10, i64 0}
+!72 = !{!"p1 _ZTS11thread_data", !10, i64 0}
+!73 = !{!"Curl_tree", !74, i64 0, !74, i64 8, !74, i64 16, !74, i64 24, !34, i64 32, !10, i64 48}
+!74 = !{!"p1 _ZTS9Curl_tree", !10, i64 0}
+!75 = !{!"Curl_llist", !25, i64 0, !25, i64 8, !10, i64 16, !11, i64 24}
+!76 = !{!"urlpieces", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
+!77 = !{!"p1 _ZTS17Curl_header_store", !10, i64 0}
+!78 = !{!"p1 _ZTS13curl_trc_feat", !10, i64 0}
+!79 = !{!"store_netrc", !66, i64 0, !9, i64 32, !21, i64 40}
+!80 = !{!"dynamically_allocated_data", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96}
+!81 = !{!"p1 _ZTS12WildcardData", !10, i64 0}
+!82 = !{!"PureInfo", !21, i64 0, !21, i64 4, !21, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !9, i64 56, !9, i64 64, !11, i64 72, !21, i64 80, !83, i64 84, !21, i64 184, !9, i64 192, !21, i64 200, !84, i64 208, !21, i64 224, !21, i64 228, !21, i64 228}
+!83 = !{!"ip_quadruple", !5, i64 0, !5, i64 46, !21, i64 92, !21, i64 96}
+!84 = !{!"curl_certinfo", !21, i64 0, !85, i64 8}
+!85 = !{!"p2 _ZTS10curl_slist", !10, i64 0}
+!86 = !{!"curl_tlssessioninfo", !21, i64 0, !10, i64 8}
+!87 = !{!88, !21, i64 8}
+!88 = !{!"curl_trc_feat", !9, i64 0, !21, i64 8}
+!89 = !{!8, !9, i64 8}
+!90 = distinct !{!90, !15}
+!91 = !{!35, !35, i64 0}
+!92 = !{!93, !10, i64 64}
+!93 = !{!"z_stream_s", !9, i64 0, !21, i64 8, !11, i64 16, !9, i64 24, !21, i64 32, !11, i64 40, !9, i64 48, !94, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !21, i64 88, !11, i64 96, !11, i64 104}
+!94 = !{!"p1 _ZTS14internal_state", !10, i64 0}
+!95 = !{!93, !10, i64 72}
+!96 = !{!93, !9, i64 48}
+!97 = !{!98, !21, i64 32}
+!98 = !{!"zlib_writer", !99, i64 0, !21, i64 32, !21, i64 36, !93, i64 40}
+!99 = !{!"Curl_cwriter", !13, i64 0, !35, i64 8, !10, i64 16, !21, i64 24}
+!100 = !{!99, !35, i64 8}
+!101 = !{!93, !9, i64 0}
+!102 = !{!93, !21, i64 8}
+!103 = !{!21, !21, i64 0}
+!104 = !{!10, !10, i64 0}
+!105 = !{!98, !21, i64 36}
+!106 = !{!93, !9, i64 24}
+!107 = !{!93, !21, i64 32}
+!108 = distinct !{!108, !15}
+!109 = distinct !{!109, !15}

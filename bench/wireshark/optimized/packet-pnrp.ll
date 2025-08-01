@@ -927,7 +927,7 @@ dissect_pnrp_ids.exit588:                         ; preds = %.lr.ph.i585, %241, 
   %290 = add nuw nsw i32 %.0546623, 1
   %lftr.wideiv644 = trunc i32 %290 to i2
   %exitcond645 = icmp eq i2 %lftr.wideiv644, %284
-  br i1 %exitcond645, label %.critedge.thread, label %.lr.ph624, !llvm.loop !9
+  br i1 %exitcond645, label %.critedge.thread, label %.lr.ph624, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph624
   %.not702 = icmp eq i32 %.0546623, 0
@@ -1001,7 +1001,7 @@ dissect_pnrp_ids.exit588:                         ; preds = %.lr.ph.i585, %241, 
   %330 = add nuw nsw i32 %.1547614, 1
   %lftr.wideiv642 = trunc i32 %330 to i2
   %exitcond643 = icmp eq i2 %lftr.wideiv642, %324
-  br i1 %exitcond643, label %.critedge2.thread, label %.lr.ph615, !llvm.loop !10
+  br i1 %exitcond643, label %.critedge2.thread, label %.lr.ph615, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph615
   %.not701 = icmp eq i32 %.1547614, 0
@@ -1172,7 +1172,7 @@ dissect_pnrp_ids.exit588:                         ; preds = %.lr.ph.i585, %241, 
   %437 = icmp sgt i32 %436, -1
   %438 = icmp samesign ugt i32 %.078.i.i, 31
   %439 = select i1 %437, i1 %438, i1 false
-  br i1 %439, label %.lr.ph.i.i, label %dissect_route_entry.exit, !llvm.loop !11
+  br i1 %439, label %.lr.ph.i.i, label %dissect_route_entry.exit, !llvm.loop !10
 
 dissect_route_entry.exit:                         ; preds = %.lr.ph.i.i, %405, %393, %392
   %.16 = phi ptr [ %.0542, %392 ], [ %395, %393 ], [ %395, %405 ], [ %395, %.lr.ph.i.i ]
@@ -1198,7 +1198,7 @@ dissect_route_entry.exit:                         ; preds = %.lr.ph.i.i, %405, %
   %448 = add nuw nsw i32 %.2548607, 1
   %lftr.wideiv = trunc i32 %448 to i2
   %exitcond = icmp eq i2 %lftr.wideiv, %442
-  br i1 %exitcond, label %.critedge4.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond, label %.critedge4.thread, label %.lr.ph, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph
   %.not700 = icmp eq i32 %.2548607, 0
@@ -1407,7 +1407,7 @@ dissect_ipv6_address.exit.i.i:                    ; preds = %.lr.ph.i.preheader.
   %591 = icmp sgt i32 %590, -1
   %592 = icmp ugt i16 %588, 19
   %593 = select i1 %591, i1 %592, i1 false
-  br i1 %593, label %.lr.ph.i.i589, label %dissect_payload_structure.exit.i, !llvm.loop !13
+  br i1 %593, label %.lr.ph.i.i589, label %dissect_payload_structure.exit.i, !llvm.loop !12
 
 dissect_payload_structure.exit.i:                 ; preds = %dissect_ipv6_address.exit.i.i, %557, %532
   %594 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0534, i32 noundef %552)
@@ -1551,7 +1551,7 @@ dissect_encodedCPA_structure.exit:                ; preds = %454, %dissect_publi
   %.2539 = phi i32 [ %696, %695 ], [ %80, %79 ], [ %97, %dissect_pnrp_ids.exit ], [ %143, %138 ], [ %115, %107 ], [ %124, %116 ], [ %137, %133 ], [ %167, %165 ], [ %186, %185 ], [ %212, %211 ], [ %229, %dissect_pnrp_ids.exit584 ], [ %239, %238 ], [ %268, %dissect_pnrp_ids.exit588 ], [ %348, %347 ], [ %362, %361 ], [ 0, %391 ], [ %680, %679 ], [ %130, %125 ], [ %.pre, %.critedge._crit_edge ], [ %292, %.critedge.thread ], [ %.pre646, %.critedge2._crit_edge ], [ %332, %.critedge2.thread ], [ %.pre648, %.critedge4._crit_edge ], [ %450, %.critedge4.thread ], [ %.pre650, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %461, %639 ], [ %461, %635 ], [ %461, %dissect_publicKey_structure.exit.i ], [ %461, %454 ]
   %.1535 = phi ptr [ %.0534, %695 ], [ %.0534, %79 ], [ %.0534, %dissect_pnrp_ids.exit ], [ %.0534, %138 ], [ %.0534, %107 ], [ %.0534, %116 ], [ %.0534, %133 ], [ %.0534, %165 ], [ %.0534, %185 ], [ %.0534, %211 ], [ %.0534, %dissect_pnrp_ids.exit584 ], [ %.0534, %238 ], [ %.0534, %dissect_pnrp_ids.exit588 ], [ %.0534, %347 ], [ %.0534, %361 ], [ %386, %391 ], [ %.0534, %679 ], [ %.0534, %125 ], [ %.0534, %.critedge._crit_edge ], [ %.0534, %.critedge.thread ], [ %.0534, %.critedge2._crit_edge ], [ %.0534, %.critedge2.thread ], [ %.0534, %.critedge4._crit_edge ], [ %.0534, %.critedge4.thread ], [ %.0534, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %.0534, %639 ], [ %.0534, %635 ], [ %.0534, %dissect_publicKey_structure.exit.i ], [ %.0534, %454 ]
   %697 = icmp sgt i32 %.2539, 11
-  br i1 %697, label %698, label %46, !llvm.loop !14
+  br i1 %697, label %698, label %46, !llvm.loop !13
 
 698:                                              ; preds = %dissect_encodedCPA_structure.exit
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #5
@@ -1671,7 +1671,7 @@ dissect_ipv6_address.exit:                        ; preds = %.lr.ph.i.preheader,
   %24 = icmp sgt i32 %23, -1
   %25 = icmp sgt i32 %.01011, 35
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_ipv6_address.exit, %4
   ret void
@@ -1698,13 +1698,12 @@ attributes #5 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

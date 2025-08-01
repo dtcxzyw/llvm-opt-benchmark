@@ -378,7 +378,7 @@ has_shebang.exit.thread.i:                        ; preds = %has_shebang.exit.i,
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond.i.i = select i1 %136, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %contains_null_char.exit.i, label %133, !llvm.loop !12
+  br i1 %or.cond.i.i, label %contains_null_char.exit.i, label %133, !llvm.loop !11
 
 contains_null_char.exit.i:                        ; preds = %133
   br i1 %136, label %137, label %.preheader.i
@@ -401,7 +401,7 @@ contains_null_char.exit.i:                        ; preds = %133
 ._crit_edge.i.i:                                  ; preds = %.preheader.i
   %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i53.i, 1
   %exitcond.not.i56.i = icmp eq i64 %indvars.iv.next.i55.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i56.i, label %_get_script_buffer.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond.not.i56.i, label %_get_script_buffer.exit, label %.preheader.i, !llvm.loop !12
 
 144:                                              ; preds = %.preheader.i
   %145 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55) #14
@@ -481,7 +481,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   br label %178
 
 174:                                              ; preds = %164, %158
-  %175 = load i8, ptr %16, align 1, !range !14, !noundef !15
+  %175 = load i8, ptr %16, align 1, !range !13, !noundef !14
   %176 = trunc nuw i8 %175 to i1
   %177 = xor i1 %176, true
   br label %178
@@ -616,7 +616,7 @@ _get_script_buffer.exit:                          ; preds = %._crit_edge.i.i, %1
   %241 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %242 = load ptr, ptr %241, align 8
   %.not15.i = icmp eq ptr %242, null
-  br i1 %.not15.i, label %_set_rlimit_env.exit, label %.lr.ph.i150, !llvm.loop !16
+  br i1 %.not15.i, label %_set_rlimit_env.exit, label %.lr.ph.i150, !llvm.loop !15
 
 _set_rlimit_env.exit:                             ; preds = %239, %206
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
@@ -659,7 +659,7 @@ _set_rlimit_env.exit:                             ; preds = %239, %206
   %260 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 656), align 8
   %261 = sext i32 %260 to i64
   %262 = icmp slt i64 %indvars.iv.next.i, %261
-  br i1 %262, label %.lr.ph.i153, label %_set_spank_env.exit, !llvm.loop !17
+  br i1 %262, label %.lr.ph.i153, label %_set_spank_env.exit, !llvm.loop !16
 
 _set_spank_env.exit:                              ; preds = %259, %246
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #14
@@ -944,7 +944,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
   %392 = add nuw nsw i32 %.0102199, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, 1
-  br i1 %.196, label %393, label %155, !llvm.loop !18
+  br i1 %.196, label %393, label %155, !llvm.loop !17
 
 393:                                              ; preds = %391
   %.not125 = icmp eq ptr %.194, null
@@ -1026,7 +1026,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   unreachable
 
 421:                                              ; preds = %417, %410
-  %422 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 60), align 4, !range !14, !noundef !15
+  %422 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 60), align 4, !range !13, !noundef !14
   %423 = trunc nuw i8 %422 to i1
   br i1 %423, label %424, label %.preheader
 
@@ -1143,7 +1143,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   call void @slurm_free_submit_response_response_msg(ptr noundef %462) #14
   %463 = add nuw nsw i32 %.097, 1
   %464 = call i32 @sleep(i32 noundef %463) #14
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader, !llvm.loop !18
 
 465:                                              ; preds = %436
   %466 = load ptr, ptr %13, align 8
@@ -1169,13 +1169,13 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   call void @cli_filter_g_post_submit(i32 noundef %.1101211, i32 noundef %475, i32 noundef -2) #14
   %476 = add nuw i32 %.1101211, 1
   %exitcond.not = icmp eq i32 %476, %indvars.iv
-  br i1 %exitcond.not, label %477, label %473, !llvm.loop !20
+  br i1 %exitcond.not, label %477, label %473, !llvm.loop !19
 
 477:                                              ; preds = %473
   br i1 %54, label %492, label %478
 
 478:                                              ; preds = %477
-  %479 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 40), align 8, !range !14, !noundef !15
+  %479 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 40), align 8, !range !13, !noundef !14
   %480 = trunc nuw i8 %479 to i1
   %481 = load ptr, ptr %13, align 8
   %482 = load i32, ptr %481, align 8
@@ -1206,7 +1206,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   br label %492
 
 492:                                              ; preds = %.sink.split, %477
-  %493 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 68), align 4, !range !14, !noundef !15
+  %493 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sbopt, i64 68), align 4, !range !13, !noundef !14
   %494 = trunc nuw i8 %493 to i1
   br i1 %494, label %495, label %530
 
@@ -1282,11 +1282,11 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
   %525 = add nuw nsw i32 %.02331.i, 1
   %526 = getelementptr inbounds nuw i8, ptr %.02232.i, i64 968
   %exitcond.not.i = icmp eq i32 %525, %509
-  br i1 %exitcond.not.i, label %._crit_edge.i163, label %.lr.ph.i161, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i163, label %.lr.ph.i161, !llvm.loop !20
 
 ._crit_edge.i163:                                 ; preds = %524
   call void @slurm_free_job_info_msg(ptr noundef nonnull %507) #14
-  br i1 %.2.i162, label %_job_wait.exit, label %.outer.i, !llvm.loop !22
+  br i1 %.2.i162, label %_job_wait.exit, label %.outer.i, !llvm.loop !21
 
 .thread.i159:                                     ; preds = %498
   %527 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %497) #14
@@ -1294,7 +1294,7 @@ _fill_job_desc_from_opts.exit:                    ; preds = %302
 
 528:                                              ; preds = %498
   %529 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21) #14
-  br label %498, !llvm.loop !22
+  br label %498, !llvm.loop !21
 
 _job_wait.exit:                                   ; preds = %._crit_edge.i163, %._crit_edge.thread.i, %.thread.i159
   %.32839.i = phi i32 [ %.02535.ph.i, %.thread.i159 ], [ %.02535.ph.i, %._crit_edge.thread.i ], [ %.227.i, %._crit_edge.i163 ]
@@ -1540,18 +1540,17 @@ attributes #17 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

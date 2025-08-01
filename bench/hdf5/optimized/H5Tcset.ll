@@ -277,7 +277,7 @@ define range(i32 -1, 1) i32 @H5Tset_cset(i64 noundef %0, i32 noundef %1) local_u
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !33
+  %48 = load i32, ptr %47, align 8, !tbaa !32
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %53, label %49
 
@@ -325,7 +325,7 @@ define range(i32 -1, 1) i32 @H5Tset_cset(i64 noundef %0, i32 noundef %1) local_u
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !25
   %.not33 = icmp eq ptr %70, null
-  br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !33
 
 .critedge:                                        ; preds = %64, %.fold.split, %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %46, %.preheader ], [ %61, %.lr.ph ], [ %68, %.fold.split ], [ %61, %64 ]
@@ -407,8 +407,7 @@ attributes #4 = { nounwind }
 !27 = !{!"p1 _ZTS5H5T_t", !19, i64 0}
 !28 = !{!26, !17, i64 12}
 !29 = !{!5, !5, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!26, !17, i64 8}
-!34 = distinct !{!34, !31, !32}
+!32 = !{!26, !17, i64 8}
+!33 = distinct !{!33, !31}

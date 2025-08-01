@@ -900,7 +900,7 @@ _Z20SocketSetNonBlockingib.exit:                  ; preds = %_Z20SocketSetNonBlo
   %42 = and i64 %41, -2
   store i64 %42, ptr %3, align 8, !tbaa !20
   %43 = call i32 @shutdown(i32 noundef %1, i32 noundef 1) #19
-  br label %.thread, !llvm.loop !48
+  br label %.thread, !llvm.loop !47
 
 .critedge:                                        ; preds = %34
   %44 = icmp slt i64 %35, 0
@@ -981,7 +981,7 @@ _Z20SocketSetNonBlockingib.exit67:                ; preds = %59
   %79 = load i64, ptr %17, align 8, !tbaa !20
   %80 = and i64 %79, %14
   %.not62 = icmp eq i64 %80, 0
-  br i1 %.not62, label %_Z20SocketSetNonBlockingib.exit, label %81, !llvm.loop !49
+  br i1 %.not62, label %_Z20SocketSetNonBlockingib.exit, label %81, !llvm.loop !47
 
 81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #19
@@ -992,7 +992,7 @@ _Z20SocketSetNonBlockingib.exit67:                ; preds = %59
 84:                                               ; preds = %81
   %85 = call i32 @SSL_get_error(ptr noundef %0, i32 noundef %82)
   %86 = icmp eq i32 %85, 2
-  br i1 %86, label %103, label %87, !llvm.loop !48
+  br i1 %86, label %103, label %87, !llvm.loop !47
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr @stderr, align 8, !tbaa !29
@@ -1018,7 +1018,7 @@ _Z20SocketSetNonBlockingib.exit67:                ; preds = %59
   %98 = tail call ptr @__errno_location() #24
   %99 = load i32, ptr %98, align 4, !tbaa !34
   %100 = icmp eq i32 %99, 4
-  br i1 %100, label %94, label %.critedge3.thread, !llvm.loop !50
+  br i1 %100, label %94, label %.critedge3.thread, !llvm.loop !48
 
 .critedge3:                                       ; preds = %94
   %.not63 = icmp eq i64 %95, %93
@@ -1045,7 +1045,7 @@ _Z20SocketSetNonBlockingib.exit67:                ; preds = %59
   ]
 
 _Z20SocketSetNonBlockingib.exit.outer.backedge:   ; preds = %104, %104
-  br label %_Z20SocketSetNonBlockingib.exit.outer, !llvm.loop !49
+  br label %_Z20SocketSetNonBlockingib.exit.outer, !llvm.loop !47
 
 _Z20SocketSetNonBlockingib.exit.thread:           ; preds = %104, %19, %2, %.thread75
   %.0 = phi i1 [ false, %.thread75 ], [ false, %2 ], [ false, %19 ], [ %.2, %104 ]
@@ -1183,9 +1183,7 @@ attributes #24 = { nounwind willreturn memory(none) }
 !42 = !{i64 0, i64 16, !15}
 !43 = !{!40, !37, i64 2}
 !44 = !{!8, !8, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !46}
 !48 = distinct !{!48, !46}
-!49 = distinct !{!49, !46, !47}
-!50 = distinct !{!50, !46, !47}

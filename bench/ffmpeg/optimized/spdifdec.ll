@@ -195,7 +195,7 @@ define i32 @ff_spdif_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
   br label %7
 
 7:                                                ; preds = %8, %2
@@ -209,7 +209,7 @@ define i32 @ff_spdif_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %11 = or i32 %10, %9
   %12 = tail call i32 @avio_feof(ptr noundef %6) #5
   %.not58 = icmp eq i32 %12, 0
-  br i1 %.not58, label %7, label %.critedge, !llvm.loop !29
+  br i1 %.not58, label %7, label %.critedge, !llvm.loop !28
 
 13:                                               ; preds = %7
   %14 = tail call i32 @avio_rl16(ptr noundef %6) #5
@@ -238,21 +238,21 @@ define i32 @ff_spdif_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %26 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #5
   %27 = add nsw i64 %26, -8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %27, ptr %28, align 8, !tbaa !30
+  store i64 %27, ptr %28, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !35
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !36
+  %32 = load i32, ptr %31, align 8, !tbaa !35
   %33 = tail call i32 @avio_read(ptr noundef %6, ptr noundef %30, i32 noundef %32) #5
-  %34 = load i32, ptr %31, align 8, !tbaa !36
+  %34 = load i32, ptr %31, align 8, !tbaa !35
   %35 = icmp slt i32 %33, %34
   br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %25
-  %37 = load ptr, ptr %29, align 8, !tbaa !35
+  %37 = load ptr, ptr %29, align 8, !tbaa !34
   %38 = ashr i32 %34, 1
   tail call void @ff_spdif_bswap_buf16(ptr noundef %37, ptr noundef %37, i32 noundef %38) #5
-  %39 = load ptr, ptr %29, align 8, !tbaa !35
+  %39 = load ptr, ptr %29, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
   %trunc.i = trunc i32 %14 to i8
@@ -337,12 +337,12 @@ spdif_get_offset_and_codec.exit:                  ; preds = %46, %47, %58, %59
   %.062.ph = phi i32 [ 6136, %36 ], [ 24568, %57 ], [ 8184, %56 ], [ 4088, %55 ], [ 2040, %54 ], [ 9208, %53 ], [ 3064, %52 ], [ %51, %48 ], [ 4600, %42 ], [ 1528, %41 ], [ 1528, %40 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  %61 = load i32, ptr %31, align 8, !tbaa !36
+  %61 = load i32, ptr %31, align 8, !tbaa !35
   %62 = sub i32 %.062.ph, %61
   %63 = sext i32 %62 to i64
   %64 = call i64 @avio_skip(ptr noundef %6, i64 noundef %63) #5
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %66 = load i32, ptr %65, align 4, !tbaa !37
+  %66 = load i32, ptr %65, align 4, !tbaa !36
   %.not53 = icmp eq i32 %66, 0
   br i1 %.not53, label %67, label %73
 
@@ -353,22 +353,22 @@ spdif_get_offset_and_codec.exit:                  ; preds = %46, %47, %58, %59
 
 .sink.split:                                      ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !38
-  store i32 1, ptr %70, align 8, !tbaa !41
+  %70 = load ptr, ptr %69, align 8, !tbaa !37
+  store i32 1, ptr %70, align 8, !tbaa !40
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  store i32 %.063.ph, ptr %71, align 4, !tbaa !44
+  store i32 %.063.ph, ptr %71, align 4, !tbaa !43
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 808
-  store i32 %., ptr %72, align 8, !tbaa !45
+  store i32 %., ptr %72, align 8, !tbaa !44
   br label %82
 
 73:                                               ; preds = %60
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
-  %76 = load ptr, ptr %75, align 8, !tbaa !59
+  %75 = load ptr, ptr %74, align 8, !tbaa !57
+  %76 = load ptr, ptr %75, align 8, !tbaa !58
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !38
+  %78 = load ptr, ptr %77, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !44
+  %80 = load i32, ptr %79, align 4, !tbaa !43
   %.not55 = icmp eq i32 %.063.ph, %80
   br i1 %.not55, label %82, label %81
 
@@ -378,25 +378,25 @@ spdif_get_offset_and_codec.exit:                  ; preds = %46, %47, %58, %59
 
 82:                                               ; preds = %.sink.split, %73
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %84 = load i64, ptr %83, align 8, !tbaa !61
+  %84 = load i64, ptr %83, align 8, !tbaa !60
   %.not56 = icmp eq i64 %84, 0
   br i1 %.not56, label %85, label %.critedge
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %87 = load ptr, ptr %86, align 8, !tbaa !58
-  %88 = load ptr, ptr %87, align 8, !tbaa !59
+  %87 = load ptr, ptr %86, align 8, !tbaa !57
+  %88 = load ptr, ptr %87, align 8, !tbaa !58
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !38
+  %90 = load ptr, ptr %89, align 8, !tbaa !37
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 152
-  %92 = load i32, ptr %91, align 8, !tbaa !62
+  %92 = load i32, ptr %91, align 8, !tbaa !61
   %.not57 = icmp eq i32 %92, 0
   br i1 %.not57, label %.critedge, label %93
 
 93:                                               ; preds = %85
   %94 = sext i32 %92 to i64
   %95 = shl nsw i64 %94, 5
-  store i64 %95, ptr %83, align 8, !tbaa !61
+  store i64 %95, ptr %83, align 8, !tbaa !60
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %spdif_get_offset_and_codec.exit, %67, %82, %85, %93, %25, %20, %81
@@ -429,9 +429,9 @@ define internal range(i32 0, 101) i32 @spdif_probe(ptr noundef readonly captures
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !63
+  %4 = load ptr, ptr %3, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !64
+  %6 = load i32, ptr %5, align 8, !tbaa !63
   %7 = call i32 @ff_spdif_probe(ptr noundef %4, i32 noundef %6, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
   ret i32 %7
@@ -440,9 +440,9 @@ define internal range(i32 0, 101) i32 @spdif_probe(ptr noundef readonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @spdif_read_header(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !65
+  %3 = load i32, ptr %2, align 8, !tbaa !64
   %4 = or i32 %3, 1
-  store i32 %4, ptr %2, align 8, !tbaa !65
+  store i32 %4, ptr %2, align 8, !tbaa !64
   ret i32 0
 }
 
@@ -473,60 +473,59 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !18, i64 32}
-!13 = !{!"AVFormatContext", !14, i64 0, !16, i64 8, !17, i64 16, !15, i64 24, !18, i64 32, !8, i64 40, !8, i64 44, !19, i64 48, !8, i64 56, !21, i64 64, !8, i64 72, !22, i64 80, !23, i64 88, !24, i64 96, !24, i64 104, !24, i64 112, !8, i64 120, !8, i64 124, !8, i64 128, !24, i64 136, !24, i64 144, !23, i64 152, !8, i64 160, !8, i64 164, !25, i64 168, !8, i64 176, !8, i64 180, !8, i64 184, !8, i64 188, !26, i64 192, !24, i64 200, !8, i64 208, !8, i64 212, !27, i64 216, !8, i64 232, !8, i64 236, !8, i64 240, !8, i64 244, !24, i64 248, !8, i64 256, !8, i64 260, !8, i64 264, !8, i64 268, !8, i64 272, !8, i64 276, !8, i64 280, !8, i64 284, !8, i64 288, !8, i64 292, !8, i64 296, !8, i64 300, !24, i64 304, !8, i64 312, !8, i64 316, !8, i64 320, !8, i64 324, !8, i64 328, !23, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !8, i64 368, !28, i64 376, !28, i64 384, !28, i64 392, !28, i64 400, !8, i64 408, !15, i64 416, !15, i64 424, !24, i64 432, !23, i64 440, !15, i64 448, !15, i64 456, !24, i64 464}
-!14 = !{!"p1 _ZTS7AVClass", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!"p1 _ZTS13AVInputFormat", !15, i64 0}
-!17 = !{!"p1 _ZTS14AVOutputFormat", !15, i64 0}
-!18 = !{!"p1 _ZTS11AVIOContext", !15, i64 0}
-!19 = !{!"p2 _ZTS8AVStream", !20, i64 0}
-!20 = !{!"any p2 pointer", !15, i64 0}
-!21 = !{!"p2 _ZTS13AVStreamGroup", !20, i64 0}
-!22 = !{!"p2 _ZTS9AVChapter", !20, i64 0}
-!23 = !{!"p1 omnipotent char", !15, i64 0}
-!24 = !{!"long", !5, i64 0}
-!25 = !{!"p2 _ZTS9AVProgram", !20, i64 0}
-!26 = !{!"p1 _ZTS12AVDictionary", !15, i64 0}
-!27 = !{!"AVIOInterruptCB", !15, i64 0, !15, i64 8}
-!28 = !{!"p1 _ZTS7AVCodec", !15, i64 0}
-!29 = distinct !{!29, !10, !11}
-!30 = !{!31, !24, i64 72}
-!31 = !{!"AVPacket", !32, i64 0, !24, i64 8, !24, i64 16, !23, i64 24, !8, i64 32, !8, i64 36, !8, i64 40, !33, i64 48, !8, i64 56, !24, i64 64, !24, i64 72, !15, i64 80, !32, i64 88, !34, i64 96}
-!32 = !{!"p1 _ZTS11AVBufferRef", !15, i64 0}
-!33 = !{!"p1 _ZTS16AVPacketSideData", !15, i64 0}
-!34 = !{!"AVRational", !8, i64 0, !8, i64 4}
-!35 = !{!31, !23, i64 24}
-!36 = !{!31, !8, i64 32}
-!37 = !{!13, !8, i64 44}
-!38 = !{!39, !40, i64 16}
-!39 = !{!"AVStream", !14, i64 0, !8, i64 8, !8, i64 12, !40, i64 16, !15, i64 24, !34, i64 32, !24, i64 40, !24, i64 48, !24, i64 56, !8, i64 64, !8, i64 68, !34, i64 72, !26, i64 80, !34, i64 88, !31, i64 96, !8, i64 200, !34, i64 204, !8, i64 212}
-!40 = !{!"p1 _ZTS17AVCodecParameters", !15, i64 0}
-!41 = !{!42, !8, i64 0}
-!42 = !{!"AVCodecParameters", !8, i64 0, !8, i64 4, !8, i64 8, !23, i64 16, !8, i64 24, !33, i64 32, !8, i64 40, !8, i64 44, !24, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !34, i64 80, !34, i64 88, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !43, i64 128, !8, i64 152, !8, i64 156, !8, i64 160, !8, i64 164, !8, i64 168, !8, i64 172}
-!43 = !{!"AVChannelLayout", !8, i64 0, !8, i64 4, !5, i64 8, !15, i64 16}
-!44 = !{!42, !8, i64 4}
-!45 = !{!46, !8, i64 808}
-!46 = !{!"FFStream", !39, i64 0, !47, i64 216, !8, i64 224, !48, i64 232, !8, i64 240, !49, i64 248, !8, i64 256, !50, i64 264, !8, i64 280, !8, i64 284, !51, i64 288, !52, i64 312, !53, i64 320, !8, i64 328, !8, i64 332, !24, i64 336, !24, i64 344, !8, i64 352, !8, i64 356, !8, i64 360, !24, i64 368, !24, i64 376, !24, i64 384, !8, i64 392, !24, i64 400, !24, i64 408, !24, i64 416, !8, i64 424, !8, i64 428, !5, i64 432, !5, i64 568, !5, i64 592, !24, i64 728, !5, i64 736, !5, i64 737, !34, i64 740, !54, i64 752, !55, i64 784, !24, i64 792, !8, i64 800, !8, i64 804, !8, i64 808, !56, i64 816, !8, i64 824, !8, i64 828, !24, i64 832, !24, i64 840, !57, i64 848, !34, i64 856}
-!47 = !{!"p1 _ZTS15AVFormatContext", !15, i64 0}
-!48 = !{!"p1 _ZTS12AVBSFContext", !15, i64 0}
-!49 = !{!"p1 _ZTS14AVCodecContext", !15, i64 0}
-!50 = !{!"", !48, i64 0, !8, i64 8}
-!51 = !{!"FFFrac", !24, i64 0, !24, i64 8, !24, i64 16}
-!52 = !{!"p1 _ZTS12FFStreamInfo", !15, i64 0}
-!53 = !{!"p1 _ZTS12AVIndexEntry", !15, i64 0}
-!54 = !{!"AVProbeData", !23, i64 0, !23, i64 8, !8, i64 16, !23, i64 24}
-!55 = !{!"p1 _ZTS15PacketListEntry", !15, i64 0}
-!56 = !{!"p1 _ZTS20AVCodecParserContext", !15, i64 0}
-!57 = !{!"p1 _ZTS17AVCodecDescriptor", !15, i64 0}
-!58 = !{!13, !19, i64 48}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS8AVStream", !15, i64 0}
-!61 = !{!13, !24, i64 112}
-!62 = !{!42, !8, i64 152}
-!63 = !{!54, !23, i64 8}
-!64 = !{!54, !8, i64 16}
-!65 = !{!13, !8, i64 40}
+!11 = !{!12, !17, i64 32}
+!12 = !{!"AVFormatContext", !13, i64 0, !15, i64 8, !16, i64 16, !14, i64 24, !17, i64 32, !8, i64 40, !8, i64 44, !18, i64 48, !8, i64 56, !20, i64 64, !8, i64 72, !21, i64 80, !22, i64 88, !23, i64 96, !23, i64 104, !23, i64 112, !8, i64 120, !8, i64 124, !8, i64 128, !23, i64 136, !23, i64 144, !22, i64 152, !8, i64 160, !8, i64 164, !24, i64 168, !8, i64 176, !8, i64 180, !8, i64 184, !8, i64 188, !25, i64 192, !23, i64 200, !8, i64 208, !8, i64 212, !26, i64 216, !8, i64 232, !8, i64 236, !8, i64 240, !8, i64 244, !23, i64 248, !8, i64 256, !8, i64 260, !8, i64 264, !8, i64 268, !8, i64 272, !8, i64 276, !8, i64 280, !8, i64 284, !8, i64 288, !8, i64 292, !8, i64 296, !8, i64 300, !23, i64 304, !8, i64 312, !8, i64 316, !8, i64 320, !8, i64 324, !8, i64 328, !22, i64 336, !22, i64 344, !22, i64 352, !22, i64 360, !8, i64 368, !27, i64 376, !27, i64 384, !27, i64 392, !27, i64 400, !8, i64 408, !14, i64 416, !14, i64 424, !23, i64 432, !22, i64 440, !14, i64 448, !14, i64 456, !23, i64 464}
+!13 = !{!"p1 _ZTS7AVClass", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!"p1 _ZTS13AVInputFormat", !14, i64 0}
+!16 = !{!"p1 _ZTS14AVOutputFormat", !14, i64 0}
+!17 = !{!"p1 _ZTS11AVIOContext", !14, i64 0}
+!18 = !{!"p2 _ZTS8AVStream", !19, i64 0}
+!19 = !{!"any p2 pointer", !14, i64 0}
+!20 = !{!"p2 _ZTS13AVStreamGroup", !19, i64 0}
+!21 = !{!"p2 _ZTS9AVChapter", !19, i64 0}
+!22 = !{!"p1 omnipotent char", !14, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = !{!"p2 _ZTS9AVProgram", !19, i64 0}
+!25 = !{!"p1 _ZTS12AVDictionary", !14, i64 0}
+!26 = !{!"AVIOInterruptCB", !14, i64 0, !14, i64 8}
+!27 = !{!"p1 _ZTS7AVCodec", !14, i64 0}
+!28 = distinct !{!28, !10}
+!29 = !{!30, !23, i64 72}
+!30 = !{!"AVPacket", !31, i64 0, !23, i64 8, !23, i64 16, !22, i64 24, !8, i64 32, !8, i64 36, !8, i64 40, !32, i64 48, !8, i64 56, !23, i64 64, !23, i64 72, !14, i64 80, !31, i64 88, !33, i64 96}
+!31 = !{!"p1 _ZTS11AVBufferRef", !14, i64 0}
+!32 = !{!"p1 _ZTS16AVPacketSideData", !14, i64 0}
+!33 = !{!"AVRational", !8, i64 0, !8, i64 4}
+!34 = !{!30, !22, i64 24}
+!35 = !{!30, !8, i64 32}
+!36 = !{!12, !8, i64 44}
+!37 = !{!38, !39, i64 16}
+!38 = !{!"AVStream", !13, i64 0, !8, i64 8, !8, i64 12, !39, i64 16, !14, i64 24, !33, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !8, i64 64, !8, i64 68, !33, i64 72, !25, i64 80, !33, i64 88, !30, i64 96, !8, i64 200, !33, i64 204, !8, i64 212}
+!39 = !{!"p1 _ZTS17AVCodecParameters", !14, i64 0}
+!40 = !{!41, !8, i64 0}
+!41 = !{!"AVCodecParameters", !8, i64 0, !8, i64 4, !8, i64 8, !22, i64 16, !8, i64 24, !32, i64 32, !8, i64 40, !8, i64 44, !23, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !33, i64 80, !33, i64 88, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !42, i64 128, !8, i64 152, !8, i64 156, !8, i64 160, !8, i64 164, !8, i64 168, !8, i64 172}
+!42 = !{!"AVChannelLayout", !8, i64 0, !8, i64 4, !5, i64 8, !14, i64 16}
+!43 = !{!41, !8, i64 4}
+!44 = !{!45, !8, i64 808}
+!45 = !{!"FFStream", !38, i64 0, !46, i64 216, !8, i64 224, !47, i64 232, !8, i64 240, !48, i64 248, !8, i64 256, !49, i64 264, !8, i64 280, !8, i64 284, !50, i64 288, !51, i64 312, !52, i64 320, !8, i64 328, !8, i64 332, !23, i64 336, !23, i64 344, !8, i64 352, !8, i64 356, !8, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !8, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !8, i64 424, !8, i64 428, !5, i64 432, !5, i64 568, !5, i64 592, !23, i64 728, !5, i64 736, !5, i64 737, !33, i64 740, !53, i64 752, !54, i64 784, !23, i64 792, !8, i64 800, !8, i64 804, !8, i64 808, !55, i64 816, !8, i64 824, !8, i64 828, !23, i64 832, !23, i64 840, !56, i64 848, !33, i64 856}
+!46 = !{!"p1 _ZTS15AVFormatContext", !14, i64 0}
+!47 = !{!"p1 _ZTS12AVBSFContext", !14, i64 0}
+!48 = !{!"p1 _ZTS14AVCodecContext", !14, i64 0}
+!49 = !{!"", !47, i64 0, !8, i64 8}
+!50 = !{!"FFFrac", !23, i64 0, !23, i64 8, !23, i64 16}
+!51 = !{!"p1 _ZTS12FFStreamInfo", !14, i64 0}
+!52 = !{!"p1 _ZTS12AVIndexEntry", !14, i64 0}
+!53 = !{!"AVProbeData", !22, i64 0, !22, i64 8, !8, i64 16, !22, i64 24}
+!54 = !{!"p1 _ZTS15PacketListEntry", !14, i64 0}
+!55 = !{!"p1 _ZTS20AVCodecParserContext", !14, i64 0}
+!56 = !{!"p1 _ZTS17AVCodecDescriptor", !14, i64 0}
+!57 = !{!12, !18, i64 48}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS8AVStream", !14, i64 0}
+!60 = !{!12, !23, i64 112}
+!61 = !{!41, !8, i64 152}
+!62 = !{!53, !22, i64 8}
+!63 = !{!53, !8, i64 16}
+!64 = !{!12, !8, i64 40}

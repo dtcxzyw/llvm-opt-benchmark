@@ -3690,7 +3690,7 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
   %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.next.i
   %93 = load ptr, ptr %92, align 8
   %.not102.i = icmp eq ptr %93, null
-  br i1 %.not102.i, label %update_supported_actions.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not102.i, label %update_supported_actions.exit, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %91
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %91 ], [ 0, %.preheader.i ]
@@ -4739,14 +4739,14 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr noundef writeonly captu
   store i32 %58, ptr %.187.us, align 4
   %60 = add nuw nsw i32 %.04686.us, 1
   %exitcond.not = icmp eq i32 %60, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %.260.us, i64 %27
   %62 = getelementptr inbounds nuw i8, ptr %.257.us, i64 %27
   %63 = add nuw nsw i32 %.04596.us, 1
   %exitcond103.not = icmp eq i32 %63, %2
-  br i1 %exitcond103.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !11
+  br i1 %exitcond103.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !10
 
 ._crit_edge98.loopexit:                           ; preds = %._crit_edge.us
   %64 = icmp eq i32 %.352.us, 0
@@ -5566,12 +5566,12 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
   store i32 %69, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge56, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond63.not, label %._crit_edge56, label %.preheader.us, !llvm.loop !13
 
 ._crit_edge56:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader53
   %72 = load ptr, ptr %0, align 8
@@ -5607,7 +5607,7 @@ define internal void @flush_gtk_event_loop() #0 {
   %2 = load ptr, ptr @fp_g_main_context_iteration, align 8
   %3 = tail call i32 %2(ptr noundef null, i32 noundef 0) #18
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %1, !llvm.loop !15
+  br i1 %.not, label %4, label %1, !llvm.loop !14
 
 4:                                                ; preds = %1
   ret void
@@ -5960,13 +5960,12 @@ attributes #22 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8, !12}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !11}
+!14 = distinct !{!14, !7}

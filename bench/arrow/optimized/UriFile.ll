@@ -225,7 +225,7 @@ thread-pre-split.i:                               ; preds = %33, %31, %27
   %.4.us106.i = phi ptr [ %42, %41 ], [ %.2.us102.i, %39 ]
   %.1.us107.i = phi ptr [ %.059.us99.i, %41 ], [ %.060.us98.i, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %.059.us99.i, i64 1
-  br label %.thread87.split.split.us.i, !llvm.loop !9
+  br label %.thread87.split.split.us.i, !llvm.loop !8
 
 .split.us.i:                                      ; preds = %22, %39
   %.us-phi.i = phi ptr [ %.2.us102.i, %39 ], [ %.2.us.i, %22 ]
@@ -348,7 +348,7 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef readonly 
 
 31:                                               ; preds = %30, %.preheader.i
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %.preheader.i, !llvm.loop !10
+  br label %.preheader.i, !llvm.loop !9
 
 uriUriStringToFilenameA.exit:                     ; preds = %.preheader.i, %2
   %.046.i = phi i32 [ 2, %2 ], [ 0, %.preheader.i ]
@@ -364,7 +364,7 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
   br i1 %or.cond.i, label %uriFilenameToUriStringW.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %0, align 4, !tbaa !12
+  %7 = load i32, ptr %0, align 4, !tbaa !11
   %cond = icmp eq i32 %7, 47
   br i1 %cond, label %.thread87.i, label %.thread87.split.us.i.preheader
 
@@ -381,7 +381,7 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
   %.164.us.i = phi ptr [ %.4.us.i, %.thread138.i.thread ], [ %.164.us.i.ph, %.thread87.split.us.i.preheader ]
   %.060.us.i = phi ptr [ %.1.us.i, %.thread138.i.thread ], [ %3, %.thread87.split.us.i.preheader ]
   %.059.us.i = phi ptr [ %18, %.thread138.i.thread ], [ %0, %.thread87.split.us.i.preheader ]
-  %9 = load i32, ptr %.059.us.i, align 4, !tbaa !12
+  %9 = load i32, ptr %.059.us.i, align 4, !tbaa !11
   switch i32 %9, label %.thread138.i.thread [
     i32 47, label %10
     i32 0, label %10
@@ -394,7 +394,7 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
 
 13:                                               ; preds = %10
   %14 = tail call ptr @uriEscapeExW(ptr noundef nonnull %11, ptr noundef nonnull %.059.us.i, ptr noundef %.164.us.i, i32 noundef 0, i32 noundef 0) #5
-  %.pre112.i = load i32, ptr %.059.us.i, align 4, !tbaa !12
+  %.pre112.i = load i32, ptr %.059.us.i, align 4, !tbaa !11
   br label %15
 
 15:                                               ; preds = %13, %10
@@ -406,7 +406,7 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
   ]
 
 .sink.split.i:                                    ; preds = %15
-  store i32 47, ptr %.2.us.i, align 4, !tbaa !12
+  store i32 47, ptr %.2.us.i, align 4, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 4
   br label %.thread138.i.thread
 
@@ -414,10 +414,10 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
   %.4.us.i = phi ptr [ %17, %.sink.split.i ], [ %.164.us.i, %.thread87.split.us.i ], [ %.2.us.i, %15 ]
   %.1.us.i = phi ptr [ %.059.us.i, %.sink.split.i ], [ %.060.us.i, %.thread87.split.us.i ], [ %.060.us.i, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 4
-  br label %.thread87.split.us.i, !llvm.loop !14
+  br label %.thread87.split.us.i, !llvm.loop !13
 
 .split.us.i:                                      ; preds = %15
-  store i32 0, ptr %.2.us.i, align 4, !tbaa !12
+  store i32 0, ptr %.2.us.i, align 4, !tbaa !11
   br label %uriFilenameToUriStringW.exit
 
 uriFilenameToUriStringW.exit:                     ; preds = %2, %.split.us.i
@@ -434,7 +434,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   br i1 %or.cond.i, label %uriFilenameToUriStringW.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %0, align 4, !tbaa !12
+  %7 = load i32, ptr %0, align 4, !tbaa !11
   switch i32 %7, label %..thread78_crit_edge.i [
     i32 92, label %.thread.i
     i32 0, label %.thread87.split.us.i.preheader
@@ -442,13 +442,13 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
 
 .thread.i:                                        ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !12
+  %9 = load i32, ptr %8, align 4, !tbaa !11
   %10 = icmp eq i32 %9, 92
   br label %.thread78.i
 
 ..thread78_crit_edge.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !12
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !11
   br label %.thread78.i
 
 .thread78.i:                                      ; preds = %..thread78_crit_edge.i, %.thread.i
@@ -489,7 +489,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
 
 21:                                               ; preds = %18
   %22 = tail call ptr @uriEscapeExW(ptr noundef nonnull %19, ptr noundef nonnull %.059.us.i, ptr noundef %.164.us.i, i32 noundef 0, i32 noundef 0) #5
-  %.pre112.i = load i32, ptr %.059.us.i, align 4, !tbaa !12
+  %.pre112.i = load i32, ptr %.059.us.i, align 4, !tbaa !11
   br label %23
 
 23:                                               ; preds = %21, %18
@@ -501,7 +501,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   ]
 
 .sink.split.i:                                    ; preds = %23
-  store i32 47, ptr %.2.us.i, align 4, !tbaa !12
+  store i32 47, ptr %.2.us.i, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %.2.us.i, i64 4
   br label %.thread138.i.thread
 
@@ -509,15 +509,15 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   %.4.us.i = phi ptr [ %25, %.sink.split.i ], [ %.164.us.i, %.thread87.split.us.i ], [ %.2.us.i, %23 ]
   %.1.us.i = phi ptr [ %.059.us.i, %.sink.split.i ], [ %.060.us.i, %.thread87.split.us.i ], [ %.060.us.i, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 4
-  %.pre = load i32, ptr %26, align 4, !tbaa !12
-  br label %.thread87.split.us.i, !llvm.loop !14
+  %.pre = load i32, ptr %26, align 4, !tbaa !11
+  br label %.thread87.split.us.i, !llvm.loop !13
 
 .thread87.split.split.us.i:                       ; preds = %45, %.thread83.i
   %.164.us96.i = phi ptr [ %.4.us106.i, %45 ], [ %16, %.thread83.i ]
   %.061.us97.i = phi i32 [ %.162.us103.i, %45 ], [ 1, %.thread83.i ]
   %.060.us98.i = phi ptr [ %.1.us107.i, %45 ], [ %3, %.thread83.i ]
   %.059.us99.i = phi ptr [ %46, %45 ], [ %0, %.thread83.i ]
-  %27 = load i32, ptr %.059.us99.i, align 4, !tbaa !12
+  %27 = load i32, ptr %.059.us99.i, align 4, !tbaa !11
   switch i32 %27, label %41 [
     i32 92, label %28
     i32 0, label %28
@@ -549,7 +549,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
 
 thread-pre-split.i:                               ; preds = %34, %32, %28
   %.2.us102.ph.i = phi ptr [ %.164.us96.i, %28 ], [ %33, %32 ], [ %40, %34 ]
-  %.pr.i = load i32, ptr %.059.us99.i, align 4, !tbaa !12
+  %.pr.i = load i32, ptr %.059.us99.i, align 4, !tbaa !11
   br label %41
 
 41:                                               ; preds = %thread-pre-split.i, %.thread87.split.split.us.i
@@ -562,7 +562,7 @@ thread-pre-split.i:                               ; preds = %34, %32, %28
   ]
 
 43:                                               ; preds = %41
-  store i32 47, ptr %.2.us102.i, align 4, !tbaa !12
+  store i32 47, ptr %.2.us102.i, align 4, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %.2.us102.i, i64 4
   br label %45
 
@@ -570,11 +570,11 @@ thread-pre-split.i:                               ; preds = %34, %32, %28
   %.4.us106.i = phi ptr [ %44, %43 ], [ %.2.us102.i, %41 ]
   %.1.us107.i = phi ptr [ %.059.us99.i, %43 ], [ %.060.us98.i, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %.059.us99.i, i64 4
-  br label %.thread87.split.split.us.i, !llvm.loop !15
+  br label %.thread87.split.split.us.i, !llvm.loop !14
 
 .split.us.i:                                      ; preds = %23, %41
   %.us-phi.i = phi ptr [ %.2.us102.i, %41 ], [ %.2.us.i, %23 ]
-  store i32 0, ptr %.us-phi.i, align 4, !tbaa !12
+  store i32 0, ptr %.us-phi.i, align 4, !tbaa !11
   br label %uriFilenameToUriStringW.exit
 
 uriFilenameToUriStringW.exit:                     ; preds = %2, %.split.us.i
@@ -662,9 +662,9 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %17
-  store i32 92, ptr %1, align 4, !tbaa !12
+  store i32 92, ptr %1, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 92, ptr %24, align 4, !tbaa !12
+  store i32 92, ptr %24, align 4, !tbaa !11
   br label %25
 
 25:                                               ; preds = %.thread, %23, %17
@@ -679,19 +679,19 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %34, %25
   %.0.i = phi ptr [ %35, %34 ], [ %1, %25 ]
-  %32 = load i32, ptr %.0.i, align 4, !tbaa !12
+  %32 = load i32, ptr %.0.i, align 4, !tbaa !11
   switch i32 %32, label %34 [
     i32 0, label %uriUriStringToFilenameW.exit
     i32 47, label %33
   ]
 
 33:                                               ; preds = %.preheader.i
-  store i32 92, ptr %.0.i, align 4, !tbaa !12
+  store i32 92, ptr %.0.i, align 4, !tbaa !11
   br label %34
 
 34:                                               ; preds = %33, %.preheader.i
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  br label %.preheader.i, !llvm.loop !16
+  br label %.preheader.i, !llvm.loop !15
 
 uriUriStringToFilenameW.exit:                     ; preds = %.preheader.i, %2
   %.046.i = phi i32 [ 2, %2 ], [ %32, %.preheader.i ]
@@ -737,14 +737,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !11, !7}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !4, i64 0}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !11, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !10}

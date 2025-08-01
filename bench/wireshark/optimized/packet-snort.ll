@@ -493,7 +493,7 @@ add_alert_to_session_tree.exit:                   ; preds = %53, %49, %88, %84, 
   %96 = load i16, ptr %95, align 1
   %97 = and i16 %96, 8
   %98 = icmp eq i16 %97, 0
-  %99 = load i8, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 1), align 1, !range !9
+  %99 = load i8, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 1), align 1, !range !8
   %100 = trunc nuw i8 %99 to i1
   %or.cond = select i1 %98, i1 %100, i1 false
   br i1 %or.cond, label %101, label %get_user_comment_string.exit.thread
@@ -620,7 +620,7 @@ get_user_comment_string.exit.thread:              ; preds = %24, %23, %get_user_
   %152 = getelementptr [8 x %struct.Alert_t], ptr %144, i64 0, i64 %indvars.iv
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %154 = load ptr, ptr %153, align 8
-  %155 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !9, !noundef !10
+  %155 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !8, !noundef !9
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %157, label %get_reassembled_in_frame.exit.thread.i
 
@@ -652,7 +652,7 @@ get_user_comment_string.exit.thread:              ; preds = %24, %23, %get_user_
 168:                                              ; preds = %169
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %get_reassembled_in_frame.exit.thread412.i, label %169, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %get_reassembled_in_frame.exit.thread412.i, label %169, !llvm.loop !10
 
 169:                                              ; preds = %168, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %168 ]
@@ -737,7 +737,7 @@ add_alert_to_session_tree.exit.i:                 ; preds = %206, %202, %198
   %210 = load i32, ptr %189, align 8
   %211 = zext i32 %210 to i64
   %212 = icmp samesign ult i64 %indvars.iv.next.i51, %211
-  br i1 %212, label %.lr.ph.i49, label %get_reassembled_in_frame.exit.thread.i, !llvm.loop !12
+  br i1 %212, label %.lr.ph.i49, label %get_reassembled_in_frame.exit.thread.i, !llvm.loop !11
 
 get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_session_tree.exit.i, %.preheader465.i, %184, %182, %get_reassembled_in_frame.exit.i, %get_reassembled_in_frame.exit.thread412.i, %163, %157, %151
   %.not314.i = icmp eq ptr %154, null
@@ -769,7 +769,7 @@ get_reassembled_in_frame.exit.thread.i:           ; preds = %add_alert_to_sessio
 221:                                              ; preds = %222
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.thread.i.i.i, label %222, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %.thread.i.i.i, label %222, !llvm.loop !12
 
 222:                                              ; preds = %221, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %221 ]
@@ -818,7 +818,7 @@ get_content_start_match.exit.i:                   ; preds = %.thread.i.i.i, %216
   %251 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %238, ptr noundef %0, i32 noundef %240, i32 noundef %242, ptr noundef nonnull @.str.114, ptr noundef %244, i32 noundef %245, i32 noundef %247, ptr noundef nonnull %250)
   %252 = load i32, ptr @ett_snort, align 4
   %253 = call ptr @proto_item_add_subtree(ptr noundef %251, i32 noundef %252)
-  %254 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !9, !noundef !10
+  %254 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !8, !noundef !9
   %255 = trunc nuw i8 %254 to i1
   br i1 %255, label %256, label %285
 
@@ -881,7 +881,7 @@ proto_item_set_generated.exit328.i:               ; preds = %280, %277, %274
 
 285:                                              ; preds = %proto_item_set_generated.exit328.i, %256, %get_content_start_match.exit.i
   %.1.i = phi ptr [ %spec.select.i, %proto_item_set_generated.exit328.i ], [ %0, %256 ], [ %0, %get_content_start_match.exit.i ]
-  %286 = load i8, ptr @snort_show_alert_expert_info, align 1, !range !9, !noundef !10
+  %286 = load i8, ptr @snort_show_alert_expert_info, align 1, !range !8, !noundef !9
   %287 = trunc nuw i8 %286 to i1
   br i1 %287, label %288, label %292
 
@@ -896,7 +896,7 @@ proto_item_set_generated.exit328.i:               ; preds = %280, %277, %274
 
 293:                                              ; preds = %292
   %294 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %295 = load i8, ptr %294, align 8, !range !9, !noundef !10
+  %295 = load i8, ptr %294, align 8, !range !8, !noundef !9
   %296 = trunc nuw i8 %295 to i1
   br i1 %296, label %304, label %297
 
@@ -1239,7 +1239,7 @@ proto_item_set_generated.exit367.i:               ; preds = %462, %459, %452
   %466 = load i32, ptr %446, align 8
   %467 = zext i32 %466 to i64
   %468 = icmp samesign ult i64 %indvars.iv.next504.i, %467
-  br i1 %468, label %452, label %.preheader463.i, !llvm.loop !14
+  br i1 %468, label %452, label %.preheader463.i, !llvm.loop !13
 
 469:                                              ; preds = %proto_item_set_generated.exit370.i, %.lr.ph479.i
   %indvars.iv506.i = phi i64 [ 0, %.lr.ph479.i ], [ %indvars.iv.next507.i, %proto_item_set_generated.exit370.i ]
@@ -1270,7 +1270,7 @@ proto_item_set_generated.exit370.i:               ; preds = %479, %476, %469
   %483 = load i32, ptr %449, align 4
   %484 = zext i32 %483 to i64
   %485 = icmp samesign ult i64 %indvars.iv.next507.i, %484
-  br i1 %485, label %469, label %.loopexit464.i, !llvm.loop !15
+  br i1 %485, label %469, label %.loopexit464.i, !llvm.loop !14
 
 .loopexit464.i:                                   ; preds = %proto_item_set_generated.exit370.i, %.preheader463.i, %391
   %486 = load ptr, ptr %243, align 8
@@ -1316,13 +1316,13 @@ switch.lookup:                                    ; preds = %496
   %switch.load111 = load ptr, ptr %switch.gep110, align 8
   %.0283.i = load i32, ptr %switch.load, align 4
   %502 = getelementptr inbounds nuw i8, ptr %497, i64 16
-  %503 = load i8, ptr %502, align 8, !range !9, !noundef !10
+  %503 = load i8, ptr %502, align 8, !range !8, !noundef !9
   %504 = trunc nuw i8 %503 to i1
   br i1 %504, label %.thread456.i, label %505
 
 505:                                              ; preds = %switch.lookup
   %506 = getelementptr inbounds nuw i8, ptr %497, i64 18
-  %507 = load i8, ptr %506, align 2, !range !9, !noundef !10
+  %507 = load i8, ptr %506, align 2, !range !8, !noundef !9
   %508 = trunc nuw i8 %507 to i1
   br i1 %508, label %509, label %513
 
@@ -1334,7 +1334,7 @@ switch.lookup:                                    ; preds = %496
 
 513:                                              ; preds = %505
   %514 = getelementptr inbounds nuw i8, ptr %497, i64 28
-  %515 = load i8, ptr %514, align 4, !range !9, !noundef !10
+  %515 = load i8, ptr %514, align 4, !range !8, !noundef !9
   %516 = trunc nuw i8 %515 to i1
   br i1 %516, label %517, label %522
 
@@ -1379,19 +1379,19 @@ get_content_match.exit.thread429.i:               ; preds = %530
   %539 = getelementptr i8, ptr %536, i64 %537
   store i8 0, ptr %539, align 1
   %540 = getelementptr inbounds nuw i8, ptr %527, i64 64
-  %541 = load i8, ptr %540, align 8, !range !9, !noundef !10
+  %541 = load i8, ptr %540, align 8, !range !8, !noundef !9
   %542 = getelementptr inbounds nuw i8, ptr %527, i64 65
-  %543 = load i8, ptr %542, align 1, !range !9, !noundef !10
+  %543 = load i8, ptr %542, align 1, !range !8, !noundef !9
   %544 = shl nuw nsw i8 %543, 2
   %.130.i.i.i = or disjoint i8 %544, %541
   %.1.i.i.i = zext nneg i8 %.130.i.i.i to i32
   %545 = getelementptr inbounds nuw i8, ptr %527, i64 66
-  %546 = load i8, ptr %545, align 2, !range !9, !noundef !10
+  %546 = load i8, ptr %545, align 2, !range !8, !noundef !9
   %547 = zext nneg i8 %546 to i32
   %548 = shl nuw nsw i32 %547, 11
   %.2.i.i.i = or disjoint i32 %548, %.1.i.i.i
   %549 = getelementptr inbounds nuw i8, ptr %527, i64 67
-  %550 = load i8, ptr %549, align 1, !range !9, !noundef !10
+  %550 = load i8, ptr %549, align 1, !range !8, !noundef !9
   %551 = shl nuw nsw i8 %550, 1
   %552 = zext nneg i8 %551 to i32
   %.3.i.i372.i = or disjoint i32 %.2.i.i.i, %552
@@ -1433,7 +1433,7 @@ get_content_match.exit.thread429.i:               ; preds = %530
 573:                                              ; preds = %content_compare_case_insensitive.exit.i.i.i, %.lr.ph.i.i371.i
   %.03046.i.i.i = phi i32 [ %523, %.lr.ph.i.i371.i ], [ %598, %content_compare_case_insensitive.exit.i.i.i ]
   %574 = call ptr @tvb_get_ptr(ptr noundef %.1.i, i32 noundef %.03046.i.i.i, i32 noundef %568)
-  %575 = load i8, ptr %570, align 1, !range !9, !noundef !10
+  %575 = load i8, ptr %570, align 1, !range !8, !noundef !9
   %576 = trunc nuw i8 %575 to i1
   %577 = load ptr, ptr %571, align 8
   %578 = load i32, ptr %572, align 4
@@ -1473,7 +1473,7 @@ get_content_match.exit.thread429.i:               ; preds = %530
 594:                                              ; preds = %593, %590
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %get_content_match.exit.thread.i, label %581, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i.i, label %get_content_match.exit.thread.i, label %581, !llvm.loop !15
 
 595:                                              ; preds = %573
   %596 = zext i32 %578 to i64
@@ -1484,7 +1484,7 @@ get_content_match.exit.thread429.i:               ; preds = %530
 content_compare_case_insensitive.exit.i.i.i:      ; preds = %593, %590, %595
   %598 = add i32 %.03046.i.i.i, 1
   %.not.not.i.i.i = icmp ugt i32 %598, %569
-  br i1 %.not.not.i.i.i, label %.thread456.i, label %573, !llvm.loop !17
+  br i1 %.not.not.i.i.i, label %.thread456.i, label %573, !llvm.loop !16
 
 get_content_match.exit.thread.i:                  ; preds = %595, %579, %594
   %599 = phi i32 [ %578, %594 ], [ 0, %579 ], [ %578, %595 ]
@@ -1525,7 +1525,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   %.2440450460.i = phi i32 [ %.2440450.i, %606 ], [ %.0285482.i, %.thread456.i ]
   %615 = phi i32 [ %.2440450.i, %606 ], [ %.3295439452.ph.i, %.thread456.i ]
   %616 = getelementptr inbounds nuw i8, ptr %497, i64 40
-  %617 = load i8, ptr %616, align 8, !range !9, !noundef !10
+  %617 = load i8, ptr %616, align 8, !range !8, !noundef !9
   %618 = trunc nuw i8 %617 to i1
   br i1 %618, label %619, label %620
 
@@ -1535,7 +1535,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 620:                                              ; preds = %619, %612
   %621 = getelementptr inbounds nuw i8, ptr %497, i64 41
-  %622 = load i8, ptr %621, align 1, !range !9, !noundef !10
+  %622 = load i8, ptr %621, align 1, !range !8, !noundef !9
   %623 = trunc nuw i8 %622 to i1
   br i1 %623, label %624, label %625
 
@@ -1545,7 +1545,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 625:                                              ; preds = %624, %620
   %626 = getelementptr inbounds nuw i8, ptr %497, i64 17
-  %627 = load i8, ptr %626, align 1, !range !9, !noundef !10
+  %627 = load i8, ptr %626, align 1, !range !8, !noundef !9
   %628 = trunc nuw i8 %627 to i1
   br i1 %628, label %629, label %630
 
@@ -1554,7 +1554,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   br label %630
 
 630:                                              ; preds = %629, %625
-  %631 = load i8, ptr %502, align 8, !range !9, !noundef !10
+  %631 = load i8, ptr %502, align 8, !range !8, !noundef !9
   %632 = trunc nuw i8 %631 to i1
   br i1 %632, label %633, label %634
 
@@ -1564,7 +1564,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 634:                                              ; preds = %633, %630
   %635 = getelementptr inbounds nuw i8, ptr %497, i64 18
-  %636 = load i8, ptr %635, align 2, !range !9, !noundef !10
+  %636 = load i8, ptr %635, align 2, !range !8, !noundef !9
   %637 = trunc nuw i8 %636 to i1
   br i1 %637, label %638, label %641
 
@@ -1586,7 +1586,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 645:                                              ; preds = %644, %641
   %646 = getelementptr inbounds nuw i8, ptr %497, i64 28
-  %647 = load i8, ptr %646, align 4, !range !9, !noundef !10
+  %647 = load i8, ptr %646, align 4, !range !8, !noundef !9
   %648 = trunc nuw i8 %647 to i1
   br i1 %648, label %649, label %652
 
@@ -1608,7 +1608,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 656:                                              ; preds = %655, %652
   %657 = getelementptr inbounds nuw i8, ptr %497, i64 42
-  %658 = load i8, ptr %657, align 2, !range !9, !noundef !10
+  %658 = load i8, ptr %657, align 2, !range !8, !noundef !9
   %659 = trunc nuw i8 %658 to i1
   br i1 %659, label %660, label %661
 
@@ -1618,7 +1618,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 661:                                              ; preds = %660, %656
   %662 = getelementptr inbounds nuw i8, ptr %497, i64 43
-  %663 = load i8, ptr %662, align 1, !range !9, !noundef !10
+  %663 = load i8, ptr %662, align 1, !range !8, !noundef !9
   %664 = trunc nuw i8 %663 to i1
   br i1 %664, label %665, label %666
 
@@ -1628,7 +1628,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 666:                                              ; preds = %665, %661
   %667 = getelementptr inbounds nuw i8, ptr %497, i64 44
-  %668 = load i8, ptr %667, align 4, !range !9, !noundef !10
+  %668 = load i8, ptr %667, align 4, !range !8, !noundef !9
   %669 = trunc nuw i8 %668 to i1
   br i1 %669, label %670, label %671
 
@@ -1638,7 +1638,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
 
 671:                                              ; preds = %670, %666
   %672 = getelementptr inbounds nuw i8, ptr %497, i64 45
-  %673 = load i8, ptr %672, align 1, !range !9, !noundef !10
+  %673 = load i8, ptr %672, align 1, !range !8, !noundef !9
   %674 = trunc nuw i8 %673 to i1
   br i1 %674, label %675, label %676
 
@@ -1647,7 +1647,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   br label %676
 
 676:                                              ; preds = %675, %671
-  %677 = load i8, ptr %502, align 8, !range !9, !noundef !10
+  %677 = load i8, ptr %502, align 8, !range !8, !noundef !9
   %678 = trunc nuw i8 %677 to i1
   %or.cond3.i = or i1 %.0284441448461.i, %678
   br i1 %or.cond3.i, label %685, label %679
@@ -1668,7 +1668,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   %686 = load i32, ptr %490, align 8
   %687 = zext i32 %686 to i64
   %688 = icmp samesign ult i64 %indvars.iv.next510.i, %687
-  br i1 %688, label %496, label %.preheader.i45, !llvm.loop !18
+  br i1 %688, label %496, label %.preheader.i45, !llvm.loop !17
 
 689:                                              ; preds = %proto_item_set_generated.exit378.i, %.lr.ph486.i
   %indvars.iv512.i = phi i64 [ 0, %.lr.ph486.i ], [ %indvars.iv.next513.i, %proto_item_set_generated.exit378.i ]
@@ -1708,7 +1708,7 @@ proto_item_set_generated.exit378.i:               ; preds = %703, %699, %696, %6
   %707 = load i32, ptr %493, align 8
   %708 = zext i32 %707 to i64
   %709 = icmp samesign ult i64 %indvars.iv.next513.i, %708
-  br i1 %709, label %689, label %.loopexit.i, !llvm.loop !19
+  br i1 %709, label %689, label %.loopexit.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %proto_item_set_generated.exit352.i
   %710 = load ptr, ptr %243, align 8
@@ -1718,7 +1718,7 @@ proto_item_set_generated.exit378.i:               ; preds = %703, %699, %696, %6
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %proto_item_set_generated.exit378.i, %.critedge.i, %.preheader.i45
-  %713 = load i8, ptr @snort_show_rule_stats, align 1, !range !9, !noundef !10
+  %713 = load i8, ptr @snort_show_rule_stats, align 1, !range !8, !noundef !9
   %714 = trunc nuw i8 %713 to i1
   br i1 %714, label %715, label %snort_show_alert.exit
 
@@ -1905,7 +1905,7 @@ snort_show_alert.exit:                            ; preds = %264, %267, %270, %.
   %805 = load i32, ptr %145, align 8
   %806 = zext i32 %805 to i64
   %807 = icmp samesign ult i64 %indvars.iv.next, %806
-  br i1 %807, label %151, label %.loopexit, !llvm.loop !20
+  br i1 %807, label %151, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %snort_show_alert.exit, %.preheader, %get_user_comment_string.exit.thread, %140
   %808 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -1959,7 +1959,7 @@ define internal void @snort_start() #1 {
   store ptr @.str.154, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr null, ptr %18, align 16
-  %19 = load i8, ptr @snort_ignore_checksum_errors, align 1, !range !9, !noundef !10
+  %19 = load i8, ptr @snort_ignore_checksum_errors, align 1, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %22, label %21
 
@@ -1968,7 +1968,7 @@ define internal void @snort_start() #1 {
   br label %22
 
 22:                                               ; preds = %21, %0
-  %23 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !9, !noundef !10
+  %23 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %30
 
@@ -2012,7 +2012,7 @@ define internal void @snort_start() #1 {
   call void @create_config(ptr noundef nonnull @g_snort_config, ptr noundef %44)
   %45 = load i32, ptr @pref_snort_alerts_source, align 4
   %46 = icmp eq i32 %45, 2
-  %47 = load i8, ptr @current_session, align 8, !range !9
+  %47 = load i8, ptr @current_session, align 8, !range !8
   %48 = trunc nuw i8 %47 to i1
   %or.cond = select i1 %46, i1 true, i1 %48
   br i1 %or.cond, label %78, label %49
@@ -2102,7 +2102,7 @@ declare void @register_postseq_cleanup_routine(ptr noundef) local_unnamed_addr #
 define internal void @snort_cleanup() #1 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
-  %3 = load i8, ptr @current_session, align 8, !range !9, !noundef !10
+  %3 = load i8, ptr @current_session, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   %6 = icmp ne ptr %5, null
@@ -2355,7 +2355,7 @@ declare i32 @g_child_watch_add(i32 noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @snort_reaper(i32 noundef %0, i32 %1, ptr noundef captures(none) %2) #1 {
-  %4 = load i8, ptr %2, align 8, !range !9, !noundef !10
+  %4 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
@@ -2648,7 +2648,7 @@ add_alert_to_session_tree.exit:                   ; preds = %107, %103, %99, %11
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #13
   %113 = call ptr @strchr(ptr noundef %112, i32 noundef 10) #12
   %.not41 = icmp eq ptr %113, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %add_alert_to_session_tree.exit, %40
   %.131.lcssa = phi ptr [ %.030, %40 ], [ %112, %add_alert_to_session_tree.exit ]
@@ -2741,19 +2741,18 @@ attributes #15 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

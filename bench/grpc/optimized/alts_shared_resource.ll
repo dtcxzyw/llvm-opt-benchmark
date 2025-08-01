@@ -237,7 +237,7 @@ define internal void @_ZL13thread_workerPv(ptr readnone captures(none) %0) #5 pe
   %14 = extractvalue { i64, ptr } %9, 1
   %15 = icmp ugt i64 %10, 4294967295
   tail call void @_Z38alts_handshaker_client_handle_responseP22alts_handshaker_clientb(ptr noundef %14, i1 noundef zeroext %15)
-  br label %4, !llvm.loop !39
+  br label %4
 
 16:                                               ; preds = %4
   ret void
@@ -431,5 +431,3 @@ attributes #15 = { noreturn nounwind }
 !36 = !{!37, !37, i64 0}
 !37 = !{!"vtable pointer", !7, i64 0}
 !38 = !{!"branch_weights", i32 2000, i32 4002, i32 4002000, i32 4000000}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}

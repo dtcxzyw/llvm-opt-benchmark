@@ -26108,7 +26108,7 @@ lean_alloc_ctor.exit95:                           ; preds = %lean_dec.exit
 .backedge:                                        ; preds = %lean_alloc_ctor.exit95, %lean_dec.exit63
   %.053.be = phi ptr [ %57, %lean_dec.exit63 ], [ %117, %lean_alloc_ctor.exit95 ]
   %.051.be = phi ptr [ %.0, %lean_dec.exit63 ], [ %135, %lean_alloc_ctor.exit95 ]
-  br label %7, !llvm.loop !13
+  br label %7
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -26220,7 +26220,7 @@ lean_inc.exit:                                    ; preds = %35, %34, %32, %lean
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit
   %43 = load ptr, ptr @l_Std_Time_termDatespec_x28___x2c___x29___closed__3, align 8, !tbaa !4
   %44 = tail call ptr @l_Lean_Syntax_TSepArray_push___rarg(ptr noundef %43, ptr noundef %.0, ptr noundef %17) #5
-  br label %4, !llvm.loop !15
+  br label %4
 }
 
 declare ptr @l_Lean_Syntax_TSepArray_push___rarg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -36233,6 +36233,3 @@ attributes #6 = { noreturn nounwind }
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}

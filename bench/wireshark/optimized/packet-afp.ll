@@ -2529,7 +2529,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   %96 = add i32 %95, %92
   %97 = add nuw nsw i32 %.1275322, 1
   %exitcond337.not = icmp eq i32 %97, %88
-  br i1 %exitcond337.not, label %.loopexit318, label %.lr.ph324, !llvm.loop !9
+  br i1 %exitcond337.not, label %.loopexit318, label %.lr.ph324, !llvm.loop !8
 
 .loopexit318:                                     ; preds = %.lr.ph324, %85, %.loopexit319
   %98 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
@@ -2680,7 +2680,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   %189 = add i32 %.11326, %117
   %190 = add nuw nsw i32 %.2276325, 1
   %exitcond338.not = icmp eq i32 %190, %111
-  br i1 %exitcond338.not, label %.loopexit317, label %115, !llvm.loop !10
+  br i1 %exitcond338.not, label %.loopexit317, label %115, !llvm.loop !9
 
 .loopexit317:                                     ; preds = %180, %108, %107
   %.10 = phi i32 [ %99, %107 ], [ %113, %108 ], [ %189, %180 ]
@@ -2708,7 +2708,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   %202 = add i32 %201, %198
   %203 = add nuw nsw i32 %.3277328, 1
   %exitcond339.not = icmp eq i32 %203, %194
-  br i1 %exitcond339.not, label %.loopexit, label %.lr.ph330, !llvm.loop !11
+  br i1 %exitcond339.not, label %.loopexit, label %.lr.ph330, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph330, %191, %.loopexit317
   %.12 = phi i32 [ %.10, %.loopexit317 ], [ %196, %191 ], [ %202, %.lr.ph330 ]
@@ -2892,7 +2892,7 @@ define internal i32 @dissect_spotlight(ptr noundef %0, ptr noundef %1, ptr nound
   %.pre-phi = phi i32 [ %85, %83 ], [ %93, %91 ], [ %102, %100 ]
   %.0133 = add i32 %.0133143, 8
   %exitcond.not = icmp eq i32 %.pre-phi, %71
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %108, %70, %68, %46, %36, %26, %18
   %.0 = phi i32 [ %22, %18 ], [ %30, %26 ], [ %40, %36 ], [ %48, %46 ], [ %69, %68 ], [ %.0133141, %70 ], [ %.0133, %108 ]
@@ -2938,7 +2938,7 @@ define internal void @afpstat_init(ptr readnone captures(none) %0, ptr noundef %
   tail call void @wmem_free(ptr noundef null, ptr noundef %5)
   %6 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %6, 256
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !12
 
 7:                                                ; preds = %4
   ret void
@@ -4491,7 +4491,7 @@ define internal fastcc i32 @dissect_reply_afp_get_server_param(ptr noundef %0, p
   %35 = add i32 %23, %31
   %36 = add nuw i8 %.03941, 1
   %exitcond.not = icmp eq i8 %36, %12
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !13
 
 .loopexit:                                        ; preds = %17, %5, %3
   %.0 = phi i32 [ 0, %3 ], [ 5, %5 ], [ %35, %17 ]
@@ -4756,7 +4756,7 @@ define internal fastcc noundef i32 @dissect_reply_afp_list_ext_attrs(ptr noundef
   %22 = add i32 %19, %.0291
   %23 = sub i32 %.02, %19
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %11, %2
   %.028 = phi i32 [ 6, %2 ], [ 6, %11 ], [ 6, %15 ], [ %22, %.lr.ph ]
@@ -6026,7 +6026,7 @@ decode_kauth_ace.exit.i:                          ; preds = %42, %.lr.ph.i
   %55 = add nuw i32 %.02325.i, 1
   %56 = load i32, ptr %6, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.lr.ph.i, label %decode_kauth_acl.exit, !llvm.loop !16
+  br i1 %57, label %.lr.ph.i, label %decode_kauth_acl.exit, !llvm.loop !15
 
 decode_kauth_acl.exit:                            ; preds = %decode_kauth_ace.exit.i, %.preheader.i, %38
   %.0.i = phi i32 [ %35, %38 ], [ %35, %.preheader.i ], [ %.0.i.i, %decode_kauth_ace.exit.i ]
@@ -6195,7 +6195,7 @@ define internal fastcc i32 @loop_record(ptr noundef %0, ptr noundef readonly cap
   %63 = add i32 %.078, %.07992
   %64 = add nuw nsw i32 %.07693, 1
   %exitcond.not = icmp eq i32 %64, %4
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %62, %9
   %.079.lcssa = phi i32 [ %3, %9 ], [ %63, %62 ], [ %.07992, %23 ]
@@ -6518,7 +6518,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   %99 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %.0227275, i32 noundef %21, i32 noundef %7)
   %100 = add nuw nsw i32 %.0231272, 1
   %exitcond.not = icmp eq i32 %100, %84
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %101 = sub i32 %.0229274, %84
@@ -6556,7 +6556,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   %117 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %116, ptr noundef %0, i32 noundef %.0.i246, i32 noundef 8, i32 noundef range(i32 0, -2147483647) %7)
   %118 = add nuw i32 %.01315.i, 1
   %exitcond.not.i = icmp eq i32 %118, %115
-  br i1 %exitcond.not.i, label %spotlight_int64.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %spotlight_int64.exit, label %.lr.ph.i, !llvm.loop !18
 
 spotlight_int64.exit:                             ; preds = %.lr.ph.i, %110
   %119 = sub i32 %.0229274, %115
@@ -6584,7 +6584,7 @@ spotlight_int64.exit:                             ; preds = %.lr.ph.i, %110
   %130 = add i32 %.015.i, 16
   %131 = add nuw i32 %.01214.i, 1
   %exitcond.not.i249 = icmp eq i32 %131, %126
-  br i1 %exitcond.not.i249, label %spotlight_uuid.exit, label %.lr.ph.i248, !llvm.loop !20
+  br i1 %exitcond.not.i249, label %spotlight_uuid.exit, label %.lr.ph.i248, !llvm.loop !19
 
 spotlight_uuid.exit:                              ; preds = %.lr.ph.i248, %121
   %132 = sub i32 %.0229274, %126
@@ -6608,7 +6608,7 @@ spotlight_uuid.exit:                              ; preds = %.lr.ph.i248, %121
   %141 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %140, ptr noundef %0, i32 noundef %.0.i254, i32 noundef 8, i32 noundef range(i32 0, -2147483647) %7)
   %142 = add nuw i32 %.01315.i253, 1
   %exitcond.not.i255 = icmp eq i32 %142, %139
-  br i1 %exitcond.not.i255, label %spotlight_float.exit, label %.lr.ph.i251, !llvm.loop !21
+  br i1 %exitcond.not.i255, label %spotlight_float.exit, label %.lr.ph.i251, !llvm.loop !20
 
 spotlight_float.exit:                             ; preds = %.lr.ph.i251, %134
   %143 = sub i32 %.0229274, %139
@@ -6717,7 +6717,7 @@ spotlight_get_utf16_string_byte_order.exit261:    ; preds = %153, %155
   %201 = load i32, ptr @hf_afp_cnid, align 4
   %202 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %201, ptr noundef %0, i32 noundef %.0.i263, i32 noundef 8, i32 noundef range(i32 0, -2147483647) %7)
   %.not.i264 = icmp eq i32 %200, 0
-  br i1 %.not.i264, label %spotlight_CNID_array.exit, label %.lr.ph.i262, !llvm.loop !22
+  br i1 %.not.i264, label %spotlight_CNID_array.exit, label %.lr.ph.i262, !llvm.loop !21
 
 spotlight_CNID_array.exit:                        ; preds = %.lr.ph.i262, %186, %184
   %203 = add nsw i32 %.0229274, -1
@@ -6754,7 +6754,7 @@ spotlight_date.exit.thread:                       ; preds = %205
   %215 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %214, ptr noundef %0, i32 noundef %.022.i, i32 noundef 8, ptr noundef nonnull %9)
   %216 = add nuw nsw i32 %.025.i, 1
   %exitcond.not.i267 = icmp eq i32 %216, %208
-  br i1 %exitcond.not.i267, label %spotlight_date.exit, label %.lr.ph.i266, !llvm.loop !23
+  br i1 %exitcond.not.i267, label %spotlight_date.exit, label %.lr.ph.i266, !llvm.loop !22
 
 spotlight_date.exit:                              ; preds = %.lr.ph.i266, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
@@ -6777,7 +6777,7 @@ spotlight_date.exit:                              ; preds = %.lr.ph.i266, %.preh
   %227 = icmp slt i32 %.1228, %11
   %228 = icmp sgt i32 %.1230, 0
   %229 = select i1 %227, i1 %228, i1 false
-  br i1 %229, label %17, label %.loopexit269, !llvm.loop !24
+  br i1 %229, label %17, label %.loopexit269, !llvm.loop !23
 
 .loopexit269:                                     ; preds = %17, %226, %8, %spotlight_date.exit.thread
   %.0227271 = phi i32 [ %.0227275, %spotlight_date.exit.thread ], [ %3, %8 ], [ %.0227275, %17 ], [ %.1228, %226 ]
@@ -6841,22 +6841,21 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

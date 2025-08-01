@@ -660,7 +660,7 @@ define dso_local noundef nonnull ptr @drm_dp_get_dual_mode_type_name(i32 noundef
     i32 5, label %5
     i32 6, label %6
     i32 1, label %8
-  ], !prof !10
+  ], !prof !9
 
 2:                                                ; preds = %1
   br label %9
@@ -678,9 +678,9 @@ define dso_local noundef nonnull ptr @drm_dp_get_dual_mode_type_name(i32 noundef
   br label %9
 
 7:                                                ; preds = %1
-  tail call void asm sideeffect "420: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 420b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 420) #9, !srcloc !11
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 429, i32 2305, i64 12) #9, !srcloc !12
-  tail call void asm sideeffect "421: nop\0A\09.pushsection .discard.instr_end\0A\09.long 421b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 421) #9, !srcloc !13
+  tail call void asm sideeffect "420: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 420b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 420) #9, !srcloc !10
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 429, i32 2305, i64 12) #9, !srcloc !11
+  tail call void asm sideeffect "421: nop\0A\09.pushsection .discard.instr_end\0A\09.long 421b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 421) #9, !srcloc !12
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -729,7 +729,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
   %23 = add nuw nsw i32 %26, 1
   %24 = icmp eq i32 %23, 6
-  br i1 %24, label %38, label %25, !llvm.loop !14
+  br i1 %24, label %38, label %25, !llvm.loop !13
 
 25:                                               ; preds = %22, %8
   %26 = phi i32 [ 0, %8 ], [ %23, %22 ]
@@ -852,7 +852,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
 
 27:                                               ; preds = %19, %41
   %28 = phi i32 [ %42, %41 ], [ 200, %19 ]
-  %29 = call i32 @drm_lspcon_get_mode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5), !range !15
+  %29 = call i32 @drm_lspcon_get_mode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5), !range !14
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %38, label %31
 
@@ -879,7 +879,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   call void @msleep(i32 noundef 10) #9
   %42 = add nsw i32 %28, -10
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %53, label %27, !llvm.loop !16
+  br i1 %43, label %53, label %27, !llvm.loop !15
 
 44:                                               ; preds = %38
   %45 = icmp eq ptr %0, null
@@ -954,14 +954,13 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
-!11 = !{i64 2156550636, i64 2156550445, i64 2156550497, i64 2156550543, i64 2156550571}
-!12 = !{i64 2156550710, i64 2156550739, i64 2156550785, i64 2156550843, i64 2156550897, i64 2156550951, i64 2156551006, i64 2156551037, i64 2156551345, i64 2156551351, i64 2156551398, i64 2156551421, i64 2156551447}
-!13 = !{i64 2156551929, i64 2156551740, i64 2156551790, i64 2156551836, i64 2156551864}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = !{i32 -22, i32 1}
-!16 = distinct !{!16, !7, !8, !9}
+!9 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!10 = !{i64 2156550636, i64 2156550445, i64 2156550497, i64 2156550543, i64 2156550571}
+!11 = !{i64 2156550710, i64 2156550739, i64 2156550785, i64 2156550843, i64 2156550897, i64 2156550951, i64 2156551006, i64 2156551037, i64 2156551345, i64 2156551351, i64 2156551398, i64 2156551421, i64 2156551447}
+!12 = !{i64 2156551929, i64 2156551740, i64 2156551790, i64 2156551836, i64 2156551864}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i32 -22, i32 1}
+!15 = distinct !{!15, !7, !8}

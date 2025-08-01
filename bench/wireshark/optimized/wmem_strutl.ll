@@ -106,7 +106,7 @@ define noalias ptr @wmem_strdup_vprintf(ptr noundef %0, ptr noundef %1, ptr noun
   br label %16
 
 16:                                               ; preds = %16, %15
-  br label %16, !llvm.loop !9
+  br label %16
 
 _strdup_vasprintf.exit:                           ; preds = %8, %11
   %17 = load ptr, ptr %4, align 8
@@ -199,7 +199,5 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}

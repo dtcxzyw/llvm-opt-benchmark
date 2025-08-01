@@ -1752,7 +1752,7 @@ define internal fastcc i32 @selinux_genfs_get_sid(ptr noundef nonnull %0, i16 no
   %26 = load i8, ptr %25, align 1
   %27 = add i8 %26, -48
   %28 = icmp ult i8 %27, 10
-  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %19, %16
   %29 = phi ptr [ %11, %16 ], [ %11, %19 ], [ %24, %.preheader ]
@@ -1988,7 +1988,7 @@ define internal i32 @selinux_binder_transfer_file(ptr readnone captures(none) %0
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %80, !prof !16
+  br i1 %32, label %33, label %80, !prof !15
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 56
@@ -2216,8 +2216,8 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
 
 23:                                               ; preds = %4
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, i32 noundef %2) #25
-  tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #24, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1641, i32 0, i64 12) #24, !srcloc !18
+  tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #24, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1641, i32 0, i64 12) #24, !srcloc !17
   unreachable
 
 25:                                               ; preds = %21, %19
@@ -2249,7 +2249,7 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
   %41 = load i32, ptr %.sink.sroa.phi, align 4
   %42 = and i32 %41, %.sink3
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread2, label %.thread, !prof !19
+  br i1 %43, label %.thread2, label %.thread, !prof !18
 
 .thread:                                          ; preds = %37, %39
   %44 = phi i32 [ %42, %39 ], [ %16, %37 ]
@@ -2364,7 +2364,7 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %50, !prof !16
+  br i1 %30, label %31, label %50, !prof !15
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -2591,7 +2591,7 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
   %90 = getelementptr i8, ptr %24, i64 %89
   %91 = icmp ugt i32 %88, 15
   %92 = and i1 %87, %91
-  br i1 %92, label %23, label %.loopexit, !llvm.loop !20
+  br i1 %92, label %23, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %83, %80, %45, %30, %23, %2
   %93 = phi i32 [ 0, %2 ], [ 0, %83 ], [ %33, %30 ], [ -22, %80 ], [ %60, %45 ], [ 0, %23 ]
@@ -2930,7 +2930,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 512
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %58, !prof !16
+  br i1 %35, label %36, label %58, !prof !15
 
 36:                                               ; preds = %26
   %37 = load ptr, ptr %5, align 8
@@ -2989,7 +2989,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   %69 = call i32 @replace_fd(i32 noundef %68, ptr noundef %65, i32 noundef 0) #24
   %70 = call i32 @iterate_fd(ptr noundef %18, i32 noundef %67, ptr noundef nonnull @match_file, ptr noundef %4) #24
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %66, !llvm.loop !21
+  br i1 %71, label %72, label %66, !llvm.loop !20
 
 72:                                               ; preds = %66
   %73 = icmp eq ptr %65, null
@@ -3029,7 +3029,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   store i64 %95, ptr %88, align 8
   %96 = add nuw nsw i64 %85, 1
   %97 = icmp eq i64 %96, 16
-  br i1 %97, label %98, label %84, !llvm.loop !22
+  br i1 %97, label %98, label %84, !llvm.loop !21
 
 98:                                               ; preds = %84
   call void @_raw_spin_unlock(ptr noundef nonnull %82) #24
@@ -3712,7 +3712,7 @@ define internal i32 @selinux_mount(ptr readnone captures(none) %0, ptr noundef r
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 512
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %76, !prof !16
+  br i1 %56, label %57, label %76, !prof !15
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 128
@@ -3821,8 +3821,8 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(non
   br i1 %38, label %39, label %40, !prof !10
 
 39:                                               ; preds = %35
-  tail call void asm sideeffect "1061: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1061b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1061) #24, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 937, i32 0, i64 12) #24, !srcloc !24
+  tail call void asm sideeffect "1061: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1061b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1061) #24, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 937, i32 0, i64 12) #24, !srcloc !23
   unreachable
 
 40:                                               ; preds = %35
@@ -4222,7 +4222,7 @@ define internal i32 @selinux_move_mount(ptr readnone captures(none) %0, ptr noun
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %53, !prof !16
+  br i1 %33, label %34, label %53, !prof !15
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -4563,7 +4563,7 @@ define internal void @selinux_inode_free_security(ptr noundef readonly captures(
   %17 = getelementptr i8, ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load volatile ptr, ptr %18, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !24
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %21, label %25
 
@@ -5257,7 +5257,7 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %50, !prof !16
+  br i1 %30, label %31, label %50, !prof !15
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -5390,7 +5390,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 512
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread7, !prof !16
+  br i1 %16, label %17, label %.thread7, !prof !15
 
 17:                                               ; preds = %12
   %18 = load i16, ptr %0, align 8
@@ -5501,7 +5501,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %90 = xor i32 %89, -1
   %91 = and i32 %45, %90
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %103, label %93, !prof !16
+  br i1 %92, label %103, label %93, !prof !15
 
 93:                                               ; preds = %.thread5
   %94 = shl i32 %1, 13
@@ -5529,7 +5529,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %110 = phi i32 [ 0, %105 ], [ %45, %103 ], [ %91, %93 ]
   %111 = phi i32 [ %108, %105 ], [ %45, %103 ], [ %98, %93 ]
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %.thread7, label %113, !prof !26
+  br i1 %112, label %.thread7, label %113, !prof !25
 
 113:                                              ; preds = %109
   %114 = call fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef %45, i32 noundef %111, i32 noundef %110, i32 noundef %88)
@@ -5603,7 +5603,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr noundef readonly 
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 512
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %63, !prof !16
+  br i1 %43, label %44, label %63, !prof !15
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -5683,7 +5683,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr noundef readonly 
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 512
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %121, !prof !16
+  br i1 %101, label %102, label %121, !prof !15
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -5760,7 +5760,7 @@ define internal i32 @selinux_inode_getattr(ptr noundef readonly captures(none) %
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %52, !prof !16
+  br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -5856,7 +5856,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 512
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %72, !prof !16
+  br i1 %52, label %53, label %72, !prof !15
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 128
@@ -6187,7 +6187,7 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr readnone capture
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 512
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %51, !prof !16
+  br i1 %31, label %32, label %51, !prof !15
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -6258,7 +6258,7 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %50, !prof !16
+  br i1 %30, label %31, label %50, !prof !15
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -6339,7 +6339,7 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 512
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %58, !prof !16
+  br i1 %38, label %39, label %58, !prof !15
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 128
@@ -6421,7 +6421,7 @@ define internal i32 @selinux_inode_set_acl(ptr readnone captures(none) %0, ptr n
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %53, !prof !16
+  br i1 %33, label %34, label %53, !prof !15
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -6492,7 +6492,7 @@ define internal i32 @selinux_inode_get_acl(ptr readnone captures(none) %0, ptr n
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %52, !prof !16
+  br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -6563,7 +6563,7 @@ define internal i32 @selinux_inode_remove_acl(ptr readnone captures(none) %0, pt
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %52, !prof !16
+  br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -6975,7 +6975,7 @@ define internal i32 @selinux_path_notify(ptr noundef readonly captures(none) %0,
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 512
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %91, !prof !16
+  br i1 %71, label %72, label %91, !prof !15
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %45, i64 128
@@ -7071,7 +7071,7 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %38 = load i16, ptr %37, align 2
-  %39 = call fastcc zeroext i16 @inode_mode_to_security_class(i16 noundef zeroext %38), !range !27
+  %39 = call fastcc zeroext i16 @inode_mode_to_security_class(i16 noundef zeroext %38), !range !26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -7278,7 +7278,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 512
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %143, !prof !16
+  br i1 %123, label %124, label %143, !prof !15
 
 124:                                              ; preds = %119
   %125 = load ptr, ptr %104, align 8
@@ -7397,7 +7397,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 512
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %58, !prof !16
+  br i1 %38, label %39, label %58, !prof !15
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %21, align 8
@@ -7459,7 +7459,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 512
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %105, !prof !16
+  br i1 %85, label %86, label %105, !prof !15
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %68, align 8
@@ -7554,7 +7554,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %146 = load i32, ptr %.sink13.sroa.phi, align 4
   %147 = and i32 %146, 67108864
   %148 = icmp eq i32 %147, 0
-  br i1 %148, label %.thread11, label %.thread, !prof !19
+  br i1 %148, label %.thread11, label %.thread, !prof !18
 
 .thread:                                          ; preds = %142, %144
   %149 = phi i32 [ %147, %144 ], [ 67108864, %142 ]
@@ -7666,7 +7666,7 @@ define internal i32 @selinux_mmap_file(ptr noundef %0, i64 %1, i64 noundef %2, i
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %.split1, !prof !16
+  br i1 %33, label %34, label %.split1, !prof !15
 
 34:                                               ; preds = %25
   %35 = inttoptr i64 %27 to ptr
@@ -7853,7 +7853,7 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 512
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %108, !prof !16
+  br i1 %88, label %89, label %108, !prof !15
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %9, align 8
@@ -7941,7 +7941,7 @@ define internal i32 @selinux_file_lock(ptr noundef %0, i32 %1) #1 align 16 {
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %52, !prof !16
+  br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %15, align 8
@@ -8039,7 +8039,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 512
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %64, !prof !16
+  br i1 %44, label %45, label %64, !prof !15
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %27, align 8
@@ -8136,7 +8136,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 512
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %133, !prof !16
+  br i1 %113, label %114, label %133, !prof !15
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %96, align 8
@@ -8299,7 +8299,7 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 512
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %69, !prof !16
+  br i1 %49, label %50, label %69, !prof !15
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %32, align 8
@@ -8429,7 +8429,7 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 512
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %96, !prof !16
+  br i1 %75, label %76, label %96, !prof !15
 
 76:                                               ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %39, i64 128
@@ -10087,7 +10087,7 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
 
 16:                                               ; preds = %4
   store i32 0, ptr %5, align 4, !annotation !5
-  %17 = tail call fastcc zeroext i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2), !range !28
+  %17 = tail call fastcc zeroext i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2), !range !27
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
@@ -10140,7 +10140,7 @@ define internal i32 @selinux_socket_post_create(ptr noundef readonly captures(no
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
   %22 = select i1 %18, ptr null, ptr %21, !prof !10
-  %23 = tail call fastcc zeroext i16 @socket_type_to_security_class(i32 noundef %1, i32 noundef %2, i32 noundef %3), !range !28
+  %23 = tail call fastcc zeroext i16 @socket_type_to_security_class(i32 noundef %1, i32 noundef %2, i32 noundef %3), !range !27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
   store i32 1, ptr %6, align 4
   %24 = icmp eq i32 %4, 0
@@ -11164,14 +11164,14 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   store i32 0, ptr %4, align 4, !annotation !5
   %78 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %28, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %.thread6, !prof !16
+  br i1 %79, label %80, label %.thread6, !prof !15
 
 80:                                               ; preds = %77
   %81 = load i32, ptr %3, align 4
   %82 = load i32, ptr %4, align 4
   %83 = call i32 @security_net_peersid_resolve(i32 noundef %81, i32 noundef %82, i32 noundef 0, ptr noundef nonnull %11) #24
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %87, label %85, !prof !16
+  br i1 %84, label %87, label %85, !prof !15
 
 85:                                               ; preds = %80
   %86 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -11279,9 +11279,9 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr noundef readonly captu
   br i1 %31, label %32, label %33, !prof !10
 
 32:                                               ; preds = %30
-  call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #24, !srcloc !29
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.56, i32 249, i32 2307, i64 12) #24, !srcloc !30
-  call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #24, !srcloc !31
+  call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #24, !srcloc !28
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.56, i32 249, i32 2307, i64 12) #24, !srcloc !29
+  call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #24, !srcloc !30
   br label %39
 
 33:                                               ; preds = %30
@@ -11381,14 +11381,14 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
   store i32 0, ptr %5, align 4, !annotation !5
   %31 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef nonnull %1, i16 noundef zeroext %30, ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %40, !prof !16
+  br i1 %32, label %33, label %40, !prof !15
 
 33:                                               ; preds = %.thread3
   %34 = load i32, ptr %4, align 4
   %35 = load i32, ptr %5, align 4
   %36 = call i32 @security_net_peersid_resolve(i32 noundef %34, i32 noundef %35, i32 noundef 0, ptr noundef nonnull %6) #24
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %40, label %38, !prof !16
+  br i1 %37, label %40, label %38, !prof !15
 
 38:                                               ; preds = %33
   %39 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -11661,7 +11661,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   %27 = zext nneg i32 %20 to i64
   %28 = getelementptr i8, ptr %12, i64 %27
   %29 = icmp slt i32 %21, %3
-  br i1 %29, label %.preheader.split.us, label %.thread, !llvm.loop !32
+  br i1 %29, label %.preheader.split.us, label %.thread, !llvm.loop !31
 
 .preheader.split.us4:                             ; preds = %.preheader.split.us4.preheader, %47
   %30 = phi ptr [ %49, %47 ], [ %2, %.preheader.split.us4.preheader ]
@@ -11702,7 +11702,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   %48 = zext nneg i32 %38 to i64
   %49 = getelementptr i8, ptr %30, i64 %48
   %50 = icmp slt i32 %39, %3
-  br i1 %50, label %.preheader.split.us4, label %.thread, !llvm.loop !34
+  br i1 %50, label %.preheader.split.us4, label %.thread, !llvm.loop !33
 
 .thread:                                          ; preds = %.preheader.split.us4, %34, %37, %41, %44, %47, %26, %23, %19, %16, %.preheader.split.us, %.preheader, %7, %4
   %51 = phi i32 [ 0, %4 ], [ 0, %7 ], [ -22, %.preheader ], [ -22, %.preheader.split.us ], [ -22, %16 ], [ -22, %19 ], [ %24, %23 ], [ 0, %26 ], [ -22, %.preheader.split.us4 ], [ -22, %34 ], [ -22, %37 ], [ %42, %41 ], [ %45, %44 ], [ 0, %47 ]
@@ -11775,14 +11775,14 @@ define internal i32 @selinux_inet_conn_request(ptr noundef readonly captures(non
   store i32 0, ptr %5, align 4, !annotation !5
   %14 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %13, ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.thread, !prof !16
+  br i1 %15, label %16, label %.thread, !prof !15
 
 16:                                               ; preds = %3
   %17 = load i32, ptr %4, align 4
   %18 = load i32, ptr %5, align 4
   %19 = call i32 @security_net_peersid_resolve(i32 noundef %17, i32 noundef %18, i32 noundef 0, ptr noundef nonnull %7) #24
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %23, label %21, !prof !16
+  br i1 %20, label %23, label %21, !prof !15
 
 21:                                               ; preds = %16
   %22 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -11879,7 +11879,7 @@ define internal void @selinux_inet_conn_established(ptr noundef readonly capture
   store i32 0, ptr %4, align 4, !annotation !5
   %17 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %16, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %27, !prof !16
+  br i1 %18, label %19, label %27, !prof !15
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -11887,7 +11887,7 @@ define internal void @selinux_inet_conn_established(ptr noundef readonly capture
   %22 = load i32, ptr %4, align 4
   %23 = call i32 @security_net_peersid_resolve(i32 noundef %21, i32 noundef %22, i32 noundef 0, ptr noundef nonnull %20) #24
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %27, label %25, !prof !16
+  br i1 %24, label %27, label %25, !prof !15
 
 25:                                               ; preds = %19
   %26 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -11918,13 +11918,13 @@ define internal i32 @selinux_secmark_relabel_packet(i32 noundef %0) #1 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_secmark_refcount_inc() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !35
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !34
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_secmark_refcount_dec() #1 align 16 {
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !36
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @selinux_secmark_refcount, ptr nonnull elementtype(i32) @selinux_secmark_refcount) #24, !srcloc !35
   ret void
 }
 
@@ -12059,9 +12059,9 @@ define internal i32 @selinux_key_permission(ptr noundef %0, ptr noundef readonly
   br label %9
 
 8:                                                ; preds = %3
-  tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #24, !srcloc !37
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #24, !srcloc !38
-  tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #24, !srcloc !39
+  tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #24, !srcloc !36
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 6732, i32 2305, i64 12) #24, !srcloc !37
+  tail call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #24, !srcloc !38
   br label %25
 
 9:                                                ; preds = %3, %7, %6, %5, %4, %3
@@ -12422,7 +12422,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 18:                                               ; preds = %.thread, %14
   %19 = phi i8 [ %13, %.thread ], [ %8, %14 ]
   %20 = add i32 %9, 1
-  br label %7, !llvm.loop !40
+  br label %7, !llvm.loop !39
 
 21:                                               ; preds = %14, %7
   %22 = getelementptr i8, ptr %4, i64 %10
@@ -12431,7 +12431,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 23:                                               ; preds = %26, %47, %42, %43, %33
   %24 = add nuw nsw i64 %27, 1
   %25 = icmp eq i64 %24, 5
-  br i1 %25, label %.thread12, label %26, !llvm.loop !41
+  br i1 %25, label %.thread12, label %26, !llvm.loop !40
 
 26:                                               ; preds = %23, %21
   %27 = phi i64 [ 0, %21 ], [ %24, %23 ]
@@ -12505,7 +12505,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
   %67 = phi ptr [ %65, %64 ], [ %60, %.preheader ]
   %68 = getelementptr i8, ptr %61, i64 1
   %69 = icmp ult ptr %68, %22
-  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !42
+  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %66, %58
   %70 = phi ptr [ %49, %58 ], [ %67, %66 ]
@@ -12804,7 +12804,7 @@ define internal noundef range(i32 -12, 1) i32 @selinux_sk_alloc_security(ptr nou
   %4 = or i32 %2, 256
   %5 = and i32 %2, 17
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %11, label %7, !prof !16
+  br i1 %6, label %11, label %7, !prof !15
 
 7:                                                ; preds = %3
   %8 = and i32 %2, 1
@@ -12964,7 +12964,7 @@ define internal fastcc i32 @ptrace_parent_sid() unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i32, ptr %3, align 16
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %.thread, label %6, !prof !16
+  br i1 %5, label %.thread, label %6, !prof !15
 
 6:                                                ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1336
@@ -13080,7 +13080,7 @@ define internal noundef i32 @match_file(ptr noundef readonly captures(none) %0, 
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 512
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.thread, !prof !16
+  br i1 %48, label %49, label %.thread, !prof !15
 
 .thread:                                          ; preds = %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
@@ -13590,7 +13590,7 @@ define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 
   %26 = load i32, ptr %.sink1.sroa.phi, align 4
   %27 = and i32 %26, 2
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %33, label %.thread, !prof !19
+  br i1 %28, label %33, label %.thread, !prof !18
 
 .thread:                                          ; preds = %22, %24
   %29 = phi i32 [ %27, %24 ], [ 2, %22 ]
@@ -13698,7 +13698,7 @@ define internal fastcc i32 @ioctl_has_perm(ptr readonly captures(none) %.128.val
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %63, !prof !16
+  br i1 %33, label %34, label %63, !prof !15
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -13845,7 +13845,7 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 512
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %85, !prof !16
+  br i1 %65, label %66, label %85, !prof !15
 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %9, align 8
@@ -15287,14 +15287,14 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   store i32 0, ptr %4, align 4, !annotation !5
   %28 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %20, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.thread, !prof !16
+  br i1 %29, label %30, label %.thread, !prof !15
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %3, align 4
   %32 = load i32, ptr %4, align 4
   %33 = call i32 @security_net_peersid_resolve(i32 noundef %31, i32 noundef %32, i32 noundef 0, ptr noundef nonnull %27) #24
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %37, label %35, !prof !16
+  br i1 %34, label %37, label %35, !prof !15
 
 35:                                               ; preds = %30
   %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -15465,9 +15465,9 @@ define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr
   br i1 %44, label %46, label %52
 
 45:                                               ; preds = %20
-  tail call void asm sideeffect "1062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1062) #24, !srcloc !43
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1038, i32 2305, i64 12) #24, !srcloc !44
-  tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #24, !srcloc !45
+  tail call void asm sideeffect "1062: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1062b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1062) #24, !srcloc !42
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.39, i32 1038, i32 2305, i64 12) #24, !srcloc !43
+  tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #24, !srcloc !44
   br label %54
 
 46:                                               ; preds = %41, %33, %30, %26
@@ -15734,14 +15734,14 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   store i32 0, ptr %7, align 4, !annotation !5
   %120 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %113, ptr noundef nonnull %7, ptr noundef nonnull %6) #24
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %219, !prof !16
+  br i1 %121, label %122, label %219, !prof !15
 
 122:                                              ; preds = %119
   %123 = load i32, ptr %6, align 4
   %124 = load i32, ptr %7, align 4
   %125 = call i32 @security_net_peersid_resolve(i32 noundef %123, i32 noundef %124, i32 noundef 0, ptr noundef nonnull %11) #24
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %129, label %127, !prof !16
+  br i1 %126, label %129, label %127, !prof !15
 
 127:                                              ; preds = %122
   %128 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -15778,14 +15778,14 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   store i32 0, ptr %5, align 4, !annotation !5
   %143 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %132, ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %168, !prof !16
+  br i1 %144, label %145, label %168, !prof !15
 
 145:                                              ; preds = %140
   %146 = load i32, ptr %4, align 4
   %147 = load i32, ptr %5, align 4
   %148 = call i32 @security_net_peersid_resolve(i32 noundef %146, i32 noundef %147, i32 noundef 0, ptr noundef nonnull %15) #24
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %152, label %150, !prof !16
+  br i1 %149, label %152, label %150, !prof !15
 
 150:                                              ; preds = %145
   %151 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -15994,14 +15994,14 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
   store i32 0, ptr %7, align 4, !annotation !5
   %32 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %31, ptr noundef nonnull %7, ptr noundef nonnull %6) #24
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %87, !prof !16
+  br i1 %33, label %34, label %87, !prof !15
 
 34:                                               ; preds = %.thread
   %35 = load i32, ptr %6, align 4
   %36 = load i32, ptr %7, align 4
   %37 = call i32 @security_net_peersid_resolve(i32 noundef %35, i32 noundef %36, i32 noundef 0, ptr noundef nonnull %9) #24
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %41, label %39, !prof !16
+  br i1 %38, label %41, label %39, !prof !15
 
 39:                                               ; preds = %34
   %40 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55) #25
@@ -16219,38 +16219,37 @@ attributes #31 = { nounwind allocsize(1) }
 !8 = !{}
 !9 = !{i64 2163809173}
 !10 = !{!"branch_weights", i32 1, i32 2000}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !12, !13, !14}
-!16 = !{!"branch_weights", i32 2000, i32 1}
-!17 = !{i64 2164074206, i64 2164074010, i64 2164074062, i64 2164074108, i64 2164074136}
-!18 = !{i64 2164074283, i64 2164074312, i64 2164074358, i64 2164074416, i64 2164074470, i64 2164074524, i64 2164074579, i64 2164074610}
-!19 = !{!"branch_weights", i32 -2147483648, i32 0}
-!20 = distinct !{!20, !12, !13, !14}
-!21 = distinct !{!21, !12, !13, !14}
-!22 = distinct !{!22, !12, !13, !14}
-!23 = !{i64 2164061415, i64 2164061219, i64 2164061271, i64 2164061317, i64 2164061345}
-!24 = !{i64 2164061492, i64 2164061521, i64 2164061567, i64 2164061625, i64 2164061679, i64 2164061733, i64 2164061788, i64 2164061819}
-!25 = !{i64 2148392921}
-!26 = !{!"branch_weights", i32 2146410176, i32 1073472}
-!27 = !{i16 7, i16 15}
-!28 = !{i16 15, i16 94}
-!29 = !{i64 2149822934, i64 2149822748, i64 2149822800, i64 2149822846, i64 2149822874}
-!30 = !{i64 2149823005, i64 2149823034, i64 2149823080, i64 2149823138, i64 2149823192, i64 2149823246, i64 2149823301, i64 2149823332, i64 2149823640, i64 2149823646, i64 2149823693, i64 2149823716, i64 2149823742}
-!31 = !{i64 2149824197, i64 2149824013, i64 2149824063, i64 2149824109, i64 2149824137}
-!32 = distinct !{!32, !12, !13, !14, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !12, !13, !14, !33}
-!35 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
-!36 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
-!37 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
-!38 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
-!39 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}
-!40 = distinct !{!40, !12, !13, !14}
-!41 = distinct !{!41, !12, !13, !14}
-!42 = distinct !{!42, !12, !13, !14}
-!43 = !{i64 2164063857, i64 2164063661, i64 2164063713, i64 2164063759, i64 2164063787}
-!44 = !{i64 2164063934, i64 2164063963, i64 2164064009, i64 2164064067, i64 2164064121, i64 2164064175, i64 2164064230, i64 2164064261, i64 2164064569, i64 2164064575, i64 2164064622, i64 2164064645, i64 2164064671}
-!45 = !{i64 2164065134, i64 2164064940, i64 2164064990, i64 2164065036, i64 2164065064}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!"branch_weights", i32 2000, i32 1}
+!16 = !{i64 2164074206, i64 2164074010, i64 2164074062, i64 2164074108, i64 2164074136}
+!17 = !{i64 2164074283, i64 2164074312, i64 2164074358, i64 2164074416, i64 2164074470, i64 2164074524, i64 2164074579, i64 2164074610}
+!18 = !{!"branch_weights", i32 -2147483648, i32 0}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = !{i64 2164061415, i64 2164061219, i64 2164061271, i64 2164061317, i64 2164061345}
+!23 = !{i64 2164061492, i64 2164061521, i64 2164061567, i64 2164061625, i64 2164061679, i64 2164061733, i64 2164061788, i64 2164061819}
+!24 = !{i64 2148392921}
+!25 = !{!"branch_weights", i32 2146410176, i32 1073472}
+!26 = !{i16 7, i16 15}
+!27 = !{i16 15, i16 94}
+!28 = !{i64 2149822934, i64 2149822748, i64 2149822800, i64 2149822846, i64 2149822874}
+!29 = !{i64 2149823005, i64 2149823034, i64 2149823080, i64 2149823138, i64 2149823192, i64 2149823246, i64 2149823301, i64 2149823332, i64 2149823640, i64 2149823646, i64 2149823693, i64 2149823716, i64 2149823742}
+!30 = !{i64 2149824197, i64 2149824013, i64 2149824063, i64 2149824109, i64 2149824137}
+!31 = distinct !{!31, !12, !13, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !12, !13, !32}
+!34 = !{i64 2148498753, i64 2148498792, i64 2148498813, i64 2148498850, i64 2148498873, i64 2148498743}
+!35 = !{i64 2148499116, i64 2148499155, i64 2148499176, i64 2148499213, i64 2148499236, i64 2148499106}
+!36 = !{i64 2164148368, i64 2164148172, i64 2164148224, i64 2164148270, i64 2164148298}
+!37 = !{i64 2164148445, i64 2164148474, i64 2164148520, i64 2164148578, i64 2164148632, i64 2164148686, i64 2164148741, i64 2164148772, i64 2164149080, i64 2164149086, i64 2164149133, i64 2164149156, i64 2164149182}
+!38 = !{i64 2164149645, i64 2164149451, i64 2164149501, i64 2164149547, i64 2164149575}
+!39 = distinct !{!39, !12, !13}
+!40 = distinct !{!40, !12, !13}
+!41 = distinct !{!41, !12, !13}
+!42 = !{i64 2164063857, i64 2164063661, i64 2164063713, i64 2164063759, i64 2164063787}
+!43 = !{i64 2164063934, i64 2164063963, i64 2164064009, i64 2164064067, i64 2164064121, i64 2164064175, i64 2164064230, i64 2164064261, i64 2164064569, i64 2164064575, i64 2164064622, i64 2164064645, i64 2164064671}
+!44 = !{i64 2164065134, i64 2164064940, i64 2164064990, i64 2164065036, i64 2164065064}

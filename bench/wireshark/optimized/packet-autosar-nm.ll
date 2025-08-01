@@ -863,7 +863,7 @@ get_ett_for_user_data.exit:                       ; preds = %92
   %133 = load i32, ptr @dynamic_hf_size, align 4
   %134 = zext i32 %133 to i64
   %135 = icmp samesign ult i64 %indvars.iv.next, %134
-  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 136:                                              ; preds = %._crit_edge, %deregister_user_data.exit
   ret void
@@ -1143,7 +1143,7 @@ get_ett_for_user_data.exit:                       ; preds = %get_hf_for_user_dat
   %98 = load i32, ptr @num_user_data_fields, align 4
   %99 = zext i32 %98 to i64
   %100 = icmp samesign ult i64 %indvars.iv.next, %99
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %97, %53
   %101 = load ptr, ptr %7, align 8
@@ -1380,8 +1380,7 @@ attributes #14 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -85,7 +85,7 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
 39:                                               ; preds = %33, %.lr.ph65.split.us
   %40 = add i32 %.05364.us, -1
   %.not59.us = icmp slt i32 %40, 0
-  br i1 %.not59.us, label %._crit_edge, label %.lr.ph65.split.us, !llvm.loop !7
+  br i1 %.not59.us, label %._crit_edge, label %.lr.ph65.split.us, !llvm.loop !6
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %59
   %.05364 = phi i32 [ %60, %59 ], [ %0, %.lr.ph65 ]
@@ -117,12 +117,12 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
 59:                                               ; preds = %50, %.lr.ph65.split
   %60 = add i32 %.05364, -1
   %.not59 = icmp slt i32 %60, %.fr
-  br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !9
+  br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %59, %39, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69, label %19, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge69, label %19, !llvm.loop !9
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.preheader
   store ptr %7, ptr @CurrentMemoryContext, align 8
@@ -161,10 +161,9 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

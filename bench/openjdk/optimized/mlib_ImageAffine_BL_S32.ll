@@ -199,7 +199,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge177, label %35, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge177, label %35, !llvm.loop !8
 
 ._crit_edge177:                                   ; preds = %124, %1
   ret i32 0
@@ -416,7 +416,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bl(ptr noundef readonly capt
   %.0160 = sitofp i32 %124 to double
   %.0161 = sitofp i32 %127 to double
   %141 = icmp ult ptr %140, %55
-  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.0169.lcssa = phi ptr [ %52, %49 ], [ %140, %.lr.ph ]
@@ -459,7 +459,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge233, label %32, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge233, label %32, !llvm.loop !10
 
 ._crit_edge233:                                   ; preds = %153, %1
   ret i32 0
@@ -712,7 +712,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bl(ptr noundef readonly capt
   %.0200 = sitofp i32 %136 to double
   %.0201 = sitofp i32 %141 to double
   %163 = icmp ult ptr %162, %55
-  br i1 %163, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %163, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.0209.lcssa = phi ptr [ %52, %49 ], [ %162, %.lr.ph ]
@@ -770,7 +770,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge291, label %32, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge291, label %32, !llvm.loop !12
 
 ._crit_edge291:                                   ; preds = %181, %1
   ret i32 0
@@ -1048,7 +1048,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bl(ptr noundef readonly capt
   %185 = getelementptr inbounds nuw i8, ptr %.0249, i64 12
   store i32 %184, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %.0249, i64 16
-  br label %108, !llvm.loop !14
+  br label %108, !llvm.loop !13
 
 187:                                              ; preds = %108
   %188 = fmul double %.0244, %.0240
@@ -1100,7 +1100,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bl(ptr noundef readonly capt
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %211, %1
   ret i32 0
@@ -1117,13 +1117,12 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

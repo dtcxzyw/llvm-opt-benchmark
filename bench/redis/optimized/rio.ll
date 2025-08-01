@@ -232,9 +232,9 @@ declare void @zfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @rioGenericUpdateChecksum(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i64, ptr %4, align 8, !tbaa !26
+  %5 = load i64, ptr %4, align 8, !tbaa !25
   %6 = tail call i64 @crc64(i64 noundef %5, ptr noundef %1, i64 noundef %2) #16
-  store i64 %6, ptr %4, align 8, !tbaa !26
+  store i64 %6, ptr %4, align 8, !tbaa !25
   ret void
 }
 
@@ -243,7 +243,7 @@ declare i64 @crc64(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @rioSetAutoSync(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   %.not = icmp eq ptr %4, @rioFileWrite
   br i1 %.not, label %5, label %7
 
@@ -270,7 +270,7 @@ define dso_local void @rioSetReclaimCache(ptr noundef captures(none) %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext range(i8 1, 9) i8 @rioCheckType(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !29
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = icmp eq ptr %2, @rioFileRead
   br i1 %3, label %8, label %4
 
@@ -848,9 +848,9 @@ sdsavail.exit87:                                  ; preds = %sdslen.exit83, %244
 sdslen.exit89:                                    ; preds = %257, %259, %262, %266, %270, %274
   %.0.i88 = phi i64 [ %261, %259 ], [ %265, %262 ], [ %269, %266 ], [ %273, %270 ], [ %276, %274 ], [ 0, %257 ]
   %277 = getelementptr inbounds nuw i8, ptr %133, i64 %.0.i88
-  %278 = load ptr, ptr %258, align 8, !tbaa !30
+  %278 = load ptr, ptr %258, align 8, !tbaa !29
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 144
-  %280 = load ptr, ptr %279, align 8, !tbaa !34
+  %280 = load ptr, ptr %279, align 8, !tbaa !33
   %281 = tail call i32 %280(ptr noundef nonnull %258, ptr noundef %277, i64 noundef %.161) #16
   %282 = icmp eq i32 %281, 0
   br i1 %282, label %.thread, label %283
@@ -862,12 +862,12 @@ sdslen.exit89:                                    ; preds = %257, %259, %262, %2
 285:                                              ; preds = %283
   %286 = load ptr, ptr %4, align 8, !tbaa !12
   %287 = getelementptr i8, ptr %286, i64 12
-  %.val = load i32, ptr %287, align 4, !tbaa !36
+  %.val = load i32, ptr %287, align 4, !tbaa !35
   %.not101 = icmp eq i32 %.val, 4
   br i1 %.not101, label %.backedge, label %288
 
 .backedge:                                        ; preds = %285, %293
-  br label %132, !llvm.loop !37
+  br label %132, !llvm.loop !36
 
 288:                                              ; preds = %285
   %289 = tail call ptr @__errno_location() #18
@@ -919,7 +919,7 @@ define dso_local range(i64 -2147483645, 2147483648) i64 @rioWriteBulkCount(ptr n
   store i8 10, ptr %13, align 1, !tbaa !12
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !38
+  %16 = load i64, ptr %15, align 8, !tbaa !37
   %17 = and i64 %16, 6
   %.not.i = icmp ne i64 %17, 0
   %.not3137.i = icmp eq i32 %11, 0
@@ -936,11 +936,11 @@ define dso_local range(i64 -2147483645, 2147483648) i64 @rioWriteBulkCount(ptr n
 22:                                               ; preds = %34, %.lr.ph.i
   %.02539.i = phi i64 [ %14, %.lr.ph.i ], [ %36, %34 ]
   %.02738.i = phi ptr [ %4, %.lr.ph.i ], [ %35, %34 ]
-  %23 = load i64, ptr %18, align 8, !tbaa !39
+  %23 = load i64, ptr %18, align 8, !tbaa !38
   %.not32.not.i = icmp eq i64 %23, 0
   %24 = call i64 @llvm.umin.i64(i64 %23, i64 %.02539.i)
   %25 = select i1 %.not32.not.i, i64 %.02539.i, i64 %24
-  %26 = load ptr, ptr %19, align 8, !tbaa !40
+  %26 = load ptr, ptr %19, align 8, !tbaa !39
   %.not33.i = icmp eq ptr %26, null
   br i1 %.not33.i, label %28, label %27
 
@@ -949,25 +949,25 @@ define dso_local range(i64 -2147483645, 2147483648) i64 @rioWriteBulkCount(ptr n
   br label %28
 
 28:                                               ; preds = %27, %22
-  %29 = load ptr, ptr %20, align 8, !tbaa !28
+  %29 = load ptr, ptr %20, align 8, !tbaa !27
   %30 = call i64 %29(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %25) #16
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %.thread.i, label %34
 
 .thread.i:                                        ; preds = %28
-  %32 = load i64, ptr %15, align 8, !tbaa !38
+  %32 = load i64, ptr %15, align 8, !tbaa !37
   %33 = or i64 %32, 2
-  store i64 %33, ptr %15, align 8, !tbaa !38
+  store i64 %33, ptr %15, align 8, !tbaa !37
   br label %rioWrite.exit
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %25
   %36 = sub i64 %.02539.i, %25
-  %37 = load i64, ptr %21, align 8, !tbaa !41
+  %37 = load i64, ptr %21, align 8, !tbaa !40
   %38 = add i64 %37, %25
-  store i64 %38, ptr %21, align 8, !tbaa !41
+  store i64 %38, ptr %21, align 8, !tbaa !40
   %.not31.i = icmp eq i64 %36, 0
-  br i1 %.not31.i, label %rioWrite.exit, label %22, !llvm.loop !42
+  br i1 %.not31.i, label %rioWrite.exit, label %22
 
 rioWrite.exit:                                    ; preds = %34, %.thread.i, %3
   %39 = phi i64 [ 0, %3 ], [ 0, %.thread.i ], [ %14, %34 ]
@@ -995,7 +995,7 @@ define dso_local i64 @rioWriteBulkString(ptr noundef %0, ptr noundef %1, i64 nou
   store i8 10, ptr %13, align 1, !tbaa !12
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !38
+  %16 = load i64, ptr %15, align 8, !tbaa !37
   %17 = and i64 %16, 6
   %.not.i.i = icmp ne i64 %17, 0
   %.not3137.i.i = icmp eq i32 %11, 0
@@ -1012,11 +1012,11 @@ define dso_local i64 @rioWriteBulkString(ptr noundef %0, ptr noundef %1, i64 nou
 22:                                               ; preds = %34, %.lr.ph.i.i
   %.02539.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ %36, %34 ]
   %.02738.i.i = phi ptr [ %4, %.lr.ph.i.i ], [ %35, %34 ]
-  %23 = load i64, ptr %18, align 8, !tbaa !39
+  %23 = load i64, ptr %18, align 8, !tbaa !38
   %.not32.not.i.i = icmp eq i64 %23, 0
   %24 = call i64 @llvm.umin.i64(i64 %23, i64 %.02539.i.i)
   %25 = select i1 %.not32.not.i.i, i64 %.02539.i.i, i64 %24
-  %26 = load ptr, ptr %19, align 8, !tbaa !40
+  %26 = load ptr, ptr %19, align 8, !tbaa !39
   %.not33.i.i = icmp eq ptr %26, null
   br i1 %.not33.i.i, label %28, label %27
 
@@ -1025,25 +1025,25 @@ define dso_local i64 @rioWriteBulkString(ptr noundef %0, ptr noundef %1, i64 nou
   br label %28
 
 28:                                               ; preds = %27, %22
-  %29 = load ptr, ptr %20, align 8, !tbaa !28
+  %29 = load ptr, ptr %20, align 8, !tbaa !27
   %30 = call i64 %29(ptr noundef nonnull %0, ptr noundef %.02738.i.i, i64 noundef %25) #16
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %.thread.i.i, label %34
 
 .thread.i.i:                                      ; preds = %28
-  %32 = load i64, ptr %15, align 8, !tbaa !38
+  %32 = load i64, ptr %15, align 8, !tbaa !37
   %33 = or i64 %32, 2
-  store i64 %33, ptr %15, align 8, !tbaa !38
+  store i64 %33, ptr %15, align 8, !tbaa !37
   br label %rioWriteBulkCount.exit.thread
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %.02738.i.i, i64 %25
   %36 = sub i64 %.02539.i.i, %25
-  %37 = load i64, ptr %21, align 8, !tbaa !41
+  %37 = load i64, ptr %21, align 8, !tbaa !40
   %38 = add i64 %37, %25
-  store i64 %38, ptr %21, align 8, !tbaa !41
+  store i64 %38, ptr %21, align 8, !tbaa !40
   %.not31.i.i = icmp eq i64 %36, 0
-  br i1 %.not31.i.i, label %39, label %22, !llvm.loop !42
+  br i1 %.not31.i.i, label %39, label %22
 
 rioWriteBulkCount.exit.thread:                    ; preds = %3, %.thread.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #16
@@ -1055,7 +1055,7 @@ rioWriteBulkCount.exit.thread:                    ; preds = %3, %.thread.i.i
   br i1 %.not, label %rioWrite.exit, label %40
 
 40:                                               ; preds = %39
-  %41 = load i64, ptr %15, align 8, !tbaa !38
+  %41 = load i64, ptr %15, align 8, !tbaa !37
   %42 = and i64 %41, 6
   %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %.lr.ph.i, label %rioWrite.exit.thread
@@ -1063,11 +1063,11 @@ rioWriteBulkCount.exit.thread:                    ; preds = %3, %.thread.i.i
 .lr.ph.i:                                         ; preds = %40, %54
   %.02539.i = phi i64 [ %56, %54 ], [ %2, %40 ]
   %.02738.i = phi ptr [ %55, %54 ], [ %1, %40 ]
-  %43 = load i64, ptr %18, align 8, !tbaa !39
+  %43 = load i64, ptr %18, align 8, !tbaa !38
   %.not32.not.i = icmp eq i64 %43, 0
   %44 = call i64 @llvm.umin.i64(i64 %43, i64 %.02539.i)
   %45 = select i1 %.not32.not.i, i64 %.02539.i, i64 %44
-  %46 = load ptr, ptr %19, align 8, !tbaa !40
+  %46 = load ptr, ptr %19, align 8, !tbaa !39
   %.not33.i = icmp eq ptr %46, null
   br i1 %.not33.i, label %48, label %47
 
@@ -1076,28 +1076,28 @@ rioWriteBulkCount.exit.thread:                    ; preds = %3, %.thread.i.i
   br label %48
 
 48:                                               ; preds = %47, %.lr.ph.i
-  %49 = load ptr, ptr %20, align 8, !tbaa !28
+  %49 = load ptr, ptr %20, align 8, !tbaa !27
   %50 = call i64 %49(ptr noundef nonnull %0, ptr noundef %.02738.i, i64 noundef %45) #16
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %.thread.i, label %54
 
 .thread.i:                                        ; preds = %48
-  %52 = load i64, ptr %15, align 8, !tbaa !38
+  %52 = load i64, ptr %15, align 8, !tbaa !37
   %53 = or i64 %52, 2
-  store i64 %53, ptr %15, align 8, !tbaa !38
+  store i64 %53, ptr %15, align 8, !tbaa !37
   br label %rioWrite.exit.thread
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %45
   %56 = sub i64 %.02539.i, %45
-  %57 = load i64, ptr %21, align 8, !tbaa !41
+  %57 = load i64, ptr %21, align 8, !tbaa !40
   %58 = add i64 %57, %45
-  store i64 %58, ptr %21, align 8, !tbaa !41
+  store i64 %58, ptr %21, align 8, !tbaa !40
   %.not31.i = icmp eq i64 %56, 0
-  br i1 %.not31.i, label %rioWrite.exit, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not31.i, label %rioWrite.exit, label %.lr.ph.i
 
 rioWrite.exit:                                    ; preds = %54, %39
-  %59 = load i64, ptr %15, align 8, !tbaa !38
+  %59 = load i64, ptr %15, align 8, !tbaa !37
   %60 = and i64 %59, 6
   %.not.i11 = icmp eq i64 %60, 0
   br i1 %.not.i11, label %.preheader.i13, label %rioWrite.exit.thread
@@ -1105,11 +1105,11 @@ rioWrite.exit:                                    ; preds = %54, %39
 .preheader.i13:                                   ; preds = %rioWrite.exit, %72
   %.02539.i15 = phi i64 [ %74, %72 ], [ 2, %rioWrite.exit ]
   %.02738.i16 = phi ptr [ %73, %72 ], [ @.str, %rioWrite.exit ]
-  %61 = load i64, ptr %18, align 8, !tbaa !39
+  %61 = load i64, ptr %18, align 8, !tbaa !38
   %.not32.not.i17 = icmp eq i64 %61, 0
   %62 = call i64 @llvm.umin.i64(i64 %61, i64 %.02539.i15)
   %63 = select i1 %.not32.not.i17, i64 %.02539.i15, i64 %62
-  %64 = load ptr, ptr %19, align 8, !tbaa !40
+  %64 = load ptr, ptr %19, align 8, !tbaa !39
   %.not33.i18 = icmp eq ptr %64, null
   br i1 %.not33.i18, label %66, label %65
 
@@ -1118,25 +1118,25 @@ rioWrite.exit:                                    ; preds = %54, %39
   br label %66
 
 66:                                               ; preds = %65, %.preheader.i13
-  %67 = load ptr, ptr %20, align 8, !tbaa !28
+  %67 = load ptr, ptr %20, align 8, !tbaa !27
   %68 = call i64 %67(ptr noundef nonnull %0, ptr noundef %.02738.i16, i64 noundef %63) #16
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %.thread.i20, label %72
 
 .thread.i20:                                      ; preds = %66
-  %70 = load i64, ptr %15, align 8, !tbaa !38
+  %70 = load i64, ptr %15, align 8, !tbaa !37
   %71 = or i64 %70, 2
-  store i64 %71, ptr %15, align 8, !tbaa !38
+  store i64 %71, ptr %15, align 8, !tbaa !37
   br label %rioWrite.exit.thread
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %.02738.i16, i64 %63
   %74 = sub i64 %.02539.i15, %63
-  %75 = load i64, ptr %21, align 8, !tbaa !41
+  %75 = load i64, ptr %21, align 8, !tbaa !40
   %76 = add i64 %75, %63
-  store i64 %76, ptr %21, align 8, !tbaa !41
+  store i64 %76, ptr %21, align 8, !tbaa !40
   %.not31.i19 = icmp eq i64 %74, 0
-  br i1 %.not31.i19, label %rioWrite.exit21, label %.preheader.i13, !llvm.loop !42
+  br i1 %.not31.i19, label %rioWrite.exit21, label %.preheader.i13
 
 rioWrite.exit21:                                  ; preds = %72
   %77 = add i64 %2, 2
@@ -1230,7 +1230,7 @@ define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %0, ptr nou
   %.05164 = phi i64 [ 0, %.lr.ph ], [ %27, %69 ]
   %15 = load i64, ptr %5, align 8, !tbaa !12
   %16 = icmp sgt i64 %15, %14
-  br i1 %16, label %18, label %17, !prof !43
+  br i1 %16, label %18, label %17, !prof !41
 
 17:                                               ; preds = %13
   tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 104) #16
@@ -1259,12 +1259,12 @@ define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %0, ptr nou
 31:                                               ; preds = %26
   %32 = load ptr, ptr %4, align 8, !tbaa !12
   %33 = tail call i32 @fflush(ptr noundef %32)
-  %34 = load i64, ptr %8, align 8, !tbaa !41
+  %34 = load i64, ptr %8, align 8, !tbaa !40
   %35 = add i64 %34, %27
   %36 = load i64, ptr %5, align 8, !tbaa !12
   %37 = urem i64 %35, %36
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %40, label %39, !prof !43
+  br i1 %38, label %40, label %39, !prof !41
 
 39:                                               ; preds = %31
   tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 116) #16
@@ -1274,7 +1274,7 @@ define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %0, ptr nou
 40:                                               ; preds = %31
   %41 = load i64, ptr %7, align 8, !tbaa !12
   %42 = icmp eq i64 %41, %36
-  br i1 %42, label %44, label %43, !prof !43
+  br i1 %42, label %44, label %43, !prof !41
 
 43:                                               ; preds = %40
   tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, i32 noundef 117) #16
@@ -1325,7 +1325,7 @@ define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %0, ptr nou
 69:                                               ; preds = %26, %.critedge
   %70 = phi i64 [ %29, %26 ], [ 0, %.critedge ]
   %.not57 = icmp eq i64 %2, %27
-  br i1 %.not57, label %.critedge62, label %13, !llvm.loop !44
+  br i1 %.not57, label %.critedge62, label %13, !llvm.loop !42
 
 .critedge62:                                      ; preds = %18, %54, %44, %69, %.preheader, %10
   %.0 = phi i64 [ %12, %10 ], [ 1, %.preheader ], [ 0, %18 ], [ 0, %54 ], [ 0, %44 ], [ 1, %69 ]
@@ -1527,7 +1527,7 @@ sdslen.exit50:                                    ; preds = %33, %36, %40, %44, 
   %64 = add i64 %56, %.0.i44.ph69
   %.not43.i = icmp eq i64 %64, %.0.i49
   %65 = sub i64 %.0.i49, %64
-  br i1 %.not43.i, label %rioFdWrite.exit.loopexit, label %.outer60.split, !llvm.loop !45
+  br i1 %.not43.i, label %rioFdWrite.exit.loopexit, label %.outer60.split, !llvm.loop !43
 
 rioFdWrite.exit.loopexit:                         ; preds = %.outer60
   %.pre82 = load ptr, ptr %7, align 8, !tbaa !12
@@ -1671,7 +1671,7 @@ sdslen.exit48:                                    ; preds = %107, %103, %99, %95
   %123 = add i64 %115, %.0.ph71
   %.not43 = icmp eq i64 %123, %.03386
   %124 = sub i64 %.03386, %123
-  br i1 %.not43, label %.outer._crit_edge, label %.outer.split, !llvm.loop !45
+  br i1 %.not43, label %.outer._crit_edge, label %.outer.split, !llvm.loop !43
 
 .outer._crit_edge:                                ; preds = %.outer, %.thread, %sdslen.exit48
   %.03387 = phi i64 [ 0, %sdslen.exit48 ], [ 0, %.thread ], [ %.03386, %.outer ]
@@ -1846,7 +1846,7 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
   %.16185 = phi i64 [ %.262, %.loopexit ], [ %.06089, %.lr.ph92.split ]
   %58 = load ptr, ptr %51, align 8, !tbaa !12
   %59 = getelementptr inbounds nuw %struct.anon.4, ptr %58, i64 %.05686, i32 1
-  %60 = load i32, ptr %59, align 8, !tbaa !46
+  %60 = load i32, ptr %59, align 8, !tbaa !44
   %.not72 = icmp eq i32 %60, 0
   br i1 %.not72, label %.preheader, label %61
 
@@ -1861,9 +1861,9 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
   %65 = load ptr, ptr %64, align 8, !tbaa !21
   %66 = getelementptr inbounds nuw i8, ptr %.15291, i64 %.054
   %67 = sub i64 %56, %.054
-  %68 = load ptr, ptr %65, align 8, !tbaa !30
+  %68 = load ptr, ptr %65, align 8, !tbaa !29
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 128
-  %70 = load ptr, ptr %69, align 8, !tbaa !47
+  %70 = load ptr, ptr %69, align 8, !tbaa !45
   %71 = tail call i32 %70(ptr noundef nonnull %65, ptr noundef %66, i64 noundef %67) #16
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %73, label %82
@@ -1888,21 +1888,21 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
 .thread:                                          ; preds = %.thread.sink.split, %77
   %80 = load ptr, ptr %51, align 8, !tbaa !12
   %81 = getelementptr inbounds nuw %struct.anon.4, ptr %80, i64 %.05686, i32 1
-  store i32 1, ptr %81, align 8, !tbaa !46
+  store i32 1, ptr %81, align 8, !tbaa !44
   br label %.loopexit
 
 82:                                               ; preds = %.preheader
   %83 = zext nneg i32 %71 to i64
   %84 = add i64 %.054, %83
   %.not73 = icmp eq i64 %84, %56
-  br i1 %.not73, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %.not73, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %82, %.thread, %61
   %.262 = phi i64 [ %62, %61 ], [ %.16185, %.thread ], [ %.16185, %82 ]
   %85 = add nuw i64 %.05686, 1
   %86 = load i64, ptr %52, align 8, !tbaa !12
   %87 = icmp ult i64 %85, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 88:                                               ; preds = %._crit_edge
   %89 = getelementptr inbounds nuw i8, ptr %.15291, i64 %56
@@ -1911,7 +1911,7 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
   %92 = add i64 %91, %56
   store i64 %92, ptr %53, align 8, !tbaa !12
   %.not = icmp eq i64 %90, 0
-  br i1 %.not, label %._crit_edge93, label %.lr.ph92.split, !llvm.loop !50
+  br i1 %.not, label %._crit_edge93, label %.lr.ph92.split, !llvm.loop !48
 
 ._crit_edge93:                                    ; preds = %88, %28, %sdslen.exit76
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2000,32 +2000,30 @@ attributes #19 = { noreturn nounwind }
 !20 = !{!"p1 _ZTS10connection", !7, i64 0}
 !21 = !{!22, !20, i64 0}
 !22 = !{!"", !20, i64 0, !16, i64 8}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !11, i64 40}
-!27 = !{!"_rio", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !8, i64 72}
-!28 = !{!27, !7, i64 8}
-!29 = !{!27, !7, i64 0}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"connection", !32, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !14, i64 20, !14, i64 22, !14, i64 24, !7, i64 32, !33, i64 40, !7, i64 48, !7, i64 56, !7, i64 64}
-!32 = !{!"p1 _ZTS14ConnectionType", !7, i64 0}
-!33 = !{!"p1 _ZTS11aeEventLoop", !7, i64 0}
-!34 = !{!35, !7, i64 144}
-!35 = !{!"ConnectionType", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !7, i64 200, !7, i64 208, !7, i64 216, !7, i64 224, !7, i64 232}
-!36 = !{!31, !16, i64 12}
-!37 = distinct !{!37, !24}
-!38 = !{!27, !11, i64 48}
-!39 = !{!27, !11, i64 64}
-!40 = !{!27, !7, i64 32}
-!41 = !{!27, !11, i64 56}
-!42 = distinct !{!42, !25}
-!43 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!44 = distinct !{!44, !24, !25}
-!45 = distinct !{!45, !24, !25}
-!46 = !{!22, !16, i64 8}
-!47 = !{!35, !7, i64 128}
-!48 = distinct !{!48, !24, !25}
-!49 = distinct !{!49, !24, !25}
-!50 = distinct !{!50, !24, !25, !51}
-!51 = !{!"llvm.loop.unswitch.partial.disable"}
+!25 = !{!26, !11, i64 40}
+!26 = !{!"_rio", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !8, i64 72}
+!27 = !{!26, !7, i64 8}
+!28 = !{!26, !7, i64 0}
+!29 = !{!30, !31, i64 0}
+!30 = !{!"connection", !31, i64 0, !16, i64 8, !16, i64 12, !16, i64 16, !14, i64 20, !14, i64 22, !14, i64 24, !7, i64 32, !32, i64 40, !7, i64 48, !7, i64 56, !7, i64 64}
+!31 = !{!"p1 _ZTS14ConnectionType", !7, i64 0}
+!32 = !{!"p1 _ZTS11aeEventLoop", !7, i64 0}
+!33 = !{!34, !7, i64 144}
+!34 = !{!"ConnectionType", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192, !7, i64 200, !7, i64 208, !7, i64 216, !7, i64 224, !7, i64 232}
+!35 = !{!30, !16, i64 12}
+!36 = distinct !{!36, !24}
+!37 = !{!26, !11, i64 48}
+!38 = !{!26, !11, i64 64}
+!39 = !{!26, !7, i64 32}
+!40 = !{!26, !11, i64 56}
+!41 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!42 = distinct !{!42, !24}
+!43 = distinct !{!43, !24}
+!44 = !{!22, !16, i64 8}
+!45 = !{!34, !7, i64 128}
+!46 = distinct !{!46, !24}
+!47 = distinct !{!47, !24}
+!48 = distinct !{!48, !24, !49}
+!49 = !{!"llvm.loop.unswitch.partial.disable"}

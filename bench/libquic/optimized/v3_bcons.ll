@@ -194,6 +194,5 @@ attributes #4 = { nounwind willreturn memory(read) }
 !18 = !{!"p1 omnipotent char", !8, i64 0}
 !19 = !{!17, !18, i64 0}
 !20 = !{!17, !18, i64 16}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}

@@ -233,7 +233,7 @@ define hidden noundef ptr @_ZNK22G1RedirtyCardsQueueSet21all_completed_buffersEv
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSet26take_all_completed_buffersEv(ptr dead_on_unwind noalias writable sret(%struct.BufferNodeList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #6, !srcloc !11
+  %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #6, !srcloc !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -316,7 +316,6 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
 !7 = !{i64 2145412694}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2145412131}
+!10 = !{i64 2145412131}

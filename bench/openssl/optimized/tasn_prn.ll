@@ -621,7 +621,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %0, i3
 8:                                                ; preds = %.lr.ph
   %9 = add nsw i32 %.02330, -20
   %10 = icmp sgt i32 %.02330, 40
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %8, %5
   %.023.lcssa = phi i32 [ %1, %5 ], [ %9, %8 ]
@@ -684,7 +684,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  %8 = load i64, ptr %3, align 8, !tbaa !50
+  %8 = load i64, ptr %3, align 8, !tbaa !49
   %9 = trunc i64 %8 to i32
   %10 = load i64, ptr %4, align 8, !tbaa !3
   %11 = and i64 %10, 128
@@ -693,7 +693,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
+  %14 = load ptr, ptr %13, align 8, !tbaa !51
   %15 = tail call ptr %14() #5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !15
@@ -709,7 +709,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
   br label %24
 
 24:                                               ; preds = %18, %21
@@ -743,7 +743,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
   %.not54 = icmp eq i32 %33, 0
   %.str.12..str.11 = select i1 %.not54, ptr @.str.12, ptr @.str.11
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !53
+  %35 = load ptr, ptr %34, align 8, !tbaa !52
   %36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.12..str.11, ptr noundef %35) #5
   %37 = icmp slt i32 %36, 1
   br i1 %37, label %.loopexit, label %41
@@ -777,7 +777,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
 51:                                               ; preds = %48, %47
   %52 = call ptr @OPENSSL_sk_value(ptr noundef %42, i32 noundef %.04859) #5
   store ptr %52, ptr %7, align 8, !tbaa !12
-  %53 = load ptr, ptr %46, align 8, !tbaa !52
+  %53 = load ptr, ptr %46, align 8, !tbaa !51
   %54 = call ptr %53() #5
   %55 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %45, ptr noundef %54, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4)
   %.not57 = icmp eq i32 %55, 0
@@ -787,7 +787,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
   %57 = add nuw nsw i32 %.04859, 1
   %58 = call i32 @OPENSSL_sk_num(ptr noundef %42) #5
   %59 = icmp slt i32 %57, %58
-  br i1 %59, label %47, label %._crit_edge, !llvm.loop !54
+  br i1 %59, label %47, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge.thread:                               ; preds = %41
   %60 = icmp eq ptr %42, null
@@ -817,7 +817,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef 
 
 70:                                               ; preds = %27
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !52
+  %72 = load ptr, ptr %71, align 8, !tbaa !51
   %73 = tail call ptr %72() #5
   %74 = call fastcc i32 @asn1_item_print_ctx(ptr noundef %0, ptr noundef %.047, i32 noundef %2, ptr noundef %73, ptr noundef %.045, ptr noundef %.046, i32 noundef 0, ptr noundef nonnull %4)
   br label %75
@@ -891,7 +891,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring(ptr noundef %0, 
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !55
+  %9 = load i64, ptr %8, align 8, !tbaa !54
   %10 = and i64 %9, 7
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %10) #5
   %12 = icmp slt i32 %11, 1
@@ -992,13 +992,12 @@ attributes #5 = { nounwind }
 !43 = !{!44, !14, i64 48}
 !44 = !{!"ASN1_EXTERN_FUNCS_st", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64}
 !45 = !{!16, !5, i64 24}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = !{!51, !5, i64 0}
-!51 = !{!"ASN1_TEMPLATE_st", !5, i64 0, !5, i64 8, !5, i64 16, !18, i64 24, !14, i64 32}
-!52 = !{!51, !14, i64 32}
-!53 = !{!51, !18, i64 24}
-!54 = distinct !{!54, !47, !48}
-!55 = !{!36, !5, i64 16}
+!48 = distinct !{!48, !47}
+!49 = !{!50, !5, i64 0}
+!50 = !{!"ASN1_TEMPLATE_st", !5, i64 0, !5, i64 8, !5, i64 16, !18, i64 24, !14, i64 32}
+!51 = !{!50, !14, i64 32}
+!52 = !{!50, !18, i64 24}
+!53 = distinct !{!53, !47}
+!54 = !{!36, !5, i64 16}

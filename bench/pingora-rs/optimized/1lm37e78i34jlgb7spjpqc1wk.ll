@@ -235,7 +235,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %27 = getelementptr inbounds nuw { { { [2 x i64] } }, { i8 }, [7 x i8] }, ptr %20, i64 %.sroa.0.0.i.i
   %28 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr90drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$zstd_safe..DCtx$GT$$GT$$GT$17he6f827c92f49696fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
-          to label %.preheader unwind label %31, !llvm.loop !41
+          to label %.preheader unwind label %31
 
 29:                                               ; preds = %33, %31
   %.sroa.0.1.i.i = phi i64 [ %28, %31 ], [ %35, %33 ]
@@ -251,7 +251,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %34 = getelementptr inbounds nuw { { { [2 x i64] } }, { i8 }, [7 x i8] }, ptr %20, i64 %.sroa.0.1.i.i
   %35 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr90drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$zstd_safe..DCtx$GT$$GT$$GT$17he6f827c92f49696fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #11
-          to label %29 unwind label %36, !llvm.loop !43
+          to label %29 unwind label %36
 
 36:                                               ; preds = %33
   %37 = landingpad { ptr, i32 }
@@ -344,7 +344,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %24 = getelementptr inbounds nuw { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %17, i64 %.sroa.0.0.i.i
   %25 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr100drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hac7dfb839df76f22E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24)
-          to label %.preheader unwind label %28, !llvm.loop !44
+          to label %.preheader unwind label %28
 
 26:                                               ; preds = %30, %28
   %.sroa.0.1.i.i = phi i64 [ %25, %28 ], [ %32, %30 ]
@@ -360,7 +360,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %31 = getelementptr inbounds nuw { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %17, i64 %.sroa.0.1.i.i
   %32 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr100drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hac7dfb839df76f22E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %31) #11
-          to label %26 unwind label %33, !llvm.loop !45
+          to label %26 unwind label %33
 
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
@@ -453,7 +453,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %27 = getelementptr inbounds nuw { { { [2 x i64] } }, { i8 }, [7 x i8] }, ptr %20, i64 %.sroa.0.0.i.i
   %28 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr90drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$zstd_safe..CCtx$GT$$GT$$GT$17hd1962c5f7ba58e45E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
-          to label %.preheader unwind label %31, !llvm.loop !46
+          to label %.preheader unwind label %31
 
 29:                                               ; preds = %33, %31
   %.sroa.0.1.i.i = phi i64 [ %28, %31 ], [ %35, %33 ]
@@ -469,7 +469,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLo
   %34 = getelementptr inbounds nuw { { { [2 x i64] } }, { i8 }, [7 x i8] }, ptr %20, i64 %.sroa.0.1.i.i
   %35 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr90drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$zstd_safe..CCtx$GT$$GT$$GT$17hd1962c5f7ba58e45E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #11
-          to label %29 unwind label %36, !llvm.loop !47
+          to label %29 unwind label %36
 
 36:                                               ; preds = %33
   %37 = landingpad { ptr, i32 }
@@ -649,10 +649,3 @@ attributes #13 = { nounwind }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN12thread_local20ThreadLocal$LT$T$GT$6get_or28_$u7b$$u7b$closure$u7d$$u7d$17he627bdee088ef465E: argument 0"}
 !40 = distinct !{!40, !"_ZN12thread_local20ThreadLocal$LT$T$GT$6get_or28_$u7b$$u7b$closure$u7d$$u7d$17he627bdee088ef465E"}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = distinct !{!43, !42}
-!44 = distinct !{!44, !42}
-!45 = distinct !{!45, !42}
-!46 = distinct !{!46, !42}
-!47 = distinct !{!47, !42}

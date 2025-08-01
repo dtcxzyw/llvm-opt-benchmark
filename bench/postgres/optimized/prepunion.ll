@@ -66,7 +66,7 @@ define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 602
-  %27 = load i8, ptr %26, align 2, !range !7, !noundef !8
+  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %133
 
@@ -103,7 +103,7 @@ define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %37
-  %49 = load i8, ptr %3, align 1, !range !7, !noundef !8
+  %49 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %50 = trunc nuw i8 %49 to i1
   %51 = load ptr, ptr %2, align 8
   tail call fastcc void @build_setop_child_paths(ptr noundef nonnull %0, ptr noundef nonnull %44, i1 noundef zeroext %50, ptr noundef %51, ptr noundef null, ptr noundef null)
@@ -126,7 +126,7 @@ define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %52
-  %65 = load i8, ptr %5, align 1, !range !7, !noundef !8
+  %65 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   tail call fastcc void @build_setop_child_paths(ptr noundef nonnull %0, ptr noundef nonnull %60, i1 noundef zeroext %66, ptr noundef %.pre.i, ptr noundef null, ptr noundef null)
   br label %67
@@ -152,7 +152,7 @@ define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %85 = load i8, ptr %84, align 8, !range !7, !noundef !8
+  %85 = load i8, ptr %84, align 8, !range !6, !noundef !7
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %126, label %87
 
@@ -341,7 +341,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %49, ptr %50, align 8
   store ptr %47, ptr %6, align 8
-  %51 = load i8, ptr %18, align 1, !range !7, !noundef !8
+  %51 = load i8, ptr %18, align 1, !range !6, !noundef !7
   store i8 %51, ptr %7, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #7
   br label %542
@@ -387,8 +387,8 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %74 = load i8, ptr %73, align 8, !range !7, !noundef !8
-  %75 = load i8, ptr %58, align 8, !range !7, !noundef !8
+  %74 = load i8, ptr %73, align 8, !range !6, !noundef !7
+  %75 = load i8, ptr %58, align 8, !range !6, !noundef !7
   %76 = icmp eq i8 %74, %75
   %77 = trunc nuw i8 %74 to i1
   %or.cond.i114 = select i1 %76, i1 true, i1 %77
@@ -418,7 +418,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   br label %107
 
 .thread:                                          ; preds = %67, %78, %83, %72, %61
-  %95 = load i8, ptr %58, align 8, !range !7, !noundef !8
+  %95 = load i8, ptr %58, align 8, !range !6, !noundef !7
   %96 = trunc nuw i8 %95 to i1
   %97 = select i1 %96, ptr null, ptr %0
   %98 = load ptr, ptr %59, align 8
@@ -427,7 +427,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %101 = tail call ptr @lappend(ptr noundef %.035.i151, ptr noundef %100) #7
   %102 = load ptr, ptr %9, align 8
   %103 = tail call ptr @lappend(ptr noundef %.0134149, ptr noundef %102) #7
-  %104 = load i8, ptr %10, align 1, !range !7, !noundef !8
+  %104 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %105 = zext nneg i8 %104 to i32
   %106 = tail call ptr @lappend_int(ptr noundef %.0132150, i32 noundef %105) #7
   br label %107
@@ -438,7 +438,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %.136.i = phi ptr [ %101, %.thread ], [ %.035.i151, %88 ]
   %.3.i = phi ptr [ %64, %.thread ], [ %94, %88 ]
   %.not.i112 = icmp eq ptr %.3.i, null
-  br i1 %.not.i112, label %plan_union_children.exit, label %61, !llvm.loop !9
+  br i1 %.not.i112, label %plan_union_children.exit, label %61
 
 plan_union_children.exit:                         ; preds = %107, %56
   %.0134.lcssa = phi ptr [ null, %56 ], [ %.1135, %107 ]
@@ -453,7 +453,7 @@ plan_union_children.exit:                         ; preds = %107, %56
   %112 = tail call fastcc ptr @generate_append_tlist(ptr noundef %109, ptr noundef %111, ptr noundef %.0134.lcssa, ptr noundef %5)
   store ptr %112, ptr %6, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %114 = load i8, ptr %113, align 8, !range !7, !noundef !8
+  %114 = load i8, ptr %113, align 8, !range !6, !noundef !7
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %148, label %116
 
@@ -607,7 +607,7 @@ generate_setop_grouplist.exit:                    ; preds = %.lr.ph6.i, %list_he
 
 195:                                              ; preds = %191, %186
   %196 = add nuw nsw i32 %.sroa.14.0.i, 1
-  br label %155, !llvm.loop !10
+  br label %155, !llvm.loop !8
 
 .lr.ph199:                                        ; preds = %.lr.ph163, %.critedge.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.i ], [ 0, %.lr.ph163 ]
@@ -690,7 +690,7 @@ generate_setop_grouplist.exit:                    ; preds = %.lr.ph6.i, %list_he
 
 231:                                              ; preds = %229
   %232 = getelementptr inbounds nuw i8, ptr %199, i64 26
-  %233 = load i8, ptr %232, align 2, !range !7, !noundef !8
+  %233 = load i8, ptr %232, align 2, !range !6, !noundef !7
   %234 = trunc nuw i8 %233 to i1
   br i1 %234, label %235, label %.critedge.i
 
@@ -733,13 +733,13 @@ generate_setop_grouplist.exit:                    ; preds = %.lr.ph6.i, %list_he
   br i1 %exitcond.not, label %.critedge226.i.thread, label %249
 
 .critedge226.i:                                   ; preds = %.preheader
-  %255 = load i8, ptr @enable_parallel_append, align 1, !range !7, !noundef !8
+  %255 = load i8, ptr @enable_parallel_append, align 1, !range !6, !noundef !7
   %256 = trunc nuw i8 %255 to i1
   br i1 %256, label %list_length.exit106, label %264
 
 .critedge226.i.thread:                            ; preds = %249, %.lr.ph209
   %.0196.i.lcssa147 = phi i32 [ 0, %.lr.ph209 ], [ %254, %249 ]
-  %257 = load i8, ptr @enable_parallel_append, align 1, !range !7, !noundef !8
+  %257 = load i8, ptr @enable_parallel_append, align 1, !range !6, !noundef !7
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %list_length.exit108.thread, label %264
 
@@ -761,12 +761,12 @@ list_length.exit106:                              ; preds = %list_length.exit108
   %266 = tail call ptr @create_append_path(ptr noundef nonnull %1, ptr noundef nonnull %204, ptr noundef null, ptr noundef %.0190.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.1197.i, i1 noundef zeroext %265, double noundef -1.000000e+00) #7
   %267 = load ptr, ptr %207, align 8
   %268 = tail call ptr @create_gather_path(ptr noundef nonnull %1, ptr noundef nonnull %204, ptr noundef %266, ptr noundef %267, ptr noundef null, ptr noundef null) #7
-  %269 = load i8, ptr %113, align 8, !range !7, !noundef !8
+  %269 = load i8, ptr %113, align 8, !range !6, !noundef !7
   %270 = trunc nuw i8 %269 to i1
   br i1 %270, label %318, label %273
 
 .thread140:                                       ; preds = %.critedge224.i
-  %271 = load i8, ptr %113, align 8, !range !7, !noundef !8
+  %271 = load i8, ptr %113, align 8, !range !6, !noundef !7
   %272 = trunc nuw i8 %271 to i1
   br i1 %272, label %.thread144, label %273
 
@@ -989,7 +989,7 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   br i1 %382, label %383, label %386
 
 383:                                              ; preds = %379
-  %384 = load i8, ptr %13, align 1, !range !7, !noundef !8
+  %384 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %385 = trunc nuw i8 %384 to i1
   call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %329, i1 noundef zeroext %385, ptr noundef %337, ptr noundef %.0125.i, ptr noundef nonnull %16)
   br label %389
@@ -1007,7 +1007,7 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   br i1 %392, label %393, label %397
 
 393:                                              ; preds = %389
-  %394 = load i8, ptr %14, align 1, !range !7, !noundef !8
+  %394 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %395 = trunc nuw i8 %394 to i1
   %396 = load ptr, ptr %12, align 8
   call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %334, i1 noundef zeroext %395, ptr noundef %396, ptr noundef %.0125.i, ptr noundef nonnull %17)
@@ -1059,7 +1059,7 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   %424 = icmp eq i32 %423, 3
   %425 = load double, ptr %16, align 8
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %427 = load i8, ptr %426, align 8, !range !7, !noundef !8
+  %427 = load i8, ptr %426, align 8, !range !6, !noundef !7
   %428 = trunc nuw i8 %427 to i1
   br i1 %424, label %429, label %433
 
@@ -1095,13 +1095,13 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
 
 443:                                              ; preds = %440
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %445 = load i8, ptr %444, align 8, !range !7, !noundef !8
+  %445 = load i8, ptr %444, align 8, !range !6, !noundef !7
   %446 = zext nneg i8 %445 to i32
   br label %456
 
 447:                                              ; preds = %440
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %449 = load i8, ptr %448, align 8, !range !7, !noundef !8
+  %449 = load i8, ptr %448, align 8, !range !6, !noundef !7
   %450 = trunc nuw i8 %449 to i1
   %451 = select i1 %450, i32 3, i32 2
   br label %456
@@ -1200,7 +1200,7 @@ generate_union_paths.exit:                        ; preds = %319, %318, %list_le
   %497 = load ptr, ptr %6, align 8
   %498 = call fastcc ptr @generate_setop_tlist(ptr noundef %3, ptr noundef %4, i32 noundef 0, i1 noundef zeroext false, ptr noundef %497, ptr noundef %5, ptr noundef %19)
   store ptr %498, ptr %6, align 8
-  %499 = load i8, ptr %19, align 1, !range !7, !noundef !8
+  %499 = load i8, ptr %19, align 1, !range !6, !noundef !7
   store i8 %499, ptr %7, align 1
   %500 = load ptr, ptr %6, align 8
   %501 = call ptr @make_pathtarget_from_tlist(ptr noundef %500) #7
@@ -1475,7 +1475,7 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly captures(a
   store i32 %96, ptr %97, align 8
   %98 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %93) #7
   %99 = add i32 %.sroa.18.0, 1
-  br label %16, !llvm.loop !11
+  br label %16, !llvm.loop !9
 }
 
 declare ptr @set_pathtarget_cost_width(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1698,7 +1698,7 @@ list_head.exit102:                                ; preds = %.lr.ph112
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i32 %104, ptr %105, align 8
   %106 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %101) #7
-  br label %.critedge96.split.split.split, !llvm.loop !12
+  br label %.critedge96.split.split.split, !llvm.loop !10
 }
 
 declare zeroext i1 @grouping_is_sortable(ptr noundef) local_unnamed_addr #2
@@ -1724,7 +1724,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   %14 = load ptr, ptr %8, align 8
   %15 = tail call ptr @fetch_upper_rel(ptr noundef %14, i32 noundef 7, ptr noundef null) #7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 26
-  %17 = load i8, ptr %16, align 2, !range !7, !noundef !8
+  %17 = load i8, ptr %16, align 2, !range !6, !noundef !7
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 26
   store i8 %17, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1786,7 +1786,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   br i1 %46, label %49, label %57
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph.split.preheader, %.lr.ph.split.us.preheader, %13
-  %47 = load i8, ptr %18, align 2, !range !7, !noundef !8
+  %47 = load i8, ptr %18, align 2, !range !6, !noundef !7
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %85, label %96
 
@@ -1812,7 +1812,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 584
   %64 = load double, ptr %63, align 8
   %.pre = load i32, ptr %7, align 4
-  %.pre115 = load i8, ptr @enable_incremental_sort, align 1, !range !7
+  %.pre115 = load i8, ptr @enable_incremental_sort, align 1, !range !6
   br i1 %46, label %._crit_edge, label %65
 
 ._crit_edge:                                      ; preds = %61
@@ -1920,13 +1920,13 @@ postprocess_setop_rel.exit:                       ; preds = %96, %98
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 598
-  %113 = load i8, ptr %112, align 2, !range !7, !noundef !8
+  %113 = load i8, ptr %112, align 2, !range !6, !noundef !7
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %119, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %102, i64 44
-  %117 = load i8, ptr %116, align 4, !range !7, !noundef !8
+  %117 = load i8, ptr %116, align 4, !range !6, !noundef !7
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %124
 
@@ -2062,12 +2062,10 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

@@ -948,7 +948,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next100, %143
-  br i1 %144, label %.lr.ph94, label %._crit_edge, !llvm.loop !11
+  br i1 %144, label %.lr.ph94, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %140, %.preheader
   %.lcssa89 = phi i32 [ %16, %.preheader ], [ %142, %140 ]
@@ -1138,7 +1138,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
   store i8 %108, ptr %109, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %97, %79, %70
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
@@ -1146,7 +1146,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next85, %112
-  br i1 %113, label %.lr.ph79, label %._crit_edge, !llvm.loop !13
+  br i1 %113, label %.lr.ph79, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.lcssa74 = phi i32 [ %16, %.preheader ], [ %111, %.loopexit ]
@@ -1187,7 +1187,7 @@ define hidden noundef range(i32 0, 104) i32 @_ZN15JvmtiExtensions18set_event_cal
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !13
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -1503,7 +1503,7 @@ _ZN13GrowableArrayIP26jvmtiExtensionFunctionInfoE8allocateEv.exit: ; preds = %7,
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !15
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1519,7 +1519,7 @@ _ZN13GrowableArrayIP26jvmtiExtensionFunctionInfoE8allocateEv.exit: ; preds = %7,
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !16
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1609,7 +1609,7 @@ _ZN13GrowableArrayIP23jvmtiExtensionEventInfoE8allocateEv.exit: ; preds = %7, %1
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1625,7 +1625,7 @@ _ZN13GrowableArrayIP23jvmtiExtensionEventInfoE8allocateEv.exit: ; preds = %7, %1
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1671,14 +1671,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392998}
 !7 = !{i64 2145392468}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

@@ -116,7 +116,7 @@ inode_namelen.exit.i:                             ; preds = %21, %21
   %39 = getelementptr inbounds nuw i8, ptr %.0.i6.i, i64 1
   %40 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 1
   store i8 %37, ptr %.05.i.i, align 1
-  br label %36, !llvm.loop !9
+  br label %36, !llvm.loop !8
 
 inode_alloc.exit:                                 ; preds = %36, %36
   store i8 0, ptr %.05.i.i, align 1
@@ -144,7 +144,7 @@ inode_insert.exit:                                ; preds = %42, %45
   %48 = call ptr @inode_nextname(ptr noundef nonnull %20) #6
   %49 = load i8, ptr %48, align 1
   %.not = icmp eq i8 %49, 0
-  br i1 %.not, label %.preheader, label %.preheader43, !llvm.loop !10
+  br i1 %.not, label %.preheader, label %.preheader43
 
 50:                                               ; preds = %.preheader, %52
   %.0.i.i33 = phi ptr [ %53, %52 ], [ %.023.lcssa, %.preheader ]
@@ -191,7 +191,7 @@ inode_namelen.exit.i34:                           ; preds = %50, %50
   %68 = getelementptr inbounds nuw i8, ptr %.0.i6.i38, i64 1
   %69 = getelementptr inbounds nuw i8, ptr %.05.i.i37, i64 1
   store i8 %66, ptr %.05.i.i37, align 1
-  br label %65, !llvm.loop !9
+  br label %65, !llvm.loop !8
 
 inode_alloc.exit40:                               ; preds = %65, %65
   store i8 0, ptr %.05.i.i37, align 1
@@ -263,8 +263,6 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
+!8 = distinct !{!8, !7}

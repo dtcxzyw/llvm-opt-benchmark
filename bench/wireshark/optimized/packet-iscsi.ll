@@ -2773,7 +2773,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   %.11476.biased = add i32 %.11476, 3
   %.21477 = and i32 %.11476.biased, -4
   %431 = icmp ult i32 %.21477, %400
-  br i1 %431, label %403, label %.loopexit, !llvm.loop !11
+  br i1 %431, label %403, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %430, %398, %378
   %.11470 = phi i32 [ 0, %378 ], [ 0, %398 ], [ %.31472, %430 ]
@@ -5177,7 +5177,7 @@ define internal fastcc noundef i32 @handleDataSegmentAsTextKeys(ptr noundef read
 228:                                              ; preds = %225, %220, %214, %208, %202, %196, %190, %184, %176, %168, %160, %152, %146, %140, %134, %128, %122, %114, %106, %98, %90, %84, %78, %72, %66, %60, %52, %46, %38, %32
   %229 = add i32 %21, %.0173.i
   %230 = icmp slt i32 %229, %16
-  br i1 %230, label %19, label %addTextKeys.exit, !llvm.loop !12
+  br i1 %230, label %19, label %addTextKeys.exit, !llvm.loop !11
 
 addTextKeys.exit:                                 ; preds = %228, %19, %13, %10
   %.1 = phi i32 [ %4, %10 ], [ %4, %13 ], [ %229, %228 ], [ %.0173.i, %19 ]
@@ -5491,8 +5491,7 @@ attributes #13 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

@@ -161,25 +161,25 @@ define internal i32 @aura_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 2
-  %90 = load i32, ptr %29, align 8, !tbaa !37
+  %90 = load i32, ptr %29, align 8, !tbaa !36
   %91 = sub nsw i32 %90, %.lcssa82
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %89, i64 %92
-  %94 = load i32, ptr %30, align 4, !tbaa !37
+  %94 = load i32, ptr %30, align 4, !tbaa !36
   %95 = sub nsw i32 %94, %.lcssa
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %88, i64 %96
-  %98 = load i32, ptr %31, align 8, !tbaa !37
+  %98 = load i32, ptr %31, align 8, !tbaa !36
   %99 = sub nsw i32 %98, %.lcssa
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %87, i64 %100
   %102 = add nuw nsw i32 %.072103, 1
   %103 = load i32, ptr %10, align 4, !tbaa !31
   %104 = icmp slt i32 %102, %103
-  br i1 %104, label %32, label %._crit_edge108, !llvm.loop !38
+  br i1 %104, label %32, label %._crit_edge108, !llvm.loop !37
 
 ._crit_edge108:                                   ; preds = %._crit_edge, %20
-  store i32 1, ptr %2, align 4, !tbaa !37
+  store i32 1, ptr %2, align 4, !tbaa !36
   %105 = load i32, ptr %8, align 8, !tbaa !30
   br label %106
 
@@ -233,8 +233,7 @@ attributes #3 = { nounwind }
 !31 = !{!5, !10, i64 116}
 !32 = !{!14, !14, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !35, !36}
+!36 = !{!10, !10, i64 0}
+!37 = distinct !{!37, !35}

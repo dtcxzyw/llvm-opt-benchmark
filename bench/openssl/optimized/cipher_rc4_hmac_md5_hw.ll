@@ -337,7 +337,7 @@ define internal void @cipher_hw_rc4_hmac_md5_init_mackey(ptr noundef %0, ptr nou
   store i8 %23, ptr %21, align 1, !tbaa !8
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 64
-  br i1 %exitcond28.not, label %24, label %20, !llvm.loop !27
+  br i1 %exitcond28.not, label %24, label %20, !llvm.loop !26
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1316
@@ -410,7 +410,6 @@ attributes #6 = { nounwind }
 !21 = !{!10, !5, i64 1496}
 !22 = !{!10, !5, i64 1428}
 !23 = !{!10, !5, i64 1424}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
+!26 = distinct !{!26, !25}

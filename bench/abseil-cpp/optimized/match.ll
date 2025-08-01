@@ -110,9 +110,9 @@ define dso_local noundef zeroext i1 @_ZN4absl21StrContainsIgnoreCaseESt17basic_s
   %4 = alloca [3 x i8], align 1
   %5 = zext i8 %2 to i64
   %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal8kToUpperE, i64 0, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !7
+  %7 = load i8, ptr %6, align 1, !tbaa !6
   %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal8kToLowerE, i64 0, i64 %5
-  %9 = load i8, ptr %8, align 1, !tbaa !7
+  %9 = load i8, ptr %8, align 1, !tbaa !6
   %10 = icmp eq i8 %7, %9
   br i1 %10, label %11, label %19
 
@@ -133,11 +133,11 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %11
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #11
-  store i8 %9, ptr %4, align 1, !tbaa !7
+  store i8 %9, ptr %4, align 1, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %7, ptr %20, align 1, !tbaa !7
+  store i8 %7, ptr %20, align 1, !tbaa !6
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 0, ptr %21, align 1, !tbaa !7
+  store i8 0, ptr %21, align 1, !tbaa !6
   %22 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %.not.i.i7 = icmp ne i64 %22, 0
   %23 = icmp ne i64 %0, 0
@@ -147,7 +147,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %11
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8:    ; preds = %19, %28
   %.01116.i.i = phi i64 [ %29, %28 ], [ 0, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.01116.i.i
-  %25 = load i8, ptr %24, align 1, !tbaa !7
+  %25 = load i8, ptr %24, align 1, !tbaa !6
   %26 = sext i8 %25 to i32
   %27 = call ptr @memchr(ptr noundef nonnull %4, i32 noundef %26, i64 noundef %22) #11
   %.not13.not.i.i = icmp eq ptr %27, null
@@ -156,7 +156,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8:    ; preds = %19, %28
 28:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8
   %29 = add nuw i64 %.01116.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %29, %0
-  br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.loopexit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.loopexit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8, !llvm.loop !9
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.loopexit: ; preds = %28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8
   %.2.i.i.ph = phi i64 [ -1, %28 ], [ %.01116.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i8 ]
@@ -210,13 +210,13 @@ _ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ;
 define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %0, ptr %1, i64 %2, ptr readonly captures(none) %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %2, i64 %0)
   %5 = icmp ult i64 %.sroa.speculated, 8
-  br i1 %5, label %.preheader, label %.preheader82, !prof !11
+  br i1 %5, label %.preheader, label %.preheader82, !prof !10
 
 .preheader:                                       ; preds = %4, %7
   %.0 = phi i64 [ %6, %7 ], [ 0, %4 ]
   %6 = add i64 %.0, 2
   %.not57 = icmp ugt i64 %6, %.sroa.speculated
-  br i1 %.not57, label %14, label %7, !prof !11
+  br i1 %.not57, label %14, label %7, !prof !10
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
@@ -224,7 +224,7 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.0
   %.0.copyload.i.i61 = load i16, ptr %9, align 1
   %.not59 = icmp eq i16 %.0.copyload.i.i, %.0.copyload.i.i61
-  br i1 %.not59, label %.preheader, label %.thread, !prof !12
+  br i1 %.not59, label %.preheader, label %.thread, !prof !11
 
 .thread:                                          ; preds = %7
   %10 = xor i16 %.0.copyload.i.i61, %.0.copyload.i.i
@@ -236,13 +236,13 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
 
 14:                                               ; preds = %.preheader
   %.not58 = icmp eq i64 %.0, %.sroa.speculated
-  br i1 %.not58, label %42, label %15, !prof !11
+  br i1 %.not58, label %42, label %15, !prof !10
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
-  %17 = load i8, ptr %16, align 1, !tbaa !7
+  %17 = load i8, ptr %16, align 1, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %.0
-  %19 = load i8, ptr %18, align 1, !tbaa !7
+  %19 = load i8, ptr %18, align 1, !tbaa !6
   %20 = icmp eq i8 %17, %19
   %21 = zext i1 %20 to i64
   %spec.select60 = or disjoint i64 %.0, %21
@@ -255,7 +255,7 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 %.4
   %.0.copyload.i.i63 = load i64, ptr %23, align 1
   %.not = icmp eq i64 %.0.copyload.i.i62, %.0.copyload.i.i63
-  br i1 %.not, label %29, label %24, !prof !12
+  br i1 %.not, label %29, label %24, !prof !11
 
 24:                                               ; preds = %.preheader82
   %25 = xor i64 %.0.copyload.i.i63, %.0.copyload.i.i62
@@ -268,7 +268,7 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
   %30 = add i64 %.4, 8
   %31 = add i64 %.4, 16
   %32 = icmp ult i64 %31, %.sroa.speculated
-  br i1 %32, label %.preheader82, label %33, !prof !12, !llvm.loop !13
+  br i1 %32, label %.preheader82, label %33, !prof !11, !llvm.loop !12
 
 33:                                               ; preds = %29
   %34 = add i64 %.sroa.speculated, -8
@@ -277,7 +277,7 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %34
   %.0.copyload.i.i65 = load i64, ptr %36, align 1
   %.not56 = icmp eq i64 %.0.copyload.i.i64, %.0.copyload.i.i65
-  br i1 %.not56, label %42, label %37, !prof !11
+  br i1 %.not56, label %42, label %37, !prof !10
 
 37:                                               ; preds = %33
   %38 = xor i64 %.0.copyload.i.i65, %.0.copyload.i.i64
@@ -312,15 +312,15 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonSuffixESt17basic_strin
   %.pn24 = phi ptr [ %7, %6 ], [ %.01027, %14 ]
   %.0926 = getelementptr inbounds i8, ptr %.pn, i64 -1
   %.01027 = getelementptr inbounds i8, ptr %.pn24, i64 -1
-  %11 = load i8, ptr %.01027, align 1, !tbaa !7
-  %12 = load i8, ptr %.0926, align 1, !tbaa !7
+  %11 = load i8, ptr %.01027, align 1, !tbaa !6
+  %12 = load i8, ptr %.0926, align 1, !tbaa !6
   %13 = icmp eq i8 %11, %12
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %15, %.sroa.speculated
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !13
 
 .critedge:                                        ; preds = %10, %14, %4
   %.sroa.321.0 = phi ptr [ null, %4 ], [ %scevgep, %14 ], [ %.pn24, %10 ]
@@ -361,15 +361,13 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !5, !6}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.estimated_trip_count", i32 2001}
-!15 = distinct !{!15, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = distinct !{!9, !5}
+!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

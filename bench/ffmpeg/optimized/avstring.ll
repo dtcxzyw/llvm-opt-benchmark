@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @av_strstart(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not16, label %.critedge.thread, label %12
 
 12:                                               ; preds = %.critedge
-  store ptr %.0.lcssa, ptr %2, align 8, !tbaa !10
+  store ptr %.0.lcssa, ptr %2, align 8, !tbaa !9
   %.pre = load i8, ptr %.011.lcssa, align 1, !tbaa !4
   %13 = icmp eq i8 %.pre, 0
   %14 = zext i1 %13 to i32
@@ -82,7 +82,7 @@ define range(i32 0, 2) i32 @av_stristart(ptr noundef %0, ptr noundef readonly ca
   %16 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   %17 = load i8, ptr %15, align 1, !tbaa !4
   %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %14, %3
   %.011.lcssa = phi ptr [ %1, %3 ], [ %15, %14 ]
@@ -91,7 +91,7 @@ define range(i32 0, 2) i32 @av_stristart(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not18, label %.critedge.thread, label %18
 
 18:                                               ; preds = %.critedge
-  store ptr %.0.lcssa, ptr %2, align 8, !tbaa !10
+  store ptr %.0.lcssa, ptr %2, align 8, !tbaa !9
   %.pre = load i8, ptr %.011.lcssa, align 1, !tbaa !4
   %19 = icmp eq i8 %.pre, 0
   %20 = zext i1 %19 to i32
@@ -135,13 +135,13 @@ define ptr @av_stristr(ptr noundef readonly captures(ret: address, provenance) %
   %15 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   %16 = load i8, ptr %14, align 1, !tbaa !4
   %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %av_stristart.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %av_stristart.exit, label %.lr.ph.i, !llvm.loop !12
 
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   %19 = load i8, ptr %.07, align 1, !tbaa !4
   %.not9 = icmp eq i8 %19, 0
-  br i1 %.not9, label %av_stristart.exit, label %.preheader, !llvm.loop !14
+  br i1 %.not9, label %av_stristart.exit, label %.preheader, !llvm.loop !13
 
 av_stristart.exit:                                ; preds = %17, %13, %2
   %.0 = phi ptr [ %0, %2 ], [ %.07, %13 ], [ null, %17 ]
@@ -169,7 +169,7 @@ define ptr @av_strnstr(ptr noundef readonly captures(ret: address, provenance) %
   %6 = add i64 %.01118, -1
   %7 = getelementptr inbounds nuw i8, ptr %.01217, i64 1
   %.not14 = icmp ult i64 %6, %4
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %.preheader, %3
   %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ %.01217, %.lr.ph ], [ null, %5 ]
@@ -199,7 +199,7 @@ define i64 @av_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
 .lr.ph:                                           ; preds = %.lr.ph51
   %7 = load i8, ptr %10, align 1, !tbaa !4
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %.critedge, label %.lr.ph51, !llvm.loop !16
+  br i1 %.not, label %.critedge, label %.lr.ph51, !llvm.loop !15
 
 .lr.ph51:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %8 = phi i8 [ %7, %.lr.ph ], [ %6, %.lr.ph.preheader ]
@@ -211,7 +211,7 @@ define i64 @av_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
   store i8 %8, ptr %.091449, align 1, !tbaa !4
   %12 = add nuw i64 %9, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %3
   %.010.lcssa = phi ptr [ %1, %3 ], [ %1, %.lr.ph.preheader ], [ %10, %.lr.ph ]
@@ -262,7 +262,7 @@ define i64 @av_strlcat(ptr noundef captures(none) %0, ptr noundef readonly captu
 .lr.ph.i:                                         ; preds = %.lr.ph
   %14 = load i8, ptr %17, align 1, !tbaa !4
   %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph, !llvm.loop !16
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %15 = phi i8 [ %14, %.lr.ph.i ], [ %13, %.lr.ph.preheader.i ]
@@ -274,7 +274,7 @@ define i64 @av_strlcat(ptr noundef captures(none) %0, ptr noundef readonly captu
   store i8 %15, ptr %.0914.i19, align 1, !tbaa !4
   %19 = add nuw i64 %16, 1
   %exitcond.not.i = icmp eq i64 %19, %10
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.preheader.i, %8
   %.010.lcssa.i = phi ptr [ %1, %8 ], [ %1, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
@@ -345,7 +345,7 @@ define ptr @av_asprintf(ptr noundef readonly captures(none) %0, ...) local_unnam
   %7 = add nuw nsw i32 %4, 1
   %8 = zext nneg i32 %7 to i64
   %9 = call noalias ptr @av_malloc(i64 noundef %8) #19
-  store ptr %9, ptr %2, align 8, !tbaa !10
+  store ptr %9, ptr %2, align 8, !tbaa !9
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
 
@@ -358,7 +358,7 @@ define ptr @av_asprintf(ptr noundef readonly captures(none) %0, ...) local_unnam
 
 13:                                               ; preds = %10
   call void @av_freep(ptr noundef nonnull %2) #19
-  %.pre = load ptr, ptr %2, align 8, !tbaa !10
+  %.pre = load ptr, ptr %2, align 8, !tbaa !9
   br label %14
 
 14:                                               ; preds = %10, %13, %6, %1
@@ -374,7 +374,7 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @av_get_token(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
+  %3 = load ptr, ptr %0, align 8, !tbaa !9
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @av_malloc(i64 noundef %5) #19
@@ -382,7 +382,7 @@ define ptr @av_get_token(ptr noundef captures(none) %0, ptr noundef readonly cap
   br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !10
+  %8 = load ptr, ptr %0, align 8, !tbaa !9
   %9 = tail call i64 @strspn(ptr noundef %8, ptr noundef nonnull @.str) #18
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
@@ -429,7 +429,7 @@ define ptr @av_get_token(ptr noundef captures(none) %0, ptr noundef readonly cap
   %23 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %.242, i64 1
   store i8 %21, ptr %.242, align 1, !tbaa !4
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !16
 
 .critedge2:                                       ; preds = %.preheader, %.preheader
   %.not54 = icmp ne i8 %21, 0
@@ -449,7 +449,7 @@ define ptr @av_get_token(ptr noundef captures(none) %0, ptr noundef readonly cap
   %.1 = phi ptr [ %19, %18 ], [ %15, %25 ], [ %spec.select55, %.critedge2 ]
   %28 = load i8, ptr %.1, align 1, !tbaa !4
   %.not47 = icmp eq i8 %28, 0
-  br i1 %.not47, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not47, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %27, %7
   %.040.lcssa = phi ptr [ %6, %7 ], [ %.141, %27 ], [ %.04057, %.lr.ph ]
@@ -467,10 +467,10 @@ define ptr @av_get_token(ptr noundef captures(none) %0, ptr noundef readonly cap
 31:                                               ; preds = %29
   %32 = tail call i64 @strspn(ptr noundef nonnull %30, ptr noundef nonnull @.str) #18
   %.not50 = icmp eq i64 %32, 0
-  br i1 %.not50, label %.critedge4, label %29, !llvm.loop !19
+  br i1 %.not50, label %.critedge4, label %29, !llvm.loop !18
 
 .critedge4:                                       ; preds = %29, %31
-  store ptr %.037.lcssa, ptr %0, align 8, !tbaa !10
+  store ptr %.037.lcssa, ptr %0, align 8, !tbaa !9
   br label %33
 
 33:                                               ; preds = %2, %.critedge4
@@ -486,7 +486,7 @@ define noundef ptr @av_strtok(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %2, align 8, !tbaa !10
+  %5 = load ptr, ptr %2, align 8, !tbaa !9
   %.not21 = icmp eq ptr %5, null
   br i1 %.not21, label %17, label %6
 
@@ -514,7 +514,7 @@ define noundef ptr @av_strtok(ptr noundef %0, ptr noundef readonly captures(none
 .sink.split:                                      ; preds = %15, %10, %6
   %storemerge.sink = phi ptr [ null, %6 ], [ %16, %15 ], [ null, %10 ]
   %.0.ph = phi ptr [ null, %6 ], [ %8, %15 ], [ %8, %10 ]
-  store ptr %storemerge.sink, ptr %2, align 8, !tbaa !10
+  store ptr %storemerge.sink, ptr %2, align 8, !tbaa !9
   br label %17
 
 17:                                               ; preds = %.sink.split, %4
@@ -551,7 +551,7 @@ define range(i32 -255, 256) i32 @av_strcasecmp(ptr noundef readonly captures(non
   %16 = and i32 %spec.select.i8, 255
   %17 = icmp eq i32 %14, %16
   %18 = select i1 %15, i1 %17, i1 false
-  br i1 %18, label %3, label %19, !llvm.loop !20
+  br i1 %18, label %3, label %19, !llvm.loop !19
 
 19:                                               ; preds = %3
   %20 = sub nsw i32 %14, %16
@@ -589,7 +589,7 @@ define range(i32 -255, 256) i32 @av_strncasecmp(ptr noundef readonly captures(no
   %19 = and i32 %spec.select.i22, 255
   %20 = icmp eq i32 %15, %19
   %or.cond20 = select i1 %or.cond, i1 %20, i1 false
-  br i1 %or.cond20, label %.preheader, label %.critedge, !llvm.loop !21
+  br i1 %or.cond20, label %.preheader, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %.preheader
   %21 = sub nsw i32 %15, %19
@@ -605,7 +605,7 @@ define ptr @av_strireplace(ptr noundef %0, ptr noundef readonly captures(none) %
   %4 = alloca ptr, align 8
   %5 = alloca %struct.AVBPrint, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  store ptr null, ptr %4, align 8, !tbaa !10
+  store ptr null, ptr %4, align 8, !tbaa !9
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #19
@@ -646,13 +646,13 @@ define ptr @av_strireplace(ptr noundef %0, ptr noundef readonly captures(none) %
   %22 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 1
   %23 = load i8, ptr %21, align 1, !tbaa !4
   %.not.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i, label %av_stristr.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %av_stristr.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 24:                                               ; preds = %.lr.ph.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %26 = load i8, ptr %.07.i, align 1, !tbaa !4
   %.not9.i = icmp eq i8 %26, 0
-  br i1 %.not9.i, label %av_stristr.exit.thread, label %.preheader.i, !llvm.loop !14
+  br i1 %.not9.i, label %av_stristr.exit.thread, label %.preheader.i, !llvm.loop !13
 
 av_stristr.exit:                                  ; preds = %20, %9
   %.0.i = phi ptr [ %.0, %9 ], [ %.07.i, %20 ]
@@ -667,20 +667,20 @@ av_stristr.exit:                                  ; preds = %20, %9
   call void @av_bprint_append_data(ptr noundef nonnull %5, ptr noundef %.0, i32 noundef %31) #19
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %7
   call void @av_bprint_append_data(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %8) #19
-  br label %9, !llvm.loop !22
+  br label %9, !llvm.loop !21
 
 av_stristr.exit.thread:                           ; preds = %av_stristr.exit, %24
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #18
   %34 = trunc i64 %33 to i32
   call void @av_bprint_append_data(ptr noundef nonnull %5, ptr noundef nonnull %.0, i32 noundef %34) #19
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.val = load i32, ptr %35, align 8, !tbaa !23
+  %.val = load i32, ptr %35, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.val15 = load i32, ptr %36, align 4, !tbaa !26
+  %.val15 = load i32, ptr %36, align 4, !tbaa !25
   %.not18 = icmp ult i32 %.val, %.val15
   %. = select i1 %.not18, ptr %4, ptr null
   %37 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef %.) #19
-  %38 = load ptr, ptr %4, align 8, !tbaa !10
+  %38 = load ptr, ptr %4, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   ret ptr %38
@@ -794,7 +794,7 @@ define noalias ptr @av_append_path_component(ptr noundef %0, ptr noundef %1) loc
   store i8 %24, ptr %.0914.i, align 1, !tbaa !4
   %28 = add nuw i64 %23, 1
   %exitcond.not.i = icmp eq i64 %23, %9
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %20
   %.09.lcssa.i = phi ptr [ %18, %20 ], [ %.0914.i, %.lr.ph.i ]
@@ -853,7 +853,7 @@ av_strlcpy.exit:                                  ; preds = %.critedge.i, %.crit
   store i8 %44, ptr %.0914.i62, align 1, !tbaa !4
   %48 = add nuw i64 %43, 1
   %exitcond.not.i65 = icmp eq i64 %43, %10
-  br i1 %exitcond.not.i65, label %.critedge.thread.i53, label %.lr.ph.i60, !llvm.loop !16
+  br i1 %exitcond.not.i65, label %.critedge.thread.i53, label %.lr.ph.i60, !llvm.loop !15
 
 .critedge.i47:                                    ; preds = %.lr.ph.i60, %39
   %.09.lcssa.i49 = phi ptr [ %40, %39 ], [ %.0914.i62, %.lr.ph.i60 ]
@@ -887,9 +887,9 @@ define i32 @av_escape(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   call void @av_bprint_init(ptr noundef nonnull %6, i32 noundef 1, i32 noundef 2147483647) #19
   call void @av_bprint_escape(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val = load i32, ptr %7, align 8, !tbaa !23
+  %.val = load i32, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.val7 = load i32, ptr %8, align 4, !tbaa !26
+  %.val7 = load i32, ptr %8, align 4, !tbaa !25
   %.not = icmp ult i32 %.val, %.val7
   br i1 %.not, label %11, label %9
 
@@ -975,7 +975,7 @@ define range(i32 0, 2) i32 @av_match_name(ptr noundef readonly captures(address_
   %36 = and i32 %spec.select.i22.i, 255
   %37 = icmp eq i32 %32, %36
   %or.cond20.i = select i1 %or.cond.i, i1 %37, i1 false
-  br i1 %or.cond20.i, label %.preheader.i, label %av_strncasecmp.exit, !llvm.loop !21
+  br i1 %or.cond20.i, label %.preheader.i, label %av_strncasecmp.exit, !llvm.loop !20
 
 av_strncasecmp.exit:                              ; preds = %.preheader.i
   br i1 %37, label %.thread, label %38
@@ -998,7 +998,7 @@ av_strncasecmp.exit:                              ; preds = %.preheader.i
   %47 = getelementptr inbounds nuw i8, ptr %.033, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %.not = icmp eq i8 %48, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %43, %5, %.thread, %2
   %.0 = phi i32 [ 0, %2 ], [ %42, %.thread ], [ 0, %5 ], [ 0, %43 ]
@@ -1013,7 +1013,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #9 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !10
+  %5 = load ptr, ptr %1, align 8, !tbaa !9
   %.not = icmp ult ptr %5, %2
   br i1 %.not, label %6, label %.critedge
 
@@ -1067,7 +1067,7 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   %33 = zext i32 %32 to i64
   %34 = and i64 %29, %33
   %.not71 = icmp eq i64 %34, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %27
   %35 = shl i32 %.06298, 6
@@ -1088,7 +1088,7 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   %.165.lcssa113 = phi ptr [ %7, %._crit_edge.thread ], [ %28, %._crit_edge ]
   %43 = zext nneg i32 %.056.lcssa114 to i64
   %44 = getelementptr inbounds nuw [6 x i32], ptr @__const.av_utf8_decode.overlong_encoding_mins, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !29
+  %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %42, %46
   %48 = icmp samesign ugt i64 %42, 2147483647
@@ -1097,7 +1097,7 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
 
 49:                                               ; preds = %41
   %50 = trunc nuw nsw i64 %42 to i32
-  store i32 %50, ptr %0, align 4, !tbaa !29
+  store i32 %50, ptr %0, align 4, !tbaa !28
   %51 = icmp samesign ugt i64 %42, 1114111
   %52 = and i32 %3, 1
   %.not72 = icmp eq i32 %52, 0
@@ -1130,7 +1130,7 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
 .critedge.sink.split:                             ; preds = %23, %.lr.ph, %6, %41, %49
   %.sink = phi ptr [ %7, %6 ], [ %.165.lcssa113, %41 ], [ %.165.lcssa113, %49 ], [ %7, %.lr.ph ], [ %7, %23 ]
   %.0.ph = phi i32 [ -84, %6 ], [ -84, %41 ], [ %spec.select, %49 ], [ -84, %.lr.ph ], [ -84, %23 ]
-  store ptr %.sink, ptr %1, align 8, !tbaa !10
+  store ptr %.sink, ptr %1, align 8, !tbaa !9
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %4
@@ -1163,7 +1163,7 @@ select.unfold65.preheader.us:                     ; preds = %.lr.ph72.split.us
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04371.us, i32 noundef %4) #18
   %.not58.us = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  br i1 %.not58.us, label %.critedge, label %.lr.ph72.split.us, !llvm.loop !30
+  br i1 %.not58.us, label %.critedge, label %.lr.ph72.split.us, !llvm.loop !29
 
 .lr.ph72.split:                                   ; preds = %.lr.ph72, %.critedge2
   %.04371 = phi ptr [ %27, %.critedge2 ], [ %0, %.lr.ph72 ]
@@ -1209,7 +1209,7 @@ select.unfold65.preheader:                        ; preds = %.lr.ph72.split, %.c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.04269, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !4
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 .critedge6:                                       ; preds = %14
   %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.04269, i32 noundef %4) #18
@@ -1271,29 +1271,28 @@ attributes #20 = { noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = !{!24, !25, i64 8}
-!24 = !{!"AVBPrint", !11, i64 0, !25, i64 8, !25, i64 12, !25, i64 16, !5, i64 20, !5, i64 21}
-!25 = !{!"int", !5, i64 0}
-!26 = !{!24, !25, i64 12}
-!27 = distinct !{!27, !8, !9}
-!28 = distinct !{!28, !8, !9}
-!29 = !{!25, !25, i64 0}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = !{!23, !24, i64 8}
+!23 = !{!"AVBPrint", !10, i64 0, !24, i64 8, !24, i64 12, !24, i64 16, !5, i64 20, !5, i64 21}
+!24 = !{!"int", !5, i64 0}
+!25 = !{!23, !24, i64 12}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = !{!24, !24, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !8}

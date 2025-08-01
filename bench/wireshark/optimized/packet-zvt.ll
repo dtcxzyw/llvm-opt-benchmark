@@ -321,7 +321,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
   %17 = tail call i32 @g_hash_table_insert(ptr noundef %12, ptr noundef %16, ptr noundef %13)
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 26
-  br i1 %exitcond22.not, label %18, label %11, !llvm.loop !9
+  br i1 %exitcond22.not, label %18, label %11, !llvm.loop !8
 
 18:                                               ; preds = %11
   %19 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
@@ -338,7 +338,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
   %26 = tail call i32 @g_hash_table_insert(ptr noundef %21, ptr noundef %25, ptr noundef %22)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 10
-  br i1 %exitcond26.not, label %27, label %20, !llvm.loop !10
+  br i1 %exitcond26.not, label %27, label %20, !llvm.loop !9
 
 27:                                               ; preds = %20
   %28 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100)
@@ -623,7 +623,7 @@ dissect_zvt_bitmap.exit:                          ; preds = %17, %32, %35, %38
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %43 = icmp slt i32 %42, 1
-  br i1 %43, label %.loopexit, label %9, !llvm.loop !11
+  br i1 %43, label %.loopexit, label %9, !llvm.loop !10
 
 .loopexit:                                        ; preds = %dissect_zvt_bitmap.exit, %9, %dissect_zvt_bitmap.exit.thread
   ret void
@@ -1045,7 +1045,7 @@ define internal fastcc i32 @dissect_zvt_tlv_seq(ptr noundef %0, i32 noundef %1, 
   %29 = or disjoint i32 %26, %28
   %30 = add i32 %.1.i, 1
   %.not.i = icmp sgt i8 %25, -1
-  br i1 %.not.i, label %dissect_zvt_tlv_tag.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %.not.i, label %dissect_zvt_tlv_tag.exit, label %.preheader.i, !llvm.loop !11
 
 dissect_zvt_tlv_tag.exit:                         ; preds = %24, %.lr.ph
   %.035.i = phi i32 [ %18, %.lr.ph ], [ %29, %24 ]
@@ -1138,7 +1138,7 @@ dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_le
   %.040.be = phi i32 [ %59, %dissect_zvt_tlv_len.exit ], [ %75, %74 ]
   %76 = sub i32 %.040.be, %1
   %77 = icmp slt i32 %76, %13
-  br i1 %77, label %.lr.ph, label %dissect_zvt_tlv_tag.exit.thread, !llvm.loop !13
+  br i1 %77, label %.lr.ph, label %dissect_zvt_tlv_tag.exit.thread, !llvm.loop !12
 
 dissect_zvt_tlv_tag.exit.thread:                  ; preds = %dissect_zvt_tlv_tag.exit, %.backedge, %.preheader.i, %12
   %78 = phi i32 [ 0, %12 ], [ %14, %.preheader.i ], [ %14, %dissect_zvt_tlv_tag.exit ], [ %76, %.backedge ]
@@ -1611,11 +1611,10 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

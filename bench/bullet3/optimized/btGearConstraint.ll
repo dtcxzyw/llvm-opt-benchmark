@@ -254,7 +254,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit14: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %18 = load float, ptr %17, align 4, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store float %18, ptr %19, align 8, !tbaa !34
+  store float %18, ptr %19, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 0, ptr %20, align 4
   ret ptr @.str
@@ -327,12 +327,11 @@ attributes #13 = { nounwind }
 !28 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !15, i64 0, !15, i64 4, !29, i64 8, !29, i64 16, !29, i64 24, !29, i64 32, !14, i64 40, !29, i64 48, !29, i64 56, !29, i64 64, !29, i64 72, !14, i64 80, !15, i64 84}
 !29 = !{!"p1 float", !18, i64 0}
 !30 = !{!28, !29, i64 32}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!35, !15, i64 96}
-!35 = !{!"_ZTS25btGearConstraintFloatData", !36, i64 0, !39, i64 64, !39, i64 80, !15, i64 96, !9, i64 100}
-!36 = !{!"_ZTS26btTypedConstraintFloatData", !37, i64 0, !37, i64 8, !38, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !15, i64 40, !15, i64 44, !14, i64 48, !14, i64 52, !15, i64 56, !14, i64 60}
-!37 = !{!"p1 _ZTS20btRigidBodyFloatData", !18, i64 0}
-!38 = !{!"p1 omnipotent char", !18, i64 0}
-!39 = !{!"_ZTS18btVector3FloatData", !9, i64 0}
+!33 = !{!34, !15, i64 96}
+!34 = !{!"_ZTS25btGearConstraintFloatData", !35, i64 0, !38, i64 64, !38, i64 80, !15, i64 96, !9, i64 100}
+!35 = !{!"_ZTS26btTypedConstraintFloatData", !36, i64 0, !36, i64 8, !37, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !15, i64 40, !15, i64 44, !14, i64 48, !14, i64 52, !15, i64 56, !14, i64 60}
+!36 = !{!"p1 _ZTS20btRigidBodyFloatData", !18, i64 0}
+!37 = !{!"p1 omnipotent char", !18, i64 0}
+!38 = !{!"_ZTS18btVector3FloatData", !9, i64 0}

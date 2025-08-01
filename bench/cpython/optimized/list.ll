@@ -434,7 +434,7 @@ define internal noundef ptr @test_list_api(ptr readnone captures(none) %0, ptr r
 33:                                               ; preds = %.critedge
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 30
-  br i1 %exitcond51.not, label %48, label %.preheader, !llvm.loop !31
+  br i1 %exitcond51.not, label %48, label %.preheader, !llvm.loop !30
 
 .preheader:                                       ; preds = %26, %33
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %33 ], [ 0, %26 ]
@@ -564,7 +564,6 @@ attributes #6 = { noreturn nounwind }
 !25 = !{!12, !12, i64 0}
 !26 = !{!5, !5, i64 0}
 !27 = !{!23, !12, i64 32}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
+!30 = distinct !{!30, !29}

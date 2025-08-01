@@ -286,7 +286,7 @@ define internal void @h263_v_loop_filter_c(ptr noundef captures(none) %0, i32 no
   store i8 %59, ptr %gep, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %60, label %14, !llvm.loop !14
+  br i1 %exitcond.not, label %60, label %14, !llvm.loop !13
 
 60:                                               ; preds = %43
   ret void
@@ -315,7 +315,6 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !6, i64 8}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

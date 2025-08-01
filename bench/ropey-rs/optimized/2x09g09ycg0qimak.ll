@@ -167,7 +167,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17
   %13 = extractvalue { i64, i1 } %11, 0
   %.not = icmp uge i64 %13, %1
   %or.cond.not = or i1 %.not, %12
-  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.0.1 = phi i64 [ %7, %2 ], [ %10, %.lr.ph ]
@@ -227,7 +227,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..s
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %7, ptr %0, align 8, !alias.scope !35
+  store ptr %7, ptr %0, align 8, !alias.scope !33
   br label %8
 
 8:                                                ; preds = %1, %6
@@ -310,14 +310,14 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   %20 = getelementptr inbounds nuw { [4 x i64] }, ptr %17, i64 %.sroa.851.062
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %exitcond67.not = icmp eq i64 %18, %8
-  br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !38
+  br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit": ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %.sroa.8.061
   %22 = add nuw nsw i64 %.sroa.8.061, 1
   store ptr %.val, ptr %21, align 8
   %exitcond.not = icmp eq i64 %22, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 23:                                               ; preds = %11
   %24 = landingpad { ptr, i32 }
@@ -447,10 +447,6 @@ attributes #17 = { cold noreturn nounwind }
 !30 = distinct !{!30, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h01be798b0bea9a40E"}
 !31 = !{!32}
 !32 = distinct !{!32, !30, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h01be798b0bea9a40E: argument 0"}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN110_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..unchecked_iterator..UncheckedIterator$GT$14next_unchecked17h3deade0fb0a12938E.llvm.5600706966749493971: argument 0"}
-!37 = distinct !{!37, !"_ZN110_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..unchecked_iterator..UncheckedIterator$GT$14next_unchecked17h3deade0fb0a12938E.llvm.5600706966749493971"}
-!38 = distinct !{!38, !34}
-!39 = distinct !{!39, !34}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN110_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..unchecked_iterator..UncheckedIterator$GT$14next_unchecked17h3deade0fb0a12938E.llvm.5600706966749493971: argument 0"}
+!35 = distinct !{!35, !"_ZN110_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..unchecked_iterator..UncheckedIterator$GT$14next_unchecked17h3deade0fb0a12938E.llvm.5600706966749493971"}

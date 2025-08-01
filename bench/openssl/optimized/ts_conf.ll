@@ -543,13 +543,13 @@ define range(i32 0, 2) i32 @TS_CONF_set_policies(ptr noundef %0, ptr noundef %1,
   %.02335 = phi i32 [ %24, %23 ], [ 0, %8 ]
   %11 = tail call ptr @OPENSSL_sk_value(ptr noundef %.024, i32 noundef %.02335) #4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
   %.not30 = icmp eq ptr %13, null
   br i1 %.not30, label %14, label %17
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !19
   br label %17
 
 17:                                               ; preds = %.lr.ph, %14
@@ -568,7 +568,7 @@ define range(i32 0, 2) i32 @TS_CONF_set_policies(ptr noundef %0, ptr noundef %1,
   %24 = add nuw nsw i32 %.02335, 1
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef %.024) #4
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %.lr.ph, label %.thread, !llvm.loop !21
+  br i1 %26, label %.lr.ph, label %.thread, !llvm.loop !20
 
 .thread.sink.split:                               ; preds = %17, %5
   %.1.ph = phi ptr [ null, %5 ], [ %.024, %17 ]
@@ -630,19 +630,19 @@ define range(i32 0, 2) i32 @TS_CONF_set_digests(ptr noundef %0, ptr noundef %1, 
   %18 = add nuw nsw i32 %.02535, 1
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %8) #4
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !22
+  br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %.02535 = phi i32 [ %18, %17 ], [ 0, %.preheader ]
   %21 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %8, i32 noundef %.02535) #4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !18
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %27
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %26 = load ptr, ptr %25, align 8, !tbaa !19
   br label %27
 
 27:                                               ; preds = %.lr.ph, %24
@@ -706,14 +706,14 @@ define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %0, ptr noundef %1,
   %.03861 = phi i32 [ %43, %42 ], [ 0, %9 ]
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %.029, i32 noundef %.03861) #4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !20
+  %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.17) #5
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
   %.not48 = icmp eq ptr %19, null
   br i1 %.not48, label %42, label %20
 
@@ -729,7 +729,7 @@ define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !18
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
   %.not47 = icmp eq ptr %28, null
   br i1 %.not47, label %42, label %29
 
@@ -745,7 +745,7 @@ define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %0, ptr noundef %1,
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
   %.not46 = icmp eq ptr %37, null
   br i1 %.not46, label %42, label %38
 
@@ -767,7 +767,7 @@ define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %0, ptr noundef %1,
   %43 = add nuw nsw i32 %.03861, 1
   %44 = tail call i32 @OPENSSL_sk_num(ptr noundef %.029) #4
   %45 = icmp slt i32 %43, %44
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %42, %9
   %.035.lcssa = phi i32 [ 0, %9 ], [ %.237.ph, %42 ]
@@ -935,12 +935,11 @@ attributes #5 = { nounwind willreturn memory(read) }
 !12 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
 !13 = !{!"int", !7, i64 0}
 !14 = !{!"p1 omnipotent char", !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !14, i64 16}
-!19 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16}
-!20 = !{!19, !14, i64 8}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
+!17 = !{!18, !14, i64 16}
+!18 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16}
+!19 = !{!18, !14, i64 8}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}

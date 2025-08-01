@@ -359,7 +359,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 .thread:                                          ; preds = %23, %12, %19
   %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.021) #14
   %.not18 = icmp eq ptr %32, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
-  br i1 %.not18, label %.loopexit, label %12, !llvm.loop !25
+  br i1 %.not18, label %.loopexit, label %12, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.thread, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit, %25
   %.2 = phi ptr [ %31, %25 ], [ null, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE18get_const_instanceEv.exit ], [ null, %.thread ]
@@ -528,9 +528,9 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = load ptr, ptr %22, align 8, !tbaa !9
-  %51 = load i64, ptr %26, align 8, !tbaa !26
+  %51 = load i64, ptr %26, align 8, !tbaa !25
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %53 = load i64, ptr %52, align 8, !tbaa !26
+  %53 = load i64, ptr %52, align 8, !tbaa !25
   %54 = load ptr, ptr %47, align 8, !tbaa !20
   %55 = load ptr, ptr %54, align 8
   %56 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(40) %47)
@@ -545,12 +545,12 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %50, ptr %62, align 8, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i64 %58, ptr %63, align 8, !tbaa !26
+  store i64 %58, ptr %63, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store ptr %0, ptr %64, align 8, !tbaa !27
+  store ptr %0, ptr %64, align 8, !tbaa !26
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %45, align 8, !tbaa !20
   %65 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store i8 %60, ptr %65, align 8, !tbaa !28
+  store i8 %60, ptr %65, align 8, !tbaa !27
   invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster18recursive_registerEb(ptr noundef nonnull align 8 dereferenceable(41) %45, i1 noundef zeroext %59)
           to label %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit unwind label %66
 
@@ -626,9 +626,9 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   %92 = load ptr, ptr %32, align 8, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !9
-  %95 = load i64, ptr %26, align 8, !tbaa !26
+  %95 = load i64, ptr %26, align 8, !tbaa !25
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %97 = load i64, ptr %96, align 8, !tbaa !26
+  %97 = load i64, ptr %96, align 8, !tbaa !25
   %98 = load ptr, ptr %92, align 8, !tbaa !20
   %99 = load ptr, ptr %98, align 8
   %100 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(40) %92)
@@ -643,12 +643,12 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr %94, ptr %106, align 8, !tbaa !9
   %107 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store i64 %102, ptr %107, align 8, !tbaa !26
+  store i64 %102, ptr %107, align 8, !tbaa !25
   %108 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  store ptr %0, ptr %108, align 8, !tbaa !27
+  store ptr %0, ptr %108, align 8, !tbaa !26
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %89, align 8, !tbaa !20
   %109 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  store i8 %104, ptr %109, align 8, !tbaa !28
+  store i8 %104, ptr %109, align 8, !tbaa !27
   invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster18recursive_registerEb(ptr noundef nonnull align 8 dereferenceable(41) %89, i1 noundef zeroext %103)
           to label %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit25 unwind label %110
 
@@ -690,7 +690,7 @@ _ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18exten
 119:                                              ; preds = %75, %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18extended_type_infoES5_lbPKNS1_11void_casterE.exit25
   %120 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.030.048) #14
   %.not = icmp eq ptr %120, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
-  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %119, %_ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_caster_compareESaIS5_EE6insertEOS5_.exit
   ret void
@@ -717,7 +717,7 @@ define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail11voi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i8, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !32, !range !33, !noundef !34
+  %2 = load i8, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !31, !range !32, !noundef !33
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %.loopexit, label %4
 
@@ -764,7 +764,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = icmp eq ptr %22, %0
   br i1 %23, label %24, label %32
 
@@ -788,7 +788,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
 34:                                               ; preds = %24, %32, %15
   %.sroa.017.1 = phi ptr [ %16, %15 ], [ %31, %24 ], [ %33, %32 ]
   %.not = icmp eq ptr %.sroa.017.1, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %34, %_ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE20get_mutable_instanceEv.exit, %1
   ret void
@@ -853,7 +853,7 @@ define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail20voi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost13serialization16void_cast_detail20void_caster_shortcut16has_virtual_baseEv(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !28, !range !33, !noundef !34
+  %3 = load i8, ptr %2, align 8, !tbaa !27, !range !32, !noundef !33
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -861,7 +861,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost13serialization16void_c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_detail20void_caster_shortcut6upcastEPKv(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !tbaa !28, !range !33, !noundef !34
+  %4 = load i8, ptr %3, align 8, !tbaa !27, !range !32, !noundef !33
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -871,7 +871,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_det
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !26
+  %10 = load i64, ptr %9, align 8, !tbaa !25
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   br label %13
@@ -884,7 +884,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_det
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_detail20void_caster_shortcut8downcastEPKv(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !tbaa !28, !range !33, !noundef !34
+  %4 = load i8, ptr %3, align 8, !tbaa !27, !range !32, !noundef !33
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -894,7 +894,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_det
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !26
+  %10 = load i64, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds i8, ptr %1, i64 %10
   br label %12
 
@@ -940,7 +940,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !32
+  store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !31
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   invoke void @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -971,13 +971,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost13serialization16void_c
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
   tail call void @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1037,7 +1037,7 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
   %24 = getelementptr inbounds nuw i8, ptr %.02436, i64 %.sink
   %.024 = load ptr, ptr %24, align 8, !tbaa !19
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread28
   br i1 %.0.i.i26, label %._crit_edge.thread, label %30
@@ -1212,7 +1212,7 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
   %25 = getelementptr inbounds nuw i8, ptr %.015.i, i64 %.sink.i
   %.1.i = load ptr, ptr %25, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit, label %.lr.ph.i, !llvm.loop !39
 
 _ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit: ; preds = %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread.i
   %26 = icmp eq ptr %.19.i, %5
@@ -1314,7 +1314,7 @@ _ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_
   %25 = getelementptr inbounds nuw i8, ptr %.015.i, i64 %.sink.i
   %.1.i = load ptr, ptr %25, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit, label %.lr.ph.i, !llvm.loop !40
 
 _ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit: ; preds = %_ZNK5boost13serialization16void_cast_detail19void_caster_compareclEPKNS1_11void_casterES5_.exit.thread.i
   %26 = icmp eq ptr %.19.i, %5
@@ -1407,23 +1407,22 @@ attributes #17 = { noreturn nounwind }
 !19 = !{!5, !5, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"vtable pointer", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = !{!4, !8, i64 24}
-!27 = !{!4, !5, i64 32}
-!28 = !{!29, !30, i64 40}
-!29 = !{!"_ZTSN5boost13serialization16void_cast_detail20void_caster_shortcutE", !4, i64 0, !30, i64 40}
-!30 = !{!"bool", !6, i64 0}
-!31 = distinct !{!31, !23, !24}
-!32 = !{!30, !30, i64 0}
-!33 = !{i8 0, i8 2}
-!34 = !{}
-!35 = distinct !{!35, !23, !24}
-!36 = !{!13, !5, i64 24}
-!37 = !{!13, !5, i64 16}
-!38 = distinct !{!38, !23, !24}
-!39 = distinct !{!39, !23, !24}
-!40 = distinct !{!40, !23, !24}
-!41 = distinct !{!41, !23, !24}
+!24 = distinct !{!24, !23}
+!25 = !{!4, !8, i64 24}
+!26 = !{!4, !5, i64 32}
+!27 = !{!28, !29, i64 40}
+!28 = !{!"_ZTSN5boost13serialization16void_cast_detail20void_caster_shortcutE", !4, i64 0, !29, i64 40}
+!29 = !{!"bool", !6, i64 0}
+!30 = distinct !{!30, !23}
+!31 = !{!29, !29, i64 0}
+!32 = !{i8 0, i8 2}
+!33 = !{}
+!34 = distinct !{!34, !23}
+!35 = !{!13, !5, i64 24}
+!36 = !{!13, !5, i64 16}
+!37 = distinct !{!37, !23}
+!38 = distinct !{!38, !23}
+!39 = distinct !{!39, !23}
+!40 = distinct !{!40, !23}

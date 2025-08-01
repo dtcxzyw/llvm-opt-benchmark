@@ -205,7 +205,7 @@ find_delim.exit:                                  ; preds = %.lr.ph.i, %19, %9
   %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 1
   %spec.select = select i1 %22, ptr %23, ptr %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %spec.select, ptr %24, align 8, !tbaa !22
+  store ptr %spec.select, ptr %24, align 8, !tbaa !21
   %25 = ptrtoint ptr %spec.select to i64
   %26 = sub i64 %12, %25
   %27 = icmp sgt i64 %26, 1
@@ -229,7 +229,7 @@ find_delim.exit:                                  ; preds = %.lr.ph.i, %19, %9
 
 find_delim.exit75.thread:                         ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %36, ptr %38, align 8, !tbaa !23
+  store ptr %36, ptr %38, align 8, !tbaa !22
   br label %find_delim.exit83
 
 .lr.ph.preheader.i69:                             ; preds = %35
@@ -257,7 +257,7 @@ find_delim.exit75.thread:                         ; preds = %35
 find_delim.exit75:                                ; preds = %.lr.ph.i71, %45
   %.0.lcssa.i68 = phi ptr [ %scevgep.i70, %45 ], [ %.06.i72, %.lr.ph.i71 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %36, ptr %47, align 8, !tbaa !23
+  store ptr %36, ptr %47, align 8, !tbaa !22
   %48 = icmp ult ptr %36, %.0.lcssa.i68
   br i1 %48, label %.lr.ph.preheader.i77, label %find_delim.exit83
 
@@ -287,7 +287,7 @@ find_delim.exit83:                                ; preds = %.lr.ph.i79, %53, %f
   %57 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i76, i64 1
   %spec.select67 = select i1 %56, ptr %57, ptr %36
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %spec.select67, ptr %58, align 8, !tbaa !24
+  store ptr %spec.select67, ptr %58, align 8, !tbaa !23
   %59 = load i8, ptr %spec.select67, align 1, !tbaa !4
   %60 = icmp eq i8 %59, 91
   %61 = icmp ult ptr %spec.select67, %.0.lcssa.i68117
@@ -361,9 +361,9 @@ find_delim.exit91:                                ; preds = %.lr.ph.i87, %.lr.ph
 
 82:                                               ; preds = %31, %28, %find_delim.exit
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %spec.select, ptr %83, align 8, !tbaa !25
+  store ptr %spec.select, ptr %83, align 8, !tbaa !24
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %spec.select, ptr %84, align 8, !tbaa !24
+  store ptr %spec.select, ptr %84, align 8, !tbaa !23
   br label %find_delim.exit99
 
 find_delim.exit99:                                ; preds = %80, %.lr.ph.i95, %.lr.ph.i95, %73, %70, %75, %82
@@ -371,9 +371,9 @@ find_delim.exit99:                                ; preds = %80, %.lr.ph.i95, %.
   %spec.select.sink = phi ptr [ %spec.select, %82 ], [ %spec.select67, %75 ], [ %71, %70 ], [ %71, %73 ], [ %scevgep.i94, %80 ], [ %.06.i96, %.lr.ph.i95 ], [ %.06.i96, %.lr.ph.i95 ]
   %.3 = phi ptr [ %spec.select, %82 ], [ %.0.lcssa.i68117, %75 ], [ %.0.lcssa.i68117, %70 ], [ %.0.lcssa.i68117, %73 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink137
-  store ptr %spec.select.sink, ptr %85, align 8, !tbaa !26
+  store ptr %spec.select.sink, ptr %85, align 8, !tbaa !25
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.3, ptr %86, align 8, !tbaa !27
+  store ptr %.3, ptr %86, align 8, !tbaa !26
   %87 = icmp ult ptr %.3, %.060
   br i1 %87, label %.lr.ph.preheader.i101, label %find_delim.exit107
 
@@ -402,7 +402,7 @@ find_delim.exit99:                                ; preds = %80, %.lr.ph.i95, %.
 find_delim.exit107:                               ; preds = %.lr.ph.i103, %94, %find_delim.exit99
   %.0.lcssa.i100 = phi ptr [ %.3, %find_delim.exit99 ], [ %.06.i104, %.lr.ph.i103 ], [ %scevgep.i102, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.0.lcssa.i100, ptr %96, align 8, !tbaa !28
+  store ptr %.0.lcssa.i100, ptr %96, align 8, !tbaa !27
   %97 = load i8, ptr %.0.lcssa.i100, align 1, !tbaa !4
   %98 = icmp eq i8 %97, 63
   %99 = icmp ult ptr %.0.lcssa.i100, %.060
@@ -431,9 +431,9 @@ find_delim.exit107:                               ; preds = %.lr.ph.i103, %94, %
 find_delim.exit115:                               ; preds = %.lr.ph.i111, %.lr.ph.i111, %103, %find_delim.exit107
   %.4 = phi ptr [ %.0.lcssa.i100, %find_delim.exit107 ], [ %.06.i112, %.lr.ph.i111 ], [ %.06.i112, %.lr.ph.i111 ], [ %scevgep.i110, %103 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %.4, ptr %105, align 8, !tbaa !29
+  store ptr %.4, ptr %105, align 8, !tbaa !28
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.060, ptr %106, align 8, !tbaa !30
+  store ptr %.060, ptr %106, align 8, !tbaa !29
   br label %find_delim.exit91.thread
 
 find_delim.exit91.thread:                         ; preds = %62, %73, %find_delim.exit91, %find_delim.exit115
@@ -513,7 +513,7 @@ is_fq_dos_path.exit.thread:                       ; preds = %is_fq_dos_path.exit
 
 31:                                               ; preds = %is_fq_dos_path.exit.thread
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = load ptr, ptr %6, align 8, !tbaa !16
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %is_fq_dos_path.exit.thread162, label %is_fq_dos_path.exit159.thread168
@@ -572,7 +572,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
 54:                                               ; preds = %51
   %55 = load ptr, ptr %6, align 8, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !22
+  %57 = load ptr, ptr %56, align 8, !tbaa !21
   %58 = load ptr, ptr %7, align 8, !tbaa !16
   %59 = icmp eq ptr %57, %58
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -581,7 +581,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %63 = select i1 %59, i1 %62, i1 false
   %.078 = select i1 %63, ptr %61, ptr %55
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !27
+  %65 = load ptr, ptr %64, align 8, !tbaa !26
   %66 = icmp eq ptr %65, %58
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %68 = load ptr, ptr %67, align 8
@@ -589,7 +589,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %70 = select i1 %66, i1 %69, i1 false
   %.1 = select i1 %70, ptr %68, ptr %.078
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %72 = load ptr, ptr %71, align 8, !tbaa !28
+  %72 = load ptr, ptr %71, align 8, !tbaa !27
   %73 = icmp eq ptr %72, %58
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %75 = load ptr, ptr %74, align 8
@@ -597,7 +597,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %77 = select i1 %73, i1 %76, i1 false
   %.2 = select i1 %77, ptr %75, ptr %.1
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
+  %79 = load ptr, ptr %78, align 8, !tbaa !28
   %80 = icmp eq ptr %79, %58
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %82 = load ptr, ptr %81, align 8
@@ -605,7 +605,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %84 = select i1 %80, i1 %83, i1 false
   %.3 = select i1 %84, ptr %82, ptr %.2
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %86 = load ptr, ptr %85, align 8, !tbaa !30
+  %86 = load ptr, ptr %85, align 8, !tbaa !29
   %87 = icmp eq ptr %86, %58
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %89 = load ptr, ptr %88, align 8
@@ -657,7 +657,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %117 = sext i8 %116 to i32
   %118 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.099, i32 noundef %117) #13
   %.not128 = icmp eq ptr %118, null
-  br i1 %.not128, label %.preheader, label %.critedge, !llvm.loop !31
+  br i1 %.not128, label %.preheader, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.preheader, %114, %102, %110
   %.081.shrunk181 = phi i1 [ false, %110 ], [ %narrow, %102 ], [ true, %114 ], [ true, %.preheader ]
@@ -669,7 +669,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %123 = select i1 %122, i1 %66, i1 false
   %narrow211 = select i1 %123, i1 %69, i1 false
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %125 = load ptr, ptr %124, align 8, !tbaa !23
+  %125 = load ptr, ptr %124, align 8, !tbaa !22
   %126 = icmp ugt ptr %125, %57
   %narrow212 = select i1 %126, i1 true, i1 %narrow211
   %127 = or i1 %109, %.081.shrunk181
@@ -684,7 +684,7 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
 130:                                              ; preds = %128
   store i8 47, ptr %104, align 1
   %131 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %131, ptr %8, align 8, !tbaa !26
+  store ptr %131, ptr %8, align 8, !tbaa !25
   br i1 %.081.shrunk181, label %132, label %135
 
 132:                                              ; preds = %130
@@ -693,8 +693,8 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   br i1 %134, label %.thread205, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %132
-  %.pre = load ptr, ptr %71, align 8, !tbaa !28
-  %.pre214 = load ptr, ptr %64, align 8, !tbaa !27
+  %.pre = load ptr, ptr %71, align 8, !tbaa !27
+  %.pre214 = load ptr, ptr %64, align 8, !tbaa !26
   br label %135
 
 135:                                              ; preds = %._crit_edge, %130
@@ -737,16 +737,16 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
 .thread195:                                       ; preds = %150
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %151, ptr align 1 %65, i64 %153, i1 false)
   %157 = getelementptr inbounds nuw i8, ptr %151, i64 %153
-  store ptr %157, ptr %8, align 8, !tbaa !26
+  store ptr %157, ptr %8, align 8, !tbaa !25
   br label %158
 
 158:                                              ; preds = %.thread195, %135, %139
   %159 = phi ptr [ %72, %.thread195 ], [ %137, %135 ], [ %137, %139 ]
-  %160 = load ptr, ptr %85, align 8, !tbaa !30
+  %160 = load ptr, ptr %85, align 8, !tbaa !29
   %161 = ptrtoint ptr %160 to i64
   %162 = ptrtoint ptr %159 to i64
   %163 = sub i64 %161, %162
-  %164 = load ptr, ptr %8, align 8, !tbaa !26
+  %164 = load ptr, ptr %8, align 8, !tbaa !25
   %165 = ptrtoint ptr %164 to i64
   %166 = sub i64 %95, %165
   %167 = icmp ugt i64 %163, %166
@@ -797,7 +797,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -12, 1) i32 @append_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #10 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !26
+  %6 = load ptr, ptr %2, align 8, !tbaa !25
   %7 = icmp ult ptr %3, %4
   br i1 %7, label %8, label %11
 
@@ -893,7 +893,7 @@ find_delim.exit:                                  ; preds = %.lr.ph.i, %.lr.ph.i
   %48 = getelementptr inbounds i8, ptr %.2, i64 -2
   %49 = load i8, ptr %48, align 1, !tbaa !4
   %.not = icmp eq i8 %49, 47
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !32
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !31
 
 50:                                               ; preds = %31, %26, %37, %34
   %51 = ptrtoint ptr %.04049 to i64
@@ -911,11 +911,11 @@ find_delim.exit:                                  ; preds = %.lr.ph.i, %.lr.ph.i
 .critedge:                                        ; preds = %46, %.preheader, %56, %41, %31
   %.141 = phi ptr [ %.04049, %31 ], [ %.04049, %41 ], [ %57, %56 ], [ %.2, %.preheader ], [ %47, %46 ]
   %58 = icmp ult ptr %28, %4
-  br i1 %58, label %.lr.ph.preheader.i, label %._crit_edge, !llvm.loop !33
+  br i1 %58, label %.lr.ph.preheader.i, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.critedge, %11
   %.040.lcssa = phi ptr [ %6, %11 ], [ %.141, %.critedge ]
-  store ptr %.040.lcssa, ptr %2, align 8, !tbaa !26
+  store ptr %.040.lcssa, ptr %2, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %._crit_edge
@@ -940,7 +940,7 @@ define noalias ptr @ff_alloc_dir_entry() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %3, align 8, !tbaa !34
+  store i32 0, ptr %3, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 -1, i64 56, i1 false)
   br label %5
@@ -991,21 +991,20 @@ attributes #14 = { noreturn nounwind }
 !16 = !{!17, !12, i64 0}
 !17 = !{!"URLComponents", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72}
 !18 = !{!17, !12, i64 8}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!17, !12, i64 16}
-!23 = !{!17, !12, i64 24}
-!24 = !{!17, !12, i64 32}
-!25 = !{!17, !12, i64 40}
-!26 = !{!12, !12, i64 0}
-!27 = !{!17, !12, i64 48}
-!28 = !{!17, !12, i64 56}
-!29 = !{!17, !12, i64 64}
-!30 = !{!17, !12, i64 72}
-!31 = distinct !{!31, !20, !21}
-!32 = distinct !{!32, !20, !21}
-!33 = distinct !{!33, !20, !21}
-!34 = !{!35, !9, i64 8}
-!35 = !{!"AVIODirEntry", !12, i64 0, !9, i64 8, !9, i64 12, !36, i64 16, !36, i64 24, !36, i64 32, !36, i64 40, !36, i64 48, !36, i64 56, !36, i64 64}
-!36 = !{!"long", !5, i64 0}
+!21 = !{!17, !12, i64 16}
+!22 = !{!17, !12, i64 24}
+!23 = !{!17, !12, i64 32}
+!24 = !{!17, !12, i64 40}
+!25 = !{!12, !12, i64 0}
+!26 = !{!17, !12, i64 48}
+!27 = !{!17, !12, i64 56}
+!28 = !{!17, !12, i64 64}
+!29 = !{!17, !12, i64 72}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = distinct !{!32, !20}
+!33 = !{!34, !9, i64 8}
+!34 = !{!"AVIODirEntry", !12, i64 0, !9, i64 8, !9, i64 12, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !35, i64 56, !35, i64 64}
+!35 = !{!"long", !5, i64 0}

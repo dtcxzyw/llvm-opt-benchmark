@@ -308,13 +308,13 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
   %113 = tail call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 32)
   %114 = add nuw i32 %.1151176.us, 1
   %exitcond217.not = icmp eq i32 %114, %75
-  br i1 %exitcond217.not, label %._crit_edge183.us, label %99, !llvm.loop !21
+  br i1 %exitcond217.not, label %._crit_edge183.us, label %99, !llvm.loop !20
 
 ._crit_edge183.us:                                ; preds = %99
   %115 = xor i64 %107, %97
   %116 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 8
   %.not160.us = icmp eq ptr %116, %73
-  br i1 %.not160.us, label %._crit_edge196, label %.lr.ph182.us, !llvm.loop !22
+  br i1 %.not160.us, label %._crit_edge196, label %.lr.ph182.us, !llvm.loop !21
 
 .lr.ph195.split:                                  ; preds = %.lr.ph195, %.lr.ph195.split
   %.2193 = phi ptr [ %141, %.lr.ph195.split ], [ %.0131, %.lr.ph195 ]
@@ -346,7 +346,7 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
   %140 = xor i64 %.3148189, %138
   %141 = getelementptr inbounds nuw i8, ptr %.2193, i64 8
   %.not160 = icmp eq ptr %141, %73
-  br i1 %.not160, label %._crit_edge196, label %.lr.ph195.split, !llvm.loop !24
+  br i1 %.not160, label %._crit_edge196, label %.lr.ph195.split, !llvm.loop !23
 
 ._crit_edge196:                                   ; preds = %._crit_edge183.us, %.lr.ph195.split, %68
   %.3148.lcssa = phi i64 [ %.0145, %68 ], [ %140, %.lr.ph195.split ], [ %115, %._crit_edge183.us ]
@@ -503,7 +503,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   %80 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 32)
   %81 = add nuw i32 %.0180186, 1
   %exitcond.not = icmp eq i32 %81, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %82 = xor i64 %74, %.0176
@@ -537,7 +537,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   %99 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 32)
   %100 = add nuw i32 %.1181194, 1
   %exitcond232.not = icmp eq i32 %100, %85
-  br i1 %exitcond232.not, label %._crit_edge201, label %.lr.ph200, !llvm.loop !26
+  br i1 %exitcond232.not, label %._crit_edge201, label %.lr.ph200, !llvm.loop !25
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %._crit_edge
   %.1174.lcssa = phi i64 [ %82, %._crit_edge ], [ %93, %.lr.ph200 ]
@@ -580,7 +580,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   %122 = tail call i64 @llvm.fshl.i64(i64 %119, i64 %119, i64 32)
   %123 = add nuw i32 %.2182206, 1
   %exitcond233.not = icmp eq i32 %123, %108
-  br i1 %exitcond233.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !27
+  br i1 %exitcond233.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !26
 
 ._crit_edge213:                                   ; preds = %.lr.ph212, %106
   %.2175.lcssa = phi i64 [ %.1174.lcssa, %106 ], [ %116, %.lr.ph212 ]
@@ -629,13 +629,12 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !15 = !{!4, !5, i64 8}
 !16 = !{!4, !5, i64 24}
 !17 = !{!4, !5, i64 32}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !19, !20}
-!25 = distinct !{!25, !19, !20}
-!26 = distinct !{!26, !19, !20}
-!27 = distinct !{!27, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}

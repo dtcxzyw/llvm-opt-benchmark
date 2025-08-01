@@ -352,7 +352,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %.19972 = phi i32 [ %15582, %15581 ], [ %80, %86 ], [ %15616, %15625 ], [ %15616, %15620 ]
   %.1 = phi i32 [ %.8, %15581 ], [ -2, %86 ], [ %.6, %15625 ], [ %.6, %15620 ]
   %10 = getelementptr inbounds nuw i8, ptr %.19988, i64 2
-  br label %11, !llvm.loop !4
+  br label %11
 
 11:                                               ; preds = %.loopexit, %1
   %.010011 = phi ptr [ %6, %1 ], [ %.110012, %.loopexit ]
@@ -546,7 +546,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 108:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %108 ]
@@ -4215,7 +4215,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %901 = load ptr, ptr %900, align 8
   %902 = getelementptr inbounds nuw i8, ptr %899, i64 8
   store ptr %901, ptr %902, align 8
-  %903 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %903 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %904 = getelementptr inbounds nuw i8, ptr %899, i64 16
   store i8 %903, ptr %904, align 8
   br label %.critedge10155
@@ -4358,7 +4358,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %976 = load ptr, ptr %975, align 8
   %977 = getelementptr inbounds nuw i8, ptr %969, i64 32
   store ptr %976, ptr %977, align 8
-  %978 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %978 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %979 = getelementptr inbounds nuw i8, ptr %969, i64 40
   store i8 %978, ptr %979, align 8
   br label %.critedge10155
@@ -4380,7 +4380,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %990 = load ptr, ptr %989, align 8
   %991 = getelementptr inbounds nuw i8, ptr %981, i64 32
   store ptr %990, ptr %991, align 8
-  %992 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %992 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %993 = getelementptr inbounds nuw i8, ptr %981, i64 40
   store i8 %992, ptr %993, align 8
   br label %.critedge10155
@@ -4449,7 +4449,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %1030 = load ptr, ptr %1029, align 8
   %1031 = getelementptr inbounds nuw i8, ptr %1023, i64 32
   store ptr %1030, ptr %1031, align 8
-  %1032 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %1032 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %1033 = getelementptr inbounds nuw i8, ptr %1023, i64 40
   store i8 %1032, ptr %1033, align 8
   br label %.critedge10155
@@ -4471,7 +4471,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %1044 = load ptr, ptr %1043, align 8
   %1045 = getelementptr inbounds nuw i8, ptr %1035, i64 32
   store ptr %1044, ptr %1045, align 8
-  %1046 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %1046 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %1047 = getelementptr inbounds nuw i8, ptr %1035, i64 40
   store i8 %1046, ptr %1047, align 8
   br label %.critedge10155
@@ -4587,7 +4587,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %1110 = load ptr, ptr %1109, align 8
   %1111 = getelementptr inbounds nuw i8, ptr %1103, i64 32
   store ptr %1110, ptr %1111, align 8
-  %1112 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %1112 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %1113 = getelementptr inbounds nuw i8, ptr %1103, i64 40
   store i8 %1112, ptr %1113, align 8
   br label %.critedge10155
@@ -4609,7 +4609,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   %1124 = load ptr, ptr %1123, align 8
   %1125 = getelementptr inbounds nuw i8, ptr %1115, i64 32
   store ptr %1124, ptr %1125, align 8
-  %1126 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %1126 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %1127 = getelementptr inbounds nuw i8, ptr %1115, i64 40
   store i8 %1126, ptr %1127, align 8
   br label %.critedge10155
@@ -4691,7 +4691,7 @@ updateRawStmtEnd.exit:                            ; preds = %177, %167, %164
   store ptr %1170, ptr %1171, align 8
   %1172 = getelementptr inbounds nuw i8, ptr %1167, i64 16
   store ptr null, ptr %1172, align 8
-  %1173 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %1173 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %1174 = getelementptr inbounds nuw i8, ptr %1167, i64 24
   store i8 %1173, ptr %1174, align 8
   %1175 = getelementptr inbounds nuw i8, ptr %1166, i64 32
@@ -6011,11 +6011,11 @@ sub_1:                                            ; preds = %sub_0
   %1903 = getelementptr inbounds nuw i8, ptr %1896, i64 24
   store ptr %1902, ptr %1903, align 8
   %1904 = getelementptr inbounds i8, ptr %.210001, i64 -48
-  %1905 = load i8, ptr %1904, align 8, !range !8, !noundef !9
+  %1905 = load i8, ptr %1904, align 8, !range !6, !noundef !7
   %1906 = getelementptr inbounds nuw i8, ptr %1896, i64 32
   store i8 %1905, ptr %1906, align 8
   %1907 = getelementptr inbounds i8, ptr %.210001, i64 -40
-  %1908 = load i8, ptr %1907, align 8, !range !8, !noundef !9
+  %1908 = load i8, ptr %1907, align 8, !range !6, !noundef !7
   %1909 = getelementptr inbounds nuw i8, ptr %1896, i64 33
   store i8 %1908, ptr %1909, align 1
   %1910 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -6112,7 +6112,7 @@ sub_1:                                            ; preds = %sub_0
   %1960 = getelementptr inbounds nuw i8, ptr %1951, i64 32
   store i8 0, ptr %1960, align 8
   %1961 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %1962 = load i8, ptr %1961, align 8, !range !8, !noundef !9
+  %1962 = load i8, ptr %1961, align 8, !range !6, !noundef !7
   %1963 = getelementptr inbounds nuw i8, ptr %1951, i64 33
   store i8 %1962, ptr %1963, align 1
   %1964 = getelementptr inbounds i8, ptr %.210001, i64 -16
@@ -6988,7 +6988,7 @@ sub_1:                                            ; preds = %sub_0
   %2514 = load i32, ptr %2513, align 4
   %2515 = getelementptr inbounds nuw i8, ptr %2511, i64 180
   store i32 %2514, ptr %2515, align 4
-  %2516 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %2516 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %2517 = getelementptr inbounds nuw i8, ptr %2511, i64 21
   store i8 %2516, ptr %2517, align 1
   %2518 = getelementptr inbounds nuw i8, ptr %2511, i64 18
@@ -7019,7 +7019,7 @@ sub_1:                                            ; preds = %sub_0
   %2531 = getelementptr inbounds nuw i8, ptr %2527, i64 180
   store i32 %2530, ptr %2531, align 4
   %2532 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %2533 = load i8, ptr %2532, align 8, !range !8, !noundef !9
+  %2533 = load i8, ptr %2532, align 8, !range !6, !noundef !7
   %2534 = xor i8 %2533, 1
   %2535 = getelementptr inbounds nuw i8, ptr %2527, i64 42
   store i8 %2534, ptr %2535, align 2
@@ -7067,7 +7067,7 @@ sub_1:                                            ; preds = %sub_0
   %2560 = load i32, ptr %2559, align 4
   %2561 = getelementptr inbounds nuw i8, ptr %2557, i64 180
   store i32 %2560, ptr %2561, align 4
-  %2562 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %2562 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %2563 = getelementptr inbounds nuw i8, ptr %2557, i64 21
   store i8 %2562, ptr %2563, align 1
   %2564 = getelementptr inbounds i8, ptr %.210001, i64 -16
@@ -7479,7 +7479,7 @@ sub_1:                                            ; preds = %sub_0
   %2789 = getelementptr inbounds nuw i8, ptr %2777, i64 19
   %2790 = getelementptr inbounds nuw i8, ptr %2777, i64 21
   call fastcc void @processCASbits(i32 noundef %2786, i32 noundef %2787, ptr noundef nonnull @.str.83, ptr noundef null, ptr noundef null, ptr noundef nonnull %2788, ptr noundef nonnull %2789, ptr noundef nonnull %2790, ptr noundef %0)
-  %2791 = load i8, ptr %2789, align 1, !range !8, !noundef !9
+  %2791 = load i8, ptr %2789, align 1, !range !6, !noundef !7
   %2792 = xor i8 %2791, 1
   %2793 = getelementptr inbounds nuw i8, ptr %2777, i64 20
   store i8 %2792, ptr %2793, align 4
@@ -7518,7 +7518,7 @@ sub_1:                                            ; preds = %sub_0
   %2814 = getelementptr inbounds nuw i8, ptr %2810, i64 180
   store i32 %2813, ptr %2814, align 4
   %2815 = getelementptr inbounds i8, ptr %.210001, i64 -64
-  %2816 = load i8, ptr %2815, align 8, !range !8, !noundef !9
+  %2816 = load i8, ptr %2815, align 8, !range !6, !noundef !7
   %2817 = xor i8 %2816, 1
   %2818 = getelementptr inbounds nuw i8, ptr %2810, i64 42
   store i8 %2817, ptr %2818, align 2
@@ -7527,7 +7527,7 @@ sub_1:                                            ; preds = %sub_0
   %2821 = getelementptr inbounds nuw i8, ptr %2810, i64 48
   store ptr %2820, ptr %2821, align 8
   %2822 = getelementptr inbounds i8, ptr %.210001, i64 -40
-  %2823 = load i8, ptr %2822, align 8, !range !8, !noundef !9
+  %2823 = load i8, ptr %2822, align 8, !range !6, !noundef !7
   %2824 = getelementptr inbounds nuw i8, ptr %2810, i64 56
   store i8 %2823, ptr %2824, align 8
   %2825 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -7593,7 +7593,7 @@ sub_1:                                            ; preds = %sub_0
   %2864 = getelementptr inbounds nuw i8, ptr %2857, i64 48
   store ptr %2863, ptr %2864, align 8
   %2865 = getelementptr inbounds i8, ptr %.210001, i64 -40
-  %2866 = load i8, ptr %2865, align 8, !range !8, !noundef !9
+  %2866 = load i8, ptr %2865, align 8, !range !6, !noundef !7
   %2867 = getelementptr inbounds nuw i8, ptr %2857, i64 56
   store i8 %2866, ptr %2867, align 8
   %2868 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -7770,7 +7770,7 @@ sub_1:                                            ; preds = %sub_0
   %2982 = getelementptr inbounds nuw i8, ptr %2929, i64 17
   %2983 = getelementptr inbounds nuw i8, ptr %2929, i64 19
   call fastcc void @processCASbits(i32 noundef %2979, i32 noundef %2980, ptr noundef nonnull @.str.88, ptr noundef nonnull %2981, ptr noundef nonnull %2982, ptr noundef null, ptr noundef nonnull %2983, ptr noundef null, ptr noundef %0)
-  %2984 = load i8, ptr %2983, align 1, !range !8, !noundef !9
+  %2984 = load i8, ptr %2983, align 1, !range !6, !noundef !7
   %2985 = xor i8 %2984, 1
   %2986 = getelementptr inbounds nuw i8, ptr %2929, i64 20
   store i8 %2985, ptr %2986, align 4
@@ -7814,7 +7814,7 @@ sub_1:                                            ; preds = %sub_0
   call fastcc void @processCASbits(i32 noundef %3007, i32 noundef %3008, ptr noundef nonnull @.str.83, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3009, ptr noundef nonnull %3010, ptr noundef %0)
   %3011 = getelementptr inbounds nuw i8, ptr %2998, i64 18
   store i8 1, ptr %3011, align 2
-  %3012 = load i8, ptr %3009, align 1, !range !8, !noundef !9
+  %3012 = load i8, ptr %3009, align 1, !range !6, !noundef !7
   %3013 = xor i8 %3012, 1
   %3014 = getelementptr inbounds nuw i8, ptr %2998, i64 20
   store i8 %3013, ptr %3014, align 4
@@ -8397,7 +8397,7 @@ sub_1:                                            ; preds = %sub_0
   %3350 = load ptr, ptr %3349, align 8
   %3351 = getelementptr inbounds nuw i8, ptr %3350, i64 33
   store i8 %3347, ptr %3351, align 1
-  %3352 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %3352 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %3353 = xor i8 %3352, 1
   %3354 = load ptr, ptr %3339, align 8
   %3355 = getelementptr inbounds nuw i8, ptr %3354, i64 64
@@ -8429,7 +8429,7 @@ sub_1:                                            ; preds = %sub_0
   %3372 = load ptr, ptr %3371, align 8
   %3373 = getelementptr inbounds nuw i8, ptr %3372, i64 33
   store i8 %3369, ptr %3373, align 1
-  %3374 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %3374 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %3375 = xor i8 %3374, 1
   %3376 = load ptr, ptr %3361, align 8
   %3377 = getelementptr inbounds nuw i8, ptr %3376, i64 64
@@ -8513,7 +8513,7 @@ sub_1:                                            ; preds = %sub_0
   %3424 = load ptr, ptr %3423, align 8
   %3425 = getelementptr inbounds nuw i8, ptr %3424, i64 33
   store i8 %3421, ptr %3425, align 1
-  %3426 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %3426 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %3427 = xor i8 %3426, 1
   %3428 = load ptr, ptr %3413, align 8
   %3429 = getelementptr inbounds nuw i8, ptr %3428, i64 64
@@ -8545,7 +8545,7 @@ sub_1:                                            ; preds = %sub_0
   %3446 = load ptr, ptr %3445, align 8
   %3447 = getelementptr inbounds nuw i8, ptr %3446, i64 33
   store i8 %3443, ptr %3447, align 1
-  %3448 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %3448 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %3449 = xor i8 %3448, 1
   %3450 = load ptr, ptr %3435, align 8
   %3451 = getelementptr inbounds nuw i8, ptr %3450, i64 64
@@ -8600,14 +8600,14 @@ sub_1:                                            ; preds = %sub_0
   %3478 = call noundef ptr @palloc0(i64 noundef 16) #11
   store i32 242, ptr %3478, align 4
   %3479 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %3480 = load i8, ptr %3479, align 8, !range !8, !noundef !9
+  %3480 = load i8, ptr %3479, align 8, !range !6, !noundef !7
   %3481 = getelementptr inbounds nuw i8, ptr %3478, i64 4
   store i8 %3480, ptr %3481, align 4
   %3482 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3483 = load ptr, ptr %3482, align 8
   %3484 = getelementptr inbounds nuw i8, ptr %3478, i64 8
   store ptr %3483, ptr %3484, align 8
-  %3485 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %3485 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %3486 = xor i8 %3485, 1
   %3487 = getelementptr inbounds nuw i8, ptr %3478, i64 5
   store i8 %3486, ptr %3487, align 1
@@ -8846,7 +8846,7 @@ sub_1:                                            ; preds = %sub_0
   %3637 = call noundef ptr @palloc0(i64 noundef 32) #11
   store i32 165, ptr %3637, align 4
   %3638 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %3639 = load i8, ptr %3638, align 8, !range !8, !noundef !9
+  %3639 = load i8, ptr %3638, align 8, !range !6, !noundef !7
   %3640 = getelementptr inbounds nuw i8, ptr %3637, i64 16
   store i8 %3639, ptr %3640, align 8
   %3641 = load ptr, ptr %.210001, align 8
@@ -8860,7 +8860,7 @@ sub_1:                                            ; preds = %sub_0
   %3645 = call noundef ptr @palloc0(i64 noundef 48) #11
   store i32 183, ptr %3645, align 4
   %3646 = getelementptr inbounds i8, ptr %.210001, i64 -64
-  %3647 = load i8, ptr %3646, align 8, !range !8, !noundef !9
+  %3647 = load i8, ptr %3646, align 8, !range !6, !noundef !7
   %3648 = getelementptr inbounds nuw i8, ptr %3645, i64 4
   store i8 %3647, ptr %3648, align 4
   %3649 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -8879,7 +8879,7 @@ sub_1:                                            ; preds = %sub_0
   %3659 = getelementptr inbounds nuw i8, ptr %3645, i64 32
   store ptr %3658, ptr %3659, align 8
   %3660 = getelementptr inbounds i8, ptr %.210001, i64 -56
-  %3661 = load i8, ptr %3660, align 8, !range !8, !noundef !9
+  %3661 = load i8, ptr %3660, align 8, !range !6, !noundef !7
   %3662 = getelementptr inbounds nuw i8, ptr %3645, i64 40
   store i8 %3661, ptr %3662, align 8
   br label %.critedge10155
@@ -9913,7 +9913,7 @@ sub_1:                                            ; preds = %sub_0
   %4303 = getelementptr inbounds nuw i8, ptr %4297, i64 16
   store ptr %4302, ptr %4303, align 8
   %4304 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %4305 = load i8, ptr %4304, align 8, !range !8, !noundef !9
+  %4305 = load i8, ptr %4304, align 8, !range !6, !noundef !7
   %4306 = getelementptr inbounds nuw i8, ptr %4297, i64 32
   store i8 %4305, ptr %4306, align 8
   %4307 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -10081,7 +10081,7 @@ sub_1:                                            ; preds = %sub_0
   %4397 = call noundef ptr @palloc0(i64 noundef 88) #11
   store i32 180, ptr %4397, align 4
   %4398 = getelementptr inbounds i8, ptr %.210001, i64 -120
-  %4399 = load i8, ptr %4398, align 8, !range !8, !noundef !9
+  %4399 = load i8, ptr %4398, align 8, !range !6, !noundef !7
   %4400 = getelementptr inbounds nuw i8, ptr %4397, i64 4
   store i8 %4399, ptr %4400, align 4
   %4401 = getelementptr inbounds nuw i8, ptr %4397, i64 5
@@ -10103,7 +10103,7 @@ sub_1:                                            ; preds = %sub_0
   %4413 = getelementptr inbounds nuw i8, ptr %4397, i64 32
   store ptr %4412, ptr %4413, align 8
   %4414 = getelementptr inbounds i8, ptr %.210001, i64 -56
-  %4415 = load i8, ptr %4414, align 8, !range !8, !noundef !9
+  %4415 = load i8, ptr %4414, align 8, !range !6, !noundef !7
   %4416 = getelementptr inbounds nuw i8, ptr %4397, i64 40
   store i8 %4415, ptr %4416, align 8
   %4417 = getelementptr inbounds i8, ptr %.210001, i64 -96
@@ -10148,7 +10148,7 @@ sub_1:                                            ; preds = %sub_0
   %4444 = call noundef ptr @palloc0(i64 noundef 88) #11
   store i32 180, ptr %4444, align 4
   %4445 = getelementptr inbounds i8, ptr %.210001, i64 -152
-  %4446 = load i8, ptr %4445, align 8, !range !8, !noundef !9
+  %4446 = load i8, ptr %4445, align 8, !range !6, !noundef !7
   %4447 = trunc nuw i8 %4446 to i1
   %4448 = getelementptr inbounds nuw i8, ptr %4444, i64 4
   store i8 %4446, ptr %4448, align 4
@@ -10330,11 +10330,11 @@ sub_1:                                            ; preds = %sub_0
   %4561 = getelementptr inbounds nuw i8, ptr %4559, i64 8
   store ptr %4560, ptr %4561, align 8
   %4562 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %4563 = load i8, ptr %4562, align 8, !range !8, !noundef !9
+  %4563 = load i8, ptr %4562, align 8, !range !6, !noundef !7
   %4564 = getelementptr inbounds nuw i8, ptr %4559, i64 16
   store i8 %4563, ptr %4564, align 8
   %4565 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %4566 = load i8, ptr %4565, align 8, !range !8, !noundef !9
+  %4566 = load i8, ptr %4565, align 8, !range !6, !noundef !7
   %4567 = getelementptr inbounds nuw i8, ptr %4559, i64 17
   store i8 %4566, ptr %4567, align 1
   br label %.critedge10155
@@ -10370,7 +10370,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4582:                                             ; preds = %._crit_edge
-  %4583 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %4583 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %4584 = ptrtoint ptr %.sroa.04645.0.copyload to i64
   %.sroa.04645.0.insert.ext5618 = zext nneg i8 %4583 to i64
   %.sroa.04645.0.insert.mask5619 = and i64 %4584, -256
@@ -10684,7 +10684,7 @@ sub_1:                                            ; preds = %sub_0
   %4758 = getelementptr inbounds nuw i8, ptr %4756, i64 8
   store i8 0, ptr %4758, align 8
   %4759 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %4760 = load i8, ptr %4759, align 8, !range !8, !noundef !9
+  %4760 = load i8, ptr %4759, align 8, !range !6, !noundef !7
   %4761 = getelementptr inbounds nuw i8, ptr %4756, i64 41
   store i8 %4760, ptr %4761, align 1
   %4762 = getelementptr inbounds i8, ptr %.210001, i64 -16
@@ -10708,7 +10708,7 @@ sub_1:                                            ; preds = %sub_0
   %4773 = getelementptr inbounds nuw i8, ptr %4771, i64 8
   store i8 1, ptr %4773, align 8
   %4774 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %4775 = load i8, ptr %4774, align 8, !range !8, !noundef !9
+  %4775 = load i8, ptr %4774, align 8, !range !6, !noundef !7
   %4776 = getelementptr inbounds nuw i8, ptr %4771, i64 41
   store i8 %4775, ptr %4776, align 1
   %4777 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -11073,7 +11073,7 @@ sub_1:                                            ; preds = %sub_0
   %4994 = getelementptr inbounds nuw i8, ptr %4986, i64 40
   store i8 1, ptr %4994, align 8
   %4995 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %4996 = load i8, ptr %4995, align 8, !range !8, !noundef !9
+  %4996 = load i8, ptr %4995, align 8, !range !6, !noundef !7
   %4997 = getelementptr inbounds nuw i8, ptr %4986, i64 41
   store i8 %4996, ptr %4997, align 1
   br label %.critedge10155
@@ -11097,7 +11097,7 @@ sub_1:                                            ; preds = %sub_0
   %5009 = getelementptr inbounds nuw i8, ptr %4999, i64 40
   store i8 0, ptr %5009, align 8
   %5010 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %5011 = load i8, ptr %5010, align 8, !range !8, !noundef !9
+  %5011 = load i8, ptr %5010, align 8, !range !6, !noundef !7
   %5012 = getelementptr inbounds nuw i8, ptr %4999, i64 41
   store i8 %5011, ptr %5012, align 1
   br label %.critedge10155
@@ -11121,7 +11121,7 @@ sub_1:                                            ; preds = %sub_0
   %5024 = getelementptr inbounds nuw i8, ptr %5014, i64 40
   store i8 1, ptr %5024, align 8
   %5025 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %5026 = load i8, ptr %5025, align 8, !range !8, !noundef !9
+  %5026 = load i8, ptr %5025, align 8, !range !6, !noundef !7
   %5027 = getelementptr inbounds nuw i8, ptr %5014, i64 41
   store i8 %5026, ptr %5027, align 1
   br label %.critedge10155
@@ -11180,7 +11180,7 @@ sub_1:                                            ; preds = %sub_0
   %5058 = getelementptr inbounds nuw i8, ptr %5055, i64 8
   store ptr %5057, ptr %5058, align 8
   %5059 = getelementptr inbounds i8, ptr %.210001, i64 -64
-  %5060 = load i8, ptr %5059, align 8, !range !8, !noundef !9
+  %5060 = load i8, ptr %5059, align 8, !range !6, !noundef !7
   %5061 = getelementptr inbounds nuw i8, ptr %5055, i64 48
   store i8 %5060, ptr %5061, align 8
   %5062 = getelementptr inbounds i8, ptr %.210001, i64 -40
@@ -12025,7 +12025,7 @@ sub_1:                                            ; preds = %sub_0
   %5539 = getelementptr inbounds nuw i8, ptr %5536, i64 8
   store ptr %5538, ptr %5539, align 8
   %5540 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %5541 = load i8, ptr %5540, align 8, !range !8, !noundef !9
+  %5541 = load i8, ptr %5540, align 8, !range !6, !noundef !7
   %5542 = getelementptr inbounds nuw i8, ptr %5536, i64 16
   store i8 %5541, ptr %5542, align 8
   %5543 = load i32, ptr %.210001, align 8
@@ -12784,7 +12784,7 @@ sub_1:                                            ; preds = %sub_0
   %5991 = getelementptr inbounds nuw i8, ptr %5972, i64 32
   store ptr %5990, ptr %5991, align 8
   %5992 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %5993 = load i8, ptr %5992, align 8, !range !8, !noundef !9
+  %5993 = load i8, ptr %5992, align 8, !range !6, !noundef !7
   %5994 = getelementptr inbounds nuw i8, ptr %5972, i64 40
   store i8 %5993, ptr %5994, align 8
   %5995 = load ptr, ptr %.210001, align 8
@@ -13436,7 +13436,7 @@ sub_1:                                            ; preds = %sub_0
   %6378 = load ptr, ptr %6377, align 8
   %6379 = getelementptr inbounds nuw i8, ptr %6367, i64 32
   store ptr %6378, ptr %6379, align 8
-  %6380 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %6380 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %6381 = getelementptr inbounds nuw i8, ptr %6367, i64 40
   store i8 %6380, ptr %6381, align 8
   br label %.critedge10155
@@ -13543,11 +13543,11 @@ sub_1:                                            ; preds = %sub_0
   %6435 = call noundef ptr @palloc0(i64 noundef 120) #11
   store i32 203, ptr %6435, align 4
   %6436 = getelementptr inbounds i8, ptr %.210001, i64 -112
-  %6437 = load i8, ptr %6436, align 8, !range !8, !noundef !9
+  %6437 = load i8, ptr %6436, align 8, !range !6, !noundef !7
   %6438 = getelementptr inbounds nuw i8, ptr %6435, i64 104
   store i8 %6437, ptr %6438, align 8
   %6439 = getelementptr inbounds i8, ptr %.210001, i64 -96
-  %6440 = load i8, ptr %6439, align 8, !range !8, !noundef !9
+  %6440 = load i8, ptr %6439, align 8, !range !6, !noundef !7
   %6441 = getelementptr inbounds nuw i8, ptr %6435, i64 112
   store i8 %6440, ptr %6441, align 8
   %6442 = getelementptr inbounds i8, ptr %.210001, i64 -88
@@ -13571,7 +13571,7 @@ sub_1:                                            ; preds = %sub_0
   %6456 = getelementptr inbounds nuw i8, ptr %6435, i64 48
   store ptr %6455, ptr %6456, align 8
   %6457 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %6458 = load i8, ptr %6457, align 8, !range !8, !noundef !9
+  %6458 = load i8, ptr %6457, align 8, !range !6, !noundef !7
   %6459 = xor i8 %6458, 1
   %6460 = getelementptr inbounds nuw i8, ptr %6435, i64 105
   store i8 %6459, ptr %6460, align 1
@@ -13608,11 +13608,11 @@ sub_1:                                            ; preds = %sub_0
   %6478 = call noundef ptr @palloc0(i64 noundef 120) #11
   store i32 203, ptr %6478, align 4
   %6479 = getelementptr inbounds i8, ptr %.210001, i64 -136
-  %6480 = load i8, ptr %6479, align 8, !range !8, !noundef !9
+  %6480 = load i8, ptr %6479, align 8, !range !6, !noundef !7
   %6481 = getelementptr inbounds nuw i8, ptr %6478, i64 104
   store i8 %6480, ptr %6481, align 8
   %6482 = getelementptr inbounds i8, ptr %.210001, i64 -120
-  %6483 = load i8, ptr %6482, align 8, !range !8, !noundef !9
+  %6483 = load i8, ptr %6482, align 8, !range !6, !noundef !7
   %6484 = getelementptr inbounds nuw i8, ptr %6478, i64 112
   store i8 %6483, ptr %6484, align 8
   %6485 = getelementptr inbounds i8, ptr %.210001, i64 -88
@@ -13636,7 +13636,7 @@ sub_1:                                            ; preds = %sub_0
   %6499 = getelementptr inbounds nuw i8, ptr %6478, i64 48
   store ptr %6498, ptr %6499, align 8
   %6500 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %6501 = load i8, ptr %6500, align 8, !range !8, !noundef !9
+  %6501 = load i8, ptr %6500, align 8, !range !6, !noundef !7
   %6502 = xor i8 %6501, 1
   %6503 = getelementptr inbounds nuw i8, ptr %6478, i64 105
   store i8 %6502, ptr %6503, align 1
@@ -13842,7 +13842,7 @@ sub_1:                                            ; preds = %sub_0
   %6617 = getelementptr inbounds nuw i8, ptr %6616, i64 4
   store i8 0, ptr %6617, align 4
   %6618 = getelementptr inbounds i8, ptr %.210001, i64 -56
-  %6619 = load i8, ptr %6618, align 8, !range !8, !noundef !9
+  %6619 = load i8, ptr %6618, align 8, !range !6, !noundef !7
   %6620 = getelementptr inbounds nuw i8, ptr %6616, i64 5
   store i8 %6619, ptr %6620, align 1
   %6621 = getelementptr inbounds i8, ptr %.210001, i64 -40
@@ -13872,7 +13872,7 @@ sub_1:                                            ; preds = %sub_0
   %6637 = getelementptr inbounds nuw i8, ptr %6636, i64 4
   store i8 0, ptr %6637, align 4
   %6638 = getelementptr inbounds i8, ptr %.210001, i64 -80
-  %6639 = load i8, ptr %6638, align 8, !range !8, !noundef !9
+  %6639 = load i8, ptr %6638, align 8, !range !6, !noundef !7
   %6640 = getelementptr inbounds nuw i8, ptr %6636, i64 5
   store i8 %6639, ptr %6640, align 1
   %6641 = getelementptr inbounds i8, ptr %.210001, i64 -64
@@ -13909,7 +13909,7 @@ sub_1:                                            ; preds = %sub_0
   %6663 = getelementptr inbounds nuw i8, ptr %6662, i64 4
   store i8 0, ptr %6663, align 4
   %6664 = getelementptr inbounds i8, ptr %.210001, i64 -40
-  %6665 = load i8, ptr %6664, align 8, !range !8, !noundef !9
+  %6665 = load i8, ptr %6664, align 8, !range !6, !noundef !7
   %6666 = getelementptr inbounds nuw i8, ptr %6662, i64 5
   store i8 %6665, ptr %6666, align 1
   %6667 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -13937,7 +13937,7 @@ sub_1:                                            ; preds = %sub_0
   %6681 = getelementptr inbounds nuw i8, ptr %6680, i64 4
   store i8 1, ptr %6681, align 4
   %6682 = getelementptr inbounds i8, ptr %.210001, i64 -40
-  %6683 = load i8, ptr %6682, align 8, !range !8, !noundef !9
+  %6683 = load i8, ptr %6682, align 8, !range !6, !noundef !7
   %6684 = getelementptr inbounds nuw i8, ptr %6680, i64 5
   store i8 %6683, ptr %6684, align 1
   %6685 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -15056,7 +15056,7 @@ sub_1:                                            ; preds = %sub_0
   %7373 = getelementptr inbounds nuw i8, ptr %7363, i64 20
   store i32 %7372, ptr %7373, align 4
   %7374 = getelementptr inbounds i8, ptr %.210001, i64 -48
-  %7375 = load i8, ptr %7374, align 8, !range !8, !noundef !9
+  %7375 = load i8, ptr %7374, align 8, !range !6, !noundef !7
   %7376 = getelementptr inbounds nuw i8, ptr %7363, i64 24
   store i8 %7375, ptr %7376, align 8
   %7377 = getelementptr inbounds nuw i8, ptr %7363, i64 25
@@ -15080,7 +15080,7 @@ sub_1:                                            ; preds = %sub_0
   %7385 = call noundef ptr @palloc0(i64 noundef 40) #11
   store i32 250, ptr %7385, align 4
   %7386 = getelementptr inbounds i8, ptr %.210001, i64 -64
-  %7387 = load i8, ptr %7386, align 8, !range !8, !noundef !9
+  %7387 = load i8, ptr %7386, align 8, !range !6, !noundef !7
   %7388 = getelementptr inbounds nuw i8, ptr %7385, i64 4
   store i8 %7387, ptr %7388, align 4
   %7389 = getelementptr inbounds i8, ptr %.210001, i64 -40
@@ -15149,7 +15149,7 @@ sub_1:                                            ; preds = %sub_0
   %7433 = getelementptr inbounds nuw i8, ptr %7422, i64 20
   store i32 %7432, ptr %7433, align 4
   %7434 = getelementptr inbounds i8, ptr %.210001, i64 -40
-  %7435 = load i8, ptr %7434, align 8, !range !8, !noundef !9
+  %7435 = load i8, ptr %7434, align 8, !range !6, !noundef !7
   %7436 = getelementptr inbounds nuw i8, ptr %7422, i64 24
   store i8 %7435, ptr %7436, align 8
   br label %.critedge10155
@@ -15171,7 +15171,7 @@ sub_1:                                            ; preds = %sub_0
   %7447 = getelementptr inbounds nuw i8, ptr %7438, i64 24
   store ptr %7446, ptr %7447, align 8
   %7448 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %7449 = load i8, ptr %7448, align 8, !range !8, !noundef !9
+  %7449 = load i8, ptr %7448, align 8, !range !6, !noundef !7
   %7450 = trunc nuw i8 %7449 to i1
   br i1 %7450, label %7451, label %.critedge10155
 
@@ -15198,7 +15198,7 @@ sub_1:                                            ; preds = %sub_0
   %7464 = getelementptr inbounds nuw i8, ptr %7457, i64 24
   store ptr %7463, ptr %7464, align 8
   %7465 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %7466 = load i8, ptr %7465, align 8, !range !8, !noundef !9
+  %7466 = load i8, ptr %7465, align 8, !range !6, !noundef !7
   %7467 = trunc nuw i8 %7466 to i1
   br i1 %7467, label %7468, label %.critedge10155
 
@@ -15227,7 +15227,7 @@ sub_1:                                            ; preds = %sub_0
   %7483 = getelementptr inbounds nuw i8, ptr %7474, i64 24
   store ptr %7482, ptr %7483, align 8
   %7484 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %7485 = load i8, ptr %7484, align 8, !range !8, !noundef !9
+  %7485 = load i8, ptr %7484, align 8, !range !6, !noundef !7
   %7486 = trunc nuw i8 %7485 to i1
   br i1 %7486, label %7487, label %.critedge10155
 
@@ -16329,7 +16329,7 @@ sub_1:                                            ; preds = %sub_0
   %8119 = getelementptr inbounds nuw i8, ptr %8112, i64 24
   store ptr %8118, ptr %8119, align 8
   %8120 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %8121 = load i8, ptr %8120, align 8, !range !8, !noundef !9
+  %8121 = load i8, ptr %8120, align 8, !range !6, !noundef !7
   %8122 = getelementptr inbounds nuw i8, ptr %8112, i64 32
   store i8 %8121, ptr %8122, align 8
   br label %.critedge10155
@@ -16348,7 +16348,7 @@ sub_1:                                            ; preds = %sub_0
   %8131 = getelementptr inbounds nuw i8, ptr %8124, i64 24
   store ptr %8130, ptr %8131, align 8
   %8132 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %8133 = load i8, ptr %8132, align 8, !range !8, !noundef !9
+  %8133 = load i8, ptr %8132, align 8, !range !6, !noundef !7
   %8134 = getelementptr inbounds nuw i8, ptr %8124, i64 32
   store i8 %8133, ptr %8134, align 8
   br label %.critedge10155
@@ -16367,7 +16367,7 @@ sub_1:                                            ; preds = %sub_0
   %8143 = getelementptr inbounds nuw i8, ptr %8136, i64 24
   store ptr %8142, ptr %8143, align 8
   %8144 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %8145 = load i8, ptr %8144, align 8, !range !8, !noundef !9
+  %8145 = load i8, ptr %8144, align 8, !range !6, !noundef !7
   %8146 = getelementptr inbounds nuw i8, ptr %8136, i64 32
   store i8 %8145, ptr %8146, align 8
   br label %.critedge10155
@@ -16392,7 +16392,7 @@ sub_1:                                            ; preds = %sub_0
   %8160 = getelementptr inbounds nuw i8, ptr %8148, i64 24
   store ptr %8159, ptr %8160, align 8
   %8161 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %8162 = load i8, ptr %8161, align 8, !range !8, !noundef !9
+  %8162 = load i8, ptr %8161, align 8, !range !6, !noundef !7
   %8163 = getelementptr inbounds nuw i8, ptr %8148, i64 32
   store i8 %8162, ptr %8163, align 8
   br label %.critedge10155
@@ -16411,7 +16411,7 @@ sub_1:                                            ; preds = %sub_0
   %8172 = getelementptr inbounds nuw i8, ptr %8165, i64 24
   store ptr %8171, ptr %8172, align 8
   %8173 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %8174 = load i8, ptr %8173, align 8, !range !8, !noundef !9
+  %8174 = load i8, ptr %8173, align 8, !range !6, !noundef !7
   %8175 = getelementptr inbounds nuw i8, ptr %8165, i64 32
   store i8 %8174, ptr %8175, align 8
   br label %.critedge10155
@@ -16430,7 +16430,7 @@ sub_1:                                            ; preds = %sub_0
   %8184 = getelementptr inbounds nuw i8, ptr %8177, i64 24
   store ptr %8183, ptr %8184, align 8
   %8185 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %8186 = load i8, ptr %8185, align 8, !range !8, !noundef !9
+  %8186 = load i8, ptr %8185, align 8, !range !6, !noundef !7
   %8187 = getelementptr inbounds nuw i8, ptr %8177, i64 32
   store i8 %8186, ptr %8187, align 8
   br label %.critedge10155
@@ -17802,7 +17802,7 @@ sub_1:                                            ; preds = %sub_0
   %8993 = call noundef ptr @palloc0(i64 noundef 56) #11
   store i32 220, ptr %8993, align 4
   %8994 = getelementptr inbounds i8, ptr %.210001, i64 -88
-  %8995 = load i8, ptr %8994, align 8, !range !8, !noundef !9
+  %8995 = load i8, ptr %8994, align 8, !range !6, !noundef !7
   %8996 = getelementptr inbounds nuw i8, ptr %8993, i64 48
   store i8 %8995, ptr %8996, align 8
   %8997 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -17822,7 +17822,7 @@ sub_1:                                            ; preds = %sub_0
   %9008 = getelementptr inbounds nuw i8, ptr %8993, i64 32
   store i32 %9007, ptr %9008, align 8
   %9009 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %9010 = load i8, ptr %9009, align 8, !range !8, !noundef !9
+  %9010 = load i8, ptr %9009, align 8, !range !6, !noundef !7
   %9011 = getelementptr inbounds nuw i8, ptr %8993, i64 36
   store i8 %9010, ptr %9011, align 4
   %9012 = load ptr, ptr %.210001, align 8
@@ -17957,7 +17957,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 3, ptr %9075, align 4
   %9076 = getelementptr inbounds nuw i8, ptr %9074, i64 8
   store ptr null, ptr %9076, align 8
-  %9077 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9077 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9078 = getelementptr inbounds nuw i8, ptr %9074, i64 32
   store i8 %9077, ptr %9078, align 8
   %9079 = getelementptr inbounds nuw i8, ptr %9074, i64 36
@@ -17983,7 +17983,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 2, ptr %9088, align 4
   %9089 = getelementptr inbounds nuw i8, ptr %9087, i64 8
   store ptr null, ptr %9089, align 8
-  %9090 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9090 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9091 = getelementptr inbounds nuw i8, ptr %9087, i64 32
   store i8 %9090, ptr %9091, align 8
   %9092 = getelementptr inbounds nuw i8, ptr %9087, i64 36
@@ -17997,7 +17997,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 3, ptr %9095, align 4
   %9096 = getelementptr inbounds nuw i8, ptr %9094, i64 8
   store ptr null, ptr %9096, align 8
-  %9097 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9097 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9098 = getelementptr inbounds nuw i8, ptr %9094, i64 32
   store i8 %9097, ptr %9098, align 8
   %9099 = getelementptr inbounds nuw i8, ptr %9094, i64 36
@@ -18127,7 +18127,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 2, ptr %9164, align 4
   %9165 = getelementptr inbounds nuw i8, ptr %9163, i64 8
   store ptr null, ptr %9165, align 8
-  %9166 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9166 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9167 = getelementptr inbounds nuw i8, ptr %9163, i64 32
   store i8 %9166, ptr %9167, align 8
   %9168 = getelementptr inbounds nuw i8, ptr %9163, i64 36
@@ -18950,7 +18950,7 @@ sub_1:                                            ; preds = %sub_0
   %9665 = getelementptr inbounds nuw i8, ptr %9654, i64 32
   store ptr %9664, ptr %9665, align 8
   %9666 = getelementptr inbounds i8, ptr %.210001, i64 -64
-  %9667 = load i8, ptr %9666, align 8, !range !8, !noundef !9
+  %9667 = load i8, ptr %9666, align 8, !range !6, !noundef !7
   %9668 = getelementptr inbounds nuw i8, ptr %9654, i64 40
   store i8 %9667, ptr %9668, align 8
   br label %.critedge10155
@@ -18995,7 +18995,7 @@ sub_1:                                            ; preds = %sub_0
   %9692 = getelementptr inbounds nuw i8, ptr %9686, i64 24
   store ptr null, ptr %9692, align 8
   %9693 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %9694 = load i8, ptr %9693, align 8, !range !8, !noundef !9
+  %9694 = load i8, ptr %9693, align 8, !range !6, !noundef !7
   %9695 = trunc nuw i8 %9694 to i1
   br i1 %9695, label %9696, label %.critedge10155
 
@@ -19012,7 +19012,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 237, ptr %9702, align 4
   %9703 = getelementptr inbounds nuw i8, ptr %9702, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9703, i8 0, i64 24, i1 false)
-  %9704 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9704 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9705 = trunc nuw i8 %9704 to i1
   br i1 %9705, label %9706, label %.critedge10155
 
@@ -19037,7 +19037,7 @@ sub_1:                                            ; preds = %sub_0
   %9718 = getelementptr inbounds nuw i8, ptr %9712, i64 24
   store ptr null, ptr %9718, align 8
   %9719 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %9720 = load i8, ptr %9719, align 8, !range !8, !noundef !9
+  %9720 = load i8, ptr %9719, align 8, !range !6, !noundef !7
   %9721 = trunc nuw i8 %9720 to i1
   br i1 %9721, label %9722, label %.critedge10155
 
@@ -19059,7 +19059,7 @@ sub_1:                                            ; preds = %sub_0
   %9731 = getelementptr inbounds nuw i8, ptr %9730, i64 8
   store ptr null, ptr %9731, align 8
   %9732 = getelementptr inbounds i8, ptr %.210001, i64 -32
-  %9733 = load i8, ptr %9732, align 8, !range !8, !noundef !9
+  %9733 = load i8, ptr %9732, align 8, !range !6, !noundef !7
   %9734 = trunc nuw i8 %9733 to i1
   br i1 %9734, label %9735, label %9740
 
@@ -19074,7 +19074,7 @@ sub_1:                                            ; preds = %sub_0
 9740:                                             ; preds = %9735, %9729
   %9741 = phi ptr [ %9739, %9735 ], [ null, %9729 ]
   %9742 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %9743 = load i8, ptr %9742, align 8, !range !8, !noundef !9
+  %9743 = load i8, ptr %9742, align 8, !range !6, !noundef !7
   %9744 = trunc nuw i8 %9743 to i1
   br i1 %9744, label %9745, label %9750
 
@@ -19089,7 +19089,7 @@ sub_1:                                            ; preds = %sub_0
 9750:                                             ; preds = %9745, %9740
   %9751 = phi ptr [ %9749, %9745 ], [ %9741, %9740 ]
   %9752 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %9753 = load i8, ptr %9752, align 8, !range !8, !noundef !9
+  %9753 = load i8, ptr %9752, align 8, !range !6, !noundef !7
   %9754 = trunc nuw i8 %9753 to i1
   br i1 %9754, label %9755, label %9760
 
@@ -19104,7 +19104,7 @@ sub_1:                                            ; preds = %sub_0
 9760:                                             ; preds = %9755, %9750
   %9761 = phi ptr [ %9759, %9755 ], [ %9751, %9750 ]
   %9762 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %9763 = load i8, ptr %9762, align 8, !range !8, !noundef !9
+  %9763 = load i8, ptr %9762, align 8, !range !6, !noundef !7
   %9764 = trunc nuw i8 %9763 to i1
   br i1 %9764, label %9765, label %9770
 
@@ -19144,7 +19144,7 @@ sub_1:                                            ; preds = %sub_0
   %9784 = getelementptr inbounds nuw i8, ptr %9783, i64 8
   store ptr null, ptr %9784, align 8
   %9785 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %9786 = load i8, ptr %9785, align 8, !range !8, !noundef !9
+  %9786 = load i8, ptr %9785, align 8, !range !6, !noundef !7
   %9787 = trunc nuw i8 %9786 to i1
   br i1 %9787, label %9788, label %9793
 
@@ -19321,7 +19321,7 @@ sub_1:                                            ; preds = %sub_0
   %9884 = getelementptr inbounds nuw i8, ptr %9877, i64 16
   store ptr %9883, ptr %9884, align 8
   %9885 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %9886 = load i8, ptr %9885, align 8, !range !8, !noundef !9
+  %9886 = load i8, ptr %9885, align 8, !range !6, !noundef !7
   %9887 = trunc nuw i8 %9886 to i1
   br i1 %9887, label %9888, label %.critedge10155
 
@@ -19425,7 +19425,7 @@ sub_1:                                            ; preds = %sub_0
   %9950 = load ptr, ptr %9949, align 8
   %9951 = getelementptr inbounds nuw i8, ptr %9950, i64 33
   store i8 %9947, ptr %9951, align 1
-  %9952 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9952 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9953 = xor i8 %9952, 1
   %9954 = load ptr, ptr %9939, align 8
   %9955 = getelementptr inbounds nuw i8, ptr %9954, i64 64
@@ -19465,7 +19465,7 @@ sub_1:                                            ; preds = %sub_0
   %9977 = load ptr, ptr %9976, align 8
   %9978 = getelementptr inbounds nuw i8, ptr %9977, i64 33
   store i8 %9974, ptr %9978, align 1
-  %9979 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %9979 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %9980 = xor i8 %9979, 1
   %9981 = load ptr, ptr %9966, align 8
   %9982 = getelementptr inbounds nuw i8, ptr %9981, i64 64
@@ -19840,7 +19840,7 @@ sub_1:                                            ; preds = %sub_0
   %10200 = load i32, ptr %10199, align 8
   %10201 = getelementptr inbounds nuw i8, ptr %10195, i64 16
   store i32 %10200, ptr %10201, align 8
-  %10202 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %10202 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %10203 = getelementptr inbounds nuw i8, ptr %10195, i64 20
   store i8 %10202, ptr %10203, align 4
   br label %.critedge10155
@@ -20561,7 +20561,7 @@ list_length.exit:                                 ; preds = %10285
   %10622 = getelementptr inbounds nuw i8, ptr %10605, i64 48
   store ptr %10621, ptr %10622, align 8
   %10623 = load ptr, ptr %10618, align 8
-  %10624 = load i8, ptr %10623, align 8, !range !8, !noundef !9
+  %10624 = load i8, ptr %10623, align 8, !range !6, !noundef !7
   %10625 = getelementptr inbounds nuw i8, ptr %10605, i64 56
   store i8 %10624, ptr %10625, align 8
   %10626 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -20607,7 +20607,7 @@ list_length.exit:                                 ; preds = %10285
   %10655 = getelementptr inbounds nuw i8, ptr %10635, i64 48
   store ptr %10654, ptr %10655, align 8
   %10656 = load ptr, ptr %10651, align 8
-  %10657 = load i8, ptr %10656, align 8, !range !8, !noundef !9
+  %10657 = load i8, ptr %10656, align 8, !range !6, !noundef !7
   %10658 = getelementptr inbounds nuw i8, ptr %10635, i64 56
   store i8 %10657, ptr %10658, align 8
   %10659 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -22121,7 +22121,7 @@ list_length.exit:                                 ; preds = %10285
   store i32 86, ptr %11542, align 4
   %11543 = getelementptr inbounds nuw i8, ptr %11542, i64 4
   store i8 0, ptr %11543, align 4
-  %11544 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %11544 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %11545 = getelementptr inbounds nuw i8, ptr %11542, i64 5
   store i8 %11544, ptr %11545, align 1
   %11546 = getelementptr inbounds nuw i8, ptr %11542, i64 6
@@ -22139,7 +22139,7 @@ list_length.exit:                                 ; preds = %10285
   store i32 86, ptr %11553, align 4
   %11554 = getelementptr inbounds nuw i8, ptr %11553, i64 4
   store i8 0, ptr %11554, align 4
-  %11555 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %11555 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %11556 = getelementptr inbounds nuw i8, ptr %11553, i64 5
   store i8 %11555, ptr %11556, align 1
   %11557 = getelementptr inbounds nuw i8, ptr %11553, i64 6
@@ -22458,7 +22458,7 @@ list_length.exit:                                 ; preds = %10285
   %11741 = getelementptr inbounds nuw i8, ptr %11700, i64 24
   %11742 = load ptr, ptr %11741, align 8
   %11743 = getelementptr inbounds nuw i8, ptr %11742, i64 4
-  %11744 = load i8, ptr %11743, align 4, !range !8, !noundef !9
+  %11744 = load i8, ptr %11743, align 4, !range !6, !noundef !7
   store i8 %11744, ptr %11685, align 1
   br label %11753
 
@@ -23219,7 +23219,7 @@ list_length.exit:                                 ; preds = %10285
 
 12229:                                            ; preds = %._crit_edge
   %12230 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %12231 = load i8, ptr %12230, align 8, !range !8, !noundef !9
+  %12231 = load i8, ptr %12230, align 8, !range !6, !noundef !7
   %12232 = trunc nuw i8 %12231 to i1
   %12233 = select i1 %12232, ptr @.str.178, ptr @.str.179
   %12234 = call ptr @SystemTypeName(ptr noundef nonnull %12233)
@@ -23234,7 +23234,7 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12241:                                            ; preds = %._crit_edge
-  %12242 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12242 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12243 = trunc nuw i8 %12242 to i1
   br i1 %12243, label %12244, label %12246
 
@@ -23337,13 +23337,13 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12300:                                            ; preds = %._crit_edge
-  %12301 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12301 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12302 = trunc nuw i8 %12301 to i1
   %12303 = select i1 %12302, ptr @.str.181, ptr @.str.180
   br label %.critedge10155
 
 12304:                                            ; preds = %._crit_edge
-  %12305 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12305 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12306 = trunc nuw i8 %12305 to i1
   %12307 = select i1 %12306, ptr @.str.181, ptr @.str.180
   br label %.critedge10155
@@ -23352,19 +23352,19 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12309:                                            ; preds = %._crit_edge
-  %12310 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12310 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12311 = trunc nuw i8 %12310 to i1
   %12312 = select i1 %12311, ptr @.str.181, ptr @.str.180
   br label %.critedge10155
 
 12313:                                            ; preds = %._crit_edge
-  %12314 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12314 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12315 = trunc nuw i8 %12314 to i1
   %12316 = select i1 %12315, ptr @.str.181, ptr @.str.180
   br label %.critedge10155
 
 12317:                                            ; preds = %._crit_edge
-  %12318 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12318 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12319 = trunc nuw i8 %12318 to i1
   %12320 = select i1 %12319, ptr @.str.181, ptr @.str.180
   br label %.critedge10155
@@ -23383,7 +23383,7 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12327:                                            ; preds = %._crit_edge
-  %12328 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12328 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12329 = trunc nuw i8 %12328 to i1
   %.str.182..str.183 = select i1 %12329, ptr @.str.182, ptr @.str.183
   %12330 = call ptr @SystemTypeName(ptr noundef nonnull %.str.182..str.183)
@@ -23409,7 +23409,7 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12344:                                            ; preds = %._crit_edge
-  %12345 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12345 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12346 = trunc nuw i8 %12345 to i1
   %.str.182..str.18311000 = select i1 %12346, ptr @.str.182, ptr @.str.183
   %12347 = call ptr @SystemTypeName(ptr noundef nonnull %.str.182..str.18311000)
@@ -23420,7 +23420,7 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12351:                                            ; preds = %._crit_edge
-  %12352 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12352 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12353 = trunc nuw i8 %12352 to i1
   %.str.184..str.185 = select i1 %12353, ptr @.str.184, ptr @.str.185
   %12354 = call ptr @SystemTypeName(ptr noundef nonnull %.str.184..str.185)
@@ -23446,7 +23446,7 @@ list_length.exit:                                 ; preds = %10285
   br label %.critedge10155
 
 12368:                                            ; preds = %._crit_edge
-  %12369 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %12369 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %12370 = trunc nuw i8 %12369 to i1
   %.str.184..str.18511001 = select i1 %12370, ptr @.str.184, ptr @.str.185
   %12371 = call ptr @SystemTypeName(ptr noundef nonnull %.str.184..str.18511001)
@@ -24577,7 +24577,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %13136 = load ptr, ptr %13135, align 8
   %13137 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13138 = load i32, ptr %13137, align 8
-  %13139 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %13139 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %13140 = trunc nuw i8 %13139 to i1
   %13141 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13142 = load i32, ptr %13141, align 4
@@ -24590,7 +24590,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %13147 = load ptr, ptr %13146, align 8
   %13148 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13149 = load i32, ptr %13148, align 8
-  %13150 = load i8, ptr %.210001, align 8, !range !8, !noundef !9
+  %13150 = load i8, ptr %.210001, align 8, !range !6, !noundef !7
   %13151 = trunc nuw i8 %13150 to i1
   %13152 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13153 = load i32, ptr %13152, align 4
@@ -25150,7 +25150,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
 
 13523:                                            ; preds = %13513
   %13524 = getelementptr inbounds nuw i8, ptr %13510, i64 50
-  %13525 = load i8, ptr %13524, align 2, !range !8, !noundef !9
+  %13525 = load i8, ptr %13524, align 2, !range !6, !noundef !7
   %13526 = trunc nuw i8 %13525 to i1
   br i1 %13526, label %13527, label %13534
 
@@ -25167,7 +25167,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
 
 13534:                                            ; preds = %13523
   %13535 = getelementptr inbounds nuw i8, ptr %13510, i64 51
-  %13536 = load i8, ptr %13535, align 1, !range !8, !noundef !9
+  %13536 = load i8, ptr %13535, align 1, !range !6, !noundef !7
   %13537 = trunc nuw i8 %13536 to i1
   br i1 %13537, label %13538, label %13545
 
@@ -25794,7 +25794,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %13932 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13933 = load ptr, ptr %13932, align 8
   %13934 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %13935 = load i8, ptr %13934, align 8, !range !8, !noundef !9
+  %13935 = load i8, ptr %13934, align 8, !range !6, !noundef !7
   %13936 = call noundef ptr @palloc0(i64 noundef 32) #11
   store i32 72, ptr %13936, align 4
   %13937 = getelementptr inbounds nuw i8, ptr %13936, i64 8
@@ -25907,7 +25907,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %14004 = getelementptr inbounds nuw i8, ptr %13995, i64 16
   store ptr %14003, ptr %14004, align 8
   %14005 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %14006 = load i8, ptr %14005, align 8, !range !8, !noundef !9
+  %14006 = load i8, ptr %14005, align 8, !range !6, !noundef !7
   %14007 = getelementptr inbounds nuw i8, ptr %13995, i64 24
   store i8 %14006, ptr %14007, align 8
   %14008 = getelementptr inbounds i8, ptr %.210013, i64 -28
@@ -25933,11 +25933,11 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %14022 = getelementptr inbounds nuw i8, ptr %14019, i64 8
   store ptr %14021, ptr %14022, align 8
   %14023 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %14024 = load i8, ptr %14023, align 8, !range !8, !noundef !9
+  %14024 = load i8, ptr %14023, align 8, !range !6, !noundef !7
   %14025 = getelementptr inbounds nuw i8, ptr %14019, i64 24
   store i8 %14024, ptr %14025, align 8
   %14026 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %14027 = load i8, ptr %14026, align 8, !range !8, !noundef !9
+  %14027 = load i8, ptr %14026, align 8, !range !6, !noundef !7
   %14028 = getelementptr inbounds nuw i8, ptr %14019, i64 25
   store i8 %14027, ptr %14028, align 1
   %14029 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -25977,7 +25977,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %14050 = getelementptr inbounds nuw i8, ptr %14047, i64 8
   store ptr %14049, ptr %14050, align 8
   %14051 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %14052 = load i8, ptr %14051, align 8, !range !8, !noundef !9
+  %14052 = load i8, ptr %14051, align 8, !range !6, !noundef !7
   %14053 = getelementptr inbounds nuw i8, ptr %14047, i64 24
   store i8 %14052, ptr %14053, align 8
   %14054 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -26038,7 +26038,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %14089 = getelementptr inbounds nuw i8, ptr %14086, i64 8
   store ptr %14088, ptr %14089, align 8
   %14090 = getelementptr inbounds i8, ptr %.210001, i64 -8
-  %14091 = load i8, ptr %14090, align 8, !range !8, !noundef !9
+  %14091 = load i8, ptr %14090, align 8, !range !6, !noundef !7
   %14092 = getelementptr inbounds nuw i8, ptr %14086, i64 24
   store i8 %14091, ptr %14092, align 8
   %14093 = getelementptr inbounds nuw i8, ptr %14086, i64 16
@@ -27751,11 +27751,11 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %15065 = getelementptr inbounds nuw i8, ptr %15062, i64 16
   store ptr %15064, ptr %15065, align 8
   %15066 = getelementptr inbounds i8, ptr %.210001, i64 -24
-  %15067 = load i8, ptr %15066, align 8, !range !8, !noundef !9
+  %15067 = load i8, ptr %15066, align 8, !range !6, !noundef !7
   %15068 = getelementptr inbounds nuw i8, ptr %15062, i64 24
   store i8 %15067, ptr %15068, align 8
   %15069 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %15070 = load i8, ptr %15069, align 8, !range !8, !noundef !9
+  %15070 = load i8, ptr %15069, align 8, !range !6, !noundef !7
   %15071 = getelementptr inbounds nuw i8, ptr %15062, i64 25
   store i8 %15070, ptr %15071, align 1
   %15072 = call noundef ptr @palloc0(i64 noundef 48) #11
@@ -27784,7 +27784,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %15087 = getelementptr inbounds nuw i8, ptr %15084, i64 16
   store ptr %15086, ptr %15087, align 8
   %15088 = getelementptr inbounds i8, ptr %.210001, i64 -16
-  %15089 = load i8, ptr %15088, align 8, !range !8, !noundef !9
+  %15089 = load i8, ptr %15088, align 8, !range !6, !noundef !7
   %15090 = getelementptr inbounds nuw i8, ptr %15084, i64 24
   store i8 %15089, ptr %15090, align 8
   %15091 = call noundef ptr @palloc0(i64 noundef 48) #11
@@ -28408,7 +28408,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %15455 = getelementptr inbounds nuw i8, ptr %15438, i64 48
   store ptr %15454, ptr %15455, align 8
   %15456 = load ptr, ptr %15451, align 8
-  %15457 = load i8, ptr %15456, align 8, !range !8, !noundef !9
+  %15457 = load i8, ptr %15456, align 8, !range !6, !noundef !7
   %15458 = getelementptr inbounds nuw i8, ptr %15438, i64 56
   store i8 %15457, ptr %15458, align 8
   %15459 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -28688,7 +28688,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   %.phi.trans.insert10777 = sext i16 %15614 to i64
   %.phi.trans.insert10778 = getelementptr inbounds [6495 x i32], ptr @yypact, i64 0, i64 %.phi.trans.insert10777
   %.pre10779 = load i32, ptr %.phi.trans.insert10778, align 4
-  br label %15593, !llvm.loop !10
+  br label %15593
 
 15615:                                            ; preds = %15603
   %15616 = zext nneg i16 %15605 to i32
@@ -28703,7 +28703,7 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
 15620:                                            ; preds = %15621
   %indvars.iv.next10770 = add nuw nsw i64 %indvars.iv10769, 1
   %exitcond10772.not = icmp eq i64 %indvars.iv.next10770, 3
-  br i1 %exitcond10772.not, label %.loopexit, label %15621, !llvm.loop !11
+  br i1 %exitcond10772.not, label %.loopexit, label %15621, !llvm.loop !8
 
 15621:                                            ; preds = %15615, %15620
   %indvars.iv10769 = phi i64 [ 1, %15615 ], [ %indvars.iv.next10770, %15620 ]
@@ -29235,7 +29235,7 @@ define internal fastcc void @SplitColQualList(ptr noundef %0, ptr noundef writeo
   %.sroa.0.1 = phi ptr [ %.sroa.0.029, %15 ], [ %27, %26 ]
   %.1 = phi ptr [ %.030, %15 ], [ %27, %26 ]
   %.not = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 }
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
@@ -29749,7 +29749,7 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   %85 = load i32, ptr %9, align 4
   %86 = sext i32 %85 to i64
   %.not49 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %.not49, label %.lr.ph, label %.critedge, !llvm.loop !13
+  br i1 %.not49, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.thread, %.preheader, %2
   ret void
@@ -30105,7 +30105,7 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
 67:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge69, label %68, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge69, label %68, !llvm.loop !11
 
 68:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
@@ -30555,13 +30555,10 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !7, !5}
-!12 = distinct !{!12, !7, !5}
-!13 = distinct !{!13, !7, !5}
-!14 = distinct !{!14, !7, !5}
+!11 = distinct !{!11, !5}

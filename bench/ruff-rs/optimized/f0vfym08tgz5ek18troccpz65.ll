@@ -179,7 +179,7 @@ _ZN18ruff_python_stdlib11identifiers19is_identifier_start17h6224b70006779af1E.ex
 .backedge.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h3314d59b7d89b062E.exit.i", %94, %89, %87
   %98 = phi ptr [ %90, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h3314d59b7d89b062E.exit.i" ], [ %90, %94 ], [ %90, %89 ], [ %85, %87 ]
   %.not.i.i = icmp eq ptr %98, %3
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %.backedge.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %_ZN18ruff_python_stdlib11identifiers19is_identifier_start17h6224b70006779af1E.exit.thread
   %99 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
@@ -214,7 +214,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %7 = load i8, ptr %0, align 1, !noalias !17, !noundef !6
+  %7 = load i8, ptr %0, align 1, !noalias !15, !noundef !6
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i"
 
@@ -224,7 +224,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %11 = icmp samesign ne i64 %1, 1
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %13 = load i8, ptr %6, align 1, !noalias !17, !noundef !6
+  %13 = load i8, ptr %6, align 1, !noalias !15, !noundef !6
   %14 = shl nuw nsw i32 %10, 6
   %15 = and i8 %13, 63
   %16 = zext nneg i8 %15 to i32
@@ -240,7 +240,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %21 = icmp samesign ne i64 %1, 2
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %23 = load i8, ptr %12, align 1, !noalias !17, !noundef !6
+  %23 = load i8, ptr %12, align 1, !noalias !15, !noundef !6
   %24 = shl nuw nsw i32 %16, 6
   %25 = and i8 %23, 63
   %26 = zext nneg i8 %25 to i32
@@ -254,7 +254,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %31 = icmp samesign ne i64 %1, 3
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i8, ptr %22, align 1, !noalias !17, !noundef !6
+  %33 = load i8, ptr %22, align 1, !noalias !15, !noundef !6
   %34 = shl nuw nsw i32 %10, 18
   %35 = and i32 %34, 1835008
   %36 = shl nuw nsw i32 %27, 6
@@ -282,7 +282,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
 
 46:                                               ; preds = %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %48 = load i8, ptr %45, align 1, !noalias !20, !noundef !6
+  %48 = load i8, ptr %45, align 1, !noalias !18, !noundef !6
   %49 = icmp sgt i8 %48, -1
   br i1 %49, label %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i"
 
@@ -292,7 +292,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %52 = icmp ne ptr %47, %3
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %54 = load i8, ptr %47, align 1, !noalias !20, !noundef !6
+  %54 = load i8, ptr %47, align 1, !noalias !18, !noundef !6
   %55 = shl nuw nsw i32 %51, 6
   %56 = and i8 %54, 63
   %57 = zext nneg i8 %56 to i32
@@ -308,7 +308,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %62 = icmp ne ptr %53, %3
   tail call void @llvm.assume(i1 %62)
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 3
-  %64 = load i8, ptr %53, align 1, !noalias !20, !noundef !6
+  %64 = load i8, ptr %53, align 1, !noalias !18, !noundef !6
   %65 = shl nuw nsw i32 %57, 6
   %66 = and i8 %64, 63
   %67 = zext nneg i8 %66 to i32
@@ -322,7 +322,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %72 = icmp ne ptr %63, %3
   tail call void @llvm.assume(i1 %72)
   %73 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %74 = load i8, ptr %63, align 1, !noalias !20, !noundef !6
+  %74 = load i8, ptr %63, align 1, !noalias !18, !noundef !6
   %75 = shl nuw nsw i32 %51, 18
   %76 = and i32 %75, 1835008
   %77 = shl nuw nsw i32 %68, 6
@@ -343,7 +343,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers14is_module_name1
   %or.cond2.i.not1.i.i = select i1 %or.cond.i.i.i, i1 %or.cond1.i.i.i, i1 false
   %85 = icmp ne i32 %spec.select.i7.i, 95
   %spec.select.i.not.i.i = and i1 %85, %or.cond2.i.not1.i.i
-  br i1 %spec.select.i.not.i.i, label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit, label %.preheader, !llvm.loop !27
+  br i1 %spec.select.i.not.i.i, label %_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E.exit, label %.preheader
 
 86:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %.preheader
   %87 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
@@ -367,7 +367,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %8 = load i8, ptr %5, align 1, !noalias !28, !noundef !6
+  %8 = load i8, ptr %5, align 1, !noalias !25, !noundef !6
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f655ae0a6a88539E.exit12.i.i.i"
 
@@ -377,7 +377,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
   %12 = icmp ne ptr %7, %3
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %14 = load i8, ptr %7, align 1, !noalias !28, !noundef !6
+  %14 = load i8, ptr %7, align 1, !noalias !25, !noundef !6
   %15 = shl nuw nsw i32 %11, 6
   %16 = and i8 %14, 63
   %17 = zext nneg i8 %16 to i32
@@ -393,7 +393,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
   %22 = icmp ne ptr %13, %3
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %24 = load i8, ptr %13, align 1, !noalias !28, !noundef !6
+  %24 = load i8, ptr %13, align 1, !noalias !25, !noundef !6
   %25 = shl nuw nsw i32 %17, 6
   %26 = and i8 %24, 63
   %27 = zext nneg i8 %26 to i32
@@ -407,7 +407,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
   %32 = icmp ne ptr %23, %3
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %34 = load i8, ptr %23, align 1, !noalias !28, !noundef !6
+  %34 = load i8, ptr %23, align 1, !noalias !25, !noundef !6
   %35 = shl nuw nsw i32 %11, 18
   %36 = and i32 %35, 1835008
   %37 = shl nuw nsw i32 %28, 6
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib11identifiers17is_migration_na
   %or.cond2.i.not1.i.i = select i1 %or.cond.i.i.i, i1 %or.cond1.i.i.i, i1 false
   %45 = icmp ne i32 %spec.select.i7.i, 95
   %spec.select.i.not.i.i = and i1 %45, %or.cond2.i.not1.i.i
-  br i1 %spec.select.i.not.i.i, label %.loopexit, label %4, !llvm.loop !35
+  br i1 %spec.select.i.not.i.i, label %.loopexit, label %4
 
 46:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %4
   %47 = tail call noundef zeroext i1 @_ZN18ruff_python_stdlib7keyword10is_keyword17hea7a49f26f5ddeabE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
@@ -483,24 +483,20 @@ attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "targe
 !12 = distinct !{!12, !13, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h659298d1a7ad9bbfE: argument 0"}
 !13 = distinct !{!13, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h659298d1a7ad9bbfE"}
 !14 = !{!12}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E: argument 0"}
-!19 = distinct !{!19, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E"}
-!20 = !{!21, !23, !25}
-!21 = distinct !{!21, !22, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E: argument 0"}
-!22 = distinct !{!22, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E"}
-!23 = distinct !{!23, !24, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE: argument 0"}
-!24 = distinct !{!24, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE"}
-!25 = distinct !{!25, !26, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hfdcd075f7748bd50E: argument 0"}
-!26 = distinct !{!26, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hfdcd075f7748bd50E"}
-!27 = distinct !{!27, !16}
-!28 = !{!29, !31, !33}
-!29 = distinct !{!29, !30, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E: argument 0"}
-!30 = distinct !{!30, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E"}
-!31 = distinct !{!31, !32, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE: argument 0"}
-!32 = distinct !{!32, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE"}
-!33 = distinct !{!33, !34, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h2bc4866631121afaE: argument 0"}
-!34 = distinct !{!34, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h2bc4866631121afaE"}
-!35 = distinct !{!35, !16}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E: argument 0"}
+!17 = distinct !{!17, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E"}
+!18 = !{!19, !21, !23}
+!19 = distinct !{!19, !20, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E: argument 0"}
+!20 = distinct !{!20, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E"}
+!21 = distinct !{!21, !22, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE: argument 0"}
+!22 = distinct !{!22, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE"}
+!23 = distinct !{!23, !24, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hfdcd075f7748bd50E: argument 0"}
+!24 = distinct !{!24, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hfdcd075f7748bd50E"}
+!25 = !{!26, !28, !30}
+!26 = distinct !{!26, !27, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E: argument 0"}
+!27 = distinct !{!27, !"_ZN4core3str11validations15next_code_point17hb13705b8bd0128f5E"}
+!28 = distinct !{!28, !29, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE: argument 0"}
+!29 = distinct !{!29, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE"}
+!30 = distinct !{!30, !31, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h2bc4866631121afaE: argument 0"}
+!31 = distinct !{!31, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h2bc4866631121afaE"}

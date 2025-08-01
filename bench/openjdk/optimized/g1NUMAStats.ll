@@ -128,7 +128,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayC2Ej(ptr noundef nonnull alig
   %26 = load i32, ptr %4, align 4
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next.i, %27
-  br i1 %28, label %.lr.ph.i, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, !llvm.loop !9
+  br i1 %28, label %.lr.ph.i, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArray5clearEv.exit:     ; preds = %.lr.ph.i, %2, %._crit_edge
   ret void
@@ -160,7 +160,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray5clearEv(ptr noundef nonnull 
   %12 = load i32, ptr %2, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %5, label %._crit_edge, !llvm.loop !9
+  br i1 %14, label %5, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %1
   ret void
@@ -187,7 +187,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayD2Ev(ptr noundef nonnull read
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %5, label %._crit_edge, !llvm.loop !10
+  br i1 %11, label %5, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %5, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -234,12 +234,12 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %spec.select.us = add i64 %17, %.121.us
   %18 = add nuw nsw i64 %.022.us, 1
   %exitcond.not = icmp eq i64 %18, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %12
   %19 = add nuw nsw i64 %.01626.us, 1
   %exitcond33.not = icmp eq i64 %19, %5
-  br i1 %exitcond33.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !12
+  br i1 %exitcond33.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !11
 
 ._crit_edge27:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
   %.018.lcssa = phi i64 [ 0, %2 ], [ 0, %.preheader.lr.ph ], [ %15, %._crit_edge.us ]
@@ -272,7 +272,7 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %15 = add i64 %14, %.01112
   %16 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %16, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi i64 [ 0, %3 ], [ %15, %.lr.ph ]
@@ -305,7 +305,7 @@ define hidden noundef i64 @_ZNK11G1NUMAStats13NodeDataArray3sumEj(ptr noundef no
   %13 = add i64 %12, %.067
   %14 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %2
   %.06.lcssa = phi i64 [ 0, %2 ], [ %13, %10 ]
@@ -369,7 +369,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray4copyEjPm(ptr noundef nonnull
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %7, label %._crit_edge, !llvm.loop !16
+  br i1 %18, label %7, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %7, %3
   ret void
@@ -434,12 +434,12 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr noundef nonnull align 8 captures
   %33 = load i32, ptr %11, align 4
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next.i.i, %34
-  br i1 %35, label %.lr.ph.i.i, label %_ZN11G1NUMAStats13NodeDataArrayC2Ej.exit, !llvm.loop !9
+  br i1 %35, label %.lr.ph.i.i, label %_ZN11G1NUMAStats13NodeDataArrayC2Ej.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArrayC2Ej.exit:         ; preds = %.lr.ph.i.i, %6, %._crit_edge.i
   %36 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %8, ptr %36, align 8
-  br i1 %7, label %6, label %37, !llvm.loop !17
+  br i1 %7, label %6, label %37, !llvm.loop !16
 
 37:                                               ; preds = %_ZN11G1NUMAStats13NodeDataArrayC2Ej.exit
   ret void
@@ -478,7 +478,7 @@ define hidden void @_ZN11G1NUMAStatsD2Ev(ptr noundef nonnull readonly align 8 ca
   %16 = load i32, ptr %9, align 4
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
-  br i1 %18, label %12, label %_ZN11G1NUMAStats13NodeDataArrayD2Ev.exit, !llvm.loop !10
+  br i1 %18, label %12, label %_ZN11G1NUMAStats13NodeDataArrayD2Ev.exit, !llvm.loop !9
 
 _ZN11G1NUMAStats13NodeDataArrayD2Ev.exit:         ; preds = %12, %8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -488,7 +488,7 @@ _ZN11G1NUMAStats13NodeDataArrayD2Ev.exit:         ; preds = %12, %8
   br label %21
 
 21:                                               ; preds = %3, %_ZN11G1NUMAStats13NodeDataArrayD2Ev.exit
-  br i1 %4, label %3, label %22, !llvm.loop !18
+  br i1 %4, label %3, label %22, !llvm.loop !17
 
 22:                                               ; preds = %21
   ret void
@@ -522,7 +522,7 @@ define hidden void @_ZN11G1NUMAStats5clearENS_13NodeDataItemsE(ptr noundef nonnu
   %17 = load i32, ptr %7, align 4
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
-  br i1 %19, label %10, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, !llvm.loop !9
+  br i1 %19, label %10, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArray5clearEv.exit:     ; preds = %10, %2
   ret void
@@ -577,7 +577,7 @@ define hidden void @_ZN11G1NUMAStats4copyENS_13NodeDataItemsEjPm(ptr noundef non
   %21 = load i32, ptr %8, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %12, label %_ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit, !llvm.loop !16
+  br i1 %23, label %12, label %_ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit, !llvm.loop !15
 
 _ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit:    ; preds = %12, %4
   ret void
@@ -640,12 +640,12 @@ define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr noundef
   %spec.select.us.i = add i64 %28, %.121.us.i
   %29 = add nuw nsw i64 %.022.us.i, 1
   %exitcond.not.i = icmp eq i64 %29, %18
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %23, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %23, !llvm.loop !10
 
 ._crit_edge.us.i:                                 ; preds = %23
   %30 = add nuw nsw i64 %.01626.us.i, 1
   %exitcond33.not.i = icmp eq i64 %30, %16
-  br i1 %exitcond33.not.i, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit, label %.preheader.us.i, !llvm.loop !12
+  br i1 %exitcond33.not.i, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit, label %.preheader.us.i, !llvm.loop !11
 
 _ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit.thread: ; preds = %5, %.preheader.lr.ph.i
   %switch.selectcmp.i30 = icmp eq i32 %1, 1
@@ -706,7 +706,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
   %47 = add i64 %46, %.01112.i
   %48 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i13 = icmp eq i64 %48, %44
-  br i1 %exitcond.not.i13, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i13, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, label %.lr.ph.i, !llvm.loop !13
 
 .split10:                                         ; preds = %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4) #11
@@ -730,7 +730,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
   %60 = add i64 %59, %.01112.i17
   %61 = add nuw nsw i64 %.013.i16, 1
   %exitcond.not.i18 = icmp eq i64 %61, %57
-  br i1 %exitcond.not.i18, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, label %.lr.ph.i15, !llvm.loop !14
+  br i1 %exitcond.not.i18, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, label %.lr.ph.i15, !llvm.loop !13
 
 _ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread: ; preds = %.split, %.split10
   %.sroa.0.0.ph = phi i64 [ %55, %.split10 ], [ %42, %.split ]
@@ -763,7 +763,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit21:             ; preds = %_ZNK11G1NUMAStats13
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.5, i32 noundef %74, double noundef %75, i64 noundef %.sroa.0.040, i64 noundef %.sroa.7.039) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZNK11G1NUMAStats4Stat4rateEv.exit21, %_ZNK11G1NUMAStats4Stat4rateEv.exit
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.6) #11
@@ -819,7 +819,7 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nound
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.8, i32 noundef %11) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9) #11
@@ -854,7 +854,7 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nound
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, i64 noundef %24) #11
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count55
-  br i1 %exitcond51.not, label %25, label %17, !llvm.loop !21
+  br i1 %exitcond51.not, label %25, label %17, !llvm.loop !20
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %12, align 8
@@ -878,7 +878,7 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nound
   %36 = add i64 %35, %.067.i
   %37 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %37, %28
-  br i1 %exitcond.not.i, label %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit, label %33, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit, label %33, !llvm.loop !14
 
 _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   %.06.lcssa.i = phi i64 [ 0, %25 ], [ %36, %33 ]
@@ -887,7 +887,7 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14) #11
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge37, label %13, !llvm.loop !22
+  br i1 %exitcond56.not, label %._crit_edge37, label %13, !llvm.loop !21
 
 ._crit_edge37:                                    ; preds = %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15) #11
@@ -907,7 +907,7 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, i64 noundef %47) #11
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %39
-  br i1 %exitcond61.not, label %._crit_edge41, label %40, !llvm.loop !23
+  br i1 %exitcond61.not, label %._crit_edge41, label %40, !llvm.loop !22
 
 ._crit_edge41:                                    ; preds = %40, %._crit_edge37.thread.critedge
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -933,7 +933,7 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   %60 = add i64 %59, %.067.i27
   %61 = add nuw nsw i64 %.08.i26, 1
   %exitcond.not.i28 = icmp eq i64 %61, %51
-  br i1 %exitcond.not.i28, label %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit30, label %57, !llvm.loop !15
+  br i1 %exitcond.not.i28, label %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit30, label %57, !llvm.loop !14
 
 _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit30:    ; preds = %57, %._crit_edge41
   %.06.lcssa.i29 = phi i64 [ 0, %._crit_edge41 ], [ %60, %57 ]
@@ -1049,21 +1049,20 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

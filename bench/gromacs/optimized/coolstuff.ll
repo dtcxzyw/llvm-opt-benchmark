@@ -1535,7 +1535,7 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  store i64 312, ptr %17, align 8, !tbaa !11
+  store i64 312, ptr %17, align 8, !tbaa !10
   %18 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
   %19 = zext i64 %18 to i128
   %20 = mul nuw nsw i128 %19, 26
@@ -1551,7 +1551,7 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
   %24 = mul nuw nsw i128 %23, 26
   %25 = and i128 %24, 18446744073709551600
   %26 = icmp eq i128 %25, 0
-  br i1 %26, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !13
+  br i1 %26, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !12
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %extract19.le.i.i.i.i = lshr i128 %24, 64
@@ -1562,9 +1562,9 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #8
-  %28 = load ptr, ptr %27, align 8, !tbaa !14
+  %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %29, ptr %0, align 8, !tbaa !17
+  store ptr %29, ptr %0, align 8, !tbaa !16
   %30 = icmp eq ptr %28, null
   br i1 %30, label %.noexc, label %31
 
@@ -1581,9 +1581,9 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
 
 .noexc.i:                                         ; preds = %31
   %34 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %34, ptr %0, align 8, !tbaa !19
+  store ptr %34, ptr %0, align 8, !tbaa !18
   %35 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %35, ptr %29, align 8, !tbaa !21
+  store i64 %35, ptr %29, align 8, !tbaa !20
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %31
@@ -1594,8 +1594,8 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
   ]
 
 37:                                               ; preds = %._crit_edge.i.i
-  %38 = load i8, ptr %28, align 1, !tbaa !21
-  store i8 %38, ptr %36, align 1, !tbaa !21
+  %38 = load i8, ptr %28, align 1, !tbaa !20
+  store i8 %38, ptr %36, align 1, !tbaa !20
   br label %40
 
 39:                                               ; preds = %._crit_edge.i.i
@@ -1605,21 +1605,21 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: 
 40:                                               ; preds = %39, %37, %._crit_edge.i.i
   %41 = load i64, ptr %2, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %41, ptr %42, align 8, !tbaa !22
-  %43 = load ptr, ptr %0, align 8, !tbaa !19
+  store i64 %41, ptr %42, align 8, !tbaa !21
+  %43 = load ptr, ptr %0, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %41
-  store i8 0, ptr %44, align 1, !tbaa !21
+  store i8 0, ptr %44, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   br label %48
 
 ._crit_edge.i.i4:                                 ; preds = %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %45, ptr %0, align 8, !tbaa !17
+  store ptr %45, ptr %0, align 8, !tbaa !16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %45, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 7, ptr %46, align 8, !tbaa !22
+  store i64 7, ptr %46, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 0, ptr %47, align 1, !tbaa !21
+  store i8 0, ptr %47, align 1, !tbaa !20
   br label %48
 
 48:                                               ; preds = %._crit_edge.i.i4, %40
@@ -1646,7 +1646,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  %3 = load i64, ptr %2, align 8, !tbaa !11
+  %3 = load i64, ptr %2, align 8, !tbaa !10
   %4 = icmp ugt i64 %3, 311
   br i1 %4, label %5, label %52
 
@@ -1675,7 +1675,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   %22 = xor i64 %19, %21
   store i64 %22, ptr %8, align 8, !tbaa !4
   %exitcond.not.i = icmp eq i64 %10, 156
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !22
 
 .preheader.preheader.i:                           ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -1703,7 +1703,7 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   %38 = xor i64 %35, %37
   store i64 %38, ptr %24, align 8, !tbaa !4
   %exitcond23.not.i = icmp eq i64 %26, 311
-  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !23
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %.preheader.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2488
@@ -1726,7 +1726,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 52:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, %1
   %53 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %54 = add nuw nsw i64 %53, 1
-  store i64 %54, ptr %2, align 8, !tbaa !11
+  store i64 %54, ptr %2, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %53
   %56 = load i64, ptr %55, align 8, !tbaa !4
   %57 = lshr i64 %56, 29
@@ -1780,7 +1780,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 2496
-  store i64 312, ptr %17, align 8, !tbaa !11
+  store i64 312, ptr %17, align 8, !tbaa !10
   %18 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %3)
   %19 = zext i64 %18 to i128
   %20 = mul nuw nsw i128 %19, 907
@@ -1796,7 +1796,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
   %24 = mul nuw nsw i128 %23, 907
   %25 = trunc i128 %24 to i64
   %26 = icmp ult i64 %25, 579
-  br i1 %26, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !13
+  br i1 %26, label %.lr.ph.i.i.i.i, label %..loopexit_crit_edge.i.i.i.i, !llvm.loop !12
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %extract19.le.i.i.i.i = lshr i128 %24, 64
@@ -1807,26 +1807,26 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #8
-  %.sroa.0.0.copyload = load ptr, ptr %27, align 16, !tbaa !14
+  %.sroa.0.0.copyload = load ptr, ptr %27, align 16, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.1490, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload)
   br label %33
 
 .noexc.i:                                         ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %28, ptr %0, align 8, !tbaa !17
+  store ptr %28, ptr %0, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   store i64 41, ptr %2, align 8, !tbaa !4
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %29, ptr %0, align 8, !tbaa !19
+  store ptr %29, ptr %0, align 8, !tbaa !18
   %30 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %30, ptr %28, align 8, !tbaa !21
+  store i64 %30, ptr %28, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %29, ptr noundef nonnull align 1 dereferenceable(41) @.str.1491, i64 41, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %31, align 8, !tbaa !22
+  store i64 %30, ptr %31, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %30
-  store i8 0, ptr %32, align 1, !tbaa !21
+  store i8 0, ptr %32, align 1, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   br label %33
 
@@ -1857,20 +1857,19 @@ attributes #9 = { noreturn }
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !5, i64 2496}
-!12 = !{!"_ZTSSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE", !6, i64 0, !5, i64 2496}
-!13 = distinct !{!13, !9, !10}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = !{!18, !15, i64 0}
-!18 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !15, i64 0}
-!19 = !{!20, !15, i64 0}
-!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !18, i64 0, !5, i64 8, !6, i64 16}
-!21 = !{!6, !6, i64 0}
-!22 = !{!20, !5, i64 8}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!10 = !{!11, !5, i64 2496}
+!11 = !{!"_ZTSSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE", !6, i64 0, !5, i64 2496}
+!12 = distinct !{!12, !9}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!17, !14, i64 0}
+!17 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
+!18 = !{!19, !14, i64 0}
+!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !17, i64 0, !5, i64 8, !6, i64 16}
+!20 = !{!6, !6, i64 0}
+!21 = !{!19, !5, i64 8}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}

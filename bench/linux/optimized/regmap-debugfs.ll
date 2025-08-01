@@ -306,7 +306,7 @@ define dso_local void @regmap_debugfs_exit(ptr noundef %0) local_unnamed_addr #0
   tail call void @kfree(ptr noundef %10) #12
   %15 = load volatile ptr, ptr %7, align 8
   %16 = icmp eq ptr %15, %7
-  br i1 %16, label %.loopexit5, label %.preheader4, !llvm.loop !11
+  br i1 %16, label %.loopexit5, label %.preheader4, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %.preheader4, %5
   tail call void @mutex_unlock(ptr noundef nonnull %6) #12
@@ -343,7 +343,7 @@ define dso_local void @regmap_debugfs_exit(ptr noundef %0) local_unnamed_addr #0
 
 31:                                               ; preds = %27, %.preheader
   %32 = icmp eq ptr %24, @regmap_debugfs_early_list
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %31, %19
   tail call void @mutex_unlock(ptr noundef nonnull @regmap_debugfs_early_lock) #12
@@ -381,7 +381,7 @@ define dso_local void @regmap_debugfs_initcall() local_unnamed_addr #0 align 16 
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
   tail call void @kfree(ptr noundef %5) #12
   %12 = icmp eq ptr %6, @regmap_debugfs_early_list
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %0
   tail call void @mutex_unlock(ptr noundef nonnull @regmap_debugfs_early_lock) #12
@@ -540,7 +540,7 @@ define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr nou
   %59 = add i64 %45, %.pre
   %60 = load ptr, ptr %43, align 8
   %61 = icmp eq ptr %60, %40
-  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader._crit_edge, %53, %36
   %62 = phi i64 [ 0, %36 ], [ %44, %53 ], [ %58, %.preheader._crit_edge ]
@@ -650,7 +650,7 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   tail call void @kfree(ptr noundef %44) #12
   %49 = load volatile ptr, ptr %8, align 8
   %50 = icmp eq ptr %49, %8
-  br i1 %50, label %.loopexit, label %.preheader12, !llvm.loop !15
+  br i1 %50, label %.loopexit, label %.preheader12, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader12, %41
   tail call void @mutex_unlock(ptr noundef nonnull %7) #12
@@ -677,7 +677,7 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   %63 = add i32 %62, %19
   %64 = load i32, ptr %12, align 8
   %65 = icmp ugt i32 %63, %64
-  br i1 %65, label %66, label %16, !llvm.loop !16
+  br i1 %65, label %66, label %16, !llvm.loop !14
 
 66:                                               ; preds = %59
   %67 = icmp eq ptr %61, null
@@ -702,12 +702,12 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
 .thread:                                          ; preds = %6, %68, %66
   %76 = load volatile ptr, ptr %8, align 8
   %77 = icmp eq ptr %76, %8
-  br i1 %77, label %78, label %79, !prof !17
+  br i1 %77, label %78, label %79, !prof !15
 
 78:                                               ; preds = %.thread
-  tail call void asm sideeffect "313: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 313b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 313) #12, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.17, i32 160, i32 2305, i64 12) #12, !srcloc !19
-  tail call void asm sideeffect "314: nop\0A\09.pushsection .discard.instr_end\0A\09.long 314b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 314) #12, !srcloc !20
+  tail call void asm sideeffect "313: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 313b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 313) #12, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.17, i32 160, i32 2305, i64 12) #12, !srcloc !17
+  tail call void asm sideeffect "314: nop\0A\09.pushsection .discard.instr_end\0A\09.long 314b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 314) #12, !srcloc !18
   %.pre = load ptr, ptr %8, align 8
   br label %79
 
@@ -750,7 +750,7 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   store i64 %.pre25, ptr %3, align 8
   %102 = load ptr, ptr %82, align 8
   %103 = icmp eq ptr %102, %8
-  br i1 %103, label %104, label %.preheader, !llvm.loop !21
+  br i1 %103, label %104, label %.preheader, !llvm.loop !19
 
 104:                                              ; preds = %.preheader._crit_edge
   %105 = getelementptr inbounds nuw i8, ptr %82, i64 36
@@ -832,7 +832,7 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
   br label %33
 
 33:                                               ; preds = %21, %17
-  store i32 0, ptr %8, align 4, !annotation !22
+  store i32 0, ptr %8, align 4, !annotation !20
   %34 = load i64, ptr %5, align 8
   %35 = call fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 noundef %1, i64 noundef %34, ptr noundef nonnull %7)
   %36 = icmp sgt i32 %35, -1
@@ -947,7 +947,7 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
 111:                                              ; preds = %107, %.preheader
   %112 = load ptr, ptr %103, align 8
   %113 = icmp eq ptr %112, %45
-  br i1 %113, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %113, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %111, %107, %100
   %114 = phi i32 [ -22, %100 ], [ %109, %107 ], [ -22, %111 ]
@@ -959,17 +959,17 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
   %117 = icmp sgt i32 %116, -1
   %118 = icmp ule i32 %116, %2
   %119 = and i1 %117, %118
-  br i1 %119, label %47, label %120, !llvm.loop !24
+  br i1 %119, label %47, label %120, !llvm.loop !22
 
 120:                                              ; preds = %53, %115
   %121 = phi i64 [ %86, %115 ], [ %50, %53 ]
   %122 = icmp ugt i64 %121, 2147483647
-  br i1 %122, label %123, label %.thread, !prof !25
+  br i1 %122, label %123, label %.thread, !prof !23
 
 123:                                              ; preds = %120
-  call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #12, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 249, i32 2307, i64 12) #12, !srcloc !27
-  call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #12, !srcloc !28
+  call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #12, !srcloc !24
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 249, i32 2307, i64 12) #12, !srcloc !25
+  call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #12, !srcloc !26
   br label %130
 
 .thread:                                          ; preds = %33, %120
@@ -1058,7 +1058,7 @@ define internal noundef i32 @regmap_access_show(ptr noundef %0, ptr readnone cap
   %25 = add i32 %24, %10
   %26 = load i32, ptr %5, align 8
   %27 = icmp ugt i32 %25, %26
-  br i1 %27, label %28, label %9, !llvm.loop !29
+  br i1 %27, label %28, label %9, !llvm.loop !27
 
 28:                                               ; preds = %23
   ret i32 0
@@ -1083,7 +1083,7 @@ define internal i64 @regmap_cache_only_write_file(ptr noundef readonly captures(
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -548
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
-  store i8 0, ptr %5, align 1, !annotation !22
+  store i8 0, ptr %5, align 1, !annotation !20
   %9 = call i32 @kstrtobool_from_user(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5) #12
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %50
@@ -1190,7 +1190,7 @@ define internal i64 @regmap_cache_bypass_write_file(ptr noundef readonly capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
-  store i8 0, ptr %5, align 1, !annotation !22
+  store i8 0, ptr %5, align 1, !annotation !20
   %8 = call i32 @kstrtobool_from_user(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %40
@@ -1296,26 +1296,24 @@ attributes #14 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = !{i64 2154280744, i64 2154280553, i64 2154280605, i64 2154280651, i64 2154280679}
-!19 = !{i64 2154280818, i64 2154280847, i64 2154280893, i64 2154280951, i64 2154281005, i64 2154281059, i64 2154281114, i64 2154281145, i64 2154281453, i64 2154281459, i64 2154281506, i64 2154281529, i64 2154281555}
-!20 = !{i64 2154282024, i64 2154281835, i64 2154281885, i64 2154281931, i64 2154281959}
-!21 = distinct !{!21, !8, !9, !10}
-!22 = !{!"auto-init"}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = distinct !{!24, !8, !9, !10}
-!25 = !{!"branch_weights", i32 2146410, i32 2145337238}
-!26 = !{i64 2149503140, i64 2149502954, i64 2149503006, i64 2149503052, i64 2149503080}
-!27 = !{i64 2149503211, i64 2149503240, i64 2149503286, i64 2149503344, i64 2149503398, i64 2149503452, i64 2149503507, i64 2149503538, i64 2149503846, i64 2149503852, i64 2149503899, i64 2149503922, i64 2149503948}
-!28 = !{i64 2149504403, i64 2149504219, i64 2149504269, i64 2149504315, i64 2149504343}
-!29 = distinct !{!29, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = !{i64 2154280744, i64 2154280553, i64 2154280605, i64 2154280651, i64 2154280679}
+!17 = !{i64 2154280818, i64 2154280847, i64 2154280893, i64 2154280951, i64 2154281005, i64 2154281059, i64 2154281114, i64 2154281145, i64 2154281453, i64 2154281459, i64 2154281506, i64 2154281529, i64 2154281555}
+!18 = !{i64 2154282024, i64 2154281835, i64 2154281885, i64 2154281931, i64 2154281959}
+!19 = distinct !{!19, !8, !9}
+!20 = !{!"auto-init"}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = !{!"branch_weights", i32 2146410, i32 2145337238}
+!24 = !{i64 2149503140, i64 2149502954, i64 2149503006, i64 2149503052, i64 2149503080}
+!25 = !{i64 2149503211, i64 2149503240, i64 2149503286, i64 2149503344, i64 2149503398, i64 2149503452, i64 2149503507, i64 2149503538, i64 2149503846, i64 2149503852, i64 2149503899, i64 2149503922, i64 2149503948}
+!26 = !{i64 2149504403, i64 2149504219, i64 2149504269, i64 2149504315, i64 2149504343}
+!27 = distinct !{!27, !8, !9}

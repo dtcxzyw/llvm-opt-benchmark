@@ -61,12 +61,12 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 35:                                               ; preds = %35, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %35 ]
   %36 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
-  %37 = load <8 x double>, ptr %36, align 1, !tbaa !10
+  %37 = load <8 x double>, ptr %36, align 1, !tbaa !9
   %38 = fmul <8 x double> %34, %37
-  store <8 x double> %38, ptr %36, align 1, !tbaa !10
+  store <8 x double> %38, ptr %36, align 1, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %39 = icmp samesign ugt i64 %30, %indvars.iv.next.i
-  br i1 %39, label %35, label %dscal_kernel_8.exit, !llvm.loop !11
+  br i1 %39, label %35, label %dscal_kernel_8.exit, !llvm.loop !10
 
 dscal_kernel_8.exit:                              ; preds = %35, %29
   %.not124 = icmp eq i64 %30, %0
@@ -80,7 +80,7 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
   store double %42, ptr %40, align 8, !tbaa !3
   %43 = add nsw i64 %.2120, 1
   %44 = icmp slt i64 %43, %0
-  br i1 %44, label %.lr.ph121, label %.loopexit, !llvm.loop !12
+  br i1 %44, label %.lr.ph121, label %.loopexit, !llvm.loop !11
 
 45:                                               ; preds = %10
   br i1 %.not94, label %78, label %46
@@ -119,7 +119,7 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
   %58 = add nsw i64 %.3107, %50
   %59 = add nuw nsw i64 %.283106, 2
   %60 = icmp slt i64 %59, %48
-  br i1 %60, label %55, label %.preheader.loopexit, !llvm.loop !13
+  br i1 %60, label %55, label %.preheader.loopexit, !llvm.loop !12
 
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
   %.4111 = phi i64 [ %62, %.lr.ph112 ], [ %.3.lcssa, %.preheader ]
@@ -129,7 +129,7 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
   %62 = add nsw i64 %.4111, %5
   %63 = add nuw nsw i64 %.384110, 1
   %exitcond131.not = icmp eq i64 %63, %0
-  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph112, !llvm.loop !14
+  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph112, !llvm.loop !13
 
 64:                                               ; preds = %46
   %65 = icmp sgt i64 %0, 7
@@ -161,7 +161,7 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
   %76 = add nsw i64 %.6105, %5
   %77 = add nuw nsw i64 %.586104, 1
   %exitcond.not = icmp eq i64 %77, %0
-  br i1 %exitcond.not, label %.loopexit, label %72, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %72, !llvm.loop !14
 
 78:                                               ; preds = %45
   %79 = and i64 %0, -8
@@ -176,7 +176,7 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
   %84 = add i64 %83, -8
   %85 = and i64 %84, -64
   %86 = add i64 %85, 64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %86, i1 false), !tbaa !10
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %86, i1 false), !tbaa !9
   br label %87
 
 87:                                               ; preds = %82, %81
@@ -205,12 +205,12 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
 97:                                               ; preds = %97, %94
   %indvars.iv.i96 = phi i64 [ 0, %94 ], [ %indvars.iv.next.i97, %97 ]
   %98 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i96
-  %99 = load <8 x double>, ptr %98, align 1, !tbaa !10
+  %99 = load <8 x double>, ptr %98, align 1, !tbaa !9
   %100 = fmul <8 x double> %96, %99
-  store <8 x double> %100, ptr %98, align 1, !tbaa !10
+  store <8 x double> %100, ptr %98, align 1, !tbaa !9
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 8
   %101 = icmp samesign ugt i64 %79, %indvars.iv.next.i97
-  br i1 %101, label %97, label %dscal_kernel_8.exit98, !llvm.loop !11
+  br i1 %101, label %97, label %dscal_kernel_8.exit98, !llvm.loop !10
 
 dscal_kernel_8.exit98:                            ; preds = %97, %93
   %.not122 = icmp eq i64 %79, %0
@@ -224,7 +224,7 @@ dscal_kernel_8.exit98:                            ; preds = %97, %93
   store double %104, ptr %102, align 8, !tbaa !3
   %105 = add nsw i64 %.8113, 1
   %106 = icmp slt i64 %105, %0
-  br i1 %106, label %.lr.ph114, label %.loopexit, !llvm.loop !16
+  br i1 %106, label %.lr.ph114, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %72, %.lr.ph112, %.lr.ph114, %23, %.lr.ph121, %.lr.ph116.preheader, %69, %.preheader, %dscal_kernel_8.exit98, %87, %20, %dscal_kernel_8.exit
   ret i32 0
@@ -234,7 +234,7 @@ dscal_kernel_8.exit98:                            ; preds = %97, %93
 define internal fastcc void @dscal_kernel_inc_8(i64 noundef range(i64 1, -9223372036854775808) %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef range(i64 2, 1) %3) unnamed_addr #1 {
   %5 = shl i64 %3, 3
   %6 = mul i64 %3, 24
-  %7 = tail call { i64, ptr, ptr } asm sideeffect "movddup ($3),      %xmm0              \0A\09leaq    ($1,$4,4), $2                  \0A\09.p2align 4                             \0A\091:                                     \0A\09movsd  ($1)     , %xmm4               \0A\09movhpd ($1,$4,1), %xmm4               \0A\09movsd  ($1,$4,2), %xmm5               \0A\09movhpd ($1,$5,1), %xmm5               \0A\09movsd  ($2)     , %xmm6               \0A\09movhpd ($2,$4,1), %xmm6               \0A\09movsd  ($2,$4,2), %xmm7               \0A\09movhpd ($2,$5,1), %xmm7               \0A\09mulpd  %xmm0, %xmm4                  \0A\09mulpd  %xmm0, %xmm5                  \0A\09mulpd  %xmm0, %xmm6                  \0A\09mulpd  %xmm0, %xmm7                  \0A\09movsd  %xmm4 , ($1)                   \0A\09movhpd %xmm4 , ($1,$4,1)              \0A\09movsd  %xmm5 , ($1,$4,2)              \0A\09movhpd %xmm5 , ($1,$5,1)              \0A\09movsd  %xmm6 , ($2)                   \0A\09movhpd %xmm6 , ($2,$4,1)              \0A\09movsd  %xmm7 , ($2,$4,2)              \0A\09movhpd %xmm7 , ($2,$5,1)              \0A\09leaq   ($1,$4,8), $1                   \0A\09leaq   ($2,$4,8), $2                   \0A\09subq   $$8, $0                          \0A\09jnz    1b                              \0A\09", "=r,=r,=r,r,r,r,0,1,2,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, i64 %5, i64 %6, i64 %0, ptr %2, ptr null) #4, !srcloc !17
+  %7 = tail call { i64, ptr, ptr } asm sideeffect "movddup ($3),      %xmm0              \0A\09leaq    ($1,$4,4), $2                  \0A\09.p2align 4                             \0A\091:                                     \0A\09movsd  ($1)     , %xmm4               \0A\09movhpd ($1,$4,1), %xmm4               \0A\09movsd  ($1,$4,2), %xmm5               \0A\09movhpd ($1,$5,1), %xmm5               \0A\09movsd  ($2)     , %xmm6               \0A\09movhpd ($2,$4,1), %xmm6               \0A\09movsd  ($2,$4,2), %xmm7               \0A\09movhpd ($2,$5,1), %xmm7               \0A\09mulpd  %xmm0, %xmm4                  \0A\09mulpd  %xmm0, %xmm5                  \0A\09mulpd  %xmm0, %xmm6                  \0A\09mulpd  %xmm0, %xmm7                  \0A\09movsd  %xmm4 , ($1)                   \0A\09movhpd %xmm4 , ($1,$4,1)              \0A\09movsd  %xmm5 , ($1,$4,2)              \0A\09movhpd %xmm5 , ($1,$5,1)              \0A\09movsd  %xmm6 , ($2)                   \0A\09movhpd %xmm6 , ($2,$4,1)              \0A\09movsd  %xmm7 , ($2,$4,2)              \0A\09movhpd %xmm7 , ($2,$5,1)              \0A\09leaq   ($1,$4,8), $1                   \0A\09leaq   ($2,$4,8), $2                   \0A\09subq   $$8, $0                          \0A\09jnz    1b                              \0A\09", "=r,=r,=r,r,r,r,0,1,2,~{cc},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, i64 %5, i64 %6, i64 %0, ptr %2, ptr null) #4, !srcloc !16
   ret void
 }
 
@@ -259,14 +259,13 @@ attributes #4 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = !{i64 22182, i64 22224, i64 22289, i64 22344, i64 22399, i64 22453, i64 22507, i64 22561, i64 22615, i64 22670, i64 22724, i64 22778, i64 22832, i64 22887, i64 22941, i64 22995, i64 23049, i64 23104, i64 23158, i64 23212, i64 23266, i64 23321, i64 23375, i64 23429, i64 23483, i64 23538, i64 23592, i64 23647, i64 23701}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = !{i64 22182, i64 22224, i64 22289, i64 22344, i64 22399, i64 22453, i64 22507, i64 22561, i64 22615, i64 22670, i64 22724, i64 22778, i64 22832, i64 22887, i64 22941, i64 22995, i64 23049, i64 23104, i64 23158, i64 23212, i64 23266, i64 23321, i64 23375, i64 23429, i64 23483, i64 23538, i64 23592, i64 23647, i64 23701}

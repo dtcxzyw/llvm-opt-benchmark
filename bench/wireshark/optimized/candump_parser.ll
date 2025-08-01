@@ -195,7 +195,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %50 = phi ptr [ %51, %.lr.ph.i ], [ %45, %47 ]
   %51 = getelementptr i8, ptr %50, i64 -96
   %52 = icmp ugt ptr %51, %48
-  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   store ptr %51, ptr %0, align 8
@@ -384,13 +384,13 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   store i8 %132, ptr %6, align 8
   %133 = getelementptr i8, ptr %54, i64 -87
   %134 = zext i8 %130 to i64
-  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef nonnull readonly %133, i64 noundef range(i64 0, 256) %134, i64 noundef 87) #12, !alias.scope !10
+  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef nonnull readonly %133, i64 noundef range(i64 0, 256) %134, i64 noundef 87) #12, !alias.scope !9
   %136 = add nuw nsw i64 %134, 1
   %137 = getelementptr [64 x i8], ptr %14, i64 0, i64 %134
   %138 = getelementptr inbounds nuw i8, ptr %54, i64 9
   %139 = zext i8 %131 to i64
   %140 = call i64 @llvm.usub.sat.i64(i64 88, i64 %136)
-  %141 = call ptr @__memcpy_chk(ptr noundef %137, ptr noundef nonnull readonly %138, i64 noundef range(i64 0, 256) %139, i64 noundef %140) #12, !alias.scope !14
+  %141 = call ptr @__memcpy_chk(ptr noundef %137, ptr noundef nonnull readonly %138, i64 noundef range(i64 0, 256) %139, i64 noundef %140) #12, !alias.scope !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %128, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yyStackOverflow.exit
 
@@ -417,7 +417,7 @@ yyStackOverflow.exit:                             ; preds = %127, %118, %111, %1
   %159 = getelementptr i8, ptr %148, i64 97
   store i8 %144, ptr %159, align 1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
-  br label %24, !llvm.loop !18
+  br label %24
 
 160:                                              ; preds = %yy_find_shift_action.exit
   %161 = icmp samesign ult i8 %.0.i, 119
@@ -441,7 +441,7 @@ yyStackOverflow.exit:                             ; preds = %127, %118, %111, %1
   %170 = phi ptr [ %171, %.lr.ph.i.i ], [ %163, %167 ]
   %171 = getelementptr i8, ptr %170, i64 -96
   %172 = icmp ugt ptr %171, %168
-  br i1 %172, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %172, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   store ptr %171, ptr %0, align 8
@@ -510,7 +510,7 @@ yy_shift.exit:                                    ; preds = %167, %._crit_edge.i
   %201 = phi ptr [ %202, %.lr.ph.i42 ], [ %.promoted.i41, %197 ]
   %202 = getelementptr i8, ptr %201, i64 -96
   %203 = icmp ugt ptr %202, %199
-  br i1 %203, label %.lr.ph.i42, label %._crit_edge.i43, !llvm.loop !19
+  br i1 %203, label %.lr.ph.i42, label %._crit_edge.i43, !llvm.loop !17
 
 ._crit_edge.i43:                                  ; preds = %.lr.ph.i42
   store ptr %202, ptr %0, align 8
@@ -603,7 +603,7 @@ CandumpParserAlloc.exit:                          ; preds = %14, %16
   %34 = icmp eq ptr %33, null
   %35 = icmp ne i32 %26, 0
   %or.cond = and i1 %35, %34
-  br i1 %or.cond, label %24, label %36, !llvm.loop !20
+  br i1 %or.cond, label %24, label %36, !llvm.loop !18
 
 36:                                               ; preds = %24, %30, %32
   br i1 %.not.i, label %CandumpParserFree.exit, label %37
@@ -735,18 +735,16 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

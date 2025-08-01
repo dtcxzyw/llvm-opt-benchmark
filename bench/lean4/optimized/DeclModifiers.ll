@@ -5290,7 +5290,7 @@ lean_alloc_ctor.exit131:                          ; preds = %179
   store ptr %171, ptr %185, align 8, !tbaa !9
   %186 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %.092, ptr %186, align 8, !tbaa !9
-  br label %3, !llvm.loop !18
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -18617,5 +18617,3 @@ attributes #8 = { noreturn nounwind }
 !15 = !{!"short", !7, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}

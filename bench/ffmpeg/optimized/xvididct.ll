@@ -220,7 +220,7 @@ define void @ff_xvid_idct(ptr noundef captures(none) %0) #0 {
   store i16 %168, ptr %169, align 2, !tbaa !4
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 8
-  br i1 %exitcond48.not, label %.loopexit, label %.preheader35, !llvm.loop !11
+  br i1 %exitcond48.not, label %.loopexit, label %.preheader35, !llvm.loop !10
 
 .preheader:                                       ; preds = %106, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader ], [ 0, %106 ]
@@ -288,7 +288,7 @@ define void @ff_xvid_idct(ptr noundef captures(none) %0) #0 {
   store i16 %222, ptr %223, align 2, !tbaa !4
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 8
-  br i1 %exitcond52.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader37, %.preheader35, %.preheader
   ret void
@@ -296,19 +296,19 @@ define void @ff_xvid_idct(ptr noundef captures(none) %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 2) i32 @idct_row(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65537) %2) unnamed_addr #1 {
-  %4 = load i32, ptr %1, align 4, !tbaa !13
+  %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 4, !tbaa !13
+  %8 = load i32, ptr %7, align 4, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !13
+  %10 = load i32, ptr %9, align 4, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i32, ptr %11, align 4, !tbaa !13
+  %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !13
+  %14 = load i32, ptr %13, align 4, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i32, ptr %15, align 4, !tbaa !13
+  %16 = load i32, ptr %15, align 4, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %18 = load i16, ptr %17, align 2, !tbaa !4
   %19 = sext i16 %18 to i32
@@ -533,19 +533,19 @@ define internal fastcc range(i32 0, 2) i32 @idct_row(ptr noundef captures(none) 
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_xvid_idct_init(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 652
-  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %4 = load i32, ptr %3, align 4, !tbaa !14
   %5 = icmp sgt i32 %4, 8
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 724
-  %8 = load i32, ptr %7, align 4, !tbaa !35
+  %8 = load i32, ptr %7, align 4, !tbaa !34
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 644
-  %11 = load i32, ptr %10, align 4, !tbaa !36
+  %11 = load i32, ptr %10, align 4, !tbaa !35
   switch i32 %11, label %20 [
     i32 14, label %12
     i32 0, label %._crit_edge
@@ -553,18 +553,18 @@ define void @ff_xvid_idct_init(ptr noundef %0, ptr noundef readonly captures(non
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !37
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !36
   br label %17
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @xvid_idct_put, ptr %13, align 8, !tbaa !39
+  store ptr @xvid_idct_put, ptr %13, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr @xvid_idct_add, ptr %14, align 8, !tbaa !40
+  store ptr @xvid_idct_add, ptr %14, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @ff_xvid_idct, ptr %15, align 8, !tbaa !41
+  store ptr @ff_xvid_idct, ptr %15, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 0, ptr %16, align 8, !tbaa !37
+  store i32 0, ptr %16, align 8, !tbaa !36
   br label %17
 
 17:                                               ; preds = %._crit_edge, %12
@@ -614,37 +614,36 @@ attributes #5 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = !{!16, !14, i64 652}
-!16 = !{!"AVCodecContext", !17, i64 0, !14, i64 8, !14, i64 12, !19, i64 16, !14, i64 24, !14, i64 28, !18, i64 32, !20, i64 40, !18, i64 48, !21, i64 56, !14, i64 64, !14, i64 68, !22, i64 72, !14, i64 80, !23, i64 84, !23, i64 92, !23, i64 100, !14, i64 108, !14, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !23, i64 128, !14, i64 136, !14, i64 140, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156, !14, i64 160, !14, i64 164, !14, i64 168, !14, i64 172, !14, i64 176, !18, i64 184, !18, i64 192, !14, i64 200, !24, i64 204, !24, i64 208, !24, i64 212, !24, i64 216, !24, i64 220, !24, i64 224, !24, i64 228, !24, i64 232, !24, i64 236, !14, i64 240, !14, i64 244, !14, i64 248, !14, i64 252, !14, i64 256, !14, i64 260, !14, i64 264, !14, i64 268, !14, i64 272, !14, i64 276, !14, i64 280, !14, i64 284, !25, i64 288, !25, i64 296, !25, i64 304, !14, i64 312, !14, i64 316, !14, i64 320, !14, i64 324, !14, i64 328, !14, i64 332, !14, i64 336, !14, i64 340, !14, i64 344, !14, i64 348, !26, i64 352, !14, i64 376, !14, i64 380, !14, i64 384, !14, i64 388, !14, i64 392, !14, i64 396, !14, i64 400, !14, i64 404, !18, i64 408, !14, i64 416, !14, i64 420, !14, i64 424, !24, i64 428, !24, i64 432, !14, i64 436, !14, i64 440, !14, i64 444, !14, i64 448, !14, i64 452, !27, i64 456, !21, i64 464, !21, i64 472, !24, i64 480, !24, i64 484, !14, i64 488, !14, i64 492, !22, i64 496, !22, i64 504, !14, i64 512, !14, i64 516, !14, i64 520, !14, i64 524, !14, i64 528, !28, i64 536, !18, i64 544, !29, i64 552, !29, i64 560, !14, i64 568, !14, i64 572, !6, i64 576, !14, i64 640, !14, i64 644, !14, i64 648, !14, i64 652, !14, i64 656, !14, i64 660, !14, i64 664, !18, i64 672, !18, i64 680, !14, i64 688, !14, i64 692, !14, i64 696, !14, i64 700, !14, i64 704, !14, i64 708, !14, i64 712, !14, i64 716, !14, i64 720, !14, i64 724, !30, i64 728, !22, i64 736, !14, i64 744, !14, i64 748, !22, i64 752, !22, i64 760, !22, i64 768, !31, i64 776, !14, i64 784, !14, i64 788, !21, i64 792, !14, i64 800, !14, i64 804, !21, i64 808, !18, i64 816, !21, i64 824, !32, i64 832, !14, i64 840, !33, i64 848, !14, i64 856}
-!17 = !{!"p1 _ZTS7AVClass", !18, i64 0}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!"p1 _ZTS7AVCodec", !18, i64 0}
-!20 = !{!"p1 _ZTS15AVCodecInternal", !18, i64 0}
-!21 = !{!"long", !6, i64 0}
-!22 = !{!"p1 omnipotent char", !18, i64 0}
-!23 = !{!"AVRational", !14, i64 0, !14, i64 4}
-!24 = !{!"float", !6, i64 0}
-!25 = !{!"p1 short", !18, i64 0}
-!26 = !{!"AVChannelLayout", !14, i64 0, !14, i64 4, !6, i64 8, !18, i64 16}
-!27 = !{!"p1 _ZTS10RcOverride", !18, i64 0}
-!28 = !{!"p1 _ZTS9AVHWAccel", !18, i64 0}
-!29 = !{!"p1 _ZTS11AVBufferRef", !18, i64 0}
-!30 = !{!"p1 _ZTS17AVCodecDescriptor", !18, i64 0}
-!31 = !{!"p1 _ZTS16AVPacketSideData", !18, i64 0}
-!32 = !{!"p1 int", !18, i64 0}
-!33 = !{!"p2 _ZTS15AVFrameSideData", !34, i64 0}
-!34 = !{!"any p2 pointer", !18, i64 0}
-!35 = !{!16, !14, i64 724}
-!36 = !{!16, !14, i64 644}
-!37 = !{!38, !14, i64 112}
-!38 = !{!"IDCTDSPContext", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !6, i64 48, !14, i64 112, !14, i64 116}
-!39 = !{!38, !18, i64 32}
-!40 = !{!38, !18, i64 40}
-!41 = !{!38, !18, i64 24}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !13, i64 652}
+!15 = !{!"AVCodecContext", !16, i64 0, !13, i64 8, !13, i64 12, !18, i64 16, !13, i64 24, !13, i64 28, !17, i64 32, !19, i64 40, !17, i64 48, !20, i64 56, !13, i64 64, !13, i64 68, !21, i64 72, !13, i64 80, !22, i64 84, !22, i64 92, !22, i64 100, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !13, i64 124, !22, i64 128, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172, !13, i64 176, !17, i64 184, !17, i64 192, !13, i64 200, !23, i64 204, !23, i64 208, !23, i64 212, !23, i64 216, !23, i64 220, !23, i64 224, !23, i64 228, !23, i64 232, !23, i64 236, !13, i64 240, !13, i64 244, !13, i64 248, !13, i64 252, !13, i64 256, !13, i64 260, !13, i64 264, !13, i64 268, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !24, i64 288, !24, i64 296, !24, i64 304, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !13, i64 332, !13, i64 336, !13, i64 340, !13, i64 344, !13, i64 348, !25, i64 352, !13, i64 376, !13, i64 380, !13, i64 384, !13, i64 388, !13, i64 392, !13, i64 396, !13, i64 400, !13, i64 404, !17, i64 408, !13, i64 416, !13, i64 420, !13, i64 424, !23, i64 428, !23, i64 432, !13, i64 436, !13, i64 440, !13, i64 444, !13, i64 448, !13, i64 452, !26, i64 456, !20, i64 464, !20, i64 472, !23, i64 480, !23, i64 484, !13, i64 488, !13, i64 492, !21, i64 496, !21, i64 504, !13, i64 512, !13, i64 516, !13, i64 520, !13, i64 524, !13, i64 528, !27, i64 536, !17, i64 544, !28, i64 552, !28, i64 560, !13, i64 568, !13, i64 572, !6, i64 576, !13, i64 640, !13, i64 644, !13, i64 648, !13, i64 652, !13, i64 656, !13, i64 660, !13, i64 664, !17, i64 672, !17, i64 680, !13, i64 688, !13, i64 692, !13, i64 696, !13, i64 700, !13, i64 704, !13, i64 708, !13, i64 712, !13, i64 716, !13, i64 720, !13, i64 724, !29, i64 728, !21, i64 736, !13, i64 744, !13, i64 748, !21, i64 752, !21, i64 760, !21, i64 768, !30, i64 776, !13, i64 784, !13, i64 788, !20, i64 792, !13, i64 800, !13, i64 804, !20, i64 808, !17, i64 816, !20, i64 824, !31, i64 832, !13, i64 840, !32, i64 848, !13, i64 856}
+!16 = !{!"p1 _ZTS7AVClass", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = !{!"p1 _ZTS7AVCodec", !17, i64 0}
+!19 = !{!"p1 _ZTS15AVCodecInternal", !17, i64 0}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!"p1 omnipotent char", !17, i64 0}
+!22 = !{!"AVRational", !13, i64 0, !13, i64 4}
+!23 = !{!"float", !6, i64 0}
+!24 = !{!"p1 short", !17, i64 0}
+!25 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !6, i64 8, !17, i64 16}
+!26 = !{!"p1 _ZTS10RcOverride", !17, i64 0}
+!27 = !{!"p1 _ZTS9AVHWAccel", !17, i64 0}
+!28 = !{!"p1 _ZTS11AVBufferRef", !17, i64 0}
+!29 = !{!"p1 _ZTS17AVCodecDescriptor", !17, i64 0}
+!30 = !{!"p1 _ZTS16AVPacketSideData", !17, i64 0}
+!31 = !{!"p1 int", !17, i64 0}
+!32 = !{!"p2 _ZTS15AVFrameSideData", !33, i64 0}
+!33 = !{!"any p2 pointer", !17, i64 0}
+!34 = !{!15, !13, i64 724}
+!35 = !{!15, !13, i64 644}
+!36 = !{!37, !13, i64 112}
+!37 = !{!"IDCTDSPContext", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !6, i64 48, !13, i64 112, !13, i64 116}
+!38 = !{!37, !17, i64 32}
+!39 = !{!37, !17, i64 40}
+!40 = !{!37, !17, i64 24}

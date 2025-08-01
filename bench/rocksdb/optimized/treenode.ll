@@ -430,7 +430,7 @@ define noundef nonnull ptr @_ZN4toku8treenode32find_node_with_overlapping_childE
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr %2, align 4, !tbaa !51
+  %6 = load i32, ptr %2, align 4, !tbaa !50
   br label %12
 
 7:                                                ; preds = %3
@@ -527,7 +527,7 @@ _ZN4toku8treenode23lock_and_rebalance_leftEv.exit: ; preds = %_ZN4toku8treenode9
   %62 = load ptr, ptr %61, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %64 = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(17) %62, ptr noundef nonnull align 8 dereferenceable(81) %63)
-  store i32 %64, ptr %4, align 4, !tbaa !51
+  store i32 %64, ptr %4, align 4, !tbaa !50
   switch i32 %64, label %67 [
     i32 3, label %65
     i32 0, label %65
@@ -858,7 +858,7 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %8, %5
   %17 = add i32 %16, 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
   store i32 %17, ptr %18, align 8, !tbaa !27
-  store ptr %0, ptr %2, align 8, !tbaa !53
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %19 = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %.sink, i32 noundef %1, ptr noundef nonnull %2)
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(202) %.sink) #17
   br label %common.ret21
@@ -905,7 +905,7 @@ define noundef ptr @_ZN4toku8treenode22remove_root_of_subtreeEv(ptr noundef nonn
   %2 = alloca %"class.toku::keyrange", align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8
@@ -966,7 +966,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit.i:           ; preds = %20
 
 33:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %0, ptr %3, align 8, !tbaa !52
   br i1 %6, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit23, label %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %33
@@ -981,18 +981,18 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %41, ptr %42, align 8, !tbaa !27
   %43 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %35, i32 noundef 1, ptr noundef nonnull %3)
-  %44 = load ptr, ptr %3, align 8, !tbaa !53
+  %44 = load ptr, ptr %3, align 8, !tbaa !52
   %45 = icmp eq ptr %44, %0
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 160
   br i1 %45, label %47, label %48
 
 47:                                               ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !54
   br label %67
 
 48:                                               ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !54
   br label %67
 
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit23: ; preds = %33
@@ -1009,18 +1009,18 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit23: ; preds = %33
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %58, ptr %59, align 8, !tbaa !27
   %60 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %52, i32 noundef -1, ptr noundef nonnull %3)
-  %61 = load ptr, ptr %3, align 8, !tbaa !53
+  %61 = load ptr, ptr %3, align 8, !tbaa !52
   %62 = icmp eq ptr %61, %0
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 176
   br i1 %62, label %64, label %65
 
 64:                                               ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !54
   br label %67
 
 65:                                               ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit23
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !54
   br label %67
 
 67:                                               ; preds = %64, %65, %47, %48
@@ -1103,7 +1103,7 @@ _ZN4toku8treenode4freeEPS0_.exit:                 ; preds = %31, %29, %_ZN4toku8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8treenode16recursive_removeEv(ptr noundef nonnull align 8 dereferenceable(202) initializes((168, 172), (184, 188)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -1116,7 +1116,7 @@ define void @_ZN4toku8treenode16recursive_removeEv(ptr noundef nonnull align 8 d
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %10, label %9
 
@@ -1364,7 +1364,7 @@ declare void @abort() local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4toku8treenode15left_imbalancedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = load ptr, ptr %3, align 8, !tbaa !54
+  %4 = load ptr, ptr %3, align 8, !tbaa !53
   %.not = icmp ne ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
@@ -1379,7 +1379,7 @@ define noundef zeroext i1 @_ZNK4toku8treenode15left_imbalancedEi(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4toku8treenode16right_imbalancedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(202) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
   %.not = icmp ne ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
@@ -1394,7 +1394,7 @@ define noundef zeroext i1 @_ZNK4toku8treenode16right_imbalancedEi(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not.i = icmp ne ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
@@ -1416,7 +1416,7 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %1
   %18 = add i32 %17, 1
   store i32 %18, ptr %6, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 176
-  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %20 = load ptr, ptr %19, align 8, !tbaa !55
   %.not.i36 = icmp ne ptr %20, null
   %21 = load i32, ptr %15, align 8
   %22 = load i32, ptr %13, align 8
@@ -1435,7 +1435,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9c
   %32 = add i32 %31, 1
   store i32 %32, ptr %15, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !54
   store ptr %12, ptr %33, align 8, !tbaa !26
   %34 = load i32, ptr %13, align 8, !tbaa !28
   %35 = load i32, ptr %15, align 8, !tbaa !29
@@ -1443,7 +1443,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9c
   %37 = add i32 %36, 1
   store i32 %37, ptr %27, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !54
   store ptr %0, ptr %38, align 8, !tbaa !26
   %39 = load i32, ptr %6, align 8, !tbaa !28
   %40 = load i32, ptr %4, align 8, !tbaa !29
@@ -1453,7 +1453,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9c
   br label %91
 
 43:                                               ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !54
   store ptr %0, ptr %19, align 8, !tbaa !26
   %44 = load i32, ptr %6, align 8, !tbaa !28
   %45 = load i32, ptr %4, align 8, !tbaa !29
@@ -1464,7 +1464,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9c
 
 48:                                               ; preds = %1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %50 = load ptr, ptr %49, align 8, !tbaa !56
+  %50 = load ptr, ptr %49, align 8, !tbaa !55
   %.not.i42 = icmp ne ptr %50, null
   %51 = add i32 %7, 2
   %52 = icmp ugt i32 %5, %51
@@ -1482,7 +1482,7 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit44: ; preds = %48
   %61 = add i32 %60, 1
   store i32 %61, ptr %4, align 8, !tbaa !27
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 160
-  %63 = load ptr, ptr %62, align 8, !tbaa !54
+  %63 = load ptr, ptr %62, align 8, !tbaa !53
   %.not.i45 = icmp ne ptr %63, null
   %64 = load i32, ptr %58, align 8
   %65 = load i32, ptr %56, align 8
@@ -1501,7 +1501,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit49:      ; preds = %_ZN4toku8treenode9c
   %75 = add i32 %74, 1
   store i32 %75, ptr %56, align 8, !tbaa !27
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !54
   store ptr %55, ptr %76, align 8, !tbaa !26
   %77 = load i32, ptr %56, align 8, !tbaa !28
   %78 = load i32, ptr %58, align 8, !tbaa !29
@@ -1509,7 +1509,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit49:      ; preds = %_ZN4toku8treenode9c
   %80 = add i32 %79, 1
   store i32 %80, ptr %72, align 8, !tbaa !27
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !54
   store ptr %0, ptr %81, align 8, !tbaa !26
   %82 = load i32, ptr %6, align 8, !tbaa !28
   %83 = load i32, ptr %4, align 8, !tbaa !29
@@ -1519,7 +1519,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit49:      ; preds = %_ZN4toku8treenode9c
   br label %91
 
 86:                                               ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !54
   store ptr %0, ptr %62, align 8, !tbaa !26
   %87 = load i32, ptr %6, align 8, !tbaa !28
   %88 = load i32, ptr %4, align 8, !tbaa !29
@@ -1595,13 +1595,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_er
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   tail call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !58
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1639,9 +1639,9 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImE
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.044.i, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %14 = load ptr, ptr %13, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %.044.i, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  %16 = load ptr, ptr %15, align 8, !tbaa !56
   %.not10.i.i = icmp eq ptr %14, null
   br i1 %.not10.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i, label %.lr.ph.i.i
 
@@ -1656,7 +1656,7 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImE
   %.1.in.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 %.1.in.v.i.i
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i, label %.lr.ph.i.i, !llvm.loop !60
+  br i1 %.not.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i, label %.lr.ph.i.i, !llvm.loop !59
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i: ; preds = %.lr.ph.i.i, %12
   %.08.lcssa.i.i = phi ptr [ %.044.i, %12 ], [ %.19.i.i, %.lr.ph.i.i ]
@@ -1674,7 +1674,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_n
   %.1.in.i30.i = getelementptr inbounds nuw i8, ptr %.012.i26.i, i64 %.1.in.v.i29.i
   %.1.i31.i = load ptr, ptr %.1.in.i30.i, align 8, !tbaa !47
   %.not.i32.i = icmp eq ptr %.1.i31.i, null
-  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %.lr.ph.i25.i, !llvm.loop !61
+  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %.lr.ph.i25.i, !llvm.loop !60
 
 23:                                               ; preds = %10, %6
   %.sink.i = phi i64 [ 24, %6 ], [ 16, %10 ]
@@ -1682,7 +1682,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_n
   %24 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %.sink.i
   %.0.i = load ptr, ptr %24, align 8, !tbaa !47
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %6, !llvm.loop !62
+  br i1 %.not.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %6, !llvm.loop !61
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i
   %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
@@ -1728,7 +1728,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i: ; preds = %31
   %39 = add i64 %38, -1
   store i64 %39, ptr %25, align 8, !tbaa !46
   %.not.i3 = icmp eq ptr %36, %.sroa.3.0.i
-  br i1 %.not.i3, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE12_M_erase_auxESt23_Rb_tree_const_iteratorImES7_.exit, label %.lr.ph.i2, !llvm.loop !63
+  br i1 %.not.i3, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE12_M_erase_auxESt23_Rb_tree_const_iteratorImES7_.exit, label %.lr.ph.i2, !llvm.loop !62
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE12_M_erase_auxESt23_Rb_tree_const_iteratorImES7_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i, %.critedge.i
   %40 = phi i64 [ 0, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
@@ -1821,19 +1821,18 @@ attributes #21 = { builtin nounwind }
 !45 = !{!39, !42, i64 24}
 !46 = !{!39, !13, i64 32}
 !47 = !{!42, !42, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"_ZTSN4toku8keyrange10comparisonE", !7, i64 0}
-!53 = !{!19, !19, i64 0}
-!54 = !{!5, !19, i64 160}
-!55 = !{i64 0, i64 8, !53, i64 8, i64 4, !35}
-!56 = !{!5, !19, i64 176}
-!57 = !{!40, !42, i64 24}
-!58 = !{!40, !42, i64 16}
-!59 = distinct !{!59, !49, !50}
-!60 = distinct !{!60, !49, !50}
-!61 = distinct !{!61, !49, !50}
-!62 = distinct !{!62, !49, !50}
-!63 = distinct !{!63, !49, !50}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"_ZTSN4toku8keyrange10comparisonE", !7, i64 0}
+!52 = !{!19, !19, i64 0}
+!53 = !{!5, !19, i64 160}
+!54 = !{i64 0, i64 8, !52, i64 8, i64 4, !35}
+!55 = !{!5, !19, i64 176}
+!56 = !{!40, !42, i64 24}
+!57 = !{!40, !42, i64 16}
+!58 = distinct !{!58, !49}
+!59 = distinct !{!59, !49}
+!60 = distinct !{!60, !49}
+!61 = distinct !{!61, !49}
+!62 = distinct !{!62, !49}

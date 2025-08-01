@@ -500,7 +500,7 @@ v4l2_set_ext_ctrl.exit84.i:                       ; preds = %185, %181
 .preheader.i:                                     ; preds = %201, %203
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %203 ], [ 0, %201 ]
   %204 = getelementptr inbounds nuw [11 x %struct.h264_profile], ptr @v4l2_h264_profile_from_ff.profile, i64 0, i64 %indvars.iv.i.i
-  %205 = load i32, ptr %204, align 8, !tbaa !72
+  %205 = load i32, ptr %204, align 8, !tbaa !71
   %206 = icmp eq i32 %205, %202
   br i1 %206, label %v4l2_h264_profile_from_ff.exit.i, label %203
 
@@ -510,7 +510,7 @@ v4l2_h264_profile_from_ff.exit.thread.i:          ; preds = %203
 
 v4l2_h264_profile_from_ff.exit.i:                 ; preds = %.preheader.i
   %207 = getelementptr inbounds nuw [11 x %struct.h264_profile], ptr @v4l2_h264_profile_from_ff.profile, i64 0, i64 %indvars.iv.i.i, i32 1
-  %208 = load i32, ptr %207, align 4, !tbaa !74
+  %208 = load i32, ptr %207, align 4, !tbaa !73
   call fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly %55, i32 noundef 10029675, i32 noundef %208, ptr noundef nonnull @.str.34, i32 noundef 1)
   br label %238
 
@@ -522,12 +522,12 @@ v4l2_h264_profile_from_ff.exit.i:                 ; preds = %.preheader.i
 211:                                              ; preds = %.preheader101.i
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i85.i, 1
   %exitcond.not.i87.i = icmp eq i64 %indvars.iv.next.i86.i, 5
-  br i1 %exitcond.not.i87.i, label %v4l2_mpeg4_profile_from_ff.exit.thread.i, label %.preheader101.i, !llvm.loop !75
+  br i1 %exitcond.not.i87.i, label %v4l2_mpeg4_profile_from_ff.exit.thread.i, label %.preheader101.i, !llvm.loop !74
 
 .preheader101.i:                                  ; preds = %209, %211
   %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %211 ], [ 0, %209 ]
   %212 = getelementptr inbounds nuw [5 x %struct.mpeg4_profile], ptr @v4l2_mpeg4_profile_from_ff.profile, i64 0, i64 %indvars.iv.i85.i
-  %213 = load i32, ptr %212, align 8, !tbaa !76
+  %213 = load i32, ptr %212, align 8, !tbaa !75
   %214 = icmp eq i32 %213, %210
   br i1 %214, label %v4l2_mpeg4_profile_from_ff.exit.i, label %211
 
@@ -537,13 +537,13 @@ v4l2_mpeg4_profile_from_ff.exit.thread.i:         ; preds = %211
 
 v4l2_mpeg4_profile_from_ff.exit.i:                ; preds = %.preheader101.i
   %215 = getelementptr inbounds nuw [5 x %struct.mpeg4_profile], ptr @v4l2_mpeg4_profile_from_ff.profile, i64 0, i64 %indvars.iv.i85.i, i32 1
-  %216 = load i32, ptr %215, align 4, !tbaa !78
+  %216 = load i32, ptr %215, align 4, !tbaa !77
   call fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly %55, i32 noundef 10029718, i32 noundef %216, ptr noundef nonnull @.str.36, i32 noundef 1)
   br label %217
 
 217:                                              ; preds = %v4l2_mpeg4_profile_from_ff.exit.i, %v4l2_mpeg4_profile_from_ff.exit.thread.i, %209
   %218 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %219 = load i32, ptr %218, align 8, !tbaa !79
+  %219 = load i32, ptr %218, align 8, !tbaa !78
   %220 = and i32 %219, 16
   %.not79.i = icmp eq i32 %220, 0
   br i1 %.not79.i, label %238, label %221
@@ -712,19 +712,19 @@ define internal i32 @v4l2_receive_packet(ptr noundef %0, ptr noundef %1) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !80
+  %8 = load ptr, ptr %7, align 8, !tbaa !79
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4104
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4376
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4808
-  %12 = load ptr, ptr %11, align 8, !tbaa !82
+  %12 = load ptr, ptr %11, align 8, !tbaa !81
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4696
-  %14 = load i32, ptr %13, align 8, !tbaa !83
+  %14 = load i32, ptr %13, align 8, !tbaa !82
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %59
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  %17 = load ptr, ptr %16, align 8, !tbaa !84
+  %17 = load ptr, ptr %16, align 8, !tbaa !83
   %.not39 = icmp eq ptr %17, null
   br i1 %.not39, label %18, label %._crit_edge
 
@@ -739,13 +739,13 @@ define internal i32 @v4l2_receive_packet(ptr noundef %0, ptr noundef %1) #1 {
   %23 = icmp eq i32 %19, -541478725
   %.val45.pre = load ptr, ptr %5, align 8, !tbaa !4
   %24 = getelementptr i8, ptr %.val45.pre, i64 8
-  %.val.val = load ptr, ptr %24, align 8, !tbaa !80
+  %.val.val = load ptr, ptr %24, align 8, !tbaa !79
   br i1 %23, label %v4l2_send_frame.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %15
   %.val.val46 = phi ptr [ %8, %15 ], [ %.val.val, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %26 = load i32, ptr %25, align 8, !tbaa !85
+  %26 = load i32, ptr %25, align 8, !tbaa !84
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %v4l2_send_frame.exit
 
@@ -801,7 +801,7 @@ v4l2_send_frame.exit:                             ; preds = %22, %._crit_edge, %
 
 .thread52:                                        ; preds = %v4l2_send_frame.exit, %46
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 4636
-  %49 = load i32, ptr %48, align 4, !tbaa !90
+  %49 = load i32, ptr %48, align 4, !tbaa !89
   %.not40 = icmp eq i32 %49, 0
   br i1 %.not40, label %50, label %53
 
@@ -816,7 +816,7 @@ v4l2_send_frame.exit:                             ; preds = %22, %._crit_edge, %
 
 53:                                               ; preds = %50, %.thread52
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 4364
-  %55 = load i32, ptr %54, align 4, !tbaa !90
+  %55 = load i32, ptr %54, align 4, !tbaa !89
   %.not42 = icmp eq i32 %55, 0
   br i1 %.not42, label %56, label %59
 
@@ -1026,25 +1026,24 @@ attributes #9 = { nounwind willreturn memory(none) }
 !66 = !{!5, !10, i64 688}
 !67 = !{!5, !10, i64 436}
 !68 = !{!5, !10, i64 440}
-!69 = distinct !{!69, !70, !71}
+!69 = distinct !{!69, !70}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = !{!"llvm.loop.estimated_trip_count"}
-!72 = !{!73, !10, i64 0}
-!73 = !{!"h264_profile", !10, i64 0, !10, i64 4}
-!74 = !{!73, !10, i64 4}
-!75 = distinct !{!75, !70, !71}
-!76 = !{!77, !10, i64 0}
-!77 = !{!"mpeg4_profile", !10, i64 0, !10, i64 4}
-!78 = !{!77, !10, i64 4}
-!79 = !{!5, !10, i64 64}
-!80 = !{!81, !28, i64 8}
-!81 = !{!"V4L2m2mPriv", !6, i64 0, !28, i64 8, !10, i64 16, !10, i64 20}
-!82 = !{!41, !44, i64 4808}
-!83 = !{!41, !10, i64 4696}
-!84 = !{!21, !21, i64 0}
-!85 = !{!86, !10, i64 120}
-!86 = !{!"AVFrame", !8, i64 0, !8, i64 64, !87, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !88, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !89, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!87 = !{!"p2 omnipotent char", !26, i64 0}
-!88 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!89 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!90 = !{!31, !10, i64 260}
+!71 = !{!72, !10, i64 0}
+!72 = !{!"h264_profile", !10, i64 0, !10, i64 4}
+!73 = !{!72, !10, i64 4}
+!74 = distinct !{!74, !70}
+!75 = !{!76, !10, i64 0}
+!76 = !{!"mpeg4_profile", !10, i64 0, !10, i64 4}
+!77 = !{!76, !10, i64 4}
+!78 = !{!5, !10, i64 64}
+!79 = !{!80, !28, i64 8}
+!80 = !{!"V4L2m2mPriv", !6, i64 0, !28, i64 8, !10, i64 16, !10, i64 20}
+!81 = !{!41, !44, i64 4808}
+!82 = !{!41, !10, i64 4696}
+!83 = !{!21, !21, i64 0}
+!84 = !{!85, !10, i64 120}
+!85 = !{!"AVFrame", !8, i64 0, !8, i64 64, !86, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !87, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !88, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!86 = !{!"p2 omnipotent char", !26, i64 0}
+!87 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!88 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!89 = !{!31, !10, i64 260}

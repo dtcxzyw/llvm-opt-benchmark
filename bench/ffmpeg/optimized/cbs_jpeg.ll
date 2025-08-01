@@ -104,7 +104,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br i1 %.not168, label %17, label %15
 
 15:                                               ; preds = %.critedge
-  %16 = load ptr, ptr %0, align 8, !tbaa !19
+  %16 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %16, i32 noundef 24, ptr noundef nonnull @.str, i32 noundef %.0147.lcssa) #7
   %.pre = load i64, ptr %4, align 8, !tbaa !4
   br label %17
@@ -125,7 +125,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv239
   %25 = load i8, ptr %24, align 1, !tbaa !15
   %26 = icmp eq i8 %25, -1
-  br i1 %26, label %21, label %.critedge2.thread, !llvm.loop !23
+  br i1 %26, label %21, label %.critedge2.thread, !llvm.loop !22
 
 .critedge2:                                       ; preds = %21
   %27 = and i64 %indvars.iv239, 4294967295
@@ -135,7 +135,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br i1 %.not170, label %.critedge2.thread.thread, label %30
 
 30:                                               ; preds = %.critedge2
-  %31 = load ptr, ptr %0, align 8, !tbaa !19
+  %31 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %31, i32 noundef 16, ptr noundef nonnull @.str.2) #7
   br label %.loopexit
 
@@ -153,7 +153,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
 .critedge2.thread.thread:                         ; preds = %.critedge2, %.critedge2.thread
   %33 = phi i8 [ %.pre258, %.critedge2.thread ], [ 0, %.critedge2 ]
   %34 = zext i8 %33 to i32
-  %35 = load ptr, ptr %0, align 8, !tbaa !19
+  %35 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %35, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %34) #7
   br label %.loopexit
 
@@ -167,10 +167,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv242
   %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = icmp eq i8 %39, -1
-  br i1 %40, label %.preheader191, label %42, !llvm.loop !24
+  br i1 %40, label %.preheader191, label %42, !llvm.loop !23
 
 .critedge4:                                       ; preds = %.preheader191
-  %41 = load ptr, ptr %0, align 8, !tbaa !19
+  %41 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %41, i32 noundef 16, ptr noundef nonnull @.str.4) #7
   br label %.loopexit
 
@@ -226,7 +226,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %62 = getelementptr inbounds i8, ptr %.pre259.pre, i64 %indvars.iv248
   %63 = load i8, ptr %62, align 1, !tbaa !15
   %64 = icmp eq i8 %63, -1
-  br i1 %64, label %.preheader186, label %65, !llvm.loop !25
+  br i1 %64, label %.preheader186, label %65, !llvm.loop !24
 
 65:                                               ; preds = %61
   %66 = trunc nsw i64 %indvars.iv248 to i32
@@ -249,7 +249,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %.reass = add i32 %.4, 2
   %76 = sext i32 %.reass to i64
   %77 = icmp ugt i64 %51, %76
-  br i1 %77, label %.lr.ph, label %.critedge6, !llvm.loop !26
+  br i1 %77, label %.lr.ph, label %.critedge6, !llvm.loop !25
 
 78:                                               ; preds = %49
   %79 = sext i32 %.0156 to i64
@@ -259,7 +259,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %78
-  %84 = load ptr, ptr %0, align 8, !tbaa !19
+  %84 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %84, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %.0152) #7
   br label %.loopexit
 
@@ -274,7 +274,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %85
-  %94 = load ptr, ptr %0, align 8, !tbaa !19
+  %94 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %94, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %.0152) #7
   br label %.loopexit
 
@@ -302,7 +302,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %107 = getelementptr inbounds i8, ptr %86, i64 %indvars.iv245
   %108 = load i8, ptr %107, align 1, !tbaa !15
   %109 = icmp eq i8 %108, -1
-  br i1 %109, label %104, label %110, !llvm.loop !27
+  br i1 %109, label %104, label %110, !llvm.loop !26
 
 110:                                              ; preds = %106
   %111 = trunc nsw i64 %indvars.iv.next246 to i32
@@ -369,7 +369,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %138 = load i8, ptr %137, align 1, !tbaa !15
   %139 = icmp eq i8 %138, -1
   %indvars.iv.next252 = add nsw i64 %indvars.iv251, 1
-  br i1 %139, label %.preheader, label %140, !llvm.loop !28
+  br i1 %139, label %.preheader, label %140, !llvm.loop !27
 
 140:                                              ; preds = %.preheader
   %141 = trunc nsw i64 %indvars.iv251 to i32
@@ -383,7 +383,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %144 = add nsw i32 %.9, 1
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %145 = icmp slt i32 %144, %.2155270
-  br i1 %145, label %.lr.ph217, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %145, label %.lr.ph217, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %142
   %146 = trunc nuw i64 %indvars.iv.next255 to i32
@@ -405,7 +405,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   %150 = getelementptr inbounds i8, ptr %149, i64 %.pre-phi262
   %151 = sub nsw i32 %.2155181, %.0156
   %152 = sext i32 %151 to i64
-  %153 = load ptr, ptr %48, align 8, !tbaa !30
+  %153 = load ptr, ptr %48, align 8, !tbaa !29
   br label %154
 
 154:                                              ; preds = %.critedge6.thread177, %._crit_edge
@@ -422,7 +422,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_split_fragment(ptr nound
   switch i32 %.0149184, label %49 [
     i32 -1, label %.loopexit
     i32 217, label %.loopexit
-  ], !llvm.loop !31
+  ]
 
 .loopexit:                                        ; preds = %157, %157, %154, %123, %.critedge6.thread, %42, %3, %93, %83, %.critedge4, %.critedge2.thread.thread, %30
   %.0148 = phi i32 [ -1094995529, %30 ], [ -1094995529, %.critedge2.thread.thread ], [ -1094995529, %.critedge4 ], [ -1094995529, %83 ], [ -1094995529, %93 ], [ -1094995529, %3 ], [ 0, %42 ], [ 0, %157 ], [ 0, %157 ], [ %155, %154 ], [ -12, %123 ], [ -1094995529, %.critedge6.thread ]
@@ -450,9 +450,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   %19 = alloca %struct.GetBitContext, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !34
+  %23 = load i64, ptr %22, align 8, !tbaa !32
   %.tr = trunc i64 %23 to i32
   %24 = shl i32 %.tr, 3
   %or.cond.i = icmp ult i32 %24, 2147483135
@@ -461,18 +461,18 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   %.018.i = select i1 %or.cond3.i, i32 %24, i32 0
   %.017.i = select i1 %or.cond.i, ptr %21, ptr null
   %26 = lshr exact i32 %.018.i, 3
-  store ptr %.017.i, ptr %19, align 8, !tbaa !35
+  store ptr %.017.i, ptr %19, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %.018.i, ptr %27, align 4, !tbaa !37
+  store i32 %.018.i, ptr %27, align 4, !tbaa !35
   %28 = add nuw nsw i32 %.018.i, 8
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 %28, ptr %29, align 8, !tbaa !38
+  store i32 %28, ptr %29, align 8, !tbaa !36
   %30 = zext nneg i32 %26 to i64
   %31 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %31, ptr %32, align 8, !tbaa !39
+  store ptr %31, ptr %32, align 8, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 0, ptr %33, align 8, !tbaa !40
+  store i32 0, ptr %33, align 8, !tbaa !38
   br i1 %or.cond3.i, label %34, label %195
 
 34:                                               ; preds = %2
@@ -481,14 +481,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br i1 %36, label %195, label %37
 
 37:                                               ; preds = %34
-  %38 = load i32, ptr %1, align 8, !tbaa !41
+  %38 = load i32, ptr %1, align 8, !tbaa !39
   %39 = and i32 %38, -4
   %or.cond = icmp eq i32 %39, 192
   br i1 %or.cond, label %40, label %117
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !42
+  %42 = load ptr, ptr %41, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -500,9 +500,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br i1 %44, label %45, label %.critedge.i
 
 45:                                               ; preds = %40
-  %46 = load i32, ptr %6, align 4, !tbaa !43
+  %46 = load i32, ptr %6, align 4, !tbaa !41
   %47 = trunc i32 %46 to i16
-  store i16 %47, ptr %42, align 2, !tbaa !44
+  store i16 %47, ptr %42, align 2, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   %48 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 16) #7
@@ -514,10 +514,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 51:                                               ; preds = %45
-  %52 = load i32, ptr %7, align 4, !tbaa !43
+  %52 = load i32, ptr %7, align 4, !tbaa !41
   %53 = trunc i32 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %53, ptr %54, align 2, !tbaa !47
+  store i8 %53, ptr %54, align 2, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   %55 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 16, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 65535) #7
@@ -529,10 +529,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 58:                                               ; preds = %51
-  %59 = load i32, ptr %8, align 4, !tbaa !43
+  %59 = load i32, ptr %8, align 4, !tbaa !41
   %60 = trunc i32 %59 to i16
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i16 %60, ptr %61, align 2, !tbaa !48
+  store i16 %60, ptr %61, align 2, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   %62 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 16, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 65535) #7
@@ -544,10 +544,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 65:                                               ; preds = %58
-  %66 = load i32, ptr %9, align 4, !tbaa !43
+  %66 = load i32, ptr %9, align 4, !tbaa !41
   %67 = trunc i32 %66 to i16
   %68 = getelementptr inbounds nuw i8, ptr %42, i64 6
-  store i16 %67, ptr %68, align 2, !tbaa !49
+  store i16 %67, ptr %68, align 2, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
   %69 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 255) #7
@@ -559,10 +559,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 71:                                               ; preds = %65
-  %72 = load i32, ptr %10, align 4, !tbaa !43
+  %72 = load i32, ptr %10, align 4, !tbaa !41
   %73 = trunc i32 %72 to i16
   %74 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i16 %73, ptr %74, align 2, !tbaa !50
+  store i16 %73, ptr %74, align 2, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   %75 = and i32 %72, 65535
   %.not.i = icmp eq i32 %75, 0
@@ -582,9 +582,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
 84:                                               ; preds = %110, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %110 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
-  store i32 1, ptr %12, align 4, !tbaa !43
+  store i32 1, ptr %12, align 4, !tbaa !41
   %85 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %85, ptr %76, align 4, !tbaa !43
+  store i32 %85, ptr %76, align 4, !tbaa !41
   %86 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull @.str.16, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 255) #7
   %87 = icmp sgt i32 %86, -1
   br i1 %87, label %89, label %88
@@ -594,14 +594,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 89:                                               ; preds = %84
-  %90 = load i32, ptr %11, align 4, !tbaa !43
+  %90 = load i32, ptr %11, align 4, !tbaa !41
   %91 = trunc i32 %90 to i8
   %92 = getelementptr inbounds nuw [255 x i8], ptr %77, i64 0, i64 %indvars.iv.i
   store i8 %91, ptr %92, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
-  store i32 1, ptr %14, align 4, !tbaa !43
-  store i32 %85, ptr %78, align 4, !tbaa !43
+  store i32 1, ptr %14, align 4, !tbaa !41
+  store i32 %85, ptr %78, align 4, !tbaa !41
   %93 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 1, i32 noundef 4) #7
   %94 = icmp sgt i32 %93, -1
   br i1 %94, label %96, label %95
@@ -611,14 +611,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 96:                                               ; preds = %89
-  %97 = load i32, ptr %13, align 4, !tbaa !43
+  %97 = load i32, ptr %13, align 4, !tbaa !41
   %98 = trunc i32 %97 to i8
   %99 = getelementptr inbounds nuw [255 x i8], ptr %79, i64 0, i64 %indvars.iv.i
   store i8 %98, ptr %99, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
-  store i32 1, ptr %16, align 4, !tbaa !43
-  store i32 %85, ptr %80, align 4, !tbaa !43
+  store i32 1, ptr %16, align 4, !tbaa !41
+  store i32 %85, ptr %80, align 4, !tbaa !41
   %100 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull %16, ptr noundef nonnull %15, i32 noundef 1, i32 noundef 4) #7
   %101 = icmp sgt i32 %100, -1
   br i1 %101, label %103, label %102
@@ -628,14 +628,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 103:                                              ; preds = %96
-  %104 = load i32, ptr %15, align 4, !tbaa !43
+  %104 = load i32, ptr %15, align 4, !tbaa !41
   %105 = trunc i32 %104 to i8
   %106 = getelementptr inbounds nuw [255 x i8], ptr %81, i64 0, i64 %indvars.iv.i
   store i8 %105, ptr %106, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #7
-  store i32 1, ptr %18, align 4, !tbaa !43
-  store i32 %85, ptr %82, align 4, !tbaa !43
+  store i32 1, ptr %18, align 4, !tbaa !41
+  store i32 %85, ptr %82, align 4, !tbaa !41
   %107 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef nonnull %18, ptr noundef nonnull %17, i32 noundef 0, i32 noundef 3) #7
   %108 = icmp sgt i32 %107, -1
   br i1 %108, label %110, label %109
@@ -645,16 +645,16 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_read_unit(ptr noundef %0
   br label %cbs_jpeg_read_frame_header.exit.thread
 
 110:                                              ; preds = %103
-  %111 = load i32, ptr %17, align 4, !tbaa !43
+  %111 = load i32, ptr %17, align 4, !tbaa !41
   %112 = trunc i32 %111 to i8
   %113 = getelementptr inbounds nuw [255 x i8], ptr %83, i64 0, i64 %indvars.iv.i
   store i8 %112, ptr %113, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %114 = load i16, ptr %74, align 2, !tbaa !50
+  %114 = load i16, ptr %74, align 2, !tbaa !48
   %115 = zext i16 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next.i, %115
-  br i1 %116, label %84, label %cbs_jpeg_read_frame_header.exit, !llvm.loop !51
+  br i1 %116, label %84, label %cbs_jpeg_read_frame_header.exit, !llvm.loop !49
 
 .critedge.i:                                      ; preds = %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
@@ -682,7 +682,7 @@ cbs_jpeg_read_frame_header.exit:                  ; preds = %110, %71
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %121 = load ptr, ptr %120, align 8, !tbaa !42
+  %121 = load ptr, ptr %120, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.20) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
@@ -691,9 +691,9 @@ cbs_jpeg_read_frame_header.exit:                  ; preds = %110, %71
   br i1 %123, label %124, label %.critedge.i65
 
 124:                                              ; preds = %119
-  %125 = load i32, ptr %3, align 4, !tbaa !43
+  %125 = load i32, ptr %3, align 4, !tbaa !41
   %126 = trunc i32 %125 to i16
-  store i16 %126, ptr %121, align 8, !tbaa !52
+  store i16 %126, ptr %121, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   %127 = icmp ugt i16 %126, 2
   br i1 %127, label %128, label %cbs_jpeg_read_application_data.exit
@@ -704,16 +704,16 @@ cbs_jpeg_read_frame_header.exit:                  ; preds = %110, %71
   %130 = zext i32 %129 to i64
   %131 = call ptr @av_buffer_alloc(i64 noundef %130) #7
   %132 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store ptr %131, ptr %132, align 8, !tbaa !54
+  store ptr %131, ptr %132, align 8, !tbaa !52
   %.not.i66 = icmp eq ptr %131, null
   br i1 %.not.i66, label %cbs_jpeg_read_application_data.exit.thread, label %133
 
 133:                                              ; preds = %128
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !55
+  %135 = load ptr, ptr %134, align 8, !tbaa !53
   %136 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store ptr %135, ptr %136, align 8, !tbaa !58
-  %137 = load i16, ptr %121, align 8, !tbaa !52
+  store ptr %135, ptr %136, align 8, !tbaa !56
+  %137 = load i16, ptr %121, align 8, !tbaa !50
   %138 = icmp ugt i16 %137, 2
   br i1 %138, label %.lr.ph.i67, label %cbs_jpeg_read_application_data.exit
 
@@ -724,9 +724,9 @@ cbs_jpeg_read_frame_header.exit:                  ; preds = %110, %71
 140:                                              ; preds = %145, %.lr.ph.i67
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.i67 ], [ %indvars.iv.next.i69, %145 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 1, ptr %5, align 4, !tbaa !43
+  store i32 1, ptr %5, align 4, !tbaa !41
   %141 = trunc nuw nsw i64 %indvars.iv.i68 to i32
-  store i32 %141, ptr %139, align 4, !tbaa !43
+  store i32 %141, ptr %139, align 4, !tbaa !41
   %142 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull @.str.22, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 255) #7
   %143 = icmp sgt i32 %142, -1
   br i1 %143, label %145, label %144
@@ -736,18 +736,18 @@ cbs_jpeg_read_frame_header.exit:                  ; preds = %110, %71
   br label %cbs_jpeg_read_application_data.exit.thread
 
 145:                                              ; preds = %140
-  %146 = load i32, ptr %4, align 4, !tbaa !43
+  %146 = load i32, ptr %4, align 4, !tbaa !41
   %147 = trunc i32 %146 to i8
-  %148 = load ptr, ptr %136, align 8, !tbaa !58
+  %148 = load ptr, ptr %136, align 8, !tbaa !56
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 %indvars.iv.i68
   store i8 %147, ptr %149, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
-  %150 = load i16, ptr %121, align 8, !tbaa !52
+  %150 = load i16, ptr %121, align 8, !tbaa !50
   %151 = zext i16 %150 to i64
   %152 = add nsw i64 %151, -2
   %153 = icmp slt i64 %indvars.iv.next.i69, %152
-  br i1 %153, label %140, label %cbs_jpeg_read_application_data.exit, !llvm.loop !59
+  br i1 %153, label %140, label %cbs_jpeg_read_application_data.exit, !llvm.loop !57
 
 .critedge.i65:                                    ; preds = %119
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
@@ -772,13 +772,13 @@ cbs_jpeg_read_application_data.exit:              ; preds = %145, %124, %133
 
 155:                                              ; preds = %154
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %157 = load ptr, ptr %156, align 8, !tbaa !42
+  %157 = load ptr, ptr %156, align 8, !tbaa !40
   %158 = call fastcc i32 @cbs_jpeg_read_scan_header(ptr noundef %0, ptr noundef %19, ptr noundef %157)
   %159 = icmp slt i32 %158, 0
   br i1 %159, label %195, label %160
 
 160:                                              ; preds = %155
-  %.val = load i32, ptr %33, align 8, !tbaa !40
+  %.val = load i32, ptr %33, align 8, !tbaa !38
   %161 = and i32 %.val, 7
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %164, label %163
@@ -793,44 +793,44 @@ cbs_jpeg_read_application_data.exit:              ; preds = %145, %124, %133
   br i1 %165, label %166, label %.thread
 
 166:                                              ; preds = %164
-  %167 = load i64, ptr %22, align 8, !tbaa !34
+  %167 = load i64, ptr %22, align 8, !tbaa !32
   %168 = lshr exact i32 %.val, 3
   %169 = zext nneg i32 %168 to i64
   %170 = sub i64 %167, %169
   %171 = getelementptr inbounds nuw i8, ptr %157, i64 792
-  store i64 %170, ptr %171, align 8, !tbaa !60
+  store i64 %170, ptr %171, align 8, !tbaa !58
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %173 = load ptr, ptr %172, align 8, !tbaa !63
+  %173 = load ptr, ptr %172, align 8, !tbaa !61
   %174 = call ptr @av_buffer_ref(ptr noundef %173) #7
   %175 = getelementptr inbounds nuw i8, ptr %157, i64 784
-  store ptr %174, ptr %175, align 8, !tbaa !64
+  store ptr %174, ptr %175, align 8, !tbaa !62
   %.not = icmp eq ptr %174, null
   br i1 %.not, label %195, label %176
 
 176:                                              ; preds = %166
-  %177 = load ptr, ptr %20, align 8, !tbaa !32
+  %177 = load ptr, ptr %20, align 8, !tbaa !30
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 %169
   %179 = getelementptr inbounds nuw i8, ptr %157, i64 776
-  store ptr %178, ptr %179, align 8, !tbaa !65
+  store ptr %178, ptr %179, align 8, !tbaa !63
   br label %.thread
 
 180:                                              ; preds = %154
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %182 = load ptr, ptr %181, align 8, !tbaa !42
+  %182 = load ptr, ptr %181, align 8, !tbaa !40
   %183 = call fastcc i32 @cbs_jpeg_read_dqt(ptr noundef %0, ptr noundef %19, ptr noundef %182)
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %195, label %.thread
 
 185:                                              ; preds = %154
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %187 = load ptr, ptr %186, align 8, !tbaa !42
+  %187 = load ptr, ptr %186, align 8, !tbaa !40
   %188 = call fastcc i32 @cbs_jpeg_read_dht(ptr noundef %0, ptr noundef %19, ptr noundef %187)
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %195, label %.thread
 
 190:                                              ; preds = %154
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %192 = load ptr, ptr %191, align 8, !tbaa !42
+  %192 = load ptr, ptr %191, align 8, !tbaa !40
   %193 = call fastcc i32 @cbs_jpeg_read_comment(ptr noundef %0, ptr noundef %19, ptr noundef %192)
   %194 = icmp slt i32 %193, 0
   br i1 %194, label %195, label %.thread
@@ -859,18 +859,18 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
   %14 = alloca [2 x i32], align 4
   %15 = alloca [2 x i32], align 4
   %16 = alloca [2 x i32], align 4
-  %17 = load i32, ptr %1, align 8, !tbaa !41
+  %17 = load i32, ptr %1, align 8, !tbaa !39
   %18 = icmp eq i32 %17, 218
   br i1 %18, label %19, label %138
 
 19:                                               ; preds = %3
   %20 = getelementptr i8, ptr %1, i64 40
-  %.val = load ptr, ptr %20, align 8, !tbaa !42
+  %.val = load ptr, ptr %20, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.23) #7
-  %21 = load i16, ptr %.val, align 2, !tbaa !66
+  %21 = load i16, ptr %.val, align 2, !tbaa !64
   %22 = zext i16 %21 to i32
   %23 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.24, ptr noundef null, i32 noundef %22, i32 noundef 6, i32 noundef 516) #7
   %24 = icmp sgt i32 %23, -1
@@ -878,14 +878,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 2
-  %27 = load i8, ptr %26, align 2, !tbaa !67
+  %27 = load i8, ptr %26, align 2, !tbaa !65
   %28 = zext i8 %27 to i32
   %29 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.25, ptr noundef null, i32 noundef %28, i32 noundef 1, i32 noundef 4) #7
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %.preheader.i.i, label %cbs_jpeg_write_scan_header.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %25
-  %31 = load i8, ptr %26, align 2, !tbaa !67
+  %31 = load i8, ptr %26, align 2, !tbaa !65
   %.not.i.i = icmp eq i8 %31, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -900,19 +900,19 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
 
 38:                                               ; preds = %55
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %39 = load i8, ptr %26, align 2, !tbaa !67
+  %39 = load i8, ptr %26, align 2, !tbaa !65
   %40 = zext i8 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next.i.i, %40
-  br i1 %41, label %42, label %._crit_edge.i.i, !llvm.loop !68
+  br i1 %41, label %42, label %._crit_edge.i.i, !llvm.loop !66
 
 42:                                               ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
   %43 = getelementptr inbounds nuw [255 x i8], ptr %32, i64 0, i64 %indvars.iv.i.i
   %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = zext i8 %44 to i32
-  store i32 1, ptr %14, align 4, !tbaa !43
+  store i32 1, ptr %14, align 4, !tbaa !41
   %46 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  store i32 %46, ptr %33, align 4, !tbaa !43
+  store i32 %46, ptr %33, align 4, !tbaa !41
   %47 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.26, ptr noundef nonnull %14, i32 noundef %45, i32 noundef 0, i32 noundef 255) #7
   %48 = icmp sgt i32 %47, -1
   br i1 %48, label %49, label %cbs_jpeg_write_scan_header.exit.thread.i
@@ -921,8 +921,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
   %50 = getelementptr inbounds nuw [255 x i8], ptr %34, i64 0, i64 %indvars.iv.i.i
   %51 = load i8, ptr %50, align 1, !tbaa !15
   %52 = zext i8 %51 to i32
-  store i32 1, ptr %15, align 4, !tbaa !43
-  store i32 %46, ptr %35, align 4, !tbaa !43
+  store i32 1, ptr %15, align 4, !tbaa !41
+  store i32 %46, ptr %35, align 4, !tbaa !41
   %53 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull %15, i32 noundef %52, i32 noundef 0, i32 noundef 3) #7
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %55, label %cbs_jpeg_write_scan_header.exit.thread.i
@@ -931,15 +931,15 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
   %56 = getelementptr inbounds nuw [255 x i8], ptr %36, i64 0, i64 %indvars.iv.i.i
   %57 = load i8, ptr %56, align 1, !tbaa !15
   %58 = zext i8 %57 to i32
-  store i32 1, ptr %16, align 4, !tbaa !43
-  store i32 %46, ptr %37, align 4, !tbaa !43
+  store i32 1, ptr %16, align 4, !tbaa !41
+  store i32 %46, ptr %37, align 4, !tbaa !41
   %59 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.28, ptr noundef nonnull %16, i32 noundef %58, i32 noundef 0, i32 noundef 3) #7
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %38, label %cbs_jpeg_write_scan_header.exit.thread.i
 
 ._crit_edge.i.i:                                  ; preds = %38, %.preheader.i.i
   %61 = getelementptr inbounds nuw i8, ptr %.val, i64 768
-  %62 = load i8, ptr %61, align 2, !tbaa !69
+  %62 = load i8, ptr %61, align 2, !tbaa !67
   %63 = zext i8 %62 to i32
   %64 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.29, ptr noundef null, i32 noundef %63, i32 noundef 0, i32 noundef 63) #7
   %65 = icmp sgt i32 %64, -1
@@ -947,7 +947,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
 
 66:                                               ; preds = %._crit_edge.i.i
   %67 = getelementptr inbounds nuw i8, ptr %.val, i64 769
-  %68 = load i8, ptr %67, align 1, !tbaa !70
+  %68 = load i8, ptr %67, align 1, !tbaa !68
   %69 = zext i8 %68 to i32
   %70 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.30, ptr noundef null, i32 noundef %69, i32 noundef 0, i32 noundef 63) #7
   %71 = icmp sgt i32 %70, -1
@@ -955,7 +955,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_jpeg_write_unit(ptr noundef %
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %.val, i64 770
-  %74 = load i8, ptr %73, align 2, !tbaa !71
+  %74 = load i8, ptr %73, align 2, !tbaa !69
   %75 = zext i8 %74 to i32
   %76 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef null, i32 noundef %75, i32 noundef 0, i32 noundef 13) #7
   %77 = icmp sgt i32 %76, -1
@@ -970,7 +970,7 @@ cbs_jpeg_write_scan_header.exit.thread.i:         ; preds = %55, %49, %42, %72, 
 
 cbs_jpeg_write_scan_header.exit.i:                ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %.val, i64 771
-  %79 = load i8, ptr %78, align 1, !tbaa !72
+  %79 = load i8, ptr %78, align 1, !tbaa !70
   %80 = zext i8 %79 to i32
   %81 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %80, i32 noundef 0, i32 noundef 15) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -981,23 +981,23 @@ cbs_jpeg_write_scan_header.exit.i:                ; preds = %72
 
 83:                                               ; preds = %cbs_jpeg_write_scan_header.exit.i
   %84 = getelementptr inbounds nuw i8, ptr %.val, i64 776
-  %85 = load ptr, ptr %84, align 8, !tbaa !65
+  %85 = load ptr, ptr %84, align 8, !tbaa !63
   %.not.i = icmp eq ptr %85, null
   br i1 %.not.i, label %cbs_jpeg_write_scan.exit, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %.val, i64 792
-  %88 = load i64, ptr %87, align 8, !tbaa !60
+  %88 = load i64, ptr %87, align 8, !tbaa !58
   %89 = shl i64 %88, 3
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !73
+  %91 = load ptr, ptr %90, align 8, !tbaa !71
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !75
+  %93 = load ptr, ptr %92, align 8, !tbaa !73
   %94 = ptrtoint ptr %91 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %98 = load i32, ptr %97, align 4, !tbaa !76
+  %98 = load i32, ptr %97, align 4, !tbaa !74
   %.tr.i.i = trunc i64 %96 to i32
   %99 = shl i32 %.tr.i.i, 3
   %100 = add i32 %98, -32
@@ -1022,15 +1022,15 @@ cbs_jpeg_write_scan_header.exit.i:                ; preds = %72
   br i1 %109, label %.lr.ph.i19.i, label %flush_put_bits.exit.i
 
 .lr.ph.i19.i:                                     ; preds = %108
-  %110 = load i32, ptr %2, align 8, !tbaa !77
+  %110 = load i32, ptr %2, align 8, !tbaa !75
   %111 = shl i32 %110, %98
-  store i32 %111, ptr %2, align 8, !tbaa !77
+  store i32 %111, ptr %2, align 8, !tbaa !75
   br label %112
 
 112:                                              ; preds = %118, %.lr.ph.i19.i
   %113 = phi i32 [ %123, %118 ], [ %111, %.lr.ph.i19.i ]
-  %114 = load ptr, ptr %92, align 8, !tbaa !75
-  %115 = load ptr, ptr %90, align 8, !tbaa !73
+  %114 = load ptr, ptr %92, align 8, !tbaa !73
+  %115 = load ptr, ptr %90, align 8, !tbaa !71
   %116 = icmp ult ptr %114, %115
   br i1 %116, label %118, label %117
 
@@ -1043,35 +1043,35 @@ cbs_jpeg_write_scan_header.exit.i:                ; preds = %72
   %119 = lshr i32 %113, 24
   %120 = trunc nuw i32 %119 to i8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 1
-  store ptr %121, ptr %92, align 8, !tbaa !75
+  store ptr %121, ptr %92, align 8, !tbaa !73
   store i8 %120, ptr %114, align 1, !tbaa !15
-  %122 = load i32, ptr %2, align 8, !tbaa !77
+  %122 = load i32, ptr %2, align 8, !tbaa !75
   %123 = shl i32 %122, 8
-  store i32 %123, ptr %2, align 8, !tbaa !77
-  %124 = load i32, ptr %97, align 4, !tbaa !76
+  store i32 %123, ptr %2, align 8, !tbaa !75
+  %124 = load i32, ptr %97, align 4, !tbaa !74
   %125 = add nsw i32 %124, 8
-  store i32 %125, ptr %97, align 4, !tbaa !76
+  store i32 %125, ptr %97, align 4, !tbaa !74
   %126 = icmp slt i32 %124, 24
-  br i1 %126, label %112, label %flush_put_bits.exit.loopexit.i, !llvm.loop !78
+  br i1 %126, label %112, label %flush_put_bits.exit.loopexit.i, !llvm.loop !76
 
 flush_put_bits.exit.loopexit.i:                   ; preds = %118
-  %.val.pre.i = load ptr, ptr %92, align 8, !tbaa !75
-  %.pre.i = load ptr, ptr %84, align 8, !tbaa !65
-  %.pre3.i = load i64, ptr %87, align 8, !tbaa !60
+  %.val.pre.i = load ptr, ptr %92, align 8, !tbaa !73
+  %.pre.i = load ptr, ptr %84, align 8, !tbaa !63
+  %.pre3.i = load i64, ptr %87, align 8, !tbaa !58
   br label %flush_put_bits.exit.i
 
 flush_put_bits.exit.i:                            ; preds = %flush_put_bits.exit.loopexit.i, %108
   %127 = phi i64 [ %.pre3.i, %flush_put_bits.exit.loopexit.i ], [ %88, %108 ]
   %128 = phi ptr [ %.pre.i, %flush_put_bits.exit.loopexit.i ], [ %85, %108 ]
   %.val.i = phi ptr [ %.val.pre.i, %flush_put_bits.exit.loopexit.i ], [ %93, %108 ]
-  store i32 32, ptr %97, align 4, !tbaa !76
-  store i32 0, ptr %2, align 8, !tbaa !77
+  store i32 32, ptr %97, align 4, !tbaa !74
+  store i32 0, ptr %2, align 8, !tbaa !75
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val.i, ptr align 1 %128, i64 %127, i1 false)
-  %129 = load i64, ptr %87, align 8, !tbaa !60
+  %129 = load i64, ptr %87, align 8, !tbaa !58
   %sext.i = shl i64 %129, 32
   %130 = ashr exact i64 %sext.i, 32
-  %131 = load ptr, ptr %90, align 8, !tbaa !73
-  %132 = load ptr, ptr %92, align 8, !tbaa !75
+  %131 = load ptr, ptr %90, align 8, !tbaa !71
+  %132 = load ptr, ptr %92, align 8, !tbaa !73
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
@@ -1085,7 +1085,7 @@ flush_put_bits.exit.i:                            ; preds = %flush_put_bits.exit
 
 skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit.i
   %137 = getelementptr inbounds i8, ptr %132, i64 %130
-  store ptr %137, ptr %92, align 8, !tbaa !75
+  store ptr %137, ptr %92, align 8, !tbaa !73
   br label %cbs_jpeg_write_scan.exit
 
 138:                                              ; preds = %3
@@ -1095,13 +1095,13 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %142 = load ptr, ptr %141, align 8, !tbaa !42
+  %142 = load ptr, ptr %141, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.10) #7
-  %143 = load i16, ptr %142, align 2, !tbaa !44
+  %143 = load i16, ptr %142, align 2, !tbaa !42
   %144 = zext i16 %143 to i32
   %145 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef %144, i32 noundef 8, i32 noundef 773) #7
   %146 = icmp sgt i32 %145, -1
@@ -1109,7 +1109,7 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 
 147:                                              ; preds = %140
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 2
-  %149 = load i8, ptr %148, align 2, !tbaa !47
+  %149 = load i8, ptr %148, align 2, !tbaa !45
   %150 = zext i8 %149 to i32
   %151 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef null, i32 noundef %150, i32 noundef 2, i32 noundef 16) #7
   %152 = icmp sgt i32 %151, -1
@@ -1117,7 +1117,7 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 
 153:                                              ; preds = %147
   %154 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %155 = load i16, ptr %154, align 2, !tbaa !48
+  %155 = load i16, ptr %154, align 2, !tbaa !46
   %156 = zext i16 %155 to i32
   %157 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.13, ptr noundef null, i32 noundef %156, i32 noundef 0, i32 noundef 65535) #7
   %158 = icmp sgt i32 %157, -1
@@ -1125,7 +1125,7 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 
 159:                                              ; preds = %153
   %160 = getelementptr inbounds nuw i8, ptr %142, i64 6
-  %161 = load i16, ptr %160, align 2, !tbaa !49
+  %161 = load i16, ptr %160, align 2, !tbaa !47
   %162 = zext i16 %161 to i32
   %163 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.14, ptr noundef null, i32 noundef %162, i32 noundef 1, i32 noundef 65535) #7
   %164 = icmp sgt i32 %163, -1
@@ -1133,7 +1133,7 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 
 165:                                              ; preds = %159
   %166 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %167 = load i16, ptr %166, align 2, !tbaa !50
+  %167 = load i16, ptr %166, align 2, !tbaa !48
   %168 = zext i16 %167 to i32
   %169 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.15, ptr noundef null, i32 noundef %168, i32 noundef 1, i32 noundef 255) #7
   %170 = icmp sgt i32 %169, -1
@@ -1144,7 +1144,7 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
   %172 = getelementptr inbounds nuw i8, ptr %142, i64 265
   %173 = getelementptr inbounds nuw i8, ptr %142, i64 520
   %174 = getelementptr inbounds nuw i8, ptr %142, i64 775
-  %175 = load i16, ptr %166, align 2, !tbaa !50
+  %175 = load i16, ptr %166, align 2, !tbaa !48
   %.not.i.i8 = icmp eq i16 %175, 0
   br i1 %.not.i.i8, label %cbs_jpeg_write_frame_header.exit.i, label %.lr.ph.i.i9
 
@@ -1157,19 +1157,19 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 
 180:                                              ; preds = %203
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
-  %181 = load i16, ptr %166, align 2, !tbaa !50
+  %181 = load i16, ptr %166, align 2, !tbaa !48
   %182 = zext i16 %181 to i64
   %183 = icmp samesign ult i64 %indvars.iv.next.i.i11, %182
-  br i1 %183, label %184, label %cbs_jpeg_write_frame_header.exit.i, !llvm.loop !79
+  br i1 %183, label %184, label %cbs_jpeg_write_frame_header.exit.i, !llvm.loop !77
 
 184:                                              ; preds = %180, %.lr.ph.i.i9
   %indvars.iv.i.i10 = phi i64 [ 0, %.lr.ph.i.i9 ], [ %indvars.iv.next.i.i11, %180 ]
   %185 = getelementptr inbounds nuw [255 x i8], ptr %171, i64 0, i64 %indvars.iv.i.i10
   %186 = load i8, ptr %185, align 1, !tbaa !15
   %187 = zext i8 %186 to i32
-  store i32 1, ptr %10, align 4, !tbaa !43
+  store i32 1, ptr %10, align 4, !tbaa !41
   %188 = trunc nuw nsw i64 %indvars.iv.i.i10 to i32
-  store i32 %188, ptr %176, align 4, !tbaa !43
+  store i32 %188, ptr %176, align 4, !tbaa !41
   %189 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.16, ptr noundef nonnull %10, i32 noundef %187, i32 noundef 0, i32 noundef 255) #7
   %190 = icmp sgt i32 %189, -1
   br i1 %190, label %191, label %cbs_jpeg_write_frame_header.exit.i
@@ -1178,8 +1178,8 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
   %192 = getelementptr inbounds nuw [255 x i8], ptr %172, i64 0, i64 %indvars.iv.i.i10
   %193 = load i8, ptr %192, align 1, !tbaa !15
   %194 = zext i8 %193 to i32
-  store i32 1, ptr %11, align 4, !tbaa !43
-  store i32 %188, ptr %177, align 4, !tbaa !43
+  store i32 1, ptr %11, align 4, !tbaa !41
+  store i32 %188, ptr %177, align 4, !tbaa !41
   %195 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull %11, i32 noundef %194, i32 noundef 1, i32 noundef 4) #7
   %196 = icmp sgt i32 %195, -1
   br i1 %196, label %197, label %cbs_jpeg_write_frame_header.exit.i
@@ -1188,8 +1188,8 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
   %198 = getelementptr inbounds nuw [255 x i8], ptr %173, i64 0, i64 %indvars.iv.i.i10
   %199 = load i8, ptr %198, align 1, !tbaa !15
   %200 = zext i8 %199 to i32
-  store i32 1, ptr %12, align 4, !tbaa !43
-  store i32 %188, ptr %178, align 4, !tbaa !43
+  store i32 1, ptr %12, align 4, !tbaa !41
+  store i32 %188, ptr %178, align 4, !tbaa !41
   %201 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull %12, i32 noundef %200, i32 noundef 1, i32 noundef 4) #7
   %202 = icmp sgt i32 %201, -1
   br i1 %202, label %203, label %cbs_jpeg_write_frame_header.exit.i
@@ -1198,8 +1198,8 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
   %204 = getelementptr inbounds nuw [255 x i8], ptr %174, i64 0, i64 %indvars.iv.i.i10
   %205 = load i8, ptr %204, align 1, !tbaa !15
   %206 = zext i8 %205 to i32
-  store i32 1, ptr %13, align 4, !tbaa !43
-  store i32 %188, ptr %179, align 4, !tbaa !43
+  store i32 1, ptr %13, align 4, !tbaa !41
+  store i32 %188, ptr %179, align 4, !tbaa !41
   %207 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef nonnull %13, i32 noundef %206, i32 noundef 0, i32 noundef 3) #7
   %208 = icmp sgt i32 %207, -1
   br i1 %208, label %180, label %cbs_jpeg_write_frame_header.exit.i
@@ -1219,17 +1219,17 @@ cbs_jpeg_write_frame_header.exit.i:               ; preds = %203, %197, %191, %1
 
 211:                                              ; preds = %209
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %213 = load ptr, ptr %212, align 8, !tbaa !42
+  %213 = load ptr, ptr %212, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.20) #7
-  %214 = load i16, ptr %213, align 8, !tbaa !52
+  %214 = load i16, ptr %213, align 8, !tbaa !50
   %215 = zext i16 %214 to i32
   %216 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.21, ptr noundef null, i32 noundef %215, i32 noundef 2, i32 noundef 65535) #7
   %217 = icmp sgt i32 %216, -1
   br i1 %217, label %218, label %cbs_jpeg_write_application_data.exit.i
 
 218:                                              ; preds = %211
-  %219 = load i16, ptr %213, align 8, !tbaa !52
+  %219 = load i16, ptr %213, align 8, !tbaa !50
   %220 = icmp ugt i16 %219, 2
   br i1 %220, label %.lr.ph.i26.i, label %cbs_jpeg_write_application_data.exit.i
 
@@ -1240,21 +1240,21 @@ cbs_jpeg_write_frame_header.exit.i:               ; preds = %203, %197, %191, %1
 
 223:                                              ; preds = %228
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
-  %224 = load i16, ptr %213, align 8, !tbaa !52
+  %224 = load i16, ptr %213, align 8, !tbaa !50
   %225 = zext i16 %224 to i64
   %226 = add nsw i64 %225, -2
   %227 = icmp slt i64 %indvars.iv.next.i28.i, %226
-  br i1 %227, label %228, label %cbs_jpeg_write_application_data.exit.i, !llvm.loop !80
+  br i1 %227, label %228, label %cbs_jpeg_write_application_data.exit.i, !llvm.loop !78
 
 228:                                              ; preds = %223, %.lr.ph.i26.i
   %indvars.iv.i27.i = phi i64 [ 0, %.lr.ph.i26.i ], [ %indvars.iv.next.i28.i, %223 ]
-  %229 = load ptr, ptr %221, align 8, !tbaa !58
+  %229 = load ptr, ptr %221, align 8, !tbaa !56
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 %indvars.iv.i27.i
   %231 = load i8, ptr %230, align 1, !tbaa !15
   %232 = zext i8 %231 to i32
-  store i32 1, ptr %9, align 4, !tbaa !43
+  store i32 1, ptr %9, align 4, !tbaa !41
   %233 = trunc nuw nsw i64 %indvars.iv.i27.i to i32
-  store i32 %233, ptr %222, align 4, !tbaa !43
+  store i32 %233, ptr %222, align 4, !tbaa !41
   %234 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.22, ptr noundef nonnull %9, i32 noundef %232, i32 noundef 0, i32 noundef 255) #7
   %235 = icmp sgt i32 %234, -1
   br i1 %235, label %223, label %cbs_jpeg_write_application_data.exit.i
@@ -1273,16 +1273,16 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 
 237:                                              ; preds = %236
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %239 = load ptr, ptr %238, align 8, !tbaa !42
+  %239 = load ptr, ptr %238, align 8, !tbaa !40
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.33) #7
-  %240 = load i16, ptr %239, align 2, !tbaa !81
+  %240 = load i16, ptr %239, align 2, !tbaa !79
   %241 = zext i16 %240 to i32
   %242 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.34, ptr noundef null, i32 noundef %241, i32 noundef 2, i32 noundef 262) #7
   %243 = icmp sgt i32 %242, -1
   br i1 %243, label %244, label %cbs_jpeg_write_scan.exit
 
 244:                                              ; preds = %237
-  %245 = load i16, ptr %239, align 2, !tbaa !81
+  %245 = load i16, ptr %239, align 2, !tbaa !79
   %.not.i30.i = icmp ult i16 %245, 65
   br i1 %.not.i30.i, label %cbs_jpeg_write_scan.exit, label %.lr.ph.i31.i
 
@@ -1299,7 +1299,7 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
   %251 = getelementptr inbounds nuw [4 x %struct.JPEGRawQuantisationTable], ptr %247, i64 0, i64 %indvars.iv.i32.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %252 = load i8, ptr %251, align 2, !tbaa !83
+  %252 = load i8, ptr %251, align 2, !tbaa !81
   %253 = zext i8 %252 to i32
   %254 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.35, ptr noundef null, i32 noundef %253, i32 noundef 0, i32 noundef 1) #7
   %255 = icmp sgt i32 %254, -1
@@ -1307,14 +1307,14 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 
 256:                                              ; preds = %250
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 1
-  %258 = load i8, ptr %257, align 1, !tbaa !85
+  %258 = load i8, ptr %257, align 1, !tbaa !83
   %259 = zext i8 %258 to i32
   %260 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.36, ptr noundef null, i32 noundef %259, i32 noundef 0, i32 noundef 3) #7
   %261 = icmp sgt i32 %260, -1
   br i1 %261, label %262, label %cbs_jpeg_write_quantisation_table.exit.thread.i.i
 
 262:                                              ; preds = %256
-  %263 = load i8, ptr %251, align 2, !tbaa !83
+  %263 = load i8, ptr %251, align 2, !tbaa !81
   %.not.i.i.i = icmp eq i8 %263, 0
   %264 = getelementptr inbounds nuw i8, ptr %251, i64 2
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader48.i.i.i
@@ -1322,16 +1322,16 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 265:                                              ; preds = %.preheader48.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 64
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.preheader48.i.i.i, !llvm.loop !86
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.preheader48.i.i.i, !llvm.loop !84
 
 .preheader48.i.i.i:                               ; preds = %262, %265
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %265 ], [ 0, %262 ]
   %266 = getelementptr inbounds nuw [64 x i16], ptr %264, i64 0, i64 %indvars.iv.i.i.i
-  %267 = load i16, ptr %266, align 2, !tbaa !87
+  %267 = load i16, ptr %266, align 2, !tbaa !85
   %268 = zext i16 %267 to i32
-  store i32 1, ptr %7, align 4, !tbaa !43
+  store i32 1, ptr %7, align 4, !tbaa !41
   %269 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  store i32 %269, ptr %248, align 4, !tbaa !43
+  store i32 %269, ptr %248, align 4, !tbaa !41
   %270 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.37, ptr noundef nonnull %7, i32 noundef %268, i32 noundef 1, i32 noundef 255) #7
   %271 = icmp sgt i32 %270, -1
   br i1 %271, label %265, label %cbs_jpeg_write_quantisation_table.exit.thread.i.i
@@ -1339,16 +1339,16 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 272:                                              ; preds = %.preheader.i.i.i
   %indvars.iv.next57.i.i.i = add nuw nsw i64 %indvars.iv56.i.i.i, 1
   %exitcond59.not.i.i.i = icmp eq i64 %indvars.iv.next57.i.i.i, 64
-  br i1 %exitcond59.not.i.i.i, label %.loopexit.i.i, label %.preheader.i.i.i, !llvm.loop !88
+  br i1 %exitcond59.not.i.i.i, label %.loopexit.i.i, label %.preheader.i.i.i, !llvm.loop !86
 
 .preheader.i.i.i:                                 ; preds = %262, %272
   %indvars.iv56.i.i.i = phi i64 [ %indvars.iv.next57.i.i.i, %272 ], [ 0, %262 ]
   %273 = getelementptr inbounds nuw [64 x i16], ptr %264, i64 0, i64 %indvars.iv56.i.i.i
-  %274 = load i16, ptr %273, align 2, !tbaa !87
+  %274 = load i16, ptr %273, align 2, !tbaa !85
   %275 = zext i16 %274 to i32
-  store i32 1, ptr %8, align 4, !tbaa !43
+  store i32 1, ptr %8, align 4, !tbaa !41
   %276 = trunc nuw nsw i64 %indvars.iv56.i.i.i to i32
-  store i32 %276, ptr %249, align 4, !tbaa !43
+  store i32 %276, ptr %249, align 4, !tbaa !41
   %277 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.37, ptr noundef nonnull %8, i32 noundef %275, i32 noundef 1, i32 noundef 255) #7
   %278 = icmp sgt i32 %277, -1
   br i1 %278, label %272, label %cbs_jpeg_write_quantisation_table.exit.thread.i.i
@@ -1364,20 +1364,20 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i32.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i33.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %cbs_jpeg_write_scan.exit, label %250, !llvm.loop !89
+  br i1 %exitcond.not.i.i, label %cbs_jpeg_write_scan.exit, label %250, !llvm.loop !87
 
 279:                                              ; preds = %236
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %281 = load ptr, ptr %280, align 8, !tbaa !42
+  %281 = load ptr, ptr %280, align 8, !tbaa !40
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.38) #7
-  %282 = load i16, ptr %281, align 2, !tbaa !90
+  %282 = load i16, ptr %281, align 2, !tbaa !88
   %283 = zext i16 %282 to i32
   %284 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.39, ptr noundef null, i32 noundef %283, i32 noundef 2, i32 noundef 2186) #7
   %285 = icmp sgt i32 %284, -1
   br i1 %285, label %.preheader.i36.i, label %cbs_jpeg_write_scan.exit
 
 .preheader.i36.i:                                 ; preds = %279
-  %286 = load i16, ptr %281, align 2, !tbaa !90
+  %286 = load i16, ptr %281, align 2, !tbaa !88
   %287 = icmp ugt i16 %286, 2
   br i1 %287, label %.lr.ph.i37.i, label %cbs_jpeg_write_scan.exit
 
@@ -1397,7 +1397,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   %293 = getelementptr inbounds nuw [8 x %struct.JPEGRawHuffmanTable], ptr %288, i64 0, i64 %indvars.iv48.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %294 = load i8, ptr %293, align 1, !tbaa !92
+  %294 = load i8, ptr %293, align 1, !tbaa !90
   %295 = zext i8 %294 to i32
   %296 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef null, i32 noundef %295, i32 noundef 0, i32 noundef 1) #7
   %297 = icmp sgt i32 %296, -1
@@ -1405,7 +1405,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
 
 298:                                              ; preds = %292
   %299 = getelementptr inbounds nuw i8, ptr %293, i64 1
-  %300 = load i8, ptr %299, align 1, !tbaa !94
+  %300 = load i8, ptr %299, align 1, !tbaa !92
   %301 = zext i8 %300 to i32
   %302 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef null, i32 noundef %301, i32 noundef 0, i32 noundef 3) #7
   %303 = icmp sgt i32 %302, -1
@@ -1418,7 +1418,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
 305:                                              ; preds = %307
   %indvars.iv.next.i.i40.i = add nuw nsw i64 %indvars.iv.i.i39.i, 1
   %exitcond.not.i.i41.i = icmp eq i64 %indvars.iv.next.i.i40.i, 16
-  br i1 %exitcond.not.i.i41.i, label %.preheader57.i.i.i, label %307, !llvm.loop !95
+  br i1 %exitcond.not.i.i41.i, label %.preheader57.i.i.i, label %307, !llvm.loop !93
 
 .preheader57.i.i.i:                               ; preds = %305
   %306 = getelementptr inbounds nuw i8, ptr %293, i64 18
@@ -1429,9 +1429,9 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   %308 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 0, i64 %indvars.iv.i.i39.i
   %309 = load i8, ptr %308, align 1, !tbaa !15
   %310 = zext i8 %309 to i32
-  store i32 1, ptr %5, align 4, !tbaa !43
+  store i32 1, ptr %5, align 4, !tbaa !41
   %311 = trunc nuw nsw i64 %indvars.iv.i.i39.i to i32
-  store i32 %311, ptr %289, align 4, !tbaa !43
+  store i32 %311, ptr %289, align 4, !tbaa !41
   %312 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull %5, i32 noundef %310, i32 noundef 0, i32 noundef 255) #7
   %313 = icmp sgt i32 %312, -1
   br i1 %313, label %305, label %cbs_jpeg_write_huffman_table.exit.thread.i.i
@@ -1459,9 +1459,9 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   %319 = getelementptr inbounds nuw [256 x i8], ptr %306, i64 0, i64 %indvars.iv72.i.i.i
   %320 = load i8, ptr %319, align 1, !tbaa !15
   %321 = zext i8 %320 to i32
-  store i32 1, ptr %6, align 4, !tbaa !43
+  store i32 1, ptr %6, align 4, !tbaa !41
   %322 = trunc nuw i64 %indvars.iv72.i.i.i to i32
-  store i32 %322, ptr %290, align 4, !tbaa !43
+  store i32 %322, ptr %290, align 4, !tbaa !41
   %323 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.43, ptr noundef nonnull %6, i32 noundef %321, i32 noundef 0, i32 noundef 255) #7
   %324 = icmp sgt i32 %323, -1
   br i1 %324, label %325, label %cbs_jpeg_write_huffman_table.exit.thread.i.i
@@ -1472,7 +1472,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   %327 = load i8, ptr %314, align 1, !tbaa !15
   %328 = zext i8 %327 to i32
   %329 = icmp samesign ult i32 %326, %328
-  br i1 %329, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !96
+  br i1 %329, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !94
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %325
   %330 = trunc nuw i64 %indvars.iv.next73.i.i.i to i32
@@ -1482,7 +1482,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   %.153.lcssa.i.i.i = phi i32 [ %.05265.i.i.i, %.preheader.i.i42.i ], [ %330, %._crit_edge.loopexit.i.i.i ]
   %indvars.iv.next77.i.i.i = add nuw nsw i64 %indvars.iv76.i.i.i, 1
   %exitcond79.not.i.i.i = icmp eq i64 %indvars.iv.next77.i.i.i, 16
-  br i1 %exitcond79.not.i.i.i, label %331, label %.preheader.i.i42.i, !llvm.loop !97
+  br i1 %exitcond79.not.i.i.i, label %331, label %.preheader.i.i42.i, !llvm.loop !95
 
 cbs_jpeg_write_huffman_table.exit.thread.i.i:     ; preds = %298, %292, %307, %318, %.lr.ph.i.i.i
   %.1.i.ph.i38.i = phi i32 [ -1094995529, %.lr.ph.i.i.i ], [ %323, %318 ], [ %312, %307 ], [ %302, %298 ], [ %296, %292 ]
@@ -1506,28 +1506,28 @@ cbs_jpeg_write_huffman_table.exit.thread.i.i:     ; preds = %298, %292, %307, %3
   %338 = add i32 %337, %336
   %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
   %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, 16
-  br i1 %exitcond.not.i46.i, label %339, label %333, !llvm.loop !98
+  br i1 %exitcond.not.i46.i, label %339, label %333, !llvm.loop !96
 
 339:                                              ; preds = %333
   %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i.i, 1
-  %340 = load i16, ptr %281, align 2, !tbaa !90
+  %340 = load i16, ptr %281, align 2, !tbaa !88
   %341 = zext i16 %340 to i32
   %342 = icmp slt i32 %338, %341
-  br i1 %342, label %291, label %cbs_jpeg_write_scan.exit, !llvm.loop !99
+  br i1 %342, label %291, label %cbs_jpeg_write_scan.exit, !llvm.loop !97
 
 343:                                              ; preds = %236
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %345 = load ptr, ptr %344, align 8, !tbaa !42
+  %345 = load ptr, ptr %344, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.44) #7
-  %346 = load i16, ptr %345, align 8, !tbaa !100
+  %346 = load i16, ptr %345, align 8, !tbaa !98
   %347 = zext i16 %346 to i32
   %348 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.45, ptr noundef null, i32 noundef %347, i32 noundef 2, i32 noundef 65535) #7
   %349 = icmp sgt i32 %348, -1
   br i1 %349, label %350, label %cbs_jpeg_write_comment.exit.i
 
 350:                                              ; preds = %343
-  %351 = load i16, ptr %345, align 8, !tbaa !100
+  %351 = load i16, ptr %345, align 8, !tbaa !98
   %352 = icmp ugt i16 %351, 2
   br i1 %352, label %.lr.ph.i49.i, label %cbs_jpeg_write_comment.exit.i
 
@@ -1538,21 +1538,21 @@ cbs_jpeg_write_huffman_table.exit.thread.i.i:     ; preds = %298, %292, %307, %3
 
 355:                                              ; preds = %360
   %indvars.iv.next.i51.i = add nuw nsw i64 %indvars.iv.i50.i, 1
-  %356 = load i16, ptr %345, align 8, !tbaa !100
+  %356 = load i16, ptr %345, align 8, !tbaa !98
   %357 = zext i16 %356 to i64
   %358 = add nsw i64 %357, -2
   %359 = icmp slt i64 %indvars.iv.next.i51.i, %358
-  br i1 %359, label %360, label %cbs_jpeg_write_comment.exit.i, !llvm.loop !102
+  br i1 %359, label %360, label %cbs_jpeg_write_comment.exit.i, !llvm.loop !100
 
 360:                                              ; preds = %355, %.lr.ph.i49.i
   %indvars.iv.i50.i = phi i64 [ 0, %.lr.ph.i49.i ], [ %indvars.iv.next.i51.i, %355 ]
-  %361 = load ptr, ptr %353, align 8, !tbaa !103
+  %361 = load ptr, ptr %353, align 8, !tbaa !101
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 %indvars.iv.i50.i
   %363 = load i8, ptr %362, align 1, !tbaa !15
   %364 = zext i8 %363 to i32
-  store i32 1, ptr %4, align 4, !tbaa !43
+  store i32 1, ptr %4, align 4, !tbaa !41
   %365 = trunc nuw nsw i64 %indvars.iv.i50.i to i32
-  store i32 %365, ptr %354, align 4, !tbaa !43
+  store i32 %365, ptr %354, align 4, !tbaa !41
   %366 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.46, ptr noundef nonnull %4, i32 noundef %364, i32 noundef 0, i32 noundef 255) #7
   %367 = icmp sgt i32 %366, -1
   br i1 %367, label %355, label %cbs_jpeg_write_comment.exit.i
@@ -1570,13 +1570,13 @@ cbs_jpeg_write_scan.exit:                         ; preds = %339, %291, %.loopex
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !104
+  %4 = load i32, ptr %3, align 8, !tbaa !102
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !103
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
@@ -1585,10 +1585,10 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
   %.07790 = phi i64 [ 4, %.lr.ph92 ], [ %.380, %.loopexit86 ]
   %9 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !34
+  %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = add i64 %.07790, 2
   %13 = add i64 %12, %11
-  %14 = load i32, ptr %9, align 8, !tbaa !41
+  %14 = load i32, ptr %9, align 8, !tbaa !39
   %15 = icmp eq i32 %14, 218
   %16 = icmp ne i64 %11, 0
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -1596,7 +1596,7 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
 
 .lr.ph:                                           ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -1609,30 +1609,30 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
   %spec.select = add i64 %.17888, %23
   %24 = add nuw i64 %.07389, 1
   %exitcond.not = icmp eq i64 %24, %11
-  br i1 %exitcond.not, label %.loopexit86, label %19, !llvm.loop !106
+  br i1 %exitcond.not, label %.loopexit86, label %19, !llvm.loop !104
 
 .loopexit86:                                      ; preds = %19, %8
   %.380 = phi i64 [ %13, %8 ], [ %spec.select, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond106.not, label %._crit_edge, label %8, !llvm.loop !107
+  br i1 %exitcond106.not, label %._crit_edge, label %8, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.loopexit86, %2
   %.077.lcssa = phi i64 [ 4, %2 ], [ %.380, %.loopexit86 ]
   %25 = add i64 %.077.lcssa, 64
   %26 = tail call ptr @av_buffer_alloc(i64 noundef %25) #7
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %26, ptr %27, align 8, !tbaa !30
+  store ptr %26, ptr %27, align 8, !tbaa !29
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %92, label %28
 
 28:                                               ; preds = %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  %30 = load ptr, ptr %29, align 8, !tbaa !53
   store i8 -1, ptr %30, align 1, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 -40, ptr %31, align 1, !tbaa !15
-  %32 = load i32, ptr %3, align 8, !tbaa !104
+  %32 = load i32, ptr %3, align 8, !tbaa !102
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph102, label %._crit_edge103
 
@@ -1643,38 +1643,38 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
 35:                                               ; preds = %.lr.ph102, %.loopexit
   %indvars.iv107 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next108, %.loopexit ]
   %.07599 = phi i64 [ 2, %.lr.ph102 ], [ %.3, %.loopexit ]
-  %36 = load ptr, ptr %34, align 8, !tbaa !105
+  %36 = load ptr, ptr %34, align 8, !tbaa !103
   %37 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %36, i64 %indvars.iv107
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %.07599
   store i8 -1, ptr %38, align 1, !tbaa !15
-  %39 = load i32, ptr %37, align 8, !tbaa !41
+  %39 = load i32, ptr %37, align 8, !tbaa !39
   %40 = trunc i32 %39 to i8
   %41 = add i64 %.07599, 2
   %42 = getelementptr i8, ptr %38, i64 1
   store i8 %40, ptr %42, align 1, !tbaa !15
-  %43 = load i32, ptr %37, align 8, !tbaa !41
+  %43 = load i32, ptr %37, align 8, !tbaa !39
   %.not84 = icmp eq i32 %43, 218
   br i1 %.not84, label %52, label %44
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 %41
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !32
+  %47 = load ptr, ptr %46, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !34
+  %49 = load i64, ptr %48, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %47, i64 %49, i1 false)
-  %50 = load i64, ptr %48, align 8, !tbaa !34
+  %50 = load i64, ptr %48, align 8, !tbaa !32
   %51 = add i64 %50, %41
   br label %.loopexit
 
 52:                                               ; preds = %35
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !32
+  %54 = load ptr, ptr %53, align 8, !tbaa !30
   %55 = load i16, ptr %54, align 1, !tbaa !15
   %56 = tail call i16 @llvm.bswap.i16(i16 %55)
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %59 = load i64, ptr %58, align 8, !tbaa !34
+  %59 = load i64, ptr %58, align 8, !tbaa !32
   %.not85 = icmp ult i64 %59, %57
   br i1 %.not85, label %60, label %61
 
@@ -1687,14 +1687,14 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
   %62 = getelementptr inbounds nuw i8, ptr %30, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %54, i64 %57, i1 false)
   %63 = add i64 %41, %57
-  %64 = load i64, ptr %58, align 8, !tbaa !34
+  %64 = load i64, ptr %58, align 8, !tbaa !32
   %65 = icmp ugt i64 %64, %57
   br i1 %65, label %.lr.ph97, label %.loopexit
 
 .lr.ph97:                                         ; preds = %61, %77
   %.17495 = phi i64 [ %78, %77 ], [ %57, %61 ]
   %.17694 = phi i64 [ %.2, %77 ], [ %63, %61 ]
-  %66 = load ptr, ptr %53, align 8, !tbaa !32
+  %66 = load ptr, ptr %53, align 8, !tbaa !30
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.17495
   %68 = load i8, ptr %67, align 1, !tbaa !15
   %69 = icmp eq i8 %68, -1
@@ -1717,17 +1717,17 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
 77:                                               ; preds = %70, %74
   %.2 = phi i64 [ %72, %70 ], [ %75, %74 ]
   %78 = add nuw i64 %.17495, 1
-  %79 = load i64, ptr %58, align 8, !tbaa !34
+  %79 = load i64, ptr %58, align 8, !tbaa !32
   %80 = icmp ult i64 %78, %79
-  br i1 %80, label %.lr.ph97, label %.loopexit, !llvm.loop !108
+  br i1 %80, label %.lr.ph97, label %.loopexit, !llvm.loop !106
 
 .loopexit:                                        ; preds = %77, %61, %44
   %.3 = phi i64 [ %51, %44 ], [ %63, %61 ], [ %.2, %77 ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %81 = load i32, ptr %3, align 8, !tbaa !104
+  %81 = load i32, ptr %3, align 8, !tbaa !102
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next108, %82
-  br i1 %83, label %35, label %._crit_edge103, !llvm.loop !109
+  br i1 %83, label %35, label %._crit_edge103, !llvm.loop !107
 
 ._crit_edge103:                                   ; preds = %.loopexit, %28
   %.075.lcssa = phi i64 [ 2, %28 ], [ %.3, %.loopexit ]
@@ -1798,9 +1798,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %3
-  %19 = load i32, ptr %4, align 4, !tbaa !43
+  %19 = load i32, ptr %4, align 4, !tbaa !41
   %20 = trunc i32 %19 to i16
-  store i16 %20, ptr %2, align 2, !tbaa !66
+  store i16 %20, ptr %2, align 2, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %21 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 4) #7
@@ -1812,10 +1812,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 23:                                               ; preds = %18
-  %24 = load i32, ptr %5, align 4, !tbaa !43
+  %24 = load i32, ptr %5, align 4, !tbaa !41
   %25 = trunc i32 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %25, ptr %26, align 2, !tbaa !67
+  store i8 %25, ptr %26, align 2, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %27 = and i32 %24, 255
   %.not = icmp eq i32 %27, 0
@@ -1833,9 +1833,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
 34:                                               ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 1, ptr %7, align 4, !tbaa !43
+  store i32 1, ptr %7, align 4, !tbaa !41
   %35 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %35, ptr %28, align 4, !tbaa !43
+  store i32 %35, ptr %28, align 4, !tbaa !41
   %36 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.26, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 255) #7
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %39, label %38
@@ -1845,14 +1845,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 39:                                               ; preds = %34
-  %40 = load i32, ptr %6, align 4, !tbaa !43
+  %40 = load i32, ptr %6, align 4, !tbaa !41
   %41 = trunc i32 %40 to i8
   %42 = getelementptr inbounds nuw [255 x i8], ptr %29, i64 0, i64 %indvars.iv
   store i8 %41, ptr %42, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  store i32 1, ptr %9, align 4, !tbaa !43
-  store i32 %35, ptr %30, align 4, !tbaa !43
+  store i32 1, ptr %9, align 4, !tbaa !41
+  store i32 %35, ptr %30, align 4, !tbaa !41
   %43 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 3) #7
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %46, label %45
@@ -1862,14 +1862,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 46:                                               ; preds = %39
-  %47 = load i32, ptr %8, align 4, !tbaa !43
+  %47 = load i32, ptr %8, align 4, !tbaa !41
   %48 = trunc i32 %47 to i8
   %49 = getelementptr inbounds nuw [255 x i8], ptr %31, i64 0, i64 %indvars.iv
   store i8 %48, ptr %49, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
-  store i32 1, ptr %11, align 4, !tbaa !43
-  store i32 %35, ptr %32, align 4, !tbaa !43
+  store i32 1, ptr %11, align 4, !tbaa !41
+  store i32 %35, ptr %32, align 4, !tbaa !41
   %50 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.28, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 3) #7
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %53, label %52
@@ -1879,16 +1879,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 53:                                               ; preds = %46
-  %54 = load i32, ptr %10, align 4, !tbaa !43
+  %54 = load i32, ptr %10, align 4, !tbaa !41
   %55 = trunc i32 %54 to i8
   %56 = getelementptr inbounds nuw [255 x i8], ptr %33, i64 0, i64 %indvars.iv
   store i8 %55, ptr %56, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load i8, ptr %26, align 2, !tbaa !67
+  %57 = load i8, ptr %26, align 2, !tbaa !65
   %58 = zext i8 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %34, label %._crit_edge, !llvm.loop !110
+  br i1 %59, label %34, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %53, %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
@@ -1901,10 +1901,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 63:                                               ; preds = %._crit_edge
-  %64 = load i32, ptr %12, align 4, !tbaa !43
+  %64 = load i32, ptr %12, align 4, !tbaa !41
   %65 = trunc i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 768
-  store i8 %65, ptr %66, align 2, !tbaa !69
+  store i8 %65, ptr %66, align 2, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
   %67 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 63) #7
@@ -1916,10 +1916,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 70:                                               ; preds = %63
-  %71 = load i32, ptr %13, align 4, !tbaa !43
+  %71 = load i32, ptr %13, align 4, !tbaa !41
   %72 = trunc i32 %71 to i8
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 769
-  store i8 %72, ptr %73, align 1, !tbaa !70
+  store i8 %72, ptr %73, align 1, !tbaa !68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
   %74 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 13) #7
@@ -1931,10 +1931,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br label %88
 
 77:                                               ; preds = %70
-  %78 = load i32, ptr %14, align 4, !tbaa !43
+  %78 = load i32, ptr %14, align 4, !tbaa !41
   %79 = trunc i32 %78 to i8
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 770
-  store i8 %79, ptr %80, align 2, !tbaa !71
+  store i8 %79, ptr %80, align 2, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
   %81 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 15) #7
@@ -1942,10 +1942,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_scan_header(
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %77
-  %84 = load i32, ptr %15, align 4, !tbaa !43
+  %84 = load i32, ptr %15, align 4, !tbaa !41
   %85 = trunc i32 %84 to i8
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 771
-  store i8 %85, ptr %86, align 1, !tbaa !72
+  store i8 %85, ptr %86, align 1, !tbaa !70
   br label %87
 
 87:                                               ; preds = %77, %83
@@ -1983,9 +1983,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %3
-  %14 = load i32, ptr %10, align 4, !tbaa !43
+  %14 = load i32, ptr %10, align 4, !tbaa !41
   %15 = trunc i32 %14 to i16
-  store i16 %15, ptr %2, align 2, !tbaa !81
+  store i16 %15, ptr %2, align 2, !tbaa !79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   %.not = icmp ult i16 %15, 65
   br i1 %.not, label %.loopexit22, label %.lr.ph
@@ -2009,9 +2009,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
   br i1 %23, label %24, label %.critedge.i
 
 24:                                               ; preds = %20
-  %25 = load i32, ptr %4, align 4, !tbaa !43
+  %25 = load i32, ptr %4, align 4, !tbaa !41
   %26 = trunc i32 %25 to i8
-  store i8 %26, ptr %21, align 2, !tbaa !83
+  store i8 %26, ptr %21, align 2, !tbaa !81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %27 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 3) #7
@@ -2023,12 +2023,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
   br label %cbs_jpeg_read_quantisation_table.exit.thread
 
 30:                                               ; preds = %24
-  %31 = load i32, ptr %5, align 4, !tbaa !43
+  %31 = load i32, ptr %5, align 4, !tbaa !41
   %32 = trunc i32 %31 to i8
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !85
+  store i8 %32, ptr %33, align 1, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  %34 = load i8, ptr %21, align 2, !tbaa !83
+  %34 = load i8, ptr %21, align 2, !tbaa !81
   %.not.i = icmp eq i8 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 2
   br i1 %.not.i, label %.preheader.i, label %.preheader53.i
@@ -2036,9 +2036,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
 .preheader53.i:                                   ; preds = %30, %40
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %30 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 1, ptr %7, align 4, !tbaa !43
+  store i32 1, ptr %7, align 4, !tbaa !41
   %36 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %36, ptr %18, align 4, !tbaa !43
+  store i32 %36, ptr %18, align 4, !tbaa !41
   %37 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.37, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 255) #7
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %40, label %39
@@ -2048,21 +2048,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
   br label %cbs_jpeg_read_quantisation_table.exit.thread
 
 40:                                               ; preds = %.preheader53.i
-  %41 = load i32, ptr %6, align 4, !tbaa !43
+  %41 = load i32, ptr %6, align 4, !tbaa !41
   %42 = trunc i32 %41 to i16
   %43 = getelementptr inbounds nuw [64 x i16], ptr %35, i64 0, i64 %indvars.iv.i
-  store i16 %42, ptr %43, align 2, !tbaa !87
+  store i16 %42, ptr %43, align 2, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.loopexit, label %.preheader53.i, !llvm.loop !111
+  br i1 %exitcond.not.i, label %.loopexit, label %.preheader53.i, !llvm.loop !109
 
 .preheader.i:                                     ; preds = %30, %48
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %48 ], [ 0, %30 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  store i32 1, ptr %9, align 4, !tbaa !43
+  store i32 1, ptr %9, align 4, !tbaa !41
   %44 = trunc nuw nsw i64 %indvars.iv63.i to i32
-  store i32 %44, ptr %19, align 4, !tbaa !43
+  store i32 %44, ptr %19, align 4, !tbaa !41
   %45 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.37, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 255) #7
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %48, label %47
@@ -2072,14 +2072,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
   br label %cbs_jpeg_read_quantisation_table.exit.thread
 
 48:                                               ; preds = %.preheader.i
-  %49 = load i32, ptr %8, align 4, !tbaa !43
+  %49 = load i32, ptr %8, align 4, !tbaa !41
   %50 = trunc i32 %49 to i16
   %51 = getelementptr inbounds nuw [64 x i16], ptr %35, i64 0, i64 %indvars.iv63.i
-  store i16 %50, ptr %51, align 2, !tbaa !87
+  store i16 %50, ptr %51, align 2, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 64
-  br i1 %exitcond66.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !112
+  br i1 %exitcond66.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !110
 
 .critedge.i:                                      ; preds = %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -2096,7 +2096,7 @@ cbs_jpeg_read_quantisation_table.exit.thread:     ; preds = %39, %47, %29, %.cri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit22, label %20, !llvm.loop !113
+  br i1 %exitcond.not, label %.loopexit22, label %20, !llvm.loop !111
 
 .critedge:                                        ; preds = %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
@@ -2123,9 +2123,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %3
-  %14 = load i32, ptr %10, align 4, !tbaa !43
+  %14 = load i32, ptr %10, align 4, !tbaa !41
   %15 = trunc i32 %14 to i16
-  store i16 %15, ptr %2, align 2, !tbaa !90
+  store i16 %15, ptr %2, align 2, !tbaa !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   %16 = and i32 %14, 65535
   %17 = icmp samesign ugt i32 %16, 2
@@ -2153,9 +2153,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br i1 %25, label %26, label %.critedge.i
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr %4, align 4, !tbaa !43
+  %27 = load i32, ptr %4, align 4, !tbaa !41
   %28 = trunc i32 %27 to i8
-  store i8 %28, ptr %23, align 1, !tbaa !92
+  store i8 %28, ptr %23, align 1, !tbaa !90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %29 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 3) #7
@@ -2167,10 +2167,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br label %cbs_jpeg_read_huffman_table.exit.thread
 
 31:                                               ; preds = %26
-  %32 = load i32, ptr %5, align 4, !tbaa !43
+  %32 = load i32, ptr %5, align 4, !tbaa !41
   %33 = trunc i32 %32 to i8
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store i8 %33, ptr %34, align 1, !tbaa !94
+  store i8 %33, ptr %34, align 1, !tbaa !92
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 2
   br label %37
@@ -2182,9 +2182,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
 37:                                               ; preds = %42, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %42 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 1, ptr %7, align 4, !tbaa !43
+  store i32 1, ptr %7, align 4, !tbaa !41
   %38 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %38, ptr %19, align 4, !tbaa !43
+  store i32 %38, ptr %19, align 4, !tbaa !41
   %39 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 255) #7
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %42, label %41
@@ -2194,14 +2194,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br label %cbs_jpeg_read_huffman_table.exit.thread
 
 42:                                               ; preds = %37
-  %43 = load i32, ptr %6, align 4, !tbaa !43
+  %43 = load i32, ptr %6, align 4, !tbaa !41
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 0, i64 %indvars.iv.i
   store i8 %44, ptr %45, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader61.i, label %37, !llvm.loop !114
+  br i1 %exitcond.not.i, label %.preheader61.i, label %37, !llvm.loop !112
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader61.i
   %indvars.iv81.i = phi i64 [ 0, %.preheader61.i ], [ %indvars.iv.next82.i, %._crit_edge.i ]
@@ -2224,9 +2224,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
 
 50:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  store i32 1, ptr %9, align 4, !tbaa !43
+  store i32 1, ptr %9, align 4, !tbaa !41
   %51 = trunc nsw i64 %indvars.iv77.i to i32
-  store i32 %51, ptr %20, align 4, !tbaa !43
+  store i32 %51, ptr %20, align 4, !tbaa !41
   %52 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.43, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 255) #7
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %55, label %54
@@ -2236,7 +2236,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br label %cbs_jpeg_read_huffman_table.exit.thread
 
 55:                                               ; preds = %50
-  %56 = load i32, ptr %8, align 4, !tbaa !43
+  %56 = load i32, ptr %8, align 4, !tbaa !41
   %57 = trunc i32 %56 to i8
   %58 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %indvars.iv77.i
   store i8 %57, ptr %58, align 1, !tbaa !15
@@ -2246,7 +2246,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   %60 = load i8, ptr %46, align 1, !tbaa !15
   %61 = zext i8 %60 to i32
   %62 = icmp samesign ult i32 %59, %61
-  br i1 %62, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !115
+  br i1 %62, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !113
 
 ._crit_edge.loopexit.i:                           ; preds = %55
   %63 = trunc nsw i64 %indvars.iv.next78.i to i32
@@ -2256,7 +2256,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   %.142.lcssa.i = phi i32 [ %.04170.i, %.preheader.i ], [ %63, %._crit_edge.loopexit.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 16
-  br i1 %exitcond84.not.i, label %64, label %.preheader.i, !llvm.loop !116
+  br i1 %exitcond84.not.i, label %64, label %.preheader.i, !llvm.loop !114
 
 .critedge.i:                                      ; preds = %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -2284,14 +2284,14 @@ cbs_jpeg_read_huffman_table.exit.thread:          ; preds = %.lr.ph.i, %41, %54,
   %71 = add i32 %70, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %72, label %66, !llvm.loop !117
+  br i1 %exitcond.not, label %72, label %66, !llvm.loop !115
 
 72:                                               ; preds = %66
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %73 = load i16, ptr %2, align 2, !tbaa !90
+  %73 = load i16, ptr %2, align 2, !tbaa !88
   %74 = zext i16 %73 to i32
   %75 = icmp slt i32 %71, %74
-  br i1 %75, label %21, label %.loopexit, !llvm.loop !118
+  br i1 %75, label %21, label %.loopexit, !llvm.loop !116
 
 .critedge:                                        ; preds = %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
@@ -2314,9 +2314,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_comment(ptr 
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %4, align 4, !tbaa !43
+  %10 = load i32, ptr %4, align 4, !tbaa !41
   %11 = trunc i32 %10 to i16
-  store i16 %11, ptr %2, align 8, !tbaa !100
+  store i16 %11, ptr %2, align 8, !tbaa !98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   %12 = icmp ugt i16 %11, 2
   br i1 %12, label %13, label %.loopexit
@@ -2327,16 +2327,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_comment(ptr 
   %15 = zext i32 %14 to i64
   %16 = call ptr @av_buffer_alloc(i64 noundef %15) #7
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !119
+  store ptr %16, ptr %17, align 8, !tbaa !117
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.loopexit, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !55
+  %20 = load ptr, ptr %19, align 8, !tbaa !53
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !103
-  %22 = load i16, ptr %2, align 8, !tbaa !100
+  store ptr %20, ptr %21, align 8, !tbaa !101
+  %22 = load i16, ptr %2, align 8, !tbaa !98
   %23 = icmp ugt i16 %22, 2
   br i1 %23, label %.lr.ph, label %.loopexit
 
@@ -2347,9 +2347,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_comment(ptr 
 25:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  store i32 1, ptr %6, align 4, !tbaa !43
+  store i32 1, ptr %6, align 4, !tbaa !41
   %26 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %26, ptr %24, align 4, !tbaa !43
+  store i32 %26, ptr %24, align 4, !tbaa !41
   %27 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.46, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 255) #7
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %30, label %29
@@ -2359,18 +2359,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_comment(ptr 
   br label %.loopexit
 
 30:                                               ; preds = %25
-  %31 = load i32, ptr %5, align 4, !tbaa !43
+  %31 = load i32, ptr %5, align 4, !tbaa !41
   %32 = trunc i32 %31 to i8
-  %33 = load ptr, ptr %21, align 8, !tbaa !103
+  %33 = load ptr, ptr %21, align 8, !tbaa !101
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   store i8 %32, ptr %34, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i16, ptr %2, align 8, !tbaa !100
+  %35 = load i16, ptr %2, align 8, !tbaa !98
   %36 = zext i16 %35 to i64
   %37 = add nsw i64 %36, -2
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %25, label %.loopexit, !llvm.loop !120
+  br i1 %38, label %25, label %.loopexit, !llvm.loop !118
 
 .critedge:                                        ; preds = %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -2423,108 +2423,106 @@ attributes #8 = { noreturn nounwind }
 !13 = !{!"p1 _ZTS18CodedBitstreamUnit", !7, i64 0}
 !14 = !{!5, !6, i64 0}
 !15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !7, i64 0}
-!20 = !{!"CodedBitstreamContext", !7, i64 0, !21, i64 8, !7, i64 16, !22, i64 24, !12, i64 32, !12, i64 36, !12, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !6, i64 72, !10, i64 80}
-!21 = !{!"p1 _ZTS18CodedBitstreamType", !7, i64 0}
-!22 = !{!"p1 int", !7, i64 0}
-!23 = distinct !{!23, !17, !18}
-!24 = distinct !{!24, !17, !18}
-!25 = distinct !{!25, !17, !18}
-!26 = distinct !{!26, !17, !18}
-!27 = distinct !{!27, !17, !18}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
-!30 = !{!5, !11, i64 24}
-!31 = distinct !{!31, !18}
-!32 = !{!33, !6, i64 8}
-!33 = !{!"CodedBitstreamUnit", !12, i64 0, !6, i64 8, !10, i64 16, !10, i64 24, !11, i64 32, !7, i64 40, !7, i64 48}
-!34 = !{!33, !10, i64 16}
-!35 = !{!36, !6, i64 0}
-!36 = !{!"GetBitContext", !6, i64 0, !6, i64 8, !12, i64 16, !12, i64 20, !12, i64 24}
-!37 = !{!36, !12, i64 20}
-!38 = !{!36, !12, i64 24}
-!39 = !{!36, !6, i64 8}
-!40 = !{!36, !12, i64 16}
-!41 = !{!33, !12, i64 0}
-!42 = !{!33, !7, i64 40}
-!43 = !{!12, !12, i64 0}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"JPEGRawFrameHeader", !46, i64 0, !8, i64 2, !46, i64 4, !46, i64 6, !46, i64 8, !8, i64 10, !8, i64 265, !8, i64 520, !8, i64 775}
-!46 = !{!"short", !8, i64 0}
-!47 = !{!45, !8, i64 2}
-!48 = !{!45, !46, i64 4}
-!49 = !{!45, !46, i64 6}
-!50 = !{!45, !46, i64 8}
-!51 = distinct !{!51, !17, !18}
-!52 = !{!53, !46, i64 0}
-!53 = !{!"JPEGRawApplicationData", !46, i64 0, !6, i64 8, !11, i64 16}
-!54 = !{!53, !11, i64 16}
-!55 = !{!56, !6, i64 8}
-!56 = !{!"AVBufferRef", !57, i64 0, !6, i64 8, !10, i64 16}
-!57 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!58 = !{!53, !6, i64 8}
-!59 = distinct !{!59, !17, !18}
-!60 = !{!61, !10, i64 792}
-!61 = !{!"JPEGRawScan", !62, i64 0, !6, i64 776, !11, i64 784, !10, i64 792}
-!62 = !{!"JPEGRawScanHeader", !46, i64 0, !8, i64 2, !8, i64 3, !8, i64 258, !8, i64 513, !8, i64 768, !8, i64 769, !8, i64 770, !8, i64 771}
-!63 = !{!33, !11, i64 32}
-!64 = !{!61, !11, i64 784}
-!65 = !{!61, !6, i64 776}
-!66 = !{!62, !46, i64 0}
-!67 = !{!62, !8, i64 2}
-!68 = distinct !{!68, !17, !18}
-!69 = !{!62, !8, i64 768}
-!70 = !{!62, !8, i64 769}
-!71 = !{!62, !8, i64 770}
-!72 = !{!62, !8, i64 771}
-!73 = !{!74, !6, i64 24}
-!74 = !{!"PutBitContext", !12, i64 0, !12, i64 4, !6, i64 8, !6, i64 16, !6, i64 24}
-!75 = !{!74, !6, i64 16}
-!76 = !{!74, !12, i64 4}
-!77 = !{!74, !12, i64 0}
-!78 = distinct !{!78, !17, !18}
-!79 = distinct !{!79, !17, !18}
-!80 = distinct !{!80, !17, !18}
-!81 = !{!82, !46, i64 0}
-!82 = !{!"JPEGRawQuantisationTableSpecification", !46, i64 0, !8, i64 2}
-!83 = !{!84, !8, i64 0}
-!84 = !{!"JPEGRawQuantisationTable", !8, i64 0, !8, i64 1, !8, i64 2}
-!85 = !{!84, !8, i64 1}
-!86 = distinct !{!86, !17, !18}
-!87 = !{!46, !46, i64 0}
-!88 = distinct !{!88, !17, !18}
-!89 = distinct !{!89, !17, !18}
-!90 = !{!91, !46, i64 0}
-!91 = !{!"JPEGRawHuffmanTableSpecification", !46, i64 0, !8, i64 2}
-!92 = !{!93, !8, i64 0}
-!93 = !{!"JPEGRawHuffmanTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 18}
-!94 = !{!93, !8, i64 1}
-!95 = distinct !{!95, !17, !18}
-!96 = distinct !{!96, !17, !18}
-!97 = distinct !{!97, !17, !18}
-!98 = distinct !{!98, !17, !18}
-!99 = distinct !{!99, !17, !18}
-!100 = !{!101, !46, i64 0}
-!101 = !{!"JPEGRawComment", !46, i64 0, !6, i64 8, !11, i64 16}
-!102 = distinct !{!102, !17, !18}
-!103 = !{!101, !6, i64 8}
-!104 = !{!5, !12, i64 32}
-!105 = !{!5, !13, i64 40}
-!106 = distinct !{!106, !17, !18}
-!107 = distinct !{!107, !17, !18}
-!108 = distinct !{!108, !17, !18}
-!109 = distinct !{!109, !17, !18}
-!110 = distinct !{!110, !17, !18}
-!111 = distinct !{!111, !17, !18}
-!112 = distinct !{!112, !17, !18}
-!113 = distinct !{!113, !17, !18}
-!114 = distinct !{!114, !17, !18}
-!115 = distinct !{!115, !17, !18}
-!116 = distinct !{!116, !17, !18}
-!117 = distinct !{!117, !17, !18}
-!118 = distinct !{!118, !17, !18}
-!119 = !{!101, !11, i64 16}
-!120 = distinct !{!120, !17, !18}
+!18 = !{!19, !7, i64 0}
+!19 = !{!"CodedBitstreamContext", !7, i64 0, !20, i64 8, !7, i64 16, !21, i64 24, !12, i64 32, !12, i64 36, !12, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !6, i64 72, !10, i64 80}
+!20 = !{!"p1 _ZTS18CodedBitstreamType", !7, i64 0}
+!21 = !{!"p1 int", !7, i64 0}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = !{!5, !11, i64 24}
+!30 = !{!31, !6, i64 8}
+!31 = !{!"CodedBitstreamUnit", !12, i64 0, !6, i64 8, !10, i64 16, !10, i64 24, !11, i64 32, !7, i64 40, !7, i64 48}
+!32 = !{!31, !10, i64 16}
+!33 = !{!34, !6, i64 0}
+!34 = !{!"GetBitContext", !6, i64 0, !6, i64 8, !12, i64 16, !12, i64 20, !12, i64 24}
+!35 = !{!34, !12, i64 20}
+!36 = !{!34, !12, i64 24}
+!37 = !{!34, !6, i64 8}
+!38 = !{!34, !12, i64 16}
+!39 = !{!31, !12, i64 0}
+!40 = !{!31, !7, i64 40}
+!41 = !{!12, !12, i64 0}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"JPEGRawFrameHeader", !44, i64 0, !8, i64 2, !44, i64 4, !44, i64 6, !44, i64 8, !8, i64 10, !8, i64 265, !8, i64 520, !8, i64 775}
+!44 = !{!"short", !8, i64 0}
+!45 = !{!43, !8, i64 2}
+!46 = !{!43, !44, i64 4}
+!47 = !{!43, !44, i64 6}
+!48 = !{!43, !44, i64 8}
+!49 = distinct !{!49, !17}
+!50 = !{!51, !44, i64 0}
+!51 = !{!"JPEGRawApplicationData", !44, i64 0, !6, i64 8, !11, i64 16}
+!52 = !{!51, !11, i64 16}
+!53 = !{!54, !6, i64 8}
+!54 = !{!"AVBufferRef", !55, i64 0, !6, i64 8, !10, i64 16}
+!55 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!56 = !{!51, !6, i64 8}
+!57 = distinct !{!57, !17}
+!58 = !{!59, !10, i64 792}
+!59 = !{!"JPEGRawScan", !60, i64 0, !6, i64 776, !11, i64 784, !10, i64 792}
+!60 = !{!"JPEGRawScanHeader", !44, i64 0, !8, i64 2, !8, i64 3, !8, i64 258, !8, i64 513, !8, i64 768, !8, i64 769, !8, i64 770, !8, i64 771}
+!61 = !{!31, !11, i64 32}
+!62 = !{!59, !11, i64 784}
+!63 = !{!59, !6, i64 776}
+!64 = !{!60, !44, i64 0}
+!65 = !{!60, !8, i64 2}
+!66 = distinct !{!66, !17}
+!67 = !{!60, !8, i64 768}
+!68 = !{!60, !8, i64 769}
+!69 = !{!60, !8, i64 770}
+!70 = !{!60, !8, i64 771}
+!71 = !{!72, !6, i64 24}
+!72 = !{!"PutBitContext", !12, i64 0, !12, i64 4, !6, i64 8, !6, i64 16, !6, i64 24}
+!73 = !{!72, !6, i64 16}
+!74 = !{!72, !12, i64 4}
+!75 = !{!72, !12, i64 0}
+!76 = distinct !{!76, !17}
+!77 = distinct !{!77, !17}
+!78 = distinct !{!78, !17}
+!79 = !{!80, !44, i64 0}
+!80 = !{!"JPEGRawQuantisationTableSpecification", !44, i64 0, !8, i64 2}
+!81 = !{!82, !8, i64 0}
+!82 = !{!"JPEGRawQuantisationTable", !8, i64 0, !8, i64 1, !8, i64 2}
+!83 = !{!82, !8, i64 1}
+!84 = distinct !{!84, !17}
+!85 = !{!44, !44, i64 0}
+!86 = distinct !{!86, !17}
+!87 = distinct !{!87, !17}
+!88 = !{!89, !44, i64 0}
+!89 = !{!"JPEGRawHuffmanTableSpecification", !44, i64 0, !8, i64 2}
+!90 = !{!91, !8, i64 0}
+!91 = !{!"JPEGRawHuffmanTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 18}
+!92 = !{!91, !8, i64 1}
+!93 = distinct !{!93, !17}
+!94 = distinct !{!94, !17}
+!95 = distinct !{!95, !17}
+!96 = distinct !{!96, !17}
+!97 = distinct !{!97, !17}
+!98 = !{!99, !44, i64 0}
+!99 = !{!"JPEGRawComment", !44, i64 0, !6, i64 8, !11, i64 16}
+!100 = distinct !{!100, !17}
+!101 = !{!99, !6, i64 8}
+!102 = !{!5, !12, i64 32}
+!103 = !{!5, !13, i64 40}
+!104 = distinct !{!104, !17}
+!105 = distinct !{!105, !17}
+!106 = distinct !{!106, !17}
+!107 = distinct !{!107, !17}
+!108 = distinct !{!108, !17}
+!109 = distinct !{!109, !17}
+!110 = distinct !{!110, !17}
+!111 = distinct !{!111, !17}
+!112 = distinct !{!112, !17}
+!113 = distinct !{!113, !17}
+!114 = distinct !{!114, !17}
+!115 = distinct !{!115, !17}
+!116 = distinct !{!116, !17}
+!117 = !{!99, !11, i64 16}
+!118 = distinct !{!118, !17}

@@ -77,7 +77,7 @@ define dso_local i64 @lzma_crc64(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %47 = xor i64 %46, %40
   %48 = xor i64 %47, %44
   %49 = icmp ult ptr %25, %21
-  br i1 %49, label %.lr.ph43.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %49, label %.lr.ph43.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.lr.ph43.i, %._crit_edge.i, %3
   %.027.i = phi i64 [ %4, %3 ], [ %.128.lcssa.i, %._crit_edge.i ], [ %48, %.lr.ph43.i ]
@@ -101,7 +101,7 @@ define dso_local i64 @lzma_crc64(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %58 = lshr i64 %.33047.i, 8
   %59 = xor i64 %57, %58
   %.not33.i = icmp eq i64 %50, 0
-  br i1 %.not33.i, label %crc64_generic.exit, label %.lr.ph51.i, !llvm.loop !13
+  br i1 %.not33.i, label %crc64_generic.exit, label %.lr.ph51.i, !llvm.loop !12
 
 crc64_generic.exit:                               ; preds = %.lr.ph51.i, %.loopexit.i
   %.330.lcssa.i = phi i64 [ %.027.i, %.loopexit.i ], [ %59, %.lr.ph51.i ]
@@ -122,8 +122,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}

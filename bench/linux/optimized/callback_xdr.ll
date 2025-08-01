@@ -367,7 +367,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 
 183:                                              ; preds = %177
   %184 = icmp eq i32 %178, 707461120
-  br i1 %184, label %.thread37, label %.thread38, !prof !25
+  br i1 %184, label %.thread37, label %.thread38, !prof !24
 
 .thread37:                                        ; preds = %183
   br label %.thread38
@@ -469,7 +469,7 @@ define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr rea
   store i16 %9, ptr %2, align 2
   %10 = and i32 %8, 65535
   %11 = icmp samesign ugt i32 %10, 128
-  br i1 %11, label %.thread, label %12, !prof !26
+  br i1 %11, label %.thread, label %12, !prof !25
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %10 to i64
@@ -554,7 +554,7 @@ define internal i32 @encode_getattr_res(ptr readnone captures(none) %0, ptr noun
   %18 = getelementptr i8, ptr %14, i64 4
   %19 = add nsw i64 %13, -1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %11, !llvm.loop !27
+  br i1 %20, label %21, label %11, !llvm.loop !26
 
 21:                                               ; preds = %11
   %22 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #11
@@ -766,10 +766,9 @@ attributes #12 = { cold nounwind }
 !18 = !{i64 2159554486}
 !19 = !{i64 2159560909}
 !20 = !{i64 2159561068}
-!21 = distinct !{!21, !22, !23, !24}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
 !23 = !{!"llvm.loop.unroll.disable"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!"branch_weights", i32 0, i32 -2147483648}
-!26 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!27 = distinct !{!27, !22, !23, !24}
+!24 = !{!"branch_weights", i32 0, i32 -2147483648}
+!25 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!26 = distinct !{!26, !22, !23}

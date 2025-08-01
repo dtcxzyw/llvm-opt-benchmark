@@ -45,22 +45,22 @@ define range(i32 -4, 1) i32 @lzwInit(ptr noundef writeonly captures(none) %0) lo
   store i8 %12, ptr %14, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %15, label %.preheader, !llvm.loop !17
+  br i1 %exitcond.not, label %15, label %.preheader
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 0, ptr %16, align 8, !tbaa !19
+  store i64 0, ptr %16, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 511, ptr %17, align 8, !tbaa !20
+  store i64 511, ptr %17, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 4128
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %18, ptr %19, align 8, !tbaa !21
+  store ptr %18, ptr %19, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4096
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %20, ptr %21, align 8, !tbaa !22
+  store ptr %20, ptr %21, align 8, !tbaa !20
   %22 = getelementptr i8, ptr %6, i64 8160
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %22, ptr %23, align 8, !tbaa !23
+  store ptr %22, ptr %23, align 8, !tbaa !21
   br label %24
 
 24:                                               ; preds = %1, %15, %9
@@ -68,7 +68,7 @@ define range(i32 -4, 1) i32 @lzwInit(ptr noundef writeonly captures(none) %0) lo
   %.sink = phi ptr [ %2, %15 ], [ @.str.1, %9 ], [ @.str, %1 ]
   %.032 = phi i32 [ 0, %15 ], [ -4, %9 ], [ -4, %1 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
-  store ptr %.sink, ptr %25, align 8, !tbaa !24
+  store ptr %.sink, ptr %25, align 8, !tbaa !22
   ret i32 %.032
 }
 
@@ -87,21 +87,21 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %313, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = icmp eq ptr %9, null
   br i1 %10, label %313, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %0, align 8, !tbaa !31
+  %12 = load ptr, ptr %0, align 8, !tbaa !29
   %13 = icmp eq ptr %12, null
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !32
+  %15 = load i32, ptr %14, align 8, !tbaa !30
   br i1 %13, label %16, label %._crit_edge874
 
 16:                                               ; preds = %11
@@ -111,24 +111,24 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 ._crit_edge874:                                   ; preds = %11, %16
   %17 = phi i32 [ 0, %16 ], [ %15, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !33
+  %19 = load i32, ptr %18, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load i32, ptr %21, align 8, !tbaa !34
+  %22 = load i32, ptr %21, align 8, !tbaa !32
   %23 = load i16, ptr %5, align 8, !tbaa !3
   %24 = zext i16 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !35
+  %26 = load i64, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !36
+  %28 = load i64, ptr %27, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !20
+  %30 = load i64, ptr %29, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !22
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !21
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
+  %36 = load ptr, ptr %35, align 8, !tbaa !21
   %37 = and i32 %22, 1
   %38 = and i32 %22, 2
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -144,13 +144,13 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 48:                                               ; preds = %._crit_edge874
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %50 = load i64, ptr %49, align 8, !tbaa !19
+  %50 = load i64, ptr %49, align 8, !tbaa !17
   %.not419 = icmp eq i64 %50, 0
   br i1 %.not419, label %84, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !37
+  %53 = load ptr, ptr %52, align 8, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i16, ptr %54, align 8, !tbaa !14
   %56 = zext i16 %55 to i64
@@ -161,7 +161,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 60:                                               ; preds = %51
   %61 = add nsw i64 %50, %58
-  store i64 %61, ptr %49, align 8, !tbaa !19
+  store i64 %61, ptr %49, align 8, !tbaa !17
   br label %62
 
 62:                                               ; preds = %62, %60
@@ -170,7 +170,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %63 = load ptr, ptr %.0313, align 8, !tbaa !12
   %64 = add nsw i64 %.0, -1
   %65 = icmp samesign ugt i64 %64, %58
-  br i1 %65, label %62, label %66, !llvm.loop !38
+  br i1 %65, label %62, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 %58
@@ -183,11 +183,11 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %69 = getelementptr inbounds nuw i8, ptr %.1314, i64 10
   %70 = load i8, ptr %69, align 2, !tbaa !15
   %71 = getelementptr inbounds i8, ptr %.0292, i64 -1
-  store i8 %70, ptr %71, align 1, !tbaa !39
+  store i8 %70, ptr %71, align 1, !tbaa !36
   %72 = load ptr, ptr %.1314, align 8, !tbaa !12
   %73 = add i32 %.1358, -1
   %.not421 = icmp eq i32 %73, 0
-  br i1 %.not421, label %.loopexit, label %68, !llvm.loop !40
+  br i1 %.not421, label %.loopexit, label %68
 
 74:                                               ; preds = %51
   %75 = getelementptr inbounds i8, ptr %9, i64 %57
@@ -200,16 +200,16 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %77 = getelementptr inbounds nuw i8, ptr %.2315, i64 10
   %78 = load i8, ptr %77, align 2, !tbaa !15
   %79 = getelementptr inbounds i8, ptr %.1293, i64 -1
-  store i8 %78, ptr %79, align 1, !tbaa !39
+  store i8 %78, ptr %79, align 1, !tbaa !36
   %80 = load ptr, ptr %.2315, align 8, !tbaa !12
   %81 = add nsw i64 %.1, -1
   %.not420 = icmp eq i64 %81, 0
-  br i1 %.not420, label %.thread, label %76, !llvm.loop !41
+  br i1 %.not420, label %.thread, label %76
 
 .thread:                                          ; preds = %76
   %82 = trunc i64 %57 to i32
   %83 = sub i32 %19, %82
-  store i64 0, ptr %49, align 8, !tbaa !19
+  store i64 0, ptr %49, align 8, !tbaa !17
   br label %84
 
 84:                                               ; preds = %.thread, %48
@@ -241,7 +241,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.2370696 = phi i32 [ %.4372, %112 ], [ %17, %89 ]
   %94 = shl i64 %.2321698, 8
   %95 = getelementptr inbounds nuw i8, ptr %.2281700, i64 1
-  %96 = load i8, ptr %.2281700, align 1, !tbaa !39
+  %96 = load i8, ptr %.2281700, align 1, !tbaa !36
   %97 = zext i8 %96 to i64
   %98 = or disjoint i64 %94, %97
   %99 = add i32 %.2370696, -1
@@ -256,7 +256,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 104:                                              ; preds = %102
   %105 = shl i64 %98, 8
   %106 = getelementptr inbounds nuw i8, ptr %.2281700, i64 2
-  %107 = load i8, ptr %95, align 1, !tbaa !39
+  %107 = load i8, ptr %95, align 1, !tbaa !36
   %108 = zext i8 %107 to i64
   %109 = or disjoint i64 %105, %108
   %110 = add i32 %.2370696, -2
@@ -275,7 +275,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %117 = icmp ne i16 %116, 256
   %118 = icmp eq i32 %.4372, 0
   %or.cond8 = select i1 %117, i1 true, i1 %118
-  br i1 %or.cond8, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %or.cond8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %112
   %119 = icmp samesign ult i16 %116, 256
@@ -284,7 +284,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 120:                                              ; preds = %._crit_edge
   %121 = trunc i64 %114 to i8
   %122 = getelementptr inbounds nuw i8, ptr %.0379, i64 1
-  store i8 %121, ptr %.0379, align 1, !tbaa !39
+  store i8 %121, ptr %.0379, align 1, !tbaa !36
   %123 = add i32 %.0357, -1
   %.pre875 = load ptr, ptr %39, align 8, !tbaa !11
   br label %.loopexit960
@@ -299,7 +299,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.2, ptr %129, align 8, !tbaa !43
+  store ptr @.str.2, ptr %129, align 8, !tbaa !37
   %130 = and i64 %114, 511
   br label %131
 
@@ -375,7 +375,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 139:                                              ; preds = %137
   %140 = shl i64 %.6325, 8
   %141 = getelementptr inbounds nuw i8, ptr %.6285, i64 1
-  %142 = load i8, ptr %.6285, align 1, !tbaa !39
+  %142 = load i8, ptr %.6285, align 1, !tbaa !36
   %143 = zext i8 %142 to i64
   %144 = or disjoint i64 %140, %143
   %145 = add i32 %.6374, -1
@@ -390,7 +390,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 150:                                              ; preds = %148
   %151 = shl i64 %144, 8
   %152 = getelementptr inbounds nuw i8, ptr %.6285, i64 2
-  %153 = load i8, ptr %141, align 1, !tbaa !39
+  %153 = load i8, ptr %141, align 1, !tbaa !36
   %154 = zext i8 %153 to i64
   %155 = or disjoint i64 %151, %154
   %156 = add i32 %.6374, -2
@@ -430,7 +430,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.8376706 = phi i32 [ %.10378, %188 ], [ %.7375, %162 ]
   %170 = shl i64 %.8327708, 8
   %171 = getelementptr inbounds nuw i8, ptr %.8710, i64 1
-  %172 = load i8, ptr %.8710, align 1, !tbaa !39
+  %172 = load i8, ptr %.8710, align 1, !tbaa !36
   %173 = zext i8 %172 to i64
   %174 = or disjoint i64 %170, %173
   %175 = add i32 %.8376706, -1
@@ -445,7 +445,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 180:                                              ; preds = %178
   %181 = shl i64 %174, 8
   %182 = getelementptr inbounds nuw i8, ptr %.8710, i64 2
-  %183 = load i8, ptr %171, align 1, !tbaa !39
+  %183 = load i8, ptr %171, align 1, !tbaa !36
   %184 = zext i8 %183 to i64
   %185 = or disjoint i64 %181, %184
   %186 = add i32 %.8376706, -2
@@ -463,7 +463,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %192 = icmp ne i64 %191, 256
   %193 = icmp eq i32 %.10378, 0
   %or.cond13 = select i1 %192, i1 true, i1 %193
-  br i1 %or.cond13, label %._crit_edge713.loopexit, label %.lr.ph712, !llvm.loop !44
+  br i1 %or.cond13, label %._crit_edge713.loopexit, label %.lr.ph712
 
 ._crit_edge713.loopexit:                          ; preds = %188
   %194 = trunc nuw nsw i64 %191 to i32
@@ -482,7 +482,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 196:                                              ; preds = %._crit_edge713
   %197 = trunc i64 %.1291.in.lcssa to i8
   %198 = getelementptr inbounds nuw i8, ptr %.6385, i64 1
-  store i8 %197, ptr %.6385, align 1, !tbaa !39
+  store i8 %197, ptr %.6385, align 1, !tbaa !36
   %199 = add i32 %.7364, -1
   %.pre876 = load ptr, ptr %39, align 8, !tbaa !11
   br label %.thread501
@@ -497,7 +497,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 204:                                              ; preds = %202
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.2, ptr %205, align 8, !tbaa !43
+  store ptr @.str.2, ptr %205, align 8, !tbaa !37
   br label %.thread507
 
 .thread507:                                       ; preds = %200, %204
@@ -518,7 +518,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %209 = and i64 %.1291.in530, 65535
   %210 = getelementptr inbounds nuw %struct.code_ent, ptr %208, i64 %209
   %.not516 = icmp eq i32 %.8365, 0
-  br i1 %.not516, label %.loopexit, label %137, !llvm.loop !45
+  br i1 %.not516, label %.loopexit, label %137
 
 211:                                              ; preds = %158
   %212 = trunc i64 %161 to i32
@@ -560,7 +560,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 229:                                              ; preds = %226
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef %214, ptr noundef %.3311, ptr noundef %.3311, ptr noundef nonnull %228, i64 noundef 16384) #8
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.4, ptr %230, align 8, !tbaa !43
+  store ptr @.str.4, ptr %230, align 8, !tbaa !37
   %231 = or i32 %.1273735, 256
   br label %.loopexit
 
@@ -630,7 +630,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 261:                                              ; preds = %259
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.2, ptr %262, align 8, !tbaa !43
+  store ptr @.str.2, ptr %262, align 8, !tbaa !37
   %263 = or i32 %.3, 1024
   br label %.loopexit
 
@@ -643,7 +643,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 269:                                              ; preds = %264
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %216, ptr %270, align 8, !tbaa !37
+  store ptr %216, ptr %270, align 8, !tbaa !35
   %271 = trunc nuw i32 %.7364 to i16
   br label %272
 
@@ -653,11 +653,11 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load i16, ptr %274, align 8, !tbaa !14
   %276 = icmp ugt i16 %275, %271
-  br i1 %276, label %272, label %277, !llvm.loop !46
+  br i1 %276, label %272, label %277
 
 277:                                              ; preds = %272
   %278 = zext nneg i32 %.7364 to i64
-  store i64 %278, ptr %49, align 8, !tbaa !19
+  store i64 %278, ptr %49, align 8, !tbaa !17
   %279 = getelementptr inbounds nuw i8, ptr %.6385, i64 %278
   br label %280
 
@@ -668,11 +668,11 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %281 = getelementptr inbounds nuw i8, ptr %.4317, i64 10
   %282 = load i8, ptr %281, align 2, !tbaa !15
   %283 = getelementptr inbounds i8, ptr %.2294, i64 -1
-  store i8 %282, ptr %283, align 1, !tbaa !39
+  store i8 %282, ptr %283, align 1, !tbaa !36
   %284 = load ptr, ptr %.4317, align 8, !tbaa !12
   %285 = add i32 %.9366, -1
   %.not430 = icmp eq i32 %285, 0
-  br i1 %.not430, label %.loopexit, label %280, !llvm.loop !47
+  br i1 %.not430, label %.loopexit, label %280
 
 286:                                              ; preds = %264
   %287 = zext i16 %266 to i64
@@ -685,15 +685,15 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %290 = getelementptr inbounds nuw i8, ptr %.5318, i64 10
   %291 = load i8, ptr %290, align 2, !tbaa !15
   %292 = getelementptr inbounds i8, ptr %.3295, i64 -1
-  store i8 %291, ptr %292, align 1, !tbaa !39
+  store i8 %291, ptr %292, align 1, !tbaa !36
   %293 = load ptr, ptr %.5318, align 8, !tbaa !12
   %.not429 = icmp eq ptr %293, null
-  br i1 %.not429, label %.loopexit520.loopexit, label %289, !llvm.loop !48
+  br i1 %.not429, label %.loopexit520.loopexit, label %289
 
 294:                                              ; preds = %257
   %295 = trunc i64 %161 to i8
   %296 = getelementptr inbounds nuw i8, ptr %.6385, i64 1
-  store i8 %295, ptr %.6385, align 1, !tbaa !39
+  store i8 %295, ptr %.6385, align 1, !tbaa !36
   %297 = add i32 %.7364, -1
   br label %.loopexit520
 
@@ -705,7 +705,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.8387 = phi ptr [ %296, %294 ], [ %288, %.loopexit520.loopexit ]
   %.10367 = phi i32 [ %297, %294 ], [ %298, %.loopexit520.loopexit ]
   %.old9.not = icmp eq i32 %.10367, 0
-  br i1 %.old9.not, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %.old9.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %68, %.loopexit520, %158, %137, %148, %.thread501, %280, %84, %.loopexit960, %.thread507, %131, %229, %261
   %.2381 = phi ptr [ %.0379, %131 ], [ %.6385, %229 ], [ %.6385, %261 ], [ %.6385, %.thread507 ], [ %.4383.ph, %.loopexit960 ], [ %.0379, %84 ], [ %279, %280 ], [ %.6385, %158 ], [ %.7386, %.thread501 ], [ %.6385, %148 ], [ %.6385, %137 ], [ %.8387, %.loopexit520 ], [ %67, %68 ]
@@ -721,29 +721,29 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   %.0279 = phi ptr [ %.4283, %131 ], [ %.7, %229 ], [ %.7, %261 ], [ %.8.lcssa, %.thread507 ], [ %.3282454.ph, %.loopexit960 ], [ %12, %84 ], [ %.7, %280 ], [ %.7, %158 ], [ %.9490, %.thread501 ], [ %141, %148 ], [ %.6285, %137 ], [ %.7, %.loopexit520 ], [ %12, %68 ]
   %.0274 = phi i32 [ %.2276, %131 ], [ -7, %229 ], [ -3, %261 ], [ %.5.ph, %.thread507 ], [ 0, %.loopexit960 ], [ 0, %84 ], [ 0, %280 ], [ 1, %158 ], [ 0, %.thread501 ], [ 0, %148 ], [ 0, %137 ], [ 0, %.loopexit520 ], [ 0, %68 ]
   %.0272 = phi i32 [ %22, %131 ], [ %231, %229 ], [ %263, %261 ], [ %.1273735, %.thread507 ], [ %22, %.loopexit960 ], [ %22, %84 ], [ %.3, %280 ], [ %.1273735, %.thread501 ], [ %.1273735, %148 ], [ %.1273735, %137 ], [ %.1273735, %158 ], [ %.3, %.loopexit520 ], [ %22, %68 ]
-  store ptr %.2381, ptr %8, align 8, !tbaa !30
-  store i32 %.3360, ptr %18, align 8, !tbaa !33
-  store ptr %.0279, ptr %0, align 8, !tbaa !31
-  store i32 %.0368, ptr %20, align 8, !tbaa !32
-  store i32 %.0272, ptr %21, align 8, !tbaa !34
+  store ptr %.2381, ptr %8, align 8, !tbaa !28
+  store i32 %.3360, ptr %18, align 8, !tbaa !31
+  store ptr %.0279, ptr %0, align 8, !tbaa !29
+  store i32 %.0368, ptr %20, align 8, !tbaa !30
+  store i32 %.0272, ptr %21, align 8, !tbaa !32
   %299 = trunc i64 %.0348 to i16
   store i16 %299, ptr %5, align 8, !tbaa !3
-  store i64 %.0319, ptr %25, align 8, !tbaa !35
-  store i64 %.0337, ptr %27, align 8, !tbaa !36
-  store i64 %.0330, ptr %29, align 8, !tbaa !20
-  store ptr %.0296, ptr %31, align 8, !tbaa !22
-  store ptr %.0308, ptr %33, align 8, !tbaa !21
-  store ptr %.0301, ptr %35, align 8, !tbaa !23
+  store i64 %.0319, ptr %25, align 8, !tbaa !33
+  store i64 %.0337, ptr %27, align 8, !tbaa !34
+  store i64 %.0330, ptr %29, align 8, !tbaa !18
+  store ptr %.0296, ptr %31, align 8, !tbaa !20
+  store ptr %.0308, ptr %33, align 8, !tbaa !19
+  store ptr %.0301, ptr %35, align 8, !tbaa !21
   %300 = sub i32 %17, %.0368
   %301 = sub i32 %19, %.3360
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %303 = load i32, ptr %302, align 4, !tbaa !50
+  %303 = load i32, ptr %302, align 4, !tbaa !38
   %304 = add i32 %300, %303
-  store i32 %304, ptr %302, align 4, !tbaa !50
+  store i32 %304, ptr %302, align 4, !tbaa !38
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %306 = load i32, ptr %305, align 4, !tbaa !51
+  %306 = load i32, ptr %305, align 4, !tbaa !39
   %307 = add i32 %301, %306
-  store i32 %307, ptr %305, align 4, !tbaa !51
+  store i32 %307, ptr %305, align 4, !tbaa !39
   %308 = icmp eq i32 %17, %.0368
   %309 = icmp eq i32 %19, %.3360
   %or.cond4 = select i1 %308, i1 %309, i1 false
@@ -753,7 +753,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 311:                                              ; preds = %.loopexit
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @.str.5, ptr %312, align 8, !tbaa !43
+  store ptr @.str.5, ptr %312, align 8, !tbaa !37
   br label %313
 
 313:                                              ; preds = %.loopexit, %311, %._crit_edge874, %1, %3, %7, %16
@@ -766,13 +766,13 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef i32 @lzwInflateEnd(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   tail call void @free(ptr noundef %5) #8
-  %6 = load ptr, ptr %2, align 8, !tbaa !25
+  %6 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @free(ptr noundef %6) #8
-  store ptr null, ptr %2, align 8, !tbaa !25
+  store ptr null, ptr %2, align 8, !tbaa !23
   ret i32 0
 }
 
@@ -811,38 +811,26 @@ attributes #8 = { nounwind }
 !14 = !{!13, !5, i64 8}
 !15 = !{!13, !6, i64 10}
 !16 = !{!13, !6, i64 11}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!4, !8, i64 32}
-!20 = !{!4, !8, i64 24}
-!21 = !{!4, !9, i64 56}
-!22 = !{!4, !9, i64 48}
-!23 = !{!4, !9, i64 64}
-!24 = !{!10, !10, i64 0}
-!25 = !{!26, !29, i64 48}
-!26 = !{!"lzw_stream_s", !27, i64 0, !28, i64 8, !28, i64 12, !27, i64 16, !28, i64 24, !28, i64 28, !27, i64 32, !28, i64 40, !29, i64 48}
-!27 = !{!"p1 omnipotent char", !10, i64 0}
-!28 = !{!"int", !6, i64 0}
-!29 = !{!"p1 _ZTS18lzw_internal_state", !10, i64 0}
-!30 = !{!26, !27, i64 16}
-!31 = !{!26, !27, i64 0}
-!32 = !{!26, !28, i64 8}
-!33 = !{!26, !28, i64 24}
-!34 = !{!26, !28, i64 40}
-!35 = !{!4, !8, i64 8}
-!36 = !{!4, !8, i64 16}
-!37 = !{!4, !9, i64 40}
-!38 = distinct !{!38, !18}
-!39 = !{!6, !6, i64 0}
-!40 = distinct !{!40, !18}
-!41 = distinct !{!41, !18}
-!42 = distinct !{!42, !18}
-!43 = !{!26, !27, i64 32}
-!44 = distinct !{!44, !18}
-!45 = distinct !{!45, !18}
-!46 = distinct !{!46, !18}
-!47 = distinct !{!47, !18}
-!48 = distinct !{!48, !18}
-!49 = distinct !{!49, !18}
-!50 = !{!26, !28, i64 12}
-!51 = !{!26, !28, i64 28}
+!17 = !{!4, !8, i64 32}
+!18 = !{!4, !8, i64 24}
+!19 = !{!4, !9, i64 56}
+!20 = !{!4, !9, i64 48}
+!21 = !{!4, !9, i64 64}
+!22 = !{!10, !10, i64 0}
+!23 = !{!24, !27, i64 48}
+!24 = !{!"lzw_stream_s", !25, i64 0, !26, i64 8, !26, i64 12, !25, i64 16, !26, i64 24, !26, i64 28, !25, i64 32, !26, i64 40, !27, i64 48}
+!25 = !{!"p1 omnipotent char", !10, i64 0}
+!26 = !{!"int", !6, i64 0}
+!27 = !{!"p1 _ZTS18lzw_internal_state", !10, i64 0}
+!28 = !{!24, !25, i64 16}
+!29 = !{!24, !25, i64 0}
+!30 = !{!24, !26, i64 8}
+!31 = !{!24, !26, i64 24}
+!32 = !{!24, !26, i64 40}
+!33 = !{!4, !8, i64 8}
+!34 = !{!4, !8, i64 16}
+!35 = !{!4, !9, i64 40}
+!36 = !{!6, !6, i64 0}
+!37 = !{!24, !25, i64 32}
+!38 = !{!24, !26, i64 12}
+!39 = !{!24, !26, i64 28}

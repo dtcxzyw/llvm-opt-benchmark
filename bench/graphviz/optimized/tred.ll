@@ -119,13 +119,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not14.i, label %.init.exit_crit_edge, label %42
 
 .init.exit_crit_edge:                             ; preds = %40
-  %.pre = load ptr, ptr @Files, align 8, !tbaa !19
+  %.pre = load ptr, ptr @Files, align 8, !tbaa !18
   br label %init.exit
 
 42:                                               ; preds = %40
   %43 = sext i32 %41 to i64
   %44 = getelementptr inbounds ptr, ptr %1, i64 %43
-  store ptr %44, ptr @Files, align 8, !tbaa !19
+  store ptr %44, ptr @Files, align 8, !tbaa !18
   br label %init.exit
 
 init.exit:                                        ; preds = %.init.exit_crit_edge, %42
@@ -149,7 +149,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   %52 = call i32 @agclose(ptr noundef nonnull %48) #8
   %53 = call ptr @nextGraph(ptr noundef nonnull %3) #8
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %51, %init.exit
   call fastcc void @graphviz_exit(i32 noundef 0) #10
@@ -227,9 +227,8 @@ attributes #11 = { noreturn nounwind }
 !13 = !{!"p1 omnipotent char", !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p2 omnipotent char", !6, i64 0}
-!21 = distinct !{!21, !17, !18}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p2 omnipotent char", !6, i64 0}
+!20 = distinct !{!20, !17}

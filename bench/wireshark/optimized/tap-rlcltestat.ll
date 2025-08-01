@@ -206,7 +206,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef captures(ad
   %.0 = phi ptr [ %62, %53 ], [ %64, %63 ]
   %64 = load ptr, ptr %.0, align 8
   %.not77 = icmp eq ptr %64, null
-  br i1 %.not77, label %65, label %63, !llvm.loop !10
+  br i1 %.not77, label %65, label %63, !llvm.loop !9
 
 65:                                               ; preds = %63
   store ptr %52, ptr %.0, align 8
@@ -392,7 +392,7 @@ define internal void @rlc_lte_stat_draw(ptr noundef readonly captures(none) %0) 
   %14 = load ptr, ptr %.03846, align 8
   %15 = add i16 %.047, 1
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %16 = zext i16 %15 to i32
@@ -413,7 +413,7 @@ define internal void @rlc_lte_stat_draw(ptr noundef readonly captures(none) %0) 
   %24 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %25, label %21, !llvm.loop !12
+  br i1 %exitcond.not, label %25, label %21, !llvm.loop !11
 
 25:                                               ; preds = %21
   %26 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.10)
@@ -515,7 +515,7 @@ calculate_bw.exit44:                              ; preds = %calculate_bw.exit, 
   %100 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %80, i32 noundef %83, i32 noundef %85, i32 noundef %31, double noundef %.1.i, i32 noundef %87, i32 noundef %89, i32 noundef %91, i32 noundef %93, i32 noundef %56, double noundef %.1.i43, i32 noundef %95, i32 noundef %97, i32 noundef %99)
   %101 = load ptr, ptr %.150, align 8
   %.not39 = icmp eq ptr %101, null
-  br i1 %.not39, label %._crit_edge53, label %.lr.ph52, !llvm.loop !13
+  br i1 %.not39, label %._crit_edge53, label %.lr.ph52, !llvm.loop !12
 
 ._crit_edge53:                                    ; preds = %calculate_bw.exit44, %25
   ret void
@@ -572,10 +572,9 @@ attributes #13 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

@@ -251,14 +251,14 @@ easysrc_add.exit72:                               ; preds = %10
   br i1 %.not56, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %21
-  %.036123 = load ptr, ptr %22, align 8, !tbaa !14
+  %.036123 = load ptr, ptr %22, align 8, !tbaa !13
   %.not57124 = icmp eq ptr %.036123, null
   br i1 %.not57124, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %23 = phi ptr [ %25, %31 ], [ %14, %.preheader ]
   %.036125 = phi ptr [ %.036, %31 ], [ %.036123, %.preheader ]
-  %24 = load ptr, ptr %.036125, align 8, !tbaa !16
+  %24 = load ptr, ptr %.036125, align 8, !tbaa !15
   %25 = tail call ptr @slist_wc_append(ptr noundef nonnull %23, ptr noundef %24) #5
   %.not.i73 = icmp eq ptr %25, null
   br i1 %.not.i73, label %easysrc_add.exit75, label %31
@@ -284,9 +284,9 @@ easysrc_add.exit75:                               ; preds = %.lr.ph
 31:                                               ; preds = %.lr.ph
   store ptr %25, ptr @easysrc_code, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %.036125, i64 8
-  %.036 = load ptr, ptr %32, align 8, !tbaa !14
+  %.036 = load ptr, ptr %32, align 8, !tbaa !13
   %.not57 = icmp eq ptr %.036, null
-  br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %31, %.preheader, %21
   %33 = phi ptr [ %14, %.preheader ], [ %14, %21 ], [ %25, %31 ]
@@ -488,7 +488,7 @@ easysrc_add.exit14:                               ; preds = %16, %10, %easysrc_a
 define dso_local void @dumpeasysrc(ptr noundef %0) local_unnamed_addr #0 {
 sub_0:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = load ptr, ptr %1, align 8, !tbaa !19
+  %2 = load ptr, ptr %1, align 8, !tbaa !18
   %3 = load i8, ptr %2, align 1
   %.not78 = icmp eq i8 %3, 45
   br i1 %.not78, label %.tail, label %.tail.thread
@@ -504,7 +504,7 @@ sub_0:
   br label %10
 
 8:                                                ; preds = %.tail
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !28
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !27
   br label %10
 
 10:                                               ; preds = %8, %.tail.thread
@@ -524,7 +524,7 @@ sub_0:
   %14 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.9, ptr noundef %13) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not45 = icmp eq i64 %indvars.iv.next, 10
-  br i1 %.not45, label %15, label %.preheader60, !llvm.loop !29
+  br i1 %.not45, label %15, label %.preheader60, !llvm.loop !28
 
 15:                                               ; preds = %.preheader60
   %16 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
@@ -532,18 +532,18 @@ sub_0:
   br i1 %.not46, label %.loopexit59, label %.preheader58
 
 .preheader58:                                     ; preds = %15
-  %.03762 = load ptr, ptr %16, align 8, !tbaa !14
+  %.03762 = load ptr, ptr %16, align 8, !tbaa !13
   %.not4763 = icmp eq ptr %.03762, null
   br i1 %.not4763, label %.loopexit59, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader58, %.lr.ph
   %.03764 = phi ptr [ %.037, %.lr.ph ], [ %.03762, %.preheader58 ]
-  %17 = load ptr, ptr %.03764, align 8, !tbaa !16
+  %17 = load ptr, ptr %.03764, align 8, !tbaa !15
   %18 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.10, ptr noundef %17) #5
   %19 = getelementptr inbounds nuw i8, ptr %.03764, i64 8
-  %.037 = load ptr, ptr %19, align 8, !tbaa !14
+  %.037 = load ptr, ptr %19, align 8, !tbaa !13
   %.not47 = icmp eq ptr %.037, null
-  br i1 %.not47, label %.loopexit59, label %.lr.ph, !llvm.loop !30
+  br i1 %.not47, label %.loopexit59, label %.lr.ph, !llvm.loop !29
 
 .loopexit59:                                      ; preds = %.lr.ph, %.preheader58, %15
   %20 = load ptr, ptr @easysrc_data, align 8, !tbaa !4
@@ -553,18 +553,18 @@ sub_0:
 21:                                               ; preds = %.loopexit59
   %22 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.11) #5
   %23 = load ptr, ptr @easysrc_data, align 8, !tbaa !4
-  %.13865 = load ptr, ptr %23, align 8, !tbaa !14
+  %.13865 = load ptr, ptr %23, align 8, !tbaa !13
   %.not4966 = icmp eq ptr %.13865, null
   br i1 %.not4966, label %.loopexit57, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %21, %.lr.ph68
   %.13867 = phi ptr [ %.138, %.lr.ph68 ], [ %.13865, %21 ]
-  %24 = load ptr, ptr %.13867, align 8, !tbaa !16
+  %24 = load ptr, ptr %.13867, align 8, !tbaa !15
   %25 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.10, ptr noundef %24) #5
   %26 = getelementptr inbounds nuw i8, ptr %.13867, i64 8
-  %.138 = load ptr, ptr %26, align 8, !tbaa !14
+  %.138 = load ptr, ptr %26, align 8, !tbaa !13
   %.not49 = icmp eq ptr %.138, null
-  br i1 %.not49, label %.loopexit57, label %.lr.ph68, !llvm.loop !31
+  br i1 %.not49, label %.loopexit57, label %.lr.ph68, !llvm.loop !30
 
 .loopexit57:                                      ; preds = %.lr.ph68, %21, %.loopexit59
   %27 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.11) #5
@@ -573,14 +573,14 @@ sub_0:
   br i1 %.not50, label %.loopexit56, label %.preheader55
 
 .preheader55:                                     ; preds = %.loopexit57
-  %.269 = load ptr, ptr %28, align 8, !tbaa !14
+  %.269 = load ptr, ptr %28, align 8, !tbaa !13
   %.not5170 = icmp eq ptr %.269, null
   br i1 %.not5170, label %.loopexit56, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.preheader55, %35
   %.271 = phi ptr [ %.2, %35 ], [ %.269, %.preheader55 ]
-  %29 = load ptr, ptr %.271, align 8, !tbaa !16
-  %30 = load i8, ptr %29, align 1, !tbaa !32
+  %29 = load ptr, ptr %.271, align 8, !tbaa !15
+  %30 = load i8, ptr %29, align 1, !tbaa !31
   %.not = icmp eq i8 %30, 0
   br i1 %.not, label %33, label %31
 
@@ -594,9 +594,9 @@ sub_0:
 
 35:                                               ; preds = %31, %33
   %36 = getelementptr inbounds nuw i8, ptr %.271, i64 8
-  %.2 = load ptr, ptr %36, align 8, !tbaa !14
+  %.2 = load ptr, ptr %36, align 8, !tbaa !13
   %.not51 = icmp eq ptr %.2, null
-  br i1 %.not51, label %.loopexit56, label %.lr.ph72, !llvm.loop !33
+  br i1 %.not51, label %.loopexit56, label %.lr.ph72, !llvm.loop !32
 
 .loopexit56:                                      ; preds = %35, %.preheader55, %.loopexit57
   %37 = load ptr, ptr @easysrc_clean, align 8, !tbaa !4
@@ -604,18 +604,18 @@ sub_0:
   br i1 %.not52, label %.loopexit.preheader, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit56
-  %.373 = load ptr, ptr %37, align 8, !tbaa !14
+  %.373 = load ptr, ptr %37, align 8, !tbaa !13
   %.not5374 = icmp eq ptr %.373, null
   br i1 %.not5374, label %.loopexit.preheader, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
   %.375 = phi ptr [ %.3, %.lr.ph76 ], [ %.373, %.preheader ]
-  %38 = load ptr, ptr %.375, align 8, !tbaa !16
+  %38 = load ptr, ptr %.375, align 8, !tbaa !15
   %39 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.10, ptr noundef %38) #5
   %40 = getelementptr inbounds nuw i8, ptr %.375, i64 8
-  %.3 = load ptr, ptr %40, align 8, !tbaa !14
+  %.3 = load ptr, ptr %40, align 8, !tbaa !13
   %.not53 = icmp eq ptr %.3, null
-  br i1 %.not53, label %.loopexit.preheader, label %.lr.ph76, !llvm.loop !34
+  br i1 %.not53, label %.loopexit.preheader, label %.lr.ph76, !llvm.loop !33
 
 .loopexit.preheader:                              ; preds = %.lr.ph76, %.preheader, %.loopexit56
   br label %.loopexit
@@ -627,7 +627,7 @@ sub_0:
   %43 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.9, ptr noundef %42) #5
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %.not54 = icmp eq i64 %indvars.iv.next81, 4
-  br i1 %.not54, label %44, label %.loopexit, !llvm.loop !35
+  br i1 %.not54, label %44, label %.loopexit, !llvm.loop !34
 
 44:                                               ; preds = %.loopexit
   br i1 %.not.not84, label %47, label %45
@@ -685,28 +685,27 @@ attributes #5 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS10curl_slist", !6, i64 0}
-!16 = !{!17, !10, i64 0}
-!17 = !{!"curl_slist", !10, i64 0, !15, i64 8}
-!18 = distinct !{!18, !12, !13}
-!19 = !{!20, !10, i64 40}
-!20 = !{!"GlobalConfig", !21, i64 0, !21, i64 1, !21, i64 2, !21, i64 3, !7, i64 4, !10, i64 8, !22, i64 16, !21, i64 24, !23, i64 28, !21, i64 32, !21, i64 33, !23, i64 36, !10, i64 40, !21, i64 48, !21, i64 49, !24, i64 56, !10, i64 64, !21, i64 72, !25, i64 74, !21, i64 76, !10, i64 80, !26, i64 88, !27, i64 96, !27, i64 104, !27, i64 112}
-!21 = !{!"_Bool", !7, i64 0}
-!22 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!23 = !{!"int", !7, i64 0}
-!24 = !{!"long", !7, i64 0}
-!25 = !{!"short", !7, i64 0}
-!26 = !{!"p1 _ZTS8tool_var", !6, i64 0}
-!27 = !{!"p1 _ZTS15OperationConfig", !6, i64 0}
-!28 = !{!22, !22, i64 0}
-!29 = distinct !{!29, !12, !13}
-!30 = distinct !{!30, !12, !13}
-!31 = distinct !{!31, !12, !13}
-!32 = !{!7, !7, i64 0}
-!33 = distinct !{!33, !12, !13}
-!34 = distinct !{!34, !12, !13}
-!35 = distinct !{!35, !12, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS10curl_slist", !6, i64 0}
+!15 = !{!16, !10, i64 0}
+!16 = !{!"curl_slist", !10, i64 0, !14, i64 8}
+!17 = distinct !{!17, !12}
+!18 = !{!19, !10, i64 40}
+!19 = !{!"GlobalConfig", !20, i64 0, !20, i64 1, !20, i64 2, !20, i64 3, !7, i64 4, !10, i64 8, !21, i64 16, !20, i64 24, !22, i64 28, !20, i64 32, !20, i64 33, !22, i64 36, !10, i64 40, !20, i64 48, !20, i64 49, !23, i64 56, !10, i64 64, !20, i64 72, !24, i64 74, !20, i64 76, !10, i64 80, !25, i64 88, !26, i64 96, !26, i64 104, !26, i64 112}
+!20 = !{!"_Bool", !7, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!22 = !{!"int", !7, i64 0}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!"short", !7, i64 0}
+!25 = !{!"p1 _ZTS8tool_var", !6, i64 0}
+!26 = !{!"p1 _ZTS15OperationConfig", !6, i64 0}
+!27 = !{!21, !21, i64 0}
+!28 = distinct !{!28, !12}
+!29 = distinct !{!29, !12}
+!30 = distinct !{!30, !12}
+!31 = !{!7, !7, i64 0}
+!32 = distinct !{!32, !12}
+!33 = distinct !{!33, !12}
+!34 = distinct !{!34, !12}

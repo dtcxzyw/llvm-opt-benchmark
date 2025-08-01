@@ -551,7 +551,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %43, %47
   br i1 %78, label %.backedge, label %79
 
 .backedge:                                        ; preds = %76, %73, %71, %69
-  br label %30, !llvm.loop !6
+  br label %30
 
 79:                                               ; preds = %76
   %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -631,7 +631,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %114, %116
   %.0.i = phi i32 [ %.val.i71, %116 ], [ %115, %114 ]
   %118 = load i32, ptr %10, align 4
   call void @ReleaseBuffer(i32 noundef %118) #11
-  br label %.outer, !llvm.loop !6
+  br label %.outer
 
 .thread.sink.split:                               ; preds = %104, %HeapTupleHeaderGetXmin.exit70, %HeapTupleHeaderGetXmin.exit, %91
   %.1.ph.ph = phi i32 [ 2, %91 ], [ 4, %HeapTupleHeaderGetXmin.exit ], [ 4, %HeapTupleHeaderGetXmin.exit70 ], [ 4, %104 ]
@@ -651,7 +651,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %114, %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %122 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %15, ptr noundef nonnull %10, ptr noundef nonnull %8) #11
   %.not124 = icmp eq i32 %122, 3
-  br i1 %.not124, label %.lr.ph, label %.split122, !llvm.loop !8
+  br i1 %.not124, label %.lr.ph, label %.split122
 
 .split122:                                        ; preds = %120, %9
   %.us-phi = phi i32 [ %25, %9 ], [ %122, %120 ]
@@ -714,7 +714,7 @@ define internal void @heapam_relation_copy_data(ptr noundef %0, ptr noundef %1) 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %RelationGetSmgr.exit, !prof !9
+  br i1 %10, label %11, label %RelationGetSmgr.exit, !prof !6
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -747,7 +747,7 @@ RelationGetSmgr.exit:                             ; preds = %2, %11
   %.034 = phi i32 [ 1, %RelationGetSmgr.exit ], [ %49, %48 ]
   %22 = load ptr, ptr %8, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %RelationGetSmgr.exit28, !prof !9
+  br i1 %23, label %24, label %RelationGetSmgr.exit28, !prof !6
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %19, align 4
@@ -785,7 +785,7 @@ RelationGetSmgr.exit28:                           ; preds = %21, %24
 38:                                               ; preds = %37, %34
   %39 = load ptr, ptr %8, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %RelationGetSmgr.exit33, !prof !9
+  br i1 %40, label %41, label %RelationGetSmgr.exit33, !prof !6
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %19, align 4
@@ -808,7 +808,7 @@ RelationGetSmgr.exit33:                           ; preds = %38, %41
 48:                                               ; preds = %RelationGetSmgr.exit28, %RelationGetSmgr.exit33
   %49 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %49, 4
-  br i1 %exitcond.not, label %20, label %21, !llvm.loop !10
+  br i1 %exitcond.not, label %20, label %21, !llvm.loop !7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -893,7 +893,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   %.0103 = phi i32 [ -1, %47 ], [ %.2, %.backedge ]
   %58 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %60, label %59, !prof !12
+  br i1 %.not, label %60, label %59, !prof !9
 
 59:                                               ; preds = %57
   call void @ProcessInterrupts() #11
@@ -928,7 +928,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   %75 = load i8, ptr @bsysscan, align 1, !range !4
   %76 = trunc nuw i8 %75 to i1
   %.not5.i = select i1 %74, i1 true, i1 %76
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %77, !prof !12
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %77, !prof !9
 
 77:                                               ; preds = %69
   %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1117,14 +1117,14 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
   br i1 %162, label %.lr.ph.i, label %reform_and_rewrite_tuple.exit
 
 .lr.ph.i:                                         ; preds = %160
-  %163 = getelementptr i8, ptr %.val119, i64 33
+  %163 = getelementptr inbounds nuw i8, ptr %.val119, i64 33
   br label %164
 
 164:                                              ; preds = %171, %.lr.ph.i
   %165 = phi i32 [ %161, %.lr.ph.i ], [ %172, %171 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %166 = getelementptr i8, ptr %163, i64 %.idx.i
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 %.idx.i
   %167 = load i8, ptr %166, align 1, !range !4, !noundef !5
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %169, label %171
@@ -1140,7 +1140,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %173 = sext i32 %172 to i64
   %174 = icmp slt i64 %indvars.iv.next.i, %173
-  br i1 %174, label %164, label %reform_and_rewrite_tuple.exit, !llvm.loop !13
+  br i1 %174, label %164, label %reform_and_rewrite_tuple.exit, !llvm.loop !10
 
 reform_and_rewrite_tuple.exit:                    ; preds = %171, %160
   %175 = call ptr @heap_form_tuple(ptr noundef nonnull %.val119, ptr noundef %23, ptr noundef %24) #11
@@ -1190,7 +1190,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %171, %160
   %.097 = phi double [ 0.000000e+00, %188 ], [ %196, %.loopexit ]
   %190 = load volatile i32, ptr @InterruptPending, align 4
   %.not116 = icmp eq i32 %190, 0
-  br i1 %.not116, label %192, label %191, !prof !12
+  br i1 %.not116, label %192, label %191, !prof !9
 
 191:                                              ; preds = %189
   call void @ProcessInterrupts() #11
@@ -1211,14 +1211,14 @@ reform_and_rewrite_tuple.exit:                    ; preds = %171, %160
   br i1 %198, label %.lr.ph.i123, label %.loopexit
 
 .lr.ph.i123:                                      ; preds = %195
-  %199 = getelementptr i8, ptr %.val121, i64 33
+  %199 = getelementptr inbounds nuw i8, ptr %.val121, i64 33
   br label %200
 
 200:                                              ; preds = %207, %.lr.ph.i123
   %201 = phi i32 [ %197, %.lr.ph.i123 ], [ %208, %207 ]
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.i123 ], [ %indvars.iv.next.i126, %207 ]
   %.idx.i125 = shl nuw nsw i64 %indvars.iv.i124, 4
-  %202 = getelementptr i8, ptr %199, i64 %.idx.i125
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 %.idx.i125
   %203 = load i8, ptr %202, align 1, !range !4, !noundef !5
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %205, label %207
@@ -1234,7 +1234,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %171, %160
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i124, 1
   %209 = sext i32 %208 to i64
   %210 = icmp slt i64 %indvars.iv.next.i126, %209
-  br i1 %210, label %200, label %.loopexit, !llvm.loop !13
+  br i1 %210, label %200, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %207, %195
   %211 = call ptr @heap_form_tuple(ptr noundef nonnull %.val121, ptr noundef %23, ptr noundef %24) #11
@@ -1242,7 +1242,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %171, %160
   call void @heap_freetuple(ptr noundef %211) #11
   %212 = fptosi double %196 to i64
   call void @pgstat_progress_update_param(i32 noundef 4, i64 noundef %212) #11
-  br label %189, !llvm.loop !14
+  br label %189
 
 213:                                              ; preds = %192
   call void @tuplesort_end(ptr noundef nonnull %.0105131) #11
@@ -1441,7 +1441,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %75, %77
   %94 = add i32 %93, 1
   store i32 %94, ptr %26, align 8
   %.not.not = icmp ugt i32 %94, %28
-  br i1 %.not.not, label %._crit_edge.loopexit, label %38, !llvm.loop !15
+  br i1 %.not.not, label %._crit_edge.loopexit, label %38, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %92
   %.pre = load i32, ptr %6, align 4
@@ -1601,7 +1601,7 @@ define internal double @heapam_index_build_range_scan(ptr noundef %0, ptr nounde
   %.0146221 = phi i32 [ -1, %.lr.ph ], [ %.1147, %277 ]
   %86 = load volatile i32, ptr @InterruptPending, align 4
   %.not161 = icmp eq i32 %86, 0
-  br i1 %.not161, label %88, label %87, !prof !12
+  br i1 %.not161, label %88, label %87, !prof !9
 
 87:                                               ; preds = %84
   call void @ProcessInterrupts() #11
@@ -1770,14 +1770,14 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %143, %148
   call void @XactLockTableWait(i32 noundef %149, ptr noundef %0, ptr noundef nonnull %123, i32 noundef 6) #11
   %161 = load volatile i32, ptr @InterruptPending, align 4
   %.not165 = icmp eq i32 %161, 0
-  br i1 %.not165, label %.backedge.backedge, label %.backedge.sink.split, !prof !12
+  br i1 %.not165, label %.backedge.backedge, label %.backedge.sink.split, !prof !9
 
 .backedge.sink.split:                             ; preds = %159, %196
   call void @ProcessInterrupts() #11
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge.sink.split, %196, %159
-  br label %.backedge, !llvm.loop !16
+  br label %.backedge
 
 162:                                              ; preds = %HeapTupleHeaderGetXmin.exit
   %163 = fadd double %.0130223, 1.000000e+00
@@ -1853,7 +1853,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %172, %174
   call void @XactLockTableWait(i32 noundef %.0.i, ptr noundef %0, ptr noundef nonnull %123, i32 noundef 6) #11
   %198 = load volatile i32, ptr @InterruptPending, align 4
   %.not164 = icmp eq i32 %198, 0
-  br i1 %.not164, label %.backedge.backedge, label %.backedge.sink.split, !prof !12
+  br i1 %.not164, label %.backedge.backedge, label %.backedge.sink.split, !prof !9
 
 HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   %199 = fadd double %.0130223, 1.000000e+00
@@ -1934,7 +1934,7 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   store ptr %228, ptr @CurrentMemoryContext, align 8
   %.not200 = icmp eq i64 %230, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
-  br i1 %.not200, label %277, label %231, !llvm.loop !17
+  br i1 %.not200, label %277, label %231, !llvm.loop !12
 
 231:                                              ; preds = %226, %222
   call void @FormIndexDatum(ptr noundef %2, ptr noundef %34, ptr noundef nonnull %27, ptr noundef nonnull %13, ptr noundef nonnull %14) #11
@@ -2031,7 +2031,7 @@ BufferGetPage.exit182:                            ; preds = %247, %253
   %.4 = phi double [ %.0130223, %218 ], [ %.5, %226 ], [ %.5, %275 ], [ %.5, %273 ], [ %.0130223, %.thread187 ]
   %278 = call ptr @heap_getnext(ptr noundef nonnull %.0, i32 noundef 1) #11
   %.not159 = icmp eq ptr %278, null
-  br i1 %.not159, label %._crit_edge, label %84, !llvm.loop !18
+  br i1 %.not159, label %._crit_edge, label %84
 
 ._crit_edge:                                      ; preds = %277, %70
   %.0130.lcssa = phi double [ 0.000000e+00, %70 ], [ %.4, %277 ]
@@ -2148,7 +2148,7 @@ define internal void @heapam_index_validate_scan(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %12) #11
   %51 = load volatile i32, ptr @InterruptPending, align 4
   %.not80 = icmp eq i32 %51, 0
-  br i1 %.not80, label %53, label %52, !prof !12
+  br i1 %.not80, label %53, label %52, !prof !9
 
 52:                                               ; preds = %48
   call void @ProcessInterrupts() #11
@@ -2348,7 +2348,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
   store ptr %144, ptr @CurrentMemoryContext, align 8
   %.not93 = icmp eq i64 %146, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
-  br i1 %.not93, label %153, label %147, !llvm.loop !19
+  br i1 %.not93, label %153, label %147, !llvm.loop !13
 
 147:                                              ; preds = %142, %139
   call void @FormIndexDatum(ptr noundef %2, ptr noundef %24, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
@@ -2366,7 +2366,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %12) #11
   %154 = call ptr @heap_getnext(ptr noundef %33, i32 noundef 1) #11
   %.not79 = icmp eq ptr %154, null
-  br i1 %.not79, label %._crit_edge, label %48, !llvm.loop !20
+  br i1 %.not79, label %._crit_edge, label %48
 
 ._crit_edge:                                      ; preds = %153, %20
   %155 = load ptr, ptr %33, align 8
@@ -2395,113 +2395,113 @@ declare i64 @table_block_relation_size(ptr noundef, i32 noundef) #1
 define internal zeroext i1 @heapam_relation_needs_toast_table(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %invariant.gep = getelementptr i8, ptr %3, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %1, %47
-  %6 = phi i32 [ %48, %47 ], [ %4, %1 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %1 ]
-  %.02946 = phi i32 [ %.1, %47 ], [ 0, %1 ]
-  %.03144 = phi i1 [ %.132, %47 ], [ false, %1 ]
-  %.03543 = phi i1 [ %.136, %47 ], [ false, %1 ]
+.lr.ph:                                           ; preds = %1, %49
+  %6 = phi i32 [ %50, %49 ], [ %4, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %1 ]
+  %.02946 = phi i32 [ %.1, %49 ], [ 0, %1 ]
+  %.03144 = phi i1 [ %.132, %49 ], [ false, %1 ]
+  %.03543 = phi i1 [ %.136, %49 ], [ false, %1 ]
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %8
-  %9 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 91
-  %11 = load i8, ptr %10, align 1, !range !4, !noundef !5
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %47, label %13
+  %9 = getelementptr i8, ptr %3, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 91
+  %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %49, label %15
 
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 90
-  %15 = load i8, ptr %14, align 2
-  %16 = icmp eq i8 %15, 118
-  br i1 %16, label %47, label %17
+15:                                               ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 90
+  %17 = load i8, ptr %16, align 2
+  %18 = icmp eq i8 %17, 118
+  br i1 %18, label %49, label %19
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 83
-  %19 = load i8, ptr %18, align 1
-  switch i8 %19, label %26 [
-    i8 105, label %20
-    i8 99, label %29
-    i8 100, label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 83
+  %21 = load i8, ptr %20, align 1
+  switch i8 %21, label %28 [
+    i8 105, label %22
+    i8 99, label %31
+    i8 100, label %25
   ]
 
-20:                                               ; preds = %17
-  %21 = add i32 %.02946, 3
-  %22 = and i32 %21, -4
-  br label %29
+22:                                               ; preds = %19
+  %23 = add i32 %.02946, 3
+  %24 = and i32 %23, -4
+  br label %31
 
-23:                                               ; preds = %17
-  %24 = add i32 %.02946, 7
-  %25 = and i32 %24, -8
-  br label %29
+25:                                               ; preds = %19
+  %26 = add i32 %.02946, 7
+  %27 = and i32 %26, -8
+  br label %31
 
-26:                                               ; preds = %17
-  %27 = add i32 %.02946, 1
-  %28 = and i32 %27, -2
-  br label %29
+28:                                               ; preds = %19
+  %29 = add i32 %.02946, 1
+  %30 = and i32 %29, -2
+  br label %31
 
-29:                                               ; preds = %17, %26, %23, %20
-  %30 = phi i32 [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %.02946, %17 ]
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %32 = load i16, ptr %31, align 4
-  %33 = icmp sgt i16 %32, 0
-  br i1 %33, label %34, label %37
+31:                                               ; preds = %19, %28, %25, %22
+  %32 = phi i32 [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %.02946, %19 ]
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %34 = load i16, ptr %33, align 4
+  %35 = icmp sgt i16 %34, 0
+  br i1 %35, label %36, label %39
 
-34:                                               ; preds = %29
-  %35 = zext nneg i16 %32 to i32
-  %36 = add i32 %30, %35
-  br label %47
+36:                                               ; preds = %31
+  %37 = zext nneg i16 %34 to i32
+  %38 = add i32 %32, %37
+  br label %49
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 76
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %41 = load i32, ptr %40, align 4
-  %42 = tail call i32 @type_maximum_size(i32 noundef %39, i32 noundef %41) #11
-  %43 = icmp slt i32 %42, 0
-  %.334 = select i1 %43, i1 true, i1 %.03144
-  %44 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
-  %.3 = add i32 %44, %30
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 84
-  %46 = load i8, ptr %45, align 4
-  %.not = icmp ne i8 %46, 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 76
+  %43 = load i32, ptr %42, align 4
+  %44 = tail call i32 @type_maximum_size(i32 noundef %41, i32 noundef %43) #11
+  %45 = icmp slt i32 %44, 0
+  %.334 = select i1 %45, i1 true, i1 %.03144
+  %46 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  %.3 = add i32 %46, %32
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 84
+  %48 = load i8, ptr %47, align 4
+  %.not = icmp ne i8 %48, 112
   %.338 = select i1 %.not, i1 true, i1 %.03543
   %.pre = load i32, ptr %3, align 8
-  br label %47
+  br label %49
 
-47:                                               ; preds = %34, %37, %13, %.lr.ph
-  %48 = phi i32 [ %6, %.lr.ph ], [ %6, %13 ], [ %6, %34 ], [ %.pre, %37 ]
-  %.136 = phi i1 [ %.03543, %.lr.ph ], [ %.03543, %13 ], [ %.03543, %34 ], [ %.338, %37 ]
-  %.132 = phi i1 [ %.03144, %.lr.ph ], [ %.03144, %13 ], [ %.03144, %34 ], [ %.334, %37 ]
-  %.1 = phi i32 [ %.02946, %.lr.ph ], [ %.02946, %13 ], [ %36, %34 ], [ %.3, %37 ]
+49:                                               ; preds = %36, %39, %15, %.lr.ph
+  %50 = phi i32 [ %6, %.lr.ph ], [ %6, %15 ], [ %6, %36 ], [ %.pre, %39 ]
+  %.136 = phi i1 [ %.03543, %.lr.ph ], [ %.03543, %15 ], [ %.03543, %36 ], [ %.338, %39 ]
+  %.132 = phi i1 [ %.03144, %.lr.ph ], [ %.03144, %15 ], [ %.03144, %36 ], [ %.334, %39 ]
+  %.1 = phi i32 [ %.02946, %.lr.ph ], [ %.02946, %15 ], [ %38, %36 ], [ %.3, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %47
+._crit_edge:                                      ; preds = %49
   %.035.not = xor i1 %.136, true
   %brmerge = select i1 %.035.not, i1 true, i1 %.132
-  br i1 %brmerge, label %._crit_edge.thread, label %51
+  br i1 %brmerge, label %._crit_edge.thread, label %53
 
-51:                                               ; preds = %._crit_edge
-  %52 = add i32 %.1, 7
-  %53 = and i32 %52, -8
-  %54 = add i32 %48, 7
-  %55 = sdiv i32 %54, 8
-  %narrow = add nsw i32 %55, 30
-  %56 = and i32 %narrow, -8
-  %57 = add i32 %56, %53
-  %58 = icmp ugt i32 %57, 2032
+53:                                               ; preds = %._crit_edge
+  %54 = add i32 %.1, 7
+  %55 = and i32 %54, -8
+  %56 = add i32 %50, 7
+  %57 = sdiv i32 %56, 8
+  %narrow = add nsw i32 %57, 30
+  %58 = and i32 %narrow, -8
+  %59 = add i32 %58, %55
+  %60 = icmp ugt i32 %59, 2032
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %._crit_edge, %51
-  %.0 = phi i1 [ %58, %51 ], [ %.136, %._crit_edge ], [ false, %1 ]
+._crit_edge.thread:                               ; preds = %1, %._crit_edge, %53
+  %.0 = phi i1 [ %60, %53 ], [ %.136, %._crit_edge ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2540,7 +2540,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
 13:                                               ; preds = %21, %5
   %14 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %16, label %15, !prof !12
+  br i1 %.not, label %16, label %15, !prof !9
 
 15:                                               ; preds = %13
   tail call void @ProcessInterrupts() #11
@@ -2560,7 +2560,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
 21:                                               ; preds = %18
   %22 = load i32, ptr %12, align 8
   %.not83 = icmp ult i32 %.pre, %22
-  br i1 %.not83, label %.critedge, label %13, !llvm.loop !22
+  br i1 %.not83, label %.critedge, label %13, !llvm.loop !15
 
 .critedge:                                        ; preds = %18, %21
   store i32 %.pre, ptr %1, align 4
@@ -2656,7 +2656,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
   %71 = load i32, ptr %51, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next109, %72
-  br i1 %73, label %61, label %.loopexit, !llvm.loop !23
+  br i1 %73, label %61, label %.loopexit, !llvm.loop !16
 
 74:                                               ; preds = %41
   %75 = icmp slt i32 %46, 0
@@ -2769,7 +2769,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %122, %131
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %106, !llvm.loop !24
+  br i1 %exitcond, label %.loopexit, label %106, !llvm.loop !17
 
 .loopexit:                                        ; preds = %135, %70, %BufferGetPage.exit, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %BufferGetPage.exit ], [ %.1, %70 ], [ %.4, %135 ]
@@ -2878,7 +2878,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 480
   %59 = load ptr, ptr %58, align 8
   %.not31 = icmp eq ptr %59, null
-  br i1 %.not31, label %60, label %65, !prof !9
+  br i1 %.not31, label %60, label %65, !prof !6
 
 60:                                               ; preds = %BufferGetPage.exit
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 476
@@ -2993,7 +2993,7 @@ define internal noundef zeroext i1 @heapam_scan_sample_next_block(ptr noundef %0
 39:                                               ; preds = %37
   %40 = load volatile i32, ptr @InterruptPending, align 4
   %.not37 = icmp eq i32 %40, 0
-  br i1 %.not37, label %42, label %41, !prof !12
+  br i1 %.not37, label %42, label %41, !prof !9
 
 41:                                               ; preds = %39
   tail call void @ProcessInterrupts() #11
@@ -3142,7 +3142,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 .split.us:                                        ; preds = %48, %90
   %83 = load volatile i32, ptr @InterruptPending, align 4
   %.not56.us = icmp eq i32 %83, 0
-  br i1 %.not56.us, label %85, label %84, !prof !12
+  br i1 %.not56.us, label %85, label %84, !prof !9
 
 84:                                               ; preds = %.split.us
   tail call void @ProcessInterrupts() #11
@@ -3162,7 +3162,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 98304
   %96 = icmp eq i32 %95, 32768
-  br i1 %96, label %SampleHeapTupleVisible.exit.us, label %.split.us, !llvm.loop !25
+  br i1 %96, label %SampleHeapTupleVisible.exit.us, label %.split.us, !llvm.loop !18
 
 SampleHeapTupleVisible.exit.us:                   ; preds = %90
   %97 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %62, i64 0, i64 %92
@@ -3188,7 +3188,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %90
 .split:                                           ; preds = %.split.backedge, %.split.preheader
   %106 = load volatile i32, ptr @InterruptPending, align 4
   %.not56 = icmp eq i32 %106, 0
-  br i1 %.not56, label %108, label %107, !prof !12
+  br i1 %.not56, label %108, label %107, !prof !9
 
 107:                                              ; preds = %.split
   tail call void @ProcessInterrupts() #11
@@ -3249,7 +3249,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %90
   %.226.i = select i1 %137, i32 %132, i32 %.02430.i
   %.223.i = select i1 %137, i32 %.02131.i, i32 %138
   %139 = icmp ult i32 %.223.i, %.226.i
-  br i1 %139, label %.lr.ph.i, label %SampleHeapTupleVisible.exit, !llvm.loop !27
+  br i1 %139, label %.lr.ph.i, label %SampleHeapTupleVisible.exit, !llvm.loop !20
 
 140:                                              ; preds = %120
   %141 = load i32, ptr %15, align 4
@@ -3288,7 +3288,7 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %128
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 480
   %155 = load ptr, ptr %154, align 8
   %.not57 = icmp eq ptr %155, null
-  br i1 %.not57, label %156, label %161, !prof !9
+  br i1 %.not57, label %156, label %161, !prof !6
 
 156:                                              ; preds = %.thread60
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 476
@@ -3335,7 +3335,7 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %128
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread.thread.critedge, %SampleHeapTupleVisible.exit.thread, %.thread, %113, %144
-  br label %.split, !llvm.loop !28
+  br label %.split
 
 176:                                              ; preds = %168, %156, %161
   %177 = phi i1 [ false, %168 ], [ true, %156 ], [ true, %161 ]
@@ -3579,26 +3579,18 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !11, !7}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !11, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !11, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !11, !7}
-!22 = distinct !{!22, !11, !7}
-!23 = distinct !{!23, !11, !7}
-!24 = distinct !{!24, !11, !7}
-!25 = distinct !{!25, !7, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !11, !7}
-!28 = distinct !{!28, !7}
+!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !8}

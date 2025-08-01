@@ -538,7 +538,7 @@ define ptr @PyInit__testsinglephase_with_state() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = tail call ptr @PyModule_GetDef(ptr noundef nonnull %1) #5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = load i64, ptr %5, align 8, !tbaa !22
+  %6 = load i64, ptr %5, align 8, !tbaa !21
   switch i64 %6, label %8 [
     i64 -1, label %get_module_state.exit
     i64 0, label %7
@@ -845,7 +845,7 @@ define internal ptr @common_sum(ptr readnone captures(none) %0, ptr noundef %1) 
 define internal ptr @common_state_initialized(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyModule_GetDef(ptr noundef %0) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   switch i64 %5, label %get_module_state.exit [
     i64 -1, label %get_module_state.exit.thread7
     i64 0, label %get_module_state.exit.thread
@@ -972,7 +972,7 @@ declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 define internal noundef nonnull ptr @basic__clear_module_state(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyModule_GetDef(ptr noundef %0) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   switch i64 %5, label %get_module_state.exit [
     i64 -1, label %get_module_state.exit.thread5
     i64 0, label %clear_state.exit
@@ -1092,14 +1092,13 @@ attributes #5 = { nounwind }
 !16 = !{!8, !10, i64 16}
 !17 = !{!8, !10, i64 24}
 !18 = !{!9, !9, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !9, i64 56}
-!23 = !{!"PyModuleDef", !24, i64 0, !27, i64 40, !27, i64 48, !9, i64 56, !28, i64 64, !29, i64 72, !11, i64 80, !11, i64 88, !11, i64 96}
-!24 = !{!"PyModuleDef_Base", !25, i64 0, !11, i64 16, !9, i64 24, !10, i64 32}
-!25 = !{!"_object", !6, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTS11_typeobject", !11, i64 0}
-!27 = !{!"p1 omnipotent char", !11, i64 0}
-!28 = !{!"p1 _ZTS11PyMethodDef", !11, i64 0}
-!29 = !{!"p1 _ZTS16PyModuleDef_Slot", !11, i64 0}
+!21 = !{!22, !9, i64 56}
+!22 = !{!"PyModuleDef", !23, i64 0, !26, i64 40, !26, i64 48, !9, i64 56, !27, i64 64, !28, i64 72, !11, i64 80, !11, i64 88, !11, i64 96}
+!23 = !{!"PyModuleDef_Base", !24, i64 0, !11, i64 16, !9, i64 24, !10, i64 32}
+!24 = !{!"_object", !6, i64 0, !25, i64 8}
+!25 = !{!"p1 _ZTS11_typeobject", !11, i64 0}
+!26 = !{!"p1 omnipotent char", !11, i64 0}
+!27 = !{!"p1 _ZTS11PyMethodDef", !11, i64 0}
+!28 = !{!"p1 _ZTS16PyModuleDef_Slot", !11, i64 0}

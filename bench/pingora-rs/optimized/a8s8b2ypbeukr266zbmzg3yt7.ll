@@ -196,7 +196,7 @@ define void @_ZN15pingora_openssl3ext19ssl_set_groups_list17h7100e4c60fec8548E(p
 13:                                               ; preds = %.lr.ph.i.i
   %14 = add nuw nsw i64 %.sroa.01.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, %3
-  br i1 %exitcond.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE.exit.thread", label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE.exit.thread", label %.lr.ph.i.i
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE.exit": ; preds = %4
   %15 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17ha63ab3f9ed3c39d6E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
@@ -207,7 +207,7 @@ define void @_ZN15pingora_openssl3ext19ssl_set_groups_list17h7100e4c60fec8548E(p
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE.exit.thread": ; preds = %13, %.preheader.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @"_ZN72_$LT$$RF$str$u20$as$u20$alloc..ffi..c_str..CString..new..SpecNewImpl$GT$13spec_new_impl17hec3c22376edc25e5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %18 = load i64, ptr %8, align 8, !range !11, !noundef !8
+  %18 = load i64, ptr %8, align 8, !range !9, !noundef !8
   %.not = icmp eq i64 %18, -9223372036854775808
   br i1 %.not, label %24, label %19
 
@@ -220,18 +220,18 @@ define void @_ZN15pingora_openssl3ext19ssl_set_groups_list17h7100e4c60fec8548E(p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   invoke void @_ZN7openssl5error10ErrorStack3get17h53f44d38fb30fdb3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6)
-          to label %"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E.exit" unwind label %20, !noalias !12
+          to label %"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E.exit" unwind label %20, !noalias !10
 
 20:                                               ; preds = %19
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17h55b05e6ecee507a7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #9
-          to label %common.resume unwind label %22, !noalias !15
+          to label %common.resume unwind label %22, !noalias !13
 
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #10, !noalias !15
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #10, !noalias !13
   unreachable
 
 common.resume:                                    ; preds = %32, %35, %20
@@ -239,7 +239,7 @@ common.resume:                                    ; preds = %32, %35, %20
   resume { ptr, i32 } %common.resume.op
 
 "_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E.exit": ; preds = %19
-  call void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17h55b05e6ecee507a7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !15
+  call void @"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17h55b05e6ecee507a7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5), !noalias !13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.06.0.copyload = load i64, ptr %6, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -257,7 +257,7 @@ common.resume:                                    ; preds = %32, %35, %20
 
 24:                                               ; preds = %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE.exit.thread"
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !8, !align !17, !noundef !8
+  %26 = load ptr, ptr %25, align 8, !nonnull !8, !align !15, !noundef !8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %28 = load i64, ptr %27, align 8, !noundef !8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -444,12 +444,10 @@ attributes #10 = { cold noreturn nounwind }
 !6 = distinct !{!6, !7, !"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE: argument 0"}
 !7 = distinct !{!7, !"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h305a46eafb8651cbE"}
 !8 = !{}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 0, i64 -9223372036854775807}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E: argument 1"}
-!14 = distinct !{!14, !"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E"}
-!15 = !{!16}
-!16 = distinct !{!16, !14, !"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E: argument 0"}
-!17 = !{i64 1}
+!9 = !{i64 0, i64 -9223372036854775807}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E: argument 1"}
+!12 = distinct !{!12, !"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E"}
+!13 = !{!14}
+!14 = distinct !{!14, !12, !"_ZN15pingora_openssl3ext19ssl_set_groups_list28_$u7b$$u7b$closure$u7d$$u7d$17h85e753b89d5d9592E: argument 0"}
+!15 = !{i64 1}

@@ -210,7 +210,7 @@ define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr n
   %152 = inttoptr i64 %151 to ptr
   %153 = add nsw i32 %.0172, -1
   %154 = icmp sgt i32 %.0172, 1
-  br i1 %154, label %37, label %.loopexit, !llvm.loop !9
+  br i1 %154, label %37, label %.loopexit, !llvm.loop !8
 
 155:                                              ; preds = %.preheader, %256
   %.2178 = phi ptr [ %260, %256 ], [ %0, %.preheader ]
@@ -339,7 +339,7 @@ define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr n
   %253 = inttoptr i64 %252 to ptr
   %254 = add nsw i32 %.0187, -1
   %255 = icmp sgt i32 %.0187, 1
-  br i1 %255, label %156, label %256, !llvm.loop !10
+  br i1 %255, label %156, label %256, !llvm.loop !9
 
 256:                                              ; preds = %247
   %257 = add nsw i64 %249, %25
@@ -348,7 +348,7 @@ define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr n
   %260 = inttoptr i64 %259 to ptr
   %261 = add nsw i32 %.1173, -1
   %262 = icmp sgt i32 %.1173, 1
-  br i1 %262, label %155, label %.loopexit, !llvm.loop !11
+  br i1 %262, label %155, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %145, %256
   ret void
@@ -395,9 +395,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

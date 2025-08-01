@@ -57,7 +57,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %15 = phi i64 [ 0, %5 ], [ %12, %11 ]
   %16 = getelementptr i8, ptr %8, i64 %15
   %17 = icmp ugt ptr %16, %10
-  br i1 %17, label %.preheader25, label %18, !prof !9
+  br i1 %17, label %.preheader25, label %18, !prof !8
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %7, i64 %15
@@ -73,13 +73,13 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
 24:                                               ; preds = %31
   %25 = add nuw nsw i64 %28, 1
   %26 = icmp eq i64 %25, 5
-  br i1 %26, label %.loopexit18, label %27, !llvm.loop !10
+  br i1 %26, label %.loopexit18, label %27, !llvm.loop !5
 
 27:                                               ; preds = %.preheader25, %24
   %28 = phi i64 [ %25, %24 ], [ 0, %.preheader25 ]
   %29 = getelementptr i8, ptr %8, i64 %28
   %30 = icmp ugt ptr %29, %10
-  br i1 %30, label %.loopexit17, label %31, !prof !9
+  br i1 %30, label %.loopexit17, label %31, !prof !8
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %7, i64 %28
@@ -100,7 +100,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %39 = phi ptr [ %38, %.loopexit18 ], [ %7, %27 ], [ %7, %31 ]
   %40 = getelementptr i8, ptr %39, i64 1
   %41 = icmp ugt ptr %40, %10
-  br i1 %41, label %.loopexit16, label %42, !prof !9
+  br i1 %41, label %.loopexit16, label %42, !prof !8
 
 42:                                               ; preds = %.loopexit17
   %43 = load i8, ptr %39, align 1
@@ -132,7 +132,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
 60:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = icmp eq i64 %indvars.iv.next, %59
-  br i1 %61, label %65, label %.preheader, !llvm.loop !11
+  br i1 %61, label %65, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader.preheader, %60
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %60 ]
@@ -188,7 +188,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %86 = getelementptr i8, ptr %84, i64 2
   %87 = load ptr, ptr %9, align 8
   %88 = icmp ugt ptr %86, %87
-  br i1 %88, label %.loopexit16, label %89, !prof !9
+  br i1 %88, label %.loopexit16, label %89, !prof !8
 
 89:                                               ; preds = %.loopexit15
   %90 = load i8, ptr %85, align 1
@@ -196,7 +196,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %92 = and i32 %91, 15
   %93 = add nsw i32 %92, -12
   %94 = icmp ult i32 %93, -11
-  br i1 %94, label %95, label %53, !llvm.loop !12
+  br i1 %94, label %95, label %53, !llvm.loop !10
 
 95:                                               ; preds = %89, %65
   %96 = phi i32 [ %81, %89 ], [ 4, %65 ]
@@ -212,7 +212,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
 
 103:                                              ; preds = %99
   %104 = icmp eq i8 %101, 0
-  br i1 %104, label %.loopexit, label %105, !prof !13
+  br i1 %104, label %.loopexit, label %105, !prof !11
 
 105:                                              ; preds = %103
   %106 = icmp sgt i32 %96, 0
@@ -238,7 +238,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
 117:                                              ; preds = %114, %109
   %118 = add nuw nsw i64 %110, 1
   %119 = icmp eq i64 %118, %108
-  br i1 %119, label %.loopexit, label %109, !llvm.loop !14
+  br i1 %119, label %.loopexit, label %109, !llvm.loop !12
 
 .loopexit:                                        ; preds = %117, %105, %103
   store i8 %97, ptr %100, align 1
@@ -255,7 +255,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %124 = getelementptr i8, ptr %.pre22, i64 1
   %125 = load ptr, ptr %9, align 8
   %126 = icmp ugt ptr %124, %125
-  br i1 %126, label %.loopexit16, label %127, !prof !9
+  br i1 %126, label %.loopexit16, label %127, !prof !8
 
 127:                                              ; preds = %123
   %128 = load i8, ptr %.pre22, align 1
@@ -289,7 +289,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %144 = getelementptr i8, ptr %142, i64 1
   %145 = load ptr, ptr %9, align 8
   %146 = icmp ugt ptr %144, %145
-  br i1 %146, label %.loopexit16, label %147, !prof !9
+  br i1 %146, label %.loopexit16, label %147, !prof !8
 
 147:                                              ; preds = %141
   %148 = load i8, ptr %142, align 1
@@ -304,7 +304,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   %155 = getelementptr i8, ptr %154, i64 2
   %156 = load ptr, ptr %9, align 8
   %157 = icmp ugt ptr %155, %156
-  br i1 %157, label %.loopexit16, label %158, !prof !9
+  br i1 %157, label %.loopexit16, label %158, !prof !8
 
 158:                                              ; preds = %153
   %159 = getelementptr i8, ptr %154, i64 1
@@ -328,7 +328,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
 168:                                              ; preds = %165
   %169 = getelementptr i8, ptr %154, i64 3
   %170 = icmp ugt ptr %169, %156
-  br i1 %170, label %.loopexit16, label %171, !prof !9
+  br i1 %170, label %.loopexit16, label %171, !prof !8
 
 171:                                              ; preds = %168
   %172 = load i8, ptr %155, align 1
@@ -336,7 +336,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
   store i8 %172, ptr %173, align 1
   %174 = getelementptr i8, ptr %154, i64 4
   %175 = icmp ugt ptr %174, %156
-  br i1 %175, label %.loopexit16, label %176, !prof !9
+  br i1 %175, label %.loopexit16, label %176, !prof !8
 
 176:                                              ; preds = %171
   %177 = load i8, ptr %169, align 1
@@ -358,7 +358,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_prefixes(ptr noundef ca
 185:                                              ; preds = %165
   %186 = getelementptr i8, ptr %154, i64 3
   %187 = icmp ugt ptr %186, %156
-  br i1 %187, label %.loopexit16, label %188, !prof !9
+  br i1 %187, label %.loopexit16, label %188, !prof !8
 
 188:                                              ; preds = %185
   %189 = load i8, ptr %155, align 1
@@ -426,7 +426,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_opcode(ptr noundef capt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ugt ptr %16, %18
-  br i1 %19, label %.loopexit, label %20, !prof !9
+  br i1 %19, label %.loopexit, label %20, !prof !8
 
 20:                                               ; preds = %13
   %21 = load i8, ptr %15, align 1
@@ -526,7 +526,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_opcode(ptr noundef capt
   %74 = getelementptr i8, ptr %73, i64 1
   %75 = load ptr, ptr %17, align 8
   %76 = icmp ugt ptr %74, %75
-  br i1 %76, label %.loopexit, label %77, !prof !9
+  br i1 %76, label %.loopexit, label %77, !prof !8
 
 77:                                               ; preds = %72
   %78 = load i8, ptr %73, align 1
@@ -576,7 +576,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_opcode(ptr noundef capt
   store i32 %106, ptr %66, align 4
   %107 = and i32 %106, 48
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.loopexit4, label %72, !llvm.loop !15
+  br i1 %108, label %.loopexit4, label %72, !llvm.loop !13
 
 .loopexit4:                                       ; preds = %103, %64
   %109 = phi i32 [ %65, %64 ], [ %106, %103 ]
@@ -618,7 +618,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_modrm(ptr noundef captu
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_opcode(ptr noundef %0), !range !16
+  %11 = tail call i32 @insn_get_opcode(ptr noundef %0), !range !14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %84
 
@@ -636,7 +636,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_modrm(ptr noundef captu
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ugt ptr %21, %23
-  br i1 %24, label %84, label %25, !prof !9
+  br i1 %24, label %84, label %25, !prof !8
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %20, align 1
@@ -759,7 +759,7 @@ define dso_local range(i32 0, 2) i32 @insn_rip_relative(ptr noundef captures(non
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !16
+  %11 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %22
 
@@ -797,7 +797,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_sib(ptr noundef capture
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !16
+  %12 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %42
 
@@ -830,7 +830,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_sib(ptr noundef capture
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ugt ptr %33, %35
-  br i1 %36, label %42, label %37, !prof !9
+  br i1 %36, label %42, label %37, !prof !8
 
 37:                                               ; preds = %30
   %38 = load i8, ptr %32, align 1
@@ -878,7 +878,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_displacement(ptr nounde
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !16
+  %17 = tail call i32 @insn_get_modrm(ptr noundef %0), !range !14
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -911,7 +911,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_displacement(ptr nounde
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = icmp ugt ptr %38, %40
-  br i1 %41, label %.thread, label %42, !prof !9
+  br i1 %41, label %.thread, label %42, !prof !8
 
 42:                                               ; preds = %35
   %43 = load i8, ptr %37, align 1
@@ -951,7 +951,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_displacement(ptr nounde
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = load ptr, ptr %62, align 8
   %64 = icmp ugt ptr %61, %63
-  br i1 %64, label %.thread, label %65, !prof !9
+  br i1 %64, label %.thread, label %65, !prof !8
 
 65:                                               ; preds = %58
   %66 = load i8, ptr %60, align 1
@@ -980,7 +980,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_displacement(ptr nounde
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %83 = load ptr, ptr %82, align 8
   %84 = icmp ugt ptr %81, %83
-  br i1 %84, label %.thread, label %85, !prof !9
+  br i1 %84, label %.thread, label %85, !prof !8
 
 85:                                               ; preds = %78
   %86 = load i16, ptr %80, align 1
@@ -1004,7 +1004,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_displacement(ptr nounde
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %100 = load ptr, ptr %99, align 8
   %101 = icmp ugt ptr %98, %100
-  br i1 %101, label %.thread, label %102, !prof !9
+  br i1 %101, label %.thread, label %102, !prof !8
 
 102:                                              ; preds = %95
   %103 = load i32, ptr %97, align 1
@@ -1043,7 +1043,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @insn_get_displacement(ptr noundef %0), !range !16
+  %11 = tail call i32 @insn_get_displacement(ptr noundef %0), !range !14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %140
 
@@ -1070,7 +1070,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ugt ptr %24, %26
-  br i1 %27, label %140, label %28, !prof !9
+  br i1 %27, label %140, label %28, !prof !8
 
 28:                                               ; preds = %21
   %29 = load i16, ptr %23, align 1
@@ -1086,7 +1086,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ugt ptr %34, %36
-  br i1 %37, label %140, label %38, !prof !9
+  br i1 %37, label %140, label %38, !prof !8
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %33, align 1
@@ -1101,7 +1101,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load ptr, ptr %44, align 8
   %46 = icmp ugt ptr %43, %45
-  br i1 %46, label %140, label %47, !prof !9
+  br i1 %46, label %140, label %47, !prof !8
 
 47:                                               ; preds = %40
   %48 = load i32, ptr %42, align 1
@@ -1111,7 +1111,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   store i8 4, ptr %49, align 1
   %50 = getelementptr i8, ptr %42, i64 8
   %51 = icmp ugt ptr %50, %45
-  br i1 %51, label %140, label %52, !prof !9
+  br i1 %51, label %140, label %52, !prof !8
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1155,7 +1155,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %71 = load ptr, ptr %70, align 8
   %72 = icmp ugt ptr %69, %71
-  br i1 %72, label %140, label %73, !prof !9
+  br i1 %72, label %140, label %73, !prof !8
 
 73:                                               ; preds = %66
   %74 = load i8, ptr %68, align 1
@@ -1171,7 +1171,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %81 = load ptr, ptr %80, align 8
   %82 = icmp ugt ptr %79, %81
-  br i1 %82, label %140, label %83, !prof !9
+  br i1 %82, label %140, label %83, !prof !8
 
 83:                                               ; preds = %76
   %84 = load i16, ptr %78, align 1
@@ -1187,7 +1187,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %91 = load ptr, ptr %90, align 8
   %92 = icmp ugt ptr %89, %91
-  br i1 %92, label %140, label %93, !prof !9
+  br i1 %92, label %140, label %93, !prof !8
 
 93:                                               ; preds = %86
   %94 = load i32, ptr %88, align 1
@@ -1202,7 +1202,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %100 = load ptr, ptr %99, align 8
   %101 = icmp ugt ptr %98, %100
-  br i1 %101, label %140, label %102, !prof !9
+  br i1 %101, label %140, label %102, !prof !8
 
 102:                                              ; preds = %95
   %103 = load i32, ptr %97, align 1
@@ -1212,7 +1212,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   store i8 4, ptr %104, align 1
   %105 = getelementptr i8, ptr %97, i64 8
   %106 = icmp ugt ptr %105, %100
-  br i1 %106, label %140, label %107, !prof !9
+  br i1 %106, label %140, label %107, !prof !8
 
 107:                                              ; preds = %102
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1222,17 +1222,17 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   br label %119
 
 110:                                              ; preds = %63
-  %111 = tail call fastcc i32 @__get_immptr(ptr noundef %0), !range !17
+  %111 = tail call fastcc i32 @__get_immptr(ptr noundef %0), !range !15
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %140, label %123
 
 113:                                              ; preds = %63
-  %114 = tail call fastcc i32 @__get_immv32(ptr noundef %0), !range !17
+  %114 = tail call fastcc i32 @__get_immv32(ptr noundef %0), !range !15
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %140, label %123
 
 116:                                              ; preds = %63
-  %117 = tail call fastcc i32 @__get_immv(ptr noundef %0), !range !17
+  %117 = tail call fastcc i32 @__get_immv(ptr noundef %0), !range !15
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %140, label %123
 
@@ -1256,7 +1256,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_immediate(ptr noundef c
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %132 = load ptr, ptr %131, align 8
   %133 = icmp ugt ptr %130, %132
-  br i1 %133, label %140, label %134, !prof !9
+  br i1 %133, label %140, label %134, !prof !8
 
 134:                                              ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1296,7 +1296,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immptr(ptr noundef cap
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ugt ptr %7, %9
-  br i1 %10, label %39, label %11, !prof !9
+  br i1 %10, label %39, label %11, !prof !8
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1313,7 +1313,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immptr(ptr noundef cap
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ugt ptr %18, %20
-  br i1 %21, label %39, label %22, !prof !9
+  br i1 %21, label %39, label %22, !prof !8
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1329,7 +1329,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immptr(ptr noundef cap
   store i8 %3, ptr %28, align 1
   %29 = getelementptr i8, ptr %27, i64 2
   %30 = icmp ugt ptr %29, %26
-  br i1 %30, label %39, label %31, !prof !9
+  br i1 %30, label %39, label %31, !prof !8
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1368,7 +1368,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immv32(ptr noundef cap
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ugt ptr %7, %9
-  br i1 %10, label %28, label %11, !prof !9
+  br i1 %10, label %28, label %11, !prof !8
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1385,7 +1385,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immv32(ptr noundef cap
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ugt ptr %18, %20
-  br i1 %21, label %28, label %22, !prof !9
+  br i1 %21, label %28, label %22, !prof !8
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1422,7 +1422,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immv(ptr noundef captu
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ugt ptr %7, %9
-  br i1 %10, label %47, label %11, !prof !9
+  br i1 %10, label %47, label %11, !prof !8
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1439,7 +1439,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immv(ptr noundef captu
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ugt ptr %18, %20
-  br i1 %21, label %47, label %22, !prof !9
+  br i1 %21, label %47, label %22, !prof !8
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1455,7 +1455,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immv(ptr noundef captu
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ugt ptr %28, %30
-  br i1 %31, label %47, label %32, !prof !9
+  br i1 %31, label %47, label %32, !prof !8
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1466,7 +1466,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__get_immv(ptr noundef captu
   store i8 4, ptr %35, align 1
   %36 = getelementptr i8, ptr %27, i64 8
   %37 = icmp ugt ptr %36, %30
-  br i1 %37, label %47, label %38, !prof !9
+  br i1 %37, label %47, label %38, !prof !8
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1505,7 +1505,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_length(ptr noundef capt
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !16
+  %10 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %21
 
@@ -1579,7 +1579,7 @@ define dso_local range(i32 -61, 1) i32 @insn_decode(ptr noundef captures(none) i
   br label %30
 
 30:                                               ; preds = %29, %28, %6
-  %31 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !16
+  %31 = tail call i32 @insn_get_immediate(ptr noundef %0), !range !14
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %57
 
@@ -1650,16 +1650,14 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = !{i32 -61, i32 1}
-!17 = !{i32 0, i32 2}
+!8 = !{!"branch_weights", i32 1, i32 2000}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = !{!"branch_weights", i32 2000, i32 1}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = !{i32 -61, i32 1}
+!15 = !{i32 0, i32 2}

@@ -134,7 +134,7 @@ define void @_ZN6LibRaw18parse_exif_interopEi(ptr noundef nonnull align 8 derefe
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %68, i32 noundef 0)
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !80
+  br i1 %.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %65, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
@@ -178,20 +178,20 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 381608
-  %18 = load i64, ptr %17, align 8, !tbaa !82
+  %18 = load i64, ptr %17, align 8, !tbaa !80
   %.not79 = icmp eq i64 %18, 0
   br i1 %.not79, label %19, label %27
 
 19:                                               ; preds = %2
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 381600
-  store i64 %20, ptr %21, align 8, !tbaa !83
+  store i64 %20, ptr %21, align 8, !tbaa !81
   %22 = load ptr, ptr %15, align 8, !tbaa !6
   %23 = load ptr, ptr %22, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  store i64 %26, ptr %17, align 8, !tbaa !82
+  store i64 %26, ptr %17, align 8, !tbaa !80
   br label %27
 
 27:                                               ; preds = %19, %2
@@ -202,7 +202,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %.not81, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %11, align 8, !tbaa !84
+  %31 = load i32, ptr %11, align 8, !tbaa !82
   %32 = icmp ugt i32 %31, 3
   %33 = icmp ugt i16 %28, 512
   %or.cond = and i1 %33, %32
@@ -284,7 +284,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %99 = add nsw i64 %95, %98
   %100 = icmp sgt i64 %99, %40
   %or.cond146 = select i1 %97, i1 %100, i1 false
-  br i1 %or.cond146, label %.loopexit132, label %101, !llvm.loop !85
+  br i1 %or.cond146, label %.loopexit132, label %101, !llvm.loop !83
 
 101:                                              ; preds = %89
   %102 = load ptr, ptr %41, align 8, !tbaa !76
@@ -381,13 +381,13 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %134 = load i32, ptr %4, align 4, !tbaa !73
   %135 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %134)
   %136 = fptrunc reassoc nsz arcp contract afn double %135 to float
-  store float %136, ptr %85, align 8, !tbaa !86
-  %137 = load float, ptr %86, align 8, !tbaa !87
+  store float %136, ptr %85, align 8, !tbaa !84
+  %137 = load float, ptr %86, align 8, !tbaa !85
   %138 = fcmp reassoc nsz arcp contract afn ogt float %137, 0xC071126660000000
   br i1 %138, label %139, label %.loopexit132
 
 139:                                              ; preds = %133
-  %140 = load i64, ptr %87, align 8, !tbaa !88
+  %140 = load i64, ptr %87, align 8, !tbaa !86
   switch i64 %140, label %.loopexit132 [
     i64 292933679411, label %141
     i64 292933742643, label %141
@@ -395,47 +395,47 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 
 141:                                              ; preds = %139, %139
   %142 = fadd reassoc nsz arcp contract afn float %137, %136
-  store float %142, ptr %86, align 8, !tbaa !87
+  store float %142, ptr %86, align 8, !tbaa !85
   br label %.loopexit132
 
 143:                                              ; preds = %115
   %144 = load i32, ptr %4, align 4, !tbaa !73
   %145 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %144)
   %146 = fptrunc reassoc nsz arcp contract afn double %145 to float
-  store float %146, ptr %84, align 4, !tbaa !89
+  store float %146, ptr %84, align 4, !tbaa !87
   br label %.loopexit132
 
 147:                                              ; preds = %115
   %148 = load i32, ptr %4, align 4, !tbaa !73
   %149 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %148)
   %150 = fptrunc reassoc nsz arcp contract afn double %149 to float
-  store float %150, ptr %83, align 8, !tbaa !90
+  store float %150, ptr %83, align 8, !tbaa !88
   br label %.loopexit132
 
 151:                                              ; preds = %115
   %152 = load i32, ptr %4, align 4, !tbaa !73
   %153 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %152)
   %154 = fptrunc reassoc nsz arcp contract afn double %153 to float
-  store float %154, ptr %82, align 4, !tbaa !91
+  store float %154, ptr %82, align 4, !tbaa !89
   br label %.loopexit132
 
 155:                                              ; preds = %115
   %156 = load i32, ptr %4, align 4, !tbaa !73
   %157 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %156)
   %158 = fptrunc reassoc nsz arcp contract afn double %157 to float
-  store float %158, ptr %81, align 8, !tbaa !92
+  store float %158, ptr %81, align 8, !tbaa !90
   br label %.loopexit132
 
 159:                                              ; preds = %115
   %160 = load i32, ptr %4, align 4, !tbaa !73
   %161 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %160)
   %162 = fptrunc reassoc nsz arcp contract afn double %161 to float
-  store float %162, ptr %80, align 4, !tbaa !93
+  store float %162, ptr %80, align 4, !tbaa !91
   br label %.loopexit132
 
 163:                                              ; preds = %115
   %164 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %164, ptr %79, align 4, !tbaa !94
+  store i16 %164, ptr %79, align 4, !tbaa !92
   br label %.loopexit132
 
 165:                                              ; preds = %115
@@ -450,19 +450,19 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %172 = load i32, ptr %4, align 4, !tbaa !73
   %173 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %172)
   %174 = fptrunc reassoc nsz arcp contract afn double %173 to float
-  store float %174, ptr %74, align 8, !tbaa !95
+  store float %174, ptr %74, align 8, !tbaa !93
   %175 = load i32, ptr %4, align 4, !tbaa !73
   %176 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %175)
   %177 = fptrunc reassoc nsz arcp contract afn double %176 to float
-  store float %177, ptr %75, align 4, !tbaa !96
+  store float %177, ptr %75, align 4, !tbaa !94
   %178 = load i32, ptr %4, align 4, !tbaa !73
   %179 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %178)
   %180 = fptrunc reassoc nsz arcp contract afn double %179 to float
-  store float %180, ptr %76, align 8, !tbaa !97
+  store float %180, ptr %76, align 8, !tbaa !95
   %181 = load i32, ptr %4, align 4, !tbaa !73
   %182 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %181)
   %183 = fptrunc reassoc nsz arcp contract afn double %182 to float
-  store float %183, ptr %77, align 4, !tbaa !98
+  store float %183, ptr %77, align 4, !tbaa !96
   br label %.loopexit132
 
 184:                                              ; preds = %115
@@ -476,7 +476,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %.not119, label %190, label %.loopexit132
 
 190:                                              ; preds = %184
-  store i8 0, ptr %73, align 4, !tbaa !99
+  store i8 0, ptr %73, align 4, !tbaa !97
   br label %.loopexit132
 
 191:                                              ; preds = %115
@@ -488,7 +488,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br label %.loopexit132
 
 197:                                              ; preds = %115
-  store i8 0, ptr %71, align 4, !tbaa !99
+  store i8 0, ptr %71, align 4, !tbaa !97
   %198 = load ptr, ptr %15, align 8, !tbaa !6
   %199 = load ptr, ptr %198, align 8, !tbaa !71
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
@@ -500,19 +500,19 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %204 = load i32, ptr %4, align 4, !tbaa !73
   %205 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %204)
   %206 = fptrunc reassoc nsz arcp contract afn double %205 to float
-  store float %206, ptr %66, align 8, !tbaa !100
+  store float %206, ptr %66, align 8, !tbaa !98
   %207 = load i32, ptr %4, align 4, !tbaa !73
   %208 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %207)
   %209 = fptrunc reassoc nsz arcp contract afn double %208 to float
-  store float %209, ptr %67, align 4, !tbaa !101
+  store float %209, ptr %67, align 4, !tbaa !99
   %210 = load i32, ptr %4, align 4, !tbaa !73
   %211 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %210)
   %212 = fptrunc reassoc nsz arcp contract afn double %211 to float
-  store float %212, ptr %68, align 8, !tbaa !102
+  store float %212, ptr %68, align 8, !tbaa !100
   %213 = load i32, ptr %4, align 4, !tbaa !73
   %214 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %213)
   %215 = fptrunc reassoc nsz arcp contract afn double %214 to float
-  store float %215, ptr %69, align 4, !tbaa !103
+  store float %215, ptr %69, align 4, !tbaa !101
   br label %.loopexit132
 
 216:                                              ; preds = %115
@@ -542,7 +542,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %.not116, label %234, label %.loopexit132
 
 234:                                              ; preds = %228
-  store i8 0, ptr %63, align 4, !tbaa !99
+  store i8 0, ptr %63, align 4, !tbaa !97
   br label %.loopexit132
 
 235:                                              ; preds = %115
@@ -554,15 +554,15 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %or.cond.i.i = fcmp reassoc nsz arcp contract afn ogt float %240, 6.400000e+01
   %exp2128 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %239)
   %241 = select reassoc nsz arcp contract afn i1 %or.cond.i.i, float 0.000000e+00, float %exp2128
-  store float %241, ptr %62, align 8, !tbaa !104
+  store float %241, ptr %62, align 8, !tbaa !102
   br label %.loopexit132
 
 242:                                              ; preds = %115
   %243 = load i32, ptr %4, align 4, !tbaa !73
   %244 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %243)
   %245 = fptrunc reassoc nsz arcp contract afn double %244 to float
-  store float %245, ptr %59, align 4, !tbaa !105
-  %246 = load i32, ptr %11, align 8, !tbaa !84
+  store float %245, ptr %59, align 4, !tbaa !103
+  %246 = load i32, ptr %11, align 8, !tbaa !82
   %247 = add i32 %246, -1
   %or.cond120 = icmp ult i32 %247, 10
   br i1 %or.cond120, label %248, label %.loopexit132
@@ -570,25 +570,25 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 248:                                              ; preds = %242
   %narrow162 = mul nuw nsw i32 %247, 33408
   %.idx113 = zext nneg i32 %narrow162 to i64
-  %249 = getelementptr i8, ptr %60, i64 %.idx113
-  store float %245, ptr %249, align 4, !tbaa !106
+  %249 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx113
+  store float %245, ptr %249, align 4, !tbaa !104
   br label %.loopexit132
 
 250:                                              ; preds = %115
   %251 = load i32, ptr %4, align 4, !tbaa !73
   %252 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %251)
   %253 = fptrunc reassoc nsz arcp contract afn double %252 to float
-  store float %253, ptr %58, align 8, !tbaa !108
+  store float %253, ptr %58, align 8, !tbaa !106
   br label %.loopexit132
 
 254:                                              ; preds = %115
   %255 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %256 = uitofp i16 %255 to float
-  store float %256, ptr %61, align 8, !tbaa !109
+  store float %256, ptr %61, align 8, !tbaa !107
   br label %.loopexit132
 
 257:                                              ; preds = %115
-  %258 = load float, ptr %61, align 8, !tbaa !109
+  %258 = load float, ptr %61, align 8, !tbaa !107
   %259 = fcmp reassoc nsz arcp contract afn oeq float %258, 6.553500e+04
   br i1 %259, label %260, label %.loopexit132
 
@@ -601,11 +601,11 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %263 = load i32, ptr %4, align 4, !tbaa !73
   %264 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %263)
   %265 = fptrunc reassoc nsz arcp contract afn double %264 to float
-  store float %265, ptr %61, align 8, !tbaa !109
+  store float %265, ptr %61, align 8, !tbaa !107
   br label %.loopexit132
 
 266:                                              ; preds = %115
-  %267 = load float, ptr %61, align 8, !tbaa !109
+  %267 = load float, ptr %61, align 8, !tbaa !107
   %268 = fcmp reassoc nsz arcp contract afn oeq float %267, 6.553500e+04
   br i1 %268, label %269, label %.loopexit132
 
@@ -623,7 +623,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %274 = load i32, ptr %4, align 4, !tbaa !73
   %275 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %274)
   %276 = fptrunc reassoc nsz arcp contract afn double %275 to float
-  store float %276, ptr %61, align 8, !tbaa !109
+  store float %276, ptr %61, align 8, !tbaa !107
   br label %.loopexit132
 
 277:                                              ; preds = %115, %115
@@ -646,8 +646,8 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %or.cond.i.i125 = fcmp reassoc nsz arcp contract afn ogt float %287, 6.400000e+01
   %exp2127 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %286)
   %288 = select reassoc nsz arcp contract afn i1 %or.cond.i.i125, float 0.000000e+00, float %exp2127
-  store float %288, ptr %59, align 4, !tbaa !105
-  %289 = load i32, ptr %11, align 8, !tbaa !84
+  store float %288, ptr %59, align 4, !tbaa !103
+  %289 = load i32, ptr %11, align 8, !tbaa !82
   %290 = add i32 %289, -1
   %or.cond121 = icmp ult i32 %290, 10
   br i1 %or.cond121, label %291, label %.loopexit132
@@ -655,8 +655,8 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 291:                                              ; preds = %284
   %narrow = mul nuw nsw i32 %290, 33408
   %.idx = zext nneg i32 %narrow to i64
-  %292 = getelementptr i8, ptr %60, i64 %.idx
-  store float %288, ptr %292, align 4, !tbaa !106
+  %292 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
+  store float %288, ptr %292, align 4, !tbaa !104
   br label %.loopexit132
 
 293:                                              ; preds = %115
@@ -676,25 +676,25 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %or.cond.i.i126 = fcmp reassoc nsz arcp contract afn ogt float %303, 6.400000e+01
   %exp2 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %302)
   %304 = select reassoc nsz arcp contract afn i1 %or.cond.i.i126, float 0.000000e+00, float %exp2
-  store float %304, ptr %58, align 8, !tbaa !108
+  store float %304, ptr %58, align 8, !tbaa !106
   br label %.loopexit132
 
 305:                                              ; preds = %115
   %306 = load i32, ptr %4, align 4, !tbaa !73
   %307 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %306)
   %308 = fptrunc reassoc nsz arcp contract afn double %307 to float
-  store float %308, ptr %57, align 4, !tbaa !110
+  store float %308, ptr %57, align 4, !tbaa !108
   br label %.loopexit132
 
 309:                                              ; preds = %115
   %310 = load i32, ptr %4, align 4, !tbaa !73
   %311 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %310)
   %312 = fptrunc reassoc nsz arcp contract afn double %311 to float
-  store float %312, ptr %56, align 4, !tbaa !111
+  store float %312, ptr %56, align 4, !tbaa !109
   br label %.loopexit132
 
 313:                                              ; preds = %115
-  %314 = load i8, ptr %10, align 4, !tbaa !99
+  %314 = load i8, ptr %10, align 4, !tbaa !97
   %315 = icmp eq i8 %314, 0
   br i1 %315, label %316, label %317
 
@@ -728,7 +728,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 64
   %326 = load ptr, ptr %325, align 8
   %327 = call noundef ptr %326(ptr noundef nonnull align 8 dereferenceable(8) %321, ptr noundef nonnull %7, i32 noundef %323)
-  store i8 0, ptr %49, align 1, !tbaa !99
+  store i8 0, ptr %49, align 1, !tbaa !97
   %328 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.14) #11
   %.not92 = icmp eq ptr %328, null
   br i1 %.not92, label %333, label %329
@@ -737,7 +737,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 3
   %331 = call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %330, ptr noundef null) #10
   %332 = fptrunc reassoc nsz arcp contract afn double %331 to float
-  store float %332, ptr %50, align 4, !tbaa !112
+  store float %332, ptr %50, align 4, !tbaa !110
   br label %333
 
 333:                                              ; preds = %329, %320
@@ -749,7 +749,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 7
   %337 = call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %336, ptr noundef null) #10
   %338 = fptrunc reassoc nsz arcp contract afn double %337 to float
-  store float %338, ptr %51, align 8, !tbaa !113
+  store float %338, ptr %51, align 8, !tbaa !111
   br label %339
 
 339:                                              ; preds = %335, %333
@@ -765,25 +765,25 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %342 = getelementptr inbounds nuw i8, ptr %340, i64 7
   %343 = call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %342, ptr noundef null) #10
   %344 = fptrunc reassoc nsz arcp contract afn double %343 to float
-  store float %344, ptr %52, align 8, !tbaa !113
+  store float %344, ptr %52, align 8, !tbaa !111
   br label %345
 
 345:                                              ; preds = %._crit_edge, %341
   %346 = phi float [ %.pre, %._crit_edge ], [ %344, %341 ]
-  %347 = load float, ptr %51, align 8, !tbaa !113
+  %347 = load float, ptr %51, align 8, !tbaa !111
   %348 = fcmp reassoc nsz arcp contract afn ogt float %347, 0x3F50624DE0000000
   %349 = fcmp reassoc nsz arcp contract afn ogt float %346, 0x3F50624DE0000000
   %or.cond124 = select i1 %348, i1 %349, i1 false
   br i1 %or.cond124, label %350, label %351
 
 350:                                              ; preds = %345
-  store float 1.000000e+00, ptr %53, align 4, !tbaa !113
-  store float 1.000000e+00, ptr %54, align 4, !tbaa !113
+  store float 1.000000e+00, ptr %53, align 4, !tbaa !111
+  store float 1.000000e+00, ptr %54, align 4, !tbaa !111
   br label %352
 
 351:                                              ; preds = %345
-  store float 0.000000e+00, ptr %52, align 8, !tbaa !113
-  store float 0.000000e+00, ptr %51, align 8, !tbaa !113
+  store float 0.000000e+00, ptr %52, align 8, !tbaa !111
+  store float 0.000000e+00, ptr %51, align 8, !tbaa !111
   br label %352
 
 352:                                              ; preds = %351, %350
@@ -804,9 +804,9 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %360 = and i64 %359, 65535
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %355, i64 %360, i1 false)
   %361 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %360
-  store i8 0, ptr %361, align 1, !tbaa !99
+  store i8 0, ptr %361, align 1, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  store ptr null, ptr %9, align 8, !tbaa !114
+  store ptr null, ptr %9, align 8, !tbaa !112
   %362 = call ptr @strtok_r(ptr noundef nonnull %8, ptr noundef nonnull @.str.19, ptr noundef nonnull %9) #10
   %.not97 = icmp eq ptr %362, null
   br i1 %.not97, label %.sink.split, label %.preheader129
@@ -826,9 +826,9 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %366 = trunc i64 %365 to i32
   %367 = sitofp i32 %366 to float
   %368 = getelementptr inbounds nuw [4 x float], ptr %363, i64 0, i64 %indvars.iv
-  store float %367, ptr %368, align 4, !tbaa !113
+  store float %367, ptr %368, align 4, !tbaa !111
   %gep = getelementptr inbounds nuw [3 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv
-  %369 = load float, ptr %gep, align 4, !tbaa !113
+  %369 = load float, ptr %gep, align 4, !tbaa !111
   %370 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.19, ptr noundef nonnull %9) #10
   %.not98 = icmp eq ptr %370, null
   br i1 %.not98, label %.sink.split, label %371
@@ -837,7 +837,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %372 = fadd reassoc nsz arcp contract afn float %369, %.059139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %373, label %364, !llvm.loop !115
+  br i1 %exitcond.not, label %373, label %364, !llvm.loop !113
 
 373:                                              ; preds = %371
   %374 = fpext reassoc nsz arcp contract afn float %372 to double
@@ -851,17 +851,17 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.preheader ], [ 0, %.preheader.preheader ]
   %377 = getelementptr inbounds nuw [4 x float], ptr %363, i64 0, i64 %indvars.iv154
-  %378 = load float, ptr %377, align 4, !tbaa !113
+  %378 = load float, ptr %377, align 4, !tbaa !111
   %379 = fmul reassoc nsz arcp contract afn float %378, %376
-  store float %379, ptr %377, align 4, !tbaa !113
+  store float %379, ptr %377, align 4, !tbaa !111
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 3
-  br i1 %exitcond157.not, label %.loopexit, label %.preheader, !llvm.loop !116
+  br i1 %exitcond157.not, label %.loopexit, label %.preheader, !llvm.loop !114
 
 .loopexit:                                        ; preds = %.preheader, %373
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 3
-  br i1 %exitcond161.not, label %.sink.split, label %.preheader129, !llvm.loop !117
+  br i1 %exitcond161.not, label %.sink.split, label %.preheader129, !llvm.loop !115
 
 .sink.split:                                      ; preds = %.loopexit, %364, %356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
@@ -917,7 +917,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br label %399
 
 399:                                              ; preds = %392, %390
-  store i32 1, ptr %48, align 8, !tbaa !118
+  store i32 1, ptr %48, align 8, !tbaa !116
   br label %400
 
 400:                                              ; preds = %399, %389, %386, %380
@@ -930,7 +930,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 402:                                              ; preds = %401
   %403 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %404 = trunc i32 %403 to i16
-  store i16 %404, ptr %46, align 2, !tbaa !119
+  store i16 %404, ptr %46, align 2, !tbaa !117
   br label %.loopexit132
 
 405:                                              ; preds = %115
@@ -939,7 +939,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 406:                                              ; preds = %405
   %407 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %408 = trunc i32 %407 to i16
-  store i16 %408, ptr %45, align 8, !tbaa !120
+  store i16 %408, ptr %45, align 8, !tbaa !118
   br label %.loopexit132
 
 409:                                              ; preds = %115
@@ -948,7 +948,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %411, label %412, label %.loopexit132
 
 412:                                              ; preds = %409
-  store i32 0, ptr %44, align 8, !tbaa !121
+  store i32 0, ptr %44, align 8, !tbaa !119
   br label %413
 
 413:                                              ; preds = %412, %413
@@ -960,12 +960,12 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %418 = call noundef i32 %417(ptr noundef nonnull align 8 dereferenceable(8) %414)
   %419 = mul i32 %418, 16843009
   %420 = shl i32 %419, %.2136
-  %421 = load i32, ptr %44, align 8, !tbaa !121
+  %421 = load i32, ptr %44, align 8, !tbaa !119
   %422 = or i32 %420, %421
-  store i32 %422, ptr %44, align 8, !tbaa !121
+  store i32 %422, ptr %44, align 8, !tbaa !119
   %423 = add nuw nsw i32 %.2136, 2
   %424 = icmp samesign ult i32 %.2136, 6
-  br i1 %424, label %413, label %.loopexit132, !llvm.loop !122
+  br i1 %424, label %413, label %.loopexit132, !llvm.loop !120
 
 .loopexit132:                                     ; preds = %413, %115, %117, %143, %147, %151, %155, %159, %163, %165, %171, %191, %197, %203, %216, %222, %235, %250, %254, %277, %305, %309, %384, %400, %132, %131, %141, %133, %190, %184, %234, %228, %248, %242, %262, %260, %257, %273, %271, %266, %284, %291, %278, %300, %293, %402, %401, %406, %405, %409, %126, %139, %128, %89
   %425 = load ptr, ptr %15, align 8, !tbaa !6
@@ -976,7 +976,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %430 = load ptr, ptr %429, align 8
   %431 = call noundef i32 %430(ptr noundef nonnull align 8 dereferenceable(8) %425, i64 noundef %427, i32 noundef 0)
   %.not82 = icmp eq i32 %90, 0
-  br i1 %.not82, label %.loopexit133, label %89, !llvm.loop !123
+  br i1 %.not82, label %.loopexit133, label %89
 
 .loopexit133:                                     ; preds = %.loopexit132, %34, %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
@@ -1034,7 +1034,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
 
 .lr.ph:                                           ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192752
-  store i8 1, ptr %11, align 8, !tbaa !124
+  store i8 1, ptr %11, align 8, !tbaa !121
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   %14 = load ptr, ptr %13, align 8, !tbaa !71
@@ -1074,7 +1074,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %.sink51, i64 noundef %37, i32 noundef 0)
   %.not21 = icmp eq i32 %32, 0
-  br i1 %.not21, label %.loopexit27, label %31, !llvm.loop !125
+  br i1 %.not21, label %.loopexit27, label %31, !llvm.loop !122
 
 42:                                               ; preds = %31
   %43 = load ptr, ptr %35, align 8, !tbaa !71
@@ -1091,7 +1091,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %12, align 8, !tbaa !6
-  br label %.backedge, !llvm.loop !126
+  br label %.backedge, !llvm.loop !122
 
 54:                                               ; preds = %42
   %55 = load ptr, ptr %19, align 8, !tbaa !76
@@ -1134,7 +1134,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %75 = load ptr, ptr %74, align 8
   %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72)
   %77 = trunc i32 %76 to i8
-  store i8 %77, ptr %30, align 1, !tbaa !127
+  store i8 %77, ptr %30, align 1, !tbaa !123
   br label %.loopexit
 
 78:                                               ; preds = %69
@@ -1144,7 +1144,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(8) %79)
   %84 = trunc i32 %83 to i8
-  store i8 %84, ptr %29, align 2, !tbaa !128
+  store i8 %84, ptr %29, align 2, !tbaa !124
   br label %.loopexit
 
 85:                                               ; preds = %69
@@ -1154,7 +1154,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(8) %86)
   %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %28, align 4, !tbaa !129
+  store i8 %91, ptr %28, align 4, !tbaa !125
   br label %.loopexit
 
 92:                                               ; preds = %69
@@ -1168,10 +1168,10 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %96 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %95)
   %97 = fptrunc reassoc nsz arcp contract afn double %96 to float
   %98 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv41
-  store float %97, ptr %98, align 4, !tbaa !113
+  store float %97, ptr %98, align 4, !tbaa !111
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
-  br i1 %exitcond44.not, label %.loopexit, label %.preheader, !llvm.loop !130
+  br i1 %exitcond44.not, label %.loopexit, label %.preheader, !llvm.loop !126
 
 99:                                               ; preds = %69
   %100 = load i32, ptr %5, align 4, !tbaa !73
@@ -1184,10 +1184,10 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %103 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %102)
   %104 = fptrunc reassoc nsz arcp contract afn double %103 to float
   %105 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv37
-  store float %104, ptr %105, align 4, !tbaa !113
+  store float %104, ptr %105, align 4, !tbaa !111
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
-  br i1 %exitcond40.not, label %.loopexit, label %.preheader23, !llvm.loop !131
+  br i1 %exitcond40.not, label %.loopexit, label %.preheader23, !llvm.loop !127
 
 106:                                              ; preds = %69
   %107 = load i32, ptr %5, align 4, !tbaa !73
@@ -1200,16 +1200,16 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %110 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %109)
   %111 = fptrunc reassoc nsz arcp contract afn double %110 to float
   %112 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %indvars.iv
-  store float %111, ptr %112, align 4, !tbaa !113
+  store float %111, ptr %112, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader25, !llvm.loop !132
+  br i1 %exitcond.not, label %.loopexit, label %.preheader25, !llvm.loop !128
 
 113:                                              ; preds = %69
   %114 = load i32, ptr %4, align 4, !tbaa !73
   %115 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %114)
   %116 = fptrunc reassoc nsz arcp contract afn double %115 to float
-  store float %116, ptr %24, align 8, !tbaa !133
+  store float %116, ptr %24, align 8, !tbaa !129
   br label %.loopexit
 
 117:                                              ; preds = %69
@@ -1219,7 +1219,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %121 = load ptr, ptr %120, align 8
   %122 = call noundef i32 %121(ptr noundef nonnull align 8 dereferenceable(8) %118)
   %123 = trunc i32 %122 to i8
-  store i8 %123, ptr %23, align 1, !tbaa !134
+  store i8 %123, ptr %23, align 1, !tbaa !130
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader25, %.preheader23, %.preheader, %106, %99, %92, %117, %113, %85, %78, %71, %69
@@ -1284,7 +1284,7 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %21, i32 noundef 0)
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.loopexit13, label %15, !llvm.loop !135
+  br i1 %.not, label %.loopexit13, label %15, !llvm.loop !131
 
 26:                                               ; preds = %15
   %27 = load i32, ptr %3, align 4, !tbaa !73
@@ -1329,7 +1329,7 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
   store i32 %40, ptr %46, align 4, !tbaa !73
   %47 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %47, 6
-  br i1 %exitcond.not, label %.backedge, label %39, !llvm.loop !136
+  br i1 %exitcond.not, label %.backedge, label %39, !llvm.loop !132
 
 .preheader:                                       ; preds = %26
   %48 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -1475,60 +1475,56 @@ attributes #11 = { nounwind willreturn memory(read) }
 !77 = !{!7, !10, i64 767472}
 !78 = !{!7, !14, i64 381552}
 !79 = !{!7, !15, i64 192548}
-!80 = distinct !{!80, !81}
-!81 = !{!"llvm.loop.estimated_trip_count"}
-!82 = !{!7, !24, i64 381608}
-!83 = !{!7, !24, i64 381600}
-!84 = !{!7, !15, i64 381536}
-!85 = distinct !{!85, !75}
-!86 = !{!7, !20, i64 4728}
-!87 = !{!7, !20, i64 4704}
-!88 = !{!7, !24, i64 381528}
-!89 = !{!7, !20, i64 4732}
-!90 = !{!7, !20, i64 4736}
-!91 = !{!7, !20, i64 4740}
-!92 = !{!7, !20, i64 4744}
-!93 = !{!7, !20, i64 4748}
-!94 = !{!7, !14, i64 1172}
-!95 = !{!7, !20, i64 640}
-!96 = !{!7, !20, i64 644}
-!97 = !{!7, !20, i64 648}
-!98 = !{!7, !20, i64 652}
-!99 = !{!11, !11, i64 0}
-!100 = !{!7, !20, i64 1184}
-!101 = !{!7, !20, i64 1188}
-!102 = !{!7, !20, i64 1192}
-!103 = !{!7, !20, i64 1196}
-!104 = !{!7, !20, i64 656}
-!105 = !{!7, !20, i64 192556}
-!106 = !{!107, !20, i64 116}
-!107 = !{!"_ZTS10tiff_ifd_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !63, i64 64, !15, i64 72, !63, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !20, i64 116, !24, i64 120, !24, i64 128, !15, i64 136, !11, i64 140, !47, i64 476, !15, i64 33404}
-!108 = !{!7, !20, i64 192560}
-!109 = !{!7, !20, i64 192552}
-!110 = !{!7, !20, i64 153436}
-!111 = !{!7, !20, i64 192564}
-!112 = !{!7, !20, i64 4892}
-!113 = !{!20, !20, i64 0}
-!114 = !{!18, !18, i64 0}
-!115 = distinct !{!115, !75, !81}
-!116 = distinct !{!116, !75, !81}
-!117 = distinct !{!117, !75, !81}
-!118 = !{!7, !15, i64 384056}
-!119 = !{!7, !14, i64 18}
-!120 = !{!7, !14, i64 16}
-!121 = !{!7, !15, i64 381512}
-!122 = distinct !{!122, !75, !81}
-!123 = distinct !{!123, !81}
-!124 = !{!7, !11, i64 192752}
-!125 = distinct !{!125, !81}
+!80 = !{!7, !24, i64 381608}
+!81 = !{!7, !24, i64 381600}
+!82 = !{!7, !15, i64 381536}
+!83 = distinct !{!83, !75}
+!84 = !{!7, !20, i64 4728}
+!85 = !{!7, !20, i64 4704}
+!86 = !{!7, !24, i64 381528}
+!87 = !{!7, !20, i64 4732}
+!88 = !{!7, !20, i64 4736}
+!89 = !{!7, !20, i64 4740}
+!90 = !{!7, !20, i64 4744}
+!91 = !{!7, !20, i64 4748}
+!92 = !{!7, !14, i64 1172}
+!93 = !{!7, !20, i64 640}
+!94 = !{!7, !20, i64 644}
+!95 = !{!7, !20, i64 648}
+!96 = !{!7, !20, i64 652}
+!97 = !{!11, !11, i64 0}
+!98 = !{!7, !20, i64 1184}
+!99 = !{!7, !20, i64 1188}
+!100 = !{!7, !20, i64 1192}
+!101 = !{!7, !20, i64 1196}
+!102 = !{!7, !20, i64 656}
+!103 = !{!7, !20, i64 192556}
+!104 = !{!105, !20, i64 116}
+!105 = !{!"_ZTS10tiff_ifd_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !63, i64 64, !15, i64 72, !63, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !20, i64 116, !24, i64 120, !24, i64 128, !15, i64 136, !11, i64 140, !47, i64 476, !15, i64 33404}
+!106 = !{!7, !20, i64 192560}
+!107 = !{!7, !20, i64 192552}
+!108 = !{!7, !20, i64 153436}
+!109 = !{!7, !20, i64 192564}
+!110 = !{!7, !20, i64 4892}
+!111 = !{!20, !20, i64 0}
+!112 = !{!18, !18, i64 0}
+!113 = distinct !{!113, !75}
+!114 = distinct !{!114, !75}
+!115 = distinct !{!115, !75}
+!116 = !{!7, !15, i64 384056}
+!117 = !{!7, !14, i64 18}
+!118 = !{!7, !14, i64 16}
+!119 = !{!7, !15, i64 381512}
+!120 = distinct !{!120, !75}
+!121 = !{!7, !11, i64 192752}
+!122 = distinct !{!122, !75}
+!123 = !{!7, !11, i64 192749}
+!124 = !{!7, !11, i64 192750}
+!125 = !{!7, !11, i64 192748}
 !126 = distinct !{!126, !75}
-!127 = !{!7, !11, i64 192749}
-!128 = !{!7, !11, i64 192750}
-!129 = !{!7, !11, i64 192748}
-!130 = distinct !{!130, !75, !81}
-!131 = distinct !{!131, !75, !81}
-!132 = distinct !{!132, !75, !81}
-!133 = !{!7, !20, i64 192744}
-!134 = !{!7, !11, i64 192751}
-!135 = distinct !{!135, !75, !81}
-!136 = distinct !{!136, !75, !81}
+!127 = distinct !{!127, !75}
+!128 = distinct !{!128, !75}
+!129 = !{!7, !20, i64 192744}
+!130 = !{!7, !11, i64 192751}
+!131 = distinct !{!131, !75}
+!132 = distinct !{!132, !75}

@@ -58,7 +58,7 @@ define void @open_libs() local_unnamed_addr #0 {
 15:                                               ; preds = %14, %12
   %16 = tail call ptr @opendir(ptr noundef nonnull %.040.ph)
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %12, label %.preheader, !llvm.loop !6
+  br i1 %17, label %12, label %.preheader
 
 .preheader:                                       ; preds = %15
   %18 = tail call ptr @readdir(ptr noundef nonnull %16) #9
@@ -99,7 +99,7 @@ define void @open_libs() local_unnamed_addr #0 {
   %40 = tail call ptr @dlopen(ptr noundef nonnull %37, i32 noundef 2) #9
   %41 = sext i32 %.252 to i64
   %42 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %41
-  store ptr %40, ptr %42, align 8, !tbaa !8
+  store ptr %40, ptr %42, align 8, !tbaa !6
   %.not49 = icmp eq ptr %40, null
   br i1 %.not49, label %46, label %43
 
@@ -122,19 +122,19 @@ define void @open_libs() local_unnamed_addr #0 {
   %.3 = phi i32 [ %.252, %31 ], [ %.4, %49 ], [ %.252, %23 ], [ %.252, %.lr.ph ]
   %51 = tail call ptr @readdir(ptr noundef nonnull %16) #9
   %.not48 = icmp eq ptr %51, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %50, %.preheader
   %.2.lcssa = phi i32 [ %.039.ph, %.preheader ], [ %.3, %50 ]
   %52 = tail call i32 @closedir(ptr noundef nonnull %16)
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  br i1 %.not, label %54, label %.outer, !llvm.loop !6
+  br i1 %.not, label %54, label %.outer
 
 54:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef %.042) #9
   %55 = sext i32 %.2.lcssa to i64
   %56 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %55
-  store ptr null, ptr %56, align 8, !tbaa !8
+  store ptr null, ptr %56, align 8, !tbaa !6
   ret void
 }
 
@@ -187,7 +187,7 @@ declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @close_libs() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @libHandles, align 16, !tbaa !8
+  %1 = load ptr, ptr @libHandles, align 16, !tbaa !6
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -205,12 +205,12 @@ define void @close_libs() local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %5, %.lr.ph
-  store ptr null, ptr %3, align 8, !tbaa !8
+  store ptr null, ptr %3, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
-  %10 = load ptr, ptr %9, align 8, !tbaa !8
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %8, %0
   ret void
@@ -223,7 +223,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #7
 define ptr @get_fnct_ptr(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #9
   ret ptr %6
 }
@@ -233,7 +233,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @call_inits(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @libHandles, align 16, !tbaa !8
+  %2 = load ptr, ptr @libHandles, align 16, !tbaa !6
   %.not7 = icmp eq ptr %2, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -256,9 +256,9 @@ define void @call_inits(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
-  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %10, %1
   ret void
@@ -266,7 +266,7 @@ define void @call_inits(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @call_ends(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @libHandles, align 16, !tbaa !8
+  %2 = load ptr, ptr @libHandles, align 16, !tbaa !6
   %.not7 = icmp eq ptr %2, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -289,9 +289,9 @@ define void @call_ends(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
-  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %10, %1
   ret void
@@ -300,7 +300,7 @@ define void @call_ends(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @Libs_Init(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @open_libs()
-  %2 = load ptr, ptr @libHandles, align 16, !tbaa !8
+  %2 = load ptr, ptr @libHandles, align 16, !tbaa !6
   %.not7.i = icmp eq ptr %2, null
   br i1 %.not7.i, label %call_inits.exit, label %.lr.ph.i
 
@@ -323,9 +323,9 @@ define void @Libs_Init(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %9, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %call_inits.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %call_inits.exit, label %.lr.ph.i, !llvm.loop !11
 
 call_inits.exit:                                  ; preds = %10, %1
   ret void
@@ -333,7 +333,7 @@ call_inits.exit:                                  ; preds = %10, %1
 
 ; Function Attrs: nounwind uwtable
 define void @Libs_End(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @libHandles, align 16, !tbaa !8
+  %2 = load ptr, ptr @libHandles, align 16, !tbaa !6
   %.not7.i = icmp eq ptr %2, null
   br i1 %.not7.i, label %call_ends.exit, label %.lr.ph.i
 
@@ -356,9 +356,9 @@ define void @Libs_End(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %9, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %call_ends.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %call_ends.exit, label %.lr.ph.i, !llvm.loop !12
 
 call_ends.exit:                                   ; preds = %10, %1
   ret void
@@ -385,12 +385,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"any pointer", !4, i64 0}
-!10 = distinct !{!10, !11, !7}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !7}
-!13 = distinct !{!13, !11, !7}
-!14 = distinct !{!14, !11, !7}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"any pointer", !4, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

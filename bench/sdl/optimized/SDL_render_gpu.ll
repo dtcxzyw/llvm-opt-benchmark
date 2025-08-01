@@ -741,7 +741,7 @@ define internal noundef zeroext i1 @GPU_QueueDrawPoints(ptr noundef %0, ptr noun
   store float %20, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %4
   ret i1 %.not
@@ -849,7 +849,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %22, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -929,7 +929,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count79
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !9
+  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %129
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph.split ]
@@ -1005,7 +1005,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count79
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %129, %84, %60, %26, %15
   ret i1 %.not62
@@ -1271,7 +1271,7 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
   %124 = getelementptr inbounds nuw i8, ptr %.0113215, i64 24
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %74, align 4
-  %126 = load i8, ptr %111, align 8, !range !11, !noundef !12
+  %126 = load i8, ptr %111, align 8, !range !10, !noundef !11
   store i8 %126, ptr %75, align 8
   br label %199
 
@@ -1336,7 +1336,7 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
 .lr.ph:                                           ; preds = %158
   %152 = load i32, ptr %.0130, align 8
   %.not141 = icmp eq i32 %152, 6
-  br i1 %.not141, label %.lr.ph221, label %.thread, !llvm.loop !13
+  br i1 %.not141, label %.lr.ph221, label %.thread
 
 .lr.ph221:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.0127174220 = phi ptr [ %.0130176218, %.lr.ph ], [ %.0113215, %.lr.ph.preheader ]
@@ -1358,14 +1358,11 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   %.0130.in = getelementptr inbounds nuw i8, ptr %.0130176218, i64 80
   %.0130 = load ptr, ptr %.0130.in, align 8
   %.not140 = icmp eq ptr %.0130, null
-  br i1 %.not140, label %..thread.loopexit_crit_edge228, label %.lr.ph, !llvm.loop !13
+  br i1 %.not140, label %.thread, label %.lr.ph
 
-..thread.loopexit_crit_edge228:                   ; preds = %158
-  br label %.thread, !llvm.loop !13
-
-.thread:                                          ; preds = %155, %.lr.ph221, %.lr.ph, %.lr.ph.preheader, %..thread.loopexit_crit_edge228, %148
-  %.0127.lcssa = phi ptr [ %.0113215, %148 ], [ %.0130176218, %..thread.loopexit_crit_edge228 ], [ %.0113215, %.lr.ph.preheader ], [ %.0130176218, %.lr.ph ], [ %.0127174220, %.lr.ph221 ], [ %.0127174220, %155 ]
-  %.0124.lcssa = phi i32 [ %143, %148 ], [ %159, %..thread.loopexit_crit_edge228 ], [ %143, %.lr.ph.preheader ], [ %159, %.lr.ph ], [ %.0124175219, %.lr.ph221 ], [ %.0124175219, %155 ]
+.thread:                                          ; preds = %155, %.lr.ph221, %.lr.ph, %158, %.lr.ph.preheader, %148
+  %.0127.lcssa = phi ptr [ %.0113215, %148 ], [ %.0113215, %.lr.ph.preheader ], [ %.0130176218, %158 ], [ %.0130176218, %.lr.ph ], [ %.0127174220, %.lr.ph221 ], [ %.0127174220, %155 ]
+  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %159, %.lr.ph ], [ %.0124175219, %.lr.ph221 ], [ %.0124175219, %155 ]
   call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %.0124.lcssa, i32 noundef %145, i32 noundef 2)
   br label %199
 
@@ -1399,7 +1396,7 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
 .lr.ph193:                                        ; preds = %193
   %178 = load i32, ptr %.0119, align 8
   %.not145 = icmp eq i32 %178, %84
-  br i1 %.not145, label %.lr.ph235, label %.thread165, !llvm.loop !14
+  br i1 %.not145, label %.lr.ph235, label %.thread165
 
 .lr.ph235:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
   %.0121190234 = phi ptr [ %.0119192232, %.lr.ph193 ], [ %.0113215, %.lr.ph193.preheader ]
@@ -1442,14 +1439,11 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   %.0119.in = getelementptr inbounds nuw i8, ptr %.0119192232, i64 80
   %.0119 = load ptr, ptr %.0119.in, align 8
   %.not144 = icmp eq ptr %.0119, null
-  br i1 %.not144, label %..thread165.loopexit_crit_edge252, label %.lr.ph193, !llvm.loop !14
+  br i1 %.not144, label %.thread165, label %.lr.ph193
 
-..thread165.loopexit_crit_edge252:                ; preds = %193
-  br label %.thread165, !llvm.loop !14
-
-.thread165:                                       ; preds = %.lr.ph235, %181, %184, %187, %190, %.lr.ph193, %.lr.ph193.preheader, %..thread165.loopexit_crit_edge252, %160
-  %.0121.lcssa = phi ptr [ %.0113215, %160 ], [ %.0119192232, %..thread165.loopexit_crit_edge252 ], [ %.0113215, %.lr.ph193.preheader ], [ %.0119192232, %.lr.ph193 ], [ %.0121190234, %190 ], [ %.0121190234, %187 ], [ %.0121190234, %184 ], [ %.0121190234, %181 ], [ %.0121190234, %.lr.ph235 ]
-  %.0116.lcssa = phi i32 [ %174, %160 ], [ %197, %..thread165.loopexit_crit_edge252 ], [ %174, %.lr.ph193.preheader ], [ %197, %.lr.ph193 ], [ %.0116191233, %190 ], [ %.0116191233, %187 ], [ %.0116191233, %184 ], [ %.0116191233, %181 ], [ %.0116191233, %.lr.ph235 ]
+.thread165:                                       ; preds = %.lr.ph235, %181, %184, %187, %190, %.lr.ph193, %193, %.lr.ph193.preheader, %160
+  %.0121.lcssa = phi ptr [ %.0113215, %160 ], [ %.0113215, %.lr.ph193.preheader ], [ %.0119192232, %193 ], [ %.0119192232, %.lr.ph193 ], [ %.0121190234, %190 ], [ %.0121190234, %187 ], [ %.0121190234, %184 ], [ %.0121190234, %181 ], [ %.0121190234, %.lr.ph235 ]
+  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph193.preheader ], [ %197, %193 ], [ %197, %.lr.ph193 ], [ %.0116191233, %190 ], [ %.0116191233, %187 ], [ %.0116191233, %184 ], [ %.0116191233, %181 ], [ %.0116191233, %.lr.ph235 ]
   %198 = icmp eq i32 %84, 5
   %spec.store.select = select i1 %198, i32 4, i32 0
   call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113215, i32 noundef %.0116.lcssa, i32 noundef %176, i32 noundef %spec.store.select)
@@ -1460,7 +1454,7 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   %200 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %201 = load ptr, ptr %200, align 8
   %.not138 = icmp eq ptr %201, null
-  br i1 %.not138, label %._crit_edge, label %83, !llvm.loop !15
+  br i1 %.not138, label %._crit_edge, label %83, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %199
   %.pre = load i32, ptr %57, align 8
@@ -1722,7 +1716,7 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   %104 = add nuw nsw i32 %.096, 1
   %105 = load i32, ptr %44, align 4
   %106 = icmp slt i32 %104, %105
-  br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %95, %92
   %107 = load ptr, ptr %8, align 8
@@ -1944,7 +1938,7 @@ define internal void @GPU_DestroyRenderer(ptr noundef readonly captures(none) %0
 19:                                               ; preds = %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %11, label %14, !llvm.loop !17
+  br i1 %exitcond.not, label %11, label %14, !llvm.loop !14
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %3, align 8
@@ -2515,7 +2509,7 @@ GetSampler.exit:                                  ; preds = %77, %.sink.split.i
   %156 = load i32, ptr %142, align 8
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %158, label %147, label %PushFragmentUniforms.exit, !llvm.loop !18
+  br i1 %158, label %147, label %PushFragmentUniforms.exit, !llvm.loop !15
 
 159:                                              ; preds = %119
   %160 = load ptr, ptr %75, align 8
@@ -2592,7 +2586,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @SDL_SetGPUViewport_REAL(ptr noundef %199, ptr noundef nonnull %200) #11
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %202 = load i8, ptr %201, align 8, !range !11, !noundef !12
+  %202 = load i8, ptr %201, align 8, !range !10, !noundef !11
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %204, label %208
 
@@ -2606,7 +2600,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
 
 208:                                              ; preds = %PushFragmentUniforms.exit
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %210 = load i8, ptr %209, align 1, !range !11, !noundef !12
+  %210 = load i8, ptr %209, align 1, !range !10, !noundef !11
   %211 = trunc nuw i8 %210 to i1
   br i1 %211, label %212, label %SetViewportAndScissor.exit
 
@@ -2731,19 +2725,16 @@ attributes #12 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !4, !5, !8}
-!10 = distinct !{!10, !4, !5}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !4, !7}
+!9 = distinct !{!9, !4}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

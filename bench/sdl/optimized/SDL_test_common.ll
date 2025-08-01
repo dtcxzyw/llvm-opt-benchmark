@@ -1102,7 +1102,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 141:                                              ; preds = %.preheader
   %142 = getelementptr inbounds nuw i8, ptr %.0354, i64 1
-  br label %.preheader, !llvm.loop !7
+  br label %.preheader, !llvm.loop !6
 
 143:                                              ; preds = %.preheader
   %144 = getelementptr inbounds nuw i8, ptr %.0354, i64 1
@@ -1137,7 +1137,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 157:                                              ; preds = %.preheader435
   %158 = getelementptr inbounds nuw i8, ptr %.0356, i64 1
-  br label %.preheader435, !llvm.loop !8
+  br label %.preheader435, !llvm.loop !7
 
 159:                                              ; preds = %.preheader435
   %160 = getelementptr inbounds nuw i8, ptr %.0356, i64 1
@@ -1154,7 +1154,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %.0358, i64 1
-  br label %161, !llvm.loop !9
+  br label %161, !llvm.loop !8
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %.0358, i64 1
@@ -1171,7 +1171,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 169:                                              ; preds = %167
   %170 = getelementptr inbounds nuw i8, ptr %.0357, i64 1
-  br label %167, !llvm.loop !10
+  br label %167, !llvm.loop !9
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds nuw i8, ptr %.0357, i64 1
@@ -1223,7 +1223,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 195:                                              ; preds = %.preheader437
   %196 = getelementptr inbounds nuw i8, ptr %.0355, i64 1
-  br label %.preheader437, !llvm.loop !11
+  br label %.preheader437, !llvm.loop !10
 
 197:                                              ; preds = %.preheader437
   %198 = getelementptr inbounds nuw i8, ptr %.0355, i64 1
@@ -1258,7 +1258,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 211:                                              ; preds = %.preheader439
   %212 = getelementptr inbounds nuw i8, ptr %.0353, i64 1
-  br label %.preheader439, !llvm.loop !12
+  br label %.preheader439, !llvm.loop !11
 
 213:                                              ; preds = %.preheader439
   %214 = getelementptr inbounds nuw i8, ptr %.0353, i64 1
@@ -1293,7 +1293,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 227:                                              ; preds = %.preheader441
   %228 = getelementptr inbounds nuw i8, ptr %.0352, i64 1
-  br label %.preheader441, !llvm.loop !13
+  br label %.preheader441, !llvm.loop !12
 
 229:                                              ; preds = %.preheader441
   %230 = getelementptr inbounds nuw i8, ptr %.0352, i64 1
@@ -1328,7 +1328,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 243:                                              ; preds = %.preheader443
   %244 = getelementptr inbounds nuw i8, ptr %.0350, i64 1
-  br label %.preheader443, !llvm.loop !14
+  br label %.preheader443, !llvm.loop !13
 
 245:                                              ; preds = %.preheader443
   %246 = getelementptr inbounds nuw i8, ptr %.0350, i64 1
@@ -1369,7 +1369,7 @@ define internal range(i32 -1, 3) i32 @SDLTest_CommonStateParseVideoArguments(ptr
 
 261:                                              ; preds = %.preheader445
   %262 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %.preheader445, !llvm.loop !15
+  br label %.preheader445, !llvm.loop !14
 
 263:                                              ; preds = %.preheader445
   %264 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -1988,7 +1988,7 @@ define dso_local i32 @SDLTest_CommonArg(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %.01219, i64 32
   %.012 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %5, %10, %2
   %.3 = phi i32 [ 0, %2 ], [ 0, %10 ], [ %9, %5 ]
@@ -2036,13 +2036,13 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not28 = icmp eq ptr %17, null
-  br i1 %.not28, label %.loopexit30, label %.lr.ph, !llvm.loop !17
+  br i1 %.not28, label %.loopexit30, label %.lr.ph, !llvm.loop !16
 
 .loopexit30:                                      ; preds = %.lr.ph, %.preheader29, %10
   %18 = getelementptr inbounds nuw i8, ptr %.01935, i64 32
   %.019 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.019, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit30, %3
   %.not24 = icmp eq ptr %2, null
@@ -2061,7 +2061,7 @@ define dso_local void @SDLTest_CommonLogUsage(ptr noundef readonly captures(none
   %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next42
   %22 = load ptr, ptr %21, align 8
   %.not25 = icmp eq ptr %22, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph39, !llvm.loop !19
+  br i1 %.not25, label %.loopexit, label %.lr.ph39, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph39, %.preheader, %._crit_edge
   ret void
@@ -2081,7 +2081,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonDefaultArgs(ptr noundef reado
 6:                                                ; preds = %SDLTest_CommonArg.exit
   %7 = add nuw nsw i32 %14, %.01124
   %.not = icmp slt i32 %7, %1
-  br i1 %.not, label %8, label %SDLTest_CommonLogUsage.exit.thread, !llvm.loop !20
+  br i1 %.not, label %8, label %SDLTest_CommonLogUsage.exit.thread, !llvm.loop !19
 
 8:                                                ; preds = %.lr.ph, %6
   %.01124 = phi i32 [ 1, %.lr.ph ], [ %7, %6 ]
@@ -2107,7 +2107,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonDefaultArgs(ptr noundef reado
   %16 = getelementptr inbounds nuw i8, ptr %.01219.i, i64 32
   %.012.i = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.012.i, null
-  br i1 %.not.i, label %SDLTest_CommonArg.exit.thread, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %SDLTest_CommonArg.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 SDLTest_CommonArg.exit:                           ; preds = %10
   %17 = icmp sgt i32 %14, 0
@@ -2153,16 +2153,16 @@ SDLTest_CommonArg.exit.thread:                    ; preds = %8, %SDLTest_CommonA
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next.i
   %31 = load ptr, ptr %30, align 8
   %.not28.i = icmp eq ptr %31, null
-  br i1 %.not28.i, label %.loopexit30.i, label %.lr.ph.i14, !llvm.loop !17
+  br i1 %.not28.i, label %.loopexit30.i, label %.lr.ph.i14, !llvm.loop !16
 
 .loopexit30.i:                                    ; preds = %.lr.ph.i14, %.preheader29.i, %24
   %32 = getelementptr inbounds nuw i8, ptr %.01935.i, i64 32
   %.019.i = load ptr, ptr %32, align 8
   %.not.i15 = icmp eq ptr %.019.i, null
-  br i1 %.not.i15, label %SDLTest_CommonLogUsage.exit, label %.lr.ph36.i, !llvm.loop !18
+  br i1 %.not.i15, label %SDLTest_CommonLogUsage.exit, label %.lr.ph36.i, !llvm.loop !17
 
 SDLTest_CommonLogUsage.exit:                      ; preds = %.loopexit30.i
-  br label %SDLTest_CommonLogUsage.exit.thread, !llvm.loop !20
+  br label %SDLTest_CommonLogUsage.exit.thread, !llvm.loop !19
 
 SDLTest_CommonLogUsage.exit.thread:               ; preds = %6, %3, %SDLTest_CommonLogUsage.exit, %SDLTest_CommonArg.exit.thread
   %33 = phi i1 [ false, %SDLTest_CommonLogUsage.exit ], [ false, %SDLTest_CommonArg.exit.thread ], [ true, %3 ], [ true, %6 ]
@@ -2236,7 +2236,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %36 = add nuw nsw i32 %.0231289, 1
   %37 = load i32, ptr %4, align 4
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %34, %29
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #9
@@ -2515,7 +2515,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %218 = load i32, ptr %3, align 4
   %219 = sext i32 %218 to i64
   %220 = icmp slt i64 %indvars.iv.next, %219
-  br i1 %220, label %.lr.ph292, label %.loopexit288, !llvm.loop !22
+  br i1 %220, label %.lr.ph292, label %.loopexit288, !llvm.loop !21
 
 .loopexit288:                                     ; preds = %217, %184, %183
   call void @SDL_free(ptr noundef %180) #9
@@ -2523,7 +2523,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %221 = load i32, ptr %4, align 4
   %222 = sext i32 %221 to i64
   %223 = icmp slt i64 %indvars.iv.next309, %222
-  br i1 %223, label %137, label %._crit_edge296, !llvm.loop !23
+  br i1 %223, label %137, label %._crit_edge296, !llvm.loop !22
 
 ._crit_edge296:                                   ; preds = %.loopexit288, %126
   call void @SDL_free(ptr noundef %127) #9
@@ -2566,7 +2566,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %235 = add nuw nsw i32 %.2233297, 1
   %236 = load i32, ptr %4, align 4
   %237 = icmp slt i32 %235, %236
-  br i1 %237, label %.lr.ph299, label %.loopexit, !llvm.loop !24
+  br i1 %237, label %.lr.ph299, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph299, %231, %230, %224
   %238 = call i32 @SDL_GetPrimaryDisplay() #9
@@ -2690,7 +2690,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %indvars.iv311 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next312, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #9
-  %316 = load i8, ptr %288, align 8, !range !25, !noundef !26
+  %316 = load i8, ptr %288, align 8, !range !24, !noundef !25
   %317 = trunc nuw i8 %316 to i1
   br i1 %317, label %318, label %321
 
@@ -2708,7 +2708,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   store i32 %324, ptr %292, align 4
   %325 = load i32, ptr %264, align 8
   store i32 %325, ptr %293, align 4
-  %326 = load i8, ptr %294, align 4, !range !25, !noundef !26
+  %326 = load i8, ptr %294, align 4, !range !24, !noundef !25
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %328, label %341
 
@@ -2851,7 +2851,7 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   br i1 %.not275, label %423, label %410
 
 410:                                              ; preds = %407
-  %411 = load i8, ptr %302, align 1, !range !25, !noundef !26
+  %411 = load i8, ptr %302, align 1, !range !24, !noundef !25
   %412 = trunc nuw i8 %411 to i1
   br i1 %412, label %413, label %418
 
@@ -2938,7 +2938,7 @@ SDL_RectEmpty.exit:                               ; preds = %452
   br label %SDL_RectEmpty.exit.thread
 
 SDL_RectEmpty.exit.thread:                        ; preds = %452, %457, %SDL_RectEmpty.exit
-  %462 = load i8, ptr %307, align 4, !range !25, !noundef !26
+  %462 = load i8, ptr %307, align 4, !range !24, !noundef !25
   %463 = trunc nuw i8 %462 to i1
   br i1 %463, label %.critedge, label %464
 
@@ -3097,7 +3097,7 @@ SDLTest_PrintPixelFormat.exit.i:                  ; preds = %543, %540
   %544 = getelementptr inbounds nuw i32, ptr %530, i64 %indvars.iv.next.i
   %545 = load i32, ptr %544, align 4
   %.not19.i = icmp eq i32 %545, 0
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %SDLTest_PrintPixelFormat.exit.i, %531
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #9
@@ -3129,7 +3129,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   %555 = load i32, ptr %270, align 8
   %556 = sext i32 %555 to i64
   %557 = icmp slt i64 %indvars.iv.next312, %556
-  br i1 %557, label %315, label %._crit_edge302, !llvm.loop !28
+  br i1 %557, label %315, label %._crit_edge302, !llvm.loop !27
 
 558:                                              ; preds = %495, %469, %351
   %.str.41.sink = phi ptr [ @.str.38, %351 ], [ @.str.40, %469 ], [ @.str.41, %495 ]
@@ -3141,7 +3141,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
 
 ._crit_edge302:                                   ; preds = %.critedge, %.preheader
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %561 = load i8, ptr %560, align 8, !range !25, !noundef !26
+  %561 = load i8, ptr %560, align 8, !range !24, !noundef !25
   %562 = trunc nuw i8 %561 to i1
   br i1 %562, label %563, label %565
 
@@ -3193,7 +3193,7 @@ SDLTest_PrintRenderer.exit:                       ; preds = %546, %550
   %583 = add nuw nsw i32 %.4235303, 1
   %584 = load i32, ptr %4, align 4
   %585 = icmp slt i32 %583, %584
-  br i1 %585, label %.lr.ph305, label %._crit_edge306, !llvm.loop !29
+  br i1 %585, label %.lr.ph305, label %._crit_edge306, !llvm.loop !28
 
 ._crit_edge306:                                   ; preds = %581, %576
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.8, ptr noundef nonnull %7) #9
@@ -4259,7 +4259,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
 
 423:                                              ; preds = %1
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %425 = load i8, ptr %424, align 4, !range !25, !noundef !26
+  %425 = load i8, ptr %424, align 4, !range !24, !noundef !25
   %426 = trunc nuw i8 %425 to i1
   %427 = select i1 %426, ptr @.str.144, ptr @.str.145
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4269,7 +4269,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
 
 430:                                              ; preds = %1
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %432 = load i8, ptr %431, align 4, !range !25, !noundef !26
+  %432 = load i8, ptr %431, align 4, !range !24, !noundef !25
   %433 = trunc nuw i8 %432 to i1
   %434 = select i1 %433, ptr @.str.144, ptr @.str.145
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4279,7 +4279,7 @@ GamepadAxisName.exit:                             ; preds = %315, %switch.lookup
 
 437:                                              ; preds = %1
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %439 = load i8, ptr %438, align 4, !range !25, !noundef !26
+  %439 = load i8, ptr %438, align 4, !range !24, !noundef !25
   %440 = trunc nuw i8 %439 to i1
   %441 = select i1 %440, ptr @.str.144, ptr @.str.145
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4537,7 +4537,7 @@ SDLTest_PrintModStateFlag.exit:                   ; preds = %13, %14, %15, %16, 
   %.1 = phi i32 [ %28, %SDLTest_PrintModStateFlag.exit ], [ %.01214, %4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %30, label %4, !llvm.loop !30
+  br i1 %exitcond.not, label %30, label %4, !llvm.loop !29
 
 30:                                               ; preds = %29
   ret void
@@ -4612,7 +4612,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %23 = load i8, ptr %22, align 4, !range !25, !noundef !26
+  %23 = load i8, ptr %22, align 4, !range !24, !noundef !25
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.critedge
 
@@ -4641,7 +4641,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 
 43:                                               ; preds = %19
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %45 = load i8, ptr %44, align 8, !range !25, !noundef !26
+  %45 = load i8, ptr %44, align 8, !range !24, !noundef !25
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %.critedge
 
@@ -4742,7 +4742,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next328, %83
-  br i1 %84, label %71, label %.critedge, !llvm.loop !31
+  br i1 %84, label %71, label %.critedge, !llvm.loop !30
 
 85:                                               ; preds = %55
   br i1 %.not267, label %.critedge, label %86
@@ -4820,7 +4820,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 117:                                              ; preds = %.lr.ph318
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph318, !llvm.loop !32
+  br i1 %exitcond.not, label %.thread, label %.lr.ph318, !llvm.loop !31
 
 118:                                              ; preds = %.lr.ph318
   %119 = trunc nuw nsw i64 %indvars.iv324 to i32
@@ -4985,7 +4985,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next, %183
-  br i1 %184, label %171, label %.critedge, !llvm.loop !33
+  br i1 %184, label %171, label %.critedge, !llvm.loop !32
 
 185:                                              ; preds = %163
   %186 = tail call zeroext i1 @SDL_SetClipboardText(ptr noundef nonnull @.str.167) #9
@@ -5477,7 +5477,7 @@ define internal fastcc void @SDLTest_PasteScreenShot() unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
   %17 = add nuw nsw i64 %.01015, 1
   %exitcond.not = icmp eq i64 %17, 3
-  br i1 %exitcond.not, label %18, label %3, !llvm.loop !34
+  br i1 %exitcond.not, label %18, label %3, !llvm.loop !33
 
 18:                                               ; preds = %16
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.428) #9
@@ -5670,7 +5670,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %13
   %.pre52 = load ptr, ptr %3, align 8
@@ -5712,7 +5712,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next47, %31
-  br i1 %32, label %.lr.ph40, label %._crit_edge41.loopexit, !llvm.loop !36
+  br i1 %32, label %.lr.ph40, label %._crit_edge41.loopexit, !llvm.loop !35
 
 ._crit_edge41.loopexit:                           ; preds = %29
   %.pre54 = load ptr, ptr %19, align 8
@@ -5745,7 +5745,7 @@ define dso_local void @SDLTest_CommonQuit(ptr noundef %0) local_unnamed_addr #0 
   %43 = load i32, ptr %37, align 8
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next50, %44
-  br i1 %45, label %.lr.ph43, label %._crit_edge44.loopexit, !llvm.loop !37
+  br i1 %45, label %.lr.ph43, label %._crit_edge44.loopexit, !llvm.loop !36
 
 ._crit_edge44.loopexit:                           ; preds = %.lr.ph43
   %.pre55 = load ptr, ptr %35, align 8
@@ -6077,7 +6077,7 @@ SDLTest_PrintWindowFlag.exit.i:                   ; preds = %133, %132, %131, %1
   %.1.i = phi i32 [ %134, %SDLTest_PrintWindowFlag.exit.i ], [ %.01215.i, %99 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
-  br i1 %exitcond.not.i, label %SDLTest_PrintWindowFlags.exit, label %99, !llvm.loop !38
+  br i1 %exitcond.not.i, label %SDLTest_PrintWindowFlags.exit, label %99, !llvm.loop !37
 
 SDLTest_PrintWindowFlags.exit:                    ; preds = %135
   %136 = fadd float %89, 1.000000e+01
@@ -6236,7 +6236,7 @@ SDLTest_PrintWindowFlags.exit:                    ; preds = %135
   %.1.i147 = phi i32 [ %247, %246 ], [ %.01213.i, %239 ]
   %249 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i148 = icmp eq i32 %249, 33
-  br i1 %exitcond.not.i148, label %SDLTest_PrintButtonMask.exit, label %239, !llvm.loop !39
+  br i1 %exitcond.not.i148, label %SDLTest_PrintButtonMask.exit, label %239, !llvm.loop !38
 
 SDLTest_PrintButtonMask.exit:                     ; preds = %248
   %250 = fadd float %229, 1.000000e+01
@@ -6275,7 +6275,7 @@ SDLTest_PrintButtonMask.exit:                     ; preds = %248
   %.1.i152 = phi i32 [ %266, %265 ], [ %.01213.i150, %258 ]
   %268 = add nuw nsw i32 %.014.i149, 1
   %exitcond.not.i153 = icmp eq i32 %268, 33
-  br i1 %exitcond.not.i153, label %SDLTest_PrintButtonMask.exit154, label %258, !llvm.loop !39
+  br i1 %exitcond.not.i153, label %SDLTest_PrintButtonMask.exit154, label %258, !llvm.loop !38
 
 SDLTest_PrintButtonMask.exit154:                  ; preds = %267
   %269 = fadd float %250, 1.000000e+01
@@ -6546,39 +6546,38 @@ attributes #10 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = distinct !{!37, !5, !6}
-!38 = distinct !{!38, !5, !6}
-!39 = distinct !{!39, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}

@@ -155,7 +155,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   store ptr %1, ptr %_M_finish.i, align 8
@@ -227,13 +227,13 @@ if.end36:                                         ; preds = %if.end
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.022, i64 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i4.not = icmp eq ptr %incdec.ptr.i, %12
-  br i1 %cmp.i4.not, label %for.inc45, label %for.body24, !llvm.loop !9
+  br i1 %cmp.i4.not, label %for.inc45, label %for.body24, !llvm.loop !8
 
 for.inc45:                                        ; preds = %if.end36, %if.then, %for.body
   %incdec.ptr.i6 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.026, i64 24
   %13 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i6, %13
-  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %for.inc45, %if.end, %for.body24, %entry
   %cmp.i.not18 = phi i1 [ true, %entry ], [ false, %for.body24 ], [ false, %if.end ], [ true, %for.inc45 ]
@@ -516,13 +516,13 @@ if.end:                                           ; preds = %_ZN7msdfgenL14decon
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.067, i64 8
   %35 = load ptr, ptr %_M_finish.i3, align 8
   %cmp.i26.not = icmp eq ptr %incdec.ptr.i, %35
-  br i1 %cmp.i26.not, label %for.inc68, label %for.body46, !llvm.loop !11
+  br i1 %cmp.i26.not, label %for.inc68, label %for.body46, !llvm.loop !10
 
 for.inc68:                                        ; preds = %if.end, %if.else, %invoke.cont31
   %incdec.ptr.i51 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.070, i64 24
   %36 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i51, %36
-  br i1 %cmp.i.not, label %for.end70, label %for.body, !llvm.loop !12
+  br i1 %cmp.i.not, label %for.end70, label %for.body, !llvm.loop !11
 
 for.end70:                                        ; preds = %for.inc68, %entry
   ret void
@@ -553,7 +553,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.04, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -576,7 +576,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.04, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
   ret void
@@ -603,7 +603,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.04.i, i64 24
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %2
-  br i1 %cmp.i.not.i, label %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit, label %for.body.i, !llvm.loop !13
+  br i1 %cmp.i.not.i, label %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit, label %for.body.i, !llvm.loop !12
 
 _ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit:        ; preds = %for.body.i, %entry
   %3 = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i, %for.body.i ]
@@ -635,7 +635,7 @@ for.body.i9:                                      ; preds = %if.then, %for.body.
   %incdec.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.04.i10, i64 24
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i12 = icmp eq ptr %incdec.ptr.i.i11, %9
-  br i1 %cmp.i.not.i12, label %if.end14, label %for.body.i9, !llvm.loop !14
+  br i1 %cmp.i.not.i12, label %if.end14, label %for.body.i9, !llvm.loop !13
 
 if.end14:                                         ; preds = %for.body.i9, %if.then, %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit
   ret void
@@ -770,7 +770,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN7msdf
   %15 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.inc28, label %for.body23, !llvm.loop !15
+  br i1 %exitcond.not, label %for.inc28, label %for.body23, !llvm.loop !14
 
 lpad.loopexit:                                    ; preds = %_ZNKSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit23 = landingpad { ptr, i32 }
@@ -805,7 +805,7 @@ for.inc28:                                        ; preds = %for.inc, %for.cond2
   %incdec.ptr.i10 = getelementptr inbounds nuw i8, ptr %edge.sroa.0.031, i64 8
   %18 = load ptr, ptr %_M_finish.i4, align 8
   %cmp.i5.not = icmp eq ptr %incdec.ptr.i10, %18
-  br i1 %cmp.i5.not, label %for.inc31.loopexit, label %for.body16, !llvm.loop !16
+  br i1 %cmp.i5.not, label %for.inc31.loopexit, label %for.body16, !llvm.loop !15
 
 for.inc31.loopexit:                               ; preds = %for.inc28
   %.pre = load ptr, ptr %_M_finish.i, align 8
@@ -816,7 +816,7 @@ for.inc31:                                        ; preds = %for.inc31.loopexit,
   %20 = phi ptr [ %17, %for.inc31.loopexit ], [ %3, %for.body ]
   %incdec.ptr.i11 = getelementptr inbounds nuw i8, ptr %contour.sroa.0.033, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i11, %19
-  br i1 %cmp.i.not, label %for.end33, label %for.body, !llvm.loop !17
+  br i1 %cmp.i.not, label %for.end33, label %for.body, !llvm.loop !16
 
 for.end33:                                        ; preds = %for.inc31, %entry
   invoke void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(28) %line, ptr noundef nonnull align 8 dereferenceable(24) %intersections)
@@ -860,7 +860,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add nsw i32 %total.07, %conv
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.06, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   %total.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]
@@ -977,7 +977,7 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   %cmp.i = icmp ne ptr %incdec.ptr.i, %17
   %cmp37 = fcmp oeq double %9, %15
   %18 = select i1 %cmp.i, i1 %cmp37, i1 false
-  br i1 %18, label %for.body38, label %for.end.loopexit, !llvm.loop !19
+  br i1 %18, label %for.body38, label %for.end.loopexit, !llvm.loop !18
 
 lpad17.loopexit:                                  ; preds = %if.then204
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1062,7 +1062,7 @@ invoke.cont76:                                    ; preds = %invoke.cont72
   %cmp.i72 = icmp ne ptr %incdec.ptr.i73, %27
   %cmp67 = fcmp oeq double %9, %25
   %28 = select i1 %cmp.i72, i1 %cmp67, i1 false
-  br i1 %28, label %for.body69, label %for.end81, !llvm.loop !20
+  br i1 %28, label %for.body69, label %for.end81, !llvm.loop !19
 
 for.end81:                                        ; preds = %invoke.cont76, %for.end
   %29 = phi ptr [ %20, %for.end ], [ %26, %invoke.cont76 ]
@@ -1201,7 +1201,7 @@ for.inc124:                                       ; preds = %_ZNSt6vectorIZN7msd
   %intersections.sroa.18.5 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.pn, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.inc126, label %for.body119, !llvm.loop !21
+  br i1 %exitcond.not, label %for.inc126, label %for.body119, !llvm.loop !20
 
 for.inc126:                                       ; preds = %for.inc124, %for.cond117.preheader
   %intersections.sroa.28.3.lcssa = phi ptr [ %intersections.sroa.28.2216, %for.cond117.preheader ], [ %intersections.sroa.28.5, %for.inc124 ]
@@ -1212,7 +1212,7 @@ for.inc126:                                       ; preds = %for.inc124, %for.co
   %_M_finish.i81 = getelementptr inbounds nuw %"class.msdfgen::Contour", ptr %42, i64 %indvars.iv274, i32 0, i32 0, i32 0, i32 0, i32 1
   %43 = load ptr, ptr %_M_finish.i81, align 8
   %cmp.i82.not = icmp eq ptr %incdec.ptr.i90, %43
-  br i1 %cmp.i82.not, label %for.inc129.loopexit, label %for.body108, !llvm.loop !22
+  br i1 %cmp.i82.not, label %for.inc129.loopexit, label %for.body108, !llvm.loop !21
 
 for.inc129.loopexit:                              ; preds = %for.inc126
   %.pre293 = load ptr, ptr %_M_finish.i, align 8
@@ -1232,7 +1232,7 @@ for.inc129:                                       ; preds = %for.inc129.loopexit
   %sext = shl i64 %sub.ptr.div.i78, 32
   %46 = ashr exact i64 %sext, 32
   %cmp89 = icmp slt i64 %indvars.iv.next275, %46
-  br i1 %cmp89, label %for.body90, label %for.end131, !llvm.loop !23
+  br i1 %cmp89, label %for.body90, label %for.end131, !llvm.loop !22
 
 for.end131:                                       ; preds = %for.inc129, %for.end81
   %intersections.sroa.28.1.lcssa = phi ptr [ %intersections.sroa.28.0247, %for.end81 ], [ %intersections.sroa.28.2.lcssa, %for.inc129 ]
@@ -1290,7 +1290,7 @@ if.then151:                                       ; preds = %for.body142
 for.inc159:                                       ; preds = %for.body142, %if.then151
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count280
-  br i1 %exitcond281.not, label %for.cond163.preheader, label %for.body142, !llvm.loop !24
+  br i1 %exitcond281.not, label %for.cond163.preheader, label %for.body142, !llvm.loop !23
 
 for.body167:                                      ; preds = %for.body167.preheader, %for.inc186
   %indvars.iv282 = phi i64 [ 0, %for.body167.preheader ], [ %indvars.iv.next283, %for.inc186 ]
@@ -1320,7 +1320,7 @@ if.then172:                                       ; preds = %for.body167
 for.inc186:                                       ; preds = %for.body167, %if.then172
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next283, %wide.trip.count285
-  br i1 %exitcond286.not, label %for.inc191, label %for.body167, !llvm.loop !25
+  br i1 %exitcond286.not, label %for.inc191, label %for.body167, !llvm.loop !24
 
 for.inc191:                                       ; preds = %for.inc186, %for.cond163.preheader, %for.body, %land.lhs.true, %for.end131
   %intersections.sroa.28.4 = phi ptr [ %intersections.sroa.28.0247, %land.lhs.true ], [ %intersections.sroa.28.1.lcssa, %for.end131 ], [ %intersections.sroa.28.0247, %for.body ], [ %intersections.sroa.28.1.lcssa, %for.cond163.preheader ], [ %intersections.sroa.28.1.lcssa, %for.inc186 ]
@@ -1336,7 +1336,7 @@ for.inc191:                                       ; preds = %for.inc186, %for.co
   %sext296 = shl i64 %sub.ptr.div.i60, 32
   %56 = ashr exact i64 %sext296, 32
   %cmp = icmp slt i64 %indvars.iv.next288, %56
-  br i1 %cmp, label %for.body, label %for.cond195.preheader, !llvm.loop !26
+  br i1 %cmp, label %for.body, label %for.cond195.preheader, !llvm.loop !25
 
 for.body200:                                      ; preds = %for.cond195.preheader, %for.inc210
   %57 = phi ptr [ %60, %for.inc210 ], [ %55, %for.cond195.preheader ]
@@ -1368,7 +1368,7 @@ for.inc210:                                       ; preds = %if.then204.for.inc2
   %sext297 = shl i64 %sub.ptr.div.i118, 32
   %62 = ashr exact i64 %sext297, 32
   %cmp199 = icmp slt i64 %indvars.iv.next291, %62
-  br i1 %cmp199, label %for.body200, label %for.end212, !llvm.loop !27
+  br i1 %cmp199, label %for.body200, label %for.end212, !llvm.loop !26
 
 for.end212:                                       ; preds = %for.inc210, %for.cond195.preheader
   %tobool.not.i.i.i121 = icmp eq ptr %intersections.sroa.0.5, null
@@ -1461,23 +1461,23 @@ invoke.cont:                                      ; preds = %_ZNKSt6vectorIN7msd
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %3 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !31, !noalias !28
-  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !28, !noalias !31
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  %3 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !27, !noalias !30
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
-  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !31, !noalias !28
-  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !31
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !31, !noalias !28
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !28
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !27
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !33
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -1488,23 +1488,23 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pred
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i27, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i26, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %6 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !37, !noalias !34
-  store ptr %6, ptr %__cur.07.i.i.i20, align 8, !alias.scope !34, !noalias !37
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %6 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !36, !noalias !33
+  store ptr %6, ptr %__cur.07.i.i.i20, align 8, !alias.scope !33, !noalias !36
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 8
-  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !37, !noalias !34
-  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !34, !noalias !37
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !36, !noalias !33
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !33, !noalias !36
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !37, !noalias !34
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !34, !noalias !37
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !34
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !36, !noalias !33
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !33, !noalias !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !36, !noalias !33
   %incdec.ptr.i.i.i26 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 24
   %incdec.ptr1.i.i.i27 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 24
   %cmp.not.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i26, %0
-  br i1 %cmp.not.i.i.i28, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, label %for.body.i.i.i19, !llvm.loop !33
+  br i1 %cmp.not.i.i.i28, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, label %for.body.i.i.i19, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30: ; preds = %for.body.i.i.i19, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %__cur.0.lcssa.i.i.i29 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %incdec.ptr1.i.i.i27, %for.body.i.i.i19 ]
@@ -1600,7 +1600,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
-  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !39
+  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !38
 
 lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -1732,23 +1732,23 @@ _ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !43, !noalias !40
-  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !40, !noalias !43
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !42, !noalias !39
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !39, !noalias !42
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
-  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !40
-  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !40, !noalias !43
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !40
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !40, !noalias !43
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !40
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !42, !noalias !39
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !33
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -1759,23 +1759,23 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pred
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i12
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i20, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %9 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !48, !noalias !45
-  store ptr %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !45, !noalias !48
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %9 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !47, !noalias !44
+  store ptr %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !44, !noalias !47
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !48, !noalias !45
-  store ptr %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !45, !noalias !48
+  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !47, !noalias !44
+  store ptr %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !44, !noalias !47
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !48, !noalias !45
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !45, !noalias !48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !48, !noalias !45
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !47, !noalias !44
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !44, !noalias !47
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !47, !noalias !44
   %incdec.ptr.i.i.i19 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 24
   %incdec.ptr1.i.i.i20 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i19, %0
-  br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12, !llvm.loop !33
+  br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23: ; preds = %for.body.i.i.i12, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %__cur.0.lcssa.i.i.i22 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %incdec.ptr1.i.i.i20, %for.body.i.i.i12 ]
@@ -1852,23 +1852,23 @@ _ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !50, !noalias !53
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
-  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !53, !noalias !50
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !49
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !33
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit
   %tobool.not.i27 = icmp eq ptr %1, null
@@ -1937,7 +1937,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !54
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -1991,7 +1991,7 @@ for.inc.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i2
   %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i23, i64 8
   %__cur.010.i.i.i.i.i22.add = add nuw nsw i64 %__cur.010.i.i.i.i.i22.idx, 8
   %cmp.not.i.i.i.i.i38 = icmp eq ptr %incdec.ptr.i.i.i.i.i36, %0
-  br i1 %cmp.not.i.i.i.i.i38, label %invoke.cont14.loopexit, label %for.body.i.i.i.i.i21, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i38, label %invoke.cont14.loopexit, label %for.body.i.i.i.i.i21, !llvm.loop !54
 
 lpad.i.i.i.i.i24:                                 ; preds = %for.body.i.i.i.i.i21
   %9 = landingpad { ptr, i32 }
@@ -2169,54 +2169,53 @@ attributes #23 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!30 = distinct !{!30, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
-!31 = !{!32}
-!32 = distinct !{!32, !30, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!33 = distinct !{!33, !6, !7}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!36 = distinct !{!36, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
-!37 = !{!38}
-!38 = distinct !{!38, !36, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!39 = distinct !{!39, !6, !7}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!42 = distinct !{!42, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!47 = distinct !{!47, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
-!48 = !{!49}
-!49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
-!53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
-!55 = distinct !{!55, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!29 = distinct !{!29, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
+!30 = !{!31}
+!31 = distinct !{!31, !29, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!32 = distinct !{!32, !6}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!35 = distinct !{!35, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
+!36 = !{!37}
+!37 = distinct !{!37, !35, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!38 = distinct !{!38, !6}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!41 = distinct !{!41, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
+!42 = !{!43}
+!43 = distinct !{!43, !41, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
+!47 = !{!48}
+!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!51 = distinct !{!51, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_"}
+!52 = !{!53}
+!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aIN7msdfgen7ContourES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!54 = distinct !{!54, !6}

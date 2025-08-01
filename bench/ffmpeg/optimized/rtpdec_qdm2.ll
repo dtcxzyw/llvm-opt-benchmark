@@ -190,14 +190,14 @@ qdm2_parse_config.exit:                           ; preds = %43
   %116 = getelementptr inbounds nuw i8, ptr %24, i64 %115
   %117 = load ptr, ptr %29, align 8, !tbaa !13
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  store i32 86035, ptr %118, align 4, !tbaa !32
+  store i32 86035, ptr %118, align 4, !tbaa !31
   br label %.preheader
 
 119:                                              ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
   %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
-  %.pre91 = load i32, ptr %.phi.trans.insert90, align 4, !tbaa !32
+  %.pre91 = load i32, ptr %.phi.trans.insert90, align 4, !tbaa !31
   %120 = icmp eq i32 %.pre91, 0
   br i1 %120, label %qdm2_restore_block.exit, label %.preheader
 
@@ -265,7 +265,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %157 = add i64 %156, %154
   %158 = zext nneg i8 %130 to i64
   %159 = getelementptr inbounds nuw [128 x i16], ptr %125, i64 0, i64 %158
-  %160 = load i16, ptr %159, align 2, !tbaa !33
+  %160 = load i16, ptr %159, align 2, !tbaa !32
   %161 = zext i16 %160 to i64
   %162 = sub nsw i64 2048, %161
   %163 = tail call i64 @llvm.smin.i64(i64 %157, i64 %162)
@@ -275,7 +275,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %167 = and i64 %163, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr nonnull align 1 %129, i64 %167, i1 false)
   %168 = add i16 %160, %164
-  store i16 %168, ptr %159, align 2, !tbaa !33
+  store i16 %168, ptr %159, align 2, !tbaa !32
   %169 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %153
   %170 = ptrtoint ptr %169 to i64
   %171 = sub i64 %170, %128
@@ -289,13 +289,13 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %177 = ptrtoint ptr %176 to i64
   %178 = sub i64 %121, %177
   %179 = icmp sgt i64 %178, 3
-  br i1 %179, label %127, label %._crit_edge, !llvm.loop !35
+  br i1 %179, label %127, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %174, %.preheader
   %.2.lcssa = phi i32 [ %.15296, %.preheader ], [ %172, %174 ]
-  %180 = load i32, ptr %4, align 4, !tbaa !36
+  %180 = load i32, ptr %4, align 4, !tbaa !35
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 262420
-  store i32 %180, ptr %181, align 4, !tbaa !37
+  store i32 %180, ptr %181, align 4, !tbaa !36
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 262416
   %183 = load i32, ptr %182, align 4, !tbaa !10
   %184 = add i32 %183, 1
@@ -315,7 +315,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %192 = phi i32 [ 0, %188 ], [ %198, %197 ]
   %indvars.iv = phi i64 [ 0, %188 ], [ %indvars.iv.next, %197 ]
   %193 = getelementptr inbounds nuw [128 x i16], ptr %190, i64 0, i64 %indvars.iv
-  %194 = load i16, ptr %193, align 2, !tbaa !33
+  %194 = load i16, ptr %193, align 2, !tbaa !32
   %.not61 = icmp eq i16 %194, 0
   br i1 %.not61, label %197, label %195
 
@@ -328,7 +328,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %198 = phi i32 [ %192, %191 ], [ %196, %195 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %.loopexit, label %191, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %191, !llvm.loop !37
 
 .loopexit:                                        ; preds = %197, %..loopexit_crit_edge
   %199 = phi i32 [ %.pre93, %..loopexit_crit_edge ], [ %198, %197 ]
@@ -344,12 +344,12 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
 202:                                              ; preds = %203
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %.critedge71.i, label %203, !llvm.loop !39
+  br i1 %exitcond.not.i, label %.critedge71.i, label %203, !llvm.loop !38
 
 203:                                              ; preds = %202, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %202 ]
   %204 = getelementptr inbounds nuw [128 x i16], ptr %201, i64 0, i64 %indvars.iv.i
-  %205 = load i16, ptr %204, align 2, !tbaa !33
+  %205 = load i16, ptr %204, align 2, !tbaa !32
   %.not68.i = icmp eq i16 %205, 0
   br i1 %.not68.i, label %202, label %206
 
@@ -368,17 +368,17 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
 
 212:                                              ; preds = %206
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %214 = load ptr, ptr %213, align 8, !tbaa !40
+  %214 = load ptr, ptr %213, align 8, !tbaa !39
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %216 = load i32, ptr %215, align 8, !tbaa !41
+  %216 = load i32, ptr %215, align 8, !tbaa !40
   %217 = sext i32 %216 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %214, i8 0, i64 %217, i1 false)
   %218 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %219 = load i32, ptr %218, align 8, !tbaa !42
+  %219 = load i32, ptr %218, align 8, !tbaa !41
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %219, ptr %220, align 4, !tbaa !43
-  %221 = load ptr, ptr %213, align 8, !tbaa !40
-  %222 = load i16, ptr %207, align 2, !tbaa !33
+  store i32 %219, ptr %220, align 4, !tbaa !42
+  %221 = load ptr, ptr %213, align 8, !tbaa !39
+  %222 = load i16, ptr %207, align 2, !tbaa !32
   %223 = icmp ugt i16 %222, 255
   %224 = load i32, ptr %1, align 4, !tbaa !12
   %225 = trunc i32 %224 to i8
@@ -388,7 +388,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %227 = or i8 %225, -128
   %228 = getelementptr inbounds nuw i8, ptr %221, i64 1
   store i8 %227, ptr %221, align 1, !tbaa !9
-  %229 = load i16, ptr %207, align 2, !tbaa !33
+  %229 = load i16, ptr %207, align 2, !tbaa !32
   %230 = tail call i16 @llvm.bswap.i16(i16 %229)
   store i16 %230, ptr %228, align 1, !tbaa !9
   %231 = getelementptr inbounds nuw i8, ptr %221, i64 3
@@ -397,7 +397,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
 232:                                              ; preds = %212
   %233 = getelementptr inbounds nuw i8, ptr %221, i64 1
   store i8 %225, ptr %221, align 1, !tbaa !9
-  %234 = load i16, ptr %207, align 2, !tbaa !33
+  %234 = load i16, ptr %207, align 2, !tbaa !32
   %235 = trunc i16 %234 to i8
   %236 = getelementptr inbounds nuw i8, ptr %221, i64 2
   store i8 %235, ptr %233, align 1, !tbaa !9
@@ -419,11 +419,11 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %.not69.i = phi i1 [ false, %.critedge.i ], [ true, %237 ]
   %.1.i = phi ptr [ %239, %.critedge.i ], [ %.059.i, %237 ]
   %.058.i = phi ptr [ %.059.i, %.critedge.i ], [ null, %237 ]
-  %241 = load i16, ptr %207, align 2, !tbaa !33
+  %241 = load i16, ptr %207, align 2, !tbaa !32
   %242 = zext i16 %241 to i64
-  %243 = load i32, ptr %215, align 8, !tbaa !41
+  %243 = load i32, ptr %215, align 8, !tbaa !40
   %244 = sext i32 %243 to i64
-  %245 = load ptr, ptr %213, align 8, !tbaa !40
+  %245 = load ptr, ptr %213, align 8, !tbaa !39
   %246 = ptrtoint ptr %.1.i to i64
   %247 = ptrtoint ptr %245 to i64
   %.neg.i = sub i64 %244, %246
@@ -434,11 +434,11 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %sext.i = shl i64 %..i, 32
   %251 = ashr exact i64 %sext.i, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1.i, ptr nonnull align 4 %250, i64 %251, i1 false)
-  store i16 0, ptr %207, align 2, !tbaa !33
+  store i16 0, ptr %207, align 2, !tbaa !32
   br i1 %.not69.i, label %264, label %252
 
 252:                                              ; preds = %240
-  %253 = load ptr, ptr %213, align 8, !tbaa !40
+  %253 = load ptr, ptr %213, align 8, !tbaa !39
   %254 = load i32, ptr %208, align 4, !tbaa !28
   %255 = sext i32 %254 to i64
   %256 = getelementptr inbounds i8, ptr %253, i64 %255
@@ -453,7 +453,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %260 = add i16 %.05777.i, %259
   %261 = getelementptr inbounds nuw i8, ptr %.078.i, i64 1
   %262 = icmp ult ptr %261, %256
-  br i1 %262, label %.lr.ph.i64, label %._crit_edge.loopexit.i, !llvm.loop !44
+  br i1 %262, label %.lr.ph.i64, label %._crit_edge.loopexit.i, !llvm.loop !43
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i64
   %263 = tail call i16 @llvm.bswap.i16(i16 %260)
@@ -478,9 +478,9 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
 
 270:                                              ; preds = %268, %264
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 262420
-  %272 = load i32, ptr %271, align 4, !tbaa !37
-  store i32 %272, ptr %4, align 4, !tbaa !36
-  store i32 -1, ptr %271, align 4, !tbaa !37
+  %272 = load i32, ptr %271, align 4, !tbaa !36
+  store i32 %272, ptr %4, align 4, !tbaa !35
+  store i32 -1, ptr %271, align 4, !tbaa !36
   %273 = load i32, ptr %200, align 4, !tbaa !4
   %.not60 = icmp ne i32 %273, 0
   %274 = zext i1 %.not60 to i32
@@ -555,19 +555,18 @@ attributes #7 = { noreturn nounwind }
 !26 = !{!"AVCodecParameters", !6, i64 0, !6, i64 4, !6, i64 8, !23, i64 16, !6, i64 24, !24, i64 32, !6, i64 40, !6, i64 44, !19, i64 48, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !18, i64 80, !18, i64 88, !6, i64 96, !6, i64 100, !6, i64 104, !6, i64 108, !6, i64 112, !6, i64 116, !6, i64 120, !27, i64 128, !6, i64 152, !6, i64 156, !6, i64 160, !6, i64 164, !6, i64 168, !6, i64 172}
 !27 = !{!"AVChannelLayout", !6, i64 0, !6, i64 4, !7, i64 8, !16, i64 16}
 !28 = !{!5, !6, i64 4}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!26, !6, i64 4}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"short", !7, i64 0}
-!35 = distinct !{!35, !30, !31}
-!36 = !{!6, !6, i64 0}
-!37 = !{!5, !6, i64 262420}
-!38 = distinct !{!38, !30, !31}
-!39 = distinct !{!39, !30, !31}
-!40 = !{!21, !23, i64 24}
-!41 = !{!21, !6, i64 32}
-!42 = !{!14, !6, i64 8}
-!43 = !{!21, !6, i64 36}
-!44 = distinct !{!44, !30, !31}
+!31 = !{!26, !6, i64 4}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"short", !7, i64 0}
+!34 = distinct !{!34, !30}
+!35 = !{!6, !6, i64 0}
+!36 = !{!5, !6, i64 262420}
+!37 = distinct !{!37, !30}
+!38 = distinct !{!38, !30}
+!39 = !{!21, !23, i64 24}
+!40 = !{!21, !6, i64 32}
+!41 = !{!14, !6, i64 8}
+!42 = !{!21, !6, i64 36}
+!43 = distinct !{!43, !30}

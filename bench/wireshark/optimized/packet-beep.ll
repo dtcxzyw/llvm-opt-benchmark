@@ -480,7 +480,7 @@ define internal fastcc i32 @dissect_beep_tree(ptr noundef %0, i32 noundef %1, pt
 
 39:                                               ; preds = %38, %35
   %40 = add i32 %.013.i, 1
-  br label %28, !llvm.loop !8
+  br label %28
 
 header_len.exit:                                  ; preds = %32, %38, %38
   %41 = add i32 %.013.i, 2
@@ -703,7 +703,7 @@ set_mime_hdr_flags.exit:                          ; preds = %69, %79, %80, %81, 
 
 148:                                              ; preds = %147, %144
   %149 = add i32 %.013.i.i, 1
-  br label %137, !llvm.loop !8
+  br label %137
 
 header_len.exit.i:                                ; preds = %147, %147, %141
   %150 = load i32, ptr %134, align 4
@@ -1091,7 +1091,7 @@ define internal fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef readonl
   %15 = and i16 %14, 8
   %.not.i = icmp eq i16 %15, 0
   %16 = add i32 %.0.i, 1
-  br i1 %.not.i, label %num_len.exit, label %9, !llvm.loop !10
+  br i1 %.not.i, label %num_len.exit, label %9, !llvm.loop !8
 
 num_len.exit:                                     ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1131,7 +1131,7 @@ proto_item_set_hidden.exit:                       ; preds = %.lr.ph, %27, %30
   %36 = getelementptr ptr, ptr %6, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %proto_item_set_hidden.exit, %num_len.exit
   store i32 %21, ptr %5, align 4
@@ -1248,7 +1248,5 @@ attributes #8 = { allocsize(1) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

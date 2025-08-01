@@ -73,7 +73,7 @@ _ZN19OpenColorIO_v2_5dev12IndexMapping6resizeEm.exit: ; preds = %2
 
 _ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit:        ; preds = %6, %8
   %14 = icmp eq i64 %.add6, 16
-  br i1 %14, label %15, label %6, !llvm.loop !15
+  br i1 %14, label %15, label %6
 
 15:                                               ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit
   resume { ptr, i32 } %5
@@ -114,7 +114,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12IndexMappingD2Ev(ptr noundef nonnu
 
 _ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit:        ; preds = %2, %4
   %10 = icmp eq i64 %.add, 16
-  br i1 %10, label %11, label %2, !llvm.loop !17
+  br i1 %10, label %11, label %2
 
 11:                                               ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit
   ret void
@@ -144,7 +144,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12IndexMappingD0Ev(ptr noundef nonnu
 
 _ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit.i:      ; preds = %4, %2
   %10 = icmp eq i64 %.add.i, 16
-  br i1 %10, label %_ZN19OpenColorIO_v2_5dev12IndexMappingD2Ev.exit, label %2, !llvm.loop !17
+  br i1 %10, label %_ZN19OpenColorIO_v2_5dev12IndexMappingD2Ev.exit, label %2
 
 _ZN19OpenColorIO_v2_5dev12IndexMappingD2Ev.exit:  ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #16
@@ -157,7 +157,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = load ptr, ptr %0, align 8, !tbaa !10
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -183,9 +183,9 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr n
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
   %21 = shl nuw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !16
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
-  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !18
+  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !15
   br label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
@@ -204,21 +204,21 @@ _ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %22
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %8
   %30 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %30, i1 false), !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %30, i1 false), !tbaa !16
   %.not10.i.i.i.i.i = icmp eq ptr %5, %4
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %28, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %31 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !24, !noalias !21
-  store i64 %31, ptr %.012.i.i.i.i.i, align 4, !alias.scope !21, !noalias !24
+  %31 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !21, !noalias !18
+  store i64 %31, ptr %.012.i.i.i.i.i, align 4, !alias.scope !18, !noalias !21
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorISt4pairIffESaIS1_EE12_M_check_lenEmPKc.exit.i
   %.not.i35.i = icmp eq ptr %5, null
@@ -232,7 +232,7 @@ _ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %
 _ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds = %34, %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %29, i64 %12
-  store ptr %36, ptr %3, align 8, !tbaa !18
+  store ptr %36, ptr %3, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %26
   store ptr %37, ptr %13, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit
@@ -247,7 +247,7 @@ _ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds =
   br i1 %.not.i4, label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit, label %42
 
 42:                                               ; preds = %40
-  store ptr %41, ptr %3, align 8, !tbaa !18
+  store ptr %41, ptr %3, align 8, !tbaa !15
   br label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit
 
 _ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit: ; preds = %42, %40, %_ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit36.i, %_ZSt27__uninitialized_default_n_aIPSt4pairIffEmS1_ET_S3_T0_RSaIT1_E.exit.i, %38
@@ -278,7 +278,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = load ptr, ptr %5, align 8, !tbaa !10
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -302,7 +302,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 unwind label %29
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSolsEm.exit
-  %17 = load ptr, ptr %6, align 8, !tbaa !18
+  %17 = load ptr, ptr %6, align 8, !tbaa !15
   %18 = load ptr, ptr %5, align 8, !tbaa !10
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
@@ -322,7 +322,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %_ZNSo
           to label %26 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 26:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14
-  %27 = load ptr, ptr %4, align 8, !tbaa !28
+  %27 = load ptr, ptr %4, align 8, !tbaa !25
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %27)
           to label %28 unwind label %32
 
@@ -345,21 +345,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %.0 = phi i1 [ false, %28 ], [ true, %26 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %4, align 8, !tbaa !28
+  %34 = load ptr, ptr %4, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = icmp eq ptr %34, %35
   br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !32
+  %38 = load i64, ptr %37, align 8, !tbaa !29
   %39 = icmp ult i64 %38, 16
   call void @llvm.assume(i1 %39)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
   br i1 %.0, label %42, label %43
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32
-  %40 = load i64, ptr %35, align 8, !tbaa !33
+  %40 = load i64, ptr %35, align 8, !tbaa !30
   %41 = add i64 %40, 1
   call void @_ZdlPvm(ptr noundef %34, i64 noundef %41) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
@@ -416,11 +416,11 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping7getPairEmRfS1_(ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %1
-  %8 = load float, ptr %7, align 4, !tbaa !34
-  store float %8, ptr %2, align 4, !tbaa !19
+  %8 = load float, ptr %7, align 4, !tbaa !31
+  store float %8, ptr %2, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %10 = load float, ptr %9, align 4, !tbaa !36
-  store float %10, ptr %3, align 4, !tbaa !19
+  %10 = load float, ptr %9, align 4, !tbaa !33
+  store float %10, ptr %3, align 4, !tbaa !16
   ret void
 }
 
@@ -430,9 +430,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12IndexMapping7setPairEmff(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %1
-  store float %2, ptr %7, align 4, !tbaa !34
+  store float %2, ptr %7, align 4, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float %3, ptr %8, align 4, !tbaa !36
+  store float %3, ptr %8, align 4, !tbaa !33
   ret void
 }
 
@@ -452,7 +452,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping8validateEv(ptr nound
   %8 = zext i32 %7 to i64
   %9 = load i64, ptr %2, align 8, !tbaa !6
   %10 = icmp ugt i64 %9, %8
-  br i1 %10, label %11, label %._crit_edge, !llvm.loop !37
+  br i1 %10, label %11, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -463,17 +463,17 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping8validateEv(ptr nound
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %12)
   %13 = load ptr, ptr %5, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %12
-  %15 = load float, ptr %14, align 4, !tbaa !34
+  %15 = load float, ptr %14, align 4, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %17 = load float, ptr %16, align 4, !tbaa !36
+  %17 = load float, ptr %16, align 4, !tbaa !33
   %18 = add i32 %.010, -1
   %19 = zext i32 %18 to i64
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %19)
   %20 = load ptr, ptr %5, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %19
-  %22 = load float, ptr %21, align 4, !tbaa !34
+  %22 = load float, ptr %21, align 4, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !36
+  %24 = load float, ptr %23, align 4, !tbaa !33
   %25 = fcmp ugt float %15, %22
   %26 = fcmp ugt float %17, %24
   %or.cond = select i1 %25, i1 %26, i1 false
@@ -518,13 +518,13 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
   %12 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %9, i64 0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %10, i64 0, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = load ptr, ptr %12, align 8, !tbaa !10
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !18
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = load ptr, ptr %13, align 8, !tbaa !10
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
@@ -539,8 +539,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %36
   %.011.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %22, %27 ]
   %.0810.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %16, %27 ]
-  %28 = load float, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !34
-  %29 = load float, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !34
+  %28 = load float, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !31
+  %29 = load float, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !31
   %30 = fcmp une float %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 4
   %32 = load float, ptr %31, align 4
@@ -554,12 +554,12 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
   %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %37, %15
-  br i1 %.not.i.i.i.i.i.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i.i.i.i.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !35
 
 _ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %36, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %11, !llvm.loop !39
+  br i1 %exitcond, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %11, !llvm.loop !36
 
 _ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread: ; preds = %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, %11, %.lr.ph.i.i.i.i.i.i, %4, %2
   %.010 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i.i ], [ %26, %11 ], [ %26, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ]
@@ -629,28 +629,25 @@ attributes #19 = { nounwind }
 !12 = !{!"p1 _ZTSSt4pairIffE", !13, i64 0}
 !13 = !{!"any pointer", !9, i64 0}
 !14 = !{!11, !12, i64 16}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = !{!11, !12, i64 8}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"float", !9, i64 0}
+!15 = !{!11, !12, i64 8}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !9, i64 0}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!20 = distinct !{!20, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!23 = distinct !{!23, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_"}
-!24 = !{!25}
-!25 = distinct !{!25, !23, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!26 = distinct !{!26, !27, !16}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !31, i64 0}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !8, i64 8, !9, i64 16}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !31, i64 0}
-!31 = !{!"p1 omnipotent char", !13, i64 0}
-!32 = !{!29, !8, i64 8}
-!33 = !{!9, !9, i64 0}
-!34 = !{!35, !20, i64 0}
-!35 = !{!"_ZTSSt4pairIffE", !20, i64 0, !20, i64 4}
-!36 = !{!35, !20, i64 4}
-!37 = distinct !{!37, !27, !16}
-!38 = distinct !{!38, !27, !16}
-!39 = distinct !{!39, !27, !16}
+!22 = distinct !{!22, !20, !"_ZSt19__relocate_object_aISt4pairIffES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!26, !28, i64 0}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !8, i64 8, !9, i64 16}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
+!28 = !{!"p1 omnipotent char", !13, i64 0}
+!29 = !{!26, !8, i64 8}
+!30 = !{!9, !9, i64 0}
+!31 = !{!32, !17, i64 0}
+!32 = !{!"_ZTSSt4pairIffE", !17, i64 0, !17, i64 4}
+!33 = !{!32, !17, i64 4}
+!34 = distinct !{!34, !24}
+!35 = distinct !{!35, !24}
+!36 = distinct !{!36, !24}

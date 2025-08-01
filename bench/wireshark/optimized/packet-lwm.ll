@@ -556,7 +556,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %170 = load ptr, ptr %7, align 8
   %171 = call i32 @gcry_cipher_ctl(ptr noundef %170, i32 noundef 4, ptr noundef null, i64 noundef 0)
   %172 = icmp sgt i32 %169, 0
-  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %167, %121
   %173 = load ptr, ptr %7, align 8
@@ -973,7 +973,6 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

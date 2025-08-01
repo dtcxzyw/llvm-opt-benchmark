@@ -111,7 +111,7 @@ define internal fastcc void @gv_calloc(i64 noundef range(i64 -2147483648, 214748
   br i1 %mul.ov, label %2, label %5
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !25
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef 8) #7
   tail call fastcc void @graphviz_exit() #8
   unreachable
@@ -176,8 +176,7 @@ attributes #9 = { cold noreturn nounwind }
 !20 = !{!17, !5, i64 48}
 !21 = !{!17, !19, i64 56}
 !22 = !{!19, !19, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}

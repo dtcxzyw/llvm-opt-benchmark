@@ -206,7 +206,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 91:                                               ; preds = %.loopexit, %.lr.ph106
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !10
+  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %91, %62, %69
   %92 = load ptr, ptr %19, align 8
@@ -559,7 +559,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

@@ -40,9 +40,9 @@ define void @calculate_columns(ptr noundef readonly captures(none) %0, ptr nound
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.0.lcssa = phi i32 [ 2, %2 ], [ %14, %._crit_edge.loopexit ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.0.lcssa, ptr %15, align 4, !tbaa !15
+  store i32 %.0.lcssa, ptr %15, align 4, !tbaa !14
   %16 = udiv i32 79, %.0.lcssa
-  store i32 %16, ptr %1, align 4, !tbaa !17
+  store i32 %16, ptr %1, align 4, !tbaa !16
   ret void
 }
 
@@ -71,9 +71,8 @@ attributes #3 = { nounwind willreturn memory(read) }
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!"p1 _ZTS10options_st", !9, i64 0}
 !11 = !{!4, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !5, i64 4}
-!16 = !{!"", !5, i64 0, !5, i64 4}
-!17 = !{!16, !5, i64 0}
+!14 = !{!15, !5, i64 4}
+!15 = !{!"", !5, i64 0, !5, i64 4}
+!16 = !{!15, !5, i64 0}

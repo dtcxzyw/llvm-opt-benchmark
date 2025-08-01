@@ -762,7 +762,7 @@ if.end141.i:                                      ; preds = %_ZNK8QuantLib8Solve
   %flipflop.1.i = phi i32 [ %flipflop.0287.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit101.i ], [ %flipflop.0287.i, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit119.i ], [ 0, %if.else111.i ], [ 1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit137.i ], [ -1, %_ZNK8QuantLib8Solver1DINS_5BrentEE14enforceBounds_Ed.exit155.i ]
   %inc143.i = add i64 %solver.sroa.77.2, 1
   %cmp60.not.i = icmp ugt i64 %inc143.i, %0
-  br i1 %cmp60.not.i, label %do.body144.i, label %while.body.i, !llvm.loop !24
+  br i1 %cmp60.not.i, label %do.body144.i, label %while.body.i, !llvm.loop !23
 
 do.body144.i:                                     ; preds = %if.end141.i, %if.end58.i
   %solver.sroa.58.7 = phi double [ %solver.sroa.58.0, %if.end58.i ], [ %solver.sroa.58.6, %if.end141.i ]
@@ -998,7 +998,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !25
+  store ptr %0, ptr %this, align 8, !tbaa !24
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1009,14 +1009,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #16
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !26
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !25
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i5, ptr %this, align 8, !tbaa !14
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !26
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !25
   store i64 %1, ptr %0, align 8, !tbaa !18
   br label %if.end.i
 
@@ -1037,7 +1037,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !26
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !25
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !17
   %5 = load ptr, ptr %this, align 8, !tbaa !14
@@ -1057,7 +1057,7 @@ define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 der
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !19
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !27
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !26
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -1195,11 +1195,10 @@ attributes #19 = { noreturn nounwind }
 !18 = !{!6, !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"vtable pointer", !7, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = !{!16, !5, i64 0}
-!26 = !{!9, !9, i64 0}
-!27 = !{!28, !5, i64 0}
-!28 = !{!"_ZTSN5boost6detail12shared_countE", !5, i64 0}
+!23 = distinct !{!23, !22}
+!24 = !{!16, !5, i64 0}
+!25 = !{!9, !9, i64 0}
+!26 = !{!27, !5, i64 0}
+!27 = !{!"_ZTSN5boost6detail12shared_countE", !5, i64 0}

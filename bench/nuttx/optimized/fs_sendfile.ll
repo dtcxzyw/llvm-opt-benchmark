@@ -96,11 +96,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   %.4.i = phi i64 [ %36, %33 ], [ %.3.i, %37 ]
   %.1.i = phi ptr [ %34, %33 ], [ %.055.i, %37 ]
   %41 = icmp sgt i64 %.163.i, 0
-  br i1 %41, label %.critedge.i, label %.critedge.thread.i, !llvm.loop !9
+  br i1 %41, label %.critedge.i, label %.critedge.thread.i, !llvm.loop !8
 
 .critedge.thread.i:                               ; preds = %40
   %.not101.i = icmp ult i64 %.4.i, %3
-  br i1 %.not101.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !10
+  br i1 %.not101.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !9
 
 .critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader.split.us.i, %30, %.preheader.split.i, %37
   %.26095.i = phi i64 [ %31, %37 ], [ %.05886.fr.i, %.preheader.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader.split.us.i ]
@@ -201,8 +201,7 @@ attributes #6 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

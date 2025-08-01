@@ -27,7 +27,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
 7:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.split.loop.exit34:                    ; preds = %.lr.ph
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -48,11 +48,11 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
   %15 = getelementptr inbounds i8, ptr %.01622, i64 -1
-  store i8 %14, ptr %.01622, align 1, !tbaa !10
+  store i8 %14, ptr %.01622, align 1, !tbaa !8
   %16 = lshr i32 %.01721, 6
   %17 = add nsw i32 %.023, -1
   %18 = icmp samesign ugt i32 %.023, 1
-  br i1 %18, label %.lr.ph25, label %._crit_edge26, !llvm.loop !11
+  br i1 %18, label %.lr.ph25, label %._crit_edge26
 
 ._crit_edge26:                                    ; preds = %.lr.ph25, %2, %._crit_edge
   %19 = phi i64 [ %9, %._crit_edge ], [ 0, %2 ], [ %9, %.lr.ph25 ]
@@ -63,7 +63,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = or i32 %21, %.017.lcssa
   %23 = trunc i32 %22 to i8
-  store i8 %23, ptr %.016.lcssa, align 1, !tbaa !10
+  store i8 %23, ptr %.016.lcssa, align 1, !tbaa !8
   %24 = add nuw nsw i32 %.015.lcssa32, 1
   ret i32 %24
 }
@@ -80,7 +80,4 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
+!8 = !{!6, !6, i64 0}

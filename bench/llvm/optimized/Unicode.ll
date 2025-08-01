@@ -101,7 +101,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRe
   %.02445 = phi i32 [ 0, %.lr.ph ], [ %.226, %49 ]
   %.02944 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi53, %49 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.02944
-  %9 = load i8, ptr %8, align 1, !tbaa !6
+  %9 = load i8, ptr %8, align 1, !tbaa !5
   %10 = call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %9) #4
   switch i32 %10, label %17 [
     i32 1, label %11
@@ -109,7 +109,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRe
   ]
 
 11:                                               ; preds = %7
-  %12 = load i8, ptr %8, align 1, !tbaa !6
+  %12 = load i8, ptr %8, align 1, !tbaa !5
   %13 = add i8 %12, -32
   %14 = icmp ult i8 %13, 95
   br i1 %14, label %15, label %.loopexit
@@ -128,16 +128,16 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRe
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr %8, ptr %4, align 8, !tbaa !9
+  store ptr %8, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr %3, ptr %5, align 8, !tbaa !12
+  store ptr %3, ptr %5, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   %23 = call noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %.loopexit.sink.split
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %3, align 4, !tbaa !14
+  %25 = load i32, ptr %3, align 4, !tbaa !13
   %26 = icmp eq i32 %25, 173
   br i1 %26, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i
 
@@ -242,7 +242,7 @@ _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i: ; preds = %_ZSt13__lower_boun
   %.pre-phi53 = phi i64 [ %19, %.thread39 ], [ %.pre52, %15 ]
   %.226 = phi i32 [ %48, %.thread39 ], [ %16, %15 ]
   %.not32 = icmp ult i64 %.pre-phi53, %1
-  br i1 %.not32, label %7, label %.loopexit, !llvm.loop !16
+  br i1 %.not32, label %7, label %.loopexit, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, %_ZN4llvm3sys7unicode11isPrintableEi.exit.i, %21
   %spec.select.ph = phi i32 [ -2, %21 ], [ -1, %_ZN4llvm3sys7unicode11isPrintableEi.exit.i ], [ -1, %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i ]
@@ -277,17 +277,16 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C++ TBAA"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !7, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 int", !11, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !4, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 int", !10, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = distinct !{!15, !4}

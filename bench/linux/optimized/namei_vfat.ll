@@ -319,7 +319,7 @@ define internal i32 @vfat_unlink(ptr noundef %0, ptr noundef captures(none) %1) 
   %22 = getelementptr i8, ptr %16, i64 %18
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 46
-  br i1 %24, label %17, label %25, !llvm.loop !10
+  br i1 %24, label %17, label %25, !llvm.loop !6
 
 25:                                               ; preds = %20
   %26 = trunc nuw i64 %18 to i32
@@ -461,7 +461,7 @@ define internal i32 @vfat_rmdir(ptr noundef %0, ptr noundef captures(none) %1) #
   %25 = getelementptr i8, ptr %19, i64 %21
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 46
-  br i1 %27, label %20, label %28, !llvm.loop !11
+  br i1 %27, label %20, label %28, !llvm.loop !6
 
 28:                                               ; preds = %23
   %29 = trunc nuw i64 %21 to i32
@@ -941,7 +941,7 @@ define internal i32 @vfat_rename2(ptr readnone captures(none) %0, ptr noundef %1
   %267 = getelementptr i8, ptr %261, i64 %263
   %268 = load i8, ptr %267, align 1
   %269 = icmp eq i8 %268, 46
-  br i1 %269, label %262, label %270, !llvm.loop !12
+  br i1 %269, label %262, label %270, !llvm.loop !6
 
 270:                                              ; preds = %265
   %271 = trunc nuw i64 %263 to i32
@@ -1305,7 +1305,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %31 = getelementptr i8, ptr %25, i64 %27
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 46
-  br i1 %33, label %26, label %34, !llvm.loop !13
+  br i1 %33, label %26, label %34, !llvm.loop !6
 
 34:                                               ; preds = %29
   %35 = trunc nuw i64 %27 to i32
@@ -1436,7 +1436,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %109 = getelementptr i8, ptr %75, i64 2
   %110 = add nuw nsw i32 %73, 1
   %111 = icmp slt i32 %108, %35
-  br i1 %111, label %72, label %.loopexit95, !llvm.loop !14
+  br i1 %111, label %72, label %.loopexit95, !llvm.loop !9
 
 .loopexit95:                                      ; preds = %106, %68
   %112 = phi i32 [ %64, %68 ], [ %110, %106 ]
@@ -1500,7 +1500,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 139:                                              ; preds = %138
   %140 = add nuw nsw i64 %134, 1
   %141 = icmp eq i64 %140, %132
-  br i1 %141, label %142, label %133, !llvm.loop !15
+  br i1 %141, label %142, label %133, !llvm.loop !10
 
 142:                                              ; preds = %139
   %143 = zext nneg i32 %131 to i64
@@ -1542,7 +1542,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 162:                                              ; preds = %158
   %163 = load i16, ptr %160, align 2
   %164 = icmp eq i16 %163, 46
-  br i1 %164, label %165, label %158, !llvm.loop !16
+  br i1 %164, label %165, label %158, !llvm.loop !11
 
 165:                                              ; preds = %162
   %166 = icmp eq ptr %159, %157
@@ -1576,7 +1576,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 179:                                              ; preds = %.preheader, %.preheader
   %180 = getelementptr i8, ptr %177, i64 2
   %181 = icmp ult ptr %180, %169
-  br i1 %181, label %.preheader, label %.loopexit91, !llvm.loop !17
+  br i1 %181, label %.preheader, label %.loopexit91, !llvm.loop !12
 
 .loopexit91:                                      ; preds = %179, %.preheader, %175
   %182 = phi ptr [ %46, %175 ], [ %177, %.preheader ], [ %180, %179 ]
@@ -1712,7 +1712,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %263 = getelementptr i8, ptr %257, i64 1
   %264 = add nuw nsw i64 %255, 1
   %265 = icmp eq i64 %264, %253
-  br i1 %265, label %.loopexit90, label %254, !llvm.loop !18
+  br i1 %265, label %.loopexit90, label %254, !llvm.loop !13
 
 266:                                              ; preds = %254
   %267 = trunc i64 %255 to i32
@@ -1742,7 +1742,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %284 = add nuw nsw i32 %201, 1
   %285 = getelementptr i8, ptr %204, i64 2
   %286 = icmp eq i32 %284, %193
-  br i1 %286, label %287, label %198, !llvm.loop !19
+  br i1 %286, label %287, label %198, !llvm.loop !14
 
 287:                                              ; preds = %.loopexit90
   %288 = icmp eq i32 %281, 0
@@ -1855,7 +1855,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   store i8 %347, ptr %345, align 1
   %349 = add nuw nsw i64 %344, 1
   %350 = icmp eq i64 %349, %342
-  br i1 %350, label %351, label %343, !llvm.loop !20
+  br i1 %350, label %351, label %343, !llvm.loop !15
 
 351:                                              ; preds = %343
   %352 = icmp eq i32 %339, 3
@@ -1873,7 +1873,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %360 = phi i32 [ %297, %336 ], [ %339, %351 ]
   %361 = getelementptr i8, ptr %299, i64 2
   %362 = icmp ult ptr %361, %157
-  br i1 %362, label %.preheader177, label %.loopexit86.loopexit, !llvm.loop !21
+  br i1 %362, label %.preheader177, label %.loopexit86.loopexit, !llvm.loop !16
 
 .loopexit86.loopexit:                             ; preds = %338, %357
   %.ph120 = phi i8 [ %.ph64, %338 ], [ %358, %357 ]
@@ -1968,8 +1968,8 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   br label %570
 
 414:                                              ; preds = %400
-  call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #17, !srcloc !22
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 464, i32 0, i64 12) #17, !srcloc !23
+  call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #17, !srcloc !17
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 464, i32 0, i64 12) #17, !srcloc !18
   unreachable
 
 415:                                              ; preds = %.loopexit86
@@ -2045,7 +2045,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
   %451 = add nuw nsw i32 %441, 1
   %452 = icmp eq i32 %451, 10
-  br i1 %452, label %453, label %440, !llvm.loop !24
+  br i1 %452, label %453, label %440, !llvm.loop !19
 
 453:                                              ; preds = %450
   %454 = load volatile i64, ptr @jiffies, align 64
@@ -2111,7 +2111,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
   %490 = call i32 @fat_scan(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %7) #17
   %491 = icmp eq i32 %490, 0
-  br i1 %491, label %480, label %.loopexit85, !llvm.loop !25
+  br i1 %491, label %480, label %.loopexit85, !llvm.loop !20
 
 492:                                              ; preds = %420
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #17
@@ -2230,7 +2230,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %562 = add nsw i64 %545, -1
   %563 = getelementptr i8, ptr %546, i64 32
   %564 = icmp samesign ugt i64 %545, 1
-  br i1 %564, label %544, label %.loopexit, !llvm.loop !26
+  br i1 %564, label %544, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %544, %499
   %565 = phi ptr [ %37, %499 ], [ %563, %544 ]
@@ -2556,7 +2556,7 @@ define internal noundef i32 @vfat_hashi(ptr noundef %0, ptr noundef captures(non
   %21 = getelementptr i8, ptr %14, i64 %16
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 46
-  br i1 %23, label %15, label %24, !llvm.loop !27
+  br i1 %23, label %15, label %24, !llvm.loop !6
 
 24:                                               ; preds = %19
   %25 = ptrtoint ptr %0 to i64
@@ -2584,7 +2584,7 @@ define internal noundef i32 @vfat_hashi(ptr noundef %0, ptr noundef captures(non
   %45 = add i64 %43, %44
   %46 = mul i64 %45, 11
   %47 = icmp eq i32 %33, 0
-  br i1 %47, label %.loopexit, label %29, !llvm.loop !28
+  br i1 %47, label %.loopexit, label %29, !llvm.loop !22
 
 .loopexit:                                        ; preds = %29, %.thread
   %48 = phi i64 [ %18, %.thread ], [ %46, %29 ]
@@ -2621,7 +2621,7 @@ define internal noundef range(i32 0, 2) i32 @vfat_cmpi(ptr noundef readonly capt
   %22 = getelementptr i8, ptr %16, i64 %18
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 46
-  br i1 %24, label %17, label %25, !llvm.loop !29
+  br i1 %24, label %17, label %25, !llvm.loop !6
 
 25:                                               ; preds = %20
   %26 = trunc nuw i64 %18 to i32
@@ -2643,7 +2643,7 @@ define internal noundef range(i32 0, 2) i32 @vfat_cmpi(ptr noundef readonly capt
   %35 = getelementptr i8, ptr %29, i64 %31
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 46
-  br i1 %37, label %30, label %38, !llvm.loop !30
+  br i1 %37, label %30, label %38, !llvm.loop !6
 
 38:                                               ; preds = %33
   %39 = trunc nuw i64 %31 to i32
@@ -2683,7 +2683,7 @@ define internal noundef range(i32 0, 2) i32 @vfat_cmpi(ptr noundef readonly capt
   %64 = icmp eq i8 %63, 0
   %65 = select i1 %64, i8 %60, i8 %63
   %66 = icmp eq i8 %58, %65
-  br i1 %66, label %44, label %.loopexit, !llvm.loop !31
+  br i1 %66, label %44, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %49, %44, %.loopexit4
   %67 = phi i32 [ 1, %.loopexit4 ], [ 1, %49 ], [ 0, %44 ]
@@ -2751,7 +2751,7 @@ define internal noundef i32 @vfat_hash(ptr noundef %0, ptr noundef captures(none
   %14 = getelementptr i8, ptr %8, i64 %10
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 46
-  br i1 %16, label %9, label %17, !llvm.loop !32
+  br i1 %16, label %9, label %17, !llvm.loop !6
 
 17:                                               ; preds = %12
   %18 = trunc nuw i64 %10 to i32
@@ -2784,7 +2784,7 @@ define internal noundef range(i32 0, 2) i32 @vfat_cmp(ptr readnone captures(none
   %16 = getelementptr i8, ptr %10, i64 %12
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 46
-  br i1 %18, label %11, label %19, !llvm.loop !33
+  br i1 %18, label %11, label %19, !llvm.loop !6
 
 19:                                               ; preds = %14
   %20 = trunc nuw i64 %12 to i32
@@ -2806,7 +2806,7 @@ define internal noundef range(i32 0, 2) i32 @vfat_cmp(ptr readnone captures(none
   %29 = getelementptr i8, ptr %23, i64 %25
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 46
-  br i1 %31, label %24, label %32, !llvm.loop !34
+  br i1 %31, label %24, label %32, !llvm.loop !6
 
 32:                                               ; preds = %27
   %33 = trunc nuw i64 %25 to i32
@@ -2873,32 +2873,21 @@ attributes #20 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = !{i64 2154958978, i64 2154958787, i64 2154958839, i64 2154958885, i64 2154958913}
-!23 = !{i64 2154959052, i64 2154959081, i64 2154959127, i64 2154959185, i64 2154959239, i64 2154959293, i64 2154959348, i64 2154959379}
-!24 = distinct !{!24, !7, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !7, !8, !9}
-!27 = distinct !{!27, !7, !8, !9}
-!28 = distinct !{!28, !7, !8, !9}
-!29 = distinct !{!29, !7, !8, !9}
-!30 = distinct !{!30, !7, !8, !9}
-!31 = distinct !{!31, !7, !8, !9}
-!32 = distinct !{!32, !7, !8, !9}
-!33 = distinct !{!33, !7, !8, !9}
-!34 = distinct !{!34, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{i64 2154958978, i64 2154958787, i64 2154958839, i64 2154958885, i64 2154958913}
+!18 = !{i64 2154959052, i64 2154959081, i64 2154959127, i64 2154959185, i64 2154959239, i64 2154959293, i64 2154959348, i64 2154959379}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

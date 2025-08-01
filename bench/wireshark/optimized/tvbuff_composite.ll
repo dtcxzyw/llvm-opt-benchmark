@@ -338,7 +338,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   %15 = tail call i32 @g_queue_get_length(ptr noundef %14)
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %8, label %.thread, !llvm.loop !11
+  br i1 %17, label %8, label %.thread, !llvm.loop !10
 
 18:                                               ; preds = %8
   %19 = load ptr, ptr %.03445, align 8
@@ -429,7 +429,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
   %16 = tail call i32 @g_queue_get_length(ptr noundef %15)
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %9, label %.thread, !llvm.loop !12
+  br i1 %18, label %9, label %.thread, !llvm.loop !11
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr %.069, align 8
@@ -564,8 +564,7 @@ attributes #9 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

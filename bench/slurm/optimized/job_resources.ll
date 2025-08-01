@@ -167,7 +167,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %47 = load ptr, ptr %28, align 8
   %48 = call ptr @next_node_bitmap(ptr noundef %47, ptr noundef nonnull %4) #4
   %.not60.us = icmp eq ptr %48, null
-  br i1 %.not60.us, label %.loopexit, label %.lr.ph86.split.us, !llvm.loop !12
+  br i1 %.not60.us, label %.loopexit, label %.lr.ph86.split.us, !llvm.loop !11
 
 .preheader.us:                                    ; preds = %.lr.ph86.split.us
   %49 = getelementptr inbounds nuw i8, ptr %33, i64 512
@@ -205,7 +205,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
 63:                                               ; preds = %56, %61, %.lr.ph79.us
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %._crit_edge.split.us.us, label %.lr.ph79.us, !llvm.loop !14
+  br i1 %exitcond109.not, label %._crit_edge.split.us.us, label %.lr.ph79.us, !llvm.loop !13
 
 .lr.ph86.split:                                   ; preds = %.lr.ph86, %110
   %64 = phi ptr [ %114, %110 ], [ %30, %.lr.ph86 ]
@@ -315,7 +315,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
 108:                                              ; preds = %100, %103, %106, %97, %.lr.ph79
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph79, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph79, !llvm.loop !14
 
 ._crit_edge.split:                                ; preds = %108, %.preheader
   %109 = add nsw i32 %.05182, %69
@@ -335,7 +335,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %113 = load ptr, ptr %28, align 8
   %114 = call ptr @next_node_bitmap(ptr noundef %113, ptr noundef nonnull %4) #4
   %.not60 = icmp eq ptr %114, null
-  br i1 %.not60, label %.loopexit, label %.lr.ph86.split, !llvm.loop !16
+  br i1 %.not60, label %.loopexit, label %.lr.ph86.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %110, %87, %106, %44, %42, %61, %.loopexit70
   %.not6076 = phi i32 [ 1, %.loopexit70 ], [ 0, %61 ], [ 1, %44 ], [ 0, %42 ], [ 0, %106 ], [ 1, %110 ], [ 0, %87 ]
@@ -453,7 +453,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   %35 = load ptr, ptr %24, align 8
   %36 = call ptr @next_node_bitmap(ptr noundef %35, ptr noundef nonnull %3) #4
   %.not99.us = icmp eq ptr %36, null
-  br i1 %.not99.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not99.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ -1, %.lr.ph ]
@@ -564,7 +564,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   %101 = load ptr, ptr %24, align 8
   %102 = call ptr @next_node_bitmap(ptr noundef %101, ptr noundef nonnull %3) #4
   %.not99 = icmp eq ptr %102, null
-  br i1 %.not99, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not99, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %98, %21
   %cond = icmp eq i32 %1, 2
@@ -596,7 +596,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %110, align 8
   %116 = icmp eq ptr %114, %115
-  br i1 %116, label %121, label %111, !llvm.loop !19
+  br i1 %116, label %121, label %111, !llvm.loop !18
 
 .critedge:                                        ; preds = %111
   %117 = load ptr, ptr %110, align 8
@@ -611,7 +611,7 @@ job_res_job_action_string.exit:                   ; preds = %14, %switch.lookup
 121:                                              ; preds = %112
   %122 = getelementptr inbounds nuw i8, ptr %.085, i64 16
   %123 = getelementptr inbounds nuw i8, ptr %.085, i64 24
-  %124 = load i8, ptr %123, align 8, !range !20, !noundef !21
+  %124 = load i8, ptr %123, align 8, !range !19, !noundef !20
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %127
 
@@ -691,7 +691,7 @@ job_res_fit_in_row.exit.thread:                   ; preds = %.lr.ph128, %144, %j
   %163 = load i16, ptr %136, align 8
   %164 = zext i16 %163 to i32
   %165 = icmp slt i32 %162, %164
-  br i1 %165, label %.lr.ph128, label %.loopexit, !llvm.loop !22
+  br i1 %165, label %.lr.ph128, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %160, %135, %155
   %166 = phi i16 [ %.pre146, %155 ], [ 0, %135 ], [ %163, %160 ]
@@ -773,7 +773,7 @@ job_res_fit_in_row.exit.thread:                   ; preds = %.lr.ph128, %144, %j
   %211 = load ptr, ptr %24, align 8
   %212 = call ptr @next_node_bitmap(ptr noundef %211, ptr noundef nonnull %3) #4
   %.not109 = icmp eq ptr %212, null
-  br i1 %.not109, label %._crit_edge133, label %177, !llvm.loop !23
+  br i1 %.not109, label %._crit_edge133, label %177, !llvm.loop !22
 
 ._crit_edge133:                                   ; preds = %208, %171
   %213 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -848,7 +848,7 @@ define dso_local range(i32 -1, 1) i32 @job_res_rm_job(ptr noundef %0, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 440
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  %11 = load i8, ptr @select_state_initializing, align 1, !range !20, !noundef !21
+  %11 = load i8, ptr @select_state_initializing, align 1, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %17
 
@@ -980,7 +980,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   %66 = load ptr, ptr %52, align 8
   %67 = call ptr @next_node_bitmap(ptr noundef %66, ptr noundef nonnull %7) #4
   %.not147.us = icmp eq ptr %67, null
-  br i1 %.not147.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not147.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %indvars.iv = phi i64 [ %indvars.iv.next, %108 ], [ -1, %.lr.ph ]
@@ -1060,7 +1060,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   %111 = load ptr, ptr %52, align 8
   %112 = call ptr @next_node_bitmap(ptr noundef %111, ptr noundef nonnull %7) #4
   %.not147 = icmp eq ptr %112, null
-  br i1 %.not147, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %.not147, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %108, %63, %47
   %.not148 = icmp eq i32 %4, 1
@@ -1090,7 +1090,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
 121:                                              ; preds = %.lr.ph185
   %122 = load ptr, ptr %.0115184, align 8
   %.not150 = icmp eq ptr %122, null
-  br i1 %.not150, label %.critedge, label %.lr.ph185, !llvm.loop !26
+  br i1 %.not150, label %.critedge, label %.lr.ph185, !llvm.loop !25
 
 .critedge:                                        ; preds = %121, %.preheader174
   %123 = getelementptr inbounds nuw i8, ptr %115, i64 232
@@ -1182,18 +1182,18 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   %170 = add i32 %169, -1
   %171 = zext i32 %170 to i64
   %172 = icmp samesign ult i64 %indvars.iv.next223, %171
-  br i1 %172, label %.lr.ph190, label %.loopexit.thread, !llvm.loop !27
+  br i1 %172, label %.lr.ph190, label %.loopexit.thread, !llvm.loop !26
 
 173:                                              ; preds = %140
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %140, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %140, !llvm.loop !27
 
 .loopexit:                                        ; preds = %173, %.preheader
   %174 = add nsw i32 %storemerge152194, 1
   store i32 %174, ptr %7, align 4
   %175 = icmp slt i32 %174, %133
-  br i1 %175, label %.preheader, label %._crit_edge196, !llvm.loop !29
+  br i1 %175, label %.preheader, label %._crit_edge196, !llvm.loop !28
 
 .loopexit.thread:                                 ; preds = %.lr.ph190, %152
   %.1.lcssa = phi i64 [ %indvars.iv218, %152 ], [ %indvars.iv.next223, %.lr.ph190 ]
@@ -1213,7 +1213,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   store i32 %185, ptr %7, align 4
   %186 = zext i16 %183 to i32
   %187 = icmp samesign ult i32 %185, %186
-  br i1 %187, label %.preheader.outer, label %._crit_edge196.thread235, !llvm.loop !29
+  br i1 %187, label %.preheader.outer, label %._crit_edge196.thread235, !llvm.loop !28
 
 ._crit_edge196.thread235:                         ; preds = %.loopexit.thread
   %188 = icmp eq i16 %183, 1
@@ -1317,7 +1317,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   %239 = load ptr, ptr %52, align 8
   %240 = call ptr @next_node_bitmap(ptr noundef %239, ptr noundef nonnull %7) #4
   %.not159 = icmp eq ptr %240, null
-  br i1 %.not159, label %.thread, label %200, !llvm.loop !30
+  br i1 %.not159, label %.thread, label %200, !llvm.loop !29
 
 ._crit_edge196.thread:                            ; preds = %.preheader173, %._crit_edge196
   %241 = icmp eq i32 %4, 0
@@ -1369,7 +1369,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   %263 = load ptr, ptr %251, align 8
   %264 = call ptr @next_node_bitmap(ptr noundef %263, ptr noundef nonnull %8) #4
   %.not156 = icmp eq ptr %264, null
-  br i1 %.not156, label %._crit_edge206, label %.lr.ph205, !llvm.loop !31
+  br i1 %.not156, label %._crit_edge206, label %.lr.ph205, !llvm.loop !30
 
 .thread:                                          ; preds = %236, %194, %._crit_edge206, %245, %242, %._crit_edge196.thread, %._crit_edge
   %265 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -1432,27 +1432,26 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9, !10, !11, !13}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11, !13}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11, !13}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9, !10, !12}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10, !12}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10, !12}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}

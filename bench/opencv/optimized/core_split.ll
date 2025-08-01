@@ -39,7 +39,7 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #7
   %.add = add nuw nsw i64 %.idx, 96
   %5 = icmp eq i64 %.add, 288
-  br i1 %5, label %6, label %4, !llvm.loop !4
+  br i1 %5, label %6, label %4
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -56,7 +56,7 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   %11 = getelementptr inbounds i8, ptr %10, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #7
   %12 = icmp eq ptr %11, %3
-  br i1 %12, label %13, label %.preheader, !llvm.loop !6
+  br i1 %12, label %13, label %.preheader
 
 13:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #7
@@ -70,7 +70,7 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   %16 = getelementptr inbounds i8, ptr %15, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #7
   %17 = icmp eq ptr %16, %3
-  br i1 %17, label %18, label %14, !llvm.loop !7
+  br i1 %17, label %18, label %14
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #7
@@ -123,7 +123,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}

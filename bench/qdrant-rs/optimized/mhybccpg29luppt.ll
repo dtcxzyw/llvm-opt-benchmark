@@ -204,7 +204,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hc1bf6c2ae1441d9dE.exit.
   %59 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !3
   %60 = add i64 %59, 16
   store i64 %60, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %48, !llvm.loop !4
+  br label %48
 
 .critedge.i.i.loopexit:                           ; preds = %79
   %.pre = load i64, ptr %15, align 8
@@ -262,7 +262,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hc1bf6c2ae1441d9dE.exit.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %86, ptr noundef nonnull align 1 dereferenceable(56) %83, i64 56, i1 false)
   %.pr = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %87 = icmp eq i64 %.pr, 0
-  br i1 %87, label %.critedge.i.i.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %87, label %.critedge.i.i.loopexit, label %.lr.ph
 
 88:                                               ; preds = %.loopexit.split-lp
   %89 = landingpad { ptr, i32 }
@@ -295,7 +295,7 @@ _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h0cd44c26f5acc96bE.exit:
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4719b322bc8343daE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %6 = tail call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %5, i64 %2)
   %7 = icmp ne ptr %6, null
@@ -349,9 +349,9 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hee7d0555ec34a7f4E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = tail call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %6, i64 %1)
   %8 = icmp ne ptr %7, null
@@ -480,7 +480,4 @@ attributes #11 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.1 (7cf61ebde 2024-03-27)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = !{i64 8}
+!4 = !{i64 8}

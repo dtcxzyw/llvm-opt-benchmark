@@ -61,7 +61,7 @@ define dso_local i32 @pg_char_and_wchar_strncmp(ptr noundef readonly captures(no
   %14 = add i64 %.0, -1
   %.not13 = icmp eq i64 %14, 0
   %or.cond = select i1 %12, i1 true, i1 %.not13
-  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %10, %3, %8
   %.09 = phi i32 [ %9, %8 ], [ 0, %3 ], [ 0, %10 ]
@@ -89,7 +89,6 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

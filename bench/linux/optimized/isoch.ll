@@ -116,7 +116,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
 58:                                               ; preds = %40, %36
   %59 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %37) #7
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit38, label %36, !llvm.loop !10
+  br i1 %60, label %.loopexit38, label %36, !llvm.loop !6
 
 .preheader36:                                     ; preds = %.loopexit38, %122
   %61 = phi ptr [ %123, %122 ], [ %34, %.loopexit38 ]
@@ -148,7 +148,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %80 = trunc i32 %79 to i8
   store i8 %80, ptr %9, align 1
   %.not = icmp eq i8 %80, 0
-  br i1 %.not, label %.thread25, label %.preheader34, !llvm.loop !11
+  br i1 %.not, label %.thread25, label %.preheader34, !llvm.loop !9
 
 .loopexit35:                                      ; preds = %.preheader34
   %.pr = load i8, ptr %9, align 1
@@ -225,7 +225,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
 122:                                              ; preds = %105, %.preheader36
   %123 = load ptr, ptr %61, align 8
   %124 = icmp eq ptr %123, %25
-  br i1 %124, label %.loopexit37, label %.preheader36, !llvm.loop !12
+  br i1 %124, label %.loopexit37, label %.preheader36, !llvm.loop !10
 
 .loopexit37:                                      ; preds = %122, %.loopexit38
   %125 = load ptr, ptr %14, align 8
@@ -283,7 +283,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %152 = load i32, ptr %151, align 4
   %153 = icmp ugt i32 %152, %143
-  br i1 %153, label %154, label %146, !llvm.loop !13
+  br i1 %153, label %154, label %146, !llvm.loop !11
 
 154:                                              ; preds = %150, %146
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -294,7 +294,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   store ptr %156, ptr %157, align 8
   store volatile ptr %133, ptr %156, align 8
   %158 = icmp eq ptr %145, %25
-  br i1 %158, label %.loopexit33, label %.preheader32, !llvm.loop !14
+  br i1 %158, label %.loopexit33, label %.preheader32, !llvm.loop !12
 
 .loopexit33:                                      ; preds = %154, %130
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
@@ -348,7 +348,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %199 = add i32 %177, 1
   %200 = load ptr, ptr %174, align 8
   %201 = icmp eq ptr %200, %25
-  br i1 %201, label %202, label %.preheader31, !llvm.loop !15
+  br i1 %201, label %202, label %.preheader31, !llvm.loop !13
 
 202:                                              ; preds = %.preheader31
   %203 = icmp ugt i32 %197, %167
@@ -394,7 +394,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %233 = add i32 %231, %227
   %234 = add nuw nsw i64 %226, 1
   %235 = icmp eq i64 %234, %126
-  br i1 %235, label %236, label %225, !llvm.loop !16
+  br i1 %235, label %236, label %225, !llvm.loop !14
 
 236:                                              ; preds = %225
   %237 = icmp ugt i32 %233, %221
@@ -424,7 +424,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %252 = add i32 %251, %239
   %253 = add nuw nsw i64 %238, 1
   %254 = icmp eq i64 %253, %126
-  br i1 %254, label %.thread28.loopexit, label %.preheader92, !llvm.loop !17
+  br i1 %254, label %.thread28.loopexit, label %.preheader92, !llvm.loop !15
 
 .thread28.loopexit:                               ; preds = %250
   %255 = sub nuw nsw i32 %221, %233
@@ -505,7 +505,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %319 = call i32 @pci_write_config_word(ptr noundef %279, i32 noundef %317, i16 noundef zeroext %318) #7
   %320 = add nuw nsw i64 %274, 1
   %321 = icmp eq i64 %320, %126
-  br i1 %321, label %.thread30, label %273, !llvm.loop !18
+  br i1 %321, label %.thread30, label %273, !llvm.loop !16
 
 .thread30:                                        ; preds = %273
   call void @kfree(ptr noundef nonnull %128) #7
@@ -550,7 +550,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %331 = load ptr, ptr %330, align 8
   call void @kfree(ptr noundef %330) #7
   %332 = icmp eq ptr %331, %25
-  br i1 %332, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %332, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit40
   call void @kfree(ptr noundef nonnull %25) #7
@@ -636,7 +636,7 @@ define internal fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.48.val, i3
   %34 = call i32 @pci_write_config_dword(ptr noundef %30, i32 noundef %33, i32 noundef %29) #7
   %35 = add nuw i32 %14, 1
   %36 = icmp eq i32 %35, %1
-  br i1 %36, label %37, label %12, !llvm.loop !20
+  br i1 %36, label %37, label %12, !llvm.loop !18
 
 37:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -685,18 +685,16 @@ attributes #10 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

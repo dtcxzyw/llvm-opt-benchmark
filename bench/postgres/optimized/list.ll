@@ -2382,7 +2382,7 @@ list_member_int.exit.thread:                      ; preds = %19, %.lr.ph.i, %lis
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %25 to i64
   %.not = icmp slt i64 %indvars.iv.next, %26
-  br i1 %.not, label %.lr.ph.ithread-pre-split, label %.critedge, !llvm.loop !8
+  br i1 %.not, label %.lr.ph.ithread-pre-split, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %list_member_int.exit.thread, %.lr.ph.i.lr.ph, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.lr.ph.i.lr.ph ], [ %.1, %list_member_int.exit.thread ]
@@ -3241,7 +3241,7 @@ list_length.exit:                                 ; preds = %1
   %.1 = phi i32 [ %17, %16 ], [ %.01518, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %8, label %10, !llvm.loop !9
+  br i1 %exitcond.not, label %8, label %10, !llvm.loop !8
 
 list_length.exit.thread:                          ; preds = %1, %8, %list_length.exit
   ret void
@@ -3272,7 +3272,7 @@ define dso_local void @list_free_deep(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load i32, ptr %4, align 4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next.i, %13
-  br i1 %14, label %8, label %.loopexit.i, !llvm.loop !10
+  br i1 %14, label %8, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %8, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3438,7 +3438,7 @@ define dso_local noundef ptr @list_copy_deep(ptr noundef readonly captures(addre
   %32 = load i32, ptr %19, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %25, label %.loopexit, !llvm.loop !11
+  br i1 %34, label %25, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %3, %1
   %.011 = phi ptr [ null, %1 ], [ %18, %3 ], [ %18, %25 ]
@@ -3532,11 +3532,10 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6, !7}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
-!8 = distinct !{!8, !5, !6, !7}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

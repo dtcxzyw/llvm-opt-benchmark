@@ -222,9 +222,9 @@ define range(i32 -12, 1) i32 @ff_mpeg_er_init(ptr noundef initializes((4336, 434
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4792
-  store ptr @mpeg_er_decode_mb, ptr %47, align 8, !tbaa !80
+  store ptr @mpeg_er_decode_mb, ptr %47, align 8, !tbaa !79
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4800
-  store ptr %0, ptr %48, align 8, !tbaa !81
+  store ptr %0, ptr %48, align 8, !tbaa !80
   br label %50
 
 49:                                               ; preds = %1
@@ -244,29 +244,29 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @mpeg_er_decode_mb(ptr noundef initializes((20, 68), (1400, 1404), (2968, 3040), (3348, 3356), (3360, 3364), (3416, 3440), (4088, 4092)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2968
-  store i32 %2, ptr %10, align 8, !tbaa !82
+  store i32 %2, ptr %10, align 8, !tbaa !81
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2972
-  store i32 %3, ptr %11, align 4, !tbaa !83
+  store i32 %3, ptr %11, align 4, !tbaa !82
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3360
-  store i32 %7, ptr %12, align 8, !tbaa !84
+  store i32 %7, ptr %12, align 8, !tbaa !83
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  store i32 %8, ptr %13, align 8, !tbaa !85
+  store i32 %8, ptr %13, align 8, !tbaa !84
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3348
-  store i32 %5, ptr %14, align 4, !tbaa !86
+  store i32 %5, ptr %14, align 4, !tbaa !85
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3352
-  store i32 %6, ptr %15, align 8, !tbaa !87
+  store i32 %6, ptr %15, align 8, !tbaa !86
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4088
-  store i32 0, ptr %16, align 8, !tbaa !88
+  store i32 0, ptr %16, align 8, !tbaa !87
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %18, i8 -1, i64 48, i1 false), !tbaa !89
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %18, i8 -1, i64 48, i1 false), !tbaa !88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %20 = load ptr, ptr %19, align 8, !tbaa !42
   %21 = shl nsw i32 %6, 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %24 = load i64, ptr %23, align 8, !tbaa !90
+  %24 = load i64, ptr %23, align 8, !tbaa !89
   %25 = mul nsw i64 %24, %22
   %26 = getelementptr inbounds i8, ptr %20, i64 %25
   %27 = shl nsw i32 %5, 4
@@ -277,16 +277,16 @@ define internal void @mpeg_er_decode_mb(ptr noundef initializes((20, 68), (1400,
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %32 = load ptr, ptr %31, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4260
-  %34 = load i32, ptr %33, align 4, !tbaa !91
+  %34 = load i32, ptr %33, align 4, !tbaa !90
   %35 = lshr i32 16, %34
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %39 = load i64, ptr %38, align 8, !tbaa !92
+  %39 = load i64, ptr %38, align 8, !tbaa !91
   %40 = mul nsw i64 %39, %37
   %41 = getelementptr inbounds i8, ptr %32, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %43 = load i32, ptr %42, align 8, !tbaa !93
+  %43 = load i32, ptr %42, align 8, !tbaa !92
   %44 = lshr i32 16, %43
   %45 = mul nsw i32 %44, %5
   %46 = sext i32 %45 to i64
@@ -310,7 +310,7 @@ define internal void @mpeg_er_decode_mb(ptr noundef initializes((20, 68), (1400,
 
 57:                                               ; preds = %54, %9
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4288
-  %59 = load ptr, ptr %58, align 8, !tbaa !94
+  %59 = load ptr, ptr %58, align 8, !tbaa !93
   tail call void @ff_mpv_reconstruct_mb(ptr noundef nonnull %0, ptr noundef %59) #4
   ret void
 }
@@ -412,21 +412,20 @@ attributes #4 = { nounwind }
 !74 = !{!31, !12, i64 112}
 !75 = !{!5, !12, i64 1416}
 !76 = !{!31, !12, i64 120}
-!77 = distinct !{!77, !78, !79}
+!77 = distinct !{!77, !78}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!"llvm.loop.estimated_trip_count"}
-!80 = !{!31, !7, i64 456}
-!81 = !{!31, !7, i64 464}
-!82 = !{!5, !10, i64 2968}
-!83 = !{!5, !10, i64 2972}
-!84 = !{!5, !10, i64 3360}
-!85 = !{!5, !10, i64 1400}
-!86 = !{!5, !10, i64 3348}
-!87 = !{!5, !10, i64 3352}
-!88 = !{!5, !10, i64 4088}
-!89 = !{!10, !10, i64 0}
-!90 = !{!5, !14, i64 568}
-!91 = !{!5, !10, i64 4260}
-!92 = !{!5, !14, i64 576}
-!93 = !{!5, !10, i64 4256}
-!94 = !{!5, !20, i64 4288}
+!79 = !{!31, !7, i64 456}
+!80 = !{!31, !7, i64 464}
+!81 = !{!5, !10, i64 2968}
+!82 = !{!5, !10, i64 2972}
+!83 = !{!5, !10, i64 3360}
+!84 = !{!5, !10, i64 1400}
+!85 = !{!5, !10, i64 3348}
+!86 = !{!5, !10, i64 3352}
+!87 = !{!5, !10, i64 4088}
+!88 = !{!10, !10, i64 0}
+!89 = !{!5, !14, i64 568}
+!90 = !{!5, !10, i64 4260}
+!91 = !{!5, !14, i64 576}
+!92 = !{!5, !10, i64 4256}
+!93 = !{!5, !20, i64 4288}

@@ -633,7 +633,7 @@ define hidden range(i32 0, 2) i32 @portalScreenCastCreateSession() local_unnamed
   %109 = call i32 %108(ptr noundef null, i32 noundef 1) #9
   %110 = load i32, ptr %7, align 8
   %.not3 = icmp eq i32 %110, 0
-  br i1 %.not3, label %.lr.ph, label %errHandle.exit, !llvm.loop !9
+  br i1 %.not3, label %.lr.ph, label %errHandle.exit, !llvm.loop !8
 
 errHandle.exit:                                   ; preds = %.lr.ph, %.preheader, %95, %91
   %.val = load i32, ptr %2, align 8
@@ -865,7 +865,7 @@ validateToken.exit.thread:                        ; preds = %76, %1, %validateTo
   %116 = call i32 %115(ptr noundef null, i32 noundef 1) #9
   %117 = load i32, ptr %96, align 8
   %.not6 = icmp eq i32 %117, 0
-  br i1 %.not6, label %.lr.ph, label %errHandle.exit, !llvm.loop !10
+  br i1 %.not6, label %.lr.ph, label %errHandle.exit, !llvm.loop !9
 
 errHandle.exit:                                   ; preds = %.lr.ph, %.preheader, %102, %98
   %.val = load i32, ptr %3, align 8
@@ -1059,7 +1059,7 @@ define hidden i32 @portalScreenCastStart(ptr noundef %0) local_unnamed_addr #0 {
   %89 = call i32 %88(ptr noundef null, i32 noundef 1) #9
   %90 = load i32, ptr %69, align 8
   %.not4 = icmp eq i32 %90, 0
-  br i1 %.not4, label %.lr.ph, label %errHandle.exit, !llvm.loop !11
+  br i1 %.not4, label %.lr.ph, label %errHandle.exit, !llvm.loop !10
 
 errHandle.exit:                                   ; preds = %.lr.ph, %.preheader, %75, %71
   %.val = load i32, ptr %4, align 8
@@ -1433,7 +1433,7 @@ define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr noundef
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !11
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -1460,7 +1460,7 @@ define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr noundef
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.checkCanCaptureAllRequiredScreens, i32 noundef 851, i32 noundef %.sroa.03.sroa.0.0.extract.trunc, i32 noundef %.sroa.03.sroa.4.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.6.12.extract.trunc) #9
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph39, !llvm.loop !13
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph39, !llvm.loop !12
 
 .loopexit:                                        ; preds = %14, %.preheader, %.critedge, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %14 ]
@@ -1547,11 +1547,10 @@ attributes #11 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

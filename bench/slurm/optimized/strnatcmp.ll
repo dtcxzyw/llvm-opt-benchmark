@@ -57,7 +57,7 @@ define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, p
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8192
   %.not48 = icmp eq i16 %25, 0
-  br i1 %.not48, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not48, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %26 = trunc nsw i64 %indvars.iv.next94 to i32
@@ -110,7 +110,7 @@ define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, p
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 2048
   %.not.i = icmp eq i16 %52, 0
-  br i1 %.not.i, label %compare_left.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %compare_left.exit, label %.lr.ph.i, !llvm.loop !12
 
 compare_left.exit:                                ; preds = %45
   %53 = load i8, ptr %47, align 1
@@ -175,7 +175,7 @@ compare_left.exit:                                ; preds = %45
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, 2048
   %.not.i55 = icmp eq i16 %83, 0
-  br i1 %.not.i55, label %._crit_edge.i56, label %.lr.ph.i54, !llvm.loop !14
+  br i1 %.not.i55, label %._crit_edge.i56, label %.lr.ph.i54, !llvm.loop !13
 
 compare_right.exit:                               ; preds = %74, %._crit_edge.i56
   %.019.i = phi i32 [ %.1.i, %._crit_edge.i56 ], [ %.035.i, %74 ]
@@ -214,7 +214,7 @@ compare_right.exit:                               ; preds = %74, %._crit_edge.i5
 100:                                              ; preds = %98
   %101 = add i64 %indvars.iv, 1
   %102 = add nsw i32 %.141.lcssa, 1
-  br label %6, !llvm.loop !15
+  br label %6, !llvm.loop !14
 
 compare_left.exit.thread:                         ; preds = %._crit_edge.i56, %98, %96, %84, %compare_right.exit, %compare_left.exit, %.lr.ph.i54, %.lr.ph.i, %41, %43
   %.0 = phi i32 [ 1, %43 ], [ -1, %41 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i54 ], [ -1, %._crit_edge.i56 ], [ 1, %98 ], [ -1, %96 ], [ 0, %84 ], [ %.019.i, %compare_right.exit ], [ -1, %compare_left.exit ]
@@ -251,11 +251,10 @@ attributes #3 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}

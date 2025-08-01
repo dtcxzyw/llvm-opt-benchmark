@@ -102,7 +102,7 @@ define void @_ZN8WasmEdge20convertBytesToHexStrEN5cxx204spanIKhLm184467440737095
   %.085 = phi ptr [ %25, %24 ], [ %0, %.preheader ]
   %22 = load i8, ptr %.085, align 1
   %.sroa.0.0.insert.ext.i68 = zext i8 %22 to i64
-  store i64 %.sroa.0.0.insert.ext.i68, ptr %7, align 16, !noalias !10
+  store i64 %.sroa.0.0.insert.ext.i68, ptr %7, align 16, !noalias !9
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr nonnull @.str, i64 6, i64 2, ptr nonnull %7)
   %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %24 unwind label %26
@@ -111,7 +111,7 @@ define void @_ZN8WasmEdge20convertBytesToHexStrEN5cxx204spanIKhLm184467440737095
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
   %25 = getelementptr inbounds nuw i8, ptr %.085, i64 1
   %.not = icmp eq ptr %25, %13
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 26:                                               ; preds = %.lr.ph
   %27 = landingpad { ptr, i32 }
@@ -521,7 +521,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhE
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %12, align 8
   %.sroa.0.0.copyload.i2.i.i = load ptr, ptr %13, align 8
   %.not69 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i2.i.i
-  br i1 %.not69, label %.loopexit, label %.lr.ph80, !llvm.loop !14
+  br i1 %.not69, label %.loopexit, label %.lr.ph80, !llvm.loop !13
 
 122:                                              ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit
   %123 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
@@ -651,7 +651,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit57:         ; preds = %_ZNSt6vectorIhSaIhE
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 2
   %171 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4cendEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
   %.not = icmp eq ptr %170, %171
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit57, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit, %122, %72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
@@ -731,9 +731,9 @@ define void @_ZN8WasmEdge19convertUIntToHexStrB5cxx11Emj(ptr dead_on_unwind noal
   %4 = alloca %"class.fmt::v8::format_arg_store.9", align 16
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %2, i32 16)
   %.sroa.029.0.insert.ext.i = zext nneg i32 %.sroa.speculated to i64
-  store i64 %1, ptr %4, align 16, !alias.scope !16
+  store i64 %1, ptr %4, align 16, !alias.scope !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.029.0.insert.ext.i, ptr %5, align 16, !alias.scope !16
+  store i64 %.sroa.029.0.insert.ext.i, ptr %5, align 16, !alias.scope !15
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.1, i64 9, i64 36, ptr nonnull %4)
   ret void
 }
@@ -819,15 +819,14 @@ attributes #13 = { noreturn }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN3fmt2v86formatIJRKhEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: argument 0"}
 !6 = distinct !{!6, !"_ZN3fmt2v86formatIJRKhEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN3fmt2v86formatIJRKhEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: argument 0"}
-!12 = distinct !{!12, !"_ZN3fmt2v86formatIJRKhEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRKmRKjEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSD_: argument 0"}
-!18 = distinct !{!18, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRKmRKjEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSD_"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN3fmt2v86formatIJRKhEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: argument 0"}
+!11 = distinct !{!11, !"_ZN3fmt2v86formatIJRKhEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRKmRKjEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSD_: argument 0"}
+!17 = distinct !{!17, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRKmRKjEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSD_"}

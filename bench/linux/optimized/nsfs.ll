@@ -159,14 +159,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__ns_get_path(ptr noundef 
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 128
   store ptr %45, ptr %46, align 8
   %47 = ptrtoint ptr %41 to i64
-  %48 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %47, i64 0, ptr elementtype(i64) %1) #12, !srcloc !11
+  %48 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %47, i64 0, ptr elementtype(i64) %1) #12, !srcloc !10
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %16, label %50
 
 50:                                               ; preds = %43
   tail call void @d_delete(ptr noundef nonnull %41) #12
   tail call void @dput(ptr noundef nonnull %41) #12
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
   br label %51
 
 51:                                               ; preds = %50, %30, %25, %16
@@ -191,7 +191,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ns_get_path(ptr noundef writeonl
 9:                                                ; preds = %5
   %10 = tail call fastcc i32 @__ns_get_path(ptr noundef %0, ptr noundef nonnull %7), !range !6
   %11 = icmp eq i32 %10, -11
-  br i1 %11, label %5, label %.thread, !llvm.loop !13
+  br i1 %11, label %5, label %.thread, !llvm.loop !7
 
 .thread:                                          ; preds = %5, %9
   %12 = phi i32 [ %10, %9 ], [ -2, %5 ]
@@ -226,14 +226,14 @@ define dso_local i32 @open_related_ns(ptr noundef %0, ptr noundef readonly captu
   switch i32 %11, label %12 [
     i32 -11, label %.preheader
     i32 0, label %13
-  ], !llvm.loop !14
+  ]
 
 12:                                               ; preds = %10
   tail call void @put_unused_fd(i32 noundef %4) #12
   br label %24
 
 13:                                               ; preds = %10
-  %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !15
+  %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !12
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1784
   %17 = load ptr, ptr %16, align 8
@@ -460,7 +460,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ns_ioctl(ptr noundef rea
   %41 = load i32, ptr @overflowuid, align 4
   %42 = select i1 %40, i32 %41, i32 %39
   %43 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %44 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %37, i32 %42, i64 4, i64 %43) #12, !srcloc !16
+  %44 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %37, i32 %42, i64 4, i64 %43) #12, !srcloc !13
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
   %47 = ptrtoint ptr %45 to i64
@@ -567,13 +567,10 @@ attributes #14 = { cold noreturn nounwind }
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{i32 -12, i32 1}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2148156452, i64 2148156491, i64 2148156512, i64 2148156549, i64 2148156572, i64 2148156581}
-!12 = !{i64 2162017}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !10}
-!15 = !{i64 2149101563}
-!16 = !{i64 2154084304}
+!10 = !{i64 2148156452, i64 2148156491, i64 2148156512, i64 2148156549, i64 2148156572, i64 2148156581}
+!11 = !{i64 2162017}
+!12 = !{i64 2149101563}
+!13 = !{i64 2154084304}

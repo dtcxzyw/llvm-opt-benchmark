@@ -210,7 +210,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !9
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !8
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -226,7 +226,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !10
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !9
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #14
@@ -287,7 +287,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16, %18, %2
   %.lcssa = phi i1 [ false, %2 ], [ false, %18 ], [ true, %16 ]
@@ -332,7 +332,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %16, %18, %2
   %.lcssa = phi i1 [ false, %2 ], [ false, %18 ], [ true, %16 ]
@@ -372,7 +372,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %14, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %16, %14 ]
@@ -475,7 +475,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread, !llvm.loop !11
+  br i1 %40, label %.lr.ph.i, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread, !llvm.loop !10
 
 41:                                               ; preds = %17
   %42 = load ptr, ptr %16, align 8
@@ -511,7 +511,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i13, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %indvars.iv.next.i17, %59
-  br i1 %60, label %.lr.ph.i12, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread, !llvm.loop !12
+  br i1 %60, label %.lr.ph.i12, label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread, !llvm.loop !11
 
 61:                                               ; preds = %17
   %62 = load ptr, ptr %16, align 8
@@ -542,7 +542,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %76 = sext i32 %74 to i64
   %77 = icmp slt i64 %indvars.iv.next.i22, %76
-  br i1 %77, label %.lr.ph.i19, label %._crit_edge.i, !llvm.loop !13
+  br i1 %77, label %.lr.ph.i19, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %73, %61
   %.lcssa.i18 = phi ptr [ %62, %61 ], [ %75, %73 ]
@@ -615,7 +615,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit: ; preds = %_ZN30G
 101:                                              ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit
   %102 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %.not26 = icmp slt i64 %102, %9
-  br i1 %.not26, label %17, label %.critedge, !llvm.loop !14
+  br i1 %.not26, label %17, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit, %101
   %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -763,7 +763,7 @@ define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1M
   store i64 %18, ptr %16, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN27G1MonotonicArenaMemoryStats3addES_.exit, label %8, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN27G1MonotonicArenaMemoryStats3addES_.exit, label %8, !llvm.loop !14
 
 _ZN27G1MonotonicArenaMemoryStats3addES_.exit:     ; preds = %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -910,13 +910,12 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

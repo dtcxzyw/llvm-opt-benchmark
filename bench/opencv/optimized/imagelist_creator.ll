@@ -782,7 +782,7 @@ define internal fastcc void @_ZL4helpPPc(ptr noundef readonly captures(none) %0)
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !48
+  %10 = load i32, ptr %9, align 8, !tbaa !47
   %11 = or i32 %10, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %8, i32 noundef %11)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -953,7 +953,6 @@ attributes #13 = { noreturn }
 !42 = !{!"p1 int", !7, i64 0}
 !43 = !{!"p1 short", !7, i64 0}
 !44 = !{!6, !6, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!23, !25, i64 32}
+!47 = !{!23, !25, i64 32}

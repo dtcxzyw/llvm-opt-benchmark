@@ -381,9 +381,9 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.085.lcssa = phi i32 [ 0, %.preheader ], [ %50, %._crit_edge.loopexit ]
-  store i32 %.085.lcssa, ptr %7, align 8, !tbaa !63
+  store i32 %.085.lcssa, ptr %7, align 8, !tbaa !62
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %52 = load i32, ptr %51, align 8, !tbaa !64
+  %52 = load i32, ptr %51, align 8, !tbaa !63
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph105, label %._crit_edge106.thread
 
@@ -399,7 +399,7 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   %.082103 = phi i32 [ 0, %.lr.ph105 ], [ %.183.lcssa, %._crit_edge100 ]
   %59 = getelementptr inbounds nuw [4 x %struct.AVDRMLayerDescriptor], ptr %54, i64 0, i64 %indvars.iv123
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !65
+  %61 = load i32, ptr %60, align 4, !tbaa !64
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph99, label %._crit_edge100
 
@@ -412,30 +412,30 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv118 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next119, %65 ]
   %indvars.iv116 = phi i64 [ %64, %.lr.ph99 ], [ %indvars.iv.next117, %65 ]
   %66 = getelementptr inbounds nuw [4 x %struct.AVDRMPlaneDescriptor], ptr %63, i64 0, i64 %indvars.iv118
-  %67 = load i32, ptr %66, align 8, !tbaa !67
+  %67 = load i32, ptr %66, align 8, !tbaa !66
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds [4 x ptr], ptr %55, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !46
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %72 = load i64, ptr %71, align 8, !tbaa !69
+  %72 = load i64, ptr %71, align 8, !tbaa !68
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
   %74 = getelementptr inbounds [8 x ptr], ptr %1, i64 0, i64 %indvars.iv116
   store ptr %73, ptr %74, align 8, !tbaa !31
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %76 = load i64, ptr %75, align 8, !tbaa !70
+  %76 = load i64, ptr %75, align 8, !tbaa !69
   %77 = trunc i64 %76 to i32
   %78 = getelementptr inbounds [8 x i32], ptr %56, i64 0, i64 %indvars.iv116
   store i32 %77, ptr %78, align 4, !tbaa !13
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %79 = load i32, ptr %60, align 4, !tbaa !65
+  %79 = load i32, ptr %60, align 4, !tbaa !64
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next119, %80
-  br i1 %81, label %65, label %._crit_edge100.loopexit, !llvm.loop !71
+  br i1 %81, label %65, label %._crit_edge100.loopexit, !llvm.loop !70
 
 ._crit_edge100.loopexit:                          ; preds = %65
   %82 = trunc nsw i64 %indvars.iv.next117 to i32
-  %.pre130 = load i32, ptr %51, align 8, !tbaa !64
+  %.pre130 = load i32, ptr %51, align 8, !tbaa !63
   br label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %._crit_edge100.loopexit, %57
@@ -444,7 +444,7 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next124, %84
-  br i1 %85, label %57, label %._crit_edge106, !llvm.loop !72
+  br i1 %85, label %57, label %._crit_edge106, !llvm.loop !71
 
 ._crit_edge106:                                   ; preds = %._crit_edge100
   %86 = icmp slt i32 %.183.lcssa, 5
@@ -465,7 +465,7 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store i32 %92, ptr %93, align 4, !tbaa !44
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 328
-  %95 = load ptr, ptr %94, align 8, !tbaa !73
+  %95 = load ptr, ptr %94, align 8, !tbaa !72
   %96 = call i32 @ff_hwframe_map_create(ptr noundef %95, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @drm_unmap_frame, ptr noundef nonnull %7) #7
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %115
@@ -501,7 +501,7 @@ define internal fastcc i32 @drm_map_frame(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next127, %113
-  br i1 %114, label %103, label %._crit_edge111, !llvm.loop !74
+  br i1 %114, label %103, label %._crit_edge111, !llvm.loop !73
 
 ._crit_edge111:                                   ; preds = %111, %98
   call void @av_free(ptr noundef nonnull %7) #7
@@ -534,8 +534,8 @@ declare i32 @ff_hwframe_map_create(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal void @drm_unmap_frame(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.dma_buf_sync, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
-  %6 = load i32, ptr %5, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %6 = load i32, ptr %5, align 8, !tbaa !62
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -567,10 +567,10 @@ define internal void @drm_unmap_frame(ptr readnone captures(none) %0, ptr nounde
   %23 = call i32 @munmap(ptr noundef %20, i64 noundef %22) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %5, align 8, !tbaa !63
+  %24 = load i32, ptr %5, align 8, !tbaa !62
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %12, label %._crit_edge, !llvm.loop !77
+  br i1 %26, label %12, label %._crit_edge, !llvm.loop !76
 }
 
 ; Function Attrs: nounwind
@@ -653,21 +653,20 @@ attributes #9 = { noreturn nounwind }
 !57 = !{!"AVDRMObjectDescriptor", !10, i64 0, !30, i64 8, !30, i64 16}
 !58 = !{!57, !10, i64 0}
 !59 = !{!30, !30, i64 0}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = !{!50, !10, i64 0}
-!64 = !{!55, !10, i64 104}
-!65 = !{!66, !10, i64 4}
-!66 = !{!"AVDRMLayerDescriptor", !10, i64 0, !10, i64 4, !8, i64 8}
-!67 = !{!68, !10, i64 0}
-!68 = !{!"AVDRMPlaneDescriptor", !10, i64 0, !30, i64 8, !30, i64 16}
-!69 = !{!68, !30, i64 8}
-!70 = !{!68, !30, i64 16}
-!71 = distinct !{!71, !61, !62}
-!72 = distinct !{!72, !61, !62}
-!73 = !{!33, !23, i64 328}
-!74 = distinct !{!74, !61, !62}
-!75 = !{!76, !7, i64 24}
-!76 = !{!"HWMapDescriptor", !48, i64 0, !23, i64 8, !7, i64 16, !7, i64 24}
-!77 = distinct !{!77, !61, !62}
+!62 = !{!50, !10, i64 0}
+!63 = !{!55, !10, i64 104}
+!64 = !{!65, !10, i64 4}
+!65 = !{!"AVDRMLayerDescriptor", !10, i64 0, !10, i64 4, !8, i64 8}
+!66 = !{!67, !10, i64 0}
+!67 = !{!"AVDRMPlaneDescriptor", !10, i64 0, !30, i64 8, !30, i64 16}
+!68 = !{!67, !30, i64 8}
+!69 = !{!67, !30, i64 16}
+!70 = distinct !{!70, !61}
+!71 = distinct !{!71, !61}
+!72 = !{!33, !23, i64 328}
+!73 = distinct !{!73, !61}
+!74 = !{!75, !7, i64 24}
+!75 = !{!"HWMapDescriptor", !48, i64 0, !23, i64 8, !7, i64 16, !7, i64 24}
+!76 = distinct !{!76, !61}

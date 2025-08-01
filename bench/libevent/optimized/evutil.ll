@@ -594,7 +594,7 @@ define ptr @evutil_new_addrinfo_(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %.117.i = phi ptr [ %.01623.i, %27 ], [ null, %25 ], [ %.01524.i, %.lr.ph.i ]
   %.1.i = phi ptr [ %.025.i, %27 ], [ %19, %25 ], [ %.025.i, %.lr.ph.i ]
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %29
   %.not19.i = icmp eq ptr %.1.i, null
@@ -689,7 +689,7 @@ define void @evutil_freeaddrinfo(ptr noundef %0) local_unnamed_addr #0 {
   %.117 = phi ptr [ %.01623, %11 ], [ null, %9 ], [ %.01524, %.lr.ph ]
   %.1 = phi ptr [ %.025, %11 ], [ %3, %9 ], [ %.025, %.lr.ph ]
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %13
   %.not19 = icmp eq ptr %.1, null
@@ -715,7 +715,7 @@ define noundef ptr @evutil_addrinfo_append_(ptr noundef captures(address_is_null
   %3 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %4, null
-  br i1 %.not12, label %5, label %.preheader, !llvm.loop !7
+  br i1 %.not12, label %5, label %.preheader, !llvm.loop !6
 
 5:                                                ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -960,7 +960,7 @@ evutil_parse_servname.exit:                       ; preds = %50, %parse_numeric_
   %80 = getelementptr inbounds nuw i8, ptr %.0.i85, i64 40
   %81 = load ptr, ptr %80, align 8
   %.not12.i86 = icmp eq ptr %81, null
-  br i1 %.not12.i86, label %82, label %.preheader.i, !llvm.loop !7
+  br i1 %.not12.i86, label %82, label %.preheader.i, !llvm.loop !6
 
 82:                                               ; preds = %.preheader.i
   %83 = getelementptr inbounds nuw i8, ptr %.0.i85, i64 40
@@ -1267,7 +1267,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   %56 = shl nuw i32 1, %55
   %57 = and i32 %56, %54
   %.not129 = icmp eq i32 %57, 0
-  br i1 %.not129, label %.critedge, label %47, !llvm.loop !8
+  br i1 %.not129, label %.critedge, label %47, !llvm.loop !7
 
 .critedge:                                        ; preds = %47, %48
   %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.pn, ptr noundef nonnull @.str.22, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #30
@@ -1397,7 +1397,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   %.1105 = phi i32 [ %.0104150, %101 ], [ %.0111148, %109 ], [ 0, %117 ]
   %.298 = phi ptr [ %104, %101 ], [ %110, %109 ], [ %118, %117 ]
   %120 = icmp ult ptr %.298, %.1103
-  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %119
   %121 = icmp sgt i32 %.4110, 8
@@ -1459,7 +1459,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   store i8 %151, ptr %153, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %144, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %144, !llvm.loop !9
 
 .critedge136:                                     ; preds = %59, %.critedge
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #30
@@ -1611,7 +1611,7 @@ evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i: ; preds = %evutil_v6addr_i
 evutil_found_ifaddr.exit.i.i:                     ; preds = %evutil_v6addr_is_local_.exit.thread.sink.split.i.i.i, %44, %43, %39, %37, %27, %25, %.lr.ph.i.i
   %.0.i.i = load ptr, ptr %.09.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %evutil_found_ifaddr.exit.i.i
   %.pre.i.i = load ptr, ptr %7, align 8
@@ -2073,7 +2073,7 @@ evutil_getaddrinfo_infer_protocols.exit:          ; preds = %38, %44, %43, %42, 
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not.i32 = icmp eq ptr %66, null
-  br i1 %.not.i32, label %apply_numeric_port_hack.exit, label %51, !llvm.loop !12
+  br i1 %.not.i32, label %apply_numeric_port_hack.exit, label %51, !llvm.loop !11
 
 apply_numeric_port_hack.exit:                     ; preds = %63, %48, %evutil_getaddrinfo_infer_protocols.exit
   %.b.i34 = load i1, ptr @tested_for_getaddrinfo_hacks, align 4
@@ -2180,7 +2180,7 @@ evutil_getaddrinfo_infer_protocols.exit.thread.i: ; preds = %92, %80, %79, %78, 
   %96 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not.i38 = icmp eq ptr %97, null
-  br i1 %.not.i38, label %apply_socktype_protocol_hack.exit, label %.lr.ph.i37, !llvm.loop !13
+  br i1 %.not.i38, label %apply_socktype_protocol_hack.exit, label %.lr.ph.i37, !llvm.loop !12
 
 .loopexit:                                        ; preds = %81, %91
   %98 = load ptr, ptr %3, align 8
@@ -2221,7 +2221,7 @@ evutil_getaddrinfo_infer_protocols.exit.thread.i: ; preds = %92, %80, %79, %78, 
   %.117.i = phi ptr [ %.01623.i, %108 ], [ null, %106 ], [ %.01524.i, %.lr.ph.i40 ]
   %.1.i = phi ptr [ %.025.i, %108 ], [ %100, %106 ], [ %.025.i, %.lr.ph.i40 ]
   %.not.i42 = icmp eq ptr %100, null
-  br i1 %.not.i42, label %._crit_edge.i43, label %.lr.ph.i40, !llvm.loop !6
+  br i1 %.not.i42, label %._crit_edge.i43, label %.lr.ph.i40, !llvm.loop !5
 
 ._crit_edge.i43:                                  ; preds = %110
   %.not19.i44 = icmp eq ptr %.1.i, null
@@ -2290,7 +2290,7 @@ define ptr @evutil_dup_addrinfo_(ptr noundef readonly captures(address_is_null) 
   %18 = getelementptr inbounds nuw i8, ptr %.025, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %17, %1
   %.017.lcssa = phi ptr [ null, %1 ], [ %.1, %17 ]
@@ -2550,7 +2550,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   store i16 %30, ptr %31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %32, label %20, !llvm.loop !15
+  br i1 %exitcond.not, label %32, label %20, !llvm.loop !14
 
 32:                                               ; preds = %20
   %33 = load i16, ptr %6, align 16
@@ -2653,7 +2653,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %91 = add nuw nsw i32 %.0125, 1
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 8
-  br i1 %exitcond145.not, label %.critedge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond145.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 
 .critedge.loopexit.split.loop.exit157:            ; preds = %.lr.ph
   %92 = trunc nsw i64 %indvars.iv142 to i32
@@ -2672,7 +2672,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %.1102 = phi i32 [ %spec.select119, %.critedge ], [ %.0101132, %79 ]
   %.3 = phi i32 [ %.2.lcssa, %.critedge ], [ %.2124, %79 ]
   %95 = icmp slt i32 %.3, 8
-  br i1 %95, label %79, label %96, !llvm.loop !17
+  br i1 %95, label %79, label %96, !llvm.loop !16
 
 96:                                               ; preds = %94
   %97 = icmp slt i32 %.1105, 2
@@ -2723,7 +2723,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, 1
   %117 = and i64 %indvars.iv.next147, 4294967295
   %exitcond149.not = icmp eq i64 %117, 8
-  br i1 %exitcond149.not, label %.critedge29.thread, label %.lr.ph135, !llvm.loop !18
+  br i1 %exitcond149.not, label %.critedge29.thread, label %.lr.ph135, !llvm.loop !17
 
 118:                                              ; preds = %102
   %119 = ptrtoint ptr %.0106139 to i64
@@ -2749,7 +2749,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %.2108 = phi ptr [ %126, %125 ], [ %112, %.critedge29.loopexit ]
   %.6 = phi i32 [ %127, %125 ], [ %128, %.critedge29.loopexit ]
   %129 = icmp slt i32 %.6, 8
-  br i1 %129, label %102, label %.critedge29.thread, !llvm.loop !19
+  br i1 %129, label %102, label %.critedge29.thread, !llvm.loop !18
 
 .critedge29.thread:                               ; preds = %111, %118, %.critedge29, %116
   %.2108153 = phi ptr [ %112, %116 ], [ %124, %118 ], [ %109, %111 ], [ %.2108, %.critedge29 ]
@@ -3263,7 +3263,7 @@ define range(i32 -1, 2) i32 @evutil_ascii_strcasecmp(ptr noundef readonly captur
 
 17:                                               ; preds = %15
   %18 = icmp eq i8 %5, 0
-  br i1 %18, label %19, label %3, !llvm.loop !20
+  br i1 %18, label %19, label %3
 
 19:                                               ; preds = %17, %15, %3
   %.0 = phi i32 [ -1, %3 ], [ 1, %15 ], [ 0, %17 ]
@@ -3302,7 +3302,7 @@ define range(i32 -1, 2) i32 @evutil_ascii_strncasecmp(ptr noundef readonly captu
 
 20:                                               ; preds = %18
   %21 = icmp eq i8 %8, 0
-  br i1 %21, label %22, label %4, !llvm.loop !21
+  br i1 %21, label %22, label %4, !llvm.loop !19
 
 22:                                               ; preds = %4, %20, %18, %6
   %.0 = phi i32 [ -1, %6 ], [ 1, %18 ], [ 0, %20 ], [ 0, %4 ]
@@ -3338,7 +3338,7 @@ evutil_ascii_strncasecmp.exit:                    ; preds = %evutil_ascii_strnca
   br i1 %.not12, label %.preheader, label %evutil_ascii_strncasecmp.exit.backedge
 
 evutil_ascii_strncasecmp.exit.backedge:           ; preds = %18, %12
-  br label %evutil_ascii_strncasecmp.exit, !llvm.loop !22
+  br label %evutil_ascii_strncasecmp.exit, !llvm.loop !20
 
 .preheader:                                       ; preds = %12, %27
   %.010.i = phi ptr [ %28, %27 ], [ %3, %12 ]
@@ -3358,13 +3358,13 @@ evutil_ascii_strncasecmp.exit.backedge:           ; preds = %18, %12
   %25 = getelementptr inbounds nuw [256 x i8], ptr @EVUTIL_TOLOWER_TABLE, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %or.cond.not = icmp eq i8 %22, %26
-  br i1 %or.cond.not, label %27, label %evutil_ascii_strncasecmp.exit.backedge, !llvm.loop !23
+  br i1 %or.cond.not, label %27, label %evutil_ascii_strncasecmp.exit.backedge, !llvm.loop !21
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %29 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %30 = icmp eq i8 %19, 0
-  br i1 %30, label %evutil_ascii_strncasecmp.exit.thread, label %.preheader, !llvm.loop !21
+  br i1 %30, label %evutil_ascii_strncasecmp.exit.thread, label %.preheader, !llvm.loop !19
 
 evutil_ascii_strncasecmp.exit.thread:             ; preds = %evutil_ascii_strncasecmp.exit, %.preheader, %27, %2
   %.0 = phi ptr [ %0, %2 ], [ %.2, %27 ], [ %.2, %.preheader ], [ null, %evutil_ascii_strncasecmp.exit ]
@@ -3397,7 +3397,7 @@ define void @evutil_rtrim_lws_(ptr noundef captures(address) %0) local_unnamed_a
 .critedge:                                        ; preds = %.preheader, %.preheader
   store i8 0, ptr %.0, align 1
   %6 = icmp eq ptr %.0, %0
-  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.critedge, %.preheader, %3, %1
   ret void
@@ -3483,7 +3483,7 @@ define range(i32 -2147483647, 2147483647) i32 @evutil_weakrand_range_(ptr nounde
   %8 = and i32 %7, 2147483647
   %9 = sdiv i32 %8, %3
   %.not = icmp slt i32 %9, %1
-  br i1 %.not, label %10, label %4, !llvm.loop !25
+  br i1 %.not, label %10, label %4, !llvm.loop !23
 
 10:                                               ; preds = %4
   store i32 %8, ptr %0, align 4
@@ -3698,7 +3698,7 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
   %.pre = and i32 %1, 2048
   %46 = icmp eq i32 %.pre, 0
   store i32 16, ptr %7, align 4
-  br i1 %46, label %.split.us, label %.split, !llvm.loop !26
+  br i1 %46, label %.split.us, label %.split, !llvm.loop !24
 
 .split.us:                                        ; preds = %45
   %47 = call i32 @accept(i32 noundef %17, ptr nonnull %5, ptr noundef nonnull %7) #30
@@ -4140,7 +4140,7 @@ define internal fastcc void @test_for_getaddrinfo_hacks() unnamed_addr #0 {
   %17 = getelementptr inbounds nuw i8, ptr %.08.i, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %ai_find_protocol.exit.thread, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %ai_find_protocol.exit.thread, label %.lr.ph.i, !llvm.loop !25
 
 ai_find_protocol.exit:                            ; preds = %.lr.ph.i
   %19 = load ptr, ptr %3, align 8
@@ -4158,7 +4158,7 @@ ai_find_protocol.exit:                            ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.08.i11, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not.i14 = icmp eq ptr %24, null
-  br i1 %.not.i14, label %ai_find_protocol.exit.thread, label %.lr.ph.i10, !llvm.loop !27
+  br i1 %.not.i14, label %ai_find_protocol.exit.thread, label %.lr.ph.i10, !llvm.loop !25
 
 ai_find_protocol.exit.thread:                     ; preds = %16, %22, %ai_find_protocol.exit, %12
   store i1 true, ptr @need_socktype_protocol_hack_, align 4
@@ -4264,28 +4264,26 @@ attributes #32 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}

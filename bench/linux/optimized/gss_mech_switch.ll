@@ -127,7 +127,7 @@ define dso_local i32 @gss_mech_register(ptr noundef %0) #0 align 16 {
   %49 = load i32, ptr %2, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %48, %50
-  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %45, %34
   %52 = icmp eq i32 %35, 0
@@ -139,7 +139,7 @@ define dso_local i32 @gss_mech_register(ptr noundef %0) #0 align 16 {
   store ptr %53, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @registered_mechs, ptr %54, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   store volatile ptr %0, ptr @registered_mechs, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %0, ptr %55, align 8
@@ -199,7 +199,7 @@ define dso_local void @gss_mech_unregister(ptr noundef captures(none) %0) #0 ali
   %23 = load i32, ptr %6, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %22, %24
-  br i1 %25, label %11, label %.loopexit, !llvm.loop !12
+  br i1 %25, label %11, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %1
   ret void
@@ -232,7 +232,7 @@ define dso_local ptr @gss_mech_get_by_name(ptr noundef %0) local_unnamed_addr #0
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %8) #14
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %2, !llvm.loop !13
+  br i1 %10, label %11, label %2, !llvm.loop !11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -265,7 +265,7 @@ define dso_local ptr @gss_mech_get_by_name(ptr noundef %0) local_unnamed_addr #0
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %25) #14
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %19, !llvm.loop !14
+  br i1 %27, label %28, label %19, !llvm.loop !11
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -291,7 +291,7 @@ declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) lo
 define dso_local ptr @gss_mech_get_by_OID(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %0, align 4
   %5 = zext i32 %4 to i64
@@ -333,7 +333,7 @@ define dso_local ptr @gss_mech_get_by_OID(ptr noundef %0) local_unnamed_addr #0 
 28:                                               ; preds = %20, %15
   %29 = load volatile ptr, ptr %16, align 8
   %30 = icmp eq ptr %29, @registered_mechs
-  br i1 %30, label %.thread, label %15, !llvm.loop !16
+  br i1 %30, label %.thread, label %15, !llvm.loop !13
 
 .thread:                                          ; preds = %28, %24, %8
   call void @__rcu_read_unlock() #14
@@ -346,20 +346,20 @@ define dso_local ptr @gss_mech_get_by_OID(ptr noundef %0) local_unnamed_addr #0 
 
 33:                                               ; preds = %.thread, %31
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rpcgss_oid_to_mech, i64 8), i32 2) #14
-          to label %54 [label %34], !srcloc !17
+          to label %54 [label %34], !srcloc !14
 
 34:                                               ; preds = %33
-  %35 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !18
+  %35 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !15
   %36 = zext i32 %35 to i64
-  %37 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %36) #14, !srcloc !19
+  %37 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %36) #14, !srcloc !16
   %38 = icmp ult i8 %37, 2
   call void @llvm.assume(i1 %38)
   %39 = icmp eq i8 %37, 0
   br i1 %39, label %54, label %40
 
 40:                                               ; preds = %34
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !20
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !21
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
   %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rpcgss_oid_to_mech, i64 72), align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %47, label %43
@@ -371,16 +371,16 @@ define dso_local ptr @gss_mech_get_by_OID(ptr noundef %0) local_unnamed_addr #0 
   br label %47
 
 47:                                               ; preds = %43, %40
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  %48 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
+  %48 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !20
   %49 = icmp ult i8 %48, 2
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
-  br i1 %50, label %54, label %51, !prof !24
+  br i1 %50, label %54, label %51, !prof !21
 
 51:                                               ; preds = %47
   %52 = call i64 @llvm.read_register.i64(metadata !0)
-  %53 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %52) #14, !srcloc !25
+  %53 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %52) #14, !srcloc !22
   call void @llvm.write_register.i64(metadata !0, i64 %53)
   br label %54
 
@@ -409,7 +409,7 @@ define dso_local ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0) local_unnamed
 .loopexit10:                                      ; preds = %14, %.preheader11
   %4 = load volatile ptr, ptr %6, align 8
   %5 = icmp eq ptr %4, @registered_mechs
-  br i1 %5, label %.thread, label %.preheader11, !llvm.loop !26
+  br i1 %5, label %.thread, label %.preheader11
 
 .preheader11:                                     ; preds = %1, %.loopexit10
   %6 = phi ptr [ %4, %.loopexit10 ], [ %2, %1 ]
@@ -427,7 +427,7 @@ define dso_local ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0) local_unnamed
 14:                                               ; preds = %17
   %15 = add nuw nsw i64 %18, 1
   %16 = icmp eq i64 %15, %13
-  br i1 %16, label %.loopexit10, label %17, !llvm.loop !27
+  br i1 %16, label %.loopexit10, label %17, !llvm.loop !23
 
 17:                                               ; preds = %14, %10
   %18 = phi i64 [ %15, %14 ], [ 0, %10 ]
@@ -461,7 +461,7 @@ define dso_local ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0) local_unnamed
 .loopexit:                                        ; preds = %42, %.preheader
   %32 = load volatile ptr, ptr %34, align 8
   %33 = icmp eq ptr %32, @registered_mechs
-  br i1 %33, label %.loopexit9, label %.preheader, !llvm.loop !28
+  br i1 %33, label %.loopexit9, label %.preheader
 
 .preheader:                                       ; preds = %28, %.loopexit
   %34 = phi ptr [ %32, %.loopexit ], [ %30, %28 ]
@@ -479,7 +479,7 @@ define dso_local ptr @gss_mech_get_by_pseudoflavor(i32 noundef %0) local_unnamed
 42:                                               ; preds = %45
   %43 = add nuw nsw i64 %46, 1
   %44 = icmp eq i64 %43, %41
-  br i1 %44, label %.loopexit, label %45, !llvm.loop !29
+  br i1 %44, label %.loopexit, label %45, !llvm.loop !23
 
 45:                                               ; preds = %42, %38
   %46 = phi i64 [ %43, %42 ], [ 0, %38 ]
@@ -539,7 +539,7 @@ define dso_local i32 @gss_svc_to_pseudoflavor(ptr noundef readonly captures(none
 23:                                               ; preds = %17, %11
   %24 = add nuw nsw i64 %12, 1
   %25 = icmp eq i64 %24, %10
-  br i1 %25, label %.loopexit, label %11, !llvm.loop !30
+  br i1 %25, label %.loopexit, label %11, !llvm.loop !24
 
 .loopexit:                                        ; preds = %23, %21, %3
   %26 = phi i32 [ %22, %21 ], [ 8, %3 ], [ 8, %23 ]
@@ -589,7 +589,7 @@ define dso_local i32 @gss_mech_info2flavor(ptr noundef %0) local_unnamed_addr #0
 28:                                               ; preds = %22, %16
   %29 = add nuw nsw i64 %17, 1
   %30 = icmp eq i64 %29, %15
-  br i1 %30, label %.loopexit, label %16, !llvm.loop !31
+  br i1 %30, label %.loopexit, label %16, !llvm.loop !24
 
 .loopexit:                                        ; preds = %28, %26, %4
   %31 = phi i32 [ %27, %26 ], [ 8, %4 ], [ 8, %28 ]
@@ -639,7 +639,7 @@ define dso_local noundef range(i32 -2, 1) i32 @gss_mech_flavor2info(i32 noundef 
 13:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = icmp eq i64 %indvars.iv.next, %12
-  br i1 %14, label %.loopexit, label %15, !llvm.loop !32
+  br i1 %14, label %.loopexit, label %15, !llvm.loop !25
 
 15:                                               ; preds = %13, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %9 ]
@@ -700,7 +700,7 @@ define dso_local i32 @gss_pseudoflavor_to_service(ptr noundef readonly captures(
 10:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit, label %12, !llvm.loop !33
+  br i1 %11, label %.loopexit, label %12, !llvm.loop !26
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
@@ -735,7 +735,7 @@ define dso_local noundef zeroext i1 @gss_pseudoflavor_to_datatouch(ptr noundef r
 10:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit, label %12, !llvm.loop !34
+  br i1 %11, label %.loopexit, label %12, !llvm.loop !27
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
@@ -746,7 +746,7 @@ define dso_local noundef zeroext i1 @gss_pseudoflavor_to_datatouch(ptr noundef r
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %18 = load i8, ptr %17, align 8, !range !35, !noundef !36
+  %18 = load i8, ptr %17, align 8, !range !28, !noundef !29
   %19 = icmp ne i8 %18, 0
   br label %.loopexit
 
@@ -771,7 +771,7 @@ define dso_local ptr @gss_service_to_auth_domain_name(ptr noundef readonly captu
 10:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit, label %12, !llvm.loop !37
+  br i1 %11, label %.loopexit, label %12, !llvm.loop !30
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
@@ -798,7 +798,7 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @gss_import_sec_context(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = and i32 %5, 17
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %13, label %9, !prof !24
+  br i1 %8, label %13, label %9, !prof !21
 
 9:                                                ; preds = %6
   %10 = and i32 %5, 1
@@ -1002,35 +1002,28 @@ attributes #16 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = !{i64 2151884680}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = !{!"auto-init"}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = !{i64 597941, i64 597985, i64 2148084960, i64 2148084981, i64 2148085007, i64 2148085040, i64 2148085074, i64 2148085098}
-!18 = !{i64 2159907791}
-!19 = !{i64 2148406105, i64 2148406179}
-!20 = !{i64 2147951588}
-!21 = !{i64 2159910670}
-!22 = !{i64 2159921333}
-!23 = !{i64 2147955944, i64 2147956037}
-!24 = !{!"branch_weights", i32 2000, i32 1}
-!25 = !{i64 2159921492}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !7, !8, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !7, !8, !9}
-!30 = distinct !{!30, !7, !8, !9}
-!31 = distinct !{!31, !7, !8, !9}
-!32 = distinct !{!32, !7, !8, !9}
-!33 = distinct !{!33, !7, !8, !9}
-!34 = distinct !{!34, !7, !8, !9}
-!35 = !{i8 0, i8 2}
-!36 = !{}
-!37 = distinct !{!37, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2151884680}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!"auto-init"}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i64 597941, i64 597985, i64 2148084960, i64 2148084981, i64 2148085007, i64 2148085040, i64 2148085074, i64 2148085098}
+!15 = !{i64 2159907791}
+!16 = !{i64 2148406105, i64 2148406179}
+!17 = !{i64 2147951588}
+!18 = !{i64 2159910670}
+!19 = !{i64 2159921333}
+!20 = !{i64 2147955944, i64 2147956037}
+!21 = !{!"branch_weights", i32 2000, i32 1}
+!22 = !{i64 2159921492}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = distinct !{!30, !7, !8}

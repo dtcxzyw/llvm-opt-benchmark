@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br i1 %.not68, label %.loopexit, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = load i64, ptr %5, align 8, !tbaa !16
+  %27 = load i64, ptr %5, align 8, !tbaa !15
   %28 = icmp eq i64 %27, %3
   br i1 %28, label %.loopexit, label %.preheader76
 
@@ -168,16 +168,16 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %.05787, align 8, !tbaa !17
-  store ptr %35, ptr %8, align 8, !tbaa !18
-  store i64 %32, ptr %29, align 8, !tbaa !21
-  %36 = load i64, ptr %10, align 8, !tbaa !22
+  %35 = load ptr, ptr %.05787, align 8, !tbaa !16
+  store ptr %35, ptr %8, align 8, !tbaa !17
+  store i64 %32, ptr %29, align 8, !tbaa !20
+  %36 = load i64, ptr %10, align 8, !tbaa !21
   %37 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %8, i64 noundef %36, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #4
   %.not70 = icmp eq i32 %37, 1
   br i1 %.not70, label %38, label %.critedge
 
 38:                                               ; preds = %34
-  %.val = load i64, ptr %29, align 8, !tbaa !21
+  %.val = load i64, ptr %29, align 8, !tbaa !20
   %.not71 = icmp eq i64 %.val, 0
   br i1 %.not71, label %55, label %.preheader
 
@@ -188,7 +188,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
 40:                                               ; preds = %.lr.ph84
   %41 = add i64 %.06383, -1
   %42 = icmp ugt i64 %41, %.15688
-  br i1 %42, label %.lr.ph84, label %._crit_edge85, !llvm.loop !25
+  br i1 %42, label %.lr.ph84, label %._crit_edge85, !llvm.loop !24
 
 .lr.ph84:                                         ; preds = %.preheader, %40
   %.06383 = phi i64 [ %41, %40 ], [ %.05886, %.preheader ]
@@ -206,7 +206,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   %49 = getelementptr i8, ptr %48, i64 40
   %50 = getelementptr i8, ptr %48, i64 48
   store i64 %.val, ptr %50, align 8, !tbaa !9
-  %51 = load ptr, ptr %49, align 8, !tbaa !17
+  %51 = load ptr, ptr %49, align 8, !tbaa !16
   %52 = load i64, ptr %31, align 8, !tbaa !9
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %51, ptr align 1 %53, i64 %.val, i1 false)
@@ -220,11 +220,11 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   %56 = add nuw i64 %.15688, 1
   %57 = getelementptr inbounds nuw i8, ptr %.05787, i64 40
   %58 = icmp ult i64 %56, %.159
-  br i1 %58, label %30, label %._crit_edge90, !llvm.loop !26
+  br i1 %58, label %30, label %._crit_edge90, !llvm.loop !25
 
 ._crit_edge90:                                    ; preds = %55, %.preheader76
   %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %.159, %55 ]
-  store i64 %.058.lcssa, ptr %5, align 8, !tbaa !16
+  store i64 %.058.lcssa, ptr %5, align 8, !tbaa !15
   br label %.loopexit
 
 .critedge:                                        ; preds = %30, %34, %.lr.ph84
@@ -294,17 +294,16 @@ attributes #4 = { nounwind }
 !10 = !{!"bio_msg_st", !6, i64 0, !11, i64 8, !12, i64 16, !12, i64 24, !11, i64 32}
 !11 = !{!"long", !7, i64 0}
 !12 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!11, !11, i64 0}
-!17 = !{!10, !6, i64 0}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"", !20, i64 0, !11, i64 8}
-!20 = !{!"p1 omnipotent char", !6, i64 0}
-!21 = !{!19, !11, i64 8}
-!22 = !{!23, !11, i64 0}
-!23 = !{!"bio_qtest_data", !11, i64 0, !24, i64 8}
-!24 = !{!"p1 _ZTS11qtest_fault", !6, i64 0}
-!25 = distinct !{!25, !14, !15}
-!26 = distinct !{!26, !14, !15}
+!15 = !{!11, !11, i64 0}
+!16 = !{!10, !6, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"", !19, i64 0, !11, i64 8}
+!19 = !{!"p1 omnipotent char", !6, i64 0}
+!20 = !{!18, !11, i64 8}
+!21 = !{!22, !11, i64 0}
+!22 = !{!"bio_qtest_data", !11, i64 0, !23, i64 8}
+!23 = !{!"p1 _ZTS11qtest_fault", !6, i64 0}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}

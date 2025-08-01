@@ -244,7 +244,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt
   %32 = icmp eq i32 %31, 0
   %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.019) #17
   %.not = icmp eq ptr %33, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %29, %12
   ret void
@@ -332,7 +332,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes8AddTimesE
   %10 = call { ptr, i8 } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(9) %3)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %8, %2
   ret void
@@ -369,7 +369,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes8AddTimesE
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i.i: ; preds = %12, %9
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %15, %7
-  br i1 %.not.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_S5_EEEEEvT_SF_.exit, label %9, !llvm.loop !7
+  br i1 %.not.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_S5_EEEEEvT_SF_.exit, label %9, !llvm.loop !4
 
 _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_S5_EEEEEvT_SF_.exit: ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i.i, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -432,7 +432,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes12AddKnotT
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i.i: ; preds = %22, %.noexc
   %25 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07.i.i) #17
   %.not.i.i = icmp eq ptr %25, %16
-  br i1 %.not.i.i, label %.loopexit, label %18, !llvm.loop !9
+  br i1 %.not.i.i, label %.loopexit, label %18, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i.i, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -571,7 +571,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes28AddUnifo
 52:                                               ; preds = %50
   %53 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %.016, %46
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !7
 
 .loopexit:                                        ; preds = %52, %32, %26
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -786,7 +786,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18Ts
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -827,7 +827,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserve
   %.in.us.i = getelementptr inbounds nuw i8, ptr %.02231.us.i, i64 %.in.us.v.i
   %.022.us.i = load ptr, ptr %.in.us.i, align 8
   %.not.us.i = icmp eq ptr %.022.us.i, null
-  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i
   %.02231.i = phi ptr [ %.022.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i ], [ %.02229.i, %.lr.ph.i ]
@@ -855,7 +855,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %22 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 %.sink.i
   %.022.i = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %.022.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i
   %.021.lcssa.i = phi ptr [ %.02231.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i ], [ %.02231.us.i, %.lr.ph.split.us.i ]
@@ -1054,7 +1054,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %.in.us.i = getelementptr inbounds nuw i8, ptr %.02231.us.i, i64 %.in.us.v.i
   %.022.us.i = load ptr, ptr %.in.us.i, align 8
   %.not.us.i = icmp eq ptr %.022.us.i, null
-  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i
   %.02231.i = phi ptr [ %.022.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i ], [ %.02229.i, %.lr.ph.i ]
@@ -1082,7 +1082,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %42 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 %.sink.i
   %.022.i = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %.022.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i
   %.021.lcssa.i = phi ptr [ %.02231.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i ], [ %.02231.us.i, %.lr.ph.split.us.i ]
@@ -1201,7 +1201,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %.in.us.i21 = getelementptr inbounds nuw i8, ptr %.02231.us.i19, i64 %.in.us.v.i20
   %.022.us.i22 = load ptr, ptr %.in.us.i21, align 8
   %.not.us.i23 = icmp eq ptr %.022.us.i22, null
-  br i1 %.not.us.i23, label %._crit_edge.i24, label %.lr.ph.split.us.i18, !llvm.loop !12
+  br i1 %.not.us.i23, label %._crit_edge.i24, label %.lr.ph.split.us.i18, !llvm.loop !9
 
 .lr.ph.split.i39:                                 ; preds = %.lr.ph.i16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i42
   %.02231.i40 = phi ptr [ %.022.i44, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i42 ], [ %.02229.i14, %.lr.ph.i16 ]
@@ -1229,7 +1229,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %109 = getelementptr inbounds nuw i8, ptr %.02231.i40, i64 %.sink.i43
   %.022.i44 = load ptr, ptr %109, align 8
   %.not.i45 = icmp eq ptr %.022.i44, null
-  br i1 %.not.i45, label %._crit_edge.i24, label %.lr.ph.split.i39, !llvm.loop !14
+  br i1 %.not.i45, label %._crit_edge.i24, label %.lr.ph.split.i39, !llvm.loop !11
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.split.us.i18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i42
   %.021.lcssa.i25 = phi ptr [ %.02231.i40, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i42 ], [ %.02231.us.i19, %.lr.ph.split.us.i18 ]
@@ -1329,7 +1329,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %.in.us.i59 = getelementptr inbounds nuw i8, ptr %.02231.us.i57, i64 %.in.us.v.i58
   %.022.us.i60 = load ptr, ptr %.in.us.i59, align 8
   %.not.us.i61 = icmp eq ptr %.022.us.i60, null
-  br i1 %.not.us.i61, label %._crit_edge.i62, label %.lr.ph.split.us.i56, !llvm.loop !12
+  br i1 %.not.us.i61, label %._crit_edge.i62, label %.lr.ph.split.us.i56, !llvm.loop !9
 
 .lr.ph.split.i77:                                 ; preds = %.lr.ph.i54, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i80
   %.02231.i78 = phi ptr [ %.022.i82, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i80 ], [ %.02229.i52, %.lr.ph.i54 ]
@@ -1357,7 +1357,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %159 = getelementptr inbounds nuw i8, ptr %.02231.i78, i64 %.sink.i81
   %.022.i82 = load ptr, ptr %159, align 8
   %.not.i83 = icmp eq ptr %.022.i82, null
-  br i1 %.not.i83, label %._crit_edge.i62, label %.lr.ph.split.i77, !llvm.loop !14
+  br i1 %.not.i83, label %._crit_edge.i62, label %.lr.ph.split.i77, !llvm.loop !11
 
 ._crit_edge.i62:                                  ; preds = %.lr.ph.split.us.i56, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i80
   %.021.lcssa.i63 = phi ptr [ %.02231.i78, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i80 ], [ %.02231.us.i57, %.lr.ph.split.us.i56 ]
@@ -1516,13 +1516,10 @@ attributes #21 = { noreturn }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !8, !5}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !5}
-!10 = distinct !{!10, !8, !5}
-!11 = distinct !{!11, !8, !5}
-!12 = distinct !{!12, !8, !5, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !8, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5}

@@ -38,7 +38,7 @@ define hidden void @_Z9del_pagesPc(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !10
+  %3 = load ptr, ptr %1, align 8, !tbaa !9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
@@ -47,7 +47,7 @@ define hidden noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %0, ptr no
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  store ptr %8, ptr %1, align 8, !tbaa !10
+  store ptr %8, ptr %1, align 8, !tbaa !9
   br label %12
 
 9:                                                ; preds = %2
@@ -83,11 +83,11 @@ define hidden void @_Z12recycle_pagePcRS_(ptr noundef %0, ptr noundef nonnull al
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %1, align 8, !tbaa !10
+  %7 = load ptr, ptr %1, align 8, !tbaa !9
   %8 = ptrtoint ptr %7 to i64
   %9 = or i64 %8, 1
   store i64 %9, ptr %3, align 8, !tbaa !3
-  store ptr %0, ptr %1, align 8, !tbaa !10
+  store ptr %0, ptr %1, align 8, !tbaa !9
   br label %11
 
 10:                                               ; preds = %2
@@ -126,9 +126,8 @@ attributes #5 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}

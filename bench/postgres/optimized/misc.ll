@@ -671,7 +671,7 @@ ECPGget_sqlca.exit:                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %.0 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %19, %14
   %21 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #20
@@ -749,7 +749,7 @@ define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge6, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.critedge6, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.010, i64 8
@@ -799,8 +799,7 @@ attributes #20 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

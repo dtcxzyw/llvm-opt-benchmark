@@ -562,7 +562,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %350, ptr noundef nonnull align 4 dereferenceable(16) %349, i64 16, i1 false), !tbaa.struct !13
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, %wide.trip.count28.i.i
-  br i1 %exitcond29.not.i.i, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit, label %345, !llvm.loop !28
+  br i1 %exitcond29.not.i.i, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit, label %345, !llvm.loop !27
 
 _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; preds = %345, %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #6
@@ -661,7 +661,7 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %397, ptr noundef nonnull align 4 dereferenceable(16) %396, i64 16, i1 false), !tbaa.struct !13
   %indvars.iv.next26.i.i144 = add nuw nsw i64 %indvars.iv25.i.i143, 1
   %exitcond29.not.i.i145 = icmp eq i64 %indvars.iv.next26.i.i144, %wide.trip.count28.i.i142
-  br i1 %exitcond29.not.i.i145, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit146, label %392, !llvm.loop !28
+  br i1 %exitcond29.not.i.i145, label %_ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit146, label %392, !llvm.loop !27
 
 _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit146: ; preds = %392, %.preheader.i.i139
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
@@ -1312,7 +1312,7 @@ _Z26PLANE_CLIP_POLYGON_COLLECTI9btVector3EvRKT_S3_ffPS1_Rj.exit32: ; preds = %10
   %.5 = phi i32 [ %.4, %108 ], [ %117, %109 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 }
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1350,8 +1350,7 @@ attributes #6 = { nounwind }
 !22 = !{!"int", !7, i64 0}
 !23 = !{!21, !6, i64 0}
 !24 = !{!22, !22, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = distinct !{!29, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}

@@ -144,7 +144,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
 
 32:                                               ; preds = %.critedge
   call void @pfree(ptr noundef nonnull %15) #7
-  br label %63, !llvm.loop !7
+  br label %63, !llvm.loop !6
 
 33:                                               ; preds = %.critedge
   %34 = load i32, ptr %1, align 8
@@ -207,7 +207,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   %.1 = phi i32 [ %.04166, %32 ], [ %.2, %60 ]
   %64 = call ptr @tsearch_readline(ptr noundef nonnull %4) #7
   %.not50 = icmp eq ptr %64, null
-  br i1 %.not50, label %._crit_edge, label %.preheader, !llvm.loop !8
+  br i1 %.not50, label %._crit_edge, label %.preheader
 
 .thread:                                          ; preds = %5, %3
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @searchstoplist(ptr noundef readonly capture
   %.118.i = phi i64 [ %.01720.i, %18 ], [ %12, %.lr.ph.i ]
   %.1.i = phi i64 [ %19, %18 ], [ %.01621.i, %.lr.ph.i ]
   %21 = icmp ult i64 %.1.i, %.118.i
-  br i1 %21, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !9
+  br i1 %21, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !7
 
 bsearch.exit:                                     ; preds = %20, %17, %6, %2
   %22 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %17 ], [ false, %20 ]
@@ -326,9 +326,7 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !5, !6}

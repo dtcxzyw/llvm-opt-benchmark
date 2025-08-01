@@ -89,11 +89,11 @@ define internal i32 @hdr_parse(ptr noundef captures(none) %0, ptr readnone captu
   store ptr %39, ptr %2, align 8, !tbaa !4
   store i32 %38, ptr %3, align 4, !tbaa !9
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %40, align 8, !tbaa !24
+  store i32 1, ptr %40, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 1, ptr %41, align 8, !tbaa !25
+  store i32 1, ptr %41, align 8, !tbaa !24
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 1, ptr %42, align 8, !tbaa !26
+  store i32 1, ptr %42, align 8, !tbaa !25
   br label %43
 
 43:                                               ; preds = %37, %35
@@ -132,9 +132,8 @@ attributes #2 = { nounwind }
 !18 = !{!12, !10, i64 184}
 !19 = !{!7, !7, i64 0}
 !20 = !{!16, !10, i64 8}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!12, !10, i64 40}
-!25 = !{!12, !10, i64 232}
-!26 = !{!12, !10, i64 296}
+!23 = !{!12, !10, i64 40}
+!24 = !{!12, !10, i64 232}
+!25 = !{!12, !10, i64 296}

@@ -198,18 +198,18 @@ define internal void @_ZNK4ncnn17HardSwish_x86_fma15forward_inplaceERNS_3MatERKN
   %70 = or disjoint i32 %69, 3
   %71 = load i32, ptr %4, align 4, !tbaa !16
   %72 = icmp slt i32 %70, %71
-  br i1 %72, label %.lr.ph66, label %.preheader, !llvm.loop !51
+  br i1 %72, label %.lr.ph66, label %.preheader, !llvm.loop !50
 
 .lr.ph72:                                         ; preds = %.preheader, %85
   %.271 = phi ptr [ %86, %85 ], [ %.1.lcssa, %.preheader ]
   %.24870 = phi i32 [ %87, %85 ], [ %.147.lcssa, %.preheader ]
-  %73 = load float, ptr %.271, align 4, !tbaa !52
-  %74 = load float, ptr %23, align 8, !tbaa !53
+  %73 = load float, ptr %.271, align 4, !tbaa !51
+  %74 = load float, ptr %23, align 8, !tbaa !52
   %75 = fcmp fast olt float %73, %74
   br i1 %75, label %.sink.split, label %76
 
 76:                                               ; preds = %.lr.ph72
-  %77 = load float, ptr %24, align 4, !tbaa !54
+  %77 = load float, ptr %24, align 4, !tbaa !53
   %78 = fcmp fast ogt float %73, %77
   br i1 %78, label %85, label %79
 
@@ -223,20 +223,20 @@ define internal void @_ZNK4ncnn17HardSwish_x86_fma15forward_inplaceERNS_3MatERKN
 
 .sink.split:                                      ; preds = %.lr.ph72, %79
   %.sink = phi float [ %84, %79 ], [ 0.000000e+00, %.lr.ph72 ]
-  store float %.sink, ptr %.271, align 4, !tbaa !52
+  store float %.sink, ptr %.271, align 4, !tbaa !51
   br label %85
 
 85:                                               ; preds = %.sink.split, %76
   %86 = getelementptr inbounds nuw i8, ptr %.271, i64 4
   %87 = add nuw nsw i32 %.24870, 1
   %exitcond.not = icmp eq i32 %87, %54
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph72, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph72, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %85, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond82.not = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond82.not, label %._crit_edge75, label %.noexc, !llvm.loop !56
+  br i1 %exitcond82.not, label %._crit_edge75, label %.noexc
 
 ._crit_edge75:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -268,7 +268,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !57 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !55 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #8
@@ -355,14 +355,12 @@ attributes #12 = { builtin nounwind }
 !45 = !{!"_ZTSN4ncnn9HardSwishE", !24, i64 0, !46, i64 208, !46, i64 212, !46, i64 216, !46, i64 220}
 !46 = !{!"float", !7, i64 0}
 !47 = !{!45, !46, i64 208}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = distinct !{!51, !49, !50}
-!52 = !{!46, !46, i64 0}
-!53 = !{!45, !46, i64 216}
-!54 = !{!45, !46, i64 220}
-!55 = distinct !{!55, !49, !50}
-!56 = distinct !{!56, !50}
-!57 = !{!58}
-!58 = !{i64 2, i64 -1, i64 -1, i1 true}
+!50 = distinct !{!50, !49}
+!51 = !{!46, !46, i64 0}
+!52 = !{!45, !46, i64 216}
+!53 = !{!45, !46, i64 220}
+!54 = distinct !{!54, !49}
+!55 = !{!56}
+!56 = !{i64 2, i64 -1, i64 -1, i1 true}

@@ -198,7 +198,7 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   %74 = add nsw i32 %73, %.2..082
   %.off = add i32 %72, 1
   %75 = icmp ult i32 %.off, 3
-  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %.preheader, %70, %58, %55, %53
   %.1 = phi i32 [ 0, %53 ], [ 1024, %55 ], [ %.2, %.preheader ], [ %74, %70 ], [ %.2, %58 ], [ %.07999, %22 ]
@@ -231,17 +231,17 @@ define void @lv_sqrt(i32 noundef %0, ptr noundef writeonly captures(none) %1, i3
   %spec.select = select i1 %.not, i32 %.0, i32 %6
   %8 = lshr i32 %.012, 1
   %.not14 = icmp ult i32 %.012, 2
-  br i1 %.not14, label %9, label %5, !llvm.loop !11
+  br i1 %.not14, label %9, label %5, !llvm.loop !10
 
 9:                                                ; preds = %5
   %10 = lshr i32 %spec.select, 4
   %11 = trunc i32 %10 to i16
-  store i16 %11, ptr %1, align 2, !tbaa !12
+  store i16 %11, ptr %1, align 2, !tbaa !11
   %.1.tr = trunc i32 %spec.select to i16
   %12 = shl i16 %.1.tr, 4
   %13 = and i16 %12, 240
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %13, ptr %14, align 2, !tbaa !14
+  store i16 %13, ptr %14, align 2, !tbaa !13
   ret void
 }
 
@@ -284,7 +284,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %18 = lshr i32 %0, 16
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !15
+  %21 = load i8, ptr %20, align 1, !tbaa !14
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 4
   br label %100
@@ -293,7 +293,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %25 = lshr i32 %0, 14
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !15
+  %28 = load i8, ptr %27, align 1, !tbaa !14
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 3
   br label %100
@@ -306,7 +306,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %34 = lshr i32 %0, 12
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !15
+  %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 2
   br label %100
@@ -315,7 +315,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %41 = lshr i32 %0, 10
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !15
+  %44 = load i8, ptr %43, align 1, !tbaa !14
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 1
   br label %100
@@ -336,7 +336,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %54 = lshr i32 %0, 8
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !15
+  %57 = load i8, ptr %56, align 1, !tbaa !14
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 1
   br label %105
@@ -345,7 +345,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %61 = lshr i32 %0, 6
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !15
+  %64 = load i8, ptr %63, align 1, !tbaa !14
   %65 = lshr i8 %64, 1
   %narrow41 = add nuw i8 %65, 1
   %66 = zext i8 %narrow41 to i32
@@ -359,7 +359,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %70 = lshr i32 %0, 4
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !15
+  %73 = load i8, ptr %72, align 1, !tbaa !14
   %74 = lshr i8 %73, 2
   %narrow40 = add nuw nsw i8 %74, 1
   %75 = zext nneg i8 %narrow40 to i32
@@ -369,7 +369,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %77 = lshr i32 %0, 2
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !15
+  %80 = load i8, ptr %79, align 1, !tbaa !14
   %81 = lshr i8 %80, 3
   %narrow = add nuw nsw i8 %81, 1
   %82 = zext nneg i8 %narrow to i32
@@ -378,7 +378,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 83:                                               ; preds = %47
   %84 = zext nneg i32 %0 to i64
   %85 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !15
+  %86 = load i8, ptr %85, align 1, !tbaa !14
   %87 = lshr i8 %86, 4
   %88 = zext nneg i8 %87 to i32
   br label %109
@@ -389,7 +389,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %90 = lshr i32 %0, %.sink45
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !15
+  %93 = load i8, ptr %92, align 1, !tbaa !14
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, %.sink42
   %96 = or disjoint i32 %95, 1
@@ -525,7 +525,7 @@ define i64 @lv_pow(i64 noundef %0, i8 noundef signext %1) local_unnamed_addr #1 
   %5 = ashr i8 %.0813, 1
   %6 = mul nsw i64 %.0912, %.0912
   %.not = icmp ult i8 %.0813, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 1, %2 ], [ %spec.select, %.lr.ph ]
@@ -571,20 +571,20 @@ define i32 @lv_map(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @lv_rand_set_seed(i32 noundef %0) local_unnamed_addr #3 {
-  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 192), align 8, !tbaa !17
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 192), align 8, !tbaa !16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @lv_rand(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 192), align 8, !tbaa !17
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 192), align 8, !tbaa !16
   %4 = shl i32 %3, 13
   %5 = xor i32 %4, %3
   %6 = lshr i32 %5, 17
   %7 = xor i32 %6, %5
   %8 = shl i32 %7, 5
   %9 = xor i32 %8, %7
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 192), align 8, !tbaa !17
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 192), align 8, !tbaa !16
   %reass.sub = sub i32 %1, %0
   %10 = add i32 %reass.sub, 1
   %11 = urem i32 %9, %10
@@ -702,38 +702,37 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"short", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = !{!13, !4, i64 0}
-!13 = !{!"", !4, i64 0, !4, i64 2}
-!14 = !{!13, !4, i64 2}
-!15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !8, !9}
-!17 = !{!18, !21, i64 192}
-!18 = !{!"_lv_global_t", !19, i64 0, !19, i64 1, !20, i64 8, !24, i64 32, !24, i64 40, !20, i64 48, !19, i64 72, !21, i64 76, !21, i64 80, !22, i64 88, !20, i64 96, !25, i64 120, !20, i64 128, !26, i64 152, !27, i64 160, !21, i64 168, !23, i64 176, !19, i64 184, !21, i64 188, !21, i64 192, !28, i64 200, !21, i64 208, !29, i64 216, !30, i64 288, !32, i64 328, !33, i64 352, !33, i64 400, !33, i64 448, !20, i64 496, !34, i64 520, !34, i64 528, !35, i64 536, !5, i64 568, !23, i64 760, !23, i64 768, !23, i64 776, !37, i64 784, !20, i64 832, !39, i64 856, !40, i64 864, !41, i64 872, !38, i64 888, !23, i64 896, !21, i64 904, !23, i64 912}
-!19 = !{!"_Bool", !5, i64 0}
-!20 = !{!"", !21, i64 0, !22, i64 8, !22, i64 16}
-!21 = !{!"int", !5, i64 0}
-!22 = !{!"p1 omnipotent char", !23, i64 0}
-!23 = !{!"any pointer", !5, i64 0}
-!24 = !{!"p1 _ZTS13_lv_display_t", !23, i64 0}
-!25 = !{!"p1 _ZTS11_lv_group_t", !23, i64 0}
-!26 = !{!"p1 _ZTS11_lv_indev_t", !23, i64 0}
-!27 = !{!"p1 _ZTS9_lv_obj_t", !23, i64 0}
-!28 = !{!"p1 _ZTS11_lv_event_t", !23, i64 0}
-!29 = !{!"", !20, i64 0, !19, i64 24, !5, i64 25, !19, i64 26, !19, i64 27, !21, i64 28, !19, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !21, i64 48, !23, i64 56, !23, i64 64}
-!30 = !{!"", !19, i64 0, !19, i64 1, !31, i64 8, !20, i64 16}
-!31 = !{!"p1 _ZTS11_lv_timer_t", !23, i64 0}
-!32 = !{!"", !21, i64 0, !5, i64 4, !23, i64 8, !23, i64 16}
-!33 = !{!"_lv_draw_buf_handlers_t", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40}
-!34 = !{!"p1 _ZTS11_lv_cache_t", !23, i64 0}
-!35 = !{!"", !36, i64 0, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !19, i64 24}
-!36 = !{!"p1 _ZTS15_lv_draw_unit_t", !23, i64 0}
-!37 = !{!"", !23, i64 0, !38, i64 8, !38, i64 16, !20, i64 24}
-!38 = !{!"long", !5, i64 0}
-!39 = !{!"p1 _ZTS22_lv_freetype_context_t", !23, i64 0}
-!40 = !{!"p1 _ZTS14_snippet_stack", !23, i64 0}
-!41 = !{!"", !23, i64 0, !21, i64 8, !5, i64 12}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !4, i64 0}
+!12 = !{!"", !4, i64 0, !4, i64 2}
+!13 = !{!12, !4, i64 2}
+!14 = !{!5, !5, i64 0}
+!15 = distinct !{!15, !8}
+!16 = !{!17, !20, i64 192}
+!17 = !{!"_lv_global_t", !18, i64 0, !18, i64 1, !19, i64 8, !23, i64 32, !23, i64 40, !19, i64 48, !18, i64 72, !20, i64 76, !20, i64 80, !21, i64 88, !19, i64 96, !24, i64 120, !19, i64 128, !25, i64 152, !26, i64 160, !20, i64 168, !22, i64 176, !18, i64 184, !20, i64 188, !20, i64 192, !27, i64 200, !20, i64 208, !28, i64 216, !29, i64 288, !31, i64 328, !32, i64 352, !32, i64 400, !32, i64 448, !19, i64 496, !33, i64 520, !33, i64 528, !34, i64 536, !5, i64 568, !22, i64 760, !22, i64 768, !22, i64 776, !36, i64 784, !19, i64 832, !38, i64 856, !39, i64 864, !40, i64 872, !37, i64 888, !22, i64 896, !20, i64 904, !22, i64 912}
+!18 = !{!"_Bool", !5, i64 0}
+!19 = !{!"", !20, i64 0, !21, i64 8, !21, i64 16}
+!20 = !{!"int", !5, i64 0}
+!21 = !{!"p1 omnipotent char", !22, i64 0}
+!22 = !{!"any pointer", !5, i64 0}
+!23 = !{!"p1 _ZTS13_lv_display_t", !22, i64 0}
+!24 = !{!"p1 _ZTS11_lv_group_t", !22, i64 0}
+!25 = !{!"p1 _ZTS11_lv_indev_t", !22, i64 0}
+!26 = !{!"p1 _ZTS9_lv_obj_t", !22, i64 0}
+!27 = !{!"p1 _ZTS11_lv_event_t", !22, i64 0}
+!28 = !{!"", !19, i64 0, !18, i64 24, !5, i64 25, !18, i64 26, !18, i64 27, !20, i64 28, !18, i64 32, !20, i64 36, !20, i64 40, !20, i64 44, !20, i64 48, !22, i64 56, !22, i64 64}
+!29 = !{!"", !18, i64 0, !18, i64 1, !30, i64 8, !19, i64 16}
+!30 = !{!"p1 _ZTS11_lv_timer_t", !22, i64 0}
+!31 = !{!"", !20, i64 0, !5, i64 4, !22, i64 8, !22, i64 16}
+!32 = !{!"_lv_draw_buf_handlers_t", !22, i64 0, !22, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !22, i64 40}
+!33 = !{!"p1 _ZTS11_lv_cache_t", !22, i64 0}
+!34 = !{!"", !35, i64 0, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !18, i64 24}
+!35 = !{!"p1 _ZTS15_lv_draw_unit_t", !22, i64 0}
+!36 = !{!"", !22, i64 0, !37, i64 8, !37, i64 16, !19, i64 24}
+!37 = !{!"long", !5, i64 0}
+!38 = !{!"p1 _ZTS22_lv_freetype_context_t", !22, i64 0}
+!39 = !{!"p1 _ZTS14_snippet_stack", !22, i64 0}
+!40 = !{!"", !22, i64 0, !20, i64 8, !5, i64 12}

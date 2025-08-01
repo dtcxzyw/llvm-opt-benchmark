@@ -138,7 +138,7 @@ Init.exit:                                        ; preds = %3
   %59 = load double, ptr %.19.i.i, align 8, !tbaa !3
   %60 = tail call double @llvm.fmuladd.f64(double %.011.i.i, double %14, double %59)
   %61 = icmp samesign ugt i32 %.0610.i.i, 1
-  br i1 %61, label %.lr.ph.i.i, label %polyvalx.exit.i, !llvm.loop !19
+  br i1 %61, label %.lr.ph.i.i, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %52
   %.0.lcssa.i.i = phi double [ %57, %52 ], [ %60, %.lr.ph.i.i ]
@@ -154,7 +154,7 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %52
   %69 = add i32 %62, 2
   %70 = add nsw i32 %.01417.i, -1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %A3coeff.exit, label %52, !llvm.loop !21
+  br i1 %exitcond.not.i, label %A3coeff.exit, label %52
 
 A3coeff.exit:                                     ; preds = %polyvalx.exit.i
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -192,7 +192,7 @@ A3coeff.exit:                                     ; preds = %polyvalx.exit.i
   %81 = load double, ptr %.19.i.i38, align 8, !tbaa !3
   %82 = tail call double @llvm.fmuladd.f64(double %.011.i.i35, double %76, double %81)
   %83 = icmp samesign ugt i32 %.0610.i.i36, 1
-  br i1 %83, label %.lr.ph.i.i34, label %polyvalx.exit.i39, !llvm.loop !19
+  br i1 %83, label %.lr.ph.i.i34, label %polyvalx.exit.i39
 
 polyvalx.exit.i39:                                ; preds = %.lr.ph.i.i34, %73
   %.0.lcssa.i.i40 = phi double [ %79, %73 ], [ %82, %.lr.ph.i.i34 ]
@@ -209,7 +209,7 @@ polyvalx.exit.i39:                                ; preds = %.lr.ph.i.i34, %73
   %92 = add nsw i32 %.01722.i, -1
   %lftr.wideiv = trunc i64 %indvars.iv.next.i41 to i32
   %exitcond = icmp eq i32 %indvars.iv64, %lftr.wideiv
-  br i1 %exitcond, label %93, label %73, !llvm.loop !22
+  br i1 %exitcond, label %93, label %73
 
 93:                                               ; preds = %polyvalx.exit.i39
   %94 = trunc nuw nsw i64 %indvars.iv66 to i32
@@ -219,7 +219,7 @@ polyvalx.exit.i39:                                ; preds = %.lr.ph.i.i34, %73
   %exitcond32.not.i = icmp eq i32 %96, 6
   %indvars.iv.next = add nsw i32 %indvars.iv, -1
   %indvars.iv.next65 = add i32 %indvars.iv64, %indvars.iv
-  br i1 %exitcond32.not.i, label %C3coeff.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond32.not.i, label %C3coeff.exit, label %.preheader.i
 
 C3coeff.exit:                                     ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -260,7 +260,7 @@ C3coeff.exit:                                     ; preds = %93
   %107 = load double, ptr %.19.i.i50, align 8, !tbaa !3
   %108 = tail call double @llvm.fmuladd.f64(double %.011.i.i47, double %100, double %107)
   %109 = icmp samesign ugt i32 %.0610.i.i48, 1
-  br i1 %109, label %.lr.ph.i.i46, label %polyvalx.exit.i51, !llvm.loop !19
+  br i1 %109, label %.lr.ph.i.i46, label %polyvalx.exit.i51
 
 polyvalx.exit.i51:                                ; preds = %.lr.ph.i.i46, %99
   %.pre-phi = phi i32 [ 5, %99 ], [ %104, %.lr.ph.i.i46 ]
@@ -278,7 +278,7 @@ polyvalx.exit.i51:                                ; preds = %.lr.ph.i.i46, %99
   %indvars.iv.next.i53 = add nsw i64 %indvars.iv.i44, -1
   %lftr.wideiv73 = trunc i64 %indvars.iv.next29.i to i32
   %exitcond74 = icmp eq i32 %indvars.iv71, %lftr.wideiv73
-  br i1 %exitcond74, label %117, label %99, !llvm.loop !24
+  br i1 %exitcond74, label %117, label %99
 
 117:                                              ; preds = %polyvalx.exit.i51
   %118 = trunc nuw nsw i64 %indvars.iv75 to i32
@@ -288,7 +288,7 @@ polyvalx.exit.i51:                                ; preds = %.lr.ph.i.i46, %99
   %exitcond35.not.i = icmp eq i32 %120, 6
   %indvars.iv.next70 = add nsw i32 %indvars.iv69, -1
   %indvars.iv.next72 = add i32 %indvars.iv71, %indvars.iv69
-  br i1 %exitcond35.not.i, label %C4coeff.exit, label %.preheader.i43, !llvm.loop !25
+  br i1 %exitcond35.not.i, label %C4coeff.exit, label %.preheader.i43
 
 C4coeff.exit:                                     ; preds = %117
   ret void
@@ -406,41 +406,41 @@ define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), 
   %11 = alloca double, align 8
   %12 = load double, ptr %1, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %12, ptr %13, align 8, !tbaa !26
+  store double %12, ptr %13, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %15, ptr %16, align 8, !tbaa !28
+  store double %15, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load double, ptr %17, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %18, ptr %19, align 8, !tbaa !29
+  store double %18, ptr %19, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load double, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %21, ptr %22, align 8, !tbaa !30
+  store double %21, ptr %22, align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load double, ptr %23, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store double %24, ptr %25, align 8, !tbaa !31
+  store double %24, ptr %25, align 8, !tbaa !24
   %.not = icmp eq i32 %7, 0
   %26 = or i32 %7, 33408
   %27 = select i1 %.not, i32 35723, i32 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store i32 %27, ptr %28, align 8, !tbaa !32
+  store i32 %27, ptr %28, align 8, !tbaa !25
   %29 = tail call double @llvm.fabs.f64(double %2)
   %30 = fcmp ogt double %29, 9.000000e+01
   %31 = load double, ptr @NaN, align 8
   %32 = select i1 %30, double %31, double %2
-  store double %32, ptr %0, align 8, !tbaa !33
+  store double %32, ptr %0, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %3, ptr %33, align 8, !tbaa !34
+  store double %3, ptr %33, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %4, ptr %34, align 8, !tbaa !35
+  store double %4, ptr %34, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %5, ptr %35, align 8, !tbaa !36
+  store double %5, ptr %35, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %6, ptr %36, align 8, !tbaa !37
+  store double %6, ptr %36, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %37 = tail call double @llvm.fabs.f64(double %32)
   store volatile double %37, ptr %10, align 8, !tbaa !3
@@ -508,7 +508,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %62 = tail call double @llvm.copysign.f64(double %.0, double %32)
   %.1 = select i1 %61, double %62, double %.0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  %63 = load double, ptr %25, align 8, !tbaa !31
+  %63 = load double, ptr %25, align 8, !tbaa !24
   %64 = fmul double %.1, %63
   %65 = tail call double @hypot(double noundef %64, double noundef %60) #15, !tbaa !15
   %66 = fdiv double %64, %65
@@ -521,27 +521,27 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %73 = tail call double @llvm.fmuladd.f64(double %71, double %72, double 1.000000e+00)
   %74 = tail call double @sqrt(double noundef %73) #15, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double %74, ptr %75, align 8, !tbaa !38
-  %76 = load double, ptr %35, align 8, !tbaa !36
+  store double %74, ptr %75, align 8, !tbaa !31
+  %76 = load double, ptr %35, align 8, !tbaa !29
   %77 = fmul double %69, %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %77, ptr %78, align 8, !tbaa !39
-  %79 = load double, ptr %36, align 8, !tbaa !37
+  store double %77, ptr %78, align 8, !tbaa !32
+  %79 = load double, ptr %36, align 8, !tbaa !30
   %80 = fmul double %66, %76
   %81 = tail call double @hypot(double noundef %79, double noundef %80) #15, !tbaa !15
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %81, ptr %82, align 8, !tbaa !40
+  store double %81, ptr %82, align 8, !tbaa !33
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %84 = fmul double %66, %77
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double %84, ptr %85, align 8, !tbaa !41
+  store double %84, ptr %85, align 8, !tbaa !34
   %86 = fcmp une double %66, 0.000000e+00
   %87 = fcmp une double %79, 0.000000e+00
   %or.cond = or i1 %86, %87
   %88 = fmul double %69, %79
   %89 = select i1 %or.cond, double %88, double 1.000000e+00
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store double %89, ptr %90, align 8, !tbaa !42
+  store double %89, ptr %90, align 8, !tbaa !35
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %92 = tail call double @hypot(double noundef %66, double noundef %89) #15, !tbaa !15
   %93 = fdiv double %66, %92
@@ -552,13 +552,13 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %96 = load double, ptr %70, align 8, !tbaa !12
   %97 = fmul double %95, %96
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store double %97, ptr %98, align 8, !tbaa !43
+  store double %97, ptr %98, align 8, !tbaa !36
   %99 = fadd double %97, 1.000000e+00
   %100 = tail call double @sqrt(double noundef %99) #15, !tbaa !15
   %101 = fadd double %100, 1.000000e+00
   %102 = tail call double @llvm.fmuladd.f64(double %101, double 2.000000e+00, double %97)
   %103 = fdiv double %97, %102
-  %104 = load i32, ptr %28, align 8, !tbaa !32
+  %104 = load i32, ptr %28, align 8, !tbaa !25
   %105 = and i32 %104, 1
   %.not107 = icmp eq i32 %105, 0
   br i1 %.not107, label %169, label %106
@@ -576,7 +576,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %109 = load double, ptr %.19.i.i, align 8, !tbaa !3
   %110 = tail call double @llvm.fmuladd.f64(double %.011.i.i, double %107, double %109)
   %111 = icmp samesign ugt i32 %.0610.i.i, 1
-  br i1 %111, label %.lr.ph.i.i, label %A1m1f.exit, !llvm.loop !19
+  br i1 %111, label %.lr.ph.i.i, label %A1m1f.exit
 
 A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %112 = fmul double %110, 3.906250e-03
@@ -584,7 +584,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %114 = fsub double 1.000000e+00, %103
   %115 = fdiv double %113, %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store double %115, ptr %116, align 8, !tbaa !44
+  store double %115, ptr %116, align 8, !tbaa !37
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %118
 
@@ -610,7 +610,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %126 = load double, ptr %.19.i.i116, align 8, !tbaa !3
   %127 = tail call double @llvm.fmuladd.f64(double %.011.i.i113, double %107, double %126)
   %128 = icmp samesign ugt i32 %.0610.i.i114, 1
-  br i1 %128, label %.lr.ph.i.i112, label %polyvalx.exit.i, !llvm.loop !19
+  br i1 %128, label %.lr.ph.i.i112, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i112, %118
   %.0.lcssa.i.i = phi double [ %124, %118 ], [ %127, %.lr.ph.i.i112 ]
@@ -627,7 +627,7 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i112, %118
   %138 = fmul double %103, %.020.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %C1f.exit, label %118, !llvm.loop !45
+  br i1 %exitcond.not.i, label %C1f.exit, label %118
 
 C1f.exit:                                         ; preds = %polyvalx.exit.i
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -654,26 +654,26 @@ C1f.exit:                                         ; preds = %polyvalx.exit.i
   %154 = load double, ptr %153, align 8, !tbaa !3
   %155 = fadd double %154, %152
   %.not28.i = icmp eq i32 %145, 0
-  br i1 %.not28.i, label %SinCosSeries.exit, label %144, !llvm.loop !46
+  br i1 %.not28.i, label %SinCosSeries.exit, label %144
 
 SinCosSeries.exit:                                ; preds = %144
   %156 = fmul double %93, 2.000000e+00
   %157 = fmul double %94, %156
   %158 = fmul double %157, %155
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store double %158, ptr %159, align 8, !tbaa !47
+  store double %158, ptr %159, align 8, !tbaa !38
   %160 = tail call double @sin(double noundef %158) #15, !tbaa !15
   %161 = tail call double @cos(double noundef %158) #15, !tbaa !15
   %162 = fmul double %94, %160
   %163 = tail call double @llvm.fmuladd.f64(double %93, double %161, double %162)
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store double %163, ptr %164, align 8, !tbaa !48
+  store double %163, ptr %164, align 8, !tbaa !39
   %165 = fneg double %160
   %166 = fmul double %93, %165
   %167 = tail call double @llvm.fmuladd.f64(double %94, double %161, double %166)
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store double %167, ptr %168, align 8, !tbaa !49
-  %.pre = load i32, ptr %28, align 8, !tbaa !32
+  store double %167, ptr %168, align 8, !tbaa !40
+  %.pre = load i32, ptr %28, align 8, !tbaa !25
   br label %169
 
 169:                                              ; preds = %SinCosSeries.exit, %sincosdx.exit
@@ -709,7 +709,7 @@ SinCosSeries.exit:                                ; preds = %144
   %183 = load double, ptr %.19.i.i125, align 8, !tbaa !3
   %184 = tail call double @llvm.fmuladd.f64(double %.011.i.i122, double %174, double %183)
   %185 = icmp samesign ugt i32 %.0610.i.i123, 1
-  br i1 %185, label %.lr.ph.i.i121, label %polyvalx.exit.i126, !llvm.loop !19
+  br i1 %185, label %.lr.ph.i.i121, label %polyvalx.exit.i126
 
 polyvalx.exit.i126:                               ; preds = %.lr.ph.i.i121, %175
   %.0.lcssa.i.i127 = phi double [ %181, %175 ], [ %184, %.lr.ph.i.i121 ]
@@ -726,7 +726,7 @@ polyvalx.exit.i126:                               ; preds = %.lr.ph.i.i121, %175
   %195 = fmul double %103, %.020.i118
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, 7
-  br i1 %exitcond.not.i129, label %C1pf.exit, label %175, !llvm.loop !50
+  br i1 %exitcond.not.i129, label %C1pf.exit, label %175
 
 C1pf.exit:                                        ; preds = %polyvalx.exit.i126, %169
   %196 = and i32 %170, 4
@@ -746,7 +746,7 @@ C1pf.exit:                                        ; preds = %polyvalx.exit.i126,
   %200 = load double, ptr %.19.i.i134, align 8, !tbaa !3
   %201 = tail call double @llvm.fmuladd.f64(double %.011.i.i131, double %198, double %200)
   %202 = icmp samesign ugt i32 %.0610.i.i132, 1
-  br i1 %202, label %.lr.ph.i.i130, label %A2m1f.exit, !llvm.loop !19
+  br i1 %202, label %.lr.ph.i.i130, label %A2m1f.exit
 
 A2m1f.exit:                                       ; preds = %.lr.ph.i.i130
   %203 = fmul double %201, 3.906250e-03
@@ -754,7 +754,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i130
   %205 = fadd double %103, 1.000000e+00
   %206 = fdiv double %204, %205
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store double %206, ptr %207, align 8, !tbaa !51
+  store double %206, ptr %207, align 8, !tbaa !41
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 352
   br label %209
 
@@ -780,7 +780,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i130
   %217 = load double, ptr %.19.i.i144, align 8, !tbaa !3
   %218 = tail call double @llvm.fmuladd.f64(double %.011.i.i141, double %198, double %217)
   %219 = icmp samesign ugt i32 %.0610.i.i142, 1
-  br i1 %219, label %.lr.ph.i.i140, label %polyvalx.exit.i145, !llvm.loop !19
+  br i1 %219, label %.lr.ph.i.i140, label %polyvalx.exit.i145
 
 polyvalx.exit.i145:                               ; preds = %.lr.ph.i.i140, %209
   %.0.lcssa.i.i146 = phi double [ %215, %209 ], [ %218, %.lr.ph.i.i140 ]
@@ -797,7 +797,7 @@ polyvalx.exit.i145:                               ; preds = %.lr.ph.i.i140, %209
   %229 = fmul double %103, %.020.i137
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i136, 1
   %exitcond.not.i148 = icmp eq i64 %indvars.iv.next.i147, 7
-  br i1 %exitcond.not.i148, label %C2f.exit, label %209, !llvm.loop !52
+  br i1 %exitcond.not.i148, label %C2f.exit, label %209
 
 C2f.exit:                                         ; preds = %polyvalx.exit.i145
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -824,14 +824,14 @@ C2f.exit:                                         ; preds = %polyvalx.exit.i145
   %245 = load double, ptr %244, align 8, !tbaa !3
   %246 = fadd double %245, %243
   %.not28.i153 = icmp eq i32 %236, 0
-  br i1 %.not28.i153, label %SinCosSeries.exit154, label %235, !llvm.loop !46
+  br i1 %.not28.i153, label %SinCosSeries.exit154, label %235
 
 SinCosSeries.exit154:                             ; preds = %235
   %247 = fmul double %93, 2.000000e+00
   %248 = fmul double %94, %247
   %249 = fmul double %248, %246
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store double %249, ptr %250, align 8, !tbaa !53
+  store double %249, ptr %250, align 8, !tbaa !42
   br label %251
 
 251:                                              ; preds = %SinCosSeries.exit154, %C1pf.exit
@@ -864,7 +864,7 @@ SinCosSeries.exit154:                             ; preds = %235
   %263 = load double, ptr %.19.i.i161, align 8, !tbaa !3
   %264 = tail call double @llvm.fmuladd.f64(double %.011.i.i158, double %103, double %263)
   %265 = icmp samesign ugt i32 %.0610.i.i159, 1
-  br i1 %265, label %.lr.ph.i.i157, label %polyvalx.exit.i162, !llvm.loop !19
+  br i1 %265, label %.lr.ph.i.i157, label %polyvalx.exit.i162
 
 polyvalx.exit.i162:                               ; preds = %.lr.ph.i.i157
   %266 = fmul double %259, %264
@@ -884,7 +884,7 @@ C3f.exit:                                         ; preds = %polyvalx.exit.i162
   %273 = fmul double %269, %272
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store double %273, ptr %274, align 8, !tbaa !3
-  %275 = load double, ptr %16, align 8, !tbaa !28
+  %275 = load double, ptr %16, align 8, !tbaa !21
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %277 = load double, ptr %276, align 8, !tbaa !3
   br label %.lr.ph.i.i164
@@ -898,14 +898,14 @@ C3f.exit:                                         ; preds = %polyvalx.exit.i162
   %279 = load double, ptr %.19.i.i168, align 8, !tbaa !3
   %280 = tail call double @llvm.fmuladd.f64(double %.011.i.i165, double %103, double %279)
   %281 = icmp samesign ugt i32 %.0610.i.i166, 1
-  br i1 %281, label %.lr.ph.i.i164, label %A3f.exit, !llvm.loop !19
+  br i1 %281, label %.lr.ph.i.i164, label %A3f.exit
 
 A3f.exit:                                         ; preds = %.lr.ph.i.i164
   %282 = fneg double %275
   %283 = fmul double %77, %282
   %284 = fmul double %283, %280
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store double %284, ptr %285, align 8, !tbaa !54
+  store double %284, ptr %285, align 8, !tbaa !43
   %286 = fsub double %94, %93
   %287 = fmul double %286, 2.000000e+00
   %288 = fadd double %93, %94
@@ -930,14 +930,14 @@ A3f.exit:                                         ; preds = %.lr.ph.i.i164
   %301 = load double, ptr %300, align 8, !tbaa !3
   %302 = fadd double %301, %299
   %.not28.i174 = icmp eq i32 %292, 0
-  br i1 %.not28.i174, label %SinCosSeries.exit175, label %291, !llvm.loop !46
+  br i1 %.not28.i174, label %SinCosSeries.exit175, label %291
 
 SinCosSeries.exit175:                             ; preds = %291
   %303 = fmul double %93, 2.000000e+00
   %304 = fmul double %94, %303
   %305 = fmul double %304, %302
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double %305, ptr %306, align 8, !tbaa !55
+  store double %305, ptr %306, align 8, !tbaa !44
   br label %307
 
 307:                                              ; preds = %SinCosSeries.exit175, %251
@@ -974,7 +974,7 @@ SinCosSeries.exit175:                             ; preds = %291
   %319 = load double, ptr %.19.i.i185, align 8, !tbaa !3
   %320 = tail call double @llvm.fmuladd.f64(double %.011.i.i182, double %103, double %319)
   %321 = icmp samesign ugt i32 %.0610.i.i183, 1
-  br i1 %321, label %.lr.ph.i.i181, label %polyvalx.exit.i186, !llvm.loop !19
+  br i1 %321, label %.lr.ph.i.i181, label %polyvalx.exit.i186
 
 polyvalx.exit.i186:                               ; preds = %.lr.ph.i.i181, %312
   %.pre-phi = phi i32 [ 5, %312 ], [ %316, %.lr.ph.i.i181 ]
@@ -987,10 +987,10 @@ polyvalx.exit.i186:                               ; preds = %.lr.ph.i.i181, %312
   %325 = fmul double %103, %.017.i177
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i190 = icmp eq i64 %indvars.iv.next.i189, 6
-  br i1 %exitcond.not.i190, label %C4f.exit, label %312, !llvm.loop !56
+  br i1 %exitcond.not.i190, label %C4f.exit, label %312
 
 C4f.exit:                                         ; preds = %polyvalx.exit.i186
-  %326 = load double, ptr %13, align 8, !tbaa !26
+  %326 = load double, ptr %13, align 8, !tbaa !19
   %327 = fmul double %326, %326
   %328 = fmul double %81, %327
   %329 = fmul double %77, %328
@@ -998,7 +998,7 @@ C4f.exit:                                         ; preds = %polyvalx.exit.i186
   %331 = load double, ptr %330, align 8, !tbaa !11
   %332 = fmul double %331, %329
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store double %332, ptr %333, align 8, !tbaa !57
+  store double %332, ptr %333, align 8, !tbaa !45
   %334 = fsub double %94, %93
   %335 = fmul double %334, 2.000000e+00
   %336 = fadd double %93, %94
@@ -1022,21 +1022,21 @@ C4f.exit:                                         ; preds = %polyvalx.exit.i186
   %348 = load double, ptr %347, align 8, !tbaa !3
   %349 = fadd double %348, %346
   %.not28.i195 = icmp eq i32 %339, 0
-  br i1 %.not28.i195, label %SinCosSeries.exit196, label %338, !llvm.loop !46
+  br i1 %.not28.i195, label %SinCosSeries.exit196, label %338
 
 SinCosSeries.exit196:                             ; preds = %338
   %350 = fsub double %349, %344
   %351 = fmul double %94, %350
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store double %351, ptr %352, align 8, !tbaa !58
+  store double %351, ptr %352, align 8, !tbaa !46
   br label %353
 
 353:                                              ; preds = %SinCosSeries.exit196, %307
   %354 = load double, ptr @NaN, align 8, !tbaa !3
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %354, ptr %355, align 8, !tbaa !59
+  store double %354, ptr %355, align 8, !tbaa !47
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %354, ptr %356, align 8, !tbaa !60
+  store double %354, ptr %356, align 8, !tbaa !48
   ret void
 }
 
@@ -1052,19 +1052,19 @@ define void @geod_gendirectline(ptr noundef %0, ptr noundef readonly captures(no
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %6, ptr %11, align 8, !tbaa !60
+  store double %6, ptr %11, align 8, !tbaa !48
   %12 = load double, ptr @NaN, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %12, ptr %13, align 8, !tbaa !59
+  store double %12, ptr %13, align 8, !tbaa !47
   %14 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 1, double noundef %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %geod_gensetdistance.exit
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %6, ptr %16, align 8, !tbaa !59
+  store double %6, ptr %16, align 8, !tbaa !47
   %17 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %17, ptr %18, align 8, !tbaa !60
+  store double %17, ptr %18, align 8, !tbaa !48
   br label %geod_gensetdistance.exit
 
 geod_gensetdistance.exit:                         ; preds = %10, %15
@@ -1079,19 +1079,19 @@ define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 nound
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %2, ptr %6, align 8, !tbaa !60
+  store double %2, ptr %6, align 8, !tbaa !48
   %7 = load double, ptr @NaN, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %7, ptr %8, align 8, !tbaa !59
+  store double %7, ptr %8, align 8, !tbaa !47
   %9 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 1, double noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %14
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %2, ptr %11, align 8, !tbaa !59
+  store double %2, ptr %11, align 8, !tbaa !47
   %12 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %12, ptr %13, align 8, !tbaa !60
+  store double %12, ptr %13, align 8, !tbaa !48
   br label %14
 
 14:                                               ; preds = %10, %5
@@ -1102,10 +1102,10 @@ define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 nound
 define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #5 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %5, ptr %8, align 8, !tbaa !59
+  store double %5, ptr %8, align 8, !tbaa !47
   %9 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %9, ptr %10, align 8, !tbaa !60
+  store double %9, ptr %10, align 8, !tbaa !48
   ret void
 }
 
@@ -1133,7 +1133,7 @@ define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double 
   %31 = icmp ne ptr %10, null
   %32 = select i1 %31, i32 16384, i32 0
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %34 = load i32, ptr %33, align 8, !tbaa !32
+  %34 = load i32, ptr %33, align 8, !tbaa !25
   %.masked = or disjoint i32 %26, %30
   %35 = or i32 %.masked, %32
   %36 = and i32 %35, %34
@@ -1198,18 +1198,18 @@ sincosdx.exit:                                    ; preds = %42, %57, %54, %52
 
 63:                                               ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %65 = load double, ptr %64, align 8, !tbaa !29
+  %65 = load double, ptr %64, align 8, !tbaa !22
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %67 = load double, ptr %66, align 8, !tbaa !44
+  %67 = load double, ptr %66, align 8, !tbaa !37
   %68 = fadd double %67, 1.000000e+00
   %69 = fmul double %65, %68
   %70 = fdiv double %2, %69
   %71 = tail call double @sin(double noundef %70) #15, !tbaa !15
   %72 = tail call double @cos(double noundef %70) #15, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %74 = load double, ptr %73, align 8, !tbaa !48
+  %74 = load double, ptr %73, align 8, !tbaa !39
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %76 = load double, ptr %75, align 8, !tbaa !49
+  %76 = load double, ptr %75, align 8, !tbaa !40
   %77 = fmul double %71, %76
   %78 = tail call double @llvm.fmuladd.f64(double %74, double %72, double %77)
   %79 = fneg double %71
@@ -1239,7 +1239,7 @@ sincosdx.exit:                                    ; preds = %42, %57, %54, %52
   %97 = load double, ptr %96, align 8, !tbaa !3
   %98 = fadd double %97, %95
   %.not28.i = icmp eq i32 %88, 0
-  br i1 %.not28.i, label %SinCosSeries.exit, label %87, !llvm.loop !46
+  br i1 %.not28.i, label %SinCosSeries.exit, label %87
 
 SinCosSeries.exit:                                ; preds = %87
   %99 = fmul double %78, 2.000000e+00
@@ -1247,22 +1247,22 @@ SinCosSeries.exit:                                ; preds = %87
   %101 = fneg double %98
   %102 = fmul double %100, %101
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %104 = load double, ptr %103, align 8, !tbaa !47
+  %104 = load double, ptr %103, align 8, !tbaa !38
   %105 = fsub double %102, %104
   %106 = fsub double %70, %105
   %107 = tail call double @sin(double noundef %106) #15, !tbaa !15
   %108 = tail call double @cos(double noundef %106) #15, !tbaa !15
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %110 = load double, ptr %109, align 8, !tbaa !28
+  %110 = load double, ptr %109, align 8, !tbaa !21
   %111 = tail call double @llvm.fabs.f64(double %110)
   %112 = fcmp ogt double %111, 1.000000e-02
   br i1 %112, label %113, label %157
 
 113:                                              ; preds = %SinCosSeries.exit
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %115 = load double, ptr %114, align 8, !tbaa !61
+  %115 = load double, ptr %114, align 8, !tbaa !49
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %117 = load double, ptr %116, align 8, !tbaa !62
+  %117 = load double, ptr %116, align 8, !tbaa !50
   %118 = fmul double %107, %117
   %119 = tail call double @llvm.fmuladd.f64(double %115, double %108, double %118)
   %120 = fneg double %107
@@ -1292,7 +1292,7 @@ SinCosSeries.exit:                                ; preds = %87
   %138 = load double, ptr %137, align 8, !tbaa !3
   %139 = fadd double %138, %136
   %.not28.i294 = icmp eq i32 %129, 0
-  br i1 %.not28.i294, label %SinCosSeries.exit295, label %128, !llvm.loop !46
+  br i1 %.not28.i294, label %SinCosSeries.exit295, label %128
 
 SinCosSeries.exit295:                             ; preds = %128
   %140 = fmul double %119, 2.000000e+00
@@ -1304,7 +1304,7 @@ SinCosSeries.exit295:                             ; preds = %128
   %146 = fdiv double %145, %65
   %147 = tail call double @llvm.fmuladd.f64(double %68, double %144, double %146)
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %149 = load double, ptr %148, align 8, !tbaa !43
+  %149 = load double, ptr %148, align 8, !tbaa !36
   %150 = fmul double %119, %119
   %151 = tail call double @llvm.fmuladd.f64(double %149, double %150, double 1.000000e+00)
   %152 = tail call double @sqrt(double noundef %151) #15, !tbaa !15
@@ -1320,16 +1320,16 @@ SinCosSeries.exit295:                             ; preds = %128
   %.0263 = phi double [ %142, %SinCosSeries.exit295 ], [ %102, %SinCosSeries.exit ], [ 0.000000e+00, %sincosdx.exit ]
   %.0261 = phi double [ %154, %SinCosSeries.exit295 ], [ %106, %SinCosSeries.exit ], [ %44, %sincosdx.exit ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %159 = load double, ptr %158, align 8, !tbaa !61
+  %159 = load double, ptr %158, align 8, !tbaa !49
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %161 = load double, ptr %160, align 8, !tbaa !62
+  %161 = load double, ptr %160, align 8, !tbaa !50
   %162 = fmul double %.0337, %161
   %163 = tail call double @llvm.fmuladd.f64(double %159, double %.0336, double %162)
   %164 = fneg double %.0337
   %165 = fmul double %159, %164
   %166 = tail call double @llvm.fmuladd.f64(double %161, double %.0336, double %165)
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %168 = load double, ptr %167, align 8, !tbaa !43
+  %168 = load double, ptr %167, align 8, !tbaa !36
   %169 = fmul double %163, %163
   %170 = tail call double @llvm.fmuladd.f64(double %168, double %169, double 1.000000e+00)
   %171 = tail call double @sqrt(double noundef %170) #15, !tbaa !15
@@ -1342,7 +1342,7 @@ SinCosSeries.exit295:                             ; preds = %128
 
 174:                                              ; preds = %173
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %176 = load double, ptr %175, align 8, !tbaa !28
+  %176 = load double, ptr %175, align 8, !tbaa !21
   %177 = tail call double @llvm.fabs.f64(double %176)
   %178 = fcmp ogt double %177, 1.000000e-02
   br i1 %178, label %179, label %200
@@ -1372,7 +1372,7 @@ SinCosSeries.exit295:                             ; preds = %128
   %195 = load double, ptr %194, align 8, !tbaa !3
   %196 = fadd double %195, %193
   %.not28.i300 = icmp eq i32 %186, 0
-  br i1 %.not28.i300, label %SinCosSeries.exit301, label %185, !llvm.loop !46
+  br i1 %.not28.i300, label %SinCosSeries.exit301, label %185
 
 SinCosSeries.exit301:                             ; preds = %185
   %197 = fmul double %163, 2.000000e+00
@@ -1383,10 +1383,10 @@ SinCosSeries.exit301:                             ; preds = %185
 200:                                              ; preds = %SinCosSeries.exit301, %174
   %.2 = phi double [ %199, %SinCosSeries.exit301 ], [ %.0263, %174 ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %202 = load double, ptr %201, align 8, !tbaa !44
+  %202 = load double, ptr %201, align 8, !tbaa !37
   %203 = fadd double %202, 1.000000e+00
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %205 = load double, ptr %204, align 8, !tbaa !47
+  %205 = load double, ptr %204, align 8, !tbaa !38
   %206 = fsub double %.2, %205
   %207 = fmul double %203, %206
   br label %208
@@ -1394,10 +1394,10 @@ SinCosSeries.exit301:                             ; preds = %185
 208:                                              ; preds = %200, %157
   %.0265 = phi double [ %207, %200 ], [ 0.000000e+00, %157 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %210 = load double, ptr %209, align 8, !tbaa !40
+  %210 = load double, ptr %209, align 8, !tbaa !33
   %211 = fmul double %163, %210
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %213 = load double, ptr %212, align 8, !tbaa !39
+  %213 = load double, ptr %212, align 8, !tbaa !32
   %214 = fmul double %166, %210
   %215 = tail call double @hypot(double noundef %213, double noundef %214) #15, !tbaa !15
   %216 = fcmp oeq double %215, 0.000000e+00
@@ -1414,9 +1414,9 @@ SinCosSeries.exit301:                             ; preds = %185
 
 221:                                              ; preds = %208
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %223 = load double, ptr %222, align 8, !tbaa !29
+  %223 = load double, ptr %222, align 8, !tbaa !22
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %225 = load double, ptr %224, align 8, !tbaa !44
+  %225 = load double, ptr %224, align 8, !tbaa !37
   %226 = fadd double %225, 1.000000e+00
   %227 = tail call double @llvm.fmuladd.f64(double %226, double %.0261, double %.0265)
   %228 = fmul double %223, %227
@@ -1443,10 +1443,10 @@ SinCosSeries.exit301:                             ; preds = %185
   %241 = fmul double %236, %233
   %242 = tail call double @atan2(double noundef %241, double noundef %.0266) #15, !tbaa !15
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %244 = load double, ptr %243, align 8, !tbaa !41
+  %244 = load double, ptr %243, align 8, !tbaa !34
   %245 = fmul double %236, %244
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %247 = load double, ptr %246, align 8, !tbaa !42
+  %247 = load double, ptr %246, align 8, !tbaa !35
   %248 = tail call double @atan2(double noundef %245, double noundef %247) #15, !tbaa !15
   %249 = fsub double %242, %248
   %250 = fadd double %240, %249
@@ -1455,9 +1455,9 @@ SinCosSeries.exit301:                             ; preds = %185
 
 252:                                              ; preds = %232
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %254 = load double, ptr %253, align 8, !tbaa !42
+  %254 = load double, ptr %253, align 8, !tbaa !35
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %256 = load double, ptr %255, align 8, !tbaa !41
+  %256 = load double, ptr %255, align 8, !tbaa !34
   %257 = fneg double %256
   %258 = fmul double %.0266, %257
   %259 = tail call double @llvm.fmuladd.f64(double %233, double %254, double %258)
@@ -1469,7 +1469,7 @@ SinCosSeries.exit301:                             ; preds = %185
 263:                                              ; preds = %252, %235
   %264 = phi double [ %251, %235 ], [ %262, %252 ]
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %266 = load double, ptr %265, align 8, !tbaa !54
+  %266 = load double, ptr %265, align 8, !tbaa !43
   %267 = fsub double %.0266, %163
   %268 = fmul double %267, 2.000000e+00
   %269 = fadd double %163, %.0266
@@ -1495,21 +1495,21 @@ SinCosSeries.exit301:                             ; preds = %185
   %283 = load double, ptr %282, align 8, !tbaa !3
   %284 = fadd double %283, %281
   %.not28.i306 = icmp eq i32 %274, 0
-  br i1 %.not28.i306, label %SinCosSeries.exit307, label %273, !llvm.loop !46
+  br i1 %.not28.i306, label %SinCosSeries.exit307, label %273
 
 SinCosSeries.exit307:                             ; preds = %273
   %285 = fmul double %163, 2.000000e+00
   %286 = fmul double %285, %.0266
   %287 = fmul double %286, %284
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %289 = load double, ptr %288, align 8, !tbaa !55
+  %289 = load double, ptr %288, align 8, !tbaa !44
   %290 = fsub double %287, %289
   %291 = fadd double %.0261, %290
   %292 = tail call double @llvm.fmuladd.f64(double %266, double %291, double %264)
   %293 = load double, ptr @degree, align 8, !tbaa !3
   %294 = fdiv double %292, %293
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %296 = load double, ptr %295, align 8, !tbaa !34
+  %296 = load double, ptr %295, align 8, !tbaa !27
   br i1 %.not283, label %299, label %297
 
 297:                                              ; preds = %SinCosSeries.exit307
@@ -1543,7 +1543,7 @@ SinCosSeries.exit307:                             ; preds = %273
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %321 = load double, ptr %320, align 8, !tbaa !31
+  %321 = load double, ptr %320, align 8, !tbaa !24
   %322 = fmul double %.0267, %321
   %323 = tail call double @llvm.fabs.f64(double %211)
   %324 = tail call double @llvm.fabs.f64(double %322)
@@ -1651,21 +1651,21 @@ atan2dx.exit316:                                  ; preds = %354, %352, %349, %3
   %373 = load double, ptr %372, align 8, !tbaa !3
   %374 = fadd double %373, %371
   %.not28.i321 = icmp eq i32 %364, 0
-  br i1 %.not28.i321, label %SinCosSeries.exit322, label %363, !llvm.loop !46
+  br i1 %.not28.i321, label %SinCosSeries.exit322, label %363
 
 SinCosSeries.exit322:                             ; preds = %363
   %375 = fmul double %163, 2.000000e+00
   %376 = fmul double %375, %.0266
   %377 = fmul double %376, %374
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %379 = load double, ptr %378, align 8, !tbaa !51
+  %379 = load double, ptr %378, align 8, !tbaa !41
   %380 = fadd double %379, 1.000000e+00
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %382 = load double, ptr %381, align 8, !tbaa !53
+  %382 = load double, ptr %381, align 8, !tbaa !42
   %383 = fsub double %377, %382
   %384 = fmul double %380, %383
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %386 = load double, ptr %385, align 8, !tbaa !44
+  %386 = load double, ptr %385, align 8, !tbaa !37
   %387 = fsub double %386, %379
   %388 = fsub double %.0265, %384
   %389 = tail call double @llvm.fmuladd.f64(double %387, double %.0261, double %388)
@@ -1675,10 +1675,10 @@ SinCosSeries.exit322:                             ; preds = %363
 
 391:                                              ; preds = %SinCosSeries.exit322
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %393 = load double, ptr %392, align 8, !tbaa !29
+  %393 = load double, ptr %392, align 8, !tbaa !22
   %394 = fmul double %161, %163
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %396 = load double, ptr %395, align 8, !tbaa !38
+  %396 = load double, ptr %395, align 8, !tbaa !31
   %397 = fneg double %.0266
   %398 = fmul double %159, %397
   %399 = fmul double %398, %396
@@ -1700,7 +1700,7 @@ SinCosSeries.exit322:                             ; preds = %363
   %409 = fadd double %159, %163
   %410 = fmul double %409, %408
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %412 = load double, ptr %411, align 8, !tbaa !38
+  %412 = load double, ptr %411, align 8, !tbaa !31
   %413 = fadd double %171, %412
   %414 = fdiv double %410, %413
   %415 = fneg double %389
@@ -1747,7 +1747,7 @@ SinCosSeries.exit322:                             ; preds = %363
   %443 = load double, ptr %442, align 8, !tbaa !3
   %444 = fadd double %443, %441
   %.not28.i327 = icmp eq i32 %434, 0
-  br i1 %.not28.i327, label %SinCosSeries.exit328, label %433, !llvm.loop !46
+  br i1 %.not28.i327, label %SinCosSeries.exit328, label %433
 
 SinCosSeries.exit328:                             ; preds = %433
   %445 = fsub double %444, %439
@@ -1759,9 +1759,9 @@ SinCosSeries.exit328:                             ; preds = %433
 
 449:                                              ; preds = %SinCosSeries.exit328
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %451 = load double, ptr %450, align 8, !tbaa !37
+  %451 = load double, ptr %450, align 8, !tbaa !30
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %453 = load double, ptr %452, align 8, !tbaa !36
+  %453 = load double, ptr %452, align 8, !tbaa !29
   %454 = fneg double %453
   %455 = fmul double %218, %454
   %456 = tail call double @llvm.fmuladd.f64(double %213, double %451, double %455)
@@ -1800,12 +1800,12 @@ SinCosSeries.exit328:                             ; preds = %433
   %.0249 = phi double [ %456, %449 ], [ %473, %471 ]
   %.0 = phi double [ %458, %449 ], [ %477, %471 ]
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %480 = load double, ptr %479, align 8, !tbaa !30
+  %480 = load double, ptr %479, align 8, !tbaa !23
   %481 = tail call double @atan2(double noundef %.0249, double noundef %.0) #15, !tbaa !15
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %483 = load double, ptr %482, align 8, !tbaa !57
+  %483 = load double, ptr %482, align 8, !tbaa !45
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %485 = load double, ptr %484, align 8, !tbaa !58
+  %485 = load double, ptr %484, align 8, !tbaa !46
   %486 = fsub double %446, %485
   %487 = fmul double %483, %486
   %488 = tail call double @llvm.fmuladd.f64(double %480, double %481, double %487)
@@ -1910,10 +1910,10 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @geod_setdistance(ptr noundef initializes((64, 72)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %1, ptr %3, align 8, !tbaa !59
+  store double %1, ptr %3, align 8, !tbaa !47
   %4 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %4, ptr %5, align 8, !tbaa !60
+  store double %4, ptr %5, align 8, !tbaa !48
   ret void
 }
 
@@ -2631,7 +2631,7 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %330 = load double, ptr %.19.i.i.i, align 8, !tbaa !3
   %331 = call double @llvm.fmuladd.f64(double %.011.i.i.i, double %326, double %330)
   %332 = icmp samesign ugt i32 %.0610.i.i.i, 1
-  br i1 %332, label %.lr.ph.i.i.i, label %A3f.exit.i, !llvm.loop !19
+  br i1 %332, label %.lr.ph.i.i.i, label %A3f.exit.i
 
 A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %333 = fmul double %135, %318
@@ -2976,7 +2976,7 @@ InverseStart.exit:                                ; preds = %464
   %566 = load double, ptr %.19.i.i.i300, align 8, !tbaa !3
   %567 = call double @llvm.fmuladd.f64(double %.011.i.i.i297, double %559, double %566)
   %568 = icmp samesign ugt i32 %.0610.i.i.i298, 1
-  br i1 %568, label %.lr.ph.i.i.i296, label %polyvalx.exit.i.i, !llvm.loop !19
+  br i1 %568, label %.lr.ph.i.i.i296, label %polyvalx.exit.i.i
 
 polyvalx.exit.i.i:                                ; preds = %.lr.ph.i.i.i296
   %569 = fmul double %562, %567
@@ -3018,7 +3018,7 @@ C3f.exit.i:                                       ; preds = %polyvalx.exit.i.i
   %591 = load double, ptr %590, align 8, !tbaa !3
   %592 = fadd double %591, %589
   %.not28.i.i = icmp eq i32 %582, 0
-  br i1 %.not28.i.i, label %SinCosSeries.exit.i, label %581, !llvm.loop !46
+  br i1 %.not28.i.i, label %SinCosSeries.exit.i, label %581
 
 SinCosSeries.exit.i:                              ; preds = %581
   %593 = fsub double %519, %518
@@ -3044,7 +3044,7 @@ SinCosSeries.exit.i:                              ; preds = %581
   %607 = load double, ptr %606, align 8, !tbaa !3
   %608 = fadd double %607, %605
   %.not28.i112.i = icmp eq i32 %598, 0
-  br i1 %.not28.i112.i, label %.lr.ph.i.i114.i, label %597, !llvm.loop !46
+  br i1 %.not28.i112.i, label %.lr.ph.i.i114.i, label %597
 
 .lr.ph.i.i114.i:                                  ; preds = %597, %.lr.ph.i.i114.i
   %.011.i.i115.i = phi double [ %611, %.lr.ph.i.i114.i ], [ %476, %597 ]
@@ -3055,7 +3055,7 @@ SinCosSeries.exit.i:                              ; preds = %581
   %610 = load double, ptr %.19.i.i118.i, align 8, !tbaa !3
   %611 = call double @llvm.fmuladd.f64(double %.011.i.i115.i, double %559, double %610)
   %612 = icmp samesign ugt i32 %.0610.i.i116.i, 1
-  br i1 %612, label %.lr.ph.i.i114.i, label %A3f.exit.i301, !llvm.loop !19
+  br i1 %612, label %.lr.ph.i.i114.i, label %A3f.exit.i301
 
 A3f.exit.i301:                                    ; preds = %.lr.ph.i.i114.i
   %613 = fmul double %531, 2.000000e+00
@@ -3202,7 +3202,7 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %.1251.ph = phi i32 [ 0, %672 ], [ %699, %693 ], [ 1, %.thread507 ]
   %.1247.ph = phi i32 [ %680, %672 ], [ 0, %693 ], [ 0, %.thread507 ]
   %701 = add i32 %.0230, 1
-  br label %506, !llvm.loop !63
+  br label %506
 
 702:                                              ; preds = %631, %Lambda12.exit
   %703 = fdiv double %512, %.0479
@@ -3323,7 +3323,7 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %758 = load double, ptr %.19.i.i, align 8, !tbaa !3
   %759 = call double @llvm.fmuladd.f64(double %.011.i.i, double %744, double %758)
   %760 = icmp samesign ugt i32 %.0610.i.i, 1
-  br i1 %760, label %.lr.ph.i.i, label %polyvalx.exit.i, !llvm.loop !19
+  br i1 %760, label %.lr.ph.i.i, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %751
   %.pre-phi628 = phi i32 [ 5, %751 ], [ %755, %.lr.ph.i.i ]
@@ -3336,7 +3336,7 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %751
   %764 = fmul double %744, %.017.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %C4f.exit, label %751, !llvm.loop !56
+  br i1 %exitcond.not.i, label %C4f.exit, label %751
 
 C4f.exit:                                         ; preds = %polyvalx.exit.i
   %765 = fdiv double %132, %748
@@ -3365,7 +3365,7 @@ C4f.exit:                                         ; preds = %polyvalx.exit.i
   %782 = load double, ptr %781, align 8, !tbaa !3
   %783 = fadd double %782, %780
   %.not28.i = icmp eq i32 %773, 0
-  br i1 %.not28.i, label %SinCosSeries.exit, label %772, !llvm.loop !46
+  br i1 %.not28.i, label %SinCosSeries.exit, label %772
 
 SinCosSeries.exit:                                ; preds = %772
   %784 = fdiv double %.0480, %749
@@ -3393,7 +3393,7 @@ SinCosSeries.exit:                                ; preds = %772
   %800 = load double, ptr %799, align 8, !tbaa !3
   %801 = fadd double %800, %798
   %.not28.i307 = icmp eq i32 %791, 0
-  br i1 %.not28.i307, label %SinCosSeries.exit308, label %790, !llvm.loop !46
+  br i1 %.not28.i307, label %SinCosSeries.exit308, label %790
 
 SinCosSeries.exit308:                             ; preds = %790
   %802 = fmul double %745, %745
@@ -3628,10 +3628,10 @@ atan2dx.exit:                                     ; preds = %7, %21, %24, %26
   %spec.select = select i1 %.not16, i32 %28, i32 %30
   tail call fastcc void @geod_lineinit_int(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %.0.i, double noundef %11, double noundef %12, i32 noundef %spec.select)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %10, ptr %31, align 8, !tbaa !60
+  store double %10, ptr %31, align 8, !tbaa !48
   %32 = load double, ptr @NaN, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %32, ptr %33, align 8, !tbaa !59
+  store double %32, ptr %33, align 8, !tbaa !47
   %34 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 1, double noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %33, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
@@ -3649,20 +3649,20 @@ define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes(
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %4, ptr %5, align 8, !tbaa !64
+  store i32 %4, ptr %5, align 8, !tbaa !51
   %6 = load double, ptr @NaN, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %6, ptr %7, align 8, !tbaa !66
-  store double %6, ptr %0, align 8, !tbaa !67
+  store double %6, ptr %7, align 8, !tbaa !53
+  store double %6, ptr %0, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %6, ptr %8, align 8, !tbaa !68
+  store double %6, ptr %8, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %6, ptr %9, align 8, !tbaa !69
+  store double %6, ptr %9, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %11, align 4, !tbaa !70
+  store i32 0, ptr %11, align 4, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %12, align 8, !tbaa !71
+  store i32 0, ptr %12, align 8, !tbaa !58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   ret void
 }
@@ -3671,17 +3671,17 @@ define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes(
 define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes((0, 64), (68, 76)) %0) local_unnamed_addr #7 {
   %2 = load double, ptr @NaN, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %2, ptr %3, align 8, !tbaa !66
-  store double %2, ptr %0, align 8, !tbaa !67
+  store double %2, ptr %3, align 8, !tbaa !53
+  store double %2, ptr %0, align 8, !tbaa !54
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %2, ptr %4, align 8, !tbaa !68
+  store double %2, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %2, ptr %5, align 8, !tbaa !69
+  store double %2, ptr %5, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %7, align 4, !tbaa !70
+  store i32 0, ptr %7, align 4, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %8, align 8, !tbaa !71
+  store i32 0, ptr %8, align 8, !tbaa !58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   ret void
 }
@@ -3695,29 +3695,29 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !71
+  %12 = load i32, ptr %11, align 8, !tbaa !58
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %4
-  store double %2, ptr %1, align 8, !tbaa !67
+  store double %2, ptr %1, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %2, ptr %15, align 8, !tbaa !69
+  store double %2, ptr %15, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %3, ptr %16, align 8, !tbaa !66
+  store double %3, ptr %16, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %3, ptr %17, align 8, !tbaa !68
+  store double %3, ptr %17, align 8, !tbaa !55
   br label %61
 
 18:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   store double 0.000000e+00, ptr %10, align 8, !tbaa !3
-  %19 = load double, ptr %1, align 8, !tbaa !67
+  %19 = load double, ptr %1, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load double, ptr %20, align 8, !tbaa !66
+  %21 = load double, ptr %20, align 8, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %23 = load i32, ptr %22, align 8, !tbaa !64
+  %23 = load i32, ptr %22, align 8, !tbaa !51
   %.not = icmp eq i32 %23, 0
   %. = select i1 %.not, ptr %10, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
@@ -3732,7 +3732,7 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load double, ptr %9, align 8, !tbaa !3
   call fastcc void @accadd(ptr noundef nonnull %25, double noundef %26)
-  %27 = load i32, ptr %22, align 8, !tbaa !64
+  %27 = load i32, ptr %22, align 8, !tbaa !51
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %28, label %59
 
@@ -3740,7 +3740,7 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load double, ptr %10, align 8, !tbaa !3
   call fastcc void @accadd(ptr noundef nonnull %29, double noundef %30)
-  %31 = load double, ptr %20, align 8, !tbaa !66
+  %31 = load double, ptr %20, align 8, !tbaa !53
   %32 = call fastcc double @AngDiff(double noundef %31, double noundef %3, ptr noundef null)
   %33 = call double @remainder(double noundef %31, double noundef 3.600000e+02) #15, !tbaa !15
   %34 = call double @llvm.fabs.f64(double %33)
@@ -3779,23 +3779,23 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
 transit.exit:                                     ; preds = %44, %47, %50
   %55 = phi i32 [ %54, %50 ], [ 1, %47 ], [ 1, %44 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %57 = load i32, ptr %56, align 4, !tbaa !70
+  %57 = load i32, ptr %56, align 4, !tbaa !57
   %58 = add nsw i32 %57, %55
-  store i32 %58, ptr %56, align 4, !tbaa !70
+  store i32 %58, ptr %56, align 4, !tbaa !57
   br label %59
 
 59:                                               ; preds = %transit.exit, %18
-  store double %2, ptr %1, align 8, !tbaa !67
-  store double %3, ptr %20, align 8, !tbaa !66
+  store double %2, ptr %1, align 8, !tbaa !54
+  store double %3, ptr %20, align 8, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  %.pre = load i32, ptr %11, align 8, !tbaa !71
+  %.pre = load i32, ptr %11, align 8, !tbaa !58
   %60 = add i32 %.pre, 1
   br label %61
 
 61:                                               ; preds = %59, %14
   %62 = phi i32 [ %60, %59 ], [ 1, %14 ]
-  store i32 %62, ptr %11, align 8, !tbaa !71
+  store i32 %62, ptr %11, align 8, !tbaa !58
   ret void
 }
 
@@ -3913,7 +3913,7 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %10 = load i32, ptr %9, align 8, !tbaa !71
+  %10 = load i32, ptr %9, align 8, !tbaa !58
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %42, label %11
 
@@ -3924,11 +3924,11 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   store double 0.000000e+00, ptr %7, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   store double 0.000000e+00, ptr %8, align 8, !tbaa !3
-  %12 = load double, ptr %1, align 8, !tbaa !67
+  %12 = load double, ptr %1, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !66
+  %14 = load double, ptr %13, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !64
+  %16 = load i32, ptr %15, align 8, !tbaa !51
   %.not16.not = icmp eq i32 %16, 0
   %. = select i1 %.not16.not, ptr %8, ptr null
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #15
@@ -3938,7 +3938,7 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call fastcc void @accadd(ptr noundef nonnull %19, double noundef %3)
-  %20 = load i32, ptr %15, align 8, !tbaa !64
+  %20 = load i32, ptr %15, align 8, !tbaa !51
   %.not17 = icmp eq i32 %20, 0
   br i1 %.not17, label %21, label %._crit_edge
 
@@ -3950,7 +3950,7 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load double, ptr %8, align 8, !tbaa !3
   call fastcc void @accadd(ptr noundef nonnull %22, double noundef %23)
-  %24 = load double, ptr %13, align 8, !tbaa !66
+  %24 = load double, ptr %13, align 8, !tbaa !53
   %25 = load double, ptr %7, align 8, !tbaa !3
   %26 = call double @remainder(double noundef %24, double noundef 7.200000e+02) #15, !tbaa !15
   %27 = call double @remainder(double noundef %25, double noundef 7.200000e+02) #15, !tbaa !15
@@ -3963,20 +3963,20 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %.not9.i = or i1 %31, %32
   %.neg.i = sext i1 %.not9.i to i32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %34 = load i32, ptr %33, align 4, !tbaa !70
+  %34 = load i32, ptr %33, align 4, !tbaa !57
   %35 = add i32 %34, %.neg.i
   %36 = add i32 %35, %30
-  store i32 %36, ptr %33, align 4, !tbaa !70
+  store i32 %36, ptr %33, align 4, !tbaa !57
   br label %37
 
 37:                                               ; preds = %._crit_edge, %21
   %38 = phi double [ %.pre, %._crit_edge ], [ %25, %21 ]
   %39 = load double, ptr %6, align 8, !tbaa !3
-  store double %39, ptr %1, align 8, !tbaa !67
-  store double %38, ptr %13, align 8, !tbaa !66
-  %40 = load i32, ptr %9, align 8, !tbaa !71
+  store double %39, ptr %1, align 8, !tbaa !54
+  store double %38, ptr %13, align 8, !tbaa !53
+  %40 = load i32, ptr %9, align 8, !tbaa !58
   %41 = add i32 %40, 1
-  store i32 %41, ptr %9, align 8, !tbaa !71
+  store i32 %41, ptr %9, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
@@ -4027,7 +4027,7 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #15
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %44 = load i32, ptr %43, align 8, !tbaa !71
+  %44 = load i32, ptr %43, align 8, !tbaa !58
   %45 = icmp ult i32 %44, 2
   br i1 %45, label %46, label %54
 
@@ -4041,7 +4041,7 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
 
 48:                                               ; preds = %47, %46
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %50 = load i32, ptr %49, align 8, !tbaa !64
+  %50 = load i32, ptr %49, align 8, !tbaa !51
   %51 = icmp eq i32 %50, 0
   %52 = icmp ne ptr %4, null
   %or.cond = and i1 %52, %51
@@ -4053,7 +4053,7 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
 
 54:                                               ; preds = %6
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %56 = load i32, ptr %55, align 8, !tbaa !64
+  %56 = load i32, ptr %55, align 8, !tbaa !51
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %61, label %57
 
@@ -4068,13 +4068,13 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   br label %252
 
 61:                                               ; preds = %54
-  %62 = load double, ptr %1, align 8, !tbaa !67
+  %62 = load double, ptr %1, align 8, !tbaa !54
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load double, ptr %63, align 8, !tbaa !66
+  %64 = load double, ptr %63, align 8, !tbaa !53
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load double, ptr %65, align 8, !tbaa !69
+  %66 = load double, ptr %65, align 8, !tbaa !56
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %68 = load double, ptr %67, align 8, !tbaa !68
+  %68 = load double, ptr %67, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #15
@@ -4268,9 +4268,9 @@ sumx.exit20.i:                                    ; preds = %121, %118
   %129 = load double, ptr %128, align 8, !tbaa !17
   %130 = fmul double %127, %129
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %132 = load i32, ptr %131, align 4, !tbaa !70
-  %133 = load double, ptr %63, align 8, !tbaa !66
-  %134 = load double, ptr %67, align 8, !tbaa !68
+  %132 = load i32, ptr %131, align 4, !tbaa !57
+  %133 = load double, ptr %63, align 8, !tbaa !53
+  %134 = load double, ptr %67, align 8, !tbaa !55
   %135 = call fastcc double @AngDiff(double noundef %133, double noundef %134, ptr noundef null)
   %136 = call double @remainder(double noundef %133, double noundef 3.600000e+02) #15, !tbaa !15
   %137 = call double @llvm.fabs.f64(double %136)
@@ -4609,7 +4609,7 @@ areareduceA.exit:                                 ; preds = %250, %sumx.exit20.i
   br label %252
 
 252:                                              ; preds = %sumx.exit20.i, %areareduceA.exit, %57, %58, %48, %53
-  %.0 = load i32, ptr %43, align 8, !tbaa !71
+  %.0 = load i32, ptr %43, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #15
   ret i32 %.0
@@ -4624,7 +4624,7 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %16 = load i32, ptr %15, align 8, !tbaa !71
+  %16 = load i32, ptr %15, align 8, !tbaa !58
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %25
 
@@ -4638,7 +4638,7 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
 
 20:                                               ; preds = %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %22 = load i32, ptr %21, align 8, !tbaa !64
+  %22 = load i32, ptr %21, align 8, !tbaa !51
   %23 = icmp eq i32 %22, 0
   %24 = icmp ne ptr %6, null
   %or.cond = and i1 %24, %23
@@ -4648,7 +4648,7 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = load double, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %29 = load i32, ptr %28, align 8, !tbaa !64
+  %29 = load i32, ptr %28, align 8, !tbaa !51
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %33
 
@@ -4660,7 +4660,7 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
 33:                                               ; preds = %25, %30
   %34 = phi double [ %32, %30 ], [ 0.000000e+00, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %36 = load i32, ptr %35, align 4, !tbaa !70
+  %36 = load i32, ptr %35, align 4, !tbaa !57
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4680,13 +4680,13 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   br i1 %41, label %.thread71, label %44
 
 .thread71:                                        ; preds = %40
-  %42 = load double, ptr %1, align 8, !tbaa !67
-  %43 = load double, ptr %39, align 8, !tbaa !66
+  %42 = load double, ptr %1, align 8, !tbaa !54
+  %43 = load double, ptr %39, align 8, !tbaa !53
   br label %47
 
 44:                                               ; preds = %40
-  %45 = load double, ptr %37, align 8, !tbaa !69
-  %46 = load double, ptr %38, align 8, !tbaa !68
+  %45 = load double, ptr %37, align 8, !tbaa !56
+  %46 = load double, ptr %38, align 8, !tbaa !55
   br label %47
 
 47:                                               ; preds = %.thread71, %44
@@ -4706,7 +4706,7 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   %53 = load double, ptr %13, align 8, !tbaa !3
   %54 = fadd double %.05774, %53
-  %55 = load i32, ptr %28, align 8, !tbaa !64
+  %55 = load i32, ptr %28, align 8, !tbaa !51
   %.not67 = icmp eq i32 %55, 0
   br i1 %.not67, label %56, label %90
 
@@ -4716,11 +4716,11 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   br i1 %41, label %.thread72, label %60
 
 .thread72:                                        ; preds = %56
-  %59 = load double, ptr %39, align 8, !tbaa !66
+  %59 = load double, ptr %39, align 8, !tbaa !53
   br label %62
 
 60:                                               ; preds = %56
-  %61 = load double, ptr %38, align 8, !tbaa !68
+  %61 = load double, ptr %38, align 8, !tbaa !55
   br label %62
 
 62:                                               ; preds = %.thread72, %60
@@ -4764,7 +4764,7 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
 transit.exit:                                     ; preds = %77, %80, %83
   %88 = phi i32 [ %87, %83 ], [ 1, %80 ], [ 1, %77 ]
   %89 = add i32 %88, %.05476
-  %.pre = load i32, ptr %28, align 8, !tbaa !64
+  %.pre = load i32, ptr %28, align 8, !tbaa !51
   br label %90
 
 90:                                               ; preds = %transit.exit, %47
@@ -4776,7 +4776,7 @@ transit.exit:                                     ; preds = %77, %80, %83
   %92 = add nuw nsw i32 %.05377, 1
   %93 = or i32 %91, %.05377
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %40, label %95, !llvm.loop !72
+  br i1 %94, label %40, label %95
 
 95:                                               ; preds = %90
   %.not62 = icmp eq ptr %7, null
@@ -4880,7 +4880,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %16 = alloca double, align 8
   %17 = alloca double, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %19 = load i32, ptr %18, align 8, !tbaa !71
+  %19 = load i32, ptr %18, align 8, !tbaa !58
   %20 = add i32 %19, 1
   %21 = icmp eq i32 %19, 0
   br i1 %21, label %22, label %32
@@ -4896,7 +4896,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
 
 25:                                               ; preds = %23, %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %27 = load i32, ptr %26, align 8, !tbaa !64
+  %27 = load i32, ptr %26, align 8, !tbaa !51
   %28 = icmp eq i32 %27, 0
   %29 = icmp ne ptr %6, null
   %or.cond = and i1 %29, %28
@@ -4912,7 +4912,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %34 = load double, ptr %33, align 8, !tbaa !3
   %35 = fadd double %3, %34
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %37 = load i32, ptr %36, align 8, !tbaa !64
+  %37 = load i32, ptr %36, align 8, !tbaa !51
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %40, label %38
 
@@ -4928,7 +4928,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load double, ptr %41, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %44 = load i32, ptr %43, align 4, !tbaa !70
+  %44 = load i32, ptr %43, align 4, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
   store double 0.000000e+00, ptr %14, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
@@ -4936,16 +4936,16 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
   store double 0.000000e+00, ptr %17, align 8, !tbaa !3
-  %45 = load double, ptr %1, align 8, !tbaa !67
+  %45 = load double, ptr %1, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load double, ptr %46, align 8, !tbaa !66
+  %47 = load double, ptr %46, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #15
   call void @geod_lineinit(ptr noundef nonnull %13, ptr noundef readonly %0, double noundef %45, double noundef %47, double noundef %2, i32 noundef 18843)
   %48 = call double @geod_genposition(ptr noundef nonnull %13, i32 noundef 32768, double noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #15
   %49 = load double, ptr %17, align 8, !tbaa !3
   %50 = fadd double %42, %49
-  %51 = load double, ptr %46, align 8, !tbaa !66
+  %51 = load double, ptr %46, align 8, !tbaa !53
   %52 = load double, ptr %15, align 8, !tbaa !3
   %53 = call double @remainder(double noundef %51, double noundef 7.200000e+02) #15, !tbaa !15
   %54 = call double @remainder(double noundef %52, double noundef 7.200000e+02) #15, !tbaa !15
@@ -4959,9 +4959,9 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %.neg.i = zext i1 %.not9.i to i32
   %60 = load double, ptr %14, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %62 = load double, ptr %61, align 8, !tbaa !69
+  %62 = load double, ptr %61, align 8, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %64 = load double, ptr %63, align 8, !tbaa !68
+  %64 = load double, ptr %63, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
@@ -4974,7 +4974,7 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %66 = load double, ptr %16, align 8, !tbaa !3
   %67 = load double, ptr %17, align 8, !tbaa !3
   %68 = fadd double %50, %67
-  %69 = load double, ptr %63, align 8, !tbaa !68
+  %69 = load double, ptr %63, align 8, !tbaa !55
   %70 = call fastcc double @AngDiff(double noundef %52, double noundef %69, ptr noundef null)
   %71 = call double @remainder(double noundef %52, double noundef 3.600000e+02) #15, !tbaa !15
   %72 = call double @llvm.fabs.f64(double %71)
@@ -5108,20 +5108,20 @@ define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr nounde
   %7 = alloca %struct.geod_polygon, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i32 0, ptr %8, align 8, !tbaa !64
+  store i32 0, ptr %8, align 8, !tbaa !51
   %9 = load double, ptr @NaN, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %9, ptr %10, align 8, !tbaa !66
-  store double %9, ptr %7, align 8, !tbaa !67
+  store double %9, ptr %10, align 8, !tbaa !53
+  store double %9, ptr %7, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %9, ptr %11, align 8, !tbaa !68
+  store double %9, ptr %11, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double %9, ptr %12, align 8, !tbaa !69
+  store double %9, ptr %12, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i32 0, ptr %14, align 4, !tbaa !70
+  store i32 0, ptr %14, align 4, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i32 0, ptr %15, align 8, !tbaa !71
+  store i32 0, ptr %15, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
@@ -5139,7 +5139,7 @@ define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr nounde
   call void @geod_polygon_addpoint(ptr noundef %0, ptr noundef nonnull %7, double noundef %18, double noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %21 = call i32 @geod_polygon_compute(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef %4, ptr noundef %5)
@@ -5286,7 +5286,7 @@ define internal fastcc void @Lengths(ptr noundef readonly captures(none) %0, dou
   %21 = load double, ptr %.19.i.i, align 8, !tbaa !3
   %22 = tail call double @llvm.fmuladd.f64(double %.011.i.i, double %19, double %21)
   %23 = icmp samesign ugt i32 %.0610.i.i, 1
-  br i1 %23, label %.lr.ph.i.i, label %A1m1f.exit, !llvm.loop !19
+  br i1 %23, label %.lr.ph.i.i, label %A1m1f.exit
 
 A1m1f.exit:                                       ; preds = %.lr.ph.i.i, %polyvalx.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %polyvalx.exit.i ], [ 1, %.lr.ph.i.i ]
@@ -5310,7 +5310,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i, %polyva
   %31 = load double, ptr %.19.i.i120, align 8, !tbaa !3
   %32 = tail call double @llvm.fmuladd.f64(double %.011.i.i117, double %19, double %31)
   %33 = icmp samesign ugt i32 %.0610.i.i118, 1
-  br i1 %33, label %.lr.ph.i.i116, label %polyvalx.exit.i, !llvm.loop !19
+  br i1 %33, label %.lr.ph.i.i116, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i116, %A1m1f.exit
   %.0.lcssa.i.i = phi double [ %29, %A1m1f.exit ], [ %32, %.lr.ph.i.i116 ]
@@ -5327,7 +5327,7 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i116, %A1m
   %43 = fmul double %1, %.020.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %.lr.ph.i.i121, label %A1m1f.exit, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.lr.ph.i.i121, label %A1m1f.exit
 
 .lr.ph.i.i121:                                    ; preds = %polyvalx.exit.i, %.lr.ph.i.i121
   %.011.i.i122 = phi double [ %46, %.lr.ph.i.i121 ], [ -1.100000e+01, %polyvalx.exit.i ]
@@ -5338,7 +5338,7 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i116, %A1m
   %45 = load double, ptr %.19.i.i125, align 8, !tbaa !3
   %46 = tail call double @llvm.fmuladd.f64(double %.011.i.i122, double %19, double %45)
   %47 = icmp samesign ugt i32 %.0610.i.i123, 1
-  br i1 %47, label %.lr.ph.i.i121, label %A2m1f.exit, !llvm.loop !19
+  br i1 %47, label %.lr.ph.i.i121, label %A2m1f.exit
 
 A2m1f.exit:                                       ; preds = %.lr.ph.i.i121, %polyvalx.exit.i136
   %indvars.iv.i127 = phi i64 [ %indvars.iv.next.i138, %polyvalx.exit.i136 ], [ 1, %.lr.ph.i.i121 ]
@@ -5362,7 +5362,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i121, %pol
   %55 = load double, ptr %.19.i.i135, align 8, !tbaa !3
   %56 = tail call double @llvm.fmuladd.f64(double %.011.i.i132, double %19, double %55)
   %57 = icmp samesign ugt i32 %.0610.i.i133, 1
-  br i1 %57, label %.lr.ph.i.i131, label %polyvalx.exit.i136, !llvm.loop !19
+  br i1 %57, label %.lr.ph.i.i131, label %polyvalx.exit.i136
 
 polyvalx.exit.i136:                               ; preds = %.lr.ph.i.i131, %A2m1f.exit
   %.0.lcssa.i.i137 = phi double [ %53, %A2m1f.exit ], [ %56, %.lr.ph.i.i131 ]
@@ -5379,7 +5379,7 @@ polyvalx.exit.i136:                               ; preds = %.lr.ph.i.i131, %A2m
   %67 = fmul double %1, %.020.i128
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond.not.i139 = icmp eq i64 %indvars.iv.next.i138, 7
-  br i1 %exitcond.not.i139, label %C2f.exit, label %A2m1f.exit, !llvm.loop !52
+  br i1 %exitcond.not.i139, label %C2f.exit, label %A2m1f.exit
 
 C2f.exit:                                         ; preds = %polyvalx.exit.i136
   %.not = icmp eq ptr %13, null
@@ -5423,7 +5423,7 @@ C2f.exit:                                         ; preds = %polyvalx.exit.i136
   %96 = load double, ptr %95, align 8, !tbaa !3
   %97 = fadd double %96, %94
   %.not28.i = icmp eq i32 %87, 0
-  br i1 %.not28.i, label %SinCosSeries.exit, label %86, !llvm.loop !46
+  br i1 %.not28.i, label %SinCosSeries.exit, label %86
 
 SinCosSeries.exit:                                ; preds = %86
   %98 = fsub double %4, %3
@@ -5449,7 +5449,7 @@ SinCosSeries.exit:                                ; preds = %86
   %112 = load double, ptr %111, align 8, !tbaa !3
   %113 = fadd double %112, %110
   %.not28.i144 = icmp eq i32 %103, 0
-  br i1 %.not28.i144, label %SinCosSeries.exit145, label %102, !llvm.loop !46
+  br i1 %.not28.i144, label %SinCosSeries.exit145, label %102
 
 SinCosSeries.exit145:                             ; preds = %102
   %114 = fmul double %6, 2.000000e+00
@@ -5482,7 +5482,7 @@ SinCosSeries.exit145:                             ; preds = %102
   %134 = load double, ptr %133, align 8, !tbaa !3
   %135 = fadd double %134, %132
   %.not28.i150 = icmp eq i32 %125, 0
-  br i1 %.not28.i150, label %SinCosSeries.exit151, label %124, !llvm.loop !46
+  br i1 %.not28.i150, label %SinCosSeries.exit151, label %124
 
 SinCosSeries.exit151:                             ; preds = %124, %SinCosSeries.exit151
   %.033.i152 = phi double [ %141, %SinCosSeries.exit151 ], [ 0.000000e+00, %124 ]
@@ -5501,7 +5501,7 @@ SinCosSeries.exit151:                             ; preds = %124, %SinCosSeries.
   %145 = load double, ptr %144, align 8, !tbaa !3
   %146 = fadd double %145, %143
   %.not28.i156 = icmp eq i32 %136, 0
-  br i1 %.not28.i156, label %SinCosSeries.exit157, label %SinCosSeries.exit151, !llvm.loop !46
+  br i1 %.not28.i156, label %SinCosSeries.exit157, label %SinCosSeries.exit151
 
 SinCosSeries.exit157:                             ; preds = %SinCosSeries.exit151
   %147 = fmul double %115, %135
@@ -5524,7 +5524,7 @@ SinCosSeries.exit157:                             ; preds = %SinCosSeries.exit15
   store double %159, ptr %155, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %160, label %.preheader, !llvm.loop !74
+  br i1 %exitcond.not, label %160, label %.preheader
 
 160:                                              ; preds = %.preheader
   %161 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -5551,7 +5551,7 @@ SinCosSeries.exit157:                             ; preds = %SinCosSeries.exit15
   %176 = load double, ptr %175, align 8, !tbaa !3
   %177 = fadd double %176, %174
   %.not28.i162 = icmp eq i32 %167, 0
-  br i1 %.not28.i162, label %SinCosSeries.exit163, label %166, !llvm.loop !46
+  br i1 %.not28.i162, label %SinCosSeries.exit163, label %166
 
 SinCosSeries.exit163:                             ; preds = %166
   %178 = fsub double %4, %3
@@ -5577,7 +5577,7 @@ SinCosSeries.exit163:                             ; preds = %166
   %192 = load double, ptr %191, align 8, !tbaa !3
   %193 = fadd double %192, %190
   %.not28.i168 = icmp eq i32 %183, 0
-  br i1 %.not28.i168, label %SinCosSeries.exit169, label %182, !llvm.loop !46
+  br i1 %.not28.i168, label %SinCosSeries.exit169, label %182
 
 SinCosSeries.exit169:                             ; preds = %182
   %194 = fmul double %6, 2.000000e+00
@@ -5703,59 +5703,43 @@ attributes #16 = { nounwind willreturn memory(none) }
 !16 = !{!"int", !5, i64 0}
 !17 = !{!8, !4, i64 56}
 !18 = !{!8, !4, i64 64}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = !{!27, !4, i64 24}
-!27 = !{!"geod_geodesicline", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !5, i64 240, !5, i64 296, !5, i64 352, !5, i64 408, !5, i64 456, !16, i64 504}
-!28 = !{!27, !4, i64 32}
-!29 = !{!27, !4, i64 72}
-!30 = !{!27, !4, i64 80}
-!31 = !{!27, !4, i64 88}
-!32 = !{!27, !16, i64 504}
-!33 = !{!27, !4, i64 0}
-!34 = !{!27, !4, i64 8}
-!35 = !{!27, !4, i64 16}
-!36 = !{!27, !4, i64 40}
-!37 = !{!27, !4, i64 48}
-!38 = !{!27, !4, i64 136}
-!39 = !{!27, !4, i64 96}
-!40 = !{!27, !4, i64 104}
-!41 = !{!27, !4, i64 160}
-!42 = !{!27, !4, i64 168}
-!43 = !{!27, !4, i64 112}
-!44 = !{!27, !4, i64 176}
-!45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20}
-!47 = !{!27, !4, i64 200}
-!48 = !{!27, !4, i64 144}
-!49 = !{!27, !4, i64 152}
-!50 = distinct !{!50, !20}
-!51 = !{!27, !4, i64 184}
-!52 = distinct !{!52, !20}
-!53 = !{!27, !4, i64 208}
-!54 = !{!27, !4, i64 192}
-!55 = !{!27, !4, i64 216}
-!56 = distinct !{!56, !20}
-!57 = !{!27, !4, i64 224}
-!58 = !{!27, !4, i64 232}
-!59 = !{!27, !4, i64 64}
-!60 = !{!27, !4, i64 56}
-!61 = !{!27, !4, i64 120}
-!62 = !{!27, !4, i64 128}
-!63 = distinct !{!63, !20}
-!64 = !{!65, !16, i64 64}
-!65 = !{!"geod_polygon", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !5, i64 32, !5, i64 48, !16, i64 64, !16, i64 68, !16, i64 72}
-!66 = !{!65, !4, i64 8}
-!67 = !{!65, !4, i64 0}
-!68 = !{!65, !4, i64 24}
-!69 = !{!65, !4, i64 16}
-!70 = !{!65, !16, i64 68}
-!71 = !{!65, !16, i64 72}
-!72 = distinct !{!72, !20}
-!73 = distinct !{!73, !20}
-!74 = distinct !{!74, !20}
+!19 = !{!20, !4, i64 24}
+!20 = !{!"geod_geodesicline", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !5, i64 240, !5, i64 296, !5, i64 352, !5, i64 408, !5, i64 456, !16, i64 504}
+!21 = !{!20, !4, i64 32}
+!22 = !{!20, !4, i64 72}
+!23 = !{!20, !4, i64 80}
+!24 = !{!20, !4, i64 88}
+!25 = !{!20, !16, i64 504}
+!26 = !{!20, !4, i64 0}
+!27 = !{!20, !4, i64 8}
+!28 = !{!20, !4, i64 16}
+!29 = !{!20, !4, i64 40}
+!30 = !{!20, !4, i64 48}
+!31 = !{!20, !4, i64 136}
+!32 = !{!20, !4, i64 96}
+!33 = !{!20, !4, i64 104}
+!34 = !{!20, !4, i64 160}
+!35 = !{!20, !4, i64 168}
+!36 = !{!20, !4, i64 112}
+!37 = !{!20, !4, i64 176}
+!38 = !{!20, !4, i64 200}
+!39 = !{!20, !4, i64 144}
+!40 = !{!20, !4, i64 152}
+!41 = !{!20, !4, i64 184}
+!42 = !{!20, !4, i64 208}
+!43 = !{!20, !4, i64 192}
+!44 = !{!20, !4, i64 216}
+!45 = !{!20, !4, i64 224}
+!46 = !{!20, !4, i64 232}
+!47 = !{!20, !4, i64 64}
+!48 = !{!20, !4, i64 56}
+!49 = !{!20, !4, i64 120}
+!50 = !{!20, !4, i64 128}
+!51 = !{!52, !16, i64 64}
+!52 = !{!"geod_polygon", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !5, i64 32, !5, i64 48, !16, i64 64, !16, i64 68, !16, i64 72}
+!53 = !{!52, !4, i64 8}
+!54 = !{!52, !4, i64 0}
+!55 = !{!52, !4, i64 24}
+!56 = !{!52, !4, i64 16}
+!57 = !{!52, !16, i64 68}
+!58 = !{!52, !16, i64 72}

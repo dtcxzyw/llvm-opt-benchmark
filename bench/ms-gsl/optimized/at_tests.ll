@@ -6959,7 +6959,7 @@ define linkonce_odr dso_local void @_ZN7testing13ContainsRegexIPKcEENS_18Polymor
           to label %_ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.body
 
 _ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %19
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %36 unwind label %26
 
@@ -6997,55 +6997,55 @@ _ZN7testing8internal2REC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %5, ptr %39, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  store ptr %5, ptr %0, align 8, !alias.scope !19
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  store ptr %5, ptr %0, align 8, !alias.scope !18
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %25, ptr %40, align 8, !alias.scope !19
-  %41 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
+  store ptr %25, ptr %40, align 8, !alias.scope !18
+  %41 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %41, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %43, label %42
 
 42:                                               ; preds = %36
-  store i32 2, ptr %37, align 4, !noalias !19
+  store i32 2, ptr %37, align 4, !noalias !18
   br label %45
 
 43:                                               ; preds = %36
-  %44 = atomicrmw volatile add ptr %37, i32 1 acq_rel, align 4, !noalias !19
+  %44 = atomicrmw volatile add ptr %37, i32 1 acq_rel, align 4, !noalias !18
   br label %45
 
 45:                                               ; preds = %42, %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %46, align 8, !alias.scope !19
-  %47 = load atomic i64, ptr %37 acquire, align 8, !noalias !13
+  store i8 0, ptr %46, align 8, !alias.scope !18
+  %47 = load atomic i64, ptr %37 acquire, align 8, !noalias !12
   %48 = icmp eq i64 %47, 4294967297
   %49 = trunc i64 %47 to i32
   br i1 %48, label %50, label %57
 
 50:                                               ; preds = %45
-  store i32 0, ptr %37, align 8, !noalias !13
-  store i32 0, ptr %38, align 4, !noalias !13
-  %51 = load ptr, ptr %25, align 8, !noalias !13
+  store i32 0, ptr %37, align 8, !noalias !12
+  store i32 0, ptr %38, align 4, !noalias !12
+  %51 = load ptr, ptr %25, align 8, !noalias !12
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8, !noalias !13
-  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %25) #24, !noalias !13
-  %54 = load ptr, ptr %25, align 8, !noalias !13
+  %53 = load ptr, ptr %52, align 8, !noalias !12
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %25) #24, !noalias !12
+  %54 = load ptr, ptr %25, align 8, !noalias !12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load ptr, ptr %55, align 8, !noalias !13
-  call void %56(ptr noundef nonnull align 8 dereferenceable(16) %25) #24, !noalias !13
+  %56 = load ptr, ptr %55, align 8, !noalias !12
+  call void %56(ptr noundef nonnull align 8 dereferenceable(16) %25) #24, !noalias !12
   br label %_ZN7testing13ContainsRegexEPKNS_8internal2REE.exit
 
 57:                                               ; preds = %45
-  %58 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
+  %58 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
   %.not.i.i.i.i.i = icmp eq i8 %58, 0
   br i1 %.not.i.i.i.i.i, label %61, label %59
 
 59:                                               ; preds = %57
   %60 = add nsw i32 %49, -1
-  store i32 %60, ptr %37, align 4, !noalias !13
+  store i32 %60, ptr %37, align 4, !noalias !12
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 61:                                               ; preds = %57
-  %62 = atomicrmw volatile add ptr %37, i32 -1 acq_rel, align 4, !noalias !13
+  %62 = atomicrmw volatile add ptr %37, i32 -1 acq_rel, align 4, !noalias !12
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %61, %59
@@ -7054,7 +7054,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %61, %5
   br i1 %63, label %64, label %_ZN7testing13ContainsRegexEPKNS_8internal2REE.exit, !prof !9
 
 64:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #24, !noalias !13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #24, !noalias !12
   br label %_ZN7testing13ContainsRegexEPKNS_8internal2REE.exit
 
 _ZN7testing13ContainsRegexEPKNS_8internal2REE.exit: ; preds = %64, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %50
@@ -8705,13 +8705,12 @@ attributes #29 = { noreturn }
 !7 = !{i8 0, i8 2}
 !8 = !{}
 !9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN7testing13ContainsRegexEPKNS_8internal2REE: argument 0"}
-!15 = distinct !{!15, !"_ZN7testing13ContainsRegexEPKNS_8internal2REE"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN7testing22MakePolymorphicMatcherINS_8internal19MatchesRegexMatcherEEENS_18PolymorphicMatcherIT_EERKS4_: argument 0"}
-!18 = distinct !{!18, !"_ZN7testing22MakePolymorphicMatcherINS_8internal19MatchesRegexMatcherEEENS_18PolymorphicMatcherIT_EERKS4_"}
-!19 = !{!17, !14}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN7testing13ContainsRegexEPKNS_8internal2REE: argument 0"}
+!14 = distinct !{!14, !"_ZN7testing13ContainsRegexEPKNS_8internal2REE"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN7testing22MakePolymorphicMatcherINS_8internal19MatchesRegexMatcherEEENS_18PolymorphicMatcherIT_EERKS4_: argument 0"}
+!17 = distinct !{!17, !"_ZN7testing22MakePolymorphicMatcherINS_8internal19MatchesRegexMatcherEEENS_18PolymorphicMatcherIT_EERKS4_"}
+!18 = !{!16, !13}

@@ -83,7 +83,7 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
 .thread71:                                        ; preds = %33, %.thread, %43
   %44 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.081 = load ptr, ptr %45, align 8, !tbaa !18
+  %.081 = load ptr, ptr %45, align 8, !tbaa !17
   %.not6782 = icmp eq ptr %.081, null
   br i1 %.not6782, label %._crit_edge, label %.lr.ph84
 
@@ -92,17 +92,17 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %50 = load ptr, ptr %46, align 8, !tbaa !18
+  %50 = load ptr, ptr %46, align 8, !tbaa !17
   %51 = icmp eq ptr %50, null
   br i1 %51, label %._crit_edge, label %.lr.ph84.split
 
 .loopexit74:                                      ; preds = %92, %.lr.ph84.split
-  %.0 = load ptr, ptr %.083, align 8, !tbaa !18
+  %.0 = load ptr, ptr %.083, align 8, !tbaa !17
   %.not67 = icmp eq ptr %.0, null
-  br i1 %.not67, label %._crit_edge, label %.lr.ph84.splitthread-pre-split, !llvm.loop !19
+  br i1 %.not67, label %._crit_edge, label %.lr.ph84.splitthread-pre-split, !llvm.loop !18
 
 .lr.ph84.splitthread-pre-split:                   ; preds = %.loopexit74
-  %.06378.pr = load ptr, ptr %46, align 8, !tbaa !18
+  %.06378.pr = load ptr, ptr %46, align 8, !tbaa !17
   br label %.lr.ph84.split
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %.lr.ph84.splitthread-pre-split
@@ -169,31 +169,31 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   store i32 %85, ptr %86, align 4, !tbaa !14
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not87 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not87, label %.loopexit, label %80, !llvm.loop !21
+  br i1 %.not87, label %.loopexit, label %80, !llvm.loop !20
 
 .loopexit:                                        ; preds = %80, %69, %63
-  %87 = load ptr, ptr %47, align 8, !tbaa !22
+  %87 = load ptr, ptr %47, align 8, !tbaa !21
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %.loopexit
-  store ptr %56, ptr %47, align 8, !tbaa !22
+  store ptr %56, ptr %47, align 8, !tbaa !21
   br label %92
 
 90:                                               ; preds = %.loopexit
-  %91 = load ptr, ptr %48, align 8, !tbaa !23
-  store ptr %56, ptr %91, align 8, !tbaa !24
+  %91 = load ptr, ptr %48, align 8, !tbaa !22
+  store ptr %56, ptr %91, align 8, !tbaa !23
   br label %92
 
 92:                                               ; preds = %90, %89
-  store ptr %56, ptr %48, align 8, !tbaa !23
-  store ptr null, ptr %56, align 8, !tbaa !24
-  %93 = load i32, ptr %49, align 8, !tbaa !26
+  store ptr %56, ptr %48, align 8, !tbaa !22
+  store ptr null, ptr %56, align 8, !tbaa !23
+  %93 = load i32, ptr %49, align 8, !tbaa !25
   %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %49, align 8, !tbaa !26
-  %.063 = load ptr, ptr %.06380, align 8, !tbaa !18
+  store i32 %94, ptr %49, align 8, !tbaa !25
+  %.063 = load ptr, ptr %.06380, align 8, !tbaa !17
   %.not68 = icmp eq ptr %.063, null
-  br i1 %.not68, label %.loopexit74, label %55, !llvm.loop !27
+  br i1 %.not68, label %.loopexit74, label %55, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit74, %.lr.ph84, %.thread71
   ret ptr %44
@@ -211,7 +211,7 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.061 = load ptr, ptr %4, align 8, !tbaa !18
+  %.061 = load ptr, ptr %4, align 8, !tbaa !17
   %.not62 = icmp eq ptr %.061, null
   br i1 %.not62, label %._crit_edge, label %.lr.ph64
 
@@ -224,7 +224,7 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
 
 9:                                                ; preds = %.lr.ph64, %.thread
   %.063 = phi ptr [ %.061, %.lr.ph64 ], [ %.0, %.thread ]
-  %.03951 = load ptr, ptr %5, align 8, !tbaa !18
+  %.03951 = load ptr, ptr %5, align 8, !tbaa !17
   %.not4152 = icmp eq ptr %.03951, null
   br i1 %.not4152, label %.critedge, label %.lr.ph
 
@@ -251,9 +251,9 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
   br i1 %19, label %.thread, label %.backedge.us
 
 .backedge.us:                                     ; preds = %16
-  %.039.us = load ptr, ptr %.03953.us, align 8, !tbaa !18
+  %.039.us = load ptr, ptr %.03953.us, align 8, !tbaa !17
   %.not41.us = icmp eq ptr %.039.us, null
-  br i1 %.not41.us, label %.critedge, label %16, !llvm.loop !28
+  br i1 %.not41.us, label %.critedge, label %16, !llvm.loop !27
 
 .lr.ph.split.us54:                                ; preds = %.lr.ph
   %20 = load i32, ptr %14, align 8, !tbaa !14
@@ -274,14 +274,14 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
   br i1 %29, label %.thread, label %.backedge.us58
 
 .backedge.us58:                                   ; preds = %21, %25
-  %.039.us59 = load ptr, ptr %.03953.us55, align 8, !tbaa !18
+  %.039.us59 = load ptr, ptr %.03953.us55, align 8, !tbaa !17
   %.not41.us60 = icmp eq ptr %.039.us59, null
-  br i1 %.not41.us60, label %.critedge, label %21, !llvm.loop !30
+  br i1 %.not41.us60, label %.critedge, label %21, !llvm.loop !29
 
 .critedge48.loopexit:                             ; preds = %34
-  %.039 = load ptr, ptr %.03953, align 8, !tbaa !18
+  %.039 = load ptr, ptr %.03953, align 8, !tbaa !17
   %.not41 = icmp eq ptr %.039, null
-  br i1 %.not41, label %.critedge, label %.preheader, !llvm.loop !31
+  br i1 %.not41, label %.critedge, label %.preheader, !llvm.loop !30
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge48.loopexit
   %.03953 = phi ptr [ %.039, %.critedge48.loopexit ], [ %.03951, %.lr.ph ]
@@ -291,7 +291,7 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
 31:                                               ; preds = %34
   %32 = add nsw i32 %.03650, -1
   %33 = icmp sgt i32 %.03650, 0
-  br i1 %33, label %34, label %.thread, !llvm.loop !32
+  br i1 %33, label %34, label %.thread, !llvm.loop !31
 
 34:                                               ; preds = %.preheader, %31
   %.03650 = phi i32 [ %12, %.preheader ], [ %32, %31 ]
@@ -305,31 +305,31 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr noundef readonly capt
 
 .critedge:                                        ; preds = %.backedge.us58, %.backedge.us, %.critedge48.loopexit, %9
   %40 = tail call ptr @Mvc_CubeDup(ptr noundef %3, ptr noundef nonnull %.063) #4
-  %41 = load ptr, ptr %6, align 8, !tbaa !22
+  %41 = load ptr, ptr %6, align 8, !tbaa !21
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %.critedge
-  store ptr %40, ptr %6, align 8, !tbaa !22
+  store ptr %40, ptr %6, align 8, !tbaa !21
   br label %46
 
 44:                                               ; preds = %.critedge
-  %45 = load ptr, ptr %7, align 8, !tbaa !23
-  store ptr %40, ptr %45, align 8, !tbaa !24
+  %45 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %40, ptr %45, align 8, !tbaa !23
   br label %46
 
 46:                                               ; preds = %44, %43
-  store ptr %40, ptr %7, align 8, !tbaa !23
-  store ptr null, ptr %40, align 8, !tbaa !24
-  %47 = load i32, ptr %8, align 8, !tbaa !26
+  store ptr %40, ptr %7, align 8, !tbaa !22
+  store ptr null, ptr %40, align 8, !tbaa !23
+  %47 = load i32, ptr %8, align 8, !tbaa !25
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %8, align 8, !tbaa !26
+  store i32 %48, ptr %8, align 8, !tbaa !25
   br label %.thread
 
 .thread:                                          ; preds = %25, %16, %31, %46
-  %.0 = load ptr, ptr %.063, align 8, !tbaa !18
+  %.0 = load ptr, ptr %.063, align 8, !tbaa !17
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.thread, %2
   ret ptr %3
@@ -340,13 +340,13 @@ declare ptr @Mvc_CubeDup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02651 = load ptr, ptr %3, align 8, !tbaa !18
+  %.02651 = load ptr, ptr %3, align 8, !tbaa !17
   %.not52 = icmp eq ptr %.02651, null
   br i1 %.not52, label %.critedge, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.02540 = load ptr, ptr %4, align 8, !tbaa !18
+  %.02540 = load ptr, ptr %4, align 8, !tbaa !17
   %.not2941 = icmp eq ptr %.02540, null
   br i1 %.not2941, label %.critedge, label %.lr.ph
 
@@ -374,9 +374,9 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
   br i1 %14, label %.thread, label %.backedge.us
 
 .backedge.us:                                     ; preds = %11
-  %.025.us = load ptr, ptr %.02542.us, align 8, !tbaa !18
+  %.025.us = load ptr, ptr %.02542.us, align 8, !tbaa !17
   %.not29.us = icmp eq ptr %.025.us, null
-  br i1 %.not29.us, label %.critedge, label %11, !llvm.loop !34
+  br i1 %.not29.us, label %.critedge, label %11, !llvm.loop !33
 
 .lr.ph.split.us44:                                ; preds = %.lr.ph
   %15 = load i32, ptr %9, align 8, !tbaa !14
@@ -397,14 +397,14 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
   br i1 %24, label %.thread, label %.backedge.us48
 
 .backedge.us48:                                   ; preds = %16, %20
-  %.025.us49 = load ptr, ptr %.02542.us45, align 8, !tbaa !18
+  %.025.us49 = load ptr, ptr %.02542.us45, align 8, !tbaa !17
   %.not29.us50 = icmp eq ptr %.025.us49, null
-  br i1 %.not29.us50, label %.critedge, label %16, !llvm.loop !35
+  br i1 %.not29.us50, label %.critedge, label %16, !llvm.loop !34
 
 .critedge36.loopexit:                             ; preds = %29
-  %.025 = load ptr, ptr %.02542, align 8, !tbaa !18
+  %.025 = load ptr, ptr %.02542, align 8, !tbaa !17
   %.not29 = icmp eq ptr %.025, null
-  br i1 %.not29, label %.critedge, label %.preheader, !llvm.loop !36
+  br i1 %.not29, label %.critedge, label %.preheader, !llvm.loop !35
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge36.loopexit
   %.02542 = phi ptr [ %.025, %.critedge36.loopexit ], [ %.02540, %.lr.ph ]
@@ -414,7 +414,7 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
 26:                                               ; preds = %29
   %27 = add nsw i32 %.039, -1
   %28 = icmp sgt i32 %.039, 0
-  br i1 %28, label %29, label %.thread, !llvm.loop !37
+  br i1 %28, label %29, label %.thread, !llvm.loop !36
 
 29:                                               ; preds = %.preheader, %26
   %.039 = phi i32 [ %7, %.preheader ], [ %27, %26 ]
@@ -427,9 +427,9 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
   br i1 %.not30, label %26, label %.critedge36.loopexit
 
 .thread:                                          ; preds = %20, %11, %26
-  %.026 = load ptr, ptr %.02653, align 8, !tbaa !18
+  %.026 = load ptr, ptr %.02653, align 8, !tbaa !17
   %.not = icmp eq ptr %.026, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !37
 
 .critedge:                                        ; preds = %.thread, %.backedge.us48, %.backedge.us, %.critedge36.loopexit, %2, %.lr.ph54
   %.027 = phi i32 [ 0, %.lr.ph54 ], [ 1, %2 ], [ 0, %.critedge36.loopexit ], [ 0, %.backedge.us ], [ 0, %.backedge.us48 ], [ 1, %.thread ]
@@ -462,27 +462,26 @@ attributes #4 = { nounwind }
 !12 = !{!"p1 int", !10, i64 0}
 !13 = !{!"p1 _ZTS16MvcManagerStruct", !10, i64 0}
 !14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!9, !9, i64 0}
-!19 = distinct !{!19, !16, !17, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = distinct !{!21, !16, !17}
-!22 = !{!8, !9, i64 0}
-!23 = !{!8, !9, i64 8}
-!24 = !{!25, !9, i64 0}
-!25 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
-!26 = !{!8, !5, i64 16}
-!27 = distinct !{!27, !16, !17}
-!28 = distinct !{!28, !16, !17, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !16, !17, !29}
-!31 = distinct !{!31, !16, !17}
-!32 = distinct !{!32, !16, !17}
-!33 = distinct !{!33, !16, !17}
-!34 = distinct !{!34, !16, !17, !29}
-!35 = distinct !{!35, !16, !17, !29}
-!36 = distinct !{!36, !16, !17}
-!37 = distinct !{!37, !16, !17}
-!38 = distinct !{!38, !16, !17}
+!17 = !{!9, !9, i64 0}
+!18 = distinct !{!18, !16, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !16}
+!21 = !{!8, !9, i64 0}
+!22 = !{!8, !9, i64 8}
+!23 = !{!24, !9, i64 0}
+!24 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
+!25 = !{!8, !5, i64 16}
+!26 = distinct !{!26, !16}
+!27 = distinct !{!27, !16, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !16, !28}
+!30 = distinct !{!30, !16}
+!31 = distinct !{!31, !16}
+!32 = distinct !{!32, !16}
+!33 = distinct !{!33, !16, !28}
+!34 = distinct !{!34, !16, !28}
+!35 = distinct !{!35, !16}
+!36 = distinct !{!36, !16}
+!37 = distinct !{!37, !16}

@@ -453,9 +453,9 @@ invoke.cont45:                                    ; preds = %_ZSt10accumulateIPK
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %33 = load i32, ptr %type_, align 8, !tbaa !18
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8
-  store i32 %33, ptr %type_.i.i.i, align 8, !tbaa !42
+  store i32 %33, ptr %type_.i.i.i, align 8, !tbaa !41
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
-  store double %div, ptr %strike_.i.i, align 8, !tbaa !45
+  store double %div, ptr %strike_.i.i, align 8, !tbaa !44
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %ref.tmp43, align 8, !tbaa !14
   %34 = getelementptr double, ptr %25, i64 %26
   %arrayidx.i.i = getelementptr i8, ptr %34, i64 -8
@@ -567,11 +567,10 @@ attributes #18 = { builtin nounwind }
 !36 = !{!"_ZTSSt5tupleIJPdSt14default_deleteIA_dEEE", !37, i64 0}
 !37 = !{!"_ZTSSt11_Tuple_implILm0EJPdSt14default_deleteIA_dEEE", !38, i64 0}
 !38 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !21, i64 8}
-!43 = !{!"_ZTSN8QuantLib10TypePayoffE", !44, i64 0, !21, i64 8}
-!44 = !{!"_ZTSN8QuantLib6PayoffE"}
-!45 = !{!46, !22, i64 16}
-!46 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !43, i64 0, !22, i64 16}
+!41 = !{!42, !21, i64 8}
+!42 = !{!"_ZTSN8QuantLib10TypePayoffE", !43, i64 0, !21, i64 8}
+!43 = !{!"_ZTSN8QuantLib6PayoffE"}
+!44 = !{!45, !22, i64 16}
+!45 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !42, i64 0, !22, i64 16}

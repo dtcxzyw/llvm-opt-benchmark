@@ -73,7 +73,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi10EEENS
 20:                                               ; preds = %.lr.ph.split.i
   %21 = getelementptr inbounds nuw i8, ptr %.03844.i, i64 1
   %.not41.i = icmp eq ptr %2, %21
-  br i1 %.not41.i, label %.critedge.i.loopexit, label %.lr.ph.split.i, !llvm.loop !10
+  br i1 %.not41.i, label %.critedge.i.loopexit, label %.lr.ph.split.i, !llvm.loop !9
 
 .critedge.i.loopexit:                             ; preds = %.lr.ph.split.i, %20
   %.038.lcssa.i.ph = phi ptr [ %scevgep.i, %20 ], [ %.03844.i, %.lr.ph.split.i ]
@@ -111,7 +111,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi10EEENS
   %36 = add i64 %35, %34
   %37 = getelementptr inbounds nuw i8, ptr %.153.i, i64 1
   %exitcond.not.i = icmp eq ptr %37, %25
-  br i1 %exitcond.not.i, label %.critedge2.loopexit.i, label %.lr.ph54.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.critedge2.loopexit.i, label %.lr.ph54.i, !llvm.loop !10
 
 .critedge2.loopexit.i:                            ; preds = %32, %.lr.ph54.i
   %.039.lcssa.ph.i = phi i64 [ %.03952.i, %.lr.ph54.i ], [ %36, %32 ]
@@ -145,7 +145,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi10EEENS
   %spec.select.i = or i1 %.061.i, %45
   %46 = getelementptr inbounds nuw i8, ptr %.260.i, i64 1
   %exitcond72.not.i = icmp eq ptr %46, %scevgep71.i
-  br i1 %exitcond72.not.i, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit, label %.lr.ph62.i, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit, label %.lr.ph62.i, !llvm.loop !11
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.lr.ph62.i, %44, %.critedge2.i
   %.1148 = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %44 ], [ %.061.i, %.lr.ph62.i ]
@@ -200,7 +200,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
 68:                                               ; preds = %.lr.ph164
   %69 = getelementptr inbounds nuw i8, ptr %.3163, i64 1
   %70 = icmp ult ptr %69, %2
-  br i1 %70, label %.lr.ph164, label %.critedge3, !llvm.loop !13
+  br i1 %70, label %.lr.ph164, label %.critedge3, !llvm.loop !12
 
 .critedge3:                                       ; preds = %.lr.ph164, %68, %.preheader
   %.3.lcssa = phi ptr [ %62, %.preheader ], [ %scevgep168, %68 ], [ %.3163, %.lr.ph164 ]
@@ -230,7 +230,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
 81:                                               ; preds = %.lr.ph.split.i112
   %82 = getelementptr inbounds nuw i8, ptr %.03844.i113, i64 1
   %.not41.i141 = icmp eq ptr %2, %82
-  br i1 %.not41.i141, label %.critedge.i114.loopexit, label %.lr.ph.split.i112, !llvm.loop !10
+  br i1 %.not41.i141, label %.critedge.i114.loopexit, label %.lr.ph.split.i112, !llvm.loop !9
 
 .critedge.i114.loopexit:                          ; preds = %.lr.ph.split.i112, %81
   %.038.lcssa.i115.ph = phi ptr [ %scevgep.i111, %81 ], [ %.03844.i113, %.lr.ph.split.i112 ]
@@ -272,7 +272,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
   %98 = add i64 %97, %96
   %99 = getelementptr inbounds nuw i8, ptr %.153.i134, i64 1
   %exitcond.not.i140 = icmp eq ptr %99, %87
-  br i1 %exitcond.not.i140, label %.critedge2.loopexit.i136, label %.lr.ph54.i133, !llvm.loop !11
+  br i1 %exitcond.not.i140, label %.critedge2.loopexit.i136, label %.lr.ph54.i133, !llvm.loop !10
 
 .critedge2.loopexit.i136:                         ; preds = %94, %.lr.ph54.i133
   %.039.lcssa.ph.i137 = phi i64 [ %.03952.i135, %.lr.ph54.i133 ], [ %98, %94 ]
@@ -305,7 +305,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
   %spec.select.i129 = or i1 %.061.i124, %106
   %107 = getelementptr inbounds nuw i8, ptr %.260.i125, i64 1
   %exitcond72.not.i130 = icmp eq ptr %107, %scevgep71.i122
-  br i1 %exitcond72.not.i130, label %.critedge4.i126, label %.lr.ph62.i123, !llvm.loop !12
+  br i1 %exitcond72.not.i130, label %.critedge4.i126, label %.lr.ph62.i123, !llvm.loop !11
 
 .critedge4.i126:                                  ; preds = %105, %.lr.ph62.i123
   %.2.lcssa.i127 = phi ptr [ %.260.i125, %.lr.ph62.i123 ], [ %scevgep71.i122, %105 ]
@@ -350,15 +350,15 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142: ; preds = 
   br i1 %.0147, label %124, label %126
 
 124:                                              ; preds = %123
-  store ptr %1, ptr %7, align 8, !tbaa !14
+  store ptr %1, ptr %7, align 8, !tbaa !13
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.1, ptr %125, align 8, !tbaa !21
+  store ptr %.1, ptr %125, align 8, !tbaa !20
   br label %126
 
 126:                                              ; preds = %124, %123
-  store i64 %.0150, ptr %0, align 8, !tbaa !22
+  store i64 %.0150, ptr %0, align 8, !tbaa !21
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %127, align 4, !tbaa !23
+  store i32 0, ptr %127, align 4, !tbaa !22
   %128 = and i32 %3, 3
   %129 = icmp ne i32 %128, 2
   %130 = icmp ult ptr %.1, %2
@@ -402,9 +402,9 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142: ; preds = 
   br i1 %brmerge, label %152, label %149
 
 149:                                              ; preds = %.critedge104
-  %150 = load i32, ptr %127, align 4, !tbaa !23
+  %150 = load i32, ptr %127, align 4, !tbaa !22
   %151 = sub nsw i32 0, %150
-  store i32 %151, ptr %127, align 4, !tbaa !23
+  store i32 %151, ptr %127, align 4, !tbaa !22
   br label %154
 
 152:                                              ; preds = %.critedge104
@@ -417,16 +417,16 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142: ; preds = 
 154:                                              ; preds = %149, %.thread, %152
   %.4154 = phi ptr [ %.1, %.thread ], [ %148, %152 ], [ %148, %149 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %155, align 8, !tbaa !24
-  %156 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %155, align 8, !tbaa !23
+  %156 = load i64, ptr %0, align 8, !tbaa !21
   %.not = icmp eq i64 %156, 0
   %157 = load i32, ptr %127, align 4
   %158 = add nsw i32 %157, %.184
   %.sink = select i1 %.not, i32 0, i32 %158
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %159, align 8, !tbaa !25
+  store i32 %.sink, ptr %159, align 8, !tbaa !24
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.4154, ptr %160, align 8, !tbaa !26
+  store ptr %.4154, ptr %160, align 8, !tbaa !25
   br label %161
 
 161:                                              ; preds = %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142, %.critedge3, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit, %114, %120, %.thread, %154, %9, %4
@@ -458,7 +458,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_118ParseInfinity
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1, ptr %14, align 8, !tbaa !24
+  store i32 1, ptr %14, align 8, !tbaa !23
   %15 = icmp samesign ugt i64 %6, 7
   br i1 %15, label %16, label %23
 
@@ -471,13 +471,13 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_118ParseInfinity
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %21, ptr %22, align 8, !tbaa !26
+  store ptr %21, ptr %22, align 8, !tbaa !25
   br label %.critedge40
 
 23:                                               ; preds = %16, %13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %24, ptr %25, align 8, !tbaa !26
+  store ptr %24, ptr %25, align 8, !tbaa !25
   br label %.critedge40
 
 26:                                               ; preds = %8, %8
@@ -488,10 +488,10 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_118ParseInfinity
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 2, ptr %30, align 8, !tbaa !24
+  store i32 2, ptr %30, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %31, ptr %32, align 8, !tbaa !26
+  store ptr %31, ptr %32, align 8, !tbaa !25
   %33 = icmp ult ptr %31, %1
   br i1 %33, label %34, label %.critedge40
 
@@ -521,7 +521,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_118ParseInfinity
 _ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread:   ; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %.043, i64 1
   %exitcond.not = icmp eq ptr %46, %1
-  br i1 %exitcond.not, label %.critedge40, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.critedge40, label %.lr.ph, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph
   %47 = icmp eq i8 %40, 41
@@ -529,11 +529,11 @@ _ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread:   ; preds = %.lr.ph
 
 48:                                               ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %38, ptr %49, align 8, !tbaa !14
+  store ptr %38, ptr %49, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %.043, ptr %50, align 8, !tbaa !21
+  store ptr %.043, ptr %50, align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %.043, i64 1
-  store ptr %51, ptr %32, align 8, !tbaa !26
+  store ptr %51, ptr %32, align 8, !tbaa !25
   br label %.critedge40
 
 .critedge40:                                      ; preds = %_ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread, %37, %8, %29, %34, %48, %.critedge, %26, %20, %23, %10, %3
@@ -545,7 +545,7 @@ _ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread:   ; preds = %.lr.ph
 define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
-  %6 = load i32, ptr %2, align 4, !tbaa !28
+  %6 = load i32, ptr %2, align 4, !tbaa !27
   %.fr = freeze i32 %6
   %.not = icmp ne i32 %.fr, 0
   %.not411 = icmp eq ptr %1, %0
@@ -566,7 +566,7 @@ define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10Ei
 10:                                               ; preds = %.lr.ph.split
   %11 = getelementptr inbounds nuw i8, ptr %.0383, i64 1
   %.not41 = icmp eq ptr %1, %11
-  br i1 %.not41, label %.critedge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not41, label %.critedge, label %.lr.ph.split, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph.split, %10, %3
   %.038.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %10 ], [ %.0383, %.lr.ph.split ]
@@ -599,7 +599,7 @@ define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10Ei
   %27 = add i32 %26, %24
   %28 = getelementptr inbounds nuw i8, ptr %.112, i64 1
   %exitcond.not = icmp eq ptr %28, %16
-  br i1 %exitcond.not, label %.critedge2.loopexit, label %.lr.ph13, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge2.loopexit, label %.lr.ph13, !llvm.loop !29
 
 .critedge2.loopexit:                              ; preds = %23, %.lr.ph13
   %.039.lcssa.ph = phi i32 [ %.03911, %.lr.ph13 ], [ %27, %23 ]
@@ -629,7 +629,7 @@ define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10Ei
 34:                                               ; preds = %.lr.ph20
   %35 = getelementptr inbounds nuw i8, ptr %.219, i64 1
   %exitcond27.not = icmp eq ptr %35, %scevgep26
-  br i1 %exitcond27.not, label %.critedge4.loopexit, label %.lr.ph20, !llvm.loop !31
+  br i1 %exitcond27.not, label %.critedge4.loopexit, label %.lr.ph20, !llvm.loop !30
 
 .critedge4.loopexit:                              ; preds = %.lr.ph20, %34
   %.2.lcssa.ph = phi ptr [ %scevgep26, %34 ], [ %.219, %.lr.ph20 ]
@@ -638,7 +638,7 @@ define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10Ei
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2
   %.pre-phi = phi i64 [ %.pre28, %.critedge4.loopexit ], [ %.1.lcssa25.pre-phi, %.critedge2 ]
-  store i32 %.039.lcssa, ptr %2, align 4, !tbaa !28
+  store i32 %.039.lcssa, ptr %2, align 4, !tbaa !27
   %36 = sub i64 %.pre-phi, %4
   %37 = trunc i64 %36 to i32
   ret i32 %37
@@ -676,7 +676,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.0161, i64 1
   %exitcond.not = icmp eq ptr %16, %2
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !31
 
 .critedge.loopexit:                               ; preds = %15, %.lr.ph
   %.0.lcssa.ph = phi ptr [ %.0161, %.lr.ph ], [ %scevgep, %15 ]
@@ -703,7 +703,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
 20:                                               ; preds = %.lr.ph.split.i
   %21 = getelementptr inbounds nuw i8, ptr %.03844.i, i64 1
   %.not41.i = icmp eq ptr %2, %21
-  br i1 %.not41.i, label %.critedge.i.loopexit, label %.lr.ph.split.i, !llvm.loop !33
+  br i1 %.not41.i, label %.critedge.i.loopexit, label %.lr.ph.split.i, !llvm.loop !32
 
 .critedge.i.loopexit:                             ; preds = %.lr.ph.split.i, %20
   %.038.lcssa.i.ph = phi ptr [ %scevgep.i, %20 ], [ %.03844.i, %.lr.ph.split.i ]
@@ -742,7 +742,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   %37 = add i64 %36, %35
   %38 = getelementptr inbounds nuw i8, ptr %.153.i, i64 1
   %exitcond.not.i = icmp eq ptr %38, %25
-  br i1 %exitcond.not.i, label %.critedge2.loopexit.i, label %.lr.ph54.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.critedge2.loopexit.i, label %.lr.ph54.i, !llvm.loop !33
 
 .critedge2.loopexit.i:                            ; preds = %34, %.lr.ph54.i
   %.039.lcssa.ph.i = phi i64 [ %.03952.i, %.lr.ph54.i ], [ %37, %34 ]
@@ -778,7 +778,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   %spec.select.i = or i1 %.061.i, %48
   %49 = getelementptr inbounds nuw i8, ptr %.260.i, i64 1
   %exitcond72.not.i = icmp eq ptr %49, %scevgep71.i
-  br i1 %exitcond72.not.i, label %.critedge4.i, label %.lr.ph62.i, !llvm.loop !35
+  br i1 %exitcond72.not.i, label %.critedge4.i, label %.lr.ph62.i, !llvm.loop !34
 
 .critedge4.i:                                     ; preds = %47, %.lr.ph62.i
   %.2.lcssa.i = phi ptr [ %.260.i, %.lr.ph62.i ], [ %scevgep71.i, %47 ]
@@ -839,7 +839,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
 71:                                               ; preds = %.lr.ph165
   %72 = getelementptr inbounds nuw i8, ptr %.3164, i64 1
   %73 = icmp ult ptr %72, %2
-  br i1 %73, label %.lr.ph165, label %.critedge3, !llvm.loop !36
+  br i1 %73, label %.lr.ph165, label %.critedge3, !llvm.loop !35
 
 .critedge3:                                       ; preds = %.lr.ph165, %71, %.preheader
   %.3.lcssa = phi ptr [ %65, %.preheader ], [ %scevgep169, %71 ], [ %.3164, %.lr.ph165 ]
@@ -869,7 +869,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
 84:                                               ; preds = %.lr.ph.split.i110
   %85 = getelementptr inbounds nuw i8, ptr %.03844.i111, i64 1
   %.not41.i139 = icmp eq ptr %2, %85
-  br i1 %.not41.i139, label %.critedge.i112.loopexit, label %.lr.ph.split.i110, !llvm.loop !33
+  br i1 %.not41.i139, label %.critedge.i112.loopexit, label %.lr.ph.split.i110, !llvm.loop !32
 
 .critedge.i112.loopexit:                          ; preds = %.lr.ph.split.i110, %84
   %.038.lcssa.i113.ph = phi ptr [ %scevgep.i109, %84 ], [ %.03844.i111, %.lr.ph.split.i110 ]
@@ -912,7 +912,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
   %102 = add i64 %101, %100
   %103 = getelementptr inbounds nuw i8, ptr %.153.i132, i64 1
   %exitcond.not.i138 = icmp eq ptr %103, %90
-  br i1 %exitcond.not.i138, label %.critedge2.loopexit.i134, label %.lr.ph54.i131, !llvm.loop !34
+  br i1 %exitcond.not.i138, label %.critedge2.loopexit.i134, label %.lr.ph54.i131, !llvm.loop !33
 
 .critedge2.loopexit.i134:                         ; preds = %99, %.lr.ph54.i131
   %.039.lcssa.ph.i135 = phi i64 [ %.03952.i133, %.lr.ph54.i131 ], [ %102, %99 ]
@@ -947,7 +947,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
   %spec.select.i127 = or i1 %.061.i122, %112
   %113 = getelementptr inbounds nuw i8, ptr %.260.i123, i64 1
   %exitcond72.not.i128 = icmp eq ptr %113, %scevgep71.i120
-  br i1 %exitcond72.not.i128, label %.critedge4.i124, label %.lr.ph62.i121, !llvm.loop !35
+  br i1 %exitcond72.not.i128, label %.critedge4.i124, label %.lr.ph62.i121, !llvm.loop !34
 
 .critedge4.i124:                                  ; preds = %111, %.lr.ph62.i121
   %.2.lcssa.i125 = phi ptr [ %.260.i123, %.lr.ph62.i121 ], [ %scevgep71.i120, %111 ]
@@ -991,9 +991,9 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
 129:                                              ; preds = %126, %122
   %130 = zext nneg i8 %.0146 to i64
   %spec.select157 = or i64 %.0149, %130
-  store i64 %spec.select157, ptr %0, align 8, !tbaa !22
+  store i64 %spec.select157, ptr %0, align 8, !tbaa !21
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %131, align 4, !tbaa !23
+  store i32 0, ptr %131, align 4, !tbaa !22
   %132 = and i32 %3, 3
   %133 = icmp ne i32 %132, 2
   %134 = icmp ult ptr %.1, %2
@@ -1037,9 +1037,9 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
   br i1 %brmerge, label %156, label %153
 
 153:                                              ; preds = %.critedge102
-  %154 = load i32, ptr %131, align 4, !tbaa !23
+  %154 = load i32, ptr %131, align 4, !tbaa !22
   %155 = sub nsw i32 0, %154
-  store i32 %155, ptr %131, align 4, !tbaa !23
+  store i32 %155, ptr %131, align 4, !tbaa !22
   br label %158
 
 156:                                              ; preds = %.critedge102
@@ -1052,17 +1052,17 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
 158:                                              ; preds = %153, %.thread, %156
   %.4154 = phi ptr [ %.1, %.thread ], [ %152, %156 ], [ %152, %153 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %159, align 8, !tbaa !24
-  %160 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %159, align 8, !tbaa !23
+  %160 = load i64, ptr %0, align 8, !tbaa !21
   %.not = icmp eq i64 %160, 0
   %161 = load i32, ptr %131, align 4
   %162 = shl nsw i32 %.182, 2
   %163 = add nsw i32 %161, %162
   %.sink = select i1 %.not, i32 0, i32 %163
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %164, align 8, !tbaa !25
+  store i32 %.sink, ptr %164, align 8, !tbaa !24
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.4154, ptr %165, align 8, !tbaa !26
+  store ptr %.4154, ptr %165, align 8, !tbaa !25
   br label %166
 
 166:                                              ; preds = %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140, %.critedge3, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit, %120, %126, %.thread, %158, %9, %4
@@ -1095,33 +1095,32 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{!15, !19, i64 24}
-!15 = !{!"_ZTSN4absl16strings_internal11ParsedFloatE", !16, i64 0, !17, i64 8, !17, i64 12, !18, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
-!16 = !{!"long", !5, i64 0}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!"_ZTSN4absl16strings_internal9FloatTypeE", !5, i64 0}
-!19 = !{!"p1 omnipotent char", !20, i64 0}
-!20 = !{!"any pointer", !5, i64 0}
-!21 = !{!15, !19, i64 32}
-!22 = !{!15, !16, i64 0}
-!23 = !{!15, !17, i64 12}
-!24 = !{!15, !18, i64 16}
-!25 = !{!15, !17, i64 8}
-!26 = !{!15, !19, i64 40}
-!27 = distinct !{!27, !8, !9}
-!28 = !{!17, !17, i64 0}
-!29 = distinct !{!29, !8, !9}
-!30 = distinct !{!30, !8, !9}
-!31 = distinct !{!31, !8, !9}
-!32 = distinct !{!32, !8, !9}
-!33 = distinct !{!33, !8, !9}
-!34 = distinct !{!34, !8, !9}
-!35 = distinct !{!35, !8, !9}
-!36 = distinct !{!36, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = !{!14, !18, i64 24}
+!14 = !{!"_ZTSN4absl16strings_internal11ParsedFloatE", !15, i64 0, !16, i64 8, !16, i64 12, !17, i64 16, !18, i64 24, !18, i64 32, !18, i64 40}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!"_ZTSN4absl16strings_internal9FloatTypeE", !5, i64 0}
+!18 = !{!"p1 omnipotent char", !19, i64 0}
+!19 = !{!"any pointer", !5, i64 0}
+!20 = !{!14, !18, i64 32}
+!21 = !{!14, !15, i64 0}
+!22 = !{!14, !16, i64 12}
+!23 = !{!14, !17, i64 16}
+!24 = !{!14, !16, i64 8}
+!25 = !{!14, !18, i64 40}
+!26 = distinct !{!26, !8}
+!27 = !{!16, !16, i64 0}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !8}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}

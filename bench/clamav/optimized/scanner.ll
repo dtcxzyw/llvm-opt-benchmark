@@ -789,7 +789,7 @@ define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr noundef r
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %.old1.not = icmp eq ptr %21, null
-  br i1 %.old1.not, label %.loopexit, label %.preheader, !llvm.loop !65
+  br i1 %.old1.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %19, %2
   %22 = load ptr, ptr %5, align 8, !tbaa !29
@@ -807,7 +807,7 @@ define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr noundef r
 29:                                               ; preds = %26
   %30 = load i64, ptr %3, align 8, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %32 = load i64, ptr %31, align 8, !tbaa !67
+  %32 = load i64, ptr %31, align 8, !tbaa !65
   %.not19 = icmp eq i64 %30, %32
   br i1 %.not19, label %39, label %33
 
@@ -881,7 +881,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %29 = load i32, ptr %28, align 4
   %30 = call ptr @inet_ntoa(i32 %29) #12
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %32 = load i16, ptr %31, align 2, !tbaa !68
+  %32 = load i16, ptr %31, align 2, !tbaa !66
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %32)
   %33 = zext i16 %rev.i to i32
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.34, ptr noundef %30, i32 noundef %33) #12
@@ -904,7 +904,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %43 = load i32, ptr %42, align 8, !tbaa !71
+  %43 = load i32, ptr %42, align 8, !tbaa !69
   %44 = and i32 %43, 61440
   %45 = icmp eq i32 %44, 32768
   br i1 %45, label %50, label %46
@@ -1069,11 +1069,11 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
   %16 = tail call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.41) #12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !72
+  %18 = load i64, ptr %17, align 8, !tbaa !70
   %19 = trunc i64 %18 to i32
   %20 = tail call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.42) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !72
+  %22 = load i64, ptr %21, align 8, !tbaa !70
   %23 = trunc i64 %22 to i32
   %24 = sub i32 %23, %19
   %25 = tail call i32 @cli_rndnum(i32 noundef %24) #12
@@ -1089,12 +1089,12 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %31 = add i32 %.0116144, -1
   %32 = urem i32 %31, %26
   store i64 0, ptr %29, align 4
-  store i16 2, ptr %12, align 4, !tbaa !73
+  store i16 2, ptr %12, align 4, !tbaa !71
   %33 = add i32 %32, %19
   %34 = trunc i32 %33 to i16
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %34)
-  store i16 %rev.i, ptr %27, align 2, !tbaa !68
-  store i32 0, ptr %28, align 4, !tbaa !74
+  store i16 %rev.i, ptr %27, align 2, !tbaa !66
+  store i32 0, ptr %28, align 4, !tbaa !72
   %35 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #12
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %42, label %37
@@ -1111,16 +1111,16 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 42:                                               ; preds = %30, %40
   %43 = add nuw nsw i32 %.0118143, 1
   %exitcond = icmp eq i32 %43, 1000
-  br i1 %exitcond, label %.critedge, label %30, !llvm.loop !75
+  br i1 %exitcond, label %.critedge, label %30
 
 44:                                               ; preds = %37
   %45 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.43) #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !72
+  %47 = load i64, ptr %46, align 8, !tbaa !70
   %48 = trunc i64 %47 to i32
   %49 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.44) #12
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !72
+  %51 = load i64, ptr %50, align 8, !tbaa !70
   %52 = trunc i64 %51 to i32
   %53 = call i32 @listen(i32 noundef %35, i32 noundef 1) #12
   %54 = icmp eq i32 %53, -1
@@ -1181,7 +1181,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 88:                                               ; preds = %81
   store i8 0, ptr %10, align 16, !tbaa !13
-  %89 = load i16, ptr %13, align 4, !tbaa !73
+  %89 = load i16, ptr %13, align 4, !tbaa !71
   %90 = zext i16 %89 to i32
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %92 = call ptr @inet_ntop(i32 noundef %90, ptr noundef nonnull %91, ptr noundef nonnull %10, i32 noundef 32) #12
@@ -1204,7 +1204,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 104:                                              ; preds = %88
   %105 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.60) #12
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %107 = load i64, ptr %106, align 8, !tbaa !72
+  %107 = load i64, ptr %106, align 8, !tbaa !70
   %.fr = freeze i64 %107
   %.not123 = icmp eq i64 %.fr, 0
   br i1 %.not123, label %.split.us.split, label %.split
@@ -1224,7 +1224,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %115 = load i32, ptr %7, align 4, !tbaa !39
   %116 = call i32 @writen(i32 noundef %115, ptr noundef nonnull %9, i32 noundef %112) #12
   %.not125.us = icmp eq i32 %116, %112
-  br i1 %.not125.us, label %.split.us.split, label %.split150.us, !llvm.loop !76
+  br i1 %.not125.us, label %.split.us.split, label %.split150.us, !llvm.loop !73
 
 .split:                                           ; preds = %104, %126
   %.0115 = phi i64 [ %128, %126 ], [ %.fr, %104 ]
@@ -1253,7 +1253,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %129 = load i32, ptr %7, align 4, !tbaa !39
   %130 = call i32 @writen(i32 noundef %129, ptr noundef nonnull %9, i32 noundef %124) #12
   %.not125 = icmp eq i32 %130, %124
-  br i1 %.not125, label %.split, label %.split150.us, !llvm.loop !78
+  br i1 %.not125, label %.split, label %.split150.us
 
 .split150.us:                                     ; preds = %126, %114
   %131 = call i32 @shutdown(i32 noundef %35, i32 noundef 2) #12
@@ -1538,17 +1538,13 @@ attributes #14 = { nounwind allocsize(0,1) }
 !62 = !{!"short", !8, i64 0}
 !63 = !{!31, !6, i64 16}
 !64 = !{!31, !22, i64 48}
-!65 = distinct !{!65, !66}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!16, !19, i64 96}
-!68 = !{!69, !62, i64 2}
-!69 = !{!"sockaddr_in", !62, i64 0, !62, i64 2, !70, i64 4, !8, i64 8}
-!70 = !{!"in_addr", !17, i64 0}
-!71 = !{!46, !17, i64 24}
-!72 = !{!31, !10, i64 24}
-!73 = !{!69, !62, i64 0}
-!74 = !{!69, !17, i64 4}
-!75 = distinct !{!75, !66}
-!76 = distinct !{!76, !66, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !66}
+!65 = !{!16, !19, i64 96}
+!66 = !{!67, !62, i64 2}
+!67 = !{!"sockaddr_in", !62, i64 0, !62, i64 2, !68, i64 4, !8, i64 8}
+!68 = !{!"in_addr", !17, i64 0}
+!69 = !{!46, !17, i64 24}
+!70 = !{!31, !10, i64 24}
+!71 = !{!67, !62, i64 0}
+!72 = !{!67, !17, i64 4}
+!73 = distinct !{!73, !74}
+!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}

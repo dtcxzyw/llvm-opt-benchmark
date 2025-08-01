@@ -326,7 +326,7 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i: ; preds = %3
 _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit: ; preds = %3, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i
   store ptr null, ptr %5, align 8, !tbaa !24
   %7 = icmp eq ptr %5, %0
-  br i1 %7, label %8, label %3, !llvm.loop !39
+  br i1 %7, label %8, label %3
 
 8:                                                ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit
   ret void
@@ -373,7 +373,7 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i: ; preds = %.preheader
 _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i, %.preheader
   store ptr null, ptr %.ptr15, align 8, !tbaa !24
   %3 = icmp eq i64 %.add, 8
-  br i1 %3, label %_ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt14default_deleteIS3_EELS1_5EED2Ev.exit, label %.preheader, !llvm.loop !39
+  br i1 %3, label %_ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt14default_deleteIS3_EELS1_5EED2Ev.exit, label %.preheader
 
 _ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt14default_deleteIS3_EELS1_5EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit.i
   tail call void @_ZN13DeviceContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
@@ -402,8 +402,8 @@ _ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt1
 
 13:                                               ; preds = %7
   %14 = tail call ptr @__cxa_begin_catch(ptr %9) #17
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %16 = load ptr, ptr %14, align 8, !tbaa !43
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %16 = load ptr, ptr %14, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
@@ -414,7 +414,7 @@ _ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt1
 21:                                               ; preds = %13, %6, %4
   %.0.add = add nuw nsw i64 %.0.idx18, 8
   %.not = icmp eq i64 %.0.add, 48
-  br i1 %.not, label %.preheader, label %4, !llvm.loop !45
+  br i1 %.not, label %.preheader, label %4
 
 22:                                               ; preds = %13
   %23 = landingpad { ptr, i32 }
@@ -440,7 +440,7 @@ define void @_ZN3gmx19DeviceStreamManagerC2ERK17DeviceInformationNS_18Simulation
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
-  store ptr %5, ptr %0, align 8, !tbaa !46
+  store ptr %5, ptr %0, align 8, !tbaa !43
   ret void
 
 7:                                                ; preds = %4
@@ -452,7 +452,7 @@ define void @_ZN3gmx19DeviceStreamManagerC2ERK17DeviceInformationNS_18Simulation
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx19DeviceStreamManagerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !46
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx19DeviceStreamManager4ImplESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx19DeviceStreamManager4ImplEEclEPS2_.exit.i
 
@@ -462,26 +462,26 @@ _ZNKSt14default_deleteIN3gmx19DeviceStreamManager4ImplEEclEPS2_.exit.i: ; preds 
   br label %_ZNSt10unique_ptrIN3gmx19DeviceStreamManager4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx19DeviceStreamManager4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx19DeviceStreamManager4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !46
+  store ptr null, ptr %0, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 1 ptr @_ZNK3gmx19DeviceStreamManager10deviceInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #13 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !46
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx19DeviceStreamManager7contextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !46
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamManager6streamENS_16DeviceStreamTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !46
+  %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
@@ -491,7 +491,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamManager12bondedStreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !46
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 8, !tbaa !15, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
@@ -519,7 +519,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
 
 16:                                               ; preds = %11, %6
   %.sink3 = phi i64 [ 16, %6 ], [ 8, %11 ]
-  %17 = load ptr, ptr %0, align 8, !tbaa !46
+  %17 = load ptr, ptr %0, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink3
   %.0 = load ptr, ptr %18, align 8, !tbaa !24
   ret ptr %.0
@@ -532,7 +532,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3gmx19DeviceStreamManager13streamIsValidENS_16DeviceStreamTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !46
+  %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
@@ -612,12 +612,9 @@ attributes #20 = { cold nounwind }
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !38 = distinct !{!38, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
 !41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!42 = !{!"vtable pointer", !9, i64 0}
 !43 = !{!44, !44, i64 0}
-!44 = !{!"vtable pointer", !9, i64 0}
-!45 = distinct !{!45, !40}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTSN3gmx19DeviceStreamManager4ImplE", !7, i64 0}
+!44 = !{!"p1 _ZTSN3gmx19DeviceStreamManager4ImplE", !7, i64 0}

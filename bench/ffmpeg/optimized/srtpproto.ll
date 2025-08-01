@@ -136,11 +136,11 @@ define internal i32 @srtp_read(ptr noundef readonly captures(none) %0, ptr nound
 15:                                               ; preds = %13
   %16 = call i32 @ff_srtp_decrypt(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %4) #4
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %9, label %._crit_edge, !llvm.loop !31
+  br i1 %17, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
   %.pre = load i32, ptr %4, align 4, !tbaa !24
-  br label %split, !llvm.loop !31
+  br label %split
 
 split:                                            ; preds = %13, %9, %._crit_edge
   %18 = phi i32 [ %.pre, %._crit_edge ], [ %11, %9 ], [ %11, %13 ]
@@ -153,7 +153,7 @@ define internal i32 @srtp_write(ptr noundef readonly captures(none) %0, ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
 
@@ -287,6 +287,4 @@ attributes #4 = { nounwind }
 !28 = !{!5, !12, i64 36}
 !29 = !{!5, !12, i64 40}
 !30 = !{!16, !19, i64 224}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!16, !19, i64 48}
+!31 = !{!16, !19, i64 48}

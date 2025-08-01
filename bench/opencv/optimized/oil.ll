@@ -1376,8 +1376,8 @@ define internal void @_ZL11TrackSlideriPv(i32 %0, ptr noundef %1) #6 personality
           to label %13 unwind label %54
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8, !tbaa !44
-  %15 = load ptr, ptr %14, align 8, !tbaa !51
+  %14 = load ptr, ptr %4, align 8, !tbaa !43
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef -1)
@@ -1398,8 +1398,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %13
           to label %23 unwind label %59
 
 23:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %24 = load ptr, ptr %5, align 8, !tbaa !44
-  %25 = load ptr, ptr %24, align 8, !tbaa !51
+  %24 = load ptr, ptr %5, align 8, !tbaa !43
+  %25 = load ptr, ptr %24, align 8, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(352) %5, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef -1)
@@ -1609,7 +1609,7 @@ define internal void @_GLOBAL__sub_I_oil.cpp() #11 section ".text.startup" perso
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
   store ptr %3, ptr @colorSpace, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @colorSpace, i64 16), align 8, !tbaa !53
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @colorSpace, i64 16), align 8, !tbaa !52
   store i32 6, ptr %3, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 40, ptr %.sroa.5.0..sroa_idx.i, align 4
@@ -1702,16 +1702,15 @@ attributes #16 = { builtin allocsize(0) }
 !38 = !{!"_ZTSN2cv11_InputArrayE", !22, i64 0, !7, i64 8, !35, i64 16}
 !39 = !{!38, !7, i64 8}
 !40 = !{!15, !15, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!45, !46, i64 0}
-!45 = !{!"_ZTSN2cv7MatExprE", !46, i64 0, !22, i64 8, !25, i64 16, !25, i64 112, !25, i64 208, !47, i64 304, !47, i64 312, !48, i64 320}
-!46 = !{!"p1 _ZTSN2cv5MatOpE", !7, i64 0}
-!47 = !{!"double", !8, i64 0}
-!48 = !{!"_ZTSN2cv7Scalar_IdEE", !49, i64 0}
-!49 = !{!"_ZTSN2cv3VecIdLi4EEE", !50, i64 0}
-!50 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !8, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"vtable pointer", !9, i64 0}
-!53 = !{!5, !6, i64 16}
+!43 = !{!44, !45, i64 0}
+!44 = !{!"_ZTSN2cv7MatExprE", !45, i64 0, !22, i64 8, !25, i64 16, !25, i64 112, !25, i64 208, !46, i64 304, !46, i64 312, !47, i64 320}
+!45 = !{!"p1 _ZTSN2cv5MatOpE", !7, i64 0}
+!46 = !{!"double", !8, i64 0}
+!47 = !{!"_ZTSN2cv7Scalar_IdEE", !48, i64 0}
+!48 = !{!"_ZTSN2cv3VecIdLi4EEE", !49, i64 0}
+!49 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !8, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"vtable pointer", !9, i64 0}
+!52 = !{!5, !6, i64 16}

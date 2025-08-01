@@ -624,7 +624,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit29:         ; preds = %33, %36
 44:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit35
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.036.040, i64 8
   %.not = icmp eq ptr %45, %43
-  br i1 %.not, label %.critedge24, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %.critedge24, label %.lr.ph
 
 46:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit27
   %47 = landingpad { ptr, i32 }
@@ -680,12 +680,12 @@ _ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %56, %53
   br i1 %64, label %44, label %.critedge
 
 .critedge24:                                      ; preds = %44, %_ZN4absl12lts_202407226StatusD2Ev.exit29
-  store i64 1, ptr %0, align 8, !tbaa !3, !alias.scope !39
+  store i64 1, ptr %0, align 8, !tbaa !3, !alias.scope !37
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit35, %.critedge24
-  %65 = load ptr, ptr %6, align 8, !tbaa !42
-  %66 = load ptr, ptr %42, align 8, !tbaa !44
+  %65 = load ptr, ptr %6, align 8, !tbaa !40
+  %66 = load ptr, ptr %42, align 8, !tbaa !42
   %.not4.i.i.i.i = icmp eq ptr %65, %66
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -711,10 +711,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %56, %53
 _ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i: ; preds = %69, %.lr.ph.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %74, %66
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !43
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 8, !tbaa !42
+  %.pr.i = load ptr, ptr %6, align 8, !tbaa !40
   br label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %.critedge
@@ -724,7 +724,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
 
 76:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !47
+  %78 = load ptr, ptr %77, align 8, !tbaa !45
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %75 to i64
   %81 = sub i64 %79, %80
@@ -865,7 +865,7 @@ define void @_Z25grpc_error_to_absl_statusN4absl12lts_202407226StatusE(ptr dead_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %4, align 8, !tbaa !48
+  store ptr %6, ptr %4, align 8, !tbaa !46
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !tbaa !11
   store i8 0, ptr %6, align 8, !tbaa !34
@@ -978,7 +978,7 @@ define void @_Z25absl_status_to_grpc_errorN4absl12lts_202407226StatusE(ptr dead_
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  store i64 1, ptr %0, align 8, !tbaa !3, !alias.scope !49
+  store i64 1, ptr %0, align 8, !tbaa !3, !alias.scope !47
   br label %62
 
 9:                                                ; preds = %2
@@ -1055,9 +1055,9 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %_ZNK4absl12lts_2024
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %31, %34
-  %39 = load ptr, ptr %5, align 8, !tbaa !42
+  %39 = load ptr, ptr %5, align 8, !tbaa !40
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !44
+  %41 = load ptr, ptr %40, align 8, !tbaa !42
   %.not4.i.i.i.i = icmp eq ptr %39, %41
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1083,10 +1083,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %31, %34
 _ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i: ; preds = %44, %.lr.ph.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %49, %41
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !43
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %5, align 8, !tbaa !42
+  %.pr.i = load ptr, ptr %5, align 8, !tbaa !40
   br label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1096,7 +1096,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
 
 51:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !47
+  %53 = load ptr, ptr %52, align 8, !tbaa !45
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
@@ -1137,9 +1137,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !42
+  %2 = load ptr, ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -1165,10 +1165,10 @@ define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev(
 _ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %12, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !43
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !42
+  %.pr = load ptr, ptr %0, align 8, !tbaa !40
   br label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split, %1
@@ -1178,7 +1178,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit: ; preds = %_
 
 14:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
@@ -1323,7 +1323,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %48, %49
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.028.033, i64 8
   %.not35 = icmp eq ptr %54, %39
   %or.cond = select i1 %47, i1 true, i1 %.not35
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !52
+  br i1 %or.cond, label %.critedge, label %.lr.ph
 
 55:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit25
   %56 = landingpad { ptr, i32 }
@@ -1333,8 +1333,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %48, %49
   br label %72
 
 .critedge:                                        ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit27
-  %.pre = load ptr, ptr %4, align 8, !tbaa !42
-  %.pre36 = load ptr, ptr %38, align 8, !tbaa !44
+  %.pre = load ptr, ptr %4, align 8, !tbaa !40
+  %.pre36 = load ptr, ptr %38, align 8, !tbaa !42
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre36
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1360,10 +1360,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %48, %49
 _ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i: ; preds = %59, %.lr.ph.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %64, %.pre36
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !43
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %4, align 8, !tbaa !42
+  %.pr.i = load ptr, ptr %4, align 8, !tbaa !40
   br label %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit23, %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %.critedge
@@ -1374,7 +1374,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
 
 66:                                               ; preds = %_ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !47
+  %68 = load ptr, ptr %67, align 8, !tbaa !45
   %69 = ptrtoint ptr %68 to i64
   %70 = ptrtoint ptr %65 to i64
   %71 = sub i64 %69, %70
@@ -1491,19 +1491,16 @@ attributes #16 = { noreturn nounwind }
 !34 = !{!6, !6, i64 0}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"p1 _ZTSN4absl12lts_202407226StatusE", !15, i64 0}
-!37 = distinct !{!37, !38}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!41 = distinct !{!41, !"_ZN4absl12lts_202407228OkStatusEv"}
-!42 = !{!43, !36, i64 0}
-!43 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_202407226StatusESaIS2_EE17_Vector_impl_dataE", !36, i64 0, !36, i64 8, !36, i64 16}
-!44 = !{!43, !36, i64 8}
-!45 = distinct !{!45, !46, !38}
-!46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!43, !36, i64 16}
-!48 = !{!13, !14, i64 0}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!51 = distinct !{!51, !"_ZN4absl12lts_202407228OkStatusEv"}
-!52 = distinct !{!52, !38}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!39 = distinct !{!39, !"_ZN4absl12lts_202407228OkStatusEv"}
+!40 = !{!41, !36, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseIN4absl12lts_202407226StatusESaIS2_EE17_Vector_impl_dataE", !36, i64 0, !36, i64 8, !36, i64 16}
+!42 = !{!41, !36, i64 8}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.mustprogress"}
+!45 = !{!41, !36, i64 16}
+!46 = !{!13, !14, i64 0}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!49 = distinct !{!49, !"_ZN4absl12lts_202407228OkStatusEv"}

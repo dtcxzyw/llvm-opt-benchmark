@@ -905,7 +905,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$alloc..ffi..c_str..CString..new..Spe
 16:                                               ; preds = %.lr.ph.i
   %17 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %17, %8
-  br i1 %exitcond.not.i, label %_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit, label %.lr.ph.i, !llvm.loop !100
+  br i1 %exitcond.not.i, label %_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit, label %.lr.ph.i
 
 _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit: ; preds = %.lr.ph.i, %16, %12
   %.0.lcssa.i = phi i64 [ 0, %12 ], [ %8, %16 ], [ %.05.i, %.lr.ph.i ]
@@ -986,7 +986,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h18a1ffa05c4c009cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !16, !align !102, !noundef !16
+  %3 = load ptr, ptr %0, align 8, !nonnull !16, !align !100, !noundef !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !16, !align !17, !noundef !16
   %6 = tail call noundef zeroext i1 @"_ZN82_$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u20$as$u20$core..fmt..Debug$GT$3fmt17h89679dd11bcf3b94E"(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
@@ -1343,6 +1343,4 @@ attributes #18 = { cold noreturn nounwind }
 !97 = !{!98}
 !98 = distinct !{!98, !99, !"_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E: argument 0"}
 !99 = distinct !{!99, !"_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E"}
-!100 = distinct !{!100, !101}
-!101 = !{!"llvm.loop.estimated_trip_count"}
-!102 = !{i64 1}
+!100 = !{i64 1}

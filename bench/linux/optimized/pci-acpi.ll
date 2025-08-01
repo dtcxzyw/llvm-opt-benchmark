@@ -260,7 +260,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 104:                                              ; preds = %.preheader
   %105 = add nuw nsw i64 %107, 1
   %106 = icmp eq i64 %105, 6
-  br i1 %106, label %113, label %.preheader, !llvm.loop !10
+  br i1 %106, label %113, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %100, %104
   %107 = phi i64 [ %105, %104 ], [ 2, %100 ]
@@ -309,7 +309,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 135:                                              ; preds = %.preheader45
   %136 = add nuw nsw i64 %138, 1
   %137 = icmp eq i64 %136, 5
-  br i1 %137, label %144, label %.preheader45, !llvm.loop !11
+  br i1 %137, label %144, label %.preheader45, !llvm.loop !10
 
 .preheader45:                                     ; preds = %131, %135
   %138 = phi i64 [ %136, %135 ], [ 2, %131 ]
@@ -347,7 +347,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 157:                                              ; preds = %.preheader48
   %158 = add nuw nsw i64 %160, 1
   %159 = icmp eq i64 %158, 18
-  br i1 %159, label %166, label %.preheader48, !llvm.loop !12
+  br i1 %159, label %166, label %.preheader48, !llvm.loop !11
 
 .preheader48:                                     ; preds = %153, %157
   %160 = phi i64 [ %158, %157 ], [ 2, %153 ]
@@ -443,7 +443,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 56
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, null
-  br i1 %233, label %.thread38, label %.preheader47, !llvm.loop !13
+  br i1 %233, label %.thread38, label %.preheader47, !llvm.loop !12
 
 234:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #9
@@ -534,7 +534,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 295:                                              ; preds = %.preheader50
   %296 = add nuw i32 %301, 1
   %297 = icmp eq i32 %296, %289
-  br i1 %297, label %.loopexit52, label %.preheader50, !llvm.loop !14
+  br i1 %297, label %.loopexit52, label %.preheader50, !llvm.loop !13
 
 .loopexit52:                                      ; preds = %295, %293
   %298 = icmp eq i32 %287, 0
@@ -713,7 +713,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 417:                                              ; preds = %416, %306
   %418 = add nuw i32 %307, 1
   %419 = icmp eq i32 %418, %287
-  br i1 %419, label %.loopexit, label %306, !llvm.loop !15
+  br i1 %419, label %.loopexit, label %306, !llvm.loop !14
 
 420:                                              ; preds = %279
   %421 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.program_type3_hpx_record, i32 noundef %282) #10
@@ -727,7 +727,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %424 = add nuw i32 %76, 1
   %425 = load i32, ptr %70, align 4
   %426 = icmp ult i32 %424, %425
-  br i1 %426, label %75, label %.loopexit55.loopexit, !llvm.loop !16
+  br i1 %426, label %75, label %.loopexit55.loopexit, !llvm.loop !15
 
 .thread44:                                        ; preds = %82, %87, %75, %100, %131, %153, %284, %.preheader50, %.preheader48, %.preheader45, %.preheader, %422, %65, %111, %142, %164, %420
   %427 = load ptr, ptr %46, align 8
@@ -777,7 +777,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 442:                                              ; preds = %445
   %443 = add nuw nsw i64 %446, 1
   %444 = icmp eq i64 %443, 4
-  br i1 %444, label %.critedge32, label %445, !llvm.loop !17
+  br i1 %444, label %.critedge32, label %445, !llvm.loop !16
 
 445:                                              ; preds = %442, %439
   %446 = phi i64 [ 0, %439 ], [ %443, %442 ]
@@ -828,7 +828,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %468 = load ptr, ptr %11, align 8
   %469 = icmp eq ptr %468, null
   %470 = select i1 %467, i1 true, i1 %469
-  br i1 %470, label %.thread, label %61, !llvm.loop !18
+  br i1 %470, label %.thread, label %61, !llvm.loop !17
 
 .thread:                                          ; preds = %.preheader57, %465, %.critedge30, %.loopexit55, %.critedge32, %1
   %471 = phi i32 [ -19, %1 ], [ 0, %.loopexit55 ], [ 0, %.critedge32 ], [ -19, %.critedge30 ], [ -19, %465 ], [ -19, %.preheader57 ]
@@ -1196,7 +1196,7 @@ define dso_local noundef zeroext i1 @acpi_pci_bridge_d3(ptr noundef readonly cap
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread5, label %.preheader, !llvm.loop !19
+  br i1 %45, label %.thread5, label %.preheader, !llvm.loop !12
 
 46:                                               ; preds = %31
   %47 = icmp eq ptr %27, %0
@@ -1455,7 +1455,7 @@ define dso_local i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext %1) loc
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %24, %8
   %29 = phi ptr [ %10, %8 ], [ %25, %24 ]
@@ -1859,7 +1859,7 @@ define dso_local void @pci_acpi_setup(ptr noundef %0, ptr noundef %1) local_unna
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.loopexit.i, label %.preheader.i, !llvm.loop !20
+  br i1 %101, label %.loopexit.i, label %.preheader.i, !llvm.loop !18
 
 .loopexit.i:                                      ; preds = %97, %82
   %102 = phi ptr [ %83, %82 ], [ %98, %97 ]
@@ -2194,18 +2194,16 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}

@@ -509,7 +509,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
 28:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit53, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit53, label %.lr.ph, !llvm.loop !9
 
 .loopexit53:                                      ; preds = %28, %4, %7, %vec_erase_ptr_at.exit
   %29 = select i1 %3, ptr %0, ptr %1
@@ -530,7 +530,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
 34:                                               ; preds = %.lr.ph57
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !11
+  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !10
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %34
   %indvars.iv62 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next63, %34 ]
@@ -662,7 +662,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   store i32 1, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.preheader56, label %30, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader56, label %30, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader56
   store i32 1, ptr @arg_index, align 4
@@ -736,7 +736,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   store i32 2, ptr %91, align 4
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next377, 18
-  br i1 %exitcond379.not, label %.preheader, label %.preheader56, !llvm.loop !13
+  br i1 %exitcond379.not, label %.preheader, label %.preheader56, !llvm.loop !12
 
 92:                                               ; preds = %.lr.ph, %parse_option.exit
   %93 = phi i32 [ %32, %.lr.ph ], [ %1361, %parse_option.exit ]
@@ -1859,7 +1859,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 594:                                              ; preds = %589
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 25
-  br i1 %exitcond.not.i.i, label %arch_os_target_from_string.exit.thread.i, label %589, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %arch_os_target_from_string.exit.thread.i, label %589, !llvm.loop !13
 
 arch_os_target_from_string.exit.i:                ; preds = %589
   %595 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -1883,7 +1883,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   %606 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.229, ptr noundef %605) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
-  br i1 %exitcond.not.i, label %607, label %602, !llvm.loop !15
+  br i1 %exitcond.not.i, label %607, label %602, !llvm.loop !14
 
 607:                                              ; preds = %602
   tail call void @exit_compiler(i32 noundef 1) #16
@@ -3047,7 +3047,7 @@ expand_.exit:                                     ; preds = %1220, %1224
   %1246 = load i32, ptr @arg_count, align 4
   %1247 = add nsw i32 %1246, -1
   %1248 = icmp eq i32 %1245, %1247
-  br i1 %1248, label %parse_option.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %1248, label %parse_option.exit, label %.lr.ph.i, !llvm.loop !15
 
 1249:                                             ; preds = %1192
   %1250 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(12) @.str.351) #18
@@ -3302,7 +3302,7 @@ parse_option.exit:                                ; preds = %expand_.exit, %.lr.
   store i32 %1360, ptr @arg_index, align 4
   %1361 = load i32, ptr @arg_count, align 4
   %1362 = icmp slt i32 %1360, %1361
-  br i1 %1362, label %92, label %._crit_edge, !llvm.loop !17
+  br i1 %1362, label %92, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %parse_option.exit
   %.pre = load i32, ptr %12, align 4
@@ -3595,7 +3595,7 @@ define dso_local range(i32 0, 25) i32 @arch_os_target_from_string(ptr noundef re
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !14
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !13
 
 .split.loop.exit8:                                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3733,7 +3733,7 @@ define internal fastcc void @print_all_targets() unnamed_addr #4 {
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.229, ptr noundef %6) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !18
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !17
 
 8:                                                ; preds = %3
   ret void
@@ -3804,15 +3804,14 @@ attributes #19 = { cold }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

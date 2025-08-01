@@ -368,11 +368,11 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
 
 67:                                               ; preds = %66
   %68 = add i64 %45, -1
-  %69 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %68, i32 -1) #10, !srcloc !17
+  %69 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %68, i32 -1) #10, !srcloc !16
   %70 = add i32 %69, 1
   %71 = zext nneg i32 %70 to i64
   %72 = shl nuw i64 1, %71
-  %73 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %72, i32 -1) #10, !srcloc !17
+  %73 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %72, i32 -1) #10, !srcloc !16
   br label %74
 
 74:                                               ; preds = %67, %66
@@ -417,7 +417,7 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
 103:                                              ; preds = %87, %81
   %104 = load ptr, ptr %82, align 8
   %105 = icmp eq ptr %104, %21
-  br i1 %105, label %.loopexit, label %81, !llvm.loop !18
+  br i1 %105, label %.loopexit, label %81, !llvm.loop !17
 
 .loopexit:                                        ; preds = %103, %74
   call void @_raw_spin_unlock_irqrestore(ptr noundef %20, i64 noundef %76) #7
@@ -429,7 +429,7 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
   %108 = load i32, ptr %8, align 8
   %109 = zext i32 %108 to i64
   %110 = icmp samesign ult i64 %107, %109
-  br i1 %110, label %.split, label %.thread.loopexit, !llvm.loop !19
+  br i1 %110, label %.split, label %.thread.loopexit, !llvm.loop !18
 
 .thread.loopexit:                                 ; preds = %34, %40, %44, %106, %.split, %28
   %.ph = phi i64 [ %22, %40 ], [ %22, %44 ], [ %22, %34 ], [ %107, %106 ], [ %22, %.split ], [ %22, %28 ]
@@ -551,10 +551,9 @@ attributes #10 = { nounwind memory(read) }
 !10 = !{i64 2154828010, i64 2154827819, i64 2154827871, i64 2154827917, i64 2154827945}
 !11 = !{i64 2154828084, i64 2154828113, i64 2154828159, i64 2154828217, i64 2154828271, i64 2154828325, i64 2154828380, i64 2154828411, i64 2154828719, i64 2154828725, i64 2154828772, i64 2154828795, i64 2154828821}
 !12 = !{i64 2154829275, i64 2154829086, i64 2154829136, i64 2154829182, i64 2154829210}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{i64 1116899}
-!18 = distinct !{!18, !14, !15, !16}
-!19 = distinct !{!19, !14, !15, !16}
+!16 = !{i64 1116899}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}

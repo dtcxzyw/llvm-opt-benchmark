@@ -217,7 +217,7 @@ define internal fastcc i32 @create_of_modalias(ptr noundef nonnull readonly capt
   %58 = add nuw nsw i32 %44, 1
   %59 = getelementptr i8, ptr %46, i64 24
   %60 = icmp eq i32 %58, %42
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %55, %.preheader, %36, %.loopexit7, %3
   %61 = phi i32 [ -19, %3 ], [ -12, %.loopexit7 ], [ %27, %36 ], [ -12, %.preheader ], [ %56, %55 ]
@@ -247,7 +247,7 @@ define internal fastcc i32 @create_pnp_modalias(ptr noundef nonnull %0, ptr noun
   %16 = add i32 %10, %15
   %17 = load ptr, ptr %9, align 8
   %18 = icmp eq ptr %17, %6
-  br i1 %18, label %19, label %.preheader, !llvm.loop !10
+  br i1 %18, label %19, label %.preheader, !llvm.loop !9
 
 19:                                               ; preds = %.preheader
   %20 = icmp eq i32 %16, 0
@@ -296,7 +296,7 @@ define internal fastcc i32 @create_pnp_modalias(ptr noundef nonnull %0, ptr noun
   %49 = phi i32 [ %46, %44 ], [ %32, %30 ]
   %50 = load ptr, ptr %31, align 8
   %51 = icmp eq ptr %50, %6
-  br i1 %51, label %.loopexit, label %30, !llvm.loop !11
+  br i1 %51, label %.loopexit, label %30, !llvm.loop !10
 
 .loopexit:                                        ; preds = %47, %38, %25, %21, %19, %5, %3
   %52 = phi i32 [ 0, %3 ], [ 0, %19 ], [ -12, %21 ], [ %23, %25 ], [ 0, %5 ], [ -12, %38 ], [ %48, %47 ]
@@ -646,7 +646,7 @@ define internal fastcc void @acpi_expose_nondev_subnodes(ptr noundef %0, ptr nou
 21:                                               ; preds = %20, %16, %14
   %22 = load ptr, ptr %6, align 8
   %23 = icmp eq ptr %22, %3
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %21, %2
   ret void
@@ -789,7 +789,7 @@ define internal fastcc void @acpi_hide_nondev_subnodes(ptr noundef %0) unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %2
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %5, %1
   ret void
@@ -969,7 +969,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @uid_show(ptr nou
 define internal noundef range(i64 -2147483648, 2147483648) i64 @sun_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !14
+  store i64 0, ptr %4, align 8, !annotation !13
   %5 = getelementptr i8, ptr %0, i64 -608
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @acpi_evaluate_integer(ptr noundef %6, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull %4) #6
@@ -995,7 +995,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 define internal noundef range(i64 -2147483648, 2147483648) i64 @hrv_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !14
+  store i64 0, ptr %4, align 8, !annotation !13
   %5 = getelementptr i8, ptr %0, i64 -608
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @acpi_evaluate_integer(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull %4) #6
@@ -1018,7 +1018,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @hrv_show(ptr nou
 define internal noundef range(i64 -2147483648, 2147483648) i64 @status_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !14
+  store i64 0, ptr %4, align 8, !annotation !13
   %5 = getelementptr i8, ptr %0, i64 -608
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @acpi_evaluate_integer(ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %4) #6
@@ -1070,7 +1070,7 @@ define internal range(i64 1, 0) i64 @eject_store(ptr noundef %0, ptr readnone ca
   br i1 %23, label %49, label %24
 
 24:                                               ; preds = %20, %15
-  store i32 0, ptr %5, align 4, !annotation !14
+  store i32 0, ptr %5, align 4, !annotation !13
   %25 = getelementptr i8, ptr %0, i64 -608
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @acpi_get_type(ptr noundef %26, ptr noundef nonnull %5) #6
@@ -1150,7 +1150,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @real_power_state_show(pt
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 -616
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !annotation !14
+  store i32 0, ptr %4, align 4, !annotation !13
   %6 = call i32 @acpi_device_get_power(ptr noundef %5, ptr noundef nonnull %4) #6
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
@@ -1260,13 +1260,12 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{!"auto-init"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"auto-init"}

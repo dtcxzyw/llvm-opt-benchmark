@@ -118,7 +118,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %60 = getelementptr i8, ptr %55, i64 8
   %61 = add nuw nsw i32 %54, 1
   %62 = icmp eq i32 %61, 4
-  br i1 %62, label %63, label %.preheader, !llvm.loop !9
+  br i1 %62, label %63, label %.preheader, !llvm.loop !8
 
 63:                                               ; preds = %59
   br i1 %38, label %.thread, label %64
@@ -168,7 +168,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %93 = getelementptr i8, ptr %89, i64 8
   %94 = add nuw nsw i32 %88, 1
   %95 = icmp eq i32 %94, %70
-  br i1 %95, label %.loopexit, label %87, !llvm.loop !10
+  br i1 %95, label %.loopexit, label %87, !llvm.loop !5
 
 .preheader29:                                     ; preds = %.loopexit, %101
   %96 = phi i32 [ %103, %101 ], [ 0, %.loopexit ]
@@ -182,7 +182,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %102 = getelementptr i8, ptr %97, i64 8
   %103 = add nuw nsw i32 %96, 1
   %104 = icmp eq i32 %103, %73
-  br i1 %104, label %.thread, label %.preheader29, !llvm.loop !11
+  br i1 %104, label %.thread, label %.preheader29, !llvm.loop !8
 
 105:                                              ; preds = %112, %22
   %106 = phi i32 [ 0, %22 ], [ %114, %112 ]
@@ -197,7 +197,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %113 = getelementptr i8, ptr %107, i64 8
   %114 = add nuw i32 %106, 1
   %115 = icmp eq i32 %114, %11
-  br i1 %115, label %.thread, label %105, !llvm.loop !12
+  br i1 %115, label %.thread, label %105, !llvm.loop !9
 
 116:                                              ; preds = %21
   %117 = getelementptr i8, ptr %5, i64 8
@@ -241,7 +241,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %145 = getelementptr i8, ptr %127, i64 8
   %146 = add nuw nsw i64 %126, 1
   %147 = icmp eq i64 %146, %124
-  br i1 %147, label %.thread, label %125, !llvm.loop !13
+  br i1 %147, label %.thread, label %125, !llvm.loop !10
 
 148:                                              ; preds = %21
   %149 = tail call i32 @acpi_ns_check_object_type(ptr noundef %0, ptr noundef %9, i32 noundef 2, i32 noundef 0) #3
@@ -350,7 +350,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   %217 = getelementptr i8, ptr %195, i64 16
   %218 = add i32 %194, -2
   %219 = icmp eq i32 %218, 0
-  br i1 %219, label %.thread, label %193, !llvm.loop !14
+  br i1 %219, label %.thread, label %193, !llvm.loop !11
 
 220:                                              ; preds = %21
   %221 = zext i8 %13 to i32
@@ -467,7 +467,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
   %48 = getelementptr i8, ptr %44, i64 8
   %49 = add nuw nsw i32 %43, 1
   %50 = icmp eq i32 %49, %26
-  br i1 %50, label %.loopexit40, label %42, !llvm.loop !15
+  br i1 %50, label %.loopexit40, label %42, !llvm.loop !5
 
 .preheader:                                       ; preds = %.loopexit40, %56
   %51 = phi i32 [ %58, %56 ], [ 0, %.loopexit40 ]
@@ -481,7 +481,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
   %57 = getelementptr i8, ptr %52, i64 8
   %58 = add nuw nsw i32 %51, 1
   %59 = icmp eq i32 %58, %28
-  br i1 %59, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %59, label %.thread, label %.preheader, !llvm.loop !8
 
 60:                                               ; preds = %21
   %61 = load i8, ptr %9, align 1
@@ -522,7 +522,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
   %85 = getelementptr i8, ptr %81, i64 8
   %86 = add nuw nsw i32 %80, 1
   %87 = icmp eq i32 %86, %62
-  br i1 %87, label %.loopexit45, label %79, !llvm.loop !17
+  br i1 %87, label %.loopexit45, label %79, !llvm.loop !5
 
 .preheader41:                                     ; preds = %.loopexit45, %93
   %88 = phi i32 [ %95, %93 ], [ 0, %.loopexit45 ]
@@ -536,7 +536,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
   %94 = getelementptr i8, ptr %89, i64 8
   %95 = add nuw i32 %88, 1
   %96 = icmp eq i32 %95, %71
-  br i1 %96, label %.thread, label %.preheader41, !llvm.loop !18
+  br i1 %96, label %.thread, label %.preheader41, !llvm.loop !8
 
 97:                                               ; preds = %21
   %98 = load i8, ptr %10, align 1
@@ -557,7 +557,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
 107:                                              ; preds = %110
   %108 = add nuw nsw i64 %111, 1
   %109 = icmp eq i64 %108, %106
-  br i1 %109, label %.thread, label %110, !llvm.loop !19
+  br i1 %109, label %.thread, label %110, !llvm.loop !12
 
 110:                                              ; preds = %107, %105
   %111 = phi i64 [ 0, %105 ], [ %108, %107 ]
@@ -598,7 +598,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
   %136 = getelementptr i8, ptr %132, i64 8
   %137 = add nuw i32 %131, 1
   %138 = icmp eq i32 %137, %123
-  br i1 %138, label %.thread, label %130, !llvm.loop !20
+  br i1 %138, label %.thread, label %130, !llvm.loop !5
 
 139:                                              ; preds = %21
   %140 = call i32 @acpi_ns_check_object_type(ptr noundef %0, ptr noundef %18, i32 noundef 2, i32 noundef 0) #3
@@ -653,7 +653,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
 
 173:                                              ; preds = %166
   %174 = icmp eq i32 %170, %161
-  br i1 %174, label %.thread, label %166, !llvm.loop !21
+  br i1 %174, label %.thread, label %166, !llvm.loop !5
 
 175:                                              ; preds = %21
   %176 = zext i8 %23 to i32
@@ -664,7 +664,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nound
   %177 = getelementptr i8, ptr %15, i64 8
   %178 = add nuw i32 %14, 1
   %179 = icmp eq i32 %178, %3
-  br i1 %179, label %.loopexit, label %13, !llvm.loop !22
+  br i1 %179, label %.loopexit, label %13, !llvm.loop !13
 
 180:                                              ; preds = %151, %142, %119, %97, %60, %24
   %181 = phi i32 [ %149, %142 ], [ %123, %119 ], [ %101, %97 ], [ %67, %60 ], [ %31, %24 ], [ %149, %151 ]
@@ -703,21 +703,12 @@ attributes #3 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}

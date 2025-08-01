@@ -90,7 +90,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
   %21 = load i32, ptr %20, align 4, !tbaa !12
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %23, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
   %.lcssa = phi ptr [ %5, %.preheader ], [ %19, %.thread ]
@@ -141,7 +141,7 @@ define i32 @SUNHashMap_Iterate(ptr noundef readonly captures(address_is_null) %0
   %13 = load i32, ptr %8, align 4, !tbaa !12
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !21
+  br i1 %15, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
@@ -168,7 +168,7 @@ define range(i32 -2, 1) i32 @SUNHashMap_Insert(ptr noundef captures(address_is_n
   br i1 %or.cond3, label %45, label %7
 
 7:                                                ; preds = %3
-  %8 = load i8, ptr %1, align 1, !tbaa !22
+  %8 = load i8, ptr %1, align 1, !tbaa !19
   %.not5.i = icmp eq i8 %8, 0
   br i1 %.not5.i, label %fnv1a_hash.exit, label %.lr.ph.i
 
@@ -180,9 +180,9 @@ define range(i32 -2, 1) i32 @SUNHashMap_Insert(ptr noundef captures(address_is_n
   %11 = sext i8 %9 to i64
   %12 = xor i64 %.036.i, %11
   %13 = mul i64 %12, -3750763034362895579
-  %14 = load i8, ptr %10, align 1, !tbaa !22
+  %14 = load i8, ptr %10, align 1, !tbaa !19
   %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %fnv1a_hash.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %fnv1a_hash.exit, label %.lr.ph.i
 
 fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
   %.03.lcssa.i = phi i64 [ 1099511628211, %7 ], [ %13, %.lr.ph.i ]
@@ -211,7 +211,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
 27:                                               ; preds = %.lr.ph.i31
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %28 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %28, label %.lr.ph.i31, label %SUNHashMap_Iterate.exit, !llvm.loop !21
+  br i1 %28, label %.lr.ph.i31, label %SUNHashMap_Iterate.exit
 
 .lr.ph.i31:                                       ; preds = %27, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %26, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %27 ]
@@ -242,7 +242,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %27, %SUNHashMap_Ite
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %36
-  store ptr %1, ptr %37, align 8, !tbaa !24
+  store ptr %1, ptr %37, align 8, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %2, ptr %40, align 8, !tbaa !16
   %41 = sext i32 %.025 to i64
@@ -268,7 +268,7 @@ define range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly captures(a
   br i1 %or.cond3, label %47, label %7
 
 7:                                                ; preds = %3
-  %8 = load i8, ptr %1, align 1, !tbaa !22
+  %8 = load i8, ptr %1, align 1, !tbaa !19
   %.not5.i = icmp eq i8 %8, 0
   br i1 %.not5.i, label %fnv1a_hash.exit, label %.lr.ph.i
 
@@ -280,9 +280,9 @@ define range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly captures(a
   %11 = sext i8 %9 to i64
   %12 = xor i64 %.036.i, %11
   %13 = mul i64 %12, -3750763034362895579
-  %14 = load i8, ptr %10, align 1, !tbaa !22
+  %14 = load i8, ptr %10, align 1, !tbaa !19
   %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %fnv1a_hash.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %fnv1a_hash.exit, label %.lr.ph.i
 
 fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
   %.03.lcssa.i = phi i64 [ 1099511628211, %7 ], [ %13, %.lr.ph.i ]
@@ -301,7 +301,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
   br i1 %25, label %47, label %26
 
 26:                                               ; preds = %fnv1a_hash.exit
-  %27 = load ptr, ptr %24, align 8, !tbaa !24
+  %27 = load ptr, ptr %24, align 8, !tbaa !20
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #11
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %44, label %.preheader.i
@@ -318,7 +318,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
 sunHashMapLinearProbeGet.exit.thread:             ; preds = %37, %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %32 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %32, label %33, label %SUNHashMap_Iterate.exit, !llvm.loop !21
+  br i1 %32, label %33, label %SUNHashMap_Iterate.exit
 
 33:                                               ; preds = %.lr.ph.preheader.i, %sunHashMapLinearProbeGet.exit.thread
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %sunHashMapLinearProbeGet.exit.thread ]
@@ -328,7 +328,7 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %37, %33
   br i1 %36, label %sunHashMapLinearProbeGet.exit.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %35, align 8, !tbaa !24
+  %38 = load ptr, ptr %35, align 8, !tbaa !20
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %.not.i29 = icmp ne i32 %39, 0
   %.not.i28 = icmp eq i64 %indvars.iv.i, -1
@@ -351,7 +351,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearPro
 44:                                               ; preds = %42, %26
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !16
-  store ptr %46, ptr %2, align 8, !tbaa !25
+  store ptr %46, ptr %2, align 8, !tbaa !21
   br label %47
 
 47:                                               ; preds = %42, %SUNHashMap_Iterate.exit, %fnv1a_hash.exit, %3, %44
@@ -375,7 +375,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #9
-  store ptr %11, ptr %1, align 8, !tbaa !26
+  store ptr %11, ptr %1, align 8, !tbaa !22
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %19, label %.preheader
 
@@ -397,7 +397,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   store ptr %17, ptr %18, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   tail call void @qsort(ptr noundef nonnull %11, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %2) #10
@@ -448,12 +448,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !16 = !{!17, !5, i64 8}
 !17 = !{!"SUNHashMapKeyValue_", !18, i64 0, !5, i64 8}
 !18 = !{!"p1 omnipotent char", !5, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !20}
-!24 = !{!17, !18, i64 0}
-!25 = !{!5, !5, i64 0}
-!26 = !{!11, !11, i64 0}
-!27 = distinct !{!27, !20}
+!19 = !{!6, !6, i64 0}
+!20 = !{!17, !18, i64 0}
+!21 = !{!5, !5, i64 0}
+!22 = !{!11, !11, i64 0}

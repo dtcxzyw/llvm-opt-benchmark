@@ -180,7 +180,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.preheader
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93125, 1
@@ -264,7 +264,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 54:                                               ; preds = %55
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %glib_auto_cleanup_GStrv.exit, label %55, !llvm.loop !7
+  br i1 %exitcond101.not, label %glib_auto_cleanup_GStrv.exit, label %55, !llvm.loop !6
 
 55:                                               ; preds = %.lr.ph72, %54
   %indvars.iv97 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next98, %54 ]
@@ -284,7 +284,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %54, %46, %31, %39, 
   tail call void @g_strfreev(ptr noundef nonnull %26) #8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !8
+  br i1 %exitcond106.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !7
 
 ._crit_edge76:                                    ; preds = %glib_auto_cleanup_GStrv.exit, %.loopexit
   %63 = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_record) #8
@@ -357,7 +357,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
 14:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !8
 
 15:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
@@ -372,7 +372,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
 
 ._crit_edge.i:                                    ; preds = %14
   %.not.i = icmp eq ptr %scevgep.i, null
-  br i1 %.not.i, label %._crit_edge.thread.i, label %.thread.i, !prof !10
+  br i1 %.not.i, label %._crit_edge.thread.i, label %.thread.i, !prof !9
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.lr.ph
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.117, i32 noundef 276, ptr noundef nonnull @__func__.find_counter, ptr noundef nonnull @.str.118) #11
@@ -445,7 +445,7 @@ find_counter.exit:                                ; preds = %25, %46
   br i1 %.not, label %54, label %49
 
 49:                                               ; preds = %find_counter.exit
-  %50 = load i8, ptr @do_inline, align 1, !range !11, !noundef !12
+  %50 = load i8, ptr @do_inline, align 1, !range !10, !noundef !11
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %53
 
@@ -460,7 +460,7 @@ find_counter.exit:                                ; preds = %25, %46
 54:                                               ; preds = %find_counter.exit.thread, %52, %53, %find_counter.exit
   %55 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %55, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %54, %2
   ret void
@@ -494,7 +494,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @qemu_plugin_u64_sum(ptr %12, i64 %14) #8
   %16 = icmp ne i64 %15, 0
-  %17 = load i8, ptr @verbose, align 1, !range !11
+  %17 = load i8, ptr @verbose, align 1, !range !10
   %18 = trunc nuw i8 %17 to i1
   %or.cond = select i1 %16, i1 true, i1 %18
   br i1 %or.cond, label %19, label %25
@@ -519,7 +519,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %26 = load i32, ptr @class_table_sz, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %25, %2
   %29 = load ptr, ptr @insns, align 8
@@ -574,7 +574,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %57 = icmp samesign ugt i32 %.155, 48
   %.not42 = icmp eq ptr %56, null
   %or.cond46 = select i1 %57, i1 true, i1 %.not42
-  br i1 %or.cond46, label %.critedge, label %.lr.ph57, !llvm.loop !15
+  br i1 %or.cond46, label %.critedge, label %.lr.ph57, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph57, %53, %34
   %.037.lcssa = phi ptr [ null, %34 ], [ %56, %53 ], [ %.03754, %.lr.ph57 ]
@@ -603,7 +603,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 ._crit_edge62:                                    ; preds = %66, %.preheader
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 4
-  br i1 %exitcond71.not, label %glib_autoptr_cleanup_GString.exit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond71.not, label %glib_autoptr_cleanup_GString.exit, label %.preheader, !llvm.loop !15
 
 66:                                               ; preds = %.lr.ph61, %66
   %indvars.iv65 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next66, %66 ]
@@ -612,7 +612,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   tail call void @qemu_plugin_scoreboard_free(ptr noundef %68) #8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge62, label %66, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge62, label %66, !llvm.loop !16
 
 glib_autoptr_cleanup_GString.exit:                ; preds = %._crit_edge62
   %69 = load ptr, ptr %3, align 8
@@ -731,18 +731,17 @@ attributes #12 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

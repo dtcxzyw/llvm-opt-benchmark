@@ -737,7 +737,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   %42 = lshr i64 %.05279, 1
   %43 = add nuw nsw i32 %.05378, 1
   %exitcond89.not = icmp eq i32 %43, %6
-  br i1 %exitcond89.not, label %.preheader.loopexit, label %.lr.ph80, !llvm.loop !9
+  br i1 %exitcond89.not, label %.preheader.loopexit, label %.lr.ph80, !llvm.loop !8
 
 .lr.ph86:                                         ; preds = %.preheader, %49
   %.685 = phi i32 [ %52, %49 ], [ %.2.lcssa, %.preheader ]
@@ -762,7 +762,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   %53 = add nsw i32 %.25784, 1
   %54 = and i32 %53, 7
   %.not58 = icmp eq i32 %54, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph86, !llvm.loop !10
+  br i1 %.not58, label %._crit_edge, label %.lr.ph86, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %.preheader
   ret ptr %12
@@ -903,8 +903,7 @@ attributes #11 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

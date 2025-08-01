@@ -347,13 +347,13 @@ read_atom.exit42.thread:                          ; preds = %131, %read_atom.exi
 .loopexit.i:                                      ; preds = %159, %158, %149
   %163 = phi i32 [ %155, %149 ], [ %.04.i, %158 ], [ %161, %159 ]
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 88
-  %165 = load i32, ptr %164, align 8, !tbaa !65
+  %165 = load i32, ptr %164, align 8, !tbaa !64
   %.not23.i = icmp eq i32 %165, 0
   br i1 %.not23.i, label %.loopexit._crit_edge.i, label %166
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %153, i64 48
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !66
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !65
   br label %r3d_read_rdvo.exit
 
 166:                                              ; preds = %.loopexit.i
@@ -364,7 +364,7 @@ read_atom.exit42.thread:                          ; preds = %131, %read_atom.exi
   %170 = load i64, ptr %169, align 8
   %171 = call i64 @av_rescale_q(i64 noundef %167, i64 %.sroa.01.0.insert.insert.i.i, i64 %170) #7
   %172 = getelementptr inbounds nuw i8, ptr %153, i64 48
-  store i64 %171, ptr %172, align 8, !tbaa !66
+  store i64 %171, ptr %172, align 8, !tbaa !65
   br label %r3d_read_rdvo.exit
 
 r3d_read_rdvo.exit:                               ; preds = %.loopexit._crit_edge.i, %166
@@ -427,7 +427,7 @@ read_atom.exit:                                   ; preds = %2, %r3d_read_redv.e
   %26 = load ptr, ptr %11, align 8, !tbaa !58
   %27 = load ptr, ptr %26, align 8, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 68
-  %29 = load i32, ptr %28, align 4, !tbaa !67
+  %29 = load i32, ptr %28, align 4, !tbaa !66
   %30 = icmp eq i32 %29, 48
   br i1 %30, label %r3d_read_redv.exit.thread, label %31
 
@@ -491,18 +491,18 @@ read_atom.exit:                                   ; preds = %2, %r3d_read_redv.e
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %70, align 4, !tbaa !68
+  store i32 0, ptr %70, align 4, !tbaa !67
   %71 = zext i32 %35 to i64
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %71, ptr %72, align 8, !tbaa !69
+  store i64 %71, ptr %72, align 8, !tbaa !68
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  %74 = load i32, ptr %73, align 8, !tbaa !65
+  %74 = load i32, ptr %73, align 8, !tbaa !64
   %.not.i = icmp eq i32 %74, 0
   br i1 %.not.i, label %._crit_edge.i, label %75
 
 ._crit_edge.i:                                    ; preds = %69
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !70
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !69
   br label %r3d_read_redv.exit
 
 75:                                               ; preds = %69
@@ -510,13 +510,13 @@ read_atom.exit:                                   ; preds = %2, %r3d_read_redv.e
   %77 = load i32, ptr %76, align 4, !tbaa !48
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %27, i64 92
-  %80 = load i32, ptr %79, align 4, !tbaa !71
+  %80 = load i32, ptr %79, align 4, !tbaa !70
   %81 = sext i32 %80 to i64
   %82 = mul nsw i64 %81, %78
   %83 = sext i32 %74 to i64
   %84 = udiv i64 %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %84, ptr %85, align 8, !tbaa !70
+  store i64 %84, ptr %85, align 8, !tbaa !69
   br label %r3d_read_redv.exit
 
 r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
@@ -530,7 +530,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
   br i1 %.not16, label %read_atom.exit.thread, label %89
 
 89:                                               ; preds = %87
-  %90 = load i32, ptr %10, align 4, !tbaa !72
+  %90 = load i32, ptr %10, align 4, !tbaa !71
   %91 = icmp ugt i32 %90, 1
   br i1 %91, label %92, label %99
 
@@ -539,7 +539,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !59
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 68
-  %97 = load i32, ptr %96, align 4, !tbaa !67
+  %97 = load i32, ptr %96, align 4, !tbaa !66
   %98 = icmp eq i32 %97, 48
   br i1 %98, label %r3d_read_redv.exit.thread, label %99
 
@@ -547,7 +547,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
   %100 = load ptr, ptr %4, align 8, !tbaa !12
   %101 = load ptr, ptr %6, align 8, !tbaa !27
   %102 = call i64 @avio_seek(ptr noundef %101, i64 noundef 0, i32 noundef 1) #6
-  %103 = load i32, ptr %10, align 4, !tbaa !72
+  %103 = load i32, ptr %10, align 4, !tbaa !71
   %104 = icmp ult i32 %103, 2
   br i1 %104, label %105, label %118
 
@@ -565,7 +565,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %112 = load i32, ptr %111, align 4, !tbaa !46
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 132
-  store i32 %112, ptr %113, align 4, !tbaa !73
+  store i32 %112, ptr %113, align 4, !tbaa !72
   %114 = load ptr, ptr %11, align 8, !tbaa !58
   %115 = load ptr, ptr %114, align 8, !tbaa !59
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 36
@@ -588,7 +588,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
   %127 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !32
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 152
-  store i32 %126, ptr %129, align 8, !tbaa !74
+  store i32 %126, ptr %129, align 8, !tbaa !73
   %130 = icmp slt i32 %126, 1
   br i1 %130, label %131, label %132
 
@@ -635,13 +635,13 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
 
 157:                                              ; preds = %152
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 1, ptr %158, align 4, !tbaa !68
+  store i32 1, ptr %158, align 4, !tbaa !67
   %159 = zext i32 %124 to i64
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %159, ptr %160, align 8, !tbaa !69
+  store i64 %159, ptr %160, align 8, !tbaa !68
   %161 = load ptr, ptr %127, align 8, !tbaa !32
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 152
-  %163 = load i32, ptr %162, align 8, !tbaa !74
+  %163 = load i32, ptr %162, align 8, !tbaa !73
   %164 = icmp ne i32 %163, 0
   %165 = icmp sgt i32 %134, 0
   %or.cond.i = select i1 %164, i1 %165, i1 false
@@ -649,7 +649,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
 
 ._crit_edge.i21:                                  ; preds = %157
   %.phi.trans.insert.i22 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.pre.i23 = load i64, ptr %.phi.trans.insert.i22, align 8, !tbaa !70
+  %.pre.i23 = load i64, ptr %.phi.trans.insert.i22, align 8, !tbaa !69
   br label %r3d_read_reda.exit
 
 166:                                              ; preds = %157
@@ -660,7 +660,7 @@ r3d_read_redv.exit:                               ; preds = %._crit_edge.i, %75
   %171 = sext i32 %163 to i64
   %172 = call i64 @av_rescale(i64 noundef %167, i64 noundef %170, i64 noundef %171) #7
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %172, ptr %173, align 8, !tbaa !70
+  store i64 %172, ptr %173, align 8, !tbaa !69
   br label %r3d_read_reda.exit
 
 r3d_read_reda.exit:                               ; preds = %._crit_edge.i21, %166
@@ -680,7 +680,7 @@ r3d_read_redv.exit.thread:                        ; preds = %25, %92, %23
   %182 = call i32 @avio_rb32(ptr noundef %181) #6
   store i32 %182, ptr %3, align 8, !tbaa !30
   %183 = icmp ult i32 %182, 8
-  br i1 %183, label %read_atom.exit.thread, label %read_atom.exit, !llvm.loop !75
+  br i1 %183, label %read_atom.exit.thread, label %read_atom.exit, !llvm.loop !74
 
 read_atom.exit.thread:                            ; preds = %87, %read_atom.exit, %r3d_read_redv.exit.thread, %2, %131, %156, %105, %132, %56, %68, %r3d_read_reda.exit, %r3d_read_redv.exit
   %.013 = phi i32 [ 0, %r3d_read_redv.exit ], [ 0, %r3d_read_reda.exit ], [ -1094995529, %131 ], [ %154, %156 ], [ -12, %105 ], [ -1, %132 ], [ -1, %56 ], [ -1, %68 ], [ -1, %2 ], [ -1, %r3d_read_redv.exit.thread ], [ -1, %read_atom.exit ], [ -1, %87 ]
@@ -694,7 +694,7 @@ define internal range(i32 -1, 1) i32 @r3d_seek(ptr noundef %0, i32 %1, i64 nound
   %6 = load ptr, ptr %5, align 8, !tbaa !58
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %9 = load i32, ptr %8, align 8, !tbaa !65
+  %9 = load i32, ptr %8, align 8, !tbaa !64
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %26, label %10
 
@@ -844,17 +844,16 @@ attributes #7 = { nounwind willreturn memory(none) }
 !59 = !{!60, !60, i64 0}
 !60 = !{!"p1 _ZTS8AVStream", !7, i64 0}
 !61 = !{!47, !10, i64 0}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!33, !10, i64 88}
-!66 = !{!33, !22, i64 48}
-!67 = !{!33, !10, i64 68}
-!68 = !{!36, !10, i64 36}
-!69 = !{!36, !22, i64 16}
-!70 = !{!36, !22, i64 64}
-!71 = !{!33, !10, i64 92}
-!72 = !{!13, !10, i64 44}
-!73 = !{!40, !10, i64 132}
-!74 = !{!40, !10, i64 152}
-!75 = distinct !{!75, !63, !64}
+!64 = !{!33, !10, i64 88}
+!65 = !{!33, !22, i64 48}
+!66 = !{!33, !10, i64 68}
+!67 = !{!36, !10, i64 36}
+!68 = !{!36, !22, i64 16}
+!69 = !{!36, !22, i64 64}
+!70 = !{!33, !10, i64 92}
+!71 = !{!13, !10, i64 44}
+!72 = !{!40, !10, i64 132}
+!73 = !{!40, !10, i64 152}
+!74 = distinct !{!74, !63}

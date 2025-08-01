@@ -810,7 +810,7 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
   %168 = add i32 %164, %166
   %169 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %168)
   %.not151 = icmp eq i32 %169, 0
-  br i1 %.not151, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not151, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 170:                                              ; preds = %27, %27
   switch i8 %28, label %.loopexit [
@@ -1194,7 +1194,6 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

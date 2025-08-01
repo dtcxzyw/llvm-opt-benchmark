@@ -745,7 +745,7 @@ thread-pre-split.i:                               ; preds = %16
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next35.i
   %26 = load ptr, ptr %25, align 8
   %.not20.i = icmp eq ptr %26, null
-  br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %.critedge26.i, %22, %.preheader27.i, %7
   %27 = load ptr, ptr @ALSA_device_prefix, align 8
@@ -768,7 +768,7 @@ ALSA_guess_device_prefix.exit:                    ; preds = %2, %29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
   store i8 0, ptr %5, align 1
   call fastcc void @ALSA_HotplugIteration(ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %31 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %31 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %35
 
@@ -778,7 +778,7 @@ ALSA_guess_device_prefix.exit:                    ; preds = %2, %29
   br label %35
 
 35:                                               ; preds = %33, %ALSA_guess_device_prefix.exit
-  %36 = load i8, ptr %5, align 1, !range !7, !noundef !8
+  %36 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %40
 
@@ -802,7 +802,7 @@ define internal noundef zeroext i1 @ALSA_OpenDevice(ptr noundef initializes((112
   %3 = alloca %struct.ALSA_pcm_cfg_ctx, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %6 = load i8, ptr %5, align 4, !range !7, !noundef !8
+  %6 = load i8, ptr %5, align 4, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -831,7 +831,7 @@ define internal noundef zeroext i1 @ALSA_OpenDevice(ptr noundef initializes((112
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %22 = load i8, ptr %21, align 8, !range !7, !noundef !8
+  %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   %24 = select i1 %23, ptr @.str.83, ptr @.str.84
   %25 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull %24) #8
@@ -1070,7 +1070,7 @@ ALSA_pcm_cfg_hw.exit.thread20:                    ; preds = %63, %46, %ALSA_pcm_
 ; Function Attrs: nounwind uwtable
 define internal void @ALSA_ThreadInit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %3 = load i8, ptr %2, align 4, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 4, !range !6, !noundef !7
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, i32 2, i32 3
   %6 = tail call zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef %5) #8
@@ -1119,7 +1119,7 @@ define internal noundef zeroext i1 @ALSA_WaitDevice(ptr noundef %0) #0 {
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %23(ptr noundef %25, i32 noundef %19, i32 noundef 0) #8
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.thread20, label %32, !llvm.loop !9
+  br i1 %27, label %.thread20, label %32, !llvm.loop !8
 
 .thread20:                                        ; preds = %22
   %28 = load ptr, ptr @ALSA_snd_strerror, align 8
@@ -1231,7 +1231,7 @@ define internal noundef zeroext i1 @ALSA_PlayDevice(ptr noundef %0, ptr noundef 
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %25(ptr noundef %27, i32 noundef %22, i32 noundef 0) #8
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.thread, label %38, !llvm.loop !10
+  br i1 %29, label %.thread, label %38, !llvm.loop !9
 
 .thread:                                          ; preds = %24
   %30 = load ptr, ptr @ALSA_snd_strerror, align 8
@@ -1326,7 +1326,7 @@ define internal void @ALSA_DeinitializeStart() #0 {
   tail call void @SDL_free_REAL(ptr noundef %10) #8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.07) #8
   %.not5 = icmp eq ptr %8, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   store ptr null, ptr @hotplug_devices, align 8
@@ -1529,7 +1529,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %57 = load i32, ptr %8, align 4
   %58 = call fastcc i32 @hotplug_device_process(ptr noundef %56, ptr noundef %22, i32 noundef %57, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.thread69, label %43, !llvm.loop !12
+  br i1 %59, label %.thread69, label %43
 
 .thread69:                                        ; preds = %43, %51, %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
@@ -1549,7 +1549,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %65 = load ptr, ptr @ALSA_snd_card_next, align 8
   %66 = call i32 %65(ptr noundef nonnull %6) #8
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.thread39, label %.lr.ph, !llvm.loop !13
+  br i1 %67, label %.thread39, label %.lr.ph
 
 thread-pre-split:                                 ; preds = %.lr.ph
   %.pr = load ptr, ptr %4, align 8
@@ -1569,7 +1569,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %74 = load ptr, ptr %73, align 8
   call void @SDL_free_REAL(ptr noundef nonnull %68) #8
   %.not37 = icmp eq ptr %74, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph51, !llvm.loop !14
+  br i1 %.not37, label %._crit_edge, label %.lr.ph51, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %thread-pre-split
   %75 = load ptr, ptr %5, align 8
@@ -1608,7 +1608,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %87 = load ptr, ptr %86, align 8
   call void @SDL_free_REAL(ptr noundef nonnull %81) #8
   %.not35 = icmp eq ptr %87, null
-  br i1 %.not35, label %thread-pre-split42, label %.lr.ph56, !llvm.loop !15
+  br i1 %.not35, label %thread-pre-split42, label %.lr.ph56, !llvm.loop !12
 
 thread-pre-split42:                               ; preds = %.lr.ph56, %80
   %.pr43 = load ptr, ptr %5, align 8
@@ -1628,7 +1628,7 @@ thread-pre-split42:                               ; preds = %.lr.ph56, %80
   %94 = load ptr, ptr %93, align 8
   call void @SDL_free_REAL(ptr noundef nonnull %88) #8
   %.not36 = icmp eq ptr %94, null
-  br i1 %.not36, label %._crit_edge62, label %.lr.ph61, !llvm.loop !16
+  br i1 %.not36, label %._crit_edge62, label %.lr.ph61, !llvm.loop !13
 
 ._crit_edge62:                                    ; preds = %.lr.ph61, %thread-pre-split42
   store ptr null, ptr @hotplug_devices, align 8
@@ -1678,13 +1678,13 @@ define internal noundef i32 @ALSA_HotplugThread(ptr readnone captures(none) %0) 
   tail call void @SDL_Delay_REAL(i32 noundef 100) #8
   %10 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @ALSA_hotplug_shutdown) #8
   %.not1 = icmp eq i32 %10, 0
-  br i1 %.not1, label %.lr.ph, label %.critedge, !llvm.loop !17
+  br i1 %.not1, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph, %9, %.lr.ph5
   tail call fastcc void @ALSA_HotplugIteration(ptr noundef null, ptr noundef null)
   %11 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @ALSA_hotplug_shutdown) #8
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.lr.ph5, label %._crit_edge, !llvm.loop !18
+  br i1 %.not, label %.lr.ph5, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge, %1
   ret i32 0
@@ -1788,7 +1788,7 @@ define internal fastcc range(i32 -1, 1) i32 @hotplug_device_process(ptr noundef 
 
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
-  %46 = load i8, ptr %45, align 8, !range !7, !noundef !8
+  %46 = load i8, ptr %45, align 8, !range !6, !noundef !7
   %47 = zext nneg i8 %46 to i32
   %48 = icmp eq i32 %3, %47
   br i1 %48, label %49, label %57
@@ -1813,7 +1813,7 @@ define internal fastcc range(i32 -1, 1) i32 @hotplug_device_process(ptr noundef 
   %58 = getelementptr inbounds nuw i8, ptr %.0117, i64 24
   %.0 = load ptr, ptr %58, align 8
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %57, %38
   %59 = call noalias dereferenceable_or_null(32) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 32) #9
@@ -1912,7 +1912,7 @@ define internal fastcc range(i32 -1, 1) i32 @hotplug_device_process(ptr noundef 
 100:                                              ; preds = %93
   %101 = load ptr, ptr @ALSA_snd_pcm_info_sizeof, align 8
   %102 = call i64 %101() #8
-  br label %21, !llvm.loop !20
+  br label %21
 
 103:                                              ; preds = %30, %70, %81, %90, %61, %62, %98, %99
   %.179.ph = phi i32 [ 0, %99 ], [ 0, %98 ], [ -1, %62 ], [ -1, %61 ], [ -1, %90 ], [ -1, %81 ], [ -1, %70 ], [ %., %30 ]
@@ -2062,7 +2062,7 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   br i1 %59, label %60, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %51, %.backedge
-  br label %.backedge, !llvm.loop !21
+  br label %.backedge, !llvm.loop !17
 
 60:                                               ; preds = %51
   %.pr = load i32, ptr %8, align 8
@@ -2164,7 +2164,7 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   %133 = load ptr, ptr %132, align 8
   %134 = tail call i32 %129(ptr noundef %133) #8
   %.4 = add i32 %.174, %.4.v
-  br label %14, !llvm.loop !22
+  br label %14
 
 .thread92.sink.split:                             ; preds = %112, %103, %94, %82, %71, %62, %60, %28, %19, %.backedge
   %.lcssa215.sink = phi i32 [ %35, %.backedge ], [ %26, %19 ], [ %35, %28 ], [ %35, %60 ], [ %69, %62 ], [ %80, %71 ], [ %92, %82 ], [ %101, %94 ], [ %110, %103 ], [ %119, %112 ]
@@ -2274,7 +2274,7 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
 43:                                               ; preds = %44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not17.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %indvars.iv.next.i.i
-  br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %44, !llvm.loop !23
+  br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %44, !llvm.loop !18
 
 44:                                               ; preds = %43, %.lr.ph.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %43 ], [ 0, %.lr.ph.i.i.i ]
@@ -2290,7 +2290,7 @@ alsa_chmap_has_duplicate_position.exit.thread.i.i: ; preds = %44
 ._crit_edge.i.i.i:                                ; preds = %43
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %48 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
-  br i1 %48, label %alsa_chmap_has_duplicate_position.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
+  br i1 %48, label %alsa_chmap_has_duplicate_position.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
 alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, %38, %.thread66.i.i
   %49 = phi ptr [ %30, %.thread66.i.i ], [ %35, %38 ], [ %35, %._crit_edge.i.i.i ]
@@ -2313,7 +2313,7 @@ alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
   %58 = getelementptr inbounds nuw i32, ptr %49, i64 %55
   %59 = load i32, ptr %58, align 4
   %.not46.i.i = icmp eq i32 %57, %59
-  br i1 %.not46.i.i, label %60, label %.thread.i.i, !llvm.loop !25
+  br i1 %.not46.i.i, label %60, label %.thread.i.i, !llvm.loop !20
 
 60:                                               ; preds = %54, %.lr.ph55.i.i
   %indvars.iv63.i.i = phi i64 [ 0, %.lr.ph55.i.i ], [ %indvars.iv.next64.i.i, %54 ]
@@ -2328,7 +2328,7 @@ alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
   %63 = getelementptr inbounds nuw i8, ptr %.03857.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i, label %.loopexit.i, label %18, !llvm.loop !26
+  br i1 %.not.i.i, label %.loopexit.i, label %18, !llvm.loop !21
 
 alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
   %65 = call fastcc i32 @alsa_chmap_install(ptr noundef nonnull %0, ptr noundef nonnull %49)
@@ -2402,7 +2402,7 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 90:                                               ; preds = %91
   %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %.not17.i.i12.i = icmp eq i64 %indvars.iv.i.i9.i, %indvars.iv.next.i11.i
-  br i1 %.not17.i.i12.i, label %._crit_edge.i.i13.i, label %91, !llvm.loop !23
+  br i1 %.not17.i.i12.i, label %._crit_edge.i.i13.i, label %91, !llvm.loop !18
 
 91:                                               ; preds = %90, %.lr.ph.i.i8.i
   %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i11.i, %90 ], [ 0, %.lr.ph.i.i8.i ]
@@ -2418,7 +2418,7 @@ alsa_chmap_has_duplicate_position.exit.thread.i17.i: ; preds = %91
 ._crit_edge.i.i13.i:                              ; preds = %90
   %indvars.iv.next.i.i14.i = add nuw nsw i64 %indvars.iv.i.i9.i, 1
   %95 = icmp eq i64 %indvars.iv.next.i.i14.i, %zext.i7.i
-  br i1 %95, label %alsa_chmap_has_duplicate_position.exit.i15.i, label %.lr.ph.i.i8.i, !llvm.loop !24
+  br i1 %95, label %alsa_chmap_has_duplicate_position.exit.i15.i, label %.lr.ph.i.i8.i, !llvm.loop !19
 
 alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i, %85, %.thread82.i.i
   %96 = phi ptr [ %77, %.thread82.i.i ], [ %82, %85 ], [ %82, %._crit_edge.i.i13.i ]
@@ -2445,7 +2445,7 @@ alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i
 102:                                              ; preds = %103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not53.i.i = icmp eq i64 %indvars.iv.next.i, %98
-  br i1 %.not53.i.i, label %..loopexit_crit_edge.i.i, label %103, !llvm.loop !27
+  br i1 %.not53.i.i, label %..loopexit_crit_edge.i.i, label %103, !llvm.loop !22
 
 103:                                              ; preds = %102, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %102 ], [ 0, %.preheader.i.i ]
@@ -2462,7 +2462,7 @@ alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i
   %.1.i.i = phi i32 [ %108, %107 ], [ %.03865.i.i, %102 ]
   %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
   %.not52.i.i = icmp eq i64 %indvars.iv.next80.i.i, %98
-  br i1 %.not52.i.i, label %._crit_edge68.split.i.i, label %.preheader.i.i, !llvm.loop !28
+  br i1 %.not52.i.i, label %._crit_edge68.split.i.i, label %.preheader.i.i, !llvm.loop !23
 
 .thread.i16.i:                                    ; preds = %._crit_edge68.split.i.i, %alsa_chmap_has_duplicate_position.exit.thread.i17.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
@@ -2477,7 +2477,7 @@ alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i
   %111 = getelementptr inbounds nuw i8, ptr %.04573.i.i, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not.i3.i = icmp eq ptr %112, null
-  br i1 %.not.i3.i, label %alsa_chmap_cfg_ordered.exit.thread, label %.lr.ph75.i.i, !llvm.loop !29
+  br i1 %.not.i3.i, label %alsa_chmap_cfg_ordered.exit.thread, label %.lr.ph75.i.i, !llvm.loop !24
 
 alsa_chmap_cfg_ordered.exit:                      ; preds = %alsa_chmap_cfg_ordered_fixed_or_paired.exit.i, %._crit_edge68.split.thread.i.i
   %113 = phi i32 [ %65, %alsa_chmap_cfg_ordered_fixed_or_paired.exit.i ], [ %109, %._crit_edge68.split.thread.i.i ]
@@ -2562,7 +2562,7 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %110
 142:                                              ; preds = %143
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %.not17.i.i = icmp eq i64 %indvars.iv.i.i35, %indvars.iv.next.i37
-  br i1 %.not17.i.i, label %._crit_edge.i.i38, label %143, !llvm.loop !23
+  br i1 %.not17.i.i, label %._crit_edge.i.i38, label %143, !llvm.loop !18
 
 143:                                              ; preds = %142, %.lr.ph.i.i
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %142 ], [ 0, %.lr.ph.i.i ]
@@ -2578,7 +2578,7 @@ alsa_chmap_has_duplicate_position.exit.thread.i:  ; preds = %143
 ._crit_edge.i.i38:                                ; preds = %142
   %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %147 = icmp eq i64 %indvars.iv.next.i.i39, %zext.i
-  br i1 %147, label %alsa_chmap_has_duplicate_position.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %147, label %alsa_chmap_has_duplicate_position.exit.i, label %.lr.ph.i.i, !llvm.loop !19
 
 alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, %137, %.thread86.i
   %148 = phi ptr [ %129, %.thread86.i ], [ %134, %137 ], [ %134, %._crit_edge.i.i38 ]
@@ -2605,7 +2605,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
 154:                                              ; preds = %155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not56.i = icmp eq i64 %indvars.iv.next, %150
-  br i1 %.not56.i, label %..loopexit_crit_edge.i, label %155, !llvm.loop !30
+  br i1 %.not56.i, label %..loopexit_crit_edge.i, label %155, !llvm.loop !25
 
 155:                                              ; preds = %154, %.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %154 ], [ 0, %.preheader.i ]
@@ -2622,7 +2622,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
   %.1.i = phi i32 [ %160, %159 ], [ %.03969.i, %154 ]
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %.not55.i = icmp eq i64 %indvars.iv.next84.i, %150
-  br i1 %.not55.i, label %._crit_edge72.split.i, label %.preheader.i, !llvm.loop !31
+  br i1 %.not55.i, label %._crit_edge72.split.i, label %.preheader.i, !llvm.loop !26
 
 .thread.i:                                        ; preds = %._crit_edge72.split.i, %alsa_chmap_has_duplicate_position.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #8
@@ -2632,7 +2632,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
   %162 = getelementptr inbounds nuw i8, ptr %.04677.i, i64 8
   %163 = load ptr, ptr %162, align 8
   %.not.i = icmp eq ptr %163, null
-  br i1 %.not.i, label %.thread48, label %117, !llvm.loop !32
+  br i1 %.not.i, label %.thread48, label %117, !llvm.loop !27
 
 alsa_chmap_cfg_unordered.exit:                    ; preds = %alsa_chmap_has_duplicate_position.exit.i, %._crit_edge72.split.i
   %164 = call fastcc i32 @alsa_chmap_install(ptr noundef nonnull %0, ptr noundef nonnull %148)
@@ -2688,7 +2688,7 @@ alsa_chmap_cfg_unordered.exit:                    ; preds = %alsa_chmap_has_dupl
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, %182
   %188 = add i32 %.0.i.i, 1
-  br i1 %187, label %swizzle_map_compute_alsa_subscan.exit.i, label %183, !llvm.loop !33
+  br i1 %187, label %swizzle_map_compute_alsa_subscan.exit.i, label %183
 
 swizzle_map_compute_alsa_subscan.exit.i:          ; preds = %183
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.113, i32 noundef %.012.i, i32 noundef %.0.i.i) #8
@@ -2698,7 +2698,7 @@ swizzle_map_compute_alsa_subscan.exit.i:          ; preds = %183
   %189 = add i32 %.012.i, 1
   %190 = load i32, ptr %115, align 4
   %.not.i41 = icmp eq i32 %189, %190
-  br i1 %.not.i41, label %swizzle_map_compute.exit, label %178, !llvm.loop !34
+  br i1 %.not.i41, label %swizzle_map_compute.exit, label %178, !llvm.loop !28
 
 swizzle_map_compute.exit:                         ; preds = %swizzle_map_compute_alsa_subscan.exit.i
   br i1 %spec.select51, label %191, label %swizzle_map_compute.exit.thread
@@ -2742,7 +2742,7 @@ define internal fastcc void @sdl_6chans_set_rear_or_side_channels_from_alsa_6cha
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.i = icmp eq i64 %indvars.iv.next, 6
   %or.cond.i = select i1 %6, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %has_pos.exit, label %3, !llvm.loop !35
+  br i1 %or.cond.i, label %has_pos.exit, label %3
 
 has_pos.exit:                                     ; preds = %3
   br i1 %6, label %.preheader47, label %.thread
@@ -2755,7 +2755,7 @@ has_pos.exit:                                     ; preds = %3
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %.not.i33 = icmp eq i64 %indvars.iv.next59, 6
   %or.cond.i34 = select i1 %9, i1 true, i1 %.not.i33
-  br i1 %or.cond.i34, label %has_pos.exit35, label %.preheader47, !llvm.loop !35
+  br i1 %or.cond.i34, label %has_pos.exit35, label %.preheader47
 
 has_pos.exit35:                                   ; preds = %.preheader47
   br i1 %9, label %.preheader46, label %.thread
@@ -2768,7 +2768,7 @@ has_pos.exit35:                                   ; preds = %.preheader47
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %.not.i37 = icmp eq i64 %indvars.iv.next62, 6
   %or.cond.i38 = select i1 %12, i1 true, i1 %.not.i37
-  br i1 %or.cond.i38, label %has_pos.exit39, label %.preheader46, !llvm.loop !35
+  br i1 %or.cond.i38, label %has_pos.exit39, label %.preheader46
 
 has_pos.exit39:                                   ; preds = %.preheader46
   br i1 %12, label %.preheader45, label %.thread
@@ -2781,7 +2781,7 @@ has_pos.exit39:                                   ; preds = %.preheader46
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %.not.i41 = icmp eq i64 %indvars.iv.next65, 6
   %or.cond.i42 = select i1 %15, i1 true, i1 %.not.i41
-  br i1 %or.cond.i42, label %has_pos.exit43, label %.preheader45, !llvm.loop !35
+  br i1 %or.cond.i42, label %has_pos.exit43, label %.preheader45
 
 has_pos.exit43:                                   ; preds = %.preheader45
   br i1 %15, label %.preheader, label %.thread
@@ -2810,7 +2810,7 @@ has_pos.exit43:                                   ; preds = %.preheader45
   %.2 = phi i32 [ 2, %18 ], [ %.02952, %.preheader ], [ 1, %19 ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next68, 6
-  br i1 %exitcond.not, label %switch.lookup, label %.preheader, !llvm.loop !36
+  br i1 %exitcond.not, label %switch.lookup, label %.preheader, !llvm.loop !29
 
 switch.lookup:                                    ; preds = %20
   %21 = zext nneg i32 %.2 to i64
@@ -2936,37 +2936,30 @@ attributes #9 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !4, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !4, !5}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}

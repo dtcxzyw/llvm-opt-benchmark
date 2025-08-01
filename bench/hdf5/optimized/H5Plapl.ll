@@ -1576,7 +1576,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_pref_dec(ptr noundef captu
   %21 = or disjoint i64 %17, %20
   %22 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %22, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %13
@@ -1977,7 +1977,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %41, %47, %53, %59, 
   %98 = add nuw nsw i64 %.03459, 1
   %99 = lshr i64 %.03558, 8
   %exitcond.not = icmp eq i64 %98, %94
-  br i1 %exitcond.not, label %100, label %95, !llvm.loop !29
+  br i1 %exitcond.not, label %100, label %95, !llvm.loop !28
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %1, align 8, !tbaa !15
@@ -2152,7 +2152,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_dec(ptr noundef captu
   %23 = or disjoint i64 %19, %22
   %24 = add nuw nsw i64 %.02329, 1
   %exitcond.not = icmp eq i64 %24, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %25 = phi ptr [ %17, %13 ], [ %20, %.lr.ph ]
@@ -2423,9 +2423,8 @@ attributes #12 = { nounwind allocsize(0) }
 !22 = !{!"H5L_elink_cb_t", !17, i64 0, !17, i64 8}
 !23 = !{!22, !17, i64 8}
 !24 = !{!17, !17, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = distinct !{!29, !26, !27}
-!30 = distinct !{!30, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}

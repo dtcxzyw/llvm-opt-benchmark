@@ -26,7 +26,7 @@ define hidden { i64, ptr } @_ZN9itertools9Itertools13find_position17hd92262ca58f
   %14 = extractvalue { i32, i32 } %13, 1
   %.not.i.i = icmp ugt i32 %14, %6
   %15 = add i64 %8, 1
-  br i1 %.not.i.i, label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h8bf944360d85e03fE.exit", label %7, !llvm.loop !16
+  br i1 %.not.i.i, label %"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h8bf944360d85e03fE.exit", label %7
 
 "_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h8bf944360d85e03fE.exit": ; preds = %7, %11
   %.sroa.3.0.i.i = phi ptr [ null, %7 ], [ %9, %11 ]
@@ -70,5 +70,3 @@ attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !13 = distinct !{!13, !"_ZN79_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..IteratorRefSpec$GT$13spec_try_fold17h8bf944360d85e03fE"}
 !14 = !{}
 !15 = !{!4, !10, !11, !12}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}

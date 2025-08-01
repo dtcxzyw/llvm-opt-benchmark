@@ -902,7 +902,7 @@ define dso_local i32 @tty_mode_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef
   %78 = lshr i32 %77, 11
   %79 = and i32 %78, 1
   %80 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %81 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %79, i64 4, i64 %80) #12, !srcloc !18
+  %81 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %79, i64 4, i64 %80) #12, !srcloc !17
   %82 = extractvalue { ptr, i64 } %81, 0
   %83 = extractvalue { ptr, i64 } %81, 1
   %84 = ptrtoint ptr %82 to i64
@@ -912,7 +912,7 @@ define dso_local i32 @tty_mode_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef
 
 86:                                               ; preds = %19
   %87 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %88 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %6, i64 4, i64 %87) #12, !srcloc !19
+  %88 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %6, i64 4, i64 %87) #12, !srcloc !18
   %89 = extractvalue { ptr, i32, i64 } %88, 0
   %90 = extractvalue { ptr, i32, i64 } %88, 2
   %91 = ptrtoint ptr %89 to i64
@@ -924,7 +924,7 @@ define dso_local i32 @tty_mode_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef
 94:                                               ; preds = %86
   %95 = extractvalue { ptr, i32, i64 } %88, 1
   %96 = icmp ne i32 %95, 0
-  %97 = tail call fastcc i32 @tty_change_softcar(ptr noundef %20, i1 noundef zeroext %96), !range !20
+  %97 = tail call fastcc i32 @tty_change_softcar(ptr noundef %20, i1 noundef zeroext %96), !range !19
   br label %99
 
 98:                                               ; preds = %19
@@ -1068,7 +1068,7 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.backedge
 
 .backedge:                                        ; preds = %73, %.critedge.thread
-  br label %35, !llvm.loop !21
+  br label %35
 
 .critedge12:                                      ; preds = %65, %70
   %74 = call ptr @tty_ldisc_ref(ptr noundef %0) #12
@@ -1109,12 +1109,12 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
 
 94:                                               ; preds = %89
   call void %92(ptr noundef %0, i32 noundef 0) #12
-  %95 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !22
+  %95 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !20
   %96 = inttoptr i64 %95 to ptr
   %97 = load volatile i64, ptr %96, align 8
   %98 = and i64 %97, 131072
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %104, !prof !23
+  br i1 %99, label %100, label %104, !prof !21
 
 100:                                              ; preds = %94
   %101 = load volatile i64, ptr %96, align 8
@@ -1191,7 +1191,7 @@ define dso_local i32 @tty_perform_flush(ptr noundef %0, i64 noundef %1) #0 align
 
 5:                                                ; preds = %2
   %6 = tail call ptr @tty_ldisc_ref_wait(ptr noundef %0) #12
-  %7 = tail call fastcc i32 @__tty_perform_flush(ptr noundef %0, i64 noundef %1), !range !20
+  %7 = tail call fastcc i32 @__tty_perform_flush(ptr noundef %0, i64 noundef %1), !range !19
   %8 = icmp eq ptr %6, null
   br i1 %8, label %10, label %9
 
@@ -1341,7 +1341,7 @@ define dso_local i32 @n_tty_ioctl_helper(ptr noundef %0, i32 noundef %1, i64 nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %9) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 445
-  %11 = load i8, ptr %10, align 1, !range !24, !noundef !25
+  %11 = load i8, ptr %10, align 1, !range !22, !noundef !23
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %14
 
@@ -1358,7 +1358,7 @@ define dso_local i32 @n_tty_ioctl_helper(ptr noundef %0, i32 noundef %1, i64 nou
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %16) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 445
-  %18 = load i8, ptr %17, align 1, !range !24, !noundef !25
+  %18 = load i8, ptr %17, align 1, !range !22, !noundef !23
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %21, label %20
 
@@ -1397,7 +1397,7 @@ define dso_local i32 @n_tty_ioctl_helper(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = tail call fastcc i32 @__tty_perform_flush(ptr noundef %0, i64 noundef %2), !range !20
+  %38 = tail call fastcc i32 @__tty_perform_flush(ptr noundef %0, i64 noundef %2), !range !19
   br label %41
 
 39:                                               ; preds = %3
@@ -1495,15 +1495,13 @@ attributes #13 = { nounwind memory(none) }
 !11 = !{i64 2154843192, i64 2154843001, i64 2154843053, i64 2154843099, i64 2154843127}
 !12 = !{i64 2154843266, i64 2154843295, i64 2154843341, i64 2154843399, i64 2154843453, i64 2154843507, i64 2154843562, i64 2154843593, i64 2154843901, i64 2154843907, i64 2154843954, i64 2154843977, i64 2154844003}
 !13 = !{i64 2154844459, i64 2154844270, i64 2154844320, i64 2154844366, i64 2154844394}
-!14 = distinct !{!14, !15, !16, !17}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!"llvm.loop.unroll.disable"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{i64 2154853791}
-!19 = !{i64 2154854792}
-!20 = !{i32 -22, i32 1}
-!21 = distinct !{!21, !17}
-!22 = !{i64 2148818747}
-!23 = !{!"branch_weights", i32 2000, i32 1}
-!24 = !{i8 0, i8 2}
-!25 = !{}
+!17 = !{i64 2154853791}
+!18 = !{i64 2154854792}
+!19 = !{i32 -22, i32 1}
+!20 = !{i64 2148818747}
+!21 = !{!"branch_weights", i32 2000, i32 1}
+!22 = !{i8 0, i8 2}
+!23 = !{}

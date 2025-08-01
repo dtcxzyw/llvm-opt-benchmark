@@ -159,7 +159,7 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %41, %78
   %80 = icmp sgt i64 %79, 4
-  br i1 %80, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %80, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %75
   %81 = or i32 %.278, 224
@@ -222,18 +222,18 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %114 = load i8, ptr %113, align 4, !tbaa !16
+  %114 = load i8, ptr %113, align 4, !tbaa !14
   %115 = or i8 %114, -4
   %116 = zext i8 %115 to i32
   call void @avio_w8(ptr noundef %0, i32 noundef %116) #6
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 5
-  %118 = load i8, ptr %117, align 1, !tbaa !19
+  %118 = load i8, ptr %117, align 1, !tbaa !17
   %119 = zext i8 %118 to i32
   %120 = add nsw i32 %119, -8
   %121 = or i32 %120, 248
   call void @avio_w8(ptr noundef %0, i32 noundef %121) #6
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %123 = load i8, ptr %122, align 2, !tbaa !20
+  %123 = load i8, ptr %122, align 2, !tbaa !18
   %124 = zext i8 %123 to i32
   %125 = add nsw i32 %124, -8
   %126 = or i32 %125, 248
@@ -312,14 +312,14 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %13 = load i32, ptr %5, align 1, !tbaa !13
   %14 = trunc i32 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %14, ptr %15, align 1, !tbaa !21
+  store i8 %14, ptr %15, align 1, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %.not638 = icmp eq i32 %9, 0
   %spec.select.i = select i1 %.not638, i32 8, i32 9
   %18 = lshr i8 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %18, ptr %19, align 1, !tbaa !22
+  store i8 %18, ptr %19, align 1, !tbaa !20
   %20 = load i8, ptr %16, align 1, !tbaa !13
   %21 = icmp samesign ult i32 %spec.select.i, %10
   %22 = zext i1 %21 to i32
@@ -331,7 +331,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %27 = lshr i8 %26, 6
   %28 = and i8 %27, 2
   %29 = or disjoint i8 %28, %18
-  store i8 %29, ptr %19, align 1, !tbaa !22
+  store i8 %29, ptr %19, align 1, !tbaa !20
   %30 = load i8, ptr %16, align 1, !tbaa !13
   %31 = icmp samesign ult i32 %spec.select.i90, %10
   %32 = zext i1 %31 to i32
@@ -343,7 +343,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %37 = lshr i8 %36, 5
   %38 = and i8 %37, 4
   %39 = or disjoint i8 %38, %29
-  store i8 %39, ptr %19, align 1, !tbaa !22
+  store i8 %39, ptr %19, align 1, !tbaa !20
   %40 = load i8, ptr %16, align 1, !tbaa !13
   %41 = icmp samesign ult i32 %spec.select.i91, %10
   %42 = zext i1 %41 to i32
@@ -355,7 +355,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %47 = lshr i8 %46, 4
   %48 = and i8 %47, 8
   %49 = or disjoint i8 %48, %39
-  store i8 %49, ptr %19, align 1, !tbaa !22
+  store i8 %49, ptr %19, align 1, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = icmp samesign ult i32 %spec.select.i92, %10
@@ -368,7 +368,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %58 = lshr i8 %57, 3
   %59 = and i8 %58, 16
   %60 = or disjoint i8 %59, %49
-  store i8 %60, ptr %19, align 1, !tbaa !22
+  store i8 %60, ptr %19, align 1, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %62 = load i8, ptr %61, align 1, !tbaa !13
   %63 = icmp samesign ult i32 %spec.select.i93, %10
@@ -380,7 +380,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %69 = lshr i8 %68, 2
   %70 = and i8 %69, 32
   %71 = or disjoint i8 %70, %60
-  store i8 %71, ptr %19, align 1, !tbaa !22
+  store i8 %71, ptr %19, align 1, !tbaa !20
   %spec.select.i94 = add nuw nsw i32 %spec.select.i93, 2
   %72 = add nuw nsw i32 %spec.select.i94, %64
   %73 = call i32 @llvm.umin.i32(i32 %10, i32 %72)
@@ -396,7 +396,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   %83 = call i32 @llvm.umin.i32(i32 %10, i32 %82)
   %84 = trunc nuw i32 %81 to i8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %84, ptr %85, align 2, !tbaa !23
+  store i8 %84, ptr %85, align 2, !tbaa !21
   br label %86
 
 86:                                               ; preds = %97, %12
@@ -419,7 +419,7 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
 97:                                               ; preds = %86
   %98 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %98, 32
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %86, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %86, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %86
   %.not.i.i = icmp eq i32 %.011.i, 0
@@ -448,7 +448,7 @@ get_ue_golomb.exit:                               ; preds = %.critedge.i, %.crit
   %111 = xor i32 %notmask.i, -1
   %112 = add i32 %110, %111
   %113 = trunc i32 %112 to i8
-  store i8 %113, ptr %0, align 4, !tbaa !26
+  store i8 %113, ptr %0, align 4, !tbaa !24
   switch i8 %14, label %272 [
     i8 100, label %.preheader747
     i8 110, label %.preheader747
@@ -487,7 +487,7 @@ get_ue_golomb.exit:                               ; preds = %.critedge.i, %.crit
 125:                                              ; preds = %114
   %126 = add nuw nsw i32 %.011.i96, 1
   %exitcond.not.i106 = icmp eq i32 %126, 32
-  br i1 %exitcond.not.i106, label %.critedge.thread.i102, label %114, !llvm.loop !24
+  br i1 %exitcond.not.i106, label %.critedge.thread.i102, label %114, !llvm.loop !22
 
 .critedge.i100:                                   ; preds = %114
   %.not.i.i101 = icmp eq i32 %.011.i96, 0
@@ -517,7 +517,7 @@ get_ue_golomb.exit107:                            ; preds = %.critedge.i100, %.c
   %140 = add i32 %138, %139
   %141 = trunc i32 %140 to i8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %141, ptr %142, align 4, !tbaa !16
+  store i8 %141, ptr %142, align 4, !tbaa !14
   %143 = and i32 %140, 255
   %144 = icmp eq i32 %143, 3
   %145 = add i32 %.sroa.40.11, 1
@@ -545,7 +545,7 @@ get_ue_golomb.exit107:                            ; preds = %.critedge.i100, %.c
 158:                                              ; preds = %147
   %159 = add nuw nsw i32 %.011.i109, 1
   %exitcond.not.i119 = icmp eq i32 %159, 32
-  br i1 %exitcond.not.i119, label %.critedge.thread.i115, label %147, !llvm.loop !24
+  br i1 %exitcond.not.i119, label %.critedge.thread.i115, label %147, !llvm.loop !22
 
 .critedge.i113:                                   ; preds = %147
   %.not.i.i114 = icmp eq i32 %.011.i109, 0
@@ -576,7 +576,7 @@ get_ue_golomb.exit120:                            ; preds = %.critedge.i113, %.c
   %174 = trunc i32 %173 to i8
   %175 = add i8 %174, 8
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %175, ptr %176, align 1, !tbaa !19
+  store i8 %175, ptr %176, align 1, !tbaa !17
   br label %177
 
 177:                                              ; preds = %188, %get_ue_golomb.exit120
@@ -599,7 +599,7 @@ get_ue_golomb.exit120:                            ; preds = %.critedge.i113, %.c
 188:                                              ; preds = %177
   %189 = add nuw nsw i32 %.011.i122, 1
   %exitcond.not.i132 = icmp eq i32 %189, 32
-  br i1 %exitcond.not.i132, label %.critedge.thread.i128, label %177, !llvm.loop !24
+  br i1 %exitcond.not.i132, label %.critedge.thread.i128, label %177, !llvm.loop !22
 
 .critedge.i126:                                   ; preds = %177
   %.not.i.i127 = icmp eq i32 %.011.i122, 0
@@ -630,7 +630,7 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   %204 = trunc i32 %203 to i8
   %205 = add i8 %204, 8
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %205, ptr %206, align 2, !tbaa !20
+  store i8 %205, ptr %206, align 2, !tbaa !18
   %207 = add i32 %.sroa.40.13, 1
   %208 = call i32 @llvm.umin.i32(i32 %11, i32 %207)
   %209 = lshr i32 %208, 3
@@ -702,7 +702,7 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
 245:                                              ; preds = %.preheader452
   %246 = add nuw nsw i32 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %246, 32
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.preheader452, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.preheader452, !llvm.loop !22
 
 .critedge.i.i:                                    ; preds = %.preheader452
   %.not.i.i.i = icmp eq i32 %.011.i.i, 0
@@ -747,21 +747,21 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
   %269 = phi i32 [ %.068514, %234 ], [ %spec.select, %258 ]
   %270 = add nuw nsw i32 %.069513, 1
   %exitcond.not = icmp eq i32 %270, %233
-  br i1 %exitcond.not, label %.loopexit, label %234, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %234, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread, %220
   %.sroa.40.2 = phi i32 [ %spec.select.i135, %220 ], [ %.sroa.40.4445, %.thread ]
   %271 = add nuw nsw i32 %.065517, 1
   %exitcond577.not = icmp eq i32 %271, %219
-  br i1 %exitcond577.not, label %.loopexit454.preheader, label %220, !llvm.loop !28
+  br i1 %exitcond577.not, label %.loopexit454.preheader, label %220, !llvm.loop !26
 
 272:                                              ; preds = %get_ue_golomb.exit
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 1, ptr %273, align 4, !tbaa !16
+  store i8 1, ptr %273, align 4, !tbaa !14
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 8, ptr %274, align 1, !tbaa !19
+  store i8 8, ptr %274, align 1, !tbaa !17
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 8, ptr %275, align 2, !tbaa !20
+  store i8 8, ptr %275, align 2, !tbaa !18
   br label %.loopexit454.preheader
 
 .loopexit454.preheader:                           ; preds = %.loopexit, %get_ue_golomb.exit133, %272
@@ -788,7 +788,7 @@ get_ue_golomb.exit133:                            ; preds = %.critedge.i126, %.c
 286:                                              ; preds = %.loopexit454
   %287 = add nuw nsw i32 %.011.i138, 1
   %exitcond.not.i148 = icmp eq i32 %287, 32
-  br i1 %exitcond.not.i148, label %.critedge.thread.i144, label %.loopexit454, !llvm.loop !24
+  br i1 %exitcond.not.i148, label %.critedge.thread.i144, label %.loopexit454, !llvm.loop !22
 
 .critedge.i142:                                   ; preds = %.loopexit454
   %.not.i.i143 = icmp eq i32 %.011.i138, 0
@@ -824,7 +824,7 @@ get_ue_golomb.exit149:                            ; preds = %get_ue_golomb.exit1
 300:                                              ; preds = %get_ue_golomb.exit149
   %301 = add nuw nsw i32 %.011.i151, 1
   %exitcond.not.i161 = icmp eq i32 %301, 32
-  br i1 %exitcond.not.i161, label %.critedge.thread.i157, label %get_ue_golomb.exit149, !llvm.loop !24
+  br i1 %exitcond.not.i161, label %.critedge.thread.i157, label %get_ue_golomb.exit149, !llvm.loop !22
 
 .critedge.i155:                                   ; preds = %get_ue_golomb.exit149
   %.not.i.i156 = icmp eq i32 %.011.i151, 0
@@ -877,7 +877,7 @@ get_ue_golomb.exit162:                            ; preds = %.critedge.i155, %.c
 326:                                              ; preds = %.preheader450
   %327 = add nuw nsw i32 %.011.i164, 1
   %exitcond.not.i174 = icmp eq i32 %327, 32
-  br i1 %exitcond.not.i174, label %.critedge.thread.i170, label %.preheader450, !llvm.loop !24
+  br i1 %exitcond.not.i174, label %.critedge.thread.i170, label %.preheader450, !llvm.loop !22
 
 .critedge.i168:                                   ; preds = %.preheader450
   %.not.i.i169 = icmp eq i32 %.011.i164, 0
@@ -914,7 +914,7 @@ get_ue_golomb.exit162:                            ; preds = %.critedge.i155, %.c
 344:                                              ; preds = %333
   %345 = add nuw nsw i32 %.011.i.i177, 1
   %exitcond.not.i.i187 = icmp eq i32 %345, 32
-  br i1 %exitcond.not.i.i187, label %.critedge.thread.i.i183, label %333, !llvm.loop !24
+  br i1 %exitcond.not.i.i187, label %.critedge.thread.i.i183, label %333, !llvm.loop !22
 
 .critedge.i.i181:                                 ; preds = %333
   %.not.i.i.i182 = icmp eq i32 %.011.i.i177, 0
@@ -950,7 +950,7 @@ get_se_golomb.exit188:                            ; preds = %get_se_golomb.exit1
 358:                                              ; preds = %get_se_golomb.exit188
   %359 = add nuw nsw i32 %.011.i.i190, 1
   %exitcond.not.i.i200 = icmp eq i32 %359, 32
-  br i1 %exitcond.not.i.i200, label %.critedge.thread.i.i196, label %get_se_golomb.exit188, !llvm.loop !24
+  br i1 %exitcond.not.i.i200, label %.critedge.thread.i.i196, label %get_se_golomb.exit188, !llvm.loop !22
 
 .critedge.i.i194:                                 ; preds = %get_se_golomb.exit188
   %.not.i.i.i195 = icmp eq i32 %.011.i.i190, 0
@@ -986,7 +986,7 @@ get_se_golomb.exit201:                            ; preds = %get_se_golomb.exit2
 372:                                              ; preds = %get_se_golomb.exit201
   %373 = add nuw nsw i32 %.011.i203, 1
   %exitcond.not.i213 = icmp eq i32 %373, 32
-  br i1 %exitcond.not.i213, label %.critedge.thread.i209, label %get_se_golomb.exit201, !llvm.loop !24
+  br i1 %exitcond.not.i213, label %.critedge.thread.i209, label %get_se_golomb.exit201, !llvm.loop !22
 
 .critedge.i207:                                   ; preds = %get_se_golomb.exit201
   %.not.i.i208 = icmp eq i32 %.011.i203, 0
@@ -1042,7 +1042,7 @@ get_ue_golomb.exit214:                            ; preds = %.critedge.i207, %.c
 400:                                              ; preds = %389
   %401 = add nuw nsw i32 %.011.i.i216, 1
   %exitcond.not.i.i226 = icmp eq i32 %401, 32
-  br i1 %exitcond.not.i.i226, label %.critedge.thread.i.i222, label %389, !llvm.loop !24
+  br i1 %exitcond.not.i.i226, label %.critedge.thread.i.i222, label %389, !llvm.loop !22
 
 .critedge.i.i220:                                 ; preds = %389
   %.not.i.i.i221 = icmp eq i32 %.011.i.i216, 0
@@ -1058,7 +1058,7 @@ get_se_golomb.exit227:                            ; preds = %.critedge.i.i220, %
   %.sroa.40.21 = phi i32 [ %403, %.critedge.thread.i.i222 ], [ %spec.select.i.i.i218, %.critedge.i.i220 ]
   %404 = add nuw nsw i32 %.1519, 1
   %exitcond578.not = icmp eq i32 %404, %387
-  br i1 %exitcond578.not, label %get_ue_golomb.exit175.preheader, label %.preheader451, !llvm.loop !29
+  br i1 %exitcond578.not, label %get_ue_golomb.exit175.preheader, label %.preheader451, !llvm.loop !27
 
 get_ue_golomb.exit175.preheader:                  ; preds = %get_se_golomb.exit227, %get_ue_golomb.exit214, %.critedge.thread.i170, %.critedge.i168, %get_ue_golomb.exit162
   %spec.select.i910.i230.ph = phi i32 [ %.sroa.40.16, %get_ue_golomb.exit162 ], [ %spec.select.i.i166, %.critedge.i168 ], [ %329, %.critedge.thread.i170 ], [ %.sroa.40.20, %get_ue_golomb.exit214 ], [ %.sroa.40.21, %get_se_golomb.exit227 ]
@@ -1084,7 +1084,7 @@ get_ue_golomb.exit175:                            ; preds = %get_ue_golomb.exit1
 415:                                              ; preds = %get_ue_golomb.exit175
   %416 = add nuw nsw i32 %.011.i229, 1
   %exitcond.not.i239 = icmp eq i32 %416, 32
-  br i1 %exitcond.not.i239, label %.critedge.thread.i235, label %get_ue_golomb.exit175, !llvm.loop !24
+  br i1 %exitcond.not.i239, label %.critedge.thread.i235, label %get_ue_golomb.exit175, !llvm.loop !22
 
 .critedge.i233:                                   ; preds = %get_ue_golomb.exit175
   %.not.i.i234 = icmp eq i32 %.011.i229, 0
@@ -1122,7 +1122,7 @@ get_ue_golomb.exit240:                            ; preds = %.critedge.i233, %.c
 432:                                              ; preds = %421
   %433 = add nuw nsw i32 %.011.i242, 1
   %exitcond.not.i252 = icmp eq i32 %433, 32
-  br i1 %exitcond.not.i252, label %.critedge.thread.i248, label %421, !llvm.loop !24
+  br i1 %exitcond.not.i252, label %.critedge.thread.i248, label %421, !llvm.loop !22
 
 .critedge.i246:                                   ; preds = %421
   %.not.i.i247 = icmp eq i32 %.011.i242, 0
@@ -1158,7 +1158,7 @@ get_ue_golomb.exit253:                            ; preds = %get_ue_golomb.exit2
 446:                                              ; preds = %get_ue_golomb.exit253
   %447 = add nuw nsw i32 %.011.i255, 1
   %exitcond.not.i265 = icmp eq i32 %447, 32
-  br i1 %exitcond.not.i265, label %.critedge.thread.i261, label %get_ue_golomb.exit253, !llvm.loop !24
+  br i1 %exitcond.not.i265, label %.critedge.thread.i261, label %get_ue_golomb.exit253, !llvm.loop !22
 
 .critedge.i259:                                   ; preds = %get_ue_golomb.exit253
   %.not.i.i260 = icmp eq i32 %.011.i255, 0
@@ -1186,7 +1186,7 @@ get_ue_golomb.exit266:                            ; preds = %.critedge.i259, %.c
   %460 = and i32 %459, 1
   %461 = trunc nuw nsw i32 %460 to i8
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %461, ptr %462, align 1, !tbaa !30
+  store i8 %461, ptr %462, align 1, !tbaa !28
   %.not83 = icmp eq i32 %460, 0
   %463 = add i32 %spec.select.i267, 1
   %464 = call i32 @llvm.umin.i32(i32 %11, i32 %463)
@@ -1227,7 +1227,7 @@ get_ue_golomb.exit266:                            ; preds = %.critedge.i259, %.c
 487:                                              ; preds = %.preheader
   %488 = add nuw nsw i32 %.011.i270, 1
   %exitcond.not.i280 = icmp eq i32 %488, 32
-  br i1 %exitcond.not.i280, label %.critedge.thread.i276, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not.i280, label %.critedge.thread.i276, label %.preheader, !llvm.loop !22
 
 .critedge.i274:                                   ; preds = %.preheader
   %.not.i.i275 = icmp eq i32 %.011.i270, 0
@@ -1263,7 +1263,7 @@ get_ue_golomb.exit281:                            ; preds = %get_ue_golomb.exit2
 501:                                              ; preds = %get_ue_golomb.exit281
   %502 = add nuw nsw i32 %.011.i283, 1
   %exitcond.not.i293 = icmp eq i32 %502, 32
-  br i1 %exitcond.not.i293, label %.critedge.thread.i289, label %get_ue_golomb.exit281, !llvm.loop !24
+  br i1 %exitcond.not.i293, label %.critedge.thread.i289, label %get_ue_golomb.exit281, !llvm.loop !22
 
 .critedge.i287:                                   ; preds = %get_ue_golomb.exit281
   %.not.i.i288 = icmp eq i32 %.011.i283, 0
@@ -1299,7 +1299,7 @@ get_ue_golomb.exit294:                            ; preds = %get_ue_golomb.exit2
 515:                                              ; preds = %get_ue_golomb.exit294
   %516 = add nuw nsw i32 %.011.i296, 1
   %exitcond.not.i306 = icmp eq i32 %516, 32
-  br i1 %exitcond.not.i306, label %.critedge.thread.i302, label %get_ue_golomb.exit294, !llvm.loop !24
+  br i1 %exitcond.not.i306, label %.critedge.thread.i302, label %get_ue_golomb.exit294, !llvm.loop !22
 
 .critedge.i300:                                   ; preds = %get_ue_golomb.exit294
   %.not.i.i301 = icmp eq i32 %.011.i296, 0
@@ -1335,7 +1335,7 @@ get_ue_golomb.exit307:                            ; preds = %get_ue_golomb.exit3
 529:                                              ; preds = %get_ue_golomb.exit307
   %530 = add nuw nsw i32 %.011.i309, 1
   %exitcond.not.i319 = icmp eq i32 %530, 32
-  br i1 %exitcond.not.i319, label %.critedge.thread.i315, label %get_ue_golomb.exit307, !llvm.loop !24
+  br i1 %exitcond.not.i319, label %.critedge.thread.i315, label %get_ue_golomb.exit307, !llvm.loop !22
 
 .critedge.i313:                                   ; preds = %get_ue_golomb.exit307
   %.not.i.i314 = icmp eq i32 %.011.i309, 0
@@ -1404,7 +1404,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   %575 = add nuw i32 %566, 16
   %576 = call i32 @llvm.umin.i32(i32 %11, i32 %575)
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %574, ptr %577, align 4, !tbaa !31
+  store i32 %574, ptr %577, align 4, !tbaa !29
   %578 = lshr i32 %576, 3
   %579 = zext nneg i32 %578 to i64
   %580 = getelementptr inbounds nuw i8, ptr %5, i64 %579
@@ -1414,7 +1414,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   %584 = shl i32 %582, %583
   %585 = lshr i32 %584, 16
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %585, ptr %586, align 4, !tbaa !32
+  store i32 %585, ptr %586, align 4, !tbaa !30
   br label %596
 
 587:                                              ; preds = %552
@@ -1439,8 +1439,8 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
 .thread579:                                       ; preds = %get_ue_golomb.exit320, %587, %541, %596
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %599, align 4, !tbaa !31
-  store i32 1, ptr %598, align 4, !tbaa !32
+  store i32 1, ptr %599, align 4, !tbaa !29
+  store i32 1, ptr %598, align 4, !tbaa !30
   br label %600
 
 600:                                              ; preds = %596, %.thread579, %6
@@ -1586,22 +1586,20 @@ attributes #6 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !10, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !6, i64 4}
-!17 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !18, i64 8}
-!18 = !{!"AVRational", !5, i64 0, !5, i64 4}
-!19 = !{!17, !6, i64 5}
-!20 = !{!17, !6, i64 6}
-!21 = !{!17, !6, i64 1}
-!22 = !{!17, !6, i64 3}
-!23 = !{!17, !6, i64 2}
-!24 = distinct !{!24, !25, !15}
-!25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!17, !6, i64 0}
-!27 = distinct !{!27, !25, !15}
-!28 = distinct !{!28, !25, !15}
-!29 = distinct !{!29, !25, !15}
-!30 = !{!17, !6, i64 7}
-!31 = !{!17, !5, i64 8}
-!32 = !{!17, !5, i64 12}
+!14 = !{!15, !6, i64 4}
+!15 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !16, i64 8}
+!16 = !{!"AVRational", !5, i64 0, !5, i64 4}
+!17 = !{!15, !6, i64 5}
+!18 = !{!15, !6, i64 6}
+!19 = !{!15, !6, i64 1}
+!20 = !{!15, !6, i64 3}
+!21 = !{!15, !6, i64 2}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!15, !6, i64 0}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = distinct !{!27, !23}
+!28 = !{!15, !6, i64 7}
+!29 = !{!15, !5, i64 8}
+!30 = !{!15, !5, i64 12}

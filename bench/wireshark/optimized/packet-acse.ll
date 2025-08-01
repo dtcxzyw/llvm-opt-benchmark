@@ -717,7 +717,7 @@ define internal i32 @dissect_acse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %46 = load i32, ptr @ett_acse_ACSE_apdu, align 4
   %47 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %38, ptr noundef %0, i32 noundef %.058, ptr noundef nonnull @ACSE_apdu_choice, i32 noundef -1, i32 noundef %46, ptr noundef null)
   %48 = icmp eq i32 %47, %.058
-  br i1 %48, label %.thread, label %42, !llvm.loop !6
+  br i1 %48, label %.thread, label %42
 
 .thread:                                          ; preds = %45
   %49 = call ptr @proto_tree_add_expert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull @ei_acse_malformed, ptr noundef %0, i32 noundef %.058, i32 noundef -1)
@@ -845,7 +845,7 @@ declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  %8 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %20
 
@@ -871,7 +871,7 @@ define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_acse_T_octet_aligned(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  %8 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %20
 
@@ -1192,7 +1192,7 @@ define internal i32 @dissect_acse_T_other_mechanism_name(i1 noundef zeroext %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_acse_T_other_mechanism_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  %8 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %20
 
@@ -1590,7 +1590,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = !{i8 0, i8 2}
+!7 = !{}

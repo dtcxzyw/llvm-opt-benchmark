@@ -136,12 +136,12 @@ zend_string_alloc.exit14:
   call void @zval_ptr_dtor(ptr noundef nonnull %45) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %32
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #8
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !62
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !60
   %46 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
@@ -154,7 +154,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr readnone captures(none) %0
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !62, !range !58, !noundef !59
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !60, !range !58, !noundef !59
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %26
 
@@ -205,7 +205,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr readnone captures(none) %0
 24:                                               ; preds = %23, %11
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #8
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !62
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !60
   %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %2)
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #8
   br label %26
@@ -295,7 +295,7 @@ ps_call_handler.exit:                             ; preds = %20, %22, %26
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %27, %32
-  store ptr %28, ptr %2, align 8, !tbaa !63
+  store ptr %28, ptr %2, align 8, !tbaa !61
   br label %35
 
 35:                                               ; preds = %ps_call_handler.exit, %zend_string_copy.exit
@@ -394,7 +394,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr readnone captures(none) %0
   call void @zval_ptr_dtor(ptr noundef nonnull %39) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %26
   %40 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %6)
@@ -532,7 +532,7 @@ ps_call_handler.exit:                             ; preds = %12, %14, %18
 
 22:                                               ; preds = %ps_call_handler.exit, %21, %19
   %.sink = phi i64 [ -1, %21 ], [ %20, %19 ], [ 1, %ps_call_handler.exit ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !64
+  store i64 %.sink, ptr %2, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   ret i64 %.sink
@@ -792,7 +792,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
   call void @zval_ptr_dtor(ptr noundef nonnull %40) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 41:                                               ; preds = %22
   br i1 %27, label %ps_call_handler.exit.sink.split, label %42
@@ -829,7 +829,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
   call void @zval_ptr_dtor(ptr noundef nonnull %53) #8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 2
-  br i1 %exitcond.not.i18, label %ps_call_handler.exit, label %.lr.ph.i15, !llvm.loop !60
+  br i1 %exitcond.not.i18, label %ps_call_handler.exit, label %.lr.ph.i15
 
 ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
@@ -879,7 +879,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   ]
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !65
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !63
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %8, label %18
 
@@ -889,7 +889,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br label %18
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !65
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !63
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %12, label %18
 
@@ -899,7 +899,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br label %18
 
 14:                                               ; preds = %4, %1
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !65
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !63
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %18
 
@@ -1014,9 +1014,7 @@ attributes #11 = { nounwind returns_twice }
 !57 = !{!"double", !7, i64 0}
 !58 = !{i8 0, i8 2}
 !59 = !{}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!48, !21, i64 344}
-!63 = !{!42, !42, i64 0}
-!64 = !{!12, !12, i64 0}
-!65 = !{!15, !33, i64 960}
+!60 = !{!48, !21, i64 344}
+!61 = !{!42, !42, i64 0}
+!62 = !{!12, !12, i64 0}
+!63 = !{!15, !33, i64 960}

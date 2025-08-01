@@ -105,27 +105,27 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = tail call ptr @opt_arg() #5
-  store ptr %4, ptr @in_file, align 8, !tbaa !7
+  store ptr %4, ptr @in_file, align 8, !tbaa !6
   br label %.backedge
 
 5:                                                ; preds = %1
   %6 = tail call ptr @opt_arg() #5
-  store ptr %6, ptr @in_pass, align 8, !tbaa !7
+  store ptr %6, ptr @in_pass, align 8, !tbaa !6
   br label %.backedge
 
 7:                                                ; preds = %1
   %8 = tail call i32 @opt_int_arg() #5
-  store i32 %8, ptr @has_key, align 4, !tbaa !12
+  store i32 %8, ptr @has_key, align 4, !tbaa !11
   br label %.backedge
 
 9:                                                ; preds = %1
   %10 = tail call i32 @opt_int_arg() #5
-  store i32 %10, ptr @has_cert, align 4, !tbaa !12
+  store i32 %10, ptr @has_cert, align 4, !tbaa !11
   br label %.backedge
 
 11:                                               ; preds = %1
   %12 = tail call i32 @opt_int_arg() #5
-  store i32 %12, ptr @has_ca, align 4, !tbaa !12
+  store i32 %12, ptr @has_ca, align 4, !tbaa !11
   br label %.backedge
 
 13:                                               ; preds = %1
@@ -134,9 +134,9 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %.not3, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %16 = load ptr, ptr @testctx, align 8, !tbaa !13
   tail call void @OSSL_LIB_CTX_free(ptr noundef %16) #5
-  store ptr null, ptr @testctx, align 8, !tbaa !14
+  store ptr null, ptr @testctx, align 8, !tbaa !13
   br label %.loopexit
 
 17:                                               ; preds = %13
@@ -184,12 +184,12 @@ define internal i32 @pkcs12_parse_test() #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  store ptr null, ptr %5, align 8, !tbaa !16
+  store ptr null, ptr %5, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  store ptr null, ptr %6, align 8, !tbaa !18
+  store ptr null, ptr %6, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  store ptr null, ptr %7, align 8, !tbaa !20
-  %8 = load ptr, ptr @in_file, align 8, !tbaa !7
+  store ptr null, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr @in_file, align 8, !tbaa !6
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %98, label %9
 
@@ -200,7 +200,7 @@ define internal i32 @pkcs12_parse_test() #1 {
   br i1 %.not6, label %98, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr @in_pass, align 8, !tbaa !7
+  %13 = load ptr, ptr @in_pass, align 8, !tbaa !6
   %14 = call i32 @PKCS12_parse(ptr noundef %10, ptr noundef %13, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
@@ -209,88 +209,88 @@ define internal i32 @pkcs12_parse_test() #1 {
   br i1 %.not7, label %98, label %18
 
 18:                                               ; preds = %12
-  %19 = load i32, ptr @has_key, align 4, !tbaa !12
+  %19 = load i32, ptr @has_key, align 4, !tbaa !11
   %.not8 = icmp eq i32 %19, 0
   br i1 %.not8, label %.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %5, align 8, !tbaa !16
+  %21 = load ptr, ptr %5, align 8, !tbaa !15
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 119, ptr noundef nonnull @.str.34, ptr noundef %21) #5
   %.not9 = icmp eq i32 %22, 0
   br i1 %.not9, label %98, label %23
 
 23:                                               ; preds = %20
-  %.pr = load i32, ptr @has_key, align 4, !tbaa !12
+  %.pr = load i32, ptr @has_key, align 4, !tbaa !11
   %.not10 = icmp eq i32 %.pr, 0
   br i1 %.not10, label %.thread, label %26
 
 .thread:                                          ; preds = %18, %23
-  %24 = load ptr, ptr %5, align 8, !tbaa !16
+  %24 = load ptr, ptr %5, align 8, !tbaa !15
   %25 = call i32 @test_ptr_null(ptr noundef nonnull @.str.30, i32 noundef 119, ptr noundef nonnull @.str.34, ptr noundef %24) #5
   %.not11 = icmp eq i32 %25, 0
   br i1 %.not11, label %98, label %26
 
 26:                                               ; preds = %.thread, %23
-  %27 = load i32, ptr @has_cert, align 4, !tbaa !12
+  %27 = load i32, ptr @has_cert, align 4, !tbaa !11
   %.not12 = icmp eq i32 %27, 0
   br i1 %.not12, label %.thread25, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %6, align 8, !tbaa !18
+  %29 = load ptr, ptr %6, align 8, !tbaa !17
   %30 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 121, ptr noundef nonnull @.str.35, ptr noundef %29) #5
   %.not13 = icmp eq i32 %30, 0
   br i1 %.not13, label %98, label %31
 
 31:                                               ; preds = %28
-  %.pr24 = load i32, ptr @has_cert, align 4, !tbaa !12
+  %.pr24 = load i32, ptr @has_cert, align 4, !tbaa !11
   %.not14 = icmp eq i32 %.pr24, 0
   br i1 %.not14, label %.thread25, label %34
 
 .thread25:                                        ; preds = %26, %31
-  %32 = load ptr, ptr %6, align 8, !tbaa !18
+  %32 = load ptr, ptr %6, align 8, !tbaa !17
   %33 = call i32 @test_ptr_null(ptr noundef nonnull @.str.30, i32 noundef 121, ptr noundef nonnull @.str.35, ptr noundef %32) #5
   %.not15 = icmp eq i32 %33, 0
   br i1 %.not15, label %98, label %34
 
 34:                                               ; preds = %.thread25, %31
-  %35 = load i32, ptr @has_ca, align 4, !tbaa !12
+  %35 = load i32, ptr @has_ca, align 4, !tbaa !11
   %.not16 = icmp eq i32 %35, 0
   br i1 %.not16, label %.thread29, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %7, align 8, !tbaa !20
+  %37 = load ptr, ptr %7, align 8, !tbaa !19
   %38 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 123, ptr noundef nonnull @.str.36, ptr noundef %37) #5
   %.not17 = icmp eq i32 %38, 0
   br i1 %.not17, label %98, label %39
 
 39:                                               ; preds = %36
-  %.pr28 = load i32, ptr @has_ca, align 4, !tbaa !12
+  %.pr28 = load i32, ptr @has_ca, align 4, !tbaa !11
   %.not18 = icmp eq i32 %.pr28, 0
   br i1 %.not18, label %.thread29, label %42
 
 .thread29:                                        ; preds = %34, %39
-  %40 = load ptr, ptr %7, align 8, !tbaa !20
+  %40 = load ptr, ptr %7, align 8, !tbaa !19
   %41 = call i32 @test_ptr_null(ptr noundef nonnull @.str.30, i32 noundef 123, ptr noundef nonnull @.str.36, ptr noundef %40) #5
   %.not19 = icmp eq i32 %41, 0
   br i1 %.not19, label %98, label %42
 
 42:                                               ; preds = %.thread29, %39
-  %43 = load i32, ptr @has_key, align 4, !tbaa !12
+  %43 = load i32, ptr @has_key, align 4, !tbaa !11
   %.not20 = icmp eq i32 %43, 0
   br i1 %.not20, label %98, label %44
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr %5, align 8, !tbaa !16
-  %46 = load ptr, ptr %6, align 8, !tbaa !18
+  %45 = load ptr, ptr %5, align 8, !tbaa !15
+  %46 = load ptr, ptr %6, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store ptr null, ptr %1, align 8, !tbaa !22
+  store ptr null, ptr %1, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !16
+  store ptr null, ptr %2, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !tbaa !18
+  store ptr null, ptr %3, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  store ptr null, ptr %4, align 8, !tbaa !20
-  %47 = load ptr, ptr @in_pass, align 8, !tbaa !7
+  store ptr null, ptr %4, align 8, !tbaa !19
+  %47 = load ptr, ptr @in_pass, align 8, !tbaa !6
   %48 = call i32 @PKCS12_newpass(ptr noundef %10, ptr noundef %47, ptr noundef nonnull @.str.43) #5
   %49 = icmp ne i32 %48, 0
   %50 = zext i1 %49 to i32
@@ -314,9 +314,9 @@ define internal i32 @pkcs12_parse_test() #1 {
   br i1 %.not9.i, label %changepass.exit, label %61
 
 61:                                               ; preds = %56
-  %62 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %62 = load ptr, ptr @testctx, align 8, !tbaa !13
   %63 = call ptr @PKCS12_init_ex(i32 noundef 21, ptr noundef %62, ptr noundef nonnull @.str.40) #5
-  store ptr %63, ptr %1, align 8, !tbaa !22
+  store ptr %63, ptr %1, align 8, !tbaa !21
   %64 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 79, ptr noundef nonnull @.str.46, ptr noundef %63) #5
   %.not10.i = icmp eq i32 %64, 0
   br i1 %.not10.i, label %changepass.exit, label %65
@@ -328,7 +328,7 @@ define internal i32 @pkcs12_parse_test() #1 {
   br i1 %.not11.i, label %changepass.exit, label %68
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr %1, align 8, !tbaa !22
+  %69 = load ptr, ptr %1, align 8, !tbaa !21
   %70 = call i32 @PKCS12_parse(ptr noundef %69, ptr noundef nonnull @.str.43, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %71 = icmp ne i32 %70, 0
   %72 = zext i1 %71 to i32
@@ -337,36 +337,36 @@ define internal i32 @pkcs12_parse_test() #1 {
   br i1 %.not12.i, label %changepass.exit, label %74
 
 74:                                               ; preds = %68
-  %75 = load i32, ptr @has_key, align 4, !tbaa !12
+  %75 = load i32, ptr @has_key, align 4, !tbaa !11
   %.not13.i = icmp eq i32 %75, 0
   br i1 %.not13.i, label %83, label %76
 
 76:                                               ; preds = %74
-  %77 = load ptr, ptr %2, align 8, !tbaa !16
+  %77 = load ptr, ptr %2, align 8, !tbaa !15
   %78 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 86, ptr noundef nonnull @.str.49, ptr noundef %77) #5
   %.not14.i = icmp eq i32 %78, 0
   br i1 %.not14.i, label %changepass.exit, label %79
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr %2, align 8, !tbaa !16
+  %80 = load ptr, ptr %2, align 8, !tbaa !15
   %81 = call i32 @EVP_PKEY_eq(ptr noundef %45, ptr noundef %80) #5
   %82 = call i32 @test_int_eq(ptr noundef nonnull @.str.30, i32 noundef 86, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef %81, i32 noundef 1) #5
   %.not15.i = icmp eq i32 %82, 0
   br i1 %.not15.i, label %changepass.exit, label %83
 
 83:                                               ; preds = %79, %74
-  %84 = load i32, ptr @has_cert, align 4, !tbaa !12
+  %84 = load i32, ptr @has_cert, align 4, !tbaa !11
   %.not16.i = icmp eq i32 %84, 0
   br i1 %.not16.i, label %92, label %85
 
 85:                                               ; preds = %83
-  %86 = load ptr, ptr %3, align 8, !tbaa !18
+  %86 = load ptr, ptr %3, align 8, !tbaa !17
   %87 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 90, ptr noundef nonnull @.str.52, ptr noundef %86) #5
   %.not17.i = icmp eq i32 %87, 0
   br i1 %.not17.i, label %changepass.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = load ptr, ptr %3, align 8, !tbaa !18
+  %89 = load ptr, ptr %3, align 8, !tbaa !17
   %90 = call i32 @X509_cmp(ptr noundef %46, ptr noundef %89) #5
   %91 = call i32 @test_int_eq(ptr noundef nonnull @.str.30, i32 noundef 90, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i32 noundef %90, i32 noundef 0) #5
   %.not18.i = icmp eq i32 %91, 0
@@ -379,13 +379,13 @@ changepass.exit:                                  ; preds = %44, %52, %56, %61, 
   %not..not21 = phi i32 [ 1, %92 ], [ 0, %88 ], [ 0, %85 ], [ 0, %79 ], [ 0, %76 ], [ 0, %68 ], [ 0, %65 ], [ 0, %61 ], [ 0, %56 ], [ 0, %52 ], [ 0, %44 ]
   %.0.i = phi ptr [ %54, %92 ], [ %54, %88 ], [ %54, %85 ], [ %54, %79 ], [ %54, %76 ], [ %54, %68 ], [ %54, %65 ], [ %54, %61 ], [ %54, %56 ], [ %54, %52 ], [ null, %44 ]
   %93 = call i32 @BIO_free(ptr noundef %.0.i) #5
-  %94 = load ptr, ptr %1, align 8, !tbaa !22
+  %94 = load ptr, ptr %1, align 8, !tbaa !21
   call void @PKCS12_free(ptr noundef %94) #5
-  %95 = load ptr, ptr %2, align 8, !tbaa !16
+  %95 = load ptr, ptr %2, align 8, !tbaa !15
   call void @EVP_PKEY_free(ptr noundef %95) #5
-  %96 = load ptr, ptr %3, align 8, !tbaa !18
+  %96 = load ptr, ptr %3, align 8, !tbaa !17
   call void @X509_free(ptr noundef %96) #5
-  %97 = load ptr, ptr %4, align 8, !tbaa !20
+  %97 = load ptr, ptr %4, align 8, !tbaa !19
   call void @OSSL_STACK_OF_X509_free(ptr noundef %97) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
@@ -397,11 +397,11 @@ changepass.exit:                                  ; preds = %44, %52, %56, %61, 
   %99 = phi i32 [ 0, %.thread29 ], [ 0, %36 ], [ 0, %.thread25 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %20 ], [ 0, %12 ], [ 0, %9 ], [ 1, %42 ], [ 1, %0 ], [ %not..not21, %changepass.exit ]
   %.1 = phi ptr [ %10, %.thread29 ], [ %10, %36 ], [ %10, %.thread25 ], [ %10, %28 ], [ %10, %.thread ], [ %10, %20 ], [ %10, %12 ], [ %10, %9 ], [ %10, %42 ], [ null, %0 ], [ %10, %changepass.exit ]
   call void @PKCS12_free(ptr noundef %.1) #5
-  %100 = load ptr, ptr %5, align 8, !tbaa !16
+  %100 = load ptr, ptr %5, align 8, !tbaa !15
   call void @EVP_PKEY_free(ptr noundef %100) #5
-  %101 = load ptr, ptr %6, align 8, !tbaa !18
+  %101 = load ptr, ptr %6, align 8, !tbaa !17
   call void @X509_free(ptr noundef %101) #5
-  %102 = load ptr, ptr %7, align 8, !tbaa !20
+  %102 = load ptr, ptr %7, align 8, !tbaa !19
   call void @OSSL_STACK_OF_X509_free(ptr noundef %102) #5
   %103 = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 134, ptr noundef nonnull @.str.37, i32 noundef %99) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
@@ -419,13 +419,13 @@ define internal i32 @pkcs12_create_ex2_test(i32 noundef %0) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !tbaa !12
+  store i32 0, ptr %2, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %3, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  store ptr null, ptr %4, align 8, !tbaa !18
+  store ptr null, ptr %4, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  store ptr null, ptr %5, align 8, !tbaa !20
+  store ptr null, ptr %5, align 8, !tbaa !19
   %6 = tail call fastcc ptr @PKCS12_load(ptr noundef nonnull @.str.56)
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 147, ptr noundef nonnull @.str.32, ptr noundef %6) #5
   %.not.i = icmp eq i32 %7, 0
@@ -457,40 +457,40 @@ pkcs12_create_ex2_setup.exit:                     ; preds = %8, %13
   ]
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %17 = load ptr, ptr @testctx, align 8, !tbaa !13
   %18 = call ptr @PKCS12_create_ex2(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %17, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %19 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 178, ptr noundef nonnull @.str.55, ptr noundef %18) #5
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %20, label %39
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %4, align 8, !tbaa !18
+  %21 = load ptr, ptr %4, align 8, !tbaa !17
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 182, ptr noundef nonnull @.str.35, ptr noundef %21) #5
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %39, label %23
 
 23:                                               ; preds = %20
-  store i32 1, ptr %2, align 4, !tbaa !12
-  %24 = load ptr, ptr %4, align 8, !tbaa !18
-  %25 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i32 1, ptr %2, align 4, !tbaa !11
+  %24 = load ptr, ptr %4, align 8, !tbaa !17
+  %25 = load ptr, ptr @testctx, align 8, !tbaa !13
   %26 = call ptr @PKCS12_create_ex2(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %24, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %25, ptr noundef null, ptr noundef nonnull @pkcs12_create_cb, ptr noundef nonnull %2) #5
   %27 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 193, ptr noundef nonnull @.str.55, ptr noundef %26) #5
   %.not16 = icmp eq i32 %27, 0
   br i1 %.not16, label %39, label %38
 
 28:                                               ; preds = %15
-  store i32 -1, ptr %2, align 4, !tbaa !12
-  %29 = load ptr, ptr %4, align 8, !tbaa !18
-  %30 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i32 -1, ptr %2, align 4, !tbaa !11
+  %29 = load ptr, ptr %4, align 8, !tbaa !17
+  %30 = load ptr, ptr @testctx, align 8, !tbaa !13
   %31 = call ptr @PKCS12_create_ex2(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %29, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %30, ptr noundef null, ptr noundef nonnull @pkcs12_create_cb, ptr noundef nonnull %2) #5
   %32 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 204, ptr noundef nonnull @.str.55, ptr noundef %31) #5
   %.not13 = icmp eq i32 %32, 0
   br i1 %.not13, label %38, label %39
 
 33:                                               ; preds = %15
-  store i32 0, ptr %2, align 4, !tbaa !12
-  %34 = load ptr, ptr %4, align 8, !tbaa !18
-  %35 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i32 0, ptr %2, align 4, !tbaa !11
+  %34 = load ptr, ptr %4, align 8, !tbaa !17
+  %35 = load ptr, ptr @testctx, align 8, !tbaa !13
   %36 = call ptr @PKCS12_create_ex2(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %34, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %35, ptr noundef null, ptr noundef nonnull @pkcs12_create_cb, ptr noundef nonnull %2) #5
   %37 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 215, ptr noundef nonnull @.str.55, ptr noundef %36) #5
   %.not12 = icmp eq i32 %37, 0
@@ -505,11 +505,11 @@ pkcs12_create_ex2_setup.exit:                     ; preds = %8, %13
   %.0 = phi ptr [ %18, %16 ], [ %.1, %38 ], [ %26, %23 ], [ %18, %20 ], [ %31, %28 ], [ %36, %33 ], [ null, %pkcs12_create_ex2_setup.exit ]
   call void @PKCS12_free(ptr noundef %.0.i) #5
   call void @PKCS12_free(ptr noundef %.0) #5
-  %41 = load ptr, ptr %3, align 8, !tbaa !16
+  %41 = load ptr, ptr %3, align 8, !tbaa !15
   call void @EVP_PKEY_free(ptr noundef %41) #5
-  %42 = load ptr, ptr %4, align 8, !tbaa !18
+  %42 = load ptr, ptr %4, align 8, !tbaa !17
   call void @X509_free(ptr noundef %42) #5
-  %43 = load ptr, ptr %5, align 8, !tbaa !20
+  %43 = load ptr, ptr %5, align 8, !tbaa !19
   call void @OSSL_STACK_OF_X509_free(ptr noundef %43) #5
   %44 = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 226, ptr noundef nonnull @.str.37, i32 noundef %40) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
@@ -524,9 +524,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %1 = load ptr, ptr @testctx, align 8, !tbaa !13
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #5
-  %2 = load ptr, ptr @nullprov, align 8, !tbaa !24
+  %2 = load ptr, ptr @nullprov, align 8, !tbaa !23
   %3 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %2) #5
   ret void
 }
@@ -541,16 +541,16 @@ declare i32 @PKCS12_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 define internal fastcc ptr @PKCS12_load(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   %3 = tail call ptr @BIO_new_file(ptr noundef %0, ptr noundef nonnull @.str.38) #5
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 38, ptr noundef nonnull @.str.39, ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %6 = load ptr, ptr @testctx, align 8, !tbaa !13
   %7 = tail call ptr @PKCS12_init_ex(i32 noundef 21, ptr noundef %6, ptr noundef nonnull @.str.40) #5
-  store ptr %7, ptr %2, align 8, !tbaa !22
+  store ptr %7, ptr %2, align 8, !tbaa !21
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 42, ptr noundef nonnull @.str.32, ptr noundef %7) #5
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %17, label %9
@@ -565,12 +565,12 @@ define internal fastcc ptr @PKCS12_load(ptr noundef %0) unnamed_addr #1 {
 
 14:                                               ; preds = %9
   %15 = call i32 @BIO_free(ptr noundef %3) #5
-  %16 = load ptr, ptr %2, align 8, !tbaa !22
+  %16 = load ptr, ptr %2, align 8, !tbaa !21
   br label %20
 
 17:                                               ; preds = %9, %5, %1
   %18 = call i32 @BIO_free(ptr noundef %3) #5
-  %19 = load ptr, ptr %2, align 8, !tbaa !22
+  %19 = load ptr, ptr %2, align 8, !tbaa !21
   call void @PKCS12_free(ptr noundef %19) #5
   br label %20
 
@@ -620,7 +620,7 @@ declare ptr @PKCS12_create_ex2(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pkcs12_create_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
-  %3 = load i32, ptr %1, align 4, !tbaa !12
+  %3 = load i32, ptr %1, align 4, !tbaa !11
   ret i32 %3
 }
 
@@ -637,25 +637,24 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !10, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS7x509_st", !9, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS9PKCS12_st", !9, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS7x509_st", !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS13stack_st_X509", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS9PKCS12_st", !8, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}

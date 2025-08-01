@@ -400,7 +400,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z32VerifyIterativeGVNConstraintFuncj
   %6 = udiv i32 %.0131624, 10
   %7 = urem i32 %6, 10
   %8 = icmp samesign ugt i32 %7, 1
-  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %2
   %.017.lcssa = phi i32 [ 0, %2 ], [ 1, %5 ]
@@ -411,7 +411,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z32VerifyIterativeGVNConstraintFuncj
 .lr.ph:                                           ; preds = %2, %5
   %.0131624 = phi i32 [ %6, %5 ], [ %0, %2 ]
   %9 = phi i1 [ false, %5 ], [ true, %2 ]
-  br i1 %9, label %5, label %10, !llvm.loop !9
+  br i1 %9, label %5, label %10, !llvm.loop !8
 
 10:                                               ; preds = %.lr.ph
   %.not = icmp ult i32 %.0131624, 10
@@ -617,7 +617,7 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
   %24 = load i8, ptr %0, align 8
   %25 = trunc i8 %24 to i1
   %or.cond = select i1 %.not, i1 %25, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -694,8 +694,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -102,7 +102,7 @@ define dso_local void @PHP_SNEFRUUpdate(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %SnefruTransform.exit, label %38, !llvm.loop !11
+  br i1 %exitcond.not.i, label %SnefruTransform.exit, label %38
 
 SnefruTransform.exit:                             ; preds = %38
   tail call fastcc void @Snefru(ptr noundef nonnull %0)
@@ -153,14 +153,14 @@ SnefruTransform.exit:                             ; preds = %38
   %indvars.iv.next18.i49 = add nuw nsw i64 %indvars.iv17.i47, 4
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 8
-  br i1 %exitcond.not.i51, label %SnefruTransform.exit52, label %66, !llvm.loop !11
+  br i1 %exitcond.not.i51, label %SnefruTransform.exit52, label %66
 
 SnefruTransform.exit52:                           ; preds = %66
   tail call fastcc void @Snefru(ptr noundef nonnull %0)
   tail call void @explicit_bzero(ptr noundef nonnull %62, i64 noundef 32) #7
   %87 = add i64 %64, 32
   %.not45 = icmp ugt i64 %87, %2
-  br i1 %.not45, label %._crit_edge, label %63, !llvm.loop !13
+  br i1 %.not45, label %._crit_edge, label %63
 
 ._crit_edge:                                      ; preds = %SnefruTransform.exit52, %60
   %.1.lcssa = phi i64 [ %.0, %60 ], [ %64, %SnefruTransform.exit52 ]
@@ -223,7 +223,7 @@ define dso_local void @PHP_SNEFRUFinal(ptr noundef writeonly captures(none) %0, 
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %SnefruTransform.exit, label %7, !llvm.loop !11
+  br i1 %exitcond.not.i, label %SnefruTransform.exit, label %7
 
 SnefruTransform.exit:                             ; preds = %7
   tail call fastcc void @Snefru(ptr noundef nonnull %1)
@@ -269,7 +269,7 @@ SnefruTransform.exit:                             ; preds = %7
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next31, 8
-  br i1 %exitcond.not, label %53, label %36, !llvm.loop !14
+  br i1 %exitcond.not, label %53, label %36
 
 53:                                               ; preds = %36
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 108) #7
@@ -502,12 +502,12 @@ define internal fastcc void @Snefru(ptr noundef captures(none) %0) unnamed_addr 
   %185 = or disjoint i32 %184, %183
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %186, label %38, !llvm.loop !15
+  br i1 %exitcond.not, label %186, label %38
 
 186:                                              ; preds = %38
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next282, 8
-  br i1 %exitcond284.not, label %187, label %33, !llvm.loop !16
+  br i1 %exitcond284.not, label %187, label %33
 
 187:                                              ; preds = %186
   %188 = xor i32 %185, %2
@@ -536,7 +536,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #6
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_snefru_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
 
@@ -581,20 +581,14 @@ attributes #7 = { nounwind }
 !8 = !{!9, !6, i64 72}
 !9 = !{!"", !6, i64 0, !6, i64 64, !6, i64 72, !6, i64 73}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = !{!18, !20, i64 8}
-!18 = !{!"_php_hashcontext_object", !19, i64 0, !20, i64 8, !21, i64 16, !22, i64 24, !23, i64 32}
-!19 = !{!"p1 _ZTS13_php_hash_ops", !20, i64 0}
-!20 = !{!"any pointer", !6, i64 0}
-!21 = !{!"long", !6, i64 0}
-!22 = !{!"p1 omnipotent char", !20, i64 0}
-!23 = !{!"_zend_object", !24, i64 0, !5, i64 8, !5, i64 12, !25, i64 16, !26, i64 24, !27, i64 32, !6, i64 40}
-!24 = !{!"_zend_refcounted_h", !5, i64 0, !6, i64 4}
-!25 = !{!"p1 _ZTS17_zend_class_entry", !20, i64 0}
-!26 = !{!"p1 _ZTS21_zend_object_handlers", !20, i64 0}
-!27 = !{!"p1 _ZTS11_zend_array", !20, i64 0}
+!11 = !{!12, !14, i64 8}
+!12 = !{!"_php_hashcontext_object", !13, i64 0, !14, i64 8, !15, i64 16, !16, i64 24, !17, i64 32}
+!13 = !{!"p1 _ZTS13_php_hash_ops", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!"p1 omnipotent char", !14, i64 0}
+!17 = !{!"_zend_object", !18, i64 0, !5, i64 8, !5, i64 12, !19, i64 16, !20, i64 24, !21, i64 32, !6, i64 40}
+!18 = !{!"_zend_refcounted_h", !5, i64 0, !6, i64 4}
+!19 = !{!"p1 _ZTS17_zend_class_entry", !14, i64 0}
+!20 = !{!"p1 _ZTS21_zend_object_handlers", !14, i64 0}
+!21 = !{!"p1 _ZTS11_zend_array", !14, i64 0}

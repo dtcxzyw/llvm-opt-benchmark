@@ -212,7 +212,7 @@ define internal i32 @mxg_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 91:                                               ; preds = %.lr.ph42.i
   %92 = getelementptr inbounds nuw i8, ptr %.12341.i, i64 1
   %exitcond.not.i = icmp eq ptr %92, %67
-  br i1 %exitcond.not.i, label %mxg_find_startmarker.exit.thread, label %.lr.ph42.i, !llvm.loop !53
+  br i1 %exitcond.not.i, label %mxg_find_startmarker.exit.thread, label %.lr.ph42.i, !llvm.loop !52
 
 .thread.loopexit28.split.loop.exit31.i:           ; preds = %78
   %93 = getelementptr inbounds nuw i8, ptr %.02240.i, i64 1
@@ -239,7 +239,7 @@ define internal i32 @mxg_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 98:                                               ; preds = %.lr.ph42.i141
   %99 = getelementptr inbounds nuw i8, ptr %.12341.i142, i64 1
   %exitcond.not.i143 = icmp eq ptr %99, %62
-  br i1 %exitcond.not.i143, label %.critedge, label %.lr.ph42.i141, !llvm.loop !53
+  br i1 %exitcond.not.i143, label %.critedge, label %.lr.ph42.i141, !llvm.loop !52
 
 mxg_find_startmarker.exit150:                     ; preds = %.lr.ph42.i141
   %100 = getelementptr inbounds i8, ptr %62, i64 -1
@@ -291,7 +291,7 @@ mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.
   %117 = load ptr, ptr %5, align 8, !tbaa !44
   %118 = tail call i32 @avio_feof(ptr noundef %117) #5
   %.not = icmp eq i32 %118, 0
-  br i1 %.not, label %12, label %.critedge, !llvm.loop !54
+  br i1 %.not, label %12, label %.critedge, !llvm.loop !53
 
 119:                                              ; preds = %114
   %120 = ptrtoint ptr %115 to i64
@@ -303,17 +303,17 @@ mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !55
+  %127 = load ptr, ptr %126, align 8, !tbaa !54
   %128 = load ptr, ptr %10, align 8, !tbaa !49
   %129 = and i64 %121, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr align 1 %128, i64 %129, i1 false)
   %130 = load i64, ptr %11, align 8, !tbaa !41
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %130, ptr %131, align 8, !tbaa !56
+  store i64 %130, ptr %131, align 8, !tbaa !55
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %130, ptr %132, align 8, !tbaa !57
+  store i64 %130, ptr %132, align 8, !tbaa !56
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %133, align 4, !tbaa !58
+  store i32 0, ptr %133, align 4, !tbaa !57
   %134 = load ptr, ptr %10, align 8, !tbaa !49
   %135 = load ptr, ptr %4, align 8, !tbaa !48
   %136 = ptrtoint ptr %134 to i64
@@ -446,18 +446,18 @@ mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.
 
 211:                                              ; preds = %207
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %213 = load ptr, ptr %212, align 8, !tbaa !55
+  %213 = load ptr, ptr %212, align 8, !tbaa !54
   %214 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %215 = zext i32 %208 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr nonnull align 1 %214, i64 %215, i1 false)
   %216 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %217 = load i64, ptr %216, align 1, !tbaa !36
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %217, ptr %218, align 8, !tbaa !56
+  store i64 %217, ptr %218, align 8, !tbaa !55
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %217, ptr %219, align 8, !tbaa !57
+  store i64 %217, ptr %219, align 8, !tbaa !56
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 1, ptr %220, align 4, !tbaa !58
+  store i32 1, ptr %220, align 4, !tbaa !57
   %221 = load ptr, ptr %4, align 8, !tbaa !48
   %222 = ptrtoint ptr %.1 to i64
   %223 = ptrtoint ptr %221 to i64
@@ -520,7 +520,7 @@ mxg_find_startmarker.exit.thread:                 ; preds = %91, %.preheader.i, 
 
 .critedge.sink.split:                             ; preds = %211, %231, %147
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %247 = load i32, ptr %246, align 8, !tbaa !59
+  %247 = load i32, ptr %246, align 8, !tbaa !58
   br label %.critedge
 
 .critedge:                                        ; preds = %151, %.backedge, %mxg_find_startmarker.exit150, %101, %12, %22, %32, %48, %.preheader.i138, %158, %169, %185, %98, %.critedge.sink.split, %2, %207, %119
@@ -623,13 +623,12 @@ attributes #5 = { nounwind }
 !47 = !{!42, !18, i64 8}
 !48 = !{!42, !18, i64 0}
 !49 = !{!42, !18, i64 16}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = distinct !{!53, !51, !52}
-!54 = distinct !{!54, !51, !52}
-!55 = !{!28, !18, i64 24}
-!56 = !{!28, !19, i64 16}
-!57 = !{!28, !19, i64 8}
-!58 = !{!28, !13, i64 36}
-!59 = !{!28, !13, i64 32}
+!52 = distinct !{!52, !51}
+!53 = distinct !{!53, !51}
+!54 = !{!28, !18, i64 24}
+!55 = !{!28, !19, i64 16}
+!56 = !{!28, !19, i64 8}
+!57 = !{!28, !13, i64 36}
+!58 = !{!28, !13, i64 32}

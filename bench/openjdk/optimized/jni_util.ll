@@ -757,7 +757,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly captures
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %7, !llvm.loop !9
+  br label %7, !llvm.loop !8
 
 .critedge:                                        ; preds = %7, %7
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -1241,7 +1241,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %14 = icmp sgt i8 %11, -1
@@ -1307,7 +1307,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   store i16 %47, ptr %48, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
   %.02128.i.i = phi ptr [ %6, %43 ], [ %.02127.i.i, %.lr.ph.i.i ]
@@ -1387,7 +1387,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
   store i16 %85, ptr %86, align 2
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, %wide.trip.count.i.i20
-  br i1 %exitcond.not.i.i24, label %._crit_edge.i.i13, label %.lr.ph.i.i21, !llvm.loop !11
+  br i1 %exitcond.not.i.i24, label %._crit_edge.i.i13, label %.lr.ph.i.i21, !llvm.loop !10
 
 ._crit_edge.i.i13:                                ; preds = %.lr.ph.i.i21, %81
   %.02128.i.i14 = phi ptr [ %5, %81 ], [ %.02127.i.i19, %.lr.ph.i.i21 ]
@@ -1465,7 +1465,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
   store i16 %spec.select.i, ptr %122, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i26, label %.lr.ph.i28, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i26, label %.lr.ph.i28, !llvm.loop !11
 
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i28, %117
   %.02632.i = phi ptr [ %4, %117 ], [ %.02633.i, %.lr.ph.i28 ]
@@ -1557,7 +1557,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
   store i16 %.sink.i, ptr %166, align 2
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i33
-  br i1 %exitcond.not.i37, label %._crit_edge.i29, label %.lr.ph.i34, !llvm.loop !13
+  br i1 %exitcond.not.i37, label %._crit_edge.i29, label %.lr.ph.i34, !llvm.loop !12
 
 ._crit_edge.i29:                                  ; preds = %165, %153
   %.03037.i = phi ptr [ %3, %153 ], [ %.03038.i, %165 ]
@@ -1689,7 +1689,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   %spec.select.us.i = add nuw nsw i32 %.07182.us.i, %42
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
-  br i1 %exitcond94.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !14
+  br i1 %exitcond94.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %59
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %.lr.ph.i ]
@@ -1724,7 +1724,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   %spec.select.i = add nuw nsw i32 %.07182.i, %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count93.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %59, %.lr.ph.split.us.i, %.preheader80.i
   %.071.lcssa.i = phi i32 [ %33, %.preheader80.i ], [ %spec.select.us.i, %.lr.ph.split.us.i ], [ %spec.select.i, %59 ]
@@ -1796,7 +1796,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   %.170.i = phi i32 [ %88, %82 ], [ %91, %90 ]
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
-  br i1 %exitcond99.not.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !17
+  br i1 %exitcond99.not.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !16
 
 ._crit_edge87.i:                                  ; preds = %94, %.preheader.i
   %95 = load ptr, ptr %0, align 8
@@ -1852,7 +1852,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   store i8 %spec.select.i31, ptr %121, align 1
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %._crit_edge.i28, label %.lr.ph.split.us.i30, !llvm.loop !18
+  br i1 %exitcond60.not.i, label %._crit_edge.i28, label %.lr.ph.split.us.i30, !llvm.loop !17
 
 .thread.i32:                                      ; preds = %111, %110
   %122 = load ptr, ptr %0, align 8
@@ -1908,7 +1908,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   store i8 %spec.select63.i, ptr %153, align 1
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count59.i
-  br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.split.i24, !llvm.loop !19
+  br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.split.i24, !llvm.loop !18
 
 ._crit_edge.i28:                                  ; preds = %150, %.lr.ph.split.us.i30, %.preheader.i21
   %.pre-phi.i = phi i64 [ 0, %.preheader.i21 ], [ %wide.trip.count59.i, %.lr.ph.split.us.i30 ], [ %wide.trip.count59.i, %150 ]
@@ -1964,7 +1964,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   store i8 %spec.select.i51, ptr %179, align 1
   %indvars.iv.next57.i52 = add nuw nsw i64 %indvars.iv56.i50, 1
   %exitcond60.not.i53 = icmp eq i64 %indvars.iv.next57.i52, %wide.trip.count59.i39
-  br i1 %exitcond60.not.i53, label %._crit_edge.i45, label %.lr.ph.split.us.i49, !llvm.loop !20
+  br i1 %exitcond60.not.i53, label %._crit_edge.i45, label %.lr.ph.split.us.i49, !llvm.loop !19
 
 .thread.i54:                                      ; preds = %169, %168
   %180 = load ptr, ptr %0, align 8
@@ -2020,7 +2020,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   store i8 %spec.select63.i42, ptr %211, align 1
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count59.i39
-  br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.split.i40, !llvm.loop !21
+  br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.split.i40, !llvm.loop !20
 
 ._crit_edge.i45:                                  ; preds = %208, %.lr.ph.split.us.i49, %.preheader.i35
   %.pre-phi.i46 = phi i64 [ 0, %.preheader.i35 ], [ %wide.trip.count59.i39, %.lr.ph.split.us.i49 ], [ %wide.trip.count59.i39, %208 ]
@@ -2279,7 +2279,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 302:                                              ; preds = %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %269, %267
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i
-  br i1 %exitcond.not.i62, label %._crit_edge.i63, label %246, !llvm.loop !22
+  br i1 %exitcond.not.i62, label %._crit_edge.i63, label %246, !llvm.loop !21
 
 ._crit_edge.i63:                                  ; preds = %302, %.preheader.i57
   %.pre-phi.i64 = phi i64 [ 0, %.preheader.i57 ], [ %wide.trip.count.i, %302 ]
@@ -2368,7 +2368,7 @@ define range(i32 -1, 1) i32 @JNU_CopyObjectArray(ptr noundef %0, ptr noundef %1,
   tail call void %20(ptr noundef nonnull %0, ptr noundef %14) #10
   %21 = add nuw nsw i32 %.01718, 1
   %exitcond.not = icmp eq i32 %21, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4
   %.0 = phi i32 [ -1, %4 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -3303,7 +3303,7 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 48:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %45
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %41, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %41 ]
@@ -3375,22 +3375,21 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8, !15}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8, !15}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7, !14}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7, !14}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

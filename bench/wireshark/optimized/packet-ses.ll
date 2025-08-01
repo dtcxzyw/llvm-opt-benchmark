@@ -758,7 +758,7 @@ get_item_len.exit:                                ; preds = %67, %70
   %76 = call fastcc zeroext i1 @dissect_parameters(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %.0.i, ptr noundef %.sink156, ptr noundef %.1125, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %77 = add i32 %75, %72
   call void @proto_item_set_end(ptr noundef %.1128, ptr noundef %0, i32 noundef %77)
-  %78 = load i8, ptr @ses_desegment, align 1, !range !9, !noundef !10
+  %78 = load i8, ptr @ses_desegment, align 1, !range !8, !noundef !9
   %79 = trunc nuw i8 %78 to i1
   %80 = load i8, ptr %7, align 1
   %81 = icmp ne i8 %80, 3
@@ -831,7 +831,7 @@ get_item_len.exit:                                ; preds = %67, %70
 
 116:                                              ; preds = %114, %112
   %117 = call i32 @tvb_captured_length(ptr noundef %0)
-  %118 = load i8, ptr %13, align 4, !range !9, !noundef !10
+  %118 = load i8, ptr %13, align 4, !range !8, !noundef !9
   %119 = trunc nuw i8 %118 to i1
   %120 = icmp eq i8 %9, 1
   %or.cond12 = select i1 %119, i1 %120, i1 false
@@ -1118,7 +1118,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   %124 = add i32 %115, %92
   %125 = sub i16 %101, %.0.i.i
   %.not.i95 = icmp eq i16 %125, 0
-  br i1 %.not.i95, label %dissect_parameter_group.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i95, label %dissect_parameter_group.exit, label %.lr.ph.i, !llvm.loop !10
 
 dissect_parameter_group.exit:                     ; preds = %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
@@ -1137,7 +1137,7 @@ call_pres_dissector.exit:                         ; preds = %126, %dissect_param
   %129 = add i32 %52, %29
   %130 = sub i16 %38, %.0.i
   %.not = icmp eq i16 %130, 0
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %11, !llvm.loop !11
 
 .loopexit:                                        ; preds = %call_pres_dissector.exit, %8, %40, %32
   %.082125 = phi i1 [ %.082137, %40 ], [ %.082137, %32 ], [ true, %8 ], [ %.1, %call_pres_dissector.exit ]
@@ -1584,10 +1584,9 @@ attributes #5 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

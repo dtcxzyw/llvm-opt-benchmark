@@ -51,9 +51,9 @@ _ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %_ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit
   %.0.lcssa = phi double [ 0.000000e+00, %_ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit ], [ %37, %_ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ]
-  %12 = load ptr, ptr %1, align 8, !tbaa !19
+  %12 = load ptr, ptr %1, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !22
+  %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = zext i32 %14 to i64
   %.idx.i.i19 = shl nuw nsw i64 %15, 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i19
@@ -62,14 +62,14 @@ _ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph
 
 .lr.ph.i.i.i.i21:                                 ; preds = %._crit_edge, %18
   %.sroa.0.0.i.i22 = phi ptr [ %19, %18 ], [ %12, %._crit_edge ]
-  %17 = load ptr, ptr %.sroa.0.0.i.i22, align 8, !tbaa !23
+  %17 = load ptr, ptr %.sroa.0.0.i.i22, align 8, !tbaa !22
   %switch.i.i.i.i23 = icmp ult ptr %17, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i.i.i23, label %18, label %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit
 
 18:                                               ; preds = %.lr.ph.i.i.i.i21
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i22, i64 16
   %.not.i.i.i.i27 = icmp eq ptr %19, %16
-  br i1 %.not.i.i.i.i27, label %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit, label %.lr.ph.i.i.i.i21, !llvm.loop !27
+  br i1 %.not.i.i.i.i27, label %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit, label %.lr.ph.i.i.i.i21, !llvm.loop !26
 
 _ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i21, %18, %._crit_edge
   %.sroa.0.1.i.i24 = phi ptr [ %12, %._crit_edge ], [ %.sroa.0.0.i.i22, %.lr.ph.i.i.i.i21 ], [ %16, %18 ]
@@ -81,9 +81,9 @@ _ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit: ; preds = %.lr.ph.i.i.i
   %.050 = phi double [ %37, %_ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ 0.000000e+00, %_ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit ]
   %.sroa.043.049 = phi ptr [ %.sroa.043.2, %_ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapI9func_declPN11ackr_helper7app_occEE5beginEv.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.043.049, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
-  %24 = load i32, ptr %23, align 4, !tbaa !29
+  %24 = load i32, ptr %23, align 4, !tbaa !28
   %25 = and i32 %24, 65536
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %26, label %_ZN11ackr_helper14n_choose_2_chkEj.exit
@@ -101,7 +101,7 @@ _ZN11ackr_helper14n_choose_2_chkEj.exit:          ; preds = %.lr.ph, %26
   %31 = phi double [ %30, %26 ], [ 0x7FF0000000000000, %.lr.ph ]
   %32 = fadd double %.050, %31
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !29
+  %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = mul i32 %34, %24
   %36 = uitofp i32 %35 to double
   %37 = fadd double %32, %36
@@ -123,7 +123,7 @@ _ZN11ackr_helper14n_choose_2_chkEj.exit:          ; preds = %.lr.ph, %26
 _ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i, %40, %_ZN11ackr_helper14n_choose_2_chkEj.exit
   %.sroa.043.2 = phi ptr [ %38, %_ZN11ackr_helper14n_choose_2_chkEj.exit ], [ %.sroa.043.1, %.lr.ph.i.i ], [ %41, %40 ]
   %.not = icmp eq ptr %.sroa.043.2, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge55:                                    ; preds = %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit
   %.1.lcssa = phi double [ %.0.lcssa, %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit ], [ %58, %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ]
@@ -133,9 +133,9 @@ _ZN14core_hashtableIN7obj_mapI9func_declPN11ackr_helper7app_occEE13obj_map_entry
   %.153 = phi double [ %58, %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.0.lcssa, %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit ]
   %.sroa.038.052 = phi ptr [ %.sroa.038.2, %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i24, %_ZNK7obj_mapI3appPN11ackr_helper7app_occEE5beginEv.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.038.052, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !33
+  %43 = load ptr, ptr %42, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
-  %45 = load i32, ptr %44, align 4, !tbaa !29
+  %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = and i32 %45, 65536
   %.not.i30 = icmp eq i32 %46, 0
   br i1 %.not.i30, label %47, label %_ZN11ackr_helper14n_choose_2_chkEj.exit33
@@ -153,7 +153,7 @@ _ZN11ackr_helper14n_choose_2_chkEj.exit33:        ; preds = %.lr.ph54, %47
   %52 = phi double [ %51, %47 ], [ 0x7FF0000000000000, %.lr.ph54 ]
   %53 = fadd double %.153, %52
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !29
+  %55 = load i32, ptr %54, align 4, !tbaa !28
   %56 = mul i32 %55, %45
   %57 = uitofp i32 %56 to double
   %58 = fadd double %53, %57
@@ -163,19 +163,19 @@ _ZN11ackr_helper14n_choose_2_chkEj.exit33:        ; preds = %.lr.ph54, %47
 
 .lr.ph.i.i35:                                     ; preds = %_ZN11ackr_helper14n_choose_2_chkEj.exit33, %61
   %.sroa.038.1 = phi ptr [ %62, %61 ], [ %59, %_ZN11ackr_helper14n_choose_2_chkEj.exit33 ]
-  %60 = load ptr, ptr %.sroa.038.1, align 8, !tbaa !23
+  %60 = load ptr, ptr %.sroa.038.1, align 8, !tbaa !22
   %switch.i.i36 = icmp ult ptr %60, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i36, label %61, label %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
 
 61:                                               ; preds = %.lr.ph.i.i35
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.038.1, i64 16
   %.not.i.i37 = icmp eq ptr %62, %16
-  br i1 %.not.i.i37, label %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %.lr.ph.i.i35, !llvm.loop !27
+  br i1 %.not.i.i37, label %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %.lr.ph.i.i35, !llvm.loop !26
 
 _ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i35, %61, %_ZN11ackr_helper14n_choose_2_chkEj.exit33
   %.sroa.038.2 = phi ptr [ %59, %_ZN11ackr_helper14n_choose_2_chkEj.exit33 ], [ %.sroa.038.1, %.lr.ph.i.i35 ], [ %62, %61 ]
   %.not47 = icmp eq ptr %.sroa.038.2, %20
-  br i1 %.not47, label %._crit_edge55, label %.lr.ph54, !llvm.loop !34
+  br i1 %.not47, label %._crit_edge55, label %.lr.ph54
 }
 
 ; Function Attrs: uwtable
@@ -211,22 +211,19 @@ attributes #5 = { nounwind }
 !13 = !{!"_ZTSN7obj_mapI9func_declPN11ackr_helper7app_occEE8key_dataE", !14, i64 0, !15, i64 8}
 !14 = !{!"p1 _ZTS9func_decl", !6, i64 0}
 !15 = !{!"p1 _ZTSN11ackr_helper7app_occE", !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTS14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE", !21, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!21 = !{!"p1 _ZTSN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE", !6, i64 0}
-!22 = !{!20, !9, i64 8}
-!23 = !{!24, !26, i64 0}
-!24 = !{!"_ZTSN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE", !25, i64 0}
-!25 = !{!"_ZTSN7obj_mapI3appPN11ackr_helper7app_occEE8key_dataE", !26, i64 0, !15, i64 8}
-!26 = !{!"p1 _ZTS3app", !6, i64 0}
-!27 = distinct !{!27, !17, !18}
-!28 = !{!13, !15, i64 8}
-!29 = !{!30, !9, i64 12}
-!30 = !{!"_ZTS14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE", !31, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!31 = !{!"p1 _ZTS14obj_hash_entryI3appE", !6, i64 0}
-!32 = distinct !{!32, !18}
-!33 = !{!25, !15, i64 8}
-!34 = distinct !{!34, !18}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"_ZTS14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE", !20, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!20 = !{!"p1 _ZTSN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE", !6, i64 0}
+!21 = !{!19, !9, i64 8}
+!22 = !{!23, !25, i64 0}
+!23 = !{!"_ZTSN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE", !24, i64 0}
+!24 = !{!"_ZTSN7obj_mapI3appPN11ackr_helper7app_occEE8key_dataE", !25, i64 0, !15, i64 8}
+!25 = !{!"p1 _ZTS3app", !6, i64 0}
+!26 = distinct !{!26, !17}
+!27 = !{!13, !15, i64 8}
+!28 = !{!29, !9, i64 12}
+!29 = !{!"_ZTS14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE", !30, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!30 = !{!"p1 _ZTS14obj_hash_entryI3appE", !6, i64 0}
+!31 = !{!24, !15, i64 8}

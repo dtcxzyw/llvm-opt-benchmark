@@ -1747,6 +1747,5 @@ attributes #8 = { nounwind }
 !13 = !{!10, !8, i64 0}
 !14 = !{!10, !8, i64 68}
 !15 = !{!10, !8, i64 76}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}

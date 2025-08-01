@@ -338,7 +338,7 @@ define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null)
   %.2 = getelementptr inbounds nuw i8, ptr %.2104, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !11
   %67 = icmp ugt i8 %66, 1
-  br i1 %67, label %.lr.ph106, label %._crit_edge107, !llvm.loop !15
+  br i1 %67, label %.lr.ph106, label %._crit_edge107, !llvm.loop !14
 
 ._crit_edge107:                                   ; preds = %.lr.ph106, %._crit_edge
   %.176.lcssa = phi ptr [ %.075, %._crit_edge ], [ %65, %.lr.ph106 ]
@@ -356,7 +356,7 @@ define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null)
   %73 = getelementptr inbounds nuw i8, ptr %.176.lcssa, i64 1
   %74 = getelementptr inbounds nuw i8, ptr %.1.pn.lcssa, i64 2
   store i8 1, ptr %.2.lcssa, align 1, !tbaa !11
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader
 
 75:                                               ; preds = %._crit_edge107
   %.not = icmp eq i8 %68, 0
@@ -371,7 +371,7 @@ define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null)
   %79 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i8 %78, ptr %.4, align 1, !tbaa !11
   %.not86 = icmp eq i8 %78, 0
-  br i1 %.not86, label %80, label %76, !llvm.loop !17
+  br i1 %.not86, label %80, label %76, !llvm.loop !15
 
 80:                                               ; preds = %76
   %81 = ptrtoint ptr %79 to i64
@@ -457,7 +457,7 @@ define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_77(ptr noundef rea
   %21 = icmp ne i8 %17, 0
   %22 = icmp slt i64 %indvars.iv.next, %14
   %23 = or i1 %21, %22
-  br i1 %23, label %.preheader, label %24, !llvm.loop !18
+  br i1 %23, label %.preheader, label %24, !llvm.loop !16
 
 24:                                               ; preds = %20
   store i32 -123, ptr %6, align 4, !tbaa !3
@@ -962,21 +962,21 @@ _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit: ; preds = %4,
 16:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4, !tbaa !3
-  store ptr %2, ptr %7, align 8, !tbaa !19
+  store ptr %2, ptr %7, align 8, !tbaa !17
   %17 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %7, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %18 unwind label %20
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %7, align 8, !tbaa !19
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #10, !srcloc !23
+  %19 = load ptr, ptr %7, align 8, !tbaa !17
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #10, !srcloc !21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   br label %31
 
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %7, align 8, !tbaa !19
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #10, !srcloc !23
+  %22 = load ptr, ptr %7, align 8, !tbaa !17
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #10, !srcloc !21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   br label %32
 
@@ -1144,15 +1144,13 @@ attributes #11 = { nounwind willreturn memory(read) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !5, i64 0}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !13, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSN6icu_779Char16PtrE", !21, i64 0}
-!21 = !{!"p1 char16_t", !22, i64 0}
-!22 = !{!"any pointer", !5, i64 0}
-!23 = !{i64 2149956085}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTSN6icu_779Char16PtrE", !19, i64 0}
+!19 = !{!"p1 char16_t", !20, i64 0}
+!20 = !{!"any pointer", !5, i64 0}
+!21 = !{i64 2149956085}

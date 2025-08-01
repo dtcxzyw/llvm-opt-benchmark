@@ -328,7 +328,7 @@ declare void @usage(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #6 {
-  %2 = load i8, ptr %0, align 1, !tbaa !51
+  %2 = load i8, ptr %0, align 1, !tbaa !50
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -438,7 +438,6 @@ attributes #9 = { noreturn nounwind }
 !45 = !{!"strbuf", !12, i64 0, !12, i64 8, !11, i64 16}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"p1 _ZTS8worktree", !5, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!6, !6, i64 0}
+!50 = !{!6, !6, i64 0}

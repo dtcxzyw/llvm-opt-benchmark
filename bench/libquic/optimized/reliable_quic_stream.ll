@@ -291,15 +291,15 @@ define void @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE(
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i8, ptr %5, align 4, !tbaa !252, !range !245, !noundef !246
+  %6 = load i8, ptr %5, align 4, !tbaa !251, !range !245, !noundef !246
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i8 1, ptr %9, align 4, !tbaa !263
+  store i8 1, ptr %9, align 4, !tbaa !262
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %11 = load i8, ptr %10, align 1, !tbaa !264, !range !245, !noundef !246
+  %11 = load i8, ptr %10, align 1, !tbaa !263, !range !245, !noundef !246
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %21
 
@@ -316,28 +316,28 @@ define void @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE(
 
 21:                                               ; preds = %8, %13, %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %23 = load i8, ptr %22, align 8, !tbaa !265, !range !245, !noundef !246
+  %23 = load i8, ptr %22, align 8, !tbaa !264, !range !245, !noundef !246
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %78, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %27 = load i16, ptr %26, align 2, !tbaa !266
+  %27 = load i16, ptr %26, align 2, !tbaa !265
   %28 = zext i16 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %30 = load i64, ptr %29, align 8, !tbaa !267
+  %30 = load i64, ptr %29, align 8, !tbaa !266
   %31 = add i64 %30, %28
-  store i64 %31, ptr %29, align 8, !tbaa !267
+  store i64 %31, ptr %29, align 8, !tbaa !266
   %.not = icmp eq i16 %27, 0
   br i1 %.not, label %76, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !268
+  %34 = load i64, ptr %33, align 8, !tbaa !267
   %35 = add i64 %34, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %38 = load i64, ptr %37, align 8, !tbaa !269
+  %38 = load i64, ptr %37, align 8, !tbaa !268
   %39 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %36, i64 noundef %35)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %41 = load i8, ptr %40, align 8, !range !245
@@ -350,7 +350,7 @@ define void @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStreamFrameE(
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %46 = load ptr, ptr %45, align 8, !tbaa !247
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %48 = load i64, ptr %47, align 8, !tbaa !269
+  %48 = load i64, ptr %47, align 8, !tbaa !268
   %49 = add i64 %44, %48
   %50 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %46, i64 noundef %49)
   br label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
@@ -373,10 +373,10 @@ _ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit: ; preds 
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %57, ptr %4, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  store i64 46, ptr %3, align 8, !tbaa !270
+  store i64 46, ptr %3, align 8, !tbaa !269
   %58 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %58, ptr %4, align 8, !tbaa !9
-  %59 = load i64, ptr %3, align 8, !tbaa !270
+  %59 = load i64, ptr %3, align 8, !tbaa !269
   store i64 %59, ptr %57, align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %58, ptr noundef nonnull align 1 dereferenceable(46) @.str.1, i64 46, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -452,7 +452,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 define noundef zeroext i1 @_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(377) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %5 = load i64, ptr %4, align 8, !tbaa !269
+  %5 = load i64, ptr %4, align 8, !tbaa !268
   %6 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %8 = load i8, ptr %7, align 8, !range !245
@@ -465,7 +465,7 @@ define noundef zeroext i1 @_ZN3net18ReliableQuicStream34MaybeIncreaseHighestRece
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %13 = load ptr, ptr %12, align 8, !tbaa !247
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !269
+  %15 = load i64, ptr %14, align 8, !tbaa !268
   %16 = add i64 %11, %15
   %17 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %13, i64 noundef %16)
   br label %18
@@ -481,26 +481,26 @@ declare void @_ZN3net19QuicStreamSequencer13OnStreamFrameERKNS_15QuicStreamFrame
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3net18ReliableQuicStream19num_frames_receivedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(377) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %3 = load i32, ptr %2, align 4, !tbaa !271
+  %3 = load i32, ptr %2, align 4, !tbaa !270
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3net18ReliableQuicStream29num_duplicate_frames_receivedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(377) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i32, ptr %2, align 8, !tbaa !272
+  %3 = load i32, ptr %2, align 8, !tbaa !271
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 dereferenceable(377) initializes((262, 263)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 262
-  store i8 1, ptr %3, align 2, !tbaa !273
+  store i8 1, ptr %3, align 2, !tbaa !272
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !274
+  %5 = load i64, ptr %4, align 8, !tbaa !273
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %8 = load i64, ptr %7, align 8, !tbaa !269
+  %8 = load i64, ptr %7, align 8, !tbaa !268
   %9 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %11 = load i8, ptr %10, align 8, !range !245
@@ -513,31 +513,31 @@ define void @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFram
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %16 = load ptr, ptr %15, align 8, !tbaa !247
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !269
+  %18 = load i64, ptr %17, align 8, !tbaa !268
   %19 = add i64 %14, %18
   %20 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %16, i64 noundef %19)
   br label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
 
 _ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit: ; preds = %2, %13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !276
+  %22 = load i32, ptr %21, align 4, !tbaa !275
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 %22, ptr %23, align 8, !tbaa !277
+  store i32 %22, ptr %23, align 8, !tbaa !276
   %24 = load ptr, ptr %0, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(377) %0)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %28 = load i8, ptr %27, align 8, !tbaa !265, !range !245, !noundef !246
+  %28 = load i8, ptr %27, align 8, !tbaa !264, !range !245, !noundef !246
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %30
 
 30:                                               ; preds = %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
-  store i8 1, ptr %27, align 8, !tbaa !265
+  store i8 1, ptr %27, align 8, !tbaa !264
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %31)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %33 = load i8, ptr %32, align 1, !tbaa !278, !range !245, !noundef !246
+  %33 = load i8, ptr %32, align 1, !tbaa !277, !range !245, !noundef !246
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
@@ -559,16 +559,16 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %_ZN3net18ReliableQ
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream13CloseReadSideEv(ptr noundef nonnull align 8 dereferenceable(377) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load i8, ptr %2, align 8, !tbaa !265, !range !245, !noundef !246
+  %3 = load i8, ptr %2, align 8, !tbaa !264, !range !245, !noundef !246
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %18, label %5
 
 5:                                                ; preds = %1
-  store i8 1, ptr %2, align 8, !tbaa !265
+  store i8 1, ptr %2, align 8, !tbaa !264
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %8 = load i8, ptr %7, align 1, !tbaa !278, !range !245, !noundef !246
+  %8 = load i8, ptr %7, align 1, !tbaa !277, !range !245, !noundef !246
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %18
 
@@ -590,7 +590,7 @@ define void @_ZN3net18ReliableQuicStream13CloseReadSideEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef %1, i32 %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %5 = load i8, ptr %4, align 8, !tbaa !265, !range !245, !noundef !246
+  %5 = load i8, ptr %4, align 8, !tbaa !264, !range !245, !noundef !246
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 257
   %8 = load i8, ptr %7, align 1, !range !245
@@ -604,9 +604,9 @@ define void @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeE
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 4, ptr %12, align 8, !tbaa !277
+  store i32 4, ptr %12, align 8, !tbaa !276
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i32 %1, ptr %13, align 4, !tbaa !279
+  store i32 %1, ptr %13, align 4, !tbaa !278
   br label %14
 
 14:                                               ; preds = %11, %10
@@ -614,15 +614,15 @@ define void @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeE
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(377) %0)
-  %18 = load i8, ptr %4, align 8, !tbaa !265, !range !245, !noundef !246
+  %18 = load i8, ptr %4, align 8, !tbaa !264, !range !245, !noundef !246
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %20
 
 20:                                               ; preds = %14
-  store i8 1, ptr %4, align 8, !tbaa !265
+  store i8 1, ptr %4, align 8, !tbaa !264
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %21)
-  %22 = load i8, ptr %7, align 1, !tbaa !278, !range !245, !noundef !246
+  %22 = load i8, ptr %7, align 1, !tbaa !277, !range !245, !noundef !246
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
@@ -644,18 +644,18 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %24, %20, %14, %3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream9OnFinReadEv(ptr noundef nonnull align 8 dereferenceable(377) initializes((260, 261)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store i8 1, ptr %2, align 4, !tbaa !263
+  store i8 1, ptr %2, align 4, !tbaa !262
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %4 = load i8, ptr %3, align 8, !tbaa !265, !range !245, !noundef !246
+  %4 = load i8, ptr %3, align 8, !tbaa !264, !range !245, !noundef !246
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %6
 
 6:                                                ; preds = %1
-  store i8 1, ptr %3, align 8, !tbaa !265
+  store i8 1, ptr %3, align 8, !tbaa !264
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %9 = load i8, ptr %8, align 1, !tbaa !278, !range !245, !noundef !246
+  %9 = load i8, ptr %8, align 1, !tbaa !277, !range !245, !noundef !246
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
@@ -677,19 +677,19 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %1, %6, %11
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(377) initializes((248, 252), (261, 262)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 %1, ptr %3, align 8, !tbaa !277
+  store i32 %1, ptr %3, align 8, !tbaa !276
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8, !tbaa !241
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load i32, ptr %6, align 8, !tbaa !215
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %9 = load i64, ptr %8, align 8, !tbaa !280
+  %9 = load i64, ptr %8, align 8, !tbaa !279
   %10 = load ptr, ptr %5, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(2044) %5, i32 noundef %7, i32 noundef %1, i64 noundef %9)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  store i8 1, ptr %13, align 1, !tbaa !281
+  store i8 1, ptr %13, align 1, !tbaa !280
   ret void
 }
 
@@ -720,7 +720,7 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %14, align 8
   %15 = zext i1 %3 to i8
-  store ptr %4, ptr %8, align 8, !tbaa !282
+  store ptr %4, ptr %8, align 8, !tbaa !281
   %16 = icmp ne i64 %2, 0
   %or.cond = or i1 %3, %16
   br i1 %or.cond, label %24, label %17
@@ -750,7 +750,7 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
 
 24:                                               ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 258
-  %26 = load i8, ptr %25, align 2, !tbaa !283, !range !245, !noundef !246
+  %26 = load i8, ptr %25, align 2, !tbaa !282, !range !245, !noundef !246
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %35
 
@@ -779,21 +779,21 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %37 = load i8, ptr %36, align 1, !tbaa !278, !range !245, !noundef !246
+  %37 = load i8, ptr %36, align 1, !tbaa !277, !range !245, !noundef !246
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %.critedge28, label %39
 
 39:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %11, i64 noundef 0, i1 noundef zeroext false)
-  store i8 %15, ptr %25, align 2, !tbaa !283
+  store i8 %15, ptr %25, align 2, !tbaa !282
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !27
   %42 = icmp eq ptr %41, %40
   br i1 %42, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
-  %.pre = load i64, ptr %11, align 8, !tbaa !284
+  %.pre = load i64, ptr %11, align 8, !tbaa !283
   br label %46
 
 43:                                               ; preds = %39
@@ -804,9 +804,9 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
   %45 = call { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr noundef nonnull %12, i32 noundef 1, i1 noundef zeroext %3, ptr noundef %4)
   %.fca.0.extract = extractvalue { i64, i8 } %45, 0
   %.fca.1.extract = extractvalue { i64, i8 } %45, 1
-  store i64 %.fca.0.extract, ptr %11, align 8, !tbaa !270
+  store i64 %.fca.0.extract, ptr %11, align 8, !tbaa !269
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !286
+  store i8 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !285
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19
   br label %46
 
@@ -828,20 +828,20 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
   %55 = extractvalue { ptr, i64 } %54, 0
   %56 = extractvalue { ptr, i64 } %54, 1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load i64, ptr %57, align 8, !tbaa !287
+  %58 = load i64, ptr %57, align 8, !tbaa !286
   %59 = add i64 %58, %56
-  store i64 %59, ptr %57, align 8, !tbaa !287
+  store i64 %59, ptr %57, align 8, !tbaa !286
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !288)
+  call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %60 = icmp eq i64 %56, 0
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %61, ptr %13, align 8, !tbaa !3, !alias.scope !288
+  store ptr %61, ptr %13, align 8, !tbaa !3, !alias.scope !287
   br i1 %60, label %.thread.i, label %63
 
 .thread.i:                                        ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 0, ptr %62, align 8, !tbaa !12, !alias.scope !288
-  store i8 0, ptr %61, align 8, !tbaa !13, !alias.scope !288
+  store i64 0, ptr %62, align 8, !tbaa !12, !alias.scope !287
+  store i8 0, ptr %61, align 8, !tbaa !13, !alias.scope !287
   br label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
 
 63:                                               ; preds = %53
@@ -853,16 +853,16 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
   unreachable
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19, !noalias !288
-  store i64 %56, ptr %6, align 8, !tbaa !270, !noalias !288
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19, !noalias !287
+  store i64 %56, ptr %6, align 8, !tbaa !269, !noalias !287
   %66 = icmp ugt i64 %56, 15
   br i1 %66, label %._crit_edge.i.i.thread.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.thread.i:                         ; preds = %65
   %67 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
-  store ptr %67, ptr %13, align 8, !tbaa !9, !alias.scope !288
-  %68 = load i64, ptr %6, align 8, !tbaa !270, !noalias !288
-  store i64 %68, ptr %61, align 8, !tbaa !13, !alias.scope !288
+  store ptr %67, ptr %13, align 8, !tbaa !9, !alias.scope !287
+  %68 = load i64, ptr %6, align 8, !tbaa !269, !noalias !287
+  store i64 %68, ptr %61, align 8, !tbaa !13, !alias.scope !287
   br label %71
 
 ._crit_edge.i.i.i:                                ; preds = %65
@@ -871,24 +871,24 @@ define void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringP
 
 69:                                               ; preds = %._crit_edge.i.i.i
   %70 = load i8, ptr %55, align 1, !tbaa !13
-  store i8 %70, ptr %61, align 8, !tbaa !13, !alias.scope !288
+  store i8 %70, ptr %61, align 8, !tbaa !13, !alias.scope !287
   br label %73
 
 71:                                               ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i.thread.i
   %72 = phi ptr [ %67, %._crit_edge.i.i.thread.i ], [ %61, %._crit_edge.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr nonnull align 1 %55, i64 %56, i1 false)
-  %.pre41 = load i64, ptr %6, align 8, !tbaa !270, !noalias !288
-  %.pre42 = load ptr, ptr %13, align 8, !tbaa !9, !alias.scope !288
+  %.pre41 = load i64, ptr %6, align 8, !tbaa !269, !noalias !287
+  %.pre42 = load ptr, ptr %13, align 8, !tbaa !9, !alias.scope !287
   br label %73
 
 73:                                               ; preds = %71, %69
   %74 = phi ptr [ %.pre42, %71 ], [ %61, %69 ]
   %75 = phi i64 [ %.pre41, %71 ], [ 1, %69 ]
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %75, ptr %76, align 8, !tbaa !12, !alias.scope !288
+  store i64 %75, ptr %76, align 8, !tbaa !12, !alias.scope !287
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   store i8 0, ptr %77, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19, !noalias !288
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19, !noalias !287
   br label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit: ; preds = %.thread.i, %73
@@ -966,7 +966,7 @@ define { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24Quic
   %6 = alloca %"struct.net::QuicConsumedData", align 8
   %7 = alloca %"struct.net::QuicIOVector", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %9 = load i8, ptr %8, align 1, !tbaa !278, !range !245, !noundef !246
+  %9 = load i8, ptr %8, align 1, !tbaa !277, !range !245, !noundef !246
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %12
 
@@ -985,11 +985,11 @@ define { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24Quic
   %.010.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %12 ]
   %.19.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %12 ]
   %15 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.010.i, i32 1
-  %16 = load i64, ptr %15, align 8, !tbaa !291
+  %16 = load i64, ptr %15, align 8, !tbaa !290
   %17 = add i64 %16, %.19.i
   %18 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %18, %13
-  br i1 %exitcond.not.i, label %_ZN3net16TotalIovecLengthEPK5iovecm.exit, label %.lr.ph.i, !llvm.loop !293
+  br i1 %exitcond.not.i, label %_ZN3net16TotalIovecLengthEPK5iovecm.exit, label %.lr.ph.i, !llvm.loop !292
 
 _ZN3net16TotalIovecLengthEPK5iovecm.exit:         ; preds = %.lr.ph.i, %12
   %.07.i = phi i64 [ 0, %12 ], [ %17, %.lr.ph.i ]
@@ -1062,13 +1062,13 @@ _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %41, %44, %49, %
   %55 = icmp ule i64 %.07.i, %.0
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.07.i, i64 %.0)
   %spec.select25 = and i1 %3, %55
-  store ptr %1, ptr %7, align 8, !tbaa !294
+  store ptr %1, ptr %7, align 8, !tbaa !293
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %2, ptr %56, align 8, !tbaa !297
+  store i32 %2, ptr %56, align 8, !tbaa !296
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %spec.select, ptr %57, align 8, !tbaa !298
+  store i64 %spec.select, ptr %57, align 8, !tbaa !297
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %59 = load i64, ptr %58, align 8, !tbaa !280
+  %59 = load i64, ptr %58, align 8, !tbaa !279
   %60 = load ptr, ptr %0, align 8, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
   %62 = load ptr, ptr %61, align 8
@@ -1078,9 +1078,9 @@ _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %41, %44, %49, %
   store i64 %.fca.0.extract, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  %64 = load i64, ptr %58, align 8, !tbaa !280
+  %64 = load i64, ptr %58, align 8, !tbaa !279
   %65 = add i64 %64, %.fca.0.extract
-  store i64 %65, ptr %58, align 8, !tbaa !280
+  store i64 %65, ptr %58, align 8, !tbaa !279
   tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %21, i64 noundef %.fca.0.extract)
   %66 = load i8, ptr %23, align 8, !tbaa !248, !range !245, !noundef !246
   %67 = trunc nuw i8 %66 to i1
@@ -1093,7 +1093,7 @@ _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %41, %44, %49, %
   br label %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit
 
 _ZN3net18ReliableQuicStream12AddBytesSentEm.exit: ; preds = %54, %68
-  %71 = load i8, ptr %8, align 1, !tbaa !278, !range !245, !noundef !246
+  %71 = load i8, ptr %8, align 1, !tbaa !277, !range !245, !noundef !246
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %101, label %73
 
@@ -1115,9 +1115,9 @@ _ZN3net18ReliableQuicStream12AddBytesSentEm.exit: ; preds = %54, %68
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  store i8 1, ptr %80, align 1, !tbaa !264
+  store i8 1, ptr %80, align 1, !tbaa !263
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %82 = load i8, ptr %81, align 4, !tbaa !263, !range !245, !noundef !246
+  %82 = load i8, ptr %81, align 4, !tbaa !262, !range !245, !noundef !246
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %90
 
@@ -1182,7 +1182,7 @@ define void @_ZN3net18ReliableQuicStream10OnCanWriteEv(ptr noundef nonnull align
 11:                                               ; preds = %.lr.ph, %.critedge36
   %12 = phi ptr [ %5, %.lr.ph ], [ %55, %.critedge36 ]
   %.051 = phi i8 [ 0, %.lr.ph ], [ %.1, %.critedge36 ]
-  %13 = load i64, ptr %7, align 8, !tbaa !299
+  %13 = load i64, ptr %7, align 8, !tbaa !298
   %14 = icmp eq i64 %13, 1
   %15 = load i8, ptr %8, align 2, !range !245
   %16 = trunc nuw i8 %15 to i1
@@ -1244,14 +1244,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
   %37 = load ptr, ptr %35, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %18
-  store ptr %38, ptr %3, align 8, !tbaa !300
-  store i64 %36, ptr %9, align 8, !tbaa !291
+  store ptr %38, ptr %3, align 8, !tbaa !299
+  store i64 %36, ptr %9, align 8, !tbaa !290
   %39 = trunc nuw i8 %.1 to i1
   %40 = call { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr noundef nonnull %3, i32 noundef 1, i1 noundef zeroext %39, ptr noundef %34)
   %.fca.0.extract = extractvalue { i64, i8 } %40, 0
-  %41 = load i64, ptr %10, align 8, !tbaa !287
+  %41 = load i64, ptr %10, align 8, !tbaa !286
   %42 = sub i64 %41, %.fca.0.extract
-  store i64 %42, ptr %10, align 8, !tbaa !287
+  store i64 %42, ptr %10, align 8, !tbaa !286
   %43 = icmp eq i64 %.fca.0.extract, %36
   %.fca.1.extract = extractvalue { i64, i8 } %40, 1
   %44 = and i8 %.fca.1.extract, 1
@@ -1276,9 +1276,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSo
 
 .critedge36:                                      ; preds = %._crit_edge
   %51 = load ptr, ptr %4, align 8, !tbaa !27
-  %52 = load i64, ptr %7, align 8, !tbaa !299
+  %52 = load i64, ptr %7, align 8, !tbaa !298
   %53 = add i64 %52, -1
-  store i64 %53, ptr %7, align 8, !tbaa !299
+  store i64 %53, ptr %7, align 8, !tbaa !298
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #19
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZN3net18ReliableQuicStream11PendingDataD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %54) #19
@@ -1286,7 +1286,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
   %55 = load ptr, ptr %4, align 8, !tbaa !27
   %56 = icmp eq ptr %55, %4
-  br i1 %56, label %.critedge36.thread, label %11, !llvm.loop !301
+  br i1 %56, label %.critedge36.thread, label %11
 
 .critedge36.thread:                               ; preds = %.critedge36, %1, %.critedge, %19, %.critedge36.thread44
   ret void
@@ -1372,14 +1372,14 @@ declare void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream14CloseWriteSideEv(ptr noundef nonnull align 8 captures(none) dereferenceable(377) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %3 = load i8, ptr %2, align 1, !tbaa !278, !range !245, !noundef !246
+  %3 = load i8, ptr %2, align 1, !tbaa !277, !range !245, !noundef !246
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %1
-  store i8 1, ptr %2, align 1, !tbaa !278
+  store i8 1, ptr %2, align 1, !tbaa !277
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %7 = load i8, ptr %6, align 8, !tbaa !265, !range !245, !noundef !246
+  %7 = load i8, ptr %6, align 8, !tbaa !264, !range !245, !noundef !246
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %17
 
@@ -1413,7 +1413,7 @@ define noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr noundef nonnull r
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 300
-  %7 = load i32, ptr %6, align 4, !tbaa !302
+  %7 = load i32, ptr %6, align 4, !tbaa !300
   ret i32 %7
 }
 
@@ -1439,16 +1439,16 @@ define noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net18ReliableQuicSt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream7OnCloseEv(ptr noundef nonnull align 8 dereferenceable(377) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load i8, ptr %2, align 8, !tbaa !265, !range !245, !noundef !246
+  %3 = load i8, ptr %2, align 8, !tbaa !264, !range !245, !noundef !246
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %5
 
 5:                                                ; preds = %1
-  store i8 1, ptr %2, align 8, !tbaa !265
+  store i8 1, ptr %2, align 8, !tbaa !264
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %8 = load i8, ptr %7, align 1, !tbaa !278, !range !245, !noundef !246
+  %8 = load i8, ptr %7, align 1, !tbaa !277, !range !245, !noundef !246
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
@@ -1469,13 +1469,13 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %1, %5, %10
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(377) %0)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %22 = load i8, ptr %21, align 1, !tbaa !264, !range !245, !noundef !246
+  %22 = load i8, ptr %21, align 1, !tbaa !263, !range !245, !noundef !246
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %38, label %24
 
 24:                                               ; preds = %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %26 = load i8, ptr %25, align 1, !tbaa !281, !range !245, !noundef !246
+  %26 = load i8, ptr %25, align 1, !tbaa !280, !range !245, !noundef !246
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %38, label %28
 
@@ -1485,21 +1485,21 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %1, %5, %10
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %32 = load i32, ptr %31, align 8, !tbaa !215
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %34 = load i64, ptr %33, align 8, !tbaa !280
+  %34 = load i64, ptr %33, align 8, !tbaa !279
   %35 = load ptr, ptr %30, align 8, !tbaa !22
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(2044) %30, i32 noundef %32, i32 noundef 7, i64 noundef %34)
-  store i8 1, ptr %25, align 1, !tbaa !281
+  store i8 1, ptr %25, align 1, !tbaa !280
   br label %38
 
 38:                                               ; preds = %28, %24, %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %40 = load i64, ptr %39, align 8, !tbaa !269
+  %40 = load i64, ptr %39, align 8, !tbaa !268
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %42 = load i64, ptr %41, align 8, !tbaa !303
+  %42 = load i64, ptr %41, align 8, !tbaa !301
   %43 = sub i64 %40, %42
-  %44 = load i8, ptr %2, align 8, !tbaa !265, !range !245, !noundef !246
+  %44 = load i8, ptr %2, align 8, !tbaa !264, !range !245, !noundef !246
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %48, label %46
 
@@ -1527,7 +1527,7 @@ _ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit: ; preds = %48, %52
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ReliableQuicStream16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(377) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %4 = load i8, ptr %3, align 8, !tbaa !265, !range !245, !noundef !246
+  %4 = load i8, ptr %3, align 8, !tbaa !264, !range !245, !noundef !246
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %8, label %6
 
@@ -1556,7 +1556,7 @@ define void @_ZN3net18ReliableQuicStream16AddBytesConsumedEm(ptr noundef nonnull
 define void @_ZN3net18ReliableQuicStream19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !304
+  %5 = load i64, ptr %4, align 8, !tbaa !302
   %6 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %5)
   br i1 %6, label %7, label %11
 
@@ -1658,7 +1658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store ptr %10, ptr %2, align 8, !tbaa !9
   store i64 0, ptr %19, align 8, !tbaa !12
   store i8 0, ptr %10, align 8, !tbaa !13
-  %21 = load ptr, ptr %3, align 8, !tbaa !282
+  %21 = load ptr, ptr %3, align 8, !tbaa !281
   invoke void @_ZN3net18ReliableQuicStream11PendingDataC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %5, ptr noundef %21)
           to label %22 unwind label %27
 
@@ -1702,9 +1702,9 @@ _ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE14_M_create_no
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %1) #19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !299
+  %34 = load i64, ptr %33, align 8, !tbaa !298
   %35 = add i64 %34, 1
-  store i64 %35, ptr %33, align 8, !tbaa !299
+  store i64 %35, ptr %33, align 8, !tbaa !298
   ret void
 }
 
@@ -2005,60 +2005,58 @@ attributes #23 = { builtin allocsize(0) }
 !246 = !{}
 !247 = !{!216, !240, i64 368}
 !248 = !{!216, !57, i64 376}
-!249 = distinct !{!249, !250, !251}
+!249 = distinct !{!249, !250}
 !250 = !{!"llvm.loop.mustprogress"}
-!251 = !{!"llvm.loop.estimated_trip_count"}
-!252 = !{!253, !57, i64 4}
-!253 = !{!"_ZTSN3net15QuicStreamFrameE", !21, i64 0, !57, i64 4, !68, i64 6, !5, i64 8, !11, i64 16, !254, i64 24}
-!254 = !{!"_ZTSSt10unique_ptrIA_cN3net19StreamBufferDeleterEE", !255, i64 0}
-!255 = !{!"_ZTSSt15__uniq_ptr_dataIcN3net19StreamBufferDeleterELb1ELb1EE", !256, i64 0}
-!256 = !{!"_ZTSSt15__uniq_ptr_implIcN3net19StreamBufferDeleterEE", !257, i64 0}
-!257 = !{!"_ZTSSt5tupleIJPcN3net19StreamBufferDeleterEEE", !258, i64 0}
-!258 = !{!"_ZTSSt11_Tuple_implILm0EJPcN3net19StreamBufferDeleterEEE", !259, i64 0, !262, i64 8}
-!259 = !{!"_ZTSSt11_Tuple_implILm1EJN3net19StreamBufferDeleterEEE", !260, i64 0}
-!260 = !{!"_ZTSSt10_Head_baseILm1EN3net19StreamBufferDeleterELb0EE", !261, i64 0}
-!261 = !{!"_ZTSN3net19StreamBufferDeleterE", !193, i64 0}
-!262 = !{!"_ZTSSt10_Head_baseILm0EPcLb0EE", !5, i64 0}
-!263 = !{!216, !57, i64 260}
-!264 = !{!216, !57, i64 259}
-!265 = !{!216, !57, i64 256}
-!266 = !{!253, !68, i64 6}
-!267 = !{!216, !11, i64 232}
-!268 = !{!253, !11, i64 16}
-!269 = !{!85, !11, i64 40}
-!270 = !{!11, !11, i64 0}
-!271 = !{!220, !21, i64 148}
-!272 = !{!220, !21, i64 152}
-!273 = !{!216, !57, i64 262}
-!274 = !{!275, !11, i64 8}
-!275 = !{!"_ZTSN3net18QuicRstStreamFrameE", !21, i64 0, !239, i64 4, !11, i64 8}
-!276 = !{!275, !239, i64 4}
-!277 = !{!216, !239, i64 248}
-!278 = !{!216, !57, i64 257}
-!279 = !{!216, !84, i64 252}
-!280 = !{!216, !11, i64 240}
-!281 = !{!216, !57, i64 261}
-!282 = !{!17, !17, i64 0}
-!283 = !{!216, !57, i64 258}
-!284 = !{!285, !11, i64 0}
-!285 = !{!"_ZTSN3net16QuicConsumedDataE", !11, i64 0, !57, i64 8}
-!286 = !{!57, !57, i64 0}
-!287 = !{!216, !11, i64 32}
-!288 = !{!289}
-!289 = distinct !{!289, !290, !"_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv: argument 0"}
-!290 = distinct !{!290, !"_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv"}
-!291 = !{!292, !11, i64 8}
-!292 = !{!"_ZTS5iovec", !6, i64 0, !11, i64 8}
-!293 = distinct !{!293, !250, !251}
-!294 = !{!295, !296, i64 0}
-!295 = !{!"_ZTSN3net12QuicIOVectorE", !296, i64 0, !21, i64 8, !11, i64 16}
-!296 = !{!"p1 _ZTS5iovec", !6, i64 0}
-!297 = !{!295, !21, i64 8}
-!298 = !{!295, !11, i64 16}
-!299 = !{!218, !11, i64 16}
-!300 = !{!292, !6, i64 0}
-!301 = distinct !{!301, !251}
-!302 = !{!96, !103, i64 268}
-!303 = !{!85, !11, i64 32}
-!304 = !{!305, !11, i64 8}
-!305 = !{!"_ZTSN3net21QuicWindowUpdateFrameE", !21, i64 0, !11, i64 8}
+!251 = !{!252, !57, i64 4}
+!252 = !{!"_ZTSN3net15QuicStreamFrameE", !21, i64 0, !57, i64 4, !68, i64 6, !5, i64 8, !11, i64 16, !253, i64 24}
+!253 = !{!"_ZTSSt10unique_ptrIA_cN3net19StreamBufferDeleterEE", !254, i64 0}
+!254 = !{!"_ZTSSt15__uniq_ptr_dataIcN3net19StreamBufferDeleterELb1ELb1EE", !255, i64 0}
+!255 = !{!"_ZTSSt15__uniq_ptr_implIcN3net19StreamBufferDeleterEE", !256, i64 0}
+!256 = !{!"_ZTSSt5tupleIJPcN3net19StreamBufferDeleterEEE", !257, i64 0}
+!257 = !{!"_ZTSSt11_Tuple_implILm0EJPcN3net19StreamBufferDeleterEEE", !258, i64 0, !261, i64 8}
+!258 = !{!"_ZTSSt11_Tuple_implILm1EJN3net19StreamBufferDeleterEEE", !259, i64 0}
+!259 = !{!"_ZTSSt10_Head_baseILm1EN3net19StreamBufferDeleterELb0EE", !260, i64 0}
+!260 = !{!"_ZTSN3net19StreamBufferDeleterE", !193, i64 0}
+!261 = !{!"_ZTSSt10_Head_baseILm0EPcLb0EE", !5, i64 0}
+!262 = !{!216, !57, i64 260}
+!263 = !{!216, !57, i64 259}
+!264 = !{!216, !57, i64 256}
+!265 = !{!252, !68, i64 6}
+!266 = !{!216, !11, i64 232}
+!267 = !{!252, !11, i64 16}
+!268 = !{!85, !11, i64 40}
+!269 = !{!11, !11, i64 0}
+!270 = !{!220, !21, i64 148}
+!271 = !{!220, !21, i64 152}
+!272 = !{!216, !57, i64 262}
+!273 = !{!274, !11, i64 8}
+!274 = !{!"_ZTSN3net18QuicRstStreamFrameE", !21, i64 0, !239, i64 4, !11, i64 8}
+!275 = !{!274, !239, i64 4}
+!276 = !{!216, !239, i64 248}
+!277 = !{!216, !57, i64 257}
+!278 = !{!216, !84, i64 252}
+!279 = !{!216, !11, i64 240}
+!280 = !{!216, !57, i64 261}
+!281 = !{!17, !17, i64 0}
+!282 = !{!216, !57, i64 258}
+!283 = !{!284, !11, i64 0}
+!284 = !{!"_ZTSN3net16QuicConsumedDataE", !11, i64 0, !57, i64 8}
+!285 = !{!57, !57, i64 0}
+!286 = !{!216, !11, i64 32}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv: argument 0"}
+!289 = distinct !{!289, !"_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv"}
+!290 = !{!291, !11, i64 8}
+!291 = !{!"_ZTS5iovec", !6, i64 0, !11, i64 8}
+!292 = distinct !{!292, !250}
+!293 = !{!294, !295, i64 0}
+!294 = !{!"_ZTSN3net12QuicIOVectorE", !295, i64 0, !21, i64 8, !11, i64 16}
+!295 = !{!"p1 _ZTS5iovec", !6, i64 0}
+!296 = !{!294, !21, i64 8}
+!297 = !{!294, !11, i64 16}
+!298 = !{!218, !11, i64 16}
+!299 = !{!291, !6, i64 0}
+!300 = !{!96, !103, i64 268}
+!301 = !{!85, !11, i64 32}
+!302 = !{!303, !11, i64 8}
+!303 = !{!"_ZTSN3net21QuicWindowUpdateFrameE", !21, i64 0, !11, i64 8}

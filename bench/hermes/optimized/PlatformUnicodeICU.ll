@@ -398,7 +398,7 @@ if.end15.sink.split.i:                            ; preds = %for.body.preheader.
 _ZN4llvh15SmallVectorImplIDsE6resizeEm.exit:      ; preds = %if.else.i, %if.end15.sink.split.i
   %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.else.i ], [ %.pre45, %if.end15.sink.split.i ]
   store i32 0, ptr %err, align 4
-  %call8 = call noundef i32 %u_strToUpper_70.u_strToLower_70(ptr noundef %5, i32 noundef %1, ptr noundef %0, i32 noundef %1, ptr noundef %cond, ptr noundef nonnull %err) #8, !callees !8
+  %call8 = call noundef i32 %u_strToUpper_70.u_strToLower_70(ptr noundef %5, i32 noundef %1, ptr noundef %0, i32 noundef %1, ptr noundef %cond, ptr noundef nonnull %err) #8, !callees !7
   %conv9 = sext i32 %call8 to i64
   %6 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i13 = zext i32 %6 to i64
@@ -445,7 +445,7 @@ _ZN4llvh15SmallVectorImplIDsE6resizeEm.exit31:    ; preds = %if.else.i15, %if.en
 if.then:                                          ; preds = %_ZN4llvh15SmallVectorImplIDsE6resizeEm.exit31
   store i32 0, ptr %err, align 4
   %11 = load ptr, ptr %dest, align 8
-  %call15 = call noundef i32 %u_strToUpper_70.u_strToLower_70(ptr noundef %11, i32 noundef %call8, ptr noundef %0, i32 noundef %1, ptr noundef %cond, ptr noundef nonnull %err) #8, !callees !8
+  %call15 = call noundef i32 %u_strToUpper_70.u_strToLower_70(ptr noundef %11, i32 noundef %call8, ptr noundef %0, i32 noundef %1, ptr noundef %cond, ptr noundef nonnull %err) #8, !callees !7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4llvh15SmallVectorImplIDsE6resizeEm.exit31
@@ -836,7 +836,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{ptr @u_strToLower_70, ptr @u_strToUpper_70}
+!7 = !{ptr @u_strToLower_70, ptr @u_strToUpper_70}

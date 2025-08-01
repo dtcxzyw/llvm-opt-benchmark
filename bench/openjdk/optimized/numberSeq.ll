@@ -391,7 +391,7 @@ define hidden void @_ZN12TruncatedSeqC2Eid(ptr noundef nonnull align 8 captures(
   %17 = load i32, ptr %7, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -535,7 +535,7 @@ define hidden noundef double @_ZNK12TruncatedSeq7maximumEv(ptr noundef nonnull r
   %.1 = select i1 %12, double %11, double %.0911
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %1
   %.0 = phi double [ 0.000000e+00, %1 ], [ %8, %5 ], [ %.1, %.lr.ph ]
@@ -651,7 +651,7 @@ define hidden noundef double @_ZNK12TruncatedSeq12predict_nextEv(ptr noundef non
   %30 = tail call double @llvm.fmuladd.f64(double %21, double %26, double %.03943)
   %31 = add nuw nsw i32 %.04042, 1
   %exitcond.not = icmp eq i32 %31, %3
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %8
   %.039.lcssa = phi double [ 0.000000e+00, %8 ], [ %30, %20 ]
@@ -782,7 +782,7 @@ define hidden void @_ZN12TruncatedSeq7dump_onEP12outputStream(ptr noundef nonnul
   %31 = load i32, ptr %15, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %22, label %._crit_edge, !llvm.loop !12
+  br i1 %33, label %22, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %27, %2
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #10
@@ -841,10 +841,9 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

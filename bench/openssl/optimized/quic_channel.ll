@@ -301,19 +301,19 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
   %76 = or i64 %75, 4096
   store i64 %76, ptr %21, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  store ptr @ossl_cc_newreno_method, ptr %77, align 8, !tbaa !81
-  %78 = load ptr, ptr @ossl_cc_newreno_method, align 8, !tbaa !82
+  store ptr @ossl_cc_newreno_method, ptr %77, align 8, !tbaa !80
+  %78 = load ptr, ptr @ossl_cc_newreno_method, align 8, !tbaa !81
   %79 = call ptr %78(ptr noundef nonnull @get_time, ptr noundef nonnull %0) #15
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  store ptr %79, ptr %80, align 8, !tbaa !84
+  store ptr %79, ptr %80, align 8, !tbaa !83
   %81 = icmp eq ptr %79, null
   br i1 %81, label %.loopexit.i, label %82
 
 82:                                               ; preds = %74
-  %83 = load ptr, ptr %77, align 8, !tbaa !81
+  %83 = load ptr, ptr %77, align 8, !tbaa !80
   %84 = call ptr @ossl_ackm_new(ptr noundef nonnull @get_time, ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef %83, ptr noundef nonnull %79) #15
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  store ptr %84, ptr %85, align 8, !tbaa !85
+  store ptr %84, ptr %85, align 8, !tbaa !84
   %86 = icmp eq ptr %84, null
   br i1 %86, label %.loopexit.i, label %87
 
@@ -344,50 +344,50 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
 
 102:                                              ; preds = %98, %94
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 2 dereferenceable(21) %103, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 2 dereferenceable(21) %103, i64 21, i1 false), !tbaa.struct !85
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 21
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %104, ptr noundef nonnull align 8 dereferenceable(21) %105, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %104, ptr noundef nonnull align 8 dereferenceable(21) %105, i64 21, i1 false), !tbaa.struct !85
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 156
-  store i32 3, ptr %106, align 4, !tbaa !88
+  store i32 3, ptr %106, align 4, !tbaa !87
   %107 = load ptr, ptr %41, align 8, !tbaa !72
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store ptr %107, ptr %108, align 8, !tbaa !91
+  store ptr %107, ptr %108, align 8, !tbaa !90
   %109 = load ptr, ptr %45, align 8, !tbaa !73
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  store ptr %109, ptr %110, align 8, !tbaa !92
+  store ptr %109, ptr %110, align 8, !tbaa !91
   %111 = load ptr, ptr %49, align 8, !tbaa !74
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store ptr %111, ptr %112, align 8, !tbaa !93
-  %113 = load ptr, ptr %85, align 8, !tbaa !85
+  store ptr %111, ptr %112, align 8, !tbaa !92
+  %113 = load ptr, ptr %85, align 8, !tbaa !84
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  store ptr %113, ptr %114, align 8, !tbaa !94
+  store ptr %113, ptr %114, align 8, !tbaa !93
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store ptr %88, ptr %115, align 8, !tbaa !95
+  store ptr %88, ptr %115, align 8, !tbaa !94
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  store ptr %52, ptr %116, align 8, !tbaa !96
+  store ptr %52, ptr %116, align 8, !tbaa !95
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store ptr %58, ptr %117, align 8, !tbaa !97
+  store ptr %58, ptr %117, align 8, !tbaa !96
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  store ptr %66, ptr %118, align 8, !tbaa !98
+  store ptr %66, ptr %118, align 8, !tbaa !97
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store ptr %69, ptr %119, align 8, !tbaa !99
-  %120 = load ptr, ptr %77, align 8, !tbaa !81
+  store ptr %69, ptr %119, align 8, !tbaa !98
+  %120 = load ptr, ptr %77, align 8, !tbaa !80
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr %120, ptr %121, align 8, !tbaa !100
-  %122 = load ptr, ptr %80, align 8, !tbaa !84
+  store ptr %120, ptr %121, align 8, !tbaa !99
+  %122 = load ptr, ptr %80, align 8, !tbaa !83
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store ptr %122, ptr %123, align 8, !tbaa !101
+  store ptr %122, ptr %123, align 8, !tbaa !100
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 248
-  store ptr @get_time, ptr %124, align 8, !tbaa !102
+  store ptr @get_time, ptr %124, align 8, !tbaa !101
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  store ptr %0, ptr %125, align 8, !tbaa !103
+  store ptr %0, ptr %125, align 8, !tbaa !102
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  store ptr @ch_get_qlog_cb, ptr %126, align 8, !tbaa !104
+  store ptr @ch_get_qlog_cb, ptr %126, align 8, !tbaa !103
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  store ptr %0, ptr %127, align 8, !tbaa !105
+  store ptr %0, ptr %127, align 8, !tbaa !104
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  store i32 1, ptr %128, align 8, !tbaa !106
+  store i32 1, ptr %128, align 8, !tbaa !105
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 288
   br label %131
@@ -396,21 +396,21 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
   %indvars.iv159.i = phi i64 [ 0, %102 ], [ %indvars.iv.next160.i, %135 ]
   %132 = call ptr @ossl_quic_sstream_new(i64 noundef 16384) #15
   %133 = getelementptr inbounds nuw [3 x ptr], ptr %129, i64 0, i64 %indvars.iv159.i
-  store ptr %132, ptr %133, align 8, !tbaa !107
+  store ptr %132, ptr %133, align 8, !tbaa !106
   %134 = icmp eq ptr %132, null
   br i1 %134, label %.loopexit.i, label %135
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw [3 x ptr], ptr %130, i64 0, i64 %indvars.iv159.i
-  store ptr %132, ptr %136, align 8, !tbaa !107
+  store ptr %132, ptr %136, align 8, !tbaa !106
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %exitcond162.not.i = icmp eq i64 %indvars.iv.next160.i, 3
-  br i1 %exitcond162.not.i, label %137, label %131, !llvm.loop !109
+  br i1 %exitcond162.not.i, label %137, label %131, !llvm.loop !108
 
 137:                                              ; preds = %135
   %138 = call ptr @ossl_quic_tx_packetiser_new(ptr noundef nonnull %2) #15
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %138, ptr %139, align 8, !tbaa !110
+  store ptr %138, ptr %139, align 8, !tbaa !109
   %140 = icmp eq ptr %138, null
   br i1 %140, label %.loopexit.i, label %141
 
@@ -422,7 +422,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
 
 144:                                              ; preds = %141
   call void @ossl_quic_tx_packetiser_set_validated(ptr noundef nonnull %138) #15
-  %.pre.i = load ptr, ptr %139, align 8, !tbaa !110
+  %.pre.i = load ptr, ptr %139, align 8, !tbaa !109
   br label %145
 
 145:                                              ; preds = %144, %141
@@ -431,18 +431,18 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
   %147 = load ptr, ptr %0, align 8, !tbaa !3
   %148 = load ptr, ptr %147, align 8, !tbaa !46
   %149 = load ptr, ptr %148, align 8, !tbaa !56
-  store ptr %149, ptr %4, align 8, !tbaa !111
+  store ptr %149, ptr %4, align 8, !tbaa !110
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 64
-  %151 = load ptr, ptr %150, align 8, !tbaa !113
+  %151 = load ptr, ptr %150, align 8, !tbaa !112
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %151, ptr %152, align 8, !tbaa !114
+  store ptr %151, ptr %152, align 8, !tbaa !113
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %18, ptr %153, align 8, !tbaa !115
+  store i64 %18, ptr %153, align 8, !tbaa !114
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 32, ptr %154, align 8, !tbaa !116
+  store i64 32, ptr %154, align 8, !tbaa !115
   %155 = call ptr @ossl_qrx_new(ptr noundef nonnull %4) #15
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr %155, ptr %156, align 8, !tbaa !117
+  store ptr %155, ptr %156, align 8, !tbaa !116
   %157 = icmp eq ptr %155, null
   br i1 %157, label %.loopexit.i, label %158
 
@@ -452,7 +452,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
   br i1 %.not147.i, label %.loopexit.i, label %160
 
 160:                                              ; preds = %158
-  %161 = load ptr, ptr %156, align 8, !tbaa !117
+  %161 = load ptr, ptr %156, align 8, !tbaa !116
   %162 = call i32 @ossl_qrx_set_key_update_cb(ptr noundef %161, ptr noundef nonnull @rxku_detected, ptr noundef nonnull %0) #15
   %.not148.i = icmp eq i32 %162, 0
   br i1 %.not148.i, label %.loopexit.i, label %.preheader.i
@@ -464,120 +464,120 @@ define range(i32 0, 2) i32 @ossl_quic_channel_init(ptr noundef %0) local_unnamed
 164:                                              ; preds = %165
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next164.i, 3
-  br i1 %exitcond166.not.i, label %169, label %165, !llvm.loop !118
+  br i1 %exitcond166.not.i, label %169, label %165, !llvm.loop !117
 
 165:                                              ; preds = %164, %.preheader.i
   %indvars.iv163.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next164.i, %164 ]
   %166 = call ptr @ossl_quic_rstream_new(ptr noundef null, ptr noundef null, i64 noundef 0) #15
   %167 = getelementptr inbounds nuw [3 x ptr], ptr %163, i64 0, i64 %indvars.iv163.i
-  store ptr %166, ptr %167, align 8, !tbaa !119
+  store ptr %166, ptr %167, align 8, !tbaa !118
   %168 = icmp eq ptr %166, null
   br i1 %168, label %.loopexit.i, label %164
 
 169:                                              ; preds = %164
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %171 = load ptr, ptr %170, align 8, !tbaa !121
-  store ptr %171, ptr %5, align 8, !tbaa !122
+  %171 = load ptr, ptr %170, align 8, !tbaa !120
+  store ptr %171, ptr %5, align 8, !tbaa !121
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @ch_on_crypto_send, ptr %172, align 8, !tbaa !124
+  store ptr @ch_on_crypto_send, ptr %172, align 8, !tbaa !123
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %173, align 8, !tbaa !125
+  store ptr %0, ptr %173, align 8, !tbaa !124
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @ch_on_crypto_recv_record, ptr %174, align 8, !tbaa !126
+  store ptr @ch_on_crypto_recv_record, ptr %174, align 8, !tbaa !125
   %175 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %0, ptr %175, align 8, !tbaa !127
+  store ptr %0, ptr %175, align 8, !tbaa !126
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr @ch_on_crypto_release_record, ptr %176, align 8, !tbaa !128
+  store ptr @ch_on_crypto_release_record, ptr %176, align 8, !tbaa !127
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %0, ptr %177, align 8, !tbaa !129
+  store ptr %0, ptr %177, align 8, !tbaa !128
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @ch_on_handshake_yield_secret, ptr %178, align 8, !tbaa !130
+  store ptr @ch_on_handshake_yield_secret, ptr %178, align 8, !tbaa !129
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %0, ptr %179, align 8, !tbaa !131
+  store ptr %0, ptr %179, align 8, !tbaa !130
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @ch_on_transport_params, ptr %180, align 8, !tbaa !132
+  store ptr @ch_on_transport_params, ptr %180, align 8, !tbaa !131
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr %0, ptr %181, align 8, !tbaa !133
+  store ptr %0, ptr %181, align 8, !tbaa !132
   %182 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr @ch_on_handshake_complete, ptr %182, align 8, !tbaa !134
+  store ptr @ch_on_handshake_complete, ptr %182, align 8, !tbaa !133
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %0, ptr %183, align 8, !tbaa !135
+  store ptr %0, ptr %183, align 8, !tbaa !134
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr @ch_on_handshake_alert, ptr %184, align 8, !tbaa !136
+  store ptr @ch_on_handshake_alert, ptr %184, align 8, !tbaa !135
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr %0, ptr %185, align 8, !tbaa !137
+  store ptr %0, ptr %185, align 8, !tbaa !136
   %186 = load i64, ptr %21, align 8
   %187 = trunc i64 %186 to i32
   %188 = lshr i32 %187, 25
   %189 = and i32 %188, 1
   %190 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store i32 %189, ptr %190, align 8, !tbaa !138
+  store i32 %189, ptr %190, align 8, !tbaa !137
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  store i32 1, ptr %191, align 4, !tbaa !139
+  store i32 1, ptr %191, align 4, !tbaa !138
   %192 = call ptr @ossl_quic_tls_new(ptr noundef nonnull %5) #15
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %192, ptr %193, align 8, !tbaa !140
+  store ptr %192, ptr %193, align 8, !tbaa !139
   %194 = icmp eq ptr %192, null
   br i1 %194, label %.loopexit.i, label %195
 
 195:                                              ; preds = %169
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  store i64 25, ptr %196, align 8, !tbaa !141
+  store i64 25, ptr %196, align 8, !tbaa !140
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 25, ptr %197, align 8, !tbaa !142
+  store i64 25, ptr %197, align 8, !tbaa !141
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i8 3, ptr %198, align 8, !tbaa !143
+  store i8 3, ptr %198, align 8, !tbaa !142
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  store i64 2, ptr %199, align 8, !tbaa !144
+  store i64 2, ptr %199, align 8, !tbaa !143
   %200 = load i64, ptr %21, align 8
   %201 = and i64 %200, -1032193
   store i64 %201, ptr %21, align 8
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store i64 -1, ptr %202, align 8, !tbaa !145
+  store i64 -1, ptr %202, align 8, !tbaa !144
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  store i64 30000, ptr %203, align 8, !tbaa !146
+  store i64 30000, ptr %203, align 8, !tbaa !145
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  store i64 0, ptr %204, align 8, !tbaa !147
+  store i64 0, ptr %204, align 8, !tbaa !146
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  store i64 30000, ptr %205, align 8, !tbaa !148
-  %206 = load ptr, ptr %85, align 8, !tbaa !85
+  store i64 30000, ptr %205, align 8, !tbaa !147
+  %206 = load ptr, ptr %85, align 8, !tbaa !84
   call void @ossl_ackm_set_tx_max_ack_delay(ptr noundef %206, i64 25000000) #15
-  %207 = load ptr, ptr %85, align 8, !tbaa !85
-  %208 = load i64, ptr %197, align 8, !tbaa !142
+  %207 = load ptr, ptr %85, align 8, !tbaa !84
+  %208 = load i64, ptr %197, align 8, !tbaa !141
   %209 = mul i64 %208, 1000000
   call void @ossl_ackm_set_rx_max_ack_delay(ptr noundef %207, i64 %209) #15
   call fastcc void @ch_update_idle(ptr noundef nonnull %0)
   %210 = load ptr, ptr %0, align 8, !tbaa !3
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 72
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 80
-  %213 = load ptr, ptr %212, align 8, !tbaa !149
+  %213 = load ptr, ptr %212, align 8, !tbaa !148
   %.not.i.i = icmp eq ptr %213, null
   br i1 %.not.i.i, label %216, label %214
 
 214:                                              ; preds = %195
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store ptr %0, ptr %215, align 8, !tbaa !150
+  store ptr %0, ptr %215, align 8, !tbaa !149
   br label %216
 
 216:                                              ; preds = %214, %195
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %213, ptr %218, align 8, !tbaa !151
-  store ptr null, ptr %217, align 8, !tbaa !150
-  store ptr %0, ptr %212, align 8, !tbaa !149
-  %219 = load ptr, ptr %211, align 8, !tbaa !152
+  store ptr %213, ptr %218, align 8, !tbaa !150
+  store ptr null, ptr %217, align 8, !tbaa !149
+  store ptr %0, ptr %212, align 8, !tbaa !148
+  %219 = load ptr, ptr %211, align 8, !tbaa !151
   %220 = icmp eq ptr %219, null
   br i1 %220, label %221, label %ossl_list_ch_insert_tail.exit.i
 
 221:                                              ; preds = %216
-  store ptr %0, ptr %211, align 8, !tbaa !152
+  store ptr %0, ptr %211, align 8, !tbaa !151
   br label %ossl_list_ch_insert_tail.exit.i
 
 ossl_list_ch_insert_tail.exit.i:                  ; preds = %221, %216
   %222 = getelementptr inbounds nuw i8, ptr %210, i64 88
-  %223 = load i64, ptr %222, align 8, !tbaa !153
+  %223 = load i64, ptr %222, align 8, !tbaa !152
   %224 = add i64 %223, 1
-  store i64 %224, ptr %222, align 8, !tbaa !153
+  store i64 %224, ptr %222, align 8, !tbaa !152
   %225 = load i64, ptr %21, align 8
   %226 = or i64 %225, 1099511627776
   store i64 %226, ptr %21, align 8
@@ -603,10 +603,10 @@ define ptr @ossl_quic_channel_alloc(ptr noundef readonly captures(none) %0) loca
   br i1 %3, label %38, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !154
+  %5 = load ptr, ptr %0, align 8, !tbaa !153
   store ptr %5, ptr %2, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !156
+  %7 = load i32, ptr %6, align 8, !tbaa !155
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1568
   %9 = load i64, ptr %8, align 8
   %10 = shl i32 %7, 25
@@ -615,19 +615,19 @@ define ptr @ossl_quic_channel_alloc(ptr noundef readonly captures(none) %0) loca
   %13 = and i64 %9, -2199056809985
   %14 = or disjoint i64 %13, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !157
+  %16 = load ptr, ptr %15, align 8, !tbaa !156
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %16, ptr %17, align 8, !tbaa !121
+  store ptr %16, ptr %17, align 8, !tbaa !120
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !158
+  %19 = load ptr, ptr %18, align 8, !tbaa !157
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %19, ptr %20, align 8, !tbaa !44
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !159
+  %22 = load ptr, ptr %21, align 8, !tbaa !158
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %22, ptr %23, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load i32, ptr %24, align 8, !tbaa !160
+  %25 = load i32, ptr %24, align 8, !tbaa !159
   %26 = and i32 %25, 1
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 41
@@ -638,14 +638,14 @@ define ptr @ossl_quic_channel_alloc(ptr noundef readonly captures(none) %0) loca
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !161
+  %32 = load ptr, ptr %31, align 8, !tbaa !160
   %.not21 = icmp eq ptr %32, null
   br i1 %.not21, label %38, label %33
 
 33:                                               ; preds = %30
   %34 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %32, ptr noundef nonnull @.str, i32 noundef 445) #15
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 1600
-  store ptr %34, ptr %35, align 8, !tbaa !162
+  store ptr %34, ptr %35, align 8, !tbaa !161
   %36 = icmp eq ptr %34, null
   br i1 %36, label %37, label %38
 
@@ -687,17 +687,17 @@ define void @ossl_quic_channel_free(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %3 = load ptr, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %.050 = phi i32 [ %6, %.preheader ], [ 0, %1 ]
-  %4 = load ptr, ptr %2, align 8, !tbaa !85
+  %4 = load ptr, ptr %2, align 8, !tbaa !84
   %5 = tail call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %4, i32 noundef %.050) #15
   %6 = add nuw nsw i32 %.050, 1
   %exitcond.not = icmp eq i32 %6, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !163
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !162
 
 .loopexit:                                        ; preds = %.preheader, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -707,7 +707,7 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
   %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = tail call i32 @ossl_quic_srtm_cull(ptr noundef %11, ptr noundef nonnull %0) #15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !110
+  %14 = load ptr, ptr %13, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_free(ptr noundef %14) #15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = load ptr, ptr %15, align 8, !tbaa !73
@@ -719,15 +719,15 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
   %20 = load ptr, ptr %19, align 8, !tbaa !72
   tail call void @ossl_qtx_free(ptr noundef %20) #15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %22 = load ptr, ptr %21, align 8, !tbaa !84
+  %22 = load ptr, ptr %21, align 8, !tbaa !83
   %.not45 = icmp eq ptr %22, null
   br i1 %.not45, label %28, label %23
 
 23:                                               ; preds = %.loopexit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %25 = load ptr, ptr %24, align 8, !tbaa !81
+  %25 = load ptr, ptr %24, align 8, !tbaa !80
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !164
+  %27 = load ptr, ptr %26, align 8, !tbaa !163
   tail call void %27(ptr noundef nonnull %22) #15
   br label %28
 
@@ -744,7 +744,7 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %32, %28
-  %35 = load ptr, ptr %2, align 8, !tbaa !85
+  %35 = load ptr, ptr %2, align 8, !tbaa !84
   tail call void @ossl_ackm_free(ptr noundef %35) #15
   %36 = load i64, ptr %29, align 8
   %37 = and i64 %36, 8192
@@ -764,40 +764,40 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
 43:                                               ; preds = %40, %43
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %43 ]
   %44 = getelementptr inbounds nuw [3 x ptr], ptr %41, i64 0, i64 %indvars.iv
-  %45 = load ptr, ptr %44, align 8, !tbaa !107
+  %45 = load ptr, ptr %44, align 8, !tbaa !106
   tail call void @ossl_quic_sstream_free(ptr noundef %45) #15
   %46 = getelementptr inbounds nuw [3 x ptr], ptr %42, i64 0, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !119
+  %47 = load ptr, ptr %46, align 8, !tbaa !118
   tail call void @ossl_quic_rstream_free(ptr noundef %47) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond53.not, label %48, label %43, !llvm.loop !165
+  br i1 %exitcond53.not, label %48, label %43, !llvm.loop !164
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %50 = load ptr, ptr %49, align 8, !tbaa !166
+  %50 = load ptr, ptr %49, align 8, !tbaa !165
   tail call void @ossl_qrx_pkt_release(ptr noundef %50) #15
-  store ptr null, ptr %49, align 8, !tbaa !166
+  store ptr null, ptr %49, align 8, !tbaa !165
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !140
+  %52 = load ptr, ptr %51, align 8, !tbaa !139
   tail call void @ossl_quic_tls_free(ptr noundef %52) #15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %54 = load ptr, ptr %53, align 8, !tbaa !117
+  %54 = load ptr, ptr %53, align 8, !tbaa !116
   tail call void @ossl_qrx_free(ptr noundef %54) #15
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %56 = load ptr, ptr %55, align 8, !tbaa !167
+  %56 = load ptr, ptr %55, align 8, !tbaa !166
   tail call void @CRYPTO_free(ptr noundef %56, ptr noundef nonnull @.str, i32 noundef 404) #15
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  %58 = load ptr, ptr %57, align 8, !tbaa !168
+  %58 = load ptr, ptr %57, align 8, !tbaa !167
   tail call void @CRYPTO_free(ptr noundef %58, ptr noundef nonnull @.str, i32 noundef 405) #15
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %60 = load ptr, ptr %59, align 8, !tbaa !169
+  %60 = load ptr, ptr %59, align 8, !tbaa !168
   tail call void @OSSL_ERR_STATE_free(ptr noundef %60) #15
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1584
-  %62 = load ptr, ptr %61, align 8, !tbaa !170
+  %62 = load ptr, ptr %61, align 8, !tbaa !169
   tail call void @CRYPTO_free(ptr noundef %62, ptr noundef nonnull @.str, i32 noundef 407) #15
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %64 = load ptr, ptr %63, align 8, !tbaa !171
+  %64 = load ptr, ptr %63, align 8, !tbaa !170
   tail call void @CRYPTO_free(ptr noundef %64, ptr noundef nonnull @.str, i32 noundef 408) #15
   %65 = load i64, ptr %29, align 8
   %66 = and i64 %65, 1099511627776
@@ -807,37 +807,37 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
 67:                                               ; preds = %48
   %68 = load ptr, ptr %0, align 8, !tbaa !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 72
-  %70 = load ptr, ptr %69, align 8, !tbaa !152
+  %70 = load ptr, ptr %69, align 8, !tbaa !151
   %71 = icmp eq ptr %70, %0
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !150
-  store ptr %74, ptr %69, align 8, !tbaa !152
+  %74 = load ptr, ptr %73, align 8, !tbaa !149
+  store ptr %74, ptr %69, align 8, !tbaa !151
   br label %75
 
 75:                                               ; preds = %72, %67
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  %77 = load ptr, ptr %76, align 8, !tbaa !149
+  %77 = load ptr, ptr %76, align 8, !tbaa !148
   %78 = icmp eq ptr %77, %0
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !151
+  %80 = load ptr, ptr %79, align 8, !tbaa !150
   br i1 %78, label %81, label %._crit_edge.i
 
 81:                                               ; preds = %75
-  store ptr %80, ptr %76, align 8, !tbaa !149
+  store ptr %80, ptr %76, align 8, !tbaa !148
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %81, %75
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i = icmp eq ptr %80, null
-  %.pre19.i = load ptr, ptr %82, align 8, !tbaa !150
+  %.pre19.i = load ptr, ptr %82, align 8, !tbaa !149
   br i1 %.not.i, label %85, label %83
 
 83:                                               ; preds = %._crit_edge.i
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %.pre19.i, ptr %84, align 8, !tbaa !150
+  store ptr %.pre19.i, ptr %84, align 8, !tbaa !149
   br label %85
 
 85:                                               ; preds = %83, %._crit_edge.i
@@ -846,14 +846,14 @@ define internal fastcc void @ch_cleanup(ptr noundef %0) unnamed_addr #0 {
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %.pre19.i, i64 16
-  store ptr %80, ptr %87, align 8, !tbaa !151
+  store ptr %80, ptr %87, align 8, !tbaa !150
   br label %ossl_list_ch_remove.exit
 
 ossl_list_ch_remove.exit:                         ; preds = %85, %86
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 88
-  %89 = load i64, ptr %88, align 8, !tbaa !153
+  %89 = load i64, ptr %88, align 8, !tbaa !152
   %90 = add i64 %89, -1
-  store i64 %90, ptr %88, align 8, !tbaa !153
+  store i64 %90, ptr %88, align 8, !tbaa !152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
   %91 = load i64, ptr %29, align 8
   %92 = and i64 %91, -1099511627777
@@ -862,7 +862,7 @@ ossl_list_ch_remove.exit:                         ; preds = %85, %86
 
 93:                                               ; preds = %ossl_list_ch_remove.exit, %48
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %95 = load ptr, ptr %94, align 8, !tbaa !172
+  %95 = load ptr, ptr %94, align 8, !tbaa !171
   %.not49 = icmp eq ptr %95, null
   br i1 %.not49, label %98, label %96
 
@@ -872,9 +872,9 @@ ossl_list_ch_remove.exit:                         ; preds = %85, %86
 
 98:                                               ; preds = %96, %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %100 = load ptr, ptr %99, align 8, !tbaa !162
+  %100 = load ptr, ptr %99, align 8, !tbaa !161
   tail call void @CRYPTO_free(ptr noundef %100, ptr noundef nonnull @.str, i32 noundef 419) #15
-  %101 = load ptr, ptr %94, align 8, !tbaa !172
+  %101 = load ptr, ptr %94, align 8, !tbaa !171
   tail call void @ossl_qlog_free(ptr noundef %101) #15
   ret void
 }
@@ -907,7 +907,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_get_peer_addr(ptr noundef readonly
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false), !tbaa.struct !173
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false), !tbaa.struct !172
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -944,7 +944,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_set_peer_addr(ptr noundef %0, ptr 
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull align 4 dereferenceable(112) %1, i64 112, i1 false), !tbaa.struct !173
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull align 4 dereferenceable(112) %1, i64 112, i1 false), !tbaa.struct !172
   %17 = load i64, ptr %3, align 8
   %18 = or i64 %17, 549755813888
   br label %.sink.split
@@ -987,7 +987,7 @@ define nonnull ptr @ossl_quic_channel_get_statm(ptr noundef readnone captures(re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_channel_get0_tls(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8, !tbaa !120
   ret ptr %3
 }
 
@@ -1026,7 +1026,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_schedule_new_token(ptr noundef rea
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load ptr, ptr %17, align 8, !tbaa !74
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !174
+  %20 = load ptr, ptr %19, align 8, !tbaa !173
   %21 = load i64, ptr %5, align 8, !tbaa !71
   %22 = call ptr @ossl_quic_cfq_add_frame(ptr noundef %18, i32 noundef 1, i32 noundef 2, i64 noundef 7, i32 noundef 0, ptr noundef %20, i64 noundef %21, ptr noundef nonnull @free_buf_mem, ptr noundef nonnull %6) #15
   %23 = icmp eq ptr %22, null
@@ -1068,7 +1068,7 @@ declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_quic_channel_get_short_header_conn_id_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %3 = load ptr, ptr %2, align 8, !tbaa !117
+  %3 = load ptr, ptr %2, align 8, !tbaa !116
   %4 = tail call i64 @ossl_qrx_get_short_hdr_conn_id_len(ptr noundef %3) #15
   ret i64 %4
 }
@@ -1173,7 +1173,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_confirmed(ptr noundef
 define ptr @ossl_quic_channel_get0_demux(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !113
+  %4 = load ptr, ptr %3, align 8, !tbaa !112
   ret ptr %4
 }
 
@@ -1205,14 +1205,14 @@ declare ptr @ossl_quic_port_get0_mutex(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @ossl_quic_channel_has_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !113
+  %4 = load ptr, ptr %3, align 8, !tbaa !112
   %5 = tail call i32 @ossl_quic_demux_has_pending(ptr noundef %4) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %8 = load ptr, ptr %7, align 8, !tbaa !117
+  %8 = load ptr, ptr %7, align 8, !tbaa !116
   %9 = tail call i32 @ossl_qrx_processed_read_pending(ptr noundef %8) #15
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
@@ -1252,11 +1252,11 @@ define void @ossl_quic_channel_subtick(ptr noundef %0, ptr noundef writeonly cap
 
 20:                                               ; preds = %3, %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %21, align 8, !tbaa !176
+  store i8 0, ptr %21, align 8, !tbaa !175
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 0, ptr %22, align 1, !tbaa !178
+  store i8 0, ptr %22, align 1, !tbaa !177
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 0, ptr %23, align 2, !tbaa !179
+  store i8 0, ptr %23, align 2, !tbaa !178
   store i64 -1, ptr %1, align 8, !tbaa !71
   br label %759
 
@@ -1282,7 +1282,7 @@ define void @ossl_quic_channel_subtick(ptr noundef %0, ptr noundef writeonly cap
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %35, i8 0, i64 72, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load ptr, ptr %36, align 8, !tbaa !172
+  %37 = load ptr, ptr %36, align 8, !tbaa !171
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %38, label %ch_on_terminating_timeout.exit
 
@@ -1298,30 +1298,30 @@ define void @ossl_quic_channel_subtick(ptr noundef %0, ptr noundef writeonly cap
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %44 = load i8, ptr %43, align 8, !tbaa !180
+  %44 = load i8, ptr %43, align 8, !tbaa !179
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %ch_on_terminating_timeout.exit, label %46
 
 46:                                               ; preds = %42, %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull align 8 dereferenceable(21) %47, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull align 8 dereferenceable(21) %47, i64 21, i1 false), !tbaa.struct !85
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %49 = load ptr, ptr %48, align 8, !tbaa !162
+  %49 = load ptr, ptr %48, align 8, !tbaa !161
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %49, ptr %50, align 8, !tbaa !181
+  store ptr %49, ptr %50, align 8, !tbaa !180
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %52 = trunc i64 %32 to i32
   %53 = lshr i32 %52, 25
   %54 = and i32 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  store i32 %54, ptr %55, align 8, !tbaa !183
+  store i32 %54, ptr %55, align 8, !tbaa !182
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr @get_time, ptr %56, align 8, !tbaa !184
+  store ptr @get_time, ptr %56, align 8, !tbaa !183
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  store ptr %0, ptr %57, align 8, !tbaa !185
+  store ptr %0, ptr %57, align 8, !tbaa !184
   %58 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %15) #15
-  store ptr %58, ptr %36, align 8, !tbaa !172
+  store ptr %58, ptr %36, align 8, !tbaa !171
   %59 = icmp eq ptr %58, null
   %.pre.i.i = load i64, ptr %17, align 8
   br i1 %59, label %60, label %ch_on_terminating_timeout.exit
@@ -1344,11 +1344,11 @@ ch_on_terminating_timeout.exit:                   ; preds = %31, %38, %42, %46, 
   %69 = and i32 %68, 1
   call void @ossl_qlog_event_connectivity_connection_state_updated(ptr noundef %.0.i.i.i, i32 noundef %64, i32 noundef 4, i32 noundef %67, i32 noundef %69) #15
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %70, align 8, !tbaa !176
+  store i8 0, ptr %70, align 8, !tbaa !175
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 0, ptr %71, align 1, !tbaa !178
+  store i8 0, ptr %71, align 1, !tbaa !177
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 1, ptr %72, align 2, !tbaa !179
+  store i8 1, ptr %72, align 2, !tbaa !178
   store i64 -1, ptr %1, align 8, !tbaa !71
   br label %759
 
@@ -1380,7 +1380,7 @@ ch_on_terminating_timeout.exit:                   ; preds = %31, %38, %42, %46, 
   %89 = and i64 %88, -8589934593
   store i64 %89, ptr %17, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %91 = load ptr, ptr %90, align 8, !tbaa !117
+  %91 = load ptr, ptr %90, align 8, !tbaa !116
   %92 = tail call i32 @ossl_qrx_key_update_timeout(ptr noundef %91, i32 noundef 1) #15
   %.not8.i = icmp eq i32 %92, 0
   br i1 %.not8.i, label %93, label %ch_rxku_tick.exit
@@ -1438,7 +1438,7 @@ ch_rxku_tick.exit:                                ; preds = %79, %82, %87, %93
   br i1 %or.cond.i, label %ch_rx.exit, label %.preheader38.i
 
 .preheader38.i:                                   ; preds = %126
-  %131 = load ptr, ptr %94, align 8, !tbaa !117
+  %131 = load ptr, ptr %94, align 8, !tbaa !116
   %132 = call i32 @ossl_qrx_read_pkt(ptr noundef %131, ptr noundef nonnull %95) #15
   %.not2840.not.i = icmp eq i32 %132, 0
   br i1 %.not2840.not.i, label %.preheader.i.preheader, label %.lr.ph.i
@@ -1448,11 +1448,11 @@ ch_rxku_tick.exit:                                ; preds = %79, %82, %87, %93
   br i1 %.not.i71, label %139, label %133
 
 133:                                              ; preds = %.lr.ph.i
-  %134 = load ptr, ptr %96, align 8, !tbaa !110
-  %135 = load ptr, ptr %95, align 8, !tbaa !166
-  %136 = load ptr, ptr %135, align 8, !tbaa !186
+  %134 = load ptr, ptr %96, align 8, !tbaa !109
+  %135 = load ptr, ptr %95, align 8, !tbaa !165
+  %136 = load ptr, ptr %135, align 8, !tbaa !185
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 72
-  %138 = load i64, ptr %137, align 8, !tbaa !190
+  %138 = load i64, ptr %137, align 8, !tbaa !189
   call void @ossl_quic_tx_packetiser_record_received_closing_bytes(ptr noundef %134, i64 noundef %138) #15
   br label %139
 
@@ -1462,7 +1462,7 @@ ch_rxku_tick.exit:                                ; preds = %79, %82, %87, %93
 140:                                              ; preds = %139
   %141 = load ptr, ptr %0, align 8, !tbaa !3
   %142 = call i64 @ossl_quic_port_get_time(ptr noundef %141) #15
-  %143 = load i64, ptr %97, align 8, !tbaa !148
+  %143 = load i64, ptr %97, align 8, !tbaa !147
   %144 = icmp eq i64 %143, 0
   br i1 %144, label %ch_update_idle.exit.thread.i, label %ch_update_idle.exit.i
 
@@ -1471,9 +1471,9 @@ ch_update_idle.exit.thread.i:                     ; preds = %140
   br label %ch_update_ping_deadline.exit.sink.split.i
 
 ch_update_idle.exit.i:                            ; preds = %140
-  %145 = load ptr, ptr %98, align 8, !tbaa !85
+  %145 = load ptr, ptr %98, align 8, !tbaa !84
   %146 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %145) #15
-  %147 = load i64, ptr %97, align 8, !tbaa !148
+  %147 = load i64, ptr %97, align 8, !tbaa !147
   %148 = mul i64 %147, 1000000
   %149 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %146, i64 3)
   %150 = extractvalue { i64, i1 } %149, 1
@@ -1486,7 +1486,7 @@ ch_update_idle.exit.i:                            ; preds = %140
   br i1 %155, label %ch_update_ping_deadline.exit.sink.split.i, label %ch_get_effective_idle_timeout_duration.exit.i.i
 
 ch_get_effective_idle_timeout_duration.exit.i.i:  ; preds = %ch_update_idle.exit.i
-  %156 = load ptr, ptr %98, align 8, !tbaa !85
+  %156 = load ptr, ptr %98, align 8, !tbaa !84
   %157 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %156) #15
   %158 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %157, i64 3)
   %159 = extractvalue { i64, i1 } %158, 1
@@ -1496,7 +1496,7 @@ ch_get_effective_idle_timeout_duration.exit.i.i:  ; preds = %ch_update_idle.exit
   br i1 %.not.i.i, label %ch_update_ping_deadline.exit.sink.split.i, label %161
 
 161:                                              ; preds = %ch_get_effective_idle_timeout_duration.exit.i.i
-  %162 = load i64, ptr %97, align 8, !tbaa !148
+  %162 = load i64, ptr %97, align 8, !tbaa !147
   %163 = mul i64 %162, 1000000
   %164 = call i64 @llvm.umax.i64(i64 %163, i64 %160)
   %165 = lshr i64 %164, 1
@@ -1522,8 +1522,8 @@ ch_update_ping_deadline.exit.i:                   ; preds = %ch_update_ping_dead
   br i1 %.not.i31.i, label %173, label %ch_rx_handle_packet.exit.i
 
 173:                                              ; preds = %ch_update_ping_deadline.exit.i
-  %174 = load ptr, ptr %95, align 8, !tbaa !166
-  %175 = load ptr, ptr %174, align 8, !tbaa !186
+  %174 = load ptr, ptr %95, align 8, !tbaa !165
+  %175 = load ptr, ptr %174, align 8, !tbaa !185
   %176 = load i32, ptr %175, align 8
   %177 = and i32 %176, 253
   %switch.selectcmp.i.not.i.i = icmp eq i32 %177, 4
@@ -1536,14 +1536,14 @@ ch_update_ping_deadline.exit.i:                   ; preds = %ch_update_ping_dead
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(21) %102, ptr noundef nonnull align 1 dereferenceable(21) %181, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(21) %102, ptr noundef nonnull align 1 dereferenceable(21) %181, i64 21, i1 false), !tbaa.struct !85
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %101, ptr noundef nonnull align 1 dereferenceable(21) %181, i64 21, i1 false)
   %182 = or disjoint i64 %168, 8
   store i64 %182, ptr %17, align 8
-  %183 = load ptr, ptr %96, align 8, !tbaa !110
+  %183 = load ptr, ptr %96, align 8, !tbaa !109
   %184 = call i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef %183, ptr noundef nonnull %102) #15
-  %.pre.i.i75 = load ptr, ptr %95, align 8, !tbaa !166
-  %.pre151.i.i = load ptr, ptr %.pre.i.i75, align 8, !tbaa !186
+  %.pre.i.i75 = load ptr, ptr %95, align 8, !tbaa !165
+  %.pre151.i.i = load ptr, ptr %.pre.i.i75, align 8, !tbaa !185
   %.pre152.i.i = load i32, ptr %.pre151.i.i, align 8
   br label %185
 
@@ -1581,7 +1581,7 @@ ossl_quic_pkt_type_to_enc_level.exit.i.i:         ; preds = %185, %switch.lookup
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %202 = load ptr, ptr %201, align 8, !tbaa !192
+  %202 = load ptr, ptr %201, align 8, !tbaa !191
   %.not87.i.i = icmp eq ptr %202, null
   br i1 %.not87.i.i, label %224, label %203
 
@@ -1596,9 +1596,9 @@ ossl_quic_pkt_type_to_enc_level.exit.i.i:         ; preds = %185, %switch.lookup
   br i1 %208, label %209, label %224
 
 209:                                              ; preds = %206, %203
-  %210 = load ptr, ptr %95, align 8, !tbaa !166
+  %210 = load ptr, ptr %95, align 8, !tbaa !165
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %212 = load ptr, ptr %211, align 8, !tbaa !192
+  %212 = load ptr, ptr %211, align 8, !tbaa !191
   %213 = call i32 @BIO_ADDR_family(ptr noundef %212) #15
   %214 = call i32 @BIO_ADDR_family(ptr noundef nonnull %103) #15
   %.not.i122.i.i = icmp eq i32 %213, %214
@@ -1625,8 +1625,8 @@ ossl_quic_pkt_type_to_enc_level.exit.i.i:         ; preds = %185, %switch.lookup
 
 bio_addr_eq.exit.i.i:                             ; preds = %219, %217
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 2
-  %222 = load i16, ptr %221, align 2, !tbaa !87
-  %223 = load i16, ptr %106, align 2, !tbaa !87
+  %222 = load i16, ptr %221, align 2, !tbaa !86
+  %223 = load i16, ptr %106, align 2, !tbaa !86
   %.not148.i.i = icmp eq i16 %222, %223
   br i1 %.not148.i.i, label %224, label %ch_rx_handle_packet.exit.i
 
@@ -1634,8 +1634,8 @@ bio_addr_eq.exit.i.i:                             ; preds = %219, %217
   %225 = load i64, ptr %17, align 8
   %226 = and i64 %225, 33554440
   %or.cond.not.i.i = icmp eq i64 %226, 8
-  %.pre153.i.i = load ptr, ptr %95, align 8, !tbaa !166
-  %.pre154.i.i = load ptr, ptr %.pre153.i.i, align 8, !tbaa !186
+  %.pre153.i.i = load ptr, ptr %95, align 8, !tbaa !165
+  %.pre154.i.i = load ptr, ptr %.pre153.i.i, align 8, !tbaa !185
   %.pre155.i.i = load i32, ptr %.pre154.i.i, align 8
   %227 = and i32 %.pre155.i.i, 255
   br i1 %or.cond.not.i.i, label %228, label %._crit_edge162.i.i
@@ -1646,8 +1646,8 @@ bio_addr_eq.exit.i.i:                             ; preds = %219, %217
 
 229:                                              ; preds = %228
   %230 = getelementptr inbounds nuw i8, ptr %.pre154.i.i, i64 29
-  %231 = load i8, ptr %230, align 1, !tbaa !193
-  %232 = load i8, ptr %102, align 1, !tbaa !193
+  %231 = load i8, ptr %230, align 1, !tbaa !192
+  %232 = load i8, ptr %102, align 1, !tbaa !192
   %.not.i123.i.i = icmp ne i8 %231, %232
   %233 = icmp ugt i8 %231, 20
   %or.cond.i.i.i = or i1 %233, %.not.i123.i.i
@@ -1667,7 +1667,7 @@ ossl_quic_conn_id_eq.exit.i.i:                    ; preds = %229
 
 238:                                              ; preds = %._crit_edge162.i.i
   %239 = getelementptr inbounds nuw i8, ptr %.pre154.i.i, i64 4
-  %240 = load i32, ptr %239, align 4, !tbaa !194
+  %240 = load i32, ptr %239, align 4, !tbaa !193
   %.not94.i.i = icmp eq i32 %240, 1
   br i1 %.not94.i.i, label %241, label %ch_rx_handle_packet.exit.i
 
@@ -1677,7 +1677,7 @@ ossl_quic_conn_id_eq.exit.i.i:                    ; preds = %229
 
 243:                                              ; preds = %241
   %244 = getelementptr inbounds nuw i8, ptr %.pre154.i.i, i64 4
-  %245 = load i32, ptr %244, align 4, !tbaa !194
+  %245 = load i32, ptr %244, align 4, !tbaa !193
   %246 = or i32 %245, %171
   %or.cond117.i.i = icmp eq i32 %246, 0
   br i1 %or.cond117.i.i, label %247, label %ch_rx_handle_packet.exit.i
@@ -1685,15 +1685,15 @@ ossl_quic_conn_id_eq.exit.i.i:                    ; preds = %229
 247:                                              ; preds = %243
   %248 = or i64 %225, 16
   store i64 %248, ptr %17, align 8
-  %249 = load ptr, ptr %.pre153.i.i, align 8, !tbaa !186
+  %249 = load ptr, ptr %.pre153.i.i, align 8, !tbaa !185
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 72
-  %251 = load i64, ptr %250, align 8, !tbaa !190
+  %251 = load i64, ptr %250, align 8, !tbaa !189
   %252 = icmp slt i64 %251, 0
   br i1 %252, label %ch_rx_handle_packet.exit.i, label %PACKET_buf_init.exit.preheader.i.i
 
 PACKET_buf_init.exit.preheader.i.i:               ; preds = %247
   %253 = getelementptr inbounds nuw i8, ptr %249, i64 80
-  %254 = load ptr, ptr %253, align 8, !tbaa !195
+  %254 = load ptr, ptr %253, align 8, !tbaa !194
   br label %PACKET_buf_init.exit.i.i
 
 PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_init.exit.preheader.i.i
@@ -1707,32 +1707,32 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
   br i1 %256, label %ch_rx_handle_packet.exit.i, label %257
 
 257:                                              ; preds = %255
-  %258 = load i8, ptr %.sroa.0.0.i.i, align 1, !tbaa !87
+  %258 = load i8, ptr %.sroa.0.0.i.i, align 1, !tbaa !86
   %259 = zext i8 %258 to i32
   %260 = shl nuw i32 %259, 24
   %261 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
-  %262 = load i8, ptr %261, align 1, !tbaa !87
+  %262 = load i8, ptr %261, align 1, !tbaa !86
   %263 = zext i8 %262 to i32
   %264 = shl nuw nsw i32 %263, 16
   %265 = or disjoint i32 %264, %260
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 2
-  %267 = load i8, ptr %266, align 1, !tbaa !87
+  %267 = load i8, ptr %266, align 1, !tbaa !86
   %268 = zext i8 %267 to i32
   %269 = shl nuw nsw i32 %268, 8
   %270 = or disjoint i32 %265, %269
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 3
-  %272 = load i8, ptr %271, align 1, !tbaa !87
+  %272 = load i8, ptr %271, align 1, !tbaa !86
   %273 = zext i8 %272 to i32
   %274 = or disjoint i32 %270, %273
   %275 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
   %276 = add i64 %.sroa.5.0.i.i, -4
   %277 = icmp eq i32 %274, 16777216
-  br i1 %277, label %278, label %PACKET_buf_init.exit.i.i, !llvm.loop !196
+  br i1 %277, label %278, label %PACKET_buf_init.exit.i.i, !llvm.loop !195
 
 278:                                              ; preds = %257
-  %279 = load ptr, ptr %96, align 8, !tbaa !110
+  %279 = load ptr, ptr %96, align 8, !tbaa !109
   %280 = call i32 @ossl_quic_tx_packetiser_set_protocol_version(ptr noundef %279, i32 noundef 1) #15
-  %.val119.i.i = load ptr, ptr %98, align 8, !tbaa !85
+  %.val119.i.i = load ptr, ptr %98, align 8, !tbaa !84
   %281 = call i32 @ossl_ackm_mark_packet_pseudo_lost(ptr noundef %.val119.i.i, i32 noundef 0, i64 noundef 0) #15
   %.not115.i.i = icmp eq i32 %281, 0
   br i1 %.not115.i.i, label %282, label %ch_rx_handle_packet.exit.i
@@ -1748,7 +1748,7 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
 .thread166.i.i:                                   ; preds = %241, %228
   %284 = or i64 %225, 16
   store i64 %284, ptr %17, align 8
-  %285 = load ptr, ptr %.pre153.i.i, align 8, !tbaa !186
+  %285 = load ptr, ptr %.pre153.i.i, align 8, !tbaa !185
   %286 = load i32, ptr %285, align 8
   %287 = and i32 %286, 253
   %switch.selectcmp.i128.not.i.i = icmp eq i32 %287, 4
@@ -1763,14 +1763,14 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
 
 290:                                              ; preds = %.thread166.i.i
   %291 = getelementptr inbounds nuw i8, ptr %285, i64 80
-  %292 = load ptr, ptr %291, align 8, !tbaa !195
-  store ptr %292, ptr %14, align 8, !tbaa !197
+  %292 = load ptr, ptr %291, align 8, !tbaa !194
+  store ptr %292, ptr %14, align 8, !tbaa !196
   %293 = getelementptr inbounds nuw i8, ptr %285, i64 72
-  %294 = load i64, ptr %293, align 8, !tbaa !190
-  store i64 %294, ptr %108, align 8, !tbaa !199
+  %294 = load i64, ptr %293, align 8, !tbaa !189
+  store i64 %294, ptr %108, align 8, !tbaa !198
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, i8 0, i64 72, i1 false)
-  %295 = load ptr, ptr %110, align 8, !tbaa !172
+  %295 = load ptr, ptr %110, align 8, !tbaa !171
   %.not.i129.i.i = icmp eq ptr %295, null
   br i1 %.not.i129.i.i, label %296, label %ch_get_qlog.exit.i.i
 
@@ -1785,23 +1785,23 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
   br i1 %.not16.i.i.i74, label %303, label %300
 
 300:                                              ; preds = %298
-  %301 = load i8, ptr %111, align 8, !tbaa !180
+  %301 = load i8, ptr %111, align 8, !tbaa !179
   %302 = icmp eq i8 %301, 0
   br i1 %302, label %ch_get_qlog.exit.i.i, label %303
 
 303:                                              ; preds = %300, %298
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 8 dereferenceable(21) %111, i64 21, i1 false), !tbaa.struct !86
-  %304 = load ptr, ptr %112, align 8, !tbaa !162
-  store ptr %304, ptr %113, align 8, !tbaa !181
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 8 dereferenceable(21) %111, i64 21, i1 false), !tbaa.struct !85
+  %304 = load ptr, ptr %112, align 8, !tbaa !161
+  store ptr %304, ptr %113, align 8, !tbaa !180
   %305 = trunc i64 %225 to i32
   %306 = lshr i32 %305, 25
   %307 = and i32 %306, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
-  store i32 %307, ptr %115, align 8, !tbaa !183
-  store ptr @get_time, ptr %116, align 8, !tbaa !184
-  store ptr %0, ptr %117, align 8, !tbaa !185
+  store i32 %307, ptr %115, align 8, !tbaa !182
+  store ptr @get_time, ptr %116, align 8, !tbaa !183
+  store ptr %0, ptr %117, align 8, !tbaa !184
   %308 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %13) #15
-  store ptr %308, ptr %110, align 8, !tbaa !172
+  store ptr %308, ptr %110, align 8, !tbaa !171
   %309 = icmp eq ptr %308, null
   br i1 %309, label %310, label %ch_get_qlog.exit.i.i
 
@@ -1814,15 +1814,15 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
 ch_get_qlog.exit.i.i:                             ; preds = %310, %303, %300, %296, %290
   %.0.i130.i.i = phi ptr [ null, %310 ], [ %295, %290 ], [ null, %296 ], [ null, %300 ], [ %308, %303 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13) #15
-  %313 = load ptr, ptr %95, align 8, !tbaa !166
-  %314 = load ptr, ptr %313, align 8, !tbaa !186
+  %313 = load ptr, ptr %95, align 8, !tbaa !165
+  %314 = load ptr, ptr %313, align 8, !tbaa !185
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 32
-  %316 = load i64, ptr %315, align 8, !tbaa !200
+  %316 = load i64, ptr %315, align 8, !tbaa !199
   %317 = getelementptr inbounds nuw i8, ptr %313, i64 64
-  %318 = load i64, ptr %317, align 8, !tbaa !201
+  %318 = load i64, ptr %317, align 8, !tbaa !200
   call void @ossl_qlog_event_transport_packet_received(ptr noundef %.0.i130.i.i, ptr noundef %314, i64 noundef %316, ptr noundef nonnull %14, i64 noundef 1, i64 noundef %318) #15
-  %319 = load ptr, ptr %95, align 8, !tbaa !166
-  %320 = load ptr, ptr %319, align 8, !tbaa !186
+  %319 = load ptr, ptr %95, align 8, !tbaa !165
+  %320 = load ptr, ptr %319, align 8, !tbaa !185
   %321 = load i32, ptr %320, align 8
   %trunc.i.i = trunc i32 %321 to i8
   switch i8 %trunc.i.i, label %ch_rx_handle_packet.exit.i [
@@ -1841,7 +1841,7 @@ ch_get_qlog.exit.i.i:                             ; preds = %310, %303, %300, %2
 
 325:                                              ; preds = %322
   %326 = getelementptr inbounds nuw i8, ptr %320, i64 72
-  %327 = load i64, ptr %326, align 8, !tbaa !190
+  %327 = load i64, ptr %326, align 8, !tbaa !189
   %328 = icmp ult i64 %327, 17
   br i1 %328, label %ch_rx_handle_packet.exit.i, label %329
 
@@ -1850,22 +1850,22 @@ ch_get_qlog.exit.i.i:                             ; preds = %310, %303, %300, %2
   %331 = load ptr, ptr %330, align 8, !tbaa !46
   %332 = load ptr, ptr %331, align 8, !tbaa !56
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  %334 = load ptr, ptr %333, align 8, !tbaa !202
+  %334 = load ptr, ptr %333, align 8, !tbaa !201
   %335 = call i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %332, ptr noundef %334, ptr noundef nonnull %320, ptr noundef nonnull %111) #15
   %.not108.i.i = icmp eq i32 %335, 0
   br i1 %.not108.i.i, label %ch_rx_handle_packet.exit.i, label %336
 
 336:                                              ; preds = %329
-  %337 = load ptr, ptr %95, align 8, !tbaa !166
-  %338 = load ptr, ptr %337, align 8, !tbaa !186
+  %337 = load ptr, ptr %95, align 8, !tbaa !165
+  %338 = load ptr, ptr %337, align 8, !tbaa !185
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 80
-  %340 = load ptr, ptr %339, align 8, !tbaa !195
+  %340 = load ptr, ptr %339, align 8, !tbaa !194
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 72
-  %342 = load i64, ptr %341, align 8, !tbaa !190
+  %342 = load i64, ptr %341, align 8, !tbaa !189
   %343 = add i64 %342, -16
   %344 = getelementptr inbounds nuw i8, ptr %338, i64 29
-  %345 = load i8, ptr %111, align 1, !tbaa !193
-  %346 = load i8, ptr %344, align 1, !tbaa !193
+  %345 = load i8, ptr %111, align 1, !tbaa !192
+  %346 = load i8, ptr %344, align 1, !tbaa !192
   %.not.i.i102 = icmp ne i8 %345, %346
   %347 = icmp ugt i8 %345, 20
   %or.cond.i.i103 = or i1 %347, %.not.i.i102
@@ -1879,7 +1879,7 @@ ossl_quic_conn_id_eq.exit.i:                      ; preds = %336
   br i1 %.not.i104, label %ch_rx_handle_packet.exit.i, label %ossl_quic_conn_id_eq.exit.thread.i
 
 ossl_quic_conn_id_eq.exit.thread.i:               ; preds = %ossl_quic_conn_id_eq.exit.i, %336
-  %350 = load ptr, ptr %96, align 8, !tbaa !110
+  %350 = load ptr, ptr %96, align 8, !tbaa !109
   %351 = call i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef %350, ptr noundef nonnull %344) #15
   %.not24.i = icmp eq i32 %351, 0
   br i1 %.not24.i, label %ch_retry.exit.thread, label %352
@@ -1890,7 +1890,7 @@ ossl_quic_conn_id_eq.exit.thread.i:               ; preds = %ossl_quic_conn_id_e
   br i1 %354, label %ch_retry.exit.thread, label %355
 
 355:                                              ; preds = %352
-  %356 = load ptr, ptr %96, align 8, !tbaa !110
+  %356 = load ptr, ptr %96, align 8, !tbaa !109
   %357 = call i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef %356, ptr noundef nonnull %353, i64 noundef %343, ptr noundef nonnull @free_token, ptr noundef null) #15
   %.not25.i = icmp eq i32 %357, 0
   br i1 %.not25.i, label %358, label %359
@@ -1901,12 +1901,12 @@ ossl_quic_conn_id_eq.exit.thread.i:               ; preds = %ossl_quic_conn_id_e
   br label %ch_retry.exit.thread
 
 359:                                              ; preds = %355
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %124, ptr noundef nonnull align 1 dereferenceable(21) %344, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %124, ptr noundef nonnull align 1 dereferenceable(21) %344, i64 21, i1 false), !tbaa.struct !85
   %360 = load i64, ptr %17, align 8
   %361 = or i64 %360, 2048
   store i64 %361, ptr %17, align 8
   %spec.select.i105 = zext nneg i32 %171 to i64
-  %362 = load ptr, ptr %98, align 8, !tbaa !85
+  %362 = load ptr, ptr %98, align 8, !tbaa !84
   %363 = call i32 @ossl_ackm_mark_packet_pseudo_lost(ptr noundef %362, i32 noundef 0, i64 noundef %spec.select.i105) #15
   %.not27.i106 = icmp eq i32 %363, 0
   br i1 %.not27.i106, label %ch_retry.exit.thread, label %ch_retry.exit
@@ -1916,8 +1916,8 @@ ch_retry.exit:                                    ; preds = %359
   %365 = load ptr, ptr %364, align 8, !tbaa !46
   %366 = load ptr, ptr %365, align 8, !tbaa !56
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %368 = load ptr, ptr %367, align 8, !tbaa !202
-  %369 = load ptr, ptr %94, align 8, !tbaa !117
+  %368 = load ptr, ptr %367, align 8, !tbaa !201
+  %369 = load ptr, ptr %94, align 8, !tbaa !116
   %370 = load ptr, ptr %125, align 8, !tbaa !72
   %371 = call i32 @ossl_quic_provide_initial_secret(ptr noundef %366, ptr noundef %368, ptr noundef nonnull %124, i32 noundef 0, ptr noundef %369, ptr noundef %370) #15
   %.not28.i107.not = icmp eq i32 %371, 0
@@ -1939,7 +1939,7 @@ ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_qu
 377:                                              ; preds = %372
   call fastcc void @ch_discard_el(ptr noundef nonnull %0, i32 noundef 0)
   %.pre156.i.i = load i64, ptr %17, align 8
-  %.pre158.pre159.pre.i.i = load ptr, ptr %95, align 8, !tbaa !166
+  %.pre158.pre159.pre.i.i = load ptr, ptr %95, align 8, !tbaa !165
   br label %378
 
 378:                                              ; preds = %377, %372
@@ -1950,7 +1950,7 @@ ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_qu
   br i1 %.not99.i.i, label %397, label %381
 
 381:                                              ; preds = %378
-  %382 = load ptr, ptr %.pre158.pre159.i.i, align 8, !tbaa !186
+  %382 = load ptr, ptr %.pre158.pre159.i.i, align 8, !tbaa !185
   %383 = load i32, ptr %382, align 8
   %384 = and i32 %383, 255
   %385 = icmp eq i32 %384, 5
@@ -1958,22 +1958,22 @@ ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_qu
 
 386:                                              ; preds = %381
   %387 = getelementptr inbounds nuw i8, ptr %.pre158.pre159.i.i, i64 32
-  %388 = load i64, ptr %387, align 8, !tbaa !200
-  %389 = load i64, ptr %118, align 8, !tbaa !203
+  %388 = load i64, ptr %387, align 8, !tbaa !199
+  %389 = load i64, ptr %118, align 8, !tbaa !202
   %.not100.i.i = icmp ult i64 %388, %389
   br i1 %.not100.i.i, label %397, label %390
 
 390:                                              ; preds = %386
   %391 = getelementptr inbounds nuw i8, ptr %.pre158.pre159.i.i, i64 56
-  %392 = load i64, ptr %391, align 8, !tbaa !204
-  %393 = load ptr, ptr %94, align 8, !tbaa !117
+  %392 = load i64, ptr %391, align 8, !tbaa !203
+  %393 = load ptr, ptr %94, align 8, !tbaa !116
   %394 = call i64 @ossl_qrx_get_key_epoch(ptr noundef %393) #15
   %395 = icmp ult i64 %392, %394
   br i1 %395, label %396, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %390
   %.pre157.i.i = load i64, ptr %17, align 8
-  %.pre158.pre.i.i = load ptr, ptr %95, align 8, !tbaa !166
+  %.pre158.pre.i.i = load ptr, ptr %95, align 8, !tbaa !165
   br label %397
 
 396:                                              ; preds = %390
@@ -1988,7 +1988,7 @@ ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_qu
   br i1 %.not101.i.i, label %400, label %409
 
 400:                                              ; preds = %397
-  %401 = load ptr, ptr %.pre158.i.i, align 8, !tbaa !186
+  %401 = load ptr, ptr %.pre158.i.i, align 8, !tbaa !185
   %402 = load i32, ptr %401, align 8
   %403 = and i32 %402, 255
   %404 = icmp eq i32 %403, 1
@@ -1996,7 +1996,7 @@ ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_qu
 
 405:                                              ; preds = %400
   %406 = getelementptr inbounds nuw i8, ptr %401, i64 64
-  %407 = load i64, ptr %406, align 8, !tbaa !205
+  %407 = load i64, ptr %406, align 8, !tbaa !204
   %.not102.i.i = icmp eq i64 %407, 0
   br i1 %.not102.i.i, label %409, label %408
 
@@ -2015,23 +2015,23 @@ ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_qu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
-  store ptr null, ptr %11, align 8, !tbaa !206
+  store ptr null, ptr %11, align 8, !tbaa !205
   br i1 %.not.i34.i, label %414, label %ch_tick_tls.exit.i
 
 414:                                              ; preds = %413
   %415 = or i64 %411, 134217728
   store i64 %415, ptr %17, align 8
-  %416 = load ptr, ptr %119, align 8, !tbaa !140
+  %416 = load ptr, ptr %119, align 8, !tbaa !139
   %417 = call i32 @ossl_quic_tls_tick(ptr noundef %416) #15
-  %418 = load ptr, ptr %119, align 8, !tbaa !140
+  %418 = load ptr, ptr %119, align 8, !tbaa !139
   %419 = call i32 @ossl_quic_tls_get_error(ptr noundef %418, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   %.not8.i.i = icmp eq i32 %419, 0
   br i1 %.not8.i.i, label %ch_tick_tls.exit.i, label %420
 
 420:                                              ; preds = %414
   %421 = load i64, ptr %9, align 8, !tbaa !71
-  %422 = load ptr, ptr %10, align 8, !tbaa !207
-  %423 = load ptr, ptr %11, align 8, !tbaa !206
+  %422 = load ptr, ptr %10, align 8, !tbaa !206
+  %423 = load ptr, ptr %11, align 8, !tbaa !205
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef %421, i64 noundef 0, ptr noundef %422, ptr noundef %423, ptr noundef nonnull @.str, i32 noundef 2130, ptr noundef nonnull @__func__.ch_tick_tls)
   br label %ch_tick_tls.exit.i
 
@@ -2047,13 +2047,13 @@ ch_tick_tls.exit.i:                               ; preds = %420, %414, %413
 
 425:                                              ; preds = %424
   %426 = getelementptr i8, ptr %320, i64 72
-  %.val120.val.i.i = load i64, ptr %426, align 8, !tbaa !190
+  %.val120.val.i.i = load i64, ptr %426, align 8, !tbaa !189
   %427 = icmp slt i64 %.val120.val.i.i, 0
   br i1 %427, label %ch_rx_handle_packet.exit.i, label %PACKET_buf_init.exit.i33.preheader.i
 
 PACKET_buf_init.exit.i33.preheader.i:             ; preds = %425
   %428 = getelementptr i8, ptr %320, i64 80
-  %.val120.val121.i.i = load ptr, ptr %428, align 8, !tbaa !195
+  %.val120.val121.i.i = load ptr, ptr %428, align 8, !tbaa !194
   br label %PACKET_buf_init.exit.i33.i
 
 PACKET_buf_init.exit.i33.i:                       ; preds = %429, %PACKET_buf_init.exit.i33.preheader.i
@@ -2063,50 +2063,50 @@ PACKET_buf_init.exit.i33.i:                       ; preds = %429, %PACKET_buf_in
   br i1 %switch.i.i, label %PACKET_get_net_4.exit.thread.i.i, label %429
 
 429:                                              ; preds = %PACKET_buf_init.exit.i33.i
-  %430 = load i8, ptr %.sroa.0.1.i.i, align 1, !tbaa !87
+  %430 = load i8, ptr %.sroa.0.1.i.i, align 1, !tbaa !86
   %431 = zext i8 %430 to i64
   %432 = shl nuw nsw i64 %431, 24
   %433 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 1
-  %434 = load i8, ptr %433, align 1, !tbaa !87
+  %434 = load i8, ptr %433, align 1, !tbaa !86
   %435 = zext i8 %434 to i64
   %436 = shl nuw nsw i64 %435, 16
   %437 = or disjoint i64 %436, %432
   %438 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 2
-  %439 = load i8, ptr %438, align 1, !tbaa !87
+  %439 = load i8, ptr %438, align 1, !tbaa !86
   %440 = zext i8 %439 to i64
   %441 = shl nuw nsw i64 %440, 8
   %442 = or disjoint i64 %437, %441
   %443 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 3
-  %444 = load i8, ptr %443, align 1, !tbaa !87
+  %444 = load i8, ptr %443, align 1, !tbaa !86
   %445 = zext i8 %444 to i64
   %446 = or disjoint i64 %442, %445
   %447 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %448 = add i64 %.sroa.5.1.i.i, -4
   %449 = icmp eq i64 %446, 1
-  br i1 %449, label %ch_rx_handle_packet.exit.i, label %PACKET_buf_init.exit.i33.i, !llvm.loop !208
+  br i1 %449, label %ch_rx_handle_packet.exit.i, label %PACKET_buf_init.exit.i33.i, !llvm.loop !207
 
 PACKET_get_net_4.exit.thread.i.i:                 ; preds = %PACKET_buf_init.exit.i33.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 32, i1 false)
-  store i64 2, ptr %12, align 8, !tbaa !209
-  store ptr @.str.105, ptr %121, align 8, !tbaa !210
-  store i64 27, ptr %122, align 8, !tbaa !211
+  store i64 2, ptr %12, align 8, !tbaa !208
+  store ptr @.str.105, ptr %121, align 8, !tbaa !209
+  store i64 27, ptr %122, align 8, !tbaa !210
   call fastcc void @ch_start_terminating(ptr noundef nonnull %0, ptr noundef %12, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #15
   br label %ch_rx_handle_packet.exit.i
 
 ch_rx_handle_packet.exit.i:                       ; preds = %255, %429, %ossl_quic_conn_id_eq.exit.i, %PACKET_get_net_4.exit.thread.i.i, %425, %424, %ch_tick_tls.exit.i, %409, %408, %396, %ch_retry.exit.thread, %ch_retry.exit, %329, %325, %322, %ch_get_qlog.exit.i.i, %289, %283, %282, %278, %247, %243, %238, %ossl_quic_conn_id_eq.exit.i.i, %229, %bio_addr_eq.exit.i.i, %219, %217, %215, %209, %ossl_quic_pkt_type_to_enc_level.exit.i.i, %ch_update_ping_deadline.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
-  %450 = load ptr, ptr %95, align 8, !tbaa !166
+  %450 = load ptr, ptr %95, align 8, !tbaa !165
   call void @ossl_qrx_pkt_release(ptr noundef %450) #15
-  store ptr null, ptr %95, align 8, !tbaa !166
+  store ptr null, ptr %95, align 8, !tbaa !165
   %451 = load i64, ptr %17, align 8
   %452 = and i64 %451, -536870913
   store i64 %452, ptr %17, align 8
-  %453 = load ptr, ptr %94, align 8, !tbaa !117
+  %453 = load ptr, ptr %94, align 8, !tbaa !116
   %454 = call i32 @ossl_qrx_read_pkt(ptr noundef %453, ptr noundef nonnull %95) #15
   %.not28.i = icmp eq i32 %454, 0
-  br i1 %.not28.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !212
+  br i1 %.not28.i, label %.preheader.i.preheader, label %.lr.ph.i
 
 .preheader.i.preheader:                           ; preds = %ch_rx_handle_packet.exit.i, %.preheader38.i
   br label %.preheader.i
@@ -2129,7 +2129,7 @@ ch_rx_handle_packet.exit.i:                       ; preds = %255, %429, %ossl_qu
   br i1 %463, label %469, label %464
 
 464:                                              ; preds = %460
-  %465 = load ptr, ptr %94, align 8, !tbaa !117
+  %465 = load ptr, ptr %94, align 8, !tbaa !116
   %466 = call i64 @ossl_qrx_get_max_forged_pkt_count(ptr noundef %465, i32 noundef %.016.i.i) #15
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %466, i64 %.01315.i.i)
   br label %467
@@ -2138,11 +2138,11 @@ ch_rx_handle_packet.exit.i:                       ; preds = %255, %429, %ossl_qu
   %.1.i.i = phi i64 [ %.01315.i.i, %.preheader.i ], [ %spec.select.i.i, %464 ]
   %468 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %468, 4
-  br i1 %exitcond.not.i.i, label %469, label %.preheader.i, !llvm.loop !213
+  br i1 %exitcond.not.i.i, label %469, label %.preheader.i, !llvm.loop !211
 
 469:                                              ; preds = %467, %460
   %.013.lcssa.i.i = phi i64 [ %.01315.i.i, %460 ], [ %.1.i.i, %467 ]
-  %470 = load ptr, ptr %94, align 8, !tbaa !117
+  %470 = load ptr, ptr %94, align 8, !tbaa !116
   %471 = call i64 @ossl_qrx_get_cur_forged_pkt_count(ptr noundef %470) #15
   %472 = icmp ult i64 %471, %.013.lcssa.i.i
   br i1 %472, label %ch_rx_check_forged_pkt_limit.exit.i, label %473
@@ -2173,23 +2173,23 @@ ch_rx.exit:                                       ; preds = %ch_rx_check_forged_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  store ptr null, ptr %8, align 8, !tbaa !206
+  store ptr null, ptr %8, align 8, !tbaa !205
   br i1 %.not.i34.i, label %479, label %ch_tick_tls.exit
 
 479:                                              ; preds = %478
   %480 = or disjoint i64 %476, 134217728
   store i64 %480, ptr %17, align 8
-  %481 = load ptr, ptr %119, align 8, !tbaa !140
+  %481 = load ptr, ptr %119, align 8, !tbaa !139
   %482 = call i32 @ossl_quic_tls_tick(ptr noundef %481) #15
-  %483 = load ptr, ptr %119, align 8, !tbaa !140
+  %483 = load ptr, ptr %119, align 8, !tbaa !139
   %484 = call i32 @ossl_quic_tls_get_error(ptr noundef %483, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #15
   %.not8.i78 = icmp eq i32 %484, 0
   br i1 %.not8.i78, label %ch_tick_tls.exit, label %485
 
 485:                                              ; preds = %479
   %486 = load i64, ptr %6, align 8, !tbaa !71
-  %487 = load ptr, ptr %7, align 8, !tbaa !207
-  %488 = load ptr, ptr %8, align 8, !tbaa !206
+  %487 = load ptr, ptr %7, align 8, !tbaa !206
+  %488 = load ptr, ptr %8, align 8, !tbaa !205
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef %486, i64 noundef 0, ptr noundef %487, ptr noundef %488, ptr noundef nonnull @.str, i32 noundef 2130, ptr noundef nonnull @__func__.ch_tick_tls)
   br label %ch_tick_tls.exit
 
@@ -2206,7 +2206,7 @@ ch_tick_tls.exit:                                 ; preds = %478, %479, %485
   %.2 = phi i8 [ %.5, %ch_tick_tls.exit ], [ %.4, %ch_rx.exit ]
   %491 = and i64 %490, 67108864
   %.not65 = icmp eq i64 %491, 0
-  br i1 %.not65, label %.loopexit.loopexit, label %126, !llvm.loop !214
+  br i1 %.not65, label %.loopexit.loopexit, label %126, !llvm.loop !212
 
 .loopexit.loopexit:                               ; preds = %489
   %.pre121 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2236,9 +2236,9 @@ ch_tick_tls.exit:                                 ; preds = %478, %479, %485
   %505 = load i8, ptr %504, align 8
   %506 = and i8 %505, -2
   store i8 %506, ptr %504, align 8
-  store i64 -1, ptr %503, align 8, !tbaa !215
+  store i64 -1, ptr %503, align 8, !tbaa !213
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  store i64 0, ptr %507, align 8, !tbaa !216
+  store i64 0, ptr %507, align 8, !tbaa !214
   %508 = load i64, ptr %17, align 8
   %509 = and i64 %508, -8
   %510 = or disjoint i64 %509, 4
@@ -2247,7 +2247,7 @@ ch_tick_tls.exit:                                 ; preds = %478, %479, %485
   %511 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %511, i8 0, i64 72, i1 false)
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %513 = load ptr, ptr %512, align 8, !tbaa !172
+  %513 = load ptr, ptr %512, align 8, !tbaa !171
   %.not.i.i.i80 = icmp eq ptr %513, null
   br i1 %.not.i.i.i80, label %514, label %ch_on_idle_timeout.exit
 
@@ -2263,30 +2263,30 @@ ch_tick_tls.exit:                                 ; preds = %478, %479, %485
 
 518:                                              ; preds = %516
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %520 = load i8, ptr %519, align 8, !tbaa !180
+  %520 = load i8, ptr %519, align 8, !tbaa !179
   %521 = icmp eq i8 %520, 0
   br i1 %521, label %ch_on_idle_timeout.exit, label %522
 
 522:                                              ; preds = %518, %516
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %523, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %523, i64 21, i1 false), !tbaa.struct !85
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %525 = load ptr, ptr %524, align 8, !tbaa !162
+  %525 = load ptr, ptr %524, align 8, !tbaa !161
   %526 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %525, ptr %526, align 8, !tbaa !181
+  store ptr %525, ptr %526, align 8, !tbaa !180
   %527 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %528 = trunc i64 %508 to i32
   %529 = lshr i32 %528, 25
   %530 = and i32 %529, 1
   %531 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %527, i8 0, i64 16, i1 false)
-  store i32 %530, ptr %531, align 8, !tbaa !183
+  store i32 %530, ptr %531, align 8, !tbaa !182
   %532 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @get_time, ptr %532, align 8, !tbaa !184
+  store ptr @get_time, ptr %532, align 8, !tbaa !183
   %533 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %0, ptr %533, align 8, !tbaa !185
+  store ptr %0, ptr %533, align 8, !tbaa !184
   %534 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %5) #15
-  store ptr %534, ptr %512, align 8, !tbaa !172
+  store ptr %534, ptr %512, align 8, !tbaa !171
   %535 = icmp eq ptr %534, null
   %.pre.i.i84 = load i64, ptr %17, align 8
   br i1 %535, label %536, label %ch_on_idle_timeout.exit
@@ -2312,11 +2312,11 @@ ch_on_idle_timeout.exit:                          ; preds = %502, %514, %518, %5
 
 546:                                              ; preds = %ch_on_idle_timeout.exit, %501
   %547 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %547, align 8, !tbaa !176
+  store i8 0, ptr %547, align 8, !tbaa !175
   %548 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 0, ptr %548, align 1, !tbaa !178
+  store i8 0, ptr %548, align 1, !tbaa !177
   %549 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 1, ptr %549, align 2, !tbaa !179
+  store i8 1, ptr %549, align 2, !tbaa !178
   store i64 -1, ptr %1, align 8, !tbaa !71
   br label %759
 
@@ -2325,14 +2325,14 @@ ch_on_idle_timeout.exit:                          ; preds = %502, %514, %518, %5
 
 551:                                              ; preds = %550
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %553 = load ptr, ptr %552, align 8, !tbaa !85
+  %553 = load ptr, ptr %552, align 8, !tbaa !84
   %554 = call i64 @ossl_ackm_get_loss_detection_deadline(ptr noundef %553) #15
   %555 = add i64 %554, -1
   %or.cond = icmp ult i64 %555, %493
   br i1 %or.cond, label %556, label %559
 
 556:                                              ; preds = %551
-  %557 = load ptr, ptr %552, align 8, !tbaa !85
+  %557 = load ptr, ptr %552, align 8, !tbaa !84
   %558 = call i32 @ossl_ackm_on_timeout(ptr noundef %557) #15
   br label %559
 
@@ -2352,7 +2352,7 @@ ch_on_idle_timeout.exit:                          ; preds = %502, %514, %518, %5
   %switch.selectcmp2.i = icmp eq i32 %566, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 0, i32 %switch.select.i
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %568 = load ptr, ptr %567, align 8, !tbaa !110
+  %568 = load ptr, ptr %567, align 8, !tbaa !109
   call void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef %568, i32 noundef %switch.select3.i) #15
   call fastcc void @ch_update_ping_deadline(ptr noundef nonnull %0)
   br label %569
@@ -2388,15 +2388,15 @@ ch_on_idle_timeout.exit:                          ; preds = %502, %514, %518, %5
   br i1 %.not.i.i.i.i.i, label %txku_allowed.exit.i.i.i, label %580
 
 580:                                              ; preds = %578
-  %581 = load ptr, ptr %552, align 8, !tbaa !85
+  %581 = load ptr, ptr %552, align 8, !tbaa !84
   %582 = call i64 @ossl_ackm_get_largest_acked(ptr noundef %581, i32 noundef 2) #15
   %583 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %584 = load i64, ptr %583, align 8, !tbaa !217
+  %584 = load i64, ptr %583, align 8, !tbaa !215
   %.not11.i.i.i.i.i = icmp ult i64 %582, %584
   br i1 %.not11.i.i.i.i.i, label %txku_allowed.exit.i.i.i, label %585
 
 585:                                              ; preds = %580
-  %586 = load ptr, ptr %552, align 8, !tbaa !85
+  %586 = load ptr, ptr %552, align 8, !tbaa !84
   %587 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %586) #15
   %588 = load i64, ptr %17, align 8
   %589 = and i64 %588, -4294967297
@@ -2438,7 +2438,7 @@ txku_allowed.exit.i.i.i:                          ; preds = %585, %580, %578
   %610 = call i64 @ossl_qtx_get_max_epoch_pkt_count(ptr noundef %609, i32 noundef 3) #15
   %611 = lshr i64 %610, 1
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %613 = load i64, ptr %612, align 8, !tbaa !145
+  %613 = load i64, ptr %612, align 8, !tbaa !144
   %.not.i5.i.i = icmp eq i64 %613, -1
   %spec.select.i.i.i = select i1 %.not.i5.i.i, i64 %611, i64 %613
   %.not.i.i99 = icmp ult i64 %608, %spec.select.i.i.i
@@ -2449,7 +2449,7 @@ txku_allowed.exit.i.i.i:                          ; preds = %585, %580, %578
   %615 = or i64 %.pre38.i, 2147483648
   store i64 %615, ptr %17, align 8
   %616 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %617 = load ptr, ptr %616, align 8, !tbaa !110
+  %617 = load ptr, ptr %616, align 8, !tbaa !109
   %618 = call i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef %617, i32 noundef 2) #15
   %619 = icmp ugt i64 %618, 4611686018427387903
   br i1 %619, label %623, label %620
@@ -2468,7 +2468,7 @@ txku_allowed.exit.i.i.i:                          ; preds = %585, %580, %578
 624:                                              ; preds = %620
   %625 = load i64, ptr %17, align 8
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  store i64 %618, ptr %626, align 8, !tbaa !217
+  store i64 %618, ptr %626, align 8, !tbaa !215
   %627 = shl i64 %625, 5
   %628 = and i64 %627, 68719476736
   %629 = and i64 %625, -73014444033
@@ -2487,9 +2487,9 @@ ch_maybe_trigger_spontaneous_txku.exit.i:         ; preds = %624, %623, %605, %5
   br label %638
 
 638:                                              ; preds = %697, %ch_maybe_trigger_spontaneous_txku.exit.i
-  %639 = load ptr, ptr %634, align 8, !tbaa !110
+  %639 = load ptr, ptr %634, align 8, !tbaa !109
   %640 = call i32 @ossl_quic_tx_packetiser_generate(ptr noundef %639, ptr noundef nonnull %4) #15
-  %641 = load i64, ptr %635, align 8, !tbaa !218
+  %641 = load i64, ptr %635, align 8, !tbaa !216
   %.not28.i87 = icmp eq i64 %641, 0
   br i1 %.not28.i87, label %ch_update_ping_deadline.exit.i95, label %642
 
@@ -2502,7 +2502,7 @@ ch_maybe_trigger_spontaneous_txku.exit.i:         ; preds = %624, %623, %605, %5
   %647 = load i16, ptr %646, align 2
   %648 = or i16 %647, 8
   store i16 %648, ptr %646, align 2
-  %649 = load i32, ptr %4, align 8, !tbaa !220
+  %649 = load i32, ptr %4, align 8, !tbaa !218
   %.not29.i = icmp ne i32 %649, 0
   %.pre39.i = load i64, ptr %17, align 8
   %650 = and i64 %.pre39.i, 536870912
@@ -2513,14 +2513,14 @@ ch_maybe_trigger_spontaneous_txku.exit.i:         ; preds = %624, %623, %605, %5
 651:                                              ; preds = %642
   %652 = load ptr, ptr %0, align 8, !tbaa !3
   %653 = call i64 @ossl_quic_port_get_time(ptr noundef %652) #15
-  %654 = load i64, ptr %636, align 8, !tbaa !148
+  %654 = load i64, ptr %636, align 8, !tbaa !147
   %655 = icmp eq i64 %654, 0
   br i1 %655, label %ch_update_idle.exit.i97, label %656
 
 656:                                              ; preds = %651
-  %657 = load ptr, ptr %552, align 8, !tbaa !85
+  %657 = load ptr, ptr %552, align 8, !tbaa !84
   %658 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %657) #15
-  %659 = load i64, ptr %636, align 8, !tbaa !148
+  %659 = load i64, ptr %636, align 8, !tbaa !147
   %660 = mul i64 %659, 1000000
   %661 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %658, i64 3)
   %662 = extractvalue { i64, i1 } %661, 1
@@ -2564,12 +2564,12 @@ ch_update_idle.exit.i97:                          ; preds = %656, %651
   br label %681
 
 681:                                              ; preds = %679, %676
-  %682 = load i64, ptr %636, align 8, !tbaa !148
+  %682 = load i64, ptr %636, align 8, !tbaa !147
   %683 = icmp eq i64 %682, 0
   br i1 %683, label %ch_update_ping_deadline.exit.sink.split.i93, label %ch_get_effective_idle_timeout_duration.exit.i.i89
 
 ch_get_effective_idle_timeout_duration.exit.i.i89: ; preds = %681
-  %684 = load ptr, ptr %552, align 8, !tbaa !85
+  %684 = load ptr, ptr %552, align 8, !tbaa !84
   %685 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %684) #15
   %686 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %685, i64 3)
   %687 = extractvalue { i64, i1 } %686, 1
@@ -2579,7 +2579,7 @@ ch_get_effective_idle_timeout_duration.exit.i.i89: ; preds = %681
   br i1 %.not.i35.i, label %ch_update_ping_deadline.exit.sink.split.i93, label %689
 
 689:                                              ; preds = %ch_get_effective_idle_timeout_duration.exit.i.i89
-  %690 = load i64, ptr %636, align 8, !tbaa !148
+  %690 = load i64, ptr %636, align 8, !tbaa !147
   %691 = mul i64 %690, 1000000
   %692 = call i64 @llvm.umax.i64(i64 %691, i64 %688)
   %693 = lshr i64 %692, 1
@@ -2603,9 +2603,9 @@ ch_update_ping_deadline.exit.i95:                 ; preds = %ch_update_ping_dead
   br label %.loopexit.i
 
 697:                                              ; preds = %ch_update_ping_deadline.exit.i95
-  %698 = load i64, ptr %635, align 8, !tbaa !218
+  %698 = load i64, ptr %635, align 8, !tbaa !216
   %.not33.i = icmp eq i64 %698, 0
-  br i1 %.not33.i, label %.loopexit.i, label %638, !llvm.loop !221
+  br i1 %.not33.i, label %.loopexit.i, label %638, !llvm.loop !219
 
 .loopexit.i:                                      ; preds = %697, %696
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -2644,7 +2644,7 @@ ch_tx.exit:                                       ; preds = %704, %569, %571
 
 711:                                              ; preds = %708
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %713 = load ptr, ptr %712, align 8, !tbaa !85
+  %713 = load ptr, ptr %712, align 8, !tbaa !84
   %714 = call i64 @ossl_ackm_get_loss_detection_deadline(ptr noundef %713) #15
   %.not44.i = icmp eq i64 %714, 0
   %spec.select.i = select i1 %.not44.i, i64 -1, i64 %714
@@ -2660,7 +2660,7 @@ ch_tx.exit:                                       ; preds = %704, %569, %571
   br i1 %.not38.i, label %722, label %719
 
 719:                                              ; preds = %716
-  %720 = load ptr, ptr %712, align 8, !tbaa !85
+  %720 = load ptr, ptr %712, align 8, !tbaa !84
   %switch.selectcmp.i.i = icmp eq i32 %.047.i, 2
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 1, i32 2
   %switch.selectcmp2.i.i = icmp eq i32 %.047.i, 0
@@ -2673,7 +2673,7 @@ ch_tx.exit:                                       ; preds = %704, %569, %571
   %.sroa.013.2.i = phi i64 [ %..i.i, %719 ], [ %.sroa.013.148.i, %716 ]
   %723 = add nuw nsw i32 %.047.i, 1
   %exitcond.not.i = icmp eq i32 %723, 4
-  br i1 %exitcond.not.i, label %724, label %716, !llvm.loop !222
+  br i1 %exitcond.not.i, label %724, label %716, !llvm.loop !220
 
 724:                                              ; preds = %722
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 1528
@@ -2682,7 +2682,7 @@ ch_tx.exit:                                       ; preds = %704, %569, %571
   %..i39.i = call i64 @llvm.umin.i64(i64 %.sroa.013.2.i, i64 %726)
   %.sroa.013.3.i = select i1 %.not45.i, i64 %.sroa.013.2.i, i64 %..i39.i
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %728 = load ptr, ptr %727, align 8, !tbaa !110
+  %728 = load ptr, ptr %727, align 8, !tbaa !109
   %729 = call i64 @ossl_quic_tx_packetiser_get_deadline(ptr noundef %728) #15
   %..i40.i = call i64 @llvm.umin.i64(i64 %.sroa.013.3.i, i64 %729)
   %.val.i101 = load i64, ptr %17, align 8
@@ -2725,7 +2725,7 @@ ch_determine_next_tick_deadline.exit:             ; preds = %708, %737, %739
   %744 = icmp ne i64 %743, 4
   %745 = zext i1 %744 to i8
   %746 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %745, ptr %746, align 8, !tbaa !176
+  store i8 %745, ptr %746, align 8, !tbaa !175
   %747 = load i64, ptr %17, align 8
   %748 = and i64 %747, 7
   %.not116 = icmp eq i64 %748, 4
@@ -2742,9 +2742,9 @@ ch_determine_next_tick_deadline.exit:             ; preds = %708, %737, %739
 755:                                              ; preds = %749, %ch_determine_next_tick_deadline.exit
   %756 = phi i8 [ 0, %ch_determine_next_tick_deadline.exit ], [ %754, %749 ]
   %757 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %756, ptr %757, align 1, !tbaa !178
+  store i8 %756, ptr %757, align 1, !tbaa !177
   %758 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %.3, ptr %758, align 2, !tbaa !179
+  store i8 %.3, ptr %758, align 2, !tbaa !178
   br label %759
 
 759:                                              ; preds = %755, %546, %ch_on_terminating_timeout.exit, %20
@@ -2767,13 +2767,13 @@ declare void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ch_update_ping_deadline(ptr noundef captures(none) initializes((1528, 1536)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %3 = load i64, ptr %2, align 8, !tbaa !148
+  %3 = load i64, ptr %2, align 8, !tbaa !147
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %ch_get_effective_idle_timeout_duration.exit.thread, label %ch_get_effective_idle_timeout_duration.exit
 
 ch_get_effective_idle_timeout_duration.exit:      ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %6 = load ptr, ptr %5, align 8, !tbaa !85
+  %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = tail call i64 @ossl_ackm_get_pto_duration(ptr noundef %6) #15
   %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 3)
   %9 = extractvalue { i64, i1 } %8, 1
@@ -2788,7 +2788,7 @@ ch_get_effective_idle_timeout_duration.exit.thread: ; preds = %1, %ch_get_effect
   br label %20
 
 12:                                               ; preds = %ch_get_effective_idle_timeout_duration.exit
-  %13 = load i64, ptr %2, align 8, !tbaa !148
+  %13 = load i64, ptr %2, align 8, !tbaa !147
   %14 = mul i64 %13, 1000000
   %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 %10)
   %16 = lshr i64 %15, 1
@@ -2830,7 +2830,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !110
+  %15 = load ptr, ptr %14, align 8, !tbaa !109
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = tail call i32 @ossl_quic_tx_packetiser_set_peer(ptr noundef %15, ptr noundef nonnull %16) #15
   %.not24 = icmp eq i32 %17, 0
@@ -2845,24 +2845,24 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !223
+  %24 = load ptr, ptr %23, align 8, !tbaa !221
   %25 = call i32 @ossl_quic_get_peer_token(ptr noundef %24, ptr noundef nonnull %16, ptr noundef nonnull %7) #15
   %.not26 = icmp eq i32 %25, 0
   br i1 %.not26, label %36, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %14, align 8, !tbaa !110
-  %28 = load ptr, ptr %7, align 8, !tbaa !224
+  %27 = load ptr, ptr %14, align 8, !tbaa !109
+  %28 = load ptr, ptr %7, align 8, !tbaa !222
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !226
+  %30 = load ptr, ptr %29, align 8, !tbaa !224
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !229
+  %32 = load i64, ptr %31, align 8, !tbaa !227
   %33 = call i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef %27, ptr noundef %30, i64 noundef %32, ptr noundef nonnull @free_peer_token, ptr noundef %28) #15
   %.not27 = icmp eq i32 %33, 0
   br i1 %.not27, label %34, label %36
 
 34:                                               ; preds = %26
-  %35 = load ptr, ptr %7, align 8, !tbaa !224
+  %35 = load ptr, ptr %7, align 8, !tbaa !222
   call void @ossl_quic_free_peer_token(ptr noundef %35) #15
   br label %36
 
@@ -2871,14 +2871,14 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
   %38 = load ptr, ptr %37, align 8, !tbaa !46
   %39 = load ptr, ptr %38, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !202
+  %41 = load ptr, ptr %40, align 8, !tbaa !201
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %43 = load i64, ptr %8, align 8
   %44 = trunc i64 %43 to i32
   %45 = lshr i32 %44, 25
   %46 = and i32 %45, 1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %48 = load ptr, ptr %47, align 8, !tbaa !117
+  %48 = load ptr, ptr %47, align 8, !tbaa !116
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %50 = load ptr, ptr %49, align 8, !tbaa !72
   %51 = call i32 @ossl_quic_provide_initial_secret(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %42, i32 noundef %46, ptr noundef %48, ptr noundef %50) #15
@@ -2909,7 +2909,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %61, i8 0, i64 72, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %63 = load ptr, ptr %62, align 8, !tbaa !172
+  %63 = load ptr, ptr %62, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i, label %64, label %ch_record_state_transition.exit
 
@@ -2924,29 +2924,29 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
   br i1 %.not16.i.i, label %71, label %68
 
 68:                                               ; preds = %66
-  %69 = load i8, ptr %42, align 8, !tbaa !180
+  %69 = load i8, ptr %42, align 8, !tbaa !179
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %ch_record_state_transition.exit, label %71
 
 71:                                               ; preds = %68, %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %42, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %42, i64 21, i1 false), !tbaa.struct !85
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %73 = load ptr, ptr %72, align 8, !tbaa !162
+  %73 = load ptr, ptr %72, align 8, !tbaa !161
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %73, ptr %74, align 8, !tbaa !181
+  store ptr %73, ptr %74, align 8, !tbaa !180
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %76 = trunc i64 %58 to i32
   %77 = lshr i32 %76, 25
   %78 = and i32 %77, 1
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
-  store i32 %78, ptr %79, align 8, !tbaa !183
+  store i32 %78, ptr %79, align 8, !tbaa !182
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr @get_time, ptr %80, align 8, !tbaa !184
+  store ptr @get_time, ptr %80, align 8, !tbaa !183
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %0, ptr %81, align 8, !tbaa !185
+  store ptr %0, ptr %81, align 8, !tbaa !184
   %82 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %6) #15
-  store ptr %82, ptr %62, align 8, !tbaa !172
+  store ptr %82, ptr %62, align 8, !tbaa !171
   %83 = icmp eq ptr %82, null
   %.pre.i = load i64, ptr %8, align 8
   br i1 %83, label %84, label %ch_record_state_transition.exit
@@ -2974,7 +2974,7 @@ ch_record_state_transition.exit:                  ; preds = %57, %64, %68, %71, 
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #15
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %96, i8 0, i64 72, i1 false)
-  %97 = load ptr, ptr %62, align 8, !tbaa !172
+  %97 = load ptr, ptr %62, align 8, !tbaa !171
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %98, label %ch_get_qlog.exit
 
@@ -2989,29 +2989,29 @@ ch_record_state_transition.exit:                  ; preds = %57, %64, %68, %71, 
   br i1 %.not16.i, label %105, label %102
 
 102:                                              ; preds = %100
-  %103 = load i8, ptr %42, align 8, !tbaa !180
+  %103 = load i8, ptr %42, align 8, !tbaa !179
   %104 = icmp eq i8 %103, 0
   br i1 %104, label %ch_get_qlog.exit, label %105
 
 105:                                              ; preds = %102, %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %42, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %42, i64 21, i1 false), !tbaa.struct !85
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %107 = load ptr, ptr %106, align 8, !tbaa !162
+  %107 = load ptr, ptr %106, align 8, !tbaa !161
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %107, ptr %108, align 8, !tbaa !181
+  store ptr %107, ptr %108, align 8, !tbaa !180
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %110 = trunc i64 %94 to i32
   %111 = lshr i32 %110, 25
   %112 = and i32 %111, 1
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
-  store i32 %112, ptr %113, align 8, !tbaa !183
+  store i32 %112, ptr %113, align 8, !tbaa !182
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @get_time, ptr %114, align 8, !tbaa !184
+  store ptr @get_time, ptr %114, align 8, !tbaa !183
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %0, ptr %115, align 8, !tbaa !185
+  store ptr %0, ptr %115, align 8, !tbaa !184
   %116 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %5) #15
-  store ptr %116, ptr %62, align 8, !tbaa !172
+  store ptr %116, ptr %62, align 8, !tbaa !171
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %ch_get_qlog.exit
 
@@ -3028,22 +3028,22 @@ ch_get_qlog.exit:                                 ; preds = %ch_record_state_tra
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store ptr null, ptr %4, align 8, !tbaa !206
+  store ptr null, ptr %4, align 8, !tbaa !205
   %121 = load i64, ptr %8, align 8
   %122 = or i64 %121, 134217728
   store i64 %122, ptr %8, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %124 = load ptr, ptr %123, align 8, !tbaa !140
+  %124 = load ptr, ptr %123, align 8, !tbaa !139
   %125 = call i32 @ossl_quic_tls_tick(ptr noundef %124) #15
-  %126 = load ptr, ptr %123, align 8, !tbaa !140
+  %126 = load ptr, ptr %123, align 8, !tbaa !139
   %127 = call i32 @ossl_quic_tls_get_error(ptr noundef %126, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %.not8.i = icmp eq i32 %127, 0
   br i1 %.not8.i, label %131, label %ch_tick_tls.exit.thread
 
 ch_tick_tls.exit.thread:                          ; preds = %ch_get_qlog.exit
   %128 = load i64, ptr %2, align 8, !tbaa !71
-  %129 = load ptr, ptr %3, align 8, !tbaa !207
-  %130 = load ptr, ptr %4, align 8, !tbaa !206
+  %129 = load ptr, ptr %3, align 8, !tbaa !206
+  %130 = load ptr, ptr %4, align 8, !tbaa !205
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef %128, i64 noundef 0, ptr noundef %129, ptr noundef %130, ptr noundef nonnull @.str, i32 noundef 2130, ptr noundef nonnull @__func__.ch_tick_tls)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
@@ -3087,12 +3087,12 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   store i64 0, ptr %3, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1165
-  %5 = load i8, ptr %4, align 1, !tbaa !230
+  %5 = load i8, ptr %4, align 1, !tbaa !228
   %6 = icmp eq i8 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %.062 = select i1 %6, ptr %7, ptr %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !167
+  %9 = load ptr, ptr %8, align 8, !tbaa !166
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %114
 
@@ -3136,7 +3136,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
   br i1 %.not71, label %113, label %30
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr %4, align 1, !tbaa !230
+  %31 = load i8, ptr %4, align 1, !tbaa !228
   %.not72 = icmp eq i8 %31, 0
   br i1 %.not72, label %37, label %32
 
@@ -3153,7 +3153,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
 
 37:                                               ; preds = %34, %30, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  %39 = load i64, ptr %38, align 8, !tbaa !146
+  %39 = load i64, ptr %38, align 8, !tbaa !145
   %40 = call i32 @ossl_quic_wire_encode_transport_param_int(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %39) #15
   %.not74 = icmp eq i32 %40, 0
   br i1 %.not74, label %113, label %41
@@ -3170,7 +3170,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %47 = load i64, ptr %46, align 8, !tbaa !141
+  %47 = load i64, ptr %46, align 8, !tbaa !140
   %.not77 = icmp eq i64 %47, 25
   br i1 %.not77, label %50, label %48
 
@@ -3233,11 +3233,11 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !174
-  store ptr %80, ptr %8, align 8, !tbaa !167
-  store ptr null, ptr %79, align 8, !tbaa !174
+  %80 = load ptr, ptr %79, align 8, !tbaa !173
+  store ptr %80, ptr %8, align 8, !tbaa !166
+  store ptr null, ptr %79, align 8, !tbaa !173
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %82 = load ptr, ptr %81, align 8, !tbaa !140
+  %82 = load ptr, ptr %81, align 8, !tbaa !139
   %83 = load i64, ptr %3, align 8, !tbaa !71
   %84 = call i32 @ossl_quic_tls_set_transport_params(ptr noundef %82, ptr noundef %80, i64 noundef %83) #15
   %.not87 = icmp eq i32 %84, 0
@@ -3259,12 +3259,12 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1145
-  %93 = load i8, ptr %7, align 8, !tbaa !180
+  %93 = load i8, ptr %7, align 8, !tbaa !179
   %94 = zext i8 %93 to i64
   call void @ossl_qlog_bin(ptr noundef %86, ptr noundef nonnull @.str.70, ptr noundef nonnull %92, i64 noundef %94) #15
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1228
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1229
-  %97 = load i8, ptr %95, align 4, !tbaa !231
+  %97 = load i8, ptr %95, align 4, !tbaa !229
   %98 = zext i8 %97 to i64
   call void @ossl_qlog_bin(ptr noundef %86, ptr noundef nonnull @.str.109, ptr noundef nonnull %96, i64 noundef %98) #15
   br label %100
@@ -3275,11 +3275,11 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
 
 100:                                              ; preds = %99, %91
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %102 = load i64, ptr %101, align 8, !tbaa !148
+  %102 = load i64, ptr %101, align 8, !tbaa !147
   call void @ossl_qlog_u64(ptr noundef %86, ptr noundef nonnull @.str.82, i64 noundef %102) #15
   call void @ossl_qlog_u64(ptr noundef %86, ptr noundef nonnull @.str.81, i64 noundef 1200) #15
   call void @ossl_qlog_u64(ptr noundef %86, ptr noundef nonnull @.str.83, i64 noundef 2) #15
-  %103 = load i64, ptr %46, align 8, !tbaa !141
+  %103 = load i64, ptr %46, align 8, !tbaa !140
   call void @ossl_qlog_u64(ptr noundef %86, ptr noundef nonnull @.str.80, i64 noundef %103) #15
   %104 = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %51) #15
   call void @ossl_qlog_u64(ptr noundef %86, ptr noundef nonnull @.str.73, i64 noundef %104) #15
@@ -3324,7 +3324,7 @@ define internal fastcc ptr @ch_get_qlog(ptr noundef %0) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !172
+  %5 = load ptr, ptr %4, align 8, !tbaa !171
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %33
 
@@ -3342,30 +3342,30 @@ define internal fastcc ptr @ch_get_qlog(ptr noundef %0) unnamed_addr #0 {
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %14 = load i8, ptr %13, align 8, !tbaa !180
+  %14 = load i8, ptr %13, align 8, !tbaa !179
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %33, label %16
 
 16:                                               ; preds = %12, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %17, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %17, i64 21, i1 false), !tbaa.struct !85
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %19 = load ptr, ptr %18, align 8, !tbaa !162
+  %19 = load ptr, ptr %18, align 8, !tbaa !161
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %19, ptr %20, align 8, !tbaa !181
+  store ptr %19, ptr %20, align 8, !tbaa !180
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = trunc i64 %8 to i32
   %23 = lshr i32 %22, 25
   %24 = and i32 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  store i32 %24, ptr %25, align 8, !tbaa !183
+  store i32 %24, ptr %25, align 8, !tbaa !182
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr @get_time, ptr %26, align 8, !tbaa !184
+  store ptr @get_time, ptr %26, align 8, !tbaa !183
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %0, ptr %27, align 8, !tbaa !185
+  store ptr %0, ptr %27, align 8, !tbaa !184
   %28 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %2) #15
-  store ptr %28, ptr %4, align 8, !tbaa !172
+  store ptr %28, ptr %4, align 8, !tbaa !171
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %33
 
@@ -3401,9 +3401,9 @@ define void @ossl_quic_channel_local_close(ptr noundef %0, i64 noundef %1, ptr n
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 1, ptr %11, align 8
-  store i64 %1, ptr %4, align 8, !tbaa !209
+  store i64 %1, ptr %4, align 8, !tbaa !208
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %12, align 8, !tbaa !210
+  store ptr %2, ptr %12, align 8, !tbaa !209
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %15, label %13
 
@@ -3414,7 +3414,7 @@ define void @ossl_quic_channel_local_close(ptr noundef %0, i64 noundef %1, ptr n
 15:                                               ; preds = %10, %13
   %16 = phi i64 [ %14, %13 ], [ 0, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %16, ptr %17, align 8, !tbaa !211
+  store i64 %16, ptr %17, align 8, !tbaa !210
   call fastcc void @ch_start_terminating(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0)
   br label %18
 
@@ -3455,12 +3455,12 @@ define internal fastcc void @ch_start_terminating(ptr noundef %0, ptr noundef no
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %19 = load i64, ptr %1, align 8, !tbaa !209
-  store i64 %19, ptr %18, align 8, !tbaa !209
+  %19 = load i64, ptr %1, align 8, !tbaa !208
+  store i64 %19, ptr %18, align 8, !tbaa !208
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !232
+  %21 = load i64, ptr %20, align 8, !tbaa !230
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  store i64 %21, ptr %22, align 8, !tbaa !232
+  store i64 %21, ptr %22, align 8, !tbaa !230
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
@@ -3478,13 +3478,13 @@ define internal fastcc void @ch_start_terminating(ptr noundef %0, ptr noundef no
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %37 = load ptr, ptr %36, align 8, !tbaa !210
+  %37 = load ptr, ptr %36, align 8, !tbaa !209
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %copy_tcause.exit, label %38
 
 38:                                               ; preds = %17
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load i64, ptr %39, align 8, !tbaa !211
+  %40 = load i64, ptr %39, align 8, !tbaa !210
   switch i64 %40, label %42 [
     i64 0, label %copy_tcause.exit
     i64 -1, label %41
@@ -3497,14 +3497,14 @@ define internal fastcc void @ch_start_terminating(ptr noundef %0, ptr noundef no
   %.0.i = phi i64 [ -2, %41 ], [ %40, %38 ]
   %43 = add nuw i64 %.0.i, 1
   %44 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %37, i64 noundef %43, ptr noundef nonnull @.str, i32 noundef 3124) #15
-  store ptr %44, ptr %34, align 8, !tbaa !210
+  store ptr %44, ptr %34, align 8, !tbaa !209
   %45 = icmp eq ptr %44, null
   br i1 %45, label %copy_tcause.exit, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.0.i
-  store i8 0, ptr %47, align 1, !tbaa !87
-  store i64 %.0.i, ptr %35, align 8, !tbaa !211
+  store i8 0, ptr %47, align 1, !tbaa !86
+  store i64 %.0.i, ptr %35, align 8, !tbaa !210
   br label %copy_tcause.exit
 
 copy_tcause.exit:                                 ; preds = %17, %38, %42, %46
@@ -3516,7 +3516,7 @@ copy_tcause.exit:                                 ; preds = %17, %38, %42, %46
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, i8 0, i64 72, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %53 = load ptr, ptr %52, align 8, !tbaa !172
+  %53 = load ptr, ptr %52, align 8, !tbaa !171
   %.not.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i, label %54, label %ch_on_terminating_timeout.exit
 
@@ -3532,30 +3532,30 @@ copy_tcause.exit:                                 ; preds = %17, %38, %42, %46
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %60 = load i8, ptr %59, align 8, !tbaa !180
+  %60 = load i8, ptr %59, align 8, !tbaa !179
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %ch_on_terminating_timeout.exit, label %62
 
 62:                                               ; preds = %58, %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 8 dereferenceable(21) %63, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 8 dereferenceable(21) %63, i64 21, i1 false), !tbaa.struct !85
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %65 = load ptr, ptr %64, align 8, !tbaa !162
+  %65 = load ptr, ptr %64, align 8, !tbaa !161
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %65, ptr %66, align 8, !tbaa !181
+  store ptr %65, ptr %66, align 8, !tbaa !180
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %68 = trunc i64 %48 to i32
   %69 = lshr i32 %68, 25
   %70 = and i32 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  store i32 %70, ptr %71, align 8, !tbaa !183
+  store i32 %70, ptr %71, align 8, !tbaa !182
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr @get_time, ptr %72, align 8, !tbaa !184
+  store ptr @get_time, ptr %72, align 8, !tbaa !183
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr %0, ptr %73, align 8, !tbaa !185
+  store ptr %0, ptr %73, align 8, !tbaa !184
   %74 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %10) #15
-  store ptr %74, ptr %52, align 8, !tbaa !172
+  store ptr %74, ptr %52, align 8, !tbaa !171
   %75 = icmp eq ptr %74, null
   %.pre.i.i = load i64, ptr %12, align 8
   br i1 %75, label %76, label %ch_on_terminating_timeout.exit
@@ -3581,12 +3581,12 @@ ch_on_terminating_timeout.exit:                   ; preds = %copy_tcause.exit, %
 
 86:                                               ; preds = %3
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %88 = load i64, ptr %1, align 8, !tbaa !209
-  store i64 %88, ptr %87, align 8, !tbaa !209
+  %88 = load i64, ptr %1, align 8, !tbaa !208
+  store i64 %88, ptr %87, align 8, !tbaa !208
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %90 = load i64, ptr %89, align 8, !tbaa !232
+  %90 = load i64, ptr %89, align 8, !tbaa !230
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  store i64 %90, ptr %91, align 8, !tbaa !232
+  store i64 %90, ptr %91, align 8, !tbaa !230
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %93 = load i8, ptr %92, align 8
   %94 = and i8 %93, 1
@@ -3604,13 +3604,13 @@ ch_on_terminating_timeout.exit:                   ; preds = %copy_tcause.exit, %
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  %106 = load ptr, ptr %105, align 8, !tbaa !210
+  %106 = load ptr, ptr %105, align 8, !tbaa !209
   %.not.i38 = icmp eq ptr %106, null
   br i1 %.not.i38, label %copy_tcause.exit40, label %107
 
 107:                                              ; preds = %86
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %109 = load i64, ptr %108, align 8, !tbaa !211
+  %109 = load i64, ptr %108, align 8, !tbaa !210
   switch i64 %109, label %111 [
     i64 0, label %copy_tcause.exit40
     i64 -1, label %110
@@ -3623,14 +3623,14 @@ ch_on_terminating_timeout.exit:                   ; preds = %copy_tcause.exit, %
   %.0.i39 = phi i64 [ -2, %110 ], [ %109, %107 ]
   %112 = add nuw i64 %.0.i39, 1
   %113 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %106, i64 noundef %112, ptr noundef nonnull @.str, i32 noundef 3124) #15
-  store ptr %113, ptr %103, align 8, !tbaa !210
+  store ptr %113, ptr %103, align 8, !tbaa !209
   %114 = icmp eq ptr %113, null
   br i1 %114, label %copy_tcause.exit40, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 %.0.i39
-  store i8 0, ptr %116, align 1, !tbaa !87
-  store i64 %.0.i39, ptr %104, align 8, !tbaa !211
+  store i8 0, ptr %116, align 1, !tbaa !86
+  store i64 %.0.i39, ptr %104, align 8, !tbaa !210
   br label %copy_tcause.exit40
 
 copy_tcause.exit40:                               ; preds = %86, %107, %111, %115
@@ -3638,7 +3638,7 @@ copy_tcause.exit40:                               ; preds = %86, %107, %111, %11
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %117, i8 0, i64 72, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %119 = load ptr, ptr %118, align 8, !tbaa !172
+  %119 = load ptr, ptr %118, align 8, !tbaa !171
   %.not.i41 = icmp eq ptr %119, null
   br i1 %.not.i41, label %120, label %ch_get_qlog.exit
 
@@ -3655,30 +3655,30 @@ copy_tcause.exit40:                               ; preds = %86, %107, %111, %11
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %127 = load i8, ptr %126, align 8, !tbaa !180
+  %127 = load i8, ptr %126, align 8, !tbaa !179
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %ch_get_qlog.exit, label %129
 
 129:                                              ; preds = %125, %123
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 8 dereferenceable(21) %130, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 8 dereferenceable(21) %130, i64 21, i1 false), !tbaa.struct !85
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %132 = load ptr, ptr %131, align 8, !tbaa !162
+  %132 = load ptr, ptr %131, align 8, !tbaa !161
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %132, ptr %133, align 8, !tbaa !181
+  store ptr %132, ptr %133, align 8, !tbaa !180
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %135 = trunc i64 %121 to i32
   %136 = lshr i32 %135, 25
   %137 = and i32 %136, 1
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
-  store i32 %137, ptr %138, align 8, !tbaa !183
+  store i32 %137, ptr %138, align 8, !tbaa !182
   %139 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr @get_time, ptr %139, align 8, !tbaa !184
+  store ptr @get_time, ptr %139, align 8, !tbaa !183
   %140 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store ptr %0, ptr %140, align 8, !tbaa !185
+  store ptr %0, ptr %140, align 8, !tbaa !184
   %141 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %9) #15
-  store ptr %141, ptr %118, align 8, !tbaa !172
+  store ptr %141, ptr %118, align 8, !tbaa !171
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %ch_get_qlog.exit
 
@@ -3708,7 +3708,7 @@ ch_get_qlog.exit:                                 ; preds = %copy_tcause.exit40,
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #15
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %154, i8 0, i64 72, i1 false)
-  %155 = load ptr, ptr %118, align 8, !tbaa !172
+  %155 = load ptr, ptr %118, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %155, null
   br i1 %.not.i.i, label %156, label %ch_record_state_transition.exit
 
@@ -3724,30 +3724,30 @@ ch_get_qlog.exit:                                 ; preds = %copy_tcause.exit40,
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %162 = load i8, ptr %161, align 8, !tbaa !180
+  %162 = load i8, ptr %161, align 8, !tbaa !179
   %163 = icmp eq i8 %162, 0
   br i1 %163, label %ch_record_state_transition.exit, label %164
 
 164:                                              ; preds = %160, %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 8 dereferenceable(21) %165, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 8 dereferenceable(21) %165, i64 21, i1 false), !tbaa.struct !85
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %167 = load ptr, ptr %166, align 8, !tbaa !162
+  %167 = load ptr, ptr %166, align 8, !tbaa !161
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %167, ptr %168, align 8, !tbaa !181
+  store ptr %167, ptr %168, align 8, !tbaa !180
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %170 = trunc i64 %150 to i32
   %171 = lshr i32 %170, 25
   %172 = and i32 %171, 1
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %169, i8 0, i64 16, i1 false)
-  store i32 %172, ptr %173, align 8, !tbaa !183
+  store i32 %172, ptr %173, align 8, !tbaa !182
   %174 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr @get_time, ptr %174, align 8, !tbaa !184
+  store ptr @get_time, ptr %174, align 8, !tbaa !183
   %175 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr %0, ptr %175, align 8, !tbaa !185
+  store ptr %0, ptr %175, align 8, !tbaa !184
   %176 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %8) #15
-  store ptr %176, ptr %118, align 8, !tbaa !172
+  store ptr %176, ptr %118, align 8, !tbaa !171
   %177 = icmp eq ptr %176, null
   %.pre.i = load i64, ptr %12, align 8
   br i1 %177, label %178, label %ch_record_state_transition.exit
@@ -3773,7 +3773,7 @@ ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %1
   %189 = load ptr, ptr %0, align 8, !tbaa !3
   %190 = call i64 @ossl_quic_port_get_time(ptr noundef %189) #15
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %192 = load ptr, ptr %191, align 8, !tbaa !85
+  %192 = load ptr, ptr %191, align 8, !tbaa !84
   %193 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %192) #15
   %194 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %193, i64 3)
   %195 = extractvalue { i64, i1 } %194, 1
@@ -3789,23 +3789,23 @@ ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %1
 200:                                              ; preds = %ch_record_state_transition.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #15
   store i64 0, ptr %11, align 8
-  %201 = load i64, ptr %87, align 8, !tbaa !215
+  %201 = load i64, ptr %87, align 8, !tbaa !213
   %202 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %201, ptr %202, align 8, !tbaa !233
-  %203 = load i64, ptr %91, align 8, !tbaa !216
+  store i64 %201, ptr %202, align 8, !tbaa !231
+  %203 = load i64, ptr %91, align 8, !tbaa !214
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %203, ptr %204, align 8, !tbaa !235
+  store i64 %203, ptr %204, align 8, !tbaa !233
   %205 = load i8, ptr %95, align 8
   %206 = and i8 %205, 1
   store i8 %206, ptr %11, align 8
-  %207 = load ptr, ptr %103, align 8, !tbaa !168
+  %207 = load ptr, ptr %103, align 8, !tbaa !167
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %207, ptr %208, align 8, !tbaa !236
-  %209 = load i64, ptr %104, align 8, !tbaa !237
+  store ptr %207, ptr %208, align 8, !tbaa !234
+  %209 = load i64, ptr %104, align 8, !tbaa !235
   %210 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i64 %209, ptr %210, align 8, !tbaa !238
+  store i64 %209, ptr %210, align 8, !tbaa !236
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %212 = load ptr, ptr %211, align 8, !tbaa !110
+  %212 = load ptr, ptr %211, align 8, !tbaa !109
   %213 = call i32 @ossl_quic_tx_packetiser_schedule_conn_close(ptr noundef %212, ptr noundef nonnull %11) #15
   %214 = load i64, ptr %12, align 8
   %215 = or i64 %214, 16777216
@@ -3821,7 +3821,7 @@ ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #15
   %220 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %220, i8 0, i64 72, i1 false)
-  %221 = load ptr, ptr %118, align 8, !tbaa !172
+  %221 = load ptr, ptr %118, align 8, !tbaa !171
   %.not.i.i.i43 = icmp eq ptr %221, null
   br i1 %.not.i.i.i43, label %222, label %ch_on_terminating_timeout.exit48
 
@@ -3837,30 +3837,30 @@ ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %1
 
 226:                                              ; preds = %224
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %228 = load i8, ptr %227, align 8, !tbaa !180
+  %228 = load i8, ptr %227, align 8, !tbaa !179
   %229 = icmp eq i8 %228, 0
   br i1 %229, label %ch_on_terminating_timeout.exit48, label %230
 
 230:                                              ; preds = %226, %224
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 8 dereferenceable(21) %231, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 8 dereferenceable(21) %231, i64 21, i1 false), !tbaa.struct !85
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %233 = load ptr, ptr %232, align 8, !tbaa !162
+  %233 = load ptr, ptr %232, align 8, !tbaa !161
   %234 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %233, ptr %234, align 8, !tbaa !181
+  store ptr %233, ptr %234, align 8, !tbaa !180
   %235 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %236 = trunc i64 %217 to i32
   %237 = lshr i32 %236, 25
   %238 = and i32 %237, 1
   %239 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, i8 0, i64 16, i1 false)
-  store i32 %238, ptr %239, align 8, !tbaa !183
+  store i32 %238, ptr %239, align 8, !tbaa !182
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr @get_time, ptr %240, align 8, !tbaa !184
+  store ptr @get_time, ptr %240, align 8, !tbaa !183
   %241 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store ptr %0, ptr %241, align 8, !tbaa !185
+  store ptr %0, ptr %241, align 8, !tbaa !184
   %242 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %7) #15
-  store ptr %242, ptr %118, align 8, !tbaa !172
+  store ptr %242, ptr %118, align 8, !tbaa !171
   %243 = icmp eq ptr %242, null
   %.pre.i.i47 = load i64, ptr %12, align 8
   br i1 %243, label %244, label %ch_on_terminating_timeout.exit48
@@ -3896,7 +3896,7 @@ ch_on_terminating_timeout.exit48:                 ; preds = %216, %222, %226, %2
   %258 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %258, i8 0, i64 72, i1 false)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %260 = load ptr, ptr %259, align 8, !tbaa !172
+  %260 = load ptr, ptr %259, align 8, !tbaa !171
   %.not.i.i.i49 = icmp eq ptr %260, null
   br i1 %.not.i.i.i49, label %261, label %ch_on_terminating_timeout.exit54
 
@@ -3912,29 +3912,29 @@ ch_on_terminating_timeout.exit48:                 ; preds = %216, %222, %226, %2
 
 265:                                              ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %267 = load i8, ptr %266, align 8, !tbaa !180
+  %267 = load i8, ptr %266, align 8, !tbaa !179
   %268 = icmp eq i8 %267, 0
   br i1 %268, label %ch_on_terminating_timeout.exit54, label %269
 
 269:                                              ; preds = %265, %263
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %270, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %270, i64 21, i1 false), !tbaa.struct !85
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %272 = load ptr, ptr %271, align 8, !tbaa !162
+  %272 = load ptr, ptr %271, align 8, !tbaa !161
   %273 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %272, ptr %273, align 8, !tbaa !181
+  store ptr %272, ptr %273, align 8, !tbaa !180
   %274 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %275 = lshr i32 %15, 25
   %276 = and i32 %275, 1
   %277 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
-  store i32 %276, ptr %277, align 8, !tbaa !183
+  store i32 %276, ptr %277, align 8, !tbaa !182
   %278 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr @get_time, ptr %278, align 8, !tbaa !184
+  store ptr @get_time, ptr %278, align 8, !tbaa !183
   %279 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %0, ptr %279, align 8, !tbaa !185
+  store ptr %0, ptr %279, align 8, !tbaa !184
   %280 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %6) #15
-  store ptr %280, ptr %259, align 8, !tbaa !172
+  store ptr %280, ptr %259, align 8, !tbaa !171
   %281 = icmp eq ptr %280, null
   %.pre.i.i53 = load i64, ptr %12, align 8
   br i1 %281, label %282, label %ch_on_terminating_timeout.exit54
@@ -3971,7 +3971,7 @@ ch_on_terminating_timeout.exit54:                 ; preds = %255, %261, %265, %2
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %297, i8 0, i64 72, i1 false)
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %299 = load ptr, ptr %298, align 8, !tbaa !172
+  %299 = load ptr, ptr %298, align 8, !tbaa !171
   %.not.i.i55 = icmp eq ptr %299, null
   br i1 %.not.i.i55, label %300, label %ch_record_state_transition.exit60
 
@@ -3987,29 +3987,29 @@ ch_on_terminating_timeout.exit54:                 ; preds = %255, %261, %265, %2
 
 304:                                              ; preds = %302
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %306 = load i8, ptr %305, align 8, !tbaa !180
+  %306 = load i8, ptr %305, align 8, !tbaa !179
   %307 = icmp eq i8 %306, 0
   br i1 %307, label %ch_record_state_transition.exit60, label %308
 
 308:                                              ; preds = %304, %302
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %309, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %309, i64 21, i1 false), !tbaa.struct !85
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %311 = load ptr, ptr %310, align 8, !tbaa !162
+  %311 = load ptr, ptr %310, align 8, !tbaa !161
   %312 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %311, ptr %312, align 8, !tbaa !181
+  store ptr %311, ptr %312, align 8, !tbaa !180
   %313 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %314 = lshr i32 %15, 25
   %315 = and i32 %314, 1
   %316 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %313, i8 0, i64 16, i1 false)
-  store i32 %315, ptr %316, align 8, !tbaa !183
+  store i32 %315, ptr %316, align 8, !tbaa !182
   %317 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @get_time, ptr %317, align 8, !tbaa !184
+  store ptr @get_time, ptr %317, align 8, !tbaa !183
   %318 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %0, ptr %318, align 8, !tbaa !185
+  store ptr %0, ptr %318, align 8, !tbaa !184
   %319 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %5) #15
-  store ptr %319, ptr %298, align 8, !tbaa !172
+  store ptr %319, ptr %298, align 8, !tbaa !171
   %320 = icmp eq ptr %319, null
   %.pre.i59 = load i64, ptr %12, align 8
   br i1 %320, label %321, label %ch_record_state_transition.exit60
@@ -4043,7 +4043,7 @@ ch_record_state_transition.exit60:                ; preds = %294, %300, %304, %3
   %333 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %333, i8 0, i64 72, i1 false)
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %335 = load ptr, ptr %334, align 8, !tbaa !172
+  %335 = load ptr, ptr %334, align 8, !tbaa !171
   %.not.i.i.i61 = icmp eq ptr %335, null
   br i1 %.not.i.i.i61, label %336, label %ch_on_terminating_timeout.exit66
 
@@ -4059,29 +4059,29 @@ ch_record_state_transition.exit60:                ; preds = %294, %300, %304, %3
 
 340:                                              ; preds = %338
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %342 = load i8, ptr %341, align 8, !tbaa !180
+  %342 = load i8, ptr %341, align 8, !tbaa !179
   %343 = icmp eq i8 %342, 0
   br i1 %343, label %ch_on_terminating_timeout.exit66, label %344
 
 344:                                              ; preds = %340, %338
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 8 dereferenceable(21) %345, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 8 dereferenceable(21) %345, i64 21, i1 false), !tbaa.struct !85
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %347 = load ptr, ptr %346, align 8, !tbaa !162
+  %347 = load ptr, ptr %346, align 8, !tbaa !161
   %348 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %347, ptr %348, align 8, !tbaa !181
+  store ptr %347, ptr %348, align 8, !tbaa !180
   %349 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %350 = lshr i32 %15, 25
   %351 = and i32 %350, 1
   %352 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %349, i8 0, i64 16, i1 false)
-  store i32 %351, ptr %352, align 8, !tbaa !183
+  store i32 %351, ptr %352, align 8, !tbaa !182
   %353 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @get_time, ptr %353, align 8, !tbaa !184
+  store ptr @get_time, ptr %353, align 8, !tbaa !183
   %354 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %0, ptr %354, align 8, !tbaa !185
+  store ptr %0, ptr %354, align 8, !tbaa !184
   %355 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %4) #15
-  store ptr %355, ptr %334, align 8, !tbaa !172
+  store ptr %355, ptr %334, align 8, !tbaa !171
   %356 = icmp eq ptr %355, null
   %.pre.i.i65 = load i64, ptr %12, align 8
   br i1 %356, label %357, label %ch_on_terminating_timeout.exit66
@@ -4136,7 +4136,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 72, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !172
+  %16 = load ptr, ptr %15, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %17, label %ch_record_state_transition.exit
 
@@ -4152,29 +4152,29 @@ define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %23 = load i8, ptr %22, align 8, !tbaa !180
+  %23 = load i8, ptr %22, align 8, !tbaa !179
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %ch_record_state_transition.exit, label %25
 
 25:                                               ; preds = %21, %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %26, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %26, i64 21, i1 false), !tbaa.struct !85
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %28 = load ptr, ptr %27, align 8, !tbaa !162
+  %28 = load ptr, ptr %27, align 8, !tbaa !161
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !181
+  store ptr %28, ptr %29, align 8, !tbaa !180
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = lshr i32 %11, 25
   %32 = and i32 %31, 1
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  store i32 %32, ptr %33, align 8, !tbaa !183
+  store i32 %32, ptr %33, align 8, !tbaa !182
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr @get_time, ptr %34, align 8, !tbaa !184
+  store ptr @get_time, ptr %34, align 8, !tbaa !183
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %0, ptr %35, align 8, !tbaa !185
+  store ptr %0, ptr %35, align 8, !tbaa !184
   %36 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %2) #15
-  store ptr %36, ptr %15, align 8, !tbaa !172
+  store ptr %36, ptr %15, align 8, !tbaa !171
   %37 = icmp eq ptr %36, null
   %.pre.i = load i64, ptr %3, align 8
   br i1 %37, label %38, label %ch_record_state_transition.exit
@@ -4195,7 +4195,7 @@ ch_record_state_transition.exit:                  ; preds = %9, %17, %21, %25, %
   %45 = and i32 %44, 1
   call void @ossl_qlog_event_connectivity_connection_state_updated(ptr noundef %.0.i.i, i32 noundef %12, i32 noundef range(i32 0, 8) %12, i32 noundef %43, i32 noundef %45) #15
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %47 = load ptr, ptr %46, align 8, !tbaa !85
+  %47 = load ptr, ptr %46, align 8, !tbaa !84
   %48 = call i32 @ossl_ackm_on_handshake_confirmed(ptr noundef %47) #15
   br label %49
 
@@ -4261,13 +4261,13 @@ define void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef %0, i64 noun
 
 26:                                               ; preds = %25, %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %28 = load ptr, ptr %27, align 8, !tbaa !169
+  %28 = load ptr, ptr %27, align 8, !tbaa !168
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %.thread.i
 
 30:                                               ; preds = %26
   %31 = tail call ptr @OSSL_ERR_STATE_new() #15
-  store ptr %31, ptr %27, align 8, !tbaa !169
+  store ptr %31, ptr %27, align 8, !tbaa !168
   %32 = icmp eq ptr %31, null
   br i1 %32, label %ch_save_err_state.exit, label %.thread.i
 
@@ -4277,14 +4277,14 @@ define void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef %0, i64 noun
   br label %ch_save_err_state.exit
 
 ch_save_err_state.exit:                           ; preds = %30, %.thread.i
-  store i64 %1, ptr %9, align 8, !tbaa !209
+  store i64 %1, ptr %9, align 8, !tbaa !208
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %2, ptr %34, align 8, !tbaa !232
+  store i64 %2, ptr %34, align 8, !tbaa !230
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %3, ptr %35, align 8, !tbaa !210
+  store ptr %3, ptr %35, align 8, !tbaa !209
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %36, ptr %37, align 8, !tbaa !211
+  store i64 %36, ptr %37, align 8, !tbaa !210
   %38 = load i64, ptr %13, align 8
   %39 = or i64 %38, 274877906944
   store i64 %39, ptr %13, align 8
@@ -4309,10 +4309,10 @@ define internal fastcc void @ch_discard_el(ptr noundef captures(none) %0, i32 no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %11 = load ptr, ptr %10, align 8, !tbaa !110
+  %11 = load ptr, ptr %10, align 8, !tbaa !109
   %12 = tail call i32 @ossl_quic_tx_packetiser_discard_enc_level(ptr noundef %11, i32 noundef %1) #15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %14 = load ptr, ptr %13, align 8, !tbaa !117
+  %14 = load ptr, ptr %13, align 8, !tbaa !116
   %15 = tail call i32 @ossl_qrx_discard_enc_level(ptr noundef %14, i32 noundef %1) #15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %17 = load ptr, ptr %16, align 8, !tbaa !72
@@ -4326,28 +4326,28 @@ define internal fastcc void @ch_discard_el(ptr noundef captures(none) %0, i32 no
   %switch.selectcmp2.i = icmp eq i32 %1, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 0, i32 %switch.select.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %21 = load ptr, ptr %20, align 8, !tbaa !85
+  %21 = load ptr, ptr %20, align 8, !tbaa !84
   %22 = tail call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %21, i32 noundef %switch.select3.i) #15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %24 = zext nneg i32 %switch.select3.i to i64
   %25 = getelementptr inbounds nuw [3 x ptr], ptr %23, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !107
+  %26 = load ptr, ptr %25, align 8, !tbaa !106
   %.not32 = icmp eq ptr %26, null
-  br i1 %.not32, label %.thread, label %27, !prof !239
+  br i1 %.not32, label %.thread, label %27, !prof !237
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %29 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %24
-  %30 = load ptr, ptr %29, align 8, !tbaa !119
+  %30 = load ptr, ptr %29, align 8, !tbaa !118
   %.not33 = icmp eq ptr %30, null
-  br i1 %.not33, label %.thread, label %31, !prof !239
+  br i1 %.not33, label %.thread, label %31, !prof !237
 
 31:                                               ; preds = %27
   tail call void @ossl_quic_sstream_free(ptr noundef nonnull %26) #15
-  store ptr null, ptr %25, align 8, !tbaa !107
-  %32 = load ptr, ptr %29, align 8, !tbaa !119
+  store ptr null, ptr %25, align 8, !tbaa !106
+  %32 = load ptr, ptr %29, align 8, !tbaa !118
   tail call void @ossl_quic_rstream_free(ptr noundef %32) #15
-  store ptr null, ptr %29, align 8, !tbaa !119
+  store ptr null, ptr %29, align 8, !tbaa !118
   br label %33
 
 33:                                               ; preds = %31, %9
@@ -4391,20 +4391,20 @@ ossl_quic_channel_is_active.exit:                 ; preds = %2
   %12 = or disjoint i8 %11, 2
   store i8 %12, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !233
-  store i64 %14, ptr %3, align 8, !tbaa !209
+  %14 = load i64, ptr %13, align 8, !tbaa !231
+  store i64 %14, ptr %3, align 8, !tbaa !208
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !235
+  %16 = load i64, ptr %15, align 8, !tbaa !233
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !232
+  store i64 %16, ptr %17, align 8, !tbaa !230
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !236
+  %19 = load ptr, ptr %18, align 8, !tbaa !234
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !210
+  store ptr %19, ptr %20, align 8, !tbaa !209
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !238
+  %22 = load i64, ptr %21, align 8, !tbaa !236
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %22, ptr %23, align 8, !tbaa !211
+  store i64 %22, ptr %23, align 8, !tbaa !210
   call fastcc void @ch_start_terminating(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0)
   br label %ossl_quic_channel_is_active.exit.thread
 
@@ -4419,9 +4419,9 @@ ossl_quic_channel_is_active.exit:
   %2 = alloca %struct.wpacket_st, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  %5 = load i64, ptr %4, align 8, !tbaa !240
+  %5 = load i64, ptr %4, align 8, !tbaa !238
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  %7 = load i64, ptr %6, align 8, !tbaa !241
+  %7 = load i64, ptr %6, align 8, !tbaa !239
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 7
@@ -4430,7 +4430,7 @@ ossl_quic_channel_is_active.exit:
 
 11:                                               ; preds = %ossl_quic_channel_is_active.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1249
-  %13 = load i8, ptr %12, align 1, !tbaa !242
+  %13 = load i8, ptr %12, align 1, !tbaa !240
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %16
 
@@ -4439,11 +4439,11 @@ ossl_quic_channel_is_active.exit:
   br label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = load i64, ptr %1, align 8, !tbaa !243
+  %17 = load i64, ptr %1, align 8, !tbaa !241
   %18 = icmp ugt i64 %17, %5
   %spec.select = tail call i64 @llvm.umax.i64(i64 %17, i64 %5)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !245
+  %20 = load i64, ptr %19, align 8, !tbaa !243
   %.0 = tail call i64 @llvm.umax.i64(i64 %20, i64 %7)
   %21 = sub i64 %spec.select, %.0
   %22 = icmp ugt i64 %21, 1
@@ -4478,13 +4478,13 @@ ossl_quic_channel_is_active.exit:
   br label %.loopexit
 
 35:                                               ; preds = %29
-  store i64 %17, ptr %4, align 8, !tbaa !240
+  store i64 %17, ptr %4, align 8, !tbaa !238
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %12, ptr noundef nonnull align 8 dereferenceable(21) %36, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %12, ptr noundef nonnull align 8 dereferenceable(21) %36, i64 21, i1 false), !tbaa.struct !85
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %38 = load ptr, ptr %37, align 8, !tbaa !110
+  %38 = load ptr, ptr %37, align 8, !tbaa !109
   %39 = tail call i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef %38, ptr noundef nonnull %12) #15
-  %.pre = load i64, ptr %6, align 8, !tbaa !241
+  %.pre = load i64, ptr %6, align 8, !tbaa !239
   br label %40
 
 40:                                               ; preds = %35, %28
@@ -4530,7 +4530,7 @@ ossl_quic_channel_is_active.exit:
 59:                                               ; preds = %56
   %60 = load ptr, ptr %44, align 8, !tbaa !74
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !174
+  %62 = load ptr, ptr %61, align 8, !tbaa !173
   %63 = load i64, ptr %3, align 8, !tbaa !71
   %64 = call ptr @ossl_quic_cfq_add_frame(ptr noundef %60, i32 noundef 1, i32 noundef 2, i64 noundef 25, i32 noundef 0, ptr noundef %62, i64 noundef %63, ptr noundef nonnull @free_frame_data, ptr noundef null) #15
   %65 = icmp eq ptr %64, null
@@ -4544,15 +4544,15 @@ ch_enqueue_retire_conn_id.exit.thread:            ; preds = %45, %51, %56, %59, 
   br label %.loopexit
 
 66:                                               ; preds = %59
-  store ptr null, ptr %61, align 8, !tbaa !174
+  store ptr null, ptr %61, align 8, !tbaa !173
   call void @BUF_MEM_free(ptr noundef nonnull %49) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #15
-  %67 = load i64, ptr %6, align 8, !tbaa !241
+  %67 = load i64, ptr %6, align 8, !tbaa !239
   %68 = add i64 %67, 1
-  store i64 %68, ptr %6, align 8, !tbaa !241
+  store i64 %68, ptr %6, align 8, !tbaa !239
   %69 = icmp ugt i64 %.0, %68
-  br i1 %69, label %45, label %.loopexit, !llvm.loop !246
+  br i1 %69, label %45, label %.loopexit, !llvm.loop !244
 
 .loopexit:                                        ; preds = %66, %40, %ch_enqueue_retire_conn_id.exit.thread, %ossl_quic_channel_is_active.exit, %34, %27, %23, %15
   ret void
@@ -4565,7 +4565,7 @@ declare i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_channel_inject(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %4 = load ptr, ptr %3, align 8, !tbaa !116
   tail call void @ossl_qrx_inject_urxe(ptr noundef %4, ptr noundef %1) #15
   ret void
 }
@@ -4599,11 +4599,11 @@ define void @ossl_quic_channel_raise_net_error(ptr noundef %0) local_unnamed_add
 7:                                                ; preds = %1
   %8 = or disjoint i64 %5, 137438953472
   store i64 %8, ptr %4, align 8
-  store i64 1, ptr %2, align 8, !tbaa !209
+  store i64 1, ptr %2, align 8, !tbaa !208
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @.str.6, ptr %9, align 8, !tbaa !210
+  store ptr @.str.6, ptr %9, align 8, !tbaa !209
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 21, ptr %10, align 8, !tbaa !211
+  store i64 21, ptr %10, align 8, !tbaa !210
   call fastcc void @ch_start_terminating(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1)
   br label %11
 
@@ -4640,7 +4640,7 @@ define void @ossl_quic_channel_restore_err_state(ptr noundef readonly captures(a
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %10 = load ptr, ptr %9, align 8, !tbaa !169
+  %10 = load ptr, ptr %9, align 8, !tbaa !168
   tail call void @OSSL_ERR_STATE_restore(ptr noundef %10) #15
   br label %11
 
@@ -4670,7 +4670,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_on_new_conn(ptr noundef %0, ptr no
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 33554439
   %8 = icmp eq i64 %7, 33554432
-  br i1 %8, label %9, label %16, !prof !247
+  br i1 %8, label %9, label %16, !prof !245
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4695,35 +4695,35 @@ declare i32 @ossl_quic_lcidm_generate_initial(ptr noundef, ptr noundef, ptr noun
 define internal fastcc range(i32 0, 2) i32 @ch_on_new_conn_common(ptr noundef initializes((104, 216), (1144, 1166), (1249, 1270)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.qlog_trace_info_st, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 4 dereferenceable(112) %1, i64 112, i1 false), !tbaa.struct !173
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 4 dereferenceable(112) %1, i64 112, i1 false), !tbaa.struct !172
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 1 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 1 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !85
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1249
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %9, ptr noundef nonnull align 1 dereferenceable(21) %2, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %9, ptr noundef nonnull align 1 dereferenceable(21) %2, i64 21, i1 false), !tbaa.struct !85
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1165
-  store i8 0, ptr %10, align 1, !tbaa !230
+  store i8 0, ptr %10, align 1, !tbaa !228
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %10, ptr noundef nonnull align 1 dereferenceable(21) %4, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %10, ptr noundef nonnull align 1 dereferenceable(21) %4, i64 21, i1 false), !tbaa.struct !85
   br label %12
 
 12:                                               ; preds = %11, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !110
+  %14 = load ptr, ptr %13, align 8, !tbaa !109
   %15 = tail call i32 @ossl_quic_tx_packetiser_set_peer(ptr noundef %14, ptr noundef nonnull %7) #15
   %.not33 = icmp eq i32 %15, 0
   br i1 %.not33, label %81, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %13, align 8, !tbaa !110
+  %17 = load ptr, ptr %13, align 8, !tbaa !109
   %18 = tail call i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef %17, ptr noundef nonnull %9) #15
   %.not34 = icmp eq i32 %18, 0
   br i1 %.not34, label %81, label %19
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr %13, align 8, !tbaa !110
+  %20 = load ptr, ptr %13, align 8, !tbaa !109
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1228
   %22 = tail call i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr noundef %20, ptr noundef nonnull %21) #15
   %.not35 = icmp eq i32 %22, 0
@@ -4733,15 +4733,15 @@ define internal fastcc range(i32 0, 2) i32 @ch_on_new_conn_common(ptr noundef in
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %25 = load ptr, ptr %24, align 8, !tbaa !72
   tail call void @ossl_qtx_set_qlog_cb(ptr noundef %25, ptr noundef nonnull @ch_get_qlog_cb, ptr noundef nonnull %0) #15
-  %26 = load ptr, ptr %13, align 8, !tbaa !110
+  %26 = load ptr, ptr %13, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_set_qlog_cb(ptr noundef %26, ptr noundef nonnull @ch_get_qlog_cb, ptr noundef nonnull %0) #15
   %27 = load ptr, ptr %0, align 8, !tbaa !3
   %28 = load ptr, ptr %27, align 8, !tbaa !46
   %29 = load ptr, ptr %28, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !202
+  %31 = load ptr, ptr %30, align 8, !tbaa !201
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %33 = load ptr, ptr %32, align 8, !tbaa !117
+  %33 = load ptr, ptr %32, align 8, !tbaa !116
   %34 = load ptr, ptr %24, align 8, !tbaa !72
   %35 = tail call i32 @ossl_quic_provide_initial_secret(ptr noundef %29, ptr noundef %31, ptr noundef nonnull %8, i32 noundef 1, ptr noundef %33, ptr noundef %34) #15
   %.not36 = icmp eq i32 %35, 0
@@ -4765,7 +4765,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_on_new_conn_common(ptr noundef in
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, i8 0, i64 72, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %48 = load ptr, ptr %47, align 8, !tbaa !172
+  %48 = load ptr, ptr %47, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i, label %49, label %ch_record_state_transition.exit
 
@@ -4780,29 +4780,29 @@ define internal fastcc range(i32 0, 2) i32 @ch_on_new_conn_common(ptr noundef in
   br i1 %.not16.i.i, label %56, label %53
 
 53:                                               ; preds = %51
-  %54 = load i8, ptr %8, align 8, !tbaa !180
+  %54 = load i8, ptr %8, align 8, !tbaa !179
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %ch_record_state_transition.exit, label %56
 
 56:                                               ; preds = %53, %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false), !tbaa.struct !85
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %58 = load ptr, ptr %57, align 8, !tbaa !162
+  %58 = load ptr, ptr %57, align 8, !tbaa !161
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !181
+  store ptr %58, ptr %59, align 8, !tbaa !180
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %61 = trunc i64 %43 to i32
   %62 = lshr i32 %61, 25
   %63 = and i32 %62, 1
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  store i32 %63, ptr %64, align 8, !tbaa !183
+  store i32 %63, ptr %64, align 8, !tbaa !182
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr @get_time, ptr %65, align 8, !tbaa !184
+  store ptr @get_time, ptr %65, align 8, !tbaa !183
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %0, ptr %66, align 8, !tbaa !185
+  store ptr %0, ptr %66, align 8, !tbaa !184
   %67 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %6) #15
-  store ptr %67, ptr %47, align 8, !tbaa !172
+  store ptr %67, ptr %47, align 8, !tbaa !171
   %68 = icmp eq ptr %67, null
   %.pre.i = load i64, ptr %42, align 8
   br i1 %68, label %69, label %ch_record_state_transition.exit
@@ -4844,11 +4844,11 @@ define range(i32 0, 2) i32 @ossl_quic_bind_channel(ptr noundef %0, ptr noundef r
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 33554439
   %11 = icmp eq i64 %10, 33554432
-  br i1 %11, label %12, label %19, !prof !247
+  br i1 %11, label %12, label %19, !prof !245
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1228
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %13, ptr noundef nonnull align 1 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %13, ptr noundef nonnull align 1 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !85
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !44
   %16 = tail call i32 @ossl_quic_lcidm_bind_channel(ptr noundef %15, ptr noundef nonnull %0, ptr noundef nonnull %3) #15
@@ -4869,7 +4869,7 @@ declare i32 @ossl_quic_lcidm_bind_channel(ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_channel_get0_ssl(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8, !tbaa !120
   ret ptr %3
 }
 
@@ -4978,7 +4978,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_init_new_stream(ptr noundef %0, p
 16:                                               ; preds = %4
   %17 = tail call ptr @ossl_quic_sstream_new(i64 noundef 8192) #15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr %17, ptr %18, align 8, !tbaa !248
+  store ptr %17, ptr %18, align 8, !tbaa !246
   %19 = icmp eq ptr %17, null
   br i1 %19, label %44, label %20
 
@@ -4989,7 +4989,7 @@ define internal fastcc range(i32 0, 2) i32 @ch_init_new_stream(ptr noundef %0, p
 21:                                               ; preds = %20
   %22 = tail call ptr @ossl_quic_rstream_new(ptr noundef null, ptr noundef null, i64 noundef 0) #15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %22, ptr %23, align 8, !tbaa !250
+  store ptr %22, ptr %23, align 8, !tbaa !248
   %24 = icmp eq ptr %22, null
   br i1 %24, label %44, label %25
 
@@ -5036,13 +5036,13 @@ define internal fastcc range(i32 0, 2) i32 @ch_init_new_stream(ptr noundef %0, p
 
 44:                                               ; preds = %39, %25, %21, %16
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %46 = load ptr, ptr %45, align 8, !tbaa !248
+  %46 = load ptr, ptr %45, align 8, !tbaa !246
   tail call void @ossl_quic_sstream_free(ptr noundef %46) #15
-  store ptr null, ptr %45, align 8, !tbaa !248
+  store ptr null, ptr %45, align 8, !tbaa !246
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %48 = load ptr, ptr %47, align 8, !tbaa !250
+  %48 = load ptr, ptr %47, align 8, !tbaa !248
   tail call void @ossl_quic_rstream_free(ptr noundef %48) #15
-  store ptr null, ptr %47, align 8, !tbaa !250
+  store ptr null, ptr %47, align 8, !tbaa !248
   br label %49
 
 49:                                               ; preds = %39, %44
@@ -5086,9 +5086,9 @@ define ptr @ossl_quic_channel_new_stream_remote(ptr noundef %0, i64 noundef %1) 
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %22 = load i64, ptr %21, align 8, !tbaa !251
+  %22 = load i64, ptr %21, align 8, !tbaa !249
   %23 = tail call i32 @ossl_quic_stream_map_stop_sending_recv_part(ptr noundef nonnull %8, ptr noundef nonnull %11, i64 noundef %22) #15
-  %24 = load i64, ptr %21, align 8, !tbaa !251
+  %24 = load i64, ptr %21, align 8, !tbaa !249
   %25 = tail call i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef nonnull %8, ptr noundef nonnull %11, i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 256
   %27 = load i64, ptr %26, align 8
@@ -5114,9 +5114,9 @@ define ptr @ossl_quic_channel_new_stream_remote(ptr noundef %0, i64 noundef %1) 
 define void @ossl_quic_channel_reject_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %5 = load i64, ptr %4, align 8, !tbaa !251
+  %5 = load i64, ptr %4, align 8, !tbaa !249
   %6 = tail call i32 @ossl_quic_stream_map_stop_sending_recv_part(ptr noundef nonnull %3, ptr noundef %1, i64 noundef %5) #15
-  %7 = load i64, ptr %4, align 8, !tbaa !251
+  %7 = load i64, ptr %4, align 8, !tbaa !249
   %8 = tail call i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef nonnull %3, ptr noundef %1, i64 noundef %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %10 = load i64, ptr %9, align 8
@@ -5138,7 +5138,7 @@ define void @ossl_quic_channel_set_incoming_stream_auto_reject(ptr noundef captu
   %8 = or disjoint i64 %7, %6
   store i64 %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  store i64 %2, ptr %9, align 8, !tbaa !251
+  store i64 %2, ptr %9, align 8, !tbaa !249
   ret void
 }
 
@@ -5158,9 +5158,9 @@ define range(i32 0, 2) i32 @ossl_quic_channel_replace_local_cid(ptr noundef %0, 
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %5, ptr noundef nonnull align 1 dereferenceable(21) %1, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %5, ptr noundef nonnull align 1 dereferenceable(21) %1, i64 21, i1 false), !tbaa.struct !85
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %9 = load ptr, ptr %8, align 8, !tbaa !110
+  %9 = load ptr, ptr %8, align 8, !tbaa !109
   %10 = tail call i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr noundef %9, ptr noundef nonnull %5) #15
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %14, label %11
@@ -5186,17 +5186,17 @@ declare i32 @ossl_quic_lcidm_debug_add(ptr noundef, ptr noundef, ptr noundef, i6
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_channel_set_msg_callback(ptr noundef captures(none) initializes((1072, 1080), (1088, 1096)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store ptr %1, ptr %4, align 8, !tbaa !252
+  store ptr %1, ptr %4, align 8, !tbaa !250
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  store ptr %2, ptr %5, align 8, !tbaa !253
+  store ptr %2, ptr %5, align 8, !tbaa !251
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %7 = load ptr, ptr %6, align 8, !tbaa !72
   tail call void @ossl_qtx_set_msg_callback(ptr noundef %7, ptr noundef %1, ptr noundef %2) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %9 = load ptr, ptr %8, align 8, !tbaa !110
+  %9 = load ptr, ptr %8, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_set_msg_callback(ptr noundef %9, ptr noundef %1, ptr noundef %2) #15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %11 = load ptr, ptr %10, align 8, !tbaa !117
+  %11 = load ptr, ptr %10, align 8, !tbaa !116
   tail call void @ossl_qrx_set_msg_callback(ptr noundef %11, ptr noundef %1, ptr noundef %2) #15
   ret void
 }
@@ -5210,15 +5210,15 @@ declare void @ossl_qrx_set_msg_callback(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_channel_set_msg_callback_arg(ptr noundef captures(none) initializes((1080, 1088)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  store ptr %1, ptr %3, align 8, !tbaa !254
+  store ptr %1, ptr %3, align 8, !tbaa !252
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %5 = load ptr, ptr %4, align 8, !tbaa !72
   tail call void @ossl_qtx_set_msg_callback_arg(ptr noundef %5, ptr noundef %1) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %6, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_set_msg_callback_arg(ptr noundef %7, ptr noundef %1) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %9 = load ptr, ptr %8, align 8, !tbaa !117
+  %9 = load ptr, ptr %8, align 8, !tbaa !116
   tail call void @ossl_qrx_set_msg_callback_arg(ptr noundef %9, ptr noundef %1) #15
   ret void
 }
@@ -5232,7 +5232,7 @@ declare void @ossl_qrx_set_msg_callback_arg(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_channel_set_txku_threshold_override(ptr noundef writeonly captures(none) initializes((1464, 1472)) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store i64 %1, ptr %3, align 8, !tbaa !145
+  store i64 %1, ptr %3, align 8, !tbaa !144
   ret void
 }
 
@@ -5249,7 +5249,7 @@ declare i64 @ossl_qtx_get_key_epoch(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_quic_channel_get_rx_key_epoch(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %3 = load ptr, ptr %2, align 8, !tbaa !117
+  %3 = load ptr, ptr %2, align 8, !tbaa !116
   %4 = tail call i64 @ossl_qrx_get_key_epoch(ptr noundef %3) #15
   ret i64 %4
 }
@@ -5271,15 +5271,15 @@ define range(i32 0, 2) i32 @ossl_quic_channel_trigger_txku(ptr noundef %0) local
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %9 = load ptr, ptr %8, align 8, !tbaa !84
   %10 = tail call i64 @ossl_ackm_get_largest_acked(ptr noundef %9, i32 noundef 2) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %12 = load i64, ptr %11, align 8, !tbaa !217
+  %12 = load i64, ptr %11, align 8, !tbaa !215
   %.not11.i.i = icmp ult i64 %10, %12
   br i1 %.not11.i.i, label %txku_allowed.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = load ptr, ptr %8, align 8, !tbaa !85
+  %14 = load ptr, ptr %8, align 8, !tbaa !84
   %15 = tail call i64 @ossl_ackm_get_pto_duration(ptr noundef %14) #15
   %16 = load i64, ptr %2, align 8
   %17 = and i64 %16, -4294967297
@@ -5305,7 +5305,7 @@ txku_allowed.exit:                                ; preds = %5, %7, %13
   %28 = or i64 %25, 2147483648
   store i64 %28, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %30 = load ptr, ptr %29, align 8, !tbaa !110
+  %30 = load ptr, ptr %29, align 8, !tbaa !109
   %31 = tail call i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef %30, i32 noundef 2) #15
   %32 = icmp ugt i64 %31, 4611686018427387903
   br i1 %32, label %37, label %33
@@ -5324,7 +5324,7 @@ txku_allowed.exit:                                ; preds = %5, %7, %13
 38:                                               ; preds = %33
   %39 = load i64, ptr %2, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  store i64 %31, ptr %40, align 8, !tbaa !217
+  store i64 %31, ptr %40, align 8, !tbaa !215
   %41 = shl i64 %39, 5
   %42 = and i64 %41, 68719476736
   %43 = and i64 %39, -73014444033
@@ -5350,7 +5350,7 @@ define noundef i32 @ossl_quic_channel_ping(ptr noundef readonly captures(none) %
   %switch.selectcmp2.i = icmp eq i32 %6, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 0, i32 %switch.select.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %8 = load ptr, ptr %7, align 8, !tbaa !110
+  %8 = load ptr, ptr %7, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef %8, i32 noundef %switch.select3.i) #15
   ret i32 1
 }
@@ -5358,14 +5358,14 @@ define noundef i32 @ossl_quic_channel_ping(ptr noundef readonly captures(none) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i16 @ossl_quic_channel_get_diag_num_rx_ack(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  %3 = load i16, ptr %2, align 2, !tbaa !255
+  %3 = load i16, ptr %2, align 2, !tbaa !253
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_quic_channel_get_diag_local_cid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 21)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1228
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %1, ptr noundef nonnull align 4 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %1, ptr noundef nonnull align 4 dereferenceable(21) %3, i64 21, i1 false), !tbaa.struct !85
   ret void
 }
 
@@ -5382,28 +5382,28 @@ define range(i32 0, 2) i32 @ossl_quic_channel_have_generated_transport_params(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_channel_set_max_idle_timeout_request(ptr noundef writeonly captures(none) initializes((1384, 1392)) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  store i64 %1, ptr %3, align 8, !tbaa !146
+  store i64 %1, ptr %3, align 8, !tbaa !145
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_channel_get_max_idle_timeout_request(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  %3 = load i64, ptr %2, align 8, !tbaa !146
+  %3 = load i64, ptr %2, align 8, !tbaa !145
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_channel_get_max_idle_timeout_peer_request(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  %3 = load i64, ptr %2, align 8, !tbaa !147
+  %3 = load i64, ptr %2, align 8, !tbaa !146
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_channel_get_max_idle_timeout_actual(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %3 = load i64, ptr %2, align 8, !tbaa !148
+  %3 = load i64, ptr %2, align 8, !tbaa !147
   ret i64 %3
 }
 
@@ -5420,7 +5420,7 @@ define internal ptr @ch_get_qlog_cb(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !172
+  %5 = load ptr, ptr %4, align 8, !tbaa !171
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %ch_get_qlog.exit
 
@@ -5438,30 +5438,30 @@ define internal ptr @ch_get_qlog_cb(ptr noundef %0) #0 {
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %14 = load i8, ptr %13, align 8, !tbaa !180
+  %14 = load i8, ptr %13, align 8, !tbaa !179
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %ch_get_qlog.exit, label %16
 
 16:                                               ; preds = %12, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %17, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %17, i64 21, i1 false), !tbaa.struct !85
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %19 = load ptr, ptr %18, align 8, !tbaa !162
+  %19 = load ptr, ptr %18, align 8, !tbaa !161
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %19, ptr %20, align 8, !tbaa !181
+  store ptr %19, ptr %20, align 8, !tbaa !180
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = trunc i64 %8 to i32
   %23 = lshr i32 %22, 25
   %24 = and i32 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  store i32 %24, ptr %25, align 8, !tbaa !183
+  store i32 %24, ptr %25, align 8, !tbaa !182
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr @get_time, ptr %26, align 8, !tbaa !184
+  store ptr @get_time, ptr %26, align 8, !tbaa !183
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %0, ptr %27, align 8, !tbaa !185
+  store ptr %0, ptr %27, align 8, !tbaa !184
   %28 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %2) #15
-  store ptr %28, ptr %4, align 8, !tbaa !172
+  store ptr %28, ptr %4, align 8, !tbaa !171
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %ch_get_qlog.exit
 
@@ -5526,7 +5526,7 @@ define internal void @ch_on_txp_ack_tx(ptr noundef %0, i32 noundef %1, ptr nound
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1560
-  %10 = load i64, ptr %9, align 8, !tbaa !203
+  %10 = load i64, ptr %9, align 8, !tbaa !202
   %11 = tail call i32 @ossl_quic_frame_ack_contains_pn(ptr noundef %0, i64 noundef %10) #15
   %.not6 = icmp eq i32 %11, 0
   br i1 %.not6, label %15, label %12
@@ -5548,7 +5548,7 @@ declare i32 @ossl_qrx_set_late_validation_cb(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @rx_late_validate(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1048
-  %5 = load ptr, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %4, align 8, !tbaa !84
   %6 = tail call i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %5, i64 noundef %0, i32 noundef %1) #15
   %.not = icmp ne i32 %6, 0
   %. = zext i1 %.not to i32
@@ -5569,14 +5569,14 @@ define internal void @rxku_detected(i64 noundef %0, ptr noundef %1) #0 {
   %6 = and i64 %.val, 2147483648
   %.not19 = icmp eq i64 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1048
-  %8 = load ptr, ptr %7, align 8, !tbaa !85
+  %8 = load ptr, ptr %7, align 8, !tbaa !84
   %9 = tail call i64 @ossl_ackm_get_pto_duration(ptr noundef %8) #15
   %10 = load i64, ptr %3, align 8
   %11 = and i64 %10, -27917287425
   %12 = or disjoint i64 %11, 25769803776
   store i64 %12, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1560
-  store i64 %0, ptr %13, align 8, !tbaa !203
+  store i64 %0, ptr %13, align 8, !tbaa !202
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1544
   %15 = load ptr, ptr %1, align 8, !tbaa !3
   %16 = tail call i64 @ossl_quic_port_get_time(ptr noundef %15) #15
@@ -5593,7 +5593,7 @@ define internal void @rxku_detected(i64 noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %21 = load ptr, ptr %20, align 8, !tbaa !110
+  %21 = load ptr, ptr %20, align 8, !tbaa !109
   %22 = tail call i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef %21, i32 noundef 2) #15
   %23 = icmp ugt i64 %22, 4611686018427387903
   br i1 %23, label %28, label %24
@@ -5612,7 +5612,7 @@ define internal void @rxku_detected(i64 noundef %0, ptr noundef %1) #0 {
 29:                                               ; preds = %24
   %30 = load i64, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1552
-  store i64 %22, ptr %31, align 8, !tbaa !217
+  store i64 %22, ptr %31, align 8, !tbaa !215
   %32 = shl i64 %30, 5
   %33 = and i64 %32, 68719476736
   %34 = and i64 %30, -73014444033
@@ -5623,7 +5623,7 @@ define internal void @rxku_detected(i64 noundef %0, ptr noundef %1) #0 {
 
 ch_trigger_txku.exit:                             ; preds = %29, %28, %5
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %38 = load ptr, ptr %37, align 8, !tbaa !110
+  %38 = load ptr, ptr %37, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_schedule_ack(ptr noundef %38, i32 noundef 2) #15
   br label %39
 
@@ -5646,9 +5646,9 @@ define internal i32 @ch_on_crypto_send(ptr noundef %0, i64 noundef %1, ptr nound
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   %11 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %switch.select3.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !107
+  %12 = load ptr, ptr %11, align 8, !tbaa !106
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %15, label %13, !prof !239
+  br i1 %.not, label %15, label %13, !prof !237
 
 13:                                               ; preds = %4
   %14 = tail call i32 @ossl_quic_sstream_append(ptr noundef nonnull %12, ptr noundef %0, i64 noundef %1, ptr noundef %2) #15
@@ -5665,7 +5665,7 @@ define internal i32 @ch_on_crypto_recv_record(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  store i32 0, ptr %6, align 4, !tbaa !256
+  store i32 0, ptr %6, align 4, !tbaa !254
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1568
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 917504
@@ -5685,11 +5685,11 @@ define internal i32 @ch_on_crypto_recv_record(ptr noundef %0, ptr noundef %1, pt
   %switch.selectcmp2.i = icmp eq i32 %.030, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
   %13 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %switch.select3.i
-  %14 = load ptr, ptr %13, align 8, !tbaa !119
+  %14 = load ptr, ptr %13, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store i64 0, ptr %4, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  store i32 0, ptr %5, align 4, !tbaa !256
+  store i32 0, ptr %5, align 4, !tbaa !254
   %15 = icmp eq ptr %14, null
   br i1 %15, label %crypto_ensure_empty.exit.thread24, label %16
 
@@ -5731,7 +5731,7 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
   %23 = lshr i32 %22, 17
   %24 = and i32 %23, 7
   %25 = icmp samesign ult i32 %21, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !257
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !255
 
 ._crit_edge:                                      ; preds = %19
   %switch.selectcmp.i18 = icmp eq i32 %24, 2
@@ -5744,7 +5744,7 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
   %26 = phi i64 [ 0, %3 ], [ %spec.select41, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   %28 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %26
-  %29 = load ptr, ptr %28, align 8, !tbaa !119
+  %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = icmp eq ptr %29, null
   br i1 %30, label %33, label %31
 
@@ -5773,7 +5773,7 @@ define internal i32 @ch_on_crypto_release_record(i64 noundef %0, ptr noundef %1)
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1120
   %10 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %switch.select3.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !119
+  %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
 
@@ -5851,11 +5851,11 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_yield_secret(i32 noundef %0
   %switch.selectcmp2.i = icmp eq i32 %.03346, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
   %33 = getelementptr inbounds nuw [3 x ptr], ptr %31, i64 0, i64 %switch.select3.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !119
+  %34 = load ptr, ptr %33, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   store i64 0, ptr %8, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  store i32 0, ptr %9, align 4, !tbaa !256
+  store i32 0, ptr %9, align 4, !tbaa !254
   %35 = icmp eq ptr %34, null
   br i1 %35, label %crypto_ensure_empty.exit.thread42, label %36
 
@@ -5888,11 +5888,11 @@ crypto_ensure_empty.exit:                         ; preds = %36
 39:                                               ; preds = %crypto_ensure_empty.exit.thread42, %crypto_ensure_empty.exit
   %40 = add nuw i32 %.03346, 1
   %exitcond.not = icmp eq i32 %40, %0
-  br i1 %exitcond.not, label %41, label %32, !llvm.loop !258
+  br i1 %exitcond.not, label %41, label %32, !llvm.loop !256
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 1064
-  %43 = load ptr, ptr %42, align 8, !tbaa !117
+  %43 = load ptr, ptr %42, align 8, !tbaa !116
   %44 = call i32 @ossl_qrx_provide_secret(ptr noundef %43, i32 noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #15
   %.not36 = icmp eq i32 %44, 0
   br i1 %.not36, label %52, label %45
@@ -5938,9 +5938,9 @@ define internal range(i32 0, 2) i32 @ch_on_transport_params(ptr noundef %0, i64 
   br i1 %15, label %44, label %PACKET_buf_init.exit
 
 PACKET_buf_init.exit:                             ; preds = %14
-  store ptr %0, ptr %5, align 8, !tbaa !259
+  store ptr %0, ptr %5, align 8, !tbaa !257
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %1, ptr %16, align 8, !tbaa !261
+  store i64 %1, ptr %16, align 8, !tbaa !259
   %.not208311 = icmp eq i64 %1, 0
   br i1 %.not208311, label %ossl_quic_conn_id_eq.exit.thread, label %.lr.ph
 
@@ -6040,8 +6040,8 @@ PACKET_buf_init.exit:                             ; preds = %14
   br i1 %.not264, label %ossl_quic_conn_id_eq.exit.thread, label %55
 
 55:                                               ; preds = %53
-  %56 = load i8, ptr %42, align 1, !tbaa !193
-  %57 = load i8, ptr %9, align 1, !tbaa !193
+  %56 = load i8, ptr %42, align 1, !tbaa !192
+  %57 = load i8, ptr %9, align 1, !tbaa !192
   %.not.i = icmp ne i8 %56, %57
   %58 = icmp ugt i8 %56, 20
   %or.cond.i = or i1 %58, %.not.i
@@ -6074,8 +6074,8 @@ ossl_quic_conn_id_eq.exit:                        ; preds = %55
   br i1 %.not260, label %ossl_quic_conn_id_eq.exit.thread, label %68
 
 68:                                               ; preds = %66
-  %69 = load i8, ptr %40, align 1, !tbaa !193
-  %70 = load i8, ptr %9, align 1, !tbaa !193
+  %69 = load i8, ptr %40, align 1, !tbaa !192
+  %70 = load i8, ptr %9, align 1, !tbaa !192
   %.not.i267 = icmp ne i8 %69, %70
   %71 = icmp ugt i8 %69, 20
   %or.cond.i268 = or i1 %71, %.not.i267
@@ -6097,8 +6097,8 @@ ossl_quic_conn_id_eq.exit271:                     ; preds = %68
   br i1 %.not255, label %ossl_quic_conn_id_eq.exit.thread, label %76
 
 76:                                               ; preds = %74
-  %77 = load i8, ptr %37, align 1, !tbaa !193
-  %78 = load i8, ptr %9, align 1, !tbaa !193
+  %77 = load i8, ptr %37, align 1, !tbaa !192
+  %78 = load i8, ptr %9, align 1, !tbaa !192
   %.not.i272 = icmp ne i8 %77, %78
   %79 = icmp ugt i8 %77, 20
   %or.cond.i273 = or i1 %79, %.not.i272
@@ -6135,7 +6135,7 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
 
 90:                                               ; preds = %88
   %91 = load i64, ptr %7, align 8, !tbaa !71
-  store i64 %91, ptr %35, align 8, !tbaa !262
+  store i64 %91, ptr %35, align 8, !tbaa !260
   br label %208
 
 92:                                               ; preds = %47
@@ -6149,7 +6149,7 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
 
 95:                                               ; preds = %93
   %96 = load i64, ptr %7, align 8, !tbaa !71
-  store i64 %96, ptr %34, align 8, !tbaa !263
+  store i64 %96, ptr %34, align 8, !tbaa !261
   call void @ossl_quic_stream_map_visit(ptr noundef nonnull %33, ptr noundef nonnull @txfc_bump_cwm_bidi, ptr noundef nonnull %7) #15
   br label %208
 
@@ -6164,7 +6164,7 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
 
 100:                                              ; preds = %98
   %101 = load i64, ptr %7, align 8, !tbaa !71
-  store i64 %101, ptr %32, align 8, !tbaa !264
+  store i64 %101, ptr %32, align 8, !tbaa !262
   call void @ossl_quic_stream_map_visit(ptr noundef nonnull %33, ptr noundef nonnull @txfc_bump_cwm_uni, ptr noundef nonnull %7) #15
   br label %208
 
@@ -6182,7 +6182,7 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
 
 108:                                              ; preds = %103
   %109 = trunc nuw nsw i64 %106 to i8
-  store i8 %109, ptr %31, align 8, !tbaa !143
+  store i8 %109, ptr %31, align 8, !tbaa !142
   br label %208
 
 110:                                              ; preds = %47
@@ -6198,8 +6198,8 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
   br i1 %or.cond3, label %ossl_quic_conn_id_eq.exit.thread, label %116
 
 116:                                              ; preds = %111
-  store i64 %114, ptr %30, align 8, !tbaa !142
-  %117 = load ptr, ptr %26, align 8, !tbaa !85
+  store i64 %114, ptr %30, align 8, !tbaa !141
+  %117 = load ptr, ptr %26, align 8, !tbaa !84
   %118 = mul nuw nsw i64 %114, 1000000
   call void @ossl_ackm_set_rx_max_ack_delay(ptr noundef %117, i64 %118) #15
   br label %208
@@ -6217,7 +6217,7 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
   br i1 %or.cond5, label %ossl_quic_conn_id_eq.exit.thread, label %125
 
 125:                                              ; preds = %120
-  store i64 %123, ptr %29, align 8, !tbaa !265
+  store i64 %123, ptr %29, align 8, !tbaa !263
   br label %208
 
 126:                                              ; preds = %47
@@ -6233,7 +6233,7 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
   br i1 %or.cond7, label %ossl_quic_conn_id_eq.exit.thread, label %132
 
 132:                                              ; preds = %127
-  store i64 %130, ptr %28, align 8, !tbaa !266
+  store i64 %130, ptr %28, align 8, !tbaa !264
   br label %208
 
 133:                                              ; preds = %47
@@ -6247,8 +6247,8 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
 
 136:                                              ; preds = %134
   %137 = load i64, ptr %7, align 8, !tbaa !71
-  store i64 %137, ptr %23, align 8, !tbaa !147
-  %138 = load i64, ptr %24, align 8, !tbaa !146
+  store i64 %137, ptr %23, align 8, !tbaa !146
+  %138 = load i64, ptr %24, align 8, !tbaa !145
   %139 = icmp eq i64 %138, 0
   br i1 %139, label %min_u64_ignore_0.exit, label %140
 
@@ -6262,17 +6262,17 @@ ossl_quic_conn_id_eq.exit276:                     ; preds = %76
 
 min_u64_ignore_0.exit:                            ; preds = %136, %140, %142
   %.0.i277 = phi i64 [ %143, %142 ], [ %137, %136 ], [ %138, %140 ]
-  store i64 %.0.i277, ptr %25, align 8, !tbaa !148
+  store i64 %.0.i277, ptr %25, align 8, !tbaa !147
   %144 = load ptr, ptr %2, align 8, !tbaa !3
   %145 = call i64 @ossl_quic_port_get_time(ptr noundef %144) #15
-  %146 = load i64, ptr %25, align 8, !tbaa !148
+  %146 = load i64, ptr %25, align 8, !tbaa !147
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %ch_update_idle.exit, label %148
 
 148:                                              ; preds = %min_u64_ignore_0.exit
-  %149 = load ptr, ptr %26, align 8, !tbaa !85
+  %149 = load ptr, ptr %26, align 8, !tbaa !84
   %150 = call i64 @ossl_ackm_get_pto_duration(ptr noundef %149) #15
-  %151 = load i64, ptr %25, align 8, !tbaa !148
+  %151 = load i64, ptr %25, align 8, !tbaa !147
   %152 = mul i64 %151, 1000000
   %153 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %150, i64 3)
   %154 = extractvalue { i64, i1 } %153, 1
@@ -6317,7 +6317,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   br i1 %or.cond11, label %ossl_quic_conn_id_eq.exit.thread, label %173
 
 173:                                              ; preds = %168
-  store i64 %171, ptr %21, align 8, !tbaa !144
+  store i64 %171, ptr %21, align 8, !tbaa !143
   br label %208
 
 174:                                              ; preds = %47
@@ -6340,7 +6340,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
 
 183:                                              ; preds = %178
   %184 = load ptr, ptr %19, align 8, !tbaa !45
-  %185 = load i64, ptr %20, align 8, !tbaa !240
+  %185 = load i64, ptr %20, align 8, !tbaa !238
   %186 = call i32 @ossl_quic_srtm_add(ptr noundef %184, ptr noundef nonnull %2, i64 noundef %185, ptr noundef nonnull %179) #15
   %.not237 = icmp eq i32 %186, 0
   br i1 %.not237, label %ossl_quic_conn_id_eq.exit.thread, label %208
@@ -6356,7 +6356,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   br i1 %.not233, label %191, label %ossl_quic_conn_id_eq.exit.thread
 
 191:                                              ; preds = %188
-  %192 = load i8, ptr %17, align 1, !tbaa !242
+  %192 = load i8, ptr %17, align 1, !tbaa !240
   %193 = icmp eq i8 %192, 0
   br i1 %193, label %ossl_quic_conn_id_eq.exit.thread, label %194
 
@@ -6366,7 +6366,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   br i1 %.not234, label %ossl_quic_conn_id_eq.exit.thread, label %196
 
 196:                                              ; preds = %194
-  %197 = load i8, ptr %18, align 2, !tbaa !267
+  %197 = load i8, ptr %18, align 2, !tbaa !265
   %198 = icmp eq i8 %197, 0
   br i1 %198, label %ossl_quic_conn_id_eq.exit.thread, label %208
 
@@ -6407,9 +6407,9 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   %.1166 = phi i64 [ %.0165328, %205 ], [ %.0165328, %84 ], [ %.0165328, %90 ], [ %.0165328, %95 ], [ %.0165328, %100 ], [ %.0165328, %108 ], [ %.0165328, %116 ], [ %.0165328, %125 ], [ %.0165328, %132 ], [ %159, %ch_update_idle.exit ], [ %.0165328, %166 ], [ %.0165328, %173 ], [ %.0165328, %ossl_quic_conn_id_eq.exit ], [ %.0165328, %ossl_quic_conn_id_eq.exit271 ], [ %.0165328, %ossl_quic_conn_id_eq.exit276 ], [ %.0165328, %183 ], [ %.0165328, %196 ], [ %.0165328, %200 ]
   %.1164 = phi ptr [ %.0163329, %205 ], [ %.0163329, %84 ], [ %.0163329, %90 ], [ %.0163329, %95 ], [ %.0163329, %100 ], [ %.0163329, %108 ], [ %.0163329, %116 ], [ %.0163329, %125 ], [ %.0163329, %132 ], [ %.0163329, %ch_update_idle.exit ], [ %.0163329, %166 ], [ %.0163329, %173 ], [ %.0163329, %ossl_quic_conn_id_eq.exit ], [ %.0163329, %ossl_quic_conn_id_eq.exit271 ], [ %.0163329, %ossl_quic_conn_id_eq.exit276 ], [ %179, %183 ], [ %.0163329, %196 ], [ %.0163329, %200 ]
   %.1 = phi i32 [ %.0162330, %205 ], [ %.0162330, %84 ], [ %.0162330, %90 ], [ %.0162330, %95 ], [ %.0162330, %100 ], [ %.0162330, %108 ], [ %.0162330, %116 ], [ %.0162330, %125 ], [ %.0162330, %132 ], [ %.0162330, %ch_update_idle.exit ], [ %.0162330, %166 ], [ %.0162330, %173 ], [ 1, %ossl_quic_conn_id_eq.exit ], [ %.0162330, %ossl_quic_conn_id_eq.exit271 ], [ %.0162330, %ossl_quic_conn_id_eq.exit276 ], [ %.0162330, %183 ], [ %.0162330, %196 ], [ %.0162330, %200 ]
-  %.val = load i64, ptr %16, align 8, !tbaa !261
+  %.val = load i64, ptr %16, align 8, !tbaa !259
   %.not208 = icmp eq i64 %.val, 0
-  br i1 %.not208, label %._crit_edge, label %45, !llvm.loop !269
+  br i1 %.not208, label %._crit_edge, label %45, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %208
   %209 = icmp eq i32 %.1199, 0
@@ -6448,7 +6448,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   %230 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %230, i8 0, i64 72, i1 false)
   %231 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %232 = load ptr, ptr %231, align 8, !tbaa !172
+  %232 = load ptr, ptr %231, align 8, !tbaa !171
   %.not.i278 = icmp eq ptr %232, null
   br i1 %.not.i278, label %233, label %ch_get_qlog.exit
 
@@ -6462,30 +6462,30 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
 
 236:                                              ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 1144
-  %238 = load i8, ptr %237, align 8, !tbaa !180
+  %238 = load i8, ptr %237, align 8, !tbaa !179
   %239 = icmp eq i8 %238, 0
   br i1 %239, label %ch_get_qlog.exit, label %240
 
 240:                                              ; preds = %236, %235
   %241 = getelementptr inbounds nuw i8, ptr %2, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 8 dereferenceable(21) %241, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 8 dereferenceable(21) %241, i64 21, i1 false), !tbaa.struct !85
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 1600
-  %243 = load ptr, ptr %242, align 8, !tbaa !162
+  %243 = load ptr, ptr %242, align 8, !tbaa !161
   %244 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %243, ptr %244, align 8, !tbaa !181
+  store ptr %243, ptr %244, align 8, !tbaa !180
   %245 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %246 = trunc i64 %221 to i32
   %247 = lshr i32 %246, 25
   %248 = and i32 %247, 1
   %249 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %245, i8 0, i64 16, i1 false)
-  store i32 %248, ptr %249, align 8, !tbaa !183
+  store i32 %248, ptr %249, align 8, !tbaa !182
   %250 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @get_time, ptr %250, align 8, !tbaa !184
+  store ptr @get_time, ptr %250, align 8, !tbaa !183
   %251 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %2, ptr %251, align 8, !tbaa !185
+  store ptr %2, ptr %251, align 8, !tbaa !184
   %252 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %4) #15
-  store ptr %252, ptr %231, align 8, !tbaa !172
+  store ptr %252, ptr %231, align 8, !tbaa !171
   %253 = icmp eq ptr %252, null
   br i1 %253, label %254, label %ch_get_qlog.exit
 
@@ -6509,7 +6509,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 259:                                              ; preds = %258
   %260 = getelementptr inbounds nuw i8, ptr %2, i64 1144
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 1145
-  %262 = load i8, ptr %260, align 8, !tbaa !180
+  %262 = load i8, ptr %260, align 8, !tbaa !179
   %263 = zext i8 %262 to i64
   call void @ossl_qlog_bin(ptr noundef %.0.i279, ptr noundef nonnull @.str.70, ptr noundef nonnull %261, i64 noundef %263) #15
   br label %264
@@ -6517,7 +6517,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 264:                                              ; preds = %258, %259
   %265 = getelementptr inbounds nuw i8, ptr %2, i64 1144
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 1145
-  %267 = load i8, ptr %265, align 8, !tbaa !180
+  %267 = load i8, ptr %265, align 8, !tbaa !179
   %268 = zext i8 %267 to i64
   call void @ossl_qlog_bin(ptr noundef %.0.i279, ptr noundef nonnull @.str.71, ptr noundef nonnull %266, i64 noundef %268) #15
   %.not214 = icmp eq i32 %.1197, 0
@@ -6526,7 +6526,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 269:                                              ; preds = %264
   %270 = getelementptr inbounds nuw i8, ptr %2, i64 1207
   %271 = getelementptr inbounds nuw i8, ptr %2, i64 1208
-  %272 = load i8, ptr %270, align 1, !tbaa !270
+  %272 = load i8, ptr %270, align 1, !tbaa !268
   %273 = zext i8 %272 to i64
   call void @ossl_qlog_bin(ptr noundef %.0.i279, ptr noundef nonnull @.str.72, ptr noundef nonnull %271, i64 noundef %273) #15
   br label %274
@@ -6546,7 +6546,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 279:                                              ; preds = %278
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 1320
-  %281 = load i64, ptr %280, align 8, !tbaa !263
+  %281 = load i64, ptr %280, align 8, !tbaa !261
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.74, i64 noundef %281) #15
   br label %282
 
@@ -6556,7 +6556,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 283:                                              ; preds = %282
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 1328
-  %285 = load i64, ptr %284, align 8, !tbaa !262
+  %285 = load i64, ptr %284, align 8, !tbaa !260
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.75, i64 noundef %285) #15
   br label %286
 
@@ -6565,7 +6565,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 287:                                              ; preds = %286
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 1336
-  %289 = load i64, ptr %288, align 8, !tbaa !264
+  %289 = load i64, ptr %288, align 8, !tbaa !262
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.76, i64 noundef %289) #15
   br label %290
 
@@ -6575,7 +6575,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 291:                                              ; preds = %290
   %292 = getelementptr inbounds nuw i8, ptr %2, i64 1368
-  %293 = load i64, ptr %292, align 8, !tbaa !265
+  %293 = load i64, ptr %292, align 8, !tbaa !263
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.77, i64 noundef %293) #15
   br label %294
 
@@ -6585,7 +6585,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 295:                                              ; preds = %294
   %296 = getelementptr inbounds nuw i8, ptr %2, i64 1376
-  %297 = load i64, ptr %296, align 8, !tbaa !266
+  %297 = load i64, ptr %296, align 8, !tbaa !264
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.78, i64 noundef %297) #15
   br label %298
 
@@ -6594,7 +6594,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 299:                                              ; preds = %298
   %300 = getelementptr inbounds nuw i8, ptr %2, i64 1352
-  %301 = load i8, ptr %300, align 8, !tbaa !143
+  %301 = load i8, ptr %300, align 8, !tbaa !142
   %302 = zext i8 %301 to i64
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.79, i64 noundef %302) #15
   br label %303
@@ -6604,7 +6604,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 304:                                              ; preds = %303
   %305 = getelementptr inbounds nuw i8, ptr %2, i64 1344
-  %306 = load i64, ptr %305, align 8, !tbaa !142
+  %306 = load i64, ptr %305, align 8, !tbaa !141
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.80, i64 noundef %306) #15
   br label %307
 
@@ -6629,7 +6629,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 314:                                              ; preds = %313
   %315 = getelementptr inbounds nuw i8, ptr %2, i64 1416
-  %316 = load i64, ptr %315, align 8, !tbaa !144
+  %316 = load i64, ptr %315, align 8, !tbaa !143
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.83, i64 noundef %316) #15
   br label %317
 
@@ -6645,11 +6645,11 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
 
 320:                                              ; preds = %319
   call void @ossl_qlog_group_begin(ptr noundef %.0.i279, ptr noundef nonnull @.str.85) #15
-  %321 = load i16, ptr %10, align 2, !tbaa !271
+  %321 = load i16, ptr %10, align 2, !tbaa !269
   %322 = zext i16 %321 to i64
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.86, i64 noundef %322) #15
   %323 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %324 = load i16, ptr %323, align 2, !tbaa !272
+  %324 = load i16, ptr %323, align 2, !tbaa !270
   %325 = zext i16 %324 to i64
   call void @ossl_qlog_u64(ptr noundef %.0.i279, ptr noundef nonnull @.str.87, i64 noundef %325) #15
   %326 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -6660,7 +6660,7 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
   call void @ossl_qlog_bin(ptr noundef %.0.i279, ptr noundef nonnull @.str.84, ptr noundef nonnull %328, i64 noundef 16) #15
   %329 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %330 = getelementptr inbounds nuw i8, ptr %10, i64 41
-  %331 = load i8, ptr %329, align 2, !tbaa !267
+  %331 = load i8, ptr %329, align 2, !tbaa !265
   %332 = zext i8 %331 to i64
   call void @ossl_qlog_bin(ptr noundef %.0.i279, ptr noundef nonnull @.str.90, ptr noundef nonnull %330, i64 noundef %332) #15
   call void @ossl_qlog_group_end(ptr noundef %.0.i279) #15
@@ -6724,11 +6724,11 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 115200
   %or.cond = icmp eq i64 %5, 49152
-  br i1 %or.cond, label %6, label %69, !prof !273
+  br i1 %or.cond, label %6, label %69, !prof !271
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %8 = load ptr, ptr %7, align 8, !tbaa !110
+  %8 = load ptr, ptr %7, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_set_validated(ptr noundef %8) #15
   %9 = load i64, ptr %3, align 8
   %10 = and i64 %9, 128
@@ -6741,27 +6741,27 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !167
+  %14 = load ptr, ptr %13, align 8, !tbaa !166
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 1124) #15
-  store ptr null, ptr %13, align 8, !tbaa !167
+  store ptr null, ptr %13, align 8, !tbaa !166
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %16 = load ptr, ptr %15, align 8, !tbaa !117
+  %16 = load ptr, ptr %15, align 8, !tbaa !116
   tail call void @ossl_qrx_allow_1rtt_processing(ptr noundef %16) #15
-  %17 = load ptr, ptr %7, align 8, !tbaa !110
+  %17 = load ptr, ptr %7, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_notify_handshake_complete(ptr noundef %17) #15
   %18 = load i64, ptr %3, align 8
   %19 = or i64 %18, 512
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = load ptr, ptr %20, align 8, !tbaa !171
+  %21 = load ptr, ptr %20, align 8, !tbaa !170
   %.not25 = icmp eq ptr %21, null
   br i1 %.not25, label %27, label %22
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %24 = load i64, ptr %23, align 8, !tbaa !274
+  %24 = load i64, ptr %23, align 8, !tbaa !272
   %25 = tail call i32 @ossl_quic_channel_schedule_new_token(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef %24)
-  %26 = load ptr, ptr %20, align 8, !tbaa !171
+  %26 = load ptr, ptr %20, align 8, !tbaa !170
   tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 1147) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %.pre = load i64, ptr %3, align 8
@@ -6775,7 +6775,7 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
 
 30:                                               ; preds = %27
   %31 = tail call i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef nonnull %0)
-  %32 = load ptr, ptr %7, align 8, !tbaa !110
+  %32 = load ptr, ptr %7, align 8, !tbaa !109
   tail call void @ossl_quic_tx_packetiser_schedule_handshake_done(ptr noundef %32) #15
   %.pre28 = load i64, ptr %3, align 8
   br label %33
@@ -6788,7 +6788,7 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, i8 0, i64 72, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %39 = load ptr, ptr %38, align 8, !tbaa !172
+  %39 = load ptr, ptr %38, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %40, label %ch_record_state_transition.exit
 
@@ -6804,29 +6804,29 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %46 = load i8, ptr %45, align 8, !tbaa !180
+  %46 = load i8, ptr %45, align 8, !tbaa !179
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %ch_record_state_transition.exit, label %48
 
 48:                                               ; preds = %44, %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %49, i64 21, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %49, i64 21, i1 false), !tbaa.struct !85
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %51 = load ptr, ptr %50, align 8, !tbaa !162
+  %51 = load ptr, ptr %50, align 8, !tbaa !161
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %51, ptr %52, align 8, !tbaa !181
+  store ptr %51, ptr %52, align 8, !tbaa !180
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %54 = lshr i32 %35, 25
   %55 = and i32 %54, 1
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
-  store i32 %55, ptr %56, align 8, !tbaa !183
+  store i32 %55, ptr %56, align 8, !tbaa !182
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr @get_time, ptr %57, align 8, !tbaa !184
+  store ptr @get_time, ptr %57, align 8, !tbaa !183
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %0, ptr %58, align 8, !tbaa !185
+  store ptr %0, ptr %58, align 8, !tbaa !184
   %59 = call ptr @ossl_qlog_new_from_env(ptr noundef nonnull %2) #15
-  store ptr %59, ptr %38, align 8, !tbaa !172
+  store ptr %59, ptr %38, align 8, !tbaa !171
   %60 = icmp eq ptr %59, null
   %.pre.i = load i64, ptr %3, align 8
   br i1 %60, label %61, label %ch_record_state_transition.exit
@@ -6870,7 +6870,7 @@ define internal noundef i32 @ch_on_handshake_alert(ptr noundef %0, i8 noundef ze
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !140
+  %10 = load ptr, ptr %9, align 8, !tbaa !139
   %11 = tail call i32 @ossl_quic_tls_is_cert_request(ptr noundef %10) #15
   %.not10 = icmp eq i32 %11, 0
   br i1 %.not10, label %22, label %12
@@ -6888,7 +6888,7 @@ define internal noundef i32 @ch_on_handshake_alert(ptr noundef %0, i8 noundef ze
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !140
+  %19 = load ptr, ptr %18, align 8, !tbaa !139
   %20 = tail call i32 @ossl_quic_tls_has_bad_max_early_data(ptr noundef %19) #15
   %.not12 = icmp eq i32 %20, 0
   br i1 %.not12, label %22, label %21
@@ -6917,15 +6917,15 @@ define internal fastcc void @ch_update_idle(ptr noundef captures(none) initializ
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = tail call i64 @ossl_quic_port_get_time(ptr noundef %2) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %5 = load i64, ptr %4, align 8, !tbaa !148
+  %5 = load i64, ptr %4, align 8, !tbaa !147
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %ch_get_effective_idle_timeout_duration.exit, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %9 = load ptr, ptr %8, align 8, !tbaa !84
   %10 = tail call i64 @ossl_ackm_get_pto_duration(ptr noundef %9) #15
-  %11 = load i64, ptr %4, align 8, !tbaa !148
+  %11 = load i64, ptr %4, align 8, !tbaa !147
   %12 = mul i64 %11, 1000000
   %13 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %10, i64 3)
   %14 = extractvalue { i64, i1 } %13, 1
@@ -7305,200 +7305,198 @@ attributes #16 = { nounwind willreturn memory(read) }
 !75 = !{!4, !17, i64 1288}
 !76 = !{!4, !17, i64 1296}
 !77 = !{!4, !17, i64 1304}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{!4, !34, i64 1040}
-!82 = !{!83, !6, i64 0}
-!83 = !{!"ossl_cc_method_st", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104}
-!84 = !{!4, !33, i64 1032}
-!85 = !{!4, !35, i64 1048}
-!86 = !{i64 0, i64 1, !87, i64 1, i64 20, !87}
-!87 = !{!7, !7, i64 0}
-!88 = !{!89, !31, i64 156}
-!89 = !{!"ossl_quic_tx_packetiser_args_st", !38, i64 0, !38, i64 21, !7, i64 44, !31, i64 156, !36, i64 160, !19, i64 168, !20, i64 176, !35, i64 184, !90, i64 192, !22, i64 200, !25, i64 208, !25, i64 216, !25, i64 224, !34, i64 232, !33, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !31, i64 280, !7, i64 288}
-!90 = !{!"p1 _ZTS18quic_stream_map_st", !6, i64 0}
-!91 = !{!89, !36, i64 160}
-!92 = !{!89, !19, i64 168}
-!93 = !{!89, !20, i64 176}
-!94 = !{!89, !35, i64 184}
-!95 = !{!89, !90, i64 192}
-!96 = !{!89, !22, i64 200}
-!97 = !{!89, !25, i64 208}
-!98 = !{!89, !25, i64 216}
-!99 = !{!89, !25, i64 224}
-!100 = !{!89, !34, i64 232}
-!101 = !{!89, !33, i64 240}
-!102 = !{!89, !6, i64 248}
-!103 = !{!89, !6, i64 256}
-!104 = !{!89, !6, i64 264}
-!105 = !{!89, !6, i64 272}
-!106 = !{!89, !31, i64 280}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"p1 _ZTS15quic_sstream_st", !6, i64 0}
-!109 = distinct !{!109, !79, !80}
-!110 = !{!4, !18, i64 216}
-!111 = !{!112, !58, i64 0}
-!112 = !{!"ossl_qrx_args_st", !58, i64 0, !16, i64 8, !52, i64 16, !17, i64 24, !17, i64 32, !7, i64 40, !7, i64 64}
-!113 = !{!47, !52, i64 64}
-!114 = !{!112, !52, i64 16}
-!115 = !{!112, !17, i64 24}
-!116 = !{!112, !17, i64 32}
-!117 = !{!4, !37, i64 1064}
-!118 = distinct !{!118, !79, !80}
-!119 = !{!120, !120, i64 0}
-!120 = !{!"p1 _ZTS15quic_rstream_st", !6, i64 0}
-!121 = !{!4, !12, i64 48}
-!122 = !{!123, !12, i64 0}
-!123 = !{!"quic_tls_args_st", !12, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !31, i64 120, !31, i64 124}
-!124 = !{!123, !6, i64 8}
-!125 = !{!123, !6, i64 16}
-!126 = !{!123, !6, i64 24}
-!127 = !{!123, !6, i64 32}
-!128 = !{!123, !6, i64 40}
-!129 = !{!123, !6, i64 48}
-!130 = !{!123, !6, i64 56}
-!131 = !{!123, !6, i64 64}
-!132 = !{!123, !6, i64 72}
-!133 = !{!123, !6, i64 80}
-!134 = !{!123, !6, i64 88}
-!135 = !{!123, !6, i64 96}
-!136 = !{!123, !6, i64 104}
-!137 = !{!123, !6, i64 112}
-!138 = !{!123, !31, i64 120}
-!139 = !{!123, !31, i64 124}
-!140 = !{!4, !11, i64 40}
-!141 = !{!4, !17, i64 1312}
-!142 = !{!4, !17, i64 1344}
-!143 = !{!4, !7, i64 1352}
-!144 = !{!4, !17, i64 1416}
-!145 = !{!4, !17, i64 1464}
-!146 = !{!4, !17, i64 1384}
-!147 = !{!4, !17, i64 1392}
-!148 = !{!4, !17, i64 1400}
-!149 = !{!53, !10, i64 8}
-!150 = !{!4, !10, i64 8}
-!151 = !{!4, !10, i64 16}
-!152 = !{!53, !10, i64 0}
-!153 = !{!53, !17, i64 16}
-!154 = !{!155, !5, i64 0}
-!155 = !{!"quic_channel_args_st", !5, i64 0, !13, i64 8, !14, i64 16, !31, i64 24, !12, i64 32, !31, i64 40, !16, i64 48}
-!156 = !{!155, !31, i64 24}
-!157 = !{!155, !12, i64 32}
-!158 = !{!155, !13, i64 8}
-!159 = !{!155, !14, i64 16}
-!160 = !{!155, !31, i64 40}
-!161 = !{!155, !16, i64 48}
-!162 = !{!4, !16, i64 1600}
-!163 = distinct !{!163, !79, !80}
-!164 = !{!83, !6, i64 8}
-!165 = distinct !{!165, !79, !80}
-!166 = !{!4, !40, i64 1360}
-!167 = !{!4, !16, i64 80}
-!168 = !{!4, !16, i64 1488}
-!169 = !{!4, !42, i64 1576}
-!170 = !{!4, !43, i64 1584}
-!171 = !{!4, !16, i64 88}
-!172 = !{!4, !15, i64 72}
-!173 = !{i64 0, i64 112, !87}
-!174 = !{!175, !16, i64 8}
-!175 = !{!"buf_mem_st", !17, i64 0, !16, i64 8, !17, i64 16, !17, i64 24}
-!176 = !{!177, !7, i64 8}
-!177 = !{!"quic_tick_result_st", !24, i64 0, !7, i64 8, !7, i64 9, !7, i64 10}
-!178 = !{!177, !7, i64 9}
-!179 = !{!177, !7, i64 10}
-!180 = !{!4, !7, i64 1144}
-!181 = !{!182, !16, i64 24}
-!182 = !{!"qlog_trace_info_st", !38, i64 0, !16, i64 24, !16, i64 32, !16, i64 40, !31, i64 48, !6, i64 56, !6, i64 64, !17, i64 72, !16, i64 80}
-!183 = !{!182, !31, i64 48}
-!184 = !{!182, !6, i64 56}
-!185 = !{!182, !6, i64 64}
-!186 = !{!187, !188, i64 0}
-!187 = !{!"ossl_qrx_pkt_st", !188, i64 0, !189, i64 8, !189, i64 16, !17, i64 24, !17, i64 32, !24, i64 40, !37, i64 48, !17, i64 56, !17, i64 64}
-!188 = !{!"p1 _ZTS15quic_pkt_hdr_st", !6, i64 0}
-!189 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
-!190 = !{!191, !17, i64 72}
-!191 = !{!"quic_pkt_hdr_st", !31, i64 0, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 2, !31, i64 2, !31, i64 4, !38, i64 8, !38, i64 29, !7, i64 50, !16, i64 56, !17, i64 64, !17, i64 72, !16, i64 80}
-!192 = !{!187, !189, i64 8}
-!193 = !{!38, !7, i64 0}
-!194 = !{!191, !31, i64 4}
-!195 = !{!191, !16, i64 80}
-!196 = distinct !{!196, !79, !80}
-!197 = !{!198, !16, i64 0}
-!198 = !{!"ossl_qtx_iovec_st", !16, i64 0, !17, i64 8}
-!199 = !{!198, !17, i64 8}
-!200 = !{!187, !17, i64 32}
-!201 = !{!187, !17, i64 64}
-!202 = !{!57, !16, i64 8}
-!203 = !{!4, !17, i64 1560}
-!204 = !{!187, !17, i64 56}
-!205 = !{!191, !17, i64 64}
-!206 = !{!42, !42, i64 0}
-!207 = !{!16, !16, i64 0}
-!208 = distinct !{!208, !79, !80}
-!209 = !{!41, !17, i64 0}
-!210 = !{!41, !16, i64 16}
-!211 = !{!41, !17, i64 24}
-!212 = distinct !{!212, !80}
-!213 = distinct !{!213, !79, !80}
-!214 = distinct !{!214, !79, !80}
-!215 = !{!4, !17, i64 1472}
-!216 = !{!4, !17, i64 1480}
-!217 = !{!4, !17, i64 1552}
-!218 = !{!219, !17, i64 8}
-!219 = !{!"quic_txp_status_st", !31, i64 0, !31, i64 4, !17, i64 8}
-!220 = !{!219, !31, i64 0}
-!221 = distinct !{!221, !79, !80}
-!222 = distinct !{!222, !79, !80}
-!223 = !{!47, !50, i64 40}
-!224 = !{!225, !225, i64 0}
-!225 = !{!"p1 _ZTS13quic_token_st", !6, i64 0}
-!226 = !{!227, !16, i64 24}
-!227 = !{!"quic_token_st", !228, i64 0, !16, i64 8, !17, i64 16, !16, i64 24, !17, i64 32}
-!228 = !{!"", !7, i64 0}
-!229 = !{!227, !17, i64 32}
-!230 = !{!4, !7, i64 1165}
-!231 = !{!4, !7, i64 1228}
-!232 = !{!41, !17, i64 8}
-!233 = !{!234, !17, i64 8}
-!234 = !{!"ossl_quic_frame_conn_close_st", !31, i64 0, !17, i64 8, !17, i64 16, !16, i64 24, !17, i64 32}
-!235 = !{!234, !17, i64 16}
-!236 = !{!234, !16, i64 24}
-!237 = !{!4, !17, i64 1496}
-!238 = !{!234, !17, i64 32}
-!239 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!240 = !{!4, !17, i64 1272}
-!241 = !{!4, !17, i64 1280}
-!242 = !{!4, !7, i64 1249}
-!243 = !{!244, !17, i64 0}
-!244 = !{!"ossl_quic_frame_new_conn_id_st", !17, i64 0, !17, i64 8, !38, i64 16, !228, i64 37}
-!245 = !{!244, !17, i64 8}
-!246 = distinct !{!246, !79, !80}
-!247 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!248 = !{!249, !108, i64 112}
-!249 = !{!"quic_stream_st", !28, i64 0, !28, i64 16, !28, i64 32, !30, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !17, i64 104, !108, i64 112, !120, i64 120, !21, i64 128, !23, i64 160, !31, i64 256, !31, i64 257, !31, i64 258, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260}
-!250 = !{!249, !120, i64 120}
-!251 = !{!4, !17, i64 1456}
-!252 = !{!4, !6, i64 1072}
-!253 = !{!4, !12, i64 1088}
-!254 = !{!4, !6, i64 1080}
-!255 = !{!4, !39, i64 1354}
-!256 = !{!31, !31, i64 0}
-!257 = distinct !{!257, !79, !80}
-!258 = distinct !{!258, !79, !80}
-!259 = !{!260, !16, i64 0}
-!260 = !{!"", !16, i64 0, !17, i64 8}
-!261 = !{!260, !17, i64 8}
-!262 = !{!4, !17, i64 1328}
-!263 = !{!4, !17, i64 1320}
-!264 = !{!4, !17, i64 1336}
-!265 = !{!4, !17, i64 1368}
-!266 = !{!4, !17, i64 1376}
-!267 = !{!268, !7, i64 40}
-!268 = !{!"quic_preferred_addr_st", !39, i64 0, !39, i64 2, !7, i64 4, !7, i64 8, !228, i64 24, !38, i64 40}
-!269 = distinct !{!269, !79, !80}
-!270 = !{!4, !7, i64 1207}
-!271 = !{!268, !39, i64 0}
-!272 = !{!268, !39, i64 2}
-!273 = !{!"branch_weights", i32 4000000, i32 4001}
-!274 = !{!4, !17, i64 96}
+!80 = !{!4, !34, i64 1040}
+!81 = !{!82, !6, i64 0}
+!82 = !{!"ossl_cc_method_st", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104}
+!83 = !{!4, !33, i64 1032}
+!84 = !{!4, !35, i64 1048}
+!85 = !{i64 0, i64 1, !86, i64 1, i64 20, !86}
+!86 = !{!7, !7, i64 0}
+!87 = !{!88, !31, i64 156}
+!88 = !{!"ossl_quic_tx_packetiser_args_st", !38, i64 0, !38, i64 21, !7, i64 44, !31, i64 156, !36, i64 160, !19, i64 168, !20, i64 176, !35, i64 184, !89, i64 192, !22, i64 200, !25, i64 208, !25, i64 216, !25, i64 224, !34, i64 232, !33, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !31, i64 280, !7, i64 288}
+!89 = !{!"p1 _ZTS18quic_stream_map_st", !6, i64 0}
+!90 = !{!88, !36, i64 160}
+!91 = !{!88, !19, i64 168}
+!92 = !{!88, !20, i64 176}
+!93 = !{!88, !35, i64 184}
+!94 = !{!88, !89, i64 192}
+!95 = !{!88, !22, i64 200}
+!96 = !{!88, !25, i64 208}
+!97 = !{!88, !25, i64 216}
+!98 = !{!88, !25, i64 224}
+!99 = !{!88, !34, i64 232}
+!100 = !{!88, !33, i64 240}
+!101 = !{!88, !6, i64 248}
+!102 = !{!88, !6, i64 256}
+!103 = !{!88, !6, i64 264}
+!104 = !{!88, !6, i64 272}
+!105 = !{!88, !31, i64 280}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTS15quic_sstream_st", !6, i64 0}
+!108 = distinct !{!108, !79}
+!109 = !{!4, !18, i64 216}
+!110 = !{!111, !58, i64 0}
+!111 = !{!"ossl_qrx_args_st", !58, i64 0, !16, i64 8, !52, i64 16, !17, i64 24, !17, i64 32, !7, i64 40, !7, i64 64}
+!112 = !{!47, !52, i64 64}
+!113 = !{!111, !52, i64 16}
+!114 = !{!111, !17, i64 24}
+!115 = !{!111, !17, i64 32}
+!116 = !{!4, !37, i64 1064}
+!117 = distinct !{!117, !79}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTS15quic_rstream_st", !6, i64 0}
+!120 = !{!4, !12, i64 48}
+!121 = !{!122, !12, i64 0}
+!122 = !{!"quic_tls_args_st", !12, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !31, i64 120, !31, i64 124}
+!123 = !{!122, !6, i64 8}
+!124 = !{!122, !6, i64 16}
+!125 = !{!122, !6, i64 24}
+!126 = !{!122, !6, i64 32}
+!127 = !{!122, !6, i64 40}
+!128 = !{!122, !6, i64 48}
+!129 = !{!122, !6, i64 56}
+!130 = !{!122, !6, i64 64}
+!131 = !{!122, !6, i64 72}
+!132 = !{!122, !6, i64 80}
+!133 = !{!122, !6, i64 88}
+!134 = !{!122, !6, i64 96}
+!135 = !{!122, !6, i64 104}
+!136 = !{!122, !6, i64 112}
+!137 = !{!122, !31, i64 120}
+!138 = !{!122, !31, i64 124}
+!139 = !{!4, !11, i64 40}
+!140 = !{!4, !17, i64 1312}
+!141 = !{!4, !17, i64 1344}
+!142 = !{!4, !7, i64 1352}
+!143 = !{!4, !17, i64 1416}
+!144 = !{!4, !17, i64 1464}
+!145 = !{!4, !17, i64 1384}
+!146 = !{!4, !17, i64 1392}
+!147 = !{!4, !17, i64 1400}
+!148 = !{!53, !10, i64 8}
+!149 = !{!4, !10, i64 8}
+!150 = !{!4, !10, i64 16}
+!151 = !{!53, !10, i64 0}
+!152 = !{!53, !17, i64 16}
+!153 = !{!154, !5, i64 0}
+!154 = !{!"quic_channel_args_st", !5, i64 0, !13, i64 8, !14, i64 16, !31, i64 24, !12, i64 32, !31, i64 40, !16, i64 48}
+!155 = !{!154, !31, i64 24}
+!156 = !{!154, !12, i64 32}
+!157 = !{!154, !13, i64 8}
+!158 = !{!154, !14, i64 16}
+!159 = !{!154, !31, i64 40}
+!160 = !{!154, !16, i64 48}
+!161 = !{!4, !16, i64 1600}
+!162 = distinct !{!162, !79}
+!163 = !{!82, !6, i64 8}
+!164 = distinct !{!164, !79}
+!165 = !{!4, !40, i64 1360}
+!166 = !{!4, !16, i64 80}
+!167 = !{!4, !16, i64 1488}
+!168 = !{!4, !42, i64 1576}
+!169 = !{!4, !43, i64 1584}
+!170 = !{!4, !16, i64 88}
+!171 = !{!4, !15, i64 72}
+!172 = !{i64 0, i64 112, !86}
+!173 = !{!174, !16, i64 8}
+!174 = !{!"buf_mem_st", !17, i64 0, !16, i64 8, !17, i64 16, !17, i64 24}
+!175 = !{!176, !7, i64 8}
+!176 = !{!"quic_tick_result_st", !24, i64 0, !7, i64 8, !7, i64 9, !7, i64 10}
+!177 = !{!176, !7, i64 9}
+!178 = !{!176, !7, i64 10}
+!179 = !{!4, !7, i64 1144}
+!180 = !{!181, !16, i64 24}
+!181 = !{!"qlog_trace_info_st", !38, i64 0, !16, i64 24, !16, i64 32, !16, i64 40, !31, i64 48, !6, i64 56, !6, i64 64, !17, i64 72, !16, i64 80}
+!182 = !{!181, !31, i64 48}
+!183 = !{!181, !6, i64 56}
+!184 = !{!181, !6, i64 64}
+!185 = !{!186, !187, i64 0}
+!186 = !{!"ossl_qrx_pkt_st", !187, i64 0, !188, i64 8, !188, i64 16, !17, i64 24, !17, i64 32, !24, i64 40, !37, i64 48, !17, i64 56, !17, i64 64}
+!187 = !{!"p1 _ZTS15quic_pkt_hdr_st", !6, i64 0}
+!188 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
+!189 = !{!190, !17, i64 72}
+!190 = !{!"quic_pkt_hdr_st", !31, i64 0, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 2, !31, i64 2, !31, i64 4, !38, i64 8, !38, i64 29, !7, i64 50, !16, i64 56, !17, i64 64, !17, i64 72, !16, i64 80}
+!191 = !{!186, !188, i64 8}
+!192 = !{!38, !7, i64 0}
+!193 = !{!190, !31, i64 4}
+!194 = !{!190, !16, i64 80}
+!195 = distinct !{!195, !79}
+!196 = !{!197, !16, i64 0}
+!197 = !{!"ossl_qtx_iovec_st", !16, i64 0, !17, i64 8}
+!198 = !{!197, !17, i64 8}
+!199 = !{!186, !17, i64 32}
+!200 = !{!186, !17, i64 64}
+!201 = !{!57, !16, i64 8}
+!202 = !{!4, !17, i64 1560}
+!203 = !{!186, !17, i64 56}
+!204 = !{!190, !17, i64 64}
+!205 = !{!42, !42, i64 0}
+!206 = !{!16, !16, i64 0}
+!207 = distinct !{!207, !79}
+!208 = !{!41, !17, i64 0}
+!209 = !{!41, !16, i64 16}
+!210 = !{!41, !17, i64 24}
+!211 = distinct !{!211, !79}
+!212 = distinct !{!212, !79}
+!213 = !{!4, !17, i64 1472}
+!214 = !{!4, !17, i64 1480}
+!215 = !{!4, !17, i64 1552}
+!216 = !{!217, !17, i64 8}
+!217 = !{!"quic_txp_status_st", !31, i64 0, !31, i64 4, !17, i64 8}
+!218 = !{!217, !31, i64 0}
+!219 = distinct !{!219, !79}
+!220 = distinct !{!220, !79}
+!221 = !{!47, !50, i64 40}
+!222 = !{!223, !223, i64 0}
+!223 = !{!"p1 _ZTS13quic_token_st", !6, i64 0}
+!224 = !{!225, !16, i64 24}
+!225 = !{!"quic_token_st", !226, i64 0, !16, i64 8, !17, i64 16, !16, i64 24, !17, i64 32}
+!226 = !{!"", !7, i64 0}
+!227 = !{!225, !17, i64 32}
+!228 = !{!4, !7, i64 1165}
+!229 = !{!4, !7, i64 1228}
+!230 = !{!41, !17, i64 8}
+!231 = !{!232, !17, i64 8}
+!232 = !{!"ossl_quic_frame_conn_close_st", !31, i64 0, !17, i64 8, !17, i64 16, !16, i64 24, !17, i64 32}
+!233 = !{!232, !17, i64 16}
+!234 = !{!232, !16, i64 24}
+!235 = !{!4, !17, i64 1496}
+!236 = !{!232, !17, i64 32}
+!237 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!238 = !{!4, !17, i64 1272}
+!239 = !{!4, !17, i64 1280}
+!240 = !{!4, !7, i64 1249}
+!241 = !{!242, !17, i64 0}
+!242 = !{!"ossl_quic_frame_new_conn_id_st", !17, i64 0, !17, i64 8, !38, i64 16, !226, i64 37}
+!243 = !{!242, !17, i64 8}
+!244 = distinct !{!244, !79}
+!245 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!246 = !{!247, !107, i64 112}
+!247 = !{!"quic_stream_st", !28, i64 0, !28, i64 16, !28, i64 32, !30, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !17, i64 104, !107, i64 112, !119, i64 120, !21, i64 128, !23, i64 160, !31, i64 256, !31, i64 257, !31, i64 258, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 259, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260, !31, i64 260}
+!248 = !{!247, !119, i64 120}
+!249 = !{!4, !17, i64 1456}
+!250 = !{!4, !6, i64 1072}
+!251 = !{!4, !12, i64 1088}
+!252 = !{!4, !6, i64 1080}
+!253 = !{!4, !39, i64 1354}
+!254 = !{!31, !31, i64 0}
+!255 = distinct !{!255, !79}
+!256 = distinct !{!256, !79}
+!257 = !{!258, !16, i64 0}
+!258 = !{!"", !16, i64 0, !17, i64 8}
+!259 = !{!258, !17, i64 8}
+!260 = !{!4, !17, i64 1328}
+!261 = !{!4, !17, i64 1320}
+!262 = !{!4, !17, i64 1336}
+!263 = !{!4, !17, i64 1368}
+!264 = !{!4, !17, i64 1376}
+!265 = !{!266, !7, i64 40}
+!266 = !{!"quic_preferred_addr_st", !39, i64 0, !39, i64 2, !7, i64 4, !7, i64 8, !226, i64 24, !38, i64 40}
+!267 = distinct !{!267, !79}
+!268 = !{!4, !7, i64 1207}
+!269 = !{!266, !39, i64 0}
+!270 = !{!266, !39, i64 2}
+!271 = !{!"branch_weights", i32 4000000, i32 4001}
+!272 = !{!4, !17, i64 96}

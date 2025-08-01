@@ -304,7 +304,7 @@ _ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread: ; preds =
 
 91:                                               ; preds = %90
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %18)
-          to label %59 unwind label %.loopexit68.i, !llvm.loop !6
+          to label %59 unwind label %.loopexit68.i
 
 .loopexit79.i:                                    ; preds = %90, %68, %112, %100
   %92 = phi i1 [ false, %100 ], [ false, %112 ], [ %67, %68 ], [ %67, %90 ]
@@ -327,7 +327,7 @@ _ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread: ; preds =
 
 98:                                               ; preds = %97
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %6)
-          to label %81 unwind label %.loopexit.i, !llvm.loop !8
+          to label %81 unwind label %.loopexit.i
 
 99:                                               ; preds = %97
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %6)
@@ -360,7 +360,7 @@ _ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit.thread: ; preds =
 
 110:                                              ; preds = %109
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %11)
-          to label %71 unwind label %.loopexit63.i, !llvm.loop !9
+          to label %71 unwind label %.loopexit63.i
 
 111:                                              ; preds = %109
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %11)
@@ -476,7 +476,7 @@ _ZN14cranelift_isle5error6Errors4emit17haded27e71f07f81bE.exit: ; preds = %121
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN14cranelift_isle5error5Error6source17h5318c056b83b22c2E(ptr align 8 %0) unnamed_addr #1 {
-  %2 = load i64, ptr %0, align 8, !range !10, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !6, !noundef !3
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0 = select i1 %3, ptr %4, ptr null
@@ -632,8 +632,4 @@ attributes #8 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 0, i64 -9223372036854775807}
 !5 = !{i64 0, i64 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i64 0, i64 6}
+!6 = !{i64 0, i64 6}

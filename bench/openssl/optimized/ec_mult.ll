@@ -104,7 +104,7 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
 
 10:                                               ; preds = %6, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
+  %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = tail call i32 @BN_is_zero(ptr noundef %12) #8
   %.not163 = icmp eq i32 %13, 0
   br i1 %.not163, label %15, label %14
@@ -117,7 +117,7 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = tail call i32 @BN_is_zero(ptr noundef %17) #8
   %.not164 = icmp eq i32 %18, 0
   br i1 %.not164, label %20, label %19
@@ -144,7 +144,7 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   %30 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %21, ptr noundef %29) #8
   %.not166 = icmp eq i32 %30, 0
   br i1 %.not166, label %ec_point_ladder_post.exit.thread.sink.split, label %33
@@ -156,31 +156,31 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
 
 33:                                               ; preds = %27, %31
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !27
+  %35 = load ptr, ptr %34, align 8, !tbaa !26
   tail call void @BN_set_flags(ptr noundef %35, i32 noundef 4) #8
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !29
+  %37 = load ptr, ptr %36, align 8, !tbaa !28
   tail call void @BN_set_flags(ptr noundef %37, i32 noundef 4) #8
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !30
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
   tail call void @BN_set_flags(ptr noundef %39, i32 noundef 4) #8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !27
+  %41 = load ptr, ptr %40, align 8, !tbaa !26
   tail call void @BN_set_flags(ptr noundef %41, i32 noundef 4) #8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !29
+  %43 = load ptr, ptr %42, align 8, !tbaa !28
   tail call void @BN_set_flags(ptr noundef %43, i32 noundef 4) #8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !30
+  %45 = load ptr, ptr %44, align 8, !tbaa !29
   tail call void @BN_set_flags(ptr noundef %45, i32 noundef 4) #8
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !27
+  %47 = load ptr, ptr %46, align 8, !tbaa !26
   tail call void @BN_set_flags(ptr noundef %47, i32 noundef 4) #8
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !29
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
   tail call void @BN_set_flags(ptr noundef %49, i32 noundef 4) #8
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !30
+  %51 = load ptr, ptr %50, align 8, !tbaa !29
   tail call void @BN_set_flags(ptr noundef %51, i32 noundef 4) #8
   %52 = tail call ptr @BN_CTX_get(ptr noundef %4) #8
   %53 = tail call ptr @BN_CTX_get(ptr noundef %4) #8
@@ -189,8 +189,8 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %55, label %ec_point_ladder_post.exit.thread.sink.split, label %56
 
 56:                                               ; preds = %33
-  %57 = load ptr, ptr %11, align 8, !tbaa !17
-  %58 = load ptr, ptr %16, align 8, !tbaa !25
+  %57 = load ptr, ptr %11, align 8, !tbaa !16
+  %58 = load ptr, ptr %16, align 8, !tbaa !24
   %59 = tail call i32 @BN_mul(ptr noundef %52, ptr noundef %57, ptr noundef %58, ptr noundef %4) #8
   %.not167 = icmp eq i32 %59, 0
   br i1 %.not167, label %ec_point_ladder_post.exit.thread.sink.split, label %60
@@ -245,71 +245,71 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   %84 = sext i32 %83 to i64
   tail call void @BN_consttime_swap(i64 noundef %84, ptr noundef nonnull %54, ptr noundef %53, i32 noundef %63) #8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %86 = load ptr, ptr %85, align 8, !tbaa !31
+  %86 = load ptr, ptr %85, align 8, !tbaa !30
   %87 = tail call i32 @bn_get_top(ptr noundef %86) #8
-  %88 = load ptr, ptr %46, align 8, !tbaa !27
+  %88 = load ptr, ptr %46, align 8, !tbaa !26
   %89 = tail call ptr @bn_wexpand(ptr noundef %88, i32 noundef %87) #8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %ec_point_ladder_post.exit.thread.sink.split, label %91
 
 91:                                               ; preds = %82
-  %92 = load ptr, ptr %48, align 8, !tbaa !29
+  %92 = load ptr, ptr %48, align 8, !tbaa !28
   %93 = tail call ptr @bn_wexpand(ptr noundef %92, i32 noundef %87) #8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %ec_point_ladder_post.exit.thread.sink.split, label %95
 
 95:                                               ; preds = %91
-  %96 = load ptr, ptr %50, align 8, !tbaa !30
+  %96 = load ptr, ptr %50, align 8, !tbaa !29
   %97 = tail call ptr @bn_wexpand(ptr noundef %96, i32 noundef %87) #8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %ec_point_ladder_post.exit.thread.sink.split, label %99
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr %40, align 8, !tbaa !27
+  %100 = load ptr, ptr %40, align 8, !tbaa !26
   %101 = tail call ptr @bn_wexpand(ptr noundef %100, i32 noundef %87) #8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %ec_point_ladder_post.exit.thread.sink.split, label %103
 
 103:                                              ; preds = %99
-  %104 = load ptr, ptr %42, align 8, !tbaa !29
+  %104 = load ptr, ptr %42, align 8, !tbaa !28
   %105 = tail call ptr @bn_wexpand(ptr noundef %104, i32 noundef %87) #8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %ec_point_ladder_post.exit.thread.sink.split, label %107
 
 107:                                              ; preds = %103
-  %108 = load ptr, ptr %44, align 8, !tbaa !30
+  %108 = load ptr, ptr %44, align 8, !tbaa !29
   %109 = tail call ptr @bn_wexpand(ptr noundef %108, i32 noundef %87) #8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %ec_point_ladder_post.exit.thread.sink.split, label %111
 
 111:                                              ; preds = %107
-  %112 = load ptr, ptr %34, align 8, !tbaa !27
+  %112 = load ptr, ptr %34, align 8, !tbaa !26
   %113 = tail call ptr @bn_wexpand(ptr noundef %112, i32 noundef %87) #8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %ec_point_ladder_post.exit.thread.sink.split, label %115
 
 115:                                              ; preds = %111
-  %116 = load ptr, ptr %36, align 8, !tbaa !29
+  %116 = load ptr, ptr %36, align 8, !tbaa !28
   %117 = tail call ptr @bn_wexpand(ptr noundef %116, i32 noundef %87) #8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %ec_point_ladder_post.exit.thread.sink.split, label %119
 
 119:                                              ; preds = %115
-  %120 = load ptr, ptr %38, align 8, !tbaa !30
+  %120 = load ptr, ptr %38, align 8, !tbaa !29
   %121 = tail call ptr @bn_wexpand(ptr noundef %120, i32 noundef %87) #8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %ec_point_ladder_post.exit.thread.sink.split, label %123
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %125 = load i32, ptr %124, align 8, !tbaa !32
+  %125 = load i32, ptr %124, align 8, !tbaa !31
   %.not173 = icmp eq i32 %125, 0
   br i1 %.not173, label %126, label %133
 
 126:                                              ; preds = %123
-  %127 = load ptr, ptr %0, align 8, !tbaa !33
+  %127 = load ptr, ptr %0, align 8, !tbaa !32
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 208
-  %129 = load ptr, ptr %128, align 8, !tbaa !34
+  %129 = load ptr, ptr %128, align 8, !tbaa !33
   %130 = icmp eq ptr %129, null
   br i1 %130, label %ec_point_ladder_post.exit.thread.sink.split, label %131
 
@@ -339,51 +339,51 @@ define i32 @ossl_ec_scalar_mul_ladder(ptr noundef %0, ptr noundef %1, ptr nounde
   %140 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %54, i32 noundef %.0154) #8
   %141 = xor i32 %140, %.0152
   %142 = sext i32 %141 to i64
-  %143 = load ptr, ptr %40, align 8, !tbaa !27
-  %144 = load ptr, ptr %46, align 8, !tbaa !27
+  %143 = load ptr, ptr %40, align 8, !tbaa !26
+  %144 = load ptr, ptr %46, align 8, !tbaa !26
   tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %87) #8
-  %145 = load ptr, ptr %42, align 8, !tbaa !29
-  %146 = load ptr, ptr %48, align 8, !tbaa !29
+  %145 = load ptr, ptr %42, align 8, !tbaa !28
+  %146 = load ptr, ptr %48, align 8, !tbaa !28
   tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %145, ptr noundef %146, i32 noundef %87) #8
-  %147 = load ptr, ptr %44, align 8, !tbaa !30
-  %148 = load ptr, ptr %50, align 8, !tbaa !30
+  %147 = load ptr, ptr %44, align 8, !tbaa !29
+  %148 = load ptr, ptr %50, align 8, !tbaa !29
   tail call void @BN_consttime_swap(i64 noundef %142, ptr noundef %147, ptr noundef %148, i32 noundef %87) #8
-  %149 = load i32, ptr %135, align 8, !tbaa !32
-  %150 = load i32, ptr %136, align 8, !tbaa !32
+  %149 = load i32, ptr %135, align 8, !tbaa !31
+  %150 = load i32, ptr %136, align 8, !tbaa !31
   %151 = xor i32 %150, %149
   %152 = and i32 %151, %141
   %153 = xor i32 %152, %149
-  store i32 %153, ptr %135, align 8, !tbaa !32
-  %154 = load i32, ptr %136, align 8, !tbaa !32
+  store i32 %153, ptr %135, align 8, !tbaa !31
+  %154 = load i32, ptr %136, align 8, !tbaa !31
   %155 = xor i32 %154, %152
-  store i32 %155, ptr %136, align 8, !tbaa !32
+  store i32 %155, ptr %136, align 8, !tbaa !31
   %156 = tail call fastcc i32 @ec_point_ladder_step(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %24, ptr noundef %21, ptr noundef %4)
   %.not177 = icmp eq i32 %156, 0
-  br i1 %.not177, label %ec_point_ladder_post.exit.thread.sink.split, label %137, !llvm.loop !36
+  br i1 %.not177, label %ec_point_ladder_post.exit.thread.sink.split, label %137, !llvm.loop !35
 
 157:                                              ; preds = %137
   %158 = sext i32 %.0152 to i64
-  %159 = load ptr, ptr %40, align 8, !tbaa !27
-  %160 = load ptr, ptr %46, align 8, !tbaa !27
+  %159 = load ptr, ptr %40, align 8, !tbaa !26
+  %160 = load ptr, ptr %46, align 8, !tbaa !26
   tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %159, ptr noundef %160, i32 noundef %87) #8
-  %161 = load ptr, ptr %42, align 8, !tbaa !29
-  %162 = load ptr, ptr %48, align 8, !tbaa !29
+  %161 = load ptr, ptr %42, align 8, !tbaa !28
+  %162 = load ptr, ptr %48, align 8, !tbaa !28
   tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %161, ptr noundef %162, i32 noundef %87) #8
-  %163 = load ptr, ptr %44, align 8, !tbaa !30
-  %164 = load ptr, ptr %50, align 8, !tbaa !30
+  %163 = load ptr, ptr %44, align 8, !tbaa !29
+  %164 = load ptr, ptr %50, align 8, !tbaa !29
   tail call void @BN_consttime_swap(i64 noundef %158, ptr noundef %163, ptr noundef %164, i32 noundef %87) #8
-  %165 = load i32, ptr %135, align 8, !tbaa !32
-  %166 = load i32, ptr %136, align 8, !tbaa !32
+  %165 = load i32, ptr %135, align 8, !tbaa !31
+  %166 = load i32, ptr %136, align 8, !tbaa !31
   %167 = xor i32 %166, %165
   %168 = and i32 %167, %.0152
   %169 = xor i32 %168, %165
-  store i32 %169, ptr %135, align 8, !tbaa !32
-  %170 = load i32, ptr %136, align 8, !tbaa !32
+  store i32 %169, ptr %135, align 8, !tbaa !31
+  %170 = load i32, ptr %136, align 8, !tbaa !31
   %171 = xor i32 %170, %168
-  store i32 %171, ptr %136, align 8, !tbaa !32
-  %172 = load ptr, ptr %0, align 8, !tbaa !33
+  store i32 %171, ptr %136, align 8, !tbaa !31
+  %172 = load ptr, ptr %0, align 8, !tbaa !32
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 432
-  %174 = load ptr, ptr %173, align 8, !tbaa !37
+  %174 = load ptr, ptr %173, align 8, !tbaa !36
   %.not.i = icmp eq ptr %174, null
   br i1 %.not.i, label %ec_point_ladder_post.exit.thread, label %ec_point_ladder_post.exit
 
@@ -458,9 +458,9 @@ declare void @BN_consttime_swap(i64 noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc i32 @ec_point_ladder_pre(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !33
+  %6 = load ptr, ptr %0, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 416
-  %8 = load ptr, ptr %7, align 8, !tbaa !38
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
@@ -486,9 +486,9 @@ define internal fastcc i32 @ec_point_ladder_pre(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc i32 @ec_point_ladder_step(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !33
+  %6 = load ptr, ptr %0, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 424
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
@@ -520,20 +520,20 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
 define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call i32 @BN_is_zero(ptr noundef %10) #8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %31
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = tail call i32 @BN_is_zero(ptr noundef %14) #8
   %.not393 = icmp eq i32 %15, 0
   br i1 %.not393, label %16, label %31
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %9, align 8, !tbaa !17
+  %17 = load ptr, ptr %9, align 8, !tbaa !16
   %18 = icmp ne ptr %2, %17
   %19 = icmp ne ptr %2, null
   %or.cond = and i1 %19, %18
@@ -552,7 +552,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %or.cond5, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %5, align 8, !tbaa !40
+  %27 = load ptr, ptr %5, align 8, !tbaa !39
   %.not394 = icmp eq ptr %27, %17
   br i1 %.not394, label %.thread, label %28
 
@@ -578,13 +578,13 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  %38 = load ptr, ptr %37, align 8, !tbaa !40
   %.not396 = icmp eq ptr %38, null
   br i1 %.not396, label %.thread, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !42
+  %41 = load i64, ptr %40, align 8, !tbaa !41
   %.not397 = icmp eq i64 %41, 0
   br i1 %.not397, label %.thread, label %42
 
@@ -598,19 +598,19 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !43
+  %50 = load i64, ptr %49, align 8, !tbaa !42
   %51 = tail call i32 @BN_num_bits(ptr noundef nonnull %2) #8
   %52 = sext i32 %51 to i64
   %53 = udiv i64 %52, %50
   %54 = add i64 %53, 1
-  %55 = load i64, ptr %40, align 8, !tbaa !42
+  %55 = load i64, ptr %40, align 8, !tbaa !41
   %spec.select = tail call i64 @llvm.umin.i64(i64 %54, i64 %55)
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %57 = load i64, ptr %56, align 8, !tbaa !44
+  %57 = load i64, ptr %56, align 8, !tbaa !43
   %58 = add i64 %57, -1
   %59 = shl nuw i64 1, %58
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %61 = load i64, ptr %60, align 8, !tbaa !45
+  %61 = load i64, ptr %60, align 8, !tbaa !44
   %62 = shl i64 %55, %58
   %.not398 = icmp eq i64 %61, %62
   br i1 %.not398, label %.thread, label %63
@@ -641,7 +641,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not399, label %.thread439, label %71
 
 71:                                               ; preds = %.thread
-  store ptr null, ptr %69, align 8, !tbaa !46
+  store ptr null, ptr %69, align 8, !tbaa !45
   %72 = icmp eq ptr %66, null
   %73 = icmp eq ptr %67, null
   %or.cond7 = select i1 %72, i1 true, i1 %73
@@ -663,7 +663,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 77:                                               ; preds = %.lr.ph
   %78 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0348493
-  %79 = load ptr, ptr %78, align 8, !tbaa !40
+  %79 = load ptr, ptr %78, align 8, !tbaa !39
   br label %80
 
 80:                                               ; preds = %.lr.ph, %77
@@ -690,18 +690,18 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 92:                                               ; preds = %83, %85, %87, %80
   %93 = phi i64 [ 6, %80 ], [ 5, %83 ], [ %91, %87 ], [ 4, %85 ]
   %94 = getelementptr inbounds nuw i64, ptr %66, i64 %.0348493
-  store i64 %93, ptr %94, align 8, !tbaa !47
+  store i64 %93, ptr %94, align 8, !tbaa !46
   %95 = add nsw i64 %93, -1
   %96 = shl nuw nsw i64 1, %95
   %97 = add i64 %96, %.0326495
   %98 = add nuw i64 %.0348493, 1
   %99 = getelementptr inbounds nuw ptr, ptr %69, i64 %98
-  store ptr null, ptr %99, align 8, !tbaa !46
+  store ptr null, ptr %99, align 8, !tbaa !45
   br i1 %76, label %100, label %103
 
 100:                                              ; preds = %92
   %101 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0348493
-  %102 = load ptr, ptr %101, align 8, !tbaa !40
+  %102 = load ptr, ptr %101, align 8, !tbaa !39
   br label %103
 
 103:                                              ; preds = %92, %100
@@ -710,15 +710,15 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %106 = getelementptr inbounds nuw i64, ptr %67, i64 %.0348493
   %107 = tail call ptr @bn_compute_wNAF(ptr noundef %104, i32 noundef %105, ptr noundef %106) #8
   %108 = getelementptr inbounds nuw ptr, ptr %69, i64 %.0348493
-  store ptr %107, ptr %108, align 8, !tbaa !46
+  store ptr %107, ptr %108, align 8, !tbaa !45
   %109 = icmp eq ptr %107, null
   br i1 %109, label %.thread439, label %110
 
 110:                                              ; preds = %103
-  %111 = load i64, ptr %106, align 8, !tbaa !47
+  %111 = load i64, ptr %106, align 8, !tbaa !46
   %spec.select429 = tail call i64 @llvm.umax.i64(i64 %111, i64 %.0327494)
   %exitcond.not = icmp eq i64 %98, %75
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %110, %.preheader473
   %.0327.lcssa = phi i64 [ 0, %.preheader473 ], [ %spec.select429, %110 ]
@@ -741,7 +741,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 116:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  store i64 0, ptr %8, align 8, !tbaa !47
+  store i64 0, ptr %8, align 8, !tbaa !46
   br i1 %.not401, label %118, label %117
 
 117:                                              ; preds = %116
@@ -752,31 +752,31 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %.0320, i64 24
-  %120 = load i64, ptr %119, align 8, !tbaa !44
+  %120 = load i64, ptr %119, align 8, !tbaa !43
   %121 = getelementptr inbounds nuw i64, ptr %66, i64 %3
-  store i64 %120, ptr %121, align 8, !tbaa !47
+  store i64 %120, ptr %121, align 8, !tbaa !46
   %122 = trunc i64 %120 to i32
   %123 = call ptr @bn_compute_wNAF(ptr noundef %2, i32 noundef %122, ptr noundef nonnull %8) #8
   %.not402 = icmp eq ptr %123, null
   br i1 %.not402, label %.thread455, label %124
 
 124:                                              ; preds = %118
-  %125 = load i64, ptr %8, align 8, !tbaa !47
+  %125 = load i64, ptr %8, align 8, !tbaa !46
   %.not403 = icmp ugt i64 %125, %.0327.lcssa
   br i1 %.not403, label %134, label %126
 
 126:                                              ; preds = %124
   %127 = add i64 %3, 1
   %128 = getelementptr inbounds nuw ptr, ptr %69, i64 %3
-  store ptr %123, ptr %128, align 8, !tbaa !46
+  store ptr %123, ptr %128, align 8, !tbaa !45
   %129 = getelementptr inbounds nuw ptr, ptr %69, i64 %127
-  store ptr null, ptr %129, align 8, !tbaa !46
+  store ptr null, ptr %129, align 8, !tbaa !45
   %130 = getelementptr inbounds nuw i64, ptr %67, i64 %3
-  store i64 %125, ptr %130, align 8, !tbaa !47
+  store i64 %125, ptr %130, align 8, !tbaa !46
   %131 = getelementptr inbounds nuw i8, ptr %.0320, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !3
   %133 = getelementptr inbounds nuw ptr, ptr %70, i64 %3
-  store ptr %132, ptr %133, align 8, !tbaa !49
+  store ptr %132, ptr %133, align 8, !tbaa !48
   br label %182
 
 134:                                              ; preds = %124
@@ -789,7 +789,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %139 = add i64 %138, %125
   %140 = udiv i64 %139, %.0356
   %141 = getelementptr inbounds nuw i8, ptr %.0320, i64 16
-  %142 = load i64, ptr %141, align 8, !tbaa !42
+  %142 = load i64, ptr %141, align 8, !tbaa !41
   %143 = icmp ugt i64 %140, %142
   br i1 %143, label %144, label %145
 
@@ -825,8 +825,8 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 154:                                              ; preds = %152
   %155 = getelementptr inbounds nuw i64, ptr %67, i64 %.1349498
-  store i64 %.0356, ptr %155, align 8, !tbaa !47
-  %156 = load i64, ptr %8, align 8, !tbaa !47
+  store i64 %.0356, ptr %155, align 8, !tbaa !46
+  %156 = load i64, ptr %8, align 8, !tbaa !46
   %157 = icmp ult i64 %156, %.0356
   br i1 %157, label %158, label %159
 
@@ -839,23 +839,23 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 159:                                              ; preds = %154
   %160 = sub nuw i64 %156, %.0356
-  store i64 %160, ptr %8, align 8, !tbaa !47
+  store i64 %160, ptr %8, align 8, !tbaa !46
   br label %164
 
 161:                                              ; preds = %152
-  %162 = load i64, ptr %8, align 8, !tbaa !47
+  %162 = load i64, ptr %8, align 8, !tbaa !46
   %163 = getelementptr inbounds nuw i64, ptr %67, i64 %.1349498
-  store i64 %162, ptr %163, align 8, !tbaa !47
+  store i64 %162, ptr %163, align 8, !tbaa !46
   br label %164
 
 164:                                              ; preds = %161, %159
   %165 = phi i64 [ %162, %161 ], [ %.0356, %159 ]
   %166 = add i64 %.1349498, 1
   %167 = getelementptr inbounds nuw ptr, ptr %69, i64 %166
-  store ptr null, ptr %167, align 8, !tbaa !46
+  store ptr null, ptr %167, align 8, !tbaa !45
   %168 = call noalias ptr @CRYPTO_malloc(i64 noundef %165, ptr noundef nonnull @.str, i32 noundef 626) #8
   %169 = getelementptr inbounds nuw ptr, ptr %69, i64 %.1349498
-  store ptr %168, ptr %169, align 8, !tbaa !46
+  store ptr %168, ptr %169, align 8, !tbaa !45
   %170 = icmp eq ptr %168, null
   br i1 %170, label %171, label %172
 
@@ -865,7 +865,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 172:                                              ; preds = %164
   %173 = getelementptr inbounds nuw i64, ptr %67, i64 %.1349498
-  %174 = load i64, ptr %173, align 8, !tbaa !47
+  %174 = load i64, ptr %173, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %168, ptr align 1 %.0315500, i64 %174, i1 false)
   %175 = load ptr, ptr %.0314501, align 8, !tbaa !12
   %176 = icmp eq ptr %175, null
@@ -881,11 +881,11 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 178:                                              ; preds = %172
   %spec.select431 = call i64 @llvm.umax.i64(i64 %174, i64 %.7499)
   %179 = getelementptr inbounds nuw ptr, ptr %70, i64 %.1349498
-  store ptr %.0314501, ptr %179, align 8, !tbaa !49
+  store ptr %.0314501, ptr %179, align 8, !tbaa !48
   %180 = getelementptr inbounds nuw ptr, ptr %.0314501, i64 %.0353
   %181 = getelementptr inbounds nuw i8, ptr %.0315500, i64 %.0356
   %exitcond558.not = icmp eq i64 %166, %.3360
-  br i1 %exitcond558.not, label %._crit_edge504, label %152, !llvm.loop !50
+  br i1 %exitcond558.not, label %._crit_edge504, label %152, !llvm.loop !49
 
 ._crit_edge504:                                   ; preds = %178, %147
   %.7.lcssa = phi i64 [ %.0327.lcssa, %147 ], [ %spec.select431, %178 ]
@@ -921,7 +921,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0322509 = phi ptr [ %196, %201 ], [ %186, %188 ]
   %.2350508 = phi i64 [ %202, %201 ], [ 0, %188 ]
   %190 = getelementptr inbounds nuw ptr, ptr %70, i64 %.2350508
-  store ptr %.0322509, ptr %190, align 8, !tbaa !49
+  store ptr %.0322509, ptr %190, align 8, !tbaa !48
   %191 = getelementptr inbounds nuw i64, ptr %66, i64 %.2350508
   br label %192
 
@@ -936,16 +936,16 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 195:                                              ; preds = %192
   %196 = getelementptr inbounds nuw i8, ptr %.1323507, i64 8
   %197 = add i64 %.0346506, 1
-  %198 = load i64, ptr %191, align 8, !tbaa !47
+  %198 = load i64, ptr %191, align 8, !tbaa !46
   %199 = add i64 %198, -1
   %.0346.highbits = lshr i64 %197, %199
   %200 = icmp eq i64 %.0346.highbits, 0
-  br i1 %200, label %192, label %201, !llvm.loop !51
+  br i1 %200, label %192, label %201, !llvm.loop !50
 
 201:                                              ; preds = %195
   %202 = add nuw i64 %.2350508, 1
   %exitcond559.not = icmp eq i64 %202, %75
-  br i1 %exitcond559.not, label %._crit_edge512, label %.lr.ph511, !llvm.loop !52
+  br i1 %exitcond559.not, label %._crit_edge512, label %.lr.ph511, !llvm.loop !51
 
 ._crit_edge512:                                   ; preds = %201, %188
   %.0322.lcssa = phi ptr [ %186, %188 ], [ %196, %201 ]
@@ -970,7 +970,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.3351517 = phi i64 [ %234, %.loopexit468 ], [ 0, %.preheader470 ]
   %208 = icmp ult i64 %.3351517, %3
   %209 = getelementptr inbounds nuw ptr, ptr %70, i64 %.3351517
-  %210 = load ptr, ptr %209, align 8, !tbaa !49
+  %210 = load ptr, ptr %209, align 8, !tbaa !48
   %211 = load ptr, ptr %210, align 8, !tbaa !12
   br i1 %208, label %212, label %216
 
@@ -988,7 +988,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 218:                                              ; preds = %216, %212
   %219 = getelementptr inbounds nuw i64, ptr %66, i64 %.3351517
-  %220 = load i64, ptr %219, align 8, !tbaa !47
+  %220 = load i64, ptr %219, align 8, !tbaa !46
   %221 = icmp ugt i64 %220, 1
   br i1 %221, label %222, label %.loopexit468
 
@@ -1006,7 +1006,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %227 = add i64 %.1347515, 1
   %.1347.highbits = lshr i64 %227, %225
   %228 = icmp eq i64 %.1347.highbits, 0
-  br i1 %228, label %.lr.ph516, label %.loopexit468, !llvm.loop !53
+  br i1 %228, label %.lr.ph516, label %.loopexit468, !llvm.loop !52
 
 .lr.ph516:                                        ; preds = %.lr.ph516.preheader, %226
   %.1347515 = phi i64 [ %227, %226 ], [ 1, %.lr.ph516.preheader ]
@@ -1021,12 +1021,12 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 .loopexit468:                                     ; preds = %226, %218
   %234 = add nuw i64 %.3351517, 1
   %exitcond560.not = icmp eq i64 %234, %75
-  br i1 %exitcond560.not, label %._crit_edge519, label %.lr.ph518, !llvm.loop !54
+  br i1 %exitcond560.not, label %._crit_edge519, label %.lr.ph518, !llvm.loop !53
 
 ._crit_edge519:                                   ; preds = %.loopexit468, %.preheader470
-  %235 = load ptr, ptr %0, align 8, !tbaa !33
+  %235 = load ptr, ptr %0, align 8, !tbaa !32
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 216
-  %237 = load ptr, ptr %236, align 8, !tbaa !55
+  %237 = load ptr, ptr %236, align 8, !tbaa !54
   %238 = icmp eq ptr %237, null
   br i1 %238, label %.thread439, label %239
 
@@ -1067,15 +1067,15 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.1340521.us = phi i32 [ %.5344.us, %276 ], [ %.0339528.us, %.lr.ph524.us.preheader ]
   %.4352520.us = phi i64 [ %277, %276 ], [ 0, %.lr.ph524.us.preheader ]
   %247 = getelementptr inbounds nuw i64, ptr %67, i64 %.4352520.us
-  %248 = load i64, ptr %247, align 8, !tbaa !47
+  %248 = load i64, ptr %247, align 8, !tbaa !46
   %249 = icmp ugt i64 %248, %indvars.iv
   br i1 %249, label %250, label %276
 
 250:                                              ; preds = %.lr.ph524.us
   %251 = getelementptr inbounds nuw ptr, ptr %69, i64 %.4352520.us
-  %252 = load ptr, ptr %251, align 8, !tbaa !46
+  %252 = load ptr, ptr %251, align 8, !tbaa !45
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 %indvars.iv
-  %254 = load i8, ptr %253, align 1, !tbaa !41
+  %254 = load i8, ptr %253, align 1, !tbaa !40
   %.not412.us = icmp eq i8 %254, 0
   br i1 %.not412.us, label %276, label %255
 
@@ -1104,7 +1104,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.3342.us = phi i32 [ %262, %261 ], [ %.1340521.us, %255 ]
   %.not417.us = icmp eq i32 %.1335522.us, 0
   %264 = getelementptr inbounds nuw ptr, ptr %70, i64 %.4352520.us
-  %265 = load ptr, ptr %264, align 8, !tbaa !49
+  %265 = load ptr, ptr %264, align 8, !tbaa !48
   %266 = lshr i8 %257, 1
   %267 = zext nneg i8 %266 to i64
   %268 = getelementptr inbounds nuw ptr, ptr %265, i64 %267
@@ -1131,12 +1131,12 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.4338.us = phi i32 [ %.1335522.us, %.lr.ph524.us ], [ %.1335522.us, %250 ], [ 0, %272 ], [ 0, %274 ]
   %277 = add nuw i64 %.4352520.us, 1
   %exitcond561.not = icmp eq i64 %277, %.0357.fr
-  br i1 %exitcond561.not, label %..loopexit_crit_edge.us, label %.lr.ph524.us, !llvm.loop !56
+  br i1 %exitcond561.not, label %..loopexit_crit_edge.us, label %.lr.ph524.us, !llvm.loop !55
 
 ..loopexit_crit_edge.us:                          ; preds = %276
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %278 = icmp sgt i64 %indvars.iv, 0
-  br i1 %278, label %.lr.ph532.split.us, label %._crit_edge533, !llvm.loop !57
+  br i1 %278, label %.lr.ph532.split.us, label %._crit_edge533, !llvm.loop !56
 
 .split.us:                                        ; preds = %272
   call void @ERR_new() #8
@@ -1180,7 +1180,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not425, label %290, label %.preheader465
 
 .preheader465:                                    ; preds = %.thread439
-  %286 = load ptr, ptr %.0332, align 8, !tbaa !46
+  %286 = load ptr, ptr %.0332, align 8, !tbaa !45
   %.not426537 = icmp eq ptr %286, null
   br i1 %.not426537, label %._crit_edge540, label %.lr.ph539
 
@@ -1189,9 +1189,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0538 = phi ptr [ %288, %.lr.ph539 ], [ %.0332, %.preheader465 ]
   call void @CRYPTO_free(ptr noundef nonnull %287, ptr noundef nonnull @.str, i32 noundef 785) #8
   %288 = getelementptr inbounds nuw i8, ptr %.0538, i64 8
-  %289 = load ptr, ptr %288, align 8, !tbaa !46
+  %289 = load ptr, ptr %288, align 8, !tbaa !45
   %.not426 = icmp eq ptr %289, null
-  br i1 %.not426, label %._crit_edge540, label %.lr.ph539, !llvm.loop !59
+  br i1 %.not426, label %._crit_edge540, label %.lr.ph539, !llvm.loop !58
 
 ._crit_edge540:                                   ; preds = %.lr.ph539, %.preheader465
   call void @CRYPTO_free(ptr noundef nonnull %.0332, ptr noundef nonnull @.str, i32 noundef 787) #8
@@ -1213,7 +1213,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %293 = getelementptr inbounds nuw i8, ptr %.2324542, i64 8
   %294 = load ptr, ptr %293, align 8, !tbaa !12
   %.not428 = icmp eq ptr %294, null
-  br i1 %.not428, label %._crit_edge544, label %.lr.ph543, !llvm.loop !60
+  br i1 %.not428, label %._crit_edge544, label %.lr.ph543, !llvm.loop !59
 
 ._crit_edge544:                                   ; preds = %.lr.ph543, %.preheader
   call void @CRYPTO_free(ptr noundef nonnull %.0325, ptr noundef nonnull @.str, i32 noundef 793) #8
@@ -1259,13 +1259,13 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %5, label %ec_pre_comp_new.exit.thread, label %6
 
 6:                                                ; preds = %3
-  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %0, ptr %4, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 8, ptr %7, align 8, !tbaa !43
+  store i64 8, ptr %7, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 4, ptr %8, align 8, !tbaa !44
+  store i64 4, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !62
+  store atomic i32 1, ptr %9 seq_cst, align 4, !tbaa !61
   %10 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %0) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -1330,7 +1330,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 38:                                               ; preds = %.lr.ph
   %39 = add nuw i64 %.0129215, 1
   %exitcond.not = icmp eq i64 %39, %31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 .lr.ph:                                           ; preds = %36, %38
   %.0129215 = phi i64 [ %39, %38 ], [ 0, %36 ]
@@ -1398,7 +1398,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   %.2 = getelementptr inbounds nuw i8, ptr %.2220, i64 8
   %.0112.highbits = lshr i64 %59, %30
   %60 = icmp eq i64 %.0112.highbits, 0
-  br i1 %60, label %.lr.ph221, label %._crit_edge222, !llvm.loop !64
+  br i1 %60, label %.lr.ph221, label %._crit_edge222, !llvm.loop !63
 
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %58
   %.2220 = phi ptr [ %.2, %58 ], [ %.2216, %.lr.ph221.preheader ]
@@ -1422,7 +1422,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 67:                                               ; preds = %.preheader209
   %68 = add nuw nsw i64 %.0111223, 1
   %exitcond238.not = icmp eq i64 %68, 8
-  br i1 %exitcond238.not, label %.loopexit, label %.preheader209, !llvm.loop !65
+  br i1 %exitcond238.not, label %.loopexit, label %.preheader209, !llvm.loop !64
 
 .preheader209:                                    ; preds = %65, %67
   %.0111223 = phi i64 [ %68, %67 ], [ 2, %65 ]
@@ -1433,12 +1433,12 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 .loopexit:                                        ; preds = %67, %._crit_edge222
   %70 = add nuw nsw i64 %.1130224, 1
   %exitcond239.not = icmp eq i64 %70, %umax
-  br i1 %exitcond239.not, label %._crit_edge227, label %53, !llvm.loop !66
+  br i1 %exitcond239.not, label %._crit_edge227, label %53, !llvm.loop !65
 
 ._crit_edge227:                                   ; preds = %.loopexit, %.preheader212
-  %71 = load ptr, ptr %0, align 8, !tbaa !33
+  %71 = load ptr, ptr %0, align 8, !tbaa !32
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 216
-  %73 = load ptr, ptr %72, align 8, !tbaa !55
+  %73 = load ptr, ptr %72, align 8, !tbaa !54
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.thread166, label %75
 
@@ -1448,19 +1448,19 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %.not147, label %.thread166, label %77
 
 77:                                               ; preds = %75
-  store ptr %0, ptr %4, align 8, !tbaa !61
-  store i64 8, ptr %7, align 8, !tbaa !43
+  store ptr %0, ptr %4, align 8, !tbaa !60
+  store i64 8, ptr %7, align 8, !tbaa !42
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %29, ptr %78, align 8, !tbaa !42
-  store i64 %.0126, ptr %8, align 8, !tbaa !44
+  store i64 %29, ptr %78, align 8, !tbaa !41
+  store i64 %.0126, ptr %8, align 8, !tbaa !43
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %34, ptr %79, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %31, ptr %80, align 8, !tbaa !45
+  store i64 %31, ptr %80, align 8, !tbaa !44
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 6, ptr %81, align 8, !tbaa !67
+  store i32 6, ptr %81, align 8, !tbaa !66
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %4, ptr %82, align 8, !tbaa !41
+  store ptr %4, ptr %82, align 8, !tbaa !40
   br label %.thread166
 
 .thread193:                                       ; preds = %12, %15
@@ -1550,7 +1550,7 @@ EC_ec_pre_comp_free.exit:                         ; preds = %.thread166, %CRYPTO
   %100 = getelementptr inbounds nuw i8, ptr %.0229, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !12
   %.not155 = icmp eq ptr %101, null
-  br i1 %.not155, label %._crit_edge231, label %.lr.ph230, !llvm.loop !68
+  br i1 %.not155, label %._crit_edge231, label %.lr.ph230, !llvm.loop !67
 
 ._crit_edge231:                                   ; preds = %.lr.ph230, %.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %.0119185204, ptr noundef nonnull @.str, i32 noundef 971) #8
@@ -1577,13 +1577,13 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_ec_wNAF_have_precompute_mult(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i32, ptr %2, align 8, !tbaa !67
+  %3 = load i32, ptr %2, align 8, !tbaa !66
   %4 = icmp eq i32 %3, 6
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load ptr, ptr %6, align 8, !tbaa !41
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
   %8 = icmp ne ptr %7, null
   %9 = zext i1 %8 to i32
   br label %10
@@ -1630,58 +1630,57 @@ attributes #8 = { nounwind }
 !11 = !{!"", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS11ec_point_st", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !20, i64 16}
-!18 = !{!"ec_group_st", !19, i64 0, !13, i64 8, !20, i64 16, !20, i64 24, !21, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !22, i64 48, !9, i64 56, !20, i64 64, !7, i64 72, !20, i64 96, !20, i64 104, !21, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !23, i64 144, !21, i64 152, !7, i64 160, !24, i64 168, !22, i64 176}
-!19 = !{!"p1 _ZTS12ec_method_st", !6, i64 0}
-!20 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!"p1 omnipotent char", !6, i64 0}
-!23 = !{!"p1 _ZTS14bn_mont_ctx_st", !6, i64 0}
-!24 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
-!25 = !{!18, !20, i64 24}
-!26 = !{!18, !13, i64 8}
-!27 = !{!28, !20, i64 16}
-!28 = !{!"ec_point_st", !19, i64 0, !21, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !21, i64 40}
-!29 = !{!28, !20, i64 24}
-!30 = !{!28, !20, i64 32}
-!31 = !{!18, !20, i64 64}
-!32 = !{!28, !21, i64 40}
-!33 = !{!18, !19, i64 0}
-!34 = !{!35, !6, i64 208}
-!35 = !{!"ec_method_st", !21, i64 0, !21, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440}
-!36 = distinct !{!36, !15, !16}
-!37 = !{!35, !6, i64 432}
-!38 = !{!35, !6, i64 416}
-!39 = !{!35, !6, i64 424}
-!40 = !{!20, !20, i64 0}
-!41 = !{!7, !7, i64 0}
-!42 = !{!4, !9, i64 16}
-!43 = !{!4, !9, i64 8}
-!44 = !{!4, !9, i64 24}
-!45 = !{!4, !9, i64 40}
-!46 = !{!22, !22, i64 0}
-!47 = !{!9, !9, i64 0}
-!48 = distinct !{!48, !15, !16}
-!49 = !{!10, !10, i64 0}
-!50 = distinct !{!50, !15, !16}
-!51 = distinct !{!51, !15, !16}
-!52 = distinct !{!52, !15, !16}
-!53 = distinct !{!53, !15, !16}
-!54 = distinct !{!54, !15, !16}
-!55 = !{!35, !6, i64 216}
-!56 = distinct !{!56, !15, !16}
-!57 = distinct !{!57, !15, !16, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !15, !16}
-!60 = distinct !{!60, !15, !16}
-!61 = !{!4, !5, i64 0}
-!62 = !{!11, !7, i64 0}
-!63 = distinct !{!63, !15, !16}
-!64 = distinct !{!64, !15, !16}
-!65 = distinct !{!65, !15, !16}
-!66 = distinct !{!66, !15, !16}
-!67 = !{!18, !21, i64 152}
-!68 = distinct !{!68, !15, !16}
+!16 = !{!17, !19, i64 16}
+!17 = !{!"ec_group_st", !18, i64 0, !13, i64 8, !19, i64 16, !19, i64 24, !20, i64 32, !20, i64 36, !20, i64 40, !20, i64 44, !21, i64 48, !9, i64 56, !19, i64 64, !7, i64 72, !19, i64 96, !19, i64 104, !20, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !22, i64 144, !20, i64 152, !7, i64 160, !23, i64 168, !21, i64 176}
+!18 = !{!"p1 _ZTS12ec_method_st", !6, i64 0}
+!19 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!"p1 omnipotent char", !6, i64 0}
+!22 = !{!"p1 _ZTS14bn_mont_ctx_st", !6, i64 0}
+!23 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
+!24 = !{!17, !19, i64 24}
+!25 = !{!17, !13, i64 8}
+!26 = !{!27, !19, i64 16}
+!27 = !{!"ec_point_st", !18, i64 0, !20, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !20, i64 40}
+!28 = !{!27, !19, i64 24}
+!29 = !{!27, !19, i64 32}
+!30 = !{!17, !19, i64 64}
+!31 = !{!27, !20, i64 40}
+!32 = !{!17, !18, i64 0}
+!33 = !{!34, !6, i64 208}
+!34 = !{!"ec_method_st", !20, i64 0, !20, i64 4, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440}
+!35 = distinct !{!35, !15}
+!36 = !{!34, !6, i64 432}
+!37 = !{!34, !6, i64 416}
+!38 = !{!34, !6, i64 424}
+!39 = !{!19, !19, i64 0}
+!40 = !{!7, !7, i64 0}
+!41 = !{!4, !9, i64 16}
+!42 = !{!4, !9, i64 8}
+!43 = !{!4, !9, i64 24}
+!44 = !{!4, !9, i64 40}
+!45 = !{!21, !21, i64 0}
+!46 = !{!9, !9, i64 0}
+!47 = distinct !{!47, !15}
+!48 = !{!10, !10, i64 0}
+!49 = distinct !{!49, !15}
+!50 = distinct !{!50, !15}
+!51 = distinct !{!51, !15}
+!52 = distinct !{!52, !15}
+!53 = distinct !{!53, !15}
+!54 = !{!34, !6, i64 216}
+!55 = distinct !{!55, !15}
+!56 = distinct !{!56, !15, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !15}
+!59 = distinct !{!59, !15}
+!60 = !{!4, !5, i64 0}
+!61 = !{!11, !7, i64 0}
+!62 = distinct !{!62, !15}
+!63 = distinct !{!63, !15}
+!64 = distinct !{!64, !15}
+!65 = distinct !{!65, !15}
+!66 = !{!17, !20, i64 152}
+!67 = distinct !{!67, !15}

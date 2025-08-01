@@ -1275,7 +1275,7 @@ for.inc:                                          ; preds = %if.then.i.i.i, %if.
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %if.end70, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %if.end70, !llvm.loop !7
 
 if.end70:                                         ; preds = %for.inc, %entry
   %call72 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
@@ -1386,7 +1386,7 @@ if.end36:                                         ; preds = %if.end33, %if.else
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink)
   %13 = load volatile i8, ptr %mbRunning, align 1
   %tobool = trunc i8 %13 to i1
-  br i1 %tobool, label %while.body, label %while.end, !llvm.loop !9
+  br i1 %tobool, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end36, %entry
   ret i64 0
@@ -1445,7 +1445,7 @@ if.else:                                          ; preds = %for.body
   %spec.select = select i1 %or.cond, i64 %i.038, i64 %found_empty.039
   %inc = add nuw i64 %i.038, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %if.then12, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %if.then12, label %for.body, !llvm.loop !9
 
 if.then12:                                        ; preds = %if.else, %if.then6
   %found_empty.035 = phi i64 [ %found_empty.039, %if.then6 ], [ %spec.select, %if.else ]
@@ -1673,7 +1673,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %if.end12.thread, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %if.end12.thread, label %for.body, !llvm.loop !10
 
 if.end12.thread:                                  ; preds = %for.inc, %if.then3, %if.then, %entry
   %call149 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
@@ -1820,10 +1820,9 @@ attributes #20 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

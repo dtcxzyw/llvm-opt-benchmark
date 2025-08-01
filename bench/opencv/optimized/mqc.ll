@@ -437,17 +437,17 @@ define hidden void @opj_mqc_reset_enc(ptr noundef writeonly captures(none) %0) l
 3:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
   %4 = getelementptr inbounds nuw [19 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
-  store ptr @mqc_states, ptr %4, align 8, !tbaa !22
+  store ptr @mqc_states, ptr %4, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %opj_mqc_resetstates.exit, label %3, !llvm.loop !24
+  br i1 %exitcond.not.i, label %opj_mqc_resetstates.exit, label %3, !llvm.loop !23
 
 opj_mqc_resetstates.exit:                         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 2208), ptr %5, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 2208), ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 144), ptr %6, align 8, !tbaa !22
-  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 192), ptr %2, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 144), ptr %6, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @mqc_states, i64 192), ptr %2, align 8, !tbaa !21
   ret void
 }
 
@@ -459,10 +459,10 @@ define hidden void @opj_mqc_resetstates(ptr noundef writeonly captures(none) %0)
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = getelementptr inbounds nuw [19 x ptr], ptr %2, i64 0, i64 %indvars.iv
-  store ptr @mqc_states, ptr %4, align 8, !tbaa !22
+  store ptr @mqc_states, ptr %4, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %5, label %3, !llvm.loop !24
+  br i1 %exitcond.not, label %5, label %3, !llvm.loop !23
 
 5:                                                ; preds = %3
   ret void
@@ -477,7 +477,7 @@ define hidden void @opj_mqc_setstate(ptr noundef writeonly captures(none) %0, i3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = zext i32 %1 to i64
   %11 = getelementptr inbounds nuw [19 x ptr], ptr %9, i64 0, i64 %10
-  store ptr %8, ptr %11, align 8, !tbaa !22
+  store ptr %8, ptr %11, align 8, !tbaa !21
   ret void
 }
 
@@ -587,7 +587,7 @@ opj_mqc_byteout.exit:                             ; preds = %14, %21, %30, %36
   store i32 %.sink.i, ptr %2, align 8, !tbaa !16
   %43 = sub nsw i32 %.012, %.sink.i
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %7, label %._crit_edge, !llvm.loop !25
+  br i1 %44, label %7, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %opj_mqc_byteout.exit, %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -667,11 +667,11 @@ define hidden void @opj_mqc_segmark_enc(ptr noundef %0) local_unnamed_addr #4 {
   %.06 = phi i32 [ 1, %1 ], [ %131, %opj_mqc_encode.exit ]
   %9 = and i32 %.06, 1
   %10 = load ptr, ptr %3, align 8, !tbaa !13
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !26
+  %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = icmp eq i32 %13, %9
-  %15 = load i32, ptr %11, align 8, !tbaa !28
+  %15 = load i32, ptr %11, align 8, !tbaa !27
   %16 = sub i32 %8, %15
   br i1 %14, label %17, label %76
 
@@ -688,8 +688,8 @@ define hidden void @opj_mqc_segmark_enc(ptr noundef %0) local_unnamed_addr #4 {
   %.pre.i.i = add i32 %.pre.pre.i.i, %22
   %23 = tail call i32 @llvm.umax.i32(i32 %16, i32 %15)
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
-  store ptr %25, ptr %10, align 8, !tbaa !22
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  store ptr %25, ptr %10, align 8, !tbaa !21
   %.pre25.i.i = load i32, ptr %5, align 8, !tbaa !16
   br label %26
 
@@ -777,7 +777,7 @@ opj_mqc_byteout.exit.i.i:                         ; preds = %60, %54, %45, %38
   %70 = phi i32 [ %31, %26 ], [ %66, %opj_mqc_byteout.exit.i.i ]
   %71 = and i32 %68, 32768
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %26, label %opj_mqc_encode.exit, !llvm.loop !30
+  br i1 %72, label %26, label %opj_mqc_encode.exit, !llvm.loop !29
 
 73:                                               ; preds = %17
   %74 = load i32, ptr %0, align 8, !tbaa !15
@@ -792,8 +792,8 @@ opj_mqc_byteout.exit.i.i:                         ; preds = %60, %54, %45, %38
   %.pre.i3.i = add i32 %78, %79
   %80 = tail call i32 @llvm.umin.i32(i32 %16, i32 %15)
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !31
-  store ptr %82, ptr %10, align 8, !tbaa !22
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
+  store ptr %82, ptr %10, align 8, !tbaa !21
   %.pre22.i.i = load i32, ptr %5, align 8, !tbaa !16
   br label %83
 
@@ -881,13 +881,13 @@ opj_mqc_byteout.exit.i4.i:                        ; preds = %117, %111, %102, %9
   %127 = phi i32 [ %88, %83 ], [ %123, %opj_mqc_byteout.exit.i4.i ]
   %128 = and i32 %125, 32768
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %83, label %opj_mqc_encode.exit, !llvm.loop !32
+  br i1 %129, label %83, label %opj_mqc_encode.exit, !llvm.loop !31
 
 opj_mqc_encode.exit:                              ; preds = %124, %67, %73
   %130 = phi i32 [ %16, %73 ], [ %68, %67 ], [ %125, %124 ]
   %131 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %131, 5
-  br i1 %exitcond.not, label %132, label %7, !llvm.loop !33
+  br i1 %exitcond.not, label %132, label %7, !llvm.loop !32
 
 132:                                              ; preds = %opj_mqc_encode.exit
   ret void
@@ -900,12 +900,12 @@ define hidden void @opj_mqc_init_dec(ptr noundef initializes((16, 40), (208, 210
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %7, ptr %8, align 8, !tbaa !34
+  store ptr %7, ptr %8, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i16, ptr %7, align 1
   store i16 %10, ptr %9, align 8
   store i8 -1, ptr %7, align 1, !tbaa !18
-  %11 = load ptr, ptr %8, align 8, !tbaa !34
+  %11 = load ptr, ptr %8, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 -1, ptr %12, align 1, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -974,12 +974,12 @@ define hidden void @opj_mqc_raw_init_dec(ptr noundef captures(none) initializes(
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %7, ptr %8, align 8, !tbaa !34
+  store ptr %7, ptr %8, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i16, ptr %7, align 1
   store i16 %10, ptr %9, align 8
   store i8 -1, ptr %7, align 1, !tbaa !18
-  %11 = load ptr, ptr %8, align 8, !tbaa !34
+  %11 = load ptr, ptr %8, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 -1, ptr %12, align 1, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -993,7 +993,7 @@ define hidden void @opj_mqc_raw_init_dec(ptr noundef captures(none) initializes(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @opq_mqc_finish_dec(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i16, ptr %4, align 8
   store i16 %5, ptr %3, align 1
@@ -1037,19 +1037,18 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !16 = !{!4, !5, i64 8}
 !17 = !{!4, !5, i64 12}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS13opj_mqc_state", !9, i64 0}
-!24 = distinct !{!24, !20, !21}
-!25 = distinct !{!25, !20, !21}
-!26 = !{!27, !5, i64 4}
-!27 = !{!"opj_mqc_state", !5, i64 0, !5, i64 4, !23, i64 8, !23, i64 16}
-!28 = !{!27, !5, i64 0}
-!29 = !{!27, !23, i64 8}
-!30 = distinct !{!30, !20, !21}
-!31 = !{!27, !23, i64 16}
-!32 = distinct !{!32, !20, !21}
-!33 = distinct !{!33, !20, !21}
-!34 = !{!4, !8, i64 32}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS13opj_mqc_state", !9, i64 0}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = !{!26, !5, i64 4}
+!26 = !{!"opj_mqc_state", !5, i64 0, !5, i64 4, !22, i64 8, !22, i64 16}
+!27 = !{!26, !5, i64 0}
+!28 = !{!26, !22, i64 8}
+!29 = distinct !{!29, !20}
+!30 = !{!26, !22, i64 16}
+!31 = distinct !{!31, !20}
+!32 = distinct !{!32, !20}
+!33 = !{!4, !8, i64 32}

@@ -931,7 +931,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   %.3 = phi ptr [ %64, %62 ], [ %.260, %49 ]
   %66 = add i32 %.sroa.7.1, 1
   %.not52 = icmp eq ptr %.sroa.01.1, null
-  br i1 %.not52, label %.critedge56, label %45, !llvm.loop !9
+  br i1 %.not52, label %.critedge56, label %45, !llvm.loop !8
 
 67:                                               ; preds = %.critedge56
   %68 = call ptr @lappend(ptr noundef %.2.lcssa, ptr noundef nonnull %36) #10
@@ -1341,7 +1341,7 @@ default.unreachable:                              ; preds = %32
   %.1 = phi i32 [ 0, %33 ], [ 1, %44 ], [ 3, %53 ], [ 4, %58 ], [ 1, %59 ], [ 2, %69 ], [ 3, %71 ], [ 2, %73 ], [ 3, %78 ], [ 4, %.thread ], [ 7, %104 ], [ 5, %114 ], [ 0, %116 ], [ 5, %129 ], [ 5, %131 ], [ 5, %133 ], [ 6, %144 ], [ 0, %146 ], [ 6, %153 ], [ 0, %165 ], [ 7, %169 ], [ 2, %42 ], [ 4, %75 ], [ 5, %90 ], [ 5, %95 ], [ 6, %.fold.split ]
   %172 = getelementptr inbounds nuw i8, ptr %.1113, i64 1
   %173 = icmp ult ptr %172, %29
-  br i1 %173, label %32, label %._crit_edge, !llvm.loop !10
+  br i1 %173, label %32, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %171
   switch i32 %.1, label %177 [
@@ -1878,7 +1878,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %.1115 = phi i32 [ 0, %155 ], [ %153, %113 ]
   %157 = call ptr @systable_getnext(ptr noundef %99) #10
   %.not127 = icmp eq ptr %157, null
-  br i1 %.not127, label %._crit_edge, label %.lr.ph154, !llvm.loop !11
+  br i1 %.not127, label %._crit_edge, label %.lr.ph154, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %156
   %158 = icmp sgt i32 %.1115, 0
@@ -1909,7 +1909,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   call void @ExecDropSingleTupleTableSlot(ptr noundef %163) #10
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !11
 
 164:                                              ; preds = %._crit_edge160, %75
   %.0 = phi ptr [ %93, %._crit_edge160 ], [ null, %75 ]
@@ -2041,7 +2041,7 @@ define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr readonly 
   call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #10
   %38 = call ptr @systable_getnext(ptr noundef %28) #10
   %.not18 = icmp eq ptr %38, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   call void @systable_endscan(ptr noundef %28) #10
@@ -2094,7 +2094,7 @@ define dso_local void @RemoveTSConfigurationById(i32 noundef %0) local_unnamed_a
   call void @CatalogTupleDelete(ptr noundef %11, ptr noundef nonnull %15) #10
   %16 = call ptr @systable_getnext(ptr noundef %12) #10
   %.not14 = icmp eq ptr %16, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   call void @systable_endscan(ptr noundef %12) #10
@@ -2217,7 +2217,7 @@ list_length.exit.thread.i:                        ; preds = %37
   call void @CatalogTupleDelete(ptr noundef %34, ptr noundef nonnull %65) #10
   %66 = call ptr @systable_getnext(ptr noundef %62) #10
   %.not165.i = icmp eq ptr %66, null
-  br i1 %.not165.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not165.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph9.i
   call void @systable_endscan(ptr noundef %62) #10
@@ -2320,7 +2320,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 119:                                              ; preds = %120
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count76.i
-  br i1 %exitcond77.not.i, label %.critedge1.i, label %120, !llvm.loop !16
+  br i1 %exitcond77.not.i, label %.critedge1.i, label %120, !llvm.loop !15
 
 120:                                              ; preds = %119, %.lr.ph42.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph42.i ], [ %indvars.iv.next74.i, %119 ]
@@ -2356,7 +2356,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 .critedge1.i:                                     ; preds = %119, %127, %.critedge169.i, %.preheader.i
   %131 = call ptr @systable_getnext(ptr noundef %101) #10
   %.not160.i = icmp eq ptr %131, null
-  br i1 %.not160.i, label %._crit_edge46.i, label %108, !llvm.loop !17
+  br i1 %.not160.i, label %._crit_edge46.i, label %108
 
 ._crit_edge46.i:                                  ; preds = %.critedge1.i, %96
   call void @systable_endscan(ptr noundef %101) #10
@@ -2457,7 +2457,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 188:                                              ; preds = %187, %148
   %.2137.us.i = phi i32 [ 0, %187 ], [ %185, %148 ]
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
-  br i1 %exitcond63.not.i, label %._crit_edge24.us.i, label %148, !llvm.loop !18
+  br i1 %exitcond63.not.i, label %._crit_edge24.us.i, label %148, !llvm.loop !16
 
 ._crit_edge24.us.i:                               ; preds = %188
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i39, 1
@@ -2474,7 +2474,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   store ptr %194, ptr %195, align 8
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader2.i, label %192, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.preheader2.i, label %192, !llvm.loop !17
 
 .critedge171.i:                                   ; preds = %._crit_edge24.us.i
   %196 = icmp sgt i32 %.2137.us.i, 0
@@ -2498,7 +2498,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   call void @ExecDropSingleTupleTableSlot(ptr noundef %199) #10
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %MakeConfigurationMapping.exit, label %.lr.ph39.i, !llvm.loop !20
+  br i1 %exitcond72.not.i, label %MakeConfigurationMapping.exit, label %.lr.ph39.i, !llvm.loop !18
 
 MakeConfigurationMapping.exit:                    ; preds = %.lr.ph39.i, %._crit_edge46.i, %.critedge171.thread.i
   call void @CatalogCloseIndexes(ptr noundef %92) #10
@@ -2556,7 +2556,7 @@ MakeConfigurationMapping.exit:                    ; preds = %.lr.ph39.i, %._crit
   call void @CatalogTupleDelete(ptr noundef %34, ptr noundef nonnull %227) #10
   %228 = call ptr @systable_getnext(ptr noundef %224) #10
   %.not27.i = icmp eq ptr %228, null
-  br i1 %.not27.i, label %._crit_edge.i35, label %.lr.ph.i34, !llvm.loop !21
+  br i1 %.not27.i, label %._crit_edge.i35, label %.lr.ph.i34, !llvm.loop !19
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i34
   call void @systable_endscan(ptr noundef %224) #10
@@ -2906,7 +2906,7 @@ tstoken_list_member.exit.thread:                  ; preds = %34, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph66.split, label %.critedge43, !llvm.loop !22
+  br i1 %63, label %.lr.ph66.split, label %.critedge43, !llvm.loop !20
 
 .critedge43:                                      ; preds = %tstoken_list_member.exit.thread, %13, %2, %list_length.exit
   %.0 = phi ptr [ null, %list_length.exit ], [ null, %2 ], [ null, %13 ], [ %.1, %tstoken_list_member.exit.thread ]
@@ -2970,20 +2970,18 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

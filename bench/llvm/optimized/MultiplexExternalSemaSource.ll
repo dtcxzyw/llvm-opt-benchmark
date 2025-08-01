@@ -114,7 +114,7 @@ _ZN4llvm11SmallVectorIPN5clang18ExternalSemaSourceELj2EED2Ev.exit: ; preds = %._
 _ZNK4llvm14RefCountedBaseIN5clang17ExternalASTSourceEE7ReleaseEv.exit: ; preds = %.lr.ph, %17
   %21 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %21, %7
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nounwind
@@ -142,7 +142,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource9AddSourceEPNS_18Ex
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %.not.i.i.not.i = icmp ult i32 %8, %10
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang18ExternalSemaSourceELb1EE9push_backES3_.exit, label %11, !prof !21
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang18ExternalSemaSourceELb1EE9push_backES3_.exit, label %11, !prof !19
 
 11:                                               ; preds = %2
   %12 = zext i32 %8 to i64
@@ -178,7 +178,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource15GetExterna
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
   %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %2, %6
   %.0915 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -224,7 +224,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19CompleteRedeclCha
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !24
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -240,7 +240,7 @@ define dso_local i64 @_ZN5clang27MultiplexExternalSemaSource19GetExternalSelecto
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %7, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %2, %6
   %.05 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -289,7 +289,7 @@ define dso_local noundef i32 @_ZN5clang27MultiplexExternalSemaSource23GetNumExte
   %15 = load i32, ptr %2, align 8, !tbaa !16
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %14, %16
-  br i1 %17, label %5, label %._crit_edge, !llvm.loop !26
+  br i1 %17, label %5, label %._crit_edge, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -305,7 +305,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource19GetExterna
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
   %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -337,7 +337,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource28GetExterna
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
   %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -371,7 +371,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource30GetExterna
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
   %.not = icmp eq ptr %10, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
   %.01521 = phi ptr [ %10, %9 ], [ %4, %2 ]
@@ -403,7 +403,7 @@ define dso_local noundef range(i32 1, 0) i32 @_ZN5clang27MultiplexExternalSemaSo
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.01722, i64 8
   %.not = icmp eq ptr %10, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
   %.01722 = phi ptr [ %10, %9 ], [ %4, %2 ]
@@ -451,7 +451,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource30Fin
   %18 = load i32, ptr %5, align 8, !tbaa !16
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %17, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !31
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -484,7 +484,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource27Loa
   %17 = load i32, ptr %4, align 8, !tbaa !16
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %16, %18
-  br i1 %19, label %7, label %._crit_edge, !llvm.loop !32
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -517,7 +517,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource27Loa
   %18 = load i32, ptr %5, align 8, !tbaa !16
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %17, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !33
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -547,7 +547,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23completeVisibleDe
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !34
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -577,7 +577,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource24FindExternalLexic
   %17 = load i32, ptr %6, align 8, !tbaa !16
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %16, %18
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !35
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -607,7 +607,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19FindFileRegionDec
   %17 = load i32, ptr %6, align 8, !tbaa !16
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %16, %18
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !36
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -637,7 +637,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12CompleteTypeEPNS_
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !37
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -667,7 +667,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12CompleteTypeEPNS_
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !38
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -697,7 +697,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12ReadCommentsEv(pt
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !39
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -727,7 +727,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20StartedDeserializ
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !40
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -757,7 +757,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource21FinishedDeseriali
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !41
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -787,7 +787,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20StartTranslationU
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !42
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -817,7 +817,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource10PrintStatsEv(ptr 
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !43
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -833,7 +833,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource9getModuleEj
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
   %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -868,7 +868,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource16lay
   %13 = load i32, ptr %8, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
   %.not = icmp samesign ult i64 %12, %14
-  br i1 %.not, label %15, label %._crit_edge, !llvm.loop !45
+  br i1 %.not, label %15, label %._crit_edge, !llvm.loop !41
 
 15:                                               ; preds = %.lr.ph, %11
   %.01114 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
@@ -913,7 +913,7 @@ define dso_local void @_ZNK5clang27MultiplexExternalSemaSource20getMemoryBufferS
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !46
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -943,7 +943,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource14InitializeSemaERN
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !47
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -973,7 +973,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource10ForgetSemaEv(ptr 
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !48
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1003,7 +1003,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource14ReadMethodPoolENS
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !49
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1033,7 +1033,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23updateOutOfDateSe
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !50
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1063,7 +1063,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19ReadKnownNamespac
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !51
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1093,7 +1093,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20ReadUndefinedButU
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !52
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1120,7 +1120,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource32ReadMismatchingDe
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1153,7 +1153,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource17Loo
   %18 = load i32, ptr %4, align 8, !tbaa !16
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %17, %19
-  br i1 %20, label %9, label %._crit_edge, !llvm.loop !54
+  br i1 %20, label %9, label %._crit_edge, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1183,7 +1183,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource24ReadTentativeDefi
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !55
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1213,7 +1213,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource25ReadUnusedFileSco
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !56
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1243,7 +1243,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource26ReadDelegatingCon
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !57
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1273,7 +1273,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource18ReadExtVectorDecl
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !58
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1303,7 +1303,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource32ReadDeclsToCheckF
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !59
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1333,7 +1333,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource36ReadUnusedLocalTy
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !60
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1363,7 +1363,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23ReadReferencedSel
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !61
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1393,7 +1393,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource29ReadWeakUndeclare
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !62
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1423,7 +1423,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource15ReadUsedVTablesER
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !63
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1453,7 +1453,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource25ReadPendingInstan
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !64
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1483,7 +1483,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23ReadLateParsedTem
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !65
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1512,25 +1512,25 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 384
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr dead_on_unwind writable sret(%"class.clang::TypoCorrection") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9) #8
-  %27 = load i64, ptr %0, align 8, !tbaa !66
+  %27 = load i64, ptr %0, align 8, !tbaa !61
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %28, label %.critedge
 
 28:                                               ; preds = %20
-  %29 = load ptr, ptr %15, align 8, !tbaa !69
-  %30 = load ptr, ptr %16, align 8, !tbaa !72
+  %29 = load ptr, ptr %15, align 8, !tbaa !64
+  %30 = load ptr, ptr %16, align 8, !tbaa !67
   %.not4.i.i.i.i.i = icmp eq ptr %29, %30
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %28, %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %80, %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i ], [ %29, %28 ]
-  %31 = load ptr, ptr %.05.i.i.i.i.i, align 8, !tbaa !73
+  %31 = load ptr, ptr %.05.i.i.i.i.i, align 8, !tbaa !68
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i, label %32
 
 32:                                               ; preds = %.lr.ph.i.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !77
+  %34 = load ptr, ptr %33, align 8, !tbaa !72
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i, label %35
 
@@ -1543,12 +1543,12 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 14976
-  %41 = load i32, ptr %40, align 8, !tbaa !78
+  %41 = load i32, ptr %40, align 8, !tbaa !73
   %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 8, !tbaa !78
+  store i32 %42, ptr %40, align 8, !tbaa !73
   %43 = zext i32 %41 to i64
   %44 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %43
-  store ptr %31, ptr %44, align 8, !tbaa !80
+  store ptr %31, ptr %44, align 8, !tbaa !75
   br label %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit
 
 45:                                               ; preds = %35
@@ -1569,27 +1569,27 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   %.05.i.i.i.i = phi ptr [ %52, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i ], [ %51, %.lr.ph.i.preheader.i.i.i ]
   %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -64
   %53 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -40
-  %54 = load ptr, ptr %53, align 8, !tbaa !81
+  %54 = load ptr, ptr %53, align 8, !tbaa !76
   %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -24
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -32
-  %58 = load i64, ptr %57, align 8, !tbaa !85
+  %58 = load i64, ptr %57, align 8, !tbaa !80
   %59 = icmp ult i64 %58, 16
   tail call void @llvm.assume(i1 %59)
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %60 = load i64, ptr %55, align 8, !tbaa !86
+  %60 = load i64, ptr %55, align 8, !tbaa !81
   %61 = add i64 %60, 1
   tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %61) #9
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i:             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %.not.i.i.i.i17 = icmp eq ptr %47, %52
-  br i1 %.not.i.i.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !87
+  br i1 %.not.i.i.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !82
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %46, align 8, !tbaa !12
@@ -1623,43 +1623,43 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i: ; preds = %_Z
   %.idx.i.i = phi i64 [ %.add.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ 416, %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader ]
   %.add.i.i = add nsw i64 %.idx.i.i, -32
   %.ptr1.i.i = getelementptr inbounds i8, ptr %31, i64 %.add.i.i
-  %71 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !81
+  %71 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !76
   %72 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 16
   %73 = icmp eq ptr %71, %72
   br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
   %74 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !85
+  %75 = load i64, ptr %74, align 8, !tbaa !80
   %76 = icmp ult i64 %75, 16
   tail call void @llvm.assume(i1 %76)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
-  %77 = load i64, ptr %72, align 8, !tbaa !86
+  %77 = load i64, ptr %72, align 8, !tbaa !81
   %78 = add i64 %77, 1
   tail call void @_ZdlPvm(ptr noundef %71, i64 noundef %78) #9
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %79 = icmp eq i64 %.add.i.i, 96
-  br i1 %79, label %_ZN5clang17DiagnosticStorageD2Ev.exit.i, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i, !llvm.loop !88
+  br i1 %79, label %_ZN5clang17DiagnosticStorageD2Ev.exit.i, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
 
 _ZN5clang17DiagnosticStorageD2Ev.exit.i:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 928) #9
   br label %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit
 
 _ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit: ; preds = %39, %_ZN5clang17DiagnosticStorageD2Ev.exit.i
-  store ptr null, ptr %.05.i.i.i.i.i, align 8, !tbaa !73
+  store ptr null, ptr %.05.i.i.i.i.i, align 8, !tbaa !68
   br label %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i: ; preds = %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit, %32, %.lr.ph.i.i.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %80, %30
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
 
 _ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %15, align 8, !tbaa !69
+  %.pr.i.i = load ptr, ptr %15, align 8, !tbaa !64
   br label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %28
@@ -1668,7 +1668,7 @@ _ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, label %82
 
 82:                                               ; preds = %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
-  %83 = load ptr, ptr %17, align 8, !tbaa !90
+  %83 = load ptr, ptr %17, align 8, !tbaa !84
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %81 to i64
   %86 = sub i64 %84, %85
@@ -1687,7 +1687,7 @@ _ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i: ; preds = %82, %_ZS
 _ZN5clang14TypoCorrectionD2Ev.exit:               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, %89
   %90 = add nuw nsw i64 %.01621, 1
   %exitcond.not = icmp eq i64 %90, %14
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %_ZN5clang14TypoCorrectionD2Ev.exit, %10
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1730,7 +1730,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource32May
   %15 = add nuw nsw i64 %.0912, 1
   %exitcond.not = icmp eq i64 %15, %7
   %or.cond = select i1 %14, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ %14, %.lr.ph ]
@@ -1761,7 +1761,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23AssignedLambdaNum
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1827,78 +1827,71 @@ attributes #9 = { builtin nounwind }
 !16 = !{!13, !5, i64 8}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 _ZTSN5clang18ExternalSemaSourceE", !14, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!22 = distinct !{!22, !23, !20}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23, !20}
-!25 = distinct !{!25, !23, !20}
-!26 = distinct !{!26, !23, !20}
-!27 = distinct !{!27, !23, !20}
-!28 = distinct !{!28, !23, !20}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !23, !20}
-!32 = distinct !{!32, !23, !20}
-!33 = distinct !{!33, !23, !20}
-!34 = distinct !{!34, !23, !20}
-!35 = distinct !{!35, !23, !20}
-!36 = distinct !{!36, !23, !20}
-!37 = distinct !{!37, !23, !20}
-!38 = distinct !{!38, !23, !20}
-!39 = distinct !{!39, !23, !20}
-!40 = distinct !{!40, !23, !20}
-!41 = distinct !{!41, !23, !20}
-!42 = distinct !{!42, !23, !20}
-!43 = distinct !{!43, !23, !20}
-!44 = distinct !{!44, !23, !20}
-!45 = distinct !{!45, !23, !20}
-!46 = distinct !{!46, !23, !20}
-!47 = distinct !{!47, !23, !20}
-!48 = distinct !{!48, !23, !20}
-!49 = distinct !{!49, !23, !20}
-!50 = distinct !{!50, !23, !20}
-!51 = distinct !{!51, !23, !20}
-!52 = distinct !{!52, !23, !20}
-!53 = distinct !{!53, !20}
-!54 = distinct !{!54, !23, !20}
-!55 = distinct !{!55, !23, !20}
-!56 = distinct !{!56, !23, !20}
-!57 = distinct !{!57, !23, !20}
-!58 = distinct !{!58, !23, !20}
-!59 = distinct !{!59, !23, !20}
-!60 = distinct !{!60, !23, !20}
-!61 = distinct !{!61, !23, !20}
-!62 = distinct !{!62, !23, !20}
-!63 = distinct !{!63, !23, !20}
-!64 = distinct !{!64, !23, !20}
-!65 = distinct !{!65, !23, !20}
-!66 = !{!67, !68, i64 0}
-!67 = !{!"_ZTSN5clang15DeclarationNameE", !68, i64 0}
-!68 = !{!"long", !6, i64 0}
-!69 = !{!70, !71, i64 0}
-!70 = !{!"_ZTSNSt12_Vector_baseIN5clang17PartialDiagnosticESaIS1_EE17_Vector_impl_dataE", !71, i64 0, !71, i64 8, !71, i64 16}
-!71 = !{!"p1 _ZTSN5clang17PartialDiagnosticE", !14, i64 0}
-!72 = !{!70, !71, i64 8}
-!73 = !{!74, !75, i64 0}
-!74 = !{!"_ZTSN5clang19StreamingDiagnosticE", !75, i64 0, !76, i64 8}
-!75 = !{!"p1 _ZTSN5clang17DiagnosticStorageE", !14, i64 0}
-!76 = !{!"p1 _ZTSN5clang20DiagStorageAllocatorE", !14, i64 0}
-!77 = !{!74, !76, i64 8}
-!78 = !{!79, !5, i64 14976}
-!79 = !{!"_ZTSN5clang20DiagStorageAllocatorE", !6, i64 0, !6, i64 14848, !5, i64 14976}
-!80 = !{!75, !75, i64 0}
-!81 = !{!82, !84, i64 0}
-!82 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !83, i64 0, !68, i64 8, !6, i64 16}
-!83 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !84, i64 0}
-!84 = !{!"p1 omnipotent char", !14, i64 0}
-!85 = !{!82, !68, i64 8}
-!86 = !{!6, !6, i64 0}
-!87 = distinct !{!87, !23, !20}
-!88 = distinct !{!88, !20}
-!89 = distinct !{!89, !23, !20}
-!90 = !{!70, !71, i64 16}
-!91 = distinct !{!91, !23, !20}
-!92 = distinct !{!92, !23, !20}
-!93 = distinct !{!93, !20}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}
+!29 = distinct !{!29, !21}
+!30 = distinct !{!30, !21}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}
+!33 = distinct !{!33, !21}
+!34 = distinct !{!34, !21}
+!35 = distinct !{!35, !21}
+!36 = distinct !{!36, !21}
+!37 = distinct !{!37, !21}
+!38 = distinct !{!38, !21}
+!39 = distinct !{!39, !21}
+!40 = distinct !{!40, !21}
+!41 = distinct !{!41, !21}
+!42 = distinct !{!42, !21}
+!43 = distinct !{!43, !21}
+!44 = distinct !{!44, !21}
+!45 = distinct !{!45, !21}
+!46 = distinct !{!46, !21}
+!47 = distinct !{!47, !21}
+!48 = distinct !{!48, !21}
+!49 = distinct !{!49, !21}
+!50 = distinct !{!50, !21}
+!51 = distinct !{!51, !21}
+!52 = distinct !{!52, !21}
+!53 = distinct !{!53, !21}
+!54 = distinct !{!54, !21}
+!55 = distinct !{!55, !21}
+!56 = distinct !{!56, !21}
+!57 = distinct !{!57, !21}
+!58 = distinct !{!58, !21}
+!59 = distinct !{!59, !21}
+!60 = distinct !{!60, !21}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTSN5clang15DeclarationNameE", !63, i64 0}
+!63 = !{!"long", !6, i64 0}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseIN5clang17PartialDiagnosticESaIS1_EE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
+!66 = !{!"p1 _ZTSN5clang17PartialDiagnosticE", !14, i64 0}
+!67 = !{!65, !66, i64 8}
+!68 = !{!69, !70, i64 0}
+!69 = !{!"_ZTSN5clang19StreamingDiagnosticE", !70, i64 0, !71, i64 8}
+!70 = !{!"p1 _ZTSN5clang17DiagnosticStorageE", !14, i64 0}
+!71 = !{!"p1 _ZTSN5clang20DiagStorageAllocatorE", !14, i64 0}
+!72 = !{!69, !71, i64 8}
+!73 = !{!74, !5, i64 14976}
+!74 = !{!"_ZTSN5clang20DiagStorageAllocatorE", !6, i64 0, !6, i64 14848, !5, i64 14976}
+!75 = !{!70, !70, i64 0}
+!76 = !{!77, !79, i64 0}
+!77 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !78, i64 0, !63, i64 8, !6, i64 16}
+!78 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !79, i64 0}
+!79 = !{!"p1 omnipotent char", !14, i64 0}
+!80 = !{!77, !63, i64 8}
+!81 = !{!6, !6, i64 0}
+!82 = distinct !{!82, !21}
+!83 = distinct !{!83, !21}
+!84 = !{!65, !66, i64 16}
+!85 = distinct !{!85, !21}
+!86 = distinct !{!86, !21}

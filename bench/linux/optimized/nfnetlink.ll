@@ -125,12 +125,12 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
   %12 = getelementptr %struct.nfnl_callback, ptr %7, i64 %indvars.iv, i32 3
   %13 = load i16, ptr %12, align 4
   %14 = icmp ugt i16 %13, 32
-  br i1 %14, label %15, label %9, !prof !9
+  br i1 %14, label %15, label %9, !prof !8
 
 15:                                               ; preds = %11
-  tail call void asm sideeffect "694: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 694b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 694) #9, !srcloc !10
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 122, i32 2305, i64 12) #9, !srcloc !11
-  tail call void asm sideeffect "695: nop\0A\09.pushsection .discard.instr_end\0A\09.long 695b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 695) #9, !srcloc !12
+  tail call void asm sideeffect "694: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 694b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 694) #9, !srcloc !9
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 122, i32 2305, i64 12) #9, !srcloc !10
+  tail call void asm sideeffect "695: nop\0A\09.pushsection .discard.instr_end\0A\09.long 695b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 695) #9, !srcloc !11
   br label %34
 
 .loopexit:                                        ; preds = %9, %1
@@ -152,7 +152,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
   br label %34
 
 27:                                               ; preds = %.loopexit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   %28 = load i8, ptr %16, align 8
   %29 = zext i8 %28 to i64
   %30 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %29, i32 1
@@ -307,7 +307,7 @@ define internal i32 @nfnetlink_init() #3 section ".init.text" align 16 {
   tail call void @__mutex_init(ptr noundef %3, ptr noundef %5, ptr noundef nonnull @nfnl_lockdep_keys) #9
   %6 = add nuw nsw i64 %2, 1
   %7 = icmp eq i64 %6, 13
-  br i1 %7, label %8, label %1, !llvm.loop !14
+  br i1 %7, label %8, label %1, !llvm.loop !13
 
 8:                                                ; preds = %1
   %9 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @nfnetlink_net_ops) #9
@@ -376,7 +376,7 @@ define internal void @nfnetlink_net_exit_batch(ptr noundef readonly captures(add
   tail call void @netlink_kernel_release(ptr noundef %11) #9
   %12 = load ptr, ptr %4, align 8
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -419,7 +419,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !15
   %25 = load i32, ptr %8, align 4
   %26 = add i32 %25, 3
   %27 = and i32 %26, -4
@@ -464,7 +464,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false), !annotation !15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   store ptr %3, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -596,7 +596,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   br i1 %121, label %.thread38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %115
-  %122 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
+  %122 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !16
   %123 = inttoptr i64 %122 to ptr
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1936
   br label %125
@@ -632,7 +632,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %140, align 8
   call void @kfree(ptr noundef %138) #9
   %143 = icmp eq ptr %139, %3
-  br i1 %143, label %.thread38, label %.preheader50, !llvm.loop !18
+  br i1 %143, label %.thread38, label %.preheader50, !llvm.loop !17
 
 .critedge:                                        ; preds = %125, %131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
@@ -666,7 +666,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %158, align 8
   call void @kfree(ptr noundef %156) #9
   %161 = icmp eq ptr %157, %3
-  br i1 %161, label %.loopexit45, label %.preheader44, !llvm.loop !19
+  br i1 %161, label %.loopexit45, label %.preheader44, !llvm.loop !17
 
 .loopexit45:                                      ; preds = %.preheader44, %153
   %162 = or i32 %127, 1
@@ -704,7 +704,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %176, align 8
   call void @kfree(ptr noundef %174) #9
   %179 = icmp eq ptr %175, %3
-  br i1 %179, label %.loopexit49, label %.preheader48, !llvm.loop !20
+  br i1 %179, label %.loopexit49, label %.preheader48, !llvm.loop !17
 
 .loopexit49:                                      ; preds = %.preheader48, %171
   %180 = or i32 %127, 1
@@ -750,11 +750,11 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %207 = load ptr, ptr %206, align 8
   call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !15
   %208 = load i16, ptr %169, align 4
   %209 = load i32, ptr %144, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false), !annotation !15
   store ptr %56, ptr %5, align 8
   %210 = load ptr, ptr %207, align 8
   store ptr %210, ptr %67, align 8
@@ -857,7 +857,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %261, align 8
   call void @kfree(ptr noundef %259) #9
   %264 = icmp eq ptr %260, %3
-  br i1 %264, label %.loopexit47, label %.preheader46, !llvm.loop !21
+  br i1 %264, label %.loopexit47, label %.preheader46, !llvm.loop !17
 
 .loopexit47:                                      ; preds = %.preheader46, %256
   %265 = load ptr, ptr %7, align 8
@@ -907,7 +907,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %290, align 8
   call void @kfree(ptr noundef %288) #9
   %293 = icmp eq ptr %289, %3
-  br i1 %293, label %.loopexit42, label %.preheader41, !llvm.loop !22
+  br i1 %293, label %.loopexit42, label %.preheader41, !llvm.loop !17
 
 .loopexit42:                                      ; preds = %.preheader41, %283
   call void @kfree_skb_reason(ptr noundef nonnull %75, i32 noundef 2) #9
@@ -925,7 +925,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   switch i32 %299, label %300 [
     i32 -11, label %279
     i32 0, label %.loopexit43
-  ], !llvm.loop !23
+  ]
 
 300:                                              ; preds = %297
   %301 = load ptr, ptr %101, align 8
@@ -960,7 +960,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %316, align 8
   call void @kfree(ptr noundef %314) #9
   %319 = icmp eq ptr %315, %3
-  br i1 %319, label %.thread39, label %.preheader40, !llvm.loop !24
+  br i1 %319, label %.thread39, label %.preheader40, !llvm.loop !17
 
 .thread39:                                        ; preds = %.preheader40, %311
   call void @kfree_skb_reason(ptr noundef nonnull %75, i32 noundef 2) #9
@@ -973,7 +973,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %323 = phi i32 [ 0, %.loopexit42 ], [ %321, %.thread39 ]
   %324 = call ptr @skb_clone(ptr noundef %0, i32 noundef 3264) #9
   %325 = icmp eq ptr %324, null
-  br i1 %325, label %._crit_edge, label %.lr.ph104, !llvm.loop !25
+  br i1 %325, label %._crit_edge, label %.lr.ph104
 
 .loopexit43:                                      ; preds = %304, %297, %300
   %326 = load ptr, ptr %3, align 8
@@ -999,7 +999,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %335, align 8
   call void @kfree(ptr noundef %328) #9
   %339 = icmp eq ptr %329, %3
-  br i1 %339, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %339, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit43
   call void @kfree_skb_reason(ptr noundef nonnull %75, i32 noundef 2) #9
@@ -1158,10 +1158,10 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   call void @__rcu_read_unlock() #9
   %55 = load i16, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !15
   %56 = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !annotation !15
   store ptr %9, ptr %5, align 8
   %57 = load ptr, ptr %54, align 8
   store ptr %57, ptr %24, align 8
@@ -1250,7 +1250,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %95 = icmp eq i32 %94, -11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #9
-  br i1 %95, label %.split, label %.loopexit, !llvm.loop !27
+  br i1 %95, label %.split, label %.loopexit
 
 .thread6:                                         ; preds = %39, %44, %.thread, %.split.us
   call void @__rcu_read_unlock() #9
@@ -1341,26 +1341,17 @@ attributes #11 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = !{i64 2157713177, i64 2157712986, i64 2157713038, i64 2157713084, i64 2157713112}
-!11 = !{i64 2157713251, i64 2157713280, i64 2157713326, i64 2157713384, i64 2157713438, i64 2157713492, i64 2157713547, i64 2157713578, i64 2157713886, i64 2157713892, i64 2157713939, i64 2157713962, i64 2157713988}
-!12 = !{i64 2157714446, i64 2157714257, i64 2157714307, i64 2157714353, i64 2157714381}
-!13 = !{i64 2157720371}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = !{!"auto-init"}
-!17 = !{i64 2148363741}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !8}
+!8 = !{!"branch_weights", i32 1, i32 2000}
+!9 = !{i64 2157713177, i64 2157712986, i64 2157713038, i64 2157713084, i64 2157713112}
+!10 = !{i64 2157713251, i64 2157713280, i64 2157713326, i64 2157713384, i64 2157713438, i64 2157713492, i64 2157713547, i64 2157713578, i64 2157713886, i64 2157713892, i64 2157713939, i64 2157713962, i64 2157713988}
+!11 = !{i64 2157714446, i64 2157714257, i64 2157714307, i64 2157714353, i64 2157714381}
+!12 = !{i64 2157720371}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = !{!"auto-init"}
+!16 = !{i64 2148363741}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}

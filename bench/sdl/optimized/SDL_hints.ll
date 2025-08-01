@@ -178,7 +178,7 @@ GetHintProperties.exit.thread:                    ; preds = %GetHintEnvironmentV
   %55 = load ptr, ptr %54, align 8
   tail call void %53(ptr noundef %55, ptr noundef nonnull %0, ptr noundef %47, ptr noundef %1) #3
   %.not66 = icmp eq ptr %52, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
   tail call void @SDL_free_REAL(ptr noundef %47) #3
@@ -252,7 +252,7 @@ define internal void @CleanupHintProperty(ptr readnone captures(none) %0, ptr no
   %7 = load ptr, ptr %6, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.09) #3
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @SDL_free_REAL(ptr noundef nonnull %1) #3
@@ -345,7 +345,7 @@ GetHintEnvironmentVariable.exit:                  ; preds = %6, %9, %14, %.sink.
   %35 = load ptr, ptr %21, align 8
   tail call void %32(ptr noundef %34, ptr noundef nonnull %0, ptr noundef %35, ptr noundef %.0.i) #3
   %.not42 = icmp eq ptr %31, null
-  br i1 %.not42, label %.critedge44, label %.lr.ph, !llvm.loop !8
+  br i1 %.not42, label %.critedge44, label %.lr.ph, !llvm.loop !7
 
 .critedge44:                                      ; preds = %.lr.ph, %27, %24, %25
   %36 = load ptr, ptr %21, align 8
@@ -443,7 +443,7 @@ GetHintEnvironmentVariable.exit.thread:           ; preds = %9, %14, %GetHintEnv
   %30 = load ptr, ptr %4, align 8
   tail call void %27(ptr noundef %29, ptr noundef %2, ptr noundef %30, ptr noundef %.0.i35) #3
   %.not28 = icmp eq ptr %26, null
-  br i1 %.not28, label %.critedge30, label %.lr.ph, !llvm.loop !9
+  br i1 %.not28, label %.critedge30, label %.lr.ph, !llvm.loop !8
 
 .critedge30:                                      ; preds = %.lr.ph, %22, %GetHintEnvironmentVariable.exit.thread, %20
   %31 = load ptr, ptr %4, align 8
@@ -787,7 +787,7 @@ define hidden void @SDL_RemoveHintCallback_REAL(ptr noundef %0, ptr noundef read
   %27 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %.0 = load ptr, ptr %27, align 8
   %.not28 = icmp eq ptr %.0, null
-  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %26, %11, %25, %8
   tail call void @SDL_UnlockProperties_REAL(i32 noundef %7) #3
@@ -811,11 +811,10 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}

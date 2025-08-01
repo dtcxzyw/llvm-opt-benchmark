@@ -1366,7 +1366,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %186 = phi i1 [ false, %.thread418 ], [ true, %185 ]
   %.0302367423 = phi i64 [ 1, %.thread418 ], [ %63, %185 ]
   %.0294368422 = phi i64 [ -1, %.thread418 ], [ %spec.store.select, %185 ]
-  %187 = load ptr, ptr %0, align 8, !tbaa !70
+  %187 = load ptr, ptr %0, align 8, !tbaa !69
   %188 = icmp eq i64 %.0302367423, 1
   %189 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -1656,9 +1656,9 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %switch.i, label %357, label %360
 
 357:                                              ; preds = %355
-  %358 = load i32, ptr %197, align 4, !tbaa !71
+  %358 = load i32, ptr %197, align 4, !tbaa !70
   %359 = add i32 %358, 1
-  store i32 %359, ptr %197, align 4, !tbaa !71
+  store i32 %359, ptr %197, align 4, !tbaa !70
   br label %363
 
 360:                                              ; preds = %355
@@ -1718,7 +1718,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %.6301395 = phi i64 [ %spec.select, %261 ], [ %spec.select, %264 ], [ %spec.select353, %384 ], [ %spec.select353, %381 ]
   %387 = add nuw i64 %.1293413, 1
   %exitcond.not = icmp eq i64 %387, %.0302367423
-  br i1 %exitcond.not, label %.thread398, label %200, !llvm.loop !72
+  br i1 %exitcond.not, label %.thread398, label %200, !llvm.loop !71
 
 .thread398:                                       ; preds = %182, %86, %.thread390, %65, %185, %283, %286, %277, %373, %336, %318, %308, %301, %294, %23, %13, %28, %37
   %.0284 = phi i32 [ -1, %28 ], [ 0, %13 ], [ 0, %37 ], [ 0, %23 ], [ -1, %373 ], [ -1, %336 ], [ -1, %318 ], [ -1, %308 ], [ -1, %301 ], [ -1, %294 ], [ 0, %283 ], [ -1, %286 ], [ -1, %277 ], [ 0, %185 ], [ 0, %65 ], [ 0, %.thread390 ], [ 0, %86 ], [ 0, %182 ]
@@ -1755,7 +1755,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !71
+  %16 = load i32, ptr %15, align 4, !tbaa !70
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %24
 
@@ -1789,7 +1789,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   %35 = load i32, ptr %25, align 8, !tbaa !46
   %36 = load i32, ptr %26, align 8, !tbaa !65
   %.not66 = icmp ult i32 %35, %36
-  br i1 %.not66, label %.loopexit, label %27, !llvm.loop !73
+  br i1 %.not66, label %.loopexit, label %27
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1801,7 +1801,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %43 = load i32, ptr %42, align 4, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %45 = load i32, ptr %44, align 4, !tbaa !71
+  %45 = load i32, ptr %44, align 4, !tbaa !70
   %46 = icmp eq i32 %43, %45
   br i1 %46, label %133, label %47
 
@@ -1826,9 +1826,9 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
 
 56:                                               ; preds = %53
   %57 = load i32, ptr %48, align 4, !tbaa !47
-  %58 = load i32, ptr %49, align 4, !tbaa !71
+  %58 = load i32, ptr %49, align 4, !tbaa !70
   %.not64 = icmp ult i32 %57, %58
-  br i1 %.not64, label %.loopexit, label %50, !llvm.loop !74
+  br i1 %.not64, label %.loopexit, label %50
 
 .loopexit:                                        ; preds = %53, %56, %50, %34, %30, %27
   %.1 = phi ptr [ %.057, %27 ], [ %.057, %30 ], [ %.057, %34 ], [ %.2, %50 ], [ %.2, %56 ], [ %.2, %53 ]
@@ -1908,9 +1908,9 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %101 = load i32, ptr %100, align 4, !tbaa !71
+  %101 = load i32, ptr %100, align 4, !tbaa !70
   %102 = add i32 %101, -1
-  store i32 %102, ptr %100, align 4, !tbaa !71
+  store i32 %102, ptr %100, align 4, !tbaa !70
   br label %107
 
 103:                                              ; preds = %92
@@ -2361,9 +2361,9 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %switch, label %194, label %197
 
 194:                                              ; preds = %188
-  %195 = load i32, ptr %75, align 4, !tbaa !71
+  %195 = load i32, ptr %75, align 4, !tbaa !70
   %196 = add i32 %195, -1
-  store i32 %196, ptr %75, align 4, !tbaa !71
+  store i32 %196, ptr %75, align 4, !tbaa !70
   br label %200
 
 197:                                              ; preds = %188
@@ -2383,7 +2383,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 205:                                              ; preds = %120, %82, %163, %200, %125, %162
   %206 = add nuw i64 %.0348474, 1
   %207 = icmp ult i64 %206, %65
-  br i1 %207, label %77, label %.thread464, !llvm.loop !75
+  br i1 %207, label %77, label %.thread464, !llvm.loop !72
 
 .thread422:                                       ; preds = %60
   br i1 %.not483, label %.thread464, label %.lr.ph477
@@ -2392,7 +2392,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %208 = phi i64 [ %52, %.thread422 ], [ %52, %47 ], [ %59, %54 ]
   %.0353419489 = phi i64 [ %65, %.thread422 ], [ 1, %47 ], [ 1, %54 ]
   %.0350421488 = phi i64 [ %spec.store.select, %.thread422 ], [ -1, %47 ], [ -1, %54 ]
-  %209 = load ptr, ptr %0, align 8, !tbaa !70
+  %209 = load ptr, ptr %0, align 8, !tbaa !69
   %210 = icmp eq i64 %.0353419489, 1
   %211 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %212 = sub i64 %208, %2
@@ -2693,7 +2693,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %379, label %388, label %380
 
 380:                                              ; preds = %378
-  %381 = load ptr, ptr %0, align 8, !tbaa !70
+  %381 = load ptr, ptr %0, align 8, !tbaa !69
   %382 = call i64 @H5FD_get_eof(ptr noundef %381, i32 noundef 0) #10
   %383 = icmp eq i64 %382, -1
   br i1 %383, label %384, label %388
@@ -2773,9 +2773,9 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %switch.i, label %428, label %431
 
 428:                                              ; preds = %425
-  %429 = load i32, ptr %223, align 4, !tbaa !71
+  %429 = load i32, ptr %223, align 4, !tbaa !70
   %430 = add i32 %429, 1
-  store i32 %430, ptr %223, align 4, !tbaa !71
+  store i32 %430, ptr %223, align 4, !tbaa !70
   br label %434
 
 431:                                              ; preds = %425
@@ -2820,7 +2820,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %.1352429461 = phi i64 [ %.1352428433, %280 ], [ %.1352428433, %283 ], [ %.1352430, %441 ], [ %.1352430, %408 ]
   %451 = add nuw i64 %.1349476, 1
   %exitcond.not = icmp eq i64 %451, %.0353419489
-  br i1 %exitcond.not, label %.thread464, label %224, !llvm.loop !76
+  br i1 %exitcond.not, label %.thread464, label %224, !llvm.loop !73
 
 .thread464:                                       ; preds = %205, %.thread456, %.preheader, %.thread422, %384, %397, %374, %367, %357, %350, %302, %305, %296, %444, %329, %22, %12, %27, %41
   %.0337 = phi i32 [ -1, %27 ], [ 0, %12 ], [ 0, %41 ], [ 0, %22 ], [ -1, %444 ], [ -1, %329 ], [ 0, %302 ], [ -1, %305 ], [ -1, %296 ], [ -1, %350 ], [ -1, %357 ], [ -1, %367 ], [ -1, %374 ], [ -1, %397 ], [ -1, %384 ], [ 0, %.thread422 ], [ 0, %.preheader ], [ 0, %.thread456 ], [ 0, %205 ]
@@ -2909,7 +2909,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5PB__write_entry(ptr noundef %0, p
   %27 = icmp ugt i64 %26, %12
   %28 = sub nuw i64 %12, %20
   %spec.select = select i1 %27, i64 %28, i64 %25
-  %29 = load ptr, ptr %0, align 8, !tbaa !70
+  %29 = load ptr, ptr %0, align 8, !tbaa !69
   %30 = load i32, ptr %10, align 8, !tbaa !64
   %31 = load ptr, ptr %1, align 8, !tbaa !62
   %32 = tail call i32 @H5FD_write(ptr noundef %29, i32 noundef %30, i64 noundef %20, i64 noundef %spec.select, ptr noundef %31) #10
@@ -3016,13 +3016,10 @@ attributes #10 = { nounwind }
 !64 = !{!53, !12, i64 16}
 !65 = !{!40, !12, i64 24}
 !66 = !{!"branch_weights", !"expected", i32 2146409907, i32 1073741}
-!67 = distinct !{!67, !68, !69}
+!67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = !{!14, !15, i64 0}
-!71 = !{!40, !12, i64 28}
-!72 = distinct !{!72, !68, !69}
-!73 = distinct !{!73, !69}
-!74 = distinct !{!74, !69}
-!75 = distinct !{!75, !68, !69}
-!76 = distinct !{!76, !68, !69}
+!69 = !{!14, !15, i64 0}
+!70 = !{!40, !12, i64 28}
+!71 = distinct !{!71, !68}
+!72 = distinct !{!72, !68}
+!73 = distinct !{!73, !68}

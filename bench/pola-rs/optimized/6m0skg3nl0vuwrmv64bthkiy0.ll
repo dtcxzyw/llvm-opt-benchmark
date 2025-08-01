@@ -2355,7 +2355,7 @@ tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %86 = load i64, ptr %37, align 8, !noundef !4
   %.not = icmp eq i64 %86, 0
-  br i1 %.not, label %._crit_edge45, label %57, !llvm.loop !190
+  br i1 %.not, label %._crit_edge45, label %57
 
 .loopexit:                                        ; preds = %57
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2410,8 +2410,8 @@ define void @_ZN12polars_error11PolarsError7context17h11b5904ba2b05657E(ptr dead
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !192
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 8, 65) 64, i64 noundef 8) #18, !noalias !192
+  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !190
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 8, 65) 64, i64 noundef 8) #18, !noalias !190
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %13, !prof !95
 
@@ -2487,7 +2487,7 @@ define void @_ZN12polars_error11PolarsError14remove_context17h61a5b1fb16e6ffb4E(
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef 64, i64 noundef 8) #18
   %11 = load i64, ptr %1, align 8, !range !26, !noundef !4
   %12 = icmp eq i64 %11, 15
-  br i1 %12, label %8, label %._crit_edge, !llvm.loop !195
+  br i1 %12, label %8, label %._crit_edge
 
 13:                                               ; preds = %15
   %14 = landingpad { ptr, i32 }
@@ -2895,9 +2895,6 @@ attributes #19 = { noreturn }
 !187 = distinct !{!187, !186, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h66d19b9ec73d3f8dE: argument 1"}
 !188 = !{!185}
 !189 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
-!190 = distinct !{!190, !191}
-!191 = !{!"llvm.loop.estimated_trip_count"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd110d6d041569447E: argument 0"}
-!194 = distinct !{!194, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd110d6d041569447E"}
-!195 = distinct !{!195, !191}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd110d6d041569447E: argument 0"}
+!192 = distinct !{!192, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd110d6d041569447E"}

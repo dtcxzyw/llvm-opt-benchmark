@@ -1520,7 +1520,7 @@ etw_ndis_packet_metadata.exit:                    ; preds = %119, %137
   %419 = add i32 %.1443, 1
   %420 = load i32, ptr %12, align 4
   %.not426 = icmp ugt i32 %419, %420
-  br i1 %.not426, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not426, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %393, %314, %278, %242, %76, %68, %73, %71, %63, %376, %367, %360, %348, %339, %323, %320, %148, %proto_item_set_generated.exit439
   %.0423 = phi i32 [ 0, %proto_item_set_generated.exit439 ], [ 12, %63 ], [ 12, %68 ], [ 12, %73 ], [ 12, %71 ], [ %81, %76 ], [ %150, %148 ], [ %277, %242 ], [ %313, %278 ], [ %319, %314 ], [ 4, %320 ], [ %338, %323 ], [ 16, %339 ], [ %359, %348 ], [ 12, %360 ], [ 10, %367 ], [ %392, %376 ], [ %405, %393 ], [ %416, %.lr.ph ]
@@ -2279,7 +2279,6 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

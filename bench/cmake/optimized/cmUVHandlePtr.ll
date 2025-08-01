@@ -5686,7 +5686,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   br i1 %.not.i.i.i, label %31, label %_ZNKSt8weak_ptrISt8functionIFviEEE4lockEv.exit
 
 _ZNKSt8weak_ptrISt8functionIFviEEE4lockEv.exit:   ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr %21, ptr %5, align 8, !tbaa !131, !alias.scope !125
+  store ptr %21, ptr %5, align 8, !tbaa !130, !alias.scope !125
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.thread, label %22
 
@@ -5694,7 +5694,7 @@ _ZNKSt8weak_ptrISt8functionIFviEEE4lockEv.exit:   ; preds = %_ZNKSt14__shared_co
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !133
+  %24 = load ptr, ptr %23, align 8, !tbaa !132
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %25, label %26
 
@@ -5707,7 +5707,7 @@ _ZNKSt8weak_ptrISt8functionIFviEEE4lockEv.exit:   ; preds = %_ZNKSt14__shared_co
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !135
+  %28 = load ptr, ptr %27, align 8, !tbaa !134
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZNKSt8functionIFviEEclEi.exit unwind label %29
 
@@ -5725,7 +5725,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %26
   resume { ptr, i32 } %30
 
 31:                                               ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  store ptr null, ptr %5, align 8, !tbaa !131, !alias.scope !125
+  store ptr null, ptr %5, align 8, !tbaa !130, !alias.scope !125
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt8weak_ptrISt8functionIFviEEE4lockEv.exit, %_ZNKSt8functionIFviEEclEi.exit, %31
@@ -5936,7 +5936,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt5mut
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !137
+  %7 = load ptr, ptr %6, align 8, !tbaa !136
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -6039,7 +6039,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP9uv_loop_sN2cm15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP9uv_loop_sN2cm15uv_loop_deleterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !139
+  %3 = load ptr, ptr %2, align 8, !tbaa !138
   %4 = invoke i32 @uv_run(ptr noundef %3, i32 noundef 0)
           to label %.noexc unwind label %7
 
@@ -6069,7 +6069,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP9uv_loop_sN2cm15uv_loop_delet
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP9uv_loop_sN2cm15uv_loop_deleterESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm15uv_loop_deleterE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6128,7 +6128,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP11uv_handle_sN2c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP11uv_handle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !141
+  %3 = load ptr, ptr %2, align 8, !tbaa !140
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI11uv_handle_sEclEPS1_.exit, label %4
 
@@ -6165,7 +6165,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP11uv_handle_sN2cm17uv_handle_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP11uv_handle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI11uv_handle_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6225,7 +6225,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP9uv_idle_sN2cm17
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP9uv_idle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !143
+  %3 = load ptr, ptr %2, align 8, !tbaa !142
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI9uv_idle_sEclEPS1_.exit, label %4
 
@@ -6262,7 +6262,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP9uv_idle_sN2cm17uv_handle_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP9uv_idle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI9uv_idle_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6319,7 +6319,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP11uv_signal_sN2c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP11uv_signal_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !145
+  %3 = load ptr, ptr %2, align 8, !tbaa !144
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNK2cm17uv_handle_deleterI11uv_signal_sEclEPS1_.exit, label %4
 
@@ -6360,7 +6360,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP11uv_signal_sN2cm17uv_handle_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP11uv_signal_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI11uv_signal_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6416,7 +6416,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP9uv_pipe_sN2cm17
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP9uv_pipe_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !147
+  %3 = load ptr, ptr %2, align 8, !tbaa !146
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI9uv_pipe_sEclEPS1_.exit, label %4
 
@@ -6453,7 +6453,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP9uv_pipe_sN2cm17uv_handle_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP9uv_pipe_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI9uv_pipe_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6509,7 +6509,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP11uv_stream_sN2c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP11uv_stream_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8, !tbaa !148
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI11uv_stream_sEclEPS1_.exit, label %4
 
@@ -6546,7 +6546,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP11uv_stream_sN2cm17uv_handle_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP11uv_stream_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI11uv_stream_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6602,7 +6602,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP12uv_process_sN2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP12uv_process_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !151
+  %3 = load ptr, ptr %2, align 8, !tbaa !150
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI12uv_process_sEclEPS1_.exit, label %4
 
@@ -6639,7 +6639,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP12uv_process_sN2cm17uv_handle
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP12uv_process_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI12uv_process_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6695,7 +6695,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP10uv_timer_sN2cm
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP10uv_timer_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !153
+  %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI10uv_timer_sEclEPS1_.exit, label %4
 
@@ -6732,7 +6732,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP10uv_timer_sN2cm17uv_handle_d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP10uv_timer_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI10uv_timer_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6815,7 +6815,7 @@ _ZN2cm17uv_handle_deleterI10uv_async_sED2Ev.exit: ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %8, ptr %24, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %1, ptr %25, align 8, !tbaa !155
+  store ptr %1, ptr %25, align 8, !tbaa !154
   store ptr %9, ptr %0, align 8, !tbaa !9
   ret void
 
@@ -6977,7 +6977,7 @@ _ZNSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__g
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !160
+  %4 = load ptr, ptr %3, align 8, !tbaa !159
   %5 = load ptr, ptr %2, align 8, !tbaa !94
   %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   %.not.i.i.i = icmp eq i32 %6, 0
@@ -7087,7 +7087,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI10uv_async_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -7148,7 +7148,7 @@ define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP8uv_tty_sN2cm17u
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIP8uv_tty_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !162
+  %3 = load ptr, ptr %2, align 8, !tbaa !161
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK2cm17uv_handle_deleterI8uv_tty_sEclEPS1_.exit, label %4
 
@@ -7185,7 +7185,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIP8uv_tty_sN2cm17uv_handle_dele
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt19_Sp_counted_deleterIP8uv_tty_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = icmp eq ptr %4, @_ZTSN2cm17uv_handle_deleterI8uv_tty_sEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -7373,39 +7373,38 @@ attributes #24 = { builtin nounwind }
 !125 = !{!126}
 !126 = distinct !{!126, !127, !"_ZNKSt8weak_ptrISt8functionIFviEEE4lockEv: argument 0"}
 !127 = distinct !{!127, !"_ZNKSt8weak_ptrISt8functionIFviEEE4lockEv"}
-!128 = distinct !{!128, !129, !130}
+!128 = distinct !{!128, !129}
 !129 = !{!"llvm.loop.mustprogress"}
-!130 = !{!"llvm.loop.estimated_trip_count"}
-!131 = !{!132, !120, i64 0}
-!132 = !{!"_ZTSSt12__shared_ptrISt8functionIFviEELN9__gnu_cxx12_Lock_policyE2EE", !120, i64 0, !10, i64 8}
-!133 = !{!134, !6, i64 16}
-!134 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
-!135 = !{!136, !6, i64 24}
-!136 = !{!"_ZTSSt8functionIFviEE", !134, i64 0, !6, i64 24}
-!137 = !{!138, !56, i64 8}
-!138 = !{!"_ZTSSt9type_info", !56, i64 8}
-!139 = !{!140, !25, i64 16}
-!140 = !{!"_ZTSSt19_Sp_counted_deleterIP9uv_loop_sN2cm15uv_loop_deleterESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !113, i64 16}
-!141 = !{!142, !5, i64 16}
-!142 = !{!"_ZTSSt19_Sp_counted_deleterIP11uv_handle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !28, i64 16}
-!143 = !{!144, !30, i64 16}
-!144 = !{!"_ZTSSt19_Sp_counted_deleterIP9uv_idle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !36, i64 16}
-!145 = !{!146, !38, i64 16}
-!146 = !{!"_ZTSSt19_Sp_counted_deleterIP11uv_signal_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !45, i64 16}
-!147 = !{!148, !47, i64 16}
-!148 = !{!"_ZTSSt19_Sp_counted_deleterIP9uv_pipe_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !58, i64 16}
-!149 = !{!150, !60, i64 16}
-!150 = !{!"_ZTSSt19_Sp_counted_deleterIP11uv_stream_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !66, i64 16}
-!151 = !{!152, !68, i64 16}
-!152 = !{!"_ZTSSt19_Sp_counted_deleterIP12uv_process_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !74, i64 16}
-!153 = !{!154, !76, i64 16}
-!154 = !{!"_ZTSSt19_Sp_counted_deleterIP10uv_timer_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !82, i64 16}
-!155 = !{!156, !84, i64 16}
-!156 = !{!"_ZTSNSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !157, i64 0, !84, i64 16}
-!157 = !{!"_ZTSSt14_Sp_ebo_helperILi0EN2cm17uv_handle_deleterI10uv_async_sEELb0EE", !158, i64 0}
-!158 = !{!"_ZTSN2cm17uv_handle_deleterI10uv_async_sEE", !159, i64 0}
-!159 = !{!"_ZTSSt10shared_ptrISt5mutexE", !95, i64 0}
-!160 = !{!161, !84, i64 32}
-!161 = !{!"_ZTSSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !156, i64 16}
-!162 = !{!163, !97, i64 16}
-!163 = !{!"_ZTSSt19_Sp_counted_deleterIP8uv_tty_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !104, i64 16}
+!130 = !{!131, !120, i64 0}
+!131 = !{!"_ZTSSt12__shared_ptrISt8functionIFviEELN9__gnu_cxx12_Lock_policyE2EE", !120, i64 0, !10, i64 8}
+!132 = !{!133, !6, i64 16}
+!133 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
+!134 = !{!135, !6, i64 24}
+!135 = !{!"_ZTSSt8functionIFviEE", !133, i64 0, !6, i64 24}
+!136 = !{!137, !56, i64 8}
+!137 = !{!"_ZTSSt9type_info", !56, i64 8}
+!138 = !{!139, !25, i64 16}
+!139 = !{!"_ZTSSt19_Sp_counted_deleterIP9uv_loop_sN2cm15uv_loop_deleterESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !113, i64 16}
+!140 = !{!141, !5, i64 16}
+!141 = !{!"_ZTSSt19_Sp_counted_deleterIP11uv_handle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !28, i64 16}
+!142 = !{!143, !30, i64 16}
+!143 = !{!"_ZTSSt19_Sp_counted_deleterIP9uv_idle_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !36, i64 16}
+!144 = !{!145, !38, i64 16}
+!145 = !{!"_ZTSSt19_Sp_counted_deleterIP11uv_signal_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !45, i64 16}
+!146 = !{!147, !47, i64 16}
+!147 = !{!"_ZTSSt19_Sp_counted_deleterIP9uv_pipe_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !58, i64 16}
+!148 = !{!149, !60, i64 16}
+!149 = !{!"_ZTSSt19_Sp_counted_deleterIP11uv_stream_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !66, i64 16}
+!150 = !{!151, !68, i64 16}
+!151 = !{!"_ZTSSt19_Sp_counted_deleterIP12uv_process_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !74, i64 16}
+!152 = !{!153, !76, i64 16}
+!153 = !{!"_ZTSSt19_Sp_counted_deleterIP10uv_timer_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !82, i64 16}
+!154 = !{!155, !84, i64 16}
+!155 = !{!"_ZTSNSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplE", !156, i64 0, !84, i64 16}
+!156 = !{!"_ZTSSt14_Sp_ebo_helperILi0EN2cm17uv_handle_deleterI10uv_async_sEELb0EE", !157, i64 0}
+!157 = !{!"_ZTSN2cm17uv_handle_deleterI10uv_async_sEE", !158, i64 0}
+!158 = !{!"_ZTSSt10shared_ptrISt5mutexE", !95, i64 0}
+!159 = !{!160, !84, i64 32}
+!160 = !{!"_ZTSSt19_Sp_counted_deleterIP10uv_async_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !155, i64 16}
+!161 = !{!162, !97, i64 16}
+!162 = !{!"_ZTSSt19_Sp_counted_deleterIP8uv_tty_sN2cm17uv_handle_deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0, !104, i64 16}

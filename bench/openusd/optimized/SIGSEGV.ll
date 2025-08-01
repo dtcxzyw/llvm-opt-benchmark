@@ -242,7 +242,7 @@ define internal void @_ZL11_ThreadTaskv() #4 personality ptr @__gxx_personality_
   %14 = tail call ptr @__errno_location() #14
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %10, label %17, !llvm.loop !8
+  br i1 %16, label %10, label %17, !llvm.loop !7
 
 17:                                               ; preds = %13, %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
@@ -350,7 +350,6 @@ attributes #16 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

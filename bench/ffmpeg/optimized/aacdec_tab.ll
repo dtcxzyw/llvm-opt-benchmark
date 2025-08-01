@@ -76,11 +76,11 @@ define internal void @aacdec_common_init() #0 {
   %indvars.iv22 = phi i64 [ 0, %2 ], [ %indvars.iv.next23, %16 ]
   %.01619 = phi ptr [ @sbr_huffman_tab, %2 ], [ %27, %16 ]
   %17 = getelementptr inbounds nuw [10 x i8], ptr @sbr_huffman_nb_codes, i64 0, i64 %indvars.iv22
-  %18 = load i8, ptr %17, align 1, !tbaa !18
+  %18 = load i8, ptr %17, align 1, !tbaa !17
   %19 = zext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %.01619, i64 1
   %21 = getelementptr inbounds nuw [10 x i8], ptr @sbr_vlc_offsets, i64 0, i64 %indvars.iv22
-  %22 = load i8, ptr %21, align 1, !tbaa !18
+  %22 = load i8, ptr %21, align 1, !tbaa !17
   %23 = sext i8 %22 to i32
   %24 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef %19, ptr noundef nonnull %20, i32 noundef 2, ptr noundef nonnull %.01619, i32 noundef 2, i32 noundef 1, i32 noundef %23, i32 noundef 0) #4
   %25 = getelementptr inbounds nuw [10 x ptr], ptr @ff_aac_sbr_vlc, i64 0, i64 %indvars.iv22
@@ -89,7 +89,7 @@ define internal void @aacdec_common_init() #0 {
   %27 = getelementptr inbounds nuw [2 x i8], ptr %.01619, i64 %26
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 10
-  br i1 %exitcond25.not, label %15, label %16, !llvm.loop !19
+  br i1 %exitcond25.not, label %15, label %16, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -132,8 +132,7 @@ attributes #4 = { nounwind }
 !12 = !{!"p1 short", !10, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS7VLCElem", !10, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !16, !17}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !16}

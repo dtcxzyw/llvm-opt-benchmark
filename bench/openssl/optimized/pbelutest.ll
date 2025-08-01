@@ -74,7 +74,7 @@ define internal range(i32 0, 2) i32 @test_pbelu() #0 {
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %27 = call i32 @EVP_PBE_get(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %indvars.iv.next32) #3
   %.not18 = icmp eq i32 %27, 0
-  br i1 %.not18, label %.critedge, label %.lr.ph27, !llvm.loop !11
+  br i1 %.not18, label %.critedge, label %.lr.ph27, !llvm.loop !10
 
 .critedge:                                        ; preds = %15, %.lr.ph27, %0, %10
   %.014 = phi i32 [ 0, %10 ], [ 1, %0 ], [ 0, %.lr.ph27 ], [ 1, %15 ]
@@ -114,7 +114,6 @@ attributes #3 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

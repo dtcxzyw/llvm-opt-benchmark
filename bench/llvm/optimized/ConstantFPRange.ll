@@ -4554,7 +4554,7 @@ _ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i:        ; preds = %18, %15
 
 _ZN4llvm7APFloat7StorageD2Ev.exit:                ; preds = %14, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i
   %19 = icmp eq ptr %12, %1
-  br i1 %19, label %.loopexit, label %10, !llvm.loop !72
+  br i1 %19, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %_ZN4llvm7APFloat7StorageD2Ev.exit, %4
   %20 = add i64 %.idx, 8
@@ -4778,5 +4778,3 @@ attributes #14 = { builtin nounwind }
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZN4llvm7APFloat6getInfERKNS_12fltSemanticsEb: argument 0"}
 !71 = distinct !{!71, !"_ZN4llvm7APFloat6getInfERKNS_12fltSemanticsEb"}
-!72 = distinct !{!72, !73}
-!73 = !{!"llvm.loop.estimated_trip_count"}

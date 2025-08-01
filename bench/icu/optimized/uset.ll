@@ -1147,7 +1147,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %29 = add nsw i32 %.076., %..180
   %30 = ashr i32 %29, 1
   %31 = icmp eq i32 %30, %.076.
-  br i1 %31, label %.thread, label %.lr.ph106, !llvm.loop !36
+  br i1 %31, label %.thread, label %.lr.ph106
 
 .thread:                                          ; preds = %.lr.ph106, %.preheader, %12, %8
   %.079 = phi i32 [ 0, %8 ], [ %14, %12 ], [ %15, %.preheader ], [ %..180, %.lr.ph106 ]
@@ -1247,7 +1247,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %94 = ashr i32 %93, 1
   %95 = and i32 %94, -2
   %96 = icmp eq i32 %95, %.174
-  br i1 %96, label %.thread97, label %76, !llvm.loop !38
+  br i1 %96, label %.thread97, label %76
 
 97:                                               ; preds = %63, %61
   %98 = add nsw i32 %41, 2
@@ -1445,6 +1445,3 @@ attributes #10 = { nounwind }
 !33 = !{!"short", !11, i64 0}
 !34 = !{!30, !31, i64 0}
 !35 = !{!30, !13, i64 12}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !37}

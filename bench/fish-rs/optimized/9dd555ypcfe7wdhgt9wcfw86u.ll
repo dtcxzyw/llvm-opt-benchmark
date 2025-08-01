@@ -70,7 +70,7 @@ define hidden noundef i32 @_ZN11fish_printf6fmt_fp6log10u17he222b7f68c2765bdE(i3
   %3 = add i32 %.sroa.0.06, 1
   %4 = mul i32 %.sroa.02.05, 10
   %.not = icmp ugt i32 %4, %0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.sroa.0.1 = phi i32 [ 9, %1 ], [ 0, %.preheader ], [ %3, %.lr.ph ]
@@ -98,7 +98,7 @@ define noundef i32 @_ZN11fish_printf6fmt_fp22trailing_decimal_zeros17h20bcb5c09b
   %6 = udiv i32 %.sroa.0.06, 10
   %7 = urem i32 %6, 10
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %8, label %.lr.ph, label %.loopexit
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -112,6 +112,3 @@ attributes #2 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwta
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.89.0-nightly (60dabef95 2025-05-19)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}

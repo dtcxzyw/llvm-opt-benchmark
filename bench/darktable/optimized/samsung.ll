@@ -162,7 +162,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   store i32 %75, ptr %76, align 4, !tbaa !79
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 4
-  br i1 %exitcond152.not, label %.loopexit, label %74, !llvm.loop !83
+  br i1 %exitcond152.not, label %.loopexit, label %74, !llvm.loop !82
 
 77:                                               ; preds = %47
   %78 = add i32 %4, -1
@@ -182,7 +182,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %switch.select = select i1 %switch.selectcmp, i16 2, i16 255
   %switch.selectcmp189 = icmp eq i16 %82, 0
   %switch.select190 = select i1 %switch.selectcmp189, i16 1, i16 %switch.select
-  store i16 %switch.select190, ptr %85, align 8, !tbaa !84
+  store i16 %switch.select190, ptr %85, align 8, !tbaa !83
   br i1 %81, label %86, label %.loopexit
 
 86:                                               ; preds = %80
@@ -196,7 +196,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %91 = tail call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %3)
   %92 = fptrunc reassoc nsz arcp contract afn double %91 to float
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  store float %92, ptr %93, align 4, !tbaa !85
+  store float %92, ptr %93, align 4, !tbaa !84
   br label %.loopexit
 
 94:                                               ; preds = %47
@@ -216,7 +216,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %103 = icmp ugt i32 %100, 159
   %104 = fmul reassoc nsz arcp contract afn float %101, 0x3FB99999A0000000
   %spec.select = select i1 %103, float %104, float %101
-  store float %spec.select, ptr %102, align 4, !tbaa !86
+  store float %spec.select, ptr %102, align 4, !tbaa !85
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   %106 = load i16, ptr %105, align 2, !tbaa !71
   %107 = icmp eq i16 %106, 37
@@ -228,7 +228,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 
 111:                                              ; preds = %99
   %112 = fmul reassoc nsz arcp contract afn float %spec.select, 0x3FF99999A0000000
-  store float %112, ptr %102, align 4, !tbaa !86
+  store float %112, ptr %102, align 4, !tbaa !85
   br label %.loopexit
 
 113:                                              ; preds = %.preheader127, %113
@@ -238,7 +238,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   store i32 %114, ptr %115, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %.loopexit, label %113, !llvm.loop !87
+  br i1 %exitcond.not, label %.loopexit, label %113, !llvm.loop !86
 
 .thread:                                          ; preds = %94, %77
   %116 = icmp eq i32 %5, 0
@@ -267,10 +267,10 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %130 = xor i32 %129, %128
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw [4 x float], ptr %121, i64 0, i64 %131
-  store float %127, ptr %132, align 4, !tbaa !88
+  store float %127, ptr %132, align 4, !tbaa !87
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 4
-  br i1 %exitcond184.not, label %.loopexit, label %122, !llvm.loop !89
+  br i1 %exitcond184.not, label %.loopexit, label %122, !llvm.loop !88
 
 133:                                              ; preds = %.thread, %117
   %134 = phi i1 [ %116, %.thread ], [ %119, %117 ]
@@ -311,7 +311,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   store i32 %146, ptr %151, align 4, !tbaa !79
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
-  br i1 %exitcond164.not, label %152, label %141, !llvm.loop !90
+  br i1 %exitcond164.not, label %152, label %141, !llvm.loop !89
 
 152:                                              ; preds = %141
   %153 = load i32, ptr %140, align 4, !tbaa !79
@@ -334,7 +334,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %indvars.iv157 = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next158, %163 ]
   %164 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %165 = getelementptr inbounds nuw [4 x i16], ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 0, i64 %indvars.iv157
-  %166 = load i16, ptr %165, align 2, !tbaa !91
+  %166 = load i16, ptr %165, align 2, !tbaa !90
   %167 = zext i16 %166 to i64
   %168 = getelementptr inbounds nuw [11 x i32], ptr %137, i64 0, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !79
@@ -347,7 +347,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   store i32 %170, ptr %175, align 4, !tbaa !79
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
-  br i1 %exitcond160.not, label %176, label %163, !llvm.loop !92
+  br i1 %exitcond160.not, label %176, label %163, !llvm.loop !91
 
 176:                                              ; preds = %163
   %177 = load i32, ptr %138, align 4, !tbaa !79
@@ -380,7 +380,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %196 = getelementptr inbounds nuw [4 x i32], ptr %136, i64 0, i64 %195
   store i32 %191, ptr %196, align 4, !tbaa !79
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 4
-  br i1 %exitcond156.not, label %197, label %187, !llvm.loop !93
+  br i1 %exitcond156.not, label %197, label %187, !llvm.loop !92
 
 197:                                              ; preds = %187
   %198 = load i32, ptr %136, align 4, !tbaa !79
@@ -409,14 +409,14 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 
 214:                                              ; preds = %208
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 4648
-  store double 1.000000e+00, ptr %215, align 8, !tbaa !94
+  store double 1.000000e+00, ptr %215, align 8, !tbaa !93
   br label %.loopexit
 
 216:                                              ; preds = %208
   %217 = uitofp i32 %212 to double
   %218 = fmul reassoc nsz arcp contract afn double %217, 0x3F30000000000000
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 4648
-  store double %218, ptr %219, align 8, !tbaa !94
+  store double %218, ptr %219, align 8, !tbaa !93
   br label %.loopexit
 
 220:                                              ; preds = %133
@@ -443,7 +443,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   store i32 %228, ptr %233, align 4, !tbaa !79
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 4
-  br i1 %exitcond180.not, label %.loopexit, label %224, !llvm.loop !95
+  br i1 %exitcond180.not, label %.loopexit, label %224, !llvm.loop !94
 
 234:                                              ; preds = %220
   %235 = icmp eq i32 %2, 41008
@@ -474,15 +474,15 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %249 = fmul reassoc nsz arcp contract afn double %248, 3.906250e-03
   %250 = fptrunc reassoc nsz arcp contract afn double %249 to float
   %251 = getelementptr inbounds nuw [4 x float], ptr %240, i64 0, i64 %indvars.iv169
-  store float %250, ptr %251, align 4, !tbaa !88
+  store float %250, ptr %251, align 4, !tbaa !87
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond172.not, label %252, label %241, !llvm.loop !96
+  br i1 %exitcond172.not, label %252, label %241, !llvm.loop !95
 
 252:                                              ; preds = %241
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 3
-  br i1 %exitcond176.not, label %.loopexit, label %.preheader118, !llvm.loop !97
+  br i1 %exitcond176.not, label %.loopexit, label %.preheader118, !llvm.loop !96
 
 253:                                              ; preds = %234
   %254 = icmp eq i32 %2, 41010
@@ -505,10 +505,10 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %263 = sitofp i16 %262 to double
   %264 = fmul reassoc nsz arcp contract afn double %263, 3.906250e-03
   %265 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
-  store double %264, ptr %265, align 8, !tbaa !98
+  store double %264, ptr %265, align 8, !tbaa !97
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 9
-  br i1 %exitcond168.not, label %266, label %257, !llvm.loop !99
+  br i1 %exitcond168.not, label %266, label %257, !llvm.loop !98
 
 266:                                              ; preds = %257
   call void @_ZN6LibRaw10aRGB_coeffEPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %7)
@@ -630,23 +630,22 @@ attributes #5 = { nounwind }
 !77 = !{!7, !60, i64 381416}
 !78 = !{!7, !24, i64 1200}
 !79 = !{!15, !15, i64 0}
-!80 = distinct !{!80, !81, !82}
+!80 = distinct !{!80, !81}
 !81 = !{!"llvm.loop.mustprogress"}
-!82 = !{!"llvm.loop.estimated_trip_count"}
-!83 = distinct !{!83, !81, !82}
-!84 = !{!7, !14, i64 4760}
-!85 = !{!7, !20, i64 1492}
-!86 = !{!7, !20, i64 1932}
-!87 = distinct !{!87, !81, !82}
-!88 = !{!20, !20, i64 0}
-!89 = distinct !{!89, !81, !82}
-!90 = distinct !{!90, !81, !82}
-!91 = !{!14, !14, i64 0}
-!92 = distinct !{!92, !81, !82}
-!93 = distinct !{!93, !81, !82}
-!94 = !{!7, !16, i64 4648}
-!95 = distinct !{!95, !81, !82}
-!96 = distinct !{!96, !81, !82}
-!97 = distinct !{!97, !81, !82}
-!98 = !{!16, !16, i64 0}
-!99 = distinct !{!99, !81, !82}
+!82 = distinct !{!82, !81}
+!83 = !{!7, !14, i64 4760}
+!84 = !{!7, !20, i64 1492}
+!85 = !{!7, !20, i64 1932}
+!86 = distinct !{!86, !81}
+!87 = !{!20, !20, i64 0}
+!88 = distinct !{!88, !81}
+!89 = distinct !{!89, !81}
+!90 = !{!14, !14, i64 0}
+!91 = distinct !{!91, !81}
+!92 = distinct !{!92, !81}
+!93 = !{!7, !16, i64 4648}
+!94 = distinct !{!94, !81}
+!95 = distinct !{!95, !81}
+!96 = distinct !{!96, !81}
+!97 = !{!16, !16, i64 0}
+!98 = distinct !{!98, !81}

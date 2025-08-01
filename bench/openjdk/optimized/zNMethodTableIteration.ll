@@ -87,7 +87,7 @@ define hidden void @_ZN22ZNMethodTableIteration11nmethods_doEP14NMethodClosure(p
 29:                                               ; preds = %.lr.ph, %24
   %30 = add i64 %.012, 1
   %exitcond.not = icmp eq i64 %30, %17
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret void
@@ -116,7 +116,6 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

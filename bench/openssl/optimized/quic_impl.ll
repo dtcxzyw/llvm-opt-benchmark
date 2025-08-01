@@ -2264,9 +2264,9 @@ expect_quic_as.exit:                              ; preds = %28, %21, %18
   %spec.select = select i1 %.not31, i64 %2, i64 %51
   %52 = trunc i64 %spec.select to i32
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %54 = load i32, ptr %53, align 8, !tbaa !176
+  %54 = load i32, ptr %53, align 8, !tbaa !175
   %55 = or i32 %54, %52
-  store i32 %55, ptr %53, align 8, !tbaa !176
+  store i32 %55, ptr %53, align 8, !tbaa !175
   %56 = zext i32 %55 to i64
   br label %expect_quic_as.exit.thread
 
@@ -2303,9 +2303,9 @@ expect_quic_as.exit:                              ; preds = %28, %21, %18
   %72 = trunc i64 %2 to i32
   %73 = xor i32 %72, -1
   %74 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %75 = load i32, ptr %74, align 8, !tbaa !176
+  %75 = load i32, ptr %74, align 8, !tbaa !175
   %76 = and i32 %75, %73
-  store i32 %76, ptr %74, align 8, !tbaa !176
+  store i32 %76, ptr %74, align 8, !tbaa !175
   %77 = zext i32 %76 to i64
   br label %expect_quic_as.exit.thread
 
@@ -2691,7 +2691,7 @@ quic_mutation_allowed.exit:                       ; preds = %12
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %99 = load ptr, ptr %98, align 8, !tbaa !177
+  %99 = load ptr, ptr %98, align 8, !tbaa !176
   tail call void @ossl_quic_engine_update_poll_descriptors(ptr noundef %99, i32 noundef 1) #12
   br label %100
 
@@ -2703,7 +2703,7 @@ quic_mutation_allowed.exit:                       ; preds = %12
 
 102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store ptr %4, ptr %2, align 8, !tbaa !178
+  store ptr %4, ptr %2, align 8, !tbaa !177
   %.val70 = load ptr, ptr %0, align 8, !tbaa !157
   %103 = getelementptr i8, ptr %.val70, i64 88
   %.val70.val = load ptr, ptr %103, align 8, !tbaa !143
@@ -3003,9 +3003,9 @@ quic_mutation_allowed.exit:                       ; preds = %18
   br label %.thread
 
 30:                                               ; preds = %27
-  store ptr %6, ptr %4, align 8, !tbaa !180
+  store ptr %6, ptr %4, align 8, !tbaa !179
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %8, ptr %31, align 8, !tbaa !182
+  store i32 %8, ptr %31, align 8, !tbaa !181
   %.val52 = load ptr, ptr %0, align 8, !tbaa !157
   %32 = getelementptr i8, ptr %.val52, i64 88
   %.val52.val = load ptr, ptr %32, align 8, !tbaa !143
@@ -3272,7 +3272,7 @@ qctx_lock_for_io.exit:                            ; preds = %26, %23, %21, %18, 
 
 32:                                               ; preds = %qctx_lock_for_io.exit
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 168
-  %34 = load i32, ptr %33, align 8, !tbaa !176
+  %34 = load i32, ptr %33, align 8, !tbaa !175
   %35 = and i32 %34, 1
   %36 = icmp eq i32 %35, 0
   br label %37
@@ -3469,19 +3469,19 @@ quic_post_write.exit.i:                           ; preds = %113, %111
   br i1 %125, label %quic_write_blocking.exit, label %126
 
 126:                                              ; preds = %quic_post_write.exit.i
-  store ptr %97, ptr %6, align 8, !tbaa !183
+  store ptr %97, ptr %6, align 8, !tbaa !182
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 %124
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %127, ptr %128, align 8, !tbaa !185
+  store ptr %127, ptr %128, align 8, !tbaa !184
   %129 = sub i64 %2, %124
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %129, ptr %130, align 8, !tbaa !186
+  store i64 %129, ptr %130, align 8, !tbaa !185
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %131, align 8, !tbaa !187
+  store i64 0, ptr %131, align 8, !tbaa !186
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 786691, ptr %132, align 8, !tbaa !188
+  store i32 786691, ptr %132, align 8, !tbaa !187
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %3, ptr %133, align 8, !tbaa !189
+  store i64 %3, ptr %133, align 8, !tbaa !188
   %.val.i42 = load ptr, ptr %8, align 8, !tbaa !157
   %134 = getelementptr i8, ptr %.val.i42, i64 88
   %.val.val.i43 = load ptr, ptr %134, align 8, !tbaa !143
@@ -3517,12 +3517,12 @@ quic_post_write.exit.i:                           ; preds = %113, %111
   br label %quic_write_blocking.exit
 
 quic_mutation_allowed.exit.i:                     ; preds = %147
-  %151 = load i32, ptr %132, align 8, !tbaa !188
+  %151 = load i32, ptr %132, align 8, !tbaa !187
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull readonly %8, ptr nonnull poison, i32 noundef 2558, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %151, ptr noundef null)
   br label %quic_write_blocking.exit
 
 152:                                              ; preds = %126
-  %153 = load i64, ptr %131, align 8, !tbaa !187
+  %153 = load i64, ptr %131, align 8, !tbaa !186
   %154 = load i64, ptr %4, align 8, !tbaa !160
   %155 = add i64 %154, %153
   store i64 %155, ptr %4, align 8, !tbaa !160
@@ -3775,20 +3775,20 @@ define internal fastcc range(i32 0, 2) i32 @quic_write_nonblocking_aon(ptr nound
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %14 = load i32, ptr %13, align 8, !tbaa !176
+  %14 = load i32, ptr %13, align 8, !tbaa !175
   %15 = and i32 %14, 2
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %19
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %18 = load ptr, ptr %17, align 8, !tbaa !190
+  %18 = load ptr, ptr %17, align 8, !tbaa !189
   %.not43 = icmp eq ptr %18, %1
   br i1 %.not43, label %19, label %22
 
 19:                                               ; preds = %16, %12
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %21 = load i64, ptr %20, align 8, !tbaa !191
+  %21 = load i64, ptr %20, align 8, !tbaa !190
   %.not44 = icmp eq i64 %2, %21
   br i1 %.not44, label %23, label %22
 
@@ -3798,7 +3798,7 @@ define internal fastcc range(i32 0, 2) i32 @quic_write_nonblocking_aon(ptr nound
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %25 = load i64, ptr %24, align 8, !tbaa !192
+  %25 = load i64, ptr %24, align 8, !tbaa !191
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
   %27 = sub i64 %2, %25
   br label %28
@@ -3891,7 +3891,7 @@ quic_post_write.exit:                             ; preds = %58, %59
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %73 = load i64, ptr %72, align 8, !tbaa !191
+  %73 = load i64, ptr %72, align 8, !tbaa !190
   store i64 %73, ptr %4, align 8, !tbaa !160
   %74 = load i8, ptr %9, align 8
   %75 = and i8 %74, -5
@@ -3909,9 +3909,9 @@ quic_post_write.exit:                             ; preds = %58, %59
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %81 = load i64, ptr %80, align 8, !tbaa !192
+  %81 = load i64, ptr %80, align 8, !tbaa !191
   %82 = add i64 %81, %66
-  store i64 %82, ptr %80, align 8, !tbaa !192
+  store i64 %82, ptr %80, align 8, !tbaa !191
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %84 = load i32, ptr %83, align 4, !tbaa !126
   %.not.i.i = icmp eq i32 %84, 0
@@ -3952,11 +3952,11 @@ quic_post_write.exit:                             ; preds = %58, %59
   %99 = or disjoint i8 %68, 4
   store i8 %99, ptr %9, align 8
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store ptr %1, ptr %100, align 8, !tbaa !190
+  store ptr %1, ptr %100, align 8, !tbaa !189
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  store i64 %66, ptr %101, align 8, !tbaa !192
+  store i64 %66, ptr %101, align 8, !tbaa !191
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  store i64 %2, ptr %102, align 8, !tbaa !191
+  store i64 %2, ptr %102, align 8, !tbaa !190
   br label %103
 
 103:                                              ; preds = %98, %97
@@ -4159,20 +4159,20 @@ quic_mutation_allowed.exit36:                     ; preds = %67
   br i1 %.not25, label %89, label %73
 
 73:                                               ; preds = %quic_mutation_allowed.exit36
-  store ptr %6, ptr %7, align 8, !tbaa !193
+  store ptr %6, ptr %7, align 8, !tbaa !192
   %74 = load ptr, ptr %28, align 8, !tbaa !130
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
   %76 = load ptr, ptr %75, align 8, !tbaa !145
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %76, ptr %77, align 8, !tbaa !196
+  store ptr %76, ptr %77, align 8, !tbaa !195
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %1, ptr %78, align 8, !tbaa !197
+  store ptr %1, ptr %78, align 8, !tbaa !196
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %2, ptr %79, align 8, !tbaa !198
+  store i64 %2, ptr %79, align 8, !tbaa !197
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %3, ptr %80, align 8, !tbaa !199
+  store ptr %3, ptr %80, align 8, !tbaa !198
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 %4, ptr %81, align 8, !tbaa !200
+  store i32 %4, ptr %81, align 8, !tbaa !199
   %.val31 = load ptr, ptr %6, align 8, !tbaa !157
   %82 = getelementptr i8, ptr %.val31, i64 88
   %.val31.val = load ptr, ptr %82, align 8, !tbaa !143
@@ -4859,7 +4859,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_domain_flags(ptr noundef readonly capt
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %12 = load i64, ptr %11, align 8, !tbaa !201
+  %12 = load i64, ptr %11, align 8, !tbaa !200
   store i64 %12, ptr %1, align 8, !tbaa !160
   br label %expect_quic_as.exit
 
@@ -4941,7 +4941,7 @@ define i64 @ossl_quic_get_stream_id(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8, !tbaa !145
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %10 = load i64, ptr %9, align 8, !tbaa !202
+  %10 = load i64, ptr %9, align 8, !tbaa !201
   %.val = load ptr, ptr %2, align 8, !tbaa !157
   %11 = getelementptr i8, ptr %.val, i64 88
   %.val.val = load ptr, ptr %11, align 8, !tbaa !143
@@ -5073,7 +5073,7 @@ define ptr @ossl_quic_detach_stream(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %9, align 8, !tbaa !124
   %12 = call i32 @SSL_up_ref(ptr noundef nonnull %8) #12
   %.not12.i = icmp eq i32 %12, 0
-  br i1 %.not12.i, label %qc_set_default_xso_keep_ref.exit, label %CRYPTO_DOWN_REF.exit.i, !prof !203
+  br i1 %.not12.i, label %qc_set_default_xso_keep_ref.exit, label %CRYPTO_DOWN_REF.exit.i, !prof !202
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %4, %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 336
@@ -5551,7 +5551,7 @@ define range(i32 0, 2) i32 @ossl_quic_get_value_uint(ptr noundef %0, i32 noundef
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 112
   %96 = load ptr, ptr %95, align 8, !tbaa !146
-  %97 = call i64 @ossl_quic_sstream_get_buffer_size(ptr noundef %96) #12, !callees !204
+  %97 = call i64 @ossl_quic_sstream_get_buffer_size(ptr noundef %96) #12, !callees !203
   br label %qc_get_stream_write_buf_stat.exit
 
 qc_get_stream_write_buf_stat.exit:                ; preds = %79, %84, %90, %91, %94
@@ -5611,7 +5611,7 @@ qc_get_stream_write_buf_stat.exit:                ; preds = %79, %84, %90, %91, 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 112
   %120 = load ptr, ptr %119, align 8, !tbaa !146
-  %121 = call i64 @ossl_quic_sstream_get_buffer_used(ptr noundef %120) #12, !callees !204
+  %121 = call i64 @ossl_quic_sstream_get_buffer_used(ptr noundef %120) #12, !callees !203
   br label %qc_get_stream_write_buf_stat.exit63
 
 qc_get_stream_write_buf_stat.exit63:              ; preds = %103, %108, %114, %115, %118
@@ -5671,7 +5671,7 @@ qc_get_stream_write_buf_stat.exit63:              ; preds = %103, %108, %114, %1
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 112
   %144 = load ptr, ptr %143, align 8, !tbaa !146
-  %145 = call i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef %144) #12, !callees !204
+  %145 = call i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef %144) #12, !callees !203
   br label %qc_get_stream_write_buf_stat.exit75
 
 qc_get_stream_write_buf_stat.exit75:              ; preds = %127, %132, %138, %139, %142
@@ -5954,9 +5954,9 @@ qc_get_effective_incoming_stream_policy.exit.thread: ; preds = %7, %22, %18
 
 35:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  store ptr %3, ptr %5, align 8, !tbaa !205
+  store ptr %3, ptr %5, align 8, !tbaa !204
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %36, align 8, !tbaa !207
+  store ptr null, ptr %36, align 8, !tbaa !206
   %.val29 = load ptr, ptr %3, align 8, !tbaa !157
   %37 = getelementptr i8, ptr %.val29, i64 88
   %.val29.val = load ptr, ptr %37, align 8, !tbaa !143
@@ -6048,7 +6048,7 @@ declare ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @wait_for_incoming_stream(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !205
+  %2 = load ptr, ptr %0, align 8, !tbaa !204
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !134
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -6073,14 +6073,14 @@ define internal range(i32 -1, 2) i32 @wait_for_incoming_stream(ptr noundef captu
   br i1 %.not6.i, label %17, label %quic_mutation_allowed.exit
 
 17:                                               ; preds = %11, %1, %14
-  %18 = load ptr, ptr %0, align 8, !tbaa !205
+  %18 = load ptr, ptr %0, align 8, !tbaa !204
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %18, ptr nonnull poison, i32 noundef 3809, ptr noundef nonnull @__func__.wait_for_incoming_stream, i32 noundef 207, ptr noundef null)
   br label %21
 
 quic_mutation_allowed.exit:                       ; preds = %14
   %19 = tail call ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef %7) #12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !207
+  store ptr %19, ptr %20, align 8, !tbaa !206
   %.not8 = icmp ne ptr %19, null
   %. = zext i1 %.not8 to i32
   br label %21
@@ -6126,7 +6126,7 @@ define internal fastcc ptr @create_xso_from_stream(ptr noundef %0, ptr noundef %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %17 = load i32, ptr %16, align 8, !tbaa !119
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  store i32 %17, ptr %18, align 8, !tbaa !176
+  store i32 %17, ptr %18, align 8, !tbaa !175
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %20 = load i64, ptr %19, align 8, !tbaa !121
   %21 = and i64 %20, 3725568391
@@ -6236,7 +6236,7 @@ define i32 @ossl_quic_stream_reset(ptr noundef %0, ptr noundef readonly captures
   br i1 %.not11, label %18, label %16
 
 16:                                               ; preds = %6
-  %17 = load i64, ptr %1, align 8, !tbaa !208
+  %17 = load i64, ptr %1, align 8, !tbaa !207
   br label %18
 
 18:                                               ; preds = %16, %6
@@ -6649,22 +6649,22 @@ define range(i32 -1, 2) i32 @ossl_quic_get_conn_close_info(ptr noundef %0, ptr n
   br i1 %12, label %32, label %13
 
 13:                                               ; preds = %6
-  %14 = load i64, ptr %11, align 8, !tbaa !210
-  store i64 %14, ptr %1, align 8, !tbaa !212
+  %14 = load i64, ptr %11, align 8, !tbaa !209
+  store i64 %14, ptr %1, align 8, !tbaa !211
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !214
+  %16 = load i64, ptr %15, align 8, !tbaa !213
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !215
+  store i64 %16, ptr %17, align 8, !tbaa !214
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !216
+  %19 = load ptr, ptr %18, align 8, !tbaa !215
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !217
+  store ptr %19, ptr %20, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !218
+  %22 = load i64, ptr %21, align 8, !tbaa !217
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %22, ptr %23, align 8, !tbaa !219
+  store i64 %22, ptr %23, align 8, !tbaa !218
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %24, align 8, !tbaa !220
+  store i32 0, ptr %24, align 8, !tbaa !219
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 2
@@ -6678,7 +6678,7 @@ define range(i32 -1, 2) i32 @ossl_quic_get_conn_close_info(ptr noundef %0, ptr n
 
 30:                                               ; preds = %13
   %31 = or disjoint i32 %spec.store.select, 2
-  store i32 %31, ptr %24, align 8, !tbaa !220
+  store i32 %31, ptr %24, align 8, !tbaa !219
   br label %32
 
 32:                                               ; preds = %13, %30, %6, %3
@@ -6764,7 +6764,7 @@ define ptr @ossl_quic_new_listener(ptr noundef %0, i64 noundef %1) local_unnamed
 7:                                                ; preds = %2
   %8 = tail call ptr @ossl_crypto_mutex_new() #12
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store ptr %8, ptr %9, align 8, !tbaa !221
+  store ptr %8, ptr %9, align 8, !tbaa !220
   %10 = icmp eq ptr %8, null
   br i1 %10, label %11, label %12
 
@@ -6810,18 +6810,18 @@ define ptr @ossl_quic_new_listener(ptr noundef %0, i64 noundef %1) local_unnamed
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %31, align 8, !tbaa !110
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 1, ptr %32, align 8, !tbaa !222
+  store i32 1, ptr %32, align 8, !tbaa !221
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @alloc_port_user_ssl, ptr %33, align 8, !tbaa !223
+  store ptr @alloc_port_user_ssl, ptr %33, align 8, !tbaa !222
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %5, ptr %34, align 8, !tbaa !224
+  store ptr %5, ptr %34, align 8, !tbaa !223
   %35 = and i64 %1, 2
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 1, ptr %38, align 4, !tbaa !225
+  store i32 1, ptr %38, align 4, !tbaa !224
   br label %39
 
 39:                                               ; preds = %37, %30
@@ -6883,7 +6883,7 @@ define internal ptr @alloc_port_user_ssl(ptr noundef %0, ptr noundef %1) #0 {
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !226
+  %8 = load ptr, ptr %7, align 8, !tbaa !225
   %9 = tail call i32 @ossl_quic_obj_init(ptr noundef nonnull %3, ptr noundef %8, i32 noundef 128, ptr noundef %1, ptr noundef null, ptr noundef null) #12
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %qc_update_reject_policy.exit.i
@@ -6910,7 +6910,7 @@ qc_update_reject_policy.exit.i:                   ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %0, ptr %22, align 8, !tbaa !113
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %24 = load ptr, ptr %23, align 8, !tbaa !221
+  %24 = load ptr, ptr %23, align 8, !tbaa !220
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr %24, ptr %25, align 8, !tbaa !3
   %26 = tail call ptr @ossl_quic_channel_get0_tls(ptr noundef %0) #12
@@ -6921,7 +6921,7 @@ qc_update_reject_policy.exit.i:                   ; preds = %6
   store i16 %29, ptr %13, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 340
   store i32 1, ptr %30, align 4, !tbaa !116
-  %31 = load ptr, ptr %7, align 8, !tbaa !226
+  %31 = load ptr, ptr %7, align 8, !tbaa !225
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 312
   %33 = load i64, ptr %32, align 8, !tbaa !120
   %34 = and i64 %33, 16633559943
@@ -6991,22 +6991,22 @@ define ptr @ossl_quic_new_listener_from(ptr noundef %0, i64 noundef %1) local_un
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !227
+  %17 = load ptr, ptr %16, align 8, !tbaa !226
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %17, ptr %18, align 8, !tbaa !110
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 1, ptr %19, align 8, !tbaa !222
+  store i32 1, ptr %19, align 8, !tbaa !221
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @alloc_port_user_ssl, ptr %20, align 8, !tbaa !223
+  store ptr @alloc_port_user_ssl, ptr %20, align 8, !tbaa !222
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %13, ptr %21, align 8, !tbaa !224
+  store ptr %13, ptr %21, align 8, !tbaa !223
   %22 = and i64 %1, 2
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 1, ptr %25, align 4, !tbaa !225
+  store i32 1, ptr %25, align 4, !tbaa !224
   br label %26
 
 26:                                               ; preds = %24, %15
@@ -7032,11 +7032,11 @@ define ptr @ossl_quic_new_listener_from(ptr noundef %0, i64 noundef %1) local_un
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 128
   store ptr %38, ptr %39, align 8, !tbaa !142
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 128
-  %41 = load ptr, ptr %40, align 8, !tbaa !228
+  %41 = load ptr, ptr %40, align 8, !tbaa !227
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store ptr %41, ptr %42, align 8, !tbaa !221
+  store ptr %41, ptr %42, align 8, !tbaa !220
   call void @ossl_quic_port_set_allow_incoming(ptr noundef nonnull %30, i32 noundef 1) #12
-  %43 = load ptr, ptr %16, align 8, !tbaa !227
+  %43 = load ptr, ptr %16, align 8, !tbaa !226
   %44 = load ptr, ptr %7, align 8, !tbaa !162
   %45 = load ptr, ptr %31, align 8, !tbaa !139
   %46 = call i32 @ossl_quic_obj_init(ptr noundef nonnull %13, ptr noundef %43, i32 noundef 130, ptr noundef %44, ptr noundef null, ptr noundef %45) #12
@@ -7109,17 +7109,17 @@ define ptr @ossl_quic_new_from_listener(ptr noundef %0, i64 noundef %1) local_un
   call void @ossl_crypto_mutex_lock(ptr noundef %12) #12
   %13 = load ptr, ptr %7, align 8, !tbaa !163
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !227
+  %15 = load ptr, ptr %14, align 8, !tbaa !226
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1760
-  %17 = load ptr, ptr %16, align 8, !tbaa !229
+  %17 = load ptr, ptr %16, align 8, !tbaa !228
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %10
   %20 = call ptr @ossl_quic_new_token_store()
-  %21 = load ptr, ptr %14, align 8, !tbaa !227
+  %21 = load ptr, ptr %14, align 8, !tbaa !226
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1760
-  store ptr %20, ptr %22, align 8, !tbaa !229
+  store ptr %20, ptr %22, align 8, !tbaa !228
   %23 = icmp eq ptr %20, null
   br i1 %23, label %.thread61, label %24
 
@@ -7144,11 +7144,11 @@ define ptr @ossl_quic_new_from_listener(ptr noundef %0, i64 noundef %1) local_un
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 152
   store ptr %34, ptr %35, align 8, !tbaa !112
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %37 = load ptr, ptr %36, align 8, !tbaa !221
+  %37 = load ptr, ptr %36, align 8, !tbaa !220
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 168
   store ptr %37, ptr %38, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %40 = load i64, ptr %39, align 8, !tbaa !230
+  %40 = load i64, ptr %39, align 8, !tbaa !229
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 336
   %42 = trunc i64 %40 to i16
   %43 = load i16, ptr %41, align 8
@@ -7158,7 +7158,7 @@ define ptr @ossl_quic_new_from_listener(ptr noundef %0, i64 noundef %1) local_un
   %47 = or disjoint i16 %45, %46
   store i16 %47, ptr %41, align 8
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !226
+  %49 = load ptr, ptr %48, align 8, !tbaa !225
   %50 = call ptr @TLS_method() #12
   %51 = call ptr @ossl_ssl_connection_new_int(ptr noundef %49, ptr noundef null, ptr noundef %50) #12
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 120
@@ -7201,16 +7201,16 @@ define ptr @ossl_quic_new_from_listener(ptr noundef %0, i64 noundef %1) local_un
   %70 = call ptr @ossl_quic_port_create_outgoing(ptr noundef %63, ptr noundef %62) #12
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 160
   store ptr %70, ptr %71, align 8, !tbaa !113
-  %72 = load ptr, ptr %48, align 8, !tbaa !226
+  %72 = load ptr, ptr %48, align 8, !tbaa !225
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 368
   %74 = load ptr, ptr %73, align 8, !tbaa !114
   call void @ossl_quic_channel_set_msg_callback(ptr noundef %70, ptr noundef %74, ptr noundef nonnull %25) #12
   %75 = load ptr, ptr %71, align 8, !tbaa !113
-  %76 = load ptr, ptr %48, align 8, !tbaa !226
+  %76 = load ptr, ptr %48, align 8, !tbaa !225
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 376
   %78 = load ptr, ptr %77, align 8, !tbaa !115
   call void @ossl_quic_channel_set_msg_callback_arg(ptr noundef %75, ptr noundef %78) #12
-  %79 = load ptr, ptr %48, align 8, !tbaa !226
+  %79 = load ptr, ptr %48, align 8, !tbaa !225
   %80 = call i32 @ossl_quic_obj_init(ptr noundef nonnull %25, ptr noundef %79, i32 noundef 128, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #12
   %.not56 = icmp eq i32 %80, 0
   br i1 %.not56, label %.thread, label %81
@@ -7271,20 +7271,20 @@ define ptr @ossl_quic_new_token_store() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @quic_token_hash, ptr noundef nonnull @quic_token_cmp) #12
   %5 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %4, ptr noundef nonnull @lh_QUIC_TOKEN_hfn_thunk, ptr noundef nonnull @lh_QUIC_TOKEN_cfn_thunk, ptr noundef nonnull @lh_QUIC_TOKEN_doall_thunk, ptr noundef nonnull @lh_QUIC_TOKEN_doall_arg_thunk) #12
-  store ptr %5, ptr %1, align 8, !tbaa !231
+  store ptr %5, ptr %1, align 8, !tbaa !230
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
   %8 = tail call ptr @ossl_crypto_mutex_new() #12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !234
+  store ptr %8, ptr %9, align 8, !tbaa !233
   %10 = icmp eq ptr %8, null
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store atomic i32 1, ptr %12 seq_cst, align 4, !tbaa !235
+  store atomic i32 1, ptr %12 seq_cst, align 4, !tbaa !234
   br label %ossl_quic_free_token_store.exit
 
 13:                                               ; preds = %7, %3
@@ -7304,9 +7304,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %13
 18:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %19) #12
-  %20 = load ptr, ptr %1, align 8, !tbaa !231
+  %20 = load ptr, ptr %1, align 8, !tbaa !230
   tail call void @OPENSSL_LH_doall(ptr noundef %20, ptr noundef nonnull @free_this_token) #12
-  %21 = load ptr, ptr %1, align 8, !tbaa !231
+  %21 = load ptr, ptr %1, align 8, !tbaa !230
   tail call void @OPENSSL_LH_free(ptr noundef %21) #12
   tail call void @CRYPTO_free(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 4715) #12
   br label %ossl_quic_free_token_store.exit
@@ -7579,7 +7579,7 @@ qctx_maybe_autotick.exit:                         ; preds = %54, %qctx_should_au
 98:                                               ; preds = %.thread35, %94
   %99 = phi ptr [ %97, %94 ], [ %90, %.thread35 ]
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
-  %101 = load ptr, ptr %100, align 8, !tbaa !236
+  %101 = load ptr, ptr %100, align 8, !tbaa !235
   %102 = load ptr, ptr %22, align 8, !tbaa !163
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 128
   store ptr %102, ptr %103, align 8, !tbaa !135
@@ -7640,9 +7640,9 @@ declare ptr @ossl_quic_channel_get0_tls(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i64 @quic_token_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !237
+  %3 = load ptr, ptr %2, align 8, !tbaa !236
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !239
+  %5 = load i64, ptr %4, align 8, !tbaa !238
   %6 = tail call i64 @fnv1a_hash(ptr noundef %3, i64 noundef %5) #12
   ret i64 %6
 }
@@ -7650,17 +7650,17 @@ define internal i64 @quic_token_hash(ptr noundef readonly captures(none) %0) #0 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @quic_token_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !239
+  %4 = load i64, ptr %3, align 8, !tbaa !238
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !239
+  %6 = load i64, ptr %5, align 8, !tbaa !238
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !237
+  %9 = load ptr, ptr %8, align 8, !tbaa !236
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !237
+  %11 = load ptr, ptr %10, align 8, !tbaa !236
   %12 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %11, i64 noundef %4) #13
   br label %13
 
@@ -7691,9 +7691,9 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 8:                                                ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %9) #12
-  %10 = load ptr, ptr %0, align 8, !tbaa !231
+  %10 = load ptr, ptr %0, align 8, !tbaa !230
   tail call void @OPENSSL_LH_doall(ptr noundef %10, ptr noundef nonnull @free_this_token) #12
-  %11 = load ptr, ptr %0, align 8, !tbaa !231
+  %11 = load ptr, ptr %0, align 8, !tbaa !230
   tail call void @OPENSSL_LH_free(ptr noundef %11) #12
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 4715) #12
   br label %12
@@ -7727,7 +7727,7 @@ ossl_quic_free_peer_token.exit:                   ; preds = %CRYPTO_DOWN_REF.exi
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_set_peer_token(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  %6 = load ptr, ptr %5, align 8, !tbaa !229
+  %6 = load ptr, ptr %5, align 8, !tbaa !228
   %7 = icmp eq ptr %6, null
   br i1 %7, label %26, label %8
 
@@ -7738,15 +7738,15 @@ define range(i32 0, 2) i32 @ossl_quic_set_peer_token(ptr noundef readonly captur
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !234
+  %13 = load ptr, ptr %12, align 8, !tbaa !233
   tail call void @ossl_crypto_mutex_lock(ptr noundef %13) #12
-  %14 = load ptr, ptr %6, align 8, !tbaa !231
+  %14 = load ptr, ptr %6, align 8, !tbaa !230
   %15 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %14, ptr noundef nonnull %9) #12
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %ossl_quic_free_peer_token.exit, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %6, align 8, !tbaa !231
+  %17 = load ptr, ptr %6, align 8, !tbaa !230
   %18 = tail call ptr @OPENSSL_LH_delete(ptr noundef %17, ptr noundef nonnull %15) #12
   %19 = atomicrmw sub ptr %15, i32 1 release, align 4
   %20 = icmp eq i32 %19, 1
@@ -7765,9 +7765,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %16
   br label %ossl_quic_free_peer_token.exit
 
 ossl_quic_free_peer_token.exit:                   ; preds = %22, %CRYPTO_DOWN_REF.exit.i, %11
-  %23 = load ptr, ptr %6, align 8, !tbaa !231
+  %23 = load ptr, ptr %6, align 8, !tbaa !230
   %24 = tail call ptr @OPENSSL_LH_insert(ptr noundef %23, ptr noundef nonnull %9) #12
-  %25 = load ptr, ptr %12, align 8, !tbaa !234
+  %25 = load ptr, ptr %12, align 8, !tbaa !233
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %25) #12
   br label %26
 
@@ -7809,21 +7809,21 @@ define internal fastcc ptr @ossl_quic_build_new_token(ptr noundef %0, ptr nounde
 
 20:                                               ; preds = %12
   %21 = add i64 %15, 6
-  store atomic i32 1, ptr %18 seq_cst, align 4, !tbaa !235
+  store atomic i32 1, ptr %18 seq_cst, align 4, !tbaa !234
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %21, ptr %22, align 8, !tbaa !239
+  store i64 %21, ptr %22, align 8, !tbaa !238
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !237
+  store ptr %23, ptr %24, align 8, !tbaa !236
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %25, ptr %26, align 8, !tbaa !240
+  store ptr %25, ptr %26, align 8, !tbaa !239
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i64 %2, ptr %27, align 8, !tbaa !241
+  store i64 %2, ptr %27, align 8, !tbaa !240
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 46
   store i32 %13, ptr %23, align 4, !tbaa !166
-  store i16 %14, ptr %28, align 2, !tbaa !242
+  store i16 %14, ptr %28, align 2, !tbaa !241
   %30 = call i32 @BIO_ADDR_rawaddress(ptr noundef %0, ptr noundef nonnull %29, ptr noundef null) #12
   %.not44 = icmp eq i32 %30, 0
   br i1 %.not44, label %31, label %36
@@ -7849,7 +7849,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %31
   br i1 %5, label %37, label %ossl_quic_free_peer_token.exit
 
 37:                                               ; preds = %36
-  %38 = load ptr, ptr %26, align 8, !tbaa !240
+  %38 = load ptr, ptr %26, align 8, !tbaa !239
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %1, i64 %2, i1 false)
   br label %ossl_quic_free_peer_token.exit
 
@@ -7888,28 +7888,28 @@ declare void @ossl_crypto_mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_get_peer_token(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  %5 = load ptr, ptr %4, align 8, !tbaa !229
+  %5 = load ptr, ptr %4, align 8, !tbaa !228
   %6 = icmp eq ptr %5, null
   br i1 %6, label %ossl_quic_free_peer_token.exit, label %7
 
 7:                                                ; preds = %3
   %8 = tail call fastcc ptr @ossl_quic_build_new_token(ptr noundef %1, ptr noundef null, i64 noundef 0)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !234
+  %10 = load ptr, ptr %9, align 8, !tbaa !233
   tail call void @ossl_crypto_mutex_lock(ptr noundef %10) #12
-  %11 = load ptr, ptr %5, align 8, !tbaa !231
+  %11 = load ptr, ptr %5, align 8, !tbaa !230
   %12 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %11, ptr noundef %8) #12
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %7
-  store ptr %12, ptr %2, align 8, !tbaa !243
+  store ptr %12, ptr %2, align 8, !tbaa !242
   %14 = atomicrmw add ptr %12, i32 1 monotonic, align 4
   br label %15
 
 15:                                               ; preds = %13, %7
   %.0 = phi i32 [ 1, %13 ], [ 0, %7 ]
-  %16 = load ptr, ptr %9, align 8, !tbaa !234
+  %16 = load ptr, ptr %9, align 8, !tbaa !233
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %16) #12
   %17 = atomicrmw sub ptr %8, i32 1 release, align 4
   %18 = icmp eq i32 %17, 1
@@ -7998,7 +7998,7 @@ define ptr @ossl_quic_new_domain(ptr noundef %0, i64 noundef %1) local_unnamed_a
 14:                                               ; preds = %10
   %15 = call ptr @ossl_crypto_mutex_new() #12
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  store ptr %15, ptr %16, align 8, !tbaa !228
+  store ptr %15, ptr %16, align 8, !tbaa !227
   %17 = icmp eq ptr %15, null
   br i1 %17, label %18, label %19
 
@@ -8047,7 +8047,7 @@ define ptr @ossl_quic_new_domain(ptr noundef %0, i64 noundef %1) local_unnamed_a
 38:                                               ; preds = %36
   %39 = load i64, ptr %4, align 8, !tbaa !160
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store i64 %39, ptr %40, align 8, !tbaa !201
+  store i64 %39, ptr %40, align 8, !tbaa !200
   br label %44
 
 41:                                               ; preds = %36, %35, %18
@@ -8129,7 +8129,7 @@ define noundef i32 @ossl_quic_renegotiate_check(ptr noundef readnone captures(no
 define ptr @ossl_quic_get_cipher_by_char(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @ssl3_get_cipher_by_char(ptr noundef %0) #12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = load i32, ptr %3, align 8, !tbaa !245
+  %4 = load i32, ptr %3, align 8, !tbaa !244
   %5 = and i32 %4, 262144
   %6 = icmp eq i32 %5, 0
   %. = select i1 %6, ptr null, ptr %2
@@ -8687,7 +8687,7 @@ define i32 @ossl_quic_get_notifier_fd(ptr noundef readonly captures(address_is_n
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %8
-  %.val9 = load i32, ptr %12, align 4, !tbaa !247
+  %.val9 = load i32, ptr %12, align 4, !tbaa !246
   br label %15
 
 15:                                               ; preds = %8, %14
@@ -8804,15 +8804,15 @@ define ptr @ossl_quic_conn_get_channel(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_set_diag_title(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %4 = load ptr, ptr %3, align 8, !tbaa !249
+  %4 = load ptr, ptr %3, align 8, !tbaa !248
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 5309) #12
-  store ptr null, ptr %3, align 8, !tbaa !249
+  store ptr null, ptr %3, align 8, !tbaa !248
   %5 = icmp eq ptr %1, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 5315) #12
-  store ptr %7, ptr %3, align 8, !tbaa !249
+  store ptr %7, ptr %3, align 8, !tbaa !248
   %8 = icmp ne ptr %7, null
   %. = zext i1 %8 to i32
   br label %9
@@ -8899,7 +8899,7 @@ wrong_type.exit:                                  ; preds = %23, %switch.lookup
 27:                                               ; preds = %21
   store ptr %0, ptr %1, align 8, !tbaa !157
   store ptr %0, ptr %8, align 8, !tbaa !162
-  store i32 1, ptr %14, align 8, !tbaa !250
+  store i32 1, ptr %14, align 8, !tbaa !249
   br label %105
 
 28:                                               ; preds = %19
@@ -9314,13 +9314,13 @@ qctx_should_autotick.exit.thread.i:               ; preds = %35, %30
   br label %quic_raise_normal_error.exit
 
 67:                                               ; preds = %50
-  store ptr %6, ptr %3, align 8, !tbaa !251
+  store ptr %6, ptr %3, align 8, !tbaa !250
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %68, align 8, !tbaa !253
+  store ptr null, ptr %68, align 8, !tbaa !252
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %69, align 8, !tbaa !254
+  store ptr %0, ptr %69, align 8, !tbaa !253
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %17, ptr %70, align 8, !tbaa !255
+  store i64 %17, ptr %70, align 8, !tbaa !254
   %.val47 = load ptr, ptr %0, align 8, !tbaa !157
   %71 = getelementptr i8, ptr %.val47, i64 88
   %.val47.val = load ptr, ptr %71, align 8, !tbaa !143
@@ -9534,7 +9534,7 @@ declare ptr @ossl_quic_stream_map_get_by_id(ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @quic_wait_for_stream(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !251
+  %2 = load ptr, ptr %0, align 8, !tbaa !250
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 32
@@ -9556,32 +9556,32 @@ define internal range(i32 -1, 2) i32 @quic_wait_for_stream(ptr noundef captures(
 
 13:                                               ; preds = %6, %1, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !254
+  %15 = load ptr, ptr %14, align 8, !tbaa !253
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %15, ptr nonnull poison, i32 noundef 2046, ptr noundef nonnull @__func__.quic_wait_for_stream, i32 noundef 207, ptr noundef null)
   br label %35
 
 quic_mutation_allowed.exit:                       ; preds = %10
-  %16 = load ptr, ptr %0, align 8, !tbaa !251
+  %16 = load ptr, ptr %0, align 8, !tbaa !250
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !113
   %19 = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %18) #12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !255
+  %21 = load i64, ptr %20, align 8, !tbaa !254
   %22 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %19, i64 noundef %21) #12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %22, ptr %23, align 8, !tbaa !253
+  store ptr %22, ptr %23, align 8, !tbaa !252
   %24 = icmp eq ptr %22, null
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %quic_mutation_allowed.exit
-  %26 = load ptr, ptr %0, align 8, !tbaa !251
+  %26 = load ptr, ptr %0, align 8, !tbaa !250
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   %28 = load ptr, ptr %27, align 8, !tbaa !113
   %29 = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %28) #12
-  %30 = load i64, ptr %20, align 8, !tbaa !255
+  %30 = load i64, ptr %20, align 8, !tbaa !254
   %31 = or i64 %30, 2
   %32 = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %29, i64 noundef %31) #12
-  store ptr %32, ptr %23, align 8, !tbaa !253
+  store ptr %32, ptr %23, align 8, !tbaa !252
   %33 = icmp ne ptr %32, null
   %34 = zext i1 %33 to i32
   br label %35
@@ -9631,7 +9631,7 @@ declare i32 @ossl_quic_obj_desires_blocking(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @quic_handshake_wait(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !178
+  %2 = load ptr, ptr %0, align 8, !tbaa !177
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 32
@@ -9652,7 +9652,7 @@ define internal range(i32 -1, 2) i32 @quic_handshake_wait(ptr noundef readonly c
   br i1 %.not6.i, label %tls_wants_non_io_retry.exit, label %quic_mutation_allowed.exit
 
 quic_mutation_allowed.exit:                       ; preds = %10
-  %13 = load ptr, ptr %0, align 8, !tbaa !178
+  %13 = load ptr, ptr %0, align 8, !tbaa !177
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %15 = load ptr, ptr %14, align 8, !tbaa !113
   %16 = tail call i32 @ossl_quic_channel_is_handshake_complete(ptr noundef %15) #12
@@ -9660,7 +9660,7 @@ quic_mutation_allowed.exit:                       ; preds = %10
   br i1 %.not4, label %17, label %tls_wants_non_io_retry.exit
 
 17:                                               ; preds = %quic_mutation_allowed.exit
-  %18 = load ptr, ptr %0, align 8, !tbaa !178
+  %18 = load ptr, ptr %0, align 8, !tbaa !177
   %19 = getelementptr i8, ptr %18, i64 120
   %.val = load ptr, ptr %19, align 8, !tbaa !30
   %20 = tail call i32 @SSL_want(ptr noundef %.val) #12
@@ -9691,7 +9691,7 @@ declare i32 @ossl_quic_channel_is_new_local_stream_admissible(ptr noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @quic_new_stream_wait(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !180
+  %2 = load ptr, ptr %0, align 8, !tbaa !179
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 32
@@ -9714,7 +9714,7 @@ define internal range(i32 -1, 2) i32 @quic_new_stream_wait(ptr noundef readonly 
 quic_mutation_allowed.exit:                       ; preds = %10
   %13 = load ptr, ptr %7, align 8, !tbaa !113
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !182
+  %15 = load i32, ptr %14, align 8, !tbaa !181
   %16 = tail call i32 @ossl_quic_channel_is_new_local_stream_admissible(ptr noundef %13, i32 noundef %15) #12
   %.not5 = icmp ne i32 %16, 0
   %. = zext i1 %.not5 to i32
@@ -9776,7 +9776,7 @@ define internal range(i32 -2, 2) i32 @quic_write_again(ptr noundef captures(none
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store i64 0, ptr %2, align 8, !tbaa !160
-  %3 = load ptr, ptr %0, align 8, !tbaa !183
+  %3 = load ptr, ptr %0, align 8, !tbaa !182
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 336
@@ -9799,7 +9799,7 @@ define internal range(i32 -2, 2) i32 @quic_write_again(ptr noundef captures(none
   br i1 %.not6.i, label %quic_mutation_allowed.exit.thread, label %quic_mutation_allowed.exit
 
 quic_mutation_allowed.exit:                       ; preds = %13
-  %16 = load ptr, ptr %0, align 8, !tbaa !183
+  %16 = load ptr, ptr %0, align 8, !tbaa !182
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = icmp eq ptr %16, null
   br i1 %18, label %quic_validate_for_write.exit.thread, label %19
@@ -9859,24 +9859,24 @@ quic_validate_for_write.exit.thread:              ; preds = %quic_mutation_allow
   br label %quic_mutation_allowed.exit.thread
 
 quic_validate_for_write.exit:                     ; preds = %35
-  store i32 786691, ptr %17, align 8, !tbaa !188
-  %42 = load ptr, ptr %0, align 8, !tbaa !183
+  store i32 786691, ptr %17, align 8, !tbaa !187
+  %42 = load ptr, ptr %0, align 8, !tbaa !182
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !185
+  %44 = load ptr, ptr %43, align 8, !tbaa !184
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load i64, ptr %45, align 8, !tbaa !186
+  %46 = load i64, ptr %45, align 8, !tbaa !185
   %47 = call fastcc i32 @xso_sstream_append(ptr noundef %42, ptr noundef %44, i64 noundef %46, ptr noundef nonnull %2)
   %.not16 = icmp eq i32 %47, 0
   br i1 %.not16, label %quic_mutation_allowed.exit.thread, label %48
 
 48:                                               ; preds = %quic_validate_for_write.exit
-  %49 = load ptr, ptr %0, align 8, !tbaa !183
+  %49 = load ptr, ptr %0, align 8, !tbaa !182
   %50 = load i64, ptr %2, align 8, !tbaa !160
   %.not = icmp eq i64 %50, 0
-  %51 = load i64, ptr %45, align 8, !tbaa !186
+  %51 = load i64, ptr %45, align 8, !tbaa !185
   %52 = icmp ne i64 %51, %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load i64, ptr %53, align 8, !tbaa !189
+  %54 = load i64, ptr %53, align 8, !tbaa !188
   br i1 %.not, label %63, label %55
 
 55:                                               ; preds = %48
@@ -9906,16 +9906,16 @@ quic_validate_for_write.exit:                     ; preds = %35
 
 quic_post_write.exit:                             ; preds = %63, %65
   %70 = load i64, ptr %2, align 8, !tbaa !160
-  %71 = load ptr, ptr %43, align 8, !tbaa !185
+  %71 = load ptr, ptr %43, align 8, !tbaa !184
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 %70
-  store ptr %72, ptr %43, align 8, !tbaa !185
-  %73 = load i64, ptr %45, align 8, !tbaa !186
+  store ptr %72, ptr %43, align 8, !tbaa !184
+  %73 = load i64, ptr %45, align 8, !tbaa !185
   %74 = sub i64 %73, %70
-  store i64 %74, ptr %45, align 8, !tbaa !186
+  store i64 %74, ptr %45, align 8, !tbaa !185
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %76 = load i64, ptr %75, align 8, !tbaa !187
+  %76 = load i64, ptr %75, align 8, !tbaa !186
   %77 = add i64 %76, %70
-  store i64 %77, ptr %75, align 8, !tbaa !187
+  store i64 %77, ptr %75, align 8, !tbaa !186
   %78 = icmp eq i64 %73, %70
   %. = zext i1 %78 to i32
   br label %quic_mutation_allowed.exit.thread
@@ -10151,7 +10151,7 @@ quic_raise_normal_error.exit:                     ; preds = %107, %105, %103, %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @quic_read_again(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !193
+  %2 = load ptr, ptr %0, align 8, !tbaa !192
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !134
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 336
@@ -10168,14 +10168,14 @@ define internal range(i32 -1, 2) i32 @quic_read_again(ptr noundef readonly captu
   br i1 %.not4.i, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8
-  %.pre = load ptr, ptr %0, align 8, !tbaa !193
+  %.pre = load ptr, ptr %0, align 8, !tbaa !192
   br label %15
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %9, align 8, !tbaa !113
   %14 = tail call i32 @ossl_quic_channel_is_active(ptr noundef %13) #12
   %.not6.i = icmp eq i32 %14, 0
-  %.pre14 = load ptr, ptr %0, align 8, !tbaa !193
+  %.pre14 = load ptr, ptr %0, align 8, !tbaa !192
   br i1 %.not6.i, label %15, label %quic_mutation_allowed.exit
 
 15:                                               ; preds = %._crit_edge, %1, %12
@@ -10185,21 +10185,21 @@ define internal range(i32 -1, 2) i32 @quic_read_again(ptr noundef readonly captu
 
 quic_mutation_allowed.exit:                       ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !196
+  %18 = load ptr, ptr %17, align 8, !tbaa !195
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !197
+  %20 = load ptr, ptr %19, align 8, !tbaa !196
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !198
+  %22 = load i64, ptr %21, align 8, !tbaa !197
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !199
+  %24 = load ptr, ptr %23, align 8, !tbaa !198
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !200
+  %26 = load i32, ptr %25, align 8, !tbaa !199
   %27 = tail call fastcc i32 @quic_read_actual(ptr noundef %.pre14, ptr noundef %18, ptr noundef %20, i64 noundef %22, ptr noundef %24, i32 noundef %26)
   %.not10 = icmp eq i32 %27, 0
   br i1 %.not10, label %31, label %28
 
 28:                                               ; preds = %quic_mutation_allowed.exit
-  %29 = load ptr, ptr %23, align 8, !tbaa !199
+  %29 = load ptr, ptr %23, align 8, !tbaa !198
   %30 = load i64, ptr %29, align 8, !tbaa !160
   %.not11 = icmp ne i64 %30, 0
   %. = zext i1 %.not11 to i32
@@ -10495,86 +10495,85 @@ attributes #13 = { nounwind willreturn memory(read) }
 !170 = !{!171, !20, i64 0}
 !171 = !{!"ssl_shutdown_ex_args_st", !20, i64 0, !45, i64 8}
 !172 = !{!171, !45, i64 8}
-!173 = distinct !{!173, !174, !175}
+!173 = distinct !{!173, !174}
 !174 = !{!"llvm.loop.mustprogress"}
-!175 = !{!"llvm.loop.estimated_trip_count"}
-!176 = !{!132, !7, i64 168}
-!177 = !{!4, !18, i64 88}
-!178 = !{!179, !128, i64 0}
-!179 = !{!"quic_handshake_wait_args", !128, i64 0}
-!180 = !{!181, !128, i64 0}
-!181 = !{!"quic_new_stream_wait_args", !128, i64 0, !7, i64 8}
-!182 = !{!181, !7, i64 8}
-!183 = !{!184, !26, i64 0}
-!184 = !{!"quic_write_again_args", !26, i64 0, !45, i64 8, !20, i64 16, !20, i64 24, !7, i64 32, !20, i64 40}
-!185 = !{!184, !45, i64 8}
-!186 = !{!184, !20, i64 16}
-!187 = !{!184, !20, i64 24}
-!188 = !{!184, !7, i64 32}
-!189 = !{!184, !20, i64 40}
-!190 = !{!132, !45, i64 144}
-!191 = !{!132, !20, i64 152}
-!192 = !{!132, !20, i64 160}
-!193 = !{!194, !195, i64 0}
-!194 = !{!"quic_read_again_args", !195, i64 0, !133, i64 8, !11, i64 16, !20, i64 24, !70, i64 32, !7, i64 40}
-!195 = !{!"p1 _ZTS7qctx_st", !11, i64 0}
-!196 = !{!194, !133, i64 8}
-!197 = !{!194, !11, i64 16}
-!198 = !{!194, !20, i64 24}
-!199 = !{!194, !70, i64 32}
-!200 = !{!194, !7, i64 40}
-!201 = !{!5, !20, i64 104}
-!202 = !{!147, !20, i64 56}
-!203 = !{!"branch_weights", i32 2002, i32 2000}
-!204 = !{ptr @ossl_quic_sstream_get_buffer_avail, ptr @ossl_quic_sstream_get_buffer_size, ptr @ossl_quic_sstream_get_buffer_used}
-!205 = !{!206, !195, i64 0}
-!206 = !{!"wait_for_incoming_stream_args", !195, i64 0, !133, i64 8}
-!207 = !{!206, !133, i64 8}
-!208 = !{!209, !20, i64 0}
-!209 = !{!"ssl_stream_reset_args_st", !20, i64 0}
-!210 = !{!211, !20, i64 0}
-!211 = !{!"quic_terminate_cause_st", !20, i64 0, !20, i64 8, !45, i64 16, !20, i64 24, !7, i64 32, !7, i64 32}
-!212 = !{!213, !20, i64 0}
-!213 = !{!"ssl_conn_close_info_st", !20, i64 0, !20, i64 8, !45, i64 16, !20, i64 24, !7, i64 32}
-!214 = !{!211, !20, i64 8}
-!215 = !{!213, !20, i64 8}
-!216 = !{!211, !45, i64 16}
-!217 = !{!213, !45, i64 16}
-!218 = !{!211, !20, i64 24}
-!219 = !{!213, !20, i64 24}
-!220 = !{!213, !7, i64 32}
-!221 = !{!140, !25, i64 144}
-!222 = !{!111, !7, i64 32}
-!223 = !{!111, !11, i64 8}
-!224 = !{!111, !11, i64 16}
-!225 = !{!111, !7, i64 36}
-!226 = !{!140, !10, i64 8}
-!227 = !{!6, !10, i64 8}
-!228 = !{!138, !25, i64 128}
-!229 = !{!88, !101, i64 1760}
-!230 = !{!140, !20, i64 104}
-!231 = !{!232, !233, i64 0}
-!232 = !{!"ssl_token_store_st", !233, i64 0, !13, i64 8, !25, i64 16}
-!233 = !{!"p1 _ZTS19lhash_st_QUIC_TOKEN", !11, i64 0}
-!234 = !{!232, !25, i64 16}
-!235 = !{!13, !8, i64 0}
-!236 = !{!33, !21, i64 64}
-!237 = !{!238, !45, i64 8}
-!238 = !{!"quic_token_st", !13, i64 0, !45, i64 8, !20, i64 16, !45, i64 24, !20, i64 32}
-!239 = !{!238, !20, i64 16}
-!240 = !{!238, !45, i64 24}
-!241 = !{!238, !20, i64 32}
-!242 = !{!54, !54, i64 0}
-!243 = !{!244, !244, i64 0}
-!244 = !{!"p1 _ZTS13quic_token_st", !11, i64 0}
-!245 = !{!246, !7, i64 64}
-!246 = !{!"ssl_cipher_st", !7, i64 0, !45, i64 8, !45, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !7, i64 40, !7, i64 44, !7, i64 48, !7, i64 52, !7, i64 56, !7, i64 60, !7, i64 64, !7, i64 68, !7, i64 72}
-!247 = !{!248, !7, i64 0}
-!248 = !{!"rio_notifier_st", !7, i64 0, !7, i64 4}
-!249 = !{!88, !45, i64 1768}
-!250 = !{!127, !7, i64 48}
-!251 = !{!252, !128, i64 0}
-!252 = !{!"quic_wait_for_stream_args", !128, i64 0, !133, i64 8, !195, i64 16, !20, i64 24}
-!253 = !{!252, !133, i64 8}
-!254 = !{!252, !195, i64 16}
-!255 = !{!252, !20, i64 24}
+!175 = !{!132, !7, i64 168}
+!176 = !{!4, !18, i64 88}
+!177 = !{!178, !128, i64 0}
+!178 = !{!"quic_handshake_wait_args", !128, i64 0}
+!179 = !{!180, !128, i64 0}
+!180 = !{!"quic_new_stream_wait_args", !128, i64 0, !7, i64 8}
+!181 = !{!180, !7, i64 8}
+!182 = !{!183, !26, i64 0}
+!183 = !{!"quic_write_again_args", !26, i64 0, !45, i64 8, !20, i64 16, !20, i64 24, !7, i64 32, !20, i64 40}
+!184 = !{!183, !45, i64 8}
+!185 = !{!183, !20, i64 16}
+!186 = !{!183, !20, i64 24}
+!187 = !{!183, !7, i64 32}
+!188 = !{!183, !20, i64 40}
+!189 = !{!132, !45, i64 144}
+!190 = !{!132, !20, i64 152}
+!191 = !{!132, !20, i64 160}
+!192 = !{!193, !194, i64 0}
+!193 = !{!"quic_read_again_args", !194, i64 0, !133, i64 8, !11, i64 16, !20, i64 24, !70, i64 32, !7, i64 40}
+!194 = !{!"p1 _ZTS7qctx_st", !11, i64 0}
+!195 = !{!193, !133, i64 8}
+!196 = !{!193, !11, i64 16}
+!197 = !{!193, !20, i64 24}
+!198 = !{!193, !70, i64 32}
+!199 = !{!193, !7, i64 40}
+!200 = !{!5, !20, i64 104}
+!201 = !{!147, !20, i64 56}
+!202 = !{!"branch_weights", i32 2002, i32 2000}
+!203 = !{ptr @ossl_quic_sstream_get_buffer_avail, ptr @ossl_quic_sstream_get_buffer_size, ptr @ossl_quic_sstream_get_buffer_used}
+!204 = !{!205, !194, i64 0}
+!205 = !{!"wait_for_incoming_stream_args", !194, i64 0, !133, i64 8}
+!206 = !{!205, !133, i64 8}
+!207 = !{!208, !20, i64 0}
+!208 = !{!"ssl_stream_reset_args_st", !20, i64 0}
+!209 = !{!210, !20, i64 0}
+!210 = !{!"quic_terminate_cause_st", !20, i64 0, !20, i64 8, !45, i64 16, !20, i64 24, !7, i64 32, !7, i64 32}
+!211 = !{!212, !20, i64 0}
+!212 = !{!"ssl_conn_close_info_st", !20, i64 0, !20, i64 8, !45, i64 16, !20, i64 24, !7, i64 32}
+!213 = !{!210, !20, i64 8}
+!214 = !{!212, !20, i64 8}
+!215 = !{!210, !45, i64 16}
+!216 = !{!212, !45, i64 16}
+!217 = !{!210, !20, i64 24}
+!218 = !{!212, !20, i64 24}
+!219 = !{!212, !7, i64 32}
+!220 = !{!140, !25, i64 144}
+!221 = !{!111, !7, i64 32}
+!222 = !{!111, !11, i64 8}
+!223 = !{!111, !11, i64 16}
+!224 = !{!111, !7, i64 36}
+!225 = !{!140, !10, i64 8}
+!226 = !{!6, !10, i64 8}
+!227 = !{!138, !25, i64 128}
+!228 = !{!88, !101, i64 1760}
+!229 = !{!140, !20, i64 104}
+!230 = !{!231, !232, i64 0}
+!231 = !{!"ssl_token_store_st", !232, i64 0, !13, i64 8, !25, i64 16}
+!232 = !{!"p1 _ZTS19lhash_st_QUIC_TOKEN", !11, i64 0}
+!233 = !{!231, !25, i64 16}
+!234 = !{!13, !8, i64 0}
+!235 = !{!33, !21, i64 64}
+!236 = !{!237, !45, i64 8}
+!237 = !{!"quic_token_st", !13, i64 0, !45, i64 8, !20, i64 16, !45, i64 24, !20, i64 32}
+!238 = !{!237, !20, i64 16}
+!239 = !{!237, !45, i64 24}
+!240 = !{!237, !20, i64 32}
+!241 = !{!54, !54, i64 0}
+!242 = !{!243, !243, i64 0}
+!243 = !{!"p1 _ZTS13quic_token_st", !11, i64 0}
+!244 = !{!245, !7, i64 64}
+!245 = !{!"ssl_cipher_st", !7, i64 0, !45, i64 8, !45, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !7, i64 40, !7, i64 44, !7, i64 48, !7, i64 52, !7, i64 56, !7, i64 60, !7, i64 64, !7, i64 68, !7, i64 72}
+!246 = !{!247, !7, i64 0}
+!247 = !{!"rio_notifier_st", !7, i64 0, !7, i64 4}
+!248 = !{!88, !45, i64 1768}
+!249 = !{!127, !7, i64 48}
+!250 = !{!251, !128, i64 0}
+!251 = !{!"quic_wait_for_stream_args", !128, i64 0, !133, i64 8, !194, i64 16, !20, i64 24}
+!252 = !{!251, !133, i64 8}
+!253 = !{!251, !194, i64 16}
+!254 = !{!251, !20, i64 24}

@@ -384,7 +384,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
   %20 = getelementptr i8, ptr %2, i64 -296
   %21 = getelementptr i8, ptr %2, i64 -292
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  store i32 0, ptr %7, align 4, !annotation !22
+  store i32 0, ptr %7, align 4, !annotation !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 %19, ptr %22, align 4
@@ -490,7 +490,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
 90:                                               ; preds = %83
   %91 = add nuw nsw i64 %84, 1
   %92 = icmp eq i64 %91, %82
-  br i1 %92, label %.loopexit, label %83, !llvm.loop !23
+  br i1 %92, label %.loopexit, label %83, !llvm.loop !22
 
 .loopexit:                                        ; preds = %90, %73, %18
   %93 = load i8, ptr %20, align 1
@@ -626,13 +626,13 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %175 = load i32, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 126
-  %177 = load i8, ptr %176, align 2, !range !24, !noundef !25
+  %177 = load i8, ptr %176, align 2, !range !23, !noundef !24
   %178 = icmp eq i8 %177, 0
   %179 = icmp eq i32 %175, 0
   br i1 %179, label %183, label %180
 
 180:                                              ; preds = %167
-  %181 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %175, i32 -1) #5, !srcloc !26
+  %181 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %175, i32 -1) #5, !srcloc !25
   %182 = sext i32 %181 to i64
   br label %183
 
@@ -692,12 +692,11 @@ attributes #5 = { nounwind memory(read) }
 !15 = !{i64 2166944830, i64 2166944639, i64 2166944691, i64 2166944737, i64 2166944765}
 !16 = !{i64 2166944904, i64 2166944933, i64 2166944979, i64 2166945037, i64 2166945091, i64 2166945145, i64 2166945200, i64 2166945231, i64 2166945539, i64 2166945545, i64 2166945592, i64 2166945615, i64 2166945641}
 !17 = !{i64 2166946096, i64 2166945907, i64 2166945957, i64 2166946003, i64 2166946031}
-!18 = distinct !{!18, !19, !20, !21}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = !{!"llvm.loop.unroll.disable"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!"auto-init"}
-!23 = distinct !{!23, !19, !20, !21}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = !{i64 720990}
+!21 = !{!"auto-init"}
+!22 = distinct !{!22, !19, !20}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{i64 720990}

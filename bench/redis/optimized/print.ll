@@ -416,7 +416,7 @@ PrintCode.exit:                                   ; preds = %192, %PrintHeader.e
   %205 = load ptr, ptr @stdout, align 8, !tbaa !37
   %206 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %205)
   %exitcond.not.i = icmp eq i32 %203, %198
-  br i1 %exitcond.not.i, label %PrintConstants.exit, label %202, !llvm.loop !45
+  br i1 %exitcond.not.i, label %PrintConstants.exit, label %202, !llvm.loop !44
 
 PrintConstants.exit:                              ; preds = %202, %197
   %207 = load i32, ptr %43, align 4, !tbaa !26
@@ -431,21 +431,21 @@ PrintConstants.exit:                              ; preds = %202, %197
 
 211:                                              ; preds = %211, %.lr.ph.i15
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i, %211 ]
-  %212 = load ptr, ptr %210, align 8, !tbaa !46
+  %212 = load ptr, ptr %210, align 8, !tbaa !45
   %213 = getelementptr inbounds nuw %struct.LocVar, ptr %212, i64 %indvars.iv.i
-  %214 = load ptr, ptr %213, align 8, !tbaa !47
+  %214 = load ptr, ptr %213, align 8, !tbaa !46
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %217 = load i32, ptr %216, align 8, !tbaa !49
+  %217 = load i32, ptr %216, align 8, !tbaa !48
   %218 = add nsw i32 %217, 1
   %219 = getelementptr inbounds nuw i8, ptr %213, i64 12
-  %220 = load i32, ptr %219, align 4, !tbaa !50
+  %220 = load i32, ptr %219, align 4, !tbaa !49
   %221 = add nsw i32 %220, 1
   %222 = trunc nuw nsw i64 %indvars.iv.i to i32
   %223 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %222, ptr noundef nonnull %215, i32 noundef %218, i32 noundef %221)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i16, label %PrintLocals.exit, label %211, !llvm.loop !51
+  br i1 %exitcond.not.i16, label %PrintLocals.exit, label %211, !llvm.loop !50
 
 PrintLocals.exit:                                 ; preds = %211, %PrintConstants.exit
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -472,7 +472,7 @@ PrintLocals.exit:                                 ; preds = %211, %PrintConstant
   %236 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %235, ptr noundef nonnull %234)
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i18
-  br i1 %exitcond.not.i22, label %PrintUpvalues.exit, label %.lr.ph.i19, !llvm.loop !52
+  br i1 %exitcond.not.i22, label %PrintUpvalues.exit, label %.lr.ph.i19, !llvm.loop !51
 
 PrintUpvalues.exit:                               ; preds = %.lr.ph.i19, %PrintLocals.exit, %PrintCode.exit
   %237 = icmp sgt i32 %4, 0
@@ -491,7 +491,7 @@ PrintUpvalues.exit:                               ; preds = %.lr.ph.i19, %PrintL
   tail call void @luaU_print(ptr noundef %242, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %239, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %239, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %239, %PrintUpvalues.exit
   ret void
@@ -505,7 +505,7 @@ define internal fastcc void @PrintConstant(ptr readonly captures(none) %.16.val,
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.lua_TValue, ptr %.16.val, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !54
+  %5 = load i32, ptr %4, align 8, !tbaa !53
   switch i32 %5, label %60 [
     i32 0, label %6
     i32 1, label %8
@@ -594,10 +594,10 @@ define internal fastcc void @PrintConstant(ptr readonly captures(none) %.16.val,
 
 43:                                               ; preds = %.lr.ph.i
   %44 = tail call ptr @__ctype_b_loc() #3
-  %45 = load ptr, ptr %44, align 8, !tbaa !56
+  %45 = load ptr, ptr %44, align 8, !tbaa !55
   %46 = zext i8 %23 to i64
   %47 = getelementptr inbounds nuw i16, ptr %45, i64 %46
-  %48 = load i16, ptr %47, align 2, !tbaa !58
+  %48 = load i16, ptr %47, align 2, !tbaa !57
   %49 = and i16 %48, 16384
   %.not.i = icmp eq i16 %49, 0
   br i1 %.not.i, label %53, label %50
@@ -615,7 +615,7 @@ define internal fastcc void @PrintConstant(ptr readonly captures(none) %.16.val,
 56:                                               ; preds = %53, %50, %41, %39, %37, %35, %33, %31, %29, %27, %25
   %57 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %57, %19
-  br i1 %exitcond.not.i, label %PrintString.exit, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %PrintString.exit, label %.lr.ph.i, !llvm.loop !59
 
 PrintString.exit:                                 ; preds = %56, %15
   %58 = load ptr, ptr @stdout, align 8, !tbaa !37
@@ -685,22 +685,21 @@ attributes #3 = { nounwind willreturn memory(none) }
 !39 = !{!5, !12, i64 32}
 !40 = !{!41, !41, i64 0}
 !41 = !{!"p1 _ZTS5Proto", !7, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = distinct !{!45, !43, !44}
-!46 = !{!5, !13, i64 48}
-!47 = !{!48, !15, i64 0}
-!48 = !{!"LocVar", !15, i64 0, !16, i64 8, !16, i64 12}
-!49 = !{!48, !16, i64 8}
-!50 = !{!48, !16, i64 12}
-!51 = distinct !{!51, !43, !44}
-!52 = distinct !{!52, !43, !44}
-!53 = distinct !{!53, !43, !44}
-!54 = !{!55, !16, i64 8}
-!55 = !{!"lua_TValue", !8, i64 0, !16, i64 8}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 short", !7, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"short", !8, i64 0}
-!60 = distinct !{!60, !43, !44}
+!44 = distinct !{!44, !43}
+!45 = !{!5, !13, i64 48}
+!46 = !{!47, !15, i64 0}
+!47 = !{!"LocVar", !15, i64 0, !16, i64 8, !16, i64 12}
+!48 = !{!47, !16, i64 8}
+!49 = !{!47, !16, i64 12}
+!50 = distinct !{!50, !43}
+!51 = distinct !{!51, !43}
+!52 = distinct !{!52, !43}
+!53 = !{!54, !16, i64 8}
+!54 = !{!"lua_TValue", !8, i64 0, !16, i64 8}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 short", !7, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"short", !8, i64 0}
+!59 = distinct !{!59, !43}

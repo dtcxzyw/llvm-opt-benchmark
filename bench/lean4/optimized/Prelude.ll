@@ -9771,7 +9771,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 
 lean_dec.exit.backedge:                           ; preds = %22, %26, %35, %34, %32
   %.08.be = phi ptr [ %29, %32 ], [ %29, %34 ], [ %29, %35 ], [ %27, %26 ], [ %25, %22 ]
-  br label %lean_dec.exit, !llvm.loop !19
+  br label %lean_dec.exit
 
 26:                                               ; preds = %18
   %27 = tail call ptr @lean_big_usize_to_nat(i64 noundef %20) #11
@@ -9894,7 +9894,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 
 lean_dec.exit.i.backedge:                         ; preds = %34, %33, %31, %25, %21
   %.08.i.be = phi ptr [ %28, %31 ], [ %28, %33 ], [ %28, %34 ], [ %26, %25 ], [ %24, %21 ]
-  br label %lean_dec.exit.i, !llvm.loop !19
+  br label %lean_dec.exit.i
 
 l_List_lengthTRAux___rarg.exit:                   ; preds = %lean_obj_tag.exit.i
   %35 = ptrtoint ptr %0 to i64
@@ -9997,7 +9997,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
 
 lean_dec.exit.i.backedge:                         ; preds = %33, %32, %30, %24, %20
   %.08.i.be = phi ptr [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %24 ], [ %23, %20 ]
-  br label %lean_dec.exit.i, !llvm.loop !19
+  br label %lean_dec.exit.i
 
 l_List_lengthTRAux___rarg.exit:                   ; preds = %lean_obj_tag.exit.i
   ret ptr %.08.i
@@ -10100,7 +10100,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %7, %4
 
 lean_dec.exit.i.i.backedge:                       ; preds = %33, %32, %30, %24, %20
   %.08.i.i.be = phi ptr [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %24 ], [ %23, %20 ]
-  br label %lean_dec.exit.i.i, !llvm.loop !19
+  br label %lean_dec.exit.i.i
 
 l_List_lengthTR___rarg.exit:                      ; preds = %lean_obj_tag.exit.i.i
   %34 = ptrtoint ptr %0 to i64
@@ -10820,7 +10820,7 @@ lean_dec.exit:                                    ; preds = %51, %50, %48, %lean
 
 lean_inc.exit:                                    ; preds = %57, %56, %54, %lean_dec.exit
   %58 = tail call ptr @lean_apply_2(ptr noundef %0, ptr noundef %.0, ptr noundef %26) #11
-  br label %6, !llvm.loop !21
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -24556,7 +24556,7 @@ l_Lean_Name_hash___override.exit:                 ; preds = %5, %8
   %18 = and i64 %17, 1
   %19 = icmp ne i64 %18, 0
   %or.cond = select i1 %16, i1 %19, i1 false
-  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !22
+  br i1 %or.cond, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit, !prof !19
 
 lean_nat_lt.exit:                                 ; preds = %l_Lean_Name_hash___override.exit
   %20 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %1, ptr noundef %13) #11
@@ -26219,7 +26219,7 @@ lean_inc.exit22:                                  ; preds = %21, %20, %18, %11
 
 25:                                               ; preds = %lean_obj_tag.exit
   %26 = getelementptr i8, ptr %0, i64 24
-  %.val = load i8, ptr %26, align 1, !tbaa !23
+  %.val = load i8, ptr %26, align 1, !tbaa !20
   %27 = icmp eq i8 %.val, 0
   br i1 %27, label %28, label %44
 
@@ -26433,7 +26433,7 @@ lean_inc.exit22:                                  ; preds = %21, %20, %18, %11
 
 25:                                               ; preds = %lean_obj_tag.exit
   %26 = getelementptr i8, ptr %0, i64 24
-  %.val = load i8, ptr %26, align 1, !tbaa !23
+  %.val = load i8, ptr %26, align 1, !tbaa !20
   %27 = icmp eq i8 %.val, 0
   br i1 %27, label %28, label %44
 
@@ -30370,7 +30370,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit58
 
 38:                                               ; preds = %lean_obj_tag.exit63
   %39 = getelementptr i8, ptr %13, i64 24
-  %.val59 = load i8, ptr %39, align 1, !tbaa !23
+  %.val59 = load i8, ptr %39, align 1, !tbaa !20
   %40 = icmp eq i8 %.val59, 0
   br i1 %40, label %41, label %60
 
@@ -30538,7 +30538,7 @@ lean_alloc_ctor.exit80:                           ; preds = %lean_inc.exit55
 
 107:                                              ; preds = %lean_obj_tag.exit76
   %108 = getelementptr i8, ptr %82, i64 24
-  %.val = load i8, ptr %108, align 1, !tbaa !23
+  %.val = load i8, ptr %108, align 1, !tbaa !20
   %109 = icmp eq i8 %.val, 0
   br i1 %109, label %110, label %125
 
@@ -33442,7 +33442,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 23:                                               ; preds = %lean_obj_tag.exit
   %24 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !10
-  br label %2, !llvm.loop !24
+  br label %2
 
 lean_string_dec_eq.exit:                          ; preds = %lean_obj_tag.exit, %20, %16, %11
   %.0 = phi i8 [ 1, %11 ], [ 0, %16 ], [ %22, %20 ], [ 0, %lean_obj_tag.exit ]
@@ -33501,7 +33501,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 23:                                               ; preds = %lean_obj_tag.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !10
-  br label %2, !llvm.loop !24
+  br label %2
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %lean_obj_tag.exit.i, %11, %16, %20
   %.0.i = phi i64 [ 3, %11 ], [ 1, %16 ], [ %22, %20 ], [ 1, %lean_obj_tag.exit.i ]
@@ -33585,7 +33585,7 @@ lean_string_dec_eq.exit:                          ; preds = %17
 
 .backedge.backedge:                               ; preds = %lean_string_dec_eq.exit, %17, %30
   %.014.be = phi ptr [ %32, %30 ], [ %12, %17 ], [ %12, %lean_string_dec_eq.exit ]
-  br label %.backedge, !llvm.loop !25
+  br label %.backedge
 
 lean_string_dec_eq.exit.thread18:                 ; preds = %10, %lean_string_dec_eq.exit
   %22 = ptrtoint ptr %12 to i64
@@ -33702,7 +33702,7 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
 
 .backedge.i.backedge:                             ; preds = %30, %lean_string_dec_eq.exit.i, %17
   %.014.i.be = phi ptr [ %32, %30 ], [ %12, %17 ], [ %12, %lean_string_dec_eq.exit.i ]
-  br label %.backedge.i, !llvm.loop !25
+  br label %.backedge.i
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i, %lean_string_dec_eq.exit.thread18.i, %26, %28, %29
   %.1.i = phi ptr [ %12, %29 ], [ %12, %28 ], [ %12, %26 ], [ %12, %lean_string_dec_eq.exit.thread18.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
@@ -33780,7 +33780,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 20:                                               ; preds = %lean_obj_tag.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
-  br label %2, !llvm.loop !24
+  br label %2
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %16
   %23 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %13, ptr noundef nonnull %14) #11
@@ -33866,7 +33866,7 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
 
 l_Lean_Name_hasMacroScopes.exit.thread14.backedge: ; preds = %52, %lean_string_dec_eq.exit.i, %39
   %.014.i.be = phi ptr [ %54, %52 ], [ %34, %39 ], [ %34, %lean_string_dec_eq.exit.i ]
-  br label %l_Lean_Name_hasMacroScopes.exit.thread14, !llvm.loop !25
+  br label %l_Lean_Name_hasMacroScopes.exit.thread14
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i7, %lean_string_dec_eq.exit.thread18.i, %48, %50, %51
   %.1.i = phi ptr [ %34, %51 ], [ %34, %50 ], [ %34, %48 ], [ %34, %lean_string_dec_eq.exit.thread18.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i7 ]
@@ -34080,7 +34080,7 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
 
 .preheader.backedge:                              ; preds = %69, %lean_string_dec_eq.exit.i, %56
   %.014.i.be = phi ptr [ %71, %69 ], [ %51, %56 ], [ %51, %lean_string_dec_eq.exit.i ]
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i, %lean_string_dec_eq.exit.thread18.i, %65, %67, %68
   %.1.i = phi ptr [ %51, %68 ], [ %51, %67 ], [ %51, %65 ], [ %51, %lean_string_dec_eq.exit.thread18.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
@@ -34152,7 +34152,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 20:                                               ; preds = %lean_obj_tag.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
-  br label %2, !llvm.loop !24
+  br label %2
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %16
   %23 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %13, ptr noundef nonnull %14) #11
@@ -34273,7 +34273,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @l_Lean_Name_num___override(ptr noundef %.0, ptr noundef %16)
-  br label %3, !llvm.loop !26
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -35297,7 +35297,7 @@ lean_inc.exit:                                    ; preds = %114, %113, %111, %1
   store ptr %.041, ptr %119, align 8, !tbaa !10
   %120 = getelementptr inbounds nuw i8, ptr %.sink118, i64 16
   store ptr %.043, ptr %120, align 8, !tbaa !10
-  br label %5, !llvm.loop !27
+  br label %5
 
 121:                                              ; preds = %.thread, %lean_dec.exit49
   %.1 = phi ptr [ %44, %lean_dec.exit49 ], [ %96, %.thread ]
@@ -35761,7 +35761,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   store ptr %56, ptr %76, align 8, !tbaa !10
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %.024, ptr %77, align 8, !tbaa !10
-  br label %3, !llvm.loop !28
+  br label %3
 
 78:                                               ; preds = %lean_dec.exit27, %lean_dec.exit28
   %.0 = phi ptr [ %24, %lean_dec.exit28 ], [ %43, %lean_dec.exit27 ]
@@ -35815,7 +35815,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 20:                                               ; preds = %lean_obj_tag.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
-  br label %2, !llvm.loop !24
+  br label %2
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %16
   %23 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %13, ptr noundef nonnull %14) #11
@@ -35901,7 +35901,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
 22:                                               ; preds = %lean_obj_tag.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !10
-  br label %4, !llvm.loop !24
+  br label %4
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %18
   %25 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %15, ptr noundef nonnull %16) #11
@@ -36645,7 +36645,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
 24:                                               ; preds = %lean_obj_tag.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !10
-  br label %3, !llvm.loop !24
+  br label %3
 
 l_Lean_Name_hasMacroScopes.exit:                  ; preds = %lean_obj_tag.exit.i, %12, %17, %21
   %.0.i = phi i1 [ false, %12 ], [ true, %17 ], [ %23, %21 ], [ true, %lean_obj_tag.exit.i ]
@@ -36699,7 +36699,7 @@ lean_obj_tag.exit.i113:                           ; preds = %33, %30
 48:                                               ; preds = %lean_obj_tag.exit.i113
   %49 = getelementptr inbounds nuw i8, ptr %.08.i111, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !10
-  br label %27, !llvm.loop !24
+  br label %27
 
 l_Lean_Name_hasMacroScopes.exit119:               ; preds = %lean_obj_tag.exit.i113, %41, %45
   %.0.i117 = phi i1 [ true, %41 ], [ %47, %45 ], [ true, %lean_obj_tag.exit.i113 ]
@@ -40139,7 +40139,7 @@ define ptr @l_Lean_Macro_withIncRecDepth___rarg(ptr noundef %0, ptr noundef %1, 
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
   %or.cond = select i1 %21, i1 %24, i1 false
-  br i1 %or.cond, label %25, label %lean_nat_eq.exit, !prof !22
+  br i1 %or.cond, label %25, label %lean_nat_eq.exit, !prof !19
 
 25:                                               ; preds = %18
   %26 = icmp eq ptr %13, %15
@@ -43581,7 +43581,7 @@ define noalias noundef nonnull ptr @initialize_Init_Prelude(i8 noundef zeroext %
   store ptr inttoptr (i64 1 to ptr), ptr @l_Unit_unit, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #11
   store ptr inttoptr (i64 1 to ptr), ptr @l_instInhabitedSort, align 8, !tbaa !10
-  store i8 0, ptr @l_instInhabitedBool, align 1, !tbaa !23
+  store i8 0, ptr @l_instInhabitedBool, align 1, !tbaa !20
   store ptr inttoptr (i64 1 to ptr), ptr @l_instInhabitedNonemptyType, align 8, !tbaa !10
   store ptr inttoptr (i64 1 to ptr), ptr @l_instInhabitedNat, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #11
@@ -43693,14 +43693,14 @@ _init_l_instSubNat___closed__1.exit:              ; preds = %_init_l_instNatPowN
   tail call void @lean_mark_persistent(ptr noundef %41) #11
   store ptr inttoptr (i64 513 to ptr), ptr @l_UInt8_size, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 513 to ptr)) #11
-  store i8 0, ptr @l_instInhabitedUInt8, align 1, !tbaa !23
+  store i8 0, ptr @l_instInhabitedUInt8, align 1, !tbaa !20
   store ptr inttoptr (i64 131073 to ptr), ptr @l_UInt16_size, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 131073 to ptr)) #11
   store i16 0, ptr @l_instInhabitedUInt16, align 2, !tbaa !12
   %42 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str) #11
   store ptr %42, ptr @l_UInt32_size, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %42) #11
-  store i32 0, ptr @l_instInhabitedUInt32, align 4, !tbaa !29
+  store i32 0, ptr @l_instInhabitedUInt32, align 4, !tbaa !21
   store ptr inttoptr (i64 1 to ptr), ptr @l_instLTUInt32, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #11
   store ptr inttoptr (i64 1 to ptr), ptr @l_instLEUInt32, align 8, !tbaa !10
@@ -45565,14 +45565,6 @@ attributes #12 = { noreturn nounwind }
 !16 = !{!"branch_weights", i32 4001, i32 4000000}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"long", !7, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = !{!"branch_weights", i32 4000000, i32 4001}
-!23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = !{!6, !6, i64 0}
+!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!20 = !{!7, !7, i64 0}
+!21 = !{!6, !6, i64 0}

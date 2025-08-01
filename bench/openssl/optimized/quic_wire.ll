@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %0, i32 
 32:                                               ; preds = %.critedge
   %33 = add nuw i64 %.04357, 1
   %exitcond.not = icmp eq i64 %33, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader, %32
   %.04357 = phi i64 [ %33, %32 ], [ 1, %.preheader ]
@@ -196,21 +196,21 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %0, i32 
 
 48:                                               ; preds = %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !20
+  %50 = load i64, ptr %49, align 8, !tbaa !19
   %51 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %50) #12
   %.not52 = icmp eq i32 %51, 0
   br i1 %.not52, label %.loopexit, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %54 = load i64, ptr %53, align 8, !tbaa !21
+  %54 = load i64, ptr %53, align 8, !tbaa !20
   %55 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %54) #12
   %.not53 = icmp eq i32 %55, 0
   br i1 %.not53, label %.loopexit, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %58 = load i64, ptr %57, align 8, !tbaa !22
+  %58 = load i64, ptr %57, align 8, !tbaa !21
   %59 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %58) #12
   %.not54 = icmp eq i32 %59, 0
   br i1 %.not54, label %.loopexit, label %60
@@ -235,21 +235,21 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_reset_stream(ptr noundef
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr %1, align 8, !tbaa !23
+  %5 = load i64, ptr %1, align 8, !tbaa !22
   %6 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %5) #12
   %.not7 = icmp eq i32 %6, 0
   br i1 %.not7, label %15, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %9) #12
   %.not8 = icmp eq i32 %10, 0
   br i1 %.not8, label %15, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !26
+  %13 = load i64, ptr %12, align 8, !tbaa !25
   %14 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %13) #12
   %.not9 = icmp ne i32 %14, 0
   %spec.select = zext i1 %.not9 to i32
@@ -267,14 +267,14 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stop_sending(ptr noundef
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr %1, align 8, !tbaa !27
+  %5 = load i64, ptr %1, align 8, !tbaa !26
   %6 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %5) #12
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !29
+  %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %9) #12
   %.not6 = icmp ne i32 %10, 0
   %spec.select = zext i1 %.not6 to i32
@@ -292,14 +292,14 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_crypto_hdr(ptr noundef %
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr %1, align 8, !tbaa !30
+  %5 = load i64, ptr %1, align 8, !tbaa !29
   %6 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %5) #12
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !33
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %9) #12
   %.not6 = icmp ne i32 %10, 0
   %spec.select = zext i1 %.not6 to i32
@@ -312,7 +312,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_crypto_hdr(ptr noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 0, 18) i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load i64, ptr %0, align 8, !tbaa !30
+  %2 = load i64, ptr %0, align 8, !tbaa !29
   %3 = icmp ult i64 %2, 64
   br i1 %3, label %ossl_quic_vlint_encode_len.exit, label %4
 
@@ -332,7 +332,7 @@ define range(i64 0, 18) i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr
 ossl_quic_vlint_encode_len.exit:                  ; preds = %1, %4, %6, %8
   %.0.i = phi i64 [ 1, %1 ], [ 2, %4 ], [ 4, %6 ], [ %..i, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = icmp ult i64 %11, 64
   br i1 %12, label %ossl_quic_vlint_encode_len.exit16, label %13
 
@@ -364,44 +364,44 @@ ossl_quic_vlint_encode_len.exit16:                ; preds = %ossl_quic_vlint_enc
 define ptr @ossl_quic_wire_encode_frame_crypto(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  store ptr null, ptr %3, align 8, !tbaa !34
+  store ptr null, ptr %3, align 8, !tbaa !33
   %4 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef 6) #12
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %ossl_quic_wire_encode_frame_crypto_hdr.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %1, align 8, !tbaa !30
+  %6 = load i64, ptr %1, align 8, !tbaa !29
   %7 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %6) #12
   %.not5.i = icmp eq i32 %7, 0
   br i1 %.not5.i, label %ossl_quic_wire_encode_frame_crypto_hdr.exit.thread, label %ossl_quic_wire_encode_frame_crypto_hdr.exit
 
 ossl_quic_wire_encode_frame_crypto_hdr.exit:      ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !33
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %9) #12
   %.not6.i.not = icmp eq i32 %10, 0
   br i1 %.not6.i.not, label %ossl_quic_wire_encode_frame_crypto_hdr.exit.thread, label %11
 
 11:                                               ; preds = %ossl_quic_wire_encode_frame_crypto_hdr.exit
-  %12 = load i64, ptr %8, align 8, !tbaa !33
+  %12 = load i64, ptr %8, align 8, !tbaa !32
   %13 = call i32 @WPACKET_allocate_bytes(ptr noundef %0, i64 noundef %12, ptr noundef nonnull %3) #12
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %ossl_quic_wire_encode_frame_crypto_hdr.exit.thread, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %3, align 8, !tbaa !34
-  %19 = load i64, ptr %8, align 8, !tbaa !33
+  %18 = load ptr, ptr %3, align 8, !tbaa !33
+  %19 = load i64, ptr %8, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr nonnull align 1 %16, i64 %19, i1 false)
   br label %20
 
 20:                                               ; preds = %17, %14
-  %21 = load ptr, ptr %3, align 8, !tbaa !34
+  %21 = load ptr, ptr %3, align 8, !tbaa !33
   br label %ossl_quic_wire_encode_frame_crypto_hdr.exit.thread
 
 ossl_quic_wire_encode_frame_crypto_hdr.exit.thread: ; preds = %2, %5, %ossl_quic_wire_encode_frame_crypto_hdr.exit, %11, %20
@@ -439,7 +439,7 @@ declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !36
+  %4 = load i64, ptr %3, align 8, !tbaa !35
   %.not = icmp eq i64 %4, 0
   %spec.select = select i1 %.not, i64 8, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -457,13 +457,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %
   br i1 %.not20, label %29, label %14
 
 14:                                               ; preds = %2
-  %15 = load i64, ptr %1, align 8, !tbaa !38
+  %15 = load i64, ptr %1, align 8, !tbaa !37
   %16 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %15) #12
   %.not21 = icmp eq i32 %16, 0
   br i1 %.not21, label %29, label %17
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %3, align 8, !tbaa !36
+  %18 = load i64, ptr %3, align 8, !tbaa !35
   %.not22 = icmp eq i64 %18, 0
   br i1 %.not22, label %21, label %19
 
@@ -480,7 +480,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !39
+  %26 = load i64, ptr %25, align 8, !tbaa !38
   %27 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %26) #12
   %.not25 = icmp eq i32 %27, 0
   br i1 %.not25, label %29, label %28
@@ -495,7 +495,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 0, 26) i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load i64, ptr %0, align 8, !tbaa !38
+  %2 = load i64, ptr %0, align 8, !tbaa !37
   %3 = icmp ult i64 %2, 64
   br i1 %3, label %select.unfold, label %4
 
@@ -514,7 +514,7 @@ define range(i64 0, 26) i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr
 select.unfold:                                    ; preds = %8, %1, %4, %6
   %.0.i.ph = phi i64 [ 5, %6 ], [ 3, %4 ], [ 2, %1 ], [ 9, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !36
+  %11 = load i64, ptr %10, align 8, !tbaa !35
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %ossl_quic_vlint_encode_len.exit24.thread, label %12
 
@@ -544,7 +544,7 @@ ossl_quic_vlint_encode_len.exit24.thread:         ; preds = %18, %16, %14, %12, 
 
 23:                                               ; preds = %ossl_quic_vlint_encode_len.exit24.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !39
+  %25 = load i64, ptr %24, align 8, !tbaa !38
   %26 = icmp ult i64 %25, 64
   br i1 %26, label %ossl_quic_vlint_encode_len.exit27.thread, label %27
 
@@ -575,32 +575,32 @@ ossl_quic_vlint_encode_len.exit:                  ; preds = %31, %18, %8, %ossl_
 define ptr @ossl_quic_wire_encode_frame_stream(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  store ptr null, ptr %3, align 8, !tbaa !34
+  store ptr null, ptr %3, align 8, !tbaa !33
   %4 = tail call i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !38
   %8 = call i32 @WPACKET_allocate_bytes(ptr noundef %0, i64 noundef %7, ptr noundef nonnull %3) #12
   %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %17, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !40
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8, !tbaa !34
-  %14 = load i64, ptr %6, align 8, !tbaa !39
+  %13 = load ptr, ptr %3, align 8, !tbaa !33
+  %14 = load i64, ptr %6, align 8, !tbaa !38
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %12, %9
-  %16 = load ptr, ptr %3, align 8, !tbaa !34
+  %16 = load ptr, ptr %3, align 8, !tbaa !33
   br label %17
 
 17:                                               ; preds = %5, %2, %15
@@ -728,7 +728,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_streams_blocked(ptr noun
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_new_conn_id(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i8, ptr %3, align 8, !tbaa !41
+  %4 = load i8, ptr %3, align 8, !tbaa !40
   %5 = add i8 %4, -21
   %or.cond = icmp ult i8 %5, -20
   br i1 %or.cond, label %27, label %6
@@ -739,20 +739,20 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_new_conn_id(ptr noundef 
   br i1 %.not, label %27, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr %1, align 8, !tbaa !45
+  %9 = load i64, ptr %1, align 8, !tbaa !44
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %9) #12
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %27, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !46
+  %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %13) #12
   %.not16 = icmp eq i32 %14, 0
   br i1 %.not16, label %27, label %15
 
 15:                                               ; preds = %11
-  %16 = load i8, ptr %3, align 8, !tbaa !41
+  %16 = load i8, ptr %3, align 8, !tbaa !40
   %17 = zext i8 %16 to i64
   %18 = tail call i32 @WPACKET_put_bytes__(ptr noundef %0, i64 noundef %17, i64 noundef 1) #12
   %.not17 = icmp eq i32 %18, 0
@@ -760,7 +760,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_new_conn_id(ptr noundef 
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %21 = load i8, ptr %3, align 8, !tbaa !41
+  %21 = load i8, ptr %3, align 8, !tbaa !40
   %22 = zext i8 %21 to i64
   %23 = tail call i32 @WPACKET_memcpy(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %22) #12
   %.not18 = icmp eq i32 %23, 0
@@ -843,7 +843,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_conn_close(ptr noundef %
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !47
+  %9 = load i64, ptr %8, align 8, !tbaa !46
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %9) #12
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %27, label %11
@@ -856,22 +856,22 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_frame_conn_close(ptr noundef %
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !49
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %17 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %16) #12
   %.not15 = icmp eq i32 %17, 0
   br i1 %.not15, label %27, label %18
 
 18:                                               ; preds = %14, %11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load i64, ptr %19, align 8, !tbaa !50
+  %20 = load i64, ptr %19, align 8, !tbaa !49
   %21 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %20) #12
   %.not16 = icmp eq i32 %21, 0
   br i1 %.not16, label %27, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
-  %25 = load i64, ptr %19, align 8, !tbaa !50
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
+  %25 = load i64, ptr %19, align 8, !tbaa !49
   %26 = tail call i32 @WPACKET_memcpy(ptr noundef %0, ptr noundef %24, i64 noundef %25) #12
   %.not17 = icmp ne i32 %26, 0
   %spec.select = zext i1 %.not17 to i32
@@ -892,7 +892,7 @@ define i32 @ossl_quic_wire_encode_frame_handshake_done(ptr noundef %0) local_unn
 define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr null, ptr %5, align 8, !tbaa !34
+  store ptr null, ptr %5, align 8, !tbaa !33
   %6 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %1) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %17, label %7
@@ -908,7 +908,7 @@ define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %0, i64 noun
 
 11:                                               ; preds = %9
   %12 = tail call ptr @WPACKET_get_curr(ptr noundef %0) #12
-  store ptr %12, ptr %5, align 8, !tbaa !34
+  store ptr %12, ptr %5, align 8, !tbaa !33
   br label %15
 
 13:                                               ; preds = %9
@@ -917,7 +917,7 @@ define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %0, i64 noun
   br i1 %.not14, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
-  %.pre16.pre = load ptr, ptr %5, align 8, !tbaa !34
+  %.pre16.pre = load ptr, ptr %5, align 8, !tbaa !33
   br label %15
 
 15:                                               ; preds = %._crit_edge, %11
@@ -927,7 +927,7 @@ define ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %0, i64 noun
 
 16:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre16, ptr nonnull align 1 %2, i64 %3, i1 false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !34
+  %.pre = load ptr, ptr %5, align 8, !tbaa !33
   br label %17
 
 17:                                               ; preds = %15, %16, %13, %4, %7
@@ -981,7 +981,7 @@ ossl_quic_vlint_encode_len.exit:                  ; preds = %5, %7, %9, %11
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_encode_transport_param_cid(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  %5 = load i8, ptr %2, align 1, !tbaa !52
+  %5 = load i8, ptr %2, align 1, !tbaa !51
   %6 = icmp ugt i8 %5, 20
   br i1 %6, label %22, label %7
 
@@ -989,7 +989,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_transport_param_cid(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = zext nneg i8 %5 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store ptr null, ptr %4, align 8, !tbaa !34
+  store ptr null, ptr %4, align 8, !tbaa !33
   %10 = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %1) #12
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %ossl_quic_wire_encode_transport_param_bytes.exit, label %11
@@ -1005,7 +1005,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_transport_param_cid(ptr nounde
 
 15:                                               ; preds = %13
   %16 = tail call ptr @WPACKET_get_curr(ptr noundef %0) #12
-  store ptr %16, ptr %4, align 8, !tbaa !34
+  store ptr %16, ptr %4, align 8, !tbaa !33
   br label %19
 
 17:                                               ; preds = %13
@@ -1014,13 +1014,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_transport_param_cid(ptr nounde
   br i1 %.not14.i, label %ossl_quic_wire_encode_transport_param_bytes.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17
-  %.pre16.pre.i = load ptr, ptr %4, align 8, !tbaa !34
+  %.pre16.pre.i = load ptr, ptr %4, align 8, !tbaa !33
   br label %19
 
 19:                                               ; preds = %._crit_edge.i, %15
   %.pre16.i = phi ptr [ %.pre16.pre.i, %._crit_edge.i ], [ %16, %15 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre16.i, ptr nonnull readonly align 1 %8, i64 %9, i1 false)
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !34
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !33
   %20 = icmp ne ptr %.pre.i, null
   %21 = zext i1 %20 to i32
   br label %ossl_quic_wire_encode_transport_param_bytes.exit
@@ -1038,13 +1038,13 @@ ossl_quic_wire_encode_transport_param_bytes.exit: ; preds = %7, %11, %17, %19
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_header(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i, 0
   br i1 %5, label %PACKET_peek_quic_vlint_ex.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -1054,7 +1054,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_header(ptr noundef readonl
 
 14:                                               ; preds = %6
   %15 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  store i64 %15, ptr %1, align 8, !tbaa !57
+  store i64 %15, ptr %1, align 8, !tbaa !56
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %PACKET_peek_quic_vlint_ex.exit, label %16
 
@@ -1079,7 +1079,7 @@ ossl_quic_vlint_encode_len.exit.i:                ; preds = %22, %20, %18, %16
   %.0.i.i = phi i64 [ 1, %16 ], [ 2, %18 ], [ 4, %20 ], [ %..i.i, %22 ]
   %24 = icmp eq i64 %.0.i.i, %12
   %25 = zext i1 %24 to i32
-  store i32 %25, ptr %2, align 4, !tbaa !58
+  store i32 %25, ptr %2, align 4, !tbaa !57
   br label %PACKET_peek_quic_vlint_ex.exit
 
 PACKET_peek_quic_vlint_ex.exit:                   ; preds = %3, %6, %14, %ossl_quic_vlint_encode_len.exit.i
@@ -1090,13 +1090,13 @@ PACKET_peek_quic_vlint_ex.exit:                   ; preds = %3, %6, %14, %ossl_q
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_skip_frame_header(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i, 0
   br i1 %4, label %PACKET_get_quic_vlint.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -1106,13 +1106,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_skip_frame_header(ptr noundef capture
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  store i64 %14, ptr %1, align 8, !tbaa !57
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %14, ptr %1, align 8, !tbaa !56
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %3, align 8, !tbaa !52
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !53
+  store i64 %18, ptr %3, align 8, !tbaa !52
   br label %PACKET_get_quic_vlint.exit
 
 PACKET_get_quic_vlint.exit:                       ; preds = %2, %5, %13
@@ -1123,13 +1123,13 @@ PACKET_get_quic_vlint.exit:                       ; preds = %2, %5, %13
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %3, align 8, !tbaa !53
+  %.val = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val, 0
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -1139,13 +1139,13 @@ define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr noundef ca
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  store i64 %14, ptr %1, align 8, !tbaa !57
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %14, ptr %1, align 8, !tbaa !56
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %3, align 8, !tbaa !52
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !53
+  store i64 %18, ptr %3, align 8, !tbaa !52
   br label %19
 
 19:                                               ; preds = %5, %2, %13
@@ -1155,14 +1155,14 @@ define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr noundef ca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !34
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !33
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !57
+  %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !56
   %3 = icmp eq i64 %.sroa.17.0.copyload, 0
   br i1 %3, label %expect_frame_header_mask.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr %.sroa.0.0.copyload, align 1, !tbaa !56
+  %5 = load i8, ptr %.sroa.0.0.copyload, align 1, !tbaa !55
   %6 = lshr i8 %5, 6
   %7 = zext nneg i8 %6 to i32
   %8 = shl nuw nsw i32 1, %7
@@ -1181,7 +1181,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef
   br i1 %or.cond, label %expect_frame_header_mask.exit.thread, label %17
 
 17:                                               ; preds = %11
-  %18 = load i8, ptr %13, align 1, !tbaa !56
+  %18 = load i8, ptr %13, align 1, !tbaa !55
   %19 = lshr i8 %18, 6
   %20 = zext nneg i8 %19 to i32
   %21 = shl nuw nsw i32 1, %20
@@ -1196,7 +1196,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef
   br i1 %27, label %expect_frame_header_mask.exit.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = load i8, ptr %25, align 1, !tbaa !56
+  %29 = load i8, ptr %25, align 1, !tbaa !55
   %30 = lshr i8 %29, 6
   %31 = zext nneg i8 %30 to i32
   %32 = shl nuw nsw i32 1, %31
@@ -1211,7 +1211,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef
   br i1 %38, label %expect_frame_header_mask.exit.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = load i8, ptr %36, align 1, !tbaa !56
+  %40 = load i8, ptr %36, align 1, !tbaa !55
   %41 = lshr i8 %40, 6
   %42 = zext nneg i8 %41 to i32
   %43 = shl nuw nsw i32 1, %42
@@ -1237,7 +1237,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %39
   br i1 %49, label %expect_frame_header_mask.exit.thread, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = load i8, ptr %.sroa.0.064, align 1, !tbaa !56
+  %51 = load i8, ptr %.sroa.0.064, align 1, !tbaa !55
   %52 = lshr i8 %51, 6
   %53 = zext nneg i8 %52 to i32
   %54 = shl nuw nsw i32 1, %53
@@ -1252,7 +1252,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %39
   br i1 %60, label %expect_frame_header_mask.exit.thread, label %61
 
 61:                                               ; preds = %57
-  %62 = load i8, ptr %58, align 1, !tbaa !56
+  %62 = load i8, ptr %58, align 1, !tbaa !55
   %63 = lshr i8 %62, 6
   %64 = zext nneg i8 %63 to i32
   %65 = shl nuw nsw i32 1, %64
@@ -1265,11 +1265,11 @@ PACKET_get_quic_vlint.exit:                       ; preds = %39
   %70 = sub nuw i64 %59, %66
   %71 = add nuw i64 %.065, 1
   %exitcond.not = icmp eq i64 %71, %46
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %68, %PACKET_get_quic_vlint.exit
   %72 = add i64 %46, 1
-  store i64 %72, ptr %1, align 8, !tbaa !57
+  store i64 %72, ptr %1, align 8, !tbaa !56
   br label %expect_frame_header_mask.exit.thread
 
 expect_frame_header_mask.exit.thread:             ; preds = %61, %57, %50, %.lr.ph, %39, %35, %28, %24, %17, %4, %2, %11, %._crit_edge
@@ -1283,13 +1283,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %8, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %8, align 8, !tbaa !52
   %9 = icmp eq i64 %.val.i.i.i, 0
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8, !tbaa !55
-  %12 = load i8, ptr %11, align 1, !tbaa !56
+  %11 = load ptr, ptr %0, align 8, !tbaa !54
+  %12 = load i8, ptr %11, align 1, !tbaa !55
   %13 = lshr i8 %12, 6
   %14 = zext nneg i8 %13 to i32
   %15 = shl nuw nsw i32 1, %14
@@ -1299,12 +1299,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
 
 18:                                               ; preds = %10
   %19 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %11) #12
-  %20 = load ptr, ptr %0, align 8, !tbaa !55
+  %20 = load ptr, ptr %0, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %16
-  store ptr %21, ptr %0, align 8, !tbaa !55
-  %22 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %21, ptr %0, align 8, !tbaa !54
+  %22 = load i64, ptr %8, align 8, !tbaa !52
   %23 = sub i64 %22, %16
-  store i64 %23, ptr %8, align 8, !tbaa !53
+  store i64 %23, ptr %8, align 8, !tbaa !52
   %24 = and i64 %19, -2
   %.not6.i = icmp ne i64 %24, 2
   %25 = icmp eq i64 %22, %16
@@ -1312,7 +1312,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
   br i1 %or.cond153, label %.critedge, label %26
 
 26:                                               ; preds = %18
-  %27 = load i8, ptr %21, align 1, !tbaa !56
+  %27 = load i8, ptr %21, align 1, !tbaa !55
   %28 = lshr i8 %27, 6
   %29 = zext nneg i8 %28 to i32
   %30 = shl nuw nsw i32 1, %29
@@ -1322,17 +1322,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
 
 33:                                               ; preds = %26
   %34 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %21) #12
-  %35 = load ptr, ptr %0, align 8, !tbaa !55
+  %35 = load ptr, ptr %0, align 8, !tbaa !54
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %31
-  store ptr %36, ptr %0, align 8, !tbaa !55
-  %37 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %36, ptr %0, align 8, !tbaa !54
+  %37 = load i64, ptr %8, align 8, !tbaa !52
   %38 = sub i64 %37, %31
-  store i64 %38, ptr %8, align 8, !tbaa !53
+  store i64 %38, ptr %8, align 8, !tbaa !52
   %39 = icmp eq i64 %37, %31
   br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %33
-  %41 = load i8, ptr %36, align 1, !tbaa !56
+  %41 = load i8, ptr %36, align 1, !tbaa !55
   %42 = lshr i8 %41, 6
   %43 = zext nneg i8 %42 to i32
   %44 = shl nuw nsw i32 1, %43
@@ -1342,17 +1342,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
 
 47:                                               ; preds = %40
   %48 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %36) #12
-  %49 = load ptr, ptr %0, align 8, !tbaa !55
+  %49 = load ptr, ptr %0, align 8, !tbaa !54
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %45
-  store ptr %50, ptr %0, align 8, !tbaa !55
-  %51 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %50, ptr %0, align 8, !tbaa !54
+  %51 = load i64, ptr %8, align 8, !tbaa !52
   %52 = sub i64 %51, %45
-  store i64 %52, ptr %8, align 8, !tbaa !53
+  store i64 %52, ptr %8, align 8, !tbaa !52
   %53 = icmp eq i64 %51, %45
   br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %47
-  %55 = load i8, ptr %50, align 1, !tbaa !56
+  %55 = load i8, ptr %50, align 1, !tbaa !55
   %56 = lshr i8 %55, 6
   %57 = zext nneg i8 %56 to i32
   %58 = shl nuw nsw i32 1, %57
@@ -1362,17 +1362,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
 
 61:                                               ; preds = %54
   %62 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %50) #12
-  %63 = load ptr, ptr %0, align 8, !tbaa !55
+  %63 = load ptr, ptr %0, align 8, !tbaa !54
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %59
-  store ptr %64, ptr %0, align 8, !tbaa !55
-  %65 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %64, ptr %0, align 8, !tbaa !54
+  %65 = load i64, ptr %8, align 8, !tbaa !52
   %66 = sub i64 %65, %59
-  store i64 %66, ptr %8, align 8, !tbaa !53
+  store i64 %66, ptr %8, align 8, !tbaa !52
   %67 = icmp eq i64 %65, %59
   br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %61
-  %69 = load i8, ptr %64, align 1, !tbaa !56
+  %69 = load i8, ptr %64, align 1, !tbaa !55
   %70 = lshr i8 %69, 6
   %71 = zext nneg i8 %70 to i32
   %72 = shl nuw nsw i32 1, %71
@@ -1382,12 +1382,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
 
 75:                                               ; preds = %68
   %76 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %64) #12
-  %77 = load ptr, ptr %0, align 8, !tbaa !55
+  %77 = load ptr, ptr %0, align 8, !tbaa !54
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %73
-  store ptr %78, ptr %0, align 8, !tbaa !55
-  %79 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %78, ptr %0, align 8, !tbaa !54
+  %79 = load i64, ptr %8, align 8, !tbaa !52
   %80 = sub i64 %79, %73
-  store i64 %80, ptr %8, align 8, !tbaa !53
+  store i64 %80, ptr %8, align 8, !tbaa !52
   %81 = icmp ugt i64 %76, %34
   br i1 %81, label %.critedge, label %82
 
@@ -1414,7 +1414,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 94:                                               ; preds = %84, %safe_mul_uint64_t.exit.thread
   %storemerge = phi i64 [ %.sroa.02.0.i135, %safe_mul_uint64_t.exit.thread ], [ -1, %84 ]
-  store i64 %storemerge, ptr %85, align 8, !tbaa !57
+  store i64 %storemerge, ptr %85, align 8, !tbaa !56
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %96 = load i64, ptr %95, align 8, !tbaa !3
   %.not73 = icmp eq i64 %96, 0
@@ -1437,11 +1437,11 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 .lr.ph:                                           ; preds = %100
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i93.pre = load i64, ptr %8, align 8, !tbaa !53
+  %.val.i93.pre = load i64, ptr %8, align 8, !tbaa !52
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread
-  %.val.i93.us.pre = load i64, ptr %8, align 8, !tbaa !53
+  %.val.i93.us.pre = load i64, ptr %8, align 8, !tbaa !52
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %136
@@ -1452,7 +1452,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   br i1 %103, label %.critedge, label %104
 
 104:                                              ; preds = %.lr.ph.split.us
-  %105 = load i8, ptr %102, align 1, !tbaa !56
+  %105 = load i8, ptr %102, align 1, !tbaa !55
   %106 = lshr i8 %105, 6
   %107 = zext nneg i8 %106 to i32
   %108 = shl nuw nsw i32 1, %107
@@ -1462,17 +1462,17 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 111:                                              ; preds = %104
   %112 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %102) #12
-  %113 = load ptr, ptr %0, align 8, !tbaa !55
+  %113 = load ptr, ptr %0, align 8, !tbaa !54
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %109
-  store ptr %114, ptr %0, align 8, !tbaa !55
-  %115 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %114, ptr %0, align 8, !tbaa !54
+  %115 = load i64, ptr %8, align 8, !tbaa !52
   %116 = sub i64 %115, %109
-  store i64 %116, ptr %8, align 8, !tbaa !53
+  store i64 %116, ptr %8, align 8, !tbaa !52
   %117 = icmp eq i64 %115, %109
   br i1 %117, label %.critedge, label %118
 
 118:                                              ; preds = %111
-  %119 = load i8, ptr %114, align 1, !tbaa !56
+  %119 = load i8, ptr %114, align 1, !tbaa !55
   %120 = lshr i8 %119, 6
   %121 = zext nneg i8 %120 to i32
   %122 = shl nuw nsw i32 1, %121
@@ -1482,12 +1482,12 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 125:                                              ; preds = %118
   %126 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %114) #12
-  %127 = load ptr, ptr %0, align 8, !tbaa !55
+  %127 = load ptr, ptr %0, align 8, !tbaa !54
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %123
-  store ptr %128, ptr %0, align 8, !tbaa !55
-  %129 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %128, ptr %0, align 8, !tbaa !54
+  %129 = load i64, ptr %8, align 8, !tbaa !52
   %130 = sub i64 %129, %123
-  store i64 %130, ptr %8, align 8, !tbaa !53
+  store i64 %130, ptr %8, align 8, !tbaa !52
   %131 = sub i64 %83, %112
   %132 = add i64 %131, -2
   %133 = add i64 %112, 2
@@ -1499,7 +1499,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 136:                                              ; preds = %125
   %137 = add nuw i64 %.052143.us, 1
   %exitcond147.not = icmp eq i64 %137, %62
-  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %181
   %138 = phi ptr [ %164, %181 ], [ %78, %.lr.ph ]
@@ -1510,7 +1510,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   br i1 %139, label %.critedge, label %140
 
 140:                                              ; preds = %.lr.ph.split
-  %141 = load i8, ptr %138, align 1, !tbaa !56
+  %141 = load i8, ptr %138, align 1, !tbaa !55
   %142 = lshr i8 %141, 6
   %143 = zext nneg i8 %142 to i32
   %144 = shl nuw nsw i32 1, %143
@@ -1520,17 +1520,17 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 147:                                              ; preds = %140
   %148 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %138) #12
-  %149 = load ptr, ptr %0, align 8, !tbaa !55
+  %149 = load ptr, ptr %0, align 8, !tbaa !54
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %145
-  store ptr %150, ptr %0, align 8, !tbaa !55
-  %151 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %150, ptr %0, align 8, !tbaa !54
+  %151 = load i64, ptr %8, align 8, !tbaa !52
   %152 = sub i64 %151, %145
-  store i64 %152, ptr %8, align 8, !tbaa !53
+  store i64 %152, ptr %8, align 8, !tbaa !52
   %153 = icmp eq i64 %151, %145
   br i1 %153, label %.critedge, label %154
 
 154:                                              ; preds = %147
-  %155 = load i8, ptr %150, align 1, !tbaa !56
+  %155 = load i8, ptr %150, align 1, !tbaa !55
   %156 = lshr i8 %155, 6
   %157 = zext nneg i8 %156 to i32
   %158 = shl nuw nsw i32 1, %157
@@ -1540,12 +1540,12 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 161:                                              ; preds = %154
   %162 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %150) #12
-  %163 = load ptr, ptr %0, align 8, !tbaa !55
+  %163 = load ptr, ptr %0, align 8, !tbaa !54
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %159
-  store ptr %164, ptr %0, align 8, !tbaa !55
-  %165 = load i64, ptr %8, align 8, !tbaa !53
+  store ptr %164, ptr %0, align 8, !tbaa !54
+  %165 = load i64, ptr %8, align 8, !tbaa !52
   %166 = sub i64 %165, %159
-  store i64 %166, ptr %8, align 8, !tbaa !53
+  store i64 %166, ptr %8, align 8, !tbaa !52
   %167 = sub i64 %.049144, %148
   %168 = add i64 %167, -2
   %169 = add i64 %148, 2
@@ -1572,7 +1572,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 181:                                              ; preds = %172, %176
   %.150 = phi i64 [ %177, %176 ], [ %.049144, %172 ]
   %exitcond.not = icmp eq i64 %173, %62
-  br i1 %exitcond.not, label %._crit_edge.thread151, label %.lr.ph.split, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.thread151, label %.lr.ph.split, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %136, %100
   br i1 %.not71, label %._crit_edge.thread, label %._crit_edge.thread151
@@ -1594,7 +1594,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 
 187:                                              ; preds = %._crit_edge.thread
   %188 = add i64 %62, 1
-  store i64 %188, ptr %3, align 8, !tbaa !57
+  store i64 %188, ptr %3, align 8, !tbaa !56
   br label %189
 
 189:                                              ; preds = %187, %._crit_edge.thread
@@ -1623,15 +1623,15 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   br i1 %.not71, label %208, label %198
 
 198:                                              ; preds = %197
-  %199 = load i64, ptr %5, align 8, !tbaa !57
+  %199 = load i64, ptr %5, align 8, !tbaa !56
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %199, ptr %200, align 8, !tbaa !20
-  %201 = load i64, ptr %6, align 8, !tbaa !57
+  store i64 %199, ptr %200, align 8, !tbaa !19
+  %201 = load i64, ptr %6, align 8, !tbaa !56
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 %201, ptr %202, align 8, !tbaa !21
-  %203 = load i64, ptr %7, align 8, !tbaa !57
+  store i64 %201, ptr %202, align 8, !tbaa !20
+  %203 = load i64, ptr %7, align 8, !tbaa !56
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 %203, ptr %204, align 8, !tbaa !22
+  store i64 %203, ptr %204, align 8, !tbaa !21
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %206 = load i8, ptr %205, align 8
   %207 = or i8 %206, 1
@@ -1668,13 +1668,13 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -1684,19 +1684,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 4
   %18 = icmp eq i64 %16, %11
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
-  %20 = load i8, ptr %15, align 1, !tbaa !56
+  %20 = load i8, ptr %15, align 1, !tbaa !55
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i32
   %23 = shl nuw nsw i32 1, %22
@@ -1706,19 +1706,19 @@ expect_frame_header.exit:                         ; preds = %5
 
 26:                                               ; preds = %19
   %27 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %15) #12
-  store i64 %27, ptr %1, align 8, !tbaa !57
-  %28 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %27, ptr %1, align 8, !tbaa !56
+  %28 = load ptr, ptr %0, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %24
-  store ptr %29, ptr %0, align 8, !tbaa !55
-  %30 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %29, ptr %0, align 8, !tbaa !54
+  %30 = load i64, ptr %3, align 8, !tbaa !52
   %31 = sub i64 %30, %24
-  store i64 %31, ptr %3, align 8, !tbaa !53
+  store i64 %31, ptr %3, align 8, !tbaa !52
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = icmp eq i64 %30, %24
   br i1 %33, label %expect_frame_header.exit.thread, label %34
 
 34:                                               ; preds = %26
-  %35 = load i8, ptr %29, align 1, !tbaa !56
+  %35 = load i8, ptr %29, align 1, !tbaa !55
   %36 = lshr i8 %35, 6
   %37 = zext nneg i8 %36 to i32
   %38 = shl nuw nsw i32 1, %37
@@ -1728,19 +1728,19 @@ expect_frame_header.exit:                         ; preds = %5
 
 41:                                               ; preds = %34
   %42 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %29) #12
-  store i64 %42, ptr %32, align 8, !tbaa !57
-  %43 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %42, ptr %32, align 8, !tbaa !56
+  %43 = load ptr, ptr %0, align 8, !tbaa !54
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %39
-  store ptr %44, ptr %0, align 8, !tbaa !55
-  %45 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %44, ptr %0, align 8, !tbaa !54
+  %45 = load i64, ptr %3, align 8, !tbaa !52
   %46 = sub i64 %45, %39
-  store i64 %46, ptr %3, align 8, !tbaa !53
+  store i64 %46, ptr %3, align 8, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = icmp eq i64 %45, %39
   br i1 %48, label %expect_frame_header.exit.thread, label %49
 
 49:                                               ; preds = %41
-  %50 = load i8, ptr %44, align 1, !tbaa !56
+  %50 = load i8, ptr %44, align 1, !tbaa !55
   %51 = lshr i8 %50, 6
   %52 = zext nneg i8 %51 to i32
   %53 = shl nuw nsw i32 1, %52
@@ -1750,13 +1750,13 @@ expect_frame_header.exit:                         ; preds = %5
 
 PACKET_get_quic_vlint.exit15:                     ; preds = %49
   %56 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %44) #12
-  store i64 %56, ptr %47, align 8, !tbaa !57
-  %57 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %56, ptr %47, align 8, !tbaa !56
+  %57 = load ptr, ptr %0, align 8, !tbaa !54
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %54
-  store ptr %58, ptr %0, align 8, !tbaa !55
-  %59 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %58, ptr %0, align 8, !tbaa !54
+  %59 = load i64, ptr %3, align 8, !tbaa !52
   %60 = sub i64 %59, %54
-  store i64 %60, ptr %3, align 8, !tbaa !53
+  store i64 %60, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %34, %26, %19, %5, %2, %PACKET_get_quic_vlint.exit15, %41, %49, %expect_frame_header.exit
@@ -1767,13 +1767,13 @@ expect_frame_header.exit.thread:                  ; preds = %34, %26, %19, %5, %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -1783,19 +1783,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 5
   %18 = icmp eq i64 %16, %11
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
-  %20 = load i8, ptr %15, align 1, !tbaa !56
+  %20 = load i8, ptr %15, align 1, !tbaa !55
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i32
   %23 = shl nuw nsw i32 1, %22
@@ -1805,19 +1805,19 @@ expect_frame_header.exit:                         ; preds = %5
 
 26:                                               ; preds = %19
   %27 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %15) #12
-  store i64 %27, ptr %1, align 8, !tbaa !57
-  %28 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %27, ptr %1, align 8, !tbaa !56
+  %28 = load ptr, ptr %0, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %24
-  store ptr %29, ptr %0, align 8, !tbaa !55
-  %30 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %29, ptr %0, align 8, !tbaa !54
+  %30 = load i64, ptr %3, align 8, !tbaa !52
   %31 = sub i64 %30, %24
-  store i64 %31, ptr %3, align 8, !tbaa !53
+  store i64 %31, ptr %3, align 8, !tbaa !52
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = icmp eq i64 %30, %24
   br i1 %33, label %expect_frame_header.exit.thread, label %34
 
 34:                                               ; preds = %26
-  %35 = load i8, ptr %29, align 1, !tbaa !56
+  %35 = load i8, ptr %29, align 1, !tbaa !55
   %36 = lshr i8 %35, 6
   %37 = zext nneg i8 %36 to i32
   %38 = shl nuw nsw i32 1, %37
@@ -1827,13 +1827,13 @@ expect_frame_header.exit:                         ; preds = %5
 
 PACKET_get_quic_vlint.exit9:                      ; preds = %34
   %41 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %29) #12
-  store i64 %41, ptr %32, align 8, !tbaa !57
-  %42 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %41, ptr %32, align 8, !tbaa !56
+  %42 = load ptr, ptr %0, align 8, !tbaa !54
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %39
-  store ptr %43, ptr %0, align 8, !tbaa !55
-  %44 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %43, ptr %0, align 8, !tbaa !54
+  %44 = load i64, ptr %3, align 8, !tbaa !52
   %45 = sub i64 %44, %39
-  store i64 %45, ptr %3, align 8, !tbaa !53
+  store i64 %45, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %19, %5, %2, %PACKET_get_quic_vlint.exit9, %26, %34, %expect_frame_header.exit
@@ -1844,13 +1844,13 @@ expect_frame_header.exit.thread:                  ; preds = %19, %5, %2, %PACKET
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i.i, 0
   br i1 %5, label %expect_frame_header.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -1860,19 +1860,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef captu
 
 expect_frame_header.exit:                         ; preds = %6
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %12
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
-  store i64 %18, ptr %4, align 8, !tbaa !53
+  store i64 %18, ptr %4, align 8, !tbaa !52
   %.not = icmp ne i64 %14, 6
   %19 = icmp eq i64 %17, %12
   %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
-  %21 = load i8, ptr %16, align 1, !tbaa !56
+  %21 = load i8, ptr %16, align 1, !tbaa !55
   %22 = lshr i8 %21, 6
   %23 = zext nneg i8 %22 to i32
   %24 = shl nuw nsw i32 1, %23
@@ -1882,19 +1882,19 @@ expect_frame_header.exit:                         ; preds = %6
 
 27:                                               ; preds = %20
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  store i64 %28, ptr %2, align 8, !tbaa !57
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %28, ptr %2, align 8, !tbaa !56
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %25
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %4, align 8, !tbaa !52
   %32 = sub i64 %31, %25
-  store i64 %32, ptr %4, align 8, !tbaa !53
+  store i64 %32, ptr %4, align 8, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = icmp eq i64 %31, %25
   br i1 %34, label %expect_frame_header.exit.thread, label %35
 
 35:                                               ; preds = %27
-  %36 = load i8, ptr %30, align 1, !tbaa !56
+  %36 = load i8, ptr %30, align 1, !tbaa !55
   %37 = lshr i8 %36, 6
   %38 = zext nneg i8 %37 to i32
   %39 = shl nuw nsw i32 1, %38
@@ -1904,14 +1904,14 @@ expect_frame_header.exit:                         ; preds = %6
 
 42:                                               ; preds = %35
   %43 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %30) #12
-  store i64 %43, ptr %33, align 8, !tbaa !57
-  %44 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %43, ptr %33, align 8, !tbaa !56
+  %44 = load ptr, ptr %0, align 8, !tbaa !54
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %40
-  store ptr %45, ptr %0, align 8, !tbaa !55
-  %46 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %45, ptr %0, align 8, !tbaa !54
+  %46 = load i64, ptr %4, align 8, !tbaa !52
   %47 = sub i64 %46, %40
-  store i64 %47, ptr %4, align 8, !tbaa !53
-  %48 = load i64, ptr %2, align 8, !tbaa !30
+  store i64 %47, ptr %4, align 8, !tbaa !52
+  %48 = load i64, ptr %2, align 8, !tbaa !29
   %49 = add i64 %48, %43
   %50 = icmp ugt i64 %49, 4611686018427387903
   br i1 %50, label %expect_frame_header.exit.thread, label %51
@@ -1922,7 +1922,7 @@ expect_frame_header.exit:                         ; preds = %6
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr null, ptr %53, align 8, !tbaa !35
+  store ptr null, ptr %53, align 8, !tbaa !34
   br label %expect_frame_header.exit.thread
 
 54:                                               ; preds = %51
@@ -1931,11 +1931,11 @@ expect_frame_header.exit:                         ; preds = %6
 
 PACKET_forward.exit:                              ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %45, ptr %56, align 8, !tbaa !35
+  store ptr %45, ptr %56, align 8, !tbaa !34
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 %43
-  store ptr %57, ptr %0, align 8, !tbaa !55
+  store ptr %57, ptr %0, align 8, !tbaa !54
   %58 = sub nuw i64 %47, %43
-  store i64 %58, ptr %4, align 8, !tbaa !53
+  store i64 %58, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %35, %27, %20, %6, %3, %52, %PACKET_forward.exit, %54, %42, %expect_frame_header.exit
@@ -1946,13 +1946,13 @@ expect_frame_header.exit.thread:                  ; preds = %35, %27, %20, %6, %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i.i, 0
   br i1 %5, label %expect_frame_header.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -1962,19 +1962,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef ca
 
 expect_frame_header.exit:                         ; preds = %6
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %12
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
-  store i64 %18, ptr %4, align 8, !tbaa !53
+  store i64 %18, ptr %4, align 8, !tbaa !52
   %.not = icmp ne i64 %14, 7
   %19 = icmp eq i64 %17, %12
   %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
-  %21 = load i8, ptr %16, align 1, !tbaa !56
+  %21 = load i8, ptr %16, align 1, !tbaa !55
   %22 = lshr i8 %21, 6
   %23 = zext nneg i8 %22 to i32
   %24 = shl nuw nsw i32 1, %23
@@ -1984,24 +1984,24 @@ expect_frame_header.exit:                         ; preds = %6
 
 27:                                               ; preds = %20
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %25
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %4, align 8, !tbaa !52
   %32 = sub i64 %31, %25
-  store i64 %32, ptr %4, align 8, !tbaa !53
-  store ptr %30, ptr %1, align 8, !tbaa !34
-  store i64 %28, ptr %2, align 8, !tbaa !57
-  %.val.i8 = load i64, ptr %4, align 8, !tbaa !53
+  store i64 %32, ptr %4, align 8, !tbaa !52
+  store ptr %30, ptr %1, align 8, !tbaa !33
+  store i64 %28, ptr %2, align 8, !tbaa !56
+  %.val.i8 = load i64, ptr %4, align 8, !tbaa !52
   %33 = icmp ult i64 %.val.i8, %28
   br i1 %33, label %expect_frame_header.exit.thread, label %PACKET_forward.exit
 
 PACKET_forward.exit:                              ; preds = %27
-  %34 = load ptr, ptr %0, align 8, !tbaa !55
+  %34 = load ptr, ptr %0, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %28
-  store ptr %35, ptr %0, align 8, !tbaa !55
+  store ptr %35, ptr %0, align 8, !tbaa !54
   %36 = sub nuw i64 %.val.i8, %28
-  store i64 %36, ptr %4, align 8, !tbaa !53
+  store i64 %36, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_forward.exit, %27, %expect_frame_header.exit
@@ -2012,13 +2012,13 @@ expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i.i, 0
   br i1 %5, label %expect_frame_header_mask.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -2028,12 +2028,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream(ptr noundef captu
 
 14:                                               ; preds = %6
   %15 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %16 = load ptr, ptr %0, align 8, !tbaa !55
+  %16 = load ptr, ptr %0, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %12
-  store ptr %17, ptr %0, align 8, !tbaa !55
-  %18 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %17, ptr %0, align 8, !tbaa !54
+  %18 = load i64, ptr %4, align 8, !tbaa !52
   %19 = sub i64 %18, %12
-  store i64 %19, ptr %4, align 8, !tbaa !53
+  store i64 %19, ptr %4, align 8, !tbaa !52
   %20 = and i64 %15, -8
   %.not6.i = icmp ne i64 %20, 8
   %21 = icmp eq i64 %18, %12
@@ -2041,7 +2041,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream(ptr noundef captu
   br i1 %or.cond, label %expect_frame_header_mask.exit.thread, label %22
 
 22:                                               ; preds = %14
-  %23 = load i8, ptr %17, align 1, !tbaa !56
+  %23 = load i8, ptr %17, align 1, !tbaa !55
   %24 = lshr i8 %23, 6
   %25 = zext nneg i8 %24 to i32
   %26 = shl nuw nsw i32 1, %25
@@ -2051,13 +2051,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream(ptr noundef captu
 
 29:                                               ; preds = %22
   %30 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %17) #12
-  store i64 %30, ptr %2, align 8, !tbaa !57
-  %31 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %30, ptr %2, align 8, !tbaa !56
+  %31 = load ptr, ptr %0, align 8, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %27
-  store ptr %32, ptr %0, align 8, !tbaa !55
-  %33 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %32, ptr %0, align 8, !tbaa !54
+  %33 = load i64, ptr %4, align 8, !tbaa !52
   %34 = sub i64 %33, %27
-  store i64 %34, ptr %4, align 8, !tbaa !53
+  store i64 %34, ptr %4, align 8, !tbaa !52
   %35 = and i64 %15, 4
   %.not25 = icmp eq i64 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2068,7 +2068,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream(ptr noundef captu
   br i1 %38, label %expect_frame_header_mask.exit.thread, label %39
 
 39:                                               ; preds = %37
-  %40 = load i8, ptr %32, align 1, !tbaa !56
+  %40 = load i8, ptr %32, align 1, !tbaa !55
   %41 = lshr i8 %40, 6
   %42 = zext nneg i8 %41 to i32
   %43 = shl nuw nsw i32 1, %42
@@ -2078,17 +2078,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream(ptr noundef captu
 
 PACKET_get_quic_vlint.exit36:                     ; preds = %39
   %46 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %32) #12
-  store i64 %46, ptr %36, align 8, !tbaa !57
-  %47 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %46, ptr %36, align 8, !tbaa !56
+  %47 = load ptr, ptr %0, align 8, !tbaa !54
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %44
-  store ptr %48, ptr %0, align 8, !tbaa !55
-  %49 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %48, ptr %0, align 8, !tbaa !54
+  %49 = load i64, ptr %4, align 8, !tbaa !52
   %50 = sub i64 %49, %44
-  store i64 %50, ptr %4, align 8, !tbaa !53
+  store i64 %50, ptr %4, align 8, !tbaa !52
   br label %52
 
 51:                                               ; preds = %29
-  store i64 0, ptr %36, align 8, !tbaa !36
+  store i64 0, ptr %36, align 8, !tbaa !35
   br label %52
 
 52:                                               ; preds = %PACKET_get_quic_vlint.exit36, %51
@@ -2107,13 +2107,13 @@ PACKET_get_quic_vlint.exit36:                     ; preds = %39
 
 60:                                               ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val.i37 = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i37 = load i64, ptr %4, align 8, !tbaa !52
   %62 = icmp eq i64 %.val.i37, 0
   br i1 %62, label %expect_frame_header_mask.exit.thread, label %63
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %0, align 8, !tbaa !55
-  %65 = load i8, ptr %64, align 1, !tbaa !56
+  %64 = load ptr, ptr %0, align 8, !tbaa !54
+  %65 = load i8, ptr %64, align 1, !tbaa !55
   %66 = lshr i8 %65, 6
   %67 = zext nneg i8 %66 to i32
   %68 = shl nuw nsw i32 1, %67
@@ -2123,15 +2123,15 @@ PACKET_get_quic_vlint.exit36:                     ; preds = %39
 
 PACKET_get_quic_vlint.exit39:                     ; preds = %63
   %71 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %64) #12
-  store i64 %71, ptr %61, align 8, !tbaa !57
-  %72 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %71, ptr %61, align 8, !tbaa !56
+  %72 = load ptr, ptr %0, align 8, !tbaa !54
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %69
-  store ptr %73, ptr %0, align 8, !tbaa !55
-  %74 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %73, ptr %0, align 8, !tbaa !54
+  %74 = load i64, ptr %4, align 8, !tbaa !52
   %75 = sub i64 %74, %69
-  store i64 %75, ptr %4, align 8, !tbaa !53
+  store i64 %75, ptr %4, align 8, !tbaa !52
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !36
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !35
   br label %79
 
 76:                                               ; preds = %52
@@ -2140,7 +2140,7 @@ PACKET_get_quic_vlint.exit39:                     ; preds = %63
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %78, align 8, !tbaa !39
+  store i64 0, ptr %78, align 8, !tbaa !38
   br label %79
 
 79:                                               ; preds = %PACKET_get_quic_vlint.exit39, %77
@@ -2151,17 +2151,17 @@ PACKET_get_quic_vlint.exit39:                     ; preds = %63
   br i1 %83, label %expect_frame_header_mask.exit.thread, label %88
 
 .thread:                                          ; preds = %76
-  %.val = load i64, ptr %4, align 8, !tbaa !53
+  %.val = load i64, ptr %4, align 8, !tbaa !52
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %.val, ptr %84, align 8, !tbaa !39
+  store i64 %.val, ptr %84, align 8, !tbaa !38
   %85 = add i64 %53, %.val
   %86 = icmp ugt i64 %85, 4611686018427387903
   br i1 %86, label %expect_frame_header_mask.exit.thread, label %.thread54.thread
 
 .thread54.thread:                                 ; preds = %.thread
-  %.val3260 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val3260 = load ptr, ptr %0, align 8, !tbaa !54
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %.val3260, ptr %87, align 8, !tbaa !40
+  store ptr %.val3260, ptr %87, align 8, !tbaa !39
   br label %PACKET_forward.exit
 
 88:                                               ; preds = %79
@@ -2170,14 +2170,14 @@ PACKET_get_quic_vlint.exit39:                     ; preds = %63
 
 89:                                               ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr null, ptr %90, align 8, !tbaa !40
+  store ptr null, ptr %90, align 8, !tbaa !39
   br label %expect_frame_header_mask.exit.thread
 
 .thread54:                                        ; preds = %88
-  %.val.i40.pre = load i64, ptr %4, align 8, !tbaa !53
-  %.val32 = load ptr, ptr %0, align 8, !tbaa !55
+  %.val.i40.pre = load i64, ptr %4, align 8, !tbaa !52
+  %.val32 = load ptr, ptr %0, align 8, !tbaa !54
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %.val32, ptr %91, align 8, !tbaa !40
+  store ptr %.val32, ptr %91, align 8, !tbaa !39
   %92 = icmp ult i64 %.val.i40.pre, %80
   br i1 %92, label %expect_frame_header_mask.exit.thread, label %PACKET_forward.exit
 
@@ -2186,9 +2186,9 @@ PACKET_forward.exit:                              ; preds = %.thread54.thread, %
   %93 = phi i64 [ %.val, %.thread54.thread ], [ %80, %.thread54 ]
   %.val.i4061 = phi i64 [ %.val, %.thread54.thread ], [ %.val.i40.pre, %.thread54 ]
   %94 = getelementptr inbounds nuw i8, ptr %.val3262, i64 %93
-  store ptr %94, ptr %0, align 8, !tbaa !55
+  store ptr %94, ptr %0, align 8, !tbaa !54
   %95 = sub nuw i64 %.val.i4061, %93
-  store i64 %95, ptr %4, align 8, !tbaa !53
+  store i64 %95, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
 expect_frame_header_mask.exit.thread:             ; preds = %.thread54, %63, %60, %39, %37, %22, %6, %3, %14, %89, %PACKET_forward.exit, %.thread, %79
@@ -2199,13 +2199,13 @@ expect_frame_header_mask.exit.thread:             ; preds = %.thread54, %63, %60
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2215,19 +2215,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef cap
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 16
   %18 = icmp eq i64 %16, %11
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
-  %20 = load i8, ptr %15, align 1, !tbaa !56
+  %20 = load i8, ptr %15, align 1, !tbaa !55
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i32
   %23 = shl nuw nsw i32 1, %22
@@ -2237,13 +2237,13 @@ expect_frame_header.exit:                         ; preds = %5
 
 PACKET_get_quic_vlint.exit:                       ; preds = %19
   %26 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %15) #12
-  store i64 %26, ptr %1, align 8, !tbaa !57
-  %27 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %26, ptr %1, align 8, !tbaa !56
+  %27 = load ptr, ptr %0, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %24
-  store ptr %28, ptr %0, align 8, !tbaa !55
-  %29 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %28, ptr %0, align 8, !tbaa !54
+  %29 = load i64, ptr %3, align 8, !tbaa !52
   %30 = sub i64 %29, %24
-  store i64 %30, ptr %3, align 8, !tbaa !53
+  store i64 %30, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_quic_vlint.exit, %19, %expect_frame_header.exit
@@ -2254,13 +2254,13 @@ expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i.i, 0
   br i1 %5, label %expect_frame_header.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -2270,19 +2270,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noun
 
 expect_frame_header.exit:                         ; preds = %6
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %12
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
-  store i64 %18, ptr %4, align 8, !tbaa !53
+  store i64 %18, ptr %4, align 8, !tbaa !52
   %.not = icmp ne i64 %14, 17
   %19 = icmp eq i64 %17, %12
   %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
-  %21 = load i8, ptr %16, align 1, !tbaa !56
+  %21 = load i8, ptr %16, align 1, !tbaa !55
   %22 = lshr i8 %21, 6
   %23 = zext nneg i8 %22 to i32
   %24 = shl nuw nsw i32 1, %23
@@ -2292,18 +2292,18 @@ expect_frame_header.exit:                         ; preds = %6
 
 27:                                               ; preds = %20
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  store i64 %28, ptr %1, align 8, !tbaa !57
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %28, ptr %1, align 8, !tbaa !56
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %25
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %4, align 8, !tbaa !52
   %32 = sub i64 %31, %25
-  store i64 %32, ptr %4, align 8, !tbaa !53
+  store i64 %32, ptr %4, align 8, !tbaa !52
   %33 = icmp eq i64 %31, %25
   br i1 %33, label %expect_frame_header.exit.thread, label %34
 
 34:                                               ; preds = %27
-  %35 = load i8, ptr %30, align 1, !tbaa !56
+  %35 = load i8, ptr %30, align 1, !tbaa !55
   %36 = lshr i8 %35, 6
   %37 = zext nneg i8 %36 to i32
   %38 = shl nuw nsw i32 1, %37
@@ -2313,13 +2313,13 @@ expect_frame_header.exit:                         ; preds = %6
 
 PACKET_get_quic_vlint.exit9:                      ; preds = %34
   %41 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %30) #12
-  store i64 %41, ptr %2, align 8, !tbaa !57
-  %42 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %41, ptr %2, align 8, !tbaa !56
+  %42 = load ptr, ptr %0, align 8, !tbaa !54
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %39
-  store ptr %43, ptr %0, align 8, !tbaa !55
-  %44 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %43, ptr %0, align 8, !tbaa !54
+  %44 = load i64, ptr %4, align 8, !tbaa !52
   %45 = sub i64 %44, %39
-  store i64 %45, ptr %4, align 8, !tbaa !53
+  store i64 %45, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit9, %27, %34, %expect_frame_header.exit
@@ -2330,13 +2330,13 @@ expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header_mask.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2346,12 +2346,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef 
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %3, align 8, !tbaa !52
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !53
+  store i64 %18, ptr %3, align 8, !tbaa !52
   %19 = and i64 %14, -2
   %.not6.i = icmp ne i64 %19, 18
   %20 = icmp eq i64 %17, %11
@@ -2359,7 +2359,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef 
   br i1 %or.cond, label %expect_frame_header_mask.exit.thread, label %21
 
 21:                                               ; preds = %13
-  %22 = load i8, ptr %16, align 1, !tbaa !56
+  %22 = load i8, ptr %16, align 1, !tbaa !55
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw nsw i32 1, %24
@@ -2369,13 +2369,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef 
 
 PACKET_get_quic_vlint.exit:                       ; preds = %21
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  store i64 %28, ptr %1, align 8, !tbaa !57
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %28, ptr %1, align 8, !tbaa !56
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %26
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %3, align 8, !tbaa !52
   %32 = sub i64 %31, %26
-  store i64 %32, ptr %3, align 8, !tbaa !53
+  store i64 %32, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
 expect_frame_header_mask.exit.thread:             ; preds = %5, %2, %13, %PACKET_get_quic_vlint.exit, %21
@@ -2386,13 +2386,13 @@ expect_frame_header_mask.exit.thread:             ; preds = %5, %2, %13, %PACKET
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2402,19 +2402,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 20
   %18 = icmp eq i64 %16, %11
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
-  %20 = load i8, ptr %15, align 1, !tbaa !56
+  %20 = load i8, ptr %15, align 1, !tbaa !55
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i32
   %23 = shl nuw nsw i32 1, %22
@@ -2424,13 +2424,13 @@ expect_frame_header.exit:                         ; preds = %5
 
 PACKET_get_quic_vlint.exit:                       ; preds = %19
   %26 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %15) #12
-  store i64 %26, ptr %1, align 8, !tbaa !57
-  %27 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %26, ptr %1, align 8, !tbaa !56
+  %27 = load ptr, ptr %0, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %24
-  store ptr %28, ptr %0, align 8, !tbaa !55
-  %29 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %28, ptr %0, align 8, !tbaa !54
+  %29 = load i64, ptr %3, align 8, !tbaa !52
   %30 = sub i64 %29, %24
-  store i64 %30, ptr %3, align 8, !tbaa !53
+  store i64 %30, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_quic_vlint.exit, %19, %expect_frame_header.exit
@@ -2441,13 +2441,13 @@ expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i.i, 0
   br i1 %5, label %expect_frame_header.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -2457,19 +2457,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr 
 
 expect_frame_header.exit:                         ; preds = %6
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %12
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
-  store i64 %18, ptr %4, align 8, !tbaa !53
+  store i64 %18, ptr %4, align 8, !tbaa !52
   %.not = icmp ne i64 %14, 21
   %19 = icmp eq i64 %17, %12
   %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
-  %21 = load i8, ptr %16, align 1, !tbaa !56
+  %21 = load i8, ptr %16, align 1, !tbaa !55
   %22 = lshr i8 %21, 6
   %23 = zext nneg i8 %22 to i32
   %24 = shl nuw nsw i32 1, %23
@@ -2479,18 +2479,18 @@ expect_frame_header.exit:                         ; preds = %6
 
 27:                                               ; preds = %20
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  store i64 %28, ptr %1, align 8, !tbaa !57
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %28, ptr %1, align 8, !tbaa !56
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %25
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %4, align 8, !tbaa !52
   %32 = sub i64 %31, %25
-  store i64 %32, ptr %4, align 8, !tbaa !53
+  store i64 %32, ptr %4, align 8, !tbaa !52
   %33 = icmp eq i64 %31, %25
   br i1 %33, label %expect_frame_header.exit.thread, label %34
 
 34:                                               ; preds = %27
-  %35 = load i8, ptr %30, align 1, !tbaa !56
+  %35 = load i8, ptr %30, align 1, !tbaa !55
   %36 = lshr i8 %35, 6
   %37 = zext nneg i8 %36 to i32
   %38 = shl nuw nsw i32 1, %37
@@ -2500,13 +2500,13 @@ expect_frame_header.exit:                         ; preds = %6
 
 PACKET_get_quic_vlint.exit9:                      ; preds = %34
   %41 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %30) #12
-  store i64 %41, ptr %2, align 8, !tbaa !57
-  %42 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %41, ptr %2, align 8, !tbaa !56
+  %42 = load ptr, ptr %0, align 8, !tbaa !54
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %39
-  store ptr %43, ptr %0, align 8, !tbaa !55
-  %44 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %43, ptr %0, align 8, !tbaa !54
+  %44 = load i64, ptr %4, align 8, !tbaa !52
   %45 = sub i64 %44, %39
-  store i64 %45, ptr %4, align 8, !tbaa !53
+  store i64 %45, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit9, %27, %34, %expect_frame_header.exit
@@ -2517,13 +2517,13 @@ expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header_mask.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2533,12 +2533,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noun
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %3, align 8, !tbaa !52
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !53
+  store i64 %18, ptr %3, align 8, !tbaa !52
   %19 = and i64 %14, -2
   %.not6.i = icmp ne i64 %19, 22
   %20 = icmp eq i64 %17, %11
@@ -2546,7 +2546,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noun
   br i1 %or.cond, label %expect_frame_header_mask.exit.thread, label %21
 
 21:                                               ; preds = %13
-  %22 = load i8, ptr %16, align 1, !tbaa !56
+  %22 = load i8, ptr %16, align 1, !tbaa !55
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw nsw i32 1, %24
@@ -2556,13 +2556,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noun
 
 PACKET_get_quic_vlint.exit:                       ; preds = %21
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  store i64 %28, ptr %1, align 8, !tbaa !57
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %28, ptr %1, align 8, !tbaa !56
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %26
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %3, align 8, !tbaa !52
   %32 = sub i64 %31, %26
-  store i64 %32, ptr %3, align 8, !tbaa !53
+  store i64 %32, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
 expect_frame_header_mask.exit.thread:             ; preds = %5, %2, %13, %PACKET_get_quic_vlint.exit, %21
@@ -2573,13 +2573,13 @@ expect_frame_header_mask.exit.thread:             ; preds = %5, %2, %13, %PACKET
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2589,19 +2589,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef 
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 24
   %18 = icmp eq i64 %16, %11
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
-  %20 = load i8, ptr %15, align 1, !tbaa !56
+  %20 = load i8, ptr %15, align 1, !tbaa !55
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i32
   %23 = shl nuw nsw i32 1, %22
@@ -2611,19 +2611,19 @@ expect_frame_header.exit:                         ; preds = %5
 
 26:                                               ; preds = %19
   %27 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %15) #12
-  store i64 %27, ptr %1, align 8, !tbaa !57
-  %28 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %27, ptr %1, align 8, !tbaa !56
+  %28 = load ptr, ptr %0, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %24
-  store ptr %29, ptr %0, align 8, !tbaa !55
-  %30 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %29, ptr %0, align 8, !tbaa !54
+  %30 = load i64, ptr %3, align 8, !tbaa !52
   %31 = sub i64 %30, %24
-  store i64 %31, ptr %3, align 8, !tbaa !53
+  store i64 %31, ptr %3, align 8, !tbaa !52
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = icmp eq i64 %30, %24
   br i1 %33, label %expect_frame_header.exit.thread, label %34
 
 34:                                               ; preds = %26
-  %35 = load i8, ptr %29, align 1, !tbaa !56
+  %35 = load i8, ptr %29, align 1, !tbaa !55
   %36 = lshr i8 %35, 6
   %37 = zext nneg i8 %36 to i32
   %38 = shl nuw nsw i32 1, %37
@@ -2633,33 +2633,33 @@ expect_frame_header.exit:                         ; preds = %5
 
 41:                                               ; preds = %34
   %42 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %29) #12
-  store i64 %42, ptr %32, align 8, !tbaa !57
-  %43 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %42, ptr %32, align 8, !tbaa !56
+  %43 = load ptr, ptr %0, align 8, !tbaa !54
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %39
-  store ptr %44, ptr %0, align 8, !tbaa !55
-  %45 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %44, ptr %0, align 8, !tbaa !54
+  %45 = load i64, ptr %3, align 8, !tbaa !52
   %46 = sub i64 %45, %39
-  store i64 %46, ptr %3, align 8, !tbaa !53
-  %47 = load i64, ptr %1, align 8, !tbaa !45
+  store i64 %46, ptr %3, align 8, !tbaa !52
+  %47 = load i64, ptr %1, align 8, !tbaa !44
   %48 = icmp ult i64 %47, %42
   %.not.i.i = icmp eq i64 %45, %39
   %or.cond48 = select i1 %48, i1 true, i1 %.not.i.i
   br i1 %or.cond48, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
 
 PACKET_get_1.exit:                                ; preds = %41
-  %49 = load i8, ptr %44, align 1, !tbaa !56
+  %49 = load i8, ptr %44, align 1, !tbaa !55
   %50 = zext i8 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  store ptr %51, ptr %0, align 8, !tbaa !55
+  store ptr %51, ptr %0, align 8, !tbaa !54
   %52 = add i64 %46, -1
-  store i64 %52, ptr %3, align 8, !tbaa !53
+  store i64 %52, ptr %3, align 8, !tbaa !52
   %53 = add nsw i32 %50, -21
   %54 = icmp ult i32 %53, -20
   br i1 %54, label %expect_frame_header.exit.thread, label %55
 
 55:                                               ; preds = %PACKET_get_1.exit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %49, ptr %56, align 8, !tbaa !41
+  store i8 %49, ptr %56, align 8, !tbaa !40
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %58 = zext i8 %49 to i64
   %59 = icmp ult i64 %52, %58
@@ -2667,12 +2667,12 @@ PACKET_get_1.exit:                                ; preds = %41
 
 60:                                               ; preds = %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %51, i64 range(i64 0, 4294967296) %58, i1 false)
-  %61 = load ptr, ptr %0, align 8, !tbaa !55
+  %61 = load ptr, ptr %0, align 8, !tbaa !54
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %58
-  store ptr %62, ptr %0, align 8, !tbaa !55
-  %63 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %62, ptr %0, align 8, !tbaa !54
+  %63 = load i64, ptr %3, align 8, !tbaa !52
   %64 = sub i64 %63, %58
-  store i64 %64, ptr %3, align 8, !tbaa !53
+  store i64 %64, ptr %3, align 8, !tbaa !52
   %65 = icmp ult i8 %49, 20
   br i1 %65, label %66, label %70
 
@@ -2681,7 +2681,7 @@ PACKET_get_1.exit:                                ; preds = %41
   %68 = sub nuw nsw i32 20, %50
   %69 = zext nneg i32 %68 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %69, i1 false)
-  %.val.i.i29.pr = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i29.pr = load i64, ptr %3, align 8, !tbaa !52
   br label %70
 
 70:                                               ; preds = %66, %60
@@ -2691,14 +2691,14 @@ PACKET_get_1.exit:                                ; preds = %41
 
 PACKET_copy_bytes.exit31:                         ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 37
-  %73 = load ptr, ptr %0, align 8, !tbaa !55
+  %73 = load ptr, ptr %0, align 8, !tbaa !54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, ptr noundef nonnull align 1 dereferenceable(16) %73, i64 range(i64 0, 4294967296) 16, i1 false)
-  %74 = load ptr, ptr %0, align 8, !tbaa !55
+  %74 = load ptr, ptr %0, align 8, !tbaa !54
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %75, ptr %0, align 8, !tbaa !55
-  %76 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %75, ptr %0, align 8, !tbaa !54
+  %76 = load i64, ptr %3, align 8, !tbaa !52
   %77 = add i64 %76, -16
-  store i64 %77, ptr %3, align 8, !tbaa !53
+  store i64 %77, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %55, %34, %26, %19, %5, %2, %PACKET_copy_bytes.exit31, %70, %expect_frame_header.exit, %41, %PACKET_get_1.exit
@@ -2712,13 +2712,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2728,19 +2728,19 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr nound
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 25
   %18 = icmp eq i64 %16, %11
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
-  %20 = load i8, ptr %15, align 1, !tbaa !56
+  %20 = load i8, ptr %15, align 1, !tbaa !55
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i32
   %23 = shl nuw nsw i32 1, %22
@@ -2750,13 +2750,13 @@ expect_frame_header.exit:                         ; preds = %5
 
 PACKET_get_quic_vlint.exit:                       ; preds = %19
   %26 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %15) #12
-  store i64 %26, ptr %1, align 8, !tbaa !57
-  %27 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %26, ptr %1, align 8, !tbaa !56
+  %27 = load ptr, ptr %0, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %24
-  store ptr %28, ptr %0, align 8, !tbaa !55
-  %29 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %28, ptr %0, align 8, !tbaa !54
+  %29 = load i64, ptr %3, align 8, !tbaa !52
   %30 = sub i64 %29, %24
-  store i64 %30, ptr %3, align 8, !tbaa !53
+  store i64 %30, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_quic_vlint.exit, %19, %expect_frame_header.exit
@@ -2767,13 +2767,13 @@ expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2783,68 +2783,68 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_path_challenge(ptr nound
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 26
   %18 = icmp ult i64 %17, 8
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %PACKET_get_net_8.exit
 
 PACKET_get_net_8.exit:                            ; preds = %expect_frame_header.exit
-  %19 = load i8, ptr %15, align 1, !tbaa !56
+  %19 = load i8, ptr %15, align 1, !tbaa !55
   %20 = zext i8 %19 to i64
   %21 = shl nuw i64 %20, 56
-  store i64 %21, ptr %1, align 8, !tbaa !57
+  store i64 %21, ptr %1, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !56
+  %23 = load i8, ptr %22, align 1, !tbaa !55
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %24, 48
   %26 = or disjoint i64 %25, %21
-  store i64 %26, ptr %1, align 8, !tbaa !57
+  store i64 %26, ptr %1, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %28 = load i8, ptr %27, align 1, !tbaa !56
+  %28 = load i8, ptr %27, align 1, !tbaa !55
   %29 = zext i8 %28 to i64
   %30 = shl nuw nsw i64 %29, 40
   %31 = or disjoint i64 %30, %26
-  store i64 %31, ptr %1, align 8, !tbaa !57
+  store i64 %31, ptr %1, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  %33 = load i8, ptr %32, align 1, !tbaa !56
+  %33 = load i8, ptr %32, align 1, !tbaa !55
   %34 = zext i8 %33 to i64
   %35 = shl nuw nsw i64 %34, 32
   %36 = or disjoint i64 %35, %31
-  store i64 %36, ptr %1, align 8, !tbaa !57
+  store i64 %36, ptr %1, align 8, !tbaa !56
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %38 = load i8, ptr %37, align 1, !tbaa !56
+  %38 = load i8, ptr %37, align 1, !tbaa !55
   %39 = zext i8 %38 to i64
   %40 = shl nuw nsw i64 %39, 24
   %41 = or disjoint i64 %40, %36
-  store i64 %41, ptr %1, align 8, !tbaa !57
+  store i64 %41, ptr %1, align 8, !tbaa !56
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 5
-  %43 = load i8, ptr %42, align 1, !tbaa !56
+  %43 = load i8, ptr %42, align 1, !tbaa !55
   %44 = zext i8 %43 to i64
   %45 = shl nuw nsw i64 %44, 16
   %46 = or disjoint i64 %45, %41
-  store i64 %46, ptr %1, align 8, !tbaa !57
+  store i64 %46, ptr %1, align 8, !tbaa !56
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %48 = load i8, ptr %47, align 1, !tbaa !56
+  %48 = load i8, ptr %47, align 1, !tbaa !55
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 8
   %51 = or i64 %50, %46
-  store i64 %51, ptr %1, align 8, !tbaa !57
+  store i64 %51, ptr %1, align 8, !tbaa !56
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 7
-  %53 = load i8, ptr %52, align 1, !tbaa !56
+  %53 = load i8, ptr %52, align 1, !tbaa !55
   %54 = zext i8 %53 to i64
   %55 = or i64 %51, %54
-  store i64 %55, ptr %1, align 8, !tbaa !57
+  store i64 %55, ptr %1, align 8, !tbaa !56
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %56, ptr %0, align 8, !tbaa !55
-  %57 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %56, ptr %0, align 8, !tbaa !54
+  %57 = load i64, ptr %3, align 8, !tbaa !52
   %58 = add i64 %57, -8
-  store i64 %58, ptr %3, align 8, !tbaa !53
+  store i64 %58, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_net_8.exit, %expect_frame_header.exit
@@ -2855,13 +2855,13 @@ expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2871,68 +2871,68 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_path_response(ptr nounde
 
 expect_frame_header.exit:                         ; preds = %5
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %11
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
-  store i64 %17, ptr %3, align 8, !tbaa !53
+  store i64 %17, ptr %3, align 8, !tbaa !52
   %.not = icmp ne i64 %13, 27
   %18 = icmp ult i64 %17, 8
   %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %PACKET_get_net_8.exit
 
 PACKET_get_net_8.exit:                            ; preds = %expect_frame_header.exit
-  %19 = load i8, ptr %15, align 1, !tbaa !56
+  %19 = load i8, ptr %15, align 1, !tbaa !55
   %20 = zext i8 %19 to i64
   %21 = shl nuw i64 %20, 56
-  store i64 %21, ptr %1, align 8, !tbaa !57
+  store i64 %21, ptr %1, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !56
+  %23 = load i8, ptr %22, align 1, !tbaa !55
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %24, 48
   %26 = or disjoint i64 %25, %21
-  store i64 %26, ptr %1, align 8, !tbaa !57
+  store i64 %26, ptr %1, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %28 = load i8, ptr %27, align 1, !tbaa !56
+  %28 = load i8, ptr %27, align 1, !tbaa !55
   %29 = zext i8 %28 to i64
   %30 = shl nuw nsw i64 %29, 40
   %31 = or disjoint i64 %30, %26
-  store i64 %31, ptr %1, align 8, !tbaa !57
+  store i64 %31, ptr %1, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  %33 = load i8, ptr %32, align 1, !tbaa !56
+  %33 = load i8, ptr %32, align 1, !tbaa !55
   %34 = zext i8 %33 to i64
   %35 = shl nuw nsw i64 %34, 32
   %36 = or disjoint i64 %35, %31
-  store i64 %36, ptr %1, align 8, !tbaa !57
+  store i64 %36, ptr %1, align 8, !tbaa !56
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %38 = load i8, ptr %37, align 1, !tbaa !56
+  %38 = load i8, ptr %37, align 1, !tbaa !55
   %39 = zext i8 %38 to i64
   %40 = shl nuw nsw i64 %39, 24
   %41 = or disjoint i64 %40, %36
-  store i64 %41, ptr %1, align 8, !tbaa !57
+  store i64 %41, ptr %1, align 8, !tbaa !56
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 5
-  %43 = load i8, ptr %42, align 1, !tbaa !56
+  %43 = load i8, ptr %42, align 1, !tbaa !55
   %44 = zext i8 %43 to i64
   %45 = shl nuw nsw i64 %44, 16
   %46 = or disjoint i64 %45, %41
-  store i64 %46, ptr %1, align 8, !tbaa !57
+  store i64 %46, ptr %1, align 8, !tbaa !56
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %48 = load i8, ptr %47, align 1, !tbaa !56
+  %48 = load i8, ptr %47, align 1, !tbaa !55
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 8
   %51 = or i64 %50, %46
-  store i64 %51, ptr %1, align 8, !tbaa !57
+  store i64 %51, ptr %1, align 8, !tbaa !56
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 7
-  %53 = load i8, ptr %52, align 1, !tbaa !56
+  %53 = load i8, ptr %52, align 1, !tbaa !55
   %54 = zext i8 %53 to i64
   %55 = or i64 %51, %54
-  store i64 %55, ptr %1, align 8, !tbaa !57
+  store i64 %55, ptr %1, align 8, !tbaa !56
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %56, ptr %0, align 8, !tbaa !55
-  %57 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %56, ptr %0, align 8, !tbaa !54
+  %57 = load i64, ptr %3, align 8, !tbaa !52
   %58 = add i64 %57, -8
-  store i64 %58, ptr %3, align 8, !tbaa !53
+  store i64 %58, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
 expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_net_8.exit, %expect_frame_header.exit
@@ -2943,13 +2943,13 @@ expect_frame_header.exit.thread:                  ; preds = %5, %2, %PACKET_get_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i.i, 0
   br i1 %4, label %expect_frame_header_mask.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -2959,12 +2959,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef c
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %3, align 8, !tbaa !52
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !53
+  store i64 %18, ptr %3, align 8, !tbaa !52
   %19 = and i64 %14, -2
   %.not6.i = icmp eq i64 %19, 28
   br i1 %.not6.i, label %expect_frame_header_mask.exit, label %expect_frame_header_mask.exit.thread
@@ -2975,7 +2975,7 @@ expect_frame_header_mask.exit:                    ; preds = %13
   br i1 %21, label %expect_frame_header_mask.exit.thread, label %22
 
 22:                                               ; preds = %expect_frame_header_mask.exit
-  %23 = load i8, ptr %16, align 1, !tbaa !56
+  %23 = load i8, ptr %16, align 1, !tbaa !55
   %24 = lshr i8 %23, 6
   %25 = zext nneg i8 %24 to i32
   %26 = shl nuw nsw i32 1, %25
@@ -2985,13 +2985,13 @@ expect_frame_header_mask.exit:                    ; preds = %13
 
 29:                                               ; preds = %22
   %30 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  store i64 %30, ptr %20, align 8, !tbaa !57
-  %31 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %30, ptr %20, align 8, !tbaa !56
+  %31 = load ptr, ptr %0, align 8, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %27
-  store ptr %32, ptr %0, align 8, !tbaa !55
-  %33 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %32, ptr %0, align 8, !tbaa !54
+  %33 = load i64, ptr %3, align 8, !tbaa !52
   %34 = sub i64 %33, %27
-  store i64 %34, ptr %3, align 8, !tbaa !53
+  store i64 %34, ptr %3, align 8, !tbaa !52
   %35 = trunc nuw nsw i64 %14 to i8
   %36 = and i8 %35, 1
   %37 = load i8, ptr %1, align 8
@@ -3003,13 +3003,13 @@ expect_frame_header_mask.exit:                    ; preds = %13
   br i1 %.not14, label %41, label %56
 
 41:                                               ; preds = %29
-  %.val.i18 = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i18 = load i64, ptr %3, align 8, !tbaa !52
   %42 = icmp eq i64 %.val.i18, 0
   br i1 %42, label %expect_frame_header_mask.exit.thread, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr %0, align 8, !tbaa !55
-  %45 = load i8, ptr %44, align 1, !tbaa !56
+  %44 = load ptr, ptr %0, align 8, !tbaa !54
+  %45 = load i8, ptr %44, align 1, !tbaa !55
   %46 = lshr i8 %45, 6
   %47 = zext nneg i8 %46 to i32
   %48 = shl nuw nsw i32 1, %47
@@ -3019,18 +3019,18 @@ expect_frame_header_mask.exit:                    ; preds = %13
 
 PACKET_get_quic_vlint.exit20:                     ; preds = %43
   %51 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %44) #12
-  store i64 %51, ptr %40, align 8, !tbaa !57
-  %52 = load ptr, ptr %0, align 8, !tbaa !55
+  store i64 %51, ptr %40, align 8, !tbaa !56
+  %52 = load ptr, ptr %0, align 8, !tbaa !54
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %49
-  store ptr %53, ptr %0, align 8, !tbaa !55
-  %54 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %53, ptr %0, align 8, !tbaa !54
+  %54 = load i64, ptr %3, align 8, !tbaa !52
   %55 = sub i64 %54, %49
-  store i64 %55, ptr %3, align 8, !tbaa !53
+  store i64 %55, ptr %3, align 8, !tbaa !52
   br label %57
 
 56:                                               ; preds = %29
-  store i64 0, ptr %40, align 8, !tbaa !49
-  %.val.i21.pr = load i64, ptr %3, align 8, !tbaa !53
+  store i64 0, ptr %40, align 8, !tbaa !48
+  %.val.i21.pr = load i64, ptr %3, align 8, !tbaa !52
   br label %57
 
 57:                                               ; preds = %PACKET_get_quic_vlint.exit20, %56
@@ -3039,8 +3039,8 @@ PACKET_get_quic_vlint.exit20:                     ; preds = %43
   br i1 %58, label %expect_frame_header_mask.exit.thread, label %59
 
 59:                                               ; preds = %57
-  %60 = load ptr, ptr %0, align 8, !tbaa !55
-  %61 = load i8, ptr %60, align 1, !tbaa !56
+  %60 = load ptr, ptr %0, align 8, !tbaa !54
+  %61 = load i8, ptr %60, align 1, !tbaa !55
   %62 = lshr i8 %61, 6
   %63 = zext nneg i8 %62 to i32
   %64 = shl nuw nsw i32 1, %63
@@ -3050,24 +3050,24 @@ PACKET_get_quic_vlint.exit20:                     ; preds = %43
 
 67:                                               ; preds = %59
   %68 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %60) #12
-  %69 = load ptr, ptr %0, align 8, !tbaa !55
+  %69 = load ptr, ptr %0, align 8, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %65
-  store ptr %70, ptr %0, align 8, !tbaa !55
-  %71 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %70, ptr %0, align 8, !tbaa !54
+  %71 = load i64, ptr %3, align 8, !tbaa !52
   %72 = sub i64 %71, %65
-  store i64 %72, ptr %3, align 8, !tbaa !53
+  store i64 %72, ptr %3, align 8, !tbaa !52
   %73 = icmp ult i64 %72, %68
   br i1 %73, label %expect_frame_header_mask.exit.thread, label %74
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %70, ptr %75, align 8, !tbaa !34
+  store ptr %70, ptr %75, align 8, !tbaa !33
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 %68
-  store ptr %76, ptr %0, align 8, !tbaa !55
+  store ptr %76, ptr %0, align 8, !tbaa !54
   %77 = sub nuw i64 %72, %68
-  store i64 %77, ptr %3, align 8, !tbaa !53
+  store i64 %77, ptr %3, align 8, !tbaa !52
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %68, ptr %78, align 8, !tbaa !50
+  store i64 %68, ptr %78, align 8, !tbaa !49
   br label %expect_frame_header_mask.exit.thread
 
 expect_frame_header_mask.exit.thread:             ; preds = %67, %59, %57, %43, %41, %22, %expect_frame_header_mask.exit, %5, %2, %13, %74
@@ -3077,23 +3077,23 @@ expect_frame_header_mask.exit.thread:             ; preds = %67, %59, %57, %43, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @ossl_quic_wire_decode_padding(ptr noundef captures(none) %0) local_unnamed_addr #8 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !55
+  %.val = load ptr, ptr %0, align 8, !tbaa !54
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val14 = load i64, ptr %2, align 8, !tbaa !53
+  %.val14 = load i64, ptr %2, align 8, !tbaa !52
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val14
   %.not = icmp eq i64 %.val14, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
   %.017 = phi ptr [ %7, %6 ], [ %.val, %1 ]
-  %4 = load i8, ptr %.017, align 1, !tbaa !56
+  %4 = load i8, ptr %.017, align 1, !tbaa !55
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   %8 = icmp ult ptr %7, %3
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !63
+  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %.lr.ph, %6, %1
   %.0.lcssa = phi ptr [ %.val, %1 ], [ %7, %6 ], [ %.017, %.lr.ph ]
@@ -3105,9 +3105,9 @@ define i64 @ossl_quic_wire_decode_padding(ptr noundef captures(none) %0) local_u
 
 PACKET_forward.exit:                              ; preds = %.critedge
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
-  store ptr %13, ptr %0, align 8, !tbaa !55
+  store ptr %13, ptr %0, align 8, !tbaa !54
   %14 = sub nuw i64 %.val14, %11
-  store i64 %14, ptr %2, align 8, !tbaa !53
+  store i64 %14, ptr %2, align 8, !tbaa !52
   br label %15
 
 15:                                               ; preds = %.critedge, %PACKET_forward.exit
@@ -3118,13 +3118,13 @@ PACKET_forward.exit:                              ; preds = %.critedge
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ping(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %2, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %2, align 8, !tbaa !52
   %3 = icmp eq i64 %.val.i.i.i, 0
   br i1 %3, label %expect_frame_header.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !55
-  %6 = load i8, ptr %5, align 1, !tbaa !56
+  %5 = load ptr, ptr %0, align 8, !tbaa !54
+  %6 = load i8, ptr %5, align 1, !tbaa !55
   %7 = lshr i8 %6, 6
   %8 = zext nneg i8 %7 to i32
   %9 = shl nuw nsw i32 1, %8
@@ -3134,12 +3134,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ping(ptr noundef capture
 
 12:                                               ; preds = %4
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %5) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %10
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %2, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %2, align 8, !tbaa !52
   %17 = sub i64 %16, %10
-  store i64 %17, ptr %2, align 8, !tbaa !53
+  store i64 %17, ptr %2, align 8, !tbaa !52
   %18 = icmp eq i64 %13, 1
   %19 = zext i1 %18 to i32
   br label %expect_frame_header.exit
@@ -3152,13 +3152,13 @@ expect_frame_header.exit:                         ; preds = %1, %4, %12
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %2, align 8, !tbaa !53
+  %.val.i.i.i = load i64, ptr %2, align 8, !tbaa !52
   %3 = icmp eq i64 %.val.i.i.i, 0
   br i1 %3, label %expect_frame_header.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !55
-  %6 = load i8, ptr %5, align 1, !tbaa !56
+  %5 = load ptr, ptr %0, align 8, !tbaa !54
+  %6 = load i8, ptr %5, align 1, !tbaa !55
   %7 = lshr i8 %6, 6
   %8 = zext nneg i8 %7 to i32
   %9 = shl nuw nsw i32 1, %8
@@ -3168,12 +3168,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_handshake_done(ptr nound
 
 12:                                               ; preds = %4
   %13 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %5) #12
-  %14 = load ptr, ptr %0, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %10
-  store ptr %15, ptr %0, align 8, !tbaa !55
-  %16 = load i64, ptr %2, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !54
+  %16 = load i64, ptr %2, align 8, !tbaa !52
   %17 = sub i64 %16, %10
-  store i64 %17, ptr %2, align 8, !tbaa !53
+  store i64 %17, ptr %2, align 8, !tbaa !52
   %18 = icmp eq i64 %13, 30
   %19 = zext i1 %18 to i32
   br label %expect_frame_header.exit
@@ -3186,13 +3186,13 @@ expect_frame_header.exit:                         ; preds = %1, %4, %12
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_peek_transport_param(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i, 0
   br i1 %4, label %PACKET_peek_quic_vlint.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -3202,7 +3202,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_peek_transport_param(ptr noundef read
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  store i64 %14, ptr %1, align 8, !tbaa !57
+  store i64 %14, ptr %1, align 8, !tbaa !56
   br label %PACKET_peek_quic_vlint.exit
 
 PACKET_peek_quic_vlint.exit:                      ; preds = %2, %5, %13
@@ -3213,13 +3213,13 @@ PACKET_peek_quic_vlint.exit:                      ; preds = %2, %5, %13
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i, 0
   br i1 %5, label %PACKET_get_quic_vlint.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -3229,17 +3229,17 @@ define ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef captures(non
 
 14:                                               ; preds = %6
   %15 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %16 = load ptr, ptr %0, align 8, !tbaa !55
+  %16 = load ptr, ptr %0, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %12
-  store ptr %17, ptr %0, align 8, !tbaa !55
-  %18 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %17, ptr %0, align 8, !tbaa !54
+  %18 = load i64, ptr %4, align 8, !tbaa !52
   %19 = sub i64 %18, %12
-  store i64 %19, ptr %4, align 8, !tbaa !53
+  store i64 %19, ptr %4, align 8, !tbaa !52
   %20 = icmp eq i64 %18, %12
   br i1 %20, label %PACKET_get_quic_vlint.exit.thread, label %21
 
 21:                                               ; preds = %14
-  %22 = load i8, ptr %17, align 1, !tbaa !56
+  %22 = load i8, ptr %17, align 1, !tbaa !55
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw nsw i32 1, %24
@@ -3249,26 +3249,26 @@ define ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef captures(non
 
 28:                                               ; preds = %21
   %29 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %17) #12
-  %30 = load ptr, ptr %0, align 8, !tbaa !55
+  %30 = load ptr, ptr %0, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %26
-  store ptr %31, ptr %0, align 8, !tbaa !55
-  %32 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %31, ptr %0, align 8, !tbaa !54
+  %32 = load i64, ptr %4, align 8, !tbaa !52
   %33 = sub i64 %32, %26
-  store i64 %33, ptr %4, align 8, !tbaa !53
+  store i64 %33, ptr %4, align 8, !tbaa !52
   %34 = icmp ult i64 %33, %29
   br i1 %34, label %PACKET_get_quic_vlint.exit.thread, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store ptr %36, ptr %0, align 8, !tbaa !55
+  store ptr %36, ptr %0, align 8, !tbaa !54
   %37 = sub nuw i64 %33, %29
-  store i64 %37, ptr %4, align 8, !tbaa !53
-  store i64 %29, ptr %2, align 8, !tbaa !57
+  store i64 %37, ptr %4, align 8, !tbaa !52
+  store i64 %29, ptr %2, align 8, !tbaa !56
   %.not10 = icmp eq ptr %1, null
   br i1 %.not10, label %PACKET_get_quic_vlint.exit.thread, label %38
 
 38:                                               ; preds = %35
-  store i64 %15, ptr %1, align 8, !tbaa !57
+  store i64 %15, ptr %1, align 8, !tbaa !56
   br label %PACKET_get_quic_vlint.exit.thread
 
 PACKET_get_quic_vlint.exit.thread:                ; preds = %28, %21, %14, %6, %3, %35, %38
@@ -3279,13 +3279,13 @@ PACKET_get_quic_vlint.exit.thread:                ; preds = %28, %21, %14, %6, %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_int(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i, 0
   br i1 %5, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -3295,17 +3295,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_int(ptr nounde
 
 14:                                               ; preds = %6
   %15 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %16 = load ptr, ptr %0, align 8, !tbaa !55
+  %16 = load ptr, ptr %0, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %12
-  store ptr %17, ptr %0, align 8, !tbaa !55
-  %18 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %17, ptr %0, align 8, !tbaa !54
+  %18 = load i64, ptr %4, align 8, !tbaa !52
   %19 = sub i64 %18, %12
-  store i64 %19, ptr %4, align 8, !tbaa !53
+  store i64 %19, ptr %4, align 8, !tbaa !52
   %20 = icmp eq i64 %18, %12
   br i1 %20, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %21
 
 21:                                               ; preds = %14
-  %22 = load i8, ptr %17, align 1, !tbaa !56
+  %22 = load i8, ptr %17, align 1, !tbaa !55
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw nsw i32 1, %24
@@ -3315,25 +3315,25 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_int(ptr nounde
 
 28:                                               ; preds = %21
   %29 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %17) #12
-  %30 = load ptr, ptr %0, align 8, !tbaa !55
+  %30 = load ptr, ptr %0, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %26
-  store ptr %31, ptr %0, align 8, !tbaa !55
-  %32 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %31, ptr %0, align 8, !tbaa !54
+  %32 = load i64, ptr %4, align 8, !tbaa !52
   %33 = sub i64 %32, %26
-  store i64 %33, ptr %4, align 8, !tbaa !53
+  store i64 %33, ptr %4, align 8, !tbaa !52
   %34 = icmp ult i64 %33, %29
   br i1 %34, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store ptr %36, ptr %0, align 8, !tbaa !55
+  store ptr %36, ptr %0, align 8, !tbaa !54
   %37 = sub nuw i64 %33, %29
-  store i64 %37, ptr %4, align 8, !tbaa !53
+  store i64 %37, ptr %4, align 8, !tbaa !52
   %.not10.i = icmp eq ptr %1, null
   br i1 %.not10.i, label %ossl_quic_wire_decode_transport_param_bytes.exit, label %38
 
 38:                                               ; preds = %35
-  store i64 %15, ptr %1, align 8, !tbaa !57
+  store i64 %15, ptr %1, align 8, !tbaa !56
   br label %ossl_quic_wire_decode_transport_param_bytes.exit
 
 ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %38, %35
@@ -3341,7 +3341,7 @@ ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %38, %35
   br i1 %39, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %40
 
 40:                                               ; preds = %ossl_quic_wire_decode_transport_param_bytes.exit
-  %41 = load i8, ptr %31, align 1, !tbaa !56
+  %41 = load i8, ptr %31, align 1, !tbaa !55
   %42 = lshr i8 %41, 6
   %43 = zext nneg i8 %42 to i32
   %44 = shl nuw nsw i32 1, %43
@@ -3351,7 +3351,7 @@ ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %38, %35
 
 47:                                               ; preds = %40
   %48 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %31) #12
-  store i64 %48, ptr %2, align 8, !tbaa !57
+  store i64 %48, ptr %2, align 8, !tbaa !56
   %.not3 = icmp eq i64 %29, %45
   %. = zext i1 %.not3 to i32
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
@@ -3364,13 +3364,13 @@ ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %40, %ossl_qu
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_cid(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i = load i64, ptr %4, align 8, !tbaa !53
+  %.val.i.i = load i64, ptr %4, align 8, !tbaa !52
   %5 = icmp eq i64 %.val.i.i, 0
   br i1 %5, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !55
-  %8 = load i8, ptr %7, align 1, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !54
+  %8 = load i8, ptr %7, align 1, !tbaa !55
   %9 = lshr i8 %8, 6
   %10 = zext nneg i8 %9 to i32
   %11 = shl nuw nsw i32 1, %10
@@ -3380,17 +3380,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_cid(ptr nounde
 
 14:                                               ; preds = %6
   %15 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %7) #12
-  %16 = load ptr, ptr %0, align 8, !tbaa !55
+  %16 = load ptr, ptr %0, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %12
-  store ptr %17, ptr %0, align 8, !tbaa !55
-  %18 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %17, ptr %0, align 8, !tbaa !54
+  %18 = load i64, ptr %4, align 8, !tbaa !52
   %19 = sub i64 %18, %12
-  store i64 %19, ptr %4, align 8, !tbaa !53
+  store i64 %19, ptr %4, align 8, !tbaa !52
   %20 = icmp eq i64 %18, %12
   br i1 %20, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %21
 
 21:                                               ; preds = %14
-  %22 = load i8, ptr %17, align 1, !tbaa !56
+  %22 = load i8, ptr %17, align 1, !tbaa !55
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw nsw i32 1, %24
@@ -3400,25 +3400,25 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_cid(ptr nounde
 
 28:                                               ; preds = %21
   %29 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %17) #12
-  %30 = load ptr, ptr %0, align 8, !tbaa !55
+  %30 = load ptr, ptr %0, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %26
-  store ptr %31, ptr %0, align 8, !tbaa !55
-  %32 = load i64, ptr %4, align 8, !tbaa !53
+  store ptr %31, ptr %0, align 8, !tbaa !54
+  %32 = load i64, ptr %4, align 8, !tbaa !52
   %33 = sub i64 %32, %26
-  store i64 %33, ptr %4, align 8, !tbaa !53
+  store i64 %33, ptr %4, align 8, !tbaa !52
   %34 = icmp ult i64 %33, %29
   br i1 %34, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store ptr %36, ptr %0, align 8, !tbaa !55
+  store ptr %36, ptr %0, align 8, !tbaa !54
   %37 = sub nuw i64 %33, %29
-  store i64 %37, ptr %4, align 8, !tbaa !53
+  store i64 %37, ptr %4, align 8, !tbaa !52
   %.not10.i = icmp eq ptr %1, null
   br i1 %.not10.i, label %ossl_quic_wire_decode_transport_param_bytes.exit, label %38
 
 38:                                               ; preds = %35
-  store i64 %15, ptr %1, align 8, !tbaa !57
+  store i64 %15, ptr %1, align 8, !tbaa !56
   br label %ossl_quic_wire_decode_transport_param_bytes.exit
 
 ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %35, %38
@@ -3427,7 +3427,7 @@ ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %35, %38
 
 40:                                               ; preds = %ossl_quic_wire_decode_transport_param_bytes.exit
   %41 = trunc nuw nsw i64 %29 to i8
-  store i8 %41, ptr %2, align 1, !tbaa !52
+  store i8 %41, ptr %2, align 1, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %31, i64 %29, i1 false)
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
@@ -3440,13 +3440,13 @@ ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %28, %21, %14
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_preferred_addr(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i = load i64, ptr %3, align 8, !tbaa !53
+  %.val.i.i = load i64, ptr %3, align 8, !tbaa !52
   %4 = icmp eq i64 %.val.i.i, 0
   br i1 %4, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
-  %7 = load i8, ptr %6, align 1, !tbaa !56
+  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %7 = load i8, ptr %6, align 1, !tbaa !55
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
   %10 = shl nuw nsw i32 1, %9
@@ -3456,17 +3456,17 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_preferred_addr
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #12
-  %15 = load ptr, ptr %0, align 8, !tbaa !55
+  %15 = load ptr, ptr %0, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !55
-  %17 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %16, ptr %0, align 8, !tbaa !54
+  %17 = load i64, ptr %3, align 8, !tbaa !52
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !53
+  store i64 %18, ptr %3, align 8, !tbaa !52
   %19 = icmp eq i64 %17, %11
   br i1 %19, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %20
 
 20:                                               ; preds = %13
-  %21 = load i8, ptr %16, align 1, !tbaa !56
+  %21 = load i8, ptr %16, align 1, !tbaa !55
   %22 = lshr i8 %21, 6
   %23 = zext nneg i8 %22 to i32
   %24 = shl nuw nsw i32 1, %23
@@ -3476,20 +3476,20 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_transport_param_preferred_addr
 
 27:                                               ; preds = %20
   %28 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %16) #12
-  %29 = load ptr, ptr %0, align 8, !tbaa !55
+  %29 = load ptr, ptr %0, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %25
-  store ptr %30, ptr %0, align 8, !tbaa !55
-  %31 = load i64, ptr %3, align 8, !tbaa !53
+  store ptr %30, ptr %0, align 8, !tbaa !54
+  %31 = load i64, ptr %3, align 8, !tbaa !52
   %32 = sub i64 %31, %25
-  store i64 %32, ptr %3, align 8, !tbaa !53
+  store i64 %32, ptr %3, align 8, !tbaa !52
   %33 = icmp ult i64 %32, %28
   br i1 %33, label %ossl_quic_wire_decode_transport_param_bytes.exit.thread, label %ossl_quic_wire_decode_transport_param_bytes.exit
 
 ossl_quic_wire_decode_transport_param_bytes.exit: ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %28
-  store ptr %34, ptr %0, align 8, !tbaa !55
+  store ptr %34, ptr %0, align 8, !tbaa !54
   %35 = sub nuw i64 %32, %28
-  store i64 %35, ptr %3, align 8, !tbaa !53
+  store i64 %35, ptr %3, align 8, !tbaa !52
   %36 = add i64 %28, -62
   %37 = icmp ult i64 %36, -21
   %38 = icmp ne i64 %14, 13
@@ -3501,26 +3501,26 @@ PACKET_get_1.exit:                                ; preds = %ossl_quic_wire_deco
   %40 = load i32, ptr %30, align 1
   store i32 %40, ptr %39, align 1
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %42 = load i8, ptr %41, align 1, !tbaa !56
+  %42 = load i8, ptr %41, align 1, !tbaa !55
   %43 = zext i8 %42 to i16
   %44 = shl nuw i16 %43, 8
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 5
-  %46 = load i8, ptr %45, align 1, !tbaa !56
+  %46 = load i8, ptr %45, align 1, !tbaa !55
   %47 = zext i8 %46 to i16
   %48 = or disjoint i16 %44, %47
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 6
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %50, ptr noundef nonnull align 1 dereferenceable(16) %49, i64 range(i64 0, 4294967296) 16, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 22
-  %52 = load i8, ptr %51, align 1, !tbaa !56
+  %52 = load i8, ptr %51, align 1, !tbaa !55
   %53 = zext i8 %52 to i16
   %54 = shl nuw i16 %53, 8
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 23
-  %56 = load i8, ptr %55, align 1, !tbaa !56
+  %56 = load i8, ptr %55, align 1, !tbaa !55
   %57 = zext i8 %56 to i16
   %58 = or disjoint i16 %54, %57
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %60 = load i8, ptr %59, align 1, !tbaa !56
+  %60 = load i8, ptr %59, align 1, !tbaa !55
   %61 = getelementptr inbounds nuw i8, ptr %30, i64 25
   %62 = add nsw i64 %28, -25
   %63 = icmp ugt i8 %60, 20
@@ -3543,10 +3543,10 @@ PACKET_get_1.exit:                                ; preds = %ossl_quic_wire_deco
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %73, ptr noundef nonnull align 1 dereferenceable(16) %74, i64 range(i64 0, 4294967296) 16, i1 false)
-  store i16 %48, ptr %1, align 2, !tbaa !64
+  store i16 %48, ptr %1, align 2, !tbaa !63
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %58, ptr %75, align 2, !tbaa !67
-  store i8 %60, ptr %65, align 2, !tbaa !68
+  store i16 %58, ptr %75, align 2, !tbaa !66
+  store i8 %60, ptr %65, align 2, !tbaa !67
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
 
 ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %68, %64, %27, %20, %13, %5, %2, %PACKET_get_1.exit, %ossl_quic_wire_decode_transport_param_bytes.exit, %72
@@ -3624,56 +3624,55 @@ attributes #12 = { nounwind }
 !13 = !{!14, !9, i64 0}
 !14 = !{!"ossl_quic_ack_range_st", !9, i64 0, !9, i64 8}
 !15 = !{!14, !9, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!4, !9, i64 24}
-!21 = !{!4, !9, i64 32}
-!22 = !{!4, !9, i64 40}
-!23 = !{!24, !9, i64 0}
-!24 = !{!"ossl_quic_frame_reset_stream_st", !9, i64 0, !9, i64 8, !9, i64 16}
-!25 = !{!24, !9, i64 8}
-!26 = !{!24, !9, i64 16}
-!27 = !{!28, !9, i64 0}
-!28 = !{!"ossl_quic_frame_stop_sending_st", !9, i64 0, !9, i64 8}
-!29 = !{!28, !9, i64 8}
-!30 = !{!31, !9, i64 0}
-!31 = !{!"ossl_quic_frame_crypto_st", !9, i64 0, !9, i64 8, !32, i64 16}
-!32 = !{!"p1 omnipotent char", !6, i64 0}
-!33 = !{!31, !9, i64 8}
-!34 = !{!32, !32, i64 0}
-!35 = !{!31, !32, i64 16}
-!36 = !{!37, !9, i64 8}
-!37 = !{!"ossl_quic_frame_stream_st", !9, i64 0, !9, i64 8, !9, i64 16, !32, i64 24, !11, i64 32, !11, i64 32}
-!38 = !{!37, !9, i64 0}
-!39 = !{!37, !9, i64 16}
-!40 = !{!37, !32, i64 24}
-!41 = !{!42, !7, i64 16}
-!42 = !{!"ossl_quic_frame_new_conn_id_st", !9, i64 0, !9, i64 8, !43, i64 16, !44, i64 37}
-!43 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
-!44 = !{!"", !7, i64 0}
-!45 = !{!42, !9, i64 0}
-!46 = !{!42, !9, i64 8}
-!47 = !{!48, !9, i64 8}
-!48 = !{!"ossl_quic_frame_conn_close_st", !11, i64 0, !9, i64 8, !9, i64 16, !32, i64 24, !9, i64 32}
-!49 = !{!48, !9, i64 16}
-!50 = !{!48, !9, i64 32}
-!51 = !{!48, !32, i64 24}
-!52 = !{!43, !7, i64 0}
-!53 = !{!54, !9, i64 8}
-!54 = !{!"", !32, i64 0, !9, i64 8}
-!55 = !{!54, !32, i64 0}
-!56 = !{!7, !7, i64 0}
-!57 = !{!9, !9, i64 0}
-!58 = !{!11, !11, i64 0}
-!59 = distinct !{!59, !17, !18}
-!60 = distinct !{!60, !17, !18, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !17, !18}
-!63 = distinct !{!63, !17, !18}
-!64 = !{!65, !66, i64 0}
-!65 = !{!"quic_preferred_addr_st", !66, i64 0, !66, i64 2, !7, i64 4, !7, i64 8, !44, i64 24, !43, i64 40}
-!66 = !{!"short", !7, i64 0}
-!67 = !{!65, !66, i64 2}
-!68 = !{!65, !7, i64 40}
+!18 = distinct !{!18, !17}
+!19 = !{!4, !9, i64 24}
+!20 = !{!4, !9, i64 32}
+!21 = !{!4, !9, i64 40}
+!22 = !{!23, !9, i64 0}
+!23 = !{!"ossl_quic_frame_reset_stream_st", !9, i64 0, !9, i64 8, !9, i64 16}
+!24 = !{!23, !9, i64 8}
+!25 = !{!23, !9, i64 16}
+!26 = !{!27, !9, i64 0}
+!27 = !{!"ossl_quic_frame_stop_sending_st", !9, i64 0, !9, i64 8}
+!28 = !{!27, !9, i64 8}
+!29 = !{!30, !9, i64 0}
+!30 = !{!"ossl_quic_frame_crypto_st", !9, i64 0, !9, i64 8, !31, i64 16}
+!31 = !{!"p1 omnipotent char", !6, i64 0}
+!32 = !{!30, !9, i64 8}
+!33 = !{!31, !31, i64 0}
+!34 = !{!30, !31, i64 16}
+!35 = !{!36, !9, i64 8}
+!36 = !{!"ossl_quic_frame_stream_st", !9, i64 0, !9, i64 8, !9, i64 16, !31, i64 24, !11, i64 32, !11, i64 32}
+!37 = !{!36, !9, i64 0}
+!38 = !{!36, !9, i64 16}
+!39 = !{!36, !31, i64 24}
+!40 = !{!41, !7, i64 16}
+!41 = !{!"ossl_quic_frame_new_conn_id_st", !9, i64 0, !9, i64 8, !42, i64 16, !43, i64 37}
+!42 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
+!43 = !{!"", !7, i64 0}
+!44 = !{!41, !9, i64 0}
+!45 = !{!41, !9, i64 8}
+!46 = !{!47, !9, i64 8}
+!47 = !{!"ossl_quic_frame_conn_close_st", !11, i64 0, !9, i64 8, !9, i64 16, !31, i64 24, !9, i64 32}
+!48 = !{!47, !9, i64 16}
+!49 = !{!47, !9, i64 32}
+!50 = !{!47, !31, i64 24}
+!51 = !{!42, !7, i64 0}
+!52 = !{!53, !9, i64 8}
+!53 = !{!"", !31, i64 0, !9, i64 8}
+!54 = !{!53, !31, i64 0}
+!55 = !{!7, !7, i64 0}
+!56 = !{!9, !9, i64 0}
+!57 = !{!11, !11, i64 0}
+!58 = distinct !{!58, !17}
+!59 = distinct !{!59, !17, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !17}
+!62 = distinct !{!62, !17}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"quic_preferred_addr_st", !65, i64 0, !65, i64 2, !7, i64 4, !7, i64 8, !43, i64 24, !42, i64 40}
+!65 = !{!"short", !7, i64 0}
+!66 = !{!64, !65, i64 2}
+!67 = !{!64, !7, i64 40}

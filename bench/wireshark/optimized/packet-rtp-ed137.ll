@@ -721,7 +721,7 @@ define internal i32 @dissect_rtp_hdr_ext_ed137a(ptr noundef %0, ptr noundef %1, 
   %80 = add i32 %57, %71
   %81 = sub i32 %72, %57
   %82 = icmp ugt i32 %81, 1
-  br i1 %82, label %.lr.ph, label %.thread, !llvm.loop !9
+  br i1 %82, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %79, %.lr.ph, %.preheader
   %.0112.lcssa = phi i32 [ 2, %.preheader ], [ %.0112139, %.lr.ph ], [ %80, %79 ]
@@ -1613,7 +1613,5 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}

@@ -41,33 +41,33 @@ define ptr @lv_draw_sw_grad_get(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %.not.i, label %.preheader.i, label %allocate_item.exit
 
 .preheader.i:                                     ; preds = %9, %.preheader.i
-  br label %.preheader.i, !llvm.loop !3
+  br label %.preheader.i
 
 allocate_item.exit:                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %19, ptr %18, align 8, !tbaa !5
+  store ptr %19, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %13
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !12
+  store ptr %20, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 %.017.i, ptr %22, align 8, !tbaa !13
+  store i32 %.017.i, ptr %22, align 8, !tbaa !11
   %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %allocate_item.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %allocate_item.exit ]
   %23 = phi i32 [ %29, %.lr.ph ], [ %.017.i, %allocate_item.exit ]
-  %24 = load ptr, ptr %18, align 8, !tbaa !5
+  %24 = load ptr, ptr %18, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw %struct.lv_color_t, ptr %24, i64 %indvars.iv
-  %26 = load ptr, ptr %21, align 8, !tbaa !12
+  %26 = load ptr, ptr %21, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   %28 = trunc nuw i64 %indvars.iv to i32
   tail call void @lv_draw_sw_grad_color_calculate(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %28, ptr noundef %25, ptr noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %22, align 8, !tbaa !13
+  %29 = load i32, ptr %22, align 8, !tbaa !11
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %allocate_item.exit, %3
   %.017 = phi ptr [ null, %3 ], [ %18, %allocate_item.exit ], [ %18, %.lr.ph ]
@@ -77,7 +77,7 @@ allocate_item.exit:                               ; preds = %9
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i8, ptr %6, align 4, !tbaa !16
+  %7 = load i8, ptr %6, align 4, !tbaa !14
   %8 = zext i8 %7 to i32
   %9 = mul nsw i32 %1, %8
   %10 = ashr i32 %9, 8
@@ -87,17 +87,17 @@ define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none)
 11:                                               ; preds = %5
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, ptr noundef nonnull align 4 dereferenceable(3) %0, i64 3, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !19
+  %13 = load i8, ptr %12, align 1, !tbaa !17
   br label %99
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %16 = load i8, ptr %15, align 2, !tbaa !20
+  %16 = load i8, ptr %15, align 2, !tbaa !18
   %17 = zext i8 %16 to i64
   %18 = add nsw i64 %17, -1
   %19 = getelementptr inbounds [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %21 = load i8, ptr %20, align 1, !tbaa !16
+  %21 = load i8, ptr %20, align 1, !tbaa !14
   %22 = zext i8 %21 to i32
   %23 = mul nsw i32 %1, %22
   %24 = ashr i32 %23, 8
@@ -110,17 +110,17 @@ define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none)
 
 26:                                               ; preds = %14
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) %19, i64 3, i1 false)
-  %27 = load i8, ptr %15, align 2, !tbaa !20
+  %27 = load i8, ptr %15, align 2, !tbaa !18
   %28 = zext i8 %27 to i64
   %29 = add nsw i64 %28, -1
   %30 = getelementptr inbounds [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %29, i32 1
-  %31 = load i8, ptr %30, align 1, !tbaa !19
+  %31 = load i8, ptr %30, align 1, !tbaa !17
   br label %99
 
 .lr.ph:                                           ; preds = %.preheader72, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 1, %.preheader72 ]
   %32 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %indvars.iv, i32 2
-  %33 = load i8, ptr %32, align 1, !tbaa !16
+  %33 = load i8, ptr %32, align 1, !tbaa !14
   %34 = zext i8 %33 to i32
   %35 = mul nsw i32 %1, %34
   %36 = ashr i32 %35, 8
@@ -130,7 +130,7 @@ define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none)
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !20
 
 .split.loop.exit:                                 ; preds = %.lr.ph
   %38 = trunc i64 %indvars.iv to i32
@@ -142,31 +142,31 @@ define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  br label %.preheader, !llvm.loop !23
+  br label %.preheader
 
 40:                                               ; preds = %.split.loop.exit
   %41 = add nsw i32 %39, -1
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %42
-  %.sroa.010.0.copyload = load i8, ptr %43, align 1, !tbaa !24
+  %.sroa.010.0.copyload = load i8, ptr %43, align 1, !tbaa !21
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %.sroa.411.0.copyload = load i8, ptr %.sroa.411.0..sroa_idx, align 1, !tbaa !24
+  %.sroa.411.0.copyload = load i8, ptr %.sroa.411.0..sroa_idx, align 1, !tbaa !21
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %.sroa.512.0.copyload = load i8, ptr %.sroa.512.0..sroa_idx, align 1, !tbaa !24
+  %.sroa.512.0.copyload = load i8, ptr %.sroa.512.0..sroa_idx, align 1, !tbaa !21
   %44 = and i64 %indvars.iv, 255
   %45 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %0, i64 0, i64 %44
-  %.sroa.09.0.copyload = load i8, ptr %45, align 1, !tbaa !24
+  %.sroa.09.0.copyload = load i8, ptr %45, align 1, !tbaa !21
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !24
+  %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !21
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !24
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %47 = load i8, ptr %46, align 1, !tbaa !16
+  %47 = load i8, ptr %46, align 1, !tbaa !14
   %48 = zext i8 %47 to i32
   %49 = mul nsw i32 %1, %48
   %50 = ashr i32 %49, 8
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %52 = load i8, ptr %51, align 1, !tbaa !16
+  %52 = load i8, ptr %51, align 1, !tbaa !14
   %53 = zext i8 %52 to i32
   %54 = mul nsw i32 %1, %53
   %55 = ashr i32 %54, 8
@@ -203,11 +203,11 @@ define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none)
   %86 = tail call i24 @lv_color_make(i8 noundef zeroext %69, i8 noundef zeroext %77, i8 noundef zeroext %85) #3
   store i24 %86, ptr %3, align 1
   %87 = getelementptr inbounds nuw i8, ptr %45, i64 3
-  %88 = load i8, ptr %87, align 1, !tbaa !19
+  %88 = load i8, ptr %87, align 1, !tbaa !17
   %89 = zext i8 %88 to i32
   %90 = mul nuw nsw i32 %60, %89
   %91 = getelementptr inbounds nuw i8, ptr %43, i64 3
-  %92 = load i8, ptr %91, align 1, !tbaa !19
+  %92 = load i8, ptr %91, align 1, !tbaa !17
   %93 = zext i8 %92 to i32
   %94 = mul nuw nsw i32 %64, %93
   %95 = add nuw nsw i32 %94, %90
@@ -218,7 +218,7 @@ define void @lv_draw_sw_grad_color_calculate(ptr noundef readonly captures(none)
 
 99:                                               ; preds = %26, %40, %11
   %storemerge71 = phi i8 [ %13, %11 ], [ %98, %40 ], [ %31, %26 ]
-  store i8 %storemerge71, ptr %4, align 1, !tbaa !24
+  store i8 %storemerge71, ptr %4, align 1, !tbaa !21
   ret void
 }
 
@@ -247,25 +247,22 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{!6, !7, i64 0}
-!6 = !{!"", !7, i64 0, !10, i64 8, !11, i64 16}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"p1 omnipotent char", !7, i64 0}
-!11 = !{!"int", !8, i64 0}
-!12 = !{!6, !10, i64 8}
-!13 = !{!6, !11, i64 16}
-!14 = distinct !{!14, !15, !4}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !8, i64 4}
-!17 = !{!"", !18, i64 0, !8, i64 3, !8, i64 4}
-!18 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!19 = !{!17, !8, i64 3}
-!20 = !{!21, !8, i64 10}
-!21 = !{!"", !8, i64 0, !8, i64 10, !11, i64 11, !11, i64 11}
-!22 = distinct !{!22, !15, !4}
-!23 = distinct !{!23, !4}
-!24 = !{!8, !8, i64 0}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0, !8, i64 8, !9, i64 16}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 omnipotent char", !5, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!4, !8, i64 8}
+!11 = !{!4, !9, i64 16}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15, !6, i64 4}
+!15 = !{!"", !16, i64 0, !6, i64 3, !6, i64 4}
+!16 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!17 = !{!15, !6, i64 3}
+!18 = !{!19, !6, i64 10}
+!19 = !{!"", !6, i64 0, !6, i64 10, !9, i64 11, !9, i64 11}
+!20 = distinct !{!20, !13}
+!21 = !{!6, !6, i64 0}

@@ -150,7 +150,7 @@ FreeExprContext.exit:                             ; preds = %ShutdownExprContext
   tail call void @pfree(ptr noundef nonnull %6) #12
   %28 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %FreeExprContext.exit, %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -216,7 +216,7 @@ define dso_local void @FreeExprContext(ptr noundef %0, i1 noundef zeroext %1) lo
   tail call void @pfree(ptr noundef nonnull %16) #12
   %18 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   store ptr %8, ptr @CurrentMemoryContext, align 8
@@ -305,7 +305,7 @@ define dso_local noundef ptr @CreateWorkExprContext(ptr noundef %0) local_unname
   %.0 = phi i64 [ 8388608, %1 ], [ %8, %6 ]
   %7 = icmp samesign ugt i64 %.0, %5
   %8 = lshr i64 %.0, 1
-  br i1 %7, label %6, label %9, !llvm.loop !10
+  br i1 %7, label %6, label %9, !llvm.loop !9
 
 9:                                                ; preds = %6
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %.0, i64 8192)
@@ -532,7 +532,7 @@ define dso_local ptr @ExecGetResultType(ptr noundef readonly captures(none) %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  %4 = load i8, ptr %3, align 1, !range !11, !noundef !12
+  %4 = load i8, ptr %3, align 1, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %.thread
 
@@ -548,7 +548,7 @@ define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  %12 = load i8, ptr %11, align 1, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 1, !range !10, !noundef !11
   store i8 %12, ptr %1, align 1
   %.pre = load ptr, ptr %7, align 8
   br label %32
@@ -562,7 +562,7 @@ define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  %16 = load i8, ptr %15, align 1, !range !11, !noundef !12
+  %16 = load i8, ptr %15, align 1, !range !10, !noundef !11
   br label %.sink.split
 
 17:                                               ; preds = %.thread
@@ -608,7 +608,7 @@ define dso_local ptr @ExecGetCommonSlotOps(ptr noundef readonly captures(none) %
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 199
-  %7 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %7 = load i8, ptr %6, align 1, !range !10, !noundef !11
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.thread.i
 
@@ -617,7 +617,7 @@ define dso_local ptr @ExecGetCommonSlotOps(ptr noundef readonly captures(none) %
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 195
-  %13 = load i8, ptr %12, align 1, !range !11, !noundef !12
+  %13 = load i8, ptr %12, align 1, !range !10, !noundef !11
   br i1 %.not.i, label %.sink.split.i, label %ExecGetResultSlotOps.exit
 
 .thread.i:                                        ; preds = %4
@@ -663,14 +663,14 @@ ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, 
 25:                                               ; preds = %ExecGetResultSlotOps.exit26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 199
-  %29 = load i8, ptr %28, align 1, !range !11, !noundef !12
+  %29 = load i8, ptr %28, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %.thread.i18
 
@@ -679,7 +679,7 @@ ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, 
   %33 = load ptr, ptr %32, align 8
   %.not.i24 = icmp eq ptr %33, null
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 195
-  %35 = load i8, ptr %34, align 1, !range !11, !noundef !12
+  %35 = load i8, ptr %34, align 1, !range !10, !noundef !11
   br i1 %.not.i24, label %.sink.split.i20, label %ExecGetResultSlotOps.exit26
 
 .thread.i18:                                      ; preds = %.lr.ph
@@ -728,7 +728,7 @@ define dso_local ptr @ExecGetCommonChildSlotOps(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 199
-  %7 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %7 = load i8, ptr %6, align 1, !range !10, !noundef !11
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.thread.i.i
 
@@ -737,7 +737,7 @@ define dso_local ptr @ExecGetCommonChildSlotOps(ptr noundef readonly captures(no
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 195
-  %13 = load i8, ptr %12, align 1, !range !11, !noundef !12
+  %13 = load i8, ptr %12, align 1, !range !10, !noundef !11
   br i1 %.not.i.i, label %.sink.split.i.i, label %ExecGetResultSlotOps.exit.i
 
 .thread.i.i:                                      ; preds = %1
@@ -774,7 +774,7 @@ ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.
 
 .lr.ph.i.preheader:                               ; preds = %ExecGetResultSlotOps.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 199
-  %26 = load i8, ptr %25, align 1, !range !11, !noundef !12
+  %26 = load i8, ptr %25, align 1, !range !10, !noundef !11
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %.thread.i18.i
 
@@ -783,7 +783,7 @@ ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.
   %30 = load ptr, ptr %29, align 8
   %.not.i24.i = icmp eq ptr %30, null
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 195
-  %32 = load i8, ptr %31, align 1, !range !11, !noundef !12
+  %32 = load i8, ptr %31, align 1, !range !10, !noundef !11
   br i1 %.not.i24.i, label %.sink.split.i20.i, label %ExecGetResultSlotOps.exit26.i
 
 .thread.i18.i:                                    ; preds = %.lr.ph.i.preheader
@@ -865,137 +865,137 @@ list_head.exit.i:                                 ; preds = %9, %3
   br i1 %.not2.i, label %tlist_matches_tupdesc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 24
   %13 = zext nneg i32 %8 to i64
   %14 = shl nuw nsw i64 %13, 4
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %14
-  %15 = getelementptr i8, ptr %7, i64 4
-  %16 = getelementptr i8, ptr %7, i64 16
-  %17 = add nuw i32 %8, 1
-  %wide.trip.count.i = zext i32 %17 to i64
-  br label %18
+  %15 = getelementptr i8, ptr %1, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 24
+  %17 = getelementptr i8, ptr %7, i64 4
+  %18 = getelementptr i8, ptr %7, i64 16
+  %19 = add nuw i32 %8, 1
+  %wide.trip.count.i = zext i32 %19 to i64
+  br label %20
 
-18:                                               ; preds = %50, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
-  %.0263.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %50 ]
-  %19 = getelementptr %struct.FormData_pg_attribute, ptr %gep.i, i64 %indvars.iv.i
-  %20 = icmp eq ptr %.0263.i, null
-  br i1 %20, label %tlist_matches_tupdesc.exit.thread, label %21
+20:                                               ; preds = %52, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
+  %.0263.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %52 ]
+  %21 = getelementptr %struct.FormData_pg_attribute, ptr %16, i64 %indvars.iv.i
+  %22 = icmp eq ptr %.0263.i, null
+  br i1 %22, label %tlist_matches_tupdesc.exit.thread, label %23
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %.0263.i, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not31.i = icmp eq ptr %24, null
-  br i1 %.not31.i, label %tlist_matches_tupdesc.exit.thread, label %25
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %.0263.i, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not31.i = icmp eq ptr %26, null
+  br i1 %.not31.i, label %tlist_matches_tupdesc.exit.thread, label %27
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %24, align 4
-  %27 = icmp eq i32 %26, 6
-  br i1 %27, label %28, label %tlist_matches_tupdesc.exit.thread
+27:                                               ; preds = %23
+  %28 = load i32, ptr %26, align 4
+  %29 = icmp eq i32 %28, 6
+  br i1 %29, label %30, label %tlist_matches_tupdesc.exit.thread
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %30 = load i16, ptr %29, align 8
-  %31 = sext i16 %30 to i64
-  %.not32.i = icmp eq i64 %indvars.iv.i, %31
-  br i1 %.not32.i, label %32, label %tlist_matches_tupdesc.exit.thread
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %32 = load i16, ptr %31, align 8
+  %33 = sext i16 %32 to i64
+  %.not32.i = icmp eq i64 %indvars.iv.i, %33
+  br i1 %.not32.i, label %34, label %tlist_matches_tupdesc.exit.thread
 
-32:                                               ; preds = %28
-  %33 = getelementptr i8, ptr %19, i64 -9
-  %34 = load i8, ptr %33, align 1, !range !11, !noundef !12
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %tlist_matches_tupdesc.exit.thread, label %36
+34:                                               ; preds = %30
+  %35 = getelementptr i8, ptr %21, i64 -9
+  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %tlist_matches_tupdesc.exit.thread, label %38
 
-36:                                               ; preds = %32
-  %37 = getelementptr i8, ptr %19, i64 -12
-  %38 = load i8, ptr %37, align 4, !range !11, !noundef !12
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %tlist_matches_tupdesc.exit.thread, label %40
+38:                                               ; preds = %34
+  %39 = getelementptr i8, ptr %21, i64 -12
+  %40 = load i8, ptr %39, align 4, !range !10, !noundef !11
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %tlist_matches_tupdesc.exit.thread, label %42
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr i8, ptr %19, i64 -32
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %44 = load i32, ptr %43, align 4
-  %.not33.i = icmp eq i32 %42, %44
-  br i1 %.not33.i, label %45, label %tlist_matches_tupdesc.exit.thread
+  %45 = getelementptr i8, ptr %21, i64 -32
+  %46 = load i32, ptr %45, align 4
+  %.not33.i = icmp eq i32 %44, %46
+  br i1 %.not33.i, label %47, label %tlist_matches_tupdesc.exit.thread
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr i8, ptr %19, i64 -24
-  %49 = load i32, ptr %48, align 4
-  %.not34.i = icmp eq i32 %47, %49
-  %.not35.i = icmp eq i32 %47, -1
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr i8, ptr %21, i64 -24
+  %51 = load i32, ptr %50, align 4
+  %.not34.i = icmp eq i32 %49, %51
+  %.not35.i = icmp eq i32 %49, -1
   %or.cond.i = or i1 %.not35.i, %.not34.i
-  br i1 %or.cond.i, label %50, label %tlist_matches_tupdesc.exit.thread
+  br i1 %or.cond.i, label %52, label %tlist_matches_tupdesc.exit.thread
 
-50:                                               ; preds = %45
-  %.val.i = load i32, ptr %15, align 4
-  %.val36.i = load ptr, ptr %16, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.0263.i, i64 8
-  %52 = sext i32 %.val.i to i64
-  %53 = getelementptr inbounds %union.ListCell, ptr %.val36.i, i64 %52
-  %54 = icmp ult ptr %51, %53
-  %..i.i = select i1 %54, ptr %51, ptr null
+52:                                               ; preds = %47
+  %.val.i = load i32, ptr %17, align 4
+  %.val36.i = load ptr, ptr %18, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0263.i, i64 8
+  %54 = sext i32 %.val.i to i64
+  %55 = getelementptr inbounds %union.ListCell, ptr %.val36.i, i64 %54
+  %56 = icmp ult ptr %53, %55
+  %..i.i = select i1 %56, ptr %53, ptr null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %tlist_matches_tupdesc.exit, label %18, !llvm.loop !14
+  br i1 %exitcond.not.i, label %tlist_matches_tupdesc.exit, label %20, !llvm.loop !13
 
-tlist_matches_tupdesc.exit:                       ; preds = %50, %list_head.exit.i
-  %.026.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %50 ]
+tlist_matches_tupdesc.exit:                       ; preds = %52, %list_head.exit.i
+  %.026.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %52 ]
   %.not30.i = icmp eq ptr %.026.lcssa.i, null
-  br i1 %.not30.i, label %55, label %tlist_matches_tupdesc.exit.thread
+  br i1 %.not30.i, label %57, label %tlist_matches_tupdesc.exit.thread
 
-55:                                               ; preds = %tlist_matches_tupdesc.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr null, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %58 = load i8, ptr %57, align 4, !range !11, !noundef !12
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  store i8 %58, ptr %59, align 1
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %61 = load i8, ptr %60, align 8, !range !11, !noundef !12
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %64 = load ptr, ptr %63, align 8
-  br label %77
-
-tlist_matches_tupdesc.exit.thread:                ; preds = %18, %25, %21, %28, %32, %36, %45, %40, %tlist_matches_tupdesc.exit
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
+57:                                               ; preds = %tlist_matches_tupdesc.exit
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr null, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %60 = load i8, ptr %59, align 4, !range !10, !noundef !11
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 199
+  store i8 %60, ptr %61, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %63 = load i8, ptr %62, align 8, !range !10, !noundef !11
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 195
+  store i8 %63, ptr %64, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %66 = load ptr, ptr %65, align 8
-  %.not = icmp eq ptr %66, null
-  br i1 %.not, label %67, label %71
+  br label %79
 
-67:                                               ; preds = %tlist_matches_tupdesc.exit.thread
+tlist_matches_tupdesc.exit.thread:                ; preds = %20, %27, %23, %30, %34, %38, %47, %42, %tlist_matches_tupdesc.exit
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %68 = load ptr, ptr %67, align 8
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %69, label %73
+
+69:                                               ; preds = %tlist_matches_tupdesc.exit.thread
   tail call void @ExecInitResultSlot(ptr noundef nonnull %0, ptr noundef nonnull @TTSOpsVirtual) #12
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr @TTSOpsVirtual, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  store i8 1, ptr %69, align 1
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  store i8 1, ptr %70, align 1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr @TTSOpsVirtual, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 195
+  store i8 1, ptr %71, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 199
+  store i8 1, ptr %72, align 1
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre19 = load ptr, ptr %65, align 8
-  br label %71
+  %.pre19 = load ptr, ptr %67, align 8
+  br label %73
 
-71:                                               ; preds = %67, %tlist_matches_tupdesc.exit.thread
-  %72 = phi ptr [ %.pre19, %67 ], [ %66, %tlist_matches_tupdesc.exit.thread ]
-  %73 = phi ptr [ %.pre18, %67 ], [ %7, %tlist_matches_tupdesc.exit.thread ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call ptr @ExecBuildProjectionInfo(ptr noundef %73, ptr noundef %75, ptr noundef %72, ptr noundef nonnull %0, ptr noundef nonnull %1) #12
-  br label %77
+73:                                               ; preds = %69, %tlist_matches_tupdesc.exit.thread
+  %74 = phi ptr [ %.pre19, %69 ], [ %68, %tlist_matches_tupdesc.exit.thread ]
+  %75 = phi ptr [ %.pre18, %69 ], [ %7, %tlist_matches_tupdesc.exit.thread ]
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call ptr @ExecBuildProjectionInfo(ptr noundef %75, ptr noundef %77, ptr noundef %74, ptr noundef nonnull %0, ptr noundef nonnull %1) #12
+  br label %79
 
-77:                                               ; preds = %71, %55
-  %.sink21 = phi i64 [ 136, %71 ], [ 184, %55 ]
-  %.sink = phi ptr [ %76, %71 ], [ %64, %55 ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
-  store ptr %.sink, ptr %78, align 8
+79:                                               ; preds = %73, %57
+  %.sink21 = phi i64 [ 136, %73 ], [ 184, %57 ]
+  %.sink = phi ptr [ %78, %73 ], [ %66, %57 ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
+  store ptr %.sink, ptr %80, align 8
   ret void
 }
 
@@ -1083,7 +1083,7 @@ ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 125
-  %34 = load i8, ptr %33, align 1, !range !11, !noundef !12
+  %34 = load i8, ptr %33, align 1, !range !10, !noundef !11
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %43, label %36
 
@@ -1359,7 +1359,7 @@ define dso_local void @UnregisterExprContextCallback(ptr noundef captures(none) 
   %.1 = phi ptr [ %.011, %14 ], [ %6, %10 ], [ %6, %.lr.ph ]
   %17 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %16, %3
   ret void
@@ -1396,7 +1396,7 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
 
 16:                                               ; preds = %14
   store i8 1, ptr %2, align 1
-  br label %53
+  br label %55
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %0, i64 8
@@ -1404,7 +1404,6 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   %19 = getelementptr i8, ptr %0, i64 4
   %.val34 = load i32, ptr %19, align 4
   %20 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %.val, i32 noundef %.val34) #12
-  %invariant.gep = getelementptr i8, ptr %20, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread40
@@ -1414,60 +1413,61 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = load i32, ptr %20, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.thread40, !llvm.loop !16
+  br i1 %26, label %.lr.ph, label %.thread40, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %17, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %17 ]
   %27 = phi i32 [ %24, %23 ], [ %21, %17 ]
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %29
-  %30 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = tail call i32 @namestrcmp(ptr noundef nonnull %31, ptr noundef nonnull %1) #12
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %23
+  %30 = getelementptr i8, ptr %20, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 24
+  %32 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %34 = tail call i32 @namestrcmp(ptr noundef nonnull %33, ptr noundef nonnull %1) #12
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %23
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 74
-  %36 = load i16, ptr %35, align 2
-  %37 = icmp eq i16 %36, 0
-  br i1 %37, label %.thread40, label %40
+36:                                               ; preds = %.lr.ph
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 74
+  %38 = load i16, ptr %37, align 2
+  %39 = icmp eq i16 %38, 0
+  br i1 %39, label %.thread40, label %42
 
-.thread40:                                        ; preds = %23, %17, %34
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #12
+.thread40:                                        ; preds = %23, %17, %36
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #12
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1091, ptr noundef nonnull @__func__.GetAttributeByName) #12
   unreachable
 
-40:                                               ; preds = %34
-  %41 = sext i16 %36 to i32
+42:                                               ; preds = %36
+  %43 = sext i16 %38 to i32
   %.val35 = load i32, ptr %0, align 4
-  %42 = lshr i32 %.val35, 2
-  store i32 %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 -1, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i16 -1, ptr %44, align 2
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %47, align 8
-  %48 = call fastcc i64 @heap_getattr(ptr noundef %4, i32 noundef %41, ptr noundef nonnull %20, ptr noundef %2)
-  %49 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %52, label %53
+  %44 = lshr i32 %.val35, 2
+  store i32 %44, ptr %4, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i16 -1, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  store i16 -1, ptr %46, align 2
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i16 0, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %0, ptr %49, align 8
+  %50 = call fastcc i64 @heap_getattr(ptr noundef %4, i32 noundef %43, ptr noundef nonnull %20, ptr noundef %2)
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %54, label %55
 
-52:                                               ; preds = %40
+54:                                               ; preds = %42
   call void @DecrTupleDescRefCount(ptr noundef nonnull %20) #12
-  br label %53
+  br label %55
 
-53:                                               ; preds = %40, %52, %16
-  %.0 = phi i64 [ 0, %16 ], [ %48, %52 ], [ %48, %40 ]
+55:                                               ; preds = %42, %54, %16
+  %.0 = phi i64 [ 0, %16 ], [ %50, %54 ], [ %50, %42 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   ret i64 %.0
 }
@@ -1523,7 +1523,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  %34 = load i8, ptr %33, align 2, !range !11, !noundef !12
+  %34 = load i8, ptr %33, align 2, !range !10, !noundef !11
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %37 = load i16, ptr %36, align 4
@@ -1711,7 +1711,7 @@ define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly captures(ad
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 42
-  %11 = load i8, ptr %10, align 2, !range !11, !noundef !12
+  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   %12 = xor i8 %11, 1
   %13 = zext nneg i8 %12 to i32
   %.1 = add i32 %.01216, %13
@@ -1842,7 +1842,7 @@ declare ptr @ExecStoreAllNullTuple(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecGetChildToRootMap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %3 = load i8, ptr %2, align 8, !range !11, !noundef !12
+  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %._crit_edge, label %5
 
@@ -1886,7 +1886,7 @@ declare ptr @convert_tuples_by_name(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecGetRootToChildMap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %4 = load i8, ptr %3, align 8, !range !11, !noundef !12
+  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %31, label %6
 
@@ -1908,7 +1908,7 @@ define dso_local ptr @ExecGetRootToChildMap(ptr noundef captures(none) %0, ptr n
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 127
-  %23 = load i8, ptr %22, align 1, !range !11, !noundef !12
+  %23 = load i8, ptr %22, align 1, !range !10, !noundef !11
   %24 = trunc nuw i8 %23 to i1
   %25 = xor i1 %24, true
   %26 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %12, ptr noundef %16, i1 noundef zeroext %25) #12
@@ -1969,7 +1969,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %19 = load i8, ptr %18, align 8, !range !11, !noundef !12
+  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %ExecGetRootToChildMap.exit, label %21
 
@@ -1989,7 +1989,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 127
-  %36 = load i8, ptr %35, align 1, !range !11, !noundef !12
+  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
   %37 = trunc nuw i8 %36 to i1
   %38 = xor i1 %37, true
   %39 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %38) #12
@@ -2066,7 +2066,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %19 = load i8, ptr %18, align 8, !range !11, !noundef !12
+  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %ExecGetRootToChildMap.exit, label %21
 
@@ -2086,7 +2086,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 127
-  %36 = load i8, ptr %35, align 1, !range !11, !noundef !12
+  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
   %37 = trunc nuw i8 %36 to i1
   %38 = xor i1 %37, true
   %39 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %38) #12
@@ -2131,7 +2131,7 @@ GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %46, %GetResultR
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecGetExtraUpdatedCols(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i8, ptr %3, align 8, !range !11, !noundef !12
+  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
@@ -2203,7 +2203,7 @@ MakePerTupleExprContext.exit:                     ; preds = %2
   store ptr %31, ptr @CurrentMemoryContext, align 8
   %32 = tail call ptr @ExecGetUpdatedCols(ptr noundef %0, ptr noundef nonnull %1)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load i8, ptr %33, align 8, !range !11, !noundef !12
+  %34 = load i8, ptr %33, align 8, !range !10, !noundef !11
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %ExecGetExtraUpdatedCols.exit, label %36
 
@@ -2315,16 +2315,15 @@ attributes #13 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6, !7}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

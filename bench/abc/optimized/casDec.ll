@@ -147,10 +147,10 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   %59 = load i32, ptr @s_LutSize, align 4, !tbaa !8
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next359, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader312
-  store i64 0, ptr @s_EncodingTime, align 8, !tbaa !29
+  store i64 0, ptr @s_EncodingTime, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -210,8 +210,8 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   br i1 %103, label %.lr.ph318, label %._crit_edge319
 
 .lr.ph318:                                        ; preds = %101
-  %104 = load ptr, ptr %63, align 8, !tbaa !30
-  %105 = load ptr, ptr %64, align 8, !tbaa !44
+  %104 = load ptr, ptr %63, align 8, !tbaa !29
+  %105 = load ptr, ptr %64, align 8, !tbaa !43
   %wide.trip.count = zext nneg i32 %102 to i64
   br label %106
 
@@ -226,7 +226,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   store ptr %111, ptr %112, align 8, !tbaa !3
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge319, label %106, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge319, label %106, !llvm.loop !44
 
 ._crit_edge319:                                   ; preds = %106, %101
   %notmask = shl nsw i32 -1, %102
@@ -240,8 +240,8 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   br i1 %118, label %.lr.ph322, label %._crit_edge323
 
 .lr.ph322:                                        ; preds = %._crit_edge319
-  %119 = load ptr, ptr %63, align 8, !tbaa !30
-  %120 = load ptr, ptr %64, align 8, !tbaa !44
+  %119 = load ptr, ptr %63, align 8, !tbaa !29
+  %120 = load ptr, ptr %64, align 8, !tbaa !43
   %121 = load i32, ptr %72, align 4, !tbaa !20
   %122 = sext i32 %121 to i64
   %wide.trip.count367 = zext nneg i32 %117 to i64
@@ -259,7 +259,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   store ptr %127, ptr %128, align 8, !tbaa !3
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count367
-  br i1 %exitcond368.not, label %._crit_edge323, label %123, !llvm.loop !46
+  br i1 %exitcond368.not, label %._crit_edge323, label %123, !llvm.loop !45
 
 ._crit_edge323:                                   ; preds = %123, %._crit_edge319
   %notmask285 = shl nsw i32 -1, %117
@@ -277,7 +277,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   %134 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %135 = load ptr, ptr %134, align 8, !tbaa !23
   %136 = load ptr, ptr %135, align 8, !tbaa !3
-  %137 = load ptr, ptr %62, align 8, !tbaa !47
+  %137 = load ptr, ptr %62, align 8, !tbaa !46
   %138 = icmp eq ptr %136, %137
   %139 = load ptr, ptr %16, align 16
   %140 = ptrtoint ptr %139 to i64
@@ -291,7 +291,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
   %148 = load ptr, ptr %147, align 8, !tbaa !3
   %149 = call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %143, ptr noundef %146, ptr noundef %148) #10
   %150 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  store ptr %149, ptr %150, align 8, !tbaa !48
+  store ptr %149, ptr %150, align 8, !tbaa !47
   call void @Cudd_Ref(ptr noundef %149) #10
   br label %177
 
@@ -321,7 +321,7 @@ Abc_Clock.exit290:                                ; preds = %151, %154
   %163 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %164 = call ptr @Extra_bddEncodingNonStrict(ptr noundef %0, ptr noundef %158, i32 noundef %160, ptr noundef %131, ptr noundef nonnull %16, i32 noundef %162, ptr noundef nonnull %163) #10
   %165 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  store ptr %164, ptr %165, align 8, !tbaa !48
+  store ptr %164, ptr %165, align 8, !tbaa !47
   call void @Cudd_Ref(ptr noundef %164) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
   %166 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #10
@@ -340,16 +340,16 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %.0.i291 = phi i64 [ %173, %168 ], [ -1, %Abc_Clock.exit290 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
   %174 = add i64 %.0.i291, %.0.i289.neg
-  %175 = load i64, ptr @s_EncodingTime, align 8, !tbaa !29
+  %175 = load i64, ptr @s_EncodingTime, align 8, !tbaa !28
   %176 = add nsw i64 %174, %175
-  store i64 %176, ptr @s_EncodingTime, align 8, !tbaa !29
+  store i64 %176, ptr @s_EncodingTime, align 8, !tbaa !28
   br label %177
 
 177:                                              ; preds = %Abc_Clock.exit292, %133
   %178 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %179 = load i32, ptr %178, align 4, !tbaa !19
   %180 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %181 = load i32, ptr %180, align 8, !tbaa !49
+  %181 = load i32, ptr %180, align 8, !tbaa !48
   %182 = add i32 %179, %.0258339
   %183 = sub i32 %182, %181
   %184 = add nsw i32 %179, %.0259338
@@ -380,7 +380,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
 
 201:                                              ; preds = %.lr.ph326, %201
   %indvars.iv369 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next370, %201 ]
-  %202 = load ptr, ptr %198, align 8, !tbaa !48
+  %202 = load ptr, ptr %198, align 8, !tbaa !47
   %203 = load ptr, ptr %199, align 8, !tbaa !21
   %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv369
   %205 = load ptr, ptr %204, align 8, !tbaa !3
@@ -393,7 +393,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %209 = load i32, ptr %195, align 8, !tbaa !18
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next370, %210
-  br i1 %211, label %201, label %._crit_edge327, !llvm.loop !50
+  br i1 %211, label %201, label %._crit_edge327, !llvm.loop !49
 
 ._crit_edge327:                                   ; preds = %201, %194
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %131) #10
@@ -401,7 +401,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %213 = sext i32 %212 to i64
   %214 = shl nsw i64 %213, 3
   %215 = call noalias ptr @malloc(i64 noundef %214) #11
-  %216 = load i32, ptr %67, align 8, !tbaa !51
+  %216 = load i32, ptr %67, align 8, !tbaa !50
   %217 = icmp sgt i32 %216, 0
   br i1 %217, label %.lr.ph330, label %.preheader
 
@@ -411,7 +411,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   br i1 %219, label %.lr.ph332, label %._crit_edge333
 
 .lr.ph332:                                        ; preds = %.preheader
-  %220 = load ptr, ptr %64, align 8, !tbaa !44
+  %220 = load ptr, ptr %64, align 8, !tbaa !43
   br label %226
 
 .lr.ph330:                                        ; preds = %._crit_edge327, %.lr.ph330
@@ -420,10 +420,10 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %222 = trunc nuw nsw i64 %indvars.iv372 to i32
   store i32 %222, ptr %221, align 4, !tbaa !8
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %223 = load i32, ptr %67, align 8, !tbaa !51
+  %223 = load i32, ptr %67, align 8, !tbaa !50
   %224 = sext i32 %223 to i64
   %225 = icmp slt i64 %indvars.iv.next373, %224
-  br i1 %225, label %.lr.ph330, label %.preheader, !llvm.loop !52
+  br i1 %225, label %.lr.ph330, label %.preheader, !llvm.loop !51
 
 226:                                              ; preds = %.lr.ph332, %226
   %indvars.iv375 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next376, %226 ]
@@ -431,7 +431,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %228 = load i32, ptr %227, align 4, !tbaa !8
   %229 = getelementptr inbounds nuw [32 x ptr], ptr %16, i64 0, i64 %indvars.iv375
   %230 = load ptr, ptr %229, align 8, !tbaa !3
-  %231 = load i32, ptr %230, align 8, !tbaa !53
+  %231 = load i32, ptr %230, align 8, !tbaa !52
   %232 = zext i32 %231 to i64
   %233 = getelementptr inbounds nuw [1024 x i32], ptr @CreateDecomposedNetwork.Permute, i64 0, i64 %232
   store i32 %228, ptr %233, align 4, !tbaa !8
@@ -439,7 +439,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %234 = load i32, ptr %178, align 4, !tbaa !19
   %235 = sext i32 %234 to i64
   %236 = icmp slt i64 %indvars.iv.next376, %235
-  br i1 %236, label %226, label %._crit_edge333, !llvm.loop !54
+  br i1 %236, label %226, label %._crit_edge333, !llvm.loop !53
 
 ._crit_edge333:                                   ; preds = %226, %.preheader
   %237 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -469,7 +469,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %249 = load i32, ptr %195, align 8, !tbaa !18
   %250 = sext i32 %249 to i64
   %251 = icmp slt i64 %indvars.iv.next379, %250
-  br i1 %251, label %.lr.ph336, label %._crit_edge337.thread, !llvm.loop !55
+  br i1 %251, label %.lr.ph336, label %._crit_edge337.thread, !llvm.loop !54
 
 ._crit_edge337:                                   ; preds = %._crit_edge333
   %.not287 = icmp eq ptr %215, null
@@ -483,7 +483,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %17) #10
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond388.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count387
-  br i1 %exitcond388.not, label %253, label %69, !llvm.loop !56
+  br i1 %exitcond388.not, label %253, label %69, !llvm.loop !55
 
 253:                                              ; preds = %252
   br i1 %.not286, label %.critedge288, label %.critedge
@@ -518,14 +518,14 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
 Abc_Clock.exit294:                                ; preds = %.critedge, %268
   %.0.i293 = phi i64 [ %274, %268 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
-  %275 = load i64, ptr @s_EncodingTime, align 8, !tbaa !29
+  %275 = load i64, ptr @s_EncodingTime, align 8, !tbaa !28
   %.neg311 = add i64 %.0.i293, %.0.i.neg353
   %276 = sub i64 %.neg311, %275
   %277 = sitofp i64 %276 to float
   %278 = fdiv float %277, 1.000000e+06
   %279 = fpext float %278 to double
   %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %279)
-  %281 = load i64, ptr @s_EncodingTime, align 8, !tbaa !29
+  %281 = load i64, ptr @s_EncodingTime, align 8, !tbaa !28
   %282 = sitofp i64 %281 to float
   %283 = fdiv float %282, 1.000000e+06
   %284 = fpext float %283 to double
@@ -567,11 +567,11 @@ Abc_Clock.exit296:                                ; preds = %.critedge288, %288
 .lr.ph343:                                        ; preds = %.lr.ph343.preheader, %.lr.ph343
   %indvars.iv389 = phi i64 [ 0, %.lr.ph343.preheader ], [ %indvars.iv.next390, %.lr.ph343 ]
   %297 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv389
-  %298 = load ptr, ptr %297, align 8, !tbaa !57
+  %298 = load ptr, ptr %297, align 8, !tbaa !56
   %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef nonnull @.str.9, ptr noundef %298) #10
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next390, %wide.trip.count392
-  br i1 %exitcond393.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !58
+  br i1 %exitcond393.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !57
 
 ._crit_edge344:                                   ; preds = %.lr.ph343, %292
   %fputc = call i32 @fputc(i32 10, ptr %293)
@@ -643,11 +643,11 @@ Abc_Clock.exit298:                                ; preds = %303, %306
   %337 = load i32, ptr %321, align 8, !tbaa !18
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next395, %338
-  br i1 %339, label %327, label %._crit_edge348, !llvm.loop !59
+  br i1 %339, label %327, label %._crit_edge348, !llvm.loop !58
 
 ._crit_edge348:                                   ; preds = %327, %318
   %340 = getelementptr inbounds nuw i8, ptr %320, i64 48
-  %341 = load ptr, ptr %340, align 8, !tbaa !48
+  %341 = load ptr, ptr %340, align 8, !tbaa !47
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %341) #10
   %342 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %343 = load ptr, ptr %342, align 8, !tbaa !21
@@ -684,7 +684,7 @@ Abc_Clock.exit298:                                ; preds = %303, %306
   call void @free(ptr noundef nonnull %320) #10
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count387
-  br i1 %exitcond402.not, label %.loopexit, label %318, !llvm.loop !60
+  br i1 %exitcond402.not, label %.loopexit, label %318, !llvm.loop !59
 
 .loopexit:                                        ; preds = %353, %44
   %.0 = phi i32 [ 0, %44 ], [ 1, %353 ]
@@ -771,17 +771,17 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %21, i32 noundef %23) #10
   %25 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @WriteLUTSintoBLIFfile.Buffer) #10
-  %26 = load ptr, ptr %11, align 8, !tbaa !44
+  %26 = load ptr, ptr %11, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !8
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %29
-  store ptr %25, ptr %30, align 8, !tbaa !57
+  store ptr %25, ptr %30, align 8, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !17
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %22, label %.loopexit, !llvm.loop !61
+  br i1 %33, label %22, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %22, %14
   %34 = phi i32 [ %.pre, %14 ], [ %31, %22 ]
@@ -792,7 +792,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 .lr.ph91:                                         ; preds = %.loopexit
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %.pre129 = load ptr, ptr %11, align 8, !tbaa !44
+  %.pre129 = load ptr, ptr %11, align 8, !tbaa !43
   %.pre130 = load i32, ptr %38, align 4, !tbaa !20
   br label %49
 
@@ -812,12 +812,12 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %43 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %10, i32 noundef %42) #10
   %44 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.16) #10
   %45 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv114
-  store ptr %44, ptr %45, align 8, !tbaa !57
+  store ptr %44, ptr %45, align 8, !tbaa !56
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %46 = load i32, ptr %39, align 4, !tbaa !19
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next115, %47
-  br i1 %48, label %.lr.ph93.split.us, label %._crit_edge, !llvm.loop !62
+  br i1 %48, label %.lr.ph93.split.us, label %._crit_edge, !llvm.loop !61
 
 49:                                               ; preds = %.lr.ph91, %49
   %50 = phi i32 [ %.pre130, %.lr.ph91 ], [ %61, %49 ]
@@ -829,9 +829,9 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %55 = load i32, ptr %54, align 4, !tbaa !8
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds ptr, ptr %5, i64 %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !57
+  %58 = load ptr, ptr %57, align 8, !tbaa !56
   %59 = tail call ptr @Extra_UtilStrsav(ptr noundef %58) #10
-  %60 = load ptr, ptr %11, align 8, !tbaa !44
+  %60 = load ptr, ptr %11, align 8, !tbaa !43
   %61 = load i32, ptr %38, align 4, !tbaa !20
   %62 = add nsw i32 %61, %.190
   %63 = sext i32 %62 to i64
@@ -839,13 +839,13 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %65 = load i32, ptr %64, align 4, !tbaa !8
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %66
-  store ptr %59, ptr %67, align 8, !tbaa !57
+  store ptr %59, ptr %67, align 8, !tbaa !56
   %68 = add nuw nsw i32 %.190, 1
   %69 = load i32, ptr %16, align 8, !tbaa !14
   %70 = load i32, ptr %35, align 4, !tbaa !17
   %71 = sub nsw i32 %69, %70
   %72 = icmp slt i32 %68, %71
-  br i1 %72, label %49, label %.preheader87, !llvm.loop !64
+  br i1 %72, label %49, label %.preheader87, !llvm.loop !63
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93, %.lr.ph93.split
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph93.split ], [ 0, %.lr.ph93 ]
@@ -853,12 +853,12 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %74 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %17, i32 noundef %73) #10
   %75 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @WriteLUTSintoBLIFfile.Buffer) #10
   %76 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv111
-  store ptr %75, ptr %76, align 8, !tbaa !57
+  store ptr %75, ptr %76, align 8, !tbaa !56
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %77 = load i32, ptr %39, align 4, !tbaa !19
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next112, %78
-  br i1 %79, label %.lr.ph93.split, label %._crit_edge, !llvm.loop !65
+  br i1 %79, label %.lr.ph93.split, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph93.split, %.lr.ph93.split.us, %.preheader87
   %80 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %17) #10
@@ -877,7 +877,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 87:                                               ; preds = %.lr.ph96, %87
   %indvars.iv117 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next118, %87 ]
-  %88 = load ptr, ptr %86, align 8, !tbaa !48
+  %88 = load ptr, ptr %86, align 8, !tbaa !47
   %89 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv117
   %90 = load ptr, ptr %89, align 8, !tbaa !3
   %91 = tail call ptr @Cudd_Cofactor(ptr noundef %1, ptr noundef %88, ptr noundef %90) #10
@@ -888,18 +888,18 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %93 = trunc nuw nsw i64 %indvars.iv117 to i32
   %94 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %17, i32 noundef %93) #10
   %95 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv117
-  %96 = load ptr, ptr %95, align 8, !tbaa !57
+  %96 = load ptr, ptr %95, align 8, !tbaa !56
   tail call void @WriteDDintoBLIFfile(ptr noundef %0, ptr noundef %92, ptr noundef %96, ptr noundef nonnull @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull @WriteLUTSintoBLIFfile.pNamesLocalIn) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %92) #10
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %97 = load i32, ptr %39, align 4, !tbaa !19
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next118, %98
-  br i1 %99, label %87, label %._crit_edge97, !llvm.loop !66
+  br i1 %99, label %87, label %._crit_edge97, !llvm.loop !65
 
 ._crit_edge97:                                    ; preds = %87, %._crit_edge
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %83) #10
-  %100 = load i32, ptr %12, align 8, !tbaa !51
+  %100 = load i32, ptr %12, align 8, !tbaa !50
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph100, label %.preheader
 
@@ -912,34 +912,34 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %104 = phi i32 [ %109, %108 ], [ %100, %._crit_edge97 ]
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %108 ], [ 0, %._crit_edge97 ]
   %105 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalIn, i64 0, i64 %indvars.iv120
-  %106 = load ptr, ptr %105, align 8, !tbaa !57
+  %106 = load ptr, ptr %105, align 8, !tbaa !56
   %.not85 = icmp eq ptr %106, null
   br i1 %.not85, label %108, label %107
 
 107:                                              ; preds = %.lr.ph100
   tail call void @free(ptr noundef nonnull %106) #10
-  %.pre131 = load i32, ptr %12, align 8, !tbaa !51
+  %.pre131 = load i32, ptr %12, align 8, !tbaa !50
   br label %108
 
 108:                                              ; preds = %107, %.lr.ph100
   %109 = phi i32 [ %.pre131, %107 ], [ %104, %.lr.ph100 ]
-  store ptr null, ptr %105, align 8, !tbaa !57
+  store ptr null, ptr %105, align 8, !tbaa !56
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next121, %110
-  br i1 %111, label %.lr.ph100, label %.preheader, !llvm.loop !67
+  br i1 %111, label %.lr.ph100, label %.preheader, !llvm.loop !66
 
 .lr.ph102:                                        ; preds = %.preheader, %116
   %112 = phi i32 [ %117, %116 ], [ %102, %.preheader ]
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %116 ], [ 0, %.preheader ]
   %113 = getelementptr inbounds nuw [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv123
-  %114 = load ptr, ptr %113, align 8, !tbaa !57
+  %114 = load ptr, ptr %113, align 8, !tbaa !56
   %.not84 = icmp eq ptr %114, null
   br i1 %.not84, label %116, label %115
 
 115:                                              ; preds = %.lr.ph102
   tail call void @free(ptr noundef nonnull %114) #10
-  store ptr null, ptr %113, align 8, !tbaa !57
+  store ptr null, ptr %113, align 8, !tbaa !56
   %.pre132 = load i32, ptr %39, align 4, !tbaa !19
   br label %116
 
@@ -948,12 +948,12 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next124, %118
-  br i1 %119, label %.lr.ph102, label %._crit_edge103, !llvm.loop !68
+  br i1 %119, label %.lr.ph102, label %._crit_edge103, !llvm.loop !67
 
 ._crit_edge103:                                   ; preds = %116, %.preheader
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge108, label %14, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge108, label %14, !llvm.loop !68
 
 ._crit_edge108:                                   ; preds = %._crit_edge103, %8
   ret void
@@ -1031,48 +1031,47 @@ attributes #11 = { nounwind allocsize(0) }
 !22 = !{!15, !16, i64 32}
 !23 = !{!15, !16, i64 40}
 !24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = !{!12, !12, i64 0}
-!30 = !{!31, !16, i64 344}
-!31 = !{!"DdManager", !32, i64 0, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !33, i64 80, !33, i64 88, !9, i64 96, !9, i64 100, !34, i64 104, !34, i64 112, !34, i64 120, !9, i64 128, !9, i64 132, !9, i64 136, !9, i64 140, !9, i64 144, !9, i64 148, !35, i64 152, !35, i64 160, !36, i64 168, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !9, i64 244, !9, i64 248, !34, i64 256, !9, i64 264, !9, i64 268, !9, i64 272, !16, i64 280, !12, i64 288, !34, i64 296, !9, i64 304, !37, i64 312, !37, i64 320, !37, i64 328, !37, i64 336, !16, i64 344, !37, i64 352, !16, i64 360, !9, i64 368, !38, i64 376, !38, i64 384, !16, i64 392, !4, i64 400, !39, i64 408, !16, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !34, i64 440, !9, i64 448, !9, i64 452, !9, i64 456, !9, i64 460, !34, i64 464, !34, i64 472, !9, i64 480, !9, i64 484, !9, i64 488, !9, i64 492, !9, i64 496, !9, i64 500, !9, i64 504, !9, i64 508, !9, i64 512, !40, i64 520, !40, i64 528, !9, i64 536, !9, i64 540, !9, i64 544, !9, i64 548, !9, i64 552, !9, i64 556, !41, i64 560, !39, i64 568, !42, i64 576, !42, i64 584, !42, i64 592, !42, i64 600, !43, i64 608, !43, i64 616, !9, i64 624, !12, i64 632, !12, i64 640, !12, i64 648, !9, i64 656, !12, i64 664, !12, i64 672, !34, i64 680, !34, i64 688, !34, i64 696, !34, i64 704, !34, i64 712, !34, i64 720, !9, i64 728, !4, i64 736, !4, i64 744, !12, i64 752}
-!32 = !{!"DdNode", !9, i64 0, !9, i64 4, !4, i64 8, !6, i64 16, !12, i64 32}
-!33 = !{!"p1 _ZTS7DdCache", !5, i64 0}
-!34 = !{!"double", !6, i64 0}
-!35 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
-!36 = !{!"DdSubtable", !16, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48}
-!37 = !{!"p1 int", !5, i64 0}
-!38 = !{!"p1 long", !5, i64 0}
-!39 = !{!"p1 omnipotent char", !5, i64 0}
-!40 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
-!41 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
-!42 = !{!"p1 _ZTS6DdHook", !5, i64 0}
-!43 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!44 = !{!31, !37, i64 328}
-!45 = distinct !{!45, !26, !27}
-!46 = distinct !{!46, !26, !27}
-!47 = !{!31, !4, i64 40}
-!48 = !{!15, !4, i64 48}
-!49 = !{!15, !9, i64 16}
-!50 = distinct !{!50, !26, !27}
-!51 = !{!31, !9, i64 136}
-!52 = distinct !{!52, !26, !27}
-!53 = !{!32, !9, i64 0}
-!54 = distinct !{!54, !26, !27}
-!55 = distinct !{!55, !26, !27}
-!56 = distinct !{!56, !26, !27}
-!57 = !{!39, !39, i64 0}
-!58 = distinct !{!58, !26, !27}
-!59 = distinct !{!59, !26, !27}
-!60 = distinct !{!60, !26, !27}
-!61 = distinct !{!61, !26, !27}
-!62 = distinct !{!62, !26, !27, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !26, !27}
-!65 = distinct !{!65, !26, !27}
-!66 = distinct !{!66, !26, !27}
-!67 = distinct !{!67, !26, !27}
-!68 = distinct !{!68, !26, !27}
-!69 = distinct !{!69, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = !{!12, !12, i64 0}
+!29 = !{!30, !16, i64 344}
+!30 = !{!"DdManager", !31, i64 0, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !32, i64 80, !32, i64 88, !9, i64 96, !9, i64 100, !33, i64 104, !33, i64 112, !33, i64 120, !9, i64 128, !9, i64 132, !9, i64 136, !9, i64 140, !9, i64 144, !9, i64 148, !34, i64 152, !34, i64 160, !35, i64 168, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !9, i64 244, !9, i64 248, !33, i64 256, !9, i64 264, !9, i64 268, !9, i64 272, !16, i64 280, !12, i64 288, !33, i64 296, !9, i64 304, !36, i64 312, !36, i64 320, !36, i64 328, !36, i64 336, !16, i64 344, !36, i64 352, !16, i64 360, !9, i64 368, !37, i64 376, !37, i64 384, !16, i64 392, !4, i64 400, !38, i64 408, !16, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !33, i64 440, !9, i64 448, !9, i64 452, !9, i64 456, !9, i64 460, !33, i64 464, !33, i64 472, !9, i64 480, !9, i64 484, !9, i64 488, !9, i64 492, !9, i64 496, !9, i64 500, !9, i64 504, !9, i64 508, !9, i64 512, !39, i64 520, !39, i64 528, !9, i64 536, !9, i64 540, !9, i64 544, !9, i64 548, !9, i64 552, !9, i64 556, !40, i64 560, !38, i64 568, !41, i64 576, !41, i64 584, !41, i64 592, !41, i64 600, !42, i64 608, !42, i64 616, !9, i64 624, !12, i64 632, !12, i64 640, !12, i64 648, !9, i64 656, !12, i64 664, !12, i64 672, !33, i64 680, !33, i64 688, !33, i64 696, !33, i64 704, !33, i64 712, !33, i64 720, !9, i64 728, !4, i64 736, !4, i64 744, !12, i64 752}
+!31 = !{!"DdNode", !9, i64 0, !9, i64 4, !4, i64 8, !6, i64 16, !12, i64 32}
+!32 = !{!"p1 _ZTS7DdCache", !5, i64 0}
+!33 = !{!"double", !6, i64 0}
+!34 = !{!"p1 _ZTS10DdSubtable", !5, i64 0}
+!35 = !{!"DdSubtable", !16, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48}
+!36 = !{!"p1 int", !5, i64 0}
+!37 = !{!"p1 long", !5, i64 0}
+!38 = !{!"p1 omnipotent char", !5, i64 0}
+!39 = !{!"p1 _ZTS7MtrNode", !5, i64 0}
+!40 = !{!"p1 _ZTS12DdLocalCache", !5, i64 0}
+!41 = !{!"p1 _ZTS6DdHook", !5, i64 0}
+!42 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!43 = !{!30, !36, i64 328}
+!44 = distinct !{!44, !26}
+!45 = distinct !{!45, !26}
+!46 = !{!30, !4, i64 40}
+!47 = !{!15, !4, i64 48}
+!48 = !{!15, !9, i64 16}
+!49 = distinct !{!49, !26}
+!50 = !{!30, !9, i64 136}
+!51 = distinct !{!51, !26}
+!52 = !{!31, !9, i64 0}
+!53 = distinct !{!53, !26}
+!54 = distinct !{!54, !26}
+!55 = distinct !{!55, !26}
+!56 = !{!38, !38, i64 0}
+!57 = distinct !{!57, !26}
+!58 = distinct !{!58, !26}
+!59 = distinct !{!59, !26}
+!60 = distinct !{!60, !26}
+!61 = distinct !{!61, !26, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !26}
+!64 = distinct !{!64, !26}
+!65 = distinct !{!65, !26}
+!66 = distinct !{!66, !26}
+!67 = distinct !{!67, !26}
+!68 = distinct !{!68, !26}

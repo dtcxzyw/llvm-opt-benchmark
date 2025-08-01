@@ -393,7 +393,7 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly captures(address_i
   %11 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit5, label %.preheader, !llvm.loop !9
+  br i1 %13, label %.loopexit5, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %3, %.loopexit4
   %14 = phi ptr [ %12, %.loopexit4 ], [ %7, %3 ]
@@ -449,7 +449,7 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly captures(address_i
   %54 = tail call i64 @acpi_os_acquire_lock(ptr noundef %53) #5
   %55 = add nuw nsw i64 %40, 1
   %56 = icmp eq i64 %55, 8
-  br i1 %56, label %.loopexit.loopexit, label %39, !llvm.loop !10
+  br i1 %56, label %.loopexit.loopexit, label %39, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %39
   %.pre = load i32, ptr %18, align 8
@@ -462,7 +462,7 @@ define dso_local i32 @acpi_ev_gpe_detect(ptr noundef readonly captures(address_i
   %60 = add nuw nsw i64 %26, 1
   %61 = zext i32 %57 to i64
   %62 = icmp samesign ult i64 %60, %61
-  br i1 %62, label %24, label %.loopexit4, !llvm.loop !11
+  br i1 %62, label %24, label %.loopexit4, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %.loopexit4, %3
   %63 = phi i32 [ 0, %3 ], [ %9, %.loopexit4 ]
@@ -487,9 +487,9 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  store i64 0, ptr %4, align 8, !annotation !12
+  store i64 0, ptr %4, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  store i64 0, ptr %5, align 8, !annotation !12
+  store i64 0, ptr %5, align 8, !annotation !11
   %6 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   %7 = tail call i64 @acpi_os_acquire_lock(ptr noundef %6) #5
   %8 = icmp eq ptr %1, null
@@ -500,7 +500,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %10, label %.preheader, label %33
 
 .thread:                                          ; preds = %21, %.preheader, %16, %27
-  br i1 %11, label %.preheader, label %.thread14, !llvm.loop !13
+  br i1 %11, label %.preheader, label %.thread14, !llvm.loop !5
 
 .preheader:                                       ; preds = %9, %.thread
   %11 = phi i1 [ false, %.thread ], [ true, %9 ]
@@ -625,7 +625,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread14
 
 96:                                               ; preds = %82
-  %97 = call i32 @acpi_ev_gpe_dispatch(ptr noundef %0, ptr noundef nonnull %57, i32 noundef %2), !range !14
+  %97 = call i32 @acpi_ev_gpe_dispatch(ptr noundef %0, ptr noundef nonnull %57, i32 noundef %2), !range !12
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread, %45, %40, %33, %36, %96, %87, %67, %64, %.thread15, %51
@@ -782,12 +782,12 @@ define internal void @acpi_ev_asynch_execute_gpe_method(ptr noundef %0) #0 align
   %14 = icmp eq i32 %11, 0
   %15 = icmp ne ptr %13, null
   %16 = select i1 %14, i1 %15, i1 false
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !13
 
 17:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store i64 0, ptr %2, align 8, !annotation !12
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !16
+  store i64 0, ptr %2, align 8, !annotation !11
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !14
   %18 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   %19 = and i64 %18, 512
@@ -908,15 +908,13 @@ attributes #6 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = !{!"auto-init"}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{i32 0, i32 2}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = !{i64 1821508, i64 1821529}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = !{!"auto-init"}
+!12 = !{i32 0, i32 2}
+!13 = distinct !{!13, !6, !7}
+!14 = !{i64 1821508, i64 1821529}

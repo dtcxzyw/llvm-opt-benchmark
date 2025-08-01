@@ -87,7 +87,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbf586a25010380e4E"(ptr nonnull sret({ { { ptr, i64 } }, { ptr, i64, i8, [7 x i8] } }) align 8 %5, ptr nonnull align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  br label %11, !llvm.loop !5
+  br label %11
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae65ad28ecd54f3bE.exit": ; preds = %16, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -186,7 +186,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbf586a25010380e4E"(ptr nonnull sret({ { { ptr, i64 } }, { ptr, i64, i8, [7 x i8] } }) align 8 %5, ptr nonnull align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  br label %11, !llvm.loop !5
+  br label %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -211,7 +211,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17hde28a60fc0bda33cE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %8, ptr align 8 %.0, ptr nonnull align 8 %3)
   %15 = load i64, ptr %8, align 8, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load i64, ptr %16, align 8, !range !7, !noundef !4
+  %17 = load i64, ptr %16, align 8, !range !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -222,7 +222,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17hde28a60fc0bda33cE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %.047, ptr nonnull align 8 %7)
   %24 = load i64, ptr %6, align 8, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load i64, ptr %25, align 8, !range !7, !noundef !4
+  %26 = load i64, ptr %25, align 8, !range !5, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = call i64 @llvm.uadd.sat.i64(i64 %15, i64 %24)
@@ -253,7 +253,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he9d82e784068374eE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %1)
   %.pre59 = load i64, ptr %5, align 8
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre61 = load i64, ptr %.phi.trans.insert60, align 8, !range !7
+  %.pre61 = load i64, ptr %.phi.trans.insert60, align 8, !range !5
   %.phi.trans.insert62 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre63 = load i64, ptr %.phi.trans.insert62, align 8
   %43 = icmp eq i64 %.pre61, 0
@@ -310,7 +310,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he9d82e784068374eE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %4, ptr nonnull align 8 %1)
   %.pre = load i64, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre56 = load i64, ptr %.phi.trans.insert, align 8, !range !7
+  %.pre56 = load i64, ptr %.phi.trans.insert, align 8, !range !5
   %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre58 = load i64, ptr %.phi.trans.insert57, align 8
   %66 = icmp eq i64 %.pre, 0
@@ -433,6 +433,4 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{i8 0, i8 3}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i64 0, i64 2}
+!5 = !{i64 0, i64 2}

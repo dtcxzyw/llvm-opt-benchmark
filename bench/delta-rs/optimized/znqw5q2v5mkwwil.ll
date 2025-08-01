@@ -3914,12 +3914,12 @@ common.resume:                                    ; preds = %104, %92, %27
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7b117ea7fbd2fdf1E.exit.backedge.i.i.i": ; preds = %78, %.lr.ph.i.i.i
   %.not.i4.i.i.i = icmp eq i16 %72, 0
-  br i1 %.not.i4.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7b117ea7fbd2fdf1E.exit._crit_edge.i.i.i", label %.lr.ph.i.i.i, !llvm.loop !1046
+  br i1 %.not.i4.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7b117ea7fbd2fdf1E.exit._crit_edge.i.i.i", label %.lr.ph.i.i.i
 
 81:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7b117ea7fbd2fdf1E.exit._crit_edge.i.i.i"
   %82 = add i64 %.sroa.9.0.i.i.i.i, 16
   %83 = add i64 %.sroa.01.0.i.i.i.i, %82
-  br label %63, !llvm.loop !1048
+  br label %63
 
 select.unfold:                                    ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7b117ea7fbd2fdf1E.exit._crit_edge.i.i.i", %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd546edc13e99ddc0E.exit"
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.791db69454e89ea14b1bf901649a42ca.79) #20
@@ -3948,22 +3948,22 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %9)
   call void @_ZN14deltalake_core5table7builder17DeltaTableBuilder13build_storage17h834543f6ff2be243E(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %10)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %10)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1049)
-  %89 = load i64, ptr %11, align 8, !range !1052, !alias.scope !1049, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !1046)
+  %89 = load i64, ptr %11, align 8, !range !1049, !alias.scope !1046, !noundef !4
   %90 = icmp eq i64 %89, 45
   br i1 %90, label %97, label %91
 
 91:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7), !noalias !1049
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7), !noalias !1046
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.791db69454e89ea14b1bf901649a42ca.10, i64 noundef 43, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.791db69454e89ea14b1bf901649a42ca.11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.791db69454e89ea14b1bf901649a42ca.80) #20
-          to label %94 unwind label %92, !noalias !1049
+          to label %94 unwind label %92, !noalias !1046
 
 92:                                               ; preds = %91
   %93 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..DeltaTableError$GT$17hbc670d2f8cd4615cE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %7) #18
-          to label %common.resume unwind label %95, !noalias !1049
+          to label %common.resume unwind label %95, !noalias !1046
 
 94:                                               ; preds = %91
   unreachable
@@ -3971,14 +3971,14 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
 95:                                               ; preds = %92
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #19, !noalias !1049
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #19, !noalias !1046
   unreachable
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %99 = load ptr, ptr %98, align 8, !alias.scope !1049, !nonnull !4, !noundef !4
+  %99 = load ptr, ptr %98, align 8, !alias.scope !1046, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %101 = load ptr, ptr %100, align 8, !alias.scope !1049, !nonnull !4, !align !18, !noundef !4
+  %101 = load ptr, ptr %100, align 8, !alias.scope !1046, !nonnull !4, !align !18, !noundef !4
   %102 = insertvalue { ptr, ptr } poison, ptr %99, 0
   %103 = insertvalue { ptr, ptr } %102, ptr %101, 1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11)
@@ -5327,10 +5327,7 @@ attributes #20 = { noreturn }
 !1043 = !{!1044, !1033, !1022, !1024, !985}
 !1044 = distinct !{!1044, !1045, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h804fef993fc63809E: argument 1"}
 !1045 = distinct !{!1045, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h804fef993fc63809E"}
-!1046 = distinct !{!1046, !1047}
-!1047 = !{!"llvm.loop.estimated_trip_count"}
-!1048 = distinct !{!1048, !1047}
-!1049 = !{!1050}
-!1050 = distinct !{!1050, !1051, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h525e91473cf651abE: argument 0"}
-!1051 = distinct !{!1051, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h525e91473cf651abE"}
-!1052 = !{i64 0, i64 46}
+!1046 = !{!1047}
+!1047 = distinct !{!1047, !1048, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h525e91473cf651abE: argument 0"}
+!1048 = distinct !{!1048, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h525e91473cf651abE"}
+!1049 = !{i64 0, i64 46}

@@ -17127,7 +17127,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .backedge:                                        ; preds = %.lr.ph.split, %22
   %exitcond.not = icmp eq i64 %16, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4217
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 21:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
@@ -17135,7 +17135,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 22:                                               ; preds = %.lr.ph.split
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %24 = load i8, ptr %23, align 8, !alias.scope !4219, !noundef !7
+  %24 = load i8, ptr %23, align 8, !alias.scope !4217, !noundef !7
   %25 = and i8 %12, %24
   %26 = icmp ne i8 %25, %24
   %27 = and i8 %24, %9
@@ -17147,7 +17147,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   store i64 %16, ptr %5, align 8
   %29 = xor i8 %24, -1
   %30 = and i8 %9, %29
-  store i8 %30, ptr %8, align 1, !alias.scope !4222
+  store i8 %30, ptr %8, align 1, !alias.scope !4220
   %31 = load ptr, ptr %15, align 8, !nonnull !7, !align !3488, !noundef !7
   store ptr %31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17170,25 +17170,25 @@ define hidden void @"_ZN9workspace9Workspace20with_local_workspace28_$u7b$$u7b$c
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %6, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4225)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4228)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4231)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4223)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4226)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4229)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4234)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4237)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !4240, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4232)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4235)
+  %8 = load ptr, ptr %7, align 8, !alias.scope !4238, !nonnull !7, !noundef !7
   %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %9, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit", label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !4240
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !4238
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %14, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit"
 
 14:                                               ; preds = %10
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #31, !noalias !4240
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #31, !noalias !4238
   br label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit": ; preds = %4, %10, %14
@@ -17268,26 +17268,26 @@ define hidden void @"_ZN8feedback14feedback_modal13FeedbackModal6submit28_$u7b$$
           to label %19 unwind label %17
 
 "_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h69876973b30efdfcE.exit": ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4241)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4244)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4247)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4239)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4242)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4245)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4250)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4253)
-  %9 = load ptr, ptr %8, align 8, !alias.scope !4256, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4248)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4251)
+  %9 = load ptr, ptr %8, align 8, !alias.scope !4254, !nonnull !7, !noundef !7
   %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
   br i1 %10, label %"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit", label %11
 
 11:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h69876973b30efdfcE.exit"
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !4256
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !4254
   %14 = icmp eq i64 %13, 1
   br i1 %14, label %15, label %"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit"
 
 15:                                               ; preds = %11
   fence acquire
-  %16 = load ptr, ptr %8, align 8, !alias.scope !4256, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 80, i64 noundef 8) #31, !noalias !4256
+  %16 = load ptr, ptr %8, align 8, !alias.scope !4254, !nonnull !7, !noundef !7
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 80, i64 noundef 8) #31, !noalias !4254
   br label %"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h69876973b30efdfcE.exit", %11, %15
@@ -17318,26 +17318,26 @@ define hidden void @"_ZN8feedback14feedback_modal13FeedbackModal21update_email_i
           to label %19 unwind label %17
 
 "_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h69876973b30efdfcE.exit": ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4257)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4260)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4263)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4255)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4258)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4261)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4266)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4269)
-  %9 = load ptr, ptr %8, align 8, !alias.scope !4272, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4264)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4267)
+  %9 = load ptr, ptr %8, align 8, !alias.scope !4270, !nonnull !7, !noundef !7
   %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
   br i1 %10, label %"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit", label %11
 
 11:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h69876973b30efdfcE.exit"
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !4272
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !4270
   %14 = icmp eq i64 %13, 1
   br i1 %14, label %15, label %"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit"
 
 15:                                               ; preds = %11
   fence acquire
-  %16 = load ptr, ptr %8, align 8, !alias.scope !4272, !nonnull !7, !noundef !7
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 80, i64 noundef 8) #31, !noalias !4272
+  %16 = load ptr, ptr %8, align 8, !alias.scope !4270, !nonnull !7, !noundef !7
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 80, i64 noundef 8) #31, !noalias !4270
   br label %"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h69876973b30efdfcE.exit", %11, %15
@@ -17370,25 +17370,25 @@ define hidden void @"_ZN8feedback4init28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 0, ptr %6, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4273)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4276)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4279)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4271)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4274)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4277)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4282)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4285)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !4288, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4280)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4283)
+  %8 = load ptr, ptr %7, align 8, !alias.scope !4286, !nonnull !7, !noundef !7
   %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %9, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit", label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !4288
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !4286
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %14, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit"
 
 14:                                               ; preds = %10
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #31, !noalias !4288
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #31, !noalias !4286
   br label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit": ; preds = %4, %10, %14
@@ -17402,25 +17402,25 @@ define hidden void @"_ZN8feedback4init28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i8 0, ptr %6, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4289)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4292)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4295)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4287)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4290)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4293)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4298)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4301)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !4304, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4296)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4299)
+  %8 = load ptr, ptr %7, align 8, !alias.scope !4302, !nonnull !7, !noundef !7
   %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %9, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit", label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !4304
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !4302
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %14, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit"
 
 14:                                               ; preds = %10
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #31, !noalias !4304
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 80, i64 noundef 8) #31, !noalias !4302
   br label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit"
 
 "_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E.exit": ; preds = %4, %10, %14
@@ -22112,91 +22112,89 @@ attributes #31 = { nounwind }
 !4214 = distinct !{!4214, !"_ZN87_$LT$feedback..feedback_modal..InvalidStateFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17he9be06f6a6aa8bf2E"}
 !4215 = distinct !{!4215, !4216, !"_ZN8bitflags6traits5Flags8is_empty17h6fb72ca4b64eb38eE: argument 0"}
 !4216 = distinct !{!4216, !"_ZN8bitflags6traits5Flags8is_empty17h6fb72ca4b64eb38eE"}
-!4217 = distinct !{!4217, !4218}
-!4218 = !{!"llvm.loop.estimated_trip_count"}
-!4219 = !{!4220}
-!4220 = distinct !{!4220, !4221, !"_ZN87_$LT$feedback..feedback_modal..InvalidStateFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17he9be06f6a6aa8bf2E: argument 0"}
-!4221 = distinct !{!4221, !"_ZN87_$LT$feedback..feedback_modal..InvalidStateFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17he9be06f6a6aa8bf2E"}
-!4222 = !{!4223}
-!4223 = distinct !{!4223, !4224, !"_ZN8bitflags6traits5Flags6remove17hf48a9b9e0fff5720E: argument 0"}
-!4224 = distinct !{!4224, !"_ZN8bitflags6traits5Flags6remove17hf48a9b9e0fff5720E"}
-!4225 = !{!4226}
-!4226 = distinct !{!4226, !4227, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E: argument 0"}
-!4227 = distinct !{!4227, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E"}
-!4228 = !{!4229}
-!4229 = distinct !{!4229, !4230, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865: argument 0"}
-!4230 = distinct !{!4230, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865"}
-!4231 = !{!4232}
-!4232 = distinct !{!4232, !4233, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
-!4233 = distinct !{!4233, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
-!4234 = !{!4235}
-!4235 = distinct !{!4235, !4236, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
-!4236 = distinct !{!4236, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
-!4237 = !{!4238}
-!4238 = distinct !{!4238, !4239, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
-!4239 = distinct !{!4239, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
-!4240 = !{!4238, !4235, !4232, !4229, !4226}
-!4241 = !{!4242}
-!4242 = distinct !{!4242, !4243, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E: argument 0"}
-!4243 = distinct !{!4243, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E"}
-!4244 = !{!4245}
-!4245 = distinct !{!4245, !4246, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865: argument 0"}
-!4246 = distinct !{!4246, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865"}
-!4247 = !{!4248}
-!4248 = distinct !{!4248, !4249, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
-!4249 = distinct !{!4249, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
-!4250 = !{!4251}
-!4251 = distinct !{!4251, !4252, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
-!4252 = distinct !{!4252, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
-!4253 = !{!4254}
-!4254 = distinct !{!4254, !4255, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
-!4255 = distinct !{!4255, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
-!4256 = !{!4254, !4251, !4248, !4245, !4242}
-!4257 = !{!4258}
-!4258 = distinct !{!4258, !4259, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E: argument 0"}
-!4259 = distinct !{!4259, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E"}
-!4260 = !{!4261}
-!4261 = distinct !{!4261, !4262, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865: argument 0"}
-!4262 = distinct !{!4262, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865"}
-!4263 = !{!4264}
-!4264 = distinct !{!4264, !4265, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
-!4265 = distinct !{!4265, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
-!4266 = !{!4267}
-!4267 = distinct !{!4267, !4268, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
-!4268 = distinct !{!4268, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
-!4269 = !{!4270}
-!4270 = distinct !{!4270, !4271, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
-!4271 = distinct !{!4271, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
-!4272 = !{!4270, !4267, !4264, !4261, !4258}
-!4273 = !{!4274}
-!4274 = distinct !{!4274, !4275, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E: argument 0"}
-!4275 = distinct !{!4275, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E"}
-!4276 = !{!4277}
-!4277 = distinct !{!4277, !4278, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865: argument 0"}
-!4278 = distinct !{!4278, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865"}
-!4279 = !{!4280}
-!4280 = distinct !{!4280, !4281, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
-!4281 = distinct !{!4281, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
-!4282 = !{!4283}
-!4283 = distinct !{!4283, !4284, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
-!4284 = distinct !{!4284, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
-!4285 = !{!4286}
-!4286 = distinct !{!4286, !4287, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
-!4287 = distinct !{!4287, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
-!4288 = !{!4286, !4283, !4280, !4277, !4274}
-!4289 = !{!4290}
-!4290 = distinct !{!4290, !4291, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E: argument 0"}
-!4291 = distinct !{!4291, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E"}
-!4292 = !{!4293}
-!4293 = distinct !{!4293, !4294, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865: argument 0"}
-!4294 = distinct !{!4294, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865"}
-!4295 = !{!4296}
-!4296 = distinct !{!4296, !4297, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
-!4297 = distinct !{!4297, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
-!4298 = !{!4299}
-!4299 = distinct !{!4299, !4300, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
-!4300 = distinct !{!4300, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
-!4301 = !{!4302}
-!4302 = distinct !{!4302, !4303, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
-!4303 = distinct !{!4303, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
-!4304 = !{!4302, !4299, !4296, !4293, !4290}
+!4217 = !{!4218}
+!4218 = distinct !{!4218, !4219, !"_ZN87_$LT$feedback..feedback_modal..InvalidStateFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17he9be06f6a6aa8bf2E: argument 0"}
+!4219 = distinct !{!4219, !"_ZN87_$LT$feedback..feedback_modal..InvalidStateFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17he9be06f6a6aa8bf2E"}
+!4220 = !{!4221}
+!4221 = distinct !{!4221, !4222, !"_ZN8bitflags6traits5Flags6remove17hf48a9b9e0fff5720E: argument 0"}
+!4222 = distinct !{!4222, !"_ZN8bitflags6traits5Flags6remove17hf48a9b9e0fff5720E"}
+!4223 = !{!4224}
+!4224 = distinct !{!4224, !4225, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E: argument 0"}
+!4225 = distinct !{!4225, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E"}
+!4226 = !{!4227}
+!4227 = distinct !{!4227, !4228, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865: argument 0"}
+!4228 = distinct !{!4228, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865"}
+!4229 = !{!4230}
+!4230 = distinct !{!4230, !4231, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
+!4231 = distinct !{!4231, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
+!4232 = !{!4233}
+!4233 = distinct !{!4233, !4234, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
+!4234 = distinct !{!4234, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
+!4235 = !{!4236}
+!4236 = distinct !{!4236, !4237, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
+!4237 = distinct !{!4237, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
+!4238 = !{!4236, !4233, !4230, !4227, !4224}
+!4239 = !{!4240}
+!4240 = distinct !{!4240, !4241, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E: argument 0"}
+!4241 = distinct !{!4241, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E"}
+!4242 = !{!4243}
+!4243 = distinct !{!4243, !4244, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865: argument 0"}
+!4244 = distinct !{!4244, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865"}
+!4245 = !{!4246}
+!4246 = distinct !{!4246, !4247, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
+!4247 = distinct !{!4247, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
+!4248 = !{!4249}
+!4249 = distinct !{!4249, !4250, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
+!4250 = distinct !{!4250, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
+!4251 = !{!4252}
+!4252 = distinct !{!4252, !4253, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
+!4253 = distinct !{!4253, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
+!4254 = !{!4252, !4249, !4246, !4243, !4240}
+!4255 = !{!4256}
+!4256 = distinct !{!4256, !4257, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E: argument 0"}
+!4257 = distinct !{!4257, !"_ZN4core3ptr88drop_in_place$LT$gpui..view..WeakView$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17hed4f47c2d4ed6c13E"}
+!4258 = !{!4259}
+!4259 = distinct !{!4259, !4260, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865: argument 0"}
+!4260 = distinct !{!4260, !"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$feedback..feedback_modal..FeedbackModal$GT$$GT$17h7845d7b8ad59065bE.llvm.4688597536446920865"}
+!4261 = !{!4262}
+!4262 = distinct !{!4262, !4263, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
+!4263 = distinct !{!4263, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
+!4264 = !{!4265}
+!4265 = distinct !{!4265, !4266, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
+!4266 = distinct !{!4266, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
+!4267 = !{!4268}
+!4268 = distinct !{!4268, !4269, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
+!4269 = distinct !{!4269, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
+!4270 = !{!4268, !4265, !4262, !4259, !4256}
+!4271 = !{!4272}
+!4272 = distinct !{!4272, !4273, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E: argument 0"}
+!4273 = distinct !{!4273, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E"}
+!4274 = !{!4275}
+!4275 = distinct !{!4275, !4276, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865: argument 0"}
+!4276 = distinct !{!4276, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865"}
+!4277 = !{!4278}
+!4278 = distinct !{!4278, !4279, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
+!4279 = distinct !{!4279, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
+!4280 = !{!4281}
+!4281 = distinct !{!4281, !4282, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
+!4282 = distinct !{!4282, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
+!4283 = !{!4284}
+!4284 = distinct !{!4284, !4285, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
+!4285 = distinct !{!4285, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
+!4286 = !{!4284, !4281, !4278, !4275, !4272}
+!4287 = !{!4288}
+!4288 = distinct !{!4288, !4289, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E: argument 0"}
+!4289 = distinct !{!4289, !"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17hbf6d3edd96de1359E"}
+!4290 = !{!4291}
+!4291 = distinct !{!4291, !4292, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865: argument 0"}
+!4292 = distinct !{!4292, !"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$workspace..Workspace$GT$$GT$17h08a76e3fd6dc9a1eE.llvm.4688597536446920865"}
+!4293 = !{!4294}
+!4294 = distinct !{!4294, !4295, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E: argument 0"}
+!4295 = distinct !{!4295, !"_ZN4core3ptr56drop_in_place$LT$gpui..app..entity_map..AnyWeakModel$GT$17h0518947f9c94deb8E"}
+!4296 = !{!4297}
+!4297 = distinct !{!4297, !4298, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865: argument 0"}
+!4298 = distinct !{!4298, !"_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17hbcb07bd40d7a5bfcE.llvm.4688597536446920865"}
+!4299 = !{!4300}
+!4300 = distinct !{!4300, !4301, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865: argument 0"}
+!4301 = distinct !{!4301, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5f01a86ebd1346dE.llvm.4688597536446920865"}
+!4302 = !{!4300, !4297, !4294, !4291, !4288}

@@ -123,11 +123,11 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %19 = getelementptr i8, ptr %0, i64 -112
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23, !prof !12
+  br i1 %21, label %22, label %23, !prof !11
 
 22:                                               ; preds = %4
-  tail call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #8, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 234, i32 0, i64 12) #8, !srcloc !14
+  tail call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #8, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 234, i32 0, i64 12) #8, !srcloc !13
   unreachable
 
 23:                                               ; preds = %4
@@ -138,7 +138,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !14
   %27 = zext nneg i32 %24 to i64
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %29 = load i64, ptr %28, align 8
@@ -160,7 +160,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !14
   tail call void @_raw_spin_lock(ptr noundef %18) #8
   %41 = getelementptr i8, ptr %0, i64 -144
   %42 = load ptr, ptr %41, align 8
@@ -202,7 +202,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %63 = phi ptr [ %45, %50 ], [ %45, %.preheader12 ], [ %44, %54 ]
   %64 = load ptr, ptr %44, align 8
   %65 = icmp eq ptr %64, %41
-  br i1 %65, label %.loopexit13, label %.preheader12, !llvm.loop !16
+  br i1 %65, label %.loopexit13, label %.preheader12, !llvm.loop !15
 
 .loopexit13:                                      ; preds = %61, %59
   %66 = phi i32 [ %60, %59 ], [ %62, %61 ]
@@ -358,7 +358,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %151 = phi i32 [ 0, %147 ], [ %144, %141 ]
   %152 = phi i32 [ 0, %147 ], [ %121, %141 ]
   %153 = icmp slt i32 %.pre, %1
-  br i1 %153, label %116, label %154, !llvm.loop !17
+  br i1 %153, label %116, label %154, !llvm.loop !16
 
 154:                                              ; preds = %148
   store i32 %151, ptr %113, align 4
@@ -397,7 +397,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %168 = add nuw nsw i64 %161, 1
   %169 = sext i32 %167 to i64
   %170 = icmp slt i64 %168, %169
-  br i1 %170, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %170, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %166, %.loopexit113, %38, %31
   %171 = phi i32 [ -5, %31 ], [ 0, %38 ], [ %157, %.loopexit113 ], [ %157, %166 ]
@@ -456,7 +456,7 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr noundef readonly 
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %3, align 4
   %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %16, !llvm.loop !19
+  br i1 %24, label %25, label %16, !llvm.loop !18
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -467,8 +467,8 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr noundef readonly 
   br i1 %30, label %32, label %31, !prof !5
 
 31:                                               ; preds = %25
-  tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #8, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 125, i32 0, i64 12) #8, !srcloc !21
+  tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #8, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 125, i32 0, i64 12) #8, !srcloc !20
   unreachable
 
 32:                                               ; preds = %25
@@ -520,7 +520,7 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr noundef readonly 
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %3, align 4
   %59 = icmp eq i32 %57, %58
-  br i1 %59, label %60, label %.preheader, !llvm.loop !22
+  br i1 %59, label %60, label %.preheader, !llvm.loop !18
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -531,8 +531,8 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr noundef readonly 
   br i1 %65, label %67, label %66, !prof !5
 
 66:                                               ; preds = %60
-  tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #8, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 125, i32 0, i64 12) #8, !srcloc !21
+  tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #8, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 125, i32 0, i64 12) #8, !srcloc !20
   unreachable
 
 67:                                               ; preds = %60
@@ -650,15 +650,15 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_get_mapped_cluster(ptr nound
   br label %61
 
 23:                                               ; preds = %5
-  store i32 0, ptr %6, align 4, !annotation !15
-  store i32 0, ptr %7, align 4, !annotation !15
+  store i32 0, ptr %6, align 4, !annotation !14
+  store i32 0, ptr %7, align 4, !annotation !14
   %24 = zext i16 %13 to i64
   %25 = zext i8 %15 to i64
   %26 = sub nsw i64 %24, %25
   %27 = and i64 %26, 4294967295
   %28 = lshr i64 %1, %27
   %29 = trunc i64 %28 to i32
-  %30 = call i32 @fat_get_cluster(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !23
+  %30 = call i32 @fat_get_cluster(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !21
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.thread, label %32
 
@@ -800,7 +800,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
 
 .thread:                                          ; preds = %32, %53, %47
   %64 = phi i64 [ %62, %53 ], [ %51, %47 ], [ %43, %32 ]
-  %65 = tail call i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64 noundef %64, ptr noundef %3, ptr noundef %2), !range !24
+  %65 = tail call i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64 noundef %64, ptr noundef %3, ptr noundef %2), !range !22
   br label %.critedge
 
 .critedge:                                        ; preds = %45, %.thread, %53, %47, %27, %18
@@ -850,20 +850,18 @@ attributes #9 = { cold nounwind }
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{i64 2154907641, i64 2154907450, i64 2154907502, i64 2154907548, i64 2154907576}
 !7 = !{i64 2154907715, i64 2154907744, i64 2154907790, i64 2154907848, i64 2154907902, i64 2154907956, i64 2154908011, i64 2154908042}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = !{i64 2154920219, i64 2154920028, i64 2154920080, i64 2154920126, i64 2154920154}
-!14 = !{i64 2154920293, i64 2154920322, i64 2154920368, i64 2154920426, i64 2154920480, i64 2154920534, i64 2154920589, i64 2154920620}
-!15 = !{!"auto-init"}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = !{i64 2154916010, i64 2154915819, i64 2154915871, i64 2154915917, i64 2154915945}
-!21 = !{i64 2154916084, i64 2154916113, i64 2154916159, i64 2154916217, i64 2154916271, i64 2154916325, i64 2154916380, i64 2154916411}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = !{i32 -2147483648, i32 268435456}
-!24 = !{i32 -2147483648, i32 1}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = !{i64 2154920219, i64 2154920028, i64 2154920080, i64 2154920126, i64 2154920154}
+!13 = !{i64 2154920293, i64 2154920322, i64 2154920368, i64 2154920426, i64 2154920480, i64 2154920534, i64 2154920589, i64 2154920620}
+!14 = !{!"auto-init"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = !{i64 2154916010, i64 2154915819, i64 2154915871, i64 2154915917, i64 2154915945}
+!20 = !{i64 2154916084, i64 2154916113, i64 2154916159, i64 2154916217, i64 2154916271, i64 2154916325, i64 2154916380, i64 2154916411}
+!21 = !{i32 -2147483648, i32 268435456}
+!22 = !{i32 -2147483648, i32 1}

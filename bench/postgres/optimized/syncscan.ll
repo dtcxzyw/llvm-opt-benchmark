@@ -111,7 +111,7 @@ define dso_local i32 @ss_get_location(ptr noundef readonly captures(none) %0, i3
   %20 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %8, !llvm.loop !9
+  br i1 %22, label %23, label %8
 
 23:                                               ; preds = %.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
@@ -221,7 +221,7 @@ define dso_local void @ss_report_location(ptr noundef readonly captures(none) %0
   %24 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %12, !llvm.loop !9
+  br i1 %26, label %27, label %12
 
 27:                                               ; preds = %.thread.i
   %28 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
@@ -295,7 +295,5 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}

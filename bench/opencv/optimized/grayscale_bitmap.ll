@@ -444,7 +444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
   %175 = phi i32 [ %145, %.lr.ph ], [ %199, %174 ]
   %176 = getelementptr inbounds nuw i16, ptr %149, i64 %indvars.iv
-  %177 = load i16, ptr %176, align 2, !tbaa !47
+  %177 = load i16, ptr %176, align 2, !tbaa !46
   %178 = zext i16 %177 to i32
   %179 = load i32, ptr %16, align 8, !tbaa !3
   %180 = sub nsw i32 16, %179
@@ -463,16 +463,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %192 = sdiv i32 %185, %182
   %193 = sext i32 %192 to i64
   %194 = getelementptr inbounds nuw i32, ptr %126, i64 %193
-  %195 = load i32, ptr %194, align 4, !tbaa !49
+  %195 = load i32, ptr %194, align 4, !tbaa !48
   %196 = and i32 %195, %191
   %197 = shl i32 %189, %187
   %198 = or i32 %196, %197
-  store i32 %198, ptr %194, align 4, !tbaa !49
+  store i32 %198, ptr %194, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %199 = load i32, ptr %0, align 8, !tbaa !37
   %200 = sext i32 %199 to i64
   %201 = icmp slt i64 %indvars.iv.next, %200
-  br i1 %201, label %174, label %._crit_edge.loopexit, !llvm.loop !50
+  br i1 %201, label %174, label %._crit_edge.loopexit, !llvm.loop !49
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit64:             ; preds = %169, %167, %165, %163
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
@@ -593,7 +593,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %38 = sdiv i32 %34, %31
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds nuw i32, ptr %25, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !49
+  %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = lshr i32 %41, %36
   %43 = and i32 %42, %37
   %44 = mul nsw i32 %32, %28
@@ -603,7 +603,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %48 = sdiv i32 %45, %31
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds nuw i32, ptr %25, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !49
+  %51 = load i32, ptr %50, align 4, !tbaa !48
   %52 = lshr i32 %51, %47
   %53 = and i32 %52, %37
   %..i75.us = tail call i32 @llvm.umax.i32(i32 %43, i32 %53)
@@ -612,9 +612,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %55 = add i32 %54, %.11.i.us
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds nuw i32, ptr %27, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !49
+  %58 = load i32, ptr %57, align 4, !tbaa !48
   %59 = add i32 %58, 1
-  store i32 %59, ptr %57, align 4, !tbaa !49
+  store i32 %59, ptr %57, align 4, !tbaa !48
   %60 = load i32, ptr %23, align 8, !tbaa !3
   %61 = sdiv i32 32, %60
   %62 = load i32, ptr %0, align 8, !tbaa !37
@@ -627,7 +627,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %68 = sdiv i32 %64, %61
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds nuw i32, ptr %25, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !49
+  %71 = load i32, ptr %70, align 4, !tbaa !48
   %72 = lshr i32 %71, %66
   %73 = and i32 %72, %67
   %74 = add nsw i32 %.06997.us, 1
@@ -637,7 +637,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %78 = sdiv i32 %75, %61
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds nuw i32, ptr %25, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !49
+  %81 = load i32, ptr %80, align 4, !tbaa !48
   %82 = lshr i32 %81, %77
   %83 = and i32 %82, %67
   %..i78.us = tail call i32 @llvm.umax.i32(i32 %73, i32 %83)
@@ -646,9 +646,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %85 = add i32 %84, %.11.i79.us
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds nuw i32, ptr %27, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !49
+  %88 = load i32, ptr %87, align 4, !tbaa !48
   %89 = add i32 %88, 1
-  store i32 %89, ptr %87, align 4, !tbaa !49
+  store i32 %89, ptr %87, align 4, !tbaa !48
   %90 = load i32, ptr %23, align 8, !tbaa !3
   %91 = sdiv i32 32, %90
   %92 = load i32, ptr %0, align 8, !tbaa !37
@@ -661,7 +661,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %98 = sdiv i32 %94, %91
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds nuw i32, ptr %25, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !49
+  %101 = load i32, ptr %100, align 4, !tbaa !48
   %102 = lshr i32 %101, %96
   %103 = and i32 %102, %97
   %104 = mul nsw i32 %92, %28
@@ -671,7 +671,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %108 = sdiv i32 %105, %91
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds nuw i32, ptr %25, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !49
+  %111 = load i32, ptr %110, align 4, !tbaa !48
   %112 = lshr i32 %111, %107
   %113 = and i32 %112, %97
   %..i82.us = tail call i32 @llvm.umax.i32(i32 %103, i32 %113)
@@ -680,9 +680,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %115 = add i32 %114, %.11.i83.us
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds nuw i32, ptr %27, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !49
+  %118 = load i32, ptr %117, align 4, !tbaa !48
   %119 = add i32 %118, 1
-  store i32 %119, ptr %117, align 4, !tbaa !49
+  store i32 %119, ptr %117, align 4, !tbaa !48
   %120 = load i32, ptr %23, align 8, !tbaa !3
   %121 = sdiv i32 32, %120
   %122 = load i32, ptr %0, align 8, !tbaa !37
@@ -695,7 +695,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %128 = sdiv i32 %124, %121
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds nuw i32, ptr %25, i64 %129
-  %131 = load i32, ptr %130, align 4, !tbaa !49
+  %131 = load i32, ptr %130, align 4, !tbaa !48
   %132 = lshr i32 %131, %126
   %133 = and i32 %132, %127
   %134 = mul nsw i32 %122, %28
@@ -705,7 +705,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %138 = sdiv i32 %135, %121
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds nuw i32, ptr %25, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !49
+  %141 = load i32, ptr %140, align 4, !tbaa !48
   %142 = lshr i32 %141, %137
   %143 = and i32 %142, %127
   %..i86.us = tail call i32 @llvm.umax.i32(i32 %133, i32 %143)
@@ -714,19 +714,19 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %145 = add i32 %144, %.11.i87.us
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds nuw i32, ptr %27, i64 %146
-  %148 = load i32, ptr %147, align 4, !tbaa !49
+  %148 = load i32, ptr %147, align 4, !tbaa !48
   %149 = add i32 %148, 1
-  store i32 %149, ptr %147, align 4, !tbaa !49
+  store i32 %149, ptr %147, align 4, !tbaa !48
   %150 = icmp slt i32 %74, %.sroa.speculated91
-  br i1 %150, label %29, label %._crit_edge.us, !llvm.loop !51
+  br i1 %150, label %29, label %._crit_edge.us, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %29
   %151 = icmp slt i32 %28, %.sroa.speculated
-  br i1 %151, label %.preheader96.us, label %._crit_edge99, !llvm.loop !52
+  br i1 %151, label %.preheader96.us, label %._crit_edge99, !llvm.loop !51
 
 ._crit_edge99:                                    ; preds = %._crit_edge.us, %.preheader96.lr.ph, %6
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !54
-  store float 0.000000e+00, ptr %4, align 4, !tbaa !54
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !53
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !53
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %153 = load i32, ptr %152, align 8, !tbaa !3
   %154 = sub nsw i32 %.sroa.speculated91, %9
@@ -758,7 +758,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge, label %.preheader, !llvm.loop !56
+  br i1 %exitcond115.not, label %._crit_edge, label %.preheader, !llvm.loop !55
 
 165:                                              ; preds = %.preheader, %184
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %184 ]
@@ -766,7 +766,7 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %167 = add i32 %163, %166
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds nuw i32, ptr %161, i64 %168
-  %170 = load i32, ptr %169, align 4, !tbaa !49
+  %170 = load i32, ptr %169, align 4, !tbaa !48
   %.not72 = icmp eq i32 %170, 0
   br i1 %.not72, label %184, label %171
 
@@ -777,21 +777,21 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %175 = mul nsw i64 %174, %174
   %176 = trunc nsw i64 %175 to i32
   %177 = uitofp nneg i32 %176 to float
-  %178 = load float, ptr %3, align 4, !tbaa !54
+  %178 = load float, ptr %3, align 4, !tbaa !53
   %179 = tail call float @llvm.fmuladd.f32(float %177, float %173, float %178)
-  store float %179, ptr %3, align 4, !tbaa !54
-  %180 = tail call noundef float @logf(float noundef %173) #14, !tbaa !49
-  %181 = load float, ptr %4, align 4, !tbaa !54
+  store float %179, ptr %3, align 4, !tbaa !53
+  %180 = tail call noundef float @logf(float noundef %173) #14, !tbaa !48
+  %181 = load float, ptr %4, align 4, !tbaa !53
   %182 = fneg float %173
   %183 = tail call float @llvm.fmuladd.f32(float %182, float %180, float %181)
-  store float %183, ptr %4, align 4, !tbaa !54
-  store i32 0, ptr %169, align 4, !tbaa !49
+  store float %183, ptr %4, align 4, !tbaa !53
+  store i32 0, ptr %169, align 4, !tbaa !48
   br label %184
 
 184:                                              ; preds = %165, %171
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv107
-  br i1 %exitcond.not, label %164, label %165, !llvm.loop !57
+  br i1 %exitcond.not, label %164, label %165, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -805,13 +805,13 @@ define hidden void @_ZNK2cv11xfeatures2d14pct_signatures15GrayscaleBitmap12conve
   %7 = load i32, ptr %0, align 8, !tbaa !37
   tail call void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #14
-  %8 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !58
+  %8 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !57
   %9 = icmp eq i32 %8, 65536
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !14, !noalias !58
+  %12 = load ptr, ptr %11, align 8, !tbaa !14, !noalias !57
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %12)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -859,7 +859,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %35 = sext i32 %34 to i64
   %36 = load ptr, ptr %17, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
-  %38 = load i32, ptr %37, align 4, !tbaa !49
+  %38 = load i32, ptr %37, align 4, !tbaa !48
   %39 = lshr i32 %38, %32
   %40 = and i32 %39, %33
   %41 = icmp slt i32 %26, 8
@@ -882,18 +882,18 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
 .critedge.us:                                     ; preds = %46, %43, %42
   %.0.us = phi i32 [ %48, %46 ], [ %45, %43 ], [ %40, %42 ]
   %49 = trunc i32 %.0.us to i8
-  %50 = load ptr, ptr %18, align 8, !tbaa !61
-  %51 = load ptr, ptr %19, align 8, !tbaa !62
+  %50 = load ptr, ptr %18, align 8, !tbaa !60
+  %51 = load ptr, ptr %19, align 8, !tbaa !61
   %52 = load i64, ptr %51, align 8, !tbaa !42
   %53 = mul i64 %52, %indvars.iv29
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv26
-  store i8 %49, ptr %55, align 1, !tbaa !63
+  store i8 %49, ptr %55, align 1, !tbaa !62
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %56 = load i32, ptr %0, align 8, !tbaa !37
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next27, %57
-  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !64
+  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %_ZNK2cv11_InputArray6getMatEi.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
@@ -906,7 +906,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %60 = load i32, ptr %5, align 4, !tbaa !39
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next30, %61
-  br i1 %62, label %.preheader, label %._crit_edge22, !llvm.loop !65
+  br i1 %62, label %.preheader, label %._crit_edge22, !llvm.loop !64
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
@@ -924,22 +924,22 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %17, align 8, !tbaa !41
   %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
-  %76 = load i32, ptr %75, align 4, !tbaa !49
+  %76 = load i32, ptr %75, align 4, !tbaa !48
   %77 = lshr i32 %76, %70
   %78 = and i32 %77, %71
   %79 = trunc i32 %78 to i8
-  %80 = load ptr, ptr %18, align 8, !tbaa !61
-  %81 = load ptr, ptr %19, align 8, !tbaa !62
+  %80 = load ptr, ptr %18, align 8, !tbaa !60
+  %81 = load ptr, ptr %19, align 8, !tbaa !61
   %82 = load i64, ptr %81, align 8, !tbaa !42
   %83 = mul i64 %82, %indvars.iv29
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv
-  store i8 %79, ptr %85, align 1, !tbaa !63
+  store i8 %79, ptr %85, align 1, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load i32, ptr %0, align 8, !tbaa !37
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %.critedge, label %._crit_edge, !llvm.loop !66
+  br i1 %88, label %.critedge, label %._crit_edge, !llvm.loop !65
 }
 
 declare void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
@@ -970,7 +970,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !67
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -983,7 +983,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   br i1 %.not28, label %26, label %19
 
 19:                                               ; preds = %3
-  store i32 0, ptr %5, align 4, !tbaa !49
+  store i32 0, ptr %5, align 4, !tbaa !48
   %20 = getelementptr i8, ptr %5, i64 4
   %21 = add i64 %1, -1
   %22 = icmp eq i64 %21, 0
@@ -992,7 +992,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %23 = shl i64 %1, 2
   %24 = add i64 %23, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !49
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !48
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
@@ -1017,7 +1017,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %26
   %31 = shl nuw nsw i64 %30, 2
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #17
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
-  store i32 0, ptr %33, align 4, !tbaa !49
+  store i32 0, ptr %33, align 4, !tbaa !48
   %34 = icmp eq i64 %1, 1
   br i1 %34, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30
 
@@ -1025,7 +1025,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIj
   %35 = getelementptr i8, ptr %33, i64 4
   %36 = shl nuw nsw i64 %1, 2
   %37 = add nsw i64 %36, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !49
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit33
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit33: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
@@ -1049,7 +1049,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIj
   %41 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %41, ptr %4, align 8, !tbaa !40
   %42 = getelementptr inbounds nuw i32, ptr %32, i64 %30
-  store ptr %42, ptr %11, align 8, !tbaa !67
+  store ptr %42, ptr %11, align 8, !tbaa !66
   br label %43
 
 43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36, %2
@@ -1150,28 +1150,27 @@ attributes #17 = { builtin allocsize(0) }
 !40 = !{!11, !12, i64 8}
 !41 = !{!11, !12, i64 0}
 !42 = !{!24, !24, i64 0}
-!43 = distinct !{!43, !44, !45, !46}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!"llvm.loop.unswitch.partial.disable"}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"short", !6, i64 0}
-!49 = !{!5, !5, i64 0}
-!50 = distinct !{!50, !44, !45}
-!51 = distinct !{!51, !44, !45}
-!52 = distinct !{!52, !44, !45, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"float", !6, i64 0}
-!56 = distinct !{!56, !44, !45}
-!57 = distinct !{!57, !44, !45}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!60 = distinct !{!60, !"_ZNK2cv11_InputArray6getMatEi"}
-!61 = !{!27, !23, i64 16}
-!62 = !{!27, !32, i64 72}
-!63 = !{!6, !6, i64 0}
-!64 = distinct !{!64, !44, !45, !53}
-!65 = distinct !{!65, !44, !45, !46}
-!66 = distinct !{!66, !44, !45}
-!67 = !{!11, !12, i64 16}
+!45 = !{!"llvm.loop.unswitch.partial.disable"}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"short", !6, i64 0}
+!48 = !{!5, !5, i64 0}
+!49 = distinct !{!49, !44}
+!50 = distinct !{!50, !44}
+!51 = distinct !{!51, !44, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"float", !6, i64 0}
+!55 = distinct !{!55, !44}
+!56 = distinct !{!56, !44}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!59 = distinct !{!59, !"_ZNK2cv11_InputArray6getMatEi"}
+!60 = !{!27, !23, i64 16}
+!61 = !{!27, !32, i64 72}
+!62 = !{!6, !6, i64 0}
+!63 = distinct !{!63, !44, !52}
+!64 = distinct !{!64, !44, !45}
+!65 = distinct !{!65, !44}
+!66 = !{!11, !12, i64 16}

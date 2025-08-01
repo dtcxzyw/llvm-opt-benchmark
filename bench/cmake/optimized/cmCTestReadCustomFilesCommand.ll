@@ -109,7 +109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
   tail call void @_ZN7cmCTest31ReadCustomConfigurationFileTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.018.022, ptr noundef nonnull %31)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.018.022, i64 32
   %.not = icmp eq ptr %35, %8
-  br i1 %.not, label %.loopexit, label %33, !llvm.loop !33
+  br i1 %.not, label %.loopexit, label %33
 
 .loopexit:                                        ; preds = %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret i1 %9
@@ -195,5 +195,3 @@ attributes #9 = { builtin nounwind }
 !30 = !{!31, !32, i64 8}
 !31 = !{!"_ZTS14cmCTestCommand", !32, i64 8}
 !32 = !{!"p1 _ZTS7cmCTest", !6, i64 0}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}

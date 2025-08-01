@@ -1748,7 +1748,7 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %27, %_ZN17QArrayDat
   call void @_ZN10QBoxLayout12insertWidgetEiP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable_or_null(28) %35, i32 noundef %.059, ptr noundef %37, i32 noundef 0, i32 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #11
   %65 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %66 = load ptr, ptr %65, align 8, !noalias !21
+  %66 = load ptr, ptr %65, align 8, !noalias !20
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   call void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable_or_null(8) %14, ptr noundef nonnull align 8 dereferenceable(12) %67)
   %68 = invoke noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %14)
@@ -1761,100 +1761,100 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %27, %_ZN17QArrayDat
   call void @_ZN7QWidget15setMaximumWidthEi(ptr noundef align 8 dereferenceable_or_null(40) %37, i32 noundef %70)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame13showRequestedEbbPb to i64), ptr %11, align 8, !noalias !24
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame13showRequestedEbbPb to i64), ptr %11, align 8, !noalias !23
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !24
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %12, align 8, !noalias !24
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !23
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %12, align 8, !noalias !23
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !24
-  %71 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !24
-  store i32 1, ptr %71, align 4, !noalias !24
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !23
+  %71 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !23
+  store i32 1, ptr %71, align 4, !noalias !23
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvbbPbENS_4ListIJbbS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvS2_, ptr %72, align 8, !noalias !24
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvbbPbENS_4ListIJbbS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvS2_, ptr %72, align 8, !noalias !23
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %73, align 8, !noalias !24
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %73, align 8, !noalias !23
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !24
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !23
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef nonnull %20, ptr noundef nonnull %11, ptr noundef %37, ptr noundef nonnull %12, ptr noundef %71, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN13ProgressFrame16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %15) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame19maximumValueChangedEi to i64), ptr %9, align 8, !noalias !27
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame19maximumValueChangedEi to i64), ptr %9, align 8, !noalias !26
   %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !27
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame15setMaximumValueEi to i64), ptr %10, align 8, !noalias !27
+  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !26
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame15setMaximumValueEi to i64), ptr %10, align 8, !noalias !26
   %.fca.1.gep.i72 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %.fca.1.gep.i72, align 8, !noalias !27
-  %74 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !27
-  store i32 1, ptr %74, align 4, !noalias !27
+  store i64 0, ptr %.fca.1.gep.i72, align 8, !noalias !26
+  %74 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !26
+  store i32 1, ptr %74, align 4, !noalias !26
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %75, align 8, !noalias !27
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %75, align 8, !noalias !26
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame15setMaximumValueEi to i64), ptr %76, align 8, !noalias !27
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame15setMaximumValueEi to i64), ptr %76, align 8, !noalias !26
   %.repack7.i.i73 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store i64 0, ptr %.repack7.i.i73, align 8, !noalias !27
+  store i64 0, ptr %.repack7.i.i73, align 8, !noalias !26
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %16, ptr noundef nonnull %20, ptr noundef nonnull %9, ptr noundef %37, ptr noundef nonnull %10, ptr noundef %74, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN13ProgressFrame16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %16) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame12valueChangedEi to i64), ptr %7, align 8, !noalias !30
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame12valueChangedEi to i64), ptr %7, align 8, !noalias !29
   %.fca.1.gep12.i77 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %.fca.1.gep12.i77, align 8, !noalias !30
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame8setValueEi to i64), ptr %8, align 8, !noalias !30
+  store i64 0, ptr %.fca.1.gep12.i77, align 8, !noalias !29
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame8setValueEi to i64), ptr %8, align 8, !noalias !29
   %.fca.1.gep.i78 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %.fca.1.gep.i78, align 8, !noalias !30
-  %77 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !30
-  store i32 1, ptr %77, align 4, !noalias !30
+  store i64 0, ptr %.fca.1.gep.i78, align 8, !noalias !29
+  %77 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !29
+  store i32 1, ptr %77, align 4, !noalias !29
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %78, align 8, !noalias !30
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %78, align 8, !noalias !29
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame8setValueEi to i64), ptr %79, align 8, !noalias !30
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame8setValueEi to i64), ptr %79, align 8, !noalias !29
   %.repack7.i.i79 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store i64 0, ptr %.repack7.i.i79, align 8, !noalias !30
+  store i64 0, ptr %.repack7.i.i79, align 8, !noalias !29
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %17, ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %37, ptr noundef nonnull %8, ptr noundef %77, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN13ProgressFrame16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %17) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame9setHiddenEv to i64), ptr %5, align 8, !noalias !33
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame9setHiddenEv to i64), ptr %5, align 8, !noalias !32
   %.fca.1.gep12.i83 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.fca.1.gep12.i83, align 8, !noalias !33
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame4hideEv to i64), ptr %6, align 8, !noalias !33
+  store i64 0, ptr %.fca.1.gep12.i83, align 8, !noalias !32
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame4hideEv to i64), ptr %6, align 8, !noalias !32
   %.fca.1.gep.i84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %.fca.1.gep.i84, align 8, !noalias !33
-  %80 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !33
-  store i32 1, ptr %80, align 4, !noalias !33
+  store i64 0, ptr %.fca.1.gep.i84, align 8, !noalias !32
+  %80 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !32
+  store i32 1, ptr %80, align 4, !noalias !32
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %81, align 8, !noalias !33
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %81, align 8, !noalias !32
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame4hideEv to i64), ptr %82, align 8, !noalias !33
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame4hideEv to i64), ptr %82, align 8, !noalias !32
   %.repack7.i.i85 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 0, ptr %.repack7.i.i85, align 8, !noalias !33
+  store i64 0, ptr %.repack7.i.i85, align 8, !noalias !32
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef %37, ptr noundef nonnull %6, ptr noundef %80, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN13ProgressFrame16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %18) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame11stopLoadingEv to i64), ptr %3, align 8, !noalias !36
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame11stopLoadingEv to i64), ptr %3, align 8, !noalias !35
   %.fca.1.gep12.i89 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep12.i89, align 8, !noalias !36
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame11stopLoadingEv to i64), ptr %4, align 8, !noalias !36
+  store i64 0, ptr %.fca.1.gep12.i89, align 8, !noalias !35
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame11stopLoadingEv to i64), ptr %4, align 8, !noalias !35
   %.fca.1.gep.i90 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i90, align 8, !noalias !36
-  %83 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !36
-  store i32 1, ptr %83, align 4, !noalias !36
+  store i64 0, ptr %.fca.1.gep.i90, align 8, !noalias !35
+  %83 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !35
+  store i32 1, ptr %83, align 4, !noalias !35
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %84, align 8, !noalias !36
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %84, align 8, !noalias !35
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame11stopLoadingEv to i64), ptr %85, align 8, !noalias !36
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame11stopLoadingEv to i64), ptr %85, align 8, !noalias !35
   %.repack7.i.i91 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store i64 0, ptr %.repack7.i.i91, align 8, !noalias !36
+  store i64 0, ptr %.repack7.i.i91, align 8, !noalias !35
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %19, ptr noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef %83, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN13ProgressFrame16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1926,20 +1926,20 @@ define void @_ZN13ProgressFrame18captureFileClosingEv(ptr noundef align 8 derefe
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame13showRequestedEbbPb to i64), ptr %2, align 8, !noalias !39
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame13showRequestedEbbPb to i64), ptr %2, align 8, !noalias !38
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !39
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %3, align 8, !noalias !39
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !38
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %3, align 8, !noalias !38
   %.fca.1.gep.i17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep.i17, align 8, !noalias !39
-  %11 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !39
-  store i32 1, ptr %11, align 4, !noalias !39
+  store i64 0, ptr %.fca.1.gep.i17, align 8, !noalias !38
+  %11 = call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !38
+  store i32 1, ptr %11, align 4, !noalias !38
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvbbPbENS_4ListIJbbS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvS2_, ptr %12, align 8, !noalias !39
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvbbPbENS_4ListIJbbS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvS2_, ptr %12, align 8, !noalias !38
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %13, align 8, !noalias !39
+  store i64 ptrtoint (ptr @_ZN13ProgressFrame4showEbbPb to i64), ptr %13, align 8, !noalias !38
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !39
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !38
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %11, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN13ProgressFrame16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -2334,7 +2334,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvbbPbENS_4
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !42
+  %17 = load ptr, ptr %16, align 8, !nosanitize !41
   br label %_ZN9QtPrivate15FunctionPointerIM13ProgressFrameFvbbPbEE4callINS_4ListIJbbS2_EEEvEEvS4_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2345,11 +2345,11 @@ _ZN9QtPrivate15FunctionPointerIM13ProgressFrameFvbbPbEE4callINS_4ListIJbbS2_EEEv
   %20 = phi ptr [ %17, %13 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = load i8, ptr %22, align 1, !range !43, !noundef !42
+  %23 = load i8, ptr %22, align 1, !range !42, !noundef !41
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr i8, ptr %3, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = load i8, ptr %26, align 1, !range !43, !noundef !42
+  %27 = load i8, ptr %26, align 1, !range !42, !noundef !41
   %28 = trunc nuw i8 %27 to i1
   %29 = getelementptr i8, ptr %3, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -2411,7 +2411,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFviENS_4Lis
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !42
+  %17 = load ptr, ptr %16, align 8, !nosanitize !41
   br label %_ZN9QtPrivate15FunctionPointerIM13ProgressFrameFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2477,7 +2477,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM13ProgressFrameFvvENS_4Lis
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !42
+  %17 = load ptr, ptr %16, align 8, !nosanitize !41
   br label %_ZN9QtPrivate15FunctionPointerIM13ProgressFrameFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -2551,29 +2551,28 @@ attributes #13 = { builtin nounwind }
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE: argument 0"}
 !17 = distinct !{!17, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE"}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK7QWidget11fontMetricsEv"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE: argument 0"}
-!26 = distinct !{!26, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
-!29 = distinct !{!29, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
-!32 = distinct !{!32, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
-!35 = distinct !{!35, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
-!38 = distinct !{!38, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE: argument 0"}
-!41 = distinct !{!41, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE"}
-!42 = !{}
-!43 = !{i8 0, i8 2}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
+!22 = distinct !{!22, !"_ZNK7QWidget11fontMetricsEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE: argument 0"}
+!25 = distinct !{!25, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
+!28 = distinct !{!28, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
+!31 = distinct !{!31, !"_ZN7QObject7connectIM13ProgressFrameFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
+!34 = distinct !{!34, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE: argument 0"}
+!37 = distinct !{!37, !"_ZN7QObject7connectIM13ProgressFrameFvvES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE: argument 0"}
+!40 = distinct !{!40, !"_ZN7QObject7connectIM13ProgressFrameFvbbPbES4_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES9_PKNS8_IT0_E6ObjectESE_N2Qt14ConnectionTypeE"}
+!41 = !{}
+!42 = !{i8 0, i8 2}

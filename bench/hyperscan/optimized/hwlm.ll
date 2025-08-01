@@ -66,7 +66,7 @@ define hidden i32 @hwlmExec(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 37:                                               ; preds = %.lr.ph181
   %38 = getelementptr inbounds nuw i8, ptr %.042.i180, i64 1
   %39 = icmp ult ptr %38, %24
-  br i1 %39, label %.lr.ph181, label %run_hwlm_accel.exit, !llvm.loop !5
+  br i1 %39, label %.lr.ph181, label %run_hwlm_accel.exit
 
 40:                                               ; preds = %28
   %41 = ptrtoint ptr %23 to i64
@@ -79,7 +79,7 @@ define hidden i32 @hwlmExec(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %45 = icmp eq <16 x i8> %32, %44
   %46 = bitcast <16 x i1> %45 to i16
   %.not.i52 = icmp eq i16 %46, 0
-  br i1 %.not.i52, label %vermUnalign.exit54.thread, label %vermUnalign.exit54, !prof !7
+  br i1 %.not.i52, label %vermUnalign.exit54.thread, label %vermUnalign.exit54, !prof !5
 
 vermUnalign.exit54.thread:                        ; preds = %43
   %47 = sub nuw nsw i64 16, %42
@@ -117,7 +117,7 @@ vermUnalign.exit54:                               ; preds = %43
   %63 = shufflevector <16 x i1> %59, <16 x i1> %62, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %64 = bitcast <32 x i1> %63 to i32
   %.not37.i.not = icmp eq i32 %64, 0
-  br i1 %.not37.i.not, label %69, label %65, !prof !7
+  br i1 %.not37.i.not, label %69, label %65, !prof !5
 
 65:                                               ; preds = %.lr.ph176
   %66 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %64, i1 true)
@@ -129,7 +129,7 @@ vermUnalign.exit54:                               ; preds = %43
   %70 = getelementptr inbounds nuw i8, ptr %.032.i175, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.032.i175, i64 63
   %72 = icmp ult ptr %71, %53
-  br i1 %72, label %.lr.ph176, label %.preheader142, !llvm.loop !8
+  br i1 %72, label %.lr.ph176, label %.preheader142
 
 .lr.ph179:                                        ; preds = %.preheader142, %80
   %.133.i178 = phi ptr [ %81, %80 ], [ %.032.i.lcssa, %.preheader142 ]
@@ -138,7 +138,7 @@ vermUnalign.exit54:                               ; preds = %43
   %74 = icmp eq <16 x i8> %32, %73
   %75 = bitcast <16 x i1> %74 to i16
   %.not.i61.not = icmp eq i16 %75, 0
-  br i1 %.not.i61.not, label %80, label %76, !prof !7
+  br i1 %.not.i61.not, label %80, label %76, !prof !5
 
 76:                                               ; preds = %.lr.ph179
   %77 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %75, i1 true)
@@ -150,7 +150,7 @@ vermUnalign.exit54:                               ; preds = %43
   %81 = getelementptr inbounds nuw i8, ptr %.133.i178, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %.133.i178, i64 31
   %83 = icmp ult ptr %82, %53
-  br i1 %83, label %.lr.ph179, label %vermSearchAligned.exit.thread, !llvm.loop !9
+  br i1 %83, label %.lr.ph179, label %vermSearchAligned.exit.thread
 
 vermSearchAligned.exit.thread:                    ; preds = %80, %.preheader142
   %84 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -158,7 +158,7 @@ vermSearchAligned.exit.thread:                    ; preds = %80, %.preheader142
   %86 = icmp eq <16 x i8> %32, %85
   %87 = bitcast <16 x i1> %86 to i16
   %.not.i51 = icmp eq i16 %87, 0
-  br i1 %.not.i51, label %vermUnalign.exit, label %88, !prof !7
+  br i1 %.not.i51, label %vermUnalign.exit, label %88, !prof !5
 
 88:                                               ; preds = %vermSearchAligned.exit.thread
   %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %87, i1 true)
@@ -194,7 +194,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
 103:                                              ; preds = %.lr.ph171
   %104 = getelementptr inbounds nuw i8, ptr %.042.i33170, i64 1
   %105 = icmp ult ptr %104, %24
-  br i1 %105, label %.lr.ph171, label %run_hwlm_accel.exit, !llvm.loop !5
+  br i1 %105, label %.lr.ph171, label %run_hwlm_accel.exit
 
 106:                                              ; preds = %93
   %107 = ptrtoint ptr %23 to i64
@@ -208,7 +208,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   %112 = icmp eq <16 x i8> %97, %111
   %113 = bitcast <16 x i1> %112 to i16
   %.not.i48 = icmp eq i16 %113, 0
-  br i1 %.not.i48, label %vermUnalignNocase.exit50.thread, label %vermUnalignNocase.exit50, !prof !7
+  br i1 %.not.i48, label %vermUnalignNocase.exit50.thread, label %vermUnalignNocase.exit50, !prof !5
 
 vermUnalignNocase.exit50.thread:                  ; preds = %109
   %114 = sub nuw nsw i64 16, %108
@@ -248,7 +248,7 @@ vermUnalignNocase.exit50:                         ; preds = %109
   %132 = shufflevector <16 x i1> %127, <16 x i1> %131, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %133 = bitcast <32 x i1> %132 to i32
   %.not41.i = icmp eq i32 %133, 0
-  br i1 %.not41.i, label %138, label %134, !prof !7
+  br i1 %.not41.i, label %138, label %134, !prof !5
 
 134:                                              ; preds = %.lr.ph
   %135 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %133, i1 true)
@@ -260,7 +260,7 @@ vermUnalignNocase.exit50:                         ; preds = %109
   %139 = getelementptr inbounds nuw i8, ptr %.036.i167, i64 32
   %140 = getelementptr inbounds nuw i8, ptr %.036.i167, i64 63
   %141 = icmp ult ptr %140, %120
-  br i1 %141, label %.lr.ph, label %.preheader145, !llvm.loop !10
+  br i1 %141, label %.lr.ph, label %.preheader145
 
 .lr.ph169:                                        ; preds = %.preheader145, %150
   %.137.i168 = phi ptr [ %151, %150 ], [ %.036.i.lcssa, %.preheader145 ]
@@ -270,7 +270,7 @@ vermUnalignNocase.exit50:                         ; preds = %109
   %144 = icmp eq <16 x i8> %97, %143
   %145 = bitcast <16 x i1> %144 to i16
   %.not.i56 = icmp eq i16 %145, 0
-  br i1 %.not.i56, label %150, label %146, !prof !7
+  br i1 %.not.i56, label %150, label %146, !prof !5
 
 146:                                              ; preds = %.lr.ph169
   %147 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %145, i1 true)
@@ -282,7 +282,7 @@ vermUnalignNocase.exit50:                         ; preds = %109
   %151 = getelementptr inbounds nuw i8, ptr %.137.i168, i64 16
   %152 = getelementptr inbounds nuw i8, ptr %.137.i168, i64 31
   %153 = icmp ult ptr %152, %120
-  br i1 %153, label %.lr.ph169, label %vermSearchAlignedNocase.exit.thread, !llvm.loop !11
+  br i1 %153, label %.lr.ph169, label %vermSearchAlignedNocase.exit.thread
 
 vermSearchAlignedNocase.exit.thread:              ; preds = %150, %.preheader145
   %154 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -291,7 +291,7 @@ vermSearchAlignedNocase.exit.thread:              ; preds = %150, %.preheader145
   %157 = icmp eq <16 x i8> %97, %156
   %158 = bitcast <16 x i1> %157 to i16
   %.not.i47 = icmp eq i16 %158, 0
-  br i1 %.not.i47, label %vermUnalignNocase.exit, label %159, !prof !7
+  br i1 %.not.i47, label %vermUnalignNocase.exit, label %159, !prof !5
 
 159:                                              ; preds = %vermSearchAlignedNocase.exit.thread
   %160 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %158, i1 true)
@@ -333,7 +333,7 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
   %182 = select <16 x i1> %177, <16 x i1> %181, <16 x i1> zeroinitializer
   %183 = bitcast <16 x i1> %182 to i16
   %.not.i71 = icmp eq i16 %183, 0
-  br i1 %.not.i71, label %dvermPrecondition.exit73.thread, label %dvermPrecondition.exit73, !prof !7
+  br i1 %.not.i71, label %dvermPrecondition.exit73.thread, label %dvermPrecondition.exit73, !prof !5
 
 dvermPrecondition.exit73.thread:                  ; preds = %175
   %184 = sub nuw nsw i64 16, %174
@@ -373,7 +373,7 @@ dvermPrecondition.exit73:                         ; preds = %175
 
 206:                                              ; preds = %203, %192
   %.not.i80.not = icmp eq i16 %200, 0
-  br i1 %.not.i80.not, label %189, label %dvermSearchAligned.exit, !prof !12, !llvm.loop !13
+  br i1 %.not.i80.not, label %189, label %dvermSearchAligned.exit, !prof !6
 
 dvermSearchAligned.exit.split.loop.exit:          ; preds = %203
   %207 = or i16 %200, -32768
@@ -397,7 +397,7 @@ dvermSearchAligned.exit.thread:                   ; preds = %189
   %218 = select <16 x i1> %213, <16 x i1> %217, <16 x i1> zeroinitializer
   %219 = bitcast <16 x i1> %218 to i16
   %.not.i69 = icmp eq i16 %219, 0
-  br i1 %.not.i69, label %223, label %dvermPrecondition.exit, !prof !7
+  br i1 %.not.i69, label %223, label %dvermPrecondition.exit, !prof !5
 
 dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.exit.thread
   %220 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %219, i1 true)
@@ -441,7 +441,7 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
   %245 = select <16 x i1> %240, <16 x i1> %244, <16 x i1> zeroinitializer
   %246 = bitcast <16 x i1> %245 to i16
   %.not.i66 = icmp eq i16 %246, 0
-  br i1 %.not.i66, label %dvermPreconditionNocase.exit68.thread, label %dvermPreconditionNocase.exit68, !prof !7
+  br i1 %.not.i66, label %dvermPreconditionNocase.exit68.thread, label %dvermPreconditionNocase.exit68, !prof !5
 
 dvermPreconditionNocase.exit68.thread:            ; preds = %237
   %247 = sub nuw nsw i64 16, %236
@@ -484,7 +484,7 @@ dvermPreconditionNocase.exit68:                   ; preds = %237
 
 272:                                              ; preds = %268, %255
   %.not.i75 = icmp eq i16 %264, 0
-  br i1 %.not.i75, label %252, label %dvermSearchAlignedNocase.exit, !prof !12
+  br i1 %.not.i75, label %252, label %dvermSearchAlignedNocase.exit, !prof !6
 
 dvermSearchAlignedNocase.exit.split.loop.exit:    ; preds = %268
   %273 = or i16 %264, -32768
@@ -509,7 +509,7 @@ dvermSearchAlignedNocase.exit.thread:             ; preds = %252
   %285 = select <16 x i1> %280, <16 x i1> %284, <16 x i1> zeroinitializer
   %286 = bitcast <16 x i1> %285 to i16
   %.not.i64 = icmp eq i16 %286, 0
-  br i1 %.not.i64, label %290, label %dvermPreconditionNocase.exit, !prof !7
+  br i1 %.not.i64, label %290, label %dvermPreconditionNocase.exit, !prof !5
 
 dvermPreconditionNocase.exit:                     ; preds = %dvermSearchAlignedNocase.exit.thread
   %287 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %286, i1 true)
@@ -681,7 +681,7 @@ define internal fastcc void @do_accel_streaming(ptr noundef readonly captures(no
 31:                                               ; preds = %.lr.ph578
   %32 = getelementptr inbounds nuw i8, ptr %.042.i107577, i64 1
   %33 = icmp ult ptr %32, %20
-  br i1 %33, label %.lr.ph578, label %run_hwlm_accel.exit, !llvm.loop !5
+  br i1 %33, label %.lr.ph578, label %run_hwlm_accel.exit
 
 34:                                               ; preds = %23
   %35 = ptrtoint ptr %1 to i64
@@ -694,7 +694,7 @@ define internal fastcc void @do_accel_streaming(ptr noundef readonly captures(no
   %39 = icmp eq <16 x i8> %27, %38
   %40 = bitcast <16 x i1> %39 to i16
   %.not.i182 = icmp eq i16 %40, 0
-  br i1 %.not.i182, label %vermUnalign.exit184.thread, label %vermUnalign.exit184, !prof !7
+  br i1 %.not.i182, label %vermUnalign.exit184.thread, label %vermUnalign.exit184, !prof !5
 
 vermUnalign.exit184.thread:                       ; preds = %37
   %41 = sub nuw nsw i64 16, %36
@@ -732,7 +732,7 @@ vermUnalign.exit184:                              ; preds = %37
   %57 = shufflevector <16 x i1> %53, <16 x i1> %56, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %58 = bitcast <32 x i1> %57 to i32
   %.not37.i.not = icmp eq i32 %58, 0
-  br i1 %.not37.i.not, label %63, label %59, !prof !7
+  br i1 %.not37.i.not, label %63, label %59, !prof !5
 
 59:                                               ; preds = %.lr.ph573
   %60 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %58, i1 true)
@@ -744,7 +744,7 @@ vermUnalign.exit184:                              ; preds = %37
   %64 = getelementptr inbounds nuw i8, ptr %.032.i572, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %.032.i572, i64 63
   %66 = icmp ult ptr %65, %47
-  br i1 %66, label %.lr.ph573, label %.preheader523, !llvm.loop !8
+  br i1 %66, label %.lr.ph573, label %.preheader523
 
 .lr.ph576:                                        ; preds = %.preheader523, %74
   %.133.i575 = phi ptr [ %75, %74 ], [ %.032.i.lcssa, %.preheader523 ]
@@ -753,7 +753,7 @@ vermUnalign.exit184:                              ; preds = %37
   %68 = icmp eq <16 x i8> %27, %67
   %69 = bitcast <16 x i1> %68 to i16
   %.not.i223.not = icmp eq i16 %69, 0
-  br i1 %.not.i223.not, label %74, label %70, !prof !7
+  br i1 %.not.i223.not, label %74, label %70, !prof !5
 
 70:                                               ; preds = %.lr.ph576
   %71 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %69, i1 true)
@@ -765,7 +765,7 @@ vermUnalign.exit184:                              ; preds = %37
   %75 = getelementptr inbounds nuw i8, ptr %.133.i575, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %.133.i575, i64 31
   %77 = icmp ult ptr %76, %47
-  br i1 %77, label %.lr.ph576, label %vermSearchAligned.exit.thread, !llvm.loop !9
+  br i1 %77, label %.lr.ph576, label %vermSearchAligned.exit.thread
 
 vermSearchAligned.exit.thread:                    ; preds = %74, %.preheader523
   %78 = getelementptr inbounds i8, ptr %20, i64 -16
@@ -773,7 +773,7 @@ vermSearchAligned.exit.thread:                    ; preds = %74, %.preheader523
   %80 = icmp eq <16 x i8> %27, %79
   %81 = bitcast <16 x i1> %80 to i16
   %.not.i181 = icmp eq i16 %81, 0
-  br i1 %.not.i181, label %vermUnalign.exit, label %82, !prof !7
+  br i1 %.not.i181, label %vermUnalign.exit, label %82, !prof !5
 
 82:                                               ; preds = %vermSearchAligned.exit.thread
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %81, i1 true)
@@ -805,7 +805,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
 96:                                               ; preds = %.lr.ph568
   %97 = getelementptr inbounds nuw i8, ptr %.042.i116567, i64 1
   %98 = icmp ult ptr %97, %20
-  br i1 %98, label %.lr.ph568, label %run_hwlm_accel.exit, !llvm.loop !5
+  br i1 %98, label %.lr.ph568, label %run_hwlm_accel.exit
 
 99:                                               ; preds = %87
   %100 = ptrtoint ptr %1 to i64
@@ -819,7 +819,7 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   %105 = icmp eq <16 x i8> %91, %104
   %106 = bitcast <16 x i1> %105 to i16
   %.not.i166 = icmp eq i16 %106, 0
-  br i1 %.not.i166, label %vermUnalignNocase.exit168.thread, label %vermUnalignNocase.exit168, !prof !7
+  br i1 %.not.i166, label %vermUnalignNocase.exit168.thread, label %vermUnalignNocase.exit168, !prof !5
 
 vermUnalignNocase.exit168.thread:                 ; preds = %102
   %107 = sub nuw nsw i64 16, %101
@@ -859,7 +859,7 @@ vermUnalignNocase.exit168:                        ; preds = %102
   %125 = shufflevector <16 x i1> %120, <16 x i1> %124, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %126 = bitcast <32 x i1> %125 to i32
   %.not41.i = icmp eq i32 %126, 0
-  br i1 %.not41.i, label %131, label %127, !prof !7
+  br i1 %.not41.i, label %131, label %127, !prof !5
 
 127:                                              ; preds = %.lr.ph
   %128 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %126, i1 true)
@@ -871,7 +871,7 @@ vermUnalignNocase.exit168:                        ; preds = %102
   %132 = getelementptr inbounds nuw i8, ptr %.036.i564, i64 32
   %133 = getelementptr inbounds nuw i8, ptr %.036.i564, i64 63
   %134 = icmp ult ptr %133, %113
-  br i1 %134, label %.lr.ph, label %.preheader526, !llvm.loop !10
+  br i1 %134, label %.lr.ph, label %.preheader526
 
 .lr.ph566:                                        ; preds = %.preheader526, %143
   %.137.i565 = phi ptr [ %144, %143 ], [ %.036.i.lcssa, %.preheader526 ]
@@ -881,7 +881,7 @@ vermUnalignNocase.exit168:                        ; preds = %102
   %137 = icmp eq <16 x i8> %91, %136
   %138 = bitcast <16 x i1> %137 to i16
   %.not.i198 = icmp eq i16 %138, 0
-  br i1 %.not.i198, label %143, label %139, !prof !7
+  br i1 %.not.i198, label %143, label %139, !prof !5
 
 139:                                              ; preds = %.lr.ph566
   %140 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %138, i1 true)
@@ -893,7 +893,7 @@ vermUnalignNocase.exit168:                        ; preds = %102
   %144 = getelementptr inbounds nuw i8, ptr %.137.i565, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %.137.i565, i64 31
   %146 = icmp ult ptr %145, %113
-  br i1 %146, label %.lr.ph566, label %vermSearchAlignedNocase.exit.thread, !llvm.loop !11
+  br i1 %146, label %.lr.ph566, label %vermSearchAlignedNocase.exit.thread
 
 vermSearchAlignedNocase.exit.thread:              ; preds = %143, %.preheader526
   %147 = getelementptr inbounds i8, ptr %20, i64 -16
@@ -902,7 +902,7 @@ vermSearchAlignedNocase.exit.thread:              ; preds = %143, %.preheader526
   %150 = icmp eq <16 x i8> %91, %149
   %151 = bitcast <16 x i1> %150 to i16
   %.not.i165 = icmp eq i16 %151, 0
-  br i1 %.not.i165, label %vermUnalignNocase.exit, label %152, !prof !7
+  br i1 %.not.i165, label %vermUnalignNocase.exit, label %152, !prof !5
 
 152:                                              ; preds = %vermSearchAlignedNocase.exit.thread
   %153 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %151, i1 true)
@@ -944,7 +944,7 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
   %175 = select <16 x i1> %170, <16 x i1> %174, <16 x i1> zeroinitializer
   %176 = bitcast <16 x i1> %175 to i16
   %.not.i269 = icmp eq i16 %176, 0
-  br i1 %.not.i269, label %dvermPrecondition.exit271.thread, label %dvermPrecondition.exit271, !prof !7
+  br i1 %.not.i269, label %dvermPrecondition.exit271.thread, label %dvermPrecondition.exit271, !prof !5
 
 dvermPrecondition.exit271.thread:                 ; preds = %168
   %177 = sub nuw nsw i64 16, %167
@@ -984,7 +984,7 @@ dvermPrecondition.exit271:                        ; preds = %168
 
 199:                                              ; preds = %196, %185
   %.not.i305.not = icmp eq i16 %193, 0
-  br i1 %.not.i305.not, label %182, label %dvermSearchAligned.exit, !prof !12, !llvm.loop !13
+  br i1 %.not.i305.not, label %182, label %dvermSearchAligned.exit, !prof !6
 
 dvermSearchAligned.exit.split.loop.exit:          ; preds = %196
   %200 = or i16 %193, -32768
@@ -1008,7 +1008,7 @@ dvermSearchAligned.exit.thread:                   ; preds = %182
   %211 = select <16 x i1> %206, <16 x i1> %210, <16 x i1> zeroinitializer
   %212 = bitcast <16 x i1> %211 to i16
   %.not.i267 = icmp eq i16 %212, 0
-  br i1 %.not.i267, label %216, label %dvermPrecondition.exit, !prof !7
+  br i1 %.not.i267, label %216, label %dvermPrecondition.exit, !prof !5
 
 dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.exit.thread
   %213 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %212, i1 true)
@@ -1052,7 +1052,7 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
   %238 = select <16 x i1> %233, <16 x i1> %237, <16 x i1> zeroinitializer
   %239 = bitcast <16 x i1> %238 to i16
   %.not.i252 = icmp eq i16 %239, 0
-  br i1 %.not.i252, label %dvermPreconditionNocase.exit254.thread, label %dvermPreconditionNocase.exit254, !prof !7
+  br i1 %.not.i252, label %dvermPreconditionNocase.exit254.thread, label %dvermPreconditionNocase.exit254, !prof !5
 
 dvermPreconditionNocase.exit254.thread:           ; preds = %230
   %240 = sub nuw nsw i64 16, %229
@@ -1095,7 +1095,7 @@ dvermPreconditionNocase.exit254:                  ; preds = %230
 
 265:                                              ; preds = %261, %248
   %.not.i285 = icmp eq i16 %257, 0
-  br i1 %.not.i285, label %245, label %dvermSearchAlignedNocase.exit, !prof !12
+  br i1 %.not.i285, label %245, label %dvermSearchAlignedNocase.exit, !prof !6
 
 dvermSearchAlignedNocase.exit.split.loop.exit:    ; preds = %261
   %266 = or i16 %257, -32768
@@ -1120,7 +1120,7 @@ dvermSearchAlignedNocase.exit.thread:             ; preds = %245
   %278 = select <16 x i1> %273, <16 x i1> %277, <16 x i1> zeroinitializer
   %279 = bitcast <16 x i1> %278 to i16
   %.not.i250 = icmp eq i16 %279, 0
-  br i1 %.not.i250, label %283, label %dvermPreconditionNocase.exit, !prof !7
+  br i1 %.not.i250, label %283, label %dvermPreconditionNocase.exit, !prof !5
 
 dvermPreconditionNocase.exit:                     ; preds = %dvermSearchAlignedNocase.exit.thread
   %280 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %279, i1 true)
@@ -1214,7 +1214,7 @@ run_hwlm_accel.exit.thread:                       ; preds = %19, %run_hwlm_accel
   %323 = icmp eq <16 x i8> %321, %322
   %324 = bitcast <16 x i1> %323 to i16
   %.not.i231.not = icmp eq i16 %324, 0
-  br i1 %.not.i231.not, label %vermSearchAligned.exit237.thread, label %vermSearchAligned.exit237, !prof !7
+  br i1 %.not.i231.not, label %vermSearchAligned.exit237.thread, label %vermSearchAligned.exit237, !prof !5
 
 vermSearchAligned.exit237:                        ; preds = %317
   %325 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %324, i1 true)
@@ -1228,7 +1228,7 @@ vermSearchAligned.exit237.thread:                 ; preds = %317
   %330 = icmp eq <16 x i8> %321, %329
   %331 = bitcast <16 x i1> %330 to i16
   %.not.i185 = icmp eq i16 %331, 0
-  br i1 %.not.i185, label %vermUnalign.exit187, label %332, !prof !7
+  br i1 %.not.i185, label %vermUnalign.exit187, label %332, !prof !5
 
 332:                                              ; preds = %vermSearchAligned.exit237.thread
   %333 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %331, i1 true)
@@ -1253,7 +1253,7 @@ vermUnalign.exit187:                              ; preds = %vermSearchAligned.e
   %344 = icmp eq <16 x i8> %341, %343
   %345 = bitcast <16 x i1> %344 to i16
   %.not.i205 = icmp eq i16 %345, 0
-  br i1 %.not.i205, label %vermSearchAlignedNocase.exit209.thread, label %vermSearchAlignedNocase.exit209, !prof !7
+  br i1 %.not.i205, label %vermSearchAlignedNocase.exit209.thread, label %vermSearchAlignedNocase.exit209, !prof !5
 
 vermSearchAlignedNocase.exit209:                  ; preds = %337
   %346 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %345, i1 true)
@@ -1268,7 +1268,7 @@ vermSearchAlignedNocase.exit209.thread:           ; preds = %337
   %352 = icmp eq <16 x i8> %341, %351
   %353 = bitcast <16 x i1> %352 to i16
   %.not.i169 = icmp eq i16 %353, 0
-  br i1 %.not.i169, label %vermUnalignNocase.exit171, label %354, !prof !7
+  br i1 %.not.i169, label %vermUnalignNocase.exit171, label %354, !prof !5
 
 354:                                              ; preds = %vermSearchAlignedNocase.exit209.thread
   %355 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %353, i1 true)
@@ -1310,7 +1310,7 @@ vermUnalignNocase.exit171:                        ; preds = %vermSearchAlignedNo
 
 380:                                              ; preds = %359
   %.not.i313.not = icmp eq i16 %375, 0
-  br i1 %.not.i313.not, label %dvermSearchAligned.exit317.thread.critedge, label %dvermSearchAligned.exit317, !prof !12, !llvm.loop !13
+  br i1 %.not.i313.not, label %dvermSearchAligned.exit317.thread.critedge, label %dvermSearchAligned.exit317, !prof !6
 
 dvermSearchAligned.exit317.split.loop.exit:       ; preds = %359
   %381 = or i16 %375, -32768
@@ -1334,7 +1334,7 @@ dvermSearchAligned.exit317.thread.critedge:       ; preds = %380
   %392 = select <16 x i1> %387, <16 x i1> %391, <16 x i1> zeroinitializer
   %393 = bitcast <16 x i1> %392 to i16
   %.not.i272 = icmp eq i16 %393, 0
-  br i1 %.not.i272, label %397, label %dvermPrecondition.exit274, !prof !7
+  br i1 %.not.i272, label %397, label %dvermPrecondition.exit274, !prof !5
 
 dvermPrecondition.exit274:                        ; preds = %dvermSearchAligned.exit317.thread.critedge
   %394 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %393, i1 true)
@@ -1382,7 +1382,7 @@ dvermPrecondition.exit274:                        ; preds = %dvermSearchAligned.
 
 426:                                              ; preds = %422, %401
   %.not.i291 = icmp eq i16 %418, 0
-  br i1 %.not.i291, label %dvermSearchAlignedNocase.exit294.thread.critedge, label %dvermSearchAlignedNocase.exit294, !prof !12
+  br i1 %.not.i291, label %dvermSearchAlignedNocase.exit294.thread.critedge, label %dvermSearchAlignedNocase.exit294, !prof !6
 
 dvermSearchAlignedNocase.exit294.split.loop.exit: ; preds = %422
   %427 = or i16 %418, -32768
@@ -1407,7 +1407,7 @@ dvermSearchAlignedNocase.exit294.thread.critedge: ; preds = %426
   %439 = select <16 x i1> %434, <16 x i1> %438, <16 x i1> zeroinitializer
   %440 = bitcast <16 x i1> %439 to i16
   %.not.i255 = icmp eq i16 %440, 0
-  br i1 %.not.i255, label %444, label %dvermPreconditionNocase.exit257, !prof !7
+  br i1 %.not.i255, label %444, label %dvermPreconditionNocase.exit257, !prof !5
 
 dvermPreconditionNocase.exit257:                  ; preds = %dvermSearchAlignedNocase.exit294.thread.critedge
   %441 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %440, i1 true)
@@ -1495,7 +1495,7 @@ run_hwlm_accel.exit69:                            ; preds = %vermSearchAlignedNo
 479:                                              ; preds = %.lr.ph626
   %480 = getelementptr inbounds nuw i8, ptr %.042.i625, i64 1
   %481 = icmp ult ptr %480, %469
-  br i1 %481, label %.lr.ph626, label %run_hwlm_accel.exit71, !llvm.loop !5
+  br i1 %481, label %.lr.ph626, label %run_hwlm_accel.exit71
 
 482:                                              ; preds = %470
   %483 = ptrtoint ptr %468 to i64
@@ -1508,7 +1508,7 @@ run_hwlm_accel.exit69:                            ; preds = %vermSearchAlignedNo
   %487 = icmp eq <16 x i8> %474, %486
   %488 = bitcast <16 x i1> %487 to i16
   %.not.i194 = icmp eq i16 %488, 0
-  br i1 %.not.i194, label %vermUnalign.exit196.thread, label %vermUnalign.exit196, !prof !7
+  br i1 %.not.i194, label %vermUnalign.exit196.thread, label %vermUnalign.exit196, !prof !5
 
 vermUnalign.exit196.thread:                       ; preds = %485
   %489 = sub nuw nsw i64 16, %484
@@ -1546,7 +1546,7 @@ vermUnalign.exit196:                              ; preds = %485
   %505 = shufflevector <16 x i1> %501, <16 x i1> %504, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %506 = bitcast <32 x i1> %505 to i32
   %.not37.i246.not = icmp eq i32 %506, 0
-  br i1 %.not37.i246.not, label %511, label %507, !prof !7
+  br i1 %.not37.i246.not, label %511, label %507, !prof !5
 
 507:                                              ; preds = %.lr.ph621
   %508 = call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %506, i1 true)
@@ -1558,7 +1558,7 @@ vermUnalign.exit196:                              ; preds = %485
   %512 = getelementptr inbounds nuw i8, ptr %.032.i238620, i64 32
   %513 = getelementptr inbounds nuw i8, ptr %.032.i238620, i64 63
   %514 = icmp ult ptr %513, %495
-  br i1 %514, label %.lr.ph621, label %.preheader518, !llvm.loop !8
+  br i1 %514, label %.lr.ph621, label %.preheader518
 
 .lr.ph624:                                        ; preds = %.preheader518, %522
   %.133.i240623 = phi ptr [ %523, %522 ], [ %.032.i238.lcssa, %.preheader518 ]
@@ -1567,7 +1567,7 @@ vermUnalign.exit196:                              ; preds = %485
   %516 = icmp eq <16 x i8> %474, %515
   %517 = bitcast <16 x i1> %516 to i16
   %.not.i243.not = icmp eq i16 %517, 0
-  br i1 %.not.i243.not, label %522, label %518, !prof !7
+  br i1 %.not.i243.not, label %522, label %518, !prof !5
 
 518:                                              ; preds = %.lr.ph624
   %519 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %517, i1 true)
@@ -1579,7 +1579,7 @@ vermUnalign.exit196:                              ; preds = %485
   %523 = getelementptr inbounds nuw i8, ptr %.133.i240623, i64 16
   %524 = getelementptr inbounds nuw i8, ptr %.133.i240623, i64 31
   %525 = icmp ult ptr %524, %495
-  br i1 %525, label %.lr.ph624, label %vermSearchAligned.exit249.thread, !llvm.loop !9
+  br i1 %525, label %.lr.ph624, label %vermSearchAligned.exit249.thread
 
 vermSearchAligned.exit249.thread:                 ; preds = %522, %.preheader518
   %526 = getelementptr inbounds i8, ptr %469, i64 -16
@@ -1587,7 +1587,7 @@ vermSearchAligned.exit249.thread:                 ; preds = %522, %.preheader518
   %528 = icmp eq <16 x i8> %474, %527
   %529 = bitcast <16 x i1> %528 to i16
   %.not.i191 = icmp eq i16 %529, 0
-  br i1 %.not.i191, label %vermUnalign.exit193, label %530, !prof !7
+  br i1 %.not.i191, label %vermUnalign.exit193, label %530, !prof !5
 
 530:                                              ; preds = %vermSearchAligned.exit249.thread
   %531 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %529, i1 true)
@@ -1624,7 +1624,7 @@ vermUnalign.exit193:                              ; preds = %vermSearchAligned.e
 545:                                              ; preds = %.lr.ph616
   %546 = getelementptr inbounds nuw i8, ptr %.042.i80615, i64 1
   %547 = icmp ult ptr %546, %469
-  br i1 %547, label %.lr.ph616, label %run_hwlm_accel.exit71, !llvm.loop !5
+  br i1 %547, label %.lr.ph616, label %run_hwlm_accel.exit71
 
 548:                                              ; preds = %535
   %549 = ptrtoint ptr %468 to i64
@@ -1638,7 +1638,7 @@ vermUnalign.exit193:                              ; preds = %vermSearchAligned.e
   %554 = icmp eq <16 x i8> %539, %553
   %555 = bitcast <16 x i1> %554 to i16
   %.not.i178 = icmp eq i16 %555, 0
-  br i1 %.not.i178, label %vermUnalignNocase.exit180.thread, label %vermUnalignNocase.exit180, !prof !7
+  br i1 %.not.i178, label %vermUnalignNocase.exit180.thread, label %vermUnalignNocase.exit180, !prof !5
 
 vermUnalignNocase.exit180.thread:                 ; preds = %551
   %556 = sub nuw nsw i64 16, %550
@@ -1678,7 +1678,7 @@ vermUnalignNocase.exit180:                        ; preds = %551
   %574 = shufflevector <16 x i1> %569, <16 x i1> %573, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %575 = bitcast <32 x i1> %574 to i32
   %.not41.i217 = icmp eq i32 %575, 0
-  br i1 %.not41.i217, label %580, label %576, !prof !7
+  br i1 %.not41.i217, label %580, label %576, !prof !5
 
 576:                                              ; preds = %.lr.ph611
   %577 = call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %575, i1 true)
@@ -1690,7 +1690,7 @@ vermUnalignNocase.exit180:                        ; preds = %551
   %581 = getelementptr inbounds nuw i8, ptr %.036.i210610, i64 32
   %582 = getelementptr inbounds nuw i8, ptr %.036.i210610, i64 63
   %583 = icmp ult ptr %582, %562
-  br i1 %583, label %.lr.ph611, label %.preheader521, !llvm.loop !10
+  br i1 %583, label %.lr.ph611, label %.preheader521
 
 .lr.ph614:                                        ; preds = %.preheader521, %592
   %.137.i212613 = phi ptr [ %593, %592 ], [ %.036.i210.lcssa, %.preheader521 ]
@@ -1700,7 +1700,7 @@ vermUnalignNocase.exit180:                        ; preds = %551
   %586 = icmp eq <16 x i8> %539, %585
   %587 = bitcast <16 x i1> %586 to i16
   %.not.i215 = icmp eq i16 %587, 0
-  br i1 %.not.i215, label %592, label %588, !prof !7
+  br i1 %.not.i215, label %592, label %588, !prof !5
 
 588:                                              ; preds = %.lr.ph614
   %589 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %587, i1 true)
@@ -1712,7 +1712,7 @@ vermUnalignNocase.exit180:                        ; preds = %551
   %593 = getelementptr inbounds nuw i8, ptr %.137.i212613, i64 16
   %594 = getelementptr inbounds nuw i8, ptr %.137.i212613, i64 31
   %595 = icmp ult ptr %594, %562
-  br i1 %595, label %.lr.ph614, label %vermSearchAlignedNocase.exit219.thread, !llvm.loop !11
+  br i1 %595, label %.lr.ph614, label %vermSearchAlignedNocase.exit219.thread
 
 vermSearchAlignedNocase.exit219.thread:           ; preds = %592, %.preheader521
   %596 = getelementptr inbounds i8, ptr %469, i64 -16
@@ -1721,7 +1721,7 @@ vermSearchAlignedNocase.exit219.thread:           ; preds = %592, %.preheader521
   %599 = icmp eq <16 x i8> %539, %598
   %600 = bitcast <16 x i1> %599 to i16
   %.not.i175 = icmp eq i16 %600, 0
-  br i1 %.not.i175, label %vermUnalignNocase.exit177, label %601, !prof !7
+  br i1 %.not.i175, label %vermUnalignNocase.exit177, label %601, !prof !5
 
 601:                                              ; preds = %vermSearchAlignedNocase.exit219.thread
   %602 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %600, i1 true)
@@ -1763,7 +1763,7 @@ vermUnalignNocase.exit177:                        ; preds = %vermSearchAlignedNo
   %624 = select <16 x i1> %619, <16 x i1> %623, <16 x i1> zeroinitializer
   %625 = bitcast <16 x i1> %624 to i16
   %.not.i281 = icmp eq i16 %625, 0
-  br i1 %.not.i281, label %dvermPrecondition.exit283.thread, label %dvermPrecondition.exit283, !prof !7
+  br i1 %.not.i281, label %dvermPrecondition.exit283.thread, label %dvermPrecondition.exit283, !prof !5
 
 dvermPrecondition.exit283.thread:                 ; preds = %617
   %626 = sub nuw nsw i64 16, %616
@@ -1803,7 +1803,7 @@ dvermPrecondition.exit283:                        ; preds = %617
 
 648:                                              ; preds = %645, %634
   %.not.i322.not = icmp eq i16 %642, 0
-  br i1 %.not.i322.not, label %631, label %dvermSearchAligned.exit326, !prof !12, !llvm.loop !13
+  br i1 %.not.i322.not, label %631, label %dvermSearchAligned.exit326, !prof !6
 
 dvermSearchAligned.exit326.split.loop.exit:       ; preds = %645
   %649 = or i16 %642, -32768
@@ -1827,7 +1827,7 @@ dvermSearchAligned.exit326.thread:                ; preds = %631
   %660 = select <16 x i1> %655, <16 x i1> %659, <16 x i1> zeroinitializer
   %661 = bitcast <16 x i1> %660 to i16
   %.not.i278 = icmp eq i16 %661, 0
-  br i1 %.not.i278, label %665, label %dvermPrecondition.exit280, !prof !7
+  br i1 %.not.i278, label %665, label %dvermPrecondition.exit280, !prof !5
 
 dvermPrecondition.exit280:                        ; preds = %dvermSearchAligned.exit326.thread
   %662 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %661, i1 true)
@@ -1871,7 +1871,7 @@ dvermPrecondition.exit280:                        ; preds = %dvermSearchAligned.
   %687 = select <16 x i1> %682, <16 x i1> %686, <16 x i1> zeroinitializer
   %688 = bitcast <16 x i1> %687 to i16
   %.not.i264 = icmp eq i16 %688, 0
-  br i1 %.not.i264, label %dvermPreconditionNocase.exit266.thread, label %dvermPreconditionNocase.exit266, !prof !7
+  br i1 %.not.i264, label %dvermPreconditionNocase.exit266.thread, label %dvermPreconditionNocase.exit266, !prof !5
 
 dvermPreconditionNocase.exit266.thread:           ; preds = %679
   %689 = sub nuw nsw i64 16, %678
@@ -1914,7 +1914,7 @@ dvermPreconditionNocase.exit266:                  ; preds = %679
 
 714:                                              ; preds = %710, %697
   %.not.i299 = icmp eq i16 %706, 0
-  br i1 %.not.i299, label %694, label %dvermSearchAlignedNocase.exit302, !prof !12
+  br i1 %.not.i299, label %694, label %dvermSearchAlignedNocase.exit302, !prof !6
 
 dvermSearchAlignedNocase.exit302.split.loop.exit: ; preds = %710
   %715 = or i16 %706, -32768
@@ -1939,7 +1939,7 @@ dvermSearchAlignedNocase.exit302.thread:          ; preds = %694
   %727 = select <16 x i1> %722, <16 x i1> %726, <16 x i1> zeroinitializer
   %728 = bitcast <16 x i1> %727 to i16
   %.not.i261 = icmp eq i16 %728, 0
-  br i1 %.not.i261, label %732, label %dvermPreconditionNocase.exit263, !prof !7
+  br i1 %.not.i261, label %732, label %dvermPreconditionNocase.exit263, !prof !5
 
 dvermPreconditionNocase.exit263:                  ; preds = %dvermSearchAlignedNocase.exit302.thread
   %729 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %728, i1 true)
@@ -2033,12 +2033,5 @@ attributes #10 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!13 = distinct !{!13, !6}
+!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}

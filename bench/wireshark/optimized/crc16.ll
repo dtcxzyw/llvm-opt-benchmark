@@ -69,7 +69,7 @@ define zeroext i16 @crc16_x25_ccitt_seed(ptr noundef readonly captures(none) %0,
   %12 = shl i32 %.011.i, 8
   %13 = xor i32 %11, %12
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %14 = trunc i32 %13 to i16
@@ -204,7 +204,7 @@ define zeroext i16 @crc16_0x5935(ptr noundef readonly captures(none) %0, i32 nou
   %12 = shl i32 %.011.i, 8
   %13 = xor i32 %11, %12
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %14 = trunc i32 %13 to i16
@@ -240,7 +240,7 @@ define zeroext i16 @crc16_0x755B(ptr noundef readonly captures(none) %0, i32 nou
   %12 = shl i32 %.011.i, 8
   %13 = xor i32 %11, %12
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %14 = trunc i32 %13 to i16
@@ -344,7 +344,7 @@ define zeroext i16 @crc16_0x080F_seed(ptr noundef readonly captures(none) %0, i3
   %15 = xor i32 %13, %14
   %16 = trunc i32 %15 to i16
   %.not10 = icmp eq i32 %4, 0
-  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
   %.07 = phi i16 [ %2, %3 ], [ %16, %.preheader ]
@@ -361,8 +361,7 @@ attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstro
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

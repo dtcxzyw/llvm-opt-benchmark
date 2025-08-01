@@ -278,19 +278,19 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %93 = lshr i32 %.01920.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, label %85, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, label %85, !llvm.loop !19
 
 _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheader
   %94 = add nuw nsw i32 %.0250359, 1
   %exitcond398.not = icmp eq i32 %94, 3
-  br i1 %exitcond398.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond398.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, %50, %.lr.ph364
   %95 = getelementptr inbounds nuw i8, ptr %.0245362, i64 16
   %96 = add nuw nsw i32 %.0249360, 16
   %97 = add nuw nsw i32 %.0248361, 1
   %98 = icmp ult i32 %96, %42
-  br i1 %98, label %.lr.ph364, label %.thread, !llvm.loop !22
+  br i1 %98, label %.lr.ph364, label %.thread, !llvm.loop !21
 
 99:                                               ; preds = %2
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -315,7 +315,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   %.1252.lcssa = phi i32 [ %.0251357, %.lr.ph358 ], [ %112, %.lr.ph353 ]
   %110 = add nuw nsw i32 %.0254356, 1
   %exitcond397.not = icmp eq i32 %110, %103
-  br i1 %exitcond397.not, label %.thread, label %.lr.ph358, !llvm.loop !23
+  br i1 %exitcond397.not, label %.thread, label %.lr.ph358, !llvm.loop !22
 
 .lr.ph353:                                        ; preds = %.lr.ph358, %.lr.ph353
   %.1252351 = phi i32 [ %112, %.lr.ph353 ], [ %.0251357, %.lr.ph358 ]
@@ -332,7 +332,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   store i8 %116, ptr %118, align 1, !tbaa !16
   %119 = add i32 %.0256349, %103
   %120 = icmp ult i32 %119, %104
-  br i1 %120, label %.lr.ph353, label %._crit_edge354, !llvm.loop !24
+  br i1 %120, label %.lr.ph353, label %._crit_edge354, !llvm.loop !23
 
 121:                                              ; preds = %2
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -383,7 +383,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   %.1258.lcssa = phi ptr [ %.0257345, %.preheader319 ], [ %161, %160 ]
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next388, 3
-  br i1 %exitcond393.not, label %141, label %.preheader319, !llvm.loop !25
+  br i1 %exitcond393.not, label %141, label %.preheader319, !llvm.loop !24
 
 .lr.ph341:                                        ; preds = %.preheader319, %160
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %160 ], [ %indvars.iv387, %.preheader319 ]
@@ -426,7 +426,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   store i8 %164, ptr %166, align 1, !tbaa !16
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 3
   %167 = icmp samesign ult i64 %indvars.iv.next390, %135
-  br i1 %167, label %.lr.ph341, label %._crit_edge342, !llvm.loop !26
+  br i1 %167, label %.lr.ph341, label %._crit_edge342, !llvm.loop !25
 
 .lr.ph348:                                        ; preds = %.lr.ph348.preheader, %.lr.ph348
   %indvars.iv394 = phi i64 [ %144, %.lr.ph348.preheader ], [ %indvars.iv.next395, %.lr.ph348 ]
@@ -442,7 +442,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   store i8 %175, ptr %173, align 1, !tbaa !16
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 3
   %176 = icmp samesign ult i64 %indvars.iv.next395, %145
-  br i1 %176, label %.lr.ph348, label %.thread, !llvm.loop !27
+  br i1 %176, label %.lr.ph348, label %.thread, !llvm.loop !26
 
 177:                                              ; preds = %2
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -482,7 +482,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #17
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %exitcond386.not = icmp eq i64 %indvars.iv.next381, %194
-  br i1 %exitcond386.not, label %.thread, label %195, !llvm.loop !28
+  br i1 %exitcond386.not, label %.thread, label %195, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %195, %271
   %indvars.iv382 = phi i64 [ %indvars.iv.next383, %271 ], [ %indvars.iv380, %195 ]
@@ -582,7 +582,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   store i32 0, ptr %249, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %247, label %248, !llvm.loop !29
+  br i1 %exitcond.not, label %247, label %248, !llvm.loop !28
 
 253:                                              ; preds = %247
   %254 = icmp sgt i32 %.0235330, -17
@@ -628,7 +628,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %85, %61, %.preheade
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, %194
   %273 = add i32 %.0227334, 1
   %274 = icmp samesign ult i64 %indvars.iv.next383, %183
-  br i1 %274, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %274, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph348, %._crit_edge354, %.loopexit, %35, %141, %41, %8, %2, %177, %121, %130, %99, %37, %4
   %.1219 = phi i1 [ false, %4 ], [ false, %37 ], [ false, %99 ], [ false, %130 ], [ false, %121 ], [ false, %177 ], [ true, %2 ], [ true, %8 ], [ true, %41 ], [ true, %141 ], [ true, %35 ], [ true, %.loopexit ], [ true, %._crit_edge354 ], [ true, %.lr.ph348 ], [ true, %._crit_edge ]
@@ -661,7 +661,7 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr noundef nonnull read
   %9 = xor i8 %8, %.01722
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 10:                                               ; preds = %._crit_edge
   %11 = zext i32 %2 to i64
@@ -672,26 +672,26 @@ define void @_ZN5RarVM7PrepareEPhjP18VM_PreparedProgram(ptr noundef nonnull read
   %indvars.iv26 = phi i64 [ 0, %10 ], [ %indvars.iv.next27, %25 ]
   %14 = getelementptr inbounds nuw [6 x %struct.StandardFilters], ptr @_ZZN5RarVM7PrepareEPhjP18VM_PreparedProgramE7StdList, i64 0, i64 %indvars.iv26
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !32
+  %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = xor i32 %16, %12
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
-  %20 = load i32, ptr %14, align 4, !tbaa !34
+  %20 = load i32, ptr %14, align 4, !tbaa !33
   %21 = icmp eq i32 %20, %2
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %24 = load i32, ptr %23, align 4, !tbaa !35
+  %24 = load i32, ptr %23, align 4, !tbaa !34
   store i32 %24, ptr %3, align 8, !tbaa !13
   br label %.loopexit
 
 25:                                               ; preds = %13, %19
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 6
-  br i1 %exitcond29.not, label %.loopexit, label %13, !llvm.loop !36
+  br i1 %exitcond29.not, label %.loopexit, label %13, !llvm.loop !35
 
 .loopexit:                                        ; preds = %25, %22, %._crit_edge
   ret void
@@ -834,7 +834,7 @@ define void @_ZN5RarVM21FilterItanium_SetBitsEPhjjj(ptr noundef nonnull readnone
   %23 = lshr i32 %.01920, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %15, !llvm.loop !20
+  br i1 %exitcond.not, label %14, label %15, !llvm.loop !19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -887,23 +887,22 @@ attributes #17 = { nounwind }
 !14 = !{!12, !12, i64 0}
 !15 = !{!10, !12, i64 40}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18, !19}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = distinct !{!28, !18, !19}
-!29 = distinct !{!29, !18, !19}
-!30 = distinct !{!30, !18, !19}
-!31 = distinct !{!31, !18, !19}
-!32 = !{!33, !12, i64 4}
-!33 = !{!"_ZTSZN5RarVM7PrepareEPhjP18VM_PreparedProgramE15StandardFilters", !12, i64 0, !12, i64 4, !11, i64 8}
-!34 = !{!33, !12, i64 0}
-!35 = !{!33, !11, i64 8}
-!36 = distinct !{!36, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}
+!31 = !{!32, !12, i64 4}
+!32 = !{!"_ZTSZN5RarVM7PrepareEPhjP18VM_PreparedProgramE15StandardFilters", !12, i64 0, !12, i64 4, !11, i64 8}
+!33 = !{!32, !12, i64 0}
+!34 = !{!32, !11, i64 8}
+!35 = distinct !{!35, !18}

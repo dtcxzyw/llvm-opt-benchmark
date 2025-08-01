@@ -212,7 +212,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %115 = load i16, ptr %114, align 8
   %116 = zext i16 %115 to i64
   %117 = icmp samesign ult i64 %indvars.iv.next, %116
-  br i1 %117, label %61, label %.loopexit185, !llvm.loop !9
+  br i1 %117, label %61, label %.loopexit185, !llvm.loop !8
 
 .loopexit185:                                     ; preds = %111, %.lr.ph196, %56, %.preheader184
   %.1149 = phi i32 [ %.0148198, %.preheader184 ], [ %.0148198, %56 ], [ %.0148198, %.lr.ph196 ], [ %.3151, %111 ]
@@ -223,7 +223,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %119 = load i32, ptr %118, align 8
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next229, %120
-  br i1 %121, label %29, label %._crit_edge, !llvm.loop !10
+  br i1 %121, label %29, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit185
   br i1 %.1130, label %122, label %._crit_edge.thread
@@ -286,7 +286,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %151 = load i16, ptr %150, align 8
   %152 = zext i16 %151 to i64
   %153 = icmp samesign ult i64 %indvars.iv.next.i, %152
-  br i1 %153, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !11
+  br i1 %153, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %23, align 8
@@ -299,7 +299,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next26.i, %155
-  br i1 %156, label %.preheader.i, label %._crit_edge24.i, !llvm.loop !12
+  br i1 %156, label %.preheader.i, label %._crit_edge24.i, !llvm.loop !11
 
 ._crit_edge24.i:                                  ; preds = %._crit_edge.i, %131
   store ptr %133, ptr @CurrentMemoryContext, align 8
@@ -361,7 +361,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %187 = load i16, ptr %186, align 8
   %188 = zext i16 %187 to i64
   %189 = icmp samesign ult i64 %indvars.iv.next.i172, %188
-  br i1 %189, label %.lr.ph.i169, label %._crit_edge.loopexit.i173, !llvm.loop !11
+  br i1 %189, label %.lr.ph.i169, label %._crit_edge.loopexit.i173, !llvm.loop !10
 
 ._crit_edge.loopexit.i173:                        ; preds = %.lr.ph.i169
   %.pre.i174 = load ptr, ptr %23, align 8
@@ -374,7 +374,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %indvars.iv.next26.i178 = add nuw nsw i64 %indvars.iv25.i166, 1
   %191 = sext i32 %190 to i64
   %192 = icmp slt i64 %indvars.iv.next26.i178, %191
-  br i1 %192, label %.preheader.i165, label %._crit_edge24.i163, !llvm.loop !12
+  br i1 %192, label %.preheader.i165, label %._crit_edge24.i163, !llvm.loop !11
 
 ._crit_edge24.i163:                               ; preds = %._crit_edge.i176, %167
   store ptr %169, ptr @CurrentMemoryContext, align 8
@@ -403,7 +403,7 @@ brtuple_disk_tupdesc.exit179:                     ; preds = %brtuple_disk_tupdes
   call void @pfree(ptr noundef %198) #9
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge209, label %.lr.ph208, !llvm.loop !12
 
 ._crit_edge209:                                   ; preds = %.lr.ph208, %brtuple_disk_tupdesc.exit179
   br i1 %.0129.lcssa244, label %199, label %.loopexit
@@ -469,7 +469,7 @@ brtuple_disk_tupdesc.exit179:                     ; preds = %brtuple_disk_tupdes
   %225 = load i32, ptr %224, align 8
   %226 = sext i32 %225 to i64
   %227 = icmp slt i64 %indvars.iv.next234, %226
-  br i1 %227, label %208, label %.preheader, !llvm.loop !14
+  br i1 %227, label %208, label %.preheader, !llvm.loop !13
 
 228:                                              ; preds = %.lr.ph220, %242
   %229 = phi i8 [ %223, %.lr.ph220 ], [ %243, %242 ]
@@ -511,7 +511,7 @@ brtuple_disk_tupdesc.exit179:                     ; preds = %brtuple_disk_tupdes
   %245 = load i32, ptr %244, align 8
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next237, %246
-  br i1 %247, label %228, label %.loopexit, !llvm.loop !15
+  br i1 %247, label %228, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %242, %199, %.preheader, %._crit_edge209
   %248 = load i8, ptr %2, align 8, !range !4, !noundef !5
@@ -613,7 +613,7 @@ define dso_local noundef ptr @brin_form_placeholder_tuple(ptr noundef readonly c
   %30 = load ptr, ptr %4, align 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp slt i32 %29, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %25, %3
   store i64 %11, ptr %2, align 8
@@ -760,7 +760,7 @@ define dso_local ptr @brin_new_memtuple(ptr noundef readonly captures(none) %0) 
   %61 = load i32, ptr %60, align 8
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next.i, %62
-  br i1 %63, label %45, label %brin_memtuple_initialize.exit, !llvm.loop !17
+  br i1 %63, label %45, label %brin_memtuple_initialize.exit, !llvm.loop !16
 
 brin_memtuple_initialize.exit:                    ; preds = %45, %1
   store i8 1, ptr %30, align 1
@@ -820,7 +820,7 @@ define dso_local noundef ptr @brin_memtuple_initialize(ptr noundef returned %0, 
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %17, label %._crit_edge, !llvm.loop !17
+  br i1 %35, label %17, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %17, %2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -885,7 +885,7 @@ define dso_local ptr @brin_deform_tuple(ptr noundef captures(none) %0, ptr nound
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %19, label %brin_memtuple_initialize.exit, !llvm.loop !17
+  br i1 %37, label %19, label %brin_memtuple_initialize.exit, !llvm.loop !16
 
 brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -978,7 +978,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %96 = load i32, ptr %95, align 8
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next103.i, %97
-  br i1 %98, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %98, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !17
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i69, %.lr.ph.split.i
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.lr.ph.split.i ], [ 0, %.lr.ph.i69 ]
@@ -991,7 +991,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next.i71, %103
-  br i1 %104, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %104, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %52
   %105 = phi ptr [ %67, %52 ], [ %95, %.lr.ph.split.us.i ], [ %101, %.lr.ph.split.i ]
@@ -1043,7 +1043,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %132 = load i16, ptr %131, align 8
   %133 = zext i16 %132 to i64
   %134 = icmp samesign ult i64 %indvars.iv.next.i.i, %133
-  br i1 %134, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !11
+  br i1 %134, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %66, align 8
@@ -1057,7 +1057,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %137 = sext i32 %136 to i64
   %138 = icmp slt i64 %indvars.iv.next26.i.i, %137
-  br i1 %138, label %.preheader.i.i, label %._crit_edge24.i.i, !llvm.loop !12
+  br i1 %138, label %.preheader.i.i, label %._crit_edge24.i.i, !llvm.loop !11
 
 ._crit_edge24.i.i:                                ; preds = %._crit_edge.i.i, %110
   %139 = phi ptr [ %116, %110 ], [ %135, %._crit_edge.i.i ]
@@ -1242,7 +1242,7 @@ fetch_att.exit.i:                                 ; preds = %194, %188, %185, %1
   %234 = load i16, ptr %233, align 8
   %235 = zext i16 %234 to i32
   %236 = icmp samesign ult i32 %232, %235
-  br i1 %236, label %.lr.ph87.i, label %.loopexit.loopexit.i, !llvm.loop !21
+  br i1 %236, label %.lr.ph87.i, label %.loopexit.loopexit.i, !llvm.loop !20
 
 .loopexit.loopexit.i:                             ; preds = %230
   %.pre108.i = load ptr, ptr %66, align 8
@@ -1257,7 +1257,7 @@ fetch_att.exit.i:                                 ; preds = %194, %188, %185, %1
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next106.i, %239
-  br i1 %240, label %146, label %brin_deconstruct_tuple.exit, !llvm.loop !22
+  br i1 %240, label %146, label %brin_deconstruct_tuple.exit, !llvm.loop !21
 
 brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtuple_disk_tupdesc.exit.i
   %241 = phi ptr [ %140, %brtuple_disk_tupdesc.exit.i ], [ %237, %.loopexit.i ]
@@ -1328,7 +1328,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %282 = load i16, ptr %281, align 8
   %283 = zext i16 %282 to i64
   %284 = icmp samesign ult i64 %indvars.iv.next, %283
-  br i1 %284, label %263, label %._crit_edge.loopexit, !llvm.loop !23
+  br i1 %284, label %263, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %263
   %.pre100 = load ptr, ptr %242, align 8
@@ -1361,7 +1361,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %297 = sext i32 %295 to i64
   %298 = icmp slt i64 %indvars.iv.next98, %297
-  br i1 %298, label %250, label %._crit_edge85, !llvm.loop !24
+  br i1 %298, label %250, label %._crit_edge85, !llvm.loop !23
 
 ._crit_edge85:                                    ; preds = %294, %brin_deconstruct_tuple.exit
   store ptr %244, ptr @CurrentMemoryContext, align 8
@@ -1411,22 +1411,21 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

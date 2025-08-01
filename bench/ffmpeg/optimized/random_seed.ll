@@ -203,7 +203,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %91 = ashr exact i64 %sext.i, 32
   %.not67.i = icmp eq i64 %.058.i, 0
   %.2.i = select i1 %.not67.i, i64 %38, i64 %.058.i
-  br label %37, !llvm.loop !13
+  br label %37
 
 get_generic_seed.exit:                            ; preds = %84, %86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #7
@@ -221,10 +221,10 @@ get_generic_seed.exit:                            ; preds = %84, %86
   %101 = call i32 @av_sha_init(ptr noundef nonnull %4, i32 noundef 160) #7
   call void @av_sha_update(ptr noundef nonnull %4, ptr noundef nonnull @get_generic_seed.buffer, i64 noundef 2048) #7
   call void @av_sha_final(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  %102 = load i32, ptr %5, align 16, !tbaa !15
+  %102 = load i32, ptr %5, align 16, !tbaa !13
   %103 = call i32 @llvm.bswap.i32(i32 %102)
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %105 = load i32, ptr %104, align 16, !tbaa !15
+  %105 = load i32, ptr %104, align 16, !tbaa !13
   %106 = call i32 @llvm.bswap.i32(i32 %105)
   %107 = add i32 %106, %103
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #7
@@ -297,6 +297,4 @@ attributes #8 = { noreturn nounwind }
 !10 = !{!11, !5, i64 0}
 !11 = !{!"timespec", !5, i64 0, !5, i64 8}
 !12 = !{!11, !5, i64 8}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!6, !6, i64 0}
+!13 = !{!6, !6, i64 0}

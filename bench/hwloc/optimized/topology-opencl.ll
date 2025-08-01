@@ -423,7 +423,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr noundef readonly
   %193 = load i32, ptr %9, align 4, !tbaa !14
   %194 = zext i32 %193 to i64
   %195 = icmp samesign ult i64 %indvars.iv.next171, %194
-  br i1 %195, label %49, label %._crit_edge165, !llvm.loop !43
+  br i1 %195, label %49, label %._crit_edge165, !llvm.loop !42
 
 ._crit_edge165:                                   ; preds = %192
   call void @free(ptr noundef %36) #9
@@ -541,7 +541,6 @@ attributes #12 = { nounwind willreturn memory(read) }
 !37 = !{!36, !10, i64 4}
 !38 = !{!36, !10, i64 8}
 !39 = !{!36, !10, i64 12}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = distinct !{!43, !41, !42}
+!42 = distinct !{!42, !41}

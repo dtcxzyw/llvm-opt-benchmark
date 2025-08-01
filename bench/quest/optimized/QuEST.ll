@@ -1853,7 +1853,7 @@ define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 capt
   store i32 %7, ptr %6, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2151,11 +2151,11 @@ define void @applyPauliHamil(ptr noundef readonly byval(%struct.Qureg) align 8 c
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %2, ptr noundef nonnull @__func__.applyPauliHamil) #17
   tail call void @validatePauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.applyPauliHamil) #17
   tail call void @validateMatchingQuregPauliHamilDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.applyPauliHamil) #17
-  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   tail call void @statevec_applyPauliSum(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %4, ptr noundef %6, i32 noundef %8, ptr noundef nonnull byval(%struct.Qureg) align 8 %2) #17
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %2, ptr noundef nonnull @.str.20) #17
   ret void
@@ -2488,11 +2488,11 @@ define double @calcExpecPauliHamil(ptr noundef readonly byval(%struct.Qureg) ali
   tail call void @validateMatchingQuregDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %2, ptr noundef nonnull @__func__.calcExpecPauliHamil) #17
   tail call void @validatePauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.calcExpecPauliHamil) #17
   tail call void @validateMatchingQuregPauliHamilDims(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.calcExpecPauliHamil) #17
-  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %4 = load ptr, ptr %1, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = tail call double @statevec_calcExpecPauliSum(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef %4, ptr noundef %6, i32 noundef %8, ptr noundef nonnull byval(%struct.Qureg) align 8 %2) #17
   ret double %9
 }
@@ -2732,17 +2732,17 @@ declare void @validateMultiQubitKrausMapDimensions(ptr noundef byval(%struct.Qur
 define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%struct.ComplexMatrixN) align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateNumQubitsInMatrix(i32 noundef %1, ptr noundef nonnull @__func__.createComplexMatrixN) #17
   %3 = shl nuw i32 1, %1
-  store i32 %1, ptr %0, align 8, !tbaa !27
+  store i32 %1, ptr %0, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %3 to i64
   %7 = shl nsw i64 %6, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
-  store ptr %8, ptr %5, align 8, !tbaa !30
+  store ptr %8, ptr %5, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = tail call noalias ptr @malloc(i64 noundef %7) #18
-  store ptr %10, ptr %9, align 8, !tbaa !31
+  store ptr %10, ptr %9, align 8, !tbaa !29
   %.not = icmp eq i32 %1, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2759,13 +2759,13 @@ define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%stru
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  store ptr %11, ptr %12, align 8, !tbaa !32
+  store ptr %11, ptr %12, align 8, !tbaa !30
   %13 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #19
   %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  store ptr %13, ptr %14, align 8, !tbaa !32
+  store ptr %13, ptr %14, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 declare void @validateNumQubitsInMatrix(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -2784,23 +2784,23 @@ declare void @validateMatrixInit(ptr noundef byval(%struct.ComplexMatrixN) align
 ; Function Attrs: nounwind uwtable
 define void @destroyComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #0 {
   tail call void @validateMatrixInit(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef nonnull @__func__.destroyComplexMatrixN) #17
-  %2 = load i32, ptr %0, align 8, !tbaa !27
+  %2 = load i32, ptr %0, align 8, !tbaa !25
   %.not = icmp eq i32 %2, 31
   br i1 %.not, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
   %.phi.trans.insert7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre8 = load ptr, ptr %.phi.trans.insert7, align 8, !tbaa !31
+  %.pre8 = load ptr, ptr %.phi.trans.insert7, align 8, !tbaa !29
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %3 = shl nuw nsw i32 1, %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %10
 
@@ -2814,14 +2814,14 @@ define void @destroyComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMat
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !32
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   tail call void @free(ptr noundef %12) #17
   %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !32
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   tail call void @free(ptr noundef %14) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -2829,7 +2829,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !27
+  %4 = load i32, ptr %0, align 8, !tbaa !25
   tail call void @validateMatrixInit(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef nonnull @__func__.initComplexMatrixN) #17
   %.not = icmp eq i32 %4, 31
   br i1 %.not, label %._crit_edge19, label %.preheader.lr.ph
@@ -2849,30 +2849,30 @@ define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrix
   %11 = shl i64 %indvars.iv21, %6
   %12 = getelementptr inbounds double, ptr %1, i64 %11
   %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv21
-  %14 = load ptr, ptr %13, align 8, !tbaa !32
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds double, ptr %2, i64 %11
   %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv21
-  %17 = load ptr, ptr %16, align 8, !tbaa !32
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   br label %18
 
 18:                                               ; preds = %.preheader.us, %18
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
   %19 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
-  %20 = load double, ptr %19, align 8, !tbaa !35
+  %20 = load double, ptr %19, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
-  store double %20, ptr %21, align 8, !tbaa !35
+  store double %20, ptr %21, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !35
+  %23 = load double, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
-  store double %23, ptr %24, align 8, !tbaa !35
+  store double %23, ptr %24, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge.us, label %18
 
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !38
+  br i1 %exitcond25.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !33
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %3
   ret void
@@ -2882,19 +2882,19 @@ define void @initComplexMatrixN(ptr noundef readonly byval(%struct.ComplexMatrix
 define void @createPauliHamil(ptr dead_on_unwind noalias writable writeonly sret(%struct.PauliHamil) align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateHamilParams(i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.createPauliHamil) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %1, ptr %4, align 4, !tbaa !40
+  store i32 %1, ptr %4, align 4, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %5, align 8, !tbaa !26
+  store i32 %2, ptr %5, align 8, !tbaa !24
   %6 = sext i32 %2 to i64
   %7 = shl nsw i64 %6, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !25
+  store ptr %8, ptr %9, align 8, !tbaa !23
   %10 = mul nsw i32 %2, %1
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #18
-  store ptr %13, ptr %0, align 8, !tbaa !23
+  store ptr %13, ptr %0, align 8, !tbaa !21
   %14 = icmp sgt i32 %10, 0
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2913,9 +2913,9 @@ declare void @validateHamilParams(i32 noundef, i32 noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @destroyPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @free(ptr noundef %3) #17
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !21
   tail call void @free(ptr noundef %4) #17
   ret void
 }
@@ -2947,7 +2947,7 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
   %or.cond = and i1 %11, %12
   %13 = zext i1 %or.cond to i32
   %spec.select = add i32 %.061, %13
-  br label %8, !llvm.loop !41
+  br label %8
 
 14:                                               ; preds = %8, %8
   %.not = icmp ne i8 %.058, 32
@@ -2973,7 +2973,7 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
   %22 = tail call i32 @getc(ptr noundef %5)
   %sext66 = shl i32 %22, 24
   %.not67 = icmp eq i32 %sext66, -16777216
-  br i1 %.not67, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %.not67, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %23 = icmp ne i8 %18, 10
@@ -2984,29 +2984,29 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
   %spec.select71 = phi i32 [ 0, %14 ], [ %25, %._crit_edge.loopexit ]
   tail call void @validateHamilFileParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  tail call void @validateHamilParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef nonnull @__func__.createPauliHamil) #17, !noalias !43
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  tail call void @validateHamilParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef nonnull @__func__.createPauliHamil) #17, !noalias !36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %spec.select69, ptr %26, align 4, !tbaa !40, !alias.scope !43
+  store i32 %spec.select69, ptr %26, align 4, !tbaa !35, !alias.scope !36
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.select71, ptr %27, align 8, !tbaa !26, !alias.scope !43
+  store i32 %spec.select71, ptr %27, align 8, !tbaa !24, !alias.scope !36
   %28 = zext i32 %spec.select71 to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !25, !alias.scope !43
+  store ptr %30, ptr %31, align 8, !tbaa !23, !alias.scope !36
   %32 = mul nsw i32 %spec.select71, %spec.select69
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 2
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #18
-  store ptr %35, ptr %0, align 8, !tbaa !23, !alias.scope !43
+  store ptr %35, ptr %0, align 8, !tbaa !21, !alias.scope !36
   %36 = icmp sgt i32 %32, 0
   br i1 %36, label %.lr.ph.preheader.i, label %createPauliHamil.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
   %37 = zext nneg i32 %32 to i64
   %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %38, i1 false), !tbaa !20, !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %38, i1 false), !tbaa !20, !noalias !36
   br label %createPauliHamil.exit
 
 createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.ph.preheader.i
@@ -3053,12 +3053,12 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %40
-  br i1 %exitcond92.not, label %._crit_edge81.us, label %46, !llvm.loop !46
+  br i1 %exitcond92.not, label %._crit_edge81.us, label %46
 
 ._crit_edge81.us:                                 ; preds = %46
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %28
-  br i1 %exitcond97.not, label %._crit_edge84, label %.lr.ph80.us, !llvm.loop !47
+  br i1 %exitcond97.not, label %._crit_edge84, label %.lr.ph80.us, !llvm.loop !39
 
 ._crit_edge84:                                    ; preds = %.lr.ph83.split, %._crit_edge81.us, %createPauliHamil.exit
   %52 = call i32 @fclose(ptr noundef %5)
@@ -3074,7 +3074,7 @@ createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.p
   call void @validateHamilFileCoeffParsed(i32 noundef %56, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %._crit_edge84, label %.lr.ph83.split, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge84, label %.lr.ph83.split
 }
 
 ; Function Attrs: nofree nounwind
@@ -3102,9 +3102,9 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !40
+  %5 = load i32, ptr %4, align 4, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %7 = load i32, ptr %6, align 8, !tbaa !24
   tail call void @validateHamilParams(i32 noundef %5, i32 noundef %7, ptr noundef nonnull @__func__.initPauliHamil) #17
   %8 = mul nsw i32 %7, %5
   tail call void @validatePauliCodes(ptr noundef %2, i32 noundef %8, ptr noundef nonnull @__func__.initPauliHamil) #17
@@ -3113,7 +3113,7 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 
 .lr.ph18:                                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = icmp sgt i32 %5, 0
   %13 = load ptr, ptr %0, align 8
   %wide.trip.count30 = zext nneg i32 %7 to i64
@@ -3123,9 +3123,9 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.us ], [ 0, %.lr.ph18 ]
   %.01215.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.lr.ph18 ]
   %14 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv27
-  %15 = load double, ptr %14, align 8, !tbaa !35
+  %15 = load double, ptr %14, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv27
-  store double %15, ptr %16, align 8, !tbaa !35
+  store double %15, ptr %16, align 8, !tbaa !31
   %17 = sext i32 %.01215.us to i64
   %18 = add i32 %5, %.01215.us
   br label %19
@@ -3139,12 +3139,12 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
   %indvars.iv.next24 = add nsw i64 %indvars.iv23, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next24 to i32
   %exitcond26.not = icmp eq i32 %18, %lftr.wideiv
-  br i1 %exitcond26.not, label %._crit_edge.us, label %19, !llvm.loop !49
+  br i1 %exitcond26.not, label %._crit_edge.us, label %19
 
 ._crit_edge.us:                                   ; preds = %19
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %._crit_edge19, label %.lr.ph.us, !llvm.loop !50
+  br i1 %exitcond31.not, label %._crit_edge19, label %.lr.ph.us, !llvm.loop !40
 
 ._crit_edge19:                                    ; preds = %.lr.ph18.split, %._crit_edge.us, %3
   ret void
@@ -3152,12 +3152,12 @@ define void @initPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align
 .lr.ph18.split:                                   ; preds = %.lr.ph18, %.lr.ph18.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18.split ], [ 0, %.lr.ph18 ]
   %23 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %24 = load double, ptr %23, align 8, !tbaa !35
+  %24 = load double, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
-  store double %24, ptr %25, align 8, !tbaa !35
+  store double %24, ptr %25, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
-  br i1 %exitcond.not, label %._crit_edge19, label %.lr.ph18.split, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge19, label %.lr.ph18.split
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3196,7 +3196,7 @@ declare void @agnostic_syncDiagonalOp(ptr noundef byval(%struct.DiagonalOp) alig
 ; Function Attrs: nounwind uwtable
 define void @initDiagonalOp(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @validateDiagOpInit(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull @__func__.initDiagonalOp) #17
-  %4 = load i32, ptr %0, align 8, !tbaa !52
+  %4 = load i32, ptr %0, align 8, !tbaa !41
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
   tail call void @agnostic_setDiagonalOpElems(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, i64 noundef 0, ptr noundef %1, ptr noundef %2, i64 noundef %6) #17
@@ -3218,9 +3218,9 @@ declare void @validateNumElems(ptr noundef byval(%struct.DiagonalOp) align 8, i6
 ; Function Attrs: nounwind uwtable
 define void @initDiagonalOpFromPauliHamil(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !40
+  %4 = load i32, ptr %3, align 4, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !26
+  %6 = load i32, ptr %5, align 8, !tbaa !24
   tail call void @validateHamilParams(i32 noundef %4, i32 noundef %6, ptr noundef nonnull @__func__.initDiagonalOpFromPauliHamil) #17
   tail call void @validateDiagOpInit(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull @__func__.initDiagonalOpFromPauliHamil) #17
   tail call void @validateDiagPauliHamil(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1, ptr noundef nonnull @__func__.initDiagonalOpFromPauliHamil) #17
@@ -3241,7 +3241,7 @@ define void @createDiagonalOpFromPauliHamilFile(ptr dead_on_unwind noalias writa
   %6 = load i32, ptr %5, align 4, !tbaa !4
   tail call void @validateDiagPauliHamilFromFile(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %4, i32 noundef %6, ptr noundef nonnull @__func__.createDiagonalOpFromPauliHamilFile) #17
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !40
+  %8 = load i32, ptr %7, align 4, !tbaa !35
   tail call void @agnostic_createDiagonalOp(ptr dead_on_unwind writable sret(%struct.DiagonalOp) align 8 %0, i32 noundef %8, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
   tail call void @agnostic_initDiagonalOpFromPauliHamil(ptr noundef byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.PauliHamil) align 8 %4) #17
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
@@ -3258,17 +3258,17 @@ declare void @validateDiagPauliHamilFromFile(ptr noundef byval(%struct.PauliHami
 ; Function Attrs: nounwind uwtable
 define void @createSubDiagonalOp(ptr dead_on_unwind noalias writable writeonly sret(%struct.SubDiagonalOp) align 8 captures(none) initializes((0, 4), (8, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateNumQubitsInSubDiagOp(i32 noundef %1, ptr noundef nonnull @__func__.createSubDiagonalOp) #17
-  store i32 %1, ptr %0, align 8, !tbaa !54
+  store i32 %1, ptr %0, align 8, !tbaa !43
   %3 = zext nneg i32 %1 to i64
   %4 = shl nuw i64 1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %4, ptr %5, align 8, !tbaa !56
+  store i64 %4, ptr %5, align 8, !tbaa !45
   %6 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %7, align 8, !tbaa !57
+  store ptr %6, ptr %7, align 8, !tbaa !46
   %8 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %8, ptr %9, align 8, !tbaa !58
+  store ptr %8, ptr %9, align 8, !tbaa !47
   ret void
 }
 
@@ -3277,10 +3277,10 @@ declare void @validateNumQubitsInSubDiagOp(i32 noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @destroySubDiagonalOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   tail call void @free(ptr noundef %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !58
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
   tail call void @free(ptr noundef %5) #17
   ret void
 }
@@ -3305,13 +3305,13 @@ declare void @statevec_reportStateToScreen(ptr noundef byval(%struct.Qureg) alig
 define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0) local_unnamed_addr #0 {
   tail call void @validatePauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0, ptr noundef nonnull @__func__.reportPauliHamil) #17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !26
+  %3 = load i32, ptr %2, align 8, !tbaa !24
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph13, label %._crit_edge14
 
 .lr.ph13:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.fr15 = freeze i32 %8
@@ -3331,7 +3331,7 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv23 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next24, %._crit_edge.us ]
   %12 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv23
-  %13 = load double, ptr %12, align 8, !tbaa !35
+  %13 = load double, ptr %12, align 8, !tbaa !31
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %13)
   %putchar.us = tail call i32 @putchar(i32 9)
   %15 = mul nuw nsw i64 %indvars.iv23, %11
@@ -3345,13 +3345,13 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %19)
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %11
-  br i1 %exitcond22.not, label %._crit_edge.us, label %17, !llvm.loop !59
+  br i1 %exitcond22.not, label %._crit_edge.us, label %17
 
 ._crit_edge.us:                                   ; preds = %17
   %putchar9.us = tail call i32 @putchar(i32 10)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
-  br i1 %exitcond27.not, label %._crit_edge14, label %.lr.ph.us, !llvm.loop !60
+  br i1 %exitcond27.not, label %._crit_edge14, label %.lr.ph.us, !llvm.loop !48
 
 ._crit_edge14:                                    ; preds = %.lr.ph13.split, %._crit_edge.us, %1
   ret void
@@ -3359,13 +3359,13 @@ define void @reportPauliHamil(ptr noundef readonly byval(%struct.PauliHamil) ali
 .lr.ph13.split:                                   ; preds = %.lr.ph13.split.preheader, %.lr.ph13.split
   %indvars.iv = phi i64 [ 0, %.lr.ph13.split.preheader ], [ %indvars.iv.next, %.lr.ph13.split ]
   %21 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %22 = load double, ptr %21, align 8, !tbaa !35
+  %22 = load double, ptr %21, align 8, !tbaa !31
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %22)
   %putchar = tail call i32 @putchar(i32 9)
   %putchar9 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge14, label %.lr.ph13.split, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge14, label %.lr.ph13.split
 }
 
 ; Function Attrs: nofree nounwind
@@ -3393,10 +3393,10 @@ declare void @seedQuEST(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @getQuESTSeeds(ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
-  store ptr %5, ptr %1, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  store ptr %5, ptr %1, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !64
+  %7 = load i32, ptr %6, align 8, !tbaa !51
   store i32 %7, ptr %2, align 4, !tbaa !20
   ret void
 }
@@ -3478,47 +3478,34 @@ attributes #19 = { nounwind allocsize(0,1) }
 !18 = !{!13, !6, i64 8}
 !19 = !{!13, !14, i64 24}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !10, i64 0}
-!24 = !{!"PauliHamil", !10, i64 0, !16, i64 8, !6, i64 16, !6, i64 20}
-!25 = !{!24, !16, i64 8}
-!26 = !{!24, !6, i64 16}
-!27 = !{!28, !6, i64 0}
-!28 = !{!"ComplexMatrixN", !6, i64 0, !29, i64 8, !29, i64 16}
-!29 = !{!"p2 double", !11, i64 0}
-!30 = !{!28, !29, i64 8}
-!31 = !{!28, !29, i64 16}
-!32 = !{!16, !16, i64 0}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"double", !7, i64 0}
-!37 = distinct !{!37, !22}
-!38 = distinct !{!38, !22, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = !{!24, !6, i64 20}
-!41 = distinct !{!41, !22}
-!42 = distinct !{!42, !22}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"createPauliHamil: argument 0"}
-!45 = distinct !{!45, !"createPauliHamil"}
-!46 = distinct !{!46, !22}
-!47 = distinct !{!47, !22, !39}
-!48 = distinct !{!48, !22}
-!49 = distinct !{!49, !22}
-!50 = distinct !{!50, !22, !39}
-!51 = distinct !{!51, !22}
-!52 = !{!53, !6, i64 0}
-!53 = !{!"DiagonalOp", !6, i64 0, !14, i64 8, !6, i64 16, !6, i64 20, !16, i64 24, !16, i64 32, !15, i64 40}
-!54 = !{!55, !6, i64 0}
-!55 = !{!"SubDiagonalOp", !6, i64 0, !14, i64 8, !16, i64 16, !16, i64 24}
-!56 = !{!55, !14, i64 8}
-!57 = !{!55, !16, i64 16}
-!58 = !{!55, !16, i64 24}
-!59 = distinct !{!59, !22}
-!60 = distinct !{!60, !22, !39}
-!61 = distinct !{!61, !22}
-!62 = !{!5, !9, i64 8}
-!63 = !{!9, !9, i64 0}
-!64 = !{!5, !6, i64 16}
+!21 = !{!22, !10, i64 0}
+!22 = !{!"PauliHamil", !10, i64 0, !16, i64 8, !6, i64 16, !6, i64 20}
+!23 = !{!22, !16, i64 8}
+!24 = !{!22, !6, i64 16}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"ComplexMatrixN", !6, i64 0, !27, i64 8, !27, i64 16}
+!27 = !{!"p2 double", !11, i64 0}
+!28 = !{!26, !27, i64 8}
+!29 = !{!26, !27, i64 16}
+!30 = !{!16, !16, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !7, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = !{!22, !6, i64 20}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"createPauliHamil: argument 0"}
+!38 = distinct !{!38, !"createPauliHamil"}
+!39 = distinct !{!39, !34}
+!40 = distinct !{!40, !34}
+!41 = !{!42, !6, i64 0}
+!42 = !{!"DiagonalOp", !6, i64 0, !14, i64 8, !6, i64 16, !6, i64 20, !16, i64 24, !16, i64 32, !15, i64 40}
+!43 = !{!44, !6, i64 0}
+!44 = !{!"SubDiagonalOp", !6, i64 0, !14, i64 8, !16, i64 16, !16, i64 24}
+!45 = !{!44, !14, i64 8}
+!46 = !{!44, !16, i64 16}
+!47 = !{!44, !16, i64 24}
+!48 = distinct !{!48, !34}
+!49 = !{!5, !9, i64 8}
+!50 = !{!9, !9, i64 0}
+!51 = !{!5, !6, i64 16}

@@ -604,7 +604,7 @@ define internal range(i32 -1, 1) i32 @connSocketConnect(ptr noundef initializes(
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = load ptr, ptr %0, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !58
+  %21 = load ptr, ptr %20, align 8, !tbaa !57
   %22 = tail call i32 @aeCreateFileEvent(ptr noundef %18, i32 noundef %6, i32 noundef 2, ptr noundef %21, ptr noundef nonnull %0) #11
   br label %23
 
@@ -856,7 +856,7 @@ define internal range(i32 -1, 1) i32 @connSocketSetWriteHandler(ptr noundef %0, 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !58
+  %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = tail call i32 @aeCreateFileEvent(ptr noundef %12, i32 noundef %14, i32 noundef 2, ptr noundef %19, ptr noundef nonnull %0) #11
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %23, label %22
@@ -892,7 +892,7 @@ define internal range(i32 -1, 1) i32 @connSocketSetReadHandler(ptr noundef %0, p
 12:                                               ; preds = %6
   %13 = load ptr, ptr %0, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !58
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = tail call i32 @aeCreateFileEvent(ptr noundef %8, i32 noundef %10, i32 noundef 1, ptr noundef %15, ptr noundef nonnull %0) #11
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %19, label %18
@@ -942,19 +942,19 @@ define internal noundef i32 @connSocketRebindEventLoop(ptr noundef captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %.critedge, !prof !59
+  br i1 %.not, label %5, label %.critedge, !prof !58
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %.not5 = icmp eq ptr %7, null
-  br i1 %.not5, label %8, label %.critedge, !prof !59
+  br i1 %.not5, label %8, label %.critedge, !prof !58
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %.not6 = icmp eq ptr %10, null
-  br i1 %.not6, label %11, label %.critedge, !prof !59
+  br i1 %.not6, label %11, label %.critedge, !prof !58
 
 .critedge:                                        ; preds = %5, %2, %8
   tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 198) #11
@@ -1105,8 +1105,7 @@ attributes #14 = { noreturn nounwind }
 !52 = !{!11, !11, i64 0}
 !53 = !{!26, !11, i64 6288}
 !54 = !{!6, !12, i64 24}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = !{!24, !8, i64 32}
-!59 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!57 = !{!24, !8, i64 32}
+!58 = !{!"branch_weights", !"expected", i32 2000, i32 1}

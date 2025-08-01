@@ -348,7 +348,7 @@ thread-pre-split29:                               ; preds = %30
 46:                                               ; preds = %43, %12
   %47 = tail call ptr @snd_mixer_elem_next(ptr noundef nonnull %.032) #11
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !8
 
 .loopexit:                                        ; preds = %43, %27, %46, %7, %3
   %48 = load i32, ptr %4, align 8
@@ -700,7 +700,7 @@ getControlSlot.exit119.thread:                    ; preds = %createVolumeControl
   %.3 = phi i32 [ %111, %110 ], [ %.2158, %106 ], [ %.2158, %.critedge117 ], [ %.2158, %77 ], [ %.2158, %80 ], [ %.2158, %createVolumeControl.exit122 ]
   %114 = add nuw nsw i32 %.0159, 1
   %exitcond.not = icmp eq i32 %114, 32
-  br i1 %exitcond.not, label %getControlSlot.exit.thread, label %76, !llvm.loop !10
+  br i1 %exitcond.not, label %getControlSlot.exit.thread, label %76, !llvm.loop !9
 
 getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit119.thread, %47, %75, %createVolumeControl.exit
   %.1 = phi i32 [ 1, %75 ], [ 0, %createVolumeControl.exit ], [ 0, %47 ], [ %.3, %getControlSlot.exit119.thread ]
@@ -1215,8 +1215,7 @@ attributes #13 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

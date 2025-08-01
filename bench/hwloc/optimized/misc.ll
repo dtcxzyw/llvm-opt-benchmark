@@ -36,7 +36,7 @@ define hidden void @hwloc_add_uname_info(ptr noundef %0, ptr noundef %1) local_u
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %10 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %7, i64 %indvars.iv.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str) #8
   %.not.not.i = icmp eq i32 %12, 0
   br i1 %.not.not.i, label %hwloc_get_info_by_name.exit, label %8
@@ -50,7 +50,7 @@ hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2
 
 hwloc_get_info_by_name.exit:                      ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   %.not = icmp eq ptr %14, null
   %.0.sroa.gep25 = getelementptr inbounds nuw i8, ptr %3, i64 130
   %.0.sroa.gep31 = getelementptr inbounds nuw i8, ptr %3, i64 195
@@ -81,7 +81,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   %.0.sroa.phi32 = phi ptr [ %.0.sroa.gep3166, %16 ], [ %.0.sroa.gep3065, %15 ]
   %.0.sroa.phi38 = phi ptr [ %.0.sroa.gep3768, %16 ], [ %.0.sroa.gep3667, %15 ]
   %.0.sroa.phi44 = phi ptr [ %.0.sroa.gep4370, %16 ], [ %.0.sroa.gep4269, %15 ]
-  %20 = load i8, ptr %.0.sroa.phi20, align 1, !tbaa !18
+  %20 = load i8, ptr %.0.sroa.phi20, align 1, !tbaa !17
   %.not48 = icmp eq i8 %20, 0
   br i1 %.not48, label %23, label %21
 
@@ -90,7 +90,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br label %23
 
 23:                                               ; preds = %21, %19
-  %24 = load i8, ptr %.0.sroa.phi26, align 1, !tbaa !18
+  %24 = load i8, ptr %.0.sroa.phi26, align 1, !tbaa !17
   %.not49 = icmp eq i8 %24, 0
   br i1 %.not49, label %27, label %25
 
@@ -99,7 +99,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br label %27
 
 27:                                               ; preds = %25, %23
-  %28 = load i8, ptr %.0.sroa.phi32, align 1, !tbaa !18
+  %28 = load i8, ptr %.0.sroa.phi32, align 1, !tbaa !17
   %.not50 = icmp eq i8 %28, 0
   br i1 %.not50, label %31, label %29
 
@@ -108,7 +108,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br label %31
 
 31:                                               ; preds = %29, %27
-  %32 = load i8, ptr %.0.sroa.phi38, align 1, !tbaa !18
+  %32 = load i8, ptr %.0.sroa.phi38, align 1, !tbaa !17
   %.not51 = icmp eq i8 %32, 0
   br i1 %.not51, label %35, label %33
 
@@ -117,7 +117,7 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   br label %35
 
 35:                                               ; preds = %33, %31
-  %36 = load i8, ptr %.0.sroa.phi44, align 1, !tbaa !18
+  %36 = load i8, ptr %.0.sroa.phi44, align 1, !tbaa !17
   %.not52 = icmp eq i8 %36, 0
   br i1 %.not52, label %39, label %37
 
@@ -143,7 +143,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden noalias ptr @hwloc_progname(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr @program_invocation_name, align 8, !tbaa !19
+  %2 = load ptr, ptr @program_invocation_name, align 8, !tbaa !18
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
 
@@ -192,12 +192,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!4, !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"hwloc_info_s", !16, i64 0, !16, i64 8}
-!16 = !{!"p1 omnipotent char", !6, i64 0}
-!17 = !{!15, !16, i64 8}
-!18 = !{!7, !7, i64 0}
-!19 = !{!16, !16, i64 0}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"hwloc_info_s", !15, i64 0, !15, i64 8}
+!15 = !{!"p1 omnipotent char", !6, i64 0}
+!16 = !{!14, !15, i64 8}
+!17 = !{!7, !7, i64 0}
+!18 = !{!15, !15, i64 0}

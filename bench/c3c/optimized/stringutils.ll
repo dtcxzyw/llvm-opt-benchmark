@@ -59,7 +59,7 @@ define dso_local zeroext i1 @str_has_no_uppercase(ptr noundef readonly captures(
   %5 = add i8 %3, -65
   %6 = icmp ult i8 %5, 26
   %or.cond = or i1 %.not, %6
-  br i1 %or.cond, label %7, label %2, !llvm.loop !10
+  br i1 %or.cond, label %7, label %2, !llvm.loop !9
 
 7:                                                ; preds = %2
   ret i1 %.not
@@ -125,7 +125,7 @@ thread-pre-split:                                 ; preds = %char_is_lower_alpha
 
 char_is_lower_alphanum_.exit:                     ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
   %exitcond = icmp eq i32 %.0, 127
-  br i1 %exitcond, label %char_is_lower_alphanum_.exit.thread, label %thread-pre-split, !llvm.loop !11
+  br i1 %exitcond, label %char_is_lower_alphanum_.exit.thread, label %thread-pre-split, !llvm.loop !10
 
 char_is_lower_alphanum_.exit.thread.loopexit:     ; preds = %.preheader
   br label %char_is_lower_alphanum_.exit.thread
@@ -161,7 +161,7 @@ define dso_local ptr @str_unescape(ptr noundef captures(ret: address, provenance
   %9 = add i64 %.0, 1
   %10 = getelementptr inbounds i8, ptr %.1, i64 %.0
   store i8 %.010, ptr %10, align 1
-  br label %2, !llvm.loop !12
+  br label %2, !llvm.loop !11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %3, i64 %.0
@@ -187,7 +187,7 @@ define dso_local noundef zeroext i1 @str_is_type(ptr noundef readonly captures(n
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %2, !llvm.loop !13
+  br label %2, !llvm.loop !12
 
 scan_past_underscore.exit:                        ; preds = %2
   %6 = add i8 %3, -65
@@ -213,11 +213,11 @@ scan_past_underscore.exit:                        ; preds = %2
 13:                                               ; preds = %10
   %14 = add i8 %12, -97
   %15 = icmp ult i8 %14, 26
-  br i1 %15, label %.outer, label %16, !llvm.loop !14
+  br i1 %15, label %.outer, label %16, !llvm.loop !13
 
 16:                                               ; preds = %13
   %17 = tail call fastcc zeroext i1 @char_is_alphanum_(i8 noundef signext %12)
-  br i1 %17, label %10, label %scan_past_underscore.exit.thread, !llvm.loop !14
+  br i1 %17, label %10, label %scan_past_underscore.exit.thread, !llvm.loop !13
 
 scan_past_underscore.exit.thread:                 ; preds = %2, %10, %16, %scan_past_underscore.exit
   %.09 = phi i1 [ false, %scan_past_underscore.exit ], [ %.0.ph, %10 ], [ false, %16 ], [ false, %2 ]
@@ -314,7 +314,7 @@ define dso_local noundef zeroext i1 @str_is_identifier(ptr noundef readonly capt
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %2, !llvm.loop !13
+  br label %2, !llvm.loop !12
 
 scan_past_underscore.exit:                        ; preds = %2
   %6 = add i8 %3, -97
@@ -330,7 +330,7 @@ scan_past_underscore.exit:                        ; preds = %2
 
 9:                                                ; preds = %.preheader
   %10 = tail call fastcc zeroext i1 @char_is_alphanum_(i8 noundef signext %8)
-  br i1 %10, label %.preheader, label %scan_past_underscore.exit.thread, !llvm.loop !15
+  br i1 %10, label %.preheader, label %scan_past_underscore.exit.thread, !llvm.loop !14
 
 scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %9, %scan_past_underscore.exit
   %.06 = phi i1 [ false, %scan_past_underscore.exit ], [ %.not8, %9 ], [ %.not8, %.preheader ], [ false, %2 ]
@@ -373,7 +373,7 @@ thread-pre-split:                                 ; preds = %.preheader
   %6 = phi i8 [ %.pr, %thread-pre-split ], [ %4, %1 ]
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
-  br i1 %8, label %thread-pre-split, label %.loopexit, !llvm.loop !16
+  br i1 %8, label %thread-pre-split, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %thread-pre-split, %.preheader, %1
   %.0 = phi i1 [ false, %1 ], [ %8, %.preheader ], [ %8, %thread-pre-split ]
@@ -394,7 +394,7 @@ define dso_local noundef zeroext i1 @str_is_valid_constant(ptr noundef readonly 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %2, !llvm.loop !13
+  br label %2, !llvm.loop !12
 
 scan_past_underscore.exit:                        ; preds = %2
   %6 = add i8 %3, -65
@@ -447,7 +447,7 @@ scan_past_underscore.exit:                        ; preds = %2
   ]
 
 .preheader.backedge:                              ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !16
 
 scan_past_underscore.exit.thread.loopexit:        ; preds = %.preheader
   br label %scan_past_underscore.exit.thread
@@ -620,7 +620,7 @@ define dso_local { ptr, i64 } @slice_next_token(ptr noundef captures(none) %0, i
 13:                                               ; preds = %.lr.ph
   %14 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %14, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %13, %2
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pre, i64 %4
@@ -654,7 +654,7 @@ define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_a
 6:                                                ; preds = %.lr.ph
   %7 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %7, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %.018, %.lr.ph ], [ %3, %6 ]
@@ -662,24 +662,24 @@ define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_a
   store ptr %8, ptr %0, align 8
   %9 = sub i64 %3, %.0.lcssa
   store i64 %9, ptr %2, align 8
-  %invariant.gep = getelementptr i8, ptr %8, i64 -1
   %.not1523 = icmp eq i64 %9, 0
   br i1 %.not1523, label %._crit_edge27, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %._crit_edge, %11
-  %.124 = phi i64 [ %12, %11 ], [ %9, %._crit_edge ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.124
-  %10 = load i8, ptr %gep, align 1
-  %.not16 = icmp eq i8 %10, 32
-  br i1 %.not16, label %11, label %._crit_edge27
+.lr.ph26:                                         ; preds = %._crit_edge, %13
+  %.124 = phi i64 [ %14, %13 ], [ %9, %._crit_edge ]
+  %10 = getelementptr i8, ptr %8, i64 %.124
+  %11 = getelementptr i8, ptr %10, i64 -1
+  %12 = load i8, ptr %11, align 1
+  %.not16 = icmp eq i8 %12, 32
+  br i1 %.not16, label %13, label %._crit_edge27
 
-11:                                               ; preds = %.lr.ph26
-  %12 = add i64 %.124, -1
-  %.not15 = icmp eq i64 %12, 0
-  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !20
+13:                                               ; preds = %.lr.ph26
+  %14 = add i64 %.124, -1
+  %.not15 = icmp eq i64 %14, 0
+  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !19
 
-._crit_edge27:                                    ; preds = %11, %.lr.ph26, %._crit_edge
-  %.1.lcssa = phi i64 [ 0, %._crit_edge ], [ %.124, %.lr.ph26 ], [ 0, %11 ]
+._crit_edge27:                                    ; preds = %13, %.lr.ph26, %._crit_edge
+  %.1.lcssa = phi i64 [ 0, %._crit_edge ], [ %.124, %.lr.ph26 ], [ 0, %13 ]
   store i64 %.1.lcssa, ptr %2, align 8
   ret void
 }
@@ -709,7 +709,7 @@ define dso_local noundef ptr @str_trim(ptr noundef captures(ret: address, proven
 5:                                                ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %6 = add i64 %.0711.i, -1
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %str_trim_end.exit.preheader, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %str_trim_end.exit.preheader, label %.lr.ph.i, !llvm.loop !20
 
 7:                                                ; preds = %.lr.ph.i
   store i8 0, ptr %.pn12.i, align 1
@@ -730,7 +730,7 @@ str_trim_end.exit:                                ; preds = %str_trim_end.exit.p
 
 9:                                                ; preds = %str_trim_end.exit, %str_trim_end.exit, %str_trim_end.exit, %str_trim_end.exit
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %str_trim_end.exit, !llvm.loop !22
+  br label %str_trim_end.exit, !llvm.loop !21
 
 str_trim_start.exit:                              ; preds = %str_trim_end.exit
   ret ptr %.0.i
@@ -761,7 +761,7 @@ define dso_local void @str_trim_end(ptr noundef captures(none) %0) local_unnamed
 5:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %6 = add i64 %.0711, -1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 7:                                                ; preds = %.lr.ph
   store i8 0, ptr %.pn12, align 1
@@ -787,7 +787,7 @@ define dso_local noundef ptr @str_trim_start(ptr noundef readonly captures(ret: 
 
 4:                                                ; preds = %2, %2, %2, %2
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %2, !llvm.loop !22
+  br label %2, !llvm.loop !21
 
 6:                                                ; preds = %2
   ret ptr %.0
@@ -935,7 +935,7 @@ define dso_local void @scratch_buffer_append_double(double noundef %0) local_unn
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not = icmp eq i32 %indvars, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %1
   ret void
@@ -1030,20 +1030,19 @@ attributes #22 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

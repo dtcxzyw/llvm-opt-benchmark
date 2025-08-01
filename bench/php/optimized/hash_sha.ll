@@ -149,7 +149,7 @@ SHA256Transform.exit33:                           ; preds = %41, %42
   %43 = add i64 %.034, 64
   %44 = add i64 %.034, 127
   %45 = icmp ult i64 %44, %2
-  br i1 %45, label %36, label %.loopexit, !llvm.loop !8
+  br i1 %45, label %36, label %.loopexit
 
 46:                                               ; preds = %._crit_edge
   %47 = zext nneg i32 %8 to i64
@@ -174,35 +174,35 @@ define dso_local void @PHP_SHA256Final(ptr noundef writeonly captures(none) %0, 
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %6, ptr %7, align 1, !tbaa !10
+  store i8 %6, ptr %7, align 1, !tbaa !8
   %8 = lshr i32 %5, 8
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %9, ptr %10, align 1, !tbaa !10
+  store i8 %9, ptr %10, align 1, !tbaa !8
   %11 = lshr i32 %5, 16
   %12 = trunc i32 %11 to i8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %12, ptr %13, align 1, !tbaa !10
+  store i8 %12, ptr %13, align 1, !tbaa !8
   %14 = lshr i32 %5, 24
   %15 = trunc nuw i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %15, ptr %16, align 1, !tbaa !10
+  store i8 %15, ptr %16, align 1, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = trunc i32 %18 to i8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %19, ptr %20, align 1, !tbaa !10
+  store i8 %19, ptr %20, align 1, !tbaa !8
   %21 = lshr i32 %18, 8
   %22 = trunc i32 %21 to i8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %22, ptr %23, align 1, !tbaa !10
+  store i8 %22, ptr %23, align 1, !tbaa !8
   %24 = lshr i32 %18, 16
   %25 = trunc i32 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %25, ptr %26, align 1, !tbaa !10
+  store i8 %25, ptr %26, align 1, !tbaa !8
   %27 = lshr i32 %18, 24
   %28 = trunc nuw i32 %27 to i8
-  store i8 %28, ptr %3, align 1, !tbaa !10
+  store i8 %28, ptr %3, align 1, !tbaa !8
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
   %31 = icmp samesign ult i32 %30, 56
@@ -221,25 +221,25 @@ define dso_local void @PHP_SHA256Final(ptr noundef writeonly captures(none) %0, 
   %37 = lshr i32 %36, 24
   %38 = trunc nuw i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %38, ptr %39, align 1, !tbaa !10
+  store i8 %38, ptr %39, align 1, !tbaa !8
   %40 = load i32, ptr %35, align 4, !tbaa !4
   %41 = lshr i32 %40, 16
   %42 = trunc i32 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 %42, ptr %43, align 1, !tbaa !10
+  store i8 %42, ptr %43, align 1, !tbaa !8
   %44 = load i32, ptr %35, align 4, !tbaa !4
   %45 = lshr i32 %44, 8
   %46 = trunc i32 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  store i8 %46, ptr %47, align 1, !tbaa !10
+  store i8 %46, ptr %47, align 1, !tbaa !8
   %48 = load i32, ptr %35, align 4, !tbaa !4
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 3
-  store i8 %49, ptr %50, align 1, !tbaa !10
+  store i8 %49, ptr %50, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %34, !llvm.loop !11
+  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %34
 
 SHAEncode32.exit:                                 ; preds = %34
   call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #8
@@ -361,7 +361,7 @@ SHA256Transform.exit33:                           ; preds = %41, %42
   %43 = add i64 %.034, 64
   %44 = add i64 %.034, 127
   %45 = icmp ult i64 %44, %2
-  br i1 %45, label %36, label %.loopexit, !llvm.loop !12
+  br i1 %45, label %36, label %.loopexit
 
 46:                                               ; preds = %._crit_edge
   %47 = zext nneg i32 %8 to i64
@@ -386,35 +386,35 @@ define dso_local void @PHP_SHA224Final(ptr noundef writeonly captures(none) %0, 
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %6, ptr %7, align 1, !tbaa !10
+  store i8 %6, ptr %7, align 1, !tbaa !8
   %8 = lshr i32 %5, 8
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %9, ptr %10, align 1, !tbaa !10
+  store i8 %9, ptr %10, align 1, !tbaa !8
   %11 = lshr i32 %5, 16
   %12 = trunc i32 %11 to i8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %12, ptr %13, align 1, !tbaa !10
+  store i8 %12, ptr %13, align 1, !tbaa !8
   %14 = lshr i32 %5, 24
   %15 = trunc nuw i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %15, ptr %16, align 1, !tbaa !10
+  store i8 %15, ptr %16, align 1, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = trunc i32 %18 to i8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %19, ptr %20, align 1, !tbaa !10
+  store i8 %19, ptr %20, align 1, !tbaa !8
   %21 = lshr i32 %18, 8
   %22 = trunc i32 %21 to i8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %22, ptr %23, align 1, !tbaa !10
+  store i8 %22, ptr %23, align 1, !tbaa !8
   %24 = lshr i32 %18, 16
   %25 = trunc i32 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %25, ptr %26, align 1, !tbaa !10
+  store i8 %25, ptr %26, align 1, !tbaa !8
   %27 = lshr i32 %18, 24
   %28 = trunc nuw i32 %27 to i8
-  store i8 %28, ptr %3, align 1, !tbaa !10
+  store i8 %28, ptr %3, align 1, !tbaa !8
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
   %31 = icmp samesign ult i32 %30, 56
@@ -433,25 +433,25 @@ define dso_local void @PHP_SHA224Final(ptr noundef writeonly captures(none) %0, 
   %37 = lshr i32 %36, 24
   %38 = trunc nuw i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %38, ptr %39, align 1, !tbaa !10
+  store i8 %38, ptr %39, align 1, !tbaa !8
   %40 = load i32, ptr %35, align 4, !tbaa !4
   %41 = lshr i32 %40, 16
   %42 = trunc i32 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 %42, ptr %43, align 1, !tbaa !10
+  store i8 %42, ptr %43, align 1, !tbaa !8
   %44 = load i32, ptr %35, align 4, !tbaa !4
   %45 = lshr i32 %44, 8
   %46 = trunc i32 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  store i8 %46, ptr %47, align 1, !tbaa !10
+  store i8 %46, ptr %47, align 1, !tbaa !8
   %48 = load i32, ptr %35, align 4, !tbaa !4
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 3
-  store i8 %49, ptr %50, align 1, !tbaa !10
+  store i8 %49, ptr %50, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 7
-  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %34, !llvm.loop !11
+  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %34
 
 SHAEncode32.exit:                                 ; preds = %34
   call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #8
@@ -475,21 +475,21 @@ declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
 define dso_local void @PHP_SHA384InitArgs(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 -3766243637369397544, ptr %0, align 8, !tbaa !13
+  store i64 -3766243637369397544, ptr %0, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 7105036623409894663, ptr %4, align 8, !tbaa !13
+  store i64 7105036623409894663, ptr %4, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -7973340178411365097, ptr %5, align 8, !tbaa !13
+  store i64 -7973340178411365097, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1526699215303891257, ptr %6, align 8, !tbaa !13
+  store i64 1526699215303891257, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 7436329637833083697, ptr %7, align 8, !tbaa !13
+  store i64 7436329637833083697, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 -8163818279084223215, ptr %8, align 8, !tbaa !13
+  store i64 -8163818279084223215, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 -2662702644619276377, ptr %9, align 8, !tbaa !13
+  store i64 -2662702644619276377, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 5167115440072839076, ptr %10, align 8, !tbaa !13
+  store i64 5167115440072839076, ptr %10, align 8, !tbaa !9
   ret void
 }
 
@@ -497,22 +497,22 @@ define dso_local void @PHP_SHA384InitArgs(ptr noundef writeonly captures(none) i
 define dso_local void @PHP_SHA384Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i64, ptr %3, align 8, !tbaa !13
+  %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 3
   %7 = and i32 %6, 127
   %8 = shl i64 %2, 3
   %9 = add i64 %4, %8
-  store i64 %9, ptr %3, align 8, !tbaa !13
+  store i64 %9, ptr %3, align 8, !tbaa !9
   %10 = icmp ult i64 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = zext i1 %10 to i64
   %14 = add i64 %12, %13
   %15 = lshr i64 %2, 61
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = add i64 %14, %15
-  store i64 %17, ptr %16, align 8, !tbaa !13
+  store i64 %17, ptr %16, align 8, !tbaa !9
   %18 = sub nuw nsw i32 128, %7
   %19 = zext nneg i32 %18 to i64
   %.not = icmp ult i64 %2, %19
@@ -535,7 +535,7 @@ define dso_local void @PHP_SHA384Update(ptr noundef captures(none) %0, ptr nound
   %27 = add i64 %.131, 128
   %28 = add i64 %.131, 255
   %29 = icmp ult i64 %28, %2
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %._crit_edge
   %.028 = phi i32 [ %7, %._crit_edge ], [ 0, %20 ], [ 0, %.lr.ph ]
@@ -553,21 +553,21 @@ define dso_local void @PHP_SHA384Update(ptr noundef captures(none) %0, ptr nound
 define internal fastcc void @SHA512Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca [16 x i64], align 16
   %4 = alloca [80 x i64], align 16
-  %5 = load i64, ptr %0, align 8, !tbaa !13
+  %5 = load i64, ptr %0, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %9 = load i64, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !13
+  %11 = load i64, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !13
+  %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !13
+  %15 = load i64, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !13
+  %17 = load i64, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load i64, ptr %18, align 8, !tbaa !13
+  %19 = load i64, ptr %18, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %4) #8
   br label %20
@@ -577,52 +577,52 @@ define internal fastcc void @SHA512Transform(ptr noundef captures(none) %0, ptr 
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %20 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 7
-  %23 = load i8, ptr %22, align 1, !tbaa !10
+  %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 6
-  %26 = load i8, ptr %25, align 1, !tbaa !10
+  %26 = load i8, ptr %25, align 1, !tbaa !8
   %27 = zext i8 %26 to i64
   %28 = shl nuw nsw i64 %27, 8
   %29 = or disjoint i64 %28, %24
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 5
-  %31 = load i8, ptr %30, align 1, !tbaa !10
+  %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 16
   %34 = or disjoint i64 %29, %33
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %36 = load i8, ptr %35, align 1, !tbaa !10
+  %36 = load i8, ptr %35, align 1, !tbaa !8
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 24
   %39 = or disjoint i64 %34, %38
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 3
-  %41 = load i8, ptr %40, align 1, !tbaa !10
+  %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 32
   %44 = or disjoint i64 %39, %43
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !10
+  %46 = load i8, ptr %45, align 1, !tbaa !8
   %47 = zext i8 %46 to i64
   %48 = shl nuw nsw i64 %47, 40
   %49 = or i64 %44, %48
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %51 = load i8, ptr %50, align 1, !tbaa !10
+  %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 48
   %54 = or i64 %49, %53
-  %55 = load i8, ptr %21, align 1, !tbaa !10
+  %55 = load i8, ptr %21, align 1, !tbaa !8
   %56 = zext i8 %55 to i64
   %57 = shl nuw i64 %56, 56
   %58 = or i64 %54, %57
   %59 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv24.i
-  store i64 %58, ptr %59, align 8, !tbaa !13
+  store i64 %58, ptr %59, align 8, !tbaa !9
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
-  br i1 %exitcond.not.i, label %SHADecode64.exit.preheader, label %20, !llvm.loop !16
+  br i1 %exitcond.not.i, label %SHADecode64.exit.preheader, label %20
 
 SHADecode64.exit.preheader:                       ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, ptr noundef nonnull align 16 dereferenceable(128) %3, i64 128, i1 false), !tbaa !13
-  %.pre = load i64, ptr %4, align 16, !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, ptr noundef nonnull align 16 dereferenceable(128) %3, i64 128, i1 false), !tbaa !9
+  %.pre = load i64, ptr %4, align 16, !tbaa !9
   br label %.preheader88
 
 .preheader88:                                     ; preds = %SHADecode64.exit.preheader, %.preheader88
@@ -630,7 +630,7 @@ SHADecode64.exit.preheader:                       ; preds = %20
   %indvars.iv = phi i64 [ 16, %SHADecode64.exit.preheader ], [ %indvars.iv.next, %.preheader88 ]
   %61 = add nsw i64 %indvars.iv, -2
   %62 = getelementptr inbounds [80 x i64], ptr %4, i64 0, i64 %61
-  %63 = load i64, ptr %62, align 8, !tbaa !13
+  %63 = load i64, ptr %62, align 8, !tbaa !9
   %64 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 45)
   %65 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 3)
   %66 = xor i64 %64, %65
@@ -638,11 +638,11 @@ SHADecode64.exit.preheader:                       ; preds = %20
   %68 = xor i64 %66, %67
   %69 = add nsw i64 %indvars.iv, -7
   %70 = getelementptr inbounds [80 x i64], ptr %4, i64 0, i64 %69
-  %71 = load i64, ptr %70, align 8, !tbaa !13
+  %71 = load i64, ptr %70, align 8, !tbaa !9
   %72 = add i64 %68, %71
   %73 = add nsw i64 %indvars.iv, -15
   %74 = getelementptr inbounds [80 x i64], ptr %4, i64 0, i64 %73
-  %75 = load i64, ptr %74, align 8, !tbaa !13
+  %75 = load i64, ptr %74, align 8, !tbaa !9
   %76 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 63)
   %77 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 56)
   %78 = xor i64 %76, %77
@@ -651,10 +651,10 @@ SHADecode64.exit.preheader:                       ; preds = %20
   %81 = add i64 %72, %60
   %82 = add i64 %81, %80
   %83 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %indvars.iv
-  store i64 %82, ptr %83, align 8, !tbaa !13
+  store i64 %82, ptr %83, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
-  br i1 %exitcond.not, label %.preheader, label %.preheader88, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %.preheader88
 
 .preheader:                                       ; preds = %.preheader88, %.preheader
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.preheader ], [ 0, %.preheader88 ]
@@ -678,10 +678,10 @@ SHADecode64.exit.preheader:                       ; preds = %20
   %93 = or i64 %92, %90
   %94 = add i64 %89, %93
   %95 = getelementptr inbounds nuw [128 x i64], ptr @SHA512_K, i64 0, i64 %indvars.iv103
-  %96 = load i64, ptr %95, align 8, !tbaa !13
+  %96 = load i64, ptr %95, align 8, !tbaa !9
   %97 = add i64 %94, %96
   %98 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %indvars.iv103
-  %99 = load i64, ptr %98, align 8, !tbaa !13
+  %99 = load i64, ptr %98, align 8, !tbaa !9
   %100 = add i64 %97, %99
   %101 = tail call i64 @llvm.fshl.i64(i64 %.08098, i64 %.08098, i64 36)
   %102 = tail call i64 @llvm.fshl.i64(i64 %.08098, i64 %.08098, i64 30)
@@ -697,25 +697,25 @@ SHADecode64.exit.preheader:                       ; preds = %20
   %112 = add i64 %110, %100
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 80
-  br i1 %exitcond106.not, label %113, label %.preheader, !llvm.loop !18
+  br i1 %exitcond106.not, label %113, label %.preheader
 
 113:                                              ; preds = %.preheader
   %114 = add i64 %112, %5
-  store i64 %114, ptr %0, align 8, !tbaa !13
+  store i64 %114, ptr %0, align 8, !tbaa !9
   %115 = add i64 %.08098, %7
-  store i64 %115, ptr %6, align 8, !tbaa !13
+  store i64 %115, ptr %6, align 8, !tbaa !9
   %116 = add i64 %.08197, %9
-  store i64 %116, ptr %8, align 8, !tbaa !13
+  store i64 %116, ptr %8, align 8, !tbaa !9
   %117 = add i64 %.08791, %11
-  store i64 %117, ptr %10, align 8, !tbaa !13
+  store i64 %117, ptr %10, align 8, !tbaa !9
   %118 = add i64 %111, %13
-  store i64 %118, ptr %12, align 8, !tbaa !13
+  store i64 %118, ptr %12, align 8, !tbaa !9
   %119 = add i64 %.08593, %15
-  store i64 %119, ptr %14, align 8, !tbaa !13
+  store i64 %119, ptr %14, align 8, !tbaa !9
   %120 = add i64 %.08494, %17
-  store i64 %120, ptr %16, align 8, !tbaa !13
+  store i64 %120, ptr %16, align 8, !tbaa !9
   %121 = add i64 %.08395, %19
-  store i64 %121, ptr %18, align 8, !tbaa !13
+  store i64 %121, ptr %18, align 8, !tbaa !9
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 128) #8
   call void @llvm.lifetime.end.p0(i64 640, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
@@ -727,70 +727,70 @@ define dso_local void @PHP_SHA384Final(ptr noundef writeonly captures(none) %0, 
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %5 = load i64, ptr %4, align 8, !tbaa !13
+  %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = trunc i64 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 15
-  store i8 %6, ptr %7, align 1, !tbaa !10
+  store i8 %6, ptr %7, align 1, !tbaa !8
   %8 = lshr i64 %5, 8
   %9 = trunc i64 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  store i8 %9, ptr %10, align 2, !tbaa !10
+  store i8 %9, ptr %10, align 2, !tbaa !8
   %11 = lshr i64 %5, 16
   %12 = trunc i64 %11 to i8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  store i8 %12, ptr %13, align 1, !tbaa !10
+  store i8 %12, ptr %13, align 1, !tbaa !8
   %14 = lshr i64 %5, 24
   %15 = trunc i64 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 %15, ptr %16, align 4, !tbaa !10
+  store i8 %15, ptr %16, align 4, !tbaa !8
   %17 = lshr i64 %5, 32
   %18 = trunc i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 11
-  store i8 %18, ptr %19, align 1, !tbaa !10
+  store i8 %18, ptr %19, align 1, !tbaa !8
   %20 = lshr i64 %5, 40
   %21 = trunc i64 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i8 %21, ptr %22, align 2, !tbaa !10
+  store i8 %21, ptr %22, align 2, !tbaa !8
   %23 = lshr i64 %5, 48
   %24 = trunc i64 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 %24, ptr %25, align 1, !tbaa !10
+  store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = lshr i64 %5, 56
   %27 = trunc nuw i64 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 %27, ptr %28, align 8, !tbaa !10
+  store i8 %27, ptr %28, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %30 = load i64, ptr %29, align 8, !tbaa !13
+  %30 = load i64, ptr %29, align 8, !tbaa !9
   %31 = trunc i64 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %31, ptr %32, align 1, !tbaa !10
+  store i8 %31, ptr %32, align 1, !tbaa !8
   %33 = lshr i64 %30, 8
   %34 = trunc i64 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %34, ptr %35, align 2, !tbaa !10
+  store i8 %34, ptr %35, align 2, !tbaa !8
   %36 = lshr i64 %30, 16
   %37 = trunc i64 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %37, ptr %38, align 1, !tbaa !10
+  store i8 %37, ptr %38, align 1, !tbaa !8
   %39 = lshr i64 %30, 24
   %40 = trunc i64 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %40, ptr %41, align 4, !tbaa !10
+  store i8 %40, ptr %41, align 4, !tbaa !8
   %42 = lshr i64 %30, 32
   %43 = trunc i64 %42 to i8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %43, ptr %44, align 1, !tbaa !10
+  store i8 %43, ptr %44, align 1, !tbaa !8
   %45 = lshr i64 %30, 40
   %46 = trunc i64 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %46, ptr %47, align 2, !tbaa !10
+  store i8 %46, ptr %47, align 2, !tbaa !8
   %48 = lshr i64 %30, 48
   %49 = trunc i64 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %49, ptr %50, align 1, !tbaa !10
+  store i8 %49, ptr %50, align 1, !tbaa !8
   %51 = lshr i64 %30, 56
   %52 = trunc nuw i64 %51 to i8
-  store i8 %52, ptr %3, align 16, !tbaa !10
+  store i8 %52, ptr %3, align 16, !tbaa !8
   %53 = trunc i64 %5 to i32
   %54 = lshr i32 %53, 3
   %55 = and i32 %54, 127
@@ -800,11 +800,11 @@ define dso_local void @PHP_SHA384Final(ptr noundef writeonly captures(none) %0, 
   %58 = zext i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 3
   %60 = add i64 %59, %5
-  store i64 %60, ptr %4, align 8, !tbaa !13
+  store i64 %60, ptr %4, align 8, !tbaa !9
   %61 = icmp ult i64 %60, %59
   %62 = zext i1 %61 to i64
   %63 = add i64 %30, %62
-  store i64 %63, ptr %29, align 8, !tbaa !13
+  store i64 %63, ptr %29, align 8, !tbaa !9
   %64 = sub nuw nsw i32 128, %55
   %.not.i = icmp ult i32 %57, %64
   br i1 %.not.i, label %PHP_SHA384Update.exit, label %65
@@ -827,7 +827,7 @@ define dso_local void @PHP_SHA384Final(ptr noundef writeonly captures(none) %0, 
   %73 = add nuw nsw i64 %.131.i, 128
   %74 = add nuw nsw i64 %.131.i, 255
   %75 = icmp samesign ult i64 %74, %58
-  br i1 %75, label %.lr.ph.i, label %PHP_SHA384Update.exit, !llvm.loop !15
+  br i1 %75, label %.lr.ph.i, label %PHP_SHA384Update.exit
 
 PHP_SHA384Update.exit:                            ; preds = %.lr.ph.i, %2, %65
   %.028.i = phi i32 [ %55, %2 ], [ 0, %65 ], [ 0, %.lr.ph.i ]
@@ -838,17 +838,17 @@ PHP_SHA384Update.exit:                            ; preds = %.lr.ph.i, %2, %65
   %79 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.0.i
   %80 = sub i64 %58, %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull readonly align 1 %79, i64 %80, i1 false)
-  %81 = load i64, ptr %4, align 8, !tbaa !13
+  %81 = load i64, ptr %4, align 8, !tbaa !9
   %82 = trunc i64 %81 to i32
   %83 = lshr i32 %82, 3
   %84 = and i32 %83, 127
   %85 = add i64 %81, 128
-  store i64 %85, ptr %4, align 8, !tbaa !13
+  store i64 %85, ptr %4, align 8, !tbaa !9
   %86 = icmp ugt i64 %81, -129
-  %87 = load i64, ptr %29, align 8, !tbaa !13
+  %87 = load i64, ptr %29, align 8, !tbaa !9
   %88 = zext i1 %86 to i64
   %89 = add i64 %87, %88
-  store i64 %89, ptr %29, align 8, !tbaa !13
+  store i64 %89, ptr %29, align 8, !tbaa !9
   %.not.i25 = icmp samesign ult i32 %84, 112
   br i1 %.not.i25, label %PHP_SHA384Update.exit30, label %90
 
@@ -875,49 +875,49 @@ PHP_SHA384Update.exit30:                          ; preds = %PHP_SHA384Update.ex
   %indvars.iv38.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next39.i, %99 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next.i, %99 ]
   %100 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv38.i
-  %101 = load i64, ptr %100, align 8, !tbaa !13
+  %101 = load i64, ptr %100, align 8, !tbaa !9
   %102 = lshr i64 %101, 56
   %103 = trunc nuw i64 %102 to i8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %103, ptr %104, align 1, !tbaa !10
-  %105 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %103, ptr %104, align 1, !tbaa !8
+  %105 = load i64, ptr %100, align 8, !tbaa !9
   %106 = lshr i64 %105, 48
   %107 = trunc i64 %106 to i8
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store i8 %107, ptr %108, align 1, !tbaa !10
-  %109 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %107, ptr %108, align 1, !tbaa !8
+  %109 = load i64, ptr %100, align 8, !tbaa !9
   %110 = lshr i64 %109, 40
   %111 = trunc i64 %110 to i8
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 2
-  store i8 %111, ptr %112, align 1, !tbaa !10
-  %113 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %111, ptr %112, align 1, !tbaa !8
+  %113 = load i64, ptr %100, align 8, !tbaa !9
   %114 = lshr i64 %113, 32
   %115 = trunc i64 %114 to i8
   %116 = getelementptr inbounds nuw i8, ptr %104, i64 3
-  store i8 %115, ptr %116, align 1, !tbaa !10
-  %117 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %115, ptr %116, align 1, !tbaa !8
+  %117 = load i64, ptr %100, align 8, !tbaa !9
   %118 = lshr i64 %117, 24
   %119 = trunc i64 %118 to i8
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  store i8 %119, ptr %120, align 1, !tbaa !10
-  %121 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %119, ptr %120, align 1, !tbaa !8
+  %121 = load i64, ptr %100, align 8, !tbaa !9
   %122 = lshr i64 %121, 16
   %123 = trunc i64 %122 to i8
   %124 = getelementptr inbounds nuw i8, ptr %104, i64 5
-  store i8 %123, ptr %124, align 1, !tbaa !10
-  %125 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %123, ptr %124, align 1, !tbaa !8
+  %125 = load i64, ptr %100, align 8, !tbaa !9
   %126 = lshr i64 %125, 8
   %127 = trunc i64 %126 to i8
   %128 = getelementptr inbounds nuw i8, ptr %104, i64 6
-  store i8 %127, ptr %128, align 1, !tbaa !10
-  %129 = load i64, ptr %100, align 8, !tbaa !13
+  store i8 %127, ptr %128, align 1, !tbaa !8
+  %129 = load i64, ptr %100, align 8, !tbaa !9
   %130 = trunc i64 %129 to i8
   %131 = getelementptr inbounds nuw i8, ptr %104, i64 7
-  store i8 %130, ptr %131, align 1, !tbaa !10
+  store i8 %130, ptr %131, align 1, !tbaa !8
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, 6
-  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %99, !llvm.loop !19
+  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %99
 
 SHAEncode64.exit:                                 ; preds = %99
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #8
@@ -929,21 +929,21 @@ SHAEncode64.exit:                                 ; preds = %99
 define dso_local void @PHP_SHA512InitArgs(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 7640891576956012808, ptr %0, align 8, !tbaa !13
+  store i64 7640891576956012808, ptr %0, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -4942790177534073029, ptr %4, align 8, !tbaa !13
+  store i64 -4942790177534073029, ptr %4, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 4354685564936845355, ptr %5, align 8, !tbaa !13
+  store i64 4354685564936845355, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -6534734903238641935, ptr %6, align 8, !tbaa !13
+  store i64 -6534734903238641935, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 5840696475078001361, ptr %7, align 8, !tbaa !13
+  store i64 5840696475078001361, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 -7276294671716946913, ptr %8, align 8, !tbaa !13
+  store i64 -7276294671716946913, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2270897969802886507, ptr %9, align 8, !tbaa !13
+  store i64 2270897969802886507, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 6620516959819538809, ptr %10, align 8, !tbaa !13
+  store i64 6620516959819538809, ptr %10, align 8, !tbaa !9
   ret void
 }
 
@@ -951,21 +951,21 @@ define dso_local void @PHP_SHA512InitArgs(ptr noundef writeonly captures(none) i
 define dso_local void @PHP_SHA512_256InitArgs(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 2463787394917988140, ptr %0, align 8, !tbaa !13
+  store i64 2463787394917988140, ptr %0, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -6965556091613846334, ptr %4, align 8, !tbaa !13
+  store i64 -6965556091613846334, ptr %4, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2563595384472711505, ptr %5, align 8, !tbaa !13
+  store i64 2563595384472711505, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -7622211418569250115, ptr %6, align 8, !tbaa !13
+  store i64 -7622211418569250115, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -7626776825740460061, ptr %7, align 8, !tbaa !13
+  store i64 -7626776825740460061, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 -4729309413028513390, ptr %8, align 8, !tbaa !13
+  store i64 -4729309413028513390, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 3098927326965381290, ptr %9, align 8, !tbaa !13
+  store i64 3098927326965381290, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 1060366662362279074, ptr %10, align 8, !tbaa !13
+  store i64 1060366662362279074, ptr %10, align 8, !tbaa !9
   ret void
 }
 
@@ -973,21 +973,21 @@ define dso_local void @PHP_SHA512_256InitArgs(ptr noundef writeonly captures(non
 define dso_local void @PHP_SHA512_224InitArgs(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 -8341449602262348382, ptr %0, align 8, !tbaa !13
+  store i64 -8341449602262348382, ptr %0, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 8350123849800275158, ptr %4, align 8, !tbaa !13
+  store i64 8350123849800275158, ptr %4, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2160240930085379202, ptr %5, align 8, !tbaa !13
+  store i64 2160240930085379202, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 7466358040605728719, ptr %6, align 8, !tbaa !13
+  store i64 7466358040605728719, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 1111592415079452072, ptr %7, align 8, !tbaa !13
+  store i64 1111592415079452072, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 8638871050018654530, ptr %8, align 8, !tbaa !13
+  store i64 8638871050018654530, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 4583966954114332360, ptr %9, align 8, !tbaa !13
+  store i64 4583966954114332360, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 1230299281376055969, ptr %10, align 8, !tbaa !13
+  store i64 1230299281376055969, ptr %10, align 8, !tbaa !9
   ret void
 }
 
@@ -995,22 +995,22 @@ define dso_local void @PHP_SHA512_224InitArgs(ptr noundef writeonly captures(non
 define dso_local void @PHP_SHA512Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load i64, ptr %3, align 8, !tbaa !13
+  %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 3
   %7 = and i32 %6, 127
   %8 = shl i64 %2, 3
   %9 = add i64 %4, %8
-  store i64 %9, ptr %3, align 8, !tbaa !13
+  store i64 %9, ptr %3, align 8, !tbaa !9
   %10 = icmp ult i64 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = zext i1 %10 to i64
   %14 = add i64 %12, %13
   %15 = lshr i64 %2, 61
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = add i64 %14, %15
-  store i64 %17, ptr %16, align 8, !tbaa !13
+  store i64 %17, ptr %16, align 8, !tbaa !9
   %18 = sub nuw nsw i32 128, %7
   %19 = zext nneg i32 %18 to i64
   %.not = icmp ult i64 %2, %19
@@ -1033,7 +1033,7 @@ define dso_local void @PHP_SHA512Update(ptr noundef captures(none) %0, ptr nound
   %27 = add i64 %.031, 128
   %28 = add i64 %.031, 255
   %29 = icmp ult i64 %28, %2
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 30:                                               ; preds = %._crit_edge
   %31 = zext nneg i32 %7 to i64
@@ -1055,70 +1055,70 @@ define dso_local void @PHP_SHA512Final(ptr noundef writeonly captures(none) %0, 
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %5 = load i64, ptr %4, align 8, !tbaa !13
+  %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = trunc i64 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 15
-  store i8 %6, ptr %7, align 1, !tbaa !10
+  store i8 %6, ptr %7, align 1, !tbaa !8
   %8 = lshr i64 %5, 8
   %9 = trunc i64 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  store i8 %9, ptr %10, align 2, !tbaa !10
+  store i8 %9, ptr %10, align 2, !tbaa !8
   %11 = lshr i64 %5, 16
   %12 = trunc i64 %11 to i8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  store i8 %12, ptr %13, align 1, !tbaa !10
+  store i8 %12, ptr %13, align 1, !tbaa !8
   %14 = lshr i64 %5, 24
   %15 = trunc i64 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 %15, ptr %16, align 4, !tbaa !10
+  store i8 %15, ptr %16, align 4, !tbaa !8
   %17 = lshr i64 %5, 32
   %18 = trunc i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 11
-  store i8 %18, ptr %19, align 1, !tbaa !10
+  store i8 %18, ptr %19, align 1, !tbaa !8
   %20 = lshr i64 %5, 40
   %21 = trunc i64 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i8 %21, ptr %22, align 2, !tbaa !10
+  store i8 %21, ptr %22, align 2, !tbaa !8
   %23 = lshr i64 %5, 48
   %24 = trunc i64 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 %24, ptr %25, align 1, !tbaa !10
+  store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = lshr i64 %5, 56
   %27 = trunc nuw i64 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 %27, ptr %28, align 8, !tbaa !10
+  store i8 %27, ptr %28, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %30 = load i64, ptr %29, align 8, !tbaa !13
+  %30 = load i64, ptr %29, align 8, !tbaa !9
   %31 = trunc i64 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %31, ptr %32, align 1, !tbaa !10
+  store i8 %31, ptr %32, align 1, !tbaa !8
   %33 = lshr i64 %30, 8
   %34 = trunc i64 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %34, ptr %35, align 2, !tbaa !10
+  store i8 %34, ptr %35, align 2, !tbaa !8
   %36 = lshr i64 %30, 16
   %37 = trunc i64 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %37, ptr %38, align 1, !tbaa !10
+  store i8 %37, ptr %38, align 1, !tbaa !8
   %39 = lshr i64 %30, 24
   %40 = trunc i64 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %40, ptr %41, align 4, !tbaa !10
+  store i8 %40, ptr %41, align 4, !tbaa !8
   %42 = lshr i64 %30, 32
   %43 = trunc i64 %42 to i8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %43, ptr %44, align 1, !tbaa !10
+  store i8 %43, ptr %44, align 1, !tbaa !8
   %45 = lshr i64 %30, 40
   %46 = trunc i64 %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %46, ptr %47, align 2, !tbaa !10
+  store i8 %46, ptr %47, align 2, !tbaa !8
   %48 = lshr i64 %30, 48
   %49 = trunc i64 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %49, ptr %50, align 1, !tbaa !10
+  store i8 %49, ptr %50, align 1, !tbaa !8
   %51 = lshr i64 %30, 56
   %52 = trunc nuw i64 %51 to i8
-  store i8 %52, ptr %3, align 16, !tbaa !10
+  store i8 %52, ptr %3, align 16, !tbaa !8
   %53 = trunc i64 %5 to i32
   %54 = lshr i32 %53, 3
   %55 = and i32 %54, 127
@@ -1128,11 +1128,11 @@ define dso_local void @PHP_SHA512Final(ptr noundef writeonly captures(none) %0, 
   %58 = zext i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 3
   %60 = add i64 %59, %5
-  store i64 %60, ptr %4, align 8, !tbaa !13
+  store i64 %60, ptr %4, align 8, !tbaa !9
   %61 = icmp ult i64 %60, %59
   %62 = zext i1 %61 to i64
   %63 = add i64 %30, %62
-  store i64 %63, ptr %29, align 8, !tbaa !13
+  store i64 %63, ptr %29, align 8, !tbaa !9
   %64 = sub nuw nsw i32 128, %55
   %.not.i = icmp ult i32 %57, %64
   br i1 %.not.i, label %76, label %65
@@ -1155,7 +1155,7 @@ define dso_local void @PHP_SHA512Final(ptr noundef writeonly captures(none) %0, 
   %73 = add nuw nsw i64 %.031.i, 128
   %74 = add nuw nsw i64 %.031.i, 255
   %75 = icmp samesign ult i64 %74, %58
-  br i1 %75, label %.lr.ph.i, label %PHP_SHA512Update.exit, !llvm.loop !20
+  br i1 %75, label %.lr.ph.i, label %PHP_SHA512Update.exit
 
 76:                                               ; preds = %2
   %77 = zext nneg i32 %55 to i64
@@ -1169,17 +1169,17 @@ PHP_SHA512Update.exit:                            ; preds = %.lr.ph.i, %65, %76
   %80 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %81 = sub i64 %58, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull readonly align 1 %80, i64 %81, i1 false)
-  %82 = load i64, ptr %4, align 8, !tbaa !13
+  %82 = load i64, ptr %4, align 8, !tbaa !9
   %83 = trunc i64 %82 to i32
   %84 = lshr i32 %83, 3
   %85 = and i32 %84, 127
   %86 = add i64 %82, 128
-  store i64 %86, ptr %4, align 8, !tbaa !13
+  store i64 %86, ptr %4, align 8, !tbaa !9
   %87 = icmp ugt i64 %82, -129
-  %88 = load i64, ptr %29, align 8, !tbaa !13
+  %88 = load i64, ptr %29, align 8, !tbaa !9
   %89 = zext i1 %87 to i64
   %90 = add i64 %88, %89
-  store i64 %90, ptr %29, align 8, !tbaa !13
+  store i64 %90, ptr %29, align 8, !tbaa !9
   %.not.i25 = icmp samesign ult i32 %85, 112
   br i1 %.not.i25, label %96, label %91
 
@@ -1209,49 +1209,49 @@ PHP_SHA512Update.exit30:                          ; preds = %96, %91
   %indvars.iv38.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next39.i, %101 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next.i, %101 ]
   %102 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv38.i
-  %103 = load i64, ptr %102, align 8, !tbaa !13
+  %103 = load i64, ptr %102, align 8, !tbaa !9
   %104 = lshr i64 %103, 56
   %105 = trunc nuw i64 %104 to i8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %105, ptr %106, align 1, !tbaa !10
-  %107 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %105, ptr %106, align 1, !tbaa !8
+  %107 = load i64, ptr %102, align 8, !tbaa !9
   %108 = lshr i64 %107, 48
   %109 = trunc i64 %108 to i8
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 1
-  store i8 %109, ptr %110, align 1, !tbaa !10
-  %111 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %109, ptr %110, align 1, !tbaa !8
+  %111 = load i64, ptr %102, align 8, !tbaa !9
   %112 = lshr i64 %111, 40
   %113 = trunc i64 %112 to i8
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 2
-  store i8 %113, ptr %114, align 1, !tbaa !10
-  %115 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %113, ptr %114, align 1, !tbaa !8
+  %115 = load i64, ptr %102, align 8, !tbaa !9
   %116 = lshr i64 %115, 32
   %117 = trunc i64 %116 to i8
   %118 = getelementptr inbounds nuw i8, ptr %106, i64 3
-  store i8 %117, ptr %118, align 1, !tbaa !10
-  %119 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %117, ptr %118, align 1, !tbaa !8
+  %119 = load i64, ptr %102, align 8, !tbaa !9
   %120 = lshr i64 %119, 24
   %121 = trunc i64 %120 to i8
   %122 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  store i8 %121, ptr %122, align 1, !tbaa !10
-  %123 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %121, ptr %122, align 1, !tbaa !8
+  %123 = load i64, ptr %102, align 8, !tbaa !9
   %124 = lshr i64 %123, 16
   %125 = trunc i64 %124 to i8
   %126 = getelementptr inbounds nuw i8, ptr %106, i64 5
-  store i8 %125, ptr %126, align 1, !tbaa !10
-  %127 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %125, ptr %126, align 1, !tbaa !8
+  %127 = load i64, ptr %102, align 8, !tbaa !9
   %128 = lshr i64 %127, 8
   %129 = trunc i64 %128 to i8
   %130 = getelementptr inbounds nuw i8, ptr %106, i64 6
-  store i8 %129, ptr %130, align 1, !tbaa !10
-  %131 = load i64, ptr %102, align 8, !tbaa !13
+  store i8 %129, ptr %130, align 1, !tbaa !8
+  %131 = load i64, ptr %102, align 8, !tbaa !9
   %132 = trunc i64 %131 to i8
   %133 = getelementptr inbounds nuw i8, ptr %106, i64 7
-  store i8 %132, ptr %133, align 1, !tbaa !10
+  store i8 %132, ptr %133, align 1, !tbaa !8
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %101, !llvm.loop !19
+  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %101
 
 SHAEncode64.exit:                                 ; preds = %101
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #8
@@ -1311,16 +1311,6 @@ attributes #8 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !6, i64 0}

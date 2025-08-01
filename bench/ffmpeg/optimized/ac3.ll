@@ -77,7 +77,7 @@ define void @ff_ac3_bit_alloc_calc_psd(ptr noundef readonly captures(none) %0, i
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next56 to i32
   %exitcond58.not = icmp eq i32 %., %lftr.wideiv
-  br i1 %exitcond58.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !12
+  br i1 %exitcond58.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !11
 
 ._crit_edge51.loopexit:                           ; preds = %.lr.ph50
   %39 = trunc i32 %38 to i16
@@ -89,7 +89,7 @@ define void @ff_ac3_bit_alloc_calc_psd(ptr noundef readonly captures(none) %0, i
   %40 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv59
   store i16 %.040.lcssa, ptr %40, align 2, !tbaa !7
   %41 = icmp sgt i32 %2, %23
-  br i1 %41, label %17, label %42, !llvm.loop !13
+  br i1 %41, label %17, label %42, !llvm.loop !12
 
 42:                                               ; preds = %._crit_edge51
   ret void
@@ -192,7 +192,7 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
   %68 = load i16, ptr %67, align 2, !tbaa !7
   %69 = sext i16 %68 to i32
   %70 = sub nsw i32 %69, %4
-  %71 = load i32, ptr %50, align 4, !tbaa !14
+  %71 = load i32, ptr %50, align 4, !tbaa !13
   %72 = sub nsw i32 %69, %71
   %73 = sub nsw i32 %70, %.0180224
   %74 = trunc i32 %73 to i16
@@ -203,7 +203,7 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
 76:                                               ; preds = %64, %62, %53
   %.2182.ph = phi i32 [ 384, %53 ], [ %.0180224, %62 ], [ %66, %64 ]
   %77 = sub nsw i32 %56, %4
-  %78 = load i32, ptr %50, align 4, !tbaa !14
+  %78 = load i32, ptr %50, align 4, !tbaa !13
   %79 = sub nsw i32 %77, %.2182.ph
   %80 = trunc i32 %79 to i16
   %81 = getelementptr inbounds nuw [50 x i16], ptr %13, i64 0, i64 %indvars.iv
@@ -214,7 +214,7 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
 
 83:                                               ; preds = %76
   %exitcond.not = icmp eq i64 %82, 7
-  br i1 %exitcond.not, label %.loopexit286.split.loop.exit, label %51, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit286.split.loop.exit, label %51, !llvm.loop !16
 
 .loopexit286.split.loop.exit:                     ; preds = %83
   %84 = sub nsw i32 %56, %78
@@ -237,9 +237,9 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
 
 .lr.ph:                                           ; preds = %.loopexit286
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = load i32, ptr %89, align 4, !tbaa !18
+  %90 = load i32, ptr %89, align 4, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %92 = load i32, ptr %91, align 4, !tbaa !19
+  %92 = load i32, ptr %91, align 4, !tbaa !18
   %93 = zext nneg i32 %.0190 to i64
   %94 = add nuw nsw i32 %88, 1
   %wide.trip.count = zext nneg i32 %94 to i64
@@ -323,15 +323,15 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   store i16 %133, ptr %134, align 2, !tbaa !7
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count
-  br i1 %exitcond259.not, label %.loopexit, label %95, !llvm.loop !20
+  br i1 %exitcond259.not, label %.loopexit, label %95, !llvm.loop !19
 
 135:                                              ; preds = %15
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %137 = load i32, ptr %136, align 4, !tbaa !21
+  %137 = load i32, ptr %136, align 4, !tbaa !20
   %138 = shl i32 %137, 8
   %139 = add nsw i32 %138, 768
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %141 = load i32, ptr %140, align 4, !tbaa !22
+  %141 = load i32, ptr %140, align 4, !tbaa !21
   %142 = shl i32 %141, 8
   %143 = add nsw i32 %142, 768
   br label %.loopexit
@@ -345,11 +345,11 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
 
 .lr.ph235:                                        ; preds = %.loopexit
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %145 = load i32, ptr %144, align 4, !tbaa !18
+  %145 = load i32, ptr %144, align 4, !tbaa !17
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %147 = load i32, ptr %146, align 4, !tbaa !19
+  %147 = load i32, ptr %146, align 4, !tbaa !18
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %149 = load i32, ptr %148, align 4, !tbaa !14
+  %149 = load i32, ptr %148, align 4, !tbaa !13
   %150 = zext nneg i32 %.1191 to i64
   %151 = add nuw nsw i32 %24, 1
   %wide.trip.count263 = zext nneg i32 %151 to i64
@@ -361,10 +361,10 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
 
 .lr.ph238:                                        ; preds = %.preheader222
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %153 = load i32, ptr %152, align 4, !tbaa !23
+  %153 = load i32, ptr %152, align 4, !tbaa !22
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %155 = load i32, ptr %154, align 4, !tbaa !24
-  %156 = load i32, ptr %0, align 4, !tbaa !25
+  %155 = load i32, ptr %154, align 4, !tbaa !23
+  %156 = load i32, ptr %0, align 4, !tbaa !24
   %157 = sext i32 %156 to i64
   %invariant.gep = getelementptr [3 x i16], ptr @ac3_hearing_threshold_tab, i64 0, i64 %157
   %158 = zext i8 %18 to i64
@@ -391,7 +391,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   store i16 %170, ptr %171, align 2, !tbaa !7
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
-  br i1 %exitcond264.not, label %.preheader222, label %160, !llvm.loop !26
+  br i1 %exitcond264.not, label %.preheader222, label %160, !llvm.loop !25
 
 172:                                              ; preds = %.lr.ph238, %184
   %indvars.iv265 = phi i64 [ %158, %.lr.ph238 ], [ %indvars.iv.next266, %184 ]
@@ -431,7 +431,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   store i16 %.213, ptr %193, align 2, !tbaa !7
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %._crit_edge, label %172, !llvm.loop !27
+  br i1 %exitcond269.not, label %._crit_edge, label %172, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %184, %.preheader222
   %or.cond7 = icmp ult i32 %6, 2
@@ -497,7 +497,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %223 = load i8, ptr %203, align 1, !tbaa !4
   %224 = zext i8 %223 to i32
   %225 = icmp samesign ult i32 %222, %224
-  br i1 %225, label %.lr.ph242, label %._crit_edge243.loopexit, !llvm.loop !28
+  br i1 %225, label %.lr.ph242, label %._crit_edge243.loopexit, !llvm.loop !27
 
 ._crit_edge243.loopexit:                          ; preds = %.lr.ph242
   %226 = trunc nsw i64 %indvars.iv.next271 to i32
@@ -507,7 +507,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %.5.lcssa = phi i32 [ %200, %208 ], [ %226, %._crit_edge243.loopexit ]
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
-  br i1 %exitcond277.not, label %.critedge, label %.lr.ph247, !llvm.loop !29
+  br i1 %exitcond277.not, label %.critedge, label %.lr.ph247, !llvm.loop !28
 
 .critedge:                                        ; preds = %._crit_edge243, %.lr.ph247, %202, %.preheader, %194, %._crit_edge, %12
   %.0171 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ -1, %194 ], [ 0, %.preheader ], [ 0, %._crit_edge243 ], [ -1, %.lr.ph247 ], [ -1, %202 ]
@@ -543,24 +543,23 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = !{!15, !16, i64 8}
-!15 = !{!"AC3BitAllocParameters", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32}
-!16 = !{!"int", !5, i64 0}
-!17 = distinct !{!17, !10, !11}
-!18 = !{!15, !16, i64 16}
-!19 = !{!15, !16, i64 12}
-!20 = distinct !{!20, !10, !11}
-!21 = !{!15, !16, i64 28}
-!22 = !{!15, !16, i64 32}
-!23 = !{!15, !16, i64 20}
-!24 = !{!15, !16, i64 4}
-!25 = !{!15, !16, i64 0}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
-!29 = distinct !{!29, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = !{!14, !15, i64 8}
+!14 = !{!"AC3BitAllocParameters", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32}
+!15 = !{!"int", !5, i64 0}
+!16 = distinct !{!16, !10}
+!17 = !{!14, !15, i64 16}
+!18 = !{!14, !15, i64 12}
+!19 = distinct !{!19, !10}
+!20 = !{!14, !15, i64 28}
+!21 = !{!14, !15, i64 32}
+!22 = !{!14, !15, i64 20}
+!23 = !{!14, !15, i64 4}
+!24 = !{!14, !15, i64 0}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}

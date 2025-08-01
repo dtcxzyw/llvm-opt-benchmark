@@ -243,7 +243,7 @@ mcast_stream_info_cmp.exit.us:                    ; preds = %78, %74, %70, %66, 
   %82 = getelementptr inbounds nuw i8, ptr %.0145169.us, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not152.us = icmp eq ptr %83, null
-  br i1 %.not152.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %.not152.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %mcast_stream_info_cmp.exit
   %.0145169 = phi ptr [ %118, %mcast_stream_info_cmp.exit ], [ %49, %.lr.ph ]
@@ -304,7 +304,7 @@ mcast_stream_info_cmp.exit:                       ; preds = %86, %89, %93, %97, 
   %117 = getelementptr inbounds nuw i8, ptr %.0145169, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not152 = icmp eq ptr %118, null
-  br i1 %.not152, label %.thread, label %.lr.ph.split.split, !llvm.loop !11
+  br i1 %.not152, label %.thread, label %.lr.ph.split.split, !llvm.loop !10
 
 .thread:                                          ; preds = %mcast_stream_info_cmp.exit, %mcast_stream_info_cmp.exit.us, %28
   %119 = tail call noalias dereferenceable_or_null(208) ptr @g_malloc0(i64 noundef 208) #10
@@ -733,7 +733,7 @@ define internal fastcc void @slidingwindow(ptr noundef captures(none) %0, ptr no
   %storemerge50 = select i1 %46, i32 %47, i32 %45
   store i32 %storemerge50, ptr %8, align 8
   %48 = add i32 %.1, -1
-  br label %33, !llvm.loop !12
+  br label %33, !llvm.loop !11
 
 49:                                               ; preds = %33
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -799,7 +799,7 @@ define hidden void @remove_tap_listener_mcast_stream(ptr noundef %0) local_unnam
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i8, ptr %3, align 8, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -822,7 +822,7 @@ define hidden ptr @register_tap_listener_mcast_stream(ptr noundef %0) local_unna
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i8, ptr %3, align 8, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %10, label %6
 
@@ -924,12 +924,11 @@ attributes #11 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}

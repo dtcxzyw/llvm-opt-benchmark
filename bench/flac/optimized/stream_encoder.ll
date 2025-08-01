@@ -783,7 +783,7 @@ declare i32 @FLAC__stream_encoder_init_file(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC7Encoder4File4initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !20
+  %3 = load ptr, ptr %1, align 8, !tbaa !19
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 472
   %6 = load ptr, ptr %5, align 8
@@ -813,7 +813,7 @@ declare i32 @FLAC__stream_encoder_init_ogg_file(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN4FLAC7Encoder4File8init_oggERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !20
+  %3 = load ptr, ptr %1, align 8, !tbaa !19
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 496
   %6 = load ptr, ptr %5, align 8
@@ -868,11 +868,10 @@ attributes #14 = { builtin nounwind }
 !14 = !{!"p1 _ZTS20FLAC__StreamMetadata", !8, i64 0}
 !15 = !{!"bool", !9, i64 0}
 !16 = !{!14, !14, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !23, i64 0}
-!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !22, i64 0, !24, i64 8, !9, i64 16}
-!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
-!23 = !{!"p1 omnipotent char", !8, i64 0}
-!24 = !{!"long", !9, i64 0}
+!19 = !{!20, !22, i64 0}
+!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0, !23, i64 8, !9, i64 16}
+!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !22, i64 0}
+!22 = !{!"p1 omnipotent char", !8, i64 0}
+!23 = !{!"long", !9, i64 0}

@@ -92,7 +92,7 @@ define void @voronoi(ptr noundef readonly captures(none) %0, ptr noundef %1) loc
 
 38:                                               ; preds = %36, %33
   %39 = tail call ptr %0(ptr noundef %1) #2
-  br label %.outer, !llvm.loop !15
+  br label %.outer
 
 40:                                               ; preds = %21, %19, %13
   %41 = tail call zeroext i1 @PQempty(ptr noundef %3) #2
@@ -106,18 +106,18 @@ define void @voronoi(ptr noundef readonly captures(none) %0, ptr noundef %1) loc
   %47 = tail call ptr @leftreg(ptr noundef %43) #2
   %48 = tail call ptr @rightreg(ptr noundef %45) #2
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !17
+  %50 = load ptr, ptr %49, align 8, !tbaa !15
   tail call void @makevertex(ptr noundef %50) #2
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !21
+  %52 = load ptr, ptr %51, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %54 = load i8, ptr %53, align 4, !tbaa !22
+  %54 = load i8, ptr %53, align 4, !tbaa !20
   %55 = sext i8 %54 to i32
   tail call void @endpoint(ptr noundef %52, i32 noundef %55, ptr noundef %50) #2
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !21
+  %57 = load ptr, ptr %56, align 8, !tbaa !19
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  %59 = load i8, ptr %58, align 4, !tbaa !22
+  %59 = load i8, ptr %58, align 4, !tbaa !20
   %60 = sext i8 %59 to i32
   tail call void @endpoint(ptr noundef %57, i32 noundef %60, ptr noundef %50) #2
   tail call void @ELdelete(ptr noundef %43) #2
@@ -159,24 +159,24 @@ define void @voronoi(ptr noundef readonly captures(none) %0, ptr noundef %1) loc
   br label %.backedge
 
 .backedge:                                        ; preds = %75, %73
-  br label %7, !llvm.loop !15
+  br label %7
 
 77:                                               ; preds = %40
-  %78 = load ptr, ptr @ELleftend, align 8, !tbaa !23
+  %78 = load ptr, ptr @ELleftend, align 8, !tbaa !21
   %79 = tail call ptr @ELright(ptr noundef %78) #2
-  %80 = load ptr, ptr @ELrightend, align 8, !tbaa !23
+  %80 = load ptr, ptr @ELrightend, align 8, !tbaa !21
   %.not108111 = icmp eq ptr %79, %80
   br i1 %.not108111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77, %.lr.ph
   %.099112 = phi ptr [ %83, %.lr.ph ], [ %79, %77 ]
   %81 = getelementptr inbounds nuw i8, ptr %.099112, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !21
+  %82 = load ptr, ptr %81, align 8, !tbaa !19
   tail call void @clip_line(ptr noundef %82) #2
   %83 = tail call ptr @ELright(ptr noundef %.099112) #2
-  %84 = load ptr, ptr @ELrightend, align 8, !tbaa !23
+  %84 = load ptr, ptr @ELrightend, align 8, !tbaa !21
   %.not108 = icmp eq ptr %83, %84
-  br i1 %.not108, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not108, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %77
   tail call void @PQcleanup(ptr noundef %3) #2
@@ -254,14 +254,12 @@ attributes #2 = { nounwind }
 !12 = !{!"long", !6, i64 0}
 !13 = !{!"int", !6, i64 0}
 !14 = !{!9, !11, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !4, i64 32}
-!18 = !{!"Halfedge", !19, i64 0, !19, i64 8, !20, i64 16, !13, i64 24, !6, i64 28, !4, i64 32, !11, i64 40, !19, i64 48}
-!19 = !{!"p1 _ZTS8Halfedge", !5, i64 0}
-!20 = !{!"p1 _ZTS4Edge", !5, i64 0}
-!21 = !{!18, !20, i64 16}
-!22 = !{!18, !6, i64 28}
-!23 = !{!19, !19, i64 0}
-!24 = distinct !{!24, !25, !16}
-!25 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !4, i64 32}
+!16 = !{!"Halfedge", !17, i64 0, !17, i64 8, !18, i64 16, !13, i64 24, !6, i64 28, !4, i64 32, !11, i64 40, !17, i64 48}
+!17 = !{!"p1 _ZTS8Halfedge", !5, i64 0}
+!18 = !{!"p1 _ZTS4Edge", !5, i64 0}
+!19 = !{!16, !18, i64 16}
+!20 = !{!16, !6, i64 28}
+!21 = !{!17, !17, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}

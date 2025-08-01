@@ -380,7 +380,7 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   %42 = load i32, ptr %10, align 4, !tbaa !34
   %43 = sub nsw i32 %41, %42
   %44 = icmp slt i32 %43, 32
-  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !39
+  br i1 %44, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.preheader, %.thread
   %.pre-phi = phi i32 [ %20, %.preheader ], [ %.pre83, %.thread ], [ %43, %39 ]
@@ -398,7 +398,7 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   %50 = load ptr, ptr %14, align 8, !tbaa !27
   %51 = sext i32 %45 to i64
   %52 = getelementptr inbounds i8, ptr %12, i64 %51
-  %53 = load ptr, ptr %16, align 8, !tbaa !41
+  %53 = load ptr, ptr %16, align 8, !tbaa !39
   tail call void @av_aes_crypt(ptr noundef %50, ptr noundef nonnull %15, ptr noundef nonnull %52, i32 noundef %spec.select, ptr noundef %53, i32 noundef 1) #6
   %54 = shl nsw i32 %spec.select, 4
   store i32 %54, ptr %6, align 8, !tbaa !33
@@ -435,7 +435,7 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   %71 = add nsw i32 %.pre81, -1
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds [4112 x i8], ptr %15, i64 0, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !42
+  %74 = load i8, ptr %73, align 1, !tbaa !40
   %75 = zext i8 %74 to i32
   %76 = sub nsw i32 %.pre81, %75
   store i32 %76, ptr %6, align 8, !tbaa !33
@@ -444,7 +444,7 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
 77:                                               ; preds = %70, %67
   %78 = phi i32 [ %76, %70 ], [ %.pre81, %67 ]
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %._crit_edge, label %.preheader, !llvm.loop !43
+  br i1 %79, label %._crit_edge, label %.preheader
 
 .loopexit70:                                      ; preds = %.loopexit, %._crit_edge
   %.0 = phi i32 [ %., %._crit_edge ], [ -541478725, %.loopexit ]
@@ -456,7 +456,7 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8420
-  %7 = load i32, ptr %6, align 4, !tbaa !44
+  %7 = load i32, ptr %6, align 4, !tbaa !41
   %8 = add nsw i32 %7, %2
   %9 = srem i32 %8, 16
   %10 = sub nsw i32 %8, %9
@@ -469,12 +469,12 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8400
   %15 = sext i32 %10 to i64
   tail call void @av_fast_malloc(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %15) #6
-  %16 = load ptr, ptr %13, align 8, !tbaa !45
+  %16 = load ptr, ptr %13, align 8, !tbaa !42
   %.not52 = icmp eq ptr %16, null
   br i1 %.not52, label %60, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr %6, align 4, !tbaa !44
+  %18 = load i32, ptr %6, align 4, !tbaa !41
   %.not53 = icmp eq i32 %18, 0
   br i1 %.not53, label %31, label %19
 
@@ -487,13 +487,13 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %1, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8384
   %26 = load ptr, ptr %25, align 8, !tbaa !31
-  %27 = load ptr, ptr %13, align 8, !tbaa !45
+  %27 = load ptr, ptr %13, align 8, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8360
-  %29 = load ptr, ptr %28, align 8, !tbaa !46
+  %29 = load ptr, ptr %28, align 8, !tbaa !43
   tail call void @av_aes_crypt(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %20, i32 noundef 1, ptr noundef %29, i32 noundef 0) #6
   %30 = add nsw i32 %11, -1
-  %.pre = load ptr, ptr %13, align 8, !tbaa !45
-  %.pre55 = load i32, ptr %6, align 4, !tbaa !44
+  %.pre = load ptr, ptr %13, align 8, !tbaa !42
+  %.pre55 = load i32, ptr %6, align 4, !tbaa !41
   br label %31
 
 31:                                               ; preds = %19, %17
@@ -510,11 +510,11 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
   %39 = sext i32 %narrow to i64
   %40 = getelementptr inbounds i8, ptr %1, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8360
-  %42 = load ptr, ptr %41, align 8, !tbaa !46
+  %42 = load ptr, ptr %41, align 8, !tbaa !43
   tail call void @av_aes_crypt(ptr noundef %35, ptr noundef %37, ptr noundef %40, i32 noundef %.047, ptr noundef %42, i32 noundef 0) #6
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !29
-  %45 = load ptr, ptr %13, align 8, !tbaa !45
+  %45 = load ptr, ptr %13, align 8, !tbaa !42
   %46 = tail call i32 @ffurl_write2(ptr noundef %44, ptr noundef %45, i32 noundef range(i32 1, 0) %10) #6
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %60, label %48
@@ -537,7 +537,7 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
   br label %59
 
 59:                                               ; preds = %54, %48
-  store i32 %9, ptr %6, align 4, !tbaa !44
+  store i32 %9, ptr %6, align 4, !tbaa !41
   br label %60
 
 60:                                               ; preds = %31, %12, %59
@@ -619,7 +619,7 @@ define internal i64 @crypto_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8328
-  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %40 = load ptr, ptr %39, align 8, !tbaa !39
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8296
   %42 = load ptr, ptr %41, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8304
@@ -669,7 +669,7 @@ define internal i64 @crypto_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 65:                                               ; preds = %.lr.ph
   %66 = sub nsw i32 %.05574, %63
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %65, %59
   %.055.lcssa = phi i32 [ %61, %59 ], [ %66, %65 ]
@@ -709,7 +709,7 @@ define internal i32 @crypto_close(ptr noundef readonly captures(none) %0) #0 {
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8420
-  %9 = load i32, ptr %8, align 4, !tbaa !44
+  %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = sub nsw i32 16, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8404
   %12 = sext i32 %9 to i64
@@ -719,7 +719,7 @@ define internal i32 @crypto_close(ptr noundef readonly captures(none) %0) #0 {
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 %14, i64 %15, i1 false)
   %16 = load ptr, ptr %5, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8360
-  %18 = load ptr, ptr %17, align 8, !tbaa !46
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   call void @av_aes_crypt(ptr noundef %16, ptr noundef nonnull %2, ptr noundef nonnull %11, i32 noundef 1, ptr noundef %18, i32 noundef 0) #6
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !29
@@ -836,13 +836,10 @@ attributes #6 = { nounwind }
 !36 = !{!16, !11, i64 8240}
 !37 = !{!16, !14, i64 8264}
 !38 = !{!16, !12, i64 8276}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!16, !11, i64 8328}
-!42 = !{!8, !8, i64 0}
-!43 = distinct !{!43, !40}
-!44 = !{!16, !12, i64 8420}
-!45 = !{!16, !11, i64 8392}
-!46 = !{!16, !11, i64 8360}
-!47 = distinct !{!47, !48, !40}
-!48 = !{!"llvm.loop.mustprogress"}
+!39 = !{!16, !11, i64 8328}
+!40 = !{!8, !8, i64 0}
+!41 = !{!16, !12, i64 8420}
+!42 = !{!16, !11, i64 8392}
+!43 = !{!16, !11, i64 8360}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.mustprogress"}

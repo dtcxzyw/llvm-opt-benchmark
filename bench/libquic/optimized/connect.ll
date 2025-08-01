@@ -679,7 +679,7 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
 
 .backedge:                                        ; preds = %108, %107
   %.062.be = phi i32 [ %109, %108 ], [ %.2, %107 ]
-  br label %14, !llvm.loop !34
+  br label %14
 
 .loopexit.loopexit:                               ; preds = %14
   br label %.loopexit
@@ -802,5 +802,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !31 = !{!10, !10, i64 0}
 !32 = !{!17, !13, i64 160}
 !33 = !{!7, !13, i64 36}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}

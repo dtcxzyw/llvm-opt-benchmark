@@ -34014,7 +34014,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %15, ptr noundef %0)
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !21
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -34337,7 +34337,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !23
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -51427,7 +51427,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %15, ptr noundef %0)
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_evalLazyEntry___spec__4.exit, !llvm.loop !21
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_evalLazyEntry___spec__4.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_evalLazyEntry___spec__4.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -60219,7 +60219,7 @@ define ptr @l___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_Match
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull %16, ptr noundef %0) #6
-  br i1 %17, label %.critedge.i.us, label %.split27.us, !llvm.loop !24
+  br i1 %17, label %.critedge.i.us, label %.split27.us, !llvm.loop !21
 
 .split:                                           ; preds = %3
   %18 = icmp ugt ptr %0, %9
@@ -71143,7 +71143,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %15, ptr noundef %0)
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !26
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -71466,7 +71466,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !27
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -72238,7 +72238,7 @@ lean_obj_tag.exit.i:                              ; preds = %96, %93
   %104 = load ptr, ptr %103, align 8, !tbaa !4
   %105 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %102, ptr noundef %1)
   %106 = icmp eq i8 %105, 0
-  br i1 %106, label %90, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit, !llvm.loop !26
+  br i1 %106, label %90, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit
 
 107:                                              ; preds = %lean_obj_tag.exit.i
   br i1 %.not700, label %118, label %108, !prof !13
@@ -72598,7 +72598,7 @@ lean_obj_tag.exit.i534:                           ; preds = %247, %244
   %255 = load ptr, ptr %254, align 8, !tbaa !4
   %256 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %253, ptr noundef %1)
   %257 = icmp eq i8 %256, 0
-  br i1 %257, label %241, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit538, !llvm.loop !26
+  br i1 %257, label %241, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit538
 
 258:                                              ; preds = %lean_obj_tag.exit.i534
   br i1 %.not700, label %269, label %259, !prof !13
@@ -73556,7 +73556,7 @@ lean_obj_tag.exit.i607:                           ; preds = %628, %625
   %636 = load ptr, ptr %635, align 8, !tbaa !4
   %637 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %634, ptr noundef %1)
   %638 = icmp eq i8 %637, 0
-  br i1 %638, label %622, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit611, !llvm.loop !26
+  br i1 %638, label %622, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit611
 
 639:                                              ; preds = %lean_obj_tag.exit.i607
   br i1 %.not687, label %650, label %640, !prof !13
@@ -74465,7 +74465,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %15, ptr noundef %0)
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit, !llvm.loop !26
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -74741,7 +74741,7 @@ lean_obj_tag.exit.i:                              ; preds = %73, %70
   %81 = load ptr, ptr %80, align 8, !tbaa !4
   %82 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %79, ptr noundef %17)
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit, !llvm.loop !26
+  br i1 %83, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit
 
 84:                                               ; preds = %lean_obj_tag.exit.i
   %85 = ptrtoint ptr %45 to i64
@@ -75189,7 +75189,7 @@ lean_obj_tag.exit.i408:                           ; preds = %262, %259
   %270 = load ptr, ptr %269, align 8, !tbaa !4
   %271 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %268, ptr noundef %17)
   %272 = icmp eq i8 %271, 0
-  br i1 %272, label %lean_array_uget.exit405, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit412, !llvm.loop !26
+  br i1 %272, label %lean_array_uget.exit405, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit412
 
 273:                                              ; preds = %lean_obj_tag.exit.i408
   br i1 %.not543, label %284, label %274, !prof !13
@@ -75870,7 +75870,7 @@ lean_obj_tag.exit.i472:                           ; preds = %539, %536
   %547 = load ptr, ptr %546, align 8, !tbaa !4
   %548 = tail call zeroext i8 @l_Lean_Meta_LazyDiscrTree_beqKey____x40_Lean_Meta_LazyDiscrTree___hyg_101_(ptr noundef %545, ptr noundef %17)
   %549 = icmp eq i8 %548, 0
-  br i1 %549, label %lean_array_uget.exit469, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit476, !llvm.loop !26
+  br i1 %549, label %lean_array_uget.exit469, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__2.exit476
 
 550:                                              ; preds = %lean_obj_tag.exit.i472
   br i1 %.not534, label %561, label %551, !prof !13
@@ -76267,7 +76267,7 @@ lean_alloc_ctor.exit508:                          ; preds = %704
 
 .backedge:                                        ; preds = %709, %668, %657, %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__3.exit, %179, %lean_array_uset.exit395, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit429, %lean_alloc_ctor.exit442
   %.0255.be = phi ptr [ %.0, %709 ], [ %.0264, %668 ], [ %.0265, %657 ], [ %.0255, %l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___spec__3.exit ], [ %.0255, %179 ], [ %.0255, %lean_array_uset.exit395 ], [ %366, %lean_alloc_ctor.exit ], [ %373, %lean_alloc_ctor.exit429 ], [ %410, %lean_alloc_ctor.exit442 ]
-  br label %3, !llvm.loop !28
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -77450,7 +77450,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %.1.i38, ptr %95, align 8, !tbaa !4
   %96 = tail call ptr @l___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___rarg(ptr noundef %.0, ptr noundef %19, ptr noundef nonnull %88)
-  br label %6, !llvm.loop !29
+  br label %6
 }
 
 declare ptr @l_Array_append___rarg___boxed(ptr noundef, ptr noundef) #2
@@ -77974,7 +77974,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %.1.i38, ptr %95, align 8, !tbaa !4
   %96 = tail call ptr @l___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_PreDiscrTree_modifyAt___rarg(ptr noundef %.0, ptr noundef %19, ptr noundef nonnull %88)
-  br label %6, !llvm.loop !30
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -134399,12 +134399,4 @@ attributes #7 = { noreturn nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"short", !6, i64 0}
 !21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
-!29 = distinct !{!29, !22}
-!30 = distinct !{!30, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

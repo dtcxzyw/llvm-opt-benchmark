@@ -323,7 +323,7 @@ define float @stb_perlin_fbm_noise3(float noundef %0, float noundef %1, float no
   %15 = fmul float %4, %.01621
   %16 = add nuw nsw i32 %.01819, 1
   %exitcond.not = icmp eq i32 %16, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi float [ 0.000000e+00, %6 ], [ %13, %.lr.ph ]
@@ -352,7 +352,7 @@ define float @stb_perlin_turbulence_noise3(float noundef %0, float noundef %1, f
   %17 = fmul float %4, %.01821
   %18 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.017.lcssa = phi float [ 0.000000e+00, %6 ], [ %15, %.lr.ph ]
@@ -612,8 +612,7 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

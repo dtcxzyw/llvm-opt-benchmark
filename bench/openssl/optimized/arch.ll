@@ -138,7 +138,7 @@ define range(i32 0, 2) i32 @ossl_crypto_thread_native_join(ptr noundef %0, ptr n
   %30 = phi i32 [ %.pre, %26 ], [ %21, %24 ]
   %31 = and i32 %30, 4
   %.not34 = icmp eq i32 %31, 0
-  br i1 %.not34, label %20, label %.loopexit, !llvm.loop !22
+  br i1 %.not34, label %20, label %.loopexit, !llvm.loop !21
 
 32:                                               ; preds = %20
   %33 = or i32 %21, 2
@@ -167,8 +167,8 @@ define range(i32 0, 2) i32 @ossl_crypto_thread_native_join(ptr noundef %0, ptr n
 
 45:                                               ; preds = %.loopexit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load i32, ptr %46, align 8, !tbaa !23
-  store i32 %47, ptr %1, align 4, !tbaa !24
+  %47 = load i32, ptr %46, align 8, !tbaa !22
+  store i32 %47, ptr %1, align 4, !tbaa !23
   br label %53
 
 48:                                               ; preds = %32
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @ossl_crypto_thread_native_clean(ptr noundef %0) loca
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @ossl_crypto_condvar_free(ptr noundef nonnull %12) #2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 128) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 129) #2
   br label %15
@@ -254,10 +254,9 @@ attributes #2 = { nounwind }
 !16 = !{!4, !8, i64 16}
 !17 = !{!4, !5, i64 72}
 !18 = !{!4, !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = !{!4, !5, i64 24}
-!24 = !{!5, !5, i64 0}
-!25 = !{!4, !8, i64 32}
+!21 = distinct !{!21, !20}
+!22 = !{!4, !5, i64 24}
+!23 = !{!5, !5, i64 0}
+!24 = !{!4, !8, i64 32}

@@ -459,7 +459,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   tail call void @Hop_ObjDelete_rec(ptr noundef nonnull %0, ptr noundef %59) #14
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %57, !llvm.loop !42
+  br i1 %exitcond.not, label %.critedge.thread, label %57, !llvm.loop !41
 
 .critedge:                                        ; preds = %1, %.preheader
   %.pre3337 = phi ptr [ %.pre33.pre, %.preheader ], [ %6, %1 ]
@@ -500,7 +500,7 @@ define void @Hop_ManPrintStats(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr %9, align 8, !tbaa !25
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %10)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %13 = load i32, ptr %12, align 4, !tbaa !43
+  %13 = load i32, ptr %12, align 4, !tbaa !42
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %13)
   %15 = tail call i32 @Hop_ManCountLevels(ptr noundef %0) #14
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %15)
@@ -601,8 +601,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"vprintf: argument 0"}
 !38 = distinct !{!38, !"vprintf"}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = distinct !{!42, !40, !41}
-!43 = !{!4, !11, i64 100}
+!41 = distinct !{!41, !40}
+!42 = !{!4, !11, i64 100}

@@ -2438,7 +2438,7 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %779 = add i32 %.1509613, 1
   %780 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %778)
   %781 = icmp sgt i32 %780, 0
-  br i1 %781, label %.lr.ph, label %.thread602, !llvm.loop !9
+  br i1 %781, label %.lr.ph, label %.thread602, !llvm.loop !8
 
 782:                                              ; preds = %771
   %783 = load i32, ptr %18, align 4
@@ -3082,7 +3082,7 @@ proto_item_set_generated.exit:                    ; preds = %67, %88, %91
   %95 = add i32 %.0111127, 1
   %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %82)
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %97, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit, %4, %28
   %.1117 = phi i32 [ %33, %28 ], [ 1, %4 ], [ %82, %proto_item_set_generated.exit ]
@@ -3121,7 +3121,7 @@ define internal i32 @dissect_bta2dp(ptr noundef %0, ptr noundef initializes((284
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32
   %14 = icmp ne i32 %6, %13
-  %15 = load i8, ptr @force_a2dp_scms_t, align 1, !range !11, !noundef !12
+  %15 = load i8, ptr @force_a2dp_scms_t, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   %17 = load i32, ptr @force_a2dp_codec, align 4
   %18 = icmp ne i32 %17, 65535
@@ -3602,7 +3602,7 @@ define internal i32 @dissect_btvdp(ptr noundef %0, ptr noundef initializes((284,
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32
   %14 = icmp ne i32 %6, %13
-  %15 = load i8, ptr @force_vdp_scms_t, align 1, !range !11, !noundef !12
+  %15 = load i8, ptr @force_vdp_scms_t, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   %17 = load i32, ptr @force_vdp_codec, align 4
   %18 = icmp ne i32 %17, 0
@@ -4188,7 +4188,7 @@ define internal fastcc noundef i32 @dissect_sep(ptr noundef %0, ptr noundef read
   %87 = add i32 %.05456, 1
   %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86)
   %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %38, label %._crit_edge, !llvm.loop !13
+  br i1 %89, label %38, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %85, %7
   %.0.lcssa = phi i32 [ %3, %7 ], [ %86, %85 ]
@@ -5797,7 +5797,7 @@ dissect_codec.exit:                               ; preds = %168, %212, %214, %2
   %.4 = phi i32 [ %683, %680 ], [ %.1250, %.thread273 ], [ %602, %599 ], [ %585, %dissect_codec.exit ], [ %678, %675 ]
   %685 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
   %686 = icmp sgt i32 %685, 0
-  br i1 %686, label %31, label %._crit_edge, !llvm.loop !14
+  br i1 %686, label %31, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.thread276, %27
   %.0249.lcssa = phi i32 [ %3, %27 ], [ %.4, %.thread276 ]
@@ -5895,12 +5895,11 @@ attributes #9 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

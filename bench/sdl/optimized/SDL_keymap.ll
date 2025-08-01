@@ -623,7 +623,7 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
 51:                                               ; preds = %.preheader66.i
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next79.i, 27
-  br i1 %exitcond81.not.i, label %.preheader.i, label %.preheader66.i, !llvm.loop !6
+  br i1 %exitcond81.not.i, label %.preheader.i, label %.preheader66.i, !llvm.loop !5
 
 .preheader.i:                                     ; preds = %51, %58
   %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %58 ], [ 0, %51 ]
@@ -643,7 +643,7 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
 58:                                               ; preds = %.preheader.i
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next83.i, 27
-  br i1 %exitcond85.not.i, label %61, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond85.not.i, label %61, label %.preheader.i, !llvm.loop !6
 
 59:                                               ; preds = %57, %55
   %60 = add nuw nsw i32 %56, 30
@@ -737,7 +737,7 @@ define hidden range(i32 0, 512) i32 @SDL_GetScancodeFromName_REAL(ptr noundef %0
 11:                                               ; preds = %8, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !7
 
 12:                                               ; preds = %11
   %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
@@ -1054,7 +1054,7 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
 86:                                               ; preds = %.preheader66.i.i
   %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
   %exitcond81.not.i.i = icmp eq i64 %indvars.iv.next79.i.i, 27
-  br i1 %exitcond81.not.i.i, label %.preheader.i.i, label %.preheader66.i.i, !llvm.loop !6
+  br i1 %exitcond81.not.i.i, label %.preheader.i.i, label %.preheader66.i.i, !llvm.loop !5
 
 .preheader.i.i:                                   ; preds = %86, %93
   %indvars.iv82.i.i = phi i64 [ %indvars.iv.next83.i.i, %93 ], [ 0, %86 ]
@@ -1071,7 +1071,7 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
 93:                                               ; preds = %.preheader.i.i
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
   %exitcond85.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, 27
-  br i1 %exitcond85.not.i.i, label %94, label %.preheader.i.i, !llvm.loop !7
+  br i1 %exitcond85.not.i.i, label %94, label %.preheader.i.i, !llvm.loop !6
 
 94:                                               ; preds = %93
   %95 = icmp eq i32 %.048, 127
@@ -1109,7 +1109,7 @@ SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
 104:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %108, label %.preheader, !llvm.loop !9
+  br i1 %exitcond, label %108, label %.preheader, !llvm.loop !8
 
 105:                                              ; preds = %.preheader
   %106 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1140,7 +1140,7 @@ SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
 117:                                              ; preds = %114, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %118, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %118, label %.preheader.i, !llvm.loop !7
 
 118:                                              ; preds = %117
   %119 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
@@ -1176,10 +1176,9 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

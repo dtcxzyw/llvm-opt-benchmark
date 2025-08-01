@@ -100,7 +100,7 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   br i1 %or.cond7, label %7, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !8
+  br label %.preheader
 
 7:                                                ; preds = %1
   %8 = tail call ptr @lv_obj_get_child(ptr noundef %3, i32 noundef 0) #2
@@ -136,7 +136,7 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   %23 = add nsw i32 %21, -1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw [12 x ptr], ptr @month_names_def, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !10
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
   tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %22, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %26) #2
   ret void
 }
@@ -159,23 +159,23 @@ define internal void @value_changed_event_cb(ptr noundef %0) #0 {
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %2) #2
   %4 = tail call ptr @lv_calendar_get_showed_date(ptr noundef %3) #2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %6 = load i8, ptr %5, align 2, !tbaa !13
+  %6 = load i8, ptr %5, align 2, !tbaa !11
   %7 = add i8 %6, -1
   %or.cond = icmp ult i8 %7, 12
   br i1 %or.cond, label %8, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !15
+  br label %.preheader
 
 8:                                                ; preds = %1
   %9 = tail call ptr @lv_obj_get_child(ptr noundef %2, i32 noundef 1) #2
-  %10 = load i16, ptr %4, align 2, !tbaa !16
+  %10 = load i16, ptr %4, align 2, !tbaa !13
   %11 = zext i16 %10 to i32
-  %12 = load i8, ptr %5, align 2, !tbaa !13
+  %12 = load i8, ptr %5, align 2, !tbaa !11
   %13 = sext i8 %12 to i64
   %14 = add nsw i64 %13, -1
   %15 = getelementptr inbounds [12 x ptr], ptr @month_names_def, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !10
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
   tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef %11, ptr noundef %16) #2
   ret void
 }
@@ -208,12 +208,9 @@ attributes #2 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!14, !5, i64 2}
-!14 = !{!"", !4, i64 0, !5, i64 2, !5, i64 3}
-!15 = distinct !{!15, !9}
-!16 = !{!14, !4, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!12, !5, i64 2}
+!12 = !{!"", !4, i64 0, !5, i64 2, !5, i64 3}
+!13 = !{!12, !4, i64 0}

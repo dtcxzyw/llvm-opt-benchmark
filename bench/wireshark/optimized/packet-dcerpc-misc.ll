@@ -129,7 +129,7 @@ misc_dissect_element_GUID_clock_seq.exit:         ; preds = %26, %misc_dissect_e
   %31 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i54, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %30, i32 noundef 0)
   %32 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %32, 6
-  br i1 %exitcond.not.i, label %misc_dissect_element_GUID_node.exit, label %misc_dissect_element_GUID_clock_seq.exit, !llvm.loop !11
+  br i1 %exitcond.not.i, label %misc_dissect_element_GUID_node.exit, label %misc_dissect_element_GUID_clock_seq.exit, !llvm.loop !10
 
 misc_dissect_element_GUID_node.exit:              ; preds = %misc_dissect_element_GUID_clock_seq.exit
   %33 = sub i32 %31, %.0
@@ -457,7 +457,6 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

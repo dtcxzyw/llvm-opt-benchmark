@@ -260,7 +260,7 @@ check_flag.exit115:                               ; preds = %103
   %131 = select i1 %130, double 1.000000e+11, double %129
   %132 = add nuw nsw i32 %.069158, 1
   %exitcond.not = icmp eq i32 %132, 100
-  br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %103
 
 .loopexit:                                        ; preds = %108, %check_flag.exit115
   %puts86 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -361,18 +361,18 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !19
   %16 = tail call i32 @SUNMatZero(ptr noundef %3) #8
-  %17 = load ptr, ptr %3, align 8, !tbaa !24
+  %17 = load ptr, ptr %3, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !27
-  %20 = load ptr, ptr %19, align 8, !tbaa !30
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
   store double -4.000000e-02, ptr %20, align 8, !tbaa !19
   %21 = fmul double %15, 1.000000e+04
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
   store double %21, ptr %23, align 8, !tbaa !19
   %24 = fmul double %13, 1.000000e+04
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
   store double %24, ptr %26, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double 4.000000e-02, ptr %27, align 8, !tbaa !19
@@ -528,12 +528,10 @@ attributes #10 = { cold }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !7, i64 0}
 !21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!25, !6, i64 0}
-!25 = !{!"_generic_SUNMatrix", !6, i64 0, !26, i64 8, !10, i64 16}
-!26 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!27 = !{!28, !29, i64 32}
-!28 = !{!"_SUNMatrixContent_Dense", !16, i64 0, !16, i64 8, !18, i64 16, !16, i64 24, !29, i64 32}
-!29 = !{!"p2 double", !6, i64 0}
-!30 = !{!18, !18, i64 0}
+!22 = !{!23, !6, i64 0}
+!23 = !{!"_generic_SUNMatrix", !6, i64 0, !24, i64 8, !10, i64 16}
+!24 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!25 = !{!26, !27, i64 32}
+!26 = !{!"_SUNMatrixContent_Dense", !16, i64 0, !16, i64 8, !18, i64 16, !16, i64 24, !27, i64 32}
+!27 = !{!"p2 double", !6, i64 0}
+!28 = !{!18, !18, i64 0}

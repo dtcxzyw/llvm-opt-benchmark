@@ -20223,7 +20223,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI12Architecture11is_instanceEP8JVMC
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20258,14 +20258,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20305,7 +20305,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI12Architecture12get_wordKindEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20340,14 +20340,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20383,7 +20383,7 @@ define hidden void @_ZN8JNIJVMCI12Architecture12set_wordKindEP8JVMCIEnv11JVMCIOb
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -20418,14 +20418,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -20464,7 +20464,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl11i
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20499,14 +20499,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20546,7 +20546,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl16get_klas
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20581,14 +20581,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20622,7 +20622,7 @@ define hidden void @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl16set_klassPointe
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -20657,14 +20657,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20703,7 +20703,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType11is
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20738,14 +20738,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20785,7 +20785,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType10get_mirro
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20820,14 +20820,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -20863,7 +20863,7 @@ define hidden void @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType10set_mirrorEP8JVM
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -20898,14 +20898,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -20939,7 +20939,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType8get_kindEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20974,14 +20974,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21017,7 +21017,7 @@ define hidden void @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType8set_kindEP8JVMCIE
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -21052,14 +21052,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -21093,7 +21093,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType14get_primi
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -21129,14 +21129,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -21172,7 +21172,7 @@ define hidden void @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType14set_primitivesEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21208,14 +21208,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21254,7 +21254,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl11is
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21289,14 +21289,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21336,7 +21336,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl8get_typeEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21371,14 +21371,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21414,7 +21414,7 @@ define hidden void @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl8set_typeEP8JVMCIE
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -21449,14 +21449,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -21490,7 +21490,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl10get_holde
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21525,14 +21525,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21568,7 +21568,7 @@ define hidden void @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl10set_holderEP8JVM
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -21603,14 +21603,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -21644,7 +21644,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl10get_offse
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21679,14 +21679,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21720,7 +21720,7 @@ define hidden void @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl10set_offsetEP8JVM
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -21755,14 +21755,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21801,7 +21801,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI9FieldInfo11is_instanceEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21836,14 +21836,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21883,7 +21883,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI9FieldInfo13get_nameIndexEP8JVMCIEnv11JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21918,14 +21918,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -21959,7 +21959,7 @@ define hidden void @_ZN8JNIJVMCI9FieldInfo13set_nameIndexEP8JVMCIEnv11JVMCIObjec
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -21994,14 +21994,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22035,7 +22035,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI9FieldInfo18get_signatureIndexEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22070,14 +22070,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22111,7 +22111,7 @@ define hidden void @_ZN8JNIJVMCI9FieldInfo18set_signatureIndexEP8JVMCIEnv11JVMCI
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22146,14 +22146,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22187,7 +22187,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI9FieldInfo10get_offsetEP8JVMCIEnv11JVMCIO
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22222,14 +22222,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22263,7 +22263,7 @@ define hidden void @_ZN8JNIJVMCI9FieldInfo10set_offsetEP8JVMCIEnv11JVMCIObjecti(
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22298,14 +22298,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22339,7 +22339,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI9FieldInfo18get_classfileFlagsEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22374,14 +22374,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22415,7 +22415,7 @@ define hidden void @_ZN8JNIJVMCI9FieldInfo18set_classfileFlagsEP8JVMCIEnv11JVMCI
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22450,14 +22450,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22491,7 +22491,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI9FieldInfo17get_internalFlagsEP8JVMCIEnv1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22526,14 +22526,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22567,7 +22567,7 @@ define hidden void @_ZN8JNIJVMCI9FieldInfo17set_internalFlagsEP8JVMCIEnv11JVMCIO
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22602,14 +22602,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22643,7 +22643,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI9FieldInfo20get_initializerIndexEP8JVMCIE
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22678,14 +22678,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22719,7 +22719,7 @@ define hidden void @_ZN8JNIJVMCI9FieldInfo20set_initializerIndexEP8JVMCIEnv11JVM
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22754,14 +22754,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22800,7 +22800,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl11i
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22835,14 +22835,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22882,7 +22882,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl16get_meth
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -22917,14 +22917,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -22958,7 +22958,7 @@ define hidden void @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl16set_methodHandl
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22993,14 +22993,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23039,7 +23039,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI17HotSpotMethodData11is_instanceEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23074,14 +23074,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23121,7 +23121,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI17HotSpotMethodData21get_methodDataPointe
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23156,14 +23156,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23197,7 +23197,7 @@ define hidden void @_ZN8JNIJVMCI17HotSpotMethodData21set_methodDataPointerEP8JVM
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23232,14 +23232,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23278,7 +23278,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI13InstalledCode11is_instanceEP8JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23313,14 +23313,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23360,7 +23360,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI13InstalledCode11get_addressEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23395,14 +23395,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23436,7 +23436,7 @@ define hidden void @_ZN8JNIJVMCI13InstalledCode11set_addressEP8JVMCIEnv11JVMCIOb
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23471,14 +23471,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23512,7 +23512,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI13InstalledCode14get_entryPointEP8JVMCIEn
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23547,14 +23547,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23588,7 +23588,7 @@ define hidden void @_ZN8JNIJVMCI13InstalledCode14set_entryPointEP8JVMCIEnv11JVMC
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23623,14 +23623,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23664,7 +23664,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI13InstalledCode11get_versionEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23699,14 +23699,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23740,7 +23740,7 @@ define hidden void @_ZN8JNIJVMCI13InstalledCode11set_versionEP8JVMCIEnv11JVMCIOb
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23775,14 +23775,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23816,7 +23816,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI13InstalledCode8get_nameEP8JVMCIEnv11JVMC
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23851,14 +23851,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -23894,7 +23894,7 @@ define hidden void @_ZN8JNIJVMCI13InstalledCode8set_nameEP8JVMCIEnv11JVMCIObject
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -23929,14 +23929,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -23975,7 +23975,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI20HotSpotInstalledCode11is_instanc
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24010,14 +24010,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24057,7 +24057,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI20HotSpotInstalledCode8get_sizeEP8JVMCIEn
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24092,14 +24092,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24133,7 +24133,7 @@ define hidden void @_ZN8JNIJVMCI20HotSpotInstalledCode8set_sizeEP8JVMCIEnv11JVMC
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24168,14 +24168,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24209,7 +24209,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI20HotSpotInstalledCode13get_codeStartEP8J
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24244,14 +24244,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24285,7 +24285,7 @@ define hidden void @_ZN8JNIJVMCI20HotSpotInstalledCode13set_codeStartEP8JVMCIEnv
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24320,14 +24320,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24361,7 +24361,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI20HotSpotInstalledCode12get_codeSizeEP8JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24396,14 +24396,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24437,7 +24437,7 @@ define hidden void @_ZN8JNIJVMCI20HotSpotInstalledCode12set_codeSizeEP8JVMCIEnv1
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24472,14 +24472,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24518,7 +24518,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI14HotSpotNmethod11is_instanceEP8JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24553,14 +24553,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24600,7 +24600,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI14HotSpotNmethod13get_isDefaultEP8
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24635,14 +24635,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24676,7 +24676,7 @@ define hidden void @_ZN8JNIJVMCI14HotSpotNmethod13set_isDefaultEP8JVMCIEnv11JVMC
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24711,14 +24711,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24752,7 +24752,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI14HotSpotNmethod21get_compileIdSnapshotEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24787,14 +24787,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24828,7 +24828,7 @@ define hidden void @_ZN8JNIJVMCI14HotSpotNmethod21set_compileIdSnapshotEP8JVMCIE
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -24863,14 +24863,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24904,7 +24904,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI14HotSpotNmethod10get_methodEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -24939,14 +24939,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -24982,7 +24982,7 @@ define hidden void @_ZN8JNIJVMCI14HotSpotNmethod10set_methodEP8JVMCIEnv11JVMCIOb
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -25017,14 +25017,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -25063,7 +25063,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI19HotSpotCompiledCode11is_instance
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25098,14 +25098,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25145,7 +25145,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI19HotSpotCompiledCode14get_targetCodeEP8J
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25180,14 +25180,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25223,7 +25223,7 @@ define hidden void @_ZN8JNIJVMCI19HotSpotCompiledCode14set_targetCodeEP8JVMCIEnv
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -25258,14 +25258,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -25299,7 +25299,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI19HotSpotCompiledCode15get_dataSectionEP8
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25334,14 +25334,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25377,7 +25377,7 @@ define hidden void @_ZN8JNIJVMCI19HotSpotCompiledCode15set_dataSectionEP8JVMCIEn
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -25412,14 +25412,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -25458,7 +25458,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI22HotSpotCompiledNmethod11is_insta
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25493,14 +25493,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25540,7 +25540,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI22HotSpotCompiledNmethod30get_installatio
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25575,14 +25575,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25618,7 +25618,7 @@ define hidden void @_ZN8JNIJVMCI22HotSpotCompiledNmethod30set_installationFailur
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -25653,14 +25653,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -25694,7 +25694,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI22HotSpotCompiledNmethod6get_idEP8JVMCIEn
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25729,14 +25729,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25770,7 +25770,7 @@ define hidden void @_ZN8JNIJVMCI22HotSpotCompiledNmethod6set_idEP8JVMCIEnv11JVMC
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -25805,14 +25805,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25851,7 +25851,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI7VMField11is_instanceEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25886,14 +25886,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -25933,7 +25933,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI7VMField8get_nameEP8JVMCIEnv11JVMCIObject
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25968,14 +25968,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26011,7 +26011,7 @@ define hidden void @_ZN8JNIJVMCI7VMField8set_nameEP8JVMCIEnv11JVMCIObjectS3_(ptr
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -26046,14 +26046,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -26087,7 +26087,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI7VMField8get_typeEP8JVMCIEnv11JVMCIObject
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26122,14 +26122,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26165,7 +26165,7 @@ define hidden void @_ZN8JNIJVMCI7VMField8set_typeEP8JVMCIEnv11JVMCIObjectS3_(ptr
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -26200,14 +26200,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -26241,7 +26241,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI7VMField10get_offsetEP8JVMCIEnv11JVMCIObj
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26276,14 +26276,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26317,7 +26317,7 @@ define hidden void @_ZN8JNIJVMCI7VMField10set_offsetEP8JVMCIEnv11JVMCIObjectl(pt
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -26352,14 +26352,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26393,7 +26393,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI7VMField11get_addressEP8JVMCIEnv11JVMCIOb
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26428,14 +26428,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26469,7 +26469,7 @@ define hidden void @_ZN8JNIJVMCI7VMField11set_addressEP8JVMCIEnv11JVMCIObjectl(p
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -26504,14 +26504,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26545,7 +26545,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI7VMField9get_valueEP8JVMCIEnv11JVMCIObjec
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26580,14 +26580,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26623,7 +26623,7 @@ define hidden void @_ZN8JNIJVMCI7VMField9set_valueEP8JVMCIEnv11JVMCIObjectS3_(pt
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -26658,14 +26658,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -26704,7 +26704,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI6VMFlag11is_instanceEP8JVMCIEnv11J
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26739,14 +26739,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26786,7 +26786,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI6VMFlag8get_nameEP8JVMCIEnv11JVMCIObject(
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26821,14 +26821,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -26864,7 +26864,7 @@ define hidden void @_ZN8JNIJVMCI6VMFlag8set_nameEP8JVMCIEnv11JVMCIObjectS3_(ptr 
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -26899,14 +26899,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -26940,7 +26940,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI6VMFlag8get_typeEP8JVMCIEnv11JVMCIObject(
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -26975,14 +26975,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27018,7 +27018,7 @@ define hidden void @_ZN8JNIJVMCI6VMFlag8set_typeEP8JVMCIEnv11JVMCIObjectS3_(ptr 
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27053,14 +27053,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -27094,7 +27094,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI6VMFlag9get_valueEP8JVMCIEnv11JVMCIObject
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27129,14 +27129,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27172,7 +27172,7 @@ define hidden void @_ZN8JNIJVMCI6VMFlag9set_valueEP8JVMCIEnv11JVMCIObjectS3_(ptr
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27207,14 +27207,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -27253,7 +27253,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI17VMIntrinsicMethod11is_instanceEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27288,14 +27288,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27335,7 +27335,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17VMIntrinsicMethod18get_declaringClassEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27370,14 +27370,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27413,7 +27413,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod18set_declaringClassEP8JVMCIE
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27448,14 +27448,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -27489,7 +27489,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17VMIntrinsicMethod8get_nameEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27524,14 +27524,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27567,7 +27567,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod8set_nameEP8JVMCIEnv11JVMCIOb
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27602,14 +27602,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -27643,7 +27643,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17VMIntrinsicMethod14get_descriptorEP8JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27678,14 +27678,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27721,7 +27721,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod14set_descriptorEP8JVMCIEnv11
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27756,14 +27756,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -27797,7 +27797,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI17VMIntrinsicMethod6get_idEP8JVMCIEnv11JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27832,14 +27832,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27873,7 +27873,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod6set_idEP8JVMCIEnv11JVMCIObje
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -27908,14 +27908,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -27949,7 +27949,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI17VMIntrinsicMethod15get_isAvailab
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27984,14 +27984,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28025,7 +28025,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod15set_isAvailableEP8JVMCIEnv1
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28060,14 +28060,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28101,7 +28101,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI17VMIntrinsicMethod15get_c1Support
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28136,14 +28136,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28177,7 +28177,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod15set_c1SupportedEP8JVMCIEnv1
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28212,14 +28212,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28253,7 +28253,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI17VMIntrinsicMethod15get_c2Support
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28288,14 +28288,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28329,7 +28329,7 @@ define hidden void @_ZN8JNIJVMCI17VMIntrinsicMethod15set_c2SupportedEP8JVMCIEnv1
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28364,14 +28364,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28410,7 +28410,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI31HotSpotCompilationRequestResult1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28445,14 +28445,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28492,7 +28492,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI31HotSpotCompilationRequestResult18get_fa
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28527,14 +28527,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28570,7 +28570,7 @@ define hidden void @_ZN8JNIJVMCI31HotSpotCompilationRequestResult18set_failureMe
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -28605,14 +28605,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -28646,7 +28646,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI31HotSpotCompilationRequestResult9
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28681,14 +28681,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28722,7 +28722,7 @@ define hidden void @_ZN8JNIJVMCI31HotSpotCompilationRequestResult9set_retryEP8JV
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28757,14 +28757,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28798,7 +28798,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI31HotSpotCompilationRequestResult20get_in
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28833,14 +28833,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28874,7 +28874,7 @@ define hidden void @_ZN8JNIJVMCI31HotSpotCompilationRequestResult20set_inlinedBy
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -28909,14 +28909,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -28955,7 +28955,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI13BytecodeFrame11is_instanceEP8JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28990,14 +28990,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29037,7 +29037,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame13get_numLocalsEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -29072,14 +29072,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29113,7 +29113,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame13set_numLocalsEP8JVMCIEnv11JVMCI
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -29148,14 +29148,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29189,7 +29189,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame12get_numStackEP8JVMCIEnv1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -29224,14 +29224,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29265,7 +29265,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame12set_numStackEP8JVMCIEnv11JVMCIO
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -29300,14 +29300,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29341,7 +29341,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame12get_numLocksEP8JVMCIEnv1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -29376,14 +29376,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29417,7 +29417,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame12set_numLocksEP8JVMCIEnv11JVMCIO
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -29452,14 +29452,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -29493,7 +29493,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame15get_UNKNOWN_BCIEP8JVMCIE
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29529,14 +29529,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -29570,7 +29570,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame15set_UNKNOWN_BCIEP8JVMCIEnvi(ptr
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   store volatile i32 4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -29606,14 +29606,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %2
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -29647,7 +29647,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame14get_UNWIND_BCIEP8JVMCIEn
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29683,14 +29683,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -29724,7 +29724,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame14set_UNWIND_BCIEP8JVMCIEnvi(ptr 
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   store volatile i32 4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -29760,14 +29760,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %2
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -29801,7 +29801,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame14get_BEFORE_BCIEP8JVMCIEn
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29837,14 +29837,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -29878,7 +29878,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame14set_BEFORE_BCIEP8JVMCIEnvi(ptr 
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   store volatile i32 4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -29914,14 +29914,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %2
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -29955,7 +29955,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame13get_AFTER_BCIEP8JVMCIEnv
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29991,14 +29991,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -30032,7 +30032,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame13set_AFTER_BCIEP8JVMCIEnvi(ptr n
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   store volatile i32 4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -30068,14 +30068,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %2
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -30109,7 +30109,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame23get_AFTER_EXCEPTION_BCIE
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -30145,14 +30145,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -30186,7 +30186,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame23set_AFTER_EXCEPTION_BCIEP8JVMCI
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   store volatile i32 4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -30222,14 +30222,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %2
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -30263,7 +30263,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI13BytecodeFrame26get_INVALID_FRAMESTATE_B
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -30299,14 +30299,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -30340,7 +30340,7 @@ define hidden void @_ZN8JNIJVMCI13BytecodeFrame26set_INVALID_FRAMESTATE_BCIEP8JV
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   store volatile i32 4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -30376,14 +30376,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %2
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -30422,7 +30422,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI16BytecodePosition11is_instanceEP8
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -30457,14 +30457,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -30504,7 +30504,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI16BytecodePosition10get_callerEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -30539,14 +30539,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -30582,7 +30582,7 @@ define hidden void @_ZN8JNIJVMCI16BytecodePosition10set_callerEP8JVMCIEnv11JVMCI
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -30617,14 +30617,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -30658,7 +30658,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI16BytecodePosition10get_methodEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -30693,14 +30693,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -30736,7 +30736,7 @@ define hidden void @_ZN8JNIJVMCI16BytecodePosition10set_methodEP8JVMCIEnv11JVMCI
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -30771,14 +30771,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -30812,7 +30812,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI16BytecodePosition7get_bciEP8JVMCIEnv11JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -30847,14 +30847,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -30888,7 +30888,7 @@ define hidden void @_ZN8JNIJVMCI16BytecodePosition7set_bciEP8JVMCIEnv11JVMCIObje
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -30923,14 +30923,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -30969,7 +30969,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI12JavaConstant11is_instanceEP8JVMC
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31004,14 +31004,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31051,7 +31051,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI12JavaConstant11get_ILLEGALEP8JVMCIEnv(pt
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -31087,14 +31087,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -31130,7 +31130,7 @@ define hidden void @_ZN8JNIJVMCI12JavaConstant11set_ILLEGALEP8JVMCIEnv11JVMCIObj
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31166,14 +31166,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31207,7 +31207,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI12JavaConstant16get_NULL_POINTEREP8JVMCIE
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 4, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -31243,14 +31243,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %1
   br i1 %25, label %28, label %27
 
 27:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %28
 
 28:                                               ; preds = %27, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1096
   %30 = load volatile i64, ptr %29, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %31 = and i64 %30, 1
   %.not.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %32
@@ -31286,7 +31286,7 @@ define hidden void @_ZN8JNIJVMCI12JavaConstant16set_NULL_POINTEREP8JVMCIEnv11JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31322,14 +31322,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31368,7 +31368,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI18ResolvedJavaMethod11is_instanceE
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31403,14 +31403,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31455,7 +31455,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI17PrimitiveConstant11is_instanceEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31490,14 +31490,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31537,7 +31537,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17PrimitiveConstant8get_kindEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31572,14 +31572,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31615,7 +31615,7 @@ define hidden void @_ZN8JNIJVMCI17PrimitiveConstant8set_kindEP8JVMCIEnv11JVMCIOb
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -31650,14 +31650,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -31691,7 +31691,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI17PrimitiveConstant13get_primitiveEP8JVMC
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31726,14 +31726,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31767,7 +31767,7 @@ define hidden void @_ZN8JNIJVMCI17PrimitiveConstant13set_primitiveEP8JVMCIEnv11J
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -31802,14 +31802,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31848,7 +31848,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI25HotSpotObjectConstantImpl11is_in
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31883,14 +31883,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -31930,7 +31930,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI25HotSpotObjectConstantImpl14get_c
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -31965,14 +31965,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32006,7 +32006,7 @@ define hidden void @_ZN8JNIJVMCI25HotSpotObjectConstantImpl14set_compressedEP8JV
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -32041,14 +32041,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32087,7 +32087,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI31DirectHotSpotObjectConstantImpl1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32122,14 +32122,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32169,7 +32169,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI31DirectHotSpotObjectConstantImpl10get_ob
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32204,14 +32204,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32247,7 +32247,7 @@ define hidden void @_ZN8JNIJVMCI31DirectHotSpotObjectConstantImpl10set_objectEP8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -32282,14 +32282,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -32328,7 +32328,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI33IndirectHotSpotObjectConstantImp
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32363,14 +32363,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32410,7 +32410,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI33IndirectHotSpotObjectConstantImpl16get_
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32445,14 +32445,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32486,7 +32486,7 @@ define hidden void @_ZN8JNIJVMCI33IndirectHotSpotObjectConstantImpl16set_objectH
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -32521,14 +32521,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32567,7 +32567,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI8JavaKind11is_instanceEP8JVMCIEnv1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32602,14 +32602,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32649,7 +32649,7 @@ define hidden noundef zeroext i16 @_ZN8JNIJVMCI8JavaKind12get_typeCharEP8JVMCIEn
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32684,14 +32684,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32725,7 +32725,7 @@ define hidden void @_ZN8JNIJVMCI8JavaKind12set_typeCharEP8JVMCIEnv11JVMCIObjectt
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -32760,14 +32760,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32806,7 +32806,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI9ValueKind11is_instanceEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32841,14 +32841,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32888,7 +32888,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI9ValueKind16get_platformKindEP8JVMCIEnv11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32923,14 +32923,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -32966,7 +32966,7 @@ define hidden void @_ZN8JNIJVMCI9ValueKind16set_platformKindEP8JVMCIEnv11JVMCIOb
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -33001,14 +33001,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -33047,7 +33047,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI26HotSpotStackFrameReference11is_i
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33082,14 +33082,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33129,7 +33129,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI26HotSpotStackFrameReference16get_compile
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33164,14 +33164,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33207,7 +33207,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference16set_compilerToVMEP
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -33242,14 +33242,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -33283,7 +33283,7 @@ define hidden noundef zeroext i8 @_ZN8JNIJVMCI26HotSpotStackFrameReference23get_
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33318,14 +33318,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33359,7 +33359,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference23set_objectsMateria
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33394,14 +33394,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33435,7 +33435,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI26HotSpotStackFrameReference16get_stackPo
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33470,14 +33470,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33511,7 +33511,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference16set_stackPointerEP
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33546,14 +33546,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33587,7 +33587,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI26HotSpotStackFrameReference15get_frameNu
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33622,14 +33622,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33663,7 +33663,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference15set_frameNumberEP8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33698,14 +33698,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33739,7 +33739,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI26HotSpotStackFrameReference7get_bciEP8JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33774,14 +33774,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33815,7 +33815,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference7set_bciEP8JVMCIEnv1
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -33850,14 +33850,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33891,7 +33891,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI26HotSpotStackFrameReference10get_methodE
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33926,14 +33926,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -33969,7 +33969,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference10set_methodEP8JVMCI
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -34004,14 +34004,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -34045,7 +34045,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI26HotSpotStackFrameReference10get_localsE
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34080,14 +34080,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34123,7 +34123,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference10set_localsEP8JVMCI
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -34158,14 +34158,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -34199,7 +34199,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI26HotSpotStackFrameReference18get_localIs
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34234,14 +34234,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34277,7 +34277,7 @@ define hidden void @_ZN8JNIJVMCI26HotSpotStackFrameReference18set_localIsVirtual
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -34312,14 +34312,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -34358,7 +34358,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI19HotSpotConstantPool11is_instance
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34393,14 +34393,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34440,7 +34440,7 @@ define hidden noundef i64 @_ZN8JNIJVMCI19HotSpotConstantPool22get_constantPoolHa
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34475,14 +34475,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34516,7 +34516,7 @@ define hidden void @_ZN8JNIJVMCI19HotSpotConstantPool22set_constantPoolHandleEP8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -34551,14 +34551,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34597,7 +34597,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI19HotSpotJVMCIRuntime11is_instance
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34632,14 +34632,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34679,7 +34679,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI19HotSpotJVMCIRuntime31get_excludeFromJVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34714,14 +34714,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34757,7 +34757,7 @@ define hidden void @_ZN8JNIJVMCI19HotSpotJVMCIRuntime31set_excludeFromJVMCICompi
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -34792,14 +34792,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -34838,7 +34838,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI10JVMCIError11is_instanceEP8JVMCIE
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34873,14 +34873,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -34925,7 +34925,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI21InspectedFrameVisitor11is_instan
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -34960,14 +34960,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35012,7 +35012,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI8Services11is_instanceEP8JVMCIEnv1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35047,14 +35047,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35099,7 +35099,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI5JVMCI11is_instanceEP8JVMCIEnv11JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35134,14 +35134,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35186,7 +35186,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI6Object11is_instanceEP8JVMCIEnv11J
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35221,14 +35221,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35273,7 +35273,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI6String11is_instanceEP8JVMCIEnv11J
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35308,14 +35308,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35360,7 +35360,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI5Class11is_instanceEP8JVMCIEnv11JV
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35395,14 +35395,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35447,7 +35447,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI9VMSupport11is_instanceEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35482,14 +35482,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35534,7 +35534,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI30ArrayIndexOutOfBoundsException11
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35569,14 +35569,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35621,7 +35621,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI21IllegalStateException11is_instan
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35656,14 +35656,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35708,7 +35708,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI20NullPointerException11is_instanc
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35743,14 +35743,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35795,7 +35795,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI24IllegalArgumentException11is_ins
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35830,14 +35830,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35882,7 +35882,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI13InternalError11is_instanceEP8JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35917,14 +35917,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -35969,7 +35969,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI16OutOfMemoryError11is_instanceEP8
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36004,14 +36004,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36056,7 +36056,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI20NoClassDefFoundError11is_instanc
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36091,14 +36091,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36143,7 +36143,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI29InvalidInstalledCodeException11i
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36178,14 +36178,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36230,7 +36230,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI20UnsatisfiedLinkError11is_instanc
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36265,14 +36265,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36317,7 +36317,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI29UnsupportedOperationException11i
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36352,14 +36352,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36404,7 +36404,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI17StackTraceElement11is_instanceEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36439,14 +36439,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36486,7 +36486,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17StackTraceElement18get_declaringClassEP
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36521,14 +36521,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36564,7 +36564,7 @@ define hidden void @_ZN8JNIJVMCI17StackTraceElement18set_declaringClassEP8JVMCIE
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -36599,14 +36599,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -36640,7 +36640,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17StackTraceElement14get_methodNameEP8JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36675,14 +36675,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36718,7 +36718,7 @@ define hidden void @_ZN8JNIJVMCI17StackTraceElement14set_methodNameEP8JVMCIEnv11
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -36753,14 +36753,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -36794,7 +36794,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI17StackTraceElement12get_fileNameEP8JVMCI
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36829,14 +36829,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -36872,7 +36872,7 @@ define hidden void @_ZN8JNIJVMCI17StackTraceElement12set_fileNameEP8JVMCIEnv11JV
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -36907,14 +36907,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -36948,7 +36948,7 @@ define hidden noundef i32 @_ZN8JNIJVMCI17StackTraceElement14get_lineNumberEP8JVM
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -36983,14 +36983,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -37024,7 +37024,7 @@ define hidden void @_ZN8JNIJVMCI17StackTraceElement14set_lineNumberEP8JVMCIEnv11
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1092
   store volatile i32 4, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -37059,14 +37059,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -37105,7 +37105,7 @@ define hidden noundef zeroext i1 @_ZN8JNIJVMCI9Throwable11is_instanceEP8JVMCIEnv
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -37140,14 +37140,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -37187,7 +37187,7 @@ define hidden { ptr, i8 } @_ZN8JNIJVMCI9Throwable17get_detailMessageEP8JVMCIEnv1
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -37222,14 +37222,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %3
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %29
 
 29:                                               ; preds = %28, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 1096
   %31 = load volatile i64, ptr %30, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %32 = and i64 %31, 1
   %.not.i.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %33
@@ -37265,7 +37265,7 @@ define hidden void @_ZN8JNIJVMCI9Throwable17set_detailMessageEP8JVMCIEnv11JVMCIO
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   store volatile i32 4, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -37300,14 +37300,14 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %5
   br i1 %27, label %30, label %29
 
 29:                                               ; preds = %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   br label %30
 
 30:                                               ; preds = %29, %_ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %33 = and i64 %32, 1
   %.not.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
@@ -37520,7 +37520,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %11, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split7.i.i.i
 
 .split7.i.i.i:                                    ; preds = %9
-  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !11
+  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !10
   %13 = icmp eq i64 %12, %5
   br i1 %13, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i
 
@@ -37532,9 +37532,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !11
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !10
   %17 = icmp eq i64 %16, %phi.call9.i.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -37549,7 +37549,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %22, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.split7.i.i.i.i
 
 .split7.i.i.i.i:                                  ; preds = %20
-  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %5, ptr nonnull %0) #13, !srcloc !11
+  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %5, ptr nonnull %0) #13, !srcloc !10
   %24 = icmp eq i64 %23, %5
   br i1 %24, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -37561,9 +37561,9 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.split.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i, ptr nonnull %0) #13, !srcloc !11
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i, ptr nonnull %0) #13, !srcloc !10
   %28 = icmp eq i64 %27, %phi.call9.i.i.i.i
-  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i: ; preds = %.split.i.i.i.i, %.lr.ph.i.i.i.i, %.split7.i.i.i.i, %20
   %29 = inttoptr i64 %21 to ptr
@@ -37612,7 +37612,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = and i8 %9, 16
   %.not27.i = icmp eq i8 %10, 0
   br i1 %.not27.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, label %11
@@ -37658,7 +37658,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br i1 %.not23.i, label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, label %40
 
 40:                                               ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
-  %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %39, ptr nonnull %3, ptr nonnull %0) #13, !srcloc !11
+  %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %39, ptr nonnull %3, ptr nonnull %0) #13, !srcloc !10
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
@@ -37672,7 +37672,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %49 = and i8 %48, 2
   %.not.i.i.i = icmp eq i8 %49, 0
   br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
@@ -37736,7 +37736,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -37771,7 +37771,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -37801,7 +37801,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #13
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -37972,7 +37972,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !11
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !10
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -37982,7 +37982,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !13
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 _ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -38113,7 +38113,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #13, !srcloc !11
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #13, !srcloc !10
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -38123,7 +38123,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !13
+  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 _ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -38199,7 +38199,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %11, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split7.i.i.i
 
 .split7.i.i.i:                                    ; preds = %9
-  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !11
+  %12 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %5, ptr nonnull %0) #13, !srcloc !10
   %13 = icmp eq i64 %12, %5
   br i1 %13, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i
 
@@ -38211,9 +38211,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !11
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i.i, ptr nonnull %0) #13, !srcloc !10
   %17 = icmp eq i64 %16, %phi.call9.i.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -38228,7 +38228,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %22, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.split7.i.i.i.i
 
 .split7.i.i.i.i:                                  ; preds = %20
-  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %5, ptr nonnull %0) #13, !srcloc !11
+  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %5, ptr nonnull %0) #13, !srcloc !10
   %24 = icmp eq i64 %23, %5
   br i1 %24, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -38240,9 +38240,9 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br i1 %.not.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.split.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i, ptr nonnull %0) #13, !srcloc !11
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i, ptr nonnull %0) #13, !srcloc !10
   %28 = icmp eq i64 %27, %phi.call9.i.i.i.i
-  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i: ; preds = %.split.i.i.i.i, %.lr.ph.i.i.i.i, %.split7.i.i.i.i, %20
   %29 = inttoptr i64 %21 to ptr
@@ -38286,7 +38286,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet13AccessBarrier
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %10 = and i8 %9, 16
   %.not27.i = icmp eq i8 %10, 0
   br i1 %.not27.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, label %11
@@ -38332,7 +38332,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br i1 %.not23.i, label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, label %40
 
 40:                                               ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i
-  %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %39, ptr nonnull %3, ptr nonnull %0) #13, !srcloc !11
+  %41 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %39, ptr nonnull %3, ptr nonnull %0) #13, !srcloc !10
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
@@ -38346,7 +38346,7 @@ _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; 
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %49 = and i8 %48, 2
   %.not.i.i.i = icmp eq i8 %49, 0
   br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
@@ -38469,7 +38469,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !11
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !10
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -38492,7 +38492,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !11
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !10
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -38504,9 +38504,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !11
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !10
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -38633,7 +38633,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !11
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !10
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -38641,7 +38641,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -38679,7 +38679,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !11
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !10
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -38702,7 +38702,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !11
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !10
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -38714,9 +38714,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !11
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !10
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -38892,7 +38892,7 @@ define linkonce_odr hidden void @_ZN19ThrowableInitDumper9do_symbolEPP6Symbol(pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = sext i32 %83 to i64
   %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %33, label %.loopexit, !llvm.loop !14
+  br i1 %86, label %33, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %82, %26, %19, %22, %2, %15, %14, %12
   ret void
@@ -39048,7 +39048,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %32 = lshr i64 %31, %26
   %33 = trunc i64 %32 to i32
   %34 = select i1 %29, i32 0, i32 %33
-  %35 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, i32 %28, ptr nonnull %5) #13, !srcloc !15
+  %35 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, i32 %28, ptr nonnull %5) #13, !srcloc !14
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
@@ -39084,7 +39084,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %22, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %20
-  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %17, ptr nonnull %5) #13, !srcloc !11
+  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %17, ptr nonnull %5) #13, !srcloc !10
   %24 = icmp eq i64 %23, %17
   br i1 %24, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -39096,9 +39096,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !11
+  %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !10
   %28 = icmp eq i64 %27, %phi.call9.i.i.i.i.i
-  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %20
   %29 = inttoptr i64 %21 to ptr
@@ -39163,7 +39163,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %6, ptr nonnull %5) #13, !srcloc !11
+  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %6, ptr nonnull %5) #13, !srcloc !10
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
@@ -39189,7 +39189,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %12, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %10
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %7, ptr nonnull %5) #13, !srcloc !11
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %7, ptr nonnull %5) #13, !srcloc !10
   %14 = icmp eq i64 %13, %7
   br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -39201,9 +39201,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %17 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !11
+  %17 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %phi.call9.i.i.i.i.i, ptr nonnull %5) #13, !srcloc !10
   %18 = icmp eq i64 %17, %phi.call9.i.i.i.i.i
-  br i1 %18, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %18, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %10
   %19 = inttoptr i64 %11 to ptr
@@ -39439,7 +39439,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2868
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 769
   %11 = load volatile i8, ptr %10, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %12 = and i8 %11, 2
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %13
@@ -39497,7 +39497,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 769
   %53 = load volatile i8, ptr %52, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %54 = and i8 %53, 2
   %.not.i6 = icmp eq i8 %54, 0
   br i1 %.not.i6, label %_ZN20ShenandoahBarrierSet12satb_barrierILm286822E9narrowOopEEvPT0_.exit, label %55
@@ -39669,7 +39669,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
 
 .preheader.i.i:                                   ; preds = %48, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %3, %48 ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !11
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !10
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -39679,7 +39679,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i = icmp eq i64 %64, 0
   %65 = icmp ne i64 %60, 0
   %66 = and i1 %65, %.not.i.i
-  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !13
+  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 67:                                               ; preds = %2
   br i1 %.not.i.i24, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %68
@@ -39886,7 +39886,7 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet13AccessBarrierILm2867
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 769
   %11 = load volatile i8, ptr %10, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %12 = and i8 %11, 2
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %13
@@ -39944,7 +39944,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 769
   %53 = load volatile i8, ptr %52, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %54 = and i8 %53, 2
   %.not.i6 = icmp eq i8 %54, 0
   br i1 %.not.i6, label %_ZN20ShenandoahBarrierSet12satb_barrierILm286790EP7oopDescEEvPT0_.exit, label %55
@@ -40038,13 +40038,12 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2145392468}
-!10 = !{i64 2145392998}
-!11 = !{i64 2145412694}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{i64 2145411161}
+!8 = !{i64 2145392468}
+!9 = !{i64 2145392998}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{i64 2145411161}

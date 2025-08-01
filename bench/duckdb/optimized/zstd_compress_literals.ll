@@ -444,6 +444,5 @@ attributes #6 = { nounwind }
 !12 = !{!"_ZTSN11duckdb_zstd10HUF_repeatE", !4, i64 0}
 !13 = !{!12, !12, i64 0}
 !14 = !{ptr @_ZN11duckdb_zstd21HUF_compress1X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi, ptr @_ZN11duckdb_zstd21HUF_compress4X_repeatEPvmPKvmjjS0_mPmPNS_10HUF_repeatEi}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}

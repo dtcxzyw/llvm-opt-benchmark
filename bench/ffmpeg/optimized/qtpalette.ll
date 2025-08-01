@@ -83,13 +83,13 @@ switch.lookup:                                    ; preds = %28
   %indvars.iv101 = phi i64 [ 0, %31 ], [ %indvars.iv.next102, %32 ]
   %33 = mul nuw nsw i64 %indvars.iv101, 3
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !11
+  %35 = load i8, ptr %34, align 1, !tbaa !10
   %36 = zext i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !11
+  %38 = load i8, ptr %37, align 1, !tbaa !10
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  %41 = load i8, ptr %40, align 1, !tbaa !11
+  %41 = load i8, ptr %40, align 1, !tbaa !10
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %36, 16
   %44 = shl nuw nsw i32 %39, 8
@@ -102,7 +102,7 @@ switch.lookup:                                    ; preds = %28
   %49 = trunc nuw nsw i64 %indvars.iv.next102 to i32
   %.1.highbits = lshr i32 %49, %6
   %50 = icmp eq i32 %.1.highbits, 0
-  br i1 %50, label %32, label %.loopexit, !llvm.loop !12
+  br i1 %50, label %32, label %.loopexit, !llvm.loop !11
 
 51:                                               ; preds = %27
   %52 = tail call i32 @avio_rb32(ptr noundef %1) #3
@@ -139,7 +139,7 @@ switch.lookup:                                    ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %58, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %19, %11, %51, %3
   %.081 = phi i32 [ 0, %3 ], [ 1, %51 ], [ 0, %11 ], [ 1, %19 ], [ 1, %32 ], [ 1, %.lr.ph ]
@@ -174,9 +174,8 @@ attributes #3 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

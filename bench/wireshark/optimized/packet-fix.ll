@@ -7129,7 +7129,7 @@ bsearch.exit:                                     ; preds = %99, %bsearch.exit.s
   %149 = add nuw nsw i32 %.0174214, 1
   %150 = getelementptr i8, ptr %.0175213, i64 1
   %exitcond.not = icmp eq i32 %149, %.0178215
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %151 = zext i8 %148 to i32
@@ -7262,7 +7262,7 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
 8:                                                ; preds = %19
   %9 = tail call ptr @strstr(ptr noundef %12, ptr noundef nonnull dereferenceable(1) @.str.38) #6
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge20, label %10, !llvm.loop !13
+  br i1 %.not, label %._crit_edge20, label %10, !llvm.loop !12
 
 10:                                               ; preds = %.lr.ph, %8
   %11 = phi ptr [ %6, %.lr.ph ], [ %9, %8 ]
@@ -7278,10 +7278,10 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
 19:                                               ; preds = %10
   %20 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %16, ptr noundef nonnull @.str.37, i64 noundef 5)
   %.not18 = icmp eq i32 %20, 0
-  br i1 %.not18, label %._crit_edge, label %8, !llvm.loop !13
+  br i1 %.not18, label %._crit_edge, label %8, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %19
-  br label %._crit_edge20, !llvm.loop !13
+  br label %._crit_edge20, !llvm.loop !12
 
 ._crit_edge20:                                    ; preds = %8, %10, %._crit_edge, %2
   %.1 = phi i32 [ %15, %._crit_edge ], [ %3, %2 ], [ %15, %10 ], [ %15, %8 ]
@@ -7395,7 +7395,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = !{}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !11}
-!13 = distinct !{!13, !9, !11}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

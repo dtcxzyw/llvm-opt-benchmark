@@ -739,7 +739,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit25: ; preds = %76
           to label %79 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 79:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit25
-  %80 = load ptr, ptr %6, align 8, !tbaa !45
+  %80 = load ptr, ptr %6, align 8, !tbaa !44
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef %80)
           to label %81 unwind label %85
 
@@ -762,14 +762,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %.0 = phi i1 [ false, %81 ], [ true, %79 ]
   %86 = landingpad { ptr, i32 }
           cleanup
-  %87 = load ptr, ptr %6, align 8, !tbaa !45
+  %87 = load ptr, ptr %6, align 8, !tbaa !44
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %89 = icmp eq ptr %87, %88
   br i1 %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !49
+  %91 = load i64, ptr %90, align 8, !tbaa !48
   %92 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %92)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
@@ -880,7 +880,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4: ; preds = %_ZStls
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !50
+  %17 = load i32, ptr %16, align 8, !tbaa !49
   %18 = or i32 %17, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %15, i32 noundef %18)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6 unwind label %39
@@ -908,7 +908,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit8: ; preds = %_ZStls
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load i32, ptr %32, align 8, !tbaa !50
+  %33 = load i32, ptr %32, align 8, !tbaa !49
   %34 = or i32 %33, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %31, i32 noundef %34)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 unwind label %39
@@ -1011,9 +1011,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20BuiltinTransformImplEPFvPNS0_16BuiltinTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1038,7 +1038,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20Built
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20BuiltinTransformImplEPFvPNS0_16BuiltinTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev16BuiltinTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1146,25 +1146,24 @@ attributes #23 = { builtin nounwind }
 !39 = !{!40, !41, i64 0}
 !40 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev24BuiltinTransformRegistryELN9__gnu_cxx12_Lock_policyE2EE", !41, i64 0, !17, i64 8}
 !41 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev24BuiltinTransformRegistryE", !16, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!46, !48, i64 0}
-!46 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !47, i64 0, !12, i64 8, !11, i64 16}
-!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !48, i64 0}
-!48 = !{!"p1 omnipotent char", !16, i64 0}
-!49 = !{!46, !12, i64 8}
-!50 = !{!51, !53, i64 32}
-!51 = !{!"_ZTSSt8ios_base", !12, i64 8, !12, i64 16, !52, i64 24, !53, i64 28, !53, i64 32, !54, i64 40, !55, i64 48, !11, i64 64, !22, i64 192, !56, i64 200, !57, i64 208}
-!52 = !{!"_ZTSSt13_Ios_Fmtflags", !11, i64 0}
-!53 = !{!"_ZTSSt12_Ios_Iostate", !11, i64 0}
-!54 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !16, i64 0}
-!55 = !{!"_ZTSNSt8ios_base6_WordsE", !16, i64 0, !12, i64 8}
-!56 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !16, i64 0}
-!57 = !{!"_ZTSSt6locale", !58, i64 0}
-!58 = !{!"p1 _ZTSNSt6locale5_ImplE", !16, i64 0}
-!59 = !{!16, !16, i64 0}
-!60 = !{!61, !28, i64 24}
-!61 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20BuiltinTransformImplEPFvPNS0_16BuiltinTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0, !27, i64 16}
-!62 = !{!63, !48, i64 8}
-!63 = !{!"_ZTSSt9type_info", !48, i64 8}
+!44 = !{!45, !47, i64 0}
+!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !46, i64 0, !12, i64 8, !11, i64 16}
+!46 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !47, i64 0}
+!47 = !{!"p1 omnipotent char", !16, i64 0}
+!48 = !{!45, !12, i64 8}
+!49 = !{!50, !52, i64 32}
+!50 = !{!"_ZTSSt8ios_base", !12, i64 8, !12, i64 16, !51, i64 24, !52, i64 28, !52, i64 32, !53, i64 40, !54, i64 48, !11, i64 64, !22, i64 192, !55, i64 200, !56, i64 208}
+!51 = !{!"_ZTSSt13_Ios_Fmtflags", !11, i64 0}
+!52 = !{!"_ZTSSt12_Ios_Iostate", !11, i64 0}
+!53 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !16, i64 0}
+!54 = !{!"_ZTSNSt8ios_base6_WordsE", !16, i64 0, !12, i64 8}
+!55 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !16, i64 0}
+!56 = !{!"_ZTSSt6locale", !57, i64 0}
+!57 = !{!"p1 _ZTSNSt6locale5_ImplE", !16, i64 0}
+!58 = !{!16, !16, i64 0}
+!59 = !{!60, !28, i64 24}
+!60 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20BuiltinTransformImplEPFvPNS0_16BuiltinTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0, !27, i64 16}
+!61 = !{!62, !47, i64 8}
+!62 = !{!"_ZTSSt9type_info", !47, i64 8}

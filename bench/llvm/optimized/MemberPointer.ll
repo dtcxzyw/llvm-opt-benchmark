@@ -319,7 +319,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit76:          ; preds = %.lr.ph, %155
   %166 = add i32 %165, %.485
   %167 = getelementptr inbounds nuw i8, ptr %.04284, i64 8
   %.not53 = icmp eq ptr %167, %148
-  br i1 %.not53, label %.thread80, label %.lr.ph, !llvm.loop !103
+  br i1 %.not53, label %.thread80, label %.lr.ph
 
 .thread80:                                        ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit76, %142, %137, %_ZNK5clang6interp7Pointer9getRecordEv.exit72
   %.040 = phi i32 [ %105, %_ZNK5clang6interp7Pointer9getRecordEv.exit72 ], [ %139, %137 ], [ %63, %142 ], [ %166, %_ZNK5clang9FieldDecl9getParentEv.exit76 ]
@@ -378,15 +378,15 @@ declare void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6interp13MemberPointer17toFunctionPointerERKNS0_7ContextE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::interp::FunctionPointer") align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call noundef ptr @_ZN5clang6interp7Program11getFunctionEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(328) %5, ptr noundef %7) #5
-  store ptr %8, ptr %0, align 8, !tbaa !107
+  store ptr %8, ptr %0, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !110
+  store i64 0, ptr %9, align 8, !tbaa !108
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %10, align 8, !tbaa !111
+  store i8 1, ptr %10, align 8, !tbaa !109
   ret void
 }
 
@@ -410,13 +410,13 @@ define dso_local void @_ZNK5clang6interp13MemberPointer9toAPValueERKNS_10ASTCont
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !107
+  %12 = load ptr, ptr %11, align 8, !tbaa !105
   %.not.i.i.i = icmp eq ptr %12, null
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !112
+  %15 = load i64, ptr %14, align 8, !tbaa !110
   %16 = icmp eq i64 %15, 0
   %17 = load i64, ptr %1, align 8
   %18 = icmp eq i64 %17, 0
@@ -432,7 +432,7 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %6, %10, %13
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
-  store i32 0, ptr %0, align 8, !tbaa !114
+  store i32 0, ptr %0, align 8, !tbaa !112
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = and i8 %25, -2
@@ -454,13 +454,13 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %6, %10, %13
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !107
+  %34 = load ptr, ptr %33, align 8, !tbaa !105
   %.not.i.i.i3 = icmp eq ptr %34, null
   br i1 %.not.i.i.i3, label %41, label %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread
 
 _ZNK5clang6interp13MemberPointer7hasBaseEv.exit:  ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load i64, ptr %35, align 8, !tbaa !112
+  %36 = load i64, ptr %35, align 8, !tbaa !110
   %37 = icmp eq i64 %36, 0
   %38 = load i64, ptr %1, align 8
   %39 = icmp eq i64 %38, 0
@@ -472,7 +472,7 @@ _ZNK5clang6interp13MemberPointer7hasBaseEv.exit.thread: ; preds = %32, %28, %3, 
   br label %45
 
 41:                                               ; preds = %32, %28, %_ZNK5clang6interp13MemberPointer7hasBaseEv.exit
-  store i32 0, ptr %0, align 8, !tbaa !114
+  store i32 0, ptr %0, align 8, !tbaa !112
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = and i8 %43, -2
@@ -609,18 +609,16 @@ attributes #5 = { nounwind }
 !100 = !{!83, !13, i64 64}
 !101 = !{!102, !102, i64 0}
 !102 = !{!"p1 _ZTSN5clang9NamedDeclE", !10, i64 0}
-!103 = distinct !{!103, !104}
-!104 = !{!"llvm.loop.estimated_trip_count"}
-!105 = !{!106, !106, i64 0}
-!106 = !{!"p1 _ZTSN5clang6interp7ProgramE", !10, i64 0}
-!107 = !{!108, !109, i64 0}
-!108 = !{!"_ZTSN5clang6interp15FunctionPointerE", !109, i64 0, !6, i64 8, !16, i64 16}
-!109 = !{!"p1 _ZTSN5clang6interp8FunctionE", !10, i64 0}
-!110 = !{!108, !6, i64 8}
-!111 = !{!108, !16, i64 16}
-!112 = !{!113, !6, i64 8}
-!113 = !{!"_ZTSN5clang6interp10IntPointerE", !31, i64 0, !6, i64 8}
-!114 = !{!115, !116, i64 0}
-!115 = !{!"_ZTSN5clang7APValueE", !116, i64 0, !16, i64 4, !117, i64 8}
-!116 = !{!"_ZTSN5clang7APValue9ValueKindE", !7, i64 0}
-!117 = !{!"_ZTSN4llvm21AlignedCharArrayUnionIPvJNS_6APSIntENS_7APFloatEN5clang7APValue13ComplexAPSIntENS5_14ComplexAPFloatENS5_3VecENS5_3ArrENS5_10StructDataENS5_9UnionDataENS5_17AddrLabelDiffDataEEEE", !7, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTSN5clang6interp7ProgramE", !10, i64 0}
+!105 = !{!106, !107, i64 0}
+!106 = !{!"_ZTSN5clang6interp15FunctionPointerE", !107, i64 0, !6, i64 8, !16, i64 16}
+!107 = !{!"p1 _ZTSN5clang6interp8FunctionE", !10, i64 0}
+!108 = !{!106, !6, i64 8}
+!109 = !{!106, !16, i64 16}
+!110 = !{!111, !6, i64 8}
+!111 = !{!"_ZTSN5clang6interp10IntPointerE", !31, i64 0, !6, i64 8}
+!112 = !{!113, !114, i64 0}
+!113 = !{!"_ZTSN5clang7APValueE", !114, i64 0, !16, i64 4, !115, i64 8}
+!114 = !{!"_ZTSN5clang7APValue9ValueKindE", !7, i64 0}
+!115 = !{!"_ZTSN4llvm21AlignedCharArrayUnionIPvJNS_6APSIntENS_7APFloatEN5clang7APValue13ComplexAPSIntENS5_14ComplexAPFloatENS5_3VecENS5_3ArrENS5_10StructDataENS5_9UnionDataENS5_17AddrLabelDiffDataEEEE", !7, i64 0}

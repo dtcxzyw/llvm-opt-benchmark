@@ -711,14 +711,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image, i64 12), align 4, !tbaa !46
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next32, %42
-  br i1 %43, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !51
+  br i1 %43, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !50
 
 44:                                               ; preds = %.preheader, %44
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
   %45 = load i32, ptr @alpha, align 4, !tbaa !16
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @image, i64 16), align 8, !tbaa !52
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @image, i64 72), align 8, !tbaa !53
-  %48 = load i64, ptr %47, align 8, !tbaa !54
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @image, i64 16), align 8, !tbaa !51
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @image, i64 72), align 8, !tbaa !52
+  %48 = load i64, ptr %47, align 8, !tbaa !53
   %49 = mul i64 %48, %indvars.iv34
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
   %51 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %50, i64 %indvars.iv31
@@ -731,9 +731,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %58 = call i32 @llvm.smax.i32(i32 %57, i32 0)
   %59 = call i32 @llvm.umin.i32(i32 %58, i32 255)
   %60 = trunc nuw i32 %59 to i8
-  %61 = load ptr, ptr %23, align 8, !tbaa !52
-  %62 = load ptr, ptr %24, align 8, !tbaa !53
-  %63 = load i64, ptr %62, align 8, !tbaa !54
+  %61 = load ptr, ptr %23, align 8, !tbaa !51
+  %62 = load ptr, ptr %24, align 8, !tbaa !52
+  %63 = load i64, ptr %62, align 8, !tbaa !53
   %64 = mul i64 %63, %indvars.iv34
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %64
   %66 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %65, i64 %indvars.iv31
@@ -741,7 +741,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   store i8 %60, ptr %67, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %40, label %44, !llvm.loop !55
+  br i1 %exitcond.not, label %40, label %44, !llvm.loop !54
 
 68:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
@@ -903,12 +903,11 @@ attributes #14 = { builtin nounwind }
 !44 = !{!"vtable pointer", !9, i64 0}
 !45 = !{!28, !17, i64 8}
 !46 = !{!28, !17, i64 12}
-!47 = distinct !{!47, !48, !49, !50}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!"llvm.loop.unswitch.partial.disable"}
-!51 = distinct !{!51, !48, !49}
-!52 = !{!28, !6, i64 16}
-!53 = !{!28, !32, i64 72}
-!54 = !{!12, !12, i64 0}
-!55 = distinct !{!55, !48, !49}
+!49 = !{!"llvm.loop.unswitch.partial.disable"}
+!50 = distinct !{!50, !48}
+!51 = !{!28, !6, i64 16}
+!52 = !{!28, !32, i64 72}
+!53 = !{!12, !12, i64 0}
+!54 = distinct !{!54, !48}

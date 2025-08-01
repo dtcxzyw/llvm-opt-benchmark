@@ -559,7 +559,7 @@ _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %52, %50, %43, %_ZN6
   %.246 = phi i32 [ %17, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ], [ %44, %43 ], [ %44, %50 ], [ %44, %52 ]
   %.2 = phi ptr [ %42, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ], [ %45, %43 ], [ %51, %50 ], [ %53, %52 ]
   %54 = icmp sgt i32 %.246, 5
-  br i1 %54, label %.lr.ph, label %.preheader.preheader, !llvm.loop !18
+  br i1 %54, label %.lr.ph, label %.preheader.preheader, !llvm.loop !17
 
 .preheader.preheader:                             ; preds = %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit, %10
   %.347.ph = phi i32 [ %11, %10 ], [ %.246, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ]
@@ -655,7 +655,7 @@ _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %52, %50, %43, %_ZN6
 _ZN6icu_7710UCharsTrie9skipValueEPKDs.exit:       ; preds = %93, %100, %102
   %.0.i.i = phi ptr [ %101, %100 ], [ %103, %102 ], [ %95, %93 ]
   %104 = icmp sgt i32 %.347, 2
-  br i1 %104, label %.preheader, label %105, !llvm.loop !19
+  br i1 %104, label %.preheader, label %105, !llvm.loop !18
 
 105:                                              ; preds = %_ZN6icu_7710UCharsTrie9skipValueEPKDs.exit
   %106 = load i16, ptr %.0.i.i, align 2, !tbaa !12
@@ -795,7 +795,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie8nextImplEPKDsi(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !20
+  %4 = load ptr, ptr %1, align 8, !tbaa !19
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %9
 
@@ -909,7 +909,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16
   %54 = add nsw i32 %.186174, -1
   %55 = load i16, ptr %47, align 2, !tbaa !12
   %56 = icmp eq i16 %55, 0
-  br i1 %56, label %.preheader._crit_edge, label %.lr.ph175, !llvm.loop !22
+  br i1 %56, label %.preheader._crit_edge, label %.lr.ph175, !llvm.loop !21
 
 .preheader130._crit_edge.loopexit:                ; preds = %73
   %57 = sub i32 %.085, %.063
@@ -958,7 +958,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16
   %74 = getelementptr inbounds nuw i8, ptr %.495166, i64 2
   %75 = add nsw i32 %.489167, -1
   %76 = icmp eq i32 %68, 0
-  br i1 %76, label %.preheader130._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %76, label %.preheader130._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph175
   %storemerge = phi i32 [ %smin243, %.lr.ph175 ], [ %smin, %.lr.ph ]
@@ -1023,7 +1023,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16
 96:                                               ; preds = %93
   %.778 = getelementptr inbounds nuw i8, ptr %.576.ph, i64 2
   %97 = load ptr, ptr %27, align 8, !tbaa !10
-  br label %.outer, !llvm.loop !24
+  br label %.outer, !llvm.loop !23
 
 98:                                               ; preds = %78
   %99 = icmp samesign ult i32 %.060, 64
@@ -1064,12 +1064,12 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16
 
 _ZN6icu_7710UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %105, %109, %111
   %.0.i114 = phi ptr [ %110, %109 ], [ %112, %111 ], [ %.596, %105 ]
-  br label %78, !llvm.loop !24
+  br label %78, !llvm.loop !23
 
 113:                                              ; preds = %100
   %114 = getelementptr inbounds nuw i8, ptr %.596, i64 2
   %115 = add nsw i32 %.060, -49
-  br label %33, !llvm.loop !25
+  br label %33, !llvm.loop !24
 
 _ZNK6icu_7710UCharsTrie7currentEv.exit:           ; preds = %88, %85, %80, %95, %104, %102, %62, %59, %.preheader130._crit_edge, %42, %39, %.preheader._crit_edge, %72, %51, %22, %19, %15, %11, %26
   %.0 = phi i32 [ 0, %26 ], [ 0, %11 ], [ %25, %22 ], [ 1, %19 ], [ 1, %15 ], [ 0, %104 ], [ 0, %102 ], [ 1, %.preheader130._crit_edge ], [ 1, %59 ], [ %65, %62 ], [ 1, %.preheader._crit_edge ], [ 1, %39 ], [ %45, %42 ], [ 0, %72 ], [ 0, %51 ], [ 0, %95 ], [ 0, %80 ], [ %81, %85 ], [ %81, %88 ]
@@ -1146,7 +1146,7 @@ _ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %.lr.ph, %13, %22
 _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %34, %40, %42
   %.0.i42 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %7, %34 ]
   %44 = icmp sgt i32 %35, 5
-  br i1 %44, label %.lr.ph, label %.preheader.preheader, !llvm.loop !26
+  br i1 %44, label %.lr.ph, label %.preheader.preheader, !llvm.loop !25
 
 .preheader.preheader:                             ; preds = %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit, %4
   %.134.ph = phi i32 [ %1, %4 ], [ %35, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ]
@@ -1200,12 +1200,12 @@ _ZN6icu_7710UCharsTrie9skipValueEPKDsi.exit:      ; preds = %.preheader, %52, %5
   br i1 %.not40, label %71, label %69
 
 69:                                               ; preds = %68
-  %70 = load i32, ptr %3, align 4, !tbaa !27
+  %70 = load i32, ptr %3, align 4, !tbaa !26
   %.not41 = icmp eq i32 %.0.i4346, %70
   br i1 %.not41, label %76, label %.thread50
 
 71:                                               ; preds = %68
-  store i32 %.0.i4346, ptr %3, align 4, !tbaa !27
+  store i32 %.0.i4346, ptr %3, align 4, !tbaa !26
   br label %76
 
 72:                                               ; preds = %_ZN6icu_7710UCharsTrie9skipValueEPKDsi.exit
@@ -1219,7 +1219,7 @@ _ZN6icu_7710UCharsTrie9skipValueEPKDsi.exit:      ; preds = %.preheader, %52, %5
   %.237 = phi i8 [ %.035, %69 ], [ 1, %71 ], [ 1, %72 ]
   %77 = add nsw i32 %.134, -1
   %78 = icmp sgt i32 %.134, 2
-  br i1 %78, label %.preheader, label %79, !llvm.loop !28
+  br i1 %78, label %.preheader, label %79, !llvm.loop !27
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %.0.i44, i64 2
@@ -1277,7 +1277,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710UCharsTrie15findUniqueValu
   %.040.ph.be = phi i8 [ %.343, %85 ], [ 1, %19 ]
   %.036.ph.be = phi ptr [ %.0.i48, %85 ], [ %20, %19 ]
   %.032.ph.be = phi i32 [ %86, %85 ], [ %22, %19 ]
-  br label %.outer, !llvm.loop !29
+  br label %.outer, !llvm.loop !28
 
 23:                                               ; preds = %7
   %24 = icmp samesign ult i32 %.032, 64
@@ -1290,7 +1290,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710UCharsTrie15findUniqueValu
   %29 = getelementptr i8, ptr %27, i64 -92
   %30 = load i16, ptr %28, align 2, !tbaa !12
   %31 = zext i16 %30 to i32
-  br label %7, !llvm.loop !29
+  br label %7, !llvm.loop !28
 
 32:                                               ; preds = %23
   %.not = icmp samesign ult i32 %.032, 32768
@@ -1361,12 +1361,12 @@ _ZN6icu_7710UCharsTrie9readValueEPKDsi.exit:      ; preds = %65, %58, %53, %43, 
   br i1 %.not45, label %75, label %73
 
 73:                                               ; preds = %_ZN6icu_7710UCharsTrie9readValueEPKDsi.exit
-  %74 = load i32, ptr %2, align 4, !tbaa !27
+  %74 = load i32, ptr %2, align 4, !tbaa !26
   %.not46 = icmp eq i32 %.0, %74
   br i1 %.not46, label %76, label %.thread
 
 75:                                               ; preds = %_ZN6icu_7710UCharsTrie9readValueEPKDsi.exit
-  store i32 %.0, ptr %2, align 4, !tbaa !27
+  store i32 %.0, ptr %2, align 4, !tbaa !26
   br label %76
 
 76:                                               ; preds = %73, %75
@@ -1414,7 +1414,7 @@ define noundef range(i32 0, 65537) i32 @_ZNK6icu_7710UCharsTrie13getNextUCharsER
 
 10:                                               ; preds = %6
   %11 = load i16, ptr %4, align 2, !tbaa !12
-  %12 = load ptr, ptr %1, align 8, !tbaa !30
+  %12 = load ptr, ptr %1, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef signext i8 %14(ptr noundef nonnull align 8 dereferenceable(8) %1, i16 noundef zeroext %11)
@@ -1472,7 +1472,7 @@ _ZN6icu_7710UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %22, %26, %28
   %.122 = phi ptr [ %36, %35 ], [ %.021, %33 ]
   %.1 = phi i32 [ %38, %35 ], [ %.0, %33 ]
   %40 = add nuw nsw i32 %.1, 1
-  %41 = load ptr, ptr %1, align 8, !tbaa !30
+  %41 = load ptr, ptr %1, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef signext i8 %43(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %40)
@@ -1481,7 +1481,7 @@ _ZN6icu_7710UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %22, %26, %28
 
 45:                                               ; preds = %31
   %46 = load i16, ptr %.021, align 2, !tbaa !12
-  %47 = load ptr, ptr %1, align 8, !tbaa !30
+  %47 = load ptr, ptr %1, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef signext i8 %49(ptr noundef nonnull align 8 dereferenceable(8) %1, i16 noundef zeroext %46)
@@ -1558,7 +1558,7 @@ _ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %.lr.ph, %12, %21
 _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit, %36, %38
   %.0.i15 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %6, %_ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit ]
   %40 = icmp sgt i32 %31, 5
-  br i1 %40, label %.lr.ph, label %.preheader.preheader, !llvm.loop !32
+  br i1 %40, label %.lr.ph, label %.preheader.preheader, !llvm.loop !31
 
 .preheader.preheader:                             ; preds = %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit, %3
   %.114.ph = phi i32 [ %1, %3 ], [ %31, %_ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit ]
@@ -1570,7 +1570,7 @@ _ZN6icu_7710UCharsTrie9skipDeltaEPKDs.exit:       ; preds = %_ZN6icu_7710UCharsT
   %.1 = phi ptr [ %.0.i.i, %_ZN6icu_7710UCharsTrie9skipValueEPKDs.exit ], [ %.1.ph, %.preheader.preheader ]
   %41 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %42 = load i16, ptr %.1, align 2, !tbaa !12
-  %43 = load ptr, ptr %2, align 8, !tbaa !30
+  %43 = load ptr, ptr %2, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef signext i8 %45(ptr noundef nonnull align 8 dereferenceable(8) %2, i16 noundef zeroext %42)
@@ -1596,11 +1596,11 @@ _ZN6icu_7710UCharsTrie9skipValueEPKDs.exit:       ; preds = %.preheader, %52, %5
   %.0.i.i = phi ptr [ %53, %52 ], [ %55, %54 ], [ %47, %.preheader ]
   %56 = add nsw i32 %.114, -1
   %57 = icmp sgt i32 %.114, 2
-  br i1 %57, label %.preheader, label %58, !llvm.loop !33
+  br i1 %57, label %.preheader, label %58, !llvm.loop !32
 
 58:                                               ; preds = %_ZN6icu_7710UCharsTrie9skipValueEPKDs.exit
   %59 = load i16, ptr %.0.i.i, align 2, !tbaa !12
-  %60 = load ptr, ptr %2, align 8, !tbaa !30
+  %60 = load ptr, ptr %2, align 8, !tbaa !29
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef signext i8 %62(ptr noundef nonnull align 8 dereferenceable(8) %2, i16 noundef zeroext %59)
@@ -1640,22 +1640,21 @@ attributes #11 = { nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"char16_t", !7, i64 0}
 !14 = !{!4, !5, i64 8}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !5, i64 0}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
-!27 = !{!9, !9, i64 0}
-!28 = distinct !{!28, !16, !17}
-!29 = distinct !{!29, !16, !17}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"vtable pointer", !8, i64 0}
-!32 = distinct !{!32, !16, !17}
-!33 = distinct !{!33, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = !{!20, !5, i64 0}
+!20 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !5, i64 0}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = !{!9, !9, i64 0}
+!27 = distinct !{!27, !16}
+!28 = distinct !{!28, !16}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"vtable pointer", !8, i64 0}
+!31 = distinct !{!31, !16}
+!32 = distinct !{!32, !16}

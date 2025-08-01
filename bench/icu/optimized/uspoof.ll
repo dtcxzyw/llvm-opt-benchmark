@@ -2090,7 +2090,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %15 = icmp sgt i32 %12, %14
   %spec.select = select i1 %15, i32 16, i32 0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  store i32 %12, ptr %16, align 8, !tbaa !47
+  store i32 %12, ptr %16, align 8, !tbaa !46
   %.pre = load i32, ptr %8, align 4, !tbaa !20
   br label %17
 
@@ -2179,7 +2179,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %57 = load ptr, ptr %49, align 8, !tbaa !28
   %58 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %57, i32 noundef %53)
   %.not73 = icmp eq i8 %58, 0
-  br i1 %.not73, label %59, label %50, !llvm.loop !50
+  br i1 %.not73, label %59, label %50, !llvm.loop !49
 
 59:                                               ; preds = %52
   %60 = or i32 %.4, 64
@@ -2220,7 +2220,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %.059.ph = phi i32 [ %.059.ph.be, %.outer.backedge ], [ 0, %70 ]
   %.055.ph = phi i32 [ %.055.ph.be, %.outer.backedge ], [ 0, %70 ]
   %78 = icmp eq i32 %.055.ph, 0
-  br i1 %78, label %.outer.split.us, label %.outer.split, !llvm.loop !51
+  br i1 %78, label %.outer.split.us, label %.outer.split, !llvm.loop !50
 
 .outer.split.us:                                  ; preds = %.outer
   %79 = icmp slt i32 %.059.ph, %77
@@ -2245,7 +2245,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
 .outer.backedge:                                  ; preds = %84, %.split.us, %97
   %.059.ph.be = phi i32 [ %94, %97 ], [ %94, %.split.us ], [ %87, %84 ]
   %.055.ph.be = phi i32 [ 0, %97 ], [ 0, %.split.us ], [ %spec.select116, %84 ]
-  br label %.outer, !llvm.loop !51
+  br label %.outer, !llvm.loop !50
 
 .loopexit85.split.us:                             ; preds = %82, %80
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -2326,7 +2326,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
 
 111:                                              ; preds = %108
   %112 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %7, i32 noundef %90)
-          to label %.outer.split unwind label %.loopexit85.split, !llvm.loop !51
+          to label %.outer.split unwind label %.loopexit85.split, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.outer.split.us, %.outer.split, %109
   %.9 = phi i32 [ %110, %109 ], [ %.6, %.outer.split ], [ %.6, %.outer.split.us ]
@@ -2352,7 +2352,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   %116 = phi i32 [ %.pre108, %.loopexit ], [ %61, %.loopexit86 ]
   %.8 = phi i32 [ %.9, %.loopexit ], [ %.6, %.loopexit86 ]
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %.8, ptr %117, align 4, !tbaa !52
+  store i32 %.8, ptr %117, align 4, !tbaa !51
   %118 = call noundef i32 @_ZN6icu_7711CheckResult17toCombinedBitmaskEi(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %116)
   ret i32 %118
 
@@ -2412,13 +2412,13 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
           to label %29 unwind label %43
 
 29:                                               ; preds = %25
-  store ptr %4, ptr %11, align 8, !tbaa !53
+  store ptr %4, ptr %11, align 8, !tbaa !52
   %30 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %11, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %31 unwind label %45
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %11, align 8, !tbaa !53
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #6, !srcloc !55
+  %32 = load ptr, ptr %11, align 8, !tbaa !52
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #6, !srcloc !54
   %33 = load i16, ptr %27, align 8, !tbaa !42
   %34 = icmp slt i16 %33, 0
   %35 = ashr i16 %33, 5
@@ -2447,8 +2447,8 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
 45:                                               ; preds = %29
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %11, align 8, !tbaa !53
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %47) #6, !srcloc !55
+  %47 = load ptr, ptr %11, align 8, !tbaa !52
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %47) #6, !srcloc !54
   br label %48
 
 48:                                               ; preds = %45, %43
@@ -2512,13 +2512,13 @@ define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, pt
           to label %26 unwind label %30
 
 26:                                               ; preds = %23
-  store ptr %4, ptr %11, align 8, !tbaa !53
+  store ptr %4, ptr %11, align 8, !tbaa !52
   %27 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %11, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %28 unwind label %32
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %11, align 8, !tbaa !53
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %29) #6, !srcloc !55
+  %29 = load ptr, ptr %11, align 8, !tbaa !52
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %29) #6, !srcloc !54
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
   br label %36
@@ -2531,8 +2531,8 @@ define noundef i32 @uspoof_getBidiSkeleton_77(ptr noundef %0, i32 noundef %1, pt
 32:                                               ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %11, align 8, !tbaa !53
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #6, !srcloc !55
+  %34 = load ptr, ptr %11, align 8, !tbaa !52
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #6, !srcloc !54
   br label %35
 
 35:                                               ; preds = %32, %30
@@ -3032,7 +3032,7 @@ define i32 @uspoof_getCheckResultChecks_77(ptr noundef %0, ptr noundef nonnull %
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !52
+  %8 = load i32, ptr %7, align 4, !tbaa !51
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -3051,7 +3051,7 @@ define i32 @uspoof_getCheckResultRestrictionLevel_77(ptr noundef %0, ptr noundef
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %8 = load i32, ptr %7, align 8, !tbaa !47
+  %8 = load i32, ptr %7, align 8, !tbaa !46
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -3189,15 +3189,14 @@ attributes #7 = { nounwind willreturn memory(read) }
 !41 = !{i64 2150555441}
 !42 = !{!5, !5, i64 0}
 !43 = !{!21, !24, i64 16}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !26, i64 216}
-!48 = !{!"_ZTSN6icu_7711CheckResultE", !22, i64 0, !49, i64 8, !11, i64 12, !30, i64 16, !26, i64 216}
-!49 = !{!"_ZTSN6icu_7713IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EEE", !11, i64 0}
-!50 = distinct !{!50, !45, !46}
-!51 = distinct !{!51, !45, !46}
-!52 = !{!48, !11, i64 12}
-!53 = !{!54, !36, i64 0}
-!54 = !{!"_ZTSN6icu_779Char16PtrE", !36, i64 0}
-!55 = !{i64 2150555335}
+!46 = !{!47, !26, i64 216}
+!47 = !{!"_ZTSN6icu_7711CheckResultE", !22, i64 0, !48, i64 8, !11, i64 12, !30, i64 16, !26, i64 216}
+!48 = !{!"_ZTSN6icu_7713IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EEE", !11, i64 0}
+!49 = distinct !{!49, !45}
+!50 = distinct !{!50, !45}
+!51 = !{!47, !11, i64 12}
+!52 = !{!53, !36, i64 0}
+!53 = !{!"_ZTSN6icu_779Char16PtrE", !36, i64 0}
+!54 = !{i64 2150555335}

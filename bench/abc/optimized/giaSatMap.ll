@@ -417,7 +417,7 @@ Vec_IntPush.exit111:                              ; preds = %.Vec_IntGrow.exit10
   %.val80 = load i32, ptr %190, align 4, !tbaa !13
   %191 = sext i32 %.val80 to i64
   %192 = icmp slt i64 %indvars.iv.next137, %191
-  br i1 %192, label %.lr.ph124, label %.critedge2.preheader.loopexit, !llvm.loop !33
+  br i1 %192, label %.lr.ph124, label %.critedge2.preheader.loopexit, !llvm.loop !32
 
 193:                                              ; preds = %.lr.ph133, %.critedge2
   %194 = phi ptr [ %171, %.lr.ph133 ], [ %273, %.critedge2 ]
@@ -496,7 +496,7 @@ Vec_IntPush.exit111:                              ; preds = %.Vec_IntGrow.exit10
   %.val82 = load i32, ptr %204, align 4, !tbaa !13
   %237 = sext i32 %.val82 to i64
   %238 = icmp slt i64 %indvars.iv.next140, %237
-  br i1 %238, label %207, label %.critedge6, !llvm.loop !34
+  br i1 %238, label %207, label %.critedge6, !llvm.loop !33
 
 .critedge6:                                       ; preds = %236, %199
   %.4.lcssa = phi i32 [ %.2132, %199 ], [ %.5, %236 ]
@@ -580,7 +580,7 @@ Vec_IntPush.exit118:                              ; preds = %.Vec_IntGrow.exit10
   %.val81 = load i32, ptr %274, align 4, !tbaa !13
   %275 = sext i32 %.val81 to i64
   %276 = icmp slt i64 %indvars.iv.next143, %275
-  br i1 %276, label %193, label %.critedge4, !llvm.loop !35
+  br i1 %276, label %193, label %.critedge4, !llvm.loop !34
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge2.preheader ], [ %.3, %.critedge2 ]
@@ -605,7 +605,7 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
   br i1 %.not, label %sat_solver_set_polarity.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !36
+  %5 = load ptr, ptr %0, align 8, !tbaa !35
   %6 = tail call i32 @sat_solver_nvars(ptr noundef %5) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !27
@@ -647,7 +647,7 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
   %27 = getelementptr i8, ptr %26, i64 8
   %.val59 = load ptr, ptr %27, align 8, !tbaa !28
   %28 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val59, i64 %indvars.iv
-  %29 = load ptr, ptr %0, align 8, !tbaa !36
+  %29 = load ptr, ptr %0, align 8, !tbaa !35
   %30 = getelementptr i8, ptr %28, i64 8
   %.val60 = load ptr, ptr %30, align 8, !tbaa !22
   %31 = getelementptr i8, ptr %28, i64 4
@@ -678,7 +678,7 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
   %47 = load i32, ptr %46, align 4, !tbaa !23
   %48 = xor i32 %47, 1
   store i32 %48, ptr %15, align 4, !tbaa !23
-  %49 = load ptr, ptr %0, align 8, !tbaa !36
+  %49 = load ptr, ptr %0, align 8, !tbaa !35
   %50 = call i32 @sat_solver_addclause(ptr noundef %49, ptr noundef nonnull %2, ptr noundef nonnull %16) #18
   br label %51
 
@@ -689,7 +689,7 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
   %.val53 = load i32, ptr %53, align 4, !tbaa !18
   %54 = sext i32 %.val53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %25, label %.critedge.preheader, !llvm.loop !37
+  br i1 %55, label %25, label %.critedge.preheader, !llvm.loop !36
 
 56:                                               ; preds = %.lr.ph75, %.critedge4
   %57 = phi ptr [ %17, %.lr.ph75 ], [ %87, %.critedge4 ]
@@ -740,13 +740,13 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
   %81 = shl nsw i32 %80, 1
   %82 = or disjoint i32 %81, 1
   store i32 %82, ptr %22, align 4, !tbaa !23
-  %83 = load ptr, ptr %0, align 8, !tbaa !36
+  %83 = load ptr, ptr %0, align 8, !tbaa !35
   %84 = call i32 @sat_solver_addclause(ptr noundef %83, ptr noundef nonnull %2, ptr noundef nonnull %23) #18
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %.val56 = load i32, ptr %60, align 4, !tbaa !13
   %85 = sext i32 %.val56 to i64
   %86 = icmp slt i64 %indvars.iv.next78, %85
-  br i1 %86, label %63, label %.critedge4.loopexit, !llvm.loop !38
+  br i1 %86, label %63, label %.critedge4.loopexit, !llvm.loop !37
 
 .critedge4.loopexit:                              ; preds = %78
   %.pre = load ptr, ptr %7, align 8, !tbaa !27
@@ -759,17 +759,17 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
   %.val52 = load i32, ptr %88, align 4, !tbaa !18
   %89 = sext i32 %.val52 to i64
   %90 = icmp slt i64 %indvars.iv.next81, %89
-  br i1 %90, label %56, label %.critedge2, !llvm.loop !39
+  br i1 %90, label %56, label %.critedge2, !llvm.loop !38
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge.preheader
-  %91 = load ptr, ptr %0, align 8, !tbaa !36
+  %91 = load ptr, ptr %0, align 8, !tbaa !35
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %93 = load ptr, ptr %92, align 8, !tbaa !3
   %94 = getelementptr i8, ptr %93, i64 8
   %.val61 = load ptr, ptr %94, align 8, !tbaa !22
   %95 = getelementptr i8, ptr %93, i64 4
   %.val55 = load i32, ptr %95, align 4, !tbaa !13
-  %96 = load i32, ptr %91, align 8, !tbaa !40
+  %96 = load i32, ptr %91, align 8, !tbaa !39
   %97 = icmp sgt i32 %96, 0
   br i1 %97, label %.lr.ph.i, label %.preheader.i
 
@@ -788,26 +788,26 @@ define range(i32 0, 2) i32 @Sbm_ManCreateCnf(ptr noundef readonly captures(none)
 
 101:                                              ; preds = %101, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %101 ]
-  %102 = load ptr, ptr %98, align 8, !tbaa !54
+  %102 = load ptr, ptr %98, align 8, !tbaa !53
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv.i
-  store i8 0, ptr %103, align 1, !tbaa !55
+  store i8 0, ptr %103, align 1, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %104 = load i32, ptr %91, align 8, !tbaa !40
+  %104 = load i32, ptr %91, align 8, !tbaa !39
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
-  br i1 %106, label %101, label %.preheader.i, !llvm.loop !56
+  br i1 %106, label %101, label %.preheader.i, !llvm.loop !55
 
 107:                                              ; preds = %107, %.lr.ph12.i
   %indvars.iv14.i = phi i64 [ 0, %.lr.ph12.i ], [ %indvars.iv.next15.i, %107 ]
-  %108 = load ptr, ptr %100, align 8, !tbaa !54
+  %108 = load ptr, ptr %100, align 8, !tbaa !53
   %109 = getelementptr inbounds nuw i32, ptr %.val61, i64 %indvars.iv14.i
   %110 = load i32, ptr %109, align 4, !tbaa !23
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %108, i64 %111
-  store i8 1, ptr %112, align 1, !tbaa !55
+  store i8 1, ptr %112, align 1, !tbaa !54
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next15.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %sat_solver_set_polarity.exit, label %107, !llvm.loop !57
+  br i1 %exitcond.not.i, label %sat_solver_set_polarity.exit, label %107, !llvm.loop !56
 
 sat_solver_set_polarity.exit:                     ; preds = %107, %.preheader.i, %1
   %.047 = phi i32 [ 0, %1 ], [ 1, %.preheader.i ], [ 1, %107 ]
@@ -891,7 +891,7 @@ define internal fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr nound
   store i32 %22, ptr %gep, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %33, label %20, !llvm.loop !58
+  br i1 %exitcond.not, label %33, label %20, !llvm.loop !57
 
 33:                                               ; preds = %20
   call fastcc void @Card_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef %4)
@@ -940,7 +940,7 @@ define i32 @Card_AddCardinSolver(i32 noundef %0, ptr noundef writeonly captures(
   store i32 %18, ptr %17, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !58
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
@@ -1010,8 +1010,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds i32, ptr %43, i64 %46
   store i32 -1, ptr %47, align 4, !tbaa !23
-  store ptr %10, ptr %1, align 8, !tbaa !60
-  store ptr %6, ptr %2, align 8, !tbaa !60
+  store ptr %10, ptr %1, align 8, !tbaa !59
+  store ptr %6, ptr %2, align 8, !tbaa !59
   ret i32 %19
 }
 
@@ -1020,13 +1020,13 @@ define noundef ptr @Sbm_AddCardinSolver2(i32 noundef %0, ptr noundef writeonly c
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store ptr null, ptr %4, align 8, !tbaa !60
+  store ptr null, ptr %4, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store ptr null, ptr %5, align 8, !tbaa !60
+  store ptr null, ptr %5, align 8, !tbaa !59
   %6 = call i32 @Card_AddCardinSolver(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %7 = tail call ptr @sat_solver_new() #18
   tail call void @sat_solver_setnvars(ptr noundef %7, i32 noundef %6) #18
-  %8 = load ptr, ptr %5, align 8, !tbaa !60
+  %8 = load ptr, ptr %5, align 8, !tbaa !59
   %9 = getelementptr i8, ptr %8, i64 8
   %10 = getelementptr i8, ptr %8, i64 4
   %.val24 = load i32, ptr %10, align 4, !tbaa !13
@@ -1053,15 +1053,15 @@ define noundef ptr @Sbm_AddCardinSolver2(i32 noundef %0, ptr noundef writeonly c
   %19 = getelementptr inbounds i32, ptr %.val20, i64 %15
   %.val = load i32, ptr %10, align 4, !tbaa !13
   %20 = icmp slt i32 %18, %.val
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr %4, align 8, !tbaa !60
-  store ptr %22, ptr %1, align 8, !tbaa !60
+  %22 = load ptr, ptr %4, align 8, !tbaa !59
+  store ptr %22, ptr %1, align 8, !tbaa !59
   br label %23
 
 23:                                               ; preds = %21, %._crit_edge
@@ -1069,7 +1069,7 @@ define noundef ptr @Sbm_AddCardinSolver2(i32 noundef %0, ptr noundef writeonly c
   br i1 %.not19, label %25, label %24
 
 24:                                               ; preds = %23
-  store ptr %8, ptr %2, align 8, !tbaa !60
+  store ptr %8, ptr %2, align 8, !tbaa !59
   br label %25
 
 25:                                               ; preds = %24, %23
@@ -1091,13 +1091,13 @@ define i32 @Sbm_AddCardinConstrPairWise(ptr noundef %0, ptr noundef readonly cap
   %.val4 = load ptr, ptr %6, align 8, !tbaa !22
   %7 = add nsw i32 %.val, -1
   call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val4, i32 noundef 0, i32 noundef %7, ptr noundef %4)
-  %8 = load i32, ptr %0, align 8, !tbaa !40
+  %8 = load i32, ptr %0, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %8, ptr %9, align 8, !tbaa !62
+  store i32 %8, ptr %9, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !63
+  %11 = load i32, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %11, ptr %12, align 4, !tbaa !64
+  store i32 %11, ptr %12, align 4, !tbaa !63
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1109,13 +1109,13 @@ define i32 @Sbm_AddCardinConstrPairWise(ptr noundef %0, ptr noundef readonly cap
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load i32, ptr %21, align 8, !tbaa !65
+  %22 = load i32, ptr %21, align 8, !tbaa !64
   %23 = shl i32 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !66
+  %25 = load ptr, ptr %24, align 8, !tbaa !65
   %26 = sext i32 %20 to i64
   %27 = getelementptr inbounds ptr, ptr %25, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !67
+  %28 = load ptr, ptr %27, align 8, !tbaa !66
   %.val.i.i.i = load i32, ptr %28, align 4, !tbaa !23
   %29 = or i32 %.val.i.i.i, %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1125,23 +1125,23 @@ define i32 @Sbm_AddCardinConstrPairWise(ptr noundef %0, ptr noundef readonly cap
   %33 = shl i32 %32, %22
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds ptr, ptr %25, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !67
+  %36 = load ptr, ptr %35, align 8, !tbaa !66
   %.val.i8.i.i = load i32, ptr %36, align 4, !tbaa !23
   %37 = or i32 %.val.i8.i.i, %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %37, ptr %38, align 4, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %40 = load ptr, ptr %39, align 8, !tbaa !68
+  %40 = load ptr, ptr %39, align 8, !tbaa !67
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %sat_solver_bookmark.exit, label %41
 
 41:                                               ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %43 = load i64, ptr %42, align 8, !tbaa !69
+  %43 = load i64, ptr %42, align 8, !tbaa !68
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %43, ptr %44, align 8, !tbaa !70
+  store i64 %43, ptr %44, align 8, !tbaa !69
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %46 = load ptr, ptr %45, align 8, !tbaa !71
+  %46 = load ptr, ptr %45, align 8, !tbaa !70
   %47 = sext i32 %8 to i64
   %48 = shl nsw i64 %47, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %46, i64 %48, i1 false)
@@ -1207,7 +1207,7 @@ define internal fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr nounde
   store i32 %23, ptr %gep, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %36, label %20, !llvm.loop !72
+  br i1 %exitcond.not, label %36, label %20, !llvm.loop !71
 
 36:                                               ; preds = %20
   call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %11, ptr noundef %4)
@@ -1256,7 +1256,7 @@ define noundef ptr @Sbm_AddCardinSolver(i32 noundef %0, ptr noundef writeonly ca
   store i32 %20, ptr %19, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !58
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %2
   %21 = tail call ptr @sat_solver_new() #18
@@ -1265,13 +1265,13 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %2
   store i32 %4, ptr %3, align 4, !tbaa !23
   %22 = add nsw i32 %4, -1
   call fastcc void @Sbm_AddCardinConstrRange(ptr noundef %21, ptr noundef %17, i32 noundef 0, i32 noundef %22, ptr noundef %3)
-  %23 = load i32, ptr %21, align 8, !tbaa !40
+  %23 = load i32, ptr %21, align 8, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  store i32 %23, ptr %24, align 8, !tbaa !62
+  store i32 %23, ptr %24, align 8, !tbaa !61
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !63
+  %26 = load i32, ptr %25, align 8, !tbaa !62
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 100
-  store i32 %26, ptr %27, align 4, !tbaa !64
+  store i32 %26, ptr %27, align 4, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -1283,13 +1283,13 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %2
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %35 = load i32, ptr %34, align 4, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %37 = load i32, ptr %36, align 8, !tbaa !65
+  %37 = load i32, ptr %36, align 8, !tbaa !64
   %38 = shl i32 %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
+  %40 = load ptr, ptr %39, align 8, !tbaa !65
   %41 = sext i32 %35 to i64
   %42 = getelementptr inbounds ptr, ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !67
+  %43 = load ptr, ptr %42, align 8, !tbaa !66
   %.val.i.i.i.i = load i32, ptr %43, align 4, !tbaa !23
   %44 = or i32 %.val.i.i.i.i, %38
   %45 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -1299,23 +1299,23 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %2
   %48 = shl i32 %47, %37
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds ptr, ptr %40, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !67
+  %51 = load ptr, ptr %50, align 8, !tbaa !66
   %.val.i8.i.i.i = load i32, ptr %51, align 4, !tbaa !23
   %52 = or i32 %.val.i8.i.i.i, %48
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i32 %52, ptr %53, align 4, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 152
-  %55 = load ptr, ptr %54, align 8, !tbaa !68
+  %55 = load ptr, ptr %54, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %Sbm_AddCardinConstrPairWise.exit, label %56
 
 56:                                               ; preds = %Vec_IntStartNatural.exit
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 120
-  %58 = load i64, ptr %57, align 8, !tbaa !69
+  %58 = load i64, ptr %57, align 8, !tbaa !68
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 128
-  store i64 %58, ptr %59, align 8, !tbaa !70
+  store i64 %58, ptr %59, align 8, !tbaa !69
   %60 = getelementptr inbounds nuw i8, ptr %21, i64 144
-  %61 = load ptr, ptr %60, align 8, !tbaa !71
+  %61 = load ptr, ptr %60, align 8, !tbaa !70
   %62 = sext i32 %23 to i64
   %63 = shl nsw i64 %62, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %61, i64 %63, i1 false)
@@ -1323,7 +1323,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %2
 
 Sbm_AddCardinConstrPairWise.exit:                 ; preds = %Vec_IntStartNatural.exit, %56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  store ptr %13, ptr %1, align 8, !tbaa !60
+  store ptr %13, ptr %1, align 8, !tbaa !59
   ret ptr %21
 }
 
@@ -1342,7 +1342,7 @@ define void @Sbm_AddCardinConstrTest() local_unnamed_addr #0 {
   %7 = call ptr @Sbm_AddCardinSolver(i32 noundef 3, ptr noundef nonnull %1)
   %8 = tail call i32 @sat_solver_nvars(ptr noundef %7) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #18
-  %9 = load ptr, ptr %1, align 8, !tbaa !60
+  %9 = load ptr, ptr %1, align 8, !tbaa !59
   %10 = getelementptr i8, ptr %9, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -1372,7 +1372,7 @@ define void @Sbm_AddCardinConstrTest() local_unnamed_addr #0 {
   %.val3549 = phi ptr [ %.val3548, %21 ], [ %.val35, %Vec_IntPush.exit ]
   %24 = phi ptr [ %.val3548, %21 ], [ %.pre.i46, %Vec_IntPush.exit ]
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %Vec_IntPush.exit ]
-  %.val36 = load ptr, ptr %18, align 8, !tbaa !73
+  %.val36 = load ptr, ptr %18, align 8, !tbaa !72
   %25 = getelementptr inbounds nuw i32, ptr %.val36, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !23
   %27 = icmp eq i32 %26, 1
@@ -1431,7 +1431,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %50 = sext i32 %31 to i64
   %51 = getelementptr inbounds i32, ptr %.pre.i46, i64 %50
   store i32 %30, ptr %51, align 4, !tbaa !23
-  %.val37 = load ptr, ptr %18, align 8, !tbaa !73
+  %.val37 = load ptr, ptr %18, align 8, !tbaa !72
   %52 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = icmp eq i32 %53, 1
@@ -1439,7 +1439,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %55)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %57, label %23, !llvm.loop !74
+  br i1 %exitcond.not, label %57, label %23, !llvm.loop !73
 
 57:                                               ; preds = %Vec_IntPush.exit
   %58 = add nuw nsw i32 %.033, 1
@@ -1447,7 +1447,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %59 = getelementptr inbounds nuw i8, ptr %.val35, i64 32
   %60 = call i32 @sat_solver_addclause(ptr noundef nonnull %7, ptr noundef %.val35, ptr noundef nonnull %59) #18
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %select.unfold, label %19, !llvm.loop !75
+  br i1 %61, label %select.unfold, label %19
 
 select.unfold:                                    ; preds = %57, %19
   %62 = phi ptr [ %.val35, %57 ], [ %.val3548, %19 ]
@@ -1487,9 +1487,9 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call ptr @Sbm_AddCardinSolver(i32 noundef %0, ptr noundef nonnull %3)
-  store ptr %4, ptr %2, align 8, !tbaa !36
+  store ptr %4, ptr %2, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %0, ptr %5, align 8, !tbaa !76
+  store i32 %0, ptr %5, align 8, !tbaa !74
   %6 = tail call i32 @sat_solver_nvars(ptr noundef %4) #18
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %6, ptr %7, align 4, !tbaa !26
@@ -1505,7 +1505,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4, !tbaa !18
-  store i32 1000, ptr %13, align 8, !tbaa !77
+  store i32 1000, ptr %13, align 8, !tbaa !75
   %15 = tail call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #19
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !28
@@ -1514,7 +1514,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4, !tbaa !18
-  store i32 1000, ptr %18, align 8, !tbaa !77
+  store i32 1000, ptr %18, align 8, !tbaa !75
   %20 = tail call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #19
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !28
@@ -1537,16 +1537,16 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %28, ptr %32, align 8, !tbaa !78
+  store ptr %28, ptr %32, align 8, !tbaa !76
   %33 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 0, ptr %34, align 4, !tbaa !79
-  store i32 100, ptr %33, align 8, !tbaa !81
+  store i32 0, ptr %34, align 4, !tbaa !77
+  store i32 100, ptr %33, align 8, !tbaa !79
   %35 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #17
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %35, ptr %36, align 8, !tbaa !82
+  store ptr %35, ptr %36, align 8, !tbaa !80
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %33, ptr %37, align 8, !tbaa !83
+  store ptr %33, ptr %37, align 8, !tbaa !81
   %38 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 0, ptr %39, align 4, !tbaa !13
@@ -1555,7 +1555,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %40, ptr %41, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %38, ptr %42, align 8, !tbaa !84
+  store ptr %38, ptr %42, align 8, !tbaa !82
   %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 0, ptr %44, align 4, !tbaa !13
@@ -1573,7 +1573,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %50, ptr %51, align 8, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %48, ptr %52, align 8, !tbaa !85
+  store ptr %48, ptr %52, align 8, !tbaa !83
   %53 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 0, ptr %54, align 4, !tbaa !13
@@ -1582,7 +1582,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %55, ptr %56, align 8, !tbaa !22
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store ptr %53, ptr %57, align 8, !tbaa !86
+  store ptr %53, ptr %57, align 8, !tbaa !84
   %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %59, align 4, !tbaa !13
@@ -1600,7 +1600,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %65, ptr %66, align 8, !tbaa !22
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store ptr %63, ptr %67, align 8, !tbaa !87
+  store ptr %63, ptr %67, align 8, !tbaa !85
   %68 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 0, ptr %69, align 4, !tbaa !13
@@ -1609,7 +1609,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %70, ptr %71, align 8, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store ptr %68, ptr %72, align 8, !tbaa !88
+  store ptr %68, ptr %72, align 8, !tbaa !86
   ret ptr %2
 }
 
@@ -1618,10 +1618,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define void @Sbm_ManStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !36
+  %2 = load ptr, ptr %0, align 8, !tbaa !35
   tail call void @sat_solver_delete(ptr noundef %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %3, align 8, !tbaa !87
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %.not.i = icmp eq ptr %6, null
@@ -1648,7 +1648,7 @@ Vec_IntFree.exit18:                               ; preds = %Vec_IntFree.exit, %
   tail call void @free(ptr noundef nonnull %9) #18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !27
-  %15 = load i32, ptr %14, align 8, !tbaa !77
+  %15 = load i32, ptr %14, align 8, !tbaa !75
   %16 = icmp sgt i32 %15, 0
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre.i.i = load ptr, ptr %17, align 8, !tbaa !28
@@ -1668,7 +1668,7 @@ Vec_IntFree.exit18:                               ; preds = %Vec_IntFree.exit, %
   %23 = load ptr, ptr %17, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %23, i64 %indvars.iv.i.i, i32 2
   store ptr null, ptr %24, align 8, !tbaa !22
-  %.pre18.i.i = load i32, ptr %14, align 8, !tbaa !77
+  %.pre18.i.i = load i32, ptr %14, align 8, !tbaa !75
   br label %25
 
 25:                                               ; preds = %22, %.lr.ph.i.i
@@ -1677,7 +1677,7 @@ Vec_IntFree.exit18:                               ; preds = %Vec_IntFree.exit, %
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %28 = sext i32 %26 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i, %28
-  br i1 %29, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !90
+  br i1 %29, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !88
 
 ._crit_edge.i.i:                                  ; preds = %Vec_IntFree.exit18
   %.not.i.i = icmp eq ptr %.pre.i.i, null
@@ -1692,7 +1692,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
   tail call void @free(ptr noundef nonnull %14) #18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !17
-  %33 = load i32, ptr %32, align 8, !tbaa !77
+  %33 = load i32, ptr %32, align 8, !tbaa !75
   %34 = icmp sgt i32 %33, 0
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.pre.i.i19 = load ptr, ptr %35, align 8, !tbaa !28
@@ -1712,7 +1712,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
   %41 = load ptr, ptr %35, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %41, i64 %indvars.iv.i.i24, i32 2
   store ptr null, ptr %42, align 8, !tbaa !22
-  %.pre18.i.i26 = load i32, ptr %32, align 8, !tbaa !77
+  %.pre18.i.i26 = load i32, ptr %32, align 8, !tbaa !75
   br label %43
 
 43:                                               ; preds = %40, %.lr.ph.i.i23
@@ -1721,7 +1721,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
   %indvars.iv.next.i.i27 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %46 = sext i32 %44 to i64
   %47 = icmp slt i64 %indvars.iv.next.i.i27, %46
-  br i1 %47, label %.lr.ph.i.i23, label %._crit_edge.thread.i.i22, !llvm.loop !90
+  br i1 %47, label %.lr.ph.i.i23, label %._crit_edge.thread.i.i22, !llvm.loop !88
 
 ._crit_edge.i.i20:                                ; preds = %Vec_WecFree.exit
   %.not.i.i21 = icmp eq ptr %.pre.i.i19, null
@@ -1748,7 +1748,7 @@ Vec_WecFree.exit28:                               ; preds = %._crit_edge.i.i20, 
 Vec_IntFree.exit30:                               ; preds = %Vec_WecFree.exit28, %53
   tail call void @free(ptr noundef nonnull %50) #18
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = load ptr, ptr %54, align 8, !tbaa !78
+  %55 = load ptr, ptr %54, align 8, !tbaa !76
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %.not.i31 = icmp eq ptr %57, null
@@ -1761,9 +1761,9 @@ Vec_IntFree.exit30:                               ; preds = %Vec_WecFree.exit28,
 Vec_IntFree.exit32:                               ; preds = %Vec_IntFree.exit30, %58
   tail call void @free(ptr noundef nonnull %55) #18
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %60 = load ptr, ptr %59, align 8, !tbaa !83
+  %60 = load ptr, ptr %59, align 8, !tbaa !81
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !82
+  %62 = load ptr, ptr %61, align 8, !tbaa !80
   %.not.i33 = icmp eq ptr %62, null
   br i1 %.not.i33, label %Vec_WrdFree.exit, label %63
 
@@ -1774,7 +1774,7 @@ Vec_IntFree.exit32:                               ; preds = %Vec_IntFree.exit30,
 Vec_WrdFree.exit:                                 ; preds = %Vec_IntFree.exit32, %63
   tail call void @free(ptr noundef nonnull %60) #18
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %65 = load ptr, ptr %64, align 8, !tbaa !84
+  %65 = load ptr, ptr %64, align 8, !tbaa !82
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !22
   %.not.i34 = icmp eq ptr %67, null
@@ -1800,7 +1800,7 @@ Vec_IntFree.exit35:                               ; preds = %Vec_WrdFree.exit, %
 Vec_IntFree.exit37:                               ; preds = %Vec_IntFree.exit35, %73
   tail call void @free(ptr noundef nonnull %70) #18
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %75 = load ptr, ptr %74, align 8, !tbaa !85
+  %75 = load ptr, ptr %74, align 8, !tbaa !83
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !22
   %.not.i38 = icmp eq ptr %77, null
@@ -1813,7 +1813,7 @@ Vec_IntFree.exit37:                               ; preds = %Vec_IntFree.exit35,
 Vec_IntFree.exit39:                               ; preds = %Vec_IntFree.exit37, %78
   tail call void @free(ptr noundef nonnull %75) #18
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %80 = load ptr, ptr %79, align 8, !tbaa !86
+  %80 = load ptr, ptr %79, align 8, !tbaa !84
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !22
   %.not.i40 = icmp eq ptr %82, null
@@ -1839,7 +1839,7 @@ Vec_IntFree.exit41:                               ; preds = %Vec_IntFree.exit39,
 Vec_IntFree.exit43:                               ; preds = %Vec_IntFree.exit41, %88
   tail call void @free(ptr noundef nonnull %85) #18
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %90 = load ptr, ptr %89, align 8, !tbaa !87
+  %90 = load ptr, ptr %89, align 8, !tbaa !85
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !22
   %.not.i44 = icmp eq ptr %92, null
@@ -1852,7 +1852,7 @@ Vec_IntFree.exit43:                               ; preds = %Vec_IntFree.exit41,
 Vec_IntFree.exit45:                               ; preds = %Vec_IntFree.exit43, %93
   tail call void @free(ptr noundef nonnull %90) #18
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %95 = load ptr, ptr %94, align 8, !tbaa !88
+  %95 = load ptr, ptr %94, align 8, !tbaa !86
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !22
   %.not.i46 = icmp eq ptr %97, null
@@ -1884,10 +1884,10 @@ define range(i32 0, 2) i32 @Sbm_ManTestSat(ptr noundef %0) local_unnamed_addr #0
   br i1 %8, label %Abc_Clock.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = load i64, ptr %5, align 8, !tbaa !91
+  %10 = load i64, ptr %5, align 8, !tbaa !89
   %.neg185 = mul i64 %10, -1000000
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !93
+  %12 = load i64, ptr %11, align 8, !tbaa !91
   %.neg184 = sdiv i64 %12, -1000
   %.neg186 = add i64 %.neg184, %.neg185
   br label %Abc_Clock.exit
@@ -1897,7 +1897,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
   %13 = call ptr @Sbm_ManAlloc(i32 noundef 7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  store i64 0, ptr %6, align 8, !tbaa !94
+  store i64 0, ptr %6, align 8, !tbaa !92
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1907,9 +1907,9 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %23 = load ptr, ptr %22, align 8, !tbaa !78
+  %23 = load ptr, ptr %22, align 8, !tbaa !76
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %25 = load ptr, ptr %24, align 8, !tbaa !83
+  %25 = load ptr, ptr %24, align 8, !tbaa !81
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !26
   %28 = call i32 @Nf_ManExtractWindow(ptr noundef %0, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef nonnull %6, i32 noundef %27, i32 noundef 128) #18
@@ -1940,11 +1940,11 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %.val.i = load i32, ptr %33, align 4, !tbaa !13
   %41 = sext i32 %.val.i to i64
   %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %37, label %Vec_IntPrint.exit, !llvm.loop !95
+  br i1 %42, label %37, label %Vec_IntPrint.exit, !llvm.loop !93
 
 Vec_IntPrint.exit:                                ; preds = %37, %Abc_Clock.exit
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %43 = load ptr, ptr %13, align 8, !tbaa !36
+  %43 = load ptr, ptr %13, align 8, !tbaa !35
   %44 = call i32 @sat_solver_nclauses(ptr noundef %43) #18
   %45 = getelementptr i8, ptr %19, i64 4
   %.val128 = load i32, ptr %45, align 4, !tbaa !18
@@ -1967,7 +1967,7 @@ Vec_IntPrint.exit:                                ; preds = %37, %Abc_Clock.exit
   %51 = add nsw i32 %.val8.i148, %.011.i
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i147, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i149, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_WecSizeSize.exit, label %49, !llvm.loop !96
+  br i1 %exitcond.not.i, label %Vec_WecSizeSize.exit, label %49, !llvm.loop !94
 
 Vec_WecSizeSize.exit:                             ; preds = %49, %Vec_IntPrint.exit
   %.0.lcssa.i = phi i32 [ 0, %Vec_IntPrint.exit ], [ %51, %49 ]
@@ -1991,7 +1991,7 @@ Vec_WecSizeSize.exit:                             ; preds = %49, %Vec_IntPrint.e
   %57 = add nsw i32 %.val8.i157, %.011.i156
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i155, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i154
-  br i1 %exitcond.not.i159, label %Vec_WecSizeSize.exit160, label %55, !llvm.loop !96
+  br i1 %exitcond.not.i159, label %Vec_WecSizeSize.exit160, label %55, !llvm.loop !94
 
 Vec_WecSizeSize.exit160:                          ; preds = %55, %Vec_WecSizeSize.exit
   %.0.lcssa.i151 = phi i32 [ 0, %Vec_WecSizeSize.exit ], [ %57, %55 ]
@@ -2004,7 +2004,7 @@ Vec_WecSizeSize.exit160:                          ; preds = %55, %Vec_WecSizeSiz
 
 62:                                               ; preds = %Vec_WecSizeSize.exit160
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %64 = load ptr, ptr %63, align 8, !tbaa !84
+  %64 = load ptr, ptr %63, align 8, !tbaa !82
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 0, ptr %65, align 4, !tbaa !13
   %66 = load i32, ptr %64, align 8, !tbaa !21
@@ -2095,7 +2095,7 @@ Vec_IntPush.exit167:                              ; preds = %Vec_IntPush.exit167
   store i32 %90, ptr %102, align 4, !tbaa !23
   %103 = add i32 %.0112192, 1
   %exitcond.not = icmp eq i32 %103, 128
-  br i1 %exitcond.not, label %.preheader, label %87, !llvm.loop !97
+  br i1 %exitcond.not, label %.preheader, label %87, !llvm.loop !95
 
 104:                                              ; preds = %.lr.ph195, %Vec_IntPush.exit174
   %105 = phi ptr [ %.pre.i170225, %.lr.ph195 ], [ %.pre.i170224, %Vec_IntPush.exit174 ]
@@ -2133,7 +2133,7 @@ Vec_IntPush.exit174:                              ; preds = %Vec_IntPush.exit174
   %.val131 = load i32, ptr %84, align 4, !tbaa !13
   %121 = sext i32 %.val131 to i64
   %122 = icmp slt i64 %indvars.iv.next, %121
-  br i1 %122, label %104, label %.critedge, !llvm.loop !98
+  br i1 %122, label %104, label %.critedge, !llvm.loop !96
 
 .critedge:                                        ; preds = %Vec_IntPush.exit174, %.preheader
   %.val130 = load i32, ptr %33, align 4, !tbaa !13
@@ -2154,7 +2154,7 @@ Vec_IntPush.exit174:                              ; preds = %Vec_IntPush.exit174
   %132 = phi i32 [ %124, %.lr.ph207 ], [ %242, %Abc_Clock.exit180 ]
   %.0116206 = phi i32 [ 1, %.lr.ph207 ], [ %.1117, %Abc_Clock.exit180 ]
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %132)
-  %134 = load ptr, ptr %125, align 8, !tbaa !89
+  %134 = load ptr, ptr %125, align 8, !tbaa !87
   %135 = getelementptr i8, ptr %134, i64 8
   %.val134 = load ptr, ptr %135, align 8, !tbaa !22
   %136 = zext nneg i32 %132 to i64
@@ -2170,9 +2170,9 @@ Vec_IntPush.exit174:                              ; preds = %Vec_IntPush.exit174
   br i1 %142, label %Abc_Clock.exit176, label %143
 
 143:                                              ; preds = %131
-  %144 = load i64, ptr %4, align 8, !tbaa !91
+  %144 = load i64, ptr %4, align 8, !tbaa !89
   %.neg182 = mul i64 %144, -1000000
-  %145 = load i64, ptr %127, align 8, !tbaa !93
+  %145 = load i64, ptr %127, align 8, !tbaa !91
   %.neg = sdiv i64 %145, -1000
   %.neg183 = add i64 %.neg, %.neg182
   br label %Abc_Clock.exit176
@@ -2203,7 +2203,7 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   %indvars.iv211 = phi i64 [ 0, %149 ], [ %indvars.iv.next212, %167 ]
   %.0107198 = phi i32 [ 0, %149 ], [ %.1, %167 ]
   %.0108197 = phi i64 [ 0, %149 ], [ %.1109, %167 ]
-  %.val143 = load ptr, ptr %128, align 8, !tbaa !73
+  %.val143 = load ptr, ptr %128, align 8, !tbaa !72
   %156 = getelementptr inbounds nuw i32, ptr %.val143, i64 %indvars.iv211
   %157 = load i32, ptr %156, align 4, !tbaa !23
   %158 = icmp eq i32 %157, 1
@@ -2219,7 +2219,7 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   br i1 %.not123, label %167, label %164
 
 164:                                              ; preds = %159
-  %165 = load i64, ptr %6, align 8, !tbaa !94
+  %165 = load i64, ptr %6, align 8, !tbaa !92
   %166 = add i64 %165, %.0108197
   br label %167
 
@@ -2228,7 +2228,7 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   %.1 = phi i32 [ %162, %164 ], [ %162, %159 ], [ %.0107198, %155 ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next212, 128
-  br i1 %exitcond214.not, label %168, label %155, !llvm.loop !99
+  br i1 %exitcond214.not, label %168, label %155, !llvm.loop !97
 
 168:                                              ; preds = %167
   %169 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.1)
@@ -2246,7 +2246,7 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   %indvars.iv218 = phi i64 [ %174, %.lr.ph205 ], [ %indvars.iv.next219, %206 ]
   %.2204 = phi i32 [ 1, %.lr.ph205 ], [ %.3, %206 ]
   %.2110203 = phi i64 [ %.1109, %.lr.ph205 ], [ %.3111, %206 ]
-  %.val141 = load ptr, ptr %128, align 8, !tbaa !73
+  %.val141 = load ptr, ptr %128, align 8, !tbaa !72
   %176 = getelementptr inbounds i32, ptr %.val141, i64 %indvars.iv218
   %177 = load i32, ptr %176, align 4, !tbaa !23
   %.not187 = icmp eq i32 %177, 1
@@ -2258,7 +2258,7 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   %181 = getelementptr i8, ptr %179, i64 8
   %.val137 = load ptr, ptr %181, align 8, !tbaa !28
   %182 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val137, i64 %180
-  %183 = load ptr, ptr %22, align 8, !tbaa !78
+  %183 = load ptr, ptr %22, align 8, !tbaa !76
   %184 = getelementptr i8, ptr %183, i64 8
   %.val133 = load ptr, ptr %184, align 8, !tbaa !22
   %185 = getelementptr inbounds i32, ptr %.val133, i64 %180
@@ -2287,16 +2287,16 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   %.val129 = load i32, ptr %189, align 4, !tbaa !13
   %198 = sext i32 %.val129 to i64
   %199 = icmp slt i64 %indvars.iv.next216, %198
-  br i1 %199, label %192, label %.critedge2, !llvm.loop !100
+  br i1 %199, label %192, label %.critedge2, !llvm.loop !98
 
 .critedge2:                                       ; preds = %192, %178
   %putchar121 = call i32 @putchar(i32 10)
   %200 = add nsw i32 %.2204, 1
-  %201 = load ptr, ptr %24, align 8, !tbaa !83
+  %201 = load ptr, ptr %24, align 8, !tbaa !81
   %202 = getelementptr i8, ptr %201, i64 8
-  %.val144 = load ptr, ptr %202, align 8, !tbaa !82
+  %.val144 = load ptr, ptr %202, align 8, !tbaa !80
   %203 = getelementptr inbounds i64, ptr %.val144, i64 %180
-  %204 = load i64, ptr %203, align 8, !tbaa !94
+  %204 = load i64, ptr %203, align 8, !tbaa !92
   %205 = add i64 %204, %.2110203
   br label %206
 
@@ -2307,7 +2307,7 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   %207 = call i32 @sat_solver_nvars(ptr noundef nonnull %43) #18
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next219, %208
-  br i1 %209, label %175, label %._crit_edge, !llvm.loop !101
+  br i1 %209, label %175, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %206, %168
   %.2110.lcssa = phi i64 [ %.1109, %168 ], [ %.3111, %206 ]
@@ -2332,9 +2332,9 @@ Abc_Clock.exit176:                                ; preds = %131, %143
   br i1 %220, label %Abc_Clock.exit178, label %221
 
 221:                                              ; preds = %.thread181
-  %222 = load i64, ptr %3, align 8, !tbaa !91
+  %222 = load i64, ptr %3, align 8, !tbaa !89
   %223 = mul nsw i64 %222, 1000000
-  %224 = load i64, ptr %129, align 8, !tbaa !93
+  %224 = load i64, ptr %129, align 8, !tbaa !91
   %225 = sdiv i64 %224, 1000
   %226 = add nsw i64 %225, %223
   br label %Abc_Clock.exit178
@@ -2353,9 +2353,9 @@ Abc_Clock.exit178:                                ; preds = %.thread181, %221
   br i1 %231, label %Abc_Clock.exit180, label %232
 
 232:                                              ; preds = %Abc_Clock.exit178
-  %233 = load i64, ptr %2, align 8, !tbaa !91
+  %233 = load i64, ptr %2, align 8, !tbaa !89
   %234 = mul nsw i64 %233, 1000000
-  %235 = load i64, ptr %130, align 8, !tbaa !93
+  %235 = load i64, ptr %130, align 8, !tbaa !91
   %236 = sdiv i64 %235, 1000
   %237 = add nsw i64 %236, %234
   br label %Abc_Clock.exit180
@@ -2373,7 +2373,7 @@ Abc_Clock.exit180:                                ; preds = %Abc_Clock.exit178, 
   %242 = sub nsw i32 %.val130, %.1117
   %243 = icmp sgt i32 %242, 0
   %244 = select i1 %241, i1 %243, i1 false
-  br i1 %244, label %131, label %._crit_edge208, !llvm.loop !102
+  br i1 %244, label %131, label %._crit_edge208, !llvm.loop !100
 
 ._crit_edge208:                                   ; preds = %Abc_Clock.exit180, %.critedge
   call void @Sbm_ManStop(ptr noundef nonnull %13)
@@ -2466,7 +2466,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   store i32 %32, ptr %gep, align 4, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, %20
   %43 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %43, label %30, label %.preheader, !llvm.loop !103
+  br i1 %43, label %30, label %.preheader, !llvm.loop !101
 
 44:                                               ; preds = %.lr.ph47, %44
   %indvars.iv49 = phi i64 [ %27, %.lr.ph47 ], [ %indvars.iv.next50, %44 ]
@@ -2484,7 +2484,7 @@ define internal fastcc void @Card_AddCardinConstrMerge(ptr noundef %0, ptr nound
   call fastcc void @Card_AddClause(ptr noundef %0, ptr noundef %8, ptr noundef %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   %52 = icmp slt i64 %indvars.iv.next50, %29
-  br i1 %52, label %44, label %.loopexit, !llvm.loop !104
+  br i1 %52, label %44, label %.loopexit, !llvm.loop !102
 
 .loopexit:                                        ; preds = %44, %.preheader, %6
   ret void
@@ -2601,7 +2601,7 @@ Vec_IntPush.exit13:                               ; preds = %Vec_IntPush.exit13.
   %56 = getelementptr inbounds i32, ptr %.pre.i916, i64 %55
   store i32 %44, ptr %56, align 4, !tbaa !23
   %57 = icmp ult ptr %43, %2
-  br i1 %57, label %41, label %._crit_edge, !llvm.loop !105
+  br i1 %57, label %41, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit13, %Vec_IntPush.exit
   ret void
@@ -2680,7 +2680,7 @@ define internal fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr nounde
   store i32 %33, ptr %gep, align 4, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, %20
   %46 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %46, label %30, label %.preheader, !llvm.loop !106
+  br i1 %46, label %30, label %.preheader, !llvm.loop !104
 
 47:                                               ; preds = %.lr.ph47, %47
   %indvars.iv49 = phi i64 [ %27, %.lr.ph47 ], [ %indvars.iv.next50, %47 ]
@@ -2698,7 +2698,7 @@ define internal fastcc void @Sbm_AddCardinConstrMerge(ptr noundef %0, ptr nounde
   %55 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %26) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   %56 = icmp slt i64 %indvars.iv.next50, %29
-  br i1 %56, label %47, label %.loopexit, !llvm.loop !107
+  br i1 %56, label %47, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %47, %.preheader, %6
   ret void
@@ -2727,7 +2727,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #18
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !108
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !106
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #18
@@ -2735,7 +2735,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !108, !noalias !109
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !106, !noalias !107
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #18
   br label %17
 
@@ -2832,85 +2832,83 @@ attributes #20 = { nounwind willreturn memory(read) }
 !27 = !{!4, !11, i64 40}
 !28 = !{!19, !9, i64 8}
 !29 = !{!4, !10, i64 24}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
-!34 = distinct !{!34, !31, !32}
-!35 = distinct !{!35, !31, !32}
-!36 = !{!4, !5, i64 0}
-!37 = distinct !{!37, !31, !32}
-!38 = distinct !{!38, !31, !32}
-!39 = distinct !{!39, !31, !32}
-!40 = !{!41, !10, i64 0}
-!41 = !{!"sat_solver_t", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !42, i64 16, !10, i64 72, !10, i64 76, !44, i64 80, !45, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !46, i64 120, !46, i64 128, !46, i64 136, !47, i64 144, !47, i64 152, !10, i64 160, !10, i64 164, !48, i64 168, !49, i64 184, !10, i64 192, !15, i64 200, !49, i64 208, !49, i64 216, !49, i64 224, !49, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !48, i64 264, !48, i64 280, !48, i64 296, !48, i64 312, !15, i64 328, !48, i64 336, !10, i64 352, !10, i64 356, !10, i64 360, !50, i64 368, !50, i64 376, !10, i64 384, !10, i64 388, !10, i64 392, !51, i64 400, !10, i64 472, !10, i64 476, !10, i64 480, !10, i64 484, !10, i64 488, !46, i64 496, !46, i64 504, !46, i64 512, !48, i64 520, !52, i64 536, !10, i64 544, !10, i64 548, !10, i64 552, !48, i64 560, !48, i64 576, !10, i64 592, !10, i64 596, !10, i64 600, !15, i64 608, !6, i64 616, !10, i64 624, !53, i64 632, !10, i64 640, !10, i64 644, !48, i64 648, !48, i64 664, !48, i64 680, !6, i64 696, !6, i64 704, !10, i64 712, !6, i64 720}
-!42 = !{!"Sat_Mem_t_", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !43, i64 48}
-!43 = !{!"p2 int", !6, i64 0}
-!44 = !{!"p1 _ZTS8clause_t", !6, i64 0}
-!45 = !{!"p1 _ZTS6veci_t", !6, i64 0}
-!46 = !{!"long", !7, i64 0}
-!47 = !{!"p1 long", !6, i64 0}
-!48 = !{!"veci_t", !10, i64 0, !10, i64 4, !15, i64 8}
-!49 = !{!"p1 omnipotent char", !6, i64 0}
-!50 = !{!"double", !7, i64 0}
-!51 = !{!"stats_t", !10, i64 0, !10, i64 4, !10, i64 8, !46, i64 16, !46, i64 24, !46, i64 32, !46, i64 40, !46, i64 48, !46, i64 56, !46, i64 64}
-!52 = !{!"p1 double", !6, i64 0}
-!53 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!54 = !{!41, !49, i64 216}
-!55 = !{!7, !7, i64 0}
-!56 = distinct !{!56, !31, !32}
-!57 = distinct !{!57, !31, !32}
-!58 = distinct !{!58, !31, !32}
-!59 = distinct !{!59, !31, !32}
-!60 = !{!9, !9, i64 0}
-!61 = distinct !{!61, !31, !32}
-!62 = !{!41, !10, i64 96}
-!63 = !{!41, !10, i64 8}
-!64 = !{!41, !10, i64 100}
-!65 = !{!42, !10, i64 32}
-!66 = !{!42, !43, i64 48}
-!67 = !{!15, !15, i64 0}
-!68 = !{!41, !47, i64 152}
-!69 = !{!41, !46, i64 120}
-!70 = !{!41, !46, i64 128}
-!71 = !{!41, !47, i64 144}
-!72 = distinct !{!72, !31, !32}
-!73 = !{!41, !15, i64 328}
-!74 = distinct !{!74, !31, !32}
-!75 = distinct !{!75, !32}
-!76 = !{!4, !10, i64 16}
-!77 = !{!19, !10, i64 0}
-!78 = !{!4, !9, i64 64}
-!79 = !{!80, !10, i64 4}
-!80 = !{!"Vec_Wrd_t_", !10, i64 0, !10, i64 4, !47, i64 8}
-!81 = !{!80, !10, i64 0}
-!82 = !{!80, !47, i64 8}
-!83 = !{!4, !12, i64 72}
-!84 = !{!4, !9, i64 80}
-!85 = !{!4, !9, i64 96}
-!86 = !{!4, !9, i64 104}
-!87 = !{!4, !9, i64 120}
-!88 = !{!4, !9, i64 128}
-!89 = !{!4, !9, i64 8}
-!90 = distinct !{!90, !31, !32}
-!91 = !{!92, !46, i64 0}
-!92 = !{!"timespec", !46, i64 0, !46, i64 8}
-!93 = !{!92, !46, i64 8}
-!94 = !{!46, !46, i64 0}
-!95 = distinct !{!95, !31, !32}
-!96 = distinct !{!96, !31, !32}
-!97 = distinct !{!97, !31, !32}
-!98 = distinct !{!98, !31, !32}
-!99 = distinct !{!99, !31, !32}
-!100 = distinct !{!100, !31, !32}
-!101 = distinct !{!101, !31, !32}
-!102 = distinct !{!102, !31, !32}
-!103 = distinct !{!103, !31, !32}
-!104 = distinct !{!104, !31, !32}
-!105 = distinct !{!105, !31, !32}
-!106 = distinct !{!106, !31, !32}
-!107 = distinct !{!107, !31, !32}
-!108 = !{!53, !53, i64 0}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"vprintf: argument 0"}
-!111 = distinct !{!111, !"vprintf"}
+!32 = distinct !{!32, !31}
+!33 = distinct !{!33, !31}
+!34 = distinct !{!34, !31}
+!35 = !{!4, !5, i64 0}
+!36 = distinct !{!36, !31}
+!37 = distinct !{!37, !31}
+!38 = distinct !{!38, !31}
+!39 = !{!40, !10, i64 0}
+!40 = !{!"sat_solver_t", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !41, i64 16, !10, i64 72, !10, i64 76, !43, i64 80, !44, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !45, i64 120, !45, i64 128, !45, i64 136, !46, i64 144, !46, i64 152, !10, i64 160, !10, i64 164, !47, i64 168, !48, i64 184, !10, i64 192, !15, i64 200, !48, i64 208, !48, i64 216, !48, i64 224, !48, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !47, i64 264, !47, i64 280, !47, i64 296, !47, i64 312, !15, i64 328, !47, i64 336, !10, i64 352, !10, i64 356, !10, i64 360, !49, i64 368, !49, i64 376, !10, i64 384, !10, i64 388, !10, i64 392, !50, i64 400, !10, i64 472, !10, i64 476, !10, i64 480, !10, i64 484, !10, i64 488, !45, i64 496, !45, i64 504, !45, i64 512, !47, i64 520, !51, i64 536, !10, i64 544, !10, i64 548, !10, i64 552, !47, i64 560, !47, i64 576, !10, i64 592, !10, i64 596, !10, i64 600, !15, i64 608, !6, i64 616, !10, i64 624, !52, i64 632, !10, i64 640, !10, i64 644, !47, i64 648, !47, i64 664, !47, i64 680, !6, i64 696, !6, i64 704, !10, i64 712, !6, i64 720}
+!41 = !{!"Sat_Mem_t_", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !42, i64 48}
+!42 = !{!"p2 int", !6, i64 0}
+!43 = !{!"p1 _ZTS8clause_t", !6, i64 0}
+!44 = !{!"p1 _ZTS6veci_t", !6, i64 0}
+!45 = !{!"long", !7, i64 0}
+!46 = !{!"p1 long", !6, i64 0}
+!47 = !{!"veci_t", !10, i64 0, !10, i64 4, !15, i64 8}
+!48 = !{!"p1 omnipotent char", !6, i64 0}
+!49 = !{!"double", !7, i64 0}
+!50 = !{!"stats_t", !10, i64 0, !10, i64 4, !10, i64 8, !45, i64 16, !45, i64 24, !45, i64 32, !45, i64 40, !45, i64 48, !45, i64 56, !45, i64 64}
+!51 = !{!"p1 double", !6, i64 0}
+!52 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!53 = !{!40, !48, i64 216}
+!54 = !{!7, !7, i64 0}
+!55 = distinct !{!55, !31}
+!56 = distinct !{!56, !31}
+!57 = distinct !{!57, !31}
+!58 = distinct !{!58, !31}
+!59 = !{!9, !9, i64 0}
+!60 = distinct !{!60, !31}
+!61 = !{!40, !10, i64 96}
+!62 = !{!40, !10, i64 8}
+!63 = !{!40, !10, i64 100}
+!64 = !{!41, !10, i64 32}
+!65 = !{!41, !42, i64 48}
+!66 = !{!15, !15, i64 0}
+!67 = !{!40, !46, i64 152}
+!68 = !{!40, !45, i64 120}
+!69 = !{!40, !45, i64 128}
+!70 = !{!40, !46, i64 144}
+!71 = distinct !{!71, !31}
+!72 = !{!40, !15, i64 328}
+!73 = distinct !{!73, !31}
+!74 = !{!4, !10, i64 16}
+!75 = !{!19, !10, i64 0}
+!76 = !{!4, !9, i64 64}
+!77 = !{!78, !10, i64 4}
+!78 = !{!"Vec_Wrd_t_", !10, i64 0, !10, i64 4, !46, i64 8}
+!79 = !{!78, !10, i64 0}
+!80 = !{!78, !46, i64 8}
+!81 = !{!4, !12, i64 72}
+!82 = !{!4, !9, i64 80}
+!83 = !{!4, !9, i64 96}
+!84 = !{!4, !9, i64 104}
+!85 = !{!4, !9, i64 120}
+!86 = !{!4, !9, i64 128}
+!87 = !{!4, !9, i64 8}
+!88 = distinct !{!88, !31}
+!89 = !{!90, !45, i64 0}
+!90 = !{!"timespec", !45, i64 0, !45, i64 8}
+!91 = !{!90, !45, i64 8}
+!92 = !{!45, !45, i64 0}
+!93 = distinct !{!93, !31}
+!94 = distinct !{!94, !31}
+!95 = distinct !{!95, !31}
+!96 = distinct !{!96, !31}
+!97 = distinct !{!97, !31}
+!98 = distinct !{!98, !31}
+!99 = distinct !{!99, !31}
+!100 = distinct !{!100, !31}
+!101 = distinct !{!101, !31}
+!102 = distinct !{!102, !31}
+!103 = distinct !{!103, !31}
+!104 = distinct !{!104, !31}
+!105 = distinct !{!105, !31}
+!106 = !{!52, !52, i64 0}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"vprintf: argument 0"}
+!109 = distinct !{!109, !"vprintf"}

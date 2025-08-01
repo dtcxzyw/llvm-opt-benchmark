@@ -422,7 +422,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %59, %check_for_conn
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next35.i, %81
-  br i1 %82, label %.lr.ph30.i, label %._crit_edge31.i, !llvm.loop !9
+  br i1 %82, label %.lr.ph30.i, label %._crit_edge31.i, !llvm.loop !8
 
 83:                                               ; preds = %114, %.lr.ph.i5
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i, %114 ]
@@ -489,7 +489,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %59, %check_for_conn
   %115 = load i32, ptr %76, align 8
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next.i, %116
-  br i1 %117, label %83, label %._crit_edge.loopexit.i, !llvm.loop !10
+  br i1 %117, label %83, label %._crit_edge.loopexit.i, !llvm.loop !9
 
 118:                                              ; preds = %._crit_edge31.i
   %119 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i)
@@ -550,7 +550,7 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %69, %._crit_edge31.
   %142 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %139, ptr noundef nonnull @.str.180, ptr noundef %140, ptr noundef %141) #10
   %143 = add nuw nsw i32 %.015.i, 1
   %exitcond.not.i10 = icmp eq i32 %143, %129
-  br i1 %exitcond.not.i10, label %._crit_edge.i7, label %.lr.ph.i9, !llvm.loop !11
+  br i1 %exitcond.not.i10, label %._crit_edge.i7, label %.lr.ph.i9, !llvm.loop !10
 
 144:                                              ; preds = %._crit_edge.i7
   %145 = call i32 @fclose(ptr noundef nonnull %131)
@@ -579,7 +579,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
   %150 = getelementptr inbounds nuw i8, ptr %.0393.i, i64 48
   %151 = load ptr, ptr %150, align 8
   %.not.i12 = icmp eq ptr %151, null
-  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i11, !llvm.loop !12
+  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i11, !llvm.loop !11
 
 ._crit_edge.i13:                                  ; preds = %.lr.ph.i11, %146
   %.041.lcssa.i = phi i32 [ 0, %146 ], [ %149, %.lr.ph.i11 ]
@@ -648,7 +648,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
 178:                                              ; preds = %170, %166, %162
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i
-  br i1 %exitcond.not.i16, label %._crit_edge7.i, label %.lr.ph6.i, !llvm.loop !13
+  br i1 %exitcond.not.i16, label %._crit_edge7.i, label %.lr.ph6.i, !llvm.loop !12
 
 179:                                              ; preds = %._crit_edge7.i
   %180 = load ptr, ptr %158, align 8
@@ -669,7 +669,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
 184:                                              ; preds = %183, %.lr.ph9.i
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %check_for_data_types_usage.exit, label %.lr.ph9.i, !llvm.loop !14
+  br i1 %exitcond16.not.i, label %check_for_data_types_usage.exit, label %.lr.ph9.i, !llvm.loop !13
 
 check_for_data_types_usage.exit:                  ; preds = %184, %.preheader.i
   call void @pg_free(ptr noundef %154) #10
@@ -870,7 +870,7 @@ check_for_data_types_usage.exit:                  ; preds = %184, %.preheader.i
   %255 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1.i24, ptr noundef nonnull @.str.151, ptr noundef %253, ptr noundef %254) #10
   %256 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i25 = icmp eq i32 %256, %243
-  br i1 %exitcond.not.i25, label %._crit_edge.i21, label %.lr.ph.i23, !llvm.loop !15
+  br i1 %exitcond.not.i25, label %._crit_edge.i21, label %.lr.ph.i23, !llvm.loop !14
 
 257:                                              ; preds = %._crit_edge.i21
   %258 = call i32 @fclose(ptr noundef nonnull %.019.lcssa.i)
@@ -1038,7 +1038,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 12:                                               ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %13, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %13, !llvm.loop !15
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
@@ -1059,7 +1059,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %12, %6
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %check_new_cluster_is_empty.exit, label %6, !llvm.loop !17
+  br i1 %exitcond31.not.i, label %check_new_cluster_is_empty.exit, label %6, !llvm.loop !16
 
 check_new_cluster_is_empty.exit:                  ; preds = %._crit_edge.i, %0
   tail call void @check_loadable_libraries() #10
@@ -1119,7 +1119,7 @@ check_new_cluster_is_empty.exit:                  ; preds = %._crit_edge.i, %0
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 32), align 8
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next.i5, %42
-  br i1 %43, label %.lr.ph.i2, label %check_for_new_tablespace_dir.exit, !llvm.loop !18
+  br i1 %43, label %.lr.ph.i2, label %check_for_new_tablespace_dir.exit, !llvm.loop !17
 
 check_for_new_tablespace_dir.exit:                ; preds = %40, %26
   call void @check_ok() #10
@@ -1487,7 +1487,7 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captur
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 32), align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.22) #10
@@ -1535,7 +1535,7 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captur
   %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next43, %54
-  br i1 %55, label %.lr.ph35, label %.loopexit, !llvm.loop !20
+  br i1 %55, label %.lr.ph35, label %.loopexit, !llvm.loop !19
 
 56:                                               ; preds = %.lr.ph39
   %57 = call ptr @pg_strdup(ptr noundef nonnull %40) #10
@@ -1551,7 +1551,7 @@ define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captur
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 32), align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next46, %63
-  br i1 %64, label %.lr.ph39, label %._crit_edge40, !llvm.loop !21
+  br i1 %64, label %.lr.ph39, label %._crit_edge40, !llvm.loop !20
 
 ._crit_edge40:                                    ; preds = %.loopexit, %34
   %65 = call i32 @fclose(ptr noundef nonnull %30)
@@ -1686,7 +1686,7 @@ define internal void @process_data_type_check(ptr noundef readonly captures(none
   %48 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %36, ptr noundef nonnull @.str.84, ptr noundef %45, ptr noundef %46, ptr noundef %47) #10
   %49 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %49, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 50:                                               ; preds = %3, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
@@ -1771,7 +1771,7 @@ define internal void @process_isn_and_int8_passing_mismatch(ptr noundef readonly
   %25 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %22, ptr noundef nonnull @.str.121, ptr noundef %23, ptr noundef %24) #10
   %26 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %26, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %3
   ret void
@@ -1823,7 +1823,7 @@ define internal void @process_user_defined_postfix_ops(ptr noundef readonly capt
   %31 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.131, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30) #10
   %32 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %32, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %3
   ret void
@@ -1869,7 +1869,7 @@ define internal void @process_incompat_polymorphics(ptr noundef readonly capture
   %25 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %22, ptr noundef nonnull @.str.141, ptr noundef %23, ptr noundef %24) #10
   %26 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %26, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %3
   ret void
@@ -1915,7 +1915,7 @@ define internal void @process_with_oids_check(ptr noundef readonly captures(none
   %25 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %22, ptr noundef nonnull @.str.121, ptr noundef %23, ptr noundef %24) #10
   %26 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %26, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %3
   ret void
@@ -1963,7 +1963,7 @@ define internal void @process_user_defined_encoding_conversions(ptr noundef read
   %27 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %23, ptr noundef nonnull @.str.159, ptr noundef %24, ptr noundef %25, ptr noundef %26) #10
   %28 = add nuw nsw i32 %.025, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %3
   ret void
@@ -2019,7 +2019,7 @@ define internal void @process_old_sub_state_check(ptr noundef readonly captures(
   %28 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %22, ptr noundef nonnull @.str.185, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27) #10
   %29 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %29, %4
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !27
 
 .loopexit:                                        ; preds = %21, %18, %3
   ret void
@@ -2048,26 +2048,25 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}

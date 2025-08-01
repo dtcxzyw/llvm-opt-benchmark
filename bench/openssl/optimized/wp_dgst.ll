@@ -52,29 +52,29 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: nounwind uwtable
 define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load i32, ptr %4, align 8, !tbaa !6
+  %5 = load i32, ptr %4, align 8, !tbaa !5
   %6 = and i32 %5, 7
   %7 = trunc i64 %2 to i32
   %8 = sub i32 0, %7
   %9 = and i32 %8, 7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %11 = load i64, ptr %10, align 8, !tbaa !11
+  %11 = load i64, ptr %10, align 8, !tbaa !10
   %12 = add i64 %11, %2
-  store i64 %12, ptr %10, align 8, !tbaa !11
+  store i64 %12, ptr %10, align 8, !tbaa !10
   %13 = icmp ult i64 %12, %2
   br i1 %13, label %.preheader161, label %.critedge
 
 .preheader161:                                    ; preds = %3, %.preheader161
   %.0141 = phi i64 [ %18, %.preheader161 ], [ 1, %3 ]
   %14 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %.0141
-  %15 = load i64, ptr %14, align 8, !tbaa !11
+  %15 = load i64, ptr %14, align 8, !tbaa !10
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !tbaa !11
+  store i64 %16, ptr %14, align 8, !tbaa !10
   %17 = icmp eq i64 %16, 0
   %18 = add nuw nsw i64 %.0141, 1
   %19 = icmp samesign ult i64 %.0141, 3
   %or.cond155 = select i1 %17, i1 %19, i1 false
-  br i1 %or.cond155, label %.preheader161, label %.critedge, !llvm.loop !13
+  br i1 %or.cond155, label %.preheader161, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.preheader161, %3
   %20 = icmp eq i32 %9, 0
@@ -95,8 +95,8 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 .loopexit160:                                     ; preds = %55, %70
   %storemerge.ph = phi i32 [ %65, %55 ], [ 0, %70 ]
-  store i32 %storemerge.ph, ptr %4, align 8, !tbaa !6
-  br label %.preheader, !llvm.loop !14
+  store i32 %storemerge.ph, ptr %4, align 8, !tbaa !5
+  br label %.preheader
 
 .preheader:                                       ; preds = %.loopexit160, %.critedge
   %.0134.lcssa = phi i32 [ %5, %.critedge ], [ %storemerge.ph, %.loopexit160 ]
@@ -158,7 +158,7 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %.3137 = phi i32 [ 0, %39 ], [ %51, %46 ]
   %.3124 = phi ptr [ %45, %39 ], [ %.1122175, %46 ]
   %.3120 = phi i64 [ %40, %39 ], [ 0, %46 ]
-  store i32 %.3137, ptr %4, align 8, !tbaa !6
+  store i32 %.3137, ptr %4, align 8, !tbaa !5
   br label %53
 
 53:                                               ; preds = %52, %29
@@ -166,7 +166,7 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %.2123 = phi ptr [ %33, %29 ], [ %.3124, %52 ]
   %.2119 = phi i64 [ %34, %29 ], [ %.3120, %52 ]
   %.not151 = icmp eq i64 %.2119, 0
-  br i1 %.not151, label %.loopexit, label %27, !llvm.loop !15
+  br i1 %.not151, label %.loopexit, label %27, !llvm.loop !13
 
 .lr.ph206:                                        ; preds = %.preheader158.lr.ph, %127
   %.4205 = phi i64 [ %.5, %127 ], [ %2, %.preheader158.lr.ph ]
@@ -176,15 +176,15 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %.not157, label %55, label %71
 
 55:                                               ; preds = %.lr.ph206
-  %56 = load i8, ptr %.4125204, align 1, !tbaa !16
+  %56 = load i8, ptr %.4125204, align 1, !tbaa !14
   %57 = lshr i32 255, %6
   %58 = zext nneg i32 %54 to i64
   %59 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !16
+  %60 = load i8, ptr %59, align 1, !tbaa !14
   %61 = trunc nuw i32 %57 to i8
   %62 = and i8 %56, %61
   %63 = or i8 %62, %60
-  store i8 %63, ptr %59, align 1, !tbaa !16
+  store i8 %63, ptr %59, align 1, !tbaa !14
   %64 = sub nuw nsw i32 8, %6
   %65 = add i32 %64, %.4138203
   %66 = zext nneg i32 %64 to i64
@@ -199,14 +199,14 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 71:                                               ; preds = %.lr.ph206
   %72 = icmp ugt i64 %.4205, 8
-  %73 = load i8, ptr %.4125204, align 1, !tbaa !16
+  %73 = load i8, ptr %.4125204, align 1, !tbaa !14
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, %9
   br i1 %72, label %76, label %103
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %.4125204, i64 1
-  %78 = load i8, ptr %77, align 1, !tbaa !16
+  %78 = load i8, ptr %77, align 1, !tbaa !14
   %79 = zext i8 %78 to i32
   %80 = lshr i32 %79, %24
   %81 = or i32 %80, %75
@@ -217,17 +217,17 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %84 = lshr i32 %83, %6
   %85 = zext nneg i32 %54 to i64
   %86 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !16
+  %87 = load i8, ptr %86, align 1, !tbaa !14
   %88 = trunc nuw nsw i32 %84 to i8
   %89 = or i8 %87, %88
-  store i8 %89, ptr %86, align 1, !tbaa !16
+  store i8 %89, ptr %86, align 1, !tbaa !14
   br label %94
 
 90:                                               ; preds = %76
   %91 = trunc i32 %81 to i8
   %92 = zext nneg i32 %54 to i64
   %93 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %92
-  store i8 %91, ptr %93, align 1, !tbaa !16
+  store i8 %91, ptr %93, align 1, !tbaa !14
   br label %94
 
 94:                                               ; preds = %90, %82
@@ -259,17 +259,17 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %106 = lshr i32 %105, %6
   %107 = zext nneg i32 %54 to i64
   %108 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !16
+  %109 = load i8, ptr %108, align 1, !tbaa !14
   %110 = trunc nuw nsw i32 %106 to i8
   %111 = or i8 %109, %110
-  store i8 %111, ptr %108, align 1, !tbaa !16
+  store i8 %111, ptr %108, align 1, !tbaa !14
   br label %116
 
 112:                                              ; preds = %103
   %113 = trunc i32 %75 to i8
   %114 = zext nneg i32 %54 to i64
   %115 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %114
-  store i8 %113, ptr %115, align 1, !tbaa !16
+  store i8 %113, ptr %115, align 1, !tbaa !14
   br label %116
 
 116:                                              ; preds = %112, %104
@@ -301,14 +301,14 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %124 = trunc i32 %.sink197 to i8
   %125 = zext nneg i32 %.1.sink to i64
   %126 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %125
-  store i8 %124, ptr %126, align 1, !tbaa !16
+  store i8 %124, ptr %126, align 1, !tbaa !14
   br label %127
 
 127:                                              ; preds = %.sink.split, %100, %121
   %storemerge = phi i32 [ %.7, %100 ], [ %.8, %121 ], [ %storemerge.ph194, %.sink.split ]
   %.5126 = phi ptr [ %77, %100 ], [ %.4125204, %121 ], [ %.5126.ph, %.sink.split ]
   %.5 = phi i64 [ %96, %100 ], [ 0, %121 ], [ %.5.ph, %.sink.split ]
-  store i32 %storemerge, ptr %4, align 8, !tbaa !6
+  store i32 %storemerge, ptr %4, align 8, !tbaa !5
   %.not = icmp eq i64 %.5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph206
 
@@ -327,7 +327,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %4 = load i32, ptr %3, align 8, !tbaa !6
+  %4 = load i32, ptr %3, align 8, !tbaa !5
   %5 = lshr i32 %4, 3
   %6 = and i32 %4, 7
   %.not = icmp eq i32 %6, 0
@@ -338,17 +338,17 @@ define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly captures(addre
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = zext nneg i32 %5 to i64
   %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = trunc nuw nsw i32 %8 to i8
   %14 = or i8 %12, %13
-  store i8 %14, ptr %11, align 1, !tbaa !16
+  store i8 %14, ptr %11, align 1, !tbaa !14
   br label %19
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = zext nneg i32 %5 to i64
   %18 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 0, i64 %17
-  store i8 -128, ptr %18, align 1, !tbaa !16
+  store i8 -128, ptr %18, align 1, !tbaa !14
   br label %19
 
 19:                                               ; preds = %15, %7
@@ -397,7 +397,7 @@ define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly captures(addre
   %.053 = phi ptr [ %40, %39 ], [ %47, %50 ]
   %.03952 = phi i64 [ 0, %39 ], [ %51, %50 ]
   %43 = getelementptr inbounds nuw [4 x i64], ptr %41, i64 0, i64 %.03952
-  %44 = load i64, ptr %43, align 8, !tbaa !11
+  %44 = load i64, ptr %43, align 8, !tbaa !10
   br label %45
 
 45:                                               ; preds = %42, %45
@@ -406,16 +406,16 @@ define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly captures(addre
   %.03849 = phi i64 [ 0, %42 ], [ %48, %45 ]
   %46 = trunc i64 %.03750 to i8
   %47 = getelementptr inbounds i8, ptr %.151, i64 -1
-  store i8 %46, ptr %.151, align 1, !tbaa !16
+  store i8 %46, ptr %.151, align 1, !tbaa !14
   %48 = add nuw nsw i64 %.03849, 1
   %49 = lshr i64 %.03750, 8
   %exitcond.not = icmp eq i64 %48, 8
-  br i1 %exitcond.not, label %50, label %45, !llvm.loop !17
+  br i1 %exitcond.not, label %50, label %45, !llvm.loop !15
 
 50:                                               ; preds = %45
   %51 = add nuw nsw i64 %.03952, 1
   %exitcond54.not = icmp eq i64 %51, 4
-  br i1 %exitcond54.not, label %52, label %42, !llvm.loop !18
+  br i1 %exitcond54.not, label %52, label %42, !llvm.loop !16
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -465,7 +465,7 @@ define noundef nonnull ptr @WHIRLPOOL(ptr noundef %0, i64 noundef %1, ptr nounde
 
 WHIRLPOOL_Update.exit:                            ; preds = %._crit_edge.i, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !5
   %13 = lshr i32 %12, 3
   %14 = and i32 %12, 7
   %.not.i4 = icmp eq i32 %14, 0
@@ -476,17 +476,17 @@ WHIRLPOOL_Update.exit:                            ; preds = %._crit_edge.i, %9
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %18 = zext nneg i32 %13 to i64
   %19 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = trunc nuw nsw i32 %16 to i8
   %22 = or i8 %20, %21
-  store i8 %22, ptr %19, align 1, !tbaa !16
+  store i8 %22, ptr %19, align 1, !tbaa !14
   br label %27
 
 23:                                               ; preds = %WHIRLPOOL_Update.exit
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = zext nneg i32 %13 to i64
   %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %25
-  store i8 -128, ptr %26, align 1, !tbaa !16
+  store i8 -128, ptr %26, align 1, !tbaa !14
   br label %27
 
 27:                                               ; preds = %23, %15
@@ -535,7 +535,7 @@ WHIRLPOOL_Update.exit:                            ; preds = %._crit_edge.i, %9
   %.053.i = phi ptr [ %48, %47 ], [ %55, %58 ]
   %.03952.i = phi i64 [ 0, %47 ], [ %59, %58 ]
   %51 = getelementptr inbounds nuw [4 x i64], ptr %49, i64 0, i64 %.03952.i
-  %52 = load i64, ptr %51, align 8, !tbaa !11
+  %52 = load i64, ptr %51, align 8, !tbaa !10
   br label %53
 
 53:                                               ; preds = %53, %50
@@ -544,16 +544,16 @@ WHIRLPOOL_Update.exit:                            ; preds = %._crit_edge.i, %9
   %.03849.i = phi i64 [ 0, %50 ], [ %56, %53 ]
   %54 = trunc i64 %.03750.i to i8
   %55 = getelementptr inbounds i8, ptr %.151.i, i64 -1
-  store i8 %54, ptr %.151.i, align 1, !tbaa !16
+  store i8 %54, ptr %.151.i, align 1, !tbaa !14
   %56 = add nuw nsw i64 %.03849.i, 1
   %57 = lshr i64 %.03750.i, 8
   %exitcond.not.i = icmp eq i64 %56, 8
-  br i1 %exitcond.not.i, label %58, label %53, !llvm.loop !17
+  br i1 %exitcond.not.i, label %58, label %53, !llvm.loop !15
 
 58:                                               ; preds = %53
   %59 = add nuw nsw i64 %.03952.i, 1
   %exitcond54.not.i = icmp eq i64 %59, 4
-  br i1 %exitcond54.not.i, label %WHIRLPOOL_Final.exit, label %50, !llvm.loop !18
+  br i1 %exitcond54.not.i, label %WHIRLPOOL_Final.exit, label %50, !llvm.loop !16
 
 WHIRLPOOL_Final.exit:                             ; preds = %58
   %60 = icmp eq ptr %2, null
@@ -579,19 +579,17 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !10, i64 128}
-!7 = !{!"", !8, i64 0, !8, i64 64, !10, i64 128, !8, i64 136}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"int", !8, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !8, i64 0}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
+!5 = !{!6, !9, i64 128}
+!6 = !{!"", !7, i64 0, !7, i64 64, !9, i64 128, !7, i64 136}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !7, i64 0}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = !{!7, !7, i64 0}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

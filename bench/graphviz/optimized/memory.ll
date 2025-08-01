@@ -50,24 +50,24 @@ gcd.exit:                                         ; preds = %gcd.exit.loopexit, 
 17:                                               ; preds = %2, %gcd.exit, %5
   %18 = phi i32 [ %16, %gcd.exit ], [ 8, %5 ], [ %1, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %18, ptr %19, align 8, !tbaa !14
+  store i32 %18, ptr %19, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %21 = load ptr, ptr %20, align 8, !tbaa !14
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %17, %.preheader
   %.016 = phi ptr [ %22, %.preheader ], [ %21, %17 ]
-  %22 = load ptr, ptr %.016, align 8, !tbaa !16
+  %22 = load ptr, ptr %.016, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !18
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   tail call void @free(ptr noundef %24) #9
   tail call void @free(ptr noundef nonnull %.016) #9
   %.not15 = icmp eq ptr %22, null
-  br i1 %.not15, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %.not15, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %17
-  store ptr null, ptr %20, align 8, !tbaa !15
+  store ptr null, ptr %20, align 8, !tbaa !14
   ret void
 }
 
@@ -82,19 +82,19 @@ define noundef ptr @getfree(ptr noundef captures(none) %0) local_unnamed_addr #2
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !14
+  %6 = load i32, ptr %5, align 8, !tbaa !13
   %7 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %gv_alloc.exit
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !19
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef 16) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
 gv_alloc.exit:                                    ; preds = %4
-  %12 = load i32, ptr @sqrt_nsites, align 4, !tbaa !22
+  %12 = load i32, ptr @sqrt_nsites, align 4, !tbaa !21
   %13 = sext i32 %12 to i64
   %14 = sext i32 %6 to i64
   %15 = icmp ne i32 %12, 0
@@ -106,7 +106,7 @@ gv_alloc.exit:                                    ; preds = %4
   br i1 %mul.ov.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !19
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef range(i64 -2147483648, 2147483648) %14) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
@@ -120,7 +120,7 @@ gv_alloc.exit:                                    ; preds = %4
   br i1 %or.cond3.i, label %25, label %gv_calloc.exit
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !19
   %27 = mul nsw i64 %13, %14
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, i64 noundef %27) #11
   tail call fastcc void @graphviz_exit() #12
@@ -128,7 +128,7 @@ gv_alloc.exit:                                    ; preds = %4
 
 gv_calloc.exit:                                   ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %21, ptr %29, align 8, !tbaa !18
+  store ptr %21, ptr %29, align 8, !tbaa !17
   %30 = icmp sgt i32 %12, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 
@@ -141,22 +141,22 @@ gv_calloc.exit:                                   ; preds = %20
   %32 = phi ptr [ null, %.lr.ph ], [ %34, %31 ]
   %33 = mul nsw i64 %indvars.iv, %14
   %34 = getelementptr inbounds i8, ptr %21, i64 %33
-  store ptr %32, ptr %34, align 8, !tbaa !23
+  store ptr %32, ptr %34, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %31, %gv_calloc.exit
   %35 = phi ptr [ null, %gv_calloc.exit ], [ %34, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !15
-  store ptr %37, ptr %7, align 8, !tbaa !16
-  store ptr %7, ptr %36, align 8, !tbaa !15
+  %37 = load ptr, ptr %36, align 8, !tbaa !14
+  store ptr %37, ptr %7, align 8, !tbaa !15
+  store ptr %7, ptr %36, align 8, !tbaa !14
   br label %38
 
 38:                                               ; preds = %._crit_edge, %1
   %39 = phi ptr [ %35, %._crit_edge ], [ %2, %1 ]
-  %40 = load ptr, ptr %39, align 8, !tbaa !23
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
   store ptr %40, ptr %0, align 8, !tbaa !3
   ret ptr %39
 }
@@ -164,7 +164,7 @@ gv_calloc.exit:                                   ; preds = %20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @makefree(ptr noundef initializes((0, 8)) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
-  store ptr %3, ptr %0, align 8, !tbaa !23
+  store ptr %3, ptr %0, align 8, !tbaa !22
   store ptr %0, ptr %1, align 8, !tbaa !3
   ret void
 }
@@ -215,18 +215,17 @@ attributes #13 = { cold noreturn nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"p1 _ZTS9freeblock", !6, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!4, !10, i64 16}
-!15 = !{!4, !9, i64 8}
-!16 = !{!17, !9, i64 0}
-!17 = !{!"freeblock", !9, i64 0, !5, i64 8}
-!18 = !{!17, !5, i64 8}
-!19 = distinct !{!19, !12, !13}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!22 = !{!10, !10, i64 0}
-!23 = !{!24, !5, i64 0}
-!24 = !{!"freenode", !5, i64 0}
-!25 = distinct !{!25, !12, !13}
+!13 = !{!4, !10, i64 16}
+!14 = !{!4, !9, i64 8}
+!15 = !{!16, !9, i64 0}
+!16 = !{!"freeblock", !9, i64 0, !5, i64 8}
+!17 = !{!16, !5, i64 8}
+!18 = distinct !{!18, !12}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!21 = !{!10, !10, i64 0}
+!22 = !{!23, !5, i64 0}
+!23 = !{!"freenode", !5, i64 0}
+!24 = distinct !{!24, !12}

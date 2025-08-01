@@ -64,7 +64,7 @@ define internal range(i32 -2147483648, 1) i32 @wbmp_encode_frame(ptr noundef %0,
   store i8 %33, ptr %.1, align 1, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %35 = icmp samesign ugt i32 %.117.i, 2
-  br i1 %35, label %.lr.ph18.i, label %putv.exit, !llvm.loop !34
+  br i1 %35, label %.lr.ph18.i, label %putv.exit, !llvm.loop !33
 
 putv.exit:                                        ; preds = %.lr.ph18.i, %16, %.preheader.i
   %.2 = phi ptr [ %20, %.preheader.i ], [ %20, %16 ], [ %34, %.lr.ph18.i ]
@@ -104,7 +104,7 @@ putv.exit:                                        ; preds = %.lr.ph18.i, %16, %.
   store i8 %51, ptr %.3, align 1, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %53 = icmp samesign ugt i32 %.117.i34, 2
-  br i1 %53, label %.lr.ph18.i33, label %putv.exit37, !llvm.loop !34
+  br i1 %53, label %.lr.ph18.i33, label %putv.exit37, !llvm.loop !33
 
 putv.exit37:                                      ; preds = %.lr.ph18.i33, %putv.exit, %.preheader.i30
   %.4 = phi ptr [ %38, %.preheader.i30 ], [ %38, %putv.exit ], [ %52, %.lr.ph18.i33 ]
@@ -113,7 +113,7 @@ putv.exit37:                                      ; preds = %.lr.ph18.i33, %putv
   store i8 %55, ptr %.4, align 1, !tbaa !30
   %56 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %58 = load i32, ptr %57, align 8, !tbaa !35
+  %58 = load i32, ptr %57, align 8, !tbaa !34
   %59 = load i32, ptr %7, align 8, !tbaa !27
   %60 = add nsw i32 %59, 7
   %61 = sdiv i32 %60, 8
@@ -121,7 +121,7 @@ putv.exit37:                                      ; preds = %.lr.ph18.i33, %putv
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %putv.exit37
-  %64 = load ptr, ptr %2, align 8, !tbaa !36
+  %64 = load ptr, ptr %2, align 8, !tbaa !35
   %65 = load i32, ptr %5, align 4, !tbaa !4
   %66 = mul nsw i32 %65, %58
   %67 = zext i32 %66 to i64
@@ -135,7 +135,7 @@ putv.exit37:                                      ; preds = %.lr.ph18.i33, %putv
   br i1 %71, label %.lr.ph.i38, label %writebits.exit
 
 .lr.ph.i38:                                       ; preds = %69
-  %72 = load ptr, ptr %2, align 8, !tbaa !36
+  %72 = load ptr, ptr %2, align 8, !tbaa !35
   %73 = sext i32 %61 to i64
   %74 = sext i32 %58 to i64
   br label %75
@@ -149,7 +149,7 @@ putv.exit37:                                      ; preds = %.lr.ph18.i33, %putv
   %77 = getelementptr inbounds i8, ptr %.01011.i, i64 %74
   %78 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %78, %70
-  br i1 %exitcond.not.i, label %writebits.exit, label %75, !llvm.loop !37
+  br i1 %exitcond.not.i, label %writebits.exit, label %75, !llvm.loop !36
 
 writebits.exit:                                   ; preds = %75, %69, %63
   %.049 = phi ptr [ %68, %63 ], [ %56, %69 ], [ %76, %75 ]
@@ -159,7 +159,7 @@ writebits.exit:                                   ; preds = %75, %69, %63
   %82 = sub i64 %80, %81
   %83 = trunc i64 %82 to i32
   tail call void @av_shrink_packet(ptr noundef nonnull %1, i32 noundef %83) #3
-  store i32 1, ptr %3, align 4, !tbaa !35
+  store i32 1, ptr %3, align 4, !tbaa !34
   br label %84
 
 84:                                               ; preds = %4, %writebits.exit
@@ -212,10 +212,9 @@ attributes #3 = { nounwind }
 !28 = !{!29, !14, i64 24}
 !29 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = !{!10, !10, i64 0}
-!36 = !{!14, !14, i64 0}
-!37 = distinct !{!37, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = !{!10, !10, i64 0}
+!35 = !{!14, !14, i64 0}
+!36 = distinct !{!36, !32}

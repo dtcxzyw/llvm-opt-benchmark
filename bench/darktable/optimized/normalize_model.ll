@@ -487,7 +487,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader386:                                    ; preds = %120, %123
   %indvars.iv478 = phi i64 [ %indvars.iv.next479, %123 ], [ 0, %120 ]
   %124 = getelementptr inbounds nuw [78 x %struct.anon], ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 0, i64 %indvars.iv478
-  %125 = load i64, ptr %124, align 16, !tbaa !84
+  %125 = load i64, ptr %124, align 16, !tbaa !83
   %126 = icmp eq i64 %122, %125
   br i1 %126, label %127, label %123
 
@@ -508,7 +508,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 134:                                              ; preds = %120
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %136 = load i32, ptr %135, align 4, !tbaa !86
+  %136 = load i32, ptr %135, align 4, !tbaa !85
   %.not210 = icmp eq i32 %136, 0
   br i1 %.not210, label %.loopexit, label %137
 
@@ -532,14 +532,14 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 144:                                              ; preds = %143
   store i64 2147484708, ptr %121, align 8, !tbaa !80
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 2147484708, ptr %145, align 8, !tbaa !87
+  store i64 2147484708, ptr %145, align 8, !tbaa !86
   %146 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %117) #10
   br label %.loopexit
 
 147:                                              ; preds = %.preheader388
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
   %exitcond477.not = icmp eq i64 %indvars.iv.next475, 78
-  br i1 %exitcond477.not, label %.loopexit, label %.preheader388, !llvm.loop !88
+  br i1 %exitcond477.not, label %.loopexit, label %.preheader388, !llvm.loop !87
 
 .preheader388:                                    ; preds = %143, %147
   %indvars.iv474 = phi i64 [ %indvars.iv.next475, %147 ], [ 0, %143 ]
@@ -550,10 +550,10 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not215, label %151, label %147
 
 151:                                              ; preds = %.preheader388
-  %152 = load i64, ptr %148, align 16, !tbaa !84
+  %152 = load i64, ptr %148, align 16, !tbaa !83
   store i64 %152, ptr %121, align 8, !tbaa !80
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 %152, ptr %153, align 8, !tbaa !87
+  store i64 %152, ptr %153, align 8, !tbaa !86
   %154 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %149) #10
   br label %.loopexit
 
@@ -567,7 +567,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 159:                                              ; preds = %.preheader390
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  store ptr %160, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %160, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %161 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %160) #9
   %.not208 = icmp ne i32 %161, 0
   %162 = icmp samesign ult i32 %.2406, 34
@@ -580,7 +580,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not207, label %165, label %168
 
 165:                                              ; preds = %163
-  %166 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %166 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %167 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %166) #10
   br label %.loopexit
 
@@ -590,7 +590,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader390.backedge:                           ; preds = %168, %159
   %.2406.be = add nuw nsw i32 %.2406, 1
-  br label %.preheader390, !llvm.loop !90
+  br label %.preheader390, !llvm.loop !89
 
 169:                                              ; preds = %thread-pre-split347.thread
   tail call void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -605,7 +605,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 173:                                              ; preds = %.preheader393
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 1
-  store ptr %174, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %174, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   br label %181
 
 175:                                              ; preds = %.preheader393
@@ -615,14 +615,14 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 177:                                              ; preds = %175
   %178 = tail call noundef i32 @_ZN6LibRaw16setMakeFromIndexEj(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 50)
-  %179 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %179 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %180 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %179) #10
   br label %.loopexit394.preheader
 
 181:                                              ; preds = %173, %175
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next467, 35
-  br i1 %exitcond469.not, label %.loopexit394.preheader, label %.preheader393, !llvm.loop !91
+  br i1 %exitcond469.not, label %.loopexit394.preheader, label %.preheader393, !llvm.loop !90
 
 .loopexit394.preheader:                           ; preds = %181, %177
   br label %.loopexit394
@@ -636,7 +636,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 185:                                              ; preds = %.loopexit394
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 1
-  store ptr %186, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %186, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   br label %193
 
 187:                                              ; preds = %.loopexit394
@@ -646,14 +646,14 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 189:                                              ; preds = %187
   %190 = tail call noundef i32 @_ZN6LibRaw16setMakeFromIndexEj(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 31)
-  %191 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %191 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %192 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %191) #10
   br label %.loopexit
 
 193:                                              ; preds = %185, %187
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %exitcond473.not = icmp eq i64 %indvars.iv.next471, 10
-  br i1 %exitcond473.not, label %.loopexit, label %.loopexit394, !llvm.loop !92
+  br i1 %exitcond473.not, label %.loopexit, label %.loopexit394, !llvm.loop !91
 
 .preheader395:                                    ; preds = %thread-pre-split347.thread, %.preheader395.backedge
   %.5403 = phi i32 [ %.5403.be, %.preheader395.backedge ], [ 0, %thread-pre-split347.thread ]
@@ -665,7 +665,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 198:                                              ; preds = %.preheader395
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 1
-  store ptr %199, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %199, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %200 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %199) #9
   %.not203 = icmp ne i32 %200, 0
   %201 = icmp samesign ult i32 %.5403, 9
@@ -678,7 +678,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not202, label %204, label %207
 
 204:                                              ; preds = %202
-  %205 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %205 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %206 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %205) #10
   br label %.loopexit396
 
@@ -688,7 +688,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader395.backedge:                           ; preds = %207, %198
   %.5403.be = add nuw nsw i32 %.5403, 1
-  br label %.preheader395, !llvm.loop !93
+  br label %.preheader395, !llvm.loop !92
 
 .loopexit396:                                     ; preds = %198, %207, %204
   %208 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %116, i32 noundef 40) #9
@@ -726,7 +726,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 221:                                              ; preds = %217
   %222 = getelementptr inbounds nuw i8, ptr %218, i64 1
-  store ptr %222, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %222, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %223 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %222) #9
   %.not201 = icmp eq i32 %223, 0
   br i1 %.not201, label %224, label %234
@@ -746,14 +746,14 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   %230 = tail call noundef i32 @_ZN6LibRaw16setMakeFromIndexEj(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 40)
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i64 27431081815730509, ptr %231, align 4
-  %232 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %232 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %233 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %232) #10
   br label %.loopexit
 
 234:                                              ; preds = %221, %227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit, label %217, !llvm.loop !94
+  br i1 %exitcond.not, label %.loopexit, label %217, !llvm.loop !93
 
 235:                                              ; preds = %thread-pre-split347.thread
   switch i32 %119, label %.loopexit [
@@ -782,7 +782,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 240:                                              ; preds = %.preheader
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 1
-  store ptr %241, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %241, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %242 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %241) #9
   %.not198 = icmp ne i32 %242, 0
   %243 = icmp samesign ult i32 %.7417, 41
@@ -795,7 +795,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not197, label %246, label %249
 
 246:                                              ; preds = %244
-  %247 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %247 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %248 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %247) #10
   br label %.loopexit
 
@@ -805,7 +805,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader.backedge:                              ; preds = %249, %240
   %.7417.be = add nuw nsw i32 %.7417, 1
-  br label %.preheader, !llvm.loop !95
+  br label %.preheader, !llvm.loop !94
 
 .preheader374:                                    ; preds = %235, %.preheader374.backedge
   %.8416 = phi i32 [ %.8416.be, %.preheader374.backedge ], [ 0, %235 ]
@@ -817,7 +817,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 254:                                              ; preds = %.preheader374
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 1
-  store ptr %255, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %255, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %256 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %255) #9
   %.not191 = icmp ne i32 %256, 0
   %257 = icmp samesign ult i32 %.8416, 74
@@ -830,7 +830,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not190, label %260, label %263
 
 260:                                              ; preds = %258
-  %261 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %261 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %262 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %261) #10
   br label %.loopexit375
 
@@ -840,7 +840,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader374.backedge:                           ; preds = %263, %254
   %.8416.be = add nuw nsw i32 %.8416, 1
-  br label %.preheader374, !llvm.loop !96
+  br label %.preheader374, !llvm.loop !95
 
 .loopexit375:                                     ; preds = %254, %263, %260
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 381528
@@ -858,7 +858,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   store i64 357962298676, ptr %268, align 8, !tbaa !80
   store i64 357962298676, ptr %264, align 8, !tbaa !72
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 357962298676, ptr %269, align 8, !tbaa !87
+  store i64 357962298676, ptr %269, align 8, !tbaa !86
   br label %.loopexit
 
 270:                                              ; preds = %266
@@ -871,7 +871,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   store i64 357962299186, ptr %272, align 8, !tbaa !80
   store i64 357962299186, ptr %264, align 8, !tbaa !72
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 357962299186, ptr %273, align 8, !tbaa !87
+  store i64 357962299186, ptr %273, align 8, !tbaa !86
   br label %.loopexit
 
 274:                                              ; preds = %.preheader540, %.backedge
@@ -884,7 +884,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 279:                                              ; preds = %274
   %280 = getelementptr inbounds nuw i8, ptr %276, i64 1
-  store ptr %280, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %280, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %281 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %280) #9
   %.not189 = icmp ne i32 %281, 0
   %282 = icmp samesign ult i32 %.9415, 131
@@ -898,7 +898,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 285:                                              ; preds = %283
   %286 = tail call noundef i32 @_ZN6LibRaw16setMakeFromIndexEj(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 47)
-  %287 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %287 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %288 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %287) #10
   br label %.loopexit
 
@@ -908,7 +908,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .backedge:                                        ; preds = %289, %279
   %.9415.be = add nuw nsw i32 %.9415, 1
-  br label %274, !llvm.loop !97
+  br label %274, !llvm.loop !96
 
 290:                                              ; preds = %235
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 381520
@@ -945,7 +945,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   %.sink514 = phi i64 [ 76140, %293 ], [ 76145, %294 ], [ 76245, %295 ], [ 76390, %296 ], [ 76230, %297 ]
   store i64 %.sink514, ptr %291, align 8, !tbaa !80
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 %.sink514, ptr %298, align 8, !tbaa !87
+  store i64 %.sink514, ptr %298, align 8, !tbaa !86
   br label %.preheader542
 
 .preheader542:                                    ; preds = %.sink.split, %297, %290
@@ -961,7 +961,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 304:                                              ; preds = %299
   %305 = getelementptr inbounds nuw i8, ptr %301, i64 1
-  store ptr %305, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %305, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %306 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %305) #9
   %.not184 = icmp ne i32 %306, 0
   %307 = icmp samesign ult i32 %.10414, 19
@@ -974,7 +974,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not183, label %310, label %313
 
 310:                                              ; preds = %308
-  %311 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %311 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %312 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %311) #10
   br label %.loopexit377
 
@@ -984,7 +984,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .backedge446:                                     ; preds = %313, %304
   %.10414.be = add nuw nsw i32 %.10414, 1
-  br label %299, !llvm.loop !98
+  br label %299, !llvm.loop !97
 
 .loopexit377:                                     ; preds = %304, %313, %310
   %lhsv185 = load i16, ptr %117, align 4
@@ -1007,7 +1007,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 321:                                              ; preds = %.preheader378
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 1
-  store ptr %322, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %322, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %323 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %322) #9
   %.not170 = icmp ne i32 %323, 0
   %324 = icmp samesign ult i32 %.11413, 34
@@ -1020,7 +1020,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not169, label %327, label %330
 
 327:                                              ; preds = %325
-  %328 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %328 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %329 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %328) #10
   br label %.loopexit379
 
@@ -1030,7 +1030,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader378.backedge:                           ; preds = %330, %321
   %.11413.be = add nuw nsw i32 %.11413, 1
-  br label %.preheader378, !llvm.loop !99
+  br label %.preheader378, !llvm.loop !98
 
 .loopexit379:                                     ; preds = %321, %330, %327
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 4168
@@ -1040,9 +1040,9 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 333:                                              ; preds = %.loopexit379
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  store i32 1, ptr %334, align 4, !tbaa !100
+  store i32 1, ptr %334, align 4, !tbaa !99
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 0, ptr %335, align 8, !tbaa !101
+  store i32 0, ptr %335, align 8, !tbaa !100
   br label %.loopexit
 
 336:                                              ; preds = %235
@@ -1115,7 +1115,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 361:                                              ; preds = %.preheader380
   %362 = getelementptr inbounds nuw i8, ptr %358, i64 1
-  store ptr %362, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %362, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %363 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %362) #9
   %.not168 = icmp ne i32 %363, 0
   %364 = icmp samesign ult i32 %.12412, 11
@@ -1128,7 +1128,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not167, label %367, label %370
 
 367:                                              ; preds = %365
-  %368 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %368 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %369 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %368) #10
   br label %.loopexit
 
@@ -1138,7 +1138,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader380.backedge:                           ; preds = %370, %361
   %.12412.be = add nuw nsw i32 %.12412, 1
-  br label %.preheader380, !llvm.loop !102
+  br label %.preheader380, !llvm.loop !101
 
 371:                                              ; preds = %235
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 381520
@@ -1149,12 +1149,12 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 374:                                              ; preds = %.preheader382
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next487, 100
-  br i1 %exitcond489.not, label %.loopexit, label %.preheader382, !llvm.loop !103
+  br i1 %exitcond489.not, label %.loopexit, label %.preheader382, !llvm.loop !102
 
 .preheader382:                                    ; preds = %371, %374
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %374 ], [ 0, %371 ]
   %375 = getelementptr inbounds nuw [100 x %struct.anon], ptr @_ZZN6LibRaw18GetNormalizedModelEvE7sonique, i64 0, i64 %indvars.iv486
-  %376 = load i64, ptr %375, align 16, !tbaa !84
+  %376 = load i64, ptr %375, align 16, !tbaa !83
   %377 = icmp eq i64 %373, %376
   br i1 %377, label %378, label %374
 
@@ -1190,7 +1190,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 392:                                              ; preds = %387
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 1
-  store ptr %393, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  store ptr %393, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %394 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %393) #9
   %.not148 = icmp ne i32 %394, 0
   %395 = icmp samesign ult i32 %.14409, 23
@@ -1203,7 +1203,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
   br i1 %.not147, label %398, label %401
 
 398:                                              ; preds = %396
-  %399 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !89
+  %399 = load ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE4orig, align 8, !tbaa !88
   %400 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %399) #10
   br label %.loopexit385
 
@@ -1213,7 +1213,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .backedge450:                                     ; preds = %401, %392
   %.14409.be = add nuw nsw i32 %.14409, 1
-  br label %387, !llvm.loop !104
+  br label %387, !llvm.loop !103
 
 .loopexit385:                                     ; preds = %392, %401, %398
   %402 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) @.str.82) #9
@@ -1263,21 +1263,21 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 416:                                              ; preds = %413, %422
   %indvars.iv482 = phi i64 [ 0, %413 ], [ %indvars.iv.next483, %422 ]
   %417 = getelementptr inbounds nuw [23 x ptr], ptr @_ZZN6LibRaw18GetNormalizedModelEvE15KodakMonochrome, i64 0, i64 %indvars.iv482
-  %418 = load ptr, ptr %417, align 8, !tbaa !89
+  %418 = load ptr, ptr %417, align 8, !tbaa !88
   %419 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %418) #9
   %420 = tail call i32 @strncmp(ptr noundef nonnull %117, ptr noundef nonnull %418, i64 noundef %419) #9
   %.not154 = icmp eq i32 %420, 0
   br i1 %.not154, label %421, label %422
 
 421:                                              ; preds = %416
-  store i32 1, ptr %414, align 4, !tbaa !100
-  store i32 0, ptr %415, align 8, !tbaa !101
+  store i32 1, ptr %414, align 4, !tbaa !99
+  store i32 0, ptr %415, align 8, !tbaa !100
   br label %422
 
 422:                                              ; preds = %416, %421
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %exitcond485.not = icmp eq i64 %indvars.iv.next483, 23
-  br i1 %exitcond485.not, label %.loopexit, label %416, !llvm.loop !105
+  br i1 %exitcond485.not, label %.loopexit, label %416, !llvm.loop !104
 
 .loopexit:                                        ; preds = %234, %193, %159, %168, %147, %123, %422, %374, %370, %361, %289, %279, %249, %240, %235, %120, %120, %165, %189, %224, %229, %214, %267, %271, %270, %.loopexit375, %314, %.loopexit377, %367, %.critedge, %371, %383, %.loopexit379, %333, %285, %246, %.loopexit396, %209, %169, %130, %128, %144, %151, %141, %137, %134
   %423 = phi i1 [ false, %130 ], [ false, %128 ], [ true, %151 ], [ false, %144 ], [ false, %141 ], [ false, %137 ], [ false, %134 ], [ false, %165 ], [ false, %169 ], [ false, %189 ], [ false, %209 ], [ false, %.loopexit396 ], [ false, %224 ], [ false, %229 ], [ false, %214 ], [ false, %246 ], [ false, %.loopexit375 ], [ false, %270 ], [ false, %271 ], [ false, %267 ], [ false, %285 ], [ false, %.loopexit377 ], [ false, %314 ], [ false, %333 ], [ false, %.loopexit379 ], [ false, %.critedge ], [ false, %367 ], [ false, %383 ], [ false, %371 ], [ false, %120 ], [ false, %120 ], [ false, %235 ], [ false, %240 ], [ false, %249 ], [ false, %279 ], [ false, %289 ], [ false, %361 ], [ false, %370 ], [ false, %374 ], [ false, %422 ], [ false, %123 ], [ false, %147 ], [ false, %168 ], [ false, %159 ], [ false, %193 ], [ false, %234 ]
@@ -1645,12 +1645,12 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 528:                                              ; preds = %529
   %indvars.iv.next491 = add nuw nsw i64 %indvars.iv490, 1
   %exitcond493.not = icmp eq i64 %indvars.iv.next491, 9
-  br i1 %exitcond493.not, label %.thread358, label %529, !llvm.loop !106
+  br i1 %exitcond493.not, label %.thread358, label %529, !llvm.loop !105
 
 529:                                              ; preds = %527, %528
   %indvars.iv490 = phi i64 [ 0, %527 ], [ %indvars.iv.next491, %528 ]
   %530 = getelementptr inbounds nuw [9 x %struct.anon.0], ptr @_ZZN6LibRaw18GetNormalizedModelEvE12Kodak_mounts, i64 0, i64 %indvars.iv490
-  %531 = load ptr, ptr %530, align 16, !tbaa !107
+  %531 = load ptr, ptr %530, align 16, !tbaa !106
   %532 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %531) #9
   %533 = tail call i32 @strncmp(ptr noundef nonnull %116, ptr noundef nonnull %531, i64 noundef %532) #9
   %.not273 = icmp eq i32 %533, 0
@@ -1658,7 +1658,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 534:                                              ; preds = %529
   %535 = getelementptr inbounds nuw i8, ptr %530, i64 8
-  %536 = load i16, ptr %535, align 8, !tbaa !109
+  %536 = load i16, ptr %535, align 8, !tbaa !108
   store i16 %536, ptr %10, align 2, !tbaa !77
   br label %.thread358
 
@@ -1810,7 +1810,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 579:                                              ; preds = %578, %577
   store i16 43, ptr %10, align 2, !tbaa !77
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  store i16 1, ptr %580, align 8, !tbaa !110
+  store i16 1, ptr %580, align 8, !tbaa !109
   br label %.thread358
 
 581:                                              ; preds = %471
@@ -1863,7 +1863,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 595:                                              ; preds = %.thread358
   %596 = getelementptr inbounds nuw i8, ptr %0, i64 2040
-  %597 = load i16, ptr %596, align 8, !tbaa !111
+  %597 = load i16, ptr %596, align 8, !tbaa !110
   %.not310 = icmp eq i16 %597, 0
   br i1 %.not310, label %600, label %598
 
@@ -1905,7 +1905,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 617:                                              ; preds = %614
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %619 = load ptr, ptr %618, align 8, !tbaa !112
+  %619 = load ptr, ptr %618, align 8, !tbaa !111
   %.not311 = icmp eq ptr %619, null
   br i1 %.not311, label %.thread362, label %620
 
@@ -2035,13 +2035,13 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 187364
-  %5 = load i32, ptr %4, align 4, !tbaa !113
+  %5 = load i32, ptr %4, align 4, !tbaa !112
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.critedge.thread
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 187428
-  %8 = load i32, ptr %7, align 4, !tbaa !113
+  %8 = load i32, ptr %7, align 4, !tbaa !112
   %9 = icmp eq i32 %8, 0
   %10 = icmp eq i32 %1, 45
   %or.cond = and i1 %10, %9
@@ -2054,7 +2054,7 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 12:                                               ; preds = %.preheader37, %.loopexit34
   %indvars.iv49 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next50, %.loopexit34 ]
   %13 = getelementptr inbounds nuw [64 x [5 x float]], ptr %11, i64 0, i64 %indvars.iv49
-  %14 = load float, ptr %13, align 4, !tbaa !114
+  %14 = load float, ptr %13, align 4, !tbaa !113
   %15 = fcmp reassoc nsz arcp contract afn une float %14, 0.000000e+00
   br i1 %15, label %16, label %.critedge
 
@@ -2066,12 +2066,12 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader33 ], [ 0, %16 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %18 = getelementptr inbounds nuw [5 x float], ptr %13, i64 0, i64 %indvars.iv.next46
-  %19 = load float, ptr %18, align 4, !tbaa !114
+  %19 = load float, ptr %18, align 4, !tbaa !113
   %20 = fptosi float %19 to i32
   %21 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv45
-  store i32 %20, ptr %21, align 4, !tbaa !113
+  store i32 %20, ptr %21, align 4, !tbaa !112
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 4
-  br i1 %exitcond48.not, label %.loopexit34, label %.preheader33, !llvm.loop !115
+  br i1 %exitcond48.not, label %.loopexit34, label %.preheader33, !llvm.loop !114
 
 22:                                               ; preds = %16
   %23 = fcmp reassoc nsz arcp contract afn oeq float %14, 6.600000e+03
@@ -2081,60 +2081,60 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw [5 x float], ptr %13, i64 0, i64 %indvars.iv.next
-  %25 = load float, ptr %24, align 4, !tbaa !114
+  %25 = load float, ptr %24, align 4, !tbaa !113
   %26 = fptosi float %25 to i32
   %27 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
-  store i32 %26, ptr %27, align 4, !tbaa !113
+  store i32 %26, ptr %27, align 4, !tbaa !112
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit34, label %.preheader35, !llvm.loop !116
+  br i1 %exitcond.not, label %.loopexit34, label %.preheader35, !llvm.loop !115
 
 .loopexit34:                                      ; preds = %.preheader35, %.preheader33, %22
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 64
-  br i1 %exitcond52.not, label %.critedge, label %12, !llvm.loop !117
+  br i1 %exitcond52.not, label %.critedge, label %12, !llvm.loop !116
 
 .critedge:                                        ; preds = %12, %.loopexit34
-  %.pr.pre = load i32, ptr %4, align 4, !tbaa !113
+  %.pr.pre = load i32, ptr %4, align 4, !tbaa !112
   %28 = icmp eq i32 %.pr.pre, 0
   br i1 %28, label %.critedge.thread62, label %.critedge.thread
 
 .critedge.thread62:                               ; preds = %6, %.critedge
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 187140
-  %30 = load i32, ptr %29, align 4, !tbaa !113
+  %30 = load i32, ptr %29, align 4, !tbaa !112
   %.not28 = icmp eq i32 %30, 0
   br i1 %.not28, label %.critedge.thread, label %.preheader32
 
 .preheader32:                                     ; preds = %.critedge.thread62, %.preheader32
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.preheader32 ], [ 0, %.critedge.thread62 ]
   %31 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %indvars.iv53
-  %32 = load i32, ptr %31, align 4, !tbaa !113
+  %32 = load i32, ptr %31, align 4, !tbaa !112
   %33 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv53
-  store i32 %32, ptr %33, align 4, !tbaa !113
+  store i32 %32, ptr %33, align 4, !tbaa !112
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
-  br i1 %exitcond56.not, label %.critedge.thread, label %.preheader32, !llvm.loop !118
+  br i1 %exitcond56.not, label %.critedge.thread, label %.preheader32, !llvm.loop !117
 
 .critedge.thread:                                 ; preds = %.preheader32, %3, %.critedge.thread62, %.critedge
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 187428
-  %35 = load i32, ptr %34, align 4, !tbaa !113
+  %35 = load i32, ptr %34, align 4, !tbaa !112
   %.not29 = icmp eq i32 %35, 0
   br i1 %.not29, label %36, label %.loopexit
 
 36:                                               ; preds = %.critedge.thread
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 187300
-  %38 = load i32, ptr %37, align 4, !tbaa !113
+  %38 = load i32, ptr %37, align 4, !tbaa !112
   %.not30 = icmp eq i32 %38, 0
   br i1 %.not30, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %36, %.preheader
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.preheader ], [ 0, %36 ]
   %39 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv57
-  %40 = load i32, ptr %39, align 4, !tbaa !113
+  %40 = load i32, ptr %39, align 4, !tbaa !112
   %41 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %indvars.iv57
-  store i32 %40, ptr %41, align 4, !tbaa !113
+  store i32 %40, ptr %41, align 4, !tbaa !112
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %.loopexit, label %.preheader, !llvm.loop !119
+  br i1 %exitcond60.not, label %.loopexit, label %.preheader, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.preheader, %36, %.critedge.thread
   ret void
@@ -2244,42 +2244,41 @@ attributes #10 = { nounwind }
 !78 = !{!7, !14, i64 1338}
 !79 = !{!7, !14, i64 1420}
 !80 = !{!7, !24, i64 381520}
-!81 = distinct !{!81, !82, !83}
+!81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = !{!85, !24, i64 0}
-!85 = !{!"_ZTSZN6LibRaw18GetNormalizedModelEvE3$_0", !24, i64 0, !11, i64 8}
-!86 = !{!7, !15, i64 532}
-!87 = !{!7, !24, i64 1344}
-!88 = distinct !{!88, !82, !83}
-!89 = !{!18, !18, i64 0}
-!90 = distinct !{!90, !82, !83}
-!91 = distinct !{!91, !82, !83}
-!92 = distinct !{!92, !82, !83}
-!93 = distinct !{!93, !82, !83}
-!94 = distinct !{!94, !82, !83}
-!95 = distinct !{!95, !82, !83}
-!96 = distinct !{!96, !82, !83}
-!97 = distinct !{!97, !82, !83}
-!98 = distinct !{!98, !82, !83}
-!99 = distinct !{!99, !82, !83}
-!100 = !{!7, !15, i64 540}
-!101 = !{!7, !15, i64 544}
-!102 = distinct !{!102, !82, !83}
-!103 = distinct !{!103, !82, !83}
-!104 = distinct !{!104, !82, !83}
-!105 = distinct !{!105, !82, !83}
-!106 = distinct !{!106, !82, !83}
-!107 = !{!108, !18, i64 0}
-!108 = !{!"_ZTSZN6LibRaw18GetNormalizedModelEvE3$_1", !18, i64 0, !14, i64 8}
-!109 = !{!108, !14, i64 8}
-!110 = !{!7, !14, i64 3512}
-!111 = !{!7, !14, i64 2040}
-!112 = !{!7, !18, i64 632}
-!113 = !{!15, !15, i64 0}
-!114 = !{!20, !20, i64 0}
-!115 = distinct !{!115, !82, !83}
-!116 = distinct !{!116, !82, !83}
-!117 = distinct !{!117, !82, !83}
-!118 = distinct !{!118, !82, !83}
-!119 = distinct !{!119, !82, !83}
+!83 = !{!84, !24, i64 0}
+!84 = !{!"_ZTSZN6LibRaw18GetNormalizedModelEvE3$_0", !24, i64 0, !11, i64 8}
+!85 = !{!7, !15, i64 532}
+!86 = !{!7, !24, i64 1344}
+!87 = distinct !{!87, !82}
+!88 = !{!18, !18, i64 0}
+!89 = distinct !{!89, !82}
+!90 = distinct !{!90, !82}
+!91 = distinct !{!91, !82}
+!92 = distinct !{!92, !82}
+!93 = distinct !{!93, !82}
+!94 = distinct !{!94, !82}
+!95 = distinct !{!95, !82}
+!96 = distinct !{!96, !82}
+!97 = distinct !{!97, !82}
+!98 = distinct !{!98, !82}
+!99 = !{!7, !15, i64 540}
+!100 = !{!7, !15, i64 544}
+!101 = distinct !{!101, !82}
+!102 = distinct !{!102, !82}
+!103 = distinct !{!103, !82}
+!104 = distinct !{!104, !82}
+!105 = distinct !{!105, !82}
+!106 = !{!107, !18, i64 0}
+!107 = !{!"_ZTSZN6LibRaw18GetNormalizedModelEvE3$_1", !18, i64 0, !14, i64 8}
+!108 = !{!107, !14, i64 8}
+!109 = !{!7, !14, i64 3512}
+!110 = !{!7, !14, i64 2040}
+!111 = !{!7, !18, i64 632}
+!112 = !{!15, !15, i64 0}
+!113 = !{!20, !20, i64 0}
+!114 = distinct !{!114, !82}
+!115 = distinct !{!115, !82}
+!116 = distinct !{!116, !82}
+!117 = distinct !{!117, !82}
+!118 = distinct !{!118, !82}

@@ -949,7 +949,7 @@ define internal fastcc range(i32 0, 2) i32 @assert_validity(ptr noundef nonnull 
   %15 = add nuw nsw i32 %.01823, 1
   %16 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #8
   %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %.019.lcssa = phi i32 [ 0, %.preheader ], [ %.120, %14 ]
@@ -1089,7 +1089,6 @@ attributes #9 = { nounwind willreturn memory(none) }
 !29 = !{!10, !5, i64 0}
 !30 = !{!14, !14, i64 0}
 !31 = !{!7, !7, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34}
+!34 = distinct !{!34, !33}

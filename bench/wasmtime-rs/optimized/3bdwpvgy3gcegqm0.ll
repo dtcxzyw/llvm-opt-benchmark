@@ -110,7 +110,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1568ad177ac
 6:                                                ; preds = %4
   %7 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha3f552dae33c6249E"(ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   %8 = call zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17haa8aff2dbe00b6caE"(i1 zeroext %7)
-  br i1 %8, label %9, label %4, !llvm.loop !4
+  br i1 %8, label %9, label %4
 
 9:                                                ; preds = %6
   %10 = call zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h9c653a5a4ec6c0edE"()
@@ -139,7 +139,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h54cbfe476ce
 6:                                                ; preds = %4
   %7 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4d101e52ce6f4e28E"(ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   %8 = call zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17haa8aff2dbe00b6caE"(i1 zeroext %7)
-  br i1 %8, label %9, label %4, !llvm.loop !6
+  br i1 %8, label %9, label %4
 
 9:                                                ; preds = %6
   %10 = call zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h9c653a5a4ec6c0edE"()
@@ -168,7 +168,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hadcb407cba2
 6:                                                ; preds = %4
   %7 = call zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17he743d53f369d996cE"(ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   %8 = call zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17haa8aff2dbe00b6caE"(i1 zeroext %7)
-  br i1 %8, label %9, label %4, !llvm.loop !7
+  br i1 %8, label %9, label %4
 
 9:                                                ; preds = %6
   %10 = call zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h9c653a5a4ec6c0edE"()
@@ -196,7 +196,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17heed0557924d
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h4a0444dca955b28dE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %7 = call zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17haa8aff2dbe00b6caE"(i1 zeroext %6)
-  br i1 %7, label %8, label %3, !llvm.loop !8
+  br i1 %7, label %8, label %3
 
 8:                                                ; preds = %5
   %9 = call zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h9c653a5a4ec6c0edE"()
@@ -291,7 +291,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN85_$LT$witx..ast..RecordDatatype$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14is_transparent28_$u7b$$u7b$closure$u7d$$u7d$17h16a007619bc6cb3cE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
-  br i1 %6, label %3, label %7, !llvm.loop !9
+  br i1 %6, label %3, label %7
 
 7:                                                ; preds = %5, %3
   ret i1 %.not
@@ -309,7 +309,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN15wiggle_generate5types7variant14define_variant28_$u7b$$u7b$closure$u7d$$u7d$17h8649a8602289abe6E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
-  br i1 %6, label %3, label %7, !llvm.loop !10
+  br i1 %6, label %3, label %7
 
 7:                                                ; preds = %5, %3
   ret i1 %.not
@@ -327,7 +327,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN15wiggle_generate5types7variant14define_variant28_$u7b$$u7b$closure$u7d$$u7d$17h888d44a66c1828d3E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
-  br i1 %6, label %3, label %7, !llvm.loop !11
+  br i1 %6, label %3, label %7
 
 7:                                                ; preds = %5, %3
   ret i1 %.not
@@ -350,7 +350,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %9, ptr %0, align 8
   %10 = call zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h815fd60a2bdb4287E"(ptr nonnull align 8 %3, ptr nonnull align 8 %7)
-  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit", label %5, !llvm.loop !12
+  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit", label %5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3e6ed44a06928cbE.exit": ; preds = %5, %8
   ret i1 %.not.not.not.not.not
@@ -368,7 +368,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN85_$LT$witx..ast..RecordDatatype$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14needs_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h5ee7db5a53073a7aE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
-  br i1 %6, label %7, label %3, !llvm.loop !13
+  br i1 %6, label %7, label %3
 
 7:                                                ; preds = %5, %3
   ret i1 %.not.not.not.not.not.not
@@ -386,7 +386,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 5:                                                ; preds = %3
   %6 = call zeroext i1 @"_ZN78_$LT$witx..ast..Variant$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14needs_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h76c10a031bf5755bE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
-  br i1 %6, label %7, label %3, !llvm.loop !14
+  br i1 %6, label %7, label %3
 
 7:                                                ; preds = %5, %3
   ret i1 %.not.not.not.not.not.not
@@ -407,10 +407,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 7:                                                ; preds = %5
   store ptr %6, ptr %3, align 8
   %8 = call zeroext i1 @"_ZN15wiggle_generate6config11TracingConf11enabled_for28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf232e6b53375c4f5E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %8, label %9, label %5, !llvm.loop !15
+  br i1 %8, label %9, label %5
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %10 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %9
@@ -433,10 +433,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 7:                                                ; preds = %5
   store ptr %6, ptr %3, align 8
   %8 = call zeroext i1 @"_ZN15wiggle_generate6config9AsyncConf3get28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haaf192e9f941fa27E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %8, label %9, label %5, !llvm.loop !17
+  br i1 %8, label %9, label %5
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %10 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %9
@@ -463,10 +463,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN15wiggle_generate16codegen_settings14ErrorTransform8for_name28_$u7b$$u7b$closure$u7d$$u7d$17hd518fa62adbbe600E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !18
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d98e6cdf5a53d91E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d98e6cdf5a53d91E.exit.thread": ; preds = %6, %13
@@ -505,7 +505,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !19
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr691drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$witx..ast..InterfaceFuncParam$C$proc_macro2..TokenStream$C$$LP$$RP$$C$$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$..emit..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$witx..ast..InterfaceFuncParam$GT$$C$$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3d8cc4bbdd6f015E"(ptr align 8 %2)
@@ -551,7 +551,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 15:                                               ; preds = %13
   %16 = add nuw i64 %.0, 1
   %17 = icmp eq i64 %16, %10
-  br i1 %17, label %.loopexit, label %13, !llvm.loop !20
+  br i1 %17, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %15, %3
   tail call void @"_ZN4core3ptr873drop_in_place$LT$$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$..fold..enumerate$LT$$RF$witx..abi..WasmType$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$$LP$usize$C$$RF$witx..abi..WasmType$RP$$C$proc_macro2..TokenStream$C$$LP$$RP$$C$wiggle_generate..wasmtime..generate_func..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$witx..abi..WasmType$GT$$GT$$C$wiggle_generate..wasmtime..generate_func..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0cfaeaf747ab7559E"(ptr align 8 %2)
@@ -598,7 +598,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !21
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr676drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$proc_macro2..Ident$C$alloc..string..String$C$$LP$$RP$$C$$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..parse..Parse$GT$..parse..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$proc_macro2..Ident$GT$$C$$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..parse..Parse$GT$..parse..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h59686a4e4a31c5b8E"(ptr align 8 %2)
@@ -645,7 +645,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !22
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr614drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$std..path..PathBuf$C$$RF$std..path..Path$C$$LP$$RP$$C$witx..toplevel..parse_witx$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$std..path..Path$C$alloc..vec..Vec$LT$$RF$std..path..Path$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..path..PathBuf$GT$$C$witx..toplevel..parse_witx$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h228fc802a34713b1E"(ptr align 8 %2)
@@ -692,7 +692,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !23
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr599drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$witx..ast..RecordMember$C$proc_macro2..TokenStream$C$$LP$$RP$$C$wiggle_generate..names..type_ref..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$witx..ast..RecordMember$GT$$C$wiggle_generate..names..type_ref..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc58d1fd3568754ebE"(ptr align 8 %2)
@@ -739,7 +739,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !24
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr682drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$proc_macro2..Ident$C$alloc..string..String$C$$LP$$RP$$C$$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$..parse..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$proc_macro2..Ident$GT$$C$$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..parse..Parse$GT$..parse..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60f55251fa1878adE"(ptr align 8 %2)
@@ -786,7 +786,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !25
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr669drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$proc_macro2..Ident$C$proc_macro2..TokenStream$C$$LP$$RP$$C$$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$..emit..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$proc_macro2..Ident$GT$$C$$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$..emit..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8a5126d6cb53f755E"(ptr align 8 %2)
@@ -944,7 +944,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store ptr %11, ptr %1, align 8
   call void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfa83299bca625730E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %4, ptr nonnull align 8 %5, ptr nonnull align 8 %10)
-  %12 = load i64, ptr %4, align 8, !range !26, !noundef !3
+  %12 = load i64, ptr %4, align 8, !range !5, !noundef !3
   %.not4 = icmp eq i64 %12, -9223372036854775807
   br i1 %.not4, label %14, label %13
 
@@ -961,7 +961,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %16 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %17 = icmp eq ptr %16, %15
-  br i1 %17, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %17, label %._crit_edge, label %.lr.ph
 
 18:                                               ; preds = %13, %._crit_edge
   ret void
@@ -1187,27 +1187,5 @@ attributes #12 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = !{i64 8}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = !{i64 0, i64 -9223372036854775806}
-!27 = distinct !{!27, !5}
+!4 = !{i64 8}
+!5 = !{i64 0, i64 -9223372036854775806}

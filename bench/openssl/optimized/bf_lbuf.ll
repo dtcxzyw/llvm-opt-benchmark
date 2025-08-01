@@ -69,8 +69,8 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
 24:                                               ; preds = %23
   %25 = ptrtoint ptr %.1126 to i64
   %26 = sub i64 %22, %25
-  %27 = load i32, ptr %15, align 8, !tbaa !22
-  %28 = load i32, ptr %16, align 4, !tbaa !24
+  %27 = load i32, ptr %15, align 8, !tbaa !21
+  %28 = load i32, ptr %16, align 4, !tbaa !23
   %29 = sub nsw i32 %27, %28
   %30 = sext i32 %29 to i64
   %31 = icmp sgt i64 %26, %30
@@ -79,12 +79,12 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %or.cond244, label %36, label %.critedge4.thread
 
 33:                                               ; preds = %23
-  %34 = load i32, ptr %16, align 4, !tbaa !24
+  %34 = load i32, ptr %16, align 4, !tbaa !23
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %._crit_edge214, label %.critedge4.loopexit
 
 ._crit_edge214:                                   ; preds = %33
-  %.pre215 = load i32, ptr %15, align 8, !tbaa !22
+  %.pre215 = load i32, ptr %15, align 8, !tbaa !21
   %.pre217 = sub nsw i32 %.pre215, %34
   %.pre218 = ptrtoint ptr %.1126 to i64
   %.pre220 = sub i64 %22, %.pre218
@@ -100,26 +100,26 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
 39:                                               ; preds = %36
   %40 = sext i32 %.pre-phi to i64
   %.not152 = icmp sgt i64 %.pre-phi221, %40
-  %41 = load ptr, ptr %8, align 8, !tbaa !25
+  %41 = load ptr, ptr %8, align 8, !tbaa !24
   %42 = zext nneg i32 %37 to i64
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
   br i1 %.not152, label %50, label %44
 
 44:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1126, i64 %.pre-phi221, i1 false)
-  %45 = load i32, ptr %16, align 4, !tbaa !24
+  %45 = load i32, ptr %16, align 4, !tbaa !23
   %46 = trunc nuw nsw i64 %.pre-phi221 to i32
   %47 = add i32 %45, %46
-  store i32 %47, ptr %16, align 4, !tbaa !24
+  store i32 %47, ptr %16, align 4, !tbaa !23
   %48 = sub i32 %.1137, %46
   %49 = add i32 %.1132, %46
   br label %56
 
 50:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1126, i64 %40, i1 false)
-  %51 = load i32, ptr %16, align 4, !tbaa !24
+  %51 = load i32, ptr %16, align 4, !tbaa !23
   %52 = add nsw i32 %51, %.pre-phi
-  store i32 %52, ptr %16, align 4, !tbaa !24
+  store i32 %52, ptr %16, align 4, !tbaa !23
   %53 = sub nsw i32 %.1137, %.pre-phi
   %54 = getelementptr inbounds i8, ptr %.1126, i64 %40
   %55 = add nsw i32 %.pre-phi, %.1132
@@ -131,13 +131,13 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   %.2133 = phi i32 [ %49, %44 ], [ %55, %50 ], [ %.1132, %36 ]
   %.2127 = phi ptr [ %20, %44 ], [ %54, %50 ], [ %.1126, %36 ]
   %58 = load ptr, ptr %11, align 8, !tbaa !17
-  %59 = load ptr, ptr %8, align 8, !tbaa !25
+  %59 = load ptr, ptr %8, align 8, !tbaa !24
   %60 = tail call i32 @BIO_write(ptr noundef %58, ptr noundef %59, i32 noundef %57) #5
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %67, label %62
 
 62:                                               ; preds = %56
-  store i32 %37, ptr %16, align 4, !tbaa !24
+  store i32 %37, ptr %16, align 4, !tbaa !23
   tail call void @BIO_copy_next_retry(ptr noundef nonnull %0) #5
   %63 = icmp slt i32 %60, 0
   br i1 %63, label %64, label %.thread
@@ -148,25 +148,25 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread
 
 67:                                               ; preds = %56
-  %68 = load i32, ptr %16, align 4, !tbaa !24
+  %68 = load i32, ptr %16, align 4, !tbaa !23
   %69 = icmp slt i32 %60, %68
   br i1 %69, label %70, label %76
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %8, align 8, !tbaa !25
+  %71 = load ptr, ptr %8, align 8, !tbaa !24
   %72 = zext nneg i32 %60 to i64
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
   %74 = sub nsw i32 %68, %60
   %75 = zext nneg i32 %74 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %73, i64 %75, i1 false)
-  %.pre216 = load i32, ptr %16, align 4, !tbaa !24
+  %.pre216 = load i32, ptr %16, align 4, !tbaa !23
   br label %76
 
 76:                                               ; preds = %67, %70
   %77 = phi i32 [ %68, %67 ], [ %.pre216, %70 ]
   %78 = sub nsw i32 %77, %60
-  store i32 %78, ptr %16, align 4, !tbaa !24
-  br label %23, !llvm.loop !26
+  store i32 %78, ptr %16, align 4, !tbaa !23
+  br label %23, !llvm.loop !25
 
 .critedge4.thread:                                ; preds = %24
   %79 = sext i32 %27 to i64
@@ -217,13 +217,13 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   %.3128.ph = phi ptr [ %.1126, %.critedge4 ], [ %96, %93 ]
   %99 = icmp sgt i32 %.3139.ph, 0
   %100 = select i1 %.not, i1 %99, i1 false
-  br i1 %100, label %.lr.ph.preheader, label %101, !llvm.loop !27
+  br i1 %100, label %.lr.ph.preheader, label %101, !llvm.loop !26
 
 101:                                              ; preds = %98
   br i1 %99, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %101
-  %.pre = load i32, ptr %16, align 4, !tbaa !24
+  %.pre = load i32, ptr %16, align 4, !tbaa !23
   br label %102
 
 102:                                              ; preds = %._crit_edge, %.thread168
@@ -231,14 +231,14 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   %.3139.ph172177 = phi i32 [ %.1137, %.thread168 ], [ %.3139.ph, %._crit_edge ]
   %.3134.ph173176 = phi i32 [ %.1132, %.thread168 ], [ %.3134.ph, %._crit_edge ]
   %.3128.ph174175 = phi ptr [ %.1126, %.thread168 ], [ %.3128.ph, %._crit_edge ]
-  %104 = load ptr, ptr %8, align 8, !tbaa !25
+  %104 = load ptr, ptr %8, align 8, !tbaa !24
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
   %107 = zext nneg i32 %.3139.ph172177 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %106, ptr noundef nonnull align 1 dereferenceable(1) %.3128.ph174175, i64 %107, i1 false)
-  %108 = load i32, ptr %16, align 4, !tbaa !24
+  %108 = load i32, ptr %16, align 4, !tbaa !23
   %109 = add nsw i32 %108, %.3139.ph172177
-  store i32 %109, ptr %16, align 4, !tbaa !24
+  store i32 %109, ptr %16, align 4, !tbaa !23
   %110 = add nsw i32 %.3134.ph173176, %.3139.ph172177
   br label %.thread
 
@@ -311,7 +311,7 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %8, align 4, !tbaa !24
+  store i32 0, ptr %8, align 4, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = icmp eq ptr %10, null
@@ -323,13 +323,13 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !24
+  %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = sext i32 %16 to i64
   br label %.thread
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !24
+  %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   br i1 %22, label %23, label %.thread
@@ -355,7 +355,7 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !22
+  %36 = load i32, ptr %35, align 8, !tbaa !21
   %.not = icmp eq i32 %36, %32
   br i1 %.not, label %.thread, label %37
 
@@ -366,29 +366,29 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %37
-  %.pre103 = load ptr, ptr %6, align 8, !tbaa !25
+  %.pre103 = load ptr, ptr %6, align 8, !tbaa !24
   %.not100 = icmp eq ptr %.pre103, %39
   br i1 %.not100, label %.thread, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !24
+  %44 = load i32, ptr %43, align 4, !tbaa !23
   %45 = icmp sgt i32 %44, %32
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %42
-  store i32 %32, ptr %43, align 4, !tbaa !24
+  store i32 %32, ptr %43, align 4, !tbaa !23
   br label %47
 
 47:                                               ; preds = %46, %42
   %48 = phi i32 [ %32, %46 ], [ %44, %42 ]
   %49 = sext i32 %48 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %.pre103, i64 %49, i1 false)
-  %50 = load ptr, ptr %6, align 8, !tbaa !25
+  %50 = load ptr, ptr %6, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %50, ptr noundef nonnull @.str.2, i32 noundef 244) #5
-  store ptr %39, ptr %6, align 8, !tbaa !25
+  store ptr %39, ptr %6, align 8, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %32, ptr %51, align 8, !tbaa !22
+  store i32 %32, ptr %51, align 8, !tbaa !21
   br label %.thread
 
 52:                                               ; preds = %4
@@ -412,13 +412,13 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !24
+  %65 = load i32, ptr %64, align 4, !tbaa !23
   %66 = icmp slt i32 %65, 1
   br i1 %66, label %69, label %.preheader
 
 .preheader:                                       ; preds = %63
   tail call void @BIO_clear_flags(ptr noundef nonnull %0, i32 noundef 15) #5
-  %67 = load i32, ptr %64, align 4, !tbaa !24
+  %67 = load i32, ptr %64, align 4, !tbaa !23
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %.lr.ph, label %._crit_edge
 
@@ -430,7 +430,7 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
 .lr.ph:                                           ; preds = %.preheader, %87
   %71 = phi i32 [ %90, %87 ], [ %67, %.preheader ]
   %72 = load ptr, ptr %60, align 8, !tbaa !17
-  %73 = load ptr, ptr %6, align 8, !tbaa !25
+  %73 = load ptr, ptr %6, align 8, !tbaa !24
   %74 = tail call i32 @BIO_write(ptr noundef %72, ptr noundef %73, i32 noundef %71) #5
   tail call void @BIO_copy_next_retry(ptr noundef nonnull %0) #5
   %75 = icmp slt i32 %74, 1
@@ -441,31 +441,31 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %.thread
 
 78:                                               ; preds = %.lr.ph
-  %79 = load i32, ptr %64, align 4, !tbaa !24
+  %79 = load i32, ptr %64, align 4, !tbaa !23
   %80 = icmp slt i32 %74, %79
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr %6, align 8, !tbaa !25
+  %82 = load ptr, ptr %6, align 8, !tbaa !24
   %83 = zext nneg i32 %74 to i64
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
   %85 = sub nsw i32 %79, %74
   %86 = zext nneg i32 %85 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr nonnull align 1 %84, i64 %86, i1 false)
-  %.pre = load i32, ptr %64, align 4, !tbaa !24
+  %.pre = load i32, ptr %64, align 4, !tbaa !23
   br label %87
 
 87:                                               ; preds = %81, %78
   %88 = phi i32 [ %.pre, %81 ], [ %79, %78 ]
   %89 = sub nsw i32 %88, %74
-  store i32 %89, ptr %64, align 4, !tbaa !24
+  store i32 %89, ptr %64, align 4, !tbaa !23
   tail call void @BIO_clear_flags(ptr noundef nonnull %0, i32 noundef 15) #5
-  %90 = load i32, ptr %64, align 4, !tbaa !24
+  %90 = load i32, ptr %64, align 4, !tbaa !23
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %91, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %87, %.preheader
-  store i32 0, ptr %64, align 4, !tbaa !24
+  store i32 0, ptr %64, align 4, !tbaa !23
   %92 = load ptr, ptr %60, align 8, !tbaa !17
   %93 = tail call i64 @BIO_ctrl(ptr noundef %92, i32 noundef 11, i64 noundef %2, ptr noundef %3) #5
   tail call void @BIO_copy_next_retry(ptr noundef nonnull %0) #5
@@ -473,7 +473,7 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
 
 94:                                               ; preds = %4
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %96 = load i32, ptr %95, align 8, !tbaa !22
+  %96 = load i32, ptr %95, align 8, !tbaa !21
   %97 = sext i32 %96 to i64
   %98 = tail call i64 @BIO_int_ctrl(ptr noundef %3, i32 noundef 117, i64 noundef %97, i32 noundef 1) #5
   %99 = icmp sgt i64 %98, 0
@@ -503,7 +503,7 @@ define internal range(i32 0, 2) i32 @linebuffer_new(ptr noundef writeonly captur
 
 4:                                                ; preds = %1
   %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 10240, ptr noundef nonnull @.str.2, i32 noundef 62) #5
-  store ptr %5, ptr %2, align 8, !tbaa !25
+  store ptr %5, ptr %2, align 8, !tbaa !24
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -513,15 +513,15 @@ define internal range(i32 0, 2) i32 @linebuffer_new(ptr noundef writeonly captur
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 10240, ptr %9, align 8, !tbaa !22
+  store i32 10240, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !24
+  store i32 0, ptr %10, align 4, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %11, align 8, !tbaa !29
+  store i32 1, ptr %11, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %12, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %13, align 8, !tbaa !30
+  store i32 0, ptr %13, align 8, !tbaa !28
   br label %14
 
 14:                                               ; preds = %1, %8, %7
@@ -537,15 +537,15 @@ define internal range(i32 0, 2) i32 @linebuffer_free(ptr noundef captures(addres
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 83) #5
   %7 = load ptr, ptr %4, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 84) #5
   store ptr null, ptr %4, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %8, align 8, !tbaa !29
+  store i32 0, ptr %8, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %9, align 8, !tbaa !30
+  store i32 0, ptr %9, align 8, !tbaa !28
   br label %10
 
 10:                                               ; preds = %1, %3
@@ -627,15 +627,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !16 = !{!"p1 _ZTS13stack_st_void", !6, i64 0}
 !17 = !{!4, !12, i64 72}
 !18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !11, i64 8}
-!23 = !{!"bio_linebuffer_ctx_struct", !10, i64 0, !11, i64 8, !11, i64 12}
-!24 = !{!23, !11, i64 12}
-!25 = !{!23, !10, i64 0}
-!26 = distinct !{!26, !20, !21}
-!27 = distinct !{!27, !20, !21}
-!28 = distinct !{!28, !21}
-!29 = !{!4, !11, i64 40}
-!30 = !{!4, !11, i64 48}
+!21 = !{!22, !11, i64 8}
+!22 = !{!"bio_linebuffer_ctx_struct", !10, i64 0, !11, i64 8, !11, i64 12}
+!23 = !{!22, !11, i64 12}
+!24 = !{!22, !10, i64 0}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = !{!4, !11, i64 40}
+!28 = !{!4, !11, i64 48}

@@ -231,7 +231,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit: ; preds = %
   tail call void %3(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %28 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %28, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph26, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph26, !llvm.loop !9
 
 29:                                               ; preds = %.lr.ph, %32
   %.01924 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
@@ -248,7 +248,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit: ; preds = %
   %34 = load i32, ptr %22, align 4
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %33, %35
-  br i1 %36, label %29, label %.loopexit, !llvm.loop !11
+  br i1 %36, label %29, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %32, %27, %.preheader22, %.preheader
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 93)
@@ -275,8 +275,7 @@ attributes #3 = { nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info: argument 0"}
 !6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

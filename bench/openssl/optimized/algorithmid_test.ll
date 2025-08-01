@@ -121,12 +121,12 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   ]
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr @bio_err, align 8, !tbaa !7
+  %8 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.19) #6
   br label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr @bio_err, align 8, !tbaa !7
+  %11 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.20) #6
   br label %.loopexit
 
@@ -146,14 +146,14 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 21:                                               ; preds = %18
   %22 = tail call ptr @test_get_argument(i64 noundef 0) #6
-  store ptr %22, ptr @eecert_filename, align 8, !tbaa !12
+  store ptr %22, ptr @eecert_filename, align 8, !tbaa !11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %21
   %.sink36 = phi i64 [ 1, %21 ], [ 0, %13 ]
   %cacert_filename.sink = phi ptr [ @cacert_filename, %21 ], [ @pubkey_filename, %13 ]
   %23 = tail call ptr @test_get_argument(i64 noundef %.sink36) #6
-  store ptr %23, ptr %cacert_filename.sink, align 8, !tbaa !12
+  store ptr %23, ptr %cacert_filename.sink, align 8, !tbaa !11
   br label %24
 
 24:                                               ; preds = %.sink.split, %18
@@ -163,7 +163,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %or.cond5, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr @bio_err, align 8, !tbaa !7
+  %28 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.21) #6
   br label %.loopexit
 
@@ -172,7 +172,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %.not29, label %.critedge, label %31
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr @eecert_filename, align 8, !tbaa !12
+  %32 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
   %33 = icmp eq ptr %32, null
   %34 = load ptr, ptr @cacert_filename, align 8
   %35 = icmp eq ptr %34, null
@@ -180,7 +180,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %or.cond7, label %36, label %39
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr @bio_err, align 8, !tbaa !7
+  %37 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.22) #6
   br label %.loopexit
 
@@ -222,25 +222,25 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [2 x %struct.ossl_param_st], align 16
-  %8 = load ptr, ptr @eecert_filename, align 8, !tbaa !12
+  %8 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
   %9 = tail call ptr @BIO_new_file(ptr noundef %8, ptr noundef nonnull @.str.25) #6
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %0
-  %12 = load ptr, ptr @eecert_filename, align 8, !tbaa !12
+  %12 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.26, i32 noundef 221, ptr noundef nonnull @.str.27, ptr noundef %12) #6
   tail call void @test_openssl_errors() #6
   br label %113
 
 13:                                               ; preds = %0
-  %14 = load ptr, ptr @cacert_filename, align 8, !tbaa !12
+  %14 = load ptr, ptr @cacert_filename, align 8, !tbaa !11
   %15 = tail call ptr @BIO_new_file(ptr noundef %14, ptr noundef nonnull @.str.25) #6
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr @cacert_filename, align 8, !tbaa !12
+  %18 = load ptr, ptr @cacert_filename, align 8, !tbaa !11
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.26, i32 noundef 226, ptr noundef nonnull @.str.27, ptr noundef %18) #6
   tail call void @test_openssl_errors() #6
   br label %113
@@ -251,7 +251,7 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr @eecert_filename, align 8, !tbaa !12
+  %23 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.26, i32 noundef 233, ptr noundef nonnull @.str.28, ptr noundef %23) #6
   tail call void @test_openssl_errors() #6
   br label %113
@@ -262,32 +262,32 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr @cacert_filename, align 8, !tbaa !12
+  %28 = load ptr, ptr @cacert_filename, align 8, !tbaa !11
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.26, i32 noundef 239, ptr noundef nonnull @.str.28, ptr noundef %28) #6
   tail call void @test_openssl_errors() #6
   br label %113
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr @eecert_filename, align 8, !tbaa !12
-  %31 = load ptr, ptr @cacert_filename, align 8, !tbaa !12
+  %30 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
+  %31 = load ptr, ptr @cacert_filename, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
-  store ptr null, ptr %1, align 8, !tbaa !14
+  store ptr null, ptr %1, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  store ptr null, ptr %2, align 8, !tbaa !16
+  store ptr null, ptr %2, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !tbaa !18
+  store i32 0, ptr %3, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !tbaa !18
+  store i32 0, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !20
+  store ptr null, ptr %5, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  store ptr null, ptr %6, align 8, !tbaa !12
+  store ptr null, ptr %6, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, ptr noundef nonnull align 16 dereferenceable(80) @__const.test_x509_sig_aid.params, i64 80, i1 false)
   call void @X509_get0_signature(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %20) #6
-  %32 = load ptr, ptr %2, align 8, !tbaa !16
+  %32 = load ptr, ptr %2, align 8, !tbaa !15
   call void @X509_ALGOR_get0(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef %32) #6
-  %33 = load ptr, ptr %2, align 8, !tbaa !16
+  %33 = load ptr, ptr %2, align 8, !tbaa !15
   %34 = call ptr @X509_get0_tbs_sigalg(ptr noundef nonnull %20) #6
   %35 = call i32 @X509_ALGOR_cmp(ptr noundef %33, ptr noundef %34) #6
   %36 = call i32 @test_int_eq(ptr noundef nonnull @.str.26, i32 noundef 133, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %35, i32 noundef 0) #6
@@ -295,7 +295,7 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %.not.i, label %test_x509_sig_aid.exit, label %37
 
 37:                                               ; preds = %29
-  %38 = load ptr, ptr %1, align 8, !tbaa !14
+  %38 = load ptr, ptr %1, align 8, !tbaa !13
   %39 = call i32 @OBJ_obj2nid(ptr noundef %38) #6
   %40 = call i32 @test_int_ne(ptr noundef nonnull @.str.26, i32 noundef 135, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %39, i32 noundef 0) #6
   %.not16.i = icmp eq i32 %40, 0
@@ -316,7 +316,7 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %.not18.i, label %test_x509_sig_aid.exit, label %49
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr %4, align 4, !tbaa !18
+  %50 = load i32, ptr %4, align 4, !tbaa !17
   %51 = call ptr @OBJ_nid2sn(i32 noundef %50) #6
   %52 = call i32 @EVP_PKEY_is_a(ptr noundef %47, ptr noundef %51) #6
   %53 = icmp ne i32 %52, 0
@@ -328,9 +328,9 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
 56:                                               ; preds = %49
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.26, i32 noundef 142, ptr noundef nonnull @.str.37, ptr noundef %31, ptr noundef %30) #6
   %57 = call ptr @OBJ_nid2sn(i32 noundef %39) #6
-  %58 = load i32, ptr %4, align 4, !tbaa !18
+  %58 = load i32, ptr %4, align 4, !tbaa !17
   %59 = call ptr @OBJ_nid2sn(i32 noundef %58) #6
-  %60 = load i32, ptr %3, align 4, !tbaa !18
+  %60 = load i32, ptr %3, align 4, !tbaa !17
   %61 = call ptr @OBJ_nid2sn(i32 noundef %60) #6
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.26, i32 noundef 144, ptr noundef nonnull @.str.38, ptr noundef %57, ptr noundef %59, ptr noundef %61) #6
   %62 = call ptr @EVP_PKEY_get0_type_name(ptr noundef %47) #6
@@ -338,7 +338,7 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br label %test_x509_sig_aid.exit
 
 63:                                               ; preds = %49
-  %64 = load ptr, ptr %2, align 8, !tbaa !16
+  %64 = load ptr, ptr %2, align 8, !tbaa !15
   %65 = call i32 @i2d_X509_ALGOR(ptr noundef %64, ptr noundef nonnull %6) #6
   %66 = call i32 @test_int_ge(ptr noundef nonnull @.str.26, i32 noundef 149, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.31, i32 noundef %65, i32 noundef 0) #6
   %.not20.i = icmp eq i32 %66, 0
@@ -351,7 +351,7 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %.not21.i, label %77, label %70
 
 70:                                               ; preds = %67
-  %71 = load i32, ptr %3, align 4, !tbaa !18
+  %71 = load i32, ptr %3, align 4, !tbaa !17
   %72 = call ptr @OBJ_nid2sn(i32 noundef %71) #6
   %73 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef %68, ptr noundef nonnull %5, ptr noundef %72, ptr noundef null, ptr noundef null, ptr noundef %47, ptr noundef null) #6
   %74 = icmp ne i32 %73, 0
@@ -361,15 +361,15 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %.not22.i, label %77, label %82
 
 77:                                               ; preds = %70, %67
-  %78 = load i32, ptr %4, align 4, !tbaa !18
+  %78 = load i32, ptr %4, align 4, !tbaa !17
   %79 = call ptr @OBJ_nid2sn(i32 noundef %78) #6
-  %80 = load i32, ptr %3, align 4, !tbaa !18
+  %80 = load i32, ptr %3, align 4, !tbaa !17
   %81 = call ptr @OBJ_nid2sn(i32 noundef %80) #6
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.26, i32 noundef 158, ptr noundef nonnull @.str.43, ptr noundef %79, ptr noundef %81) #6
   br label %test_x509_sig_aid.exit
 
 82:                                               ; preds = %70
-  %83 = load ptr, ptr %5, align 8, !tbaa !20
+  %83 = load ptr, ptr %5, align 8, !tbaa !19
   %84 = call ptr @EVP_PKEY_CTX_gettable_params(ptr noundef %83) #6
   %85 = call i32 @test_ptr(ptr noundef nonnull @.str.26, i32 noundef 162, ptr noundef nonnull @.str.44, ptr noundef %84) #6
   %.not23.i = icmp eq i32 %85, 0
@@ -382,14 +382,14 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br i1 %.not24.i, label %89, label %92
 
 89:                                               ; preds = %86, %82
-  %90 = load i32, ptr %4, align 4, !tbaa !18
+  %90 = load i32, ptr %4, align 4, !tbaa !17
   %91 = call ptr @OBJ_nid2sn(i32 noundef %90) #6
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.26, i32 noundef 166, ptr noundef nonnull @.str.46, ptr noundef %91) #6
   br label %test_x509_sig_aid.exit
 
 92:                                               ; preds = %86
-  store i8 0, ptr @test_x509_sig_aid.algid_prov, align 16, !tbaa !22
-  %93 = load ptr, ptr %5, align 8, !tbaa !20
+  store i8 0, ptr @test_x509_sig_aid.algid_prov, align 16, !tbaa !21
+  %93 = load ptr, ptr %5, align 8, !tbaa !19
   %94 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef %93, ptr noundef nonnull %7) #6
   %95 = icmp ne i32 %94, 0
   %96 = zext i1 %95 to i32
@@ -399,8 +399,8 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
 
 98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %100 = load i64, ptr %99, align 16, !tbaa !23
-  %101 = load ptr, ptr %6, align 8, !tbaa !12
+  %100 = load i64, ptr %99, align 16, !tbaa !22
+  %101 = load ptr, ptr %6, align 8, !tbaa !11
   %102 = sext i32 %65 to i64
   %103 = call i32 @test_mem_eq(ptr noundef nonnull @.str.26, i32 noundef 178, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef %101, i64 noundef %102, ptr noundef nonnull @test_x509_sig_aid.algid_prov, i64 noundef %100) #6
   %.not26.i = icmp ne i32 %103, 0
@@ -411,7 +411,7 @@ test_x509_sig_aid.exit:                           ; preds = %29, %37, %41, %46, 
   %.015.i = phi ptr [ %68, %92 ], [ %68, %89 ], [ %68, %77 ], [ null, %63 ], [ null, %56 ], [ null, %46 ], [ null, %41 ], [ null, %37 ], [ null, %29 ], [ %68, %98 ]
   %.0.i = phi i32 [ 0, %92 ], [ 1, %89 ], [ 0, %77 ], [ 0, %63 ], [ 0, %56 ], [ 0, %46 ], [ 0, %41 ], [ 0, %37 ], [ 0, %29 ], [ %spec.select.i, %98 ]
   call void @EVP_MD_CTX_free(ptr noundef %.015.i) #6
-  %104 = load ptr, ptr %6, align 8, !tbaa !12
+  %104 = load ptr, ptr %6, align 8, !tbaa !11
   call void @CRYPTO_free(ptr noundef %104, ptr noundef nonnull @.str.26, i32 noundef 184) #6
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
@@ -420,11 +420,11 @@ test_x509_sig_aid.exit:                           ; preds = %29, %37, %41, %46, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
-  %105 = load ptr, ptr @eecert_filename, align 8, !tbaa !12
+  %105 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
   %106 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %20) #6
   %107 = call fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %106, ptr noundef %105)
   %108 = and i32 %107, %.0.i
-  %109 = load ptr, ptr @cacert_filename, align 8, !tbaa !12
+  %109 = load ptr, ptr @cacert_filename, align 8, !tbaa !11
   %110 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %25) #6
   %111 = call fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %110, ptr noundef %109)
   %112 = and i32 %108, %111
@@ -444,13 +444,13 @@ test_x509_sig_aid.exit:                           ; preds = %29, %37, %41, %46, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_spki_file() #1 {
-  %1 = load ptr, ptr @pubkey_filename, align 8, !tbaa !12
+  %1 = load ptr, ptr @pubkey_filename, align 8, !tbaa !11
   %2 = tail call ptr @BIO_new_file(ptr noundef %1, ptr noundef nonnull @.str.25) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr @pubkey_filename, align 8, !tbaa !12
+  %5 = load ptr, ptr @pubkey_filename, align 8, !tbaa !11
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.26, i32 noundef 195, ptr noundef nonnull @.str.27, ptr noundef %5) #6
   tail call void @test_openssl_errors() #6
   br label %13
@@ -458,7 +458,7 @@ define internal range(i32 0, 2) i32 @test_spki_file() #1 {
 6:                                                ; preds = %0
   %7 = tail call ptr @PEM_read_bio_X509_PUBKEY(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %8 = icmp eq ptr %7, null
-  %9 = load ptr, ptr @pubkey_filename, align 8, !tbaa !12
+  %9 = load ptr, ptr @pubkey_filename, align 8, !tbaa !11
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %6
@@ -558,13 +558,13 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
   %8 = alloca [2 x %struct.ossl_param_st], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store ptr null, ptr %4, align 8, !tbaa !16
+  store ptr null, ptr %4, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !26
+  store ptr null, ptr %5, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %6, i8 0, i64 50, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  store ptr null, ptr %7, align 8, !tbaa !12
+  store ptr null, ptr %7, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, ptr noundef nonnull align 16 dereferenceable(80) @__const.test_spki_aid.params, i64 80, i1 false)
   %9 = call i32 @X509_PUBKEY_get0_param(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %0) #6
@@ -581,16 +581,16 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
   br i1 %.not10, label %56, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %4, align 8, !tbaa !16
+  %17 = load ptr, ptr %4, align 8, !tbaa !15
   %18 = call i32 @i2d_X509_ALGOR(ptr noundef %17, ptr noundef nonnull %7) #6
   %19 = call i32 @test_int_ge(ptr noundef nonnull @.str.26, i32 noundef 47, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.31, i32 noundef %18, i32 noundef 0) #6
   %.not11 = icmp eq i32 %19, 0
   br i1 %.not11, label %56, label %20
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %4, align 8, !tbaa !16
+  %21 = load ptr, ptr %4, align 8, !tbaa !15
   call void @X509_ALGOR_get0(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef %21) #6
-  %22 = load ptr, ptr %3, align 8, !tbaa !14
+  %22 = load ptr, ptr %3, align 8, !tbaa !13
   %23 = call i32 @OBJ_obj2txt(ptr noundef nonnull %6, i32 noundef 50, ptr noundef %22, i32 noundef 0) #6
   %24 = call i32 @test_int_gt(ptr noundef nonnull @.str.26, i32 noundef 51, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.31, i32 noundef %23, i32 noundef 0) #6
   %.not12 = icmp eq i32 %24, 0
@@ -606,7 +606,7 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
   br label %56
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %5, align 8, !tbaa !26
+  %30 = load ptr, ptr %5, align 8, !tbaa !25
   %31 = call i32 @EVP_KEYMGMT_is_a(ptr noundef %30, ptr noundef nonnull %6) #6
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
   br label %56
 
 36:                                               ; preds = %29
-  %37 = load ptr, ptr %5, align 8, !tbaa !26
+  %37 = load ptr, ptr %5, align 8, !tbaa !25
   %38 = call ptr @EVP_KEYMGMT_gettable_params(ptr noundef %37) #6
   %39 = call i32 @test_ptr(ptr noundef nonnull @.str.26, i32 noundef 78, ptr noundef nonnull @.str.56, ptr noundef %38) #6
   %.not14 = icmp eq i32 %39, 0
@@ -636,8 +636,8 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
   br label %56
 
 44:                                               ; preds = %40
-  store i8 0, ptr @test_spki_aid.algid_prov, align 16, !tbaa !22
-  %45 = load ptr, ptr %5, align 8, !tbaa !26
+  store i8 0, ptr @test_spki_aid.algid_prov, align 16, !tbaa !21
+  %45 = load ptr, ptr %5, align 8, !tbaa !25
   %46 = call i32 @evp_keymgmt_get_params(ptr noundef %45, ptr noundef nonnull %26, ptr noundef nonnull %8) #6
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
@@ -647,8 +647,8 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %52 = load i64, ptr %51, align 16, !tbaa !23
-  %53 = load ptr, ptr %7, align 8, !tbaa !12
+  %52 = load i64, ptr %51, align 16, !tbaa !22
+  %53 = load ptr, ptr %7, align 8, !tbaa !11
   %54 = sext i32 %18 to i64
   %55 = call i32 @test_mem_eq(ptr noundef nonnull @.str.26, i32 noundef 94, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef %53, i64 noundef %54, ptr noundef nonnull @test_spki_aid.algid_prov, i64 noundef %52) #6
   %.not17 = icmp ne i32 %55, 0
@@ -657,9 +657,9 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
 
 56:                                               ; preds = %50, %44, %20, %16, %2, %13, %43, %35, %28
   %.0 = phi i32 [ 1, %28 ], [ 0, %44 ], [ 1, %43 ], [ 1, %35 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %2 ], [ %spec.select, %50 ]
-  %57 = load ptr, ptr %5, align 8, !tbaa !26
+  %57 = load ptr, ptr %5, align 8, !tbaa !25
   call void @EVP_KEYMGMT_free(ptr noundef %57) #6
-  %58 = load ptr, ptr %7, align 8, !tbaa !12
+  %58 = load ptr, ptr %7, align 8, !tbaa !11
   call void @CRYPTO_free(ptr noundef %58, ptr noundef nonnull @.str.26, i32 noundef 99) #6
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
@@ -709,27 +709,26 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS6bio_st", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS13X509_algor_st", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !10, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS15evp_pkey_ctx_st", !9, i64 0}
-!22 = !{!10, !10, i64 0}
-!23 = !{!24, !25, i64 32}
-!24 = !{!"ossl_param_st", !13, i64 0, !19, i64 8, !9, i64 16, !25, i64 24, !25, i64 32}
-!25 = !{!"long", !10, i64 0}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS14evp_keymgmt_st", !9, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS6bio_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS13X509_algor_st", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !9, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS15evp_pkey_ctx_st", !8, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = !{!23, !24, i64 32}
+!23 = !{!"ossl_param_st", !12, i64 0, !18, i64 8, !8, i64 16, !24, i64 24, !24, i64 32}
+!24 = !{!"long", !9, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS14evp_keymgmt_st", !8, i64 0}

@@ -133,7 +133,7 @@ define hidden void @_PyObjectStack_Merge(ptr noundef captures(none) %0, ptr noun
   %.0 = phi ptr [ %7, %.preheader ], [ %3, %5 ]
   %7 = load ptr, ptr %.0, align 8, !tbaa !30
   %.not12 = icmp eq ptr %7, null
-  br i1 %.not12, label %8, label %.preheader, !llvm.loop !34
+  br i1 %.not12, label %8, label %.preheader, !llvm.loop !33
 
 8:                                                ; preds = %.preheader
   store ptr %6, ptr %.0, align 8, !tbaa !30
@@ -194,7 +194,6 @@ attributes #5 = { nounwind }
 !28 = !{!29, !12, i64 8}
 !29 = !{!"_PyObjectStackChunk", !27, i64 0, !12, i64 8, !7, i64 16}
 !30 = !{!29, !27, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
+!33 = distinct !{!33, !32}

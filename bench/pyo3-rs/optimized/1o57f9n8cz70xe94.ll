@@ -247,7 +247,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h08b0c685899dd204E(ptr
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he4ad13486549abb9E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit, !llvm.loop !3
+          to label %7 unwind label %.loopexit
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$17hf430ddbf6c3cd34eE"(ptr nonnull align 8 %4)
@@ -312,7 +312,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h350c0259e90c94e0E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha8fb6dedf1895d18E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !5
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$17h63697bb61b36fdcfE"(ptr nonnull align 8 %4)
@@ -377,7 +377,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h3cbb0a7d2f0527b6E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h61cfcc28c0d091d6E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !6
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17hbd37e8c136a611a7E"(ptr nonnull align 8 %4)
@@ -442,7 +442,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h46672015b5defb6dE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6a72506ba4b2a3cfE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !7
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$17hb539f2fb934726e6E"(ptr nonnull align 8 %4)
@@ -507,7 +507,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17ha309a084d0aa465eE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha8e7afbc8928c526E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !8
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$17h315e632e03a9bc75E"(ptr nonnull align 8 %4)
@@ -572,7 +572,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17had3e13ea76f6c2afE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9cd036a85f8e831dE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !9
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$17h25fffa81a11eb4e8E"(ptr nonnull align 8 %4)
@@ -637,7 +637,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hba9520fc9235290dE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a39cbd911f35dcE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !10
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$17h655172018db7140dE"(ptr nonnull align 8 %4)
@@ -702,7 +702,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hcc99b5721cdf79d5E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h41c3ece4c65e0b64E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !11
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$17haaa637fe3bc43e35E"(ptr nonnull align 8 %4)
@@ -767,7 +767,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hd8b322fabf7a22b1E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h61a4ee94dce84569E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !12
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h9aa821bb60b0e557E"(ptr nonnull align 8 %4)
@@ -832,7 +832,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hdb87516e9ef8e458E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h958f8431a16e7d5eE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !13
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$17h7ebad67ab8bfc76cE"(ptr nonnull align 8 %4)
@@ -897,7 +897,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf92fedc72e2fae60E(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h54bc4e8f6242d111E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !14
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17h70ab1aa25f75ab86E"(ptr nonnull align 8 %4)
@@ -964,7 +964,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hfcc42ca3f84f8190E(ptr
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h437cb24e168b3787E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit, !llvm.loop !15
+          to label %7 unwind label %.loopexit
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$17h0bf46977cc3a39d4E"(ptr nonnull align 8 %4)
@@ -1035,7 +1035,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h02830764bb55a387E
 10:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h437cb24e168b3787E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %8 unwind label %.loopexit.i, !llvm.loop !15
+          to label %8 unwind label %.loopexit.i
 
 11:                                               ; preds = %8
   invoke void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$17h0bf46977cc3a39d4E"(ptr nonnull align 8 %4)
@@ -1106,7 +1106,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h04c30925be320697E
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h958f8431a16e7d5eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !13
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$17h7ebad67ab8bfc76cE"(ptr nonnull align 8 %4)
@@ -1177,7 +1177,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h0543df6d62d428adE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h61a4ee94dce84569E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !12
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h9aa821bb60b0e557E"(ptr nonnull align 8 %4)
@@ -1248,7 +1248,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h4970a51445670480E
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9cd036a85f8e831dE"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !9
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$17h25fffa81a11eb4e8E"(ptr nonnull align 8 %4)
@@ -1319,7 +1319,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h519043084d7f43f6E
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6a72506ba4b2a3cfE"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !7
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$17hb539f2fb934726e6E"(ptr nonnull align 8 %4)
@@ -1390,7 +1390,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h68caa66ba1970afeE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h54bc4e8f6242d111E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !14
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17h70ab1aa25f75ab86E"(ptr nonnull align 8 %4)
@@ -1461,7 +1461,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6d3ea2c66f33403eE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha8fb6dedf1895d18E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !5
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$17h63697bb61b36fdcfE"(ptr nonnull align 8 %4)
@@ -1532,7 +1532,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h6dd1e39f87aad5aaE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a39cbd911f35dcE"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !10
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$17h655172018db7140dE"(ptr nonnull align 8 %4)
@@ -1605,7 +1605,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h8f8b589f88c84c27E
 10:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he4ad13486549abb9E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %8 unwind label %.loopexit.i, !llvm.loop !3
+          to label %8 unwind label %.loopexit.i
 
 11:                                               ; preds = %8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$17hf430ddbf6c3cd34eE"(ptr nonnull align 8 %4)
@@ -1676,7 +1676,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hef76f95dc699a09fE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h61cfcc28c0d091d6E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !6
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17hbd37e8c136a611a7E"(ptr nonnull align 8 %4)
@@ -1747,7 +1747,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf9bae989a1f1087aE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h41c3ece4c65e0b64E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !11
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$17haaa637fe3bc43e35E"(ptr nonnull align 8 %4)
@@ -1818,7 +1818,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfa73c3f73495d1fcE
 9:                                                ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha8e7afbc8928c526E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit.i, !llvm.loop !8
+          to label %7 unwind label %.loopexit.i
 
 10:                                               ; preds = %7
   invoke void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$17h315e632e03a9bc75E"(ptr nonnull align 8 %4)
@@ -3890,16 +3890,3 @@ attributes #10 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}

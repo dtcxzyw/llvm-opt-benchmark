@@ -88,7 +88,7 @@ define internal i32 @drbg_init() #0 section ".init.text" align 16 {
   %11 = add nuw nsw i64 %8, 1
   %12 = add nuw nsw i64 %7, 1
   %13 = icmp eq i64 %11, 3
-  br i1 %13, label %14, label %.preheader, !llvm.loop !9
+  br i1 %13, label %14, label %.preheader, !llvm.loop !8
 
 14:                                               ; preds = %.preheader
   %15 = tail call i32 @crypto_register_rngs(ptr noundef nonnull @drbg_algs, i32 noundef 6) #12
@@ -222,7 +222,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
   %10 = alloca %struct.drbg_string, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !9
   %12 = icmp eq i32 %2, 0
   br i1 %12, label %15, label %13
 
@@ -306,7 +306,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
   br label %56
 
 56:                                               ; preds = %55, %.thread
-  %57 = load i8, ptr %23, align 8, !range !11, !noundef !12
+  %57 = load i8, ptr %23, align 8, !range !10, !noundef !11
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %59, label %62
 
@@ -344,7 +344,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
 
 79:                                               ; preds = %73, %67
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   store ptr %7, ptr %7, align 8
   store ptr %7, ptr %26, align 8
@@ -356,7 +356,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
   %switch.selectcmp1 = icmp eq i32 %82, 8
   %switch.select2 = select i1 %switch.selectcmp1, i64 16, i64 %switch.select
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !9
   store ptr %8, ptr %6, align 8
   store i64 %switch.select2, ptr %27, align 8
   store volatile ptr %28, ptr %28, align 8
@@ -379,7 +379,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
   store i64 1, ptr %21, align 8
   store i64 1048576, ptr %20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, i8 0, i64 %switch.select2, i1 false)
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #12, !srcloc !13
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #12, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
@@ -414,7 +414,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
 
 102:                                              ; preds = %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, i8 0, i64 %switch.select2, i1 false)
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #12, !srcloc !13
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #12, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
@@ -437,7 +437,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
   %108 = icmp ugt i32 %33, 65535
   %109 = icmp ult i32 %107, %4
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %31, label %.loopexit, !llvm.loop !14
+  br i1 %110, label %31, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %106, %103, %.thread10
   %111 = phi i32 [ -22, %.thread10 ], [ 0, %106 ], [ %104, %103 ]
@@ -481,7 +481,7 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
 26:                                               ; preds = %21
   %27 = add nuw nsw i64 %22, 1
   %28 = icmp eq i64 %27, 3
-  br i1 %28, label %.loopexit.loopexit, label %21, !llvm.loop !15
+  br i1 %28, label %.loopexit.loopexit, label %21, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %21, %26
   %.ph = phi i64 [ 0, %26 ], [ %22, %21 ]
@@ -491,7 +491,7 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
 .loopexit:                                        ; preds = %.loopexit.loopexit, %11
   %30 = phi i8 [ 1, %11 ], [ %29, %.loopexit.loopexit ]
   %31 = phi i64 [ 0, %11 ], [ %.ph, %.loopexit.loopexit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !9
   %32 = icmp eq i32 %2, 0
   br i1 %32, label %38, label %33
 
@@ -805,7 +805,7 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   %5 = alloca %struct.drbg_string, align 8
   %6 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false), !annotation !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 4
@@ -829,7 +829,7 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   br i1 %16, label %108, label %17
 
 17:                                               ; preds = %13, %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
@@ -979,7 +979,7 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   %106 = shl nuw nsw i32 %47, 1
   %107 = zext nneg i32 %106 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 0, i64 %107, i1 false)
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #12, !srcloc !13
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #12, !srcloc !12
   br label %108
 
 108:                                              ; preds = %105, %13
@@ -1005,11 +1005,11 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_n
   %8 = alloca %struct.list_head, align 8
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   store ptr %7, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1171,7 +1171,7 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_n
 96:                                               ; preds = %.loopexit
   %97 = add nsw i32 %100, -1
   %98 = icmp ugt i32 %100, 1
-  br i1 %98, label %99, label %.loopexit14, !llvm.loop !16
+  br i1 %98, label %99, label %.loopexit14, !llvm.loop !15
 
 99:                                               ; preds = %96, %87
   %100 = phi i32 [ 2, %87 ], [ %97, %96 ]
@@ -1213,7 +1213,7 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_n
   %126 = call i32 @crypto_shash_update(ptr noundef %105, ptr noundef %122, i32 noundef %125) #12
   %127 = load ptr, ptr %120, align 8
   %128 = icmp eq ptr %127, %7
-  br i1 %128, label %.loopexit13, label %.preheader12, !llvm.loop !17
+  br i1 %128, label %.loopexit13, label %.preheader12, !llvm.loop !16
 
 .loopexit13:                                      ; preds = %.preheader12, %117
   %129 = call i32 @crypto_shash_final(ptr noundef %105, ptr noundef %104) #12
@@ -1276,7 +1276,7 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_n
   %167 = call i32 @crypto_shash_update(ptr noundef %146, ptr noundef %163, i32 noundef %166) #12
   %168 = load ptr, ptr %161, align 8
   %169 = icmp eq ptr %168, %8
-  br i1 %169, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %169, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %158
   %170 = call i32 @crypto_shash_final(ptr noundef %146, ptr noundef %145) #12
@@ -1392,7 +1392,7 @@ define internal i32 @drbg_hmac_generate(ptr noundef readonly captures(address_is
   %57 = call i32 @crypto_shash_update(ptr noundef %36, ptr noundef %53, i32 noundef %56) #12
   %58 = load ptr, ptr %51, align 8
   %59 = icmp eq ptr %58, %6
-  br i1 %59, label %.loopexit.us, label %.preheader.us, !llvm.loop !19
+  br i1 %59, label %.loopexit.us, label %.preheader.us, !llvm.loop !16
 
 .loopexit.us:                                     ; preds = %.preheader.us, %48
   %60 = call i32 @crypto_shash_final(ptr noundef %36, ptr noundef %35) #12
@@ -1433,7 +1433,7 @@ define internal i32 @drbg_hmac_generate(ptr noundef readonly captures(address_is
   %85 = call i32 @crypto_shash_update(ptr noundef %64, ptr noundef %81, i32 noundef %84) #12
   %86 = load ptr, ptr %79, align 8
   %87 = icmp eq ptr %86, %6
-  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %87, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %76
   %88 = call i32 @crypto_shash_final(ptr noundef %64, ptr noundef %63) #12
@@ -1468,7 +1468,7 @@ define internal i32 @drbg_hmac_generate(ptr noundef readonly captures(address_is
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %104, i64 %105, i1 false)
   %106 = add i32 %101, %62
   %107 = icmp ult i32 %106, %2
-  br i1 %107, label %.lr.ph.split, label %._crit_edge, !llvm.loop !20
+  br i1 %107, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.thread, %27
   %.lcssa = phi i32 [ 0, %27 ], [ %106, %.thread ]
@@ -1535,11 +1535,11 @@ define internal i32 @drbg_init_hash_kernel(ptr noundef captures(address_is_null)
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %23
-  br i1 %28, label %30, label %29, !prof !21
+  br i1 %28, label %30, label %29, !prof !18
 
 29:                                               ; preds = %22
-  tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #12, !srcloc !22
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1674, i32 0, i64 12) #12, !srcloc !23
+  tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #12, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1674, i32 0, i64 12) #12, !srcloc !20
   unreachable
 
 30:                                               ; preds = %22
@@ -1639,22 +1639,19 @@ attributes #15 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{!"auto-init"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{i64 2148362688}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = !{!"branch_weights", i32 2000, i32 1}
-!22 = !{i64 2154690296, i64 2154690105, i64 2154690157, i64 2154690203, i64 2154690231}
-!23 = !{i64 2154690370, i64 2154690399, i64 2154690445, i64 2154690503, i64 2154690557, i64 2154690611, i64 2154690666, i64 2154690697}
+!8 = distinct !{!8, !6, !7}
+!9 = !{!"auto-init"}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{i64 2148362688}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = !{!"branch_weights", i32 2000, i32 1}
+!19 = !{i64 2154690296, i64 2154690105, i64 2154690157, i64 2154690203, i64 2154690231}
+!20 = !{i64 2154690370, i64 2154690399, i64 2154690445, i64 2154690503, i64 2154690557, i64 2154690611, i64 2154690666, i64 2154690697}

@@ -100,7 +100,7 @@ define void @lv_draw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not, label %.preheader, label %41
 
 .preheader:                                       ; preds = %11, %.preheader
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader
 
 41:                                               ; preds = %11
   %42 = call ptr @lv_memcpy(ptr noundef nonnull %39, ptr noundef nonnull %1, i64 noundef 88) #4
@@ -164,5 +164,3 @@ attributes #4 = { nounwind }
 !29 = !{!4, !14, i64 60}
 !30 = !{!21, !10, i64 4}
 !31 = !{!21, !10, i64 12}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.estimated_trip_count"}

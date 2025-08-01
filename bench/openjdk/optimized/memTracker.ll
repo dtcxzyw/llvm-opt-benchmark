@@ -287,12 +287,12 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i2) #11
   %.not.i.i3 = icmp eq ptr %11, null
-  br i1 %.not.i.i3, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i3, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2592
@@ -309,7 +309,7 @@ _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17Al
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i5) #11
   %.not.i.i6 = icmp eq ptr %21, null
-  br i1 %.not.i.i6, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !11
+  br i1 %.not.i.i6, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !10
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit
   ret void
@@ -470,7 +470,7 @@ define hidden void @_ZN10MemTracker6reportEbP12outputStreamm(i1 noundef zeroext 
   store volatile i64 0, ptr %14, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 64
   %15 = icmp eq i64 %.add.i.i, 1792
-  br i1 %15, label %_ZN20MallocMemorySnapshotC2Ev.exit.i, label %7, !llvm.loop !12
+  br i1 %15, label %_ZN20MallocMemorySnapshotC2Ev.exit.i, label %7
 
 _ZN20MallocMemorySnapshotC2Ev.exit.i:             ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1792
@@ -492,7 +492,7 @@ _ZN20MallocMemorySnapshotC2Ev.exit.i:             ; preds = %7
   store volatile i64 0, ptr %22, align 8
   %.add.i3.i = add nuw nsw i64 %.idx.i1.i, 24
   %23 = icmp eq i64 %.add.i3.i, 672
-  br i1 %23, label %_ZN11MemBaselineC2Ev.exit, label %21, !llvm.loop !13
+  br i1 %23, label %_ZN11MemBaselineC2Ev.exit, label %21
 
 _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 2496
@@ -582,12 +582,12 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   %61 = load ptr, ptr %60, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i.i.i) #11
   %.not.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %58
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
   %62 = icmp samesign ult i64 %.0.idx11.i.i.i.i, 2336
-  br i1 %62, label %58, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !15
+  br i1 %62, label %58, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !12
 
 _ZN17MemDetailReporterD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i
   call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(2408) %56) #11
@@ -639,12 +639,12 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %78 = load ptr, ptr %77, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i2.i) #11
   %.not.i.i3.i = icmp eq ptr %73, null
-  br i1 %.not.i.i3.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i3.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i: ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %25, align 8
@@ -659,7 +659,7 @@ _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17Al
   %81 = load ptr, ptr %80, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i5.i) #11
   %.not.i.i6.i = icmp eq ptr %81, null
-  br i1 %.not.i.i6.i, label %_ZN11MemBaselineD2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i6.i, label %_ZN11MemBaselineD2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !10
 
 _ZN11MemBaselineD2Ev.exit:                        ; preds = %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
   ret void
@@ -674,7 +674,7 @@ define hidden void @_ZN10MemTracker12final_reportEP12outputStream(ptr noundef %0
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull @_ZL22g_final_report_did_run) #11, !srcloc !16
+  %5 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull @_ZL22g_final_report_did_run) #11, !srcloc !13
   %6 = trunc i8 %5 to i1
   br i1 %6, label %10, label %7
 
@@ -793,7 +793,7 @@ _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17Al
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i) #11
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, !llvm.loop !10
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit: ; preds = %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, %1
   ret void
@@ -814,7 +814,7 @@ _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17Al
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i) #11
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !10
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, %1
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %0) #11
@@ -836,7 +836,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allo
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %.critedge, label %5, !llvm.loop !17
+  br i1 %.not9, label %.critedge, label %5, !llvm.loop !14
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -898,7 +898,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 72
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %2, %4
   %.09 = phi ptr [ %.0, %4 ], [ %.07, %2 ]
@@ -931,7 +931,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
   %6 = getelementptr inbounds nuw i8, ptr %.08, i64 72
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %5, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %5 ], [ %.08, %.lr.ph ]
@@ -976,7 +976,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI10MallocSiteLN6AnyOb
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, %2
-  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !20
+  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !17
 
 .critedge:                                        ; preds = %.preheader, %12
   store ptr %2, ptr %7, align 8
@@ -1025,12 +1025,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   %5 = getelementptr inbounds nuw i8, ptr %.081419, i64 72
   %.08 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph20
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(80) %.08, i64 32)
   %6 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !21
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !18
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.013.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.081419, %.lr.ph ]
@@ -1068,7 +1068,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, %1
-  br i1 %.not17, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19, label %.preheader, !llvm.loop !22
+  br i1 %.not17, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19, label %.preheader, !llvm.loop !19
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 72
@@ -1100,7 +1100,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI10MallocSiteL
   %6 = icmp ne ptr %.017, %1
   %7 = and i1 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %.017, i64 72
-  br i1 %7, label %4, label %9, !llvm.loop !23
+  br i1 %7, label %4, label %9, !llvm.loop !20
 
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
@@ -1183,7 +1183,7 @@ _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17Al
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, %1
   ret void
@@ -1230,12 +1230,12 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i, %.lr.ph.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i) #11
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit: ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, %1
   ret void
@@ -1268,12 +1268,12 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i) #11
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, %1
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %0) #11
@@ -1295,7 +1295,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6An
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %.critedge, label %5, !llvm.loop !24
+  br i1 %.not9, label %.critedge, label %5, !llvm.loop !21
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1371,7 +1371,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
 
 _ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i: ; preds = %24, %.lr.ph.i.i.i.i
   %29 = icmp eq ptr %21, null
-  br i1 %29, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread5, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %29, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread5, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread5: ; preds = %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, %5
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -1407,7 +1407,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 80
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %2, %4
   %.09 = phi ptr [ %.0, %4 ], [ %.07, %2 ]
@@ -1454,7 +1454,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   %19 = getelementptr inbounds nuw i8, ptr %.08, i64 80
   %.0 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %8, !llvm.loop !27
+  br i1 %.not, label %.critedge, label %8, !llvm.loop !24
 
 .critedge:                                        ; preds = %8, %18, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %18 ], [ %.08, %8 ]
@@ -1525,7 +1525,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
 
 _ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i: ; preds = %25, %.lr.ph.i.i.i.i
   %30 = icmp eq ptr %22, null
-  br i1 %30, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %30, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21: ; preds = %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, %6
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -1550,7 +1550,7 @@ _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %39 = load ptr, ptr %38, align 8
   %.not20 = icmp eq ptr %39, %2
-  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !28
+  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !25
 
 .critedge:                                        ; preds = %.preheader, %37
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -1618,7 +1618,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
 
 _ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i: ; preds = %25, %.lr.ph.i.i.i.i
   %30 = icmp eq ptr %22, null
-  br i1 %30, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread10, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %30, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread10, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 _ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread10: ; preds = %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, %6
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -1662,7 +1662,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %17 = getelementptr inbounds nuw i8, ptr %.081418, i64 80
   %.08 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %.loopexit, label %18, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %18, !llvm.loop !26
 
 18:                                               ; preds = %.lr.ph19
   %19 = load ptr, ptr %.08, align 8
@@ -1674,7 +1674,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %25 = icmp ult ptr %7, %24
   %26 = select i1 %25, ptr %7, ptr %24
   %27 = icmp ult ptr %21, %26
-  br i1 %27, label %._crit_edge, label %.lr.ph19, !llvm.loop !29
+  br i1 %27, label %._crit_edge, label %.lr.ph19, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph
   %.013.lcssa = phi ptr [ null, %.lr.ph ], [ %.081418, %18 ]
@@ -1718,7 +1718,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i, label %.critedge18.sink.split, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %.critedge18.sink.split, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !8
 
 .preheader:                                       ; preds = %2, %16
   %.0 = phi ptr [ %18, %16 ], [ %4, %2 ]
@@ -1729,7 +1729,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not17 = icmp eq ptr %18, %1
-  br i1 %.not17, label %19, label %.preheader, !llvm.loop !30
+  br i1 %.not17, label %19, label %.preheader, !llvm.loop !27
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 80
@@ -1750,7 +1750,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %27 = load ptr, ptr %26, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i21) #11
   %.not.i.i.i.i.i.i22 = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i22, label %.critedge18.sink.split, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i20, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i22, label %.critedge18.sink.split, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i20, !llvm.loop !8
 
 .critedge18.sink.split:                           ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i20, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %19, %10
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %1) #11
@@ -1775,7 +1775,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMem
   %6 = icmp ne ptr %.017, %1
   %7 = and i1 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %.017, i64 80
-  br i1 %7, label %4, label %9, !llvm.loop !31
+  br i1 %7, label %4, label %9, !llvm.loop !28
 
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
@@ -1812,7 +1812,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %18
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.016) #11
@@ -1867,7 +1867,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %16
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0.ph) #11
@@ -1904,12 +1904,12 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #11
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i, %.lr.ph
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, %1
   ret void
@@ -1932,7 +1932,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i) #11
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, %1
   ret void
@@ -1953,7 +1953,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i) #11
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !8
 
 _ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %1
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %0) #11
@@ -1978,7 +1978,7 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXa
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %5) #11
   %11 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2021,12 +2021,12 @@ define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXa
   %6 = getelementptr inbounds nuw i8, ptr %.01831, i64 48
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.thread23, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge.thread23, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph32
   %7 = tail call noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(48) %.0, ptr noundef nonnull align 8 dereferenceable(48) %1) #11
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %._crit_edge, label %.lr.ph32, !llvm.loop !33
+  br i1 %8, label %._crit_edge, label %.lr.ph32, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
   %.01317.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.01831, %.lr.ph ]
@@ -2064,7 +2064,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI21Committed
   %5 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %.0.i = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E.exit, label %.lr.ph.i, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %2, %4
   %.09.i = phi ptr [ %.0.i, %4 ], [ %.07.i, %2 ]
@@ -2101,7 +2101,7 @@ define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryR
   %9 = getelementptr inbounds nuw i8, ptr %.0812, i64 48
   %.08 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %8, %2
   %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %6 ], [ %.0812, %.lr.ph ]
@@ -2146,7 +2146,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, %2
-  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !36
+  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !33
 
 .critedge:                                        ; preds = %.preheader, %12
   store ptr %2, ptr %7, align 8
@@ -2206,7 +2206,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %17 = getelementptr inbounds nuw i8, ptr %.081418, i64 48
   %.08 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %.loopexit, label %18, !llvm.loop !37
+  br i1 %.not, label %.loopexit, label %18, !llvm.loop !34
 
 18:                                               ; preds = %.lr.ph19
   %19 = load ptr, ptr %.08, align 8
@@ -2218,7 +2218,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %25 = icmp ult ptr %7, %24
   %26 = select i1 %25, ptr %7, ptr %24
   %27 = icmp ult ptr %21, %26
-  br i1 %27, label %._crit_edge, label %.lr.ph19, !llvm.loop !37
+  br i1 %27, label %._crit_edge, label %.lr.ph19, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph
   %.013.lcssa = phi ptr [ null, %.lr.ph ], [ %.081418, %18 ]
@@ -2256,7 +2256,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, %1
-  br i1 %.not17, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19, label %.preheader, !llvm.loop !38
+  br i1 %.not17, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19, label %.preheader, !llvm.loop !35
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -2288,7 +2288,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %6 = icmp ne ptr %.017, %1
   %7 = and i1 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %.017, i64 48
-  br i1 %7, label %4, label %9, !llvm.loop !39
+  br i1 %7, label %4, label %9, !llvm.loop !36
 
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
@@ -2371,7 +2371,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit, %1
   ret void
@@ -2392,7 +2392,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i) #11
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, !llvm.loop !9
+  br i1 %.not.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, !llvm.loop !8
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i, %1
   ret void
@@ -2413,7 +2413,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i) #11
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i, %1
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %0) #11
@@ -2435,7 +2435,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6A
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %.critedge, label %5, !llvm.loop !40
+  br i1 %.not9, label %.critedge, label %5, !llvm.loop !37
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2497,7 +2497,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMe
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %2, %4
   %.09 = phi ptr [ %.0, %4 ], [ %.07, %2 ]
@@ -2544,7 +2544,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
   %19 = getelementptr inbounds nuw i8, ptr %.08, i64 48
   %.0 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %8, !llvm.loop !41
+  br i1 %.not, label %.critedge, label %8, !llvm.loop !38
 
 .critedge:                                        ; preds = %8, %18, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %18 ], [ %.08, %8 ]
@@ -2612,7 +2612,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI27VirtualMemoryAllocationSi
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %.critedge, label %5, !llvm.loop !42
+  br i1 %.not9, label %.critedge, label %5, !llvm.loop !39
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2674,7 +2674,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 64
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %2, %4
   %.09 = phi ptr [ %.0, %4 ], [ %.07, %2 ]
@@ -2707,7 +2707,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
   %6 = getelementptr inbounds nuw i8, ptr %.08, i64 64
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph, %5, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %5 ], [ %.08, %.lr.ph ]
@@ -2752,7 +2752,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI27VirtualMemoryAlloc
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, %2
-  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !45
+  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !42
 
 .critedge:                                        ; preds = %.preheader, %12
   store ptr %2, ptr %7, align 8
@@ -2801,12 +2801,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   %5 = getelementptr inbounds nuw i8, ptr %.081419, i64 64
   %.08 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.lr.ph20
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(72) %.08, i64 32)
   %6 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !46
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !43
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.013.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.081419, %.lr.ph ]
@@ -2844,7 +2844,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, %1
-  br i1 %.not17, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19, label %.preheader, !llvm.loop !47
+  br i1 %.not17, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19, label %.preheader, !llvm.loop !44
 
 _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit19: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 64
@@ -2876,7 +2876,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI27VirtualMemo
   %6 = icmp ne ptr %.017, %1
   %7 = and i1 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %.017, i64 64
-  br i1 %7, label %4, label %9, !llvm.loop !48
+  br i1 %7, label %4, label %9, !llvm.loop !45
 
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
@@ -3057,7 +3057,7 @@ define internal void @_GLOBAL__sub_I_memTracker.cpp() #9 section ".text.startup"
   store volatile i64 0, ptr %8, align 8
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 64
   %9 = icmp eq i64 %.add.i.i.i, 1792
-  br i1 %9, label %_ZN20MallocMemorySnapshotC2Ev.exit.i.i, label %1, !llvm.loop !12
+  br i1 %9, label %_ZN20MallocMemorySnapshotC2Ev.exit.i.i, label %1
 
 _ZN20MallocMemorySnapshotC2Ev.exit.i.i:           ; preds = %1
   store volatile i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10MemTracker9_baselineE, i64 1792), align 8
@@ -3074,7 +3074,7 @@ _ZN20MallocMemorySnapshotC2Ev.exit.i.i:           ; preds = %1
   store volatile i64 0, ptr %11, align 8
   %.add.i3.i.i = add nuw nsw i64 %.idx.i1.i.i, 24
   %12 = icmp eq i64 %.add.i3.i.i, 672
-  br i1 %12, label %__cxx_global_var_init.4.exit, label %10, !llvm.loop !13
+  br i1 %12, label %__cxx_global_var_init.4.exit, label %10
 
 __cxx_global_var_init.4.exit:                     ; preds = %10
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN10MemTracker9_baselineE, i64 2600), align 8
@@ -3117,46 +3117,43 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i64 2145410579}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i64 2145410579}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}

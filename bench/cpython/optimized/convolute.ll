@@ -67,7 +67,7 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader63
-  %36 = tail call i32 %17(ptr noundef %0, i64 noundef %2, i32 noundef %3) #6, !callees !11
+  %36 = tail call i32 %17(ptr noundef %0, i64 noundef %2, i32 noundef %3) #6, !callees !10
   %.not59 = icmp eq i32 %36, 0
   br i1 %.not59, label %.loopexit, label %.preheader
 
@@ -110,7 +110,7 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   %50 = add i64 %.165, 4
   %51 = icmp ult i64 %50, %37
-  br i1 %51, label %.lr.ph66, label %.loopexit, !llvm.loop !12
+  br i1 %51, label %.lr.ph66, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph66, %.preheader, %._crit_edge, %20, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 0, %20 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph66 ]
@@ -316,7 +316,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
   %spec.select108.i26 = sub i64 %111, %113
   %114 = lshr i64 %.01136, 1
   %.not = icmp ult i64 %.01136, 2
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %x64_mulmod.exit34, %3
   %.0.lcssa = phi i64 [ 1, %3 ], [ %.1, %x64_mulmod.exit34 ]
@@ -748,10 +748,10 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   %26 = add i64 %.053, 2
   %27 = icmp ult i64 %26, %19
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader52
-  %28 = tail call i32 %17(ptr noundef %0, i64 noundef %1, i32 noundef %2) #6, !callees !11
+  %28 = tail call i32 %17(ptr noundef %0, i64 noundef %1, i32 noundef %2) #6, !callees !10
   %.not48 = icmp eq i32 %28, 0
   br i1 %.not48, label %.loopexit, label %.preheader
 
@@ -794,7 +794,7 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %42 = add i64 %.154, 4
   %43 = icmp ult i64 %42, %29
-  br i1 %43, label %.lr.ph55, label %.loopexit, !llvm.loop !15
+  br i1 %43, label %.lr.ph55, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph55, %.preheader, %._crit_edge, %.thread
   %.044 = phi i32 [ 0, %.thread ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph55 ]
@@ -822,11 +822,10 @@ attributes #6 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{ptr @four_step_fnt, ptr @six_step_fnt, ptr @std_fnt}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{ptr @inv_four_step_fnt, ptr @inv_six_step_fnt, ptr @std_inv_fnt}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!10 = !{ptr @inv_four_step_fnt, ptr @inv_six_step_fnt, ptr @std_inv_fnt}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

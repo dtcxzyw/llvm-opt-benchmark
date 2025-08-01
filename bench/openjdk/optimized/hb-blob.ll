@@ -488,7 +488,7 @@ define hidden range(i32 0, 2) i32 @hb_blob_set_user_data(ptr noundef captures(ad
   tail call void @free(ptr noundef nonnull %10) #21
   %19 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %19, 0
-  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i, !llvm.loop !14
+  br i1 %.not19.i, label %.lr.ph.i, label %.split.loop.exit21.i
 
 .split.loop.exit21.i:                             ; preds = %17, %.preheader.i
   %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %19, %17 ]
@@ -543,7 +543,7 @@ define hidden ptr @hb_blob_get_user_data(ptr noundef readonly captures(address_i
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %.sroa.2.8.insert.ext.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !14
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
@@ -642,7 +642,7 @@ _ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i: ; preds = %10
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %19, i64 range(i64 0, 4294967296) %15, i1 false), !alias.scope !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %19, i64 range(i64 0, 4294967296) %15, i1 false), !alias.scope !16
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
 _ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %18, %17
@@ -829,11 +829,11 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr noundef 
   switch i32 %18, label %36 [
     i32 4, label %5
     i32 0, label %19
-  ], !llvm.loop !22
+  ]
 
 19:                                               ; preds = %15
   %20 = add i64 %17, %.029.ph
-  br label %.outer, !llvm.loop !22
+  br label %.outer, !llvm.loop !20
 
 21:                                               ; preds = %5
   %22 = tail call i32 @fclose(ptr noundef nonnull %4)
@@ -954,7 +954,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
-  store i32 %15, ptr %3, align 4, !noalias !23
+  store i32 %15, ptr %3, align 4, !noalias !21
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #21
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
@@ -967,7 +967,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #21
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
-  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !26
+  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, %10
   %23 = load i32, ptr %0, align 8
@@ -1049,7 +1049,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 20:                                               ; preds = %.lr.ph.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %.sroa.2.8.insert.ext.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
@@ -1062,13 +1062,13 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %26 = load i32, ptr %16, align 4, !noalias !27
+  %26 = load i32, ptr %16, align 4, !noalias !25
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i, label %27
 
 27:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
   %28 = add i32 %26, -1
-  store i32 %28, ptr %16, align 4, !noalias !27
+  store i32 %28, ptr %16, align 4, !noalias !25
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %27, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
@@ -1128,7 +1128,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 13:                                               ; preds = %10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %.sroa.2.8.insert.ext.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %10, !llvm.loop !30
+  br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %10, !llvm.loop !28
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
@@ -1173,7 +1173,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %28 = add i32 %.143.i.i, 8
   %29 = add i32 %28, %27
   %30 = icmp ugt i32 %24, %29
-  br i1 %30, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !31
+  br i1 %30, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !29
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
   %31 = icmp ugt i32 %29, 178956970
@@ -1279,20 +1279,18 @@ attributes #24 = { nounwind allocsize(1) }
 !12 = distinct !{!12, !"_ZL9hb_memcpyPvPKvm"}
 !13 = distinct !{!13, !12, !"_ZL9hb_memcpyPvPKvm: argument 1"}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !17, !15}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!20 = distinct !{!20, !"_ZL9hb_memcpyPvPKvm"}
-!21 = distinct !{!21, !20, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!22 = distinct !{!22, !15}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!25 = distinct !{!25, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
-!26 = distinct !{!26, !17, !15}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!29 = distinct !{!29, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
-!30 = distinct !{!30, !17, !15}
-!31 = distinct !{!31, !17, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!18 = distinct !{!18, !"_ZL9hb_memcpyPvPKvm"}
+!19 = distinct !{!19, !18, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!20 = distinct !{!20, !15}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!23 = distinct !{!23, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!24 = distinct !{!24, !15}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!27 = distinct !{!27, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}

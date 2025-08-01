@@ -126,7 +126,7 @@ close_files.exit:                                 ; preds = %41, %30
   %47 = load ptr, ptr %46, align 8
   tail call void @free(ptr noundef nonnull %.016.i) #8
   %.not.i5 = icmp eq ptr %47, null
-  br i1 %.not.i5, label %._crit_edge.loopexit.i, label %.lr.ph.i4, !llvm.loop !9
+  br i1 %.not.i5, label %._crit_edge.loopexit.i, label %.lr.ph.i4, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i4
   %.pre.i6 = load ptr, ptr %2, align 8
@@ -157,7 +157,7 @@ close_files.exit:                                 ; preds = %41, %30
   %57 = load ptr, ptr %56, align 8
   tail call void @free(ptr noundef nonnull %.118.i) #8
   %.not14.i = icmp eq ptr %57, null
-  br i1 %.not14.i, label %destroy_map_info.exit.loopexit, label %.lr.ph20.i, !llvm.loop !10
+  br i1 %.not14.i, label %destroy_map_info.exit.loopexit, label %.lr.ph20.i, !llvm.loop !9
 
 destroy_map_info.exit.loopexit:                   ; preds = %.lr.ph20.i
   %.pre = load ptr, ptr %2, align 8
@@ -241,7 +241,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   %..036 = select i1 %.not48, i32 %13, i32 %.03651
   %19 = sub nsw i32 %..036, %.038.
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %21 = sext i32 %.038. to i64
@@ -306,7 +306,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   %50 = getelementptr inbounds nuw i8, ptr %.154, i64 40
   %51 = load ptr, ptr %50, align 8
   %.not46 = icmp eq ptr %51, null
-  br i1 %.not46, label %.sink.split, label %.lr.ph56, !llvm.loop !12
+  br i1 %.not46, label %.sink.split, label %.lr.ph56, !llvm.loop !11
 
 .sink.split:                                      ; preds = %49, %44, %38
   %.str.2.sink = phi ptr [ @.str.2, %38 ], [ @.str.1, %44 ], [ @.str.2, %49 ]
@@ -345,7 +345,7 @@ define hidden range(i32 0, 2) i32 @read_string(ptr noundef %0, i64 noundef %1, p
   %14 = add nuw i64 %.016, 1
   %15 = add i64 %.01115, 1
   %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %16, label %7, !llvm.loop !13
+  br i1 %.not, label %16, label %7, !llvm.loop !12
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %2, i64 %14
@@ -557,13 +557,13 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
 90:                                               ; preds = %71, %75, %78, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !13
 
 91:                                               ; preds = %.lr.ph
   %92 = getelementptr inbounds nuw i8, ptr %.04889, i64 4432
   %.048 = load ptr, ptr %92, align 8
   %.not = icmp eq ptr %.048, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %91, %90, %1, %64, %59, %55, %49, %44, %40, %35, %30, %25, %21, %17, %12
   %.0 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 1, %21 ], [ 0, %25 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ], [ 0, %44 ], [ 0, %49 ], [ 0, %55 ], [ 0, %59 ], [ 0, %64 ], [ 1, %1 ], [ 1, %90 ], [ 1, %91 ]
@@ -651,13 +651,12 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

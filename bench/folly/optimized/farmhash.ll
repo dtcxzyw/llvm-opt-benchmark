@@ -512,7 +512,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKc
   %77 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 30)
   %78 = getelementptr inbounds nuw i8, ptr %.065, i64 64
   %.not = icmp eq ptr %78, %31
-  br i1 %.not, label %79, label %32, !llvm.loop !13
+  br i1 %.not, label %79, label %32, !llvm.loop !12
 
 79:                                               ; preds = %32
   %80 = and i64 %29, 63
@@ -1014,7 +1014,7 @@ _ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm.exit: ; preds = %5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN5folly8external8farmhash10farmhashte6Hash64EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -1031,7 +1031,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN5folly8external8farmhash10farmhashte14Hash64WithSeedEPKcmm(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -1045,7 +1045,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashte14Hash64WithSeedEPKcm
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN5folly8external8farmhash10farmhashte15Hash64WithSeedsEPKcmmm(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
-  %5 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %5 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
@@ -1059,7 +1059,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashte15Hash64WithSeedsEPKc
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashnt6Hash32EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -1073,7 +1073,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashnt6Hash32EPKcm(ptr noun
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashnt14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -1114,7 +1114,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashmk6Hash32EPKcm(ptr noun
   %14 = xor i32 %13, %.01315.i
   %15 = add nuw nsw i64 %.01216.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit.loopexit: ; preds = %.lr.ph.i
   %16 = mul i32 %13, -862048943
@@ -1352,7 +1352,7 @@ _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %_
   %211 = getelementptr inbounds nuw i8, ptr %.082, i64 20
   %212 = add nsw i64 %.086, -1
   %.not = icmp eq i64 %212, 0
-  br i1 %.not, label %213, label %175, !llvm.loop !19
+  br i1 %.not, label %213, label %175, !llvm.loop !18
 
 213:                                              ; preds = %175
   %214 = tail call i32 @llvm.fshl.i32(i32 %210, i32 %210, i32 21)
@@ -1519,7 +1519,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashmk14Hash32WithSeedEPKcm
   %111 = xor i32 %110, %.01315.i
   %112 = add nuw nsw i64 %.01216.i, 1
   %exitcond.not.i = icmp eq i64 %112, %1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %.lr.ph.i, %105
   %.013.lcssa.i = phi i32 [ 9, %105 ], [ %111, %.lr.ph.i ]
@@ -1626,7 +1626,7 @@ _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %.
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsu6Hash32EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -1640,7 +1640,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashsu6Hash32EPKcm(ptr noun
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsu14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -1654,7 +1654,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashsu14Hash32WithSeedEPKcm
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsa6Hash32EPKcm(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %3 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -1668,7 +1668,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashsa6Hash32EPKcm(ptr noun
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN5folly8external8farmhash10farmhashsa14Hash32WithSeedEPKcmj(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !14, !range !16, !noundef !17
+  %4 = load i8, ptr @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE, align 1, !tbaa !13, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -1715,7 +1715,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashcc6Hash32EPKcm(ptr noun
   %17 = xor i32 %16, %.01214.i
   %18 = add nuw nsw i64 %.01115.i, 1
   %exitcond.not.i = icmp eq i64 %18, %1
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
 _ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit: ; preds = %8, %._crit_edge.loopexit.i
   %.012.lcssa.i = phi i32 [ 9, %8 ], [ %17, %._crit_edge.loopexit.i ]
@@ -1957,7 +1957,7 @@ _ZN5folly8external8farmhash10farmhashccL13Hash32Len0to4EPKcm.exit: ; preds = %8,
   %219 = getelementptr inbounds nuw i8, ptr %.042, i64 20
   %220 = add nsw i64 %.043, -1
   %.not = icmp eq i64 %220, 0
-  br i1 %.not, label %221, label %185, !llvm.loop !21
+  br i1 %.not, label %221, label %185, !llvm.loop !20
 
 221:                                              ; preds = %185
   %222 = tail call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 21)
@@ -2124,7 +2124,7 @@ define noundef i32 @_ZN5folly8external8farmhash10farmhashcc14Hash32WithSeedEPKcm
   %111 = xor i32 %110, %.01315.i
   %112 = add nuw nsw i64 %.01216.i, 1
   %exitcond.not.i = icmp eq i64 %112, %1
-  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZN5folly8external8farmhash10farmhashmkL13Hash32Len0to4EPKcmj.exit: ; preds = %.lr.ph.i, %105
   %.013.lcssa.i = phi i32 [ 9, %105 ], [ %111, %.lr.ph.i ]
@@ -2396,7 +2396,7 @@ _ZN5folly8external8farmhash10farmhashccL12HashLen0to16EPKcm.exit.thread.i: ; pre
   %127 = xor i64 %126, %.1.i
   %128 = getelementptr inbounds nuw i8, ptr %.050.i, i64 16
   %129 = icmp samesign ugt i64 %.0.in.i, 32
-  br i1 %129, label %112, label %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit, !llvm.loop !22
+  br i1 %129, label %112, label %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit, !llvm.loop !21
 
 _ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; preds = %112, %80
   %.053.i = phi i64 [ %3, %80 ], [ %119, %112 ]
@@ -2569,7 +2569,7 @@ _ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; pre
   %261 = getelementptr inbounds nuw i8, ptr %.060, i64 128
   %262 = add i64 %.061, -128
   %263 = icmp ugt i64 %262, 127
-  br i1 %263, label %167, label %264, !prof !23, !llvm.loop !24
+  br i1 %263, label %167, label %264, !prof !22, !llvm.loop !23
 
 264:                                              ; preds = %167
   %265 = add i64 %244, %226
@@ -2676,7 +2676,7 @@ _ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; pre
   %337 = add i64 %336, %331
   %storemerge = mul i64 %335, -4348849565147123417
   %338 = icmp samesign ult i64 %311, %262
-  br i1 %338, label %310, label %._crit_edge, !llvm.loop !26
+  br i1 %338, label %310, label %._crit_edge, !llvm.loop !24
 
 339:                                              ; preds = %._crit_edge, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit
   %.sink256 = phi i64 [ %309, %._crit_edge ], [ %148, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
@@ -2868,20 +2868,18 @@ attributes #4 = { noreturn nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"bool", !8, i64 0}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
-!23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!24 = distinct !{!24, !11, !25}
-!25 = !{!"llvm.loop.estimated_trip_count", i32 2001}
-!26 = distinct !{!26, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"bool", !8, i64 0}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}

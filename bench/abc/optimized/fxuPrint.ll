@@ -69,32 +69,32 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
 
 .lr.ph:                                           ; preds = %.preheader133, %.lr.ph
   %.0107137 = phi ptr [ %.0107, %.lr.ph ], [ %.0107135, %.preheader133 ]
-  %24 = load i32, ptr %.0107137, align 8, !tbaa !33
+  %24 = load i32, ptr %.0107137, align 8, !tbaa !32
   %25 = srem i32 %24, 10
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.6, i32 noundef %25) #7
   %27 = getelementptr inbounds nuw i8, ptr %.0107137, i64 56
   %.0107 = load ptr, ptr %27, align 8, !tbaa !29
   %.not = icmp eq ptr %.0107, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader133
   %fputc111 = tail call i32 @fputc(i32 10, ptr %.0108)
-  %.0105151 = load ptr, ptr %1, align 8, !tbaa !38
+  %.0105151 = load ptr, ptr %1, align 8, !tbaa !37
   %.not112152 = icmp eq ptr %.0105151, null
   br i1 %.not112152, label %._crit_edge156, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %._crit_edge, %._crit_edge150
   %.0105153 = phi ptr [ %.0105, %._crit_edge150 ], [ %.0105151, %._crit_edge ]
-  %28 = load i32, ptr %.0105153, align 8, !tbaa !39
+  %28 = load i32, ptr %.0105153, align 8, !tbaa !38
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.7, i32 noundef %28) #7
   %30 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %.0108)
   %31 = getelementptr inbounds nuw i8, ptr %.0105153, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !41
-  %33 = load i32, ptr %32, align 8, !tbaa !33
+  %32 = load ptr, ptr %31, align 8, !tbaa !40
+  %33 = load i32, ptr %32, align 8, !tbaa !32
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.7, i32 noundef %33) #7
   %35 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %.0108)
   %36 = getelementptr inbounds nuw i8, ptr %.0105153, i64 24
-  %.0102142 = load ptr, ptr %36, align 8, !tbaa !42
+  %.0102142 = load ptr, ptr %36, align 8, !tbaa !41
   %.not125143 = icmp eq ptr %.0102142, null
   br i1 %.not125143, label %.preheader132, label %.preheader131
 
@@ -113,8 +113,8 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
   %.099144 = phi i32 [ %.1.lcssa, %._crit_edge141 ], [ -1, %.lr.ph155 ]
   %40 = getelementptr inbounds nuw i8, ptr %.0102145, i64 16
   %.1138 = add nsw i32 %.099144, 1
-  %41 = load ptr, ptr %40, align 8, !tbaa !43
-  %42 = load i32, ptr %41, align 8, !tbaa !33
+  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %42 = load i32, ptr %41, align 8, !tbaa !32
   %43 = icmp slt i32 %.1138, %42
   br i1 %43, label %.lr.ph140, label %._crit_edge141
 
@@ -122,18 +122,18 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
   %.1139 = phi i32 [ %.1, %.lr.ph140 ], [ %.1138, %.preheader131 ]
   %fputc129 = tail call i32 @fputc(i32 46, ptr %.0108)
   %.1 = add nsw i32 %.1139, 1
-  %44 = load ptr, ptr %40, align 8, !tbaa !43
-  %45 = load i32, ptr %44, align 8, !tbaa !33
+  %44 = load ptr, ptr %40, align 8, !tbaa !42
+  %45 = load i32, ptr %44, align 8, !tbaa !32
   %46 = icmp slt i32 %.1, %45
-  br i1 %46, label %.lr.ph140, label %._crit_edge141, !llvm.loop !45
+  br i1 %46, label %.lr.ph140, label %._crit_edge141, !llvm.loop !44
 
 ._crit_edge141:                                   ; preds = %.lr.ph140, %.preheader131
   %.1.lcssa = phi i32 [ %.1138, %.preheader131 ], [ %.1, %.lr.ph140 ]
   %fputc128 = tail call i32 @fputc(i32 49, ptr %.0108)
   %47 = getelementptr inbounds nuw i8, ptr %.0102145, i64 32
-  %.0102 = load ptr, ptr %47, align 8, !tbaa !42
+  %.0102 = load ptr, ptr %47, align 8, !tbaa !41
   %.not125 = icmp eq ptr %.0102, null
-  br i1 %.not125, label %.preheader132.loopexit, label %.preheader131, !llvm.loop !46
+  br i1 %.not125, label %.preheader132.loopexit, label %.preheader131, !llvm.loop !45
 
 .lr.ph149:                                        ; preds = %.preheader132, %.lr.ph149
   %.2148 = phi i32 [ %.2, %.lr.ph149 ], [ %.099.lcssa, %.preheader132 ]
@@ -141,20 +141,20 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
   %.2 = add nsw i32 %.2148, 1
   %48 = load i32, ptr %7, align 8, !tbaa !3
   %49 = icmp slt i32 %.2, %48
-  br i1 %49, label %.lr.ph149, label %._crit_edge150, !llvm.loop !47
+  br i1 %49, label %.lr.ph149, label %._crit_edge150, !llvm.loop !46
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %.preheader132
   %fputc126 = tail call i32 @fputc(i32 10, ptr %.0108)
   %50 = getelementptr inbounds nuw i8, ptr %.0105153, i64 56
-  %.0105 = load ptr, ptr %50, align 8, !tbaa !38
+  %.0105 = load ptr, ptr %50, align 8, !tbaa !37
   %.not112 = icmp eq ptr %.0105, null
-  br i1 %.not112, label %._crit_edge156, label %.lr.ph155, !llvm.loop !48
+  br i1 %.not112, label %._crit_edge156, label %.lr.ph155, !llvm.loop !47
 
 ._crit_edge156:                                   ; preds = %._crit_edge150, %._crit_edge
   %fputc113 = tail call i32 @fputc(i32 10, ptr %.0108)
   %51 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 25, i64 1, ptr %.0108)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %53 = load i32, ptr %52, align 8, !tbaa !49
+  %53 = load i32, ptr %52, align 8, !tbaa !48
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph171, label %._crit_edge172
 
@@ -165,52 +165,52 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
 56:                                               ; preds = %.lr.ph171, %._crit_edge168
   %57 = phi i32 [ %53, %.lr.ph171 ], [ %80, %._crit_edge168 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next, %._crit_edge168 ]
-  %58 = load ptr, ptr %55, align 8, !tbaa !50
+  %58 = load ptr, ptr %55, align 8, !tbaa !49
   %59 = getelementptr inbounds nuw %struct.FxuListDouble, ptr %58, i64 %indvars.iv
-  %.0104163 = load ptr, ptr %59, align 8, !tbaa !51
+  %.0104163 = load ptr, ptr %59, align 8, !tbaa !50
   %.not122164 = icmp eq ptr %.0104163, null
   br i1 %.not122164, label %._crit_edge168, label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %56, %._crit_edge162
   %.0104165 = phi ptr [ %.0104, %._crit_edge162 ], [ %.0104163, %56 ]
-  %60 = load i32, ptr %.0104165, align 8, !tbaa !53
+  %60 = load i32, ptr %.0104165, align 8, !tbaa !52
   %61 = getelementptr inbounds nuw i8, ptr %.0104165, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
-  %63 = load i32, ptr %62, align 8, !tbaa !58
+  %62 = load ptr, ptr %61, align 8, !tbaa !56
+  %63 = load i32, ptr %62, align 8, !tbaa !57
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !60
+  %65 = load i32, ptr %64, align 4, !tbaa !59
   %66 = getelementptr inbounds nuw i8, ptr %.0104165, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !61
+  %67 = load i32, ptr %66, align 8, !tbaa !60
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.12, i32 noundef %60, i32 noundef %63, i32 noundef %65, i32 noundef %67) #7
-  %.0101157 = load ptr, ptr %61, align 8, !tbaa !62
+  %.0101157 = load ptr, ptr %61, align 8, !tbaa !61
   %.not123158 = icmp eq ptr %.0101157, null
   br i1 %.not123158, label %._crit_edge162, label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %.lr.ph167, %.lr.ph161
   %.0101159 = phi ptr [ %.0101, %.lr.ph161 ], [ %.0101157, %.lr.ph167 ]
   %69 = getelementptr inbounds nuw i8, ptr %.0101159, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !63
-  %71 = load i32, ptr %70, align 8, !tbaa !39
+  %70 = load ptr, ptr %69, align 8, !tbaa !62
+  %71 = load i32, ptr %70, align 8, !tbaa !38
   %72 = getelementptr inbounds nuw i8, ptr %.0101159, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !64
-  %74 = load i32, ptr %73, align 8, !tbaa !39
+  %73 = load ptr, ptr %72, align 8, !tbaa !63
+  %74 = load i32, ptr %73, align 8, !tbaa !38
   %75 = getelementptr inbounds nuw i8, ptr %.0101159, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !65
+  %76 = load i32, ptr %75, align 8, !tbaa !64
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.13, i32 noundef %71, i32 noundef %74, i32 noundef %76) #7
   %78 = getelementptr inbounds nuw i8, ptr %.0101159, i64 56
-  %.0101 = load ptr, ptr %78, align 8, !tbaa !62
+  %.0101 = load ptr, ptr %78, align 8, !tbaa !61
   %.not123 = icmp eq ptr %.0101, null
-  br i1 %.not123, label %._crit_edge162, label %.lr.ph161, !llvm.loop !66
+  br i1 %.not123, label %._crit_edge162, label %.lr.ph161, !llvm.loop !65
 
 ._crit_edge162:                                   ; preds = %.lr.ph161, %.lr.ph167
   %fputc124 = tail call i32 @fputc(i32 10, ptr %.0108)
   %79 = getelementptr inbounds nuw i8, ptr %.0104165, i64 48
-  %.0104 = load ptr, ptr %79, align 8, !tbaa !51
+  %.0104 = load ptr, ptr %79, align 8, !tbaa !50
   %.not122 = icmp eq ptr %.0104, null
-  br i1 %.not122, label %._crit_edge168.loopexit, label %.lr.ph167, !llvm.loop !67
+  br i1 %.not122, label %._crit_edge168.loopexit, label %.lr.ph167, !llvm.loop !66
 
 ._crit_edge168.loopexit:                          ; preds = %._crit_edge162
-  %.pre = load i32, ptr %52, align 8, !tbaa !49
+  %.pre = load i32, ptr %52, align 8, !tbaa !48
   br label %._crit_edge168
 
 ._crit_edge168:                                   ; preds = %._crit_edge168.loopexit, %56
@@ -218,29 +218,29 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %56, label %._crit_edge172, !llvm.loop !68
+  br i1 %82, label %56, label %._crit_edge172, !llvm.loop !67
 
 ._crit_edge172:                                   ; preds = %._crit_edge168, %._crit_edge156
   %fputc114 = tail call i32 @fputc(i32 10, ptr %.0108)
   %83 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 15, i64 1, ptr %.0108)
-  %.1106175 = load ptr, ptr %1, align 8, !tbaa !38
+  %.1106175 = load ptr, ptr %1, align 8, !tbaa !37
   %.not115176 = icmp eq ptr %.1106175, null
   br i1 %.not115176, label %._crit_edge180, label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %._crit_edge172, %.critedge
   %.1106177 = phi ptr [ %.1106, %.critedge ], [ %.1106175, %._crit_edge172 ]
-  %84 = load i32, ptr %.1106177, align 8, !tbaa !39
+  %84 = load i32, ptr %.1106177, align 8, !tbaa !38
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.15, i32 noundef %84) #7
   %86 = getelementptr inbounds nuw i8, ptr %.1106177, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !41
+  %87 = load ptr, ptr %86, align 8, !tbaa !40
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !69
+  %89 = load ptr, ptr %88, align 8, !tbaa !68
   %.not120 = icmp eq ptr %89, null
   br i1 %.not120, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph179
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !70
+  %91 = load i32, ptr %90, align 4, !tbaa !69
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph174, label %.critedge
 
@@ -248,70 +248,70 @@ define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr nound
   %93 = phi ptr [ %115, %114 ], [ %87, %.preheader ]
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %114 ], [ 0, %.preheader ]
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !69
-  %96 = load i32, ptr %.1106177, align 8, !tbaa !39
+  %95 = load ptr, ptr %94, align 8, !tbaa !68
+  %96 = load i32, ptr %.1106177, align 8, !tbaa !38
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds ptr, ptr %95, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !71
+  %99 = load ptr, ptr %98, align 8, !tbaa !70
   %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv189
-  %101 = load ptr, ptr %100, align 8, !tbaa !62
+  %101 = load ptr, ptr %100, align 8, !tbaa !61
   %102 = icmp eq ptr %101, null
   br i1 %102, label %114, label %103
 
 103:                                              ; preds = %.lr.ph174
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %105 = load i32, ptr %104, align 8, !tbaa !72
+  %105 = load i32, ptr %104, align 8, !tbaa !71
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 44
-  %107 = load i32, ptr %106, align 4, !tbaa !73
+  %107 = load i32, ptr %106, align 4, !tbaa !72
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !74
-  %110 = load i32, ptr %109, align 8, !tbaa !53
+  %109 = load ptr, ptr %108, align 8, !tbaa !73
+  %110 = load i32, ptr %109, align 8, !tbaa !52
   %111 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !65
+  %112 = load i32, ptr %111, align 8, !tbaa !64
   %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.16, i32 noundef %105, i32 noundef %107, i32 noundef %110, i32 noundef %112) #7
-  %.pre192 = load ptr, ptr %86, align 8, !tbaa !41
+  %.pre192 = load ptr, ptr %86, align 8, !tbaa !40
   br label %114
 
 114:                                              ; preds = %103, %.lr.ph174
   %115 = phi ptr [ %.pre192, %103 ], [ %93, %.lr.ph174 ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %117 = load i32, ptr %116, align 4, !tbaa !70
+  %117 = load i32, ptr %116, align 4, !tbaa !69
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next190, %118
-  br i1 %119, label %.lr.ph174, label %.critedge, !llvm.loop !75
+  br i1 %119, label %.lr.ph174, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %114, %.preheader, %.lr.ph179
   %fputc121 = tail call i32 @fputc(i32 10, ptr %.0108)
   %120 = getelementptr inbounds nuw i8, ptr %.1106177, i64 56
-  %.1106 = load ptr, ptr %120, align 8, !tbaa !38
+  %.1106 = load ptr, ptr %120, align 8, !tbaa !37
   %.not115 = icmp eq ptr %.1106, null
-  br i1 %.not115, label %._crit_edge180, label %.lr.ph179, !llvm.loop !76
+  br i1 %.not115, label %._crit_edge180, label %.lr.ph179, !llvm.loop !75
 
 ._crit_edge180:                                   ; preds = %.critedge, %._crit_edge172
   %fputc116 = tail call i32 @fputc(i32 10, ptr %.0108)
   %121 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 25, i64 1, ptr %.0108)
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.0103181 = load ptr, ptr %122, align 8, !tbaa !77
+  %.0103181 = load ptr, ptr %122, align 8, !tbaa !76
   %.not117182 = icmp eq ptr %.0103181, null
   br i1 %.not117182, label %._crit_edge186, label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %._crit_edge180, %.lr.ph185
   %.0103183 = phi ptr [ %.0103, %.lr.ph185 ], [ %.0103181, %._crit_edge180 ]
-  %123 = load i32, ptr %.0103183, align 8, !tbaa !78
+  %123 = load i32, ptr %.0103183, align 8, !tbaa !77
   %124 = getelementptr inbounds nuw i8, ptr %.0103183, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !80
-  %126 = load i32, ptr %125, align 8, !tbaa !33
+  %125 = load ptr, ptr %124, align 8, !tbaa !79
+  %126 = load i32, ptr %125, align 8, !tbaa !32
   %127 = getelementptr inbounds nuw i8, ptr %.0103183, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !81
-  %129 = load i32, ptr %128, align 8, !tbaa !33
+  %128 = load ptr, ptr %127, align 8, !tbaa !80
+  %129 = load i32, ptr %128, align 8, !tbaa !32
   %130 = getelementptr inbounds nuw i8, ptr %.0103183, i64 8
-  %131 = load i32, ptr %130, align 8, !tbaa !82
+  %131 = load i32, ptr %130, align 8, !tbaa !81
   %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0108, ptr noundef nonnull @.str.18, i32 noundef %123, i32 noundef %126, i32 noundef %129, i32 noundef %131) #7
   %133 = getelementptr inbounds nuw i8, ptr %.0103183, i64 40
-  %.0103 = load ptr, ptr %133, align 8, !tbaa !77
+  %.0103 = load ptr, ptr %133, align 8, !tbaa !76
   %.not117 = icmp eq ptr %.0103, null
-  br i1 %.not117, label %._crit_edge186, label %.lr.ph185, !llvm.loop !83
+  br i1 %.not117, label %._crit_edge186, label %.lr.ph185, !llvm.loop !82
 
 ._crit_edge186:                                   ; preds = %.lr.ph185, %._crit_edge180
   %fputc118 = tail call i32 @fputc(i32 10, ptr %.0108)
@@ -337,20 +337,20 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Fxu_MatrixPrintDivisorProfile(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   %5 = tail call i32 @Fxu_HeapDoubleReadMaxWeight(ptr noundef %4) #7
   %6 = add i32 %5, 1
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i32, ptr %9, align 8, !tbaa !49
+  %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph55, label %._crit_edge56
 
 .lr.ph55:                                         ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %14
 
@@ -359,7 +359,7 @@ define void @Fxu_MatrixPrintDivisorProfile(ptr noundef captures(none) %0, ptr no
   %.03352 = phi i32 [ 0, %.lr.ph55 ], [ %.134.lcssa, %._crit_edge ]
   %.03551 = phi i32 [ 0, %.lr.ph55 ], [ %.136.lcssa, %._crit_edge ]
   %15 = getelementptr inbounds nuw %struct.FxuListDouble, ptr %13, i64 %indvars.iv
-  %.03845 = load ptr, ptr %15, align 8, !tbaa !51
+  %.03845 = load ptr, ptr %15, align 8, !tbaa !50
   %.not4446 = icmp eq ptr %.03845, null
   br i1 %.not4446, label %._crit_edge, label %.lr.ph
 
@@ -368,7 +368,7 @@ define void @Fxu_MatrixPrintDivisorProfile(ptr noundef captures(none) %0, ptr no
   %.13448 = phi i32 [ %.2, %30 ], [ %.03352, %14 ]
   %.13647 = phi i32 [ %.237, %30 ], [ %.03551, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %.03849, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !61
+  %17 = load i32, ptr %16, align 8, !tbaa !60
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %21
 
@@ -387,25 +387,25 @@ define void @Fxu_MatrixPrintDivisorProfile(ptr noundef captures(none) %0, ptr no
 25:                                               ; preds = %21
   %26 = zext nneg i32 %17 to i64
   %27 = getelementptr inbounds nuw i32, ptr %calloc, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !85
+  %28 = load i32, ptr %27, align 4, !tbaa !84
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !85
+  store i32 %29, ptr %27, align 4, !tbaa !84
   br label %30
 
 30:                                               ; preds = %19, %25, %23
   %.237 = phi i32 [ %20, %19 ], [ %.13647, %23 ], [ %.13647, %25 ]
   %.2 = phi i32 [ %.13448, %19 ], [ %24, %23 ], [ %.13448, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %.03849, i64 48
-  %.038 = load ptr, ptr %31, align 8, !tbaa !51
+  %.038 = load ptr, ptr %31, align 8, !tbaa !50
   %.not44 = icmp eq ptr %.038, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %30, %14
   %.136.lcssa = phi i32 [ %.03551, %14 ], [ %.237, %30 ]
   %.134.lcssa = phi i32 [ %.03352, %14 ], [ %.2, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge56, label %14, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge56, label %14, !llvm.loop !86
 
 ._crit_edge56:                                    ; preds = %._crit_edge, %2
   %.035.lcssa = phi i32 [ 0, %2 ], [ %.136.lcssa, %._crit_edge ]
@@ -423,7 +423,7 @@ define void @Fxu_MatrixPrintDivisorProfile(ptr noundef captures(none) %0, ptr no
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %40
   %indvars.iv65 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next66, %40 ]
   %35 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv65
-  %36 = load i32, ptr %35, align 4, !tbaa !85
+  %36 = load i32, ptr %35, align 4, !tbaa !84
   %.not43 = icmp eq i32 %36, 0
   br i1 %.not43, label %40, label %37
 
@@ -435,7 +435,7 @@ define void @Fxu_MatrixPrintDivisorProfile(ptr noundef captures(none) %0, ptr no
 40:                                               ; preds = %.lr.ph62, %37
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge63.thread, label %.lr.ph62, !llvm.loop !88
+  br i1 %exitcond69.not, label %._crit_edge63.thread, label %.lr.ph62, !llvm.loop !87
 
 ._crit_edge63.thread:                             ; preds = %40
   %41 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 32, i64 1, ptr %0)
@@ -509,62 +509,61 @@ attributes #7 = { nounwind }
 !27 = !{!4, !10, i64 188}
 !28 = !{!4, !10, i64 192}
 !29 = !{!12, !12, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !10, i64 0}
-!34 = !{!"FxuVar", !10, i64 0, !10, i64 4, !6, i64 8, !19, i64 16, !35, i64 24, !12, i64 48, !12, i64 56, !12, i64 64}
-!35 = !{!"FxuListLit", !36, i64 0, !36, i64 8, !10, i64 16}
-!36 = !{!"p1 _ZTS6FxuLit", !7, i64 0}
-!37 = distinct !{!37, !31, !32}
-!38 = !{!6, !6, i64 0}
-!39 = !{!40, !10, i64 0}
-!40 = !{!"FxuCube", !10, i64 0, !6, i64 8, !12, i64 16, !35, i64 24, !6, i64 48, !6, i64 56, !6, i64 64}
-!41 = !{!40, !12, i64 16}
-!42 = !{!36, !36, i64 0}
-!43 = !{!44, !12, i64 16}
-!44 = !{!"FxuLit", !10, i64 0, !10, i64 4, !6, i64 8, !12, i64 16, !36, i64 24, !36, i64 32, !36, i64 40, !36, i64 48}
-!45 = distinct !{!45, !31, !32}
-!46 = distinct !{!46, !31, !32}
-!47 = distinct !{!47, !31, !32}
-!48 = distinct !{!48, !31, !32}
-!49 = !{!4, !10, i64 64}
-!50 = !{!4, !14, i64 56}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS9FxuDouble", !7, i64 0}
-!53 = !{!54, !10, i64 0}
-!54 = !{!"FxuDouble", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !55, i64 16, !52, i64 40, !52, i64 48, !52, i64 56}
-!55 = !{!"FxuListPair", !56, i64 0, !56, i64 8, !10, i64 16}
-!56 = !{!"p1 _ZTS7FxuPair", !7, i64 0}
-!57 = !{!54, !56, i64 16}
-!58 = !{!59, !10, i64 0}
-!59 = !{!"FxuPair", !10, i64 0, !10, i64 4, !10, i64 8, !52, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !10, i64 44, !56, i64 48, !56, i64 56}
-!60 = !{!59, !10, i64 4}
-!61 = !{!54, !10, i64 8}
-!62 = !{!56, !56, i64 0}
-!63 = !{!59, !6, i64 24}
-!64 = !{!59, !6, i64 32}
-!65 = !{!59, !10, i64 8}
-!66 = distinct !{!66, !31, !32}
-!67 = distinct !{!67, !31, !32}
-!68 = distinct !{!68, !31, !32}
-!69 = !{!34, !19, i64 16}
-!70 = !{!34, !10, i64 4}
-!71 = !{!20, !20, i64 0}
-!72 = !{!59, !10, i64 40}
-!73 = !{!59, !10, i64 44}
-!74 = !{!59, !52, i64 16}
-!75 = distinct !{!75, !31, !32}
-!76 = distinct !{!76, !31, !32}
-!77 = !{!17, !17, i64 0}
-!78 = !{!79, !10, i64 0}
-!79 = !{!"FxuSingle", !10, i64 0, !10, i64 4, !10, i64 8, !12, i64 16, !12, i64 24, !17, i64 32, !17, i64 40}
-!80 = !{!79, !12, i64 16}
-!81 = !{!79, !12, i64 24}
-!82 = !{!79, !10, i64 8}
-!83 = distinct !{!83, !31, !32}
-!84 = !{!4, !15, i64 80}
-!85 = !{!10, !10, i64 0}
-!86 = distinct !{!86, !31, !32}
-!87 = distinct !{!87, !31, !32}
-!88 = distinct !{!88, !31, !32}
+!32 = !{!33, !10, i64 0}
+!33 = !{!"FxuVar", !10, i64 0, !10, i64 4, !6, i64 8, !19, i64 16, !34, i64 24, !12, i64 48, !12, i64 56, !12, i64 64}
+!34 = !{!"FxuListLit", !35, i64 0, !35, i64 8, !10, i64 16}
+!35 = !{!"p1 _ZTS6FxuLit", !7, i64 0}
+!36 = distinct !{!36, !31}
+!37 = !{!6, !6, i64 0}
+!38 = !{!39, !10, i64 0}
+!39 = !{!"FxuCube", !10, i64 0, !6, i64 8, !12, i64 16, !34, i64 24, !6, i64 48, !6, i64 56, !6, i64 64}
+!40 = !{!39, !12, i64 16}
+!41 = !{!35, !35, i64 0}
+!42 = !{!43, !12, i64 16}
+!43 = !{!"FxuLit", !10, i64 0, !10, i64 4, !6, i64 8, !12, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48}
+!44 = distinct !{!44, !31}
+!45 = distinct !{!45, !31}
+!46 = distinct !{!46, !31}
+!47 = distinct !{!47, !31}
+!48 = !{!4, !10, i64 64}
+!49 = !{!4, !14, i64 56}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS9FxuDouble", !7, i64 0}
+!52 = !{!53, !10, i64 0}
+!53 = !{!"FxuDouble", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !54, i64 16, !51, i64 40, !51, i64 48, !51, i64 56}
+!54 = !{!"FxuListPair", !55, i64 0, !55, i64 8, !10, i64 16}
+!55 = !{!"p1 _ZTS7FxuPair", !7, i64 0}
+!56 = !{!53, !55, i64 16}
+!57 = !{!58, !10, i64 0}
+!58 = !{!"FxuPair", !10, i64 0, !10, i64 4, !10, i64 8, !51, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !10, i64 44, !55, i64 48, !55, i64 56}
+!59 = !{!58, !10, i64 4}
+!60 = !{!53, !10, i64 8}
+!61 = !{!55, !55, i64 0}
+!62 = !{!58, !6, i64 24}
+!63 = !{!58, !6, i64 32}
+!64 = !{!58, !10, i64 8}
+!65 = distinct !{!65, !31}
+!66 = distinct !{!66, !31}
+!67 = distinct !{!67, !31}
+!68 = !{!33, !19, i64 16}
+!69 = !{!33, !10, i64 4}
+!70 = !{!20, !20, i64 0}
+!71 = !{!58, !10, i64 40}
+!72 = !{!58, !10, i64 44}
+!73 = !{!58, !51, i64 16}
+!74 = distinct !{!74, !31}
+!75 = distinct !{!75, !31}
+!76 = !{!17, !17, i64 0}
+!77 = !{!78, !10, i64 0}
+!78 = !{!"FxuSingle", !10, i64 0, !10, i64 4, !10, i64 8, !12, i64 16, !12, i64 24, !17, i64 32, !17, i64 40}
+!79 = !{!78, !12, i64 16}
+!80 = !{!78, !12, i64 24}
+!81 = !{!78, !10, i64 8}
+!82 = distinct !{!82, !31}
+!83 = !{!4, !15, i64 80}
+!84 = !{!10, !10, i64 0}
+!85 = distinct !{!85, !31}
+!86 = distinct !{!86, !31}
+!87 = distinct !{!87, !31}

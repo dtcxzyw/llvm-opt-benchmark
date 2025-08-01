@@ -114,7 +114,7 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
 30:                                               ; preds = %29, %.critedge.i, %.critedge.i
   %31 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pre.i = load i8, ptr %31, align 1, !tbaa !30
-  br label %.critedge.i, !llvm.loop !34
+  br label %.critedge.i, !llvm.loop !33
 
 32:                                               ; preds = %.critedge.i
   br i1 %.not29.i20, label %.loopexit.i, label %33
@@ -128,17 +128,17 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
   %34 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pre41.i = load i8, ptr %34, align 1, !tbaa !30
   %.not.i = icmp eq i8 %.pre41.i, 0
-  br i1 %.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !35
+  br i1 %.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !34
 
 .thread:                                          ; preds = %14, %10, %4
   %35 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %42
 
 .loopexit:                                        ; preds = %.loopexit.i, %.critedge.i, %16
-  %36 = load ptr, ptr %5, align 8, !tbaa !36
-  %37 = load i32, ptr %9, align 4, !tbaa !38
+  %36 = load ptr, ptr %5, align 8, !tbaa !35
+  %37 = load i32, ptr %9, align 4, !tbaa !37
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %9, align 4, !tbaa !38
+  store i32 %38, ptr %9, align 4, !tbaa !37
   %39 = call i32 @ff_ass_add_rect(ptr noundef %1, ptr noundef %36, i32 noundef %37, i32 noundef 0, ptr noundef null, ptr noundef null) #4
   %40 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   %41 = icmp slt i32 %39, 0
@@ -146,10 +146,10 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
 
 42:                                               ; preds = %.thread, %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !40
+  %44 = load i32, ptr %43, align 4, !tbaa !39
   %45 = icmp ne i32 %44, 0
   %46 = zext i1 %45 to i32
-  store i32 %46, ptr %2, align 4, !tbaa !44
+  store i32 %46, ptr %2, align 4, !tbaa !43
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !29
   br label %49
@@ -220,17 +220,16 @@ attributes #4 = { nounwind }
 !28 = !{!"any p2 pointer", !7, i64 0}
 !29 = !{!5, !12, i64 32}
 !30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !32, !33}
-!36 = !{!37, !11, i64 0}
-!37 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
-!38 = !{!39, !12, i64 0}
-!39 = !{!"FFASSDecoderContext", !12, i64 0}
-!40 = !{!41, !12, i64 12}
-!41 = !{!"AVSubtitle", !42, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !43, i64 16, !10, i64 24}
-!42 = !{!"short", !8, i64 0}
-!43 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
-!44 = !{!12, !12, i64 0}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = !{!36, !11, i64 0}
+!36 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
+!37 = !{!38, !12, i64 0}
+!38 = !{!"FFASSDecoderContext", !12, i64 0}
+!39 = !{!40, !12, i64 12}
+!40 = !{!"AVSubtitle", !41, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !42, i64 16, !10, i64 24}
+!41 = !{!"short", !8, i64 0}
+!42 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
+!43 = !{!12, !12, i64 0}

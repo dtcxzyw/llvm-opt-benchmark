@@ -61,7 +61,7 @@ reconstruct.exit:                                 ; preds = %.lr.ph.i
   store <16 x i8> %21, ptr %22, align 1, !tbaa !3
   %24 = add nuw nsw i64 %.03238.i, 1
   %exitcond.not.i = icmp eq i64 %24, %11
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i4, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i4, !llvm.loop !8
 
 .lr.ph49.i:                                       ; preds = %._crit_edge.i, %.lr.ph49.i
   %.047.i = phi i64 [ %27, %.lr.ph49.i ], [ %15, %._crit_edge.i ]
@@ -79,7 +79,7 @@ reconstruct.exit:                                 ; preds = %.lr.ph.i
   store i8 %.in37.i, ptr %.03345.i, align 1, !tbaa !3
   %27 = add nuw i64 %.047.i, 1
   %28 = icmp ult i64 %27, %2
-  br i1 %28, label %.lr.ph49.i, label %interleave.exit, !llvm.loop !10
+  br i1 %28, label %.lr.ph49.i, label %interleave.exit, !llvm.loop !9
 
 interleave.exit:                                  ; preds = %.lr.ph49.i, %._crit_edge.i
   ret void
@@ -119,7 +119,7 @@ define hidden void @internal_zip_deconstruct_bytes(ptr noundef captures(address)
   %.130 = phi ptr [ %15, %12 ], [ %.02934, %.lr.ph ]
   %.128 = phi ptr [ %13, %12 ], [ %8, %.lr.ph ]
   %17 = icmp ult ptr %.128, %4
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %2
@@ -140,7 +140,7 @@ define hidden void @internal_zip_deconstruct_bytes(ptr noundef captures(address)
   store i8 %22, ptr %.139, align 1, !tbaa !3
   %.1 = getelementptr inbounds nuw i8, ptr %.139, i64 1
   %23 = icmp ult ptr %.1, %18
-  br i1 %23, label %.lr.ph41, label %._crit_edge42, !llvm.loop !12
+  br i1 %23, label %.lr.ph41, label %._crit_edge42, !llvm.loop !11
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %3, %._crit_edge
   ret void
@@ -160,7 +160,7 @@ define hidden i32 @internal_exr_undo_zip(ptr noundef %0, ptr noundef %1, i64 nou
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %2, ptr %9, align 8, !tbaa !13
+  store i64 %2, ptr %9, align 8, !tbaa !12
   %.not33 = icmp eq ptr %1, %3
   br i1 %.not33, label %55, label %10
 
@@ -177,23 +177,23 @@ define hidden i32 @internal_exr_undo_zip(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not, label %15, label %55
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %12, align 8, !tbaa !22
-  %17 = load i64, ptr %13, align 8, !tbaa !23
+  %16 = load ptr, ptr %12, align 8, !tbaa !21
+  %17 = load i64, ptr %13, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %18 = icmp ult i64 %17, %4
   br i1 %18, label %undo_zip_impl.exit, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = call i32 @exr_uncompress_buffer(ptr noundef %21, ptr noundef %1, i64 noundef %2, ptr noundef %16, i64 noundef %17, ptr noundef nonnull %6) #8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %undo_zip_impl.exit
 
 24:                                               ; preds = %19
-  %25 = load i64, ptr %6, align 8, !tbaa !25
+  %25 = load i64, ptr %6, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %25, ptr %26, align 8, !tbaa !13
+  store i64 %25, ptr %26, align 8, !tbaa !12
   %27 = icmp ugt i64 %2, %25
   %28 = icmp ugt i64 %25, %4
   %or.cond.i = or i1 %27, %28
@@ -253,7 +253,7 @@ reconstruct.exit.i.i:                             ; preds = %.lr.ph.i.i.i
   store <16 x i8> %47, ptr %48, align 1, !tbaa !3
   %50 = add nuw nsw i64 %.03238.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %50, %37
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i4.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i4.i.i, !llvm.loop !8
 
 .lr.ph49.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph49.i.i.i
   %.047.i.i.i = phi i64 [ %53, %.lr.ph49.i.i.i ], [ %41, %._crit_edge.i.i.i ]
@@ -271,7 +271,7 @@ reconstruct.exit.i.i:                             ; preds = %.lr.ph.i.i.i
   store i8 %.in37.i.i.i, ptr %.03345.i.i.i, align 1, !tbaa !3
   %53 = add nuw i64 %.047.i.i.i, 1
   %54 = icmp ult i64 %53, %25
-  br i1 %54, label %.lr.ph49.i.i.i, label %undo_zip_impl.exit, !llvm.loop !10
+  br i1 %54, label %.lr.ph49.i.i.i, label %undo_zip_impl.exit, !llvm.loop !9
 
 undo_zip_impl.exit:                               ; preds = %.lr.ph49.i.i.i, %15, %19, %24, %._crit_edge.i.i.i
   %.014.i = phi i32 [ 3, %15 ], [ %22, %19 ], [ 23, %24 ], [ 0, %._crit_edge.i.i.i ], [ 0, %.lr.ph49.i.i.i ]
@@ -295,21 +295,21 @@ define hidden i32 @internal_exr_apply_zip(ptr noundef %0) local_unnamed_addr #6 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %7 = load i64, ptr %6, align 8, !tbaa !26
+  %7 = load i64, ptr %6, align 8, !tbaa !25
   %8 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %7) #8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %78, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
-  %15 = load i64, ptr %6, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %15 = load i64, ptr %6, align 8, !tbaa !25
   %16 = tail call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %11, i32 noundef %8, ptr noundef nonnull @.str, i64 noundef %15) #8
   br label %78
 
@@ -317,18 +317,18 @@ define hidden i32 @internal_exr_apply_zip(ptr noundef %0) local_unnamed_addr #6 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !28
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %21 = load i32, ptr %20, align 4, !tbaa !41
+  %21 = load i32, ptr %20, align 4, !tbaa !40
   %22 = call i32 @exr_get_zip_compression_level(ptr noundef %19, i32 noundef %21, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %apply_zip_impl.exit
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8, !tbaa !42
+  %24 = load ptr, ptr %4, align 8, !tbaa !41
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !43
-  %27 = load i64, ptr %6, align 8, !tbaa !26
+  %26 = load ptr, ptr %25, align 8, !tbaa !42
+  %27 = load i64, ptr %6, align 8, !tbaa !25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   %.not.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i, label %internal_zip_deconstruct_bytes.exit.i, label %.lr.ph.preheader.i.i
@@ -361,7 +361,7 @@ define hidden i32 @internal_exr_apply_zip(ptr noundef %0) local_unnamed_addr #6 
   %.130.i.i = phi ptr [ %39, %36 ], [ %.02934.i.i, %.lr.ph.i.i ]
   %.128.i.i = phi ptr [ %37, %36 ], [ %32, %.lr.ph.i.i ]
   %41 = icmp ult ptr %.128.i.i, %28
-  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
+  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 %27
@@ -382,51 +382,51 @@ define hidden i32 @internal_exr_apply_zip(ptr noundef %0) local_unnamed_addr #6 
   store i8 %46, ptr %.139.i.i, align 1, !tbaa !3
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.139.i.i, i64 1
   %47 = icmp ult ptr %.1.i.i, %42
-  br i1 %47, label %.lr.ph41.i.i, label %internal_zip_deconstruct_bytes.exit.i, !llvm.loop !12
+  br i1 %47, label %.lr.ph41.i.i, label %internal_zip_deconstruct_bytes.exit.i, !llvm.loop !11
 
 internal_zip_deconstruct_bytes.exit.i:            ; preds = %.lr.ph41.i.i, %._crit_edge.i.i, %23
-  %48 = load ptr, ptr %18, align 8, !tbaa !28
-  %49 = load i32, ptr %2, align 4, !tbaa !44
-  %50 = load ptr, ptr %4, align 8, !tbaa !42
-  %51 = load i64, ptr %6, align 8, !tbaa !26
+  %48 = load ptr, ptr %18, align 8, !tbaa !27
+  %49 = load i32, ptr %2, align 4, !tbaa !43
+  %50 = load ptr, ptr %4, align 8, !tbaa !41
+  %51 = load i64, ptr %6, align 8, !tbaa !25
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %53 = load ptr, ptr %52, align 8, !tbaa !45
+  %53 = load ptr, ptr %52, align 8, !tbaa !44
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %55 = load i64, ptr %54, align 8, !tbaa !46
+  %55 = load i64, ptr %54, align 8, !tbaa !45
   %56 = call i32 @exr_compress_buffer(ptr noundef %48, i32 noundef %49, ptr noundef %50, i64 noundef %51, ptr noundef %53, i64 noundef %55, ptr noundef nonnull %3) #8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %internal_zip_deconstruct_bytes.exit.i
-  %59 = load i64, ptr %3, align 8, !tbaa !25
-  %60 = load i64, ptr %6, align 8, !tbaa !26
+  %59 = load i64, ptr %3, align 8, !tbaa !24
+  %60 = load i64, ptr %6, align 8, !tbaa !25
   %61 = icmp ugt i64 %59, %60
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %58
-  %63 = load ptr, ptr %52, align 8, !tbaa !45
-  %64 = load ptr, ptr %25, align 8, !tbaa !43
+  %63 = load ptr, ptr %52, align 8, !tbaa !44
+  %64 = load ptr, ptr %25, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 1 %64, i64 %60, i1 false)
-  %65 = load i64, ptr %6, align 8, !tbaa !26
+  %65 = load i64, ptr %6, align 8, !tbaa !25
   br label %66
 
 66:                                               ; preds = %62, %58
   %67 = phi i64 [ %65, %62 ], [ %59, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 %67, ptr %68, align 8, !tbaa !47
+  store i64 %67, ptr %68, align 8, !tbaa !46
   br label %apply_zip_impl.exit
 
 69:                                               ; preds = %internal_zip_deconstruct_bytes.exit.i
-  %70 = load ptr, ptr %18, align 8, !tbaa !28
+  %70 = load ptr, ptr %18, align 8, !tbaa !27
   %.not31.i = icmp eq ptr %70, null
   br i1 %.not31.i, label %apply_zip_impl.exit, label %71
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  %73 = load ptr, ptr %72, align 8, !tbaa !29
-  %74 = load i64, ptr %6, align 8, !tbaa !26
-  %75 = load i64, ptr %54, align 8, !tbaa !46
-  %76 = load i32, ptr %2, align 4, !tbaa !44
+  %73 = load ptr, ptr %72, align 8, !tbaa !28
+  %74 = load i64, ptr %6, align 8, !tbaa !25
+  %75 = load i64, ptr %54, align 8, !tbaa !45
+  %76 = load i32, ptr %2, align 4, !tbaa !43
   %77 = call i32 (ptr, i32, ptr, ...) %73(ptr noundef nonnull %70, i32 noundef %56, ptr noundef nonnull @.str.1, i64 noundef %74, i64 noundef %75, i32 noundef %76) #8
   br label %apply_zip_impl.exit
 
@@ -470,45 +470,44 @@ attributes #8 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!14, !15, i64 104}
-!14 = !{!"_exr_decode_pipeline", !15, i64 0, !16, i64 8, !17, i64 16, !17, i64 18, !18, i64 20, !19, i64 24, !20, i64 32, !18, i64 96, !18, i64 100, !15, i64 104, !16, i64 112, !16, i64 120, !15, i64 128, !16, i64 136, !15, i64 144, !16, i64 152, !15, i64 160, !21, i64 168, !15, i64 176, !16, i64 184, !15, i64 192, !16, i64 200, !15, i64 208, !16, i64 216, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !4, i64 264}
-!15 = !{!"long", !4, i64 0}
-!16 = !{!"any pointer", !4, i64 0}
-!17 = !{!"short", !4, i64 0}
-!18 = !{!"int", !4, i64 0}
-!19 = !{!"p1 _ZTS19_priv_exr_context_t", !16, i64 0}
-!20 = !{!"", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !4, i64 20, !4, i64 21, !4, i64 22, !4, i64 23, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56}
-!21 = !{!"p1 int", !16, i64 0}
-!22 = !{!14, !16, i64 184}
-!23 = !{!14, !15, i64 192}
-!24 = !{!14, !19, i64 24}
-!25 = !{!15, !15, i64 0}
-!26 = !{!27, !15, i64 112}
-!27 = !{!"_exr_encode_pipeline", !15, i64 0, !16, i64 8, !17, i64 16, !17, i64 18, !18, i64 20, !19, i64 24, !20, i64 32, !16, i64 96, !16, i64 104, !15, i64 112, !15, i64 120, !21, i64 128, !15, i64 136, !16, i64 144, !15, i64 152, !15, i64 160, !16, i64 168, !15, i64 176, !15, i64 184, !16, i64 192, !15, i64 200, !16, i64 208, !15, i64 216, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !4, i64 272}
-!28 = !{!27, !19, i64 24}
-!29 = !{!30, !16, i64 72}
-!30 = !{!"_priv_exr_context_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !4, i64 7, !31, i64 8, !31, i64 24, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !18, i64 104, !18, i64 108, !18, i64 112, !18, i64 116, !18, i64 120, !33, i64 124, !16, i64 128, !16, i64 136, !16, i64 144, !15, i64 152, !16, i64 160, !16, i64 168, !15, i64 176, !18, i64 184, !18, i64 188, !18, i64 192, !18, i64 196, !34, i64 200, !39, i64 464, !40, i64 472, !35, i64 480, !4, i64 504, !4, i64 544, !4, i64 545, !4, i64 546, !18, i64 548}
-!31 = !{!"", !18, i64 0, !18, i64 4, !32, i64 8}
-!32 = !{!"p1 omnipotent char", !16, i64 0}
-!33 = !{!"float", !4, i64 0}
-!34 = !{!"_priv_exr_part_t", !18, i64 0, !18, i64 4, !35, i64 8, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !16, i64 136, !37, i64 144, !37, i64 160, !18, i64 176, !18, i64 180, !18, i64 184, !33, i64 188, !18, i64 192, !18, i64 196, !21, i64 200, !21, i64 208, !21, i64 216, !21, i64 224, !15, i64 232, !17, i64 240, !17, i64 242, !18, i64 244, !15, i64 248, !4, i64 256}
-!35 = !{!"exr_attribute_list", !18, i64 0, !18, i64 4, !36, i64 8, !36, i64 16}
-!36 = !{!"any p2 pointer", !16, i64 0}
-!37 = !{!"", !38, i64 0, !38, i64 8}
-!38 = !{!"", !18, i64 0, !18, i64 4}
-!39 = !{!"p1 _ZTS16_priv_exr_part_t", !16, i64 0}
-!40 = !{!"p2 _ZTS16_priv_exr_part_t", !36, i64 0}
-!41 = !{!27, !18, i64 20}
-!42 = !{!27, !16, i64 192}
-!43 = !{!27, !16, i64 104}
-!44 = !{!18, !18, i64 0}
-!45 = !{!27, !16, i64 168}
-!46 = !{!27, !15, i64 184}
-!47 = !{!27, !15, i64 176}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{!13, !14, i64 104}
+!13 = !{!"_exr_decode_pipeline", !14, i64 0, !15, i64 8, !16, i64 16, !16, i64 18, !17, i64 20, !18, i64 24, !19, i64 32, !17, i64 96, !17, i64 100, !14, i64 104, !15, i64 112, !15, i64 120, !14, i64 128, !15, i64 136, !14, i64 144, !15, i64 152, !14, i64 160, !20, i64 168, !14, i64 176, !15, i64 184, !14, i64 192, !15, i64 200, !14, i64 208, !15, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !4, i64 264}
+!14 = !{!"long", !4, i64 0}
+!15 = !{!"any pointer", !4, i64 0}
+!16 = !{!"short", !4, i64 0}
+!17 = !{!"int", !4, i64 0}
+!18 = !{!"p1 _ZTS19_priv_exr_context_t", !15, i64 0}
+!19 = !{!"", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !4, i64 20, !4, i64 21, !4, i64 22, !4, i64 23, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56}
+!20 = !{!"p1 int", !15, i64 0}
+!21 = !{!13, !15, i64 184}
+!22 = !{!13, !14, i64 192}
+!23 = !{!13, !18, i64 24}
+!24 = !{!14, !14, i64 0}
+!25 = !{!26, !14, i64 112}
+!26 = !{!"_exr_encode_pipeline", !14, i64 0, !15, i64 8, !16, i64 16, !16, i64 18, !17, i64 20, !18, i64 24, !19, i64 32, !15, i64 96, !15, i64 104, !14, i64 112, !14, i64 120, !20, i64 128, !14, i64 136, !15, i64 144, !14, i64 152, !14, i64 160, !15, i64 168, !14, i64 176, !14, i64 184, !15, i64 192, !14, i64 200, !15, i64 208, !14, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !4, i64 272}
+!27 = !{!26, !18, i64 24}
+!28 = !{!29, !15, i64 72}
+!29 = !{!"_priv_exr_context_t", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !4, i64 4, !4, i64 5, !4, i64 6, !4, i64 7, !30, i64 8, !30, i64 24, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !17, i64 104, !17, i64 108, !17, i64 112, !17, i64 116, !17, i64 120, !32, i64 124, !15, i64 128, !15, i64 136, !15, i64 144, !14, i64 152, !15, i64 160, !15, i64 168, !14, i64 176, !17, i64 184, !17, i64 188, !17, i64 192, !17, i64 196, !33, i64 200, !38, i64 464, !39, i64 472, !34, i64 480, !4, i64 504, !4, i64 544, !4, i64 545, !4, i64 546, !17, i64 548}
+!30 = !{!"", !17, i64 0, !17, i64 4, !31, i64 8}
+!31 = !{!"p1 omnipotent char", !15, i64 0}
+!32 = !{!"float", !4, i64 0}
+!33 = !{!"_priv_exr_part_t", !17, i64 0, !17, i64 4, !34, i64 8, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !36, i64 144, !36, i64 160, !17, i64 176, !17, i64 180, !17, i64 184, !32, i64 188, !17, i64 192, !17, i64 196, !20, i64 200, !20, i64 208, !20, i64 216, !20, i64 224, !14, i64 232, !16, i64 240, !16, i64 242, !17, i64 244, !14, i64 248, !4, i64 256}
+!34 = !{!"exr_attribute_list", !17, i64 0, !17, i64 4, !35, i64 8, !35, i64 16}
+!35 = !{!"any p2 pointer", !15, i64 0}
+!36 = !{!"", !37, i64 0, !37, i64 8}
+!37 = !{!"", !17, i64 0, !17, i64 4}
+!38 = !{!"p1 _ZTS16_priv_exr_part_t", !15, i64 0}
+!39 = !{!"p2 _ZTS16_priv_exr_part_t", !35, i64 0}
+!40 = !{!26, !17, i64 20}
+!41 = !{!26, !15, i64 192}
+!42 = !{!26, !15, i64 104}
+!43 = !{!17, !17, i64 0}
+!44 = !{!26, !15, i64 168}
+!45 = !{!26, !14, i64 184}
+!46 = !{!26, !14, i64 176}

@@ -68,7 +68,7 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
 .preheader.i:                                     ; preds = %22, %30
   %.01012.i = phi i64 [ %31, %30 ], [ 0, %22 ]
   %32 = getelementptr inbounds nuw [6 x i8], ptr @CheckSlowModel.kSlowModels, i64 0, i64 %.01012.i
-  %33 = load i8, ptr %32, align 1, !tbaa !7
+  %33 = load i8, ptr %32, align 1, !tbaa !6
   %34 = zext i8 %33 to i32
   %35 = icmp eq i32 %27, %34
   br i1 %35, label %CheckSlowModel.exit, label %30
@@ -84,7 +84,7 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
   br i1 %40, label %41, label %CheckSlowModel.exit
 
 41:                                               ; preds = %38
-  %42 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !10
+  %42 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !9
   %43 = extractvalue { i32, i32 } %42, 0
   %44 = and i32 %43, 6
   %45 = icmp eq i32 %44, 6
@@ -105,7 +105,7 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
   br i1 %55, label %x86CPUInfo.exit, label %CheckSlowModel.exit
 
 x86CPUInfo.exit:                                  ; preds = %51
-  %56 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !10
+  %56 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !9
   %57 = extractvalue { i32, i32 } %56, 0
   %58 = and i32 %57, 6
   %59 = icmp eq i32 %58, 6
@@ -134,10 +134,9 @@ attributes #1 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i64 330066}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{i64 330884}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{i64 330884}

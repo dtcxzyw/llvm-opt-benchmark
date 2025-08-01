@@ -1008,7 +1008,7 @@ list_length.exit:                                 ; preds = %136, %137
   %161 = load ptr, ptr %86, align 8
   %162 = tail call i32 @bms_next_member(ptr noundef %161, i32 noundef %148) #8
   %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %147, label %.loopexit, !llvm.loop !8
+  br i1 %163, label %147, label %.loopexit
 
 .loopexit:                                        ; preds = %160, %list_length.exit, %130
   store ptr %80, ptr @CurrentMemoryContext, align 8
@@ -1054,7 +1054,7 @@ define dso_local ptr @find_ec_member_matching_expr(ptr noundef readonly captures
   %7 = getelementptr inbounds nuw i8, ptr %.02745, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %6, %3
   %.027.lcssa = phi ptr [ null, %3 ], [ null, %6 ], [ %.02745, %.lr.ph ]
@@ -1105,7 +1105,7 @@ define dso_local ptr @find_ec_member_matching_expr(ptr noundef readonly captures
 30:                                               ; preds = %29
   %31 = load i32, ptr %.0, align 4
   %32 = icmp eq i32 %31, 27
-  br i1 %32, label %29, label %.critedge2, !llvm.loop !11
+  br i1 %32, label %29, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %29, %30
   %33 = tail call zeroext i1 @equal(ptr noundef %.0, ptr noundef %.027.lcssa) #8
@@ -1267,7 +1267,7 @@ define dso_local zeroext i1 @relation_can_be_sorted_early(ptr noundef %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %.02745.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %25, %.lr.ph.i, %.lr.ph47
   %.027.lcssa.i = phi ptr [ null, %.lr.ph47 ], [ %.02745.i, %.lr.ph.i ], [ null, %25 ]
@@ -1317,7 +1317,7 @@ define dso_local zeroext i1 @relation_can_be_sorted_early(ptr noundef %0, ptr no
 48:                                               ; preds = %47
   %49 = load i32, ptr %.0.i, align 4
   %50 = icmp eq i32 %49, 27
-  br i1 %50, label %47, label %.critedge2.i, !llvm.loop !11
+  br i1 %50, label %47, label %.critedge2.i, !llvm.loop !9
 
 .critedge2.i:                                     ; preds = %48, %47
   %51 = tail call zeroext i1 @equal(ptr noundef %.0.i, ptr noundef %.027.lcssa.i) #8
@@ -1820,7 +1820,7 @@ list_length.exit.thread:                          ; preds = %.lr.ph94, %generate
   %237 = icmp eq i32 %231, %236
   %238 = icmp eq ptr %235, null
   %or.cond = select i1 %237, i1 true, i1 %238
-  br i1 %or.cond, label %245, label %239, !llvm.loop !12
+  br i1 %or.cond, label %245, label %239, !llvm.loop !10
 
 239:                                              ; preds = %.lr.ph65
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 216
@@ -1838,7 +1838,7 @@ list_length.exit.thread:                          ; preds = %.lr.ph94, %generate
   %246 = load ptr, ptr %227, align 8
   %247 = call i32 @bms_next_member(ptr noundef %246, i32 noundef %231) #8
   %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %.lr.ph65, label %._crit_edge, !llvm.loop !13
+  br i1 %248, label %.lr.ph65, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %245, %list_length.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv92, 1
@@ -1903,7 +1903,7 @@ define dso_local ptr @generate_join_implied_equalities(ptr noundef %0, ptr nound
   %31 = icmp eq i32 %25, %30
   %32 = icmp eq ptr %29, null
   %or.cond.i = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond.i, label %37, label %33, !llvm.loop !14
+  br i1 %or.cond.i, label %37, label %33, !llvm.loop !11
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 216
@@ -1915,7 +1915,7 @@ define dso_local ptr @generate_join_implied_equalities(ptr noundef %0, ptr nound
   %.1.i = phi ptr [ %36, %33 ], [ %.012.i, %24 ]
   %38 = tail call i32 @bms_next_member(ptr noundef %.044, i32 noundef %25) #8
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %24, label %get_eclass_indexes_for_relids.exit, !llvm.loop !15
+  br i1 %39, label %24, label %get_eclass_indexes_for_relids.exit
 
 40:                                               ; preds = %16, %15
   %41 = tail call fastcc ptr @get_common_eclass_indexes(ptr noundef %0, ptr noundef %.045, ptr noundef %2)
@@ -1943,7 +1943,7 @@ get_eclass_indexes_for_relids.exit:               ; preds = %37, %19, %40
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %list_length.exit.thread, label %55, !llvm.loop !16
+  br i1 %54, label %list_length.exit.thread, label %55, !llvm.loop !12
 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -1955,7 +1955,7 @@ list_length.exit:                                 ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %59, 2
-  br i1 %60, label %list_length.exit.thread, label %61, !llvm.loop !16
+  br i1 %60, label %list_length.exit.thread, label %61, !llvm.loop !12
 
 61:                                               ; preds = %list_length.exit
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 58
@@ -1984,7 +1984,7 @@ list_length.exit.thread:                          ; preds = %55, %list_length.ex
   %.141 = phi ptr [ %71, %70 ], [ %.04051, %45 ], [ %.04051, %list_length.exit ], [ %.04051, %55 ]
   %72 = tail call i32 @bms_next_member(ptr noundef %.043, i32 noundef %46) #8
   %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %45, label %._crit_edge, !llvm.loop !17
+  br i1 %73, label %45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_length.exit.thread, %get_eclass_indexes_for_relids.exit
   %.040.lcssa = phi ptr [ null, %get_eclass_indexes_for_relids.exit ], [ %.141, %list_length.exit.thread ]
@@ -2019,7 +2019,7 @@ define internal fastcc ptr @get_common_eclass_indexes(ptr noundef readonly captu
   %16 = icmp eq i32 %10, %15
   %17 = icmp eq ptr %14, null
   %or.cond.i = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond.i, label %22, label %18, !llvm.loop !14
+  br i1 %or.cond.i, label %22, label %18, !llvm.loop !11
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 216
@@ -2031,7 +2031,7 @@ define internal fastcc ptr @get_common_eclass_indexes(ptr noundef readonly captu
   %.1.i = phi ptr [ %21, %18 ], [ %.012.i, %9 ]
   %23 = tail call i32 @bms_next_member(ptr noundef %1, i32 noundef %10) #8
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %9, label %get_eclass_indexes_for_relids.exit, !llvm.loop !15
+  br i1 %24, label %9, label %get_eclass_indexes_for_relids.exit
 
 get_eclass_indexes_for_relids.exit:               ; preds = %22, %3
   %.0.lcssa.i = phi ptr [ null, %3 ], [ %.1.i, %22 ]
@@ -2070,7 +2070,7 @@ get_eclass_indexes_for_relids.exit:               ; preds = %22, %3
   %47 = icmp eq i32 %41, %46
   %48 = icmp eq ptr %45, null
   %or.cond.i11 = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond.i11, label %53, label %49, !llvm.loop !14
+  br i1 %or.cond.i11, label %53, label %49, !llvm.loop !11
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 216
@@ -2082,7 +2082,7 @@ get_eclass_indexes_for_relids.exit:               ; preds = %22, %3
   %.1.i12 = phi ptr [ %52, %49 ], [ %.012.i10, %40 ]
   %54 = call i32 @bms_next_member(ptr noundef %2, i32 noundef %41) #8
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %40, label %get_eclass_indexes_for_relids.exit13, !llvm.loop !15
+  br i1 %55, label %40, label %get_eclass_indexes_for_relids.exit13
 
 get_eclass_indexes_for_relids.exit13:             ; preds = %53, %35, %26
   %.0 = phi ptr [ %34, %26 ], [ null, %35 ], [ %.1.i12, %53 ]
@@ -2182,7 +2182,7 @@ define internal fastcc ptr @generate_join_implied_equalities_normal(ptr noundef 
   %46 = load i32, ptr %20, align 4
   %47 = sext i32 %46 to i64
   %.not178 = icmp slt i64 %indvars.iv.next372, %47
-  br i1 %.not178, label %.lr.ph331.split, label %._crit_edge, !llvm.loop !18
+  br i1 %.not178, label %.lr.ph331.split, label %._crit_edge, !llvm.loop !13
 
 .lr.ph331.split:                                  ; preds = %.lr.ph331, %.critedge192.thread
   %48 = phi i32 [ %45, %.critedge192.thread ], [ %27, %.lr.ph331 ]
@@ -2314,7 +2314,7 @@ select_equality_operator.exit.thread:             ; preds = %77, %.lr.ph.i, %.lr
   %107 = load i32, ptr %23, align 4
   %108 = sext i32 %107 to i64
   %.not180 = icmp slt i64 %indvars.iv.next369, %108
-  br i1 %.not180, label %.lr.ph316.split, label %.critedge192, !llvm.loop !20
+  br i1 %.not180, label %.lr.ph316.split, label %.critedge192, !llvm.loop !15
 
 .critedge192:                                     ; preds = %select_equality_operator.exit.thread
   %.not182 = icmp eq i32 %.4169.ph, 3
@@ -2682,7 +2682,7 @@ define dso_local void @reconsider_outer_join_clauses(ptr noundef %0) local_unnam
   %.1 = phi i1 [ true, %25 ], [ %.0180, %15 ]
   %48 = add i32 %.sroa.765.1, 1
   %.not = icmp eq ptr %.sroa.062.1, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph187:                                        ; preds = %.critedge, %84
   %.2186 = phi i1 [ %.3, %84 ], [ %.0.lcssa, %.critedge ]
@@ -2744,7 +2744,7 @@ define dso_local void @reconsider_outer_join_clauses(ptr noundef %0) local_unnam
   %.3 = phi i1 [ true, %62 ], [ %.2186, %52 ]
   %85 = add i32 %.sroa.748.1, 1
   %.not110 = icmp eq ptr %.sroa.045.1, null
-  br i1 %.not110, label %.critedge121, label %.lr.ph187, !llvm.loop !22
+  br i1 %.not110, label %.critedge121, label %.lr.ph187, !llvm.loop !17
 
 .lr.ph207:                                        ; preds = %.critedge121, %317
   %.4206 = phi i1 [ %.5, %317 ], [ %.2.lcssa, %.critedge121 ]
@@ -3145,7 +3145,7 @@ reconsider_full_join_clause.exit.thread:          ; preds = %.critedge128.i, %.l
 
 .critedge123:                                     ; preds = %.lr.ph207, %317, %.critedge121
   %.4.lcssa = phi i1 [ %.2.lcssa, %.critedge121 ], [ %.5, %317 ], [ %.4206, %.lr.ph207 ]
-  br i1 %.4.lcssa, label %10, label %318, !llvm.loop !23
+  br i1 %.4.lcssa, label %10, label %318, !llvm.loop !18
 
 294:                                              ; preds = %.critedge130.i
   %295 = load ptr, ptr %178, align 8
@@ -3182,7 +3182,7 @@ reconsider_full_join_clause.exit.thread:          ; preds = %.critedge128.i, %.l
   %.sroa.7.1 = phi i32 [ %.sroa.7.0204, %294 ], [ %293, %reconsider_full_join_clause.exit.thread ]
   %.5 = phi i1 [ true, %294 ], [ %.4206, %reconsider_full_join_clause.exit.thread ]
   %.not112 = icmp eq ptr %.sroa.030.1, null
-  br i1 %.not112, label %.critedge123, label %.lr.ph207, !llvm.loop !24
+  br i1 %.not112, label %.critedge123, label %.lr.ph207, !llvm.loop !19
 
 318:                                              ; preds = %.critedge123
   %319 = load ptr, ptr %5, align 8
@@ -3611,7 +3611,7 @@ list_length.exit:                                 ; preds = %.lr.ph35
   %31 = load i32, ptr %14, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %23, label %.critedge29.loopexit, !llvm.loop !25
+  br i1 %33, label %23, label %.critedge29.loopexit, !llvm.loop !20
 
 .critedge29.loopexit:                             ; preds = %23
   %.pre = load i32, ptr %4, align 4
@@ -3781,7 +3781,7 @@ define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 57
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.loopexit104, label %44, !llvm.loop !26
+  br i1 %43, label %.loopexit104, label %44, !llvm.loop !21
 
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -3973,7 +3973,7 @@ define dso_local void @add_child_rel_equivalences(ptr noundef %0, ptr noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 57
   %26 = load i8, ptr %25, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %.loopexit, label %28, !llvm.loop !27
+  br i1 %27, label %.loopexit, label %28, !llvm.loop !22
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -4082,13 +4082,13 @@ add_eq_member.exit:                               ; preds = %64, %81
 86:                                               ; preds = %47, %51, %add_eq_member.exit, %43, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !23
 
 .loopexit:                                        ; preds = %86, %28, %list_length.exit, %18
   %87 = load ptr, ptr %10, align 8
   %88 = call i32 @bms_next_member(ptr noundef %87, i32 noundef %19) #8
   %89 = icmp sgt i32 %88, -1
-  br i1 %89, label %18, label %._crit_edge, !llvm.loop !29
+  br i1 %89, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   ret void
@@ -4128,7 +4128,7 @@ define dso_local void @add_child_join_rel_equivalences(ptr noundef %0, i32 nound
   %21 = icmp eq i32 %15, %20
   %22 = icmp eq ptr %19, null
   %or.cond.i = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond.i, label %27, label %23, !llvm.loop !14
+  br i1 %or.cond.i, label %27, label %23, !llvm.loop !11
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 216
@@ -4140,7 +4140,7 @@ define dso_local void @add_child_join_rel_equivalences(ptr noundef %0, i32 nound
   %.1.i = phi ptr [ %26, %23 ], [ %.012.i, %14 ]
   %28 = tail call i32 @bms_next_member(ptr noundef %7, i32 noundef %15) #8
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %14, label %get_eclass_indexes_for_relids.exit, !llvm.loop !15
+  br i1 %29, label %14, label %get_eclass_indexes_for_relids.exit
 
 get_eclass_indexes_for_relids.exit:               ; preds = %27, %5
   %.0.lcssa.i = phi ptr [ null, %5 ], [ %.1.i, %27 ]
@@ -4169,7 +4169,7 @@ get_eclass_indexes_for_relids.exit:               ; preds = %27, %5
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 57
   %46 = load i8, ptr %45, align 1, !range !4, !noundef !5
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %.loopexit, label %48, !llvm.loop !30
+  br i1 %47, label %.loopexit, label %48, !llvm.loop !24
 
 48:                                               ; preds = %38
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -4276,12 +4276,12 @@ add_eq_member.exit:                               ; preds = %84, %101
 104:                                              ; preds = %71, %add_eq_member.exit, %67, %63, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !25
 
 .loopexit:                                        ; preds = %104, %48, %list_length.exit, %38
   %105 = tail call i32 @bms_next_member(ptr noundef %.0.lcssa.i, i32 noundef %39) #8
   %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %38, label %._crit_edge, !llvm.loop !32
+  br i1 %106, label %38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %get_eclass_indexes_for_relids.exit
   store ptr %32, ptr @CurrentMemoryContext, align 8
@@ -4455,7 +4455,7 @@ define dso_local ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load i8, ptr %24, align 8, !range !4, !noundef !5
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %.backedge, label %27, !llvm.loop !33
+  br i1 %26, label %.backedge, label %27, !llvm.loop !26
 
 27:                                               ; preds = %.lr.ph107
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -4467,7 +4467,7 @@ list_length.exit:                                 ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, 2
-  br i1 %32, label %.backedge, label %.lr.ph, !llvm.loop !33
+  br i1 %32, label %.backedge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %list_length.exit
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -4493,7 +4493,7 @@ list_length.exit:                                 ; preds = %27
   %45 = load i32, ptr %30, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %34, label %.backedge, !llvm.loop !34
+  br i1 %47, label %34, label %.backedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %42
   %48 = load ptr, ptr %28, align 8
@@ -4532,7 +4532,7 @@ list_length.exit:                                 ; preds = %27
   %63 = load ptr, ptr %12, align 8
   %64 = tail call i32 @bms_next_member(ptr noundef %63, i32 noundef %18) #8
   %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %.lr.ph107, label %.critedge77._crit_edge, !llvm.loop !35
+  br i1 %65, label %.lr.ph107, label %.critedge77._crit_edge
 
 66:                                               ; preds = %.lr.ph106
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -4876,7 +4876,7 @@ list_length.exit:                                 ; preds = %12
 .critedge.backedge:                               ; preds = %list_length.exit, %12
   %24 = tail call i32 @bms_next_member(ptr noundef %8, i32 noundef %13) #8
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %12, label %.critedge._crit_edge, !llvm.loop !36
+  br i1 %25, label %12, label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %list_length.exit, %.critedge.backedge, %3
   %.lcssa = phi i1 [ false, %3 ], [ false, %.critedge.backedge ], [ true, %list_length.exit ]
@@ -4907,7 +4907,7 @@ define dso_local noundef zeroext i1 @has_relevant_eclass_joinclause(ptr noundef 
   %16 = icmp eq i32 %10, %15
   %17 = icmp eq ptr %14, null
   %or.cond.i = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond.i, label %22, label %18, !llvm.loop !14
+  br i1 %or.cond.i, label %22, label %18, !llvm.loop !11
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 216
@@ -4919,7 +4919,7 @@ define dso_local noundef zeroext i1 @has_relevant_eclass_joinclause(ptr noundef 
   %.1.i = phi ptr [ %21, %18 ], [ %.012.i, %9 ]
   %23 = tail call i32 @bms_next_member(ptr noundef %4, i32 noundef %10) #8
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %9, label %get_eclass_indexes_for_relids.exit, !llvm.loop !15
+  br i1 %24, label %9, label %get_eclass_indexes_for_relids.exit
 
 get_eclass_indexes_for_relids.exit:               ; preds = %22, %2
   %.0.lcssa.i = phi ptr [ null, %2 ], [ %.1.i, %22 ]
@@ -4948,7 +4948,7 @@ list_length.exit:                                 ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 2
-  br i1 %39, label %list_length.exit.thread, label %40, !llvm.loop !37
+  br i1 %39, label %list_length.exit.thread, label %40, !llvm.loop !28
 
 40:                                               ; preds = %list_length.exit
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -5243,33 +5243,24 @@ attributes #9 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7, !9}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !9}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !7, !14}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !7, !9, !19}
-!19 = !{!"llvm.loop.unswitch.partial.disable"}
-!20 = distinct !{!20, !7, !9, !19}
-!21 = distinct !{!21, !7, !9}
-!22 = distinct !{!22, !7, !9}
-!23 = distinct !{!23, !7, !9}
-!24 = distinct !{!24, !7, !9}
-!25 = distinct !{!25, !7, !9}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !7}
+!28 = distinct !{!28, !7}

@@ -287,10 +287,10 @@ thread-pre-split.i:                               ; preds = %67
   %78 = sitofp i16 %75 to float
   %79 = fdiv nsz float %78, 1.000000e+02
   %80 = getelementptr inbounds nuw [4 x float], ptr %68, i64 0, i64 %indvars.iv14.i
-  store float %79, ptr %80, align 4, !tbaa !55
+  store float %79, ptr %80, align 4, !tbaa !54
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next15.i, 4
-  br i1 %exitcond17.not.i, label %81, label %69, !llvm.loop !57
+  br i1 %exitcond17.not.i, label %81, label %69, !llvm.loop !56
 
 81:                                               ; preds = %73
   %82 = trunc nuw nsw i64 %indvars.iv18.i to i32
@@ -299,7 +299,7 @@ thread-pre-split.i:                               ; preds = %67
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next19.i, 9
   %or.cond.i = select i1 %84, i1 true, i1 %exitcond21.not.i
-  br i1 %or.cond.i, label %parse_psfile.exit, label %.preheader.i, !llvm.loop !58
+  br i1 %or.cond.i, label %parse_psfile.exit, label %.preheader.i, !llvm.loop !57
 
 parse_psfile.exit.thread65.loopexit83:            ; preds = %thread-pre-split.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !50
@@ -340,15 +340,15 @@ parse_psfile.exit:                                ; preds = %81
 .thread:                                          ; preds = %87, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit70, label %87, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit70, label %87, !llvm.loop !58
 
 .loopexit70:                                      ; preds = %.thread, %parse_psfile.exit
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 376
-  %100 = load i32, ptr %99, align 8, !tbaa !60
+  %100 = load i32, ptr %99, align 8, !tbaa !59
   %.not63 = icmp eq i32 %100, 0
   %101 = select i1 %.not63, ptr @.str.6, ptr @.str.5
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 40, ptr noundef nonnull @.str.4, ptr noundef nonnull %101) #10
-  %102 = load i32, ptr %99, align 8, !tbaa !60
+  %102 = load i32, ptr %99, align 8, !tbaa !59
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph81, label %.loopexit
 
@@ -360,28 +360,28 @@ parse_psfile.exit:                                ; preds = %81
 106:                                              ; preds = %.lr.ph81, %106
   %indvars.iv88 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next89, %106 ]
   %107 = getelementptr inbounds nuw [9 x %struct.process_range], ptr %104, i64 0, i64 %indvars.iv88
-  %108 = load i32, ptr %107, align 8, !tbaa !61
+  %108 = load i32, ptr %107, align 8, !tbaa !60
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds [9 x [4 x float]], ptr %105, i64 0, i64 %109
   %111 = getelementptr inbounds [9 x ptr], ptr @color_names, i64 0, i64 %109
   %112 = load ptr, ptr %111, align 8, !tbaa !50
-  %113 = load float, ptr %110, align 4, !tbaa !55
+  %113 = load float, ptr %110, align 4, !tbaa !54
   %114 = fpext nsz float %113 to double
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 4
-  %116 = load float, ptr %115, align 4, !tbaa !55
+  %116 = load float, ptr %115, align 4, !tbaa !54
   %117 = fpext nsz float %116 to double
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %119 = load float, ptr %118, align 4, !tbaa !55
+  %119 = load float, ptr %118, align 4, !tbaa !54
   %120 = fpext nsz float %119 to double
   %121 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  %122 = load float, ptr %121, align 4, !tbaa !55
+  %122 = load float, ptr %121, align 4, !tbaa !54
   %123 = fpext nsz float %122 to double
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 40, ptr noundef nonnull @.str.7, ptr noundef %112, double noundef %114, double noundef %117, double noundef %120, double noundef %123) #10
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %124 = load i32, ptr %99, align 8, !tbaa !60
+  %124 = load i32, ptr %99, align 8, !tbaa !59
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next89, %125
-  br i1 %126, label %106, label %.loopexit, !llvm.loop !63
+  br i1 %126, label %106, label %.loopexit, !llvm.loop !62
 
 .loopexit.sink.split:                             ; preds = %30, %parse_psfile.exit.thread65
   %.0.ph = phi i32 [ -1094995529, %parse_psfile.exit.thread65 ], [ %31, %30 ]
@@ -406,7 +406,7 @@ define internal noundef i32 @selective_color_indirect_absolute_8(ptr noundef rea
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_8(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   ret i32 0
 }
@@ -420,7 +420,7 @@ define internal noundef i32 @selective_color_indirect_relative_8(ptr noundef rea
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_8(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 1)
   ret i32 0
 }
@@ -434,7 +434,7 @@ define internal noundef i32 @selective_color_direct_absolute_8(ptr noundef reado
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_8(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   ret i32 0
 }
@@ -448,7 +448,7 @@ define internal noundef i32 @selective_color_direct_relative_8(ptr noundef reado
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_8(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 1)
   ret i32 0
 }
@@ -462,7 +462,7 @@ define internal noundef i32 @selective_color_indirect_absolute_16(ptr noundef re
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_16(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   ret i32 0
 }
@@ -476,7 +476,7 @@ define internal noundef i32 @selective_color_indirect_relative_16(ptr noundef re
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_16(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 1)
   ret i32 0
 }
@@ -490,7 +490,7 @@ define internal noundef i32 @selective_color_direct_absolute_16(ptr noundef read
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_16(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   ret i32 0
 }
@@ -504,7 +504,7 @@ define internal noundef i32 @selective_color_direct_relative_16(ptr noundef read
   %.val4 = load ptr, ptr %6, align 8, !tbaa !38
   %.val4.val = load ptr, ptr %.val4, align 8, !tbaa !50
   %7 = getelementptr i8, ptr %.val4, i64 64
-  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !64
+  %.val4.val5 = load i32, ptr %7, align 8, !tbaa !63
   tail call fastcc void @selective_color_16(ptr %.val, ptr %.val3, ptr %.val4.val, i32 %.val4.val5, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 1)
   ret i32 0
 }
@@ -530,9 +530,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.val, ptr readonly captures(none) %.0.val, ptr writeonly captures(none) %.8.val.0.val, i32 %.8.val.64.val, i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 108
-  %6 = load i32, ptr %5, align 4, !tbaa !65
+  %6 = load i32, ptr %5, align 4, !tbaa !64
   %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
-  %8 = load i32, ptr %7, align 8, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !69
   %9 = mul nsw i32 %6, %0
   %10 = sdiv i32 %9, %1
   %11 = add nsw i32 %0, 1
@@ -563,7 +563,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 %32
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %36 = load i32, ptr %35, align 8, !tbaa !64
+  %36 = load i32, ptr %35, align 8, !tbaa !63
   %37 = mul nsw i32 %36, %10
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %34, i64 %38
@@ -660,7 +660,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %100 = or i32 %99, %74
   %101 = or i32 %100, %84
   %102 = or i32 %101, %82
-  %103 = load i32, ptr %45, align 8, !tbaa !60
+  %103 = load i32, ptr %45, align 8, !tbaa !59
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph, label %._crit_edge
 
@@ -686,29 +686,29 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %.02043 = phi i32 [ 0, %.lr.ph ], [ %.1205, %172 ]
   %118 = getelementptr inbounds nuw [9 x %struct.process_range], ptr %46, i64 0, i64 %indvars.iv
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !71
+  %120 = load i32, ptr %119, align 4, !tbaa !70
   %121 = and i32 %120, %102
   %.not217 = icmp eq i32 %121, 0
   br i1 %.not217, label %172, label %122
 
 122:                                              ; preds = %117
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !72
+  %124 = load ptr, ptr %123, align 8, !tbaa !71
   %125 = tail call i32 %124(i32 noundef %57, i32 noundef %60, i32 noundef %63, i32 noundef %66, i32 noundef %69) #10
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %172
 
 127:                                              ; preds = %122
-  %128 = load i32, ptr %118, align 8, !tbaa !61
+  %128 = load i32, ptr %118, align 8, !tbaa !60
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds [9 x [4 x float]], ptr %47, i64 0, i64 %129
-  %131 = load float, ptr %130, align 4, !tbaa !55
+  %131 = load float, ptr %130, align 4, !tbaa !54
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  %133 = load float, ptr %132, align 4, !tbaa !55
+  %133 = load float, ptr %132, align 4, !tbaa !54
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %135 = load float, ptr %134, align 4, !tbaa !55
+  %135 = load float, ptr %134, align 4, !tbaa !54
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 12
-  %137 = load float, ptr %136, align 4, !tbaa !55
+  %137 = load float, ptr %136, align 4, !tbaa !54
   %138 = fsub nsz float -1.000000e+00, %131
   %139 = fneg nsz float %131
   %140 = tail call nsz float @llvm.fmuladd.f32(float %138, float %137, float %139)
@@ -756,10 +756,10 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %.1202 = phi i32 [ %.02014, %117 ], [ %160, %127 ], [ %.02014, %122 ]
   %.1 = phi i32 [ %.02005, %117 ], [ %171, %127 ], [ %.02005, %122 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %173 = load i32, ptr %45, align 8, !tbaa !60
+  %173 = load i32, ptr %45, align 8, !tbaa !59
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next, %174
-  br i1 %175, label %117, label %._crit_edge, !llvm.loop !73
+  br i1 %175, label %117, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %172, %81
   %.0204.lcssa = phi i32 [ 0, %81 ], [ %.1205, %172 ]
@@ -817,7 +817,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %201 = add nsw i32 %200, %.01949
   %202 = mul nsw i32 %200, %8
   %203 = icmp slt i32 %201, %202
-  br i1 %203, label %.lr.ph10, label %._crit_edge11, !llvm.loop !74
+  br i1 %203, label %.lr.ph10, label %._crit_edge11, !llvm.loop !73
 
 ._crit_edge11:                                    ; preds = %199, %.preheader
   %204 = phi i32 [ %51, %.preheader ], [ %200, %199 ]
@@ -831,7 +831,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %212 = getelementptr inbounds i8, ptr %.021012, i64 %50
   %213 = add i32 %.019520, 1
   %exitcond.not = icmp eq i32 %213, %13
-  br i1 %exitcond.not, label %._crit_edge21, label %.preheader, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge21, label %.preheader, !llvm.loop !74
 
 ._crit_edge21:                                    ; preds = %._crit_edge11, %4
   ret void
@@ -846,9 +846,9 @@ declare i64 @llvm.lrint.i64.f32(float) #5
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72.val, ptr readonly captures(none) %.0.val, ptr writeonly captures(none) %.8.val.0.val, i32 %.8.val.64.val, i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 108
-  %6 = load i32, ptr %5, align 4, !tbaa !65
+  %6 = load i32, ptr %5, align 4, !tbaa !64
   %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
-  %8 = load i32, ptr %7, align 8, !tbaa !70
+  %8 = load i32, ptr %7, align 8, !tbaa !69
   %9 = mul nsw i32 %6, %0
   %10 = sdiv i32 %9, %1
   %11 = add nsw i32 %0, 1
@@ -880,7 +880,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %34 = getelementptr inbounds nuw i16, ptr %18, i64 %33
   %35 = load ptr, ptr %.0.val, align 8, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %37 = load i32, ptr %36, align 8, !tbaa !64
+  %37 = load i32, ptr %36, align 8, !tbaa !63
   %38 = sdiv i32 %37, 2
   %39 = mul nsw i32 %38, %10
   %40 = sext i32 %39 to i64
@@ -919,13 +919,13 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %.01949 = phi i32 [ %201, %199 ], [ 0, %.preheader ]
   %56 = sext i32 %.01949 to i64
   %57 = getelementptr inbounds i16, ptr %.019619, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !76
+  %58 = load i16, ptr %57, align 2, !tbaa !75
   %59 = zext i16 %58 to i32
   %60 = getelementptr inbounds i16, ptr %.019718, i64 %56
-  %61 = load i16, ptr %60, align 2, !tbaa !76
+  %61 = load i16, ptr %60, align 2, !tbaa !75
   %62 = zext i16 %61 to i32
   %63 = getelementptr inbounds i16, ptr %.019817, i64 %56
-  %64 = load i16, ptr %63, align 2, !tbaa !76
+  %64 = load i16, ptr %63, align 2, !tbaa !75
   %65 = zext i16 %64 to i32
   %66 = tail call i16 @llvm.umin.i16(i16 %58, i16 %61)
   %67 = tail call i16 @llvm.umin.i16(i16 %66, i16 %64)
@@ -978,7 +978,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %102 = or i32 %101, %76
   %103 = or i32 %102, %86
   %104 = or i32 %103, %84
-  %105 = load i32, ptr %47, align 8, !tbaa !60
+  %105 = load i32, ptr %47, align 8, !tbaa !59
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -1004,29 +1004,29 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %.02043 = phi i32 [ 0, %.lr.ph ], [ %.1205, %174 ]
   %120 = getelementptr inbounds nuw [9 x %struct.process_range], ptr %48, i64 0, i64 %indvars.iv
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %122 = load i32, ptr %121, align 4, !tbaa !71
+  %122 = load i32, ptr %121, align 4, !tbaa !70
   %123 = and i32 %122, %104
   %.not217 = icmp eq i32 %123, 0
   br i1 %.not217, label %174, label %124
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !72
+  %126 = load ptr, ptr %125, align 8, !tbaa !71
   %127 = tail call i32 %126(i32 noundef %59, i32 noundef %62, i32 noundef %65, i32 noundef %68, i32 noundef %71) #10
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %129, label %174
 
 129:                                              ; preds = %124
-  %130 = load i32, ptr %120, align 8, !tbaa !61
+  %130 = load i32, ptr %120, align 8, !tbaa !60
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds [9 x [4 x float]], ptr %49, i64 0, i64 %131
-  %133 = load float, ptr %132, align 4, !tbaa !55
+  %133 = load float, ptr %132, align 4, !tbaa !54
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %135 = load float, ptr %134, align 4, !tbaa !55
+  %135 = load float, ptr %134, align 4, !tbaa !54
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %137 = load float, ptr %136, align 4, !tbaa !55
+  %137 = load float, ptr %136, align 4, !tbaa !54
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 12
-  %139 = load float, ptr %138, align 4, !tbaa !55
+  %139 = load float, ptr %138, align 4, !tbaa !54
   %140 = fsub nsz float -1.000000e+00, %133
   %141 = fneg nsz float %133
   %142 = tail call nsz float @llvm.fmuladd.f32(float %140, float %139, float %141)
@@ -1074,10 +1074,10 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %.1202 = phi i32 [ %.02014, %119 ], [ %162, %129 ], [ %.02014, %124 ]
   %.1 = phi i32 [ %.02005, %119 ], [ %173, %129 ], [ %.02005, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %175 = load i32, ptr %47, align 8, !tbaa !60
+  %175 = load i32, ptr %47, align 8, !tbaa !59
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %indvars.iv.next, %176
-  br i1 %177, label %119, label %._crit_edge, !llvm.loop !78
+  br i1 %177, label %119, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %174, %83
   %.0204.lcssa = phi i32 [ 0, %83 ], [ %.1205, %174 ]
@@ -1103,7 +1103,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %184 = trunc nuw i32 %182 to i16
   %.0.i = select i1 %.not.i, i16 %184, i16 %183
   %185 = getelementptr inbounds i16, ptr %.020715, i64 %56
-  store i16 %.0.i, ptr %185, align 2, !tbaa !76
+  store i16 %.0.i, ptr %185, align 2, !tbaa !75
   %186 = add nsw i32 %.0201.lcssa, %62
   %.not.i218 = icmp ult i32 %186, 65536
   %isnotneg.i219 = icmp sgt i32 %186, -1
@@ -1111,7 +1111,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %188 = trunc nuw i32 %186 to i16
   %.0.i220 = select i1 %.not.i218, i16 %188, i16 %187
   %189 = getelementptr inbounds i16, ptr %.020814, i64 %56
-  store i16 %.0.i220, ptr %189, align 2, !tbaa !76
+  store i16 %.0.i220, ptr %189, align 2, !tbaa !75
   %190 = add nsw i32 %.0200.lcssa, %65
   %.not.i221 = icmp ult i32 %190, 65536
   %isnotneg.i222 = icmp sgt i32 %190, -1
@@ -1119,7 +1119,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %192 = trunc nuw i32 %190 to i16
   %.0.i223 = select i1 %.not.i221, i16 %192, i16 %191
   %193 = getelementptr inbounds i16, ptr %.020913, i64 %56
-  store i16 %.0.i223, ptr %193, align 2, !tbaa !76
+  store i16 %.0.i223, ptr %193, align 2, !tbaa !75
   %.pre24 = load i32, ptr %46, align 8, !tbaa !46
   %194 = icmp eq i32 %.pre24, 4
   %or.cond25 = select i1 %50, i1 %194, i1 false
@@ -1127,9 +1127,9 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
 
 195:                                              ; preds = %181
   %196 = getelementptr inbounds i16, ptr %.019916, i64 %56
-  %197 = load i16, ptr %196, align 2, !tbaa !76
+  %197 = load i16, ptr %196, align 2, !tbaa !75
   %198 = getelementptr inbounds i16, ptr %.021012, i64 %56
-  store i16 %197, ptr %198, align 2, !tbaa !76
+  store i16 %197, ptr %198, align 2, !tbaa !75
   br label %199
 
 199:                                              ; preds = %._crit_edge._crit_edge, %181, %195
@@ -1137,7 +1137,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %201 = add nsw i32 %200, %.01949
   %202 = mul nsw i32 %200, %8
   %203 = icmp slt i32 %201, %202
-  br i1 %203, label %.lr.ph10, label %._crit_edge11, !llvm.loop !79
+  br i1 %203, label %.lr.ph10, label %._crit_edge11, !llvm.loop !78
 
 ._crit_edge11:                                    ; preds = %199, %.preheader
   %204 = phi i32 [ %53, %.preheader ], [ %200, %199 ]
@@ -1151,7 +1151,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %212 = getelementptr inbounds i16, ptr %.021012, i64 %52
   %213 = add i32 %.019520, 1
   %exitcond.not = icmp eq i32 %213, %13
-  br i1 %exitcond.not, label %._crit_edge21, label %.preheader, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge21, label %.preheader, !llvm.loop !79
 
 ._crit_edge21:                                    ; preds = %._crit_edge11, %4
   ret void
@@ -1171,40 +1171,40 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [9 x [4 x float]], ptr %3, i64 0, i64 %4
-  %6 = load float, ptr %5, align 4, !tbaa !55
+  %6 = load float, ptr %5, align 4, !tbaa !54
   %7 = fcmp nsz une float %6, 0.000000e+00
   br i1 %7, label %20, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %10 = load float, ptr %9, align 4, !tbaa !55
+  %10 = load float, ptr %9, align 4, !tbaa !54
   %11 = fcmp nsz une float %10, 0.000000e+00
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load float, ptr %13, align 4, !tbaa !55
+  %14 = load float, ptr %13, align 4, !tbaa !54
   %15 = fcmp nsz une float %14, 0.000000e+00
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %18 = load float, ptr %17, align 4, !tbaa !55
+  %18 = load float, ptr %17, align 4, !tbaa !54
   %19 = fcmp nsz une float %18, 0.000000e+00
   br i1 %19, label %20, label %83
 
 20:                                               ; preds = %16, %12, %8, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %23 = load i32, ptr %22, align 8, !tbaa !60
+  %23 = load i32, ptr %22, align 8, !tbaa !59
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %22, align 8, !tbaa !60
+  store i32 %24, ptr %22, align 8, !tbaa !59
   %25 = sext i32 %23 to i64
   %26 = getelementptr inbounds [9 x %struct.process_range], ptr %21, i64 0, i64 %25
   %27 = tail call nsz float @llvm.fabs.f32(float %6)
   %or.cond = fcmp nsz ogt float %27, 1.000000e+00
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !55
+  %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !54
   %28 = tail call nsz float @llvm.fabs.f32(float %.pre)
   %or.cond67 = fcmp nsz ogt float %28, 1.000000e+00
   %or.cond74 = select i1 %or.cond, i1 true, i1 %or.cond67
@@ -1212,14 +1212,14 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %31 = load float, ptr %30, align 4, !tbaa !55
+  %31 = load float, ptr %30, align 4, !tbaa !54
   %32 = tail call nsz float @llvm.fabs.f32(float %31)
   %or.cond68 = fcmp nsz ogt float %32, 1.000000e+00
   br i1 %or.cond68, label %.critedge, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %35 = load float, ptr %34, align 4, !tbaa !55
+  %35 = load float, ptr %34, align 4, !tbaa !54
   %36 = tail call nsz float @llvm.fabs.f32(float %35)
   %or.cond69 = fcmp nsz ogt float %36, 1.000000e+00
   br i1 %or.cond69, label %.critedge, label %47
@@ -1230,26 +1230,26 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
   %39 = fpext nsz float %6 to double
   %40 = fpext nsz float %.pre to double
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %42 = load float, ptr %41, align 4, !tbaa !55
+  %42 = load float, ptr %41, align 4, !tbaa !54
   %43 = fpext nsz float %42 to double
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %45 = load float, ptr %44, align 4, !tbaa !55
+  %45 = load float, ptr %44, align 4, !tbaa !54
   %46 = fpext nsz float %45 to double
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef %38, double noundef %39, double noundef %40, double noundef %43, double noundef %46) #10
   br label %83
 
 47:                                               ; preds = %33
-  store i32 %1, ptr %26, align 8, !tbaa !61
+  store i32 %1, ptr %26, align 8, !tbaa !60
   %48 = shl nuw i32 1, %1
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 %48, ptr %49, align 4, !tbaa !71
+  store i32 %48, ptr %49, align 4, !tbaa !70
   %50 = and i32 %48, 21
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %53, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_rgb_scale, ptr %52, align 8, !tbaa !72
+  store ptr @get_rgb_scale, ptr %52, align 8, !tbaa !71
   br label %83
 
 53:                                               ; preds = %47
@@ -1259,7 +1259,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_cmy_scale, ptr %56, align 8, !tbaa !72
+  store ptr @get_cmy_scale, ptr %56, align 8, !tbaa !71
   br label %83
 
 57:                                               ; preds = %53
@@ -1273,7 +1273,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_whites_scale8, ptr %62, align 8, !tbaa !72
+  store ptr @get_whites_scale8, ptr %62, align 8, !tbaa !71
   br label %83
 
 63:                                               ; preds = %57
@@ -1287,7 +1287,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_neutrals_scale8, ptr %67, align 8, !tbaa !72
+  store ptr @get_neutrals_scale8, ptr %67, align 8, !tbaa !71
   br label %83
 
 68:                                               ; preds = %64
@@ -1297,7 +1297,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_blacks_scale8, ptr %71, align 8, !tbaa !72
+  store ptr @get_blacks_scale8, ptr %71, align 8, !tbaa !71
   br label %83
 
 72:                                               ; preds = %63
@@ -1305,7 +1305,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 73:                                               ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_whites_scale16, ptr %74, align 8, !tbaa !72
+  store ptr @get_whites_scale16, ptr %74, align 8, !tbaa !71
   br label %83
 
 75:                                               ; preds = %72
@@ -1315,7 +1315,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_neutrals_scale16, ptr %78, align 8, !tbaa !72
+  store ptr @get_neutrals_scale16, ptr %78, align 8, !tbaa !71
   br label %83
 
 79:                                               ; preds = %75
@@ -1325,7 +1325,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr @get_blacks_scale16, ptr %82, align 8, !tbaa !72
+  store ptr @get_blacks_scale16, ptr %82, align 8, !tbaa !71
   br label %83
 
 .thread73:                                        ; preds = %68, %79
@@ -1554,32 +1554,31 @@ attributes #12 = { noreturn nounwind }
 !49 = !{!"long", !7, i64 0}
 !50 = !{!25, !25, i64 0}
 !51 = !{!7, !7, i64 0}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"float", !7, i64 0}
-!57 = distinct !{!57, !53, !54}
-!58 = distinct !{!58, !53, !54}
-!59 = distinct !{!59, !53, !54}
-!60 = !{!40, !13, i64 376}
-!61 = !{!62, !13, i64 0}
-!62 = !{!"process_range", !13, i64 0, !13, i64 4, !6, i64 8}
-!63 = distinct !{!63, !53, !54}
-!64 = !{!13, !13, i64 0}
-!65 = !{!66, !13, i64 108}
-!66 = !{!"AVFrame", !7, i64 0, !7, i64 64, !67, i64 96, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !14, i64 124, !49, i64 136, !49, i64 144, !14, i64 152, !13, i64 160, !6, i64 168, !13, i64 176, !13, i64 180, !7, i64 184, !68, i64 248, !13, i64 256, !16, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !49, i64 304, !69, i64 312, !13, i64 320, !30, i64 328, !30, i64 336, !49, i64 344, !49, i64 352, !49, i64 360, !49, i64 368, !6, i64 376, !15, i64 384, !49, i64 408}
-!67 = !{!"p2 omnipotent char", !17, i64 0}
-!68 = !{!"p2 _ZTS11AVBufferRef", !17, i64 0}
-!69 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
-!70 = !{!66, !13, i64 104}
-!71 = !{!62, !13, i64 4}
-!72 = !{!62, !6, i64 8}
-!73 = distinct !{!73, !53, !54}
-!74 = distinct !{!74, !53, !54}
-!75 = distinct !{!75, !53, !54}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"short", !7, i64 0}
-!78 = distinct !{!78, !53, !54}
-!79 = distinct !{!79, !53, !54}
-!80 = distinct !{!80, !53, !54}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"float", !7, i64 0}
+!56 = distinct !{!56, !53}
+!57 = distinct !{!57, !53}
+!58 = distinct !{!58, !53}
+!59 = !{!40, !13, i64 376}
+!60 = !{!61, !13, i64 0}
+!61 = !{!"process_range", !13, i64 0, !13, i64 4, !6, i64 8}
+!62 = distinct !{!62, !53}
+!63 = !{!13, !13, i64 0}
+!64 = !{!65, !13, i64 108}
+!65 = !{!"AVFrame", !7, i64 0, !7, i64 64, !66, i64 96, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !14, i64 124, !49, i64 136, !49, i64 144, !14, i64 152, !13, i64 160, !6, i64 168, !13, i64 176, !13, i64 180, !7, i64 184, !67, i64 248, !13, i64 256, !16, i64 264, !13, i64 272, !13, i64 276, !13, i64 280, !13, i64 284, !13, i64 288, !13, i64 292, !13, i64 296, !49, i64 304, !68, i64 312, !13, i64 320, !30, i64 328, !30, i64 336, !49, i64 344, !49, i64 352, !49, i64 360, !49, i64 368, !6, i64 376, !15, i64 384, !49, i64 408}
+!66 = !{!"p2 omnipotent char", !17, i64 0}
+!67 = !{!"p2 _ZTS11AVBufferRef", !17, i64 0}
+!68 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
+!69 = !{!65, !13, i64 104}
+!70 = !{!61, !13, i64 4}
+!71 = !{!61, !6, i64 8}
+!72 = distinct !{!72, !53}
+!73 = distinct !{!73, !53}
+!74 = distinct !{!74, !53}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"short", !7, i64 0}
+!77 = distinct !{!77, !53}
+!78 = distinct !{!78, !53}
+!79 = distinct !{!79, !53}

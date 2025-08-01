@@ -2874,7 +2874,7 @@ dissect_l2cap_credit_based_connrequest.exit:      ; preds = %1058, %proto_item_s
   %1135 = add i32 %1134, 1
   store i32 %1135, ptr %6, align 4
   %1136 = icmp slt i32 %.064.i, %1077
-  br i1 %1136, label %1078, label %dissect_l2cap_credit_based_connresponse.exit, !llvm.loop !11
+  br i1 %1136, label %1078, label %dissect_l2cap_credit_based_connresponse.exit, !llvm.loop !10
 
 dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1133, %1062
   %.0.lcssa.i570 = phi i32 [ %1074, %1062 ], [ %1081, %1133 ]
@@ -2891,7 +2891,7 @@ dissect_l2cap_credit_based_connresponse.exit:     ; preds = %1133, %1062
 dissect_comrej.exit:                              ; preds = %569, %548, %526, %487, %470, %.thread67.i546, %380, %.sink.split.i, %293, %1137, %dissect_l2cap_credit_based_connresponse.exit, %dissect_l2cap_credit_based_connrequest.exit, %894, %dissect_le_credit_based_connresponse.exit, %dissect_le_credit_based_connrequest.exit, %661, %dissect_connparamrequest.exit, %617, %604, %591, %578, %576, %574, %462, %458, %454, %452, %450, %dissect_configrequest.exit, %307, %305
   %.1 = phi i32 [ %1140, %1137 ], [ %306, %305 ], [ %308, %307 ], [ %.0.i541, %dissect_configrequest.exit ], [ %451, %450 ], [ %453, %452 ], [ %457, %454 ], [ %461, %458 ], [ %466, %462 ], [ %575, %574 ], [ %577, %576 ], [ %586, %578 ], [ %599, %591 ], [ %612, %604 ], [ %621, %617 ], [ %660, %dissect_connparamrequest.exit ], [ %665, %661 ], [ %815, %dissect_le_credit_based_connrequest.exit ], [ %888, %dissect_le_credit_based_connresponse.exit ], [ %900, %894 ], [ %.0.lcssa.i, %dissect_l2cap_credit_based_connrequest.exit ], [ %.0.lcssa.i570, %dissect_l2cap_credit_based_connresponse.exit ], [ %297, %293 ], [ %304, %.sink.split.i ], [ %449, %.thread67.i546 ], [ %393, %380 ], [ %478, %470 ], [ %573, %569 ], [ %490, %487 ], [ %547, %526 ], [ %568, %548 ]
   %1141 = icmp slt i32 %.1, %161
-  br i1 %1141, label %271, label %.loopexit, !llvm.loop !12
+  br i1 %1141, label %271, label %.loopexit, !llvm.loop !11
 
 1142:                                             ; preds = %145
   %1143 = icmp eq i16 %107, 2
@@ -5796,7 +5796,7 @@ define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef range(i3
   %.1 = phi i32 [ %108, %107 ], [ %30, %27 ], [ %34, %31 ], [ %56, %35 ], [ %79, %62 ], [ %83, %80 ], [ %102, %84 ], [ %106, %103 ], [ %25, %11 ]
   %110 = sub nsw i32 %.01331, %17
   %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %11, label %._crit_edge, !llvm.loop !13
+  br i1 %111, label %11, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %109, %8
   %.0.lcssa = phi i32 [ %1, %8 ], [ %.1, %109 ]
@@ -5865,9 +5865,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

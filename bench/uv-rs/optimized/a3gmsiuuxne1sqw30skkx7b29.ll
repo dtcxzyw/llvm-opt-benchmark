@@ -522,7 +522,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %38 = add i16 %.sroa.03.026.i, -1
   %39 = and i16 %38, %.sroa.03.026.i
   %40 = icmp eq i16 %39, 0
-  br i1 %40, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !69
+  br i1 %40, label %._crit_edge.i, label %.lr.ph.i
 
 41:                                               ; preds = %._crit_edge.i
   %42 = icmp slt <16 x i8> %.sroa.0.0.copyload.i25.i, zeroinitializer
@@ -548,7 +548,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 52:                                               ; preds = %48
   %53 = add i64 %.sroa.8.0.i, 16
   %54 = add i64 %.sroa.0.024.i, %53
-  br label %21, !llvm.loop !71
+  br label %21
 
 55:                                               ; preds = %48
   %cond.i = icmp ne i64 %.sroa.01.1.i, 0
@@ -559,7 +559,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br i1 %58, label %59, label %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread, !prof !54
 
 59:                                               ; preds = %55
-  %60 = load <16 x i8>, ptr %.val, align 16, !noalias !72
+  %60 = load <16 x i8>, ptr %.val, align 16, !noalias !69
   %61 = icmp slt <16 x i8> %60, zeroinitializer
   %62 = bitcast <16 x i1> %61 to i16
   %63 = icmp ne i16 %62, 0
@@ -768,9 +768,6 @@ attributes #15 = { cold noreturn nounwind }
 !66 = distinct !{!66, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h73138666818239aeE"}
 !67 = distinct !{!67, !66, !"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h73138666818239aeE: argument 1"}
 !68 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = distinct !{!71, !70}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h7ef77a0847cf57ffE: argument 0"}
-!74 = distinct !{!74, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h7ef77a0847cf57ffE"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h7ef77a0847cf57ffE: argument 0"}
+!71 = distinct !{!71, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h7ef77a0847cf57ffE"}

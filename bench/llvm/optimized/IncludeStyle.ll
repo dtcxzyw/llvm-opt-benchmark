@@ -572,7 +572,7 @@ select.unfold:                                    ; preds = %36, %.lr.ph, %35, %
   %.7.ph59 = phi i32 [ %.567, %35 ], [ %.567, %35 ], [ %.567, %35 ], [ %.567, %35 ], [ %.567, %35 ], [ %.567, %35 ], [ %.567, %35 ], [ %.567, %.lr.ph ], [ 1, %36 ]
   %37 = getelementptr inbounds nuw i8, ptr %.02566, i64 1
   %.not27 = icmp eq ptr %37, %26
-  br i1 %.not27, label %.thread55, label %.lr.ph, !llvm.loop !38
+  br i1 %.not27, label %.thread55, label %.lr.ph
 
 .thread55:                                        ; preds = %35, %35, %35, %36, %select.unfold, %3
   %.0 = phi i32 [ 1, %3 ], [ 2, %35 ], [ 2, %35 ], [ 2, %35 ], [ 2, %36 ], [ %.7.ph59, %select.unfold ]
@@ -815,9 +815,9 @@ define linkonce_odr hidden { ptr, i64 } @_ZZN4llvm4yaml9isNumericENS_9StringRefE
   store i64 %2, ptr %5, align 8
   %6 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str.34, i64 10, i64 noundef 0) #9
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %6, i64 %2)
-  %7 = load i64, ptr %5, align 8, !tbaa !40
+  %7 = load i64, ptr %5, align 8, !tbaa !38
   %.sroa.speculated4.i.i.i = call i64 @llvm.umin.i64(i64 %7, i64 %.sroa.speculated.i)
-  %8 = load ptr, ptr %4, align 8, !tbaa !42
+  %8 = load ptr, ptr %4, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.speculated4.i.i.i
   %10 = sub i64 %7, %.sroa.speculated4.i.i.i
   %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %9, 0
@@ -1107,8 +1107,6 @@ attributes #9 = { nounwind }
 !35 = !{!"_ZTSN4llvm5Twine8NodeKindE", !8, i64 0}
 !36 = !{!34, !35, i64 33}
 !37 = !{!8, !8, i64 0}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!41, !15, i64 8}
-!41 = !{!"_ZTSN4llvm9StringRefE", !21, i64 0, !15, i64 8}
-!42 = !{!41, !21, i64 0}
+!38 = !{!39, !15, i64 8}
+!39 = !{!"_ZTSN4llvm9StringRefE", !21, i64 0, !15, i64 8}
+!40 = !{!39, !21, i64 0}

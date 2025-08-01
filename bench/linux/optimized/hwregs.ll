@@ -200,12 +200,12 @@ define dso_local i32 @acpi_hw_read(ptr noundef captures(none) %0, ptr noundef re
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %4, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  store i32 0, ptr %5, align 4, !annotation !9
-  %6 = call i32 @acpi_hw_validate_register(ptr noundef %1, i8 noundef zeroext 64, ptr noundef nonnull %3), !range !10
+  store i32 0, ptr %5, align 4, !annotation !8
+  %6 = call i32 @acpi_hw_validate_register(ptr noundef %1, i8 noundef zeroext 64, ptr noundef nonnull %3), !range !9
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.loopexit
 
@@ -386,7 +386,7 @@ acpi_hw_get_access_bit_width.exit:                ; preds = %71, %17, %27, %64
   %126 = call i32 @llvm.usub.sat.i32(i32 %99, i32 %88)
   %127 = add i8 %97, 1
   %128 = icmp ugt i32 %99, %88
-  br i1 %128, label %95, label %.loopexit, !llvm.loop !11
+  br i1 %128, label %95, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %116, %acpi_hw_get_access_bit_width.exit, %2
   %129 = phi i32 [ %6, %2 ], [ 0, %acpi_hw_get_access_bit_width.exit ], [ %119, %116 ]
@@ -406,8 +406,8 @@ declare dso_local i32 @acpi_hw_read_port(i64 noundef, ptr noundef, i32 noundef) 
 define dso_local i32 @acpi_hw_write(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store i64 0, ptr %3, align 8, !annotation !9
-  %4 = call i32 @acpi_hw_validate_register(ptr noundef %1, i8 noundef zeroext 64, ptr noundef nonnull %3), !range !10
+  store i64 0, ptr %3, align 8, !annotation !8
+  %4 = call i32 @acpi_hw_validate_register(ptr noundef %1, i8 noundef zeroext 64, ptr noundef nonnull %3), !range !9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %.loopexit
 
@@ -579,7 +579,7 @@ acpi_hw_get_access_bit_width.exit:                ; preds = %69, %15, %25, %62
   %120 = tail call i32 @llvm.usub.sat.i32(i32 %97, i32 %86)
   %121 = add i8 %95, 1
   %122 = icmp ugt i32 %97, %86
-  br i1 %122, label %93, label %.loopexit, !llvm.loop !12
+  br i1 %122, label %93, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %117, %acpi_hw_get_access_bit_width.exit, %2
   %123 = phi i32 [ %4, %2 ], [ 0, %acpi_hw_get_access_bit_width.exit ], [ %119, %117 ]
@@ -679,7 +679,7 @@ define dso_local i32 @acpi_hw_register_write(i32 noundef %0, i32 noundef %1) loc
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !8
   %25 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 172))
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %.thread
@@ -728,7 +728,7 @@ define dso_local i32 @acpi_hw_register_write(i32 noundef %0, i32 noundef %1) loc
   br label %71
 
 52:                                               ; preds = %2
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %4, align 8, !annotation !8
   %53 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 196))
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %71
@@ -821,7 +821,7 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr noundef writeonl
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  store i64 0, ptr %7, align 8, !annotation !9
+  store i64 0, ptr %7, align 8, !annotation !8
   switch i32 %0, label %83 [
     i32 1, label %8
     i32 2, label %27
@@ -833,7 +833,7 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr noundef writeonl
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store i64 0, ptr %5, align 8, !annotation !9
+  store i64 0, ptr %5, align 8, !annotation !8
   %9 = call i32 @acpi_hw_read(ptr noundef nonnull %5, ptr noundef nonnull @acpi_gbl_xpm1a_status)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %25
@@ -868,7 +868,7 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr noundef writeonl
 
 27:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store i64 0, ptr %4, align 8, !annotation !9
+  store i64 0, ptr %4, align 8, !annotation !8
   %28 = call i32 @acpi_hw_read(ptr noundef nonnull %4, ptr noundef nonnull @acpi_gbl_xpm1a_enable)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %44
@@ -903,7 +903,7 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr noundef writeonl
 
 46:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store i64 0, ptr %3, align 8, !annotation !9
+  store i64 0, ptr %3, align 8, !annotation !8
   %47 = call i32 @acpi_hw_read(ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 172))
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %64
@@ -1014,11 +1014,10 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{i32 0, i32 4106}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{i32 0, i32 4106}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}

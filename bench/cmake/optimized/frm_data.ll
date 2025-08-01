@@ -134,14 +134,14 @@ After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
   %55 = add nsw i32 %.05176, %54
   %56 = load i32, ptr %28, align 8, !tbaa !24
   %57 = icmp slt i32 %55, %56
-  br i1 %57, label %33, label %.loopexit, !llvm.loop !31
+  br i1 %57, label %33, label %.loopexit, !llvm.loop !30
 
 58:                                               ; preds = %15
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load i32, ptr %59, align 8, !tbaa !32
+  %60 = load i32, ptr %59, align 8, !tbaa !31
   %61 = add nsw i32 %60, %18
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %63 = load i32, ptr %62, align 4, !tbaa !33
+  %63 = load i32, ptr %62, align 4, !tbaa !32
   %64 = icmp slt i32 %61, %63
   br i1 %64, label %.lr.ph, label %.loopexit
 
@@ -151,9 +151,9 @@ After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
   br label %70
 
 67:                                               ; preds = %After_Last_Non_Pad_Position.exit68
-  %68 = load i32, ptr %62, align 4, !tbaa !33
+  %68 = load i32, ptr %62, align 4, !tbaa !32
   %69 = icmp slt i32 %73, %68
-  br i1 %69, label %70, label %.loopexit, !llvm.loop !34
+  br i1 %69, label %70, label %.loopexit, !llvm.loop !33
 
 70:                                               ; preds = %.lr.ph, %67
   %.172 = phi i32 [ %61, %.lr.ph ], [ %73, %67 ]
@@ -184,10 +184,10 @@ After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
 
 After_Last_Non_Pad_Position.exit68:               ; preds = %82, %84
   %.not65 = icmp eq ptr %.0.i67, %.052
-  br i1 %.not65, label %67, label %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge, !llvm.loop !34
+  br i1 %.not65, label %67, label %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge, !llvm.loop !33
 
 After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge: ; preds = %After_Last_Non_Pad_Position.exit68
-  br label %.loopexit, !llvm.loop !34
+  br label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %67, %After_Last_Non_Pad_Position.exit, %52, %58, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge, %23
   %.257 = phi i1 [ false, %23 ], [ true, %After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge ], [ false, %58 ], [ %.not84.not, %52 ], [ %.not84.not, %After_Last_Non_Pad_Position.exit ], [ false, %67 ]
@@ -205,9 +205,9 @@ After_Last_Non_Pad_Position.exit68..loopexit69_crit_edge: ; preds = %After_Last_
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = load ptr, ptr %92, align 8, !tbaa !25
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load i32, ptr %94, align 8, !tbaa !35
+  %95 = load i32, ptr %94, align 8, !tbaa !34
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !36
+  %97 = load i32, ptr %96, align 4, !tbaa !35
   %98 = tail call i32 @wmove(ptr noundef %93, i32 noundef %95, i32 noundef %97) #7
   br label %99
 
@@ -268,12 +268,11 @@ attributes #7 = { nounwind }
 !25 = !{!5, !10, i64 56}
 !26 = !{!16, !9, i64 36}
 !27 = !{!7, !7, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
-!32 = !{!5, !9, i64 16}
-!33 = !{!16, !9, i64 12}
-!34 = distinct !{!34, !29, !30}
-!35 = !{!5, !9, i64 8}
-!36 = !{!5, !9, i64 12}
+!30 = distinct !{!30, !29}
+!31 = !{!5, !9, i64 16}
+!32 = !{!16, !9, i64 12}
+!33 = distinct !{!33, !29}
+!34 = !{!5, !9, i64 8}
+!35 = !{!5, !9, i64 12}

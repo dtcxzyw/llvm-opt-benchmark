@@ -600,7 +600,7 @@ define dso_local void @dump_update_list(ptr noundef %0) local_unnamed_addr #0 {
 45:                                               ; preds = %42, %.lr.ph.i
   %46 = tail call ptr @slurm_list_next(ptr noundef %37) #12
   %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_dump_slurmdb_assoc_records.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %_dump_slurmdb_assoc_records.exit, label %.lr.ph.i, !llvm.loop !11
 
 _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   tail call void @slurm_list_iterator_destroy(ptr noundef %37) #12
@@ -776,7 +776,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
 _dump_slurmdb_clus_res_record.exit.i.i:           ; preds = %129, %126
   %132 = tail call ptr @slurm_list_next(ptr noundef %119) #12
   %.not.i.i = icmp eq ptr %132, null
-  br i1 %.not.i.i, label %_dump_slurmdb_clus_res_records.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_dump_slurmdb_clus_res_records.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _dump_slurmdb_clus_res_records.exit.i:            ; preds = %_dump_slurmdb_clus_res_record.exit.i.i, %118
   tail call void @slurm_list_iterator_destroy(ptr noundef %119) #12
@@ -785,7 +785,7 @@ _dump_slurmdb_clus_res_records.exit.i:            ; preds = %_dump_slurmdb_clus_
 _dump_slurmdb_clus_res_record.exit.i:             ; preds = %_dump_slurmdb_clus_res_records.exit.i, %115, %112, %109
   %133 = tail call ptr @slurm_list_next(ptr noundef %61) #12
   %.not.i14 = icmp eq ptr %133, null
-  br i1 %.not.i14, label %_dump_slurmdb_res_records.exit, label %.lr.ph.i13, !llvm.loop !14
+  br i1 %.not.i14, label %_dump_slurmdb_res_records.exit, label %.lr.ph.i13, !llvm.loop !13
 
 _dump_slurmdb_res_records.exit:                   ; preds = %_dump_slurmdb_clus_res_record.exit.i, %59
   tail call void @slurm_list_iterator_destroy(ptr noundef %61) #12
@@ -1142,7 +1142,7 @@ define dso_local void @merge_delta_qos_list(ptr noundef %0, ptr noundef %1) loca
 12:                                               ; preds = %10
   %13 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %11, ptr noundef nonnull %9) #12
   %.not25 = icmp eq i32 %13, 0
-  br i1 %.not25, label %14, label %10, !llvm.loop !15
+  br i1 %.not25, label %14, label %10, !llvm.loop !14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @slurm_list_delete_item(ptr noundef %3) #12
@@ -1156,7 +1156,7 @@ define dso_local void @merge_delta_qos_list(ptr noundef %0, ptr noundef %1) loca
 18:                                               ; preds = %16
   %19 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %17, ptr noundef nonnull %8) #12
   %.not23 = icmp eq i32 %19, 0
-  br i1 %.not23, label %.sink.split, label %16, !llvm.loop !16
+  br i1 %.not23, label %.sink.split, label %16, !llvm.loop !15
 
 .critedge:                                        ; preds = %16
   %20 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %8) #12
@@ -1170,7 +1170,7 @@ define dso_local void @merge_delta_qos_list(ptr noundef %0, ptr noundef %1) loca
 21:                                               ; preds = %.sink.split, %.lr.ph
   %22 = tail call ptr @slurm_list_next(ptr noundef %4) #12
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %21, %2
   tail call void @slurm_list_iterator_destroy(ptr noundef %4) #12
@@ -1312,7 +1312,7 @@ define dso_local ptr @acct_get_db_name() local_unnamed_addr #0 {
 
 11:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.preheader, !llvm.loop !18
+  br label %.preheader, !llvm.loop !17
 
 12:                                               ; preds = %6, %10
   %.pr = load i8, ptr %7, align 1
@@ -1786,7 +1786,7 @@ define dso_local range(i32 -1, 1) i32 @archive_write_file(ptr noundef readonly c
   %53 = load ptr, ptr %11, align 8
   %54 = call i32 @access(ptr noundef %53, i32 noundef 0) #12
   %.not10.i = icmp eq i32 %54, 0
-  br i1 %.not10.i, label %.lr.ph.i, label %_make_archive_name.exit, !llvm.loop !19
+  br i1 %.not10.i, label %.lr.ph.i, label %_make_archive_name.exit, !llvm.loop !18
 
 _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   call void @slurm_xfree(ptr noundef nonnull %10) #12
@@ -1880,7 +1880,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %88, %85
-  br label %.lr.ph.split, !llvm.loop !20
+  br label %.lr.ph.split, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.split.us, %64
   %90 = call i32 @fsync(i32 noundef %60) #12
@@ -2278,16 +2278,15 @@ attributes #14 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

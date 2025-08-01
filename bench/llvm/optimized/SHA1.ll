@@ -1182,7 +1182,7 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %24
   %30 = add i64 %.sroa.9.141, -64
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 64
   %32 = icmp ugt i64 %30, 63
-  br i1 %32, label %.preheader, label %._crit_edge42, !llvm.loop !15
+  br i1 %32, label %.preheader, label %._crit_edge42, !llvm.loop !14
 
 33:                                               ; preds = %.preheader, %33
   %.01839 = phi i64 [ 0, %.preheader ], [ %38, %33 ]
@@ -1195,7 +1195,7 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %24
   store i32 %36, ptr %37, align 4, !tbaa !11
   %38 = add nuw nsw i64 %.01839, 1
   %exitcond51.not = icmp eq i64 %38, 16
-  br i1 %exitcond51.not, label %29, label %33, !llvm.loop !16
+  br i1 %exitcond51.not, label %29, label %33, !llvm.loop !15
 
 ._crit_edge42:                                    ; preds = %29, %27
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %27 ], [ %31, %29 ]
@@ -1234,7 +1234,7 @@ _ZN4llvm4SHA112addUncountedEh.exit24:             ; preds = %.lr.ph47, %48
   %49 = phi i8 [ %46, %.lr.ph47 ], [ 0, %48 ]
   %50 = getelementptr inbounds nuw i8, ptr %.01945, i64 1
   %.not21 = icmp eq ptr %50, %39
-  br i1 %.not21, label %._crit_edge48, label %.lr.ph47, !llvm.loop !17
+  br i1 %.not21, label %._crit_edge48, label %.lr.ph47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1291,7 +1291,7 @@ _ZN4llvm4SHA112addUncountedEh.exit.thread:        ; preds = %1
 _ZN4llvm4SHA112addUncountedEh.exit1:              ; preds = %.lr.ph, %16
   %17 = phi i8 [ %14, %.lr.ph ], [ 0, %16 ]
   %.not = icmp eq i8 %17, 56
-  br i1 %.not, label %_ZN4llvm4SHA112addUncountedEh.exit2, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %_ZN4llvm4SHA112addUncountedEh.exit2, label %.lr.ph, !llvm.loop !16
 
 _ZN4llvm4SHA112addUncountedEh.exit2:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit1, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 59
@@ -1422,7 +1422,7 @@ define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr noundef nonnull 
   store i32 %8, ptr %9, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !19
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1442,10 +1442,10 @@ define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias writable
   store i32 %8, ptr %9, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit, label %5, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit, label %5, !llvm.loop !17
 
 _ZN4llvm4SHA15finalERSt5arrayIjLm5EE.exit:        ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
   ret void
 }
@@ -1455,27 +1455,27 @@ define dso_local void @_ZN4llvm4SHA16resultEv(ptr dead_on_unwind noalias writabl
   %3 = alloca %union.anon.1, align 4
   %4 = alloca %struct.anon, align 4
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, ptr noundef nonnull align 4 dereferenceable(92) %1, i64 92, i1 false), !tbaa.struct !21
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9, !noalias !22
-  tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %1), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, ptr noundef nonnull align 4 dereferenceable(92) %1, i64 92, i1 false), !tbaa.struct !19
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9, !noalias !20
+  tail call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %1), !noalias !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %6
 
 6:                                                ; preds = %6, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %6 ]
   %7 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
-  %8 = load i32, ptr %7, align 4, !tbaa !3, !noalias !22
+  %8 = load i32, ptr %7, align 4, !tbaa !3, !noalias !20
   %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   %10 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store i32 %9, ptr %10, align 4, !tbaa !3, !noalias !22
+  store i32 %9, ptr %10, align 4, !tbaa !3, !noalias !20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %6, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %6, !llvm.loop !17
 
 _ZN4llvm4SHA15finalEv.exit:                       ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9, !noalias !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, ptr noundef nonnull align 4 dereferenceable(92) %4, i64 92, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9, !noalias !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, ptr noundef nonnull align 4 dereferenceable(92) %4, i64 92, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4)
   ret void
 }
@@ -1500,24 +1500,24 @@ define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind no
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i8 0, ptr %12, align 4, !tbaa !10
   call void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(92) %5, ptr %1, i64 %2)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9, !noalias !25
-  call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %5), !noalias !25
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9, !noalias !23
+  call void @_ZN4llvm4SHA13padEv(ptr noundef nonnull align 4 dereferenceable(92) %5), !noalias !23
   br label %13
 
 13:                                               ; preds = %13, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %13 ]
   %14 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
-  %15 = load i32, ptr %14, align 4, !tbaa !3, !noalias !25
+  %15 = load i32, ptr %14, align 4, !tbaa !3, !noalias !23
   %16 = tail call noundef i32 @llvm.bswap.i32(i32 %15)
   %17 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
-  store i32 %16, ptr %17, align 4, !tbaa !3, !noalias !25
+  store i32 %16, ptr %17, align 4, !tbaa !3, !noalias !23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %13, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %_ZN4llvm4SHA15finalEv.exit, label %13, !llvm.loop !17
 
 _ZN4llvm4SHA15finalEv.exit:                       ; preds = %13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9, !noalias !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9, !noalias !23
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %5) #9
   ret void
 }
@@ -1559,19 +1559,17 @@ attributes #9 = { nounwind }
 !9 = !{!"_ZTSN4llvm4SHA1Ut1_E", !5, i64 0, !5, i64 64, !4, i64 84, !5, i64 88}
 !10 = !{!8, !5, i64 88}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = distinct !{!19, !13, !14}
-!20 = !{i64 0, i64 20, !11}
-!21 = !{i64 0, i64 64, !11, i64 64, i64 20, !11, i64 84, i64 4, !3, i64 88, i64 1, !11}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN4llvm4SHA15finalEv: argument 0"}
-!24 = distinct !{!24, !"_ZN4llvm4SHA15finalEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4llvm4SHA15finalEv: argument 0"}
-!27 = distinct !{!27, !"_ZN4llvm4SHA15finalEv"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = !{i64 0, i64 20, !11}
+!19 = !{i64 0, i64 64, !11, i64 64, i64 20, !11, i64 84, i64 4, !3, i64 88, i64 1, !11}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN4llvm4SHA15finalEv: argument 0"}
+!22 = distinct !{!22, !"_ZN4llvm4SHA15finalEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN4llvm4SHA15finalEv: argument 0"}
+!25 = distinct !{!25, !"_ZN4llvm4SHA15finalEv"}

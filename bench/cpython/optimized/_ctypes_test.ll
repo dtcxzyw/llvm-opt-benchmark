@@ -309,10 +309,10 @@ define double @_testfunc_array_in_struct3A(<2 x float> %0, <2 x float> %1) local
   %6 = phi i1 [ true, %2 ], [ false, %5 ]
   %indvars.iv.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv.sroa.gep24, %5 ]
   %.0912 = phi double [ 0.000000e+00, %2 ], [ %9, %5 ]
-  %7 = load float, ptr %indvars.iv.sroa.phi, align 4, !tbaa !18
+  %7 = load float, ptr %indvars.iv.sroa.phi, align 4, !tbaa !17
   %8 = fpext float %7 to double
   %9 = fadd double %.0912, %8
-  br i1 %6, label %5, label %.preheader, !llvm.loop !20
+  br i1 %6, label %5, label %.preheader, !llvm.loop !19
 
 10:                                               ; preds = %.preheader
   ret double %15
@@ -322,10 +322,10 @@ define double @_testfunc_array_in_struct3A(<2 x float> %0, <2 x float> %1) local
   %indvars.iv18 = phi i64 [ 1, %.preheader ], [ 0, %5 ]
   %.114 = phi double [ %15, %.preheader ], [ %9, %5 ]
   %12 = getelementptr [2 x float], ptr %4, i64 0, i64 %indvars.iv18
-  %13 = load float, ptr %12, align 4, !tbaa !18
+  %13 = load float, ptr %12, align 4, !tbaa !17
   %14 = fpext float %13 to double
   %15 = fadd double %.114, %14
-  br i1 %11, label %.preheader, label %10, !llvm.loop !21
+  br i1 %11, label %.preheader, label %10, !llvm.loop !20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -340,7 +340,7 @@ define double @_testfunc_array_in_struct3B(double %0, double %1) local_unnamed_a
   %indvars.iv.sroa.phi.sroa.speculated = phi double [ %0, %2 ], [ %1, %4 ]
   %.046 = phi double [ 0.000000e+00, %2 ], [ %6, %4 ]
   %6 = fadd double %.046, %indvars.iv.sroa.phi.sroa.speculated
-  br i1 %5, label %4, label %3, !llvm.loop !22
+  br i1 %5, label %4, label %3, !llvm.loop !21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -360,11 +360,11 @@ define double @_testfunc_array_in_struct3C(ptr noundef readonly byval(%struct.Te
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.046 = phi double [ 0.000000e+00, %1 ], [ %6, %3 ]
   %4 = getelementptr [4 x double], ptr %0, i64 0, i64 %indvars.iv
-  %5 = load double, ptr %4, align 8, !tbaa !23
+  %5 = load double, ptr %4, align 8, !tbaa !22
   %6 = fadd double %.046, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !25
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -380,9 +380,9 @@ define void @_testfunc_array_in_struct3C_set_defaults(ptr dead_on_unwind noalias
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
   %6 = getelementptr [4 x double], ptr %0, i64 0, i64 %indvars.iv
-  store double %5, ptr %6, align 8, !tbaa !23
+  store double %5, ptr %6, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !26
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -396,11 +396,11 @@ define double @_testfunc_array_in_struct3D(ptr noundef readonly byval(%struct.Te
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.046 = phi double [ 0.000000e+00, %1 ], [ %6, %3 ]
   %4 = getelementptr [8 x double], ptr %0, i64 0, i64 %indvars.iv
-  %5 = load double, ptr %4, align 8, !tbaa !23
+  %5 = load double, ptr %4, align 8, !tbaa !22
   %6 = fadd double %.046, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !27
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -416,9 +416,9 @@ define void @_testfunc_array_in_struct3D_set_defaults(ptr dead_on_unwind noalias
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
   %6 = getelementptr [8 x double], ptr %0, i64 0, i64 %indvars.iv
-  store double %5, ptr %6, align 8, !tbaa !23
+  store double %5, ptr %6, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !28
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -432,11 +432,11 @@ define double @_testfunc_array_in_struct3E(ptr noundef readonly byval(%struct.Te
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.046 = phi double [ 0.000000e+00, %1 ], [ %6, %3 ]
   %4 = getelementptr [9 x double], ptr %0, i64 0, i64 %indvars.iv
-  %5 = load double, ptr %4, align 8, !tbaa !23
+  %5 = load double, ptr %4, align 8, !tbaa !22
   %6 = fadd double %.046, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !29
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -452,9 +452,9 @@ define void @_testfunc_array_in_struct3E_set_defaults(ptr dead_on_unwind noalias
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
   %6 = getelementptr [9 x double], ptr %0, i64 0, i64 %indvars.iv
-  store double %5, ptr %6, align 8, !tbaa !23
+  store double %5, ptr %6, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !30
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -469,9 +469,9 @@ define i64 @_testfunc_union_by_value1(i64 %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_value2(ptr noundef readonly byval(%struct.Test5) align 8 captures(none) %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 8, !tbaa !31
+  %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !34
+  %4 = load i32, ptr %3, align 8, !tbaa !33
   %5 = add i32 %4, %2
   %6 = sext i32 %5 to i64
   ret i64 %6
@@ -497,12 +497,12 @@ define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference2(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr noundef captures(none) initializes((4, 8), (12, 24), (28, 32)) %0) local_unnamed_addr #12 {
-  %2 = load i32, ptr %0, align 8, !tbaa !31
+  %2 = load i32, ptr %0, align 8, !tbaa !30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !34
+  %4 = load i32, ptr %3, align 8, !tbaa !33
   %5 = add i32 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !35
+  %7 = load i32, ptr %6, align 8, !tbaa !34
   %8 = add i32 %5, %7
   %9 = sext i32 %8 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -566,60 +566,60 @@ define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr noundef captur
 define i64 @_testfunc_bitfield_by_reference3(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = alloca [10 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #35
-  %4 = load i16, ptr %0, align 4, !tbaa !36
+  %4 = load i16, ptr %0, align 4, !tbaa !35
   %5 = zext i16 %4 to i64
-  store i64 %5, ptr %3, align 16, !tbaa !39
+  store i64 %5, ptr %3, align 16, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 511
   %10 = zext nneg i16 %9 to i64
-  store i64 %10, ptr %6, align 8, !tbaa !39
+  store i64 %10, ptr %6, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = lshr i16 %8, 9
   %13 = and i16 %12, 1
   %14 = zext nneg i16 %13 to i64
-  store i64 %14, ptr %11, align 16, !tbaa !39
+  store i64 %14, ptr %11, align 16, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = lshr i16 %8, 10
   %17 = and i16 %16, 1
   %18 = zext nneg i16 %17 to i64
-  store i64 %18, ptr %15, align 8, !tbaa !39
+  store i64 %18, ptr %15, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = lshr i16 %8, 11
   %21 = and i16 %20, 1
   %22 = zext nneg i16 %21 to i64
-  store i64 %22, ptr %19, align 16, !tbaa !39
+  store i64 %22, ptr %19, align 16, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %24 = lshr i16 %8, 12
   %25 = and i16 %24, 1
   %26 = zext nneg i16 %25 to i64
-  store i64 %26, ptr %23, align 8, !tbaa !39
+  store i64 %26, ptr %23, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %28 = lshr i16 %8, 13
   %29 = zext nneg i16 %28 to i64
-  store i64 %29, ptr %27, align 16, !tbaa !39
+  store i64 %29, ptr %27, align 16, !tbaa !38
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1023
   %34 = zext nneg i32 %33 to i64
-  store i64 %34, ptr %30, align 8, !tbaa !39
+  store i64 %34, ptr %30, align 8, !tbaa !38
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %36 = lshr i32 %32, 10
   %37 = and i32 %36, 1048575
   %38 = zext nneg i32 %37 to i64
-  store i64 %38, ptr %35, align 16, !tbaa !39
+  store i64 %38, ptr %35, align 16, !tbaa !38
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %40 = lshr i32 %32, 30
   %41 = zext nneg i32 %40 to i64
-  store i64 %41, ptr %39, align 8, !tbaa !39
+  store i64 %41, ptr %39, align 8, !tbaa !38
   %or.cond = icmp ugt i64 %1, 9
   br i1 %or.cond, label %45, label %42
 
 42:                                               ; preds = %2
   %43 = getelementptr [10 x i64], ptr %3, i64 0, i64 %1
-  %44 = load i64, ptr %43, align 8, !tbaa !39
+  %44 = load i64, ptr %43, align 8, !tbaa !38
   br label %45
 
 45:                                               ; preds = %2, %42
@@ -643,13 +643,13 @@ define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value2(i32 %0) local_unnamed_
 
 ; Function Attrs: nofree nounwind uwtable
 define void @testfunc_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
-  %2 = load i32, ptr %0, align 4, !tbaa !40
+  %2 = load i32, ptr %0, align 4, !tbaa !39
   %3 = getelementptr i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !40
+  %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = getelementptr i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !40
+  %6 = load i32, ptr %5, align 4, !tbaa !39
   %7 = getelementptr i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !40
+  %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %2, i32 noundef %4, i32 noundef %6, i32 noundef %8)
   ret void
 }
@@ -661,13 +661,13 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define noundef x86_fp80 @testfunc_Ddd(double noundef %0, double noundef %1) local_unnamed_addr #13 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  store double %0, ptr %3, align 8, !tbaa !23
-  store double %1, ptr %4, align 8, !tbaa !23
+  store double %0, ptr %3, align 8, !tbaa !22
+  store double %1, ptr %4, align 8, !tbaa !22
   %5 = fmul double %0, %1
   %6 = fpext double %5 to x86_fp80
   %7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %8 = load double, ptr %3, align 8, !tbaa !23
-  %9 = load double, ptr %4, align 8, !tbaa !23
+  %8 = load double, ptr %3, align 8, !tbaa !22
+  %9 = load double, ptr %4, align 8, !tbaa !22
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %8, double noundef %9)
   ret x86_fp80 %6
 }
@@ -676,12 +676,12 @@ define noundef x86_fp80 @testfunc_Ddd(double noundef %0, double noundef %1) loca
 define noundef x86_fp80 @testfunc_DDD(x86_fp80 noundef %0, x86_fp80 noundef %1) local_unnamed_addr #13 {
   %3 = alloca x86_fp80, align 16
   %4 = alloca x86_fp80, align 16
-  store x86_fp80 %0, ptr %3, align 16, !tbaa !41
-  store x86_fp80 %1, ptr %4, align 16, !tbaa !41
+  store x86_fp80 %0, ptr %3, align 16, !tbaa !40
+  store x86_fp80 %1, ptr %4, align 16, !tbaa !40
   %5 = fmul x86_fp80 %0, %1
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %7 = load x86_fp80, ptr %3, align 16, !tbaa !41
-  %8 = load x86_fp80, ptr %4, align 16, !tbaa !41
+  %7 = load x86_fp80, ptr %3, align 16, !tbaa !40
+  %8 = load x86_fp80, ptr %4, align 16, !tbaa !40
   %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, x86_fp80 noundef %7, x86_fp80 noundef %8)
   ret x86_fp80 %5
 }
@@ -690,8 +690,8 @@ define noundef x86_fp80 @testfunc_DDD(x86_fp80 noundef %0, x86_fp80 noundef %1) 
 define noundef i32 @testfunc_iii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4, !tbaa !40
-  store i32 %1, ptr %4, align 4, !tbaa !40
+  store i32 %0, ptr %3, align 4, !tbaa !39
+  store i32 %1, ptr %4, align 4, !tbaa !39
   %5 = mul i32 %1, %0
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4)
   ret i32 %5
@@ -702,7 +702,7 @@ define noundef i32 @myprintf(ptr noundef readonly captures(none) %0, ...) local_
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #35
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !43, !noalias !46
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !42, !noalias !45
   %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #35
   call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #35
@@ -735,7 +735,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) #19
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define double @my_sqrt(double noundef %0) local_unnamed_addr #20 {
-  %2 = tail call double @sqrt(double noundef %0) #35, !tbaa !40
+  %2 = tail call double @sqrt(double noundef %0) #35, !tbaa !39
   ret double %2
 }
 
@@ -759,7 +759,7 @@ define noundef ptr @_testfunc_ai8(ptr noundef readnone returned captures(ret: ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_testfunc_v(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #23 {
   %4 = add i32 %1, %0
-  store i32 %4, ptr %2, align 4, !tbaa !40
+  store i32 %4, ptr %2, align 4, !tbaa !39
   ret void
 }
 
@@ -832,11 +832,11 @@ define noundef ptr @_testfunc_p_p(ptr noundef readnone returned captures(ret: ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @_testfunc_c_p_p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
-  %3 = load i32, ptr %0, align 4, !tbaa !40
+  %3 = load i32, ptr %0, align 4, !tbaa !39
   %4 = add i32 %3, -1
   %5 = sext i32 %4 to i64
   %6 = getelementptr ptr, ptr %1, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !48
   ret ptr %7
 }
 
@@ -907,17 +907,17 @@ define i64 @my_wcslen(ptr noundef readonly captures(none) %0) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @_testfunc_callfuncp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !51
+  %2 = load ptr, ptr %0, align 8, !tbaa !50
   %3 = tail call i32 %2(i32 noundef 1, i32 noundef 2) #35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = tail call i32 %5(i32 noundef 3, i32 noundef 4) #35
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @_testfunc_deref_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 4, !tbaa !40
+  %2 = load i32, ptr %0, align 4, !tbaa !39
   ret i32 %2
 }
 
@@ -978,7 +978,7 @@ define i32 @_testfunc_callback_i_if(i32 noundef %0, ptr noundef readonly capture
   %5 = sdiv i32 %.057, 2
   %.057.off = add i32 %.057, 1
   %.not = icmp ult i32 %.057.off, 3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %4, %.lr.ph ]
@@ -998,7 +998,7 @@ define i64 @_testfunc_callback_q_qf(i64 noundef %0, ptr noundef readonly capture
   %5 = sdiv i64 %.057, 2
   %.057.off = add i64 %.057, 1
   %.not = icmp ult i64 %.057.off, 3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %4, %.lr.ph ]
@@ -1007,7 +1007,7 @@ define i64 @_testfunc_callback_q_qf(i64 noundef %0, ptr noundef readonly capture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @getSPAMANDEGGS(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #23 {
-  store ptr @my_eggs, ptr %0, align 8, !tbaa !56
+  store ptr @my_eggs, ptr %0, align 8, !tbaa !55
   ret i32 1
 }
 
@@ -1030,7 +1030,7 @@ define i32 @_testfunc_byval(i64 %0, ptr noundef writeonly captures(address_is_nu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @get_an_integer() local_unnamed_addr #29 {
-  %1 = load i32, ptr @an_integer, align 4, !tbaa !40
+  %1 = load i32, ptr @an_integer, align 4, !tbaa !39
   ret i32 %1
 }
 
@@ -1056,7 +1056,7 @@ define double @integrate(double noundef %0, double noundef %1, ptr noundef reado
   %17 = fsub double %15, %0
   %18 = fmul double %16, %17
   %19 = fcmp ogt double %18, 0.000000e+00
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.015.lcssa = phi double [ 0.000000e+00, %4 ], [ %14, %.lr.ph ]
@@ -1403,7 +1403,7 @@ define range(i32 -256, 1000) i32 @unpack_bitfields_msvc(ptr noundef readonly cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef signext range(i8 -42, 43) i8 @tf_b(i8 noundef signext %0) local_unnamed_addr #32 {
   %2 = sext i8 %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i8 %0, 3
   ret i8 %3
 }
@@ -1411,7 +1411,7 @@ define noundef signext range(i8 -42, 43) i8 @tf_b(i8 noundef signext %0) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext range(i8 0, 86) i8 @tf_B(i8 noundef zeroext %0) local_unnamed_addr #32 {
   %2 = zext i8 %0 to i64
-  store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i8 %0, 3
   ret i8 %3
 }
@@ -1419,7 +1419,7 @@ define noundef zeroext range(i8 0, 86) i8 @tf_B(i8 noundef zeroext %0) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef signext range(i16 -10922, 10923) i16 @tf_h(i16 noundef signext %0) local_unnamed_addr #32 {
   %2 = sext i16 %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i16 %0, 3
   ret i16 %3
 }
@@ -1427,7 +1427,7 @@ define noundef signext range(i16 -10922, 10923) i16 @tf_h(i16 noundef signext %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext range(i16 0, 21846) i16 @tf_H(i16 noundef zeroext %0) local_unnamed_addr #32 {
   %2 = zext i16 %0 to i64
-  store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i16 %0, 3
   ret i16 %3
 }
@@ -1435,7 +1435,7 @@ define noundef zeroext range(i16 0, 21846) i16 @tf_H(i16 noundef zeroext %0) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i32 -715827882, 715827883) i32 @tf_i(i32 noundef %0) local_unnamed_addr #32 {
   %2 = sext i32 %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i32 %0, 3
   ret i32 %3
 }
@@ -1443,35 +1443,35 @@ define noundef range(i32 -715827882, 715827883) i32 @tf_i(i32 noundef %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 1431655766) i32 @tf_I(i32 noundef %0) local_unnamed_addr #32 {
   %2 = zext i32 %0 to i64
-  store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i32 %0, 3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_l(i64 noundef %0) local_unnamed_addr #32 {
-  store i64 %0, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %0, ptr @last_tf_arg_s, align 8, !tbaa !57
   %2 = sdiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 0, 6148914691236517206) i64 @tf_L(i64 noundef %0) local_unnamed_addr #32 {
-  store i64 %0, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %0, ptr @last_tf_arg_u, align 8, !tbaa !57
   %2 = udiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_q(i64 noundef %0) local_unnamed_addr #32 {
-  store i64 %0, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %0, ptr @last_tf_arg_s, align 8, !tbaa !57
   %2 = sdiv i64 %0, 3
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 0, 6148914691236517206) i64 @tf_Q(i64 noundef %0) local_unnamed_addr #32 {
-  store i64 %0, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %0, ptr @last_tf_arg_u, align 8, !tbaa !57
   %2 = udiv i64 %0, 3
   ret i64 %2
 }
@@ -1479,7 +1479,7 @@ define noundef range(i64 0, 6148914691236517206) i64 @tf_Q(i64 noundef %0) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef float @tf_f(float noundef %0) local_unnamed_addr #32 {
   %2 = fptosi float %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = fdiv float %0, 3.000000e+00
   ret float %3
 }
@@ -1487,7 +1487,7 @@ define noundef float @tf_f(float noundef %0) local_unnamed_addr #32 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef double @tf_d(double noundef %0) local_unnamed_addr #32 {
   %2 = fptosi double %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = fdiv double %0, 3.000000e+00
   ret double %3
 }
@@ -1495,7 +1495,7 @@ define noundef double @tf_d(double noundef %0) local_unnamed_addr #32 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef x86_fp80 @tf_D(x86_fp80 noundef %0) local_unnamed_addr #32 {
   %2 = fptosi x86_fp80 %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = fdiv x86_fp80 %0, 0xK4000C000000000000000
   ret x86_fp80 %3
 }
@@ -1503,7 +1503,7 @@ define noundef x86_fp80 @tf_D(x86_fp80 noundef %0) local_unnamed_addr #32 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef signext range(i8 -42, 43) i8 @tf_bb(i8 noundef signext %0, i8 noundef signext %1) local_unnamed_addr #32 {
   %3 = sext i8 %1 to i64
-  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = sdiv i8 %1, 3
   ret i8 %4
 }
@@ -1511,7 +1511,7 @@ define noundef signext range(i8 -42, 43) i8 @tf_bb(i8 noundef signext %0, i8 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext range(i8 0, 86) i8 @tf_bB(i8 noundef signext %0, i8 noundef zeroext %1) local_unnamed_addr #32 {
   %3 = zext i8 %1 to i64
-  store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !57
   %4 = udiv i8 %1, 3
   ret i8 %4
 }
@@ -1519,7 +1519,7 @@ define noundef zeroext range(i8 0, 86) i8 @tf_bB(i8 noundef signext %0, i8 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef signext range(i16 -10922, 10923) i16 @tf_bh(i8 noundef signext %0, i16 noundef signext %1) local_unnamed_addr #32 {
   %3 = sext i16 %1 to i64
-  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = sdiv i16 %1, 3
   ret i16 %4
 }
@@ -1527,7 +1527,7 @@ define noundef signext range(i16 -10922, 10923) i16 @tf_bh(i8 noundef signext %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext range(i16 0, 21846) i16 @tf_bH(i8 noundef signext %0, i16 noundef zeroext %1) local_unnamed_addr #32 {
   %3 = zext i16 %1 to i64
-  store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !57
   %4 = udiv i16 %1, 3
   ret i16 %4
 }
@@ -1535,7 +1535,7 @@ define noundef zeroext range(i16 0, 21846) i16 @tf_bH(i8 noundef signext %0, i16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i32 -715827882, 715827883) i32 @tf_bi(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #32 {
   %3 = sext i32 %1 to i64
-  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = sdiv i32 %1, 3
   ret i32 %4
 }
@@ -1543,35 +1543,35 @@ define noundef range(i32 -715827882, 715827883) i32 @tf_bi(i8 noundef signext %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 1431655766) i32 @tf_bI(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #32 {
   %3 = zext i32 %1 to i64
-  store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_u, align 8, !tbaa !57
   %4 = udiv i32 %1, 3
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bl(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
-  store i64 %1, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %1, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 0, 6148914691236517206) i64 @tf_bL(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
-  store i64 %1, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %1, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bq(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
-  store i64 %1, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %1, ptr @last_tf_arg_s, align 8, !tbaa !57
   %3 = sdiv i64 %1, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef range(i64 0, 6148914691236517206) i64 @tf_bQ(i8 noundef signext %0, i64 noundef %1) local_unnamed_addr #32 {
-  store i64 %1, ptr @last_tf_arg_u, align 8, !tbaa !58
+  store i64 %1, ptr @last_tf_arg_u, align 8, !tbaa !57
   %3 = udiv i64 %1, 3
   ret i64 %3
 }
@@ -1579,7 +1579,7 @@ define noundef range(i64 0, 6148914691236517206) i64 @tf_bQ(i8 noundef signext %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef float @tf_bf(i8 noundef signext %0, float noundef %1) local_unnamed_addr #32 {
   %3 = fptosi float %1 to i64
-  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = fdiv float %1, 3.000000e+00
   ret float %4
 }
@@ -1587,7 +1587,7 @@ define noundef float @tf_bf(i8 noundef signext %0, float noundef %1) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef double @tf_bd(i8 noundef signext %0, double noundef %1) local_unnamed_addr #32 {
   %3 = fptosi double %1 to i64
-  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = fdiv double %1, 3.000000e+00
   ret double %4
 }
@@ -1595,7 +1595,7 @@ define noundef double @tf_bd(i8 noundef signext %0, double noundef %1) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef x86_fp80 @tf_bD(i8 noundef signext %0, x86_fp80 noundef %1) local_unnamed_addr #32 {
   %3 = fptosi x86_fp80 %1 to i64
-  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %3, ptr @last_tf_arg_s, align 8, !tbaa !57
   %4 = fdiv x86_fp80 %1, 0xK4000C000000000000000
   ret x86_fp80 %4
 }
@@ -1603,31 +1603,31 @@ define noundef x86_fp80 @tf_bD(i8 noundef signext %0, x86_fp80 noundef %1) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @tv_i(i32 noundef %0) local_unnamed_addr #32 {
   %2 = sext i32 %0 to i64
-  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !58
+  store i64 %2, ptr @last_tf_arg_s, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @PointInRect(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) local_unnamed_addr #11 {
-  %4 = load i64, ptr %0, align 8, !tbaa !60
+  %4 = load i64, ptr %0, align 8, !tbaa !59
   %5 = icmp slt i64 %1, %4
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !62
+  %8 = load i64, ptr %7, align 8, !tbaa !61
   %9 = icmp sgt i64 %1, %8
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !63
+  %12 = load i64, ptr %11, align 8, !tbaa !62
   %13 = icmp slt i64 %2, %12
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !64
+  %16 = load i64, ptr %15, align 8, !tbaa !63
   %17 = icmp sle i64 %2, %16
   %. = zext i1 %17 to i32
   br label %18
@@ -1639,65 +1639,65 @@ define range(i32 0, 2) i32 @PointInRect(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @ReturnRect(ptr dead_on_unwind noalias writable writeonly sret(%struct.RECT) align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1, ptr noundef byval(%struct.RECT) align 8 captures(none) %2, ptr noundef readonly captures(none) %3, i64 %4, i64 %5, ptr noundef readonly byval(%struct.RECT) align 8 captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly byval(%struct.POINT) align 8 captures(none) %8, ptr noundef readonly byval(%struct.RECT) align 8 captures(none) %9) local_unnamed_addr #33 {
-  %11 = load i64, ptr %2, align 8, !tbaa !60
-  %12 = load i64, ptr %3, align 8, !tbaa !60
+  %11 = load i64, ptr %2, align 8, !tbaa !59
+  %12 = load i64, ptr %3, align 8, !tbaa !59
   %13 = add i64 %12, %11
-  %14 = load i64, ptr %6, align 8, !tbaa !60
+  %14 = load i64, ptr %6, align 8, !tbaa !59
   %15 = add i64 %13, %14
-  %16 = load i64, ptr %7, align 8, !tbaa !60
+  %16 = load i64, ptr %7, align 8, !tbaa !59
   %17 = add i64 %15, %16
-  %18 = load i64, ptr %9, align 8, !tbaa !60
+  %18 = load i64, ptr %9, align 8, !tbaa !59
   %19 = add i64 %17, %18
-  %20 = load i64, ptr @left, align 8, !tbaa !39
+  %20 = load i64, ptr @left, align 8, !tbaa !38
   %21 = mul i64 %20, 5
   %.not = icmp eq i64 %19, %21
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %10
-  store i64 100, ptr %2, align 8, !tbaa !60
+  store i64 100, ptr %2, align 8, !tbaa !59
   br label %51
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !62
+  %25 = load i64, ptr %24, align 8, !tbaa !61
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !62
+  %27 = load i64, ptr %26, align 8, !tbaa !61
   %28 = add i64 %27, %25
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !62
+  %30 = load i64, ptr %29, align 8, !tbaa !61
   %31 = add i64 %28, %30
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !62
+  %33 = load i64, ptr %32, align 8, !tbaa !61
   %34 = add i64 %31, %33
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !62
+  %36 = load i64, ptr %35, align 8, !tbaa !61
   %37 = add i64 %34, %36
-  %38 = load i64, ptr @right, align 8, !tbaa !39
+  %38 = load i64, ptr @right, align 8, !tbaa !38
   %39 = mul i64 %38, 5
   %.not4 = icmp eq i64 %37, %39
   br i1 %.not4, label %41, label %40
 
 40:                                               ; preds = %23
-  store i64 100, ptr %24, align 8, !tbaa !62
+  store i64 100, ptr %24, align 8, !tbaa !61
   br label %51
 
 41:                                               ; preds = %23
-  %42 = load i64, ptr %8, align 8, !tbaa !65
+  %42 = load i64, ptr %8, align 8, !tbaa !64
   %.not5 = icmp eq i64 %4, %42
   br i1 %.not5, label %44, label %43
 
 43:                                               ; preds = %41
-  store i64 -100, ptr %2, align 8, !tbaa !60
+  store i64 -100, ptr %2, align 8, !tbaa !59
   br label %44
 
 44:                                               ; preds = %43, %41
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !67
+  %46 = load i64, ptr %45, align 8, !tbaa !66
   %.not6 = icmp eq i64 %5, %46
   br i1 %.not6, label %48, label %47
 
 47:                                               ; preds = %44
-  store i64 -200, ptr %2, align 8, !tbaa !60
+  store i64 -200, ptr %2, align 8, !tbaa !59
   br label %48
 
 48:                                               ; preds = %47, %44
@@ -1730,38 +1730,38 @@ define i32 @ret_2h_func(i32 %0) local_unnamed_addr #10 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ret_8i_func(ptr dead_on_unwind noalias writable writeonly sret(%struct.S8I) align 4 captures(none) initializes((0, 32)) %0, ptr noundef byval(%struct.S8I) align 8 captures(none) %1) local_unnamed_addr #12 {
-  %3 = load i32, ptr %1, align 8, !tbaa !68
+  %3 = load i32, ptr %1, align 8, !tbaa !67
   %4 = shl i32 %3, 1
-  store i32 %4, ptr %1, align 8, !tbaa !68
+  store i32 %4, ptr %1, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !70
+  %6 = load i32, ptr %5, align 4, !tbaa !69
   %7 = mul i32 %6, 3
-  store i32 %7, ptr %5, align 4, !tbaa !70
+  store i32 %7, ptr %5, align 4, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !71
+  %9 = load i32, ptr %8, align 8, !tbaa !70
   %10 = shl i32 %9, 2
-  store i32 %10, ptr %8, align 8, !tbaa !71
+  store i32 %10, ptr %8, align 8, !tbaa !70
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !72
+  %12 = load i32, ptr %11, align 4, !tbaa !71
   %13 = mul i32 %12, 5
-  store i32 %13, ptr %11, align 4, !tbaa !72
+  store i32 %13, ptr %11, align 4, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !73
+  %15 = load i32, ptr %14, align 8, !tbaa !72
   %16 = mul i32 %15, 6
-  store i32 %16, ptr %14, align 8, !tbaa !73
+  store i32 %16, ptr %14, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %18 = load i32, ptr %17, align 4, !tbaa !74
+  %18 = load i32, ptr %17, align 4, !tbaa !73
   %19 = mul i32 %18, 7
-  store i32 %19, ptr %17, align 4, !tbaa !74
+  store i32 %19, ptr %17, align 4, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !75
+  %21 = load i32, ptr %20, align 8, !tbaa !74
   %22 = shl i32 %21, 3
-  store i32 %22, ptr %20, align 8, !tbaa !75
+  store i32 %22, ptr %20, align 8, !tbaa !74
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %24 = load i32, ptr %23, align 4, !tbaa !76
+  %24 = load i32, ptr %23, align 4, !tbaa !75
   %25 = mul i32 %24, 9
-  store i32 %25, ptr %23, align 4, !tbaa !76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !77
+  store i32 %25, ptr %23, align 4, !tbaa !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !76
   ret void
 }
 
@@ -1772,19 +1772,19 @@ define range(i32 0, 2) i32 @GetRectangle(i32 noundef %0, ptr noundef writeonly c
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  store i64 %5, ptr %1, align 8, !tbaa !60
+  store i64 %5, ptr %1, align 8, !tbaa !59
   %6 = add i32 %0, 1
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !63
+  store i64 %7, ptr %8, align 8, !tbaa !62
   %9 = add i32 %0, 2
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %10, ptr %11, align 8, !tbaa !62
+  store i64 %10, ptr %11, align 8, !tbaa !61
   %12 = add i32 %0, 3
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %13, ptr %14, align 8, !tbaa !64
+  store i64 %13, ptr %14, align 8, !tbaa !63
   br label %15
 
 15:                                               ; preds = %2, %4
@@ -1794,12 +1794,12 @@ define range(i32 0, 2) i32 @GetRectangle(i32 noundef %0, ptr noundef writeonly c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @TwoOutArgs(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #12 {
-  %5 = load i32, ptr %1, align 4, !tbaa !40
+  %5 = load i32, ptr %1, align 4, !tbaa !39
   %6 = add i32 %5, %0
-  store i32 %6, ptr %1, align 4, !tbaa !40
-  %7 = load i32, ptr %3, align 4, !tbaa !40
+  store i32 %6, ptr %1, align 4, !tbaa !39
+  %7 = load i32, ptr %3, align 4, !tbaa !39
   %8 = add i32 %7, %2
-  store i32 %8, ptr %3, align 4, !tbaa !40
+  store i32 %8, ptr %3, align 4, !tbaa !39
   ret void
 }
 
@@ -1897,14 +1897,14 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   %73 = alloca %struct.Example_gh_86098_pack, align 1
   %74 = alloca %struct.AnonBitfields, align 2
   %75 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %75, align 8, !tbaa !78
+  %.val = load ptr, ptr %75, align 8, !tbaa !77
   %76 = tail call i64 @PyType_GetFlags(ptr noundef %.val) #35
   %77 = and i64 %76, 268435456
   %.not = icmp eq i64 %77, 0
   br i1 %.not, label %78, label %80
 
 78:                                               ; preds = %2
-  %79 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !81
+  %79 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !80
   tail call void @PyErr_SetString(ptr noundef %79, ptr noundef nonnull @.str.20) #35
   br label %7359
 
@@ -1977,7 +1977,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread
 
 .critedge16960:                                   ; preds = %97
-  store i32 -1, ptr %3, align 4, !tbaa !83
+  store i32 -1, ptr %3, align 4, !tbaa !82
   %101 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 4) #35
   %.not16948 = icmp eq ptr %101, null
   br i1 %.not16948, label %.critedge17814, label %102
@@ -1997,7 +1997,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread
 
 .critedge17816:                                   ; preds = %102
-  store i32 1, ptr %3, align 4, !tbaa !83
+  store i32 1, ptr %3, align 4, !tbaa !82
   %106 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 4) #35
   %.not16949 = icmp eq ptr %106, null
   br i1 %.not16949, label %.critedge17818, label %107
@@ -2017,7 +2017,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread
 
 .critedge17820:                                   ; preds = %107
-  store i32 0, ptr %3, align 4, !tbaa !83
+  store i32 0, ptr %3, align 4, !tbaa !82
   %111 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 4) #35
   %.not16950 = icmp eq ptr %111, null
   br i1 %.not16950, label %112, label %113
@@ -2233,7 +2233,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21081
 
 .critedge16984:                                   ; preds = %167
-  store i32 -1, ptr %5, align 4, !tbaa !85
+  store i32 -1, ptr %5, align 4, !tbaa !84
   %171 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %5, i64 noundef 4) #35
   %.not16936 = icmp eq ptr %171, null
   br i1 %.not16936, label %.critedge17831, label %172
@@ -2253,7 +2253,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21081
 
 .critedge17833:                                   ; preds = %172
-  store i32 1, ptr %5, align 4, !tbaa !85
+  store i32 1, ptr %5, align 4, !tbaa !84
   %176 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %5, i64 noundef 4) #35
   %.not16937 = icmp eq ptr %176, null
   br i1 %.not16937, label %.critedge17835, label %177
@@ -2273,7 +2273,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21081
 
 .critedge17837:                                   ; preds = %177
-  store i32 0, ptr %5, align 4, !tbaa !85
+  store i32 0, ptr %5, align 4, !tbaa !84
   %181 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %5, i64 noundef 4) #35
   %.not16938 = icmp eq ptr %181, null
   br i1 %.not16938, label %182, label %183
@@ -2381,7 +2381,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21084
 
 .critedge17842:                                   ; preds = %207
-  store i32 1, ptr %6, align 8, !tbaa !87
+  store i32 1, ptr %6, align 8, !tbaa !86
   %211 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16925 = icmp eq ptr %211, null
   br i1 %.not16925, label %.critedge17844, label %212
@@ -2401,7 +2401,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21084
 
 .critedge17846:                                   ; preds = %212
-  store i32 0, ptr %6, align 8, !tbaa !87
+  store i32 0, ptr %6, align 8, !tbaa !86
   %216 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16926 = icmp eq ptr %216, null
   br i1 %.not16926, label %.critedge17848, label %217
@@ -2422,7 +2422,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17850:                                   ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 -1, ptr %221, align 4, !tbaa !89
+  store i8 -1, ptr %221, align 4, !tbaa !88
   %222 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16927 = icmp eq ptr %222, null
   br i1 %.not16927, label %.critedge17852, label %223
@@ -2442,7 +2442,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21084
 
 .critedge17854:                                   ; preds = %223
-  store i8 1, ptr %221, align 4, !tbaa !89
+  store i8 1, ptr %221, align 4, !tbaa !88
   %227 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16928 = icmp eq ptr %227, null
   br i1 %.not16928, label %.critedge17856, label %228
@@ -2462,7 +2462,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21084
 
 .critedge17858:                                   ; preds = %228
-  store i8 0, ptr %221, align 4, !tbaa !89
+  store i8 0, ptr %221, align 4, !tbaa !88
   %232 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16929 = icmp eq ptr %232, null
   br i1 %.not16929, label %.critedge17860, label %233
@@ -2483,7 +2483,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17862:                                   ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i16 -1, ptr %237, align 2, !tbaa !90
+  store i16 -1, ptr %237, align 2, !tbaa !89
   %238 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16930 = icmp eq ptr %238, null
   br i1 %.not16930, label %.critedge17864, label %239
@@ -2503,7 +2503,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21084
 
 .critedge17866:                                   ; preds = %239
-  store i16 1, ptr %237, align 2, !tbaa !90
+  store i16 1, ptr %237, align 2, !tbaa !89
   %243 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16931 = icmp eq ptr %243, null
   br i1 %.not16931, label %.critedge17868, label %244
@@ -2523,7 +2523,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21084
 
 .critedge17870:                                   ; preds = %244
-  store i16 0, ptr %237, align 2, !tbaa !90
+  store i16 0, ptr %237, align 2, !tbaa !89
   %248 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %6, i64 noundef 8) #35
   %.not16932 = icmp eq ptr %248, null
   br i1 %.not16932, label %249, label %250
@@ -2860,7 +2860,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17020:                                   ; preds = %334
-  store i8 -1, ptr %8, align 8, !tbaa !91
+  store i8 -1, ptr %8, align 8, !tbaa !90
   %338 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16885 = icmp eq ptr %338, null
   br i1 %.not16885, label %.critedge17906, label %339
@@ -2880,7 +2880,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17908:                                   ; preds = %339
-  store i8 1, ptr %8, align 8, !tbaa !91
+  store i8 1, ptr %8, align 8, !tbaa !90
   %343 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16886 = icmp eq ptr %343, null
   br i1 %.not16886, label %.critedge17910, label %344
@@ -2900,7 +2900,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17912:                                   ; preds = %344
-  store i8 0, ptr %8, align 8, !tbaa !91
+  store i8 0, ptr %8, align 8, !tbaa !90
   %348 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16887 = icmp eq ptr %348, null
   br i1 %.not16887, label %.critedge17914, label %349
@@ -2921,7 +2921,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17916:                                   ; preds = %349
   %353 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 -1, ptr %353, align 1, !tbaa !93
+  store i8 -1, ptr %353, align 1, !tbaa !92
   %354 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16888 = icmp eq ptr %354, null
   br i1 %.not16888, label %.critedge17918, label %355
@@ -2941,7 +2941,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17920:                                   ; preds = %355
-  store i8 1, ptr %353, align 1, !tbaa !93
+  store i8 1, ptr %353, align 1, !tbaa !92
   %359 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16889 = icmp eq ptr %359, null
   br i1 %.not16889, label %.critedge17922, label %360
@@ -2961,7 +2961,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17924:                                   ; preds = %360
-  store i8 0, ptr %353, align 1, !tbaa !93
+  store i8 0, ptr %353, align 1, !tbaa !92
   %364 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16890 = icmp eq ptr %364, null
   br i1 %.not16890, label %.critedge17926, label %365
@@ -2982,7 +2982,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17928:                                   ; preds = %365
   %369 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i16 -1, ptr %369, align 2, !tbaa !94
+  store i16 -1, ptr %369, align 2, !tbaa !93
   %370 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16891 = icmp eq ptr %370, null
   br i1 %.not16891, label %.critedge17930, label %371
@@ -3002,7 +3002,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17932:                                   ; preds = %371
-  store i16 1, ptr %369, align 2, !tbaa !94
+  store i16 1, ptr %369, align 2, !tbaa !93
   %375 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16892 = icmp eq ptr %375, null
   br i1 %.not16892, label %.critedge17934, label %376
@@ -3022,7 +3022,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17936:                                   ; preds = %376
-  store i16 0, ptr %369, align 2, !tbaa !94
+  store i16 0, ptr %369, align 2, !tbaa !93
   %380 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16893 = icmp eq ptr %380, null
   br i1 %.not16893, label %.critedge17938, label %381
@@ -3043,7 +3043,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17940:                                   ; preds = %381
   %385 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i16 -1, ptr %385, align 4, !tbaa !95
+  store i16 -1, ptr %385, align 4, !tbaa !94
   %386 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16894 = icmp eq ptr %386, null
   br i1 %.not16894, label %.critedge17942, label %387
@@ -3063,7 +3063,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17944:                                   ; preds = %387
-  store i16 1, ptr %385, align 4, !tbaa !95
+  store i16 1, ptr %385, align 4, !tbaa !94
   %391 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16895 = icmp eq ptr %391, null
   br i1 %.not16895, label %.critedge17946, label %392
@@ -3083,7 +3083,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17948:                                   ; preds = %392
-  store i16 0, ptr %385, align 4, !tbaa !95
+  store i16 0, ptr %385, align 4, !tbaa !94
   %396 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16896 = icmp eq ptr %396, null
   br i1 %.not16896, label %.critedge17950, label %397
@@ -3104,7 +3104,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17952:                                   ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 -1, ptr %401, align 8, !tbaa !96
+  store i32 -1, ptr %401, align 8, !tbaa !95
   %402 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16897 = icmp eq ptr %402, null
   br i1 %.not16897, label %.critedge17954, label %403
@@ -3124,7 +3124,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17956:                                   ; preds = %403
-  store i32 1, ptr %401, align 8, !tbaa !96
+  store i32 1, ptr %401, align 8, !tbaa !95
   %407 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16898 = icmp eq ptr %407, null
   br i1 %.not16898, label %.critedge17958, label %408
@@ -3144,7 +3144,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17960:                                   ; preds = %408
-  store i32 0, ptr %401, align 8, !tbaa !96
+  store i32 0, ptr %401, align 8, !tbaa !95
   %412 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16899 = icmp eq ptr %412, null
   br i1 %.not16899, label %.critedge17962, label %413
@@ -3165,7 +3165,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17964:                                   ; preds = %413
   %417 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 -1, ptr %417, align 4, !tbaa !97
+  store i32 -1, ptr %417, align 4, !tbaa !96
   %418 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16900 = icmp eq ptr %418, null
   br i1 %.not16900, label %.critedge17966, label %419
@@ -3185,7 +3185,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17968:                                   ; preds = %419
-  store i32 1, ptr %417, align 4, !tbaa !97
+  store i32 1, ptr %417, align 4, !tbaa !96
   %423 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16901 = icmp eq ptr %423, null
   br i1 %.not16901, label %.critedge17970, label %424
@@ -3205,7 +3205,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17972:                                   ; preds = %424
-  store i32 0, ptr %417, align 4, !tbaa !97
+  store i32 0, ptr %417, align 4, !tbaa !96
   %428 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16902 = icmp eq ptr %428, null
   br i1 %.not16902, label %.critedge17974, label %429
@@ -3226,7 +3226,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17976:                                   ; preds = %429
   %433 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 -1, ptr %433, align 8, !tbaa !98
+  store i64 -1, ptr %433, align 8, !tbaa !97
   %434 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16903 = icmp eq ptr %434, null
   br i1 %.not16903, label %.critedge17978, label %435
@@ -3246,7 +3246,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17980:                                   ; preds = %435
-  store i64 1, ptr %433, align 8, !tbaa !98
+  store i64 1, ptr %433, align 8, !tbaa !97
   %439 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16904 = icmp eq ptr %439, null
   br i1 %.not16904, label %.critedge17982, label %440
@@ -3266,7 +3266,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17984:                                   ; preds = %440
-  store i64 0, ptr %433, align 8, !tbaa !98
+  store i64 0, ptr %433, align 8, !tbaa !97
   %444 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16905 = icmp eq ptr %444, null
   br i1 %.not16905, label %.critedge17986, label %445
@@ -3287,7 +3287,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge17988:                                   ; preds = %445
   %449 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 -1, ptr %449, align 8, !tbaa !99
+  store i64 -1, ptr %449, align 8, !tbaa !98
   %450 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16906 = icmp eq ptr %450, null
   br i1 %.not16906, label %.critedge17990, label %451
@@ -3307,7 +3307,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17992:                                   ; preds = %451
-  store i64 1, ptr %449, align 8, !tbaa !99
+  store i64 1, ptr %449, align 8, !tbaa !98
   %455 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16907 = icmp eq ptr %455, null
   br i1 %.not16907, label %.critedge17994, label %456
@@ -3327,7 +3327,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21090
 
 .critedge17996:                                   ; preds = %456
-  store i64 0, ptr %449, align 8, !tbaa !99
+  store i64 0, ptr %449, align 8, !tbaa !98
   %460 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %8, i64 noundef 32) #35
   %.not16908 = icmp eq ptr %460, null
   br i1 %.not16908, label %461, label %462
@@ -3965,7 +3965,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge17044:                                   ; preds = %622
-  store i32 -1, ptr %10, align 4, !tbaa !100
+  store i32 -1, ptr %10, align 4, !tbaa !99
   %626 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16828 = icmp eq ptr %626, null
   br i1 %.not16828, label %.critedge18092, label %627
@@ -3985,7 +3985,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18094:                                   ; preds = %627
-  store i32 1, ptr %10, align 4, !tbaa !100
+  store i32 1, ptr %10, align 4, !tbaa !99
   %631 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16829 = icmp eq ptr %631, null
   br i1 %.not16829, label %.critedge18096, label %632
@@ -4005,7 +4005,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18098:                                   ; preds = %632
-  store i32 0, ptr %10, align 4, !tbaa !100
+  store i32 0, ptr %10, align 4, !tbaa !99
   %636 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16830 = icmp eq ptr %636, null
   br i1 %.not16830, label %.critedge18100, label %637
@@ -4026,7 +4026,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18102:                                   ; preds = %637
   %641 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 -1, ptr %641, align 4, !tbaa !103
+  store i8 -1, ptr %641, align 4, !tbaa !102
   %642 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16831 = icmp eq ptr %642, null
   br i1 %.not16831, label %.critedge18104, label %643
@@ -4046,7 +4046,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18106:                                   ; preds = %643
-  store i8 1, ptr %641, align 4, !tbaa !103
+  store i8 1, ptr %641, align 4, !tbaa !102
   %647 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16832 = icmp eq ptr %647, null
   br i1 %.not16832, label %.critedge18108, label %648
@@ -4066,7 +4066,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18110:                                   ; preds = %648
-  store i8 0, ptr %641, align 4, !tbaa !103
+  store i8 0, ptr %641, align 4, !tbaa !102
   %652 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16833 = icmp eq ptr %652, null
   br i1 %.not16833, label %.critedge18112, label %653
@@ -4087,7 +4087,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18114:                                   ; preds = %653
   %657 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  store i16 -1, ptr %657, align 2, !tbaa !104
+  store i16 -1, ptr %657, align 2, !tbaa !103
   %658 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16834 = icmp eq ptr %658, null
   br i1 %.not16834, label %.critedge18116, label %659
@@ -4107,7 +4107,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18118:                                   ; preds = %659
-  store i16 1, ptr %657, align 2, !tbaa !104
+  store i16 1, ptr %657, align 2, !tbaa !103
   %663 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16835 = icmp eq ptr %663, null
   br i1 %.not16835, label %.critedge18120, label %664
@@ -4127,7 +4127,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18122:                                   ; preds = %664
-  store i16 0, ptr %657, align 2, !tbaa !104
+  store i16 0, ptr %657, align 2, !tbaa !103
   %668 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16836 = icmp eq ptr %668, null
   br i1 %.not16836, label %.critedge18124, label %669
@@ -4329,7 +4329,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18162:                                   ; preds = %715
   %719 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 -1, ptr %719, align 4, !tbaa !105
+  store i32 -1, ptr %719, align 4, !tbaa !104
   %720 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16846 = icmp eq ptr %720, null
   br i1 %.not16846, label %.critedge18164, label %721
@@ -4349,7 +4349,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18166:                                   ; preds = %721
-  store i32 1, ptr %719, align 4, !tbaa !105
+  store i32 1, ptr %719, align 4, !tbaa !104
   %725 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16847 = icmp eq ptr %725, null
   br i1 %.not16847, label %.critedge18168, label %726
@@ -4369,7 +4369,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18170:                                   ; preds = %726
-  store i32 0, ptr %719, align 4, !tbaa !105
+  store i32 0, ptr %719, align 4, !tbaa !104
   %730 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16848 = icmp eq ptr %730, null
   br i1 %.not16848, label %.critedge18172, label %731
@@ -4390,7 +4390,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18174:                                   ; preds = %731
   %735 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 -1, ptr %735, align 4, !tbaa !106
+  store i8 -1, ptr %735, align 4, !tbaa !105
   %736 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16849 = icmp eq ptr %736, null
   br i1 %.not16849, label %.critedge18176, label %737
@@ -4410,7 +4410,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18178:                                   ; preds = %737
-  store i8 1, ptr %735, align 4, !tbaa !106
+  store i8 1, ptr %735, align 4, !tbaa !105
   %741 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16850 = icmp eq ptr %741, null
   br i1 %.not16850, label %.critedge18180, label %742
@@ -4430,7 +4430,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18182:                                   ; preds = %742
-  store i8 0, ptr %735, align 4, !tbaa !106
+  store i8 0, ptr %735, align 4, !tbaa !105
   %746 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16851 = icmp eq ptr %746, null
   br i1 %.not16851, label %.critedge18184, label %747
@@ -4451,7 +4451,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18186:                                   ; preds = %747
   %751 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 -1, ptr %751, align 2, !tbaa !107
+  store i16 -1, ptr %751, align 2, !tbaa !106
   %752 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16852 = icmp eq ptr %752, null
   br i1 %.not16852, label %.critedge18188, label %753
@@ -4471,7 +4471,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18190:                                   ; preds = %753
-  store i16 1, ptr %751, align 2, !tbaa !107
+  store i16 1, ptr %751, align 2, !tbaa !106
   %757 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16853 = icmp eq ptr %757, null
   br i1 %.not16853, label %.critedge18192, label %758
@@ -4491,7 +4491,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21096
 
 .critedge18194:                                   ; preds = %758
-  store i16 0, ptr %751, align 2, !tbaa !107
+  store i16 0, ptr %751, align 2, !tbaa !106
   %762 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %10, i64 noundef 20) #35
   %.not16854 = icmp eq ptr %762, null
   br i1 %.not16854, label %763, label %764
@@ -4581,7 +4581,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21099
 
 .critedge17056:                                   ; preds = %784
-  store i8 -1, ptr %11, align 1, !tbaa !108
+  store i8 -1, ptr %11, align 1, !tbaa !107
   %788 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %11, i64 noundef 9) #35
   %.not16819 = icmp eq ptr %788, null
   br i1 %.not16819, label %.critedge18197, label %789
@@ -4601,7 +4601,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21099
 
 .critedge18199:                                   ; preds = %789
-  store i8 1, ptr %11, align 1, !tbaa !108
+  store i8 1, ptr %11, align 1, !tbaa !107
   %793 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %11, i64 noundef 9) #35
   %.not16820 = icmp eq ptr %793, null
   br i1 %.not16820, label %.critedge18201, label %794
@@ -4621,7 +4621,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21099
 
 .critedge18203:                                   ; preds = %794
-  store i8 0, ptr %11, align 1, !tbaa !108
+  store i8 0, ptr %11, align 1, !tbaa !107
   %798 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %11, i64 noundef 9) #35
   %.not16821 = icmp eq ptr %798, null
   br i1 %.not16821, label %.critedge18205, label %799
@@ -4642,7 +4642,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18207:                                   ; preds = %799
   %803 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i64 -1, ptr %803, align 1, !tbaa !110
+  store i64 -1, ptr %803, align 1, !tbaa !109
   %804 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %11, i64 noundef 9) #35
   %.not16822 = icmp eq ptr %804, null
   br i1 %.not16822, label %.critedge18209, label %805
@@ -4662,7 +4662,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21099
 
 .critedge18211:                                   ; preds = %805
-  store i64 1, ptr %803, align 1, !tbaa !110
+  store i64 1, ptr %803, align 1, !tbaa !109
   %809 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %11, i64 noundef 9) #35
   %.not16823 = icmp eq ptr %809, null
   br i1 %.not16823, label %.critedge18213, label %810
@@ -4682,7 +4682,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21099
 
 .critedge18215:                                   ; preds = %810
-  store i64 0, ptr %803, align 1, !tbaa !110
+  store i64 0, ptr %803, align 1, !tbaa !109
   %814 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %11, i64 noundef 9) #35
   %.not16824 = icmp eq ptr %814, null
   br i1 %.not16824, label %815, label %816
@@ -4771,7 +4771,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21102
 
 .critedge17068:                                   ; preds = %835
-  store i8 -1, ptr %12, align 2, !tbaa !111
+  store i8 -1, ptr %12, align 2, !tbaa !110
   %839 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %12, i64 noundef 10) #35
   %.not16810 = icmp eq ptr %839, null
   br i1 %.not16810, label %.critedge18218, label %840
@@ -4791,7 +4791,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21102
 
 .critedge18220:                                   ; preds = %840
-  store i8 1, ptr %12, align 2, !tbaa !111
+  store i8 1, ptr %12, align 2, !tbaa !110
   %844 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %12, i64 noundef 10) #35
   %.not16811 = icmp eq ptr %844, null
   br i1 %.not16811, label %.critedge18222, label %845
@@ -4811,7 +4811,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21102
 
 .critedge18224:                                   ; preds = %845
-  store i8 0, ptr %12, align 2, !tbaa !111
+  store i8 0, ptr %12, align 2, !tbaa !110
   %849 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %12, i64 noundef 10) #35
   %.not16812 = icmp eq ptr %849, null
   br i1 %.not16812, label %.critedge18226, label %850
@@ -4832,7 +4832,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18228:                                   ; preds = %850
   %854 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  store i64 -1, ptr %854, align 2, !tbaa !113
+  store i64 -1, ptr %854, align 2, !tbaa !112
   %855 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %12, i64 noundef 10) #35
   %.not16813 = icmp eq ptr %855, null
   br i1 %.not16813, label %.critedge18230, label %856
@@ -4852,7 +4852,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21102
 
 .critedge18232:                                   ; preds = %856
-  store i64 1, ptr %854, align 2, !tbaa !113
+  store i64 1, ptr %854, align 2, !tbaa !112
   %860 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %12, i64 noundef 10) #35
   %.not16814 = icmp eq ptr %860, null
   br i1 %.not16814, label %.critedge18234, label %861
@@ -4872,7 +4872,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21102
 
 .critedge18236:                                   ; preds = %861
-  store i64 0, ptr %854, align 2, !tbaa !113
+  store i64 0, ptr %854, align 2, !tbaa !112
   %865 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %12, i64 noundef 10) #35
   %.not16815 = icmp eq ptr %865, null
   br i1 %.not16815, label %866, label %867
@@ -4961,7 +4961,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21105
 
 .critedge17080:                                   ; preds = %886
-  store i8 -1, ptr %13, align 4, !tbaa !114
+  store i8 -1, ptr %13, align 4, !tbaa !113
   %890 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %13, i64 noundef 12) #35
   %.not16801 = icmp eq ptr %890, null
   br i1 %.not16801, label %.critedge18239, label %891
@@ -4981,7 +4981,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21105
 
 .critedge18241:                                   ; preds = %891
-  store i8 1, ptr %13, align 4, !tbaa !114
+  store i8 1, ptr %13, align 4, !tbaa !113
   %895 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %13, i64 noundef 12) #35
   %.not16802 = icmp eq ptr %895, null
   br i1 %.not16802, label %.critedge18243, label %896
@@ -5001,7 +5001,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21105
 
 .critedge18245:                                   ; preds = %896
-  store i8 0, ptr %13, align 4, !tbaa !114
+  store i8 0, ptr %13, align 4, !tbaa !113
   %900 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %13, i64 noundef 12) #35
   %.not16803 = icmp eq ptr %900, null
   br i1 %.not16803, label %.critedge18247, label %901
@@ -5022,7 +5022,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18249:                                   ; preds = %901
   %905 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i64 -1, ptr %905, align 4, !tbaa !116
+  store i64 -1, ptr %905, align 4, !tbaa !115
   %906 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %13, i64 noundef 12) #35
   %.not16804 = icmp eq ptr %906, null
   br i1 %.not16804, label %.critedge18251, label %907
@@ -5042,7 +5042,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21105
 
 .critedge18253:                                   ; preds = %907
-  store i64 1, ptr %905, align 4, !tbaa !116
+  store i64 1, ptr %905, align 4, !tbaa !115
   %911 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %13, i64 noundef 12) #35
   %.not16805 = icmp eq ptr %911, null
   br i1 %.not16805, label %.critedge18255, label %912
@@ -5062,7 +5062,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21105
 
 .critedge18257:                                   ; preds = %912
-  store i64 0, ptr %905, align 4, !tbaa !116
+  store i64 0, ptr %905, align 4, !tbaa !115
   %916 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %13, i64 noundef 12) #35
   %.not16806 = icmp eq ptr %916, null
   br i1 %.not16806, label %917, label %918
@@ -5151,7 +5151,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21108
 
 .critedge17092:                                   ; preds = %937
-  store i8 -1, ptr %14, align 8, !tbaa !117
+  store i8 -1, ptr %14, align 8, !tbaa !116
   %941 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %14, i64 noundef 16) #35
   %.not16792 = icmp eq ptr %941, null
   br i1 %.not16792, label %.critedge18260, label %942
@@ -5171,7 +5171,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21108
 
 .critedge18262:                                   ; preds = %942
-  store i8 1, ptr %14, align 8, !tbaa !117
+  store i8 1, ptr %14, align 8, !tbaa !116
   %946 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %14, i64 noundef 16) #35
   %.not16793 = icmp eq ptr %946, null
   br i1 %.not16793, label %.critedge18264, label %947
@@ -5191,7 +5191,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21108
 
 .critedge18266:                                   ; preds = %947
-  store i8 0, ptr %14, align 8, !tbaa !117
+  store i8 0, ptr %14, align 8, !tbaa !116
   %951 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %14, i64 noundef 16) #35
   %.not16794 = icmp eq ptr %951, null
   br i1 %.not16794, label %.critedge18268, label %952
@@ -5212,7 +5212,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18270:                                   ; preds = %952
   %956 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 -1, ptr %956, align 8, !tbaa !119
+  store i64 -1, ptr %956, align 8, !tbaa !118
   %957 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %14, i64 noundef 16) #35
   %.not16795 = icmp eq ptr %957, null
   br i1 %.not16795, label %.critedge18272, label %958
@@ -5232,7 +5232,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21108
 
 .critedge18274:                                   ; preds = %958
-  store i64 1, ptr %956, align 8, !tbaa !119
+  store i64 1, ptr %956, align 8, !tbaa !118
   %962 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %14, i64 noundef 16) #35
   %.not16796 = icmp eq ptr %962, null
   br i1 %.not16796, label %.critedge18276, label %963
@@ -5252,7 +5252,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21108
 
 .critedge18278:                                   ; preds = %963
-  store i64 0, ptr %956, align 8, !tbaa !119
+  store i64 0, ptr %956, align 8, !tbaa !118
   %967 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %14, i64 noundef 16) #35
   %.not16797 = icmp eq ptr %967, null
   br i1 %.not16797, label %968, label %969
@@ -5341,7 +5341,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge17104:                                   ; preds = %988
-  store i32 -1, ptr %15, align 8, !tbaa !120
+  store i32 -1, ptr %15, align 8, !tbaa !119
   %992 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16780 = icmp eq ptr %992, null
   br i1 %.not16780, label %.critedge18281, label %993
@@ -5361,7 +5361,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge18283:                                   ; preds = %993
-  store i32 1, ptr %15, align 8, !tbaa !120
+  store i32 1, ptr %15, align 8, !tbaa !119
   %997 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16781 = icmp eq ptr %997, null
   br i1 %.not16781, label %.critedge18285, label %998
@@ -5381,7 +5381,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge18287:                                   ; preds = %998
-  store i32 0, ptr %15, align 8, !tbaa !120
+  store i32 0, ptr %15, align 8, !tbaa !119
   %1002 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16782 = icmp eq ptr %1002, null
   br i1 %.not16782, label %.critedge18289, label %1003
@@ -5402,7 +5402,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18291:                                   ; preds = %1003
   %1007 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 -1, ptr %1007, align 8, !tbaa !122
+  store i64 -1, ptr %1007, align 8, !tbaa !121
   %1008 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16783 = icmp eq ptr %1008, null
   br i1 %.not16783, label %.critedge18293, label %1009
@@ -5422,7 +5422,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge18295:                                   ; preds = %1009
-  store i64 1, ptr %1007, align 8, !tbaa !122
+  store i64 1, ptr %1007, align 8, !tbaa !121
   %1013 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16784 = icmp eq ptr %1013, null
   br i1 %.not16784, label %.critedge18297, label %1014
@@ -5442,7 +5442,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge18299:                                   ; preds = %1014
-  store i64 0, ptr %1007, align 8, !tbaa !122
+  store i64 0, ptr %1007, align 8, !tbaa !121
   %1018 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16785 = icmp eq ptr %1018, null
   br i1 %.not16785, label %.critedge18301, label %1019
@@ -5463,7 +5463,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge18303:                                   ; preds = %1019
   %1023 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 -1, ptr %1023, align 8, !tbaa !123
+  store i32 -1, ptr %1023, align 8, !tbaa !122
   %1024 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16786 = icmp eq ptr %1024, null
   br i1 %.not16786, label %.critedge18305, label %1025
@@ -5483,7 +5483,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge18307:                                   ; preds = %1025
-  store i32 1, ptr %1023, align 8, !tbaa !123
+  store i32 1, ptr %1023, align 8, !tbaa !122
   %1029 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16787 = icmp eq ptr %1029, null
   br i1 %.not16787, label %.critedge18309, label %1030
@@ -5503,7 +5503,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21111
 
 .critedge18311:                                   ; preds = %1030
-  store i32 0, ptr %1023, align 8, !tbaa !123
+  store i32 0, ptr %1023, align 8, !tbaa !122
   %1034 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %15, i64 noundef 24) #35
   %.not16788 = icmp eq ptr %1034, null
   br i1 %.not16788, label %1035, label %1036
@@ -10940,7 +10940,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19122:                                   ; preds = %2769
   %2773 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store i8 -1, ptr %2773, align 1, !tbaa !124
+  store i8 -1, ptr %2773, align 1, !tbaa !123
   %2774 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %26, i64 noundef 3) #35
   %.not16531 = icmp eq ptr %2774, null
   br i1 %.not16531, label %.critedge19124, label %2775
@@ -10960,7 +10960,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21144
 
 .critedge19126:                                   ; preds = %2775
-  store i8 1, ptr %2773, align 1, !tbaa !124
+  store i8 1, ptr %2773, align 1, !tbaa !123
   %2779 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %26, i64 noundef 3) #35
   %.not16532 = icmp eq ptr %2779, null
   br i1 %.not16532, label %.critedge19128, label %2780
@@ -10980,7 +10980,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21144
 
 .critedge19130:                                   ; preds = %2780
-  store i8 0, ptr %2773, align 1, !tbaa !124
+  store i8 0, ptr %2773, align 1, !tbaa !123
   %2784 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %26, i64 noundef 3) #35
   %.not16533 = icmp eq ptr %2784, null
   br i1 %.not16533, label %.critedge19132, label %2785
@@ -12070,7 +12070,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19266:                                   ; preds = %3120
   %3124 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i8 -1, ptr %3124, align 1, !tbaa !126
+  store i8 -1, ptr %3124, align 1, !tbaa !125
   %3125 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %30, i64 noundef 3) #35
   %.not16480 = icmp eq ptr %3125, null
   br i1 %.not16480, label %.critedge19268, label %3126
@@ -12090,7 +12090,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21156
 
 .critedge19270:                                   ; preds = %3126
-  store i8 1, ptr %3124, align 1, !tbaa !126
+  store i8 1, ptr %3124, align 1, !tbaa !125
   %3130 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %30, i64 noundef 3) #35
   %.not16481 = icmp eq ptr %3130, null
   br i1 %.not16481, label %.critedge19272, label %3131
@@ -12110,7 +12110,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21156
 
 .critedge19274:                                   ; preds = %3131
-  store i8 0, ptr %3124, align 1, !tbaa !126
+  store i8 0, ptr %3124, align 1, !tbaa !125
   %3135 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %30, i64 noundef 3) #35
   %.not16482 = icmp eq ptr %3135, null
   br i1 %.not16482, label %.critedge19276, label %3136
@@ -13199,7 +13199,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19410:                                   ; preds = %3470
   %3474 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  store i16 -1, ptr %3474, align 2, !tbaa !128
+  store i16 -1, ptr %3474, align 2, !tbaa !127
   %3475 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %34, i64 noundef 6) #35
   %.not16429 = icmp eq ptr %3475, null
   br i1 %.not16429, label %.critedge19412, label %3476
@@ -13219,7 +13219,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21168
 
 .critedge19414:                                   ; preds = %3476
-  store i16 1, ptr %3474, align 2, !tbaa !128
+  store i16 1, ptr %3474, align 2, !tbaa !127
   %3480 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %34, i64 noundef 6) #35
   %.not16430 = icmp eq ptr %3480, null
   br i1 %.not16430, label %.critedge19416, label %3481
@@ -13239,7 +13239,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21168
 
 .critedge19418:                                   ; preds = %3481
-  store i16 0, ptr %3474, align 2, !tbaa !128
+  store i16 0, ptr %3474, align 2, !tbaa !127
   %3485 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %34, i64 noundef 6) #35
   %.not16431 = icmp eq ptr %3485, null
   br i1 %.not16431, label %.critedge19420, label %3486
@@ -14328,7 +14328,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19554:                                   ; preds = %3820
   %3824 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  store i16 -1, ptr %3824, align 2, !tbaa !130
+  store i16 -1, ptr %3824, align 2, !tbaa !129
   %3825 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %38, i64 noundef 6) #35
   %.not16378 = icmp eq ptr %3825, null
   br i1 %.not16378, label %.critedge19556, label %3826
@@ -14348,7 +14348,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21180
 
 .critedge19558:                                   ; preds = %3826
-  store i16 1, ptr %3824, align 2, !tbaa !130
+  store i16 1, ptr %3824, align 2, !tbaa !129
   %3830 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %38, i64 noundef 6) #35
   %.not16379 = icmp eq ptr %3830, null
   br i1 %.not16379, label %.critedge19560, label %3831
@@ -14368,7 +14368,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21180
 
 .critedge19562:                                   ; preds = %3831
-  store i16 0, ptr %3824, align 2, !tbaa !130
+  store i16 0, ptr %3824, align 2, !tbaa !129
   %3835 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %38, i64 noundef 6) #35
   %.not16380 = icmp eq ptr %3835, null
   br i1 %.not16380, label %.critedge19564, label %3836
@@ -15457,7 +15457,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19698:                                   ; preds = %4170
   %4174 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 -1, ptr %4174, align 4, !tbaa !132
+  store i32 -1, ptr %4174, align 4, !tbaa !131
   %4175 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %42, i64 noundef 12) #35
   %.not16327 = icmp eq ptr %4175, null
   br i1 %.not16327, label %.critedge19700, label %4176
@@ -15477,7 +15477,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21192
 
 .critedge19702:                                   ; preds = %4176
-  store i32 1, ptr %4174, align 4, !tbaa !132
+  store i32 1, ptr %4174, align 4, !tbaa !131
   %4180 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %42, i64 noundef 12) #35
   %.not16328 = icmp eq ptr %4180, null
   br i1 %.not16328, label %.critedge19704, label %4181
@@ -15497,7 +15497,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21192
 
 .critedge19706:                                   ; preds = %4181
-  store i32 0, ptr %4174, align 4, !tbaa !132
+  store i32 0, ptr %4174, align 4, !tbaa !131
   %4185 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %42, i64 noundef 12) #35
   %.not16329 = icmp eq ptr %4185, null
   br i1 %.not16329, label %.critedge19708, label %4186
@@ -16586,7 +16586,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19842:                                   ; preds = %4520
   %4524 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 -1, ptr %4524, align 4, !tbaa !134
+  store i32 -1, ptr %4524, align 4, !tbaa !133
   %4525 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %46, i64 noundef 12) #35
   %.not16276 = icmp eq ptr %4525, null
   br i1 %.not16276, label %.critedge19844, label %4526
@@ -16606,7 +16606,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21204
 
 .critedge19846:                                   ; preds = %4526
-  store i32 1, ptr %4524, align 4, !tbaa !134
+  store i32 1, ptr %4524, align 4, !tbaa !133
   %4530 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %46, i64 noundef 12) #35
   %.not16277 = icmp eq ptr %4530, null
   br i1 %.not16277, label %.critedge19848, label %4531
@@ -16626,7 +16626,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21204
 
 .critedge19850:                                   ; preds = %4531
-  store i32 0, ptr %4524, align 4, !tbaa !134
+  store i32 0, ptr %4524, align 4, !tbaa !133
   %4535 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %46, i64 noundef 12) #35
   %.not16278 = icmp eq ptr %4535, null
   br i1 %.not16278, label %.critedge19852, label %4536
@@ -17715,7 +17715,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge19986:                                   ; preds = %4870
   %4874 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 -1, ptr %4874, align 8, !tbaa !136
+  store i64 -1, ptr %4874, align 8, !tbaa !135
   %4875 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %50, i64 noundef 24) #35
   %.not16225 = icmp eq ptr %4875, null
   br i1 %.not16225, label %.critedge19988, label %4876
@@ -17735,7 +17735,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21216
 
 .critedge19990:                                   ; preds = %4876
-  store i64 1, ptr %4874, align 8, !tbaa !136
+  store i64 1, ptr %4874, align 8, !tbaa !135
   %4880 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %50, i64 noundef 24) #35
   %.not16226 = icmp eq ptr %4880, null
   br i1 %.not16226, label %.critedge19992, label %4881
@@ -17755,7 +17755,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21216
 
 .critedge19994:                                   ; preds = %4881
-  store i64 0, ptr %4874, align 8, !tbaa !136
+  store i64 0, ptr %4874, align 8, !tbaa !135
   %4885 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %50, i64 noundef 24) #35
   %.not16227 = icmp eq ptr %4885, null
   br i1 %.not16227, label %.critedge19996, label %4886
@@ -18844,7 +18844,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge20130:                                   ; preds = %5220
   %5224 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 -1, ptr %5224, align 8, !tbaa !138
+  store i64 -1, ptr %5224, align 8, !tbaa !137
   %5225 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %54, i64 noundef 24) #35
   %.not16174 = icmp eq ptr %5225, null
   br i1 %.not16174, label %.critedge20132, label %5226
@@ -18864,7 +18864,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21228
 
 .critedge20134:                                   ; preds = %5226
-  store i64 1, ptr %5224, align 8, !tbaa !138
+  store i64 1, ptr %5224, align 8, !tbaa !137
   %5230 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %54, i64 noundef 24) #35
   %.not16175 = icmp eq ptr %5230, null
   br i1 %.not16175, label %.critedge20136, label %5231
@@ -18884,7 +18884,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21228
 
 .critedge20138:                                   ; preds = %5231
-  store i64 0, ptr %5224, align 8, !tbaa !138
+  store i64 0, ptr %5224, align 8, !tbaa !137
   %5235 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %54, i64 noundef 24) #35
   %.not16176 = icmp eq ptr %5235, null
   br i1 %.not16176, label %.critedge20140, label %5236
@@ -20843,7 +20843,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21252
 
 .critedge17668:                                   ; preds = %5844
-  store i32 -1, ptr %62, align 8, !tbaa !140
+  store i32 -1, ptr %62, align 8, !tbaa !139
   %5848 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %62, i64 noundef 16) #35
   %.not16081 = icmp eq ptr %5848, null
   br i1 %.not16081, label %.critedge20372, label %5849
@@ -20863,7 +20863,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21252
 
 .critedge20374:                                   ; preds = %5849
-  store i32 1, ptr %62, align 8, !tbaa !140
+  store i32 1, ptr %62, align 8, !tbaa !139
   %5853 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %62, i64 noundef 16) #35
   %.not16082 = icmp eq ptr %5853, null
   br i1 %.not16082, label %.critedge20376, label %5854
@@ -20883,7 +20883,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21252
 
 .critedge20378:                                   ; preds = %5854
-  store i32 0, ptr %62, align 8, !tbaa !140
+  store i32 0, ptr %62, align 8, !tbaa !139
   %5858 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %62, i64 noundef 16) #35
   %.not16083 = icmp eq ptr %5858, null
   br i1 %.not16083, label %.critedge20380, label %5859
@@ -21107,7 +21107,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21255
 
 .critedge17680:                                   ; preds = %5924
-  store i32 -1, ptr %63, align 8, !tbaa !142
+  store i32 -1, ptr %63, align 8, !tbaa !141
   %5928 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %63, i64 noundef 16) #35
   %.not16069 = icmp eq ptr %5928, null
   br i1 %.not16069, label %.critedge20405, label %5929
@@ -21127,7 +21127,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21255
 
 .critedge20407:                                   ; preds = %5929
-  store i32 1, ptr %63, align 8, !tbaa !142
+  store i32 1, ptr %63, align 8, !tbaa !141
   %5933 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %63, i64 noundef 16) #35
   %.not16070 = icmp eq ptr %5933, null
   br i1 %.not16070, label %.critedge20409, label %5934
@@ -21147,7 +21147,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21255
 
 .critedge20411:                                   ; preds = %5934
-  store i32 0, ptr %63, align 8, !tbaa !142
+  store i32 0, ptr %63, align 8, !tbaa !141
   %5938 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %63, i64 noundef 16) #35
   %.not16071 = icmp eq ptr %5938, null
   br i1 %.not16071, label %.critedge20413, label %5939
@@ -21370,7 +21370,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21258
 
 .critedge17692:                                   ; preds = %6003
-  store i32 -1, ptr %64, align 8, !tbaa !144
+  store i32 -1, ptr %64, align 8, !tbaa !143
   %6007 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef 16) #35
   %.not16057 = icmp eq ptr %6007, null
   br i1 %.not16057, label %.critedge20438, label %6008
@@ -21390,7 +21390,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21258
 
 .critedge20440:                                   ; preds = %6008
-  store i32 1, ptr %64, align 8, !tbaa !144
+  store i32 1, ptr %64, align 8, !tbaa !143
   %6012 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef 16) #35
   %.not16058 = icmp eq ptr %6012, null
   br i1 %.not16058, label %.critedge20442, label %6013
@@ -21410,7 +21410,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21258
 
 .critedge20444:                                   ; preds = %6013
-  store i32 0, ptr %64, align 8, !tbaa !144
+  store i32 0, ptr %64, align 8, !tbaa !143
   %6017 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef 16) #35
   %.not16059 = icmp eq ptr %6017, null
   br i1 %.not16059, label %.critedge20446, label %6018
@@ -21431,7 +21431,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge20448:                                   ; preds = %6018
   %6022 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i32 -1, ptr %6022, align 4, !tbaa !146
+  store i32 -1, ptr %6022, align 4, !tbaa !145
   %6023 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef 16) #35
   %.not16060 = icmp eq ptr %6023, null
   br i1 %.not16060, label %.critedge20450, label %6024
@@ -21451,7 +21451,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21258
 
 .critedge20452:                                   ; preds = %6024
-  store i32 1, ptr %6022, align 4, !tbaa !146
+  store i32 1, ptr %6022, align 4, !tbaa !145
   %6028 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef 16) #35
   %.not16061 = icmp eq ptr %6028, null
   br i1 %.not16061, label %.critedge20454, label %6029
@@ -21471,7 +21471,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21258
 
 .critedge20456:                                   ; preds = %6029
-  store i32 0, ptr %6022, align 4, !tbaa !146
+  store i32 0, ptr %6022, align 4, !tbaa !145
   %6033 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %64, i64 noundef 16) #35
   %.not16062 = icmp eq ptr %6033, null
   br i1 %.not16062, label %.critedge20458, label %6034
@@ -21646,7 +21646,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21261
 
 .critedge20473:                                   ; preds = %6081
-  store i8 1, ptr %65, align 4, !tbaa !147
+  store i8 1, ptr %65, align 4, !tbaa !146
   %6085 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %65, i64 noundef 4) #35
   %.not16049 = icmp eq ptr %6085, null
   br i1 %.not16049, label %.critedge20475, label %6086
@@ -21666,7 +21666,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21261
 
 .critedge20477:                                   ; preds = %6086
-  store i8 0, ptr %65, align 4, !tbaa !147
+  store i8 0, ptr %65, align 4, !tbaa !146
   %6090 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %65, i64 noundef 4) #35
   %.not16050 = icmp eq ptr %6090, null
   br i1 %.not16050, label %.critedge20479, label %6091
@@ -24293,7 +24293,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21279
 
 .critedge20863:                                   ; preds = %6908
-  store i16 1, ptr %71, align 8, !tbaa !149
+  store i16 1, ptr %71, align 8, !tbaa !148
   %6912 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %71, i64 noundef 8) #35
   %.not15905 = icmp eq ptr %6912, null
   br i1 %.not15905, label %.critedge20865, label %6913
@@ -24313,7 +24313,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21279
 
 .critedge20867:                                   ; preds = %6913
-  store i16 0, ptr %71, align 8, !tbaa !149
+  store i16 0, ptr %71, align 8, !tbaa !148
   %6917 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %71, i64 noundef 8) #35
   %.not15906 = icmp eq ptr %6917, null
   br i1 %.not15906, label %.critedge20869, label %6918
@@ -25661,7 +25661,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 .critedge21066:                                   ; preds = %7335
   %7339 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  store i8 -1, ptr %7339, align 1, !tbaa !151
+  store i8 -1, ptr %7339, align 1, !tbaa !150
   %7340 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %74, i64 noundef 2) #35
   %.not15874 = icmp eq ptr %7340, null
   br i1 %.not15874, label %.critedge21068, label %7341
@@ -25681,7 +25681,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21288
 
 .critedge21070:                                   ; preds = %7341
-  store i8 1, ptr %7339, align 1, !tbaa !151
+  store i8 1, ptr %7339, align 1, !tbaa !150
   %7345 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %74, i64 noundef 2) #35
   %.not15875 = icmp eq ptr %7345, null
   br i1 %.not15875, label %.critedge21072, label %7346
@@ -25701,7 +25701,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
   br label %.thread21288
 
 .critedge21074:                                   ; preds = %7346
-  store i8 0, ptr %7339, align 1, !tbaa !151
+  store i8 0, ptr %7339, align 1, !tbaa !150
   %7350 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %74, i64 noundef 2) #35
   %.not15876 = icmp eq ptr %7350, null
   br i1 %.not15876, label %7351, label %7352
@@ -25727,7 +25727,7 @@ define internal ptr @get_generated_test_data(ptr readnone captures(none) %0, ptr
 
 7356:                                             ; preds = %7278
   tail call void @_Py_DecRef(ptr noundef nonnull %81) #35
-  %7357 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !81
+  %7357 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !80
   %7358 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7357, ptr noundef nonnull @.str.93, ptr noundef nonnull %1) #35
   br label %7359
 
@@ -25813,142 +25813,141 @@ attributes #37 = { nounwind allocsize(0) }
 !12 = !{!"int", !6, i64 0}
 !13 = !{!11, !12, i64 4}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"float", !6, i64 0}
-!20 = distinct !{!20, !16, !17}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !16, !17}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !6, i64 0}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
-!27 = distinct !{!27, !16, !17}
-!28 = distinct !{!28, !16, !17}
-!29 = distinct !{!29, !16, !17}
-!30 = distinct !{!30, !16, !17}
-!31 = !{!32, !12, i64 0}
-!32 = !{!"", !12, i64 0, !33, i64 8, !12, i64 24}
-!33 = !{!"", !12, i64 0, !6, i64 8}
-!34 = !{!32, !12, i64 8}
-!35 = !{!32, !12, i64 24}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"", !38, i64 0, !38, i64 2, !38, i64 3, !38, i64 3, !38, i64 3, !38, i64 3, !38, i64 3, !12, i64 4, !12, i64 5, !12, i64 7}
-!38 = !{!"short", !6, i64 0}
-!39 = !{!5, !5, i64 0}
-!40 = !{!12, !12, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"long double", !6, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8_IO_FILE", !45, i64 0}
-!45 = !{!"any pointer", !6, i64 0}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"vprintf: argument 0"}
-!48 = distinct !{!48, !"vprintf"}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 omnipotent char", !45, i64 0}
-!51 = !{!52, !45, i64 0}
-!52 = !{!"", !45, i64 0, !45, i64 8}
-!53 = !{!52, !45, i64 8}
-!54 = distinct !{!54, !16, !17}
-!55 = distinct !{!55, !16, !17}
-!56 = !{!45, !45, i64 0}
-!57 = distinct !{!57, !16, !17}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"long long", !6, i64 0}
-!60 = !{!61, !5, i64 0}
-!61 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
-!62 = !{!61, !5, i64 16}
-!63 = !{!61, !5, i64 8}
-!64 = !{!61, !5, i64 24}
-!65 = !{!66, !5, i64 0}
-!66 = !{!"", !5, i64 0, !5, i64 8}
-!67 = !{!66, !5, i64 8}
-!68 = !{!69, !12, i64 0}
-!69 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28}
-!70 = !{!69, !12, i64 4}
-!71 = !{!69, !12, i64 8}
-!72 = !{!69, !12, i64 12}
-!73 = !{!69, !12, i64 16}
-!74 = !{!69, !12, i64 20}
-!75 = !{!69, !12, i64 24}
-!76 = !{!69, !12, i64 28}
-!77 = !{i64 0, i64 4, !40, i64 4, i64 4, !40, i64 8, i64 4, !40, i64 12, i64 4, !40, i64 16, i64 4, !40, i64 20, i64 4, !40, i64 24, i64 4, !40, i64 28, i64 4, !40}
-!78 = !{!79, !80, i64 8}
-!79 = !{!"_object", !6, i64 0, !80, i64 8}
-!80 = !{!"p1 _ZTS11_typeobject", !45, i64 0}
-!81 = !{!82, !82, i64 0}
-!82 = !{!"p1 _ZTS7_object", !45, i64 0}
-!83 = !{!84, !12, i64 0}
-!84 = !{!"SingleInt", !12, i64 0}
-!85 = !{!86, !12, i64 0}
-!86 = !{!"SingleU32", !12, i64 0}
-!87 = !{!88, !12, i64 0}
-!88 = !{!"SimpleStruct", !12, i64 0, !6, i64 4, !38, i64 6}
-!89 = !{!88, !6, i64 4}
-!90 = !{!88, !38, i64 6}
-!91 = !{!92, !6, i64 0}
-!92 = !{!"ManyTypes", !6, i64 0, !6, i64 1, !38, i64 2, !38, i64 4, !12, i64 8, !12, i64 12, !5, i64 16, !5, i64 24}
-!93 = !{!92, !6, i64 1}
-!94 = !{!92, !38, i64 2}
-!95 = !{!92, !38, i64 4}
-!96 = !{!92, !12, i64 8}
-!97 = !{!92, !12, i64 12}
-!98 = !{!92, !5, i64 16}
-!99 = !{!92, !5, i64 24}
-!100 = !{!101, !12, i64 0}
-!101 = !{!"Nested", !102, i64 0, !6, i64 8, !102, i64 12}
-!102 = !{!"", !12, i64 0, !6, i64 4, !38, i64 6}
-!103 = !{!101, !6, i64 4}
-!104 = !{!101, !38, i64 6}
-!105 = !{!101, !12, i64 12}
-!106 = !{!101, !6, i64 16}
-!107 = !{!101, !38, i64 18}
-!108 = !{!109, !6, i64 0}
-!109 = !{!"Packed1", !6, i64 0, !5, i64 1}
-!110 = !{!109, !5, i64 1}
-!111 = !{!112, !6, i64 0}
-!112 = !{!"Packed2", !6, i64 0, !5, i64 2}
-!113 = !{!112, !5, i64 2}
-!114 = !{!115, !6, i64 0}
-!115 = !{!"Packed3", !6, i64 0, !5, i64 4}
-!116 = !{!115, !5, i64 4}
-!117 = !{!118, !6, i64 0}
-!118 = !{!"Packed4", !6, i64 0, !5, i64 8}
-!119 = !{!118, !5, i64 8}
-!120 = !{!121, !12, i64 0}
-!121 = !{!"X86_32EdgeCase", !12, i64 0, !5, i64 8, !12, i64 16}
-!122 = !{!121, !5, i64 8}
-!123 = !{!121, !12, i64 16}
-!124 = !{!125, !6, i64 1}
-!125 = !{!"Struct1nx1_8", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 2}
-!126 = !{!127, !6, i64 1}
-!127 = !{!"Struct1nx1_u8", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 2}
-!128 = !{!129, !38, i64 2}
-!129 = !{!"Struct1nx1_16", !38, i64 0, !38, i64 2, !38, i64 4, !38, i64 5}
-!130 = !{!131, !38, i64 2}
-!131 = !{!"Struct1nx1_u16", !38, i64 0, !38, i64 2, !38, i64 4, !38, i64 5}
-!132 = !{!133, !12, i64 4}
-!133 = !{!"Struct1nx1_32", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 11}
-!134 = !{!135, !12, i64 4}
-!135 = !{!"Struct1nx1_u32", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 11}
-!136 = !{!137, !5, i64 8}
-!137 = !{!"Struct1nx1_64", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 23}
-!138 = !{!139, !5, i64 8}
-!139 = !{!"Struct1nx1_u64", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 23}
-!140 = !{!141, !12, i64 0}
-!141 = !{!"Mixed7", !12, i64 0, !12, i64 4, !5, i64 8}
-!142 = !{!143, !12, i64 0}
-!143 = !{!"Mixed8_a", !12, i64 0, !12, i64 4, !59, i64 8}
-!144 = !{!145, !12, i64 0}
-!145 = !{!"Mixed8_b", !12, i64 0, !12, i64 4, !59, i64 8}
-!146 = !{!145, !12, i64 4}
-!147 = !{!148, !6, i64 0}
-!148 = !{!"Mixed9", !6, i64 0, !12, i64 1}
-!149 = !{!150, !38, i64 0}
-!150 = !{!"Example_gh_73939", !38, i64 0, !38, i64 2, !38, i64 3, !38, i64 3, !38, i64 3, !38, i64 3, !38, i64 3, !12, i64 4, !12, i64 5, !12, i64 7}
-!151 = !{!152, !6, i64 1}
-!152 = !{!"AnonBitfields", !153, i64 0, !6, i64 1}
-!153 = !{!"", !6, i64 0, !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"float", !6, i64 0}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"double", !6, i64 0}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}
+!27 = distinct !{!27, !16}
+!28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}
+!30 = !{!31, !12, i64 0}
+!31 = !{!"", !12, i64 0, !32, i64 8, !12, i64 24}
+!32 = !{!"", !12, i64 0, !6, i64 8}
+!33 = !{!31, !12, i64 8}
+!34 = !{!31, !12, i64 24}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"", !37, i64 0, !37, i64 2, !37, i64 3, !37, i64 3, !37, i64 3, !37, i64 3, !37, i64 3, !12, i64 4, !12, i64 5, !12, i64 7}
+!37 = !{!"short", !6, i64 0}
+!38 = !{!5, !5, i64 0}
+!39 = !{!12, !12, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"long double", !6, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS8_IO_FILE", !44, i64 0}
+!44 = !{!"any pointer", !6, i64 0}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"vprintf: argument 0"}
+!47 = distinct !{!47, !"vprintf"}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 omnipotent char", !44, i64 0}
+!50 = !{!51, !44, i64 0}
+!51 = !{!"", !44, i64 0, !44, i64 8}
+!52 = !{!51, !44, i64 8}
+!53 = distinct !{!53, !16}
+!54 = distinct !{!54, !16}
+!55 = !{!44, !44, i64 0}
+!56 = distinct !{!56, !16}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"long long", !6, i64 0}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!61 = !{!60, !5, i64 16}
+!62 = !{!60, !5, i64 8}
+!63 = !{!60, !5, i64 24}
+!64 = !{!65, !5, i64 0}
+!65 = !{!"", !5, i64 0, !5, i64 8}
+!66 = !{!65, !5, i64 8}
+!67 = !{!68, !12, i64 0}
+!68 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28}
+!69 = !{!68, !12, i64 4}
+!70 = !{!68, !12, i64 8}
+!71 = !{!68, !12, i64 12}
+!72 = !{!68, !12, i64 16}
+!73 = !{!68, !12, i64 20}
+!74 = !{!68, !12, i64 24}
+!75 = !{!68, !12, i64 28}
+!76 = !{i64 0, i64 4, !39, i64 4, i64 4, !39, i64 8, i64 4, !39, i64 12, i64 4, !39, i64 16, i64 4, !39, i64 20, i64 4, !39, i64 24, i64 4, !39, i64 28, i64 4, !39}
+!77 = !{!78, !79, i64 8}
+!78 = !{!"_object", !6, i64 0, !79, i64 8}
+!79 = !{!"p1 _ZTS11_typeobject", !44, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS7_object", !44, i64 0}
+!82 = !{!83, !12, i64 0}
+!83 = !{!"SingleInt", !12, i64 0}
+!84 = !{!85, !12, i64 0}
+!85 = !{!"SingleU32", !12, i64 0}
+!86 = !{!87, !12, i64 0}
+!87 = !{!"SimpleStruct", !12, i64 0, !6, i64 4, !37, i64 6}
+!88 = !{!87, !6, i64 4}
+!89 = !{!87, !37, i64 6}
+!90 = !{!91, !6, i64 0}
+!91 = !{!"ManyTypes", !6, i64 0, !6, i64 1, !37, i64 2, !37, i64 4, !12, i64 8, !12, i64 12, !5, i64 16, !5, i64 24}
+!92 = !{!91, !6, i64 1}
+!93 = !{!91, !37, i64 2}
+!94 = !{!91, !37, i64 4}
+!95 = !{!91, !12, i64 8}
+!96 = !{!91, !12, i64 12}
+!97 = !{!91, !5, i64 16}
+!98 = !{!91, !5, i64 24}
+!99 = !{!100, !12, i64 0}
+!100 = !{!"Nested", !101, i64 0, !6, i64 8, !101, i64 12}
+!101 = !{!"", !12, i64 0, !6, i64 4, !37, i64 6}
+!102 = !{!100, !6, i64 4}
+!103 = !{!100, !37, i64 6}
+!104 = !{!100, !12, i64 12}
+!105 = !{!100, !6, i64 16}
+!106 = !{!100, !37, i64 18}
+!107 = !{!108, !6, i64 0}
+!108 = !{!"Packed1", !6, i64 0, !5, i64 1}
+!109 = !{!108, !5, i64 1}
+!110 = !{!111, !6, i64 0}
+!111 = !{!"Packed2", !6, i64 0, !5, i64 2}
+!112 = !{!111, !5, i64 2}
+!113 = !{!114, !6, i64 0}
+!114 = !{!"Packed3", !6, i64 0, !5, i64 4}
+!115 = !{!114, !5, i64 4}
+!116 = !{!117, !6, i64 0}
+!117 = !{!"Packed4", !6, i64 0, !5, i64 8}
+!118 = !{!117, !5, i64 8}
+!119 = !{!120, !12, i64 0}
+!120 = !{!"X86_32EdgeCase", !12, i64 0, !5, i64 8, !12, i64 16}
+!121 = !{!120, !5, i64 8}
+!122 = !{!120, !12, i64 16}
+!123 = !{!124, !6, i64 1}
+!124 = !{!"Struct1nx1_8", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 2}
+!125 = !{!126, !6, i64 1}
+!126 = !{!"Struct1nx1_u8", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 2}
+!127 = !{!128, !37, i64 2}
+!128 = !{!"Struct1nx1_16", !37, i64 0, !37, i64 2, !37, i64 4, !37, i64 5}
+!129 = !{!130, !37, i64 2}
+!130 = !{!"Struct1nx1_u16", !37, i64 0, !37, i64 2, !37, i64 4, !37, i64 5}
+!131 = !{!132, !12, i64 4}
+!132 = !{!"Struct1nx1_32", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 11}
+!133 = !{!134, !12, i64 4}
+!134 = !{!"Struct1nx1_u32", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 11}
+!135 = !{!136, !5, i64 8}
+!136 = !{!"Struct1nx1_64", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 23}
+!137 = !{!138, !5, i64 8}
+!138 = !{!"Struct1nx1_u64", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 23}
+!139 = !{!140, !12, i64 0}
+!140 = !{!"Mixed7", !12, i64 0, !12, i64 4, !5, i64 8}
+!141 = !{!142, !12, i64 0}
+!142 = !{!"Mixed8_a", !12, i64 0, !12, i64 4, !58, i64 8}
+!143 = !{!144, !12, i64 0}
+!144 = !{!"Mixed8_b", !12, i64 0, !12, i64 4, !58, i64 8}
+!145 = !{!144, !12, i64 4}
+!146 = !{!147, !6, i64 0}
+!147 = !{!"Mixed9", !6, i64 0, !12, i64 1}
+!148 = !{!149, !37, i64 0}
+!149 = !{!"Example_gh_73939", !37, i64 0, !37, i64 2, !37, i64 3, !37, i64 3, !37, i64 3, !37, i64 3, !37, i64 3, !12, i64 4, !12, i64 5, !12, i64 7}
+!150 = !{!151, !6, i64 1}
+!151 = !{!"AnonBitfields", !152, i64 0, !6, i64 1}
+!152 = !{!"", !6, i64 0, !6, i64 0}

@@ -765,12 +765,12 @@ switch.lookup:                                    ; preds = %171
   ]
 
 .critedge.i.i.backedge:                           ; preds = %213, %.critedge.i.i
-  br label %.critedge.i.i, !llvm.loop !9
+  br label %.critedge.i.i, !llvm.loop !8
 
 214:                                              ; preds = %213
   %215 = getelementptr i8, ptr %.015.pn.i.i, i64 2
   %216 = icmp eq i8 %205, 46
-  br i1 %216, label %196, label %is_dbus_interface_valid.exit.thread.i, !llvm.loop !10
+  br i1 %216, label %196, label %is_dbus_interface_valid.exit.thread.i, !llvm.loop !9
 
 is_dbus_interface_valid.exit.i:                   ; preds = %213
   %217 = ptrtoint ptr %.1.i.i to i64
@@ -827,7 +827,7 @@ is_dbus_interface_valid.exit.thread.i:            ; preds = %is_dbus_interface_v
   ]
 
 .critedge.i204.i.backedge:                        ; preds = %244, %.critedge.i204.i
-  br label %.critedge.i204.i, !llvm.loop !11
+  br label %.critedge.i204.i
 
 is_dbus_member_name_valid.exit.i:                 ; preds = %244
   %245 = ptrtoint ptr %235 to i64
@@ -905,12 +905,12 @@ is_dbus_member_name_valid.exit.thread.i:          ; preds = %is_dbus_member_name
   ]
 
 .critedge.i212.i.backedge:                        ; preds = %280, %.critedge.i212.i
-  br label %.critedge.i212.i, !llvm.loop !9
+  br label %.critedge.i212.i, !llvm.loop !8
 
 281:                                              ; preds = %280
   %282 = getelementptr i8, ptr %.015.pn.i209.i, i64 2
   %283 = icmp eq i8 %272, 46
-  br i1 %283, label %263, label %is_dbus_interface_valid.exit213.thread.i, !llvm.loop !10
+  br i1 %283, label %263, label %is_dbus_interface_valid.exit213.thread.i, !llvm.loop !9
 
 is_dbus_interface_valid.exit213.i:                ; preds = %280
   %284 = ptrtoint ptr %.1.i210.i to i64
@@ -1054,13 +1054,13 @@ default.unreachable.i:                            ; preds = %.critedge.i
   %351 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %352 = load i32, ptr %351, align 8
   %353 = icmp ugt i32 %352, 2
-  br i1 %353, label %.preheader.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %353, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %350, %347, %339, %334, %320, %300, %is_dbus_interface_valid.exit213.i, %is_dbus_member_name_valid.exit.i, %is_dbus_interface_valid.exit.i, %189
   %.3115.i = phi ptr [ %188, %189 ], [ %193, %is_dbus_interface_valid.exit.i ], [ %226, %is_dbus_member_name_valid.exit.i ], [ %260, %is_dbus_interface_valid.exit213.i ], [ %293, %300 ], [ %313, %320 ], [ %333, %334 ], [ %338, %339 ], [ %346, %347 ], [ %349, %350 ]
   %354 = call fastcc ptr @reader_next(ptr noundef nonnull %.3115.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
   %.not176.not.i = icmp eq ptr %354, null
-  br i1 %.not176.not.i, label %dissect_dbus_header_fields.exit.thread, label %144, !llvm.loop !13
+  br i1 %.not176.not.i, label %dissect_dbus_header_fields.exit.thread, label %144, !llvm.loop !11
 
 355:                                              ; preds = %144
   %356 = load i32, ptr %49, align 4
@@ -1471,7 +1471,7 @@ proto_item_set_generated.exit117.i.i:             ; preds = %568, %565, %proto_i
 
 add_conversation.exit.i:                          ; preds = %proto_item_set_generated.exit117.i.i, %505, %502, %.thread130.i.i, %.thread127.i.i, %467, %457, %379, %377, %375, %372
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.3.i.i)
-  %572 = load i8, ptr @dbus_resolve_names, align 1, !range !14, !noundef !15
+  %572 = load i8, ptr @dbus_resolve_names, align 1, !range !12, !noundef !13
   %573 = trunc nuw i8 %572 to i1
   br i1 %573, label %574, label %576
 
@@ -1610,7 +1610,7 @@ reader_is_finished.exit.i.i:                      ; preds = %628
 reader_is_finished.exit.thread.i.i:               ; preds = %reader_is_finished.exit.i.i, %628
   %636 = call fastcc ptr @reader_next(ptr noundef nonnull %.0.i.i17, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %6)
   %.not.i.i18 = icmp eq ptr %636, null
-  br i1 %.not.i.i18, label %dissect_dbus_signature.exit.i, label %628, !llvm.loop !16
+  br i1 %.not.i.i18, label %dissect_dbus_signature.exit.i, label %628, !llvm.loop !14
 
 dissect_dbus_signature.exit.i:                    ; preds = %reader_is_finished.exit.thread.i.i, %reader_is_finished.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
@@ -1988,7 +1988,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
 .preheader.i.backedge:                            ; preds = %.critedge.i, %.lr.ph.i.loopexit
   %.be = phi i8 [ %.pr.i, %.critedge.i ], [ %133, %.lr.ph.i.loopexit ]
   %.1.i.be = phi ptr [ %145, %.critedge.i ], [ %132, %.lr.ph.i.loopexit ]
-  br label %.preheader.i, !llvm.loop !17
+  br label %.preheader.i, !llvm.loop !15
 
 is_dbus_object_path_valid.exit:                   ; preds = %144
   %146 = getelementptr i8, ptr %.1.i, i64 -1
@@ -2280,7 +2280,7 @@ is_basic_type.exit:                               ; preds = %256, %266
   %.sroa.1418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 56
   store ptr %0, ptr %.sroa.1418.0..sroa_idx, align 8
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  %273 = load i8, ptr %272, align 2, !range !14, !noundef !15
+  %273 = load i8, ptr %272, align 2, !range !12, !noundef !13
   %274 = trunc nuw i8 %273 to i1
   %275 = trunc nuw i8 %271 to i1
   %or.cond = select i1 %274, i1 %275, i1 false
@@ -2481,13 +2481,13 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
 
 374:                                              ; preds = %347
   %375 = getelementptr inbounds nuw i8, ptr %.4, i64 44
-  %376 = load i8, ptr %375, align 4, !range !14, !noundef !15
+  %376 = load i8, ptr %375, align 4, !range !12, !noundef !13
   %377 = trunc nuw i8 %376 to i1
   br i1 %377, label %378, label %.thread
 
 378:                                              ; preds = %374
   %379 = getelementptr inbounds nuw i8, ptr %.4, i64 45
-  %380 = load i8, ptr %379, align 1, !range !14, !noundef !15
+  %380 = load i8, ptr %379, align 1, !range !12, !noundef !13
   %381 = trunc nuw i8 %380 to i1
   br i1 %381, label %382, label %390
 
@@ -2511,12 +2511,12 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
 393:                                              ; preds = %367, %390
   %.7.in = phi ptr [ %371, %367 ], [ %392, %390 ]
   %.7 = load ptr, ptr %.7.in, align 8
-  br label %347, !llvm.loop !18
+  br label %347
 
 .thread:                                          ; preds = %374, %362, %356
   %.10 = phi i32 [ 1, %362 ], [ %.0288, %356 ], [ %.0288, %374 ]
   %394 = getelementptr inbounds nuw i8, ptr %.4, i64 46
-  %395 = load i8, ptr %394, align 2, !range !14, !noundef !15
+  %395 = load i8, ptr %394, align 2, !range !12, !noundef !13
   %396 = trunc nuw i8 %395 to i1
   br i1 %396, label %397, label %414
 
@@ -2530,7 +2530,7 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
 
 403:                                              ; preds = %397
   %404 = getelementptr inbounds nuw i8, ptr %.4, i64 47
-  %405 = load i8, ptr %404, align 1, !range !14, !noundef !15
+  %405 = load i8, ptr %404, align 1, !range !12, !noundef !13
   %406 = trunc nuw i8 %405 to i1
   br i1 %406, label %.sink.split, label %414
 
@@ -2662,12 +2662,12 @@ define internal fastcc zeroext i1 @is_dbus_bus_name_valid(ptr noundef %0) unname
   ]
 
 .critedge.us.backedge:                            ; preds = %20, %20, %.critedge.us
-  br label %.critedge.us, !llvm.loop !19
+  br label %.critedge.us, !llvm.loop !16
 
 21:                                               ; preds = %20
   %22 = getelementptr i8, ptr %.1.pn.us, i64 2
   %23 = icmp eq i8 %12, 46
-  br i1 %23, label %.split.us, label %.loopexit, !llvm.loop !20
+  br i1 %23, label %.split.us, label %.loopexit, !llvm.loop !17
 
 .split:                                           ; preds = %1, %51
   %.023 = phi i32 [ %35, %51 ], [ 0, %1 ]
@@ -2717,7 +2717,7 @@ define internal fastcc zeroext i1 @is_dbus_bus_name_valid(ptr noundef %0) unname
   ]
 
 .critedge.backedge:                               ; preds = %44, %44, %.critedge
-  br label %.critedge, !llvm.loop !19
+  br label %.critedge, !llvm.loop !16
 
 .split36.us:                                      ; preds = %20, %44
   %.us-phi = phi i32 [ %35, %44 ], [ %11, %20 ]
@@ -2733,7 +2733,7 @@ define internal fastcc zeroext i1 @is_dbus_bus_name_valid(ptr noundef %0) unname
 51:                                               ; preds = %44
   %52 = getelementptr i8, ptr %.1.pn, i64 2
   %53 = icmp eq i8 %36, 46
-  br i1 %53, label %.split, label %.loopexit, !llvm.loop !22
+  br i1 %53, label %.split, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %21, %9, %30, %51, %.split36.us
   %.0 = phi i1 [ %50, %.split36.us ], [ false, %51 ], [ false, %30 ], [ false, %9 ], [ false, %21 ]
@@ -2905,7 +2905,7 @@ calculate_padding_len.exit:                       ; preds = %2, %7, %8, %9
 21:                                               ; preds = %.lr.ph
   %22 = add i32 %.02027, 1
   %exitcond.not = icmp eq i32 %22, %20
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %13, %21
   %.02027 = phi i32 [ %22, %21 ], [ %6, %13 ]
@@ -3122,7 +3122,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 30:                                               ; preds = %thread-pre-split, %9
   %31 = phi i8 [ %.pr, %thread-pre-split ], [ %10, %9 ]
   %.not = icmp eq i8 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %30, %1
   %32 = tail call i32 @wmem_list_count(ptr noundef %2)
@@ -3160,7 +3160,7 @@ define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captu
     i8 97, label %2
     i8 40, label %5
     i8 123, label %13
-  ], !llvm.loop !25
+  ]
 
 5:                                                ; preds = %2
   %.01220.i = load i8, ptr %3, align 1
@@ -3189,7 +3189,7 @@ define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captu
   %spec.select.i = add i32 %.sink.i, %.01322.i
   %.012.i = load i8, ptr %.01623.i, align 1
   %.not.i = icmp eq i8 %.012.i, 0
-  br i1 %.not.i, label %skip_enclosed_container.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not.i, label %skip_enclosed_container.exit, label %.lr.ph.i, !llvm.loop !22
 
 13:                                               ; preds = %2
   %.01220.i6 = load i8, ptr %3, align 1
@@ -3218,7 +3218,7 @@ define internal fastcc ptr @skip_single_complete_type(ptr noundef readonly captu
   %spec.select.i14 = add i32 %.sink.i13, %.01322.i11
   %.012.i15 = load i8, ptr %.01623.i12, align 1
   %.not.i16 = icmp eq i8 %.012.i15, 0
-  br i1 %.not.i16, label %skip_enclosed_container.exit, label %.lr.ph.i8, !llvm.loop !26
+  br i1 %.not.i16, label %skip_enclosed_container.exit, label %.lr.ph.i8, !llvm.loop !22
 
 skip_enclosed_container.exit.loopexit45:          ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   br label %skip_enclosed_container.exit
@@ -3272,7 +3272,7 @@ declare i32 @conversation_pt_to_endpoint_type(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @update_unique_name_map(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load i8, ptr @dbus_resolve_names, align 1, !range !14, !noundef !15
+  %3 = load i8, ptr @dbus_resolve_names, align 1, !range !12, !noundef !13
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.thread13
 
@@ -3351,11 +3351,11 @@ define internal i32 @get_dbus_message_len(ptr readnone captures(none) %0, ptr no
   %cond = icmp eq i8 %5, 108
   %tvb_get_letohl.tvb_get_ntohl = select i1 %cond, ptr @tvb_get_letohl, ptr @tvb_get_ntohl
   %6 = add i32 %2, 12
-  %7 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %6), !callees !27
+  %7 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %6), !callees !23
   %8 = add i32 %7, 23
   %9 = and i32 %8, -8
   %10 = add i32 %2, 4
-  %11 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %10), !callees !27
+  %11 = tail call i32 %tvb_get_letohl.tvb_get_ntohl(ptr noundef %1, i32 noundef %10), !callees !23
   %12 = add i32 %9, %11
   ret i32 %12
 }
@@ -3398,25 +3398,21 @@ attributes #13 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = !{ptr @tvb_get_letohl, ptr @tvb_get_ntohl}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = !{ptr @tvb_get_letohl, ptr @tvb_get_ntohl}

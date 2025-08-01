@@ -304,7 +304,7 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   %115 = load i32, ptr %10, align 4
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %.thread171.i, !llvm.loop !6
+  br i1 %117, label %.lr.ph, label %.thread171.i, !llvm.loop !5
 
 .thread171.i:                                     ; preds = %.loopexit.i, %99
   %.lcssa = phi i32 [ %103, %99 ], [ %115, %.loopexit.i ]
@@ -452,7 +452,7 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
   %.4.i = phi ptr [ %44, %45 ], [ %.16086.i, %35 ], [ %.16086.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = icmp ugt i64 %49, %indvars.iv.next.i
-  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %48, %28
   %.160.lcssa.i = phi ptr [ %27, %28 ], [ %.4.i, %48 ]
@@ -514,7 +514,7 @@ define internal fastcc void @free_zenity_args(ptr noundef %0) unnamed_addr #0 {
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -629,7 +629,7 @@ define internal noalias ptr @zenity_clean_name(ptr noundef %0) #0 {
 
 7:                                                ; preds = %3, %6
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %3, !llvm.loop !9
+  br label %3, !llvm.loop !8
 }
 
 declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
@@ -666,10 +666,9 @@ attributes #8 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

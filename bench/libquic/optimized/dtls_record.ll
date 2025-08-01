@@ -115,7 +115,7 @@ define hidden range(i32 0, 4) i32 @dtls_open_record(ptr noundef %0, ptr noundef 
 to_u64_be.exit.i:                                 ; preds = %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 280
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 288
-  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %62 = load i64, ptr %61, align 8, !tbaa !64
   %63 = icmp ugt i64 %59, %62
   br i1 %63, label %dtls1_bitmap_should_discard.exit.thread, label %64
 
@@ -125,7 +125,7 @@ to_u64_be.exit.i:                                 ; preds = %.preheader
   br i1 %66, label %dtls1_bitmap_should_discard.exit.thread40, label %dtls1_bitmap_should_discard.exit
 
 dtls1_bitmap_should_discard.exit:                 ; preds = %64
-  %67 = load i64, ptr %60, align 8, !tbaa !66
+  %67 = load i64, ptr %60, align 8, !tbaa !65
   %68 = shl nuw i64 1, %65
   %69 = and i64 %67, %68
   %.not36 = icmp eq i64 %69, 0
@@ -141,7 +141,7 @@ dtls1_bitmap_should_discard.exit.thread:          ; preds = %to_u64_be.exit.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #5
   %72 = load ptr, ptr %24, align 8, !tbaa !6
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 264
-  %74 = load ptr, ptr %73, align 8, !tbaa !67
+  %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = load i8, ptr %11, align 1, !tbaa !54
   %76 = load i16, ptr %12, align 2, !tbaa !49
   %77 = call ptr @CBS_data(ptr noundef nonnull %14) #5
@@ -236,7 +236,7 @@ define internal fastcc void @dtls1_bitmap_record(ptr noundef captures(none) %0, 
 
 to_u64_be.exit:                                   ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !65
+  %10 = load i64, ptr %9, align 8, !tbaa !64
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %19
 
@@ -246,14 +246,14 @@ to_u64_be.exit:                                   ; preds = %3
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr %0, align 8, !tbaa !66
+  %16 = load i64, ptr %0, align 8, !tbaa !65
   %17 = shl i64 %16, %13
   br label %18
 
 18:                                               ; preds = %12, %15
   %storemerge = phi i64 [ %17, %15 ], [ 0, %12 ]
-  store i64 %storemerge, ptr %0, align 8, !tbaa !66
-  store i64 %8, ptr %9, align 8, !tbaa !65
+  store i64 %storemerge, ptr %0, align 8, !tbaa !65
+  store i64 %8, ptr %9, align 8, !tbaa !64
   br label %19
 
 19:                                               ; preds = %18, %to_u64_be.exit
@@ -264,9 +264,9 @@ to_u64_be.exit:                                   ; preds = %3
 
 23:                                               ; preds = %19
   %24 = shl nuw i64 1, %21
-  %25 = load i64, ptr %0, align 8, !tbaa !66
+  %25 = load i64, ptr %0, align 8, !tbaa !65
   %26 = or i64 %25, %24
-  store i64 %26, ptr %0, align 8, !tbaa !66
+  store i64 %26, ptr %0, align 8, !tbaa !65
   br label %27
 
 27:                                               ; preds = %23, %19
@@ -282,11 +282,11 @@ define hidden range(i32 0, 2) i32 @dtls_seal_record(ptr noundef %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 274
-  %13 = load i16, ptr %12, align 2, !tbaa !68
+  %13 = load i16, ptr %12, align 2, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 272
-  %17 = load ptr, ptr %16, align 8, !tbaa !69
+  %17 = load ptr, ptr %16, align 8, !tbaa !68
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = icmp eq i32 %7, 0
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 302
@@ -474,11 +474,10 @@ attributes #5 = { nounwind }
 !59 = !{!"p1 _ZTS7_pqueue", !13, i64 0}
 !60 = !{!"hm_header_st", !9, i64 0, !8, i64 4, !11, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !11, i64 24}
 !61 = !{!"timeval", !25, i64 0, !25, i64 8}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!58, !25, i64 8}
-!66 = !{!58, !25, i64 0}
-!67 = !{!36, !43, i64 264}
-!68 = !{!57, !11, i64 274}
-!69 = !{!36, !43, i64 272}
+!64 = !{!58, !25, i64 8}
+!65 = !{!58, !25, i64 0}
+!66 = !{!36, !43, i64 264}
+!67 = !{!57, !11, i64 274}
+!68 = !{!36, !43, i64 272}

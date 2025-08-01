@@ -274,7 +274,7 @@ _ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit: ; preds = %137, %123, %1
   %140 = load i32, ptr %41, align 4
   %141 = load i32, ptr %42, align 8
   %142 = icmp ult i32 %140, %141
-  br i1 %142, label %49, label %.critedge, !llvm.loop !9
+  br i1 %142, label %49, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %49, %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit, %37
   %143 = call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
@@ -354,7 +354,6 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

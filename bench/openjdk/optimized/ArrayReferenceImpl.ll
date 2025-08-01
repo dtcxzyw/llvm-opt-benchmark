@@ -615,7 +615,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %81 = tail call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %80) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i, %68
-  br i1 %exitcond.not.i55, label %82, label %78, !llvm.loop !9
+  br i1 %exitcond.not.i55, label %82, label %78, !llvm.loop !8
 
 82:                                               ; preds = %78
   tail call void @jvmtiDeallocate(ptr noundef nonnull %64) #4
@@ -665,7 +665,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %103 = tail call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %102) #4
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
-  br i1 %exitcond.not.i60, label %104, label %100, !llvm.loop !10
+  br i1 %exitcond.not.i60, label %104, label %100, !llvm.loop !9
 
 104:                                              ; preds = %100
   tail call void @jvmtiDeallocate(ptr noundef nonnull %86) #4
@@ -715,7 +715,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %126 = tail call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %125) #4
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %112
-  br i1 %exitcond.not.i65, label %127, label %123, !llvm.loop !11
+  br i1 %exitcond.not.i65, label %127, label %123, !llvm.loop !10
 
 127:                                              ; preds = %123
   tail call void @jvmtiDeallocate(ptr noundef nonnull %108) #4
@@ -765,7 +765,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %149 = tail call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %148) #4
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %135
-  br i1 %exitcond.not.i70, label %150, label %146, !llvm.loop !12
+  br i1 %exitcond.not.i70, label %150, label %146, !llvm.loop !11
 
 150:                                              ; preds = %146
   tail call void @jvmtiDeallocate(ptr noundef nonnull %131) #4
@@ -815,7 +815,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %172 = tail call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %171) #4
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %158
-  br i1 %exitcond.not.i75, label %173, label %169, !llvm.loop !13
+  br i1 %exitcond.not.i75, label %173, label %169, !llvm.loop !12
 
 173:                                              ; preds = %169
   tail call void @jvmtiDeallocate(ptr noundef nonnull %154) #4
@@ -865,7 +865,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %195 = tail call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %194) #4
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %181
-  br i1 %exitcond.not.i80, label %196, label %192, !llvm.loop !14
+  br i1 %exitcond.not.i80, label %196, label %192, !llvm.loop !13
 
 196:                                              ; preds = %192
   tail call void @jvmtiDeallocate(ptr noundef nonnull %177) #4
@@ -915,7 +915,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %217 = tail call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %216) #4
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i83
-  br i1 %exitcond.not.i86, label %218, label %214, !llvm.loop !15
+  br i1 %exitcond.not.i86, label %218, label %214, !llvm.loop !14
 
 218:                                              ; preds = %214
   tail call void @jvmtiDeallocate(ptr noundef nonnull %200) #4
@@ -963,7 +963,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %238 = tail call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %237) #4
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %225
-  br i1 %exitcond.not.i91, label %239, label %235, !llvm.loop !16
+  br i1 %exitcond.not.i91, label %239, label %235, !llvm.loop !15
 
 239:                                              ; preds = %235
   tail call void @jvmtiDeallocate(ptr noundef nonnull %221) #4
@@ -1145,7 +1145,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %52 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %52, %5
   %or.cond.i = select i1 %.not13.i57, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %readObjectComponents.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %or.cond.i, label %readObjectComponents.exit, label %.lr.ph.i, !llvm.loop !16
 
 53:                                               ; preds = %isReferenceTag.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
@@ -1181,7 +1181,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   call void %65(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %66, i32 noundef 1, ptr noundef nonnull %14) #4
   %67 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i61 = icmp eq i32 %67, %5
-  br i1 %exitcond.not.i61, label %readByteComponents.exit, label %.lr.ph.i59, !llvm.loop !18
+  br i1 %exitcond.not.i61, label %readByteComponents.exit, label %.lr.ph.i59, !llvm.loop !17
 
 readByteComponents.exit:                          ; preds = %.lr.ph.i59, %62, %53
   %68 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1222,7 +1222,7 @@ readByteComponents.exit:                          ; preds = %.lr.ph.i59, %62, %5
   call void %81(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %13) #4
   %83 = add nuw nsw i32 %.011.i64, 1
   %exitcond.not.i67 = icmp eq i32 %83, %5
-  br i1 %exitcond.not.i67, label %readCharComponents.exit, label %.lr.ph.i63, !llvm.loop !19
+  br i1 %exitcond.not.i67, label %readCharComponents.exit, label %.lr.ph.i63, !llvm.loop !18
 
 readCharComponents.exit:                          ; preds = %.lr.ph.i63, %78, %69
   %84 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1263,7 +1263,7 @@ readCharComponents.exit:                          ; preds = %.lr.ph.i63, %78, %6
   call void %97(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %98, i32 noundef 1, ptr noundef nonnull %12) #4
   %99 = add nuw nsw i32 %.011.i70, 1
   %exitcond.not.i73 = icmp eq i32 %99, %5
-  br i1 %exitcond.not.i73, label %readFloatComponents.exit, label %.lr.ph.i69, !llvm.loop !20
+  br i1 %exitcond.not.i73, label %readFloatComponents.exit, label %.lr.ph.i69, !llvm.loop !19
 
 readFloatComponents.exit:                         ; preds = %.lr.ph.i69, %94, %85
   %100 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1304,7 +1304,7 @@ readFloatComponents.exit:                         ; preds = %.lr.ph.i69, %94, %8
   call void %113(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %114, i32 noundef 1, ptr noundef nonnull %11) #4
   %115 = add nuw nsw i32 %.011.i76, 1
   %exitcond.not.i79 = icmp eq i32 %115, %5
-  br i1 %exitcond.not.i79, label %readDoubleComponents.exit, label %.lr.ph.i75, !llvm.loop !21
+  br i1 %exitcond.not.i79, label %readDoubleComponents.exit, label %.lr.ph.i75, !llvm.loop !20
 
 readDoubleComponents.exit:                        ; preds = %.lr.ph.i75, %110, %101
   %116 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1345,7 +1345,7 @@ readDoubleComponents.exit:                        ; preds = %.lr.ph.i75, %110, %
   call void %129(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %130, i32 noundef 1, ptr noundef nonnull %10) #4
   %131 = add nuw nsw i32 %.011.i82, 1
   %exitcond.not.i85 = icmp eq i32 %131, %5
-  br i1 %exitcond.not.i85, label %readIntComponents.exit, label %.lr.ph.i81, !llvm.loop !22
+  br i1 %exitcond.not.i85, label %readIntComponents.exit, label %.lr.ph.i81, !llvm.loop !21
 
 readIntComponents.exit:                           ; preds = %.lr.ph.i81, %126, %117
   %132 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1386,7 +1386,7 @@ readIntComponents.exit:                           ; preds = %.lr.ph.i81, %126, %
   call void %145(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %146, i32 noundef 1, ptr noundef nonnull %9) #4
   %147 = add nuw nsw i32 %.011.i88, 1
   %exitcond.not.i91 = icmp eq i32 %147, %5
-  br i1 %exitcond.not.i91, label %readLongComponents.exit, label %.lr.ph.i87, !llvm.loop !23
+  br i1 %exitcond.not.i91, label %readLongComponents.exit, label %.lr.ph.i87, !llvm.loop !22
 
 readLongComponents.exit:                          ; preds = %.lr.ph.i87, %142, %133
   %148 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1427,7 +1427,7 @@ readLongComponents.exit:                          ; preds = %.lr.ph.i87, %142, %
   call void %161(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %162, i32 noundef 1, ptr noundef nonnull %8) #4
   %163 = add nuw nsw i32 %.011.i94, 1
   %exitcond.not.i97 = icmp eq i32 %163, %5
-  br i1 %exitcond.not.i97, label %readShortComponents.exit, label %.lr.ph.i93, !llvm.loop !24
+  br i1 %exitcond.not.i97, label %readShortComponents.exit, label %.lr.ph.i93, !llvm.loop !23
 
 readShortComponents.exit:                         ; preds = %.lr.ph.i93, %158, %149
   %164 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1468,7 +1468,7 @@ readShortComponents.exit:                         ; preds = %.lr.ph.i93, %158, %
   call void %177(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %178, i32 noundef 1, ptr noundef nonnull %7) #4
   %179 = add nuw nsw i32 %.011.i100, 1
   %exitcond.not.i103 = icmp eq i32 %179, %5
-  br i1 %exitcond.not.i103, label %readBooleanComponents.exit, label %.lr.ph.i99, !llvm.loop !25
+  br i1 %exitcond.not.i103, label %readBooleanComponents.exit, label %.lr.ph.i99, !llvm.loop !24
 
 readBooleanComponents.exit:                       ; preds = %.lr.ph.i99, %174, %165
   %180 = call zeroext i16 @inStream_error(ptr noundef %1) #4
@@ -1545,23 +1545,22 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

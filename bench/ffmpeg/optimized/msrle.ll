@@ -81,13 +81,13 @@ define internal range(i32 -1094995529, 1) i32 @msrle_decode_init(ptr noundef %0)
 ; Function Attrs: nounwind uwtable
 define internal i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !42
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !44
+  %8 = load i32, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %12 = load i32, ptr %11, align 8, !tbaa !45
+  %12 = load i32, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %14 = load i32, ptr %13, align 8, !tbaa !32
   %15 = mul nsw i32 %14, %12
@@ -115,35 +115,35 @@ define internal i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %30 = tail call i32 @ff_copy_palette(ptr noundef nonnull %29, ptr noundef nonnull %3, ptr noundef nonnull %0) #4
   %31 = load ptr, ptr %21, align 8, !tbaa !34
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
+  %33 = load ptr, ptr %32, align 8, !tbaa !45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %33, ptr noundef nonnull align 8 dereferenceable(1024) %29, i64 1024, i1 false)
   br label %34
 
 34:                                               ; preds = %28, %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %36 = load i32, ptr %35, align 4, !tbaa !47
+  %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = mul nsw i32 %36, %18
-  %38 = load i32, ptr %7, align 8, !tbaa !44
+  %38 = load i32, ptr %7, align 8, !tbaa !43
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %95
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %42 = load i32, ptr %41, align 8, !tbaa !33
-  %43 = load i32, ptr %11, align 8, !tbaa !45
+  %43 = load i32, ptr %11, align 8, !tbaa !44
   %44 = tail call i32 @av_image_get_linesize(i32 noundef %42, i32 noundef %43, i32 noundef 0) #4
   %45 = icmp sgt i32 %44, -1
   br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %40
-  %47 = load i32, ptr %35, align 4, !tbaa !47
+  %47 = load i32, ptr %35, align 4, !tbaa !46
   %48 = icmp sgt i32 %47, 0
   %.pre87 = load ptr, ptr %21, align 8, !tbaa !34
   br i1 %48, label %.lr.ph83, label %.loopexit
 
 .lr.ph83:                                         ; preds = %46
-  %49 = load ptr, ptr %.pre87, align 8, !tbaa !46
-  %50 = load ptr, ptr %5, align 8, !tbaa !42
+  %49 = load ptr, ptr %.pre87, align 8, !tbaa !45
+  %50 = load ptr, ptr %5, align 8, !tbaa !41
   %51 = add nsw i32 %47, -1
   %52 = mul nsw i32 %51, %18
   %53 = sext i32 %52 to i64
@@ -162,7 +162,7 @@ define internal i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %59, label %.preheader, label %84
 
 .preheader:                                       ; preds = %57
-  %60 = load i32, ptr %11, align 8, !tbaa !45
+  %60 = load i32, ptr %11, align 8, !tbaa !44
   %61 = icmp sgt i32 %60, 1
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -179,11 +179,11 @@ define internal i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 1
   store i8 %68, ptr %69, align 1, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %70 = load i32, ptr %11, align 8, !tbaa !45
+  %70 = load i32, ptr %11, align 8, !tbaa !44
   %71 = add nsw i32 %70, -1
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !48
+  br i1 %73, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %74 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -219,19 +219,19 @@ define internal i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %.06979, i64 %90
   %92 = add nuw nsw i32 %.06781, 1
-  %93 = load i32, ptr %35, align 4, !tbaa !47
+  %93 = load i32, ptr %35, align 4, !tbaa !46
   %94 = icmp slt i32 %92, %93
-  br i1 %94, label %57, label %.loopexit, !llvm.loop !49
+  br i1 %94, label %57, label %.loopexit, !llvm.loop !48
 
 95:                                               ; preds = %34
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %6, ptr %96, align 8, !tbaa !50
+  store ptr %6, ptr %96, align 8, !tbaa !49
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %6, ptr %97, align 8, !tbaa !51
+  store ptr %6, ptr %97, align 8, !tbaa !50
   %98 = zext nneg i32 %8 to i64
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %99, ptr %100, align 8, !tbaa !52
+  store ptr %99, ptr %100, align 8, !tbaa !51
   %101 = load ptr, ptr %21, align 8, !tbaa !34
   %102 = load i32, ptr %13, align 8, !tbaa !32
   %103 = tail call i32 @ff_msrle_decode(ptr noundef nonnull %0, ptr noundef %101, i32 noundef %102, ptr noundef nonnull %96) #4
@@ -340,17 +340,16 @@ attributes #4 = { nounwind }
 !36 = !{!5, !14, i64 72}
 !37 = !{!8, !8, i64 0}
 !38 = !{!10, !10, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !14, i64 24}
-!43 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!44 = !{!43, !10, i64 32}
-!45 = !{!5, !10, i64 112}
-!46 = !{!14, !14, i64 0}
-!47 = !{!5, !10, i64 116}
-!48 = distinct !{!48, !40, !41}
-!49 = distinct !{!49, !40, !41}
-!50 = !{!31, !14, i64 0}
-!51 = !{!31, !14, i64 16}
-!52 = !{!31, !14, i64 8}
+!41 = !{!42, !14, i64 24}
+!42 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!43 = !{!42, !10, i64 32}
+!44 = !{!5, !10, i64 112}
+!45 = !{!14, !14, i64 0}
+!46 = !{!5, !10, i64 116}
+!47 = distinct !{!47, !40}
+!48 = distinct !{!48, !40}
+!49 = !{!31, !14, i64 0}
+!50 = !{!31, !14, i64 16}
+!51 = !{!31, !14, i64 8}

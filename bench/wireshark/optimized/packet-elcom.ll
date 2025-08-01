@@ -473,7 +473,7 @@ proto_item_set_hidden.exit:                       ; preds = %48, %57, %60
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %169, ptr noundef %0, i32 noundef %.180.i, i32 noundef 1, i32 noundef 0)
   %171 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %165)
   %172 = icmp eq i8 %171, 0
-  br i1 %172, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %172, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %168, %.preheader.i
   %.1.lcssa.i = phi i32 [ %158, %.preheader.i ], [ %165, %168 ]
@@ -761,7 +761,7 @@ define internal fastcc noundef i32 @dissect_userdata(ptr noundef %0, i32 noundef
   %80 = add i32 %.08891, 1
   %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %80)
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %75, %39, %33, %27, %21, %18, %11
   %.0 = phi i32 [ %3, %11 ], [ %16, %18 ], [ %24, %21 ], [ %30, %27 ], [ %36, %33 ], [ %42, %39 ], [ %70, %75 ], [ %80, %.lr.ph ]
@@ -790,6 +790,4 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.mustprogress"}

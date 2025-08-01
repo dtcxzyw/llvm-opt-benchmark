@@ -109,7 +109,7 @@ define ptr @d2i_OSSL_IETF_ATTR_SYNTAX(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not24, label %26, label %25
 
 25:                                               ; preds = %24
-  store ptr null, ptr %0, align 8, !tbaa !17
+  store ptr null, ptr %0, align 8, !tbaa !16
   br label %26
 
 26:                                               ; preds = %25, %24
@@ -167,15 +167,15 @@ define i32 @OSSL_IETF_ATTR_SYNTAX_get_value_num(ptr noundef readonly captures(no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_IETF_ATTR_SYNTAX_get0_policyAuthority(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !19
+  %2 = load ptr, ptr %0, align 8, !tbaa !18
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @OSSL_IETF_ATTR_SYNTAX_set0_policyAuthority(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !18
   tail call void @GENERAL_NAMES_free(ptr noundef %3) #5
-  store ptr %1, ptr %0, align 8, !tbaa !19
+  store ptr %1, ptr %0, align 8, !tbaa !18
   ret void
 }
 
@@ -195,7 +195,7 @@ define ptr @OSSL_IETF_ATTR_SYNTAX_get0_value(ptr noundef readonly captures(none)
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %8
-  store i32 %.pre, ptr %2, align 4, !tbaa !20
+  store i32 %.pre, ptr %2, align 4, !tbaa !19
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -204,7 +204,7 @@ define ptr @OSSL_IETF_ATTR_SYNTAX_get0_value(ptr noundef readonly captures(none)
 
 .sink.split:                                      ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   br label %13
 
 13:                                               ; preds = %10, %.sink.split, %3
@@ -265,7 +265,7 @@ define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_add1_value(ptr noundef capture
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %2, ptr %22, align 8, !tbaa !21
+  store ptr %2, ptr %22, align 8, !tbaa !20
   %23 = load ptr, ptr %6, align 8, !tbaa !3
   %24 = tail call i32 @OPENSSL_sk_push(ptr noundef %23, ptr noundef nonnull %17) #5
   %25 = icmp slt i32 %24, 1
@@ -293,7 +293,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [80 x i8], align 16
-  %5 = load ptr, ptr %1, align 8, !tbaa !19
+  %5 = load ptr, ptr %1, align 8, !tbaa !18
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -304,10 +304,10 @@ define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %20
   %9 = add nuw nsw i32 %.02537, 1
-  %10 = load ptr, ptr %1, align 8, !tbaa !19
+  %10 = load ptr, ptr %1, align 8, !tbaa !18
   %11 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #5
   %12 = icmp slt i32 %9, %11
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.02537 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
@@ -316,7 +316,7 @@ define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef %0, ptr noun
   br i1 %14, label %.loopexit36, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %1, align 8, !tbaa !19
+  %16 = load ptr, ptr %1, align 8, !tbaa !18
   %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.02537) #5
   %18 = tail call i32 @GENERAL_NAME_print(ptr noundef %0, ptr noundef %17) #5
   %19 = icmp slt i32 %18, 1
@@ -354,7 +354,7 @@ OSSL_IETF_ATTR_SYNTAX_get_value_num.exit:         ; preds = %.loopexit, %46
 
 OSSL_IETF_ATTR_SYNTAX_get0_value.exit:            ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !21
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
   %36 = icmp eq ptr %35, null
   br i1 %36, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %37
 
@@ -385,7 +385,7 @@ OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread:     ; preds = %33, %29, %37, %OSSL
   %47 = add nuw nsw i32 %.138, 1
   %48 = load ptr, ptr %23, align 8, !tbaa !3
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.critedge, label %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit, !llvm.loop !23
+  br i1 %49, label %.critedge, label %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit, !llvm.loop !22
 
 .critedge:                                        ; preds = %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit, %46, %.loopexit
   %50 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.5) #5
@@ -439,13 +439,12 @@ attributes #5 = { nounwind }
 !11 = !{!12, !9, i64 0}
 !12 = !{!"OSSL_IETF_ATTR_SYNTAX_VALUE_st", !9, i64 0, !7, i64 8}
 !13 = !{!4, !9, i64 8}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS24OSSL_IETF_ATTR_SYNTAX_st", !6, i64 0}
-!19 = !{!4, !5, i64 0}
-!20 = !{!9, !9, i64 0}
-!21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !15, !16}
-!23 = distinct !{!23, !15, !16}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS24OSSL_IETF_ATTR_SYNTAX_st", !6, i64 0}
+!18 = !{!4, !5, i64 0}
+!19 = !{!9, !9, i64 0}
+!20 = !{!7, !7, i64 0}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}

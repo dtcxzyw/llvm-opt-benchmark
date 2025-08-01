@@ -321,7 +321,7 @@ tcg_region_tree_lock_all.exit:                    ; preds = %.lr.ph.i
   %20 = add nuw i64 %.07, 1
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = icmp eq i64 %21, 0
@@ -337,7 +337,7 @@ tcg_region_tree_lock_all.exit:                    ; preds = %.lr.ph.i
   %28 = add nuw i64 %.03.i, 1
   %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %30 = icmp ult i64 %28, %29
-  br i1 %30, label %.lr.ph.i6, label %tcg_region_tree_unlock_all.exit, !llvm.loop !9
+  br i1 %30, label %.lr.ph.i6, label %tcg_region_tree_unlock_all.exit, !llvm.loop !8
 
 tcg_region_tree_unlock_all.exit:                  ; preds = %.lr.ph.i6, %2, %tcg_region_tree_lock_all.exit, %._crit_edge
   ret void
@@ -384,7 +384,7 @@ tcg_region_tree_lock_all.exit:                    ; preds = %.lr.ph.i
   %21 = add nuw i64 %.058, 1
   %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %23 = icmp ult i64 %21, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %24 = icmp eq i64 %22, 0
@@ -400,7 +400,7 @@ tcg_region_tree_lock_all.exit:                    ; preds = %.lr.ph.i
   %29 = add nuw i64 %.03.i, 1
   %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %31 = icmp ult i64 %29, %30
-  br i1 %31, label %.lr.ph.i7, label %tcg_region_tree_unlock_all.exit, !llvm.loop !9
+  br i1 %31, label %.lr.ph.i7, label %tcg_region_tree_unlock_all.exit, !llvm.loop !8
 
 tcg_region_tree_unlock_all.exit:                  ; preds = %.lr.ph.i7, %0, %tcg_region_tree_lock_all.exit, %._crit_edge
   %.0.lcssa16 = phi i64 [ %20, %._crit_edge ], [ 0, %tcg_region_tree_lock_all.exit ], [ 0, %0 ], [ %20, %.lr.ph.i7 ]
@@ -567,7 +567,7 @@ tcg_region_initial_alloc__locked.exit:            ; preds = %13
   store i64 %33, ptr getelementptr inbounds nuw (i8, ptr @region, i64 96), align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %tcg_region_initial_alloc__locked.exit, %0
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @region, ptr noundef nonnull @.str, i32 noundef 420) #12
@@ -607,7 +607,7 @@ tcg_region_tree_lock_all.exit.i:                  ; preds = %.lr.ph.i.i
   %53 = add nuw i64 %.06.i, 1
   %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %55 = icmp ult i64 %53, %54
-  br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %56 = icmp eq i64 %54, 0
@@ -623,7 +623,7 @@ tcg_region_tree_lock_all.exit.i:                  ; preds = %.lr.ph.i.i
   %61 = add nuw i64 %.03.i.i, 1
   %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %63 = icmp ult i64 %61, %62
-  br i1 %63, label %.lr.ph.i5.i, label %tcg_region_tree_reset_all.exit, !llvm.loop !9
+  br i1 %63, label %.lr.ph.i5.i, label %tcg_region_tree_reset_all.exit, !llvm.loop !8
 
 tcg_region_tree_reset_all.exit:                   ; preds = %.lr.ph.i5.i, %._crit_edge, %tcg_region_tree_lock_all.exit.i, %._crit_edge.i
   ret void
@@ -760,7 +760,7 @@ alloc_code_gen_buffer.exit:                       ; preds = %alloc_code_gen_buff
 
 57:                                               ; preds = %52, %alloc_code_gen_buffer.exit
   %58 = icmp ne i32 %2, 1
-  %59 = load i8, ptr @mttcg_enabled, align 1, !range !13
+  %59 = load i8, ptr @mttcg_enabled, align 1, !range !12
   %60 = trunc nuw i8 %59 to i1
   %or.cond.i = select i1 %58, i1 %60, i1 false
   br i1 %or.cond.i, label %61, label %tcg_n_regions.exit
@@ -788,7 +788,7 @@ tcg_n_regions.exit:                               ; preds = %57, %61, %64
   %70 = sub nuw nsw i64 %.zext, %69
   %71 = shl nsw i64 %7, 1
   %.not54 = icmp ult i64 %70, %71
-  br i1 %.not54, label %72, label %73, !prof !14
+  br i1 %.not54, label %72, label %73, !prof !13
 
 72:                                               ; preds = %tcg_n_regions.exit
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 795, ptr noundef nonnull @__func__.tcg_region_init, ptr noundef nonnull @.str.3) #11
@@ -837,7 +837,7 @@ tcg_n_regions.exit:                               ; preds = %57, %61, %64
 93:                                               ; preds = %80, %.lr.ph.split.us
   %94 = add nuw i64 %.04570.us, 1
   %exitcond78.not = icmp eq i64 %94, %79
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not57, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -882,7 +882,7 @@ tcg_n_regions.exit:                               ; preds = %57, %61, %64
 118:                                              ; preds = %116, %115
   %119 = add nuw i64 %.04570.us71, 1
   %exitcond77.not = icmp eq i64 %119, %79
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %182, %118, %93, %73
   %120 = load i32, ptr @qemu_dcache_linesize, align 4
@@ -912,7 +912,7 @@ tcg_n_regions.exit:                               ; preds = %57, %61, %64
   %135 = add nuw i64 %.04.i, 1
   %136 = load i64, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %137 = icmp ult i64 %135, %136
-  br i1 %137, label %.lr.ph.i, label %tcg_region_trees_init.exit, !llvm.loop !18
+  br i1 %137, label %.lr.ph.i, label %tcg_region_trees_init.exit, !llvm.loop !17
 
 tcg_region_trees_init.exit:                       ; preds = %.lr.ph.i, %._crit_edge
   %138 = phi i64 [ 0, %._crit_edge ], [ %136, %.lr.ph.i ]
@@ -991,7 +991,7 @@ tcg_region_initial_alloc__locked.exit:            ; preds = %tcg_region_trees_in
 182:                                              ; preds = %180, %179
   %183 = add nuw i64 %.04570, 1
   %exitcond.not = icmp eq i64 %183, %79
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !18
 }
 
 declare i64 @qemu_get_host_physmem() local_unnamed_addr #4
@@ -1020,7 +1020,7 @@ define dso_local void @tcg_region_prologue_set(ptr noundef captures(none) %0) lo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %2, %4
-  br i1 %.not, label %6, label %5, !prof !20
+  br i1 %.not, label %6, label %5, !prof !19
 
 5:                                                ; preds = %1
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 866, ptr noundef nonnull @__func__.tcg_region_prologue_set, ptr noundef nonnull @.str.5) #11
@@ -1090,7 +1090,7 @@ define dso_local i64 @tcg_code_size() local_unnamed_addr #1 {
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %17 = load i64, ptr %16, align 8
   %.not = icmp ugt i64 %15, %17
-  br i1 %.not, label %18, label %19, !prof !14
+  br i1 %.not, label %18, label %19, !prof !13
 
 18:                                               ; preds = %6
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 898, ptr noundef nonnull @__func__.tcg_code_size, ptr noundef nonnull @.str.6) #11
@@ -1100,7 +1100,7 @@ define dso_local i64 @tcg_code_size() local_unnamed_addr #1 {
   %20 = add i64 %15, %.02225
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %19, %0
   %.022.lcssa = phi i64 [ %4, %0 ], [ %20, %19 ]
@@ -1153,13 +1153,13 @@ define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %17, label %6, !prof !14
+  br i1 %.not, label %17, label %6, !prof !13
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %.not28 = icmp eq i64 %8, 0
-  br i1 %.not28, label %.critedge, label %9, !prof !14
+  br i1 %.not28, label %.critedge, label %9, !prof !13
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
@@ -1173,7 +1173,7 @@ define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(no
 
 15:                                               ; preds = %13
   %.not21 = icmp eq i64 %5, %8
-  br i1 %.not21, label %25, label %16, !prof !20
+  br i1 %.not21, label %25, label %16, !prof !19
 
 16:                                               ; preds = %15
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.tb_tc_cmp, ptr noundef nonnull @.str.11) #11
@@ -1239,20 +1239,19 @@ attributes #13 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{i8 0, i8 2}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !6, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !6, !7, !16}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = distinct !{!21, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = !{i8 0, i8 2}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = distinct !{!14, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !6, !15}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = distinct !{!20, !6}

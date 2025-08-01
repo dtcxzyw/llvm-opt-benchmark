@@ -1571,9 +1571,9 @@ _ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10SeekToLastEv.exit: ; preds =
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
-  %20 = load ptr, ptr %14, align 8, !tbaa !4, !noalias !98
+  %20 = load ptr, ptr %14, align 8, !tbaa !4, !noalias !97
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
-  %22 = load ptr, ptr %21, align 8, !noalias !98
+  %22 = load ptr, ptr %21, align 8, !noalias !97
   call void %22(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %14)
   %23 = load i8, ptr %2, align 8, !tbaa !51
   %24 = icmp eq i8 %23, 0
@@ -1672,7 +1672,7 @@ _ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE4PrevEv.exit: ; preds = %35, %
   br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10SeekToLastEv.exit.backedge
 
 _ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10SeekToLastEv.exit.backedge: ; preds = %65, %55, %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE4PrevEv.exit
-  br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10SeekToLastEv.exit, !llvm.loop !101
+  br label %_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10SeekToLastEv.exit, !llvm.loop !100
 
 _ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator22SetSecondLevelIteratorEPNS_20InternalIteratorBaseINS_10IndexValueEEE.exit: ; preds = %16, %.critedge, %31, %28
   ret void
@@ -1796,10 +1796,9 @@ attributes #14 = { builtin nounwind }
 !92 = !{!93}
 !93 = distinct !{!93, !94, !"_ZNK7rocksdb19IteratorWrapperBaseINS_10IndexValueEE6statusEv: argument 0"}
 !94 = distinct !{!94, !"_ZNK7rocksdb19IteratorWrapperBaseINS_10IndexValueEE6statusEv"}
-!95 = distinct !{!95, !96, !97}
+!95 = distinct !{!95, !96}
 !96 = !{!"llvm.loop.mustprogress"}
-!97 = !{!"llvm.loop.estimated_trip_count"}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZNK7rocksdb19IteratorWrapperBaseINS_10IndexValueEE6statusEv: argument 0"}
-!100 = distinct !{!100, !"_ZNK7rocksdb19IteratorWrapperBaseINS_10IndexValueEE6statusEv"}
-!101 = distinct !{!101, !96, !97}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK7rocksdb19IteratorWrapperBaseINS_10IndexValueEE6statusEv: argument 0"}
+!99 = distinct !{!99, !"_ZNK7rocksdb19IteratorWrapperBaseINS_10IndexValueEE6statusEv"}
+!100 = distinct !{!100, !96}

@@ -1759,7 +1759,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %18, %.thread,
   %66 = phi ptr [ %51, %57 ], [ %.pre48, %64 ]
   %67 = phi ptr [ %49, %57 ], [ %.pre, %64 ]
   %68 = icmp eq ptr %66, %67
-  br i1 %68, label %._crit_edge, label %48, !llvm.loop !369
+  br i1 %68, label %._crit_edge, label %48
 
 69:                                               ; preds = %46, %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..drain..Drain$LT$vfs..FileId$GT$$GT$17hc1c1427adb4d9364E.exit"
   %70 = landingpad { ptr, i32 }
@@ -1770,22 +1770,22 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %18, %.thread,
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN3vfs3Vfs6exists17hcda2eaa52874c641E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #1 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load i64, ptr %4, align 8, !alias.scope !371, !noundef !22
+  %5 = load i64, ptr %4, align 8, !alias.scope !369, !noundef !22
   %6 = icmp ugt i64 %5, %3
   br i1 %6, label %_ZN3vfs3Vfs3get17h1b648ad72e54dad2E.exit, label %7, !prof !300
 
 7:                                                ; preds = %2
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %3, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #22, !noalias !371
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %3, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #22, !noalias !369
   unreachable
 
 _ZN3vfs3Vfs3get17h1b648ad72e54dad2E.exit:         ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load ptr, ptr %8, align 8, !alias.scope !371, !nonnull !22, !noundef !22
+  %9 = load ptr, ptr %8, align 8, !alias.scope !369, !nonnull !22, !noundef !22
   %10 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %3
-  %11 = load i8, ptr %10, align 1, !range !304, !noalias !371, !noundef !22
+  %11 = load i8, ptr %10, align 1, !range !304, !noalias !369, !noundef !22
   %switch = icmp samesign ult i8 %11, 2
   ret i1 %switch
 }
@@ -2400,8 +2400,6 @@ attributes #22 = { noreturn }
 !366 = !{!367}
 !367 = distinct !{!367, !368, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa099e1d761252b2E: argument 0"}
 !368 = distinct !{!368, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa099e1d761252b2E"}
-!369 = distinct !{!369, !370}
-!370 = !{!"llvm.loop.estimated_trip_count"}
-!371 = !{!372}
-!372 = distinct !{!372, !373, !"_ZN3vfs3Vfs3get17h1b648ad72e54dad2E: argument 0"}
-!373 = distinct !{!373, !"_ZN3vfs3Vfs3get17h1b648ad72e54dad2E"}
+!369 = !{!370}
+!370 = distinct !{!370, !371, !"_ZN3vfs3Vfs3get17h1b648ad72e54dad2E: argument 0"}
+!371 = distinct !{!371, !"_ZN3vfs3Vfs3get17h1b648ad72e54dad2E"}

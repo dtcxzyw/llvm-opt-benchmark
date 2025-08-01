@@ -743,7 +743,7 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj3EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i
   store i8 0, ptr %61, align 8, !alias.scope !54
   %166 = load i16, ptr %62, align 1, !alias.scope !54
   %167 = and i16 %166, -1024
-  store ptr %164, ptr %5, align 8, !tbaa !84, !alias.scope !54
+  store ptr %164, ptr %5, align 8, !tbaa !83, !alias.scope !54
   %168 = or disjoint i16 %167, 192
   %spec.select53 = select i1 %.not45.i, i16 %167, i16 %168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false), !alias.scope !54
@@ -792,21 +792,21 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread72.i: ; preds = %_ZNK5c
   br i1 %188, label %.critedge47.i, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i
 
 .critedge47.i:                                    ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread72.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %189 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang7CodeGen7ABIInfo10getContextEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !88
-  %190 = load ptr, ptr %119, align 16, !tbaa !36, !noalias !88
-  %191 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %189, ptr noundef %190) #13, !noalias !88
+  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  %189 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang7CodeGen7ABIInfo10getContextEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !87
+  %190 = load ptr, ptr %119, align 16, !tbaa !36, !noalias !87
+  %191 = call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %189, ptr noundef %190) #13, !noalias !87
   %192 = extractvalue { i64, i64 } %191, 1
   %.sroa.3.8.extract.trunc.i.i56.i = trunc i64 %192 to i32
   %193 = icmp ugt i32 %.sroa.3.8.extract.trunc.i.i56.i, 39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %5, i8 0, i64 24, i1 false), !alias.scope !89
-  store i8 2, ptr %61, align 8, !tbaa !64, !alias.scope !89
-  %194 = load i16, ptr %62, align 1, !alias.scope !89
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %5, i8 0, i64 24, i1 false), !alias.scope !88
+  store i8 2, ptr %61, align 8, !tbaa !64, !alias.scope !88
+  %194 = load i16, ptr %62, align 1, !alias.scope !88
   %195 = and i16 %194, -1024
-  store i32 4, ptr %63, align 8, !tbaa !32, !alias.scope !89
+  store i32 4, ptr %63, align 8, !tbaa !32, !alias.scope !88
   %196 = select i1 %193, i16 24, i16 8
   %197 = or disjoint i16 %196, %195
-  store i16 %197, ptr %62, align 1, !alias.scope !89
+  store i16 %197, ptr %62, align 1, !alias.scope !88
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit
 
 _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread72.i, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.i, %176
@@ -820,30 +820,30 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cla
   br i1 %.not44.i, label %208, label %201
 
 201:                                              ; preds = %200
-  call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %202 = load ptr, ptr %119, align 16, !tbaa !36, !noalias !98
-  %203 = call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %202) #13, !noalias !98
-  store i8 1, ptr %61, align 8, !tbaa !64, !alias.scope !98
-  %204 = load i16, ptr %62, align 1, !alias.scope !98
+  call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %202 = load ptr, ptr %119, align 16, !tbaa !36, !noalias !97
+  %203 = call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %202) #13, !noalias !97
+  store i8 1, ptr %61, align 8, !tbaa !64, !alias.scope !97
+  %204 = load i16, ptr %62, align 1, !alias.scope !97
   %205 = and i16 %204, -1024
   %206 = select i1 %203, i16 320, i16 576
   %207 = or disjoint i16 %205, %206
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !54
-  store i16 %207, ptr %62, align 1, !alias.scope !99
+  store i16 %207, ptr %62, align 1, !alias.scope !98
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit
 
 208:                                              ; preds = %200
-  call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %209 = load ptr, ptr %119, align 16, !tbaa !36, !noalias !103
-  %210 = call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %209) #13, !noalias !103
-  store i8 1, ptr %61, align 8, !tbaa !64, !alias.scope !103
-  %211 = load i16, ptr %62, align 1, !alias.scope !103
+  call void @llvm.experimental.noalias.scope.decl(metadata !99)
+  %209 = load ptr, ptr %119, align 16, !tbaa !36, !noalias !102
+  %210 = call noundef zeroext i1 @_ZNK5clang4Type30hasSignedIntegerRepresentationEv(ptr noundef nonnull align 16 dereferenceable(24) %209) #13, !noalias !102
+  store i8 1, ptr %61, align 8, !tbaa !64, !alias.scope !102
+  %211 = load i16, ptr %62, align 1, !alias.scope !102
   %212 = and i16 %211, -1024
   %..i.i = select i1 %210, i16 256, i16 512
   %213 = or disjoint i16 %212, %..i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !54
-  store i16 %213, ptr %62, align 1, !alias.scope !103
+  store i16 %213, ptr %62, align 1, !alias.scope !102
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit
 
 214:                                              ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i
@@ -855,12 +855,12 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cla
 
 217:                                              ; preds = %214
   %218 = or disjoint i16 %216, 192
-  store i16 %218, ptr %62, align 1, !alias.scope !104
+  store i16 %218, ptr %62, align 1, !alias.scope !103
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit
 
 219:                                              ; preds = %214
   %220 = or disjoint i16 %216, 128
-  store i16 %220, ptr %62, align 1, !alias.scope !107
+  store i16 %220, ptr %62, align 1, !alias.scope !106
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit
 
 _ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit: ; preds = %85, %86, %135, %148, %_ZN4llvm11SmallVectorIPNS_4TypeELj3EED2Ev.exit.i, %.critedge47.i, %201, %208, %217, %219
@@ -910,7 +910,7 @@ _ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8Q
   %.sroa.041.2 = phi i32 [ 0, %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit ], [ %.sroa.041.058, %222 ], [ %.sroa.041.058, %226 ], [ %storemerge.i33, %228 ], [ %spec.select54, %223 ]
   %238 = getelementptr inbounds nuw i8, ptr %.059, i64 40
   %.not = icmp eq ptr %238, %60
-  br i1 %.not, label %._crit_edge, label %68, !llvm.loop !110
+  br i1 %.not, label %._crit_edge, label %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1099,33 +1099,31 @@ attributes #14 = { builtin nounwind }
 !78 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !16, i64 8, !16, i64 12}
 !79 = !{!78, !16, i64 12}
 !80 = !{!78, !16, i64 8}
-!81 = distinct !{!81, !82, !83}
+!81 = distinct !{!81, !82}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = !{!"llvm.loop.estimated_trip_count"}
-!84 = !{!65, !28, i64 0}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZNK12_GLOBAL__N_110ARCABIInfo18getIndirectByValueEN5clang8QualTypeE: argument 0"}
-!87 = distinct !{!87, !"_ZNK12_GLOBAL__N_110ARCABIInfo18getIndirectByValueEN5clang8QualTypeE"}
-!88 = !{!86, !55}
-!89 = !{!90, !86, !55}
-!90 = distinct !{!90, !91, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE: argument 0"}
-!91 = distinct !{!91, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN5clang7CodeGen10ABIArgInfo14getExtendInRegENS_8QualTypeEPN4llvm4TypeE: argument 0"}
-!94 = distinct !{!94, !"_ZN5clang7CodeGen10ABIArgInfo14getExtendInRegENS_8QualTypeEPN4llvm4TypeE"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE: argument 0"}
-!97 = distinct !{!97, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE"}
-!98 = !{!96, !93, !55}
-!99 = !{!93, !55}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE: argument 0"}
-!102 = distinct !{!102, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE"}
-!103 = !{!101, !55}
-!104 = !{!105, !55}
-!105 = distinct !{!105, !106, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
-!106 = distinct !{!106, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
-!107 = !{!108, !55}
-!108 = distinct !{!108, !109, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
-!109 = distinct !{!109, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
-!110 = distinct !{!110, !83}
+!83 = !{!65, !28, i64 0}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK12_GLOBAL__N_110ARCABIInfo18getIndirectByValueEN5clang8QualTypeE: argument 0"}
+!86 = distinct !{!86, !"_ZNK12_GLOBAL__N_110ARCABIInfo18getIndirectByValueEN5clang8QualTypeE"}
+!87 = !{!85, !55}
+!88 = !{!89, !85, !55}
+!89 = distinct !{!89, !90, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE: argument 0"}
+!90 = distinct !{!90, !"_ZN5clang7CodeGen10ABIArgInfo11getIndirectENS_9CharUnitsEbbPN4llvm4TypeE"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN5clang7CodeGen10ABIArgInfo14getExtendInRegENS_8QualTypeEPN4llvm4TypeE: argument 0"}
+!93 = distinct !{!93, !"_ZN5clang7CodeGen10ABIArgInfo14getExtendInRegENS_8QualTypeEPN4llvm4TypeE"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE: argument 0"}
+!96 = distinct !{!96, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE"}
+!97 = !{!95, !92, !55}
+!98 = !{!92, !55}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE: argument 0"}
+!101 = distinct !{!101, !"_ZN5clang7CodeGen10ABIArgInfo9getExtendENS_8QualTypeEPN4llvm4TypeE"}
+!102 = !{!100, !55}
+!103 = !{!104, !55}
+!104 = distinct !{!104, !105, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE: argument 0"}
+!105 = distinct !{!105, !"_ZN5clang7CodeGen10ABIArgInfo14getDirectInRegEPN4llvm4TypeE"}
+!106 = !{!107, !55}
+!107 = distinct !{!107, !108, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
+!108 = distinct !{!108, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}

@@ -691,7 +691,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %240, %236, %226, %2
   call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %289)
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond154.not.i = icmp eq i64 %indvars.iv.next151.i, %wide.trip.count153.i
-  br i1 %exitcond154.not.i, label %heap_prune_chain.exit, label %.lr.ph136.i, !llvm.loop !10
+  br i1 %exitcond154.not.i, label %heap_prune_chain.exit, label %.lr.ph136.i, !llvm.loop !9
 
 290:                                              ; preds = %HeapTupleHeaderGetUpdateXid.exit.thread99.i
   %291 = icmp eq i32 %.18394.i, %.18197.i
@@ -767,7 +767,7 @@ heap_prune_record_dead_or_unused.exit88.i:        ; preds = %heap_prune_record_u
   store i32 %329, ptr %76, align 8
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count148.i
-  br i1 %exitcond149.not.i, label %heap_prune_chain.exit, label %318, !llvm.loop !11
+  br i1 %exitcond149.not.i, label %heap_prune_chain.exit, label %318, !llvm.loop !10
 
 330:                                              ; preds = %290
   %331 = sext i32 %.18394.i to i64
@@ -832,7 +832,7 @@ heap_prune_record_redirect.exit.i:                ; preds = %348, %330
   store i32 %364, ptr %76, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %353, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.preheader.i, label %353, !llvm.loop !11
 
 .lr.ph131.i:                                      ; preds = %.preheader.i, %.lr.ph131.i
   %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %.lr.ph131.i ], [ %331, %.preheader.i ]
@@ -842,7 +842,7 @@ heap_prune_record_redirect.exit.i:                ; preds = %348, %330
   %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next142.i to i32
   %exitcond144.not.i = icmp eq i32 %.18197.i, %lftr.wideiv.i
-  br i1 %exitcond144.not.i, label %heap_prune_chain.exit, label %.lr.ph131.i, !llvm.loop !13
+  br i1 %exitcond144.not.i, label %heap_prune_chain.exit, label %.lr.ph131.i, !llvm.loop !12
 
 heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %318, %.lr.ph136.i, %262, %268, %285, %heap_prune_record_dead_or_unused.exit88.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 582, ptr nonnull %11) #8
@@ -851,7 +851,7 @@ heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %318, 
 367:                                              ; preds = %185, %heap_prune_chain.exit
   %indvars.iv.next208 = add nsw i64 %indvars.iv207, -1
   %368 = icmp sgt i64 %indvars.iv207, 0
-  br i1 %368, label %185, label %._crit_edge194, !llvm.loop !14
+  br i1 %368, label %185, label %._crit_edge194, !llvm.loop !13
 
 ._crit_edge199:                                   ; preds = %412, %._crit_edge194
   store i16 0, ptr %7, align 2
@@ -900,7 +900,7 @@ heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %318, 
   %398 = and i16 %395, 768
   %399 = icmp ne i16 %398, 512
   %or.cond182 = and i1 %397, %399
-  br i1 %or.cond182, label %407, label %HeapTupleHeaderIsHotUpdated.exit.thread, !prof !15
+  br i1 %or.cond182, label %407, label %HeapTupleHeaderIsHotUpdated.exit.thread, !prof !14
 
 HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %384, %393
   call void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef nonnull %389, ptr noundef nonnull %38) #8
@@ -932,7 +932,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %384, %393
 412:                                              ; preds = %HeapTupleHeaderIsHotUpdated.exit.thread, %411, %373
   %indvars.iv.next212 = add nsw i64 %indvars.iv211, -1
   %413 = icmp sgt i64 %indvars.iv211, 0
-  br i1 %413, label %373, label %._crit_edge199, !llvm.loop !16
+  br i1 %413, label %373, label %._crit_edge199, !llvm.loop !15
 
 414:                                              ; preds = %._crit_edge199
   %415 = load i32, ptr %40, align 8
@@ -1135,7 +1135,7 @@ BufferGetPage.exit.i:                             ; preds = %498, %492
   store i32 %518, ptr %515, align 4
   %519 = add nuw nsw i32 %.03640.i, 1
   %exitcond.not.i173 = icmp eq i32 %519, %487
-  br i1 %exitcond.not.i173, label %.preheader39.i, label %508, !llvm.loop !17
+  br i1 %exitcond.not.i173, label %.preheader39.i, label %508, !llvm.loop !16
 
 .preheader.i170:                                  ; preds = %522, %.preheader39.i
   %520 = icmp sgt i32 %491, 0
@@ -1156,7 +1156,7 @@ BufferGetPage.exit.i:                             ; preds = %498, %492
   store i32 98304, ptr %527, align 4
   %528 = add nuw nsw i32 %.03842.i, 1
   %exitcond48.not.i = icmp eq i32 %528, %489
-  br i1 %exitcond48.not.i, label %.preheader.i170, label %522, !llvm.loop !18
+  br i1 %exitcond48.not.i, label %.preheader.i170, label %522, !llvm.loop !17
 
 529:                                              ; preds = %529, %.lr.ph47.i
   %.246.i = phi ptr [ %490, %.lr.ph47.i ], [ %530, %529 ]
@@ -1169,7 +1169,7 @@ BufferGetPage.exit.i:                             ; preds = %498, %492
   store i32 0, ptr %534, align 4
   %535 = add nuw nsw i32 %.03745.i, 1
   %exitcond49.not.i = icmp eq i32 %535, %491
-  br i1 %exitcond49.not.i, label %heap_page_prune_execute.exit, label %529, !llvm.loop !19
+  br i1 %exitcond49.not.i, label %heap_page_prune_execute.exit, label %529, !llvm.loop !18
 
 heap_page_prune_execute.exit:                     ; preds = %529, %.preheader.i170
   call void @PageRepairFragmentation(ptr noundef %.0.i.i.i) #8
@@ -1235,7 +1235,7 @@ heap_page_prune_execute.exit:                     ; preds = %529, %.preheader.i1
   %.1 = phi i32 [ %568, %565 ], [ %570, %569 ]
   %570 = add i32 %.1, -1
   %571 = icmp ult i32 %570, 3
-  br i1 %571, label %569, label %.loopexit, !llvm.loop !20
+  br i1 %571, label %569, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %569, %563, %557
   %.0147 = phi i32 [ %564, %563 ], [ 0, %557 ], [ %570, %569 ]
@@ -1630,7 +1630,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   store i32 %36, ptr %33, align 4
   %37 = add nuw nsw i32 %.03640, 1
   %exitcond.not = icmp eq i32 %37, %3
-  br i1 %exitcond.not, label %.preheader39, label %26, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader39, label %26, !llvm.loop !16
 
 .preheader:                                       ; preds = %40, %.preheader39
   %38 = icmp sgt i32 %7, 0
@@ -1651,7 +1651,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   store i32 98304, ptr %45, align 4
   %46 = add nuw nsw i32 %.03842, 1
   %exitcond48.not = icmp eq i32 %46, %5
-  br i1 %exitcond48.not, label %.preheader, label %40, !llvm.loop !18
+  br i1 %exitcond48.not, label %.preheader, label %40, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %.preheader
   br i1 %1, label %54, label %55
@@ -1667,7 +1667,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   store i32 0, ptr %52, align 4
   %53 = add nuw nsw i32 %.03745, 1
   %exitcond49.not = icmp eq i32 %53, %7
-  br i1 %exitcond49.not, label %._crit_edge, label %47, !llvm.loop !19
+  br i1 %exitcond49.not, label %._crit_edge, label %47, !llvm.loop !18
 
 54:                                               ; preds = %._crit_edge
   tail call void @PageTruncateLinePointerArray(ptr noundef %.0.i.i) #8
@@ -1812,7 +1812,7 @@ heap_log_freeze_eq.exit.i:                        ; preds = %58, %52, %46, %42
   store i16 %82, ptr %83, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %25
-  br i1 %exitcond.not.i, label %heap_log_freeze_plan.exit, label %26, !llvm.loop !21
+  br i1 %exitcond.not.i, label %heap_log_freeze_plan.exit, label %26, !llvm.loop !20
 
 heap_log_freeze_plan.exit:                        ; preds = %80
   %84 = trunc i32 %.123.i to i16
@@ -2009,18 +2009,17 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
   %6 = add nuw nsw i32 %5, 262120
   %7 = lshr i32 %6, 2
   %8 = trunc i32 %7 to i16
-  %invariant.gep80 = getelementptr i8, ptr %1, i64 -2
-  %.not8285 = icmp eq i16 %8, 0
-  %.not82 = select i1 %4, i1 true, i1 %.not8285
-  br i1 %.not82, label %._crit_edge, label %.lr.ph84
+  %.not8083 = icmp eq i16 %8, 0
+  %.not80 = select i1 %4, i1 true, i1 %.not8083
+  br i1 %.not80, label %._crit_edge, label %.lr.ph82
 
-.lr.ph84:                                         ; preds = %2
+.lr.ph82:                                         ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
-10:                                               ; preds = %.lr.ph84, %HeapTupleHeaderIsHotUpdated.exit.thread
-  %.05483 = phi i16 [ 1, %.lr.ph84 ], [ %85, %HeapTupleHeaderIsHotUpdated.exit.thread ]
-  %11 = zext i16 %.05483 to i64
+10:                                               ; preds = %.lr.ph82, %HeapTupleHeaderIsHotUpdated.exit.thread
+  %.05481 = phi i16 [ 1, %.lr.ph82 ], [ %89, %HeapTupleHeaderIsHotUpdated.exit.thread ]
+  %11 = zext i16 %.05481 to i64
   %12 = add nsw i64 %11, -1
   %13 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
@@ -2030,7 +2029,7 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
     i32 0, label %HeapTupleHeaderIsHotUpdated.exit.thread
     i32 3, label %HeapTupleHeaderIsHotUpdated.exit.thread
     i32 1, label %17
-    i32 2, label %40
+    i32 2, label %42
   ]
 
 17:                                               ; preds = %10
@@ -2043,133 +2042,135 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
   br i1 %22, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %23
 
 23:                                               ; preds = %17
-  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %11
-  store i16 %.05483, ptr %gep81, align 2
-  %24 = load i16, ptr %21, align 2
-  %25 = and i16 %24, 16384
-  %.not.i = icmp eq i16 %25, 0
-  br i1 %.not.i, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %26
+  %24 = getelementptr i16, ptr %1, i64 %11
+  %25 = getelementptr i8, ptr %24, i64 -2
+  store i16 %.05481, ptr %25, align 2
+  %26 = load i16, ptr %21, align 2
+  %27 = and i16 %26, 16384
+  %.not.i = icmp eq i16 %27, 0
+  br i1 %.not.i, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %28
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %28 = load i16, ptr %27, align 4
-  %29 = and i16 %28, 2048
-  %30 = icmp eq i16 %29, 0
-  %31 = and i16 %28, 768
-  %32 = icmp ne i16 %31, 512
-  %or.cond = and i1 %30, %32
-  br i1 %or.cond, label %33, label %HeapTupleHeaderIsHotUpdated.exit.thread
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %30 = load i16, ptr %29, align 4
+  %31 = and i16 %30, 2048
+  %32 = icmp eq i16 %31, 0
+  %33 = and i16 %30, 768
+  %34 = icmp ne i16 %33, 512
+  %or.cond = and i1 %32, %34
+  br i1 %or.cond, label %35, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-33:                                               ; preds = %26
-  %34 = getelementptr i8, ptr %20, i64 16
-  %.val64 = load i16, ptr %34, align 2
-  %35 = and i16 %28, 4224
-  %or.cond7.i = icmp eq i16 %35, 4096
-  br i1 %or.cond7.i, label %36, label %38
+35:                                               ; preds = %28
+  %36 = getelementptr i8, ptr %20, i64 16
+  %.val64 = load i16, ptr %36, align 2
+  %37 = and i16 %30, 4224
+  %or.cond7.i = icmp eq i16 %37, 4096
+  br i1 %or.cond7.i, label %38, label %40
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %20) #8
+38:                                               ; preds = %35
+  %39 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %20) #8
   br label %HeapTupleHeaderGetUpdateXid.exit
 
-38:                                               ; preds = %33
-  %39 = getelementptr i8, ptr %20, i64 4
-  %.val.i = load i32, ptr %39, align 4
+40:                                               ; preds = %35
+  %41 = getelementptr i8, ptr %20, i64 4
+  %.val.i = load i32, ptr %41, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 default.unreachable:                              ; preds = %10
   unreachable
 
-40:                                               ; preds = %10
-  %41 = trunc i32 %14 to i16
-  %42 = and i16 %41, 32767
+42:                                               ; preds = %10
+  %43 = trunc i32 %14 to i16
+  %44 = and i16 %43, 32767
   br label %HeapTupleHeaderGetUpdateXid.exit
 
-HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %38, %36, %40
-  %.052 = phi i16 [ %42, %40 ], [ %.val64, %36 ], [ %.val64, %38 ]
-  %.0 = phi i32 [ 0, %40 ], [ %37, %36 ], [ %.val.i, %38 ]
-  %43 = zext i16 %.052 to i64
-  %44 = add nsw i64 %43, -1
-  %45 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 98304
-  %48 = icmp eq i32 %47, 32768
-  br i1 %48, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
+HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %40, %38, %42
+  %.052 = phi i16 [ %44, %42 ], [ %.val64, %38 ], [ %.val64, %40 ]
+  %.0 = phi i32 [ 0, %42 ], [ %39, %38 ], [ %.val.i, %40 ]
+  %45 = zext i16 %.052 to i64
+  %46 = add nsw i64 %45, -1
+  %47 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = and i32 %48, 98304
+  %50 = icmp eq i32 %49, 32768
+  br i1 %50, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
 .lr.ph:                                           ; preds = %HeapTupleHeaderGetUpdateXid.exit, %HeapTupleHeaderGetUpdateXid.exit73
-  %49 = phi i32 [ %82, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %46, %HeapTupleHeaderGetUpdateXid.exit ]
-  %50 = phi i64 [ %79, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %43, %HeapTupleHeaderGetUpdateXid.exit ]
+  %51 = phi i32 [ %86, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %48, %HeapTupleHeaderGetUpdateXid.exit ]
+  %52 = phi i64 [ %83, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %45, %HeapTupleHeaderGetUpdateXid.exit ]
   %.177 = phi i32 [ %.0.i72, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %.0, %HeapTupleHeaderGetUpdateXid.exit ]
-  %51 = and i32 %49, 32767
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %53 = and i32 %51, 32767
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
   %.not60 = icmp eq i32 %.177, 0
-  br i1 %.not60, label %61, label %54
+  br i1 %.not60, label %63, label %56
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr i8, ptr %53, i64 20
-  %.val.i67 = load i16, ptr %55, align 4
-  %56 = and i16 %.val.i67, 768
-  %57 = icmp eq i16 %56, 768
-  br i1 %57, label %HeapTupleHeaderGetXmin.exit, label %58
+56:                                               ; preds = %.lr.ph
+  %57 = getelementptr i8, ptr %55, i64 20
+  %.val.i67 = load i16, ptr %57, align 4
+  %58 = and i16 %.val.i67, 768
+  %59 = icmp eq i16 %58, 768
+  br i1 %59, label %HeapTupleHeaderGetXmin.exit, label %60
 
-58:                                               ; preds = %54
-  %.val2.i = load i32, ptr %53, align 4
+60:                                               ; preds = %56
+  %.val2.i = load i32, ptr %55, align 4
   br label %HeapTupleHeaderGetXmin.exit
 
-HeapTupleHeaderGetXmin.exit:                      ; preds = %54, %58
-  %59 = phi i32 [ %.val2.i, %58 ], [ 2, %54 ]
-  %60 = icmp eq i32 %.177, %59
-  br i1 %60, label %61, label %HeapTupleHeaderIsHotUpdated.exit.thread
+HeapTupleHeaderGetXmin.exit:                      ; preds = %56, %60
+  %61 = phi i32 [ %.val2.i, %60 ], [ 2, %56 ]
+  %62 = icmp eq i32 %.177, %61
+  br i1 %62, label %63, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-61:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %.lr.ph
-  %gep = getelementptr i16, ptr %invariant.gep80, i64 %50
-  store i16 %.05483, ptr %gep, align 2
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 18
-  %63 = load i16, ptr %62, align 2
-  %64 = and i16 %63, 16384
-  %.not.i68 = icmp eq i16 %64, 0
-  br i1 %.not.i68, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %65
+63:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %.lr.ph
+  %64 = getelementptr i16, ptr %1, i64 %52
+  %65 = getelementptr i8, ptr %64, i64 -2
+  store i16 %.05481, ptr %65, align 2
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 18
+  %67 = load i16, ptr %66, align 2
+  %68 = and i16 %67, 16384
+  %.not.i68 = icmp eq i16 %68, 0
+  br i1 %.not.i68, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %69
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  %67 = load i16, ptr %66, align 4
-  %68 = and i16 %67, 2048
-  %69 = icmp eq i16 %68, 0
-  %70 = and i16 %67, 768
-  %71 = icmp ne i16 %70, 512
-  %or.cond76 = and i1 %69, %71
-  br i1 %or.cond76, label %72, label %HeapTupleHeaderIsHotUpdated.exit.thread
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 20
+  %71 = load i16, ptr %70, align 4
+  %72 = and i16 %71, 2048
+  %73 = icmp eq i16 %72, 0
+  %74 = and i16 %71, 768
+  %75 = icmp ne i16 %74, 512
+  %or.cond76 = and i1 %73, %75
+  br i1 %or.cond76, label %76, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-72:                                               ; preds = %65
-  %73 = getelementptr i8, ptr %53, i64 16
-  %.val65 = load i16, ptr %73, align 2
-  %74 = and i16 %67, 4224
-  %or.cond7.i70 = icmp eq i16 %74, 4096
-  br i1 %or.cond7.i70, label %75, label %77
+76:                                               ; preds = %69
+  %77 = getelementptr i8, ptr %55, i64 16
+  %.val65 = load i16, ptr %77, align 2
+  %78 = and i16 %71, 4224
+  %or.cond7.i70 = icmp eq i16 %78, 4096
+  br i1 %or.cond7.i70, label %79, label %81
 
-75:                                               ; preds = %72
-  %76 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %53) #8
+79:                                               ; preds = %76
+  %80 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %55) #8
   br label %HeapTupleHeaderGetUpdateXid.exit73
 
-77:                                               ; preds = %72
-  %78 = getelementptr i8, ptr %53, i64 4
-  %.val.i71 = load i32, ptr %78, align 4
+81:                                               ; preds = %76
+  %82 = getelementptr i8, ptr %55, i64 4
+  %.val.i71 = load i32, ptr %82, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit73
 
-HeapTupleHeaderGetUpdateXid.exit73:               ; preds = %75, %77
-  %.0.i72 = phi i32 [ %.val.i71, %77 ], [ %76, %75 ]
-  %79 = zext i16 %.val65 to i64
-  %80 = add nsw i64 %79, -1
-  %81 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, 98304
-  %84 = icmp eq i32 %83, 32768
-  br i1 %84, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread, !llvm.loop !22
+HeapTupleHeaderGetUpdateXid.exit73:               ; preds = %79, %81
+  %.0.i72 = phi i32 [ %.val.i71, %81 ], [ %80, %79 ]
+  %83 = zext i16 %.val65 to i64
+  %84 = add nsw i64 %83, -1
+  %85 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, 98304
+  %88 = icmp eq i32 %87, 32768
+  br i1 %88, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %HeapTupleHeaderGetXmin.exit, %HeapTupleHeaderGetUpdateXid.exit73, %65, %61, %HeapTupleHeaderGetUpdateXid.exit, %23, %26, %10, %10, %17
-  %85 = add i16 %.05483, 1
-  %.not = icmp ugt i16 %85, %8
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !23
+HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %HeapTupleHeaderGetXmin.exit, %HeapTupleHeaderGetUpdateXid.exit73, %69, %63, %HeapTupleHeaderGetUpdateXid.exit, %23, %28, %10, %10, %17
+  %89 = add i16 %.05481, 1
+  %.not = icmp ugt i16 %89, %8
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %HeapTupleHeaderIsHotUpdated.exit.thread, %2
   ret void
@@ -2291,20 +2292,18 @@ attributes #9 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = !{!"branch_weights", i32 4, i32 -4}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = !{!"branch_weights", i32 4, i32 -4}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

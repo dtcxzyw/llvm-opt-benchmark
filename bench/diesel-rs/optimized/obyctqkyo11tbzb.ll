@@ -151,7 +151,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd8e03250ced6bd
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
-  br label %8, !llvm.loop !5
+  br label %8
 
 21:                                               ; preds = %30, %17
   %22 = landingpad { ptr, i32 }
@@ -299,5 +299,3 @@ attributes #8 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{i64 0, i64 -9223372036854775807}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

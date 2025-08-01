@@ -152,7 +152,7 @@ define dso_local void @smart_str_append_escaped(ptr noundef captures(none) %0, p
   %.1.i48 = phi i64 [ %7, %6 ], [ %spec.select.i, %8 ]
   %12 = add nuw i64 %.040.i, 1
   %exitcond.not.i = icmp eq i64 %12, %2
-  br i1 %exitcond.not.i, label %zend_compute_escaped_string_len.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %zend_compute_escaped_string_len.exit, label %.lr.ph.i
 
 zend_compute_escaped_string_len.exit:             ; preds = %11, %3
   %.037.lcssa.i = phi i64 [ 0, %3 ], [ %.1.i48, %11 ]
@@ -167,7 +167,7 @@ zend_compute_escaped_string_len.exit:             ; preds = %11, %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !12
   %.not12.i = icmp ult i64 %17, %19
-  br i1 %.not12.i, label %smart_str_alloc.exit, label %20, !prof !22
+  br i1 %.not12.i, label %smart_str_alloc.exit, label %20, !prof !20
 
 20:                                               ; preds = %14, %zend_compute_escaped_string_len.exit
   %.0.i = phi i64 [ %.037.lcssa.i, %zend_compute_escaped_string_len.exit ], [ %17, %14 ]
@@ -276,7 +276,7 @@ smart_str_alloc.exit:                             ; preds = %14, %20
   %.2 = phi ptr [ %48, %49 ], [ %48, %51 ], [ %33, %34 ], [ %33, %35 ], [ %33, %36 ], [ %33, %37 ], [ %33, %38 ], [ %33, %39 ], [ %33, %40 ], [ %31, %53 ]
   %55 = add nuw i64 %.04249, 1
   %exitcond.not = icmp eq i64 %55, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %54, %smart_str_alloc.exit
   ret void
@@ -306,7 +306,7 @@ define dso_local void @smart_str_append_double(ptr noundef captures(none) %0, do
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !12
   %.not12.i.i9 = icmp ult i64 %13, %15
-  br i1 %.not12.i.i9, label %smart_str_appendl_ex.exit12, label %16, !prof !22
+  br i1 %.not12.i.i9, label %smart_str_appendl_ex.exit12, label %16, !prof !20
 
 16:                                               ; preds = %10, %4
   %.0.i.i10 = phi i64 [ %8, %4 ], [ %13, %10 ]
@@ -341,7 +341,7 @@ smart_str_appendl_ex.exit12:                      ; preds = %10, %16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !12
   %.not12.i.i = icmp ult i64 %28, %30
-  br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %31, !prof !22
+  br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %31, !prof !20
 
 31:                                               ; preds = %27
   call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %28)
@@ -376,7 +376,7 @@ define dso_local void @smart_str_append_printf(ptr noundef %0, ptr noundef %1, .
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = load ptr, ptr @zend_printf_to_smart_str, align 8, !tbaa !24
+  %4 = load ptr, ptr @zend_printf_to_smart_str, align 8, !tbaa !21
   call void %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
@@ -391,24 +391,24 @@ declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_smart_string_alloc_persistent(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !25
+  %3 = load ptr, ptr %0, align 8, !tbaa !22
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
-  store i64 0, ptr %4, align 8, !tbaa !28
+  store i64 0, ptr %4, align 8, !tbaa !25
   %6 = or i64 %1, 4095
   %.inv = icmp ugt i64 %1, 255
   %spec.select = select i1 %.inv, i64 %6, i64 255
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select, ptr %7, align 8, !tbaa !29
+  store i64 %spec.select, ptr %7, align 8, !tbaa !26
   %8 = add i64 %spec.select, 1
   %9 = tail call noalias ptr @__zend_malloc(i64 noundef %8) #12
   br label %22
 
 10:                                               ; preds = %2
-  %11 = load i64, ptr %4, align 8, !tbaa !28
+  %11 = load i64, ptr %4, align 8, !tbaa !25
   %12 = xor i64 %11, -1
   %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %15, !prof !11
@@ -423,13 +423,13 @@ define dso_local void @_smart_string_alloc_persistent(ptr noundef captures(none)
   %18 = add i64 %17, 4096
   %19 = or i64 %16, 4095
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %19, ptr %20, align 8, !tbaa !29
+  store i64 %19, ptr %20, align 8, !tbaa !26
   %21 = tail call ptr @__zend_realloc(ptr noundef nonnull %3, i64 noundef %18) #13
   br label %22
 
 22:                                               ; preds = %15, %5
   %storemerge = phi ptr [ %9, %5 ], [ %21, %15 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !25
+  store ptr %storemerge, ptr %0, align 8, !tbaa !22
   ret void
 }
 
@@ -441,19 +441,19 @@ declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !25
+  %3 = load ptr, ptr %0, align 8, !tbaa !22
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %5, label %20
 
 5:                                                ; preds = %2
-  store i64 0, ptr %4, align 8, !tbaa !28
+  store i64 0, ptr %4, align 8, !tbaa !25
   %6 = icmp ult i64 %1, 256
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 255, ptr %8, align 8, !tbaa !29
+  store i64 255, ptr %8, align 8, !tbaa !26
   %9 = tail call noalias ptr @_emalloc_256() #14
   br label %32
 
@@ -462,9 +462,9 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   %12 = add i64 %11, 4096
   %13 = or i64 %1, 4095
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %13, ptr %14, align 8, !tbaa !29
+  store i64 %13, ptr %14, align 8, !tbaa !26
   %15 = icmp ult i64 %13, 2097151
-  br i1 %15, label %16, label %18, !prof !22
+  br i1 %15, label %16, label %18, !prof !20
 
 16:                                               ; preds = %10
   %17 = tail call noalias ptr @_emalloc_large(i64 noundef %12) #12
@@ -475,7 +475,7 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   br label %32
 
 20:                                               ; preds = %2
-  %21 = load i64, ptr %4, align 8, !tbaa !28
+  %21 = load i64, ptr %4, align 8, !tbaa !25
   %22 = xor i64 %21, -1
   %23 = icmp ugt i64 %1, %22
   br i1 %23, label %24, label %25, !prof !11
@@ -490,13 +490,13 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   %28 = add i64 %27, 4096
   %29 = or i64 %26, 4095
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %29, ptr %30, align 8, !tbaa !29
+  store i64 %29, ptr %30, align 8, !tbaa !26
   %31 = tail call ptr @_erealloc2(ptr noundef nonnull %3, i64 noundef %28, i64 noundef %21) #13
   br label %32
 
 32:                                               ; preds = %18, %7, %16, %25
   %.sink = phi ptr [ %9, %7 ], [ %17, %16 ], [ %31, %25 ], [ %19, %18 ]
-  store ptr %.sink, ptr %0, align 8, !tbaa !25
+  store ptr %.sink, ptr %0, align 8, !tbaa !22
   ret void
 }
 
@@ -531,7 +531,7 @@ define dso_local void @smart_str_append_escaped_truncated(ptr noundef captures(n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !12
   %.not12.i.i = icmp ult i64 %14, %16
-  br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %17, !prof !22
+  br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %17, !prof !20
 
 17:                                               ; preds = %11, %9
   %.0.i.i = phi i64 [ 3, %9 ], [ %14, %11 ]
@@ -584,7 +584,7 @@ define dso_local void @smart_str_append_scalar(ptr noundef captures(none) %0, pt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !12
   %.not12.i.i = icmp ult i64 %12, %14
-  br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %15, !prof !22
+  br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %15, !prof !20
 
 15:                                               ; preds = %9, %7
   %.0.i.i = phi i64 [ 4, %7 ], [ %12, %9 ]
@@ -621,7 +621,7 @@ smart_str_appendl_ex.exit:                        ; preds = %9, %15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !12
   %.not12.i.i13 = icmp ult i64 %30, %32
-  br i1 %.not12.i.i13, label %smart_str_appendl_ex.exit16, label %33, !prof !22
+  br i1 %.not12.i.i13, label %smart_str_appendl_ex.exit16, label %33, !prof !20
 
 33:                                               ; preds = %27, %22
   %.0.i.i14 = phi i64 [ %25, %22 ], [ %30, %27 ]
@@ -645,7 +645,7 @@ smart_str_appendl_ex.exit16:                      ; preds = %27, %33
 
 40:                                               ; preds = %3
   %41 = load double, ptr %1, align 8, !tbaa !16
-  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 552), align 8, !tbaa !30
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 552), align 8, !tbaa !27
   %43 = trunc i64 %42 to i32
   tail call void @smart_str_append_double(ptr noundef %0, double noundef %41, i32 noundef %43, i1 noundef zeroext true)
   br label %131
@@ -672,7 +672,7 @@ smart_str_appendl_ex.exit16:                      ; preds = %27, %33
   store i8 %53, ptr %54, align 1, !tbaa !16
   %55 = udiv i64 %.0.i17, 10
   %.not.i = icmp ult i64 %.0.i17, 10
-  br i1 %.not.i, label %zend_print_ulong_to_buf.exit, label %50, !llvm.loop !60
+  br i1 %.not.i, label %zend_print_ulong_to_buf.exit, label %50
 
 zend_print_ulong_to_buf.exit:                     ; preds = %50
   %56 = getelementptr inbounds i8, ptr %.05.i, i64 -2
@@ -693,7 +693,7 @@ zend_print_ulong_to_buf.exit:                     ; preds = %50
   store i8 %61, ptr %62, align 1, !tbaa !16
   %63 = udiv i64 %.0.i19, 10
   %.not.i20 = icmp ult i64 %.0.i19, 10
-  br i1 %.not.i20, label %zend_print_long_to_buf.exit, label %58, !llvm.loop !60
+  br i1 %.not.i20, label %zend_print_long_to_buf.exit, label %58
 
 zend_print_long_to_buf.exit:                      ; preds = %58, %zend_print_ulong_to_buf.exit
   %.0.i = phi ptr [ %56, %zend_print_ulong_to_buf.exit ], [ %62, %58 ]
@@ -711,7 +711,7 @@ zend_print_long_to_buf.exit:                      ; preds = %58, %zend_print_ulo
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !12
   %.not12.i.i.i = icmp ult i64 %71, %73
-  br i1 %.not12.i.i.i, label %smart_str_append_long_ex.exit, label %74, !prof !22
+  br i1 %.not12.i.i.i, label %smart_str_append_long_ex.exit, label %74, !prof !20
 
 74:                                               ; preds = %68, %zend_print_long_to_buf.exit
   %.0.i.i.i = phi i64 [ %66, %zend_print_long_to_buf.exit ], [ %71, %68 ]
@@ -746,7 +746,7 @@ smart_str_append_long_ex.exit:                    ; preds = %68, %74
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %.not12.i.i27 = icmp ult i64 %86, %88
-  br i1 %.not12.i.i27, label %smart_str_appendc_ex.exit30, label %89, !prof !22
+  br i1 %.not12.i.i27, label %smart_str_appendc_ex.exit30, label %89, !prof !20
 
 89:                                               ; preds = %83, %81
   %.0.i.i28 = phi i64 [ 1, %81 ], [ %86, %83 ]
@@ -786,7 +786,7 @@ smart_str_appendc_ex.exit30:                      ; preds = %83, %89
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !12
   %.not12.i.i.i32 = icmp ult i64 %107, %109
-  br i1 %.not12.i.i.i32, label %smart_str_append_escaped_truncated.exit.thread, label %110, !prof !22
+  br i1 %.not12.i.i.i32, label %smart_str_append_escaped_truncated.exit.thread, label %110, !prof !20
 
 110:                                              ; preds = %104, %103
   %.0.i.i.i33 = phi i64 [ 3, %103 ], [ %107, %104 ]
@@ -809,7 +809,7 @@ smart_str_append_escaped_truncated.exit.thread:   ; preds = %104, %110
   br label %117
 
 smart_str_append_escaped_truncated.exit:          ; preds = %smart_str_appendc_ex.exit30
-  br i1 %.not.i.i.i31, label %123, label %smart_str_append_escaped_truncated.exit._crit_edge, !prof !61
+  br i1 %.not.i.i.i31, label %123, label %smart_str_append_escaped_truncated.exit._crit_edge, !prof !57
 
 smart_str_append_escaped_truncated.exit._crit_edge: ; preds = %smart_str_append_escaped_truncated.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -823,7 +823,7 @@ smart_str_append_escaped_truncated.exit._crit_edge: ; preds = %smart_str_append_
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !12
   %.not12.i.i23 = icmp ult i64 %120, %122
-  br i1 %.not12.i.i23, label %smart_str_appendc_ex.exit, label %123, !prof !22
+  br i1 %.not12.i.i23, label %smart_str_appendc_ex.exit, label %123, !prof !20
 
 123:                                              ; preds = %117, %smart_str_append_escaped_truncated.exit
   %.0.i.i24 = phi i64 [ 1, %smart_str_append_escaped_truncated.exit ], [ %120, %117 ]
@@ -868,16 +868,16 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
 10:                                               ; preds = %8
   %11 = load ptr, ptr %1, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !62
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !65
+  %15 = load i32, ptr %14, align 4, !tbaa !61
   %16 = and i32 %15, 268435456
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %70, label %17
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !19
@@ -892,7 +892,7 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !12
   %.not12.i.i.i12 = icmp ult i64 %27, %29
-  br i1 %.not12.i.i.i12, label %31, label %30, !prof !22
+  br i1 %.not12.i.i.i12, label %31, label %30, !prof !20
 
 30:                                               ; preds = %24, %17
   %.0.i.i.i13 = phi i64 [ %22, %17 ], [ %27, %24 ]
@@ -916,7 +916,7 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !12
   %.not12.i.i = icmp ult i64 %38, %40
-  br i1 %.not12.i.i, label %42, label %41, !prof !22
+  br i1 %.not12.i.i, label %42, label %41, !prof !20
 
 41:                                               ; preds = %31
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %38)
@@ -936,9 +936,9 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   store i64 %38, ptr %48, align 8, !tbaa !19
   %49 = load ptr, ptr %1, align 8, !tbaa !16
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !62
+  %51 = load ptr, ptr %50, align 8, !tbaa !58
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  %53 = load i32, ptr %52, align 4, !tbaa !65
+  %53 = load i32, ptr %52, align 4, !tbaa !61
   %54 = and i32 %53, 268435456
   %55 = icmp ne i32 %54, 0
   tail call void @llvm.assume(i1 %55)
@@ -950,7 +950,7 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   %61 = add i64 %60, %38
   %62 = load i64, ptr %39, align 8, !tbaa !12
   %.not12.i.i.i = icmp ult i64 %61, %62
-  br i1 %.not12.i.i.i, label %smart_str_append_ex.exit, label %63, !prof !22
+  br i1 %.not12.i.i.i, label %smart_str_append_ex.exit, label %63, !prof !20
 
 63:                                               ; preds = %42
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %61)
@@ -1036,60 +1036,56 @@ attributes #16 = { noreturn nounwind }
 !17 = !{!18, !10, i64 8}
 !18 = !{!"_zend_string", !14, i64 0, !10, i64 8, !10, i64 16, !8, i64 24}
 !19 = !{!18, !10, i64 16}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!23 = distinct !{!23, !21}
-!24 = !{!7, !7, i64 0}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"", !27, i64 0, !10, i64 8, !10, i64 16}
-!27 = !{!"p1 omnipotent char", !7, i64 0}
-!28 = !{!26, !10, i64 8}
-!29 = !{!26, !10, i64 16}
-!30 = !{!31, !10, i64 552}
-!31 = !{!"_zend_executor_globals", !32, i64 0, !32, i64 16, !8, i64 32, !33, i64 288, !33, i64 296, !34, i64 304, !34, i64 360, !35, i64 416, !15, i64 424, !36, i64 428, !32, i64 432, !15, i64 448, !37, i64 456, !37, i64 464, !37, i64 472, !38, i64 480, !38, i64 488, !39, i64 496, !10, i64 504, !40, i64 512, !41, i64 520, !15, i64 528, !40, i64 536, !15, i64 544, !10, i64 552, !15, i64 560, !15, i64 564, !15, i64 568, !36, i64 572, !36, i64 573, !42, i64 574, !42, i64 575, !37, i64 576, !10, i64 584, !7, i64 592, !7, i64 600, !34, i64 608, !34, i64 664, !15, i64 720, !36, i64 724, !32, i64 728, !32, i64 744, !43, i64 760, !43, i64 784, !43, i64 808, !41, i64 832, !15, i64 840, !15, i64 844, !10, i64 848, !37, i64 856, !37, i64 864, !44, i64 872, !45, i64 880, !47, i64 904, !48, i64 960, !48, i64 968, !49, i64 976, !8, i64 984, !50, i64 1080, !36, i64 1088, !8, i64 1089, !10, i64 1096, !15, i64 1104, !15, i64 1108, !51, i64 1112, !8, i64 1120, !7, i64 1376, !8, i64 1384, !52, i64 1640, !34, i64 1672, !10, i64 1728, !53, i64 1736, !54, i64 1760, !54, i64 1768, !55, i64 1776, !10, i64 1784, !36, i64 1792, !15, i64 1796, !56, i64 1800, !6, i64 1808, !10, i64 1816, !57, i64 1824, !10, i64 1840, !10, i64 1848, !58, i64 1856, !8, i64 1936}
-!32 = !{!"_zval_struct", !8, i64 0, !8, i64 8, !8, i64 12}
-!33 = !{!"p2 _ZTS11_zend_array", !7, i64 0}
-!34 = !{!"_zend_array", !14, i64 0, !8, i64 8, !15, i64 12, !8, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !10, i64 40, !7, i64 48}
-!35 = !{!"p1 _ZTS13__jmp_buf_tag", !7, i64 0}
-!36 = !{!"_Bool", !8, i64 0}
-!37 = !{!"p1 _ZTS11_zend_array", !7, i64 0}
-!38 = !{!"p1 _ZTS12_zval_struct", !7, i64 0}
-!39 = !{!"p1 _ZTS14_zend_vm_stack", !7, i64 0}
-!40 = !{!"p1 _ZTS18_zend_execute_data", !7, i64 0}
-!41 = !{!"p1 _ZTS17_zend_class_entry", !7, i64 0}
-!42 = !{!"zend_atomic_bool_s", !8, i64 0}
-!43 = !{!"_zend_stack", !15, i64 0, !15, i64 4, !15, i64 8, !7, i64 16}
-!44 = !{!"p1 _ZTS15_zend_ini_entry", !7, i64 0}
-!45 = !{!"_zend_objects_store", !46, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
-!46 = !{!"p2 _ZTS12_zend_object", !7, i64 0}
-!47 = !{!"_zend_lazy_objects_store", !34, i64 0}
-!48 = !{!"p1 _ZTS12_zend_object", !7, i64 0}
-!49 = !{!"p1 _ZTS8_zend_op", !7, i64 0}
-!50 = !{!"p1 _ZTS18_zend_module_entry", !7, i64 0}
-!51 = !{!"p1 _ZTS18_HashTableIterator", !7, i64 0}
-!52 = !{!"_zend_op", !7, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !15, i64 20, !15, i64 24, !8, i64 28, !8, i64 29, !8, i64 30, !8, i64 31}
-!53 = !{!"", !38, i64 0, !38, i64 8, !38, i64 16}
-!54 = !{!"p1 _ZTS19_zend_fiber_context", !7, i64 0}
-!55 = !{!"p1 _ZTS11_zend_fiber", !7, i64 0}
-!56 = !{!"p2 _ZTS16_zend_error_info", !7, i64 0}
-!57 = !{!"_zend_call_stack", !7, i64 0, !10, i64 8}
-!58 = !{!"_zend_strtod_state", !8, i64 0, !59, i64 64, !27, i64 72}
-!59 = !{!"p1 _ZTS19_zend_strtod_bigint", !7, i64 0}
-!60 = distinct !{!60, !21}
-!61 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
-!62 = !{!63, !41, i64 16}
-!63 = !{!"_zend_object", !14, i64 0, !15, i64 8, !15, i64 12, !41, i64 16, !64, i64 24, !37, i64 32, !8, i64 40}
-!64 = !{!"p1 _ZTS21_zend_object_handlers", !7, i64 0}
-!65 = !{!66, !15, i64 28}
-!66 = !{!"_zend_class_entry", !8, i64 0, !6, i64 8, !8, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !38, i64 40, !38, i64 48, !38, i64 56, !34, i64 64, !34, i64 120, !34, i64 176, !67, i64 232, !68, i64 240, !69, i64 248, !70, i64 256, !70, i64 264, !70, i64 272, !70, i64 280, !70, i64 288, !70, i64 296, !70, i64 304, !70, i64 312, !70, i64 320, !70, i64 328, !70, i64 336, !70, i64 344, !70, i64 352, !64, i64 360, !71, i64 368, !72, i64 376, !8, i64 384, !7, i64 392, !7, i64 400, !7, i64 408, !7, i64 416, !15, i64 424, !15, i64 428, !15, i64 432, !15, i64 436, !8, i64 440, !73, i64 448, !74, i64 456, !75, i64 464, !37, i64 472, !15, i64 480, !37, i64 488, !6, i64 496, !8, i64 504}
-!67 = !{!"p1 _ZTS24_zend_class_mutable_data", !7, i64 0}
-!68 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !7, i64 0}
-!69 = !{!"p2 _ZTS19_zend_property_info", !7, i64 0}
-!70 = !{!"p1 _ZTS14_zend_function", !7, i64 0}
-!71 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !7, i64 0}
-!72 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !7, i64 0}
-!73 = !{!"p1 _ZTS16_zend_class_name", !7, i64 0}
-!74 = !{!"p2 _ZTS17_zend_trait_alias", !7, i64 0}
-!75 = !{!"p2 _ZTS22_zend_trait_precedence", !7, i64 0}
-!76 = !{!66, !6, i64 8}
+!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!21 = !{!7, !7, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"", !24, i64 0, !10, i64 8, !10, i64 16}
+!24 = !{!"p1 omnipotent char", !7, i64 0}
+!25 = !{!23, !10, i64 8}
+!26 = !{!23, !10, i64 16}
+!27 = !{!28, !10, i64 552}
+!28 = !{!"_zend_executor_globals", !29, i64 0, !29, i64 16, !8, i64 32, !30, i64 288, !30, i64 296, !31, i64 304, !31, i64 360, !32, i64 416, !15, i64 424, !33, i64 428, !29, i64 432, !15, i64 448, !34, i64 456, !34, i64 464, !34, i64 472, !35, i64 480, !35, i64 488, !36, i64 496, !10, i64 504, !37, i64 512, !38, i64 520, !15, i64 528, !37, i64 536, !15, i64 544, !10, i64 552, !15, i64 560, !15, i64 564, !15, i64 568, !33, i64 572, !33, i64 573, !39, i64 574, !39, i64 575, !34, i64 576, !10, i64 584, !7, i64 592, !7, i64 600, !31, i64 608, !31, i64 664, !15, i64 720, !33, i64 724, !29, i64 728, !29, i64 744, !40, i64 760, !40, i64 784, !40, i64 808, !38, i64 832, !15, i64 840, !15, i64 844, !10, i64 848, !34, i64 856, !34, i64 864, !41, i64 872, !42, i64 880, !44, i64 904, !45, i64 960, !45, i64 968, !46, i64 976, !8, i64 984, !47, i64 1080, !33, i64 1088, !8, i64 1089, !10, i64 1096, !15, i64 1104, !15, i64 1108, !48, i64 1112, !8, i64 1120, !7, i64 1376, !8, i64 1384, !49, i64 1640, !31, i64 1672, !10, i64 1728, !50, i64 1736, !51, i64 1760, !51, i64 1768, !52, i64 1776, !10, i64 1784, !33, i64 1792, !15, i64 1796, !53, i64 1800, !6, i64 1808, !10, i64 1816, !54, i64 1824, !10, i64 1840, !10, i64 1848, !55, i64 1856, !8, i64 1936}
+!29 = !{!"_zval_struct", !8, i64 0, !8, i64 8, !8, i64 12}
+!30 = !{!"p2 _ZTS11_zend_array", !7, i64 0}
+!31 = !{!"_zend_array", !14, i64 0, !8, i64 8, !15, i64 12, !8, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !10, i64 40, !7, i64 48}
+!32 = !{!"p1 _ZTS13__jmp_buf_tag", !7, i64 0}
+!33 = !{!"_Bool", !8, i64 0}
+!34 = !{!"p1 _ZTS11_zend_array", !7, i64 0}
+!35 = !{!"p1 _ZTS12_zval_struct", !7, i64 0}
+!36 = !{!"p1 _ZTS14_zend_vm_stack", !7, i64 0}
+!37 = !{!"p1 _ZTS18_zend_execute_data", !7, i64 0}
+!38 = !{!"p1 _ZTS17_zend_class_entry", !7, i64 0}
+!39 = !{!"zend_atomic_bool_s", !8, i64 0}
+!40 = !{!"_zend_stack", !15, i64 0, !15, i64 4, !15, i64 8, !7, i64 16}
+!41 = !{!"p1 _ZTS15_zend_ini_entry", !7, i64 0}
+!42 = !{!"_zend_objects_store", !43, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
+!43 = !{!"p2 _ZTS12_zend_object", !7, i64 0}
+!44 = !{!"_zend_lazy_objects_store", !31, i64 0}
+!45 = !{!"p1 _ZTS12_zend_object", !7, i64 0}
+!46 = !{!"p1 _ZTS8_zend_op", !7, i64 0}
+!47 = !{!"p1 _ZTS18_zend_module_entry", !7, i64 0}
+!48 = !{!"p1 _ZTS18_HashTableIterator", !7, i64 0}
+!49 = !{!"_zend_op", !7, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !15, i64 20, !15, i64 24, !8, i64 28, !8, i64 29, !8, i64 30, !8, i64 31}
+!50 = !{!"", !35, i64 0, !35, i64 8, !35, i64 16}
+!51 = !{!"p1 _ZTS19_zend_fiber_context", !7, i64 0}
+!52 = !{!"p1 _ZTS11_zend_fiber", !7, i64 0}
+!53 = !{!"p2 _ZTS16_zend_error_info", !7, i64 0}
+!54 = !{!"_zend_call_stack", !7, i64 0, !10, i64 8}
+!55 = !{!"_zend_strtod_state", !8, i64 0, !56, i64 64, !24, i64 72}
+!56 = !{!"p1 _ZTS19_zend_strtod_bigint", !7, i64 0}
+!57 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
+!58 = !{!59, !38, i64 16}
+!59 = !{!"_zend_object", !14, i64 0, !15, i64 8, !15, i64 12, !38, i64 16, !60, i64 24, !34, i64 32, !8, i64 40}
+!60 = !{!"p1 _ZTS21_zend_object_handlers", !7, i64 0}
+!61 = !{!62, !15, i64 28}
+!62 = !{!"_zend_class_entry", !8, i64 0, !6, i64 8, !8, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !35, i64 40, !35, i64 48, !35, i64 56, !31, i64 64, !31, i64 120, !31, i64 176, !63, i64 232, !64, i64 240, !65, i64 248, !66, i64 256, !66, i64 264, !66, i64 272, !66, i64 280, !66, i64 288, !66, i64 296, !66, i64 304, !66, i64 312, !66, i64 320, !66, i64 328, !66, i64 336, !66, i64 344, !66, i64 352, !60, i64 360, !67, i64 368, !68, i64 376, !8, i64 384, !7, i64 392, !7, i64 400, !7, i64 408, !7, i64 416, !15, i64 424, !15, i64 428, !15, i64 432, !15, i64 436, !8, i64 440, !69, i64 448, !70, i64 456, !71, i64 464, !34, i64 472, !15, i64 480, !34, i64 488, !6, i64 496, !8, i64 504}
+!63 = !{!"p1 _ZTS24_zend_class_mutable_data", !7, i64 0}
+!64 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !7, i64 0}
+!65 = !{!"p2 _ZTS19_zend_property_info", !7, i64 0}
+!66 = !{!"p1 _ZTS14_zend_function", !7, i64 0}
+!67 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !7, i64 0}
+!68 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !7, i64 0}
+!69 = !{!"p1 _ZTS16_zend_class_name", !7, i64 0}
+!70 = !{!"p2 _ZTS17_zend_trait_alias", !7, i64 0}
+!71 = !{!"p2 _ZTS22_zend_trait_precedence", !7, i64 0}
+!72 = !{!62, !6, i64 8}

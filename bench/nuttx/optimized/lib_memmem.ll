@@ -35,7 +35,7 @@ define ptr @memmem(ptr noundef readonly captures(ret: address, provenance) %0, i
 17:                                               ; preds = %8
   %18 = add nuw i64 %.01725, 1
   %exitcond.not = icmp eq i64 %18, %6
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %17, %14, %.preheader22, %4
   %.018 = phi ptr [ null, %4 ], [ null, %.preheader22 ], [ %7, %14 ], [ null, %17 ]
@@ -52,7 +52,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

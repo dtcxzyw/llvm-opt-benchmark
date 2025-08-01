@@ -904,7 +904,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   %37 = zext i16 %.val40 to i32
   %38 = or disjoint i32 %36, %37
   %39 = icmp eq i32 %38, %2
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit55:                                      ; preds = %.preheader, %4
   %.0 = phi i16 [ %11, %4 ], [ %12, %.preheader ]
@@ -934,7 +934,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
 53:                                               ; preds = %.lr.ph
   %54 = add i16 %.150, 1
   %.not37 = icmp ugt i16 %54, %.0
-  br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %27, %.lr.ph, %53, %.loopexit55, %13
   %.031 = phi i16 [ %3, %13 ], [ 0, %.loopexit55 ], [ %.150, %.lr.ph ], [ 0, %53 ], [ %.030, %27 ]
@@ -1140,7 +1140,7 @@ entryPreparePage.exit.i:                          ; preds = %86, %76
   %130 = add i64 %129, %127
   %131 = add i16 %.09.i, 1
   %.not.i13 = icmp ugt i16 %131, %.0.i.i
-  br i1 %.not.i13, label %._crit_edge.i, label %106, !llvm.loop !11
+  br i1 %.not.i13, label %._crit_edge.i, label %106, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %117, %entryPreparePage.exit.i
   %.085.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %130, %117 ]
@@ -1233,7 +1233,7 @@ entryPreparePage.exit.i:                          ; preds = %86, %76
   %183 = getelementptr inbounds nuw i8, ptr %.28212.i, i64 %182
   %184 = add i16 %.115.i, 1
   %.not91.i = icmp ugt i16 %184, %158
-  br i1 %.not91.i, label %entrySplitPage.exit, label %160, !llvm.loop !12
+  br i1 %.not91.i, label %entrySplitPage.exit, label %160, !llvm.loop !11
 
 entrySplitPage.exit:                              ; preds = %179
   store ptr %69, ptr %6, align 8
@@ -1542,10 +1542,9 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -4142,7 +4142,7 @@ _ZN5QListIP19_recent_item_statusED2Ev.exit:       ; preds = %80, %_ZN17QArrayDat
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit227
 
 .loopexit299:                                     ; preds = %93, %_ZN5QListIP19_recent_item_statusED2Ev.exit
-  %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 240), align 8, !range !51, !noundef !55
+  %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 240), align 8, !range !51, !noundef !54
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %_ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit
 
@@ -4153,11 +4153,11 @@ _ZN5QListIP19_recent_item_statusED2Ev.exit:       ; preds = %80, %_ZN17QArrayDat
           to label %_ZN5QListIP19_recent_item_statusED2Ev.exit93 unwind label %127
 
 _ZN5QListIP19_recent_item_statusED2Ev.exit93:     ; preds = %109
-  %111 = load ptr, ptr %13, align 8, !noalias !56
+  %111 = load ptr, ptr %13, align 8, !noalias !55
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %113 = load ptr, ptr %112, align 8, !noalias !56
+  %113 = load ptr, ptr %112, align 8, !noalias !55
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %115 = load i64, ptr %114, align 8, !noalias !56
+  %115 = load i64, ptr %114, align 8, !noalias !55
   %.idx = shl i64 %115, 3
   %116 = getelementptr i8, ptr %113, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #20
@@ -4270,7 +4270,7 @@ _ZN7QStringD2Ev.exit5.i:                          ; preds = %150, %_ZN17QArrayDa
 152:                                              ; preds = %144, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
   %153 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  %154 = load i8, ptr %153, align 8, !range !51, !noundef !55
+  %154 = load i8, ptr %153, align 8, !range !51, !noundef !54
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %263
 
@@ -4757,7 +4757,7 @@ _ZN7QStringD2Ev.exit5.i209:                       ; preds = %289, %_ZN17QArrayDa
 
 291:                                              ; preds = %283, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i211, %280
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
-  %292 = load i8, ptr %153, align 8, !range !51, !noundef !55
+  %292 = load i8, ptr %153, align 8, !range !51, !noundef !54
   %293 = xor i8 %292, 1
   %294 = zext nneg i8 %293 to i32
   invoke void @_ZN5QFont8setStyleENS_5StyleE(ptr noundef nonnull align 8 dereferenceable_or_null(12) %7, i32 noundef %294)
@@ -4818,7 +4818,7 @@ _ZN5QFont9setItalicEb.exit:                       ; preds = %291
 313:                                              ; preds = %309
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %24) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #20
-  %314 = load i8, ptr %153, align 8, !range !51, !noundef !55
+  %314 = load i8, ptr %153, align 8, !range !51, !noundef !54
   %315 = trunc nuw i8 %314 to i1
   %spec.select = select i1 %315, i32 33, i32 0
   invoke void @_ZN15QListWidgetItem8setFlagsE6QFlagsIN2Qt8ItemFlagEE(ptr noundef align 8 dereferenceable_or_null(36) %296, i32 %spec.select)
@@ -4898,7 +4898,7 @@ _ZeqRK7QStringS1_.exit.thread:                    ; preds = %322, %330, %_ZeqRK7
   %341 = add i32 %.133321, 1
   %342 = getelementptr i8, ptr %.sroa.10282.0320, i64 8
   %.not297 = icmp eq ptr %342, %116
-  br i1 %.not297, label %._crit_edge, label %129, !llvm.loop !59
+  br i1 %.not297, label %._crit_edge, label %129, !llvm.loop !58
 
 .body:                                            ; preds = %_ZN7QStringD2Ev.exit5.i, %301, %320, %138, %_ZN7QStringD2Ev.exit5.i209, %340, %335, %_ZN7QStringD2Ev.exit205, %_ZN17QArrayDataPointerIDsED2Ev.exit196, %_ZN17QArrayDataPointerIDsED2Ev.exit172, %_ZN17QArrayDataPointerIDsED2Ev.exit148, %_ZN17QArrayDataPointerIDsED2Ev.exit124
   %.pn71 = phi { ptr, i32 } [ %.pn69, %340 ], [ %.pn67, %335 ], [ %.pn65, %_ZN17QArrayDataPointerIDsED2Ev.exit124 ], [ %.pn63, %_ZN17QArrayDataPointerIDsED2Ev.exit148 ], [ %.pn61, %_ZN17QArrayDataPointerIDsED2Ev.exit172 ], [ %.pn59, %_ZN17QArrayDataPointerIDsED2Ev.exit196 ], [ %.pn57, %_ZN7QStringD2Ev.exit205 ], [ %147, %_ZN7QStringD2Ev.exit5.i ], [ %286, %_ZN7QStringD2Ev.exit5.i209 ], [ %302, %301 ], [ %139, %138 ], [ %321, %320 ]
@@ -4951,7 +4951,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit: ; pre
 
 362:                                              ; preds = %358, %356
   %363 = icmp samesign ugt i32 %.0322, 1
-  br i1 %363, label %.lr.ph323, label %.critedge, !llvm.loop !60
+  br i1 %363, label %.lr.ph323, label %.critedge, !llvm.loop !59
 
 .loopexit:                                        ; preds = %352
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5315,7 +5315,7 @@ define void @_ZN11WelcomePage17interfaceSelectedEv(ptr noundef align 8 dereferen
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %1, %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load i8, ptr %13, align 8, !range !51, !noundef !55
+  %14 = load i8, ptr %13, align 8, !range !51, !noundef !54
   %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
@@ -5496,7 +5496,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %20 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %20, %15
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !61
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !60
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %10
   %21 = load ptr, ptr %2, align 8
@@ -6300,7 +6300,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %22, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %24 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %19
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !61
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !60
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %16
   %25 = load ptr, ptr %3, align 8
@@ -6360,7 +6360,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !61
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !60
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -7820,7 +7820,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11WelcomePageFv6QPointENS_
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !55
+  %17 = load ptr, ptr %16, align 8, !nosanitize !54
   br label %_ZN9QtPrivate15FunctionPointerIM11WelcomePageFv6QPointEE4callINS_4ListIJRKS2_EEEvEEvS4_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -7886,7 +7886,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11WelcomePageFvvENS_4ListI
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !55
+  %17 = load ptr, ptr %16, align 8, !nosanitize !54
   br label %_ZN9QtPrivate15FunctionPointerIM11WelcomePageFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -7949,7 +7949,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18CaptureFilterComboFvvENS
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !55
+  %17 = load ptr, ptr %16, align 8, !nosanitize !54
   br label %_ZN9QtPrivate15FunctionPointerIM18CaptureFilterComboFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -8014,7 +8014,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11WelcomePageFv7QStringENS
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr i8, ptr %15, i64 %.unpack12
   %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load ptr, ptr %17, align 8, !nosanitize !55
+  %18 = load ptr, ptr %17, align 8, !nosanitize !54
   br label %21
 
 19:                                               ; preds = %10
@@ -8136,7 +8136,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11WelcomePageFvbENS_4ListI
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !55
+  %17 = load ptr, ptr %16, align 8, !nosanitize !54
   br label %_ZN9QtPrivate15FunctionPointerIM11WelcomePageFvbEE4callINS_4ListIJbEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -8147,7 +8147,7 @@ _ZN9QtPrivate15FunctionPointerIM11WelcomePageFvbEE4callINS_4ListIJbEEEvEEvS3_PS1
   %20 = phi ptr [ %17, %13 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = load i8, ptr %22, align 1, !range !51, !noundef !55
+  %23 = load i8, ptr %22, align 1, !range !51, !noundef !54
   %24 = trunc nuw i8 %23 to i1
   tail call void %20(ptr noundef align 8 dereferenceable_or_null(112) %11, i1 noundef zeroext %24)
   br label %33
@@ -8203,7 +8203,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11WelcomePageFvP15QListWid
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !55
+  %17 = load ptr, ptr %16, align 8, !nosanitize !54
   br label %_ZN9QtPrivate15FunctionPointerIM11WelcomePageFvP15QListWidgetItemEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -8641,13 +8641,12 @@ attributes #23 = { cold noreturn }
 !49 = distinct !{!49, !50, !"_ZN7QObject7connectIM7QActionFvbEM11WelcomePageFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !50 = distinct !{!50, !"_ZN7QObject7connectIM7QActionFvbEM11WelcomePageFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
 !51 = !{i8 0, i8 2}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP19_recent_item_statusEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
-!58 = distinct !{!58, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP19_recent_item_statusEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
-!59 = distinct !{!59, !53, !54}
-!60 = distinct !{!60, !53, !54}
-!61 = distinct !{!61, !53, !54}
+!54 = !{}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP19_recent_item_statusEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
+!57 = distinct !{!57, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP19_recent_item_statusEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
+!58 = distinct !{!58, !53}
+!59 = distinct !{!59, !53}
+!60 = distinct !{!60, !53}

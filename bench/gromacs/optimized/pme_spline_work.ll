@@ -42,19 +42,19 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   br i1 %exitcond.not, label %13, label %8, !llvm.loop !8
 
 13:                                               ; preds = %8
-  %.val = load <4 x float>, ptr %2, align 32, !tbaa !11
-  %.val29 = load <4 x float>, ptr %5, align 16, !tbaa !11
+  %.val = load <4 x float>, ptr %2, align 32, !tbaa !10
+  %.val29 = load <4 x float>, ptr %5, align 16, !tbaa !10
   %14 = fcmp olt <4 x float> %.val, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
   %16 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %0, i64 0, i64 %indvars.iv38
-  store <4 x i32> %15, ptr %16, align 16, !tbaa !11
+  store <4 x i32> %15, ptr %16, align 16, !tbaa !10
   %17 = fcmp olt <4 x float> %.val29, zeroinitializer
   %18 = sext <4 x i1> %17 to <4 x i32>
   %19 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %.ptr28, i64 0, i64 %indvars.iv38
-  store <4 x i32> %18, ptr %19, align 16, !tbaa !11
+  store <4 x i32> %18, ptr %19, align 16, !tbaa !10
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !12
+  br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %.preheader34.preheader
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #3
@@ -85,8 +85,7 @@ attributes #3 = { nounwind }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9, !10}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}

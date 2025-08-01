@@ -363,11 +363,11 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %173 = zext i32 %172 to i64
   %174 = load ptr, ptr %7, align 8, !tbaa !28
   %175 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 2
-  store i64 %173, ptr %175, align 8, !tbaa !81
+  store i64 %173, ptr %175, align 8, !tbaa !80
   %176 = load i32, ptr %10, align 4, !tbaa !11
   %177 = call i32 @llvm.bswap.i32(i32 %176)
   %178 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 1
-  store i32 %177, ptr %178, align 4, !tbaa !83
+  store i32 %177, ptr %178, align 4, !tbaa !82
   %179 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187
   %180 = icmp ugt i32 %177, 536870911
   br i1 %180, label %.loopexit, label %181
@@ -379,10 +379,10 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
 
 184:                                              ; preds = %181
   %185 = load i32, ptr %148, align 4, !tbaa !54
-  store i32 %185, ptr %179, align 8, !tbaa !84
+  store i32 %185, ptr %179, align 8, !tbaa !83
   %186 = zext i32 %.0144180 to i64
   %187 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 3
-  store i64 %186, ptr %187, align 8, !tbaa !85
+  store i64 %186, ptr %187, align 8, !tbaa !84
   %188 = load i32, ptr %93, align 8, !tbaa !32
   switch i32 %188, label %195 [
     i32 69641, label %189
@@ -409,23 +409,23 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
 202:                                              ; preds = %184, %195, %189
   %.1145 = phi i32 [ %194, %189 ], [ %201, %195 ], [ %.0144180, %184 ]
   %203 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 4
-  store i32 1, ptr %203, align 8, !tbaa !86
+  store i32 1, ptr %203, align 8, !tbaa !85
   br label %222
 
 204:                                              ; preds = %181
   %205 = load i32, ptr %4, align 8, !tbaa !44
-  store i32 %205, ptr %179, align 8, !tbaa !84
+  store i32 %205, ptr %179, align 8, !tbaa !83
   %206 = load i32, ptr %13, align 8, !tbaa !11
   %207 = and i32 %206, -129
   %208 = call i32 @llvm.bswap.i32(i32 %207)
   %209 = zext nneg i32 %208 to i64
   %210 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 3
-  store i64 %209, ptr %210, align 8, !tbaa !85
+  store i64 %209, ptr %210, align 8, !tbaa !84
   %211 = load i8, ptr %13, align 8, !tbaa !11
   %.not170 = icmp sgt i8 %211, -1
   %212 = zext i1 %.not170 to i32
   %213 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 4
-  store i32 %212, ptr %213, align 8, !tbaa !86
+  store i32 %212, ptr %213, align 8, !tbaa !85
   %214 = add i32 %.0181, 1
   %215 = load i32, ptr %92, align 8, !tbaa !36
   %.not171 = icmp eq i32 %215, 0
@@ -446,7 +446,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %223 = load i32, ptr %139, align 4, !tbaa !73
   %224 = zext i32 %223 to i64
   %225 = icmp samesign ult i64 %indvars.iv.next188, %224
-  br i1 %225, label %167, label %._crit_edge.loopexit, !llvm.loop !87
+  br i1 %225, label %167, label %._crit_edge.loopexit, !llvm.loop !86
 
 ._crit_edge.loopexit:                             ; preds = %222
   %226 = zext i32 %.2 to i64
@@ -469,7 +469,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %235 = getelementptr inbounds ptr, ptr %231, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !76
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
-  store i64 %.0144.lcssa, ptr %237, align 8, !tbaa !88
+  store i64 %.0144.lcssa, ptr %237, align 8, !tbaa !87
   br label %238
 
 238:                                              ; preds = %229, %._crit_edge
@@ -485,12 +485,12 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %245 = getelementptr inbounds ptr, ptr %242, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !76
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 48
-  store i64 %.0.lcssa, ptr %247, align 8, !tbaa !88
+  store i64 %.0.lcssa, ptr %247, align 8, !tbaa !87
   br label %248
 
 248:                                              ; preds = %240, %238
   %249 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %249, align 8, !tbaa !89
+  store i32 0, ptr %249, align 8, !tbaa !88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %169, %167, %132, %130, %128, %95, %64, %62, %54, %25, %18, %1, %248, %90
@@ -506,7 +506,7 @@ define internal i32 @film_read_packet(ptr noundef readonly captures(none) %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !89
+  %8 = load i32, ptr %7, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !73
   %.not = icmp ult i32 %8, %10
@@ -522,14 +522,14 @@ define internal i32 @film_read_packet(ptr noundef readonly captures(none) %0, pt
   br i1 %.not4047, label %.lr.ph, label %select.unfold._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %17 = load i32, ptr %15, align 8, !tbaa !84
+  %17 = load i32, ptr %15, align 8, !tbaa !83
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph, %select.unfold
   %.048 = phi i32 [ %16, %.lr.ph ], [ %spec.select46, %select.unfold ]
   %18 = sext i32 %.048 to i64
   %19 = getelementptr inbounds %struct.film_sample, ptr %13, i64 %18
-  %20 = load i32, ptr %19, align 8, !tbaa !84
+  %20 = load i32, ptr %19, align 8, !tbaa !83
   %.not41 = icmp ne i32 %20, %17
   %21 = zext i1 %.not41 to i32
   %spec.select46 = add nuw nsw i32 %.048, %21
@@ -541,45 +541,45 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %11
   %.036.lcssa = phi ptr [ null, %11 ], [ %19, %select.unfold ]
   %.lcssa = phi i1 [ true, %11 ], [ %.not41, %select.unfold ]
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !81
+  %23 = load i64, ptr %22, align 8, !tbaa !80
   %24 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef %23, i32 noundef 0) #5
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !83
+  %26 = load i32, ptr %25, align 4, !tbaa !82
   %27 = tail call i32 @av_get_packet(ptr noundef %6, ptr noundef %1, i32 noundef %26) #5
-  %28 = load i32, ptr %25, align 4, !tbaa !83
+  %28 = load i32, ptr %25, align 4, !tbaa !82
   %.not42 = icmp eq i32 %27, %28
   %spec.store.select = select i1 %.not42, i32 %27, i32 -5
-  %29 = load i32, ptr %15, align 8, !tbaa !84
+  %29 = load i32, ptr %15, align 8, !tbaa !83
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %29, ptr %30, align 4, !tbaa !90
+  store i32 %29, ptr %30, align 4, !tbaa !89
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !85
+  %32 = load i64, ptr %31, align 8, !tbaa !84
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %32, ptr %33, align 8, !tbaa !91
+  store i64 %32, ptr %33, align 8, !tbaa !90
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %32, ptr %34, align 8, !tbaa !92
+  store i64 %32, ptr %34, align 8, !tbaa !91
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !86
+  %36 = load i32, ptr %35, align 8, !tbaa !85
   %.not43 = icmp ne i32 %36, 0
   %37 = zext i1 %.not43 to i32
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !93
+  %39 = load i32, ptr %38, align 8, !tbaa !92
   %40 = or i32 %39, %37
-  store i32 %40, ptr %38, align 8, !tbaa !93
+  store i32 %40, ptr %38, align 8, !tbaa !92
   br i1 %.lcssa, label %46, label %41
 
 41:                                               ; preds = %select.unfold._crit_edge
   %42 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !85
+  %43 = load i64, ptr %42, align 8, !tbaa !84
   %44 = sub nsw i64 %43, %32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %44, ptr %45, align 8, !tbaa !94
+  store i64 %44, ptr %45, align 8, !tbaa !93
   br label %46
 
 46:                                               ; preds = %41, %select.unfold._crit_edge
-  %47 = load i32, ptr %7, align 8, !tbaa !89
+  %47 = load i32, ptr %7, align 8, !tbaa !88
   %48 = add i32 %47, 1
-  store i32 %48, ptr %7, align 8, !tbaa !89
+  store i32 %48, ptr %7, align 8, !tbaa !88
   br label %49
 
 49:                                               ; preds = %2, %46
@@ -613,10 +613,10 @@ define internal i32 @film_read_seek(ptr noundef readonly captures(none) %0, i32 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %18 = load ptr, ptr %17, align 8, !tbaa !95
+  %18 = load ptr, ptr %17, align 8, !tbaa !94
   %19 = zext nneg i32 %12 to i64
   %20 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %18, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !96
+  %21 = load i64, ptr %20, align 8, !tbaa !95
   %22 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %21, i32 noundef 0) #5
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %26
@@ -627,7 +627,7 @@ define internal i32 @film_read_seek(ptr noundef readonly captures(none) %0, i32 
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %12, ptr %27, align 8, !tbaa !89
+  store i32 %12, ptr %27, align 8, !tbaa !88
   br label %28
 
 28:                                               ; preds = %4, %26, %24
@@ -754,23 +754,22 @@ attributes #5 = { nounwind }
 !75 = !{!13, !18, i64 48}
 !76 = !{!77, !77, i64 0}
 !77 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{!82, !22, i64 8}
-!82 = !{!"film_sample", !10, i64 0, !10, i64 4, !22, i64 8, !22, i64 16, !10, i64 24}
-!83 = !{!82, !10, i64 4}
-!84 = !{!82, !10, i64 0}
-!85 = !{!82, !22, i64 16}
-!86 = !{!82, !10, i64 24}
-!87 = distinct !{!87, !79, !80}
-!88 = !{!38, !22, i64 48}
-!89 = !{!29, !10, i64 40}
-!90 = !{!41, !10, i64 36}
-!91 = !{!41, !22, i64 16}
-!92 = !{!41, !22, i64 8}
-!93 = !{!41, !10, i64 40}
-!94 = !{!41, !22, i64 64}
-!95 = !{!58, !65, i64 320}
-!96 = !{!97, !22, i64 0}
-!97 = !{!"AVIndexEntry", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}
+!80 = !{!81, !22, i64 8}
+!81 = !{!"film_sample", !10, i64 0, !10, i64 4, !22, i64 8, !22, i64 16, !10, i64 24}
+!82 = !{!81, !10, i64 4}
+!83 = !{!81, !10, i64 0}
+!84 = !{!81, !22, i64 16}
+!85 = !{!81, !10, i64 24}
+!86 = distinct !{!86, !79}
+!87 = !{!38, !22, i64 48}
+!88 = !{!29, !10, i64 40}
+!89 = !{!41, !10, i64 36}
+!90 = !{!41, !22, i64 16}
+!91 = !{!41, !22, i64 8}
+!92 = !{!41, !10, i64 40}
+!93 = !{!41, !22, i64 64}
+!94 = !{!58, !65, i64 320}
+!95 = !{!96, !22, i64 0}
+!96 = !{!"AVIndexEntry", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}

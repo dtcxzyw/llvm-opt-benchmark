@@ -210,6 +210,5 @@ attributes #4 = { nounwind }
 !41 = !{!"p1 int", !6, i64 0}
 !42 = !{!"p2 _ZTS15AVFrameSideData", !43, i64 0}
 !43 = !{!"any p2 pointer", !6, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}

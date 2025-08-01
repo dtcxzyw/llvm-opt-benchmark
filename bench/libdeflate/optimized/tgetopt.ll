@@ -224,7 +224,7 @@ define dso_local range(i32 -128, 128) i32 @tgetopt(i32 noundef %0, ptr noundef c
 92:                                               ; preds = %88, %.lr.ph55
   %93 = phi i32 [ %89, %88 ], [ %85, %.lr.ph55 ]
   %94 = icmp samesign ugt i64 %indvars.iv67, 2
-  br i1 %94, label %.lr.ph55, label %._crit_edge, !llvm.loop !13
+  br i1 %94, label %.lr.ph55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92, %.critedge
   store i1 true, ptr @tgetopt.done, align 1
@@ -262,5 +262,3 @@ attributes #4 = { nounwind }
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}

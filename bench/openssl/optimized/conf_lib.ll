@@ -511,11 +511,11 @@ NCONF_get_string.exit:                            ; preds = %7
 13:                                               ; preds = %NCONF_get_string.exit
   %14 = load ptr, ptr %0, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %.not36 = icmp eq ptr %16, null
   %spec.select = select i1 %.not36, ptr @default_is_number, ptr %16
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not37 = icmp eq ptr %18, null
   %spec.select40 = select i1 %.not37, ptr @default_to_int, ptr %18
   br label %19
@@ -588,7 +588,7 @@ CONF_set_nconf.exit:                              ; preds = %1, %5
   store ptr %0, ptr %11, align 8, !tbaa !11
   %12 = load ptr, ptr %2, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = call i32 %14(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #15
   ret void
@@ -602,7 +602,7 @@ define void @NCONF_free_data(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = tail call i32 %6(ptr noundef nonnull %0) #15
   br label %8
 
@@ -643,7 +643,7 @@ CONF_dump_bio.exit:                               ; preds = %7, %10
   store ptr %0, ptr %16, align 8, !tbaa !11
   %17 = load ptr, ptr %3, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = call i32 %19(ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #15
   %21 = call i32 @BIO_free(ptr noundef nonnull %4) #15
@@ -676,7 +676,7 @@ CONF_set_nconf.exit:                              ; preds = %2, %6
   store ptr %0, ptr %12, align 8, !tbaa !11
   %13 = load ptr, ptr %3, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = call i32 %15(ptr noundef nonnull %3, ptr noundef %1) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #15
   ret i32 %16
@@ -696,7 +696,7 @@ define i32 @NCONF_dump_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1) #15
   br label %10
 
@@ -717,7 +717,7 @@ define ptr @NCONF_new_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 6:                                                ; preds = %4, %2
   %.08 = phi ptr [ %5, %4 ], [ %1, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = tail call ptr %8(ptr noundef %.08) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -730,7 +730,7 @@ define ptr @NCONF_new_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %0, ptr %13, align 8, !tbaa !29
+  store ptr %0, ptr %13, align 8, !tbaa !28
   br label %14
 
 14:                                               ; preds = %12, %11
@@ -749,7 +749,7 @@ define ptr @NCONF_new(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %3, %1
   %.08.i = phi ptr [ %4, %3 ], [ %0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = tail call ptr %7(ptr noundef %.08.i) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -762,7 +762,7 @@ define ptr @NCONF_new(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr null, ptr %12, align 8, !tbaa !29
+  store ptr null, ptr %12, align 8, !tbaa !28
   br label %NCONF_new_ex.exit
 
 NCONF_new_ex.exit:                                ; preds = %10, %11
@@ -777,7 +777,7 @@ define void @NCONF_free(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = tail call i32 %6(ptr noundef nonnull %0) #15
   br label %8
 
@@ -788,7 +788,7 @@ define void @NCONF_free(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @NCONF_get0_libctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   ret ptr %3
 }
 
@@ -813,8 +813,8 @@ declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @section_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !31
-  %4 = load ptr, ptr %1, align 8, !tbaa !31
+  %3 = load ptr, ptr %0, align 8, !tbaa !30
+  %4 = load ptr, ptr %1, align 8, !tbaa !30
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #16
   ret i32 %5
 }
@@ -822,12 +822,12 @@ define internal i32 @section_name_cmp(ptr noundef readonly captures(none) %0, pt
 ; Function Attrs: nounwind uwtable
 define internal void @collect_section_name(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !32
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !34
+  %7 = load ptr, ptr %0, align 8, !tbaa !33
   %8 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef %7) #15
   br label %9
 
@@ -851,7 +851,7 @@ define i32 @NCONF_load(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #15
   br label %11
 
@@ -957,7 +957,7 @@ define i32 @NCONF_dump_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
   br label %NCONF_dump_bio.exit
 
@@ -979,7 +979,7 @@ define noalias noundef ptr @OPENSSL_INIT_new() local_unnamed_addr #7 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store i64 50, ptr %3, align 8, !tbaa !36
+  store i64 50, ptr %3, align 8, !tbaa !35
   br label %4
 
 4:                                                ; preds = %0, %2
@@ -998,9 +998,9 @@ define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_filename(ptr noundef capture
 
 6:                                                ; preds = %3, %2
   %.0 = phi ptr [ %4, %3 ], [ null, %2 ]
-  %7 = load ptr, ptr %0, align 8, !tbaa !38
+  %7 = load ptr, ptr %0, align 8, !tbaa !37
   tail call void @free(ptr noundef %7) #15
-  store ptr %.0, ptr %0, align 8, !tbaa !38
+  store ptr %.0, ptr %0, align 8, !tbaa !37
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -1017,7 +1017,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OPENSSL_INIT_set_config_file_flags(ptr noundef writeonly captures(none) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %1, ptr %3, align 8, !tbaa !36
+  store i64 %1, ptr %3, align 8, !tbaa !35
   ret void
 }
 
@@ -1034,9 +1034,9 @@ define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr noundef captures
 6:                                                ; preds = %3, %2
   %.0 = phi ptr [ %4, %3 ], [ null, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   tail call void @free(ptr noundef %8) #15
-  store ptr %.0, ptr %7, align 8, !tbaa !39
+  store ptr %.0, ptr %7, align 8, !tbaa !38
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1050,10 +1050,10 @@ define void @OPENSSL_INIT_free(ptr noundef captures(address_is_null) %0) local_u
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !38
+  %4 = load ptr, ptr %0, align 8, !tbaa !37
   tail call void @free(ptr noundef %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   tail call void @free(ptr noundef %6) #15
   tail call void @free(ptr noundef nonnull %0) #15
   br label %7
@@ -1121,22 +1121,21 @@ attributes #16 = { nounwind willreturn memory(read) }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"long", !6, i64 0}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!9, !5, i64 56}
-!25 = !{!9, !5, i64 64}
-!26 = !{!9, !5, i64 32}
-!27 = !{!9, !5, i64 48}
-!28 = !{!9, !5, i64 8}
-!29 = !{!12, !15, i64 40}
-!30 = !{!9, !5, i64 24}
-!31 = !{!10, !10, i64 0}
-!32 = !{!33, !10, i64 8}
-!33 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
-!34 = !{!33, !10, i64 0}
-!35 = !{!9, !5, i64 72}
-!36 = !{!37, !19, i64 16}
-!37 = !{!"ossl_init_settings_st", !10, i64 0, !10, i64 8, !19, i64 16}
-!38 = !{!37, !10, i64 0}
-!39 = !{!37, !10, i64 8}
+!23 = !{!9, !5, i64 56}
+!24 = !{!9, !5, i64 64}
+!25 = !{!9, !5, i64 32}
+!26 = !{!9, !5, i64 48}
+!27 = !{!9, !5, i64 8}
+!28 = !{!12, !15, i64 40}
+!29 = !{!9, !5, i64 24}
+!30 = !{!10, !10, i64 0}
+!31 = !{!32, !10, i64 8}
+!32 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
+!33 = !{!32, !10, i64 0}
+!34 = !{!9, !5, i64 72}
+!35 = !{!36, !19, i64 16}
+!36 = !{!"ossl_init_settings_st", !10, i64 0, !10, i64 8, !19, i64 16}
+!37 = !{!36, !10, i64 0}
+!38 = !{!36, !10, i64 8}

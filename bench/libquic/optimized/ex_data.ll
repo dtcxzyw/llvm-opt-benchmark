@@ -243,7 +243,7 @@ get_func_pointers.exit:                           ; preds = %11, %.critedge.i
 
 CRYPTO_get_ex_data.exit:                          ; preds = %17, %26, %29
   %.0.i23 = phi ptr [ %31, %29 ], [ null, %26 ], [ null, %17 ]
-  store ptr %.0.i23, ptr %4, align 8, !tbaa !28
+  store ptr %.0.i23, ptr %4, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   %.not21 = icmp eq ptr %33, null
@@ -259,7 +259,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %17, %26, %29
   %40 = load ptr, ptr %39, align 8, !tbaa !12
   %41 = call i32 %33(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef %37, i64 noundef %38, ptr noundef %40) #8
   %.pre = load i8, ptr %16, align 8, !tbaa !19
-  %.pre33 = load ptr, ptr %4, align 8, !tbaa !28
+  %.pre33 = load ptr, ptr %4, align 8, !tbaa !27
   br label %42
 
 42:                                               ; preds = %34, %CRYPTO_get_ex_data.exit
@@ -273,7 +273,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %17, %26, %29
   %49 = add nuw i64 %.01931, 1
   %50 = call i64 @sk_num(ptr noundef %.027) #8
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %17, label %._crit_edge, !llvm.loop !29
+  br i1 %51, label %17, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %42, %get_func_pointers.exit
   call void @sk_free(ptr noundef %.027) #8
@@ -372,7 +372,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %20, %28, %31
   %43 = add nuw i64 %.028, 1
   %44 = tail call i64 @sk_num(ptr noundef %.024) #8
   %45 = icmp ult i64 %43, %44
-  br i1 %45, label %16, label %._crit_edge, !llvm.loop !30
+  br i1 %45, label %16, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %42, %get_func_pointers.exit
   tail call void @sk_free(ptr noundef %.024) #8
@@ -431,9 +431,8 @@ attributes #8 = { nounwind }
 !22 = !{!23, !24, i64 0}
 !23 = !{!"crypto_ex_data_st", !24, i64 0}
 !24 = !{!"p1 _ZTS13stack_st_void", !11, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!11, !11, i64 0}
-!29 = distinct !{!29, !26, !27}
-!30 = distinct !{!30, !26, !27}
+!27 = !{!11, !11, i64 0}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}

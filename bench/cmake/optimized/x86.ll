@@ -137,7 +137,7 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
 .lr.ph114:                                        ; preds = %36
   %55 = zext nneg i32 %34 to i64
   %56 = getelementptr inbounds nuw [5 x i32], ptr @x86_code.MASK_TO_BIT_NUMBER, i64 0, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !20
+  %57 = load i32, ptr %56, align 4, !tbaa !19
   %58 = shl i32 %57, 3
   %59 = sub i32 24, %58
   %60 = sub i32 32, %58
@@ -189,7 +189,7 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
   %.195 = phi i64 [ %20, %19 ], [ %76, %75 ], [ %74, %.thread ]
   %.193 = phi i32 [ %.092121, %19 ], [ %spec.select106, %75 ], [ 0, %.thread ]
   %.not = icmp ugt i64 %.195, %14
-  br i1 %.not, label %78, label %15, !llvm.loop !21
+  br i1 %.not, label %78, label %15
 
 78:                                               ; preds = %77
   store i32 %.193, ptr %0, align 4, !tbaa !11
@@ -226,7 +226,5 @@ attributes #3 = { nounwind }
 !15 = !{!7, !7, i64 0}
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!13, !13, i64 0}
-!21 = distinct !{!21, !19}
+!18 = distinct !{!18, !17}
+!19 = !{!13, !13, i64 0}

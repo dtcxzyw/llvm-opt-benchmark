@@ -189,7 +189,7 @@ switch.lookup:                                    ; preds = %1
 define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(43) initializes((0, 1)) %1) local_unnamed_addr #2 {
   store i8 0, ptr %1, align 4, !tbaa !32
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.06.0.copyload = load i32, ptr %3, align 4, !tbaa !36
+  %.sroa.06.0.copyload = load i32, ptr %3, align 4, !tbaa !35
   %4 = and i32 %.sroa.06.0.copyload, 15
   switch i32 %4, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit [
     i32 4, label %5
@@ -266,7 +266,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %40, %26
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %16, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, %5, %15, %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %41, align 4, !tbaa !36
+  %.sroa.05.0.copyload = load i32, ptr %41, align 4, !tbaa !35
   %42 = and i32 %.sroa.05.0.copyload, 15
   switch i32 %42, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31 [
     i32 4, label %43
@@ -343,7 +343,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit54: ; preds = %78, %6
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31: ; preds = %54, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit54, %43, %53, %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.04.0.copyload = load i32, ptr %79, align 4, !tbaa !36
+  %.sroa.04.0.copyload = load i32, ptr %79, align 4, !tbaa !35
   %80 = and i32 %.sroa.04.0.copyload, 15
   switch i32 %80, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35 [
     i32 4, label %81
@@ -420,7 +420,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit57: ; preds = %116, %
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35: ; preds = %92, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit57, %81, %91, %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.03.0.copyload = load i32, ptr %117, align 4, !tbaa !36
+  %.sroa.03.0.copyload = load i32, ptr %117, align 4, !tbaa !35
   %118 = and i32 %.sroa.03.0.copyload, 15
   switch i32 %118, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39 [
     i32 4, label %119
@@ -497,7 +497,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit60: ; preds = %154, %
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39: ; preds = %130, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit60, %119, %129, %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.02.0.copyload = load i32, ptr %155, align 4, !tbaa !36
+  %.sroa.02.0.copyload = load i32, ptr %155, align 4, !tbaa !35
   %156 = and i32 %.sroa.02.0.copyload, 15
   switch i32 %156, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43 [
     i32 4, label %157
@@ -574,7 +574,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit63: ; preds = %192, %
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43: ; preds = %168, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit63, %157, %167, %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.01.0.copyload = load i32, ptr %193, align 4, !tbaa !36
+  %.sroa.01.0.copyload = load i32, ptr %193, align 4, !tbaa !35
   %194 = and i32 %.sroa.01.0.copyload, 15
   switch i32 %194, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47 [
     i32 4, label %195
@@ -651,7 +651,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit66: ; preds = %230, %
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %206, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit66, %195, %205, %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload = load i32, ptr %231, align 4, !tbaa !36
+  %.sroa.0.0.copyload = load i32, ptr %231, align 4, !tbaa !35
   %232 = and i32 %.sroa.0.0.copyload, 15
   switch i32 %232, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit51 [
     i32 4, label %233
@@ -835,7 +835,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_4IrOpES3_
   br label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %13
-  %.sroa.0.0.copyload = load i32, ptr %1, align 4, !tbaa !36
+  %.sroa.0.0.copyload = load i32, ptr %1, align 4, !tbaa !35
   %20 = and i32 %.sroa.0.0.copyload, 15
   switch i32 %20, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit [
     i32 4, label %21
@@ -911,7 +911,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i: ; preds = %56, %4
   br label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit, %21, %31, %32, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i
-  store i32 %2, ptr %1, align 4, !tbaa !36
+  store i32 %2, ptr %1, align 4, !tbaa !35
   ret void
 }
 
@@ -922,7 +922,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockE
   %7 = load ptr, ptr %5, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.013.0.copyload = load i32, ptr %9, align 4, !tbaa !36
+  %.sroa.013.0.copyload = load i32, ptr %9, align 4, !tbaa !35
   %10 = and i32 %.sroa.013.0.copyload, 15
   switch i32 %10, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit [
     i32 4, label %11
@@ -950,7 +950,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockE
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %4, %11, %17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.012.0.copyload = load i32, ptr %24, align 8, !tbaa !36
+  %.sroa.012.0.copyload = load i32, ptr %24, align 8, !tbaa !35
   %25 = and i32 %.sroa.012.0.copyload, 15
   switch i32 %25, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45 [
     i32 4, label %26
@@ -978,7 +978,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %4, %11, %1
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit, %26, %32
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.011.0.copyload = load i32, ptr %39, align 4, !tbaa !36
+  %.sroa.011.0.copyload = load i32, ptr %39, align 4, !tbaa !35
   %40 = and i32 %.sroa.011.0.copyload, 15
   switch i32 %40, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46 [
     i32 4, label %41
@@ -1006,7 +1006,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45: ; preds = %_ZN4Luau
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45, %41, %47
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.010.0.copyload = load i32, ptr %54, align 8, !tbaa !36
+  %.sroa.010.0.copyload = load i32, ptr %54, align 8, !tbaa !35
   %55 = and i32 %.sroa.010.0.copyload, 15
   switch i32 %55, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47 [
     i32 4, label %56
@@ -1034,7 +1034,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4Luau
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46, %56, %62
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %.sroa.09.0.copyload = load i32, ptr %69, align 4, !tbaa !36
+  %.sroa.09.0.copyload = load i32, ptr %69, align 4, !tbaa !35
   %70 = and i32 %.sroa.09.0.copyload, 15
   switch i32 %70, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48 [
     i32 4, label %71
@@ -1062,7 +1062,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %_ZN4Luau
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47, %71, %77
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.08.0.copyload = load i32, ptr %84, align 8, !tbaa !36
+  %.sroa.08.0.copyload = load i32, ptr %84, align 8, !tbaa !35
   %85 = and i32 %.sroa.08.0.copyload, 15
   switch i32 %85, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit49 [
     i32 4, label %86
@@ -1090,7 +1090,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48: ; preds = %_ZN4Luau
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit49: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48, %86, %92
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %.sroa.07.0.copyload = load i32, ptr %99, align 4, !tbaa !36
+  %.sroa.07.0.copyload = load i32, ptr %99, align 4, !tbaa !35
   %100 = and i32 %.sroa.07.0.copyload, 15
   switch i32 %100, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit50 [
     i32 4, label %101
@@ -1165,7 +1165,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj.exit:  ; preds = %134, %122
 
 135:                                              ; preds = %_ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj.exit, %119, %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit50
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sroa.06.0.copyload = load i32, ptr %136, align 4, !tbaa !36
+  %.sroa.06.0.copyload = load i32, ptr %136, align 4, !tbaa !35
   %137 = and i32 %.sroa.06.0.copyload, 15
   switch i32 %137, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit [
     i32 4, label %138
@@ -1240,7 +1240,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i: ; preds = %171, %
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %135, %138, %147, %148, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %172, align 4, !tbaa !36
+  %.sroa.05.0.copyload = load i32, ptr %172, align 4, !tbaa !35
   %173 = and i32 %.sroa.05.0.copyload, 15
   switch i32 %173, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58 [
     i32 4, label %174
@@ -1315,7 +1315,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i57: ; preds = %207,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit, %174, %183, %184, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i57
   %208 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sroa.04.0.copyload = load i32, ptr %208, align 4, !tbaa !36
+  %.sroa.04.0.copyload = load i32, ptr %208, align 4, !tbaa !35
   %209 = and i32 %.sroa.04.0.copyload, 15
   switch i32 %209, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66 [
     i32 4, label %210
@@ -1390,7 +1390,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i65: ; preds = %243,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58, %210, %219, %220, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i65
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.03.0.copyload = load i32, ptr %244, align 4, !tbaa !36
+  %.sroa.03.0.copyload = load i32, ptr %244, align 4, !tbaa !35
   %245 = and i32 %.sroa.03.0.copyload, 15
   switch i32 %245, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74 [
     i32 4, label %246
@@ -1465,7 +1465,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i73: ; preds = %279,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66, %246, %255, %256, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i73
   %280 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %.sroa.02.0.copyload = load i32, ptr %280, align 4, !tbaa !36
+  %.sroa.02.0.copyload = load i32, ptr %280, align 4, !tbaa !35
   %281 = and i32 %.sroa.02.0.copyload, 15
   switch i32 %281, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82 [
     i32 4, label %282
@@ -1540,7 +1540,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i81: ; preds = %315,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74, %282, %291, %292, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i81
   %316 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.01.0.copyload = load i32, ptr %316, align 4, !tbaa !36
+  %.sroa.01.0.copyload = load i32, ptr %316, align 4, !tbaa !35
   %317 = and i32 %.sroa.01.0.copyload, 15
   switch i32 %317, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90 [
     i32 4, label %318
@@ -1615,7 +1615,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i89: ; preds = %351,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82, %318, %327, %328, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i89
   %352 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %.sroa.0.0.copyload = load i32, ptr %352, align 4, !tbaa !36
+  %.sroa.0.0.copyload = load i32, ptr %352, align 4, !tbaa !35
   %353 = and i32 %.sroa.0.0.copyload, 15
   switch i32 %353, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit98 [
     i32 4, label %354
@@ -1693,7 +1693,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit98: ; preds = %_ZN4L
   %389 = load i16, ptr %388, align 4, !tbaa !10
   %390 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i16 %389, ptr %390, align 4, !tbaa !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(43) %8, ptr noundef nonnull align 8 dereferenceable(43) %3, i64 43, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(43) %8, ptr noundef nonnull align 8 dereferenceable(43) %3, i64 43, i1 false), !tbaa.struct !36
   %391 = load i16, ptr %114, align 2, !tbaa !25
   %392 = add i16 %391, -1
   store i16 %392, ptr %114, align 2, !tbaa !25
@@ -1759,7 +1759,7 @@ define dso_local void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrIn
 
 _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.06.0.copyload = load i32, ptr %20, align 4, !tbaa !36
+  %.sroa.06.0.copyload = load i32, ptr %20, align 4, !tbaa !35
   %21 = and i32 %.sroa.06.0.copyload, 15
   switch i32 %21, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit [
     i32 4, label %22
@@ -1836,7 +1836,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i: ; preds = %57, %4
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit, %22, %32, %33, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %58, align 4, !tbaa !36
+  %.sroa.05.0.copyload = load i32, ptr %58, align 4, !tbaa !35
   %59 = and i32 %.sroa.05.0.copyload, 15
   switch i32 %59, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38 [
     i32 4, label %60
@@ -1913,7 +1913,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i37: ; preds = %95, 
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit, %60, %70, %71, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i37
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.04.0.copyload = load i32, ptr %96, align 4, !tbaa !36
+  %.sroa.04.0.copyload = load i32, ptr %96, align 4, !tbaa !35
   %97 = and i32 %.sroa.04.0.copyload, 15
   switch i32 %97, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46 [
     i32 4, label %98
@@ -1990,7 +1990,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i45: ; preds = %133,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38, %98, %108, %109, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i45
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.03.0.copyload = load i32, ptr %134, align 4, !tbaa !36
+  %.sroa.03.0.copyload = load i32, ptr %134, align 4, !tbaa !35
   %135 = and i32 %.sroa.03.0.copyload, 15
   switch i32 %135, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54 [
     i32 4, label %136
@@ -2067,7 +2067,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i53: ; preds = %171,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46, %136, %146, %147, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i53
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.02.0.copyload = load i32, ptr %172, align 4, !tbaa !36
+  %.sroa.02.0.copyload = load i32, ptr %172, align 4, !tbaa !35
   %173 = and i32 %.sroa.02.0.copyload, 15
   switch i32 %173, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62 [
     i32 4, label %174
@@ -2144,7 +2144,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i61: ; preds = %209,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54, %174, %184, %185, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i61
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.01.0.copyload = load i32, ptr %210, align 4, !tbaa !36
+  %.sroa.01.0.copyload = load i32, ptr %210, align 4, !tbaa !35
   %211 = and i32 %.sroa.01.0.copyload, 15
   switch i32 %211, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70 [
     i32 4, label %212
@@ -2221,7 +2221,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i69: ; preds = %247,
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62, %212, %222, %223, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i69
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload = load i32, ptr %248, align 4, !tbaa !36
+  %.sroa.0.0.copyload = load i32, ptr %248, align 4, !tbaa !35
   %249 = and i32 %.sroa.0.0.copyload, 15
   switch i32 %249, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit78 [
     i32 4, label %250
@@ -2297,7 +2297,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i77: ; preds = %285,
   br label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit78
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit78: ; preds = %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70, %250, %260, %261, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i77
-  store i32 %2, ptr %20, align 4, !tbaa !36
+  store i32 %2, ptr %20, align 4, !tbaa !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2353,7 +2353,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
 
 36:                                               ; preds = %31
   store i8 0, ptr %11, align 4, !tbaa !32
-  %.sroa.0.0.copyload = load i32, ptr %15, align 4, !tbaa !36
+  %.sroa.0.0.copyload = load i32, ptr %15, align 4, !tbaa !35
   %37 = and i32 %.sroa.0.0.copyload, 15
   switch i32 %37, label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit [
     i32 4, label %38
@@ -2427,7 +2427,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i: ; preds = %71, %5
   br label %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %36, %38, %47, %48, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.i
-  store i32 0, ptr %15, align 4, !tbaa !36
+  store i32 0, ptr %15, align 4, !tbaa !35
   br label %72
 
 72:                                               ; preds = %6, %_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit, %31, %2
@@ -2674,13 +2674,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %35 = lshr i32 %25, 4
   %36 = zext nneg i32 %35 to i64
-  %37 = load ptr, ptr %34, align 8, !tbaa !42
+  %37 = load ptr, ptr %34, align 8, !tbaa !41
   %38 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %37, i64 %36, i32 1
-  %39 = load i32, ptr %38, align 8, !tbaa !36
+  %39 = load i32, ptr %38, align 8, !tbaa !35
   %40 = lshr i32 %30, 4
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %37, i64 %41, i32 1
-  %43 = load i32, ptr %42, align 8, !tbaa !36
+  %43 = load i32, ptr %42, align 8, !tbaa !35
   %44 = add i32 %43, %39
   %45 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %44)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %45)
@@ -2704,13 +2704,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %58 = lshr i32 %48, 4
   %59 = zext nneg i32 %58 to i64
-  %60 = load ptr, ptr %57, align 8, !tbaa !42
+  %60 = load ptr, ptr %57, align 8, !tbaa !41
   %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %60, i64 %59, i32 1
-  %62 = load i32, ptr %61, align 8, !tbaa !36
+  %62 = load i32, ptr %61, align 8, !tbaa !35
   %63 = lshr i32 %53, 4
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %60, i64 %64, i32 1
-  %66 = load i32, ptr %65, align 8, !tbaa !36
+  %66 = load i32, ptr %65, align 8, !tbaa !35
   %67 = sub i32 %62, %66
   %68 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %67)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %68)
@@ -2734,13 +2734,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %81 = lshr i32 %71, 4
   %82 = zext nneg i32 %81 to i64
-  %83 = load ptr, ptr %80, align 8, !tbaa !42
+  %83 = load ptr, ptr %80, align 8, !tbaa !41
   %84 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %83, i64 %82, i32 1
-  %85 = load double, ptr %84, align 8, !tbaa !36
+  %85 = load double, ptr %84, align 8, !tbaa !35
   %86 = lshr i32 %76, 4
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %83, i64 %87, i32 1
-  %89 = load double, ptr %88, align 8, !tbaa !36
+  %89 = load double, ptr %88, align 8, !tbaa !35
   %90 = fadd double %85, %89
   %91 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %90)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %91)
@@ -2764,13 +2764,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %104 = lshr i32 %94, 4
   %105 = zext nneg i32 %104 to i64
-  %106 = load ptr, ptr %103, align 8, !tbaa !42
+  %106 = load ptr, ptr %103, align 8, !tbaa !41
   %107 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %106, i64 %105, i32 1
-  %108 = load double, ptr %107, align 8, !tbaa !36
+  %108 = load double, ptr %107, align 8, !tbaa !35
   %109 = lshr i32 %99, 4
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %106, i64 %110, i32 1
-  %112 = load double, ptr %111, align 8, !tbaa !36
+  %112 = load double, ptr %111, align 8, !tbaa !35
   %113 = fsub double %108, %112
   %114 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %113)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %114)
@@ -2794,13 +2794,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %127 = lshr i32 %117, 4
   %128 = zext nneg i32 %127 to i64
-  %129 = load ptr, ptr %126, align 8, !tbaa !42
+  %129 = load ptr, ptr %126, align 8, !tbaa !41
   %130 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %129, i64 %128, i32 1
-  %131 = load double, ptr %130, align 8, !tbaa !36
+  %131 = load double, ptr %130, align 8, !tbaa !35
   %132 = lshr i32 %122, 4
   %133 = zext nneg i32 %132 to i64
   %134 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %129, i64 %133, i32 1
-  %135 = load double, ptr %134, align 8, !tbaa !36
+  %135 = load double, ptr %134, align 8, !tbaa !35
   %136 = fmul double %131, %135
   %137 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %136)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %137)
@@ -2824,13 +2824,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %150 = lshr i32 %140, 4
   %151 = zext nneg i32 %150 to i64
-  %152 = load ptr, ptr %149, align 8, !tbaa !42
+  %152 = load ptr, ptr %149, align 8, !tbaa !41
   %153 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %152, i64 %151, i32 1
-  %154 = load double, ptr %153, align 8, !tbaa !36
+  %154 = load double, ptr %153, align 8, !tbaa !35
   %155 = lshr i32 %145, 4
   %156 = zext nneg i32 %155 to i64
   %157 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %152, i64 %156, i32 1
-  %158 = load double, ptr %157, align 8, !tbaa !36
+  %158 = load double, ptr %157, align 8, !tbaa !35
   %159 = fdiv double %154, %158
   %160 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %159)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %160)
@@ -2854,13 +2854,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %173 = lshr i32 %163, 4
   %174 = zext nneg i32 %173 to i64
-  %175 = load ptr, ptr %172, align 8, !tbaa !42
+  %175 = load ptr, ptr %172, align 8, !tbaa !41
   %176 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %175, i64 %174, i32 1
-  %177 = load double, ptr %176, align 8, !tbaa !36
+  %177 = load double, ptr %176, align 8, !tbaa !35
   %178 = lshr i32 %168, 4
   %179 = zext nneg i32 %178 to i64
   %180 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %175, i64 %179, i32 1
-  %181 = load double, ptr %180, align 8, !tbaa !36
+  %181 = load double, ptr %180, align 8, !tbaa !35
   %182 = fdiv double %177, %181
   %183 = tail call noundef double @llvm.floor.f64(double %182)
   %184 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %183)
@@ -2885,13 +2885,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %197 = lshr i32 %187, 4
   %198 = zext nneg i32 %197 to i64
-  %199 = load ptr, ptr %196, align 8, !tbaa !42
+  %199 = load ptr, ptr %196, align 8, !tbaa !41
   %200 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %199, i64 %198, i32 1
-  %201 = load double, ptr %200, align 8, !tbaa !36
+  %201 = load double, ptr %200, align 8, !tbaa !35
   %202 = lshr i32 %192, 4
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %199, i64 %203, i32 1
-  %205 = load double, ptr %204, align 8, !tbaa !36
+  %205 = load double, ptr %204, align 8, !tbaa !35
   %206 = fdiv double %201, %205
   %207 = tail call double @llvm.floor.f64(double %206)
   %208 = fneg double %207
@@ -2918,13 +2918,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %223 = lshr i32 %213, 4
   %224 = zext nneg i32 %223 to i64
-  %225 = load ptr, ptr %222, align 8, !tbaa !42
+  %225 = load ptr, ptr %222, align 8, !tbaa !41
   %226 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %225, i64 %224, i32 1
-  %227 = load double, ptr %226, align 8, !tbaa !36
+  %227 = load double, ptr %226, align 8, !tbaa !35
   %228 = lshr i32 %218, 4
   %229 = zext nneg i32 %228 to i64
   %230 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %225, i64 %229, i32 1
-  %231 = load double, ptr %230, align 8, !tbaa !36
+  %231 = load double, ptr %230, align 8, !tbaa !35
   %232 = fcmp olt double %227, %231
   %233 = select i1 %232, double %227, double %231
   %234 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %233)
@@ -2949,13 +2949,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %247 = lshr i32 %237, 4
   %248 = zext nneg i32 %247 to i64
-  %249 = load ptr, ptr %246, align 8, !tbaa !42
+  %249 = load ptr, ptr %246, align 8, !tbaa !41
   %250 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %249, i64 %248, i32 1
-  %251 = load double, ptr %250, align 8, !tbaa !36
+  %251 = load double, ptr %250, align 8, !tbaa !35
   %252 = lshr i32 %242, 4
   %253 = zext nneg i32 %252 to i64
   %254 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %249, i64 %253, i32 1
-  %255 = load double, ptr %254, align 8, !tbaa !36
+  %255 = load double, ptr %254, align 8, !tbaa !35
   %256 = fcmp ogt double %251, %255
   %257 = select i1 %256, double %251, double %255
   %258 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %257)
@@ -2973,9 +2973,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %266 = lshr i32 %261, 4
   %267 = zext nneg i32 %266 to i64
-  %268 = load ptr, ptr %265, align 8, !tbaa !42
+  %268 = load ptr, ptr %265, align 8, !tbaa !41
   %269 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %268, i64 %267, i32 1
-  %270 = load double, ptr %269, align 8, !tbaa !36
+  %270 = load double, ptr %269, align 8, !tbaa !35
   %271 = fneg double %270
   %272 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %271)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %272)
@@ -2992,9 +2992,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %280 = lshr i32 %275, 4
   %281 = zext nneg i32 %280 to i64
-  %282 = load ptr, ptr %279, align 8, !tbaa !42
+  %282 = load ptr, ptr %279, align 8, !tbaa !41
   %283 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %282, i64 %281, i32 1
-  %284 = load double, ptr %283, align 8, !tbaa !36
+  %284 = load double, ptr %283, align 8, !tbaa !35
   %285 = tail call double @llvm.floor.f64(double %284)
   %286 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %285)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %286)
@@ -3011,9 +3011,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %294 = lshr i32 %289, 4
   %295 = zext nneg i32 %294 to i64
-  %296 = load ptr, ptr %293, align 8, !tbaa !42
+  %296 = load ptr, ptr %293, align 8, !tbaa !41
   %297 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %296, i64 %295, i32 1
-  %298 = load double, ptr %297, align 8, !tbaa !36
+  %298 = load double, ptr %297, align 8, !tbaa !35
   %299 = tail call double @llvm.ceil.f64(double %298)
   %300 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %299)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %300)
@@ -3030,9 +3030,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %308 = lshr i32 %303, 4
   %309 = zext nneg i32 %308 to i64
-  %310 = load ptr, ptr %307, align 8, !tbaa !42
+  %310 = load ptr, ptr %307, align 8, !tbaa !41
   %311 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %310, i64 %309, i32 1
-  %312 = load double, ptr %311, align 8, !tbaa !36
+  %312 = load double, ptr %311, align 8, !tbaa !35
   %313 = tail call double @llvm.round.f64(double %312)
   %314 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %313)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %314)
@@ -3049,10 +3049,10 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %322 = lshr i32 %317, 4
   %323 = zext nneg i32 %322 to i64
-  %324 = load ptr, ptr %321, align 8, !tbaa !42
+  %324 = load ptr, ptr %321, align 8, !tbaa !41
   %325 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %324, i64 %323, i32 1
-  %326 = load double, ptr %325, align 8, !tbaa !36
-  %327 = tail call double @sqrt(double noundef %326) #18, !tbaa !39
+  %326 = load double, ptr %325, align 8, !tbaa !35
+  %327 = tail call double @sqrt(double noundef %326) #18, !tbaa !38
   %328 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %327)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %328)
   br label %1024
@@ -3068,9 +3068,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %336 = lshr i32 %331, 4
   %337 = zext nneg i32 %336 to i64
-  %338 = load ptr, ptr %335, align 8, !tbaa !42
+  %338 = load ptr, ptr %335, align 8, !tbaa !41
   %339 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %338, i64 %337, i32 1
-  %340 = load double, ptr %339, align 8, !tbaa !36
+  %340 = load double, ptr %339, align 8, !tbaa !35
   %341 = tail call double @llvm.fabs.f64(double %340)
   %342 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %341)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %342)
@@ -3087,9 +3087,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %350 = lshr i32 %345, 4
   %351 = zext nneg i32 %350 to i64
-  %352 = load ptr, ptr %349, align 8, !tbaa !42
+  %352 = load ptr, ptr %349, align 8, !tbaa !41
   %353 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %352, i64 %351, i32 1
-  %354 = load double, ptr %353, align 8, !tbaa !36
+  %354 = load double, ptr %353, align 8, !tbaa !35
   %355 = fcmp ogt double %354, 0.000000e+00
   %356 = fcmp olt double %354, 0.000000e+00
   %357 = select i1 %356, double -1.000000e+00, double 0.000000e+00
@@ -3116,17 +3116,17 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %372 = lshr i32 %362, 4
   %373 = zext nneg i32 %372 to i64
-  %374 = load ptr, ptr %371, align 8, !tbaa !42
+  %374 = load ptr, ptr %371, align 8, !tbaa !41
   %375 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %374, i64 %373, i32 1
-  %376 = load double, ptr %375, align 8, !tbaa !36
+  %376 = load double, ptr %375, align 8, !tbaa !35
   %377 = lshr i32 %367, 4
   %378 = zext nneg i32 %377 to i64
   %379 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %374, i64 %378, i32 1
-  %380 = load double, ptr %379, align 8, !tbaa !36
+  %380 = load double, ptr %379, align 8, !tbaa !35
   %381 = fcmp oeq double %376, %380
   %.v = select i1 %381, i64 8, i64 4
   %382 = getelementptr inbounds nuw i8, ptr %21, i64 %.v
-  %.sroa.0119.0.copyload = load i32, ptr %382, align 4, !tbaa !36
+  %.sroa.0119.0.copyload = load i32, ptr %382, align 4, !tbaa !35
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %.sroa.0119.0.copyload)
   br label %1024
 
@@ -3141,9 +3141,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %390 = lshr i32 %385, 4
   %391 = zext nneg i32 %390 to i64
-  %392 = load ptr, ptr %389, align 8, !tbaa !42
+  %392 = load ptr, ptr %389, align 8, !tbaa !41
   %393 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %392, i64 %391, i32 1
-  %394 = load i8, ptr %393, align 8, !tbaa !36
+  %394 = load i8, ptr %393, align 8, !tbaa !35
   switch i8 %394, label %397 [
     i8 0, label %395
     i8 1, label %399
@@ -3170,7 +3170,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %405 = lshr i32 %401, 4
   %406 = zext nneg i32 %405 to i64
   %407 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %392, i64 %406, i32 1
-  %408 = load i32, ptr %407, align 8, !tbaa !36
+  %408 = load i32, ptr %407, align 8, !tbaa !35
   %409 = icmp ne i32 %408, 1
   %410 = zext i1 %409 to i32
   %411 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %410)
@@ -3195,13 +3195,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %424 = lshr i32 %414, 4
   %425 = zext nneg i32 %424 to i64
-  %426 = load ptr, ptr %423, align 8, !tbaa !42
+  %426 = load ptr, ptr %423, align 8, !tbaa !41
   %427 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %426, i64 %425, i32 1
-  %428 = load i8, ptr %427, align 8, !tbaa !36
+  %428 = load i8, ptr %427, align 8, !tbaa !35
   %429 = lshr i32 %419, 4
   %430 = zext nneg i32 %429 to i64
   %431 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %426, i64 %430, i32 1
-  %432 = load i8, ptr %431, align 8, !tbaa !36
+  %432 = load i8, ptr %431, align 8, !tbaa !35
   %433 = icmp eq i8 %428, %432
   br i1 %433, label %434, label %441
 
@@ -3209,12 +3209,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %5, align 8, !tbaa !32
   %435 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %436 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %437 = load i32, ptr %436, align 4, !tbaa !36
-  store i32 %437, ptr %435, align 4, !tbaa !36
+  %437 = load i32, ptr %436, align 4, !tbaa !35
+  store i32 %437, ptr %435, align 4, !tbaa !35
   %438 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %439 = getelementptr inbounds nuw i8, ptr %5, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %438, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %439, align 2, !tbaa !36
+  store i8 -128, ptr %439, align 2, !tbaa !35
   %440 = getelementptr inbounds nuw i8, ptr %5, i64 39
   store i32 0, ptr %440, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %5)
@@ -3224,12 +3224,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %6, align 8, !tbaa !32
   %442 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %443 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %444 = load i32, ptr %443, align 4, !tbaa !36
-  store i32 %444, ptr %442, align 4, !tbaa !36
+  %444 = load i32, ptr %443, align 4, !tbaa !35
+  store i32 %444, ptr %442, align 4, !tbaa !35
   %445 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %446 = getelementptr inbounds nuw i8, ptr %6, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %445, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %446, align 2, !tbaa !36
+  store i8 -128, ptr %446, align 2, !tbaa !35
   %447 = getelementptr inbounds nuw i8, ptr %6, i64 39
   store i32 0, ptr %447, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %6)
@@ -3253,15 +3253,15 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %459 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %460 = lshr i32 %450, 4
   %461 = zext nneg i32 %460 to i64
-  %462 = load ptr, ptr %459, align 8, !tbaa !42
+  %462 = load ptr, ptr %459, align 8, !tbaa !41
   %463 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %462, i64 %461, i32 1
-  %464 = load i32, ptr %463, align 8, !tbaa !36
+  %464 = load i32, ptr %463, align 8, !tbaa !35
   %465 = lshr i32 %455, 4
   %466 = zext nneg i32 %465 to i64
   %467 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %462, i64 %466, i32 1
-  %468 = load i32, ptr %467, align 8, !tbaa !36
+  %468 = load i32, ptr %467, align 8, !tbaa !35
   %469 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %.sroa.0107.0.copyload = load i32, ptr %469, align 4, !tbaa !36
+  %.sroa.0107.0.copyload = load i32, ptr %469, align 4, !tbaa !35
   %470 = lshr i32 %.sroa.0107.0.copyload, 4
   %471 = trunc i32 %470 to i8
   %472 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen7compareEiiNS0_11IrConditionE(i32 noundef %464, i32 noundef %468, i8 noundef zeroext %471)
@@ -3271,12 +3271,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %7, align 8, !tbaa !32
   %474 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %475 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %476 = load i32, ptr %475, align 4, !tbaa !36
-  store i32 %476, ptr %474, align 4, !tbaa !36
+  %476 = load i32, ptr %475, align 4, !tbaa !35
+  store i32 %476, ptr %474, align 4, !tbaa !35
   %477 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %478 = getelementptr inbounds nuw i8, ptr %7, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %477, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %478, align 2, !tbaa !36
+  store i8 -128, ptr %478, align 2, !tbaa !35
   %479 = getelementptr inbounds nuw i8, ptr %7, i64 39
   store i32 0, ptr %479, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %7)
@@ -3286,12 +3286,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %8, align 8, !tbaa !32
   %481 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %482 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %483 = load i32, ptr %482, align 4, !tbaa !36
-  store i32 %483, ptr %481, align 4, !tbaa !36
+  %483 = load i32, ptr %482, align 4, !tbaa !35
+  store i32 %483, ptr %481, align 4, !tbaa !35
   %484 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %485 = getelementptr inbounds nuw i8, ptr %8, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %484, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %485, align 2, !tbaa !36
+  store i8 -128, ptr %485, align 2, !tbaa !35
   %486 = getelementptr inbounds nuw i8, ptr %8, i64 39
   store i32 0, ptr %486, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %8)
@@ -3315,15 +3315,15 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %499 = lshr i32 %489, 4
   %500 = zext nneg i32 %499 to i64
-  %501 = load ptr, ptr %498, align 8, !tbaa !42
+  %501 = load ptr, ptr %498, align 8, !tbaa !41
   %502 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %501, i64 %500, i32 1
-  %503 = load double, ptr %502, align 8, !tbaa !36
+  %503 = load double, ptr %502, align 8, !tbaa !35
   %504 = lshr i32 %494, 4
   %505 = zext nneg i32 %504 to i64
   %506 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %501, i64 %505, i32 1
-  %507 = load double, ptr %506, align 8, !tbaa !36
+  %507 = load double, ptr %506, align 8, !tbaa !35
   %508 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %.sroa.0104.0.copyload = load i32, ptr %508, align 4, !tbaa !36
+  %.sroa.0104.0.copyload = load i32, ptr %508, align 4, !tbaa !35
   %509 = lshr i32 %.sroa.0104.0.copyload, 4
   %510 = trunc i32 %509 to i8
   %511 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen7compareEddNS0_11IrConditionE(double noundef %503, double noundef %507, i8 noundef zeroext %510)
@@ -3333,12 +3333,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %9, align 8, !tbaa !32
   %513 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %514 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %515 = load i32, ptr %514, align 4, !tbaa !36
-  store i32 %515, ptr %513, align 4, !tbaa !36
+  %515 = load i32, ptr %514, align 4, !tbaa !35
+  store i32 %515, ptr %513, align 4, !tbaa !35
   %516 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %517 = getelementptr inbounds nuw i8, ptr %9, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %516, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %517, align 2, !tbaa !36
+  store i8 -128, ptr %517, align 2, !tbaa !35
   %518 = getelementptr inbounds nuw i8, ptr %9, i64 39
   store i32 0, ptr %518, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %9)
@@ -3348,12 +3348,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %10, align 8, !tbaa !32
   %520 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %521 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %522 = load i32, ptr %521, align 4, !tbaa !36
-  store i32 %522, ptr %520, align 4, !tbaa !36
+  %522 = load i32, ptr %521, align 4, !tbaa !35
+  store i32 %522, ptr %520, align 4, !tbaa !35
   %523 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %524 = getelementptr inbounds nuw i8, ptr %10, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %523, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %524, align 2, !tbaa !36
+  store i8 -128, ptr %524, align 2, !tbaa !35
   %525 = getelementptr inbounds nuw i8, ptr %10, i64 39
   store i32 0, ptr %525, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %10)
@@ -3370,9 +3370,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %532 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %533 = lshr i32 %528, 4
   %534 = zext nneg i32 %533 to i64
-  %535 = load ptr, ptr %532, align 8, !tbaa !42
+  %535 = load ptr, ptr %532, align 8, !tbaa !41
   %536 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %535, i64 %534, i32 1
-  %537 = load double, ptr %536, align 8, !tbaa !36
+  %537 = load double, ptr %536, align 8, !tbaa !35
   %538 = fcmp oge double %537, 0xC1E0000000000000
   %539 = fcmp ole double %537, 0x41DFFFFFFFC00000
   %or.cond = and i1 %538, %539
@@ -3393,12 +3393,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %11, align 8, !tbaa !32
   %547 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %548 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %549 = load i32, ptr %548, align 4, !tbaa !36
-  store i32 %549, ptr %547, align 4, !tbaa !36
+  %549 = load i32, ptr %548, align 4, !tbaa !35
+  store i32 %549, ptr %547, align 4, !tbaa !35
   %550 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %551 = getelementptr inbounds nuw i8, ptr %11, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %550, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %551, align 2, !tbaa !36
+  store i8 -128, ptr %551, align 2, !tbaa !35
   %552 = getelementptr inbounds nuw i8, ptr %11, i64 39
   store i32 0, ptr %552, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %11)
@@ -3408,12 +3408,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %12, align 8, !tbaa !32
   %554 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %555 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %556 = load i32, ptr %555, align 4, !tbaa !36
-  store i32 %556, ptr %554, align 4, !tbaa !36
+  %556 = load i32, ptr %555, align 4, !tbaa !35
+  store i32 %556, ptr %554, align 4, !tbaa !35
   %557 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %558 = getelementptr inbounds nuw i8, ptr %12, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %557, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %558, align 2, !tbaa !36
+  store i8 -128, ptr %558, align 2, !tbaa !35
   %559 = getelementptr inbounds nuw i8, ptr %12, i64 39
   store i32 0, ptr %559, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %12)
@@ -3430,9 +3430,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %566 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %567 = lshr i32 %562, 4
   %568 = zext nneg i32 %567 to i64
-  %569 = load ptr, ptr %566, align 8, !tbaa !42
+  %569 = load ptr, ptr %566, align 8, !tbaa !41
   %570 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %569, i64 %568, i32 1
-  %571 = load i32, ptr %570, align 8, !tbaa !36
+  %571 = load i32, ptr %570, align 8, !tbaa !35
   %572 = sitofp i32 %571 to double
   %573 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %572)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %573)
@@ -3449,9 +3449,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %580 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %581 = lshr i32 %576, 4
   %582 = zext nneg i32 %581 to i64
-  %583 = load ptr, ptr %580, align 8, !tbaa !42
+  %583 = load ptr, ptr %580, align 8, !tbaa !41
   %584 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %583, i64 %582, i32 1
-  %585 = load i32, ptr %584, align 8, !tbaa !36
+  %585 = load i32, ptr %584, align 8, !tbaa !35
   %586 = uitofp i32 %585 to double
   %587 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %586)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %587)
@@ -3468,9 +3468,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %594 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %595 = lshr i32 %590, 4
   %596 = zext nneg i32 %595 to i64
-  %597 = load ptr, ptr %594, align 8, !tbaa !42
+  %597 = load ptr, ptr %594, align 8, !tbaa !41
   %598 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %597, i64 %596, i32 1
-  %599 = load double, ptr %598, align 8, !tbaa !36
+  %599 = load double, ptr %598, align 8, !tbaa !35
   %600 = fcmp oge double %599, 0xC1E0000000000000
   %601 = fcmp ole double %599, 0x41DFFFFFFFC00000
   %or.cond3 = and i1 %600, %601
@@ -3493,9 +3493,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %611 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %612 = lshr i32 %607, 4
   %613 = zext nneg i32 %612 to i64
-  %614 = load ptr, ptr %611, align 8, !tbaa !42
+  %614 = load ptr, ptr %611, align 8, !tbaa !41
   %615 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %614, i64 %613, i32 1
-  %616 = load double, ptr %615, align 8, !tbaa !36
+  %616 = load double, ptr %615, align 8, !tbaa !35
   %617 = fcmp oge double %616, 0.000000e+00
   %618 = fcmp ole double %616, 0x41EFFFFFFFE00000
   %or.cond5 = and i1 %617, %618
@@ -3525,13 +3525,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %633 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %634 = lshr i32 %624, 4
   %635 = zext nneg i32 %634 to i64
-  %636 = load ptr, ptr %633, align 8, !tbaa !42
+  %636 = load ptr, ptr %633, align 8, !tbaa !41
   %637 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %636, i64 %635, i32 1
-  %638 = load i8, ptr %637, align 8, !tbaa !36
+  %638 = load i8, ptr %637, align 8, !tbaa !35
   %639 = lshr i32 %629, 4
   %640 = zext nneg i32 %639 to i64
   %641 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %636, i64 %640, i32 1
-  %642 = load i8, ptr %641, align 8, !tbaa !36
+  %642 = load i8, ptr %641, align 8, !tbaa !35
   %643 = icmp eq i8 %638, %642
   br i1 %643, label %644, label %645
 
@@ -3543,12 +3543,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %13, align 8, !tbaa !32
   %646 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %647 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %648 = load i32, ptr %647, align 4, !tbaa !36
-  store i32 %648, ptr %646, align 4, !tbaa !36
+  %648 = load i32, ptr %647, align 4, !tbaa !35
+  store i32 %648, ptr %646, align 4, !tbaa !35
   %649 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %650 = getelementptr inbounds nuw i8, ptr %13, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %649, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %650, align 2, !tbaa !36
+  store i8 -128, ptr %650, align 2, !tbaa !35
   %651 = getelementptr inbounds nuw i8, ptr %13, i64 39
   store i32 0, ptr %651, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %13)
@@ -3565,9 +3565,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %658 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %659 = lshr i32 %654, 4
   %660 = zext nneg i32 %659 to i64
-  %661 = load ptr, ptr %658, align 8, !tbaa !42
+  %661 = load ptr, ptr %658, align 8, !tbaa !41
   %662 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %661, i64 %660, i32 1
-  %663 = load i8, ptr %662, align 8, !tbaa !36
+  %663 = load i8, ptr %662, align 8, !tbaa !35
   switch i8 %663, label %690 [
     i8 0, label %664
     i8 1, label %671
@@ -3577,12 +3577,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %14, align 8, !tbaa !32
   %665 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %666 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %667 = load i32, ptr %666, align 4, !tbaa !36
-  store i32 %667, ptr %665, align 4, !tbaa !36
+  %667 = load i32, ptr %666, align 4, !tbaa !35
+  store i32 %667, ptr %665, align 4, !tbaa !35
   %668 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %669 = getelementptr inbounds nuw i8, ptr %14, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %668, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %669, align 2, !tbaa !36
+  store i8 -128, ptr %669, align 2, !tbaa !35
   %670 = getelementptr inbounds nuw i8, ptr %14, i64 39
   store i32 0, ptr %670, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %14)
@@ -3599,7 +3599,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %677 = lshr i32 %673, 4
   %678 = zext nneg i32 %677 to i64
   %679 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %661, i64 %678, i32 1
-  %680 = load i32, ptr %679, align 8, !tbaa !36
+  %680 = load i32, ptr %679, align 8, !tbaa !35
   %681 = icmp eq i32 %680, 0
   br i1 %681, label %682, label %689
 
@@ -3607,12 +3607,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   store i8 46, ptr %15, align 8, !tbaa !32
   %683 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %684 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %685 = load i32, ptr %684, align 4, !tbaa !36
-  store i32 %685, ptr %683, align 4, !tbaa !36
+  %685 = load i32, ptr %684, align 4, !tbaa !35
+  store i32 %685, ptr %683, align 4, !tbaa !35
   %686 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %687 = getelementptr inbounds nuw i8, ptr %15, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %686, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %687, align 2, !tbaa !36
+  store i8 -128, ptr %687, align 2, !tbaa !35
   %688 = getelementptr inbounds nuw i8, ptr %15, i64 39
   store i32 0, ptr %688, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %15)
@@ -3641,16 +3641,16 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %701 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %702 = lshr i32 %693, 4
   %703 = zext nneg i32 %702 to i64
-  %704 = load ptr, ptr %701, align 8, !tbaa !42
+  %704 = load ptr, ptr %701, align 8, !tbaa !41
   %705 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %704, i64 %703, i32 1
-  %706 = load i32, ptr %705, align 8, !tbaa !36
+  %706 = load i32, ptr %705, align 8, !tbaa !35
   br i1 %700, label %707, label %714
 
 707:                                              ; preds = %698
   %708 = lshr i32 %697, 4
   %709 = zext nneg i32 %708 to i64
   %710 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %704, i64 %709, i32 1
-  %711 = load i32, ptr %710, align 8, !tbaa !36
+  %711 = load i32, ptr %710, align 8, !tbaa !35
   %712 = and i32 %711, %706
   %713 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %712)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %713)
@@ -3680,9 +3680,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %721 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %722 = lshr i32 %697, 4
   %723 = zext nneg i32 %722 to i64
-  %724 = load ptr, ptr %721, align 8, !tbaa !42
+  %724 = load ptr, ptr %721, align 8, !tbaa !41
   %725 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %724, i64 %723, i32 1
-  %726 = load i32, ptr %725, align 8, !tbaa !36
+  %726 = load i32, ptr %725, align 8, !tbaa !35
   switch i32 %726, label %1024 [
     i32 0, label %727
     i32 -1, label %729
@@ -3712,16 +3712,16 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %740 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %741 = lshr i32 %732, 4
   %742 = zext nneg i32 %741 to i64
-  %743 = load ptr, ptr %740, align 8, !tbaa !42
+  %743 = load ptr, ptr %740, align 8, !tbaa !41
   %744 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %743, i64 %742, i32 1
-  %745 = load i32, ptr %744, align 8, !tbaa !36
+  %745 = load i32, ptr %744, align 8, !tbaa !35
   br i1 %739, label %746, label %753
 
 746:                                              ; preds = %737
   %747 = lshr i32 %736, 4
   %748 = zext nneg i32 %747 to i64
   %749 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %743, i64 %748, i32 1
-  %750 = load i32, ptr %749, align 8, !tbaa !36
+  %750 = load i32, ptr %749, align 8, !tbaa !35
   %751 = xor i32 %750, %745
   %752 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %751)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %752)
@@ -3740,11 +3740,11 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 755:                                              ; preds = %753
   store i8 122, ptr %16, align 8, !tbaa !32
   %756 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 %736, ptr %756, align 4, !tbaa !36
+  store i32 %736, ptr %756, align 4, !tbaa !35
   %757 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %758 = getelementptr inbounds nuw i8, ptr %16, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %757, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %758, align 2, !tbaa !36
+  store i8 -128, ptr %758, align 2, !tbaa !35
   %759 = getelementptr inbounds nuw i8, ptr %16, i64 39
   store i32 0, ptr %759, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %16)
@@ -3759,9 +3759,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %763 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %764 = lshr i32 %736, 4
   %765 = zext nneg i32 %764 to i64
-  %766 = load ptr, ptr %763, align 8, !tbaa !42
+  %766 = load ptr, ptr %763, align 8, !tbaa !41
   %767 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %766, i64 %765, i32 1
-  %768 = load i32, ptr %767, align 8, !tbaa !36
+  %768 = load i32, ptr %767, align 8, !tbaa !35
   switch i32 %768, label %1024 [
     i32 0, label %769
     i32 -1, label %770
@@ -3774,11 +3774,11 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 770:                                              ; preds = %762
   store i8 122, ptr %17, align 8, !tbaa !32
   %771 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %732, ptr %771, align 4, !tbaa !36
+  store i32 %732, ptr %771, align 4, !tbaa !35
   %772 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %773 = getelementptr inbounds nuw i8, ptr %17, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %772, i8 0, i64 30, i1 false)
-  store i8 -128, ptr %773, align 2, !tbaa !36
+  store i8 -128, ptr %773, align 2, !tbaa !35
   %774 = getelementptr inbounds nuw i8, ptr %17, i64 39
   store i32 0, ptr %774, align 1
   tail call void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockEjNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, i32 noundef %3, ptr noundef nonnull byval(%"struct.Luau::CodeGen::IrInst") align 8 %17)
@@ -3799,16 +3799,16 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %785 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %786 = lshr i32 %777, 4
   %787 = zext nneg i32 %786 to i64
-  %788 = load ptr, ptr %785, align 8, !tbaa !42
+  %788 = load ptr, ptr %785, align 8, !tbaa !41
   %789 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %788, i64 %787, i32 1
-  %790 = load i32, ptr %789, align 8, !tbaa !36
+  %790 = load i32, ptr %789, align 8, !tbaa !35
   br i1 %784, label %791, label %798
 
 791:                                              ; preds = %782
   %792 = lshr i32 %781, 4
   %793 = zext nneg i32 %792 to i64
   %794 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %788, i64 %793, i32 1
-  %795 = load i32, ptr %794, align 8, !tbaa !36
+  %795 = load i32, ptr %794, align 8, !tbaa !35
   %796 = or i32 %795, %790
   %797 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %796)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %797)
@@ -3838,9 +3838,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %805 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %806 = lshr i32 %781, 4
   %807 = zext nneg i32 %806 to i64
-  %808 = load ptr, ptr %805, align 8, !tbaa !42
+  %808 = load ptr, ptr %805, align 8, !tbaa !41
   %809 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %808, i64 %807, i32 1
-  %810 = load i32, ptr %809, align 8, !tbaa !36
+  %810 = load i32, ptr %809, align 8, !tbaa !35
   switch i32 %810, label %1024 [
     i32 0, label %811
     i32 -1, label %812
@@ -3866,9 +3866,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %820 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %821 = lshr i32 %816, 4
   %822 = zext nneg i32 %821 to i64
-  %823 = load ptr, ptr %820, align 8, !tbaa !42
+  %823 = load ptr, ptr %820, align 8, !tbaa !41
   %824 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %823, i64 %822, i32 1
-  %825 = load i32, ptr %824, align 8, !tbaa !36
+  %825 = load i32, ptr %824, align 8, !tbaa !35
   %826 = xor i32 %825, -1
   %827 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %826)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %827)
@@ -3890,13 +3890,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %838 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %839 = lshr i32 %830, 4
   %840 = zext nneg i32 %839 to i64
-  %841 = load ptr, ptr %838, align 8, !tbaa !42
+  %841 = load ptr, ptr %838, align 8, !tbaa !41
   %842 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %841, i64 %840, i32 1
-  %843 = load i32, ptr %842, align 8, !tbaa !36
+  %843 = load i32, ptr %842, align 8, !tbaa !35
   %844 = lshr i32 %834, 4
   %845 = zext nneg i32 %844 to i64
   %846 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %841, i64 %845, i32 1
-  %847 = load i32, ptr %846, align 8, !tbaa !36
+  %847 = load i32, ptr %846, align 8, !tbaa !35
   %848 = and i32 %847, 31
   %849 = shl i32 %843, %848
   %850 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %849)
@@ -3912,9 +3912,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %854 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %855 = lshr i32 %834, 4
   %856 = zext nneg i32 %855 to i64
-  %857 = load ptr, ptr %854, align 8, !tbaa !42
+  %857 = load ptr, ptr %854, align 8, !tbaa !41
   %858 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %857, i64 %856, i32 1
-  %859 = load i32, ptr %858, align 8, !tbaa !36
+  %859 = load i32, ptr %858, align 8, !tbaa !35
   %860 = icmp eq i32 %859, 0
   br i1 %860, label %861, label %1024
 
@@ -3938,13 +3938,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %872 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %873 = lshr i32 %864, 4
   %874 = zext nneg i32 %873 to i64
-  %875 = load ptr, ptr %872, align 8, !tbaa !42
+  %875 = load ptr, ptr %872, align 8, !tbaa !41
   %876 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %875, i64 %874, i32 1
-  %877 = load i32, ptr %876, align 8, !tbaa !36
+  %877 = load i32, ptr %876, align 8, !tbaa !35
   %878 = lshr i32 %868, 4
   %879 = zext nneg i32 %878 to i64
   %880 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %875, i64 %879, i32 1
-  %881 = load i32, ptr %880, align 8, !tbaa !36
+  %881 = load i32, ptr %880, align 8, !tbaa !35
   %882 = and i32 %881, 31
   %883 = lshr i32 %877, %882
   %884 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %883)
@@ -3960,9 +3960,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %888 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %889 = lshr i32 %868, 4
   %890 = zext nneg i32 %889 to i64
-  %891 = load ptr, ptr %888, align 8, !tbaa !42
+  %891 = load ptr, ptr %888, align 8, !tbaa !41
   %892 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %891, i64 %890, i32 1
-  %893 = load i32, ptr %892, align 8, !tbaa !36
+  %893 = load i32, ptr %892, align 8, !tbaa !35
   %894 = icmp eq i32 %893, 0
   br i1 %894, label %895, label %1024
 
@@ -3986,13 +3986,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %906 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %907 = lshr i32 %898, 4
   %908 = zext nneg i32 %907 to i64
-  %909 = load ptr, ptr %906, align 8, !tbaa !42
+  %909 = load ptr, ptr %906, align 8, !tbaa !41
   %910 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %909, i64 %908, i32 1
-  %911 = load i32, ptr %910, align 8, !tbaa !36
+  %911 = load i32, ptr %910, align 8, !tbaa !35
   %912 = lshr i32 %902, 4
   %913 = zext nneg i32 %912 to i64
   %914 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %909, i64 %913, i32 1
-  %915 = load i32, ptr %914, align 8, !tbaa !36
+  %915 = load i32, ptr %914, align 8, !tbaa !35
   %916 = and i32 %915, 31
   %917 = ashr i32 %911, %916
   %918 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %917)
@@ -4008,9 +4008,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %922 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %923 = lshr i32 %902, 4
   %924 = zext nneg i32 %923 to i64
-  %925 = load ptr, ptr %922, align 8, !tbaa !42
+  %925 = load ptr, ptr %922, align 8, !tbaa !41
   %926 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %925, i64 %924, i32 1
-  %927 = load i32, ptr %926, align 8, !tbaa !36
+  %927 = load i32, ptr %926, align 8, !tbaa !35
   %928 = icmp eq i32 %927, 0
   br i1 %928, label %929, label %1024
 
@@ -4034,13 +4034,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %940 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %941 = lshr i32 %932, 4
   %942 = zext nneg i32 %941 to i64
-  %943 = load ptr, ptr %940, align 8, !tbaa !42
+  %943 = load ptr, ptr %940, align 8, !tbaa !41
   %944 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %943, i64 %942, i32 1
-  %945 = load i32, ptr %944, align 8, !tbaa !36
+  %945 = load i32, ptr %944, align 8, !tbaa !35
   %946 = lshr i32 %936, 4
   %947 = zext nneg i32 %946 to i64
   %948 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %943, i64 %947, i32 1
-  %949 = load i32, ptr %948, align 8, !tbaa !36
+  %949 = load i32, ptr %948, align 8, !tbaa !35
   %950 = tail call noundef i32 @llvm.fshl.i32(i32 %945, i32 %945, i32 %949)
   %951 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %950)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %951)
@@ -4055,9 +4055,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %955 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %956 = lshr i32 %936, 4
   %957 = zext nneg i32 %956 to i64
-  %958 = load ptr, ptr %955, align 8, !tbaa !42
+  %958 = load ptr, ptr %955, align 8, !tbaa !41
   %959 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %958, i64 %957, i32 1
-  %960 = load i32, ptr %959, align 8, !tbaa !36
+  %960 = load i32, ptr %959, align 8, !tbaa !35
   %961 = icmp eq i32 %960, 0
   br i1 %961, label %962, label %1024
 
@@ -4081,13 +4081,13 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %973 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %974 = lshr i32 %965, 4
   %975 = zext nneg i32 %974 to i64
-  %976 = load ptr, ptr %973, align 8, !tbaa !42
+  %976 = load ptr, ptr %973, align 8, !tbaa !41
   %977 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %976, i64 %975, i32 1
-  %978 = load i32, ptr %977, align 8, !tbaa !36
+  %978 = load i32, ptr %977, align 8, !tbaa !35
   %979 = lshr i32 %969, 4
   %980 = zext nneg i32 %979 to i64
   %981 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %976, i64 %980, i32 1
-  %982 = load i32, ptr %981, align 8, !tbaa !36
+  %982 = load i32, ptr %981, align 8, !tbaa !35
   %983 = tail call noundef i32 @llvm.fshr.i32(i32 %978, i32 %978, i32 %982)
   %984 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %983)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %984)
@@ -4102,9 +4102,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %988 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %989 = lshr i32 %969, 4
   %990 = zext nneg i32 %989 to i64
-  %991 = load ptr, ptr %988, align 8, !tbaa !42
+  %991 = load ptr, ptr %988, align 8, !tbaa !41
   %992 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %991, i64 %990, i32 1
-  %993 = load i32, ptr %992, align 8, !tbaa !36
+  %993 = load i32, ptr %992, align 8, !tbaa !35
   %994 = icmp eq i32 %993, 0
   br i1 %994, label %995, label %1024
 
@@ -4123,9 +4123,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1002 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1003 = lshr i32 %998, 4
   %1004 = zext nneg i32 %1003 to i64
-  %1005 = load ptr, ptr %1002, align 8, !tbaa !42
+  %1005 = load ptr, ptr %1002, align 8, !tbaa !41
   %1006 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1005, i64 %1004, i32 1
-  %1007 = load i32, ptr %1006, align 8, !tbaa !36
+  %1007 = load i32, ptr %1006, align 8, !tbaa !35
   %1008 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1007, i1 false)
   %1009 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %1008)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %1009)
@@ -4142,9 +4142,9 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1016 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1017 = lshr i32 %1012, 4
   %1018 = zext nneg i32 %1017 to i64
-  %1019 = load ptr, ptr %1016, align 8, !tbaa !42
+  %1019 = load ptr, ptr %1016, align 8, !tbaa !41
   %1020 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1019, i64 %1018, i32 1
-  %1021 = load i32, ptr %1020, align 8, !tbaa !36
+  %1021 = load i32, ptr %1020, align 8, !tbaa !35
   %1022 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1021, i1 false)
   %1023 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %1022)
   tail call void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 4 dereferenceable(43) %21, i32 %1023)
@@ -4254,7 +4254,7 @@ define dso_local noundef range(i32 0, 385) i32 @_ZN4Luau7CodeGen22getNativeConte
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(624) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %0, align 8, !tbaa !22
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -4319,7 +4319,7 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
   br i1 %.not.i.not.i, label %27, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit, !llvm.loop !33
 
 _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit: ; preds = %33
-  %.pre.pre = load ptr, ptr %2, align 8, !tbaa !45
+  %.pre.pre = load ptr, ptr %2, align 8, !tbaa !44
   %.pre10.pre = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit
 
@@ -4342,14 +4342,14 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %_ZN4Luau
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 5
   %43 = icmp ugt i64 %42, %38
-  br i1 %43, label %10, label %._crit_edge, !llvm.loop !46
+  br i1 %43, label %10, label %._crit_edge, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen19getSortedBlockOrderERNS0_10IrFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.30") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !45
+  %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = load ptr, ptr %1, align 8, !tbaa !22
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -4371,10 +4371,10 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = ashr exact i64 %8, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #20
-  store ptr %15, ptr %0, align 8, !tbaa !47
-  store ptr %15, ptr %13, align 8, !tbaa !50
+  store ptr %15, ptr %0, align 8, !tbaa !46
+  store ptr %15, ptr %13, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %9
-  store ptr %16, ptr %12, align 8, !tbaa !51
+  store ptr %16, ptr %12, align 8, !tbaa !50
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, %11
@@ -4422,7 +4422,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 29:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
   %.sroa.0.09.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %73, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
-  %30 = load i32, ptr %.sroa.0.09.i.i.i.i, align 4, !tbaa !39
+  %30 = load i32, ptr %.sroa.0.09.i.i.i.i, align 4, !tbaa !38
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %31
   %33 = load i8, ptr %32, align 4, !tbaa !29
@@ -4434,7 +4434,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 .split.us.i.i.i.i.i:                              ; preds = %29
   %.sroa.0.0.us12.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i, i64 -4
-  %37 = load i32, ptr %.sroa.0.0.us12.i.i.i.i.i, align 4, !tbaa !39
+  %37 = load i32, ptr %.sroa.0.0.us12.i.i.i.i.i, align 4, !tbaa !38
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %38
   %40 = load i8, ptr %39, align 4, !tbaa !29
@@ -4446,9 +4446,9 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %42 = phi i32 [ %53, %52 ], [ %37, %.split.us.i.i.i.i.i ]
   %.sroa.0.0.us14.i.i.i.i.i = phi ptr [ %.sroa.0.0.us.i.i.i.i.i, %52 ], [ %.sroa.0.0.us12.i.i.i.i.i, %.split.us.i.i.i.i.i ]
   %.sroa.06.0.us13.i.i.i.i.i = phi ptr [ %.sroa.0.0.us14.i.i.i.i.i, %52 ], [ %.sroa.0.09.i.i.i.i, %.split.us.i.i.i.i.i ]
-  %43 = load i32, ptr %35, align 4, !tbaa !52
+  %43 = load i32, ptr %35, align 4, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !52
+  %45 = load i32, ptr %44, align 4, !tbaa !51
   %.not.i.i.us.i.i.i.i.i = icmp eq i32 %43, %45
   br i1 %.not.i.i.us.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i.i.i.i.i", label %46
 
@@ -4457,26 +4457,26 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %47, label %52, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
-  %48 = load i32, ptr %36, align 4, !tbaa !53
+  %48 = load i32, ptr %36, align 4, !tbaa !52
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %50 = load i32, ptr %49, align 4, !tbaa !53
+  %50 = load i32, ptr %49, align 4, !tbaa !52
   %51 = icmp ult i32 %48, %50
   br i1 %51, label %52, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 52:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i.i.i.i.i", %46
-  store i32 %42, ptr %.sroa.06.0.us13.i.i.i.i.i, align 4, !tbaa !39
+  store i32 %42, ptr %.sroa.06.0.us13.i.i.i.i.i, align 4, !tbaa !38
   %.sroa.0.0.us.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.us14.i.i.i.i.i, i64 -4
-  %53 = load i32, ptr %.sroa.0.0.us.i.i.i.i.i, align 4, !tbaa !39
+  %53 = load i32, ptr %.sroa.0.0.us.i.i.i.i.i, align 4, !tbaa !38
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %54
   %56 = load i8, ptr %55, align 4, !tbaa !29
   %.not16.i.i.i.i.i = icmp eq i8 %56, 1
-  br i1 %.not16.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i", !llvm.loop !54
+  br i1 %.not16.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i", !llvm.loop !53
 
 .split.i.i.i.i.i:                                 ; preds = %29, %72
   %.sroa.06.0.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %72 ], [ %.sroa.0.09.i.i.i.i, %29 ]
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 -4
-  %57 = load i32, ptr %.sroa.0.0.i.i.i.i.i, align 4, !tbaa !39
+  %57 = load i32, ptr %.sroa.0.0.i.i.i.i.i, align 4, !tbaa !38
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %58
   %60 = load i8, ptr %59, align 4, !tbaa !29
@@ -4484,9 +4484,9 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %61, label %72, label %62
 
 62:                                               ; preds = %.split.i.i.i.i.i
-  %63 = load i32, ptr %35, align 4, !tbaa !52
+  %63 = load i32, ptr %35, align 4, !tbaa !51
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !52
+  %65 = load i32, ptr %64, align 4, !tbaa !51
   %.not.i.i.i.i.i.i.i = icmp eq i32 %63, %65
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i", label %66
 
@@ -4495,22 +4495,22 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %67, label %72, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i": ; preds = %62
-  %68 = load i32, ptr %36, align 4, !tbaa !53
+  %68 = load i32, ptr %36, align 4, !tbaa !52
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %70 = load i32, ptr %69, align 4, !tbaa !53
+  %70 = load i32, ptr %69, align 4, !tbaa !52
   %71 = icmp ult i32 %68, %70
   br i1 %71, label %72, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 72:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i", %66, %.split.i.i.i.i.i
-  store i32 %57, ptr %.sroa.06.0.i.i.i.i.i, align 4, !tbaa !39
-  br label %.split.i.i.i.i.i, !llvm.loop !56
+  store i32 %57, ptr %.sroa.06.0.i.i.i.i.i, align 4, !tbaa !38
+  br label %.split.i.i.i.i.i, !llvm.loop !55
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i", %66, %52, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i.i.i.i.i", %46, %.split.us.i.i.i.i.i
   %.us-phi.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i, %.split.us.i.i.i.i.i ], [ %.sroa.06.0.us13.i.i.i.i.i, %46 ], [ %.sroa.06.0.us13.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i.i.i.i.i" ], [ %.sroa.0.0.us14.i.i.i.i.i, %52 ], [ %.sroa.06.0.i.i.i.i.i, %66 ], [ %.sroa.06.0.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i.i.i.i.i" ]
-  store i32 %30, ptr %.us-phi.i.i.i.i.i, align 4, !tbaa !39
+  store i32 %30, ptr %.us-phi.i.i.i.i.i, align 4, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %73, %104
-  br i1 %.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEZN4Luau7CodeGen19getSortedBlockOrderERNS8_10IrFunctionEE3$_0EvT_SC_T0_.exit", label %29, !llvm.loop !57
+  br i1 %.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEZN4Luau7CodeGen19getSortedBlockOrderERNS8_10IrFunctionEE3$_0EvT_SC_T0_.exit", label %29, !llvm.loop !56
 
 74:                                               ; preds = %18
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_T0_"(ptr %105, ptr nonnull %104, ptr nonnull readonly %1)
@@ -4529,9 +4529,9 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %.not.i, label %83, label %81
 
 81:                                               ; preds = %75
-  store i32 %storemerge22, ptr %78, align 4, !tbaa !39
+  store i32 %storemerge22, ptr %78, align 4, !tbaa !38
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store ptr %82, ptr %17, align 8, !tbaa !50
+  store ptr %82, ptr %17, align 8, !tbaa !49
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 83:                                               ; preds = %75
@@ -4565,7 +4565,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %83
 
 .noexc11:                                         ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %96 = getelementptr inbounds i8, ptr %95, i64 %86
-  store i32 %storemerge22, ptr %96, align 4, !tbaa !39
+  store i32 %storemerge22, ptr %96, align 4, !tbaa !38
   %97 = icmp sgt i64 %86, 0
   br i1 %97, label %98, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
@@ -4580,14 +4580,14 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %98, %.noex
 
 100:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #21
-  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !45
+  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !44
   %.pre35.pre = load ptr, ptr %1, align 8, !tbaa !22
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %100, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   %.pre35 = phi ptr [ %.pre35.pre, %100 ], [ %.pre3539, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   %.pre = phi ptr [ %.pre.pre, %100 ], [ %.pre36, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
-  store ptr %99, ptr %17, align 8, !tbaa !50
+  store ptr %99, ptr %17, align 8, !tbaa !49
   %101 = getelementptr inbounds nuw i32, ptr %95, i64 %93
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -4606,7 +4606,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %111 = sub i64 %109, %110
   %112 = ashr exact i64 %111, 5
   %113 = icmp ugt i64 %112, %108
-  br i1 %113, label %75, label %._crit_edge, !llvm.loop !58
+  br i1 %113, label %75, label %._crit_edge, !llvm.loop !57
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4644,8 +4644,8 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZN4Luau7CodeGen12getNextBlockERNS0_10IrFunctionERKSt6vectorIjSaIjEERNS0_7IrBlockEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(624) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(32) %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !50
-  %7 = load ptr, ptr %1, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %7 = load ptr, ptr %1, align 8, !tbaa !46
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -4661,12 +4661,12 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZN4Luau7CodeG
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i32, ptr %7, i64 %.014
-  %16 = load i32, ptr %15, align 4, !tbaa !39
+  %16 = load i32, ptr %15, align 4, !tbaa !38
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %17
   %19 = load i8, ptr %18, align 4, !tbaa !29
   %.not = icmp eq i8 %19, 4
-  br i1 %.not, label %13, label %20, !llvm.loop !59
+  br i1 %.not, label %13, label %20, !llvm.loop !58
 
 20:                                               ; preds = %13, %14
   %spec.select = phi ptr [ %18, %14 ], [ %2, %13 ]
@@ -4722,24 +4722,24 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 17:                                               ; preds = %17, %14
   %.09.i.i.i = phi i64 [ %16, %14 ], [ %20, %17 ]
   %18 = getelementptr inbounds i32, ptr %0, i64 %.09.i.i.i
-  %19 = load i32, ptr %18, align 4, !tbaa !39
+  %19 = load i32, ptr %18, align 4, !tbaa !38
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %12, i32 noundef %19, ptr readonly %3)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
   %20 = add nsw i64 %.09.i.i.i, -1
-  br i1 %.not.i.i.i, label %.lr.ph.i9.i, label %17, !llvm.loop !60
+  br i1 %.not.i.i.i, label %.lr.ph.i9.i, label %17, !llvm.loop !59
 
 .lr.ph.i9.i:                                      ; preds = %17, %.lr.ph.i9.i
   %.sroa.0.03.i.i = phi ptr [ %21, %.lr.ph.i9.i ], [ %storemerge23, %17 ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
-  %22 = load i32, ptr %21, align 4, !tbaa !39
-  %23 = load i32, ptr %0, align 4, !tbaa !39
-  store i32 %23, ptr %21, align 4, !tbaa !39
+  %22 = load i32, ptr %21, align 4, !tbaa !38
+  %23 = load i32, ptr %0, align 4, !tbaa !38
+  store i32 %23, ptr %21, align 4, !tbaa !38
   %24 = ptrtoint ptr %21 to i64
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 2
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %26, i32 noundef %22, ptr readonly %3)
   %27 = icmp sgt i64 %25, 4
-  br i1 %27, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !61
+  br i1 %27, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !60
 
 28:                                               ; preds = %11
   %29 = add nsw i64 %.024, -1
@@ -4747,8 +4747,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %30 = lshr i64 %12, 1
   %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %storemerge23, i64 -4
-  %33 = load i32, ptr %10, align 4, !tbaa !39
-  %34 = load i32, ptr %31, align 4, !tbaa !39
+  %33 = load i32, ptr %10, align 4, !tbaa !38
+  %34 = load i32, ptr %31, align 4, !tbaa !38
   %35 = zext i32 %33 to i64
   %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %35
   %37 = zext i32 %34 to i64
@@ -4767,9 +4767,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 47:                                               ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !52
+  %49 = load i32, ptr %48, align 4, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !52
+  %51 = load i32, ptr %50, align 4, !tbaa !51
   %.not.i.i.i.i = icmp eq i32 %49, %51
   br i1 %.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", label %52
 
@@ -4779,14 +4779,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i": ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %55 = load i32, ptr %54, align 4, !tbaa !53
+  %55 = load i32, ptr %54, align 4, !tbaa !52
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %57 = load i32, ptr %56, align 4, !tbaa !53
+  %57 = load i32, ptr %56, align 4, !tbaa !52
   %58 = icmp ult i32 %55, %57
   br i1 %58, label %59, label %99
 
 59:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %52, %44
-  %60 = load i32, ptr %32, align 4, !tbaa !39
+  %60 = load i32, ptr %32, align 4, !tbaa !38
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %61
   %63 = load i8, ptr %62, align 4, !tbaa !29
@@ -4801,9 +4801,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 69:                                               ; preds = %59
   %70 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %71 = load i32, ptr %70, align 4, !tbaa !52
+  %71 = load i32, ptr %70, align 4, !tbaa !51
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  %73 = load i32, ptr %72, align 4, !tbaa !52
+  %73 = load i32, ptr %72, align 4, !tbaa !51
   %.not.i.i30.i.i = icmp eq i32 %71, %73
   br i1 %.not.i.i30.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", label %74
 
@@ -4813,9 +4813,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i": ; preds = %69
   %76 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %77 = load i32, ptr %76, align 4, !tbaa !53
+  %77 = load i32, ptr %76, align 4, !tbaa !52
   %78 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %79 = load i32, ptr %78, align 4, !tbaa !53
+  %79 = load i32, ptr %78, align 4, !tbaa !52
   %80 = icmp ult i32 %77, %79
   br i1 %80, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %81
 
@@ -4830,9 +4830,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %88 = load i32, ptr %87, align 4, !tbaa !52
+  %88 = load i32, ptr %87, align 4, !tbaa !51
   %89 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  %90 = load i32, ptr %89, align 4, !tbaa !52
+  %90 = load i32, ptr %89, align 4, !tbaa !51
   %.not.i.i33.i.i = icmp eq i32 %88, %90
   br i1 %.not.i.i33.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", label %91
 
@@ -4842,9 +4842,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i": ; preds = %86
   %93 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %94 = load i32, ptr %93, align 4, !tbaa !53
+  %94 = load i32, ptr %93, align 4, !tbaa !52
   %95 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %96 = load i32, ptr %95, align 4, !tbaa !53
+  %96 = load i32, ptr %95, align 4, !tbaa !52
   %97 = icmp ult i32 %94, %96
   br i1 %97, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %98
 
@@ -4852,7 +4852,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
 99:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %52, %44
-  %100 = load i32, ptr %32, align 4, !tbaa !39
+  %100 = load i32, ptr %32, align 4, !tbaa !38
   %101 = zext i32 %100 to i64
   %102 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %101
   %103 = load i8, ptr %102, align 4, !tbaa !29
@@ -4867,9 +4867,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 109:                                              ; preds = %99
   %110 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %111 = load i32, ptr %110, align 4, !tbaa !52
+  %111 = load i32, ptr %110, align 4, !tbaa !51
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  %113 = load i32, ptr %112, align 4, !tbaa !52
+  %113 = load i32, ptr %112, align 4, !tbaa !51
   %.not.i.i36.i.i = icmp eq i32 %111, %113
   br i1 %.not.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", label %114
 
@@ -4879,9 +4879,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i": ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %117 = load i32, ptr %116, align 4, !tbaa !53
+  %117 = load i32, ptr %116, align 4, !tbaa !52
   %118 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %119 = load i32, ptr %118, align 4, !tbaa !53
+  %119 = load i32, ptr %118, align 4, !tbaa !52
   %120 = icmp ult i32 %117, %119
   br i1 %120, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %121
 
@@ -4896,9 +4896,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %128 = load i32, ptr %127, align 4, !tbaa !52
+  %128 = load i32, ptr %127, align 4, !tbaa !51
   %129 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  %130 = load i32, ptr %129, align 4, !tbaa !52
+  %130 = load i32, ptr %129, align 4, !tbaa !51
   %.not.i.i39.i.i = icmp eq i32 %128, %130
   br i1 %.not.i.i39.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", label %131
 
@@ -4908,9 +4908,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i": ; preds = %126
   %133 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %134 = load i32, ptr %133, align 4, !tbaa !53
+  %134 = load i32, ptr %133, align 4, !tbaa !52
   %135 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %136 = load i32, ptr %135, align 4, !tbaa !53
+  %136 = load i32, ptr %135, align 4, !tbaa !52
   %137 = icmp ult i32 %134, %136
   br i1 %137, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %138
 
@@ -4920,15 +4920,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %138, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", %131, %123, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", %114, %106, %98, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", %91, %83, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", %74, %66
   %.sink43.i.i = phi i32 [ %34, %138 ], [ %33, %98 ], [ %34, %74 ], [ %34, %66 ], [ %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %60, %91 ], [ %60, %83 ], [ %60, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %33, %114 ], [ %33, %106 ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %100, %131 ], [ %100, %123 ], [ %100, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
   %.sink42.i.i = phi ptr [ %31, %138 ], [ %10, %98 ], [ %31, %74 ], [ %31, %66 ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %32, %91 ], [ %32, %83 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %10, %114 ], [ %10, %106 ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %32, %131 ], [ %32, %123 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
-  %139 = load i32, ptr %0, align 4, !tbaa !39
-  store i32 %.sink43.i.i, ptr %0, align 4, !tbaa !39
-  store i32 %139, ptr %.sink42.i.i, align 4, !tbaa !39
+  %139 = load i32, ptr %0, align 4, !tbaa !38
+  store i32 %.sink43.i.i, ptr %0, align 4, !tbaa !38
+  store i32 %139, ptr %.sink42.i.i, align 4, !tbaa !38
   br label %140
 
 140:                                              ; preds = %210, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
   %.sroa.012.0.i.i = phi ptr [ %storemerge23, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %.sroa.012.1.i.i, %210 ]
   %.sroa.015.0.i.i = phi ptr [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %211, %210 ]
-  %141 = load i32, ptr %0, align 4, !tbaa !39
+  %141 = load i32, ptr %0, align 4, !tbaa !38
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %142
   %144 = load i8, ptr %143, align 4, !tbaa !29
@@ -4939,7 +4939,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %145, label %.split.i.i, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %140
-  %148 = load i32, ptr %.sroa.015.0.i.i, align 4, !tbaa !39
+  %148 = load i32, ptr %.sroa.015.0.i.i, align 4, !tbaa !38
   %149 = zext i32 %148 to i64
   %150 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %149
   %151 = load i8, ptr %150, align 4, !tbaa !29
@@ -4947,7 +4947,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %152, label %.split22.us.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split.us.i.i
-  %153 = load i32, ptr %146, align 4, !tbaa !52
+  %153 = load i32, ptr %146, align 4, !tbaa !51
   br label %154
 
 154:                                              ; preds = %165, %.lr.ph.i.i
@@ -4955,7 +4955,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %156 = phi i32 [ %148, %.lr.ph.i.i ], [ %167, %165 ]
   %.sroa.015.1.us30.i.i = phi ptr [ %.sroa.015.0.i.i, %.lr.ph.i.i ], [ %166, %165 ]
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 12
-  %158 = load i32, ptr %157, align 4, !tbaa !52
+  %158 = load i32, ptr %157, align 4, !tbaa !51
   %.not.i.i.us.i.i = icmp eq i32 %158, %153
   br i1 %.not.i.i.us.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", label %159
 
@@ -4965,23 +4965,23 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %154
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %162 = load i32, ptr %161, align 4, !tbaa !53
-  %163 = load i32, ptr %147, align 4, !tbaa !53
+  %162 = load i32, ptr %161, align 4, !tbaa !52
+  %163 = load i32, ptr %147, align 4, !tbaa !52
   %164 = icmp ult i32 %162, %163
   br i1 %164, label %165, label %.split22.us.i.i
 
 165:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", %159
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.us30.i.i, i64 4
-  %167 = load i32, ptr %166, align 4, !tbaa !39
+  %167 = load i32, ptr %166, align 4, !tbaa !38
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %168
   %170 = load i8, ptr %169, align 4, !tbaa !29
   %171 = icmp eq i8 %170, 1
-  br i1 %171, label %.split22.us.i.i, label %154, !llvm.loop !62
+  br i1 %171, label %.split22.us.i.i, label %154, !llvm.loop !61
 
 .split.i.i:                                       ; preds = %140, %186
   %.sroa.015.1.i.i = phi ptr [ %187, %186 ], [ %.sroa.015.0.i.i, %140 ]
-  %172 = load i32, ptr %.sroa.015.1.i.i, align 4, !tbaa !39
+  %172 = load i32, ptr %.sroa.015.1.i.i, align 4, !tbaa !38
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %173
   %175 = load i8, ptr %174, align 4, !tbaa !29
@@ -4990,8 +4990,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 176:                                              ; preds = %.split.i.i
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 12
-  %178 = load i32, ptr %177, align 4, !tbaa !52
-  %179 = load i32, ptr %146, align 4, !tbaa !52
+  %178 = load i32, ptr %177, align 4, !tbaa !51
+  %179 = load i32, ptr %146, align 4, !tbaa !51
   %.not.i.i.i12.i = icmp eq i32 %178, %179
   br i1 %.not.i.i.i12.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", label %180
 
@@ -5001,14 +5001,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i": ; preds = %176
   %182 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %183 = load i32, ptr %182, align 4, !tbaa !53
-  %184 = load i32, ptr %147, align 4, !tbaa !53
+  %183 = load i32, ptr %182, align 4, !tbaa !52
+  %184 = load i32, ptr %147, align 4, !tbaa !52
   %185 = icmp ult i32 %183, %184
   br i1 %185, label %186, label %.split22.us.i.i
 
 186:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", %180, %.split.i.i
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.i.i, i64 4
-  br label %.split.i.i, !llvm.loop !63
+  br label %.split.i.i, !llvm.loop !62
 
 .split22.us.i.i:                                  ; preds = %165, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", %159, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", %180, %.split.us.i.i
   %.us-phi.i.i = phi ptr [ %.sroa.015.0.i.i, %.split.us.i.i ], [ %.sroa.015.1.i.i, %180 ], [ %.sroa.015.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i" ], [ %166, %165 ], [ %.sroa.015.1.us30.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.015.1.us30.i.i, %159 ]
@@ -5019,7 +5019,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 189:                                              ; preds = %.backedge, %.split22.us.i.i
   %.sroa.012.0.pn.i.i = phi ptr [ %.sroa.012.0.i.i, %.split22.us.i.i ], [ %.sroa.012.1.i.i, %.backedge ]
   %.sroa.012.1.i.i = getelementptr inbounds i8, ptr %.sroa.012.0.pn.i.i, i64 -4
-  %190 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !39
+  %190 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !38
   %191 = zext i32 %190 to i64
   %192 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %191
   %193 = load i8, ptr %192, align 4, !tbaa !29
@@ -5032,9 +5032,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %197, label %.backedge, label %208
 
 198:                                              ; preds = %189
-  %199 = load i32, ptr %146, align 4, !tbaa !52
+  %199 = load i32, ptr %146, align 4, !tbaa !51
   %200 = getelementptr inbounds nuw i8, ptr %192, i64 12
-  %201 = load i32, ptr %200, align 4, !tbaa !52
+  %201 = load i32, ptr %200, align 4, !tbaa !51
   %.not.i.i9.i.i = icmp eq i32 %199, %201
   br i1 %.not.i.i9.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", label %202
 
@@ -5043,24 +5043,24 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %203, label %.backedge, label %208
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i": ; preds = %198
-  %204 = load i32, ptr %147, align 4, !tbaa !53
+  %204 = load i32, ptr %147, align 4, !tbaa !52
   %205 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %206 = load i32, ptr %205, align 4, !tbaa !53
+  %206 = load i32, ptr %205, align 4, !tbaa !52
   %207 = icmp ult i32 %204, %206
   br i1 %207, label %.backedge, label %208
 
 .backedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", %202, %196
-  br label %189, !llvm.loop !64
+  br label %189, !llvm.loop !63
 
 208:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", %202, %196
   %209 = icmp ult ptr %.us-phi.i.i, %.sroa.012.1.i.i
   br i1 %209, label %210, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit"
 
 210:                                              ; preds = %208
-  store i32 %190, ptr %.us-phi.i.i, align 4, !tbaa !39
-  store i32 %.us-phi24.i.i, ptr %.sroa.012.1.i.i, align 4, !tbaa !39
+  store i32 %190, ptr %.us-phi.i.i, align 4, !tbaa !38
+  store i32 %.us-phi24.i.i, ptr %.sroa.012.1.i.i, align 4, !tbaa !38
   %211 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 4
-  br label %140, !llvm.loop !65
+  br label %140, !llvm.loop !64
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit": ; preds = %208
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_T0_T1_"(ptr %.us-phi.i.i, ptr %storemerge23, i64 noundef %29, ptr nonnull %3)
@@ -5068,7 +5068,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %213 = sub i64 %212, %5
   %214 = ashr exact i64 %213, 2
   %215 = icmp sgt i64 %214, 16
-  br i1 %215, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !66
+  br i1 %215, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !65
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit", %.lr.ph.i9.i, %4
   ret void
@@ -5092,8 +5092,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %12 = getelementptr inbounds i32, ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
   %14 = getelementptr inbounds i32, ptr %0, i64 %13
-  %15 = load i32, ptr %12, align 4, !tbaa !39
-  %16 = load i32, ptr %14, align 4, !tbaa !39
+  %15 = load i32, ptr %12, align 4, !tbaa !38
+  %16 = load i32, ptr %14, align 4, !tbaa !38
   %17 = zext i32 %15 to i64
   %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %17
   %19 = zext i32 %16 to i64
@@ -5112,9 +5112,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !52
+  %31 = load i32, ptr %30, align 4, !tbaa !51
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !52
+  %33 = load i32, ptr %32, align 4, !tbaa !51
   %.not.i.i = icmp eq i32 %31, %33
   br i1 %.not.i.i, label %36, label %34
 
@@ -5124,9 +5124,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %38 = load i32, ptr %37, align 4, !tbaa !53
+  %38 = load i32, ptr %37, align 4, !tbaa !52
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %40 = load i32, ptr %39, align 4, !tbaa !53
+  %40 = load i32, ptr %39, align 4, !tbaa !52
   %41 = icmp ult i32 %38, %40
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit"
 
@@ -5134,11 +5134,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.0.i.i = phi i1 [ %28, %26 ], [ %35, %34 ], [ %41, %36 ]
   %spec.select = select i1 %.0.i.i, i64 %13, i64 %11
   %42 = getelementptr inbounds i32, ptr %0, i64 %spec.select
-  %43 = load i32, ptr %42, align 4, !tbaa !39
+  %43 = load i32, ptr %42, align 4, !tbaa !38
   %44 = getelementptr inbounds i32, ptr %0, i64 %.040
-  store i32 %43, ptr %44, align 4, !tbaa !39
+  store i32 %43, ptr %44, align 4, !tbaa !38
   %45 = icmp slt i64 %spec.select, %7
-  br i1 %45, label %9, label %._crit_edge, !llvm.loop !67
+  br i1 %45, label %9, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit", %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit" ]
@@ -5156,9 +5156,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %53 = shl nsw i64 %.0.lcssa, 1
   %54 = or disjoint i64 %53, 1
   %55 = getelementptr inbounds i32, ptr %0, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !39
+  %56 = load i32, ptr %55, align 4, !tbaa !38
   %57 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
-  store i32 %56, ptr %57, align 4, !tbaa !39
+  store i32 %56, ptr %57, align 4, !tbaa !38
   br label %58
 
 58:                                               ; preds = %52, %48, %._crit_edge
@@ -5183,7 +5183,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.0911.us.i = phi i64 [ %.09.us.i, %82 ], [ %.099.i, %.lr.ph.i ]
   %.010.us.i = phi i64 [ %.0911.us.i, %82 ], [ %.1, %.lr.ph.i ]
   %66 = getelementptr inbounds i32, ptr %0, i64 %.0911.us.i
-  %67 = load i32, ptr %66, align 4, !tbaa !39
+  %67 = load i32, ptr %66, align 4, !tbaa !38
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i, i64 %68
   %70 = load i8, ptr %69, align 4, !tbaa !29
@@ -5192,8 +5192,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 72:                                               ; preds = %.lr.ph.split.us.i
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %74 = load i32, ptr %73, align 4, !tbaa !52
-  %75 = load i32, ptr %64, align 4, !tbaa !52
+  %74 = load i32, ptr %73, align 4, !tbaa !51
+  %75 = load i32, ptr %64, align 4, !tbaa !51
   %.not.i.i.us.i = icmp eq i32 %74, %75
   br i1 %.not.i.i.us.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i", label %76
 
@@ -5203,24 +5203,24 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i": ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %79 = load i32, ptr %78, align 4, !tbaa !53
-  %80 = load i32, ptr %65, align 4, !tbaa !53
+  %79 = load i32, ptr %78, align 4, !tbaa !52
+  %80 = load i32, ptr %65, align 4, !tbaa !52
   %81 = icmp ult i32 %79, %80
   br i1 %81, label %82, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 82:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i", %76
   %83 = getelementptr inbounds i32, ptr %0, i64 %.010.us.i
-  store i32 %67, ptr %83, align 4, !tbaa !39
+  store i32 %67, ptr %83, align 4, !tbaa !38
   %.09.in.us.i = add nsw i64 %.0911.us.i, -1
   %.09.us.i = sdiv i64 %.09.in.us.i, 2
   %84 = icmp sgt i64 %.0911.us.i, %1
-  br i1 %84, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !68
+  br i1 %84, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !67
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %100
   %.0911.i = phi i64 [ %.09.i, %100 ], [ %.099.i, %.lr.ph.i ]
   %.010.i = phi i64 [ %.0911.i, %100 ], [ %.1, %.lr.ph.i ]
   %85 = getelementptr inbounds i32, ptr %0, i64 %.0911.i
-  %86 = load i32, ptr %85, align 4, !tbaa !39
+  %86 = load i32, ptr %85, align 4, !tbaa !38
   %87 = zext i32 %86 to i64
   %88 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i, i64 %87
   %89 = load i8, ptr %88, align 4, !tbaa !29
@@ -5229,8 +5229,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 90:                                               ; preds = %.lr.ph.split.i
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  %92 = load i32, ptr %91, align 4, !tbaa !52
-  %93 = load i32, ptr %64, align 4, !tbaa !52
+  %92 = load i32, ptr %91, align 4, !tbaa !51
+  %93 = load i32, ptr %64, align 4, !tbaa !51
   %.not.i.i.i = icmp eq i32 %92, %93
   br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", label %94
 
@@ -5240,23 +5240,23 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i": ; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %97 = load i32, ptr %96, align 4, !tbaa !53
-  %98 = load i32, ptr %65, align 4, !tbaa !53
+  %97 = load i32, ptr %96, align 4, !tbaa !52
+  %98 = load i32, ptr %65, align 4, !tbaa !52
   %99 = icmp ult i32 %97, %98
   br i1 %99, label %100, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 100:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", %94, %.lr.ph.split.i
   %101 = getelementptr inbounds i32, ptr %0, i64 %.010.i
-  store i32 %86, ptr %101, align 4, !tbaa !39
+  store i32 %86, ptr %101, align 4, !tbaa !38
   %.09.in.i = add nsw i64 %.0911.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
   %102 = icmp sgt i64 %.0911.i, %1
-  br i1 %102, label %.lr.ph.split.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !69
+  br i1 %102, label %.lr.ph.split.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !68
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %.lr.ph.split.us.i, %76, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i", %82, %94, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", %100, %58
   %.0.lcssa.i = phi i64 [ %.1, %58 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %.0911.i, %100 ], [ %.010.i, %94 ], [ %.010.us.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i" ], [ %.0911.us.i, %82 ], [ %.010.us.i, %.lr.ph.split.us.i ], [ %.010.us.i, %76 ]
   %103 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i
-  store i32 %3, ptr %103, align 4, !tbaa !39
+  store i32 %3, ptr %103, align 4, !tbaa !38
   ret void
 }
 
@@ -5281,8 +5281,8 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %.sroa.0.022 = phi ptr [ %.sroa.0.019, %.lr.ph ], [ %.sroa.0.0, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit" ]
   %.pn21 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.022, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit" ]
   %.val.val = load ptr, ptr %2, align 8, !tbaa !22
-  %7 = load i32, ptr %.sroa.0.022, align 4, !tbaa !39
-  %8 = load i32, ptr %0, align 4, !tbaa !39
+  %7 = load i32, ptr %.sroa.0.022, align 4, !tbaa !38
+  %8 = load i32, ptr %0, align 4, !tbaa !38
   %9 = zext i32 %7 to i64
   %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %9
   %11 = zext i32 %8 to i64
@@ -5302,9 +5302,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !52
+  %23 = load i32, ptr %22, align 4, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !52
+  %25 = load i32, ptr %24, align 4, !tbaa !51
   %.not.i.i = icmp eq i32 %23, %25
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit", label %26
 
@@ -5314,9 +5314,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit": ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %29 = load i32, ptr %28, align 4, !tbaa !53
+  %29 = load i32, ptr %28, align 4, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load i32, ptr %30, align 4, !tbaa !53
+  %31 = load i32, ptr %30, align 4, !tbaa !52
   %32 = icmp ult i32 %29, %31
   br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit, label %39
 
@@ -5336,7 +5336,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   br i1 %14, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %39
-  %42 = load i32, ptr %.pn21, align 4, !tbaa !39
+  %42 = load i32, ptr %.pn21, align 4, !tbaa !38
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %43
   %45 = load i8, ptr %44, align 4, !tbaa !29
@@ -5348,9 +5348,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %47 = phi i32 [ %58, %57 ], [ %42, %.split.us.i ]
   %.sroa.0.0.us14.i = phi ptr [ %.sroa.0.0.us.i, %57 ], [ %.pn21, %.split.us.i ]
   %.sroa.06.0.us13.i = phi ptr [ %.sroa.0.0.us14.i, %57 ], [ %.sroa.0.022, %.split.us.i ]
-  %48 = load i32, ptr %40, align 4, !tbaa !52
+  %48 = load i32, ptr %40, align 4, !tbaa !51
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !52
+  %50 = load i32, ptr %49, align 4, !tbaa !51
   %.not.i.i.us.i = icmp eq i32 %48, %50
   br i1 %.not.i.i.us.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i", label %51
 
@@ -5359,26 +5359,26 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   br i1 %52, label %57, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i": ; preds = %.lr.ph.i
-  %53 = load i32, ptr %41, align 4, !tbaa !53
+  %53 = load i32, ptr %41, align 4, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %55 = load i32, ptr %54, align 4, !tbaa !53
+  %55 = load i32, ptr %54, align 4, !tbaa !52
   %56 = icmp ult i32 %53, %55
   br i1 %56, label %57, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit"
 
 57:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i", %51
-  store i32 %47, ptr %.sroa.06.0.us13.i, align 4, !tbaa !39
+  store i32 %47, ptr %.sroa.06.0.us13.i, align 4, !tbaa !38
   %.sroa.0.0.us.i = getelementptr inbounds i8, ptr %.sroa.0.0.us14.i, i64 -4
-  %58 = load i32, ptr %.sroa.0.0.us.i, align 4, !tbaa !39
+  %58 = load i32, ptr %.sroa.0.0.us.i, align 4, !tbaa !38
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %59
   %61 = load i8, ptr %60, align 4, !tbaa !29
   %.not16.i = icmp eq i8 %61, 1
-  br i1 %.not16.i, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit", !llvm.loop !54
+  br i1 %.not16.i, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit", !llvm.loop !53
 
 .split.i:                                         ; preds = %39, %77
   %.sroa.06.0.i = phi ptr [ %.sroa.0.0.i, %77 ], [ %.sroa.0.022, %39 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 -4
-  %62 = load i32, ptr %.sroa.0.0.i, align 4, !tbaa !39
+  %62 = load i32, ptr %.sroa.0.0.i, align 4, !tbaa !38
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %63
   %65 = load i8, ptr %64, align 4, !tbaa !29
@@ -5386,9 +5386,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   br i1 %66, label %77, label %67
 
 67:                                               ; preds = %.split.i
-  %68 = load i32, ptr %40, align 4, !tbaa !52
+  %68 = load i32, ptr %40, align 4, !tbaa !51
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %70 = load i32, ptr %69, align 4, !tbaa !52
+  %70 = load i32, ptr %69, align 4, !tbaa !51
   %.not.i.i.i = icmp eq i32 %68, %70
   br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i", label %71
 
@@ -5397,22 +5397,22 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   br i1 %72, label %77, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i": ; preds = %67
-  %73 = load i32, ptr %41, align 4, !tbaa !53
+  %73 = load i32, ptr %41, align 4, !tbaa !52
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %75 = load i32, ptr %74, align 4, !tbaa !53
+  %75 = load i32, ptr %74, align 4, !tbaa !52
   %76 = icmp ult i32 %73, %75
   br i1 %76, label %77, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit"
 
 77:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i", %71, %.split.i
-  store i32 %62, ptr %.sroa.06.0.i, align 4, !tbaa !39
-  br label %.split.i, !llvm.loop !56
+  store i32 %62, ptr %.sroa.06.0.i, align 4, !tbaa !38
+  br label %.split.i, !llvm.loop !55
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i", %71, %57, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i", %51, %.split.us.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
   %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.0.022, %.split.us.i ], [ %.sroa.06.0.us13.i, %51 ], [ %.sroa.06.0.us13.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.us.i" ], [ %.sroa.0.0.us14.i, %57 ], [ %.sroa.06.0.i, %71 ], [ %.sroa.06.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclIjNS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEEEbRT_T0_.exit.i" ]
-  store i32 %7, ptr %.sink, align 4, !tbaa !39
+  store i32 %7, ptr %.sink, align 4, !tbaa !38
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.022, i64 4
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit, label %6, !llvm.loop !70
+  br i1 %.not, label %.loopexit, label %6, !llvm.loop !69
 
 .loopexit:                                        ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit", %.preheader, %3
   ret void
@@ -5494,41 +5494,40 @@ attributes #21 = { builtin nounwind }
 !30 = !{!26, !15, i64 4}
 !31 = !{!26, !15, i64 8}
 !32 = !{!11, !12, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!8, !8, i64 0}
-!37 = !{i64 0, i64 1, !38, i64 4, i64 4, !36, i64 8, i64 4, !36, i64 12, i64 4, !36, i64 16, i64 4, !36, i64 20, i64 4, !36, i64 24, i64 4, !36, i64 28, i64 4, !36, i64 32, i64 4, !39, i64 36, i64 2, !40, i64 38, i64 1, !36, i64 39, i64 1, !36, i64 40, i64 1, !41, i64 41, i64 1, !41, i64 42, i64 1, !41}
-!38 = !{!12, !12, i64 0}
-!39 = !{!15, !15, i64 0}
-!40 = !{!16, !16, i64 0}
-!41 = !{!21, !21, i64 0}
-!42 = !{!43, !44, i64 0}
-!43 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen7IrConstESaIS2_EE17_Vector_impl_dataE", !44, i64 0, !44, i64 8, !44, i64 16}
-!44 = !{!"p1 _ZTSN4Luau7CodeGen7IrConstE", !7, i64 0}
-!45 = !{!23, !24, i64 8}
-!46 = distinct !{!46, !34, !35}
-!47 = !{!48, !49, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !49, i64 0, !49, i64 8, !49, i64 16}
-!49 = !{!"p1 int", !7, i64 0}
-!50 = !{!48, !49, i64 8}
-!51 = !{!48, !49, i64 16}
-!52 = !{!26, !15, i64 12}
-!53 = !{!26, !15, i64 16}
-!54 = distinct !{!54, !34, !35, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = distinct !{!56, !34, !35}
-!57 = distinct !{!57, !34, !35}
-!58 = distinct !{!58, !34, !35}
-!59 = distinct !{!59, !34, !35}
-!60 = distinct !{!60, !34, !35}
-!61 = distinct !{!61, !34, !35}
-!62 = distinct !{!62, !34, !35, !55}
-!63 = distinct !{!63, !34, !35}
-!64 = distinct !{!64, !34, !35}
-!65 = distinct !{!65, !34, !35}
-!66 = distinct !{!66, !34, !35}
-!67 = distinct !{!67, !34, !35}
-!68 = distinct !{!68, !34, !35, !55}
-!69 = distinct !{!69, !34, !35}
-!70 = distinct !{!70, !34, !35}
+!35 = !{!8, !8, i64 0}
+!36 = !{i64 0, i64 1, !37, i64 4, i64 4, !35, i64 8, i64 4, !35, i64 12, i64 4, !35, i64 16, i64 4, !35, i64 20, i64 4, !35, i64 24, i64 4, !35, i64 28, i64 4, !35, i64 32, i64 4, !38, i64 36, i64 2, !39, i64 38, i64 1, !35, i64 39, i64 1, !35, i64 40, i64 1, !40, i64 41, i64 1, !40, i64 42, i64 1, !40}
+!37 = !{!12, !12, i64 0}
+!38 = !{!15, !15, i64 0}
+!39 = !{!16, !16, i64 0}
+!40 = !{!21, !21, i64 0}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"_ZTSNSt12_Vector_baseIN4Luau7CodeGen7IrConstESaIS2_EE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p1 _ZTSN4Luau7CodeGen7IrConstE", !7, i64 0}
+!44 = !{!23, !24, i64 8}
+!45 = distinct !{!45, !34}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
+!48 = !{!"p1 int", !7, i64 0}
+!49 = !{!47, !48, i64 8}
+!50 = !{!47, !48, i64 16}
+!51 = !{!26, !15, i64 12}
+!52 = !{!26, !15, i64 16}
+!53 = distinct !{!53, !34, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !34}
+!56 = distinct !{!56, !34}
+!57 = distinct !{!57, !34}
+!58 = distinct !{!58, !34}
+!59 = distinct !{!59, !34}
+!60 = distinct !{!60, !34}
+!61 = distinct !{!61, !34, !54}
+!62 = distinct !{!62, !34}
+!63 = distinct !{!63, !34}
+!64 = distinct !{!64, !34}
+!65 = distinct !{!65, !34}
+!66 = distinct !{!66, !34}
+!67 = distinct !{!67, !34, !54}
+!68 = distinct !{!68, !34}
+!69 = distinct !{!69, !34}

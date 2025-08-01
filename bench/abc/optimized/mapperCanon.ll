@@ -63,20 +63,20 @@ define i32 @Map_CanonComputeSlow(ptr noundef readonly captures(none) %0, i32 nou
   %29 = add nsw i32 %.04868.us, 1
   %30 = sext i32 %.04868.us to i64
   %31 = getelementptr inbounds i8, ptr %4, i64 %30
-  store i8 %28, ptr %31, align 1, !tbaa !10
+  store i8 %28, ptr %31, align 1, !tbaa !9
   br label %34
 
 32:                                               ; preds = %Map_CanonComputePhase.exit.loopexit.us
   store i32 %.1.i.us, ptr %5, align 4, !tbaa !3
   %33 = trunc i32 %.069.us to i8
-  store i8 %33, ptr %4, align 1, !tbaa !10
+  store i8 %33, ptr %4, align 1, !tbaa !9
   br label %34
 
 34:                                               ; preds = %32, %27, %24
   %.149.us = phi i32 [ 1, %32 ], [ %29, %27 ], [ %.04868.us, %24 ]
   %35 = add nuw nsw i32 %.069.us, 1
   %exitcond77.not = icmp eq i32 %35, %smax76
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !11
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !10
 
 Map_CanonComputePhase.exit.loopexit.us:           ; preds = %22
   %36 = load i32, ptr %5, align 4, !tbaa !3
@@ -94,7 +94,7 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
 41:                                               ; preds = %Map_CanonComputePhase.exit
   store i32 %38, ptr %5, align 4, !tbaa !3
   %42 = trunc i32 %.069 to i8
-  store i8 %42, ptr %4, align 1, !tbaa !10
+  store i8 %42, ptr %4, align 1, !tbaa !9
   br label %51
 
 43:                                               ; preds = %Map_CanonComputePhase.exit
@@ -108,14 +108,14 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
   %48 = add nsw i32 %.04868, 1
   %49 = sext i32 %.04868 to i64
   %50 = getelementptr inbounds i8, ptr %4, i64 %49
-  store i8 %47, ptr %50, align 1, !tbaa !10
+  store i8 %47, ptr %50, align 1, !tbaa !9
   br label %51
 
 51:                                               ; preds = %41, %46, %43
   %.149 = phi i32 [ 1, %41 ], [ %48, %46 ], [ %.04868, %43 ]
   %52 = add nuw nsw i32 %.069, 1
   %exitcond75.not = icmp eq i32 %52, %smax76
-  br i1 %exitcond75.not, label %._crit_edge, label %Map_CanonComputePhase.exit, !llvm.loop !13
+  br i1 %exitcond75.not, label %._crit_edge, label %Map_CanonComputePhase.exit, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %51, %34, %9
   %.048.lcssa = phi i32 [ 0, %9 ], [ %.149.us, %34 ], [ %.149, %51 ]
@@ -186,7 +186,7 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %86 = shl i32 %.037.i, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
-  br i1 %exitcond.not.i61, label %Map_CanonComputePhase6.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond.not.i61, label %Map_CanonComputePhase6.exit, label %.preheader.i, !llvm.loop !13
 
 Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
   %.sroa.9.2 = phi i32 [ %60, %58 ], [ %.sroa.9.1, %.sink.split.i ]
@@ -208,7 +208,7 @@ Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
   store i32 %.sroa.0.3, ptr %5, align 4, !tbaa !3
   store i32 %.sroa.9.2, ptr %56, align 4, !tbaa !3
   %95 = trunc i32 %.167 to i8
-  store i8 %95, ptr %4, align 1, !tbaa !10
+  store i8 %95, ptr %4, align 1, !tbaa !9
   br label %104
 
 96:                                               ; preds = %91
@@ -222,14 +222,14 @@ Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
   %101 = add nsw i32 %.366, 1
   %102 = sext i32 %.366 to i64
   %103 = getelementptr inbounds i8, ptr %4, i64 %102
-  store i8 %100, ptr %103, align 1, !tbaa !10
+  store i8 %100, ptr %103, align 1, !tbaa !9
   br label %104
 
 104:                                              ; preds = %89, %94, %99, %96
   %.4 = phi i32 [ 1, %94 ], [ %101, %99 ], [ %.366, %96 ], [ %.366, %89 ]
   %105 = add nuw nsw i32 %.167, 1
   %exitcond.not = icmp eq i32 %105, %smax
-  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !14
 
 .loopexit:                                        ; preds = %104, %55, %._crit_edge
   %.2 = phi i32 [ %.048.lcssa, %._crit_edge ], [ 0, %55 ], [ %.4, %104 ]
@@ -304,7 +304,7 @@ define i32 @Map_CanonComputeFast(ptr noundef readonly captures(none) %0, i32 nou
   %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i58.i, 1
   %41 = shl i32 %.037.i.i, 1
   %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, 6
-  br i1 %exitcond.not.i61.i, label %Map_CanonComputePhase6.exit.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i61.i, label %Map_CanonComputePhase6.exit.i, label %.preheader.i.i, !llvm.loop !13
 
 Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %13
   %.sroa.9.2.i = phi i32 [ %15, %13 ], [ %.sroa.9.1.i, %.sink.split.i.i ]
@@ -326,7 +326,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   store i32 %.sroa.0.3.i, ptr %5, align 4, !tbaa !3
   store i32 %.sroa.9.2.i, ptr %10, align 4, !tbaa !3
   %50 = trunc i32 %.167.i to i8
-  store i8 %50, ptr %4, align 1, !tbaa !10
+  store i8 %50, ptr %4, align 1, !tbaa !9
   br label %59
 
 51:                                               ; preds = %46
@@ -340,14 +340,14 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %56 = add nsw i32 %.366.i, 1
   %57 = sext i32 %.366.i to i64
   %58 = getelementptr inbounds i8, ptr %4, i64 %57
-  store i8 %55, ptr %58, align 1, !tbaa !10
+  store i8 %55, ptr %58, align 1, !tbaa !9
   br label %59
 
 59:                                               ; preds = %54, %51, %49, %44
   %.4.i = phi i32 [ 1, %49 ], [ %56, %54 ], [ %.366.i, %51 ], [ %.366.i, %44 ]
   %60 = add nuw nsw i32 %.167.i, 1
   %exitcond.not.i = icmp eq i32 %60, %11
-  br i1 %exitcond.not.i, label %Map_CanonComputeSlow.exit, label %13, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Map_CanonComputeSlow.exit, label %13, !llvm.loop !14
 
 61:                                               ; preds = %6
   %62 = icmp slt i32 %2, 5
@@ -357,10 +357,10 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %67 = load ptr, ptr %66, align 8, !tbaa !16
+  %67 = load ptr, ptr %66, align 8, !tbaa !15
   %68 = zext nneg i32 %64 to i64
   %69 = getelementptr inbounds nuw i16, ptr %67, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !32
+  %70 = load i16, ptr %69, align 2, !tbaa !31
   %71 = zext i16 %70 to i32
   %72 = shl nuw i32 %71, 16
   %73 = or disjoint i32 %72, %71
@@ -368,10 +368,10 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %73, ptr %74, align 4, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %76 = load ptr, ptr %75, align 8, !tbaa !34
+  %76 = load ptr, ptr %75, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %68
-  %78 = load ptr, ptr %77, align 8, !tbaa !35
-  %79 = load i8, ptr %78, align 1, !tbaa !10
+  %78 = load ptr, ptr %77, align 8, !tbaa !34
+  %79 = load i8, ptr %78, align 1, !tbaa !9
   br label %Map_CanonComputeSlow.exit.sink.split
 
 80:                                               ; preds = %61
@@ -381,18 +381,18 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %85 = load ptr, ptr %84, align 8, !tbaa !16
+  %85 = load ptr, ptr %84, align 8, !tbaa !15
   %86 = zext nneg i32 %64 to i64
   %87 = getelementptr inbounds nuw i16, ptr %85, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !32
+  %88 = load i16, ptr %87, align 2, !tbaa !31
   %89 = zext i16 %88 to i32
   store i32 %89, ptr %5, align 4, !tbaa !3
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %89, ptr %90, align 4, !tbaa !3
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %92 = load ptr, ptr %91, align 8, !tbaa !36
+  %92 = load ptr, ptr %91, align 8, !tbaa !35
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %86
-  %94 = load i8, ptr %93, align 1, !tbaa !10
+  %94 = load i8, ptr %93, align 1, !tbaa !9
   %narrow140 = tail call i8 @llvm.smin.i8(i8 %94, i8 4)
   %spec.select = sext i8 %narrow140 to i32
   %95 = icmp sgt i8 %94, 0
@@ -405,35 +405,35 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 97:                                               ; preds = %.lr.ph160, %97
   %indvars.iv168 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next169, %97 ]
-  %98 = load ptr, ptr %96, align 8, !tbaa !34
+  %98 = load ptr, ptr %96, align 8, !tbaa !33
   %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %86
-  %100 = load ptr, ptr %99, align 8, !tbaa !35
+  %100 = load ptr, ptr %99, align 8, !tbaa !34
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv168
-  %102 = load i8, ptr %101, align 1, !tbaa !10
+  %102 = load i8, ptr %101, align 1, !tbaa !9
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv168
-  store i8 %102, ptr %103, align 1, !tbaa !10
+  store i8 %102, ptr %103, align 1, !tbaa !9
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %Map_CanonComputeSlow.exit, label %97, !llvm.loop !37
+  br i1 %exitcond172.not, label %Map_CanonComputeSlow.exit, label %97, !llvm.loop !36
 
 104:                                              ; preds = %80
   %105 = icmp eq i32 %64, 0
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %107 = load ptr, ptr %106, align 8, !tbaa !16
+  %107 = load ptr, ptr %106, align 8, !tbaa !15
   br i1 %105, label %108, label %128
 
 108:                                              ; preds = %104
   %109 = zext nneg i32 %81 to i64
   %110 = getelementptr inbounds nuw i16, ptr %107, i64 %109
-  %111 = load i16, ptr %110, align 2, !tbaa !32
+  %111 = load i16, ptr %110, align 2, !tbaa !31
   %112 = zext i16 %111 to i32
   store i32 %112, ptr %5, align 4, !tbaa !3
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %112, ptr %113, align 4, !tbaa !3
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %115 = load ptr, ptr %114, align 8, !tbaa !36
+  %115 = load ptr, ptr %114, align 8, !tbaa !35
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %109
-  %117 = load i8, ptr %116, align 1, !tbaa !10
+  %117 = load i8, ptr %116, align 1, !tbaa !9
   %narrow = tail call i8 @llvm.smin.i8(i8 %117, i8 4)
   %spec.select139 = sext i8 %narrow to i32
   %118 = icmp sgt i8 %117, 0
@@ -446,35 +446,35 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 120:                                              ; preds = %.lr.ph157, %120
   %indvars.iv165 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next166, %120 ]
-  %121 = load ptr, ptr %119, align 8, !tbaa !34
+  %121 = load ptr, ptr %119, align 8, !tbaa !33
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %109
-  %123 = load ptr, ptr %122, align 8, !tbaa !35
+  %123 = load ptr, ptr %122, align 8, !tbaa !34
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv165
-  %125 = load i8, ptr %124, align 1, !tbaa !10
+  %125 = load i8, ptr %124, align 1, !tbaa !9
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv165
   %127 = or i8 %125, 16
-  store i8 %127, ptr %126, align 1, !tbaa !10
+  store i8 %127, ptr %126, align 1, !tbaa !9
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
-  br i1 %exitcond.not, label %Map_CanonComputeSlow.exit, label %120, !llvm.loop !38
+  br i1 %exitcond.not, label %Map_CanonComputeSlow.exit, label %120, !llvm.loop !37
 
 128:                                              ; preds = %104
   %129 = zext nneg i32 %64 to i64
   %130 = getelementptr inbounds nuw i16, ptr %107, i64 %129
-  %131 = load i16, ptr %130, align 2, !tbaa !32
+  %131 = load i16, ptr %130, align 2, !tbaa !31
   %132 = zext i16 %131 to i32
   %133 = zext nneg i32 %81 to i64
   %134 = getelementptr inbounds nuw i16, ptr %107, i64 %133
-  %135 = load i16, ptr %134, align 2, !tbaa !32
+  %135 = load i16, ptr %134, align 2, !tbaa !31
   %136 = zext i16 %135 to i32
   %.not = icmp ult i16 %131, %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %138 = load ptr, ptr %137, align 8, !tbaa !36
+  %138 = load ptr, ptr %137, align 8, !tbaa !35
   br i1 %.not, label %.preheader, label %.preheader143
 
 .preheader143:                                    ; preds = %128
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %133
-  %140 = load i8, ptr %139, align 1, !tbaa !10
+  %140 = load i8, ptr %139, align 1, !tbaa !9
   %141 = icmp sgt i8 %140, 0
   br i1 %141, label %.lr.ph, label %._crit_edge
 
@@ -484,7 +484,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 .preheader:                                       ; preds = %128
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 %129
-  %144 = load i8, ptr %143, align 1, !tbaa !10
+  %144 = load i8, ptr %143, align 1, !tbaa !9
   %145 = icmp sgt i8 %144, 0
   br i1 %145, label %.lr.ph151, label %._crit_edge152
 
@@ -496,34 +496,34 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %.0117145 = phi i8 [ 16, %.lr.ph ], [ %.1118, %162 ]
   %.0121144 = phi i32 [ -1, %.lr.ph ], [ %.1122, %162 ]
-  %148 = load ptr, ptr %142, align 8, !tbaa !34
+  %148 = load ptr, ptr %142, align 8, !tbaa !33
   %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %133
-  %150 = load ptr, ptr %149, align 8, !tbaa !35
+  %150 = load ptr, ptr %149, align 8, !tbaa !34
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv
-  %152 = load i8, ptr %151, align 1, !tbaa !10
+  %152 = load i8, ptr %151, align 1, !tbaa !9
   %153 = sext i8 %152 to i32
   %154 = tail call i32 @Extra_TruthPolarize(i32 noundef %64, i32 noundef %153, i32 noundef 4) #4
   %155 = icmp ugt i32 %.0121144, %154
   br i1 %155, label %156, label %162
 
 156:                                              ; preds = %147
-  %157 = load ptr, ptr %142, align 8, !tbaa !34
+  %157 = load ptr, ptr %142, align 8, !tbaa !33
   %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %133
-  %159 = load ptr, ptr %158, align 8, !tbaa !35
+  %159 = load ptr, ptr %158, align 8, !tbaa !34
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv
-  %161 = load i8, ptr %160, align 1, !tbaa !10
+  %161 = load i8, ptr %160, align 1, !tbaa !9
   br label %162
 
 162:                                              ; preds = %147, %156
   %.1122 = phi i32 [ %154, %156 ], [ %.0121144, %147 ]
   %.1118 = phi i8 [ %161, %156 ], [ %.0117145, %147 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = load ptr, ptr %137, align 8, !tbaa !36
+  %163 = load ptr, ptr %137, align 8, !tbaa !35
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %133
-  %165 = load i8, ptr %164, align 1, !tbaa !10
+  %165 = load i8, ptr %164, align 1, !tbaa !9
   %166 = sext i8 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166
-  br i1 %167, label %147, label %._crit_edge, !llvm.loop !39
+  br i1 %167, label %147, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %162, %.preheader143
   %.0121.lcssa = phi i32 [ -1, %.preheader143 ], [ %.1122, %162 ]
@@ -539,34 +539,34 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %indvars.iv163 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next164, %186 ]
   %.2119149 = phi i8 [ 16, %.lr.ph151 ], [ %.3120, %186 ]
   %.2123148 = phi i32 [ -1, %.lr.ph151 ], [ %.3124, %186 ]
-  %172 = load ptr, ptr %146, align 8, !tbaa !34
+  %172 = load ptr, ptr %146, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %129
-  %174 = load ptr, ptr %173, align 8, !tbaa !35
+  %174 = load ptr, ptr %173, align 8, !tbaa !34
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv163
-  %176 = load i8, ptr %175, align 1, !tbaa !10
+  %176 = load i8, ptr %175, align 1, !tbaa !9
   %177 = sext i8 %176 to i32
   %178 = tail call i32 @Extra_TruthPolarize(i32 noundef %81, i32 noundef %177, i32 noundef 4) #4
   %179 = icmp ugt i32 %.2123148, %178
   br i1 %179, label %180, label %186
 
 180:                                              ; preds = %171
-  %181 = load ptr, ptr %146, align 8, !tbaa !34
+  %181 = load ptr, ptr %146, align 8, !tbaa !33
   %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %129
-  %183 = load ptr, ptr %182, align 8, !tbaa !35
+  %183 = load ptr, ptr %182, align 8, !tbaa !34
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv163
-  %185 = load i8, ptr %184, align 1, !tbaa !10
+  %185 = load i8, ptr %184, align 1, !tbaa !9
   br label %186
 
 186:                                              ; preds = %171, %180
   %.3124 = phi i32 [ %178, %180 ], [ %.2123148, %171 ]
   %.3120 = phi i8 [ %185, %180 ], [ %.2119149, %171 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %187 = load ptr, ptr %137, align 8, !tbaa !36
+  %187 = load ptr, ptr %137, align 8, !tbaa !35
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %129
-  %189 = load i8, ptr %188, align 1, !tbaa !10
+  %189 = load i8, ptr %188, align 1, !tbaa !9
   %190 = sext i8 %189 to i64
   %191 = icmp slt i64 %indvars.iv.next164, %190
-  br i1 %191, label %171, label %._crit_edge152.loopexit, !llvm.loop !40
+  br i1 %191, label %171, label %._crit_edge152.loopexit, !llvm.loop !39
 
 ._crit_edge152.loopexit:                          ; preds = %186
   %192 = or i8 %.3120, 16
@@ -584,7 +584,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 Map_CanonComputeSlow.exit.sink.split:             ; preds = %65, %._crit_edge, %._crit_edge152
   %.2119.lcssa.sink = phi i8 [ %.2119.lcssa, %._crit_edge152 ], [ %.0117.lcssa, %._crit_edge ], [ %79, %65 ]
-  store i8 %.2119.lcssa.sink, ptr %4, align 1, !tbaa !10
+  store i8 %.2119.lcssa.sink, ptr %4, align 1, !tbaa !9
   br label %Map_CanonComputeSlow.exit
 
 Map_CanonComputeSlow.exit:                        ; preds = %120, %97, %59, %Map_CanonComputeSlow.exit.sink.split, %108, %83, %8
@@ -615,37 +615,36 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !8, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = !{!17, !29, i64 1792}
-!17 = !{!"Map_ManStruct_t_", !18, i64 0, !4, i64 8, !18, i64 16, !4, i64 24, !18, i64 32, !4, i64 40, !4, i64 44, !20, i64 48, !21, i64 56, !21, i64 64, !22, i64 72, !23, i64 80, !24, i64 88, !24, i64 96, !25, i64 104, !4, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !26, i64 128, !26, i64 132, !26, i64 136, !26, i64 140, !4, i64 144, !4, i64 148, !26, i64 152, !4, i64 156, !4, i64 160, !4, i64 164, !4, i64 168, !27, i64 176, !5, i64 184, !5, i64 232, !5, i64 1512, !5, i64 1640, !21, i64 1768, !28, i64 1776, !28, i64 1784, !29, i64 1792, !23, i64 1800, !30, i64 1808, !4, i64 1816, !4, i64 1820, !4, i64 1824, !4, i64 1828, !4, i64 1832, !4, i64 1836, !31, i64 1840, !31, i64 1848, !31, i64 1856, !31, i64 1864, !31, i64 1872, !31, i64 1880, !31, i64 1888, !31, i64 1896, !31, i64 1904, !31, i64 1912, !31, i64 1920}
-!18 = !{!"p2 _ZTS17Map_NodeStruct_t_", !19, i64 0}
-!19 = !{!"any pointer", !5, i64 0}
-!20 = !{!"p1 _ZTS17Map_NodeStruct_t_", !19, i64 0}
-!21 = !{!"p1 _ZTS20Map_NodeVecStruct_t_", !19, i64 0}
-!22 = !{!"p1 float", !19, i64 0}
-!23 = !{!"p2 omnipotent char", !19, i64 0}
-!24 = !{!"p1 _ZTS17Map_TimeStruct_t_", !19, i64 0}
-!25 = !{!"p1 int", !19, i64 0}
-!26 = !{!"float", !5, i64 0}
-!27 = !{!"p1 _ZTS21Map_SuperLibStruct_t_", !19, i64 0}
-!28 = !{!"p1 _ZTS16Extra_MmFixed_t_", !19, i64 0}
-!29 = !{!"p1 short", !19, i64 0}
-!30 = !{!"p1 omnipotent char", !19, i64 0}
-!31 = !{!"long", !5, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"short", !5, i64 0}
-!34 = !{!17, !23, i64 1800}
-!35 = !{!30, !30, i64 0}
-!36 = !{!17, !30, i64 1808}
-!37 = distinct !{!37, !8, !9}
-!38 = distinct !{!38, !8, !9}
-!39 = distinct !{!39, !8, !9}
-!40 = distinct !{!40, !8, !9}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = !{!16, !28, i64 1792}
+!16 = !{!"Map_ManStruct_t_", !17, i64 0, !4, i64 8, !17, i64 16, !4, i64 24, !17, i64 32, !4, i64 40, !4, i64 44, !19, i64 48, !20, i64 56, !20, i64 64, !21, i64 72, !22, i64 80, !23, i64 88, !23, i64 96, !24, i64 104, !4, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !25, i64 128, !25, i64 132, !25, i64 136, !25, i64 140, !4, i64 144, !4, i64 148, !25, i64 152, !4, i64 156, !4, i64 160, !4, i64 164, !4, i64 168, !26, i64 176, !5, i64 184, !5, i64 232, !5, i64 1512, !5, i64 1640, !20, i64 1768, !27, i64 1776, !27, i64 1784, !28, i64 1792, !22, i64 1800, !29, i64 1808, !4, i64 1816, !4, i64 1820, !4, i64 1824, !4, i64 1828, !4, i64 1832, !4, i64 1836, !30, i64 1840, !30, i64 1848, !30, i64 1856, !30, i64 1864, !30, i64 1872, !30, i64 1880, !30, i64 1888, !30, i64 1896, !30, i64 1904, !30, i64 1912, !30, i64 1920}
+!17 = !{!"p2 _ZTS17Map_NodeStruct_t_", !18, i64 0}
+!18 = !{!"any pointer", !5, i64 0}
+!19 = !{!"p1 _ZTS17Map_NodeStruct_t_", !18, i64 0}
+!20 = !{!"p1 _ZTS20Map_NodeVecStruct_t_", !18, i64 0}
+!21 = !{!"p1 float", !18, i64 0}
+!22 = !{!"p2 omnipotent char", !18, i64 0}
+!23 = !{!"p1 _ZTS17Map_TimeStruct_t_", !18, i64 0}
+!24 = !{!"p1 int", !18, i64 0}
+!25 = !{!"float", !5, i64 0}
+!26 = !{!"p1 _ZTS21Map_SuperLibStruct_t_", !18, i64 0}
+!27 = !{!"p1 _ZTS16Extra_MmFixed_t_", !18, i64 0}
+!28 = !{!"p1 short", !18, i64 0}
+!29 = !{!"p1 omnipotent char", !18, i64 0}
+!30 = !{!"long", !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"short", !5, i64 0}
+!33 = !{!16, !22, i64 1800}
+!34 = !{!29, !29, i64 0}
+!35 = !{!16, !29, i64 1808}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !8}
+!38 = distinct !{!38, !8}
+!39 = distinct !{!39, !8}

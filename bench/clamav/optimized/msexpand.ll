@@ -56,14 +56,24 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %26
 
-26:                                               ; preds = %129, %24
-  %.0162 = phi ptr [ null, %24 ], [ %.3165, %129 ]
-  %.0158 = phi i32 [ 4080, %24 ], [ %.1159.lcssa, %129 ]
-  %.0148 = phi i32 [ 0, %24 ], [ %.3151, %129 ]
-  %.0142 = phi i32 [ 0, %24 ], [ %.1143.lcssa, %129 ]
-  %.0134 = phi i32 [ 0, %24 ], [ %.3137, %129 ]
-  %.0128 = phi i32 [ 0, %24 ], [ %.1129.lcssa, %129 ]
-  %.0126 = phi i64 [ 14, %24 ], [ %.3, %129 ]
+.loopexit278:                                     ; preds = %87, %72, %45, %.loopexit
+  %.0162.ph = phi ptr [ %.5167, %.loopexit ], [ %.2164249, %45 ], [ %.2164249, %72 ], [ %.6168, %87 ]
+  %.0158.ph = phi i32 [ %.2160, %.loopexit ], [ %.1159250, %45 ], [ %.1159250, %72 ], [ %.1159250, %87 ]
+  %.0148.ph = phi i32 [ %.2150, %.loopexit ], [ %.2150256, %45 ], [ %.2150256, %72 ], [ %.6140, %87 ]
+  %.0142.ph = phi i32 [ %.3145, %.loopexit ], [ %.1143251, %45 ], [ %.1143251, %72 ], [ %.1143251, %87 ]
+  %.0134.ph = phi i32 [ %.5139, %.loopexit ], [ 0, %45 ], [ 0, %72 ], [ 0, %87 ]
+  %.0128.ph = phi i32 [ %.3131, %.loopexit ], [ %.1129253, %45 ], [ %.1129253, %72 ], [ %.1129253, %87 ]
+  %.0126.ph = phi i64 [ %.5, %.loopexit ], [ %.2255, %45 ], [ %.2255, %72 ], [ %.6, %87 ]
+  br label %26
+
+26:                                               ; preds = %.loopexit278, %24
+  %.0162 = phi ptr [ null, %24 ], [ %.0162.ph, %.loopexit278 ]
+  %.0158 = phi i32 [ 4080, %24 ], [ %.0158.ph, %.loopexit278 ]
+  %.0148 = phi i32 [ 0, %24 ], [ %.0148.ph, %.loopexit278 ]
+  %.0142 = phi i32 [ 0, %24 ], [ %.0142.ph, %.loopexit278 ]
+  %.0134 = phi i32 [ 0, %24 ], [ %.0134.ph, %.loopexit278 ]
+  %.0128 = phi i32 [ 0, %24 ], [ %.0128.ph, %.loopexit278 ]
+  %.0126 = phi i64 [ 14, %24 ], [ %.0126.ph, %.loopexit278 ]
   %.not198 = icmp eq i32 %.0134, 0
   %27 = icmp eq i32 %.0148, %.0134
   %or.cond = select i1 %.not198, i1 true, i1 %27
@@ -75,7 +85,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %spec.select223 = call i64 @llvm.umin.i64(i64 %30, i64 2048)
   %spec.select = trunc nuw nsw i64 %spec.select223 to i32
   %.not199 = icmp eq i64 %29, %.0126
-  br i1 %.not199, label %130, label %31
+  br i1 %.not199, label %129, label %31
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %7, align 8, !tbaa !23
@@ -123,7 +133,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %spec.select216224 = call i64 @llvm.umin.i64(i64 %47, i64 2048)
   %spec.select216 = trunc nuw nsw i64 %spec.select216224 to i32
   %.not212 = icmp eq i64 %46, %.2255
-  br i1 %.not212, label %129, label %48
+  br i1 %.not212, label %.loopexit278, label %48
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %7, align 8, !tbaa !23
@@ -180,7 +190,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %spec.select218225 = call i64 @llvm.umin.i64(i64 %74, i64 2048)
   %spec.select218 = trunc nuw nsw i64 %spec.select218225 to i32
   %.not205 = icmp eq i64 %73, %.2255
-  br i1 %.not205, label %129, label %75
+  br i1 %.not205, label %.loopexit278, label %75
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %7, align 8, !tbaa !23
@@ -211,7 +221,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %spec.select219226 = call i64 @llvm.umin.i64(i64 %89, i64 2048)
   %spec.select219 = trunc nuw nsw i64 %spec.select219226 to i32
   %.not207 = icmp eq i64 %88, %.6
-  br i1 %.not207, label %129, label %90
+  br i1 %.not207, label %.loopexit278, label %90
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %7, align 8, !tbaa !23
@@ -278,7 +288,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %124 = and i32 %123, 4095
   %125 = add nsw i32 %105, -1
   %.not209 = icmp eq i32 %105, 0
-  br i1 %.not209, label %.loopexit, label %104, !llvm.loop !33
+  br i1 %.not209, label %.loopexit, label %104
 
 .loopexit:                                        ; preds = %112, %60
   %.5167 = phi ptr [ %.4166, %60 ], [ %.7169, %112 ]
@@ -293,34 +303,24 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %128 = add nuw nsw i8 %.0127254, 1
   %.2150 = add i32 %.5153.in, 1
   %exitcond.not = icmp eq i8 %128, 8
-  br i1 %exitcond.not, label %129, label %41, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit278, label %41
 
-129:                                              ; preds = %87, %72, %45, %.loopexit
-  %.1159.lcssa = phi i32 [ %.1159250, %87 ], [ %.1159250, %72 ], [ %.1159250, %45 ], [ %.2160, %.loopexit ]
-  %.1143.lcssa = phi i32 [ %.1143251, %87 ], [ %.1143251, %72 ], [ %.1143251, %45 ], [ %.3145, %.loopexit ]
-  %.1129.lcssa = phi i32 [ %.1129253, %87 ], [ %.1129253, %72 ], [ %.1129253, %45 ], [ %.3131, %.loopexit ]
-  %.3165 = phi ptr [ %.6168, %87 ], [ %.2164249, %72 ], [ %.2164249, %45 ], [ %.5167, %.loopexit ]
-  %.3151 = phi i32 [ %.6140, %87 ], [ %.2150256, %72 ], [ %.2150256, %45 ], [ %.2150, %.loopexit ]
-  %.3137 = phi i32 [ 0, %87 ], [ 0, %72 ], [ 0, %45 ], [ %.5139, %.loopexit ]
-  %.3 = phi i64 [ %.6, %87 ], [ %.2255, %72 ], [ %.2255, %45 ], [ %.5, %.loopexit ]
-  br label %26, !llvm.loop !36
-
-130:                                              ; preds = %28
+129:                                              ; preds = %28
   %.not200 = icmp eq i32 %.0142, 0
-  br i1 %.not200, label %.loopexit227, label %131
+  br i1 %.not200, label %.loopexit227, label %130
 
-131:                                              ; preds = %130
-  %132 = zext i32 %.0142 to i64
-  %133 = call i64 @cli_writen(i32 noundef %1, ptr noundef nonnull %4, i64 noundef %132) #5
-  %134 = icmp ne i64 %133, -1
-  %135 = trunc i64 %133 to i32
-  %.not201 = icmp eq i32 %.0142, %135
-  %or.cond221 = select i1 %134, i1 %.not201, i1 false
+130:                                              ; preds = %129
+  %131 = zext i32 %.0142 to i64
+  %132 = call i64 @cli_writen(i32 noundef %1, ptr noundef nonnull %4, i64 noundef %131) #5
+  %133 = icmp ne i64 %132, -1
+  %134 = trunc i64 %132 to i32
+  %.not201 = icmp eq i32 %.0142, %134
+  %or.cond221 = select i1 %133, i1 %.not201, i1 false
   %spec.select222 = select i1 %or.cond221, i32 0, i32 14
   br label %.loopexit227
 
-.loopexit227:                                     ; preds = %31, %90, %75, %58, %55, %48, %110, %107, %131, %130, %19, %2, %18
-  %.0 = phi i32 [ 26, %18 ], [ 12, %2 ], [ 0, %19 ], [ 0, %130 ], [ %spec.select222, %131 ], [ 0, %110 ], [ 14, %107 ], [ 12, %90 ], [ 12, %75 ], [ 0, %58 ], [ 14, %55 ], [ 12, %48 ], [ 12, %31 ]
+.loopexit227:                                     ; preds = %31, %90, %75, %58, %55, %48, %110, %107, %130, %129, %19, %2, %18
+  %.0 = phi i32 [ 26, %18 ], [ 12, %2 ], [ 0, %19 ], [ 0, %129 ], [ %spec.select222, %130 ], [ 0, %110 ], [ 14, %107 ], [ 12, %90 ], [ 12, %75 ], [ 0, %58 ], [ 14, %55 ], [ 12, %48 ], [ 12, %31 ]
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #5
   ret i32 %.0
@@ -386,7 +386,3 @@ attributes #5 = { nounwind }
 !30 = !{!26, !14, i64 10}
 !31 = !{!24, !12, i64 88}
 !32 = !{!7, !7, i64 0}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !34}
-!36 = distinct !{!36, !34}

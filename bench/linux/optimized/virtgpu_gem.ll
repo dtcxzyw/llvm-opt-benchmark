@@ -451,7 +451,7 @@ define dso_local ptr @virtio_gpu_array_from_handles(ptr noundef %0, ptr noundef 
 39:                                               ; preds = %15
   %40 = add nuw nsw i64 %16, 1
   %41 = icmp eq i64 %40, %4
-  br i1 %41, label %.loopexit11, label %15, !llvm.loop !22
+  br i1 %41, label %.loopexit11, label %15, !llvm.loop !21
 
 .loopexit11:                                      ; preds = %39, %9
   store i32 %2, ptr %10, align 8
@@ -507,7 +507,7 @@ define dso_local void @virtio_gpu_array_put_free(ptr noundef %0) local_unnamed_a
   %22 = load i32, ptr %4, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %21, %23
-  br i1 %24, label %9, label %.loopexit, !llvm.loop !23
+  br i1 %24, label %9, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %3
   tail call void @kfree(ptr noundef nonnull %0) #6
@@ -551,7 +551,7 @@ define dso_local i32 @virtio_gpu_array_lock_resv(ptr noundef %0) local_unnamed_a
   %21 = load i32, ptr %2, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %20, %22
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !24
+  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .preheader:                                       ; preds = %16, %19
   %24 = phi i64 [ %20, %19 ], [ 0, %16 ]
@@ -638,7 +638,7 @@ define dso_local void @virtio_gpu_array_add_fence(ptr noundef readonly captures(
   %15 = add nuw i32 %9, 1
   %16 = load i32, ptr %3, align 8
   %17 = icmp ult i32 %15, %16
-  br i1 %17, label %8, label %.loopexit, !llvm.loop !25
+  br i1 %17, label %8, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %8, %2
   ret void
@@ -731,7 +731,7 @@ define dso_local void @virtio_gpu_array_put_free_work(ptr noundef %0) local_unna
   %32 = load i32, ptr %14, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %31, %33
-  br i1 %34, label %19, label %.loopexit, !llvm.loop !26
+  br i1 %34, label %19, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %13
   tail call void @kfree(ptr noundef nonnull %7) #6
@@ -741,7 +741,7 @@ define dso_local void @virtio_gpu_array_put_free_work(ptr noundef %0) local_unna
   tail call void @_raw_spin_lock(ptr noundef %2) #6
   %36 = load volatile ptr, ptr %3, align 8
   %37 = icmp eq ptr %36, %3
-  br i1 %37, label %.loopexit6, label %.preheader, !llvm.loop !27
+  br i1 %37, label %.loopexit6, label %.preheader, !llvm.loop !24
 
 .loopexit6:                                       ; preds = %35, %1
   tail call void @_raw_spin_unlock(ptr noundef %2) #6
@@ -817,13 +817,10 @@ attributes #8 = { nounwind allocsize(0) }
 !15 = !{i64 2156063558, i64 2156063367, i64 2156063419, i64 2156063465, i64 2156063493}
 !16 = !{i64 2156063632, i64 2156063661, i64 2156063707, i64 2156063765, i64 2156063819, i64 2156063873, i64 2156063928, i64 2156063959, i64 2156064267, i64 2156064273, i64 2156064320, i64 2156064343, i64 2156064369}
 !17 = !{i64 2156064838, i64 2156064649, i64 2156064699, i64 2156064745, i64 2156064773}
-!18 = distinct !{!18, !19, !20, !21}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = !{!"llvm.loop.unroll.disable"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !19, !20, !21}
-!23 = distinct !{!23, !19, !20, !21}
-!24 = distinct !{!24, !19, !20, !21}
-!25 = distinct !{!25, !19, !20, !21}
-!26 = distinct !{!26, !19, !20, !21}
-!27 = distinct !{!27, !19, !20, !21}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}
+!24 = distinct !{!24, !19, !20}

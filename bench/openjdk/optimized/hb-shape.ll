@@ -42,7 +42,7 @@ define hidden ptr @hb_shape_list_shapers() local_unnamed_addr #0 {
 _ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1_.exit.i.i: ; preds = %12, %.thread.i.i
   %13 = load atomic i64, ptr @_ZL18static_shaper_list acquire, align 8
   %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %.split.loop.exit16.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %.split.loop.exit16.i.i
 
 .split.loop.exit16.i.i:                           ; preds = %_ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1_.exit.i.i, %0
   %.lcssa.i.i = phi i64 [ %1, %0 ], [ %13, %_ZN16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E10do_destroyEPS1_.exit.i.i ]
@@ -189,5 +189,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -291,7 +291,7 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   %122 = load ptr, ptr %100, align 8, !tbaa !44
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 192
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %125 = load ptr, ptr %124, align 8, !tbaa !56
+  %125 = load ptr, ptr %124, align 8, !tbaa !55
   %126 = call i32 @av_dict_set(ptr noundef nonnull %123, ptr noundef nonnull @.str.2, ptr noundef %125, i32 noundef 0) #9
   br label %._crit_edge.thread
 
@@ -309,14 +309,14 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   br i1 %.not132, label %136, label %198
 
 136:                                              ; preds = %._crit_edge.thread
-  %137 = load ptr, ptr %129, align 8, !tbaa !58
+  %137 = load ptr, ptr %129, align 8, !tbaa !57
   %138 = call i32 @ffurl_get_file_handle(ptr noundef %137) #9
   %139 = call i32 @getsockname(i32 noundef %138, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
   %.not133 = icmp eq i32 %139, 0
   br i1 %.not133, label %140, label %198
 
 140:                                              ; preds = %136
-  %141 = load i16, ptr %8, align 8, !tbaa !60
+  %141 = load i16, ptr %8, align 8, !tbaa !59
   %142 = and i16 %141, -9
   %or.cond5.not = icmp eq i16 %142, 2
   br i1 %or.cond5.not, label %144, label %143
@@ -327,15 +327,15 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 8192, ptr %145, align 8, !tbaa !63
+  store i32 8192, ptr %145, align 8, !tbaa !62
   %146 = call noalias ptr @av_mallocz(i64 noundef 8192) #9
-  store ptr %146, ptr %15, align 8, !tbaa !64
+  store ptr %146, ptr %15, align 8, !tbaa !63
   %.not134 = icmp eq ptr %146, null
   br i1 %.not134, label %198, label %147
 
 147:                                              ; preds = %144
   store i8 32, ptr %146, align 1, !tbaa !29
-  %148 = load i16, ptr %8, align 8, !tbaa !60
+  %148 = load i16, ptr %8, align 8, !tbaa !59
   %149 = icmp eq i16 %148, 10
   %spec.store.select = select i1 %149, i8 48, i8 32
   store i8 %spec.store.select, ptr %146, align 1
@@ -344,12 +344,12 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   %151 = call i32 @av_get_random_seed() #9
   %152 = trunc i32 %151 to i16
   %153 = call i16 @llvm.bswap.i16(i16 %152)
-  %154 = load ptr, ptr %15, align 8, !tbaa !64
+  %154 = load ptr, ptr %15, align 8, !tbaa !63
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 2
   store i16 %153, ptr %155, align 1, !tbaa !29
-  %156 = load i16, ptr %8, align 8, !tbaa !60
+  %156 = load i16, ptr %8, align 8, !tbaa !59
   %157 = icmp eq i16 %156, 2
-  %158 = load ptr, ptr %15, align 8, !tbaa !64
+  %158 = load ptr, ptr %15, align 8, !tbaa !63
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   br i1 %157, label %160, label %163
 
@@ -366,14 +366,14 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
 
 165:                                              ; preds = %163, %160
   %.0113 = phi i32 [ 8, %160 ], [ 20, %163 ]
-  %166 = load ptr, ptr %15, align 8, !tbaa !64
+  %166 = load ptr, ptr %15, align 8, !tbaa !63
   %167 = zext nneg i32 %.0113 to i64
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 %167
-  %169 = load i32, ptr %145, align 8, !tbaa !63
+  %169 = load i32, ptr %145, align 8, !tbaa !62
   %170 = sub nsw i32 %169, %.0113
   %171 = sext i32 %170 to i64
   %172 = call i64 @av_strlcpy(ptr noundef nonnull %168, ptr noundef nonnull @.str.16, i64 noundef %171) #9
-  %173 = load ptr, ptr %15, align 8, !tbaa !64
+  %173 = load ptr, ptr %15, align 8, !tbaa !63
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 %167
   %175 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #10
   %176 = trunc i64 %175 to i32
@@ -382,7 +382,7 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
   %179 = load i32, ptr %64, align 4, !tbaa !35
   %180 = sext i32 %178 to i64
   %181 = getelementptr inbounds i8, ptr %173, i64 %180
-  %182 = load i32, ptr %145, align 8, !tbaa !63
+  %182 = load i32, ptr %145, align 8, !tbaa !62
   %183 = sub nsw i32 %182, %178
   %184 = call i32 @av_sdp_create(ptr noundef nonnull %127, i32 noundef %179, ptr noundef %181, i32 noundef %183) #9
   %.not135 = icmp eq i32 %184, 0
@@ -390,18 +390,18 @@ define internal range(i32 -2147483648, 1) i32 @sap_write_header(ptr noundef %0) 
 
 185:                                              ; preds = %165
   call void @av_freep(ptr noundef nonnull %7) #9
-  %186 = load ptr, ptr %15, align 8, !tbaa !64
+  %186 = load ptr, ptr %15, align 8, !tbaa !63
   %187 = getelementptr inbounds i8, ptr %186, i64 %180
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.17, ptr noundef %187) #9
-  %188 = load ptr, ptr %15, align 8, !tbaa !64
+  %188 = load ptr, ptr %15, align 8, !tbaa !63
   %189 = getelementptr inbounds i8, ptr %188, i64 %180
   %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %189) #10
   %191 = trunc i64 %190 to i32
   %192 = add i32 %178, %191
-  store i32 %192, ptr %145, align 8, !tbaa !63
-  %193 = load ptr, ptr %129, align 8, !tbaa !58
+  store i32 %192, ptr %145, align 8, !tbaa !62
+  %193 = load ptr, ptr %129, align 8, !tbaa !57
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 36
-  %195 = load i32, ptr %194, align 4, !tbaa !65
+  %195 = load i32, ptr %194, align 4, !tbaa !64
   %196 = icmp sgt i32 %192, %195
   br i1 %196, label %197, label %201
 
@@ -435,7 +435,7 @@ define internal i32 @sap_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = tail call i64 @av_gettime_relative() #9
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !68
+  %7 = load i64, ptr %6, align 8, !tbaa !67
   %.not = icmp eq i64 %7, 0
   %8 = sub nsw i64 %5, %7
   %9 = icmp sgt i64 %8, 5000000
@@ -444,10 +444,10 @@ define internal i32 @sap_write_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !58
-  %13 = load ptr, ptr %4, align 8, !tbaa !64
+  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %13 = load ptr, ptr %4, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !63
+  %15 = load i32, ptr %14, align 8, !tbaa !62
   %16 = tail call i32 @ffurl_write2(ptr noundef %12, ptr noundef %13, i32 noundef %15) #9
   %17 = icmp sgt i32 %16, -1
   %18 = icmp eq i32 %16, -111
@@ -455,14 +455,14 @@ define internal i32 @sap_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond.not, label %19, label %.critedge
 
 19:                                               ; preds = %10
-  store i64 %5, ptr %6, align 8, !tbaa !68
+  store i64 %5, ptr %6, align 8, !tbaa !67
   br label %20
 
 20:                                               ; preds = %19, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %24 = load i32, ptr %23, align 4, !tbaa !69
+  %24 = load i32, ptr %23, align 4, !tbaa !68
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !40
@@ -520,22 +520,22 @@ define internal noundef i32 @sap_write_close(ptr noundef readonly captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = zext i32 %23 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %7, label %._crit_edge, !llvm.loop !70
+  br i1 %26, label %7, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %22, %1
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !68
+  %28 = load i64, ptr %27, align 8, !tbaa !67
   %.not = icmp eq i64 %28, 0
   br i1 %.not, label %42, label %29
 
 29:                                               ; preds = %._crit_edge
-  %30 = load ptr, ptr %3, align 8, !tbaa !64
+  %30 = load ptr, ptr %3, align 8, !tbaa !63
   %.not22 = icmp eq ptr %30, null
   br i1 %.not22, label %42, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !58
+  %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not23 = icmp eq ptr %33, null
   br i1 %.not23, label %42, label %34
 
@@ -543,10 +543,10 @@ define internal noundef i32 @sap_write_close(ptr noundef readonly captures(none)
   %35 = load i8, ptr %30, align 1, !tbaa !29
   %36 = or i8 %35, 4
   store i8 %36, ptr %30, align 1, !tbaa !29
-  %37 = load ptr, ptr %32, align 8, !tbaa !58
-  %38 = load ptr, ptr %3, align 8, !tbaa !64
+  %37 = load ptr, ptr %32, align 8, !tbaa !57
+  %38 = load ptr, ptr %3, align 8, !tbaa !63
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !63
+  %40 = load i32, ptr %39, align 8, !tbaa !62
   %41 = tail call i32 @ffurl_write2(ptr noundef %37, ptr noundef %38, i32 noundef %40) #9
   br label %42
 
@@ -713,21 +713,20 @@ attributes #10 = { nounwind willreturn memory(read) }
 !50 = !{!"AVPacket", !51, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !52, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !51, i64 88, !49, i64 96}
 !51 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !52 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!57, !18, i64 8}
-!57 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
-!58 = !{!59, !43, i64 16}
-!59 = !{!"SAPState", !18, i64 0, !13, i64 8, !43, i64 16, !19, i64 24}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"sockaddr_storage", !62, i64 0, !8, i64 2, !19, i64 120}
-!62 = !{!"short", !8, i64 0}
-!63 = !{!59, !13, i64 8}
-!64 = !{!59, !18, i64 0}
-!65 = !{!66, !13, i64 36}
-!66 = !{!"URLContext", !6, i64 0, !67, i64 8, !7, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !22, i64 48, !19, i64 64, !18, i64 72, !18, i64 80, !13, i64 88}
-!67 = !{!"p1 _ZTS11URLProtocol", !7, i64 0}
-!68 = !{!59, !19, i64 24}
-!69 = !{!50, !13, i64 36}
-!70 = distinct !{!70, !54, !55}
+!55 = !{!56, !18, i64 8}
+!56 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
+!57 = !{!58, !43, i64 16}
+!58 = !{!"SAPState", !18, i64 0, !13, i64 8, !43, i64 16, !19, i64 24}
+!59 = !{!60, !61, i64 0}
+!60 = !{!"sockaddr_storage", !61, i64 0, !8, i64 2, !19, i64 120}
+!61 = !{!"short", !8, i64 0}
+!62 = !{!58, !13, i64 8}
+!63 = !{!58, !18, i64 0}
+!64 = !{!65, !13, i64 36}
+!65 = !{!"URLContext", !6, i64 0, !66, i64 8, !7, i64 16, !18, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !22, i64 48, !19, i64 64, !18, i64 72, !18, i64 80, !13, i64 88}
+!66 = !{!"p1 _ZTS11URLProtocol", !7, i64 0}
+!67 = !{!58, !19, i64 24}
+!68 = !{!50, !13, i64 36}
+!69 = distinct !{!69, !54}

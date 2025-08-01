@@ -36,7 +36,7 @@ define noalias noundef ptr @Mpm_LibLutSetSimple(i32 noundef %0) local_unnamed_ad
 12:                                               ; preds = %10
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
-  br i1 %exitcond22.not, label %._crit_edge, label %7, !llvm.loop !14
+  br i1 %exitcond22.not, label %._crit_edge, label %7, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12, %1
   ret ptr %2
@@ -51,7 +51,7 @@ define void @Mpm_LibLutFree(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -90,8 +90,7 @@ attributes #5 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!9, !9, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!4, !5, i64 0}
+!13 = distinct !{!13, !12}
+!14 = !{!4, !5, i64 0}

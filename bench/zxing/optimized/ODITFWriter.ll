@@ -211,7 +211,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbE
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #9
   %87 = add nuw nsw i64 %.04166, 2
   %88 = icmp ult i64 %87, %9
-  br i1 %88, label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader, label %49, !llvm.loop !24
+  br i1 %88, label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader, label %49, !llvm.loop !23
 
 89:                                               ; preds = %75
   %90 = landingpad { ptr, i32 }
@@ -220,14 +220,14 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbE
   br label %103
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit: ; preds = %49
-  %91 = load i32, ptr %1, align 4, !tbaa !25
+  %91 = load i32, ptr %1, align 4, !tbaa !24
   %92 = icmp sgt i32 %91, -1
   %spec.select = select i1 %92, i32 %91, i32 10
   invoke void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %3, i32 noundef %4, i32 noundef %spec.select)
           to label %93 unwind label %51
 
 93:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
-  %94 = load ptr, ptr %6, align 8, !tbaa !27
+  %94 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %95
 
@@ -248,7 +248,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %93, %95
 
 103:                                              ; preds = %64, %66, %89, %51
   %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %67, %66 ], [ %65, %64 ], [ %90, %89 ]
-  %104 = load ptr, ptr %6, align 8, !tbaa !27
+  %104 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i.i52 = icmp eq ptr %104, null
   br i1 %.not.i.i52, label %.body, label %105
 
@@ -305,9 +305,9 @@ declare void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(
 define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr dead_on_unwind noalias writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
-  %7 = load ptr, ptr %2, align 8, !tbaa !28
+  %7 = load ptr, ptr %2, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !32
+  %9 = load i64, ptr %8, align 8, !tbaa !31
   call void @_ZN5ZXing8FromUtf8B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i64 %9, ptr %7)
   invoke void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %3, i32 noundef %4)
           to label %10 unwind label %20
@@ -326,7 +326,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i: ; preds = %10
-  %17 = load i64, ptr %12, align 8, !tbaa !33
+  %17 = load i64, ptr %12, align 8, !tbaa !32
   %18 = shl i64 %17, 2
   %19 = add i64 %18, 4
   call void @_ZdlPvm(ptr noundef %11, i64 noundef %19) #12
@@ -352,7 +352,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit7
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i5: ; preds = %20
-  %28 = load i64, ptr %23, align 8, !tbaa !33
+  %28 = load i64, ptr %23, align 8, !tbaa !32
   %29 = shl i64 %28, 2
   %30 = add i64 %29, 4
   call void @_ZdlPvm(ptr noundef %22, i64 noundef %30) #12
@@ -414,16 +414,15 @@ attributes #12 = { builtin nounwind }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"wchar_t", !8, i64 0}
 !20 = !{!16, !16, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = !{!26, !16, i64 0}
-!26 = !{!"_ZTSN5ZXing4OneD9ITFWriterE", !16, i64 0}
-!27 = !{!14, !15, i64 0}
-!28 = !{!29, !31, i64 0}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !10, i64 8, !8, i64 16}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !31, i64 0}
-!31 = !{!"p1 omnipotent char", !7, i64 0}
-!32 = !{!29, !10, i64 8}
-!33 = !{!8, !8, i64 0}
+!23 = distinct !{!23, !22}
+!24 = !{!25, !16, i64 0}
+!25 = !{!"_ZTSN5ZXing4OneD9ITFWriterE", !16, i64 0}
+!26 = !{!14, !15, i64 0}
+!27 = !{!28, !30, i64 0}
+!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !10, i64 8, !8, i64 16}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !30, i64 0}
+!30 = !{!"p1 omnipotent char", !7, i64 0}
+!31 = !{!28, !10, i64 8}
+!32 = !{!8, !8, i64 0}

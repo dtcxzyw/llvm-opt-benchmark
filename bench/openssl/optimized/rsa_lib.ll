@@ -403,7 +403,7 @@ define zeroext range(i16 0, 1201) i16 @ossl_ifc_ffc_compute_security_bits(i32 no
   %.2.i = add i32 %21, %.123.i
   %22 = lshr i32 %.01322.i, 1
   %.not.i = icmp samesign ult i32 %.01322.i, 2
-  br i1 %.not.i, label %ilog_e.exit, label %.preheader.i, !llvm.loop !47
+  br i1 %.not.i, label %ilog_e.exit, label %.preheader.i, !llvm.loop !46
 
 ilog_e.exit:                                      ; preds = %.preheader.i
   %23 = zext i32 %.2.i to i64
@@ -432,7 +432,7 @@ ilog_e.exit:                                      ; preds = %.preheader.i
   %.1.i = add i64 %36, %.01319.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
   %37 = icmp samesign ugt i64 %indvars.iv.i, 2
-  br i1 %37, label %30, label %icbrt64.exit, !llvm.loop !48
+  br i1 %37, label %30, label %icbrt64.exit, !llvm.loop !47
 
 icbrt64.exit:                                     ; preds = %30
   %38 = icmp samesign ult i32 %0, 7681
@@ -460,7 +460,7 @@ define range(i32 0, 1201) i32 @RSA_security_bits(ptr noundef readonly captures(n
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = tail call i32 @BN_num_bits(ptr noundef %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !49
+  %6 = load i32, ptr %5, align 8, !tbaa !48
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %.critedge
 
@@ -539,9 +539,9 @@ define range(i32 0, 2) i32 @RSA_set0_key(ptr noundef captures(none) %0, ptr noun
 
 23:                                               ; preds = %20, %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %25 = load i32, ptr %24, align 8, !tbaa !50
+  %25 = load i32, ptr %24, align 8, !tbaa !49
   %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %24, align 8, !tbaa !50
+  store i32 %26, ptr %24, align 8, !tbaa !49
   br label %27
 
 27:                                               ; preds = %4, %9, %23
@@ -589,9 +589,9 @@ define range(i32 0, 2) i32 @RSA_set0_factors(ptr noundef captures(none) %0, ptr 
 
 18:                                               ; preds = %16, %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %20 = load i32, ptr %19, align 8, !tbaa !50
+  %20 = load i32, ptr %19, align 8, !tbaa !49
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %19, align 8, !tbaa !50
+  store i32 %21, ptr %19, align 8, !tbaa !49
   br label %22
 
 22:                                               ; preds = %3, %8, %18
@@ -655,9 +655,9 @@ define range(i32 0, 2) i32 @RSA_set0_crt_params(ptr noundef captures(none) %0, p
 
 27:                                               ; preds = %25, %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %29 = load i32, ptr %28, align 8, !tbaa !50
+  %29 = load i32, ptr %28, align 8, !tbaa !49
   %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %28, align 8, !tbaa !50
+  store i32 %30, ptr %28, align 8, !tbaa !49
   br label %31
 
 31:                                               ; preds = %4, %9, %14, %27
@@ -700,46 +700,46 @@ define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %21 = load ptr, ptr %20, align 8, !tbaa !50
   %.not62 = icmp eq ptr %21, null
   br i1 %.not62, label %40, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %.not63 = icmp eq ptr %24, null
   br i1 %.not63, label %40, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %27 = load ptr, ptr %26, align 8, !tbaa !50
   %.not64 = icmp eq ptr %27, null
   br i1 %.not64, label %40, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %17, align 8, !tbaa !52
+  %29 = load ptr, ptr %17, align 8, !tbaa !51
   tail call void @BN_clear_free(ptr noundef %29) #11
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !54
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
   tail call void @BN_clear_free(ptr noundef %31) #11
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !55
+  %33 = load ptr, ptr %32, align 8, !tbaa !54
   tail call void @BN_clear_free(ptr noundef %33) #11
-  %34 = load ptr, ptr %20, align 8, !tbaa !51
-  store ptr %34, ptr %17, align 8, !tbaa !52
-  %35 = load ptr, ptr %23, align 8, !tbaa !51
-  store ptr %35, ptr %30, align 8, !tbaa !54
-  %36 = load ptr, ptr %26, align 8, !tbaa !51
-  store ptr %36, ptr %32, align 8, !tbaa !55
+  %34 = load ptr, ptr %20, align 8, !tbaa !50
+  store ptr %34, ptr %17, align 8, !tbaa !51
+  %35 = load ptr, ptr %23, align 8, !tbaa !50
+  store ptr %35, ptr %30, align 8, !tbaa !53
+  %36 = load ptr, ptr %26, align 8, !tbaa !50
+  store ptr %36, ptr %32, align 8, !tbaa !54
   tail call void @BN_set_flags(ptr noundef %34, i32 noundef 4) #11
-  %37 = load ptr, ptr %30, align 8, !tbaa !54
+  %37 = load ptr, ptr %30, align 8, !tbaa !53
   tail call void @BN_set_flags(ptr noundef %37, i32 noundef 4) #11
-  %38 = load ptr, ptr %32, align 8, !tbaa !55
+  %38 = load ptr, ptr %32, align 8, !tbaa !54
   tail call void @BN_set_flags(ptr noundef %38, i32 noundef 4) #11
   %39 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %11, ptr noundef nonnull %17) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 40:                                               ; preds = %25, %22, %19
   tail call void @ossl_rsa_multip_info_free(ptr noundef nonnull %17) #11
@@ -764,11 +764,11 @@ define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %0, ptr noun
 
 45:                                               ; preds = %44, %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %46, align 8, !tbaa !49
+  store i32 1, ptr %46, align 8, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %48 = load i32, ptr %47, align 8, !tbaa !50
+  %48 = load i32, ptr %47, align 8, !tbaa !49
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !50
+  store i32 %49, ptr %47, align 8, !tbaa !49
   br label %50
 
 .loopexit:                                        ; preds = %.lr.ph, %42, %40
@@ -794,7 +794,7 @@ define void @RSA_get0_key(ptr noundef readonly captures(none) %0, ptr noundef wr
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !32
-  store ptr %7, ptr %1, align 8, !tbaa !51
+  store ptr %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -804,7 +804,7 @@ define void @RSA_get0_key(ptr noundef readonly captures(none) %0, ptr noundef wr
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !33
-  store ptr %11, ptr %2, align 8, !tbaa !51
+  store ptr %11, ptr %2, align 8, !tbaa !50
   br label %12
 
 12:                                               ; preds = %9, %8
@@ -814,7 +814,7 @@ define void @RSA_get0_key(ptr noundef readonly captures(none) %0, ptr noundef wr
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !34
-  store ptr %15, ptr %3, align 8, !tbaa !51
+  store ptr %15, ptr %3, align 8, !tbaa !50
   br label %16
 
 16:                                               ; preds = %13, %12
@@ -829,7 +829,7 @@ define void @RSA_get0_factors(ptr noundef readonly captures(none) %0, ptr nounde
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !35
-  store ptr %6, ptr %1, align 8, !tbaa !51
+  store ptr %6, ptr %1, align 8, !tbaa !50
   br label %7
 
 7:                                                ; preds = %4, %3
@@ -839,7 +839,7 @@ define void @RSA_get0_factors(ptr noundef readonly captures(none) %0, ptr nounde
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !36
-  store ptr %10, ptr %2, align 8, !tbaa !51
+  store ptr %10, ptr %2, align 8, !tbaa !50
   br label %11
 
 11:                                               ; preds = %8, %7
@@ -872,12 +872,12 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_factors(ptr noundef readonly ca
   %7 = load ptr, ptr %3, align 8, !tbaa !41
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %8) #11
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8, !tbaa !51
+  store ptr %10, ptr %11, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %.preheader ]
@@ -892,7 +892,7 @@ define void @RSA_get0_crt_params(ptr noundef readonly captures(none) %0, ptr nou
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !37
-  store ptr %7, ptr %1, align 8, !tbaa !51
+  store ptr %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -902,7 +902,7 @@ define void @RSA_get0_crt_params(ptr noundef readonly captures(none) %0, ptr nou
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !38
-  store ptr %11, ptr %2, align 8, !tbaa !51
+  store ptr %11, ptr %2, align 8, !tbaa !50
   br label %12
 
 12:                                               ; preds = %9, %8
@@ -912,7 +912,7 @@ define void @RSA_get0_crt_params(ptr noundef readonly captures(none) %0, ptr nou
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !tbaa !39
-  store ptr %15, ptr %3, align 8, !tbaa !51
+  store ptr %15, ptr %3, align 8, !tbaa !50
   br label %16
 
 16:                                               ; preds = %13, %12
@@ -946,22 +946,22 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   %12 = trunc nuw nsw i64 %indvars.iv28 to i32
   %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %12) #11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv28
-  store ptr %15, ptr %16, align 8, !tbaa !51
+  store ptr %15, ptr %16, align 8, !tbaa !50
   br i1 %10, label %17, label %21
 
 17:                                               ; preds = %.lr.ph.split.us
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !55
+  %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv28
-  store ptr %19, ptr %20, align 8, !tbaa !51
+  store ptr %19, ptr %20, align 8, !tbaa !50
   br label %21
 
 21:                                               ; preds = %17, %.lr.ph.split.us
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !58
+  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %10, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
@@ -976,12 +976,12 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @OPENSSL_sk_value(ptr noundef %22, i32 noundef %23) #11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  store ptr %26, ptr %27, align 8, !tbaa !51
+  store ptr %26, ptr %27, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !60
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !59
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.021 = phi i32 [ %30, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -989,7 +989,7 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   %29 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.021) #11
   %30 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %30, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %21, %8, %3
   %.017 = phi i32 [ 0, %3 ], [ 1, %8 ], [ 1, %21 ], [ 1, %.lr.ph.split.split.us ], [ 1, %.lr.ph.split.split ]
@@ -1104,7 +1104,7 @@ define void @RSA_set_flags(ptr noundef captures(none) %0, i32 noundef %1) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @RSA_get_version(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !49
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   ret i32 %3
 }
 
@@ -1122,12 +1122,12 @@ define i32 @RSA_pkey_ctx_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
+  %8 = load ptr, ptr %7, align 8, !tbaa !61
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %8, align 8, !tbaa !70
+  %10 = load i32, ptr %8, align 8, !tbaa !69
   switch i32 %10, label %13 [
     i32 6, label %11
     i32 912, label %11
@@ -1197,9 +1197,9 @@ define range(i32 0, 2) i32 @ossl_rsa_set0_all_params(ptr noundef %0, ptr noundef
 
 28:                                               ; preds = %26, %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %30 = load i32, ptr %29, align 8, !tbaa !50
+  %30 = load i32, ptr %29, align 8, !tbaa !49
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %29, align 8, !tbaa !50
+  store i32 %31, ptr %29, align 8, !tbaa !49
   %32 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %1, i32 noundef 0) #11
   %33 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %1, i32 noundef 0) #11
   %34 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #11
@@ -1247,7 +1247,7 @@ define range(i32 0, 2) i32 @ossl_rsa_set0_all_params(ptr noundef %0, ptr noundef
   %or.cond5 = select i1 %58, i1 %59, i1 false
   %60 = icmp ne ptr %57, null
   %spec.select = select i1 %or.cond5, i1 %60, i1 false
-  br i1 %spec.select, label %61, label %.thread, !prof !72
+  br i1 %spec.select, label %61, label %.thread, !prof !71
 
 61:                                               ; preds = %.lr.ph
   %62 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 825) #11
@@ -1255,20 +1255,20 @@ define range(i32 0, 2) i32 @ossl_rsa_set0_all_params(ptr noundef %0, ptr noundef
   br i1 %63, label %.thread, label %64
 
 64:                                               ; preds = %61
-  store ptr %55, ptr %62, align 8, !tbaa !52
+  store ptr %55, ptr %62, align 8, !tbaa !51
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %56, ptr %65, align 8, !tbaa !54
+  store ptr %56, ptr %65, align 8, !tbaa !53
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %57, ptr %66, align 8, !tbaa !55
+  store ptr %57, ptr %66, align 8, !tbaa !54
   tail call void @BN_set_flags(ptr noundef nonnull %55, i32 noundef 4) #11
-  %67 = load ptr, ptr %65, align 8, !tbaa !54
+  %67 = load ptr, ptr %65, align 8, !tbaa !53
   tail call void @BN_set_flags(ptr noundef %67, i32 noundef 4) #11
-  %68 = load ptr, ptr %66, align 8, !tbaa !55
+  %68 = load ptr, ptr %66, align 8, !tbaa !54
   tail call void @BN_set_flags(ptr noundef %68, i32 noundef 4) #11
   %69 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %53, ptr noundef nonnull %62) #11
   %70 = add nuw nsw i32 %.06586, 1
   %exitcond.not = icmp eq i32 %70, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %64
   store ptr %53, ptr %50, align 8, !tbaa !41
@@ -1291,10 +1291,10 @@ define range(i32 0, 2) i32 @ossl_rsa_set0_all_params(ptr noundef %0, ptr noundef
 75:                                               ; preds = %74, %73
   %76 = zext i1 %.not74 to i32
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %76, ptr %77, align 8, !tbaa !49
-  %78 = load i32, ptr %29, align 8, !tbaa !50
+  store i32 %76, ptr %77, align 8, !tbaa !48
+  %78 = load i32, ptr %29, align 8, !tbaa !49
   %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %29, align 8, !tbaa !50
+  store i32 %79, ptr %29, align 8, !tbaa !49
   br label %RSA_set0_factors.exit.thread
 
 .thread:                                          ; preds = %61, %.lr.ph, %72
@@ -1343,17 +1343,17 @@ define range(i32 0, 2) i32 @ossl_rsa_get0_all_params(ptr noundef readonly captur
   %.02426 = phi i32 [ %38, %.lr.ph ], [ 0, %10 ]
   %28 = load ptr, ptr %24, align 8, !tbaa !41
   %29 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.02426) #11
-  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef %30) #11
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !54
+  %33 = load ptr, ptr %32, align 8, !tbaa !53
   %34 = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef %33) #11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !55
+  %36 = load ptr, ptr %35, align 8, !tbaa !54
   %37 = tail call i32 @OPENSSL_sk_push(ptr noundef %3, ptr noundef %36) #11
   %38 = add nuw nsw i32 %.02426, 1
   %exitcond.not = icmp eq i32 %38, %26
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %6, %4
   %.0 = phi i32 [ 0, %4 ], [ 1, %6 ], [ 1, %10 ], [ 1, %.lr.ph ]
@@ -1408,7 +1408,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_factors(ptr noundef readonly captures
   %28 = add nuw nsw i32 %.04554, 1
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #11
   %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph, label %.preheader50, !llvm.loop !75
+  br i1 %30, label %.lr.ph, label %.preheader50, !llvm.loop !74
 
 .preheader50:                                     ; preds = %27, %.preheader52
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #11
@@ -1435,7 +1435,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_factors(ptr noundef readonly captures
   %42 = add nuw nsw i32 %.155, 1
   %43 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #11
   %44 = icmp slt i32 %42, %43
-  br i1 %44, label %.lr.ph56, label %.preheader, !llvm.loop !76
+  br i1 %44, label %.lr.ph56, label %.preheader, !llvm.loop !75
 
 .preheader:                                       ; preds = %41, %.preheader50
   %45 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #11
@@ -1462,7 +1462,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_factors(ptr noundef readonly captures
   %56 = add nuw nsw i32 %.257, 1
   %57 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #11
   %58 = icmp slt i32 %56, %57
-  br i1 %58, label %.lr.ph58, label %.loopexit, !llvm.loop !77
+  br i1 %58, label %.lr.ph58, label %.loopexit, !llvm.loop !76
 
 .lr.ph58:                                         ; preds = %.preheader, %55
   %.257 = phi i32 [ %56, %55 ], [ 0, %.preheader ]
@@ -1495,12 +1495,12 @@ define i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %0, i32 noundef %1) local_u
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit [
     i32 6, label %8
     i32 912, label %8
@@ -1522,12 +1522,12 @@ define i32 @EVP_PKEY_CTX_get_rsa_padding(ptr noundef %0, ptr noundef %1) local_u
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit [
     i32 6, label %8
     i32 912, label %8
@@ -1566,7 +1566,7 @@ define internal fastcc i32 @int_set_rsa_md_name(ptr noundef %0, i32 noundef rang
   br i1 %or.cond, label %17, label %13
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr %0, align 8, !tbaa !78
+  %14 = load i32, ptr %0, align 8, !tbaa !77
   %15 = and i32 %14, %2
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %18
@@ -1601,7 +1601,7 @@ define internal fastcc i32 @int_set_rsa_md_name(ptr noundef %0, i32 noundef rang
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef %3, ptr noundef nonnull %4, i64 noundef 0) #11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !79
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
   %30 = icmp ne ptr %29, null
   %31 = icmp ne ptr %6, null
   %or.cond3 = and i1 %31, %30
@@ -1611,7 +1611,7 @@ define internal fastcc i32 @int_set_rsa_md_name(ptr noundef %0, i32 noundef rang
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #11
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef %5, ptr noundef nonnull %6, i64 noundef 0) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #11
   br label %34
 
@@ -1619,7 +1619,7 @@ define internal fastcc i32 @int_set_rsa_md_name(ptr noundef %0, i32 noundef rang
   %.0 = phi ptr [ %33, %32 ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #11
   %35 = call i32 @evp_pkey_ctx_set_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %8) #11
   br label %36
@@ -1670,7 +1670,7 @@ define internal fastcc i32 @int_get_rsa_md_name(ptr noundef %0, i32 noundef rang
   br i1 %or.cond, label %15, label %11
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr %0, align 8, !tbaa !78
+  %12 = load i32, ptr %0, align 8, !tbaa !77
   %13 = and i32 %12, %2
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
@@ -1706,7 +1706,7 @@ define internal fastcc i32 @int_get_rsa_md_name(ptr noundef %0, i32 noundef rang
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef %3, ptr noundef nonnull %4, i64 noundef %5) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11
   %26 = call i32 @evp_pkey_ctx_get_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %7) #11
   br label %27
@@ -1739,12 +1739,12 @@ define i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef %0, ptr noundef %1) local_u
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit [
     i32 6, label %8
     i32 912, label %8
@@ -1790,12 +1790,12 @@ define i32 @EVP_PKEY_CTX_get_rsa_mgf1_md(ptr noundef %0, ptr noundef %1) local_u
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit [
     i32 6, label %8
     i32 912, label %8
@@ -1819,7 +1819,7 @@ define range(i32 -2147483648, 2) i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr nound
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %0, align 8, !tbaa !78
+  %8 = load i32, ptr %0, align 8, !tbaa !77
   %9 = and i32 %8, 1536
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
@@ -1845,7 +1845,7 @@ define range(i32 -2147483648, 2) i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr nound
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.8, ptr noundef %spec.select, i64 noundef %17) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
   %18 = call i32 @evp_pkey_ctx_set_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %4) #11
   %19 = icmp slt i32 %18, 1
@@ -1885,7 +1885,7 @@ define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noun
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %0, align 8, !tbaa !78
+  %7 = load i32, ptr %0, align 8, !tbaa !77
   %8 = and i32 %7, 1536
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10
@@ -1906,7 +1906,7 @@ define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noun
   call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.8, ptr noundef %1, i64 noundef 0) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
   %14 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   %.not12 = icmp eq i32 %14, 0
@@ -1914,7 +1914,7 @@ define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noun
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %17 = load i64, ptr %16, align 16, !tbaa !85
+  %17 = load i64, ptr %16, align 16, !tbaa !84
   %18 = icmp ugt i64 %17, 2147483647
   %19 = trunc nuw nsw i64 %17 to i32
   %spec.select = select i1 %18, i32 -1, i32 %19
@@ -1937,12 +1937,12 @@ define i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %0, i32 noundef %1) loc
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit [
     i32 6, label %8
     i32 912, label %8
@@ -1964,12 +1964,12 @@ define i32 @EVP_PKEY_CTX_get_rsa_pss_saltlen(ptr noundef %0, ptr noundef %1) loc
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit [
     i32 6, label %8
     i32 912, label %8
@@ -1989,13 +1989,13 @@ define i32 @EVP_PKEY_CTX_set_rsa_pss_keygen_saltlen(ptr noundef %0, i32 noundef 
   %3 = alloca i32, align 4
   %4 = alloca [2 x %struct.ossl_param_st], align 16
   %5 = alloca %struct.ossl_param_st, align 8
-  store i32 %1, ptr %3, align 4, !tbaa !82
+  store i32 %1, ptr %3, align 4, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #11
   %6 = icmp eq ptr %0, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %0, align 8, !tbaa !78
+  %8 = load i32, ptr %0, align 8, !tbaa !77
   %9 = and i32 %8, 6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
@@ -2016,7 +2016,7 @@ define i32 @EVP_PKEY_CTX_set_rsa_pss_keygen_saltlen(ptr noundef %0, i32 noundef 
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
   %15 = call i32 @evp_pkey_ctx_set_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %4) #11
   br label %16
@@ -2037,12 +2037,12 @@ define i32 @EVP_PKEY_CTX_set_rsa_keygen_bits(ptr noundef %0, i32 noundef %1) loc
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %6 = sext i32 %1 to i64
-  store i64 %6, ptr %4, align 8, !tbaa !84
+  store i64 %6, ptr %4, align 8, !tbaa !83
   %7 = icmp eq ptr %0, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %0, align 8, !tbaa !78
+  %9 = load i32, ptr %0, align 8, !tbaa !77
   %10 = and i32 %9, 6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
@@ -2068,7 +2068,7 @@ define i32 @EVP_PKEY_CTX_set_rsa_keygen_bits(ptr noundef %0, i32 noundef %1) loc
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
   %18 = call i32 @evp_pkey_ctx_set_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   br label %19
@@ -2089,12 +2089,12 @@ define i32 @EVP_PKEY_CTX_set_rsa_keygen_pubexp(ptr noundef %0, ptr noundef %1) l
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
   %.not12.i = icmp eq ptr %5, null
   br i1 %.not12.i, label %RSA_pkey_ctx_ctrl.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %5, align 8, !tbaa !70
+  %7 = load i32, ptr %5, align 8, !tbaa !69
   switch i32 %7, label %RSA_pkey_ctx_ctrl.exit.thread [
     i32 6, label %RSA_pkey_ctx_ctrl.exit
     i32 912, label %RSA_pkey_ctx_ctrl.exit
@@ -2107,15 +2107,15 @@ RSA_pkey_ctx_ctrl.exit:                           ; preds = %2, %3, %6, %6
 
 10:                                               ; preds = %RSA_pkey_ctx_ctrl.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
   %13 = icmp eq ptr %12, null
   br i1 %13, label %RSA_pkey_ctx_ctrl.exit.thread, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = load ptr, ptr %15, align 8, !tbaa !87
+  %16 = load ptr, ptr %15, align 8, !tbaa !86
   tail call void @BN_free(ptr noundef %16) #11
-  store ptr %1, ptr %15, align 8, !tbaa !87
+  store ptr %1, ptr %15, align 8, !tbaa !86
   br label %RSA_pkey_ctx_ctrl.exit.thread
 
 RSA_pkey_ctx_ctrl.exit.thread:                    ; preds = %6, %14, %10, %RSA_pkey_ctx_ctrl.exit
@@ -2126,7 +2126,7 @@ RSA_pkey_ctx_ctrl.exit.thread:                    ; preds = %6, %14, %10, %RSA_p
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_CTX_set1_rsa_keygen_pubexp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !79
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
@@ -2138,7 +2138,7 @@ define i32 @EVP_PKEY_CTX_set1_rsa_keygen_pubexp(ptr noundef %0, ptr noundef %1) 
 9:                                                ; preds = %6, %2
   %.0 = phi ptr [ %7, %6 ], [ %1, %2 ]
   %10 = tail call i32 @EVP_PKEY_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4, i32 noundef 4100, i32 noundef 0, ptr noundef %.0) #11
-  %11 = load ptr, ptr %3, align 8, !tbaa !79
+  %11 = load ptr, ptr %3, align 8, !tbaa !78
   %12 = icmp eq ptr %11, null
   %13 = icmp slt i32 %10, 1
   %or.cond = select i1 %12, i1 %13, i1 false
@@ -2163,12 +2163,12 @@ define i32 @EVP_PKEY_CTX_set_rsa_keygen_primes(ptr noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %6 = sext i32 %1 to i64
-  store i64 %6, ptr %4, align 8, !tbaa !84
+  store i64 %6, ptr %4, align 8, !tbaa !83
   %7 = icmp eq ptr %0, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %0, align 8, !tbaa !78
+  %9 = load i32, ptr %0, align 8, !tbaa !77
   %10 = and i32 %9, 6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
@@ -2194,7 +2194,7 @@ define i32 @EVP_PKEY_CTX_set_rsa_keygen_primes(ptr noundef %0, i32 noundef %1) l
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
   %18 = call i32 @evp_pkey_ctx_set_params_strict(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   br label %19
@@ -2307,47 +2307,46 @@ attributes #11 = { nounwind }
 !41 = !{!4, !16, i64 136}
 !42 = !{!4, !21, i64 192}
 !43 = !{!4, !21, i64 200}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = distinct !{!47, !45, !46}
-!48 = distinct !{!48, !45, !46}
-!49 = !{!4, !5, i64 16}
-!50 = !{!4, !5, i64 216}
-!51 = !{!12, !12, i64 0}
-!52 = !{!53, !12, i64 0}
-!53 = !{!"rsa_prime_info_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !20, i64 32}
-!54 = !{!53, !12, i64 8}
-!55 = !{!53, !12, i64 16}
-!56 = distinct !{!56, !45, !46}
-!57 = distinct !{!57, !45, !46}
-!58 = distinct !{!58, !45, !46, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = distinct !{!60, !45, !46, !59}
-!61 = distinct !{!61, !45, !46}
-!62 = !{!63, !68, i64 120}
-!63 = !{!"evp_pkey_ctx_st", !5, i64 0, !8, i64 8, !27, i64 16, !27, i64 24, !64, i64 32, !6, i64 40, !65, i64 56, !9, i64 88, !9, i64 96, !67, i64 104, !5, i64 112, !5, i64 116, !68, i64 120, !11, i64 128, !69, i64 136, !69, i64 144, !9, i64 152, !5, i64 160, !12, i64 168}
-!64 = !{!"p1 _ZTS14evp_keymgmt_st", !9, i64 0}
-!65 = !{!"", !27, i64 0, !9, i64 8, !66, i64 16, !5, i64 24}
-!66 = !{!"long", !6, i64 0}
-!67 = !{!"p1 int", !9, i64 0}
-!68 = !{!"p1 _ZTS18evp_pkey_method_st", !9, i64 0}
-!69 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!70 = !{!71, !5, i64 0}
-!71 = !{!"evp_pkey_method_st", !5, i64 0, !5, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248}
-!72 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!73 = distinct !{!73, !45, !46}
-!74 = distinct !{!74, !45, !46}
-!75 = distinct !{!75, !45, !46}
-!76 = distinct !{!76, !45, !46}
-!77 = distinct !{!77, !45, !46}
-!78 = !{!63, !5, i64 0}
-!79 = !{!63, !64, i64 32}
-!80 = !{i64 0, i64 8, !81, i64 8, i64 4, !82, i64 16, i64 8, !83, i64 24, i64 8, !84, i64 32, i64 8, !84}
-!81 = !{!27, !27, i64 0}
-!82 = !{!5, !5, i64 0}
-!83 = !{!9, !9, i64 0}
-!84 = !{!66, !66, i64 0}
-!85 = !{!86, !66, i64 32}
-!86 = !{!"ossl_param_st", !27, i64 0, !5, i64 8, !9, i64 16, !66, i64 24, !66, i64 32}
-!87 = !{!63, !12, i64 168}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}
+!48 = !{!4, !5, i64 16}
+!49 = !{!4, !5, i64 216}
+!50 = !{!12, !12, i64 0}
+!51 = !{!52, !12, i64 0}
+!52 = !{!"rsa_prime_info_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !20, i64 32}
+!53 = !{!52, !12, i64 8}
+!54 = !{!52, !12, i64 16}
+!55 = distinct !{!55, !45}
+!56 = distinct !{!56, !45}
+!57 = distinct !{!57, !45, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !45, !58}
+!60 = distinct !{!60, !45}
+!61 = !{!62, !67, i64 120}
+!62 = !{!"evp_pkey_ctx_st", !5, i64 0, !8, i64 8, !27, i64 16, !27, i64 24, !63, i64 32, !6, i64 40, !64, i64 56, !9, i64 88, !9, i64 96, !66, i64 104, !5, i64 112, !5, i64 116, !67, i64 120, !11, i64 128, !68, i64 136, !68, i64 144, !9, i64 152, !5, i64 160, !12, i64 168}
+!63 = !{!"p1 _ZTS14evp_keymgmt_st", !9, i64 0}
+!64 = !{!"", !27, i64 0, !9, i64 8, !65, i64 16, !5, i64 24}
+!65 = !{!"long", !6, i64 0}
+!66 = !{!"p1 int", !9, i64 0}
+!67 = !{!"p1 _ZTS18evp_pkey_method_st", !9, i64 0}
+!68 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!69 = !{!70, !5, i64 0}
+!70 = !{!"evp_pkey_method_st", !5, i64 0, !5, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248}
+!71 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!72 = distinct !{!72, !45}
+!73 = distinct !{!73, !45}
+!74 = distinct !{!74, !45}
+!75 = distinct !{!75, !45}
+!76 = distinct !{!76, !45}
+!77 = !{!62, !5, i64 0}
+!78 = !{!62, !63, i64 32}
+!79 = !{i64 0, i64 8, !80, i64 8, i64 4, !81, i64 16, i64 8, !82, i64 24, i64 8, !83, i64 32, i64 8, !83}
+!80 = !{!27, !27, i64 0}
+!81 = !{!5, !5, i64 0}
+!82 = !{!9, !9, i64 0}
+!83 = !{!65, !65, i64 0}
+!84 = !{!85, !65, i64 32}
+!85 = !{!"ossl_param_st", !27, i64 0, !5, i64 8, !9, i64 16, !65, i64 24, !65, i64 32}
+!86 = !{!62, !12, i64 168}

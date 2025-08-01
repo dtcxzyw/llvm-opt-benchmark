@@ -38,7 +38,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %.1251 = phi ptr [ %285, %306 ], [ %.2252, %72 ]
   %.1 = phi i32 [ %307, %306 ], [ %67, %72 ]
   %4 = getelementptr inbounds nuw i8, ptr %.1251, i64 1
-  br label %5, !llvm.loop !4
+  br label %5
 
 5:                                                ; preds = %3, %0
   %.0269 = phi ptr [ %2, %0 ], [ %.1270, %3 ]
@@ -658,5 +658,3 @@ attributes #8 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

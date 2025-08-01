@@ -146,7 +146,7 @@ aom_read_literal_.exit:                           ; preds = %.lr.ph.i, %35
   %48 = shl i32 3, %47
   %49 = add nsw i32 %48, %46
   %.not22 = icmp slt i32 %49, %5
-  br i1 %.not22, label %32, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %.not22, label %32, label %._crit_edge.loopexit
 
 50:                                               ; preds = %aom_read_literal_.exit, %aom_read_primitive_quniform_.exit
   %.0 = phi i16 [ %31, %aom_read_primitive_quniform_.exit ], [ %42, %aom_read_literal_.exit ]
@@ -236,7 +236,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}

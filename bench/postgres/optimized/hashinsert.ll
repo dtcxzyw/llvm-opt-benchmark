@@ -136,7 +136,7 @@ BufferGetPage.exit114:                            ; preds = %49, %55
   call void @_hash_finish_split(ptr noundef %0, i32 noundef %15, i32 noundef %46, i32 noundef %66, i32 noundef %75, i32 noundef %77, i32 noundef %79) #6
   call void @_hash_dropbuf(ptr noundef %0, i32 noundef %46) #6
   call void @_hash_dropbuf(ptr noundef %0, i32 noundef %15) #6
-  br label %14, !llvm.loop !4
+  br label %14
 
 80:                                               ; preds = %70, %BufferGetPage.exit114
   %81 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.0.i.i113) #6
@@ -235,7 +235,7 @@ BufferGetPage.exit.i:                             ; preds = %109, %103
   %.1.i = phi i32 [ %130, %129 ], [ %.061.i, %123 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %._crit_edge.i, label %123, !llvm.loop !6
+  br i1 %exitcond.i, label %._crit_edge.i, label %123, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %134
   %135 = icmp sgt i32 %.1.i, 0
@@ -335,7 +335,7 @@ BufferGetPage.exit53.i:                           ; preds = %151, %147
 
 185:                                              ; preds = %181, %181
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 104
-  %187 = load i8, ptr %186, align 8, !range !8, !noundef !9
+  %187 = load i8, ptr %186, align 8, !range !6, !noundef !7
   br label %188
 
 188:                                              ; preds = %185, %181, %179, %177, %172, %171, %.thread.i
@@ -482,7 +482,7 @@ _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.
   %262 = getelementptr inbounds nuw i8, ptr %.2100, i64 %261
   %263 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.2100) #6
   %264 = icmp ult i64 %263, %13
-  br i1 %264, label %95, label %.thread, !llvm.loop !10
+  br i1 %264, label %95, label %.thread
 
 .thread:                                          ; preds = %258, %_hash_vacuum_one_page.exit, %80
   %.0.lcssa = phi i32 [ %46, %80 ], [ %.0139, %_hash_vacuum_one_page.exit ], [ %.3, %258 ]
@@ -781,7 +781,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -844,10 +844,7 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}

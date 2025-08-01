@@ -109,8 +109,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 46:                                               ; preds = %.thread, %37, %._crit_edge, %2
   %47 = load ptr, ptr %3, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load ptr, ptr %48, align 8, !tbaa !44
-  %50 = load ptr, ptr %49, align 8, !tbaa !45
+  %49 = load ptr, ptr %48, align 8, !tbaa !43
+  %50 = load ptr, ptr %49, align 8, !tbaa !44
   %51 = tail call i32 @ff_filter_frame(ptr noundef %50, ptr noundef nonnull %1) #5
   ret i32 %51
 }
@@ -181,9 +181,8 @@ attributes #5 = { nounwind }
 !38 = !{!36, !32, i64 8}
 !39 = !{!36, !11, i64 32}
 !40 = !{!36, !32, i64 16}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!20, !24, i64 56}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!43 = !{!20, !24, i64 56}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}

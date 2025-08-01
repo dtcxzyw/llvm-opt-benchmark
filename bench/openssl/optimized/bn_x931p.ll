@@ -185,7 +185,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_x931_derive_pi(ptr noundef %0, pt
 16:                                               ; preds = %15
   %17 = tail call i32 @BN_add_word(ptr noundef %0, i64 noundef 2) #2
   %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %.loopexit, label %10, !llvm.loop !10
+  br i1 %.not20, label %.loopexit, label %10
 
 18:                                               ; preds = %15
   %19 = tail call i32 @BN_GENCB_call(ptr noundef %3, i32 noundef 2, i32 noundef %11) #2
@@ -261,7 +261,7 @@ define range(i32 0, 2) i32 @BN_X931_generate_Xpq(ptr noundef %0, ptr noundef %1,
   %21 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %21, 1000
   %or.cond30 = select i1 %20, i1 true, i1 %exitcond.not
-  br i1 %or.cond30, label %22, label %14, !llvm.loop !12
+  br i1 %or.cond30, label %22, label %14, !llvm.loop !10
 
 22:                                               ; preds = %18
   tail call void @BN_CTX_end(ptr noundef %3) #2
@@ -346,6 +346,4 @@ attributes #2 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !13, !11}
-!13 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.mustprogress"}

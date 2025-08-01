@@ -185,7 +185,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %.3 = phi i32 [ %.2316, %63 ], [ %.2316, %61 ], [ %.pre-phi345, %88 ]
   %90 = add nsw i32 %.3, -1
   %91 = icmp sgt i32 %.3, 1
-  br i1 %91, label %.lr.ph317, label %.loopexit, !llvm.loop !12
+  br i1 %91, label %.lr.ph317, label %.loopexit, !llvm.loop !11
 
 .preheader310:                                    ; preds = %129
   %92 = icmp sgt i32 %131, 1
@@ -256,7 +256,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %130 = add nsw i32 %.5, 1
   %131 = load i32, ptr %2, align 4, !tbaa !3
   %.not297.not = icmp slt i32 %.5, %131
-  br i1 %.not297.not, label %.lr.ph320, label %.preheader310, !llvm.loop !13
+  br i1 %.not297.not, label %.lr.ph320, label %.preheader310, !llvm.loop !12
 
 .lr.ph322:                                        ; preds = %.preheader310, %144
   %.6321 = phi i32 [ %145, %144 ], [ %131, %.preheader310 ]
@@ -281,7 +281,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %.7 = phi i32 [ %139, %136 ], [ %.6321, %.lr.ph322 ]
   %145 = add nsw i32 %.7, -1
   %146 = icmp sgt i32 %.7, 2
-  br i1 %146, label %.lr.ph322, label %.loopexit, !llvm.loop !14
+  br i1 %146, label %.lr.ph322, label %.loopexit, !llvm.loop !13
 
 147:                                              ; preds = %34
   br i1 %.not284, label %.lr.ph330, label %.lr.ph325.preheader
@@ -332,7 +332,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %.9 = phi i32 [ %157, %156 ], [ %.8324, %.lr.ph325._crit_edge ]
   %168 = add nsw i32 %.9, 1
   %.not292.not = icmp slt i32 %.9, %23
-  br i1 %.not292.not, label %.lr.ph325, label %.lr.ph328.preheader, !llvm.loop !15
+  br i1 %.not292.not, label %.lr.ph325, label %.lr.ph328.preheader, !llvm.loop !14
 
 .lr.ph328:                                        ; preds = %.lr.ph328.preheader, %196
   %.10327 = phi i32 [ %197, %196 ], [ 1, %.lr.ph328.preheader ]
@@ -396,7 +396,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %197 = add nsw i32 %.11, 1
   %198 = load i32, ptr %2, align 4, !tbaa !3
   %.not293.not = icmp slt i32 %.11, %198
-  br i1 %.not293.not, label %.lr.ph328, label %.loopexit, !llvm.loop !16
+  br i1 %.not293.not, label %.lr.ph328, label %.loopexit, !llvm.loop !15
 
 .preheader:                                       ; preds = %203, %230
   %.pre339 = load i32, ptr %2, align 4, !tbaa !3
@@ -464,7 +464,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %.13 = phi i32 [ %.12329, %205 ], [ %.12329, %204 ], [ %214, %228 ]
   %231 = add nsw i32 %.13, -1
   %232 = icmp sgt i32 %.13, 1
-  br i1 %232, label %.lr.ph330, label %.preheader, !llvm.loop !17
+  br i1 %232, label %.lr.ph330, label %.preheader, !llvm.loop !16
 
 .lr.ph333:                                        ; preds = %.preheader, %245
   %.14332 = phi i32 [ %246, %245 ], [ 1, %.preheader ]
@@ -489,7 +489,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   %.15 = phi i32 [ %240, %237 ], [ %.14332, %.lr.ph333 ]
   %246 = add nsw i32 %.15, 1
   %.not288.not = icmp slt i32 %246, %.pre339
-  br i1 %.not288.not, label %.lr.ph333, label %.loopexit, !llvm.loop !18
+  br i1 %.not288.not, label %.lr.ph333, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %89, %144, %196, %245, %.preheader310, %.preheader, %32, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
@@ -528,13 +528,12 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}

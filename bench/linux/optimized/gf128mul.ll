@@ -246,7 +246,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %154 = xor i64 %153, %143
   %155 = call i64 @llvm.bswap.i64(i64 %154)
   store i64 %155, ptr %0, align 8
-  br label %30, !llvm.loop !9
+  br label %30
 
 156:                                              ; preds = %30
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %3) #11
@@ -290,7 +290,7 @@ define dso_local void @gf128mul_bbe(ptr noundef captures(none) %0, ptr noundef r
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %19, ptr %20, align 8
   %21 = icmp eq i64 %11, 7
-  br i1 %21, label %22, label %7, !llvm.loop !10
+  br i1 %21, label %22, label %7, !llvm.loop !8
 
 22:                                               ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -462,7 +462,7 @@ define dso_local void @gf128mul_bbe(ptr noundef captures(none) %0, ptr noundef r
   %135 = xor i64 %134, %131
   %136 = tail call i64 @llvm.bswap.i64(i64 %135)
   store i64 %136, ptr %25, align 8
-  br label %53, !llvm.loop !11
+  br label %53
 
 137:                                              ; preds = %120
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #11
@@ -479,7 +479,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
 5:                                                ; preds = %.preheader3
   %6 = add nuw nsw i64 %8, 1
   %7 = icmp eq i64 %6, 16
-  br i1 %7, label %19, label %.preheader3, !llvm.loop !12
+  br i1 %7, label %19, label %.preheader3, !llvm.loop !9
 
 .preheader3:                                      ; preds = %1, %5
   %8 = phi i64 [ %6, %5 ], [ 0, %1 ]
@@ -497,7 +497,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   tail call void @kfree_sensitive(ptr noundef %15) #11
   %16 = add nuw nsw i64 %13, 1
   %17 = icmp eq i64 %16, 16
-  br i1 %17, label %18, label %.preheader, !llvm.loop !13
+  br i1 %17, label %18, label %.preheader, !llvm.loop !10
 
 18:                                               ; preds = %.preheader
   tail call void @kfree_sensitive(ptr noundef nonnull %3) #11
@@ -532,10 +532,10 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %37, ptr %38, align 8
   %39 = icmp slt i32 %28, 65
-  br i1 %39, label %24, label %.preheader2, !llvm.loop !14
+  br i1 %39, label %24, label %.preheader2, !llvm.loop !11
 
 40:                                               ; preds = %73
-  br label %.preheader2, !llvm.loop !15
+  br label %.preheader2, !llvm.loop !12
 
 .preheader2:                                      ; preds = %24, %40
   %41 = phi ptr [ %.pre6, %40 ], [ %20, %24 ]
@@ -568,12 +568,12 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   store i64 %61, ptr %62, align 8
   %63 = add nuw nsw i64 %51, 1
   %64 = icmp eq i64 %63, %46
-  br i1 %64, label %65, label %50, !llvm.loop !16
+  br i1 %64, label %65, label %50, !llvm.loop !13
 
 65:                                               ; preds = %50
   %66 = shl i32 %45, 1
   %67 = icmp slt i32 %66, 256
-  br i1 %67, label %44, label %68, !llvm.loop !17
+  br i1 %67, label %44, label %68, !llvm.loop !14
 
 68:                                               ; preds = %65
   %69 = add nuw nsw i64 %42, 1
@@ -610,7 +610,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   store i64 %91, ptr %80, align 8
   %92 = lshr i32 %74, 1
   %93 = icmp samesign ult i32 %74, 2
-  br i1 %93, label %40, label %73, !llvm.loop !18
+  br i1 %93, label %40, label %73, !llvm.loop !15
 
 .loopexit:                                        ; preds = %68, %18, %1
   %94 = phi ptr [ null, %18 ], [ null, %1 ], [ %3, %68 ]
@@ -628,7 +628,7 @@ define dso_local void @gf128mul_free_64k(ptr noundef %0) #6 align 16 {
   tail call void @kfree_sensitive(ptr noundef %5) #11
   %6 = add nuw nsw i64 %3, 1
   %7 = icmp eq i64 %6, 16
-  br i1 %7, label %8, label %2, !llvm.loop !19
+  br i1 %7, label %8, label %2, !llvm.loop !10
 
 8:                                                ; preds = %2
   tail call void @kfree_sensitive(ptr noundef %0) #11
@@ -668,7 +668,7 @@ define dso_local void @gf128mul_64k_bbe(ptr noundef captures(none) %0, ptr nound
   %26 = xor i64 %25, %13
   %27 = add nuw nsw i64 %12, 1
   %28 = icmp eq i64 %27, 16
-  br i1 %28, label %29, label %11, !llvm.loop !20
+  br i1 %28, label %29, label %11, !llvm.loop !16
 
 29:                                               ; preds = %11
   store i64 %23, ptr %0, align 8
@@ -714,7 +714,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr noundef readonly 
   store i64 %27, ptr %10, align 8
   %28 = lshr i32 %8, 1
   %29 = icmp samesign ult i32 %8, 2
-  br i1 %29, label %.preheader, label %7, !llvm.loop !21
+  br i1 %29, label %.preheader, label %7, !llvm.loop !17
 
 .preheader:                                       ; preds = %7, %50
   %30 = phi i32 [ %51, %50 ], [ 2, %7 ]
@@ -741,12 +741,12 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr noundef readonly 
   store i64 %46, ptr %47, align 8
   %48 = add nuw nsw i64 %36, 1
   %49 = icmp eq i64 %48, %31
-  br i1 %49, label %50, label %35, !llvm.loop !22
+  br i1 %49, label %50, label %35, !llvm.loop !18
 
 50:                                               ; preds = %35
   %51 = shl i32 %30, 1
   %52 = icmp slt i32 %51, 256
-  br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %50, %1
   ret ptr %3
@@ -787,7 +787,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr noundef readonly 
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %22, ptr %23, align 8
   %24 = icmp slt i32 %13, 65
-  br i1 %24, label %9, label %.preheader, !llvm.loop !24
+  br i1 %24, label %9, label %.preheader, !llvm.loop !20
 
 .preheader:                                       ; preds = %9, %45
   %25 = phi i32 [ %46, %45 ], [ 2, %9 ]
@@ -814,12 +814,12 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr noundef readonly 
   store i64 %41, ptr %42, align 8
   %43 = add nuw nsw i64 %31, 1
   %44 = icmp eq i64 %43, %26
-  br i1 %44, label %45, label %30, !llvm.loop !25
+  br i1 %44, label %45, label %30, !llvm.loop !21
 
 45:                                               ; preds = %30
   %46 = shl i32 %25, 1
   %47 = icmp slt i32 %46, 256
-  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !26
+  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %45, %1
   ret ptr %3
@@ -863,7 +863,7 @@ define dso_local void @gf128mul_4k_lle(ptr noundef captures(none) %0, ptr nounde
   %34 = load i64, ptr %33, align 8
   %35 = xor i64 %34, %22
   %36 = icmp eq i64 %14, 0
-  br i1 %36, label %37, label %10, !llvm.loop !27
+  br i1 %36, label %37, label %10, !llvm.loop !23
 
 37:                                               ; preds = %10
   store i64 %32, ptr %0, align 8
@@ -908,7 +908,7 @@ define dso_local void @gf128mul_4k_bbe(ptr noundef captures(none) %0, ptr nounde
   %32 = xor i64 %31, %23
   %33 = add nuw nsw i64 %10, 1
   %34 = icmp eq i64 %33, 16
-  br i1 %34, label %35, label %9, !llvm.loop !28
+  br i1 %34, label %35, label %9, !llvm.loop !24
 
 35:                                               ; preds = %9
   store i64 %29, ptr %0, align 8
@@ -947,27 +947,23 @@ attributes #12 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = distinct !{!28, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}

@@ -207,7 +207,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   %.sroa.05.0.be = phi i64 [ %83, %79 ], [ 1, %.lr.ph ]
   %84 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %10)
   %85 = icmp ult i64 %84, 4294967296
-  br i1 %85, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %85, label %._crit_edge, label %.lr.ph
 
 86:                                               ; preds = %42
   %87 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -374,7 +374,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 
 .noexc26:                                         ; preds = %.backedge.i
   %151 = icmp ult i64 %150, 4294967296
-  br i1 %151, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
+  br i1 %151, label %._crit_edge.i, label %.lr.ph.i
 
 152:                                              ; preds = %.noexc21
   %153 = getelementptr inbounds nuw i8, ptr %131, i64 32
@@ -494,6 +494,3 @@ attributes #9 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}

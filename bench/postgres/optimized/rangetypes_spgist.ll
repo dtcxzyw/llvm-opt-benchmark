@@ -243,7 +243,7 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
   %73 = load i32, ptr %11, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next90, %74
-  br i1 %75, label %.lr.ph83, label %.loopexit, !llvm.loop !9
+  br i1 %75, label %.lr.ph83, label %.loopexit, !llvm.loop !8
 
 76:                                               ; preds = %._crit_edge
   %77 = sext i32 %spec.select to i64
@@ -336,7 +336,7 @@ getQuadrant.exit:                                 ; preds = %.lr.ph80, %115, %11
   %123 = load i32, ptr %11, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next87, %124
-  br i1 %125, label %.lr.ph80, label %.loopexit, !llvm.loop !10
+  br i1 %125, label %.lr.ph80, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %getQuadrant.exit, %.lr.ph83, %76, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
@@ -408,7 +408,7 @@ define dso_local noundef i64 @spg_range_quad_inner_consistent(ptr noundef %0) lo
   %38 = load i32, ptr %27, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next330, %39
-  br i1 %40, label %.lr.ph320, label %.loopexit, !llvm.loop !11
+  br i1 %40, label %.lr.ph320, label %.loopexit, !llvm.loop !10
 
 41:                                               ; preds = %1
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 54
@@ -497,7 +497,7 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   %76 = load i32, ptr %45, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.thread185, !llvm.loop !12
+  br i1 %78, label %.lr.ph, label %.thread185, !llvm.loop !11
 
 79:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
@@ -802,7 +802,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %179 = load i32, ptr %87, align 8
   %180 = sext i32 %179 to i64
   %181 = icmp slt i64 %indvars.iv.next328, %180
-  br i1 %181, label %97, label %.loopexit297, !llvm.loop !13
+  br i1 %181, label %97, label %.loopexit297, !llvm.loop !12
 
 .loopexit297:                                     ; preds = %.thread288.thread, %79, %.thread248
   %.2151 = phi i1 [ %.3152201.ph, %.thread248 ], [ false, %79 ], [ %.3152201, %.thread288.thread ]
@@ -888,7 +888,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %223 = phi i32 [ %.pre334, %207 ], [ %204, %.lr.ph317.split.us ]
   %224 = add i32 %.3147316.us, 1
   %.not165.us = icmp sgt i32 %224, %223
-  br i1 %.not165.us, label %._crit_edge, label %.lr.ph317.split.us, !llvm.loop !14
+  br i1 %.not165.us, label %._crit_edge, label %.lr.ph317.split.us, !llvm.loop !13
 
 .lr.ph317.split:                                  ; preds = %.thread336, %236
   %225 = phi i32 [ %237, %236 ], [ %201, %.thread336 ]
@@ -915,7 +915,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %237 = phi i32 [ %225, %.lr.ph317.split ], [ %.pre333, %228 ]
   %238 = add i32 %.3147316, 1
   %.not165 = icmp sgt i32 %238, %237
-  br i1 %.not165, label %._crit_edge, label %.lr.ph317.split, !llvm.loop !16
+  br i1 %.not165, label %._crit_edge, label %.lr.ph317.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %236, %222, %.thread336, %188
   %239 = phi ptr [ %200, %.thread336 ], [ %196, %188 ], [ %196, %222 ], [ %200, %236 ]
@@ -1136,7 +1136,7 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
   %72 = load i32, ptr %17, align 8
   %73 = sext i32 %72 to i64
   %.not = icmp slt i64 %indvars.iv.next, %73
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %71, %67, %26, %30, %34, %38, %42, %46, %50, %54, %58, %1
   %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %67 ], [ 1, %71 ]
@@ -1187,15 +1187,14 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

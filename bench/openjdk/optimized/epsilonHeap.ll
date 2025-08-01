@@ -400,7 +400,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %45, %46
   br i1 %.not34, label %67, label %61
 
 61:                                               ; preds = %55
-  %62 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %57, ptr nonnull %56) #8, !srcloc !9
+  %62 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %57, ptr nonnull %56) #8, !srcloc !8
   %63 = icmp eq i64 %62, %57
   br i1 %63, label %64, label %67
 
@@ -420,7 +420,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %45, %46
   br i1 %.not35, label %.critedge, label %73
 
 73:                                               ; preds = %67
-  %74 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %69, ptr nonnull %68) #8, !srcloc !9
+  %74 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %54, i64 %69, ptr nonnull %68) #8, !srcloc !8
   %75 = icmp eq i64 %74, %69
   br i1 %75, label %76, label %.critedge
 
@@ -1372,7 +1372,6 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2145412694}
+!8 = !{i64 2145412694}

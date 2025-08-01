@@ -66,7 +66,7 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr noundef readonly capture
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.012.i25, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %10) #6
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -83,7 +83,7 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr noundef readonly capture
   %22 = icmp eq i32 %21, %6
   %or.cond = or i1 %.not, %22
   %23 = getelementptr inbounds nuw i8, ptr %.017, i64 24
-  br i1 %or.cond, label %24, label %.preheader, !llvm.loop !18
+  br i1 %or.cond, label %24, label %.preheader, !llvm.loop !17
 
 24:                                               ; preds = %.preheader
   %25 = and i32 %0, 256
@@ -95,7 +95,7 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr noundef readonly capture
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %.017, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !17
+  %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = call i64 @llvm_strlcpy(ptr noundef nonnull %5, ptr noundef %29, i64 noundef 50) #5
   br label %regatoi.exit
 
@@ -105,7 +105,7 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr noundef readonly capture
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %.017, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !19
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
   br label %regatoi.exit
 
 regatoi.exit:                                     ; preds = %.lr.ph, %._crit_edge, %27, %31, %33
@@ -165,9 +165,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !11 = !{!"p1 _ZTS7re_guts", !10, i64 0}
 !12 = !{!13, !5, i64 0}
 !13 = !{!"rerr", !5, i64 0, !9, i64 8, !9, i64 16}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!13, !9, i64 8}
-!18 = distinct !{!18, !15, !16}
-!19 = !{!13, !9, i64 16}
+!16 = !{!13, !9, i64 8}
+!17 = distinct !{!17, !15}
+!18 = !{!13, !9, i64 16}

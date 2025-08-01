@@ -2675,5 +2675,4 @@ attributes #19 = { nounwind willreturn memory(none) }
 !88 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !22, i64 0}
 !89 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !88, i64 0}
 !90 = !{!"_ZTSSt13random_device", !5, i64 0}
-!91 = distinct !{!91, !74, !92}
-!92 = !{!"llvm.loop.estimated_trip_count"}
+!91 = distinct !{!91, !74}

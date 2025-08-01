@@ -475,6 +475,5 @@ attributes #7 = { noreturn nounwind }
 !8 = !{i64 2145414681}
 !9 = !{i64 2145392468}
 !10 = !{i64 2145410579}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}

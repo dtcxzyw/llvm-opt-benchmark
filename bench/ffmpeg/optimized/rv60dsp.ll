@@ -89,7 +89,7 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %65 = add nsw i32 %63, %64
   %66 = mul nsw i64 %indvars.iv93.lver.orig, %44
   %67 = getelementptr inbounds i8, ptr %1, i64 %66
-  %68 = load i8, ptr %67, align 1, !tbaa !13
+  %68 = load i8, ptr %67, align 1, !tbaa !12
   %69 = zext i8 %68 to i32
   %70 = add i32 %58, 16
   %71 = add i32 %70, %65
@@ -100,9 +100,9 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %74 = sext i1 %isnotneg.i.lver.orig to i8
   %75 = trunc nuw i32 %73 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %75, i8 %74
-  store i8 %.0.i.lver.orig, ptr %67, align 1, !tbaa !13
+  store i8 %.0.i.lver.orig, ptr %67, align 1, !tbaa !12
   %76 = getelementptr i8, ptr %67, i64 1
-  %77 = load i8, ptr %76, align 1, !tbaa !13
+  %77 = load i8, ptr %76, align 1, !tbaa !12
   %78 = zext i8 %77 to i32
   %79 = add i32 %60, 16
   %80 = add i32 %79, %62
@@ -113,9 +113,9 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %83 = sext i1 %isnotneg.i78.lver.orig to i8
   %84 = trunc nuw i32 %82 to i8
   %.0.i79.lver.orig = select i1 %.not.i77.lver.orig, i8 %84, i8 %83
-  store i8 %.0.i79.lver.orig, ptr %76, align 1, !tbaa !13
+  store i8 %.0.i79.lver.orig, ptr %76, align 1, !tbaa !12
   %85 = getelementptr i8, ptr %67, i64 2
-  %86 = load i8, ptr %85, align 1, !tbaa !13
+  %86 = load i8, ptr %85, align 1, !tbaa !12
   %87 = zext i8 %86 to i32
   %88 = sub i32 %79, %62
   %89 = ashr i32 %88, 5
@@ -125,9 +125,9 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %91 = sext i1 %isnotneg.i81.lver.orig to i8
   %92 = trunc nuw i32 %90 to i8
   %.0.i82.lver.orig = select i1 %.not.i80.lver.orig, i8 %92, i8 %91
-  store i8 %.0.i82.lver.orig, ptr %85, align 1, !tbaa !13
+  store i8 %.0.i82.lver.orig, ptr %85, align 1, !tbaa !12
   %93 = getelementptr i8, ptr %67, i64 3
-  %94 = load i8, ptr %93, align 1, !tbaa !13
+  %94 = load i8, ptr %93, align 1, !tbaa !12
   %95 = zext i8 %94 to i32
   %96 = sub i32 %70, %65
   %97 = ashr i32 %96, 5
@@ -137,10 +137,10 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %99 = sext i1 %isnotneg.i84.lver.orig to i8
   %100 = trunc nuw i32 %98 to i8
   %.0.i85.lver.orig = select i1 %.not.i83.lver.orig, i8 %100, i8 %99
-  store i8 %.0.i85.lver.orig, ptr %93, align 1, !tbaa !13
+  store i8 %.0.i85.lver.orig, ptr %93, align 1, !tbaa !12
   %indvars.iv.next94.lver.orig = add nuw nsw i64 %indvars.iv93.lver.orig, 1
   %exitcond96.not.lver.orig = icmp eq i64 %indvars.iv.next94.lver.orig, 4
-  br i1 %exitcond96.not.lver.orig, label %.loopexit, label %.preheader.lver.orig, !llvm.loop !14
+  br i1 %exitcond96.not.lver.orig, label %.loopexit, label %.preheader.lver.orig, !llvm.loop !13
 
 .preheader.ph:                                    ; preds = %.preheader.lver.check
   %scevgep = getelementptr i8, ptr %1, i64 2
@@ -178,7 +178,7 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %121 = add nsw i32 %119, %120
   %122 = mul nuw nsw i64 %indvars.iv93, %44
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !13
+  %124 = load i8, ptr %123, align 1, !tbaa !12
   %125 = zext i8 %124 to i32
   %126 = add i32 %114, 16
   %127 = add i32 %126, %121
@@ -189,9 +189,9 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %130 = sext i1 %isnotneg.i to i8
   %131 = trunc nuw i32 %129 to i8
   %.0.i = select i1 %.not.i, i8 %131, i8 %130
-  store i8 %.0.i, ptr %123, align 1, !tbaa !13
+  store i8 %.0.i, ptr %123, align 1, !tbaa !12
   %132 = getelementptr i8, ptr %123, i64 1
-  %133 = load i8, ptr %132, align 1, !tbaa !13
+  %133 = load i8, ptr %132, align 1, !tbaa !12
   %134 = zext i8 %133 to i32
   %135 = add i32 %116, 16
   %136 = add i32 %135, %118
@@ -202,7 +202,7 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %139 = sext i1 %isnotneg.i78 to i8
   %140 = trunc nuw i32 %138 to i8
   %.0.i79 = select i1 %.not.i77, i8 %140, i8 %139
-  store i8 %.0.i79, ptr %132, align 1, !tbaa !13
+  store i8 %.0.i79, ptr %132, align 1, !tbaa !12
   %141 = getelementptr i8, ptr %123, i64 2
   %142 = zext i8 %store_forwarded to i32
   %143 = sub i32 %135, %118
@@ -213,9 +213,9 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %146 = sext i1 %isnotneg.i81 to i8
   %147 = trunc nuw i32 %145 to i8
   %.0.i82 = select i1 %.not.i80, i8 %147, i8 %146
-  store i8 %.0.i82, ptr %141, align 1, !tbaa !13
+  store i8 %.0.i82, ptr %141, align 1, !tbaa !12
   %148 = getelementptr i8, ptr %123, i64 3
-  %149 = load i8, ptr %148, align 1, !tbaa !13
+  %149 = load i8, ptr %148, align 1, !tbaa !12
   %150 = zext i8 %149 to i32
   %151 = sub i32 %126, %121
   %152 = ashr i32 %151, 5
@@ -225,10 +225,10 @@ define void @ff_rv60_idct4x4_add(ptr noundef readonly captures(none) %0, ptr nou
   %154 = sext i1 %isnotneg.i84 to i8
   %155 = trunc nuw i32 %153 to i8
   %.0.i85 = select i1 %.not.i83, i8 %155, i8 %154
-  store i8 %.0.i85, ptr %148, align 1, !tbaa !13
+  store i8 %.0.i85, ptr %148, align 1, !tbaa !12
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 4
-  br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -360,7 +360,7 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %98, ptr %99, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.lver.check, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader.lver.check, label %5, !llvm.loop !14
 
 .preheader.lver.check:                            ; preds = %5
   %100 = sext i32 %2 to i64
@@ -437,7 +437,7 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %159 = add i32 %158, %.neg185.lver.orig
   %160 = mul nsw i64 %indvars.iv232.lver.orig, %100
   %161 = getelementptr inbounds i8, ptr %1, i64 %160
-  %162 = load i8, ptr %161, align 1, !tbaa !13
+  %162 = load i8, ptr %161, align 1, !tbaa !12
   %163 = zext i8 %162 to i32
   %164 = add i32 %144, 64
   %165 = add i32 %164, %134
@@ -448,9 +448,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %168 = sext i1 %isnotneg.i212.lver.orig to i8
   %169 = trunc nuw i32 %167 to i8
   %.0.i213.lver.orig = select i1 %.not.i211.lver.orig, i8 %169, i8 %168
-  store i8 %.0.i213.lver.orig, ptr %161, align 1, !tbaa !13
+  store i8 %.0.i213.lver.orig, ptr %161, align 1, !tbaa !12
   %170 = getelementptr i8, ptr %161, i64 1
-  %171 = load i8, ptr %170, align 1, !tbaa !13
+  %171 = load i8, ptr %170, align 1, !tbaa !12
   %172 = zext i8 %171 to i32
   %173 = add i32 %148, 64
   %174 = add i32 %173, %136
@@ -461,9 +461,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %177 = sext i1 %isnotneg.i209.lver.orig to i8
   %178 = trunc nuw i32 %176 to i8
   %.0.i210.lver.orig = select i1 %.not.i208.lver.orig, i8 %178, i8 %177
-  store i8 %.0.i210.lver.orig, ptr %170, align 1, !tbaa !13
+  store i8 %.0.i210.lver.orig, ptr %170, align 1, !tbaa !12
   %179 = getelementptr i8, ptr %161, i64 2
-  %180 = load i8, ptr %179, align 1, !tbaa !13
+  %180 = load i8, ptr %179, align 1, !tbaa !12
   %181 = zext i8 %180 to i32
   %182 = add i32 %154, 64
   %183 = add i32 %182, %137
@@ -474,9 +474,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %186 = sext i1 %isnotneg.i206.lver.orig to i8
   %187 = trunc nuw i32 %185 to i8
   %.0.i207.lver.orig = select i1 %.not.i205.lver.orig, i8 %187, i8 %186
-  store i8 %.0.i207.lver.orig, ptr %179, align 1, !tbaa !13
+  store i8 %.0.i207.lver.orig, ptr %179, align 1, !tbaa !12
   %188 = getelementptr i8, ptr %161, i64 3
-  %189 = load i8, ptr %188, align 1, !tbaa !13
+  %189 = load i8, ptr %188, align 1, !tbaa !12
   %190 = zext i8 %189 to i32
   %191 = add i32 %159, 64
   %192 = add i32 %191, %135
@@ -487,9 +487,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %195 = sext i1 %isnotneg.i203.lver.orig to i8
   %196 = trunc nuw i32 %194 to i8
   %.0.i204.lver.orig = select i1 %.not.i202.lver.orig, i8 %196, i8 %195
-  store i8 %.0.i204.lver.orig, ptr %188, align 1, !tbaa !13
+  store i8 %.0.i204.lver.orig, ptr %188, align 1, !tbaa !12
   %197 = getelementptr i8, ptr %161, i64 4
-  %198 = load i8, ptr %197, align 1, !tbaa !13
+  %198 = load i8, ptr %197, align 1, !tbaa !12
   %199 = zext i8 %198 to i32
   %reass.sub227.lver.orig = sub i32 %135, %159
   %200 = add i32 %reass.sub227.lver.orig, 64
@@ -500,9 +500,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %203 = sext i1 %isnotneg.i200.lver.orig to i8
   %204 = trunc nuw i32 %202 to i8
   %.0.i201.lver.orig = select i1 %.not.i199.lver.orig, i8 %204, i8 %203
-  store i8 %.0.i201.lver.orig, ptr %197, align 1, !tbaa !13
+  store i8 %.0.i201.lver.orig, ptr %197, align 1, !tbaa !12
   %205 = getelementptr i8, ptr %161, i64 5
-  %206 = load i8, ptr %205, align 1, !tbaa !13
+  %206 = load i8, ptr %205, align 1, !tbaa !12
   %207 = zext i8 %206 to i32
   %reass.sub228.lver.orig = sub i32 %137, %154
   %208 = add i32 %reass.sub228.lver.orig, 64
@@ -513,9 +513,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %211 = sext i1 %isnotneg.i197.lver.orig to i8
   %212 = trunc nuw i32 %210 to i8
   %.0.i198.lver.orig = select i1 %.not.i196.lver.orig, i8 %212, i8 %211
-  store i8 %.0.i198.lver.orig, ptr %205, align 1, !tbaa !13
+  store i8 %.0.i198.lver.orig, ptr %205, align 1, !tbaa !12
   %213 = getelementptr i8, ptr %161, i64 6
-  %214 = load i8, ptr %213, align 1, !tbaa !13
+  %214 = load i8, ptr %213, align 1, !tbaa !12
   %215 = zext i8 %214 to i32
   %reass.sub229.lver.orig = sub i32 %136, %148
   %216 = add i32 %reass.sub229.lver.orig, 64
@@ -526,9 +526,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %219 = sext i1 %isnotneg.i194.lver.orig to i8
   %220 = trunc nuw i32 %218 to i8
   %.0.i195.lver.orig = select i1 %.not.i193.lver.orig, i8 %220, i8 %219
-  store i8 %.0.i195.lver.orig, ptr %213, align 1, !tbaa !13
+  store i8 %.0.i195.lver.orig, ptr %213, align 1, !tbaa !12
   %221 = getelementptr i8, ptr %161, i64 7
-  %222 = load i8, ptr %221, align 1, !tbaa !13
+  %222 = load i8, ptr %221, align 1, !tbaa !12
   %223 = zext i8 %222 to i32
   %reass.sub230.lver.orig = sub i32 %134, %144
   %224 = add i32 %reass.sub230.lver.orig, 64
@@ -539,10 +539,10 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %227 = sext i1 %isnotneg.i.lver.orig to i8
   %228 = trunc nuw i32 %226 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %228, i8 %227
-  store i8 %.0.i.lver.orig, ptr %221, align 1, !tbaa !13
+  store i8 %.0.i.lver.orig, ptr %221, align 1, !tbaa !12
   %indvars.iv.next233.lver.orig = add nuw nsw i64 %indvars.iv232.lver.orig, 1
   %exitcond235.not.lver.orig = icmp eq i64 %indvars.iv.next233.lver.orig, 8
-  br i1 %exitcond235.not.lver.orig, label %.loopexit, label %.preheader.lver.orig, !llvm.loop !16
+  br i1 %exitcond235.not.lver.orig, label %.loopexit, label %.preheader.lver.orig, !llvm.loop !15
 
 .preheader.ph:                                    ; preds = %.preheader.lver.check
   %scevgep = getelementptr i8, ptr %1, i64 6
@@ -624,7 +624,7 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %287 = add i32 %286, %.neg185
   %288 = mul nuw nsw i64 %indvars.iv232, %100
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 %288
-  %290 = load i8, ptr %289, align 1, !tbaa !13
+  %290 = load i8, ptr %289, align 1, !tbaa !12
   %291 = zext i8 %290 to i32
   %292 = add i32 %272, 64
   %293 = add i32 %292, %262
@@ -635,9 +635,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %296 = sext i1 %isnotneg.i212 to i8
   %297 = trunc nuw i32 %295 to i8
   %.0.i213 = select i1 %.not.i211, i8 %297, i8 %296
-  store i8 %.0.i213, ptr %289, align 1, !tbaa !13
+  store i8 %.0.i213, ptr %289, align 1, !tbaa !12
   %298 = getelementptr i8, ptr %289, i64 1
-  %299 = load i8, ptr %298, align 1, !tbaa !13
+  %299 = load i8, ptr %298, align 1, !tbaa !12
   %300 = zext i8 %299 to i32
   %301 = add i32 %276, 64
   %302 = add i32 %301, %264
@@ -648,9 +648,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %305 = sext i1 %isnotneg.i209 to i8
   %306 = trunc nuw i32 %304 to i8
   %.0.i210 = select i1 %.not.i208, i8 %306, i8 %305
-  store i8 %.0.i210, ptr %298, align 1, !tbaa !13
+  store i8 %.0.i210, ptr %298, align 1, !tbaa !12
   %307 = getelementptr i8, ptr %289, i64 2
-  %308 = load i8, ptr %307, align 1, !tbaa !13
+  %308 = load i8, ptr %307, align 1, !tbaa !12
   %309 = zext i8 %308 to i32
   %310 = add i32 %282, 64
   %311 = add i32 %310, %265
@@ -661,9 +661,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %314 = sext i1 %isnotneg.i206 to i8
   %315 = trunc nuw i32 %313 to i8
   %.0.i207 = select i1 %.not.i205, i8 %315, i8 %314
-  store i8 %.0.i207, ptr %307, align 1, !tbaa !13
+  store i8 %.0.i207, ptr %307, align 1, !tbaa !12
   %316 = getelementptr i8, ptr %289, i64 3
-  %317 = load i8, ptr %316, align 1, !tbaa !13
+  %317 = load i8, ptr %316, align 1, !tbaa !12
   %318 = zext i8 %317 to i32
   %319 = add i32 %287, 64
   %320 = add i32 %319, %263
@@ -674,9 +674,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %323 = sext i1 %isnotneg.i203 to i8
   %324 = trunc nuw i32 %322 to i8
   %.0.i204 = select i1 %.not.i202, i8 %324, i8 %323
-  store i8 %.0.i204, ptr %316, align 1, !tbaa !13
+  store i8 %.0.i204, ptr %316, align 1, !tbaa !12
   %325 = getelementptr i8, ptr %289, i64 4
-  %326 = load i8, ptr %325, align 1, !tbaa !13
+  %326 = load i8, ptr %325, align 1, !tbaa !12
   %327 = zext i8 %326 to i32
   %reass.sub227 = sub i32 %263, %287
   %328 = add i32 %reass.sub227, 64
@@ -687,9 +687,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %331 = sext i1 %isnotneg.i200 to i8
   %332 = trunc nuw i32 %330 to i8
   %.0.i201 = select i1 %.not.i199, i8 %332, i8 %331
-  store i8 %.0.i201, ptr %325, align 1, !tbaa !13
+  store i8 %.0.i201, ptr %325, align 1, !tbaa !12
   %333 = getelementptr i8, ptr %289, i64 5
-  %334 = load i8, ptr %333, align 1, !tbaa !13
+  %334 = load i8, ptr %333, align 1, !tbaa !12
   %335 = zext i8 %334 to i32
   %reass.sub228 = sub i32 %265, %282
   %336 = add i32 %reass.sub228, 64
@@ -700,7 +700,7 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %339 = sext i1 %isnotneg.i197 to i8
   %340 = trunc nuw i32 %338 to i8
   %.0.i198 = select i1 %.not.i196, i8 %340, i8 %339
-  store i8 %.0.i198, ptr %333, align 1, !tbaa !13
+  store i8 %.0.i198, ptr %333, align 1, !tbaa !12
   %341 = getelementptr i8, ptr %289, i64 6
   %342 = zext i8 %store_forwarded to i32
   %reass.sub229 = sub i32 %264, %276
@@ -712,9 +712,9 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %346 = sext i1 %isnotneg.i194 to i8
   %347 = trunc nuw i32 %345 to i8
   %.0.i195 = select i1 %.not.i193, i8 %347, i8 %346
-  store i8 %.0.i195, ptr %341, align 1, !tbaa !13
+  store i8 %.0.i195, ptr %341, align 1, !tbaa !12
   %348 = getelementptr i8, ptr %289, i64 7
-  %349 = load i8, ptr %348, align 1, !tbaa !13
+  %349 = load i8, ptr %348, align 1, !tbaa !12
   %350 = zext i8 %349 to i32
   %reass.sub230 = sub i32 %262, %272
   %351 = add i32 %reass.sub230, 64
@@ -725,10 +725,10 @@ define void @ff_rv60_idct8x8_add(ptr noundef readonly captures(none) %0, ptr nou
   %354 = sext i1 %isnotneg.i to i8
   %355 = trunc nuw i32 %353 to i8
   %.0.i = select i1 %.not.i, i8 %355, i8 %354
-  store i8 %.0.i, ptr %348, align 1, !tbaa !13
+  store i8 %.0.i, ptr %348, align 1, !tbaa !12
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 8
-  br i1 %exitcond235.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond235.not, label %.loopexit, label %.preheader, !llvm.loop !15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1102,7 +1102,7 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   store i16 %299, ptr %300, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader.preheader, label %5, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader.preheader, label %5, !llvm.loop !16
 
 .preheader.preheader:                             ; preds = %5
   %301 = sext i32 %2 to i64
@@ -1350,7 +1350,7 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %510 = add nsw i32 %509, %.neg476
   %511 = mul nsw i64 %indvars.iv642, %301
   %512 = getelementptr inbounds i8, ptr %1, i64 %511
-  %513 = load i8, ptr %512, align 1, !tbaa !13
+  %513 = load i8, ptr %512, align 1, !tbaa !12
   %514 = zext i8 %513 to i32
   %515 = add nsw i32 %424, 64
   %516 = add nsw i32 %515, %402
@@ -1361,9 +1361,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %519 = sext i1 %isnotneg.i546 to i8
   %520 = trunc nuw i32 %518 to i8
   %.0.i547 = select i1 %.not.i545, i8 %520, i8 %519
-  store i8 %.0.i547, ptr %512, align 1, !tbaa !13
+  store i8 %.0.i547, ptr %512, align 1, !tbaa !12
   %521 = getelementptr i8, ptr %512, i64 1
-  %522 = load i8, ptr %521, align 1, !tbaa !13
+  %522 = load i8, ptr %521, align 1, !tbaa !12
   %523 = zext i8 %522 to i32
   %524 = add nsw i32 %435, 64
   %525 = add nsw i32 %524, %406
@@ -1374,9 +1374,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %528 = sext i1 %isnotneg.i543 to i8
   %529 = trunc nuw i32 %527 to i8
   %.0.i544 = select i1 %.not.i542, i8 %529, i8 %528
-  store i8 %.0.i544, ptr %521, align 1, !tbaa !13
+  store i8 %.0.i544, ptr %521, align 1, !tbaa !12
   %530 = getelementptr i8, ptr %512, i64 2
-  %531 = load i8, ptr %530, align 1, !tbaa !13
+  %531 = load i8, ptr %530, align 1, !tbaa !12
   %532 = zext i8 %531 to i32
   %533 = add nsw i32 %447, 64
   %534 = add nsw i32 %533, %408
@@ -1387,9 +1387,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %537 = sext i1 %isnotneg.i540 to i8
   %538 = trunc nuw i32 %536 to i8
   %.0.i541 = select i1 %.not.i539, i8 %538, i8 %537
-  store i8 %.0.i541, ptr %530, align 1, !tbaa !13
+  store i8 %.0.i541, ptr %530, align 1, !tbaa !12
   %539 = getelementptr i8, ptr %512, i64 3
-  %540 = load i8, ptr %539, align 1, !tbaa !13
+  %540 = load i8, ptr %539, align 1, !tbaa !12
   %541 = zext i8 %540 to i32
   %542 = add nsw i32 %459, 64
   %543 = add nsw i32 %542, %404
@@ -1400,9 +1400,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %546 = sext i1 %isnotneg.i537 to i8
   %547 = trunc nuw i32 %545 to i8
   %.0.i538 = select i1 %.not.i536, i8 %547, i8 %546
-  store i8 %.0.i538, ptr %539, align 1, !tbaa !13
+  store i8 %.0.i538, ptr %539, align 1, !tbaa !12
   %548 = getelementptr i8, ptr %512, i64 4
-  %549 = load i8, ptr %548, align 1, !tbaa !13
+  %549 = load i8, ptr %548, align 1, !tbaa !12
   %550 = zext i8 %549 to i32
   %551 = add nsw i32 %472, 64
   %552 = add nsw i32 %551, %405
@@ -1413,9 +1413,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %555 = sext i1 %isnotneg.i534 to i8
   %556 = trunc nuw i32 %554 to i8
   %.0.i535 = select i1 %.not.i533, i8 %556, i8 %555
-  store i8 %.0.i535, ptr %548, align 1, !tbaa !13
+  store i8 %.0.i535, ptr %548, align 1, !tbaa !12
   %557 = getelementptr i8, ptr %512, i64 5
-  %558 = load i8, ptr %557, align 1, !tbaa !13
+  %558 = load i8, ptr %557, align 1, !tbaa !12
   %559 = zext i8 %558 to i32
   %560 = add nsw i32 %485, 64
   %561 = add nsw i32 %560, %409
@@ -1426,9 +1426,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %564 = sext i1 %isnotneg.i531 to i8
   %565 = trunc nuw i32 %563 to i8
   %.0.i532 = select i1 %.not.i530, i8 %565, i8 %564
-  store i8 %.0.i532, ptr %557, align 1, !tbaa !13
+  store i8 %.0.i532, ptr %557, align 1, !tbaa !12
   %566 = getelementptr i8, ptr %512, i64 6
-  %567 = load i8, ptr %566, align 1, !tbaa !13
+  %567 = load i8, ptr %566, align 1, !tbaa !12
   %568 = zext i8 %567 to i32
   %569 = add nsw i32 %498, 64
   %570 = add nsw i32 %569, %407
@@ -1439,9 +1439,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %573 = sext i1 %isnotneg.i528 to i8
   %574 = trunc nuw i32 %572 to i8
   %.0.i529 = select i1 %.not.i527, i8 %574, i8 %573
-  store i8 %.0.i529, ptr %566, align 1, !tbaa !13
+  store i8 %.0.i529, ptr %566, align 1, !tbaa !12
   %575 = getelementptr i8, ptr %512, i64 7
-  %576 = load i8, ptr %575, align 1, !tbaa !13
+  %576 = load i8, ptr %575, align 1, !tbaa !12
   %577 = zext i8 %576 to i32
   %578 = add nsw i32 %510, 64
   %579 = add nsw i32 %578, %403
@@ -1452,9 +1452,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %582 = sext i1 %isnotneg.i525 to i8
   %583 = trunc nuw i32 %581 to i8
   %.0.i526 = select i1 %.not.i524, i8 %583, i8 %582
-  store i8 %.0.i526, ptr %575, align 1, !tbaa !13
+  store i8 %.0.i526, ptr %575, align 1, !tbaa !12
   %584 = getelementptr i8, ptr %512, i64 8
-  %585 = load i8, ptr %584, align 1, !tbaa !13
+  %585 = load i8, ptr %584, align 1, !tbaa !12
   %586 = zext i8 %585 to i32
   %reass.sub633 = sub nsw i32 %403, %510
   %587 = add nsw i32 %reass.sub633, 64
@@ -1465,9 +1465,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %590 = sext i1 %isnotneg.i522 to i8
   %591 = trunc nuw i32 %589 to i8
   %.0.i523 = select i1 %.not.i521, i8 %591, i8 %590
-  store i8 %.0.i523, ptr %584, align 1, !tbaa !13
+  store i8 %.0.i523, ptr %584, align 1, !tbaa !12
   %592 = getelementptr i8, ptr %512, i64 9
-  %593 = load i8, ptr %592, align 1, !tbaa !13
+  %593 = load i8, ptr %592, align 1, !tbaa !12
   %594 = zext i8 %593 to i32
   %reass.sub634 = sub nsw i32 %407, %498
   %595 = add nsw i32 %reass.sub634, 64
@@ -1478,9 +1478,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %598 = sext i1 %isnotneg.i519 to i8
   %599 = trunc nuw i32 %597 to i8
   %.0.i520 = select i1 %.not.i518, i8 %599, i8 %598
-  store i8 %.0.i520, ptr %592, align 1, !tbaa !13
+  store i8 %.0.i520, ptr %592, align 1, !tbaa !12
   %600 = getelementptr i8, ptr %512, i64 10
-  %601 = load i8, ptr %600, align 1, !tbaa !13
+  %601 = load i8, ptr %600, align 1, !tbaa !12
   %602 = zext i8 %601 to i32
   %reass.sub635 = sub nsw i32 %409, %485
   %603 = add nsw i32 %reass.sub635, 64
@@ -1491,9 +1491,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %606 = sext i1 %isnotneg.i516 to i8
   %607 = trunc nuw i32 %605 to i8
   %.0.i517 = select i1 %.not.i515, i8 %607, i8 %606
-  store i8 %.0.i517, ptr %600, align 1, !tbaa !13
+  store i8 %.0.i517, ptr %600, align 1, !tbaa !12
   %608 = getelementptr i8, ptr %512, i64 11
-  %609 = load i8, ptr %608, align 1, !tbaa !13
+  %609 = load i8, ptr %608, align 1, !tbaa !12
   %610 = zext i8 %609 to i32
   %reass.sub636 = sub nsw i32 %405, %472
   %611 = add nsw i32 %reass.sub636, 64
@@ -1504,9 +1504,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %614 = sext i1 %isnotneg.i513 to i8
   %615 = trunc nuw i32 %613 to i8
   %.0.i514 = select i1 %.not.i512, i8 %615, i8 %614
-  store i8 %.0.i514, ptr %608, align 1, !tbaa !13
+  store i8 %.0.i514, ptr %608, align 1, !tbaa !12
   %616 = getelementptr i8, ptr %512, i64 12
-  %617 = load i8, ptr %616, align 1, !tbaa !13
+  %617 = load i8, ptr %616, align 1, !tbaa !12
   %618 = zext i8 %617 to i32
   %reass.sub637 = sub nsw i32 %404, %459
   %619 = add nsw i32 %reass.sub637, 64
@@ -1517,9 +1517,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %622 = sext i1 %isnotneg.i510 to i8
   %623 = trunc nuw i32 %621 to i8
   %.0.i511 = select i1 %.not.i509, i8 %623, i8 %622
-  store i8 %.0.i511, ptr %616, align 1, !tbaa !13
+  store i8 %.0.i511, ptr %616, align 1, !tbaa !12
   %624 = getelementptr i8, ptr %512, i64 13
-  %625 = load i8, ptr %624, align 1, !tbaa !13
+  %625 = load i8, ptr %624, align 1, !tbaa !12
   %626 = zext i8 %625 to i32
   %reass.sub638 = sub nsw i32 %408, %447
   %627 = add nsw i32 %reass.sub638, 64
@@ -1530,9 +1530,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %630 = sext i1 %isnotneg.i507 to i8
   %631 = trunc nuw i32 %629 to i8
   %.0.i508 = select i1 %.not.i506, i8 %631, i8 %630
-  store i8 %.0.i508, ptr %624, align 1, !tbaa !13
+  store i8 %.0.i508, ptr %624, align 1, !tbaa !12
   %632 = getelementptr i8, ptr %512, i64 14
-  %633 = load i8, ptr %632, align 1, !tbaa !13
+  %633 = load i8, ptr %632, align 1, !tbaa !12
   %634 = zext i8 %633 to i32
   %reass.sub639 = sub nsw i32 %406, %435
   %635 = add nsw i32 %reass.sub639, 64
@@ -1543,9 +1543,9 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %638 = sext i1 %isnotneg.i504 to i8
   %639 = trunc nuw i32 %637 to i8
   %.0.i505 = select i1 %.not.i503, i8 %639, i8 %638
-  store i8 %.0.i505, ptr %632, align 1, !tbaa !13
+  store i8 %.0.i505, ptr %632, align 1, !tbaa !12
   %640 = getelementptr i8, ptr %512, i64 15
-  %641 = load i8, ptr %640, align 1, !tbaa !13
+  %641 = load i8, ptr %640, align 1, !tbaa !12
   %642 = zext i8 %641 to i32
   %reass.sub640 = sub nsw i32 %402, %424
   %643 = add nsw i32 %reass.sub640, 64
@@ -1556,10 +1556,10 @@ define void @ff_rv60_idct16x16_add(ptr noundef readonly captures(none) %0, ptr n
   %646 = sext i1 %isnotneg.i to i8
   %647 = trunc nuw i32 %645 to i8
   %.0.i = select i1 %.not.i, i8 %647, i8 %646
-  store i8 %.0.i, ptr %640, align 1, !tbaa !13
+  store i8 %.0.i, ptr %640, align 1, !tbaa !12
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %exitcond645.not = icmp eq i64 %indvars.iv.next643, 16
-  br i1 %exitcond645.not, label %302, label %.preheader, !llvm.loop !18
+  br i1 %exitcond645.not, label %302, label %.preheader, !llvm.loop !17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1585,12 +1585,11 @@ attributes #3 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
+!12 = !{!6, !6, i64 0}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}

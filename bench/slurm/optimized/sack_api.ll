@@ -185,7 +185,7 @@ define dso_local ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %.lr.ph151.backedge
 
 .lr.ph151.backedge:                               ; preds = %61, %58
-  br label %.lr.ph151, !llvm.loop !12
+  br label %.lr.ph151, !llvm.loop !11
 
 .lr.ph151:                                        ; preds = %.lr.ph151.backedge, %.lr.ph151.preheader
   %.077.ph181 = phi ptr [ %4, %.lr.ph151.preheader ], [ %56, %.lr.ph151.backedge ]
@@ -365,7 +365,7 @@ define dso_local ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %.lr.ph184.backedge
 
 .lr.ph184.backedge:                               ; preds = %130, %127
-  br label %.lr.ph184, !llvm.loop !13
+  br label %.lr.ph184, !llvm.loop !12
 
 .thread:                                          ; preds = %.split189.us, %.outer121._crit_edge, %.split192.us, %123, %113, %108, %26, %.split138.us, %39, %44, %54, %.split159
   %.080 = phi ptr [ null, %.outer121._crit_edge ], [ %85, %.split192.us ], [ %85, %123 ], [ %85, %113 ], [ %85, %108 ], [ null, %26 ], [ null, %.split138.us ], [ null, %39 ], [ null, %44 ], [ null, %54 ], [ null, %.split159 ], [ %85, %.split189.us ]
@@ -444,7 +444,7 @@ _sack_try_connection.exit:                        ; preds = %11
 24:                                               ; preds = %7, %10, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %25, label %1, !llvm.loop !14
+  br i1 %exitcond.not, label %25, label %1, !llvm.loop !13
 
 25:                                               ; preds = %24
   %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8) #8
@@ -582,7 +582,7 @@ define dso_local i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %37, %34
-  br label %.lr.ph.split, !llvm.loop !15
+  br label %.lr.ph.split, !llvm.loop !14
 
 .split123:                                        ; preds = %.lr.ph112.split.split, %51
   %39 = tail call i32 @get_log_level() #8
@@ -657,7 +657,7 @@ define dso_local i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph112.backedge
 
 .lr.ph112.backedge:                               ; preds = %64, %61
-  br label %.lr.ph112, !llvm.loop !16
+  br label %.lr.ph112, !llvm.loop !15
 
 .lr.ph112:                                        ; preds = %.lr.ph112.backedge, %.lr.ph112.preheader
   %.056.ph142 = phi ptr [ %2, %.lr.ph112.preheader ], [ %59, %.lr.ph112.backedge ]
@@ -764,12 +764,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

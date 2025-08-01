@@ -37,10 +37,10 @@ define dso_local i32 @errstr_main(i32 noundef %0, ptr noundef %1) local_unnamed_
     i32 0, label %12
     i32 1, label %11
     i32 -1, label %8
-  ], !llvm.loop !4
+  ]
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %9 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef %5) #4
   br label %.loopexit
 
@@ -51,7 +51,7 @@ define dso_local i32 @errstr_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 12:                                               ; preds = %6
   %13 = tail call i32 @OPENSSL_init_ssl(i64 noundef 2097154, ptr noundef null) #4
   %14 = tail call ptr @opt_rest() #4
-  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %15 = load ptr, ptr %14, align 8, !tbaa !9
   %.not1112 = icmp eq ptr %15, null
   br i1 %.not1112, label %.loopexit, label %.lr.ph
 
@@ -68,18 +68,18 @@ define dso_local i32 @errstr_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %25
 
 21:                                               ; preds = %.lr.ph
-  %22 = load i64, ptr %4, align 8, !tbaa !13
+  %22 = load i64, ptr %4, align 8, !tbaa !11
   call void @ERR_error_string_n(i64 noundef %22, ptr noundef nonnull %3, i64 noundef 256) #4
-  %23 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %23 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #4
   br label %25
 
 25:                                               ; preds = %19, %21
   %.2 = phi i32 [ %20, %19 ], [ %.114, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0813, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !11
+  %27 = load ptr, ptr %26, align 8, !tbaa !9
   %.not11 = icmp eq ptr %27, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %25, %12, %11, %8
   %.0 = phi i32 [ 1, %8 ], [ 0, %11 ], [ 0, %12 ], [ %.2, %25 ]
@@ -123,16 +123,14 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 _ZTS6bio_st", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}
 !11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !9, i64 0}
-!15 = distinct !{!15, !16, !5}
-!16 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"long", !7, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

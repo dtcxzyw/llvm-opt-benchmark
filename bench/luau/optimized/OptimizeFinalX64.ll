@@ -322,7 +322,7 @@ define dso_local void @_ZN4Luau7CodeGen25optimizeMemoryOperandsX64ERNS0_10IrFunc
 _ZN4Luau7CodeGenL25optimizeMemoryOperandsX64ERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %172, %9, %6
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 32
   %.not = icmp eq ptr %175, %4
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %6
 }
 
 declare void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(624), ptr noundef nonnull align 4 dereferenceable(4), i32) local_unnamed_addr #1
@@ -364,7 +364,5 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !29 = !{!"bool", !7, i64 0}
 !30 = !{!21, !12, i64 36}
 !31 = !{!7, !7, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !34}

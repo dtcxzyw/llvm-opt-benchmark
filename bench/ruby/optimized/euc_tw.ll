@@ -157,9 +157,9 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone captures(a
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !14
+  %13 = load i32, ptr %12, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !18
+  %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %19
 
@@ -230,11 +230,10 @@ attributes #3 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !10, i64 16}
-!15 = !{!"OnigEncodingTypeST", !16, i64 0, !17, i64 8, !10, i64 16, !10, i64 20, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !10, i64 128, !10, i64 132}
-!16 = !{!"any pointer", !7, i64 0}
-!17 = !{!"p1 omnipotent char", !16, i64 0}
-!18 = !{!15, !10, i64 20}
+!13 = !{!14, !10, i64 16}
+!14 = !{!"OnigEncodingTypeST", !15, i64 0, !16, i64 8, !10, i64 16, !10, i64 20, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !10, i64 128, !10, i64 132}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = !{!"p1 omnipotent char", !15, i64 0}
+!17 = !{!14, !10, i64 20}

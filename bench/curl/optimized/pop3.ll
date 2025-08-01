@@ -245,7 +245,7 @@ pop3_perform_command.exit.i.i:                    ; preds = %59, %pop3_is_multil
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   store i8 0, ptr %3, align 1, !tbaa !8
   %76 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
-  %77 = load i8, ptr %3, align 1, !tbaa !8, !range !97, !noundef !98
+  %77 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
   %78 = load i8, ptr %72, align 2
   %79 = and i8 %78, -2
   %80 = or disjoint i8 %79, %77
@@ -321,18 +321,18 @@ define internal i32 @pop3_connect(ptr noundef %0, ptr noundef writeonly captures
   store i8 0, ptr %1, align 1, !tbaa !8
   tail call void @Curl_conncontrol(ptr noundef %5, i32 noundef 0) #6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1144
-  store i64 120000, ptr %7, align 8, !tbaa !99
+  store i64 120000, ptr %7, align 8, !tbaa !98
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1232
-  store ptr @pop3_statemachine, ptr %8, align 8, !tbaa !100
+  store ptr @pop3_statemachine, ptr %8, align 8, !tbaa !99
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1240
-  store ptr @pop3_endofresp, ptr %9, align 8, !tbaa !101
+  store ptr @pop3_endofresp, ptr %9, align 8, !tbaa !100
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1313
-  store i8 7, ptr %10, align 1, !tbaa !102
+  store i8 7, ptr %10, align 1, !tbaa !101
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1272
   tail call void @Curl_sasl_init(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull @saslpop3) #6
   tail call void @Curl_pp_init(ptr noundef nonnull %6) #6
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %13 = load ptr, ptr %12, align 8, !tbaa !103
+  %13 = load ptr, ptr %12, align 8, !tbaa !102
   %.not54.i = icmp eq ptr %13, null
   br i1 %.not54.i, label %.critedge.i, label %.lr.ph.i
 
@@ -358,7 +358,7 @@ define internal i32 @pop3_connect(ptr noundef %0, ptr noundef writeonly captures
 18:                                               ; preds = %.preheader.i
   %19 = getelementptr inbounds nuw i8, ptr %.137.i, i64 1
   %.pr.i = load i8, ptr %19, align 1, !tbaa !7
-  br label %.preheader.i, !llvm.loop !112
+  br label %.preheader.i, !llvm.loop !111
 
 .critedge3.i:                                     ; preds = %.preheader.i, %.preheader.i
   %20 = getelementptr inbounds nuw i8, ptr %.137.i, i64 1
@@ -375,7 +375,7 @@ define internal i32 @pop3_connect(ptr noundef %0, ptr noundef writeonly captures
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.pre.i = load i8, ptr %24, align 1, !tbaa !7
-  br label %21, !llvm.loop !113
+  br label %21, !llvm.loop !112
 
 .critedge5.i:                                     ; preds = %21, %21
   %25 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03650.i23, ptr noundef nonnull @.str.26, i64 noundef 5) #6
@@ -396,8 +396,8 @@ define internal i32 @pop3_connect(ptr noundef %0, ptr noundef writeonly captures
   br i1 %.not49.i, label %.critedge.i, label %33
 
 33:                                               ; preds = %31
-  store i8 2, ptr %10, align 1, !tbaa !102
-  store i16 0, ptr %14, align 2, !tbaa !114
+  store i8 2, ptr %10, align 1, !tbaa !101
+  store i16 0, ptr %14, align 2, !tbaa !113
   br label %34
 
 34:                                               ; preds = %33, %26
@@ -407,22 +407,22 @@ define internal i32 @pop3_connect(ptr noundef %0, ptr noundef writeonly captures
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 %spec.select.idx.i
   %37 = load i8, ptr %spec.select.i, align 1, !tbaa !7
   %.not.i = icmp eq i8 %37, 0
-  br i1 %.not.i, label %.critedge.i, label %.preheader.i.preheader, !llvm.loop !115
+  br i1 %.not.i, label %.critedge.i, label %.preheader.i.preheader, !llvm.loop !114
 
 .critedge.i:                                      ; preds = %34, %.critedge5.i, %31, %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ 0, %.lr.ph.i ], [ 0, %34 ], [ 3, %.critedge5.i ], [ %30, %31 ]
-  %38 = load i8, ptr %10, align 1, !tbaa !102
+  %38 = load i8, ptr %10, align 1, !tbaa !101
   %.not42.i = icmp eq i8 %38, 2
   br i1 %.not42.i, label %pop3_parse_url_options.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.critedge.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1298
-  %40 = load i16, ptr %39, align 2, !tbaa !114
+  %40 = load i16, ptr %39, align 2, !tbaa !113
   %switch.selectcmp.i = icmp eq i16 %40, -33
   %switch.select.i = select i1 %switch.selectcmp.i, i8 7, i8 4
   %switch.selectcmp58.i = icmp eq i16 %40, 0
   %switch.select59.i = select i1 %switch.selectcmp58.i, i8 0, i8 %switch.select.i
-  store i8 %switch.select59.i, ptr %10, align 1, !tbaa !102
+  store i8 %switch.select59.i, ptr %10, align 1, !tbaa !101
   br label %pop3_parse_url_options.exit
 
 pop3_parse_url_options.exit:                      ; preds = %.critedge.i, %.sink.split.i
@@ -448,7 +448,7 @@ pop3_parse_url_options.exit:                      ; preds = %.critedge.i, %.sink
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   store i8 0, ptr %3, align 1, !tbaa !8
   %50 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
-  %51 = load i8, ptr %3, align 1, !tbaa !8, !range !97, !noundef !98
+  %51 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
   %52 = load i8, ptr %46, align 2
   %53 = and i8 %52, -2
   %54 = or disjoint i8 %53, %51
@@ -492,7 +492,7 @@ define internal i32 @pop3_multi_statemach(ptr noundef %0, ptr noundef writeonly 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   store i8 0, ptr %3, align 1, !tbaa !8
   %13 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
-  %14 = load i8, ptr %3, align 1, !tbaa !8, !range !97, !noundef !98
+  %14 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
   %15 = load i8, ptr %9, align 2
   %16 = and i8 %15, -2
   %17 = or disjoint i8 %16, %14
@@ -537,7 +537,7 @@ define internal i32 @pop3_doing(ptr noundef %0, ptr noundef writeonly captures(n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   store i8 0, ptr %3, align 1, !tbaa !8
   %13 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #6
-  %14 = load i8, ptr %3, align 1, !tbaa !8, !range !97, !noundef !98
+  %14 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
   %15 = load i8, ptr %9, align 2
   %16 = and i8 %15, -2
   %17 = or disjoint i8 %16, %14
@@ -602,19 +602,19 @@ define internal noundef i32 @pop3_disconnect(ptr noundef %0, ptr noundef %1, i1 
   %18 = icmp ne i32 %17, 0
   %.not.i12 = icmp eq i32 %16, 0
   %19 = select i1 %18, i1 %.not.i12, i1 false
-  br i1 %19, label %.lr.ph.i, label %pop3_perform_quit.exit, !llvm.loop !116
+  br i1 %19, label %.lr.ph.i, label %pop3_perform_quit.exit, !llvm.loop !115
 
 pop3_perform_quit.exit:                           ; preds = %.lr.ph.i, %11, %8, %4, %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %21 = tail call i32 @Curl_pp_disconnect(ptr noundef nonnull %20) #6
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1300
-  %23 = load i16, ptr %22, align 4, !tbaa !117
+  %23 = load i16, ptr %22, align 4, !tbaa !116
   tail call void @Curl_sasl_cleanup(ptr noundef %1, i16 noundef zeroext %23) #6
   %24 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 1304
-  %26 = load ptr, ptr %25, align 8, !tbaa !118
+  %26 = load ptr, ptr %25, align 8, !tbaa !117
   tail call void %24(ptr noundef %26) #6
-  store ptr null, ptr %25, align 8, !tbaa !118
+  store ptr null, ptr %25, align 8, !tbaa !117
   ret i32 0
 }
 
@@ -634,7 +634,7 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %.067136 = phi i64 [ 0, %.lr.ph138 ], [ %33, %.thread111 ]
   %.068135 = phi i64 [ 0, %.lr.ph138 ], [ %.1.ph, %.thread111 ]
   %.069134 = phi i1 [ false, %.lr.ph138 ], [ %.170.ph, %.thread111 ]
-  %10 = load i64, ptr %7, align 8, !tbaa !119
+  %10 = load i64, ptr %7, align 8, !tbaa !118
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.067136
   %12 = load i8, ptr %11, align 1, !tbaa !7
   switch i8 %12, label %24 [
@@ -650,7 +650,7 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   ]
 
 14:                                               ; preds = %13
-  store i64 1, ptr %7, align 8, !tbaa !119
+  store i64 1, ptr %7, align 8, !tbaa !118
   %.not92 = icmp eq i64 %.067136, 0
   br i1 %.not92, label %.thread111, label %15
 
@@ -678,18 +678,18 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   ]
 
 23:                                               ; preds = %22
-  store i64 0, ptr %7, align 8, !tbaa !119
+  store i64 0, ptr %7, align 8, !tbaa !118
   br label %.lr.ph
 
 24:                                               ; preds = %9, %22, %19, %13
   %.sink = phi i64 [ 1, %13 ], [ 0, %19 ], [ 0, %22 ], [ 0, %9 ]
-  store i64 %.sink, ptr %7, align 8, !tbaa !119
+  store i64 %.sink, ptr %7, align 8, !tbaa !118
   %.not94 = icmp eq i64 %10, 0
   br i1 %.not94, label %.thread111, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %23
   %.271108 = phi i1 [ %.069134, %24 ], [ true, %23 ]
-  %.promoted = load i64, ptr %8, align 8, !tbaa !120
+  %.promoted = load i64, ptr %8, align 8, !tbaa !119
   br label %25
 
 25:                                               ; preds = %.lr.ph, %27
@@ -701,9 +701,9 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 27:                                               ; preds = %25
   %28 = add i64 %.066133, -1
   %29 = add i64 %26, -1
-  store i64 %29, ptr %8, align 8, !tbaa !120
+  store i64 %29, ptr %8, align 8, !tbaa !119
   %.not96 = icmp eq i64 %28, 0
-  br i1 %.not96, label %.thread111, label %25, !llvm.loop !121
+  br i1 %.not96, label %.thread111, label %25, !llvm.loop !120
 
 .critedge:                                        ; preds = %25
   br i1 %.271108, label %30, label %.critedge102
@@ -721,7 +721,7 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 
 .thread111.sink.split:                            ; preds = %22, %13, %20
   %.sink145 = phi i64 [ %21, %20 ], [ 4, %13 ], [ 3, %22 ]
-  store i64 %.sink145, ptr %7, align 8, !tbaa !119
+  store i64 %.sink145, ptr %7, align 8, !tbaa !118
   br label %.thread111
 
 .thread111:                                       ; preds = %27, %.thread111.sink.split, %.critedge102, %30, %14, %15, %24
@@ -729,12 +729,12 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %.1.ph = phi i64 [ %.068135, %24 ], [ %.067136, %15 ], [ %.068135, %14 ], [ %.067136, %30 ], [ %.067136, %.critedge102 ], [ %.068135, %.thread111.sink.split ], [ %.068135, %27 ]
   %33 = add nuw i64 %.067136, 1
   %exitcond.not = icmp eq i64 %33, %2
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %.thread111, %4
   %.068.lcssa = phi i64 [ 0, %4 ], [ %.1.ph, %.thread111 ]
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 1256
-  %35 = load i64, ptr %34, align 8, !tbaa !119
+  %35 = load i64, ptr %34, align 8, !tbaa !118
   switch i64 %35, label %.loopexit [
     i64 5, label %36
     i64 0, label %41
@@ -743,10 +743,10 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 36:                                               ; preds = %._crit_edge
   %37 = tail call i32 @Curl_client_write(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.45, i64 noundef 2) #6
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %39 = load i32, ptr %38, align 4, !tbaa !123
+  %39 = load i32, ptr %38, align 4, !tbaa !122
   %40 = and i32 %39, -2
-  store i32 %40, ptr %38, align 4, !tbaa !123
-  store i64 0, ptr %34, align 8, !tbaa !119
+  store i32 %40, ptr %38, align 4, !tbaa !122
+  store i64 0, ptr %34, align 8, !tbaa !118
   br label %.loopexit
 
 41:                                               ; preds = %._crit_edge
@@ -789,7 +789,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  store i64 0, ptr %6, align 8, !tbaa !124
+  store i64 0, ptr %6, align 8, !tbaa !123
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %9 = load i32, ptr %8, align 8, !tbaa !86
   %10 = icmp eq i32 %9, 4
@@ -801,7 +801,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1112
-  %15 = load i64, ptr %14, align 8, !tbaa !125
+  %15 = load i64, ptr %14, align 8, !tbaa !124
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %.preheader, label %21
 
@@ -823,7 +823,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not42, label %25, label %.critedge
 
 25:                                               ; preds = %23
-  %26 = load i32, ptr %5, align 4, !tbaa !126
+  %26 = load i32, ptr %5, align 4, !tbaa !125
   %.not43 = icmp eq i32 %26, 0
   br i1 %.not43, label %.critedge, label %27
 
@@ -884,23 +884,23 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 51:                                               ; preds = %46
   %52 = call ptr @Curl_memdup0(ptr noundef nonnull %40, i64 noundef %49) #6
   %53 = getelementptr inbounds nuw i8, ptr %30, i64 1304
-  store ptr %52, ptr %53, align 8, !tbaa !118
+  store ptr %52, ptr %53, align 8, !tbaa !117
   %.not43.i = icmp eq ptr %52, null
   br i1 %.not43.i, label %.critedge, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 1312
-  %56 = load i8, ptr %55, align 8, !tbaa !127
+  %56 = load i8, ptr %55, align 8, !tbaa !126
   %57 = or i8 %56, 2
-  store i8 %57, ptr %55, align 8, !tbaa !127
+  store i8 %57, ptr %55, align 8, !tbaa !126
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %54, %46, %41, %39
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 1088
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 1296
-  store i16 0, ptr %59, align 8, !tbaa !128
+  store i16 0, ptr %59, align 8, !tbaa !127
   %60 = getelementptr inbounds nuw i8, ptr %30, i64 1300
-  store i16 0, ptr %60, align 4, !tbaa !117
+  store i16 0, ptr %60, align 4, !tbaa !116
   %61 = getelementptr inbounds nuw i8, ptr %30, i64 1314
   %62 = load i8, ptr %61, align 2
   %63 = and i8 %62, -3
@@ -950,9 +950,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 1312
-  %84 = load i8, ptr %83, align 8, !tbaa !127
+  %84 = load i8, ptr %83, align 8, !tbaa !126
   %85 = or i8 %84, 1
-  store i8 %85, ptr %83, align 8, !tbaa !127
+  store i8 %85, ptr %83, align 8, !tbaa !126
   br label %pop3_state_servergreet_resp.exit.thread
 
 .critedge89.i:                                    ; preds = %81
@@ -966,9 +966,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 87:                                               ; preds = %86
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 1312
-  %89 = load i8, ptr %88, align 8, !tbaa !127
+  %89 = load i8, ptr %88, align 8, !tbaa !126
   %90 = or i8 %89, 4
-  store i8 %90, ptr %88, align 8, !tbaa !127
+  store i8 %90, ptr %88, align 8, !tbaa !126
   %91 = add i64 %73, -5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %.not8298103.i = icmp eq i64 %91, 0
@@ -1003,7 +1003,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 .lr.ph.i.backedge:                                ; preds = %.critedge2.i, %.critedge90.i
   %.1100.i.be = phi i64 [ %96, %.critedge2.i ], [ %107, %.critedge90.i ]
   %.16899.i.be = phi ptr [ %95, %.critedge2.i ], [ %106, %.critedge90.i ]
-  br label %.lr.ph.i, !llvm.loop !129
+  br label %.lr.ph.i, !llvm.loop !128
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i, %.critedge.i50
   %.065102.i = phi i64 [ %99, %.critedge.i50 ], [ 0, %.lr.ph.i ]
@@ -1019,7 +1019,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 .critedge.i50:                                    ; preds = %.critedge.preheader.i
   %99 = add nuw i64 %.065102.i, 1
   %exitcond.not.i = icmp eq i64 %99, %.1100.i
-  br i1 %exitcond.not.i, label %.critedge4.i, label %.critedge.preheader.i, !llvm.loop !130
+  br i1 %exitcond.not.i, label %.critedge4.i, label %.critedge.preheader.i, !llvm.loop !129
 
 .critedge4.i:                                     ; preds = %.critedge.i50, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i
   %.065.lcssa.i = phi i64 [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.1100.i, %.critedge.i50 ]
@@ -1031,9 +1031,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond.i, label %103, label %.critedge90.i
 
 103:                                              ; preds = %.critedge4.i
-  %104 = load i16, ptr %93, align 8, !tbaa !128
+  %104 = load i16, ptr %93, align 8, !tbaa !127
   %105 = or i16 %104, %100
-  store i16 %105, ptr %93, align 8, !tbaa !128
+  store i16 %105, ptr %93, align 8, !tbaa !127
   br label %.critedge90.i
 
 .critedge90.i:                                    ; preds = %103, %.critedge4.i
@@ -1046,13 +1046,13 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 108:                                              ; preds = %67
   %109 = getelementptr inbounds nuw i8, ptr %68, i64 1312
-  %110 = load i8, ptr %109, align 8, !tbaa !127
+  %110 = load i8, ptr %109, align 8, !tbaa !126
   %111 = or i8 %110, 1
-  store i8 %111, ptr %109, align 8, !tbaa !127
+  store i8 %111, ptr %109, align 8, !tbaa !126
   br label %112
 
 112:                                              ; preds = %108, %67
-  %113 = load i8, ptr %20, align 4, !tbaa !131
+  %113 = load i8, ptr %20, align 4, !tbaa !130
   %.not75.i = icmp eq i8 %113, 0
   br i1 %.not75.i, label %116, label %114
 
@@ -1088,7 +1088,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br label %pop3_state_servergreet_resp.exit.thread
 
 129:                                              ; preds = %120, %118
-  %130 = load i8, ptr %20, align 4, !tbaa !131
+  %130 = load i8, ptr %20, align 4, !tbaa !130
   %131 = icmp ult i8 %130, 2
   br i1 %131, label %132, label %134
 
@@ -1112,7 +1112,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not10.i, label %145, label %140
 
 140:                                              ; preds = %139
-  %141 = load i8, ptr %20, align 4, !tbaa !131
+  %141 = load i8, ptr %20, align 4, !tbaa !130
   %.not11.i = icmp eq i8 %141, 1
   br i1 %.not11.i, label %143, label %142
 
@@ -1137,7 +1137,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i52, label %151, label %pop3_state_auth_resp.exit
 
 151:                                              ; preds = %147
-  %152 = load i32, ptr %3, align 4, !tbaa !126
+  %152 = load i32, ptr %3, align 4, !tbaa !125
   switch i32 %152, label %pop3_state_auth_resp.exit [
     i32 2, label %153
     i32 0, label %155
@@ -1151,9 +1151,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 155:                                              ; preds = %151
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 1312
-  %157 = load i8, ptr %156, align 8, !tbaa !127
+  %157 = load i8, ptr %156, align 8, !tbaa !126
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 1313
-  %159 = load i8, ptr %158, align 1, !tbaa !102
+  %159 = load i8, ptr %158, align 1, !tbaa !101
   %160 = and i8 %159, %157
   %161 = zext i8 %160 to i32
   %162 = and i32 %161, 2
@@ -1170,14 +1170,14 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not18.i, label %175, label %167
 
 167:                                              ; preds = %165
-  %168 = load ptr, ptr %19, align 8, !tbaa !132
+  %168 = load ptr, ptr %19, align 8, !tbaa !131
   %.not.i.i53 = icmp eq ptr %168, null
   br i1 %.not.i.i53, label %.sink.split.i.i, label %169
 
 169:                                              ; preds = %167
   %170 = getelementptr inbounds nuw i8, ptr %148, i64 1088
   %171 = getelementptr inbounds nuw i8, ptr %148, i64 480
-  %172 = load ptr, ptr %171, align 8, !tbaa !133
+  %172 = load ptr, ptr %171, align 8, !tbaa !132
   %.not11.i.i = icmp eq ptr %172, null
   %spec.select.i.i = select i1 %.not11.i.i, ptr @.str.13, ptr %172
   %173 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %170, ptr noundef nonnull @.str.12, ptr noundef nonnull %spec.select.i.i) #6
@@ -1226,7 +1226,7 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
   %182 = load ptr, ptr %16, align 8, !tbaa !83
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 1088
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 488
-  %185 = load ptr, ptr %184, align 8, !tbaa !134
+  %185 = load ptr, ptr %184, align 8, !tbaa !133
   %.not12.i = icmp eq ptr %185, null
   %spec.select.i = select i1 %.not12.i, ptr @.str.13, ptr %185
   %186 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %183, ptr noundef nonnull @.str.18, ptr noundef nonnull %spec.select.i) #6
@@ -1261,9 +1261,9 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
 195:                                              ; preds = %193
   %196 = load ptr, ptr %17, align 8, !tbaa !7
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 1256
-  store i64 2, ptr %197, align 8, !tbaa !119
+  store i64 2, ptr %197, align 8, !tbaa !118
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 1264
-  store i64 2, ptr %198, align 8, !tbaa !120
+  store i64 2, ptr %198, align 8, !tbaa !119
   %199 = load i32, ptr %196, align 8, !tbaa !81
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %215
@@ -1271,7 +1271,7 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
 201:                                              ; preds = %195
   call void @Curl_xfer_setup1(ptr noundef nonnull %0, i32 noundef 1, i64 noundef -1, i1 noundef zeroext false) #6
   %202 = getelementptr inbounds nuw i8, ptr %194, i64 1216
-  %203 = load i64, ptr %202, align 8, !tbaa !135
+  %203 = load i64, ptr %202, align 8, !tbaa !134
   %.not29.i = icmp eq i64 %203, 0
   br i1 %.not29.i, label %217, label %204
 
@@ -1279,7 +1279,7 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
   %205 = getelementptr inbounds nuw i8, ptr %194, i64 1184
   %206 = call i32 @Curl_dyn_tail(ptr noundef nonnull %205, i64 noundef %203) #6
   %207 = getelementptr inbounds nuw i8, ptr %194, i64 1224
-  store i64 0, ptr %207, align 8, !tbaa !136
+  store i64 0, ptr %207, align 8, !tbaa !135
   %208 = load i32, ptr %18, align 1
   %209 = and i32 %208, 131072
   %.not30.i = icmp eq i32 %209, 0
@@ -1294,12 +1294,12 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
 
 214:                                              ; preds = %210, %204
   call void @Curl_dyn_reset(ptr noundef nonnull %205) #6
-  store i64 0, ptr %202, align 8, !tbaa !135
+  store i64 0, ptr %202, align 8, !tbaa !134
   br label %217
 
 215:                                              ; preds = %195
   %216 = getelementptr inbounds nuw i8, ptr %194, i64 1216
-  store i64 0, ptr %216, align 8, !tbaa !135
+  store i64 0, ptr %216, align 8, !tbaa !134
   br label %217
 
 217:                                              ; preds = %215, %214, %201
@@ -1337,7 +1337,7 @@ pop3_state_servergreet_resp.exit.thread:          ; preds = %191, %187, %178, %7
 
 224:                                              ; preds = %pop3_state_servergreet_resp.exit.thread
   %225 = call zeroext i1 @Curl_pp_moredata(ptr noundef nonnull %7) #6
-  br i1 %225, label %23, label %.critedge, !llvm.loop !137
+  br i1 %225, label %23, label %.critedge, !llvm.loop !136
 
 .critedge:                                        ; preds = %210, %181, %135, %124, %.critedge.i, %51, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i, %177, %142, %134, %36, %21, %11
   %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %190 ], [ 67, %.thread.i ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ 27, %51 ], [ %64, %.critedge.i ], [ %126, %124 ], [ 8, %135 ], [ %186, %181 ], [ %213, %210 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
@@ -1394,7 +1394,7 @@ define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %
 
 .sink.split:                                      ; preds = %.thread, %19, %16, %13, %7
   %.sink = phi i32 [ 45, %7 ], [ 42, %16 ], [ 43, %13 ], [ 43, %19 ], [ 42, %.thread ]
-  store i32 %.sink, ptr %4, align 4, !tbaa !126
+  store i32 %.sink, ptr %4, align 4, !tbaa !125
   br label %23
 
 23:                                               ; preds = %.sink.split, %20, %.thread
@@ -1425,7 +1425,7 @@ define internal fastcc i32 @pop3_perform_upgrade_tls(ptr noundef %0, ptr noundef
   br i1 %.not16, label %9, label %pop3_perform_capa.exit
 
 9:                                                ; preds = %7
-  %10 = load i8, ptr %3, align 1, !tbaa !8, !range !97, !noundef !98
+  %10 = load i8, ptr %3, align 1, !tbaa !8, !range !96, !noundef !97
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1314
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, -2
@@ -1452,16 +1452,16 @@ define internal fastcc i32 @pop3_perform_upgrade_tls(ptr noundef %0, ptr noundef
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 960
-  store ptr @Curl_handler_pop3s, ptr %24, align 8, !tbaa !138
+  store ptr @Curl_handler_pop3s, ptr %24, align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 952
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, 134217728
   store i64 %27, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 1296
-  store i16 0, ptr %29, align 8, !tbaa !128
+  store i16 0, ptr %29, align 8, !tbaa !127
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1300
-  store i16 0, ptr %30, align 4, !tbaa !117
+  store i16 0, ptr %30, align 4, !tbaa !116
   %31 = and i8 %21, -3
   store i8 %31, ptr %11, align 2
   %32 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
@@ -1506,7 +1506,7 @@ declare zeroext i16 @Curl_sasl_decode_mech(ptr noundef, i64 noundef, ptr noundef
 define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !tbaa !126
+  store i32 0, ptr %3, align 4, !tbaa !125
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1272
   %5 = tail call zeroext i1 @Curl_sasl_can_authenticate(ptr noundef nonnull %4, ptr noundef %0) #6
   br i1 %5, label %9, label %6
@@ -1520,9 +1520,9 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1312
-  %11 = load i8, ptr %10, align 8, !tbaa !127
+  %11 = load i8, ptr %10, align 8, !tbaa !126
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1313
-  %13 = load i8, ptr %12, align 1, !tbaa !102
+  %13 = load i8, ptr %12, align 1, !tbaa !101
   %14 = and i8 %11, 4
   %15 = and i8 %14, %13
   %.not = icmp eq i8 %15, 0
@@ -1552,8 +1552,8 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
   br i1 %or.cond, label %27, label %pop3_perform_user.exit
 
 27:                                               ; preds = %23
-  %28 = load i8, ptr %10, align 8, !tbaa !127
-  %29 = load i8, ptr %12, align 1, !tbaa !102
+  %28 = load i8, ptr %10, align 8, !tbaa !126
+  %29 = load i8, ptr %12, align 1, !tbaa !101
   %30 = and i8 %29, %28
   %31 = zext i8 %30 to i32
   %32 = and i32 %31, 2
@@ -1571,14 +1571,14 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4992
-  %39 = load ptr, ptr %38, align 8, !tbaa !132
+  %39 = load ptr, ptr %38, align 8, !tbaa !131
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %.sink.split.i, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %43 = load ptr, ptr %42, align 8, !tbaa !133
+  %43 = load ptr, ptr %42, align 8, !tbaa !132
   %.not11.i = icmp eq ptr %43, null
   %spec.select.i = select i1 %.not11.i, ptr @.str.13, ptr %43
   %44 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull @.str.12, ptr noundef nonnull %spec.select.i) #6
@@ -1606,13 +1606,13 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %54 = load ptr, ptr %53, align 8, !tbaa !139
+  %54 = load ptr, ptr %53, align 8, !tbaa !138
   %.not37 = icmp eq ptr %54, null
   br i1 %.not37, label %59, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !140
+  %57 = load i32, ptr %56, align 8, !tbaa !139
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %59, label %pop3_perform_user.exit
 
@@ -1638,7 +1638,7 @@ define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) un
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4992
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !131
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.sink.split, label %8
 
@@ -1649,12 +1649,12 @@ define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) un
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1304
-  %12 = load ptr, ptr %11, align 8, !tbaa !118
+  %12 = load ptr, ptr %11, align 8, !tbaa !117
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #7
   %14 = tail call i32 @curlx_uztoui(i64 noundef %13) #6
   %15 = tail call i32 @Curl_MD5_update(ptr noundef nonnull %9, ptr noundef nonnull %12, i32 noundef %14) #6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %17 = load ptr, ptr %16, align 8, !tbaa !134
+  %17 = load ptr, ptr %16, align 8, !tbaa !133
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #7
   %19 = tail call i32 @curlx_uztoui(i64 noundef %18) #6
   %20 = tail call i32 @Curl_MD5_update(ptr noundef nonnull %9, ptr noundef nonnull %17, i32 noundef %19) #6
@@ -1671,11 +1671,11 @@ define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) un
   %28 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %24, i64 noundef 3, ptr noundef nonnull @.str.10, i32 noundef %27) #6
   %29 = add nuw nsw i64 %.02227, 1
   %exitcond.not = icmp eq i64 %29, 16
-  br i1 %exitcond.not, label %30, label %22, !llvm.loop !142
+  br i1 %exitcond.not, label %30, label %22, !llvm.loop !141
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %32 = load ptr, ptr %31, align 8, !tbaa !133
+  %32 = load ptr, ptr %31, align 8, !tbaa !132
   %33 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.11, ptr noundef %32, ptr noundef nonnull %4) #6
   %.not25 = icmp eq i32 %33, 0
   br i1 %.not25, label %.sink.split, label %36
@@ -1794,7 +1794,7 @@ define internal noundef i32 @pop3_get_message(ptr noundef readonly captures(none
 .critedge:                                        ; preds = %14, %14
   %16 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %17 = add i64 %.0, -1
-  br label %14, !llvm.loop !143
+  br label %14, !llvm.loop !142
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %.132 = phi i64 [ %18, %21 ], [ %.0, %.preheader ]
@@ -1810,7 +1810,7 @@ define internal noundef i32 @pop3_get_message(ptr noundef readonly captures(none
 
 21:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %21, %.lr.ph, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %.132, %.lr.ph ], [ 0, %21 ]
@@ -1961,54 +1961,53 @@ attributes #7 = { nounwind willreturn memory(read) }
 !91 = !{!92, !33, i64 0}
 !92 = !{!"pop3_cmd", !33, i64 0, !48, i64 8, !12, i64 10, !12, i64 10}
 !93 = !{!92, !48, i64 8}
-!94 = distinct !{!94, !95, !96}
+!94 = distinct !{!94, !95}
 !95 = !{!"llvm.loop.mustprogress"}
-!96 = !{!"llvm.loop.estimated_trip_count"}
-!97 = !{i8 0, i8 2}
-!98 = !{}
-!99 = !{!88, !13, i64 56}
-!100 = !{!88, !4, i64 144}
-!101 = !{!88, !4, i64 152}
-!102 = !{!87, !5, i64 225}
-!103 = !{!104, !33, i64 496}
-!104 = !{!"connectdata", !15, i64 0, !4, i64 32, !4, i64 40, !13, i64 48, !33, i64 56, !13, i64 64, !63, i64 72, !105, i64 80, !106, i64 88, !33, i64 120, !33, i64 128, !106, i64 136, !107, i64 168, !107, i64 224, !75, i64 280, !75, i64 380, !33, i64 480, !33, i64 488, !33, i64 496, !33, i64 504, !33, i64 512, !27, i64 520, !27, i64 536, !27, i64 552, !5, i64 568, !5, i64 576, !5, i64 592, !5, i64 608, !108, i64 624, !20, i64 664, !46, i64 696, !46, i64 824, !109, i64 952, !110, i64 960, !110, i64 968, !27, i64 976, !12, i64 992, !12, i64 996, !67, i64 1000, !12, i64 1032, !12, i64 1036, !111, i64 1040, !111, i64 1064, !5, i64 1088, !33, i64 1368, !33, i64 1376, !48, i64 1384, !12, i64 1388, !12, i64 1392, !12, i64 1396, !12, i64 1400, !48, i64 1404, !48, i64 1406, !5, i64 1408, !5, i64 1409, !5, i64 1410, !5, i64 1411, !5, i64 1412, !5, i64 1413, !5, i64 1414}
-!105 = !{!"p1 _ZTS16Curl_sockaddr_ex", !4, i64 0}
-!106 = !{!"hostname", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24}
-!107 = !{!"proxy_info", !106, i64 0, !12, i64 32, !5, i64 36, !33, i64 40, !33, i64 48}
-!108 = !{!"", !5, i64 0, !12, i64 32}
-!109 = !{!"ConnectBits", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 4, !12, i64 4}
-!110 = !{!"p1 _ZTS12Curl_handler", !4, i64 0}
-!111 = !{!"ntlmdata", !12, i64 0, !5, i64 4, !12, i64 12, !4, i64 16}
-!112 = distinct !{!112, !95, !96}
-!113 = distinct !{!113, !95, !96}
-!114 = !{!87, !48, i64 210}
-!115 = distinct !{!115, !95, !96}
-!116 = distinct !{!116, !95, !96}
-!117 = !{!87, !48, i64 212}
-!118 = !{!87, !33, i64 216}
-!119 = !{!87, !13, i64 168}
-!120 = !{!87, !13, i64 176}
-!121 = distinct !{!121, !95, !96}
-!122 = distinct !{!122, !95, !96}
-!123 = !{!26, !12, i64 76}
-!124 = !{!13, !13, i64 0}
-!125 = !{!88, !13, i64 24}
-!126 = !{!12, !12, i64 0}
-!127 = !{!87, !5, i64 224}
-!128 = !{!87, !48, i64 208}
-!129 = distinct !{!129, !96}
-!130 = distinct !{!130, !95, !96}
-!131 = !{!11, !5, i64 2652}
-!132 = !{!11, !33, i64 4992}
-!133 = !{!104, !33, i64 480}
-!134 = !{!104, !33, i64 488}
-!135 = !{!88, !13, i64 128}
-!136 = !{!88, !13, i64 136}
-!137 = distinct !{!137, !95, !96}
-!138 = !{!104, !110, i64 960}
-!139 = !{!11, !70, i64 4864}
-!140 = !{!141, !12, i64 8}
-!141 = !{!"curl_trc_feat", !33, i64 0, !12, i64 8}
-!142 = distinct !{!142, !95, !96}
-!143 = distinct !{!143, !95, !96}
-!144 = distinct !{!144, !95, !96}
+!96 = !{i8 0, i8 2}
+!97 = !{}
+!98 = !{!88, !13, i64 56}
+!99 = !{!88, !4, i64 144}
+!100 = !{!88, !4, i64 152}
+!101 = !{!87, !5, i64 225}
+!102 = !{!103, !33, i64 496}
+!103 = !{!"connectdata", !15, i64 0, !4, i64 32, !4, i64 40, !13, i64 48, !33, i64 56, !13, i64 64, !63, i64 72, !104, i64 80, !105, i64 88, !33, i64 120, !33, i64 128, !105, i64 136, !106, i64 168, !106, i64 224, !75, i64 280, !75, i64 380, !33, i64 480, !33, i64 488, !33, i64 496, !33, i64 504, !33, i64 512, !27, i64 520, !27, i64 536, !27, i64 552, !5, i64 568, !5, i64 576, !5, i64 592, !5, i64 608, !107, i64 624, !20, i64 664, !46, i64 696, !46, i64 824, !108, i64 952, !109, i64 960, !109, i64 968, !27, i64 976, !12, i64 992, !12, i64 996, !67, i64 1000, !12, i64 1032, !12, i64 1036, !110, i64 1040, !110, i64 1064, !5, i64 1088, !33, i64 1368, !33, i64 1376, !48, i64 1384, !12, i64 1388, !12, i64 1392, !12, i64 1396, !12, i64 1400, !48, i64 1404, !48, i64 1406, !5, i64 1408, !5, i64 1409, !5, i64 1410, !5, i64 1411, !5, i64 1412, !5, i64 1413, !5, i64 1414}
+!104 = !{!"p1 _ZTS16Curl_sockaddr_ex", !4, i64 0}
+!105 = !{!"hostname", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24}
+!106 = !{!"proxy_info", !105, i64 0, !12, i64 32, !5, i64 36, !33, i64 40, !33, i64 48}
+!107 = !{!"", !5, i64 0, !12, i64 32}
+!108 = !{!"ConnectBits", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 2, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 3, !12, i64 4, !12, i64 4}
+!109 = !{!"p1 _ZTS12Curl_handler", !4, i64 0}
+!110 = !{!"ntlmdata", !12, i64 0, !5, i64 4, !12, i64 12, !4, i64 16}
+!111 = distinct !{!111, !95}
+!112 = distinct !{!112, !95}
+!113 = !{!87, !48, i64 210}
+!114 = distinct !{!114, !95}
+!115 = distinct !{!115, !95}
+!116 = !{!87, !48, i64 212}
+!117 = !{!87, !33, i64 216}
+!118 = !{!87, !13, i64 168}
+!119 = !{!87, !13, i64 176}
+!120 = distinct !{!120, !95}
+!121 = distinct !{!121, !95}
+!122 = !{!26, !12, i64 76}
+!123 = !{!13, !13, i64 0}
+!124 = !{!88, !13, i64 24}
+!125 = !{!12, !12, i64 0}
+!126 = !{!87, !5, i64 224}
+!127 = !{!87, !48, i64 208}
+!128 = distinct !{!128, !95}
+!129 = distinct !{!129, !95}
+!130 = !{!11, !5, i64 2652}
+!131 = !{!11, !33, i64 4992}
+!132 = !{!103, !33, i64 480}
+!133 = !{!103, !33, i64 488}
+!134 = !{!88, !13, i64 128}
+!135 = !{!88, !13, i64 136}
+!136 = distinct !{!136, !95}
+!137 = !{!103, !109, i64 960}
+!138 = !{!11, !70, i64 4864}
+!139 = !{!140, !12, i64 8}
+!140 = !{!"curl_trc_feat", !33, i64 0, !12, i64 8}
+!141 = distinct !{!141, !95}
+!142 = distinct !{!142, !95}
+!143 = distinct !{!143, !95}

@@ -99,17 +99,17 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   %6 = tail call ptr @opt_arg() #5
-  store ptr %6, ptr @pairwise_name, align 8, !tbaa !7
+  store ptr %6, ptr @pairwise_name, align 8, !tbaa !6
   br label %.backedge
 
 7:                                                ; preds = %1
   %8 = tail call ptr @opt_arg() #5
-  store ptr %8, ptr @dsaparam_file, align 8, !tbaa !7
+  store ptr %8, ptr @dsaparam_file, align 8, !tbaa !6
   br label %.backedge
 
 9:                                                ; preds = %1
   %10 = tail call ptr @OSSL_LIB_CTX_new() #5
-  store ptr %10, ptr @libctx, align 8, !tbaa !12
+  store ptr %10, ptr @libctx, align 8, !tbaa !11
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
 
@@ -150,22 +150,22 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal range(i32 0, 2) i32 @test_keygen_pairwise_failure() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store ptr null, ptr %1, align 8, !tbaa !14
-  %2 = load ptr, ptr @pairwise_name, align 8, !tbaa !7
+  store ptr null, ptr %1, align 8, !tbaa !13
+  %2 = load ptr, ptr @pairwise_name, align 8, !tbaa !6
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.23) #6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %sub_0
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %6 = load ptr, ptr @libctx, align 8, !tbaa !11
   %7 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %6, ptr noundef nonnull @.str.49) #5
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @.str.48, ptr noundef %7) #5
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %setup_selftest_pairwise_failure.exit, label %9
 
 9:                                                ; preds = %5
-  store ptr @.str.22, ptr @self_test_args, align 8, !tbaa !16
-  %10 = load ptr, ptr @libctx, align 8, !tbaa !12
+  store ptr @.str.22, ptr @self_test_args, align 8, !tbaa !15
+  %10 = load ptr, ptr @libctx, align 8, !tbaa !11
   tail call void @OSSL_SELF_TEST_set_callback(ptr noundef %10, ptr noundef nonnull @self_test_on_pairwise_fail, ptr noundef nonnull @self_test_args) #5
   br label %setup_selftest_pairwise_failure.exit
 
@@ -177,9 +177,9 @@ setup_selftest_pairwise_failure.exit:             ; preds = %5, %9
   br i1 %.not38, label %93, label %13
 
 13:                                               ; preds = %setup_selftest_pairwise_failure.exit
-  %14 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %14 = load ptr, ptr @libctx, align 8, !tbaa !11
   %15 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %14, ptr noundef null, ptr noundef nonnull @.str.27, i64 noundef 2048) #5
-  store ptr %15, ptr %1, align 8, !tbaa !14
+  store ptr %15, ptr %1, align 8, !tbaa !13
   %16 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.24, i32 noundef 99, ptr noundef nonnull @.str.26, ptr noundef %15) #5
   %.not39 = icmp eq i32 %16, 0
   br i1 %.not39, label %93, label %92
@@ -199,7 +199,7 @@ sub_0:                                            ; preds = %0
 
 21:                                               ; preds = %.tail
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.29) #6
-  %23 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %23 = load ptr, ptr @libctx, align 8, !tbaa !11
   %24 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %23, ptr noundef nonnull @.str.49) #5
   %25 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @.str.48, ptr noundef %24) #5
   %.not.i43 = icmp eq i32 %25, 0
@@ -208,8 +208,8 @@ sub_0:                                            ; preds = %0
 setup_selftest_pairwise_failure.exit42.sink.split: ; preds = %21
   %26 = icmp eq i32 %22, 0
   %.str.30..str.22 = select i1 %26, ptr @.str.30, ptr @.str.22
-  store ptr %.str.30..str.22, ptr @self_test_args, align 8, !tbaa !16
-  %27 = load ptr, ptr @libctx, align 8, !tbaa !12
+  store ptr %.str.30..str.22, ptr @self_test_args, align 8, !tbaa !15
+  %27 = load ptr, ptr @libctx, align 8, !tbaa !11
   tail call void @OSSL_SELF_TEST_set_callback(ptr noundef %27, ptr noundef nonnull @self_test_on_pairwise_fail, ptr noundef nonnull @self_test_args) #5
   br label %setup_selftest_pairwise_failure.exit42
 
@@ -221,9 +221,9 @@ setup_selftest_pairwise_failure.exit42:           ; preds = %21, %setup_selftest
   br i1 %.not36, label %93, label %30
 
 30:                                               ; preds = %setup_selftest_pairwise_failure.exit42
-  %31 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %31 = load ptr, ptr @libctx, align 8, !tbaa !11
   %32 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %31, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #5
-  store ptr %32, ptr %1, align 8, !tbaa !14
+  store ptr %32, ptr %1, align 8, !tbaa !13
   %33 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.24, i32 noundef 106, ptr noundef nonnull @.str.31, ptr noundef %32) #5
   %.not37 = icmp eq i32 %33, 0
   br i1 %.not37, label %93, label %92
@@ -242,7 +242,7 @@ sub_157:                                          ; preds = %sub_0
 
 39:                                               ; preds = %.tail55
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.35) #6
-  %41 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %41 = load ptr, ptr @libctx, align 8, !tbaa !11
   %42 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %41, ptr noundef nonnull @.str.49) #5
   %43 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @.str.48, ptr noundef %42) #5
   %.not.i49 = icmp eq i32 %43, 0
@@ -251,8 +251,8 @@ sub_157:                                          ; preds = %sub_0
 setup_selftest_pairwise_failure.exit48.sink.split: ; preds = %39
   %44 = icmp eq i32 %40, 0
   %.str.30..str.2264 = select i1 %44, ptr @.str.30, ptr @.str.22
-  store ptr %.str.30..str.2264, ptr @self_test_args, align 8, !tbaa !16
-  %45 = load ptr, ptr @libctx, align 8, !tbaa !12
+  store ptr %.str.30..str.2264, ptr @self_test_args, align 8, !tbaa !15
+  %45 = load ptr, ptr @libctx, align 8, !tbaa !11
   tail call void @OSSL_SELF_TEST_set_callback(ptr noundef %45, ptr noundef nonnull @self_test_on_pairwise_fail, ptr noundef nonnull @self_test_args) #5
   br label %setup_selftest_pairwise_failure.exit48
 
@@ -264,21 +264,21 @@ setup_selftest_pairwise_failure.exit48:           ; preds = %39, %setup_selftest
   br i1 %.not29, label %93, label %48
 
 48:                                               ; preds = %setup_selftest_pairwise_failure.exit48
-  %49 = load ptr, ptr @dsaparam_file, align 8, !tbaa !7
+  %49 = load ptr, ptr @dsaparam_file, align 8, !tbaa !6
   %50 = tail call ptr @BIO_new_file(ptr noundef %49, ptr noundef nonnull @.str.37) #5
   %51 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 113, ptr noundef nonnull @.str.36, ptr noundef %50) #5
   %.not30 = icmp eq i32 %51, 0
   br i1 %.not30, label %93, label %52
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %53 = load ptr, ptr @libctx, align 8, !tbaa !11
   %54 = tail call ptr @PEM_read_bio_Parameters_ex(ptr noundef %50, ptr noundef null, ptr noundef %53, ptr noundef null) #5
   %55 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 115, ptr noundef nonnull @.str.38, ptr noundef %54) #5
   %.not31 = icmp eq i32 %55, 0
   br i1 %.not31, label %93, label %56
 
 56:                                               ; preds = %52
-  %57 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %57 = load ptr, ptr @libctx, align 8, !tbaa !11
   %58 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %57, ptr noundef %54, ptr noundef null) #5
   %59 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 117, ptr noundef nonnull @.str.39, ptr noundef %58) #5
   %.not32 = icmp eq i32 %59, 0
@@ -297,7 +297,7 @@ setup_selftest_pairwise_failure.exit48:           ; preds = %39, %setup_selftest
   br i1 %.not34, label %93, label %66
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr %1, align 8, !tbaa !14
+  %67 = load ptr, ptr %1, align 8, !tbaa !13
   %68 = call i32 @test_ptr_null(ptr noundef nonnull @.str.24, i32 noundef 123, ptr noundef nonnull @.str.44, ptr noundef %67) #5
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %93, label %92
@@ -308,15 +308,15 @@ setup_selftest_pairwise_failure.exit48:           ; preds = %39, %setup_selftest
   br i1 %70, label %71, label %92
 
 71:                                               ; preds = %.tail55.thread
-  %72 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %72 = load ptr, ptr @libctx, align 8, !tbaa !11
   %73 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %72, ptr noundef nonnull @.str.49) #5
   %74 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @.str.48, ptr noundef %73) #5
   %.not.i52 = icmp eq i32 %74, 0
   br i1 %.not.i52, label %setup_selftest_pairwise_failure.exit54, label %75
 
 75:                                               ; preds = %71
-  store ptr @.str.22, ptr @self_test_args, align 8, !tbaa !16
-  %76 = load ptr, ptr @libctx, align 8, !tbaa !12
+  store ptr @.str.22, ptr @self_test_args, align 8, !tbaa !15
+  %76 = load ptr, ptr @libctx, align 8, !tbaa !11
   tail call void @OSSL_SELF_TEST_set_callback(ptr noundef %76, ptr noundef nonnull @self_test_on_pairwise_fail, ptr noundef nonnull @self_test_args) #5
   br label %setup_selftest_pairwise_failure.exit54
 
@@ -328,7 +328,7 @@ setup_selftest_pairwise_failure.exit54:           ; preds = %71, %75
   br i1 %.not, label %93, label %79
 
 79:                                               ; preds = %setup_selftest_pairwise_failure.exit54
-  %80 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %80 = load ptr, ptr @libctx, align 8, !tbaa !11
   %81 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %80, ptr noundef nonnull @.str.47, ptr noundef null) #5
   %82 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 128, ptr noundef nonnull @.str.46, ptr noundef %81) #5
   %.not25 = icmp eq i32 %82, 0
@@ -347,7 +347,7 @@ setup_selftest_pairwise_failure.exit54:           ; preds = %71, %75
   br i1 %.not27, label %93, label %89
 
 89:                                               ; preds = %86
-  %90 = load ptr, ptr %1, align 8, !tbaa !14
+  %90 = load ptr, ptr %1, align 8, !tbaa !13
   %91 = call i32 @test_ptr_null(ptr noundef nonnull @.str.24, i32 noundef 134, ptr noundef nonnull @.str.44, ptr noundef %90) #5
   %.not28 = icmp eq i32 %91, 0
   br i1 %.not28, label %93, label %92
@@ -363,7 +363,7 @@ setup_selftest_pairwise_failure.exit54:           ; preds = %71, %75
   %.016 = phi ptr [ %.117, %92 ], [ null, %13 ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %30 ], [ null, %setup_selftest_pairwise_failure.exit42 ], [ %58, %66 ], [ %58, %63 ], [ %58, %60 ], [ %58, %56 ], [ null, %52 ], [ null, %48 ], [ null, %setup_selftest_pairwise_failure.exit48 ], [ %81, %89 ], [ %81, %86 ], [ %81, %83 ], [ %81, %79 ], [ null, %setup_selftest_pairwise_failure.exit54 ]
   %.014 = phi ptr [ %.115, %92 ], [ null, %13 ], [ null, %setup_selftest_pairwise_failure.exit ], [ null, %30 ], [ null, %setup_selftest_pairwise_failure.exit42 ], [ %54, %66 ], [ %54, %63 ], [ %54, %60 ], [ %54, %56 ], [ %54, %52 ], [ null, %48 ], [ null, %setup_selftest_pairwise_failure.exit48 ], [ null, %89 ], [ null, %86 ], [ null, %83 ], [ null, %79 ], [ null, %setup_selftest_pairwise_failure.exit54 ]
   %.0 = phi i32 [ 1, %92 ], [ 0, %13 ], [ 0, %setup_selftest_pairwise_failure.exit ], [ 0, %30 ], [ 0, %setup_selftest_pairwise_failure.exit42 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %setup_selftest_pairwise_failure.exit48 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %79 ], [ 0, %setup_selftest_pairwise_failure.exit54 ]
-  %94 = load ptr, ptr %1, align 8, !tbaa !14
+  %94 = load ptr, ptr %1, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %94) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.016) #5
   %95 = call i32 @BIO_free(ptr noundef %.018) #5
@@ -377,7 +377,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @libctx, align 8, !tbaa !12
+  %1 = load ptr, ptr @libctx, align 8, !tbaa !11
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #5
   ret void
 }
@@ -432,13 +432,13 @@ define internal range(i32 0, 2) i32 @self_test_on_pairwise_fail(ptr noundef %0, 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !18
+  %7 = load i32, ptr %6, align 8, !tbaa !17
   %.not = icmp eq i32 %7, 4
   br i1 %.not, label %8, label %26
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.51) #6
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %25
@@ -450,14 +450,14 @@ define internal range(i32 0, 2) i32 @self_test_on_pairwise_fail(ptr noundef %0, 
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !18
+  %18 = load i32, ptr %17, align 8, !tbaa !17
   %.not14 = icmp eq i32 %18, 4
   br i1 %.not14, label %19, label %26
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !22
-  %22 = load ptr, ptr %1, align 8, !tbaa !16
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %22 = load ptr, ptr %1, align 8, !tbaa !15
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22) #6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %26, label %25
@@ -488,22 +488,21 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!16 = !{!17, !8, i64 0}
-!17 = !{!"self_test_arg", !8, i64 0}
-!18 = !{!19, !20, i64 8}
-!19 = !{!"ossl_param_st", !8, i64 0, !20, i64 8, !9, i64 16, !21, i64 24, !21, i64 32}
-!20 = !{!"int", !10, i64 0}
-!21 = !{!"long", !10, i64 0}
-!22 = !{!19, !9, i64 16}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!15 = !{!16, !7, i64 0}
+!16 = !{!"self_test_arg", !7, i64 0}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"ossl_param_st", !7, i64 0, !19, i64 8, !8, i64 16, !20, i64 24, !20, i64 32}
+!19 = !{!"int", !9, i64 0}
+!20 = !{!"long", !9, i64 0}
+!21 = !{!18, !8, i64 16}

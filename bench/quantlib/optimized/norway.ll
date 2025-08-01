@@ -620,12 +620,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib6Norway4ImplEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !35
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !34
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !38
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !37
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6Norway4ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !16
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !39
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !38
   %5 = load ptr, ptr %pn, align 8, !tbaa !21
   store ptr %call.i, ptr %pn, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %5, null
@@ -732,7 +732,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib6Norway4ImplEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !39
+  %0 = load ptr, ptr %px_, align 8, !tbaa !38
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib6Norway4ImplEEEvPT_.exit, label %delete.notnull.i
 
@@ -857,12 +857,11 @@ attributes #17 = { noreturn }
 !29 = !{!8, !8, i64 0}
 !30 = !{!6, !10, i64 24}
 !31 = !{!6, !10, i64 16}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36, !37, i64 8}
-!36 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !37, i64 8, !37, i64 12}
-!37 = !{!"int", !8, i64 0}
-!38 = !{!36, !37, i64 12}
-!39 = !{!40, !10, i64 16}
-!40 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib6Norway4ImplEEE", !36, i64 0, !10, i64 16}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !36, i64 8, !36, i64 12}
+!36 = !{!"int", !8, i64 0}
+!37 = !{!35, !36, i64 12}
+!38 = !{!39, !10, i64 16}
+!39 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib6Norway4ImplEEE", !35, i64 0, !10, i64 16}

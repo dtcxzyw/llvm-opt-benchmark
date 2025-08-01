@@ -170,7 +170,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   store i64 %41, ptr %42, align 8, !tbaa !9
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 80
-  br i1 %exitcond76.not, label %.preheader54, label %18, !llvm.loop !16
+  br i1 %exitcond76.not, label %.preheader54, label %18, !llvm.loop !15
 
 43:                                               ; preds = %.preheader54, %43
   %indvars.iv77 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next78, %43 ]
@@ -431,12 +431,12 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   store i64 %282, ptr %4, align 8, !tbaa !9
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 8
   %283 = icmp samesign ult i64 %indvars.iv77, 72
-  br i1 %283, label %43, label %.preheader, !llvm.loop !17
+  br i1 %283, label %43, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %43
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %270, ptr %2, align 8, !tbaa !18
-  store i64 %280, ptr %284, align 8, !tbaa !20
+  store i64 %270, ptr %2, align 8, !tbaa !17
+  store i64 %280, ptr %284, align 8, !tbaa !19
   br label %285
 
 285:                                              ; preds = %.preheader, %285
@@ -449,7 +449,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(
   store i64 %290, ptr %288, align 8, !tbaa !9
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 8
-  br i1 %exitcond83.not, label %291, label %285, !llvm.loop !21
+  br i1 %exitcond83.not, label %291, label %285, !llvm.loop !20
 
 291:                                              ; preds = %285
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 720) #14
@@ -527,13 +527,13 @@ define hidden noundef i32 @mbedtls_sha512_update(ptr noundef captures(none) %0, 
   %31 = add i64 %.0711.i, -128
   %32 = add nuw i64 %.012.i, 128
   %33 = icmp ugt i64 %31, 127
-  br i1 %33, label %28, label %mbedtls_internal_sha512_process_many.exit, !llvm.loop !22
+  br i1 %33, label %28, label %mbedtls_internal_sha512_process_many.exit, !llvm.loop !21
 
 mbedtls_internal_sha512_process_many.exit:        ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.14054, i64 %32
   %35 = sub i64 %.14353, %32
   %36 = icmp ugt i64 %35, 127
-  br i1 %36, label %.preheader, label %._crit_edge, !llvm.loop !23
+  br i1 %36, label %.preheader, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %mbedtls_internal_sha512_process_many.exit, %26
   %.143.lcssa = phi i64 [ %.042, %26 ], [ %35, %mbedtls_internal_sha512_process_many.exit ]
@@ -714,13 +714,13 @@ define hidden range(i32 -117, 1) i32 @mbedtls_sha512(ptr noundef readonly captur
   %25 = add i64 %.0711.i.i, -128
   %26 = add nuw i64 %.012.i.i, 128
   %27 = icmp ugt i64 %25, 127
-  br i1 %27, label %22, label %mbedtls_internal_sha512_process_many.exit.i, !llvm.loop !22
+  br i1 %27, label %22, label %mbedtls_internal_sha512_process_many.exit.i, !llvm.loop !21
 
 mbedtls_internal_sha512_process_many.exit.i:      ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %.14054.i, i64 %26
   %29 = sub i64 %.14353.i, %26
   %30 = icmp ugt i64 %29, 127
-  br i1 %30, label %.preheader.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %30, label %.preheader.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %mbedtls_internal_sha512_process_many.exit.i
   %.not52.i = icmp eq i64 %29, 0
@@ -883,13 +883,13 @@ define internal fastcc range(i32 0, 2) i32 @mbedtls_sha512_common_self_test(i32 
   %57 = add i64 %.0711.i.i, -128
   %58 = add nuw i64 %.012.i.i, 128
   %59 = icmp ugt i64 %57, 127
-  br i1 %59, label %54, label %mbedtls_internal_sha512_process_many.exit.i, !llvm.loop !22
+  br i1 %59, label %54, label %mbedtls_internal_sha512_process_many.exit.i, !llvm.loop !21
 
 mbedtls_internal_sha512_process_many.exit.i:      ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %.14054.i, i64 %58
   %61 = sub i64 %.14353.i, %58
   %62 = icmp ugt i64 %61, 127
-  br i1 %62, label %.preheader.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %62, label %.preheader.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %mbedtls_internal_sha512_process_many.exit.i
   %.not52.i = icmp eq i64 %61, 0
@@ -902,7 +902,7 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %54
 mbedtls_sha512_update.exit:                       ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %63 = add nuw nsw i32 %.070, 1
   %exitcond.not = icmp eq i32 %63, 1000
-  br i1 %exitcond.not, label %mbedtls_sha512_update.exit64, label %36, !llvm.loop !24
+  br i1 %exitcond.not, label %mbedtls_sha512_update.exit64, label %36, !llvm.loop !23
 
 ._crit_edge.thread.i56:                           ; preds = %33
   %64 = getelementptr inbounds nuw [3 x [113 x i8]], ptr @sha_test_buf, i64 0, i64 %indvars.iv
@@ -929,7 +929,7 @@ mbedtls_sha512_update.exit64:                     ; preds = %mbedtls_sha512_upda
 
 .backedge.backedge:                               ; preds = %70, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %70 ], [ %indvars.iv.next79, %.thread ]
-  br label %.backedge, !llvm.loop !25
+  br label %.backedge, !llvm.loop !24
 
 .thread:                                          ; preds = %69
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -1020,16 +1020,15 @@ attributes #15 = { nounwind allocsize(0,1) }
 !10 = !{!"long", !5, i64 0}
 !11 = !{!12, !8, i64 208}
 !12 = !{!"mbedtls_sha512_context", !5, i64 0, !5, i64 16, !5, i64 80, !8, i64 208}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!19, !10, i64 0}
-!19 = !{!"", !10, i64 0, !10, i64 8, !5, i64 16, !5, i64 656}
-!20 = !{!19, !10, i64 8}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = distinct !{!23, !14, !15}
-!24 = distinct !{!24, !14, !15}
-!25 = distinct !{!25, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = !{!18, !10, i64 0}
+!18 = !{!"", !10, i64 0, !10, i64 8, !5, i64 16, !5, i64 656}
+!19 = !{!18, !10, i64 8}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}

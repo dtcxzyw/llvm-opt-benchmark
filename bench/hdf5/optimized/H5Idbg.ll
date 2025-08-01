@@ -265,6 +265,5 @@ attributes #7 = { nounwind }
 !38 = !{!"H5G_name_t", !39, i64 0, !39, i64 8, !19, i64 16}
 !39 = !{!"p1 _ZTS10H5RS_str_t", !13, i64 0}
 !40 = !{!38, !39, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}

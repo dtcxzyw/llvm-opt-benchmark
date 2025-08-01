@@ -2350,9 +2350,9 @@ define linkonce_odr hidden noundef i32 @_ZN9th_solver9check_satEP4expr(ptr nound
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !235
+  %8 = load ptr, ptr %7, align 8, !tbaa !234
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 824
-  %10 = load ptr, ptr %9, align 8, !tbaa !238
+  %10 = load ptr, ptr %9, align 8, !tbaa !237
   tail call void @_ZN11cmd_context12init_managerEv(ptr noundef nonnull align 8 dereferenceable(896) %8)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 296
   %12 = load ptr, ptr %11, align 8, !tbaa !28
@@ -2785,10 +2785,9 @@ attributes #24 = { builtin allocsize(0) }
 !229 = !{!13, !13, i64 0}
 !230 = !{!27, !27, i64 0}
 !231 = !{!199, !61, i64 0}
-!232 = distinct !{!232, !233, !234}
+!232 = distinct !{!232, !233}
 !233 = !{!"llvm.loop.mustprogress"}
-!234 = !{!"llvm.loop.estimated_trip_count"}
-!235 = !{!236, !156, i64 8}
-!236 = !{!"_ZTS9th_solver", !237, i64 0, !156, i64 8, !15, i64 16, !136, i64 24}
-!237 = !{!"_ZTS11expr_solver"}
-!238 = !{!134, !135, i64 0}
+!234 = !{!235, !156, i64 8}
+!235 = !{!"_ZTS9th_solver", !236, i64 0, !156, i64 8, !15, i64 16, !136, i64 24}
+!236 = !{!"_ZTS11expr_solver"}
+!237 = !{!134, !135, i64 0}

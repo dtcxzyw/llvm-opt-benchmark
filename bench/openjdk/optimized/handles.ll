@@ -160,7 +160,7 @@ _ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i: ; preds = %13, 
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i3.i, %30
   %indvars.iv.next11.i.i = add nsw i64 %indvars.iv10.i.i, 1
-  br i1 %31, label %24, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !9
+  br i1 %31, label %24, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !8
 
 _ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i: ; preds = %24, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i
   %.lcssa.i.i = phi i32 [ %9, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i ], [ %29, %24 ]
@@ -284,7 +284,7 @@ _ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i: ; preds = %12, 
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i3.i, %29
   %indvars.iv.next11.i.i = add nsw i64 %indvars.iv10.i.i, 1
-  br i1 %30, label %23, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !9
+  br i1 %30, label %23, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !8
 
 _ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i: ; preds = %23, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i
   %.lcssa.i.i = phi i32 [ %8, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i ], [ %28, %23 ]
@@ -413,7 +413,7 @@ _ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i: ; preds = %13, 
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i3.i, %30
   %indvars.iv.next11.i.i = add nsw i64 %indvars.iv10.i.i, 1
-  br i1 %31, label %24, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !9
+  br i1 %31, label %24, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !8
 
 _ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i: ; preds = %24, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i
   %.lcssa.i.i = phi i32 [ %9, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i ], [ %29, %24 ]
@@ -537,7 +537,7 @@ _ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i: ; preds = %12, 
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i3.i, %29
   %indvars.iv.next11.i.i = add nsw i64 %indvars.iv10.i.i, 1
-  br i1 %30, label %23, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !9
+  br i1 %30, label %23, label %_ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i, !llvm.loop !8
 
 _ZN17GrowableArrayViewIP8MetadataE9remove_atEi.exit.i: ; preds = %23, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i
   %.lcssa.i.i = phi i32 [ %8, %_ZNK17GrowableArrayViewIP8MetadataE13find_from_endERKS1_.exit.i ], [ %28, %23 ]
@@ -570,7 +570,7 @@ tailrecurse:                                      ; preds = %._crit_edge, %2
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.08.i) #7
   %12 = icmp ult ptr %9, %6
-  br i1 %12, label %.lr.ph.i, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit.loopexit, !llvm.loop !10
+  br i1 %12, label %.lr.ph.i, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit.loopexit, !llvm.loop !9
 
 _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %3, align 8
@@ -600,7 +600,7 @@ _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit:    ; preds = %_ZL13chunk_oops_doP
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.08.i13) #7
   %24 = icmp ult ptr %21, %19
-  br i1 %24, label %.lr.ph.i12, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit, !llvm.loop !10
+  br i1 %24, label %.lr.ph.i12, label %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit, !llvm.loop !9
 
 _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit: ; preds = %.lr.ph.i12
   %.pre19 = load ptr, ptr %3, align 8
@@ -610,7 +610,7 @@ _ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14:  ; preds = %_ZL13chunk_oops_doP
   %25 = phi ptr [ %.pre19, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14.loopexit ], [ %15, %.lr.ph ]
   %.0 = load ptr, ptr %.018, align 8
   %.not = icmp eq ptr %.0, %25
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit14, %_ZL13chunk_oops_doP10OopClosureP5ChunkPc.exit
   %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
@@ -896,7 +896,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -912,7 +912,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !13
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !12
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -960,11 +960,10 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

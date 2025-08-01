@@ -243,13 +243,13 @@ define internal range(i32 -2147483648, 1) i32 @thp_read_packet(ptr noundef reado
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  %8 = load i32, ptr %7, align 4, !tbaa !70
+  %8 = load i32, ptr %7, align 4, !tbaa !69
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !71
+  %12 = load i32, ptr %11, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !32
   %.not46 = icmp ult i32 %12, %14
@@ -277,13 +277,13 @@ define internal range(i32 -2147483648, 1) i32 @thp_read_packet(ptr noundef reado
 
 28:                                               ; preds = %15
   %29 = tail call i32 @avio_rb32(ptr noundef %6) #5
-  store i32 %29, ptr %7, align 4, !tbaa !70
+  store i32 %29, ptr %7, align 4, !tbaa !69
   br label %33
 
 30:                                               ; preds = %15
-  %31 = load i32, ptr %11, align 8, !tbaa !71
+  %31 = load i32, ptr %11, align 8, !tbaa !70
   %32 = add i32 %31, 1
-  store i32 %32, ptr %11, align 8, !tbaa !71
+  store i32 %32, ptr %11, align 8, !tbaa !70
   br label %33
 
 33:                                               ; preds = %30, %28
@@ -299,7 +299,7 @@ define internal range(i32 -2147483648, 1) i32 @thp_read_packet(ptr noundef reado
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %39 = load i32, ptr %38, align 4, !tbaa !63
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %39, ptr %40, align 4, !tbaa !72
+  store i32 %39, ptr %40, align 4, !tbaa !71
   br label %63
 
 41:                                               ; preds = %2
@@ -308,7 +308,7 @@ define internal range(i32 -2147483648, 1) i32 @thp_read_packet(ptr noundef reado
   br i1 %43, label %63, label %44
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr %7, align 4, !tbaa !70
+  %45 = load i32, ptr %7, align 4, !tbaa !69
   %.not = icmp eq i32 %42, %45
   br i1 %.not, label %46, label %63
 
@@ -316,27 +316,27 @@ define internal range(i32 -2147483648, 1) i32 @thp_read_packet(ptr noundef reado
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %48 = load i32, ptr %47, align 8, !tbaa !66
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %48, ptr %49, align 4, !tbaa !72
+  store i32 %48, ptr %49, align 4, !tbaa !71
   %50 = icmp samesign ugt i32 %42, 7
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !73
+  %53 = load ptr, ptr %52, align 8, !tbaa !72
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 1, !tbaa !11
   %56 = tail call i32 @llvm.bswap.i32(i32 %55)
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %57, ptr %58, align 8, !tbaa !74
+  store i64 %57, ptr %58, align 8, !tbaa !73
   br label %59
 
 59:                                               ; preds = %51, %46
-  store i32 0, ptr %7, align 4, !tbaa !70
+  store i32 0, ptr %7, align 4, !tbaa !69
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !71
+  %61 = load i32, ptr %60, align 8, !tbaa !70
   %62 = add i32 %61, 1
-  store i32 %62, ptr %60, align 8, !tbaa !71
+  store i32 %62, ptr %60, align 8, !tbaa !70
   br label %63
 
 63:                                               ; preds = %37, %59, %44, %41, %36, %33, %10
@@ -444,11 +444,10 @@ attributes #6 = { nounwind willreturn memory(none) }
 !64 = !{!29, !10, i64 88}
 !65 = !{!53, !10, i64 132}
 !66 = !{!29, !10, i64 56}
-!67 = distinct !{!67, !68, !69}
+!67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = !{!29, !10, i64 92}
-!71 = !{!29, !10, i64 32}
-!72 = !{!49, !10, i64 36}
-!73 = !{!49, !6, i64 24}
-!74 = !{!49, !22, i64 64}
+!69 = !{!29, !10, i64 92}
+!70 = !{!29, !10, i64 32}
+!71 = !{!49, !10, i64 36}
+!72 = !{!49, !6, i64 24}
+!73 = !{!49, !22, i64 64}

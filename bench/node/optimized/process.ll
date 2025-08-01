@@ -114,7 +114,7 @@ if.end14:                                         ; preds = %do.body
 
 while.cond.backedge:                              ; preds = %do.body, %land.rhs, %if.end14
   %cmp.not = icmp eq ptr %q.0.val, %process_handles
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.cond.backedge
   %pending.val.pre = load ptr, ptr %pending, align 8
@@ -179,7 +179,7 @@ if.end44:                                         ; preds = %do.end41
 
 while.cond18.backedge:                            ; preds = %if.end44, %do.end41
   %cmp19.not = icmp eq ptr %q.1.val, %pending
-  br i1 %cmp19.not, label %while.end64, label %while.body20, !llvm.loop !7
+  br i1 %cmp19.not, label %while.end64, label %while.body20
 
 while.end64:                                      ; preds = %while.cond18.backedge, %entry, %while.end
   ret void
@@ -305,7 +305,7 @@ for.inc28:                                        ; preds = %for.body21, %if.end
   %10 = load i32, ptr %stdio_count3, align 4
   %11 = sext i32 %10 to i64
   %cmp19 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp19, label %for.body21, label %for.end30, !llvm.loop !8
+  br i1 %cmp19, label %for.body21, label %for.end30
 
 for.end30:                                        ; preds = %for.inc28, %for.body.preheader
   %child_watcher = getelementptr inbounds nuw i8, ptr %loop, i64 616
@@ -420,7 +420,7 @@ land.rhs19.i:                                     ; preds = %do.body15.i
   %call20.i = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %call20.i, align 4
   %cmp21.i = icmp eq i32 %18, 4
-  br i1 %cmp21.i, label %do.body15.i, label %do.end23.i, !llvm.loop !9
+  br i1 %cmp21.i, label %do.body15.i, label %do.end23.i
 
 do.end23.i:                                       ; preds = %land.rhs19.i, %do.body15.i
   %19 = load i32, ptr %exec_errorno.i, align 4
@@ -434,7 +434,7 @@ do.body29.i:                                      ; preds = %land.rhs.i, %land.r
 land.rhs33.i:                                     ; preds = %do.body29.i
   %20 = load i32, ptr %call9.i, align 4
   %cmp35.i = icmp eq i32 %20, 4
-  br i1 %cmp35.i, label %do.body29.i, label %uv__spawn_and_init_child.exit.thread104, !llvm.loop !10
+  br i1 %cmp35.i, label %do.body29.i, label %uv__spawn_and_init_child.exit.thread104
 
 if.else38.i:                                      ; preds = %land.rhs.i, %do.body.i
   call void @abort() #14
@@ -571,14 +571,14 @@ if.end.i89:                                       ; preds = %while.body
 
 uv__process_close_stream.exit:                    ; preds = %while.body, %if.end.i89
   %42 = icmp eq i64 %indvars.iv.next139, 0
-  br i1 %42, label %error, label %while.body, !llvm.loop !11
+  br i1 %42, label %error, label %while.body
 
 for.inc78:                                        ; preds = %uv__process_open_stream.exit.for.inc78_crit_edge, %for.body62, %lor.lhs.false.i
   %43 = phi i32 [ %.pre, %uv__process_open_stream.exit.for.inc78_crit_edge ], [ %29, %for.body62 ], [ %29, %lor.lhs.false.i ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %44 = sext i32 %43 to i64
   %cmp60 = icmp slt i64 %indvars.iv.next134, %44
-  br i1 %cmp60, label %for.body62, label %for.end80, !llvm.loop !12
+  br i1 %cmp60, label %for.body62, label %for.end80
 
 for.end80:                                        ; preds = %for.inc78, %if.end57
   %cmp82.not = icmp eq ptr %pipes.0146, %pipes_storage
@@ -627,7 +627,7 @@ if.then122:                                       ; preds = %if.end116
 for.inc128:                                       ; preds = %if.end116, %if.then122, %if.then96
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next142, %2
-  br i1 %exitcond.not, label %for.end130, label %for.body92, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end130, label %for.body92
 
 for.end130:                                       ; preds = %for.inc128
   %cmp132.not = icmp eq ptr %pipes.0146, %pipes_storage
@@ -821,7 +821,7 @@ do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.e
 land.rhs.i.i:                                     ; preds = %do.body.i.i
   %1 = load i32, ptr %call.i, align 4
   %cmp2.i.i = icmp eq i32 %1, 4
-  br i1 %cmp2.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !14
+  br i1 %cmp2.i.i, label %do.body.i.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %land.rhs.i.i, %do.body.i.i
   tail call void @_exit(i32 noundef 127) #14
@@ -830,7 +830,7 @@ do.end.i.i:                                       ; preds = %land.rhs.i.i, %do.b
 for.inc:                                          ; preds = %for.body, %for.body, %if.end
   %add = add nuw nsw i32 %n.0170, 1
   %exitcond.not = icmp eq i32 %add, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc
   %flags = getelementptr inbounds nuw i8, ptr %options, i64 40
@@ -881,7 +881,7 @@ do.body.i.i66:                                    ; preds = %land.rhs.i.i70, %if
 land.rhs.i.i70:                                   ; preds = %do.body.i.i66
   %6 = load i32, ptr %call.i64, align 4
   %cmp2.i.i71 = icmp eq i32 %6, 4
-  br i1 %cmp2.i.i71, label %do.body.i.i66, label %do.end.i.i69, !llvm.loop !14
+  br i1 %cmp2.i.i71, label %do.body.i.i66, label %do.end.i.i69
 
 do.end.i.i69:                                     ; preds = %land.rhs.i.i70, %do.body.i.i66
   tail call void @_exit(i32 noundef 127) #14
@@ -890,7 +890,7 @@ do.end.i.i69:                                     ; preds = %land.rhs.i.i70, %do
 for.inc28:                                        ; preds = %if.end17, %for.body11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond176.not, label %for.body32, label %for.body11, !llvm.loop !16
+  br i1 %exitcond176.not, label %for.body32, label %for.body11
 
 for.body32:                                       ; preds = %for.inc28, %for.inc72
   %fd.1174 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.inc28 ]
@@ -928,7 +928,7 @@ do.body.i.i76:                                    ; preds = %land.rhs.i.i80, %if
 land.rhs.i.i80:                                   ; preds = %do.body.i.i76
   %9 = load i32, ptr %call.i74, align 4
   %cmp2.i.i81 = icmp eq i32 %9, 4
-  br i1 %cmp2.i.i81, label %do.body.i.i76, label %do.end.i.i79, !llvm.loop !14
+  br i1 %cmp2.i.i81, label %do.body.i.i76, label %do.end.i.i79
 
 do.end.i.i79:                                     ; preds = %land.rhs.i.i80, %do.body.i.i76
   tail call void @_exit(i32 noundef 127) #14
@@ -961,7 +961,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #13
   %10 = load i32, ptr %call1.i, align 4
   %cmp2.i = icmp eq i32 %10, 4
-  br i1 %cmp2.i, label %do.body.i, label %do.end.i, !llvm.loop !14
+  br i1 %cmp2.i, label %do.body.i, label %do.end.i
 
 do.end.i:                                         ; preds = %land.rhs.i, %do.body.i
   tail call void @_exit(i32 noundef 127) #14
@@ -990,7 +990,7 @@ do.body.i.i87:                                    ; preds = %land.rhs.i.i91, %if
 land.rhs.i.i91:                                   ; preds = %do.body.i.i87
   %12 = load i32, ptr %call.i85, align 4
   %cmp2.i.i92 = icmp eq i32 %12, 4
-  br i1 %cmp2.i.i92, label %do.body.i.i87, label %do.end.i.i90, !llvm.loop !14
+  br i1 %cmp2.i.i92, label %do.body.i.i87, label %do.end.i.i90
 
 do.end.i.i90:                                     ; preds = %land.rhs.i.i91, %do.body.i.i87
   tail call void @_exit(i32 noundef 127) #14
@@ -1022,7 +1022,7 @@ for.inc72:                                        ; preds = %if.end67, %if.then6
   %fd.2 = phi i32 [ %fd.1174, %if.then37 ], [ %fd.3151157, %if.then69 ], [ %fd.3151157, %if.end67 ]
   %inc73 = add nsw i32 %fd.2, 1
   %cmp31 = icmp slt i32 %inc73, %stdio_count
-  br i1 %cmp31, label %for.body32, label %for.end74, !llvm.loop !17
+  br i1 %cmp31, label %for.body32, label %for.end74
 
 for.end74:                                        ; preds = %for.inc72, %if.end8
   %cwd = getelementptr inbounds nuw i8, ptr %options, i64 32
@@ -1051,7 +1051,7 @@ do.body.i.i97:                                    ; preds = %land.rhs.i.i101, %i
 land.rhs.i.i101:                                  ; preds = %do.body.i.i97
   %15 = load i32, ptr %call.i95, align 4
   %cmp2.i.i102 = icmp eq i32 %15, 4
-  br i1 %cmp2.i.i102, label %do.body.i.i97, label %do.end.i.i100, !llvm.loop !14
+  br i1 %cmp2.i.i102, label %do.body.i.i97, label %do.end.i.i100
 
 do.end.i.i100:                                    ; preds = %land.rhs.i.i101, %do.body.i.i97
   tail call void @_exit(i32 noundef 127) #14
@@ -1104,7 +1104,7 @@ do.body.i.i107:                                   ; preds = %land.rhs.i.i111, %i
 land.rhs.i.i111:                                  ; preds = %do.body.i.i107
   %21 = load i32, ptr %call.i105, align 4
   %cmp2.i.i112 = icmp eq i32 %21, 4
-  br i1 %cmp2.i.i112, label %do.body.i.i107, label %do.end.i.i110, !llvm.loop !14
+  br i1 %cmp2.i.i112, label %do.body.i.i107, label %do.end.i.i110
 
 do.end.i.i110:                                    ; preds = %land.rhs.i.i111, %do.body.i.i107
   tail call void @_exit(i32 noundef 127) #14
@@ -1139,7 +1139,7 @@ do.body.i.i117:                                   ; preds = %land.rhs.i.i121, %i
 land.rhs.i.i121:                                  ; preds = %do.body.i.i117
   %25 = load i32, ptr %call.i115, align 4
   %cmp2.i.i122 = icmp eq i32 %25, 4
-  br i1 %cmp2.i.i122, label %do.body.i.i117, label %do.end.i.i120, !llvm.loop !14
+  br i1 %cmp2.i.i122, label %do.body.i.i117, label %do.end.i.i120
 
 do.end.i.i120:                                    ; preds = %land.rhs.i.i121, %do.body.i.i117
   tail call void @_exit(i32 noundef 127) #14
@@ -1186,7 +1186,7 @@ do.body.i.i127:                                   ; preds = %land.rhs.i.i131, %i
 land.rhs.i.i131:                                  ; preds = %do.body.i.i127
   %30 = load i32, ptr %call.i125, align 4
   %cmp2.i.i132 = icmp eq i32 %30, 4
-  br i1 %cmp2.i.i132, label %do.body.i.i127, label %do.end.i.i130, !llvm.loop !14
+  br i1 %cmp2.i.i132, label %do.body.i.i127, label %do.end.i.i130
 
 do.end.i.i130:                                    ; preds = %land.rhs.i.i131, %do.body.i.i127
   call void @_exit(i32 noundef 127) #14
@@ -1279,16 +1279,3 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}

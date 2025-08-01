@@ -1227,7 +1227,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   store i32 %331, ptr %8, align 4
   %332 = add nsw i32 %.1657765, -1
   %.not713 = icmp eq i32 %332, 0
-  br i1 %.not713, label %.loopexit731, label %307, !llvm.loop !10
+  br i1 %.not713, label %.loopexit731, label %307, !llvm.loop !9
 
 333:                                              ; preds = %137
   %.0..0..0..0.465 = load volatile ptr, ptr %5, align 8
@@ -1332,12 +1332,12 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %spec.select721 = add i8 %387, %.1665756
   %388 = add nuw nsw i32 %.0660757, 1
   %exitcond785.not = icmp eq i32 %388, 8
-  br i1 %exitcond785.not, label %389, label %384, !llvm.loop !11
+  br i1 %exitcond785.not, label %389, label %384, !llvm.loop !10
 
 389:                                              ; preds = %384
   %390 = add nuw nsw i32 %.0658759, 1
   %exitcond786.not = icmp eq i32 %390, 8
-  br i1 %exitcond786.not, label %391, label %379, !llvm.loop !12
+  br i1 %exitcond786.not, label %391, label %379, !llvm.loop !11
 
 391:                                              ; preds = %389
   %.0..0..0..0.475 = load volatile ptr, ptr %5, align 8
@@ -1393,7 +1393,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %415 = lshr i64 %.0668760, 1
   %416 = add nuw nsw i32 %.1661761, 1
   %exitcond787 = icmp eq i32 %416, 63
-  br i1 %exitcond787, label %.loopexit, label %409, !llvm.loop !13
+  br i1 %exitcond787, label %.loopexit, label %409, !llvm.loop !12
 
 .loopexit:                                        ; preds = %414, %411
   %.1661739 = phi i32 [ %.1661761, %411 ], [ 63, %414 ]
@@ -1421,7 +1421,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   store i32 %431, ptr %8, align 4
   %432 = add nuw nsw i32 %.1659763, 1
   %exitcond788.not = icmp eq i32 %432, %399
-  br i1 %exitcond788.not, label %.loopexit731, label %.preheader, !llvm.loop !14
+  br i1 %exitcond788.not, label %.loopexit731, label %.preheader, !llvm.loop !13
 
 433:                                              ; preds = %137
   %.not705 = icmp eq i8 %140, 2
@@ -1584,7 +1584,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   store i32 %515, ptr %8, align 4
   %516 = add i8 %.1751, -1
   %.not701 = icmp eq i8 %516, 0
-  br i1 %.not701, label %.loopexit731, label %.lr.ph753, !llvm.loop !15
+  br i1 %.not701, label %.loopexit731, label %.lr.ph753, !llvm.loop !14
 
 517:                                              ; preds = %137
   %.not700 = icmp eq i8 %140, 1
@@ -1805,7 +1805,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %623 = sub nsw i32 %.0650743, %.
   %624 = add i8 %.0651742, 1
   %625 = icmp sgt i32 %623, 0
-  br i1 %625, label %.lr.ph745, label %._crit_edge746, !llvm.loop !16
+  br i1 %625, label %.lr.ph745, label %._crit_edge746, !llvm.loop !15
 
 ._crit_edge746:                                   ; preds = %.lr.ph745
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.326)
@@ -1871,7 +1871,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   store i32 %653, ptr %8, align 4
   %654 = add nuw i8 %.0652748, 1
   %exitcond.not = icmp eq i8 %.0652748, %.0651742
-  br i1 %exitcond.not, label %.loopexit731, label %.lr.ph749, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit731, label %.lr.ph749, !llvm.loop !16
 
 655:                                              ; preds = %137
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.326)
@@ -2254,7 +2254,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %856 = phi i32 [ %818, %808 ], [ %771, %.lr.ph ], [ %854, %.sink.split ]
   %.0..0..0..0.546 = load volatile ptr, ptr %5, align 8
   %857 = call zeroext i1 @tvb_offset_exists(ptr noundef %.0..0..0..0.546, i32 noundef %856)
-  br i1 %857, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %857, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %855, %754
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #11
@@ -2315,7 +2315,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %.0..0..0..0.429 = load volatile ptr, ptr %5, align 8
   %882 = load i32, ptr %8, align 4
   %883 = call zeroext i1 @tvb_offset_exists(ptr noundef %.0..0..0..0.429, i32 noundef %882)
-  br i1 %883, label %137, label %.sink.split833, !llvm.loop !19
+  br i1 %883, label %137, label %.sink.split833, !llvm.loop !18
 
 .sink.split833:                                   ; preds = %.loopexit731, %.thread, %103, %106, %109, %118
   %884 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -2783,16 +2783,15 @@ attributes #12 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}

@@ -176,22 +176,22 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 
 86:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %87 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  store i64 30, ptr %87, align 8, !tbaa !64
+  store i64 30, ptr %87, align 8, !tbaa !63
   %88 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %89 = load i64, ptr %88, align 8, !tbaa !34
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i64 %89, ptr %90, align 8, !tbaa !66
+  store i64 %89, ptr %90, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %20) #7
   %91 = load ptr, ptr %13, align 8, !tbaa !13
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %.092
   store ptr %87, ptr %92, align 8, !tbaa !24
-  %93 = load ptr, ptr %3, align 8, !tbaa !67
+  %93 = load ptr, ptr %3, align 8, !tbaa !66
   %.not.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit, label %94
 
 94:                                               ; preds = %86
-  %95 = load ptr, ptr %15, align 8, !tbaa !69
+  %95 = load ptr, ptr %15, align 8, !tbaa !68
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %93 to i64
   %98 = sub i64 %96, %97
@@ -204,22 +204,22 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %86
 
 99:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %100 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  store i64 1879048187, ptr %100, align 8, !tbaa !64
+  store i64 1879048187, ptr %100, align 8, !tbaa !63
   %101 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %102 = load i64, ptr %101, align 8, !tbaa !34
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 %102, ptr %103, align 8, !tbaa !66
+  store i64 %102, ptr %103, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %20) #7
   %104 = load ptr, ptr %13, align 8, !tbaa !13
   %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %.092
   store ptr %100, ptr %105, align 8, !tbaa !24
-  %106 = load ptr, ptr %4, align 8, !tbaa !67
+  %106 = load ptr, ptr %4, align 8, !tbaa !66
   %.not.i.i.i86 = icmp eq ptr %106, null
   br i1 %.not.i.i.i86, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87, label %107
 
 107:                                              ; preds = %99
-  %108 = load ptr, ptr %14, align 8, !tbaa !69
+  %108 = load ptr, ptr %14, align 8, !tbaa !68
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %106 to i64
   %111 = sub i64 %109, %110
@@ -235,23 +235,23 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87: ; preds = %
   %114 = load ptr, ptr %13, align 8, !tbaa !13
   %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %.092
   store ptr %113, ptr %115, align 8, !tbaa !24
-  store i64 %22, ptr %113, align 8, !tbaa !70
+  store i64 %22, ptr %113, align 8, !tbaa !69
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !34
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store i64 %117, ptr %118, align 8, !tbaa !72
+  store i64 %117, ptr %118, align 8, !tbaa !71
   br label %119
 
 119:                                              ; preds = %112, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit, %._crit_edge, %53, %43, %33, %23
   %120 = add nuw i64 %.092, 1
   %121 = load ptr, ptr %7, align 8, !tbaa !11
-  %122 = load ptr, ptr %5, align 8, !tbaa !73
+  %122 = load ptr, ptr %5, align 8, !tbaa !72
   %123 = ptrtoint ptr %121 to i64
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = ashr exact i64 %125, 3
   %127 = icmp ult i64 %120, %126
-  br i1 %127, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge93.loopexit, !llvm.loop !74
+  br i1 %127, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge93.loopexit, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -285,7 +285,7 @@ define hidden void @_ZN4LIEF3ELF23destroy_dynamic_entriesEP12Elf_Binary_t(ptr no
 .lr.ph:                                           ; preds = %1, %11
   %6 = phi ptr [ %14, %11 ], [ %4, %1 ]
   %.028 = phi i64 [ %12, %11 ], [ 0, %1 ]
-  %7 = load i64, ptr %6, align 8, !tbaa !70
+  %7 = load i64, ptr %6, align 8, !tbaa !69
   switch i64 %7, label %11 [
     i64 32, label %8
     i64 26, label %8
@@ -304,7 +304,7 @@ define hidden void @_ZN4LIEF3ELF23destroy_dynamic_entriesEP12Elf_Binary_t(ptr no
   %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -386,18 +386,17 @@ attributes #8 = { builtin nounwind }
 !58 = !{!57, !54, i64 0}
 !59 = !{!53, !54, i64 16}
 !60 = !{!18, !18, i64 0}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.estimated_trip_count"}
-!64 = !{!65, !18, i64 0}
-!65 = !{!"_ZTS24Elf_DynamicEntry_Flags_t", !18, i64 0, !18, i64 8}
-!66 = !{!65, !18, i64 8}
-!67 = !{!68, !5, i64 0}
-!68 = !{!"_ZTSNSt12_Vector_baseIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!69 = !{!68, !5, i64 16}
-!70 = !{!71, !18, i64 0}
-!71 = !{!"_ZTS18Elf_DynamicEntry_t", !18, i64 0, !18, i64 8}
-!72 = !{!71, !18, i64 8}
-!73 = !{!12, !4, i64 0}
-!74 = distinct !{!74, !62, !63}
-!75 = distinct !{!75, !62, !63}
+!63 = !{!64, !18, i64 0}
+!64 = !{!"_ZTS24Elf_DynamicEntry_Flags_t", !18, i64 0, !18, i64 8}
+!65 = !{!64, !18, i64 8}
+!66 = !{!67, !5, i64 0}
+!67 = !{!"_ZTSNSt12_Vector_baseIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!68 = !{!67, !5, i64 16}
+!69 = !{!70, !18, i64 0}
+!70 = !{!"_ZTS18Elf_DynamicEntry_t", !18, i64 0, !18, i64 8}
+!71 = !{!70, !18, i64 8}
+!72 = !{!12, !4, i64 0}
+!73 = distinct !{!73, !62}
+!74 = distinct !{!74, !62}

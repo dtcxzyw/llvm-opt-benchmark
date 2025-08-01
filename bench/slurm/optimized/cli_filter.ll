@@ -249,7 +249,7 @@ define dso_local i32 @cli_filter_fini() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
@@ -320,7 +320,7 @@ define dso_local i32 @cli_filter_g_setup_defaults(ptr noundef %0, i1 noundef zer
   %21 = icmp slt i64 %indvars.iv.next, %20
   %22 = icmp eq i32 %18, 0
   %23 = select i1 %21, i1 %22, i1 false
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
@@ -400,7 +400,7 @@ define dso_local i32 @cli_filter_g_pre_submit(ptr noundef %0, i32 noundef %1) lo
   %21 = icmp slt i64 %indvars.iv.next, %20
   %22 = icmp eq i32 %18, 0
   %23 = select i1 %21, i1 %22, i1 false
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.012.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
@@ -470,7 +470,7 @@ define dso_local void @cli_filter_g_post_submit(i32 noundef %0, i32 noundef %1, 
   %19 = load i32, ptr @g_context_cnt, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
@@ -519,11 +519,10 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

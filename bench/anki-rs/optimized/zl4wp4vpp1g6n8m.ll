@@ -34,7 +34,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h85411262d8cc92eaE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17haab715ac432db723E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !4
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$anki_proto_gen..CollectionService$GT$$GT$17hc7d9f6a0475be57dE"(ptr nonnull align 8 %4)
@@ -99,7 +99,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hed4caeae341cbeeeE(ptr
 8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf947b6c9635a1b40E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %.loopexit, !llvm.loop !6
+          to label %6 unwind label %.loopexit
 
 9:                                                ; preds = %6
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$anki_proto_gen..BackendService$GT$$GT$17h63729e6121404854E"(ptr nonnull align 8 %4)
@@ -170,7 +170,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h29079a5f3637ddccE
 10:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17haab715ac432db723E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %8 unwind label %.loopexit.i, !llvm.loop !4
+          to label %8 unwind label %.loopexit.i
 
 11:                                               ; preds = %8
   invoke void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$anki_proto_gen..CollectionService$GT$$GT$17hc7d9f6a0475be57dE"(ptr nonnull align 8 %4)
@@ -243,7 +243,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h4fe36e2b8029e9aeE
 10:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf947b6c9635a1b40E"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
-          to label %8 unwind label %.loopexit.i, !llvm.loop !6
+          to label %8 unwind label %.loopexit.i
 
 11:                                               ; preds = %8
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$anki_proto_gen..BackendService$GT$$GT$17h63729e6121404854E"(ptr nonnull align 8 %4)
@@ -390,6 +390,3 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}

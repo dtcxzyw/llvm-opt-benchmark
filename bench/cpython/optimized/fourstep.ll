@@ -175,12 +175,12 @@ x64_mulmod.exit:                                  ; preds = %36, %48, %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   %94 = add i64 %.067, 2
   %95 = icmp ult i64 %94, %26
-  br i1 %95, label %85, label %._crit_edge69, !llvm.loop !10
+  br i1 %95, label %85, label %._crit_edge69, !llvm.loop !9
 
 ._crit_edge69:                                    ; preds = %85, %x64_mulmod.exit
   %96 = add nuw nsw i64 %.05370, 1
   %exitcond.not = icmp eq i64 %96, 3
-  br i1 %exitcond.not, label %.preheader, label %29, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader, label %29, !llvm.loop !10
 
 .lr.ph72:                                         ; preds = %.preheader, %98
   %.05771 = phi ptr [ %99, %98 ], [ %0, %.preheader ]
@@ -191,7 +191,7 @@ x64_mulmod.exit:                                  ; preds = %36, %48, %61
 98:                                               ; preds = %.lr.ph72
   %99 = getelementptr i64, ptr %.05771, i64 %9
   %100 = icmp ult ptr %99, %27
-  br i1 %100, label %.lr.ph72, label %._crit_edge73, !llvm.loop !12
+  br i1 %100, label %.lr.ph72, label %._crit_edge73, !llvm.loop !11
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %98, %.preheader
   %.058 = phi i32 [ 1, %.preheader ], [ 1, %98 ], [ 0, %.lr.ph72 ]
@@ -721,7 +721,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
   %spec.select108.i26 = sub i64 %111, %113
   %114 = lshr i64 %.01135, 1
   %.not = icmp samesign ult i64 %.01135, 2
-  br i1 %.not, label %115, label %6, !llvm.loop !13
+  br i1 %.not, label %115, label %6, !llvm.loop !12
 
 115:                                              ; preds = %x64_mulmod.exit34
   ret i64 %.1
@@ -1117,7 +1117,7 @@ define hidden range(i32 0, 2) i32 @inv_four_step_fnt(ptr noundef %0, i64 noundef
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i64, ptr %.05766, i64 %9
   %15 = icmp ult ptr %14, %10
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %13, %3
   %16 = sext i32 %2 to i64
@@ -1247,12 +1247,12 @@ x64_mulmod.exit:                                  ; preds = %29, %41, %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   %87 = add nuw nsw i64 %.067, 2
   %88 = icmp samesign ult i64 %87, %9
-  br i1 %88, label %78, label %._crit_edge69, !llvm.loop !15
+  br i1 %88, label %78, label %._crit_edge69, !llvm.loop !14
 
 ._crit_edge69:                                    ; preds = %78, %x64_mulmod.exit
   %89 = add nuw nsw i64 %.05370, 1
   %exitcond.not = icmp eq i64 %89, 3
-  br i1 %exitcond.not, label %90, label %22, !llvm.loop !16
+  br i1 %exitcond.not, label %90, label %22, !llvm.loop !15
 
 90:                                               ; preds = %._crit_edge69
   call void @_mpd_init_w3table(ptr noundef nonnull %4, i32 noundef 1, i32 noundef %2) #5
@@ -1278,7 +1278,7 @@ x64_mulmod.exit:                                  ; preds = %29, %41, %54
   %98 = getelementptr i8, ptr %.05572, i64 8
   %99 = getelementptr i8, ptr %.05473, i64 8
   %100 = icmp ult ptr %97, %91
-  br i1 %100, label %96, label %.loopexit, !llvm.loop !17
+  br i1 %100, label %96, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %96, %90
   %.058 = phi i32 [ 1, %90 ], [ 1, %96 ], [ 0, %.lr.ph ]
@@ -1306,14 +1306,13 @@ attributes #5 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}

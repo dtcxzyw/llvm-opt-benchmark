@@ -47,7 +47,7 @@ dummy_lh_num_items.exit:                          ; preds = %.lr.ph.i, %.prehead
   br i1 %.not, label %11, label %.thread121
 
 .thread121:                                       ; preds = %dummy_lh_num_items.exit
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !13
   %10 = call i64 @fwrite(ptr nonnull @.str, i64 16, i64 1, ptr %9) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   br label %102
@@ -82,28 +82,28 @@ dummy_lh_num_items.exit:                          ; preds = %.lr.ph.i, %.prehead
   %23 = and i8 %22, 7
   %24 = or disjoint i8 %23, 48
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i
-  store i8 %24, ptr %25, align 1, !tbaa !16
+  store i8 %24, ptr %25, align 1, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %rand_string.exit, label %.lr.ph.i43, !llvm.loop !17
+  br i1 %exitcond.not.i, label %rand_string.exit, label %.lr.ph.i43, !llvm.loop !16
 
 rand_string.exit:                                 ; preds = %.lr.ph.i43, %14
   %.0.lcssa.i = phi i64 [ 0, %14 ], [ %wide.trip.count.i, %.lr.ph.i43 ]
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.0.lcssa.i
-  store i8 0, ptr %26, align 1, !tbaa !16
+  store i8 0, ptr %26, align 1, !tbaa !15
   %27 = call ptr @lh_retrieve(ptr noundef nonnull %4, ptr noundef %20) #10
-  store ptr %27, ptr %3, align 8, !tbaa !18
+  store ptr %27, ptr %3, align 8, !tbaa !17
   br i1 %.not6.i, label %dummy_lh_retrieve.exit, label %.lr.ph.i45
 
 28:                                               ; preds = %.lr.ph.i45
   %29 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.0.i46 = load ptr, ptr %29, align 8, !tbaa !6
   %.not.i47 = icmp eq ptr %.0.i46, null
-  br i1 %.not.i47, label %dummy_lh_retrieve.exit, label %.lr.ph.i45, !llvm.loop !20
+  br i1 %.not.i47, label %dummy_lh_retrieve.exit, label %.lr.ph.i45, !llvm.loop !19
 
 .lr.ph.i45:                                       ; preds = %rand_string.exit, %28
   %.010.i = phi ptr [ %.0.i46, %28 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, %rand_string.exit ]
-  %30 = load ptr, ptr %.010.i, align 8, !tbaa !21
+  %30 = load ptr, ptr %.010.i, align 8, !tbaa !20
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %20) #13
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %dummy_lh_retrieve.exit, label %28
@@ -123,7 +123,7 @@ dummy_lh_retrieve.exit:                           ; preds = %28, %.lr.ph.i45, %r
   br i1 %.not41, label %.thread97.sink.split, label %37
 
 37:                                               ; preds = %35, %33
-  %38 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !13
   %39 = call i64 @fwrite(ptr nonnull @.str.1, i64 20, i64 1, ptr %38) #11
   call void @abort() #14
   unreachable
@@ -149,22 +149,22 @@ dummy_lh_retrieve.exit:                           ; preds = %28, %.lr.ph.i45, %r
   %49 = and i8 %48, 7
   %50 = or disjoint i8 %49, 48
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv.i52
-  store i8 %50, ptr %51, align 1, !tbaa !16
+  store i8 %50, ptr %51, align 1, !tbaa !15
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i50
-  br i1 %exitcond.not.i54, label %rand_string.exit57, label %.lr.ph.i51, !llvm.loop !17
+  br i1 %exitcond.not.i54, label %rand_string.exit57, label %.lr.ph.i51, !llvm.loop !16
 
 rand_string.exit57:                               ; preds = %.lr.ph.i51, %40
   %.0.lcssa.i56 = phi i64 [ 0, %40 ], [ %wide.trip.count.i50, %.lr.ph.i51 ]
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 %.0.lcssa.i56
-  store i8 0, ptr %52, align 1, !tbaa !16
+  store i8 0, ptr %52, align 1, !tbaa !15
   %53 = call i32 @lh_insert(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %46) #10
   %54 = call noalias ptr @strdup(ptr noundef %46) #10
   br i1 %.not6.i, label %dummy_lh_insert.exit.thread, label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %rand_string.exit57, %58
   %.020.i = phi ptr [ %.0.i59, %58 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, %rand_string.exit57 ]
-  %55 = load ptr, ptr %.020.i, align 8, !tbaa !21
+  %55 = load ptr, ptr %.020.i, align 8, !tbaa !20
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %54) #13
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %dummy_lh_insert.exit, label %58
@@ -173,21 +173,21 @@ rand_string.exit57:                               ; preds = %.lr.ph.i51, %40
   %59 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %.0.i59 = load ptr, ptr %59, align 8, !tbaa !6
   %.not.i60 = icmp eq ptr %.0.i59, null
-  br i1 %.not.i60, label %dummy_lh_insert.exit.thread, label %.lr.ph.i58, !llvm.loop !23
+  br i1 %.not.i60, label %dummy_lh_insert.exit.thread, label %.lr.ph.i58, !llvm.loop !22
 
 dummy_lh_insert.exit:                             ; preds = %.lr.ph.i58
-  store ptr %54, ptr %.020.i, align 8, !tbaa !21
-  %60 = load ptr, ptr %3, align 8, !tbaa !18
+  store ptr %54, ptr %.020.i, align 8, !tbaa !20
+  %60 = load ptr, ptr %3, align 8, !tbaa !17
   %.not36 = icmp eq ptr %60, null
   br i1 %.not36, label %.thread97.sink.split, label %64
 
 dummy_lh_insert.exit.thread:                      ; preds = %58, %rand_string.exit57
   %61 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  store ptr %54, ptr %61, align 8, !tbaa !21
+  store ptr %54, ptr %61, align 8, !tbaa !20
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, ptr %62, align 8, !tbaa !24
-  store ptr %61, ptr %.sroa.0, align 8, !tbaa !25
-  %63 = load ptr, ptr %3, align 8, !tbaa !18
+  store ptr %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, ptr %62, align 8, !tbaa !23
+  store ptr %61, ptr %.sroa.0, align 8, !tbaa !24
+  %63 = load ptr, ptr %3, align 8, !tbaa !17
   %.not3682 = icmp eq ptr %63, null
   br i1 %.not3682, label %.thread97, label %.thread
 
@@ -197,7 +197,7 @@ dummy_lh_insert.exit.thread:                      ; preds = %58, %rand_string.ex
   br i1 %.not37, label %.thread97.sink.split.sink.split, label %.thread
 
 .thread:                                          ; preds = %dummy_lh_insert.exit.thread, %64
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !13
   %67 = call i64 @fwrite(ptr nonnull @.str.2, i64 18, i64 1, ptr %66) #11
   call void @abort() #14
   unreachable
@@ -223,37 +223,37 @@ dummy_lh_insert.exit.thread:                      ; preds = %58, %rand_string.ex
   %77 = and i8 %76, 7
   %78 = or disjoint i8 %77, 48
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 %indvars.iv.i65
-  store i8 %78, ptr %79, align 1, !tbaa !16
+  store i8 %78, ptr %79, align 1, !tbaa !15
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i63
-  br i1 %exitcond.not.i67, label %rand_string.exit71, label %.lr.ph.i64, !llvm.loop !17
+  br i1 %exitcond.not.i67, label %rand_string.exit71, label %.lr.ph.i64, !llvm.loop !16
 
 rand_string.exit71:                               ; preds = %.lr.ph.i64, %68
   %.0.lcssa.i70 = phi i64 [ 0, %68 ], [ %wide.trip.count.i63, %.lr.ph.i64 ]
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 %.0.lcssa.i70
-  store i8 0, ptr %80, align 1, !tbaa !16
+  store i8 0, ptr %80, align 1, !tbaa !15
   %81 = call ptr @lh_delete(ptr noundef nonnull %4, ptr noundef %74) #10
-  store ptr %81, ptr %3, align 8, !tbaa !18
+  store ptr %81, ptr %3, align 8, !tbaa !17
   br i1 %.not6.i, label %dummy_lh_delete.exit.thread, label %.lr.ph.i72.preheader
 
 .lr.ph.i72.preheader:                             ; preds = %rand_string.exit71
-  %82 = load ptr, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, align 8, !tbaa !21
+  %82 = load ptr, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, align 8, !tbaa !20
   %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %74) #13
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %dummy_lh_delete.exit, label %.lr.ph
 
 .lr.ph.i72:                                       ; preds = %.lr.ph
-  %85 = load ptr, ptr %.014.i, align 8, !tbaa !21
+  %85 = load ptr, ptr %.014.i, align 8, !tbaa !20
   %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull readonly dereferenceable(1) %74) #13
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %dummy_lh_delete.exit.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %87, label %dummy_lh_delete.exit.loopexit, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.i72.preheader, %.lr.ph.i72
   %.01420.i130 = phi ptr [ %.014.i, %.lr.ph.i72 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..05.i, %.lr.ph.i72.preheader ]
   %88 = getelementptr inbounds nuw i8, ptr %.01420.i130, i64 8
   %.014.i = load ptr, ptr %88, align 8, !tbaa !6
   %.not.i73 = icmp eq ptr %.014.i, null
-  br i1 %.not.i73, label %dummy_lh_delete.exit.thread142, label %.lr.ph.i72, !llvm.loop !27
+  br i1 %.not.i73, label %dummy_lh_delete.exit.thread142, label %.lr.ph.i72, !llvm.loop !26
 
 dummy_lh_delete.exit.loopexit:                    ; preds = %.lr.ph.i72
   %89 = getelementptr inbounds nuw i8, ptr %.01420.i130, i64 8
@@ -264,10 +264,10 @@ dummy_lh_delete.exit:                             ; preds = %dummy_lh_delete.exi
   %.01319.i.lcssa = phi ptr [ %.sroa.0, %.lr.ph.i72.preheader ], [ %89, %dummy_lh_delete.exit.loopexit ]
   %.lcssa123 = phi ptr [ %82, %.lr.ph.i72.preheader ], [ %85, %dummy_lh_delete.exit.loopexit ]
   %90 = getelementptr inbounds nuw i8, ptr %.01420.i.lcssa, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !24
+  %91 = load ptr, ptr %90, align 8, !tbaa !23
   store ptr %91, ptr %.01319.i.lcssa, align 8, !tbaa !6
   call void @free(ptr noundef nonnull %.01420.i.lcssa) #10
-  %.pr.pre = load ptr, ptr %3, align 8, !tbaa !18
+  %.pr.pre = load ptr, ptr %3, align 8, !tbaa !17
   %.not32 = icmp eq ptr %.pr.pre, null
   br i1 %.not32, label %.thread97.sink.split.sink.split, label %92
 
@@ -285,7 +285,7 @@ dummy_lh_delete.exit.thread:                      ; preds = %rand_string.exit71
   br i1 %.not33, label %.thread114, label %.thread106
 
 .thread106:                                       ; preds = %dummy_lh_delete.exit.thread142, %dummy_lh_delete.exit.thread, %92
-  %94 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !13
   %95 = call i64 @fwrite(ptr nonnull @.str.2, i64 18, i64 1, ptr %94) #11
   call void @abort() #14
   unreachable
@@ -313,24 +313,24 @@ dummy_lh_delete.exit.thread:                      ; preds = %rand_string.exit71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   %97 = add nuw nsw i32 %.020133, 1
   %exitcond.not = icmp eq i32 %97, 100000
-  br i1 %exitcond.not, label %98, label %.preheaderthread-pre-split, !llvm.loop !28
+  br i1 %exitcond.not, label %98, label %.preheaderthread-pre-split, !llvm.loop !27
 
 98:                                               ; preds = %.thread97
   call void @lh_doall(ptr noundef nonnull %4, ptr noundef nonnull @free) #10
   call void @lh_free(ptr noundef nonnull %4) #10
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val = load ptr, ptr %.sroa.0, align 8, !tbaa !25
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val = load ptr, ptr %.sroa.0, align 8, !tbaa !24
   %.not1.i = icmp eq ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val, null
   br i1 %.not1.i, label %dummy_lh_free.exit, label %.lr.ph.i75
 
 .lr.ph.i75:                                       ; preds = %98, %.lr.ph.i75
   %.02.i = phi ptr [ %100, %.lr.ph.i75 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..val, %98 ]
   %99 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !24
-  %101 = load ptr, ptr %.02.i, align 8, !tbaa !21
+  %100 = load ptr, ptr %99, align 8, !tbaa !23
+  %101 = load ptr, ptr %.02.i, align 8, !tbaa !20
   call void @free(ptr noundef %101) #10
   call void @free(ptr noundef nonnull %.02.i) #10
   %.not.i76 = icmp eq ptr %100, null
-  br i1 %.not.i76, label %dummy_lh_free.exit, label %.lr.ph.i75, !llvm.loop !29
+  br i1 %.not.i76, label %dummy_lh_free.exit, label %.lr.ph.i75, !llvm.loop !28
 
 dummy_lh_free.exit:                               ; preds = %.lr.ph.i75, %98
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -417,22 +417,21 @@ attributes #14 = { noreturn nounwind }
 !8 = !{!"any pointer", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!16 = !{!9, !9, i64 0}
-!17 = distinct !{!17, !12, !13}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !8, i64 0}
-!20 = distinct !{!20, !12, !13}
-!21 = !{!22, !19, i64 0}
-!22 = !{!"dummy_lhash_node", !19, i64 0, !7, i64 8}
-!23 = distinct !{!23, !12, !13}
-!24 = !{!22, !7, i64 8}
-!25 = !{!26, !7, i64 0}
-!26 = !{!"dummy_lhash", !7, i64 0}
-!27 = distinct !{!27, !12, !13}
-!28 = distinct !{!28, !12, !13}
-!29 = distinct !{!29, !12, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!15 = !{!9, !9, i64 0}
+!16 = distinct !{!16, !12}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !8, i64 0}
+!19 = distinct !{!19, !12}
+!20 = !{!21, !18, i64 0}
+!21 = !{!"dummy_lhash_node", !18, i64 0, !7, i64 8}
+!22 = distinct !{!22, !12}
+!23 = !{!21, !7, i64 8}
+!24 = !{!25, !7, i64 0}
+!25 = !{!"dummy_lhash", !7, i64 0}
+!26 = distinct !{!26, !12}
+!27 = distinct !{!27, !12}
+!28 = distinct !{!28, !12}

@@ -726,7 +726,7 @@ sub_0122:                                         ; preds = %.tail117.thread
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 1
   %153 = load i8, ptr %152, align 1
   %.not23.i = icmp eq i8 %153, 0
-  br i1 %.not23.i, label %._crit_edge.i, label %144, !llvm.loop !7
+  br i1 %.not23.i, label %._crit_edge.i, label %144, !llvm.loop !6
 
 .critedge2.i:                                     ; preds = %144
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.151, ptr noundef %.0.i) #17
@@ -865,7 +865,7 @@ parse_max_rate.exit:                              ; preds = %158
   %205 = getelementptr inbounds nuw i8, ptr %.051.i, i64 1
   %206 = load i8, ptr %205, align 1
   %.not.i75 = icmp eq i8 %206, 0
-  br i1 %.not.i75, label %._crit_edge.i76, label %183, !llvm.loop !8
+  br i1 %.not.i75, label %._crit_edge.i76, label %183, !llvm.loop !7
 
 ._crit_edge.i76:                                  ; preds = %204, %177
   %207 = load i8, ptr %180, align 8
@@ -1101,7 +1101,7 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
 .backedge:                                        ; preds = %286, %249, %265, %259, %87, %93, %63, %68, %283, %282, %281, %280, %279, %278, %275, %backup_parse_compress_options.exit, %267, %239, %238, %235, %232, %tablespace_list_append.exit, %174, %171, %168, %163, %parse_max_rate.exit, %109, %106, %105, %104, %101, %98, %95, %75, %72, %71
   %.088.be = phi i32 [ %.088, %63 ], [ %.088, %68 ], [ %.088, %71 ], [ %.088, %72 ], [ %.088, %75 ], [ %.088, %87 ], [ %.088, %93 ], [ %.088, %95 ], [ %.088, %98 ], [ %.088, %101 ], [ %.088, %104 ], [ %.088, %105 ], [ %.088, %106 ], [ %.088, %109 ], [ %.088, %parse_max_rate.exit ], [ %.088, %163 ], [ %.088, %168 ], [ %.088, %171 ], [ %.088, %174 ], [ %.088, %tablespace_list_append.exit ], [ %.088, %232 ], [ %.088, %235 ], [ %.088, %238 ], [ %.088, %239 ], [ %.088, %249 ], [ %.088, %259 ], [ %.088, %265 ], [ 0, %267 ], [ %.3, %backup_parse_compress_options.exit ], [ %.088, %275 ], [ %.088, %278 ], [ %.088, %279 ], [ %.088, %280 ], [ %.088, %281 ], [ %.088, %282 ], [ %.088, %283 ], [ %.088, %286 ]
   %.0.be = phi ptr [ %.0, %63 ], [ %.0, %68 ], [ %.0, %71 ], [ %.0, %72 ], [ %.0, %75 ], [ %.0, %87 ], [ %.0, %93 ], [ %.0, %95 ], [ %100, %98 ], [ %.0, %101 ], [ %.0, %104 ], [ %.0, %105 ], [ %.0, %106 ], [ %.0, %109 ], [ %.0, %parse_max_rate.exit ], [ %.0, %163 ], [ %.0, %168 ], [ %.0, %171 ], [ %.0, %174 ], [ %.0, %tablespace_list_append.exit ], [ %.0, %232 ], [ %.0, %235 ], [ %.0, %238 ], [ %.0, %239 ], [ %.0, %249 ], [ %.0, %259 ], [ %.0, %265 ], [ %.0, %267 ], [ %.0, %backup_parse_compress_options.exit ], [ %.0, %275 ], [ %.0, %278 ], [ %.0, %279 ], [ %.0, %280 ], [ %.0, %281 ], [ %.0, %282 ], [ %.0, %283 ], [ %.0, %286 ]
-  br label %57, !llvm.loop !9
+  br label %57, !llvm.loop !8
 
 289:                                              ; preds = %286
   call void @exit(i32 noundef 1) #20
@@ -1675,7 +1675,7 @@ sub_0142:                                         ; preds = %437
   %520 = load ptr, ptr @conn, align 8
   %521 = call i32 @PQputCopyData(ptr noundef %520, ptr noundef nonnull %18, i32 noundef %517) #17
   %522 = icmp slt i32 %521, 0
-  br i1 %522, label %523, label %.preheader238.i, !llvm.loop !10
+  br i1 %522, label %523, label %.preheader238.i, !llvm.loop !9
 
 523:                                              ; preds = %519
   %524 = load ptr, ptr @conn, align 8
@@ -2109,7 +2109,7 @@ sub_0142:                                         ; preds = %437
   %694 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %695 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %694) #18
   %696 = icmp eq i32 %695, 0
-  br i1 %696, label %697, label %692, !llvm.loop !11
+  br i1 %696, label %697, label %692, !llvm.loop !10
 
 697:                                              ; preds = %693
   %698 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1032
@@ -2134,7 +2134,7 @@ get_tablespace_mapping.exit.i:                    ; preds = %692, %697
   %704 = add nuw nsw i32 %.0149241.i, 1
   %705 = call i32 @PQntuples(ptr noundef %663) #17
   %706 = icmp slt i32 %704, %705
-  br i1 %706, label %.lr.ph.i82, label %._crit_edge.i80, !llvm.loop !12
+  br i1 %706, label %.lr.ph.i82, label %._crit_edge.i80, !llvm.loop !11
 
 ._crit_edge.i80:                                  ; preds = %703, %672
   %707 = load i8, ptr @format, align 1
@@ -2554,7 +2554,7 @@ ReceiveTarFile.exit.i:                            ; preds = %885, %progress_upda
   %897 = add nuw nsw i32 %.1242.i, 1
   %898 = call i32 @PQntuples(ptr noundef %663) #17
   %899 = icmp slt i32 %897, %898
-  br i1 %899, label %860, label %._crit_edge244.i, !llvm.loop !13
+  br i1 %899, label %860, label %._crit_edge244.i, !llvm.loop !12
 
 ._crit_edge244.i:                                 ; preds = %ReceiveTarFile.exit.i, %.preheader.i81
   %.b174.i = load i1, ptr @manifest, align 1
@@ -2947,7 +2947,7 @@ define internal void @cleanup_directories_atexit() #0 {
   %.b20 = load i1, ptr @noclean, align 1
   %.b1721 = load i1, ptr @checksum_failure, align 1
   %or.cond3 = select i1 %.b20, i1 true, i1 %.b1721
-  %2 = load i8, ptr @made_new_pgdata, align 1, !range !14, !noundef !15
+  %2 = load i8, ptr @made_new_pgdata, align 1, !range !13, !noundef !14
   %3 = trunc nuw i8 %2 to i1
   br i1 %or.cond3, label %32, label %4
 
@@ -2962,7 +2962,7 @@ define internal void @cleanup_directories_atexit() #0 {
   br i1 %8, label %16, label %.sink.split
 
 9:                                                ; preds = %4
-  %10 = load i8, ptr @found_existing_pgdata, align 1, !range !14, !noundef !15
+  %10 = load i8, ptr @found_existing_pgdata, align 1, !range !13, !noundef !14
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %16
 
@@ -2979,7 +2979,7 @@ define internal void @cleanup_directories_atexit() #0 {
   br label %16
 
 16:                                               ; preds = %.sink.split, %9, %12, %5
-  %17 = load i8, ptr @made_new_xlogdir, align 1, !range !14, !noundef !15
+  %17 = load i8, ptr @made_new_xlogdir, align 1, !range !13, !noundef !14
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %24
 
@@ -2995,7 +2995,7 @@ define internal void @cleanup_directories_atexit() #0 {
   br label %44
 
 24:                                               ; preds = %16
-  %25 = load i8, ptr @found_existing_xlogdir, align 1, !range !14, !noundef !15
+  %25 = load i8, ptr @found_existing_xlogdir, align 1, !range !13, !noundef !14
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %44
 
@@ -3011,7 +3011,7 @@ define internal void @cleanup_directories_atexit() #0 {
   br label %44
 
 32:                                               ; preds = %1
-  %33 = load i8, ptr @found_existing_pgdata, align 1, !range !14
+  %33 = load i8, ptr @found_existing_pgdata, align 1, !range !13
   %34 = trunc nuw i8 %33 to i1
   %or.cond5 = select i1 %3, i1 true, i1 %34
   %or.cond5.not = xor i1 %or.cond5, true
@@ -3024,9 +3024,9 @@ define internal void @cleanup_directories_atexit() #0 {
   br label %37
 
 37:                                               ; preds = %32, %35
-  %38 = load i8, ptr @made_new_xlogdir, align 1, !range !14, !noundef !15
+  %38 = load i8, ptr @made_new_xlogdir, align 1, !range !13, !noundef !14
   %39 = trunc nuw i8 %38 to i1
-  %40 = load i8, ptr @found_existing_xlogdir, align 1, !range !14
+  %40 = load i8, ptr @found_existing_xlogdir, align 1, !range !13
   %41 = trunc nuw i8 %40 to i1
   %or.cond9 = select i1 %39, i1 true, i1 %41
   br i1 %or.cond9, label %42, label %44
@@ -3037,9 +3037,9 @@ define internal void @cleanup_directories_atexit() #0 {
   br label %44
 
 44:                                               ; preds = %42, %37, %23, %19, %27, %31, %24
-  %45 = load i8, ptr @made_tablespace_dirs, align 1, !range !14, !noundef !15
+  %45 = load i8, ptr @made_tablespace_dirs, align 1, !range !13, !noundef !14
   %46 = trunc nuw i8 %45 to i1
-  %47 = load i8, ptr @found_tablespace_dirs, align 1, !range !14
+  %47 = load i8, ptr @found_tablespace_dirs, align 1, !range !13
   %48 = trunc nuw i8 %47 to i1
   %or.cond11 = select i1 %46, i1 true, i1 %48
   %or.cond11.not = xor i1 %or.cond11, true
@@ -3281,7 +3281,7 @@ define internal ptr @get_tablespace_mapping(ptr noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %6) #18
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %4, !llvm.loop !11
+  br i1 %8, label %9, label %4, !llvm.loop !10
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1032
@@ -3732,11 +3732,11 @@ define internal fastcc void @ReceiveCopyData(ptr noundef %0, ptr noundef readonl
 17:                                               ; preds = %14
   %18 = sext i32 %11 to i64
   %19 = load ptr, ptr %4, align 8
-  call void %1(i64 noundef %18, ptr noundef %19, ptr noundef nonnull %2) #17, !callees !16
+  call void %1(i64 noundef %18, ptr noundef %19, ptr noundef nonnull %2) #17, !callees !15
   %20 = load ptr, ptr %4, align 8
   call void @PQfreemem(ptr noundef %20) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  br label %10, !llvm.loop !17
+  br label %10
 
 21:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
@@ -3807,7 +3807,7 @@ GetCopyDataByte.exit:                             ; preds = %3
 
 23:                                               ; preds = %.lr.ph.i
   %exitcond.not.i = icmp eq i64 %22, %0
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 GetCopyDataString.exit:                           ; preds = %.lr.ph.i
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -3828,7 +3828,7 @@ GetCopyDataString.exit:                           ; preds = %.lr.ph.i
 
 29:                                               ; preds = %.lr.ph.i72
   %exitcond.not.i74 = icmp eq i64 %28, %0
-  br i1 %exitcond.not.i74, label %._crit_edge.i71, label %.lr.ph.i72, !llvm.loop !18
+  br i1 %exitcond.not.i74, label %._crit_edge.i71, label %.lr.ph.i72
 
 GetCopyDataString.exit75:                         ; preds = %.lr.ph.i72
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %22
@@ -4196,7 +4196,7 @@ sub_0:                                            ; preds = %6
   %74 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %74) #18
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %72, !llvm.loop !11
+  br i1 %76, label %77, label %72, !llvm.loop !10
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1032
@@ -4504,18 +4504,15 @@ attributes #21 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = !{ptr @ReceiveArchiveStreamChunk, ptr @ReceiveBackupManifestChunk, ptr @ReceiveBackupManifestInMemoryChunk, ptr @ReceiveTarCopyChunk}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = !{ptr @ReceiveArchiveStreamChunk, ptr @ReceiveBackupManifestChunk, ptr @ReceiveBackupManifestInMemoryChunk, ptr @ReceiveTarCopyChunk}

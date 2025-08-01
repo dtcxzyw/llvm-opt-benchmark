@@ -1064,7 +1064,7 @@ Py_DECREF.exit:                                   ; preds = %117, %119, %122
   %.4 = select i1 %.not89, i64 %.150147, i64 %115
   %.3 = select i1 %.not89, i64 %123, i64 %.046142
   %124 = icmp slt i64 %.3, %.4
-  br i1 %124, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !35
+  br i1 %124, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !33
 
 .outer._crit_edge:                                ; preds = %Py_DECREF.exit, %Py_DECREF.exit101, %33
   %.046.lcssa = phi i64 [ %2, %33 ], [ %.147, %Py_DECREF.exit101 ], [ %.3, %Py_DECREF.exit ]
@@ -1307,7 +1307,7 @@ Py_DECREF.exit103:                                ; preds = %70, %72, %75
 
 Py_DECREF.exit101:                                ; preds = %Py_DECREF.exit103, %77, %80
   %81 = add nuw nsw i64 %53, 1
-  br label %Py_DECREF.exit97, !llvm.loop !37
+  br label %Py_DECREF.exit97, !llvm.loop !35
 
 82:                                               ; preds = %67
   %83 = icmp eq ptr %68, @_Py_FalseStruct
@@ -1331,17 +1331,17 @@ Py_DECREF.exit101:                                ; preds = %Py_DECREF.exit103, 
 Py_DECREF.exit99:                                 ; preds = %84, %86, %89
   %90 = load i32, ptr %.174, align 8, !tbaa !8
   %.not.i96 = icmp sgt i32 %90, -1
-  br i1 %.not.i96, label %91, label %Py_DECREF.exit97, !llvm.loop !37
+  br i1 %.not.i96, label %91, label %Py_DECREF.exit97, !llvm.loop !35
 
 91:                                               ; preds = %Py_DECREF.exit99
   %92 = add nsw i32 %90, -1
   store i32 %92, ptr %.174, align 8, !tbaa !8
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %Py_DECREF.exit97, !llvm.loop !37
+  br i1 %93, label %94, label %Py_DECREF.exit97, !llvm.loop !35
 
 94:                                               ; preds = %91
   tail call void @_Py_Dealloc(ptr noundef nonnull %.174) #4
-  br label %Py_DECREF.exit97, !llvm.loop !37
+  br label %Py_DECREF.exit97, !llvm.loop !35
 
 95:                                               ; preds = %82
   %96 = icmp eq ptr %68, null
@@ -1431,7 +1431,7 @@ Py_DECREF.exit:                                   ; preds = %117, %119, %122
   %.4 = select i1 %.not89, i64 %115, i64 %.150147
   %.3 = select i1 %.not89, i64 %.046142, i64 %123
   %124 = icmp slt i64 %.3, %.4
-  br i1 %124, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !38
+  br i1 %124, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !35
 
 .outer._crit_edge:                                ; preds = %Py_DECREF.exit, %Py_DECREF.exit97, %33
   %.046.lcssa = phi i64 [ %2, %33 ], [ %.147, %Py_DECREF.exit97 ], [ %.3, %Py_DECREF.exit ]
@@ -1519,7 +1519,4 @@ attributes #4 = { nounwind }
 !32 = !{!19, !5, i64 200}
 !33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !34}
-!38 = distinct !{!38, !36}
+!35 = distinct !{!35, !34}

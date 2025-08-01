@@ -1309,7 +1309,7 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   store i32 0, ptr %54, align 8
   %175 = and i32 %174, -3
   %.not88 = icmp eq i32 %175, 0
-  br i1 %.not88, label %176, label %.preheader123, !llvm.loop !9
+  br i1 %.not88, label %176, label %.preheader123, !llvm.loop !8
 
 176:                                              ; preds = %.preheader123
   %177 = icmp eq i32 %174, 2
@@ -1346,7 +1346,7 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   store i32 0, ptr %54, align 8
   %188 = and i32 %187, -3
   %.not90 = icmp eq i32 %188, 0
-  br i1 %.not90, label %189, label %.preheader, !llvm.loop !10
+  br i1 %.not90, label %189, label %.preheader, !llvm.loop !9
 
 189:                                              ; preds = %.preheader
   %190 = icmp eq i32 %187, 2
@@ -1415,7 +1415,7 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   store i32 %226, ptr %227, align 4
   %228 = load ptr, ptr %13, align 8
   %229 = icmp ugt ptr %227, %228
-  br i1 %229, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %229, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %207
   %.lcssa125 = phi ptr [ %208, %207 ], [ %228, %.lr.ph ]
@@ -1539,7 +1539,7 @@ GET_ARRAYS.exit116:                               ; preds = %275, %290, %294
   %296 = load i32, ptr %171, align 8
   %297 = load i32, ptr %172, align 4
   %298 = icmp ult i32 %296, %297
-  br i1 %298, label %186, label %._crit_edge130, !llvm.loop !12
+  br i1 %298, label %186, label %._crit_edge130, !llvm.loop !11
 
 GET_ARRAYS.exit116.thread:                        ; preds = %263, %RELEASE_ARRAYS.exit107, %285, %283
   call void @jDestDecompress(ptr noundef nonnull %5) #13
@@ -1554,7 +1554,7 @@ GET_ARRAYS.exit116.thread:                        ; preds = %263, %RELEASE_ARRAY
 
 301:                                              ; preds = %._crit_edge130, %299
   %.not91 = icmp eq i32 %.2, 0
-  br i1 %.not91, label %173, label %302, !llvm.loop !13
+  br i1 %.not91, label %173, label %302, !llvm.loop !12
 
 302:                                              ; preds = %301
   %303 = call i32 @jFinDecompress(ptr noundef nonnull %5) #13
@@ -1655,11 +1655,10 @@ attributes #16 = { cold nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

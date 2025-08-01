@@ -290,7 +290,7 @@ define dso_local void @handleBlockedClientsTimeout() local_unnamed_addr #0 {
   %34 = call i32 @raxSeek(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #4
   %35 = call i32 @raxNext(ptr noundef nonnull %1) #4
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %.thread, label %12, !llvm.loop !59
+  br i1 %.not, label %.thread, label %12
 
 .thread:                                          ; preds = %29, %12, %5
   call void @raxStop(ptr noundef nonnull %1) #4
@@ -329,9 +329,9 @@ define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %
   br i1 %.not13, label %11, label %34
 
 11:                                               ; preds = %9
-  %12 = load x86_fp80, ptr %6, align 16, !tbaa !61
+  %12 = load x86_fp80, ptr %6, align 16, !tbaa !59
   %13 = fmul x86_fp80 %12, 0xK4008FA00000000000000
-  store x86_fp80 %13, ptr %6, align 16, !tbaa !61
+  store x86_fp80 %13, ptr %6, align 16, !tbaa !59
   %14 = fcmp ogt x86_fp80 %13, 0xK403DFFFFFFFFFFFFFFFE
   br i1 %14, label %15, label %16
 
@@ -342,7 +342,7 @@ define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %
 16:                                               ; preds = %11
   %17 = call x86_fp80 @llvm.ceil.f80(x86_fp80 %13)
   %18 = fptosi x86_fp80 %17 to i64
-  store i64 %18, ptr %5, align 8, !tbaa !63
+  store i64 %18, ptr %5, align 8, !tbaa !61
   br label %21
 
 19:                                               ; preds = %4
@@ -351,7 +351,7 @@ define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %
   br i1 %.not, label %thread-pre-split, label %34
 
 thread-pre-split:                                 ; preds = %19
-  %.pr = load i64, ptr %5, align 8, !tbaa !63
+  %.pr = load i64, ptr %5, align 8, !tbaa !61
   br label %21
 
 21:                                               ; preds = %thread-pre-split, %16
@@ -382,7 +382,7 @@ thread-pre-split:                                 ; preds = %19
 
 32:                                               ; preds = %30, %25
   %33 = phi i64 [ %31, %30 ], [ 0, %25 ]
-  store i64 %33, ptr %2, align 8, !tbaa !63
+  store i64 %33, ptr %2, align 8, !tbaa !61
   br label %34
 
 34:                                               ; preds = %19, %9, %32, %29, %24, %15
@@ -470,8 +470,6 @@ attributes #4 = { nounwind }
 !56 = !{!"p1 _ZTS7raxNode", !11, i64 0}
 !57 = !{!"raxStack", !11, i64 0, !7, i64 8, !7, i64 16, !8, i64 24, !12, i64 280}
 !58 = !{!55, !7, i64 32}
-!59 = distinct !{!59, !60}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"long double", !8, i64 0}
-!63 = !{!19, !19, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"long double", !8, i64 0}
+!61 = !{!19, !19, i64 0}

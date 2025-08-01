@@ -65,7 +65,7 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   store i8 %22, ptr %23, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %24, label %15, !llvm.loop !6
+  br i1 %exitcond.not.i, label %24, label %15, !llvm.loop !5
 
 24:                                               ; preds = %15
   store i8 -128, ptr %5, align 1
@@ -81,7 +81,7 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   %27 = load i32, ptr %11, align 4
   %28 = and i32 %27, 504
   %.not.i = icmp eq i32 %28, 448
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
   call fastcc void @SHA1Update(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 8)
@@ -103,7 +103,7 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   store i8 %38, ptr %39, align 1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 20
-  br i1 %exitcond24.not.i, label %SHA1Final.exit, label %29, !llvm.loop !8
+  br i1 %exitcond24.not.i, label %SHA1Final.exit, label %29, !llvm.loop !7
 
 SHA1Final.exit:                                   ; preds = %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
@@ -1211,9 +1211,8 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}

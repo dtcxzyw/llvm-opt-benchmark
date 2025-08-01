@@ -848,7 +848,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImaging
   %41 = getelementptr i8, ptr %32, i64 12
   store i32 %40, ptr %41, align 4
   %exitcond36.not = icmp eq i32 %25, 10
-  br i1 %exitcond36.not, label %42, label %23, !llvm.loop !8
+  br i1 %exitcond36.not, label %42, label %23, !llvm.loop !7
 
 42:                                               ; preds = %23
   %43 = trunc nsw i64 %indvars.iv.next32 to i32
@@ -856,7 +856,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImaging
   %45 = add nuw nsw i32 %.07210, 10
   %46 = add nuw nsw i32 %.0749, 1
   %exitcond37.not = icmp eq i32 %46, 7
-  br i1 %exitcond37.not, label %47, label %.preheader, !llvm.loop !9
+  br i1 %exitcond37.not, label %47, label %.preheader, !llvm.loop !8
 
 47:                                               ; preds = %42
   %48 = sext i32 %indvars.iv38 to i64
@@ -883,7 +883,7 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImaging
   %59 = getelementptr i8, ptr %53, i64 8
   store i32 81, ptr %59, align 4
   %exitcond49.not = icmp eq i32 %54, 10
-  br i1 %exitcond49.not, label %60, label %50, !llvm.loop !10
+  br i1 %exitcond49.not, label %60, label %50, !llvm.loop !9
 
 60:                                               ; preds = %50
   %61 = icmp eq i64 %indvars.iv.next41, 90
@@ -1099,7 +1099,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false)
   %.06.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.idx, 12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.add, 120
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit.preheader: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0329.0, i64 0
@@ -1138,7 +1138,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   store float %70, ptr %.sroa.297.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %74, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit, !llvm.loop !12
+  br i1 %exitcond.not, label %74, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit, !llvm.loop !11
 
 72:                                               ; preds = %74
   %73 = landingpad { ptr, i32 }
@@ -1173,7 +1173,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
 
 .loopexit336:                                     ; preds = %102
   %exitcond357.not = icmp eq i32 %87, 3
-  br i1 %exitcond357.not, label %.preheader335, label %86, !llvm.loop !13
+  br i1 %exitcond357.not, label %.preheader335, label %86, !llvm.loop !12
 
 86:                                               ; preds = %77, %.loopexit336
   %.0179341 = phi ptr [ %85, %77 ], [ %110, %.loopexit336 ]
@@ -1218,7 +1218,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   store float %109, ptr %.sroa.260.0..sroa_idx, align 4
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next354, 10
-  br i1 %exitcond356.not, label %.loopexit336, label %102, !llvm.loop !14
+  br i1 %exitcond356.not, label %.loopexit336, label %102, !llvm.loop !13
 
 111:                                              ; preds = %169, %155, %75
   %112 = landingpad { ptr, i32 }
@@ -1265,14 +1265,14 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   store float %128, ptr %.sroa.238.0..sroa_idx, align 4
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next359, 10
-  br i1 %exitcond361.not, label %130, label %121, !llvm.loop !15
+  br i1 %exitcond361.not, label %130, label %121, !llvm.loop !14
 
 130:                                              ; preds = %121
-  br i1 %114, label %.preheader335, label %.preheader, !llvm.loop !16
+  br i1 %114, label %.preheader335, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %146
   %exitcond366.not = icmp eq i32 %132, 3
-  br i1 %exitcond366.not, label %155, label %131, !llvm.loop !17
+  br i1 %exitcond366.not, label %155, label %131, !llvm.loop !16
 
 131:                                              ; preds = %.preheader, %.loopexit
   %.4349 = phi ptr [ %129, %.preheader ], [ %154, %.loopexit ]
@@ -1316,7 +1316,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   store float %153, ptr %.sroa.216.0..sroa_idx, align 4
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next363, 10
-  br i1 %exitcond365.not, label %.loopexit, label %146, !llvm.loop !18
+  br i1 %exitcond365.not, label %.loopexit, label %146, !llvm.loop !17
 
 155:                                              ; preds = %.loopexit
   %156 = fadd float %113, %6
@@ -1493,7 +1493,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdImagingGeneratePlaneMeshP
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   %.06.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.idx, 12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.add, 48
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %6 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomTokensE seq_cst, align 8
@@ -1691,7 +1691,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEaSESt16initiali
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.041110, ptr noundef nonnull align 4 dereferenceable(12) %72, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %76, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %76, label %.preheader, !llvm.loop !18
 
 74:                                               ; preds = %83, %76, %70
   %75 = landingpad { ptr, i32 }
@@ -2012,7 +2012,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomTokensTy
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -4874,19 +4874,18 @@ attributes #14 = { builtin nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

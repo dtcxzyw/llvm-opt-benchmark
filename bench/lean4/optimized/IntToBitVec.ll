@@ -16673,7 +16673,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef %16) #4
-  br label %3, !llvm.loop !16
+  br label %3
 }
 
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -16784,7 +16784,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef %16) #4
-  br label %3, !llvm.loop !18
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -26437,9 +26437,9 @@ lean_alloc_closure.exit:                          ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__13___lambda__1___boxed, ptr %39, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i16 8, ptr %40, align 8, !tbaa !19
+  store i16 8, ptr %40, align 8, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 18
-  store i16 1, ptr %41, align 2, !tbaa !19
+  store i16 1, ptr %41, align 2, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %34, ptr %42, align 8, !tbaa !9
   store ptr %35, ptr %33, align 8, !tbaa !9
@@ -26573,9 +26573,9 @@ lean_alloc_closure.exit62:                        ; preds = %lean_dec.exit
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__13___lambda__1___boxed, ptr %90, align 8, !tbaa !9
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store i16 8, ptr %91, align 8, !tbaa !19
+  store i16 8, ptr %91, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 18
-  store i16 1, ptr %92, align 2, !tbaa !19
+  store i16 1, ptr %92, align 2, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %62, ptr %93, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #4
@@ -27132,9 +27132,9 @@ lean_alloc_closure.exit:                          ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @l_Lean_Meta_withLocalDecl___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__18___rarg___lambda__1, ptr %16, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i16 8, ptr %17, align 8, !tbaa !19
+  store i16 8, ptr %17, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  store i16 2, ptr %18, align 2, !tbaa !19
+  store i16 2, ptr %18, align 2, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %3, ptr %19, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -27374,9 +27374,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withLocalDecl___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__18___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 11, ptr %7, align 8, !tbaa !19
+  store i16 11, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !16
   ret ptr %2
 }
 
@@ -27536,9 +27536,9 @@ lean_alloc_closure.exit:                          ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @l_Lean_Meta_withLocalDecls_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__17___rarg___lambda__1___boxed, ptr %39, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i16 2, ptr %40, align 8, !tbaa !19
+  store i16 2, ptr %40, align 8, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 18
-  store i16 1, ptr %41, align 2, !tbaa !19
+  store i16 1, ptr %41, align 2, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %34, ptr %42, align 8, !tbaa !9
   tail call void @lean_inc_heartbeat() #4
@@ -27557,9 +27557,9 @@ lean_alloc_closure.exit186:                       ; preds = %lean_alloc_closure.
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @l_Pi_instInhabited___rarg, ptr %47, align 8, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i16 2, ptr %48, align 8, !tbaa !19
+  store i16 2, ptr %48, align 8, !tbaa !16
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 18
-  store i16 1, ptr %49, align 2, !tbaa !19
+  store i16 1, ptr %49, align 2, !tbaa !16
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %35, ptr %50, align 8, !tbaa !9
   %51 = load i8, ptr @l_Lean_instInhabitedBinderInfo, align 1, !tbaa !15
@@ -28055,9 +28055,9 @@ lean_alloc_closure.exit227:                       ; preds = %lean_dec.exit136
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr @l_Lean_Meta_withLocalDecls_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__17___rarg___lambda__2, ptr %233, align 8, !tbaa !9
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  store i16 11, ptr %234, align 8, !tbaa !19
+  store i16 11, ptr %234, align 8, !tbaa !16
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 18
-  store i16 4, ptr %235, align 2, !tbaa !19
+  store i16 4, ptr %235, align 2, !tbaa !16
   %236 = getelementptr inbounds nuw i8, ptr %229, i64 24
   store ptr %3, ptr %236, align 8, !tbaa !9
   %237 = getelementptr inbounds nuw i8, ptr %229, i64 32
@@ -28486,9 +28486,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withLocalDecls_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__17___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 10, ptr %7, align 8, !tbaa !19
+  store i16 10, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !16
   ret ptr %2
 }
 
@@ -28517,9 +28517,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withLocalDecls___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__16___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !19
+  store i16 9, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !16
   ret ptr %2
 }
 
@@ -28551,9 +28551,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withLocalDeclsD___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__14___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !19
+  store i16 9, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !16
   ret ptr %2
 }
 
@@ -28588,9 +28588,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Meta_withLocalDeclsDND___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__12___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 9, ptr %7, align 8, !tbaa !19
+  store i16 9, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !16
   ret ptr %2
 }
 
@@ -30663,9 +30663,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__22___rarg, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 8, ptr %8, align 8, !tbaa !19
+  store i16 8, ptr %8, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !19
+  store i16 0, ptr %9, align 2, !tbaa !16
   ret ptr %3
 }
 
@@ -30909,9 +30909,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_MVarId_withContext___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__23___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !19
+  store i16 8, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !19
+  store i16 0, ptr %8, align 2, !tbaa !16
   ret ptr %2
 }
 
@@ -31354,9 +31354,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit232
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr @l_Std_HashMap_get_x3f___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__9___boxed, ptr %196, align 8, !tbaa !9
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  store i16 2, ptr %197, align 8, !tbaa !19
+  store i16 2, ptr %197, align 8, !tbaa !16
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 18
-  store i16 1, ptr %198, align 2, !tbaa !19
+  store i16 1, ptr %198, align 2, !tbaa !16
   %199 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store ptr %176, ptr %199, align 8, !tbaa !9
   %200 = tail call ptr @lean_replace_expr(ptr noundef nonnull %192, ptr noundef %5) #4
@@ -31580,9 +31580,9 @@ lean_alloc_closure.exit306:                       ; preds = %lean_dec.exit228
   %282 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store ptr @l_Std_HashMap_get_x3f___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__9___boxed, ptr %282, align 8, !tbaa !9
   %283 = getelementptr inbounds nuw i8, ptr %278, i64 16
-  store i16 2, ptr %283, align 8, !tbaa !19
+  store i16 2, ptr %283, align 8, !tbaa !16
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 18
-  store i16 1, ptr %284, align 2, !tbaa !19
+  store i16 1, ptr %284, align 2, !tbaa !16
   %285 = getelementptr inbounds nuw i8, ptr %278, i64 24
   store ptr %262, ptr %285, align 8, !tbaa !9
   %286 = tail call ptr @lean_replace_expr(ptr noundef nonnull %278, ptr noundef %5) #4
@@ -31883,9 +31883,9 @@ lean_alloc_closure.exit330:                       ; preds = %lean_dec.exit224
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store ptr @l_Std_HashMap_get_x3f___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__9___boxed, ptr %399, align 8, !tbaa !9
   %400 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  store i16 2, ptr %400, align 8, !tbaa !19
+  store i16 2, ptr %400, align 8, !tbaa !16
   %401 = getelementptr inbounds nuw i8, ptr %395, i64 18
-  store i16 1, ptr %401, align 2, !tbaa !19
+  store i16 1, ptr %401, align 2, !tbaa !16
   %402 = getelementptr inbounds nuw i8, ptr %395, i64 24
   store ptr %379, ptr %402, align 8, !tbaa !9
   %403 = tail call ptr @lean_replace_expr(ptr noundef nonnull %395, ptr noundef %5) #4
@@ -32173,9 +32173,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit147
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___lambda__1___boxed, ptr %69, align 8, !tbaa !9
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i16 13, ptr %70, align 8, !tbaa !19
+  store i16 13, ptr %70, align 8, !tbaa !16
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 18
-  store i16 6, ptr %71, align 2, !tbaa !19
+  store i16 6, ptr %71, align 2, !tbaa !16
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr %0, ptr %72, align 8, !tbaa !9
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 32
@@ -33447,9 +33447,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_box_usize.exit
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___lambda__2___boxed, ptr %58, align 8, !tbaa !9
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i16 13, ptr %59, align 8, !tbaa !19
+  store i16 13, ptr %59, align 8, !tbaa !16
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 18
-  store i16 6, ptr %60, align 2, !tbaa !19
+  store i16 6, ptr %60, align 2, !tbaa !16
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %0, ptr %61, align 8, !tbaa !9
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 32
@@ -41087,9 +41087,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit1168
   %2918 = getelementptr inbounds nuw i8, ptr %2914, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___lambda__3___boxed, ptr %2918, align 8, !tbaa !9
   %2919 = getelementptr inbounds nuw i8, ptr %2914, i64 16
-  store i16 13, ptr %2919, align 8, !tbaa !19
+  store i16 13, ptr %2919, align 8, !tbaa !16
   %2920 = getelementptr inbounds nuw i8, ptr %2914, i64 18
-  store i16 6, ptr %2920, align 2, !tbaa !19
+  store i16 6, ptr %2920, align 2, !tbaa !16
   %2921 = getelementptr inbounds nuw i8, ptr %2914, i64 24
   store ptr inttoptr (i64 1 to ptr), ptr %2921, align 8, !tbaa !9
   %2922 = getelementptr inbounds nuw i8, ptr %2914, i64 32
@@ -44157,9 +44157,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit96
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___lambda__4___boxed, ptr %237, align 8, !tbaa !9
   %238 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  store i16 10, ptr %238, align 8, !tbaa !19
+  store i16 10, ptr %238, align 8, !tbaa !16
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 18
-  store i16 3, ptr %239, align 2, !tbaa !19
+  store i16 3, ptr %239, align 2, !tbaa !16
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 24
   store ptr %201, ptr %240, align 8, !tbaa !9
   %241 = getelementptr inbounds nuw i8, ptr %233, i64 32
@@ -44183,9 +44183,9 @@ lean_alloc_closure.exit201:                       ; preds = %lean_alloc_closure.
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__22___rarg, ptr %248, align 8, !tbaa !9
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  store i16 8, ptr %249, align 8, !tbaa !19
+  store i16 8, ptr %249, align 8, !tbaa !16
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 18
-  store i16 2, ptr %250, align 2, !tbaa !19
+  store i16 2, ptr %250, align 2, !tbaa !16
   %251 = getelementptr inbounds nuw i8, ptr %244, i64 24
   store ptr %243, ptr %251, align 8, !tbaa !9
   %252 = getelementptr inbounds nuw i8, ptr %244, i64 32
@@ -55625,7 +55625,7 @@ lean_inc.exit189:                                 ; preds = %19, %18, %16, %11
 31:                                               ; preds = %30, %27
   %32 = phi i32 [ %.pr, %30 ], [ %28, %27 ]
   %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %34, label %36, !prof !21
+  br i1 %33, label %34, label %36, !prof !18
 
 34:                                               ; preds = %31
   %35 = add nsw i32 %32, -1
@@ -55826,7 +55826,7 @@ lean_inc.exit184:                                 ; preds = %94, %93, %91, %88
 106:                                              ; preds = %105, %102
   %107 = phi i32 [ %.pr363, %105 ], [ %103, %102 ]
   %108 = icmp sgt i32 %107, 1
-  br i1 %108, label %109, label %111, !prof !21
+  br i1 %108, label %109, label %111, !prof !18
 
 109:                                              ; preds = %106
   %110 = add nsw i32 %107, -1
@@ -62332,9 +62332,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit151
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___spec__6___lambda__2___boxed, ptr %174, align 8, !tbaa !9
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  store i16 8, ptr %175, align 8, !tbaa !19
+  store i16 8, ptr %175, align 8, !tbaa !16
   %176 = getelementptr inbounds nuw i8, ptr %170, i64 18
-  store i16 1, ptr %176, align 2, !tbaa !19
+  store i16 1, ptr %176, align 2, !tbaa !16
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 24
   store ptr %81, ptr %177, align 8, !tbaa !9
   %178 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___spec__6___closed__1, align 8, !tbaa !9
@@ -64699,7 +64699,7 @@ lean_obj_tag.exit:                                ; preds = %60, %63
 78:                                               ; preds = %77, %74
   %79 = phi i32 [ %.pr, %77 ], [ %75, %74 ]
   %80 = icmp sgt i32 %79, 1
-  br i1 %80, label %81, label %83, !prof !21
+  br i1 %80, label %81, label %83, !prof !18
 
 81:                                               ; preds = %78
   %82 = add nsw i32 %79, -1
@@ -69828,9 +69828,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_findNumBits
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_findNumBitsEq___lambda__2, ptr %101, align 8, !tbaa !9
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i16 5, ptr %102, align 8, !tbaa !19
+  store i16 5, ptr %102, align 8, !tbaa !16
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 18
-  store i16 0, ptr %103, align 2, !tbaa !19
+  store i16 0, ptr %103, align 2, !tbaa !16
   store ptr %97, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_findNumBitsEq___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %97) #4
   %104 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 0) #4
@@ -69867,9 +69867,9 @@ _init_l_Lean_logAt___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVec
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr @l_Lean_logAt___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__3___lambda__2___boxed, ptr %114, align 8, !tbaa !9
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store i16 1, ptr %115, align 8, !tbaa !19
+  store i16 1, ptr %115, align 8, !tbaa !16
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 18
-  store i16 0, ptr %116, align 2, !tbaa !19
+  store i16 0, ptr %116, align 2, !tbaa !16
   store ptr %110, ptr @l_Lean_logAt___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__3___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %110) #4
   %117 = load ptr, ptr @l_Lean_warningAsError, align 8, !tbaa !9
@@ -70119,9 +70119,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store ptr @l_StateRefT_x27_get___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__4___boxed, ptr %215, align 8, !tbaa !9
   %216 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  store i16 6, ptr %216, align 8, !tbaa !19
+  store i16 6, ptr %216, align 8, !tbaa !16
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 18
-  store i16 0, ptr %217, align 2, !tbaa !19
+  store i16 0, ptr %217, align 2, !tbaa !16
   store ptr %211, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___closed__10, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %211) #4
   %218 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.20, i64 noundef 5, i64 noundef 5) #4
@@ -70159,9 +70159,9 @@ _init_l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Norma
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___spec__6___lambda__1___boxed, ptr %231, align 8, !tbaa !9
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  store i16 1, ptr %232, align 8, !tbaa !19
+  store i16 1, ptr %232, align 8, !tbaa !16
   %233 = getelementptr inbounds nuw i8, ptr %227, i64 18
-  store i16 0, ptr %233, align 2, !tbaa !19
+  store i16 0, ptr %233, align 2, !tbaa !16
   store ptr %227, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___spec__6___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %227) #4
   tail call void @lean_inc_heartbeat() #4
@@ -70180,9 +70180,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize_
   %238 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr @l_Lean_Meta_getPropHyps, ptr %238, align 8, !tbaa !9
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  store i16 5, ptr %239, align 8, !tbaa !19
+  store i16 5, ptr %239, align 8, !tbaa !16
   %240 = getelementptr inbounds nuw i8, ptr %234, i64 18
-  store i16 0, ptr %240, align 2, !tbaa !19
+  store i16 0, ptr %240, align 2, !tbaa !16
   store ptr %234, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %234) #4
   %241 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___closed__1, align 8, !tbaa !9
@@ -70202,9 +70202,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize_
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store ptr @l_StateRefT_x27_lift___rarg___boxed, ptr %246, align 8, !tbaa !9
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  store i16 2, ptr %247, align 8, !tbaa !19
+  store i16 2, ptr %247, align 8, !tbaa !16
   %248 = getelementptr inbounds nuw i8, ptr %242, i64 18
-  store i16 1, ptr %248, align 2, !tbaa !19
+  store i16 1, ptr %248, align 2, !tbaa !16
   %249 = getelementptr inbounds nuw i8, ptr %242, i64 24
   store ptr %241, ptr %249, align 8, !tbaa !9
   store ptr %242, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___closed__2, align 8, !tbaa !9
@@ -70225,9 +70225,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize_
   %254 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___lambda__1___boxed, ptr %254, align 8, !tbaa !9
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  store i16 7, ptr %255, align 8, !tbaa !19
+  store i16 7, ptr %255, align 8, !tbaa !16
   %256 = getelementptr inbounds nuw i8, ptr %250, i64 18
-  store i16 0, ptr %256, align 2, !tbaa !19
+  store i16 0, ptr %256, align 2, !tbaa !16
   store ptr %250, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___closed__3, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %250) #4
   %257 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize___closed__2, align 8, !tbaa !9
@@ -70248,9 +70248,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_detectSize_
   %263 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store ptr @l_ReaderT_bind___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass_replaceSize___spec__22___rarg, ptr %263, align 8, !tbaa !9
   %264 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  store i16 8, ptr %264, align 8, !tbaa !19
+  store i16 8, ptr %264, align 8, !tbaa !16
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 18
-  store i16 2, ptr %265, align 2, !tbaa !19
+  store i16 2, ptr %265, align 2, !tbaa !16
   %266 = getelementptr inbounds nuw i8, ptr %259, i64 24
   store ptr %257, ptr %266, align 8, !tbaa !9
   %267 = getelementptr inbounds nuw i8, ptr %259, i64 32
@@ -70448,9 +70448,9 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass___closed__3
   %339 = getelementptr inbounds nuw i8, ptr %335, i64 8
   store ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass___elambda__1___boxed, ptr %339, align 8, !tbaa !9
   %340 = getelementptr inbounds nuw i8, ptr %335, i64 16
-  store i16 8, ptr %340, align 8, !tbaa !19
+  store i16 8, ptr %340, align 8, !tbaa !16
   %341 = getelementptr inbounds nuw i8, ptr %335, i64 18
-  store i16 0, ptr %341, align 2, !tbaa !19
+  store i16 0, ptr %341, align 2, !tbaa !16
   store ptr %335, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass___closed__3, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %335) #4
   %342 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_intToBitVecPass___closed__2, align 8, !tbaa !9
@@ -70592,9 +70592,6 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!7, !7, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !7, i64 0}
-!21 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !7, i64 0}
+!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

@@ -531,7 +531,7 @@ bytestream2_get_be16.exit:                        ; preds = %bytestream2_get_byt
   %.pre-phi20 = phi i64 [ %.pre19, %28 ], [ %6, %bytestream2_get_byte.exit ]
   %33 = phi ptr [ %29, %28 ], [ %4, %bytestream2_get_byte.exit ]
   %.0.i14 = phi i32 [ %32, %28 ], [ 0, %bytestream2_get_byte.exit ]
-  store i32 %.0.i14, ptr %0, align 4, !tbaa !42
+  store i32 %.0.i14, ptr %0, align 4, !tbaa !41
   %34 = sub i64 %6, %.pre-phi20
   %35 = icmp slt i64 %34, 2
   br i1 %35, label %36, label %37
@@ -552,7 +552,7 @@ bytestream2_get_be16.exit16:                      ; preds = %36, %37
   %42 = phi ptr [ %4, %36 ], [ %38, %37 ]
   %.0.i15 = phi i32 [ 0, %36 ], [ %41, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.0.i15, ptr %43, align 4, !tbaa !43
+  store i32 %.0.i15, ptr %43, align 4, !tbaa !42
   %44 = icmp ult i32 %.0.i, 11
   br i1 %44, label %51, label %45
 
@@ -648,8 +648,7 @@ attributes #8 = { noreturn nounwind }
 !36 = !{!37, !12, i64 8}
 !37 = !{!"PixHeader", !12, i64 0, !12, i64 4, !12, i64 8}
 !38 = !{!12, !12, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!37, !12, i64 0}
-!43 = !{!37, !12, i64 4}
+!41 = !{!37, !12, i64 0}
+!42 = !{!37, !12, i64 4}

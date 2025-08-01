@@ -1061,7 +1061,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %.1 = phi i1 [ %.095102, %68 ], [ %.095102, %26 ], [ %.095102, %28 ], [ %.095102, %31 ], [ %.095102, %35 ], [ %.095102, %38 ], [ %.095102, %41 ], [ %.095102, %44 ], [ %.095102, %47 ], [ %.095102, %50 ], [ %.095102, %55 ], [ true, %60 ], [ %.095102, %64 ], [ %.095102, %34 ]
   %72 = add i32 %25, %13
   %73 = icmp ult i32 %72, %6
-  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %71
   br i1 %.1, label %74, label %.critedge
@@ -1113,7 +1113,6 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

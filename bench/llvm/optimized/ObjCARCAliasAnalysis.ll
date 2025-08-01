@@ -167,7 +167,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i32: ; preds = %78, %76,
   %87 = sub nsw i64 0, %86
   %88 = getelementptr inbounds %"class.llvm::Use", ptr %62, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !18
-  br label %.preheader, !llvm.loop !49
+  br label %.preheader, !llvm.loop !48
 
 _ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit: ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i32, %110
   %.0.i36 = phi ptr [ %117, %110 ], [ %35, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i32 ]
@@ -217,7 +217,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i37: ; preds = %106, %10
   %115 = sub nsw i64 0, %114
   %116 = getelementptr inbounds %"class.llvm::Use", ptr %90, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !18
-  br label %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit, !llvm.loop !49
+  br label %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit, !llvm.loop !48
 
 _ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit41: ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i37, %5
   ret i32 1
@@ -327,7 +327,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i18: ; preds = %50, %48,
   %59 = sub nsw i64 0, %58
   %60 = getelementptr inbounds %"class.llvm::Use", ptr %34, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !18
-  br label %.preheader, !llvm.loop !49
+  br label %.preheader, !llvm.loop !48
 
 _ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit: ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i18, %4
   ret i8 3
@@ -401,7 +401,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread: ; preds = %_ZN4l
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7objcarc9ObjCARCAA3runERNS_8FunctionERNS_15AnalysisManagerIS2_JEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::objcarc::ObjCARCAAResult") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #2
-  store ptr %5, ptr %0, align 8, !tbaa !50
+  store ptr %5, ptr %0, align 8, !tbaa !49
   ret void
 }
 
@@ -465,9 +465,8 @@ attributes #2 = { nounwind }
 !43 = !{!"_ZTSN4llvm13AttributeListE", !44, i64 0}
 !44 = !{!"p1 _ZTSN4llvm17AttributeListImplE", !11, i64 0}
 !45 = !{!"p1 _ZTSN4llvm12FunctionTypeE", !11, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTSN4llvm10DataLayoutE", !11, i64 0}
+!48 = distinct !{!48, !47}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSN4llvm10DataLayoutE", !11, i64 0}

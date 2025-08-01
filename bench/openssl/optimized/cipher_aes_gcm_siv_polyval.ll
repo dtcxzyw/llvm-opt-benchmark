@@ -136,7 +136,7 @@ byte_reverse16.exit12:                            ; preds = %.preheader.i8, %25
   call void @ossl_gcm_ghash_4bit(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %7, i64 noundef 16) #4
   %35 = add i64 %.019, 16
   %36 = icmp ult i64 %35, %3
-  br i1 %36, label %23, label %._crit_edge, !llvm.loop !11
+  br i1 %36, label %23, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %byte_reverse16.exit12, %byte_reverse16.exit
   br i1 %or.cond.i, label %37, label %.preheader.i14
@@ -193,7 +193,6 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

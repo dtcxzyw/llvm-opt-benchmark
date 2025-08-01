@@ -693,7 +693,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
   %30 = load i32, ptr %10, align 4, !tbaa !29
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %23, label %._crit_edge, !llvm.loop !40
+  br i1 %32, label %23, label %._crit_edge, !llvm.loop !39
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -873,7 +873,7 @@ define void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = sext i32 %8 to i64
   br label %17
 
@@ -884,9 +884,9 @@ define void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !29
-  %20 = load i32, ptr %0, align 8, !tbaa !43
+  %20 = load i32, ptr %0, align 8, !tbaa !42
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %0, align 8, !tbaa !43
+  store i32 %21, ptr %0, align 8, !tbaa !42
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i32, ptr %15, i64 %22
   store i32 %19, ptr %23, align 4, !tbaa !29
@@ -894,7 +894,7 @@ define void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr
   %24 = load i32, ptr %9, align 4, !tbaa !29
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %17, label %._crit_edge, !llvm.loop !44
+  br i1 %26, label %17, label %._crit_edge, !llvm.loop !43
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -959,11 +959,10 @@ attributes #15 = { noreturn }
 !34 = !{!5, !12, i64 88}
 !35 = !{!5, !12, i64 72}
 !36 = !{!5, !12, i64 120}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = distinct !{!40, !38, !39}
-!41 = !{!42, !12, i64 8}
-!42 = !{!"_ZTS15gmx_ana_index_t", !14, i64 0, !12, i64 8, !14, i64 16}
-!43 = !{!42, !14, i64 0}
-!44 = distinct !{!44, !38, !39}
+!39 = distinct !{!39, !38}
+!40 = !{!41, !12, i64 8}
+!41 = !{!"_ZTS15gmx_ana_index_t", !14, i64 0, !12, i64 8, !14, i64 16}
+!42 = !{!41, !14, i64 0}
+!43 = distinct !{!43, !38}

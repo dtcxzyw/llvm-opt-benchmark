@@ -430,7 +430,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
 65:                                               ; preds = %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit, label %61, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit, label %61, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit11.i:         ; preds = %61
   %66 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -454,7 +454,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
 73:                                               ; preds = %69
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i107
-  br i1 %exitcond.not.i110, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit112, label %69, !llvm.loop !8
+  br i1 %exitcond.not.i110, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit112, label %69, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit11.i111:      ; preds = %69
   %74 = trunc nuw nsw i64 %indvars.iv.i108 to i32
@@ -475,7 +475,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %65, %._c
   store i32 %.sink, ptr %79, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
   %80 = icmp eq i32 %8, 3
@@ -607,7 +607,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
 159:                                              ; preds = %155
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i123
-  br i1 %exitcond.not.i126, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit128, label %155, !llvm.loop !8
+  br i1 %exitcond.not.i126, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit128, label %155, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit11.i127:      ; preds = %155
   %160 = trunc nuw nsw i64 %indvars.iv.i124 to i32
@@ -728,7 +728,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit138: ; preds
 224:                                              ; preds = %220
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i141
-  br i1 %exitcond.not.i144, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit146, label %220, !llvm.loop !8
+  br i1 %exitcond.not.i144, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit146, label %220, !llvm.loop !7
 
 ._crit_edge.loopexit.split.loop.exit11.i145:      ; preds = %220
   %225 = trunc nuw nsw i64 %indvars.iv.i142 to i32
@@ -791,8 +791,7 @@ attributes #13 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

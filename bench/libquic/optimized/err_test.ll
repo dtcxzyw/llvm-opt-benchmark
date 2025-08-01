@@ -54,10 +54,10 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 19:                                               ; preds = %16
   %20 = add nuw nsw i32 %.01322.i, 1
   %exitcond24.not.i = icmp eq i32 %20, 15
-  br i1 %exitcond24.not.i, label %24, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond24.not.i, label %24, label %.preheader.i, !llvm.loop !8
 
 21:                                               ; preds = %16, %.preheader.i
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !9
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef %.01322.i) #6
   br label %_ZL12TestOverflowv.exit.thread
 
@@ -67,7 +67,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   br i1 %.not16.i, label %_ZL12TestOverflowv.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !9
   %28 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 55, i64 1, ptr %27) #7
   br label %_ZL12TestOverflowv.exit.thread
 
@@ -77,7 +77,7 @@ _ZL12TestOverflowv.exit:                          ; preds = %24
   br i1 %.not.i1, label %32, label %_ZL12TestPutErrorv.exit.thread
 
 _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.exit
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !9
   %31 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 56, i64 1, ptr %30) #7
   br label %_ZL12TestOverflowv.exit.thread
 
@@ -98,25 +98,25 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
   br i1 %.not9.i, label %35, label %44
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %8, align 8, !tbaa !15
-  %37 = load ptr, ptr %9, align 8, !tbaa !15
+  %36 = load ptr, ptr %8, align 8, !tbaa !14
+  %37 = load ptr, ptr %9, align 8, !tbaa !14
   %.not10.i = icmp eq ptr %36, %37
   br i1 %.not10.i, label %38, label %44
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %10, align 8, !tbaa !15
-  %40 = load ptr, ptr %11, align 8, !tbaa !15
+  %39 = load ptr, ptr %10, align 8, !tbaa !14
+  %40 = load ptr, ptr %11, align 8, !tbaa !14
   %.not11.i = icmp eq ptr %39, %40
   br i1 %.not11.i, label %41, label %44
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4, !tbaa !17
-  %43 = load i32, ptr %7, align 4, !tbaa !17
+  %42 = load i32, ptr %6, align 4, !tbaa !16
+  %43 = load i32, ptr %7, align 4, !tbaa !16
   %.not12.i = icmp eq i32 %42, %43
   br i1 %.not12.i, label %47, label %44
 
 44:                                               ; preds = %41, %38, %35, %32
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !9
   %46 = call i64 @fwrite(ptr nonnull @.str.6, i64 32, i64 1, ptr %45) #7
   br label %_ZL12TestPutErrorv.exit.thread8
 
@@ -140,7 +140,7 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
   br i1 %.not15.i, label %61, label %58
 
 58:                                               ; preds = %56, %47
-  %59 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !9
   %60 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %59) #7
   br label %_ZL12TestPutErrorv.exit.thread8
 
@@ -169,7 +169,7 @@ _ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %58
   br i1 %.not.i2, label %66, label %63
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !9
   %65 = call i64 @fwrite(ptr nonnull @.str.4, i64 56, i64 1, ptr %64) #7
   br label %_ZL12TestOverflowv.exit.thread
 
@@ -181,7 +181,7 @@ _ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %58
   br i1 %.not1.i, label %_ZL14TestClearErrorv.exit, label %68
 
 68:                                               ; preds = %66
-  %69 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %69 = load ptr, ptr @stderr, align 8, !tbaa !9
   %70 = call i64 @fwrite(ptr nonnull @.str.8, i64 31, i64 1, ptr %69) #7
   br label %_ZL12TestOverflowv.exit.thread
 
@@ -197,7 +197,7 @@ _ZL14TestClearErrorv.exit:                        ; preds = %66
   call void @ERR_error_string_n(i32 noundef %71, ptr noundef nonnull %3, i64 noundef %.04.i)
   %73 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i4 = icmp eq i64 %73, 257
-  br i1 %exitcond.not.i4, label %_ZL9TestPrintv.exit, label %72, !llvm.loop !19
+  br i1 %exitcond.not.i4, label %_ZL9TestPrintv.exit, label %72, !llvm.loop !18
 
 _ZL9TestPrintv.exit:                              ; preds = %72
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #8
@@ -207,7 +207,7 @@ _ZL9TestPrintv.exit:                              ; preds = %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   %74 = call i32 @ERR_get_error_line(ptr noundef nonnull %2, ptr noundef nonnull %1)
-  %75 = load ptr, ptr %2, align 8, !tbaa !15
+  %75 = load ptr, ptr %2, align 8, !tbaa !14
   %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %75) #9
   %77 = icmp ult i64 %76, 11
   br i1 %77, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
@@ -226,7 +226,7 @@ _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
   br i1 %or.cond6.i, label %87, label %_ZL12TestPutMacrov.exit
 
 _ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit, %_ZL9HasSuffixPKcS0_.exit.i
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %85 = load ptr, ptr @stderr, align 8, !tbaa !9
   %86 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %85) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
@@ -303,17 +303,16 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 1}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!12 = !{!"any pointer", !13, i64 0}
-!13 = !{!"omnipotent char", !14, i64 0}
-!14 = !{!"Simple C++ TBAA"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !12, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !13, i64 0}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!11 = !{!"any pointer", !12, i64 0}
+!12 = !{!"omnipotent char", !13, i64 0}
+!13 = !{!"Simple C++ TBAA"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !11, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !12, i64 0}
+!18 = distinct !{!18, !7}

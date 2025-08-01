@@ -95,7 +95,7 @@ define dso_local range(i32 -1, 1) i32 @cap_capable(ptr noundef readonly captures
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 216
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %6
-  br i1 %27, label %28, label %.critedge, !llvm.loop !5
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 228
@@ -1752,7 +1752,7 @@ define dso_local range(i32 0, 2) i32 @cap_vm_enough_memory(ptr readnone captures
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 224
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, %12
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !24
+  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %31, %26, %16, %10
   %35 = phi i32 [ %21, %16 ], [ 0, %10 ], [ 1, %26 ], [ 0, %31 ]
@@ -1808,7 +1808,7 @@ define dso_local range(i32 -1, 1) i32 @cap_mmap_addr(i64 noundef %0) #9 align 16
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 224
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, %14
-  br i1 %34, label %.preheader, label %.critedge, !llvm.loop !26
+  br i1 %34, label %.preheader, label %.critedge, !llvm.loop !5
 
 .critedge3:                                       ; preds = %26, %18
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 44
@@ -1881,7 +1881,7 @@ attributes #17 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"llvm.loop.unroll.disable"}
 !7 = !{i64 2147936966}
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{i64 2156750089, i64 2156749898, i64 2156749950, i64 2156749996, i64 2156750024}
@@ -1899,6 +1899,3 @@ attributes #17 = { cold nounwind }
 !21 = !{i64 2156763742, i64 2156763551, i64 2156763603, i64 2156763649, i64 2156763677}
 !22 = !{i64 2156763816, i64 2156763845, i64 2156763891, i64 2156763949, i64 2156764003, i64 2156764057, i64 2156764112, i64 2156764143, i64 2156764451, i64 2156764457, i64 2156764504, i64 2156764527, i64 2156764553}
 !23 = !{i64 2156765006, i64 2156764817, i64 2156764867, i64 2156764913, i64 2156764941}
-!24 = distinct !{!24, !25, !6}
-!25 = !{!"llvm.loop.unroll.disable"}
-!26 = distinct !{!26, !25, !6}

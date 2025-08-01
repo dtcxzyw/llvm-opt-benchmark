@@ -903,7 +903,7 @@ define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, 
   %55 = add nuw i64 %.037, 1
   %56 = load i64, ptr %3, align 8
   %57 = icmp ult i64 %55, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37, %48
   tail call void @free(ptr noundef %13) #15
@@ -1068,7 +1068,7 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
   %53 = add nuw i64 %.037, 1
   %54 = load i64, ptr %3, align 8
   %55 = icmp ult i64 %53, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37, %48
   tail call void @free(ptr noundef %13) #15
@@ -1173,7 +1173,7 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
   %54 = add nuw i64 %.037, 1
   %55 = load i64, ptr %3, align 8
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37, %48
   tail call void @free(ptr noundef %13) #15
@@ -1273,7 +1273,7 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
   %53 = add nuw i64 %.037, 1
   %54 = load i64, ptr %3, align 8
   %55 = icmp ult i64 %53, %54
-  br i1 %55, label %.lr.ph, label %p11ThrowOutOfMemoryError.exit36, !llvm.loop !12
+  br i1 %55, label %.lr.ph, label %p11ThrowOutOfMemoryError.exit36, !llvm.loop !11
 
 p11ThrowOutOfMemoryError.exit36:                  ; preds = %.lr.ph, %36, %47, %42, %37, %25
   tail call void @free(ptr noundef %13) #15
@@ -1489,7 +1489,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
   %58 = add nuw i64 %.048, 1
   %59 = load i64, ptr %3, align 8
   %60 = icmp ult i64 %58, %59
-  br i1 %60, label %.lr.ph, label %p11ThrowOutOfMemoryError.exit, !llvm.loop !13
+  br i1 %60, label %.lr.ph, label %p11ThrowOutOfMemoryError.exit, !llvm.loop !12
 
 p11ThrowOutOfMemoryError.exit:                    ; preds = %57, %16, %27, %._crit_edge.i36, %50, %._crit_edge.i, %38, %22, %17, %7
   ret void
@@ -1614,7 +1614,7 @@ define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr noundef readonly 
   store i16 %19, ptr %20, align 2
   %21 = add nuw i64 %.02326, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = load ptr, ptr %0, align 8
@@ -1677,7 +1677,7 @@ define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr noundef reado
   store i16 %19, ptr %20, align 2
   %21 = add nuw i64 %.02326, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = load ptr, ptr %0, align 8
@@ -2544,13 +2544,12 @@ attributes #18 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

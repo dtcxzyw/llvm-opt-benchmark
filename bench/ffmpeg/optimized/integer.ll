@@ -39,7 +39,7 @@ define { i64, i64 } @av_add_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 
 20:                                               ; preds = %9
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
-  %.sroa.2.0.copyload = load i64, ptr %7, align 8, !tbaa !11
+  %.sroa.2.0.copyload = load i64, ptr %7, align 8, !tbaa !10
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
   ret { i64, i64 } %.fca.1.insert
@@ -79,11 +79,11 @@ define { i64, i64 } @av_sub_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   store i16 %19, ptr %11, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %20, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %20, label %9, !llvm.loop !11
 
 20:                                               ; preds = %9
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
-  %.sroa.2.0.copyload = load i64, ptr %7, align 8, !tbaa !11
+  %.sroa.2.0.copyload = load i64, ptr %7, align 8, !tbaa !10
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
   ret { i64, i64 } %.fca.1.insert
@@ -113,7 +113,7 @@ define range(i32 -1, -2147483648) i32 @av_log2_i(i64 %0, i64 %1) local_unnamed_a
   %spec.select7.i = select i1 %.not.i, i32 0, i32 8
   %12 = zext nneg i32 %spec.select.i to i64
   %13 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !11
+  %14 = load i8, ptr %13, align 1, !tbaa !10
   %15 = zext i8 %14 to i32
   %16 = shl nsw i32 %.09, 4
   %17 = or disjoint i32 %spec.select7.i, %16
@@ -123,7 +123,7 @@ define range(i32 -1, -2147483648) i32 @av_log2_i(i64 %0, i64 %1) local_unnamed_a
 19:                                               ; preds = %5
   %20 = add nsw i32 %.09, -1
   %.not12 = icmp eq i32 %.09, 0
-  br i1 %.not12, label %.loopexit, label %5, !llvm.loop !13
+  br i1 %.not12, label %.loopexit, label %5, !llvm.loop !12
 
 .loopexit:                                        ; preds = %19, %9
   %.06 = phi i32 [ %18, %9 ], [ -1, %19 ]
@@ -165,7 +165,7 @@ define { i64, i64 } @av_mul_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   %spec.select7.i.i = select i1 %.not.i.i, i32 0, i32 8
   %20 = zext nneg i32 %spec.select.i.i to i64
   %21 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !11
+  %22 = load i8, ptr %21, align 1, !tbaa !10
   %23 = zext i8 %22 to i32
   %24 = shl nsw i32 %.09.i, 4
   %25 = add i32 %24, 16
@@ -177,7 +177,7 @@ define { i64, i64 } @av_mul_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 29:                                               ; preds = %13
   %30 = add nsw i32 %.09.i, -1
   %.not12.i = icmp eq i32 %.09.i, 0
-  br i1 %.not12.i, label %av_log2_i.exit, label %13, !llvm.loop !13
+  br i1 %.not12.i, label %av_log2_i.exit, label %13, !llvm.loop !12
 
 av_log2_i.exit:                                   ; preds = %29, %17
   %.06.i = phi i32 [ %28, %17 ], [ 0, %29 ]
@@ -204,7 +204,7 @@ av_log2_i.exit:                                   ; preds = %29, %17
   %spec.select7.i.i25 = select i1 %.not.i.i23, i32 0, i32 8
   %39 = zext nneg i32 %spec.select.i.i24 to i64
   %40 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !11
+  %41 = load i8, ptr %40, align 1, !tbaa !10
   %42 = zext i8 %41 to i32
   %43 = shl nsw i32 %.09.i21, 4
   %44 = add i32 %43, 16
@@ -219,7 +219,7 @@ av_log2_i.exit:                                   ; preds = %29, %17
 51:                                               ; preds = %32
   %52 = add nsw i32 %.09.i21, -1
   %.not12.i27 = icmp eq i32 %.09.i21, 0
-  br i1 %.not12.i27, label %av_log2_i.exit28, label %32, !llvm.loop !13
+  br i1 %.not12.i27, label %av_log2_i.exit28, label %32, !llvm.loop !12
 
 av_log2_i.exit28:                                 ; preds = %51, %36
   %.06.i26 = phi i64 [ %50, %36 ], [ 1, %51 ]
@@ -268,13 +268,13 @@ av_log2_i.exit28:                                 ; preds = %51, %36
   store i16 %71, ptr %62, align 2, !tbaa !4
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next46, 8
-  br i1 %exitcond50.not, label %.critedge, label %58, !llvm.loop !14
+  br i1 %exitcond50.not, label %.critedge, label %58, !llvm.loop !13
 
 .critedge:                                        ; preds = %59, %58, %.lr.ph39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge.loopexit, label %.lr.ph39, !llvm.loop !15
+  br i1 %exitcond57.not, label %._crit_edge.loopexit, label %.lr.ph39, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
   %.fca.0.load.pre = load i64, ptr %7, align 8
@@ -323,7 +323,7 @@ define i32 @av_cmp_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #0 {
 19:                                               ; preds = %.preheader
   %20 = add nsw i32 %.01120, -1
   %.not25 = icmp eq i32 %.01120, 0
-  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %4, %19
   %.01120 = phi i32 [ %20, %19 ], [ 6, %4 ]
@@ -394,7 +394,7 @@ define { i64, i64 } @av_shr_i(i64 %0, i64 %1, i32 noundef %2) local_unnamed_addr
   store i16 %28, ptr %29, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %30, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %30, label %10, !llvm.loop !16
 
 30:                                               ; preds = %26
   %.fca.0.load = load i64, ptr %4, align 8
@@ -448,7 +448,7 @@ define { i64, i64 } @av_mod_i(ptr noundef captures(address_is_null) %0, i64 %1, 
   %spec.select7.i.i = select i1 %.not.i.i, i32 0, i32 8
   %33 = zext nneg i32 %spec.select.i.i to i64
   %34 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !11
+  %35 = load i8, ptr %34, align 1, !tbaa !10
   %36 = zext i8 %35 to i32
   %37 = shl nsw i32 %.09.i, 4
   %38 = or disjoint i32 %spec.select7.i.i, %37
@@ -458,7 +458,7 @@ define { i64, i64 } @av_mod_i(ptr noundef captures(address_is_null) %0, i64 %1, 
 40:                                               ; preds = %26
   %41 = add nsw i32 %.09.i, -1
   %.not12.i = icmp eq i32 %.09.i, 0
-  br i1 %.not12.i, label %av_log2_i.exit, label %26, !llvm.loop !13
+  br i1 %.not12.i, label %av_log2_i.exit, label %26, !llvm.loop !12
 
 av_log2_i.exit:                                   ; preds = %40, %30
   %.06.i = phi i32 [ %39, %30 ], [ -1, %40 ]
@@ -485,7 +485,7 @@ av_log2_i.exit:                                   ; preds = %40, %30
   %spec.select7.i.i48 = select i1 %.not.i.i46, i32 0, i32 8
   %50 = zext nneg i32 %spec.select.i.i47 to i64
   %51 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !11
+  %52 = load i8, ptr %51, align 1, !tbaa !10
   %53 = zext i8 %52 to i32
   %54 = shl nsw i32 %.09.i44, 4
   %55 = or disjoint i32 %spec.select7.i.i48, %54
@@ -495,7 +495,7 @@ av_log2_i.exit:                                   ; preds = %40, %30
 57:                                               ; preds = %43
   %58 = add nsw i32 %.09.i44, -1
   %.not12.i50 = icmp eq i32 %.09.i44, 0
-  br i1 %.not12.i50, label %av_log2_i.exit51, label %43, !llvm.loop !13
+  br i1 %.not12.i50, label %av_log2_i.exit51, label %43, !llvm.loop !12
 
 av_log2_i.exit51:                                 ; preds = %57, %47
   %.06.i49 = phi i32 [ %56, %47 ], [ -1, %57 ]
@@ -533,11 +533,11 @@ av_log2_i.exit51:                                 ; preds = %57, %47
   store i16 %74, ptr %66, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %av_sub_i.exit, label %64, !llvm.loop !12
+  br i1 %exitcond.not.i, label %av_sub_i.exit, label %64, !llvm.loop !11
 
 av_sub_i.exit:                                    ; preds = %64
   %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr %62, align 8, !tbaa !11
+  %.sroa.2.0.copyload.i = load i64, ptr %62, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   %75 = call { i64, i64 } @av_mod_i(ptr noundef nonnull %spec.store.select, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i64 %3, i64 %4)
@@ -570,17 +570,17 @@ av_sub_i.exit:                                    ; preds = %64
   store i16 %90, ptr %82, align 2, !tbaa !4
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, 8
-  br i1 %exitcond.not.i56, label %av_sub_i.exit61, label %80, !llvm.loop !12
+  br i1 %exitcond.not.i56, label %av_sub_i.exit61, label %80, !llvm.loop !11
 
 av_sub_i.exit61:                                  ; preds = %80
   %91 = extractvalue { i64, i64 } %75, 0
   %92 = extractvalue { i64, i64 } %75, 1
   %.sroa.0.0.copyload.i57 = load i64, ptr %18, align 8
-  %.sroa.2.0.copyload.i58 = load i64, ptr %78, align 8, !tbaa !11
+  %.sroa.2.0.copyload.i58 = load i64, ptr %78, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   store i64 %.sroa.0.0.copyload.i57, ptr %spec.store.select, align 2
-  store i64 %.sroa.2.0.copyload.i58, ptr %spec.store.select.sroa.sel112.v.sroa.sel.v.sroa.sel, align 2, !tbaa !11
+  store i64 %.sroa.2.0.copyload.i58, ptr %spec.store.select.sroa.sel112.v.sroa.sel.v.sroa.sel, align 2, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -606,11 +606,11 @@ av_sub_i.exit61:                                  ; preds = %80
   store i16 %105, ptr %97, align 2, !tbaa !4
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 8
-  br i1 %exitcond.not.i65, label %av_sub_i.exit70, label %95, !llvm.loop !12
+  br i1 %exitcond.not.i65, label %av_sub_i.exit70, label %95, !llvm.loop !11
 
 av_sub_i.exit70:                                  ; preds = %95
   %.sroa.0.0.copyload.i66 = load i64, ptr %16, align 8
-  %.sroa.2.0.copyload.i67 = load i64, ptr %93, align 8, !tbaa !11
+  %.sroa.2.0.copyload.i67 = load i64, ptr %93, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %.loopexit
@@ -665,7 +665,7 @@ av_sub_i.exit70:                                  ; preds = %95
   store i16 %132, ptr %133, align 2, !tbaa !4
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, 8
-  br i1 %exitcond.not.i73, label %av_shr_i.exit, label %114, !llvm.loop !17
+  br i1 %exitcond.not.i73, label %av_shr_i.exit, label %114, !llvm.loop !16
 
 av_shr_i.exit:                                    ; preds = %130
   %.fca.0.load.i = load i64, ptr %14, align 8
@@ -735,7 +735,7 @@ av_shr_i.exit:                                    ; preds = %130
   store i16 %159, ptr %160, align 2, !tbaa !4
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 8
-  br i1 %exitcond.not.i80, label %av_shr_i.exit86, label %145, !llvm.loop !17
+  br i1 %exitcond.not.i80, label %av_shr_i.exit86, label %145, !llvm.loop !16
 
 av_shr_i.exit86:                                  ; preds = %157
   %161 = add nsw i32 %.in, -1
@@ -769,7 +769,7 @@ av_shr_i.exit86:                                  ; preds = %157
 171:                                              ; preds = %.preheader.i
   %172 = add nsw i32 %.01120.i, -1
   %.not25.i = icmp eq i32 %.01120.i, 0
-  br i1 %.not25.i, label %av_cmp_i.exit.thread, label %.preheader.i, !llvm.loop !16
+  br i1 %.not25.i, label %av_cmp_i.exit.thread, label %.preheader.i, !llvm.loop !15
 
 av_cmp_i.exit.thread:                             ; preds = %171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -824,11 +824,11 @@ av_cmp_i.exit:                                    ; preds = %165, %.loopexit.spl
   store i16 %193, ptr %185, align 2, !tbaa !4
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, 8
-  br i1 %exitcond.not.i92, label %av_sub_i.exit97, label %183, !llvm.loop !12
+  br i1 %exitcond.not.i92, label %av_sub_i.exit97, label %183, !llvm.loop !11
 
 av_sub_i.exit97:                                  ; preds = %183
   %.sroa.0.0.copyload.i93 = load i64, ptr %8, align 8
-  %.sroa.2.0.copyload.i94 = load i64, ptr %139, align 8, !tbaa !11
+  %.sroa.2.0.copyload.i94 = load i64, ptr %139, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %194 = add i16 %164, 1
@@ -868,7 +868,7 @@ av_sub_i.exit97:                                  ; preds = %183
   %211 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv.i98
   store i16 %210, ptr %211, align 2, !tbaa !4
   %exitcond.not.i102 = icmp eq i64 %197, 8
-  br i1 %exitcond.not.i102, label %av_shr_i.exit108, label %196, !llvm.loop !17
+  br i1 %exitcond.not.i102, label %av_shr_i.exit108, label %196, !llvm.loop !16
 
 av_shr_i.exit108:                                 ; preds = %204
   %.fca.0.load.i103 = load i64, ptr %6, align 8
@@ -876,7 +876,7 @@ av_shr_i.exit108:                                 ; preds = %204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %212 = icmp sgt i32 %.in, 0
-  br i1 %212, label %142, label %..loopexit_crit_edge, !llvm.loop !18
+  br i1 %212, label %142, label %..loopexit_crit_edge, !llvm.loop !17
 
 ..loopexit_crit_edge:                             ; preds = %av_shr_i.exit108
   store i64 %.fca.1.load.i84, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 2
@@ -917,7 +917,7 @@ define { i64, i64 } @av_int2i(i64 noundef %0) local_unnamed_addr #0 {
   %6 = ashr i64 %.056, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !19
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !18
 
 7:                                                ; preds = %3
   %.fca.0.load = load i64, ptr %2, align 8
@@ -950,7 +950,7 @@ define i64 @av_i2int(i64 %0, i64 %1) local_unnamed_addr #0 {
   %12 = or disjoint i64 %8, %11
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %6, label %7, !llvm.loop !20
+  br i1 %.not, label %6, label %7, !llvm.loop !19
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -974,16 +974,15 @@ attributes #6 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

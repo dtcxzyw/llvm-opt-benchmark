@@ -774,7 +774,7 @@ define internal fastcc void @devtmpfs_work_loop() unnamed_addr #7 align 16 {
   %190 = phi i32 [ %169, %167 ], [ %184, %183 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
   %191 = icmp eq i32 %190, 0
-  br i1 %191, label %.preheader, label %192, !llvm.loop !10
+  br i1 %191, label %.preheader, label %192
 
 192:                                              ; preds = %189, %.preheader
   call void @kfree(ptr noundef nonnull %160) #9
@@ -792,22 +792,22 @@ define internal fastcc void @devtmpfs_work_loop() unnamed_addr #7 align 16 {
   %198 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @complete(ptr noundef nonnull %198) #9
   %199 = icmp eq ptr %26, null
-  br i1 %199, label %200, label %24, !llvm.loop !11
+  br i1 %199, label %200, label %24, !llvm.loop !9
 
 200:                                              ; preds = %195
   call void @_raw_spin_lock(ptr noundef nonnull @req_lock) #9
   %201 = load ptr, ptr @requests, align 8
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %.loopexit20, label %.preheader19, !llvm.loop !13
+  br i1 %202, label %.loopexit20, label %.preheader19, !llvm.loop !11
 
 .loopexit20:                                      ; preds = %200, %20
-  %203 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !14
+  %203 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !12
   %204 = inttoptr i64 %203 to ptr
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store volatile i32 1, ptr %205, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @req_lock) #9
   call void @schedule() #9
-  br label %20, !llvm.loop !15
+  br label %20, !llvm.loop !13
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -891,12 +891,10 @@ attributes #13 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i64 2149097486, i64 2149097525, i64 2149097546, i64 2149097583, i64 2149097606, i64 2149097476}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !12, !8, !9}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !8, !9}
-!14 = !{i64 2148510739}
-!15 = distinct !{!15, !8, !9}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = !{i64 2148510739}
+!13 = distinct !{!13, !8}

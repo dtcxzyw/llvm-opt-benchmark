@@ -620,7 +620,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h1984568d7009a215E(ptr
 13:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10a1a2bd9e078543E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h13c89a8a28d771e5E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit3, !llvm.loop !5
+          to label %7 unwind label %.loopexit3
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10a1a2bd9e078543E.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10a1a2bd9e078543E.exit.thread"
   invoke void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$GT$$GT$17he83eaedb3d92cdbfE"(ptr nonnull align 8 %4)
@@ -698,7 +698,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8eb6eab23af52047E(ptr
 13:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb883d6ecf6fcc51E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbfbe8ba263463d39E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit3, !llvm.loop !7
+          to label %7 unwind label %.loopexit3
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb883d6ecf6fcc51E.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb883d6ecf6fcc51E.exit.thread"
   invoke void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$GT$$GT$17h241fdc68da773e8fE"(ptr nonnull align 8 %4)
@@ -776,7 +776,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h90378c46cdcd587cE(ptr
 13:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha69b44b21a8b4ca1E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfa6a63daab97a94cE"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit3, !llvm.loop !8
+          to label %7 unwind label %.loopexit3
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha69b44b21a8b4ca1E.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha69b44b21a8b4ca1E.exit.thread"
   invoke void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$$GT$17h1bb4a14f329b1ddeE"(ptr nonnull align 8 %4)
@@ -854,7 +854,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17he60e5c1b252bac5fE(ptr
 13:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f2adb7dde273833E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf114b5f55a457051E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %7 unwind label %.loopexit3, !llvm.loop !9
+          to label %7 unwind label %.loopexit3
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f2adb7dde273833E.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f2adb7dde273833E.exit.thread"
   invoke void @"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$GT$$GT$17h4d028f1f3deae24fE"(ptr nonnull align 8 %4)
@@ -1176,8 +1176,3 @@ attributes #13 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

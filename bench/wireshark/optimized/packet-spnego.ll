@@ -1125,7 +1125,6 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
   %73 = tail call noalias ptr @wmem_alloc(ptr noundef %71, i64 noundef %72) #12
   %74 = load ptr, ptr %70, align 8
   %75 = tail call noalias ptr @wmem_alloc(ptr noundef %74, i64 noundef %72) #12
-  %invariant.gep.i = getelementptr i8, ptr %75, i64 -1
   %.03.i = load ptr, ptr @enc_key_list, align 8
   %.not4.i = icmp eq ptr %.03.i, null
   br i1 %.not4.i, label %.critedge, label %.lr.ph.i
@@ -1139,12 +1138,12 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 7
   br label %82
 
-82:                                               ; preds = %182, %.lr.ph.i
-  %.05.i = phi ptr [ %.03.i, %.lr.ph.i ], [ %.0.i, %182 ]
+82:                                               ; preds = %184, %.lr.ph.i
+  %.05.i = phi ptr [ %.03.i, %.lr.ph.i ], [ %.0.i, %184 ]
   %83 = getelementptr inbounds nuw i8, ptr %.05.i, i64 8
   %84 = load i32, ptr %83, align 8
   %.not32.i = icmp eq i32 %84, 23
-  br i1 %.not32.i, label %85, label %182
+  br i1 %.not32.i, label %85, label %184
 
 85:                                               ; preds = %82
   call void @llvm.assume(i1 %76)
@@ -1314,7 +1313,7 @@ arcfour_mic_key.exit.i:                           ; preds = %.critedge.i.i, %135
 
 151:                                              ; preds = %arcfour_mic_key.exit.i
   %152 = sext i32 %91 to i64
-  %153 = call ptr @__memcpy_chk(ptr noundef %75, ptr noundef %73, i64 noundef range(i64 -2147483648, 2147483648) %152, i64 noundef %72) #11, !alias.scope !11
+  %153 = call ptr @__memcpy_chk(ptr noundef %75, ptr noundef %73, i64 noundef range(i64 -2147483648, 2147483648) %152, i64 noundef %72) #11, !alias.scope !10
   br label %154
 
 154:                                              ; preds = %151, %145
@@ -1325,37 +1324,38 @@ arcfour_mic_key.exit.i:                           ; preds = %.critedge.i.i, %135
 
 157:                                              ; preds = %154
   %158 = sext i32 %91 to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %158
-  %159 = load i8, ptr %gep.i, align 1
-  %160 = zext i8 %159 to i32
-  %161 = icmp slt i32 %91, %160
-  br i1 %161, label %decrypt_arcfour.exit.thread.i, label %.preheader.i.i.i
+  %159 = getelementptr i8, ptr %75, i64 %158
+  %160 = getelementptr i8, ptr %159, i64 -1
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i32
+  %163 = icmp slt i32 %91, %162
+  br i1 %163, label %decrypt_arcfour.exit.thread.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %157
-  %.not21.i.i.i = icmp eq i8 %159, 0
+  %.not21.i.i.i = icmp eq i8 %161, 0
   br i1 %.not21.i.i.i, label %.thread66.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %164
-  %.020.i.i.i = phi i32 [ %165, %164 ], [ %160, %.preheader.i.i.i ]
-  %.01519.i.i.i = phi ptr [ %166, %164 ], [ %gep.i, %.preheader.i.i.i ]
-  %162 = load i8, ptr %.01519.i.i.i, align 1
-  %163 = icmp eq i8 %162, %159
-  br i1 %163, label %164, label %decrypt_arcfour.exit.thread.i
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %166
+  %.020.i.i.i = phi i32 [ %167, %166 ], [ %162, %.preheader.i.i.i ]
+  %.01519.i.i.i = phi ptr [ %168, %166 ], [ %160, %.preheader.i.i.i ]
+  %164 = load i8, ptr %.01519.i.i.i, align 1
+  %165 = icmp eq i8 %164, %161
+  br i1 %165, label %166, label %decrypt_arcfour.exit.thread.i
 
-164:                                              ; preds = %.lr.ph.i.i.i
-  %165 = add nsw i32 %.020.i.i.i, -1
-  %166 = getelementptr i8, ptr %.01519.i.i.i, i64 -1
-  %167 = icmp sgt i32 %.020.i.i.i, 1
-  br i1 %167, label %.lr.ph.i.i.i, label %.thread66.i.i, !llvm.loop !15
+166:                                              ; preds = %.lr.ph.i.i.i
+  %167 = add nsw i32 %.020.i.i.i, -1
+  %168 = getelementptr i8, ptr %.01519.i.i.i, i64 -1
+  %169 = icmp sgt i32 %.020.i.i.i, 1
+  br i1 %169, label %.lr.ph.i.i.i, label %.thread66.i.i, !llvm.loop !14
 
-.thread66.i.i:                                    ; preds = %164, %.preheader.i.i.i
-  %168 = sub i32 %91, %160
-  %169 = load ptr, ptr %60, align 8
-  %170 = call ptr @tvb_get_ptr(ptr noundef %169, i32 noundef 0, i32 noundef 8)
-  call fastcc void @arcfour_mic_cksum(ptr noundef nonnull %86, i32 noundef %88, ptr noundef nonnull %17, ptr noundef %170, ptr noundef nonnull %16, ptr noundef %75, i64 noundef %158)
+.thread66.i.i:                                    ; preds = %166, %.preheader.i.i.i
+  %170 = sub i32 %91, %162
   %171 = load ptr, ptr %60, align 8
-  %172 = call i32 @tvb_memeql(ptr noundef %171, i32 noundef 16, ptr noundef nonnull %17, i64 noundef 8)
-  %.not55.i.i = icmp eq i32 %172, 0
+  %172 = call ptr @tvb_get_ptr(ptr noundef %171, i32 noundef 0, i32 noundef 8)
+  call fastcc void @arcfour_mic_cksum(ptr noundef nonnull %86, i32 noundef %88, ptr noundef nonnull %17, ptr noundef %172, ptr noundef nonnull %16, ptr noundef %75, i64 noundef %158)
+  %173 = load ptr, ptr %60, align 8
+  %174 = call i32 @tvb_memeql(ptr noundef %173, i32 noundef 16, ptr noundef nonnull %17, i64 noundef 8)
+  %.not55.i.i = icmp eq i32 %174, 0
   br i1 %.not55.i.i, label %decrypt_arcfour.exit.i, label %decrypt_arcfour.exit.thread.i
 
 decrypt_arcfour.exit.thread.sink.split.i:         ; preds = %141, %116
@@ -1370,37 +1370,37 @@ decrypt_arcfour.exit.thread.i:                    ; preds = %.lr.ph.i.i.i, %decr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
-  br label %182
+  br label %184
 
 decrypt_arcfour.exit.i:                           ; preds = %.thread66.i.i, %154
-  %.046.i.i = phi i32 [ %91, %154 ], [ %168, %.thread66.i.i ]
+  %.046.i.i = phi i32 [ %91, %154 ], [ %170, %.thread66.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
-  %173 = icmp sgt i32 %.046.i.i, -1
-  br i1 %173, label %174, label %182
+  %175 = icmp sgt i32 %.046.i.i, -1
+  br i1 %175, label %176, label %184
 
-174:                                              ; preds = %decrypt_arcfour.exit.i
-  %175 = load i32, ptr %83, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
-  %179 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_spnego_decrypted_keytype, ptr noundef nonnull @.str.153, i32 noundef %175, i32 noundef %177, ptr noundef nonnull %178)
-  %180 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %75, i32 noundef %.046.i.i, i32 noundef %.046.i.i)
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %180, ptr %181, align 8
-  call void @add_new_data_source(ptr noundef %2, ptr noundef %180, ptr noundef nonnull @.str.154)
+176:                                              ; preds = %decrypt_arcfour.exit.i
+  %177 = load i32, ptr %83, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %179 = load i32, ptr %178, align 4
+  %180 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
+  %181 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_spnego_decrypted_keytype, ptr noundef nonnull @.str.153, i32 noundef %177, i32 noundef %179, ptr noundef nonnull %180)
+  %182 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %75, i32 noundef %.046.i.i, i32 noundef %.046.i.i)
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %182, ptr %183, align 8
+  call void @add_new_data_source(ptr noundef %2, ptr noundef %182, ptr noundef nonnull @.str.154)
   br label %.critedge
 
-182:                                              ; preds = %decrypt_arcfour.exit.i, %decrypt_arcfour.exit.thread.i, %82
+184:                                              ; preds = %decrypt_arcfour.exit.i, %decrypt_arcfour.exit.thread.i, %82
   %.0.i = load ptr, ptr %.05.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.critedge, label %82, !llvm.loop !16
+  br i1 %.not.i, label %.critedge, label %82, !llvm.loop !15
 
-.critedge:                                        ; preds = %182, %174, %65, %49, %41, %54, %40
+.critedge:                                        ; preds = %184, %176, %65, %49, %41, %54, %40
   ret i32 %.068
 }
 
@@ -1609,7 +1609,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
 135:                                              ; preds = %132, %127
   %136 = phi i64 [ %128, %132 ], [ 256, %127 ]
   %.034.i.i = phi ptr [ %133, %132 ], [ %6, %127 ]
-  %137 = call ptr @__memcpy_chk(ptr noundef nonnull %.034.i.i, ptr noundef %110, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %136) #11, !alias.scope !17
+  %137 = call ptr @__memcpy_chk(ptr noundef nonnull %.034.i.i, ptr noundef %110, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %136) #11, !alias.scope !16
   %138 = getelementptr i8, ptr %110, i64 %128
   %139 = icmp ne i32 %106, -1
   call void @llvm.assume(i1 %139)
@@ -1620,7 +1620,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   %144 = select i1 %143, i64 0, i64 %142
   %145 = icmp ne i64 %144, -1
   call void @llvm.assume(i1 %145)
-  %146 = call ptr @__memcpy_chk(ptr noundef %141, ptr noundef nonnull %.034.i.i, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %144) #11, !alias.scope !21
+  %146 = call ptr @__memcpy_chk(ptr noundef %141, ptr noundef nonnull %.034.i.i, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %144) #11, !alias.scope !20
   %147 = icmp samesign ugt i32 %125, 256
   br i1 %147, label %148, label %rrc_rotate.exit.i
 
@@ -1888,20 +1888,19 @@ attributes #14 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}

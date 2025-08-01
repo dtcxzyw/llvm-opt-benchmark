@@ -699,7 +699,7 @@ define dso_local range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0) local_
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 190
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !9
 
 .split.loop.exit9:                                ; preds = %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -767,7 +767,7 @@ define dso_local range(i32 0, 42) i32 @attribute_by_name(ptr noundef readnone ca
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 41
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !11
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !10
 
 .split.loop.exit8:                                ; preds = %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -808,7 +808,7 @@ define dso_local void @decl_append_links_to_global(ptr noundef readonly captures
   tail call void @global_context_add_link(ptr noundef %11) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   store ptr null, ptr %5, align 8
@@ -880,12 +880,12 @@ define dso_local void @decl_append_links_to_global(ptr noundef readonly captures
 39:                                               ; preds = %.lr.ph61, %36
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph61, !llvm.loop !13
+  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph61, !llvm.loop !12
 
 .loopexit:                                        ; preds = %39, %30, %27, %.lr.ph64
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %.loopexit57, label %.lr.ph64, !llvm.loop !14
+  br i1 %exitcond78.not, label %.loopexit57, label %.lr.ph64, !llvm.loop !13
 
 .loopexit57:                                      ; preds = %.loopexit, %16, %19, %12
   ret void
@@ -944,7 +944,7 @@ define dso_local i32 @decl_count_elements(ptr noundef readonly captures(none) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = icmp samesign ult i64 %indvars.iv.next, %13
   %29 = select i1 %12, i1 %28, i1 false
-  br i1 %29, label %14, label %.thread, !llvm.loop !15
+  br i1 %29, label %14, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %27, %1, %4
   %.021 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %.1, %27 ]
@@ -996,7 +996,7 @@ define dso_local zeroext i1 @ast_is_compile_time(ptr noundef readonly captures(n
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call zeroext i1 @ast_is_compile_time(ptr noundef nonnull %20)
-  br i1 %23, label %16, label %.loopexit, !llvm.loop !16
+  br i1 %23, label %16, label %.loopexit, !llvm.loop !15
 
 24:                                               ; preds = %1
   br label %.loopexit
@@ -1094,7 +1094,7 @@ define dso_local noundef ptr @decl_find_enum_constant(ptr noundef readonly captu
 8:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
@@ -1133,7 +1133,7 @@ define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
-  br label %3, !llvm.loop !18
+  br label %3, !llvm.loop !17
 
 15:                                               ; preds = %3, %3, %3
   %.027.in = getelementptr inbounds nuw i8, ptr %.026, i64 104
@@ -1186,7 +1186,7 @@ define dso_local i32 @decl_find_member_offset(ptr noundef readonly captures(none
 37:                                               ; preds = %26, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %3, %37, %15, %16, %32, %22
   %.024 = phi i32 [ %25, %22 ], [ %36, %32 ], [ -1, %16 ], [ -1, %15 ], [ -1, %37 ], [ -1, %3 ]
@@ -1245,16 +1245,15 @@ attributes #10 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}

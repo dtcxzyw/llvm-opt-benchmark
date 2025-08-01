@@ -148,7 +148,7 @@ utf8_to_unicode.exit:                             ; preds = %.lr.ph, %46, %.sink
   %72 = getelementptr inbounds i8, ptr %.0105242, i64 %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %utf8_to_unicode.exit
   %73 = zext nneg i32 %.015.i186188 to i64
@@ -194,7 +194,7 @@ codepoint_range_cmp.exit.thread.i:                ; preds = %88, %.lr.ph.i.i
   %.118.i.i = phi i64 [ %.01720.i.i, %88 ], [ %81, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %89, %88 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %90 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %90, label %.lr.ph.i.i, label %91, !llvm.loop !7
+  br i1 %90, label %.lr.ph.i.i, label %91, !llvm.loop !6
 
 91:                                               ; preds = %codepoint_range_cmp.exit.thread.i
   %92 = icmp ult i32 %76, 173
@@ -232,7 +232,7 @@ codepoint_range_cmp.exit.thread.i138:             ; preds = %101, %.lr.ph.i.i132
   %.118.i.i139 = phi i64 [ %.01720.i.i134, %101 ], [ %94, %.lr.ph.i.i132 ]
   %.1.i.i140 = phi i64 [ %102, %101 ], [ %.01621.i.i133, %.lr.ph.i.i132 ]
   %103 = icmp ult i64 %.1.i.i140, %.118.i.i139
-  br i1 %103, label %.lr.ph.i.i132, label %is_code_in_table.exit141.sink.split, !llvm.loop !7
+  br i1 %103, label %.lr.ph.i.i132, label %is_code_in_table.exit141.sink.split, !llvm.loop !6
 
 is_code_in_table.exit141.sink.split:              ; preds = %codepoint_range_cmp.exit.i, %codepoint_range_cmp.exit.thread.i138, %91, %.thread191, %.lr.ph246
   %.sink = phi i32 [ %76, %.lr.ph246 ], [ %76, %.thread191 ], [ %76, %91 ], [ %76, %codepoint_range_cmp.exit.thread.i138 ], [ 32, %codepoint_range_cmp.exit.i ]
@@ -246,7 +246,7 @@ is_code_in_table.exit141:                         ; preds = %codepoint_range_cmp
   %.1100 = phi i32 [ %104, %is_code_in_table.exit141.sink.split ], [ %.099244, %codepoint_range_cmp.exit.i135 ]
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count280
-  br i1 %exitcond281.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !8
+  br i1 %exitcond281.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !7
 
 ._crit_edge247:                                   ; preds = %is_code_in_table.exit141
   %107 = sext i32 %.1100 to i64
@@ -312,7 +312,7 @@ codepoint_range_cmp.exit.thread.i148:             ; preds = %124, %.lr.ph.i.i142
   %.118.i.i149 = phi i64 [ %.01720.i.i144, %124 ], [ %117, %.lr.ph.i.i142 ]
   %.1.i.i150 = phi i64 [ %125, %124 ], [ %.01621.i.i143, %.lr.ph.i.i142 ]
   %126 = icmp ult i64 %.1.i.i150, %.118.i.i149
-  br i1 %126, label %.lr.ph.i.i142, label %127, !llvm.loop !7
+  br i1 %126, label %.lr.ph.i.i142, label %127, !llvm.loop !6
 
 127:                                              ; preds = %codepoint_range_cmp.exit.thread.i148
   %128 = add nsw i32 %114, -983038
@@ -344,12 +344,12 @@ codepoint_range_cmp.exit.thread.i158:             ; preds = %137, %.lr.ph.i.i152
   %.118.i.i159 = phi i64 [ %.01720.i.i154, %137 ], [ %130, %.lr.ph.i.i152 ]
   %.1.i.i160 = phi i64 [ %138, %137 ], [ %.01621.i.i153, %.lr.ph.i.i152 ]
   %139 = icmp ult i64 %.1.i.i160, %.118.i.i159
-  br i1 %139, label %.lr.ph.i.i152, label %is_code_in_table.exit151, !llvm.loop !7
+  br i1 %139, label %.lr.ph.i.i152, label %is_code_in_table.exit151, !llvm.loop !6
 
 is_code_in_table.exit151:                         ; preds = %codepoint_range_cmp.exit.thread.i158, %.lr.ph250, %127
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next283, %wide.trip.count285
-  br i1 %exitcond286.not, label %.lr.ph252.preheader, label %.lr.ph250, !llvm.loop !9
+  br i1 %exitcond286.not, label %.lr.ph252.preheader, label %.lr.ph250, !llvm.loop !8
 
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %is_code_in_table.exit171
   %indvars.iv287 = phi i64 [ 0, %.lr.ph252.preheader ], [ %indvars.iv.next288, %is_code_in_table.exit171 ]
@@ -384,12 +384,12 @@ codepoint_range_cmp.exit.thread.i168:             ; preds = %151, %.lr.ph.i.i162
   %.118.i.i169 = phi i64 [ %.01720.i.i164, %151 ], [ %144, %.lr.ph.i.i162 ]
   %.1.i.i170 = phi i64 [ %152, %151 ], [ %.01621.i.i163, %.lr.ph.i.i162 ]
   %153 = icmp ult i64 %.1.i.i170, %.118.i.i169
-  br i1 %153, label %.lr.ph.i.i162, label %is_code_in_table.exit171, !llvm.loop !7
+  br i1 %153, label %.lr.ph.i.i162, label %is_code_in_table.exit171, !llvm.loop !6
 
 is_code_in_table.exit171:                         ; preds = %codepoint_range_cmp.exit.thread.i168, %.lr.ph252
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count290
-  br i1 %exitcond291.not, label %.loopexit, label %.lr.ph252, !llvm.loop !10
+  br i1 %exitcond291.not, label %.loopexit, label %.lr.ph252, !llvm.loop !9
 
 .lr.ph254.preheader:                              ; preds = %codepoint_range_cmp.exit.i165
   %154 = load i32, ptr %24, align 4
@@ -431,12 +431,12 @@ codepoint_range_cmp.exit.thread.i178:             ; preds = %169, %.lr.ph.i.i172
   %.118.i.i179 = phi i64 [ %.01720.i.i174, %169 ], [ %162, %.lr.ph.i.i172 ]
   %.1.i.i180 = phi i64 [ %170, %169 ], [ %.01621.i.i173, %.lr.ph.i.i172 ]
   %171 = icmp ult i64 %.1.i.i180, %.118.i.i179
-  br i1 %171, label %.lr.ph.i.i172, label %is_code_in_table.exit181, !llvm.loop !7
+  br i1 %171, label %.lr.ph.i.i172, label %is_code_in_table.exit181, !llvm.loop !6
 
 is_code_in_table.exit181:                         ; preds = %codepoint_range_cmp.exit.thread.i178, %.lr.ph254
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count290
-  br i1 %exitcond296.not, label %._crit_edge255, label %.lr.ph254, !llvm.loop !11
+  br i1 %exitcond296.not, label %._crit_edge255, label %.lr.ph254, !llvm.loop !10
 
 ._crit_edge255:                                   ; preds = %is_code_in_table.exit181
   %172 = tail call fastcc zeroext i1 @is_code_in_table(i32 noundef %154, ptr noundef nonnull @RandALCat_codepoint_ranges, i32 noundef 68)
@@ -534,7 +534,7 @@ unicode_to_utf8.exit:                             ; preds = %182, %186, %195, %2
   %224 = getelementptr inbounds nuw i8, ptr %.0103257, i64 4
   %225 = load i32, ptr %224, align 4
   %.not122 = icmp eq i32 %225, 0
-  br i1 %.not122, label %._crit_edge261.loopexit, label %179, !llvm.loop !12
+  br i1 %.not122, label %._crit_edge261.loopexit, label %179, !llvm.loop !11
 
 ._crit_edge261.loopexit:                          ; preds = %unicode_to_utf8.exit
   %226 = add i32 %223, 1
@@ -634,7 +634,7 @@ unicode_to_utf8.exit182:                          ; preds = %232, %236, %246, %2
   %281 = getelementptr inbounds nuw i8, ptr %.1104265, i64 4
   %282 = load i32, ptr %281, align 4
   %.not124 = icmp eq i32 %282, 0
-  br i1 %.not124, label %._crit_edge267, label %.lr.ph266, !llvm.loop !13
+  br i1 %.not124, label %._crit_edge267, label %.lr.ph266, !llvm.loop !12
 
 ._crit_edge267:                                   ; preds = %unicode_to_utf8.exit182, %.preheader
   %.1106.lcssa = phi ptr [ %228, %.preheader ], [ %280, %unicode_to_utf8.exit182 ]
@@ -719,7 +719,7 @@ codepoint_range_cmp.exit.thread:                  ; preds = %.lr.ph.i, %23
   %.118.i = phi i64 [ %.01720.i, %23 ], [ %16, %.lr.ph.i ]
   %.1.i = phi i64 [ %24, %23 ], [ %.01621.i, %.lr.ph.i ]
   %25 = icmp ult i64 %.1.i, %.118.i
-  br i1 %25, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !7
+  br i1 %25, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !6
 
 bsearch.exit:                                     ; preds = %codepoint_range_cmp.exit.thread, %codepoint_range_cmp.exit, %3, %6
   %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %codepoint_range_cmp.exit ], [ false, %codepoint_range_cmp.exit.thread ]
@@ -756,14 +756,13 @@ attributes #10 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}

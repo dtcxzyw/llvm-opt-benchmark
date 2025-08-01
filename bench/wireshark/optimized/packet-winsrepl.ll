@@ -567,7 +567,7 @@ dissect_winsrepl_wins_name.exit.i.i:              ; preds = %151, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   %157 = add nuw i32 %.021.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %157, %78
-  br i1 %exitcond.not.i.i, label %dissect_winsrepl_replication.exit, label %85, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %dissect_winsrepl_replication.exit, label %85, !llvm.loop !10
 
 158:                                              ; preds = %57
   %159 = load ptr, ptr %13, align 8
@@ -657,7 +657,7 @@ define internal fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr no
   %8 = tail call fastcc i32 @dissect_winsrepl_wins_owner(ptr noundef %0, i32 noundef %.0231, ptr noundef %4, ptr noundef %4, i32 noundef %.02)
   %9 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %9, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.023.lcssa = phi i32 [ 24, %2 ], [ %8, %.lr.ph ]
@@ -753,8 +753,7 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

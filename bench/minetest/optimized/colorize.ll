@@ -1246,18 +1246,18 @@ invoke.cont148:                                   ; preds = %if.then147
           to label %if.end152 unwind label %lpad120
 
 if.end152:                                        ; preds = %invoke.cont148, %if.end145
-  call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %159 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %159, ptr %agg.result, align 8, !tbaa !15, !alias.scope !72
+  store ptr %159, ptr %agg.result, align 8, !tbaa !15, !alias.scope !71
   %_M_string_length.i.i.i.i.i536 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 0, ptr %_M_string_length.i.i.i.i.i536, align 8, !tbaa !18, !alias.scope !72
-  store i8 0, ptr %159, align 8, !tbaa !17, !alias.scope !72
+  store i64 0, ptr %_M_string_length.i.i.i.i.i536, align 8, !tbaa !18, !alias.scope !71
+  store i8 0, ptr %159, align 8, !tbaa !17, !alias.scope !71
   %_M_out_cur.i.i.i = getelementptr inbounds nuw i8, ptr %os, i64 48
-  %160 = load ptr, ptr %_M_out_cur.i.i.i, align 8, !tbaa !73, !noalias !72
+  %160 = load ptr, ptr %_M_out_cur.i.i.i, align 8, !tbaa !72, !noalias !71
   %tobool.not.i.not.i.i = icmp eq ptr %160, null
   %_M_in_end.i.i.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %161 = load ptr, ptr %_M_in_end.i.i.i, align 8, !noalias !72
+  %161 = load ptr, ptr %_M_in_end.i.i.i, align 8, !noalias !71
   %cmp.i.i.i537 = icmp ugt ptr %160, %161
   %retval.0.i.i.i = select i1 %cmp.i.i.i537, ptr %160, ptr %161
   %tobool.not13.i.i = icmp eq ptr %retval.0.i.i.i, null
@@ -1266,7 +1266,7 @@ if.end152:                                        ; preds = %invoke.cont148, %if
 
 if.then.i.i538:                                   ; preds = %if.end152
   %_M_out_beg.i.i.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %162 = load ptr, ptr %_M_out_beg.i.i.i, align 8, !tbaa !75, !noalias !72
+  %162 = load ptr, ptr %_M_out_beg.i.i.i, align 8, !tbaa !74, !noalias !71
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %retval.0.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %162 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -1276,12 +1276,12 @@ if.then.i.i538:                                   ; preds = %if.end152
 lpad.i.i:                                         ; preds = %if.else.i.i, %if.then.i.i538
   %163 = landingpad { ptr, i32 }
           cleanup
-  %164 = load ptr, ptr %agg.result, align 8, !tbaa !4, !alias.scope !72
+  %164 = load ptr, ptr %agg.result, align 8, !tbaa !4, !alias.scope !71
   %cmp.i.i.i.i.i = icmp eq ptr %164, %159
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i539
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %lpad.i.i
-  %165 = load i64, ptr %_M_string_length.i.i.i.i.i536, align 8, !tbaa !18, !alias.scope !72
+  %165 = load i64, ptr %_M_string_length.i.i.i.i.i536, align 8, !tbaa !18, !alias.scope !71
   %cmp3.i.i.i.i.i = icmp ult i64 %165, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %ehcleanup154
@@ -1905,16 +1905,15 @@ attributes #21 = { noreturn nounwind }
 !60 = !{!"_ZTSNSt6locale5facetE", !50, i64 8}
 !61 = !{!53, !8, i64 224}
 !62 = !{!47, !47, i64 0}
-!63 = distinct !{!63, !64, !65}
+!63 = distinct !{!63, !64}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!"llvm.loop.estimated_trip_count"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: %agg.result"}
-!68 = distinct !{!68, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: %agg.result"}
-!71 = distinct !{!71, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!72 = !{!70, !67}
-!73 = !{!74, !7, i64 40}
-!74 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !51, i64 56}
-!75 = !{!74, !7, i64 32}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: %agg.result"}
+!67 = distinct !{!67, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: %agg.result"}
+!70 = distinct !{!70, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!71 = !{!69, !66}
+!72 = !{!73, !7, i64 40}
+!73 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !51, i64 56}
+!74 = !{!73, !7, i64 32}

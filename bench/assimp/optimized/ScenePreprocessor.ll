@@ -94,7 +94,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next38, %36
-  br i1 %37, label %.lr.ph25, label %._crit_edge, !llvm.loop !6
+  br i1 %37, label %.lr.ph25, label %._crit_edge, !llvm.loop !5
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %.lcssa22, i64 16
@@ -185,7 +185,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   %82 = load i32, ptr %81, align 8
   %83 = zext i32 %82 to i64
   %84 = icmp samesign ult i64 %indvars.iv.next41, %83
-  br i1 %84, label %.lr.ph28, label %._crit_edge29, !llvm.loop !7
+  br i1 %84, label %.lr.ph28, label %._crit_edge29, !llvm.loop !6
 
 85:                                               ; preds = %._crit_edge29, %38, %._crit_edge
   ret void
@@ -272,7 +272,7 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
   store float 0.000000e+00, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.06289, i64 12
   %.not74 = icmp eq ptr %29, %25
-  br i1 %.not74, label %.loopexit78, label %.lr.ph90, !llvm.loop !8
+  br i1 %.not74, label %.loopexit78, label %.lr.ph90, !llvm.loop !7
 
 .lr.ph87:                                         ; preds = %.preheader79, %.lr.ph87
   %.186 = phi ptr [ %32, %.lr.ph87 ], [ %14, %.preheader79 ]
@@ -282,12 +282,12 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
   store float 0.000000e+00, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.186, i64 12
   %.not73 = icmp eq ptr %32, %24
-  br i1 %.not73, label %.loopexit78, label %.lr.ph87, !llvm.loop !9
+  br i1 %.not73, label %.loopexit78, label %.lr.ph87, !llvm.loop !8
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %.284, i64 12
   %.not72 = icmp eq ptr %34, %24
-  br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader81, %33
   %.284 = phi ptr [ %34, %33 ], [ %14, %.preheader81 ]
@@ -309,7 +309,7 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
 .loopexit78:                                      ; preds = %.lr.ph, %.lr.ph87, %.lr.ph90, %.loopexit78.sink.split, %.preheader79, %.preheader77, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %6, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %6, label %12, !llvm.loop !10
 
 39:                                               ; preds = %.lr.ph93, %45
   %40 = phi i32 [ 0, %.lr.ph93 ], [ %46, %45 ]
@@ -332,7 +332,7 @@ switch.lookup:                                    ; preds = %39
   store i32 %46, ptr %1, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
-  br i1 %exitcond105.not, label %.loopexit76, label %39, !llvm.loop !12
+  br i1 %exitcond105.not, label %.loopexit76, label %39, !llvm.loop !11
 
 .loopexit76:                                      ; preds = %45, %.preheader, %6
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -409,7 +409,7 @@ switch.lookup:                                    ; preds = %39
   %90 = load i32, ptr %5, align 4
   %91 = zext i32 %90 to i64
   %92 = icmp samesign ult i64 %indvars.iv.next107, %91
-  br i1 %92, label %.lr.ph96, label %.loopexit, !llvm.loop !13
+  br i1 %92, label %.lr.ph96, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph96, %.loopexit75.thread, %52, %49, %.loopexit76
   ret void
@@ -497,7 +497,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %.sroa.speculated94 = select i1 %38, double %36, double %.2112117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader115, label %34, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader115, label %34, !llvm.loop !13
 
 .preheader:                                       ; preds = %44, %.preheader115
   %.3113.lcssa = phi double [ %.2112.lcssa, %.preheader115 ], [ %.sroa.speculated91, %44 ]
@@ -529,7 +529,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %.sroa.speculated91 = select i1 %48, double %46, double %.3113121
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %.preheader, label %44, !llvm.loop !15
+  br i1 %exitcond148.not, label %.preheader, label %44, !llvm.loop !14
 
 49:                                               ; preds = %.lr.ph130, %49
   %indvars.iv149 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next150, %49 ]
@@ -543,7 +543,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %.sroa.speculated88 = select i1 %53, double %51, double %.4114127
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit.thread164, label %49, !llvm.loop !16
+  br i1 %exitcond153.not, label %.loopexit.thread164, label %49, !llvm.loop !15
 
 .loopexit.thread164:                              ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 1040
@@ -700,7 +700,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %109 = load i32, ptr %6, align 8
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ult i64 %indvars.iv.next155, %110
-  br i1 %111, label %20, label %._crit_edge, !llvm.loop !17
+  br i1 %111, label %20, label %._crit_edge, !llvm.loop !16
 
 112:                                              ; preds = %._crit_edge
   %113 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -1046,18 +1046,17 @@ attributes #14 = { builtin nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

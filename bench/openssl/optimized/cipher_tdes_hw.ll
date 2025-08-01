@@ -127,7 +127,7 @@ define noundef i32 @ossl_cipher_hw_tdes_ecb(ptr noundef %0, ptr noundef %1, ptr 
   tail call void @DES_ecb3_encrypt(ptr noundef %13, ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %18) #5
   %19 = add nuw i64 %.01415, 8
   %.not = icmp ugt i64 %19, %7
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !23
 
 .loopexit:                                        ; preds = %12, %4
   ret i32 1
@@ -175,7 +175,6 @@ attributes #5 = { nounwind }
 !18 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
 !19 = !{!20, !8, i64 176}
 !20 = !{!"prov_cipher_ctx_st", !4, i64 0, !4, i64 16, !4, i64 32, !8, i64 48, !4, i64 56, !10, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !10, i64 104, !10, i64 108, !10, i64 108, !10, i64 108, !10, i64 108, !10, i64 108, !10, i64 108, !10, i64 108, !10, i64 108, !10, i64 112, !14, i64 120, !10, i64 128, !12, i64 136, !10, i64 144, !12, i64 152, !10, i64 160, !16, i64 168, !8, i64 176, !18, i64 184}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
+!23 = distinct !{!23, !22}

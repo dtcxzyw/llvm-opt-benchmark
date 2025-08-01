@@ -740,7 +740,7 @@ GetFrameBufLen.exit:                              ; preds = %16, %26
   store i8 -128, ptr %46, align 1
   %47 = add nuw i64 %.05772, 4
   %48 = icmp ult i64 %47, %.0.i
-  br i1 %48, label %.lr.ph73, label %.thread, !llvm.loop !6
+  br i1 %48, label %.lr.ph73, label %.thread, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.071 = phi i64 [ %53, %.lr.ph ], [ 0, %.preheader ]
@@ -754,7 +754,7 @@ GetFrameBufLen.exit:                              ; preds = %16, %26
   store i8 0, ptr %52, align 1
   %53 = add nuw i64 %.071, 4
   %54 = icmp ult i64 %53, %.0.i
-  br i1 %54, label %.lr.ph, label %.thread, !llvm.loop !7
+  br i1 %54, label %.lr.ph, label %.thread, !llvm.loop !6
 
 55:                                               ; preds = %32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %.0.i, i1 false)
@@ -1022,7 +1022,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
 
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %10 = load i8, ptr %9, align 4, !range !8, !noundef !9
+  %10 = load i8, ptr %9, align 4, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.loopexit, label %12
 
@@ -1060,7 +1060,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
   %23 = getelementptr inbounds nuw i8, ptr %.03949, i64 16
   %.039 = load ptr, ptr %23, align 8
   %.not45 = icmp eq ptr %.039, null
-  br i1 %.not45, label %._crit_edge, label %20, !llvm.loop !10
+  br i1 %.not45, label %._crit_edge, label %20, !llvm.loop !9
 
 24:                                               ; preds = %.lr.ph54, %24
   %.03852 = phi ptr [ %.03850, %.lr.ph54 ], [ %.038, %24 ]
@@ -1070,7 +1070,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
   %27 = getelementptr inbounds nuw i8, ptr %.03852, i64 16
   %.038 = load ptr, ptr %27, align 8
   %.not46 = icmp eq ptr %.038, null
-  br i1 %.not46, label %.loopexit, label %24, !llvm.loop !11
+  br i1 %.not46, label %.loopexit, label %24, !llvm.loop !10
 
 .loopexit:                                        ; preds = %24, %._crit_edge, %12, %8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @camera_driver, i64 32), align 8
@@ -1115,7 +1115,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
   tail call void @SDL_DestroySurface_REAL(ptr noundef %47) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %36, label %45, !llvm.loop !12
+  br i1 %exitcond.not, label %36, label %45, !llvm.loop !11
 
 48:                                               ; preds = %1, %36
   ret void
@@ -1448,7 +1448,7 @@ define hidden ptr @SDL_GetCameraSupportedFormats_REAL(i32 noundef %0, ptr nounde
   store ptr %.035, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %23 = zext nneg i32 %8 to i64
@@ -1637,7 +1637,7 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %64 = load i8, ptr %63, align 4, !range !8, !noundef !9
+  %64 = load i8, ptr %63, align 4, !range !7, !noundef !8
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %.thread102.thread, label %66
 
@@ -1662,7 +1662,7 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
 
 79:                                               ; preds = %59
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %81 = load i8, ptr %80, align 4, !range !8, !noundef !9
+  %81 = load i8, ptr %80, align 4, !range !7, !noundef !8
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %86
 
@@ -1681,13 +1681,13 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
   %.pre106 = phi i32 [ %.pre106.pre, %86 ], [ %61, %59 ]
   %.085 = phi ptr [ %87, %86 ], [ %56, %59 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %90 = load i8, ptr %89, align 4, !range !8, !noundef !9
+  %90 = load i8, ptr %89, align 4, !range !7, !noundef !8
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %95, label %118
 
 .thread102.thread:                                ; preds = %62
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %93 = load i8, ptr %92, align 4, !range !8, !noundef !9
+  %93 = load i8, ptr %92, align 4, !range !7, !noundef !8
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %.thread112, label %.thread116
 
@@ -1889,7 +1889,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   br i1 %.not110, label %82, label %67
 
 67:                                               ; preds = %61
-  %68 = load i8, ptr %57, align 4, !range !8, !noundef !9
+  %68 = load i8, ptr %57, align 4, !range !7, !noundef !8
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %82
 
@@ -1915,111 +1915,111 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
 
 82:                                               ; preds = %.thread, %67, %61
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %87
 
 84:                                               ; preds = %87
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %83, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %90
+  br label %92
 
 87:                                               ; preds = %82, %87
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv.next
   %89 = mul nuw nsw i64 %indvars.iv, 24
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %89
-  store ptr %88, ptr %gep, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  store ptr %88, ptr %91, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %84, label %87, !llvm.loop !14
+  br i1 %exitcond.not, label %84, label %87, !llvm.loop !13
 
-90:                                               ; preds = %84, %106
-  %indvars.iv131 = phi i64 [ 0, %84 ], [ %indvars.iv.next132, %106 ]
-  %91 = load i32, ptr %65, align 8
-  %.not112 = icmp eq i32 %91, 0
-  br i1 %.not112, label %92, label %95
+92:                                               ; preds = %84, %108
+  %indvars.iv131 = phi i64 [ 0, %84 ], [ %indvars.iv.next132, %108 ]
+  %93 = load i32, ptr %65, align 8
+  %.not112 = icmp eq i32 %93, 0
+  br i1 %.not112, label %94, label %97
 
-92:                                               ; preds = %90
-  %93 = load i8, ptr %57, align 4, !range !8, !noundef !9
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %100
+94:                                               ; preds = %92
+  %95 = load i8, ptr %57, align 4, !range !7, !noundef !8
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %97, label %102
 
-95:                                               ; preds = %92, %90
-  %96 = load i32, ptr %4, align 4
-  %97 = load i32, ptr %86, align 4
-  %98 = load i32, ptr %2, align 4
-  %99 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %96, i32 noundef %97, i32 noundef %98) #11
-  br label %105
+97:                                               ; preds = %94, %92
+  %98 = load i32, ptr %4, align 4
+  %99 = load i32, ptr %86, align 4
+  %100 = load i32, ptr %2, align 4
+  %101 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %98, i32 noundef %99, i32 noundef %100) #11
+  br label %107
 
-100:                                              ; preds = %92
-  %101 = load i32, ptr %4, align 4
-  %102 = load i32, ptr %86, align 4
-  %103 = load i32, ptr %2, align 4
-  %104 = tail call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef null, i32 noundef 0) #11
-  br label %105
+102:                                              ; preds = %94
+  %103 = load i32, ptr %4, align 4
+  %104 = load i32, ptr %86, align 4
+  %105 = load i32, ptr %2, align 4
+  %106 = tail call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef null, i32 noundef 0) #11
+  br label %107
 
-105:                                              ; preds = %100, %95
-  %.096 = phi ptr [ %99, %95 ], [ %104, %100 ]
+107:                                              ; preds = %102, %97
+  %.096 = phi ptr [ %101, %97 ], [ %106, %102 ]
   %.not113.not = icmp eq ptr %.096, null
-  br i1 %.not113.not, label %.thread121, label %106
+  br i1 %.not113.not, label %.thread121, label %108
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %62, align 4
-  %108 = tail call zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef nonnull %.096, i32 noundef %107) #11
-  %109 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv131
-  store ptr %.096, ptr %109, align 8
+108:                                              ; preds = %107
+  %109 = load i32, ptr %62, align 4
+  %110 = tail call zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef nonnull %.096, i32 noundef %109) #11
+  %111 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv131
+  store ptr %.096, ptr %111, align 8
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 8
-  br i1 %exitcond134.not, label %.loopexit, label %90, !llvm.loop !15
+  br i1 %exitcond134.not, label %.loopexit, label %92, !llvm.loop !14
 
-.thread121:                                       ; preds = %105, %70
+.thread121:                                       ; preds = %107, %70
   %.pr = load ptr, ptr %60, align 8
   %.not114 = icmp eq ptr %.pr, null
-  br i1 %.not114, label %.thread124, label %110
+  br i1 %.not114, label %.thread124, label %112
 
-110:                                              ; preds = %.thread121
+112:                                              ; preds = %.thread121
   tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.pr) #11
   store ptr null, ptr %60, align 8
   br label %.thread124
 
-.thread124:                                       ; preds = %53, %110, %.thread121
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %112 = load ptr, ptr %111, align 8
-  %.not115 = icmp eq ptr %112, null
-  br i1 %.not115, label %114, label %113
+.thread124:                                       ; preds = %53, %112, %.thread121
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %114 = load ptr, ptr %113, align 8
+  %.not115 = icmp eq ptr %114, null
+  br i1 %.not115, label %116, label %115
 
-113:                                              ; preds = %.thread124
-  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %112) #11
-  store ptr null, ptr %111, align 8
-  br label %114
+115:                                              ; preds = %.thread124
+  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %114) #11
+  store ptr null, ptr %113, align 8
+  br label %116
 
-114:                                              ; preds = %113, %.thread124
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %117
+116:                                              ; preds = %115, %.thread124
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  br label %119
 
-116:                                              ; preds = %121
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %115, i8 0, i64 192, i1 false)
+118:                                              ; preds = %123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %117, i8 0, i64 192, i1 false)
   br label %.loopexit
 
-117:                                              ; preds = %114, %121
-  %indvars.iv135 = phi i64 [ 0, %114 ], [ %indvars.iv.next136, %121 ]
-  %118 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %115, i64 0, i64 %indvars.iv135
-  %119 = load ptr, ptr %118, align 8
-  %.not116 = icmp eq ptr %119, null
-  br i1 %.not116, label %121, label %120
+119:                                              ; preds = %116, %123
+  %indvars.iv135 = phi i64 [ 0, %116 ], [ %indvars.iv.next136, %123 ]
+  %120 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %117, i64 0, i64 %indvars.iv135
+  %121 = load ptr, ptr %120, align 8
+  %.not116 = icmp eq ptr %121, null
+  br i1 %.not116, label %123, label %122
 
-120:                                              ; preds = %117
-  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %119) #11
-  br label %121
+122:                                              ; preds = %119
+  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %121) #11
+  br label %123
 
-121:                                              ; preds = %120, %117
+123:                                              ; preds = %122, %119
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, 8
-  br i1 %exitcond138.not, label %116, label %117, !llvm.loop !16
+  br i1 %exitcond138.not, label %118, label %119, !llvm.loop !15
 
-.loopexit:                                        ; preds = %106, %116
-  %.0 = phi i1 [ false, %116 ], [ true, %106 ]
+.loopexit:                                        ; preds = %108, %118
+  %.0 = phi i1 [ false, %118 ], [ true, %108 ]
   ret i1 %.0
 }
 
@@ -2181,7 +2181,7 @@ ReleaseCamera.exit:                               ; preds = %9, %24
   %.1.i = phi float [ %.0162.i, %77 ], [ %.0162.i, %79 ], [ %.1.ph.i, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit153.i, label %60, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit153.i, label %60, !llvm.loop !16
 
 82:                                               ; preds = %45
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2246,7 +2246,7 @@ ReleaseCamera.exit:                               ; preds = %9, %24
   %.4.ph.i = phi i32 [ %.0115165.i, %93 ], [ %.0115165.i, %98 ], [ %.3118.i, %107 ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next179.i, %wide.trip.count181.i
-  br i1 %exitcond182.not.i, label %.loopexit152.i, label %93, !llvm.loop !18
+  br i1 %exitcond182.not.i, label %.loopexit152.i, label %93, !llvm.loop !17
 
 .loopexit152.i:                                   ; preds = %112, %109, %.loopexit153.i, %52
   %113 = phi i1 [ true, %109 ], [ false, %.loopexit153.i ], [ false, %52 ], [ true, %112 ]
@@ -2346,7 +2346,7 @@ ReleaseCamera.exit:                               ; preds = %9, %24
   %.2.ph.i = phi float [ %.0112169.i, %._crit_edge.i ], [ %162, %164 ], [ %.0112169.i, %134 ], [ %.0112169.i, %139 ], [ %.0112169.i, %143 ]
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond187.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count186.i
-  br i1 %exitcond187.not.i, label %ChooseBestCameraSpec.exit, label %134, !llvm.loop !19
+  br i1 %exitcond187.not.i, label %ChooseBestCameraSpec.exit, label %134, !llvm.loop !18
 
 ChooseBestCameraSpec.exit:                        ; preds = %168, %39, %40, %42, %124, %167
   %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @camera_driver, i64 24), align 8
@@ -2428,7 +2428,7 @@ ChooseBestCameraSpec.exit:                        ; preds = %168, %39, %40, %42,
 212:                                              ; preds = %193, %188
   %213 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 1, ptr %213, align 8
-  %214 = load i8, ptr getelementptr inbounds nuw (i8, ptr @camera_driver, i64 80), align 8, !range !8, !noundef !9
+  %214 = load i8, ptr getelementptr inbounds nuw (i8, ptr @camera_driver, i64 80), align 8, !range !7, !noundef !8
   %215 = trunc nuw i8 %214 to i1
   br i1 %215, label %224, label %216
 
@@ -2511,7 +2511,7 @@ define internal noundef i32 @CameraThread(ptr noundef %0) #1 {
 
 8:                                                ; preds = %4, %7
   %9 = tail call zeroext i1 @SDL_CameraThreadIterate(ptr noundef nonnull %0)
-  br i1 %9, label %4, label %10, !llvm.loop !20
+  br i1 %9, label %4, label %10, !llvm.loop !19
 
 10:                                               ; preds = %8
   ret i32 0
@@ -2585,7 +2585,7 @@ ReleaseCamera.exit:                               ; preds = %14, %28
   %34 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not35 = icmp eq ptr %35, null
-  br i1 %.not35, label %36, label %33, !llvm.loop !21
+  br i1 %.not35, label %36, label %33, !llvm.loop !20
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.027, i64 16
@@ -2672,14 +2672,14 @@ define hidden void @SDL_ReleaseCameraFrame_REAL(ptr noundef %0, ptr noundef %1) 
 .lr.ph:                                           ; preds = %.lr.ph47
   %13 = load ptr, ptr %.0, align 8
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph47, !llvm.loop !22
+  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph47, !llvm.loop !21
 
 .lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.03946 = phi ptr [ %.0, %.lr.ph ], [ %.036, %.lr.ph.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %.03946, i64 16
   %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph47, %5
   %16 = load ptr, ptr %0, align 8
@@ -2703,7 +2703,7 @@ define hidden void @SDL_ReleaseCameraFrame_REAL(ptr noundef %0, ptr noundef %1) 
   %.039.lcssa = phi ptr [ %.036, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
   %.02938.lcssa = phi ptr [ %10, %.lr.ph.preheader ], [ %.03946, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %28 = load i8, ptr %27, align 4, !range !8, !noundef !9
+  %28 = load i8, ptr %27, align 4, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %38, label %30
 
@@ -2951,7 +2951,7 @@ define hidden void @SDL_QuitCamera() local_unnamed_addr #1 {
   %12 = load ptr, ptr %11, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.08) #11
   %.not6 = icmp eq ptr %12, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 13:                                               ; preds = %0, %._crit_edge
   ret void
@@ -3035,7 +3035,7 @@ select.unfold.preheader:                          ; preds = %13, %select.unfold
 21:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not81 = icmp eq i64 %indvars.iv.next, 2
-  br i1 %.not81, label %select.unfold, label %22, !llvm.loop !24
+  br i1 %.not81, label %select.unfold, label %22, !llvm.loop !23
 
 22:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
@@ -3086,7 +3086,7 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   %39 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv116130
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load i8, ptr %41, align 8, !range !8, !noundef !9
+  %42 = load i8, ptr %41, align 8, !range !7, !noundef !8
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %51, label %44
 
@@ -3112,7 +3112,7 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   %.5 = phi i1 [ %.4110131, %38 ], [ true, %44 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116130, 1
   %.not76 = icmp eq i64 %indvars.iv.next117, 2
-  br i1 %.not76, label %.critedge2.thread97, label %38, !llvm.loop !25
+  br i1 %.not76, label %.critedge2.thread97, label %38, !llvm.loop !24
 
 .critedge2:                                       ; preds = %select.unfold.preheader
   tail call void @SDL_free_REAL(ptr noundef nonnull %14) #11
@@ -3231,7 +3231,7 @@ define hidden void @SDL_UpdateCamera() local_unnamed_addr #1 {
 20:                                               ; preds = %15, %10
   call void @SDL_free_REAL(ptr noundef nonnull %.011) #11
   %.not9 = icmp eq ptr %12, null
-  br i1 %.not9, label %.loopexit, label %10, !llvm.loop !26
+  br i1 %.not9, label %.loopexit, label %10, !llvm.loop !25
 
 .loopexit:                                        ; preds = %20, %5, %0
   ret void
@@ -3279,27 +3279,26 @@ attributes #13 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}

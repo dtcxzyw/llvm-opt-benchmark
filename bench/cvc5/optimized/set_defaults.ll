@@ -43473,6 +43473,5 @@ attributes #24 = { noreturn nounwind }
 !977 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !975, i64 0}
 !978 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !979 = !{!457, !459, i64 8}
-!980 = distinct !{!980, !981, !982}
+!980 = distinct !{!980, !981}
 !981 = !{!"llvm.loop.mustprogress"}
-!982 = !{!"llvm.loop.estimated_trip_count"}

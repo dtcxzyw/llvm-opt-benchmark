@@ -165,25 +165,25 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
 7:                                                ; preds = %22, %.lr.ph.i.i.i
   %.047.i.i.i = phi i64 [ %5, %.lr.ph.i.i.i ], [ %24, %22 ]
   %.02946.i.i.i = phi ptr [ %0, %.lr.ph.i.i.i ], [ %23, %22 ]
-  %8 = load i64, ptr %.02946.i.i.i, align 8, !tbaa !14
+  %8 = load i64, ptr %.02946.i.i.i, align 8, !tbaa !13
   %9 = icmp eq i64 %8, %2
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = icmp eq i64 %12, %2
   br i1 %13, label %.loopexit.loopexit.split.loop.exit28, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !14
+  %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = icmp eq i64 %16, %2
   br i1 %17, label %.loopexit.loopexit.split.loop.exit26, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !14
+  %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = icmp eq i64 %20, %2
   br i1 %21, label %.loopexit.loopexit.split.loop.exit, label %22
 
@@ -191,7 +191,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   %23 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
   %24 = add nsw i64 %.047.i.i.i, -1
   %25 = icmp sgt i64 %.047.i.i.i, 1
-  br i1 %25, label %7, label %._crit_edge.loopexit.i.i.i, !llvm.loop !16
+  br i1 %25, label %7, label %._crit_edge.loopexit.i.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %22
   %26 = and i64 %1, 3
@@ -208,7 +208,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   ]
 
 27:                                               ; preds = %._crit_edge.i.i.i
-  %28 = load i64, ptr %.029.lcssa.i.i.i, align 8, !tbaa !14
+  %28 = load i64, ptr %.029.lcssa.i.i.i, align 8, !tbaa !13
   %29 = icmp eq i64 %28, %2
   br i1 %29, label %.loopexit, label %30
 
@@ -218,7 +218,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %30
   %.1.i.i.i = phi ptr [ %31, %30 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %32 = load i64, ptr %.1.i.i.i, align 8, !tbaa !14
+  %32 = load i64, ptr %.1.i.i.i, align 8, !tbaa !13
   %33 = icmp eq i64 %32, %2
   br i1 %33, label %.loopexit, label %34
 
@@ -228,7 +228,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i, %34
   %.2.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %36 = load i64, ptr %.2.i.i.i, align 8, !tbaa !14
+  %36 = load i64, ptr %.2.i.i.i, align 8, !tbaa !13
   %37 = icmp eq i64 %36, %2
   br i1 %37, label %.loopexit, label %38
 
@@ -276,9 +276,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !8 = !{!"short", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !9, i64 0}
-!16 = distinct !{!16, !12, !13}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = distinct !{!15, !12}

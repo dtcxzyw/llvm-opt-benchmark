@@ -587,7 +587,7 @@ xar_hash_update.exit:                             ; preds = %185, %184, %184, %1
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %20) #10
   %199 = load i32, ptr %58, align 8, !tbaa !41
   %200 = icmp eq i32 %199, 0
-  br i1 %200, label %.split, label %.loopexit.thread, !llvm.loop !71
+  br i1 %200, label %.split, label %.loopexit.thread
 
 .loopexit.thread819:                              ; preds = %192, %170
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %20) #10
@@ -595,7 +595,7 @@ xar_hash_update.exit:                             ; preds = %185, %184, %184, %1
 
 .loopexit:                                        ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %163, %.split.us ], [ %179, %.split ]
-  %201 = load ptr, ptr %116, align 8, !tbaa !72
+  %201 = load ptr, ptr %116, align 8, !tbaa !70
   %.not354 = icmp eq ptr %201, null
   %202 = select i1 %.not354, ptr @.str.21, ptr %201
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, i32 noundef %.us-phi, ptr noundef nonnull %202) #10
@@ -676,8 +676,8 @@ xar_hash_update.exit385:                          ; preds = %209, %208, %208, %2
   br label %.thread479
 
 233:                                              ; preds = %225
-  store ptr %227, ptr %111, align 8, !tbaa !73
-  store i64 13, ptr %112, align 8, !tbaa !78
+  store ptr %227, ptr %111, align 8, !tbaa !71
+  store i64 13, ptr %112, align 8, !tbaa !76
   %.not346 = icmp eq ptr %.0.i377, null
   br i1 %.not346, label %xar_hash_update.exit386, label %234
 
@@ -720,13 +720,13 @@ xar_hash_update.exit386:                          ; preds = %235, %234, %234, %2
   br i1 %or.cond688, label %248, label %.critedge9
 
 248:                                              ; preds = %244
-  store ptr %218, ptr %113, align 8, !tbaa !79
-  store i64 1048576, ptr %114, align 8, !tbaa !80
+  store ptr %218, ptr %113, align 8, !tbaa !77
+  store i64 1048576, ptr %114, align 8, !tbaa !78
   %249 = call i64 @llvm.umin.i64(i64 %.0243, i64 262144)
-  store i64 %249, ptr %112, align 8, !tbaa !78
+  store i64 %249, ptr %112, align 8, !tbaa !76
   %250 = load ptr, ptr %30, align 8, !tbaa !27
   %251 = call ptr %250(ptr noundef nonnull %26, i64 noundef %.2239, i64 noundef %249, i32 noundef 0) #10
-  store ptr %251, ptr %111, align 8, !tbaa !73
+  store ptr %251, ptr %111, align 8, !tbaa !71
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %258
 
@@ -735,7 +735,7 @@ xar_hash_update.exit386:                          ; preds = %235, %234, %234, %2
   %254 = tail call ptr @__errno_location() #11
   %255 = load i32, ptr %254, align 4, !tbaa !3
   %256 = call ptr @cli_strerror(i32 noundef %255, ptr noundef nonnull %23, i64 noundef 128) #10
-  %257 = load i64, ptr %112, align 8, !tbaa !78
+  %257 = load i64, ptr %112, align 8, !tbaa !76
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i64 noundef %257, i64 noundef %.2239, ptr noundef nonnull %23) #10
   call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %218) #10
   call void @cli_LzmaShutdown(ptr noundef nonnull %21) #10
@@ -754,11 +754,11 @@ xar_hash_update.exit386:                          ; preds = %235, %234, %234, %2
   br label %.critedge9
 
 263:                                              ; preds = %258
-  %264 = load i64, ptr %112, align 8, !tbaa !78
+  %264 = load i64, ptr %112, align 8, !tbaa !76
   %265 = sub i64 %249, %264
   %266 = sub i64 %.0243, %265
   %267 = add i64 %265, %.2239
-  %268 = load i64, ptr %114, align 8, !tbaa !80
+  %268 = load i64, ptr %114, align 8, !tbaa !78
   %269 = sub i64 1048576, %268
   %270 = icmp eq i64 %268, 1048576
   br i1 %270, label %271, label %272
@@ -840,7 +840,7 @@ xar_hash_update.exit390:                          ; preds = %277, %276, %276, %x
   %.376 = call i64 @llvm.umin.i64(i64 %290, i64 %135)
   %291 = load ptr, ptr %78, align 8, !tbaa !44
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 72
-  %293 = load i64, ptr %292, align 8, !tbaa !81
+  %293 = load i64, ptr %292, align 8, !tbaa !79
   %.not357 = icmp eq i64 %293, 0
   %..376 = call i64 @llvm.umin.i64(i64 %293, i64 %.376)
   %.0 = select i1 %.not357, i64 %.376, i64 %..376
@@ -1363,7 +1363,7 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %0, ptr no
 .backedge:                                        ; preds = %.backedge.sink.split, %18, %20
   %28 = call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #10
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %9, label %.loopexit, !llvm.loop !82
+  br i1 %29, label %9, label %.loopexit
 
 30:                                               ; preds = %23
   %31 = call i32 @xmlStrlen(ptr noundef nonnull %24) #10
@@ -1707,7 +1707,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   %.1 = phi i32 [ %.0116, %44 ], [ %.0116, %52 ], [ %.0116, %89 ], [ %.0116, %87 ], [ %.0116, %86 ], [ 1, %97 ], [ 0, %100 ], [ 0, %98 ], [ 0, %104 ], [ 0, %101 ], [ %.0116, %20 ], [ %.0116, %28 ], [ %.0116, %36 ], [ %.0116, %78 ], [ %.0116, %77 ]
   %108 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #10
   %109 = icmp eq i32 %108, 1
-  br i1 %109, label %.lr.ph, label %.loopexit, !llvm.loop !83
+  br i1 %109, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %107, %83, %89, %9, %106
   %.079111 = phi i32 [ %.079113, %106 ], [ 0, %9 ], [ %.180, %107 ], [ %.079113, %83 ], [ %.079113, %89 ]
@@ -2060,19 +2060,15 @@ attributes #11 = { nounwind willreturn memory(none) }
 !65 = !{!14, !14, i64 0}
 !66 = !{!10, !10, i64 0}
 !67 = !{!26, !14, i64 40}
-!68 = distinct !{!68, !69, !70}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !69}
-!72 = !{!37, !9, i64 48}
-!73 = !{!74, !9, i64 168}
-!74 = !{!"CLI_LZMA", !75, i64 0, !5, i64 136, !4, i64 144, !4, i64 148, !4, i64 152, !4, i64 156, !14, i64 160, !9, i64 168, !9, i64 176, !14, i64 184, !14, i64 192}
-!75 = !{!"", !76, i64 0, !77, i64 16, !9, i64 24, !9, i64 32, !4, i64 40, !4, i64 44, !14, i64 48, !14, i64 56, !4, i64 64, !4, i64 68, !4, i64 72, !5, i64 76, !4, i64 92, !4, i64 96, !4, i64 100, !4, i64 104, !4, i64 108, !5, i64 112}
-!76 = !{!"_CLzmaProps", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12}
-!77 = !{!"p1 short", !10, i64 0}
-!78 = !{!74, !14, i64 184}
-!79 = !{!74, !9, i64 176}
-!80 = !{!74, !14, i64 192}
-!81 = !{!46, !14, i64 72}
-!82 = distinct !{!82, !69}
-!83 = distinct !{!83, !69}
+!68 = distinct !{!68, !69}
+!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!70 = !{!37, !9, i64 48}
+!71 = !{!72, !9, i64 168}
+!72 = !{!"CLI_LZMA", !73, i64 0, !5, i64 136, !4, i64 144, !4, i64 148, !4, i64 152, !4, i64 156, !14, i64 160, !9, i64 168, !9, i64 176, !14, i64 184, !14, i64 192}
+!73 = !{!"", !74, i64 0, !75, i64 16, !9, i64 24, !9, i64 32, !4, i64 40, !4, i64 44, !14, i64 48, !14, i64 56, !4, i64 64, !4, i64 68, !4, i64 72, !5, i64 76, !4, i64 92, !4, i64 96, !4, i64 100, !4, i64 104, !4, i64 108, !5, i64 112}
+!74 = !{!"_CLzmaProps", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12}
+!75 = !{!"p1 short", !10, i64 0}
+!76 = !{!72, !14, i64 184}
+!77 = !{!72, !9, i64 176}
+!78 = !{!72, !14, i64 192}
+!79 = !{!46, !14, i64 72}

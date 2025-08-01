@@ -882,21 +882,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray2_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 8, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 8, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1034,21 +1035,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray3_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 9, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 9, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1188,21 +1190,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray4_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 10, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 10, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1344,21 +1347,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray5_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 11, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 11, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2123,17 +2127,17 @@ define hidden noundef zeroext i1 @_ZN11OptoRuntime27is_deoptimized_caller_frameE
   %4 = alloca %class.frame, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12, !noalias !10
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12, !noalias !9
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %0) #12
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4981
-  %7 = load i8, ptr %6, align 1, !noalias !13
+  %7 = load i8, ptr %6, align 1, !noalias !12
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4968
-  %11 = load ptr, ptr %10, align 8, !noalias !13
+  %11 = load ptr, ptr %10, align 8, !noalias !12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -2144,7 +2148,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %9
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4960
-  %15 = load ptr, ptr %14, align 8, !noalias !13
+  %15 = load ptr, ptr %14, align 8, !noalias !12
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(56) %4) #12
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -2197,22 +2201,23 @@ define hidden noundef ptr @_ZN11OptoRuntime19multianewarray_TypeEi(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  store ptr %.pre, ptr %gep, align 8
+  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %.pre, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = add nsw i32 %0, 6
-  %7 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %6, ptr noundef nonnull %3) #12
-  %8 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %9 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %9, ptr %10, align 8
-  %11 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %8) #12
-  %12 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %7, ptr noundef %11) #12
-  ret ptr %12
+  %8 = add nsw i32 %0, 6
+  %9 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %8, ptr noundef nonnull %3) #12
+  %10 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %11 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store ptr %11, ptr %12, align 8
+  %13 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %10) #12
+  %14 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %9, ptr noundef %13) #12
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2337,7 +2342,7 @@ define hidden noundef ptr @_ZN11OptoRuntime23Math_Vector_Vector_TypeEjPK8TypeVec
   store ptr %1, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %8 = add i32 %0, 5
@@ -2504,7 +2509,7 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
   %22 = getelementptr i8, ptr %20, i64 8
   store ptr %21, ptr %22, align 8
   %23 = icmp samesign ugt i32 %.042, 1
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %24 = and i64 %indvars.iv.next, 4294967295
@@ -3519,17 +3524,17 @@ _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deo
 _ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %92, %82, %103, %_ZN7nmethod11is_deopt_pcEPh.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %6, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %106) #12, !noalias !18
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %106) #12, !noalias !17
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef nonnull align 8 dereferenceable(1800) %0) #12
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %6)
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 4981
-  %108 = load i8, ptr %107, align 1, !noalias !21
+  %108 = load i8, ptr %107, align 1, !noalias !20
   %109 = trunc i8 %108 to i1
   br i1 %109, label %110, label %117
 
 110:                                              ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.thread
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 4968
-  %112 = load ptr, ptr %111, align 8, !noalias !21
+  %112 = load ptr, ptr %111, align 8, !noalias !20
   %113 = icmp eq ptr %112, null
   br i1 %113, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -3540,7 +3545,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %110
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %110
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 4960
-  %116 = load ptr, ptr %115, align 8, !noalias !21
+  %116 = load ptr, ptr %115, align 8, !noalias !20
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(56) %7) #12
   br label %117
 
@@ -3705,17 +3710,17 @@ define hidden void @_ZN11OptoRuntime23deoptimize_caller_frameEP10JavaThread(ptr 
   %4 = alloca %class.frame, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12, !noalias !24
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12, !noalias !23
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %0) #12
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4981
-  %7 = load i8, ptr %6, align 1, !noalias !27
+  %7 = load i8, ptr %6, align 1, !noalias !26
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4968
-  %11 = load ptr, ptr %10, align 8, !noalias !27
+  %11 = load ptr, ptr %10, align 8, !noalias !26
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -3726,7 +3731,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %9
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4960
-  %15 = load ptr, ptr %14, align 8, !noalias !27
+  %15 = load ptr, ptr %14, align 8, !noalias !26
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(56) %4) #12
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -3765,17 +3770,17 @@ define hidden noundef ptr @_ZN11OptoRuntime18handle_exception_CEP10JavaThread(pt
 8:                                                ; preds = %1
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %3, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12, !noalias !30
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12, !noalias !29
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %5, ptr noundef nonnull align 8 dereferenceable(1800) %0) #12
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4981
-  %11 = load i8, ptr %10, align 1, !noalias !33
+  %11 = load i8, ptr %10, align 1, !noalias !32
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4968
-  %15 = load ptr, ptr %14, align 8, !noalias !33
+  %15 = load ptr, ptr %14, align 8, !noalias !32
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -3786,7 +3791,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %13
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %13
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4960
-  %19 = load ptr, ptr %18, align 8, !noalias !33
+  %19 = load ptr, ptr %18, align 8, !noalias !32
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(56) %4) #12
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -3899,7 +3904,7 @@ define hidden void @_ZN11OptoRuntime20print_named_countersEv() local_unnamed_add
   %13 = getelementptr inbounds nuw i8, ptr %.01923, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %12
   %15 = icmp sgt i32 %.1, 0
@@ -3975,7 +3980,7 @@ define hidden noundef ptr @_ZN11OptoRuntime17new_named_counterEP8JVMStateN12Name
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.30, i32 noundef %spec.store.select) #12
   %25 = add nsw i32 %.02528, -1
   %26 = icmp sgt i32 %.02528, 1
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %24, %2
   %27 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 7, i32 noundef 0) #12
@@ -4001,9 +4006,9 @@ _ZN12NamedCounterC2EPKcNS_10CounterTagE.exit:     ; preds = %._crit_edge, %31
 37:                                               ; preds = %37, %_ZN12NamedCounterC2EPKcNS_10CounterTagE.exit
   %38 = load volatile ptr, ptr @_ZN11OptoRuntime15_named_countersE, align 8
   store ptr %38, ptr %36, align 8
-  %39 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %27, ptr %38, ptr nonnull @_ZN11OptoRuntime15_named_countersE) #12, !srcloc !38
+  %39 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %27, ptr %38, ptr nonnull @_ZN11OptoRuntime15_named_countersE) #12, !srcloc !37
   %.not = icmp eq ptr %39, %38
-  br i1 %.not, label %40, label %37, !llvm.loop !39
+  br i1 %.not, label %40, label %37, !llvm.loop !38
 
 40:                                               ; preds = %37
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #12
@@ -4700,36 +4705,35 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!12 = distinct !{!12, !"_ZN10JavaThread10last_frameEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!15 = distinct !{!15, !"_ZNK5frame6senderEP11RegisterMap"}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!20 = distinct !{!20, !"_ZN10JavaThread10last_frameEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!23 = distinct !{!23, !"_ZNK5frame6senderEP11RegisterMap"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!26 = distinct !{!26, !"_ZN10JavaThread10last_frameEv"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!29 = distinct !{!29, !"_ZNK5frame6senderEP11RegisterMap"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!32 = distinct !{!32, !"_ZN10JavaThread10last_frameEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!35 = distinct !{!35, !"_ZNK5frame6senderEP11RegisterMap"}
-!36 = distinct !{!36, !8, !9}
-!37 = distinct !{!37, !8, !9}
-!38 = !{i64 2145412694}
-!39 = distinct !{!39, !8, !9}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!11 = distinct !{!11, !"_ZN10JavaThread10last_frameEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!14 = distinct !{!14, !"_ZNK5frame6senderEP11RegisterMap"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!19 = distinct !{!19, !"_ZN10JavaThread10last_frameEv"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!22 = distinct !{!22, !"_ZNK5frame6senderEP11RegisterMap"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!25 = distinct !{!25, !"_ZN10JavaThread10last_frameEv"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!28 = distinct !{!28, !"_ZNK5frame6senderEP11RegisterMap"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!31 = distinct !{!31, !"_ZN10JavaThread10last_frameEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!34 = distinct !{!34, !"_ZNK5frame6senderEP11RegisterMap"}
+!35 = distinct !{!35, !8}
+!36 = distinct !{!36, !8}
+!37 = !{i64 2145412694}
+!38 = distinct !{!38, !8}

@@ -311,7 +311,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_rotate_logfile(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @Logging_collector, align 1, !range !8, !noundef !9
+  %2 = load i8, ptr @Logging_collector, align 1, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %8, label %4
 
@@ -382,8 +382,7 @@ attributes #9 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!7 = !{i8 0, i8 2}
+!8 = !{}

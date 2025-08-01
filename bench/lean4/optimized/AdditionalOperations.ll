@@ -1345,7 +1345,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit41
   store i32 16842768, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %20, ptr %107, align 8, !tbaa !4
-  br label %lean_dec.exit38.outer, !llvm.loop !14
+  br label %lean_dec.exit38.outer
 
 lean_dec.exit40:                                  ; preds = %lean_dec.exit43
   br i1 %.not84, label %108, label %lean_dec.exit39
@@ -1372,7 +1372,7 @@ lean_dec.exit39:                                  ; preds = %114, %113, %111, %l
   br i1 %.not83, label %115, label %lean_dec.exit38.backedge
 
 lean_dec.exit38.backedge:                         ; preds = %lean_dec.exit39, %118, %120, %121
-  br label %lean_dec.exit38, !llvm.loop !14
+  br label %lean_dec.exit38
 
 115:                                              ; preds = %lean_dec.exit39
   %116 = load i32, ptr %20, align 4, !tbaa !8
@@ -3226,7 +3226,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit41
   store i32 16842768, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %20, ptr %107, align 8, !tbaa !4
-  br label %lean_dec.exit38.outer, !llvm.loop !16
+  br label %lean_dec.exit38.outer
 
 lean_dec.exit40:                                  ; preds = %lean_dec.exit43
   br i1 %.not85, label %108, label %lean_dec.exit39
@@ -3253,7 +3253,7 @@ lean_dec.exit39:                                  ; preds = %114, %113, %111, %l
   br i1 %.not83, label %115, label %lean_dec.exit38.backedge
 
 lean_dec.exit38.backedge:                         ; preds = %lean_dec.exit39, %118, %120, %121
-  br label %lean_dec.exit38, !llvm.loop !16
+  br label %lean_dec.exit38
 
 115:                                              ; preds = %lean_dec.exit39
   %116 = load i32, ptr %20, align 4, !tbaa !8
@@ -3926,6 +3926,3 @@ attributes #4 = { noreturn nounwind }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}

@@ -629,7 +629,7 @@ define hidden ptr @ipmi_getnetfn(i32 noundef %0, ptr noundef readonly captures(n
 19:                                               ; preds = %8, %15
   %.0 = load ptr, ptr %.018, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %13, %19, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %19 ], [ %.018, %13 ], [ %.018, %15 ]
@@ -664,7 +664,7 @@ define hidden noundef ptr @ipmi_getcmd(ptr noundef readonly captures(address_is_
   %12 = add nuw nsw i64 %.01014, 1
   %13 = getelementptr i8, ptr %.01113, i64 56
   %exitcond.not = icmp eq i64 %12, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %3, %2
   %.0 = phi ptr [ @ipmi_getcmd.ipmi_cmd_unknown, %2 ], [ @ipmi_getcmd.ipmi_cmd_unknown, %3 ], [ %.01113, %.lr.ph ], [ @ipmi_getcmd.ipmi_cmd_unknown, %11 ]
@@ -909,7 +909,7 @@ define hidden i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i.i)
   %37 = add i8 %36, %.056.i.i
   %.not.i.i = icmp eq i32 %34, 0
-  br i1 %.not.i.i, label %calc_cks.exit.i, label %.preheader147.i, !llvm.loop !12
+  br i1 %.not.i.i, label %calc_cks.exit.i, label %.preheader147.i, !llvm.loop !11
 
 calc_cks.exit.i:                                  ; preds = %.preheader147.i
   %.not80.i = icmp eq i8 %37, 0
@@ -928,7 +928,7 @@ calc_cks.exit.i:                                  ; preds = %.preheader147.i
   %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i90.i)
   %44 = add i8 %43, %.056.i91.i
   %.not.i92.i = icmp eq i32 %41, 0
-  br i1 %.not.i92.i, label %calc_cks.exit93.i, label %40, !llvm.loop !12
+  br i1 %.not.i92.i, label %calc_cks.exit93.i, label %40, !llvm.loop !11
 
 calc_cks.exit93.i:                                ; preds = %40
   %.not81.i = icmp eq i8 %44, 0
@@ -957,7 +957,7 @@ calc_cks.exit93.i:                                ; preds = %40
   %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i95.i)
   %52 = add i8 %51, %.056.i96.i
   %.not.i97.i = icmp eq i32 %49, 0
-  br i1 %.not.i97.i, label %calc_cks.exit98.i, label %.preheader146.i, !llvm.loop !12
+  br i1 %.not.i97.i, label %calc_cks.exit98.i, label %.preheader146.i, !llvm.loop !11
 
 calc_cks.exit98.i:                                ; preds = %.preheader146.i
   %.not82.i = icmp eq i8 %52, 0
@@ -976,7 +976,7 @@ calc_cks.exit98.i:                                ; preds = %.preheader146.i
   %58 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i100.i)
   %59 = add i8 %58, %.056.i101.i
   %.not.i102.i = icmp eq i32 %56, 0
-  br i1 %.not.i102.i, label %calc_cks.exit103.i, label %55, !llvm.loop !12
+  br i1 %.not.i102.i, label %calc_cks.exit103.i, label %55, !llvm.loop !11
 
 calc_cks.exit103.i:                               ; preds = %55
   %.not83.i = icmp eq i8 %59, 0
@@ -996,7 +996,7 @@ calc_cks.exit103.i:                               ; preds = %55
   %64 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i105.i)
   %65 = add i8 %64, %.056.i106.i
   %.not.i107.i = icmp eq i32 %62, 0
-  br i1 %.not.i107.i, label %calc_cks.exit108.i, label %.preheader.i, !llvm.loop !12
+  br i1 %.not.i107.i, label %calc_cks.exit108.i, label %.preheader.i, !llvm.loop !11
 
 calc_cks.exit108.i:                               ; preds = %.preheader.i
   %.not84.i = icmp eq i8 %65, 0
@@ -1015,7 +1015,7 @@ calc_cks.exit108.i:                               ; preds = %.preheader.i
   %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i110.i)
   %72 = add i8 %71, %.056.i111.i
   %.not.i112.i = icmp eq i32 %69, 0
-  br i1 %.not.i112.i, label %calc_cks.exit113.i, label %68, !llvm.loop !12
+  br i1 %.not.i112.i, label %calc_cks.exit113.i, label %68, !llvm.loop !11
 
 calc_cks.exit113.i:                               ; preds = %68
   %.not85.i = icmp eq i8 %72, 0
@@ -1050,7 +1050,7 @@ calc_cks.exit113.i:                               ; preds = %68
   %87 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i115.i)
   %88 = add i8 %87, %.056.i116.i
   %.not.i117.i = icmp eq i32 %85, 0
-  br i1 %.not.i117.i, label %calc_cks.exit118.i, label %84, !llvm.loop !12
+  br i1 %.not.i117.i, label %calc_cks.exit118.i, label %84, !llvm.loop !11
 
 calc_cks.exit118.i:                               ; preds = %84
   store i8 %88, ptr %18, align 4
@@ -1069,7 +1069,7 @@ calc_cks.exit118.i:                               ; preds = %84
   %96 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i120.i)
   %97 = add i8 %96, %.056.i121.i
   %.not.i122.i = icmp eq i32 %94, 0
-  br i1 %.not.i122.i, label %.loopexit, label %93, !llvm.loop !12
+  br i1 %.not.i122.i, label %.loopexit, label %93, !llvm.loop !11
 
 .sink.split.sink.split.i:                         ; preds = %calc_cks.exit113.i, %calc_cks.exit103.i, %calc_cks.exit93.i
   %.sink.i = phi i32 [ 12, %calc_cks.exit93.i ], [ 10, %calc_cks.exit103.i ], [ 8, %calc_cks.exit113.i ]
@@ -1204,7 +1204,7 @@ define internal fastcc i32 @dissect_ipmi_cmd(ptr noundef %0, ptr noundef %1, ptr
   %8 = alloca %struct.nstime_t, align 8
   %9 = alloca [240 x i8], align 16
   %10 = alloca %struct.nstime_t, align 8
-  %11 = load i8, ptr @dissect_bus_commands, align 1, !range !6, !noundef !13
+  %11 = load i8, ptr @dissect_bus_commands, align 1, !range !6, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %18, label %13
 
@@ -1337,7 +1337,7 @@ get_frame_data.exit.i:                            ; preds = %78, %.lr.ph.i
   call void @wmem_list_remove_frame(ptr noundef %90, ptr noundef nonnull %.01217.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
   %.not.i = icmp eq ptr %88, null
-  br i1 %.not.i, label %remove_old_requests.exitthread-pre-split, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %remove_old_requests.exitthread-pre-split, label %.lr.ph.i
 
 remove_old_requests.exitthread-pre-split:         ; preds = %87, %get_frame_data.exit, %.thread.i
   %.pr = load i8, ptr %43, align 8
@@ -1431,7 +1431,7 @@ remove_old_requests.exit:                         ; preds = %remove_old_requests
 142:                                              ; preds = %.lr.ph.split.us.i.i
   %143 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02128.us.i.i)
   %.not.us.i.i = icmp eq ptr %143, null
-  br i1 %.not.us.i.i, label %get_matched_request.exit.thread.i, label %.lr.ph.split.us.i.i, !llvm.loop !15
+  br i1 %.not.us.i.i, label %get_matched_request.exit.thread.i, label %.lr.ph.split.us.i.i, !llvm.loop !13
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %151
   %.02128.i.i = phi ptr [ %152, %151 ], [ %108, %.lr.ph.i.i ]
@@ -1454,7 +1454,7 @@ remove_old_requests.exit:                         ; preds = %remove_old_requests
 151:                                              ; preds = %150
   %152 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02128.i.i)
   %.not.i.i = icmp eq ptr %152, null
-  br i1 %.not.i.i, label %get_matched_request.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %get_matched_request.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !15
 
 get_matched_request.exit.thread.i:                ; preds = %142, %151, %103
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #15
@@ -1596,7 +1596,7 @@ match_request_response.exit:                      ; preds = %189, %183, %179, %9
 230:                                              ; preds = %226, %219
   %.0.i288 = load ptr, ptr %.018.i, align 8
   %.not.i289 = icmp eq ptr %.0.i288, null
-  br i1 %.not.i289, label %ipmi_getnetfn.exit.thread, label %219, !llvm.loop !10
+  br i1 %.not.i289, label %ipmi_getnetfn.exit.thread, label %219, !llvm.loop !9
 
 ipmi_getnetfn.exit.thread:                        ; preds = %230, %match_request_response.exit
   %231 = getelementptr inbounds nuw i8, ptr %5, i64 10
@@ -1628,7 +1628,7 @@ ipmi_getnetfn.exit.thread:                        ; preds = %230, %match_request
   %244 = add nuw nsw i64 %.01014.i, 1
   %245 = getelementptr i8, ptr %.01113.i, i64 56
   %exitcond.not.i = icmp eq i64 %244, %238
-  br i1 %exitcond.not.i, label %ipmi_getcmd.exit, label %.lr.ph.i292, !llvm.loop !11
+  br i1 %exitcond.not.i, label %ipmi_getcmd.exit, label %.lr.ph.i292, !llvm.loop !10
 
 ipmi_getcmd.exit:                                 ; preds = %.lr.ph.i292, %243, %ipmi_getnetfn.exit.thread, %232
   %.not.i290310 = phi i1 [ false, %232 ], [ true, %ipmi_getnetfn.exit.thread ], [ false, %243 ], [ false, %.lr.ph.i292 ]
@@ -2149,7 +2149,7 @@ define hidden void @proto_register_ipmi() local_unnamed_addr #0 {
   store i32 0, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %13 = icmp samesign ult i64 %indvars.iv, 62
-  br i1 %13, label %8, label %14, !llvm.loop !18
+  br i1 %13, label %8, label %14, !llvm.loop !16
 
 14:                                               ; preds = %8
   %15 = load i32, ptr @proto_ipmi, align 4
@@ -2464,7 +2464,7 @@ define internal void @parse_binary(ptr noundef writeonly captures(none) %0, ptr 
   store i8 32, ptr %18, align 1
   %20 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %20, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %21 = getelementptr i8, ptr %.01213, i64 2
@@ -2521,7 +2521,7 @@ define internal void @parse_bcdplus(ptr noundef writeonly captures(none) %0, ptr
   %16 = sub nuw nsw i32 4, %.01116
   %17 = add nuw i32 %.01314, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2587,7 +2587,7 @@ define internal void @parse_6bit_ascii(ptr noundef writeonly captures(none) %0, 
   %27 = getelementptr i8, ptr %.03437, i64 4
   %28 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %28, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.034.lcssa = phi ptr [ %0, %4 ], [ %27, %.lr.ph ]
@@ -2666,7 +2666,7 @@ define internal void @get_len_8bit_ascii(ptr noundef captures(none) initializes(
   store i32 %12, ptr %0, align 4
   %13 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -2701,7 +2701,7 @@ define internal void @parse_8bit_ascii(ptr noundef %0, ptr noundef %1, i32 nound
 16:                                               ; preds = %12, %10
   %.1 = phi ptr [ %11, %10 ], [ %15, %12 ]
   %17 = icmp ult ptr %.1, %6
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %16, %4
   ret void
@@ -2738,7 +2738,7 @@ define internal void @parse_unicode(ptr noundef %0, ptr noundef %1, i32 noundef 
   %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.014, i64 noundef 7, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.146, i32 noundef %12, i32 noundef %13)
   %15 = getelementptr i8, ptr %.014, i64 6
   %16 = icmp ult ptr %15, %6
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2867,21 +2867,19 @@ attributes #15 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = !{}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !8, !9, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = !{}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

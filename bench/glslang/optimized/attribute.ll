@@ -704,7 +704,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread:  ; preds = %13, %_ZNK7glslang14
 49:                                               ; preds = %40, %41, %42, %32
   %.sroa.09.0 = load ptr, ptr %.sroa.09.015, align 8
   %.not = icmp eq ptr %.sroa.09.0, %10
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %13, !llvm.loop !6
 
 .loopexit:                                        ; preds = %49, %9, %3
   ret void
@@ -793,7 +793,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread:  ; preds = %13, %_ZNK7glslang14
 49:                                               ; preds = %40, %41, %42, %32
   %.sroa.09.0 = load ptr, ptr %.sroa.09.015, align 8
   %.not = icmp eq ptr %.sroa.09.0, %10
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %13, !llvm.loop !7
 
 .loopexit:                                        ; preds = %49, %9, %3
   ret void
@@ -846,7 +846,7 @@ define void @_ZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14T
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not74 = icmp eq ptr %33, %39
-  br i1 %.not74, label %.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %.not74, label %.thread, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %19, %32
   %.sroa.065.078 = phi ptr [ %33, %32 ], [ %25, %19 ]
@@ -1379,7 +1379,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %
   %storemerge = load ptr, ptr %381, align 8
   store ptr %storemerge, ptr %5, align 8
   %.not75 = icmp eq ptr %storemerge, %45
-  br i1 %.not75, label %.thread, label %57, !llvm.loop !10
+  br i1 %.not75, label %.thread, label %57, !llvm.loop !9
 
 .thread:                                          ; preds = %32, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread", %19, %.loopexit, %13
   ret void
@@ -1576,7 +1576,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread:  ; preds = %6, %_ZNK7glslang14T
 44:                                               ; preds = %31, %36, %41, %25
   %.sroa.07.0 = load ptr, ptr %.sroa.07.013, align 8
   %.not = icmp eq ptr %.sroa.07.0, %4
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %44, %3
   ret void
@@ -1633,11 +1633,10 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

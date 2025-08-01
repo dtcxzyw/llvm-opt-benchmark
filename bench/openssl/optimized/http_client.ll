@@ -1067,7 +1067,7 @@ check_max_len.exit:                               ; preds = %check_max_len.exit.
   %.not.i = icmp ne i64 %164, 0
   %165 = icmp ugt i64 %163, %164
   %or.cond.i = and i1 %.not.i, %165
-  br i1 %or.cond.i, label %check_max_len.exit.thread, label %check_max_len.exit, !llvm.loop !40
+  br i1 %or.cond.i, label %check_max_len.exit.thread, label %check_max_len.exit
 
 check_max_len.exit.thread:                        ; preds = %162
   call void @ERR_new() #9
@@ -1131,7 +1131,7 @@ check_max_len.exit.thread:                        ; preds = %162
   %188 = getelementptr inbounds nuw i8, ptr %.05286.i, i64 1
   %189 = load i8, ptr %188, align 1, !tbaa !27
   %.not.i266 = icmp eq i8 %189, 0
-  br i1 %.not.i266, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not.i266, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !40
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %.pr.i = load i8, ptr %.05286.i, align 1, !tbaa !27
@@ -1150,7 +1150,7 @@ check_max_len.exit.thread:                        ; preds = %162
   %195 = getelementptr inbounds nuw i8, ptr %.15387.i, i64 1
   %.pr75.i = load i8, ptr %195, align 1, !tbaa !27
   %.not63.i = icmp eq i8 %.pr75.i, 0
-  br i1 %.not63.i, label %.critedge.thread.i, label %.preheader81.i, !llvm.loop !44
+  br i1 %.not63.i, label %.critedge.thread.i, label %.preheader81.i, !llvm.loop !42
 
 .critedge2.i:                                     ; preds = %.preheader81.i
   %.pre.i = load i8, ptr %.15387.i, align 1, !tbaa !27
@@ -1169,7 +1169,7 @@ check_max_len.exit.thread:                        ; preds = %162
   %201 = getelementptr inbounds nuw i8, ptr %.088.i, i64 1
   %.pr76.i = load i8, ptr %201, align 1, !tbaa !27
   %.not65.i = icmp eq i8 %.pr76.i, 0
-  br i1 %.not65.i, label %.critedge.thread.i, label %.preheader80.i, !llvm.loop !45
+  br i1 %.not65.i, label %.critedge.thread.i, label %.preheader80.i, !llvm.loop !43
 
 .critedge4.i:                                     ; preds = %.preheader80.i
   %.pre99.i = load i8, ptr %.088.i, align 1, !tbaa !27
@@ -1196,7 +1196,7 @@ check_max_len.exit.thread:                        ; preds = %162
   %210 = sext i8 %208 to i32
   %211 = call i32 @ossl_ctype_check(i32 noundef %210, i32 noundef 8) #9
   %.not69.i = icmp eq i32 %211, 0
-  br i1 %.not69.i, label %.critedge6.i, label %.preheader.i, !llvm.loop !46
+  br i1 %.not69.i, label %.critedge6.i, label %.preheader.i, !llvm.loop !44
 
 .critedge6.i:                                     ; preds = %209
   %.pr77.i = load i8, ptr %.1.i, align 1, !tbaa !27
@@ -1222,7 +1222,7 @@ check_max_len.exit.thread:                        ; preds = %162
   %219 = sext i8 %218 to i32
   %220 = call i32 @ossl_ctype_check(i32 noundef %219, i32 noundef 8) #9
   %.not71.i = icmp eq i32 %220, 0
-  br i1 %.not71.i, label %.critedge6.thread.i, label %.lr.ph92.i, !llvm.loop !47
+  br i1 %.not71.i, label %.critedge6.thread.i, label %.lr.ph92.i, !llvm.loop !45
 
 .critedge6.thread.i:                              ; preds = %.preheader.i, %.lr.ph92.i, %212, %.critedge6.i
   switch i32 %205, label %221 [
@@ -1272,7 +1272,7 @@ check_max_len.exit.thread:                        ; preds = %162
 233:                                              ; preds = %232, %229
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 60
-  br i1 %exitcond.not.i, label %parse_http_line1.exit.thread, label %226, !llvm.loop !48
+  br i1 %exitcond.not.i, label %parse_http_line1.exit.thread, label %226, !llvm.loop !46
 
 parse_http_line1.exit.thread:                     ; preds = %226, %233
   %.055.lcssa.i = phi i64 [ 60, %233 ], [ %indvars.iv.i, %226 ]
@@ -1313,7 +1313,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   %.sink = phi i32 [ 2, %parse_http_line1.exit ], [ 4, %236 ], [ 3, %238 ], [ 3, %parse_http_line1.exit.thread ], [ %spec.select, %239 ]
   %.3270.ph.be = phi i32 [ %183, %parse_http_line1.exit ], [ %183, %236 ], [ %183, %238 ], [ %.5272, %parse_http_line1.exit.thread ], [ %183, %239 ]
   store i32 %.sink, ptr %0, align 8, !tbaa !3
-  br label %check_max_len.exit.outer, !llvm.loop !40
+  br label %check_max_len.exit.outer
 
 241:                                              ; preds = %175
   %242 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 58) #10
@@ -1331,7 +1331,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   %246 = sext i8 %245 to i32
   %247 = call i32 @ossl_ctype_check(i32 noundef %246, i32 noundef 8) #9
   %.not235 = icmp eq i32 %247, 0
-  br i1 %.not235, label %248, label %244, !llvm.loop !49
+  br i1 %.not235, label %248, label %244, !llvm.loop !47
 
 248:                                              ; preds = %244
   %249 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1196, i32 noundef 13) #10
@@ -1477,7 +1477,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
 
 311:                                              ; preds = %309, %309
   %312 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
-  br label %309, !llvm.loop !50
+  br label %309, !llvm.loop !48
 
 313:                                              ; preds = %309
   %314 = load i32, ptr %30, align 8, !tbaa !31
@@ -1607,7 +1607,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   %363 = or disjoint i64 %359, %362
   %364 = add nuw nsw i32 %.0187404, 1
   %exitcond.not = icmp eq i32 %364, %354
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %narrow = add nuw nsw i32 %354, 2
@@ -1645,7 +1645,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   %.0204.be = phi i64 [ %.0204, %97 ], [ %.0204, %131 ], [ %.0204, %122 ], [ %.3207, %145 ], [ %.3207, %155 ], [ %.1205, %339 ], [ %.1205, %351 ], [ %.2206, %377 ], [ %.2206, %373 ]
   %.0197.be = phi i32 [ %.0197, %97 ], [ %.0197, %131 ], [ %.0197, %122 ], [ %.3200.ph.ph, %145 ], [ %.3200.ph.ph, %155 ], [ %.1198, %339 ], [ %.1198, %351 ], [ %.2199, %377 ], [ %.2199, %373 ]
   %.0191.be = phi i64 [ %.0191, %97 ], [ %.0191, %131 ], [ %.0191, %122 ], [ %.3194.ph, %145 ], [ %.3194.ph, %155 ], [ %.1192, %339 ], [ %.1192, %351 ], [ %.2193, %377 ], [ %.2193, %373 ]
-  br label %.backedge, !llvm.loop !52
+  br label %.backedge
 
 377:                                              ; preds = %373
   %378 = load i64, ptr %34, align 8, !tbaa !25
@@ -1742,7 +1742,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %1, align 8, !tbaa !53
+  store ptr null, ptr %1, align 8, !tbaa !50
   %5 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef %0)
   %.not = icmp eq i32 %5, 1
   br i1 %.not, label %6, label %13
@@ -1752,7 +1752,7 @@ define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %4) #9
   %10 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %4, i64 noundef %9, ptr noundef %2) #9
-  store ptr %10, ptr %1, align 8, !tbaa !53
+  store ptr %10, ptr %1, align 8, !tbaa !50
   %11 = icmp ne ptr %10, null
   %12 = zext i1 %11 to i32
   br label %13
@@ -1798,7 +1798,7 @@ define ptr @OSSL_HTTP_REQ_CTX_exchange(ptr noundef %0) local_unnamed_addr #0 {
 
 .split11:                                         ; preds = %8
   %13 = tail call i32 @OSSL_HTTP_REQ_CTX_nbio(ptr noundef nonnull %0)
-  br label %7, !llvm.loop !55
+  br label %7
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1828,7 +1828,7 @@ define ptr @OSSL_HTTP_REQ_CTX_exchange(ptr noundef %0) local_unnamed_addr #0 {
   %26 = icmp eq i32 %25, 8
   %.in.v = select i1 %26, i64 32, i64 88
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %27 = load ptr, ptr %.in, align 8, !tbaa !56
+  %27 = load ptr, ptr %.in, align 8, !tbaa !52
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %14, %23, %22, %24, %6
@@ -2081,11 +2081,11 @@ define internal fastcc ptr @http_req_ctx_new(i32 noundef range(i32 0, 2) %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %0, ptr %15, align 4, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %3, ptr %16, align 8, !tbaa !57
+  store ptr %3, ptr %16, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %4, ptr %17, align 8, !tbaa !58
+  store ptr %4, ptr %17, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i32 %5, ptr %18, align 8, !tbaa !59
+  store i32 %5, ptr %18, align 8, !tbaa !55
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %19
 
@@ -2162,7 +2162,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load i32, ptr %17, align 8, !tbaa !59
+  %18 = load i32, ptr %17, align 8, !tbaa !55
   %.not25 = icmp eq i32 %18, 0
   br i1 %.not25, label %19, label %.thread29
 
@@ -2212,7 +2212,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
   %42 = add nuw nsw i32 %.01623.i, 1
   %43 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #9
   %44 = icmp slt i32 %42, %43
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !60
+  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !56
 
 .lr.ph.i:                                         ; preds = %37, %41
   %.01524.i = phi i32 [ %.1.i, %41 ], [ %38, %37 ]
@@ -2223,7 +2223,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
 
 46:                                               ; preds = %.lr.ph.i
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !61
+  %48 = load ptr, ptr %47, align 8, !tbaa !57
   %49 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull @.str.57, ptr noundef %48) #9
   %50 = icmp ne i32 %49, 0
   %spec.select.i = zext i1 %50 to i32
@@ -2232,9 +2232,9 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
 51:                                               ; preds = %46, %.lr.ph.i
   %.1.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !61
+  %53 = load ptr, ptr %52, align 8, !tbaa !57
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !63
+  %55 = load ptr, ptr %54, align 8, !tbaa !59
   %56 = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull readonly %0, ptr noundef %53, ptr noundef %55)
   %.not21.i = icmp eq i32 %56, 0
   br i1 %.not21.i, label %add1_headers.exit.thread, label %41
@@ -2347,7 +2347,7 @@ define ptr @OSSL_HTTP_exchange(ptr noundef %0, ptr noundef writeonly captures(ad
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load i32, ptr %33, align 8, !tbaa !59
+  %34 = load i32, ptr %33, align 8, !tbaa !55
   %.not53 = icmp eq i32 %34, 0
   %35 = select i1 %.not53, ptr @.str.26, ptr @.str.25
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2375,7 +2375,7 @@ define ptr @OSSL_HTTP_exchange(ptr noundef %0, ptr noundef writeonly captures(ad
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %48 = load i32, ptr %47, align 8, !tbaa !59
+  %48 = load i32, ptr %47, align 8, !tbaa !55
   %.not56 = icmp eq i32 %48, 0
   %49 = select i1 %.not56, ptr @.str.31, ptr @.str.30
   %50 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %3, i64 noundef 200, ptr noundef nonnull @.str.29, ptr noundef nonnull %49) #9
@@ -2457,7 +2457,7 @@ define ptr @OSSL_HTTP_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %.069128 = phi i32 [ %12, %.lr.ph ], [ %.5.ph, %120 ]
   %33 = load ptr, ptr %14, align 8, !tbaa !35
   %34 = load ptr, ptr %15, align 8, !tbaa !35
-  %35 = load i32, ptr %17, align 4, !tbaa !64
+  %35 = load i32, ptr %17, align 4, !tbaa !60
   %36 = call ptr @OSSL_HTTP_open(ptr noundef %33, ptr noundef %34, ptr noundef %1, ptr noundef %2, i32 noundef %35, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %.069128)
   %smax = call i32 @llvm.smax.i32(i32 %.041130, i32 49)
   br label %37
@@ -2555,7 +2555,7 @@ may_still_retry.exit:                             ; preds = %62
   %74 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %70, ptr noundef nonnull @.str, i32 noundef 1311) #9
   store ptr %74, ptr %16, align 8, !tbaa !35
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %37, !llvm.loop !65
+  br i1 %75, label %76, label %37
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %14, align 8, !tbaa !35
@@ -2567,7 +2567,7 @@ may_still_retry.exit:                             ; preds = %62
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !57
+  %81 = load ptr, ptr %80, align 8, !tbaa !53
   %.not14.i = icmp eq ptr %81, null
   br i1 %.not14.i, label %.thread87, label %82
 
@@ -2575,7 +2575,7 @@ may_still_retry.exit:                             ; preds = %62
   %83 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %84 = load ptr, ptr %83, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %86 = load ptr, ptr %85, align 8, !tbaa !58
+  %86 = load ptr, ptr %85, align 8, !tbaa !54
   %87 = call ptr %81(ptr noundef %84, ptr noundef %86, i32 noundef 0, i32 noundef 1) #9
   %.not15.i = icmp eq ptr %87, null
   br i1 %.not15.i, label %.thread87, label %88
@@ -2601,7 +2601,7 @@ may_still_retry.exit:                             ; preds = %62
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  %95 = load ptr, ptr %94, align 8, !tbaa !57
+  %95 = load ptr, ptr %94, align 8, !tbaa !53
   %.not14.i59 = icmp eq ptr %95, null
   br i1 %.not14.i59, label %120, label %96
 
@@ -2609,7 +2609,7 @@ may_still_retry.exit:                             ; preds = %62
   %97 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !14
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %100 = load ptr, ptr %99, align 8, !tbaa !58
+  %100 = load ptr, ptr %99, align 8, !tbaa !54
   %101 = call ptr %95(ptr noundef %98, ptr noundef %100, i32 noundef 0, i32 noundef 1) #9
   %.not15.i60 = icmp eq ptr %101, null
   br i1 %.not15.i60, label %120, label %102
@@ -2637,7 +2637,7 @@ may_still_retry.exit:                             ; preds = %62
 
 108:                                              ; preds = %.loopexit
   %109 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !57
+  %110 = load ptr, ptr %109, align 8, !tbaa !53
   %.not14.i64 = icmp eq ptr %110, null
   br i1 %.not14.i64, label %OSSL_HTTP_close.exit67.thread, label %111
 
@@ -2645,7 +2645,7 @@ may_still_retry.exit:                             ; preds = %62
   %112 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %115 = load ptr, ptr %114, align 8, !tbaa !58
+  %115 = load ptr, ptr %114, align 8, !tbaa !54
   %116 = call ptr %110(ptr noundef %113, ptr noundef %115, i32 noundef 0, i32 noundef %107) #9
   %.not15.i65 = icmp eq ptr %116, null
   br i1 %.not15.i65, label %118, label %117
@@ -2694,7 +2694,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_close(ptr noundef %0, i32 noundef %1) loca
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !53
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %13, label %6
 
@@ -2702,7 +2702,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_close(ptr noundef %0, i32 noundef %1) loca
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = tail call ptr %5(ptr noundef %8, ptr noundef %10, i32 noundef 0, i32 noundef %1) #9
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %13, label %12
@@ -2723,7 +2723,7 @@ define ptr @OSSL_HTTP_transfer(ptr noundef captures(address_is_null) %0, ptr nou
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %0, align 8, !tbaa !66
+  %23 = load ptr, ptr %0, align 8, !tbaa !61
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %.thread45
 
@@ -2753,7 +2753,7 @@ OSSL_HTTP_is_alive.exit:                          ; preds = %27
 .thread51:                                        ; preds = %.thread45, %27, %OSSL_HTTP_is_alive.exit
   %.153 = phi ptr [ %28, %OSSL_HTTP_is_alive.exit ], [ null, %27 ], [ null, %.thread45 ]
   %32 = getelementptr inbounds nuw i8, ptr %.03450, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !57
+  %33 = load ptr, ptr %32, align 8, !tbaa !53
   %.not14.i = icmp eq ptr %33, null
   br i1 %.not14.i, label %OSSL_HTTP_close.exit.thread, label %34
 
@@ -2763,7 +2763,7 @@ OSSL_HTTP_is_alive.exit:                          ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %.03450, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %.03450, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !58
+  %40 = load ptr, ptr %39, align 8, !tbaa !54
   %41 = tail call ptr %33(ptr noundef %38, ptr noundef %40, i32 noundef 0, i32 noundef %36) #9
   %.not15.i = icmp eq ptr %41, null
   br i1 %.not15.i, label %43, label %42
@@ -2787,7 +2787,7 @@ OSSL_HTTP_close.exit.thread:                      ; preds = %42, %.thread51
   br i1 %21, label %47, label %46
 
 46:                                               ; preds = %45
-  store ptr %.135, ptr %0, align 8, !tbaa !66
+  store ptr %.135, ptr %0, align 8, !tbaa !61
   br label %47
 
 47:                                               ; preds = %46, %45
@@ -2900,7 +2900,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_proxy_connect(ptr noundef %0, ptr noundef 
   %65 = sext i32 %63 to i64
   %66 = icmp uge i64 %58, %65
   %67 = and i1 %64, %66
-  br i1 %67, label %69, label %68, !prof !68
+  br i1 %67, label %69, label %68, !prof !63
 
 68:                                               ; preds = %62
   tail call void @CRYPTO_free(ptr noundef nonnull %60, ptr noundef nonnull @.str, i32 noundef 1416) #9
@@ -2930,7 +2930,7 @@ base64encode.exit.thread:                         ; preds = %54, %68, %50
 77:                                               ; preds = %74
   %78 = tail call i32 @BIO_test_flags(ptr noundef nonnull %11, i32 noundef 8) #9
   %.not115 = icmp eq i32 %78, 0
-  br i1 %.not115, label %.preheader151, label %74, !llvm.loop !69
+  br i1 %.not115, label %.preheader151, label %74
 
 .preheader151:                                    ; preds = %77, %74
   br label %79
@@ -2949,7 +2949,7 @@ base64encode.exit.thread:                         ; preds = %54, %68, %50
 86:                                               ; preds = %79
   %87 = tail call i32 @BIO_gets(ptr noundef nonnull %11, ptr noundef %9, i32 noundef 8192) #9
   %88 = icmp slt i32 %87, 13
-  br i1 %88, label %79, label %89, !llvm.loop !70
+  br i1 %88, label %79, label %89
 
 89:                                               ; preds = %86
   %90 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.41, i64 noundef 5) #10
@@ -3000,54 +3000,54 @@ sub_0133:                                         ; preds = %.tail
   %.not116 = icmp eq i32 %106, 0
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %spec.select = select i1 %.not116, ptr %100, ptr %107
-  %invariant.gep = getelementptr i8, ptr %9, i64 -1
   %108 = zext nneg i32 %87 to i64
   br label %109
 
-109:                                              ; preds = %.tail132.thread, %113
-  %indvars.iv = phi i64 [ %108, %.tail132.thread ], [ %indvars.iv.next, %113 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %110 = load i8, ptr %gep, align 1, !tbaa !27
-  %111 = sext i8 %110 to i32
-  %112 = tail call i32 @ossl_ctype_check(i32 noundef %111, i32 noundef 8) #9
-  %.not117 = icmp eq i32 %112, 0
-  br i1 %.not117, label %.critedge, label %113
+109:                                              ; preds = %.tail132.thread, %115
+  %indvars.iv = phi i64 [ %108, %.tail132.thread ], [ %indvars.iv.next, %115 ]
+  %110 = getelementptr i8, ptr %9, i64 %indvars.iv
+  %111 = getelementptr i8, ptr %110, i64 -1
+  %112 = load i8, ptr %111, align 1, !tbaa !27
+  %113 = sext i8 %112 to i32
+  %114 = tail call i32 @ossl_ctype_check(i32 noundef %113, i32 noundef 8) #9
+  %.not117 = icmp eq i32 %114, 0
+  br i1 %.not117, label %.critedge, label %115
 
-113:                                              ; preds = %109
-  %114 = trunc nuw i64 %indvars.iv to i32
+115:                                              ; preds = %109
+  %116 = trunc nuw i64 %indvars.iv to i32
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %115 = icmp sgt i32 %114, 1
-  br i1 %115, label %109, label %.critedge, !llvm.loop !71
+  %117 = icmp sgt i32 %116, 1
+  br i1 %117, label %109, label %.critedge, !llvm.loop !64
 
-.critedge:                                        ; preds = %113, %109
-  %.096.lcssa = phi i64 [ 0, %113 ], [ %indvars.iv, %109 ]
+.critedge:                                        ; preds = %115, %109
+  %.096.lcssa = phi i64 [ 0, %115 ], [ %indvars.iv, %109 ]
   %sext = shl i64 %.096.lcssa, 32
-  %116 = ashr exact i64 %sext, 32
-  %117 = getelementptr inbounds i8, ptr %9, i64 %116
-  store i8 0, ptr %117, align 1, !tbaa !27
+  %118 = ashr exact i64 %sext, 32
+  %119 = getelementptr inbounds i8, ptr %9, i64 %118
+  store i8 0, ptr %119, align 1, !tbaa !27
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1543, ptr noundef nonnull @__func__.OSSL_HTTP_proxy_connect) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 100, ptr noundef nonnull @.str.46, ptr noundef nonnull %spec.select) #9
-  %118 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.47, ptr noundef %7, ptr noundef nonnull %spec.select) #9
+  %120 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.47, ptr noundef %7, ptr noundef nonnull %spec.select) #9
   br label %.loopexit
 
 .preheader:                                       ; preds = %.tail132, %.preheader
-  %119 = tail call i32 @BIO_gets(ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 8192) #9
-  %120 = icmp sgt i32 %119, 2
-  br i1 %120, label %.preheader, label %.thread127, !llvm.loop !72
+  %121 = tail call i32 @BIO_gets(ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 8192) #9
+  %122 = icmp sgt i32 %121, 2
+  br i1 %122, label %.preheader, label %.thread127, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.critedge, %34, %24
   %.not118 = icmp eq ptr %11, null
-  br i1 %.not118, label %124, label %.thread127
+  br i1 %.not118, label %126, label %.thread127
 
 .thread127:                                       ; preds = %.preheader, %82, %97, %.tail.thread, %46, %base64encode.exit.thread, %.loopexit
   %.097130 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %97 ], [ 0, %.tail.thread ], [ 0, %82 ], [ 1, %.preheader ]
-  %121 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
-  %122 = tail call ptr @BIO_pop(ptr noundef nonnull %11) #9
-  %123 = tail call i32 @BIO_free(ptr noundef nonnull %11) #9
-  br label %124
+  %123 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
+  %124 = tail call ptr @BIO_pop(ptr noundef nonnull %11) #9
+  %125 = tail call i32 @BIO_free(ptr noundef nonnull %11) #9
+  br label %126
 
-124:                                              ; preds = %.thread127, %.loopexit
+126:                                              ; preds = %.thread127, %.loopexit
   %.097131 = phi i32 [ %.097130, %.thread127 ], [ 0, %.loopexit ]
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 1568) #9
   ret i32 %.097131
@@ -3140,35 +3140,28 @@ attributes #10 = { nounwind willreturn memory(read) }
 !38 = !{!4, !8, i64 128}
 !39 = !{!11, !11, i64 0}
 !40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = distinct !{!42, !43, !41}
-!43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !41}
-!45 = distinct !{!45, !43, !41}
-!46 = distinct !{!46, !43, !41}
-!47 = distinct !{!47, !43, !41}
-!48 = distinct !{!48, !43, !41}
-!49 = distinct !{!49, !43, !41}
-!50 = distinct !{!50, !43, !41}
-!51 = distinct !{!51, !43, !41}
-!52 = distinct !{!52, !41}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS13ASN1_VALUE_st", !9, i64 0}
-!55 = distinct !{!55, !41}
-!56 = !{!10, !10, i64 0}
-!57 = !{!4, !9, i64 40}
-!58 = !{!4, !9, i64 48}
-!59 = !{!4, !5, i64 56}
-!60 = distinct !{!60, !43, !41}
-!61 = !{!62, !8, i64 8}
-!62 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16}
-!63 = !{!62, !8, i64 16}
-!64 = !{!5, !5, i64 0}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !41}
+!43 = distinct !{!43, !41}
+!44 = distinct !{!44, !41}
+!45 = distinct !{!45, !41}
+!46 = distinct !{!46, !41}
+!47 = distinct !{!47, !41}
+!48 = distinct !{!48, !41}
+!49 = distinct !{!49, !41}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS13ASN1_VALUE_st", !9, i64 0}
+!52 = !{!10, !10, i64 0}
+!53 = !{!4, !9, i64 40}
+!54 = !{!4, !9, i64 48}
+!55 = !{!4, !5, i64 56}
+!56 = distinct !{!56, !41}
+!57 = !{!58, !8, i64 8}
+!58 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16}
+!59 = !{!58, !8, i64 16}
+!60 = !{!5, !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS20ossl_http_req_ctx_st", !9, i64 0}
+!63 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!64 = distinct !{!64, !41}
 !65 = distinct !{!65, !41}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS20ossl_http_req_ctx_st", !9, i64 0}
-!68 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!69 = distinct !{!69, !41}
-!70 = distinct !{!70, !41}
-!71 = distinct !{!71, !43, !41}
-!72 = distinct !{!72, !43, !41}

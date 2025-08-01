@@ -627,7 +627,7 @@ _ZN14ShenandoahHeap11has_changedEv.exit.thread:   ; preds = %187, %_ZN14Shenando
   %210 = load i64, ptr @ShenandoahControlIntervalMin, align 8
   call void @_ZN2os17naked_short_sleepEl(i64 noundef %210) #10
   %211 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
-  br i1 %211, label %._crit_edge, label %.lr.ph119, !llvm.loop !13
+  br i1 %211, label %._crit_edge, label %.lr.ph119, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph119, %.critedge
   ret void
@@ -925,7 +925,7 @@ define hidden void @_ZN23ShenandoahControlThread19handle_requested_gcEN7GCCause5
   %8 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, ptr nonnull %7) #10, !srcloc !6
   %9 = tail call noundef i64 @_ZN20ShenandoahController9get_gc_idEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   %10 = icmp ult i64 %9, %5
-  br i1 %10, label %.lr.ph.split.us, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !14
+  br i1 %10, label %.lr.ph.split.us, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !13
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit
   store i32 %1, ptr %6, align 4
@@ -933,7 +933,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %_ZN13Monit
   %12 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef 0) #10
   %13 = tail call noundef i64 @_ZN20ShenandoahController9get_gc_idEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   %14 = icmp ult i64 %13, %5
-  br i1 %14, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !16
+  br i1 %14, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !15
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %.lr.ph.split.us, %2
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
@@ -1323,10 +1323,9 @@ attributes #11 = { noreturn nounwind }
 !7 = !{i64 2145392468}
 !8 = !{i64 2145411697}
 !9 = !{i64 2145410579}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !11}

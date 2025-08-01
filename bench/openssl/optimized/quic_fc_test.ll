@@ -1033,6 +1033,5 @@ attributes #8 = { cold nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !21 = !{!12, !13, i64 40}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}

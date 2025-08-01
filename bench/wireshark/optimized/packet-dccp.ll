@@ -2246,7 +2246,7 @@ dccp_ntoh_var.exit.i:                             ; preds = %79, %76, %73, %70, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef nonnull @.str.265, ptr noundef nonnull %82, i32 noundef 10)
   %83 = add nuw nsw i32 %.142.i, 1
   %exitcond.not.i = icmp eq i32 %83, %48
-  br i1 %exitcond.not.i, label %dissect_feature_options.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %dissect_feature_options.exit, label %.lr.ph.i, !llvm.loop !12
 
 84:                                               ; preds = %49
   %85 = load ptr, ptr %6, align 8
@@ -2731,7 +2731,7 @@ dissect_feature_options.exit:                     ; preds = %.lr.ph44.i, %.lr.ph
   %386 = zext i8 %.1372 to i32
   %387 = add i32 %.2, %386
   %388 = icmp slt i32 %387, %4
-  br i1 %388, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %388, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %385, %5, %17
   ret void
@@ -2966,8 +2966,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = !{}
 !8 = !{i64 2151189044}
 !9 = !{i64 2151189896}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}

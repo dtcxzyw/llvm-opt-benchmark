@@ -425,7 +425,7 @@ php_iptc_get1.exit22.us.i:                        ; preds = %153, %150
 php_iptc_get1.exit22.us27.i:                      ; preds = %.lr.ph.split.split.us.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
   %.not.us28.i = icmp eq i32 %156, 255
-  br i1 %.not.us28.i, label %php_iptc_get1.exit23.preheader.i, label %.lr.ph.split.split.us.i, !llvm.loop !61
+  br i1 %.not.us28.i, label %php_iptc_get1.exit23.preheader.i, label %.lr.ph.split.split.us.i, !llvm.loop !60
 
 php_iptc_get1.exit23.preheader.i.sink.split:      ; preds = %php_iptc_get1.exit22.i, %php_iptc_get1.exit22.us.i
   %.lcssa360.sink = phi ptr [ %155, %php_iptc_get1.exit22.us.i ], [ %170, %php_iptc_get1.exit22.i ]
@@ -460,7 +460,7 @@ php_iptc_get1.exit23.us.i:                        ; preds = %php_iptc_get1.exit2
 php_iptc_put1.exit.us.i:                          ; preds = %162, %160
   %164 = phi ptr [ %163, %162 ], [ %158, %160 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  br label %php_iptc_get1.exit23.us.i, !llvm.loop !62
+  br label %php_iptc_get1.exit23.us.i, !llvm.loop !61
 
 php_iptc_get1.exit23.preheader.split.i:           ; preds = %php_iptc_get1.exit23.preheader.i
   br i1 %.not138414, label %php_iptc_get1.exit23.us29.i, label %php_iptc_get1.exit23.i
@@ -470,7 +470,7 @@ php_iptc_get1.exit23.us29.i:                      ; preds = %php_iptc_get1.exit2
   switch i32 %165, label %php_iptc_next_marker.exit [
     i32 -1, label %php_iptc_next_marker.exit.thread
     i32 255, label %php_iptc_get1.exit23.us29.i
-  ], !llvm.loop !63
+  ], !llvm.loop !62
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %php_iptc_get1.exit22.i
   %166 = phi ptr [ %170, %php_iptc_get1.exit22.i ], [ %.promoted283, %.lr.ph.split.i ]
@@ -494,7 +494,7 @@ php_iptc_get1.exit22.i:                           ; preds = %.lr.ph.split.split.
   store i8 %169, ptr %166, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
   %.not.i162 = icmp eq i32 %167, 255
-  br i1 %.not.i162, label %php_iptc_get1.exit23.preheader.i.sink.split, label %.lr.ph.split.split.i, !llvm.loop !64
+  br i1 %.not.i162, label %php_iptc_get1.exit23.preheader.i.sink.split, label %.lr.ph.split.split.i
 
 php_iptc_get1.exit23.i:                           ; preds = %php_iptc_get1.exit23.preheader.split.i, %php_iptc_put1.exit.i
   %171 = phi ptr [ %173, %php_iptc_put1.exit.i ], [ %.promoted289, %php_iptc_get1.exit23.preheader.split.i ]
@@ -509,7 +509,7 @@ php_iptc_put1.exit.i:                             ; preds = %php_iptc_get1.exit2
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 1
   store i8 -1, ptr %171, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  br label %php_iptc_get1.exit23.i, !llvm.loop !65
+  br label %php_iptc_get1.exit23.i
 
 php_iptc_next_marker.exit.sink.split:             ; preds = %php_iptc_get1.exit23.i, %php_iptc_get1.exit23.us.i
   %.lcssa366.sink = phi ptr [ %158, %php_iptc_get1.exit23.us.i ], [ %171, %php_iptc_get1.exit23.i ]
@@ -584,7 +584,7 @@ php_iptc_put1.exit:                               ; preds = %182, %183
   %199 = add i32 %.01321.us22.i, -1
   %.not.us24.i = icmp eq i32 %199, 0
   %or.cond262 = select i1 %198, i1 true, i1 %.not.us24.i
-  br i1 %or.cond262, label %php_iptc_skip_variable.exit, label %.lr.ph.split.split.us.i166, !llvm.loop !66
+  br i1 %or.cond262, label %php_iptc_skip_variable.exit, label %.lr.ph.split.split.us.i166, !llvm.loop !63
 
 php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.us.i166, %188, %185, %191
   %200 = call i32 @fgetc(ptr noundef nonnull %66)
@@ -619,7 +619,7 @@ php_iptc_get1.exit.us.i:                          ; preds = %210, %.lr.ph.split.
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
   %213 = call i32 @getc(ptr noundef nonnull %66)
   %214 = icmp eq i32 %213, -1
-  br i1 %214, label %php_iptc_read_remaining.exit.sink.split, label %.lr.ph.split.us.i172, !llvm.loop !67
+  br i1 %214, label %php_iptc_read_remaining.exit.sink.split, label %.lr.ph.split.us.i172, !llvm.loop !64
 
 .lr.ph.split.i170:                                ; preds = %.lr.ph.i169
   br i1 %.not148, label %php_iptc_get1.exit.us2.i, label %php_iptc_get1.exit.i171
@@ -629,7 +629,7 @@ php_iptc_get1.exit.us2.i:                         ; preds = %.lr.ph.split.i170, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
   %215 = call i32 @getc(ptr noundef nonnull %66)
   %216 = icmp eq i32 %215, -1
-  br i1 %216, label %php_iptc_read_remaining.exit, label %php_iptc_get1.exit.us2.i, !llvm.loop !68
+  br i1 %216, label %php_iptc_read_remaining.exit, label %php_iptc_get1.exit.us2.i, !llvm.loop !65
 
 php_iptc_get1.exit.i171:                          ; preds = %.lr.ph.split.i170, %php_iptc_get1.exit.i171
   %217 = phi ptr [ %220, %php_iptc_get1.exit.i171 ], [ %174, %.lr.ph.split.i170 ]
@@ -641,7 +641,7 @@ php_iptc_get1.exit.i171:                          ; preds = %.lr.ph.split.i170, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
   %221 = call i32 @getc(ptr noundef nonnull %66)
   %222 = icmp eq i32 %221, -1
-  br i1 %222, label %php_iptc_read_remaining.exit.sink.split, label %php_iptc_get1.exit.i171, !llvm.loop !69
+  br i1 %222, label %php_iptc_read_remaining.exit.sink.split, label %php_iptc_get1.exit.i171
 
 php_iptc_read_remaining.exit.sink.split:          ; preds = %php_iptc_get1.exit.i171, %php_iptc_get1.exit.us.i
   %.sink = phi ptr [ %212, %php_iptc_get1.exit.us.i ], [ %220, %php_iptc_get1.exit.i171 ]
@@ -706,7 +706,7 @@ php_iptc_put1.exit176:                            ; preds = %243, %244
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %247 = add nuw nsw i64 %.0118298, 1
   %exitcond.not = icmp eq i64 %247, 28
-  br i1 %exitcond.not, label %248, label %234, !llvm.loop !70
+  br i1 %exitcond.not, label %248, label %234
 
 248:                                              ; preds = %php_iptc_put1.exit176
   %249 = load i64, ptr %17, align 8, !tbaa !4
@@ -798,7 +798,7 @@ php_iptc_put1.exit188:                            ; preds = %276, %277
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %280 = add nuw i64 %.1119301, 1
   %exitcond338.not = icmp eq i64 %280, %spec.select
-  br i1 %exitcond338.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond338.not, label %.loopexit, label %.lr.ph
 
 281:                                              ; preds = %php_iptc_put1.exit
   %282 = load i64, ptr %17, align 8, !tbaa !4
@@ -833,7 +833,7 @@ php_iptc_get1.exit.us.i194:                       ; preds = %292, %.lr.ph.split.
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   %295 = call i32 @getc(ptr noundef nonnull %66)
   %296 = icmp eq i32 %295, -1
-  br i1 %296, label %php_iptc_read_remaining.exit195.sink.split, label %.lr.ph.split.us.i193, !llvm.loop !67
+  br i1 %296, label %php_iptc_read_remaining.exit195.sink.split, label %.lr.ph.split.us.i193, !llvm.loop !64
 
 .lr.ph.split.i190:                                ; preds = %.lr.ph.i189
   br i1 %.not141, label %php_iptc_get1.exit.us2.i192, label %php_iptc_get1.exit.i191
@@ -843,7 +843,7 @@ php_iptc_get1.exit.us2.i192:                      ; preds = %.lr.ph.split.i190, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   %297 = call i32 @getc(ptr noundef nonnull %66)
   %298 = icmp eq i32 %297, -1
-  br i1 %298, label %php_iptc_read_remaining.exit195, label %php_iptc_get1.exit.us2.i192, !llvm.loop !68
+  br i1 %298, label %php_iptc_read_remaining.exit195, label %php_iptc_get1.exit.us2.i192, !llvm.loop !65
 
 php_iptc_get1.exit.i191:                          ; preds = %.lr.ph.split.i190, %php_iptc_get1.exit.i191
   %299 = phi ptr [ %302, %php_iptc_get1.exit.i191 ], [ %283, %.lr.ph.split.i190 ]
@@ -855,7 +855,7 @@ php_iptc_get1.exit.i191:                          ; preds = %.lr.ph.split.i190, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   %303 = call i32 @getc(ptr noundef nonnull %66)
   %304 = icmp eq i32 %303, -1
-  br i1 %304, label %php_iptc_read_remaining.exit195.sink.split, label %php_iptc_get1.exit.i191, !llvm.loop !69
+  br i1 %304, label %php_iptc_read_remaining.exit195.sink.split, label %php_iptc_get1.exit.i191
 
 php_iptc_read_remaining.exit195.sink.split:       ; preds = %php_iptc_get1.exit.i191, %php_iptc_get1.exit.us.i194
   %.sink416 = phi ptr [ %294, %php_iptc_get1.exit.us.i194 ], [ %302, %php_iptc_get1.exit.i191 ]
@@ -888,7 +888,7 @@ php_iptc_read_remaining.exit195:                  ; preds = %php_iptc_get1.exit.
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #10
   %311 = call i32 @getc(ptr noundef nonnull %66)
   %312 = icmp eq i32 %311, -1
-  br i1 %312, label %php_iptc_get1.exit.thread.i, label %.lr.ph415, !llvm.loop !72
+  br i1 %312, label %php_iptc_get1.exit.thread.i, label %.lr.ph415
 
 php_iptc_next_marker.exit.thread.loopexit:        ; preds = %php_iptc_get1.exit23.us.i
   store ptr %158, ptr %18, align 8
@@ -1123,7 +1123,7 @@ php_iptc_get1.exit17:                             ; preds = %19
 php_iptc_get1.exit19.us:                          ; preds = %43, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   %.not.us = icmp eq i32 %37, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !73
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !66
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -1139,7 +1139,7 @@ php_iptc_get1.exit19.us23:                        ; preds = %.lr.ph.split.split.
   %48 = add i32 %.01321.us22, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   %.not.us24 = icmp eq i32 %48, 0
-  br i1 %.not.us24, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !66
+  br i1 %.not.us24, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !63
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %php_iptc_get1.exit19
   %.01321 = phi i32 [ %51, %php_iptc_get1.exit19 ], [ %36, %.lr.ph.split ]
@@ -1161,7 +1161,7 @@ php_iptc_get1.exit19:                             ; preds = %.lr.ph.split.split
   store i8 %52, ptr %53, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !74
+  br i1 %.not, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %php_iptc_get1.exit19, %php_iptc_get1.exit19.us23, %php_iptc_get1.exit19.us, %31, %php_iptc_get1.exit19.thread, %php_iptc_get1.exit17, %php_iptc_get1.exit
   ret void
@@ -1237,7 +1237,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
 26:                                               ; preds = %23, %.lr.ph
   %27 = add nuw i64 %.0139, 1
   %exitcond.not = icmp eq i64 %27, %19
-  br i1 %exitcond.not, label %._crit_edge146.thread, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge146.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %23, %.critedge
   %.0.lcssa = phi i64 [ 0, %.critedge ], [ %.0139, %23 ]
@@ -1352,7 +1352,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   %90 = call i32 @add_next_index_stringl(ptr noundef %.090, ptr noundef nonnull %89, i64 noundef %66) #10
   %91 = add i32 %.089142, 1
   %92 = icmp ult i64 %69, %19
-  br i1 %92, label %31, label %._crit_edge146, !llvm.loop !76
+  br i1 %92, label %31, label %._crit_edge146
 
 ._crit_edge146:                                   ; preds = %88, %31, %42, %68, %62
   %.089.lcssa.ph = phi i32 [ %91, %88 ], [ %.089142, %31 ], [ %.089142, %42 ], [ %.089142, %68 ], [ %.089142, %62 ]
@@ -1480,22 +1480,12 @@ attributes #13 = { nounwind allocsize(0) }
 !55 = !{!"timespec", !5, i64 0, !5, i64 8}
 !56 = !{!17, !18, i64 0}
 !57 = !{!16, !5, i64 8}
-!58 = distinct !{!58, !59, !60}
-!59 = !{!"llvm.loop.estimated_trip_count"}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !59, !60}
-!62 = distinct !{!62, !59, !60}
-!63 = distinct !{!63, !59, !60}
+!58 = distinct !{!58, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !59}
+!61 = distinct !{!61, !59}
+!62 = distinct !{!62, !59}
+!63 = distinct !{!63, !59}
 !64 = distinct !{!64, !59}
 !65 = distinct !{!65, !59}
-!66 = distinct !{!66, !59, !60}
-!67 = distinct !{!67, !59, !60}
-!68 = distinct !{!68, !59, !60}
-!69 = distinct !{!69, !59}
-!70 = distinct !{!70, !59}
-!71 = distinct !{!71, !59}
-!72 = distinct !{!72, !59}
-!73 = distinct !{!73, !59, !60}
-!74 = distinct !{!74, !59}
-!75 = distinct !{!75, !59}
-!76 = distinct !{!76, !59}
+!66 = distinct !{!66, !59}

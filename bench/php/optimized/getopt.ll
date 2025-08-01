@@ -148,7 +148,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %75 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %74
   %76 = load i8, ptr %75, align 8, !tbaa !14
   %77 = icmp eq i8 %76, 45
-  br i1 %77, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %77, label %._crit_edge, label %.lr.ph
 
 ._crit_edge143:                                   ; preds = %18, %19
   %.pre144 = load i32, ptr @php_getopt.optchr, align 4, !tbaa !4
@@ -247,7 +247,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %128 = getelementptr inbounds i8, ptr %107, i64 %94
   %129 = load i8, ptr %128, align 1, !tbaa !13
   %130 = icmp eq i8 %129, %102
-  br i1 %130, label %.loopexit, label %97, !llvm.loop !21
+  br i1 %130, label %.loopexit, label %97
 
 .loopexit:                                        ; preds = %127, %..loopexit_crit_edge
   %.2152 = phi i32 [ %96, %..loopexit_crit_edge ], [ %93, %127 ]
@@ -255,7 +255,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %.pre-phi146 = phi i64 [ %.pre145, %..loopexit_crit_edge ], [ %100, %127 ]
   %132 = phi i32 [ %63, %..loopexit_crit_edge ], [ %104, %127 ]
   %133 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %.pre-phi146, i32 1
-  %134 = load i32, ptr %133, align 4, !tbaa !22
+  %134 = load i32, ptr %133, align 4, !tbaa !19
   %.not126 = icmp eq i32 %134, 0
   br i1 %.not126, label %169, label %135
 
@@ -279,7 +279,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %145 = load i32, ptr @php_optidx, align 4, !tbaa !4
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %146, i32 1
-  %148 = load i32, ptr %147, align 4, !tbaa !22
+  %148 = load i32, ptr %147, align 4, !tbaa !19
   %149 = icmp eq i32 %148, 1
   br i1 %144, label %150, label %152
 
@@ -470,7 +470,4 @@ attributes #6 = { cold }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !18 = !{!15, !12, i64 8}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = !{!15, !5, i64 4}
+!19 = !{!15, !5, i64 4}

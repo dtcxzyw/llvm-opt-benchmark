@@ -174,7 +174,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.2246.us = phi ptr [ %106, %98 ], [ %.1245.us, %97 ]
   %108 = add nsw i64 %.0222.us, -1
   %109 = icmp sgt i64 %.0222.us, 1
-  br i1 %109, label %.preheader274.us, label %.loopexit277, !llvm.loop !10
+  br i1 %109, label %.preheader274.us, label %.loopexit277, !llvm.loop !9
 
 .loopexit275.us:                                  ; preds = %21
   %110 = getelementptr inbounds i8, ptr %.1224.us, i64 %.idx
@@ -213,7 +213,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.2246.us299 = phi ptr [ %124, %113 ], [ %.1245.us290, %.preheader276.split.split.us ]
   %126 = add nsw i64 %.0222.us293, -1
   %127 = icmp sgt i64 %.0222.us293, 1
-  br i1 %127, label %.preheader276.split.split.us, label %.loopexit277.loopexit322, !llvm.loop !12
+  br i1 %127, label %.preheader276.split.split.us, label %.loopexit277.loopexit322, !llvm.loop !11
 
 .preheader276.split.split:                        ; preds = %.preheader276.split
   br i1 %.not262, label %.preheader276.split.split.split.us, label %.preheader276.split.split.split
@@ -256,7 +256,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %151 = getelementptr inbounds nuw i8, ptr %.1249.us308, i64 32
   %152 = add nsw i64 %.0222.us312, -1
   %153 = icmp samesign ugt i64 %.0222.us312, 1
-  br i1 %153, label %.preheader276.split.split.split.us, label %.loopexit277.loopexit323, !llvm.loop !13
+  br i1 %153, label %.preheader276.split.split.split.us, label %.loopexit277.loopexit323, !llvm.loop !12
 
 .preheader276.split.split.split:                  ; preds = %.preheader276.split.split, %.preheader276.split.split.split
   %.1249 = phi ptr [ %181, %.preheader276.split.split.split ], [ %8, %.preheader276.split.split ]
@@ -313,7 +313,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %189 = getelementptr inbounds nuw i8, ptr %.1245, i64 16
   %190 = add nsw i64 %.0222, -1
   %191 = icmp samesign ugt i64 %.0222, 1
-  br i1 %191, label %.preheader276.split.split.split, label %.loopexit277.loopexit324, !llvm.loop !14
+  br i1 %191, label %.preheader276.split.split.split, label %.loopexit277.loopexit324, !llvm.loop !13
 
 .loopexit277.loopexit322:                         ; preds = %125
   %192 = shl i64 %12, 6
@@ -391,7 +391,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %226 = getelementptr inbounds i8, ptr %.1254, i64 %.idx265
   %227 = add nsw i64 %.1, -1
   %228 = icmp samesign ugt i64 %.1, 1
-  br i1 %228, label %202, label %.loopexit273, !llvm.loop !15
+  br i1 %228, label %202, label %.loopexit273, !llvm.loop !14
 
 .loopexit273:                                     ; preds = %202, %196
   %.3232 = phi ptr [ %197, %196 ], [ %218, %202 ]
@@ -476,7 +476,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %267 = getelementptr inbounds i8, ptr %.2255, i64 %.idx269
   %268 = add nsw i64 %.2, -1
   %269 = icmp samesign ugt i64 %.2, 1
-  br i1 %269, label %255, label %.loopexit, !llvm.loop !16
+  br i1 %269, label %255, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %255, %252
   %.6 = phi ptr [ %.2225, %252 ], [ %263, %255 ]
@@ -520,13 +520,12 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !4 = !{!"float", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !8, !9, !11}
-!13 = distinct !{!13, !8, !9, !11}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!9 = distinct !{!9, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !10}
+!12 = distinct !{!12, !8, !10}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

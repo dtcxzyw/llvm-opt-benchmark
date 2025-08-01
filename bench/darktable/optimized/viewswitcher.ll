@@ -223,14 +223,14 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %84 = getelementptr inbounds nuw i8, ptr %.05062, i64 8
   %.050 = load ptr, ptr %84, align 8, !tbaa !57
   %.not = icmp eq ptr %.050, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 85:                                               ; preds = %._crit_edge
   call void @g_object_unref(ptr noundef nonnull %.1) #8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge, %85
-  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !69
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !67
   %87 = and i32 %86, 2
   %88 = icmp ne i32 %87, 0
   %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3148), align 4
@@ -239,7 +239,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %or.cond, label %91, label %95
 
 91:                                               ; preds = %._crit_edge.thread
-  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !70
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !68
   %93 = and i32 %92, 1048576
   %.not52 = icmp eq i32 %93, 0
   br i1 %.not52, label %95, label %94
@@ -249,9 +249,9 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %95
 
 95:                                               ; preds = %91, %94, %._crit_edge.thread
-  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !71
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
   call void @dt_control_signal_connect(ptr noundef %96, i32 noundef 4, ptr noundef nonnull @_lib_viewswitcher_view_changed_callback, ptr noundef %0) #8
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !69
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !67
   %98 = and i32 %97, 2
   %99 = icmp ne i32 %98, 0
   %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3152), align 8
@@ -260,7 +260,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %or.cond3, label %102, label %106
 
 102:                                              ; preds = %95
-  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !70
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !68
   %104 = and i32 %103, 1048576
   %.not53 = icmp eq i32 %104, 0
   br i1 %.not53, label %106, label %105
@@ -270,7 +270,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %106
 
 106:                                              ; preds = %102, %105, %95
-  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !71
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
   call void @dt_control_signal_connect(ptr noundef %107, i32 noundef 5, ptr noundef nonnull @_lib_viewswitcher_view_cannot_change_callback, ptr noundef %0) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
   ret void
@@ -352,11 +352,11 @@ define internal void @_dropdown_changed(ptr readnone captures(none) %0, ptr noun
   %12 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %7) #8
   %13 = call ptr @gtk_combo_box_get_model(ptr noundef %12) #8
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %13, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4, i32 noundef -1) #8
-  %14 = load ptr, ptr %4, align 8, !tbaa !72
+  %14 = load ptr, ptr %4, align 8, !tbaa !70
   call void @dt_ctl_switch_mode_to_by_view(ptr noundef %14) #8
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %4, align 8, !tbaa !72
+  %17 = load ptr, ptr %4, align 8, !tbaa !70
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 216
   %19 = load ptr, ptr %5, align 8, !tbaa !18
   %20 = call ptr @dt_action_define(ptr noundef nonnull %16, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef %19, ptr noundef null) #8
@@ -418,7 +418,7 @@ define internal void @_lib_viewswitcher_view_changed_callback(ptr readnone captu
   %25 = getelementptr inbounds nuw i8, ptr %.03246, i64 8
   %.032 = load ptr, ptr %25, align 8, !tbaa !57
   %.not = icmp eq ptr %.032, null
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !74
+  br i1 %.not, label %._crit_edge, label %19
 
 26:                                               ; preds = %._crit_edge
   %27 = load ptr, ptr %16, align 8, !tbaa !18
@@ -429,7 +429,7 @@ define internal void @_lib_viewswitcher_view_changed_callback(ptr readnone captu
   tail call void @gtk_widget_set_state_flags(ptr noundef %30, i32 noundef 0, i32 noundef 1) #8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !65
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 552
-  %33 = load ptr, ptr %32, align 8, !tbaa !75
+  %33 = load ptr, ptr %32, align 8, !tbaa !72
   %34 = load ptr, ptr %16, align 8, !tbaa !18
   %35 = tail call i32 @g_hash_table_remove(ptr noundef %33, ptr noundef %34) #8
   br label %58
@@ -449,7 +449,7 @@ define internal void @_lib_viewswitcher_view_changed_callback(ptr readnone captu
   %.029 = phi i32 [ %56, %54 ], [ 0, %36 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %41, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6, i32 noundef -1) #8
-  %43 = load ptr, ptr %6, align 8, !tbaa !88
+  %43 = load ptr, ptr %6, align 8, !tbaa !85
   %44 = call i32 @g_strcmp0(ptr noundef %43, ptr noundef %10) #8
   %.not35 = icmp eq i32 %44, 0
   br i1 %.not35, label %45, label %54
@@ -469,13 +469,13 @@ define internal void @_lib_viewswitcher_view_changed_callback(ptr readnone captu
   br label %.loopexit
 
 54:                                               ; preds = %.preheader
-  %55 = load ptr, ptr %6, align 8, !tbaa !88
+  %55 = load ptr, ptr %6, align 8, !tbaa !85
   call void @g_free(ptr noundef %55) #8
   %56 = add i32 %.029, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %57 = call i32 @gtk_tree_model_iter_next(ptr noundef %41, ptr noundef nonnull %5) #8
   %.not36 = icmp eq i32 %57, 0
-  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !89
+  br i1 %.not36, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %54, %45, %36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
@@ -503,7 +503,7 @@ define internal void @_lib_viewswitcher_view_cannot_change_callback(ptr readnone
   tail call void @gtk_widget_set_state_flags(ptr noundef %13, i32 noundef 4, i32 noundef 0) #8
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 552
-  %16 = load ptr, ptr %15, align 8, !tbaa !75
+  %16 = load ptr, ptr %15, align 8, !tbaa !72
   %17 = load ptr, ptr %7, align 8, !tbaa !18
   %18 = tail call i32 @g_hash_table_remove(ptr noundef %16, ptr noundef %17) #8
   %19 = load ptr, ptr %7, align 8, !tbaa !18
@@ -566,7 +566,7 @@ declare void @g_object_set_data(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_lib_viewswitcher_button_press_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %5 = load i32, ptr %4, align 4, !tbaa !90
+  %5 = load i32, ptr %4, align 4, !tbaa !86
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %8
 
@@ -583,7 +583,7 @@ declare void @gtk_widget_add_events(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_viewswitcher_enter_leave_notify_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
-  %4 = load i32, ptr %1, align 8, !tbaa !95
+  %4 = load i32, ptr %1, align 8, !tbaa !91
   %5 = icmp eq i32 %4, 10
   br i1 %5, label %6, label %15
 
@@ -699,33 +699,29 @@ attributes #11 = { nounwind willreturn memory(read) }
 !64 = !{!19, !20, i64 0}
 !65 = !{!22, !29, i64 88}
 !66 = !{!59, !20, i64 8}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = !{!22, !9, i64 3128}
-!70 = !{!22, !9, i64 8}
-!71 = !{!22, !30, i64 96}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTS9dt_view_t", !13, i64 0}
-!74 = distinct !{!74, !68}
-!75 = !{!76, !77, i64 552}
-!76 = !{!"dt_control_t", !9, i64 0, !14, i64 8, !8, i64 16, !8, i64 64, !8, i64 112, !8, i64 160, !8, i64 208, !8, i64 256, !8, i64 304, !8, i64 352, !8, i64 400, !8, i64 448, !8, i64 496, !14, i64 544, !77, i64 552, !78, i64 560, !9, i64 568, !16, i64 576, !9, i64 584, !9, i64 588, !79, i64 592, !80, i64 600, !10, i64 608, !9, i64 864, !49, i64 872, !9, i64 880, !9, i64 884, !53, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !49, i64 912, !49, i64 920, !9, i64 928, !9, i64 932, !9, i64 936, !9, i64 940, !9, i64 944, !9, i64 948, !10, i64 952, !9, i64 8952, !9, i64 8956, !47, i64 8960, !9, i64 9000, !9, i64 9004, !10, i64 9008, !9, i64 9608, !9, i64 9612, !47, i64 9616, !47, i64 9656, !47, i64 9696, !49, i64 9736, !10, i64 9744, !9, i64 9748, !9, i64 9752, !47, i64 9760, !47, i64 9800, !10, i64 9840, !9, i64 9888, !81, i64 9896, !53, i64 9904, !53, i64 9912, !82, i64 9920, !10, i64 9928, !10, i64 9968, !47, i64 10008, !10, i64 10048, !10, i64 10072, !10, i64 10080, !83, i64 10104, !86, i64 10224}
-!77 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
-!78 = !{!"p1 _ZTS10_GSequence", !13, i64 0}
-!79 = !{!"p1 _ZTS10_GPtrArray", !13, i64 0}
-!80 = !{!"p1 _ZTS7_GSList", !13, i64 0}
-!81 = !{!"p1 long", !13, i64 0}
-!82 = !{!"p2 _ZTS9_dt_job_t", !13, i64 0}
-!83 = !{!"", !20, i64 0, !53, i64 8, !53, i64 16, !49, i64 24, !47, i64 32, !84, i64 72}
-!84 = !{!"", !85, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
-!85 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
-!86 = !{!"", !87, i64 0}
-!87 = !{!"", !85, i64 0, !13, i64 8}
-!88 = !{!12, !12, i64 0}
-!89 = distinct !{!89, !68}
-!90 = !{!91, !9, i64 52}
-!91 = !{!"_GdkEventButton", !9, i64 0, !92, i64 8, !10, i64 16, !9, i64 20, !49, i64 24, !49, i64 32, !93, i64 40, !9, i64 48, !9, i64 52, !94, i64 56, !49, i64 64, !49, i64 72}
-!92 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!93 = !{!"p1 double", !13, i64 0}
-!94 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!95 = !{!96, !9, i64 0}
-!96 = !{!"_GdkEventCrossing", !9, i64 0, !92, i64 8, !10, i64 16, !92, i64 24, !9, i64 32, !49, i64 40, !49, i64 48, !49, i64 56, !49, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}
+!67 = !{!22, !9, i64 3128}
+!68 = !{!22, !9, i64 8}
+!69 = !{!22, !30, i64 96}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS9dt_view_t", !13, i64 0}
+!72 = !{!73, !74, i64 552}
+!73 = !{!"dt_control_t", !9, i64 0, !14, i64 8, !8, i64 16, !8, i64 64, !8, i64 112, !8, i64 160, !8, i64 208, !8, i64 256, !8, i64 304, !8, i64 352, !8, i64 400, !8, i64 448, !8, i64 496, !14, i64 544, !74, i64 552, !75, i64 560, !9, i64 568, !16, i64 576, !9, i64 584, !9, i64 588, !76, i64 592, !77, i64 600, !10, i64 608, !9, i64 864, !49, i64 872, !9, i64 880, !9, i64 884, !53, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !49, i64 912, !49, i64 920, !9, i64 928, !9, i64 932, !9, i64 936, !9, i64 940, !9, i64 944, !9, i64 948, !10, i64 952, !9, i64 8952, !9, i64 8956, !47, i64 8960, !9, i64 9000, !9, i64 9004, !10, i64 9008, !9, i64 9608, !9, i64 9612, !47, i64 9616, !47, i64 9656, !47, i64 9696, !49, i64 9736, !10, i64 9744, !9, i64 9748, !9, i64 9752, !47, i64 9760, !47, i64 9800, !10, i64 9840, !9, i64 9888, !78, i64 9896, !53, i64 9904, !53, i64 9912, !79, i64 9920, !10, i64 9928, !10, i64 9968, !47, i64 10008, !10, i64 10048, !10, i64 10072, !10, i64 10080, !80, i64 10104, !83, i64 10224}
+!74 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
+!75 = !{!"p1 _ZTS10_GSequence", !13, i64 0}
+!76 = !{!"p1 _ZTS10_GPtrArray", !13, i64 0}
+!77 = !{!"p1 _ZTS7_GSList", !13, i64 0}
+!78 = !{!"p1 long", !13, i64 0}
+!79 = !{!"p2 _ZTS9_dt_job_t", !13, i64 0}
+!80 = !{!"", !20, i64 0, !53, i64 8, !53, i64 16, !49, i64 24, !47, i64 32, !81, i64 72}
+!81 = !{!"", !82, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
+!82 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
+!83 = !{!"", !84, i64 0}
+!84 = !{!"", !82, i64 0, !13, i64 8}
+!85 = !{!12, !12, i64 0}
+!86 = !{!87, !9, i64 52}
+!87 = !{!"_GdkEventButton", !9, i64 0, !88, i64 8, !10, i64 16, !9, i64 20, !49, i64 24, !49, i64 32, !89, i64 40, !9, i64 48, !9, i64 52, !90, i64 56, !49, i64 64, !49, i64 72}
+!88 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!89 = !{!"p1 double", !13, i64 0}
+!90 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!91 = !{!92, !9, i64 0}
+!92 = !{!"_GdkEventCrossing", !9, i64 0, !88, i64 8, !10, i64 16, !88, i64 24, !9, i64 32, !49, i64 40, !49, i64 48, !49, i64 56, !49, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}

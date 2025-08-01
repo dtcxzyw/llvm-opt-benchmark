@@ -72,10 +72,10 @@ define void @Fxu_HeapDoublePrint(ptr noundef captures(none) %0, ptr noundef capt
 Fxu_HeapDoubleCheck.exit:                         ; preds = %10, %2, %.critedge.loopexit.split.loop.exit15.i
   %storemerge.lcssa.i = phi i32 [ 1, %2 ], [ %11, %.critedge.loopexit.split.loop.exit15.i ], [ %6, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %storemerge.lcssa.i, ptr %12, align 8, !tbaa !17
+  store i32 %storemerge.lcssa.i, ptr %12, align 8, !tbaa !16
   %13 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %0)
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1) #15
-  store i32 1, ptr %12, align 8, !tbaa !17
+  store i32 1, ptr %12, align 8, !tbaa !16
   %15 = load i32, ptr %3, align 8, !tbaa !13
   %.not26 = icmp slt i32 %15, 1
   br i1 %.not26, label %.critedge, label %.lr.ph
@@ -95,7 +95,7 @@ Fxu_HeapDoubleCheck.exit:                         ; preds = %10, %2, %.critedge.
   %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !18
+  %24 = load i32, ptr %23, align 8, !tbaa !17
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %24) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -112,12 +112,12 @@ Fxu_HeapDoubleCheck.exit:                         ; preds = %10, %2, %.critedge.
 
 33:                                               ; preds = %20, %30
   %.1 = phi i32 [ %31, %30 ], [ %.029, %20 ]
-  %34 = load i32, ptr %12, align 8, !tbaa !17
+  %34 = load i32, ptr %12, align 8, !tbaa !16
   %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %12, align 8, !tbaa !17
+  store i32 %35, ptr %12, align 8, !tbaa !16
   %36 = load i32, ptr %3, align 8, !tbaa !13
   %.not.not = icmp slt i32 %34, %36
-  br i1 %.not.not, label %.lr.ph, label %.critedge, !llvm.loop !22
+  br i1 %.not.not, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph, %33, %Fxu_HeapDoubleCheck.exit
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -157,7 +157,7 @@ define void @Fxu_HeapDoubleCheck(ptr noundef captures(none) %0) local_unnamed_ad
 .critedge:                                        ; preds = %9, %.critedge.loopexit.split.loop.exit15, %1
   %storemerge.lcssa = phi i32 [ 1, %1 ], [ %10, %.critedge.loopexit.split.loop.exit15 ], [ %5, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %storemerge.lcssa, ptr %11, align 8, !tbaa !17
+  store i32 %storemerge.lcssa, ptr %11, align 8, !tbaa !16
   ret void
 }
 
@@ -212,13 +212,13 @@ Fxu_HeapDoubleResize.exit:                        ; preds = %13, %15
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
   store ptr %1, ptr %23, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %21, ptr %24, align 4, !tbaa !23
+  store i32 %21, ptr %24, align 4, !tbaa !22
   %25 = icmp sgt i32 %19, 0
   br i1 %25, label %.lr.ph.preheader.i, label %Fxu_HeapDoubleMoveUp.exit
 
 .lr.ph.preheader.i:                               ; preds = %18
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !18
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !17
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
@@ -229,7 +229,7 @@ Fxu_HeapDoubleResize.exit:                        ; preds = %13, %15
   %29 = getelementptr inbounds nuw ptr, ptr %20, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !18
+  %32 = load i32, ptr %31, align 8, !tbaa !17
   %33 = icmp sgt i32 %.pre.i, %32
   br i1 %33, label %34, label %Fxu_HeapDoubleMoveUp.exit
 
@@ -238,11 +238,11 @@ Fxu_HeapDoubleResize.exit:                        ; preds = %13, %15
   store ptr %1, ptr %29, align 8, !tbaa !11
   %35 = load ptr, ptr %.01.i, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !23
-  store i32 %26, ptr %36, align 4, !tbaa !23
-  store i32 %37, ptr %24, align 4, !tbaa !23
+  %37 = load i32, ptr %36, align 4, !tbaa !22
+  store i32 %26, ptr %36, align 4, !tbaa !22
+  store i32 %37, ptr %24, align 4, !tbaa !22
   %38 = icmp sgt i32 %37, 1
-  br i1 %38, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit, !llvm.loop !24
+  br i1 %38, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit, !llvm.loop !23
 
 Fxu_HeapDoubleMoveUp.exit:                        ; preds = %.lr.ph.i, %34, %18
   ret void
@@ -251,20 +251,20 @@ Fxu_HeapDoubleMoveUp.exit:                        ; preds = %.lr.ph.i, %34, %18
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !23
+  %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %6, label %37
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !18
+  %8 = load i32, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr %0, align 8, !tbaa !10
   %10 = lshr i32 %4, 1
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !18
+  %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = icmp sgt i32 %8, %15
   br i1 %16, label %17, label %37
 
@@ -273,13 +273,13 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !23
+  %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %.lr.ph.preheader.i, label %Fxu_HeapDoubleMoveUp.exit
 
 .lr.ph.preheader.i:                               ; preds = %17
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !18
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !17
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
@@ -290,7 +290,7 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !18
+  %30 = load i32, ptr %29, align 8, !tbaa !17
   %31 = icmp sgt i32 %.pre.i, %30
   br i1 %31, label %32, label %Fxu_HeapDoubleMoveUp.exit
 
@@ -299,11 +299,11 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   store ptr %20, ptr %27, align 8, !tbaa !11
   %33 = load ptr, ptr %.01.i, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !23
-  store i32 %24, ptr %34, align 4, !tbaa !23
-  store i32 %35, ptr %21, align 4, !tbaa !23
+  %35 = load i32, ptr %34, align 4, !tbaa !22
+  store i32 %24, ptr %34, align 4, !tbaa !22
+  store i32 %35, ptr %21, align 4, !tbaa !22
   %36 = icmp sgt i32 %35, 1
-  br i1 %36, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit, !llvm.loop !24
+  br i1 %36, label %.lr.ph.i, label %Fxu_HeapDoubleMoveUp.exit, !llvm.loop !23
 
 37:                                               ; preds = %6, %2
   %38 = shl i32 %4, 1
@@ -314,13 +314,13 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !18
+  %43 = load i32, ptr %42, align 8, !tbaa !17
   %44 = load ptr, ptr %0, align 8, !tbaa !10
   %45 = sext i32 %38 to i64
   %46 = getelementptr inbounds ptr, ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !18
+  %49 = load i32, ptr %48, align 8, !tbaa !17
   %50 = icmp slt i32 %43, %49
   br i1 %50, label %51, label %82
 
@@ -329,7 +329,7 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   %53 = getelementptr inbounds ptr, ptr %44, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !11
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !23
+  %56 = load i32, ptr %55, align 4, !tbaa !22
   %57 = shl i32 %56, 1
   %.not1.i = icmp sgt i32 %57, %40
   br i1 %.not1.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.preheader.i26
@@ -349,14 +349,14 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
 
 63:                                               ; preds = %.lr.ph.i27
   %64 = getelementptr i8, ptr %62, i64 8
-  %65 = load i32, ptr %58, align 8, !tbaa !18
+  %65 = load i32, ptr %58, align 8, !tbaa !17
   %66 = load ptr, ptr %62, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i32, ptr %67, align 8, !tbaa !18
+  %68 = load i32, ptr %67, align 8, !tbaa !17
   %.not33.i = icmp slt i32 %65, %68
   %.pre.i28 = load ptr, ptr %64, align 8, !tbaa !11
   %.phi.trans.insert.i29 = getelementptr inbounds nuw i8, ptr %.pre.i28, i64 8
-  %.pre6.i = load i32, ptr %.phi.trans.insert.i29, align 8, !tbaa !18
+  %.pre6.i = load i32, ptr %.phi.trans.insert.i29, align 8, !tbaa !17
   %.not34.i = icmp slt i32 %65, %.pre6.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
   br i1 %or.cond.i, label %._crit_edge5.i, label %Fxu_HeapDoubleMoveUp.exit
@@ -376,10 +376,10 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   br label %77
 
 71:                                               ; preds = %.lr.ph.i27
-  %72 = load i32, ptr %58, align 8, !tbaa !18
+  %72 = load i32, ptr %58, align 8, !tbaa !17
   %73 = load ptr, ptr %62, align 8, !tbaa !11
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load i32, ptr %74, align 8, !tbaa !18
+  %75 = load i32, ptr %74, align 8, !tbaa !17
   %.not32.i = icmp slt i32 %72, %75
   br i1 %.not32.i, label %76, label %Fxu_HeapDoubleMoveUp.exit
 
@@ -392,12 +392,12 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   %.1.i = phi ptr [ %62, %69 ], [ %64, %70 ], [ %62, %76 ]
   %78 = load ptr, ptr %.02.i, align 8, !tbaa !11
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !23
-  store i32 %60, ptr %79, align 4, !tbaa !23
-  store i32 %80, ptr %55, align 4, !tbaa !23
+  %80 = load i32, ptr %79, align 4, !tbaa !22
+  store i32 %60, ptr %79, align 4, !tbaa !22
+  store i32 %80, ptr %55, align 4, !tbaa !22
   %81 = shl i32 %80, 1
   %.not.i = icmp sgt i32 %81, %40
-  br i1 %.not.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27, !llvm.loop !25
+  br i1 %.not.i, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i27, !llvm.loop !24
 
 82:                                               ; preds = %41, %37
   %.not22.not = icmp slt i32 %38, %40
@@ -405,14 +405,14 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %85 = load i32, ptr %84, align 8, !tbaa !18
+  %85 = load i32, ptr %84, align 8, !tbaa !17
   %86 = load ptr, ptr %0, align 8, !tbaa !10
   %87 = sext i32 %38 to i64
   %88 = getelementptr ptr, ptr %86, i64 %87
   %89 = getelementptr i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !18
+  %92 = load i32, ptr %91, align 8, !tbaa !17
   %93 = icmp slt i32 %85, %92
   br i1 %93, label %94, label %Fxu_HeapDoubleMoveUp.exit
 
@@ -421,7 +421,7 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   %96 = getelementptr inbounds ptr, ptr %86, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !11
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !23
+  %99 = load i32, ptr %98, align 4, !tbaa !22
   %100 = shl i32 %99, 1
   %.not1.i30 = icmp sgt i32 %100, %40
   br i1 %.not1.i30, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.preheader.i31
@@ -441,14 +441,14 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
 
 106:                                              ; preds = %.lr.ph.i32
   %107 = getelementptr i8, ptr %105, i64 8
-  %108 = load i32, ptr %101, align 8, !tbaa !18
+  %108 = load i32, ptr %101, align 8, !tbaa !17
   %109 = load ptr, ptr %105, align 8, !tbaa !11
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load i32, ptr %110, align 8, !tbaa !18
+  %111 = load i32, ptr %110, align 8, !tbaa !17
   %.not33.i38 = icmp slt i32 %108, %111
   %.pre.i39 = load ptr, ptr %107, align 8, !tbaa !11
   %.phi.trans.insert.i40 = getelementptr inbounds nuw i8, ptr %.pre.i39, i64 8
-  %.pre6.i41 = load i32, ptr %.phi.trans.insert.i40, align 8, !tbaa !18
+  %.pre6.i41 = load i32, ptr %.phi.trans.insert.i40, align 8, !tbaa !17
   %.not34.i42 = icmp slt i32 %108, %.pre6.i41
   %or.cond.i43 = select i1 %.not33.i38, i1 true, i1 %.not34.i42
   br i1 %or.cond.i43, label %._crit_edge5.i44, label %Fxu_HeapDoubleMoveUp.exit
@@ -468,10 +468,10 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   br label %120
 
 114:                                              ; preds = %.lr.ph.i32
-  %115 = load i32, ptr %101, align 8, !tbaa !18
+  %115 = load i32, ptr %101, align 8, !tbaa !17
   %116 = load ptr, ptr %105, align 8, !tbaa !11
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load i32, ptr %117, align 8, !tbaa !18
+  %118 = load i32, ptr %117, align 8, !tbaa !17
   %.not32.i35 = icmp slt i32 %115, %118
   br i1 %.not32.i35, label %119, label %Fxu_HeapDoubleMoveUp.exit
 
@@ -484,12 +484,12 @@ define void @Fxu_HeapDoubleUpdate(ptr noundef readonly captures(none) %0, ptr no
   %.1.i36 = phi ptr [ %105, %112 ], [ %107, %113 ], [ %105, %119 ]
   %121 = load ptr, ptr %.02.i33, align 8, !tbaa !11
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %123 = load i32, ptr %122, align 4, !tbaa !23
-  store i32 %103, ptr %122, align 4, !tbaa !23
-  store i32 %123, ptr %98, align 4, !tbaa !23
+  %123 = load i32, ptr %122, align 4, !tbaa !22
+  store i32 %103, ptr %122, align 4, !tbaa !22
+  store i32 %123, ptr %98, align 4, !tbaa !22
   %124 = shl i32 %123, 1
   %.not.i37 = icmp sgt i32 %124, %40
-  br i1 %.not.i37, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i32, !llvm.loop !25
+  br i1 %.not.i37, label %Fxu_HeapDoubleMoveUp.exit, label %.lr.ph.i32, !llvm.loop !24
 
 Fxu_HeapDoubleMoveUp.exit:                        ; preds = %77, %71, %63, %120, %114, %106, %32, %.lr.ph.i, %94, %51, %17, %83, %82
   ret void
@@ -506,14 +506,14 @@ define void @Fxu_HeapDoubleDelete(ptr noundef captures(none) %0, ptr noundef cap
   %8 = getelementptr inbounds ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !23
+  %11 = load i32, ptr %10, align 4, !tbaa !22
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %3, i64 %12
   store ptr %9, ptr %13, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %11, ptr %14, align 4, !tbaa !23
+  store i32 %11, ptr %14, align 4, !tbaa !22
   tail call void @Fxu_HeapDoubleUpdate(ptr noundef nonnull %0, ptr noundef %9)
-  store i32 0, ptr %10, align 4, !tbaa !23
+  store i32 0, ptr %10, align 4, !tbaa !22
   ret void
 }
 
@@ -547,7 +547,7 @@ define ptr @Fxu_HeapDoubleGetMax(ptr noundef captures(none) %0) local_unnamed_ad
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %9, align 4, !tbaa !23
+  store i32 0, ptr %9, align 4, !tbaa !22
   %10 = add nsw i32 %3, -1
   store i32 %10, ptr %2, align 8, !tbaa !13
   %11 = sext i32 %3 to i64
@@ -555,7 +555,7 @@ define ptr @Fxu_HeapDoubleGetMax(ptr noundef captures(none) %0) local_unnamed_ad
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   store ptr %13, ptr %7, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 1, ptr %14, align 4, !tbaa !23
+  store i32 1, ptr %14, align 4, !tbaa !22
   %.not1.i = icmp slt i32 %3, 3
   br i1 %.not1.i, label %Fxu_HeapDoubleMoveDn.exit, label %.lr.ph.preheader.i
 
@@ -574,14 +574,14 @@ define ptr @Fxu_HeapDoubleGetMax(ptr noundef captures(none) %0) local_unnamed_ad
 
 20:                                               ; preds = %.lr.ph.i
   %21 = getelementptr i8, ptr %19, i64 8
-  %22 = load i32, ptr %15, align 8, !tbaa !18
+  %22 = load i32, ptr %15, align 8, !tbaa !17
   %23 = load ptr, ptr %19, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !18
+  %25 = load i32, ptr %24, align 8, !tbaa !17
   %.not33.i = icmp slt i32 %22, %25
   %.pre.i = load ptr, ptr %21, align 8, !tbaa !11
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !18
+  %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !17
   %.not34.i = icmp slt i32 %22, %.pre6.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
   br i1 %or.cond.i, label %._crit_edge5.i, label %Fxu_HeapDoubleMoveDn.exit
@@ -601,10 +601,10 @@ define ptr @Fxu_HeapDoubleGetMax(ptr noundef captures(none) %0) local_unnamed_ad
   br label %34
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = load i32, ptr %15, align 8, !tbaa !18
+  %29 = load i32, ptr %15, align 8, !tbaa !17
   %30 = load ptr, ptr %19, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !18
+  %32 = load i32, ptr %31, align 8, !tbaa !17
   %.not32.i = icmp slt i32 %29, %32
   br i1 %.not32.i, label %33, label %Fxu_HeapDoubleMoveDn.exit
 
@@ -617,12 +617,12 @@ define ptr @Fxu_HeapDoubleGetMax(ptr noundef captures(none) %0) local_unnamed_ad
   %.1.i = phi ptr [ %19, %26 ], [ %21, %27 ], [ %19, %33 ]
   %35 = load ptr, ptr %.02.i, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !23
-  store i32 %17, ptr %36, align 4, !tbaa !23
-  store i32 %37, ptr %14, align 4, !tbaa !23
+  %37 = load i32, ptr %36, align 4, !tbaa !22
+  store i32 %17, ptr %36, align 4, !tbaa !22
+  store i32 %37, ptr %14, align 4, !tbaa !22
   %38 = shl i32 %37, 1
   %.not.i.not = icmp slt i32 %38, %3
-  br i1 %.not.i.not, label %.lr.ph.i, label %Fxu_HeapDoubleMoveDn.exit, !llvm.loop !25
+  br i1 %.not.i.not, label %.lr.ph.i, label %Fxu_HeapDoubleMoveDn.exit, !llvm.loop !24
 
 Fxu_HeapDoubleMoveDn.exit:                        ; preds = %34, %28, %20, %5, %1
   %.0 = phi ptr [ null, %1 ], [ %8, %5 ], [ %8, %20 ], [ %8, %28 ], [ %8, %34 ]
@@ -641,7 +641,7 @@ define i32 @Fxu_HeapDoubleReadMaxWeight(ptr noundef readonly captures(none) %0) 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !18
+  %10 = load i32, ptr %9, align 8, !tbaa !17
   br label %11
 
 11:                                               ; preds = %1, %5
@@ -695,15 +695,14 @@ attributes #16 = { nounwind allocsize(1) }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS9FxuDouble", !6, i64 0}
 !13 = !{!4, !9, i64 8}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!4, !9, i64 16}
-!18 = !{!19, !9, i64 8}
-!19 = !{!"FxuDouble", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !20, i64 16, !12, i64 40, !12, i64 48, !12, i64 56}
-!20 = !{!"FxuListPair", !21, i64 0, !21, i64 8, !9, i64 16}
-!21 = !{!"p1 _ZTS7FxuPair", !6, i64 0}
-!22 = distinct !{!22, !15, !16}
-!23 = !{!19, !9, i64 4}
-!24 = distinct !{!24, !15, !16}
-!25 = distinct !{!25, !15, !16}
+!16 = !{!4, !9, i64 16}
+!17 = !{!18, !9, i64 8}
+!18 = !{!"FxuDouble", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !19, i64 16, !12, i64 40, !12, i64 48, !12, i64 56}
+!19 = !{!"FxuListPair", !20, i64 0, !20, i64 8, !9, i64 16}
+!20 = !{!"p1 _ZTS7FxuPair", !6, i64 0}
+!21 = distinct !{!21, !15}
+!22 = !{!18, !9, i64 4}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}

@@ -2342,7 +2342,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %94, %89
   store i8 %128, ptr %119, align 8
   %129 = add nuw nsw i32 %.0135145.i, 1
   %exitcond.not.i = icmp eq i32 %129, %103
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %124, %.lr.ph.i, %110
   %130 = add i32 %103, 5
@@ -2783,7 +2783,7 @@ mysql_set_conn_state.exit292.i:                   ; preds = %334, %329
   %352 = add i32 %.01215.i.i, 1
   %353 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %351)
   %354 = icmp sgt i32 %353, 0
-  br i1 %354, label %341, label %mysql_dissect_clone_response.exit, !llvm.loop !12
+  br i1 %354, label %341, label %mysql_dissect_clone_response.exit, !llvm.loop !11
 
 355:                                              ; preds = %248
   switch i32 %241, label %535 [
@@ -3052,7 +3052,7 @@ mysql_dissect_response_prepare.exit.i:            ; preds = %mysql_set_conn_stat
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %503 = load ptr, ptr %502, align 8
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 28
-  br i1 %exitcond.i.i.i, label %mysql_dissect_binary_row_packet.exit.i, label %490, !llvm.loop !13
+  br i1 %exitcond.i.i.i, label %mysql_dissect_binary_row_packet.exit.i, label %490, !llvm.loop !12
 
 mysql_dissect_binary_row_value.exit.i.i:          ; preds = %495
   call void %491(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %478, i32 noundef %487)
@@ -3067,7 +3067,7 @@ mysql_dissect_binary_row_value.exit.i.i:          ; preds = %495
 508:                                              ; preds = %504, %mysql_dissect_binary_row_value.exit.i.i, %471
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %mysql_dissect_binary_row_packet.exit.i, label %459, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %mysql_dissect_binary_row_packet.exit.i, label %459, !llvm.loop !13
 
 mysql_dissect_binary_row_packet.exit.i:           ; preds = %508, %500, %439
   %509 = load i32, ptr %11, align 4
@@ -3108,7 +3108,7 @@ mysql_dissect_binary_row_packet.exit.i:           ; preds = %508, %500, %439
   %527 = add i32 %.01215.i297.i, 1
   %528 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %526)
   %529 = icmp sgt i32 %528, 0
-  br i1 %529, label %516, label %mysql_dissect_clone_response.exit, !llvm.loop !12
+  br i1 %529, label %516, label %mysql_dissect_clone_response.exit, !llvm.loop !11
 
 530:                                              ; preds = %355
   %531 = load i32, ptr @hf_mysql_response_code, align 4
@@ -3634,7 +3634,7 @@ mysql_dec_remaining_field_packet_count.exit327.i: ; preds = %730
   %767 = add i32 %.01215.i332.i, 1
   %768 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %766)
   %769 = icmp sgt i32 %768, 0
-  br i1 %769, label %756, label %mysql_dissect_clone_response.exit, !llvm.loop !12
+  br i1 %769, label %756, label %mysql_dissect_clone_response.exit, !llvm.loop !11
 
 770:                                              ; preds = %552
   %771 = tail call ptr @val_to_str(i32 noundef 15, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1214)
@@ -3850,7 +3850,7 @@ mysql_set_conn_state.exit.i177:                   ; preds = %mysql_set_conn_stat
 882:                                              ; preds = %884
   %883 = add nuw nsw i64 %.0912.i.i.i, 1
   %exitcond.i.i.i179 = icmp eq i64 %883, 23
-  br i1 %exitcond.i.i.i179, label %collation_to_encoding.exit.i, label %884, !llvm.loop !15
+  br i1 %exitcond.i.i.i179, label %collation_to_encoding.exit.i, label %884, !llvm.loop !14
 
 884:                                              ; preds = %882, %880
   %.0912.i.i.i = phi i64 [ 0, %880 ], [ %883, %882 ]
@@ -4145,7 +4145,7 @@ tvb_get_fle.exit.i:                               ; preds = %1014, %1011, %1007,
   %1027 = sext i32 %1025 to i64
   %1028 = sub i64 %.0188193.i, %1027
   %.not166.i = icmp eq i64 %1028, 0
-  br i1 %.not166.i, label %.loopexit.i, label %.lr.ph.i182, !llvm.loop !16
+  br i1 %.not166.i, label %.loopexit.i, label %.lr.ph.i182, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %.lr.ph.i182, %tvb_get_fle.exit.i, %999, %996
   %.5.i = phi i32 [ %.4.i, %999 ], [ %.4.i, %996 ], [ %1024, %tvb_get_fle.exit.i ], [ %1026, %.lr.ph.i182 ]
@@ -4551,7 +4551,7 @@ mysql_set_conn_state.exit.i206:                   ; preds = %1150, %1146
   %1213 = add nuw nsw i32 %.0437587.i, 1
   %exitcond609.not.i = icmp eq i32 %1213, %1187
   %or.cond627.i = select i1 %.not473.i, i1 true, i1 %exitcond609.not.i
-  br i1 %or.cond627.i, label %._crit_edge590.i, label %.lr.ph589.i, !llvm.loop !17
+  br i1 %or.cond627.i, label %._crit_edge590.i, label %.lr.ph589.i, !llvm.loop !16
 
 ._crit_edge590.i:                                 ; preds = %.lr.ph589.i
   %.pre617.i = load i32, ptr %6, align 4
@@ -4864,7 +4864,7 @@ mysql_set_conn_state.exit534.i:                   ; preds = %1343, %1340
   %1372 = sext i32 %1370 to i64
   %1373 = sub i64 %1369, %1372
   %.not468.i = icmp eq i64 %1373, 0
-  br i1 %.not468.i, label %._crit_edge586.i, label %.lr.ph585.i, !llvm.loop !18
+  br i1 %.not468.i, label %._crit_edge586.i, label %.lr.ph585.i, !llvm.loop !17
 
 ._crit_edge586.i:                                 ; preds = %.lr.ph585.i, %1356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
@@ -5088,7 +5088,7 @@ mysql_set_conn_state.exit542.i:                   ; preds = %1407, %1399
   %1489 = load i16, ptr %1458, align 8
   %1490 = zext i16 %1489 to i64
   %1491 = icmp samesign ult i64 %indvars.iv.next600.i, %1490
-  br i1 %1491, label %1474, label %.loopexit568.i, !llvm.loop !19
+  br i1 %1491, label %1474, label %.loopexit568.i, !llvm.loop !18
 
 .loopexit568.i:                                   ; preds = %1474, %1466, %1464, %1459
   %1492 = phi i32 [ 11, %1466 ], [ 11, %1464 ], [ 11, %1459 ], [ %1488, %1474 ]
@@ -5153,13 +5153,13 @@ proto_item_set_generated.exit.i:                  ; preds = %1504, %1501, %1497
   %indvars.iv602.i220 = phi i64 [ %indvars.iv.next603.i, %1522 ], [ 0, %.preheader.i ]
   %indvars.iv.next603.i = add nuw nsw i64 %indvars.iv602.i220, 1
   %exitcond605.i = icmp eq i64 %indvars.iv.next603.i, 28
-  br i1 %exitcond605.i, label %.loopexit.i198, label %1522, !llvm.loop !20
+  br i1 %exitcond605.i, label %.loopexit.i198, label %1522, !llvm.loop !19
 
 1522:                                             ; preds = %.lr.ph
   %1523 = getelementptr [29 x %struct.mysql_exec_dissector], ptr @mysql_exec_dissectors, i64 0, i64 %indvars.iv.next603.i
   %1524 = load i8, ptr %1523, align 16
   %1525 = icmp eq i8 %1524, %1520
-  br i1 %1525, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %1525, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %1522
   %1526 = getelementptr inbounds nuw i8, ptr %1523, i64 8
@@ -5179,14 +5179,14 @@ proto_item_set_generated.exit.i:                  ; preds = %1504, %1501, %1497
   %1531 = load i16, ptr %1458, align 8
   %1532 = zext i16 %1531 to i64
   %1533 = icmp samesign ult i64 %indvars.iv.next607.i, %1532
-  br i1 %1533, label %.lr.ph578.i, label %._crit_edge579.i, !llvm.loop !21
+  br i1 %1533, label %.lr.ph578.i, label %._crit_edge579.i, !llvm.loop !20
 
 ._crit_edge579.i:                                 ; preds = %.loopexit.i198, %proto_item_set_generated.exit.i
   %1534 = add i32 %.0434580.i, 1
   %1535 = load i32, ptr %5, align 4
   %1536 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1535)
   %1537 = icmp sgt i32 %1536, 0
-  br i1 %1537, label %1497, label %.loopexit567.i, !llvm.loop !22
+  br i1 %1537, label %1497, label %.loopexit567.i, !llvm.loop !21
 
 .loopexit567.i:                                   ; preds = %._crit_edge579.i, %.loopexit568.i, %1455
   %.not460.i = icmp eq i32 %1089, 13
@@ -5334,7 +5334,7 @@ thread-pre-split.i:                               ; preds = %1571, %1564
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond628.i = select i1 %.not455.i, i1 true, i1 %exitcond.not.i196
-  br i1 %or.cond628.i, label %._crit_edge.loopexit.i, label %1604, !llvm.loop !23
+  br i1 %or.cond628.i, label %._crit_edge.loopexit.i, label %1604, !llvm.loop !22
 
 ._crit_edge.loopexit.i:                           ; preds = %1612
   %.pre.i197 = load i32, ptr %6, align 4
@@ -6254,7 +6254,7 @@ tvb_get_fle.exit138.i:                            ; preds = %188, %185, %181, %1
 203:                                              ; preds = %205
   %204 = add nuw nsw i64 %.0912.i.i, 1
   %exitcond.i.i = icmp eq i64 %204, 23
-  br i1 %exitcond.i.i, label %charset_to_encoding.exit.i, label %205, !llvm.loop !15
+  br i1 %exitcond.i.i, label %charset_to_encoding.exit.i, label %205, !llvm.loop !14
 
 205:                                              ; preds = %203, %201
   %.0912.i.i = phi i64 [ 0, %201 ], [ %204, %203 ]
@@ -6297,7 +6297,7 @@ charset_to_encoding.exit.i:                       ; preds = %203, %210, %198
 222:                                              ; preds = %224
   %223 = add nuw nsw i64 %.0912.i139.i, 1
   %exitcond.i140.i = icmp eq i64 %223, 23
-  br i1 %exitcond.i140.i, label %charset_to_encoding.exit142.i, label %224, !llvm.loop !15
+  br i1 %exitcond.i140.i, label %charset_to_encoding.exit142.i, label %224, !llvm.loop !14
 
 224:                                              ; preds = %222, %220
   %.0912.i139.i = phi i64 [ 0, %220 ], [ %223, %222 ]
@@ -6526,7 +6526,7 @@ add_session_tracker_entry_to_tree.exit:           ; preds = %mysql_set_encoding_
   %342 = sext i32 %341 to i64
   %343 = sub i64 %.0105120, %342
   %.not81 = icmp eq i64 %343, 0
-  br i1 %.not81, label %.loopexit, label %120, !llvm.loop !24
+  br i1 %.not81, label %.loopexit, label %120, !llvm.loop !23
 
 344:                                              ; preds = %61
   br i1 %66, label %345, label %.loopexit
@@ -6967,7 +6967,7 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %83, %86, %89
   %95 = sext i32 %93 to i64
   %96 = sub i64 %.159, %95
   %.not120 = icmp eq i64 %96, 0
-  br i1 %.not120, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not120, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %add_extended_meta_entry_to_tree.exit, %tvb_get_fle.exit, %27, %13
   %.0109 = phi i32 [ %23, %27 ], [ %23, %13 ], [ %55, %tvb_get_fle.exit ], [ %94, %add_extended_meta_entry_to_tree.exit ]
@@ -6991,7 +6991,7 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %83, %86, %89
 109:                                              ; preds = %111
   %110 = add nuw nsw i64 %.0912.i.i, 1
   %exitcond.i.i = icmp eq i64 %110, 23
-  br i1 %exitcond.i.i, label %collation_to_encoding.exit, label %111, !llvm.loop !15
+  br i1 %exitcond.i.i, label %collation_to_encoding.exit, label %111, !llvm.loop !14
 
 111:                                              ; preds = %109, %107
   %.0912.i.i = phi i64 [ 0, %107 ], [ %110, %109 ]
@@ -7898,7 +7898,7 @@ define internal fastcc i32 @collation_to_encoding(i32 noundef %0, i1 noundef zer
 8:                                                ; preds = %10
   %9 = add nuw nsw i64 %.0912.i, 1
   %exitcond.i = icmp eq i64 %9, 23
-  br i1 %exitcond.i, label %charset_to_encoding.exit, label %10, !llvm.loop !15
+  br i1 %exitcond.i, label %charset_to_encoding.exit, label %10, !llvm.loop !14
 
 10:                                               ; preds = %8, %6
   %.0912.i = phi i64 [ 0, %6 ], [ %9, %8 ]
@@ -8081,7 +8081,7 @@ tvb_get_fle.exit:                                 ; preds = %7, %11, %15, %18, %
   %23 = add i32 %21, %22
   %24 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %24, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -8195,7 +8195,7 @@ tvb_get_fle.exit:                                 ; preds = %29, %33, %37, %40
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %64, %63, %53
   %.041 = phi i8 [ 1, %53 ], [ 1, %63 ], [ 0, %64 ]
@@ -8273,23 +8273,22 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}

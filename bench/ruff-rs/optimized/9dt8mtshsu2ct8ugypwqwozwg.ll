@@ -366,7 +366,7 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 4
   %.val4.i.i.i.i.i = load i32, ptr %.ptr.i.i.i.i, align 4, !range !73, !alias.scope !74, !noalias !79, !noundef !25
   %55 = icmp eq i32 %.val4.i.i.i.i.i, %.sroa.4.1.i.ph.i.i.i
-  br i1 %55, label %.split12, label %.preheader.i.i.i.i, !llvm.loop !83
+  br i1 %55, label %.split12, label %.preheader.i.i.i.i
 
 _ZN4core3str7pattern7Pattern12is_suffix_of17hd637d13abc11f369E.exit.thread: ; preds = %.preheader.i.i.i.i, %_ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4ab9dd750E.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !41
@@ -454,7 +454,7 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
-  %22 = load i8, ptr %21, align 1, !alias.scope !85, !noundef !25
+  %22 = load i8, ptr %21, align 1, !alias.scope !83, !noundef !25
   %23 = icmp sgt i8 %22, -65
   br i1 %23, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %24
 
@@ -514,7 +514,7 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u2
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
-  %23 = load i8, ptr %22, align 1, !alias.scope !88, !noundef !25
+  %23 = load i8, ptr %22, align 1, !alias.scope !86, !noundef !25
   %24 = icmp sgt i8 %23, -65
   br i1 %24, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
 
@@ -576,7 +576,7 @@ define noundef zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
-  %23 = load i8, ptr %22, align 1, !alias.scope !91, !noundef !25
+  %23 = load i8, ptr %22, align 1, !alias.scope !89, !noundef !25
   %24 = icmp sgt i8 %23, -65
   br i1 %24, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %25
 
@@ -600,7 +600,7 @@ define noundef range(i8 0, 3) i8 @"_ZN81_$LT$ruff_source_file..newlines..LineEnd
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN16ruff_source_file8newlines10LineEnding6as_str17h705da96411d3ee64E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !94, !noundef !25
+  %1 = load i8, ptr %0, align 1, !range !92, !noundef !25
   %2 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -614,7 +614,7 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i64 1, 3) i64 @_ZN16ruff_source_file8newlines10LineEnding3len17ha337f21575292d8cE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !range !94, !noundef !25
+  %2 = load i8, ptr %0, align 1, !range !92, !noundef !25
   %switch = icmp samesign ult i8 %2, 2
   %. = select i1 %switch, i64 1, i64 2
   ret i64 %.
@@ -622,7 +622,7 @@ define noundef range(i64 1, 3) i64 @_ZN16ruff_source_file8newlines10LineEnding3l
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @_ZN16ruff_source_file8newlines10LineEnding8text_len17h9c3062457996da89E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
-  %2 = load i8, ptr %0, align 1, !range !94, !noundef !25
+  %2 = load i8, ptr %0, align 1, !range !92, !noundef !25
   %switch = icmp samesign ult i8 %2, 2
   %. = select i1 %switch, i32 1, i32 2
   %3 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.)
@@ -632,7 +632,7 @@ define noundef i32 @_ZN16ruff_source_file8newlines10LineEnding8text_len17h9c3062
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !94, !alias.scope !95, !noundef !25
+  %1 = load i8, ptr %0, align 1, !range !92, !alias.scope !93, !noundef !25
   %2 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -781,18 +781,16 @@ attributes #10 = { noreturn }
 !80 = distinct !{!80, !81, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6fd727abaa036269E: argument 0"}
 !81 = distinct !{!81, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6fd727abaa036269E"}
 !82 = distinct !{!82, !81, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6fd727abaa036269E: argument 1"}
-!83 = distinct !{!83, !84}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E: argument 0"}
-!87 = distinct !{!87, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E: argument 0"}
-!90 = distinct !{!90, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E: argument 0"}
-!93 = distinct !{!93, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E"}
-!94 = !{i8 0, i8 3}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN16ruff_source_file8newlines10LineEnding6as_str17h705da96411d3ee64E: argument 0"}
-!97 = distinct !{!97, !"_ZN16ruff_source_file8newlines10LineEnding6as_str17h705da96411d3ee64E"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E: argument 0"}
+!85 = distinct !{!85, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E: argument 0"}
+!88 = distinct !{!88, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E: argument 0"}
+!91 = distinct !{!91, !"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17heac9f6a047b0eab2E"}
+!92 = !{i8 0, i8 3}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN16ruff_source_file8newlines10LineEnding6as_str17h705da96411d3ee64E: argument 0"}
+!95 = distinct !{!95, !"_ZN16ruff_source_file8newlines10LineEnding6as_str17h705da96411d3ee64E"}

@@ -239,7 +239,7 @@ define ptr @dt_pathlist_import_create(i32 noundef %0, ptr noundef readonly captu
 37:                                               ; preds = %.thread, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph52, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph52
 
 38:                                               ; preds = %6, %._crit_edge, %2
   %.0 = phi ptr [ null, %2 ], [ %3, %._crit_edge ], [ null, %6 ]
@@ -298,7 +298,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca %struct.timeval, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [512 x i8], align 16
-  store ptr %2, ptr %6, align 8, !tbaa !25
+  store ptr %2, ptr %6, align 8, !tbaa !23
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %.thread
 
@@ -317,7 +317,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
 .thread:                                          ; preds = %8, %3
   %15 = phi ptr [ %2, %3 ], [ %11, %8 ]
   %16 = tail call ptr @g_list_sort(ptr noundef nonnull %15, ptr noundef nonnull @_film_filename_cmp) #11
-  store ptr %16, ptr %6, align 8, !tbaa !25
+  store ptr %16, ptr %6, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %7, i8 0, i64 512, i1 false)
   %17 = tail call i32 @g_list_length(ptr noundef %16) #11
@@ -327,9 +327,9 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   call void @dt_control_job_set_progress_message(ptr noundef %0, ptr noundef nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %21 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #11
-  %22 = load i64, ptr %5, align 8, !tbaa !26
+  %22 = load i64, ptr %5, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !29
+  %24 = load i64, ptr %23, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   %.not7797 = icmp eq ptr %16, null
   br i1 %.not7797, label %._crit_edge, label %.lr.ph
@@ -347,9 +347,9 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
 
 33:                                               ; preds = %73
   %34 = getelementptr inbounds nuw i8, ptr %.063104, i64 8
-  %.063 = load ptr, ptr %34, align 8, !tbaa !25
+  %.063 = load ptr, ptr %34, align 8, !tbaa !23
   %.not77 = icmp eq ptr %.063, null
-  br i1 %.not77, label %._crit_edge.loopexit, label %35, !llvm.loop !30
+  br i1 %.not77, label %._crit_edge.loopexit, label %35
 
 35:                                               ; preds = %.lr.ph, %33
   %.063104 = phi ptr [ %16, %.lr.ph ], [ %.063, %33 ]
@@ -359,7 +359,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %.066100 = phi i32 [ 0, %.lr.ph ], [ %.167, %33 ]
   %.06899 = phi ptr [ %1, %.lr.ph ], [ %.2, %33 ]
   %.07098 = phi ptr [ null, %.lr.ph ], [ %57, %33 ]
-  %36 = load ptr, ptr %.063104, align 8, !tbaa !31
+  %36 = load ptr, ptr %.063104, align 8, !tbaa !28
   %37 = call noalias ptr @g_path_get_dirname(ptr noundef %36) #11
   %.not78 = icmp eq ptr %.06899, null
   br i1 %.not78, label %.split.thread, label %38
@@ -401,7 +401,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %.2 = phi ptr [ %47, %.split.thread ], [ %.06899, %38 ]
   call void @g_free(ptr noundef %37) #11
   %50 = load i32, ptr %.2, align 8, !tbaa !18
-  %51 = load ptr, ptr %.063104, align 8, !tbaa !31
+  %51 = load ptr, ptr %.063104, align 8, !tbaa !28
   %52 = call i32 @dt_image_import(i32 noundef %50, ptr noundef %51, i32 noundef 0, i32 noundef 0) #11
   %53 = add nsw i32 %.066100, 1
   %54 = fadd reassoc nsz arcp contract afn double %.060103, %31
@@ -412,10 +412,10 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %58 = call ptr @g_list_append(ptr noundef %.061102, ptr noundef %56) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   %59 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
-  %60 = load i64, ptr %4, align 8, !tbaa !26
+  %60 = load i64, ptr %4, align 8, !tbaa !24
   %61 = add nsw i64 %60, -1290608000
   %62 = sitofp i64 %61 to double
-  %63 = load i64, ptr %32, align 8, !tbaa !29
+  %63 = load i64, ptr %32, align 8, !tbaa !27
   %64 = sitofp i64 %63 to double
   %65 = fmul reassoc nsz arcp contract afn double %64, 0x3EB0C6F7A0B5ED8D
   %66 = fadd reassoc nsz arcp contract afn double %65, %62
@@ -427,7 +427,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond91, label %70, label %73
 
 70:                                               ; preds = %49
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !33
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !30
   %72 = call ptr @g_list_copy(ptr noundef %58) #11
   call void @dt_collection_update_query(ptr noundef %71, i32 noundef 3, i32 noundef 43, ptr noundef %72) #11
   call void @g_list_free(ptr noundef %58) #11
@@ -442,7 +442,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not82, label %._crit_edge.loopexit, label %33
 
 ._crit_edge.loopexit:                             ; preds = %33, %73
-  %.pre = load ptr, ptr %6, align 8, !tbaa !25
+  %.pre = load ptr, ptr %6, align 8, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread
@@ -452,7 +452,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   call void @g_list_free_full(ptr noundef %75, ptr noundef nonnull @g_free) #11
   %76 = call ptr @g_list_reverse(ptr noundef %.171) #11
   call void (...) @dt_control_queue_redraw_center() #11
-  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !67
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
   %78 = and i32 %77, 1
   %79 = icmp ne i32 %78, 0
   %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
@@ -461,7 +461,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond, label %82, label %86
 
 82:                                               ; preds = %._crit_edge
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !68
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
   %84 = and i32 %83, 1048576
   %.not83 = icmp eq i32 %84, 0
   br i1 %.not83, label %86, label %85
@@ -471,9 +471,9 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br label %86
 
 86:                                               ; preds = %82, %85, %._crit_edge
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %87, i32 noundef 9) #11
-  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !67
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
   %89 = and i32 %88, 1
   %90 = icmp ne i32 %89, 0
   %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
@@ -482,7 +482,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond3, label %93, label %97
 
 93:                                               ; preds = %86
-  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !68
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
   %95 = and i32 %94, 1048576
   %.not84 = icmp eq i32 %95, 0
   br i1 %.not84, label %97, label %96
@@ -492,12 +492,12 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br label %97
 
 97:                                               ; preds = %93, %96, %86
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
   %.not85 = icmp eq ptr %1, null
   %.169. = select i1 %.not85, ptr %.169, ptr %1
   %99 = load i32, ptr %.169., align 8, !tbaa !18
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %98, i32 noundef 16, i32 noundef %99) #11
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !67
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
   %101 = and i32 %100, 1
   %102 = icmp ne i32 %101, 0
   %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
@@ -506,7 +506,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond5, label %105, label %109
 
 105:                                              ; preds = %97
-  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !68
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
   %107 = and i32 %106, 1048576
   %.not86 = icmp eq i32 %107, 0
   br i1 %.not86, label %109, label %108
@@ -516,7 +516,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   br label %109
 
 109:                                              ; preds = %105, %108, %97
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %110, i32 noundef 10, ptr noundef %76, i32 noundef 0) #11
   call fastcc void @_apply_filmroll_gpx(ptr noundef %.169)
   %.not87 = icmp eq ptr %.169, null
@@ -578,9 +578,9 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
   br i1 %.not31.us, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr %2, align 8, !tbaa !25
+  %15 = load ptr, ptr %2, align 8, !tbaa !23
   %16 = tail call ptr @g_list_prepend(ptr noundef %15, ptr noundef %10) #11
-  store ptr %16, ptr %2, align 8, !tbaa !25
+  store ptr %16, ptr %2, align 8, !tbaa !23
   br label %18
 
 17:                                               ; preds = %12, %9
@@ -590,7 +590,7 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
 18:                                               ; preds = %17, %14, %.lr.ph.split.us
   %19 = tail call ptr @g_dir_read_name(ptr noundef nonnull %4) #11
   %.not27.us = icmp eq ptr %19, null
-  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !70
+  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !67
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %20 = phi ptr [ %37, %36 ], [ %5, %.lr.ph ]
@@ -606,7 +606,7 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
 
 26:                                               ; preds = %23
   %27 = tail call fastcc ptr @_film_recursive_get_files(ptr noundef %24, i32 noundef %1, ptr noundef %2)
-  store ptr %27, ptr %2, align 8, !tbaa !25
+  store ptr %27, ptr %2, align 8, !tbaa !23
   tail call void @g_free(ptr noundef %24) #11
   br label %36
 
@@ -621,9 +621,9 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
   br i1 %.not31, label %35, label %32
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %2, align 8, !tbaa !25
+  %33 = load ptr, ptr %2, align 8, !tbaa !23
   %34 = tail call ptr @g_list_prepend(ptr noundef %33, ptr noundef %24) #11
-  store ptr %34, ptr %2, align 8, !tbaa !25
+  store ptr %34, ptr %2, align 8, !tbaa !23
   br label %36
 
 35:                                               ; preds = %30, %28
@@ -640,7 +640,7 @@ define internal fastcc ptr @_film_recursive_get_files(ptr noundef %0, i32 nounde
   br label %38
 
 38:                                               ; preds = %3, %._crit_edge
-  %.0 = load ptr, ptr %2, align 8, !tbaa !25
+  %.0 = load ptr, ptr %2, align 8, !tbaa !23
   ret ptr %.0
 }
 
@@ -681,13 +681,13 @@ define internal fastcc void @_apply_filmroll_gpx(ptr noundef %0) unnamed_addr #0
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !69
   %.not17 = icmp eq ptr %4, null
   br i1 %.not17, label %.loopexit, label %5
 
 5:                                                ; preds = %2
   tail call void @g_dir_rewind(ptr noundef nonnull %4) #11
-  %6 = load ptr, ptr %3, align 8, !tbaa !72
+  %6 = load ptr, ptr %3, align 8, !tbaa !69
   %7 = tail call ptr @g_dir_read_name(ptr noundef %6) #11
   %.not1819 = icmp eq ptr %7, null
   br i1 %.not1819, label %.loopexit, label %.lr.ph
@@ -720,10 +720,10 @@ define internal fastcc void @_apply_filmroll_gpx(ptr noundef %0) unnamed_addr #0
   br label %23
 
 23:                                               ; preds = %19, %16
-  %24 = load ptr, ptr %3, align 8, !tbaa !72
+  %24 = load ptr, ptr %3, align 8, !tbaa !69
   %25 = tail call ptr @g_dir_read_name(ptr noundef %24) #11
   %.not18 = icmp eq ptr %25, null
-  br i1 %.not18, label %.loopexit, label %9, !llvm.loop !73
+  br i1 %.not18, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %23, %5, %2, %1
   ret void
@@ -829,54 +829,50 @@ attributes #14 = { nounwind willreturn memory(read) }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 omnipotent char", !9, i64 0}
 !22 = !{!10, !10, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!12, !12, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"timeval", !28, i64 0, !28, i64 8}
-!28 = !{!"long", !10, i64 0}
-!29 = !{!27, !28, i64 8}
-!30 = distinct !{!30, !24}
-!31 = !{!32, !9, i64 0}
-!32 = !{!"_GList", !9, i64 0, !12, i64 8, !12, i64 16}
-!33 = !{!34, !50, i64 160}
-!34 = !{!"darktable_t", !35, i64 0, !15, i64 4, !15, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !36, i64 48, !37, i64 56, !38, i64 64, !39, i64 72, !40, i64 80, !41, i64 88, !42, i64 96, !43, i64 104, !44, i64 112, !45, i64 120, !46, i64 128, !47, i64 136, !48, i64 144, !49, i64 152, !50, i64 160, !51, i64 168, !52, i64 176, !53, i64 184, !54, i64 192, !55, i64 200, !56, i64 208, !57, i64 216, !58, i64 224, !10, i64 232, !16, i64 2792, !16, i64 2832, !16, i64 2872, !16, i64 2912, !16, i64 2952, !21, i64 2992, !21, i64 3000, !21, i64 3008, !21, i64 3016, !21, i64 3024, !21, i64 3032, !21, i64 3040, !21, i64 3048, !21, i64 3056, !21, i64 3064, !21, i64 3072, !21, i64 3080, !21, i64 3088, !59, i64 3096, !12, i64 3104, !60, i64 3112, !12, i64 3120, !15, i64 3128, !10, i64 3132, !15, i64 3320, !15, i64 3324, !61, i64 3328, !62, i64 3336, !63, i64 3344, !65, i64 3384, !66, i64 3416}
-!35 = !{!"dt_codepath_t", !15, i64 0}
-!36 = !{!"p1 _ZTS11_JsonParser", !9, i64 0}
-!37 = !{!"p1 _ZTS9dt_conf_t", !9, i64 0}
-!38 = !{!"p1 _ZTS12dt_develop_t", !9, i64 0}
-!39 = !{!"p1 _ZTS8dt_lib_t", !9, i64 0}
-!40 = !{!"p1 _ZTS17dt_view_manager_t", !9, i64 0}
-!41 = !{!"p1 _ZTS12dt_control_t", !9, i64 0}
-!42 = !{!"p1 _ZTS19dt_control_signal_t", !9, i64 0}
-!43 = !{!"p1 _ZTS12dt_gui_gtk_t", !9, i64 0}
-!44 = !{!"p1 _ZTS17dt_mipmap_cache_t", !9, i64 0}
-!45 = !{!"p1 _ZTS16dt_image_cache_t", !9, i64 0}
-!46 = !{!"p1 _ZTS12dt_bauhaus_t", !9, i64 0}
-!47 = !{!"p1 _ZTS13dt_database_t", !9, i64 0}
-!48 = !{!"p1 _ZTS14dt_pwstorage_t", !9, i64 0}
-!49 = !{!"p1 _ZTS11dt_camctl_t", !9, i64 0}
-!50 = !{!"p1 _ZTS15dt_collection_t", !9, i64 0}
-!51 = !{!"p1 _ZTS14dt_selection_t", !9, i64 0}
-!52 = !{!"p1 _ZTS11dt_points_t", !9, i64 0}
-!53 = !{!"p1 _ZTS12dt_imageio_t", !9, i64 0}
-!54 = !{!"p1 _ZTS11dt_opencl_t", !9, i64 0}
-!55 = !{!"p1 _ZTS9dt_dbus_t", !9, i64 0}
-!56 = !{!"p1 _ZTS9dt_undo_t", !9, i64 0}
-!57 = !{!"p1 _ZTS16dt_colorspaces_t", !9, i64 0}
-!58 = !{!"p1 _ZTS9dt_l10n_t", !9, i64 0}
-!59 = !{!"", !15, i64 0}
-!60 = !{!"double", !10, i64 0}
-!61 = !{!"p1 _ZTS10_GTimeZone", !9, i64 0}
-!62 = !{!"p1 _ZTS10_GDateTime", !9, i64 0}
-!63 = !{!"dt_sys_resources_t", !28, i64 0, !28, i64 8, !64, i64 16, !64, i64 24, !15, i64 32}
-!64 = !{!"p1 int", !9, i64 0}
-!65 = !{!"dt_backthumb_t", !60, i64 0, !60, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
-!66 = !{!"dt_gimp_t", !15, i64 0, !21, i64 8, !21, i64 16, !15, i64 24, !15, i64 28}
-!67 = !{!34, !15, i64 3128}
-!68 = !{!34, !15, i64 8}
-!69 = !{!34, !42, i64 96}
-!70 = distinct !{!70, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = !{!14, !17, i64 560}
-!73 = distinct !{!73, !24}
+!23 = !{!12, !12, i64 0}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"timeval", !26, i64 0, !26, i64 8}
+!26 = !{!"long", !10, i64 0}
+!27 = !{!25, !26, i64 8}
+!28 = !{!29, !9, i64 0}
+!29 = !{!"_GList", !9, i64 0, !12, i64 8, !12, i64 16}
+!30 = !{!31, !47, i64 160}
+!31 = !{!"darktable_t", !32, i64 0, !15, i64 4, !15, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !33, i64 48, !34, i64 56, !35, i64 64, !36, i64 72, !37, i64 80, !38, i64 88, !39, i64 96, !40, i64 104, !41, i64 112, !42, i64 120, !43, i64 128, !44, i64 136, !45, i64 144, !46, i64 152, !47, i64 160, !48, i64 168, !49, i64 176, !50, i64 184, !51, i64 192, !52, i64 200, !53, i64 208, !54, i64 216, !55, i64 224, !10, i64 232, !16, i64 2792, !16, i64 2832, !16, i64 2872, !16, i64 2912, !16, i64 2952, !21, i64 2992, !21, i64 3000, !21, i64 3008, !21, i64 3016, !21, i64 3024, !21, i64 3032, !21, i64 3040, !21, i64 3048, !21, i64 3056, !21, i64 3064, !21, i64 3072, !21, i64 3080, !21, i64 3088, !56, i64 3096, !12, i64 3104, !57, i64 3112, !12, i64 3120, !15, i64 3128, !10, i64 3132, !15, i64 3320, !15, i64 3324, !58, i64 3328, !59, i64 3336, !60, i64 3344, !62, i64 3384, !63, i64 3416}
+!32 = !{!"dt_codepath_t", !15, i64 0}
+!33 = !{!"p1 _ZTS11_JsonParser", !9, i64 0}
+!34 = !{!"p1 _ZTS9dt_conf_t", !9, i64 0}
+!35 = !{!"p1 _ZTS12dt_develop_t", !9, i64 0}
+!36 = !{!"p1 _ZTS8dt_lib_t", !9, i64 0}
+!37 = !{!"p1 _ZTS17dt_view_manager_t", !9, i64 0}
+!38 = !{!"p1 _ZTS12dt_control_t", !9, i64 0}
+!39 = !{!"p1 _ZTS19dt_control_signal_t", !9, i64 0}
+!40 = !{!"p1 _ZTS12dt_gui_gtk_t", !9, i64 0}
+!41 = !{!"p1 _ZTS17dt_mipmap_cache_t", !9, i64 0}
+!42 = !{!"p1 _ZTS16dt_image_cache_t", !9, i64 0}
+!43 = !{!"p1 _ZTS12dt_bauhaus_t", !9, i64 0}
+!44 = !{!"p1 _ZTS13dt_database_t", !9, i64 0}
+!45 = !{!"p1 _ZTS14dt_pwstorage_t", !9, i64 0}
+!46 = !{!"p1 _ZTS11dt_camctl_t", !9, i64 0}
+!47 = !{!"p1 _ZTS15dt_collection_t", !9, i64 0}
+!48 = !{!"p1 _ZTS14dt_selection_t", !9, i64 0}
+!49 = !{!"p1 _ZTS11dt_points_t", !9, i64 0}
+!50 = !{!"p1 _ZTS12dt_imageio_t", !9, i64 0}
+!51 = !{!"p1 _ZTS11dt_opencl_t", !9, i64 0}
+!52 = !{!"p1 _ZTS9dt_dbus_t", !9, i64 0}
+!53 = !{!"p1 _ZTS9dt_undo_t", !9, i64 0}
+!54 = !{!"p1 _ZTS16dt_colorspaces_t", !9, i64 0}
+!55 = !{!"p1 _ZTS9dt_l10n_t", !9, i64 0}
+!56 = !{!"", !15, i64 0}
+!57 = !{!"double", !10, i64 0}
+!58 = !{!"p1 _ZTS10_GTimeZone", !9, i64 0}
+!59 = !{!"p1 _ZTS10_GDateTime", !9, i64 0}
+!60 = !{!"dt_sys_resources_t", !26, i64 0, !26, i64 8, !61, i64 16, !61, i64 24, !15, i64 32}
+!61 = !{!"p1 int", !9, i64 0}
+!62 = !{!"dt_backthumb_t", !57, i64 0, !57, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
+!63 = !{!"dt_gimp_t", !15, i64 0, !21, i64 8, !21, i64 16, !15, i64 24, !15, i64 28}
+!64 = !{!31, !15, i64 3128}
+!65 = !{!31, !15, i64 8}
+!66 = !{!31, !39, i64 96}
+!67 = distinct !{!67, !68}
+!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = !{!14, !17, i64 560}

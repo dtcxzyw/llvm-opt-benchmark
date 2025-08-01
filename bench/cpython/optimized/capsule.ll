@@ -540,7 +540,7 @@ Py_DECREF.exit.thread:                            ; preds = %16
 Py_DECREF.exit:                                   ; preds = %26, %23, %20, %16
   %.138 = phi ptr [ %17, %16 ], [ %21, %20 ], [ %21, %23 ], [ %21, %26 ]
   %.not48 = icmp eq ptr %.138, null
-  br i1 %.not48, label %Py_XDECREF.exit, label %9, !llvm.loop !105
+  br i1 %.not48, label %Py_XDECREF.exit, label %9
 
 27:                                               ; preds = %9
   %.not.i49 = icmp eq ptr %.037, null
@@ -812,5 +812,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !102 = !{!10, !6, i64 48}
 !103 = !{!10, !6, i64 56}
 !104 = !{!7, !7, i64 0}
-!105 = distinct !{!105, !106}
-!106 = !{!"llvm.loop.estimated_trip_count"}

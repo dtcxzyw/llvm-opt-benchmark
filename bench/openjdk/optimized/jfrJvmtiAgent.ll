@@ -357,7 +357,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 85:                                               ; preds = %.lr.ph52, %84
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !11
+  br i1 %exitcond60.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !10
 
 ._crit_edge53:                                    ; preds = %85
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #12
@@ -1049,7 +1049,6 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145392998}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

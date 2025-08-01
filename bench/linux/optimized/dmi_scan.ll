@@ -291,7 +291,7 @@ define internal fastcc void @dmi_scan_machine() unnamed_addr #0 section ".init.t
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %44, i64 16, i1 false)
   %51 = getelementptr i8, ptr %46, i64 16
   %52 = icmp ult ptr %51, %29
-  br i1 %52, label %45, label %.loopexit, !llvm.loop !11
+  br i1 %52, label %45, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %50, %.loopexit9
   call void @early_memunmap(ptr noundef nonnull %26, i64 noundef 65536) #21
@@ -308,7 +308,7 @@ define internal fastcc void @dmi_scan_machine() unnamed_addr #0 section ".init.t
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_memdev_walk() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @count_mem_devices) #23, !range !12
+  %1 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @count_mem_devices) #23, !range !11
   %2 = icmp eq i32 %1, 0
   %3 = load i32, ptr @dmi_memdev_nr, align 4
   %4 = icmp ne i32 %3, 0
@@ -324,7 +324,7 @@ define internal fastcc void @dmi_memdev_walk() unnamed_addr #0 section ".init.te
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @save_mem_devices) #23, !range !12
+  %12 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @save_mem_devices) #23, !range !11
   br label %13
 
 13:                                               ; preds = %11, %6, %0
@@ -366,7 +366,7 @@ define dso_local i32 @dmi_check_system(ptr noundef %0) #2 align 16 {
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 127
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %16, %13, %1
   %23 = phi i32 [ 0, %1 ], [ %10, %13 ], [ %17, %16 ]
@@ -419,7 +419,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 .thread5.us:                                      ; preds = %20, %17
   %23 = add nuw nsw i64 %5, 1
   %24 = icmp eq i64 %23, 4
-  br i1 %24, label %.thread6, label %.split.us, !llvm.loop !14
+  br i1 %24, label %.thread6, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %1, %.thread5
   %25 = phi i64 [ %59, %.thread5 ], [ 0, %1 ]
@@ -452,7 +452,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 40:                                               ; preds = %30, %35
   %41 = load ptr, ptr %31, align 8
   %42 = icmp eq ptr %41, @dmi_devices
-  br i1 %42, label %.thread6, label %30, !llvm.loop !16
+  br i1 %42, label %.thread6, label %30, !llvm.loop !15
 
 43:                                               ; preds = %35
   %44 = icmp eq ptr %31, null
@@ -483,7 +483,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 .thread5:                                         ; preds = %43, %56, %53
   %59 = add nuw nsw i64 %25, 1
   %60 = icmp eq i64 %59, 4
-  br i1 %60, label %.thread6, label %.split, !llvm.loop !17
+  br i1 %60, label %.thread6, label %.split, !llvm.loop !16
 
 .thread6.loopexit26:                              ; preds = %.split.us
   br label %.thread6
@@ -515,7 +515,7 @@ define dso_local noundef ptr @dmi_first_match(ptr noundef readonly captures(ret:
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 127
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %8, %.preheader, %1
   %14 = phi ptr [ null, %1 ], [ null, %8 ], [ %6, %.preheader ]
@@ -577,7 +577,7 @@ define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_vendors(ptr noundef re
   br i1 %2, label %.split.loop.exit2, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %13, %10
-  br label %.backedge, !llvm.loop !19
+  br label %.backedge, !llvm.loop !18
 
 .split.loop.exit:                                 ; preds = %10
   %.mux.le = zext i1 %12 to i32
@@ -614,7 +614,7 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly captu
 15:                                               ; preds = %11
   %16 = load ptr, ptr %10, align 8
   %17 = icmp eq ptr %16, @dmi_devices
-  br i1 %17, label %.thread, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %17, label %.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %6, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -630,7 +630,7 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly captu
 23:                                               ; preds = %.lr.ph.split.split.us
   %24 = load ptr, ptr %18, align 8
   %25 = icmp eq ptr %24, @dmi_devices
-  br i1 %25, label %.thread, label %.lr.ph.split.split.us, !llvm.loop !21
+  br i1 %25, label %.thread, label %.lr.ph.split.split.us, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %35
   %26 = phi ptr [ %36, %35 ], [ %7, %.lr.ph.split ]
@@ -649,7 +649,7 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly captu
 35:                                               ; preds = %.lr.ph.split.split, %30
   %36 = load ptr, ptr %26, align 8
   %37 = icmp eq ptr %36, @dmi_devices
-  br i1 %37, label %.thread, label %.lr.ph.split.split, !llvm.loop !22
+  br i1 %37, label %.thread, label %.lr.ph.split.split, !llvm.loop !15
 
 .thread:                                          ; preds = %35, %30, %23, %.lr.ph.split.split.us, %15, %.lr.ph.split.us, %11, %3
   %38 = phi ptr [ null, %3 ], [ %10, %11 ], [ %7, %.lr.ph.split.us ], [ null, %15 ], [ %18, %.lr.ph.split.split.us ], [ null, %23 ], [ %26, %30 ], [ null, %35 ]
@@ -830,7 +830,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr noundef readonly ca
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %12
   %38 = icmp slt i64 %37, %23
-  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !21
 
 39:                                               ; preds = %30
   tail call void %0(ptr noundef %16, ptr noundef %1) #21
@@ -861,7 +861,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr noundef readonly ca
   %54 = load i32, ptr @dmi_len, align 4
   %55 = zext i32 %54 to i64
   %56 = icmp ugt i64 %53, %55
-  br i1 %56, label %.loopexit6.loopexit, label %.preheader5, !llvm.loop !24
+  br i1 %56, label %.loopexit6.loopexit, label %.preheader5
 
 .loopexit6.loopexit:                              ; preds = %45, %48, %51
   %.pre = load i32, ptr @dmi_len, align 4
@@ -938,7 +938,7 @@ define dso_local void @dmi_memdev_name(i16 noundef zeroext %0, ptr noundef write
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %10 ]
@@ -978,7 +978,7 @@ define dso_local i64 @dmi_memdev_size(i16 noundef zeroext %0) #9 align 16 {
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %8 ]
@@ -1016,7 +1016,7 @@ define dso_local zeroext i8 @dmi_memdev_type(i16 noundef zeroext %0) #9 align 16
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %8 ]
@@ -1125,7 +1125,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_smbios3_present(ptr noun
   %16 = add i8 %15, %13
   %17 = add nuw nsw i64 %12, 1
   %18 = icmp eq i64 %17, %10
-  br i1 %18, label %19, label %11, !llvm.loop !28
+  br i1 %18, label %19, label %11, !llvm.loop !25
 
 19:                                               ; preds = %11
   %20 = icmp eq i8 %16, 0
@@ -1156,7 +1156,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_smbios3_present(ptr noun
   %39 = zext nneg i8 %6 to i32
   store i32 %39, ptr @smbios_entry_point_size, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @smbios_entry_point, ptr align 1 %0, i64 %10, i1 false)
-  %40 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @dmi_decode) #23, !range !12
+  %40 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @dmi_decode) #23, !range !11
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %50
 
@@ -1201,7 +1201,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_present(ptr noundef read
   %16 = add i8 %15, %13
   %17 = add nuw nsw i64 %12, 1
   %18 = icmp eq i64 %17, %10
-  br i1 %18, label %19, label %11, !llvm.loop !29
+  br i1 %18, label %19, label %11, !llvm.loop !25
 
 19:                                               ; preds = %11
   %20 = icmp eq i8 %16, 0
@@ -1242,7 +1242,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_present(ptr noundef read
   %38 = add i8 %37, %35
   %39 = add nuw nsw i64 %34, 1
   %40 = icmp eq i64 %39, 15
-  br i1 %40, label %41, label %.preheader, !llvm.loop !30
+  br i1 %40, label %41, label %.preheader, !llvm.loop !25
 
 41:                                               ; preds = %.preheader
   %42 = icmp eq i8 %38, 0
@@ -1277,7 +1277,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_present(ptr noundef read
   %62 = load i32, ptr %61, align 1
   %63 = zext i32 %62 to i64
   store i64 %63, ptr @dmi_base, align 8
-  %64 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @dmi_decode) #23, !range !12
+  %64 = tail call fastcc i32 @dmi_walk_early(ptr noundef nonnull @dmi_decode) #23, !range !11
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %76
 
@@ -1352,10 +1352,10 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr noundef
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %32, %8
   %34 = icmp slt i64 %33, %19
-  br i1 %34, label %.preheader.i, label %.loopexit.i, !llvm.loop !31
+  br i1 %34, label %.preheader.i, label %.loopexit.i, !llvm.loop !21
 
 35:                                               ; preds = %26
-  tail call void %0(ptr noundef %12, ptr noundef null) #21, !callees !32
+  tail call void %0(ptr noundef %12, ptr noundef null) #21, !callees !26
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %30, %35, %.lr.ph.i
@@ -1383,7 +1383,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr noundef
   %46 = load i32, ptr @dmi_len, align 4
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %45, %47
-  br i1 %48, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !33
+  br i1 %48, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.backedge.i, %43, %41
   %.pre.i = load i32, ptr @dmi_len, align 4
@@ -1660,7 +1660,7 @@ define internal fastcc void @dmi_save_uuid(ptr noundef %0) unnamed_addr #0 secti
   %23 = select i1 %22, i32 %13, i32 0
   %24 = add nuw nsw i64 %11, 1
   %25 = icmp eq i64 %24, 16
-  br i1 %25, label %26, label %10, !llvm.loop !34
+  br i1 %25, label %26, label %10, !llvm.loop !27
 
 26:                                               ; preds = %17, %10
   %27 = phi i32 [ %23, %17 ], [ 0, %10 ]
@@ -1783,7 +1783,7 @@ define internal fastcc void @dmi_save_devices(ptr noundef readonly captures(addr
 24:                                               ; preds = %18, %12
   %25 = add nuw nsw i64 %13, 1
   %26 = icmp eq i64 %25, %11
-  br i1 %26, label %.loopexit, label %12, !llvm.loop !35
+  br i1 %26, label %.loopexit, label %12, !llvm.loop !28
 
 .loopexit:                                        ; preds = %24, %1
   ret void
@@ -1837,7 +1837,7 @@ define internal fastcc void @dmi_save_oem_strings_devices(ptr noundef readonly c
 26:                                               ; preds = %19, %11
   %27 = add nuw nsw i32 %12, 1
   %28 = icmp eq i32 %12, %10
-  br i1 %28, label %.loopexit, label %11, !llvm.loop !36
+  br i1 %28, label %.loopexit, label %11, !llvm.loop !29
 
 .loopexit:                                        ; preds = %26, %16, %5, %1
   ret void
@@ -1969,7 +1969,7 @@ define internal fastcc ptr @dmi_string_nosave(ptr noundef readonly captures(ret:
   %18 = getelementptr i8, ptr %17, i64 1
   %19 = add i8 %11, -1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.loopexit3, label %.preheader, !llvm.loop !37
+  br i1 %20, label %.loopexit3, label %.preheader, !llvm.loop !30
 
 .loopexit3:                                       ; preds = %15, %.preheader, %4
   %21 = phi ptr [ %8, %4 ], [ %18, %15 ], [ %12, %.preheader ]
@@ -1985,7 +1985,7 @@ define internal fastcc ptr @dmi_string_nosave(ptr noundef readonly captures(ret:
 
 25:                                               ; preds = %22
   %26 = getelementptr i8, ptr %23, i64 1
-  br label %22, !llvm.loop !38
+  br label %22, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %22
   br label %.loopexit
@@ -2121,7 +2121,7 @@ define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef range(i64
   %23 = getelementptr i8, ptr %9, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   %26 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %22, %.preheader ]
@@ -2289,36 +2289,29 @@ attributes #23 = { cold }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{i32 -12, i32 1}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !8, !9, !10, !15}
-!21 = distinct !{!21, !8, !9, !10, !15}
-!22 = distinct !{!22, !8, !9, !10}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !8, !9, !10}
-!26 = distinct !{!26, !8, !9, !10}
-!27 = distinct !{!27, !8, !9, !10}
-!28 = distinct !{!28, !8, !9, !10}
-!29 = distinct !{!29, !8, !9, !10}
-!30 = distinct !{!30, !8, !9, !10}
-!31 = distinct !{!31, !8, !9, !10}
-!32 = !{ptr @count_mem_devices, ptr @dmi_decode, ptr @save_mem_devices}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !8, !9, !10}
-!35 = distinct !{!35, !8, !9, !10}
-!36 = distinct !{!36, !8, !9, !10}
-!37 = distinct !{!37, !8, !9, !10}
-!38 = distinct !{!38, !8, !9, !10}
-!39 = distinct !{!39, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i32 -12, i32 1}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9, !14}
+!20 = distinct !{!20, !8, !9, !14}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = !{ptr @count_mem_devices, ptr @dmi_decode, ptr @save_mem_devices}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}

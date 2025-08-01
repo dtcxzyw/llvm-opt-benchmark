@@ -1996,7 +1996,7 @@ InvalidateCompositeTypeCacheEntry.exit:           ; preds = %37, %32, %27, %10, 
 InvalidateCompositeTypeCacheEntry.exit29:         ; preds = %76, %73, %68, %.lr.ph34, %84, %80
   %86 = call ptr @hash_seq_search(ptr noundef nonnull %6) #16
   %.not17 = icmp eq ptr %86, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph34, !llvm.loop !9
+  br i1 %.not17, label %._crit_edge, label %.lr.ph34, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %InvalidateCompositeTypeCacheEntry.exit29, %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
@@ -2066,7 +2066,7 @@ define internal void @TypeCacheTypCallback(i64 %0, i32 %1, i32 noundef %2) #0 {
 delete_rel_type_cache_if_needed.exit:             ; preds = %25, %21, %17, %.lr.ph
   %29 = call ptr @hash_seq_search(ptr noundef nonnull %5) #16
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %delete_rel_type_cache_if_needed.exit, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
@@ -2091,7 +2091,7 @@ define internal void @TypeCacheOpcCallback(i64 %0, i32 %1, i32 %2) #0 {
   store i32 %10, ptr %8, align 8
   %11 = call ptr @hash_seq_search(ptr noundef nonnull %4) #16
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
@@ -2113,7 +2113,7 @@ define internal void @TypeCacheConstrCallback(i64 %0, i32 %1, i32 %2) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %.05, i64 480
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2337,7 +2337,7 @@ decr_dcc_refcount.exit:                           ; preds = %11, %6, %1
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load i8, ptr %42, align 4
   %.not111 = icmp eq i8 %43, 99
-  br i1 %.not111, label %44, label %124, !llvm.loop !13
+  br i1 %.not111, label %44, label %124, !llvm.loop !12
 
 44:                                               ; preds = %.lr.ph
   %45 = load ptr, ptr %17, align 8
@@ -2503,7 +2503,7 @@ fastgetattr.exit:                                 ; preds = %80
   %.3 = phi ptr [ %.4, %120 ], [ %.2162, %.lr.ph ]
   %125 = call ptr @systable_getnext(ptr noundef %34) #16
   %.not109 = icmp eq ptr %125, null
-  br i1 %.not109, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not109, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %124
   call void @systable_endscan(ptr noundef %34) #16
@@ -2539,7 +2539,7 @@ fastgetattr.exit:                                 ; preds = %80
   store ptr %138, ptr %.3, align 8
   %139 = trunc nuw i64 %indvars.iv to i32
   %140 = icmp sgt i32 %139, 1
-  br i1 %140, label %.lr.ph168, label %._crit_edge169, !llvm.loop !15
+  br i1 %140, label %.lr.ph168, label %._crit_edge169, !llvm.loop !13
 
 ._crit_edge169:                                   ; preds = %.lr.ph168
   store ptr %132, ptr @CurrentMemoryContext, align 8
@@ -2557,7 +2557,7 @@ fastgetattr.exit:                                 ; preds = %80
   %144 = zext i32 %143 to i64
   %145 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %144) #16
   %.not107 = icmp eq ptr %145, null
-  br i1 %.not107, label %._crit_edge176, label %20, !llvm.loop !16
+  br i1 %.not107, label %._crit_edge176, label %20
 
 146:                                              ; preds = %20
   call void @ReleaseSysCache(ptr noundef nonnull %21) #16
@@ -3392,7 +3392,7 @@ define internal fastcc ptr @find_or_make_matching_shared_tupledesc(ptr noundef %
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #16, !srcloc !17
+  %28 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #16, !srcloc !14
   store i32 %28, ptr %4, align 4
   %29 = load ptr, ptr @CurrentSession, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -3662,7 +3662,7 @@ define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef initializes((0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %48 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %17, label %._crit_edge, !llvm.loop !18
+  br i1 %51, label %17, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %47, %3
   %52 = load ptr, ptr @CurrentSession, align 8
@@ -3844,7 +3844,7 @@ enum_known_sorted.exit.thread:                    ; preds = %23, %20, %14, %10, 
   %.118.i.i = phi i64 [ %.01720.i.i, %43 ], [ %37, %.lr.ph.i.i ]
   %.1.i.i = phi i64 [ %44, %43 ], [ %.01621.i.i, %.lr.ph.i.i ]
   %46 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %46, label %.lr.ph.i.i, label %find_enumitem.exit, !llvm.loop !19
+  br i1 %46, label %.lr.ph.i.i, label %find_enumitem.exit, !llvm.loop !16
 
 find_enumitem.exit.split.loop.exit110:            ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 %38
@@ -3877,7 +3877,7 @@ find_enumitem.exit:                               ; preds = %45, %find_enumitem.
   %.118.i.i52 = phi i64 [ %.01720.i.i50, %55 ], [ %49, %.lr.ph.i.i48 ]
   %.1.i.i53 = phi i64 [ %56, %55 ], [ %.01621.i.i49, %.lr.ph.i.i48 ]
   %58 = icmp ult i64 %.1.i.i53, %.118.i.i52
-  br i1 %58, label %.lr.ph.i.i48, label %find_enumitem.exit56.thread, !llvm.loop !19
+  br i1 %58, label %.lr.ph.i.i48, label %find_enumitem.exit56.thread, !llvm.loop !16
 
 find_enumitem.exit56:                             ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %34, i64 %50
@@ -3920,7 +3920,7 @@ find_enumitem.exit56.thread:                      ; preds = %57, %enum_known_sor
   %.118.i.i61 = phi i64 [ %.01720.i.i59, %75 ], [ %69, %.lr.ph.i.i57 ]
   %.1.i.i62 = phi i64 [ %76, %75 ], [ %.01621.i.i58, %.lr.ph.i.i57 ]
   %78 = icmp ult i64 %.1.i.i62, %.118.i.i61
-  br i1 %78, label %.lr.ph.i.i57, label %find_enumitem.exit65, !llvm.loop !19
+  br i1 %78, label %.lr.ph.i.i57, label %find_enumitem.exit65, !llvm.loop !16
 
 find_enumitem.exit65.split.loop.exit114:          ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 %70
@@ -3953,7 +3953,7 @@ find_enumitem.exit65:                             ; preds = %77, %find_enumitem.
   %.118.i.i70 = phi i64 [ %.01720.i.i68, %87 ], [ %81, %.lr.ph.i.i66 ]
   %.1.i.i71 = phi i64 [ %88, %87 ], [ %.01621.i.i67, %.lr.ph.i.i66 ]
   %90 = icmp ult i64 %.1.i.i71, %.118.i.i70
-  br i1 %90, label %.lr.ph.i.i66, label %find_enumitem.exit74.thread103, !llvm.loop !19
+  br i1 %90, label %.lr.ph.i.i66, label %find_enumitem.exit74.thread103, !llvm.loop !16
 
 find_enumitem.exit74:                             ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %66, i64 %82
@@ -4067,7 +4067,7 @@ define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0)
   %36 = add i32 %.079116, 1
   %37 = call ptr @systable_getnext(ptr noundef %16) #16
   %.not102 = icmp eq ptr %37, null
-  br i1 %.not102, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not102, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %29, %11
   %.079.lcssa = phi i32 [ 0, %11 ], [ %36, %29 ]
@@ -4133,7 +4133,7 @@ define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0)
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next132 to i32
   %exitcond.not = icmp eq i32 %.079.lcssa, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !18
 
 ._crit_edge125:                                   ; preds = %60, %.lr.ph124, %41
   %.083.lcssa = phi ptr [ %42, %41 ], [ %.083119, %.lr.ph124 ], [ %.285.ph, %60 ]
@@ -4149,7 +4149,7 @@ define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0)
   %64 = add i32 %.079.lcssa, %63
   %.not103 = icmp slt i32 %.080.lcssa..090, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not103, label %40, label %65, !llvm.loop !22
+  br i1 %.not103, label %40, label %65
 
 65:                                               ; preds = %._crit_edge125, %40
   %.196 = phi ptr [ %.083.lcssa..095, %._crit_edge125 ], [ %.095, %40 ]
@@ -4239,7 +4239,7 @@ insert_rel_type_cache_if_needed.exit.i:           ; preds = %18, %15, %8, %.lr.p
   %25 = load i32, ptr @in_progress_list_len, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.lr.ph.i, label %finalize_in_progress_typentries.exit, !llvm.loop !23
+  br i1 %27, label %.lr.ph.i, label %finalize_in_progress_typentries.exit, !llvm.loop !19
 
 finalize_in_progress_typentries.exit:             ; preds = %insert_rel_type_cache_if_needed.exit.i, %0
   store i32 0, ptr @in_progress_list_len, align 4
@@ -4299,7 +4299,7 @@ insert_rel_type_cache_if_needed.exit.i:           ; preds = %18, %15, %8, %.lr.p
   %25 = load i32, ptr @in_progress_list_len, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.lr.ph.i, label %finalize_in_progress_typentries.exit, !llvm.loop !23
+  br i1 %27, label %.lr.ph.i, label %finalize_in_progress_typentries.exit, !llvm.loop !19
 
 finalize_in_progress_typentries.exit:             ; preds = %insert_rel_type_cache_if_needed.exit.i, %0
   store i32 0, ptr @in_progress_list_len, align 4
@@ -4382,14 +4382,14 @@ define internal fastcc void @cache_record_field_properties(ptr noundef %0) unnam
   %6 = load i32, ptr %5, align 8
   %7 = or i32 %6, 98304
   store i32 %7, ptr %5, align 8
-  br label %86
+  br label %88
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %10 = load i8, ptr %9, align 1
-  switch i8 %10, label %86 [
+  switch i8 %10, label %88 [
     i8 99, label %11
-    i8 100, label %65
+    i8 100, label %67
   ]
 
 11:                                               ; preds = %8
@@ -4433,110 +4433,110 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 31:                                               ; preds = %load_typcache_tupdesc.exit, %11
   %32 = phi ptr [ %.pre, %load_typcache_tupdesc.exit ], [ %13, %11 ]
   tail call void @IncrTupleDescRefCount(ptr noundef %32) #16
-  %invariant.gep = getelementptr i8, ptr %32, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31, %.thread
-  %35 = phi i32 [ %59, %.thread ], [ %33, %31 ]
+  %35 = phi i32 [ %61, %.thread ], [ %33, %31 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %31 ]
   %.052 = phi i32 [ %.250, %.thread ], [ 491520, %31 ]
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %37
-  %38 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 91
-  %40 = load i8, ptr %39, align 1, !range !4, !noundef !5
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.thread, label %42
+  %38 = getelementptr i8, ptr %32, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 91
+  %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %.thread, label %44
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 68
-  %44 = load i32, ptr %43, align 4
-  %45 = tail call ptr @lookup_type_cache(i32 noundef %44, i32 noundef 16409)
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %47 = load i32, ptr %46, align 8
-  %.not = icmp eq i32 %47, 0
-  %48 = and i32 %.052, -32769
-  %spec.select = select i1 %.not, i32 %48, i32 %.052
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 60
-  %50 = load i32, ptr %49, align 4
-  %.not41 = icmp eq i32 %50, 0
-  %51 = and i32 %spec.select, -65537
-  %.4 = select i1 %.not41, i32 %51, i32 %spec.select
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %53 = load i32, ptr %52, align 8
-  %.not42 = icmp eq i32 %53, 0
-  %54 = and i32 %.4, -131073
-  %.5 = select i1 %.not42, i32 %54, i32 %.4
-  %55 = getelementptr inbounds nuw i8, ptr %45, i64 68
-  %56 = load i32, ptr %55, align 4
-  %.not43 = icmp eq i32 %56, 0
-  %57 = and i32 %.5, -262145
-  %.6 = select i1 %.not43, i32 %57, i32 %.5
-  %58 = icmp eq i32 %.6, 0
-  br i1 %58, label %._crit_edge, label %..thread_crit_edge
+44:                                               ; preds = %.lr.ph
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 68
+  %46 = load i32, ptr %45, align 4
+  %47 = tail call ptr @lookup_type_cache(i32 noundef %46, i32 noundef 16409)
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load i32, ptr %48, align 8
+  %.not = icmp eq i32 %49, 0
+  %50 = and i32 %.052, -32769
+  %spec.select = select i1 %.not, i32 %50, i32 %.052
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 60
+  %52 = load i32, ptr %51, align 4
+  %.not41 = icmp eq i32 %52, 0
+  %53 = and i32 %spec.select, -65537
+  %.4 = select i1 %.not41, i32 %53, i32 %spec.select
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %55 = load i32, ptr %54, align 8
+  %.not42 = icmp eq i32 %55, 0
+  %56 = and i32 %.4, -131073
+  %.5 = select i1 %.not42, i32 %56, i32 %.4
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 68
+  %58 = load i32, ptr %57, align 4
+  %.not43 = icmp eq i32 %58, 0
+  %59 = and i32 %.5, -262145
+  %.6 = select i1 %.not43, i32 %59, i32 %.5
+  %60 = icmp eq i32 %.6, 0
+  br i1 %60, label %._crit_edge, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %42
+..thread_crit_edge:                               ; preds = %44
   %.pre56 = load i32, ptr %32, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.lr.ph
-  %59 = phi i32 [ %.pre56, %..thread_crit_edge ], [ %35, %.lr.ph ]
+  %61 = phi i32 [ %.pre56, %..thread_crit_edge ], [ %35, %.lr.ph ]
   %.250 = phi i32 [ %.6, %..thread_crit_edge ], [ %.052, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.thread, %42, %31
-  %.1 = phi i32 [ 491520, %31 ], [ 0, %42 ], [ %.250, %.thread ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %63 = load i32, ptr %62, align 8
-  %64 = or i32 %63, %.1
-  store i32 %64, ptr %62, align 8
+._crit_edge:                                      ; preds = %.thread, %44, %31
+  %.1 = phi i32 [ 491520, %31 ], [ 0, %44 ], [ %.250, %.thread ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %65 = load i32, ptr %64, align 8
+  %66 = or i32 %65, %.1
+  store i32 %66, ptr %64, align 8
   tail call void @DecrTupleDescRefCount(ptr noundef nonnull %32) #16
-  br label %86
+  br label %88
 
-65:                                               ; preds = %8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %72
+67:                                               ; preds = %8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %74
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 -1, ptr %70, align 4
-  %71 = tail call i32 @getBaseTypeAndTypmod(i32 noundef %2, ptr noundef nonnull %70) #16
-  store i32 %71, ptr %66, align 8
-  br label %72
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 452
+  store i32 -1, ptr %72, align 4
+  %73 = tail call i32 @getBaseTypeAndTypmod(i32 noundef %2, ptr noundef nonnull %72) #16
+  store i32 %73, ptr %68, align 8
+  br label %74
 
-72:                                               ; preds = %69, %65
-  %73 = phi i32 [ %71, %69 ], [ %67, %65 ]
-  %74 = tail call ptr @lookup_type_cache(i32 noundef %73, i32 noundef 16409)
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 13
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 99
-  br i1 %77, label %78, label %86
+74:                                               ; preds = %71, %67
+  %75 = phi i32 [ %73, %71 ], [ %69, %67 ]
+  %76 = tail call ptr @lookup_type_cache(i32 noundef %75, i32 noundef 16409)
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 13
+  %78 = load i8, ptr %77, align 1
+  %79 = icmp eq i8 %78, 99
+  br i1 %79, label %80, label %88
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %80 = load i32, ptr %79, align 8
-  %81 = or i32 %80, 1048576
-  store i32 %81, ptr %79, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 464
-  %83 = load i32, ptr %82, align 8
-  %84 = and i32 %83, 491520
-  %85 = or i32 %84, %81
-  store i32 %85, ptr %79, align 8
-  br label %86
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %82 = load i32, ptr %81, align 8
+  %83 = or i32 %82, 1048576
+  store i32 %83, ptr %81, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 464
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, 491520
+  %87 = or i32 %86, %83
+  store i32 %87, ptr %81, align 8
+  br label %88
 
-86:                                               ; preds = %72, %78, %8, %._crit_edge, %4
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %88 = load i32, ptr %87, align 8
-  %89 = or i32 %88, 16384
-  store i32 %89, ptr %87, align 8
+88:                                               ; preds = %74, %80, %8, %._crit_edge, %4
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %90 = load i32, ptr %89, align 8
+  %91 = or i32 %90, 16384
+  store i32 %91, ptr %89, align 8
   ret void
 }
 
@@ -4790,22 +4790,18 @@ attributes #20 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !8}
-!17 = !{i64 1738338, i64 1738355}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
+!14 = !{i64 1738338, i64 1738355}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

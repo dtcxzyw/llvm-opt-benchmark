@@ -49,7 +49,7 @@ define dso_local void @php_network_freeaddresses(ptr noundef %0) local_unnamed_a
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @_efree(ptr noundef nonnull %0) #19
@@ -80,8 +80,8 @@ define dso_local i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %1, ptr %10, align 8, !tbaa !11
-  %11 = load i32, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !16
+  store i32 %1, ptr %10, align 8, !tbaa !9
+  %11 = load i32, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !14
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %18
 
@@ -91,13 +91,13 @@ define dso_local i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, p
   br i1 %15, label %.thread, label %16
 
 .thread:                                          ; preds = %13
-  store i32 1, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !16
+  store i32 1, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !14
   br label %20
 
 16:                                               ; preds = %13
-  store i32 0, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !16
+  store i32 0, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !14
   %17 = tail call i32 @close(i32 noundef %14) #19
-  %.pre = load i32, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !16
+  %.pre = load i32, ptr @php_network_getaddresses.ipv6_borked, align 4, !tbaa !14
   br label %18
 
 18:                                               ; preds = %16, %8
@@ -109,7 +109,7 @@ define dso_local i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, p
 
 20:                                               ; preds = %18, %.thread
   %21 = phi i32 [ 2, %.thread ], [ %spec.select, %18 ]
-  store i32 %21, ptr %9, align 4, !tbaa !17
+  store i32 %21, ptr %9, align 4, !tbaa !15
   %22 = call i32 @getaddrinfo(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not86 = icmp eq i32 %22, 0
   br i1 %.not86, label %40, label %23
@@ -120,23 +120,23 @@ define dso_local i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, p
   br i1 %.not91, label %39, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %3, align 8, !tbaa !18
+  %26 = load ptr, ptr %3, align 8, !tbaa !16
   %.not92 = icmp eq ptr %26, null
   br i1 %.not92, label %zend_string_release_ex.exit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !20
+  %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = and i32 %29, 64
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %31, label %zend_string_release_ex.exit
 
 31:                                               ; preds = %27
-  %32 = load i32, ptr %26, align 4, !tbaa !21
+  %32 = load i32, ptr %26, align 4, !tbaa !19
   %33 = icmp ne i32 %32, 0
   call void @llvm.assume(i1 %33)
   %34 = add i32 %32, -1
-  store i32 %34, ptr %26, align 4, !tbaa !21
+  store i32 %34, ptr %26, align 4, !tbaa !19
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %zend_string_release_ex.exit
 
@@ -146,7 +146,7 @@ define dso_local i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, p
 
 zend_string_release_ex.exit:                      ; preds = %36, %31, %27, %25
   %37 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %24) #19
-  store ptr %37, ptr %3, align 8, !tbaa !18
+  store ptr %37, ptr %3, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull %38) #19
   br label %82
@@ -156,7 +156,7 @@ zend_string_release_ex.exit:                      ; preds = %36, %31, %27, %25
   br label %82
 
 40:                                               ; preds = %20
-  %41 = load ptr, ptr %6, align 8, !tbaa !23
+  %41 = load ptr, ptr %6, align 8, !tbaa !21
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %.preheader
 
@@ -165,23 +165,23 @@ zend_string_release_ex.exit:                      ; preds = %36, %31, %27, %25
   br i1 %.not89, label %60, label %44
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %3, align 8, !tbaa !18
+  %45 = load ptr, ptr %3, align 8, !tbaa !16
   %.not90 = icmp eq ptr %45, null
   br i1 %.not90, label %zend_string_release_ex.exit94, label %46
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !20
+  %48 = load i32, ptr %47, align 4, !tbaa !18
   %49 = and i32 %48, 64
   %.not.i93 = icmp eq i32 %49, 0
   br i1 %.not.i93, label %50, label %zend_string_release_ex.exit94
 
 50:                                               ; preds = %46
-  %51 = load i32, ptr %45, align 4, !tbaa !21
+  %51 = load i32, ptr %45, align 4, !tbaa !19
   %52 = icmp ne i32 %51, 0
   call void @llvm.assume(i1 %52)
   %53 = add i32 %51, -1
-  store i32 %53, ptr %45, align 4, !tbaa !21
+  store i32 %53, ptr %45, align 4, !tbaa !19
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %zend_string_release_ex.exit94
 
@@ -191,9 +191,9 @@ zend_string_release_ex.exit:                      ; preds = %36, %31, %27, %25
 
 zend_string_release_ex.exit94:                    ; preds = %55, %50, %46, %44
   %56 = tail call ptr @__errno_location() #20
-  %57 = load i32, ptr %56, align 4, !tbaa !16
+  %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %57) #19
-  store ptr %58, ptr %3, align 8, !tbaa !18
+  store ptr %58, ptr %3, align 8, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull %59) #19
   br label %82
@@ -206,39 +206,39 @@ zend_string_release_ex.exit94:                    ; preds = %55, %50, %46, %44
   %.072 = phi i32 [ %63, %.preheader ], [ 1, %40 ]
   %.071 = phi ptr [ %62, %.preheader ], [ %41, %40 ]
   %61 = getelementptr inbounds nuw i8, ptr %.071, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !24
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
   %.not87 = icmp eq ptr %62, null
   %63 = add nuw nsw i32 %.072, 1
-  br i1 %.not87, label %64, label %.preheader, !llvm.loop !25
+  br i1 %.not87, label %64, label %.preheader
 
 64:                                               ; preds = %.preheader
   %65 = zext nneg i32 %63 to i64
   %66 = call noalias ptr @_safe_emalloc(i64 noundef %65, i64 noundef 8, i64 noundef 0) #19
-  store ptr %66, ptr %2, align 8, !tbaa !26
-  %67 = load ptr, ptr %6, align 8, !tbaa !23
+  store ptr %66, ptr %2, align 8, !tbaa !23
+  %67 = load ptr, ptr %6, align 8, !tbaa !21
   br label %68
 
 68:                                               ; preds = %68, %64
   %.1 = phi ptr [ %67, %64 ], [ %79, %68 ]
   %.070 = phi ptr [ %66, %64 ], [ %77, %68 ]
   %69 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %70 = load i32, ptr %69, align 8, !tbaa !28
+  %70 = load i32, ptr %69, align 8, !tbaa !25
   %71 = zext i32 %70 to i64
   %72 = call noalias ptr @_emalloc(i64 noundef %71) #21
   store ptr %72, ptr %.070, align 8, !tbaa !4
   %73 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !29
-  %75 = load i32, ptr %69, align 8, !tbaa !28
+  %74 = load ptr, ptr %73, align 8, !tbaa !26
+  %75 = load i32, ptr %69, align 8, !tbaa !25
   %76 = zext i32 %75 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %72, ptr align 2 %74, i64 %76, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %.070, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  %79 = load ptr, ptr %78, align 8, !tbaa !24
+  %79 = load ptr, ptr %78, align 8, !tbaa !22
   %.not88 = icmp eq ptr %79, null
-  br i1 %.not88, label %80, label %68, !llvm.loop !30
+  br i1 %.not88, label %80, label %68
 
 80:                                               ; preds = %68
-  %81 = load ptr, ptr %6, align 8, !tbaa !23
+  %81 = load ptr, ptr %6, align 8, !tbaa !21
   call void @freeaddrinfo(ptr noundef %81) #19
   store ptr null, ptr %77, align 8, !tbaa !4
   br label %82
@@ -291,7 +291,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_connect_socket(i32 noundef %0
   %11 = alloca %struct.timeval, align 8
   %12 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #19
-  store i32 0, ptr %9, align 4, !tbaa !16
+  store i32 0, ptr %9, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #19
   %13 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3, i32 noundef 0) #19
   %14 = or i32 %13, 2048
@@ -302,13 +302,13 @@ define dso_local range(i32 -1, 1) i32 @php_network_connect_socket(i32 noundef %0
 
 17:                                               ; preds = %7
   %18 = tail call ptr @__errno_location() #20
-  %19 = load i32, ptr %18, align 4, !tbaa !16
-  store i32 %19, ptr %9, align 4, !tbaa !16
+  %19 = load i32, ptr %18, align 4, !tbaa !14
+  store i32 %19, ptr %9, align 4, !tbaa !14
   %.not41 = icmp eq ptr %6, null
   br i1 %.not41, label %21, label %20
 
 20:                                               ; preds = %17
-  store i32 %19, ptr %6, align 4, !tbaa !16
+  store i32 %19, ptr %6, align 4, !tbaa !14
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -325,17 +325,17 @@ php_socket_error_str.exit:                        ; preds = %22
   %25 = and i64 %24, -8
   %26 = add i64 %25, 32
   %27 = tail call noalias ptr @_emalloc(i64 noundef %26) #21
-  store i32 1, ptr %27, align 4, !tbaa !21
+  store i32 1, ptr %27, align 4, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 22, ptr %28, align 4, !tbaa !20
+  store i32 22, ptr %28, align 4, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 0, ptr %29, align 8, !tbaa !31
+  store i64 0, ptr %29, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 %24, ptr %30, align 8, !tbaa !34
+  store i64 %24, ptr %30, align 8, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %23, i64 %24, i1 false)
   %32 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %24
-  store i8 0, ptr %32, align 1, !tbaa !20
+  store i8 0, ptr %32, align 1, !tbaa !18
   br label %.sink.split
 
 33:                                               ; preds = %21
@@ -351,10 +351,10 @@ php_network_set_limit_time.exit.split.us.preheader: ; preds = %34
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %35 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #19
-  %36 = load i64, ptr %11, align 8, !tbaa !35
+  %36 = load i64, ptr %11, align 8, !tbaa !31
   %37 = add nsw i64 %36, %.sroa.0.0.copyload
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !37
+  %39 = load i64, ptr %38, align 8, !tbaa !33
   %40 = add nsw i64 %39, %.sroa.5.0.copyload
   %41 = icmp sgt i64 %40, 999999
   %42 = add nsw i64 %40, -1000000
@@ -370,9 +370,9 @@ php_network_set_limit_time.exit.split.us:         ; preds = %php_network_set_lim
   %.sroa.0.1.us = phi i64 [ %.sroa.0.2.us, %sub_times.exit.us ], [ %.sroa.0.0.copyload, %php_network_set_limit_time.exit.split.us.preheader ]
   %.sroa.5.1.us = phi i64 [ %.sroa.5.2.us, %sub_times.exit.us ], [ %.sroa.5.0.copyload, %php_network_set_limit_time.exit.split.us.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  store i32 %0, ptr %8, align 4, !tbaa !38
-  store i16 29, ptr %44, align 4, !tbaa !41
-  store i16 0, ptr %45, align 2, !tbaa !42
+  store i32 %0, ptr %8, align 4, !tbaa !34
+  store i16 29, ptr %44, align 4, !tbaa !37
+  store i16 0, ptr %45, align 2, !tbaa !38
   %or.cond.i.i.us = icmp ult i64 %.sroa.0.1.us, 2147483
   br i1 %or.cond.i.i.us, label %.cont.us, label %php_pollfd_for.exit.us
 
@@ -395,13 +395,13 @@ php_pollfd_for.exit.us:                           ; preds = %.cont.us, %php_netw
   br i1 %55, label %56, label %.split.us
 
 56:                                               ; preds = %php_pollfd_for.exit.us
-  %57 = load i32, ptr %18, align 4, !tbaa !16
+  %57 = load i32, ptr %18, align 4, !tbaa !14
   %58 = icmp eq i32 %57, 4
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %56
   %60 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #19
-  %61 = load i64, ptr %12, align 8, !tbaa !35
+  %61 = load i64, ptr %12, align 8, !tbaa !31
   %62 = icmp eq i64 %61, %.ph67
   br i1 %62, label %65, label %63
 
@@ -414,7 +414,7 @@ php_pollfd_for.exit.us:                           ; preds = %.cont.us, %php_netw
   br label %sub_times.exit.us
 
 65:                                               ; preds = %59
-  %66 = load i64, ptr %46, align 8, !tbaa !37
+  %66 = load i64, ptr %46, align 8, !tbaa !33
   %67 = icmp slt i64 %66, %.ph
   br i1 %67, label %sub_times.exit.us, label %.split61.us
 
@@ -432,15 +432,15 @@ sub_times.exit.us:                                ; preds = %.sub_times.exit.us_
   %.lobit = lshr i64 %72, 63
   %.sroa.0.2.us = add nsw i64 %72, %.lobit
   %.sroa.5.2.us = select i1 %73, i64 %74, i64 %storemerge.i.us
-  br label %php_network_set_limit_time.exit.split.us, !llvm.loop !43
+  br label %php_network_set_limit_time.exit.split.us, !llvm.loop !39
 
 php_network_set_limit_time.exit.split:            ; preds = %34
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  store i32 %0, ptr %8, align 4, !tbaa !38
-  store i16 29, ptr %75, align 4, !tbaa !41
-  store i16 0, ptr %76, align 2, !tbaa !42
+  store i32 %0, ptr %8, align 4, !tbaa !34
+  store i16 29, ptr %75, align 4, !tbaa !37
+  store i16 0, ptr %76, align 2, !tbaa !38
   %77 = call i32 @poll(ptr noundef nonnull %8, i64 noundef 1, i32 noundef -1) #19
   %78 = icmp sgt i32 %77, 0
   %79 = load i16, ptr %76, align 2
@@ -452,9 +452,9 @@ php_network_set_limit_time.exit.split:            ; preds = %34
 
 php_pollfd_for.exit:                              ; preds = %sub_times.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  store i32 %0, ptr %8, align 4, !tbaa !38
-  store i16 29, ptr %75, align 4, !tbaa !41
-  store i16 0, ptr %76, align 2, !tbaa !42
+  store i32 %0, ptr %8, align 4, !tbaa !34
+  store i16 29, ptr %75, align 4, !tbaa !37
+  store i16 0, ptr %76, align 2, !tbaa !38
   %82 = call i32 @poll(ptr noundef nonnull %8, i64 noundef 1, i32 noundef -1) #19
   %83 = icmp sgt i32 %82, 0
   %84 = load i16, ptr %76, align 2
@@ -462,15 +462,15 @@ php_pollfd_for.exit:                              ; preds = %sub_times.exit
   %.0.i = select i1 %83, i32 %85, i32 %82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   %86 = icmp slt i32 %.0.i, 0
-  br i1 %86, label %sub_times.exit, label %.split.us, !llvm.loop !45
+  br i1 %86, label %sub_times.exit, label %.split.us
 
 sub_times.exit:                                   ; preds = %php_network_set_limit_time.exit.split, %php_pollfd_for.exit
-  %87 = load i32, ptr %18, align 4, !tbaa !16
+  %87 = load i32, ptr %18, align 4, !tbaa !14
   %88 = icmp eq i32 %87, 4
   br i1 %88, label %php_pollfd_for.exit, label %.loopexit
 
 .split61.us:                                      ; preds = %63, %65
-  store i32 110, ptr %9, align 4, !tbaa !16
+  store i32 110, ptr %9, align 4, !tbaa !14
   br label %.loopexit
 
 .split.us:                                        ; preds = %php_pollfd_for.exit.us, %php_pollfd_for.exit, %php_network_set_limit_time.exit.split
@@ -479,11 +479,11 @@ sub_times.exit:                                   ; preds = %php_network_set_lim
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %.split.us
-  store i32 110, ptr %9, align 4, !tbaa !16
+  store i32 110, ptr %9, align 4, !tbaa !14
   br label %.loopexit
 
 91:                                               ; preds = %.split.us
-  store i32 4, ptr %10, align 4, !tbaa !16
+  store i32 4, ptr %10, align 4, !tbaa !14
   %92 = call i32 @getsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %9, ptr noundef nonnull %10) #19
   %.not45 = icmp ne i32 %92, 0
   %spec.select = sext i1 %.not45 to i32
@@ -500,11 +500,11 @@ sub_times.exit:                                   ; preds = %php_network_set_lim
 
 95:                                               ; preds = %93, %.loopexit
   %.not47 = icmp eq ptr %6, null
-  %.pr = load i32, ptr %9, align 4, !tbaa !16
+  %.pr = load i32, ptr %9, align 4, !tbaa !14
   br i1 %.not47, label %thread-pre-split, label %96
 
 96:                                               ; preds = %95
-  store i32 %.pr, ptr %6, align 4, !tbaa !16
+  store i32 %.pr, ptr %6, align 4, !tbaa !14
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %95, %96
@@ -521,22 +521,22 @@ php_socket_error_str.exit51:                      ; preds = %97
   %100 = and i64 %99, -8
   %101 = add i64 %100, 32
   %102 = call noalias ptr @_emalloc(i64 noundef %101) #21
-  store i32 1, ptr %102, align 4, !tbaa !21
+  store i32 1, ptr %102, align 4, !tbaa !19
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store i32 22, ptr %103, align 4, !tbaa !20
+  store i32 22, ptr %103, align 4, !tbaa !18
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i64 0, ptr %104, align 8, !tbaa !31
+  store i64 0, ptr %104, align 8, !tbaa !27
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store i64 %99, ptr %105, align 8, !tbaa !34
+  store i64 %99, ptr %105, align 8, !tbaa !30
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 1 %98, i64 %99, i1 false)
   %107 = getelementptr inbounds nuw [1 x i8], ptr %106, i64 0, i64 %99
-  store i8 0, ptr %107, align 1, !tbaa !20
+  store i8 0, ptr %107, align 1, !tbaa !18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %php_socket_error_str.exit, %php_socket_error_str.exit51
   %.sink = phi ptr [ %102, %php_socket_error_str.exit51 ], [ %27, %php_socket_error_str.exit ]
-  store ptr %.sink, ptr %5, align 8, !tbaa !18
+  store ptr %.sink, ptr %5, align 8, !tbaa !16
   br label %108
 
 108:                                              ; preds = %.sink.split, %thread-pre-split, %97, %33, %22
@@ -559,17 +559,17 @@ zend_string_alloc.exit:
   %4 = and i64 %3, -8
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #21
-  store i32 1, ptr %6, align 4, !tbaa !21
+  store i32 1, ptr %6, align 4, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 22, ptr %7, align 4, !tbaa !20
+  store i32 22, ptr %7, align 4, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !31
+  store i64 0, ptr %8, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %3, ptr %9, align 8, !tbaa !34
+  store i64 %3, ptr %9, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 1 %2, i64 %3, i1 false)
   %11 = getelementptr inbounds nuw [1 x i8], ptr %10, i64 0, i64 %3
-  store i8 0, ptr %11, align 1, !tbaa !20
+  store i8 0, ptr %11, align 1, !tbaa !18
   ret ptr %6
 }
 
@@ -586,13 +586,13 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #19
-  store i32 1, ptr %8, align 4, !tbaa !16
+  store i32 1, ptr %8, align 4, !tbaa !14
   %10 = call i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %7, ptr noundef %4)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %php_network_freeaddresses.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr %7, align 8, !tbaa !26
+  %13 = load ptr, ptr %7, align 8, !tbaa !23
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %.not54 = icmp eq ptr %14, null
   br i1 %.not54, label %._crit_edge, label %.lr.ph
@@ -617,7 +617,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
   %24 = phi ptr [ %14, %.lr.ph ], [ %53, %51 ]
   %.03856 = phi i32 [ 0, %.lr.ph ], [ %.1, %51 ]
   %.03955 = phi ptr [ %13, %.lr.ph ], [ %52, %51 ]
-  %25 = load i16, ptr %24, align 2, !tbaa !46
+  %25 = load i16, ptr %24, align 2, !tbaa !41
   switch i16 %25, label %51 [
     i16 10, label %27
     i16 2, label %26
@@ -629,7 +629,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
 27:                                               ; preds = %23, %26
   %.037 = phi i32 [ 16, %26 ], [ 28, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 2
-  store i16 %rev.i52, ptr %28, align 2, !tbaa !48
+  store i16 %rev.i52, ptr %28, align 2, !tbaa !43
   %29 = zext nneg i16 %25 to i32
   %30 = call i32 @socket(i32 noundef %29, i32 noundef %2, i32 noundef 0) #19
   %31 = icmp eq i32 %30, -1
@@ -641,7 +641,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #19
-  store i32 %19, ptr %9, align 4, !tbaa !16
+  store i32 %19, ptr %9, align 4, !tbaa !14
   %35 = call i32 @setsockopt(i32 noundef %30, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %9, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #19
   br label %36
@@ -674,7 +674,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
 
 47:                                               ; preds = %45
   %48 = tail call ptr @__errno_location() #20
-  %49 = load i32, ptr %48, align 4, !tbaa !16
+  %49 = load i32, ptr %48, align 4, !tbaa !14
   %50 = call i32 @close(i32 noundef %30) #19
   br label %51
 
@@ -683,7 +683,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
   %52 = getelementptr inbounds nuw i8, ptr %.03955, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %51, %12
   %.038.lcssa = phi i32 [ 0, %12 ], [ %.1, %51 ]
@@ -691,7 +691,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
   br i1 %.not45, label %55, label %54
 
 54:                                               ; preds = %._crit_edge
-  store i32 %.038.lcssa, ptr %5, align 4, !tbaa !16
+  store i32 %.038.lcssa, ptr %5, align 4, !tbaa !14
   br label %55
 
 55:                                               ; preds = %54, %._crit_edge
@@ -704,18 +704,18 @@ php_socket_error_str.exit:                        ; preds = %55
   %58 = and i64 %57, -8
   %59 = add i64 %58, 32
   %60 = call noalias ptr @_emalloc(i64 noundef %59) #21
-  store i32 1, ptr %60, align 4, !tbaa !21
+  store i32 1, ptr %60, align 4, !tbaa !19
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 22, ptr %61, align 4, !tbaa !20
+  store i32 22, ptr %61, align 4, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i64 0, ptr %62, align 8, !tbaa !31
+  store i64 0, ptr %62, align 8, !tbaa !27
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i64 %57, ptr %63, align 8, !tbaa !34
+  store i64 %57, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 1 %56, i64 %57, i1 false)
   %65 = getelementptr inbounds nuw [1 x i8], ptr %64, i64 0, i64 %57
-  store i8 0, ptr %65, align 1, !tbaa !20
-  store ptr %60, ptr %4, align 8, !tbaa !18
+  store i8 0, ptr %65, align 1, !tbaa !18
+  store ptr %60, ptr %4, align 8, !tbaa !16
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %45, %php_socket_error_str.exit, %55
@@ -731,7 +731,7 @@ php_socket_error_str.exit:                        ; preds = %55
   %68 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %.not.i = icmp eq ptr %69, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @_efree(ptr noundef nonnull %13) #19
@@ -756,9 +756,9 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !tbaa !18
+  store ptr null, ptr %6, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 28, i1 false)
-  %7 = load i8, ptr %0, align 1, !tbaa !20
+  %7 = load i8, ptr %0, align 1, !tbaa !18
   %8 = icmp eq i8 %7, 91
   br i1 %8, label %9, label %18
 
@@ -771,7 +771,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !20
+  %15 = load i8, ptr %14, align 1, !tbaa !18
   %.not50 = icmp eq i8 %15, 58
   br i1 %.not50, label %16, label %66
 
@@ -806,9 +806,9 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 31:                                               ; preds = %22
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %.044)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i, ptr %32, align 2, !tbaa !50
-  store i16 10, ptr %2, align 4, !tbaa !53
-  store i32 28, ptr %3, align 4, !tbaa !16
+  store i16 %rev.i, ptr %32, align 2, !tbaa !44
+  store i16 10, ptr %2, align 4, !tbaa !47
+  store i32 28, ptr %3, align 4, !tbaa !14
   br label %zend_string_release_ex.exit
 
 33:                                               ; preds = %22
@@ -820,9 +820,9 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 37:                                               ; preds = %33
   %rev.i52 = tail call noundef i16 @llvm.bswap.i16(i16 %.044)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i52, ptr %38, align 2, !tbaa !54
-  store i16 2, ptr %2, align 4, !tbaa !57
-  store i32 16, ptr %3, align 4, !tbaa !16
+  store i16 %rev.i52, ptr %38, align 2, !tbaa !48
+  store i16 2, ptr %2, align 4, !tbaa !51
+  store i32 16, ptr %3, align 4, !tbaa !14
   br label %zend_string_release_ex.exit
 
 39:                                               ; preds = %33
@@ -831,7 +831,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   br i1 %41, label %42, label %55
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr %6, align 8, !tbaa !18
+  %43 = load ptr, ptr %6, align 8, !tbaa !16
   %.not51 = icmp eq ptr %43, null
   br i1 %.not51, label %zend_string_release_ex.exit, label %44
 
@@ -839,17 +839,17 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %27, ptr noundef nonnull %45) #19
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !20
+  %47 = load i32, ptr %46, align 4, !tbaa !18
   %48 = and i32 %47, 64
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %49, label %zend_string_release_ex.exit
 
 49:                                               ; preds = %44
-  %50 = load i32, ptr %43, align 4, !tbaa !21
+  %50 = load i32, ptr %43, align 4, !tbaa !19
   %51 = icmp ne i32 %50, 0
   call void @llvm.assume(i1 %51)
   %52 = add i32 %50, -1
-  store i32 %52, ptr %43, align 4, !tbaa !21
+  store i32 %52, ptr %43, align 4, !tbaa !19
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %zend_string_release_ex.exit
 
@@ -858,28 +858,28 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   br label %zend_string_release_ex.exit
 
 55:                                               ; preds = %39
-  %56 = load ptr, ptr %5, align 8, !tbaa !26
+  %56 = load ptr, ptr %5, align 8, !tbaa !23
   %57 = load ptr, ptr %56, align 8, !tbaa !4
-  %58 = load i16, ptr %57, align 2, !tbaa !46
+  %58 = load i16, ptr %57, align 2, !tbaa !41
   switch i16 %58, label %.lr.ph.i.preheader [
     i16 10, label %59
     i16 2, label %60
   ]
 
 59:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %57, i64 28, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %57, i64 28, i1 false), !tbaa.struct !52
   br label %.preheader.i
 
 60:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !53
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %59, %60
   %storemerge = phi i32 [ 16, %60 ], [ 28, %59 ]
   %rev.i53 = call noundef i16 @llvm.bswap.i16(i16 %.044)
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i53, ptr %61, align 2, !tbaa !48
-  store i32 %storemerge, ptr %3, align 4, !tbaa !16
+  store i16 %rev.i53, ptr %61, align 2, !tbaa !43
+  store i32 %storemerge, ptr %3, align 4, !tbaa !14
   %.pr = load ptr, ptr %56, align 8, !tbaa !4
   %.not8.i = icmp eq ptr %.pr, null
   br i1 %.not8.i, label %php_network_freeaddresses.exit, label %.lr.ph.i.preheader
@@ -896,7 +896,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   %64 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !4
   %.not.i55 = icmp eq ptr %65, null
-  br i1 %.not.i55, label %php_network_freeaddresses.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i55, label %php_network_freeaddresses.exit, label %.lr.ph.i
 
 php_network_freeaddresses.exit:                   ; preds = %.lr.ph.i, %.preheader.i
   %.159 = phi i32 [ 0, %.preheader.i ], [ %.158, %.lr.ph.i ]
@@ -935,7 +935,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
   store ptr %9, ptr %3, align 8, !tbaa !4
   %10 = zext i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %9, ptr align 2 %0, i64 %10, i1 false)
-  store i32 %1, ptr %4, align 4, !tbaa !16
+  store i32 %1, ptr %4, align 4, !tbaa !14
   br label %11
 
 11:                                               ; preds = %7, %5
@@ -944,7 +944,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #19
-  %13 = load i16, ptr %0, align 2, !tbaa !46
+  %13 = load i16, ptr %0, align 2, !tbaa !41
   switch i16 %13, label %48 [
     i16 2, label %14
     i16 10, label %22
@@ -959,7 +959,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !54
+  %19 = load i16, ptr %18, align 2, !tbaa !48
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %19)
   %20 = zext i16 %rev.i to i32
   %21 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %16, i32 noundef %20) #19
@@ -973,7 +973,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !50
+  %27 = load i16, ptr %26, align 2, !tbaa !44
   %rev.i74 = call noundef i16 @llvm.bswap.i16(i16 %27)
   %28 = zext i16 %rev.i74 to i32
   %29 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %24, i32 noundef %28) #19
@@ -981,7 +981,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 30:                                               ; preds = %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %32 = load i8, ptr %31, align 2, !tbaa !20
+  %32 = load i8, ptr %31, align 2, !tbaa !18
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %37
 
@@ -1001,22 +1001,22 @@ zend_string_alloc.exit73:                         ; preds = %37, %34
   %40 = and i64 %.sink89, -8
   %41 = add nsw i64 %40, 32
   %42 = tail call noalias ptr @_emalloc(i64 noundef %41) #21
-  store i32 1, ptr %42, align 4, !tbaa !21
+  store i32 1, ptr %42, align 4, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 22, ptr %43, align 4, !tbaa !20
+  store i32 22, ptr %43, align 4, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 0, ptr %44, align 8, !tbaa !31
+  store i64 0, ptr %44, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %.sink89, ptr %45, align 8, !tbaa !34
+  store i64 %.sink89, ptr %45, align 8, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %31, i64 %.sink89, i1 false)
   %47 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %.sink89
-  store i8 0, ptr %47, align 1, !tbaa !20
+  store i8 0, ptr %47, align 1, !tbaa !18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %zend_string_alloc.exit73, %17, %25
   %.sink86 = phi ptr [ %29, %25 ], [ %21, %17 ], [ %42, %zend_string_alloc.exit73 ]
-  store ptr %.sink86, ptr %2, align 8, !tbaa !18
+  store ptr %.sink86, ptr %2, align 8, !tbaa !16
   br label %48
 
 48:                                               ; preds = %.sink.split, %22, %14, %12
@@ -1039,14 +1039,14 @@ define dso_local range(i32 -1, 1) i32 @php_network_get_peer_name(i32 noundef %0,
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  store i32 128, ptr %6, align 4, !tbaa !16
+  store i32 128, ptr %6, align 4, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %7 = call i32 @getpeername(i32 noundef %0, ptr nonnull %5, ptr noundef nonnull %6) #19
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %6, align 4, !tbaa !16
+  %10 = load i32, ptr %6, align 4, !tbaa !14
   call void @php_network_populate_name_from_sockaddr(ptr noundef nonnull %5, i32 noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %11
 
@@ -1066,14 +1066,14 @@ define dso_local range(i32 -1, 1) i32 @php_network_get_sock_name(i32 noundef %0,
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  store i32 128, ptr %6, align 4, !tbaa !16
+  store i32 128, ptr %6, align 4, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %7 = call i32 @getsockname(i32 noundef %0, ptr nonnull %5, ptr noundef nonnull %6) #19
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %6, align 4, !tbaa !16
+  %10 = load i32, ptr %6, align 4, !tbaa !14
   call void @php_network_populate_name_from_sockaddr(ptr noundef nonnull %5, i32 noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %11
 
@@ -1093,27 +1093,27 @@ define dso_local i32 @php_network_accept_incoming(i32 noundef %0, ptr noundef wr
   %10 = alloca i32, align 4
   %11 = alloca %struct.sockaddr_storage, align 8
   %12 = alloca i32, align 4
-  store i32 %7, ptr %10, align 4, !tbaa !16
+  store i32 %7, ptr %10, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
-  store i32 %0, ptr %9, align 4, !tbaa !38
+  store i32 %0, ptr %9, align 4, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i16 25, ptr %13, align 4, !tbaa !41
+  store i16 25, ptr %13, align 4, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  store i16 0, ptr %14, align 2, !tbaa !42
+  store i16 0, ptr %14, align 2, !tbaa !38
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %php_pollfd_for.exit, label %15
 
 15:                                               ; preds = %8
-  %16 = load i64, ptr %4, align 8, !tbaa !35
+  %16 = load i64, ptr %4, align 8, !tbaa !31
   %or.cond.i.i = icmp ult i64 %16, 2147483
   br i1 %or.cond.i.i, label %17, label %php_pollfd_for.exit
 
 17:                                               ; preds = %15
   %18 = mul nuw nsw i64 %16, 1000
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !37
+  %20 = load i64, ptr %19, align 8, !tbaa !33
   %21 = sdiv i64 %20, 1000
   %22 = add nsw i64 %21, %18
   %23 = trunc i64 %22 to i32
@@ -1134,19 +1134,19 @@ php_pollfd_for.exit:                              ; preds = %8, %15, %17
 
 28:                                               ; preds = %php_pollfd_for.exit
   %29 = tail call ptr @__errno_location() #20
-  %30 = load i32, ptr %29, align 4, !tbaa !16
+  %30 = load i32, ptr %29, align 4, !tbaa !14
   br label %41
 
 31:                                               ; preds = %php_pollfd_for.exit
-  store i32 128, ptr %12, align 4, !tbaa !16
+  store i32 128, ptr %12, align 4, !tbaa !14
   %32 = call i32 @accept(i32 noundef %0, ptr nonnull %11, ptr noundef nonnull %12) #19
   %.not = icmp eq i32 %32, -1
   br i1 %.not, label %38, label %33
 
 33:                                               ; preds = %31
-  %34 = load i32, ptr %12, align 4, !tbaa !16
+  %34 = load i32, ptr %12, align 4, !tbaa !14
   call void @php_network_populate_name_from_sockaddr(ptr noundef nonnull %11, i32 noundef %34, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %35 = load i32, ptr %10, align 4, !tbaa !16
+  %35 = load i32, ptr %10, align 4, !tbaa !14
   %.not21 = icmp eq i32 %35, 0
   br i1 %.not21, label %41, label %36
 
@@ -1156,7 +1156,7 @@ php_pollfd_for.exit:                              ; preds = %8, %15, %17
 
 38:                                               ; preds = %31
   %39 = tail call ptr @__errno_location() #20
-  %40 = load i32, ptr %39, align 4, !tbaa !16
+  %40 = load i32, ptr %39, align 4, !tbaa !14
   br label %41
 
 41:                                               ; preds = %php_pollfd_for.exit, %28, %33, %36, %38
@@ -1166,7 +1166,7 @@ php_pollfd_for.exit:                              ; preds = %8, %15, %17
   br i1 %.not22, label %43, label %42
 
 42:                                               ; preds = %41
-  store i32 %.016, ptr %6, align 4, !tbaa !16
+  store i32 %.016, ptr %6, align 4, !tbaa !14
   br label %43
 
 43:                                               ; preds = %42, %41
@@ -1179,18 +1179,18 @@ php_socket_error_str.exit:                        ; preds = %43
   %46 = and i64 %45, -8
   %47 = add i64 %46, 32
   %48 = call noalias ptr @_emalloc(i64 noundef %47) #21
-  store i32 1, ptr %48, align 4, !tbaa !21
+  store i32 1, ptr %48, align 4, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 22, ptr %49, align 4, !tbaa !20
+  store i32 22, ptr %49, align 4, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 0, ptr %50, align 8, !tbaa !31
+  store i64 0, ptr %50, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i64 %45, ptr %51, align 8, !tbaa !34
+  store i64 %45, ptr %51, align 8, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 1 %44, i64 %45, i1 false)
   %53 = getelementptr inbounds nuw [1 x i8], ptr %52, i64 0, i64 %45
-  store i8 0, ptr %53, align 1, !tbaa !20
-  store ptr %48, ptr %5, align 8, !tbaa !18
+  store i8 0, ptr %53, align 1, !tbaa !18
+  store ptr %48, ptr %5, align 8, !tbaa !16
   br label %54
 
 54:                                               ; preds = %php_socket_error_str.exit, %43
@@ -1226,29 +1226,29 @@ define dso_local i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 nou
 22:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %23 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #19
-  %24 = load i64, ptr %12, align 8, !tbaa !35
-  %25 = load i64, ptr %13, align 8, !tbaa !35
+  %24 = load i64, ptr %12, align 8, !tbaa !31
+  %25 = load i64, ptr %13, align 8, !tbaa !31
   %26 = add nsw i64 %25, %24
-  store i64 %26, ptr %13, align 8, !tbaa !35
+  store i64 %26, ptr %13, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !37
+  %28 = load i64, ptr %27, align 8, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !37
+  %30 = load i64, ptr %29, align 8, !tbaa !33
   %31 = add nsw i64 %30, %28
-  store i64 %31, ptr %29, align 8, !tbaa !37
+  store i64 %31, ptr %29, align 8, !tbaa !33
   %32 = icmp sgt i64 %31, 999999
   br i1 %32, label %33, label %php_network_set_limit_time.exit
 
 33:                                               ; preds = %22
   %34 = add nsw i64 %31, -1000000
-  store i64 %34, ptr %29, align 8, !tbaa !37
+  store i64 %34, ptr %29, align 8, !tbaa !33
   %35 = add nsw i64 %26, 1
-  store i64 %35, ptr %13, align 8, !tbaa !35
+  store i64 %35, ptr %13, align 8, !tbaa !31
   br label %php_network_set_limit_time.exit
 
 php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   %. = phi ptr [ %12, %33 ], [ %12, %22 ], [ null, %21 ]
-  %36 = load ptr, ptr %11, align 8, !tbaa !26
+  %36 = load ptr, ptr %11, align 8, !tbaa !23
   %rev.i88 = tail call i16 @llvm.bswap.i16(i16 %1)
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %rev.i90 = tail call i16 @llvm.bswap.i16(i16 %8)
@@ -1271,7 +1271,7 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   %47 = phi ptr [ %132, %.backedge ], [ %46, %php_network_set_limit_time.exit ]
   %.0609299 = phi ptr [ %131, %.backedge ], [ %36, %php_network_set_limit_time.exit ]
   %.0599398 = phi ptr [ %.05993.be, %.backedge ], [ %7, %php_network_set_limit_time.exit ]
-  %48 = load i16, ptr %47, align 2, !tbaa !46
+  %48 = load i16, ptr %47, align 2, !tbaa !41
   switch i16 %48, label %.backedge [
     i16 10, label %49
     i16 2, label %54
@@ -1288,12 +1288,12 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
 
 52:                                               ; preds = %50, %49
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %rev.i88, ptr %53, align 2, !tbaa !50
+  store i16 %rev.i88, ptr %53, align 2, !tbaa !44
   br label %.tail.thread
 
 54:                                               ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %rev.i88, ptr %55, align 2, !tbaa !54
+  store i16 %rev.i88, ptr %55, align 2, !tbaa !48
   %.not74 = icmp eq ptr %.0599398, null
   br i1 %.not74, label %.tail.thread, label %56
 
@@ -1331,7 +1331,7 @@ sub_0:                                            ; preds = %56
 67:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %15) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %15, i8 0, i64 28, i1 false)
-  %68 = load i16, ptr %47, align 2, !tbaa !46
+  %68 = load i16, ptr %47, align 2, !tbaa !41
   %69 = icmp eq i16 %68, 2
   br i1 %69, label %70, label %73
 
@@ -1347,11 +1347,11 @@ sub_0:                                            ; preds = %56
 
 76:                                               ; preds = %73, %70
   %.057 = phi i32 [ 16, %70 ], [ 28, %73 ]
-  %storemerge = load i16, ptr %47, align 2, !tbaa !46
-  store i16 %storemerge, ptr %15, align 4, !tbaa !20
-  store i16 %rev.i90, ptr %38, align 2, !tbaa !20
+  %storemerge = load i16, ptr %47, align 2, !tbaa !41
+  store i16 %storemerge, ptr %15, align 4, !tbaa !18
+  store i16 %rev.i90, ptr %38, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #19
-  store i32 1, ptr %16, align 4, !tbaa !16
+  store i32 1, ptr %16, align 4, !tbaa !14
   %77 = call i32 @setsockopt(i32 noundef %64, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #19
   %78 = call i32 @bind(i32 noundef %64, ptr nonnull %15, i32 noundef %.057) #19
@@ -1360,7 +1360,7 @@ sub_0:                                            ; preds = %56
 
 .critedge87:                                      ; preds = %73, %70
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #19
-  store i32 1, ptr %16, align 4, !tbaa !16
+  store i32 1, ptr %16, align 4, !tbaa !14
   %79 = call i32 @setsockopt(i32 noundef %64, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #19
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %.2) #19
@@ -1368,7 +1368,7 @@ sub_0:                                            ; preds = %56
 
 80:                                               ; preds = %76
   %81 = tail call ptr @__errno_location() #20
-  %82 = load i32, ptr %81, align 4, !tbaa !16
+  %82 = load i32, ptr %81, align 4, !tbaa !14
   %83 = call ptr @strerror(i32 noundef %82) #19
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.2, i32 noundef %40, ptr noundef %83) #19
   br label %84
@@ -1381,23 +1381,23 @@ sub_0:                                            ; preds = %56
   br i1 %.not81, label %98, label %86
 
 86:                                               ; preds = %85
-  %87 = load ptr, ptr %5, align 8, !tbaa !18
+  %87 = load ptr, ptr %5, align 8, !tbaa !16
   %.not82 = icmp eq ptr %87, null
   br i1 %.not82, label %98, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !20
+  %90 = load i32, ptr %89, align 4, !tbaa !18
   %91 = and i32 %90, 64
   %.not.i = icmp eq i32 %91, 0
   br i1 %.not.i, label %92, label %zend_string_release_ex.exit
 
 92:                                               ; preds = %88
-  %93 = load i32, ptr %87, align 4, !tbaa !21
+  %93 = load i32, ptr %87, align 4, !tbaa !19
   %94 = icmp ne i32 %93, 0
   call void @llvm.assume(i1 %94)
   %95 = add i32 %93, -1
-  store i32 %95, ptr %87, align 4, !tbaa !21
+  store i32 %95, ptr %87, align 4, !tbaa !19
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %zend_string_release_ex.exit
 
@@ -1406,12 +1406,12 @@ sub_0:                                            ; preds = %56
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %88, %92, %97
-  store ptr null, ptr %5, align 8, !tbaa !18
+  store ptr null, ptr %5, align 8, !tbaa !16
   br label %98
 
 98:                                               ; preds = %zend_string_release_ex.exit, %86, %85
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #19
-  store i32 1, ptr %17, align 4, !tbaa !16
+  store i32 1, ptr %17, align 4, !tbaa !14
   br i1 %.not83, label %101, label %99
 
 99:                                               ; preds = %98
@@ -1421,7 +1421,7 @@ zend_string_release_ex.exit:                      ; preds = %88, %92, %97
 101:                                              ; preds = %99, %98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #19
-  store i32 1, ptr %18, align 4, !tbaa !16
+  store i32 1, ptr %18, align 4, !tbaa !14
   br i1 %.not84, label %104, label %102
 
 102:                                              ; preds = %101
@@ -1439,14 +1439,14 @@ zend_string_release_ex.exit:                      ; preds = %88, %92, %97
 
 107:                                              ; preds = %106
   %108 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
-  %109 = load i64, ptr %14, align 8, !tbaa !35
-  %110 = load i64, ptr %13, align 8, !tbaa !35
+  %109 = load i64, ptr %14, align 8, !tbaa !31
+  %110 = load i64, ptr %13, align 8, !tbaa !31
   %111 = icmp eq i64 %109, %110
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %107
-  %113 = load i64, ptr %43, align 8, !tbaa !37
-  %114 = load i64, ptr %44, align 8, !tbaa !37
+  %113 = load i64, ptr %43, align 8, !tbaa !33
+  %114 = load i64, ptr %44, align 8, !tbaa !33
   %115 = icmp slt i64 %113, %114
   br i1 %115, label %118, label %sub_times.exit.thread
 
@@ -1467,18 +1467,18 @@ zend_string_release_ex.exit:                      ; preds = %88, %92, %97
   %123 = add nsw i64 %121, 1000000
   %storemerge.i = select i1 %122, i64 %123, i64 %121
   %.lobit.i = ashr i64 %121, 63
-  store i64 %storemerge.i, ptr %45, align 8, !tbaa !37
+  store i64 %storemerge.i, ptr %45, align 8, !tbaa !33
   %.sroa.07.0.i = sub i64 %110, %109
   %124 = add i64 %.lobit.i, %.sroa.07.0.i
-  store i64 %124, ptr %12, align 8, !tbaa !35
+  store i64 %124, ptr %12, align 8, !tbaa !31
   %125 = icmp slt i64 %124, 0
   br i1 %125, label %126, label %sub_times.exit
 
 126:                                              ; preds = %118
   %127 = add nsw i64 %124, 1
-  store i64 %127, ptr %12, align 8, !tbaa !35
+  store i64 %127, ptr %12, align 8, !tbaa !31
   %128 = add nsw i64 %storemerge.i, -1000000
-  store i64 %128, ptr %45, align 8, !tbaa !37
+  store i64 %128, ptr %45, align 8, !tbaa !33
   br label %sub_times.exit
 
 sub_times.exit.thread:                            ; preds = %116, %112
@@ -1494,11 +1494,11 @@ sub_times.exit:                                   ; preds = %126, %118, %106
   %131 = getelementptr inbounds nuw i8, ptr %.0609299, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %.not73 = icmp eq ptr %132, null
-  br i1 %.not73, label %.critedge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not73, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %104, %.backedge, %php_network_set_limit_time.exit, %sub_times.exit.thread
   %.061 = phi i32 [ -1, %sub_times.exit.thread ], [ -1, %php_network_set_limit_time.exit ], [ -1, %.backedge ], [ %64, %104 ]
-  %133 = load ptr, ptr %11, align 8, !tbaa !26
+  %133 = load ptr, ptr %11, align 8, !tbaa !23
   %134 = icmp eq ptr %133, null
   br i1 %134, label %php_network_freeaddresses.exit, label %.preheader.i
 
@@ -1514,7 +1514,7 @@ sub_times.exit:                                   ; preds = %126, %118, %106
   %137 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !4
   %.not.i91 = icmp eq ptr %138, null
-  br i1 %.not.i91, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i91, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @_efree(ptr noundef nonnull %133) #19
@@ -1544,19 +1544,19 @@ define dso_local void @php_any_addr(i32 noundef %0, ptr noundef writeonly captur
   ]
 
 4:                                                ; preds = %3
-  store i16 10, ptr %1, align 4, !tbaa !53
+  store i16 10, ptr %1, align 4, !tbaa !47
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %rev.i, ptr %5, align 2, !tbaa !50
+  store i16 %rev.i, ptr %5, align 2, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false), !tbaa.struct !61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false), !tbaa.struct !54
   br label %9
 
 7:                                                ; preds = %3
-  store i16 2, ptr %1, align 4, !tbaa !57
+  store i16 2, ptr %1, align 4, !tbaa !51
   %rev.i11 = tail call noundef i16 @llvm.bswap.i16(i16 %2)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %rev.i11, ptr %8, align 2, !tbaa !54
+  store i16 %rev.i11, ptr %8, align 2, !tbaa !48
   br label %9
 
 9:                                                ; preds = %7, %4, %3
@@ -1565,7 +1565,7 @@ define dso_local void @php_any_addr(i32 noundef %0, ptr noundef writeonly captur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 111) i32 @php_sockaddr_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
-  %2 = load i16, ptr %0, align 2, !tbaa !46
+  %2 = load i16, ptr %0, align 2, !tbaa !41
   switch i16 %2, label %5 [
     i16 2, label %6
     i16 10, label %3
@@ -1601,7 +1601,7 @@ define dso_local ptr @php_socket_strerror(i64 noundef %0, ptr noundef %1, i64 no
   %10 = tail call ptr @strncpy(ptr noundef nonnull %1, ptr noundef %5, i64 noundef %2) #19
   %11 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
-  store i8 0, ptr %12, align 1, !tbaa !20
+  store i8 0, ptr %12, align 1, !tbaa !18
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -1631,11 +1631,11 @@ define dso_local ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noun
   %8 = phi ptr [ %4, %3 ], [ %6, %5 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 1, ptr %9, align 4, !tbaa !62
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !64
+  store i8 1, ptr %9, align 4, !tbaa !55
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !57
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !71
-  store i32 %0, ptr %8, align 8, !tbaa !72
+  store i64 %10, ptr %11, align 8, !tbaa !64
+  store i32 %0, ptr %8, align 8, !tbaa !65
   %12 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_generic_socket_ops, ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull @.str.10) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
@@ -1653,9 +1653,9 @@ define dso_local ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noun
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 116
-  %19 = load i32, ptr %18, align 4, !tbaa !73
+  %19 = load i32, ptr %18, align 4, !tbaa !66
   %20 = or i32 %19, 16
-  store i32 %20, ptr %18, align 4, !tbaa !73
+  store i32 %20, ptr %18, align 4, !tbaa !66
   br label %21
 
 21:                                               ; preds = %15, %16, %17
@@ -1676,9 +1676,9 @@ define dso_local ptr @_php_stream_sock_open_host(ptr noundef %0, i16 noundef zer
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
   %7 = zext i16 %1 to i32
   %8 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %0, i32 noundef %7) #19
-  %9 = load ptr, ptr %6, align 8, !tbaa !83
+  %9 = load ptr, ptr %6, align 8, !tbaa !76
   %10 = call ptr @_php_stream_xport_create(ptr noundef %9, i64 noundef %8, i32 noundef 8, i32 noundef 2, ptr noundef %4, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null) #19
-  %11 = load ptr, ptr %6, align 8, !tbaa !83
+  %11 = load ptr, ptr %6, align 8, !tbaa !76
   call void @_efree(ptr noundef %11) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   ret ptr %10
@@ -1712,7 +1712,7 @@ define dso_local void @_php_emit_fd_setsize_warning(i32 noundef %0) local_unname
 define dso_local ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !84
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !77
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -1724,9 +1724,9 @@ define dso_local ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_ad
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @file_globals, i64 96), i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
-  store i64 1024, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !85
+  store i64 1024, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
   %7 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #21
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !83
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !76
   %8 = call i32 @gethostbyname_r(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @file_globals, i64 96), ptr noundef %7, i64 noundef 1024, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %.critedge13.i, label %.lr.ph.i
@@ -1736,24 +1736,24 @@ define dso_local ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_ad
   br label %10
 
 10:                                               ; preds = %13, %.lr.ph.i
-  %11 = load i32, ptr %9, align 4, !tbaa !16
+  %11 = load i32, ptr %9, align 4, !tbaa !14
   %12 = icmp eq i32 %11, 34
   br i1 %12, label %13, label %gethostname_re.exit
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !85
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
   %15 = shl i64 %14, 1
-  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !85
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !83
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !76
   %17 = call ptr @realloc(ptr noundef %16, i64 noundef %15) #23
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !83
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !85
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !76
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
   %19 = call i32 @gethostbyname_r(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @file_globals, i64 96), ptr noundef %17, i64 noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %.critedge13.i, label %10, !llvm.loop !86
+  br i1 %.not.i, label %.critedge13.i, label %10
 
 .critedge13.i:                                    ; preds = %13, %6
-  %20 = load ptr, ptr %2, align 8, !tbaa !87
+  %20 = load ptr, ptr %2, align 8, !tbaa !79
   br label %gethostname_re.exit
 
 gethostname_re.exit:                              ; preds = %10, %.critedge13.i
@@ -1821,83 +1821,75 @@ attributes #23 = { nounwind allocsize(1) }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !13, i64 8}
-!12 = !{!"addrinfo", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !5, i64 24, !14, i64 32, !15, i64 40}
-!13 = !{!"int", !7, i64 0}
-!14 = !{!"p1 omnipotent char", !6, i64 0}
-!15 = !{!"p1 _ZTS8addrinfo", !6, i64 0}
-!16 = !{!13, !13, i64 0}
-!17 = !{!12, !13, i64 4}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
-!20 = !{!7, !7, i64 0}
-!21 = !{!22, !13, i64 0}
-!22 = !{!"_zend_refcounted_h", !13, i64 0, !7, i64 4}
-!23 = !{!15, !15, i64 0}
-!24 = !{!12, !15, i64 40}
-!25 = distinct !{!25, !10}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p2 _ZTS8sockaddr", !6, i64 0}
-!28 = !{!12, !13, i64 16}
-!29 = !{!12, !5, i64 24}
-!30 = distinct !{!30, !10}
-!31 = !{!32, !33, i64 8}
-!32 = !{!"_zend_string", !22, i64 0, !33, i64 8, !33, i64 16, !7, i64 24}
-!33 = !{!"long", !7, i64 0}
-!34 = !{!32, !33, i64 16}
-!35 = !{!36, !33, i64 0}
-!36 = !{!"timeval", !33, i64 0, !33, i64 8}
-!37 = !{!36, !33, i64 8}
-!38 = !{!39, !13, i64 0}
-!39 = !{!"pollfd", !13, i64 0, !40, i64 4, !40, i64 6}
-!40 = !{!"short", !7, i64 0}
-!41 = !{!39, !40, i64 4}
-!42 = !{!39, !40, i64 6}
-!43 = distinct !{!43, !10, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !10}
-!46 = !{!47, !40, i64 0}
-!47 = !{!"sockaddr", !40, i64 0, !7, i64 2}
-!48 = !{!40, !40, i64 0}
-!49 = distinct !{!49, !10}
-!50 = !{!51, !40, i64 2}
-!51 = !{!"sockaddr_in6", !40, i64 0, !40, i64 2, !13, i64 4, !52, i64 8, !13, i64 24}
-!52 = !{!"in6_addr", !7, i64 0}
-!53 = !{!51, !40, i64 0}
-!54 = !{!55, !40, i64 2}
-!55 = !{!"sockaddr_in", !40, i64 0, !40, i64 2, !56, i64 4, !7, i64 8}
-!56 = !{!"in_addr", !13, i64 0}
-!57 = !{!55, !40, i64 0}
-!58 = !{i64 0, i64 2, !48, i64 2, i64 2, !48, i64 4, i64 4, !16, i64 8, i64 16, !20, i64 24, i64 4, !16}
-!59 = !{i64 0, i64 2, !48, i64 2, i64 2, !48, i64 4, i64 4, !16, i64 8, i64 8, !20}
-!60 = distinct !{!60, !10}
-!61 = !{i64 0, i64 16, !20}
-!62 = !{!63, !7, i64 4}
-!63 = !{!"_php_netstream_data_t", !13, i64 0, !7, i64 4, !36, i64 8, !7, i64 24, !33, i64 32}
-!64 = !{!65, !33, i64 24}
-!65 = !{!"", !13, i64 0, !33, i64 8, !66, i64 16, !33, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !67, i64 56, !68, i64 64, !68, i64 72, !68, i64 80, !13, i64 88, !69, i64 96, !14, i64 128, !33, i64 136}
-!66 = !{!"_Bool", !7, i64 0}
-!67 = !{!"p1 _ZTS19_php_stream_context", !6, i64 0}
-!68 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
-!69 = !{!"hostent", !14, i64 0, !70, i64 8, !13, i64 16, !13, i64 20, !70, i64 24}
-!70 = !{!"p2 omnipotent char", !6, i64 0}
-!71 = !{!63, !33, i64 8}
-!72 = !{!63, !13, i64 0}
-!73 = !{!74, !13, i64 116}
-!74 = !{!"_php_stream", !75, i64 0, !6, i64 8, !76, i64 16, !76, i64 40, !79, i64 64, !6, i64 72, !80, i64 80, !40, i64 96, !40, i64 96, !40, i64 96, !40, i64 96, !40, i64 96, !40, i64 96, !40, i64 97, !7, i64 98, !13, i64 116, !81, i64 120, !82, i64 128, !14, i64 136, !81, i64 144, !33, i64 152, !14, i64 160, !33, i64 168, !33, i64 176, !33, i64 184, !33, i64 192, !78, i64 200}
-!75 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
-!76 = !{!"_php_stream_filter_chain", !77, i64 0, !77, i64 8, !78, i64 16}
-!77 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
-!78 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
-!79 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
-!80 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!81 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
-!82 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!83 = !{!14, !14, i64 0}
-!84 = !{!65, !14, i64 128}
-!85 = !{!33, !33, i64 0}
-!86 = distinct !{!86, !10}
-!87 = !{!88, !88, i64 0}
-!88 = !{!"p1 _ZTS7hostent", !6, i64 0}
+!9 = !{!10, !11, i64 8}
+!10 = !{!"addrinfo", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !5, i64 24, !12, i64 32, !13, i64 40}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!"p1 omnipotent char", !6, i64 0}
+!13 = !{!"p1 _ZTS8addrinfo", !6, i64 0}
+!14 = !{!11, !11, i64 0}
+!15 = !{!10, !11, i64 4}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
+!18 = !{!7, !7, i64 0}
+!19 = !{!20, !11, i64 0}
+!20 = !{!"_zend_refcounted_h", !11, i64 0, !7, i64 4}
+!21 = !{!13, !13, i64 0}
+!22 = !{!10, !13, i64 40}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 _ZTS8sockaddr", !6, i64 0}
+!25 = !{!10, !11, i64 16}
+!26 = !{!10, !5, i64 24}
+!27 = !{!28, !29, i64 8}
+!28 = !{!"_zend_string", !20, i64 0, !29, i64 8, !29, i64 16, !7, i64 24}
+!29 = !{!"long", !7, i64 0}
+!30 = !{!28, !29, i64 16}
+!31 = !{!32, !29, i64 0}
+!32 = !{!"timeval", !29, i64 0, !29, i64 8}
+!33 = !{!32, !29, i64 8}
+!34 = !{!35, !11, i64 0}
+!35 = !{!"pollfd", !11, i64 0, !36, i64 4, !36, i64 6}
+!36 = !{!"short", !7, i64 0}
+!37 = !{!35, !36, i64 4}
+!38 = !{!35, !36, i64 6}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = !{!42, !36, i64 0}
+!42 = !{!"sockaddr", !36, i64 0, !7, i64 2}
+!43 = !{!36, !36, i64 0}
+!44 = !{!45, !36, i64 2}
+!45 = !{!"sockaddr_in6", !36, i64 0, !36, i64 2, !11, i64 4, !46, i64 8, !11, i64 24}
+!46 = !{!"in6_addr", !7, i64 0}
+!47 = !{!45, !36, i64 0}
+!48 = !{!49, !36, i64 2}
+!49 = !{!"sockaddr_in", !36, i64 0, !36, i64 2, !50, i64 4, !7, i64 8}
+!50 = !{!"in_addr", !11, i64 0}
+!51 = !{!49, !36, i64 0}
+!52 = !{i64 0, i64 2, !43, i64 2, i64 2, !43, i64 4, i64 4, !14, i64 8, i64 16, !18, i64 24, i64 4, !14}
+!53 = !{i64 0, i64 2, !43, i64 2, i64 2, !43, i64 4, i64 4, !14, i64 8, i64 8, !18}
+!54 = !{i64 0, i64 16, !18}
+!55 = !{!56, !7, i64 4}
+!56 = !{!"_php_netstream_data_t", !11, i64 0, !7, i64 4, !32, i64 8, !7, i64 24, !29, i64 32}
+!57 = !{!58, !29, i64 24}
+!58 = !{!"", !11, i64 0, !29, i64 8, !59, i64 16, !29, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !60, i64 56, !61, i64 64, !61, i64 72, !61, i64 80, !11, i64 88, !62, i64 96, !12, i64 128, !29, i64 136}
+!59 = !{!"_Bool", !7, i64 0}
+!60 = !{!"p1 _ZTS19_php_stream_context", !6, i64 0}
+!61 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
+!62 = !{!"hostent", !12, i64 0, !63, i64 8, !11, i64 16, !11, i64 20, !63, i64 24}
+!63 = !{!"p2 omnipotent char", !6, i64 0}
+!64 = !{!56, !29, i64 8}
+!65 = !{!56, !11, i64 0}
+!66 = !{!67, !11, i64 116}
+!67 = !{!"_php_stream", !68, i64 0, !6, i64 8, !69, i64 16, !69, i64 40, !72, i64 64, !6, i64 72, !73, i64 80, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 97, !7, i64 98, !11, i64 116, !74, i64 120, !75, i64 128, !12, i64 136, !74, i64 144, !29, i64 152, !12, i64 160, !29, i64 168, !29, i64 176, !29, i64 184, !29, i64 192, !71, i64 200}
+!68 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
+!69 = !{!"_php_stream_filter_chain", !70, i64 0, !70, i64 8, !71, i64 16}
+!70 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
+!71 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
+!72 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
+!73 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!74 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
+!75 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!76 = !{!12, !12, i64 0}
+!77 = !{!58, !12, i64 128}
+!78 = !{!29, !29, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTS7hostent", !6, i64 0}

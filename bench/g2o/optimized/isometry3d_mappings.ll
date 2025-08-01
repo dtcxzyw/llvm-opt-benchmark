@@ -614,12 +614,12 @@ define void @_ZN3g2o8internal11toVectorMQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(p
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit, label %6, !llvm.loop !17
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14, !noalias !20
-  %14 = load double, ptr %4, align 8, !tbaa !7, !noalias !20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14, !noalias !19
+  %14 = load double, ptr %4, align 8, !tbaa !7, !noalias !19
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %16 = load double, ptr %15, align 8, !tbaa !7, !noalias !20
+  %16 = load double, ptr %15, align 8, !tbaa !7, !noalias !19
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %18 = load double, ptr %17, align 8, !tbaa !7, !noalias !20
+  %18 = load double, ptr %17, align 8, !tbaa !7, !noalias !19
   %19 = fadd double %16, %18
   %20 = fadd double %14, %19
   %21 = fcmp ogt double %20, 0.000000e+00
@@ -627,33 +627,33 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
 
 22:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
   %23 = fadd double %20, 1.000000e+00
-  %24 = tail call double @sqrt(double noundef %23) #14, !tbaa !9, !noalias !20
+  %24 = tail call double @sqrt(double noundef %23) #14, !tbaa !9, !noalias !19
   %25 = fmul double %24, 5.000000e-01
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %25, ptr %26, align 8, !tbaa !7, !noalias !20
+  store double %25, ptr %26, align 8, !tbaa !7, !noalias !19
   %27 = fdiv double 5.000000e-01, %24
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %29 = load double, ptr %28, align 8, !tbaa !7, !noalias !20
+  %29 = load double, ptr %28, align 8, !tbaa !7, !noalias !19
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %32 = load double, ptr %31, align 8, !tbaa !7, !noalias !20
+  %32 = load double, ptr %31, align 8, !tbaa !7, !noalias !19
   %33 = fsub double %29, %32
   %34 = fmul double %27, %33
-  store double %34, ptr %3, align 16, !tbaa !7, !noalias !20
+  store double %34, ptr %3, align 16, !tbaa !7, !noalias !19
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %36 = load double, ptr %35, align 8, !tbaa !7, !noalias !20
-  %37 = load double, ptr %5, align 8, !tbaa !7, !noalias !20
+  %36 = load double, ptr %35, align 8, !tbaa !7, !noalias !19
+  %37 = load double, ptr %5, align 8, !tbaa !7, !noalias !19
   %38 = fsub double %36, %37
   %39 = fmul double %27, %38
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %39, ptr %40, align 8, !tbaa !7, !noalias !20
-  %41 = load double, ptr %30, align 8, !tbaa !7, !noalias !20
+  store double %39, ptr %40, align 8, !tbaa !7, !noalias !19
+  %41 = load double, ptr %30, align 8, !tbaa !7, !noalias !19
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %43 = load double, ptr %42, align 8, !tbaa !7, !noalias !20
+  %43 = load double, ptr %42, align 8, !tbaa !7, !noalias !19
   %44 = fsub double %41, %43
   %45 = fmul double %27, %44
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %45, ptr %46, align 16, !tbaa !7, !noalias !20
+  store double %45, ptr %46, align 16, !tbaa !7, !noalias !19
   br label %_ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10MatrixBaseIT_EE.exit.i
 
 47:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
@@ -663,7 +663,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %.0.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %.idx.i.i.i.i.i = select i1 %48, i64 24, i64 0
   %49 = getelementptr i8, ptr %.0.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.idx.i.i.i.i.i
-  %50 = load double, ptr %49, align 8, !tbaa !7, !noalias !20
+  %50 = load double, ptr %49, align 8, !tbaa !7, !noalias !19
   %51 = fcmp ogt double %18, %50
   %.1.i.i.i.i = select i1 %51, i64 2, i64 %.0.i.i.i.i
   %52 = add nuw nsw i64 %.1.i.i.i.i, 1
@@ -677,54 +677,54 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %57 = getelementptr double, ptr %4, i64 %.1.i.i.i.i
   %.idx.i66.i.i.i.i = mul nuw nsw i64 %.1.i.i.i.i, 24
   %58 = getelementptr i8, ptr %57, i64 %.idx.i66.i.i.i.i
-  %59 = load double, ptr %58, align 8, !tbaa !7, !noalias !20
+  %59 = load double, ptr %58, align 8, !tbaa !7, !noalias !19
   %60 = getelementptr double, ptr %4, i64 %.fr.i.i.i.i
   %.idx.i67.i.i.i.i = mul nuw nsw i64 %.fr.i.i.i.i, 24
   %61 = getelementptr i8, ptr %60, i64 %.idx.i67.i.i.i.i
-  %62 = load double, ptr %61, align 8, !tbaa !7, !noalias !20
+  %62 = load double, ptr %61, align 8, !tbaa !7, !noalias !19
   %63 = fsub double %59, %62
   %64 = getelementptr double, ptr %4, i64 %56
   %.idx.i68.i.i.i.i = mul i64 %56, 24
   %65 = getelementptr i8, ptr %64, i64 %.idx.i68.i.i.i.i
-  %66 = load double, ptr %65, align 8, !tbaa !7, !noalias !20
+  %66 = load double, ptr %65, align 8, !tbaa !7, !noalias !19
   %67 = fsub double %63, %66
   %68 = fadd double %67, 1.000000e+00
-  %69 = tail call double @sqrt(double noundef %68) #14, !tbaa !9, !noalias !20
+  %69 = tail call double @sqrt(double noundef %68) #14, !tbaa !9, !noalias !19
   %70 = fmul double %69, 5.000000e-01
   %71 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i.i.i
-  store double %70, ptr %71, align 8, !tbaa !7, !noalias !20
+  store double %70, ptr %71, align 8, !tbaa !7, !noalias !19
   %72 = fdiv double 5.000000e-01, %69
   %73 = getelementptr i8, ptr %64, i64 %.idx.i67.i.i.i.i
-  %74 = load double, ptr %73, align 8, !tbaa !7, !noalias !20
+  %74 = load double, ptr %73, align 8, !tbaa !7, !noalias !19
   %75 = getelementptr i8, ptr %60, i64 %.idx.i68.i.i.i.i
-  %76 = load double, ptr %75, align 8, !tbaa !7, !noalias !20
+  %76 = load double, ptr %75, align 8, !tbaa !7, !noalias !19
   %77 = fsub double %74, %76
   %78 = fmul double %72, %77
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %78, ptr %79, align 8, !tbaa !7, !noalias !20
+  store double %78, ptr %79, align 8, !tbaa !7, !noalias !19
   %80 = getelementptr i8, ptr %60, i64 %.idx.i66.i.i.i.i
-  %81 = load double, ptr %80, align 8, !tbaa !7, !noalias !20
+  %81 = load double, ptr %80, align 8, !tbaa !7, !noalias !19
   %82 = getelementptr i8, ptr %57, i64 %.idx.i67.i.i.i.i
-  %83 = load double, ptr %82, align 8, !tbaa !7, !noalias !20
+  %83 = load double, ptr %82, align 8, !tbaa !7, !noalias !19
   %84 = fadd double %81, %83
   %85 = fmul double %72, %84
   %86 = getelementptr inbounds double, ptr %3, i64 %.fr.i.i.i.i
-  store double %85, ptr %86, align 8, !tbaa !7, !noalias !20
+  store double %85, ptr %86, align 8, !tbaa !7, !noalias !19
   %87 = getelementptr i8, ptr %64, i64 %.idx.i66.i.i.i.i
-  %88 = load double, ptr %87, align 8, !tbaa !7, !noalias !20
+  %88 = load double, ptr %87, align 8, !tbaa !7, !noalias !19
   %89 = getelementptr i8, ptr %57, i64 %.idx.i68.i.i.i.i
-  %90 = load double, ptr %89, align 8, !tbaa !7, !noalias !20
+  %90 = load double, ptr %89, align 8, !tbaa !7, !noalias !19
   %91 = fadd double %88, %90
   %92 = fmul double %72, %91
   %93 = getelementptr inbounds double, ptr %3, i64 %56
-  store double %92, ptr %93, align 8, !tbaa !7, !noalias !20
+  store double %92, ptr %93, align 8, !tbaa !7, !noalias !19
   br label %_ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10MatrixBaseIT_EE.exit.i
 
 _ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10MatrixBaseIT_EE.exit.i: ; preds = %47, %22
-  %94 = load <2 x double>, ptr %3, align 16, !tbaa !4, !noalias !20
+  %94 = load <2 x double>, ptr %3, align 16, !tbaa !4, !noalias !19
   %95 = fmul <2 x double> %94, %94
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %97 = load <2 x double>, ptr %96, align 16, !noalias !20
+  %97 = load <2 x double>, ptr %96, align 16, !noalias !19
   %98 = fmul <2 x double> %97, %97
   %99 = fadd <2 x double> %95, %98
   %shift = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -754,7 +754,7 @@ _ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE.e
   %117 = fneg double %112
   %118 = select i1 %115, double %117, double %112
   %119 = select i1 %115, <2 x double> %116, <2 x double> %113
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14, !noalias !20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14, !noalias !19
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x double> %119, ptr %120, align 8, !tbaa !4
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -986,7 +986,7 @@ define void @_ZN3g2o8internal13fromVectorMQTERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6EL
   %5 = load <2 x double>, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load double, ptr %6, align 8, !tbaa !7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %8 = fmul <2 x double> %5, %5
   %shift = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %9 = fadd <2 x double> %8, %shift
@@ -999,15 +999,15 @@ define void @_ZN3g2o8internal13fromVectorMQTERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6EL
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !22
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !22
   br label %_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit
 
 18:                                               ; preds = %2
   %19 = extractelement <2 x double> %5, i64 1
   %20 = extractelement <2 x double> %5, i64 0
-  %21 = tail call double @sqrt(double noundef %13) #14, !tbaa !9, !noalias !23
+  %21 = tail call double @sqrt(double noundef %13) #14, !tbaa !9, !noalias !22
   %22 = fmul double %20, 2.000000e+00
   %23 = fmul double %19, 2.000000e+00
   %24 = fmul double %7, 2.000000e+00
@@ -1024,24 +1024,24 @@ define void @_ZN3g2o8internal13fromVectorMQTERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6EL
   %35 = fsub double 1.000000e+00, %34
   %36 = fsub double %29, %27
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %36, ptr %37, align 8, !tbaa !7, !alias.scope !26
+  store double %36, ptr %37, align 8, !tbaa !7, !alias.scope !25
   %38 = fadd double %30, %26
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %38, ptr %39, align 8, !tbaa !7, !alias.scope !26
+  store double %38, ptr %39, align 8, !tbaa !7, !alias.scope !25
   %40 = fadd double %29, %27
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %40, ptr %41, align 8, !tbaa !7, !alias.scope !26
+  store double %40, ptr %41, align 8, !tbaa !7, !alias.scope !25
   %42 = fadd double %33, %28
   %43 = fsub double 1.000000e+00, %42
   %44 = fsub double %32, %25
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store double %44, ptr %45, align 8, !tbaa !7, !alias.scope !26
+  store double %44, ptr %45, align 8, !tbaa !7, !alias.scope !25
   %46 = fsub double %30, %26
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %46, ptr %47, align 8, !tbaa !7, !alias.scope !26
+  store double %46, ptr %47, align 8, !tbaa !7, !alias.scope !25
   %48 = fadd double %32, %25
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %48, ptr %49, align 8, !tbaa !7, !alias.scope !26
+  store double %48, ptr %49, align 8, !tbaa !7, !alias.scope !25
   %50 = fadd double %28, %31
   %51 = fsub double 1.000000e+00, %50
   br label %_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit
@@ -1050,11 +1050,11 @@ _ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE
   %.sink6.i = phi double [ 1.000000e+00, %15 ], [ %35, %18 ]
   %.sink5.i = phi double [ 1.000000e+00, %15 ], [ %43, %18 ]
   %.sink.i = phi double [ 1.000000e+00, %15 ], [ %51, %18 ]
-  store double %.sink6.i, ptr %3, align 8, !tbaa !7, !alias.scope !23
+  store double %.sink6.i, ptr %3, align 8, !tbaa !7, !alias.scope !22
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %.sink5.i, ptr %52, align 8, !tbaa !7, !alias.scope !23
+  store double %.sink5.i, ptr %52, align 8, !tbaa !7, !alias.scope !22
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %.sink.i, ptr %53, align 8, !tbaa !7, !alias.scope !23
+  store double %.sink.i, ptr %53, align 8, !tbaa !7, !alias.scope !22
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %55
 
@@ -1072,7 +1072,7 @@ _ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE
   store double %61, ptr %59, align 16, !tbaa !7
   %62 = add nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %62, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %55, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %55, !llvm.loop !28
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1110,18 +1110,18 @@ define void @_ZN3g2o8internal12fromVectorETERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi
   %9 = load <2 x double>, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load double, ptr %10, align 8, !tbaa !7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %.sroa.015.0.vec.extract = extractelement <2 x double> %9, i64 0
   %.sroa.015.8.vec.extract = extractelement <2 x double> %9, i64 1
   %12 = fmul double %11, 5.000000e-01
-  %13 = tail call double @sin(double noundef %12) #14, !tbaa !9, !noalias !30
-  %14 = tail call double @cos(double noundef %12) #14, !tbaa !9, !noalias !30
+  %13 = tail call double @sin(double noundef %12) #14, !tbaa !9, !noalias !29
+  %14 = tail call double @cos(double noundef %12) #14, !tbaa !9, !noalias !29
   %15 = fmul double %.sroa.015.8.vec.extract, 5.000000e-01
-  %16 = tail call double @sin(double noundef %15) #14, !tbaa !9, !noalias !30
-  %17 = tail call double @cos(double noundef %15) #14, !tbaa !9, !noalias !30
+  %16 = tail call double @sin(double noundef %15) #14, !tbaa !9, !noalias !29
+  %17 = tail call double @cos(double noundef %15) #14, !tbaa !9, !noalias !29
   %18 = fmul double %.sroa.015.0.vec.extract, 5.000000e-01
-  %19 = tail call double @sin(double noundef %18) #14, !tbaa !9, !noalias !30
-  %20 = tail call double @cos(double noundef %18) #14, !tbaa !9, !noalias !30
+  %19 = tail call double @sin(double noundef %18) #14, !tbaa !9, !noalias !29
+  %20 = tail call double @cos(double noundef %18) #14, !tbaa !9, !noalias !29
   %21 = fmul double %17, %20
   %22 = fmul double %16, %19
   %23 = fmul double %13, %22
@@ -1150,33 +1150,33 @@ define void @_ZN3g2o8internal12fromVectorETERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi
   %46 = fmul double %34, %37
   %47 = fadd double %44, %46
   %48 = fsub double 1.000000e+00, %47
-  store double %48, ptr %3, align 8, !tbaa !7, !alias.scope !33
+  store double %48, ptr %3, align 8, !tbaa !7, !alias.scope !32
   %49 = fsub double %42, %40
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %49, ptr %50, align 8, !tbaa !7, !alias.scope !33
+  store double %49, ptr %50, align 8, !tbaa !7, !alias.scope !32
   %51 = fadd double %43, %39
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %51, ptr %52, align 8, !tbaa !7, !alias.scope !33
+  store double %51, ptr %52, align 8, !tbaa !7, !alias.scope !32
   %53 = fadd double %42, %40
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %53, ptr %54, align 8, !tbaa !7, !alias.scope !33
+  store double %53, ptr %54, align 8, !tbaa !7, !alias.scope !32
   %55 = fadd double %46, %41
   %56 = fsub double 1.000000e+00, %55
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %56, ptr %57, align 8, !tbaa !7, !alias.scope !33
+  store double %56, ptr %57, align 8, !tbaa !7, !alias.scope !32
   %58 = fsub double %45, %38
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store double %58, ptr %59, align 8, !tbaa !7, !alias.scope !33
+  store double %58, ptr %59, align 8, !tbaa !7, !alias.scope !32
   %60 = fsub double %43, %39
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %60, ptr %61, align 8, !tbaa !7, !alias.scope !33
+  store double %60, ptr %61, align 8, !tbaa !7, !alias.scope !32
   %62 = fadd double %45, %38
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %62, ptr %63, align 8, !tbaa !7, !alias.scope !33
+  store double %62, ptr %63, align 8, !tbaa !7, !alias.scope !32
   %64 = fadd double %44, %41
   %65 = fsub double 1.000000e+00, %64
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %65, ptr %66, align 8, !tbaa !7, !alias.scope !33
+  store double %65, ptr %66, align 8, !tbaa !7, !alias.scope !32
   br label %67
 
 67:                                               ; preds = %67, %2
@@ -1193,7 +1193,7 @@ define void @_ZN3g2o8internal12fromVectorETERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi
   store double %73, ptr %71, align 16, !tbaa !7
   %74 = add nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %74, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %67, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %67, !llvm.loop !28
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %67
   store double 0.000000e+00, ptr %4, align 8, !tbaa !7
@@ -1237,33 +1237,33 @@ define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi
   %23 = fmul double %10, %14
   %24 = fadd double %21, %23
   %25 = fsub double 1.000000e+00, %24
-  store double %25, ptr %3, align 8, !tbaa !7, !alias.scope !36
+  store double %25, ptr %3, align 8, !tbaa !7, !alias.scope !35
   %26 = fsub double %19, %17
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %26, ptr %27, align 8, !tbaa !7, !alias.scope !36
+  store double %26, ptr %27, align 8, !tbaa !7, !alias.scope !35
   %28 = fadd double %20, %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %28, ptr %29, align 8, !tbaa !7, !alias.scope !36
+  store double %28, ptr %29, align 8, !tbaa !7, !alias.scope !35
   %30 = fadd double %19, %17
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %30, ptr %31, align 8, !tbaa !7, !alias.scope !36
+  store double %30, ptr %31, align 8, !tbaa !7, !alias.scope !35
   %32 = fadd double %18, %23
   %33 = fsub double 1.000000e+00, %32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %33, ptr %34, align 8, !tbaa !7, !alias.scope !36
+  store double %33, ptr %34, align 8, !tbaa !7, !alias.scope !35
   %35 = fsub double %22, %15
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store double %35, ptr %36, align 8, !tbaa !7, !alias.scope !36
+  store double %35, ptr %36, align 8, !tbaa !7, !alias.scope !35
   %37 = fsub double %20, %16
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %37, ptr %38, align 8, !tbaa !7, !alias.scope !36
+  store double %37, ptr %38, align 8, !tbaa !7, !alias.scope !35
   %39 = fadd double %22, %15
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %39, ptr %40, align 8, !tbaa !7, !alias.scope !36
+  store double %39, ptr %40, align 8, !tbaa !7, !alias.scope !35
   %41 = fadd double %18, %21
   %42 = fsub double 1.000000e+00, %41
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %42, ptr %43, align 8, !tbaa !7, !alias.scope !36
+  store double %42, ptr %43, align 8, !tbaa !7, !alias.scope !35
   br label %44
 
 44:                                               ; preds = %44, %2
@@ -1280,7 +1280,7 @@ define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi
   store double %50, ptr %48, align 16, !tbaa !7
   %51 = add nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %51, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %44, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %44, !llvm.loop !28
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1492,19 +1492,19 @@ _ZN3g2o7SE3QuatC2ERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERKNS2_IdLi3ELi1ELi0ELi
 define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Eigen::Transform") align 16 captures(none) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(56) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.13", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %4 = load double, ptr %1, align 16, !tbaa !7, !noalias !48
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  %4 = load double, ptr %1, align 16, !tbaa !7, !noalias !47
   %5 = fmul double %4, 2.000000e+00
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load double, ptr %6, align 8, !tbaa !7, !noalias !48
+  %7 = load double, ptr %6, align 8, !tbaa !7, !noalias !47
   %8 = fmul double %7, 2.000000e+00
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 16, !tbaa !7, !noalias !48
+  %10 = load double, ptr %9, align 16, !tbaa !7, !noalias !47
   %11 = fmul double %10, 2.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load double, ptr %12, align 8, !tbaa !7, !noalias !48
+  %13 = load double, ptr %12, align 8, !tbaa !7, !noalias !47
   %14 = fmul double %5, %13
   %15 = fmul double %8, %13
   %16 = fmul double %11, %13
@@ -1516,33 +1516,33 @@ define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noa
   %22 = fmul double %10, %11
   %23 = fadd double %20, %22
   %24 = fsub double 1.000000e+00, %23
-  store double %24, ptr %3, align 8, !tbaa !7, !alias.scope !48
+  store double %24, ptr %3, align 8, !tbaa !7, !alias.scope !47
   %25 = fsub double %18, %16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %25, ptr %26, align 8, !tbaa !7, !alias.scope !48
+  store double %25, ptr %26, align 8, !tbaa !7, !alias.scope !47
   %27 = fadd double %19, %15
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %27, ptr %28, align 8, !tbaa !7, !alias.scope !48
+  store double %27, ptr %28, align 8, !tbaa !7, !alias.scope !47
   %29 = fadd double %18, %16
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %29, ptr %30, align 8, !tbaa !7, !alias.scope !48
+  store double %29, ptr %30, align 8, !tbaa !7, !alias.scope !47
   %31 = fadd double %17, %22
   %32 = fsub double 1.000000e+00, %31
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %32, ptr %33, align 8, !tbaa !7, !alias.scope !48
+  store double %32, ptr %33, align 8, !tbaa !7, !alias.scope !47
   %34 = fsub double %21, %14
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store double %34, ptr %35, align 8, !tbaa !7, !alias.scope !48
+  store double %34, ptr %35, align 8, !tbaa !7, !alias.scope !47
   %36 = fsub double %19, %15
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %36, ptr %37, align 8, !tbaa !7, !alias.scope !48
+  store double %36, ptr %37, align 8, !tbaa !7, !alias.scope !47
   %38 = fadd double %21, %14
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %38, ptr %39, align 8, !tbaa !7, !alias.scope !48
+  store double %38, ptr %39, align 8, !tbaa !7, !alias.scope !47
   %40 = fadd double %17, %20
   %41 = fsub double 1.000000e+00, %40
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %41, ptr %42, align 8, !tbaa !7, !alias.scope !48
+  store double %41, ptr %42, align 8, !tbaa !7, !alias.scope !47
   br label %43
 
 43:                                               ; preds = %43, %2
@@ -1559,7 +1559,7 @@ define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noa
   store double %49, ptr %47, align 16, !tbaa !7
   %50 = add nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %50, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEC2INS_10QuaternionIdLi0EEEEERKNS_12RotationBaseIT_Li3EEE.exit, label %43, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEC2INS_10QuaternionIdLi0EEEEERKNS_12RotationBaseIT_Li3EEE.exit, label %43, !llvm.loop !28
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEC2INS_10QuaternionIdLi0EEEEERKNS_12RotationBaseIT_Li3EEE.exit: ; preds = %43
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #14
@@ -1631,35 +1631,34 @@ attributes #14 = { nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
 !16 = distinct !{!16, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE: argument 0"}
-!22 = distinct !{!22, !"_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
-!25 = distinct !{!25, !"_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE"}
-!26 = !{!27, !24}
-!27 = distinct !{!27, !28, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
-!28 = distinct !{!28, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
-!29 = distinct !{!29, !18, !19}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN3g2o8internal9fromEulerERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
-!32 = distinct !{!32, !"_ZN3g2o8internal9fromEulerERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE"}
-!33 = !{!34, !31}
-!34 = distinct !{!34, !35, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
-!35 = distinct !{!35, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
-!38 = distinct !{!38, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN5Eigen8internalL16toRotationMatrixIdLi3ENS_10QuaternionIdLi0EEEEENS_6MatrixIT_XT0_EXT0_EXorLNS_14StorageOptionsE0EquaaeqT0_Li1EneT0_Li1ELS6_1EquaaeqT0_Li1EneT0_Li1ELS6_0ELS6_0EEXT0_EXT0_EEERKNS_12RotationBaseIT1_XT0_EEE: argument 0"}
-!41 = distinct !{!41, !"_ZN5Eigen8internalL16toRotationMatrixIdLi3ENS_10QuaternionIdLi0EEEEENS_6MatrixIT_XT0_EXT0_EXorLNS_14StorageOptionsE0EquaaeqT0_Li1EneT0_Li1ELS6_1EquaaeqT0_Li1EneT0_Li1ELS6_0ELS6_0EEXT0_EXT0_EEERKNS_12RotationBaseIT1_XT0_EEE"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK5Eigen12RotationBaseINS_10QuaternionIdLi0EEELi3EE16toRotationMatrixEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK5Eigen12RotationBaseINS_10QuaternionIdLi0EEELi3EE16toRotationMatrixEv"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
-!47 = distinct !{!47, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
-!48 = !{!46, !43, !40}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE: argument 0"}
+!21 = distinct !{!21, !"_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
+!24 = distinct !{!24, !"_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE"}
+!25 = !{!26, !23}
+!26 = distinct !{!26, !27, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
+!27 = distinct !{!27, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
+!28 = distinct !{!28, !18}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN3g2o8internal9fromEulerERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
+!31 = distinct !{!31, !"_ZN3g2o8internal9fromEulerERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE"}
+!32 = !{!33, !30}
+!33 = distinct !{!33, !34, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
+!34 = distinct !{!34, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
+!37 = distinct !{!37, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN5Eigen8internalL16toRotationMatrixIdLi3ENS_10QuaternionIdLi0EEEEENS_6MatrixIT_XT0_EXT0_EXorLNS_14StorageOptionsE0EquaaeqT0_Li1EneT0_Li1ELS6_1EquaaeqT0_Li1EneT0_Li1ELS6_0ELS6_0EEXT0_EXT0_EEERKNS_12RotationBaseIT1_XT0_EEE: argument 0"}
+!40 = distinct !{!40, !"_ZN5Eigen8internalL16toRotationMatrixIdLi3ENS_10QuaternionIdLi0EEEEENS_6MatrixIT_XT0_EXT0_EXorLNS_14StorageOptionsE0EquaaeqT0_Li1EneT0_Li1ELS6_1EquaaeqT0_Li1EneT0_Li1ELS6_0ELS6_0EEXT0_EXT0_EEERKNS_12RotationBaseIT1_XT0_EEE"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZNK5Eigen12RotationBaseINS_10QuaternionIdLi0EEELi3EE16toRotationMatrixEv: argument 0"}
+!43 = distinct !{!43, !"_ZNK5Eigen12RotationBaseINS_10QuaternionIdLi0EEELi3EE16toRotationMatrixEv"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv: argument 0"}
+!46 = distinct !{!46, !"_ZNK5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE16toRotationMatrixEv"}
+!47 = !{!45, !42, !39}

@@ -252,7 +252,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %103 = add nsw i32 %.0181.ph321, %.sink
   %.5 = add nsw i32 %.0181.pn, %.4191.ph319
   %.not444 = icmp eq i32 %103, 0
-  br i1 %.not444, label %.loopexit251, label %.lr.ph, !llvm.loop !49
+  br i1 %.not444, label %.loopexit251, label %.lr.ph, !llvm.loop !48
 
 104:                                              ; preds = %30
   %105 = getelementptr i8, ptr %28, i64 2
@@ -271,7 +271,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %.1186 = phi i32 [ %.0185329, %.lr.ph330 ], [ %.0185329, %66 ], [ %.0185329, %63 ], [ %72, %67 ], [ %.0185329, %30 ], [ %.0185329, %.preheader ], [ %.3.ph320, %..loopexit253_crit_edge ], [ %.3.ph320, %.outer.thread ], [ %.0185329, %52 ], [ %102, %.outer ]
   %112 = add nsw i32 %.2189, 1
   %113 = icmp slt i32 %112, %2
-  br i1 %113, label %.lr.ph330, label %.loopexit254, !llvm.loop !50
+  br i1 %113, label %.lr.ph330, label %.loopexit254, !llvm.loop !49
 
 .loopexit254:                                     ; preds = %.loopexit251, %104
   %.0198289 = phi i8 [ %.0198326, %104 ], [ %.1199, %.loopexit251 ]
@@ -326,7 +326,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 131:                                              ; preds = %.lr.ph336, %127
   %indvars.iv.next388 = add nsw i64 %indvars.iv387, -1
   %132 = icmp sgt i64 %indvars.iv387, 0
-  br i1 %132, label %.lr.ph336, label %._crit_edge, !llvm.loop !51
+  br i1 %132, label %.lr.ph336, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %127
   %133 = trunc nuw nsw i64 %indvars.iv387 to i32
@@ -358,7 +358,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %.0194346.us = phi i32 [ %166, %.lr.ph350.split.us ], [ 0, %.lr.ph350 ]
   %storemerge.in345.us = phi ptr [ %7, %.lr.ph350.split.us ], [ %9, %.lr.ph350 ]
   %storemerge.us = load ptr, ptr %storemerge.in345.us, align 8, !tbaa !45
-  %143 = load i32, ptr %137, align 8, !tbaa !52
+  %143 = load i32, ptr %137, align 8, !tbaa !51
   %144 = add nsw i32 %143, -8
   %145 = tail call i32 @llvm.smin.i32(i32 %.1193347.us, i32 %144)
   store i8 0, ptr %storemerge.us, align 1, !tbaa !44
@@ -393,7 +393,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %165 = sub nsw i32 %.1193347.us, %145
   %166 = add nsw i32 %145, %.0194346.us
   %167 = icmp sgt i32 %165, 0
-  br i1 %167, label %.lr.ph350.split.us, label %.thread, !llvm.loop !53
+  br i1 %167, label %.lr.ph350.split.us, label %.thread, !llvm.loop !52
 
 .lr.ph350.split:                                  ; preds = %.lr.ph350.split.preheader, %.loopexit
   %.0184348 = phi ptr [ %197, %.loopexit ], [ %119, %.lr.ph350.split.preheader ]
@@ -403,7 +403,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %storemerge = load ptr, ptr %storemerge.in345, align 8, !tbaa !45
   %168 = icmp eq i32 %.0194346, 0
   %.0 = select i1 %168, i32 %136, i32 8
-  %169 = load i32, ptr %137, align 8, !tbaa !52
+  %169 = load i32, ptr %137, align 8, !tbaa !51
   %170 = sub nsw i32 %169, %.0
   %171 = tail call i32 @llvm.smin.i32(i32 %.1193347, i32 %170)
   store i8 0, ptr %storemerge, align 1, !tbaa !44
@@ -447,7 +447,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %191 = getelementptr inbounds nuw i8, ptr %.1248340, i64 64
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
-  br i1 %exitcond394.not, label %.loopexit, label %.lr.ph343, !llvm.loop !55
+  br i1 %exitcond394.not, label %.loopexit, label %.lr.ph343, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph343, %185, %.lr.ph350.split
   %.0247 = phi ptr [ %184, %.lr.ph350.split ], [ %188, %185 ], [ %191, %.lr.ph343 ]
@@ -462,7 +462,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %198 = sub nsw i32 %.1193347, %171
   %199 = add nsw i32 %171, %.0194346
   %200 = icmp sgt i32 %198, 0
-  br i1 %200, label %.lr.ph350.split, label %.thread, !llvm.loop !56
+  br i1 %200, label %.lr.ph350.split, label %.thread, !llvm.loop !55
 
 .thread.sink.split:                               ; preds = %63, %57, %60, %47, %37, %114, %.loopexit254, %3, %104
   %.str.2.sink = phi ptr [ @.str.5, %104 ], [ @.str.6, %3 ], [ @.str.6, %.loopexit254 ], [ @.str.7, %114 ], [ @.str.1, %37 ], [ @.str.2, %47 ], [ @.str.3, %60 ], [ @.str.3, %57 ], [ @.str.4, %63 ]
@@ -556,14 +556,13 @@ attributes #7 = { nounwind }
 !43 = !{!41, !13, i64 76}
 !44 = !{!8, !8, i64 0}
 !45 = !{!18, !18, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = distinct !{!50, !47, !48}
-!51 = distinct !{!51, !47, !48}
-!52 = !{!25, !13, i64 56}
-!53 = distinct !{!53, !47, !48, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = distinct !{!55, !47, !48}
-!56 = distinct !{!56, !47, !48}
+!48 = distinct !{!48, !47}
+!49 = distinct !{!49, !47}
+!50 = distinct !{!50, !47}
+!51 = !{!25, !13, i64 56}
+!52 = distinct !{!52, !47, !53}
+!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !47}
+!55 = distinct !{!55, !47}

@@ -115,7 +115,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %62 = fadd double %59, %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 13
-  br i1 %exitcond.not.i, label %s.exit, label %.preheader25.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %s.exit, label %.preheader25.i, !llvm.loop !8
 
 s.exit:                                           ; preds = %.preheader25.i, %.preheader.i
   %.121.i = phi double [ %51, %.preheader.i ], [ %58, %.preheader25.i ]
@@ -235,7 +235,6 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

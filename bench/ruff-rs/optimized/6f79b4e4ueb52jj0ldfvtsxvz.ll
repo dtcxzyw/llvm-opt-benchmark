@@ -69,7 +69,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %34 = phi i64 [ %22, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hc8896dba67a54972E.exit27.thread.i" ], [ %.sroa.05.031.i, %30 ]
   %35 = sub i64 %.sroa.01.032.i, %21
   %36 = icmp ugt i64 %35, 1
-  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hc67ad620d09884f1E.exit": ; preds = %3, %._crit_edge.i, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hc8896dba67a54972E.exit.i"
   %37 = phi i1 [ false, %3 ], [ false, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hc8896dba67a54972E.exit.i" ], [ true, %._crit_edge.i ]
@@ -92,16 +92,16 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i
-  %10 = load i32, ptr %9, align 4, !alias.scope !16, !noalias !21, !noundef !3
+  %10 = load i32, ptr %9, align 4, !alias.scope !14, !noalias !19, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %12 = load i32, ptr %11, align 4, !alias.scope !16, !noalias !21, !noundef !3
+  %12 = load i32, ptr %11, align 4, !alias.scope !14, !noalias !19, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %10, i32 %1)
   %.sroa.0.0.sroa.speculated.i2.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %12, i32 %2)
   %13 = icmp ult i32 %.sroa.0.0.sroa.speculated.i2.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i
   br i1 %13, label %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE.exit"
 
 "_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit.i": ; preds = %._crit_edge.i
-  %14 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9), !noalias !21
+  %14 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9), !noalias !19
   %15 = extractvalue { i32, i32 } %14, 1
   %16 = icmp ult i32 %15, %1
   %17 = zext i1 %16 to i64
@@ -118,16 +118,16 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %22 = icmp ult i64 %21, %7
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %21
-  %24 = load i32, ptr %23, align 4, !alias.scope !23, !noalias !21, !noundef !3
+  %24 = load i32, ptr %23, align 4, !alias.scope !21, !noalias !19, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %26 = load i32, ptr %25, align 4, !alias.scope !23, !noalias !21, !noundef !3
+  %26 = load i32, ptr %25, align 4, !alias.scope !21, !noalias !19, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i.i24.i = tail call noundef i32 @llvm.umax.i32(i32 %24, i32 %1)
   %.sroa.0.0.sroa.speculated.i2.i.i25.i = tail call noundef i32 @llvm.umin.i32(i32 %26, i32 %2)
   %27 = icmp ult i32 %.sroa.0.0.sroa.speculated.i2.i.i25.i, %.sroa.0.0.sroa.speculated.i.i.i24.i
   br i1 %27, label %28, label %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit28.thread.i"
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %23), !noalias !21
+  %29 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %23), !noalias !19
   %30 = extractvalue { i32, i32 } %29, 1
   %31 = icmp ult i32 %30, %1
   br i1 %31, label %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit28.thread.i", label %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit28.i"
@@ -139,7 +139,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
   %32 = phi i64 [ %21, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit28.thread.i" ], [ %.sroa.05.032.i, %28 ]
   %33 = sub i64 %.sroa.01.033.i, %20
   %34 = icmp ugt i64 %33, 1
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE.exit": ; preds = %3, %._crit_edge.i, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit.i"
   %35 = phi i1 [ false, %3 ], [ false, %"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E.exit.i" ], [ true, %._crit_edge.i ]
@@ -150,7 +150,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index16multiline_ranges15MultilineRa
 define hidden void @_ZN17ruff_python_index16multiline_ranges22MultilineRangesBuilder11visit_token17h744cd886d57b6ad4E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [12 x i8], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %5 = load i8, ptr %4, align 1, !range !27, !noundef !3
+  %5 = load i8, ptr %4, align 1, !range !24, !noundef !3
   switch i8 %5, label %22 [
     i8 4, label %6
     i8 6, label %6
@@ -168,8 +168,8 @@ define hidden void @_ZN17ruff_python_index16multiline_ranges22MultilineRangesBui
   %10 = extractvalue { i32, i32 } %9, 0
   %11 = extractvalue { i32, i32 } %9, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !alias.scope !28, !noundef !3
-  %14 = load i64, ptr %0, align 8, !range !31, !alias.scope !28, !noundef !3
+  %13 = load i64, ptr %12, align 8, !alias.scope !25, !noundef !3
+  %14 = load i64, ptr %0, align 8, !range !28, !alias.scope !25, !noundef !3
   %15 = icmp eq i64 %13, %14
   br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit"
 
@@ -179,13 +179,13 @@ define hidden void @_ZN17ruff_python_index16multiline_ranges22MultilineRangesBui
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit": ; preds = %8, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !28, !nonnull !3, !noundef !3
+  %18 = load ptr, ptr %17, align 8, !alias.scope !25, !nonnull !3, !noundef !3
   %19 = getelementptr inbounds nuw { i32, i32 }, ptr %18, i64 %13
   store i32 %10, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %11, ptr %20, align 4
   %21 = add i64 %13, 1
-  store i64 %21, ptr %12, align 8, !alias.scope !28
+  store i64 %21, ptr %12, align 8, !alias.scope !25
   br label %22
 
 22:                                               ; preds = %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE.exit", %2
@@ -256,21 +256,18 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !11 = !{!12, !7}
 !12 = distinct !{!12, !13, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hc8896dba67a54972E: argument 0"}
 !13 = distinct !{!13, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hc8896dba67a54972E"}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E: argument 0"}
-!18 = distinct !{!18, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E"}
-!19 = distinct !{!19, !20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE: argument 0"}
-!20 = distinct !{!20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE"}
-!21 = !{!22}
-!22 = distinct !{!22, !20, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE: argument 1"}
-!23 = !{!24, !19}
-!24 = distinct !{!24, !25, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E: argument 0"}
-!25 = distinct !{!25, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E"}
-!26 = distinct !{!26, !15}
-!27 = !{i8 0, i8 103}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE: argument 0"}
-!30 = distinct !{!30, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE"}
-!31 = !{i64 0, i64 -9223372036854775808}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E: argument 0"}
+!16 = distinct !{!16, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E"}
+!17 = distinct !{!17, !18, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE: argument 0"}
+!18 = distinct !{!18, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE"}
+!19 = !{!20}
+!20 = distinct !{!20, !18, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17he31bd6829327228aE: argument 1"}
+!21 = !{!22, !17}
+!22 = distinct !{!22, !23, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E: argument 0"}
+!23 = distinct !{!23, !"_ZN17ruff_python_index16multiline_ranges15MultilineRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17h481db56cdc907b05E"}
+!24 = !{i8 0, i8 103}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE: argument 0"}
+!27 = distinct !{!27, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31d7ed69de5d0aeE"}
+!28 = !{i64 0, i64 -9223372036854775808}

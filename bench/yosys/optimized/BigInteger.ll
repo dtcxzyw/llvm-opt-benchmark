@@ -122,7 +122,7 @@ define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr noundef nonnull align 8 capture
   %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
   store i32 %indvars.i.i, ptr %6, align 4, !tbaa !16
   %.not.i2.i = icmp eq i32 %indvars.i.i, 0
-  br i1 %.not.i2.i, label %_ZN11BigUnsignedC2EPKmj.exit, label %11, !llvm.loop !24
+  br i1 %.not.i2.i, label %_ZN11BigUnsignedC2EPKmj.exit, label %11, !llvm.loop !23
 
 _ZN11BigUnsignedC2EPKmj.exit:                     ; preds = %11, %16, %4
   %17 = phi i1 [ true, %4 ], [ %15, %16 ], [ %15, %11 ]
@@ -156,7 +156,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %19, %23
 .invoke:                                          ; preds = %_ZN11BigUnsignedC2EPKmj.exit, %18
   %.str.sink = phi ptr [ @.str, %18 ], [ @.str.1, %_ZN11BigUnsignedC2EPKmj.exit ]
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr %.str.sink, ptr %26, align 16, !tbaa !25
+  store ptr %.str.sink, ptr %26, align 16, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIPKc, ptr null) #12
           to label %.cont unwind label %19
 
@@ -205,7 +205,7 @@ define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr noundef nonnull alig
   store i64 %16, ptr %17, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %8
-  br i1 %exitcond.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %14, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %14, !llvm.loop !26
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %14, %3
   switch i32 %2, label %.invoke [
@@ -238,7 +238,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %19, %23
 .invoke:                                          ; preds = %_ZN11BigUnsignedC2ERKS_.exit, %18
   %.str.2.sink = phi ptr [ @.str.2, %18 ], [ @.str.3, %_ZN11BigUnsignedC2ERKS_.exit ]
   %26 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr %.str.2.sink, ptr %26, align 16, !tbaa !25
+  store ptr %.str.2.sink, ptr %26, align 16, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIPKc, ptr null) #12
           to label %.cont unwind label %19
 
@@ -336,7 +336,7 @@ define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr noundef nonnull reado
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.6, ptr %5, align 16, !tbaa !25
+  store ptr @.str.6, ptr %5, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -356,7 +356,7 @@ define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr noundef nonnull reado
 
 13:                                               ; preds = %6
   %14 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.7, ptr %14, align 16, !tbaa !25
+  store ptr @.str.7, ptr %14, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -373,7 +373,7 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr noundef nonnull readon
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.6, ptr %5, align 16, !tbaa !25
+  store ptr @.str.6, ptr %5, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -395,7 +395,7 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr noundef nonnull readon
 
 15:                                               ; preds = %9, %6
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.7, ptr %16, align 16, !tbaa !25
+  store ptr @.str.7, ptr %16, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -412,7 +412,7 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr noundef nonn
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.6, ptr %5, align 16, !tbaa !25
+  store ptr @.str.6, ptr %5, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -434,7 +434,7 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr noundef nonn
 
 15:                                               ; preds = %9, %6
   %16 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.7, ptr %16, align 16, !tbaa !25
+  store ptr @.str.7, ptr %16, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -473,7 +473,7 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
 
 17:                                               ; preds = %14, %12, %4
   %18 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.8, ptr %18, align 16, !tbaa !25
+  store ptr @.str.8, ptr %18, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -515,7 +515,7 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
 
 17:                                               ; preds = %.critedge.i, %13, %4
   %18 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.8, ptr %18, align 16, !tbaa !25
+  store ptr @.str.8, ptr %18, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -557,7 +557,7 @@ _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
 
 17:                                               ; preds = %.critedge.i, %13, %4
   %18 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.8, ptr %18, align 16, !tbaa !25
+  store ptr @.str.8, ptr %18, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -599,7 +599,7 @@ define noundef i32 @_ZNK10BigInteger9compareToERKS_(ptr noundef nonnull align 8 
 
 18:                                               ; preds = %8
   %19 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.4, ptr %19, align 16, !tbaa !25
+  store ptr @.str.4, ptr %19, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -1598,7 +1598,7 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr @.str.5, ptr %9, align 16, !tbaa !25
+  store ptr @.str.5, ptr %9, align 16, !tbaa !24
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #12
   unreachable
 
@@ -1639,7 +1639,7 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
   store i64 %27, ptr %28, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %19
-  br i1 %exitcond.not.i.i.i, label %_ZN10BigIntegerC2ERKS_.exit, label %25, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i, label %_ZN10BigIntegerC2ERKS_.exit, label %25, !llvm.loop !26
 
 _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %13
   invoke void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -2140,7 +2140,7 @@ define void @_ZN10BigIntegerppEv(ptr noundef nonnull align 8 dereferenceable(24)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond.not = select i1 %.not8.i.i, i1 %exitcond.not.i.i, i1 false
-  br i1 %or.cond.not, label %15, label %_ZNK11BigUnsignedeqERKS_.exit, !llvm.loop !28
+  br i1 %or.cond.not, label %15, label %_ZNK11BigUnsignedeqERKS_.exit, !llvm.loop !27
 
 _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i, %6
   %.07.i.i = phi i1 [ false, %6 ], [ true, %.preheader.i.i ], [ %.not8.i.i, %15 ]
@@ -2211,7 +2211,7 @@ define void @_ZN10BigIntegerppEi(ptr noundef nonnull align 8 dereferenceable(24)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   %or.cond.not = select i1 %.not8.i.i.i, i1 %exitcond.not.i.i.i, i1 false
-  br i1 %or.cond.not, label %16, label %_ZNK11BigUnsignedeqERKS_.exit.i, !llvm.loop !28
+  br i1 %or.cond.not, label %16, label %_ZNK11BigUnsignedeqERKS_.exit.i, !llvm.loop !27
 
 _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i.i, %7
   %.07.i.i.i = phi i1 [ false, %7 ], [ true, %.preheader.i.i.i ], [ %.not8.i.i.i, %16 ]
@@ -2282,7 +2282,7 @@ define void @_ZN10BigIntegermmEv(ptr noundef nonnull align 8 dereferenceable(24)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   %or.cond.not = select i1 %.not8.i.i, i1 %exitcond.not.i.i, i1 false
-  br i1 %or.cond.not, label %15, label %_ZNK11BigUnsignedeqERKS_.exit, !llvm.loop !28
+  br i1 %or.cond.not, label %15, label %_ZNK11BigUnsignedeqERKS_.exit, !llvm.loop !27
 
 _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i, %6
   %.07.i.i = phi i1 [ false, %6 ], [ true, %.preheader.i.i ], [ %.not8.i.i, %15 ]
@@ -2353,7 +2353,7 @@ define void @_ZN10BigIntegermmEi(ptr noundef nonnull align 8 dereferenceable(24)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   %or.cond.not = select i1 %.not8.i.i.i, i1 %exitcond.not.i.i.i, i1 false
-  br i1 %or.cond.not, label %16, label %_ZNK11BigUnsignedeqERKS_.exit.i, !llvm.loop !28
+  br i1 %or.cond.not, label %16, label %_ZNK11BigUnsignedeqERKS_.exit.i, !llvm.loop !27
 
 _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i.i, %7
   %.07.i.i.i = phi i1 [ false, %7 ], [ true, %.preheader.i.i.i ], [ %.not8.i.i.i, %16 ]
@@ -2447,11 +2447,10 @@ attributes #12 = { noreturn }
 !18 = !{!12, !14, i64 8}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"long", !9, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 omnipotent char", !15, i64 0}
-!27 = distinct !{!27, !22, !23}
-!28 = distinct !{!28, !22, !23}
+!23 = distinct !{!23, !22}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 omnipotent char", !15, i64 0}
+!26 = distinct !{!26, !22}
+!27 = distinct !{!27, !22}

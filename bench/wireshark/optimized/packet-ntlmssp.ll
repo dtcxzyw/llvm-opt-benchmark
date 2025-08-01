@@ -556,7 +556,7 @@ define hidden i32 @get_md4pass_list(ptr noundef %0, ptr noundef writeonly captur
   store i8 0, ptr %27, align 1
   %28 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %28, %19
-  br i1 %exitcond.not.i, label %ansi_to_unicode.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %ansi_to_unicode.exit, label %.lr.ph.i, !llvm.loop !8
 
 ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %21
   %29 = shl nuw nsw i64 %19, 1
@@ -580,7 +580,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %21
   br i1 %.not41, label %41, label %37
 
 37:                                               ; preds = %33
-  %38 = call ptr @__memcpy_chk(ptr noundef %36, ptr noundef nonnull %3, i64 noundef 16, i64 noundef %35) #17, !alias.scope !10
+  %38 = call ptr @__memcpy_chk(ptr noundef %36, ptr noundef nonnull %3, i64 noundef 16, i64 noundef %35) #17, !alias.scope !9
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %39, i64 noundef 256, i32 noundef 2, i64 noundef 257, ptr noundef nonnull @.str)
   br label %41
@@ -617,12 +617,12 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %21
   %55 = getelementptr %struct._md4_pass, ptr %36, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %.13951, i64 16
   %57 = call i64 @llvm.usub.sat.i64(i64 %35, i64 %.idx)
-  %58 = call ptr @__memcpy_chk(ptr noundef %55, ptr noundef nonnull %56, i64 noundef 16, i64 noundef %57) #17, !alias.scope !14
+  %58 = call ptr @__memcpy_chk(ptr noundef %55, ptr noundef nonnull %56, i64 noundef 16, i64 noundef %57) #17, !alias.scope !13
   %59 = add nsw i64 %.idx, 16
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %.13951, i64 48
   %62 = call i64 @llvm.usub.sat.i64(i64 %35, i64 %59)
-  %63 = call ptr @__memcpy_chk(ptr noundef nonnull %60, ptr noundef nonnull %61, i64 noundef 257, i64 noundef %62) #17, !alias.scope !18
+  %63 = call ptr @__memcpy_chk(ptr noundef nonnull %60, ptr noundef nonnull %61, i64 noundef 257, i64 noundef %62) #17, !alias.scope !17
   %64 = add i32 %.150, 1
   br label %65
 
@@ -630,7 +630,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %21
   %.2 = phi i32 [ %64, %53 ], [ %.150, %49 ], [ %.150, %45 ], [ %.150, %.lr.ph53 ]
   %.139 = load ptr, ptr %.13951, align 8
   %.not42 = icmp eq ptr %.139, null
-  br i1 %.not42, label %.loopexit, label %.lr.ph53, !llvm.loop !22
+  br i1 %.not42, label %.loopexit, label %.lr.ph53, !llvm.loop !21
 
 .loopexit:                                        ; preds = %65, %41, %31
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #17
@@ -739,7 +739,7 @@ define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, p
   store i8 0, ptr %50, align 1
   %51 = add nuw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %51, %45
-  br i1 %exitcond.not.i.i, label %ansi_to_unicode.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %ansi_to_unicode.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %44
   %52 = shl i64 %45, 1
@@ -767,7 +767,7 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %44
   %62 = add i32 %.0722.i, 1
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ugt i64 %54, %63
-  br i1 %64, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %64, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %61, %ansi_to_unicode.exit.i
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -791,7 +791,7 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %44
   store i8 0, ptr %74, align 1
   %75 = add nuw nsw i64 %.014.i89.i, 1
   %exitcond.not.i90.i = icmp eq i64 %75, %67
-  br i1 %exitcond.not.i90.i, label %ansi_to_unicode.exit91.i, label %.lr.ph.i88.i, !llvm.loop !9
+  br i1 %exitcond.not.i90.i, label %ansi_to_unicode.exit91.i, label %.lr.ph.i88.i, !llvm.loop !8
 
 ansi_to_unicode.exit91.i:                         ; preds = %.lr.ph.i88.i, %69
   %76 = shl nuw nsw i64 %67, 1
@@ -818,8 +818,8 @@ ansi_to_unicode.exit91.i:                         ; preds = %.lr.ph.i88.i, %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef align 1 dereferenceable(16) %88, i64 noundef 16, i1 noundef false) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %15, i8 noundef 0, i64 noundef 768, i1 noundef false) #17
-  %89 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef nonnull %14, i64 noundef range(i64 -2147483648, 2147483648) %54, i64 noundef 768) #17, !alias.scope !24
-  %90 = call ptr @__memcpy_chk(ptr noundef %79, ptr noundef nonnull %13, i64 noundef range(i64 -2147483648, 2147483648) %76, i64 noundef %80) #17, !alias.scope !28
+  %89 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef nonnull %14, i64 noundef range(i64 -2147483648, 2147483648) %54, i64 noundef 768) #17, !alias.scope !23
+  %90 = call ptr @__memcpy_chk(ptr noundef %79, ptr noundef nonnull %13, i64 noundef range(i64 -2147483648, 2147483648) %76, i64 noundef %80) #17, !alias.scope !27
   %91 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %18, ptr noundef nonnull %15, i64 noundef %81, ptr noundef nonnull %16, i64 noundef 16)
   %.not.i = icmp eq i32 %91, 0
   br i1 %.not.i, label %92, label %create_ntlmssp_v2_key.exit
@@ -845,7 +845,7 @@ ansi_to_unicode.exit91.i:                         ; preds = %.lr.ph.i88.i, %69
   %101 = zext i16 %99 to i64
   %102 = add nsw i64 %101, -16
   %103 = select i1 %100, i64 760, i64 %102
-  %104 = call ptr @__memcpy_chk(ptr noundef nonnull %82, ptr noundef %98, i64 noundef range(i64 -2147483648, 2147483648) %103, i64 noundef 760) #17, !alias.scope !32
+  %104 = call ptr @__memcpy_chk(ptr noundef nonnull %82, ptr noundef %98, i64 noundef range(i64 -2147483648, 2147483648) %103, i64 noundef 760) #17, !alias.scope !31
   %105 = add nsw i64 %101, -8
   %106 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %17, ptr noundef nonnull %15, i64 noundef %105, ptr noundef nonnull %18, i64 noundef 16)
   %.not79.i = icmp eq i32 %106, 0
@@ -855,7 +855,7 @@ ansi_to_unicode.exit91.i:                         ; preds = %.lr.ph.i88.i, %69
   %108 = load ptr, ptr %84, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %17, ptr noundef dereferenceable(16) %108, i64 16)
   %.not80.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not80.i, label %109, label %86, !llvm.loop !36
+  br i1 %.not80.i, label %109, label %86, !llvm.loop !35
 
 109:                                              ; preds = %107
   %110 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %19, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %18, i64 noundef 16)
@@ -1314,7 +1314,7 @@ define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %
   store i8 0, ptr %32, align 1
   %33 = add nuw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %33, %27
-  br i1 %exitcond.not.i, label %ansi_to_unicode.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %ansi_to_unicode.exit, label %.lr.ph.i, !llvm.loop !8
 
 ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
   %34 = shl i64 %27, 1
@@ -1342,7 +1342,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
   store i8 %42, ptr %43, align 1
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, %spec.store.select
-  br i1 %exitcond17.not, label %.critedge, label %.lr.ph11, !llvm.loop !37
+  br i1 %exitcond17.not, label %.critedge, label %.lr.ph11, !llvm.loop !36
 
 .critedge:                                        ; preds = %.lr.ph11, %39
   call void @crypt_des_ecb(ptr noundef nonnull %13, ptr noundef nonnull @create_ntlmssp_v1_key.lmhash_key, ptr noundef nonnull %12)
@@ -1430,7 +1430,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
 
 76:                                               ; preds = %75, %68
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %66, %76, %75, %51
   %.178.not = phi i1 [ true, %51 ], [ false, %75 ], [ true, %76 ], [ true, %66 ]
@@ -2431,7 +2431,7 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %200, %203, %167
 
 248:                                              ; preds = %247
   %249 = getelementptr inbounds nuw i8, ptr %.0168.i, i64 4
-  %250 = load i8, ptr %249, align 4, !range !39, !noundef !40
+  %250 = load i8, ptr %249, align 4, !range !38, !noundef !39
   %251 = trunc nuw i8 %250 to i1
   br i1 %251, label %252, label %255
 
@@ -2561,7 +2561,7 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %200, %203, %167
   %332 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %333 = load ptr, ptr %332, align 8
   %334 = zext nneg i16 %325 to i64
-  %335 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef %333, i64 noundef range(i64 -2147483648, 2147483648) %334, i64 noundef 16) #17, !alias.scope !41
+  %335 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef %333, i64 noundef range(i64 -2147483648, 2147483648) %334, i64 noundef 16) #17, !alias.scope !40
   br i1 %256, label %336, label %dissect_ntlmssp_auth.exit
 
 336:                                              ; preds = %331
@@ -2572,7 +2572,7 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %200, %203, %167
 
 339:                                              ; preds = %336
   %340 = getelementptr inbounds nuw i8, ptr %.0168.i, i64 68
-  %341 = load i8, ptr %340, align 4, !range !39, !noundef !40
+  %341 = load i8, ptr %340, align 4, !range !38, !noundef !39
   %342 = trunc nuw i8 %341 to i1
   br i1 %342, label %343, label %348
 
@@ -3654,7 +3654,7 @@ declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @ntlmssp_sessions_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %5 = load i8, ptr %4, align 4, !range !39, !noundef !40
+  %5 = load i8, ptr %4, align 4, !range !38, !noundef !39
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %12
 
@@ -3904,7 +3904,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
 15:                                               ; preds = %10, %5
   %.068 = phi ptr [ %12, %10 ], [ %8, %5 ]
   %16 = getelementptr inbounds nuw i8, ptr %.068, i64 25
-  %17 = load i8, ptr %16, align 1, !range !39, !noundef !40
+  %17 = load i8, ptr %16, align 1, !range !38, !noundef !39
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %.critedge81, label %19
 
@@ -3921,7 +3921,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 68
-  %28 = load i8, ptr %27, align 4, !range !39, !noundef !40
+  %28 = load i8, ptr %27, align 4, !range !38, !noundef !39
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %.critedge
 
@@ -3937,7 +3937,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 25
-  %36 = load i8, ptr %35, align 1, !range !39, !noundef !40
+  %36 = load i8, ptr %35, align 1, !range !38, !noundef !39
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %.thread
 
@@ -4093,7 +4093,7 @@ define internal fastcc void @store_verifier(ptr noundef %0, i32 noundef %1, i32 
 14:                                               ; preds = %9, %4
   %.0 = phi ptr [ %11, %9 ], [ %7, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 26
-  %16 = load i8, ptr %15, align 2, !range !39, !noundef !40
+  %16 = load i8, ptr %15, align 2, !range !38, !noundef !39
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %25, label %18
 
@@ -4138,13 +4138,13 @@ define internal fastcc void @decrypt_verifier(ptr noundef %0, ptr noundef %1) un
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  %18 = load i8, ptr %17, align 2, !range !39, !noundef !40
+  %18 = load i8, ptr %17, align 2, !range !38, !noundef !39
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %126, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 68
-  %22 = load i8, ptr %21, align 4, !range !39, !noundef !40
+  %22 = load i8, ptr %21, align 4, !range !38, !noundef !39
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %get_encrypted_state.exit92.thread
 
@@ -4289,12 +4289,12 @@ get_encrypted_state.exit92:                       ; preds = %.sink.split.i98, %.
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, 8
   %96 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %95, i64 noundef 4)
-  %97 = call ptr @__memcpy_chk(ptr noundef %92, ptr noundef nonnull %4, i64 noundef 4, i64 noundef %91) #17, !alias.scope !45
+  %97 = call ptr @__memcpy_chk(ptr noundef %92, ptr noundef nonnull %4, i64 noundef 4, i64 noundef %91) #17, !alias.scope !44
   %98 = getelementptr i8, ptr %92, i64 4
   %99 = load ptr, ptr %7, align 8
   %100 = load i8, ptr %88, align 8
   %101 = zext i8 %100 to i64
-  %102 = call ptr @__memcpy_chk(ptr noundef %98, ptr noundef %99, i64 noundef range(i64 -2147483648, 2147483648) %101, i64 noundef %90) #17, !alias.scope !49
+  %102 = call ptr @__memcpy_chk(ptr noundef %98, ptr noundef %99, i64 noundef range(i64 -2147483648, 2147483648) %101, i64 noundef %90) #17, !alias.scope !48
   %103 = add nuw nsw i64 %101, 4
   %104 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %3, ptr noundef %92, i64 noundef %103, ptr noundef nonnull %.0, i64 noundef 16)
   %.not83 = icmp eq i32 %104, 0
@@ -4483,50 +4483,49 @@ attributes #24 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
-!34 = distinct !{!34, !"memcpy.inline"}
-!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = !{i8 0, i8 2}
-!40 = !{}
-!41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"memcpy.inline: argument 0"}
-!43 = distinct !{!43, !"memcpy.inline"}
-!44 = distinct !{!44, !43, !"memcpy.inline: argument 1"}
-!45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"memcpy.inline: argument 0"}
-!47 = distinct !{!47, !"memcpy.inline"}
-!48 = distinct !{!48, !47, !"memcpy.inline: argument 1"}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"memcpy.inline: argument 0"}
-!51 = distinct !{!51, !"memcpy.inline"}
-!52 = distinct !{!52, !51, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = !{i8 0, i8 2}
+!39 = !{}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"memcpy.inline: argument 0"}
+!42 = distinct !{!42, !"memcpy.inline"}
+!43 = distinct !{!43, !42, !"memcpy.inline: argument 1"}
+!44 = !{!45, !47}
+!45 = distinct !{!45, !46, !"memcpy.inline: argument 0"}
+!46 = distinct !{!46, !"memcpy.inline"}
+!47 = distinct !{!47, !46, !"memcpy.inline: argument 1"}
+!48 = !{!49, !51}
+!49 = distinct !{!49, !50, !"memcpy.inline: argument 0"}
+!50 = distinct !{!50, !"memcpy.inline"}
+!51 = distinct !{!51, !50, !"memcpy.inline: argument 1"}

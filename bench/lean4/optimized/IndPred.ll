@@ -78353,7 +78353,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit179.backedge:                        ; preds = %74, %76, %86, %85, %83
   %.0137.be = phi ptr [ %78, %76 ], [ %80, %83 ], [ %80, %85 ], [ %80, %86 ], [ inttoptr (i64 1 to ptr), %74 ]
   %.0136.be = phi ptr [ %.1.i239307, %76 ], [ %79, %83 ], [ %79, %85 ], [ %79, %86 ], [ %.1.i239307, %74 ]
-  br label %lean_dec.exit179, !llvm.loop !22
+  br label %lean_dec.exit179
 
 76:                                               ; preds = %74
   %77 = add i64 %51, -2
@@ -80559,7 +80559,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit174.backedge:                        ; preds = %75, %77, %87, %86, %84
   %.0134.be = phi ptr [ %79, %77 ], [ %81, %84 ], [ %81, %86 ], [ %81, %87 ], [ inttoptr (i64 1 to ptr), %75 ]
   %.0133.be = phi ptr [ %.1.i232297, %77 ], [ %80, %84 ], [ %80, %86 ], [ %80, %87 ], [ %.1.i232297, %75 ]
-  br label %lean_dec.exit174, !llvm.loop !24
+  br label %lean_dec.exit174
 
 77:                                               ; preds = %75
   %78 = add i64 %52, -2
@@ -82714,7 +82714,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit174.backedge:                        ; preds = %75, %77, %87, %86, %84
   %.0134.be = phi ptr [ %79, %77 ], [ %81, %84 ], [ %81, %86 ], [ %81, %87 ], [ inttoptr (i64 1 to ptr), %75 ]
   %.0133.be = phi ptr [ %.1.i232297, %77 ], [ %80, %84 ], [ %80, %86 ], [ %80, %87 ], [ %.1.i232297, %75 ]
-  br label %lean_dec.exit174, !llvm.loop !25
+  br label %lean_dec.exit174
 
 77:                                               ; preds = %75
   %78 = add i64 %52, -2
@@ -97239,7 +97239,3 @@ attributes #5 = { noreturn nounwind }
 !19 = !{!7, !7, i64 0}
 !20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !21 = !{!"branch_weights", i32 4000000, i32 4001}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}

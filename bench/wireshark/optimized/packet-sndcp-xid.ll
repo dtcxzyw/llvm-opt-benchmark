@@ -452,7 +452,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %68 = tail call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %.sink, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef %63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %56, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader, label %56, !llvm.loop !8
 
 69:                                               ; preds = %.lr.ph174, %74
   %70 = phi i32 [ %.lcssa, %.lr.ph174 ], [ %81, %74 ]
@@ -473,7 +473,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %80 = add i8 %.0151172, 1
   %81 = and i32 %79, 65535
   %82 = icmp samesign ult i32 %81, %24
-  br i1 %82, label %69, label %.critedge, !llvm.loop !10
+  br i1 %82, label %69, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %69, %74, %.preheader
   %.lcssa169 = phi i32 [ %.lcssa, %.preheader ], [ %81, %74 ], [ %70, %69 ]
@@ -543,7 +543,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %125 = add i8 %.1152178, 1
   %126 = and i32 %124, 65535
   %127 = icmp samesign ult i32 %126, %89
-  br i1 %127, label %114, label %.critedge2, !llvm.loop !11
+  br i1 %127, label %114, label %.critedge2, !llvm.loop !10
 
 .critedge2:                                       ; preds = %114, %119, %110
   %.lcssa170 = phi i32 [ 0, %110 ], [ %126, %119 ], [ %115, %114 ]
@@ -554,7 +554,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %.1150 = phi i32 [ %84, %.critedge ], [ %128, %.critedge2 ]
   %130 = and i32 %.1150, 65535
   %131 = icmp samesign ult i32 %130, %5
-  br i1 %131, label %7, label %.loopexit, !llvm.loop !12
+  br i1 %131, label %7, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %129, %108, %106, %17, %15, %3
   ret void
@@ -848,10 +848,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -122,9 +122,9 @@ define internal fastcc zeroext i1 @is_ld(ptr noundef nonnull readonly captures(a
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %.0, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !16
+  %8 = load i8, ptr %7, align 1, !tbaa !15
   %.not = icmp eq i8 %8, 47
-  br i1 %.not, label %sub_0, label %4, !llvm.loop !17
+  br i1 %.not, label %sub_0, label %4, !llvm.loop !16
 
 sub_0:                                            ; preds = %6, %4
   %9 = load i8, ptr %.0, align 1
@@ -245,7 +245,7 @@ define i32 @execl(ptr noundef nonnull %0, ptr noundef nonnull %1, ...) local_unn
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %.not.i = icmp eq ptr %22, null
   %23 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %count_args.exit, label %8, !llvm.loop !18
+  br i1 %.not.i, label %count_args.exit, label %8, !llvm.loop !17
 
 count_args.exit:                                  ; preds = %18
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -292,7 +292,7 @@ count_args.exit:                                  ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   store ptr %45, ptr %47, align 8, !tbaa !8
-  br label %31, !llvm.loop !19
+  br label %31, !llvm.loop !18
 
 copy_args.exit:                                   ; preds = %41
   store ptr %1, ptr %27, align 16, !tbaa !8
@@ -371,7 +371,7 @@ define i32 @execlp(ptr noundef nonnull %0, ptr noundef nonnull %1, ...) local_un
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %.not.i = icmp eq ptr %22, null
   %23 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %count_args.exit, label %8, !llvm.loop !18
+  br i1 %.not.i, label %count_args.exit, label %8, !llvm.loop !17
 
 count_args.exit:                                  ; preds = %18
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -418,7 +418,7 @@ count_args.exit:                                  ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   store ptr %45, ptr %47, align 8, !tbaa !8
-  br label %31, !llvm.loop !19
+  br label %31, !llvm.loop !18
 
 copy_args.exit:                                   ; preds = %41
   store ptr %1, ptr %27, align 16, !tbaa !8
@@ -473,7 +473,7 @@ define i32 @execle(ptr noundef nonnull %0, ptr noundef nonnull %1, ...) local_un
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %.not.i = icmp eq ptr %22, null
   %23 = add nuw nsw i32 %.0.i, 1
-  br i1 %.not.i, label %count_args.exit, label %8, !llvm.loop !18
+  br i1 %.not.i, label %count_args.exit, label %8, !llvm.loop !17
 
 count_args.exit:                                  ; preds = %18
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -520,7 +520,7 @@ count_args.exit:                                  ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   store ptr %45, ptr %47, align 8, !tbaa !8
-  br label %31, !llvm.loop !19
+  br label %31, !llvm.loop !18
 
 copy_args.exit:                                   ; preds = %41
   store ptr %1, ptr %27, align 16, !tbaa !8
@@ -702,10 +702,9 @@ attributes #15 = { nounwind willreturn memory(read) }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p2 omnipotent char", !12, i64 0}
 !12 = !{!"any p2 pointer", !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14, !15}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}

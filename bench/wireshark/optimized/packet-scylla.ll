@@ -682,7 +682,7 @@ response_expected.exit:                           ; preds = %132, %132, %132, %1
   %194 = add nuw i32 %.0129133.i, 1
   %195 = load i32, ptr %7, align 4
   %196 = icmp ult i32 %194, %195
-  br i1 %196, label %.lr.ph.i56, label %._crit_edge.i, !llvm.loop !11
+  br i1 %196, label %.lr.ph.i56, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i56, %166
   %.0.lcssa.i = phi i32 [ 48, %166 ], [ %193, %.lr.ph.i56 ]
@@ -866,7 +866,6 @@ attributes #5 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

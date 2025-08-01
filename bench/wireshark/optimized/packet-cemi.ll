@@ -1166,7 +1166,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.i
   %.2345 = phi i32 [ %76, %89 ], [ %88, %proto_tree_add_data.exit ]
   %.6 = phi i8 [ 5, %89 ], [ %.4, %proto_tree_add_data.exit ]
   %92 = icmp slt i32 %.2345, %.0241
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %92, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %91, %47
   %.2341.lcssa = phi i8 [ %.1340, %47 ], [ %.6, %91 ]
@@ -1211,7 +1211,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.i
 103:                                              ; preds = %.preheader
   %104 = add nuw nsw i32 %.0399, 1
   %exitcond.not = icmp eq i32 %104, 6
-  br i1 %exitcond.not, label %.thread367, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread367, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %96, %103
   %.0399 = phi i32 [ %104, %103 ], [ 0, %96 ]
@@ -2739,7 +2739,7 @@ define internal fastcc ptr @proto_tree_add_data(ptr noundef %0, ptr noundef %1, 
   %24 = add i32 %.029.us30, 1
   %25 = add nsw i32 %.02428.us31, -1
   %26 = icmp samesign ugt i32 %.02428.us31, 1
-  br i1 %26, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !12
+  br i1 %26, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.029 = phi i32 [ %29, %.lr.ph.split.split ], [ %2, %.lr.ph.split ]
@@ -2752,7 +2752,7 @@ define internal fastcc ptr @proto_tree_add_data(ptr noundef %0, ptr noundef %1, 
   %29 = add i32 %.029, 1
   %30 = add nsw i32 %.02428, -1
   %31 = icmp samesign ugt i32 %.02428, 1
-  br i1 %31, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !13
+  br i1 %31, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us._crit_edge, %15
   ret ptr %11
@@ -3368,12 +3368,12 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
 112:                                              ; preds = %.lr.ph
   %.0201 = load ptr, ptr %.020123, align 8
   %.not211 = icmp eq ptr %.0201, null
-  br i1 %.not211, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not211, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .thread:                                          ; preds = %108
   %.020142 = load ptr, ptr %.020123, align 8
   %.not21143 = icmp eq ptr %.020142, null
-  br i1 %.not21143, label %._crit_edge.thread45, label %.lr.ph.outer, !llvm.loop !14
+  br i1 %.not21143, label %._crit_edge.thread45, label %.lr.ph.outer, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %112
   br i1 %104, label %._crit_edge.thread, label %._crit_edge.thread45
@@ -3412,7 +3412,7 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
 124:                                              ; preds = %.lr.ph28, %118
   %.0196 = load ptr, ptr %.019626, align 8
   %.not214 = icmp eq ptr %.0196, null
-  br i1 %.not214, label %.loopexit, label %.lr.ph28, !llvm.loop !15
+  br i1 %.not214, label %.loopexit, label %.lr.ph28, !llvm.loop !13
 
 .loopexit:                                        ; preds = %124, %.loopexit8, %122
   %125 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %11)
@@ -3480,7 +3480,7 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %.2137.i = phi i8 [ 1, %143 ], [ %.0135232.i, %.lr.ph235.i ]
   %.097.i = load ptr, ptr %.097234.i, align 8
   %.not161.i = icmp eq ptr %.097.i, null
-  br i1 %.not161.i, label %.preheader204.i, label %.lr.ph235.i, !llvm.loop !16
+  br i1 %.not161.i, label %.preheader204.i, label %.lr.ph235.i, !llvm.loop !14
 
 .lr.ph250.i:                                      ; preds = %.preheader207.i, %161
   %.096249.i = phi ptr [ %.096.i, %161 ], [ %.096245.i, %.preheader207.i ]
@@ -3507,7 +3507,7 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %.6141.i = phi i8 [ 1, %154 ], [ %.4139247.i, %.lr.ph250.i ]
   %.096.i = load ptr, ptr %.096249.i, align 8
   %.not158.i = icmp eq ptr %.096.i, null
-  br i1 %.not158.i, label %.preheader204.i, label %.lr.ph250.i, !llvm.loop !17
+  br i1 %.not158.i, label %.preheader204.i, label %.lr.ph250.i, !llvm.loop !15
 
 .preheader204.i:                                  ; preds = %161, %150, %.preheader210.i
   %.3138.ph.ph.i = phi i8 [ 0, %.preheader210.i ], [ %.2137.i, %150 ], [ %.6141.i, %161 ]
@@ -3540,7 +3540,7 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %.10145.i = phi i8 [ 1, %165 ], [ %.8143262.i, %.lr.ph265.i ]
   %.095.i = load ptr, ptr %.095264.i, align 8
   %.not165.i = icmp eq ptr %.095.i, null
-  br i1 %.not165.i, label %.loopexit203.i, label %.lr.ph265.i, !llvm.loop !18
+  br i1 %.not165.i, label %.loopexit203.i, label %.lr.ph265.i, !llvm.loop !16
 
 .loopexit203.i:                                   ; preds = %172, %.preheader204.i, %.preheader207.i
   %.7142.i = phi i8 [ %.3138.ph.ph.i, %.preheader204.i ], [ 0, %.preheader207.i ], [ %.10145.i, %172 ]
@@ -3553,7 +3553,7 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %175 = load i8, ptr @knx_decryption_key_count, align 1
   %176 = zext i8 %175 to i64
   %177 = icmp samesign ult i64 %indvars.iv.next.i, %176
-  br i1 %177, label %.lr.ph276.i, label %.loopexit47, !llvm.loop !19
+  br i1 %177, label %.lr.ph276.i, label %.loopexit47, !llvm.loop !17
 
 .lr.ph276.i:                                      ; preds = %.loopexit203.i, %174
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %174 ], [ 0, %.loopexit203.i ]
@@ -3620,7 +3620,7 @@ proto_tree_add_data.exit241:                      ; preds = %.lr.ph.split.us.i23
   %203 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.10109.lcssa.i, i64 noundef %198, i32 noundef 2, i64 noundef %199, ptr noundef nonnull @.str.658, i32 noundef %202)
   %204 = add nsw i8 %.0288.i, -1
   %.not171.i = icmp eq i8 %204, 0
-  br i1 %.not171.i, label %decrypt_data_security_data.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %.not171.i, label %decrypt_data_security_data.exit, label %.preheader.i, !llvm.loop !18
 
 .thread193.i:                                     ; preds = %.loopexit203.i
   %.7142.fr.i = freeze i8 %.7142.i
@@ -3695,7 +3695,7 @@ proto_tree_add_data.exit257:                      ; preds = %.lr.ph.split.us.i25
   %236 = zext nneg i32 %229 to i64
   %237 = icmp ne i32 %225, -1
   call void @llvm.assume(i1 %237)
-  %238 = call ptr @__memcpy_chk(ptr noundef %235, ptr noundef %125, i64 noundef range(i64 -2147483648, 2147483648) %236, i64 noundef %234) #10, !alias.scope !21
+  %238 = call ptr @__memcpy_chk(ptr noundef %235, ptr noundef %125, i64 noundef range(i64 -2147483648, 2147483648) %236, i64 noundef %234) #10, !alias.scope !19
   %239 = getelementptr i8, ptr %235, i64 %236
   %240 = sext i32 %206 to i64
   %241 = sub nsw i64 %234, %236
@@ -3703,7 +3703,7 @@ proto_tree_add_data.exit257:                      ; preds = %.lr.ph.split.us.i25
   %243 = select i1 %242, i64 0, i64 %241
   %244 = icmp ne i64 %243, -1
   call void @llvm.assume(i1 %244)
-  %245 = call ptr @__memcpy_chk(ptr noundef %239, ptr noundef nonnull %.11132191.i, i64 noundef range(i64 -2147483648, 2147483648) %240, i64 noundef %243) #10, !alias.scope !25
+  %245 = call ptr @__memcpy_chk(ptr noundef %239, ptr noundef nonnull %.11132191.i, i64 noundef range(i64 -2147483648, 2147483648) %240, i64 noundef %243) #10, !alias.scope !23
   %246 = trunc i32 %128 to i8
   %247 = add i8 %246, -5
   %248 = zext i8 %227 to i64
@@ -4021,7 +4021,7 @@ define internal fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %0, 
   %90 = getelementptr i8, ptr %85, i64 1
   %91 = zext nneg i32 %24 to i64
   %92 = add nsw i64 %81, -1
-  %93 = call ptr @__memcpy_chk(ptr noundef %90, ptr noundef %84, i64 noundef range(i64 -2147483648, 2147483648) %91, i64 noundef %92) #10, !alias.scope !29
+  %93 = call ptr @__memcpy_chk(ptr noundef %90, ptr noundef %84, i64 noundef range(i64 -2147483648, 2147483648) %91, i64 noundef %92) #10, !alias.scope !27
   %94 = add nsw i32 %3, -3
   br label %95
 
@@ -4103,30 +4103,28 @@ attributes #11 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
-!27 = distinct !{!27, !"memcpy.inline"}
-!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
-!31 = distinct !{!31, !"memcpy.inline"}
-!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}

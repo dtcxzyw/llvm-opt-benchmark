@@ -96,12 +96,12 @@ define internal fastcc void @h261_loop_filter(ptr noundef captures(none) %0, i64
   store i32 %35, ptr %36, align 4, !tbaa !42
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 8
-  br i1 %exitcond61.not, label %37, label %20, !llvm.loop !46
+  br i1 %exitcond61.not, label %37, label %20, !llvm.loop !45
 
 37:                                               ; preds = %20
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 7
-  br i1 %exitcond65.not, label %.preheader, label %.preheader50, !llvm.loop !47
+  br i1 %exitcond65.not, label %.preheader, label %.preheader50, !llvm.loop !46
 
 .preheader:                                       ; preds = %37, %70
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %70 ], [ 0, %37 ]
@@ -145,12 +145,12 @@ define internal fastcc void @h261_loop_filter(ptr noundef captures(none) %0, i64
   store i8 %68, ptr %69, align 1, !tbaa !41
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 7
-  br i1 %exitcond69.not, label %70, label %53, !llvm.loop !48
+  br i1 %exitcond69.not, label %70, label %53, !llvm.loop !47
 
 70:                                               ; preds = %53
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 8
-  br i1 %exitcond73.not, label %71, label %.preheader, !llvm.loop !49
+  br i1 %exitcond73.not, label %71, label %.preheader, !llvm.loop !48
 
 71:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #3
@@ -210,10 +210,9 @@ attributes #3 = { nounwind }
 !40 = !{!5, !14, i64 568}
 !41 = !{!8, !8, i64 0}
 !42 = !{!10, !10, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45}
-!47 = distinct !{!47, !44, !45}
-!48 = distinct !{!48, !44, !45}
-!49 = distinct !{!49, !44, !45}
+!45 = distinct !{!45, !44}
+!46 = distinct !{!46, !44}
+!47 = distinct !{!47, !44}
+!48 = distinct !{!48, !44}

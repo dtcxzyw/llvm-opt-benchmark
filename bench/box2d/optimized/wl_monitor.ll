@@ -435,12 +435,12 @@ define internal void @outputHandleDone(ptr noundef %0, ptr readnone captures(non
 32:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %33, !llvm.loop !128
+  br i1 %exitcond.not, label %.critedge, label %33
 
 33:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !130
+  %35 = load ptr, ptr %34, align 8, !tbaa !128
   %36 = icmp eq ptr %35, %0
   br i1 %36, label %.loopexit, label %32
 
@@ -457,20 +457,20 @@ define internal void @outputHandleScale(ptr noundef captures(none) initializes((
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %2, ptr %5, align 8, !tbaa !97
-  %.01416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !132
+  %.01416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1912), align 8, !tbaa !130
   %.not17 = icmp eq ptr %.01416, null
   br i1 %.not17, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %3, %.loopexit
   %.01418 = phi ptr [ %.014, %.loopexit ], [ %.01416, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.01418, i64 1040
-  %7 = load i64, ptr %6, align 8, !tbaa !133
+  %7 = load i64, ptr %6, align 8, !tbaa !131
   %.not19 = icmp eq i64 %7, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.01418, i64 1032
-  %9 = load ptr, ptr %8, align 8, !tbaa !165
+  %9 = load ptr, ptr %8, align 8, !tbaa !163
   %10 = load ptr, ptr %4, align 8, !tbaa !107
   br label %13
 
@@ -480,26 +480,26 @@ define internal void @outputHandleScale(ptr noundef captures(none) initializes((
 11:                                               ; preds = %13
   %12 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %12, %7
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !166
+  br i1 %exitcond.not, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph, %11
   %.015 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %14 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %9, i64 %.015
-  %15 = load ptr, ptr %14, align 8, !tbaa !167
+  %15 = load ptr, ptr %14, align 8, !tbaa !164
   %16 = icmp eq ptr %15, %10
   br i1 %16, label %17, label %11
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %5, align 8, !tbaa !97
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %18, ptr %19, align 8, !tbaa !169
+  store i32 %18, ptr %19, align 8, !tbaa !166
   tail call void @_glfwUpdateBufferScaleFromOutputsWayland(ptr noundef nonnull %.01418) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %.preheader, %17
-  %.014 = load ptr, ptr %.01418, align 8, !tbaa !132
+  %.014 = load ptr, ptr %.01418, align 8, !tbaa !130
   %.not = icmp eq ptr %.014, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !170
+  br i1 %.not, label %._crit_edge, label %.preheader
 }
 
 ; Function Attrs: nofree nounwind
@@ -658,46 +658,42 @@ attributes #12 = { nounwind }
 !125 = !{!98, !5, i64 140}
 !126 = !{!4, !5, i64 1928}
 !127 = !{!4, !25, i64 1920}
-!128 = distinct !{!128, !129}
-!129 = !{!"llvm.loop.estimated_trip_count"}
-!130 = !{!131, !131, i64 0}
-!131 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
-!132 = !{!22, !22, i64 0}
-!133 = !{!134, !16, i64 1040}
-!134 = !{!"_GLFWwindow", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !5, i64 48, !100, i64 52, !131, i64 80, !24, i64 88, !18, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !6, i64 144, !6, i64 152, !76, i64 504, !76, i64 512, !5, i64 520, !135, i64 528, !139, i64 720, !140, i64 856, !162, i64 1240, !164, i64 3368}
-!135 = !{!"_GLFWcontext", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !68, i64 120, !136, i64 152, !137, i64 176}
-!136 = !{!"", !9, i64 0, !5, i64 8, !5, i64 12, !9, i64 16}
-!137 = !{!"_GLFWcontextGLX", !138, i64 0, !16, i64 8}
-!138 = !{!"p1 _ZTS12__GLXcontext", !9, i64 0}
-!139 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128}
-!140 = !{!"_GLFWwindowWayland", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !60, i64 48, !71, i64 56, !141, i64 64, !143, i64 72, !144, i64 96, !148, i64 128, !24, i64 136, !76, i64 144, !76, i64 152, !18, i64 160, !5, i64 168, !150, i64 176, !16, i64 184, !16, i64 192, !151, i64 200, !5, i64 208, !152, i64 216, !153, i64 224, !154, i64 232, !155, i64 240, !156, i64 248, !157, i64 256, !158, i64 264}
-!141 = !{!"", !142, i64 0}
-!142 = !{!"p1 _ZTS13wl_egl_window", !9, i64 0}
-!143 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!144 = !{!"", !145, i64 0, !146, i64 8, !147, i64 16, !5, i64 24}
-!145 = !{!"p1 _ZTS11xdg_surface", !9, i64 0}
-!146 = !{!"p1 _ZTS12xdg_toplevel", !9, i64 0}
-!147 = !{!"p1 _ZTS27zxdg_toplevel_decoration_v1", !9, i64 0}
-!148 = !{!"", !149, i64 0}
-!149 = !{!"p1 _ZTS14libdecor_frame", !9, i64 0}
-!150 = !{!"p1 _ZTS17_GLFWscaleWayland", !9, i64 0}
-!151 = !{!"p1 _ZTS11wp_viewport", !9, i64 0}
-!152 = !{!"p1 _ZTS22wp_fractional_scale_v1", !9, i64 0}
-!153 = !{!"p1 _ZTS23zwp_relative_pointer_v1", !9, i64 0}
-!154 = !{!"p1 _ZTS21zwp_locked_pointer_v1", !9, i64 0}
-!155 = !{!"p1 _ZTS23zwp_confined_pointer_v1", !9, i64 0}
-!156 = !{!"p1 _ZTS21zwp_idle_inhibitor_v1", !9, i64 0}
-!157 = !{!"p1 _ZTS23xdg_activation_token_v1", !9, i64 0}
-!158 = !{!"", !5, i64 0, !159, i64 8, !160, i64 16, !160, i64 40, !160, i64 64, !160, i64 88, !60, i64 112}
-!159 = !{!"p1 _ZTS9wl_buffer", !9, i64 0}
-!160 = !{!"_GLFWfallbackEdgeWayland", !60, i64 0, !161, i64 8, !151, i64 16}
-!161 = !{!"p1 _ZTS13wl_subsurface", !9, i64 0}
-!162 = !{!"_GLFWwindowX11", !16, i64 0, !16, i64 8, !16, i64 16, !163, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !6, i64 80}
-!163 = !{!"p1 _ZTS4_XIC", !9, i64 0}
-!164 = !{!"_GLFWwindowNull", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !74, i64 44}
-!165 = !{!134, !150, i64 1032}
-!166 = distinct !{!166, !129}
-!167 = !{!168, !104, i64 0}
-!168 = !{!"_GLFWscaleWayland", !104, i64 0, !5, i64 8}
-!169 = !{!168, !5, i64 8}
-!170 = distinct !{!170, !129}
+!128 = !{!129, !129, i64 0}
+!129 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
+!130 = !{!22, !22, i64 0}
+!131 = !{!132, !16, i64 1040}
+!132 = !{!"_GLFWwindow", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !5, i64 48, !100, i64 52, !129, i64 80, !24, i64 88, !18, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !6, i64 144, !6, i64 152, !76, i64 504, !76, i64 512, !5, i64 520, !133, i64 528, !137, i64 720, !138, i64 856, !160, i64 1240, !162, i64 3368}
+!133 = !{!"_GLFWcontext", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !68, i64 120, !134, i64 152, !135, i64 176}
+!134 = !{!"", !9, i64 0, !5, i64 8, !5, i64 12, !9, i64 16}
+!135 = !{!"_GLFWcontextGLX", !136, i64 0, !16, i64 8}
+!136 = !{!"p1 _ZTS12__GLXcontext", !9, i64 0}
+!137 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128}
+!138 = !{!"_GLFWwindowWayland", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !60, i64 48, !71, i64 56, !139, i64 64, !141, i64 72, !142, i64 96, !146, i64 128, !24, i64 136, !76, i64 144, !76, i64 152, !18, i64 160, !5, i64 168, !148, i64 176, !16, i64 184, !16, i64 192, !149, i64 200, !5, i64 208, !150, i64 216, !151, i64 224, !152, i64 232, !153, i64 240, !154, i64 248, !155, i64 256, !156, i64 264}
+!139 = !{!"", !140, i64 0}
+!140 = !{!"p1 _ZTS13wl_egl_window", !9, i64 0}
+!141 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!142 = !{!"", !143, i64 0, !144, i64 8, !145, i64 16, !5, i64 24}
+!143 = !{!"p1 _ZTS11xdg_surface", !9, i64 0}
+!144 = !{!"p1 _ZTS12xdg_toplevel", !9, i64 0}
+!145 = !{!"p1 _ZTS27zxdg_toplevel_decoration_v1", !9, i64 0}
+!146 = !{!"", !147, i64 0}
+!147 = !{!"p1 _ZTS14libdecor_frame", !9, i64 0}
+!148 = !{!"p1 _ZTS17_GLFWscaleWayland", !9, i64 0}
+!149 = !{!"p1 _ZTS11wp_viewport", !9, i64 0}
+!150 = !{!"p1 _ZTS22wp_fractional_scale_v1", !9, i64 0}
+!151 = !{!"p1 _ZTS23zwp_relative_pointer_v1", !9, i64 0}
+!152 = !{!"p1 _ZTS21zwp_locked_pointer_v1", !9, i64 0}
+!153 = !{!"p1 _ZTS23zwp_confined_pointer_v1", !9, i64 0}
+!154 = !{!"p1 _ZTS21zwp_idle_inhibitor_v1", !9, i64 0}
+!155 = !{!"p1 _ZTS23xdg_activation_token_v1", !9, i64 0}
+!156 = !{!"", !5, i64 0, !157, i64 8, !158, i64 16, !158, i64 40, !158, i64 64, !158, i64 88, !60, i64 112}
+!157 = !{!"p1 _ZTS9wl_buffer", !9, i64 0}
+!158 = !{!"_GLFWfallbackEdgeWayland", !60, i64 0, !159, i64 8, !149, i64 16}
+!159 = !{!"p1 _ZTS13wl_subsurface", !9, i64 0}
+!160 = !{!"_GLFWwindowX11", !16, i64 0, !16, i64 8, !16, i64 16, !161, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !6, i64 80}
+!161 = !{!"p1 _ZTS4_XIC", !9, i64 0}
+!162 = !{!"_GLFWwindowNull", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !74, i64 44}
+!163 = !{!132, !148, i64 1032}
+!164 = !{!165, !104, i64 0}
+!165 = !{!"_GLFWscaleWayland", !104, i64 0, !5, i64 8}
+!166 = !{!165, !5, i64 8}

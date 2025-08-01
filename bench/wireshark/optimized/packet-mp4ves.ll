@@ -429,7 +429,7 @@ define internal i32 @dissect_mp4ves_name(ptr noundef %0, ptr noundef readonly ca
   %15 = getelementptr i8, ptr %.010.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %find_cap.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %find_cap.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 find_cap.exit:                                    ; preds = %.lr.ph.i
   %.not18 = icmp eq ptr %.010.i, null
@@ -578,7 +578,7 @@ dissect_mp4ves_next_start_code.exit.i:            ; preds = %.preheader.preheade
   %52 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.0.i65.i, i32 noundef 24, i32 noundef 0)
   %.not.i66.i = icmp eq i32 %52, 1
   %53 = add i32 %.0.i65.i, 8
-  br i1 %.not.i66.i, label %dissect_mp4ves_user_data.exit.i, label %51, !llvm.loop !10
+  br i1 %.not.i66.i, label %dissect_mp4ves_user_data.exit.i, label %51, !llvm.loop !9
 
 dissect_mp4ves_user_data.exit.i:                  ; preds = %51
   %54 = load i32, ptr @hf_mp4ves_user_data, align 4
@@ -588,7 +588,7 @@ dissect_mp4ves_user_data.exit.i:                  ; preds = %51
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef %57, i32 noundef 0)
   %59 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.0.i65.i, i32 noundef 32, i32 noundef 0)
   %60 = icmp eq i32 %59, 434
-  br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %dissect_mp4ves_user_data.exit.i, %dissect_mp4ves_next_start_code.exit.i
   %.2.lcssa.i = phi i32 [ %.0.i64.i, %dissect_mp4ves_next_start_code.exit.i ], [ %.0.i65.i, %dissect_mp4ves_user_data.exit.i ]
@@ -832,9 +832,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

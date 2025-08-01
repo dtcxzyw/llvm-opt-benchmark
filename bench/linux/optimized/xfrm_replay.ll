@@ -581,7 +581,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   store i32 %134, ptr %132, align 4
   %135 = add nuw i32 %124, 1
   %136 = icmp eq i32 %135, %117
-  br i1 %136, label %.loopexit, label %123, !llvm.loop !12
+  br i1 %136, label %.loopexit, label %123, !llvm.loop !11
 
 137:                                              ; preds = %113
   %138 = add i32 %80, -1
@@ -799,7 +799,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br label %84
 
 52:                                               ; preds = %3
-  %53 = tail call fastcc i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !13
+  %53 = tail call fastcc i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !12
   br label %84
 
 54:                                               ; preds = %3
@@ -885,7 +885,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   %20 = add i32 %8, -1
   %21 = icmp ult i32 %10, %20
   %22 = select i1 %19, i1 %21, i1 false
-  br i1 %22, label %64, label %23, !prof !14
+  br i1 %22, label %64, label %23, !prof !13
 
 23:                                               ; preds = %._crit_edge, %16
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %20, %16 ]
@@ -1095,7 +1095,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br label %119
 
 87:                                               ; preds = %79
-  %88 = tail call fastcc i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !13
+  %88 = tail call fastcc i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !12
   br label %119
 
 89:                                               ; preds = %3
@@ -1436,10 +1436,9 @@ attributes #8 = { nounwind }
 !5 = !{!"branch_weights", i32 1, i32 2000}
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = !{i32 -22, i32 1}
-!14 = !{!"branch_weights", i32 1, i32 4001}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i32 -22, i32 1}
+!13 = !{!"branch_weights", i32 1, i32 4001}

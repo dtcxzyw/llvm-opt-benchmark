@@ -2048,7 +2048,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit33
   %.029.be = phi ptr [ %.0, %lean_dec.exit33 ], [ %90, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !16
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -2563,7 +2563,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit35
   %.031.be = phi ptr [ %.0, %lean_dec.exit35 ], [ %100, %lean_alloc_ctor.exit ]
-  br label %8, !llvm.loop !18
+  br label %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3994,7 +3994,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit35
   %.031.be = phi ptr [ %.0, %lean_dec.exit35 ], [ %110, %lean_alloc_ctor.exit ]
-  br label %11, !llvm.loop !19
+  br label %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4579,7 +4579,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit40
   %.034.be = phi ptr [ %.0, %lean_dec.exit40 ], [ %86, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !20
+  br label %6
 }
 
 declare ptr @l_Int_bmod(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4840,7 +4840,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit40
   %.034.be = phi ptr [ %.0, %lean_dec.exit40 ], [ %86, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !21
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5433,9 +5433,3 @@ attributes #4 = { noreturn nounwind }
 !13 = !{!"branch_weights", i32 4001, i32 4000000}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"short", !6, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}

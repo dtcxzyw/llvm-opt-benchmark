@@ -180,7 +180,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %99 = icmp samesign ult i32 %.198, 254
   %100 = icmp ult ptr %98, %55
   %or.cond75 = select i1 %99, i1 %100, i1 false
-  br i1 %or.cond75, label %.lr.ph, label %.critedge3.loopexit, !llvm.loop !37
+  br i1 %or.cond75, label %.lr.ph, label %.critedge3.loopexit, !llvm.loop !36
 
 .critedge3.loopexit:                              ; preds = %96, %.lr.ph
   %.3.lcssa.ph = phi ptr [ %.397, %.lr.ph ], [ %98, %96 ]
@@ -205,13 +205,13 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.2 = phi ptr [ %.3.lcssa, %.critedge3 ], [ %.165.lcssa, %.critedge ]
   %106 = getelementptr inbounds nuw i8, ptr %.195111, i64 %.sink
   %107 = icmp ult ptr %.2, %55
-  br i1 %107, label %.lr.ph113, label %._crit_edge, !llvm.loop !38
+  br i1 %107, label %.lr.ph113, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %105, %49
   %.195.lcssa = phi ptr [ %.094115, %49 ], [ %106, %105 ]
   %108 = add nuw nsw i32 %.067116, 1
   %exitcond.not = icmp eq i32 %108, %8
-  br i1 %exitcond.not, label %._crit_edge119, label %49, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge119, label %49, !llvm.loop !38
 
 109:                                              ; preds = %18, %14, %._crit_edge119, %13
   %.063 = phi i32 [ -1094995529, %13 ], [ 0, %._crit_edge119 ], [ -22, %14 ], [ %23, %18 ]
@@ -268,9 +268,8 @@ attributes #3 = { nounwind }
 !31 = !{!8, !8, i64 0}
 !32 = !{!10, !10, i64 0}
 !33 = !{!14, !14, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !35, !36}
-!38 = distinct !{!38, !35, !36}
-!39 = distinct !{!39, !35, !36}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}
+!38 = distinct !{!38, !35}

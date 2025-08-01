@@ -475,7 +475,7 @@ define dso_local void @io_uring_unreg_ringfd() local_unnamed_addr #0 align 16 {
 12:                                               ; preds = %11, %6
   %13 = add nuw nsw i64 %7, 1
   %14 = icmp eq i64 %13, 16
-  br i1 %14, label %15, label %6, !llvm.loop !29
+  br i1 %14, label %15, label %6, !llvm.loop !28
 
 15:                                               ; preds = %12
   ret void
@@ -496,7 +496,7 @@ define dso_local i32 @io_ring_add_registered_file(ptr noundef captures(none) %0,
 8:                                                ; preds = %20, %6
   %9 = phi i32 [ %2, %6 ], [ %21, %20 ]
   %10 = sext i32 %9 to i64
-  %11 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %10) #7, !srcloc !30
+  %11 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %10) #7, !srcloc !29
   %12 = trunc i64 %11 to i32
   %13 = and i32 %9, %12
   %14 = sext i32 %13 to i64
@@ -513,7 +513,7 @@ define dso_local i32 @io_ring_add_registered_file(ptr noundef captures(none) %0,
 20:                                               ; preds = %8
   %21 = add i32 %13, 1
   %22 = icmp slt i32 %21, %3
-  br i1 %22, label %8, label %.loopexit, !llvm.loop !31
+  br i1 %22, label %8, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %20, %18, %4
   %23 = phi i32 [ %13, %18 ], [ -16, %4 ], [ -16, %20 ]
@@ -537,7 +537,7 @@ define dso_local i32 @io_ringfd_register(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %10, label %11, label %81
 
 11:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !31
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !16
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1864
@@ -593,7 +593,7 @@ define dso_local i32 @io_ringfd_register(ptr noundef %0, ptr noundef %1, i32 nou
 .preheader:                                       ; preds = %44, %55
   %46 = phi i32 [ %56, %55 ], [ %36, %44 ]
   %47 = zext nneg i32 %46 to i64
-  %48 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %47) #7, !srcloc !30
+  %48 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %47) #7, !srcloc !29
   %49 = trunc i64 %48 to i32
   %50 = and i32 %46, %49
   %51 = zext nneg i32 %50 to i64
@@ -605,7 +605,7 @@ define dso_local i32 @io_ringfd_register(ptr noundef %0, ptr noundef %1, i32 nou
 55:                                               ; preds = %.preheader
   %56 = add nuw nsw i32 %50, 1
   %57 = icmp slt i32 %56, %37
-  br i1 %57, label %.preheader, label %.thread, !llvm.loop !33
+  br i1 %57, label %.preheader, label %.thread, !llvm.loop !30
 
 58:                                               ; preds = %.preheader
   %59 = getelementptr [16 x ptr], ptr %18, i64 0, i64 %51
@@ -639,7 +639,7 @@ define dso_local i32 @io_ringfd_register(ptr noundef %0, ptr noundef %1, i32 nou
 73:                                               ; preds = %62
   %74 = add nuw nsw i64 %21, 1
   %75 = icmp eq i64 %74, %19
-  br i1 %75, label %.loopexit, label %20, !llvm.loop !34
+  br i1 %75, label %.loopexit, label %20, !llvm.loop !32
 
 .thread11:                                        ; preds = %35, %20, %25, %31, %.thread, %65
   %.ph13 = phi i32 [ -14, %65 ], [ %61, %.thread ], [ -9, %35 ], [ -14, %20 ], [ -22, %25 ], [ -22, %31 ]
@@ -676,7 +676,7 @@ define dso_local i32 @io_ringfd_unregister(ptr noundef readnone captures(none) %
   br i1 %12, label %56, label %13
 
 13:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !31
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -703,7 +703,7 @@ define dso_local i32 @io_ringfd_unregister(ptr noundef readnone captures(none) %
 
 32:                                               ; preds = %23
   %33 = zext nneg i32 %29 to i64
-  %34 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %33) #7, !srcloc !30
+  %34 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %33) #7, !srcloc !29
   %35 = trunc i64 %34 to i32
   %36 = and i32 %29, %35
   store i32 %36, ptr %4, align 8
@@ -724,7 +724,7 @@ define dso_local i32 @io_ringfd_unregister(ptr noundef readnone captures(none) %
 45:                                               ; preds = %41, %32
   %46 = add nuw nsw i64 %19, 1
   %47 = icmp eq i64 %46, %17
-  br i1 %47, label %.loopexit, label %18, !llvm.loop !35
+  br i1 %47, label %.loopexit, label %18, !llvm.loop !33
 
 48:                                               ; preds = %23
   %49 = trunc i64 %19 to i32
@@ -819,14 +819,12 @@ attributes #10 = { cold }
 !22 = !{i64 2156910278, i64 2156910087, i64 2156910139, i64 2156910185, i64 2156910213}
 !23 = !{i64 2156910352, i64 2156910381, i64 2156910427, i64 2156910485, i64 2156910539, i64 2156910593, i64 2156910648, i64 2156910679, i64 2156910987, i64 2156910993, i64 2156911040, i64 2156911063, i64 2156911089}
 !24 = !{i64 2156911537, i64 2156911348, i64 2156911398, i64 2156911444, i64 2156911472}
-!25 = distinct !{!25, !26, !27, !28}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
 !27 = !{!"llvm.loop.unroll.disable"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !26, !27, !28}
-!30 = !{i64 250260}
-!31 = distinct !{!31, !26, !27, !28}
-!32 = !{!"auto-init"}
-!33 = distinct !{!33, !26, !27, !28}
-!34 = distinct !{!34, !26, !27, !28}
-!35 = distinct !{!35, !26, !27, !28}
+!28 = distinct !{!28, !26, !27}
+!29 = !{i64 250260}
+!30 = distinct !{!30, !26, !27}
+!31 = !{!"auto-init"}
+!32 = distinct !{!32, !26, !27}
+!33 = distinct !{!33, !26, !27}

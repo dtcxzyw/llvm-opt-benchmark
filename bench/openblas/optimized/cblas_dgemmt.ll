@@ -247,7 +247,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 130:                                              ; preds = %124, %.lr.ph319.split.us
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
   %exitcond338.not = icmp eq i64 %indvars.iv.next335, %wide.trip.count337
-  br i1 %exitcond338.not, label %.loopexit, label %.lr.ph319.split.us, !llvm.loop !11
+  br i1 %exitcond338.not, label %.loopexit, label %.lr.ph319.split.us, !llvm.loop !10
 
 .lr.ph319.split:                                  ; preds = %.lr.ph319.split.preheader, %173
   %indvars.iv329 = phi i64 [ 0, %.lr.ph319.split.preheader ], [ %indvars.iv.next330, %173 ]
@@ -317,7 +317,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br i1 %159, label %.thread310, label %165
 
 .thread310:                                       ; preds = %153, %157
-  %160 = load ptr, ptr %119, align 8, !tbaa !12
+  %160 = load ptr, ptr %119, align 8, !tbaa !11
   br i1 %.not284, label %161, label %163
 
 161:                                              ; preds = %.thread310
@@ -329,7 +329,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %171
 
 165:                                              ; preds = %157
-  %166 = load ptr, ptr %116, align 8, !tbaa !12
+  %166 = load ptr, ptr %116, align 8, !tbaa !11
   br i1 %.not284, label %167, label %169
 
 167:                                              ; preds = %165
@@ -355,7 +355,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %exitcond333.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count337
-  br i1 %exitcond333.not, label %.loopexit, label %.lr.ph319.split, !llvm.loop !14
+  br i1 %exitcond333.not, label %.loopexit, label %.lr.ph319.split, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %214
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %214 ]
@@ -422,7 +422,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br i1 %200, label %.thread312, label %206
 
 .thread312:                                       ; preds = %194, %198
-  %201 = load ptr, ptr %103, align 8, !tbaa !12
+  %201 = load ptr, ptr %103, align 8, !tbaa !11
   br i1 %.not281, label %202, label %204
 
 202:                                              ; preds = %.thread312
@@ -434,7 +434,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %212
 
 206:                                              ; preds = %198
-  %207 = load ptr, ptr %100, align 8, !tbaa !12
+  %207 = load ptr, ptr %100, align 8, !tbaa !11
   br i1 %.not281, label %208, label %210
 
 208:                                              ; preds = %206
@@ -459,7 +459,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count327
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %214, %110, %173, %130, %.preheader315, %.preheader, %.thread, %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
@@ -513,12 +513,11 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

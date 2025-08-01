@@ -228,23 +228,23 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = load ptr, ptr %12, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %15 = load ptr, ptr %12, align 8, !tbaa !27
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 56
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 760
   br label %26
 
@@ -267,13 +267,13 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   %32 = sext i32 %.1 to i64
   %33 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %22, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !35
+  %35 = load i32, ptr %34, align 4, !tbaa !34
   %36 = icmp slt i32 %29, %35
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !37
+  %39 = load i32, ptr %38, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %29, %39
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %40
 
@@ -283,17 +283,17 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   %41 = add i32 %.127.i.i, 1
   %42 = add i32 %41, %.1.i.i
   %43 = ashr i32 %42, 1
-  br label %31, !llvm.loop !38
+  br label %31, !llvm.loop !37
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %37
   %44 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %45 = sub nsw i32 %29, %35
-  %46 = load i32, ptr %33, align 4, !tbaa !39
+  %46 = load i32, ptr %33, align 4, !tbaa !38
   %47 = sdiv i32 %45, %46
   %48 = mul nsw i32 %47, %46
   %.recomposed = srem i32 %45, %46
   %49 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %15, i64 %32
-  %50 = load i32, ptr %49, align 8, !tbaa !40
+  %50 = load i32, ptr %49, align 8, !tbaa !39
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %24, i64 %51
   %.not33.i = icmp eq ptr %30, null
@@ -301,34 +301,34 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %37
 
 53:                                               ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %55 = load i32, ptr %54, align 8, !tbaa !47
-  %56 = load i32, ptr %25, align 8, !tbaa !56
+  %55 = load i32, ptr %54, align 8, !tbaa !46
+  %56 = load i32, ptr %25, align 8, !tbaa !55
   %57 = icmp sgt i32 %55, %56
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !102
+  %60 = load ptr, ptr %59, align 8, !tbaa !101
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !103
+  %62 = load ptr, ptr %61, align 8, !tbaa !102
   %63 = sext i32 %.recomposed to i64
   %64 = getelementptr inbounds %struct.t_atom, ptr %62, i64 %63, i32 7
-  %65 = load i32, ptr %64, align 4, !tbaa !104
+  %65 = load i32, ptr %64, align 4, !tbaa !103
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds %struct.t_resinfo, ptr %60, i64 %66, i32 1
-  %68 = load i32, ptr %67, align 8, !tbaa !108
+  %68 = load i32, ptr %67, align 8, !tbaa !107
   br label %.sink.split.i
 
 69:                                               ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %71 = load i32, ptr %70, align 4, !tbaa !110
+  %71 = load i32, ptr %70, align 4, !tbaa !109
   %72 = mul nsw i32 %55, %47
   %73 = add nsw i32 %71, %72
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !103
+  %75 = load ptr, ptr %74, align 8, !tbaa !102
   %76 = sext i32 %.recomposed to i64
   %77 = getelementptr inbounds %struct.t_atom, ptr %75, i64 %76, i32 7
-  %78 = load i32, ptr %77, align 4, !tbaa !104
+  %78 = load i32, ptr %77, align 4, !tbaa !103
   %79 = add nsw i32 %73, %78
   br label %.sink.split.i
 
@@ -343,7 +343,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %_Z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %26, label %._crit_edge, !llvm.loop !111
+  br i1 %82, label %26, label %._crit_edge, !llvm.loop !110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -355,22 +355,22 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %25
 
@@ -391,13 +391,13 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = icmp slt i32 %27, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %37
 
@@ -407,28 +407,28 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %34
   %41 = sub nsw i32 %27, %32
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = sdiv i32 %41, %42
   %44 = mul nsw i32 %43, %42
   %.recomposed = srem i32 %41, %42
   %45 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %46 = load i32, ptr %45, align 8, !tbaa !40
+  %46 = load i32, ptr %45, align 8, !tbaa !39
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !112
+  %50 = load i32, ptr %49, align 4, !tbaa !111
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %52 = load i32, ptr %51, align 8, !tbaa !47
+  %52 = load i32, ptr %51, align 8, !tbaa !46
   %53 = mul nsw i32 %52, %43
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !103
+  %55 = load ptr, ptr %54, align 8, !tbaa !102
   %56 = sext i32 %.recomposed to i64
   %57 = getelementptr inbounds %struct.t_atom, ptr %55, i64 %56, i32 7
-  %58 = load i32, ptr %57, align 4, !tbaa !104
+  %58 = load i32, ptr %57, align 4, !tbaa !103
   %59 = add i32 %50, 1
   %60 = add i32 %59, %53
   %61 = add i32 %60, %58
@@ -439,7 +439,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %34
   %64 = load i32, ptr %1, align 8, !tbaa !7
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %25, label %._crit_edge, !llvm.loop !113
+  br i1 %66, label %25, label %._crit_edge, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -452,7 +452,7 @@ define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %10 = load i8, ptr %9, align 8, !tbaa !114, !range !115, !noundef !116
+  %10 = load i8, ptr %9, align 8, !tbaa !113, !range !114, !noundef !115
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %23, label %.critedge
 
@@ -467,13 +467,13 @@ define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv
           to label %14 unwind label %.thread16
 
 14:                                               ; preds = %13
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %15, align 8, !tbaa !119
+  store ptr @__PRETTY_FUNCTION__._ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %15, align 8, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !119
+  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !118
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 506, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !16
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %12, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -535,20 +535,20 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %23
 
@@ -569,13 +569,13 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !35
+  %30 = load i32, ptr %29, align 4, !tbaa !34
   %31 = icmp slt i32 %25, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !37
+  %34 = load i32, ptr %33, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %25, %34
   br i1 %.not.i.i, label %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit, label %35
 
@@ -585,14 +585,14 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   %36 = add i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
-  br label %26, !llvm.loop !38
+  br label %26, !llvm.loop !37
 
 _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit:  ; preds = %32
   %39 = sub nsw i32 %25, %30
-  %40 = load i32, ptr %28, align 4, !tbaa !39
+  %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = sdiv i32 %39, %40
   %42 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %27, i32 5
-  %43 = load i32, ptr %42, align 4, !tbaa !121
+  %43 = load i32, ptr %42, align 4, !tbaa !120
   %44 = add i32 %41, 1
   %45 = add i32 %44, %43
   %46 = load ptr, ptr %22, align 8, !tbaa !4
@@ -602,7 +602,7 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit:  ; preds = %32
   %48 = load i32, ptr %1, align 8, !tbaa !7
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %23, label %._crit_edge, !llvm.loop !122
+  br i1 %50, label %23, label %._crit_edge, !llvm.loop !121
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -613,24 +613,24 @@ define linkonce_odr void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionIn
   %5 = alloca %"struct.std::type_index", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !123
-  store ptr %6, ptr %4, align 8, !tbaa !124
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !122
+  store ptr %6, ptr %4, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8, !tbaa !126
+  store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8, !tbaa !125
   invoke void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %9 unwind label %14
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
-  %10 = load ptr, ptr %4, align 8, !tbaa !124
+  %10 = load ptr, ptr %4, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !117
+  %11 = load ptr, ptr %10, align 8, !tbaa !116
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
@@ -640,12 +640,12 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
-  %16 = load ptr, ptr %4, align 8, !tbaa !124
+  %16 = load ptr, ptr %4, align 8, !tbaa !123
   %.not.i3.i = icmp eq ptr %16, null
   br i1 %.not.i3.i, label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
-  %17 = load ptr, ptr %16, align 8, !tbaa !117
+  %17 = load ptr, ptr %16, align 8, !tbaa !116
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
@@ -659,15 +659,15 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !129
-  store ptr %22, ptr %20, align 8, !tbaa !129
+  %22 = load ptr, ptr %21, align 8, !tbaa !128
+  store ptr %22, ptr %20, align 8, !tbaa !128
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !134
-  store ptr null, ptr %24, align 8, !tbaa !134
-  store ptr %25, ptr %23, align 8, !tbaa !134
-  store ptr null, ptr %21, align 8, !tbaa !129
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8, !tbaa !117
+  %25 = load ptr, ptr %24, align 8, !tbaa !133
+  store ptr null, ptr %24, align 8, !tbaa !133
+  store ptr %25, ptr %23, align 8, !tbaa !133
+  store ptr null, ptr %21, align 8, !tbaa !128
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8, !tbaa !116
   ret void
 }
 
@@ -675,7 +675,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !135
+  store ptr %4, ptr %0, align 8, !tbaa !134
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.noexc, label %6
 
@@ -686,14 +686,14 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 6:                                                ; preds = %2
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  store i64 %7, ptr %3, align 8, !tbaa !137
+  store i64 %7, ptr %3, align 8, !tbaa !136
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %6
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %9, ptr %0, align 8, !tbaa !139
-  %10 = load i64, ptr %3, align 8, !tbaa !137
+  store ptr %9, ptr %0, align 8, !tbaa !138
+  %10 = load i64, ptr %3, align 8, !tbaa !136
   store i64 %10, ptr %4, align 8, !tbaa !4
   br label %._crit_edge.i.i
 
@@ -714,10 +714,10 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
   br label %15
 
 15:                                               ; preds = %14, %12, %._crit_edge.i.i
-  %16 = load i64, ptr %3, align 8, !tbaa !137
+  %16 = load i64, ptr %3, align 8, !tbaa !136
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !141
-  %18 = load ptr, ptr %0, align 8, !tbaa !139
+  store i64 %16, ptr %17, align 8, !tbaa !140
+  %18 = load ptr, ptr %0, align 8, !tbaa !138
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
@@ -730,9 +730,9 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !116
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8, !tbaa !133
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -744,14 +744,14 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !142
+  store i32 0, ptr %5, align 8, !tbaa !141
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !144
-  %11 = load ptr, ptr %3, align 8, !tbaa !117
+  store i32 0, ptr %10, align 4, !tbaa !143
+  %11 = load ptr, ptr %3, align 8, !tbaa !116
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
-  %14 = load ptr, ptr %3, align 8, !tbaa !117
+  %14 = load ptr, ptr %3, align 8, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -774,7 +774,7 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !145
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !144
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -794,15 +794,15 @@ declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !146
+  %3 = load ptr, ptr %2, align 8, !tbaa !145
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !149
+  %5 = load ptr, ptr %4, align 8, !tbaa !148
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %8, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
-  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !150
+  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !149
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i, label %7
 
@@ -813,10 +813,10 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !152
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !151
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !146
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !145
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %1
@@ -826,7 +826,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !153
+  %12 = load ptr, ptr %11, align 8, !tbaa !152
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -834,14 +834,14 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
   br label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
 
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, %10
-  %16 = load ptr, ptr %0, align 8, !tbaa !139
+  %16 = load ptr, ptr %0, align 8, !tbaa !138
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !141
+  %20 = load i64, ptr %19, align 8, !tbaa !140
   %21 = icmp ult i64 %20, 16
   tail call void @llvm.assume(i1 %21)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -881,7 +881,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !117
+  %2 = load ptr, ptr %0, align 8, !tbaa !116
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
@@ -906,7 +906,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !117
+  %14 = load ptr, ptr %0, align 8, !tbaa !116
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
@@ -938,22 +938,22 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -975,13 +975,13 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = icmp slt i32 %27, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %37
 
@@ -991,28 +991,28 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %34
   %41 = sub nsw i32 %27, %32
   %.fr = freeze i32 %41
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %.fr, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 2
-  %48 = load ptr, ptr %47, align 8, !tbaa !154
+  %48 = load ptr, ptr %47, align 8, !tbaa !153
   %49 = sext i32 %43 to i64
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !155
-  %52 = load ptr, ptr %51, align 8, !tbaa !119
+  %51 = load ptr, ptr %50, align 8, !tbaa !154
+  %52 = load ptr, ptr %51, align 8, !tbaa !118
   %53 = load ptr, ptr %24, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
-  store ptr %52, ptr %54, align 8, !tbaa !119
+  store ptr %52, ptr %54, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !156
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !155
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1034,13 +1034,13 @@ define internal void @_ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(p
           to label %12 unwind label %.thread13
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !116
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8, !tbaa !119
+  store ptr @__PRETTY_FUNCTION__._ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !119
+  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !118
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 714, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !16
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %10, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -1102,22 +1102,22 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -1139,14 +1139,14 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %.fr8.i = freeze i32 %32
   %33 = icmp slt i32 %27, %.fr8.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %37
 
@@ -1156,17 +1156,17 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %41 = sub i32 %27, %.fr8.i
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !157
+  %48 = load ptr, ptr %47, align 8, !tbaa !156
   %49 = sext i32 %43 to i64
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 3
   br label %51
@@ -1178,15 +1178,15 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %54 = tail call i32 @isspace(i32 noundef %53) #24
   %.not = icmp eq i32 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %.not, label %56, label %51, !llvm.loop !161
+  br i1 %.not, label %56, label %51, !llvm.loop !160
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %24, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
-  store ptr %.0, ptr %58, align 8, !tbaa !119
+  store ptr %.0, ptr %58, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !162
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !161
 }
 
 declare noundef zeroext i1 @_Z20gmx_mtop_has_pdbinfoPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #1
@@ -1213,13 +1213,13 @@ define internal void @_ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(
           to label %12 unwind label %.thread13
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !116
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8, !tbaa !119
+  store ptr @__PRETTY_FUNCTION__._ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !119
+  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !118
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 578, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !16
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %10, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -1281,22 +1281,22 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -1318,13 +1318,13 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = icmp slt i32 %27, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i = icmp slt i32 %27, %36
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %37
 
@@ -1334,28 +1334,28 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %38 = add i32 %.127.i, 1
   %39 = add i32 %38, %.1.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %34
   %41 = sub nsw i32 %27, %32
   %.fr = freeze i32 %41
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %.fr, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 3
-  %48 = load ptr, ptr %47, align 8, !tbaa !163
+  %48 = load ptr, ptr %47, align 8, !tbaa !162
   %49 = sext i32 %43 to i64
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !155
-  %52 = load ptr, ptr %51, align 8, !tbaa !119
+  %51 = load ptr, ptr %50, align 8, !tbaa !154
+  %52 = load ptr, ptr %51, align 8, !tbaa !118
   %53 = load ptr, ptr %24, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
-  store ptr %52, ptr %54, align 8, !tbaa !119
+  store ptr %52, ptr %54, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !164
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !163
 }
 
 declare noundef zeroext i1 @_Z22gmx_mtop_has_atomtypesPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #1
@@ -1369,22 +1369,22 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -1406,14 +1406,14 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %.fr10.i = freeze i32 %32
   %33 = icmp slt i32 %27, %.fr10.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %37
 
@@ -1423,33 +1423,33 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %41 = sub i32 %27, %.fr10.i
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !165
+  %49 = load ptr, ptr %48, align 8, !tbaa !164
   %50 = sext i32 %43 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
-  %52 = load i32, ptr %51, align 4, !tbaa !104
+  %52 = load i32, ptr %51, align 4, !tbaa !103
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !166
+  %54 = load ptr, ptr %53, align 8, !tbaa !165
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !167
-  %58 = load ptr, ptr %57, align 8, !tbaa !119
+  %57 = load ptr, ptr %56, align 8, !tbaa !166
+  %58 = load ptr, ptr %57, align 8, !tbaa !118
   %59 = load ptr, ptr %24, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
-  store ptr %58, ptr %60, align 8, !tbaa !119
+  store ptr %58, ptr %60, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !168
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !167
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1471,21 +1471,21 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
-  %11 = load ptr, ptr %0, align 8, !tbaa !20
+  %11 = load ptr, ptr %0, align 8, !tbaa !19
   %12 = load ptr, ptr %8, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %18 = load ptr, ptr %15, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %18 = load ptr, ptr %15, align 8, !tbaa !27
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   br label %26
 
 26:                                               ; preds = %35, %10
@@ -1495,14 +1495,14 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !35
+  %30 = load i32, ptr %29, align 4, !tbaa !34
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !37
+  %34 = load i32, ptr %33, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
 
@@ -1512,37 +1512,37 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   %36 = add i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
-  br label %26, !llvm.loop !38
+  br label %26, !llvm.loop !37
 
 _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr10.i
-  %40 = load i32, ptr %28, align 4, !tbaa !39
+  %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = srem i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %18, i64 %27
-  %44 = load i32, ptr %43, align 8, !tbaa !40
+  %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %42, align 8, !tbaa !32
+  %46 = load ptr, ptr %42, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %46, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !165
+  %49 = load ptr, ptr %48, align 8, !tbaa !164
   %50 = sext i32 %41 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
-  %52 = load i32, ptr %51, align 4, !tbaa !104
+  %52 = load i32, ptr %51, align 4, !tbaa !103
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !166
+  %54 = load ptr, ptr %53, align 8, !tbaa !165
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55, i32 2
-  %57 = load i8, ptr %56, align 4, !tbaa !169
+  %57 = load i8, ptr %56, align 4, !tbaa !168
   %58 = load ptr, ptr %9, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !119
+  %60 = load ptr, ptr %59, align 8, !tbaa !118
   store i8 %57, ptr %60, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %1, align 8, !tbaa !7
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %10, label %._crit_edge, !llvm.loop !170
+  br i1 %63, label %10, label %._crit_edge, !llvm.loop !169
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1564,21 +1564,21 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
-  %11 = load ptr, ptr %0, align 8, !tbaa !20
+  %11 = load ptr, ptr %0, align 8, !tbaa !19
   %12 = load ptr, ptr %8, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %18 = load ptr, ptr %15, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %18 = load ptr, ptr %15, align 8, !tbaa !27
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   br label %26
 
 26:                                               ; preds = %35, %10
@@ -1588,14 +1588,14 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !35
+  %30 = load i32, ptr %29, align 4, !tbaa !34
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !37
+  %34 = load i32, ptr %33, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
 
@@ -1605,42 +1605,42 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   %36 = add i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
-  br label %26, !llvm.loop !38
+  br label %26, !llvm.loop !37
 
 _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr10.i
-  %40 = load i32, ptr %28, align 4, !tbaa !39
+  %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = srem i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %18, i64 %27
-  %44 = load i32, ptr %43, align 8, !tbaa !40
+  %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %42, align 8, !tbaa !32
+  %46 = load ptr, ptr %42, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %46, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !165
+  %49 = load ptr, ptr %48, align 8, !tbaa !164
   %50 = sext i32 %41 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
-  %52 = load i32, ptr %51, align 4, !tbaa !104
+  %52 = load i32, ptr %51, align 4, !tbaa !103
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !166
+  %54 = load ptr, ptr %53, align 8, !tbaa !165
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55, i32 4
-  %57 = load i8, ptr %56, align 4, !tbaa !171
+  %57 = load i8, ptr %56, align 4, !tbaa !170
   %58 = load ptr, ptr %9, align 8, !tbaa !4
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !119
+  %60 = load ptr, ptr %59, align 8, !tbaa !118
   store i8 %57, ptr %60, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %1, align 8, !tbaa !7
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %10, label %._crit_edge, !llvm.loop !172
+  br i1 %63, label %10, label %._crit_edge, !llvm.loop !171
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3) #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !20
+  %5 = load ptr, ptr %0, align 8, !tbaa !19
   %6 = tail call noundef zeroext i1 @_Z19gmx_mtop_has_massesPK10gmx_mtop_t(ptr noundef %5)
   br i1 %6, label %8, label %7
 
@@ -1656,22 +1656,22 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %12 = load ptr, ptr %0, align 8, !tbaa !20
+  %12 = load ptr, ptr %0, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %18 = load ptr, ptr %15, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %18 = load ptr, ptr %15, align 8, !tbaa !27
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 736
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %29
@@ -1693,14 +1693,14 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   %33 = sext i32 %.1 to i64
   %34 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !35
+  %36 = load i32, ptr %35, align 4, !tbaa !34
   %.fr8.i.i = freeze i32 %36
   %37 = icmp slt i32 %31, %.fr8.i.i
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !37
+  %40 = load i32, ptr %39, align 4, !tbaa !36
   %.not.i.i.i = icmp slt i32 %31, %40
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %41
 
@@ -1710,26 +1710,26 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   %42 = add i32 %.127.i.i.i, 1
   %43 = add i32 %42, %.1.i.i.i
   %44 = ashr i32 %43, 1
-  br label %32, !llvm.loop !38
+  br label %32, !llvm.loop !37
 
 _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %38
   %45 = sub i32 %31, %.fr8.i.i
-  %46 = load i32, ptr %34, align 4, !tbaa !39
+  %46 = load i32, ptr %34, align 4, !tbaa !38
   %47 = srem i32 %45, %46
   %48 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %18, i64 %33
-  %49 = load i32, ptr %48, align 8, !tbaa !40
+  %49 = load i32, ptr %48, align 8, !tbaa !39
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %27, i64 %50, i32 1, i32 1
-  %52 = load ptr, ptr %51, align 8, !tbaa !165
+  %52 = load ptr, ptr %51, align 8, !tbaa !164
   %53 = sext i32 %47 to i64
   %54 = getelementptr inbounds %struct.t_atom, ptr %52, i64 %53
-  %55 = load float, ptr %54, align 4, !tbaa !173
+  %55 = load float, ptr %54, align 4, !tbaa !172
   %56 = load ptr, ptr %28, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
-  store float %55, ptr %57, align 4, !tbaa !174
+  store float %55, ptr %57, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !175
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !174
 }
 
 declare noundef zeroext i1 @_Z19gmx_mtop_has_massesPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #1
@@ -1756,13 +1756,13 @@ define internal void @_ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
           to label %12 unwind label %.thread13
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8, !tbaa !116
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8, !tbaa !119
+  store ptr @__PRETTY_FUNCTION__._ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !119
+  store ptr @.str.21, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !118
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 687, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !16
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %10, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -1824,22 +1824,22 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -1861,14 +1861,14 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %.fr8.i = freeze i32 %32
   %33 = icmp slt i32 %27, %.fr8.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %37
 
@@ -1878,26 +1878,26 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %34
   %41 = sub i32 %27, %.fr8.i
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 1
-  %48 = load ptr, ptr %47, align 8, !tbaa !165
+  %48 = load ptr, ptr %47, align 8, !tbaa !164
   %49 = sext i32 %43 to i64
   %50 = getelementptr inbounds %struct.t_atom, ptr %48, i64 %49, i32 1
-  %51 = load float, ptr %50, align 4, !tbaa !176
+  %51 = load float, ptr %50, align 4, !tbaa !175
   %52 = load ptr, ptr %24, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
-  store float %51, ptr %53, align 4, !tbaa !174
+  store float %51, ptr %53, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !177
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !176
 }
 
 declare noundef zeroext i1 @_Z20gmx_mtop_has_chargesPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #1
@@ -1921,21 +1921,21 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ]
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ]
-  %11 = load ptr, ptr %0, align 8, !tbaa !20
+  %11 = load ptr, ptr %0, align 8, !tbaa !19
   %12 = load ptr, ptr %8, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %18 = load ptr, ptr %15, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %18 = load ptr, ptr %15, align 8, !tbaa !27
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   br label %26
 
 26:                                               ; preds = %35, %10
@@ -1945,14 +1945,14 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !35
+  %30 = load i32, ptr %29, align 4, !tbaa !34
   %.fr8.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr8.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !37
+  %34 = load i32, ptr %33, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
 
@@ -1962,31 +1962,31 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   %36 = add i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
-  br label %26, !llvm.loop !38
+  br label %26, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr8.i
-  %40 = load i32, ptr %28, align 4, !tbaa !39
+  %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = srem i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %18, i64 %27
-  %44 = load i32, ptr %43, align 8, !tbaa !40
+  %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = sext i32 %44 to i64
-  %46 = load ptr, ptr %42, align 8, !tbaa !32
+  %46 = load ptr, ptr %42, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %46, i64 %45, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !157
+  %48 = load ptr, ptr %47, align 8, !tbaa !156
   %49 = sext i32 %41 to i64
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 2
-  %51 = load i8, ptr %50, align 4, !tbaa !178
+  %51 = load i8, ptr %50, align 4, !tbaa !177
   %52 = load ptr, ptr %9, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8, !tbaa !119
+  %54 = load ptr, ptr %53, align 8, !tbaa !118
   store i8 %51, ptr %54, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %1, align 8, !tbaa !7
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %10, label %._crit_edge, !llvm.loop !181
+  br i1 %57, label %10, label %._crit_edge, !llvm.loop !180
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1998,22 +1998,22 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -2035,14 +2035,14 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %.fr8.i = freeze i32 %32
   %33 = icmp slt i32 %27, %.fr8.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %37
 
@@ -2052,26 +2052,26 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %41 = sub i32 %27, %.fr8.i
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !157
+  %48 = load ptr, ptr %47, align 8, !tbaa !156
   %49 = sext i32 %43 to i64
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 4
-  %51 = load float, ptr %50, align 4, !tbaa !182
+  %51 = load float, ptr %50, align 4, !tbaa !181
   %52 = load ptr, ptr %24, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
-  store float %51, ptr %53, align 4, !tbaa !174
+  store float %51, ptr %53, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !183
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !182
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2083,22 +2083,22 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !20
+  %8 = load ptr, ptr %0, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %14 = load ptr, ptr %11, align 8, !tbaa !27
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
@@ -2120,14 +2120,14 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %32 = load i32, ptr %31, align 4, !tbaa !34
   %.fr8.i = freeze i32 %32
   %33 = icmp slt i32 %27, %.fr8.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %36 = load i32, ptr %35, align 4, !tbaa !36
   %.not.i.i = icmp slt i32 %27, %36
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %37
 
@@ -2137,32 +2137,32 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   %38 = add i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
-  br label %28, !llvm.loop !38
+  br label %28, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %41 = sub i32 %27, %.fr8.i
-  %42 = load i32, ptr %30, align 4, !tbaa !39
+  %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
-  %45 = load i32, ptr %44, align 8, !tbaa !40
+  %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !157
+  %48 = load ptr, ptr %47, align 8, !tbaa !156
   %49 = sext i32 %43 to i64
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 5
-  %51 = load float, ptr %50, align 4, !tbaa !184
+  %51 = load float, ptr %50, align 4, !tbaa !183
   %52 = load ptr, ptr %24, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
-  store float %51, ptr %53, align 4, !tbaa !174
+  store float %51, ptr %53, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !185
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !184
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((4, 8)) %2, ptr readnone captures(none) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !186
+  %6 = load i32, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2171,19 +2171,19 @@ define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
   br i1 %10, label %.lr.ph.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %11 = load ptr, ptr %1, align 8, !tbaa !192
+  %11 = load ptr, ptr %1, align 8, !tbaa !191
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %gep.i = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i
-  %13 = load float, ptr %gep.i, align 4, !tbaa !174
+  %13 = load float, ptr %gep.i, align 4, !tbaa !173
   %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %13, ptr %14, align 4, !tbaa !174
+  store float %13, ptr %14, align 4, !tbaa !173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !193
+  br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !192
 
 _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %12, %4
   ret void
@@ -2192,7 +2192,7 @@ _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %12, %4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((4, 8)) %2, ptr readnone captures(none) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !186
+  %6 = load i32, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2201,7 +2201,7 @@ define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
   br i1 %10, label %.lr.ph.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %11 = load ptr, ptr %1, align 8, !tbaa !192
+  %11 = load ptr, ptr %1, align 8, !tbaa !191
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %12
@@ -2209,12 +2209,12 @@ define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %gep.i = getelementptr inbounds nuw [3 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
-  %13 = load float, ptr %gep.i, align 4, !tbaa !174
+  %13 = load float, ptr %gep.i, align 4, !tbaa !173
   %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %13, ptr %14, align 4, !tbaa !174
+  store float %13, ptr %14, align 4, !tbaa !173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !193
+  br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !192
 
 _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %12, %4
   ret void
@@ -2223,7 +2223,7 @@ _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %12, %4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((4, 8)) %2, ptr readnone captures(none) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !186
+  %6 = load i32, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2232,7 +2232,7 @@ define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
   br i1 %10, label %.lr.ph.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %11 = load ptr, ptr %1, align 8, !tbaa !192
+  %11 = load ptr, ptr %1, align 8, !tbaa !191
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %12
@@ -2240,12 +2240,12 @@ define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %gep.i = getelementptr inbounds nuw [3 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
-  %13 = load float, ptr %gep.i, align 4, !tbaa !174
+  %13 = load float, ptr %gep.i, align 4, !tbaa !173
   %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %13, ptr %14, align 4, !tbaa !174
+  store float %13, ptr %14, align 4, !tbaa !173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !193
+  br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !192
 
 _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %12, %4
   ret void
@@ -2302,180 +2302,179 @@ attributes #24 = { nounwind willreturn memory(read) }
 !14 = !{!"_ZTS12e_selvalue_t", !5, i64 0}
 !15 = !{!8, !10, i64 8}
 !16 = !{!9, !9, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSN3gmx20SelMethodEvalContextE", !22, i64 0, !23, i64 8, !24, i64 16}
-!22 = !{!"p1 _ZTS10gmx_mtop_t", !11, i64 0}
-!23 = !{!"p1 _ZTS10t_trxframe", !11, i64 0}
-!24 = !{!"p1 _ZTS5t_pbc", !11, i64 0}
-!25 = !{!26, !27, i64 8}
-!26 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
-!27 = !{!"p1 _ZTS14gmx_molblock_t", !11, i64 0}
-!28 = !{!26, !27, i64 0}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE17_Vector_impl_dataE", !31, i64 0, !31, i64 8, !31, i64 16}
-!31 = !{!"p1 _ZTS20MoleculeBlockIndices", !11, i64 0}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"_ZTSNSt12_Vector_baseI13gmx_moltype_tSaIS0_EE17_Vector_impl_dataE", !34, i64 0, !34, i64 8, !34, i64 16}
-!34 = !{!"p1 _ZTS13gmx_moltype_t", !11, i64 0}
-!35 = !{!36, !9, i64 4}
-!36 = !{!"_ZTS20MoleculeBlockIndices", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
-!37 = !{!36, !9, i64 8}
-!38 = distinct !{!38, !18, !19}
-!39 = !{!36, !9, i64 0}
-!40 = !{!41, !9, i64 0}
-!41 = !{!"_ZTS14gmx_molblock_t", !9, i64 0, !9, i64 4, !42, i64 8, !42, i64 32}
-!42 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE", !43, i64 0}
-!43 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE", !44, i64 0}
-!44 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE12_Vector_implE", !45, i64 0}
-!45 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
-!46 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !11, i64 0}
-!47 = !{!48, !9, i64 40}
-!48 = !{!"_ZTS7t_atoms", !9, i64 0, !49, i64 8, !50, i64 16, !50, i64 24, !50, i64 32, !9, i64 40, !53, i64 48, !54, i64 56, !55, i64 64, !55, i64 65, !55, i64 66, !55, i64 67, !55, i64 68}
-!49 = !{!"p1 _ZTS6t_atom", !11, i64 0}
-!50 = !{!"p3 omnipotent char", !51, i64 0}
-!51 = !{!"any p3 pointer", !52, i64 0}
-!52 = !{!"any p2 pointer", !11, i64 0}
-!53 = !{!"p1 _ZTS9t_resinfo", !11, i64 0}
-!54 = !{!"p1 _ZTS9t_pdbinfo", !11, i64 0}
-!55 = !{!"bool", !5, i64 0}
-!56 = !{!57, !9, i64 760}
-!57 = !{!"_ZTS10gmx_mtop_t", !58, i64 0, !59, i64 8, !77, i64 112, !80, i64 136, !55, i64 160, !83, i64 168, !9, i64 176, !90, i64 184, !97, i64 688, !55, i64 704, !60, i64 712, !99, i64 736, !9, i64 760, !9, i64 764}
-!58 = !{!"p2 omnipotent char", !52, i64 0}
-!59 = !{!"_ZTS14gmx_ffparams_t", !9, i64 0, !60, i64 8, !64, i64 32, !69, i64 56, !70, i64 64, !71, i64 72}
-!60 = !{!"_ZTSSt6vectorIiSaIiEE", !61, i64 0}
-!61 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !62, i64 0}
-!62 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !63, i64 0}
-!63 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!64 = !{!"_ZTSSt6vectorI9t_iparamsSaIS0_EE", !65, i64 0}
-!65 = !{!"_ZTSSt12_Vector_baseI9t_iparamsSaIS0_EE", !66, i64 0}
-!66 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE12_Vector_implE", !67, i64 0}
-!67 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
-!68 = !{!"p1 _ZTS9t_iparams", !11, i64 0}
-!69 = !{!"double", !5, i64 0}
-!70 = !{!"float", !5, i64 0}
-!71 = !{!"_ZTS10gmx_cmap_t", !9, i64 0, !72, i64 8}
-!72 = !{!"_ZTSSt6vectorI14gmx_cmapdata_tSaIS0_EE", !73, i64 0}
-!73 = !{!"_ZTSSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE", !74, i64 0}
-!74 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE12_Vector_implE", !75, i64 0}
-!75 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE17_Vector_impl_dataE", !76, i64 0, !76, i64 8, !76, i64 16}
-!76 = !{!"p1 _ZTS14gmx_cmapdata_t", !11, i64 0}
-!77 = !{!"_ZTSSt6vectorI13gmx_moltype_tSaIS0_EE", !78, i64 0}
-!78 = !{!"_ZTSSt12_Vector_baseI13gmx_moltype_tSaIS0_EE", !79, i64 0}
-!79 = !{!"_ZTSNSt12_Vector_baseI13gmx_moltype_tSaIS0_EE12_Vector_implE", !33, i64 0}
-!80 = !{!"_ZTSSt6vectorI14gmx_molblock_tSaIS0_EE", !81, i64 0}
-!81 = !{!"_ZTSSt12_Vector_baseI14gmx_molblock_tSaIS0_EE", !82, i64 0}
-!82 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE12_Vector_implE", !26, i64 0}
-!83 = !{!"_ZTSSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !84, i64 0}
-!84 = !{!"_ZTSSt15__uniq_ptr_dataISt5arrayI15InteractionListLm95EESt14default_deleteIS2_ELb1ELb1EE", !85, i64 0}
-!85 = !{!"_ZTSSt15__uniq_ptr_implISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !86, i64 0}
-!86 = !{!"_ZTSSt5tupleIJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !87, i64 0}
-!87 = !{!"_ZTSSt11_Tuple_implILm0EJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !88, i64 0}
-!88 = !{!"_ZTSSt10_Head_baseILm0EPSt5arrayI15InteractionListLm95EELb0EE", !89, i64 0}
-!89 = !{!"p1 _ZTSSt5arrayI15InteractionListLm95EE", !11, i64 0}
-!90 = !{!"_ZTS16SimulationGroups", !91, i64 0, !92, i64 240, !96, i64 264}
-!91 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EEE", !5, i64 0}
-!92 = !{!"_ZTSSt6vectorIPPcSaIS1_EE", !93, i64 0}
-!93 = !{!"_ZTSSt12_Vector_baseIPPcSaIS1_EE", !94, i64 0}
-!94 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE12_Vector_implE", !95, i64 0}
-!95 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE17_Vector_impl_dataE", !50, i64 0, !50, i64 8, !50, i64 16}
-!96 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EEE", !5, i64 0}
-!97 = !{!"_ZTS8t_symtab", !9, i64 0, !98, i64 8}
-!98 = !{!"p1 _ZTS8t_symbuf", !11, i64 0}
-!99 = !{!"_ZTSSt6vectorI20MoleculeBlockIndicesSaIS0_EE", !100, i64 0}
-!100 = !{!"_ZTSSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE", !101, i64 0}
-!101 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE12_Vector_implE", !30, i64 0}
-!102 = !{!48, !53, i64 48}
-!103 = !{!48, !49, i64 8}
-!104 = !{!105, !9, i64 24}
-!105 = !{!"_ZTS6t_atom", !70, i64 0, !70, i64 4, !70, i64 8, !70, i64 12, !106, i64 16, !106, i64 18, !107, i64 20, !9, i64 24, !9, i64 28, !5, i64 32}
-!106 = !{!"short", !5, i64 0}
-!107 = !{!"_ZTS12ParticleType", !5, i64 0}
-!108 = !{!109, !9, i64 8}
-!109 = !{!"_ZTS9t_resinfo", !58, i64 0, !9, i64 8, !5, i64 12, !9, i64 16, !5, i64 20, !58, i64 24}
-!110 = !{!36, !9, i64 16}
-!111 = distinct !{!111, !18, !19}
-!112 = !{!36, !9, i64 12}
-!113 = distinct !{!113, !18, !19}
-!114 = !{!57, !55, i64 704}
-!115 = !{i8 0, i8 2}
-!116 = !{}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"vtable pointer", !6, i64 0}
-!119 = !{!120, !120, i64 0}
-!120 = !{!"p1 omnipotent char", !11, i64 0}
-!121 = !{!36, !9, i64 20}
-!122 = distinct !{!122, !18, !19}
-!123 = !{i64 0, i64 8, !119, i64 8, i64 8, !119, i64 16, i64 4, !16}
-!124 = !{!125, !125, i64 0}
-!125 = !{!"p1 _ZTSN3gmx8internal14IExceptionInfoE", !11, i64 0}
-!126 = !{!127, !128, i64 0}
-!127 = !{!"_ZTSSt10type_index", !128, i64 0}
-!128 = !{!"p1 _ZTSSt9type_info", !11, i64 0}
-!129 = !{!130, !131, i64 0}
-!130 = !{!"_ZTSSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE", !131, i64 0, !132, i64 8}
-!131 = !{!"p1 _ZTSN3gmx8internal13ExceptionDataE", !11, i64 0}
-!132 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !133, i64 0}
-!133 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0}
-!134 = !{!132, !133, i64 0}
-!135 = !{!136, !120, i64 0}
-!136 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !120, i64 0}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"long", !5, i64 0}
-!139 = !{!140, !120, i64 0}
-!140 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !136, i64 0, !138, i64 8, !5, i64 16}
-!141 = !{!140, !138, i64 8}
-!142 = !{!143, !9, i64 8}
-!143 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 8, !9, i64 12}
-!144 = !{!143, !9, i64 12}
-!145 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!146 = !{!147, !148, i64 0}
-!147 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !148, i64 0, !148, i64 8, !148, i64 16}
-!148 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !11, i64 0}
-!149 = !{!147, !148, i64 8}
-!150 = !{!151, !11, i64 0}
-!151 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !11, i64 0}
-!152 = distinct !{!152, !18, !19}
-!153 = !{!147, !148, i64 16}
-!154 = !{!48, !50, i64 16}
-!155 = !{!58, !58, i64 0}
-!156 = distinct !{!156, !18, !19}
-!157 = !{!158, !54, i64 64}
-!158 = !{!"_ZTS13gmx_moltype_t", !58, i64 0, !48, i64 8, !159, i64 80, !160, i64 2360}
-!159 = !{!"_ZTSSt5arrayI15InteractionListLm95EE", !5, i64 0}
-!160 = !{!"_ZTSN3gmx11ListOfListsIiEE", !60, i64 0, !60, i64 24}
-!161 = distinct !{!161, !18, !19}
-!162 = distinct !{!162, !18, !19}
-!163 = !{!158, !50, i64 32}
-!164 = distinct !{!164, !18, !19}
-!165 = !{!158, !49, i64 16}
-!166 = !{!158, !53, i64 56}
-!167 = !{!109, !58, i64 0}
-!168 = distinct !{!168, !18, !19}
-!169 = !{!109, !5, i64 12}
-!170 = distinct !{!170, !18, !19}
-!171 = !{!109, !5, i64 20}
-!172 = distinct !{!172, !18, !19}
-!173 = !{!105, !70, i64 0}
-!174 = !{!70, !70, i64 0}
-!175 = distinct !{!175, !18, !19}
-!176 = !{!105, !70, i64 4}
-!177 = distinct !{!177, !18, !19}
-!178 = !{!179, !5, i64 8}
-!179 = !{!"_ZTS9t_pdbinfo", !180, i64 0, !9, i64 4, !5, i64 8, !5, i64 9, !70, i64 16, !70, i64 20, !55, i64 24, !5, i64 28}
-!180 = !{!"_ZTS13PdbRecordType", !5, i64 0}
-!181 = distinct !{!181, !18, !19}
-!182 = !{!179, !70, i64 16}
-!183 = distinct !{!183, !18, !19}
-!184 = !{!179, !70, i64 20}
-!185 = distinct !{!185, !18, !19}
-!186 = !{!187, !9, i64 48}
-!187 = !{!"_ZTS13gmx_ana_pos_t", !188, i64 0, !188, i64 8, !188, i64 16, !189, i64 24, !9, i64 144}
-!188 = !{!"p1 float", !11, i64 0}
-!189 = !{!"_ZTS18gmx_ana_indexmap_t", !190, i64 0, !10, i64 8, !10, i64 16, !191, i64 24, !10, i64 64, !191, i64 72, !55, i64 112}
-!190 = !{!"_ZTS9e_index_t", !5, i64 0}
-!191 = !{!"_ZTS8t_blocka", !9, i64 0, !10, i64 8, !9, i64 16, !10, i64 24, !9, i64 32, !9, i64 36}
-!192 = !{!187, !188, i64 0}
-!193 = distinct !{!193, !18, !19}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSN3gmx20SelMethodEvalContextE", !21, i64 0, !22, i64 8, !23, i64 16}
+!21 = !{!"p1 _ZTS10gmx_mtop_t", !11, i64 0}
+!22 = !{!"p1 _ZTS10t_trxframe", !11, i64 0}
+!23 = !{!"p1 _ZTS5t_pbc", !11, i64 0}
+!24 = !{!25, !26, i64 8}
+!25 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE17_Vector_impl_dataE", !26, i64 0, !26, i64 8, !26, i64 16}
+!26 = !{!"p1 _ZTS14gmx_molblock_t", !11, i64 0}
+!27 = !{!25, !26, i64 0}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE17_Vector_impl_dataE", !30, i64 0, !30, i64 8, !30, i64 16}
+!30 = !{!"p1 _ZTS20MoleculeBlockIndices", !11, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSNSt12_Vector_baseI13gmx_moltype_tSaIS0_EE17_Vector_impl_dataE", !33, i64 0, !33, i64 8, !33, i64 16}
+!33 = !{!"p1 _ZTS13gmx_moltype_t", !11, i64 0}
+!34 = !{!35, !9, i64 4}
+!35 = !{!"_ZTS20MoleculeBlockIndices", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
+!36 = !{!35, !9, i64 8}
+!37 = distinct !{!37, !18}
+!38 = !{!35, !9, i64 0}
+!39 = !{!40, !9, i64 0}
+!40 = !{!"_ZTS14gmx_molblock_t", !9, i64 0, !9, i64 4, !41, i64 8, !41, i64 32}
+!41 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE", !42, i64 0}
+!42 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE", !43, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE12_Vector_implE", !44, i64 0}
+!44 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE17_Vector_impl_dataE", !45, i64 0, !45, i64 8, !45, i64 16}
+!45 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !11, i64 0}
+!46 = !{!47, !9, i64 40}
+!47 = !{!"_ZTS7t_atoms", !9, i64 0, !48, i64 8, !49, i64 16, !49, i64 24, !49, i64 32, !9, i64 40, !52, i64 48, !53, i64 56, !54, i64 64, !54, i64 65, !54, i64 66, !54, i64 67, !54, i64 68}
+!48 = !{!"p1 _ZTS6t_atom", !11, i64 0}
+!49 = !{!"p3 omnipotent char", !50, i64 0}
+!50 = !{!"any p3 pointer", !51, i64 0}
+!51 = !{!"any p2 pointer", !11, i64 0}
+!52 = !{!"p1 _ZTS9t_resinfo", !11, i64 0}
+!53 = !{!"p1 _ZTS9t_pdbinfo", !11, i64 0}
+!54 = !{!"bool", !5, i64 0}
+!55 = !{!56, !9, i64 760}
+!56 = !{!"_ZTS10gmx_mtop_t", !57, i64 0, !58, i64 8, !76, i64 112, !79, i64 136, !54, i64 160, !82, i64 168, !9, i64 176, !89, i64 184, !96, i64 688, !54, i64 704, !59, i64 712, !98, i64 736, !9, i64 760, !9, i64 764}
+!57 = !{!"p2 omnipotent char", !51, i64 0}
+!58 = !{!"_ZTS14gmx_ffparams_t", !9, i64 0, !59, i64 8, !63, i64 32, !68, i64 56, !69, i64 64, !70, i64 72}
+!59 = !{!"_ZTSSt6vectorIiSaIiEE", !60, i64 0}
+!60 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !61, i64 0}
+!61 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !62, i64 0}
+!62 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!63 = !{!"_ZTSSt6vectorI9t_iparamsSaIS0_EE", !64, i64 0}
+!64 = !{!"_ZTSSt12_Vector_baseI9t_iparamsSaIS0_EE", !65, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE12_Vector_implE", !66, i64 0}
+!66 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
+!67 = !{!"p1 _ZTS9t_iparams", !11, i64 0}
+!68 = !{!"double", !5, i64 0}
+!69 = !{!"float", !5, i64 0}
+!70 = !{!"_ZTS10gmx_cmap_t", !9, i64 0, !71, i64 8}
+!71 = !{!"_ZTSSt6vectorI14gmx_cmapdata_tSaIS0_EE", !72, i64 0}
+!72 = !{!"_ZTSSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE", !73, i64 0}
+!73 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE12_Vector_implE", !74, i64 0}
+!74 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE17_Vector_impl_dataE", !75, i64 0, !75, i64 8, !75, i64 16}
+!75 = !{!"p1 _ZTS14gmx_cmapdata_t", !11, i64 0}
+!76 = !{!"_ZTSSt6vectorI13gmx_moltype_tSaIS0_EE", !77, i64 0}
+!77 = !{!"_ZTSSt12_Vector_baseI13gmx_moltype_tSaIS0_EE", !78, i64 0}
+!78 = !{!"_ZTSNSt12_Vector_baseI13gmx_moltype_tSaIS0_EE12_Vector_implE", !32, i64 0}
+!79 = !{!"_ZTSSt6vectorI14gmx_molblock_tSaIS0_EE", !80, i64 0}
+!80 = !{!"_ZTSSt12_Vector_baseI14gmx_molblock_tSaIS0_EE", !81, i64 0}
+!81 = !{!"_ZTSNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE12_Vector_implE", !25, i64 0}
+!82 = !{!"_ZTSSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !83, i64 0}
+!83 = !{!"_ZTSSt15__uniq_ptr_dataISt5arrayI15InteractionListLm95EESt14default_deleteIS2_ELb1ELb1EE", !84, i64 0}
+!84 = !{!"_ZTSSt15__uniq_ptr_implISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EE", !85, i64 0}
+!85 = !{!"_ZTSSt5tupleIJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !86, i64 0}
+!86 = !{!"_ZTSSt11_Tuple_implILm0EJPSt5arrayI15InteractionListLm95EESt14default_deleteIS2_EEE", !87, i64 0}
+!87 = !{!"_ZTSSt10_Head_baseILm0EPSt5arrayI15InteractionListLm95EELb0EE", !88, i64 0}
+!88 = !{!"p1 _ZTSSt5arrayI15InteractionListLm95EE", !11, i64 0}
+!89 = !{!"_ZTS16SimulationGroups", !90, i64 0, !91, i64 240, !95, i64 264}
+!90 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIiSaIiEELS1_10EEE", !5, i64 0}
+!91 = !{!"_ZTSSt6vectorIPPcSaIS1_EE", !92, i64 0}
+!92 = !{!"_ZTSSt12_Vector_baseIPPcSaIS1_EE", !93, i64 0}
+!93 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE12_Vector_implE", !94, i64 0}
+!94 = !{!"_ZTSNSt12_Vector_baseIPPcSaIS1_EE17_Vector_impl_dataE", !49, i64 0, !49, i64 8, !49, i64 16}
+!95 = !{!"_ZTSN3gmx16EnumerationArrayI23SimulationAtomGroupTypeSt6vectorIhSaIhEELS1_10EEE", !5, i64 0}
+!96 = !{!"_ZTS8t_symtab", !9, i64 0, !97, i64 8}
+!97 = !{!"p1 _ZTS8t_symbuf", !11, i64 0}
+!98 = !{!"_ZTSSt6vectorI20MoleculeBlockIndicesSaIS0_EE", !99, i64 0}
+!99 = !{!"_ZTSSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE", !100, i64 0}
+!100 = !{!"_ZTSNSt12_Vector_baseI20MoleculeBlockIndicesSaIS0_EE12_Vector_implE", !29, i64 0}
+!101 = !{!47, !52, i64 48}
+!102 = !{!47, !48, i64 8}
+!103 = !{!104, !9, i64 24}
+!104 = !{!"_ZTS6t_atom", !69, i64 0, !69, i64 4, !69, i64 8, !69, i64 12, !105, i64 16, !105, i64 18, !106, i64 20, !9, i64 24, !9, i64 28, !5, i64 32}
+!105 = !{!"short", !5, i64 0}
+!106 = !{!"_ZTS12ParticleType", !5, i64 0}
+!107 = !{!108, !9, i64 8}
+!108 = !{!"_ZTS9t_resinfo", !57, i64 0, !9, i64 8, !5, i64 12, !9, i64 16, !5, i64 20, !57, i64 24}
+!109 = !{!35, !9, i64 16}
+!110 = distinct !{!110, !18}
+!111 = !{!35, !9, i64 12}
+!112 = distinct !{!112, !18}
+!113 = !{!56, !54, i64 704}
+!114 = !{i8 0, i8 2}
+!115 = !{}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"vtable pointer", !6, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 omnipotent char", !11, i64 0}
+!120 = !{!35, !9, i64 20}
+!121 = distinct !{!121, !18}
+!122 = !{i64 0, i64 8, !118, i64 8, i64 8, !118, i64 16, i64 4, !16}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 _ZTSN3gmx8internal14IExceptionInfoE", !11, i64 0}
+!125 = !{!126, !127, i64 0}
+!126 = !{!"_ZTSSt10type_index", !127, i64 0}
+!127 = !{!"p1 _ZTSSt9type_info", !11, i64 0}
+!128 = !{!129, !130, i64 0}
+!129 = !{!"_ZTSSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE", !130, i64 0, !131, i64 8}
+!130 = !{!"p1 _ZTSN3gmx8internal13ExceptionDataE", !11, i64 0}
+!131 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !132, i64 0}
+!132 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !11, i64 0}
+!133 = !{!131, !132, i64 0}
+!134 = !{!135, !119, i64 0}
+!135 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !119, i64 0}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"long", !5, i64 0}
+!138 = !{!139, !119, i64 0}
+!139 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !135, i64 0, !137, i64 8, !5, i64 16}
+!140 = !{!139, !137, i64 8}
+!141 = !{!142, !9, i64 8}
+!142 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 8, !9, i64 12}
+!143 = !{!142, !9, i64 12}
+!144 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!145 = !{!146, !147, i64 0}
+!146 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !147, i64 0, !147, i64 8, !147, i64 16}
+!147 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !11, i64 0}
+!148 = !{!146, !147, i64 8}
+!149 = !{!150, !11, i64 0}
+!150 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !11, i64 0}
+!151 = distinct !{!151, !18}
+!152 = !{!146, !147, i64 16}
+!153 = !{!47, !49, i64 16}
+!154 = !{!57, !57, i64 0}
+!155 = distinct !{!155, !18}
+!156 = !{!157, !53, i64 64}
+!157 = !{!"_ZTS13gmx_moltype_t", !57, i64 0, !47, i64 8, !158, i64 80, !159, i64 2360}
+!158 = !{!"_ZTSSt5arrayI15InteractionListLm95EE", !5, i64 0}
+!159 = !{!"_ZTSN3gmx11ListOfListsIiEE", !59, i64 0, !59, i64 24}
+!160 = distinct !{!160, !18}
+!161 = distinct !{!161, !18}
+!162 = !{!157, !49, i64 32}
+!163 = distinct !{!163, !18}
+!164 = !{!157, !48, i64 16}
+!165 = !{!157, !52, i64 56}
+!166 = !{!108, !57, i64 0}
+!167 = distinct !{!167, !18}
+!168 = !{!108, !5, i64 12}
+!169 = distinct !{!169, !18}
+!170 = !{!108, !5, i64 20}
+!171 = distinct !{!171, !18}
+!172 = !{!104, !69, i64 0}
+!173 = !{!69, !69, i64 0}
+!174 = distinct !{!174, !18}
+!175 = !{!104, !69, i64 4}
+!176 = distinct !{!176, !18}
+!177 = !{!178, !5, i64 8}
+!178 = !{!"_ZTS9t_pdbinfo", !179, i64 0, !9, i64 4, !5, i64 8, !5, i64 9, !69, i64 16, !69, i64 20, !54, i64 24, !5, i64 28}
+!179 = !{!"_ZTS13PdbRecordType", !5, i64 0}
+!180 = distinct !{!180, !18}
+!181 = !{!178, !69, i64 16}
+!182 = distinct !{!182, !18}
+!183 = !{!178, !69, i64 20}
+!184 = distinct !{!184, !18}
+!185 = !{!186, !9, i64 48}
+!186 = !{!"_ZTS13gmx_ana_pos_t", !187, i64 0, !187, i64 8, !187, i64 16, !188, i64 24, !9, i64 144}
+!187 = !{!"p1 float", !11, i64 0}
+!188 = !{!"_ZTS18gmx_ana_indexmap_t", !189, i64 0, !10, i64 8, !10, i64 16, !190, i64 24, !10, i64 64, !190, i64 72, !54, i64 112}
+!189 = !{!"_ZTS9e_index_t", !5, i64 0}
+!190 = !{!"_ZTS8t_blocka", !9, i64 0, !10, i64 8, !9, i64 16, !10, i64 24, !9, i64 32, !9, i64 36}
+!191 = !{!186, !187, i64 0}
+!192 = distinct !{!192, !18}

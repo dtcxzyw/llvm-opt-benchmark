@@ -173,7 +173,7 @@ define hidden noundef ptr @_ZN8FrameMap23java_calling_conventionEPK13GrowableArr
   %14 = add nsw i32 %13, %.04552
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %8, %3
   %.045.lcssa = phi i32 [ 0, %3 ], [ %14, %8 ]
@@ -214,7 +214,7 @@ define hidden noundef ptr @_ZN8FrameMap23java_calling_conventionEPK13GrowableArr
   %32 = add nsw i32 %.2, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %33 = icmp slt i32 %32, %.045.lcssa
-  br i1 %33, label %21, label %._crit_edge58, !llvm.loop !10
+  br i1 %33, label %21, label %._crit_edge58, !llvm.loop !9
 
 ._crit_edge58:                                    ; preds = %31, %._crit_edge
   %34 = tail call noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef %16, ptr noundef %18, i32 noundef %.045.lcssa) #9
@@ -309,7 +309,7 @@ _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %_ZN26GrowableArrayW
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %86, %.360
   %88 = icmp slt i32 %87, %.045.lcssa
-  br i1 %88, label %.lr.ph61, label %._crit_edge62.loopexit, !llvm.loop !11
+  br i1 %88, label %.lr.ph61, label %._crit_edge62.loopexit, !llvm.loop !10
 
 ._crit_edge62.loopexit:                           ; preds = %_ZNK7LIR_Opr10is_addressEv.exit.thread
   %89 = trunc i64 %.148 to i32
@@ -368,7 +368,7 @@ define hidden noundef ptr @_ZN8FrameMap20c_calling_conventionEPK13GrowableArrayI
   %13 = add nsw i32 %12, %.04451
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %7, %2
   %.044.lcssa = phi i32 [ 0, %2 ], [ %13, %7 ]
@@ -409,7 +409,7 @@ define hidden noundef ptr @_ZN8FrameMap20c_calling_conventionEPK13GrowableArrayI
   %31 = add nsw i32 %.2, 1
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %32 = icmp slt i32 %31, %.044.lcssa
-  br i1 %32, label %20, label %._crit_edge57, !llvm.loop !13
+  br i1 %32, label %20, label %._crit_edge57, !llvm.loop !12
 
 ._crit_edge57:                                    ; preds = %30, %._crit_edge
   %33 = tail call noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef %15, ptr noundef %17, i32 noundef %.044.lcssa) #9
@@ -502,7 +502,7 @@ _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %_ZN26GrowableArrayW
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, %.359
   %85 = icmp slt i32 %84, %.044.lcssa
-  br i1 %85, label %.lr.ph60, label %._crit_edge61.loopexit, !llvm.loop !14
+  br i1 %85, label %.lr.ph60, label %._crit_edge61.loopexit, !llvm.loop !13
 
 ._crit_edge61.loopexit:                           ; preds = %_ZNK7LIR_Opr10is_addressEv.exit.thread
   %86 = trunc i64 %.147 to i32
@@ -718,7 +718,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %79, %85, %92, %93, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = sext i32 %100 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZNK7LIR_Opr4typeEv.exit, %_ZN13GrowableArrayIiEC2EiiRKi.exit
   ret void
@@ -831,7 +831,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %45
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %25, label %._crit_edge, !llvm.loop !16
+  br i1 %69, label %25, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZNK7LIR_Opr4typeEv.exit, %2
   %70 = tail call noundef zeroext i1 @_ZN8FrameMap14validate_frameEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
@@ -1218,7 +1218,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1234,7 +1234,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1324,7 +1324,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !19
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1340,7 +1340,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !20
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !19
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1389,18 +1389,17 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

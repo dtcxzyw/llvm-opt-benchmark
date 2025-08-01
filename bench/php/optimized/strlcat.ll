@@ -23,7 +23,7 @@ define dso_local i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %6 = add i64 %.in, -1
   %7 = getelementptr inbounds nuw i8, ptr %.02432, i64 1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
   %.024.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02432, %.lr.ph ]
@@ -67,7 +67,7 @@ define dso_local i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %22 = getelementptr inbounds nuw i8, ptr %.02736, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %.not29 = icmp eq i8 %23, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !9
+  br i1 %.not29, label %._crit_edge, label %.lr.ph39
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.027.lcssa = phi ptr [ %1, %.preheader ], [ %22, %21 ]
@@ -100,6 +100,3 @@ attributes #2 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}

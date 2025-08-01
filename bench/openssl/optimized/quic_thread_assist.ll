@@ -77,7 +77,7 @@ define internal noundef i32 @assist_thread_main(ptr noundef readonly captures(no
   %17 = tail call i32 @ossl_quic_reactor_tick(ptr noundef %7, i32 noundef 1) #3
   %18 = load i32, ptr %8, align 8, !tbaa !12
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %11, label %._crit_edge, !llvm.loop !16
+  br i1 %.not, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %16, %1
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %3) #3
@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @ossl_quic_thread_assist_cleanup(ptr noundef %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %9, label %4, !prof !18
+  br i1 %.not, label %9, label %4, !prof !16
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -239,6 +239,4 @@ attributes #3 = { nounwind }
 !13 = !{!4, !11, i64 28}
 !14 = !{!4, !9, i64 8}
 !15 = !{!4, !10, i64 16}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}

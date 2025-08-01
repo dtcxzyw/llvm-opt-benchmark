@@ -81,7 +81,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %13, %_ZN7nano
   store float 2.550000e+02, ptr %19, align 4
   %20 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %20, 3
-  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
@@ -98,7 +98,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
   store float %26, ptr %27, align 4
   %28 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %28, 3
-  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7, label %21, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7, label %21, !llvm.loop !8
 
 _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i7:             ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -141,7 +141,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10: ; preds = %30, %_ZN7na
   store float 2.550000e+02, ptr %36, align 4
   %37 = add nuw nsw i64 %.04.i.i.i11, 1
   %exitcond.not.i2.i.i12 = icmp eq i64 %37, 3
-  br i1 %exitcond.not.i2.i.i12, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i12, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
@@ -158,7 +158,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13:          ; preds = %_ZN7nanogui5ArrayIf
   store float %43, ptr %44, align 4
   %45 = add nuw nsw i64 %.06.i.i.i14, 1
   %exitcond.not.i3.i.i15 = icmp eq i64 %45, 3
-  br i1 %exitcond.not.i3.i.i15, label %46, label %38, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i15, label %46, label %38, !llvm.loop !8
 
 46:                                               ; preds = %38
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -187,7 +187,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i13:          ; preds = %_ZN7nanogui5ArrayIf
   store float 5.000000e-01, ptr %49, align 4
   %50 = add nuw nsw i64 %.04.i.i25, 1
   %exitcond.not.i.i26 = icmp eq i64 %50, 3
-  br i1 %exitcond.not.i.i26, label %51, label %48, !llvm.loop !8
+  br i1 %exitcond.not.i.i26, label %51, label %48, !llvm.loop !7
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -273,7 +273,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EED
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -338,7 +338,7 @@ define hidden void @_ZN7nanogui8TextArea6appendERKNSt7__cxx1112basic_stringIcSt1
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %27, !llvm.loop !11
+  br label %27, !llvm.loop !10
 
 .critedge:                                        ; preds = %27, %27
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
@@ -459,7 +459,7 @@ _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE9push_backEOS2_.exit: ; preds = %4
   %73 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %74 = load i8, ptr %.1, align 1
   %.not30 = icmp eq i8 %74, 0
-  br i1 %.not30, label %75, label %26, !llvm.loop !12
+  br i1 %.not30, label %75, label %26, !llvm.loop !11
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -531,7 +531,7 @@ define hidden void @_ZN7nanogui8TextArea5clearEv(ptr noundef nonnull align 8 cap
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store ptr %3, ptr %4, align 8
@@ -583,7 +583,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %20
   %27 = load i32, ptr %26, align 4
   %.not.i.i = icmp eq i32 %27, -1
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
-  br i1 %or.cond.i.i, label %25, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !13
+  br i1 %or.cond.i.i, label %25, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %25
   br i1 %.not.i.i, label %.critedge, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit42.critedge
@@ -599,7 +599,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit42.critedge:     ; preds = %_ZNK7nanogui5ArrayI
   %31 = load i32, ptr %30, align 4
   %.not.i.i45 = icmp eq i32 %31, -1
   %or.cond.i.i46 = and i1 %.not8.i.i43, %.not.i.i45
-  br i1 %or.cond.i.i46, label %29, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47, !llvm.loop !13
+  br i1 %or.cond.i.i46, label %29, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %29
   br i1 %.not.i.i45, label %.critedge, label %32
@@ -865,7 +865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58:
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %50, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %122, %40
   %123 = invoke noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
@@ -983,7 +983,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorI
   %.sroa.013.1.i.i = select i1 %38, ptr %39, ptr %.sroa.013.014.i.i
   %.1.i.i = select i1 %38, i64 %41, i64 %33
   %42 = icmp sgt i64 %.1.i.i, 0
-  br i1 %42, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit", !llvm.loop !15
+  br i1 %42, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit", !llvm.loop !14
 
 "_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
   %.pre = load ptr, ptr %18, align 8
@@ -1010,7 +1010,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorI
   %.sroa.02.1.i.i = select i1 %48, ptr %.sroa.02.03.i.i, ptr %49
   %.1.i.i57 = select i1 %48, i64 %45, i64 %51
   %52 = icmp sgt i64 %.1.i.i57, 0
-  br i1 %52, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i54, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_1ET_SD_SD_RKT0_T1_.exit", !llvm.loop !16
+  br i1 %52, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i54, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_1ET_SD_SD_RKT0_T1_.exit", !llvm.loop !15
 
 "_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_1ET_SD_SD_RKT0_T1_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i54, %22, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit", %.thread, %16
   %53 = phi ptr [ %18, %16 ], [ %12, %.thread ], [ %18, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNS3_4drawEP10NVGcontextE3$_0ET_SD_SD_RKT0_T1_.exit" ], [ %18, %22 ], [ %18, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i54 ]
@@ -1069,7 +1069,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %57, %"_ZSt11upper_b
   %85 = load i32, ptr %84, align 4
   %.not.i.i = icmp eq i32 %85, -1
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
-  br i1 %or.cond.i.i, label %83, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !13
+  br i1 %or.cond.i.i, label %83, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %83
   br i1 %.not.i.i, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit61.critedge, label %86
@@ -1133,7 +1133,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit67.critedge:     ; preds = %109, %107, %105
   %112 = load i32, ptr %111, align 4
   %.not.i.i70 = icmp eq i32 %112, -1
   %or.cond.i.i71 = and i1 %.not8.i.i68, %.not.i.i70
-  br i1 %or.cond.i.i71, label %110, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72, !llvm.loop !13
+  br i1 %or.cond.i.i71, label %110, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit72:         ; preds = %110
   br i1 %.not.i.i70, label %.critedge, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74.critedge
@@ -1145,7 +1145,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit74.critedge:     ; preds = %_ZNK7nanogui5ArrayI
   %114 = load i32, ptr %113, align 4
   %.not.i.i77 = icmp eq i32 %114, -1
   %or.cond.i.i78 = and i1 %.not8.i.i75, %.not.i.i77
-  br i1 %or.cond.i.i78, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74.critedge, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit79, !llvm.loop !13
+  br i1 %or.cond.i.i78, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74.critedge, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit79, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit79:         ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit74.critedge
   br i1 %.not.i.i77, label %.critedge, label %115
@@ -1250,7 +1250,7 @@ _ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %155, %_ZN7nan
   store float 2.550000e+02, ptr %161, align 4
   %162 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i2.i.i = icmp eq i64 %162, 3
-  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
@@ -1267,7 +1267,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIf
   store float %168, ptr %169, align 4
   %170 = add nuw nsw i64 %.06.i.i.i, 1
   %exitcond.not.i3.i.i = icmp eq i64 %170, 3
-  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %163, !llvm.loop !9
+  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %163, !llvm.loop !8
 
 _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %163
   %.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %3, align 8
@@ -1294,7 +1294,7 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %163
   %177 = add nuw nsw i64 %.07.i, 1
   %exitcond.i = icmp ne i64 %177, 4
   %or.cond.not.i = select i1 %176, i1 %exitcond.i, i1 false
-  br i1 %or.cond.not.i, label %171, label %_ZNK7nanogui5ArrayIfLm4EEeqERKS1_.exit, !llvm.loop !17
+  br i1 %or.cond.not.i, label %171, label %_ZNK7nanogui5ArrayIfLm4EEeqERKS1_.exit, !llvm.loop !16
 
 _ZNK7nanogui5ArrayIfLm4EEeqERKS1_.exit:           ; preds = %171
   br i1 %176, label %178, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge
@@ -1321,7 +1321,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge: ; preds = %178, %_ZNK7nano
   %189 = load i32, ptr %188, align 4
   %.not.i.i91 = icmp eq i32 %189, -1
   %or.cond.i.i92 = and i1 %.not8.i.i89, %.not.i.i91
-  br i1 %or.cond.i.i92, label %187, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93, !llvm.loop !13
+  br i1 %or.cond.i.i92, label %187, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93:         ; preds = %187
   %190 = add nsw i32 %182, %181
@@ -1337,7 +1337,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge:     ; preds = %_ZNK7nanogui5ArrayI
   %195 = load i32, ptr %194, align 4
   %.not.i.i98 = icmp eq i32 %195, -1
   %or.cond.i.i99 = and i1 %.not8.i.i96, %.not.i.i98
-  br i1 %or.cond.i.i99, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100, !llvm.loop !13
+  br i1 %or.cond.i.i99, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100:        ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge
   %196 = xor i1 %.not.i.i98, true
@@ -1374,7 +1374,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100:        ; preds = %_ZN7nanogui5ArrayIi
   %211 = tail call float @nvgText(ptr noundef %1, float noundef %207, float noundef %208, ptr noundef %210, ptr noundef null)
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0221, i64 64
   %.not219 = icmp eq ptr %212, %.sroa.0188.0
-  br i1 %.not219, label %._crit_edge, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i, !llvm.loop !18
+  br i1 %.not219, label %._crit_edge, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.critedge2, %.critedge
   ret void
@@ -1562,7 +1562,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
   %.sroa.013.1.i.i = select i1 %22, ptr %23, ptr %.sroa.013.014.i.i
   %.1.i.i = select i1 %22, i64 %25, i64 %17
   %26 = icmp sgt i64 %.1.i.i, 0
-  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNKS3_17position_to_blockERKNS2_5ArrayIiLm2EEEE3$_0ET_SG_SG_RKT0_T1_.exit.loopexit", !llvm.loop !19
+  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNKS3_17position_to_blockERKNS2_5ArrayIiLm2EEEE3$_0ET_SG_SG_RKT0_T1_.exit.loopexit", !llvm.loop !18
 
 "_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEEiZNKS3_17position_to_blockERKNS2_5ArrayIiLm2EEEE3$_0ET_SG_SG_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
   %.pre = load ptr, ptr %9, align 8
@@ -1642,14 +1642,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
   %72 = trunc nuw nsw i64 %indvars.iv.next to i32
   %.3 = select i1 %71, i32 %72, i32 %.235
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %64, %49
   %.2.lcssa = phi i32 [ %.139, %49 ], [ %.3, %64 ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.024.038, i64 64
   %74 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %73, %74
-  br i1 %.not, label %.critedge, label %44, !llvm.loop !21
+  br i1 %.not, label %.critedge, label %44, !llvm.loop !20
 
 .critedge:                                        ; preds = %._crit_edge, %44, %34
   %.sroa.030.0 = phi ptr [ %35, %34 ], [ %.sroa.013.0.lcssa.i.i, %44 ], [ %.sroa.013.0.lcssa.i.i, %._crit_edge ]
@@ -1686,7 +1686,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %9 = load i32, ptr %8, align 4
   %.not.i.i = icmp eq i32 %9, -1
   %or.cond.i.i = and i1 %.not8.i.i, %.not.i.i
-  br i1 %or.cond.i.i, label %7, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !13
+  br i1 %or.cond.i.i, label %7, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit, !llvm.loop !12
 
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %7
   %10 = xor i1 %.not.i.i, true
@@ -1742,7 +1742,7 @@ define linkonce_odr hidden void @_ZN7nanogui8TextAreaD2Ev(ptr noundef nonnull al
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %8, %6
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8
@@ -1780,7 +1780,7 @@ define linkonce_odr hidden void @_ZN7nanogui8TextAreaD0Ev(ptr noundef nonnull al
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %8, %6
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPN7nanogui8TextArea5BlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %3, align 8
@@ -1968,18 +1968,18 @@ _ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0911.i.i.i, i64 12, i1 false), !alias.scope !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0911.i.i.i, i64 12, i1 false), !alias.scope !21
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27) #17
   %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !alias.scope !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !alias.scope !21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %30, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit ], [ %31, %.lr.ph.i.i.i ]
@@ -1990,18 +1990,18 @@ _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %38, %.lr.ph.i.i.i17 ], [ %32, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %.0911.i.i.i19 = phi ptr [ %37, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(64) %.0911.i.i.i19, i64 12, i1 false), !alias.scope !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(64) %.0911.i.i.i19, i64 12, i1 false), !alias.scope !26
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34) #17
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !alias.scope !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !alias.scope !26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #17
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 64
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 64
   %.not.i.i.i20 = icmp eq ptr %37, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !26
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !25
 
 _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %32, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %38, %.lr.ph.i.i.i17 ]
@@ -2081,29 +2081,28 @@ attributes #21 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!24 = distinct !{!24, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_"}
-!25 = distinct !{!25, !24, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!26 = distinct !{!26, !6, !7}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!29 = distinct !{!29, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_"}
-!30 = distinct !{!30, !29, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!23 = distinct !{!23, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_"}
+!24 = distinct !{!24, !23, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!25 = distinct !{!25, !6}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!28 = distinct !{!28, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_"}
+!29 = distinct !{!29, !28, !"_ZSt19__relocate_object_aIN7nanogui8TextArea5BlockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}

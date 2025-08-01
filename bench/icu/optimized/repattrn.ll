@@ -963,7 +963,7 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7712RegexPatter
   %154 = load i32, ptr %8, align 8
   %155 = icmp slt i32 %154, 1
   %or.cond = select i1 %.not72, i1 %155, i1 false
-  br i1 %or.cond, label %.lr.ph95, label %._crit_edge, !llvm.loop !55
+  br i1 %or.cond, label %.lr.ph95, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %151, %132
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
@@ -1018,7 +1018,7 @@ define void @_ZN6icu_7712RegexPattern3zapEv(ptr noundef nonnull align 8 captures
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !48
   %24 = icmp slt i32 %20, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !56
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %19, %9
   %.lcssa = phi ptr [ %11, %9 ], [ %21, %19 ]
@@ -1341,30 +1341,30 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %65 = load i64, ptr %64, align 8, !tbaa !57
+  %65 = load i64, ptr %64, align 8, !tbaa !55
   %66 = sub nsw i64 0, %65
   %67 = icmp slt i64 %65, 1
   br i1 %67, label %68, label %82
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 28
-  %70 = load i32, ptr %69, align 4, !tbaa !62
+  %70 = load i32, ptr %69, align 4, !tbaa !60
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %66, %71
   br i1 %72, label %73, label %82
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !63
+  %75 = load ptr, ptr %74, align 8, !tbaa !61
   %76 = getelementptr inbounds nuw i16, ptr %75, i64 %66
-  %77 = load i16, ptr %76, align 2, !tbaa !64
+  %77 = load i16, ptr %76, align 2, !tbaa !62
   %78 = icmp ult i16 %77, -9216
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %73
   %80 = trunc nuw nsw i64 %66 to i32
   %81 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store i32 %80, ptr %81, align 8, !tbaa !66
+  store i32 %80, ptr %81, align 8, !tbaa !64
   br label %83
 
 82:                                               ; preds = %73, %68, %63
@@ -1375,30 +1375,30 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
 83:                                               ; preds = %82, %79
   %84 = phi ptr [ %.pre, %82 ], [ %59, %79 ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load i64, ptr %85, align 8, !tbaa !57
+  %86 = load i64, ptr %85, align 8, !tbaa !55
   %87 = sub nsw i64 0, %86
   %88 = icmp slt i64 %86, 1
   br i1 %88, label %89, label %103
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 28
-  %91 = load i32, ptr %90, align 4, !tbaa !62
+  %91 = load i32, ptr %90, align 4, !tbaa !60
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %87, %92
   br i1 %93, label %94, label %103
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %96 = load ptr, ptr %95, align 8, !tbaa !63
+  %96 = load ptr, ptr %95, align 8, !tbaa !61
   %97 = getelementptr inbounds nuw i16, ptr %96, i64 %87
-  %98 = load i16, ptr %97, align 2, !tbaa !64
+  %98 = load i16, ptr %97, align 2, !tbaa !62
   %99 = icmp ult i16 %98, -9216
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %94
   %101 = trunc nuw nsw i64 %87 to i32
   %102 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store i32 %101, ptr %102, align 8, !tbaa !66
+  store i32 %101, ptr %102, align 8, !tbaa !64
   br label %104
 
 103:                                              ; preds = %94, %89, %83
@@ -1698,7 +1698,7 @@ define noundef ptr @_ZNK6icu_7712RegexPattern7matcherERKNS_13UnicodeStringER10UE
 _ZNK6icu_7712RegexPattern7matcherER10UErrorCode.exit: ; preds = %13
   %16 = load i32, ptr %2, align 4, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 316
-  store i32 %16, ptr %17, align 4, !tbaa !67
+  store i32 %16, ptr %17, align 4, !tbaa !65
   %18 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %11, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %_ZNK6icu_7712RegexPattern7matcherER10UErrorCode.exit.thread
 
@@ -1789,7 +1789,7 @@ define noundef signext i8 @_ZN6icu_7712RegexPattern7matchesERKNS_13UnicodeString
 _ZNK6icu_7712RegexPattern7matcherER10UErrorCode.exit.i: ; preds = %18
   %21 = load i32, ptr %3, align 4, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 316
-  store i32 %21, ptr %22, align 4, !tbaa !67
+  store i32 %21, ptr %22, align 4, !tbaa !65
   %23 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %16, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %_ZNK6icu_7712RegexPattern7matcherERKNS_13UnicodeStringER10UErrorCode.exit
 
@@ -1963,9 +1963,9 @@ define noundef ptr @_ZNK6icu_7712RegexPattern11patternTextER10UErrorCode(ptr nou
 
 8:                                                ; preds = %5
   tail call void @_ZN6icu_7715RegexStaticSets11initGlobalsEP10UErrorCode(ptr noundef nonnull %1)
-  %9 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !73
+  %9 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 3832
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !73
   br label %12
 
 12:                                               ; preds = %5, %2, %8
@@ -2066,7 +2066,7 @@ define noundef i32 @_ZNK6icu_7712RegexPattern5splitERKNS_13UnicodeStringEPS1_iR1
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #15
   call void @_ZN6icu_7712RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %6, ptr noundef nonnull %0)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 316
-  %11 = load i32, ptr %10, align 4, !tbaa !67
+  %11 = load i32, ptr %10, align 4, !tbaa !65
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %17, label %13
 
@@ -2105,7 +2105,7 @@ define noundef i32 @_ZNK6icu_7712RegexPattern5splitEP5UTextPS2_iR10UErrorCode(pt
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %6) #15
   call void @_ZN6icu_7712RegexMatcherC1EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %6, ptr noundef nonnull %0)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 316
-  %11 = load i32, ptr %10, align 4, !tbaa !67
+  %11 = load i32, ptr %10, align 4, !tbaa !65
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %17, label %13
 
@@ -2234,35 +2234,33 @@ attributes #17 = { noreturn nounwind }
 !49 = !{!"_ZTSN6icu_777UVectorE", !20, i64 0, !9, i64 8, !9, i64 12, !50, i64 16, !6, i64 24, !6, i64 32}
 !50 = !{!"p1 _ZTS8UElement", !6, i64 0}
 !51 = !{!19, !27, i64 112}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = distinct !{!55, !54}
-!56 = distinct !{!56, !53, !54}
-!57 = !{!58, !59, i64 32}
-!58 = !{!"_ZTS5UText", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !59, i64 16, !9, i64 24, !9, i64 28, !59, i64 32, !9, i64 40, !9, i64 44, !60, i64 48, !61, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !59, i64 112, !9, i64 120, !9, i64 124, !59, i64 128, !9, i64 136, !9, i64 140}
-!59 = !{!"long", !7, i64 0}
-!60 = !{!"p1 char16_t", !6, i64 0}
-!61 = !{!"p1 _ZTS10UTextFuncs", !6, i64 0}
-!62 = !{!58, !9, i64 28}
-!63 = !{!58, !60, i64 48}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"char16_t", !7, i64 0}
-!66 = !{!58, !9, i64 40}
-!67 = !{!68, !14, i64 316}
-!68 = !{!"_ZTSN6icu_7712RegexMatcherE", !20, i64 0, !69, i64 8, !69, i64 16, !22, i64 24, !21, i64 32, !21, i64 40, !59, i64 48, !9, i64 56, !59, i64 64, !59, i64 72, !59, i64 80, !59, i64 88, !59, i64 96, !59, i64 104, !59, i64 112, !59, i64 120, !7, i64 128, !7, i64 129, !7, i64 130, !59, i64 136, !59, i64 144, !59, i64 152, !59, i64 160, !7, i64 168, !7, i64 169, !23, i64 176, !70, i64 184, !71, i64 192, !7, i64 200, !9, i64 264, !9, i64 268, !9, i64 272, !9, i64 276, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !7, i64 312, !7, i64 313, !14, i64 316, !72, i64 320, !72, i64 328}
-!69 = !{!"p1 _ZTSN6icu_7712RegexPatternE", !6, i64 0}
-!70 = !{!"p1 _ZTSN6icu_7712REStackFrameE", !6, i64 0}
-!71 = !{!"p1 long", !6, i64 0}
-!72 = !{!"p1 _ZTSN6icu_7713BreakIteratorE", !6, i64 0}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p1 _ZTSN6icu_7715RegexStaticSetsE", !6, i64 0}
-!75 = !{!76, !21, i64 3832}
-!76 = !{!"_ZTSN6icu_7715RegexStaticSetsE", !7, i64 8, !7, i64 2608, !7, i64 3024, !77, i64 3624, !29, i64 3824, !21, i64 3832}
-!77 = !{!"_ZTSN6icu_7710UnicodeSetE", !78, i64 0, !81, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !82, i64 40, !81, i64 48, !9, i64 56, !60, i64 64, !9, i64 72, !26, i64 80, !83, i64 88, !7, i64 96}
-!78 = !{!"_ZTSN6icu_7713UnicodeFilterE", !79, i64 0, !80, i64 8}
-!79 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !20, i64 0}
-!80 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
-!81 = !{!"p1 int", !6, i64 0}
-!82 = !{!"p1 _ZTSN6icu_776BMPSetE", !6, i64 0}
-!83 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !6, i64 0}
+!54 = distinct !{!54, !53}
+!55 = !{!56, !57, i64 32}
+!56 = !{!"_ZTS5UText", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !57, i64 16, !9, i64 24, !9, i64 28, !57, i64 32, !9, i64 40, !9, i64 44, !58, i64 48, !59, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !57, i64 112, !9, i64 120, !9, i64 124, !57, i64 128, !9, i64 136, !9, i64 140}
+!57 = !{!"long", !7, i64 0}
+!58 = !{!"p1 char16_t", !6, i64 0}
+!59 = !{!"p1 _ZTS10UTextFuncs", !6, i64 0}
+!60 = !{!56, !9, i64 28}
+!61 = !{!56, !58, i64 48}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"char16_t", !7, i64 0}
+!64 = !{!56, !9, i64 40}
+!65 = !{!66, !14, i64 316}
+!66 = !{!"_ZTSN6icu_7712RegexMatcherE", !20, i64 0, !67, i64 8, !67, i64 16, !22, i64 24, !21, i64 32, !21, i64 40, !57, i64 48, !9, i64 56, !57, i64 64, !57, i64 72, !57, i64 80, !57, i64 88, !57, i64 96, !57, i64 104, !57, i64 112, !57, i64 120, !7, i64 128, !7, i64 129, !7, i64 130, !57, i64 136, !57, i64 144, !57, i64 152, !57, i64 160, !7, i64 168, !7, i64 169, !23, i64 176, !68, i64 184, !69, i64 192, !7, i64 200, !9, i64 264, !9, i64 268, !9, i64 272, !9, i64 276, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !7, i64 312, !7, i64 313, !14, i64 316, !70, i64 320, !70, i64 328}
+!67 = !{!"p1 _ZTSN6icu_7712RegexPatternE", !6, i64 0}
+!68 = !{!"p1 _ZTSN6icu_7712REStackFrameE", !6, i64 0}
+!69 = !{!"p1 long", !6, i64 0}
+!70 = !{!"p1 _ZTSN6icu_7713BreakIteratorE", !6, i64 0}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTSN6icu_7715RegexStaticSetsE", !6, i64 0}
+!73 = !{!74, !21, i64 3832}
+!74 = !{!"_ZTSN6icu_7715RegexStaticSetsE", !7, i64 8, !7, i64 2608, !7, i64 3024, !75, i64 3624, !29, i64 3824, !21, i64 3832}
+!75 = !{!"_ZTSN6icu_7710UnicodeSetE", !76, i64 0, !79, i64 16, !9, i64 24, !9, i64 28, !7, i64 32, !80, i64 40, !79, i64 48, !9, i64 56, !58, i64 64, !9, i64 72, !26, i64 80, !81, i64 88, !7, i64 96}
+!76 = !{!"_ZTSN6icu_7713UnicodeFilterE", !77, i64 0, !78, i64 8}
+!77 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !20, i64 0}
+!78 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
+!79 = !{!"p1 int", !6, i64 0}
+!80 = !{!"p1 _ZTSN6icu_776BMPSetE", !6, i64 0}
+!81 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !6, i64 0}

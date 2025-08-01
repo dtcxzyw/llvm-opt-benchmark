@@ -205,7 +205,7 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   %47 = add nsw i32 %.05379, %.sink
   %.251 = getelementptr inbounds nuw i8, ptr %.04980, i64 1
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph, label %.thread, !llvm.loop !6
+  br i1 %48, label %.lr.ph, label %.thread, !llvm.loop !5
 
 .thread:                                          ; preds = %45, %1, %37, %33, %30, %22
   %.04974 = phi ptr [ %.04980, %37 ], [ %.04980, %33 ], [ %.04980, %30 ], [ %.04980, %22 ], [ %8, %1 ], [ %.251, %45 ]
@@ -237,7 +237,6 @@ attributes #5 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

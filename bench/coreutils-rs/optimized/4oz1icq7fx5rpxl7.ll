@@ -269,7 +269,7 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
   %27 = icmp ult i64 %.0, %12
-  br i1 %27, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit", !llvm.loop !53
+  br i1 %27, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -309,7 +309,7 @@ _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
 
 19:                                               ; preds = %_ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit, %_ZN4rand3rng3Rng9gen_range17hcb986ca300b6c164E.exit
   %.09 = phi i64 [ %18, %_ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit ], [ %14, %_ZN4rand3rng3Rng9gen_range17hcb986ca300b6c164E.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %20 = icmp ult i64 %12, %2
   br i1 %20, label %21, label %23, !prof !52
 
@@ -318,22 +318,22 @@ _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
   br i1 %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit", label %24, !prof !52
 
 23:                                               ; preds = %19
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !55
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !53
   unreachable
 
 24:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.09, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !55
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.09, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !53
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit": ; preds = %21
   %25 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %12
   %26 = getelementptr inbounds [0 x i64], ptr %1, i64 0, i64 %.09
-  %.0.copyload.i = load i64, ptr %25, align 8, !alias.scope !55
-  %27 = load i64, ptr %26, align 8, !alias.scope !55
-  store i64 %27, ptr %25, align 8, !alias.scope !55
-  store i64 %.0.copyload.i, ptr %26, align 8, !alias.scope !55
+  %.0.copyload.i = load i64, ptr %25, align 8, !alias.scope !53
+  %27 = load i64, ptr %26, align 8, !alias.scope !53
+  store i64 %27, ptr %25, align 8, !alias.scope !53
+  store i64 %.0.copyload.i, ptr %26, align 8, !alias.scope !53
   %28 = icmp ult i64 %.0, %12
-  br i1 %28, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hddabf08f12502a53E.exit", !llvm.loop !58
+  br i1 %28, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hddabf08f12502a53E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -541,9 +541,6 @@ attributes #14 = { noreturn }
 !50 = distinct !{!50, !51, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E: argument 0"}
 !51 = distinct !{!51, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E"}
 !52 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE: argument 0"}
-!57 = distinct !{!57, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE"}
-!58 = distinct !{!58, !54}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE: argument 0"}
+!55 = distinct !{!55, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE"}

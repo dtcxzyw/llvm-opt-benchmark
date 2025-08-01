@@ -58,7 +58,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl10camel_case17hb369193350f44
 
 .backedge.backedge:                               ; preds = %22, %24, %16
   %.0.be = phi i1 [ true, %16 ], [ false, %24 ], [ false, %22 ]
-  br label %.backedge, !llvm.loop !3
+  br label %.backedge
 
 23:                                               ; preds = %21
   invoke void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr nonnull sret({ { [2 x i32], i32 } }) align 4 %4, i32 %.011)
@@ -122,5 +122,3 @@ attributes #6 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}

@@ -20,7 +20,7 @@ define align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4fold17h9f063d7114f82e
   %9 = call align 4 ptr @_ZN4core3ops8function5FnMut8call_mut17hf65bf45ecebc29cfE(ptr nonnull align 1 %4, ptr align 4 %.sroa.0.09, ptr nonnull align 4 %8)
   %10 = call align 4 ptr @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c7df3bdf2d4535dE"(ptr nonnull align 8 %5)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.sroa.0.0.lcssa = phi ptr [ %2, %3 ], [ %9, %.lr.ph ]
@@ -80,5 +80,3 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}

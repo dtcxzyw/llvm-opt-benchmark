@@ -189,7 +189,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %64 = load i64, ptr %63, align 8, !tbaa !32
   %65 = getelementptr inbounds nuw i8, ptr %23, i64 136
-  store i64 %64, ptr %65, align 8, !tbaa !41
+  store i64 %64, ptr %65, align 8, !tbaa !40
   %66 = add nsw i64 %64, %58
   store i64 %66, ptr %63, align 8, !tbaa !32
   %67 = tail call i32 @ff_filter_frame(ptr noundef %4, ptr noundef nonnull %23) #10
@@ -202,18 +202,18 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal noundef i32 @config_props(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !49
+  %2 = load ptr, ptr %0, align 8, !tbaa !48
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !55
+  %6 = load i64, ptr %5, align 8, !tbaa !54
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
   %9 = tail call i32 @av_get_random_seed() #10
   %10 = zext i32 %9 to i64
-  store i64 %10, ptr %5, align 8, !tbaa !55
+  store i64 %10, ptr %5, align 8, !tbaa !54
   br label %11
 
 11:                                               ; preds = %8, %1
@@ -238,7 +238,7 @@ define internal noundef i32 @config_props(ptr noundef readonly captures(none) %0
   %24 = tail call i64 @av_rescale(i64 noundef %16, i64 noundef %23, i64 noundef 1000000) #11
   store i64 %24, ptr %15, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !56
+  %26 = load i32, ptr %25, align 8, !tbaa !55
   switch i32 %26, label %40 [
     i32 0, label %.sink.split
     i32 1, label %27
@@ -264,7 +264,7 @@ define internal noundef i32 @config_props(ptr noundef readonly captures(none) %0
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load double, ptr %32, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %35 = load double, ptr %34, align 8, !tbaa !57
+  %35 = load double, ptr %34, align 8, !tbaa !56
   %36 = fmul nsz double %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store double %36, ptr %37, align 8, !tbaa !37
@@ -510,23 +510,22 @@ attributes #11 = { nounwind willreturn memory(none) }
 !35 = !{!24, !15, i64 256}
 !36 = !{!21, !7, i64 80}
 !37 = !{!22, !22, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!42, !23, i64 136}
-!42 = !{!"AVFrame", !8, i64 0, !8, i64 64, !43, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !44, i64 124, !23, i64 136, !23, i64 144, !44, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !45, i64 248, !15, i64 256, !46, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !23, i64 304, !47, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !23, i64 368, !7, i64 376, !48, i64 384, !23, i64 408}
-!43 = !{!"p2 omnipotent char", !14, i64 0}
-!44 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!45 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!46 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!47 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!48 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"AVFilterLink", !51, i64 0, !12, i64 8, !51, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !44, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !48, i64 72, !44, i64 96, !46, i64 104, !15, i64 112, !52, i64 120, !52, i64 160}
-!51 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!52 = !{!"AVFilterFormatsConfig", !53, i64 0, !53, i64 8, !54, i64 16, !53, i64 24, !53, i64 32}
-!53 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!54 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!55 = !{!21, !23, i64 48}
-!56 = !{!21, !15, i64 40}
-!57 = !{!21, !22, i64 24}
+!40 = !{!41, !23, i64 136}
+!41 = !{!"AVFrame", !8, i64 0, !8, i64 64, !42, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !43, i64 124, !23, i64 136, !23, i64 144, !43, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !44, i64 248, !15, i64 256, !45, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !23, i64 304, !46, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !23, i64 368, !7, i64 376, !47, i64 384, !23, i64 408}
+!42 = !{!"p2 omnipotent char", !14, i64 0}
+!43 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!44 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!45 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!46 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!47 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!48 = !{!49, !50, i64 0}
+!49 = !{!"AVFilterLink", !50, i64 0, !12, i64 8, !50, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !43, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !47, i64 72, !43, i64 96, !45, i64 104, !15, i64 112, !51, i64 120, !51, i64 160}
+!50 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!51 = !{!"AVFilterFormatsConfig", !52, i64 0, !52, i64 8, !53, i64 16, !52, i64 24, !52, i64 32}
+!52 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!53 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!54 = !{!21, !23, i64 48}
+!55 = !{!21, !15, i64 40}
+!56 = !{!21, !22, i64 24}

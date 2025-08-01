@@ -301,7 +301,7 @@ define hidden noundef zeroext i1 @_ZN22UniqueMetaspaceClosure6do_refEPN16Metaspa
   %28 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !8
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit: ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
@@ -347,7 +347,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15al
 49:                                               ; preds = %50
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 18
-  br i1 %exitcond.not.i.i, label %_ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.exit.i, label %50, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.exit.i, label %50, !llvm.loop !9
 
 50:                                               ; preds = %49, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %49 ]
@@ -387,7 +387,7 @@ _ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EX
   store ptr %67, ptr %61, align 8
   store ptr %.02123.i.i, ptr %66, align 8
   %.not.i7.i = icmp eq ptr %62, null
-  br i1 %.not.i7.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i5, !llvm.loop !11
+  br i1 %.not.i7.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i5, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i5
   %.pre.i.i = load i32, ptr %5, align 8
@@ -399,7 +399,7 @@ _ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EX
   %70 = zext i32 %68 to i64
   %71 = getelementptr inbounds nuw ptr, ptr %54, i64 %70
   %72 = icmp ult ptr %69, %71
-  br i1 %72, label %.lr.ph26.i.i, label %.loopexit, !llvm.loop !12
+  br i1 %72, label %.lr.ph26.i.i, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge.i.i, %_ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.exit.i
   tail call void @_Z8FreeHeapPv(ptr noundef %54) #8
@@ -497,10 +497,9 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -630,7 +630,7 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %.not42 = icmp eq ptr %11, null
   br i1 %.not42, label %14, label %12
 
@@ -740,7 +740,7 @@ define ptr @UI_add_user_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 define range(i32 -1, 1) i32 @UI_dup_user_data(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
@@ -837,7 +837,7 @@ define ptr @UI_get0_result(ptr noundef readonly captures(none) %0, i32 noundef %
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
   br label %UI_get0_result_string.exit
 
 UI_get0_result_string.exit:                       ; preds = %14, %10, %9, %4
@@ -856,7 +856,7 @@ define ptr @UI_get0_result_string(ptr noundef readonly captures(none) %0) local_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -900,7 +900,7 @@ define i32 @UI_get_result_length(ptr noundef readonly captures(none) %0, i32 nou
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !33
+  %16 = load i64, ptr %15, align 8, !tbaa !32
   %17 = trunc i64 %16 to i32
   br label %UI_get_result_string_length.exit
 
@@ -918,7 +918,7 @@ define i32 @UI_get_result_string_length(ptr noundef readonly captures(none) %0) 
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i64, ptr %4, align 8, !tbaa !33
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = trunc i64 %5 to i32
   br label %7
 
@@ -931,7 +931,7 @@ define i32 @UI_get_result_string_length(ptr noundef readonly captures(none) %0) 
 define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
@@ -962,7 +962,7 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   %.03555 = phi i32 [ %27, %26 ], [ 0, %13 ]
   %18 = load ptr, ptr %0, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !34
   %.not45 = icmp eq ptr %20, null
   br i1 %.not45, label %26, label %21
 
@@ -978,12 +978,12 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load ptr, ptr %14, align 8, !tbaa !20
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef %28) #8
   %30 = icmp slt i32 %27, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %26, %13
   %31 = load ptr, ptr %0, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !37
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
   %.not43 = icmp eq ptr %33, null
   br i1 %.not43, label %36, label %34
 
@@ -1004,7 +1004,7 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   %.13656 = phi i32 [ %48, %47 ], [ 0, %36 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !38
+  %42 = load ptr, ptr %41, align 8, !tbaa !37
   %.not44 = icmp eq ptr %42, null
   br i1 %.not44, label %.loopexit.sink.split, label %43
 
@@ -1022,7 +1022,7 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   %49 = load ptr, ptr %14, align 8, !tbaa !20
   %50 = tail call i32 @OPENSSL_sk_num(ptr noundef %49) #8
   %51 = icmp slt i32 %48, %50
-  br i1 %51, label %.lr.ph58, label %.loopexit, !llvm.loop !39
+  br i1 %51, label %.lr.ph58, label %.loopexit, !llvm.loop !38
 
 .loopexit.sink.split:                             ; preds = %.lr.ph58, %43, %34
   %52 = load i32, ptr %9, align 8, !tbaa !15
@@ -1037,7 +1037,7 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = phi ptr [ @.str.2, %5 ], [ @.str.4, %34 ], [ null, %36 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ null, %47 ], [ @.str.3, %21 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !40
+  %57 = load ptr, ptr %56, align 8, !tbaa !39
   %.not46 = icmp eq ptr %57, null
   br i1 %.not46, label %61, label %58
 
@@ -1075,7 +1075,7 @@ define internal range(i32 -1, 1) i32 @print_error(ptr noundef %0, i64 %1, ptr no
   store ptr %0, ptr %5, align 8, !tbaa !24
   %6 = load ptr, ptr %2, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
 
@@ -1177,7 +1177,7 @@ define ptr @UI_create_method(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 583) #8
-  store ptr %4, ptr %2, align 8, !tbaa !41
+  store ptr %4, ptr %2, align 8, !tbaa !40
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6
 
@@ -1188,7 +1188,7 @@ define ptr @UI_create_method(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %6
-  %.pr = load ptr, ptr %2, align 8, !tbaa !41
+  %.pr = load ptr, ptr %2, align 8, !tbaa !40
   %.not12 = icmp eq ptr %.pr, null
   br i1 %.not12, label %.thread, label %10
 
@@ -1196,7 +1196,7 @@ define ptr @UI_create_method(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 593, ptr noundef nonnull @__func__.UI_create_method) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 40, i32 noundef 524303, ptr noundef null) #8
-  %.pre = load ptr, ptr %2, align 8, !tbaa !41
+  %.pre = load ptr, ptr %2, align 8, !tbaa !40
   br label %.thread
 
 .thread:                                          ; preds = %3, %10, %9
@@ -1221,9 +1221,9 @@ define void @UI_destroy_method(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @CRYPTO_free_ex_data(i32 noundef 14, ptr noundef nonnull %0, ptr noundef nonnull %4) #8
-  %5 = load ptr, ptr %0, align 8, !tbaa !41
+  %5 = load ptr, ptr %0, align 8, !tbaa !40
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 613) #8
-  store ptr null, ptr %0, align 8, !tbaa !41
+  store ptr null, ptr %0, align 8, !tbaa !40
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 615) #8
   br label %6
 
@@ -1238,7 +1238,7 @@ define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !33
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1253,7 +1253,7 @@ define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !34
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1268,7 +1268,7 @@ define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly capture
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !36
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1283,7 +1283,7 @@ define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %4, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !37
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1298,7 +1298,7 @@ define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %4, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !39
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1313,7 +1313,7 @@ define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %5, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %6, align 8, !tbaa !16
   br label %7
@@ -1330,7 +1330,7 @@ define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeo
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %4, align 8, !tbaa !30
+  store ptr %1, ptr %4, align 8, !tbaa !29
   br label %5
 
 5:                                                ; preds = %2, %3
@@ -1352,7 +1352,7 @@ define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1367,7 +1367,7 @@ define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1382,7 +1382,7 @@ define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null)
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1397,7 +1397,7 @@ define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1412,7 +1412,7 @@ define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1427,7 +1427,7 @@ define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(addre
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1442,7 +1442,7 @@ define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -1481,7 +1481,7 @@ define i32 @UI_get_string_type(ptr noundef readonly captures(none) %0) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @UI_get_input_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !42
+  %3 = load i32, ptr %2, align 8, !tbaa !41
   ret i32 %3
 }
 
@@ -1614,7 +1614,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
@@ -1632,19 +1632,19 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
   br i1 %.not44, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %27, align 8, !tbaa !32
+  %35 = load ptr, ptr %27, align 8, !tbaa !31
   %36 = getelementptr inbounds i8, ptr %35, i64 %32
   store i8 0, ptr %36, align 1, !tbaa !26
   br label %37
 
 37:                                               ; preds = %34, %31
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %32, ptr %38, align 8, !tbaa !33
+  store i64 %32, ptr %38, align 8, !tbaa !32
   br label %.loopexit
 
 39:                                               ; preds = %4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !32
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %43
 
@@ -1670,7 +1670,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
   %49 = getelementptr inbounds nuw i8, ptr %.03649, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !26
   %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %.loopexit, label %51, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %51, !llvm.loop !42
 
 51:                                               ; preds = %.lr.ph, %48
   %52 = phi i8 [ %44, %.lr.ph ], [ %50, %48 ]
@@ -1682,7 +1682,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
 
 55:                                               ; preds = %51
   %56 = load i8, ptr %46, align 1, !tbaa !26
-  %57 = load ptr, ptr %40, align 8, !tbaa !32
+  %57 = load ptr, ptr %40, align 8, !tbaa !31
   store i8 %56, ptr %57, align 1, !tbaa !26
   br label %.loopexit
 
@@ -1694,7 +1694,7 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
 
 61:                                               ; preds = %58
   %62 = load i8, ptr %59, align 1, !tbaa !26
-  %63 = load ptr, ptr %40, align 8, !tbaa !32
+  %63 = load ptr, ptr %40, align 8, !tbaa !31
   store i8 %62, ptr %63, align 1, !tbaa !26
   br label %.loopexit
 
@@ -1740,10 +1740,10 @@ define internal fastcc noalias ptr @general_allocate_prompt(ptr noundef %0, i32 
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i32 %1, ptr %15, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 %3, ptr %16, align 8, !tbaa !42
+  store i32 %3, ptr %16, align 8, !tbaa !41
   store i32 %2, ptr %12, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %4, ptr %17, align 8, !tbaa !32
+  store ptr %4, ptr %17, align 8, !tbaa !31
   br label %18
 
 18:                                               ; preds = %10, %13, %11, %7
@@ -1798,20 +1798,19 @@ attributes #9 = { nounwind willreturn memory(read) }
 !24 = !{!22, !18, i64 8}
 !25 = !{!22, !13, i64 0}
 !26 = !{!7, !7, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!17, !6, i64 64}
-!31 = !{!17, !6, i64 48}
-!32 = !{!22, !18, i64 24}
-!33 = !{!22, !23, i64 32}
-!34 = !{!17, !6, i64 8}
-!35 = !{!17, !6, i64 16}
-!36 = distinct !{!36, !28, !29}
-!37 = !{!17, !6, i64 24}
-!38 = !{!17, !6, i64 32}
-!39 = distinct !{!39, !28, !29}
-!40 = !{!17, !6, i64 40}
-!41 = !{!17, !18, i64 0}
-!42 = !{!22, !13, i64 16}
-!43 = distinct !{!43, !28, !29}
+!29 = !{!17, !6, i64 64}
+!30 = !{!17, !6, i64 48}
+!31 = !{!22, !18, i64 24}
+!32 = !{!22, !23, i64 32}
+!33 = !{!17, !6, i64 8}
+!34 = !{!17, !6, i64 16}
+!35 = distinct !{!35, !28}
+!36 = !{!17, !6, i64 24}
+!37 = !{!17, !6, i64 32}
+!38 = distinct !{!38, !28}
+!39 = !{!17, !6, i64 40}
+!40 = !{!17, !18, i64 0}
+!41 = !{!22, !13, i64 16}
+!42 = distinct !{!42, !28}

@@ -85,12 +85,12 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %52 = getelementptr inbounds nuw i8, ptr %.5.us, i64 8
   %53 = add nsw i64 %.4.us, -1
   %54 = icmp samesign ugt i64 %.4.us, 1
-  br i1 %54, label %.preheader120.us, label %.loopexit121.us, !llvm.loop !10
+  br i1 %54, label %.preheader120.us, label %.loopexit121.us, !llvm.loop !9
 
 .loopexit121.us:                                  ; preds = %.preheader120.us, %.loopexit123.us
   %55 = add nsw i64 %.1103.us, -1
   %56 = icmp sgt i64 %.1103.us, 1
-  br i1 %56, label %.preheader122.us, label %.loopexit, !llvm.loop !11
+  br i1 %56, label %.preheader122.us, label %.loopexit, !llvm.loop !10
 
 .loopexit123.us:                                  ; preds = %23
   %57 = getelementptr inbounds double, ptr %.1110.us, i64 %9
@@ -134,7 +134,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %indvars.iv179 = phi ptr [ %scevgep178, %.lr.ph.us.preheader ], [ %scevgep180, %._crit_edge.us ]
   %.0109.us = phi ptr [ %8, %.lr.ph.us.preheader ], [ %80, %._crit_edge.us ]
   %.0102.us = phi i64 [ %1, %.lr.ph.us.preheader ], [ %81, %._crit_edge.us ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0109.us, i8 0, i64 %63, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0109.us, i8 0, i64 %63, i1 false), !tbaa !12
   %80 = getelementptr double, ptr %.0109.us, i64 %9
   br i1 %79, label %.lr.ph133.us.preheader, label %.preheader.us
 
@@ -143,7 +143,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %82 = icmp sgt i64 %.0102.us, 1
   %scevgep180 = getelementptr i8, ptr %indvars.iv179, i64 %66
   %scevgep183 = getelementptr i8, ptr %indvars.iv182, i64 %66
-  br i1 %82, label %.lr.ph.us, label %.loopexit, !llvm.loop !14
+  br i1 %82, label %.lr.ph.us, label %.loopexit, !llvm.loop !13
 
 .preheader.us:                                    ; preds = %.lr.ph133.us.preheader, %.lr.ph.us
   %.1105.lcssa.us = phi ptr [ %indvars.iv179, %.lr.ph.us ], [ %indvars.iv182, %.lr.ph133.us.preheader ]
@@ -157,7 +157,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   br label %._crit_edge.us
 
 .lr.ph133.us.preheader:                           ; preds = %.lr.ph.us
-  tail call void @llvm.memset.p0.i64(ptr align 1 %indvars.iv179, i8 0, i64 %73, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 1 %indvars.iv179, i8 0, i64 %73, i1 false), !tbaa !12
   br label %.preheader.us
 
 .preheader119.split:                              ; preds = %.preheader119
@@ -184,7 +184,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %indvars.iv = phi ptr [ %scevgep, %.preheader118.us139.preheader ], [ %scevgep175, %._crit_edge.us154 ]
   %.0109.us140 = phi ptr [ %8, %.preheader118.us139.preheader ], [ %98, %._crit_edge.us154 ]
   %.0102.us141 = phi i64 [ %1, %.preheader118.us139.preheader ], [ %99, %._crit_edge.us154 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109.us140, i8 0, i64 %90, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109.us140, i8 0, i64 %90, i1 false), !tbaa !12
   %98 = getelementptr double, ptr %.0109.us140, i64 %9
   br i1 %97, label %.lr.ph138.us153.preheader, label %._crit_edge.us154
 
@@ -192,7 +192,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %99 = add nsw i64 %.0102.us141, -1
   %100 = icmp sgt i64 %.0102.us141, 1
   %scevgep175 = getelementptr i8, ptr %indvars.iv, i64 %93
-  br i1 %100, label %.preheader118.us139, label %.loopexit, !llvm.loop !15
+  br i1 %100, label %.preheader118.us139, label %.loopexit, !llvm.loop !14
 
 .lr.ph138.us153.preheader:                        ; preds = %.preheader118.us139
   tail call void @llvm.memset.p0.i64(ptr align 8 %indvars.iv, i8 0, i64 %96, i1 false), !tbaa !3
@@ -213,7 +213,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %103 = getelementptr double, ptr %.0109.us156, i64 %9
   %104 = add nsw i64 %.0102.us157, -1
   %105 = icmp sgt i64 %.0102.us157, 1
-  br i1 %105, label %.preheader118.us155, label %.loopexit, !llvm.loop !16
+  br i1 %105, label %.preheader118.us155, label %.loopexit, !llvm.loop !15
 
 .preheader120:                                    ; preds = %.preheader124.split, %.loopexit121
   %.1110 = phi ptr [ %112, %.loopexit121 ], [ %8, %.preheader124.split ]
@@ -229,13 +229,13 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 8
   %110 = add nsw i64 %.4, -1
   %111 = icmp samesign ugt i64 %.4, 1
-  br i1 %111, label %106, label %.loopexit121, !llvm.loop !10
+  br i1 %111, label %106, label %.loopexit121, !llvm.loop !9
 
 .loopexit121:                                     ; preds = %106
   %112 = getelementptr inbounds double, ptr %.1110, i64 %9
   %113 = add nsw i64 %.1103, -1
   %114 = icmp sgt i64 %.1103, 1
-  br i1 %114, label %.preheader120, label %.loopexit, !llvm.loop !17
+  br i1 %114, label %.preheader120, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.loopexit121, %.loopexit121.us, %.preheader118.us155, %._crit_edge.us154, %._crit_edge.us, %.preheader119.split.split, %.preheader124.split, %16, %13
   ret i32 0
@@ -260,14 +260,13 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !8, !9, !12}
-!15 = distinct !{!15, !8, !9, !12}
-!16 = distinct !{!16, !8, !9, !12}
-!17 = distinct !{!17, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !8, !11}
+!14 = distinct !{!14, !8, !11}
+!15 = distinct !{!15, !8, !11}
+!16 = distinct !{!16, !8}

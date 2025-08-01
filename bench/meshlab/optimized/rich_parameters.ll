@@ -2128,15 +2128,15 @@ _ZN7QStringD2Ev.exit541:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %690 unwind label %720
 
 690:                                              ; preds = %689
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  store ptr %688, ptr %75, align 8, !alias.scope !11
-  %691 = load atomic i32, ptr %688 monotonic, align 4, !noalias !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  store ptr %688, ptr %75, align 8, !alias.scope !10
+  %691 = load atomic i32, ptr %688 monotonic, align 4, !noalias !10
   %692 = add i32 %691, -1
   %or.cond.not.i.i.i545 = icmp ult i32 %692, -2
   br i1 %or.cond.not.i.i.i545, label %693, label %_ZN7QStringC2ERKS_.exit.i546
 
 693:                                              ; preds = %690
-  %694 = atomicrmw add ptr %688, i32 1 seq_cst, align 4, !noalias !11
+  %694 = atomicrmw add ptr %688, i32 1 seq_cst, align 4, !noalias !10
   br label %_ZN7QStringC2ERKS_.exit.i546
 
 _ZN7QStringC2ERKS_.exit.i546:                     ; preds = %693, %690
@@ -2270,7 +2270,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i574: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit579:                          ; preds = %_ZN7QStringD2Ev.exit573, %_ZN9QtPrivate8RefCount5derefEv.exit.i575, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i574
   %719 = add nuw nsw i32 %.0191646, 1
   %exitcond650.not = icmp eq i32 %719, %678
-  br i1 %exitcond650.not, label %._crit_edge648, label %.lr.ph647, !llvm.loop !14
+  br i1 %exitcond650.not, label %._crit_edge648, label %.lr.ph647, !llvm.loop !13
 
 720:                                              ; preds = %689
   %721 = landingpad { ptr, i32 }
@@ -2707,7 +2707,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %103) #12
   %865 = add nuw nsw i32 %.0645, 1
   %exitcond.not = icmp eq i32 %865, %850
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 866:                                              ; preds = %861
   %867 = landingpad { ptr, i32 }
@@ -3692,7 +3692,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 _ZN7QStringD2Ev.exit.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq ptr %10, %15
-  br i1 %.not.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   invoke void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef %5)
@@ -3865,7 +3865,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %24, %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %.not.i = icmp eq ptr %26, %20
-  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
@@ -3916,7 +3916,7 @@ _ZN7QStringC2ERKS_.exit.i11:                      ; preds = %44, %.lr.ph.i7
   %46 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
   %.not.i12 = icmp eq ptr %46, %38
-  br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !17
+  br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !16
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13: ; preds = %_ZN7QStringC2ERKS_.exit.i11, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
   %48 = load atomic i32, ptr %11 monotonic, align 4
@@ -3972,7 +3972,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefC
 
 _ZN7QStringD2Ev.exit.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %54, %59
-  br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !15
 
 _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread15
   call void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef nonnull %11)
@@ -4069,13 +4069,12 @@ attributes #16 = { noreturn }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZplRK7QStringS1_: argument 0"}
 !7 = distinct !{!7, !"_ZplRK7QStringS1_"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZplRK7QStringS1_: argument 0"}
-!13 = distinct !{!13, !"_ZplRK7QStringS1_"}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZplRK7QStringS1_: argument 0"}
+!12 = distinct !{!12, !"_ZplRK7QStringS1_"}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

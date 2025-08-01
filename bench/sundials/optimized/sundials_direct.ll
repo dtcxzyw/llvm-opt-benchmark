@@ -53,18 +53,18 @@ define noalias noundef ptr @SUNDlsMat_NewDenseMat(i64 noundef %0, i64 noundef %1
   store ptr %22, ptr %23, align 8, !tbaa !13
   %24 = add nuw nsw i64 %.038, 1
   %exitcond.not = icmp eq i64 %24, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %0, ptr %25, align 8, !tbaa !16
+  store i64 %0, ptr %25, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %1, ptr %26, align 8, !tbaa !17
+  store i64 %1, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %0, ptr %27, align 8, !tbaa !18
+  store i64 %0, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i64 %9, ptr %28, align 8, !tbaa !19
-  store i32 1, ptr %6, align 8, !tbaa !20
+  store i64 %9, ptr %28, align 8, !tbaa !17
+  store i32 1, ptr %6, align 8, !tbaa !18
   br label %29
 
 29:                                               ; preds = %5, %2, %._crit_edge, %20, %14
@@ -115,7 +115,7 @@ define noalias noundef ptr @SUNDlsMat_newDenseMat(i64 noundef %0, i64 noundef %1
   store ptr %17, ptr %18, align 8, !tbaa !13
   %19 = add nuw nsw i64 %.024, 1
   %exitcond.not = icmp eq i64 %19, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %5, %2, %15
   %.020 = phi ptr [ null, %15 ], [ null, %2 ], [ null, %5 ], [ %7, %.preheader ], [ %7, %.lr.ph ]
@@ -168,24 +168,24 @@ define noalias noundef ptr @SUNDlsMat_NewBandMat(i64 noundef %0, i64 noundef %1,
   store ptr %25, ptr %26, align 8, !tbaa !13
   %27 = add nuw nsw i64 %.04144, 1
   %exitcond.not = icmp eq i64 %27, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %0, ptr %28, align 8, !tbaa !16
+  store i64 %0, ptr %28, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %0, ptr %29, align 8, !tbaa !17
+  store i64 %0, ptr %29, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %1, ptr %30, align 8, !tbaa !23
+  store i64 %1, ptr %30, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 %2, ptr %31, align 8, !tbaa !24
+  store i64 %2, ptr %31, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 %3, ptr %32, align 8, !tbaa !25
+  store i64 %3, ptr %32, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %11, ptr %33, align 8, !tbaa !18
+  store i64 %11, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %13, ptr %34, align 8, !tbaa !19
-  store i32 2, ptr %7, align 8, !tbaa !20
+  store i64 %13, ptr %34, align 8, !tbaa !17
+  store i32 2, ptr %7, align 8, !tbaa !18
   br label %35
 
 35:                                               ; preds = %6, %4, %._crit_edge, %23, %17
@@ -229,7 +229,7 @@ define noalias noundef ptr @SUNDlsMat_newBandMat(i64 noundef %0, i64 noundef %1,
   store ptr %17, ptr %18, align 8, !tbaa !13
   %19 = add nuw nsw i64 %.02023, 1
   %exitcond.not = icmp eq i64 %19, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %5, %3, %15
   %.0 = phi ptr [ null, %15 ], [ null, %3 ], [ null, %5 ], [ %7, %.preheader ], [ %7, %.lr.ph ]
@@ -363,7 +363,7 @@ define void @SUNDlsMat_destroyArray(ptr noundef captures(none) %0) local_unnamed
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @SUNDlsMat_AddIdentity(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = load i32, ptr %0, align 8, !tbaa !20
+  %2 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %2, label %.loopexit [
     i32 1, label %.preheader
     i32 2, label %.preheader12
@@ -371,7 +371,7 @@ define void @SUNDlsMat_AddIdentity(ptr noundef readonly captures(none) %0) local
 
 .preheader12:                                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !16
+  %4 = load i64, ptr %3, align 8, !tbaa !14
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph, label %.loopexit
 
@@ -379,12 +379,12 @@ define void @SUNDlsMat_AddIdentity(ptr noundef readonly captures(none) %0) local
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %9 = load i64, ptr %8, align 8, !tbaa !21
   br label %22
 
 .preheader:                                       ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !17
+  %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph16, label %.loopexit
 
@@ -398,24 +398,24 @@ define void @SUNDlsMat_AddIdentity(ptr noundef readonly captures(none) %0) local
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.015
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw double, ptr %17, i64 %.015
-  %19 = load double, ptr %18, align 8, !tbaa !27
+  %19 = load double, ptr %18, align 8, !tbaa !22
   %20 = fadd double %19, 1.000000e+00
-  store double %20, ptr %18, align 8, !tbaa !27
+  store double %20, ptr %18, align 8, !tbaa !22
   %21 = add nuw nsw i64 %.015, 1
   %exitcond18.not = icmp eq i64 %21, %11
-  br i1 %exitcond18.not, label %.loopexit, label %15, !llvm.loop !29
+  br i1 %exitcond18.not, label %.loopexit, label %15
 
 22:                                               ; preds = %.lr.ph, %22
   %.114 = phi i64 [ 0, %.lr.ph ], [ %28, %22 ]
   %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %.114
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = getelementptr inbounds double, ptr %24, i64 %9
-  %26 = load double, ptr %25, align 8, !tbaa !27
+  %26 = load double, ptr %25, align 8, !tbaa !22
   %27 = fadd double %26, 1.000000e+00
-  store double %27, ptr %25, align 8, !tbaa !27
+  store double %27, ptr %25, align 8, !tbaa !22
   %28 = add nuw nsw i64 %.114, 1
   %exitcond.not = icmp eq i64 %28, %4
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %22, %15, %.preheader12, %.preheader, %1
   ret void
@@ -423,7 +423,7 @@ define void @SUNDlsMat_AddIdentity(ptr noundef readonly captures(none) %0) local
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = load i32, ptr %0, align 8, !tbaa !20
+  %2 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %2, label %.loopexit [
     i32 1, label %.preheader
     i32 2, label %15
@@ -431,7 +431,7 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
 
 .preheader:                                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !17
+  %4 = load i64, ptr %3, align 8, !tbaa !15
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph37, label %.loopexit
 
@@ -439,7 +439,7 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !16
+  %9 = load i64, ptr %8, align 8, !tbaa !14
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph34.us.preheader, label %.loopexit
 
@@ -451,19 +451,19 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
   %.02436.us = phi i64 [ %14, %.lr.ph34.us ], [ 0, %.lr.ph34.us.preheader ]
   %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.02436.us
   %13 = load ptr, ptr %12, align 8, !tbaa !13
-  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %11, i1 false), !tbaa !27
+  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %11, i1 false), !tbaa !22
   %14 = add nuw nsw i64 %.02436.us, 1
   %exitcond41.not = icmp eq i64 %14, %4
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34.us, !llvm.loop !31
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34.us, !llvm.loop !24
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !23
+  %17 = load i64, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i64, ptr %18, align 8, !tbaa !24
+  %19 = load i64, ptr %18, align 8, !tbaa !20
   %20 = add i64 %19, %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !16
+  %22 = load i64, ptr %21, align 8, !tbaa !14
   %23 = icmp sgt i64 %22, 0
   br i1 %23, label %.lr.ph31, label %.loopexit
 
@@ -471,7 +471,7 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = load i64, ptr %26, align 8, !tbaa !25
+  %27 = load i64, ptr %26, align 8, !tbaa !21
   %28 = sub i64 0, %17
   %.not27 = icmp slt i64 %20, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph.preheader
@@ -487,10 +487,10 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = getelementptr inbounds double, ptr %32, i64 %27
   %34 = getelementptr inbounds double, ptr %33, i64 %28
-  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %30, i1 false), !tbaa !27
+  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %30, i1 false), !tbaa !22
   %35 = add nuw nsw i64 %.12529, 1
   %exitcond.not = icmp eq i64 %35, %22
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph34.us, %.lr.ph31, %.lr.ph37, %15, %.preheader, %1
   ret void
@@ -498,7 +498,7 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
 
 ; Function Attrs: nofree nounwind uwtable
 define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
-  %3 = load i32, ptr %0, align 8, !tbaa !20
+  %3 = load i32, ptr %0, align 8, !tbaa !18
   switch i32 %3, label %56 [
     i32 1, label %4
     i32 2, label %24
@@ -507,7 +507,7 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
 4:                                                ; preds = %2
   %fputc53 = tail call i32 @fputc(i32 10, ptr %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !16
+  %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = icmp sgt i64 %6, 0
   br i1 %7, label %.preheader.lr.ph, label %.sink.split
 
@@ -518,7 +518,7 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge67
   %.068 = phi i64 [ 0, %.preheader.lr.ph ], [ %21, %._crit_edge67 ]
-  %10 = load i64, ptr %8, align 8, !tbaa !17
+  %10 = load i64, ptr %8, align 8, !tbaa !15
   %11 = icmp sgt i64 %10, 0
   br i1 %11, label %.lr.ph66, label %._crit_edge67
 
@@ -528,26 +528,26 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.04465
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw double, ptr %14, i64 %.068
-  %16 = load double, ptr %15, align 8, !tbaa !27
+  %16 = load double, ptr %15, align 8, !tbaa !22
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %16) #13
   %18 = add nuw nsw i64 %.04465, 1
-  %19 = load i64, ptr %8, align 8, !tbaa !17
+  %19 = load i64, ptr %8, align 8, !tbaa !15
   %20 = icmp slt i64 %18, %19
-  br i1 %20, label %.lr.ph66, label %._crit_edge67, !llvm.loop !34
+  br i1 %20, label %.lr.ph66, label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %.preheader
   %fputc55 = tail call i32 @fputc(i32 10, ptr %1)
   %21 = add nuw nsw i64 %.068, 1
-  %22 = load i64, ptr %5, align 8, !tbaa !16
+  %22 = load i64, ptr %5, align 8, !tbaa !14
   %23 = icmp slt i64 %21, %22
-  br i1 %23, label %.preheader, label %.sink.split, !llvm.loop !35
+  br i1 %23, label %.preheader, label %.sink.split
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !12
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !17
+  %28 = load i64, ptr %27, align 8, !tbaa !15
   %29 = icmp sgt i64 %28, 0
   br i1 %29, label %.lr.ph63, label %.sink.split
 
@@ -560,10 +560,10 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
 33:                                               ; preds = %.lr.ph63, %._crit_edge
   %34 = phi i64 [ %28, %.lr.ph63 ], [ %54, %._crit_edge ]
   %.161 = phi i64 [ 0, %.lr.ph63 ], [ %53, %._crit_edge ]
-  %35 = load i64, ptr %30, align 8, !tbaa !24
+  %35 = load i64, ptr %30, align 8, !tbaa !20
   %36 = sub i64 %.161, %35
   %spec.select = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
-  %37 = load i64, ptr %31, align 8, !tbaa !23
+  %37 = load i64, ptr %31, align 8, !tbaa !19
   %38 = add nsw i64 %37, %.161
   %39 = add nsw i64 %34, -1
   %40 = tail call i64 @llvm.smin.i64(i64 %38, i64 %39)
@@ -579,28 +579,28 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #13
   %43 = add nuw nsw i64 %.14557, 1
   %exitcond.not = icmp eq i64 %43, %36
-  br i1 %exitcond.not, label %.preheader56, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.preheader56, label %.lr.ph
 
 .lr.ph60:                                         ; preds = %.preheader56, %.lr.ph60
   %.259 = phi i64 [ %52, %.lr.ph60 ], [ %spec.select, %.preheader56 ]
   %44 = getelementptr inbounds nuw ptr, ptr %26, i64 %.259
   %45 = load ptr, ptr %44, align 8, !tbaa !13
   %46 = sub nsw i64 %.161, %.259
-  %47 = load i64, ptr %32, align 8, !tbaa !25
+  %47 = load i64, ptr %32, align 8, !tbaa !21
   %48 = getelementptr double, ptr %45, i64 %46
   %49 = getelementptr double, ptr %48, i64 %47
-  %50 = load double, ptr %49, align 8, !tbaa !27
+  %50 = load double, ptr %49, align 8, !tbaa !22
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %50) #13
   %52 = add nuw nsw i64 %.259, 1
   %.not51.not = icmp slt i64 %.259, %40
-  br i1 %.not51.not, label %.lr.ph60, label %._crit_edge, !llvm.loop !37
+  br i1 %.not51.not, label %.lr.ph60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph60, %.preheader56
   %fputc52 = tail call i32 @fputc(i32 10, ptr %1)
   %53 = add nuw nsw i64 %.161, 1
-  %54 = load i64, ptr %27, align 8, !tbaa !17
+  %54 = load i64, ptr %27, align 8, !tbaa !15
   %55 = icmp slt i64 %53, %54
-  br i1 %55, label %33, label %.sink.split, !llvm.loop !38
+  br i1 %55, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge67, %24, %4
   %fputc50 = tail call i32 @fputc(i32 10, ptr %1)
@@ -656,28 +656,15 @@ attributes #13 = { nounwind }
 !11 = !{!"p2 double", !10, i64 0}
 !12 = !{!4, !11, i64 72}
 !13 = !{!9, !9, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!4, !8, i64 8}
-!17 = !{!4, !8, i64 16}
-!18 = !{!4, !8, i64 24}
-!19 = !{!4, !8, i64 64}
-!20 = !{!4, !5, i64 0}
-!21 = distinct !{!21, !15}
-!22 = distinct !{!22, !15}
-!23 = !{!4, !8, i64 32}
-!24 = !{!4, !8, i64 40}
-!25 = !{!4, !8, i64 48}
-!26 = distinct !{!26, !15}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"double", !6, i64 0}
-!29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15}
-!31 = distinct !{!31, !15, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}
-!37 = distinct !{!37, !15}
-!38 = distinct !{!38, !15}
+!14 = !{!4, !8, i64 8}
+!15 = !{!4, !8, i64 16}
+!16 = !{!4, !8, i64 24}
+!17 = !{!4, !8, i64 64}
+!18 = !{!4, !5, i64 0}
+!19 = !{!4, !8, i64 32}
+!20 = !{!4, !8, i64 40}
+!21 = !{!4, !8, i64 48}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"double", !6, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}

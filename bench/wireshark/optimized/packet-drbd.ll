@@ -892,7 +892,7 @@ drbd_ib_append_col_info.exit.i31:                 ; preds = %81, %78
 85:                                               ; preds = %86
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 74
-  br i1 %exitcond.i.i, label %dissect_drbd_ib_message.exit, label %86, !llvm.loop !9
+  br i1 %exitcond.i.i, label %dissect_drbd_ib_message.exit, label %86, !llvm.loop !8
 
 86:                                               ; preds = %85, %84
   %indvars.iv.i.i = phi i64 [ 0, %84 ], [ %indvars.iv.next.i.i, %85 ]
@@ -928,7 +928,7 @@ dissect_drbd_ib_control_message.exit:             ; preds = %51, %drbd_ib_append
 
 97:                                               ; preds = %dissect_drbd_ib_control_message.exit
   %98 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.022, i32 noundef %.0244246)
-  br label %28, !llvm.loop !10
+  br label %28
 
 test_drbd_rdma_control_header.exit.thread:        ; preds = %dissect_drbd_ib_control_message.exit, %test_drbd_rdma_control_header.exit27.thread, %test_drbd_header.exit.thread33, %19, %test_drbd_rdma_control_header.exit
   %.0 = phi i1 [ false, %test_drbd_rdma_control_header.exit ], [ false, %19 ], [ false, %test_drbd_header.exit.thread33 ], [ true, %test_drbd_rdma_control_header.exit27.thread ], [ true, %dissect_drbd_ib_control_message.exit ]
@@ -1212,7 +1212,7 @@ find_drbd_conversation.exit:                      ; preds = %.thread35.i, %64
 76:                                               ; preds = %77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 74
-  br i1 %exitcond.i, label %.thread, label %77, !llvm.loop !9
+  br i1 %exitcond.i, label %.thread, label %77, !llvm.loop !8
 
 77:                                               ; preds = %76, %75
   %indvars.iv.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i, %76 ]
@@ -1802,7 +1802,7 @@ define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, pt
   %.1 = phi i32 [ %32, %27 ], [ %.034, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %16, label %23, !llvm.loop !11
+  br i1 %exitcond.not, label %16, label %23, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.235 = phi i32 [ %36, %.lr.ph ], [ %.1, %16 ]
@@ -1810,7 +1810,7 @@ define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, pt
   %35 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %34, ptr noundef %0, i32 noundef %.235, i32 noundef 8, i32 noundef 0)
   %36 = add i32 %.235, 8
   %37 = icmp ult i32 %36, %21
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
@@ -2094,7 +2094,7 @@ define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1,
   %20 = getelementptr ptr, ptr @state_fields, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.i, label %mask_fields.exit, label %7, !llvm.loop !13
+  br i1 %exitcond.i, label %mask_fields.exit, label %7, !llvm.loop !11
 
 mask_fields.exit:                                 ; preds = %19
   %22 = sext i32 %.1.i to i64
@@ -2292,7 +2292,7 @@ define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %36 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %37 = add i32 %35, 8
   %.not = icmp ult i32 %36, %37
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %33, %4, %.thread
   %38 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -2330,12 +2330,9 @@ attributes #12 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

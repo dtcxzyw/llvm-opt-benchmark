@@ -324,7 +324,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq9channel_t5xrecvEPNS_5msg_tE(ptr nou
   br i1 %27, label %.lr.ph, label %.critedge34, !llvm.loop !91
 
 .critedge2:                                       ; preds = %.lr.ph
-  br i1 %27, label %.lr.ph35, label %.critedge34, !llvm.loop !94
+  br i1 %27, label %.lr.ph35, label %.critedge34, !llvm.loop !93
 
 .critedge34:                                      ; preds = %21, %.critedge2, %28, %17
   %29 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -597,7 +597,6 @@ attributes #17 = { nounwind willreturn memory(none) }
 !88 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
 !89 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !90 = !{!14, !14, i64 0}
-!91 = distinct !{!91, !92, !93}
+!91 = distinct !{!91, !92}
 !92 = !{!"llvm.loop.mustprogress"}
-!93 = !{!"llvm.loop.estimated_trip_count"}
-!94 = distinct !{!94, !92, !93}
+!93 = distinct !{!93, !92}

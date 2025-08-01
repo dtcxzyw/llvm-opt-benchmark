@@ -3637,7 +3637,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit.i.i.i.i.i: ;
   %76 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i23 = icmp eq ptr %76, %.sroa.9.0.lcssa
-  br i1 %.not.i.i.i.i.i23, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i22, !llvm.loop !115
+  br i1 %.not.i.i.i.i.i23, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i22, !llvm.loop !114
 
 78:                                               ; preds = %._crit_edge
   %79 = ashr exact i64 %57, 3
@@ -3657,7 +3657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit.i.i.i.i.i: ;
 86:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit29
   %87 = add nuw i64 %.0100, 1
   %exitcond.not = icmp eq i64 %87, %79
-  br i1 %exitcond.not, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit._ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread_crit_edge, label %.lr.ph101, !llvm.loop !116
+  br i1 %exitcond.not, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit._ZSteqIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread_crit_edge, label %.lr.ph101, !llvm.loop !115
 
 .lr.ph101:                                        ; preds = %.preheader, %86
   %.0100 = phi i64 [ %87, %86 ], [ 0, %.preheader ]
@@ -4195,8 +4195,7 @@ attributes #21 = { noreturn nounwind }
 !109 = distinct !{!109, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeES1_SaIS1_EEvPT_PT0_RT1_"}
 !110 = !{!111}
 !111 = distinct !{!111, !109, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!112 = distinct !{!112, !113, !114}
+!112 = distinct !{!112, !113}
 !113 = !{!"llvm.loop.mustprogress"}
-!114 = !{!"llvm.loop.estimated_trip_count"}
-!115 = distinct !{!115, !113, !114}
-!116 = distinct !{!116, !113, !114}
+!114 = distinct !{!114, !113}
+!115 = distinct !{!115, !113}

@@ -700,7 +700,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %247 = lshr i32 %.1256, 1
   %248 = add nuw nsw i32 %.0261, 1
   %exitcond327.not = icmp eq i32 %248, %smax326
-  br i1 %exitcond327.not, label %249, label %232, !llvm.loop !9
+  br i1 %exitcond327.not, label %249, label %232, !llvm.loop !8
 
 249:                                              ; preds = %239
   %250 = trunc i32 %246 to i8
@@ -713,7 +713,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %256 = inttoptr i64 %255 to ptr
   %257 = add nsw i32 %.0262, -1
   %258 = icmp sgt i32 %.0262, 1
-  br i1 %258, label %.preheader317, label %.loopexit, !llvm.loop !10
+  br i1 %258, label %.preheader317, label %.loopexit, !llvm.loop !9
 
 .preheader319:                                    ; preds = %223, %275
   %.1268 = phi ptr [ %279, %275 ], [ %140, %223 ]
@@ -753,7 +753,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %273 = shl nuw nsw i32 %.1248, 1
   %274 = add nuw nsw i32 %.0253, 1
   %exitcond.not = icmp eq i32 %274, %smax326
-  br i1 %exitcond.not, label %275, label %259, !llvm.loop !11
+  br i1 %exitcond.not, label %275, label %259, !llvm.loop !10
 
 275:                                              ; preds = %265
   %276 = trunc i32 %272 to i8
@@ -766,7 +766,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %282 = inttoptr i64 %281 to ptr
   %283 = add nsw i32 %.1263, -1
   %284 = icmp sgt i32 %.1263, 1
-  br i1 %284, label %.preheader319, label %.loopexit, !llvm.loop !12
+  br i1 %284, label %.preheader319, label %.loopexit, !llvm.loop !11
 
 285:                                              ; preds = %218
   %286 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -813,7 +813,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %303 = lshr i32 %.1237, 1
   %304 = add nuw nsw i32 %.0243, 1
   %exitcond331.not = icmp eq i32 %304, %smax330
-  br i1 %exitcond331.not, label %305, label %292, !llvm.loop !13
+  br i1 %exitcond331.not, label %305, label %292, !llvm.loop !12
 
 305:                                              ; preds = %299
   %306 = trunc i32 %spec.select to i8
@@ -826,7 +826,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %312 = inttoptr i64 %311 to ptr
   %313 = add nsw i32 %.2264, -1
   %314 = icmp sgt i32 %.2264, 1
-  br i1 %314, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %314, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .preheader315:                                    ; preds = %285, %327
   %.3270 = phi ptr [ %331, %327 ], [ %140, %285 ]
@@ -863,7 +863,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %325 = shl nuw nsw i32 %.1, 1
   %326 = add nuw nsw i32 %.0234, 1
   %exitcond329.not = icmp eq i32 %326, %smax330
-  br i1 %exitcond329.not, label %327, label %315, !llvm.loop !15
+  br i1 %exitcond329.not, label %327, label %315, !llvm.loop !14
 
 327:                                              ; preds = %321
   %328 = trunc i32 %spec.select314 to i8
@@ -876,7 +876,7 @@ define void @Java_sun_java2d_x11_X11PMBlitLoops_updateBitmask(ptr noundef %0, pt
   %334 = inttoptr i64 %333 to ptr
   %335 = add nsw i32 %.3, -1
   %336 = icmp sgt i32 %.3, 1
-  br i1 %336, label %.preheader315, label %.loopexit, !llvm.loop !16
+  br i1 %336, label %.preheader315, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %275, %249, %327, %305
   %337 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1009,14 +1009,13 @@ attributes #5 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

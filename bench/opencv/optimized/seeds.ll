@@ -1632,7 +1632,7 @@ switch.early.test:                                ; preds = %536
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #16
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %38) #16
-  br i1 %switch, label %282, label %.loopexit, !llvm.loop !69
+  br i1 %switch, label %282, label %.loopexit
 
 544:                                              ; preds = %522, %524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259, %538, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236, %474, %472, %470
   %.pn110 = phi { ptr, i32 } [ %539, %538 ], [ %.pn107.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236 ], [ %.pn104.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246 ], [ %475, %474 ], [ %473, %472 ], [ %471, %470 ], [ %.pn100.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259 ], [ %525, %524 ], [ %523, %522 ]
@@ -2028,5 +2028,3 @@ attributes #19 = { builtin nounwind }
 !66 = !{!45, !17, i64 4}
 !67 = !{!68, !68, i64 0}
 !68 = !{!"double", !11, i64 0}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.estimated_trip_count"}

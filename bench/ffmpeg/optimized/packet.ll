@@ -208,7 +208,7 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #4
 define range(i32 -2147483648, 1) i32 @av_new_packet(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  store ptr null, ptr %3, align 8, !tbaa !28
+  store ptr null, ptr %3, align 8, !tbaa !27
   %or.cond.i = icmp ugt i32 %1, 2147483582
   br i1 %or.cond.i, label %packet_alloc.exit.thread, label %4
 
@@ -220,9 +220,9 @@ define range(i32 -2147483648, 1) i32 @av_new_packet(ptr noundef writeonly captur
   br i1 %8, label %packet_alloc.exit.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %3, align 8, !tbaa !28
+  %10 = load ptr, ptr %3, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !29
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %14, i8 0, i64 64, i1 false)
@@ -237,11 +237,11 @@ define range(i32 -2147483648, 1) i32 @av_new_packet(ptr noundef writeonly captur
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 4294967296, ptr %19, align 8
   store ptr %10, ptr %0, align 8, !tbaa !20
-  %20 = load ptr, ptr %11, align 8, !tbaa !29
+  %20 = load ptr, ptr %11, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %20, ptr %21, align 8, !tbaa !32
+  store ptr %20, ptr %21, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %1, ptr %22, align 8, !tbaa !33
+  store i32 %1, ptr %22, align 8, !tbaa !32
   br label %packet_alloc.exit.thread
 
 packet_alloc.exit.thread:                         ; preds = %4, %2, %9
@@ -253,14 +253,14 @@ packet_alloc.exit.thread:                         ; preds = %4, %2, %9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @av_shrink_packet(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !33
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %.not = icmp sgt i32 %4, %1
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
-  store i32 %1, ptr %3, align 8, !tbaa !33
+  store i32 %1, ptr %3, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds i8, ptr %7, i64 %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %9, i8 0, i64 64, i1 false)
@@ -276,7 +276,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !33
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %5 = icmp ult i32 %4, 2147483584
   br i1 %5, label %7, label %6
 
@@ -299,14 +299,14 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
   %17 = icmp eq ptr %16, null
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   br i1 %17, label %20, label %21
 
 20:                                               ; preds = %14
-  store ptr %19, ptr %15, align 8, !tbaa !32
+  store ptr %19, ptr %15, align 8, !tbaa !31
   br label %28
 
 21:                                               ; preds = %14
@@ -323,7 +323,7 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
   %29 = zext nneg i32 %12 to i64
   %30 = add nuw nsw i64 %.050, %29
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !34
+  %32 = load i64, ptr %31, align 8, !tbaa !33
   %33 = icmp ugt i64 %30, %32
   br i1 %33, label %36, label %34
 
@@ -333,7 +333,7 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
   br i1 %.not61, label %36, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %34
-  %.pre64 = load ptr, ptr %15, align 8, !tbaa !32
+  %.pre64 = load ptr, ptr %15, align 8, !tbaa !31
   br label %.thread
 
 36:                                               ; preds = %34, %28
@@ -352,13 +352,13 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
 46:                                               ; preds = %36
   %47 = load ptr, ptr %0, align 8, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !29
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.050
-  store ptr %50, ptr %15, align 8, !tbaa !32
+  store ptr %50, ptr %15, align 8, !tbaa !31
   br label %.thread
 
 .critedge:                                        ; preds = %36
-  store ptr %16, ptr %15, align 8, !tbaa !32
+  store ptr %16, ptr %15, align 8, !tbaa !31
   br label %73
 
 51:                                               ; preds = %10
@@ -369,15 +369,15 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
   br i1 %.not60, label %73, label %54
 
 54:                                               ; preds = %51
-  %55 = load i32, ptr %3, align 8, !tbaa !33
+  %55 = load i32, ptr %3, align 8, !tbaa !32
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !29
+  %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !32
+  %61 = load ptr, ptr %60, align 8, !tbaa !31
   %62 = zext nneg i32 %55 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %61, i64 %62, i1 false)
   %.pre = load ptr, ptr %0, align 8, !tbaa !20
@@ -386,16 +386,16 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
 63:                                               ; preds = %57, %54
   %64 = phi ptr [ %.pre, %57 ], [ %53, %54 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !29
+  %66 = load ptr, ptr %65, align 8, !tbaa !28
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %66, ptr %67, align 8, !tbaa !32
+  store ptr %66, ptr %67, align 8, !tbaa !31
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %46, %63
   %68 = phi ptr [ %.pre64, %..thread_crit_edge ], [ %50, %46 ], [ %66, %63 ]
-  %69 = load i32, ptr %3, align 8, !tbaa !33
+  %69 = load i32, ptr %3, align 8, !tbaa !32
   %70 = add nsw i32 %69, %1
-  store i32 %70, ptr %3, align 8, !tbaa !33
+  store i32 %70, ptr %3, align 8, !tbaa !32
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %68, i64 %71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %72, i8 0, i64 64, i1 false)
@@ -432,9 +432,9 @@ define range(i32 -22, 1) i32 @av_packet_from_data(ptr noundef writeonly captures
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %10, align 8, !tbaa !32
+  store ptr %1, ptr %10, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %2, ptr %11, align 8, !tbaa !33
+  store i32 %2, ptr %11, align 8, !tbaa !32
   br label %12
 
 12:                                               ; preds = %5, %3, %9
@@ -491,22 +491,22 @@ define range(i32 -34, 1) i32 @av_packet_add_side_data(ptr noundef captures(none)
 10:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.critedge, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %9, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %.not35 = icmp eq i32 %13, %1
   br i1 %.not35, label %14, label %10
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr %11, align 8, !tbaa !38
+  %15 = load ptr, ptr %11, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %15) #16
-  store ptr %2, ptr %11, align 8, !tbaa !38
+  store ptr %2, ptr %11, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %3, ptr %16, align 8, !tbaa !39
+  store i64 %3, ptr %16, align 8, !tbaa !38
   br label %31
 
 ._crit_edge:                                      ; preds = %10, %4
@@ -527,11 +527,11 @@ define range(i32 -34, 1) i32 @av_packet_add_side_data(ptr noundef captures(none)
   store ptr %23, ptr %20, align 8, !tbaa !21
   %25 = sext i32 %6 to i64
   %26 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25
-  store ptr %2, ptr %26, align 8, !tbaa !38
+  store ptr %2, ptr %26, align 8, !tbaa !37
   %27 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25, i32 1
-  store i64 %3, ptr %27, align 8, !tbaa !39
+  store i64 %3, ptr %27, align 8, !tbaa !38
   %28 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25, i32 2
-  store i32 %1, ptr %28, align 8, !tbaa !36
+  store i32 %1, ptr %28, align 8, !tbaa !35
   %29 = load i32, ptr %5, align 8, !tbaa !22
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %5, align 8, !tbaa !22
@@ -556,7 +556,7 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
 6:                                                ; preds = %3
   %7 = add nuw i64 %2, 64
   %8 = tail call noalias ptr @av_mallocz(i64 noundef %7) #16
-  store ptr %8, ptr %4, align 8, !tbaa !40
+  store ptr %8, ptr %4, align 8, !tbaa !39
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %av_packet_add_side_data.exit, label %9
 
@@ -575,22 +575,22 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
 15:                                               ; preds = %.critedge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.critedge.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.critedge.i, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %15, %.critedge.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %16 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %14, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !36
+  %18 = load i32, ptr %17, align 8, !tbaa !35
   %.not35.i = icmp eq i32 %18, %1
   br i1 %.not35.i, label %19, label %15
 
 19:                                               ; preds = %.critedge.i
-  %20 = load ptr, ptr %16, align 8, !tbaa !38
+  %20 = load ptr, ptr %16, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %20) #16
-  store ptr %8, ptr %16, align 8, !tbaa !38
+  store ptr %8, ptr %16, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %2, ptr %21, align 8, !tbaa !39
+  store i64 %2, ptr %21, align 8, !tbaa !38
   br label %av_packet_add_side_data.exit
 
 ._crit_edge.i:                                    ; preds = %15, %9
@@ -611,11 +611,11 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
   store ptr %28, ptr %25, align 8, !tbaa !21
   %30 = sext i32 %11 to i64
   %31 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30
-  store ptr %8, ptr %31, align 8, !tbaa !38
+  store ptr %8, ptr %31, align 8, !tbaa !37
   %32 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30, i32 1
-  store i64 %2, ptr %32, align 8, !tbaa !39
+  store i64 %2, ptr %32, align 8, !tbaa !38
   %33 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30, i32 2
-  store i32 %1, ptr %33, align 8, !tbaa !36
+  store i32 %1, ptr %33, align 8, !tbaa !35
   %34 = load i32, ptr %10, align 8, !tbaa !22
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %10, align 8, !tbaa !22
@@ -649,13 +649,13 @@ define ptr @av_packet_get_side_data(ptr noundef readonly captures(none) %0, i32 
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !40
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %15, label %9
 
@@ -665,12 +665,12 @@ define ptr @av_packet_get_side_data(ptr noundef readonly captures(none) %0, i32 
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !39
-  store i64 %18, ptr %2, align 8, !tbaa !42
+  %18 = load i64, ptr %17, align 8, !tbaa !38
+  store i64 %18, ptr %2, align 8, !tbaa !41
   br label %19
 
 19:                                               ; preds = %16, %15
-  %20 = load ptr, ptr %11, align 8, !tbaa !38
+  %20 = load ptr, ptr %11, align 8, !tbaa !37
   br label %22
 
 ._crit_edge:                                      ; preds = %9, %3
@@ -678,7 +678,7 @@ define ptr @av_packet_get_side_data(ptr noundef readonly captures(none) %0, i32 
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %._crit_edge
-  store i64 0, ptr %2, align 8, !tbaa !42
+  store i64 0, ptr %2, align 8, !tbaa !41
   br label %22
 
 22:                                               ; preds = %._crit_edge, %21, %19
@@ -704,7 +704,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @av_packet_pack_dictionary(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
-  store i64 0, ptr %1, align 8, !tbaa !42
+  store i64 0, ptr %1, align 8, !tbaa !41
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread67, label %.preheader77
 
@@ -728,7 +728,7 @@ define noalias ptr @av_packet_pack_dictionary(ptr noundef %0, ptr noundef writeo
   %.13982.us.us = phi i64 [ %.03885.us, %.preheader.us ], [ %12, %11 ]
   %.in.idx.us.us = select i1 %.not55.us.us, i64 0, i64 8
   %.in.us.us = getelementptr inbounds nuw i8, ptr %4, i64 %.in.idx.us.us
-  %6 = load ptr, ptr %.in.us.us, align 8, !tbaa !40
+  %6 = load ptr, ptr %.in.us.us, align 8, !tbaa !39
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
   %8 = add i64 %7, 1
   %9 = xor i64 %.13982.us.us, -1
@@ -737,17 +737,17 @@ define noalias ptr @av_packet_pack_dictionary(ptr noundef %0, ptr noundef writeo
 
 11:                                               ; preds = %5
   %12 = add i64 %8, %.13982.us.us
-  br i1 %.not55.us.us, label %5, label %.loopexit.split.us.us, !llvm.loop !43
+  br i1 %.not55.us.us, label %5, label %.loopexit.split.us.us, !llvm.loop !42
 
 .loopexit.split.us.us:                            ; preds = %11
   %13 = tail call ptr @av_dict_iterate(ptr noundef nonnull %0, ptr noundef nonnull %4) #16
   %.not52.us = icmp eq ptr %13, null
-  br i1 %.not52.us, label %._crit_edge, label %.preheader.us, !llvm.loop !45
+  br i1 %.not52.us, label %._crit_edge, label %.preheader.us, !llvm.loop !44
 
 .loopexit.split:                                  ; preds = %16
   %14 = tail call ptr @av_dict_iterate(ptr noundef nonnull %0, ptr noundef nonnull %15) #16
   %.not52 = icmp eq ptr %14, null
-  br i1 %.not52, label %._crit_edge, label %.preheader, !llvm.loop !46
+  br i1 %.not52, label %._crit_edge, label %.preheader, !llvm.loop !45
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit.split
   %15 = phi ptr [ %14, %.loopexit.split ], [ %3, %.preheader.lr.ph ]
@@ -759,13 +759,13 @@ define noalias ptr @av_packet_pack_dictionary(ptr noundef %0, ptr noundef writeo
   %.13982 = phi i64 [ %.03885, %.preheader ], [ %21, %16 ]
   %.in.idx = select i1 %.not55, i64 0, i64 8
   %.in = getelementptr inbounds nuw i8, ptr %15, i64 %.in.idx
-  %17 = load ptr, ptr %.in, align 8, !tbaa !40
+  %17 = load ptr, ptr %.in, align 8, !tbaa !39
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
   %19 = add i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %.034, i64 %.13982
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %17, i64 %19, i1 false)
   %21 = add i64 %19, %.13982
-  br i1 %.not55, label %16, label %.loopexit.split, !llvm.loop !47
+  br i1 %.not55, label %16, label %.loopexit.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.loopexit.split, %.loopexit.split.us.us, %.preheader77
   %.038.lcssa = phi i64 [ 0, %.preheader77 ], [ %12, %.loopexit.split.us.us ], [ %21, %.loopexit.split ]
@@ -777,8 +777,8 @@ define noalias ptr @av_packet_pack_dictionary(ptr noundef %0, ptr noundef writeo
   br i1 %.not54, label %.thread67, label %24
 
 24:                                               ; preds = %22
-  store i64 %.038.lcssa, ptr %1, align 8, !tbaa !42
-  br label %.preheader77, !llvm.loop !48
+  store i64 %.038.lcssa, ptr %1, align 8, !tbaa !41
+  br label %.preheader77, !llvm.loop !47
 
 .thread67:                                        ; preds = %22, %._crit_edge, %5, %2
   %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %22 ], [ %.034, %._crit_edge ]
@@ -802,7 +802,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_unpack_dictionary(ptr noundef %0
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %9 = getelementptr inbounds i8, ptr %8, i64 -1
-  %10 = load i8, ptr %9, align 1, !tbaa !49
+  %10 = load i8, ptr %9, align 1, !tbaa !48
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %.lr.ph, label %.thread
 
@@ -815,7 +815,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_unpack_dictionary(ptr noundef %0
   br i1 %.not35, label %14, label %.thread
 
 14:                                               ; preds = %.lr.ph
-  %15 = load i8, ptr %.02640, align 1, !tbaa !49
+  %15 = load i8, ptr %.02640, align 1, !tbaa !48
   %.not36 = icmp eq i8 %15, 0
   br i1 %.not36, label %.thread, label %16
 
@@ -829,7 +829,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_unpack_dictionary(ptr noundef %0
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = icmp ult ptr %22, %8
-  br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !50
+  br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !49
 
 .thread:                                          ; preds = %19, %14, %.lr.ph, %16, %7, %3
   %.0 = phi i32 [ 0, %3 ], [ -1094995529, %7 ], [ 0, %19 ], [ -1094995529, %14 ], [ -1094995529, %.lr.ph ], [ %17, %16 ]
@@ -854,24 +854,24 @@ define range(i32 -12, 1) i32 @av_packet_shrink_side_data(ptr noundef readonly ca
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !50
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %15, label %9
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !39
+  %17 = load i64, ptr %16, align 8, !tbaa !38
   %18 = icmp ugt i64 %2, %17
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15
-  store i64 %2, ptr %16, align 8, !tbaa !39
+  store i64 %2, ptr %16, align 8, !tbaa !38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %3, %15, %19
@@ -906,21 +906,21 @@ define range(i32 -2147483648, 1) i32 @av_packet_copy_props(ptr noundef initializ
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %19, ptr %20, align 4, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %22, ptr %23, align 8, !tbaa !52
+  store ptr %22, ptr %23, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr null, ptr %27, align 8, !tbaa !53
+  store ptr null, ptr %27, align 8, !tbaa !52
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %28, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %29, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %31 = load ptr, ptr %30, align 8, !tbaa !53
+  %31 = load ptr, ptr %30, align 8, !tbaa !52
   %32 = tail call i32 @av_buffer_replace(ptr noundef nonnull %27, ptr noundef %31) #16
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %.loopexit, label %.preheader
@@ -940,10 +940,10 @@ define range(i32 -2147483648, 1) i32 @av_packet_copy_props(ptr noundef initializ
   %39 = load ptr, ptr %37, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !36
+  %42 = load i32, ptr %41, align 8, !tbaa !35
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !39
-  %45 = load ptr, ptr %40, align 8, !tbaa !38
+  %44 = load i64, ptr %43, align 8, !tbaa !38
+  %45 = load ptr, ptr %40, align 8, !tbaa !37
   %46 = tail call ptr @av_packet_new_side_data(ptr noundef %0, i32 noundef %42, i64 noundef %44)
   %.not.not = icmp eq ptr %46, null
   br i1 %.not.not, label %47, label %55
@@ -976,7 +976,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_copy_props(ptr noundef initializ
   %56 = load i32, ptr %34, align 8, !tbaa !22
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %38, label %.loopexit, !llvm.loop !54
+  br i1 %58, label %38, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %55, %.preheader, %.thread, %2
   %.0 = phi i32 [ %32, %2 ], [ -12, %.thread ], [ 0, %.preheader ], [ 0, %55 ]
@@ -1001,7 +1001,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_ref(ptr noundef initializes((0, 
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !33
+  %9 = load i32, ptr %8, align 8, !tbaa !32
   %or.cond.i = icmp ugt i32 %9, 2147483582
   br i1 %or.cond.i, label %packet_alloc.exit.thread, label %10
 
@@ -1013,22 +1013,22 @@ define range(i32 -2147483648, 1) i32 @av_packet_ref(ptr noundef initializes((0, 
   br i1 %14, label %packet_alloc.exit.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %0, align 8, !tbaa !28
+  %16 = load ptr, ptr %0, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = zext nneg i32 %9 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %20, i8 0, i64 64, i1 false)
-  %21 = load i32, ptr %8, align 8, !tbaa !33
+  %21 = load i32, ptr %8, align 8, !tbaa !32
   %.not28 = icmp eq i32 %21, 0
   br i1 %.not28, label %29, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %0, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
   %28 = sext i32 %21 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %27, i64 %28, i1 false)
   br label %29
@@ -1050,13 +1050,13 @@ define range(i32 -2147483648, 1) i32 @av_packet_ref(ptr noundef initializes((0, 
 
 36:                                               ; preds = %34, %29
   %.sink.in = phi ptr [ %35, %34 ], [ %31, %29 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !40
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !39
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink, ptr %37, align 8, !tbaa !32
+  store ptr %.sink, ptr %37, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !33
+  %39 = load i32, ptr %38, align 8, !tbaa !32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %39, ptr %40, align 8, !tbaa !33
+  store i32 %39, ptr %40, align 8, !tbaa !32
   br label %57
 
 packet_alloc.exit.thread:                         ; preds = %10, %7, %32, %2
@@ -1174,7 +1174,7 @@ av_packet_free.exit:                              ; preds = %1, %4, %av_packet_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @av_packet_move_ref(ptr noundef writeonly captures(none) initializes((0, 104)) %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false), !tbaa.struct !54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, i8 0, i64 96, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 -9223372036854775808, ptr %3, align 8, !tbaa !4
@@ -1195,7 +1195,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_make_refcounted(ptr noundef %0) 
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !33
+  %5 = load i32, ptr %4, align 8, !tbaa !32
   %or.cond.i = icmp ugt i32 %5, 2147483582
   br i1 %or.cond.i, label %packet_alloc.exit.thread, label %6
 
@@ -1207,22 +1207,22 @@ define range(i32 -2147483648, 1) i32 @av_packet_make_refcounted(ptr noundef %0) 
   br i1 %10, label %packet_alloc.exit.thread, label %11
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %0, align 8, !tbaa !28
+  %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = zext nneg i32 %5 to i64
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %16, i8 0, i64 64, i1 false)
-  %17 = load i32, ptr %4, align 8, !tbaa !33
+  %17 = load i32, ptr %4, align 8, !tbaa !32
   %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %0, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = sext i32 %17 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %23, i64 %24, i1 false)
   br label %25
@@ -1230,9 +1230,9 @@ define range(i32 -2147483648, 1) i32 @av_packet_make_refcounted(ptr noundef %0) 
 25:                                               ; preds = %18, %11
   %26 = load ptr, ptr %0, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !32
+  store ptr %28, ptr %29, align 8, !tbaa !31
   br label %packet_alloc.exit.thread
 
 packet_alloc.exit.thread:                         ; preds = %6, %3, %1, %25
@@ -1244,7 +1244,7 @@ packet_alloc.exit.thread:                         ; preds = %6, %3, %1, %25
 define range(i32 -2147483648, 1) i32 @av_packet_make_writable(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  store ptr null, ptr %2, align 8, !tbaa !28
+  store ptr null, ptr %2, align 8, !tbaa !27
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -1256,7 +1256,7 @@ define range(i32 -2147483648, 1) i32 @av_packet_make_writable(ptr noundef %0) lo
 
 6:                                                ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !33
+  %8 = load i32, ptr %7, align 8, !tbaa !32
   %or.cond.i = icmp ugt i32 %8, 2147483582
   br i1 %or.cond.i, label %packet_alloc.exit.thread, label %9
 
@@ -1268,32 +1268,32 @@ define range(i32 -2147483648, 1) i32 @av_packet_make_writable(ptr noundef %0) lo
   br i1 %13, label %packet_alloc.exit.thread, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %2, align 8, !tbaa !28
+  %15 = load ptr, ptr %2, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = zext nneg i32 %8 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %19, i8 0, i64 64, i1 false)
-  %20 = load i32, ptr %7, align 8, !tbaa !33
+  %20 = load i32, ptr %7, align 8, !tbaa !32
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %26, label %21
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %16, align 8, !tbaa !29
+  %22 = load ptr, ptr %16, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = sext i32 %20 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %24, i64 %25, i1 false)
   br label %26
 
 26:                                               ; preds = %21, %14
   call void @av_buffer_unref(ptr noundef nonnull %0) #16
-  %27 = load ptr, ptr %2, align 8, !tbaa !28
+  %27 = load ptr, ptr %2, align 8, !tbaa !27
   store ptr %27, ptr %0, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %29, ptr %30, align 8, !tbaa !32
+  store ptr %29, ptr %30, align 8, !tbaa !31
   br label %packet_alloc.exit.thread
 
 packet_alloc.exit.thread:                         ; preds = %9, %6, %4, %26
@@ -1379,7 +1379,7 @@ define range(i32 -2147483648, 1) i32 @avpriv_packet_list_put(ptr noundef capture
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !33
+  %20 = load i32, ptr %19, align 8, !tbaa !32
   %or.cond.i.i = icmp ugt i32 %20, 2147483582
   br i1 %or.cond.i.i, label %45, label %21
 
@@ -1391,22 +1391,22 @@ define range(i32 -2147483648, 1) i32 @avpriv_packet_list_put(ptr noundef capture
   br i1 %25, label %45, label %26
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %1, align 8, !tbaa !28
+  %27 = load ptr, ptr %1, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = zext nneg i32 %20 to i64
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %31, i8 0, i64 64, i1 false)
-  %32 = load i32, ptr %19, align 8, !tbaa !33
+  %32 = load i32, ptr %19, align 8, !tbaa !32
   %.not13.i = icmp eq i32 %32, 0
   br i1 %.not13.i, label %40, label %33
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %1, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !32
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
   %39 = sext i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %38, i64 %39, i1 false)
   br label %40
@@ -1414,9 +1414,9 @@ define range(i32 -2147483648, 1) i32 @avpriv_packet_list_put(ptr noundef capture
 40:                                               ; preds = %33, %26
   %41 = load ptr, ptr %1, align 8, !tbaa !20
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !29
+  %43 = load ptr, ptr %42, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %43, ptr %44, align 8, !tbaa !32
+  store ptr %43, ptr %44, align 8, !tbaa !31
   br label %av_packet_make_refcounted.exit
 
 45:                                               ; preds = %21, %18
@@ -1426,7 +1426,7 @@ define range(i32 -2147483648, 1) i32 @avpriv_packet_list_put(ptr noundef capture
 
 av_packet_make_refcounted.exit:                   ; preds = %40, %16
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %46, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %46, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false), !tbaa.struct !54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, i8 0, i64 96, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 -9223372036854775808, ptr %47, align 8, !tbaa !4
@@ -1439,21 +1439,21 @@ av_packet_make_refcounted.exit:                   ; preds = %40, %16
   br label %51
 
 51:                                               ; preds = %7, %av_packet_make_refcounted.exit
-  store ptr null, ptr %5, align 8, !tbaa !59
-  %52 = load ptr, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %5, align 8, !tbaa !58
+  %52 = load ptr, ptr %0, align 8, !tbaa !61
   %.not28 = icmp eq ptr %52, null
   br i1 %.not28, label %56, label %53
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !64
+  %55 = load ptr, ptr %54, align 8, !tbaa !63
   br label %56
 
 56:                                               ; preds = %51, %53
   %.sink = phi ptr [ %55, %53 ], [ %0, %51 ]
-  store ptr %5, ptr %.sink, align 8, !tbaa !65
+  store ptr %5, ptr %.sink, align 8, !tbaa !64
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %57, align 8, !tbaa !64
+  store ptr %5, ptr %57, align 8, !tbaa !63
   br label %58
 
 58:                                               ; preds = %4, %56, %45, %15
@@ -1465,22 +1465,22 @@ av_packet_make_refcounted.exit:                   ; preds = %40, %16
 define range(i32 -11, 1) i32 @avpriv_packet_list_get(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %4 = load ptr, ptr %0, align 8, !tbaa !62
-  store ptr %4, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %0, align 8, !tbaa !61
+  store ptr %4, ptr %3, align 8, !tbaa !64
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false), !tbaa.struct !55
-  %7 = load ptr, ptr %4, align 8, !tbaa !59
-  store ptr %7, ptr %0, align 8, !tbaa !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false), !tbaa.struct !54
+  %7 = load ptr, ptr %4, align 8, !tbaa !58
+  store ptr %7, ptr %0, align 8, !tbaa !61
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %8, label %10
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !64
+  store ptr null, ptr %9, align 8, !tbaa !63
   br label %10
 
 10:                                               ; preds = %8, %5
@@ -1496,15 +1496,15 @@ define range(i32 -11, 1) i32 @avpriv_packet_list_get(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define void @avpriv_packet_list_free(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !62
+  %3 = load ptr, ptr %0, align 8, !tbaa !61
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %av_packet_unref.exit
   %.06 = phi ptr [ %4, %av_packet_unref.exit ], [ %3, %1 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  store ptr %.06, ptr %2, align 8, !tbaa !65
-  %4 = load ptr, ptr %.06, align 8, !tbaa !59
+  store ptr %.06, ptr %2, align 8, !tbaa !64
+  %4 = load ptr, ptr %.06, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.06, i64 64
   %7 = load i32, ptr %6, align 8, !tbaa !22
@@ -1545,7 +1545,7 @@ av_packet_unref.exit:                             ; preds = %10, %.lr.ph
   call void @av_freep(ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %av_packet_unref.exit, %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1568,18 +1568,18 @@ define range(i32 -12, 1) i32 @ff_side_data_set_encoder_stats(ptr noundef capture
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %av_packet_get_side_data.exit.thread, label %12, !llvm.loop !41
+  br i1 %exitcond.not.i, label %av_packet_get_side_data.exit.thread, label %12, !llvm.loop !40
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
   %13 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %10, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !36
+  %15 = load i32, ptr %14, align 8, !tbaa !35
   %16 = icmp eq i32 %15, 8
   br i1 %16, label %av_packet_get_side_data.exit, label %11
 
 av_packet_get_side_data.exit:                     ; preds = %12
-  %17 = load ptr, ptr %13, align 8, !tbaa !38
+  %17 = load ptr, ptr %13, align 8, !tbaa !37
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %av_packet_get_side_data.exit.thread, label %.thread
 
@@ -1593,7 +1593,7 @@ av_packet_get_side_data.exit.thread:              ; preds = %11, %5, %av_packet_
 
 .thread:                                          ; preds = %av_packet_get_side_data.exit
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !39
+  %23 = load i64, ptr %22, align 8, !tbaa !38
   %.pre = shl nsw i32 %3, 3
   %.pre36 = add nsw i32 %.pre, 8
   %.pre38 = sext i32 %.pre36 to i64
@@ -1602,13 +1602,13 @@ av_packet_get_side_data.exit.thread:              ; preds = %11, %5, %av_packet_
 
 .thread.thread:                                   ; preds = %av_packet_get_side_data.exit.thread, %.thread
   %.0193142 = phi ptr [ %17, %.thread ], [ %21, %av_packet_get_side_data.exit.thread ]
-  store i32 %1, ptr %.0193142, align 1, !tbaa !49
+  store i32 %1, ptr %.0193142, align 1, !tbaa !48
   %25 = trunc i32 %4 to i8
   %26 = getelementptr inbounds nuw i8, ptr %.0193142, i64 4
-  store i8 %25, ptr %26, align 1, !tbaa !49
+  store i8 %25, ptr %26, align 1, !tbaa !48
   %27 = trunc i32 %3 to i8
   %28 = getelementptr inbounds nuw i8, ptr %.0193142, i64 5
-  store i8 %27, ptr %28, align 1, !tbaa !49
+  store i8 %27, ptr %28, align 1, !tbaa !48
   %29 = icmp sgt i32 %3, 0
   br i1 %29, label %.lr.ph, label %.loopexit
 
@@ -1620,13 +1620,13 @@ av_packet_get_side_data.exit.thread:              ; preds = %11, %5, %av_packet_
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  %33 = load i64, ptr %32, align 8, !tbaa !42
+  %33 = load i64, ptr %32, align 8, !tbaa !41
   %34 = shl nsw i64 %indvars.iv, 3
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
-  store i64 %33, ptr %35, align 1, !tbaa !49
+  store i64 %33, ptr %35, align 1, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !67
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !66
 
 .loopexit:                                        ; preds = %31, %.thread.thread, %av_packet_get_side_data.exit.thread, %.thread
   %.020 = phi i32 [ -12, %.thread ], [ -12, %av_packet_get_side_data.exit.thread ], [ 0, %.thread.thread ], [ 0, %31 ]
@@ -1649,20 +1649,20 @@ define range(i32 -12, 1) i32 @ff_side_data_set_prft(ptr noundef captures(none) %
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %av_packet_get_side_data.exit.thread, label %9, !llvm.loop !41
+  br i1 %exitcond.not.i, label %av_packet_get_side_data.exit.thread, label %9, !llvm.loop !40
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %10 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %7, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !36
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = icmp eq i32 %12, 27
   br i1 %13, label %av_packet_get_side_data.exit, label %8
 
 av_packet_get_side_data.exit:                     ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !39
-  %16 = load ptr, ptr %10, align 8, !tbaa !38
+  %15 = load i64, ptr %14, align 8, !tbaa !38
+  %16 = load ptr, ptr %10, align 8, !tbaa !37
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %av_packet_get_side_data.exit.thread, label %18
 
@@ -1679,9 +1679,9 @@ av_packet_get_side_data.exit.thread:              ; preds = %8, %2, %av_packet_g
   br i1 %or.cond, label %23, label %21
 
 21:                                               ; preds = %18
-  store i64 %1, ptr %.0, align 8, !tbaa !68
+  store i64 %1, ptr %.0, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 0, ptr %22, align 8, !tbaa !70
+  store i32 0, ptr %22, align 8, !tbaa !69
   br label %23
 
 23:                                               ; preds = %18, %21
@@ -1701,13 +1701,13 @@ define ptr @av_packet_side_data_get(ptr noundef readonly captures(ret: address, 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
   %5 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !36
+  %7 = load i32, ptr %6, align 8, !tbaa !35
   %8 = icmp eq i32 %7, %2
   br i1 %8, label %._crit_edge, label %4
 
@@ -1718,8 +1718,8 @@ define ptr @av_packet_side_data_get(ptr noundef readonly captures(ret: address, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @av_packet_side_data_add(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
-  %7 = load ptr, ptr %0, align 8, !tbaa !57
-  %8 = load i32, ptr %1, align 4, !tbaa !56
+  %7 = load ptr, ptr %0, align 8, !tbaa !56
+  %8 = load i32, ptr %1, align 4, !tbaa !55
   %.not4245.i = icmp sgt i32 %8, 0
   br i1 %.not4245.i, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
@@ -1730,22 +1730,22 @@ define ptr @av_packet_side_data_add(ptr noundef captures(none) %0, ptr noundef c
 9:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !71
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %7, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !36
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %.not.i = icmp eq i32 %12, %2
   br i1 %.not.i, label %.thread.i, label %9
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  %13 = load ptr, ptr %10, align 8, !tbaa !38
+  %13 = load ptr, ptr %10, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %13) #16
-  store ptr %3, ptr %10, align 8, !tbaa !38
+  store ptr %3, ptr %10, align 8, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %4, ptr %14, align 8, !tbaa !39
+  store i64 %4, ptr %14, align 8, !tbaa !38
   br label %packet_side_data_add.exit
 
 ._crit_edge.i:                                    ; preds = %9
@@ -1760,15 +1760,15 @@ define ptr @av_packet_side_data_add(ptr noundef captures(none) %0, ptr noundef c
   br i1 %.not43.i, label %packet_side_data_add.exit, label %19
 
 19:                                               ; preds = %._crit_edge.thread.i
-  store ptr %18, ptr %0, align 8, !tbaa !57
+  store ptr %18, ptr %0, align 8, !tbaa !56
   %20 = sext i32 %8 to i64
   %21 = getelementptr inbounds %struct.AVPacketSideData, ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 %2, ptr %22, align 8, !tbaa !36
-  store ptr %3, ptr %21, align 8, !tbaa !38
+  store i32 %2, ptr %22, align 8, !tbaa !35
+  store ptr %3, ptr %21, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %4, ptr %23, align 8, !tbaa !39
-  store i32 %16, ptr %1, align 4, !tbaa !56
+  store i64 %4, ptr %23, align 8, !tbaa !38
+  store i32 %16, ptr %1, align 4, !tbaa !55
   br label %packet_side_data_add.exit
 
 packet_side_data_add.exit:                        ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i, %19
@@ -1786,15 +1786,15 @@ define ptr @av_packet_side_data_new(ptr noundef captures(none) %0, ptr noundef c
 8:                                                ; preds = %5
   %9 = add nuw i64 %3, 64
   %10 = tail call noalias ptr @av_malloc(i64 noundef %9) #16
-  store ptr %10, ptr %6, align 8, !tbaa !40
+  store ptr %10, ptr %6, align 8, !tbaa !39
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %packet_side_data_add.exit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %13 = load ptr, ptr %0, align 8, !tbaa !57
-  %14 = load i32, ptr %1, align 4, !tbaa !56
+  %13 = load ptr, ptr %0, align 8, !tbaa !56
+  %14 = load i32, ptr %1, align 4, !tbaa !55
   %.not4245.i = icmp sgt i32 %14, 0
   br i1 %.not4245.i, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
@@ -1805,22 +1805,22 @@ define ptr @av_packet_side_data_new(ptr noundef captures(none) %0, ptr noundef c
 15:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !71
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %15 ]
   %16 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %13, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !36
+  %18 = load i32, ptr %17, align 8, !tbaa !35
   %.not.i = icmp eq i32 %18, %2
   br i1 %.not.i, label %.thread.i, label %15
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  %19 = load ptr, ptr %16, align 8, !tbaa !38
+  %19 = load ptr, ptr %16, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %19) #16
-  store ptr %10, ptr %16, align 8, !tbaa !38
+  store ptr %10, ptr %16, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %3, ptr %20, align 8, !tbaa !39
+  store i64 %3, ptr %20, align 8, !tbaa !38
   br label %packet_side_data_add.exit
 
 ._crit_edge.i:                                    ; preds = %15
@@ -1835,15 +1835,15 @@ define ptr @av_packet_side_data_new(ptr noundef captures(none) %0, ptr noundef c
   br i1 %.not43.i, label %30, label %25
 
 25:                                               ; preds = %._crit_edge.thread.i
-  store ptr %24, ptr %0, align 8, !tbaa !57
+  store ptr %24, ptr %0, align 8, !tbaa !56
   %26 = sext i32 %14 to i64
   %27 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 %2, ptr %28, align 8, !tbaa !36
-  store ptr %10, ptr %27, align 8, !tbaa !38
+  store i32 %2, ptr %28, align 8, !tbaa !35
+  store ptr %10, ptr %27, align 8, !tbaa !37
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 %3, ptr %29, align 8, !tbaa !39
-  store i32 %22, ptr %1, align 4, !tbaa !56
+  store i64 %3, ptr %29, align 8, !tbaa !38
+  store i32 %22, ptr %1, align 4, !tbaa !55
   br label %packet_side_data_add.exit
 
 30:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
@@ -1858,7 +1858,7 @@ packet_side_data_add.exit:                        ; preds = %25, %.thread.i, %30
 
 ; Function Attrs: nounwind uwtable
 define void @av_packet_side_data_remove(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = load i32, ptr %1, align 4, !tbaa !56
+  %4 = load i32, ptr %1, align 4, !tbaa !55
   %5 = zext i32 %4 to i64
   br label %6
 
@@ -1872,29 +1872,29 @@ define void @av_packet_side_data_remove(ptr noundef captures(none) %0, ptr nound
   %10 = add nsw i64 %indvars.iv, -1
   %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %.not = icmp eq i32 %13, %2
-  br i1 %.not, label %14, label %6, !llvm.loop !73
+  br i1 %.not, label %14, label %6, !llvm.loop !72
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %11, align 8, !tbaa !38
+  %15 = load ptr, ptr %11, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %15) #16
   %16 = add nsw i32 %4, -1
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct.AVPacketSideData, ptr %0, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !tbaa.struct !74
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !tbaa.struct !73
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %14
   %.014 = phi i32 [ %16, %14 ], [ %4, %6 ]
-  store i32 %.014, ptr %1, align 4, !tbaa !56
+  store i32 %.014, ptr %1, align 4, !tbaa !55
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @av_packet_side_data_free(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !57
-  %4 = load i32, ptr %1, align 4, !tbaa !56
+  %3 = load ptr, ptr %0, align 8, !tbaa !56
+  %4 = load i32, ptr %1, align 4, !tbaa !55
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1904,17 +1904,17 @@ define void @av_packet_side_data_free(ptr noundef %0, ptr noundef captures(none)
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @av_freep(ptr noundef nonnull %0) #16
-  store i32 0, ptr %1, align 4, !tbaa !56
+  store i32 0, ptr %1, align 4, !tbaa !55
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void @av_free(ptr noundef %7) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2052,7 +2052,7 @@ define internal range(i32 -2147483648, 1) i32 @container_packet_transfer(ptr rea
   br label %13
 
 8:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false), !tbaa.struct !54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 96, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 -9223372036854775808, ptr %9, align 8, !tbaa !4
@@ -2119,54 +2119,53 @@ attributes #19 = { nounwind willreturn memory(none) }
 !22 = !{!5, !12, i64 56}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 _ZTS8AVPacket", !7, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!6, !6, i64 0}
-!29 = !{!30, !11, i64 8}
-!30 = !{!"AVBufferRef", !31, i64 0, !11, i64 8, !10, i64 16}
-!31 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!32 = !{!5, !11, i64 24}
-!33 = !{!5, !12, i64 32}
-!34 = !{!30, !10, i64 16}
-!35 = distinct !{!35, !26, !27}
-!36 = !{!37, !12, i64 16}
-!37 = !{!"AVPacketSideData", !11, i64 0, !10, i64 8, !12, i64 16}
-!38 = !{!37, !11, i64 0}
-!39 = !{!37, !10, i64 8}
-!40 = !{!11, !11, i64 0}
-!41 = distinct !{!41, !26, !27}
-!42 = !{!10, !10, i64 0}
-!43 = distinct !{!43, !26, !27, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !26, !27, !44}
-!46 = distinct !{!46, !26, !27}
-!47 = distinct !{!47, !26, !27}
-!48 = distinct !{!48, !26, !27}
-!49 = !{!8, !8, i64 0}
-!50 = distinct !{!50, !26, !27}
-!51 = distinct !{!51, !26, !27}
-!52 = !{!5, !7, i64 80}
-!53 = !{!5, !6, i64 88}
-!54 = distinct !{!54, !26, !27}
-!55 = !{i64 0, i64 8, !28, i64 8, i64 8, !42, i64 16, i64 8, !42, i64 24, i64 8, !40, i64 32, i64 4, !56, i64 36, i64 4, !56, i64 40, i64 4, !56, i64 48, i64 8, !57, i64 56, i64 4, !56, i64 64, i64 8, !42, i64 72, i64 8, !42, i64 80, i64 8, !58, i64 88, i64 8, !28, i64 96, i64 4, !56, i64 100, i64 4, !56}
-!56 = !{!12, !12, i64 0}
-!57 = !{!13, !13, i64 0}
-!58 = !{!7, !7, i64 0}
-!59 = !{!60, !61, i64 0}
-!60 = !{!"PacketListEntry", !61, i64 0, !5, i64 8}
-!61 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
-!62 = !{!63, !61, i64 0}
-!63 = !{!"PacketList", !61, i64 0, !61, i64 8}
-!64 = !{!63, !61, i64 8}
-!65 = !{!61, !61, i64 0}
-!66 = distinct !{!66, !26, !27}
-!67 = distinct !{!67, !26, !27}
-!68 = !{!69, !10, i64 0}
-!69 = !{!"AVProducerReferenceTime", !10, i64 0, !12, i64 8}
-!70 = !{!69, !12, i64 8}
-!71 = distinct !{!71, !26, !27}
-!72 = distinct !{!72, !26, !27}
-!73 = distinct !{!73, !26, !27}
-!74 = !{i64 0, i64 8, !40, i64 8, i64 8, !42, i64 16, i64 4, !56}
-!75 = distinct !{!75, !26, !27}
+!27 = !{!6, !6, i64 0}
+!28 = !{!29, !11, i64 8}
+!29 = !{!"AVBufferRef", !30, i64 0, !11, i64 8, !10, i64 16}
+!30 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!31 = !{!5, !11, i64 24}
+!32 = !{!5, !12, i64 32}
+!33 = !{!29, !10, i64 16}
+!34 = distinct !{!34, !26}
+!35 = !{!36, !12, i64 16}
+!36 = !{!"AVPacketSideData", !11, i64 0, !10, i64 8, !12, i64 16}
+!37 = !{!36, !11, i64 0}
+!38 = !{!36, !10, i64 8}
+!39 = !{!11, !11, i64 0}
+!40 = distinct !{!40, !26}
+!41 = !{!10, !10, i64 0}
+!42 = distinct !{!42, !26, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !26, !43}
+!45 = distinct !{!45, !26}
+!46 = distinct !{!46, !26}
+!47 = distinct !{!47, !26}
+!48 = !{!8, !8, i64 0}
+!49 = distinct !{!49, !26}
+!50 = distinct !{!50, !26}
+!51 = !{!5, !7, i64 80}
+!52 = !{!5, !6, i64 88}
+!53 = distinct !{!53, !26}
+!54 = !{i64 0, i64 8, !27, i64 8, i64 8, !41, i64 16, i64 8, !41, i64 24, i64 8, !39, i64 32, i64 4, !55, i64 36, i64 4, !55, i64 40, i64 4, !55, i64 48, i64 8, !56, i64 56, i64 4, !55, i64 64, i64 8, !41, i64 72, i64 8, !41, i64 80, i64 8, !57, i64 88, i64 8, !27, i64 96, i64 4, !55, i64 100, i64 4, !55}
+!55 = !{!12, !12, i64 0}
+!56 = !{!13, !13, i64 0}
+!57 = !{!7, !7, i64 0}
+!58 = !{!59, !60, i64 0}
+!59 = !{!"PacketListEntry", !60, i64 0, !5, i64 8}
+!60 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
+!61 = !{!62, !60, i64 0}
+!62 = !{!"PacketList", !60, i64 0, !60, i64 8}
+!63 = !{!62, !60, i64 8}
+!64 = !{!60, !60, i64 0}
+!65 = distinct !{!65, !26}
+!66 = distinct !{!66, !26}
+!67 = !{!68, !10, i64 0}
+!68 = !{!"AVProducerReferenceTime", !10, i64 0, !12, i64 8}
+!69 = !{!68, !12, i64 8}
+!70 = distinct !{!70, !26}
+!71 = distinct !{!71, !26}
+!72 = distinct !{!72, !26}
+!73 = !{i64 0, i64 8, !39, i64 8, i64 8, !41, i64 16, i64 4, !55}
+!74 = distinct !{!74, !26}

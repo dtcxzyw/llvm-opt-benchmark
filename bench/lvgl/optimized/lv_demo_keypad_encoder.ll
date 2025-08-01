@@ -62,18 +62,18 @@ define void @lv_demo_keypad_encoder() local_unnamed_addr #0 {
 6:                                                ; preds = %.sink.split, %.lr.ph
   %7 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %3) #2
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %6, %0
   %8 = tail call ptr @lv_screen_active() #2
   %9 = tail call ptr @lv_tabview_create(ptr noundef %8) #2
-  store ptr %9, ptr @tv, align 8, !tbaa !10
+  store ptr %9, ptr @tv, align 8, !tbaa !8
   %10 = tail call ptr @lv_tabview_add_tab(ptr noundef %9, ptr noundef nonnull @.str) #2
-  store ptr %10, ptr @t1, align 8, !tbaa !10
-  %11 = load ptr, ptr @tv, align 8, !tbaa !10
+  store ptr %10, ptr @t1, align 8, !tbaa !8
+  %11 = load ptr, ptr @tv, align 8, !tbaa !8
   %12 = tail call ptr @lv_tabview_add_tab(ptr noundef %11, ptr noundef nonnull @.str.1) #2
-  store ptr %12, ptr @t2, align 8, !tbaa !10
-  %13 = load ptr, ptr @t1, align 8, !tbaa !10
+  store ptr %12, ptr @t2, align 8, !tbaa !8
+  %13 = load ptr, ptr @t1, align 8, !tbaa !8
   tail call void @lv_obj_set_flex_flow(ptr noundef %13, i32 noundef 1) #2
   tail call void @lv_obj_set_flex_align(ptr noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 2) #2
   %14 = tail call ptr @lv_table_create(ptr noundef %13) #2
@@ -123,7 +123,7 @@ selectors_create.exit:                            ; preds = %._crit_edge, %27
   %33 = tail call ptr @lv_list_add_button(ptr noundef %23, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #2
   %34 = tail call ptr @lv_list_add_button(ptr noundef %23, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #2
   %35 = tail call ptr @lv_list_add_button(ptr noundef %23, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #2
-  %36 = load ptr, ptr @t2, align 8, !tbaa !10
+  %36 = load ptr, ptr @t2, align 8, !tbaa !8
   tail call void @lv_obj_set_flex_flow(ptr noundef %36, i32 noundef 1) #2
   %37 = tail call ptr @lv_textarea_create(ptr noundef %36) #2
   tail call void @lv_obj_set_width(ptr noundef %37, i32 noundef 536871012) #2
@@ -246,7 +246,7 @@ define internal void @ta_event_cb(ptr noundef %0) #0 {
   %11 = tail call ptr @lv_obj_get_group(ptr noundef %8) #2
   %12 = icmp ne ptr %8, null
   tail call void @lv_group_set_editing(ptr noundef %11, i1 noundef zeroext %12) #2
-  %13 = load ptr, ptr @tv, align 8, !tbaa !10
+  %13 = load ptr, ptr @tv, align 8, !tbaa !8
   %14 = tail call ptr @lv_display_get_default() #2
   %15 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %14) #2
   %16 = sdiv i32 %15, 2
@@ -261,7 +261,7 @@ define internal void @ta_event_cb(ptr noundef %0) #0 {
 
 19:                                               ; preds = %17
   tail call void @lv_obj_add_flag(ptr noundef %8, i32 noundef 1) #2
-  %20 = load ptr, ptr @tv, align 8, !tbaa !10
+  %20 = load ptr, ptr @tv, align 8, !tbaa !8
   %21 = tail call ptr @lv_display_get_default() #2
   %22 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %21) #2
   tail call void @lv_obj_set_height(ptr noundef %20, i32 noundef %22) #2
@@ -309,10 +309,10 @@ define internal void @msgbox_event_cb(ptr noundef %0) #0 {
   tail call void @lv_msgbox_close(ptr noundef %2) #2
   %3 = load ptr, ptr @g, align 8, !tbaa !3
   tail call void @lv_group_focus_freeze(ptr noundef %3, i1 noundef zeroext false) #2
-  %4 = load ptr, ptr @t1, align 8, !tbaa !10
+  %4 = load ptr, ptr @t1, align 8, !tbaa !8
   %5 = tail call ptr @lv_obj_get_child(ptr noundef %4, i32 noundef 0) #2
   tail call void @lv_group_focus_obj(ptr noundef %5) #2
-  %6 = load ptr, ptr @t1, align 8, !tbaa !10
+  %6 = load ptr, ptr @t1, align 8, !tbaa !8
   tail call void @lv_obj_scroll_to(ptr noundef %6, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #2
   ret void
 }
@@ -349,7 +349,5 @@ attributes #2 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}

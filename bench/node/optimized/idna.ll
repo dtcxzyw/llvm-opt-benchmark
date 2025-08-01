@@ -231,7 +231,7 @@ uv__utf8_decode1.exit:                            ; preds = %if.end48.i.i, %whil
     i32 65377, label %if.end13
     i32 65294, label %if.end13
     i32 12290, label %if.end13
-  ], !llvm.loop !5
+  ]
 
 if.end13:                                         ; preds = %uv__utf8_decode1.exit, %uv__utf8_decode1.exit, %uv__utf8_decode1.exit, %uv__utf8_decode1.exit
   %call14 = call fastcc i32 @uv__idna_toascii_label(ptr noundef %si.0.ph, ptr noundef nonnull %si.0, ptr noundef %d.addr, ptr noundef %de)
@@ -255,7 +255,7 @@ if.then20:                                        ; preds = %if.end17
 
 while.cond.outer.backedge:                        ; preds = %if.then20, %if.end17
   %.be = phi ptr [ %incdec.ptr, %if.then20 ], [ %7, %if.end17 ]
-  br label %while.cond.outer, !llvm.loop !5
+  br label %while.cond.outer
 
 while.end:                                        ; preds = %while.cond
   %cmp22 = icmp ult ptr %si.0.ph, %se
@@ -413,7 +413,7 @@ if.end:                                           ; preds = %while.body, %if.end
   %inc4 = zext i1 %not.cmp2 to i32
   %todo.1 = add i32 %todo.0305, %inc4
   %cmp = icmp ult ptr %s.addr.5, %se
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
+  br i1 %cmp, label %while.body, label %while.end
 
 while.end:                                        ; preds = %if.end
   %cmp6.not = icmp eq i32 %todo.1, 0
@@ -580,7 +580,7 @@ uv__utf8_decode1.exit154:                         ; preds = %while.body26, %if.e
   %s.addr.7 = phi ptr [ %incdec.ptr.i95, %while.body26 ], [ %incdec.ptr.i95, %if.end.i98 ], [ %s.addr.6, %if.end32.i.i122 ], [ %s.addr.6, %if.end48.i.i133 ], [ %s.addr.6, %sw.epilog.i.i110 ], [ %incdec.ptr.i95, %sw.bb17.i.i105 ], [ %incdec.ptr.i95, %if.end.i.i100 ]
   %retval.0.i104 = phi i32 [ %conv.i96, %while.body26 ], [ -1, %if.end.i98 ], [ -1, %if.end32.i.i122 ], [ %.or40.i.i137, %if.end48.i.i133 ], [ -1, %sw.epilog.i.i110 ], [ -1, %sw.bb17.i.i105 ], [ -1, %if.end.i.i100 ]
   %cmp28 = icmp ugt i32 %retval.0.i104, 127
-  br i1 %cmp28, label %while.cond24, label %if.end30, !llvm.loop !8
+  br i1 %cmp28, label %while.cond24, label %if.end30
 
 if.end30:                                         ; preds = %uv__utf8_decode1.exit154
   %16 = load ptr, ptr %d, align 8
@@ -597,7 +597,7 @@ if.then32:                                        ; preds = %if.end30
 if.end34:                                         ; preds = %if.then32, %if.end30
   %inc35 = add i32 %x.0.ph, 1
   %cmp36 = icmp eq i32 %inc35, %h.0.lcssa344
-  br i1 %cmp36, label %while.end40, label %while.cond24.outer, !llvm.loop !8
+  br i1 %cmp36, label %while.end40, label %while.cond24.outer
 
 while.end40:                                      ; preds = %if.end34, %while.cond24
   br i1 %cmp6.not346, label %return, label %if.end44
@@ -731,7 +731,7 @@ uv__utf8_decode1.exit214:                         ; preds = %while.body61, %if.e
   %24 = tail call i32 @llvm.umin.i32(i32 %retval.0.i164, i32 %m.0309)
   %m.1 = select i1 %cmp63.not.not, i32 %m.0309, i32 %24
   %cmp59 = icmp ult ptr %s.addr.9, %se
-  br i1 %cmp59, label %while.body61, label %while.end71, !llvm.loop !9
+  br i1 %cmp59, label %while.body61, label %while.end71
 
 while.end71:                                      ; preds = %uv__utf8_decode1.exit214, %while.cond58.preheader
   %m.0.lcssa = phi i32 [ -1, %while.cond58.preheader ], [ %m.1, %uv__utf8_decode1.exit214 ]
@@ -871,7 +871,7 @@ if.end90:                                         ; preds = %if.end32.i.i242, %s
   %s.addr.11288 = phi ptr [ %s.addr.11, %if.then84 ], [ %s.addr.11, %uv__utf8_decode1.exit274 ], [ %incdec.ptr.i215, %if.end.i218 ], [ %incdec.ptr.i215, %sw.bb17.i.i225 ], [ %incdec.ptr.i215, %if.end.i.i220 ], [ %s.addr.10, %sw.epilog.i.i230 ], [ %s.addr.10, %if.end32.i.i242 ]
   %delta.2 = phi i32 [ %inc85, %if.then84 ], [ %delta.1, %uv__utf8_decode1.exit274 ], [ %delta.1, %if.end.i218 ], [ %delta.1, %sw.bb17.i.i225 ], [ %delta.1, %if.end.i.i220 ], [ %delta.1, %sw.epilog.i.i230 ], [ %delta.1, %if.end32.i.i242 ]
   %cmp91.not = icmp eq i32 %retval.0.i224289, %m.0.lcssa
-  br i1 %cmp91.not, label %for.cond.preheader, label %while.cond77, !llvm.loop !10
+  br i1 %cmp91.not, label %for.cond.preheader, label %while.cond77
 
 for.cond.preheader:                               ; preds = %if.end90
   %cmp95311 = icmp ult i32 %bias.1.ph, 36
@@ -910,7 +910,7 @@ for.inc:                                          ; preds = %if.end107, %if.then
   %34 = tail call i32 @llvm.umin.i32(i32 %sub98, i32 26)
   %t.0 = select i1 %cmp95, i32 %34, i32 1
   %cmp104 = icmp samesign ult i32 %div110, %t.0
-  br i1 %cmp104, label %for.end, label %if.end107, !llvm.loop !11
+  br i1 %cmp104, label %for.end, label %if.end107
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %q.0.lcssa = phi i32 [ %delta.2, %for.cond.preheader ], [ %div110, %for.inc ]
@@ -944,7 +944,7 @@ for.body:                                         ; preds = %if.end124, %for.bod
   %div135 = udiv i32 %delta.4321, 35
   %add137 = add i32 %bias.2320, 36
   %cmp133 = icmp ugt i32 %delta.4321, 15959
-  br i1 %cmp133, label %for.body, label %for.end138, !llvm.loop !12
+  br i1 %cmp133, label %for.body, label %for.end138
 
 for.end138:                                       ; preds = %for.body, %if.end124
   %bias.2.lcssa = phi i32 [ 0, %if.end124 ], [ %add137, %for.body ]
@@ -956,13 +956,13 @@ for.end138:                                       ; preds = %for.body, %if.end12
   %div141.zext = zext nneg i16 %div141290 to i32
   %add142 = add i32 %bias.2.lcssa, %div141.zext
   %dec = add i32 %todo.3.ph, -1
-  br label %while.cond77.outer, !llvm.loop !10
+  br label %while.cond77.outer
 
 while.end143:                                     ; preds = %while.cond77
   %inc144 = add i32 %delta.1, 1
   %inc145 = add nsw i32 %m.0.lcssa, 1
   %cmp55.not = icmp eq i32 %todo.3.ph, 0
-  br i1 %cmp55.not, label %return, label %while.cond58.preheader, !llvm.loop !13
+  br i1 %cmp55.not, label %return, label %while.cond58.preheader
 
 return:                                           ; preds = %if.end48.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %sw.bb17.i.i, %if.end.i, %while.end143, %while.end71, %if.then84, %while.end40
   %retval.0 = phi i32 [ %h.0.lcssa344, %while.end40 ], [ -7, %if.then84 ], [ 0, %while.end143 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %if.end48.i.i ]
@@ -1043,7 +1043,7 @@ if.end:                                           ; preds = %if.end28.i, %if.end
   %inc4 = add i64 %spec.select, %retval.0.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %source_ptr.addr.1, i64 1
   %tobool.not = icmp eq i8 %8, 0
-  br i1 %tobool.not, label %return, label %do.body, !llvm.loop !14
+  br i1 %tobool.not, label %return, label %do.body
 
 return:                                           ; preds = %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %if.end
   %retval.0 = phi i64 [ %inc4, %if.end ], [ -1, %if.end.i ], [ -1, %if.end7.i ], [ -1, %if.end21.i ], [ -1, %if.end38.i ], [ -1, %if.then53.i ]
@@ -1151,7 +1151,7 @@ do.cond:                                          ; preds = %if.then, %if.else
   %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %source_ptr.addr.111, i64 1
   %7 = load i8, ptr %source_ptr.addr.111, align 1
   %tobool.not = icmp eq i8 %7, 0
-  br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !15
+  br i1 %tobool.not, label %do.end, label %do.body
 
 do.end:                                           ; preds = %do.cond
   ret void
@@ -1237,7 +1237,7 @@ if.end18:                                         ; preds = %if.else11, %if.then
   %dec22 = sext i1 %cmp20 to i64
   %spec.select16 = add nsw i64 %w_source_len.addr.1, %dec22
   %tobool.not = icmp eq i64 %spec.select16, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %tobool.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %if.end18, %uv__get_surrogate_value.exit, %entry
   %target_len.0.lcssa = phi i64 [ 0, %entry ], [ %target_len.019, %uv__get_surrogate_value.exit ], [ %target_len.1, %if.end18 ]
@@ -1333,7 +1333,7 @@ if.end18.i:                                       ; preds = %if.else11.i, %if.th
   %dec22.i = sext i1 %cmp20.i to i64
   %spec.select16.i = add nsw i64 %w_source_len.addr.1.i, %dec22.i
   %tobool.not.i = icmp eq i64 %spec.select16.i, 0
-  br i1 %tobool.not.i, label %uv_utf16_length_as_wtf8.exit, label %while.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %uv_utf16_length_as_wtf8.exit, label %while.body.i
 
 uv_utf16_length_as_wtf8.exit:                     ; preds = %uv__get_surrogate_value.exit.i, %if.end18.i, %if.then
   %target_len.0.lcssa.i = phi i64 [ 0, %if.then ], [ %target_len.1.i, %if.end18.i ], [ %target_len.019.i, %uv__get_surrogate_value.exit.i ]
@@ -1525,7 +1525,7 @@ if.end100:                                        ; preds = %if.end88, %if.end33
   %cmp16 = icmp ne ptr %target.3, %add.ptr
   %tobool = icmp ne i64 %spec.select78, 0
   %27 = select i1 %cmp16, i1 %tobool, i1 false
-  br i1 %27, label %while.body, label %while.end, !llvm.loop !17
+  br i1 %27, label %while.body, label %while.end
 
 while.end:                                        ; preds = %if.end100, %if.then27, %if.then40, %if.end48, %if.else62, %if.end70, %if.end79, %uv__get_surrogate_value.exit, %if.end15
   %target_len.1.lcssa = phi i64 [ %target_len.0134137, %if.end15 ], [ %target_len.1141, %uv__get_surrogate_value.exit ], [ %target_len.1141, %if.end79 ], [ %target_len.1141, %if.end70 ], [ %target_len.1141, %if.else62 ], [ %target_len.1141, %if.end48 ], [ %target_len.1141, %if.then40 ], [ %target_len.1141, %if.then27 ], [ %sub.ptr.sub, %if.end100 ]
@@ -1639,7 +1639,7 @@ if.end18.i108:                                    ; preds = %if.else11.i102, %if
   %dec22.i114 = sext i1 %cmp20.i113 to i64
   %spec.select16.i115 = add nsw i64 %w_source_len.addr.1.i109, %dec22.i114
   %tobool.not.i116 = icmp eq i64 %spec.select16.i115, 0
-  br i1 %tobool.not.i116, label %uv_utf16_length_as_wtf8.exit132, label %while.body.i83, !llvm.loop !16
+  br i1 %tobool.not.i116, label %uv_utf16_length_as_wtf8.exit132, label %while.body.i83
 
 uv_utf16_length_as_wtf8.exit132:                  ; preds = %uv__get_surrogate_value.exit.i91, %if.end18.i108
   %target_len.0.lcssa.i117 = phi i64 [ %target_len.019.i85, %uv__get_surrogate_value.exit.i91 ], [ %target_len.1.i110, %if.end18.i108 ]
@@ -1673,16 +1673,3 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}

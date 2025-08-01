@@ -625,7 +625,7 @@ _Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit: ; preds = %106, %135, %143
   br label %191
 
 190:                                              ; preds = %178
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !27
   br label %191
 
 191:                                              ; preds = %190, %180
@@ -903,7 +903,6 @@ attributes #13 = { builtin nounwind }
 !22 = distinct !{!22, !23, !"_ZNK11btMatrix3x314transposeTimesERKS_: argument 0"}
 !23 = distinct !{!23, !"_ZNK11btMatrix3x314transposeTimesERKS_"}
 !24 = !{!12, !12, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{i64 0, i64 16, !24}
+!27 = !{i64 0, i64 16, !24}

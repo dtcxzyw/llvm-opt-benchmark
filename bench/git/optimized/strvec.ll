@@ -368,7 +368,7 @@ strvec_push.exit:                                 ; preds = %12, %st_mult.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %strvec_push.exit, %2
   ret void
@@ -460,7 +460,7 @@ st_mult.exit:                                     ; preds = %25
   tail call void @free(ptr noundef %42) #11
   %43 = add nuw i64 %.05665, 1
   %exitcond.not = icmp eq i64 %43, %2
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 44:                                               ; preds = %._crit_edge
   %.not64 = icmp eq i64 %.pre74, 0
@@ -500,7 +500,7 @@ st_mult.exit:                                     ; preds = %25
   store ptr %59, ptr %62, align 8, !tbaa !13
   %63 = add nuw i64 %.066, 1
   %exitcond72.not = icmp eq i64 %63, %4
-  br i1 %exitcond72.not, label %._crit_edge69, label %.lr.ph68, !llvm.loop !20
+  br i1 %exitcond72.not, label %._crit_edge69, label %.lr.ph68, !llvm.loop !19
 }
 
 ; Function Attrs: noreturn
@@ -599,14 +599,14 @@ define dso_local void @strvec_split(ptr noundef captures(none) %0, ptr noundef %
 
 3:                                                ; preds = %3, %2
   %.015 = phi ptr [ %1, %2 ], [ %9, %3 ]
-  %4 = load i8, ptr %.015, align 1, !tbaa !21
+  %4 = load i8, ptr %.015, align 1, !tbaa !20
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !21
+  %7 = load i8, ptr %6, align 1, !tbaa !20
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
-  br i1 %.not, label %.preheader24, label %3, !llvm.loop !22
+  br i1 %.not, label %.preheader24, label %3, !llvm.loop !21
 
 .preheader24:                                     ; preds = %3
   %.not1726 = icmp eq i8 %4, 0
@@ -619,7 +619,7 @@ define dso_local void @strvec_split(ptr noundef captures(none) %0, ptr noundef %
 
 .loopexit:                                        ; preds = %47
   %.not17 = icmp eq i8 %48, 0
-  br i1 %.not17, label %._crit_edge, label %.preheader, !llvm.loop !23
+  br i1 %.not17, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %12 = phi i8 [ %4, %.preheader.lr.ph ], [ %48, %.loopexit ]
@@ -631,16 +631,16 @@ define dso_local void @strvec_split(ptr noundef captures(none) %0, ptr noundef %
   %14 = phi i8 [ %12, %.preheader ], [ %.pr, %19 ]
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !21
+  %17 = load i8, ptr %16, align 1, !tbaa !20
   %18 = and i8 %17, 1
   %.not19 = icmp eq i8 %18, 0
   br i1 %.not19, label %19, label %.critedge
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %.01425, i64 1
-  %.pr = load i8, ptr %20, align 1, !tbaa !21
+  %.pr = load i8, ptr %20, align 1, !tbaa !20
   %.not18 = icmp eq i8 %.pr, 0
-  br i1 %.not18, label %.critedge, label %13, !llvm.loop !24
+  br i1 %.not18, label %.critedge, label %13, !llvm.loop !22
 
 .critedge:                                        ; preds = %19, %13
   %.014.lcssa = phi ptr [ %20, %19 ], [ %.01425, %13 ]
@@ -697,14 +697,14 @@ strvec_push_nodup.exit:                           ; preds = %28, %st_mult.exit.i
 
 47:                                               ; preds = %47, %strvec_push_nodup.exit
   %.1 = phi ptr [ %.014.lcssa, %strvec_push_nodup.exit ], [ %53, %47 ]
-  %48 = load i8, ptr %.1, align 1, !tbaa !21
+  %48 = load i8, ptr %.1, align 1, !tbaa !20
   %49 = zext i8 %48 to i64
   %50 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !21
+  %51 = load i8, ptr %50, align 1, !tbaa !20
   %52 = and i8 %51, 1
   %.not20 = icmp eq i8 %52, 0
   %53 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %.not20, label %.loopexit, label %47, !llvm.loop !25
+  br i1 %.not20, label %.loopexit, label %47, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader24
   ret void
@@ -742,7 +742,7 @@ define dso_local void @strvec_clear(ptr noundef captures(none) %0) local_unnamed
   %9 = add nuw i64 %.07, 1
   %10 = load i64, ptr %3, align 8, !tbaa !11
   %11 = icmp ult i64 %9, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
+  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 12:                                               ; preds = %._crit_edge, %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @__const.strvec_init.blank, i64 24, i1 false)
@@ -806,15 +806,13 @@ attributes #11 = { nounwind }
 !12 = !{!5, !10, i64 16}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 omnipotent char", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
-!20 = distinct !{!20, !16, !17}
-!21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = !{!8, !8, i64 0}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}

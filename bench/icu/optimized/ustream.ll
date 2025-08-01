@@ -134,12 +134,12 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  %10 = load ptr, ptr %0, align 8, !tbaa !16
+  %10 = load ptr, ptr %0, align 8, !tbaa !15
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !18
+  %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = and i32 %15, 5
   %.not67 = icmp eq i32 %16, 0
   %.143.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -172,12 +172,12 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %27 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %9, align 1, !tbaa !3
-  %29 = load ptr, ptr %0, align 8, !tbaa !16
+  %29 = load ptr, ptr %0, align 8, !tbaa !15
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load i32, ptr %33, align 8, !tbaa !18
+  %34 = load i32, ptr %33, align 8, !tbaa !17
   %35 = and i32 %34, 2
   %.not.not = icmp eq i32 %35, 0
   br i1 %.not.not, label %38, label %36
@@ -203,7 +203,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %38
-  %43 = load ptr, ptr %0, align 8, !tbaa !16
+  %43 = load ptr, ptr %0, align 8, !tbaa !15
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 %45
@@ -229,7 +229,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %55 = add nsw i32 %.03875, 1
   %56 = sext i32 %.03875 to i64
   %57 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !29
+  %58 = load i16, ptr %57, align 2, !tbaa !28
   %59 = and i16 %58, -1024
   %60 = icmp ne i16 %59, -10240
   %.not60 = icmp eq i32 %55, %53
@@ -239,7 +239,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 61:                                               ; preds = %.lr.ph
   %62 = sext i32 %55 to i64
   %63 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !29
+  %64 = load i16, ptr %63, align 2, !tbaa !28
   %65 = and i16 %64, -1024
   %66 = icmp eq i16 %65, -9216
   br i1 %66, label %67, label %72
@@ -284,7 +284,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %86 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %85)
   %87 = trunc nuw i64 %indvars.iv to i32
   %88 = icmp sgt i32 %87, 1
-  br i1 %88, label %.lr.ph79, label %.loopexit, !llvm.loop !31
+  br i1 %88, label %.lr.ph79, label %.loopexit, !llvm.loop !30
 
 89:                                               ; preds = %72
   br i1 %.not62, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %90
@@ -315,7 +315,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 
 _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %100, %94, %93, %89
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  store i16 %.149, ptr %3, align 2, !tbaa !29
+  store i16 %.149, ptr %3, align 2, !tbaa !28
   %102 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   br label %103
@@ -323,7 +323,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %100, %94, %93, %89
 103:                                              ; preds = %75, %_ZN6icu_7713UnicodeString8truncateEi.exit
   %.246 = phi i8 [ 1, %75 ], [ 0, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
   %104 = icmp slt i32 %.2, %53
-  br i1 %104, label %.lr.ph, label %.thread, !llvm.loop !32
+  br i1 %104, label %.lr.ph, label %.thread, !llvm.loop !31
 
 105:                                              ; preds = %47
   %106 = load i8, ptr %9, align 1, !tbaa !3
@@ -336,7 +336,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %100, %94, %93, %89
 .thread:                                          ; preds = %103, %49, %105
   %.4 = phi i8 [ %.04476, %105 ], [ %.04476, %49 ], [ %.246, %103 ]
   %.3 = phi i32 [ %107, %105 ], [ 0, %49 ], [ 0, %103 ]
-  br i1 %.not.not, label %26, label %.loopexit, !llvm.loop !33
+  br i1 %.not.not, label %26, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph79, %76, %42
   call void @u_releaseDefaultConverter_77(ptr noundef %18)
@@ -405,24 +405,23 @@ attributes #7 = { nounwind }
 !10 = !{!"any pointer", !4, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !10, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"vtable pointer", !5, i64 0}
-!18 = !{!19, !22, i64 32}
-!19 = !{!"_ZTSSt8ios_base", !20, i64 8, !20, i64 16, !21, i64 24, !22, i64 28, !22, i64 32, !23, i64 40, !24, i64 48, !4, i64 64, !25, i64 192, !26, i64 200, !27, i64 208}
-!20 = !{!"long", !4, i64 0}
-!21 = !{!"_ZTSSt13_Ios_Fmtflags", !4, i64 0}
-!22 = !{!"_ZTSSt12_Ios_Iostate", !4, i64 0}
-!23 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
-!24 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !20, i64 8}
-!25 = !{!"int", !4, i64 0}
-!26 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
-!27 = !{!"_ZTSSt6locale", !28, i64 0}
-!28 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"char16_t", !4, i64 0}
-!31 = distinct !{!31, !14, !15}
-!32 = distinct !{!32, !14, !15}
-!33 = distinct !{!33, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !5, i64 0}
+!17 = !{!18, !21, i64 32}
+!18 = !{!"_ZTSSt8ios_base", !19, i64 8, !19, i64 16, !20, i64 24, !21, i64 28, !21, i64 32, !22, i64 40, !23, i64 48, !4, i64 64, !24, i64 192, !25, i64 200, !26, i64 208}
+!19 = !{!"long", !4, i64 0}
+!20 = !{!"_ZTSSt13_Ios_Fmtflags", !4, i64 0}
+!21 = !{!"_ZTSSt12_Ios_Iostate", !4, i64 0}
+!22 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
+!23 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !19, i64 8}
+!24 = !{!"int", !4, i64 0}
+!25 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
+!26 = !{!"_ZTSSt6locale", !27, i64 0}
+!27 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"char16_t", !4, i64 0}
+!30 = distinct !{!30, !14}
+!31 = distinct !{!31, !14}
+!32 = distinct !{!32, !14}

@@ -72,7 +72,7 @@ SDL_ClearAudioQueue.exit:                         ; preds = %DestroyAudioTrack.e
   %30 = load ptr, ptr %.08.i, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.08.i) #10
   %.not.i6 = icmp eq ptr %30, null
-  br i1 %.not.i6, label %DestroyMemoryPool.exit, label %.lr.ph.i5, !llvm.loop !6
+  br i1 %.not.i6, label %DestroyMemoryPool.exit, label %.lr.ph.i5, !llvm.loop !5
 
 DestroyMemoryPool.exit:                           ; preds = %.lr.ph.i5, %SDL_ClearAudioQueue.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -88,7 +88,7 @@ DestroyMemoryPool.exit:                           ; preds = %.lr.ph.i5, %SDL_Cle
   %34 = load ptr, ptr %.08.i9, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.08.i9) #10
   %.not.i10 = icmp eq ptr %34, null
-  br i1 %.not.i10, label %DestroyMemoryPool.exit11, label %.lr.ph.i8, !llvm.loop !6
+  br i1 %.not.i10, label %DestroyMemoryPool.exit11, label %.lr.ph.i8, !llvm.loop !5
 
 DestroyMemoryPool.exit11:                         ; preds = %.lr.ph.i8, %DestroyMemoryPool.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -194,7 +194,7 @@ define hidden noundef ptr @SDL_CreateAudioQueue(i64 noundef %0) local_unnamed_ad
   store i64 %16, ptr %10, align 8
   %17 = add nsw i64 %.01114.i, -1
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %ReserveMemoryPoolBlocks.exit.thread, label %11, !llvm.loop !7
+  br i1 %.not.i, label %ReserveMemoryPoolBlocks.exit.thread, label %11, !llvm.loop !6
 
 ReserveMemoryPoolBlocks.exit:                     ; preds = %11
   tail call void @SDL_DestroyAudioQueue(ptr noundef nonnull %2)
@@ -235,7 +235,7 @@ define hidden void @SDL_PopAudioQueueHead(ptr noundef captures(none) %0) local_u
 6:                                                ; preds = %DestroyAudioTrack.exit, %1
   %.012 = phi ptr [ %2, %1 ], [ %11, %DestroyAudioTrack.exit ]
   %7 = getelementptr inbounds nuw i8, ptr %.012, i64 24
-  %8 = load i8, ptr %7, align 8, !range !8, !noundef !9
+  %8 = load i8, ptr %7, align 8, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %11 = load ptr, ptr %10, align 8
@@ -268,7 +268,7 @@ define hidden void @SDL_PopAudioQueueHead(ptr noundef captures(none) %0) local_u
   br label %DestroyAudioTrack.exit
 
 DestroyAudioTrack.exit:                           ; preds = %24, %28
-  br i1 %9, label %29, label %6, !llvm.loop !10
+  br i1 %9, label %29, label %6
 
 29:                                               ; preds = %DestroyAudioTrack.exit
   store ptr %11, ptr %0, align 8
@@ -430,7 +430,7 @@ define hidden noundef zeroext i1 @SDL_WriteToAudioQueue(ptr noundef %0, ptr noun
   %.138 = phi ptr [ %39, %40 ], [ %.138.ph, %.preheader ]
   %.034 = phi ptr [ %35, %40 ], [ %3, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %.138, i64 24
-  %21 = load i8, ptr %20, align 8, !range !8, !noundef !9
+  %21 = load i8, ptr %20, align 8, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %WriteToAudioTrack.exit, label %23
 
@@ -625,9 +625,9 @@ define hidden i64 @SDL_NextAudioQueueIter(ptr noundef readnone captures(none) %0
 19:                                               ; preds = %10
   %20 = add i64 %17, %.024
   %21 = getelementptr inbounds nuw i8, ptr %.021, i64 24
-  %22 = load i8, ptr %21, align 8, !range !8, !noundef !9
+  %22 = load i8, ptr %21, align 8, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %.thread, label %9, !llvm.loop !11
+  br i1 %23, label %.thread, label %9
 
 .thread:                                          ; preds = %19, %10, %9
   %.125 = phi i64 [ %.024, %9 ], [ -1, %10 ], [ %20, %19 ]
@@ -797,7 +797,7 @@ PeekIntoAudioQueuePast.exit:                      ; preds = %53, %58, %64
   %.041.i168 = phi ptr [ %108, %DestroyAudioTrack.exit.i ], [ %77, %.lr.ph.preheader ]
   %100 = getelementptr inbounds nuw i8, ptr %.041.i168, i64 72
   %101 = getelementptr inbounds nuw i8, ptr %.041.i168, i64 24
-  %102 = load i8, ptr %101, align 8, !range !8, !noundef !9
+  %102 = load i8, ptr %101, align 8, !range !7, !noundef !8
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %104, label %106
 
@@ -936,7 +936,7 @@ ReadFromAudioQueue.exit:                          ; preds = %DestroyAudioTrack.e
 
 172:                                              ; preds = %.preheader.i145
   %173 = getelementptr inbounds nuw i8, ptr %.035.i, i64 24
-  %174 = load i8, ptr %173, align 8, !range !8, !noundef !9
+  %174 = load i8, ptr %173, align 8, !range !7, !noundef !8
   %175 = trunc nuw i8 %174 to i1
   br i1 %175, label %176, label %182
 
@@ -1003,9 +1003,9 @@ define hidden i64 @SDL_GetAudioQueueQueued(ptr noundef readonly captures(none) %
   %13 = load ptr, ptr %12, align 8
   %14 = add i64 %9, %.024.i
   %15 = getelementptr inbounds nuw i8, ptr %.021.i, i64 24
-  %16 = load i8, ptr %15, align 8, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 8, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %SDL_NextAudioQueueIter.exit, label %.preheader, !llvm.loop !11
+  br i1 %17, label %SDL_NextAudioQueueIter.exit, label %.preheader
 
 SDL_NextAudioQueueIter.exit:                      ; preds = %.preheader, %11
   %.125.i = phi i64 [ %.024.i, %.preheader ], [ %14, %11 ]
@@ -1013,7 +1013,7 @@ SDL_NextAudioQueueIter.exit:                      ; preds = %.preheader, %11
   %18 = xor i64 %.07, -1
   %.not9 = icmp ult i64 %.125.i, %18
   %19 = add i64 %.125.i, %.07
-  br i1 %.not9, label %3, label %SDL_NextAudioQueueIter.exit.thread, !llvm.loop !12
+  br i1 %.not9, label %3, label %SDL_NextAudioQueueIter.exit.thread
 
 SDL_NextAudioQueueIter.exit.thread:               ; preds = %SDL_NextAudioQueueIter.exit, %3, %4
   %.1 = phi i64 [ -1, %4 ], [ %.07, %3 ], [ -1, %SDL_NextAudioQueueIter.exit ]
@@ -1131,13 +1131,9 @@ attributes #11 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}

@@ -1025,14 +1025,14 @@ define hidden ptr @PyOS_StdioReadline(ptr noundef captures(none) %0, ptr noundef
   %48 = tail call i32 @PyErr_CheckSignals() #10
   %49 = tail call ptr @PyEval_SaveThread() #10
   %50 = icmp sgt i32 %48, -1
-  br i1 %50, label %29, label %.loopexit, !llvm.loop !181
+  br i1 %50, label %29, label %.loopexit
 
 .loopexit:                                        ; preds = %47, %45
   tail call void @PyMem_RawFree(ptr noundef nonnull %21) #10
   br label %.thread
 
 select.unfold:                                    ; preds = %45, %42
-  store i8 0, ptr %27, align 1, !tbaa !183
+  store i8 0, ptr %27, align 1, !tbaa !181
   br label %.loopexit67
 
 51:                                               ; preds = %36
@@ -1040,9 +1040,9 @@ select.unfold:                                    ; preds = %45, %42
   %53 = add i64 %52, %.039
   %54 = getelementptr i8, ptr %21, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -1
-  %56 = load i8, ptr %55, align 1, !tbaa !183
+  %56 = load i8, ptr %55, align 1, !tbaa !181
   %.not51 = icmp eq i8 %56, 10
-  br i1 %.not51, label %.loopexit67, label %12, !llvm.loop !184
+  br i1 %.not51, label %.loopexit67, label %12, !llvm.loop !182
 
 .loopexit67:                                      ; preds = %51, %select.unfold
   %.14066 = phi i64 [ %.039, %select.unfold ], [ %53, %51 ]
@@ -1418,8 +1418,6 @@ attributes #12 = { nounwind willreturn memory(read) }
 !178 = !{!"", !115, i64 0, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !7, i64 64}
 !179 = !{!"_PyThreadStateImpl", !15, i64 0, !12, i64 304, !12, i64 312, !149, i64 320, !62, i64 328}
 !180 = !{!19, !19, i64 0}
-!181 = distinct !{!181, !182}
-!182 = !{!"llvm.loop.estimated_trip_count"}
-!183 = !{!7, !7, i64 0}
-!184 = distinct !{!184, !185, !182}
-!185 = !{!"llvm.loop.mustprogress"}
+!181 = !{!7, !7, i64 0}
+!182 = distinct !{!182, !183}
+!183 = !{!"llvm.loop.mustprogress"}

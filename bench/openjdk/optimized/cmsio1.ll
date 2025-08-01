@@ -351,7 +351,7 @@ BuildGrayInputMatrixPipeline.exit:                ; preds = %79, %101, %105, %10
 117:                                              ; preds = %113
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 3
-  br i1 %exitcond41.not.i, label %118, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond41.not.i, label %118, label %.preheader.i, !llvm.loop !8
 
 118:                                              ; preds = %117
   %119 = call ptr @cmsReadTag(ptr noundef %0, i32 noundef 1918128707) #4
@@ -561,7 +561,7 @@ define hidden ptr @_cmsReadOutputLUT(ptr noundef %0, i32 noundef %1) local_unnam
 68:                                               ; preds = %57, %54
   %69 = tail call ptr @cmsStageNext(ptr noundef nonnull %.09.i) #4
   %.not.i44 = icmp eq ptr %69, null
-  br i1 %.not.i44, label %ChangeInterpolationToTrilinear.exit, label %54, !llvm.loop !10
+  br i1 %.not.i44, label %ChangeInterpolationToTrilinear.exit, label %54, !llvm.loop !9
 
 ChangeInterpolationToTrilinear.exit:              ; preds = %68, %51, %48
   %.not40 = icmp eq i32 %45, 1835430962
@@ -686,12 +686,12 @@ BuildGrayOutputPipeline.exit:                     ; preds = %85, %89, %95, %108,
   store double %120, ptr %118, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %121, label %117, !llvm.loop !11
+  br i1 %exitcond.not.i, label %121, label %117, !llvm.loop !10
 
 121:                                              ; preds = %117
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, 3
-  br i1 %exitcond54.not.i, label %122, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond54.not.i, label %122, label %.preheader.i, !llvm.loop !11
 
 122:                                              ; preds = %121
   %123 = call ptr @cmsReadTag(ptr noundef %0, i32 noundef 1918128707) #4
@@ -802,7 +802,7 @@ define internal fastcc void @ChangeInterpolationToTrilinear(ptr noundef nonnull 
 18:                                               ; preds = %4, %7
   %19 = tail call ptr @cmsStageNext(ptr noundef nonnull %.09) #4
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %1
   ret void
@@ -1196,7 +1196,7 @@ define hidden ptr @_cmsReadProfileSequence(ptr noundef %0) local_unnamed_addr #0
   %26 = load i32, ptr %2, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %15, label %.loopexit, !llvm.loop !13
+  br i1 %28, label %15, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %6
   %.mux = select i1 %4, ptr %3, ptr %2
@@ -1319,7 +1319,7 @@ GetMLUFromProfile.exit36:                         ; preds = %GetMLUFromProfile.e
   store ptr %.0.i35, ptr %38, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !13
 
 .loopexit:                                        ; preds = %GetMLUFromProfile.exit36, %3
   ret ptr %4
@@ -1503,12 +1503,11 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

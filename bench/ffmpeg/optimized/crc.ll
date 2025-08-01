@@ -62,7 +62,7 @@ define range(i32 -22, 1) i32 @av_crc_init(ptr noundef captures(none) %0, i32 nou
   %20 = xor i32 %19, %18
   %21 = add nuw nsw i32 %.14961.us, 1
   %exitcond72.not = icmp eq i32 %21, 8
-  br i1 %exitcond72.not, label %14, label %17, !llvm.loop !12
+  br i1 %exitcond72.not, label %14, label %17, !llvm.loop !11
 
 .preheader58:                                     ; preds = %10, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %10 ]
@@ -79,14 +79,14 @@ define range(i32 -22, 1) i32 @av_crc_init(ptr noundef captures(none) %0, i32 nou
   %28 = xor i32 %27, %24
   %29 = add nuw nsw i32 %.04859, 1
   %exitcond.not = icmp eq i32 %29, 8
-  br i1 %exitcond.not, label %30, label %23, !llvm.loop !13
+  br i1 %exitcond.not, label %30, label %23, !llvm.loop !12
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %28, ptr %31, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond71.not, label %.split65.us, label %.preheader58, !llvm.loop !14
+  br i1 %exitcond71.not, label %.split65.us, label %.preheader58, !llvm.loop !13
 
 .split65.us:                                      ; preds = %30, %14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -116,12 +116,12 @@ define range(i32 -22, 1) i32 @av_crc_init(ptr noundef captures(none) %0, i32 nou
   %gep89 = getelementptr inbounds nuw i8, ptr %invariant.gep88, i64 %.idx85
   store i32 %41, ptr %gep89, align 4, !tbaa !4
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 3
-  br i1 %exitcond80.not, label %42, label %34, !llvm.loop !15
+  br i1 %exitcond80.not, label %42, label %34, !llvm.loop !14
 
 42:                                               ; preds = %34
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 256
-  br i1 %exitcond84.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond84.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %42, %.split65.us, %9, %5
   %.052 = phi i32 [ -22, %5 ], [ -22, %9 ], [ 0, %.split65.us ], [ 0, %42 ]
@@ -213,7 +213,7 @@ define internal void @AV_CRC_8_ATM_init_table_once() #3 {
   %8 = xor i32 %7, %6
   %9 = add nuw nsw i32 %.14961.us.i, 1
   %exitcond72.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !11
 
 .split65.us.i:                                    ; preds = %2
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 1024), align 16, !tbaa !4
@@ -240,12 +240,12 @@ define internal void @AV_CRC_8_ATM_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %17, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !14
 
 18:                                               ; preds = %10
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %18
   ret void
@@ -278,7 +278,7 @@ define internal void @AV_CRC_8_EBU_init_table_once() #3 {
   %8 = xor i32 %7, %6
   %9 = add nuw nsw i32 %.14961.us.i, 1
   %exitcond72.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !11
 
 .split65.us.i:                                    ; preds = %2
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 29696), align 16, !tbaa !4
@@ -305,12 +305,12 @@ define internal void @AV_CRC_8_EBU_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %17, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !14
 
 18:                                               ; preds = %10
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %18
   ret void
@@ -343,7 +343,7 @@ define internal void @AV_CRC_16_ANSI_init_table_once() #3 {
   %8 = xor i32 %7, %6
   %9 = add nuw nsw i32 %.14961.us.i, 1
   %exitcond72.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !11
 
 .split65.us.i:                                    ; preds = %2
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 5120), align 16, !tbaa !4
@@ -370,12 +370,12 @@ define internal void @AV_CRC_16_ANSI_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %17, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !14
 
 18:                                               ; preds = %10
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %18
   ret void
@@ -408,7 +408,7 @@ define internal void @AV_CRC_16_CCITT_init_table_once() #3 {
   %8 = xor i32 %7, %6
   %9 = add nuw nsw i32 %.14961.us.i, 1
   %exitcond72.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !11
 
 .split65.us.i:                                    ; preds = %2
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 9216), align 16, !tbaa !4
@@ -435,12 +435,12 @@ define internal void @AV_CRC_16_CCITT_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %17, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !14
 
 18:                                               ; preds = %10
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %18
   ret void
@@ -473,7 +473,7 @@ define internal void @AV_CRC_24_IEEE_init_table_once() #3 {
   %8 = xor i32 %7, %6
   %9 = add nuw nsw i32 %.14961.us.i, 1
   %exitcond72.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !11
 
 .split65.us.i:                                    ; preds = %2
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 25600), align 16, !tbaa !4
@@ -500,12 +500,12 @@ define internal void @AV_CRC_24_IEEE_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %17, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !14
 
 18:                                               ; preds = %10
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %18
   ret void
@@ -538,7 +538,7 @@ define internal void @AV_CRC_32_IEEE_init_table_once() #3 {
   %8 = xor i32 %7, %6
   %9 = add nuw nsw i32 %.14961.us.i, 1
   %exitcond72.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !12
+  br i1 %exitcond72.not.i, label %2, label %5, !llvm.loop !11
 
 .split65.us.i:                                    ; preds = %2
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 13312), align 16, !tbaa !4
@@ -565,12 +565,12 @@ define internal void @AV_CRC_32_IEEE_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %17, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %18, label %10, !llvm.loop !14
 
 18:                                               ; preds = %10
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %18
   ret void
@@ -595,14 +595,14 @@ define internal void @AV_CRC_32_IEEE_LE_init_table_once() #3 {
   %7 = xor i32 %6, %3
   %8 = add nuw nsw i32 %.04859.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %9, label %2, !llvm.loop !13
+  br i1 %exitcond.not.i, label %9, label %2, !llvm.loop !12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 16384), i64 %indvars.iv.i
   store i32 %7, ptr %10, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond71.not.i, label %.split65.us.i, label %.preheader58.i, !llvm.loop !14
+  br i1 %exitcond71.not.i, label %.split65.us.i, label %.preheader58.i, !llvm.loop !13
 
 .split65.us.i:                                    ; preds = %9
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 17408), align 16, !tbaa !4
@@ -629,12 +629,12 @@ define internal void @AV_CRC_32_IEEE_LE_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %18, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %19, label %11, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %19, label %11, !llvm.loop !14
 
 19:                                               ; preds = %11
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %19
   ret void
@@ -659,14 +659,14 @@ define internal void @AV_CRC_16_ANSI_LE_init_table_once() #3 {
   %7 = xor i32 %6, %3
   %8 = add nuw nsw i32 %.04859.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %9, label %2, !llvm.loop !13
+  br i1 %exitcond.not.i, label %9, label %2, !llvm.loop !12
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 20480), i64 %indvars.iv.i
   store i32 %7, ptr %10, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond71.not.i, label %.split65.us.i, label %.preheader58.i, !llvm.loop !14
+  br i1 %exitcond71.not.i, label %.split65.us.i, label %.preheader58.i, !llvm.loop !13
 
 .split65.us.i:                                    ; preds = %9
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @av_crc_table, i64 21504), align 16, !tbaa !4
@@ -693,12 +693,12 @@ define internal void @AV_CRC_16_ANSI_LE_init_table_once() #3 {
   %gep89.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx85.i
   store i32 %18, ptr %gep89.i, align 4, !tbaa !4
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %19, label %11, !llvm.loop !15
+  br i1 %exitcond80.not.i, label %19, label %11, !llvm.loop !14
 
 19:                                               ; preds = %11
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 256
-  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond84.not.i, label %av_crc_init.exit, label %.preheader.i, !llvm.loop !15
 
 av_crc_init.exit:                                 ; preds = %19
   ret void
@@ -729,17 +729,15 @@ define i32 @av_crc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr n
   %.130.lcssa = phi ptr [ %2, %.preheader33 ], [ %16, %.lr.ph ]
   %.1.lcssa = phi i32 [ %1, %.preheader33 ], [ %24, %.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %5, i64 -3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 3072
-  %invariant.gep37 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %14 = icmp ult ptr %.130.lcssa, %13
-  br i1 %14, label %.lr.ph43, label %.loopexit
+  br i1 %14, label %.lr.ph39, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.135 = phi i32 [ %24, %.lr.ph ], [ %1, %.preheader33 ]
   %.13034 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader33 ]
   %15 = and i32 %.135, 255
   %16 = getelementptr inbounds nuw i8, ptr %.13034, i64 1
-  %17 = load i8, ptr %.13034, align 1, !tbaa !17
+  %17 = load i8, ptr %.13034, align 1, !tbaa !16
   %18 = zext i8 %17 to i32
   %19 = xor i32 %15, %18
   %20 = zext nneg i32 %19 to i64
@@ -752,62 +750,65 @@ define i32 @av_crc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr n
   %27 = icmp ne i64 %26, 0
   %28 = icmp ult ptr %16, %5
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %.lr.ph, label %.preheader, !llvm.loop !18
+  br i1 %29, label %.lr.ph, label %.preheader, !llvm.loop !17
 
-.lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
-  %.242 = phi i32 [ %50, %.lr.ph43 ], [ %.1.lcssa, %.preheader ]
-  %.23141 = phi ptr [ %32, %.lr.ph43 ], [ %.130.lcssa, %.preheader ]
-  %30 = load i32, ptr %.23141, align 4, !tbaa !4
-  %31 = xor i32 %30, %.242
-  %32 = getelementptr inbounds nuw i8, ptr %.23141, i64 4
+.lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
+  %.238 = phi i32 [ %56, %.lr.ph39 ], [ %.1.lcssa, %.preheader ]
+  %.23137 = phi ptr [ %32, %.lr.ph39 ], [ %.130.lcssa, %.preheader ]
+  %30 = load i32, ptr %.23137, align 4, !tbaa !4
+  %31 = xor i32 %30, %.238
+  %32 = getelementptr inbounds nuw i8, ptr %.23137, i64 4
   %33 = and i32 %31, 255
   %34 = zext nneg i32 %33 to i64
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %34
-  %35 = load i32, ptr %gep, align 4, !tbaa !4
-  %36 = lshr i32 %31, 8
-  %37 = and i32 %36, 255
-  %38 = zext nneg i32 %37 to i64
-  %gep38 = getelementptr inbounds nuw i32, ptr %invariant.gep37, i64 %38
-  %39 = load i32, ptr %gep38, align 4, !tbaa !4
-  %40 = xor i32 %39, %35
-  %41 = lshr i32 %31, 16
-  %42 = and i32 %41, 255
-  %43 = zext nneg i32 %42 to i64
-  %gep40 = getelementptr inbounds nuw i32, ptr %6, i64 %43
-  %44 = load i32, ptr %gep40, align 4, !tbaa !4
-  %45 = xor i32 %40, %44
-  %46 = lshr i32 %31, 24
+  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 3072
+  %37 = load i32, ptr %36, align 4, !tbaa !4
+  %38 = lshr i32 %31, 8
+  %39 = and i32 %38, 255
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2048
+  %43 = load i32, ptr %42, align 4, !tbaa !4
+  %44 = xor i32 %43, %37
+  %45 = lshr i32 %31, 16
+  %46 = and i32 %45, 255
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !4
-  %50 = xor i32 %45, %49
-  %51 = icmp ult ptr %32, %13
-  br i1 %51, label %.lr.ph43, label %.loopexit, !llvm.loop !19
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1024
+  %50 = load i32, ptr %49, align 4, !tbaa !4
+  %51 = xor i32 %44, %50
+  %52 = lshr i32 %31, 24
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw i32, ptr %0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !4
+  %56 = xor i32 %51, %55
+  %57 = icmp ult ptr %32, %13
+  br i1 %57, label %.lr.ph39, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %.lr.ph43, %.preheader, %4
-  %.029 = phi ptr [ %2, %4 ], [ %.130.lcssa, %.preheader ], [ %32, %.lr.ph43 ]
-  %.0 = phi i32 [ %1, %4 ], [ %.1.lcssa, %.preheader ], [ %50, %.lr.ph43 ]
-  %52 = icmp ult ptr %.029, %5
-  br i1 %52, label %.lr.ph48, label %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph39, %.preheader, %4
+  %.029 = phi ptr [ %2, %4 ], [ %.130.lcssa, %.preheader ], [ %32, %.lr.ph39 ]
+  %.0 = phi i32 [ %1, %4 ], [ %.1.lcssa, %.preheader ], [ %56, %.lr.ph39 ]
+  %58 = icmp ult ptr %.029, %5
+  br i1 %58, label %.lr.ph44, label %._crit_edge
 
-.lr.ph48:                                         ; preds = %.loopexit, %.lr.ph48
-  %.347 = phi i32 [ %62, %.lr.ph48 ], [ %.0, %.loopexit ]
-  %.33246 = phi ptr [ %54, %.lr.ph48 ], [ %.029, %.loopexit ]
-  %53 = and i32 %.347, 255
-  %54 = getelementptr inbounds nuw i8, ptr %.33246, i64 1
-  %55 = load i8, ptr %.33246, align 1, !tbaa !17
-  %56 = zext i8 %55 to i32
-  %57 = xor i32 %53, %56
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !4
-  %61 = lshr i32 %.347, 8
-  %62 = xor i32 %60, %61
-  %63 = icmp ult ptr %54, %5
-  br i1 %63, label %.lr.ph48, label %._crit_edge, !llvm.loop !20
+.lr.ph44:                                         ; preds = %.loopexit, %.lr.ph44
+  %.343 = phi i32 [ %68, %.lr.ph44 ], [ %.0, %.loopexit ]
+  %.33242 = phi ptr [ %60, %.lr.ph44 ], [ %.029, %.loopexit ]
+  %59 = and i32 %.343, 255
+  %60 = getelementptr inbounds nuw i8, ptr %.33242, i64 1
+  %61 = load i8, ptr %.33242, align 1, !tbaa !16
+  %62 = zext i8 %61 to i32
+  %63 = xor i32 %59, %62
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %0, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !4
+  %67 = lshr i32 %.343, 8
+  %68 = xor i32 %66, %67
+  %69 = icmp ult ptr %60, %5
+  br i1 %69, label %.lr.ph44, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph48, %.loopexit
-  %.3.lcssa = phi i32 [ %.0, %.loopexit ], [ %62, %.lr.ph48 ]
+._crit_edge:                                      ; preds = %.lr.ph44, %.loopexit
+  %.3.lcssa = phi i32 [ %.0, %.loopexit ], [ %68, %.lr.ph44 ]
   ret i32 %.3.lcssa
 }
 
@@ -834,16 +835,15 @@ attributes #8 = { noreturn nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

@@ -620,8 +620,8 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() 
   %12 = select i1 %9, i32 %10, i32 %11
   %13 = add i32 %12, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  store i64 0, ptr %1, align 8, !annotation !9
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1) #8, !srcloc !10
+  store i64 0, ptr %1, align 8, !annotation !8
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1) #8, !srcloc !9
   %14 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
   %15 = and i64 %14, 512
@@ -669,7 +669,7 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() 
   %41 = phi i32 [ %39, %36 ], [ %32, %30 ]
   %42 = add nuw nsw i64 %31, 1
   %43 = icmp eq i64 %42, %29
-  br i1 %43, label %.loopexit, label %30, !llvm.loop !11
+  br i1 %43, label %.loopexit, label %30, !llvm.loop !10
 
 .loopexit:                                        ; preds = %40, %26
   %44 = phi i32 [ 0, %26 ], [ %41, %40 ]
@@ -711,7 +711,7 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_get_next_table_descriptor
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @acpi_tb_resize_root_table_list(), !range !12
+  %7 = tail call i32 @acpi_tb_resize_root_table_list(), !range !11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %20
 
@@ -762,7 +762,7 @@ define dso_local void @acpi_tb_terminate() local_unnamed_addr #2 align 16 {
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %7, %9
-  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %0
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
@@ -952,7 +952,7 @@ define dso_local void @acpi_tb_set_table_loaded_flag(i32 noundef %0, i8 noundef 
 define dso_local i32 @acpi_tb_load_table(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !annotation !9
+  store ptr null, ptr %3, align 8, !annotation !8
   %4 = call i32 @acpi_get_table_by_index(i32 noundef %0, ptr noundef nonnull %3) #8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %29
@@ -1027,7 +1027,7 @@ define dso_local void @acpi_tb_notify_table(i32 noundef %0, ptr noundef %1) loca
 define dso_local i32 @acpi_tb_install_and_load_table(i64 noundef %0, i8 noundef zeroext %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #2 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 4, !annotation !9
+  store i32 0, ptr %6, align 4, !annotation !8
   %7 = call i32 @acpi_tb_install_standard_table(i64 noundef %0, i8 noundef zeroext %1, ptr noundef %2, i8 noundef zeroext 1, i8 noundef zeroext %3, ptr noundef nonnull %6) #8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %13
@@ -1053,7 +1053,7 @@ declare dso_local i32 @acpi_tb_install_standard_table(i64 noundef, i8 noundef ze
 define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !annotation !9
+  store ptr null, ptr %2, align 8, !annotation !8
   %3 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %5 = icmp ugt i32 %4, %0
@@ -1171,12 +1171,11 @@ attributes #9 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{i64 1827465, i64 1827486}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = !{i32 0, i32 16}
-!13 = distinct !{!13, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{i64 1827465, i64 1827486}
+!10 = distinct !{!10, !6, !7}
+!11 = !{i32 0, i32 16}
+!12 = distinct !{!12, !6, !7}

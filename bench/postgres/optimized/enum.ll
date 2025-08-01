@@ -764,7 +764,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   %.236 = phi i32 [ %54, %52 ], [ %.034, %36 ]
   %.2 = phi ptr [ %.3, %52 ], [ %.031, %36 ]
   %58 = icmp eq i32 %2, %42
-  br i1 %58, label %.split50.us, label %.split, !llvm.loop !8
+  br i1 %58, label %.split50.us, label %.split
 
 .split50.us:                                      ; preds = %.split, %57, %33, %.split.us
   %.us-phi = phi i32 [ 0, %.split.us ], [ %.236.us, %33 ], [ %.236, %57 ], [ %.034, %.split ]
@@ -857,5 +857,3 @@ attributes #9 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

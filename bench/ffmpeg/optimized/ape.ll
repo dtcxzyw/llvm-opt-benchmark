@@ -405,7 +405,7 @@ thread-pre-split:                                 ; preds = %159, %176
   %210 = load i64, ptr %209, align 8, !tbaa !55
   %211 = sub nsw i64 %204, %210
   %212 = getelementptr i8, ptr %206, i64 -24
-  store i64 %211, ptr %212, align 8, !tbaa !62
+  store i64 %211, ptr %212, align 8, !tbaa !61
   %213 = load i64, ptr %205, align 8, !tbaa !55
   %214 = trunc i64 %213 to i32
   %215 = sub i32 %203, %214
@@ -463,7 +463,7 @@ thread-pre-split:                                 ; preds = %159, %176
 248:                                              ; preds = %235, %.thread
   %.1274 = phi i64 [ %243, %235 ], [ %247, %.thread ]
   %249 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre351.pre, i64 %234, i32 1
-  store i64 %.1274, ptr %249, align 8, !tbaa !62
+  store i64 %.1274, ptr %249, align 8, !tbaa !61
   %.not334 = icmp eq i32 %.pre352.pre, 0
   br i1 %.not334, label %.loopexit.sink.split, label %.lr.ph.preheader
 
@@ -481,7 +481,7 @@ thread-pre-split:                                 ; preds = %159, %176
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %.phi.trans.insert353 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre351.pre, i64 %indvars.iv339, i32 1
-  %.pre354 = load i64, ptr %.phi.trans.insert353, align 8, !tbaa !62
+  %.pre354 = load i64, ptr %.phi.trans.insert353, align 8, !tbaa !61
   br label %260
 
 253:                                              ; preds = %.lr.ph
@@ -490,9 +490,9 @@ thread-pre-split:                                 ; preds = %159, %176
   %256 = sub nsw i64 %255, %254
   store i64 %256, ptr %250, align 8, !tbaa !55
   %257 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %258 = load i64, ptr %257, align 8, !tbaa !62
+  %258 = load i64, ptr %257, align 8, !tbaa !61
   %259 = add nsw i64 %258, %254
-  store i64 %259, ptr %257, align 8, !tbaa !62
+  store i64 %259, ptr %257, align 8, !tbaa !61
   br label %260
 
 260:                                              ; preds = %.lr.ph._crit_edge, %253
@@ -504,10 +504,10 @@ thread-pre-split:                                 ; preds = %159, %176
   %264 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre351.pre, i64 %indvars.iv339, i32 1
   %265 = add nsw i64 %261, 3
   %266 = and i64 %265, -4
-  store i64 %266, ptr %264, align 8, !tbaa !62
+  store i64 %266, ptr %264, align 8, !tbaa !61
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge326, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge326, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge326:                                   ; preds = %263
   %267 = load i16, ptr %12, align 8, !tbaa !32
@@ -519,7 +519,7 @@ thread-pre-split:                                 ; preds = %159, %176
   %270 = load i32, ptr %139, align 4, !tbaa !45
   %271 = zext i32 %270 to i64
   %272 = icmp samesign ult i64 %indvars.iv.next343, %271
-  br i1 %272, label %.lr.ph328, label %.loopexit.sink.split, !llvm.loop !64
+  br i1 %272, label %.lr.ph328, label %.loopexit.sink.split, !llvm.loop !63
 
 .lr.ph328:                                        ; preds = %._crit_edge326, %269
   %indvars.iv342 = phi i64 [ %indvars.iv.next343, %269 ], [ 0, %._crit_edge326 ]
@@ -533,9 +533,9 @@ thread-pre-split:                                 ; preds = %159, %176
 276:                                              ; preds = %.lr.ph328
   %277 = getelementptr %struct.APEFrame, ptr %.pre355, i64 %indvars.iv342
   %278 = getelementptr i8, ptr %277, i64 -24
-  %279 = load i64, ptr %278, align 8, !tbaa !62
+  %279 = load i64, ptr %278, align 8, !tbaa !61
   %280 = add nsw i64 %279, 4
-  store i64 %280, ptr %278, align 8, !tbaa !62
+  store i64 %280, ptr %278, align 8, !tbaa !61
   br label %.critedge305
 
 .critedge305:                                     ; preds = %276, %.lr.ph328
@@ -590,56 +590,56 @@ thread-pre-split:                                 ; preds = %159, %176
 308:                                              ; preds = %296, %299
   %309 = phi i64 [ %307, %299 ], [ 0, %296 ]
   %310 = getelementptr inbounds nuw i8, ptr %295, i64 16
-  %311 = load ptr, ptr %310, align 8, !tbaa !65
-  store i32 1, ptr %311, align 8, !tbaa !72
+  %311 = load ptr, ptr %310, align 8, !tbaa !64
+  store i32 1, ptr %311, align 8, !tbaa !71
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
-  store i32 86048, ptr %312, align 4, !tbaa !75
+  store i32 86048, ptr %312, align 4, !tbaa !74
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  store i32 541413441, ptr %313, align 8, !tbaa !76
+  store i32 541413441, ptr %313, align 8, !tbaa !75
   %314 = getelementptr inbounds nuw i8, ptr %5, i64 90
   %315 = load i16, ptr %314, align 2, !tbaa !47
   %316 = zext i16 %315 to i32
   %317 = getelementptr inbounds nuw i8, ptr %311, i64 132
-  store i32 %316, ptr %317, align 4, !tbaa !77
+  store i32 %316, ptr %317, align 4, !tbaa !76
   %318 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %319 = load i32, ptr %318, align 4, !tbaa !48
   %320 = getelementptr inbounds nuw i8, ptr %311, i64 152
-  store i32 %319, ptr %320, align 8, !tbaa !78
+  store i32 %319, ptr %320, align 8, !tbaa !77
   %321 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %322 = load i16, ptr %321, align 8, !tbaa !46
   %323 = zext i16 %322 to i32
   %324 = getelementptr inbounds nuw i8, ptr %311, i64 56
-  store i32 %323, ptr %324, align 8, !tbaa !79
+  store i32 %323, ptr %324, align 8, !tbaa !78
   %325 = zext i32 %297 to i64
   %326 = getelementptr inbounds nuw i8, ptr %295, i64 56
-  store i64 %325, ptr %326, align 8, !tbaa !80
+  store i64 %325, ptr %326, align 8, !tbaa !79
   %327 = getelementptr inbounds nuw i8, ptr %295, i64 40
-  store i64 0, ptr %327, align 8, !tbaa !81
+  store i64 0, ptr %327, align 8, !tbaa !80
   %328 = getelementptr inbounds nuw i8, ptr %295, i64 48
-  store i64 %309, ptr %328, align 8, !tbaa !82
+  store i64 %309, ptr %328, align 8, !tbaa !81
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %295, i32 noundef 64, i32 noundef 1, i32 noundef %319) #3
-  %329 = load ptr, ptr %310, align 8, !tbaa !65
+  %329 = load ptr, ptr %310, align 8, !tbaa !64
   %330 = tail call i32 @ff_alloc_extradata(ptr noundef %329, i32 noundef 6) #3
   %331 = icmp slt i32 %330, 0
   br i1 %331, label %.loopexit321, label %332
 
 332:                                              ; preds = %308
   %333 = load i16, ptr %12, align 8, !tbaa !32
-  %334 = load ptr, ptr %310, align 8, !tbaa !65
+  %334 = load ptr, ptr %310, align 8, !tbaa !64
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  %336 = load ptr, ptr %335, align 8, !tbaa !83
+  %336 = load ptr, ptr %335, align 8, !tbaa !82
   store i16 %333, ptr %336, align 1, !tbaa !11
   %337 = load i16, ptr %292, align 8, !tbaa !41
-  %338 = load ptr, ptr %310, align 8, !tbaa !65
+  %338 = load ptr, ptr %310, align 8, !tbaa !64
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
-  %340 = load ptr, ptr %339, align 8, !tbaa !83
+  %340 = load ptr, ptr %339, align 8, !tbaa !82
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 2
   store i16 %337, ptr %341, align 1, !tbaa !11
   %342 = getelementptr inbounds nuw i8, ptr %5, i64 74
   %343 = load i16, ptr %342, align 2, !tbaa !42
-  %344 = load ptr, ptr %310, align 8, !tbaa !65
+  %344 = load ptr, ptr %310, align 8, !tbaa !64
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %346 = load ptr, ptr %345, align 8, !tbaa !83
+  %346 = load ptr, ptr %345, align 8, !tbaa !82
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 4
   store i16 %343, ptr %347, align 1, !tbaa !11
   %348 = load i32, ptr %139, align 4, !tbaa !45
@@ -651,7 +651,7 @@ thread-pre-split:                                 ; preds = %159, %176
   %.0275329 = phi i64 [ %356, %.lr.ph332 ], [ 0, %332 ]
   %349 = load ptr, ptr %158, align 8, !tbaa !51
   %350 = getelementptr inbounds nuw %struct.APEFrame, ptr %349, i64 %indvars.iv345, i32 4
-  store i64 %.0275329, ptr %350, align 8, !tbaa !84
+  store i64 %.0275329, ptr %350, align 8, !tbaa !83
   %351 = getelementptr inbounds nuw %struct.APEFrame, ptr %349, i64 %indvars.iv345
   %352 = load i64, ptr %351, align 8, !tbaa !55
   %353 = tail call i32 @av_add_index_entry(ptr noundef nonnull %295, i64 noundef %352, i64 noundef %.0275329, i32 noundef 0, i32 noundef 0, i32 noundef 1) #3
@@ -662,11 +662,11 @@ thread-pre-split:                                 ; preds = %159, %176
   %357 = load i32, ptr %139, align 4, !tbaa !45
   %358 = zext i32 %357 to i64
   %359 = icmp samesign ult i64 %indvars.iv.next346, %358
-  br i1 %359, label %.lr.ph332, label %._crit_edge333, !llvm.loop !85
+  br i1 %359, label %.lr.ph332, label %._crit_edge333, !llvm.loop !84
 
 ._crit_edge333:                                   ; preds = %.lr.ph332, %332
   %360 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %361 = load i32, ptr %360, align 8, !tbaa !86
+  %361 = load i32, ptr %360, align 8, !tbaa !85
   %362 = and i32 %361, 1
   %.not299 = icmp eq i32 %362, 0
   br i1 %.not299, label %.loopexit321, label %363
@@ -721,11 +721,11 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %28 = icmp eq i32 %25, %27
   %.050.in.v = select i1 %28, i64 80, i64 76
   %.050.in = getelementptr inbounds nuw i8, ptr %4, i64 %.050.in.v
-  %.050 = load i32, ptr %.050.in, align 4, !tbaa !87
+  %.050 = load i32, ptr %.050.in, align 4, !tbaa !86
   %29 = load ptr, ptr %15, align 8, !tbaa !51
   %30 = sext i32 %25 to i64
   %31 = getelementptr inbounds %struct.APEFrame, ptr %29, i64 %30, i32 1
-  %32 = load i64, ptr %31, align 8, !tbaa !62
+  %32 = load i64, ptr %31, align 8, !tbaa !61
   %33 = add i64 %32, -2147483640
   %or.cond = icmp ult i64 %33, -2147483639
   br i1 %or.cond, label %34, label %37
@@ -746,24 +746,24 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !88
+  %44 = load ptr, ptr %43, align 8, !tbaa !87
   store i32 %.050, ptr %44, align 1, !tbaa !11
   %45 = load ptr, ptr %15, align 8, !tbaa !51
   %46 = load i32, ptr %9, align 4, !tbaa !53
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.APEFrame, ptr %45, i64 %47, i32 3
   %49 = load i32, ptr %48, align 4, !tbaa !58
-  %50 = load ptr, ptr %43, align 8, !tbaa !88
+  %50 = load ptr, ptr %43, align 8, !tbaa !87
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %49, ptr %51, align 1, !tbaa !11
   %52 = load ptr, ptr %5, align 8, !tbaa !12
-  %53 = load ptr, ptr %43, align 8, !tbaa !88
+  %53 = load ptr, ptr %43, align 8, !tbaa !87
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %15, align 8, !tbaa !51
   %56 = load i32, ptr %9, align 4, !tbaa !53
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds %struct.APEFrame, ptr %55, i64 %57, i32 1
-  %59 = load i64, ptr %58, align 8, !tbaa !62
+  %59 = load i64, ptr %58, align 8, !tbaa !61
   %60 = trunc i64 %59 to i32
   %61 = tail call i32 @avio_read(ptr noundef %52, ptr noundef nonnull %54, i32 noundef %60) #3
   %62 = icmp slt i32 %61, 0
@@ -774,17 +774,17 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %65 = load i32, ptr %9, align 4, !tbaa !53
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds %struct.APEFrame, ptr %64, i64 %66, i32 4
-  %68 = load i64, ptr %67, align 8, !tbaa !84
+  %68 = load i64, ptr %67, align 8, !tbaa !83
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %68, ptr %69, align 8, !tbaa !89
+  store i64 %68, ptr %69, align 8, !tbaa !88
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %70, align 4, !tbaa !90
+  store i32 0, ptr %70, align 4, !tbaa !89
   %71 = add nuw i32 %61, 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %71, ptr %72, align 8, !tbaa !91
+  store i32 %71, ptr %72, align 8, !tbaa !90
   %73 = sext i32 %.050 to i64
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %73, ptr %74, align 8, !tbaa !92
+  store i64 %73, ptr %74, align 8, !tbaa !91
   %75 = add nsw i32 %65, 1
   store i32 %75, ptr %9, align 4, !tbaa !53
   br label %76
@@ -806,10 +806,10 @@ define internal noundef i32 @ape_read_close(ptr noundef readonly captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ape_read_seek(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %6 = load ptr, ptr %5, align 8, !tbaa !92
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !94
+  %9 = load ptr, ptr %8, align 8, !tbaa !93
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = tail call i32 @av_index_search_timestamp(ptr noundef %9, i64 noundef %2, i32 noundef %3) #3
@@ -820,10 +820,10 @@ define internal i32 @ape_read_seek(ptr noundef readonly captures(none) %0, i32 n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 320
-  %18 = load ptr, ptr %17, align 8, !tbaa !96
+  %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = zext nneg i32 %12 to i64
   %20 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %18, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !108
+  %21 = load i64, ptr %20, align 8, !tbaa !107
   %22 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %21, i32 noundef 0) #3
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %26
@@ -944,54 +944,53 @@ attributes #3 = { nounwind }
 !56 = !{!"APEFrame", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 20, !22, i64 24}
 !57 = !{!56, !10, i64 16}
 !58 = !{!56, !10, i64 20}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!56, !22, i64 8}
-!63 = distinct !{!63, !60, !61}
-!64 = distinct !{!64, !60, !61}
-!65 = !{!66, !67, i64 16}
-!66 = !{!"AVStream", !14, i64 0, !10, i64 8, !10, i64 12, !67, i64 16, !7, i64 24, !68, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !10, i64 64, !10, i64 68, !68, i64 72, !24, i64 80, !68, i64 88, !69, i64 96, !10, i64 200, !68, i64 204, !10, i64 212}
-!67 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!68 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!69 = !{!"AVPacket", !70, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !71, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !70, i64 88, !68, i64 96}
-!70 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!71 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!72 = !{!73, !10, i64 0}
-!73 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !71, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !68, i64 80, !68, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !74, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
-!74 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!75 = !{!73, !10, i64 4}
-!76 = !{!73, !10, i64 8}
-!77 = !{!73, !10, i64 132}
-!78 = !{!73, !10, i64 152}
-!79 = !{!73, !10, i64 56}
-!80 = !{!66, !22, i64 56}
-!81 = !{!66, !22, i64 40}
-!82 = !{!66, !22, i64 48}
-!83 = !{!73, !6, i64 16}
-!84 = !{!56, !22, i64 24}
-!85 = distinct !{!85, !60, !61}
-!86 = !{!50, !10, i64 144}
-!87 = !{!10, !10, i64 0}
-!88 = !{!69, !6, i64 24}
-!89 = !{!69, !22, i64 8}
-!90 = !{!69, !10, i64 36}
-!91 = !{!69, !10, i64 32}
-!92 = !{!69, !22, i64 64}
-!93 = !{!13, !18, i64 48}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!96 = !{!97, !104, i64 320}
-!97 = !{!"FFStream", !66, i64 0, !98, i64 216, !10, i64 224, !99, i64 232, !10, i64 240, !100, i64 248, !10, i64 256, !101, i64 264, !10, i64 280, !10, i64 284, !102, i64 288, !103, i64 312, !104, i64 320, !10, i64 328, !10, i64 332, !22, i64 336, !22, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !22, i64 368, !22, i64 376, !22, i64 384, !10, i64 392, !22, i64 400, !22, i64 408, !22, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !22, i64 728, !8, i64 736, !8, i64 737, !68, i64 740, !5, i64 752, !105, i64 784, !22, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !106, i64 816, !10, i64 824, !10, i64 828, !22, i64 832, !22, i64 840, !107, i64 848, !68, i64 856}
-!98 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
-!99 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!100 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
-!101 = !{!"", !99, i64 0, !10, i64 8}
-!102 = !{!"FFFrac", !22, i64 0, !22, i64 8, !22, i64 16}
-!103 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
-!104 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
-!105 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
-!106 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
-!107 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!108 = !{!109, !22, i64 0}
-!109 = !{!"AVIndexEntry", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}
+!61 = !{!56, !22, i64 8}
+!62 = distinct !{!62, !60}
+!63 = distinct !{!63, !60}
+!64 = !{!65, !66, i64 16}
+!65 = !{!"AVStream", !14, i64 0, !10, i64 8, !10, i64 12, !66, i64 16, !7, i64 24, !67, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !10, i64 64, !10, i64 68, !67, i64 72, !24, i64 80, !67, i64 88, !68, i64 96, !10, i64 200, !67, i64 204, !10, i64 212}
+!66 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!67 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!68 = !{!"AVPacket", !69, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !70, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !69, i64 88, !67, i64 96}
+!69 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!70 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!71 = !{!72, !10, i64 0}
+!72 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !70, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !67, i64 80, !67, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !73, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!73 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!74 = !{!72, !10, i64 4}
+!75 = !{!72, !10, i64 8}
+!76 = !{!72, !10, i64 132}
+!77 = !{!72, !10, i64 152}
+!78 = !{!72, !10, i64 56}
+!79 = !{!65, !22, i64 56}
+!80 = !{!65, !22, i64 40}
+!81 = !{!65, !22, i64 48}
+!82 = !{!72, !6, i64 16}
+!83 = !{!56, !22, i64 24}
+!84 = distinct !{!84, !60}
+!85 = !{!50, !10, i64 144}
+!86 = !{!10, !10, i64 0}
+!87 = !{!68, !6, i64 24}
+!88 = !{!68, !22, i64 8}
+!89 = !{!68, !10, i64 36}
+!90 = !{!68, !10, i64 32}
+!91 = !{!68, !22, i64 64}
+!92 = !{!13, !18, i64 48}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!95 = !{!96, !103, i64 320}
+!96 = !{!"FFStream", !65, i64 0, !97, i64 216, !10, i64 224, !98, i64 232, !10, i64 240, !99, i64 248, !10, i64 256, !100, i64 264, !10, i64 280, !10, i64 284, !101, i64 288, !102, i64 312, !103, i64 320, !10, i64 328, !10, i64 332, !22, i64 336, !22, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !22, i64 368, !22, i64 376, !22, i64 384, !10, i64 392, !22, i64 400, !22, i64 408, !22, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !22, i64 728, !8, i64 736, !8, i64 737, !67, i64 740, !5, i64 752, !104, i64 784, !22, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !105, i64 816, !10, i64 824, !10, i64 828, !22, i64 832, !22, i64 840, !106, i64 848, !67, i64 856}
+!97 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
+!98 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!99 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
+!100 = !{!"", !98, i64 0, !10, i64 8}
+!101 = !{!"FFFrac", !22, i64 0, !22, i64 8, !22, i64 16}
+!102 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
+!103 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
+!104 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
+!105 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
+!106 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!107 = !{!108, !22, i64 0}
+!108 = !{!"AVIndexEntry", !22, i64 0, !22, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}

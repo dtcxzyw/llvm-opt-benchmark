@@ -70,7 +70,7 @@ define dso_local void @mod_tree_insert(ptr noundef %0) local_unnamed_addr #0 ali
   store i64 %33, ptr %12, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   store volatile ptr %12, ptr %32, align 8
   tail call void @rb_insert_color(ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mod_tree, i64 8)) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !5
@@ -95,7 +95,7 @@ define dso_local void @mod_tree_insert(ptr noundef %0) local_unnamed_addr #0 ali
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %41, !llvm.loop !12
+  br i1 %49, label %50, label %41, !llvm.loop !7
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 %46
@@ -109,7 +109,7 @@ __mod_tree_insert.exit:                           ; preds = %31, %50
   store i64 %54, ptr %55, align 8
   %56 = getelementptr i8, ptr %6, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   store volatile ptr %55, ptr %53, align 8
   tail call void @rb_insert_color(ptr noundef %55, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mod_tree, i64 16)) #3
   br label %57
@@ -117,7 +117,7 @@ __mod_tree_insert.exit:                           ; preds = %31, %50
 57:                                               ; preds = %__mod_tree_insert.exit, %4
   %58 = add nuw nsw i64 %5, 1
   %59 = icmp eq i64 %58, 7
-  br i1 %59, label %3, label %4, !llvm.loop !13
+  br i1 %59, label %3, label %4, !llvm.loop !11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -163,7 +163,7 @@ define dso_local void @mod_tree_remove_init(ptr noundef %0) local_unnamed_addr #
 22:                                               ; preds = %15, %10, %4
   %23 = add nuw nsw i64 %5, 1
   %24 = icmp eq i64 %23, 7
-  br i1 %24, label %3, label %4, !llvm.loop !14
+  br i1 %24, label %3, label %4, !llvm.loop !12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -202,7 +202,7 @@ define dso_local void @mod_tree_remove(ptr noundef %0) local_unnamed_addr #0 ali
 17:                                               ; preds = %10, %4
   %18 = add nuw nsw i64 %5, 1
   %19 = icmp eq i64 %18, 7
-  br i1 %19, label %3, label %4, !llvm.loop !15
+  br i1 %19, label %3, label %4, !llvm.loop !13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -245,14 +245,14 @@ define dso_local ptr @mod_find(i64 noundef %0, ptr noundef %1) local_unnamed_add
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 %25
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit, label %13, !llvm.loop !16
+  br i1 %28, label %.loopexit, label %13, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread, %20, %4
   %29 = phi ptr [ null, %4 ], [ null, %.thread ], [ %15, %20 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !15
   %30 = load volatile i32, ptr %1, align 4
   %31 = icmp eq i32 %30, %5
-  br i1 %31, label %32, label %4, !llvm.loop !18
+  br i1 %31, label %32, label %4, !llvm.loop !16
 
 32:                                               ; preds = %.loopexit
   %33 = icmp eq ptr %29, null
@@ -291,15 +291,13 @@ attributes #3 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2150172936}
 !6 = !{i64 2150173044}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2150428029}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = !{i64 2150168544}
-!18 = distinct !{!18, !8, !9, !10}
+!10 = !{i64 2150428029}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{i64 2150168544}
+!16 = distinct !{!16, !8, !9}

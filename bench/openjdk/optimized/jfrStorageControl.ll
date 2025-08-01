@@ -141,7 +141,7 @@ define hidden noundef i64 @_ZN17JfrStorageControl16decrement_leasedEv(ptr nounde
   %5 = add i64 %4, -1
   %6 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %5, i64 %4, ptr nonnull %2) #5, !srcloc !7
   %.not = icmp eq i64 %6, %4
-  br i1 %.not, label %7, label %3, !llvm.loop !11
+  br i1 %.not, label %7, label %3, !llvm.loop !10
 
 7:                                                ; preds = %3
   ret i64 %5
@@ -174,7 +174,6 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
 !7 = !{i64 2145412694}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

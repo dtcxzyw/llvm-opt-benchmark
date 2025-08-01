@@ -71,7 +71,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_AcquireWriteE
   br i1 %8, label %.preheader.backedge, label %9
 
 .preheader.backedge:                              ; preds = %.preheader, %9
-  br label %.preheader, !llvm.loop !10
+  br label %.preheader, !llvm.loop !9
 
 9:                                                ; preds = %.preheader
   %10 = atomicrmw xchg ptr %3, i8 1 seq_cst, align 1
@@ -119,7 +119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS
   %brmerge.not = select i1 %.not, i1 %25, i1 false
   %indvars.iv.next.mux = select i1 %.not, i64 0, i64 %indvars.iv.next
   %.mux = select i1 %.not, i1 true, i1 %25
-  br i1 %brmerge.not, label %26, label %12, !llvm.loop !11
+  br i1 %brmerge.not, label %26, label %12, !llvm.loop !10
 
 26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit
   ret void
@@ -141,7 +141,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_ReleaseWriteE
   %5 = atomicrmw and ptr %.0.ptr, i32 -2 seq_cst, align 4
   %.0.add = add nuw nsw i64 %.0.idx5, 64
   %.not = icmp eq i64 %.0.add, 1024
-  br i1 %.not, label %6, label %4, !llvm.loop !12
+  br i1 %.not, label %6, label %4, !llvm.loop !11
 
 6:                                                ; preds = %4
   ret void
@@ -180,9 +180,8 @@ attributes #9 = { nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIA_N32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10_LockStateEENSt8__detail9_MakeUniqIT_E7__arrayEm: argument 0"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIA_N32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10_LockStateEENSt8__detail9_MakeUniqIT_E7__arrayEm"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

@@ -252,7 +252,7 @@ define internal void @LINUX_JoystickDetect() #0 {
   br i1 %.not10.i, label %IsJoystickDeviceNode.exit.thread.i, label %26
 
 26:                                               ; preds = %24
-  %27 = load i8, ptr @SDL_classic_joysticks, align 1, !range !6, !noundef !7
+  %27 = load i8, ptr @SDL_classic_joysticks, align 1, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
   %29 = call ptr @SDL_strrchr_REAL(ptr noundef nonnull %22, i32 noundef 47) #18
   %.not.i.i.i = icmp eq ptr %29, null
@@ -282,7 +282,7 @@ define internal void @LINUX_JoystickDetect() #0 {
   %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 1
   %.pr.i.i.i.i = load i8, ptr %39, align 1
   %.not.i.i.i.i = icmp eq i8 %.pr.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %IsJoystickDeviceNode.exit.i, label %.preheader.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i, label %IsJoystickDeviceNode.exit.i, label %.preheader.i.i.i.i, !llvm.loop !7
 
 40:                                               ; preds = %26
   %41 = call zeroext i1 @SDL_startswith(ptr noundef nonnull %spec.select.i.i.i, ptr noundef nonnull @.str.15) #18
@@ -306,7 +306,7 @@ define internal void @LINUX_JoystickDetect() #0 {
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i6.i.i, i64 1
   %.pr.i.i8.i.i = load i8, ptr %48, align 1
   %.not.i.i9.i.i = icmp eq i8 %.pr.i.i8.i.i, 0
-  br i1 %.not.i.i9.i.i, label %IsJoystickDeviceNode.exit.i, label %.preheader.i.i5.i.i, !llvm.loop !8
+  br i1 %.not.i.i9.i.i, label %IsJoystickDeviceNode.exit.i, label %.preheader.i.i5.i.i, !llvm.loop !7
 
 IsJoystickDeviceNode.exit.i:                      ; preds = %47, %38
   %49 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %10, i64 noundef 4096, ptr noundef nonnull @.str.14, ptr noundef nonnull %22) #18
@@ -491,7 +491,7 @@ GetSteamVirtualGamepadSlot.exit.thread.i.i:       ; preds = %106, %104, %101
   call void @free(ptr noundef %128) #18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %79, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %79, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %125
   %129 = load ptr, ptr %4, align 8
@@ -521,7 +521,7 @@ GetSteamVirtualGamepadSlot.exit.thread.i.i:       ; preds = %106, %104, %101
   call void @SDL_free_REAL(ptr noundef %136) #18
   %indvars.iv.next71.i.i = add nuw nsw i64 %indvars.iv70.i.i, 1
   %exitcond74.not.i.i = icmp eq i64 %indvars.iv.next71.i.i, %.043.lcssa7881.i.i
-  br i1 %exitcond74.not.i.i, label %LINUX_ScanSteamVirtualGamepads.exit.i, label %.lr.ph67.i.i, !llvm.loop !10
+  br i1 %exitcond74.not.i.i, label %LINUX_ScanSteamVirtualGamepads.exit.i, label %.lr.ph67.i.i, !llvm.loop !9
 
 LINUX_ScanSteamVirtualGamepads.exit.i:            ; preds = %.lr.ph67.i.i, %132, %.thread84.i.i
   %.045.lcssa7782.i.i = phi ptr [ %.146.i.i, %132 ], [ null, %.thread84.i.i ], [ %.146.i.i, %.lr.ph67.i.i ]
@@ -565,7 +565,7 @@ LINUX_ScanSteamVirtualGamepads.exit.i:            ; preds = %.lr.ph67.i.i, %132,
   call void @free(ptr noundef %150) #18
   %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i7.i, 1
   %exitcond.not.i9.i = icmp eq i64 %indvars.iv.next.i8.i, %wide.trip.count.i5.pre-phi.i
-  br i1 %exitcond.not.i9.i, label %LINUX_ScanInputDevices.exit.i, label %.lr.ph.i6.i, !llvm.loop !11
+  br i1 %exitcond.not.i9.i, label %LINUX_ScanInputDevices.exit.i, label %.lr.ph.i6.i, !llvm.loop !10
 
 LINUX_ScanInputDevices.exit.i:                    ; preds = %.lr.ph.i6.i, %141
   %151 = load ptr, ptr %1, align 8
@@ -602,7 +602,7 @@ LINUX_FallbackJoystickDetect.exit:                ; preds = %153, %61, %LINUX_In
 
 156:                                              ; preds = %.lr.ph.i3
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 3744
-  %158 = load i8, ptr %157, align 8, !range !6, !noundef !7
+  %158 = load i8, ptr %157, align 8, !range !5, !noundef !6
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %162
 
@@ -622,7 +622,7 @@ LINUX_FallbackJoystickDetect.exit:                ; preds = %153, %61, %LINUX_In
   %.121.in.i = phi ptr [ %163, %162 ], [ %spec.select31.i, %160 ]
   %.020.i = load ptr, ptr %.121.in.i, align 8
   %.not.i4 = icmp eq ptr %.020.i, null
-  br i1 %.not.i4, label %.preheader.i, label %.lr.ph.i3, !llvm.loop !12
+  br i1 %.not.i4, label %.preheader.i, label %.lr.ph.i3, !llvm.loop !11
 
 .lr.ph42.i:                                       ; preds = %.preheader.i, %185
   %.041.i = phi ptr [ %.0.i, %185 ], [ %.038.i, %.preheader.i ]
@@ -634,7 +634,7 @@ LINUX_FallbackJoystickDetect.exit:                ; preds = %153, %61, %LINUX_In
 
 167:                                              ; preds = %.lr.ph42.i
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 3745
-  %169 = load i8, ptr %168, align 1, !range !6, !noundef !7
+  %169 = load i8, ptr %168, align 1, !range !5, !noundef !6
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %171, label %183
 
@@ -681,7 +681,7 @@ RemoveSensorlistItem.exit.i:                      ; preds = %180, %178
   %.1.in.i = phi ptr [ %184, %183 ], [ %spec.select33.i, %RemoveSensorlistItem.exit.i ]
   %.0.i = load ptr, ptr %.1.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
-  br i1 %.not26.i, label %HandlePendingRemovals.exit, label %.lr.ph42.i, !llvm.loop !13
+  br i1 %.not26.i, label %HandlePendingRemovals.exit, label %.lr.ph42.i, !llvm.loop !12
 
 HandlePendingRemovals.exit:                       ; preds = %185, %.preheader.i
   ret void
@@ -712,7 +712,7 @@ define internal ptr @LINUX_JoystickGetDeviceName(i32 noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %4, align 8
   %5 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -741,7 +741,7 @@ define internal ptr @LINUX_JoystickGetDevicePath(i32 noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %4, align 8
   %5 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -770,7 +770,7 @@ define internal i32 @LINUX_JoystickGetDeviceSteamVirtualGamepadSlot(i32 noundef 
   %4 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %4, align 8
   %5 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -809,7 +809,7 @@ define internal { i64, i64 } @LINUX_JoystickGetDeviceGUID(i32 noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %4, align 8
   %5 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -842,7 +842,7 @@ define internal i32 @LINUX_JoystickGetDeviceInstanceID(i32 noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %4, align 8
   %5 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %5, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -874,7 +874,7 @@ define internal zeroext i1 @LINUX_JoystickOpen(ptr noundef %0, i32 noundef %1) #
   %8 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %8, align 8
   %9 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %9, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %9, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %.preheader.i
   %.07.i = phi ptr [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
@@ -951,7 +951,7 @@ GetJoystickByDevIndex.exit.thread:                ; preds = %2, %GetJoystickByDe
   %40 = getelementptr inbounds nuw i8, ptr %.01730.i, i64 24
   %.017.i = load ptr, ptr %40, align 8
   %.not22.i = icmp eq ptr %.017.i, null
-  br i1 %.not22.i, label %GetSensor.exit, label %.lr.ph.i33, !llvm.loop !15
+  br i1 %.not22.i, label %GetSensor.exit, label %.lr.ph.i33, !llvm.loop !14
 
 GetSensor.exit:                                   ; preds = %39, %14, %16, %21, %38
   %.018.i = phi ptr [ %.01730.i, %38 ], [ null, %14 ], [ null, %16 ], [ null, %21 ], [ null, %39 ]
@@ -983,7 +983,7 @@ GetSensor.exit:                                   ; preds = %39, %14, %16, %21, 
   store i8 1, ptr %50, align 1
   %51 = load ptr, ptr %13, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1789
-  %53 = load i8, ptr %52, align 1, !range !6, !noundef !7
+  %53 = load i8, ptr %52, align 1, !range !5, !noundef !6
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %56
 
@@ -995,7 +995,7 @@ GetSensor.exit:                                   ; preds = %39, %14, %16, %21, 
 56:                                               ; preds = %55, %48
   %57 = phi ptr [ %.pre38, %55 ], [ %51, %48 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1788
-  %59 = load i8, ptr %58, align 4, !range !6, !noundef !7
+  %59 = load i8, ptr %58, align 4, !range !5, !noundef !6
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %62
 
@@ -1022,13 +1022,13 @@ GetSensor.exit:                                   ; preds = %39, %14, %16, %21, 
 71:                                               ; preds = %67, %62
   %72 = phi ptr [ %.pre40, %67 ], [ %63, %62 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %74 = load i8, ptr %73, align 8, !range !6, !noundef !7
+  %74 = load i8, ptr %73, align 8, !range !5, !noundef !6
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 49
-  %78 = load i8, ptr %77, align 1, !range !6, !noundef !7
+  %78 = load i8, ptr %77, align 1, !range !5, !noundef !6
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %83
 
@@ -1050,7 +1050,7 @@ define internal zeroext i1 @LINUX_JoystickRumble(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %15
 
@@ -1067,7 +1067,7 @@ define internal zeroext i1 @LINUX_JoystickRumble(ptr noundef readonly captures(n
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %27
 
@@ -1169,13 +1169,13 @@ define internal zeroext i1 @LINUX_JoystickSetSensorsEnabled(ptr noundef readonly
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1788
-  %7 = load i8, ptr %6, align 4, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1789
-  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 1, !range !5, !noundef !6
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %15, label %13
 
@@ -1185,7 +1185,7 @@ define internal zeroext i1 @LINUX_JoystickSetSensorsEnabled(ptr noundef readonly
 
 15:                                               ; preds = %9, %2
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 3636
-  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
   %18 = icmp eq i8 %17, %3
   br i1 %18, label %50, label %19
 
@@ -1253,7 +1253,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1790
-  %7 = load i8, ptr %6, align 2, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 2, !range !5, !noundef !6
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %121
 
@@ -1277,7 +1277,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   %20 = call i64 @read(i32 noundef %19, ptr noundef nonnull %3, i64 noundef 256) #18
   %21 = trunc i64 %20 to i32
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph31.i, label %HandleClassicEvents.exit, !llvm.loop !16
+  br i1 %22, label %.lr.ph31.i, label %HandleClassicEvents.exit, !llvm.loop !15
 
 .lr.ph31.i:                                       ; preds = %9, %.loopexit.i
   %23 = phi i32 [ %21, %.loopexit.i ], [ %16, %9 ]
@@ -1337,7 +1337,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 3660
   %58 = zext nneg i8 %56 to i64
   %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1, !range !6, !noundef !7
+  %60 = load i8, ptr %59, align 1, !range !5, !noundef !6
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %114
 
@@ -1373,7 +1373,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   br label %101
 
 84:                                               ; preds = %78
-  %85 = load i8, ptr %76, align 4, !range !6, !noundef !7
+  %85 = load i8, ptr %76, align 4, !range !5, !noundef !6
   %86 = trunc nuw i8 %85 to i1
   %.nonneg.i.i = sub i32 0, %82
   %87 = udiv i32 %.nonneg.i.i, 3
@@ -1404,7 +1404,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   br label %101
 
 96:                                               ; preds = %90
-  %97 = load i8, ptr %76, align 4, !range !6, !noundef !7
+  %97 = load i8, ptr %76, align 4, !range !5, !noundef !6
   %98 = trunc nuw i8 %97 to i1
   %99 = udiv i32 %94, 3
   %100 = icmp samesign uge i32 %99, %66
@@ -1447,7 +1447,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
 HandleHat.exit.i:                                 ; preds = %114, %104, %101, %28, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !16
 
 HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
@@ -1458,7 +1458,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   tail call void @SDL_AssertJoysticksLocked() #18
   %122 = load ptr, ptr %4, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 3637
-  %124 = load i8, ptr %123, align 1, !range !6, !noundef !7
+  %124 = load i8, ptr %123, align 1, !range !5, !noundef !6
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %136
 
@@ -1467,7 +1467,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   tail call fastcc void @PollAllValues(i64 noundef %127, ptr noundef nonnull %0)
   %128 = load ptr, ptr %4, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 3636
-  %130 = load i8, ptr %129, align 4, !range !6, !noundef !7
+  %130 = load i8, ptr %129, align 4, !range !5, !noundef !6
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %133
 
@@ -1498,7 +1498,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %145 = call i64 @read(i32 noundef %144, ptr noundef nonnull %2, i64 noundef 768) #18
   %146 = trunc i64 %145 to i32
   %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %.lr.ph122.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %147, label %.lr.ph122.i, label %._crit_edge.i, !llvm.loop !17
 
 .lr.ph122.i:                                      ; preds = %136, %.loopexit120.i
   %148 = phi i64 [ %145, %.loopexit120.i ], [ %140, %136 ]
@@ -1519,7 +1519,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %154 = zext i16 %153 to i32
   %155 = load ptr, ptr %4, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 3638
-  %157 = load i8, ptr %156, align 2, !range !6, !noundef !7
+  %157 = load i8, ptr %156, align 2, !range !5, !noundef !6
   %158 = trunc nuw i8 %157 to i1
   %159 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %160 = load i16, ptr %159, align 8
@@ -1563,7 +1563,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   %180 = getelementptr inbounds nuw i8, ptr %155, i64 3660
   %181 = zext nneg i32 %179 to i64
   %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 0, i64 %181
-  %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
+  %183 = load i8, ptr %182, align 1, !range !5, !noundef !6
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %185, label %237
 
@@ -1599,7 +1599,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   br label %224
 
 207:                                              ; preds = %201
-  %208 = load i8, ptr %199, align 4, !range !6, !noundef !7
+  %208 = load i8, ptr %199, align 4, !range !5, !noundef !6
   %209 = trunc nuw i8 %208 to i1
   %.nonneg.i.i40 = sub i32 0, %205
   %210 = udiv i32 %.nonneg.i.i40, 3
@@ -1630,7 +1630,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   br label %224
 
 219:                                              ; preds = %213
-  %220 = load i8, ptr %199, align 4, !range !6, !noundef !7
+  %220 = load i8, ptr %199, align 4, !range !5, !noundef !6
   %221 = trunc nuw i8 %220 to i1
   %222 = udiv i32 %217, 3
   %223 = icmp samesign ule i32 %189, %222
@@ -1676,7 +1676,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   br i1 %.not.i115.i, label %274, label %248
 
 248:                                              ; preds = %237
-  %249 = load i8, ptr %243, align 4, !range !6, !noundef !7
+  %249 = load i8, ptr %243, align 4, !range !5, !noundef !6
   %250 = trunc nuw i8 %249 to i1
   br i1 %250, label %251, label %265
 
@@ -1768,7 +1768,7 @@ AxisCorrect.exit.i:                               ; preds = %276, %274, %256
 HandleHat.exit.i26:                               ; preds = %295, %294, %293, %285, %284, %AxisCorrect.exit.i, %227, %224, %165, %164, %161
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i23
-  br i1 %exitcond.not.i28, label %.loopexit120.i, label %.lr.ph.i24, !llvm.loop !19
+  br i1 %exitcond.not.i28, label %.loopexit120.i, label %.lr.ph.i24, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.loopexit120.i, %136
   %297 = load i32, ptr %137, align 4
@@ -1785,7 +1785,7 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
 302:                                              ; preds = %299, %._crit_edge.i
   %303 = load ptr, ptr %4, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 3636
-  %305 = load i8, ptr %304, align 4, !range !6, !noundef !7
+  %305 = load i8, ptr %304, align 4, !range !5, !noundef !6
   %306 = trunc nuw i8 %305 to i1
   br i1 %306, label %.preheader.i, label %.loopexit119.i
 
@@ -1804,7 +1804,7 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
   %315 = call i64 @read(i32 noundef %314, ptr noundef nonnull %2, i64 noundef 768) #18
   %316 = trunc i64 %315 to i32
   %317 = icmp sgt i32 %316, 0
-  br i1 %317, label %.lr.ph126.i, label %.loopexit119.i, !llvm.loop !20
+  br i1 %317, label %.lr.ph126.i, label %.loopexit119.i, !llvm.loop !19
 
 .lr.ph126.i:                                      ; preds = %.preheader.i, %.loopexit.i20
   %318 = phi i64 [ %315, %.loopexit.i20 ], [ %309, %.preheader.i ]
@@ -1825,7 +1825,7 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
   %324 = zext i16 %323 to i64
   %325 = load ptr, ptr %4, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 3639
-  %327 = load i8, ptr %326, align 1, !range !6, !noundef !7
+  %327 = load i8, ptr %326, align 1, !range !5, !noundef !6
   %328 = trunc nuw i8 %327 to i1
   %329 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %330 = load i16, ptr %329, align 8
@@ -1942,7 +1942,7 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
 392:                                              ; preds = %380, %378, %377, %376, %362, %360, %347, %336, %335, %334, %331
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next130.i, %wide.trip.count133.i
-  br i1 %exitcond134.not.i, label %.loopexit.i20, label %.lr.ph125.i, !llvm.loop !21
+  br i1 %exitcond134.not.i, label %.loopexit.i20, label %.lr.ph125.i, !llvm.loop !20
 
 .loopexit119.i:                                   ; preds = %.loopexit.i20, %.preheader.i, %302
   %393 = load i32, ptr %137, align 4
@@ -1999,7 +1999,7 @@ HandleInputEvents.exit:                           ; preds = %.loopexit119.i, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %422 = sext i32 %421 to i64
   %423 = icmp slt i64 %indvars.iv.next, %422
-  br i1 %423, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %423, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %420, %398
   ret void
@@ -2139,7 +2139,7 @@ define internal void @LINUX_JoystickQuit() #0 {
   tail call void @SDL_free_REAL(ptr noundef %14) #18
   tail call void @SDL_free_REAL(ptr noundef nonnull %.0812) #18
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %15 = load ptr, ptr @SDL_sensorlist, align 8
@@ -2154,7 +2154,7 @@ define internal void @LINUX_JoystickQuit() #0 {
   tail call void @SDL_free_REAL(ptr noundef %18) #18
   tail call void @SDL_free_REAL(ptr noundef nonnull %.014) #18
   %.not10 = icmp eq ptr %17, null
-  br i1 %.not10, label %._crit_edge17, label %.lr.ph16, !llvm.loop !24
+  br i1 %.not10, label %._crit_edge17, label %.lr.ph16, !llvm.loop !23
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %._crit_edge
   store ptr null, ptr @SDL_joylist_tail, align 8
@@ -2195,13 +2195,13 @@ define internal noundef zeroext i1 @LINUX_JoystickGetGamepadMapping(i32 noundef 
   %6 = getelementptr inbounds nuw i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %6, align 8
   %7 = icmp samesign ugt i32 %.0610.i, 1
-  br i1 %7, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !14
+  br i1 %7, label %.lr.ph.i, label %GetJoystickByDevIndex.exit, !llvm.loop !13
 
 GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.preheader.i
   %.07.i = phi ptr [ null, %2 ], [ %.09.i, %.preheader.i ], [ %.0.i, %.lr.ph.i ]
   tail call void @SDL_AssertJoysticksLocked() #18
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 72
-  %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 8, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %15
 
@@ -2243,7 +2243,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 25:                                               ; preds = %23
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1262
-  %28 = load i8, ptr %27, align 2, !range !6, !noundef !7
+  %28 = load i8, ptr %27, align 2, !range !5, !noundef !6
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %409
 
@@ -2254,7 +2254,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %32, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 1263
-  %35 = load i8, ptr %34, align 1, !range !6, !noundef !7
+  %35 = load i8, ptr %34, align 1, !range !5, !noundef !6
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %42
 
@@ -2275,7 +2275,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 1266
-  %48 = load i8, ptr %47, align 2, !range !6, !noundef !7
+  %48 = load i8, ptr %47, align 2, !range !5, !noundef !6
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %55
 
@@ -2290,13 +2290,13 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 55:                                               ; preds = %50, %46
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 1265
-  %57 = load i8, ptr %56, align 1, !range !6, !noundef !7
+  %57 = load i8, ptr %56, align 1, !range !5, !noundef !6
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %.sink.split, label %75
 
 59:                                               ; preds = %42
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 1265
-  %61 = load i8, ptr %60, align 1, !range !6, !noundef !7
+  %61 = load i8, ptr %60, align 1, !range !5, !noundef !6
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %68
 
@@ -2311,7 +2311,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 68:                                               ; preds = %63, %59
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 1266
-  %70 = load i8, ptr %69, align 2, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 2, !range !5, !noundef !6
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %.sink.split, label %75
 
@@ -2327,7 +2327,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 75:                                               ; preds = %.sink.split, %68, %55
   %76 = getelementptr inbounds nuw i8, ptr %45, i64 1272
-  %77 = load i8, ptr %76, align 2, !range !6, !noundef !7
+  %77 = load i8, ptr %76, align 2, !range !5, !noundef !6
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %84
 
@@ -2342,7 +2342,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 84:                                               ; preds = %79, %75
   %85 = getelementptr inbounds nuw i8, ptr %45, i64 1273
-  %86 = load i8, ptr %85, align 1, !range !6, !noundef !7
+  %86 = load i8, ptr %85, align 1, !range !5, !noundef !6
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %93
 
@@ -2357,7 +2357,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 93:                                               ; preds = %88, %84
   %94 = getelementptr inbounds nuw i8, ptr %45, i64 1275
-  %95 = load i8, ptr %94, align 1, !range !6, !noundef !7
+  %95 = load i8, ptr %94, align 1, !range !5, !noundef !6
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %102
 
@@ -2372,7 +2372,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 102:                                              ; preds = %97, %93
   %103 = getelementptr inbounds nuw i8, ptr %45, i64 1276
-  %104 = load i8, ptr %103, align 2, !range !6, !noundef !7
+  %104 = load i8, ptr %103, align 2, !range !5, !noundef !6
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %111
 
@@ -2387,7 +2387,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 111:                                              ; preds = %106, %102
   %112 = getelementptr inbounds nuw i8, ptr %45, i64 1274
-  %113 = load i8, ptr %112, align 2, !range !6, !noundef !7
+  %113 = load i8, ptr %112, align 2, !range !5, !noundef !6
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %120
 
@@ -2402,7 +2402,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 120:                                              ; preds = %115, %111
   %121 = getelementptr inbounds nuw i8, ptr %45, i64 1268
-  %122 = load i8, ptr %121, align 2, !range !6, !noundef !7
+  %122 = load i8, ptr %121, align 2, !range !5, !noundef !6
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %124, label %.thread289
 
@@ -2414,13 +2414,13 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i8 %127, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %45, i64 1269
-  %130 = load i8, ptr %129, align 1, !range !6, !noundef !7
+  %130 = load i8, ptr %129, align 1, !range !5, !noundef !6
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %139, label %.thread
 
 .thread289:                                       ; preds = %120
   %132 = getelementptr inbounds nuw i8, ptr %45, i64 1269
-  %133 = load i8, ptr %132, align 1, !range !6, !noundef !7
+  %133 = load i8, ptr %132, align 1, !range !5, !noundef !6
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %.thread291, label %.thread
 
@@ -2443,7 +2443,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 .thread:                                          ; preds = %.thread291, %.thread289, %124
   %.not257 = phi i1 [ true, %124 ], [ true, %.thread289 ], [ false, %.thread291 ]
   %143 = getelementptr inbounds nuw i8, ptr %45, i64 3661
-  %144 = load i8, ptr %143, align 1, !range !6, !noundef !7
+  %144 = load i8, ptr %143, align 1, !range !5, !noundef !6
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %146, label %155
 
@@ -2467,7 +2467,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 156:                                              ; preds = %155
   %157 = getelementptr inbounds nuw i8, ptr %45, i64 1744
-  %158 = load i8, ptr %157, align 1, !range !6, !noundef !7
+  %158 = load i8, ptr %157, align 1, !range !5, !noundef !6
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %165
 
@@ -2485,7 +2485,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 166:                                              ; preds = %165
   %167 = getelementptr inbounds nuw i8, ptr %45, i64 1743
-  %168 = load i8, ptr %167, align 1, !range !6, !noundef !7
+  %168 = load i8, ptr %167, align 1, !range !5, !noundef !6
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %.thread270
 
@@ -2504,19 +2504,19 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 .thread270:                                       ; preds = %.thread270.sink.split, %166, %165
   %175 = getelementptr inbounds nuw i8, ptr %45, i64 1746
-  %176 = load i8, ptr %175, align 1, !range !6, !noundef !7
+  %176 = load i8, ptr %175, align 1, !range !5, !noundef !6
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %.sink.split295, label %178
 
 178:                                              ; preds = %.thread270
   %179 = getelementptr inbounds nuw i8, ptr %45, i64 1735
-  %180 = load i8, ptr %179, align 1, !range !6, !noundef !7
+  %180 = load i8, ptr %179, align 1, !range !5, !noundef !6
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %.sink.split295, label %182
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds nuw i8, ptr %45, i64 1727
-  %184 = load i8, ptr %183, align 1, !range !6, !noundef !7
+  %184 = load i8, ptr %183, align 1, !range !5, !noundef !6
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %.sink.split295, label %190
 
@@ -2534,19 +2534,19 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
   %.not258 = phi i1 [ false, %182 ], [ true, %.sink.split295 ]
   %.4 = phi i32 [ 0, %182 ], [ 1, %.sink.split295 ]
   %191 = getelementptr inbounds nuw i8, ptr %45, i64 1745
-  %192 = load i8, ptr %191, align 1, !range !6, !noundef !7
+  %192 = load i8, ptr %191, align 1, !range !5, !noundef !6
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %202, label %194
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds nuw i8, ptr %45, i64 1734
-  %196 = load i8, ptr %195, align 1, !range !6, !noundef !7
+  %196 = load i8, ptr %195, align 1, !range !5, !noundef !6
   %197 = trunc nuw i8 %196 to i1
   br i1 %197, label %202, label %198
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds nuw i8, ptr %45, i64 1730
-  %200 = load i8, ptr %199, align 1, !range !6, !noundef !7
+  %200 = load i8, ptr %199, align 1, !range !5, !noundef !6
   %201 = trunc nuw i8 %200 to i1
   br i1 %201, label %202, label %.thread273
 
@@ -2563,7 +2563,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 .thread273:                                       ; preds = %198, %202
   %.5276 = phi i32 [ 2, %202 ], [ %.4, %198 ]
   %207 = getelementptr inbounds nuw i8, ptr %45, i64 3662
-  %208 = load i8, ptr %207, align 2, !range !6, !noundef !7
+  %208 = load i8, ptr %207, align 2, !range !5, !noundef !6
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %219
 
@@ -2589,7 +2589,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 221:                                              ; preds = %219
   %222 = getelementptr inbounds nuw i8, ptr %45, i64 1270
-  %223 = load i8, ptr %222, align 2, !range !6, !noundef !7
+  %223 = load i8, ptr %222, align 2, !range !5, !noundef !6
   %224 = trunc nuw i8 %223 to i1
   br i1 %224, label %225, label %230
 
@@ -2609,7 +2609,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 232:                                              ; preds = %230
   %233 = getelementptr inbounds nuw i8, ptr %45, i64 1271
-  %234 = load i8, ptr %233, align 1, !range !6, !noundef !7
+  %234 = load i8, ptr %233, align 1, !range !5, !noundef !6
   %235 = trunc nuw i8 %234 to i1
   br i1 %235, label %236, label %.thread281
 
@@ -2628,7 +2628,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 .thread281:                                       ; preds = %.thread281.sink.split, %202, %232, %230
   %241 = getelementptr inbounds nuw i8, ptr %45, i64 1502
-  %242 = load i8, ptr %241, align 2, !range !6, !noundef !7
+  %242 = load i8, ptr %241, align 2, !range !5, !noundef !6
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %249
 
@@ -2644,7 +2644,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 249:                                              ; preds = %244, %.thread281
   %.8 = phi i32 [ 1, %244 ], [ 0, %.thread281 ]
   %250 = getelementptr inbounds nuw i8, ptr %45, i64 1503
-  %251 = load i8, ptr %250, align 1, !range !6, !noundef !7
+  %251 = load i8, ptr %250, align 1, !range !5, !noundef !6
   %252 = trunc nuw i8 %251 to i1
   br i1 %252, label %253, label %259
 
@@ -2661,7 +2661,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 259:                                              ; preds = %253, %249
   %.9 = phi i32 [ %258, %253 ], [ %.8, %249 ]
   %260 = getelementptr inbounds nuw i8, ptr %45, i64 1504
-  %261 = load i8, ptr %260, align 2, !range !6, !noundef !7
+  %261 = load i8, ptr %260, align 2, !range !5, !noundef !6
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %263, label %269
 
@@ -2678,7 +2678,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 269:                                              ; preds = %263, %259
   %.10 = phi i32 [ %268, %263 ], [ %.9, %259 ]
   %270 = getelementptr inbounds nuw i8, ptr %45, i64 1505
-  %271 = load i8, ptr %270, align 1, !range !6, !noundef !7
+  %271 = load i8, ptr %270, align 1, !range !5, !noundef !6
   %272 = trunc nuw i8 %271 to i1
   br i1 %272, label %273, label %.thread284
 
@@ -2695,7 +2695,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 .thread284:                                       ; preds = %269, %273
   %279 = getelementptr inbounds nuw i8, ptr %45, i64 3660
-  %280 = load i8, ptr %279, align 4, !range !6, !noundef !7
+  %280 = load i8, ptr %279, align 4, !range !5, !noundef !6
   %281 = trunc nuw i8 %280 to i1
   br i1 %281, label %282, label %297
 
@@ -2726,13 +2726,13 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 297:                                              ; preds = %.thread284
   %298 = getelementptr inbounds nuw i8, ptr %45, i64 1741
-  %299 = load i8, ptr %298, align 1, !range !6, !noundef !7
+  %299 = load i8, ptr %298, align 1, !range !5, !noundef !6
   %300 = trunc nuw i8 %299 to i1
   br i1 %300, label %301, label %318
 
 301:                                              ; preds = %297
   %302 = getelementptr inbounds nuw i8, ptr %45, i64 1742
-  %303 = load i8, ptr %302, align 1, !range !6, !noundef !7
+  %303 = load i8, ptr %302, align 1, !range !5, !noundef !6
   %304 = trunc nuw i8 %303 to i1
   br i1 %304, label %305, label %318
 
@@ -2765,13 +2765,13 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 318:                                              ; preds = %.sink.split308, %301, %297, %273
   %319 = getelementptr inbounds nuw i8, ptr %45, i64 1725
-  %320 = load i8, ptr %319, align 1, !range !6, !noundef !7
+  %320 = load i8, ptr %319, align 1, !range !5, !noundef !6
   %321 = trunc nuw i8 %320 to i1
   br i1 %321, label %322, label %335
 
 322:                                              ; preds = %318
   %323 = getelementptr inbounds nuw i8, ptr %45, i64 1726
-  %324 = load i8, ptr %323, align 1, !range !6, !noundef !7
+  %324 = load i8, ptr %323, align 1, !range !5, !noundef !6
   %325 = trunc nuw i8 %324 to i1
   br i1 %325, label %326, label %335
 
@@ -2792,25 +2792,25 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 335:                                              ; preds = %326, %322, %318
   %336 = getelementptr inbounds nuw i8, ptr %45, i64 1728
-  %337 = load i8, ptr %336, align 1, !range !6, !noundef !7
+  %337 = load i8, ptr %336, align 1, !range !5, !noundef !6
   %338 = trunc nuw i8 %337 to i1
   br i1 %338, label %339, label %343
 
 339:                                              ; preds = %335
   %340 = getelementptr inbounds nuw i8, ptr %45, i64 1729
-  %341 = load i8, ptr %340, align 1, !range !6, !noundef !7
+  %341 = load i8, ptr %340, align 1, !range !5, !noundef !6
   %342 = trunc nuw i8 %341 to i1
   br i1 %342, label %.sink.split311, label %343
 
 343:                                              ; preds = %339, %335
   %344 = getelementptr inbounds nuw i8, ptr %45, i64 1727
-  %345 = load i8, ptr %344, align 1, !range !6, !noundef !7
+  %345 = load i8, ptr %344, align 1, !range !5, !noundef !6
   %346 = trunc nuw i8 %345 to i1
   br i1 %346, label %347, label %359
 
 347:                                              ; preds = %343
   %348 = getelementptr inbounds nuw i8, ptr %45, i64 1730
-  %349 = load i8, ptr %348, align 1, !range !6, !noundef !7
+  %349 = load i8, ptr %348, align 1, !range !5, !noundef !6
   %350 = trunc nuw i8 %349 to i1
   br i1 %350, label %.sink.split311, label %359
 
@@ -2839,25 +2839,25 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 362:                                              ; preds = %359
   %363 = load ptr, ptr %21, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 1666
-  %365 = load i8, ptr %364, align 2, !range !6, !noundef !7
+  %365 = load i8, ptr %364, align 2, !range !5, !noundef !6
   %366 = trunc nuw i8 %365 to i1
   br i1 %366, label %367, label %396
 
 367:                                              ; preds = %362
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 1667
-  %369 = load i8, ptr %368, align 1, !range !6, !noundef !7
+  %369 = load i8, ptr %368, align 1, !range !5, !noundef !6
   %370 = trunc nuw i8 %369 to i1
   br i1 %370, label %371, label %396
 
 371:                                              ; preds = %367
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 1668
-  %373 = load i8, ptr %372, align 2, !range !6, !noundef !7
+  %373 = load i8, ptr %372, align 2, !range !5, !noundef !6
   %374 = trunc nuw i8 %373 to i1
   br i1 %374, label %375, label %396
 
 375:                                              ; preds = %371
   %376 = getelementptr inbounds nuw i8, ptr %363, i64 1669
-  %377 = load i8, ptr %376, align 1, !range !6, !noundef !7
+  %377 = load i8, ptr %376, align 1, !range !5, !noundef !6
   %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %379, label %396
 
@@ -2890,7 +2890,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
 
 396:                                              ; preds = %379, %375, %371, %367, %362
   %397 = getelementptr inbounds nuw i8, ptr %363, i64 1125
-  %398 = load i8, ptr %397, align 1, !range !6, !noundef !7
+  %398 = load i8, ptr %397, align 1, !range !5, !noundef !6
   %399 = trunc nuw i8 %398 to i1
   br i1 %399, label %400, label %405
 
@@ -2981,7 +2981,7 @@ define internal fastcc void @MaybeAddDevice(ptr noundef %0) unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %.03684, i64 64
   %.036 = load ptr, ptr %21, align 8
   %.not42 = icmp eq ptr %.036, null
-  br i1 %.not42, label %.preheader, label %24, !llvm.loop !25
+  br i1 %.not42, label %.preheader, label %24, !llvm.loop !24
 
 .preheader:                                       ; preds = %20, %17
   %.085 = load ptr, ptr @SDL_sensorlist, align 8
@@ -3004,7 +3004,7 @@ define internal fastcc void @MaybeAddDevice(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %.087, i64 24
   %.0 = load ptr, ptr %29, align 8
   %.not43 = icmp eq ptr %.0, null
-  br i1 %.not43, label %._crit_edge, label %30, !llvm.loop !26
+  br i1 %.not43, label %._crit_edge, label %30, !llvm.loop !25
 
 30:                                               ; preds = %.lr.ph88, %28
   %.087 = phi ptr [ %.085, %.lr.ph88 ], [ %.0, %28 ]
@@ -3358,7 +3358,7 @@ define internal void @joystick_udev_callback(i32 noundef %0, i32 noundef %1, ptr
   br i1 %.not6, label %IsJoystickJSNode.exit14, label %7
 
 7:                                                ; preds = %5
-  %8 = load i8, ptr @SDL_classic_joysticks, align 1, !range !6, !noundef !7
+  %8 = load i8, ptr @SDL_classic_joysticks, align 1, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
   %10 = tail call ptr @SDL_strrchr_REAL(ptr noundef nonnull %2, i32 noundef 47) #18
   %.not.i = icmp eq ptr %10, null
@@ -3387,7 +3387,7 @@ define internal void @joystick_udev_callback(i32 noundef %0, i32 noundef %1, ptr
   %21 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 1
   %.pr.i.i = load i8, ptr %21, align 1
   %.not.i.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not.i.i, label %IsJoystickJSNode.exit, label %.preheader.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %IsJoystickJSNode.exit, label %.preheader.i.i, !llvm.loop !7
 
 22:                                               ; preds = %7
   br i1 %12, label %23, label %IsJoystickJSNode.exit
@@ -3409,7 +3409,7 @@ define internal void @joystick_udev_callback(i32 noundef %0, i32 noundef %1, ptr
   %30 = getelementptr inbounds nuw i8, ptr %.09.i.i10, i64 1
   %.pr.i.i12 = load i8, ptr %30, align 1
   %.not.i.i13 = icmp eq i8 %.pr.i.i12, 0
-  br i1 %.not.i.i13, label %IsJoystickJSNode.exit14, label %.preheader.i.i9, !llvm.loop !8
+  br i1 %.not.i.i13, label %IsJoystickJSNode.exit14, label %.preheader.i.i9, !llvm.loop !7
 
 IsJoystickJSNode.exit:                            ; preds = %.preheader.i.i9, %20, %23, %22
   tail call void @SDL_Delay_REAL(i32 noundef 10) #18
@@ -3618,7 +3618,7 @@ define internal fastcc void @MaybeRemoveDevice(ptr noundef nonnull %0) unnamed_a
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %0, ptr noundef %10) #18
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph46, !llvm.loop !27
+  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph46, !llvm.loop !26
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01727.lcssa = phi ptr [ %.01724, %.lr.ph.preheader ], [ %.017, %.lr.ph ]
@@ -3631,13 +3631,13 @@ define internal fastcc void @MaybeRemoveDevice(ptr noundef nonnull %0) unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %.0172745, i64 64
   %.017 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !26
 
 .lr.ph32:                                         ; preds = %.lr.ph49
   %14 = load ptr, ptr %.015, align 8
   %15 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %0, ptr noundef %14) #18
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.lr.ph32._crit_edge, label %.lr.ph49, !llvm.loop !28
+  br i1 %16, label %.lr.ph32._crit_edge, label %.lr.ph49, !llvm.loop !27
 
 .lr.ph32._crit_edge:                              ; preds = %.lr.ph32, %.lr.ph32.preheader
   %.01531.lcssa = phi ptr [ %.01528, %.lr.ph32.preheader ], [ %.015, %.lr.ph32 ]
@@ -3679,7 +3679,7 @@ RemoveSensorlistItem.exit:                        ; preds = %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %.0153148, i64 24
   %.015 = load ptr, ptr %28, align 8
   %.not19 = icmp eq ptr %.015, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph32, !llvm.loop !28
+  br i1 %.not19, label %.loopexit, label %.lr.ph32, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph49, %.preheader, %RemoveSensorlistItem.exit, %.lr.ph._crit_edge
   tail call void @SDL_UnlockJoysticks_REAL() #18
@@ -3773,7 +3773,7 @@ declare i32 @scandir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @filter_entries(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %3 = load i8, ptr @SDL_classic_joysticks, align 1, !range !6, !noundef !7
+  %3 = load i8, ptr @SDL_classic_joysticks, align 1, !range !5, !noundef !6
   %4 = trunc nuw i8 %3 to i1
   %5 = tail call ptr @SDL_strrchr_REAL(ptr noundef nonnull %2, i32 noundef 47) #18
   %.not.i.i = icmp eq ptr %5, null
@@ -3802,7 +3802,7 @@ define internal range(i32 0, 2) i32 @filter_entries(ptr noundef %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 1
   %.pr.i.i.i = load i8, ptr %16, align 1
   %.not.i.i.i = icmp eq i8 %.pr.i.i.i, 0
-  br i1 %.not.i.i.i, label %IsJoystickDeviceNode.exit, label %.preheader.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %IsJoystickDeviceNode.exit, label %.preheader.i.i.i, !llvm.loop !7
 
 17:                                               ; preds = %1
   %18 = tail call zeroext i1 @SDL_startswith(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull @.str.15) #18
@@ -3825,7 +3825,7 @@ define internal range(i32 0, 2) i32 @filter_entries(ptr noundef %0) #0 {
   %26 = getelementptr inbounds nuw i8, ptr %.09.i.i6.i, i64 1
   %.pr.i.i8.i = load i8, ptr %26, align 1
   %.not.i.i9.i = icmp eq i8 %.pr.i.i8.i, 0
-  br i1 %.not.i.i9.i, label %IsJoystickDeviceNode.exit, label %.preheader.i.i5.i, !llvm.loop !8
+  br i1 %.not.i.i9.i, label %IsJoystickDeviceNode.exit, label %.preheader.i.i5.i, !llvm.loop !7
 
 IsJoystickDeviceNode.exit:                        ; preds = %.preheader.i.i5.i, %25, %.preheader.i.i.i, %15, %7, %9, %17, %19
   %.0.i = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %17 ], [ 0, %19 ], [ 0, %.preheader.i.i.i ], [ 1, %15 ], [ 0, %.preheader.i.i5.i ], [ 1, %25 ]
@@ -3852,7 +3852,7 @@ define internal i32 @sort_virtual_gamepads(ptr noundef readonly captures(none) %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_entries(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load i8, ptr @SDL_classic_joysticks, align 1, !range !6, !noundef !7
+  %3 = load i8, ptr @SDL_classic_joysticks, align 1, !range !5, !noundef !6
   %4 = trunc nuw i8 %3 to i1
   %5 = load ptr, ptr %0, align 8
   br i1 %4, label %6, label %12
@@ -3937,7 +3937,7 @@ define internal fastcc i32 @get_event_joystick_index(i32 noundef %0) unnamed_add
   call void @free(ptr noundef %22) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %19, %1
   %.0.lcssa = phi i32 [ -1, %1 ], [ %.1, %19 ]
@@ -4112,7 +4112,7 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 94:                                               ; preds = %83, %76
   %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next283.i, 767
-  br i1 %exitcond.not.i, label %.preheader262.i, label %76, !llvm.loop !30
+  br i1 %exitcond.not.i, label %.preheader262.i, label %76, !llvm.loop !29
 
 .preheader261.i:                                  ; preds = %113
   %.sroa.gep232.i = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -4158,7 +4158,7 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 113:                                              ; preds = %102, %.preheader262.i
   %indvars.iv.next286.i = add nuw nsw i64 %indvars.iv285.i, 1
   %exitcond288.not.i = icmp eq i64 %indvars.iv.next286.i, 288
-  br i1 %exitcond288.not.i, label %.preheader261.i, label %.preheader262.i, !llvm.loop !31
+  br i1 %exitcond288.not.i, label %.preheader261.i, label %.preheader262.i, !llvm.loop !30
 
 .preheader.i:                                     ; preds = %GuessIfAxesAreDigitalHat.exit.i
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -4336,7 +4336,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
   %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 2
   %193 = icmp samesign ult i64 %indvars.iv289.i, 22
-  br i1 %193, label %118, label %.preheader.i, !llvm.loop !32
+  br i1 %193, label %118, label %.preheader.i, !llvm.loop !31
 
 194:                                              ; preds = %265, %.preheader.i
   %indvars.iv292.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next293.i, %265 ]
@@ -4351,7 +4351,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %200 = lshr i64 %199, 1
   %201 = and i64 %200, 2147483619
   %202 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 0, i64 %201
-  %203 = load i8, ptr %202, align 1, !range !6, !noundef !7
+  %203 = load i8, ptr %202, align 1, !range !5, !noundef !6
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %265, label %205
 
@@ -4454,7 +4454,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
 265:                                              ; preds = %264, %205, %196
   %indvars.iv.next293.i = add nuw nsw i64 %indvars.iv292.i, 1
   %exitcond295.not.i = icmp eq i64 %indvars.iv.next293.i, 63
-  br i1 %exitcond295.not.i, label %266, label %194, !llvm.loop !33
+  br i1 %exitcond295.not.i, label %266, label %194, !llvm.loop !32
 
 266:                                              ; preds = %265
   %267 = load i64, ptr %6, align 8
@@ -4542,7 +4542,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %316 = load i8, ptr %8, align 1
   %317 = zext i8 %316 to i64
   %318 = icmp samesign ult i64 %indvars.iv.next.i, %317
-  br i1 %318, label %300, label %._crit_edge.i, !llvm.loop !34
+  br i1 %318, label %300, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.sink.split.i:                         ; preds = %291, %279
   store i8 0, ptr %8, align 1
@@ -4606,7 +4606,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %349 = and i8 %347, 3
   %350 = zext nneg i8 %349 to i64
   %351 = getelementptr inbounds nuw [4 x i8], ptr %348, i64 0, i64 %350
-  %352 = load i8, ptr %351, align 1, !range !6, !noundef !7
+  %352 = load i8, ptr %351, align 1, !range !5, !noundef !6
   %353 = trunc nuw i8 %352 to i1
   br i1 %353, label %387, label %354
 
@@ -4623,21 +4623,21 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   store i8 1, ptr %361, align 1
   %362 = load ptr, ptr %15, align 8
   %.idx.i = mul nuw nsw i64 %350, 20
-  %363 = getelementptr i8, ptr %362, i64 3668
-  %364 = getelementptr i8, ptr %363, i64 %.idx.i
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 3668
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 %.idx.i
   store i32 -1, ptr %364, align 4
   %365 = load ptr, ptr %15, align 8
-  %366 = getelementptr i8, ptr %365, i64 3676
-  %367 = getelementptr i8, ptr %366, i64 %.idx.i
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 3676
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 %.idx.i
   store i32 1, ptr %367, align 4
   %368 = load ptr, ptr %15, align 8
-  %369 = getelementptr i8, ptr %368, i64 3668
-  %370 = getelementptr i8, ptr %369, i64 %.idx.i
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 3668
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 %.idx.i
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 4
   store i32 -1, ptr %371, align 4
   %372 = load ptr, ptr %15, align 8
-  %373 = getelementptr i8, ptr %372, i64 3676
-  %374 = getelementptr i8, ptr %373, i64 %.idx.i
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 3676
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 4
   store i32 1, ptr %375, align 4
   br label %387
@@ -4663,7 +4663,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %388 = load i8, ptr %9, align 1
   %389 = zext i8 %388 to i64
   %390 = icmp samesign ult i64 %indvars.iv.next280.i, %389
-  br i1 %390, label %339, label %.loopexit264.i, !llvm.loop !35
+  br i1 %390, label %339, label %.loopexit264.i, !llvm.loop !34
 
 .loopexit264.i:                                   ; preds = %387, %335, %334, %328, %276, %273, %269, %266
   br i1 %54, label %391, label %.loopexit.i
@@ -4711,7 +4711,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #18
   %indvars.iv.next297.i = add nuw nsw i64 %indvars.iv296.i, 1
   %exitcond299.not.i = icmp eq i64 %indvars.iv.next297.i, 3
-  br i1 %exitcond299.not.i, label %.loopexit260.i, label %401, !llvm.loop !36
+  br i1 %exitcond299.not.i, label %.loopexit260.i, label %401, !llvm.loop !35
 
 .loopexit260.i:                                   ; preds = %408, %405, %394
   %414 = load i64, ptr %5, align 8
@@ -4751,7 +4751,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #18
   %indvars.iv.next301.i = add nuw nsw i64 %indvars.iv300.i, 1
   %exitcond304.not.i = icmp eq i64 %indvars.iv.next301.i, 3
-  br i1 %exitcond304.not.i, label %.loopexit.i, label %420, !llvm.loop !37
+  br i1 %exitcond304.not.i, label %.loopexit.i, label %420, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %427, %424, %.loopexit260.i, %391, %.loopexit264.i
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4817,7 +4817,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %469 = load i32, ptr %446, align 8
   %470 = sext i32 %469 to i64
   %471 = icmp slt i64 %indvars.iv.next.i.i, %470
-  br i1 %471, label %.lr.ph.i.i, label %allocate_hatdata.exit.thread.i, !llvm.loop !38
+  br i1 %471, label %.lr.ph.i.i, label %allocate_hatdata.exit.thread.i, !llvm.loop !37
 
 allocate_hatdata.exit.i:                          ; preds = %449
   store i32 0, ptr %446, align 8
@@ -4904,7 +4904,7 @@ define internal fastcc void @PollAllValues(i64 noundef %0, ptr noundef %1) unnam
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1725
   %9 = getelementptr inbounds nuw [63 x i8], ptr %8, i64 0, i64 %indvars.iv
-  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %60
 
@@ -4929,7 +4929,7 @@ define internal fastcc void @PollAllValues(i64 noundef %0, ptr noundef %1) unnam
   br i1 %.not.i, label %52, label %26
 
 26:                                               ; preds = %17
-  %27 = load i8, ptr %21, align 4, !range !6, !noundef !7
+  %27 = load i8, ptr %21, align 4, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %43
 
@@ -4989,7 +4989,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
 60:                                               ; preds = %6, %AxisCorrect.exit, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 63
-  br i1 %exitcond.not, label %.preheader40, label %6, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader40, label %6, !llvm.loop !38
 
 .preheader40:                                     ; preds = %60, %HandleHat.exit
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %HandleHat.exit ], [ 16, %60 ]
@@ -5001,7 +5001,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 3660
   %66 = sext i8 %62 to i64
   %67 = getelementptr inbounds [4 x i8], ptr %65, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1, !range !6, !noundef !7
+  %68 = load i8, ptr %67, align 1, !range !5, !noundef !6
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %HandleHat.exit
 
@@ -5041,7 +5041,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   br label %111
 
 94:                                               ; preds = %88
-  %95 = load i8, ptr %86, align 4, !range !6, !noundef !7
+  %95 = load i8, ptr %86, align 4, !range !5, !noundef !6
   %96 = trunc nuw i8 %95 to i1
   %.nonneg.i = sub i32 0, %92
   %97 = udiv i32 %.nonneg.i, 3
@@ -5072,7 +5072,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
   br label %111
 
 106:                                              ; preds = %100
-  %107 = load i8, ptr %86, align 4, !range !6, !noundef !7
+  %107 = load i8, ptr %86, align 4, !range !5, !noundef !6
   %108 = trunc nuw i8 %107 to i1
   %109 = udiv i32 %104, 3
   %110 = icmp samesign ule i32 %76, %109
@@ -5105,7 +5105,7 @@ AxisCorrect.exit:                                 ; preds = %34, %52, %54
 HandleHat.exit:                                   ; preds = %114, %111, %70, %.preheader40
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 24
-  br i1 %exitcond48.not, label %124, label %.preheader40, !llvm.loop !40
+  br i1 %exitcond48.not, label %124, label %.preheader40, !llvm.loop !39
 
 124:                                              ; preds = %HandleHat.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
@@ -5120,7 +5120,7 @@ HandleHat.exit:                                   ; preds = %114, %111, %70, %.p
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 958
   %131 = getelementptr inbounds nuw [767 x i8], ptr %130, i64 0, i64 %indvars.iv49
-  %132 = load i8, ptr %131, align 1, !range !6, !noundef !7
+  %132 = load i8, ptr %131, align 1, !range !5, !noundef !6
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %134, label %145
 
@@ -5141,7 +5141,7 @@ HandleHat.exit:                                   ; preds = %114, %111, %70, %.p
 145:                                              ; preds = %.preheader, %134
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 767
-  br i1 %exitcond52.not, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %145, %124
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #18
@@ -5159,7 +5159,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1789
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %35
 
@@ -5194,7 +5194,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
 29:                                               ; preds = %12, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %30, label %12, !llvm.loop !42
+  br i1 %exitcond.not, label %30, label %12, !llvm.loop !41
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %6, align 8
@@ -5209,7 +5209,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
 35:                                               ; preds = %30, %2
   %36 = phi ptr [ %.pre, %30 ], [ %7, %2 ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1788
-  %38 = load i8, ptr %37, align 4, !range !6, !noundef !7
+  %38 = load i8, ptr %37, align 4, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %64
 
@@ -5244,7 +5244,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
 58:                                               ; preds = %41, %48
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 3
-  br i1 %exitcond28.not, label %59, label %41, !llvm.loop !43
+  br i1 %exitcond28.not, label %59, label %41, !llvm.loop !42
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %6, align 8
@@ -5309,44 +5309,43 @@ attributes #21 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = distinct !{!33, !4, !5}
-!34 = distinct !{!34, !4, !5}
-!35 = distinct !{!35, !4, !5}
-!36 = distinct !{!36, !4, !5}
-!37 = distinct !{!37, !4, !5}
-!38 = distinct !{!38, !4, !5}
-!39 = distinct !{!39, !4, !5}
-!40 = distinct !{!40, !4, !5}
-!41 = distinct !{!41, !4, !5}
-!42 = distinct !{!42, !4, !5}
-!43 = distinct !{!43, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4}
+!38 = distinct !{!38, !4}
+!39 = distinct !{!39, !4}
+!40 = distinct !{!40, !4}
+!41 = distinct !{!41, !4}
+!42 = distinct !{!42, !4}

@@ -356,7 +356,7 @@ define void @stream_pad(ptr noundef captures(none) %0, i64 noundef %1) local_unn
   store i64 0, ptr %6, align 8, !tbaa !15
   %12 = add i64 %.09, -64
   %13 = icmp ugt i64 %12, 63
-  br i1 %13, label %8, label %._crit_edge, !llvm.loop !16
+  br i1 %13, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8
   store ptr %11, ptr %7, align 8, !tbaa !11
@@ -439,7 +439,7 @@ define range(i64 0, 64) i64 @stream_flush(ptr noundef captures(none) %0) local_u
   store i64 0, ptr %8, align 8, !tbaa !15
   %14 = add i64 %.09.i, -64
   %15 = icmp ugt i64 %14, 63
-  br i1 %15, label %10, label %._crit_edge.i, !llvm.loop !16
+  br i1 %15, label %10, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %10
   store ptr %13, ptr %9, align 8, !tbaa !11
@@ -530,7 +530,7 @@ stream_write_bits.exit:                           ; preds = %stream_read_bits.ex
   store i64 %41, ptr %7, align 8, !tbaa !15
   %42 = add i64 %.019, -64
   %43 = icmp ugt i64 %42, 64
-  br i1 %43, label %9, label %._crit_edge, !llvm.loop !18
+  br i1 %43, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %stream_write_bits.exit, %3
   %.0.lcssa = phi i64 [ %2, %3 ], [ %42, %stream_write_bits.exit ]
@@ -663,7 +663,7 @@ define noalias noundef ptr @stream_clone(ptr noundef readonly captures(none) %0)
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false), !tbaa.struct !16
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -711,8 +711,5 @@ attributes #15 = { nounwind }
 !13 = !{!5, !6, i64 0}
 !14 = !{!6, !6, i64 0}
 !15 = !{!5, !6, i64 8}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = !{i64 0, i64 8, !14, i64 8, i64 8, !14, i64 16, i64 8, !20, i64 24, i64 8, !20, i64 32, i64 8, !20}
-!20 = !{!9, !9, i64 0}
+!16 = !{i64 0, i64 8, !14, i64 8, i64 8, !14, i64 16, i64 8, !17, i64 24, i64 8, !17, i64 32, i64 8, !17}
+!17 = !{!9, !9, i64 0}

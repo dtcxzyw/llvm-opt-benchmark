@@ -2023,7 +2023,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_7714SimpleTimeZone13compareToRuleEa
   %30 = sext i1 %29 to i8
   %spec.select75 = add i8 %.2105, %30
   %31 = icmp samesign ult i32 %.166102, -86400000
-  br i1 %31, label %.lr.ph106, label %._crit_edge, !llvm.loop !50
+  br i1 %31, label %.lr.ph106, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.lr.ph, %.preheader
   %.166.lcssa = phi i32 [ %13, %.preheader ], [ %16, %.lr.ph ], [ %23, %.lr.ph106 ]
@@ -2160,7 +2160,7 @@ define void @_ZNK6icu_7714SimpleTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOp
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(160) %0)
-  store i32 %19, ptr %4, align 4, !tbaa !51
+  store i32 %19, ptr %4, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #14
@@ -2172,13 +2172,13 @@ define void @_ZNK6icu_7714SimpleTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOp
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %15
-  %23 = load i32, ptr %8, align 4, !tbaa !51
+  %23 = load i32, ptr %8, align 4, !tbaa !50
   %24 = load i8, ptr %10, align 1, !tbaa !39
   %25 = sext i8 %24 to i32
   %26 = load i8, ptr %11, align 1, !tbaa !39
   %27 = sext i8 %26 to i32
   %28 = load i8, ptr %12, align 1, !tbaa !39
-  %29 = load i32, ptr %9, align 4, !tbaa !51
+  %29 = load i32, ptr %9, align 4, !tbaa !50
   %30 = and i32 %23, 3
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
@@ -2205,9 +2205,9 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %32, %_ZN6icu_775Gre
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 noundef zeroext 1, i32 noundef %23, i32 noundef %25, i32 noundef %27, i8 noundef zeroext %28, i32 noundef %29, i32 noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %45 = load i32, ptr %4, align 4, !tbaa !51
+  %45 = load i32, ptr %4, align 4, !tbaa !50
   %46 = sub nsw i32 %44, %45
-  store i32 %46, ptr %5, align 4, !tbaa !51
+  store i32 %46, ptr %5, align 4, !tbaa !50
   %47 = load i32, ptr %6, align 4, !tbaa !37
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %49, label %.critedge
@@ -2253,13 +2253,13 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %32, %_ZN6icu_775Gre
   br i1 %66, label %67, label %.critedge
 
 67:                                               ; preds = %60
-  %68 = load i32, ptr %8, align 4, !tbaa !51
+  %68 = load i32, ptr %8, align 4, !tbaa !50
   %69 = load i8, ptr %10, align 1, !tbaa !39
   %70 = sext i8 %69 to i32
   %71 = load i8, ptr %11, align 1, !tbaa !39
   %72 = sext i8 %71 to i32
   %73 = load i8, ptr %12, align 1, !tbaa !39
-  %74 = load i32, ptr %9, align 4, !tbaa !51
+  %74 = load i32, ptr %9, align 4, !tbaa !50
   %75 = and i32 %68, 3
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i35
@@ -2286,9 +2286,9 @@ _ZN6icu_775Grego11monthLengthEii.exit39:          ; preds = %77, %_ZN6icu_775Gre
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %88 = load ptr, ptr %87, align 8
   %89 = call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 noundef zeroext 1, i32 noundef %68, i32 noundef %70, i32 noundef %72, i8 noundef zeroext %73, i32 noundef %74, i32 noundef %85, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %90 = load i32, ptr %4, align 4, !tbaa !51
+  %90 = load i32, ptr %4, align 4, !tbaa !50
   %91 = sub nsw i32 %89, %90
-  store i32 %91, ptr %5, align 4, !tbaa !51
+  store i32 %91, ptr %5, align 4, !tbaa !50
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %53, %57, %51, %55, %_ZN6icu_775Grego11monthLengthEii.exit39, %_ZN6icu_775Grego11monthLengthEii.exit, %15
@@ -2646,11 +2646,11 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br i1 %.not25, label %50, label %45
 
 45:                                               ; preds = %24
-  %.pre30 = load double, ptr %6, align 8, !tbaa !52
+  %.pre30 = load double, ptr %6, align 8, !tbaa !51
   br i1 %.not27, label %49, label %46
 
 46:                                               ; preds = %45
-  %47 = load double, ptr %7, align 8, !tbaa !52
+  %47 = load double, ptr %7, align 8, !tbaa !51
   %48 = fcmp olt double %.pre30, %47
   br i1 %48, label %49, label %51
 
@@ -2662,7 +2662,7 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br i1 %.not27, label %54, label %..thread29_crit_edge
 
 ..thread29_crit_edge:                             ; preds = %50
-  %.pre31 = load double, ptr %7, align 8, !tbaa !52
+  %.pre31 = load double, ptr %7, align 8, !tbaa !51
   br label %.thread29
 
 51:                                               ; preds = %46
@@ -2677,9 +2677,9 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
 .sink.split:                                      ; preds = %49, %.thread29
   %.sink32.in = phi ptr [ %27, %49 ], [ %25, %.thread29 ]
   %.sink.in = phi ptr [ %25, %49 ], [ %27, %.thread29 ]
-  %.sink32 = load ptr, ptr %.sink32.in, align 8, !tbaa !54
+  %.sink32 = load ptr, ptr %.sink32.in, align 8, !tbaa !53
   call void @_ZN6icu_7718TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink32)
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !54
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !53
   call void @_ZN6icu_7718TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink)
   br label %54
 
@@ -2809,11 +2809,11 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br i1 %.not24, label %47, label %42
 
 42:                                               ; preds = %21
-  %.pre29 = load double, ptr %6, align 8, !tbaa !52
+  %.pre29 = load double, ptr %6, align 8, !tbaa !51
   br i1 %.not26, label %46, label %43
 
 43:                                               ; preds = %42
-  %44 = load double, ptr %7, align 8, !tbaa !52
+  %44 = load double, ptr %7, align 8, !tbaa !51
   %45 = fcmp ogt double %.pre29, %44
   br i1 %45, label %46, label %48
 
@@ -2825,7 +2825,7 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   br i1 %.not26, label %51, label %..thread28_crit_edge
 
 ..thread28_crit_edge:                             ; preds = %47
-  %.pre30 = load double, ptr %7, align 8, !tbaa !52
+  %.pre30 = load double, ptr %7, align 8, !tbaa !51
   br label %.thread28
 
 48:                                               ; preds = %43
@@ -2840,9 +2840,9 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
 .sink.split:                                      ; preds = %46, %.thread28
   %.sink31.in = phi ptr [ %24, %46 ], [ %22, %.thread28 ]
   %.sink.in = phi ptr [ %22, %46 ], [ %24, %.thread28 ]
-  %.sink31 = load ptr, ptr %.sink31.in, align 8, !tbaa !54
+  %.sink31 = load ptr, ptr %.sink31.in, align 8, !tbaa !53
   call void @_ZN6icu_7718TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink31)
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !54
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !53
   call void @_ZN6icu_7718TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sink)
   br label %51
 
@@ -3134,7 +3134,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
 151:                                              ; preds = %146
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %153 = load i32, ptr %152, align 8, !tbaa !24
-  %154 = load i32, ptr @_ZN6icu_7718AnnualTimeZoneRule8MAX_YEARE, align 4, !tbaa !51
+  %154 = load i32, ptr @_ZN6icu_7718AnnualTimeZoneRule8MAX_YEARE, align 4, !tbaa !50
   invoke void @_ZN6icu_7718AnnualTimeZoneRuleC1ERKNS_13UnicodeStringEiiPNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %145, i32 noundef %150, ptr noundef nonnull %.0101, i32 noundef %153, i32 noundef %154)
           to label %.critedge156 unwind label %159
 
@@ -3412,8 +3412,8 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
           to label %283 unwind label %181
 
 283:                                              ; preds = %278
-  %284 = load double, ptr %4, align 8, !tbaa !52
-  %285 = load double, ptr %5, align 8, !tbaa !52
+  %284 = load double, ptr %4, align 8, !tbaa !51
+  %285 = load double, ptr %5, align 8, !tbaa !51
   %286 = fcmp olt double %284, %285
   %287 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #14
   %.not151 = icmp eq ptr %287, null
@@ -3501,7 +3501,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
   br i1 %312, label %347, label %313
 
 313:                                              ; preds = %310
-  %314 = load double, ptr %4, align 8, !tbaa !52
+  %314 = load double, ptr %4, align 8, !tbaa !51
   %315 = load ptr, ptr %20, align 8, !tbaa !40
   %316 = load ptr, ptr %36, align 8, !tbaa !42
   invoke void @_ZN6icu_7718TimeZoneTransitionC1EdRKNS_12TimeZoneRuleES3_(ptr noundef nonnull align 8 dereferenceable(32) %311, double noundef %314, ptr noundef nonnull align 8 dereferenceable(80) %315, ptr noundef nonnull align 8 dereferenceable(80) %316)
@@ -3590,7 +3590,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
   br i1 %340, label %347, label %341
 
 341:                                              ; preds = %338
-  %342 = load double, ptr %5, align 8, !tbaa !52
+  %342 = load double, ptr %5, align 8, !tbaa !51
   %343 = load ptr, ptr %20, align 8, !tbaa !40
   %344 = load ptr, ptr %44, align 8, !tbaa !43
   invoke void @_ZN6icu_7718TimeZoneTransitionC1EdRKNS_12TimeZoneRuleES3_(ptr noundef nonnull align 8 dereferenceable(32) %339, double noundef %342, ptr noundef nonnull align 8 dereferenceable(80) %343, ptr noundef nonnull align 8 dereferenceable(80) %344)
@@ -3697,10 +3697,10 @@ define linkonce_odr void @_ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_(ptr noundef n
 4:                                                ; preds = %4, %2
   %.0.i.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i
-  %6 = load i16, ptr %5, align 2, !tbaa !55
+  %6 = load i16, ptr %5, align 2, !tbaa !54
   %7 = icmp eq i16 %6, 0
   %8 = add i64 %.0.i.i.i, 1
-  br i1 %7, label %9, label %4, !llvm.loop !57
+  br i1 %7, label %9, label %4, !llvm.loop !56
 
 9:                                                ; preds = %4
   %10 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %.0.i.i.i, ptr nonnull %1)
@@ -3760,19 +3760,19 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
 14:                                               ; preds = %_ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load ptr, ptr %15, align 8, !tbaa !40
-  store ptr %16, ptr %1, align 8, !tbaa !58
+  store ptr %16, ptr %1, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !42
   %.not16 = icmp eq ptr %18, null
   br i1 %.not16, label %31, label %19
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr %3, align 4, !tbaa !51
+  %20 = load i32, ptr %3, align 4, !tbaa !50
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store ptr %18, ptr %2, align 8, !tbaa !59
+  store ptr %18, ptr %2, align 8, !tbaa !58
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -3786,12 +3786,12 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   %28 = add nuw nsw i32 %.1, 1
   %29 = zext nneg i32 %.1 to i64
   %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %29
-  store ptr %27, ptr %30, align 8, !tbaa !59
+  store ptr %27, ptr %30, align 8, !tbaa !58
   br label %31
 
 31:                                               ; preds = %23, %25, %14
   %.0 = phi i32 [ %28, %25 ], [ %.1, %23 ], [ 0, %14 ]
-  store i32 %.0, ptr %3, align 4, !tbaa !51
+  store i32 %.0, ptr %3, align 4, !tbaa !50
   br label %32
 
 32:                                               ; preds = %_ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit, %5, %31
@@ -3893,17 +3893,16 @@ attributes #14 = { nounwind }
 !44 = !{!45, !46, i64 8}
 !45 = !{!"_ZTSSt9type_info", !46, i64 8}
 !46 = !{!"p1 omnipotent char", !18, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = !{!14, !14, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"double", !13, i64 0}
-!54 = !{!20, !20, i64 0}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"char16_t", !13, i64 0}
-!57 = distinct !{!57, !48, !49}
-!58 = !{!17, !17, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTSN6icu_7712TimeZoneRuleE", !18, i64 0}
+!49 = distinct !{!49, !48}
+!50 = !{!14, !14, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"double", !13, i64 0}
+!53 = !{!20, !20, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"char16_t", !13, i64 0}
+!56 = distinct !{!56, !48}
+!57 = !{!17, !17, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN6icu_7712TimeZoneRuleE", !18, i64 0}

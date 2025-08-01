@@ -150,7 +150,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %23
   %.029.be = phi ptr [ %.0, %23 ], [ %50, %lean_alloc_ctor.exit ]
-  br label %5, !llvm.loop !12
+  br label %5
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -1179,7 +1179,7 @@ lean_dec.exit175:                                 ; preds = %374, %373, %371, %l
 lean_dec.exit191.backedge:                        ; preds = %lean_dec.exit175, %378, %380, %381, %lean_dec.exit181, %277, %279, %280, %lean_inc.exit171, %47, %49, %50, %lean_alloc_ctor.exit, %94, %lean_alloc_ctor.exit271, %146, %lean_alloc_ctor.exit302, %281, %lean_alloc_ctor.exit309, %408
   %.0143.be = phi ptr [ %95, %94 ], [ %130, %lean_alloc_ctor.exit ], [ %147, %146 ], [ %193, %lean_alloc_ctor.exit271 ], [ %282, %281 ], [ %392, %lean_alloc_ctor.exit302 ], [ %409, %408 ], [ %433, %lean_alloc_ctor.exit309 ], [ %.0143, %50 ], [ %.0143, %49 ], [ %.0143, %47 ], [ %.0143, %lean_inc.exit171 ], [ %.0143, %280 ], [ %.0143, %279 ], [ %.0143, %277 ], [ %.0143, %lean_dec.exit181 ], [ %.0143, %381 ], [ %.0143, %380 ], [ %.0143, %378 ], [ %.0143, %lean_dec.exit175 ]
   %.0.be = phi ptr [ %76, %94 ], [ %76, %lean_alloc_ctor.exit ], [ %76, %146 ], [ %76, %lean_alloc_ctor.exit271 ], [ %76, %281 ], [ %76, %lean_alloc_ctor.exit302 ], [ %76, %408 ], [ %76, %lean_alloc_ctor.exit309 ], [ %35, %50 ], [ %35, %49 ], [ %35, %47 ], [ %35, %lean_inc.exit171 ], [ %76, %280 ], [ %76, %279 ], [ %76, %277 ], [ %76, %lean_dec.exit181 ], [ %76, %381 ], [ %76, %380 ], [ %76, %378 ], [ %76, %lean_dec.exit175 ]
-  br label %lean_dec.exit191, !llvm.loop !14
+  br label %lean_dec.exit191
 
 375:                                              ; preds = %lean_dec.exit175
   %376 = load i32, ptr %210, align 4, !tbaa !4
@@ -1789,7 +1789,7 @@ lean_dec.exit135:                                 ; preds = %153, %152, %150, %l
 165:                                              ; preds = %164, %161
   %166 = phi i32 [ %.pr, %164 ], [ %162, %161 ]
   %167 = icmp sgt i32 %166, 1
-  br i1 %167, label %168, label %170, !prof !15
+  br i1 %167, label %168, label %170, !prof !12
 
 168:                                              ; preds = %165
   %169 = add nsw i32 %166, -1
@@ -2128,7 +2128,7 @@ lean_dec.exit128:                                 ; preds = %282, %281, %279, %l
 294:                                              ; preds = %293, %290
   %295 = phi i32 [ %.pr246, %293 ], [ %291, %290 ]
   %296 = icmp sgt i32 %295, 1
-  br i1 %296, label %297, label %299, !prof !15
+  br i1 %296, label %297, label %299, !prof !12
 
 297:                                              ; preds = %294
   %298 = add nsw i32 %295, -1
@@ -2427,7 +2427,7 @@ lean_inc.exit:                                    ; preds = %18, %17, %15, %lean
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
   %.not38 = icmp eq i64 %21, 0
-  br i1 %.not38, label %32, label %22, !prof !16
+  br i1 %.not38, label %32, label %22, !prof !13
 
 22:                                               ; preds = %lean_inc.exit
   %23 = lshr i64 %20, 1
@@ -3618,9 +3618,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Std_Tactic_BVDecide_LRAT_Checker_0__Std_Tactic_BVDecide_LRAT_check_match__1_splitter___rarg___boxed, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 6, ptr %8, align 8, !tbaa !17
+  store i16 6, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !17
+  store i16 0, ptr %9, align 2, !tbaa !14
   ret ptr %3
 }
 
@@ -3672,9 +3672,9 @@ l___private_Std_Tactic_BVDecide_LRAT_Checker_0__Std_Tactic_BVDecide_LRAT_check_m
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Std_Tactic_BVDecide_LRAT_Checker_0__Std_Tactic_BVDecide_LRAT_check_match__1_splitter___rarg___boxed, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 6, ptr %8, align 8, !tbaa !17
+  store i16 6, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !17
+  store i16 0, ptr %9, align 2, !tbaa !14
   %10 = ptrtoint ptr %0 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -3952,9 +3952,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin___rarg___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !17
+  store i16 2, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !14
   ret ptr %1
 }
 
@@ -3979,9 +3979,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !17
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !17
+  store i16 1, ptr %8, align 2, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %9, align 8, !tbaa !9
   ret ptr %2
@@ -4007,9 +4007,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_instDecidableEqBool___boxed, ptr %5, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !17
+  store i16 2, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !17
+  store i16 0, ptr %7, align 2, !tbaa !14
   ret ptr %1
 }
 
@@ -4034,9 +4034,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !17
+  store i16 3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !17
+  store i16 1, ptr %8, align 2, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %9, align 8, !tbaa !9
   ret ptr %2
@@ -4062,9 +4062,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l_instBEqProd___rarg, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 4, ptr %8, align 8, !tbaa !17
+  store i16 4, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 2, ptr %9, align 2, !tbaa !17
+  store i16 2, ptr %9, align 2, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %1, ptr %10, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4097,10 +4097,7 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}
-!15 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !7, i64 0}
+!12 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}

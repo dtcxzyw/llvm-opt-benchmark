@@ -250,7 +250,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 78:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !37
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
@@ -309,9 +309,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %95
   store i64 0, ptr %101, align 8, !tbaa !10
   store i8 0, ptr %93, align 1, !tbaa !13
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 %13, ptr %104, align 8, !tbaa !38
+  store i8 %13, ptr %104, align 8, !tbaa !37
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 0, ptr %105, align 8, !tbaa !52
+  store i8 0, ptr %105, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
   %106 = load ptr, ptr %90, align 8, !tbaa !14
   %107 = load i64, ptr %103, align 8, !tbaa !10
@@ -328,7 +328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %95
 
 111:                                              ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %112, align 8, !tbaa !53
+  store i8 1, ptr %112, align 8, !tbaa !52
   br label %137
 
 113:                                              ; preds = %.noexc.i14
@@ -514,7 +514,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !37
+  %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -592,9 +592,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 define dso_local noundef zeroext i1 @_ZN24cmInstallScriptGenerator7ComputeEP16cmLocalGenerator(ptr noundef nonnull align 8 captures(none) dereferenceable(249) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %1, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %6 = load i8, ptr %5, align 8, !tbaa !53, !range !55, !noundef !56
+  %6 = load i8, ptr %5, align 8, !tbaa !52, !range !54, !noundef !55
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %33
 
@@ -606,7 +606,7 @@ define dso_local noundef zeroext i1 @_ZN24cmInstallScriptGenerator7ComputeEP16cm
   ]
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %4, align 8, !tbaa !54
+  %11 = load ptr, ptr %4, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   call void @_ZN10cmPolicies16GetPolicyWarningB5cxx11ENS_8PolicyIDE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef 87)
   invoke void @_ZNK16cmLocalGenerator12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(760) %11, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -662,7 +662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNK
 
 31:                                               ; preds = %8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 1, ptr %32, align 8, !tbaa !52
+  store i8 1, ptr %32, align 8, !tbaa !51
   br label %33
 
 33:                                               ; preds = %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31, %2
@@ -727,10 +727,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %28 = load i8, ptr %27, align 8, !tbaa !52, !range !55, !noundef !56
+  %28 = load i8, ptr %27, align 8, !tbaa !51, !range !54, !noundef !55
   %29 = trunc nuw i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %31 = load i8, ptr %30, align 8, !range !55
+  %31 = load i8, ptr %30, align 8, !range !54
   %32 = trunc nuw i8 %31 to i1
   %or.cond = select i1 %29, i1 %32, i1 false
   br i1 %or.cond, label %.noexc.i14, label %145
@@ -822,7 +822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 0, ptr %60, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %62 = load ptr, ptr %61, align 8, !tbaa !54
+  %62 = load ptr, ptr %61, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #14
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %63, ptr %10, align 8, !tbaa !4
@@ -1084,7 +1084,7 @@ declare void @_ZN21cmGeneratorExpression8EvaluateENSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK24cmInstallScriptGenerator20AddScriptInstallRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(249) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %6 = load i8, ptr %5, align 8, !tbaa !38, !range !55, !noundef !56
+  %6 = load i8, ptr %5, align 8, !tbaa !37, !range !54, !noundef !55
   %7 = trunc nuw i8 %6 to i1
   %8 = icmp sgt i32 %2, 0
   br i1 %7, label %9, label %17
@@ -1097,7 +1097,7 @@ define dso_local void @_ZNK24cmInstallScriptGenerator20AddScriptInstallRuleERSo2
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
   %11 = add nuw nsw i32 %.03.i.i, 1
   %exitcond.not.i = icmp eq i32 %11, %2
-  br i1 %exitcond.not.i, label %_ZlsRSo23cmScriptGeneratorIndent.exit, label %.lr.ph.i.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %_ZlsRSo23cmScriptGeneratorIndent.exit, label %.lr.ph.i.i, !llvm.loop !56
 
 _ZlsRSo23cmScriptGeneratorIndent.exit:            ; preds = %.lr.ph.i.i, %9
   %12 = load ptr, ptr %3, align 8, !tbaa !14
@@ -1115,7 +1115,7 @@ _ZlsRSo23cmScriptGeneratorIndent.exit:            ; preds = %.lr.ph.i.i, %9
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
   %19 = add nuw nsw i32 %.03.i.i9, 1
   %exitcond.not.i10 = icmp eq i32 %19, %2
-  br i1 %exitcond.not.i10, label %_ZlsRSo23cmScriptGeneratorIndent.exit11, label %.lr.ph.i.i8, !llvm.loop !57
+  br i1 %exitcond.not.i10, label %_ZlsRSo23cmScriptGeneratorIndent.exit11, label %.lr.ph.i.i8, !llvm.loop !56
 
 _ZlsRSo23cmScriptGeneratorIndent.exit11:          ; preds = %.lr.ph.i.i8, %17
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 9)
@@ -1136,10 +1136,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24cmInstallScriptGenerator21GenerateScriptActionsERSo23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(249) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %5 = load i8, ptr %4, align 8, !tbaa !52, !range !55, !noundef !56
+  %5 = load i8, ptr %4, align 8, !tbaa !51, !range !54, !noundef !55
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load i8, ptr %7, align 8, !range !55
+  %8 = load i8, ptr %7, align 8, !range !54
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %6, i1 %9, i1 false
   br i1 %or.cond, label %10, label %11
@@ -1284,19 +1284,19 @@ define internal void @_GLOBAL__sub_I_cmInstallScriptGenerator.cxx() #12 section 
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #14
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #14
-  store i32 0, ptr %1, align 4, !tbaa !58
+  store i32 0, ptr %1, align 4, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !58
+  store i32 1, ptr %3, align 4, !tbaa !57
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !58
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !60
+  store i32 2, ptr %4, align 4, !tbaa !57
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !59
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !58
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !57
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -1311,7 +1311,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !15
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i, !llvm.loop !62
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #14
@@ -1376,32 +1376,30 @@ attributes #16 = { noreturn }
 !31 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !32, i64 0, !32, i64 8, !32, i64 16}
 !32 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !7, i64 0}
 !33 = !{!31, !32, i64 8}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!31, !32, i64 16}
-!38 = !{!39, !46, i64 232}
-!39 = !{!"_ZTS24cmInstallScriptGenerator", !40, i64 0, !11, i64 200, !46, i64 232, !51, i64 240, !46, i64 248}
-!40 = !{!"_ZTS18cmInstallGenerator", !41, i64 0, !11, i64 112, !11, i64 144, !47, i64 176, !46, i64 180, !46, i64 181, !48, i64 184}
-!41 = !{!"_ZTS17cmScriptGenerator", !11, i64 8, !42, i64 40, !11, i64 64, !45, i64 96, !46, i64 104}
-!42 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !43, i64 0}
-!43 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !44, i64 0}
-!44 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !31, i64 0}
-!45 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !7, i64 0}
-!46 = !{!"bool", !8, i64 0}
-!47 = !{!"_ZTSN18cmInstallGenerator12MessageLevelE", !8, i64 0}
-!48 = !{!"_ZTS19cmListFileBacktrace", !49, i64 0}
-!49 = !{!"_ZTS12cmConstStackI17cmListFileContext19cmListFileBacktraceE", !50, i64 0}
-!50 = !{!"_ZTSSt10shared_ptrIKN12cmConstStackI17cmListFileContext19cmListFileBacktraceE5EntryEE", !17, i64 0}
-!51 = !{!"p1 _ZTS16cmLocalGenerator", !7, i64 0}
-!52 = !{!39, !46, i64 248}
-!53 = !{!41, !46, i64 104}
-!54 = !{!39, !51, i64 240}
-!55 = !{i8 0, i8 2}
-!56 = !{}
-!57 = distinct !{!57, !35, !36}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!60 = !{!61, !12, i64 0}
-!61 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}
-!62 = distinct !{!62, !36}
+!36 = !{!31, !32, i64 16}
+!37 = !{!38, !45, i64 232}
+!38 = !{!"_ZTS24cmInstallScriptGenerator", !39, i64 0, !11, i64 200, !45, i64 232, !50, i64 240, !45, i64 248}
+!39 = !{!"_ZTS18cmInstallGenerator", !40, i64 0, !11, i64 112, !11, i64 144, !46, i64 176, !45, i64 180, !45, i64 181, !47, i64 184}
+!40 = !{!"_ZTS17cmScriptGenerator", !11, i64 8, !41, i64 40, !11, i64 64, !44, i64 96, !45, i64 104}
+!41 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !42, i64 0}
+!42 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !43, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !31, i64 0}
+!44 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !7, i64 0}
+!45 = !{!"bool", !8, i64 0}
+!46 = !{!"_ZTSN18cmInstallGenerator12MessageLevelE", !8, i64 0}
+!47 = !{!"_ZTS19cmListFileBacktrace", !48, i64 0}
+!48 = !{!"_ZTS12cmConstStackI17cmListFileContext19cmListFileBacktraceE", !49, i64 0}
+!49 = !{!"_ZTSSt10shared_ptrIKN12cmConstStackI17cmListFileContext19cmListFileBacktraceE5EntryEE", !17, i64 0}
+!50 = !{!"p1 _ZTS16cmLocalGenerator", !7, i64 0}
+!51 = !{!38, !45, i64 248}
+!52 = !{!40, !45, i64 104}
+!53 = !{!38, !50, i64 240}
+!54 = !{i8 0, i8 2}
+!55 = !{}
+!56 = distinct !{!56, !35}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!59 = !{!60, !12, i64 0}
+!60 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}

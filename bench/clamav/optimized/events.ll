@@ -2441,7 +2441,7 @@ evtype.exit:                                      ; preds = %41, %switch.lookup
   %61 = load i32, ptr %50, align 8, !tbaa !18
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %54, label %get_event.exit.thread, !llvm.loop !24
+  br i1 %63, label %54, label %get_event.exit.thread
 
 64:                                               ; preds = %evtype.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, ptr noundef %48, ptr noundef nonnull %.0.i22) #14
@@ -2535,7 +2535,7 @@ define void @cli_event_debug_all(ptr noundef captures(address_is_null) %0) local
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %1
   ret void
@@ -2827,7 +2827,7 @@ ev_diff.exit.thread:                              ; preds = %107, %132, %ev_diff
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = zext i32 %144 to i64
   %147 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %147, label %107, label %._crit_edge, !llvm.loop !27
+  br i1 %147, label %107, label %._crit_edge
 
 148:                                              ; preds = %103
   %149 = zext nneg i16 %86 to i32
@@ -2923,7 +2923,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_n
   %10 = add nuw i32 %.01926.us, 1
   %11 = load i32, ptr %4, align 8, !tbaa !3
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
+  br i1 %12, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
 
 13:                                               ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, i32 noundef %5, i32 noundef %7) #14
@@ -2953,7 +2953,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_n
   %25 = load i32, ptr %4, align 8, !tbaa !3
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
+  br i1 %27, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %.lr.ph.split.us, %.preheader
   %.018.lcssa = phi i32 [ 0, %.preheader ], [ %9, %.lr.ph.split.us ], [ %.1, %24 ]
@@ -2973,7 +2973,7 @@ define i32 @cli_event_errors(ptr noundef readonly captures(address_is_null) %0) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !31
+  %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %7 = add i32 %6, %4
@@ -3038,10 +3038,5 @@ attributes #15 = { nounwind willreturn memory(read) }
 !22 = !{!21, !12, i64 8}
 !23 = !{!11, !11, i64 0}
 !24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !25}
-!27 = distinct !{!27, !25}
-!28 = distinct !{!28, !25, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !25}
-!31 = !{!4, !11, i64 24}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = !{!4, !11, i64 24}

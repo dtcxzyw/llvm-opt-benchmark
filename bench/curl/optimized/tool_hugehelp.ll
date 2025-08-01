@@ -51,7 +51,7 @@ define dso_local void @hugehelp() local_unnamed_addr #0 {
   %17 = zext i32 %16 to i64
   %18 = load ptr, ptr @stdout, align 8, !tbaa !18
   %19 = call i64 @fwrite(ptr noundef nonnull %8, i64 noundef %17, i64 noundef 1, ptr noundef %18)
-  br i1 %14, label %20, label %11, !llvm.loop !20
+  br i1 %14, label %20, label %11
 
 20:                                               ; preds = %11, %13
   call void @free(ptr noundef nonnull %8) #10
@@ -148,7 +148,7 @@ define dso_local void @showhelp(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %21 = zext i32 %20 to i64
   %22 = call zeroext i1 @helpscan(ptr noundef nonnull %12, i64 noundef %21, ptr noundef nonnull %5) #10
   %switch = and i1 %18, %22
-  br i1 %switch, label %15, label %23, !llvm.loop !22
+  br i1 %switch, label %15, label %23
 
 23:                                               ; preds = %17, %15
   call void @free(ptr noundef %12) #10
@@ -207,6 +207,3 @@ attributes #12 = { nounwind allocsize(0,1) }
 !17 = !{!5, !6, i64 24}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}

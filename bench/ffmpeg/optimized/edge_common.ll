@@ -126,7 +126,7 @@ get_rounded_direction.exit.us:                    ; preds = %76, %73, %70, %60
 ._crit_edge.us:                                   ; preds = %get_rounded_direction.exit.us
   %78 = add nuw nsw i32 %.07491.us, 1
   %exitcond98.not = icmp eq i32 %.07491.us, %17
-  br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !12
+  br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !11
 
 ._crit_edge95:                                    ; preds = %._crit_edge.us, %.lr.ph94, %9
   ret void
@@ -175,7 +175,7 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   %25 = getelementptr inbounds i8, ptr %.0152175, i64 %8
   %26 = add nuw nsw i32 %.0155174, 1
   %exitcond.not = icmp eq i32 %26, %10
-  br i1 %exitcond.not, label %.preheader173, label %23, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader173, label %23, !llvm.loop !13
 
 .preheader172:                                    ; preds = %.preheader172.lr.ph, %._crit_edge
   %.1150189 = phi ptr [ %.0149.lcssa, %.preheader172.lr.ph ], [ %132, %._crit_edge ]
@@ -227,7 +227,7 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   store i8 %33, ptr %34, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond206.not, label %.preheader171, label %.lr.ph180, !llvm.loop !15
+  br i1 %exitcond206.not, label %.preheader171, label %.lr.ph180, !llvm.loop !14
 
 .preheader170:                                    ; preds = %.lr.ph183, %.preheader171
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader171 ], [ %17, %.lr.ph183 ]
@@ -364,7 +364,7 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   %127 = getelementptr inbounds nuw i8, ptr %.1150189, i64 %indvars.iv207
   store i8 %126, ptr %127, align 1, !tbaa !4
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %.preheader170, label %.lr.ph183, !llvm.loop !16
+  br i1 %exitcond211.not, label %.preheader170, label %.lr.ph183, !llvm.loop !15
 
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
   %indvars.iv212 = phi i64 [ %36, %.lr.ph186.preheader ], [ %indvars.iv.next213, %.lr.ph186 ]
@@ -375,14 +375,14 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   store i8 %130, ptr %131, align 1, !tbaa !4
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
-  br i1 %exitcond216.not, label %._crit_edge, label %.lr.ph186, !llvm.loop !17
+  br i1 %exitcond216.not, label %._crit_edge, label %.lr.ph186, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph186, %.preheader170
   %132 = getelementptr inbounds i8, ptr %.1150189, i64 %9
   %133 = getelementptr inbounds i8, ptr %.1153188, i64 %8
   %134 = add nuw nsw i32 %.1156187, 1
   %exitcond217.not = icmp eq i32 %134, %13
-  br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !18
+  br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !17
 
 135:                                              ; preds = %.lr.ph196, %135
   %.2151195 = phi ptr [ %.1150.lcssa224, %.lr.ph196 ], [ %136, %135 ]
@@ -393,7 +393,7 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   %137 = getelementptr inbounds i8, ptr %.2154194, i64 %8
   %138 = add nuw nsw i32 %.2157193, 1
   %exitcond218.not = icmp eq i32 %138, %1
-  br i1 %exitcond218.not, label %._crit_edge197, label %135, !llvm.loop !19
+  br i1 %exitcond218.not, label %._crit_edge197, label %135, !llvm.loop !18
 
 ._crit_edge197:                                   ; preds = %135, %.preheader
   ret void
@@ -523,12 +523,12 @@ get_rounded_direction.exit.us:                    ; preds = %79, %76, %73, %63
   %80 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   store i8 %.1.i.us, ptr %80, align 1, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %get_rounded_direction.exit.us
   %81 = add nuw nsw i32 %.07491.us, 1
   %exitcond98.not = icmp eq i32 %.07491.us, %20
-  br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !21
+  br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !20
 
 ._crit_edge95:                                    ; preds = %._crit_edge.us, %.lr.ph94, %9
   ret void
@@ -583,7 +583,7 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   %31 = getelementptr inbounds i16, ptr %.0152175, i64 %16
   %32 = add nuw nsw i32 %.0155174, 1
   %exitcond.not = icmp eq i32 %32, %11
-  br i1 %exitcond.not, label %.preheader173, label %29, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader173, label %29, !llvm.loop !21
 
 .preheader172:                                    ; preds = %.preheader172.lr.ph, %._crit_edge
   %.1150189 = phi ptr [ %.0149.lcssa, %.preheader172.lr.ph ], [ %142, %._crit_edge ]
@@ -638,7 +638,7 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   store i16 %42, ptr %43, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond206.not, label %.preheader171, label %.lr.ph180, !llvm.loop !23
+  br i1 %exitcond206.not, label %.preheader171, label %.lr.ph180, !llvm.loop !22
 
 .preheader170:                                    ; preds = %.lr.ph183, %.preheader171
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader171 ], [ %21, %.lr.ph183 ]
@@ -775,7 +775,7 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   %137 = getelementptr inbounds nuw i16, ptr %.1150189, i64 %indvars.iv207
   store i16 %136, ptr %137, align 2, !tbaa !7
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %.preheader170, label %.lr.ph183, !llvm.loop !24
+  br i1 %exitcond211.not, label %.preheader170, label %.lr.ph183, !llvm.loop !23
 
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
   %indvars.iv212 = phi i64 [ %45, %.lr.ph186.preheader ], [ %indvars.iv.next213, %.lr.ph186 ]
@@ -786,14 +786,14 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   store i16 %140, ptr %141, align 2, !tbaa !7
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
-  br i1 %exitcond216.not, label %._crit_edge, label %.lr.ph186, !llvm.loop !25
+  br i1 %exitcond216.not, label %._crit_edge, label %.lr.ph186, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph186, %.preheader170
   %142 = getelementptr inbounds i16, ptr %.1150189, i64 %24
   %143 = getelementptr inbounds i16, ptr %.1153188, i64 %25
   %144 = add nuw nsw i32 %.1156187, 1
   %exitcond217.not = icmp eq i32 %144, %17
-  br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !26
+  br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !25
 
 145:                                              ; preds = %.lr.ph196, %145
   %.2151195 = phi ptr [ %.1150.lcssa224, %.lr.ph196 ], [ %146, %145 ]
@@ -804,7 +804,7 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   %147 = getelementptr inbounds i16, ptr %.2154194, i64 %37
   %148 = add nuw nsw i32 %.2157193, 1
   %exitcond218.not = icmp eq i32 %148, %1
-  br i1 %exitcond218.not, label %._crit_edge197, label %145, !llvm.loop !27
+  br i1 %exitcond218.not, label %._crit_edge197, label %145, !llvm.loop !26
 
 ._crit_edge197:                                   ; preds = %145, %.preheader
   ret void
@@ -813,43 +813,41 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %1, 2
-  br i1 %9, label %.lr.ph93, label %._crit_edge94
+  br i1 %9, label %.lr.ph89, label %._crit_edge90
 
-.lr.ph93:                                         ; preds = %8
+.lr.ph89:                                         ; preds = %8
   %10 = sext i32 %3 to i64
   %11 = sext i32 %5 to i64
   %12 = sext i32 %7 to i64
   %13 = icmp sgt i32 %0, 2
   %14 = xor i32 %7, -1
-  br i1 %13, label %.lr.ph.us.preheader, label %._crit_edge94
+  br i1 %13, label %.lr.ph.us.preheader, label %._crit_edge90
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph93
+.lr.ph.us.preheader:                              ; preds = %.lr.ph89
   %15 = add nsw i32 %0, -1
   %wide.trip.count = zext i32 %15 to i64
   %16 = add nsw i32 %1, -2
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.091.us = phi i32 [ %66, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
-  %.07090.us = phi ptr [ %17, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
-  %.07189.us = phi ptr [ %19, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
-  %.07288.us = phi ptr [ %18, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.07090.us, i64 %10
-  %18 = getelementptr inbounds i8, ptr %.07288.us, i64 %11
-  %19 = getelementptr inbounds i16, ptr %.07189.us, i64 %12
-  %invariant.gep.us = getelementptr i8, ptr %19, i64 2
-  %invariant.gep83.us = getelementptr i8, ptr %19, i64 -2
+  %.087.us = phi i32 [ %69, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
+  %.07086.us = phi ptr [ %17, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
+  %.07185.us = phi ptr [ %19, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
+  %.07284.us = phi ptr [ %18, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.07086.us, i64 %10
+  %18 = getelementptr inbounds i8, ptr %.07284.us, i64 %11
+  %19 = getelementptr inbounds i16, ptr %.07185.us, i64 %12
   %invariant.gep = getelementptr i16, ptr %19, i64 %12
-  %invariant.gep98 = getelementptr i16, ptr %invariant.gep.us, i64 %12
-  %invariant.gep100 = getelementptr i16, ptr %invariant.gep83.us, i64 %12
+  %invariant.gep94 = getelementptr i16, ptr %19, i64 %12
+  %invariant.gep96 = getelementptr i16, ptr %19, i64 %12
   br label %20
 
-20:                                               ; preds = %.lr.ph.us, %65
-  %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %65 ]
+20:                                               ; preds = %.lr.ph.us, %68
+  %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %68 ]
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !4
-  switch i8 %22, label %65 [
-    i8 0, label %54
+  switch i8 %22, label %68 [
+    i8 0, label %55
     i8 1, label %42
     i8 2, label %32
     i8 3, label %23
@@ -858,16 +856,16 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !7
-  %26 = getelementptr inbounds nuw i16, ptr %.07189.us, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i16, ptr %.07185.us, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2, !tbaa !7
   %28 = icmp ugt i16 %25, %27
-  br i1 %28, label %29, label %65
+  br i1 %28, label %29, label %68
 
 29:                                               ; preds = %23
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %30 = load i16, ptr %gep, align 2, !tbaa !7
   %31 = icmp ugt i16 %25, %30
-  br i1 %31, label %.sink.split, label %65
+  br i1 %31, label %.sink.split, label %68
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
@@ -875,13 +873,13 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   %35 = getelementptr i8, ptr %33, i64 -2
   %36 = load i16, ptr %35, align 2, !tbaa !7
   %37 = icmp ugt i16 %34, %36
-  br i1 %37, label %38, label %65
+  br i1 %37, label %38, label %68
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %40 = load i16, ptr %39, align 2, !tbaa !7
   %41 = icmp ugt i16 %34, %40
-  br i1 %41, label %.sink.split, label %65
+  br i1 %41, label %.sink.split, label %68
 
 42:                                               ; preds = %20
   %43 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
@@ -892,49 +890,51 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   %48 = getelementptr inbounds i16, ptr %19, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !7
   %50 = icmp ugt i16 %44, %49
-  br i1 %50, label %51, label %65
+  br i1 %50, label %51, label %68
 
 51:                                               ; preds = %42
-  %gep99 = getelementptr i16, ptr %invariant.gep98, i64 %indvars.iv
-  %52 = load i16, ptr %gep99, align 2, !tbaa !7
-  %53 = icmp ugt i16 %44, %52
-  br i1 %53, label %.sink.split, label %65
+  %gep95 = getelementptr i16, ptr %invariant.gep94, i64 %indvars.iv
+  %52 = getelementptr i8, ptr %gep95, i64 2
+  %53 = load i16, ptr %52, align 2, !tbaa !7
+  %54 = icmp ugt i16 %44, %53
+  br i1 %54, label %.sink.split, label %68
 
-54:                                               ; preds = %20
-  %55 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
-  %56 = load i16, ptr %55, align 2, !tbaa !7
-  %gep101 = getelementptr i16, ptr %invariant.gep100, i64 %indvars.iv
-  %57 = load i16, ptr %gep101, align 2, !tbaa !7
-  %58 = icmp ugt i16 %56, %57
-  br i1 %58, label %59, label %65
+55:                                               ; preds = %20
+  %56 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %57 = load i16, ptr %56, align 2, !tbaa !7
+  %gep97 = getelementptr i16, ptr %invariant.gep96, i64 %indvars.iv
+  %58 = getelementptr i8, ptr %gep97, i64 -2
+  %59 = load i16, ptr %58, align 2, !tbaa !7
+  %60 = icmp ugt i16 %57, %59
+  br i1 %60, label %61, label %68
 
-59:                                               ; preds = %54
-  %60 = sub nsw i64 %indvars.iv, %12
-  %gep86.us = getelementptr i16, ptr %invariant.gep.us, i64 %60
-  %61 = load i16, ptr %gep86.us, align 2, !tbaa !7
-  %62 = icmp ugt i16 %56, %61
-  br i1 %62, label %.sink.split, label %65
+61:                                               ; preds = %55
+  %62 = getelementptr i16, ptr %.07185.us, i64 %indvars.iv
+  %63 = getelementptr i8, ptr %62, i64 2
+  %64 = load i16, ptr %63, align 2, !tbaa !7
+  %65 = icmp ugt i16 %57, %64
+  br i1 %65, label %.sink.split, label %68
 
-.sink.split:                                      ; preds = %59, %51, %38, %29
-  %.sink = phi i16 [ %25, %29 ], [ %34, %38 ], [ %44, %51 ], [ %56, %59 ]
+.sink.split:                                      ; preds = %61, %51, %38, %29
+  %.sink = phi i16 [ %25, %29 ], [ %34, %38 ], [ %44, %51 ], [ %57, %61 ]
   %.not.i.us = icmp ult i16 %.sink, 256
-  %63 = trunc i16 %.sink to i8
-  %.0.i.us = select i1 %.not.i.us, i8 %63, i8 -1
-  %64 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
-  store i8 %.0.i.us, ptr %64, align 1, !tbaa !4
-  br label %65
+  %66 = trunc i16 %.sink to i8
+  %.0.i.us = select i1 %.not.i.us, i8 %66, i8 -1
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
+  store i8 %.0.i.us, ptr %67, align 1, !tbaa !4
+  br label %68
 
-65:                                               ; preds = %.sink.split, %59, %54, %51, %42, %38, %32, %29, %23, %20
+68:                                               ; preds = %.sink.split, %61, %55, %51, %42, %38, %32, %29, %23, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !27
 
-._crit_edge.us:                                   ; preds = %65
-  %66 = add nuw nsw i32 %.091.us, 1
-  %exitcond97.not = icmp eq i32 %.091.us, %16
-  br i1 %exitcond97.not, label %._crit_edge94, label %.lr.ph.us, !llvm.loop !29
+._crit_edge.us:                                   ; preds = %68
+  %69 = add nuw nsw i32 %.087.us, 1
+  %exitcond93.not = icmp eq i32 %.087.us, %16
+  br i1 %exitcond93.not, label %._crit_edge90, label %.lr.ph.us, !llvm.loop !28
 
-._crit_edge94:                                    ; preds = %._crit_edge.us, %.lr.ph93, %8
+._crit_edge90:                                    ; preds = %._crit_edge.us, %.lr.ph89, %8
   ret void
 }
 
@@ -1055,14 +1055,14 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   store i8 %.sink103, ptr %69, align 1, !tbaa !4
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge.us, label %.lr.ph.split.us92, !llvm.loop !30
+  br i1 %exitcond100.not, label %._crit_edge.us, label %.lr.ph.split.us92, !llvm.loop !29
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us.us, %68
   %70 = getelementptr inbounds i8, ptr %.06385.us, i64 %12
   %71 = getelementptr inbounds i8, ptr %.06483.us, i64 %13
   %72 = add nuw nsw i32 %.087.us, 1
   %exitcond101.not = icmp eq i32 %72, %3
-  br i1 %exitcond101.not, label %._crit_edge88, label %.preheader.us, !llvm.loop !31
+  br i1 %exitcond101.not, label %._crit_edge88, label %.preheader.us, !llvm.loop !30
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
@@ -1075,7 +1075,7 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   store i8 %spec.select, ptr %77, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !31
 
 ._crit_edge88:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1102,27 +1102,26 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11, !13}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
-!29 = distinct !{!29, !10, !11, !13}
-!30 = distinct !{!30, !10, !11}
-!31 = distinct !{!31, !10, !11, !13}
-!32 = distinct !{!32, !10, !11, !13}
+!11 = distinct !{!11, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10, !12}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10, !12}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10, !12}
+!31 = distinct !{!31, !10, !12}

@@ -193,2117 +193,2100 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
   %71 = load i8, ptr %59, align 8, !tbaa !33
   store i8 %71, ptr %70, align 1, !tbaa !32
   %72 = load i32, ptr %60, align 4, !tbaa !18
+  br label %.loopexit1066
+
+.loopexit1066:                                    ; preds = %.loopexit1066.backedge, %.loopexit
+  %.0787 = phi ptr [ %70, %.loopexit ], [ %.0787.be, %.loopexit1066.backedge ]
+  %.0781 = phi ptr [ %70, %.loopexit ], [ %.0781.be, %.loopexit1066.backedge ]
+  %.0777 = phi i32 [ %72, %.loopexit ], [ %.0777.be, %.loopexit1066.backedge ]
   br label %73
 
-.loopexit1066:                                    ; preds = %._crit_edge.i1008, %1538, %1718
-  %.3790.ph = phi ptr [ %1717, %1718 ], [ %1467, %1538 ], [ %1717, %._crit_edge.i1008 ]
-  %.5786.ph = phi ptr [ %1725, %1718 ], [ %1540, %1538 ], [ %1725, %._crit_edge.i1008 ]
-  %.6.ph = phi i32 [ %1726, %1718 ], [ %1539, %1538 ], [ %1767, %._crit_edge.i1008 ]
-  br label %73, !llvm.loop !34
+73:                                               ; preds = %._crit_edge, %.loopexit1066
+  %.1782 = phi ptr [ %.0781, %.loopexit1066 ], [ %111, %._crit_edge ]
+  %.1778 = phi i32 [ %.0777, %.loopexit1066 ], [ %110, %._crit_edge ]
+  %74 = load i8, ptr %.1782, align 1, !tbaa !32
+  %75 = zext i8 %74 to i64
+  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !32
+  %78 = sext i32 %.1778 to i64
+  %79 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %78
+  %80 = load i16, ptr %79, align 2, !tbaa !34
+  %.not823 = icmp eq i16 %80, 0
+  br i1 %.not823, label %82, label %81
 
-73:                                               ; preds = %.loopexit1066, %.loopexit
-  %.0787 = phi ptr [ %70, %.loopexit ], [ %.3790.ph, %.loopexit1066 ]
-  %.0781 = phi ptr [ %70, %.loopexit ], [ %.5786.ph, %.loopexit1066 ]
-  %.0777 = phi i32 [ %72, %.loopexit ], [ %.6.ph, %.loopexit1066 ]
-  br label %74
+81:                                               ; preds = %73
+  store i32 %.1778, ptr %61, align 8, !tbaa !36
+  store ptr %.1782, ptr %62, align 8, !tbaa !37
+  br label %82
 
-74:                                               ; preds = %._crit_edge, %73
-  %.1782 = phi ptr [ %.0781, %73 ], [ %112, %._crit_edge ]
-  %.1778 = phi i32 [ %.0777, %73 ], [ %111, %._crit_edge ]
-  %75 = load i8, ptr %.1782, align 1, !tbaa !32
-  %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !32
-  %79 = sext i32 %.1778 to i64
-  %80 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %79
-  %81 = load i16, ptr %80, align 2, !tbaa !36
-  %.not823 = icmp eq i16 %81, 0
-  br i1 %.not823, label %83, label %82
-
-82:                                               ; preds = %74
-  store i32 %.1778, ptr %61, align 8, !tbaa !38
-  store ptr %.1782, ptr %62, align 8, !tbaa !39
-  br label %83
-
-83:                                               ; preds = %82, %74
-  %84 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %79
-  %85 = load i16, ptr %84, align 2, !tbaa !36
-  %86 = sext i16 %85 to i64
-  %87 = zext i8 %78 to i64
-  %88 = add nsw i64 %86, %87
-  %89 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %88
-  %90 = load i16, ptr %89, align 2, !tbaa !36
-  %91 = sext i16 %90 to i32
-  %.not8241588 = icmp eq i32 %.1778, %91
+82:                                               ; preds = %81, %73
+  %83 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %78
+  %84 = load i16, ptr %83, align 2, !tbaa !34
+  %85 = sext i16 %84 to i64
+  %86 = zext i8 %77 to i64
+  %87 = add nsw i64 %85, %86
+  %88 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %87
+  %89 = load i16, ptr %88, align 2, !tbaa !34
+  %90 = sext i16 %89 to i32
+  %.not8241588 = icmp eq i32 %.1778, %90
   br i1 %.not8241588, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %83, %100
-  %92 = phi i64 [ %105, %100 ], [ %87, %83 ]
-  %93 = phi i64 [ %101, %100 ], [ %79, %83 ]
-  %.07931589 = phi i8 [ %.1794, %100 ], [ %78, %83 ]
-  %94 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %93
-  %95 = load i16, ptr %94, align 2, !tbaa !36
-  %96 = icmp sgt i16 %95, 308
-  br i1 %96, label %97, label %100
+.lr.ph:                                           ; preds = %82, %99
+  %91 = phi i64 [ %104, %99 ], [ %86, %82 ]
+  %92 = phi i64 [ %100, %99 ], [ %78, %82 ]
+  %.07931589 = phi i8 [ %.1794, %99 ], [ %77, %82 ]
+  %93 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %92
+  %94 = load i16, ptr %93, align 2, !tbaa !34
+  %95 = icmp sgt i16 %94, 308
+  br i1 %95, label %96, label %99
 
-97:                                               ; preds = %.lr.ph
-  %98 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %92
-  %99 = load i8, ptr %98, align 1, !tbaa !32
-  br label %100
+96:                                               ; preds = %.lr.ph
+  %97 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %91
+  %98 = load i8, ptr %97, align 1, !tbaa !32
+  br label %99
 
-100:                                              ; preds = %97, %.lr.ph
-  %.1794 = phi i8 [ %99, %97 ], [ %.07931589, %.lr.ph ]
-  %101 = sext i16 %95 to i64
-  %102 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %101
-  %103 = load i16, ptr %102, align 2, !tbaa !36
-  %104 = sext i16 %103 to i64
-  %105 = zext i8 %.1794 to i64
-  %106 = add nsw i64 %104, %105
-  %107 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %106
-  %108 = load i16, ptr %107, align 2, !tbaa !36
-  %.not824 = icmp eq i16 %95, %108
-  br i1 %.not824, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+99:                                               ; preds = %96, %.lr.ph
+  %.1794 = phi i8 [ %98, %96 ], [ %.07931589, %.lr.ph ]
+  %100 = sext i16 %94 to i64
+  %101 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %100
+  %102 = load i16, ptr %101, align 2, !tbaa !34
+  %103 = sext i16 %102 to i64
+  %104 = zext i8 %.1794 to i64
+  %105 = add nsw i64 %103, %104
+  %106 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %105
+  %107 = load i16, ptr %106, align 2, !tbaa !34
+  %.not824 = icmp eq i16 %94, %107
+  br i1 %.not824, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %100, %83
-  %.lcssa = phi i64 [ %88, %83 ], [ %106, %100 ]
-  %109 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa
-  %110 = load i16, ptr %109, align 2, !tbaa !36
-  %111 = sext i16 %110 to i32
-  %112 = getelementptr inbounds nuw i8, ptr %.1782, i64 1
-  %.not825 = icmp eq i16 %110, 308
-  br i1 %.not825, label %113, label %74, !llvm.loop !42
+._crit_edge:                                      ; preds = %99, %82
+  %.lcssa = phi i64 [ %87, %82 ], [ %105, %99 ]
+  %108 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa
+  %109 = load i16, ptr %108, align 2, !tbaa !34
+  %110 = sext i16 %109 to i32
+  %111 = getelementptr inbounds nuw i8, ptr %.1782, i64 1
+  %.not825 = icmp eq i16 %109, 308
+  br i1 %.not825, label %.backedge.sink.split2371, label %73, !llvm.loop !40
 
-113:                                              ; preds = %._crit_edge
-  %114 = load ptr, ptr %62, align 8, !tbaa !39
-  %115 = load i32, ptr %61, align 8, !tbaa !38
-  br label %116
+.backedge.sink.split2371:                         ; preds = %._crit_edge, %.backedge.sink.split2371.backedge
+  %.1788.ph = phi ptr [ %.1788.ph.be, %.backedge.sink.split2371.backedge ], [ %.0787, %._crit_edge ]
+  %112 = load ptr, ptr %62, align 8, !tbaa !37
+  %113 = load i32, ptr %61, align 8, !tbaa !36
+  br label %.backedge
 
-116:                                              ; preds = %.backedge, %113
-  %.1788 = phi ptr [ %.0787, %113 ], [ %.1788.be, %.backedge ]
-  %.2783 = phi ptr [ %114, %113 ], [ %.2783.be, %.backedge ]
-  %.3780 = phi i32 [ %115, %113 ], [ %.3780.be, %.backedge ]
-  %117 = sext i32 %.3780 to i64
-  %118 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %117
-  %119 = load i16, ptr %118, align 2, !tbaa !36
-  %120 = sext i16 %119 to i32
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split2371
+  %.1788 = phi ptr [ %.1788.ph, %.backedge.sink.split2371 ], [ %1766, %.backedge.backedge ]
+  %.2783 = phi ptr [ %112, %.backedge.sink.split2371 ], [ %1769, %.backedge.backedge ]
+  %.3780 = phi i32 [ %113, %.backedge.sink.split2371 ], [ %.3780.be, %.backedge.backedge ]
+  %114 = sext i32 %.3780 to i64
+  %115 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %114
+  %116 = load i16, ptr %115, align 2, !tbaa !34
+  %117 = sext i16 %116 to i32
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  %121 = ptrtoint ptr %.2783 to i64
-  %122 = ptrtoint ptr %.1788 to i64
-  %123 = sub i64 %121, %122
-  store i64 %123, ptr %64, align 8, !tbaa !43
-  %124 = load i8, ptr %.2783, align 1, !tbaa !32
-  store i8 %124, ptr %59, align 8, !tbaa !33
+  %118 = ptrtoint ptr %.2783 to i64
+  %119 = ptrtoint ptr %.1788 to i64
+  %120 = sub i64 %118, %119
+  store i64 %120, ptr %64, align 8, !tbaa !41
+  %121 = load i8, ptr %.2783, align 1, !tbaa !32
+  store i8 %121, ptr %59, align 8, !tbaa !33
   store i8 0, ptr %.2783, align 1, !tbaa !32
   store ptr %.2783, ptr %58, align 8, !tbaa !29
-  br label %125
+  br label %122
 
-125:                                              ; preds = %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011, %116
-  %.0791 = phi i32 [ %120, %116 ], [ %1820, %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011 ]
-  switch i32 %.0791, label %1821 [
-    i32 0, label %126
+122:                                              ; preds = %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011, %.backedge
+  %.0791 = phi i32 [ %117, %.backedge ], [ %1817, %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011 ]
+  switch i32 %.0791, label %1818 [
+    i32 0, label %123
     i32 1, label %.loopexit.backedge
-    i32 2, label %130
-    i32 3, label %143
-    i32 4, label %151
+    i32 2, label %125
+    i32 3, label %138
+    i32 4, label %146
     i32 5, label %.loopexit.backedge
     i32 6, label %.loopexit.backedge
     i32 7, label %.loopexit.backedge
-    i32 88, label %159
-    i32 8, label %160
-    i32 9, label %188
-    i32 10, label %188
-    i32 11, label %204
-    i32 12, label %204
+    i32 88, label %154
+    i32 8, label %155
+    i32 9, label %183
+    i32 10, label %183
+    i32 11, label %199
+    i32 12, label %199
     i32 13, label %.loopexit.backedge
     i32 14, label %.loopexit.backedge
-    i32 87, label %232
-    i32 15, label %233
-    i32 16, label %261
-    i32 17, label %261
-    i32 90, label %277
-    i32 18, label %278
-    i32 19, label %305
-    i32 20, label %320
-    i32 21, label %332
-    i32 22, label %355
-    i32 23, label %355
-    i32 24, label %382
-    i32 25, label %382
+    i32 87, label %227
+    i32 15, label %228
+    i32 16, label %256
+    i32 17, label %256
+    i32 90, label %272
+    i32 18, label %273
+    i32 19, label %300
+    i32 20, label %315
+    i32 21, label %327
+    i32 22, label %350
+    i32 23, label %350
+    i32 24, label %377
+    i32 25, label %377
     i32 26, label %.loopexit.backedge
-    i32 97, label %386
-    i32 27, label %386
-    i32 28, label %386
-    i32 29, label %391
-    i32 30, label %423
-    i32 31, label %446
-    i32 32, label %474
-    i32 33, label %502
-    i32 34, label %513
-    i32 35, label %530
-    i32 36, label %531
-    i32 98, label %532
-    i32 37, label %533
-    i32 38, label %547
-    i32 39, label %638
-    i32 40, label %671
+    i32 97, label %381
+    i32 27, label %381
+    i32 28, label %381
+    i32 29, label %386
+    i32 30, label %418
+    i32 31, label %441
+    i32 32, label %469
+    i32 33, label %497
+    i32 34, label %508
+    i32 35, label %525
+    i32 36, label %526
+    i32 98, label %527
+    i32 37, label %528
+    i32 38, label %542
+    i32 39, label %633
+    i32 40, label %666
     i32 41, label %.loopexit.backedge
-    i32 42, label %704
-    i32 92, label %729
-    i32 91, label %729
-    i32 96, label %729
-    i32 43, label %730
-    i32 44, label %743
-    i32 45, label %758
-    i32 46, label %812
-    i32 47, label %840
-    i32 48, label %868
-    i32 93, label %893
-    i32 49, label %894
-    i32 50, label %904
-    i32 51, label %914
-    i32 52, label %931
+    i32 42, label %699
+    i32 92, label %724
+    i32 91, label %724
+    i32 96, label %724
+    i32 43, label %725
+    i32 44, label %738
+    i32 45, label %753
+    i32 46, label %807
+    i32 47, label %835
+    i32 48, label %863
+    i32 93, label %888
+    i32 49, label %889
+    i32 50, label %899
+    i32 51, label %909
+    i32 52, label %926
     i32 53, label %.loopexit.backedge
-    i32 95, label %935
-    i32 54, label %935
-    i32 55, label %935
-    i32 56, label %946
-    i32 57, label %984
-    i32 58, label %1007
-    i32 89, label %1035
-    i32 94, label %1035
-    i32 59, label %1036
-    i32 60, label %1053
-    i32 61, label %1062
-    i32 62, label %1071
-    i32 63, label %1080
-    i32 64, label %1089
-    i32 65, label %1098
-    i32 66, label %1107
-    i32 67, label %1116
-    i32 68, label %1125
-    i32 69, label %1134
-    i32 70, label %1143
-    i32 71, label %1152
-    i32 72, label %1161
-    i32 73, label %1172
-    i32 74, label %1263
-    i32 75, label %1276
-    i32 76, label %1289
-    i32 77, label %1300
-    i32 78, label %1311
-    i32 79, label %1328
-    i32 80, label %1339
-    i32 81, label %1356
-    i32 82, label %1373
-    i32 83, label %1420
-    i32 86, label %1431
-    i32 84, label %1440
-    i32 85, label %1441
-  ], !llvm.loop !44
+    i32 95, label %930
+    i32 54, label %930
+    i32 55, label %930
+    i32 56, label %941
+    i32 57, label %979
+    i32 58, label %1002
+    i32 89, label %1030
+    i32 94, label %1030
+    i32 59, label %1031
+    i32 60, label %1048
+    i32 61, label %1057
+    i32 62, label %1066
+    i32 63, label %1075
+    i32 64, label %1084
+    i32 65, label %1093
+    i32 66, label %1102
+    i32 67, label %1111
+    i32 68, label %1120
+    i32 69, label %1129
+    i32 70, label %1138
+    i32 71, label %1147
+    i32 72, label %1156
+    i32 73, label %1167
+    i32 74, label %1260
+    i32 75, label %1273
+    i32 76, label %1286
+    i32 77, label %1297
+    i32 78, label %1308
+    i32 79, label %1325
+    i32 80, label %1336
+    i32 81, label %1353
+    i32 82, label %1370
+    i32 83, label %1417
+    i32 86, label %1428
+    i32 84, label %1437
+    i32 85, label %1438
+  ], !llvm.loop !42
 
-126:                                              ; preds = %125
-  %127 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %127, ptr %.2783, align 1, !tbaa !32
-  br label %.backedge.sink.split
+123:                                              ; preds = %122
+  %124 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %124, ptr %.2783, align 1, !tbaa !32
+  br label %.backedge.sink.split2371.backedge
 
-.backedge.sink.split:                             ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %126
-  %.1788.be.ph = phi ptr [ %.1788, %126 ], [ %1467, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit ], [ %1467, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit ]
-  %128 = load ptr, ptr %62, align 8, !tbaa !39
-  %129 = load i32, ptr %61, align 8, !tbaa !38
-  br label %.backedge
-
-.backedge:                                        ; preds = %._crit_edge.i1023, %.backedge.sink.split, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044
-  %.1788.be = phi ptr [ %1769, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ], [ %.1788.be.ph, %.backedge.sink.split ], [ %1769, %._crit_edge.i1023 ]
-  %.2783.be = phi ptr [ %1772, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ], [ %128, %.backedge.sink.split ], [ %1772, %._crit_edge.i1023 ]
-  %.3780.be = phi i32 [ %1773, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ], [ %129, %.backedge.sink.split ], [ %1814, %._crit_edge.i1023 ]
-  br label %116, !llvm.loop !34
-
-130:                                              ; preds = %125
-  %131 = load ptr, ptr %63, align 8, !tbaa !30
-  %132 = load ptr, ptr %2, align 8, !tbaa !45
-  %133 = load ptr, ptr %132, align 8, !tbaa !46
-  %134 = ptrtoint ptr %131 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = trunc i64 %136 to i32
-  %138 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %137, ptr %138, align 4, !tbaa !50
-  %139 = getelementptr inbounds nuw i8, ptr %132, i64 56
-  store i32 0, ptr %139, align 8, !tbaa !51
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %63, align 8, !tbaa !30
+  %127 = load ptr, ptr %2, align 8, !tbaa !43
+  %128 = load ptr, ptr %127, align 8, !tbaa !44
+  %129 = ptrtoint ptr %126 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = trunc i64 %131 to i32
+  %133 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %132, ptr %133, align 4, !tbaa !48
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 56
+  store i32 0, ptr %134, align 8, !tbaa !49
   store i32 5, ptr %60, align 4, !tbaa !18
-  %140 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %140, ptr %.2783, align 1, !tbaa !32
-  %141 = getelementptr inbounds nuw i8, ptr %.1788, i64 2
-  store ptr %141, ptr %58, align 8, !tbaa !29
+  %135 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %135, ptr %.2783, align 1, !tbaa !32
+  %136 = getelementptr inbounds nuw i8, ptr %.1788, i64 2
+  store ptr %136, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 2, ptr %64, align 8, !tbaa !43
-  %142 = load i8, ptr %141, align 1, !tbaa !32
-  store i8 %142, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %141, align 1, !tbaa !32
-  store ptr %141, ptr %58, align 8, !tbaa !29
+  store i64 2, ptr %64, align 8, !tbaa !41
+  %137 = load i8, ptr %136, align 1, !tbaa !32
+  store i8 %137, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %136, align 1, !tbaa !32
+  store ptr %136, ptr %58, align 8, !tbaa !29
   br label %.loopexit.backedge
 
-143:                                              ; preds = %125
-  %144 = load ptr, ptr %2, align 8, !tbaa !45
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 56
-  %146 = load i32, ptr %145, align 8, !tbaa !51
-  %147 = add nsw i32 %146, 1
-  store i32 %147, ptr %145, align 8, !tbaa !51
-  %148 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %148, ptr %.2783, align 1, !tbaa !32
-  %149 = getelementptr inbounds nuw i8, ptr %.1788, i64 2
-  store ptr %149, ptr %58, align 8, !tbaa !29
+138:                                              ; preds = %122
+  %139 = load ptr, ptr %2, align 8, !tbaa !43
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
+  %141 = load i32, ptr %140, align 8, !tbaa !49
+  %142 = add nsw i32 %141, 1
+  store i32 %142, ptr %140, align 8, !tbaa !49
+  %143 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %143, ptr %.2783, align 1, !tbaa !32
+  %144 = getelementptr inbounds nuw i8, ptr %.1788, i64 2
+  store ptr %144, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 2, ptr %64, align 8, !tbaa !43
-  %150 = load i8, ptr %149, align 1, !tbaa !32
-  store i8 %150, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %149, align 1, !tbaa !32
-  store ptr %149, ptr %58, align 8, !tbaa !29
+  store i64 2, ptr %64, align 8, !tbaa !41
+  %145 = load i8, ptr %144, align 1, !tbaa !32
+  store i8 %145, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %144, align 1, !tbaa !32
+  store ptr %144, ptr %58, align 8, !tbaa !29
   br label %.loopexit.backedge
 
-151:                                              ; preds = %125
-  %152 = load ptr, ptr %2, align 8, !tbaa !45
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 56
-  %154 = load i32, ptr %153, align 8, !tbaa !51
-  %155 = icmp slt i32 %154, 1
-  br i1 %155, label %156, label %157
+146:                                              ; preds = %122
+  %147 = load ptr, ptr %2, align 8, !tbaa !43
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
+  %149 = load i32, ptr %148, align 8, !tbaa !49
+  %150 = icmp slt i32 %149, 1
+  br i1 %150, label %151, label %152
 
-156:                                              ; preds = %151
+151:                                              ; preds = %146
   store i32 1, ptr %60, align 4, !tbaa !18
   br label %.loopexit.backedge
 
-157:                                              ; preds = %151
-  %158 = add nsw i32 %154, -1
-  store i32 %158, ptr %153, align 8, !tbaa !51
+152:                                              ; preds = %146
+  %153 = add nsw i32 %149, -1
+  store i32 %153, ptr %148, align 8, !tbaa !49
   br label %.loopexit.backedge
 
-159:                                              ; preds = %125
+154:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-160:                                              ; preds = %125
-  %161 = load ptr, ptr %63, align 8, !tbaa !30
-  %162 = load ptr, ptr %2, align 8, !tbaa !45
-  %163 = load ptr, ptr %162, align 8, !tbaa !46
-  %164 = ptrtoint ptr %161 to i64
-  %165 = ptrtoint ptr %163 to i64
-  %166 = sub i64 %164, %165
-  %167 = trunc i64 %166 to i32
-  %168 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %167, ptr %168, align 4, !tbaa !50
+155:                                              ; preds = %122
+  %156 = load ptr, ptr %63, align 8, !tbaa !30
+  %157 = load ptr, ptr %2, align 8, !tbaa !43
+  %158 = load ptr, ptr %157, align 8, !tbaa !44
+  %159 = ptrtoint ptr %156 to i64
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = trunc i64 %161 to i32
+  %163 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %162, ptr %163, align 4, !tbaa !48
   store i32 3, ptr %60, align 4, !tbaa !18
-  %169 = getelementptr inbounds nuw i8, ptr %162, i64 48
-  store i32 0, ptr %169, align 8, !tbaa !52
-  %170 = getelementptr inbounds nuw i8, ptr %162, i64 52
-  %171 = load i32, ptr %170, align 4, !tbaa !53
-  %.not.i857 = icmp sgt i32 %171, 1
-  br i1 %.not.i857, label %._crit_edge.i, label %172
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 48
+  store i32 0, ptr %164, align 8, !tbaa !50
+  %165 = getelementptr inbounds nuw i8, ptr %157, i64 52
+  %166 = load i32, ptr %165, align 4, !tbaa !51
+  %.not.i857 = icmp sgt i32 %166, 1
+  br i1 %.not.i857, label %._crit_edge.i, label %167
 
-._crit_edge.i:                                    ; preds = %160
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %162, i64 40
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+._crit_edge.i:                                    ; preds = %155
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %157, i64 40
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit
 
-172:                                              ; preds = %160
-  %173 = shl nsw i32 %171, 1
-  store i32 %173, ptr %170, align 4, !tbaa !53
-  %174 = getelementptr inbounds nuw i8, ptr %162, i64 40
-  %175 = load ptr, ptr %174, align 8, !tbaa !54
-  %176 = sext i32 %173 to i64
-  %177 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %175, i64 noundef %176)
-  %178 = load ptr, ptr %2, align 8, !tbaa !45
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
-  store ptr %177, ptr %179, align 8, !tbaa !54
-  %.phi.trans.insert9.i = getelementptr inbounds nuw i8, ptr %178, i64 48
-  %.pre10.i = load i32, ptr %.phi.trans.insert9.i, align 8, !tbaa !52
-  %180 = sext i32 %.pre10.i to i64
+167:                                              ; preds = %155
+  %168 = shl nsw i32 %166, 1
+  store i32 %168, ptr %165, align 4, !tbaa !51
+  %169 = getelementptr inbounds nuw i8, ptr %157, i64 40
+  %170 = load ptr, ptr %169, align 8, !tbaa !52
+  %171 = sext i32 %168 to i64
+  %172 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %170, i64 noundef %171)
+  %173 = load ptr, ptr %2, align 8, !tbaa !43
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 40
+  store ptr %172, ptr %174, align 8, !tbaa !52
+  %.phi.trans.insert9.i = getelementptr inbounds nuw i8, ptr %173, i64 48
+  %.pre10.i = load i32, ptr %.phi.trans.insert9.i, align 8, !tbaa !50
+  %175 = sext i32 %.pre10.i to i64
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit:     ; preds = %._crit_edge.i, %172
-  %181 = phi i64 [ %180, %172 ], [ 0, %._crit_edge.i ]
-  %182 = phi ptr [ %177, %172 ], [ %.pre.i, %._crit_edge.i ]
-  %183 = getelementptr inbounds i8, ptr %182, i64 %181
-  store i8 98, ptr %183, align 1, !tbaa !32
-  %184 = load ptr, ptr %2, align 8, !tbaa !45
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 48
-  %186 = load i32, ptr %185, align 8, !tbaa !52
-  %187 = add nsw i32 %186, 1
-  store i32 %187, ptr %185, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit:     ; preds = %._crit_edge.i, %167
+  %176 = phi i64 [ %175, %167 ], [ 0, %._crit_edge.i ]
+  %177 = phi ptr [ %172, %167 ], [ %.pre.i, %._crit_edge.i ]
+  %178 = getelementptr inbounds i8, ptr %177, i64 %176
+  store i8 98, ptr %178, align 1, !tbaa !32
+  %179 = load ptr, ptr %2, align 8, !tbaa !43
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
+  %181 = load i32, ptr %180, align 8, !tbaa !50
+  %182 = add nsw i32 %181, 1
+  store i32 %182, ptr %180, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-188:                                              ; preds = %125, %125
-  %189 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %189, ptr %.2783, align 1, !tbaa !32
-  %190 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %190, ptr %58, align 8, !tbaa !29
+183:                                              ; preds = %122, %122
+  %184 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %184, ptr %.2783, align 1, !tbaa !32
+  %185 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %185, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %191 = load i8, ptr %190, align 1, !tbaa !32
-  store i8 %191, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %190, align 1, !tbaa !32
-  store ptr %190, ptr %58, align 8, !tbaa !29
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %186 = load i8, ptr %185, align 1, !tbaa !32
+  store i8 %186, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %185, align 1, !tbaa !32
+  store ptr %185, ptr %58, align 8, !tbaa !29
   store i32 1, ptr %60, align 4, !tbaa !18
-  %192 = load ptr, ptr %2, align 8, !tbaa !45
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 48
-  %194 = load i32, ptr %193, align 8, !tbaa !52
-  %195 = add nsw i32 %194, 1
-  %196 = sext i32 %195 to i64
-  %197 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %196)
-  %198 = load ptr, ptr %2, align 8, !tbaa !45
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
-  %200 = load ptr, ptr %199, align 8, !tbaa !54
-  %201 = sext i32 %194 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %197, ptr align 1 %200, i64 %201, i1 false)
-  %202 = getelementptr inbounds i8, ptr %197, i64 %201
-  store i8 0, ptr %202, align 1, !tbaa !32
-  %203 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %197, ptr %203, align 8, !tbaa !32
-  br label %1822
+  %187 = load ptr, ptr %2, align 8, !tbaa !43
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
+  %189 = load i32, ptr %188, align 8, !tbaa !50
+  %190 = add nsw i32 %189, 1
+  %191 = sext i32 %190 to i64
+  %192 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %191)
+  %193 = load ptr, ptr %2, align 8, !tbaa !43
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
+  %195 = load ptr, ptr %194, align 8, !tbaa !52
+  %196 = sext i32 %189 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %192, ptr align 1 %195, i64 %196, i1 false)
+  %197 = getelementptr inbounds i8, ptr %192, i64 %196
+  store i8 0, ptr %197, align 1, !tbaa !32
+  %198 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %192, ptr %198, align 8, !tbaa !32
+  br label %1819
 
-204:                                              ; preds = %125, %125
-  %205 = load ptr, ptr %63, align 8, !tbaa !30
-  %206 = load i64, ptr %64, align 8, !tbaa !43
-  %207 = trunc i64 %206 to i32
-  %208 = load ptr, ptr %2, align 8, !tbaa !45
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 48
-  %210 = load i32, ptr %209, align 8, !tbaa !52
-  %211 = add nsw i32 %210, %207
-  %212 = getelementptr inbounds nuw i8, ptr %208, i64 52
-  %213 = load i32, ptr %212, align 4, !tbaa !53
-  %.not.i858 = icmp slt i32 %211, %213
+199:                                              ; preds = %122, %122
+  %200 = load ptr, ptr %63, align 8, !tbaa !30
+  %201 = load i64, ptr %64, align 8, !tbaa !41
+  %202 = trunc i64 %201 to i32
+  %203 = load ptr, ptr %2, align 8, !tbaa !43
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 48
+  %205 = load i32, ptr %204, align 8, !tbaa !50
+  %206 = add nsw i32 %205, %202
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 52
+  %208 = load i32, ptr %207, align 4, !tbaa !51
+  %.not.i858 = icmp slt i32 %206, %208
   br i1 %.not.i858, label %._crit_edge.i859, label %.preheader.i
 
-._crit_edge.i859:                                 ; preds = %204
-  %.phi.trans.insert.i860 = getelementptr inbounds nuw i8, ptr %208, i64 40
-  %.pre.i861 = load ptr, ptr %.phi.trans.insert.i860, align 8, !tbaa !54
+._crit_edge.i859:                                 ; preds = %199
+  %.phi.trans.insert.i860 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %.pre.i861 = load ptr, ptr %.phi.trans.insert.i860, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit
 
-.preheader.i:                                     ; preds = %204, %.preheader.i
-  %214 = phi i32 [ %215, %.preheader.i ], [ %213, %204 ]
-  %215 = shl nsw i32 %214, 1
-  %.not15.i = icmp slt i32 %211, %215
-  br i1 %.not15.i, label %216, label %.preheader.i, !llvm.loop !55
+.preheader.i:                                     ; preds = %199, %.preheader.i
+  %209 = phi i32 [ %210, %.preheader.i ], [ %208, %199 ]
+  %210 = shl nsw i32 %209, 1
+  %.not15.i = icmp slt i32 %206, %210
+  br i1 %.not15.i, label %211, label %.preheader.i, !llvm.loop !53
 
-216:                                              ; preds = %.preheader.i
-  store i32 %215, ptr %212, align 4, !tbaa !53
-  %217 = getelementptr inbounds nuw i8, ptr %208, i64 40
-  %218 = load ptr, ptr %217, align 8, !tbaa !54
-  %219 = sext i32 %215 to i64
-  %220 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %218, i64 noundef %219)
-  %221 = load ptr, ptr %2, align 8, !tbaa !45
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 40
-  store ptr %220, ptr %222, align 8, !tbaa !54
-  %.phi.trans.insert17.i = getelementptr inbounds nuw i8, ptr %221, i64 48
-  %.pre18.i = load i32, ptr %.phi.trans.insert17.i, align 8, !tbaa !52
+211:                                              ; preds = %.preheader.i
+  store i32 %210, ptr %207, align 4, !tbaa !51
+  %212 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %213 = load ptr, ptr %212, align 8, !tbaa !52
+  %214 = sext i32 %210 to i64
+  %215 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %213, i64 noundef %214)
+  %216 = load ptr, ptr %2, align 8, !tbaa !43
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 40
+  store ptr %215, ptr %217, align 8, !tbaa !52
+  %.phi.trans.insert17.i = getelementptr inbounds nuw i8, ptr %216, i64 48
+  %.pre18.i = load i32, ptr %.phi.trans.insert17.i, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit:        ; preds = %._crit_edge.i859, %216
-  %223 = phi i32 [ %.pre18.i, %216 ], [ %210, %._crit_edge.i859 ]
-  %224 = phi ptr [ %220, %216 ], [ %.pre.i861, %._crit_edge.i859 ]
-  %225 = sext i32 %223 to i64
-  %226 = getelementptr inbounds i8, ptr %224, i64 %225
-  %sext1053 = shl i64 %206, 32
-  %227 = ashr exact i64 %sext1053, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %226, ptr readonly align 1 %205, i64 %227, i1 false)
-  %228 = load ptr, ptr %2, align 8, !tbaa !45
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 48
-  %230 = load i32, ptr %229, align 8, !tbaa !52
-  %231 = add nsw i32 %230, %207
-  store i32 %231, ptr %229, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit:        ; preds = %._crit_edge.i859, %211
+  %218 = phi i32 [ %.pre18.i, %211 ], [ %205, %._crit_edge.i859 ]
+  %219 = phi ptr [ %215, %211 ], [ %.pre.i861, %._crit_edge.i859 ]
+  %220 = sext i32 %218 to i64
+  %221 = getelementptr inbounds i8, ptr %219, i64 %220
+  %sext1053 = shl i64 %201, 32
+  %222 = ashr exact i64 %sext1053, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %221, ptr readonly align 1 %200, i64 %222, i1 false)
+  %223 = load ptr, ptr %2, align 8, !tbaa !43
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 48
+  %225 = load i32, ptr %224, align 8, !tbaa !50
+  %226 = add nsw i32 %225, %202
+  store i32 %226, ptr %224, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-232:                                              ; preds = %125
+227:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.1, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-233:                                              ; preds = %125
-  %234 = load ptr, ptr %63, align 8, !tbaa !30
-  %235 = load ptr, ptr %2, align 8, !tbaa !45
-  %236 = load ptr, ptr %235, align 8, !tbaa !46
-  %237 = ptrtoint ptr %234 to i64
-  %238 = ptrtoint ptr %236 to i64
-  %239 = sub i64 %237, %238
-  %240 = trunc i64 %239 to i32
-  %241 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %240, ptr %241, align 4, !tbaa !50
+228:                                              ; preds = %122
+  %229 = load ptr, ptr %63, align 8, !tbaa !30
+  %230 = load ptr, ptr %2, align 8, !tbaa !43
+  %231 = load ptr, ptr %230, align 8, !tbaa !44
+  %232 = ptrtoint ptr %229 to i64
+  %233 = ptrtoint ptr %231 to i64
+  %234 = sub i64 %232, %233
+  %235 = trunc i64 %234 to i32
+  %236 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %235, ptr %236, align 4, !tbaa !48
   store i32 9, ptr %60, align 4, !tbaa !18
-  %242 = getelementptr inbounds nuw i8, ptr %235, i64 48
-  store i32 0, ptr %242, align 8, !tbaa !52
-  %243 = getelementptr inbounds nuw i8, ptr %235, i64 52
-  %244 = load i32, ptr %243, align 4, !tbaa !53
-  %.not.i862 = icmp sgt i32 %244, 1
-  br i1 %.not.i862, label %._crit_edge.i865, label %245
+  %237 = getelementptr inbounds nuw i8, ptr %230, i64 48
+  store i32 0, ptr %237, align 8, !tbaa !50
+  %238 = getelementptr inbounds nuw i8, ptr %230, i64 52
+  %239 = load i32, ptr %238, align 4, !tbaa !51
+  %.not.i862 = icmp sgt i32 %239, 1
+  br i1 %.not.i862, label %._crit_edge.i865, label %240
 
-._crit_edge.i865:                                 ; preds = %233
-  %.phi.trans.insert.i866 = getelementptr inbounds nuw i8, ptr %235, i64 40
-  %.pre.i867 = load ptr, ptr %.phi.trans.insert.i866, align 8, !tbaa !54
+._crit_edge.i865:                                 ; preds = %228
+  %.phi.trans.insert.i866 = getelementptr inbounds nuw i8, ptr %230, i64 40
+  %.pre.i867 = load ptr, ptr %.phi.trans.insert.i866, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868
 
-245:                                              ; preds = %233
-  %246 = shl nsw i32 %244, 1
-  store i32 %246, ptr %243, align 4, !tbaa !53
-  %247 = getelementptr inbounds nuw i8, ptr %235, i64 40
-  %248 = load ptr, ptr %247, align 8, !tbaa !54
-  %249 = sext i32 %246 to i64
-  %250 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %248, i64 noundef %249)
-  %251 = load ptr, ptr %2, align 8, !tbaa !45
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 40
-  store ptr %250, ptr %252, align 8, !tbaa !54
-  %.phi.trans.insert9.i863 = getelementptr inbounds nuw i8, ptr %251, i64 48
-  %.pre10.i864 = load i32, ptr %.phi.trans.insert9.i863, align 8, !tbaa !52
-  %253 = sext i32 %.pre10.i864 to i64
+240:                                              ; preds = %228
+  %241 = shl nsw i32 %239, 1
+  store i32 %241, ptr %238, align 4, !tbaa !51
+  %242 = getelementptr inbounds nuw i8, ptr %230, i64 40
+  %243 = load ptr, ptr %242, align 8, !tbaa !52
+  %244 = sext i32 %241 to i64
+  %245 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %243, i64 noundef %244)
+  %246 = load ptr, ptr %2, align 8, !tbaa !43
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 40
+  store ptr %245, ptr %247, align 8, !tbaa !52
+  %.phi.trans.insert9.i863 = getelementptr inbounds nuw i8, ptr %246, i64 48
+  %.pre10.i864 = load i32, ptr %.phi.trans.insert9.i863, align 8, !tbaa !50
+  %248 = sext i32 %.pre10.i864 to i64
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868:  ; preds = %._crit_edge.i865, %245
-  %254 = phi i64 [ %253, %245 ], [ 0, %._crit_edge.i865 ]
-  %255 = phi ptr [ %250, %245 ], [ %.pre.i867, %._crit_edge.i865 ]
-  %256 = getelementptr inbounds i8, ptr %255, i64 %254
-  store i8 120, ptr %256, align 1, !tbaa !32
-  %257 = load ptr, ptr %2, align 8, !tbaa !45
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 48
-  %259 = load i32, ptr %258, align 8, !tbaa !52
-  %260 = add nsw i32 %259, 1
-  store i32 %260, ptr %258, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868:  ; preds = %._crit_edge.i865, %240
+  %249 = phi i64 [ %248, %240 ], [ 0, %._crit_edge.i865 ]
+  %250 = phi ptr [ %245, %240 ], [ %.pre.i867, %._crit_edge.i865 ]
+  %251 = getelementptr inbounds i8, ptr %250, i64 %249
+  store i8 120, ptr %251, align 1, !tbaa !32
+  %252 = load ptr, ptr %2, align 8, !tbaa !43
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 48
+  %254 = load i32, ptr %253, align 8, !tbaa !50
+  %255 = add nsw i32 %254, 1
+  store i32 %255, ptr %253, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-261:                                              ; preds = %125, %125
-  %262 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %262, ptr %.2783, align 1, !tbaa !32
-  %263 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %263, ptr %58, align 8, !tbaa !29
+256:                                              ; preds = %122, %122
+  %257 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %257, ptr %.2783, align 1, !tbaa !32
+  %258 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %258, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %264 = load i8, ptr %263, align 1, !tbaa !32
-  store i8 %264, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %263, align 1, !tbaa !32
-  store ptr %263, ptr %58, align 8, !tbaa !29
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %259 = load i8, ptr %258, align 1, !tbaa !32
+  store i8 %259, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %258, align 1, !tbaa !32
+  store ptr %258, ptr %58, align 8, !tbaa !29
   store i32 1, ptr %60, align 4, !tbaa !18
-  %265 = load ptr, ptr %2, align 8, !tbaa !45
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
-  %267 = load i32, ptr %266, align 8, !tbaa !52
-  %268 = add nsw i32 %267, 1
-  %269 = sext i32 %268 to i64
-  %270 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %269)
-  %271 = load ptr, ptr %2, align 8, !tbaa !45
-  %272 = getelementptr inbounds nuw i8, ptr %271, i64 40
-  %273 = load ptr, ptr %272, align 8, !tbaa !54
-  %274 = sext i32 %267 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %270, ptr align 1 %273, i64 %274, i1 false)
-  %275 = getelementptr inbounds i8, ptr %270, i64 %274
-  store i8 0, ptr %275, align 1, !tbaa !32
-  %276 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %270, ptr %276, align 8, !tbaa !32
-  br label %1822
+  %260 = load ptr, ptr %2, align 8, !tbaa !43
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 48
+  %262 = load i32, ptr %261, align 8, !tbaa !50
+  %263 = add nsw i32 %262, 1
+  %264 = sext i32 %263 to i64
+  %265 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %264)
+  %266 = load ptr, ptr %2, align 8, !tbaa !43
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 40
+  %268 = load ptr, ptr %267, align 8, !tbaa !52
+  %269 = sext i32 %262 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %265, ptr align 1 %268, i64 %269, i1 false)
+  %270 = getelementptr inbounds i8, ptr %265, i64 %269
+  store i8 0, ptr %270, align 1, !tbaa !32
+  %271 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %265, ptr %271, align 8, !tbaa !32
+  br label %1819
 
-277:                                              ; preds = %125
+272:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.2, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-278:                                              ; preds = %125
-  %279 = load ptr, ptr %63, align 8, !tbaa !30
-  %280 = load ptr, ptr %2, align 8, !tbaa !45
-  %281 = load ptr, ptr %280, align 8, !tbaa !46
-  %282 = ptrtoint ptr %279 to i64
-  %283 = ptrtoint ptr %281 to i64
-  %284 = sub i64 %282, %283
-  %285 = trunc i64 %284 to i32
-  %286 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %285, ptr %286, align 4, !tbaa !50
-  %287 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %287, ptr %.2783, align 1, !tbaa !32
-  %288 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %288, ptr %58, align 8, !tbaa !29
+273:                                              ; preds = %122
+  %274 = load ptr, ptr %63, align 8, !tbaa !30
+  %275 = load ptr, ptr %2, align 8, !tbaa !43
+  %276 = load ptr, ptr %275, align 8, !tbaa !44
+  %277 = ptrtoint ptr %274 to i64
+  %278 = ptrtoint ptr %276 to i64
+  %279 = sub i64 %277, %278
+  %280 = trunc i64 %279 to i32
+  %281 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %280, ptr %281, align 4, !tbaa !48
+  %282 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %282, ptr %.2783, align 1, !tbaa !32
+  %283 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %283, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %289 = load i8, ptr %288, align 1, !tbaa !32
-  store i8 %289, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %288, align 1, !tbaa !32
-  store ptr %288, ptr %58, align 8, !tbaa !29
-  %290 = load ptr, ptr %2, align 8, !tbaa !45
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %292 = load ptr, ptr %291, align 8, !tbaa !56
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  %294 = load i32, ptr %293, align 8, !tbaa !57
-  %295 = tail call noundef ptr @_ZN17duckdb_libpgquery17ScanKeywordLookupEPKcPKNS_13PGScanKeywordEi(ptr noundef nonnull @.str.3, ptr noundef %292, i32 noundef %294)
-  %.not848 = icmp eq ptr %295, null
-  br i1 %.not848, label %302, label %296
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %284 = load i8, ptr %283, align 1, !tbaa !32
+  store i8 %284, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %283, align 1, !tbaa !32
+  store ptr %283, ptr %58, align 8, !tbaa !29
+  %285 = load ptr, ptr %2, align 8, !tbaa !43
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %287 = load ptr, ptr %286, align 8, !tbaa !54
+  %288 = getelementptr inbounds nuw i8, ptr %285, i64 24
+  %289 = load i32, ptr %288, align 8, !tbaa !55
+  %290 = tail call noundef ptr @_ZN17duckdb_libpgquery17ScanKeywordLookupEPKcPKNS_13PGScanKeywordEi(ptr noundef nonnull @.str.3, ptr noundef %287, i32 noundef %289)
+  %.not848 = icmp eq ptr %290, null
+  br i1 %.not848, label %297, label %291
 
-296:                                              ; preds = %278
-  %297 = load ptr, ptr %295, align 8, !tbaa !58
-  %298 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %297, ptr %298, align 8, !tbaa !32
-  %299 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %300 = load i16, ptr %299, align 8, !tbaa !60
-  %301 = sext i16 %300 to i32
-  br label %1822
+291:                                              ; preds = %273
+  %292 = load ptr, ptr %290, align 8, !tbaa !56
+  %293 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %292, ptr %293, align 8, !tbaa !32
+  %294 = getelementptr inbounds nuw i8, ptr %290, i64 8
+  %295 = load i16, ptr %294, align 8, !tbaa !58
+  %296 = sext i16 %295 to i32
+  br label %1819
 
-302:                                              ; preds = %278
-  %303 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef nonnull @.str.4)
-  %304 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %303, ptr %304, align 8, !tbaa !32
-  br label %1822
+297:                                              ; preds = %273
+  %298 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef nonnull @.str.4)
+  %299 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %298, ptr %299, align 8, !tbaa !32
+  br label %1819
 
-305:                                              ; preds = %125
-  %306 = load ptr, ptr %2, align 8, !tbaa !45
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 76
-  store i8 1, ptr %307, align 4, !tbaa !61
-  %308 = getelementptr inbounds nuw i8, ptr %306, i64 77
-  store i8 0, ptr %308, align 1, !tbaa !62
-  %309 = load ptr, ptr %63, align 8, !tbaa !30
-  %310 = load ptr, ptr %306, align 8, !tbaa !46
-  %311 = ptrtoint ptr %309 to i64
-  %312 = ptrtoint ptr %310 to i64
-  %313 = sub i64 %311, %312
-  %314 = trunc i64 %313 to i32
-  %315 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %314, ptr %315, align 4, !tbaa !50
-  %316 = getelementptr inbounds nuw i8, ptr %306, i64 33
-  %317 = load i8, ptr %316, align 1, !tbaa !63, !range !64, !noundef !65
-  %318 = trunc nuw i8 %317 to i1
-  %. = select i1 %318, i32 13, i32 11
+300:                                              ; preds = %122
+  %301 = load ptr, ptr %2, align 8, !tbaa !43
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 76
+  store i8 1, ptr %302, align 4, !tbaa !59
+  %303 = getelementptr inbounds nuw i8, ptr %301, i64 77
+  store i8 0, ptr %303, align 1, !tbaa !60
+  %304 = load ptr, ptr %63, align 8, !tbaa !30
+  %305 = load ptr, ptr %301, align 8, !tbaa !44
+  %306 = ptrtoint ptr %304 to i64
+  %307 = ptrtoint ptr %305 to i64
+  %308 = sub i64 %306, %307
+  %309 = trunc i64 %308 to i32
+  %310 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %309, ptr %310, align 4, !tbaa !48
+  %311 = getelementptr inbounds nuw i8, ptr %301, i64 33
+  %312 = load i8, ptr %311, align 1, !tbaa !61, !range !62, !noundef !63
+  %313 = trunc nuw i8 %312 to i1
+  %. = select i1 %313, i32 13, i32 11
   store i32 %., ptr %60, align 4, !tbaa !18
-  %319 = getelementptr inbounds nuw i8, ptr %306, i64 48
-  store i32 0, ptr %319, align 8, !tbaa !52
+  %314 = getelementptr inbounds nuw i8, ptr %301, i64 48
+  store i32 0, ptr %314, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-320:                                              ; preds = %125
-  %321 = load ptr, ptr %2, align 8, !tbaa !45
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 76
-  store i8 0, ptr %322, align 4, !tbaa !61
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 77
-  store i8 0, ptr %323, align 1, !tbaa !62
-  %324 = load ptr, ptr %63, align 8, !tbaa !30
-  %325 = load ptr, ptr %321, align 8, !tbaa !46
-  %326 = ptrtoint ptr %324 to i64
-  %327 = ptrtoint ptr %325 to i64
-  %328 = sub i64 %326, %327
-  %329 = trunc i64 %328 to i32
-  %330 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %329, ptr %330, align 4, !tbaa !50
+315:                                              ; preds = %122
+  %316 = load ptr, ptr %2, align 8, !tbaa !43
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 76
+  store i8 0, ptr %317, align 4, !tbaa !59
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 77
+  store i8 0, ptr %318, align 1, !tbaa !60
+  %319 = load ptr, ptr %63, align 8, !tbaa !30
+  %320 = load ptr, ptr %316, align 8, !tbaa !44
+  %321 = ptrtoint ptr %319 to i64
+  %322 = ptrtoint ptr %320 to i64
+  %323 = sub i64 %321, %322
+  %324 = trunc i64 %323 to i32
+  %325 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %324, ptr %325, align 4, !tbaa !48
   store i32 11, ptr %60, align 4, !tbaa !18
-  %331 = getelementptr inbounds nuw i8, ptr %321, i64 48
-  store i32 0, ptr %331, align 8, !tbaa !52
+  %326 = getelementptr inbounds nuw i8, ptr %316, i64 48
+  store i32 0, ptr %326, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-332:                                              ; preds = %125
-  %333 = load ptr, ptr %63, align 8, !tbaa !30
-  %334 = load ptr, ptr %2, align 8, !tbaa !45
-  %335 = load ptr, ptr %334, align 8, !tbaa !46
-  %336 = ptrtoint ptr %333 to i64
-  %337 = ptrtoint ptr %335 to i64
-  %338 = sub i64 %336, %337
-  %339 = trunc i64 %338 to i32
-  %340 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %339, ptr %340, align 4, !tbaa !50
-  %341 = getelementptr inbounds nuw i8, ptr %334, i64 33
-  %342 = load i8, ptr %341, align 1, !tbaa !63, !range !64, !noundef !65
-  %343 = trunc nuw i8 %342 to i1
-  br i1 %343, label %352, label %344
+327:                                              ; preds = %122
+  %328 = load ptr, ptr %63, align 8, !tbaa !30
+  %329 = load ptr, ptr %2, align 8, !tbaa !43
+  %330 = load ptr, ptr %329, align 8, !tbaa !44
+  %331 = ptrtoint ptr %328 to i64
+  %332 = ptrtoint ptr %330 to i64
+  %333 = sub i64 %331, %332
+  %334 = trunc i64 %333 to i32
+  %335 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %334, ptr %335, align 4, !tbaa !48
+  %336 = getelementptr inbounds nuw i8, ptr %329, i64 33
+  %337 = load i8, ptr %336, align 1, !tbaa !61, !range !62, !noundef !63
+  %338 = trunc nuw i8 %337 to i1
+  br i1 %338, label %347, label %339
 
-344:                                              ; preds = %332
-  %345 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 1)
-  %346 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.5)
-  %347 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery9errdetailEPKcz(ptr noundef nonnull @.str.6)
-  %348 = load ptr, ptr %5, align 8, !tbaa !16
-  %349 = load i32, ptr %348, align 4, !tbaa !50
-  %350 = tail call noundef i32 @_ZN17duckdb_libpgquery19scanner_errpositionEiPv(i32 noundef %349, ptr noundef nonnull %2)
-  %351 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 3, i32 noundef %350)
-  %.pre1830 = load ptr, ptr %2, align 8, !tbaa !45
-  br label %352
+339:                                              ; preds = %327
+  %340 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 1)
+  %341 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.5)
+  %342 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery9errdetailEPKcz(ptr noundef nonnull @.str.6)
+  %343 = load ptr, ptr %5, align 8, !tbaa !16
+  %344 = load i32, ptr %343, align 4, !tbaa !48
+  %345 = tail call noundef i32 @_ZN17duckdb_libpgquery19scanner_errpositionEiPv(i32 noundef %344, ptr noundef nonnull %2)
+  %346 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 3, i32 noundef %345)
+  %.pre1830 = load ptr, ptr %2, align 8, !tbaa !43
+  br label %347
 
-352:                                              ; preds = %344, %332
-  %353 = phi ptr [ %.pre1830, %344 ], [ %334, %332 ]
+347:                                              ; preds = %339, %327
+  %348 = phi ptr [ %.pre1830, %339 ], [ %329, %327 ]
   store i32 21, ptr %60, align 4, !tbaa !18
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 48
-  store i32 0, ptr %354, align 8, !tbaa !52
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 48
+  store i32 0, ptr %349, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-355:                                              ; preds = %125, %125
-  %356 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %356, ptr %.2783, align 1, !tbaa !32
-  %357 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %357, ptr %58, align 8, !tbaa !29
+350:                                              ; preds = %122, %122
+  %351 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %351, ptr %.2783, align 1, !tbaa !32
+  %352 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %352, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %358 = load i8, ptr %357, align 1, !tbaa !32
-  store i8 %358, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %357, align 1, !tbaa !32
-  store ptr %357, ptr %58, align 8, !tbaa !29
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %353 = load i8, ptr %352, align 1, !tbaa !32
+  store i8 %353, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %352, align 1, !tbaa !32
+  store ptr %352, ptr %58, align 8, !tbaa !29
   store i32 1, ptr %60, align 4, !tbaa !18
-  %359 = load ptr, ptr %2, align 8, !tbaa !45
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 77
-  %361 = load i8, ptr %360, align 1, !tbaa !62, !range !64, !noundef !65
-  %362 = trunc nuw i8 %361 to i1
-  br i1 %362, label %363, label %369
+  %354 = load ptr, ptr %2, align 8, !tbaa !43
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 77
+  %356 = load i8, ptr %355, align 1, !tbaa !60, !range !62, !noundef !63
+  %357 = trunc nuw i8 %356 to i1
+  br i1 %357, label %358, label %364
 
-363:                                              ; preds = %355
-  %364 = getelementptr inbounds nuw i8, ptr %359, i64 40
-  %365 = load ptr, ptr %364, align 8, !tbaa !54
-  %366 = getelementptr inbounds nuw i8, ptr %359, i64 48
-  %367 = load i32, ptr %366, align 8, !tbaa !52
-  %368 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(ptr noundef %365, i32 noundef %367, i1 noundef zeroext false)
-  %.pre1829 = load ptr, ptr %2, align 8, !tbaa !45
-  br label %369
+358:                                              ; preds = %350
+  %359 = getelementptr inbounds nuw i8, ptr %354, i64 40
+  %360 = load ptr, ptr %359, align 8, !tbaa !52
+  %361 = getelementptr inbounds nuw i8, ptr %354, i64 48
+  %362 = load i32, ptr %361, align 8, !tbaa !50
+  %363 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(ptr noundef %360, i32 noundef %362, i1 noundef zeroext false)
+  %.pre1829 = load ptr, ptr %2, align 8, !tbaa !43
+  br label %364
 
-369:                                              ; preds = %363, %355
-  %370 = phi ptr [ %.pre1829, %363 ], [ %359, %355 ]
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 48
-  %372 = load i32, ptr %371, align 8, !tbaa !52
-  %373 = add nsw i32 %372, 1
-  %374 = sext i32 %373 to i64
-  %375 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %374)
-  %376 = load ptr, ptr %2, align 8, !tbaa !45
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 40
-  %378 = load ptr, ptr %377, align 8, !tbaa !54
-  %379 = sext i32 %372 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %375, ptr align 1 %378, i64 %379, i1 false)
-  %380 = getelementptr inbounds i8, ptr %375, i64 %379
-  store i8 0, ptr %380, align 1, !tbaa !32
-  %381 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %375, ptr %381, align 8, !tbaa !32
-  br label %1822
+364:                                              ; preds = %358, %350
+  %365 = phi ptr [ %.pre1829, %358 ], [ %354, %350 ]
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 48
+  %367 = load i32, ptr %366, align 8, !tbaa !50
+  %368 = add nsw i32 %367, 1
+  %369 = sext i32 %368 to i64
+  %370 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %369)
+  %371 = load ptr, ptr %2, align 8, !tbaa !43
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 40
+  %373 = load ptr, ptr %372, align 8, !tbaa !52
+  %374 = sext i32 %367 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %370, ptr align 1 %373, i64 %374, i1 false)
+  %375 = getelementptr inbounds i8, ptr %370, i64 %374
+  store i8 0, ptr %375, align 1, !tbaa !32
+  %376 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %370, ptr %376, align 8, !tbaa !32
+  br label %1819
 
-382:                                              ; preds = %125, %125
-  %383 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %383, ptr %.2783, align 1, !tbaa !32
-  %384 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %384, ptr %58, align 8, !tbaa !29
+377:                                              ; preds = %122, %122
+  %378 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %378, ptr %.2783, align 1, !tbaa !32
+  %379 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %379, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %385 = load i8, ptr %384, align 1, !tbaa !32
-  store i8 %385, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %384, align 1, !tbaa !32
-  store ptr %384, ptr %58, align 8, !tbaa !29
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %380 = load i8, ptr %379, align 1, !tbaa !32
+  store i8 %380, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %379, align 1, !tbaa !32
+  store ptr %379, ptr %58, align 8, !tbaa !29
   store i32 23, ptr %60, align 4, !tbaa !18
   br label %.loopexit.backedge
 
-386:                                              ; preds = %125, %125, %125
-  %387 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %387, ptr %.2783, align 1, !tbaa !32
+381:                                              ; preds = %122, %122, %122
+  %382 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %382, ptr %.2783, align 1, !tbaa !32
   store ptr %.1788, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 0, ptr %64, align 8, !tbaa !43
-  %388 = load i8, ptr %.1788, align 1, !tbaa !32
-  store i8 %388, ptr %59, align 8, !tbaa !33
+  store i64 0, ptr %64, align 8, !tbaa !41
+  %383 = load i8, ptr %.1788, align 1, !tbaa !32
+  store i8 %383, ptr %59, align 8, !tbaa !33
   store i8 0, ptr %.1788, align 1, !tbaa !32
   store ptr %.1788, ptr %58, align 8, !tbaa !29
   store i32 1, ptr %60, align 4, !tbaa !18
-  %389 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext 92, ptr noundef nonnull %2)
-  %390 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %389, ptr %390, align 8, !tbaa !32
-  br label %1822
+  %384 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext 92, ptr noundef nonnull %2)
+  %385 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %384, ptr %385, align 8, !tbaa !32
+  br label %1819
 
-391:                                              ; preds = %125
+386:                                              ; preds = %122
   store i32 1, ptr %60, align 4, !tbaa !18
-  %392 = load ptr, ptr %63, align 8, !tbaa !30
-  %393 = load i64, ptr %64, align 8, !tbaa !43
-  %394 = getelementptr i8, ptr %392, i64 %393
-  %395 = getelementptr i8, ptr %394, i64 -2
-  %396 = load i8, ptr %395, align 1, !tbaa !32
-  %397 = tail call ptr @__ctype_b_loc() #21
-  %398 = load ptr, ptr %397, align 8, !tbaa !66
-  %399 = zext i8 %396 to i64
-  %400 = getelementptr inbounds nuw i16, ptr %398, i64 %399
-  %401 = load i16, ptr %400, align 2, !tbaa !36
-  %.fr13.i = freeze i16 %401
-  %402 = and i16 %.fr13.i, 4096
-  %.not.i869 = icmp eq i16 %402, 0
+  %387 = load ptr, ptr %63, align 8, !tbaa !30
+  %388 = load i64, ptr %64, align 8, !tbaa !41
+  %389 = getelementptr i8, ptr %387, i64 %388
+  %390 = getelementptr i8, ptr %389, i64 -2
+  %391 = load i8, ptr %390, align 1, !tbaa !32
+  %392 = tail call ptr @__ctype_b_loc() #21
+  %393 = load ptr, ptr %392, align 8, !tbaa !64
+  %394 = zext i8 %391 to i64
+  %395 = getelementptr inbounds nuw i16, ptr %393, i64 %394
+  %396 = load i16, ptr %395, align 2, !tbaa !34
+  %.fr13.i = freeze i16 %396
+  %397 = and i16 %.fr13.i, 4096
+  %.not.i869 = icmp eq i16 %397, 0
   br i1 %.not.i869, label %switch.early.test.i, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
 
-switch.early.test.i:                              ; preds = %391
-  switch i8 %396, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit [
+switch.early.test.i:                              ; preds = %386
+  switch i8 %391, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit [
     i8 43, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
     i8 39, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
     i8 34, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
   ]
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit: ; preds = %switch.early.test.i
-  %403 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery15scanner_isspaceEc(i8 noundef signext %396)
-  br i1 %403, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge, label %415
+  %398 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery15scanner_isspaceEc(i8 noundef signext %391)
+  br i1 %398, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge, label %410
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit
   %.pre1827 = load ptr, ptr %63, align 8, !tbaa !30
-  %.pre1828 = load i64, ptr %64, align 8, !tbaa !43
+  %.pre1828 = load i64, ptr %64, align 8, !tbaa !41
   br label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
 
-_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge, %391, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %404 = phi i64 [ %.pre1828, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %393, %391 ], [ %393, %switch.early.test.i ], [ %393, %switch.early.test.i ], [ %393, %switch.early.test.i ]
-  %405 = phi ptr [ %.pre1827, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %392, %391 ], [ %392, %switch.early.test.i ], [ %392, %switch.early.test.i ], [ %392, %switch.early.test.i ]
-  %406 = load ptr, ptr %2, align 8, !tbaa !45
-  %407 = load ptr, ptr %406, align 8, !tbaa !46
-  %408 = ptrtoint ptr %405 to i64
-  %409 = ptrtoint ptr %407 to i64
-  %410 = sub i64 %408, %409
-  %411 = load ptr, ptr %5, align 8, !tbaa !16
-  %412 = add i64 %410, 4294967294
-  %413 = add i64 %412, %404
-  %414 = trunc i64 %413 to i32
-  store i32 %414, ptr %411, align 4, !tbaa !50
+_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge, %386, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
+  %399 = phi i64 [ %.pre1828, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %388, %386 ], [ %388, %switch.early.test.i ], [ %388, %switch.early.test.i ], [ %388, %switch.early.test.i ]
+  %400 = phi ptr [ %.pre1827, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %387, %386 ], [ %387, %switch.early.test.i ], [ %387, %switch.early.test.i ], [ %387, %switch.early.test.i ]
+  %401 = load ptr, ptr %2, align 8, !tbaa !43
+  %402 = load ptr, ptr %401, align 8, !tbaa !44
+  %403 = ptrtoint ptr %400 to i64
+  %404 = ptrtoint ptr %402 to i64
+  %405 = sub i64 %403, %404
+  %406 = load ptr, ptr %5, align 8, !tbaa !16
+  %407 = add i64 %405, 4294967294
+  %408 = add i64 %407, %399
+  %409 = trunc i64 %408 to i32
+  store i32 %409, ptr %406, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.7, ptr noundef nonnull %2)
-  br label %415
+  br label %410
 
-415:                                              ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit
-  %416 = load ptr, ptr %63, align 8, !tbaa !30
-  %417 = load i64, ptr %64, align 8, !tbaa !43
-  %418 = getelementptr i8, ptr %416, i64 %417
-  %419 = getelementptr i8, ptr %418, i64 -2
-  %420 = load i8, ptr %419, align 1, !tbaa !32
-  %421 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext %420, ptr noundef nonnull %2)
-  %422 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %421, ptr %422, align 8, !tbaa !32
-  br label %1822
+410:                                              ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit
+  %411 = load ptr, ptr %63, align 8, !tbaa !30
+  %412 = load i64, ptr %64, align 8, !tbaa !41
+  %413 = getelementptr i8, ptr %411, i64 %412
+  %414 = getelementptr i8, ptr %413, i64 -2
+  %415 = load i8, ptr %414, align 1, !tbaa !32
+  %416 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext %415, ptr noundef nonnull %2)
+  %417 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %416, ptr %417, align 8, !tbaa !32
+  br label %1819
 
-423:                                              ; preds = %125
-  %424 = load ptr, ptr %2, align 8, !tbaa !45
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 48
-  %426 = load i32, ptr %425, align 8, !tbaa !52
-  %427 = add nsw i32 %426, 1
-  %428 = getelementptr inbounds nuw i8, ptr %424, i64 52
-  %429 = load i32, ptr %428, align 4, !tbaa !53
-  %.not.i870 = icmp slt i32 %427, %429
-  br i1 %.not.i870, label %._crit_edge.i873, label %430
+418:                                              ; preds = %122
+  %419 = load ptr, ptr %2, align 8, !tbaa !43
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 48
+  %421 = load i32, ptr %420, align 8, !tbaa !50
+  %422 = add nsw i32 %421, 1
+  %423 = getelementptr inbounds nuw i8, ptr %419, i64 52
+  %424 = load i32, ptr %423, align 4, !tbaa !51
+  %.not.i870 = icmp slt i32 %422, %424
+  br i1 %.not.i870, label %._crit_edge.i873, label %425
 
-._crit_edge.i873:                                 ; preds = %423
-  %.phi.trans.insert.i874 = getelementptr inbounds nuw i8, ptr %424, i64 40
-  %.pre.i875 = load ptr, ptr %.phi.trans.insert.i874, align 8, !tbaa !54
+._crit_edge.i873:                                 ; preds = %418
+  %.phi.trans.insert.i874 = getelementptr inbounds nuw i8, ptr %419, i64 40
+  %.pre.i875 = load ptr, ptr %.phi.trans.insert.i874, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit876
 
-430:                                              ; preds = %423
-  %431 = shl nsw i32 %429, 1
-  store i32 %431, ptr %428, align 4, !tbaa !53
-  %432 = getelementptr inbounds nuw i8, ptr %424, i64 40
-  %433 = load ptr, ptr %432, align 8, !tbaa !54
-  %434 = sext i32 %431 to i64
-  %435 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %433, i64 noundef %434)
-  %436 = load ptr, ptr %2, align 8, !tbaa !45
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 40
-  store ptr %435, ptr %437, align 8, !tbaa !54
-  %.phi.trans.insert9.i871 = getelementptr inbounds nuw i8, ptr %436, i64 48
-  %.pre10.i872 = load i32, ptr %.phi.trans.insert9.i871, align 8, !tbaa !52
+425:                                              ; preds = %418
+  %426 = shl nsw i32 %424, 1
+  store i32 %426, ptr %423, align 4, !tbaa !51
+  %427 = getelementptr inbounds nuw i8, ptr %419, i64 40
+  %428 = load ptr, ptr %427, align 8, !tbaa !52
+  %429 = sext i32 %426 to i64
+  %430 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %428, i64 noundef %429)
+  %431 = load ptr, ptr %2, align 8, !tbaa !43
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 40
+  store ptr %430, ptr %432, align 8, !tbaa !52
+  %.phi.trans.insert9.i871 = getelementptr inbounds nuw i8, ptr %431, i64 48
+  %.pre10.i872 = load i32, ptr %.phi.trans.insert9.i871, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit876
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit876:  ; preds = %._crit_edge.i873, %430
-  %438 = phi i32 [ %.pre10.i872, %430 ], [ %426, %._crit_edge.i873 ]
-  %439 = phi ptr [ %435, %430 ], [ %.pre.i875, %._crit_edge.i873 ]
-  %440 = sext i32 %438 to i64
-  %441 = getelementptr inbounds i8, ptr %439, i64 %440
-  store i8 39, ptr %441, align 1, !tbaa !32
-  %442 = load ptr, ptr %2, align 8, !tbaa !45
-  %443 = getelementptr inbounds nuw i8, ptr %442, i64 48
-  %444 = load i32, ptr %443, align 8, !tbaa !52
-  %445 = add nsw i32 %444, 1
-  store i32 %445, ptr %443, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit876:  ; preds = %._crit_edge.i873, %425
+  %433 = phi i32 [ %.pre10.i872, %425 ], [ %421, %._crit_edge.i873 ]
+  %434 = phi ptr [ %430, %425 ], [ %.pre.i875, %._crit_edge.i873 ]
+  %435 = sext i32 %433 to i64
+  %436 = getelementptr inbounds i8, ptr %434, i64 %435
+  store i8 39, ptr %436, align 1, !tbaa !32
+  %437 = load ptr, ptr %2, align 8, !tbaa !43
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 48
+  %439 = load i32, ptr %438, align 8, !tbaa !50
+  %440 = add nsw i32 %439, 1
+  store i32 %440, ptr %438, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-446:                                              ; preds = %125
-  %447 = load ptr, ptr %63, align 8, !tbaa !30
-  %448 = load i64, ptr %64, align 8, !tbaa !43
-  %449 = trunc i64 %448 to i32
-  %450 = load ptr, ptr %2, align 8, !tbaa !45
-  %451 = getelementptr inbounds nuw i8, ptr %450, i64 48
-  %452 = load i32, ptr %451, align 8, !tbaa !52
-  %453 = add nsw i32 %452, %449
-  %454 = getelementptr inbounds nuw i8, ptr %450, i64 52
-  %455 = load i32, ptr %454, align 4, !tbaa !53
-  %.not.i877 = icmp slt i32 %453, %455
+441:                                              ; preds = %122
+  %442 = load ptr, ptr %63, align 8, !tbaa !30
+  %443 = load i64, ptr %64, align 8, !tbaa !41
+  %444 = trunc i64 %443 to i32
+  %445 = load ptr, ptr %2, align 8, !tbaa !43
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 48
+  %447 = load i32, ptr %446, align 8, !tbaa !50
+  %448 = add nsw i32 %447, %444
+  %449 = getelementptr inbounds nuw i8, ptr %445, i64 52
+  %450 = load i32, ptr %449, align 4, !tbaa !51
+  %.not.i877 = icmp slt i32 %448, %450
   br i1 %.not.i877, label %._crit_edge.i882, label %.preheader.i878
 
-._crit_edge.i882:                                 ; preds = %446
-  %.phi.trans.insert.i883 = getelementptr inbounds nuw i8, ptr %450, i64 40
-  %.pre.i884 = load ptr, ptr %.phi.trans.insert.i883, align 8, !tbaa !54
+._crit_edge.i882:                                 ; preds = %441
+  %.phi.trans.insert.i883 = getelementptr inbounds nuw i8, ptr %445, i64 40
+  %.pre.i884 = load ptr, ptr %.phi.trans.insert.i883, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit885
 
-.preheader.i878:                                  ; preds = %446, %.preheader.i878
-  %456 = phi i32 [ %457, %.preheader.i878 ], [ %455, %446 ]
-  %457 = shl nsw i32 %456, 1
-  %.not15.i879 = icmp slt i32 %453, %457
-  br i1 %.not15.i879, label %458, label %.preheader.i878, !llvm.loop !55
+.preheader.i878:                                  ; preds = %441, %.preheader.i878
+  %451 = phi i32 [ %452, %.preheader.i878 ], [ %450, %441 ]
+  %452 = shl nsw i32 %451, 1
+  %.not15.i879 = icmp slt i32 %448, %452
+  br i1 %.not15.i879, label %453, label %.preheader.i878, !llvm.loop !53
 
-458:                                              ; preds = %.preheader.i878
-  store i32 %457, ptr %454, align 4, !tbaa !53
-  %459 = getelementptr inbounds nuw i8, ptr %450, i64 40
-  %460 = load ptr, ptr %459, align 8, !tbaa !54
-  %461 = sext i32 %457 to i64
-  %462 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %460, i64 noundef %461)
-  %463 = load ptr, ptr %2, align 8, !tbaa !45
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 40
-  store ptr %462, ptr %464, align 8, !tbaa !54
-  %.phi.trans.insert17.i880 = getelementptr inbounds nuw i8, ptr %463, i64 48
-  %.pre18.i881 = load i32, ptr %.phi.trans.insert17.i880, align 8, !tbaa !52
+453:                                              ; preds = %.preheader.i878
+  store i32 %452, ptr %449, align 4, !tbaa !51
+  %454 = getelementptr inbounds nuw i8, ptr %445, i64 40
+  %455 = load ptr, ptr %454, align 8, !tbaa !52
+  %456 = sext i32 %452 to i64
+  %457 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %455, i64 noundef %456)
+  %458 = load ptr, ptr %2, align 8, !tbaa !43
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 40
+  store ptr %457, ptr %459, align 8, !tbaa !52
+  %.phi.trans.insert17.i880 = getelementptr inbounds nuw i8, ptr %458, i64 48
+  %.pre18.i881 = load i32, ptr %.phi.trans.insert17.i880, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit885
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit885:     ; preds = %._crit_edge.i882, %458
-  %465 = phi i32 [ %.pre18.i881, %458 ], [ %452, %._crit_edge.i882 ]
-  %466 = phi ptr [ %462, %458 ], [ %.pre.i884, %._crit_edge.i882 ]
-  %467 = sext i32 %465 to i64
-  %468 = getelementptr inbounds i8, ptr %466, i64 %467
-  %sext1052 = shl i64 %448, 32
-  %469 = ashr exact i64 %sext1052, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %468, ptr readonly align 1 %447, i64 %469, i1 false)
-  %470 = load ptr, ptr %2, align 8, !tbaa !45
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 48
-  %472 = load i32, ptr %471, align 8, !tbaa !52
-  %473 = add nsw i32 %472, %449
-  store i32 %473, ptr %471, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit885:     ; preds = %._crit_edge.i882, %453
+  %460 = phi i32 [ %.pre18.i881, %453 ], [ %447, %._crit_edge.i882 ]
+  %461 = phi ptr [ %457, %453 ], [ %.pre.i884, %._crit_edge.i882 ]
+  %462 = sext i32 %460 to i64
+  %463 = getelementptr inbounds i8, ptr %461, i64 %462
+  %sext1052 = shl i64 %443, 32
+  %464 = ashr exact i64 %sext1052, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %463, ptr readonly align 1 %442, i64 %464, i1 false)
+  %465 = load ptr, ptr %2, align 8, !tbaa !43
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 48
+  %467 = load i32, ptr %466, align 8, !tbaa !50
+  %468 = add nsw i32 %467, %444
+  store i32 %468, ptr %466, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-474:                                              ; preds = %125
-  %475 = load ptr, ptr %63, align 8, !tbaa !30
-  %476 = load i64, ptr %64, align 8, !tbaa !43
-  %477 = trunc i64 %476 to i32
-  %478 = load ptr, ptr %2, align 8, !tbaa !45
-  %479 = getelementptr inbounds nuw i8, ptr %478, i64 48
-  %480 = load i32, ptr %479, align 8, !tbaa !52
-  %481 = add nsw i32 %480, %477
-  %482 = getelementptr inbounds nuw i8, ptr %478, i64 52
-  %483 = load i32, ptr %482, align 4, !tbaa !53
-  %.not.i886 = icmp slt i32 %481, %483
+469:                                              ; preds = %122
+  %470 = load ptr, ptr %63, align 8, !tbaa !30
+  %471 = load i64, ptr %64, align 8, !tbaa !41
+  %472 = trunc i64 %471 to i32
+  %473 = load ptr, ptr %2, align 8, !tbaa !43
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 48
+  %475 = load i32, ptr %474, align 8, !tbaa !50
+  %476 = add nsw i32 %475, %472
+  %477 = getelementptr inbounds nuw i8, ptr %473, i64 52
+  %478 = load i32, ptr %477, align 4, !tbaa !51
+  %.not.i886 = icmp slt i32 %476, %478
   br i1 %.not.i886, label %._crit_edge.i891, label %.preheader.i887
 
-._crit_edge.i891:                                 ; preds = %474
-  %.phi.trans.insert.i892 = getelementptr inbounds nuw i8, ptr %478, i64 40
-  %.pre.i893 = load ptr, ptr %.phi.trans.insert.i892, align 8, !tbaa !54
+._crit_edge.i891:                                 ; preds = %469
+  %.phi.trans.insert.i892 = getelementptr inbounds nuw i8, ptr %473, i64 40
+  %.pre.i893 = load ptr, ptr %.phi.trans.insert.i892, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit894
 
-.preheader.i887:                                  ; preds = %474, %.preheader.i887
-  %484 = phi i32 [ %485, %.preheader.i887 ], [ %483, %474 ]
-  %485 = shl nsw i32 %484, 1
-  %.not15.i888 = icmp slt i32 %481, %485
-  br i1 %.not15.i888, label %486, label %.preheader.i887, !llvm.loop !55
+.preheader.i887:                                  ; preds = %469, %.preheader.i887
+  %479 = phi i32 [ %480, %.preheader.i887 ], [ %478, %469 ]
+  %480 = shl nsw i32 %479, 1
+  %.not15.i888 = icmp slt i32 %476, %480
+  br i1 %.not15.i888, label %481, label %.preheader.i887, !llvm.loop !53
 
-486:                                              ; preds = %.preheader.i887
-  store i32 %485, ptr %482, align 4, !tbaa !53
-  %487 = getelementptr inbounds nuw i8, ptr %478, i64 40
-  %488 = load ptr, ptr %487, align 8, !tbaa !54
-  %489 = sext i32 %485 to i64
-  %490 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %488, i64 noundef %489)
-  %491 = load ptr, ptr %2, align 8, !tbaa !45
-  %492 = getelementptr inbounds nuw i8, ptr %491, i64 40
-  store ptr %490, ptr %492, align 8, !tbaa !54
-  %.phi.trans.insert17.i889 = getelementptr inbounds nuw i8, ptr %491, i64 48
-  %.pre18.i890 = load i32, ptr %.phi.trans.insert17.i889, align 8, !tbaa !52
+481:                                              ; preds = %.preheader.i887
+  store i32 %480, ptr %477, align 4, !tbaa !51
+  %482 = getelementptr inbounds nuw i8, ptr %473, i64 40
+  %483 = load ptr, ptr %482, align 8, !tbaa !52
+  %484 = sext i32 %480 to i64
+  %485 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %483, i64 noundef %484)
+  %486 = load ptr, ptr %2, align 8, !tbaa !43
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 40
+  store ptr %485, ptr %487, align 8, !tbaa !52
+  %.phi.trans.insert17.i889 = getelementptr inbounds nuw i8, ptr %486, i64 48
+  %.pre18.i890 = load i32, ptr %.phi.trans.insert17.i889, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit894
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit894:     ; preds = %._crit_edge.i891, %486
-  %493 = phi i32 [ %.pre18.i890, %486 ], [ %480, %._crit_edge.i891 ]
-  %494 = phi ptr [ %490, %486 ], [ %.pre.i893, %._crit_edge.i891 ]
-  %495 = sext i32 %493 to i64
-  %496 = getelementptr inbounds i8, ptr %494, i64 %495
-  %sext1051 = shl i64 %476, 32
-  %497 = ashr exact i64 %sext1051, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %496, ptr readonly align 1 %475, i64 %497, i1 false)
-  %498 = load ptr, ptr %2, align 8, !tbaa !45
-  %499 = getelementptr inbounds nuw i8, ptr %498, i64 48
-  %500 = load i32, ptr %499, align 8, !tbaa !52
-  %501 = add nsw i32 %500, %477
-  store i32 %501, ptr %499, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit894:     ; preds = %._crit_edge.i891, %481
+  %488 = phi i32 [ %.pre18.i890, %481 ], [ %475, %._crit_edge.i891 ]
+  %489 = phi ptr [ %485, %481 ], [ %.pre.i893, %._crit_edge.i891 ]
+  %490 = sext i32 %488 to i64
+  %491 = getelementptr inbounds i8, ptr %489, i64 %490
+  %sext1051 = shl i64 %471, 32
+  %492 = ashr exact i64 %sext1051, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %491, ptr readonly align 1 %470, i64 %492, i1 false)
+  %493 = load ptr, ptr %2, align 8, !tbaa !43
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 48
+  %495 = load i32, ptr %494, align 8, !tbaa !50
+  %496 = add nsw i32 %495, %472
+  store i32 %496, ptr %494, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-502:                                              ; preds = %125
-  %503 = load ptr, ptr %63, align 8, !tbaa !30
-  %504 = getelementptr inbounds nuw i8, ptr %503, i64 2
-  %505 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %504, ptr noundef null, i32 noundef 16) #22
-  %506 = trunc i64 %505 to i32
+497:                                              ; preds = %122
+  %498 = load ptr, ptr %63, align 8, !tbaa !30
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 2
+  %500 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %499, ptr noundef null, i32 noundef 16) #22
+  %501 = trunc i64 %500 to i32
   tail call fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(ptr noundef nonnull %2)
-  %507 = and i32 %506, -1024
-  switch i32 %507, label %512 [
-    i32 55296, label %508
-    i32 56320, label %511
+  %502 = and i32 %501, -1024
+  switch i32 %502, label %507 [
+    i32 55296, label %503
+    i32 56320, label %506
   ]
 
-508:                                              ; preds = %502
-  %509 = load ptr, ptr %2, align 8, !tbaa !45
-  %510 = getelementptr inbounds nuw i8, ptr %509, i64 72
-  store i32 %506, ptr %510, align 8, !tbaa !68
+503:                                              ; preds = %497
+  %504 = load ptr, ptr %2, align 8, !tbaa !43
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 72
+  store i32 %501, ptr %505, align 8, !tbaa !66
   store i32 25, ptr %60, align 4, !tbaa !18
   br label %.loopexit.backedge
 
-511:                                              ; preds = %502
+506:                                              ; preds = %497
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-512:                                              ; preds = %502
-  tail call fastcc void @_ZN17duckdb_libpgqueryL10addunicodeEjPv(i32 noundef %506, ptr noundef nonnull %2)
+507:                                              ; preds = %497
+  tail call fastcc void @_ZN17duckdb_libpgqueryL10addunicodeEjPv(i32 noundef %501, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-513:                                              ; preds = %125
-  %514 = load ptr, ptr %63, align 8, !tbaa !30
-  %515 = getelementptr inbounds nuw i8, ptr %514, i64 2
-  %516 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %515, ptr noundef null, i32 noundef 16) #22
-  %517 = trunc i64 %516 to i32
-  %518 = and i32 %517, -1024
-  %519 = icmp eq i32 %518, 56320
-  br i1 %519, label %521, label %520
+508:                                              ; preds = %122
+  %509 = load ptr, ptr %63, align 8, !tbaa !30
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 2
+  %511 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %510, ptr noundef null, i32 noundef 16) #22
+  %512 = trunc i64 %511 to i32
+  %513 = and i32 %512, -1024
+  %514 = icmp eq i32 %513, 56320
+  br i1 %514, label %516, label %515
 
-520:                                              ; preds = %513
+515:                                              ; preds = %508
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %2)
-  br label %521
+  br label %516
 
-521:                                              ; preds = %520, %513
-  %522 = load ptr, ptr %2, align 8, !tbaa !45
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 72
-  %524 = load i32, ptr %523, align 8, !tbaa !68
-  %525 = shl i32 %524, 10
-  %526 = and i32 %525, 1047552
-  %527 = add nuw nsw i32 %526, 65536
-  %528 = and i32 %517, 1023
-  %529 = or disjoint i32 %527, %528
-  tail call fastcc void @_ZN17duckdb_libpgqueryL10addunicodeEjPv(i32 noundef %529, ptr noundef nonnull %2)
+516:                                              ; preds = %515, %508
+  %517 = load ptr, ptr %2, align 8, !tbaa !43
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 72
+  %519 = load i32, ptr %518, align 8, !tbaa !66
+  %520 = shl i32 %519, 10
+  %521 = and i32 %520, 1047552
+  %522 = add nuw nsw i32 %521, 65536
+  %523 = and i32 %512, 1023
+  %524 = or disjoint i32 %522, %523
+  tail call fastcc void @_ZN17duckdb_libpgqueryL10addunicodeEjPv(i32 noundef %524, ptr noundef nonnull %2)
   store i32 11, ptr %60, align 4, !tbaa !18
   br label %.loopexit.backedge
 
-530:                                              ; preds = %125
+525:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-531:                                              ; preds = %125
+526:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-532:                                              ; preds = %125
+527:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-533:                                              ; preds = %125
-  %534 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 5)
-  %535 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.9)
-  %536 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.10)
-  %537 = load ptr, ptr %5, align 8, !tbaa !16
-  %538 = load i32, ptr %537, align 4, !tbaa !50
-  %539 = icmp slt i32 %538, 0
-  br i1 %539, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, label %540
+528:                                              ; preds = %122
+  %529 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 5)
+  %530 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.9)
+  %531 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.10)
+  %532 = load ptr, ptr %5, align 8, !tbaa !16
+  %533 = load i32, ptr %532, align 4, !tbaa !48
+  %534 = icmp slt i32 %533, 0
+  br i1 %534, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, label %535
 
-540:                                              ; preds = %533
-  %541 = load ptr, ptr %2, align 8, !tbaa !45
-  %542 = load ptr, ptr %541, align 8, !tbaa !46
-  %543 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %542, i32 noundef %538)
-  %544 = add nsw i32 %543, 1
-  %545 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %544)
+535:                                              ; preds = %528
+  %536 = load ptr, ptr %2, align 8, !tbaa !43
+  %537 = load ptr, ptr %536, align 8, !tbaa !44
+  %538 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %537, i32 noundef %533)
+  %539 = add nsw i32 %538, 1
+  %540 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %539)
   br label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit
 
-_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit: ; preds = %533, %540
-  %.0.i895 = phi i32 [ %545, %540 ], [ 0, %533 ]
-  %546 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 3, i32 noundef %.0.i895)
+_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit: ; preds = %528, %535
+  %.0.i895 = phi i32 [ %540, %535 ], [ 0, %528 ]
+  %541 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 3, i32 noundef %.0.i895)
   br label %.loopexit.backedge
 
-547:                                              ; preds = %125
-  %548 = load ptr, ptr %63, align 8, !tbaa !30
-  %549 = getelementptr inbounds nuw i8, ptr %548, i64 1
-  %550 = load i8, ptr %549, align 1, !tbaa !32
-  switch i8 %550, label %603 [
-    i8 39, label %551
-    i8 92, label %577
+542:                                              ; preds = %122
+  %543 = load ptr, ptr %63, align 8, !tbaa !30
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 1
+  %545 = load i8, ptr %544, align 1, !tbaa !32
+  switch i8 %545, label %598 [
+    i8 39, label %546
+    i8 92, label %572
   ]
 
-551:                                              ; preds = %547
-  %552 = load ptr, ptr %2, align 8, !tbaa !45
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 76
-  %554 = load i8, ptr %553, align 4, !tbaa !61, !range !64, !noundef !65
-  %555 = trunc nuw i8 %554 to i1
-  br i1 %555, label %556, label %574
+546:                                              ; preds = %542
+  %547 = load ptr, ptr %2, align 8, !tbaa !43
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 76
+  %549 = load i8, ptr %548, align 4, !tbaa !59, !range !62, !noundef !63
+  %550 = trunc nuw i8 %549 to i1
+  br i1 %550, label %551, label %569
 
-556:                                              ; preds = %551
-  %557 = getelementptr inbounds nuw i8, ptr %552, i64 32
-  %558 = load i8, ptr %557, align 8, !tbaa !69, !range !64, !noundef !65
-  %559 = trunc nuw i8 %558 to i1
-  br i1 %559, label %560, label %574
+551:                                              ; preds = %546
+  %552 = getelementptr inbounds nuw i8, ptr %547, i64 32
+  %553 = load i8, ptr %552, align 8, !tbaa !67, !range !62, !noundef !63
+  %554 = trunc nuw i8 %553 to i1
+  br i1 %554, label %555, label %569
 
-560:                                              ; preds = %556
-  %561 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 6)
-  %562 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.43)
-  %563 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.44)
-  %564 = load ptr, ptr %5, align 8, !tbaa !16
-  %565 = load i32, ptr %564, align 4, !tbaa !50
-  %566 = icmp slt i32 %565, 0
-  br i1 %566, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i, label %567
+555:                                              ; preds = %551
+  %556 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 6)
+  %557 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.43)
+  %558 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.44)
+  %559 = load ptr, ptr %5, align 8, !tbaa !16
+  %560 = load i32, ptr %559, align 4, !tbaa !48
+  %561 = icmp slt i32 %560, 0
+  br i1 %561, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i, label %562
 
-567:                                              ; preds = %560
-  %568 = load ptr, ptr %2, align 8, !tbaa !45
-  %569 = load ptr, ptr %568, align 8, !tbaa !46
-  %570 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %569, i32 noundef %565)
-  %571 = add nsw i32 %570, 1
-  %572 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %571)
+562:                                              ; preds = %555
+  %563 = load ptr, ptr %2, align 8, !tbaa !43
+  %564 = load ptr, ptr %563, align 8, !tbaa !44
+  %565 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %564, i32 noundef %560)
+  %566 = add nsw i32 %565, 1
+  %567 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %566)
   br label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i
 
-_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i: ; preds = %567, %560
-  %.0.i.i = phi i32 [ %572, %567 ], [ 0, %560 ]
-  %573 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 2, i32 noundef %.0.i.i)
-  %.pre14.i = load ptr, ptr %2, align 8, !tbaa !45
-  br label %574
+_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i: ; preds = %562, %555
+  %.0.i.i = phi i32 [ %567, %562 ], [ 0, %555 ]
+  %568 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 2, i32 noundef %.0.i.i)
+  %.pre14.i = load ptr, ptr %2, align 8, !tbaa !43
+  br label %569
 
-574:                                              ; preds = %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i, %556, %551
-  %575 = phi ptr [ %.pre14.i, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i ], [ %552, %556 ], [ %552, %551 ]
-  %576 = getelementptr inbounds nuw i8, ptr %575, i64 76
-  store i8 0, ptr %576, align 4, !tbaa !61
+569:                                              ; preds = %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i, %551, %546
+  %570 = phi ptr [ %.pre14.i, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.i ], [ %547, %551 ], [ %547, %546 ]
+  %571 = getelementptr inbounds nuw i8, ptr %570, i64 76
+  store i8 0, ptr %571, align 4, !tbaa !59
   br label %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
 
-577:                                              ; preds = %547
-  %578 = load ptr, ptr %2, align 8, !tbaa !45
-  %579 = getelementptr inbounds nuw i8, ptr %578, i64 76
-  %580 = load i8, ptr %579, align 4, !tbaa !61, !range !64, !noundef !65
-  %581 = trunc nuw i8 %580 to i1
-  br i1 %581, label %582, label %600
+572:                                              ; preds = %542
+  %573 = load ptr, ptr %2, align 8, !tbaa !43
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 76
+  %575 = load i8, ptr %574, align 4, !tbaa !59, !range !62, !noundef !63
+  %576 = trunc nuw i8 %575 to i1
+  br i1 %576, label %577, label %595
 
-582:                                              ; preds = %577
-  %583 = getelementptr inbounds nuw i8, ptr %578, i64 32
-  %584 = load i8, ptr %583, align 8, !tbaa !69, !range !64, !noundef !65
-  %585 = trunc nuw i8 %584 to i1
-  br i1 %585, label %586, label %600
+577:                                              ; preds = %572
+  %578 = getelementptr inbounds nuw i8, ptr %573, i64 32
+  %579 = load i8, ptr %578, align 8, !tbaa !67, !range !62, !noundef !63
+  %580 = trunc nuw i8 %579 to i1
+  br i1 %580, label %581, label %595
 
-586:                                              ; preds = %582
-  %587 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 6)
-  %588 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.45)
-  %589 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.46)
-  %590 = load ptr, ptr %5, align 8, !tbaa !16
-  %591 = load i32, ptr %590, align 4, !tbaa !50
-  %592 = icmp slt i32 %591, 0
-  br i1 %592, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i, label %593
+581:                                              ; preds = %577
+  %582 = tail call noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef 6)
+  %583 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.45)
+  %584 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.46)
+  %585 = load ptr, ptr %5, align 8, !tbaa !16
+  %586 = load i32, ptr %585, align 4, !tbaa !48
+  %587 = icmp slt i32 %586, 0
+  br i1 %587, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i, label %588
 
-593:                                              ; preds = %586
-  %594 = load ptr, ptr %2, align 8, !tbaa !45
-  %595 = load ptr, ptr %594, align 8, !tbaa !46
-  %596 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %595, i32 noundef %591)
-  %597 = add nsw i32 %596, 1
-  %598 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %597)
+588:                                              ; preds = %581
+  %589 = load ptr, ptr %2, align 8, !tbaa !43
+  %590 = load ptr, ptr %589, align 8, !tbaa !44
+  %591 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %590, i32 noundef %586)
+  %592 = add nsw i32 %591, 1
+  %593 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %592)
   br label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i
 
-_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i: ; preds = %593, %586
-  %.0.i12.i = phi i32 [ %598, %593 ], [ 0, %586 ]
-  %599 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 2, i32 noundef %.0.i12.i)
-  %.pre.i896 = load ptr, ptr %2, align 8, !tbaa !45
-  br label %600
+_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i: ; preds = %588, %581
+  %.0.i12.i = phi i32 [ %593, %588 ], [ 0, %581 ]
+  %594 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 2, i32 noundef %.0.i12.i)
+  %.pre.i896 = load ptr, ptr %2, align 8, !tbaa !43
+  br label %595
 
-600:                                              ; preds = %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i, %582, %577
-  %601 = phi ptr [ %.pre.i896, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i ], [ %578, %582 ], [ %578, %577 ]
-  %602 = getelementptr inbounds nuw i8, ptr %601, i64 76
-  store i8 0, ptr %602, align 4, !tbaa !61
+595:                                              ; preds = %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i, %577, %572
+  %596 = phi ptr [ %.pre.i896, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit13.i ], [ %573, %577 ], [ %573, %572 ]
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 76
+  store i8 0, ptr %597, align 4, !tbaa !59
   br label %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
 
-603:                                              ; preds = %547
+598:                                              ; preds = %542
   tail call fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(ptr noundef nonnull readonly %2)
   br label %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
 
-_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit: ; preds = %574, %600, %603
-  %604 = load ptr, ptr %63, align 8, !tbaa !30
-  %605 = getelementptr inbounds nuw i8, ptr %604, i64 1
-  %606 = load i8, ptr %605, align 1, !tbaa !32
-  %607 = zext i8 %606 to i32
-  %608 = add nsw i32 %607, -98
-  %609 = tail call i32 @llvm.fshl.i32(i32 %608, i32 %608, i32 31)
-  %610 = icmp ult i32 %609, 10
-  %switch.maskindex = trunc i32 %609 to i16
+_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit: ; preds = %569, %595, %598
+  %599 = load ptr, ptr %63, align 8, !tbaa !30
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 1
+  %601 = load i8, ptr %600, align 1, !tbaa !32
+  %602 = zext i8 %601 to i32
+  %603 = add nsw i32 %602, -98
+  %604 = tail call i32 @llvm.fshl.i32(i32 %603, i32 %603, i32 31)
+  %605 = icmp ult i32 %604, 10
+  %switch.maskindex = trunc i32 %604 to i16
   %switch.shifted = lshr i16 837, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond = select i1 %610, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %611
+  %or.cond = select i1 %605, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %606
 
-611:                                              ; preds = %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
-  %or.cond.i = icmp sgt i8 %606, 0
-  br i1 %or.cond.i, label %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit, label %612
+606:                                              ; preds = %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
+  %or.cond.i = icmp sgt i8 %601, 0
+  br i1 %or.cond.i, label %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit, label %607
 
-612:                                              ; preds = %611
-  %613 = load ptr, ptr %2, align 8, !tbaa !45
-  %614 = getelementptr inbounds nuw i8, ptr %613, i64 77
-  store i8 1, ptr %614, align 1, !tbaa !62
+607:                                              ; preds = %606
+  %608 = load ptr, ptr %2, align 8, !tbaa !43
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 77
+  store i8 1, ptr %609, align 1, !tbaa !60
   br label %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit
 
 switch.lookup:                                    ; preds = %_ZN17duckdb_libpgqueryL27check_string_escape_warningEhPv.exit
-  %615 = zext nneg i32 %609 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17duckdb_libpgquery10core_yylexEPNS_12core_YYSTYPEEPiPv, i64 0, i64 %615
+  %610 = zext nneg i32 %604 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17duckdb_libpgquery10core_yylexEPNS_12core_YYSTYPEEPiPv, i64 0, i64 %610
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit
 
-_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit: ; preds = %switch.lookup, %611, %612
-  %.0.i897 = phi i8 [ %606, %611 ], [ %606, %612 ], [ %switch.load, %switch.lookup ]
-  %616 = load ptr, ptr %2, align 8, !tbaa !45
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 48
-  %618 = load i32, ptr %617, align 8, !tbaa !52
-  %619 = add nsw i32 %618, 1
-  %620 = getelementptr inbounds nuw i8, ptr %616, i64 52
-  %621 = load i32, ptr %620, align 4, !tbaa !53
-  %.not.i898 = icmp slt i32 %619, %621
-  br i1 %.not.i898, label %._crit_edge.i901, label %622
+_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit: ; preds = %switch.lookup, %606, %607
+  %.0.i897 = phi i8 [ %601, %606 ], [ %601, %607 ], [ %switch.load, %switch.lookup ]
+  %611 = load ptr, ptr %2, align 8, !tbaa !43
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 48
+  %613 = load i32, ptr %612, align 8, !tbaa !50
+  %614 = add nsw i32 %613, 1
+  %615 = getelementptr inbounds nuw i8, ptr %611, i64 52
+  %616 = load i32, ptr %615, align 4, !tbaa !51
+  %.not.i898 = icmp slt i32 %614, %616
+  br i1 %.not.i898, label %._crit_edge.i901, label %617
 
 ._crit_edge.i901:                                 ; preds = %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit
-  %.phi.trans.insert.i902 = getelementptr inbounds nuw i8, ptr %616, i64 40
-  %.pre.i903 = load ptr, ptr %.phi.trans.insert.i902, align 8, !tbaa !54
+  %.phi.trans.insert.i902 = getelementptr inbounds nuw i8, ptr %611, i64 40
+  %.pre.i903 = load ptr, ptr %.phi.trans.insert.i902, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit904
 
-622:                                              ; preds = %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit
-  %623 = shl nsw i32 %621, 1
-  store i32 %623, ptr %620, align 4, !tbaa !53
-  %624 = getelementptr inbounds nuw i8, ptr %616, i64 40
-  %625 = load ptr, ptr %624, align 8, !tbaa !54
-  %626 = sext i32 %623 to i64
-  %627 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %625, i64 noundef %626)
-  %628 = load ptr, ptr %2, align 8, !tbaa !45
-  %629 = getelementptr inbounds nuw i8, ptr %628, i64 40
-  store ptr %627, ptr %629, align 8, !tbaa !54
-  %.phi.trans.insert9.i899 = getelementptr inbounds nuw i8, ptr %628, i64 48
-  %.pre10.i900 = load i32, ptr %.phi.trans.insert9.i899, align 8, !tbaa !52
+617:                                              ; preds = %_ZN17duckdb_libpgqueryL20unescape_single_charEhPv.exit
+  %618 = shl nsw i32 %616, 1
+  store i32 %618, ptr %615, align 4, !tbaa !51
+  %619 = getelementptr inbounds nuw i8, ptr %611, i64 40
+  %620 = load ptr, ptr %619, align 8, !tbaa !52
+  %621 = sext i32 %618 to i64
+  %622 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %620, i64 noundef %621)
+  %623 = load ptr, ptr %2, align 8, !tbaa !43
+  %624 = getelementptr inbounds nuw i8, ptr %623, i64 40
+  store ptr %622, ptr %624, align 8, !tbaa !52
+  %.phi.trans.insert9.i899 = getelementptr inbounds nuw i8, ptr %623, i64 48
+  %.pre10.i900 = load i32, ptr %.phi.trans.insert9.i899, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit904
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit904:  ; preds = %._crit_edge.i901, %622
-  %630 = phi i32 [ %.pre10.i900, %622 ], [ %618, %._crit_edge.i901 ]
-  %631 = phi ptr [ %627, %622 ], [ %.pre.i903, %._crit_edge.i901 ]
-  %632 = sext i32 %630 to i64
-  %633 = getelementptr inbounds i8, ptr %631, i64 %632
-  store i8 %.0.i897, ptr %633, align 1, !tbaa !32
-  %634 = load ptr, ptr %2, align 8, !tbaa !45
-  %635 = getelementptr inbounds nuw i8, ptr %634, i64 48
-  %636 = load i32, ptr %635, align 8, !tbaa !52
-  %637 = add nsw i32 %636, 1
-  store i32 %637, ptr %635, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit904:  ; preds = %._crit_edge.i901, %617
+  %625 = phi i32 [ %.pre10.i900, %617 ], [ %613, %._crit_edge.i901 ]
+  %626 = phi ptr [ %622, %617 ], [ %.pre.i903, %._crit_edge.i901 ]
+  %627 = sext i32 %625 to i64
+  %628 = getelementptr inbounds i8, ptr %626, i64 %627
+  store i8 %.0.i897, ptr %628, align 1, !tbaa !32
+  %629 = load ptr, ptr %2, align 8, !tbaa !43
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 48
+  %631 = load i32, ptr %630, align 8, !tbaa !50
+  %632 = add nsw i32 %631, 1
+  store i32 %632, ptr %630, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-638:                                              ; preds = %125
-  %639 = load ptr, ptr %63, align 8, !tbaa !30
-  %640 = getelementptr inbounds nuw i8, ptr %639, i64 1
-  %641 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %640, ptr noundef null, i32 noundef 8) #22
-  %642 = trunc i64 %641 to i8
+633:                                              ; preds = %122
+  %634 = load ptr, ptr %63, align 8, !tbaa !30
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 1
+  %636 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %635, ptr noundef null, i32 noundef 8) #22
+  %637 = trunc i64 %636 to i8
   tail call fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(ptr noundef nonnull %2)
-  %643 = load ptr, ptr %2, align 8, !tbaa !45
-  %644 = getelementptr inbounds nuw i8, ptr %643, i64 48
-  %645 = load i32, ptr %644, align 8, !tbaa !52
-  %646 = add nsw i32 %645, 1
-  %647 = getelementptr inbounds nuw i8, ptr %643, i64 52
-  %648 = load i32, ptr %647, align 4, !tbaa !53
-  %.not.i905 = icmp slt i32 %646, %648
-  br i1 %.not.i905, label %._crit_edge.i908, label %649
+  %638 = load ptr, ptr %2, align 8, !tbaa !43
+  %639 = getelementptr inbounds nuw i8, ptr %638, i64 48
+  %640 = load i32, ptr %639, align 8, !tbaa !50
+  %641 = add nsw i32 %640, 1
+  %642 = getelementptr inbounds nuw i8, ptr %638, i64 52
+  %643 = load i32, ptr %642, align 4, !tbaa !51
+  %.not.i905 = icmp slt i32 %641, %643
+  br i1 %.not.i905, label %._crit_edge.i908, label %644
 
-._crit_edge.i908:                                 ; preds = %638
-  %.phi.trans.insert.i909 = getelementptr inbounds nuw i8, ptr %643, i64 40
-  %.pre.i910 = load ptr, ptr %.phi.trans.insert.i909, align 8, !tbaa !54
+._crit_edge.i908:                                 ; preds = %633
+  %.phi.trans.insert.i909 = getelementptr inbounds nuw i8, ptr %638, i64 40
+  %.pre.i910 = load ptr, ptr %.phi.trans.insert.i909, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911
 
-649:                                              ; preds = %638
-  %650 = shl nsw i32 %648, 1
-  store i32 %650, ptr %647, align 4, !tbaa !53
-  %651 = getelementptr inbounds nuw i8, ptr %643, i64 40
-  %652 = load ptr, ptr %651, align 8, !tbaa !54
-  %653 = sext i32 %650 to i64
-  %654 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %652, i64 noundef %653)
-  %655 = load ptr, ptr %2, align 8, !tbaa !45
-  %656 = getelementptr inbounds nuw i8, ptr %655, i64 40
-  store ptr %654, ptr %656, align 8, !tbaa !54
-  %.phi.trans.insert9.i906 = getelementptr inbounds nuw i8, ptr %655, i64 48
-  %.pre10.i907 = load i32, ptr %.phi.trans.insert9.i906, align 8, !tbaa !52
+644:                                              ; preds = %633
+  %645 = shl nsw i32 %643, 1
+  store i32 %645, ptr %642, align 4, !tbaa !51
+  %646 = getelementptr inbounds nuw i8, ptr %638, i64 40
+  %647 = load ptr, ptr %646, align 8, !tbaa !52
+  %648 = sext i32 %645 to i64
+  %649 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %647, i64 noundef %648)
+  %650 = load ptr, ptr %2, align 8, !tbaa !43
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 40
+  store ptr %649, ptr %651, align 8, !tbaa !52
+  %.phi.trans.insert9.i906 = getelementptr inbounds nuw i8, ptr %650, i64 48
+  %.pre10.i907 = load i32, ptr %.phi.trans.insert9.i906, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911:  ; preds = %._crit_edge.i908, %649
-  %657 = phi i32 [ %.pre10.i907, %649 ], [ %645, %._crit_edge.i908 ]
-  %658 = phi ptr [ %654, %649 ], [ %.pre.i910, %._crit_edge.i908 ]
-  %659 = sext i32 %657 to i64
-  %660 = getelementptr inbounds i8, ptr %658, i64 %659
-  store i8 %642, ptr %660, align 1, !tbaa !32
-  %661 = load ptr, ptr %2, align 8, !tbaa !45
-  %662 = getelementptr inbounds nuw i8, ptr %661, i64 48
-  %663 = load i32, ptr %662, align 8, !tbaa !52
-  %664 = add nsw i32 %663, 1
-  store i32 %664, ptr %662, align 8, !tbaa !52
-  %665 = trunc i64 %641 to i32
-  %666 = and i32 %665, 255
-  %667 = icmp ne i32 %666, 0
-  %668 = and i32 %665, 128
-  %.not846 = icmp eq i32 %668, 0
-  %or.cond851 = and i1 %667, %.not846
-  br i1 %or.cond851, label %.loopexit.backedge, label %669
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911:  ; preds = %._crit_edge.i908, %644
+  %652 = phi i32 [ %.pre10.i907, %644 ], [ %640, %._crit_edge.i908 ]
+  %653 = phi ptr [ %649, %644 ], [ %.pre.i910, %._crit_edge.i908 ]
+  %654 = sext i32 %652 to i64
+  %655 = getelementptr inbounds i8, ptr %653, i64 %654
+  store i8 %637, ptr %655, align 1, !tbaa !32
+  %656 = load ptr, ptr %2, align 8, !tbaa !43
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 48
+  %658 = load i32, ptr %657, align 8, !tbaa !50
+  %659 = add nsw i32 %658, 1
+  store i32 %659, ptr %657, align 8, !tbaa !50
+  %660 = trunc i64 %636 to i32
+  %661 = and i32 %660, 255
+  %662 = icmp ne i32 %661, 0
+  %663 = and i32 %660, 128
+  %.not846 = icmp eq i32 %663, 0
+  %or.cond851 = and i1 %662, %.not846
+  br i1 %or.cond851, label %.loopexit.backedge, label %664
 
-669:                                              ; preds = %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911
-  %670 = getelementptr inbounds nuw i8, ptr %661, i64 77
-  store i8 1, ptr %670, align 1, !tbaa !62
+664:                                              ; preds = %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911
+  %665 = getelementptr inbounds nuw i8, ptr %656, i64 77
+  store i8 1, ptr %665, align 1, !tbaa !60
   br label %.loopexit.backedge
 
-671:                                              ; preds = %125
-  %672 = load ptr, ptr %63, align 8, !tbaa !30
-  %673 = getelementptr inbounds nuw i8, ptr %672, i64 2
-  %674 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %673, ptr noundef null, i32 noundef 16) #22
-  %675 = trunc i64 %674 to i8
+666:                                              ; preds = %122
+  %667 = load ptr, ptr %63, align 8, !tbaa !30
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 2
+  %669 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %668, ptr noundef null, i32 noundef 16) #22
+  %670 = trunc i64 %669 to i8
   tail call fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(ptr noundef nonnull %2)
-  %676 = load ptr, ptr %2, align 8, !tbaa !45
-  %677 = getelementptr inbounds nuw i8, ptr %676, i64 48
-  %678 = load i32, ptr %677, align 8, !tbaa !52
-  %679 = add nsw i32 %678, 1
-  %680 = getelementptr inbounds nuw i8, ptr %676, i64 52
-  %681 = load i32, ptr %680, align 4, !tbaa !53
-  %.not.i912 = icmp slt i32 %679, %681
-  br i1 %.not.i912, label %._crit_edge.i915, label %682
+  %671 = load ptr, ptr %2, align 8, !tbaa !43
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 48
+  %673 = load i32, ptr %672, align 8, !tbaa !50
+  %674 = add nsw i32 %673, 1
+  %675 = getelementptr inbounds nuw i8, ptr %671, i64 52
+  %676 = load i32, ptr %675, align 4, !tbaa !51
+  %.not.i912 = icmp slt i32 %674, %676
+  br i1 %.not.i912, label %._crit_edge.i915, label %677
 
-._crit_edge.i915:                                 ; preds = %671
-  %.phi.trans.insert.i916 = getelementptr inbounds nuw i8, ptr %676, i64 40
-  %.pre.i917 = load ptr, ptr %.phi.trans.insert.i916, align 8, !tbaa !54
+._crit_edge.i915:                                 ; preds = %666
+  %.phi.trans.insert.i916 = getelementptr inbounds nuw i8, ptr %671, i64 40
+  %.pre.i917 = load ptr, ptr %.phi.trans.insert.i916, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918
 
-682:                                              ; preds = %671
-  %683 = shl nsw i32 %681, 1
-  store i32 %683, ptr %680, align 4, !tbaa !53
-  %684 = getelementptr inbounds nuw i8, ptr %676, i64 40
-  %685 = load ptr, ptr %684, align 8, !tbaa !54
-  %686 = sext i32 %683 to i64
-  %687 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %685, i64 noundef %686)
-  %688 = load ptr, ptr %2, align 8, !tbaa !45
-  %689 = getelementptr inbounds nuw i8, ptr %688, i64 40
-  store ptr %687, ptr %689, align 8, !tbaa !54
-  %.phi.trans.insert9.i913 = getelementptr inbounds nuw i8, ptr %688, i64 48
-  %.pre10.i914 = load i32, ptr %.phi.trans.insert9.i913, align 8, !tbaa !52
+677:                                              ; preds = %666
+  %678 = shl nsw i32 %676, 1
+  store i32 %678, ptr %675, align 4, !tbaa !51
+  %679 = getelementptr inbounds nuw i8, ptr %671, i64 40
+  %680 = load ptr, ptr %679, align 8, !tbaa !52
+  %681 = sext i32 %678 to i64
+  %682 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %680, i64 noundef %681)
+  %683 = load ptr, ptr %2, align 8, !tbaa !43
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 40
+  store ptr %682, ptr %684, align 8, !tbaa !52
+  %.phi.trans.insert9.i913 = getelementptr inbounds nuw i8, ptr %683, i64 48
+  %.pre10.i914 = load i32, ptr %.phi.trans.insert9.i913, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918:  ; preds = %._crit_edge.i915, %682
-  %690 = phi i32 [ %.pre10.i914, %682 ], [ %678, %._crit_edge.i915 ]
-  %691 = phi ptr [ %687, %682 ], [ %.pre.i917, %._crit_edge.i915 ]
-  %692 = sext i32 %690 to i64
-  %693 = getelementptr inbounds i8, ptr %691, i64 %692
-  store i8 %675, ptr %693, align 1, !tbaa !32
-  %694 = load ptr, ptr %2, align 8, !tbaa !45
-  %695 = getelementptr inbounds nuw i8, ptr %694, i64 48
-  %696 = load i32, ptr %695, align 8, !tbaa !52
-  %697 = add nsw i32 %696, 1
-  store i32 %697, ptr %695, align 8, !tbaa !52
-  %698 = trunc i64 %674 to i32
-  %699 = and i32 %698, 255
-  %700 = icmp ne i32 %699, 0
-  %701 = and i32 %698, 128
-  %.not845 = icmp eq i32 %701, 0
-  %or.cond852 = and i1 %700, %.not845
-  br i1 %or.cond852, label %.loopexit.backedge, label %702
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918:  ; preds = %._crit_edge.i915, %677
+  %685 = phi i32 [ %.pre10.i914, %677 ], [ %673, %._crit_edge.i915 ]
+  %686 = phi ptr [ %682, %677 ], [ %.pre.i917, %._crit_edge.i915 ]
+  %687 = sext i32 %685 to i64
+  %688 = getelementptr inbounds i8, ptr %686, i64 %687
+  store i8 %670, ptr %688, align 1, !tbaa !32
+  %689 = load ptr, ptr %2, align 8, !tbaa !43
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 48
+  %691 = load i32, ptr %690, align 8, !tbaa !50
+  %692 = add nsw i32 %691, 1
+  store i32 %692, ptr %690, align 8, !tbaa !50
+  %693 = trunc i64 %669 to i32
+  %694 = and i32 %693, 255
+  %695 = icmp ne i32 %694, 0
+  %696 = and i32 %693, 128
+  %.not845 = icmp eq i32 %696, 0
+  %or.cond852 = and i1 %695, %.not845
+  br i1 %or.cond852, label %.loopexit.backedge, label %697
 
-702:                                              ; preds = %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918
-  %703 = getelementptr inbounds nuw i8, ptr %694, i64 77
-  store i8 1, ptr %703, align 1, !tbaa !62
+697:                                              ; preds = %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918
+  %698 = getelementptr inbounds nuw i8, ptr %689, i64 77
+  store i8 1, ptr %698, align 1, !tbaa !60
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %125, %125, %125, %125, %125, %125, %125, %125, %125, %702, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918, %669, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911, %508, %512, %511, %156, %157, %1035, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit981, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit972, %931, %904, %894, %893, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit952, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit943, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit934, %730, %729, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit925, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit904, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, %532, %531, %530, %521, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit894, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit885, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit876, %382, %352, %320, %305, %277, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868, %232, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit, %159, %143, %130
-  br label %.loopexit, !llvm.loop !44
+.loopexit.backedge:                               ; preds = %122, %122, %122, %122, %122, %122, %122, %122, %122, %697, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit918, %664, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit911, %503, %507, %506, %151, %152, %1030, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit981, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit972, %926, %899, %889, %888, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit952, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit943, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit934, %725, %724, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit925, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit904, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, %527, %526, %525, %516, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit894, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit885, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit876, %377, %347, %315, %300, %272, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868, %227, %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit, %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit, %154, %138, %125
+  br label %.loopexit, !llvm.loop !42
 
-704:                                              ; preds = %125
-  %705 = load ptr, ptr %63, align 8, !tbaa !30
-  %706 = load i8, ptr %705, align 1, !tbaa !32
-  %707 = load ptr, ptr %2, align 8, !tbaa !45
-  %708 = getelementptr inbounds nuw i8, ptr %707, i64 48
-  %709 = load i32, ptr %708, align 8, !tbaa !52
-  %710 = add nsw i32 %709, 1
-  %711 = getelementptr inbounds nuw i8, ptr %707, i64 52
-  %712 = load i32, ptr %711, align 4, !tbaa !53
-  %.not.i919 = icmp slt i32 %710, %712
-  br i1 %.not.i919, label %._crit_edge.i922, label %713
+699:                                              ; preds = %122
+  %700 = load ptr, ptr %63, align 8, !tbaa !30
+  %701 = load i8, ptr %700, align 1, !tbaa !32
+  %702 = load ptr, ptr %2, align 8, !tbaa !43
+  %703 = getelementptr inbounds nuw i8, ptr %702, i64 48
+  %704 = load i32, ptr %703, align 8, !tbaa !50
+  %705 = add nsw i32 %704, 1
+  %706 = getelementptr inbounds nuw i8, ptr %702, i64 52
+  %707 = load i32, ptr %706, align 4, !tbaa !51
+  %.not.i919 = icmp slt i32 %705, %707
+  br i1 %.not.i919, label %._crit_edge.i922, label %708
 
-._crit_edge.i922:                                 ; preds = %704
-  %.phi.trans.insert.i923 = getelementptr inbounds nuw i8, ptr %707, i64 40
-  %.pre.i924 = load ptr, ptr %.phi.trans.insert.i923, align 8, !tbaa !54
+._crit_edge.i922:                                 ; preds = %699
+  %.phi.trans.insert.i923 = getelementptr inbounds nuw i8, ptr %702, i64 40
+  %.pre.i924 = load ptr, ptr %.phi.trans.insert.i923, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit925
 
-713:                                              ; preds = %704
-  %714 = shl nsw i32 %712, 1
-  store i32 %714, ptr %711, align 4, !tbaa !53
-  %715 = getelementptr inbounds nuw i8, ptr %707, i64 40
-  %716 = load ptr, ptr %715, align 8, !tbaa !54
-  %717 = sext i32 %714 to i64
-  %718 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %716, i64 noundef %717)
-  %719 = load ptr, ptr %2, align 8, !tbaa !45
-  %720 = getelementptr inbounds nuw i8, ptr %719, i64 40
-  store ptr %718, ptr %720, align 8, !tbaa !54
-  %.phi.trans.insert9.i920 = getelementptr inbounds nuw i8, ptr %719, i64 48
-  %.pre10.i921 = load i32, ptr %.phi.trans.insert9.i920, align 8, !tbaa !52
+708:                                              ; preds = %699
+  %709 = shl nsw i32 %707, 1
+  store i32 %709, ptr %706, align 4, !tbaa !51
+  %710 = getelementptr inbounds nuw i8, ptr %702, i64 40
+  %711 = load ptr, ptr %710, align 8, !tbaa !52
+  %712 = sext i32 %709 to i64
+  %713 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %711, i64 noundef %712)
+  %714 = load ptr, ptr %2, align 8, !tbaa !43
+  %715 = getelementptr inbounds nuw i8, ptr %714, i64 40
+  store ptr %713, ptr %715, align 8, !tbaa !52
+  %.phi.trans.insert9.i920 = getelementptr inbounds nuw i8, ptr %714, i64 48
+  %.pre10.i921 = load i32, ptr %.phi.trans.insert9.i920, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit925
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit925:  ; preds = %._crit_edge.i922, %713
-  %721 = phi i32 [ %.pre10.i921, %713 ], [ %709, %._crit_edge.i922 ]
-  %722 = phi ptr [ %718, %713 ], [ %.pre.i924, %._crit_edge.i922 ]
-  %723 = sext i32 %721 to i64
-  %724 = getelementptr inbounds i8, ptr %722, i64 %723
-  store i8 %706, ptr %724, align 1, !tbaa !32
-  %725 = load ptr, ptr %2, align 8, !tbaa !45
-  %726 = getelementptr inbounds nuw i8, ptr %725, i64 48
-  %727 = load i32, ptr %726, align 8, !tbaa !52
-  %728 = add nsw i32 %727, 1
-  store i32 %728, ptr %726, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit925:  ; preds = %._crit_edge.i922, %708
+  %716 = phi i32 [ %.pre10.i921, %708 ], [ %704, %._crit_edge.i922 ]
+  %717 = phi ptr [ %713, %708 ], [ %.pre.i924, %._crit_edge.i922 ]
+  %718 = sext i32 %716 to i64
+  %719 = getelementptr inbounds i8, ptr %717, i64 %718
+  store i8 %701, ptr %719, align 1, !tbaa !32
+  %720 = load ptr, ptr %2, align 8, !tbaa !43
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 48
+  %722 = load i32, ptr %721, align 8, !tbaa !50
+  %723 = add nsw i32 %722, 1
+  store i32 %723, ptr %721, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-729:                                              ; preds = %125, %125, %125
+724:                                              ; preds = %122, %122, %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.11, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-730:                                              ; preds = %125
-  %731 = load ptr, ptr %63, align 8, !tbaa !30
-  %732 = load ptr, ptr %2, align 8, !tbaa !45
-  %733 = load ptr, ptr %732, align 8, !tbaa !46
-  %734 = ptrtoint ptr %731 to i64
-  %735 = ptrtoint ptr %733 to i64
-  %736 = sub i64 %734, %735
-  %737 = trunc i64 %736 to i32
-  %738 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %737, ptr %738, align 4, !tbaa !50
-  %739 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %731)
-  %740 = load ptr, ptr %2, align 8, !tbaa !45
-  %741 = getelementptr inbounds nuw i8, ptr %740, i64 64
-  store ptr %739, ptr %741, align 8, !tbaa !70
+725:                                              ; preds = %122
+  %726 = load ptr, ptr %63, align 8, !tbaa !30
+  %727 = load ptr, ptr %2, align 8, !tbaa !43
+  %728 = load ptr, ptr %727, align 8, !tbaa !44
+  %729 = ptrtoint ptr %726 to i64
+  %730 = ptrtoint ptr %728 to i64
+  %731 = sub i64 %729, %730
+  %732 = trunc i64 %731 to i32
+  %733 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %732, ptr %733, align 4, !tbaa !48
+  %734 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %726)
+  %735 = load ptr, ptr %2, align 8, !tbaa !43
+  %736 = getelementptr inbounds nuw i8, ptr %735, i64 64
+  store ptr %734, ptr %736, align 8, !tbaa !68
   store i32 15, ptr %60, align 4, !tbaa !18
-  %742 = getelementptr inbounds nuw i8, ptr %740, i64 48
-  store i32 0, ptr %742, align 8, !tbaa !52
+  %737 = getelementptr inbounds nuw i8, ptr %735, i64 48
+  store i32 0, ptr %737, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-743:                                              ; preds = %125
-  %744 = load ptr, ptr %63, align 8, !tbaa !30
-  %745 = load ptr, ptr %2, align 8, !tbaa !45
-  %746 = load ptr, ptr %745, align 8, !tbaa !46
-  %747 = ptrtoint ptr %744 to i64
-  %748 = ptrtoint ptr %746 to i64
-  %749 = sub i64 %747, %748
-  %750 = trunc i64 %749 to i32
-  %751 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %750, ptr %751, align 4, !tbaa !50
-  %752 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %752, ptr %.2783, align 1, !tbaa !32
-  %753 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %753, ptr %58, align 8, !tbaa !29
+738:                                              ; preds = %122
+  %739 = load ptr, ptr %63, align 8, !tbaa !30
+  %740 = load ptr, ptr %2, align 8, !tbaa !43
+  %741 = load ptr, ptr %740, align 8, !tbaa !44
+  %742 = ptrtoint ptr %739 to i64
+  %743 = ptrtoint ptr %741 to i64
+  %744 = sub i64 %742, %743
+  %745 = trunc i64 %744 to i32
+  %746 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %745, ptr %746, align 4, !tbaa !48
+  %747 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %747, ptr %.2783, align 1, !tbaa !32
+  %748 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %748, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %754 = load i8, ptr %753, align 1, !tbaa !32
-  store i8 %754, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %753, align 1, !tbaa !32
-  store ptr %753, ptr %58, align 8, !tbaa !29
-  %755 = load ptr, ptr %63, align 8, !tbaa !30
-  %756 = load i8, ptr %755, align 1, !tbaa !32
-  %757 = sext i8 %756 to i32
-  br label %1822
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %749 = load i8, ptr %748, align 1, !tbaa !32
+  store i8 %749, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %748, align 1, !tbaa !32
+  store ptr %748, ptr %58, align 8, !tbaa !29
+  %750 = load ptr, ptr %63, align 8, !tbaa !30
+  %751 = load i8, ptr %750, align 1, !tbaa !32
+  %752 = sext i8 %751 to i32
+  br label %1819
 
-758:                                              ; preds = %125
-  %759 = load ptr, ptr %63, align 8, !tbaa !30
-  %760 = load ptr, ptr %2, align 8, !tbaa !45
-  %761 = getelementptr inbounds nuw i8, ptr %760, i64 64
-  %762 = load ptr, ptr %761, align 8, !tbaa !70
-  %763 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %759, ptr noundef nonnull dereferenceable(1) %762) #23
-  %764 = icmp eq i32 %763, 0
-  br i1 %764, label %765, label %779
+753:                                              ; preds = %122
+  %754 = load ptr, ptr %63, align 8, !tbaa !30
+  %755 = load ptr, ptr %2, align 8, !tbaa !43
+  %756 = getelementptr inbounds nuw i8, ptr %755, i64 64
+  %757 = load ptr, ptr %756, align 8, !tbaa !68
+  %758 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %754, ptr noundef nonnull dereferenceable(1) %757) #23
+  %759 = icmp eq i32 %758, 0
+  br i1 %759, label %760, label %774
 
-765:                                              ; preds = %758
-  tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %762)
-  %766 = load ptr, ptr %2, align 8, !tbaa !45
-  %767 = getelementptr inbounds nuw i8, ptr %766, i64 64
-  store ptr null, ptr %767, align 8, !tbaa !70
+760:                                              ; preds = %753
+  tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %757)
+  %761 = load ptr, ptr %2, align 8, !tbaa !43
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 64
+  store ptr null, ptr %762, align 8, !tbaa !68
   store i32 1, ptr %60, align 4, !tbaa !18
-  %768 = getelementptr inbounds nuw i8, ptr %766, i64 48
-  %769 = load i32, ptr %768, align 8, !tbaa !52
-  %770 = add nsw i32 %769, 1
-  %771 = sext i32 %770 to i64
-  %772 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %771)
-  %773 = load ptr, ptr %2, align 8, !tbaa !45
-  %774 = getelementptr inbounds nuw i8, ptr %773, i64 40
-  %775 = load ptr, ptr %774, align 8, !tbaa !54
-  %776 = sext i32 %769 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %772, ptr align 1 %775, i64 %776, i1 false)
-  %777 = getelementptr inbounds i8, ptr %772, i64 %776
-  store i8 0, ptr %777, align 1, !tbaa !32
-  %778 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %772, ptr %778, align 8, !tbaa !32
-  br label %1822
+  %763 = getelementptr inbounds nuw i8, ptr %761, i64 48
+  %764 = load i32, ptr %763, align 8, !tbaa !50
+  %765 = add nsw i32 %764, 1
+  %766 = sext i32 %765 to i64
+  %767 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %766)
+  %768 = load ptr, ptr %2, align 8, !tbaa !43
+  %769 = getelementptr inbounds nuw i8, ptr %768, i64 40
+  %770 = load ptr, ptr %769, align 8, !tbaa !52
+  %771 = sext i32 %764 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %767, ptr align 1 %770, i64 %771, i1 false)
+  %772 = getelementptr inbounds i8, ptr %767, i64 %771
+  store i8 0, ptr %772, align 1, !tbaa !32
+  %773 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %767, ptr %773, align 8, !tbaa !32
+  br label %1819
 
-779:                                              ; preds = %758
-  %780 = load i64, ptr %64, align 8, !tbaa !43
-  %781 = trunc i64 %780 to i32
-  %782 = add i32 %781, -1
-  %783 = getelementptr inbounds nuw i8, ptr %760, i64 48
-  %784 = load i32, ptr %783, align 8, !tbaa !52
-  %785 = add nsw i32 %782, %784
-  %786 = getelementptr inbounds nuw i8, ptr %760, i64 52
-  %787 = load i32, ptr %786, align 4, !tbaa !53
-  %.not.i926 = icmp slt i32 %785, %787
+774:                                              ; preds = %753
+  %775 = load i64, ptr %64, align 8, !tbaa !41
+  %776 = trunc i64 %775 to i32
+  %777 = add i32 %776, -1
+  %778 = getelementptr inbounds nuw i8, ptr %755, i64 48
+  %779 = load i32, ptr %778, align 8, !tbaa !50
+  %780 = add nsw i32 %777, %779
+  %781 = getelementptr inbounds nuw i8, ptr %755, i64 52
+  %782 = load i32, ptr %781, align 4, !tbaa !51
+  %.not.i926 = icmp slt i32 %780, %782
   br i1 %.not.i926, label %._crit_edge.i931, label %.preheader.i927
 
-._crit_edge.i931:                                 ; preds = %779
-  %.phi.trans.insert.i932 = getelementptr inbounds nuw i8, ptr %760, i64 40
-  %.pre.i933 = load ptr, ptr %.phi.trans.insert.i932, align 8, !tbaa !54
+._crit_edge.i931:                                 ; preds = %774
+  %.phi.trans.insert.i932 = getelementptr inbounds nuw i8, ptr %755, i64 40
+  %.pre.i933 = load ptr, ptr %.phi.trans.insert.i932, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit934
 
-.preheader.i927:                                  ; preds = %779, %.preheader.i927
-  %788 = phi i32 [ %789, %.preheader.i927 ], [ %787, %779 ]
-  %789 = shl nsw i32 %788, 1
-  %.not15.i928 = icmp slt i32 %785, %789
-  br i1 %.not15.i928, label %790, label %.preheader.i927, !llvm.loop !55
+.preheader.i927:                                  ; preds = %774, %.preheader.i927
+  %783 = phi i32 [ %784, %.preheader.i927 ], [ %782, %774 ]
+  %784 = shl nsw i32 %783, 1
+  %.not15.i928 = icmp slt i32 %780, %784
+  br i1 %.not15.i928, label %785, label %.preheader.i927, !llvm.loop !53
 
-790:                                              ; preds = %.preheader.i927
-  store i32 %789, ptr %786, align 4, !tbaa !53
-  %791 = getelementptr inbounds nuw i8, ptr %760, i64 40
-  %792 = load ptr, ptr %791, align 8, !tbaa !54
-  %793 = sext i32 %789 to i64
-  %794 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %792, i64 noundef %793)
-  %795 = load ptr, ptr %2, align 8, !tbaa !45
-  %796 = getelementptr inbounds nuw i8, ptr %795, i64 40
-  store ptr %794, ptr %796, align 8, !tbaa !54
-  %.phi.trans.insert17.i929 = getelementptr inbounds nuw i8, ptr %795, i64 48
-  %.pre18.i930 = load i32, ptr %.phi.trans.insert17.i929, align 8, !tbaa !52
+785:                                              ; preds = %.preheader.i927
+  store i32 %784, ptr %781, align 4, !tbaa !51
+  %786 = getelementptr inbounds nuw i8, ptr %755, i64 40
+  %787 = load ptr, ptr %786, align 8, !tbaa !52
+  %788 = sext i32 %784 to i64
+  %789 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %787, i64 noundef %788)
+  %790 = load ptr, ptr %2, align 8, !tbaa !43
+  %791 = getelementptr inbounds nuw i8, ptr %790, i64 40
+  store ptr %789, ptr %791, align 8, !tbaa !52
+  %.phi.trans.insert17.i929 = getelementptr inbounds nuw i8, ptr %790, i64 48
+  %.pre18.i930 = load i32, ptr %.phi.trans.insert17.i929, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit934
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit934:     ; preds = %._crit_edge.i931, %790
-  %797 = phi i32 [ %.pre18.i930, %790 ], [ %784, %._crit_edge.i931 ]
-  %798 = phi ptr [ %794, %790 ], [ %.pre.i933, %._crit_edge.i931 ]
-  %799 = sext i32 %797 to i64
-  %800 = getelementptr inbounds i8, ptr %798, i64 %799
-  %801 = sext i32 %782 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %800, ptr nonnull readonly align 1 %759, i64 %801, i1 false)
-  %802 = load ptr, ptr %2, align 8, !tbaa !45
-  %803 = getelementptr inbounds nuw i8, ptr %802, i64 48
-  %804 = load i32, ptr %803, align 8, !tbaa !52
-  %805 = add nsw i32 %804, %782
-  store i32 %805, ptr %803, align 8, !tbaa !52
-  %806 = load i64, ptr %64, align 8, !tbaa !43
-  %807 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %807, ptr %.2783, align 1, !tbaa !32
-  %808 = shl i64 %806, 32
-  %sext844 = add i64 %808, -4294967296
-  %809 = ashr exact i64 %sext844, 32
-  %810 = getelementptr inbounds i8, ptr %.1788, i64 %809
-  store ptr %810, ptr %58, align 8, !tbaa !29
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit934:     ; preds = %._crit_edge.i931, %785
+  %792 = phi i32 [ %.pre18.i930, %785 ], [ %779, %._crit_edge.i931 ]
+  %793 = phi ptr [ %789, %785 ], [ %.pre.i933, %._crit_edge.i931 ]
+  %794 = sext i32 %792 to i64
+  %795 = getelementptr inbounds i8, ptr %793, i64 %794
+  %796 = sext i32 %777 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %795, ptr nonnull readonly align 1 %754, i64 %796, i1 false)
+  %797 = load ptr, ptr %2, align 8, !tbaa !43
+  %798 = getelementptr inbounds nuw i8, ptr %797, i64 48
+  %799 = load i32, ptr %798, align 8, !tbaa !50
+  %800 = add nsw i32 %799, %777
+  store i32 %800, ptr %798, align 8, !tbaa !50
+  %801 = load i64, ptr %64, align 8, !tbaa !41
+  %802 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %802, ptr %.2783, align 1, !tbaa !32
+  %803 = shl i64 %801, 32
+  %sext844 = add i64 %803, -4294967296
+  %804 = ashr exact i64 %sext844, 32
+  %805 = getelementptr inbounds i8, ptr %.1788, i64 %804
+  store ptr %805, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 %809, ptr %64, align 8, !tbaa !43
-  %811 = load i8, ptr %810, align 1, !tbaa !32
-  store i8 %811, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %810, align 1, !tbaa !32
-  store ptr %810, ptr %58, align 8, !tbaa !29
+  store i64 %804, ptr %64, align 8, !tbaa !41
+  %806 = load i8, ptr %805, align 1, !tbaa !32
+  store i8 %806, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %805, align 1, !tbaa !32
+  store ptr %805, ptr %58, align 8, !tbaa !29
   br label %.loopexit.backedge
 
-812:                                              ; preds = %125
-  %813 = load ptr, ptr %63, align 8, !tbaa !30
-  %814 = load i64, ptr %64, align 8, !tbaa !43
-  %815 = trunc i64 %814 to i32
-  %816 = load ptr, ptr %2, align 8, !tbaa !45
-  %817 = getelementptr inbounds nuw i8, ptr %816, i64 48
-  %818 = load i32, ptr %817, align 8, !tbaa !52
-  %819 = add nsw i32 %818, %815
-  %820 = getelementptr inbounds nuw i8, ptr %816, i64 52
-  %821 = load i32, ptr %820, align 4, !tbaa !53
-  %.not.i935 = icmp slt i32 %819, %821
+807:                                              ; preds = %122
+  %808 = load ptr, ptr %63, align 8, !tbaa !30
+  %809 = load i64, ptr %64, align 8, !tbaa !41
+  %810 = trunc i64 %809 to i32
+  %811 = load ptr, ptr %2, align 8, !tbaa !43
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 48
+  %813 = load i32, ptr %812, align 8, !tbaa !50
+  %814 = add nsw i32 %813, %810
+  %815 = getelementptr inbounds nuw i8, ptr %811, i64 52
+  %816 = load i32, ptr %815, align 4, !tbaa !51
+  %.not.i935 = icmp slt i32 %814, %816
   br i1 %.not.i935, label %._crit_edge.i940, label %.preheader.i936
 
-._crit_edge.i940:                                 ; preds = %812
-  %.phi.trans.insert.i941 = getelementptr inbounds nuw i8, ptr %816, i64 40
-  %.pre.i942 = load ptr, ptr %.phi.trans.insert.i941, align 8, !tbaa !54
+._crit_edge.i940:                                 ; preds = %807
+  %.phi.trans.insert.i941 = getelementptr inbounds nuw i8, ptr %811, i64 40
+  %.pre.i942 = load ptr, ptr %.phi.trans.insert.i941, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit943
 
-.preheader.i936:                                  ; preds = %812, %.preheader.i936
-  %822 = phi i32 [ %823, %.preheader.i936 ], [ %821, %812 ]
-  %823 = shl nsw i32 %822, 1
-  %.not15.i937 = icmp slt i32 %819, %823
-  br i1 %.not15.i937, label %824, label %.preheader.i936, !llvm.loop !55
+.preheader.i936:                                  ; preds = %807, %.preheader.i936
+  %817 = phi i32 [ %818, %.preheader.i936 ], [ %816, %807 ]
+  %818 = shl nsw i32 %817, 1
+  %.not15.i937 = icmp slt i32 %814, %818
+  br i1 %.not15.i937, label %819, label %.preheader.i936, !llvm.loop !53
 
-824:                                              ; preds = %.preheader.i936
-  store i32 %823, ptr %820, align 4, !tbaa !53
-  %825 = getelementptr inbounds nuw i8, ptr %816, i64 40
-  %826 = load ptr, ptr %825, align 8, !tbaa !54
-  %827 = sext i32 %823 to i64
-  %828 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %826, i64 noundef %827)
-  %829 = load ptr, ptr %2, align 8, !tbaa !45
-  %830 = getelementptr inbounds nuw i8, ptr %829, i64 40
-  store ptr %828, ptr %830, align 8, !tbaa !54
-  %.phi.trans.insert17.i938 = getelementptr inbounds nuw i8, ptr %829, i64 48
-  %.pre18.i939 = load i32, ptr %.phi.trans.insert17.i938, align 8, !tbaa !52
+819:                                              ; preds = %.preheader.i936
+  store i32 %818, ptr %815, align 4, !tbaa !51
+  %820 = getelementptr inbounds nuw i8, ptr %811, i64 40
+  %821 = load ptr, ptr %820, align 8, !tbaa !52
+  %822 = sext i32 %818 to i64
+  %823 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %821, i64 noundef %822)
+  %824 = load ptr, ptr %2, align 8, !tbaa !43
+  %825 = getelementptr inbounds nuw i8, ptr %824, i64 40
+  store ptr %823, ptr %825, align 8, !tbaa !52
+  %.phi.trans.insert17.i938 = getelementptr inbounds nuw i8, ptr %824, i64 48
+  %.pre18.i939 = load i32, ptr %.phi.trans.insert17.i938, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit943
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit943:     ; preds = %._crit_edge.i940, %824
-  %831 = phi i32 [ %.pre18.i939, %824 ], [ %818, %._crit_edge.i940 ]
-  %832 = phi ptr [ %828, %824 ], [ %.pre.i942, %._crit_edge.i940 ]
-  %833 = sext i32 %831 to i64
-  %834 = getelementptr inbounds i8, ptr %832, i64 %833
-  %sext1050 = shl i64 %814, 32
-  %835 = ashr exact i64 %sext1050, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %834, ptr readonly align 1 %813, i64 %835, i1 false)
-  %836 = load ptr, ptr %2, align 8, !tbaa !45
-  %837 = getelementptr inbounds nuw i8, ptr %836, i64 48
-  %838 = load i32, ptr %837, align 8, !tbaa !52
-  %839 = add nsw i32 %838, %815
-  store i32 %839, ptr %837, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit943:     ; preds = %._crit_edge.i940, %819
+  %826 = phi i32 [ %.pre18.i939, %819 ], [ %813, %._crit_edge.i940 ]
+  %827 = phi ptr [ %823, %819 ], [ %.pre.i942, %._crit_edge.i940 ]
+  %828 = sext i32 %826 to i64
+  %829 = getelementptr inbounds i8, ptr %827, i64 %828
+  %sext1050 = shl i64 %809, 32
+  %830 = ashr exact i64 %sext1050, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %829, ptr readonly align 1 %808, i64 %830, i1 false)
+  %831 = load ptr, ptr %2, align 8, !tbaa !43
+  %832 = getelementptr inbounds nuw i8, ptr %831, i64 48
+  %833 = load i32, ptr %832, align 8, !tbaa !50
+  %834 = add nsw i32 %833, %810
+  store i32 %834, ptr %832, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-840:                                              ; preds = %125
-  %841 = load ptr, ptr %63, align 8, !tbaa !30
-  %842 = load i64, ptr %64, align 8, !tbaa !43
-  %843 = trunc i64 %842 to i32
-  %844 = load ptr, ptr %2, align 8, !tbaa !45
-  %845 = getelementptr inbounds nuw i8, ptr %844, i64 48
-  %846 = load i32, ptr %845, align 8, !tbaa !52
-  %847 = add nsw i32 %846, %843
-  %848 = getelementptr inbounds nuw i8, ptr %844, i64 52
-  %849 = load i32, ptr %848, align 4, !tbaa !53
-  %.not.i944 = icmp slt i32 %847, %849
+835:                                              ; preds = %122
+  %836 = load ptr, ptr %63, align 8, !tbaa !30
+  %837 = load i64, ptr %64, align 8, !tbaa !41
+  %838 = trunc i64 %837 to i32
+  %839 = load ptr, ptr %2, align 8, !tbaa !43
+  %840 = getelementptr inbounds nuw i8, ptr %839, i64 48
+  %841 = load i32, ptr %840, align 8, !tbaa !50
+  %842 = add nsw i32 %841, %838
+  %843 = getelementptr inbounds nuw i8, ptr %839, i64 52
+  %844 = load i32, ptr %843, align 4, !tbaa !51
+  %.not.i944 = icmp slt i32 %842, %844
   br i1 %.not.i944, label %._crit_edge.i949, label %.preheader.i945
 
-._crit_edge.i949:                                 ; preds = %840
-  %.phi.trans.insert.i950 = getelementptr inbounds nuw i8, ptr %844, i64 40
-  %.pre.i951 = load ptr, ptr %.phi.trans.insert.i950, align 8, !tbaa !54
+._crit_edge.i949:                                 ; preds = %835
+  %.phi.trans.insert.i950 = getelementptr inbounds nuw i8, ptr %839, i64 40
+  %.pre.i951 = load ptr, ptr %.phi.trans.insert.i950, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit952
 
-.preheader.i945:                                  ; preds = %840, %.preheader.i945
-  %850 = phi i32 [ %851, %.preheader.i945 ], [ %849, %840 ]
-  %851 = shl nsw i32 %850, 1
-  %.not15.i946 = icmp slt i32 %847, %851
-  br i1 %.not15.i946, label %852, label %.preheader.i945, !llvm.loop !55
+.preheader.i945:                                  ; preds = %835, %.preheader.i945
+  %845 = phi i32 [ %846, %.preheader.i945 ], [ %844, %835 ]
+  %846 = shl nsw i32 %845, 1
+  %.not15.i946 = icmp slt i32 %842, %846
+  br i1 %.not15.i946, label %847, label %.preheader.i945, !llvm.loop !53
 
-852:                                              ; preds = %.preheader.i945
-  store i32 %851, ptr %848, align 4, !tbaa !53
-  %853 = getelementptr inbounds nuw i8, ptr %844, i64 40
-  %854 = load ptr, ptr %853, align 8, !tbaa !54
-  %855 = sext i32 %851 to i64
-  %856 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %854, i64 noundef %855)
-  %857 = load ptr, ptr %2, align 8, !tbaa !45
-  %858 = getelementptr inbounds nuw i8, ptr %857, i64 40
-  store ptr %856, ptr %858, align 8, !tbaa !54
-  %.phi.trans.insert17.i947 = getelementptr inbounds nuw i8, ptr %857, i64 48
-  %.pre18.i948 = load i32, ptr %.phi.trans.insert17.i947, align 8, !tbaa !52
+847:                                              ; preds = %.preheader.i945
+  store i32 %846, ptr %843, align 4, !tbaa !51
+  %848 = getelementptr inbounds nuw i8, ptr %839, i64 40
+  %849 = load ptr, ptr %848, align 8, !tbaa !52
+  %850 = sext i32 %846 to i64
+  %851 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %849, i64 noundef %850)
+  %852 = load ptr, ptr %2, align 8, !tbaa !43
+  %853 = getelementptr inbounds nuw i8, ptr %852, i64 40
+  store ptr %851, ptr %853, align 8, !tbaa !52
+  %.phi.trans.insert17.i947 = getelementptr inbounds nuw i8, ptr %852, i64 48
+  %.pre18.i948 = load i32, ptr %.phi.trans.insert17.i947, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit952
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit952:     ; preds = %._crit_edge.i949, %852
-  %859 = phi i32 [ %.pre18.i948, %852 ], [ %846, %._crit_edge.i949 ]
-  %860 = phi ptr [ %856, %852 ], [ %.pre.i951, %._crit_edge.i949 ]
-  %861 = sext i32 %859 to i64
-  %862 = getelementptr inbounds i8, ptr %860, i64 %861
-  %sext1049 = shl i64 %842, 32
-  %863 = ashr exact i64 %sext1049, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %862, ptr readonly align 1 %841, i64 %863, i1 false)
-  %864 = load ptr, ptr %2, align 8, !tbaa !45
-  %865 = getelementptr inbounds nuw i8, ptr %864, i64 48
-  %866 = load i32, ptr %865, align 8, !tbaa !52
-  %867 = add nsw i32 %866, %843
-  store i32 %867, ptr %865, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit952:     ; preds = %._crit_edge.i949, %847
+  %854 = phi i32 [ %.pre18.i948, %847 ], [ %841, %._crit_edge.i949 ]
+  %855 = phi ptr [ %851, %847 ], [ %.pre.i951, %._crit_edge.i949 ]
+  %856 = sext i32 %854 to i64
+  %857 = getelementptr inbounds i8, ptr %855, i64 %856
+  %sext1049 = shl i64 %837, 32
+  %858 = ashr exact i64 %sext1049, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %857, ptr readonly align 1 %836, i64 %858, i1 false)
+  %859 = load ptr, ptr %2, align 8, !tbaa !43
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 48
+  %861 = load i32, ptr %860, align 8, !tbaa !50
+  %862 = add nsw i32 %861, %838
+  store i32 %862, ptr %860, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-868:                                              ; preds = %125
-  %869 = load ptr, ptr %63, align 8, !tbaa !30
-  %870 = load i8, ptr %869, align 1, !tbaa !32
-  %871 = load ptr, ptr %2, align 8, !tbaa !45
-  %872 = getelementptr inbounds nuw i8, ptr %871, i64 48
-  %873 = load i32, ptr %872, align 8, !tbaa !52
-  %874 = add nsw i32 %873, 1
-  %875 = getelementptr inbounds nuw i8, ptr %871, i64 52
-  %876 = load i32, ptr %875, align 4, !tbaa !53
-  %.not.i953 = icmp slt i32 %874, %876
-  br i1 %.not.i953, label %._crit_edge.i956, label %877
+863:                                              ; preds = %122
+  %864 = load ptr, ptr %63, align 8, !tbaa !30
+  %865 = load i8, ptr %864, align 1, !tbaa !32
+  %866 = load ptr, ptr %2, align 8, !tbaa !43
+  %867 = getelementptr inbounds nuw i8, ptr %866, i64 48
+  %868 = load i32, ptr %867, align 8, !tbaa !50
+  %869 = add nsw i32 %868, 1
+  %870 = getelementptr inbounds nuw i8, ptr %866, i64 52
+  %871 = load i32, ptr %870, align 4, !tbaa !51
+  %.not.i953 = icmp slt i32 %869, %871
+  br i1 %.not.i953, label %._crit_edge.i956, label %872
 
-._crit_edge.i956:                                 ; preds = %868
-  %.phi.trans.insert.i957 = getelementptr inbounds nuw i8, ptr %871, i64 40
-  %.pre.i958 = load ptr, ptr %.phi.trans.insert.i957, align 8, !tbaa !54
+._crit_edge.i956:                                 ; preds = %863
+  %.phi.trans.insert.i957 = getelementptr inbounds nuw i8, ptr %866, i64 40
+  %.pre.i958 = load ptr, ptr %.phi.trans.insert.i957, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959
 
-877:                                              ; preds = %868
-  %878 = shl nsw i32 %876, 1
-  store i32 %878, ptr %875, align 4, !tbaa !53
-  %879 = getelementptr inbounds nuw i8, ptr %871, i64 40
-  %880 = load ptr, ptr %879, align 8, !tbaa !54
-  %881 = sext i32 %878 to i64
-  %882 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %880, i64 noundef %881)
-  %883 = load ptr, ptr %2, align 8, !tbaa !45
-  %884 = getelementptr inbounds nuw i8, ptr %883, i64 40
-  store ptr %882, ptr %884, align 8, !tbaa !54
-  %.phi.trans.insert9.i954 = getelementptr inbounds nuw i8, ptr %883, i64 48
-  %.pre10.i955 = load i32, ptr %.phi.trans.insert9.i954, align 8, !tbaa !52
+872:                                              ; preds = %863
+  %873 = shl nsw i32 %871, 1
+  store i32 %873, ptr %870, align 4, !tbaa !51
+  %874 = getelementptr inbounds nuw i8, ptr %866, i64 40
+  %875 = load ptr, ptr %874, align 8, !tbaa !52
+  %876 = sext i32 %873 to i64
+  %877 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %875, i64 noundef %876)
+  %878 = load ptr, ptr %2, align 8, !tbaa !43
+  %879 = getelementptr inbounds nuw i8, ptr %878, i64 40
+  store ptr %877, ptr %879, align 8, !tbaa !52
+  %.phi.trans.insert9.i954 = getelementptr inbounds nuw i8, ptr %878, i64 48
+  %.pre10.i955 = load i32, ptr %.phi.trans.insert9.i954, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959:  ; preds = %._crit_edge.i956, %877
-  %885 = phi i32 [ %.pre10.i955, %877 ], [ %873, %._crit_edge.i956 ]
-  %886 = phi ptr [ %882, %877 ], [ %.pre.i958, %._crit_edge.i956 ]
-  %887 = sext i32 %885 to i64
-  %888 = getelementptr inbounds i8, ptr %886, i64 %887
-  store i8 %870, ptr %888, align 1, !tbaa !32
-  %889 = load ptr, ptr %2, align 8, !tbaa !45
-  %890 = getelementptr inbounds nuw i8, ptr %889, i64 48
-  %891 = load i32, ptr %890, align 8, !tbaa !52
-  %892 = add nsw i32 %891, 1
-  store i32 %892, ptr %890, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959:  ; preds = %._crit_edge.i956, %872
+  %880 = phi i32 [ %.pre10.i955, %872 ], [ %868, %._crit_edge.i956 ]
+  %881 = phi ptr [ %877, %872 ], [ %.pre.i958, %._crit_edge.i956 ]
+  %882 = sext i32 %880 to i64
+  %883 = getelementptr inbounds i8, ptr %881, i64 %882
+  store i8 %865, ptr %883, align 1, !tbaa !32
+  %884 = load ptr, ptr %2, align 8, !tbaa !43
+  %885 = getelementptr inbounds nuw i8, ptr %884, i64 48
+  %886 = load i32, ptr %885, align 8, !tbaa !50
+  %887 = add nsw i32 %886, 1
+  store i32 %887, ptr %885, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-893:                                              ; preds = %125
+888:                                              ; preds = %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.12, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-894:                                              ; preds = %125
-  %895 = load ptr, ptr %63, align 8, !tbaa !30
-  %896 = load ptr, ptr %2, align 8, !tbaa !45
-  %897 = load ptr, ptr %896, align 8, !tbaa !46
-  %898 = ptrtoint ptr %895 to i64
-  %899 = ptrtoint ptr %897 to i64
-  %900 = sub i64 %898, %899
-  %901 = trunc i64 %900 to i32
-  %902 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %901, ptr %902, align 4, !tbaa !50
+889:                                              ; preds = %122
+  %890 = load ptr, ptr %63, align 8, !tbaa !30
+  %891 = load ptr, ptr %2, align 8, !tbaa !43
+  %892 = load ptr, ptr %891, align 8, !tbaa !44
+  %893 = ptrtoint ptr %890 to i64
+  %894 = ptrtoint ptr %892 to i64
+  %895 = sub i64 %893, %894
+  %896 = trunc i64 %895 to i32
+  %897 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %896, ptr %897, align 4, !tbaa !48
   store i32 7, ptr %60, align 4, !tbaa !18
-  %903 = getelementptr inbounds nuw i8, ptr %896, i64 48
-  store i32 0, ptr %903, align 8, !tbaa !52
+  %898 = getelementptr inbounds nuw i8, ptr %891, i64 48
+  store i32 0, ptr %898, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-904:                                              ; preds = %125
-  %905 = load ptr, ptr %63, align 8, !tbaa !30
-  %906 = load ptr, ptr %2, align 8, !tbaa !45
-  %907 = load ptr, ptr %906, align 8, !tbaa !46
-  %908 = ptrtoint ptr %905 to i64
-  %909 = ptrtoint ptr %907 to i64
-  %910 = sub i64 %908, %909
-  %911 = trunc i64 %910 to i32
-  %912 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %911, ptr %912, align 4, !tbaa !50
+899:                                              ; preds = %122
+  %900 = load ptr, ptr %63, align 8, !tbaa !30
+  %901 = load ptr, ptr %2, align 8, !tbaa !43
+  %902 = load ptr, ptr %901, align 8, !tbaa !44
+  %903 = ptrtoint ptr %900 to i64
+  %904 = ptrtoint ptr %902 to i64
+  %905 = sub i64 %903, %904
+  %906 = trunc i64 %905 to i32
+  %907 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %906, ptr %907, align 4, !tbaa !48
   store i32 17, ptr %60, align 4, !tbaa !18
-  %913 = getelementptr inbounds nuw i8, ptr %906, i64 48
-  store i32 0, ptr %913, align 8, !tbaa !52
+  %908 = getelementptr inbounds nuw i8, ptr %901, i64 48
+  store i32 0, ptr %908, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-914:                                              ; preds = %125
+909:                                              ; preds = %122
   store i32 1, ptr %60, align 4, !tbaa !18
-  %915 = load ptr, ptr %2, align 8, !tbaa !45
-  %916 = getelementptr inbounds nuw i8, ptr %915, i64 48
-  %917 = load i32, ptr %916, align 8, !tbaa !52
-  %918 = icmp eq i32 %917, 0
-  br i1 %918, label %919, label %920
+  %910 = load ptr, ptr %2, align 8, !tbaa !43
+  %911 = getelementptr inbounds nuw i8, ptr %910, i64 48
+  %912 = load i32, ptr %911, align 8, !tbaa !50
+  %913 = icmp eq i32 %912, 0
+  br i1 %913, label %914, label %915
 
-919:                                              ; preds = %914
+914:                                              ; preds = %909
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.13, ptr noundef nonnull %2)
-  %.pre1824 = load ptr, ptr %2, align 8, !tbaa !45
+  %.pre1824 = load ptr, ptr %2, align 8, !tbaa !43
   %.phi.trans.insert1825 = getelementptr inbounds nuw i8, ptr %.pre1824, i64 48
-  %.pre1826 = load i32, ptr %.phi.trans.insert1825, align 8, !tbaa !52
-  br label %920
+  %.pre1826 = load i32, ptr %.phi.trans.insert1825, align 8, !tbaa !50
+  br label %915
 
-920:                                              ; preds = %919, %914
-  %921 = phi i32 [ %.pre1826, %919 ], [ %917, %914 ]
-  %922 = add nsw i32 %921, 1
-  %923 = sext i32 %922 to i64
-  %924 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %923)
-  %925 = load ptr, ptr %2, align 8, !tbaa !45
-  %926 = getelementptr inbounds nuw i8, ptr %925, i64 40
-  %927 = load ptr, ptr %926, align 8, !tbaa !54
-  %928 = sext i32 %921 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %924, ptr align 1 %927, i64 %928, i1 false)
-  %929 = getelementptr inbounds i8, ptr %924, i64 %928
-  store i8 0, ptr %929, align 1, !tbaa !32
-  %930 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %924, ptr %930, align 8, !tbaa !32
-  br label %1822
+915:                                              ; preds = %914, %909
+  %916 = phi i32 [ %.pre1826, %914 ], [ %912, %909 ]
+  %917 = add nsw i32 %916, 1
+  %918 = sext i32 %917 to i64
+  %919 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %918)
+  %920 = load ptr, ptr %2, align 8, !tbaa !43
+  %921 = getelementptr inbounds nuw i8, ptr %920, i64 40
+  %922 = load ptr, ptr %921, align 8, !tbaa !52
+  %923 = sext i32 %916 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %919, ptr align 1 %922, i64 %923, i1 false)
+  %924 = getelementptr inbounds i8, ptr %919, i64 %923
+  store i8 0, ptr %924, align 1, !tbaa !32
+  %925 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %919, ptr %925, align 8, !tbaa !32
+  br label %1819
 
-931:                                              ; preds = %125
-  %932 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %932, ptr %.2783, align 1, !tbaa !32
-  %933 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %933, ptr %58, align 8, !tbaa !29
+926:                                              ; preds = %122
+  %927 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %927, ptr %.2783, align 1, !tbaa !32
+  %928 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %928, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %934 = load i8, ptr %933, align 1, !tbaa !32
-  store i8 %934, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %933, align 1, !tbaa !32
-  store ptr %933, ptr %58, align 8, !tbaa !29
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %929 = load i8, ptr %928, align 1, !tbaa !32
+  store i8 %929, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %928, align 1, !tbaa !32
+  store ptr %928, ptr %58, align 8, !tbaa !29
   store i32 19, ptr %60, align 4, !tbaa !18
   br label %.loopexit.backedge
 
-935:                                              ; preds = %125, %125, %125
-  %936 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %936, ptr %.2783, align 1, !tbaa !32
+930:                                              ; preds = %122, %122, %122
+  %931 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %931, ptr %.2783, align 1, !tbaa !32
   store ptr %.1788, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 0, ptr %64, align 8, !tbaa !43
-  %937 = load i8, ptr %.1788, align 1, !tbaa !32
-  store i8 %937, ptr %59, align 8, !tbaa !33
+  store i64 0, ptr %64, align 8, !tbaa !41
+  %932 = load i8, ptr %.1788, align 1, !tbaa !32
+  store i8 %932, ptr %59, align 8, !tbaa !33
   store i8 0, ptr %.1788, align 1, !tbaa !32
   store ptr %.1788, ptr %58, align 8, !tbaa !29
   store i32 1, ptr %60, align 4, !tbaa !18
-  %938 = load ptr, ptr %2, align 8, !tbaa !45
-  %939 = getelementptr inbounds nuw i8, ptr %938, i64 48
-  %940 = load i32, ptr %939, align 8, !tbaa !52
-  %941 = icmp eq i32 %940, 0
-  br i1 %941, label %942, label %943
+  %933 = load ptr, ptr %2, align 8, !tbaa !43
+  %934 = getelementptr inbounds nuw i8, ptr %933, i64 48
+  %935 = load i32, ptr %934, align 8, !tbaa !50
+  %936 = icmp eq i32 %935, 0
+  br i1 %936, label %937, label %938
 
-942:                                              ; preds = %935
+937:                                              ; preds = %930
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.13, ptr noundef nonnull %2)
-  br label %943
+  br label %938
 
-943:                                              ; preds = %942, %935
-  %944 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext 92, ptr noundef nonnull %2)
-  %945 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %944, ptr %945, align 8, !tbaa !32
-  br label %1822
+938:                                              ; preds = %937, %930
+  %939 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext 92, ptr noundef nonnull %2)
+  %940 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %939, ptr %940, align 8, !tbaa !32
+  br label %1819
 
-946:                                              ; preds = %125
+941:                                              ; preds = %122
   store i32 1, ptr %60, align 4, !tbaa !18
-  %947 = load ptr, ptr %2, align 8, !tbaa !45
-  %948 = getelementptr inbounds nuw i8, ptr %947, i64 48
-  %949 = load i32, ptr %948, align 8, !tbaa !52
-  %950 = icmp eq i32 %949, 0
-  br i1 %950, label %951, label %952
+  %942 = load ptr, ptr %2, align 8, !tbaa !43
+  %943 = getelementptr inbounds nuw i8, ptr %942, i64 48
+  %944 = load i32, ptr %943, align 8, !tbaa !50
+  %945 = icmp eq i32 %944, 0
+  br i1 %945, label %946, label %947
 
-951:                                              ; preds = %946
+946:                                              ; preds = %941
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.13, ptr noundef nonnull %2)
-  br label %952
+  br label %947
 
-952:                                              ; preds = %951, %946
-  %953 = load ptr, ptr %63, align 8, !tbaa !30
-  %954 = load i64, ptr %64, align 8, !tbaa !43
-  %955 = getelementptr i8, ptr %953, i64 %954
-  %956 = getelementptr i8, ptr %955, i64 -2
-  %957 = load i8, ptr %956, align 1, !tbaa !32
-  %958 = tail call ptr @__ctype_b_loc() #21
-  %959 = load ptr, ptr %958, align 8, !tbaa !66
-  %960 = zext i8 %957 to i64
-  %961 = getelementptr inbounds nuw i16, ptr %959, i64 %960
-  %962 = load i16, ptr %961, align 2, !tbaa !36
-  %.fr13.i960 = freeze i16 %962
-  %963 = and i16 %.fr13.i960, 4096
-  %.not.i961 = icmp eq i16 %963, 0
+947:                                              ; preds = %946, %941
+  %948 = load ptr, ptr %63, align 8, !tbaa !30
+  %949 = load i64, ptr %64, align 8, !tbaa !41
+  %950 = getelementptr i8, ptr %948, i64 %949
+  %951 = getelementptr i8, ptr %950, i64 -2
+  %952 = load i8, ptr %951, align 1, !tbaa !32
+  %953 = tail call ptr @__ctype_b_loc() #21
+  %954 = load ptr, ptr %953, align 8, !tbaa !64
+  %955 = zext i8 %952 to i64
+  %956 = getelementptr inbounds nuw i16, ptr %954, i64 %955
+  %957 = load i16, ptr %956, align 2, !tbaa !34
+  %.fr13.i960 = freeze i16 %957
+  %958 = and i16 %.fr13.i960, 4096
+  %.not.i961 = icmp eq i16 %958, 0
   br i1 %.not.i961, label %switch.early.test.i963, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
 
-switch.early.test.i963:                           ; preds = %952
-  switch i8 %957, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965 [
+switch.early.test.i963:                           ; preds = %947
+  switch i8 %952, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965 [
     i8 43, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
     i8 39, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
     i8 34, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
   ]
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965: ; preds = %switch.early.test.i963
-  %964 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery15scanner_isspaceEc(i8 noundef signext %957)
-  br i1 %964, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge, label %976
+  %959 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery15scanner_isspaceEc(i8 noundef signext %952)
+  br i1 %959, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge, label %971
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965
   %.pre1822 = load ptr, ptr %63, align 8, !tbaa !30
-  %.pre1823 = load i64, ptr %64, align 8, !tbaa !43
+  %.pre1823 = load i64, ptr %64, align 8, !tbaa !41
   br label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
 
-_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge, %952, %switch.early.test.i963, %switch.early.test.i963, %switch.early.test.i963
-  %965 = phi i64 [ %.pre1823, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %954, %952 ], [ %954, %switch.early.test.i963 ], [ %954, %switch.early.test.i963 ], [ %954, %switch.early.test.i963 ]
-  %966 = phi ptr [ %.pre1822, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %953, %952 ], [ %953, %switch.early.test.i963 ], [ %953, %switch.early.test.i963 ], [ %953, %switch.early.test.i963 ]
-  %967 = load ptr, ptr %2, align 8, !tbaa !45
-  %968 = load ptr, ptr %967, align 8, !tbaa !46
-  %969 = ptrtoint ptr %966 to i64
-  %970 = ptrtoint ptr %968 to i64
-  %971 = sub i64 %969, %970
-  %972 = load ptr, ptr %5, align 8, !tbaa !16
-  %973 = add i64 %971, 4294967294
-  %974 = add i64 %973, %965
-  %975 = trunc i64 %974 to i32
-  store i32 %975, ptr %972, align 4, !tbaa !50
+_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge, %947, %switch.early.test.i963, %switch.early.test.i963, %switch.early.test.i963
+  %960 = phi i64 [ %.pre1823, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %949, %947 ], [ %949, %switch.early.test.i963 ], [ %949, %switch.early.test.i963 ], [ %949, %switch.early.test.i963 ]
+  %961 = phi ptr [ %.pre1822, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %948, %947 ], [ %948, %switch.early.test.i963 ], [ %948, %switch.early.test.i963 ], [ %948, %switch.early.test.i963 ]
+  %962 = load ptr, ptr %2, align 8, !tbaa !43
+  %963 = load ptr, ptr %962, align 8, !tbaa !44
+  %964 = ptrtoint ptr %961 to i64
+  %965 = ptrtoint ptr %963 to i64
+  %966 = sub i64 %964, %965
+  %967 = load ptr, ptr %5, align 8, !tbaa !16
+  %968 = add i64 %966, 4294967294
+  %969 = add i64 %968, %960
+  %970 = trunc i64 %969 to i32
+  store i32 %970, ptr %967, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.7, ptr noundef nonnull %2)
-  br label %976
+  br label %971
 
-976:                                              ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965
-  %977 = load ptr, ptr %63, align 8, !tbaa !30
-  %978 = load i64, ptr %64, align 8, !tbaa !43
-  %979 = getelementptr i8, ptr %977, i64 %978
-  %980 = getelementptr i8, ptr %979, i64 -2
-  %981 = load i8, ptr %980, align 1, !tbaa !32
-  %982 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext %981, ptr noundef nonnull %2)
-  %983 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %982, ptr %983, align 8, !tbaa !32
-  br label %1822
+971:                                              ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965
+  %972 = load ptr, ptr %63, align 8, !tbaa !30
+  %973 = load i64, ptr %64, align 8, !tbaa !41
+  %974 = getelementptr i8, ptr %972, i64 %973
+  %975 = getelementptr i8, ptr %974, i64 -2
+  %976 = load i8, ptr %975, align 1, !tbaa !32
+  %977 = tail call fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext %976, ptr noundef nonnull %2)
+  %978 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %977, ptr %978, align 8, !tbaa !32
+  br label %1819
 
-984:                                              ; preds = %125
-  %985 = load ptr, ptr %2, align 8, !tbaa !45
-  %986 = getelementptr inbounds nuw i8, ptr %985, i64 48
-  %987 = load i32, ptr %986, align 8, !tbaa !52
-  %988 = add nsw i32 %987, 1
-  %989 = getelementptr inbounds nuw i8, ptr %985, i64 52
-  %990 = load i32, ptr %989, align 4, !tbaa !53
-  %.not.i966 = icmp slt i32 %988, %990
-  br i1 %.not.i966, label %._crit_edge.i969, label %991
+979:                                              ; preds = %122
+  %980 = load ptr, ptr %2, align 8, !tbaa !43
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 48
+  %982 = load i32, ptr %981, align 8, !tbaa !50
+  %983 = add nsw i32 %982, 1
+  %984 = getelementptr inbounds nuw i8, ptr %980, i64 52
+  %985 = load i32, ptr %984, align 4, !tbaa !51
+  %.not.i966 = icmp slt i32 %983, %985
+  br i1 %.not.i966, label %._crit_edge.i969, label %986
 
-._crit_edge.i969:                                 ; preds = %984
-  %.phi.trans.insert.i970 = getelementptr inbounds nuw i8, ptr %985, i64 40
-  %.pre.i971 = load ptr, ptr %.phi.trans.insert.i970, align 8, !tbaa !54
+._crit_edge.i969:                                 ; preds = %979
+  %.phi.trans.insert.i970 = getelementptr inbounds nuw i8, ptr %980, i64 40
+  %.pre.i971 = load ptr, ptr %.phi.trans.insert.i970, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit972
 
-991:                                              ; preds = %984
-  %992 = shl nsw i32 %990, 1
-  store i32 %992, ptr %989, align 4, !tbaa !53
-  %993 = getelementptr inbounds nuw i8, ptr %985, i64 40
-  %994 = load ptr, ptr %993, align 8, !tbaa !54
-  %995 = sext i32 %992 to i64
-  %996 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %994, i64 noundef %995)
-  %997 = load ptr, ptr %2, align 8, !tbaa !45
-  %998 = getelementptr inbounds nuw i8, ptr %997, i64 40
-  store ptr %996, ptr %998, align 8, !tbaa !54
-  %.phi.trans.insert9.i967 = getelementptr inbounds nuw i8, ptr %997, i64 48
-  %.pre10.i968 = load i32, ptr %.phi.trans.insert9.i967, align 8, !tbaa !52
+986:                                              ; preds = %979
+  %987 = shl nsw i32 %985, 1
+  store i32 %987, ptr %984, align 4, !tbaa !51
+  %988 = getelementptr inbounds nuw i8, ptr %980, i64 40
+  %989 = load ptr, ptr %988, align 8, !tbaa !52
+  %990 = sext i32 %987 to i64
+  %991 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %989, i64 noundef %990)
+  %992 = load ptr, ptr %2, align 8, !tbaa !43
+  %993 = getelementptr inbounds nuw i8, ptr %992, i64 40
+  store ptr %991, ptr %993, align 8, !tbaa !52
+  %.phi.trans.insert9.i967 = getelementptr inbounds nuw i8, ptr %992, i64 48
+  %.pre10.i968 = load i32, ptr %.phi.trans.insert9.i967, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit972
 
-_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit972:  ; preds = %._crit_edge.i969, %991
-  %999 = phi i32 [ %.pre10.i968, %991 ], [ %987, %._crit_edge.i969 ]
-  %1000 = phi ptr [ %996, %991 ], [ %.pre.i971, %._crit_edge.i969 ]
-  %1001 = sext i32 %999 to i64
-  %1002 = getelementptr inbounds i8, ptr %1000, i64 %1001
-  store i8 34, ptr %1002, align 1, !tbaa !32
-  %1003 = load ptr, ptr %2, align 8, !tbaa !45
-  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 48
-  %1005 = load i32, ptr %1004, align 8, !tbaa !52
-  %1006 = add nsw i32 %1005, 1
-  store i32 %1006, ptr %1004, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL10addlitcharEhPv.exit972:  ; preds = %._crit_edge.i969, %986
+  %994 = phi i32 [ %.pre10.i968, %986 ], [ %982, %._crit_edge.i969 ]
+  %995 = phi ptr [ %991, %986 ], [ %.pre.i971, %._crit_edge.i969 ]
+  %996 = sext i32 %994 to i64
+  %997 = getelementptr inbounds i8, ptr %995, i64 %996
+  store i8 34, ptr %997, align 1, !tbaa !32
+  %998 = load ptr, ptr %2, align 8, !tbaa !43
+  %999 = getelementptr inbounds nuw i8, ptr %998, i64 48
+  %1000 = load i32, ptr %999, align 8, !tbaa !50
+  %1001 = add nsw i32 %1000, 1
+  store i32 %1001, ptr %999, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-1007:                                             ; preds = %125
-  %1008 = load ptr, ptr %63, align 8, !tbaa !30
-  %1009 = load i64, ptr %64, align 8, !tbaa !43
-  %1010 = trunc i64 %1009 to i32
-  %1011 = load ptr, ptr %2, align 8, !tbaa !45
-  %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 48
-  %1013 = load i32, ptr %1012, align 8, !tbaa !52
-  %1014 = add nsw i32 %1013, %1010
-  %1015 = getelementptr inbounds nuw i8, ptr %1011, i64 52
-  %1016 = load i32, ptr %1015, align 4, !tbaa !53
-  %.not.i973 = icmp slt i32 %1014, %1016
+1002:                                             ; preds = %122
+  %1003 = load ptr, ptr %63, align 8, !tbaa !30
+  %1004 = load i64, ptr %64, align 8, !tbaa !41
+  %1005 = trunc i64 %1004 to i32
+  %1006 = load ptr, ptr %2, align 8, !tbaa !43
+  %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 48
+  %1008 = load i32, ptr %1007, align 8, !tbaa !50
+  %1009 = add nsw i32 %1008, %1005
+  %1010 = getelementptr inbounds nuw i8, ptr %1006, i64 52
+  %1011 = load i32, ptr %1010, align 4, !tbaa !51
+  %.not.i973 = icmp slt i32 %1009, %1011
   br i1 %.not.i973, label %._crit_edge.i978, label %.preheader.i974
 
-._crit_edge.i978:                                 ; preds = %1007
-  %.phi.trans.insert.i979 = getelementptr inbounds nuw i8, ptr %1011, i64 40
-  %.pre.i980 = load ptr, ptr %.phi.trans.insert.i979, align 8, !tbaa !54
+._crit_edge.i978:                                 ; preds = %1002
+  %.phi.trans.insert.i979 = getelementptr inbounds nuw i8, ptr %1006, i64 40
+  %.pre.i980 = load ptr, ptr %.phi.trans.insert.i979, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit981
 
-.preheader.i974:                                  ; preds = %1007, %.preheader.i974
-  %1017 = phi i32 [ %1018, %.preheader.i974 ], [ %1016, %1007 ]
-  %1018 = shl nsw i32 %1017, 1
-  %.not15.i975 = icmp slt i32 %1014, %1018
-  br i1 %.not15.i975, label %1019, label %.preheader.i974, !llvm.loop !55
+.preheader.i974:                                  ; preds = %1002, %.preheader.i974
+  %1012 = phi i32 [ %1013, %.preheader.i974 ], [ %1011, %1002 ]
+  %1013 = shl nsw i32 %1012, 1
+  %.not15.i975 = icmp slt i32 %1009, %1013
+  br i1 %.not15.i975, label %1014, label %.preheader.i974, !llvm.loop !53
 
-1019:                                             ; preds = %.preheader.i974
-  store i32 %1018, ptr %1015, align 4, !tbaa !53
-  %1020 = getelementptr inbounds nuw i8, ptr %1011, i64 40
-  %1021 = load ptr, ptr %1020, align 8, !tbaa !54
-  %1022 = sext i32 %1018 to i64
-  %1023 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %1021, i64 noundef %1022)
-  %1024 = load ptr, ptr %2, align 8, !tbaa !45
-  %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 40
-  store ptr %1023, ptr %1025, align 8, !tbaa !54
-  %.phi.trans.insert17.i976 = getelementptr inbounds nuw i8, ptr %1024, i64 48
-  %.pre18.i977 = load i32, ptr %.phi.trans.insert17.i976, align 8, !tbaa !52
+1014:                                             ; preds = %.preheader.i974
+  store i32 %1013, ptr %1010, align 4, !tbaa !51
+  %1015 = getelementptr inbounds nuw i8, ptr %1006, i64 40
+  %1016 = load ptr, ptr %1015, align 8, !tbaa !52
+  %1017 = sext i32 %1013 to i64
+  %1018 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %1016, i64 noundef %1017)
+  %1019 = load ptr, ptr %2, align 8, !tbaa !43
+  %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 40
+  store ptr %1018, ptr %1020, align 8, !tbaa !52
+  %.phi.trans.insert17.i976 = getelementptr inbounds nuw i8, ptr %1019, i64 48
+  %.pre18.i977 = load i32, ptr %.phi.trans.insert17.i976, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit981
 
-_ZN17duckdb_libpgqueryL6addlitEPciPv.exit981:     ; preds = %._crit_edge.i978, %1019
-  %1026 = phi i32 [ %.pre18.i977, %1019 ], [ %1013, %._crit_edge.i978 ]
-  %1027 = phi ptr [ %1023, %1019 ], [ %.pre.i980, %._crit_edge.i978 ]
-  %1028 = sext i32 %1026 to i64
-  %1029 = getelementptr inbounds i8, ptr %1027, i64 %1028
-  %sext1048 = shl i64 %1009, 32
-  %1030 = ashr exact i64 %sext1048, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1029, ptr readonly align 1 %1008, i64 %1030, i1 false)
-  %1031 = load ptr, ptr %2, align 8, !tbaa !45
-  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 48
-  %1033 = load i32, ptr %1032, align 8, !tbaa !52
-  %1034 = add nsw i32 %1033, %1010
-  store i32 %1034, ptr %1032, align 8, !tbaa !52
+_ZN17duckdb_libpgqueryL6addlitEPciPv.exit981:     ; preds = %._crit_edge.i978, %1014
+  %1021 = phi i32 [ %.pre18.i977, %1014 ], [ %1008, %._crit_edge.i978 ]
+  %1022 = phi ptr [ %1018, %1014 ], [ %.pre.i980, %._crit_edge.i978 ]
+  %1023 = sext i32 %1021 to i64
+  %1024 = getelementptr inbounds i8, ptr %1022, i64 %1023
+  %sext1048 = shl i64 %1004, 32
+  %1025 = ashr exact i64 %sext1048, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1024, ptr readonly align 1 %1003, i64 %1025, i1 false)
+  %1026 = load ptr, ptr %2, align 8, !tbaa !43
+  %1027 = getelementptr inbounds nuw i8, ptr %1026, i64 48
+  %1028 = load i32, ptr %1027, align 8, !tbaa !50
+  %1029 = add nsw i32 %1028, %1005
+  store i32 %1029, ptr %1027, align 8, !tbaa !50
   br label %.loopexit.backedge
 
-1035:                                             ; preds = %125, %125
+1030:                                             ; preds = %122, %122
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.14, ptr noundef nonnull %2)
   br label %.loopexit.backedge
 
-1036:                                             ; preds = %125
-  %1037 = load ptr, ptr %63, align 8, !tbaa !30
-  %1038 = load ptr, ptr %2, align 8, !tbaa !45
-  %1039 = load ptr, ptr %1038, align 8, !tbaa !46
-  %1040 = ptrtoint ptr %1037 to i64
-  %1041 = ptrtoint ptr %1039 to i64
-  %1042 = sub i64 %1040, %1041
-  %1043 = trunc i64 %1042 to i32
-  %1044 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1043, ptr %1044, align 4, !tbaa !50
-  %1045 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1045, ptr %.2783, align 1, !tbaa !32
-  %1046 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
-  store ptr %1046, ptr %58, align 8, !tbaa !29
+1031:                                             ; preds = %122
+  %1032 = load ptr, ptr %63, align 8, !tbaa !30
+  %1033 = load ptr, ptr %2, align 8, !tbaa !43
+  %1034 = load ptr, ptr %1033, align 8, !tbaa !44
+  %1035 = ptrtoint ptr %1032 to i64
+  %1036 = ptrtoint ptr %1034 to i64
+  %1037 = sub i64 %1035, %1036
+  %1038 = trunc i64 %1037 to i32
+  %1039 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1038, ptr %1039, align 4, !tbaa !48
+  %1040 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1040, ptr %.2783, align 1, !tbaa !32
+  %1041 = getelementptr inbounds nuw i8, ptr %.1788, i64 1
+  store ptr %1041, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 1, ptr %64, align 8, !tbaa !43
-  %1047 = load i8, ptr %1046, align 1, !tbaa !32
-  store i8 %1047, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %1046, align 1, !tbaa !32
-  store ptr %1046, ptr %58, align 8, !tbaa !29
-  %1048 = load ptr, ptr %63, align 8, !tbaa !30
-  %1049 = load i64, ptr %64, align 8, !tbaa !43
-  %1050 = trunc i64 %1049 to i32
-  %1051 = tail call noundef ptr @_ZN17duckdb_libpgquery28downcase_truncate_identifierEPKcib(ptr noundef %1048, i32 noundef %1050, i1 noundef zeroext true)
-  %1052 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1051, ptr %1052, align 8, !tbaa !32
-  br label %1822
+  store i64 1, ptr %64, align 8, !tbaa !41
+  %1042 = load i8, ptr %1041, align 1, !tbaa !32
+  store i8 %1042, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %1041, align 1, !tbaa !32
+  store ptr %1041, ptr %58, align 8, !tbaa !29
+  %1043 = load ptr, ptr %63, align 8, !tbaa !30
+  %1044 = load i64, ptr %64, align 8, !tbaa !41
+  %1045 = trunc i64 %1044 to i32
+  %1046 = tail call noundef ptr @_ZN17duckdb_libpgquery28downcase_truncate_identifierEPKcib(ptr noundef %1043, i32 noundef %1045, i1 noundef zeroext true)
+  %1047 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1046, ptr %1047, align 8, !tbaa !32
+  br label %1819
 
-1053:                                             ; preds = %125
-  %1054 = load ptr, ptr %63, align 8, !tbaa !30
-  %1055 = load ptr, ptr %2, align 8, !tbaa !45
-  %1056 = load ptr, ptr %1055, align 8, !tbaa !46
-  %1057 = ptrtoint ptr %1054 to i64
-  %1058 = ptrtoint ptr %1056 to i64
-  %1059 = sub i64 %1057, %1058
-  %1060 = trunc i64 %1059 to i32
-  %1061 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1060, ptr %1061, align 4, !tbaa !50
-  br label %1822
+1048:                                             ; preds = %122
+  %1049 = load ptr, ptr %63, align 8, !tbaa !30
+  %1050 = load ptr, ptr %2, align 8, !tbaa !43
+  %1051 = load ptr, ptr %1050, align 8, !tbaa !44
+  %1052 = ptrtoint ptr %1049 to i64
+  %1053 = ptrtoint ptr %1051 to i64
+  %1054 = sub i64 %1052, %1053
+  %1055 = trunc i64 %1054 to i32
+  %1056 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1055, ptr %1056, align 4, !tbaa !48
+  br label %1819
 
-1062:                                             ; preds = %125
-  %1063 = load ptr, ptr %63, align 8, !tbaa !30
-  %1064 = load ptr, ptr %2, align 8, !tbaa !45
-  %1065 = load ptr, ptr %1064, align 8, !tbaa !46
-  %1066 = ptrtoint ptr %1063 to i64
-  %1067 = ptrtoint ptr %1065 to i64
-  %1068 = sub i64 %1066, %1067
-  %1069 = trunc i64 %1068 to i32
-  %1070 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1069, ptr %1070, align 4, !tbaa !50
-  br label %1822
+1057:                                             ; preds = %122
+  %1058 = load ptr, ptr %63, align 8, !tbaa !30
+  %1059 = load ptr, ptr %2, align 8, !tbaa !43
+  %1060 = load ptr, ptr %1059, align 8, !tbaa !44
+  %1061 = ptrtoint ptr %1058 to i64
+  %1062 = ptrtoint ptr %1060 to i64
+  %1063 = sub i64 %1061, %1062
+  %1064 = trunc i64 %1063 to i32
+  %1065 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1064, ptr %1065, align 4, !tbaa !48
+  br label %1819
 
-1071:                                             ; preds = %125
-  %1072 = load ptr, ptr %63, align 8, !tbaa !30
-  %1073 = load ptr, ptr %2, align 8, !tbaa !45
-  %1074 = load ptr, ptr %1073, align 8, !tbaa !46
-  %1075 = ptrtoint ptr %1072 to i64
-  %1076 = ptrtoint ptr %1074 to i64
-  %1077 = sub i64 %1075, %1076
-  %1078 = trunc i64 %1077 to i32
-  %1079 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1078, ptr %1079, align 4, !tbaa !50
-  br label %1822
+1066:                                             ; preds = %122
+  %1067 = load ptr, ptr %63, align 8, !tbaa !30
+  %1068 = load ptr, ptr %2, align 8, !tbaa !43
+  %1069 = load ptr, ptr %1068, align 8, !tbaa !44
+  %1070 = ptrtoint ptr %1067 to i64
+  %1071 = ptrtoint ptr %1069 to i64
+  %1072 = sub i64 %1070, %1071
+  %1073 = trunc i64 %1072 to i32
+  %1074 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1073, ptr %1074, align 4, !tbaa !48
+  br label %1819
 
-1080:                                             ; preds = %125
-  %1081 = load ptr, ptr %63, align 8, !tbaa !30
-  %1082 = load ptr, ptr %2, align 8, !tbaa !45
-  %1083 = load ptr, ptr %1082, align 8, !tbaa !46
-  %1084 = ptrtoint ptr %1081 to i64
-  %1085 = ptrtoint ptr %1083 to i64
-  %1086 = sub i64 %1084, %1085
-  %1087 = trunc i64 %1086 to i32
-  %1088 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1087, ptr %1088, align 4, !tbaa !50
-  br label %1822
+1075:                                             ; preds = %122
+  %1076 = load ptr, ptr %63, align 8, !tbaa !30
+  %1077 = load ptr, ptr %2, align 8, !tbaa !43
+  %1078 = load ptr, ptr %1077, align 8, !tbaa !44
+  %1079 = ptrtoint ptr %1076 to i64
+  %1080 = ptrtoint ptr %1078 to i64
+  %1081 = sub i64 %1079, %1080
+  %1082 = trunc i64 %1081 to i32
+  %1083 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1082, ptr %1083, align 4, !tbaa !48
+  br label %1819
 
-1089:                                             ; preds = %125
-  %1090 = load ptr, ptr %63, align 8, !tbaa !30
-  %1091 = load ptr, ptr %2, align 8, !tbaa !45
-  %1092 = load ptr, ptr %1091, align 8, !tbaa !46
-  %1093 = ptrtoint ptr %1090 to i64
-  %1094 = ptrtoint ptr %1092 to i64
-  %1095 = sub i64 %1093, %1094
-  %1096 = trunc i64 %1095 to i32
-  %1097 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1096, ptr %1097, align 4, !tbaa !50
-  br label %1822
+1084:                                             ; preds = %122
+  %1085 = load ptr, ptr %63, align 8, !tbaa !30
+  %1086 = load ptr, ptr %2, align 8, !tbaa !43
+  %1087 = load ptr, ptr %1086, align 8, !tbaa !44
+  %1088 = ptrtoint ptr %1085 to i64
+  %1089 = ptrtoint ptr %1087 to i64
+  %1090 = sub i64 %1088, %1089
+  %1091 = trunc i64 %1090 to i32
+  %1092 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1091, ptr %1092, align 4, !tbaa !48
+  br label %1819
 
-1098:                                             ; preds = %125
-  %1099 = load ptr, ptr %63, align 8, !tbaa !30
-  %1100 = load ptr, ptr %2, align 8, !tbaa !45
-  %1101 = load ptr, ptr %1100, align 8, !tbaa !46
-  %1102 = ptrtoint ptr %1099 to i64
-  %1103 = ptrtoint ptr %1101 to i64
-  %1104 = sub i64 %1102, %1103
-  %1105 = trunc i64 %1104 to i32
-  %1106 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1105, ptr %1106, align 4, !tbaa !50
-  br label %1822
+1093:                                             ; preds = %122
+  %1094 = load ptr, ptr %63, align 8, !tbaa !30
+  %1095 = load ptr, ptr %2, align 8, !tbaa !43
+  %1096 = load ptr, ptr %1095, align 8, !tbaa !44
+  %1097 = ptrtoint ptr %1094 to i64
+  %1098 = ptrtoint ptr %1096 to i64
+  %1099 = sub i64 %1097, %1098
+  %1100 = trunc i64 %1099 to i32
+  %1101 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1100, ptr %1101, align 4, !tbaa !48
+  br label %1819
 
-1107:                                             ; preds = %125
-  %1108 = load ptr, ptr %63, align 8, !tbaa !30
-  %1109 = load ptr, ptr %2, align 8, !tbaa !45
-  %1110 = load ptr, ptr %1109, align 8, !tbaa !46
-  %1111 = ptrtoint ptr %1108 to i64
-  %1112 = ptrtoint ptr %1110 to i64
-  %1113 = sub i64 %1111, %1112
-  %1114 = trunc i64 %1113 to i32
-  %1115 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1114, ptr %1115, align 4, !tbaa !50
-  br label %1822
+1102:                                             ; preds = %122
+  %1103 = load ptr, ptr %63, align 8, !tbaa !30
+  %1104 = load ptr, ptr %2, align 8, !tbaa !43
+  %1105 = load ptr, ptr %1104, align 8, !tbaa !44
+  %1106 = ptrtoint ptr %1103 to i64
+  %1107 = ptrtoint ptr %1105 to i64
+  %1108 = sub i64 %1106, %1107
+  %1109 = trunc i64 %1108 to i32
+  %1110 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1109, ptr %1110, align 4, !tbaa !48
+  br label %1819
 
-1116:                                             ; preds = %125
-  %1117 = load ptr, ptr %63, align 8, !tbaa !30
-  %1118 = load ptr, ptr %2, align 8, !tbaa !45
-  %1119 = load ptr, ptr %1118, align 8, !tbaa !46
-  %1120 = ptrtoint ptr %1117 to i64
-  %1121 = ptrtoint ptr %1119 to i64
-  %1122 = sub i64 %1120, %1121
-  %1123 = trunc i64 %1122 to i32
-  %1124 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1123, ptr %1124, align 4, !tbaa !50
-  br label %1822
+1111:                                             ; preds = %122
+  %1112 = load ptr, ptr %63, align 8, !tbaa !30
+  %1113 = load ptr, ptr %2, align 8, !tbaa !43
+  %1114 = load ptr, ptr %1113, align 8, !tbaa !44
+  %1115 = ptrtoint ptr %1112 to i64
+  %1116 = ptrtoint ptr %1114 to i64
+  %1117 = sub i64 %1115, %1116
+  %1118 = trunc i64 %1117 to i32
+  %1119 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1118, ptr %1119, align 4, !tbaa !48
+  br label %1819
 
-1125:                                             ; preds = %125
-  %1126 = load ptr, ptr %63, align 8, !tbaa !30
-  %1127 = load ptr, ptr %2, align 8, !tbaa !45
-  %1128 = load ptr, ptr %1127, align 8, !tbaa !46
-  %1129 = ptrtoint ptr %1126 to i64
-  %1130 = ptrtoint ptr %1128 to i64
-  %1131 = sub i64 %1129, %1130
-  %1132 = trunc i64 %1131 to i32
-  %1133 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1132, ptr %1133, align 4, !tbaa !50
-  br label %1822
+1120:                                             ; preds = %122
+  %1121 = load ptr, ptr %63, align 8, !tbaa !30
+  %1122 = load ptr, ptr %2, align 8, !tbaa !43
+  %1123 = load ptr, ptr %1122, align 8, !tbaa !44
+  %1124 = ptrtoint ptr %1121 to i64
+  %1125 = ptrtoint ptr %1123 to i64
+  %1126 = sub i64 %1124, %1125
+  %1127 = trunc i64 %1126 to i32
+  %1128 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1127, ptr %1128, align 4, !tbaa !48
+  br label %1819
 
-1134:                                             ; preds = %125
-  %1135 = load ptr, ptr %63, align 8, !tbaa !30
-  %1136 = load ptr, ptr %2, align 8, !tbaa !45
-  %1137 = load ptr, ptr %1136, align 8, !tbaa !46
-  %1138 = ptrtoint ptr %1135 to i64
-  %1139 = ptrtoint ptr %1137 to i64
-  %1140 = sub i64 %1138, %1139
-  %1141 = trunc i64 %1140 to i32
-  %1142 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1141, ptr %1142, align 4, !tbaa !50
-  br label %1822
+1129:                                             ; preds = %122
+  %1130 = load ptr, ptr %63, align 8, !tbaa !30
+  %1131 = load ptr, ptr %2, align 8, !tbaa !43
+  %1132 = load ptr, ptr %1131, align 8, !tbaa !44
+  %1133 = ptrtoint ptr %1130 to i64
+  %1134 = ptrtoint ptr %1132 to i64
+  %1135 = sub i64 %1133, %1134
+  %1136 = trunc i64 %1135 to i32
+  %1137 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1136, ptr %1137, align 4, !tbaa !48
+  br label %1819
 
-1143:                                             ; preds = %125
-  %1144 = load ptr, ptr %63, align 8, !tbaa !30
-  %1145 = load ptr, ptr %2, align 8, !tbaa !45
-  %1146 = load ptr, ptr %1145, align 8, !tbaa !46
-  %1147 = ptrtoint ptr %1144 to i64
-  %1148 = ptrtoint ptr %1146 to i64
-  %1149 = sub i64 %1147, %1148
-  %1150 = trunc i64 %1149 to i32
-  %1151 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1150, ptr %1151, align 4, !tbaa !50
-  br label %1822
+1138:                                             ; preds = %122
+  %1139 = load ptr, ptr %63, align 8, !tbaa !30
+  %1140 = load ptr, ptr %2, align 8, !tbaa !43
+  %1141 = load ptr, ptr %1140, align 8, !tbaa !44
+  %1142 = ptrtoint ptr %1139 to i64
+  %1143 = ptrtoint ptr %1141 to i64
+  %1144 = sub i64 %1142, %1143
+  %1145 = trunc i64 %1144 to i32
+  %1146 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1145, ptr %1146, align 4, !tbaa !48
+  br label %1819
 
-1152:                                             ; preds = %125
-  %1153 = load ptr, ptr %63, align 8, !tbaa !30
-  %1154 = load ptr, ptr %2, align 8, !tbaa !45
-  %1155 = load ptr, ptr %1154, align 8, !tbaa !46
-  %1156 = ptrtoint ptr %1153 to i64
-  %1157 = ptrtoint ptr %1155 to i64
-  %1158 = sub i64 %1156, %1157
-  %1159 = trunc i64 %1158 to i32
-  %1160 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1159, ptr %1160, align 4, !tbaa !50
-  br label %1822
+1147:                                             ; preds = %122
+  %1148 = load ptr, ptr %63, align 8, !tbaa !30
+  %1149 = load ptr, ptr %2, align 8, !tbaa !43
+  %1150 = load ptr, ptr %1149, align 8, !tbaa !44
+  %1151 = ptrtoint ptr %1148 to i64
+  %1152 = ptrtoint ptr %1150 to i64
+  %1153 = sub i64 %1151, %1152
+  %1154 = trunc i64 %1153 to i32
+  %1155 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1154, ptr %1155, align 4, !tbaa !48
+  br label %1819
 
-1161:                                             ; preds = %125
-  %1162 = load ptr, ptr %63, align 8, !tbaa !30
-  %1163 = load ptr, ptr %2, align 8, !tbaa !45
-  %1164 = load ptr, ptr %1163, align 8, !tbaa !46
-  %1165 = ptrtoint ptr %1162 to i64
-  %1166 = ptrtoint ptr %1164 to i64
-  %1167 = sub i64 %1165, %1166
-  %1168 = trunc i64 %1167 to i32
-  %1169 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1168, ptr %1169, align 4, !tbaa !50
-  %1170 = load i8, ptr %1162, align 1, !tbaa !32
-  %1171 = sext i8 %1170 to i32
-  br label %1822
+1156:                                             ; preds = %122
+  %1157 = load ptr, ptr %63, align 8, !tbaa !30
+  %1158 = load ptr, ptr %2, align 8, !tbaa !43
+  %1159 = load ptr, ptr %1158, align 8, !tbaa !44
+  %1160 = ptrtoint ptr %1157 to i64
+  %1161 = ptrtoint ptr %1159 to i64
+  %1162 = sub i64 %1160, %1161
+  %1163 = trunc i64 %1162 to i32
+  %1164 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1163, ptr %1164, align 4, !tbaa !48
+  %1165 = load i8, ptr %1157, align 1, !tbaa !32
+  %1166 = sext i8 %1165 to i32
+  br label %1819
 
-1172:                                             ; preds = %125
-  %1173 = load i64, ptr %64, align 8, !tbaa !43
-  %1174 = load ptr, ptr %63, align 8, !tbaa !30
-  %1175 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1174, ptr noundef nonnull dereferenceable(1) @.str.15) #23
-  %1176 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1174, ptr noundef nonnull dereferenceable(1) @.str.16) #23
-  %.not1047 = icmp eq ptr %1175, null
-  %1177 = icmp ne ptr %1176, null
-  %1178 = icmp ugt ptr %1175, %1176
-  %1179 = and i1 %1177, %1178
-  %1180 = or i1 %.not1047, %1179
-  %.0804 = select i1 %1180, ptr %1176, ptr %1175
+1167:                                             ; preds = %122
+  %1168 = load i64, ptr %64, align 8, !tbaa !41
+  %1169 = load ptr, ptr %63, align 8, !tbaa !30
+  %1170 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1169, ptr noundef nonnull dereferenceable(1) @.str.15) #23
+  %1171 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1169, ptr noundef nonnull dereferenceable(1) @.str.16) #23
+  %.not1047 = icmp eq ptr %1170, null
+  %1172 = icmp ne ptr %1171, null
+  %1173 = icmp ugt ptr %1170, %1171
+  %1174 = and i1 %1172, %1173
+  %1175 = or i1 %.not1047, %1174
+  %.0804 = select i1 %1175, ptr %1171, ptr %1170
   %.not832 = icmp eq ptr %.0804, null
-  %1181 = ptrtoint ptr %.0804 to i64
-  %1182 = ptrtoint ptr %1174 to i64
-  %1183 = sub i64 %1181, %1182
-  %.0798.in = select i1 %.not832, i64 %1173, i64 %1183
+  %1176 = ptrtoint ptr %.0804 to i64
+  %1177 = ptrtoint ptr %1169 to i64
+  %1178 = sub i64 %1176, %1177
+  %.0798.in = select i1 %.not832, i64 %1168, i64 %1178
   %.0798 = trunc i64 %.0798.in to i32
-  %invariant.gep = getelementptr i8, ptr %1174, i64 -1
-  %1184 = icmp sgt i32 %.0798, 1
-  br i1 %1184, label %.lr.ph1595.preheader, label %.critedge
+  %1179 = icmp sgt i32 %.0798, 1
+  br i1 %1179, label %.lr.ph1595.preheader, label %.critedge
 
-.lr.ph1595.preheader:                             ; preds = %1172
-  %1185 = add i64 %.0798.in, 4294967294
-  %1186 = and i64 %1185, 4294967295
-  %1187 = and i64 %.0798.in, 2147483647
+.lr.ph1595.preheader:                             ; preds = %1167
+  %1180 = add i64 %.0798.in, 4294967294
+  %1181 = and i64 %1180, 4294967295
+  %1182 = and i64 %.0798.in, 2147483647
   br label %.lr.ph1595
 
 .lr.ph1595:                                       ; preds = %.lr.ph1595.preheader, %._crit_edge1592
-  %indvars.iv1815 = phi i64 [ %1187, %.lr.ph1595.preheader ], [ %indvars.iv.next1816, %._crit_edge1592 ]
-  %indvars.iv = phi i64 [ %1186, %.lr.ph1595.preheader ], [ %indvars.iv.next, %._crit_edge1592 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv1815
-  %1188 = load i8, ptr %gep, align 1, !tbaa !32
-  switch i8 %1188, label %.critedge.loopexit1853.split.loop.exit [
+  %indvars.iv1815 = phi i64 [ %1182, %.lr.ph1595.preheader ], [ %indvars.iv.next1816, %._crit_edge1592 ]
+  %indvars.iv = phi i64 [ %1181, %.lr.ph1595.preheader ], [ %indvars.iv.next, %._crit_edge1592 ]
+  %1183 = getelementptr i8, ptr %1169, i64 %indvars.iv1815
+  %1184 = getelementptr i8, ptr %1183, i64 -1
+  %1185 = load i8, ptr %1184, align 1, !tbaa !32
+  switch i8 %1185, label %.critedge.loopexit1853.split.loop.exit [
     i8 43, label %.lr.ph1591.preheader
     i8 45, label %.lr.ph1591.preheader
   ]
@@ -2311,674 +2294,684 @@ _ZN17duckdb_libpgqueryL6addlitEPciPv.exit981:     ; preds = %._crit_edge.i978, %
 .lr.ph1591.preheader:                             ; preds = %.lr.ph1595, %.lr.ph1595
   br label %.lr.ph1591
 
-1189:                                             ; preds = %.lr.ph1591
+1186:                                             ; preds = %.lr.ph1591
   %indvars.iv.next1813 = add nsw i64 %indvars.iv1812, -1
-  %1190 = icmp sgt i64 %indvars.iv1812, 0
-  br i1 %1190, label %.lr.ph1591, label %._crit_edge1592, !llvm.loop !71
+  %1187 = icmp sgt i64 %indvars.iv1812, 0
+  br i1 %1187, label %.lr.ph1591, label %._crit_edge1592, !llvm.loop !69
 
-.lr.ph1591:                                       ; preds = %.lr.ph1591.preheader, %1189
-  %indvars.iv1812 = phi i64 [ %indvars.iv.next1813, %1189 ], [ %indvars.iv, %.lr.ph1591.preheader ]
-  %1191 = getelementptr inbounds nuw i8, ptr %1174, i64 %indvars.iv1812
-  %1192 = load i8, ptr %1191, align 1, !tbaa !32
-  %1193 = sext i8 %1192 to i32
-  %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.17, i32 %1193, i64 10)
+.lr.ph1591:                                       ; preds = %.lr.ph1591.preheader, %1186
+  %indvars.iv1812 = phi i64 [ %indvars.iv.next1813, %1186 ], [ %indvars.iv, %.lr.ph1591.preheader ]
+  %1188 = getelementptr inbounds nuw i8, ptr %1169, i64 %indvars.iv1812
+  %1189 = load i8, ptr %1188, align 1, !tbaa !32
+  %1190 = sext i8 %1189 to i32
+  %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.17, i32 %1190, i64 10)
   %.not833 = icmp eq ptr %memchr, null
-  br i1 %.not833, label %1189, label %.critedge.loopexit
+  br i1 %.not833, label %1186, label %.critedge.loopexit
 
-._crit_edge1592:                                  ; preds = %1189
+._crit_edge1592:                                  ; preds = %1186
   %indvars.iv.next1816 = add nsw i64 %indvars.iv1815, -1
-  %1194 = icmp sgt i64 %indvars.iv1815, 2
+  %1191 = icmp sgt i64 %indvars.iv1815, 2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %1194, label %.lr.ph1595, label %.critedge, !llvm.loop !72
+  br i1 %1191, label %.lr.ph1595, label %.critedge
 
 .critedge.loopexit:                               ; preds = %.lr.ph1591
-  %1195 = trunc nuw nsw i64 %indvars.iv1815 to i32
+  %1192 = trunc nuw nsw i64 %indvars.iv1815 to i32
   br label %.critedge
 
 .critedge.loopexit1853.split.loop.exit:           ; preds = %.lr.ph1595
-  %1196 = trunc nuw nsw i64 %indvars.iv1815 to i32
+  %1193 = trunc nuw nsw i64 %indvars.iv1815 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge1592, %.critedge.loopexit1853.split.loop.exit, %.critedge.loopexit, %1172
-  %.17991069 = phi i32 [ %.0798, %1172 ], [ %1195, %.critedge.loopexit ], [ %1196, %.critedge.loopexit1853.split.loop.exit ], [ 1, %._crit_edge1592 ]
-  %1197 = load i8, ptr %1174, align 1, !tbaa !32
-  %1198 = icmp eq i8 %1197, 63
-  br i1 %1198, label %sub_1, label %1217
+.critedge:                                        ; preds = %._crit_edge1592, %.critedge.loopexit1853.split.loop.exit, %.critedge.loopexit, %1167
+  %.17991069 = phi i32 [ %.0798, %1167 ], [ %1192, %.critedge.loopexit ], [ %1193, %.critedge.loopexit1853.split.loop.exit ], [ 1, %._crit_edge1592 ]
+  %1194 = load i8, ptr %1169, align 1, !tbaa !32
+  %1195 = icmp eq i8 %1194, 63
+  br i1 %1195, label %sub_1, label %1214
 
 sub_1:                                            ; preds = %.critedge
-  %1199 = getelementptr inbounds nuw i8, ptr %1174, i64 1
-  %1200 = load i8, ptr %1199, align 1
-  %.not1600 = icmp eq i8 %1200, 124
+  %1196 = getelementptr inbounds nuw i8, ptr %1169, i64 1
+  %1197 = load i8, ptr %1196, align 1
+  %.not1600 = icmp eq i8 %1197, 124
   br i1 %.not1600, label %.tail, label %sub_11056
 
 .tail:                                            ; preds = %sub_1
-  %1201 = getelementptr inbounds nuw i8, ptr %1174, i64 2
-  %1202 = load i8, ptr %1201, align 1
-  %1203 = icmp eq i8 %1202, 0
-  br i1 %1203, label %.thread1032, label %sub_11056
+  %1198 = getelementptr inbounds nuw i8, ptr %1169, i64 2
+  %1199 = load i8, ptr %1198, align 1
+  %1200 = icmp eq i8 %1199, 0
+  br i1 %1200, label %.thread1032, label %sub_11056
 
 sub_11056:                                        ; preds = %sub_1, %.tail
-  %1204 = getelementptr inbounds nuw i8, ptr %1174, i64 1
-  %1205 = load i8, ptr %1204, align 1
-  %.not1602 = icmp eq i8 %1205, 38
+  %1201 = getelementptr inbounds nuw i8, ptr %1169, i64 1
+  %1202 = load i8, ptr %1201, align 1
+  %.not1602 = icmp eq i8 %1202, 38
   br i1 %.not1602, label %.tail1054, label %sub_11061
 
 .tail1054:                                        ; preds = %sub_11056
-  %1206 = getelementptr inbounds nuw i8, ptr %1174, i64 2
-  %1207 = load i8, ptr %1206, align 1
-  %1208 = icmp eq i8 %1207, 0
-  br i1 %1208, label %.thread1032, label %sub_11061
+  %1203 = getelementptr inbounds nuw i8, ptr %1169, i64 2
+  %1204 = load i8, ptr %1203, align 1
+  %1205 = icmp eq i8 %1204, 0
+  br i1 %1205, label %.thread1032, label %sub_11061
 
 sub_11061:                                        ; preds = %sub_11056, %.tail1054
-  %1209 = getelementptr inbounds nuw i8, ptr %1174, i64 1
-  %1210 = load i8, ptr %1209, align 1
-  %.not1604 = icmp eq i8 %1210, 45
+  %1206 = getelementptr inbounds nuw i8, ptr %1169, i64 1
+  %1207 = load i8, ptr %1206, align 1
+  %.not1604 = icmp eq i8 %1207, 45
   br i1 %.not1604, label %.tail1059, label %.tail1059.thread
 
 .tail1059:                                        ; preds = %sub_11061
-  %1211 = getelementptr inbounds nuw i8, ptr %1174, i64 2
-  %1212 = load i8, ptr %1211, align 1
-  %1213 = icmp eq i8 %1212, 0
-  br i1 %1213, label %.thread1032, label %.tail1059.thread
+  %1208 = getelementptr inbounds nuw i8, ptr %1169, i64 2
+  %1209 = load i8, ptr %1208, align 1
+  %1210 = icmp eq i8 %1209, 0
+  br i1 %1210, label %.thread1032, label %.tail1059.thread
 
 .tail1059.thread:                                 ; preds = %sub_11061, %.tail1059
-  %1214 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1174, ptr noundef nonnull dereferenceable(4) @.str.21) #23
-  %.not837 = icmp eq i32 %1214, 0
-  br i1 %.not837, label %.thread1032, label %1215
+  %1211 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1169, ptr noundef nonnull dereferenceable(4) @.str.21) #23
+  %.not837 = icmp eq i32 %1211, 0
+  br i1 %.not837, label %.thread1032, label %1212
 
-1215:                                             ; preds = %.tail1059.thread
-  %1216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1174, ptr noundef nonnull dereferenceable(4) @.str.22) #23
-  %.not838 = icmp eq i32 %1216, 0
+1212:                                             ; preds = %.tail1059.thread
+  %1213 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1169, ptr noundef nonnull dereferenceable(4) @.str.22) #23
+  %.not838 = icmp eq i32 %1213, 0
   %spec.select856 = select i1 %.not838, i32 %.17991069, i32 1
   br label %.thread1032
 
-1217:                                             ; preds = %.critedge
-  %1218 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1174, i32 noundef 63) #23
-  %.not840 = icmp eq ptr %1218, null
-  br i1 %.not840, label %.thread1032, label %1219
+1214:                                             ; preds = %.critedge
+  %1215 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1169, i32 noundef 63) #23
+  %.not840 = icmp eq ptr %1215, null
+  br i1 %.not840, label %.thread1032, label %1216
 
-1219:                                             ; preds = %1217
-  %1220 = ptrtoint ptr %1218 to i64
-  %1221 = sub i64 %1220, %1182
-  %1222 = trunc i64 %1221 to i32
+1216:                                             ; preds = %1214
+  %1217 = ptrtoint ptr %1215 to i64
+  %1218 = sub i64 %1217, %1177
+  %1219 = trunc i64 %1218 to i32
   br label %.thread1032
 
-.thread1032:                                      ; preds = %.tail, %.tail1054, %.tail1059, %.tail1059.thread, %1215, %1219, %1217
-  %.5803 = phi i32 [ %1222, %1219 ], [ %.17991069, %1217 ], [ %spec.select856, %1215 ], [ %.17991069, %.tail ], [ %.17991069, %.tail1054 ], [ %.17991069, %.tail1059 ], [ %.17991069, %.tail1059.thread ]
-  %1223 = load ptr, ptr %2, align 8, !tbaa !45
-  %1224 = load ptr, ptr %1223, align 8, !tbaa !46
-  %1225 = ptrtoint ptr %1224 to i64
-  %1226 = sub i64 %1182, %1225
-  %1227 = trunc i64 %1226 to i32
-  %1228 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1227, ptr %1228, align 4, !tbaa !50
-  %1229 = sext i32 %.5803 to i64
-  %1230 = icmp ugt i64 %1173, %1229
-  br i1 %1230, label %1231, label %1257
+.thread1032:                                      ; preds = %.tail, %.tail1054, %.tail1059, %.tail1059.thread, %1212, %1216, %1214
+  %.5803 = phi i32 [ %1219, %1216 ], [ %.17991069, %1214 ], [ %spec.select856, %1212 ], [ %.17991069, %.tail ], [ %.17991069, %.tail1054 ], [ %.17991069, %.tail1059 ], [ %.17991069, %.tail1059.thread ]
+  %1220 = load ptr, ptr %2, align 8, !tbaa !43
+  %1221 = load ptr, ptr %1220, align 8, !tbaa !44
+  %1222 = ptrtoint ptr %1221 to i64
+  %1223 = sub i64 %1177, %1222
+  %1224 = trunc i64 %1223 to i32
+  %1225 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1224, ptr %1225, align 4, !tbaa !48
+  %1226 = sext i32 %.5803 to i64
+  %1227 = icmp ugt i64 %1168, %1226
+  br i1 %1227, label %1228, label %1254
 
-1231:                                             ; preds = %.thread1032
-  %1232 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1232, ptr %.2783, align 1, !tbaa !32
-  %1233 = getelementptr inbounds i8, ptr %.1788, i64 %1229
-  store ptr %1233, ptr %58, align 8, !tbaa !29
+1228:                                             ; preds = %.thread1032
+  %1229 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1229, ptr %.2783, align 1, !tbaa !32
+  %1230 = getelementptr inbounds i8, ptr %.1788, i64 %1226
+  store ptr %1230, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 %1229, ptr %64, align 8, !tbaa !43
+  store i64 %1226, ptr %64, align 8, !tbaa !41
+  %1231 = load i8, ptr %1230, align 1, !tbaa !32
+  store i8 %1231, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %1230, align 1, !tbaa !32
+  store ptr %1230, ptr %58, align 8, !tbaa !29
+  switch i32 %.5803, label %1254 [
+    i32 1, label %1232
+    i32 2, label %1236
+  ]
+
+1232:                                             ; preds = %1228
+  %1233 = load ptr, ptr %63, align 8, !tbaa !30
   %1234 = load i8, ptr %1233, align 1, !tbaa !32
-  store i8 %1234, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %1233, align 1, !tbaa !32
-  store ptr %1233, ptr %58, align 8, !tbaa !29
-  switch i32 %.5803, label %1257 [
-    i32 1, label %1235
-    i32 2, label %1239
-  ]
-
-1235:                                             ; preds = %1231
-  %1236 = load ptr, ptr %63, align 8, !tbaa !30
-  %1237 = load i8, ptr %1236, align 1, !tbaa !32
-  %1238 = sext i8 %1237 to i32
-  %memchr841 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.23, i32 %1238, i64 19)
+  %1235 = sext i8 %1234 to i32
+  %memchr841 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.23, i32 %1235, i64 19)
   %.not842 = icmp eq ptr %memchr841, null
-  br i1 %.not842, label %.thread1042, label %1822
+  br i1 %.not842, label %.thread1042, label %1819
 
-1239:                                             ; preds = %1231
-  %1240 = load ptr, ptr %63, align 8, !tbaa !30
-  %1241 = load i8, ptr %1240, align 1, !tbaa !32
-  switch i8 %1241, label %.thread1042 [
-    i8 61, label %1242
-    i8 62, label %1246
-    i8 60, label %1250
-    i8 33, label %1253
+1236:                                             ; preds = %1228
+  %1237 = load ptr, ptr %63, align 8, !tbaa !30
+  %1238 = load i8, ptr %1237, align 1, !tbaa !32
+  switch i8 %1238, label %.thread1042 [
+    i8 61, label %1239
+    i8 62, label %1243
+    i8 60, label %1247
+    i8 33, label %1250
   ]
 
-1242:                                             ; preds = %1239
-  %1243 = getelementptr inbounds nuw i8, ptr %1240, i64 1
-  %1244 = load i8, ptr %1243, align 1, !tbaa !32
-  %1245 = icmp eq i8 %1244, 62
-  br i1 %1245, label %1822, label %.thread1042
+1239:                                             ; preds = %1236
+  %1240 = getelementptr inbounds nuw i8, ptr %1237, i64 1
+  %1241 = load i8, ptr %1240, align 1, !tbaa !32
+  %1242 = icmp eq i8 %1241, 62
+  br i1 %1242, label %1819, label %.thread1042
 
-1246:                                             ; preds = %1239
-  %1247 = getelementptr inbounds nuw i8, ptr %1240, i64 1
-  %1248 = load i8, ptr %1247, align 1, !tbaa !32
-  %1249 = icmp eq i8 %1248, 61
-  br i1 %1249, label %1822, label %.thread1042
+1243:                                             ; preds = %1236
+  %1244 = getelementptr inbounds nuw i8, ptr %1237, i64 1
+  %1245 = load i8, ptr %1244, align 1, !tbaa !32
+  %1246 = icmp eq i8 %1245, 61
+  br i1 %1246, label %1819, label %.thread1042
 
-1250:                                             ; preds = %1239
-  %1251 = getelementptr inbounds nuw i8, ptr %1240, i64 1
-  %1252 = load i8, ptr %1251, align 1, !tbaa !32
-  switch i8 %1252, label %.thread1042 [
-    i8 61, label %1822
+1247:                                             ; preds = %1236
+  %1248 = getelementptr inbounds nuw i8, ptr %1237, i64 1
+  %1249 = load i8, ptr %1248, align 1, !tbaa !32
+  switch i8 %1249, label %.thread1042 [
+    i8 61, label %1819
     i8 62, label %.fold.split
   ]
 
-1253:                                             ; preds = %1239
-  %1254 = getelementptr inbounds nuw i8, ptr %1240, i64 1
-  %1255 = load i8, ptr %1254, align 1, !tbaa !32
-  %1256 = icmp eq i8 %1255, 61
-  br i1 %1256, label %1822, label %.thread1042
+1250:                                             ; preds = %1236
+  %1251 = getelementptr inbounds nuw i8, ptr %1237, i64 1
+  %1252 = load i8, ptr %1251, align 1, !tbaa !32
+  %1253 = icmp eq i8 %1252, 61
+  br i1 %1253, label %1819, label %.thread1042
 
-1257:                                             ; preds = %1231, %.thread1032
-  %1258 = icmp sgt i32 %.5803, 63
-  br i1 %1258, label %1259, label %.thread1042
+1254:                                             ; preds = %1228, %.thread1032
+  %1255 = icmp sgt i32 %.5803, 63
+  br i1 %1255, label %1256, label %.thread1042
 
-1259:                                             ; preds = %1257
+1256:                                             ; preds = %1254
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.24, ptr noundef nonnull %2)
   br label %.thread1042
 
-.thread1042:                                      ; preds = %1250, %1239, %1242, %1246, %1253, %1235, %1259, %1257
-  %1260 = load ptr, ptr %63, align 8, !tbaa !30
-  %1261 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1260)
-  %1262 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1261, ptr %1262, align 8, !tbaa !32
-  br label %1822
+.thread1042:                                      ; preds = %1247, %1236, %1239, %1243, %1250, %1232, %1256, %1254
+  %1257 = load ptr, ptr %63, align 8, !tbaa !30
+  %1258 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1257)
+  %1259 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1258, ptr %1259, align 8, !tbaa !32
+  br label %1819
 
-1263:                                             ; preds = %125
-  %1264 = load ptr, ptr %63, align 8, !tbaa !30
-  %1265 = load ptr, ptr %2, align 8, !tbaa !45
-  %1266 = load ptr, ptr %1265, align 8, !tbaa !46
-  %1267 = ptrtoint ptr %1264 to i64
-  %1268 = ptrtoint ptr %1266 to i64
-  %1269 = sub i64 %1267, %1268
-  %1270 = trunc i64 %1269 to i32
-  %1271 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1270, ptr %1271, align 4, !tbaa !50
-  %1272 = getelementptr inbounds nuw i8, ptr %1264, i64 1
-  %1273 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1272, ptr noundef null, i32 noundef 10) #22
-  %1274 = trunc i64 %1273 to i32
-  %1275 = load ptr, ptr %4, align 8, !tbaa !3
-  store i32 %1274, ptr %1275, align 8, !tbaa !32
-  br label %1822
+1260:                                             ; preds = %122
+  %1261 = load ptr, ptr %63, align 8, !tbaa !30
+  %1262 = load ptr, ptr %2, align 8, !tbaa !43
+  %1263 = load ptr, ptr %1262, align 8, !tbaa !44
+  %1264 = ptrtoint ptr %1261 to i64
+  %1265 = ptrtoint ptr %1263 to i64
+  %1266 = sub i64 %1264, %1265
+  %1267 = trunc i64 %1266 to i32
+  %1268 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1267, ptr %1268, align 4, !tbaa !48
+  %1269 = getelementptr inbounds nuw i8, ptr %1261, i64 1
+  %1270 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1269, ptr noundef null, i32 noundef 10) #22
+  %1271 = trunc i64 %1270 to i32
+  %1272 = load ptr, ptr %4, align 8, !tbaa !3
+  store i32 %1271, ptr %1272, align 8, !tbaa !32
+  br label %1819
 
-1276:                                             ; preds = %125
-  %1277 = load ptr, ptr %63, align 8, !tbaa !30
-  %1278 = load ptr, ptr %2, align 8, !tbaa !45
-  %1279 = load ptr, ptr %1278, align 8, !tbaa !46
-  %1280 = ptrtoint ptr %1277 to i64
-  %1281 = ptrtoint ptr %1279 to i64
-  %1282 = sub i64 %1280, %1281
-  %1283 = trunc i64 %1282 to i32
-  %1284 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1283, ptr %1284, align 4, !tbaa !50
-  %1285 = getelementptr inbounds nuw i8, ptr %1277, i64 1
-  %1286 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1285, ptr noundef null, i32 noundef 10) #22
-  %1287 = trunc i64 %1286 to i32
-  %1288 = load ptr, ptr %4, align 8, !tbaa !3
-  store i32 %1287, ptr %1288, align 8, !tbaa !32
-  br label %1822
+1273:                                             ; preds = %122
+  %1274 = load ptr, ptr %63, align 8, !tbaa !30
+  %1275 = load ptr, ptr %2, align 8, !tbaa !43
+  %1276 = load ptr, ptr %1275, align 8, !tbaa !44
+  %1277 = ptrtoint ptr %1274 to i64
+  %1278 = ptrtoint ptr %1276 to i64
+  %1279 = sub i64 %1277, %1278
+  %1280 = trunc i64 %1279 to i32
+  %1281 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1280, ptr %1281, align 4, !tbaa !48
+  %1282 = getelementptr inbounds nuw i8, ptr %1274, i64 1
+  %1283 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1282, ptr noundef null, i32 noundef 10) #22
+  %1284 = trunc i64 %1283 to i32
+  %1285 = load ptr, ptr %4, align 8, !tbaa !3
+  store i32 %1284, ptr %1285, align 8, !tbaa !32
+  br label %1819
 
-1289:                                             ; preds = %125
-  %1290 = load ptr, ptr %63, align 8, !tbaa !30
-  %1291 = load ptr, ptr %2, align 8, !tbaa !45
-  %1292 = load ptr, ptr %1291, align 8, !tbaa !46
-  %1293 = ptrtoint ptr %1290 to i64
-  %1294 = ptrtoint ptr %1292 to i64
-  %1295 = sub i64 %1293, %1294
-  %1296 = trunc i64 %1295 to i32
-  %1297 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1296, ptr %1297, align 4, !tbaa !50
-  %1298 = load ptr, ptr %4, align 8, !tbaa !3
-  %1299 = tail call fastcc noundef i32 @_ZN17duckdb_libpgqueryL23process_integer_literalEPKcPNS_12core_YYSTYPEE(ptr noundef %1290, ptr noundef %1298)
-  br label %1822
+1286:                                             ; preds = %122
+  %1287 = load ptr, ptr %63, align 8, !tbaa !30
+  %1288 = load ptr, ptr %2, align 8, !tbaa !43
+  %1289 = load ptr, ptr %1288, align 8, !tbaa !44
+  %1290 = ptrtoint ptr %1287 to i64
+  %1291 = ptrtoint ptr %1289 to i64
+  %1292 = sub i64 %1290, %1291
+  %1293 = trunc i64 %1292 to i32
+  %1294 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1293, ptr %1294, align 4, !tbaa !48
+  %1295 = load ptr, ptr %4, align 8, !tbaa !3
+  %1296 = tail call fastcc noundef i32 @_ZN17duckdb_libpgqueryL23process_integer_literalEPKcPNS_12core_YYSTYPEE(ptr noundef %1287, ptr noundef %1295)
+  br label %1819
 
-1300:                                             ; preds = %125
-  %1301 = load ptr, ptr %63, align 8, !tbaa !30
-  %1302 = load ptr, ptr %2, align 8, !tbaa !45
-  %1303 = load ptr, ptr %1302, align 8, !tbaa !46
-  %1304 = ptrtoint ptr %1301 to i64
-  %1305 = ptrtoint ptr %1303 to i64
-  %1306 = sub i64 %1304, %1305
-  %1307 = trunc i64 %1306 to i32
-  %1308 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1307, ptr %1308, align 4, !tbaa !50
-  %1309 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1301)
-  %1310 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1309, ptr %1310, align 8, !tbaa !32
-  br label %1822
+1297:                                             ; preds = %122
+  %1298 = load ptr, ptr %63, align 8, !tbaa !30
+  %1299 = load ptr, ptr %2, align 8, !tbaa !43
+  %1300 = load ptr, ptr %1299, align 8, !tbaa !44
+  %1301 = ptrtoint ptr %1298 to i64
+  %1302 = ptrtoint ptr %1300 to i64
+  %1303 = sub i64 %1301, %1302
+  %1304 = trunc i64 %1303 to i32
+  %1305 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1304, ptr %1305, align 4, !tbaa !48
+  %1306 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1298)
+  %1307 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1306, ptr %1307, align 8, !tbaa !32
+  br label %1819
 
-1311:                                             ; preds = %125
-  %1312 = load i64, ptr %64, align 8, !tbaa !43
-  %1313 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1313, ptr %.2783, align 1, !tbaa !32
-  %1314 = shl i64 %1312, 32
-  %sext831 = add i64 %1314, -8589934592
-  %1315 = ashr exact i64 %sext831, 32
-  %1316 = getelementptr inbounds i8, ptr %.1788, i64 %1315
-  store ptr %1316, ptr %58, align 8, !tbaa !29
+1308:                                             ; preds = %122
+  %1309 = load i64, ptr %64, align 8, !tbaa !41
+  %1310 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1310, ptr %.2783, align 1, !tbaa !32
+  %1311 = shl i64 %1309, 32
+  %sext831 = add i64 %1311, -8589934592
+  %1312 = ashr exact i64 %sext831, 32
+  %1313 = getelementptr inbounds i8, ptr %.1788, i64 %1312
+  store ptr %1313, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 %1315, ptr %64, align 8, !tbaa !43
-  %1317 = load i8, ptr %1316, align 1, !tbaa !32
-  store i8 %1317, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %1316, align 1, !tbaa !32
-  store ptr %1316, ptr %58, align 8, !tbaa !29
-  %1318 = load ptr, ptr %63, align 8, !tbaa !30
-  %1319 = load ptr, ptr %2, align 8, !tbaa !45
-  %1320 = load ptr, ptr %1319, align 8, !tbaa !46
-  %1321 = ptrtoint ptr %1318 to i64
-  %1322 = ptrtoint ptr %1320 to i64
-  %1323 = sub i64 %1321, %1322
-  %1324 = trunc i64 %1323 to i32
-  %1325 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1324, ptr %1325, align 4, !tbaa !50
-  %1326 = load ptr, ptr %4, align 8, !tbaa !3
-  %1327 = tail call fastcc noundef i32 @_ZN17duckdb_libpgqueryL23process_integer_literalEPKcPNS_12core_YYSTYPEE(ptr noundef %1318, ptr noundef %1326)
-  br label %1822
+  store i64 %1312, ptr %64, align 8, !tbaa !41
+  %1314 = load i8, ptr %1313, align 1, !tbaa !32
+  store i8 %1314, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %1313, align 1, !tbaa !32
+  store ptr %1313, ptr %58, align 8, !tbaa !29
+  %1315 = load ptr, ptr %63, align 8, !tbaa !30
+  %1316 = load ptr, ptr %2, align 8, !tbaa !43
+  %1317 = load ptr, ptr %1316, align 8, !tbaa !44
+  %1318 = ptrtoint ptr %1315 to i64
+  %1319 = ptrtoint ptr %1317 to i64
+  %1320 = sub i64 %1318, %1319
+  %1321 = trunc i64 %1320 to i32
+  %1322 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1321, ptr %1322, align 4, !tbaa !48
+  %1323 = load ptr, ptr %4, align 8, !tbaa !3
+  %1324 = tail call fastcc noundef i32 @_ZN17duckdb_libpgqueryL23process_integer_literalEPKcPNS_12core_YYSTYPEE(ptr noundef %1315, ptr noundef %1323)
+  br label %1819
 
-1328:                                             ; preds = %125
-  %1329 = load ptr, ptr %63, align 8, !tbaa !30
-  %1330 = load ptr, ptr %2, align 8, !tbaa !45
-  %1331 = load ptr, ptr %1330, align 8, !tbaa !46
-  %1332 = ptrtoint ptr %1329 to i64
-  %1333 = ptrtoint ptr %1331 to i64
-  %1334 = sub i64 %1332, %1333
-  %1335 = trunc i64 %1334 to i32
-  %1336 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1335, ptr %1336, align 4, !tbaa !50
-  %1337 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1329)
-  %1338 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1337, ptr %1338, align 8, !tbaa !32
-  br label %1822
+1325:                                             ; preds = %122
+  %1326 = load ptr, ptr %63, align 8, !tbaa !30
+  %1327 = load ptr, ptr %2, align 8, !tbaa !43
+  %1328 = load ptr, ptr %1327, align 8, !tbaa !44
+  %1329 = ptrtoint ptr %1326 to i64
+  %1330 = ptrtoint ptr %1328 to i64
+  %1331 = sub i64 %1329, %1330
+  %1332 = trunc i64 %1331 to i32
+  %1333 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1332, ptr %1333, align 4, !tbaa !48
+  %1334 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1326)
+  %1335 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1334, ptr %1335, align 8, !tbaa !32
+  br label %1819
 
-1339:                                             ; preds = %125
-  %1340 = load i64, ptr %64, align 8, !tbaa !43
-  %1341 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1341, ptr %.2783, align 1, !tbaa !32
-  %1342 = shl i64 %1340, 32
-  %sext830 = add i64 %1342, -4294967296
-  %1343 = ashr exact i64 %sext830, 32
-  %1344 = getelementptr inbounds i8, ptr %.1788, i64 %1343
-  store ptr %1344, ptr %58, align 8, !tbaa !29
+1336:                                             ; preds = %122
+  %1337 = load i64, ptr %64, align 8, !tbaa !41
+  %1338 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1338, ptr %.2783, align 1, !tbaa !32
+  %1339 = shl i64 %1337, 32
+  %sext830 = add i64 %1339, -4294967296
+  %1340 = ashr exact i64 %sext830, 32
+  %1341 = getelementptr inbounds i8, ptr %.1788, i64 %1340
+  store ptr %1341, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 %1343, ptr %64, align 8, !tbaa !43
-  %1345 = load i8, ptr %1344, align 1, !tbaa !32
-  store i8 %1345, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %1344, align 1, !tbaa !32
-  store ptr %1344, ptr %58, align 8, !tbaa !29
-  %1346 = load ptr, ptr %63, align 8, !tbaa !30
-  %1347 = load ptr, ptr %2, align 8, !tbaa !45
-  %1348 = load ptr, ptr %1347, align 8, !tbaa !46
-  %1349 = ptrtoint ptr %1346 to i64
-  %1350 = ptrtoint ptr %1348 to i64
-  %1351 = sub i64 %1349, %1350
-  %1352 = trunc i64 %1351 to i32
-  %1353 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1352, ptr %1353, align 4, !tbaa !50
-  %1354 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1346)
-  %1355 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1354, ptr %1355, align 8, !tbaa !32
-  br label %1822
+  store i64 %1340, ptr %64, align 8, !tbaa !41
+  %1342 = load i8, ptr %1341, align 1, !tbaa !32
+  store i8 %1342, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %1341, align 1, !tbaa !32
+  store ptr %1341, ptr %58, align 8, !tbaa !29
+  %1343 = load ptr, ptr %63, align 8, !tbaa !30
+  %1344 = load ptr, ptr %2, align 8, !tbaa !43
+  %1345 = load ptr, ptr %1344, align 8, !tbaa !44
+  %1346 = ptrtoint ptr %1343 to i64
+  %1347 = ptrtoint ptr %1345 to i64
+  %1348 = sub i64 %1346, %1347
+  %1349 = trunc i64 %1348 to i32
+  %1350 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1349, ptr %1350, align 4, !tbaa !48
+  %1351 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1343)
+  %1352 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1351, ptr %1352, align 8, !tbaa !32
+  br label %1819
 
-1356:                                             ; preds = %125
-  %1357 = load i64, ptr %64, align 8, !tbaa !43
-  %1358 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1358, ptr %.2783, align 1, !tbaa !32
-  %1359 = shl i64 %1357, 32
-  %sext829 = add i64 %1359, -8589934592
-  %1360 = ashr exact i64 %sext829, 32
-  %1361 = getelementptr inbounds i8, ptr %.1788, i64 %1360
-  store ptr %1361, ptr %58, align 8, !tbaa !29
+1353:                                             ; preds = %122
+  %1354 = load i64, ptr %64, align 8, !tbaa !41
+  %1355 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1355, ptr %.2783, align 1, !tbaa !32
+  %1356 = shl i64 %1354, 32
+  %sext829 = add i64 %1356, -8589934592
+  %1357 = ashr exact i64 %sext829, 32
+  %1358 = getelementptr inbounds i8, ptr %.1788, i64 %1357
+  store ptr %1358, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 %1360, ptr %64, align 8, !tbaa !43
-  %1362 = load i8, ptr %1361, align 1, !tbaa !32
-  store i8 %1362, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %1361, align 1, !tbaa !32
-  store ptr %1361, ptr %58, align 8, !tbaa !29
-  %1363 = load ptr, ptr %63, align 8, !tbaa !30
-  %1364 = load ptr, ptr %2, align 8, !tbaa !45
-  %1365 = load ptr, ptr %1364, align 8, !tbaa !46
-  %1366 = ptrtoint ptr %1363 to i64
-  %1367 = ptrtoint ptr %1365 to i64
-  %1368 = sub i64 %1366, %1367
-  %1369 = trunc i64 %1368 to i32
-  %1370 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1369, ptr %1370, align 4, !tbaa !50
-  %1371 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1363)
-  %1372 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1371, ptr %1372, align 8, !tbaa !32
-  br label %1822
+  store i64 %1357, ptr %64, align 8, !tbaa !41
+  %1359 = load i8, ptr %1358, align 1, !tbaa !32
+  store i8 %1359, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %1358, align 1, !tbaa !32
+  store ptr %1358, ptr %58, align 8, !tbaa !29
+  %1360 = load ptr, ptr %63, align 8, !tbaa !30
+  %1361 = load ptr, ptr %2, align 8, !tbaa !43
+  %1362 = load ptr, ptr %1361, align 8, !tbaa !44
+  %1363 = ptrtoint ptr %1360 to i64
+  %1364 = ptrtoint ptr %1362 to i64
+  %1365 = sub i64 %1363, %1364
+  %1366 = trunc i64 %1365 to i32
+  %1367 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1366, ptr %1367, align 4, !tbaa !48
+  %1368 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1360)
+  %1369 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1368, ptr %1369, align 8, !tbaa !32
+  br label %1819
 
-1373:                                             ; preds = %125
-  %1374 = load ptr, ptr %63, align 8, !tbaa !30
-  %1375 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1374)
-  %1376 = load ptr, ptr %63, align 8, !tbaa !30
-  %1377 = load ptr, ptr %2, align 8, !tbaa !45
-  %1378 = load ptr, ptr %1377, align 8, !tbaa !46
-  %1379 = ptrtoint ptr %1376 to i64
-  %1380 = ptrtoint ptr %1378 to i64
-  %1381 = sub i64 %1379, %1380
-  %1382 = trunc i64 %1381 to i32
-  %1383 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1382, ptr %1383, align 4, !tbaa !50
-  %1384 = load i64, ptr %64, align 8, !tbaa !43
-  %1385 = add i64 %1384, -1
-  %1386 = getelementptr inbounds nuw i8, ptr %1376, i64 %1385
-  %1387 = load i8, ptr %1386, align 1, !tbaa !32
-  %1388 = icmp eq i8 %1387, 63
-  br i1 %1388, label %1389, label %1391
+1370:                                             ; preds = %122
+  %1371 = load ptr, ptr %63, align 8, !tbaa !30
+  %1372 = tail call noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef %1371)
+  %1373 = load ptr, ptr %63, align 8, !tbaa !30
+  %1374 = load ptr, ptr %2, align 8, !tbaa !43
+  %1375 = load ptr, ptr %1374, align 8, !tbaa !44
+  %1376 = ptrtoint ptr %1373 to i64
+  %1377 = ptrtoint ptr %1375 to i64
+  %1378 = sub i64 %1376, %1377
+  %1379 = trunc i64 %1378 to i32
+  %1380 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1379, ptr %1380, align 4, !tbaa !48
+  %1381 = load i64, ptr %64, align 8, !tbaa !41
+  %1382 = add i64 %1381, -1
+  %1383 = getelementptr inbounds nuw i8, ptr %1373, i64 %1382
+  %1384 = load i8, ptr %1383, align 1, !tbaa !32
+  %1385 = icmp eq i8 %1384, 63
+  br i1 %1385, label %1386, label %1388
 
-1389:                                             ; preds = %1373
-  %1390 = getelementptr inbounds nuw i8, ptr %1375, i64 %1385
-  store i8 0, ptr %1390, align 1, !tbaa !32
-  %.pre1821 = load ptr, ptr %2, align 8, !tbaa !45
-  br label %1391
+1386:                                             ; preds = %1370
+  %1387 = getelementptr inbounds nuw i8, ptr %1372, i64 %1382
+  store i8 0, ptr %1387, align 1, !tbaa !32
+  %.pre1821 = load ptr, ptr %2, align 8, !tbaa !43
+  br label %1388
 
-1391:                                             ; preds = %1389, %1373
-  %1392 = phi ptr [ %.pre1821, %1389 ], [ %1377, %1373 ]
-  %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 16
-  %1394 = load ptr, ptr %1393, align 8, !tbaa !56
-  %1395 = getelementptr inbounds nuw i8, ptr %1392, i64 24
-  %1396 = load i32, ptr %1395, align 8, !tbaa !57
-  %1397 = tail call noundef ptr @_ZN17duckdb_libpgquery17ScanKeywordLookupEPKcPKNS_13PGScanKeywordEi(ptr noundef %1375, ptr noundef %1394, i32 noundef %1396)
-  %.not828 = icmp eq ptr %1397, null
-  br i1 %.not828, label %1414, label %1398
+1388:                                             ; preds = %1386, %1370
+  %1389 = phi ptr [ %.pre1821, %1386 ], [ %1374, %1370 ]
+  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 16
+  %1391 = load ptr, ptr %1390, align 8, !tbaa !54
+  %1392 = getelementptr inbounds nuw i8, ptr %1389, i64 24
+  %1393 = load i32, ptr %1392, align 8, !tbaa !55
+  %1394 = tail call noundef ptr @_ZN17duckdb_libpgquery17ScanKeywordLookupEPKcPKNS_13PGScanKeywordEi(ptr noundef %1372, ptr noundef %1391, i32 noundef %1393)
+  %.not828 = icmp eq ptr %1394, null
+  br i1 %.not828, label %1411, label %1395
 
-1398:                                             ; preds = %1391
-  %1399 = load i64, ptr %64, align 8, !tbaa !43
-  %1400 = add i64 %1399, -1
-  %1401 = getelementptr inbounds nuw i8, ptr %1375, i64 %1400
-  %1402 = load i8, ptr %1401, align 1, !tbaa !32
-  %1403 = icmp eq i8 %1402, 0
-  br i1 %1403, label %1404, label %1409
+1395:                                             ; preds = %1388
+  %1396 = load i64, ptr %64, align 8, !tbaa !41
+  %1397 = add i64 %1396, -1
+  %1398 = getelementptr inbounds nuw i8, ptr %1372, i64 %1397
+  %1399 = load i8, ptr %1398, align 1, !tbaa !32
+  %1400 = icmp eq i8 %1399, 0
+  br i1 %1400, label %1401, label %1406
 
-1404:                                             ; preds = %1398
-  %1405 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1405, ptr %.2783, align 1, !tbaa !32
-  %sext = shl i64 %1400, 32
-  %1406 = ashr exact i64 %sext, 32
-  %1407 = getelementptr inbounds i8, ptr %.1788, i64 %1406
-  store ptr %1407, ptr %58, align 8, !tbaa !29
+1401:                                             ; preds = %1395
+  %1402 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1402, ptr %.2783, align 1, !tbaa !32
+  %sext = shl i64 %1397, 32
+  %1403 = ashr exact i64 %sext, 32
+  %1404 = getelementptr inbounds i8, ptr %.1788, i64 %1403
+  store ptr %1404, ptr %58, align 8, !tbaa !29
   store ptr %.1788, ptr %63, align 8, !tbaa !30
-  store i64 %1406, ptr %64, align 8, !tbaa !43
-  %1408 = load i8, ptr %1407, align 1, !tbaa !32
-  store i8 %1408, ptr %59, align 8, !tbaa !33
-  store i8 0, ptr %1407, align 1, !tbaa !32
-  store ptr %1407, ptr %58, align 8, !tbaa !29
-  br label %1409
+  store i64 %1403, ptr %64, align 8, !tbaa !41
+  %1405 = load i8, ptr %1404, align 1, !tbaa !32
+  store i8 %1405, ptr %59, align 8, !tbaa !33
+  store i8 0, ptr %1404, align 1, !tbaa !32
+  store ptr %1404, ptr %58, align 8, !tbaa !29
+  br label %1406
 
-1409:                                             ; preds = %1404, %1398
-  %1410 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1375, ptr %1410, align 8, !tbaa !32
-  %1411 = getelementptr inbounds nuw i8, ptr %1397, i64 8
-  %1412 = load i16, ptr %1411, align 8, !tbaa !60
-  %1413 = sext i16 %1412 to i32
-  br label %1822
+1406:                                             ; preds = %1401, %1395
+  %1407 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1372, ptr %1407, align 8, !tbaa !32
+  %1408 = getelementptr inbounds nuw i8, ptr %1394, i64 8
+  %1409 = load i16, ptr %1408, align 8, !tbaa !58
+  %1410 = sext i16 %1409 to i32
+  br label %1819
 
-1414:                                             ; preds = %1391
-  %1415 = load ptr, ptr %63, align 8, !tbaa !30
-  %1416 = load i64, ptr %64, align 8, !tbaa !43
-  %1417 = trunc i64 %1416 to i32
-  %1418 = tail call noundef ptr @_ZN17duckdb_libpgquery28downcase_truncate_identifierEPKcib(ptr noundef %1415, i32 noundef %1417, i1 noundef zeroext true)
-  %1419 = load ptr, ptr %4, align 8, !tbaa !3
-  store ptr %1418, ptr %1419, align 8, !tbaa !32
-  br label %1822
+1411:                                             ; preds = %1388
+  %1412 = load ptr, ptr %63, align 8, !tbaa !30
+  %1413 = load i64, ptr %64, align 8, !tbaa !41
+  %1414 = trunc i64 %1413 to i32
+  %1415 = tail call noundef ptr @_ZN17duckdb_libpgquery28downcase_truncate_identifierEPKcib(ptr noundef %1412, i32 noundef %1414, i1 noundef zeroext true)
+  %1416 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %1415, ptr %1416, align 8, !tbaa !32
+  br label %1819
 
-1420:                                             ; preds = %125
-  %1421 = load ptr, ptr %63, align 8, !tbaa !30
-  %1422 = load ptr, ptr %2, align 8, !tbaa !45
-  %1423 = load ptr, ptr %1422, align 8, !tbaa !46
-  %1424 = ptrtoint ptr %1421 to i64
-  %1425 = ptrtoint ptr %1423 to i64
-  %1426 = sub i64 %1424, %1425
-  %1427 = trunc i64 %1426 to i32
-  %1428 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1427, ptr %1428, align 4, !tbaa !50
-  %1429 = load i8, ptr %1421, align 1, !tbaa !32
-  %1430 = sext i8 %1429 to i32
-  br label %1822
+1417:                                             ; preds = %122
+  %1418 = load ptr, ptr %63, align 8, !tbaa !30
+  %1419 = load ptr, ptr %2, align 8, !tbaa !43
+  %1420 = load ptr, ptr %1419, align 8, !tbaa !44
+  %1421 = ptrtoint ptr %1418 to i64
+  %1422 = ptrtoint ptr %1420 to i64
+  %1423 = sub i64 %1421, %1422
+  %1424 = trunc i64 %1423 to i32
+  %1425 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1424, ptr %1425, align 4, !tbaa !48
+  %1426 = load i8, ptr %1418, align 1, !tbaa !32
+  %1427 = sext i8 %1426 to i32
+  br label %1819
 
-1431:                                             ; preds = %125
-  %1432 = load ptr, ptr %63, align 8, !tbaa !30
-  %1433 = load ptr, ptr %2, align 8, !tbaa !45
-  %1434 = load ptr, ptr %1433, align 8, !tbaa !46
-  %1435 = ptrtoint ptr %1432 to i64
-  %1436 = ptrtoint ptr %1434 to i64
-  %1437 = sub i64 %1435, %1436
-  %1438 = trunc i64 %1437 to i32
-  %1439 = load ptr, ptr %5, align 8, !tbaa !16
-  store i32 %1438, ptr %1439, align 4, !tbaa !50
-  br label %1822
+1428:                                             ; preds = %122
+  %1429 = load ptr, ptr %63, align 8, !tbaa !30
+  %1430 = load ptr, ptr %2, align 8, !tbaa !43
+  %1431 = load ptr, ptr %1430, align 8, !tbaa !44
+  %1432 = ptrtoint ptr %1429 to i64
+  %1433 = ptrtoint ptr %1431 to i64
+  %1434 = sub i64 %1432, %1433
+  %1435 = trunc i64 %1434 to i32
+  %1436 = load ptr, ptr %5, align 8, !tbaa !16
+  store i32 %1435, ptr %1436, align 4, !tbaa !48
+  br label %1819
 
-1440:                                             ; preds = %125
+1437:                                             ; preds = %122
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.25) #20
   unreachable
 
-1441:                                             ; preds = %125
-  %1442 = load ptr, ptr %63, align 8, !tbaa !30
-  %1443 = load i8, ptr %59, align 8, !tbaa !33
-  store i8 %1443, ptr %.2783, align 1, !tbaa !32
-  %1444 = load ptr, ptr %65, align 8, !tbaa !19
-  %1445 = load i64, ptr %66, align 8, !tbaa !20
-  %1446 = getelementptr inbounds nuw ptr, ptr %1444, i64 %1445
-  %1447 = load ptr, ptr %1446, align 8, !tbaa !21
-  %1448 = getelementptr inbounds nuw i8, ptr %1447, i64 64
-  %1449 = load i32, ptr %1448, align 8, !tbaa !73
-  %1450 = icmp eq i32 %1449, 0
-  br i1 %1450, label %1451, label %._crit_edge1818
+1438:                                             ; preds = %122
+  %1439 = load ptr, ptr %63, align 8, !tbaa !30
+  %1440 = load i8, ptr %59, align 8, !tbaa !33
+  store i8 %1440, ptr %.2783, align 1, !tbaa !32
+  %1441 = load ptr, ptr %65, align 8, !tbaa !19
+  %1442 = load i64, ptr %66, align 8, !tbaa !20
+  %1443 = getelementptr inbounds nuw ptr, ptr %1441, i64 %1442
+  %1444 = load ptr, ptr %1443, align 8, !tbaa !21
+  %1445 = getelementptr inbounds nuw i8, ptr %1444, i64 64
+  %1446 = load i32, ptr %1445, align 8, !tbaa !70
+  %1447 = icmp eq i32 %1446, 0
+  br i1 %1447, label %1448, label %._crit_edge1818
 
-._crit_edge1818:                                  ; preds = %1441
+._crit_edge1818:                                  ; preds = %1438
   %.pre = load i64, ptr %67, align 8, !tbaa !27
-  br label %1455
+  br label %1452
 
-1451:                                             ; preds = %1441
-  %1452 = getelementptr inbounds nuw i8, ptr %1447, i64 32
-  %1453 = load i64, ptr %1452, align 8, !tbaa !25
-  store i64 %1453, ptr %67, align 8, !tbaa !27
-  %1454 = load ptr, ptr %68, align 8, !tbaa !24
-  store ptr %1454, ptr %1447, align 8, !tbaa !31
-  store i32 1, ptr %1448, align 8, !tbaa !73
-  br label %1455
+1448:                                             ; preds = %1438
+  %1449 = getelementptr inbounds nuw i8, ptr %1444, i64 32
+  %1450 = load i64, ptr %1449, align 8, !tbaa !25
+  store i64 %1450, ptr %67, align 8, !tbaa !27
+  %1451 = load ptr, ptr %68, align 8, !tbaa !24
+  store ptr %1451, ptr %1444, align 8, !tbaa !31
+  store i32 1, ptr %1445, align 8, !tbaa !70
+  br label %1452
 
-1455:                                             ; preds = %._crit_edge1818, %1451
-  %1456 = phi i32 [ %1449, %._crit_edge1818 ], [ 1, %1451 ]
-  %1457 = phi i64 [ %.pre, %._crit_edge1818 ], [ %1453, %1451 ]
-  %1458 = load ptr, ptr %58, align 8, !tbaa !29
-  %1459 = getelementptr inbounds nuw i8, ptr %1447, i64 8
-  %1460 = load ptr, ptr %1459, align 8, !tbaa !74
-  %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 %1457
-  %.not826 = icmp ugt ptr %1458, %1461
-  br i1 %.not826, label %1541, label %1462
+1452:                                             ; preds = %._crit_edge1818, %1448
+  %1453 = phi i32 [ %1446, %._crit_edge1818 ], [ 1, %1448 ]
+  %1454 = phi i64 [ %.pre, %._crit_edge1818 ], [ %1450, %1448 ]
+  %1455 = load ptr, ptr %58, align 8, !tbaa !29
+  %1456 = getelementptr inbounds nuw i8, ptr %1444, i64 8
+  %1457 = load ptr, ptr %1456, align 8, !tbaa !71
+  %1458 = getelementptr inbounds nuw i8, ptr %1457, i64 %1454
+  %.not826 = icmp ugt ptr %1455, %1458
+  br i1 %.not826, label %1538, label %1459
 
-1462:                                             ; preds = %1455
-  %1463 = ptrtoint ptr %.2783 to i64
-  %1464 = ptrtoint ptr %1442 to i64
-  %1465 = sub i64 %1463, %1464
-  %1466 = trunc i64 %1465 to i32
-  %1467 = load ptr, ptr %63, align 8, !tbaa !30
-  %1468 = shl i64 %1465, 32
-  %sext2123 = add i64 %1468, -4294967296
-  %1469 = ashr exact i64 %sext2123, 32
-  %1470 = getelementptr inbounds i8, ptr %1467, i64 %1469
-  store ptr %1470, ptr %58, align 8, !tbaa !29
-  %1471 = load i32, ptr %60, align 4, !tbaa !18
-  %1472 = icmp sgt i32 %1466, 1
-  br i1 %1472, label %.lr.ph32.i, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
+1459:                                             ; preds = %1452
+  %1460 = ptrtoint ptr %.2783 to i64
+  %1461 = ptrtoint ptr %1439 to i64
+  %1462 = sub i64 %1460, %1461
+  %1463 = trunc i64 %1462 to i32
+  %1464 = load ptr, ptr %63, align 8, !tbaa !30
+  %1465 = shl i64 %1462, 32
+  %sext2123 = add i64 %1465, -4294967296
+  %1466 = ashr exact i64 %sext2123, 32
+  %1467 = getelementptr inbounds i8, ptr %1464, i64 %1466
+  store ptr %1467, ptr %58, align 8, !tbaa !29
+  %1468 = load i32, ptr %60, align 4, !tbaa !18
+  %1469 = icmp sgt i32 %1463, 1
+  br i1 %1469, label %.lr.ph32.i, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
 
-.lr.ph32.i:                                       ; preds = %1462, %._crit_edge.i983
-  %.02130.i = phi i32 [ %1512, %._crit_edge.i983 ], [ %1471, %1462 ]
-  %.02329.i = phi ptr [ %1513, %._crit_edge.i983 ], [ %1467, %1462 ]
-  %1473 = load i8, ptr %.02329.i, align 1, !tbaa !32
-  %.not.i982 = icmp eq i8 %1473, 0
-  br i1 %.not.i982, label %1478, label %1474
+.lr.ph32.i:                                       ; preds = %1459, %._crit_edge.i983
+  %.02130.i = phi i32 [ %1509, %._crit_edge.i983 ], [ %1468, %1459 ]
+  %.02329.i = phi ptr [ %1510, %._crit_edge.i983 ], [ %1464, %1459 ]
+  %1470 = load i8, ptr %.02329.i, align 1, !tbaa !32
+  %.not.i982 = icmp eq i8 %1470, 0
+  br i1 %.not.i982, label %1475, label %1471
 
-1474:                                             ; preds = %.lr.ph32.i
-  %1475 = zext i8 %1473 to i64
-  %1476 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1475
-  %1477 = load i8, ptr %1476, align 1, !tbaa !32
-  br label %1478
+1471:                                             ; preds = %.lr.ph32.i
+  %1472 = zext i8 %1470 to i64
+  %1473 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1472
+  %1474 = load i8, ptr %1473, align 1, !tbaa !32
+  br label %1475
 
-1478:                                             ; preds = %1474, %.lr.ph32.i
-  %1479 = phi i8 [ %1477, %1474 ], [ 1, %.lr.ph32.i ]
-  %1480 = sext i32 %.02130.i to i64
-  %1481 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1480
-  %1482 = load i16, ptr %1481, align 2, !tbaa !36
-  %.not25.i = icmp eq i16 %1482, 0
-  br i1 %.not25.i, label %1484, label %1483
+1475:                                             ; preds = %1471, %.lr.ph32.i
+  %1476 = phi i8 [ %1474, %1471 ], [ 1, %.lr.ph32.i ]
+  %1477 = sext i32 %.02130.i to i64
+  %1478 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1477
+  %1479 = load i16, ptr %1478, align 2, !tbaa !34
+  %.not25.i = icmp eq i16 %1479, 0
+  br i1 %.not25.i, label %1481, label %1480
 
-1483:                                             ; preds = %1478
-  store i32 %.02130.i, ptr %61, align 8, !tbaa !38
-  store ptr %.02329.i, ptr %62, align 8, !tbaa !39
-  br label %1484
+1480:                                             ; preds = %1475
+  store i32 %.02130.i, ptr %61, align 8, !tbaa !36
+  store ptr %.02329.i, ptr %62, align 8, !tbaa !37
+  br label %1481
 
-1484:                                             ; preds = %1483, %1478
-  %1485 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1480
-  %1486 = load i16, ptr %1485, align 2, !tbaa !36
-  %1487 = sext i16 %1486 to i64
-  %1488 = zext i8 %1479 to i64
-  %1489 = add nsw i64 %1487, %1488
-  %1490 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1489
-  %1491 = load i16, ptr %1490, align 2, !tbaa !36
-  %1492 = sext i16 %1491 to i32
-  %.not2627.i = icmp eq i32 %.02130.i, %1492
+1481:                                             ; preds = %1480, %1475
+  %1482 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1477
+  %1483 = load i16, ptr %1482, align 2, !tbaa !34
+  %1484 = sext i16 %1483 to i64
+  %1485 = zext i8 %1476 to i64
+  %1486 = add nsw i64 %1484, %1485
+  %1487 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1486
+  %1488 = load i16, ptr %1487, align 2, !tbaa !34
+  %1489 = sext i16 %1488 to i32
+  %.not2627.i = icmp eq i32 %.02130.i, %1489
   br i1 %.not2627.i, label %._crit_edge.i983, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1484, %1501
-  %1493 = phi i64 [ %1506, %1501 ], [ %1488, %1484 ]
-  %1494 = phi i64 [ %1502, %1501 ], [ %1480, %1484 ]
-  %.028.i = phi i8 [ %.1.i, %1501 ], [ %1479, %1484 ]
-  %1495 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1494
-  %1496 = load i16, ptr %1495, align 2, !tbaa !36
-  %1497 = icmp sgt i16 %1496, 308
-  br i1 %1497, label %1498, label %1501
+.lr.ph.i:                                         ; preds = %1481, %1498
+  %1490 = phi i64 [ %1503, %1498 ], [ %1485, %1481 ]
+  %1491 = phi i64 [ %1499, %1498 ], [ %1477, %1481 ]
+  %.028.i = phi i8 [ %.1.i, %1498 ], [ %1476, %1481 ]
+  %1492 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1491
+  %1493 = load i16, ptr %1492, align 2, !tbaa !34
+  %1494 = icmp sgt i16 %1493, 308
+  br i1 %1494, label %1495, label %1498
 
-1498:                                             ; preds = %.lr.ph.i
-  %1499 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1493
-  %1500 = load i8, ptr %1499, align 1, !tbaa !32
-  br label %1501
+1495:                                             ; preds = %.lr.ph.i
+  %1496 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1490
+  %1497 = load i8, ptr %1496, align 1, !tbaa !32
+  br label %1498
 
-1501:                                             ; preds = %1498, %.lr.ph.i
-  %.1.i = phi i8 [ %1500, %1498 ], [ %.028.i, %.lr.ph.i ]
-  %1502 = sext i16 %1496 to i64
-  %1503 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1502
-  %1504 = load i16, ptr %1503, align 2, !tbaa !36
-  %1505 = sext i16 %1504 to i64
-  %1506 = zext i8 %.1.i to i64
-  %1507 = add nsw i64 %1505, %1506
-  %1508 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1507
-  %1509 = load i16, ptr %1508, align 2, !tbaa !36
-  %.not26.i = icmp eq i16 %1496, %1509
-  br i1 %.not26.i, label %._crit_edge.i983, label %.lr.ph.i, !llvm.loop !75
+1498:                                             ; preds = %1495, %.lr.ph.i
+  %.1.i = phi i8 [ %1497, %1495 ], [ %.028.i, %.lr.ph.i ]
+  %1499 = sext i16 %1493 to i64
+  %1500 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1499
+  %1501 = load i16, ptr %1500, align 2, !tbaa !34
+  %1502 = sext i16 %1501 to i64
+  %1503 = zext i8 %.1.i to i64
+  %1504 = add nsw i64 %1502, %1503
+  %1505 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1504
+  %1506 = load i16, ptr %1505, align 2, !tbaa !34
+  %.not26.i = icmp eq i16 %1493, %1506
+  br i1 %.not26.i, label %._crit_edge.i983, label %.lr.ph.i, !llvm.loop !72
 
-._crit_edge.i983:                                 ; preds = %1501, %1484
-  %.lcssa.i = phi i64 [ %1489, %1484 ], [ %1507, %1501 ]
-  %1510 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i
-  %1511 = load i16, ptr %1510, align 2, !tbaa !36
-  %1512 = sext i16 %1511 to i32
-  %1513 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 1
-  %exitcond.not.i = icmp eq ptr %1513, %1470
-  br i1 %exitcond.not.i, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit, label %.lr.ph32.i, !llvm.loop !76
+._crit_edge.i983:                                 ; preds = %1498, %1481
+  %.lcssa.i = phi i64 [ %1486, %1481 ], [ %1504, %1498 ]
+  %1507 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i
+  %1508 = load i16, ptr %1507, align 2, !tbaa !34
+  %1509 = sext i16 %1508 to i32
+  %1510 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 1
+  %exitcond.not.i = icmp eq ptr %1510, %1467
+  br i1 %exitcond.not.i, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit, label %.lr.ph32.i, !llvm.loop !73
 
-_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit: ; preds = %._crit_edge.i983, %1462
-  %.021.lcssa.i = phi i32 [ %1471, %1462 ], [ %1512, %._crit_edge.i983 ]
-  %1514 = sext i32 %.021.lcssa.i to i64
-  %1515 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1514
-  %1516 = load i16, ptr %1515, align 2, !tbaa !36
-  %.not.i984 = icmp eq i16 %1516, 0
-  br i1 %.not.i984, label %1518, label %1517
+_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit: ; preds = %._crit_edge.i983, %1459
+  %.021.lcssa.i = phi i32 [ %1468, %1459 ], [ %1509, %._crit_edge.i983 ]
+  %1511 = sext i32 %.021.lcssa.i to i64
+  %1512 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1511
+  %1513 = load i16, ptr %1512, align 2, !tbaa !34
+  %.not.i984 = icmp eq i16 %1513, 0
+  br i1 %.not.i984, label %1515, label %1514
 
-1517:                                             ; preds = %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
-  store i32 %.021.lcssa.i, ptr %61, align 8, !tbaa !38
-  store ptr %1470, ptr %62, align 8, !tbaa !39
-  br label %1518
+1514:                                             ; preds = %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
+  store i32 %.021.lcssa.i, ptr %61, align 8, !tbaa !36
+  store ptr %1467, ptr %62, align 8, !tbaa !37
+  br label %1515
 
-1518:                                             ; preds = %1517, %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
-  %1519 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1514
-  %1520 = load i16, ptr %1519, align 2, !tbaa !36
-  %1521 = sext i16 %1520 to i64
-  %1522 = add nsw i64 %1521, 1
-  %1523 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1522
-  %1524 = load i16, ptr %1523, align 2, !tbaa !36
-  %1525 = sext i16 %1524 to i32
-  %.not1819.i = icmp eq i32 %.021.lcssa.i, %1525
+1515:                                             ; preds = %1514, %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit
+  %1516 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1511
+  %1517 = load i16, ptr %1516, align 2, !tbaa !34
+  %1518 = sext i16 %1517 to i64
+  %1519 = add nsw i64 %1518, 1
+  %1520 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1519
+  %1521 = load i16, ptr %1520, align 2, !tbaa !34
+  %1522 = sext i16 %1521 to i32
+  %.not1819.i = icmp eq i32 %.021.lcssa.i, %1522
   br i1 %.not1819.i, label %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, label %.lr.ph.i985
 
-.lr.ph.i985:                                      ; preds = %1518, %.lr.ph.i985
-  %1526 = phi i64 [ %1529, %.lr.ph.i985 ], [ %1514, %1518 ]
-  %1527 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1526
-  %1528 = load i16, ptr %1527, align 2, !tbaa !36
+.lr.ph.i985:                                      ; preds = %1515, %.lr.ph.i985
+  %1523 = phi i64 [ %1526, %.lr.ph.i985 ], [ %1511, %1515 ]
+  %1524 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1523
+  %1525 = load i16, ptr %1524, align 2, !tbaa !34
+  %1526 = sext i16 %1525 to i64
+  %1527 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1526
+  %1528 = load i16, ptr %1527, align 2, !tbaa !34
   %1529 = sext i16 %1528 to i64
-  %1530 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1529
-  %1531 = load i16, ptr %1530, align 2, !tbaa !36
-  %1532 = sext i16 %1531 to i64
-  %1533 = add nsw i64 %1532, 1
-  %1534 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1533
-  %1535 = load i16, ptr %1534, align 2, !tbaa !36
-  %.not18.i = icmp eq i16 %1528, %1535
-  br i1 %.not18.i, label %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, label %.lr.ph.i985, !llvm.loop !77
+  %1530 = add nsw i64 %1529, 1
+  %1531 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1530
+  %1532 = load i16, ptr %1531, align 2, !tbaa !34
+  %.not18.i = icmp eq i16 %1525, %1532
+  br i1 %.not18.i, label %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, label %.lr.ph.i985, !llvm.loop !74
 
-_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit: ; preds = %.lr.ph.i985, %1518
-  %.lcssa.i987 = phi i64 [ %1522, %1518 ], [ %1533, %.lr.ph.i985 ]
-  %1536 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i987
-  %1537 = load i16, ptr %1536, align 2, !tbaa !36
-  switch i16 %1537, label %1538 [
-    i16 308, label %.backedge.sink.split
-    i16 0, label %.backedge.sink.split
+_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit: ; preds = %.lr.ph.i985, %1515
+  %.lcssa.i987 = phi i64 [ %1519, %1515 ], [ %1530, %.lr.ph.i985 ]
+  %1533 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i987
+  %1534 = load i16, ptr %1533, align 2, !tbaa !34
+  switch i16 %1534, label %1535 [
+    i16 308, label %.backedge.sink.split2371.backedge
+    i16 0, label %.backedge.sink.split2371.backedge
   ]
 
-1538:                                             ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit
-  %1539 = sext i16 %1537 to i32
-  %1540 = getelementptr inbounds nuw i8, ptr %1470, i64 1
-  store ptr %1540, ptr %58, align 8, !tbaa !29
+.backedge.sink.split2371.backedge:                ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %123
+  %.1788.ph.be = phi ptr [ %.1788, %123 ], [ %1464, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit ], [ %1464, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit ]
+  br label %.backedge.sink.split2371
+
+1535:                                             ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit
+  %1536 = sext i16 %1534 to i32
+  %1537 = getelementptr inbounds nuw i8, ptr %1467, i64 1
+  store ptr %1537, ptr %58, align 8, !tbaa !29
+  br label %.loopexit1066.backedge
+
+.loopexit1066.backedge:                           ; preds = %._crit_edge.i1008, %1535, %1715
+  %.0787.be = phi ptr [ %1714, %1715 ], [ %1464, %1535 ], [ %1714, %._crit_edge.i1008 ]
+  %.0781.be = phi ptr [ %1722, %1715 ], [ %1537, %1535 ], [ %1722, %._crit_edge.i1008 ]
+  %.0777.be = phi i32 [ %1723, %1715 ], [ %1536, %1535 ], [ %1764, %._crit_edge.i1008 ]
   br label %.loopexit1066
 
-1541:                                             ; preds = %1455
-  %1542 = load ptr, ptr %63, align 8, !tbaa !30
-  %1543 = getelementptr i8, ptr %1461, i64 1
-  %1544 = icmp ugt ptr %1458, %1543
-  br i1 %1544, label %1545, label %1546
+1538:                                             ; preds = %1452
+  %1539 = load ptr, ptr %63, align 8, !tbaa !30
+  %1540 = getelementptr i8, ptr %1458, i64 1
+  %1541 = icmp ugt ptr %1455, %1540
+  br i1 %1541, label %1542, label %1543
 
-1545:                                             ; preds = %1541
+1542:                                             ; preds = %1538
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.36) #20
   unreachable
 
-1546:                                             ; preds = %1541
-  %1547 = getelementptr inbounds nuw i8, ptr %1447, i64 60
-  %1548 = load i32, ptr %1547, align 4, !tbaa !78
-  %1549 = icmp eq i32 %1548, 0
-  %1550 = ptrtoint ptr %1458 to i64
-  %1551 = ptrtoint ptr %1542 to i64
-  br i1 %1549, label %1552, label %1555
+1543:                                             ; preds = %1538
+  %1544 = getelementptr inbounds nuw i8, ptr %1444, i64 60
+  %1545 = load i32, ptr %1544, align 4, !tbaa !75
+  %1546 = icmp eq i32 %1545, 0
+  %1547 = ptrtoint ptr %1455 to i64
+  %1548 = ptrtoint ptr %1539 to i64
+  br i1 %1546, label %1549, label %1552
 
-1552:                                             ; preds = %1546
-  %1553 = sub i64 %1550, %1551
-  %1554 = icmp eq i64 %1553, 1
-  br i1 %1554, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011, label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044
+1549:                                             ; preds = %1543
+  %1550 = sub i64 %1547, %1548
+  %1551 = icmp eq i64 %1550, 1
+  br i1 %1551, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011, label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044
 
-1555:                                             ; preds = %1546
-  %1556 = xor i64 %1551, -1
-  %1557 = add i64 %1556, %1550
-  %1558 = trunc i64 %1557 to i32
-  %1559 = icmp sgt i32 %1558, 0
-  br i1 %1559, label %.lr.ph.i993, label %._crit_edge.i988
+1552:                                             ; preds = %1543
+  %1553 = xor i64 %1548, -1
+  %1554 = add i64 %1553, %1547
+  %1555 = trunc i64 %1554 to i32
+  %1556 = icmp sgt i32 %1555, 0
+  br i1 %1556, label %.lr.ph.i993, label %._crit_edge.i988
 
-.lr.ph.i993:                                      ; preds = %1555, %.lr.ph.i993
-  %.0131168.i = phi ptr [ %1562, %.lr.ph.i993 ], [ %1460, %1555 ]
-  %.0132167.i = phi ptr [ %1560, %.lr.ph.i993 ], [ %1542, %1555 ]
-  %.0133166.i = phi i32 [ %1563, %.lr.ph.i993 ], [ 0, %1555 ]
-  %1560 = getelementptr inbounds nuw i8, ptr %.0132167.i, i64 1
-  %1561 = load i8, ptr %.0132167.i, align 1, !tbaa !32
-  %1562 = getelementptr inbounds nuw i8, ptr %.0131168.i, i64 1
-  store i8 %1561, ptr %.0131168.i, align 1, !tbaa !32
-  %1563 = add nuw nsw i32 %.0133166.i, 1
-  %exitcond.not.i994 = icmp eq i32 %1563, %1558
-  br i1 %exitcond.not.i994, label %._crit_edge.loopexit.i, label %.lr.ph.i993, !llvm.loop !79
+.lr.ph.i993:                                      ; preds = %1552, %.lr.ph.i993
+  %.0131168.i = phi ptr [ %1559, %.lr.ph.i993 ], [ %1457, %1552 ]
+  %.0132167.i = phi ptr [ %1557, %.lr.ph.i993 ], [ %1539, %1552 ]
+  %.0133166.i = phi i32 [ %1560, %.lr.ph.i993 ], [ 0, %1552 ]
+  %1557 = getelementptr inbounds nuw i8, ptr %.0132167.i, i64 1
+  %1558 = load i8, ptr %.0132167.i, align 1, !tbaa !32
+  %1559 = getelementptr inbounds nuw i8, ptr %.0131168.i, i64 1
+  store i8 %1558, ptr %.0131168.i, align 1, !tbaa !32
+  %1560 = add nuw nsw i32 %.0133166.i, 1
+  %exitcond.not.i994 = icmp eq i32 %1560, %1555
+  br i1 %exitcond.not.i994, label %._crit_edge.loopexit.i, label %.lr.ph.i993, !llvm.loop !76
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i993
   %.pre.i995 = load ptr, ptr %65, align 8, !tbaa !19
@@ -2986,339 +2979,339 @@ _ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit: ; preds = %.lr.ph.i985, %151
   %.phi.trans.insert.i996 = getelementptr inbounds nuw ptr, ptr %.pre.i995, i64 %.pre185.i
   %.pre186.i = load ptr, ptr %.phi.trans.insert.i996, align 8, !tbaa !21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre186.i, i64 64
-  %.pre1819 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !73
+  %.pre1819 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !70
   br label %._crit_edge.i988
 
-._crit_edge.i988:                                 ; preds = %._crit_edge.loopexit.i, %1555
-  %1564 = phi i32 [ %.pre1819, %._crit_edge.loopexit.i ], [ %1456, %1555 ]
-  %1565 = phi ptr [ %.pre186.i, %._crit_edge.loopexit.i ], [ %1447, %1555 ]
-  %1566 = icmp eq i32 %1564, 2
-  br i1 %1566, label %.thread160.i, label %1567
+._crit_edge.i988:                                 ; preds = %._crit_edge.loopexit.i, %1552
+  %1561 = phi i32 [ %.pre1819, %._crit_edge.loopexit.i ], [ %1453, %1552 ]
+  %1562 = phi ptr [ %.pre186.i, %._crit_edge.loopexit.i ], [ %1444, %1552 ]
+  %1563 = icmp eq i32 %1561, 2
+  br i1 %1563, label %.thread160.i, label %1564
 
 .thread160.i:                                     ; preds = %._crit_edge.i988
   store i64 0, ptr %67, align 8, !tbaa !27
   br label %.sink.split.i
 
-1567:                                             ; preds = %._crit_edge.i988
-  %sext.i = shl i64 %1557, 32
-  %1568 = ashr exact i64 %sext.i, 32
-  %1569 = xor i64 %1568, -1
-  %.pn.in169.i = getelementptr inbounds nuw i8, ptr %1565, i64 24
-  %.pn170.i = load i64, ptr %.pn.in169.i, align 8, !tbaa !80
-  %.0134171.i = add i64 %.pn170.i, %1569
-  %1570 = icmp eq i64 %.0134171.i, 0
-  br i1 %1570, label %.lr.ph173.preheader.i, label %._crit_edge174.i
+1564:                                             ; preds = %._crit_edge.i988
+  %sext.i = shl i64 %1554, 32
+  %1565 = ashr exact i64 %sext.i, 32
+  %1566 = xor i64 %1565, -1
+  %.pn.in169.i = getelementptr inbounds nuw i8, ptr %1562, i64 24
+  %.pn170.i = load i64, ptr %.pn.in169.i, align 8, !tbaa !77
+  %.0134171.i = add i64 %.pn170.i, %1566
+  %1567 = icmp eq i64 %.0134171.i, 0
+  br i1 %1567, label %.lr.ph173.preheader.i, label %._crit_edge174.i
 
-.lr.ph173.preheader.i:                            ; preds = %1567
+.lr.ph173.preheader.i:                            ; preds = %1564
   %.pre187.i = load ptr, ptr %58, align 8, !tbaa !29
   br label %.lr.ph173.i
 
-.lr.ph173.i:                                      ; preds = %1592, %.lr.ph173.preheader.i
-  %1571 = phi i64 [ %.pn170.i, %.lr.ph173.preheader.i ], [ %.pn.i, %1592 ]
-  %1572 = phi ptr [ %.pre187.i, %.lr.ph173.preheader.i ], [ %1594, %1592 ]
-  %1573 = phi ptr [ %1565, %.lr.ph173.preheader.i ], [ %1598, %1592 ]
-  %1574 = getelementptr inbounds nuw i8, ptr %1573, i64 8
-  %1575 = load ptr, ptr %1574, align 8, !tbaa !74
-  %1576 = ptrtoint ptr %1572 to i64
-  %1577 = ptrtoint ptr %1575 to i64
-  %1578 = sub i64 %1576, %1577
-  %1579 = getelementptr inbounds nuw i8, ptr %1573, i64 40
-  %1580 = load i32, ptr %1579, align 8, !tbaa !81
-  %.not146.i = icmp eq i32 %1580, 0
-  br i1 %.not146.i, label %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.thread.i, label %1581
+.lr.ph173.i:                                      ; preds = %1589, %.lr.ph173.preheader.i
+  %1568 = phi i64 [ %.pn170.i, %.lr.ph173.preheader.i ], [ %.pn.i, %1589 ]
+  %1569 = phi ptr [ %.pre187.i, %.lr.ph173.preheader.i ], [ %1591, %1589 ]
+  %1570 = phi ptr [ %1562, %.lr.ph173.preheader.i ], [ %1595, %1589 ]
+  %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 8
+  %1572 = load ptr, ptr %1571, align 8, !tbaa !71
+  %1573 = ptrtoint ptr %1569 to i64
+  %1574 = ptrtoint ptr %1572 to i64
+  %1575 = sub i64 %1573, %1574
+  %1576 = getelementptr inbounds nuw i8, ptr %1570, i64 40
+  %1577 = load i32, ptr %1576, align 8, !tbaa !78
+  %.not146.i = icmp eq i32 %1577, 0
+  br i1 %.not146.i, label %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.thread.i, label %1578
 
 _ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.thread.i: ; preds = %.lr.ph173.i
-  store ptr null, ptr %1574, align 8, !tbaa !74
+  store ptr null, ptr %1571, align 8, !tbaa !71
   br label %.loopexit162.i
 
-1581:                                             ; preds = %.lr.ph173.i
-  %1582 = getelementptr inbounds nuw i8, ptr %1573, i64 24
-  %1583 = shl i64 %1571, 1
-  %1584 = icmp eq i64 %1583, 0
-  %1585 = lshr exact i64 %1571, 3
-  %1586 = or disjoint i64 %1585, %1571
-  %storemerge147.i = select i1 %1584, i64 %1586, i64 %1583
-  store i64 %storemerge147.i, ptr %1582, align 8, !tbaa !80
-  %1587 = add i64 %storemerge147.i, 2
-  %.not.i.i = icmp eq ptr %1575, null
-  br i1 %.not.i.i, label %1590, label %1588
+1578:                                             ; preds = %.lr.ph173.i
+  %1579 = getelementptr inbounds nuw i8, ptr %1570, i64 24
+  %1580 = shl i64 %1568, 1
+  %1581 = icmp eq i64 %1580, 0
+  %1582 = lshr exact i64 %1568, 3
+  %1583 = or disjoint i64 %1582, %1568
+  %storemerge147.i = select i1 %1581, i64 %1583, i64 %1580
+  store i64 %storemerge147.i, ptr %1579, align 8, !tbaa !77
+  %1584 = add i64 %storemerge147.i, 2
+  %.not.i.i = icmp eq ptr %1572, null
+  br i1 %.not.i.i, label %1587, label %1585
 
-1588:                                             ; preds = %1581
-  %1589 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef nonnull %1575, i64 noundef %1587)
+1585:                                             ; preds = %1578
+  %1586 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef nonnull %1572, i64 noundef %1584)
   br label %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992
 
-1590:                                             ; preds = %1581
-  %1591 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %1587)
+1587:                                             ; preds = %1578
+  %1588 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %1584)
   br label %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992
 
-_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992: ; preds = %1590, %1588
-  %storemerge.i = phi ptr [ %1589, %1588 ], [ %1591, %1590 ]
-  store ptr %storemerge.i, ptr %1574, align 8, !tbaa !74
+_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992: ; preds = %1587, %1585
+  %storemerge.i = phi ptr [ %1586, %1585 ], [ %1588, %1587 ]
+  store ptr %storemerge.i, ptr %1571, align 8, !tbaa !71
   %.not148.i = icmp eq ptr %storemerge.i, null
-  br i1 %.not148.i, label %.loopexit162.i, label %1592
+  br i1 %.not148.i, label %.loopexit162.i, label %1589
 
 .loopexit162.i:                                   ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992, %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.thread.i
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.37) #20
   unreachable
 
-1592:                                             ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992
-  %sext149.i = shl i64 %1578, 32
-  %1593 = ashr exact i64 %sext149.i, 32
-  %1594 = getelementptr inbounds i8, ptr %storemerge.i, i64 %1593
-  store ptr %1594, ptr %58, align 8, !tbaa !29
-  %1595 = load ptr, ptr %65, align 8, !tbaa !19
-  %1596 = load i64, ptr %66, align 8, !tbaa !20
-  %1597 = getelementptr inbounds nuw ptr, ptr %1595, i64 %1596
-  %1598 = load ptr, ptr %1597, align 8, !tbaa !21
-  %.pn.in.i = getelementptr inbounds nuw i8, ptr %1598, i64 24
-  %.pn.i = load i64, ptr %.pn.in.i, align 8, !tbaa !80
-  %.0134.i = add i64 %.pn.i, %1569
-  %1599 = icmp eq i64 %.0134.i, 0
-  br i1 %1599, label %.lr.ph173.i, label %._crit_edge174.i, !llvm.loop !82
+1589:                                             ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i992
+  %sext149.i = shl i64 %1575, 32
+  %1590 = ashr exact i64 %sext149.i, 32
+  %1591 = getelementptr inbounds i8, ptr %storemerge.i, i64 %1590
+  store ptr %1591, ptr %58, align 8, !tbaa !29
+  %1592 = load ptr, ptr %65, align 8, !tbaa !19
+  %1593 = load i64, ptr %66, align 8, !tbaa !20
+  %1594 = getelementptr inbounds nuw ptr, ptr %1592, i64 %1593
+  %1595 = load ptr, ptr %1594, align 8, !tbaa !21
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %1595, i64 24
+  %.pn.i = load i64, ptr %.pn.in.i, align 8, !tbaa !77
+  %.0134.i = add i64 %.pn.i, %1566
+  %1596 = icmp eq i64 %.0134.i, 0
+  br i1 %1596, label %.lr.ph173.i, label %._crit_edge174.i, !llvm.loop !79
 
-._crit_edge174.i:                                 ; preds = %1592, %1567
-  %1600 = phi ptr [ %1565, %1567 ], [ %1598, %1592 ]
-  %.0134.lcssa.i = phi i64 [ %.0134171.i, %1567 ], [ %.0134.i, %1592 ]
+._crit_edge174.i:                                 ; preds = %1589, %1564
+  %1597 = phi ptr [ %1562, %1564 ], [ %1595, %1589 ]
+  %.0134.lcssa.i = phi i64 [ %.0134171.i, %1564 ], [ %.0134.i, %1589 ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %.0134.lcssa.i, i64 8192)
-  %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 44
-  %1602 = load i32, ptr %1601, align 4, !tbaa !83
-  %.not.i989 = icmp eq i32 %1602, 0
-  br i1 %.not.i989, label %1630, label %.preheader.i990
+  %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 44
+  %1599 = load i32, ptr %1598, align 4, !tbaa !80
+  %.not.i989 = icmp eq i32 %1599, 0
+  br i1 %.not.i989, label %1627, label %.preheader.i990
 
-.preheader.i990:                                  ; preds = %._crit_edge174.i, %1605
-  %.0128175.i = phi i64 [ %1615, %1605 ], [ 0, %._crit_edge174.i ]
-  %1603 = load ptr, ptr %68, align 8, !tbaa !24
-  %1604 = tail call i32 @getc(ptr noundef %1603)
-  switch i32 %1604, label %1605 [
+.preheader.i990:                                  ; preds = %._crit_edge174.i, %1602
+  %.0128175.i = phi i64 [ %1612, %1602 ], [ 0, %._crit_edge174.i ]
+  %1600 = load ptr, ptr %68, align 8, !tbaa !24
+  %1601 = tail call i32 @getc(ptr noundef %1600)
+  switch i32 %1601, label %1602 [
     i32 -1, label %.critedge.i
     i32 10, label %.critedge.i
   ]
 
-1605:                                             ; preds = %.preheader.i990
-  %1606 = trunc i32 %1604 to i8
-  %1607 = load ptr, ptr %65, align 8, !tbaa !19
-  %1608 = load i64, ptr %66, align 8, !tbaa !20
-  %1609 = getelementptr inbounds nuw ptr, ptr %1607, i64 %1608
-  %1610 = load ptr, ptr %1609, align 8, !tbaa !21
-  %1611 = getelementptr inbounds nuw i8, ptr %1610, i64 8
-  %1612 = load ptr, ptr %1611, align 8, !tbaa !74
-  %1613 = getelementptr inbounds i8, ptr %1612, i64 %1568
-  %1614 = getelementptr inbounds nuw i8, ptr %1613, i64 %.0128175.i
-  store i8 %1606, ptr %1614, align 1, !tbaa !32
-  %1615 = add nuw nsw i64 %.0128175.i, 1
-  %exitcond184.not.i = icmp eq i64 %1615, %spec.store.select.i
-  br i1 %exitcond184.not.i, label %.critedge.i, label %.preheader.i990, !llvm.loop !84
+1602:                                             ; preds = %.preheader.i990
+  %1603 = trunc i32 %1601 to i8
+  %1604 = load ptr, ptr %65, align 8, !tbaa !19
+  %1605 = load i64, ptr %66, align 8, !tbaa !20
+  %1606 = getelementptr inbounds nuw ptr, ptr %1604, i64 %1605
+  %1607 = load ptr, ptr %1606, align 8, !tbaa !21
+  %1608 = getelementptr inbounds nuw i8, ptr %1607, i64 8
+  %1609 = load ptr, ptr %1608, align 8, !tbaa !71
+  %1610 = getelementptr inbounds i8, ptr %1609, i64 %1565
+  %1611 = getelementptr inbounds nuw i8, ptr %1610, i64 %.0128175.i
+  store i8 %1603, ptr %1611, align 1, !tbaa !32
+  %1612 = add nuw nsw i64 %.0128175.i, 1
+  %exitcond184.not.i = icmp eq i64 %1612, %spec.store.select.i
+  br i1 %exitcond184.not.i, label %.critedge.i, label %.preheader.i990, !llvm.loop !81
 
-.critedge.i:                                      ; preds = %1605, %.preheader.i990, %.preheader.i990
-  %.0128.lcssa.i = phi i64 [ %.0128175.i, %.preheader.i990 ], [ %.0128175.i, %.preheader.i990 ], [ %spec.store.select.i, %1605 ]
-  switch i32 %1604, label %1629 [
+.critedge.i:                                      ; preds = %1602, %.preheader.i990, %.preheader.i990
+  %.0128.lcssa.i = phi i64 [ %.0128175.i, %.preheader.i990 ], [ %.0128175.i, %.preheader.i990 ], [ %spec.store.select.i, %1602 ]
+  switch i32 %1601, label %1626 [
     i32 10, label %.thread.i
-    i32 -1, label %1625
+    i32 -1, label %1622
   ]
 
 .thread.i:                                        ; preds = %.critedge.i
-  %1616 = load ptr, ptr %65, align 8, !tbaa !19
-  %1617 = load i64, ptr %66, align 8, !tbaa !20
-  %1618 = getelementptr inbounds nuw ptr, ptr %1616, i64 %1617
-  %1619 = load ptr, ptr %1618, align 8, !tbaa !21
-  %1620 = getelementptr inbounds nuw i8, ptr %1619, i64 8
-  %1621 = load ptr, ptr %1620, align 8, !tbaa !74
-  %1622 = getelementptr inbounds i8, ptr %1621, i64 %1568
-  %1623 = add nuw i64 %.0128.lcssa.i, 1
-  %1624 = getelementptr inbounds nuw i8, ptr %1622, i64 %.0128.lcssa.i
-  store i8 10, ptr %1624, align 1, !tbaa !32
-  br label %1629
+  %1613 = load ptr, ptr %65, align 8, !tbaa !19
+  %1614 = load i64, ptr %66, align 8, !tbaa !20
+  %1615 = getelementptr inbounds nuw ptr, ptr %1613, i64 %1614
+  %1616 = load ptr, ptr %1615, align 8, !tbaa !21
+  %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 8
+  %1618 = load ptr, ptr %1617, align 8, !tbaa !71
+  %1619 = getelementptr inbounds i8, ptr %1618, i64 %1565
+  %1620 = add nuw i64 %.0128.lcssa.i, 1
+  %1621 = getelementptr inbounds nuw i8, ptr %1619, i64 %.0128.lcssa.i
+  store i8 10, ptr %1621, align 1, !tbaa !32
+  br label %1626
 
-1625:                                             ; preds = %.critedge.i
-  %1626 = load ptr, ptr %68, align 8, !tbaa !24
-  %1627 = tail call i32 @ferror(ptr noundef %1626) #22
-  %.not145.i = icmp eq i32 %1627, 0
-  br i1 %.not145.i, label %1629, label %1628
+1622:                                             ; preds = %.critedge.i
+  %1623 = load ptr, ptr %68, align 8, !tbaa !24
+  %1624 = tail call i32 @ferror(ptr noundef %1623) #22
+  %.not145.i = icmp eq i32 %1624, 0
+  br i1 %.not145.i, label %1626, label %1625
 
-1628:                                             ; preds = %1625
+1625:                                             ; preds = %1622
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.38) #20
   unreachable
 
-1629:                                             ; preds = %1625, %.thread.i, %.critedge.i
-  %.1159.i = phi i64 [ %1623, %.thread.i ], [ %.0128.lcssa.i, %1625 ], [ %.0128.lcssa.i, %.critedge.i ]
+1626:                                             ; preds = %1622, %.thread.i, %.critedge.i
+  %.1159.i = phi i64 [ %1620, %.thread.i ], [ %.0128.lcssa.i, %1622 ], [ %.0128.lcssa.i, %.critedge.i ]
   store i64 %.1159.i, ptr %67, align 8, !tbaa !27
   br label %.loopexit.i
 
-1630:                                             ; preds = %._crit_edge174.i
-  %1631 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %1631, align 4, !tbaa !50
-  %1632 = getelementptr inbounds nuw i8, ptr %1600, i64 8
-  %1633 = load ptr, ptr %1632, align 8, !tbaa !74
-  %1634 = getelementptr inbounds i8, ptr %1633, i64 %1568
-  %1635 = load ptr, ptr %68, align 8, !tbaa !24
-  %1636 = tail call i64 @fread(ptr noundef %1634, i64 noundef 1, i64 noundef %spec.store.select.i, ptr noundef %1635)
-  %sext142176.i = shl i64 %1636, 32
-  %1637 = ashr exact i64 %sext142176.i, 32
-  store i64 %1637, ptr %67, align 8, !tbaa !27
-  %1638 = icmp eq i64 %sext142176.i, 0
-  br i1 %1638, label %.lr.ph178.i, label %.loopexit.i
+1627:                                             ; preds = %._crit_edge174.i
+  %1628 = tail call ptr @__errno_location() #21
+  store i32 0, ptr %1628, align 4, !tbaa !48
+  %1629 = getelementptr inbounds nuw i8, ptr %1597, i64 8
+  %1630 = load ptr, ptr %1629, align 8, !tbaa !71
+  %1631 = getelementptr inbounds i8, ptr %1630, i64 %1565
+  %1632 = load ptr, ptr %68, align 8, !tbaa !24
+  %1633 = tail call i64 @fread(ptr noundef %1631, i64 noundef 1, i64 noundef %spec.store.select.i, ptr noundef %1632)
+  %sext142176.i = shl i64 %1633, 32
+  %1634 = ashr exact i64 %sext142176.i, 32
+  store i64 %1634, ptr %67, align 8, !tbaa !27
+  %1635 = icmp eq i64 %sext142176.i, 0
+  br i1 %1635, label %.lr.ph178.i, label %.loopexit.i
 
-.lr.ph178.i:                                      ; preds = %1630, %1648
-  %1639 = load ptr, ptr %68, align 8, !tbaa !24
-  %1640 = tail call i32 @ferror(ptr noundef %1639) #22
-  %.not143.i = icmp eq i32 %1640, 0
-  br i1 %.not143.i, label %.loopexit.thread.i, label %1645
+.lr.ph178.i:                                      ; preds = %1627, %1645
+  %1636 = load ptr, ptr %68, align 8, !tbaa !24
+  %1637 = tail call i32 @ferror(ptr noundef %1636) #22
+  %.not143.i = icmp eq i32 %1637, 0
+  br i1 %.not143.i, label %.loopexit.thread.i, label %1642
 
 .loopexit.thread.i:                               ; preds = %.lr.ph178.i
-  %1641 = load ptr, ptr %65, align 8, !tbaa !19
-  %1642 = load i64, ptr %66, align 8, !tbaa !20
-  %1643 = getelementptr inbounds nuw ptr, ptr %1641, i64 %1642
-  %1644 = load ptr, ptr %1643, align 8, !tbaa !21
+  %1638 = load ptr, ptr %65, align 8, !tbaa !19
+  %1639 = load i64, ptr %66, align 8, !tbaa !20
+  %1640 = getelementptr inbounds nuw ptr, ptr %1638, i64 %1639
+  %1641 = load ptr, ptr %1640, align 8, !tbaa !21
   br label %.sink.split.i
 
-1645:                                             ; preds = %.lr.ph178.i
-  %1646 = load i32, ptr %1631, align 4, !tbaa !50
-  %.not144.i = icmp eq i32 %1646, 4
-  br i1 %.not144.i, label %1648, label %1647
+1642:                                             ; preds = %.lr.ph178.i
+  %1643 = load i32, ptr %1628, align 4, !tbaa !48
+  %.not144.i = icmp eq i32 %1643, 4
+  br i1 %.not144.i, label %1645, label %1644
 
-1647:                                             ; preds = %1645
+1644:                                             ; preds = %1642
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.38) #20
   unreachable
 
-1648:                                             ; preds = %1645
-  store i32 0, ptr %1631, align 4, !tbaa !50
-  tail call void @clearerr(ptr noundef %1639) #22
-  %1649 = load ptr, ptr %65, align 8, !tbaa !19
-  %1650 = load i64, ptr %66, align 8, !tbaa !20
-  %1651 = getelementptr inbounds nuw ptr, ptr %1649, i64 %1650
-  %1652 = load ptr, ptr %1651, align 8, !tbaa !21
-  %1653 = getelementptr inbounds nuw i8, ptr %1652, i64 8
-  %1654 = load ptr, ptr %1653, align 8, !tbaa !74
-  %1655 = getelementptr inbounds i8, ptr %1654, i64 %1568
-  %1656 = load ptr, ptr %68, align 8, !tbaa !24
-  %1657 = tail call i64 @fread(ptr noundef %1655, i64 noundef 1, i64 noundef %spec.store.select.i, ptr noundef %1656)
-  %sext142.i = shl i64 %1657, 32
-  %1658 = ashr exact i64 %sext142.i, 32
-  store i64 %1658, ptr %67, align 8, !tbaa !27
-  %1659 = icmp eq i64 %sext142.i, 0
-  br i1 %1659, label %.lr.ph178.i, label %.loopexit.i, !llvm.loop !85
+1645:                                             ; preds = %1642
+  store i32 0, ptr %1628, align 4, !tbaa !48
+  tail call void @clearerr(ptr noundef %1636) #22
+  %1646 = load ptr, ptr %65, align 8, !tbaa !19
+  %1647 = load i64, ptr %66, align 8, !tbaa !20
+  %1648 = getelementptr inbounds nuw ptr, ptr %1646, i64 %1647
+  %1649 = load ptr, ptr %1648, align 8, !tbaa !21
+  %1650 = getelementptr inbounds nuw i8, ptr %1649, i64 8
+  %1651 = load ptr, ptr %1650, align 8, !tbaa !71
+  %1652 = getelementptr inbounds i8, ptr %1651, i64 %1565
+  %1653 = load ptr, ptr %68, align 8, !tbaa !24
+  %1654 = tail call i64 @fread(ptr noundef %1652, i64 noundef 1, i64 noundef %spec.store.select.i, ptr noundef %1653)
+  %sext142.i = shl i64 %1654, 32
+  %1655 = ashr exact i64 %sext142.i, 32
+  store i64 %1655, ptr %67, align 8, !tbaa !27
+  %1656 = icmp eq i64 %sext142.i, 0
+  br i1 %1656, label %.lr.ph178.i, label %.loopexit.i, !llvm.loop !82
 
-.loopexit.i:                                      ; preds = %1648, %1630, %1629
-  %.pr.i = phi i64 [ %1637, %1630 ], [ %.1159.i, %1629 ], [ %1658, %1648 ]
-  %1660 = load ptr, ptr %65, align 8, !tbaa !19
-  %1661 = load i64, ptr %66, align 8, !tbaa !20
-  %1662 = getelementptr inbounds nuw ptr, ptr %1660, i64 %1661
-  %1663 = load ptr, ptr %1662, align 8, !tbaa !21
-  %1664 = getelementptr inbounds nuw i8, ptr %1663, i64 32
-  store i64 %.pr.i, ptr %1664, align 8, !tbaa !25
-  %1665 = icmp eq i64 %.pr.i, 0
-  br i1 %1665, label %1667, label %1674
+.loopexit.i:                                      ; preds = %1645, %1627, %1626
+  %.pr.i = phi i64 [ %1634, %1627 ], [ %.1159.i, %1626 ], [ %1655, %1645 ]
+  %1657 = load ptr, ptr %65, align 8, !tbaa !19
+  %1658 = load i64, ptr %66, align 8, !tbaa !20
+  %1659 = getelementptr inbounds nuw ptr, ptr %1657, i64 %1658
+  %1660 = load ptr, ptr %1659, align 8, !tbaa !21
+  %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 32
+  store i64 %.pr.i, ptr %1661, align 8, !tbaa !25
+  %1662 = icmp eq i64 %.pr.i, 0
+  br i1 %1662, label %1664, label %1671
 
 .sink.split.i:                                    ; preds = %.loopexit.thread.i, %.thread160.i
-  %.sink205.i = phi ptr [ %1644, %.loopexit.thread.i ], [ %1565, %.thread160.i ]
-  %1666 = getelementptr inbounds nuw i8, ptr %.sink205.i, i64 32
-  store i64 0, ptr %1666, align 8, !tbaa !25
-  br label %1667
+  %.sink205.i = phi ptr [ %1641, %.loopexit.thread.i ], [ %1562, %.thread160.i ]
+  %1663 = getelementptr inbounds nuw i8, ptr %.sink205.i, i64 32
+  store i64 0, ptr %1663, align 8, !tbaa !25
+  br label %1664
 
-1667:                                             ; preds = %.sink.split.i, %.loopexit.i
-  %1668 = phi ptr [ %1663, %.loopexit.i ], [ %.sink205.i, %.sink.split.i ]
-  %1669 = icmp eq i32 %1558, 0
-  br i1 %1669, label %1670, label %1672
+1664:                                             ; preds = %.sink.split.i, %.loopexit.i
+  %1665 = phi ptr [ %1660, %.loopexit.i ], [ %.sink205.i, %.sink.split.i ]
+  %1666 = icmp eq i32 %1555, 0
+  br i1 %1666, label %1667, label %1669
 
-1670:                                             ; preds = %1667
-  %1671 = load ptr, ptr %68, align 8, !tbaa !24
-  tail call void @_ZN17duckdb_libpgquery14core_yyrestartEP8_IO_FILEPv(ptr noundef %1671, ptr noundef nonnull %2)
+1667:                                             ; preds = %1664
+  %1668 = load ptr, ptr %68, align 8, !tbaa !24
+  tail call void @_ZN17duckdb_libpgquery14core_yyrestartEP8_IO_FILEPv(ptr noundef %1668, ptr noundef nonnull %2)
   %.pre188.i = load i64, ptr %67, align 8, !tbaa !27
   %.pre189.i = load ptr, ptr %65, align 8, !tbaa !19
   %.pre190.i = load i64, ptr %66, align 8, !tbaa !20
   %.phi.trans.insert191.i = getelementptr inbounds nuw ptr, ptr %.pre189.i, i64 %.pre190.i
   %.pre192.i = load ptr, ptr %.phi.trans.insert191.i, align 8, !tbaa !21
-  br label %1674
+  br label %1671
 
-1672:                                             ; preds = %1667
-  %1673 = getelementptr inbounds nuw i8, ptr %1668, i64 64
-  store i32 2, ptr %1673, align 8, !tbaa !73
-  br label %1674
+1669:                                             ; preds = %1664
+  %1670 = getelementptr inbounds nuw i8, ptr %1665, i64 64
+  store i32 2, ptr %1670, align 8, !tbaa !70
+  br label %1671
 
-1674:                                             ; preds = %1672, %1670, %.loopexit.i
-  %1675 = phi ptr [ %.pre192.i, %1670 ], [ %1668, %1672 ], [ %1663, %.loopexit.i ]
-  %1676 = phi i64 [ %.pre188.i, %1670 ], [ 0, %1672 ], [ %.pr.i, %.loopexit.i ]
-  %.0135.i = phi i32 [ 1, %1670 ], [ 2, %1672 ], [ 0, %.loopexit.i ]
-  %sext150.i = shl i64 %1557, 32
-  %1677 = ashr exact i64 %sext150.i, 32
-  %1678 = add i64 %1676, %1677
-  %1679 = getelementptr inbounds nuw i8, ptr %1675, i64 24
-  %1680 = load i64, ptr %1679, align 8, !tbaa !80
-  %1681 = icmp ugt i64 %1678, %1680
-  br i1 %1681, label %1682, label %._crit_edge194.i
+1671:                                             ; preds = %1669, %1667, %.loopexit.i
+  %1672 = phi ptr [ %.pre192.i, %1667 ], [ %1665, %1669 ], [ %1660, %.loopexit.i ]
+  %1673 = phi i64 [ %.pre188.i, %1667 ], [ 0, %1669 ], [ %.pr.i, %.loopexit.i ]
+  %.0135.i = phi i32 [ 1, %1667 ], [ 2, %1669 ], [ 0, %.loopexit.i ]
+  %sext150.i = shl i64 %1554, 32
+  %1674 = ashr exact i64 %sext150.i, 32
+  %1675 = add i64 %1673, %1674
+  %1676 = getelementptr inbounds nuw i8, ptr %1672, i64 24
+  %1677 = load i64, ptr %1676, align 8, !tbaa !77
+  %1678 = icmp ugt i64 %1675, %1677
+  br i1 %1678, label %1679, label %._crit_edge194.i
 
-._crit_edge194.i:                                 ; preds = %1674
-  %.phi.trans.insert195.i = getelementptr inbounds nuw i8, ptr %1675, i64 8
-  %.pre196.i = load ptr, ptr %.phi.trans.insert195.i, align 8, !tbaa !74
+._crit_edge194.i:                                 ; preds = %1671
+  %.phi.trans.insert195.i = getelementptr inbounds nuw i8, ptr %1672, i64 8
+  %.pre196.i = load ptr, ptr %.phi.trans.insert195.i, align 8, !tbaa !71
   br label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
 
-1682:                                             ; preds = %1674
-  %1683 = lshr i64 %1676, 1
-  %1684 = add i64 %1678, %1683
-  %1685 = getelementptr inbounds nuw i8, ptr %1675, i64 8
-  %1686 = load ptr, ptr %1685, align 8, !tbaa !74
-  %.not.i153.i = icmp eq ptr %1686, null
-  br i1 %.not.i153.i, label %1689, label %1687
+1679:                                             ; preds = %1671
+  %1680 = lshr i64 %1673, 1
+  %1681 = add i64 %1675, %1680
+  %1682 = getelementptr inbounds nuw i8, ptr %1672, i64 8
+  %1683 = load ptr, ptr %1682, align 8, !tbaa !71
+  %.not.i153.i = icmp eq ptr %1683, null
+  br i1 %.not.i153.i, label %1686, label %1684
 
-1687:                                             ; preds = %1682
-  %1688 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef nonnull %1686, i64 noundef %1684)
+1684:                                             ; preds = %1679
+  %1685 = tail call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef nonnull %1683, i64 noundef %1681)
   br label %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i
 
-1689:                                             ; preds = %1682
-  %1690 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %1684)
+1686:                                             ; preds = %1679
+  %1687 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %1681)
   br label %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i
 
-_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i: ; preds = %1689, %1687
-  %.0.i154.i = phi ptr [ %1688, %1687 ], [ %1690, %1689 ]
-  %1691 = load ptr, ptr %65, align 8, !tbaa !19
-  %1692 = load i64, ptr %66, align 8, !tbaa !20
-  %1693 = getelementptr inbounds nuw ptr, ptr %1691, i64 %1692
-  %1694 = load ptr, ptr %1693, align 8, !tbaa !21
-  %1695 = getelementptr inbounds nuw i8, ptr %1694, i64 8
-  store ptr %.0.i154.i, ptr %1695, align 8, !tbaa !74
+_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i: ; preds = %1686, %1684
+  %.0.i154.i = phi ptr [ %1685, %1684 ], [ %1687, %1686 ]
+  %1688 = load ptr, ptr %65, align 8, !tbaa !19
+  %1689 = load i64, ptr %66, align 8, !tbaa !20
+  %1690 = getelementptr inbounds nuw ptr, ptr %1688, i64 %1689
+  %1691 = load ptr, ptr %1690, align 8, !tbaa !21
+  %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 8
+  store ptr %.0.i154.i, ptr %1692, align 8, !tbaa !71
   %.not151.i = icmp eq ptr %.0.i154.i, null
-  br i1 %.not151.i, label %1696, label %1697
+  br i1 %.not151.i, label %1693, label %1694
 
-1696:                                             ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i
+1693:                                             ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.39) #20
   unreachable
 
-1697:                                             ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i
-  %1698 = shl i64 %1684, 32
-  %sext152.i = add i64 %1698, -8589934592
-  %1699 = ashr exact i64 %sext152.i, 32
-  %1700 = getelementptr inbounds nuw i8, ptr %1694, i64 24
-  store i64 %1699, ptr %1700, align 8, !tbaa !80
+1694:                                             ; preds = %_ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit155.i
+  %1695 = shl i64 %1681, 32
+  %sext152.i = add i64 %1695, -8589934592
+  %1696 = ashr exact i64 %sext152.i, 32
+  %1697 = getelementptr inbounds nuw i8, ptr %1691, i64 24
+  store i64 %1696, ptr %1697, align 8, !tbaa !77
   %.pre193.i = load i64, ptr %67, align 8, !tbaa !27
-  %.pre197.i = add i64 %.pre193.i, %1677
+  %.pre197.i = add i64 %.pre193.i, %1674
   br label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
 
-_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit: ; preds = %._crit_edge194.i, %1697
-  %.pre-phi.i = phi i64 [ %1678, %._crit_edge194.i ], [ %.pre197.i, %1697 ]
-  %1701 = phi ptr [ %.pre196.i, %._crit_edge194.i ], [ %.0.i154.i, %1697 ]
+_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit: ; preds = %._crit_edge194.i, %1694
+  %.pre-phi.i = phi i64 [ %1675, %._crit_edge194.i ], [ %.pre197.i, %1694 ]
+  %1698 = phi ptr [ %.pre196.i, %._crit_edge194.i ], [ %.0.i154.i, %1694 ]
   store i64 %.pre-phi.i, ptr %67, align 8, !tbaa !27
-  %1702 = getelementptr inbounds nuw i8, ptr %1701, i64 %.pre-phi.i
-  store i8 0, ptr %1702, align 1, !tbaa !32
-  %1703 = load ptr, ptr %65, align 8, !tbaa !19
-  %1704 = load i64, ptr %66, align 8, !tbaa !20
-  %1705 = getelementptr inbounds nuw ptr, ptr %1703, i64 %1704
-  %1706 = load ptr, ptr %1705, align 8, !tbaa !21
-  %1707 = getelementptr inbounds nuw i8, ptr %1706, i64 8
-  %1708 = load ptr, ptr %1707, align 8, !tbaa !74
-  %1709 = load i64, ptr %67, align 8, !tbaa !27
-  %1710 = getelementptr i8, ptr %1708, i64 %1709
-  %1711 = getelementptr i8, ptr %1710, i64 1
-  store i8 0, ptr %1711, align 1, !tbaa !32
-  %1712 = load ptr, ptr %65, align 8, !tbaa !19
-  %1713 = load i64, ptr %66, align 8, !tbaa !20
-  %1714 = getelementptr inbounds nuw ptr, ptr %1712, i64 %1713
-  %1715 = load ptr, ptr %1714, align 8, !tbaa !21
-  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 8
-  %1717 = load ptr, ptr %1716, align 8, !tbaa !74
-  store ptr %1717, ptr %63, align 8, !tbaa !30
+  %1699 = getelementptr inbounds nuw i8, ptr %1698, i64 %.pre-phi.i
+  store i8 0, ptr %1699, align 1, !tbaa !32
+  %1700 = load ptr, ptr %65, align 8, !tbaa !19
+  %1701 = load i64, ptr %66, align 8, !tbaa !20
+  %1702 = getelementptr inbounds nuw ptr, ptr %1700, i64 %1701
+  %1703 = load ptr, ptr %1702, align 8, !tbaa !21
+  %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 8
+  %1705 = load ptr, ptr %1704, align 8, !tbaa !71
+  %1706 = load i64, ptr %67, align 8, !tbaa !27
+  %1707 = getelementptr i8, ptr %1705, i64 %1706
+  %1708 = getelementptr i8, ptr %1707, i64 1
+  store i8 0, ptr %1708, align 1, !tbaa !32
+  %1709 = load ptr, ptr %65, align 8, !tbaa !19
+  %1710 = load i64, ptr %66, align 8, !tbaa !20
+  %1711 = getelementptr inbounds nuw ptr, ptr %1709, i64 %1710
+  %1712 = load ptr, ptr %1711, align 8, !tbaa !21
+  %1713 = getelementptr inbounds nuw i8, ptr %1712, i64 8
+  %1714 = load ptr, ptr %1713, align 8, !tbaa !71
+  store ptr %1714, ptr %63, align 8, !tbaa !30
   switch i32 %.0135.i, label %default.unreachable1831 [
     i32 1, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011
-    i32 0, label %1718
+    i32 0, label %1715
     i32 2, label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge
   ]
 
@@ -3326,200 +3319,204 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_
   %.pre1820 = load i64, ptr %67, align 8, !tbaa !27
   br label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044
 
-1718:                                             ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
-  %1719 = ptrtoint ptr %.2783 to i64
-  %1720 = ptrtoint ptr %1442 to i64
-  %1721 = sub i64 %1719, %1720
-  %1722 = trunc i64 %1721 to i32
-  %1723 = shl i64 %1721, 32
-  %sext2124 = add i64 %1723, -4294967296
-  %1724 = ashr exact i64 %sext2124, 32
-  %1725 = getelementptr inbounds i8, ptr %1717, i64 %1724
-  store ptr %1725, ptr %58, align 8, !tbaa !29
-  %1726 = load i32, ptr %60, align 4, !tbaa !18
-  %1727 = icmp sgt i32 %1722, 1
-  br i1 %1727, label %.lr.ph32.i998, label %.loopexit1066
+1715:                                             ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
+  %1716 = ptrtoint ptr %.2783 to i64
+  %1717 = ptrtoint ptr %1439 to i64
+  %1718 = sub i64 %1716, %1717
+  %1719 = trunc i64 %1718 to i32
+  %1720 = shl i64 %1718, 32
+  %sext2124 = add i64 %1720, -4294967296
+  %1721 = ashr exact i64 %sext2124, 32
+  %1722 = getelementptr inbounds i8, ptr %1714, i64 %1721
+  store ptr %1722, ptr %58, align 8, !tbaa !29
+  %1723 = load i32, ptr %60, align 4, !tbaa !18
+  %1724 = icmp sgt i32 %1719, 1
+  br i1 %1724, label %.lr.ph32.i998, label %.loopexit1066.backedge
 
-.lr.ph32.i998:                                    ; preds = %1718, %._crit_edge.i1008
-  %.02130.i999 = phi i32 [ %1767, %._crit_edge.i1008 ], [ %1726, %1718 ]
-  %.02329.i1000 = phi ptr [ %1768, %._crit_edge.i1008 ], [ %1717, %1718 ]
-  %1728 = load i8, ptr %.02329.i1000, align 1, !tbaa !32
-  %.not.i1001 = icmp eq i8 %1728, 0
-  br i1 %.not.i1001, label %1733, label %1729
+.lr.ph32.i998:                                    ; preds = %1715, %._crit_edge.i1008
+  %.02130.i999 = phi i32 [ %1764, %._crit_edge.i1008 ], [ %1723, %1715 ]
+  %.02329.i1000 = phi ptr [ %1765, %._crit_edge.i1008 ], [ %1714, %1715 ]
+  %1725 = load i8, ptr %.02329.i1000, align 1, !tbaa !32
+  %.not.i1001 = icmp eq i8 %1725, 0
+  br i1 %.not.i1001, label %1730, label %1726
 
-1729:                                             ; preds = %.lr.ph32.i998
-  %1730 = zext i8 %1728 to i64
-  %1731 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1730
-  %1732 = load i8, ptr %1731, align 1, !tbaa !32
-  br label %1733
+1726:                                             ; preds = %.lr.ph32.i998
+  %1727 = zext i8 %1725 to i64
+  %1728 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1727
+  %1729 = load i8, ptr %1728, align 1, !tbaa !32
+  br label %1730
 
-1733:                                             ; preds = %1729, %.lr.ph32.i998
-  %1734 = phi i8 [ %1732, %1729 ], [ 1, %.lr.ph32.i998 ]
-  %1735 = sext i32 %.02130.i999 to i64
-  %1736 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1735
-  %1737 = load i16, ptr %1736, align 2, !tbaa !36
-  %.not25.i1002 = icmp eq i16 %1737, 0
-  br i1 %.not25.i1002, label %1739, label %1738
+1730:                                             ; preds = %1726, %.lr.ph32.i998
+  %1731 = phi i8 [ %1729, %1726 ], [ 1, %.lr.ph32.i998 ]
+  %1732 = sext i32 %.02130.i999 to i64
+  %1733 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1732
+  %1734 = load i16, ptr %1733, align 2, !tbaa !34
+  %.not25.i1002 = icmp eq i16 %1734, 0
+  br i1 %.not25.i1002, label %1736, label %1735
 
-1738:                                             ; preds = %1733
-  store i32 %.02130.i999, ptr %61, align 8, !tbaa !38
-  store ptr %.02329.i1000, ptr %62, align 8, !tbaa !39
-  br label %1739
+1735:                                             ; preds = %1730
+  store i32 %.02130.i999, ptr %61, align 8, !tbaa !36
+  store ptr %.02329.i1000, ptr %62, align 8, !tbaa !37
+  br label %1736
 
-1739:                                             ; preds = %1738, %1733
-  %1740 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1735
-  %1741 = load i16, ptr %1740, align 2, !tbaa !36
-  %1742 = sext i16 %1741 to i64
-  %1743 = zext i8 %1734 to i64
-  %1744 = add nsw i64 %1742, %1743
-  %1745 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1744
-  %1746 = load i16, ptr %1745, align 2, !tbaa !36
-  %1747 = sext i16 %1746 to i32
-  %.not2627.i1003 = icmp eq i32 %.02130.i999, %1747
+1736:                                             ; preds = %1735, %1730
+  %1737 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1732
+  %1738 = load i16, ptr %1737, align 2, !tbaa !34
+  %1739 = sext i16 %1738 to i64
+  %1740 = zext i8 %1731 to i64
+  %1741 = add nsw i64 %1739, %1740
+  %1742 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1741
+  %1743 = load i16, ptr %1742, align 2, !tbaa !34
+  %1744 = sext i16 %1743 to i32
+  %.not2627.i1003 = icmp eq i32 %.02130.i999, %1744
   br i1 %.not2627.i1003, label %._crit_edge.i1008, label %.lr.ph.i1004
 
-.lr.ph.i1004:                                     ; preds = %1739, %1756
-  %1748 = phi i64 [ %1761, %1756 ], [ %1743, %1739 ]
-  %1749 = phi i64 [ %1757, %1756 ], [ %1735, %1739 ]
-  %.028.i1005 = phi i8 [ %.1.i1006, %1756 ], [ %1734, %1739 ]
-  %1750 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1749
-  %1751 = load i16, ptr %1750, align 2, !tbaa !36
-  %1752 = icmp sgt i16 %1751, 308
-  br i1 %1752, label %1753, label %1756
+.lr.ph.i1004:                                     ; preds = %1736, %1753
+  %1745 = phi i64 [ %1758, %1753 ], [ %1740, %1736 ]
+  %1746 = phi i64 [ %1754, %1753 ], [ %1732, %1736 ]
+  %.028.i1005 = phi i8 [ %.1.i1006, %1753 ], [ %1731, %1736 ]
+  %1747 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1746
+  %1748 = load i16, ptr %1747, align 2, !tbaa !34
+  %1749 = icmp sgt i16 %1748, 308
+  br i1 %1749, label %1750, label %1753
 
-1753:                                             ; preds = %.lr.ph.i1004
-  %1754 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1748
-  %1755 = load i8, ptr %1754, align 1, !tbaa !32
-  br label %1756
+1750:                                             ; preds = %.lr.ph.i1004
+  %1751 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1745
+  %1752 = load i8, ptr %1751, align 1, !tbaa !32
+  br label %1753
 
-1756:                                             ; preds = %1753, %.lr.ph.i1004
-  %.1.i1006 = phi i8 [ %1755, %1753 ], [ %.028.i1005, %.lr.ph.i1004 ]
-  %1757 = sext i16 %1751 to i64
-  %1758 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1757
-  %1759 = load i16, ptr %1758, align 2, !tbaa !36
-  %1760 = sext i16 %1759 to i64
-  %1761 = zext i8 %.1.i1006 to i64
-  %1762 = add nsw i64 %1760, %1761
-  %1763 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1762
-  %1764 = load i16, ptr %1763, align 2, !tbaa !36
-  %.not26.i1007 = icmp eq i16 %1751, %1764
-  br i1 %.not26.i1007, label %._crit_edge.i1008, label %.lr.ph.i1004, !llvm.loop !75
+1753:                                             ; preds = %1750, %.lr.ph.i1004
+  %.1.i1006 = phi i8 [ %1752, %1750 ], [ %.028.i1005, %.lr.ph.i1004 ]
+  %1754 = sext i16 %1748 to i64
+  %1755 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1754
+  %1756 = load i16, ptr %1755, align 2, !tbaa !34
+  %1757 = sext i16 %1756 to i64
+  %1758 = zext i8 %.1.i1006 to i64
+  %1759 = add nsw i64 %1757, %1758
+  %1760 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1759
+  %1761 = load i16, ptr %1760, align 2, !tbaa !34
+  %.not26.i1007 = icmp eq i16 %1748, %1761
+  br i1 %.not26.i1007, label %._crit_edge.i1008, label %.lr.ph.i1004, !llvm.loop !72
 
-._crit_edge.i1008:                                ; preds = %1756, %1739
-  %.lcssa.i1009 = phi i64 [ %1744, %1739 ], [ %1762, %1756 ]
-  %1765 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i1009
-  %1766 = load i16, ptr %1765, align 2, !tbaa !36
-  %1767 = sext i16 %1766 to i32
-  %1768 = getelementptr inbounds nuw i8, ptr %.02329.i1000, i64 1
-  %exitcond.not.i1010 = icmp eq ptr %1768, %1725
-  br i1 %exitcond.not.i1010, label %.loopexit1066, label %.lr.ph32.i998, !llvm.loop !76
+._crit_edge.i1008:                                ; preds = %1753, %1736
+  %.lcssa.i1009 = phi i64 [ %1741, %1736 ], [ %1759, %1753 ]
+  %1762 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i1009
+  %1763 = load i16, ptr %1762, align 2, !tbaa !34
+  %1764 = sext i16 %1763 to i32
+  %1765 = getelementptr inbounds nuw i8, ptr %.02329.i1000, i64 1
+  %exitcond.not.i1010 = icmp eq ptr %1765, %1722
+  br i1 %exitcond.not.i1010, label %.loopexit1066.backedge, label %.lr.ph32.i998, !llvm.loop !73
 
-_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1552, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge
-  %1769 = phi ptr [ %1717, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1542, %1552 ]
-  %1770 = phi i64 [ %.pre1820, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1457, %1552 ]
-  %1771 = phi ptr [ %1717, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1460, %1552 ]
-  %1772 = getelementptr inbounds nuw i8, ptr %1771, i64 %1770
-  store ptr %1772, ptr %58, align 8, !tbaa !29
-  %1773 = load i32, ptr %60, align 4, !tbaa !18
-  %1774 = icmp ult ptr %1769, %1772
-  br i1 %1774, label %.lr.ph32.i1013, label %.backedge
+_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1549, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge
+  %1766 = phi ptr [ %1714, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1539, %1549 ]
+  %1767 = phi i64 [ %.pre1820, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1454, %1549 ]
+  %1768 = phi ptr [ %1714, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1457, %1549 ]
+  %1769 = getelementptr inbounds nuw i8, ptr %1768, i64 %1767
+  store ptr %1769, ptr %58, align 8, !tbaa !29
+  %1770 = load i32, ptr %60, align 4, !tbaa !18
+  %1771 = icmp ult ptr %1766, %1769
+  br i1 %1771, label %.lr.ph32.i1013, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %._crit_edge.i1023, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044
+  %.3780.be = phi i32 [ %1770, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ], [ %1811, %._crit_edge.i1023 ]
+  br label %.backedge
 
 .lr.ph32.i1013:                                   ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044, %._crit_edge.i1023
-  %.02130.i1014 = phi i32 [ %1814, %._crit_edge.i1023 ], [ %1773, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ]
-  %.02329.i1015 = phi ptr [ %1815, %._crit_edge.i1023 ], [ %1769, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ]
-  %1775 = load i8, ptr %.02329.i1015, align 1, !tbaa !32
-  %.not.i1016 = icmp eq i8 %1775, 0
-  br i1 %.not.i1016, label %1780, label %1776
+  %.02130.i1014 = phi i32 [ %1811, %._crit_edge.i1023 ], [ %1770, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ]
+  %.02329.i1015 = phi ptr [ %1812, %._crit_edge.i1023 ], [ %1766, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044 ]
+  %1772 = load i8, ptr %.02329.i1015, align 1, !tbaa !32
+  %.not.i1016 = icmp eq i8 %1772, 0
+  br i1 %.not.i1016, label %1777, label %1773
 
-1776:                                             ; preds = %.lr.ph32.i1013
-  %1777 = zext i8 %1775 to i64
-  %1778 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1777
-  %1779 = load i8, ptr %1778, align 1, !tbaa !32
-  br label %1780
+1773:                                             ; preds = %.lr.ph32.i1013
+  %1774 = zext i8 %1772 to i64
+  %1775 = getelementptr inbounds nuw [256 x i8], ptr @_ZN17duckdb_libpgqueryL5yy_ecE, i64 0, i64 %1774
+  %1776 = load i8, ptr %1775, align 1, !tbaa !32
+  br label %1777
 
-1780:                                             ; preds = %1776, %.lr.ph32.i1013
-  %1781 = phi i8 [ %1779, %1776 ], [ 1, %.lr.ph32.i1013 ]
-  %1782 = sext i32 %.02130.i1014 to i64
-  %1783 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1782
-  %1784 = load i16, ptr %1783, align 2, !tbaa !36
-  %.not25.i1017 = icmp eq i16 %1784, 0
-  br i1 %.not25.i1017, label %1786, label %1785
+1777:                                             ; preds = %1773, %.lr.ph32.i1013
+  %1778 = phi i8 [ %1776, %1773 ], [ 1, %.lr.ph32.i1013 ]
+  %1779 = sext i32 %.02130.i1014 to i64
+  %1780 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %1779
+  %1781 = load i16, ptr %1780, align 2, !tbaa !34
+  %.not25.i1017 = icmp eq i16 %1781, 0
+  br i1 %.not25.i1017, label %1783, label %1782
 
-1785:                                             ; preds = %1780
-  store i32 %.02130.i1014, ptr %61, align 8, !tbaa !38
-  store ptr %.02329.i1015, ptr %62, align 8, !tbaa !39
-  br label %1786
+1782:                                             ; preds = %1777
+  store i32 %.02130.i1014, ptr %61, align 8, !tbaa !36
+  store ptr %.02329.i1015, ptr %62, align 8, !tbaa !37
+  br label %1783
 
-1786:                                             ; preds = %1785, %1780
-  %1787 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1782
-  %1788 = load i16, ptr %1787, align 2, !tbaa !36
-  %1789 = sext i16 %1788 to i64
-  %1790 = zext i8 %1781 to i64
-  %1791 = add nsw i64 %1789, %1790
-  %1792 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1791
-  %1793 = load i16, ptr %1792, align 2, !tbaa !36
-  %1794 = sext i16 %1793 to i32
-  %.not2627.i1018 = icmp eq i32 %.02130.i1014, %1794
+1783:                                             ; preds = %1782, %1777
+  %1784 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1779
+  %1785 = load i16, ptr %1784, align 2, !tbaa !34
+  %1786 = sext i16 %1785 to i64
+  %1787 = zext i8 %1778 to i64
+  %1788 = add nsw i64 %1786, %1787
+  %1789 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1788
+  %1790 = load i16, ptr %1789, align 2, !tbaa !34
+  %1791 = sext i16 %1790 to i32
+  %.not2627.i1018 = icmp eq i32 %.02130.i1014, %1791
   br i1 %.not2627.i1018, label %._crit_edge.i1023, label %.lr.ph.i1019
 
-.lr.ph.i1019:                                     ; preds = %1786, %1803
-  %1795 = phi i64 [ %1808, %1803 ], [ %1790, %1786 ]
-  %1796 = phi i64 [ %1804, %1803 ], [ %1782, %1786 ]
-  %.028.i1020 = phi i8 [ %.1.i1021, %1803 ], [ %1781, %1786 ]
-  %1797 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1796
-  %1798 = load i16, ptr %1797, align 2, !tbaa !36
-  %1799 = icmp sgt i16 %1798, 308
-  br i1 %1799, label %1800, label %1803
+.lr.ph.i1019:                                     ; preds = %1783, %1800
+  %1792 = phi i64 [ %1805, %1800 ], [ %1787, %1783 ]
+  %1793 = phi i64 [ %1801, %1800 ], [ %1779, %1783 ]
+  %.028.i1020 = phi i8 [ %.1.i1021, %1800 ], [ %1778, %1783 ]
+  %1794 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_defE, i64 0, i64 %1793
+  %1795 = load i16, ptr %1794, align 2, !tbaa !34
+  %1796 = icmp sgt i16 %1795, 308
+  br i1 %1796, label %1797, label %1800
 
-1800:                                             ; preds = %.lr.ph.i1019
-  %1801 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1795
-  %1802 = load i8, ptr %1801, align 1, !tbaa !32
-  br label %1803
+1797:                                             ; preds = %.lr.ph.i1019
+  %1798 = getelementptr inbounds nuw [40 x i8], ptr @_ZN17duckdb_libpgqueryL7yy_metaE, i64 0, i64 %1792
+  %1799 = load i8, ptr %1798, align 1, !tbaa !32
+  br label %1800
 
-1803:                                             ; preds = %1800, %.lr.ph.i1019
-  %.1.i1021 = phi i8 [ %1802, %1800 ], [ %.028.i1020, %.lr.ph.i1019 ]
-  %1804 = sext i16 %1798 to i64
-  %1805 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1804
-  %1806 = load i16, ptr %1805, align 2, !tbaa !36
-  %1807 = sext i16 %1806 to i64
-  %1808 = zext i8 %.1.i1021 to i64
-  %1809 = add nsw i64 %1807, %1808
-  %1810 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1809
-  %1811 = load i16, ptr %1810, align 2, !tbaa !36
-  %.not26.i1022 = icmp eq i16 %1798, %1811
-  br i1 %.not26.i1022, label %._crit_edge.i1023, label %.lr.ph.i1019, !llvm.loop !75
+1800:                                             ; preds = %1797, %.lr.ph.i1019
+  %.1.i1021 = phi i8 [ %1799, %1797 ], [ %.028.i1020, %.lr.ph.i1019 ]
+  %1801 = sext i16 %1795 to i64
+  %1802 = getelementptr inbounds [376 x i16], ptr @_ZN17duckdb_libpgqueryL7yy_baseE, i64 0, i64 %1801
+  %1803 = load i16, ptr %1802, align 2, !tbaa !34
+  %1804 = sext i16 %1803 to i64
+  %1805 = zext i8 %.1.i1021 to i64
+  %1806 = add nsw i64 %1804, %1805
+  %1807 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_chkE, i64 0, i64 %1806
+  %1808 = load i16, ptr %1807, align 2, !tbaa !34
+  %.not26.i1022 = icmp eq i16 %1795, %1808
+  br i1 %.not26.i1022, label %._crit_edge.i1023, label %.lr.ph.i1019, !llvm.loop !72
 
-._crit_edge.i1023:                                ; preds = %1803, %1786
-  %.lcssa.i1024 = phi i64 [ %1791, %1786 ], [ %1809, %1803 ]
-  %1812 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i1024
-  %1813 = load i16, ptr %1812, align 2, !tbaa !36
-  %1814 = sext i16 %1813 to i32
-  %1815 = getelementptr inbounds nuw i8, ptr %.02329.i1015, i64 1
-  %exitcond.not.i1025 = icmp eq ptr %1815, %1772
-  br i1 %exitcond.not.i1025, label %.backedge, label %.lr.ph32.i1013, !llvm.loop !76
+._crit_edge.i1023:                                ; preds = %1800, %1783
+  %.lcssa.i1024 = phi i64 [ %1788, %1783 ], [ %1806, %1800 ]
+  %1809 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i1024
+  %1810 = load i16, ptr %1809, align 2, !tbaa !34
+  %1811 = sext i16 %1810 to i32
+  %1812 = getelementptr inbounds nuw i8, ptr %.02329.i1015, i64 1
+  %exitcond.not.i1025 = icmp eq ptr %1812, %1769
+  br i1 %exitcond.not.i1025, label %.backedge.backedge, label %.lr.ph32.i1013, !llvm.loop !73
 
 default.unreachable1831:                          ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
   unreachable
 
-_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011: ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit, %1552
-  %1816 = phi ptr [ %1542, %1552 ], [ %1717, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit ]
-  store i32 0, ptr %69, align 8, !tbaa !86
-  store ptr %1816, ptr %58, align 8, !tbaa !29
-  %1817 = load i32, ptr %60, align 4, !tbaa !18
-  %1818 = add nsw i32 %1817, -1
-  %1819 = sdiv i32 %1818, 2
-  %1820 = add nsw i32 %1819, 86
-  br label %125
+_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011: ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit, %1549
+  %1813 = phi ptr [ %1539, %1549 ], [ %1714, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit ]
+  store i32 0, ptr %69, align 8, !tbaa !83
+  store ptr %1813, ptr %58, align 8, !tbaa !29
+  %1814 = load i32, ptr %60, align 4, !tbaa !18
+  %1815 = add nsw i32 %1814, -1
+  %1816 = sdiv i32 %1815, 2
+  %1817 = add nsw i32 %1816, 86
+  br label %122
 
-1821:                                             ; preds = %125
+1818:                                             ; preds = %122
   tail call fastcc void @_ZN17duckdb_libpgqueryL14yy_fatal_errorEPKcPv(ptr noundef nonnull @.str.26) #20
   unreachable
 
-.fold.split:                                      ; preds = %1250
-  br label %1822
+.fold.split:                                      ; preds = %1247
+  br label %1819
 
-1822:                                             ; preds = %1250, %.fold.split, %1409, %1414, %.thread1042, %1235, %1242, %1246, %1253, %296, %302, %1431, %1420, %1356, %1339, %1328, %1311, %1300, %1289, %1276, %1263, %1161, %1152, %1143, %1134, %1125, %1116, %1107, %1098, %1089, %1080, %1071, %1062, %1053, %1036, %976, %943, %920, %765, %743, %415, %386, %369, %261, %188
-  %.0 = phi i32 [ 261, %188 ], [ 262, %261 ], [ 260, %369 ], [ 260, %386 ], [ 260, %415 ], [ %757, %743 ], [ 260, %765 ], [ 258, %920 ], [ 258, %943 ], [ 258, %976 ], [ 258, %1036 ], [ 266, %1053 ], [ 267, %1062 ], [ 268, %1071 ], [ 272, %1080 ], [ 273, %1089 ], [ 271, %1098 ], [ 270, %1107 ], [ 269, %1116 ], [ 274, %1125 ], [ 275, %1134 ], [ 276, %1143 ], [ 276, %1152 ], [ %1171, %1161 ], [ 265, %1263 ], [ 265, %1276 ], [ %1299, %1289 ], [ 259, %1300 ], [ %1327, %1311 ], [ 259, %1328 ], [ 259, %1339 ], [ 259, %1356 ], [ %1430, %1420 ], [ 0, %1431 ], [ %301, %296 ], [ 258, %302 ], [ 263, %.thread1042 ], [ %1238, %1235 ], [ 269, %1242 ], [ 275, %1246 ], [ 274, %1250 ], [ 276, %1253 ], [ %1413, %1409 ], [ 258, %1414 ], [ 276, %.fold.split ]
+1819:                                             ; preds = %1247, %.fold.split, %1406, %1411, %.thread1042, %1232, %1239, %1243, %1250, %291, %297, %1428, %1417, %1353, %1336, %1325, %1308, %1297, %1286, %1273, %1260, %1156, %1147, %1138, %1129, %1120, %1111, %1102, %1093, %1084, %1075, %1066, %1057, %1048, %1031, %971, %938, %915, %760, %738, %410, %381, %364, %256, %183
+  %.0 = phi i32 [ 261, %183 ], [ 262, %256 ], [ 260, %364 ], [ 260, %381 ], [ 260, %410 ], [ %752, %738 ], [ 260, %760 ], [ 258, %915 ], [ 258, %938 ], [ 258, %971 ], [ 258, %1031 ], [ 266, %1048 ], [ 267, %1057 ], [ 268, %1066 ], [ 272, %1075 ], [ 273, %1084 ], [ 271, %1093 ], [ 270, %1102 ], [ 269, %1111 ], [ 274, %1120 ], [ 275, %1129 ], [ 276, %1138 ], [ 276, %1147 ], [ %1166, %1156 ], [ 265, %1260 ], [ 265, %1273 ], [ %1296, %1286 ], [ 259, %1297 ], [ %1324, %1308 ], [ 259, %1325 ], [ 259, %1336 ], [ 259, %1353 ], [ %1427, %1417 ], [ 0, %1428 ], [ %296, %291 ], [ 258, %297 ], [ 263, %.thread1042 ], [ %1235, %1232 ], [ 269, %1239 ], [ 275, %1243 ], [ 274, %1247 ], [ 276, %1250 ], [ %1410, %1406 ], [ 258, %1411 ], [ 276, %.fold.split ]
   ret i32 %.0
 }
 
@@ -3539,11 +3536,11 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery21core_yy_create_buffer
 6:                                                ; preds = %3
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %7, ptr %8, align 8, !tbaa !80
+  store i64 %7, ptr %8, align 8, !tbaa !77
   %9 = add nsw i64 %7, 2
   %10 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %10, ptr %11, align 8, !tbaa !74
+  store ptr %10, ptr %11, align 8, !tbaa !71
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
 
@@ -3553,22 +3550,22 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery21core_yy_create_buffer
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 1, ptr %14, align 8, !tbaa !81
+  store i32 1, ptr %14, align 8, !tbaa !78
   %15 = tail call ptr @__errno_location() #21
-  %16 = load i32, ptr %15, align 4, !tbaa !50
+  %16 = load i32, ptr %15, align 4, !tbaa !48
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %17, align 8, !tbaa !25
   store i8 0, ptr %10, align 1, !tbaa !32
-  %18 = load ptr, ptr %11, align 8, !tbaa !74
+  %18 = load ptr, ptr %11, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 0, ptr %19, align 1, !tbaa !32
-  %20 = load ptr, ptr %11, align 8, !tbaa !74
+  %20 = load ptr, ptr %11, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 1, ptr %22, align 8, !tbaa !87
+  store i32 1, ptr %22, align 8, !tbaa !84
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 0, ptr %23, align 8, !tbaa !73
+  store i32 0, ptr %23, align 8, !tbaa !70
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not15.i.i = icmp eq ptr %25, null
@@ -3601,23 +3598,23 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery21core_yy_create_buffer
   store i8 %41, ptr %42, align 8, !tbaa !33
   store ptr %0, ptr %4, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 1, ptr %43, align 4, !tbaa !78
+  store i32 1, ptr %43, align 4, !tbaa !75
   br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
 
 .critedge.i:                                      ; preds = %26, %13
   store ptr %0, ptr %4, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 1, ptr %44, align 4, !tbaa !78
+  store i32 1, ptr %44, align 4, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 1, ptr %45, align 4, !tbaa !88
+  store i32 1, ptr %45, align 4, !tbaa !85
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i32 0, ptr %46, align 8, !tbaa !89
+  store i32 0, ptr %46, align 8, !tbaa !86
   br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
 
 _ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit: ; preds = %.thread, %.critedge.i
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 0, ptr %47, align 4, !tbaa !83
-  store i32 %16, ptr %15, align 4, !tbaa !50
+  store i32 0, ptr %47, align 4, !tbaa !80
+  store i32 %16, ptr %15, align 4, !tbaa !48
   ret ptr %4
 }
 
@@ -3626,11 +3623,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !45
-  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  %3 = load ptr, ptr %1, align 8, !tbaa !43
+  %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  %7 = load i32, ptr %6, align 4, !tbaa !50
+  %7 = load i32, ptr %6, align 4, !tbaa !48
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %4, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !32
@@ -3641,21 +3638,21 @@ define hidden void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef %0
 13:                                               ; preds = %2
   %14 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.33, ptr noundef %0)
   %15 = load ptr, ptr %5, align 8, !tbaa !16
-  %16 = load i32, ptr %15, align 4, !tbaa !50
+  %16 = load i32, ptr %15, align 4, !tbaa !48
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.sink.split
 
 18:                                               ; preds = %2
   %19 = tail call noundef i32 (ptr, ...) @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef nonnull @.str.34, ptr noundef %0, ptr noundef nonnull %9)
   %20 = load ptr, ptr %5, align 8, !tbaa !16
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !48
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.sink.split
 
 _ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit.sink.split: ; preds = %18, %13
   %.sink13 = phi i32 [ %16, %13 ], [ %21, %18 ]
-  %23 = load ptr, ptr %1, align 8, !tbaa !45
-  %24 = load ptr, ptr %23, align 8, !tbaa !46
+  %23 = load ptr, ptr %1, align 8, !tbaa !43
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %24, i32 noundef %.sink13)
   %26 = add nsw i32 %25, 1
   %27 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %26)
@@ -3685,8 +3682,8 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery19scanner_errpositionEiPv(i32 n
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !45
-  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %5 = load ptr, ptr %1, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %6, i32 noundef %0)
   %8 = add nsw i32 %7, 1
   %9 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %8)
@@ -3701,17 +3698,17 @@ declare noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhPv(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !45
+  %3 = load ptr, ptr %1, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !52
+  %7 = load i32, ptr %6, align 8, !tbaa !50
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   store i8 0, ptr %9, align 1, !tbaa !32
-  %10 = load ptr, ptr %1, align 8, !tbaa !45
+  %10 = load ptr, ptr %1, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %12 = load i32, ptr %11, align 8, !tbaa !52
+  %12 = load i32, ptr %11, align 8, !tbaa !50
   %13 = add nsw i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %14)
@@ -3749,11 +3746,11 @@ define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhP
   %31 = ptrtoint ptr %.0106171 to i64
   %32 = sub i64 %31, %18
   %33 = load ptr, ptr %19, align 8, !tbaa !16
-  %34 = load i32, ptr %33, align 4, !tbaa !50
+  %34 = load i32, ptr %33, align 4, !tbaa !48
   %35 = trunc i64 %32 to i32
   %36 = add i32 %35, 3
   %37 = add i32 %36, %34
-  store i32 %37, ptr %33, align 4, !tbaa !50
+  store i32 %37, ptr %33, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %1)
   br label %38
 
@@ -3766,10 +3763,10 @@ define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhP
 41:                                               ; preds = %24
   %42 = zext i8 %26 to i32
   %43 = tail call ptr @__ctype_b_loc() #21
-  %44 = load ptr, ptr %43, align 8, !tbaa !66
+  %44 = load ptr, ptr %43, align 8, !tbaa !64
   %45 = zext i8 %26 to i64
   %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
-  %47 = load i16, ptr %46, align 2, !tbaa !36
+  %47 = load i16, ptr %46, align 2, !tbaa !34
   %48 = and i16 %47, 4096
   %.not112 = icmp eq i16 %48, 0
   br i1 %.not112, label %158, label %49
@@ -3779,7 +3776,7 @@ define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhP
   %51 = load i8, ptr %50, align 1, !tbaa !32
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr %44, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !36
+  %54 = load i16, ptr %53, align 2, !tbaa !34
   %55 = and i16 %54, 4096
   %.not113 = icmp eq i16 %55, 0
   br i1 %.not113, label %158, label %56
@@ -3789,7 +3786,7 @@ define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhP
   %58 = load i8, ptr %57, align 1, !tbaa !32
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw i16, ptr %44, i64 %59
-  %61 = load i16, ptr %60, align 2, !tbaa !36
+  %61 = load i16, ptr %60, align 2, !tbaa !34
   %62 = and i16 %61, 4096
   %.not114 = icmp eq i16 %62, 0
   br i1 %.not114, label %158, label %63
@@ -3799,7 +3796,7 @@ define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL16litbuf_udeescapeEhP
   %65 = load i8, ptr %64, align 1, !tbaa !32
   %66 = zext i8 %65 to i64
   %67 = getelementptr inbounds nuw i16, ptr %44, i64 %66
-  %68 = load i16, ptr %67, align 2, !tbaa !36
+  %68 = load i16, ptr %67, align 2, !tbaa !34
   %69 = and i16 %68, 4096
   %.not115 = icmp eq i16 %69, 0
   br i1 %.not115, label %158, label %70
@@ -3966,11 +3963,11 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %141 = ptrtoint ptr %.0106171 to i64
   %142 = sub i64 %141, %18
   %143 = load ptr, ptr %19, align 8, !tbaa !16
-  %144 = load i32, ptr %143, align 4, !tbaa !50
+  %144 = load i32, ptr %143, align 4, !tbaa !48
   %145 = trunc i64 %142 to i32
   %146 = add i32 %145, 3
   %147 = add i32 %146, %144
-  store i32 %147, ptr %143, align 4, !tbaa !50
+  store i32 %147, ptr %143, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %1)
   br label %150
 
@@ -4010,7 +4007,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %163 = zext i8 %162 to i32
   %164 = zext i8 %162 to i64
   %165 = getelementptr inbounds nuw i16, ptr %44, i64 %164
-  %166 = load i16, ptr %165, align 2, !tbaa !36
+  %166 = load i16, ptr %165, align 2, !tbaa !34
   %167 = and i16 %166, 4096
   %.not116 = icmp eq i16 %167, 0
   br i1 %.not116, label %323, label %168
@@ -4020,7 +4017,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %170 = load i8, ptr %169, align 1, !tbaa !32
   %171 = zext i8 %170 to i64
   %172 = getelementptr inbounds nuw i16, ptr %44, i64 %171
-  %173 = load i16, ptr %172, align 2, !tbaa !36
+  %173 = load i16, ptr %172, align 2, !tbaa !34
   %174 = and i16 %173, 4096
   %.not117 = icmp eq i16 %174, 0
   br i1 %.not117, label %323, label %175
@@ -4030,7 +4027,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %177 = load i8, ptr %176, align 1, !tbaa !32
   %178 = zext i8 %177 to i64
   %179 = getelementptr inbounds nuw i16, ptr %44, i64 %178
-  %180 = load i16, ptr %179, align 2, !tbaa !36
+  %180 = load i16, ptr %179, align 2, !tbaa !34
   %181 = and i16 %180, 4096
   %.not118 = icmp eq i16 %181, 0
   br i1 %.not118, label %323, label %182
@@ -4040,7 +4037,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %184 = load i8, ptr %183, align 1, !tbaa !32
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw i16, ptr %44, i64 %185
-  %187 = load i16, ptr %186, align 2, !tbaa !36
+  %187 = load i16, ptr %186, align 2, !tbaa !34
   %188 = and i16 %187, 4096
   %.not119 = icmp eq i16 %188, 0
   br i1 %.not119, label %323, label %189
@@ -4050,7 +4047,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %191 = load i8, ptr %190, align 1, !tbaa !32
   %192 = zext i8 %191 to i64
   %193 = getelementptr inbounds nuw i16, ptr %44, i64 %192
-  %194 = load i16, ptr %193, align 2, !tbaa !36
+  %194 = load i16, ptr %193, align 2, !tbaa !34
   %195 = and i16 %194, 4096
   %.not120 = icmp eq i16 %195, 0
   br i1 %.not120, label %323, label %196
@@ -4060,7 +4057,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit139:         ; preds = %119, %123, %127, %1
   %198 = load i8, ptr %197, align 1, !tbaa !32
   %199 = zext i8 %198 to i64
   %200 = getelementptr inbounds nuw i16, ptr %44, i64 %199
-  %201 = load i16, ptr %200, align 2, !tbaa !36
+  %201 = load i16, ptr %200, align 2, !tbaa !34
   %202 = and i16 %201, 4096
   %.not121 = icmp eq i16 %202, 0
   br i1 %.not121, label %323, label %203
@@ -4299,11 +4296,11 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit169:         ; preds = %284, %288, %292, %2
   %306 = ptrtoint ptr %.0106171 to i64
   %307 = sub i64 %306, %18
   %308 = load ptr, ptr %19, align 8, !tbaa !16
-  %309 = load i32, ptr %308, align 4, !tbaa !50
+  %309 = load i32, ptr %308, align 4, !tbaa !48
   %310 = trunc i64 %307 to i32
   %311 = add i32 %310, 3
   %312 = add i32 %311, %309
-  store i32 %312, ptr %308, align 4, !tbaa !50
+  store i32 %312, ptr %308, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %1)
   br label %315
 
@@ -4337,11 +4334,11 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit169:         ; preds = %284, %288, %292, %2
   %324 = ptrtoint ptr %.0106171 to i64
   %325 = sub i64 %324, %18
   %326 = load ptr, ptr %19, align 8, !tbaa !16
-  %327 = load i32, ptr %326, align 4, !tbaa !50
+  %327 = load i32, ptr %326, align 4, !tbaa !48
   %328 = trunc i64 %325 to i32
   %329 = add i32 %328, 3
   %330 = add i32 %329, %327
-  store i32 %330, ptr %326, align 4, !tbaa !50
+  store i32 %330, ptr %326, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.41, ptr noundef nonnull %1)
   br label %344
 
@@ -4353,11 +4350,11 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit169:         ; preds = %284, %288, %292, %2
   %333 = ptrtoint ptr %.0106171 to i64
   %334 = sub i64 %333, %18
   %335 = load ptr, ptr %19, align 8, !tbaa !16
-  %336 = load i32, ptr %335, align 4, !tbaa !50
+  %336 = load i32, ptr %335, align 4, !tbaa !48
   %337 = trunc i64 %334 to i32
   %338 = add i32 %337, 3
   %339 = add i32 %338, %336
-  store i32 %339, ptr %335, align 4, !tbaa !50
+  store i32 %339, ptr %335, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %1)
   %.pre = load i8, ptr %.0106171, align 1, !tbaa !32
   br label %340
@@ -4375,7 +4372,7 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit169:         ; preds = %284, %288, %292, %2
   %.5 = phi i32 [ %.0101173, %38 ], [ %.2, %156 ], [ %.4, %321 ], [ %.0101173, %323 ], [ %.0101173, %340 ]
   %345 = load i8, ptr %.1107, align 1, !tbaa !32
   %.not = icmp eq i8 %345, 0
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !90
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %344
   %346 = icmp eq i32 %.5, 0
@@ -4387,11 +4384,11 @@ _ZN17duckdb_libpgqueryL6hexvalEh.exit169:         ; preds = %284, %288, %292, %2
   %350 = sub i64 %348, %349
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %352 = load ptr, ptr %351, align 8, !tbaa !16
-  %353 = load i32, ptr %352, align 4, !tbaa !50
+  %353 = load i32, ptr %352, align 4, !tbaa !48
   %354 = trunc i64 %350 to i32
   %355 = add i32 %354, 3
   %356 = add i32 %355, %353
-  store i32 %356, ptr %352, align 4, !tbaa !50
+  store i32 %356, ptr %352, align 4, !tbaa !48
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.8, ptr noundef nonnull %1)
   br label %._crit_edge.thread
 
@@ -4411,15 +4408,15 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %4 = load i8, ptr %3, align 4, !tbaa !61, !range !64, !noundef !65
+  %4 = load i8, ptr %3, align 4, !tbaa !59, !range !62, !noundef !63
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %8 = load i8, ptr %7, align 8, !tbaa !69, !range !64, !noundef !65
+  %8 = load i8, ptr %7, align 8, !tbaa !67, !range !62, !noundef !63
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %25
 
@@ -4429,13 +4426,13 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(pt
   %13 = tail call noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef nonnull @.str.48)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  %16 = load i32, ptr %15, align 4, !tbaa !50
+  %16 = load i32, ptr %15, align 4, !tbaa !48
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, label %18
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %0, align 8, !tbaa !45
-  %20 = load ptr, ptr %19, align 8, !tbaa !46
+  %19 = load ptr, ptr %0, align 8, !tbaa !43
+  %20 = load ptr, ptr %19, align 8, !tbaa !44
   %21 = tail call noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef %20, i32 noundef %16)
   %22 = add nsw i32 %21, 1
   %23 = tail call noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %22)
@@ -4444,13 +4441,13 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL20check_escape_warningEPv(pt
 _ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit: ; preds = %10, %18
   %.0.i = phi i32 [ %23, %18 ], [ 0, %10 ]
   %24 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 2, i32 noundef %.0.i)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !45
+  %.pre = load ptr, ptr %0, align 8, !tbaa !43
   br label %25
 
 25:                                               ; preds = %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit, %6, %1
   %26 = phi ptr [ %.pre, %_ZN17duckdb_libpgquery19scanner_errpositionEiPv.exit ], [ %2, %6 ], [ %2, %1 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 76
-  store i8 0, ptr %27, align 4, !tbaa !61
+  store i8 0, ptr %27, align 4, !tbaa !59
   ret void
 }
 
@@ -4471,45 +4468,45 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL10addunicodeEjPv(i32 noundef
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %1, align 8, !tbaa !45
+  %9 = load ptr, ptr %1, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 77
-  store i8 1, ptr %10, align 1, !tbaa !62
+  store i8 1, ptr %10, align 1, !tbaa !60
   br label %11
 
 11:                                               ; preds = %8, %6
   %12 = call noundef ptr @_ZN17duckdb_libpgquery15unicode_to_utf8EjPh(i32 noundef %0, ptr noundef nonnull %3)
   %13 = call noundef i32 @_ZN17duckdb_libpgquery8pg_mblenEPKc(ptr noundef nonnull %3)
-  %14 = load ptr, ptr %1, align 8, !tbaa !45
+  %14 = load ptr, ptr %1, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i32, ptr %15, align 8, !tbaa !52
+  %16 = load i32, ptr %15, align 8, !tbaa !50
   %17 = add nsw i32 %16, %13
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 52
-  %19 = load i32, ptr %18, align 4, !tbaa !53
+  %19 = load i32, ptr %18, align 4, !tbaa !51
   %.not.i = icmp slt i32 %17, %19
   br i1 %.not.i, label %._crit_edge.i, label %.preheader.i
 
 ._crit_edge.i:                                    ; preds = %11
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !52
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit
 
 .preheader.i:                                     ; preds = %11, %.preheader.i
   %20 = phi i32 [ %21, %.preheader.i ], [ %19, %11 ]
   %21 = shl nsw i32 %20, 1
   %.not15.i = icmp slt i32 %17, %21
-  br i1 %.not15.i, label %22, label %.preheader.i, !llvm.loop !55
+  br i1 %.not15.i, label %22, label %.preheader.i, !llvm.loop !53
 
 22:                                               ; preds = %.preheader.i
-  store i32 %21, ptr %18, align 4, !tbaa !53
+  store i32 %21, ptr %18, align 4, !tbaa !51
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !54
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
   %25 = sext i32 %21 to i64
   %26 = call noundef ptr @_ZN17duckdb_libpgquery8repallocEPvm(ptr noundef %24, i64 noundef %25)
-  %27 = load ptr, ptr %1, align 8, !tbaa !45
+  %27 = load ptr, ptr %1, align 8, !tbaa !43
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store ptr %26, ptr %28, align 8, !tbaa !54
+  store ptr %26, ptr %28, align 8, !tbaa !52
   %.phi.trans.insert17.i = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %.pre18.i = load i32, ptr %.phi.trans.insert17.i, align 8, !tbaa !52
+  %.pre18.i = load i32, ptr %.phi.trans.insert17.i, align 8, !tbaa !50
   br label %_ZN17duckdb_libpgqueryL6addlitEPciPv.exit
 
 _ZN17duckdb_libpgqueryL6addlitEPciPv.exit:        ; preds = %._crit_edge.i, %22
@@ -4519,11 +4516,11 @@ _ZN17duckdb_libpgqueryL6addlitEPciPv.exit:        ; preds = %._crit_edge.i, %22
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = sext i32 %13 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 1 %3, i64 %33, i1 false)
-  %34 = load ptr, ptr %1, align 8, !tbaa !45
+  %34 = load ptr, ptr %1, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !52
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = add nsw i32 %36, %13
-  store i32 %37, ptr %35, align 8, !tbaa !52
+  store i32 %37, ptr %35, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   ret void
 }
@@ -4566,7 +4563,7 @@ define internal fastcc noundef range(i32 259, 265) i32 @_ZN17duckdb_libpgqueryL2
   %9 = getelementptr inbounds nuw i8, ptr %.02842, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !32
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 11:                                               ; preds = %._crit_edge
   %reass.sub = sub nsw i32 %6, %spec.select
@@ -4596,21 +4593,21 @@ define internal fastcc noundef range(i32 259, 265) i32 @_ZN17duckdb_libpgqueryL2
 20:                                               ; preds = %15, %18
   %.1 = phi ptr [ %19, %18 ], [ %.026, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %.025, i64 1
-  br label %15, !llvm.loop !92
+  br label %15, !llvm.loop !89
 
 ._crit_edge.thread:                               ; preds = %2, %17, %._crit_edge
   %.027 = phi ptr [ %14, %17 ], [ %0, %._crit_edge ], [ %0, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
   %22 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %22, align 4, !tbaa !50
+  store i32 0, ptr %22, align 4, !tbaa !48
   %23 = call i64 @strtol(ptr noundef %.027, ptr noundef nonnull %3, i32 noundef 10) #22
-  %24 = load ptr, ptr %3, align 8, !tbaa !93
+  %24 = load ptr, ptr %3, align 8, !tbaa !90
   %25 = load i8, ptr %24, align 1, !tbaa !32
   %.not36 = icmp eq i8 %25, 0
   br i1 %.not36, label %26, label %30
 
 26:                                               ; preds = %._crit_edge.thread
-  %27 = load i32, ptr %22, align 4, !tbaa !50
+  %27 = load i32, ptr %22, align 4, !tbaa !48
   %28 = icmp ne i32 %27, 34
   %29 = add i64 %23, 2147483648
   %.not37 = icmp ult i64 %29, 4294967296
@@ -4723,23 +4720,23 @@ _ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i: ; preds = %.critedge
 34:                                               ; preds = %5, %.thread
   %35 = phi ptr [ %29, %.thread ], [ %9, %5 ]
   %36 = tail call ptr @__errno_location() #21
-  %37 = load i32, ptr %36, align 4, !tbaa !50
+  %37 = load i32, ptr %36, align 4, !tbaa !48
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i64 0, ptr %38, align 8, !tbaa !25
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !74
+  %40 = load ptr, ptr %39, align 8, !tbaa !71
   store i8 0, ptr %40, align 1, !tbaa !32
-  %41 = load ptr, ptr %39, align 8, !tbaa !74
+  %41 = load ptr, ptr %39, align 8, !tbaa !71
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store i8 0, ptr %42, align 1, !tbaa !32
-  %43 = load ptr, ptr %39, align 8, !tbaa !74
+  %43 = load ptr, ptr %39, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  store i32 1, ptr %45, align 8, !tbaa !87
+  store i32 1, ptr %45, align 8, !tbaa !84
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  store i32 0, ptr %46, align 8, !tbaa !73
-  %47 = load ptr, ptr %3, align 8, !tbaa !19, !nonnull !65, !noundef !65
+  store i32 0, ptr %46, align 8, !tbaa !70
+  %47 = load ptr, ptr %3, align 8, !tbaa !19, !nonnull !63, !noundef !63
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
@@ -4766,23 +4763,23 @@ _ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.threa
   store i8 %62, ptr %63, align 8, !tbaa !33
   store ptr %0, ptr %35, align 8, !tbaa !31
   %64 = getelementptr inbounds nuw i8, ptr %35, i64 60
-  store i32 1, ptr %64, align 4, !tbaa !78
+  store i32 1, ptr %64, align 4, !tbaa !75
   br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
 
 _ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i: ; preds = %34
   store ptr %0, ptr %35, align 8, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 60
-  store i32 1, ptr %65, align 4, !tbaa !78
+  store i32 1, ptr %65, align 4, !tbaa !75
   %66 = getelementptr inbounds nuw i8, ptr %35, i64 52
-  store i32 1, ptr %66, align 4, !tbaa !88
+  store i32 1, ptr %66, align 4, !tbaa !85
   %67 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  store i32 0, ptr %67, align 8, !tbaa !89
+  store i32 0, ptr %67, align 8, !tbaa !86
   br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
 
 _ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit: ; preds = %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread, %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i
   %68 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  store i32 0, ptr %68, align 4, !tbaa !83
-  store i32 %37, ptr %36, align 4, !tbaa !50
+  store i32 0, ptr %68, align 4, !tbaa !80
+  store i32 %37, ptr %36, align 4, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %70 = load i64, ptr %69, align 8, !tbaa !25
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4918,7 +4915,7 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %8, %11, 
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %60, ptr %61, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 1, ptr %62, align 8, !tbaa !86
+  store i32 1, ptr %62, align 8, !tbaa !83
   br label %63
 
 63:                                               ; preds = %25, %.thread, %.critedge
@@ -4956,13 +4953,13 @@ define hidden void @_ZN17duckdb_libpgquery21core_yy_delete_bufferEPNS_15yy_buffe
 
 .critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !81
+  %14 = load i32, ptr %13, align 8, !tbaa !78
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %_ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit17, label %15
 
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %17 = load ptr, ptr %16, align 8, !tbaa !71
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit17, label %18
 
@@ -5000,18 +4997,18 @@ define hidden void @_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !74
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   store i8 0, ptr %6, align 1, !tbaa !32
-  %7 = load ptr, ptr %5, align 8, !tbaa !74
+  %7 = load ptr, ptr %5, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1, !tbaa !32
-  %9 = load ptr, ptr %5, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 1, ptr %11, align 8, !tbaa !87
+  store i32 1, ptr %11, align 8, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %12, align 8, !tbaa !73
+  store i32 0, ptr %12, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %.not15 = icmp eq ptr %14, null
@@ -5108,7 +5105,7 @@ _ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i: ; preds = %13
 
 _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %10, %13, %23
   %26 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %23 ]
-  %27 = load ptr, ptr %5, align 8, !tbaa !19, !nonnull !65, !noundef !65
+  %27 = load ptr, ptr %5, align 8, !tbaa !19, !nonnull !63, !noundef !63
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = icmp eq ptr %29, null
@@ -5158,7 +5155,7 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %10, %13,
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %58, ptr %59, align 8, !tbaa !33
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 1, ptr %60, align 8, !tbaa !86
+  store i32 1, ptr %60, align 8, !tbaa !83
   br label %61
 
 61:                                               ; preds = %2, %.critedge29
@@ -5183,13 +5180,13 @@ define hidden void @_ZN17duckdb_libpgquery23core_yypop_buffer_stateEPv(ptr nound
 .critedge.i:                                      ; preds = %4
   store ptr null, ptr %7, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !81
+  %11 = load i32, ptr %10, align 8, !tbaa !78
   %.not15.i = icmp eq i32 %11, 0
   br i1 %.not15.i, label %_ZN17duckdb_libpgquery21core_yy_delete_bufferEPNS_15yy_buffer_stateEPv.exit, label %12
 
 12:                                               ; preds = %.critedge.i
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
+  %14 = load ptr, ptr %13, align 8, !tbaa !71
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZN17duckdb_libpgquery21core_yy_delete_bufferEPNS_15yy_buffer_stateEPv.exit, label %15
 
@@ -5232,7 +5229,7 @@ _ZN17duckdb_libpgquery21core_yy_delete_bufferEPNS_15yy_buffer_stateEPv.exit: ; p
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %32, ptr %33, align 8, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %34, align 8, !tbaa !86
+  store i32 1, ptr %34, align 8, !tbaa !83
   br label %.critedge26
 
 .critedge26:                                      ; preds = %_ZN17duckdb_libpgquery21core_yy_delete_bufferEPNS_15yy_buffer_stateEPv.exit, %1, %19, %22, %4
@@ -5271,24 +5268,24 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery19core_yy_scan_bufferEPcmPv(ptr
   %sext = shl i64 %6, 32
   %17 = ashr exact i64 %sext, 32
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %17, ptr %18, align 8, !tbaa !80
+  store i64 %17, ptr %18, align 8, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %0, ptr %19, align 8, !tbaa !74
+  store ptr %0, ptr %19, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %20, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i32 0, ptr %21, align 8, !tbaa !81
+  store i32 0, ptr %21, align 8, !tbaa !78
   store ptr null, ptr %14, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 %17, ptr %22, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  store i32 0, ptr %23, align 4, !tbaa !83
+  store i32 0, ptr %23, align 4, !tbaa !80
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 1, ptr %24, align 8, !tbaa !87
+  store i32 1, ptr %24, align 8, !tbaa !84
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  store i32 0, ptr %25, align 4, !tbaa !78
+  store i32 0, ptr %25, align 4, !tbaa !75
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store i32 0, ptr %26, align 8, !tbaa !73
+  store i32 0, ptr %26, align 8, !tbaa !70
   tail call void @_ZN17duckdb_libpgquery24core_yy_switch_to_bufferEPNS_15yy_buffer_stateEPv(ptr noundef nonnull %14, ptr noundef %2)
   br label %27
 
@@ -5336,7 +5333,7 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery18core_yy_scan_bytesEPK
   store i8 %10, ptr %11, align 1, !tbaa !32
   %12 = add nuw i64 %.028, 1
   %exitcond.not = icmp eq i64 %12, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = getelementptr i8, ptr %5, i64 %1
@@ -5363,26 +5360,26 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery18core_yy_scan_bytesEPK
   %sext.i = shl i64 %1, 32
   %21 = ashr exact i64 %sext.i, 32
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %21, ptr %22, align 8, !tbaa !80
+  store i64 %21, ptr %22, align 8, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %5, ptr %23, align 8, !tbaa !74
+  store ptr %5, ptr %23, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %5, ptr %24, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 0, ptr %25, align 8, !tbaa !81
+  store i32 0, ptr %25, align 8, !tbaa !78
   store ptr null, ptr %17, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %21, ptr %26, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 44
-  store i32 0, ptr %27, align 4, !tbaa !83
+  store i32 0, ptr %27, align 4, !tbaa !80
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store i32 1, ptr %28, align 8, !tbaa !87
+  store i32 1, ptr %28, align 8, !tbaa !84
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 60
-  store i32 0, ptr %29, align 4, !tbaa !78
+  store i32 0, ptr %29, align 4, !tbaa !75
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i32 0, ptr %30, align 8, !tbaa !73
+  store i32 0, ptr %30, align 8, !tbaa !70
   tail call void @_ZN17duckdb_libpgquery24core_yy_switch_to_bufferEPNS_15yy_buffer_stateEPv(ptr noundef nonnull %17, ptr noundef %2)
-  store i32 1, ptr %25, align 8, !tbaa !81
+  store i32 1, ptr %25, align 8, !tbaa !78
   ret ptr %17
 }
 
@@ -5391,7 +5388,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN17duckdb_libpgquery16core_yyget_extraEPv(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   ret ptr %2
 }
 
@@ -5412,7 +5409,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery17core_yyget_linenoEPv(ptr noun
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %12 = load i32, ptr %11, align 4, !tbaa !88
+  %12 = load i32, ptr %11, align 4, !tbaa !85
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %4, %10
@@ -5437,7 +5434,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery17core_yyget_columnEPv(ptr noun
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %12 = load i32, ptr %11, align 8, !tbaa !89
+  %12 = load i32, ptr %11, align 8, !tbaa !86
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %4, %10
@@ -5455,14 +5452,14 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery13core_yyget_inEPv(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN17duckdb_libpgquery14core_yyget_outEPv(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN17duckdb_libpgquery15core_yyget_lengEPv(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i64, ptr %2, align 8, !tbaa !43
+  %3 = load i64, ptr %2, align 8, !tbaa !41
   ret i64 %3
 }
 
@@ -5475,7 +5472,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery15core_yyget_textEPv(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17duckdb_libpgquery16core_yyset_extraEPNS_18core_yy_extra_typeEPv(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #9 {
-  store ptr %0, ptr %1, align 8, !tbaa !45
+  store ptr %0, ptr %1, align 8, !tbaa !43
   ret void
 }
 
@@ -5500,7 +5497,7 @@ define hidden void @_ZN17duckdb_libpgquery17core_yyset_linenoEiPv(i32 noundef %0
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i32 %0, ptr %12, align 4, !tbaa !88
+  store i32 %0, ptr %12, align 4, !tbaa !85
   ret void
 }
 
@@ -5525,7 +5522,7 @@ define hidden void @_ZN17duckdb_libpgquery17core_yyset_columnEiPv(i32 noundef %0
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i32 %0, ptr %12, align 8, !tbaa !89
+  store i32 %0, ptr %12, align 8, !tbaa !86
   ret void
 }
 
@@ -5539,21 +5536,21 @@ define hidden void @_ZN17duckdb_libpgquery13core_yyset_inEP8_IO_FILEPv(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17duckdb_libpgquery14core_yyset_outEP8_IO_FILEPv(ptr noundef %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %0, ptr %3, align 8, !tbaa !95
+  store ptr %0, ptr %3, align 8, !tbaa !92
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZN17duckdb_libpgquery16core_yyget_debugEPv(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %3 = load i32, ptr %2, align 4, !tbaa !96
+  %3 = load i32, ptr %2, align 4, !tbaa !93
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17duckdb_libpgquery16core_yyset_debugEiPv(i32 noundef %0, ptr noundef writeonly captures(none) initializes((132, 136)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  store i32 %0, ptr %3, align 4, !tbaa !96
+  store i32 %0, ptr %3, align 4, !tbaa !93
   ret void
 }
 
@@ -5592,30 +5589,30 @@ define hidden noundef range(i32 0, 2) i32 @_ZN17duckdb_libpgquery15core_yylex_in
 
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #21
-  store i32 22, ptr %4, align 4, !tbaa !50
+  store i32 22, ptr %4, align 4, !tbaa !48
   br label %17
 
 5:                                                ; preds = %1
   %6 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef 168)
-  store ptr %6, ptr %0, align 8, !tbaa !97
+  store ptr %6, ptr %0, align 8, !tbaa !94
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
   %9 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %9, align 4, !tbaa !50
+  store i32 12, ptr %9, align 4, !tbaa !48
   br label %17
 
 10:                                               ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %6, i8 0, i64 168, i1 false)
-  %11 = load ptr, ptr %0, align 8, !tbaa !97
+  %11 = load ptr, ptr %0, align 8, !tbaa !94
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  store i32 0, ptr %13, align 4, !tbaa !98
+  store i32 0, ptr %13, align 4, !tbaa !95
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  store i32 0, ptr %14, align 8, !tbaa !99
+  store i32 0, ptr %14, align 8, !tbaa !96
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store ptr null, ptr %15, align 8, !tbaa !100
+  store ptr null, ptr %15, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -5639,32 +5636,32 @@ define hidden noundef range(i32 0, 2) i32 @_ZN17duckdb_libpgquery21core_yylex_in
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__errno_location() #21
-  store i32 22, ptr %5, align 4, !tbaa !50
+  store i32 22, ptr %5, align 4, !tbaa !48
   br label %19
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef 168)
-  store ptr %7, ptr %1, align 8, !tbaa !97
+  store ptr %7, ptr %1, align 8, !tbaa !94
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %10, align 4, !tbaa !50
+  store i32 12, ptr %10, align 4, !tbaa !48
   br label %19
 
 11:                                               ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %7, i8 0, i64 168, i1 false)
-  %12 = load ptr, ptr %1, align 8, !tbaa !97
-  store ptr %0, ptr %12, align 8, !tbaa !45
-  %13 = load ptr, ptr %1, align 8, !tbaa !97
+  %12 = load ptr, ptr %1, align 8, !tbaa !94
+  store ptr %0, ptr %12, align 8, !tbaa !43
+  %13 = load ptr, ptr %1, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 92
-  store i32 0, ptr %15, align 4, !tbaa !98
+  store i32 0, ptr %15, align 4, !tbaa !95
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store i32 0, ptr %16, align 8, !tbaa !99
+  store i32 0, ptr %16, align 8, !tbaa !96
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store ptr null, ptr %17, align 8, !tbaa !100
+  store ptr null, ptr %17, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -5694,13 +5691,13 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery18core_yylex_destroyEPv(ptr nou
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %.pre
   store ptr null, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %.pre34, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !81
+  %8 = load i32, ptr %7, align 8, !tbaa !78
   %.not15.i = icmp eq i32 %8, 0
   br i1 %.not15.i, label %_ZN17duckdb_libpgquery23core_yypop_buffer_stateEPv.exit, label %9
 
 9:                                                ; preds = %.critedge.i
   %10 = getelementptr inbounds nuw i8, ptr %.pre34, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !74
+  %11 = load ptr, ptr %10, align 8, !tbaa !71
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZN17duckdb_libpgquery23core_yypop_buffer_stateEPv.exit, label %12
 
@@ -5724,7 +5721,7 @@ _ZN17duckdb_libpgquery23core_yypop_buffer_stateEPv.exit: ; preds = %.critedge.i,
 _ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit:   ; preds = %1, %.critedge
   store ptr null, ptr %2, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %17 = load ptr, ptr %16, align 8, !tbaa !100
+  %17 = load ptr, ptr %16, align 8, !tbaa !97
   %.not.i25 = icmp eq ptr %17, null
   br i1 %.not.i25, label %_ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit28, label %18
 
@@ -5735,10 +5732,10 @@ _ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit:   ; preds = %1, %.critedge
 _ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit28: ; preds = %_ZN17duckdb_libpgquery11core_yyfreeEPvS0_.exit, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 0, ptr %20, align 4, !tbaa !98
+  store i32 0, ptr %20, align 4, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %21, align 8, !tbaa !99
-  store ptr null, ptr %16, align 8, !tbaa !100
+  store i32 0, ptr %21, align 8, !tbaa !96
+  store ptr null, ptr %16, align 8, !tbaa !97
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
@@ -5764,39 +5761,39 @@ _ZN17duckdb_libpgquery15core_yylex_initEPPv.exit.thread: ; preds = %4
 
 9:                                                ; preds = %4
   %10 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %10, align 4, !tbaa !50
+  store i32 12, ptr %10, align 4, !tbaa !48
   tail call void (i32, ptr, ...) @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef 3, ptr noundef nonnull @.str.35)
   br label %11
 
 11:                                               ; preds = %_ZN17duckdb_libpgquery15core_yylex_initEPPv.exit.thread, %9
-  store ptr %1, ptr %6, align 8, !tbaa !45
+  store ptr %1, ptr %6, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %2, ptr %12, align 8, !tbaa !56
+  store ptr %2, ptr %12, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %3, ptr %13, align 8, !tbaa !57
-  %14 = load i32, ptr @_ZN17duckdb_libpgquery15backslash_quoteE, align 4, !tbaa !50
+  store i32 %3, ptr %13, align 8, !tbaa !55
+  %14 = load i32, ptr @_ZN17duckdb_libpgquery15backslash_quoteE, align 4, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %14, ptr %15, align 4, !tbaa !101
-  %16 = load i8, ptr @_ZN17duckdb_libpgquery21escape_string_warningE, align 1, !tbaa !102, !range !64, !noundef !65
+  store i32 %14, ptr %15, align 4, !tbaa !98
+  %16 = load i8, ptr @_ZN17duckdb_libpgquery21escape_string_warningE, align 1, !tbaa !99, !range !62, !noundef !63
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 %16, ptr %17, align 8, !tbaa !69
-  %18 = load i8, ptr @_ZN17duckdb_libpgquery27standard_conforming_stringsE, align 1, !tbaa !102, !range !64, !noundef !65
+  store i8 %16, ptr %17, align 8, !tbaa !67
+  %18 = load i8, ptr @_ZN17duckdb_libpgquery27standard_conforming_stringsE, align 1, !tbaa !99, !range !62, !noundef !63
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  store i8 %18, ptr %19, align 1, !tbaa !63
+  store i8 %18, ptr %19, align 1, !tbaa !61
   %20 = add i64 %5, 2
   %21 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %20)
-  store ptr %21, ptr %1, align 8, !tbaa !46
+  store ptr %21, ptr %1, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %5, ptr %22, align 8, !tbaa !103
+  store i64 %5, ptr %22, align 8, !tbaa !100
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %0, i64 %5, i1 false)
-  %23 = load ptr, ptr %1, align 8, !tbaa !46
+  %23 = load ptr, ptr %1, align 8, !tbaa !44
   %24 = getelementptr i8, ptr %23, i64 %5
   %25 = getelementptr i8, ptr %24, i64 1
   store i8 0, ptr %25, align 1, !tbaa !32
-  %26 = load ptr, ptr %1, align 8, !tbaa !46
+  %26 = load ptr, ptr %1, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %5
   store i8 0, ptr %27, align 1, !tbaa !32
-  %28 = load ptr, ptr %1, align 8, !tbaa !46
+  %28 = load ptr, ptr %1, align 8, !tbaa !44
   %29 = icmp ugt i64 %5, -3
   br i1 %29, label %_ZN17duckdb_libpgquery19core_yy_scan_bufferEPcmPv.exit, label %30
 
@@ -5826,35 +5823,35 @@ _ZN17duckdb_libpgquery15core_yylex_initEPPv.exit.thread: ; preds = %4
   %sext.i = shl i64 %5, 32
   %41 = ashr exact i64 %sext.i, 32
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i64 %41, ptr %42, align 8, !tbaa !80
+  store i64 %41, ptr %42, align 8, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %28, ptr %43, align 8, !tbaa !74
+  store ptr %28, ptr %43, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %28, ptr %44, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  store i32 0, ptr %45, align 8, !tbaa !81
+  store i32 0, ptr %45, align 8, !tbaa !78
   store ptr null, ptr %38, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i64 %41, ptr %46, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 44
-  store i32 0, ptr %47, align 4, !tbaa !83
+  store i32 0, ptr %47, align 4, !tbaa !80
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  store i32 1, ptr %48, align 8, !tbaa !87
+  store i32 1, ptr %48, align 8, !tbaa !84
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 60
-  store i32 0, ptr %49, align 4, !tbaa !78
+  store i32 0, ptr %49, align 4, !tbaa !75
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  store i32 0, ptr %50, align 8, !tbaa !73
+  store i32 0, ptr %50, align 8, !tbaa !70
   tail call void @_ZN17duckdb_libpgquery24core_yy_switch_to_bufferEPNS_15yy_buffer_stateEPv(ptr noundef nonnull %38, ptr noundef nonnull %6)
   br label %_ZN17duckdb_libpgquery19core_yy_scan_bufferEPcmPv.exit
 
 _ZN17duckdb_libpgquery19core_yy_scan_bufferEPcmPv.exit: ; preds = %11, %30, %33, %40
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 1024, ptr %51, align 4, !tbaa !53
+  store i32 1024, ptr %51, align 4, !tbaa !51
   %52 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef 1024)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %52, ptr %53, align 8, !tbaa !54
+  store ptr %52, ptr %53, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 0, ptr %54, align 8, !tbaa !52
+  store i32 0, ptr %54, align 8, !tbaa !50
   ret ptr %6
 }
 
@@ -5867,28 +5864,28 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17duckdb_libpgquery14scanner_finishEPv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !103
+  %4 = load i64, ptr %3, align 8, !tbaa !100
   %5 = icmp ugt i64 %4, 8191
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8, !tbaa !46
+  %7 = load ptr, ptr %2, align 8, !tbaa !44
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef %7)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !45
+  %.pre = load ptr, ptr %0, align 8, !tbaa !43
   br label %8
 
 8:                                                ; preds = %6, %1
   %9 = phi ptr [ %.pre, %6 ], [ %2, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  %11 = load i32, ptr %10, align 4, !tbaa !53
+  %11 = load i32, ptr %10, align 4, !tbaa !51
   %12 = icmp sgt i32 %11, 8191
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef %15)
   br label %16
 
@@ -6027,73 +6024,70 @@ attributes #23 = { nounwind willreturn memory(read) }
 !31 = !{!26, !9, i64 0}
 !32 = !{!7, !7, i64 0}
 !33 = !{!4, !7, i64 48}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"short", !7, i64 0}
-!38 = !{!4, !13, i64 112}
-!39 = !{!4, !12, i64 120}
-!40 = distinct !{!40, !41, !35}
-!41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41, !35}
-!43 = !{!4, !10, i64 64}
-!44 = distinct !{!44, !41, !35}
-!45 = !{!4, !5, i64 0}
-!46 = !{!47, !12, i64 0}
-!47 = !{!"_ZTSN17duckdb_libpgquery18core_yy_extra_typeE", !12, i64 0, !10, i64 8, !48, i64 16, !13, i64 24, !13, i64 28, !49, i64 32, !49, i64 33, !12, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !12, i64 64, !13, i64 72, !49, i64 76, !49, i64 77}
-!48 = !{!"p1 _ZTSN17duckdb_libpgquery13PGScanKeywordE", !6, i64 0}
-!49 = !{!"bool", !7, i64 0}
-!50 = !{!13, !13, i64 0}
-!51 = !{!47, !13, i64 56}
-!52 = !{!47, !13, i64 48}
-!53 = !{!47, !13, i64 52}
-!54 = !{!47, !12, i64 40}
-!55 = distinct !{!55, !41, !35}
-!56 = !{!47, !48, i64 16}
-!57 = !{!47, !13, i64 24}
-!58 = !{!59, !12, i64 0}
-!59 = !{!"_ZTSN17duckdb_libpgquery13PGScanKeywordE", !12, i64 0, !37, i64 8, !37, i64 10}
-!60 = !{!59, !37, i64 8}
-!61 = !{!47, !49, i64 76}
-!62 = !{!47, !49, i64 77}
-!63 = !{!47, !49, i64 33}
-!64 = !{i8 0, i8 2}
-!65 = !{}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 short", !6, i64 0}
-!68 = !{!47, !13, i64 72}
-!69 = !{!47, !49, i64 32}
-!70 = !{!47, !12, i64 64}
-!71 = distinct !{!71, !41, !35}
-!72 = distinct !{!72, !35}
-!73 = !{!26, !13, i64 64}
-!74 = !{!26, !12, i64 8}
-!75 = distinct !{!75, !41, !35}
-!76 = distinct !{!76, !41, !35}
-!77 = distinct !{!77, !41, !35}
-!78 = !{!26, !13, i64 60}
-!79 = distinct !{!79, !41, !35}
-!80 = !{!26, !10, i64 24}
-!81 = !{!26, !13, i64 40}
-!82 = distinct !{!82, !41, !35}
-!83 = !{!26, !13, i64 44}
-!84 = distinct !{!84, !41, !35}
-!85 = distinct !{!85, !41, !35}
-!86 = !{!4, !13, i64 88}
-!87 = !{!26, !13, i64 48}
-!88 = !{!26, !13, i64 52}
-!89 = !{!26, !13, i64 56}
-!90 = distinct !{!90, !41, !35}
-!91 = distinct !{!91, !41, !35}
-!92 = distinct !{!92, !41, !35}
-!93 = !{!12, !12, i64 0}
-!94 = distinct !{!94, !41, !35}
-!95 = !{!4, !9, i64 16}
-!96 = !{!4, !13, i64 132}
-!97 = !{!6, !6, i64 0}
-!98 = !{!4, !13, i64 92}
-!99 = !{!4, !13, i64 96}
-!100 = !{!4, !14, i64 104}
-!101 = !{!47, !13, i64 28}
-!102 = !{!49, !49, i64 0}
-!103 = !{!47, !10, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"short", !7, i64 0}
+!36 = !{!4, !13, i64 112}
+!37 = !{!4, !12, i64 120}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = distinct !{!40, !39}
+!41 = !{!4, !10, i64 64}
+!42 = distinct !{!42, !39}
+!43 = !{!4, !5, i64 0}
+!44 = !{!45, !12, i64 0}
+!45 = !{!"_ZTSN17duckdb_libpgquery18core_yy_extra_typeE", !12, i64 0, !10, i64 8, !46, i64 16, !13, i64 24, !13, i64 28, !47, i64 32, !47, i64 33, !12, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !12, i64 64, !13, i64 72, !47, i64 76, !47, i64 77}
+!46 = !{!"p1 _ZTSN17duckdb_libpgquery13PGScanKeywordE", !6, i64 0}
+!47 = !{!"bool", !7, i64 0}
+!48 = !{!13, !13, i64 0}
+!49 = !{!45, !13, i64 56}
+!50 = !{!45, !13, i64 48}
+!51 = !{!45, !13, i64 52}
+!52 = !{!45, !12, i64 40}
+!53 = distinct !{!53, !39}
+!54 = !{!45, !46, i64 16}
+!55 = !{!45, !13, i64 24}
+!56 = !{!57, !12, i64 0}
+!57 = !{!"_ZTSN17duckdb_libpgquery13PGScanKeywordE", !12, i64 0, !35, i64 8, !35, i64 10}
+!58 = !{!57, !35, i64 8}
+!59 = !{!45, !47, i64 76}
+!60 = !{!45, !47, i64 77}
+!61 = !{!45, !47, i64 33}
+!62 = !{i8 0, i8 2}
+!63 = !{}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 short", !6, i64 0}
+!66 = !{!45, !13, i64 72}
+!67 = !{!45, !47, i64 32}
+!68 = !{!45, !12, i64 64}
+!69 = distinct !{!69, !39}
+!70 = !{!26, !13, i64 64}
+!71 = !{!26, !12, i64 8}
+!72 = distinct !{!72, !39}
+!73 = distinct !{!73, !39}
+!74 = distinct !{!74, !39}
+!75 = !{!26, !13, i64 60}
+!76 = distinct !{!76, !39}
+!77 = !{!26, !10, i64 24}
+!78 = !{!26, !13, i64 40}
+!79 = distinct !{!79, !39}
+!80 = !{!26, !13, i64 44}
+!81 = distinct !{!81, !39}
+!82 = distinct !{!82, !39}
+!83 = !{!4, !13, i64 88}
+!84 = !{!26, !13, i64 48}
+!85 = !{!26, !13, i64 52}
+!86 = !{!26, !13, i64 56}
+!87 = distinct !{!87, !39}
+!88 = distinct !{!88, !39}
+!89 = distinct !{!89, !39}
+!90 = !{!12, !12, i64 0}
+!91 = distinct !{!91, !39}
+!92 = !{!4, !9, i64 16}
+!93 = !{!4, !13, i64 132}
+!94 = !{!6, !6, i64 0}
+!95 = !{!4, !13, i64 92}
+!96 = !{!4, !13, i64 96}
+!97 = !{!4, !14, i64 104}
+!98 = !{!45, !13, i64 28}
+!99 = !{!47, !47, i64 0}
+!100 = !{!45, !10, i64 8}

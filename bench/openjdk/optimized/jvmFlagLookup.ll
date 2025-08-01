@@ -70,7 +70,7 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit:           ; preds = %.lr.ph.i, %3
   %33 = getelementptr inbounds nuw [1223 x i16], ptr %17, i64 0, i64 %.016
   %.016.in = load i16, ptr %33, align 2
   %34 = icmp sgt i16 %.016.in, -1
-  br i1 %34, label %18, label %._crit_edge, !llvm.loop !9
+  br i1 %34, label %18, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %28, %32, %_ZN13JVMFlagLookup9hash_codeEPKcm.exit
   %.0 = phi ptr [ null, %_ZN13JVMFlagLookup9hash_codeEPKcm.exit ], [ null, %32 ], [ %23, %28 ]
@@ -138,7 +138,7 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit.i:         ; preds = %.lr.ph.i.i, %2
   %30 = getelementptr inbounds nuw [1223 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL18_flag_lookup_table, i64 554), i64 0, i64 %.016.i
   %.016.in.i = load i16, ptr %30, align 2
   %31 = icmp sgt i16 %.016.in.i, -1
-  br i1 %31, label %15, label %_ZNK13JVMFlagLookup9find_implEPKcm.exit, !llvm.loop !9
+  br i1 %31, label %15, label %_ZNK13JVMFlagLookup9find_implEPKcm.exit, !llvm.loop !8
 
 _ZNK13JVMFlagLookup9find_implEPKcm.exit:          ; preds = %25, %29, %_ZN13JVMFlagLookup9hash_codeEPKcm.exit.i
   %.0.i = phi ptr [ null, %_ZN13JVMFlagLookup9hash_codeEPKcm.exit.i ], [ %20, %25 ], [ null, %29 ]
@@ -157,7 +157,6 @@ attributes #2 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

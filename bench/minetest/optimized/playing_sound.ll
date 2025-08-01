@@ -904,7 +904,7 @@ terminate.lpad.i:                                 ; preds = %entry
 _ZN5sound12PlayingSound7getGainEv.exit:           ; preds = %entry
   %m_is_positional.i = getelementptr inbounds nuw i8, ptr %this, i64 29
   %4 = load i8, ptr %m_is_positional.i, align 1, !tbaa !27, !range !25, !noundef !26
-  %.pre.i = load float, ptr %gain.i, align 4, !tbaa !76
+  %.pre.i = load float, ptr %gain.i, align 4, !tbaa !75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %gain.i) #15
   %5 = load i8, ptr %_M_engaged.i.i, align 8, !tbaa !29, !range !25, !noundef !26
   %tobool.i.not.i = icmp eq i8 %5, 0
@@ -945,7 +945,7 @@ invoke.cont:                                      ; preds = %entry
   %m_is_positional = getelementptr inbounds nuw i8, ptr %this, i64 29
   %1 = load i8, ptr %m_is_positional, align 1, !tbaa !27, !range !25, !noundef !26
   %tobool.not = icmp eq i8 %1, 0
-  %.pre = load float, ptr %gain, align 4, !tbaa !76
+  %.pre = load float, ptr %gain, align 4, !tbaa !75
   %mul = fmul nsz float %.pre, 0x3FD5555560000000
   %2 = select i1 %tobool.not, float %.pre, float %mul
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %gain) #15
@@ -1044,11 +1044,11 @@ _ZN5sound12PlayingSound7getGainEv.exit:           ; preds = %if.end5
   %m_is_positional.i = getelementptr inbounds nuw i8, ptr %this, i64 29
   %13 = load i8, ptr %m_is_positional.i, align 1, !tbaa !27, !range !25, !noundef !26
   %tobool.not.i36 = icmp eq i8 %13, 0
-  %.pre.i = load float, ptr %gain.i, align 4, !tbaa !76
+  %.pre.i = load float, ptr %gain.i, align 4, !tbaa !75
   %mul.i = fmul nsz float %.pre.i, 0x3FD5555560000000
   %14 = select i1 %tobool.not.i36, float %.pre.i, float %mul.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %gain.i) #15
-  %15 = load float, ptr %m_fade_state, align 8, !tbaa !77
+  %15 = load float, ptr %m_fade_state, align 8, !tbaa !76
   %16 = call nsz float @llvm.fmuladd.f32(float %15, float %dtime, float %14)
   %cmp10 = fcmp nsz olt float %15, 0.000000e+00
   %target_gain = getelementptr inbounds nuw i8, ptr %this, i64 36
@@ -1086,7 +1086,7 @@ terminate.lpad.i43:                               ; preds = %if.end22
   unreachable
 
 _ZN5sound12PlayingSound7setGainEf.exit:           ; preds = %if.end22
-  %23 = load float, ptr %target_gain, align 4, !tbaa !79
+  %23 = load float, ptr %target_gain, align 4, !tbaa !78
   %cmp24 = fcmp nsz oeq float %storemerge, %23
   br i1 %cmp24, label %if.then25, label %return
 
@@ -1294,10 +1294,9 @@ attributes #17 = { noreturn }
 !70 = !{!"branch_weights", i32 1, i32 2000}
 !71 = !{!33, !11, i64 0}
 !72 = !{!33, !35, i64 8}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = !{!36, !36, i64 0}
-!77 = !{!78, !36, i64 0}
-!78 = !{!"_ZTSN5sound12PlayingSound9FadeStateE", !36, i64 0, !36, i64 4}
-!79 = !{!78, !36, i64 4}
+!75 = !{!36, !36, i64 0}
+!76 = !{!77, !36, i64 0}
+!77 = !{!"_ZTSN5sound12PlayingSound9FadeStateE", !36, i64 0, !36, i64 4}
+!78 = !{!77, !36, i64 4}

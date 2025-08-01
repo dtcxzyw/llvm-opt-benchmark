@@ -1052,7 +1052,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %3, i32 noundef %70, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %72, ptr noundef nonnull %10)
-  %74 = load i8, ptr %10, align 1, !range !9, !noundef !10
+  %74 = load i8, ptr %10, align 1, !range !8, !noundef !9
   %75 = trunc nuw i8 %74 to i1
   %76 = call ptr @tfs_get_string(i1 noundef zeroext %75, ptr noundef nonnull @tfs_restricted_not_restricted)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.416, ptr noundef %76)
@@ -1312,7 +1312,7 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
   %17 = add i32 %.0391, %4
   %18 = add nuw nsw i64 %.0382, 1
   %exitcond.not = icmp eq i64 %18, 10
-  br i1 %exitcond.not, label %7, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %7, label %11, !llvm.loop !10
 
 19:                                               ; preds = %23
   %20 = mul nuw nsw i32 %4, 5
@@ -1331,7 +1331,7 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
   %29 = add i32 %.13, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond9.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond9.not, label %19, label %23, !llvm.loop !12
+  br i1 %exitcond9.not, label %19, label %23, !llvm.loop !11
 
 30:                                               ; preds = %31
   ret void
@@ -1347,7 +1347,7 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
   %37 = add i32 %.25, %4
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 5
-  br i1 %exitcond13.not, label %30, label %31, !llvm.loop !13
+  br i1 %exitcond13.not, label %30, label %31, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1369,11 +1369,10 @@ attributes #6 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

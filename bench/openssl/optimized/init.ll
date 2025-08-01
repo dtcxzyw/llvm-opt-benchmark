@@ -65,12 +65,12 @@ define void @OPENSSL_cleanup() #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   store ptr null, ptr @stop_handlers, align 8, !tbaa !3
-  %7 = load ptr, ptr @optsdone_lock, align 8, !tbaa !14
+  %7 = load ptr, ptr @optsdone_lock, align 8, !tbaa !13
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %7) #6
-  store ptr null, ptr @optsdone_lock, align 8, !tbaa !14
-  %8 = load ptr, ptr @init_lock, align 8, !tbaa !14
+  store ptr null, ptr @optsdone_lock, align 8, !tbaa !13
+  %8 = load ptr, ptr @init_lock, align 8, !tbaa !13
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %8) #6
-  store ptr null, ptr @init_lock, align 8, !tbaa !14
+  store ptr null, ptr @init_lock, align 8, !tbaa !13
   %9 = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @in_init_config_local) #6
   tail call void @ossl_comp_zlib_cleanup() #6
   tail call void @ossl_comp_brotli_cleanup() #6
@@ -175,7 +175,7 @@ define range(i32 0, 2) i32 @OPENSSL_init_crypto(i64 noundef %0, ptr noundef %1) 
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = load i64, ptr %3, align 8, !tbaa !15
+  %10 = load i64, ptr %3, align 8, !tbaa !14
   %11 = and i64 %10, %0
   %12 = icmp eq i64 %11, %0
   br i1 %12, label %.critedge, label %13
@@ -197,13 +197,13 @@ define range(i32 0, 2) i32 @OPENSSL_init_crypto(i64 noundef %0, ptr noundef %1) 
   br i1 %.not, label %21, label %28
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr @optsdone_lock, align 8, !tbaa !14
+  %22 = load ptr, ptr @optsdone_lock, align 8, !tbaa !13
   %23 = call i32 @CRYPTO_atomic_load(ptr noundef nonnull @optsdone, ptr noundef nonnull %3, ptr noundef %22) #6
   %.not74 = icmp eq i32 %23, 0
   br i1 %.not74, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  %25 = load i64, ptr %3, align 8, !tbaa !15
+  %25 = load i64, ptr %3, align 8, !tbaa !14
   %26 = and i64 %25, %0
   %27 = icmp eq i64 %26, %0
   br i1 %27, label %.critedge, label %28
@@ -359,18 +359,18 @@ define range(i32 0, 2) i32 @OPENSSL_init_crypto(i64 noundef %0, ptr noundef %1) 
   br i1 %.not90, label %.critedge, label %107
 
 99:                                               ; preds = %94
-  %100 = load ptr, ptr @init_lock, align 8, !tbaa !14
+  %100 = load ptr, ptr @init_lock, align 8, !tbaa !13
   %101 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %100) #6
   %.not88 = icmp eq i32 %101, 0
   br i1 %.not88, label %.critedge, label %102
 
 102:                                              ; preds = %99
-  store ptr %1, ptr @conf_settings, align 8, !tbaa !17
+  store ptr %1, ptr @conf_settings, align 8, !tbaa !16
   %103 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @config, ptr noundef nonnull @ossl_init_config_settings_ossl_) #6
   %.not89 = icmp eq i32 %103, 0
   %104 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
-  store ptr null, ptr @conf_settings, align 8, !tbaa !17
-  %105 = load ptr, ptr @init_lock, align 8, !tbaa !14
+  store ptr null, ptr @conf_settings, align 8, !tbaa !16
+  %105 = load ptr, ptr @init_lock, align 8, !tbaa !13
   %106 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %105) #6
   br i1 %.not89, label %.critedge, label %107
 
@@ -438,7 +438,7 @@ define range(i32 0, 2) i32 @OPENSSL_init_crypto(i64 noundef %0, ptr noundef %1) 
   br label %134
 
 134:                                              ; preds = %132, %130
-  %135 = load ptr, ptr @optsdone_lock, align 8, !tbaa !14
+  %135 = load ptr, ptr @optsdone_lock, align 8, !tbaa !13
   %136 = call i32 @CRYPTO_atomic_or(ptr noundef nonnull @optsdone, i64 noundef %0, ptr noundef nonnull %3, ptr noundef %135) #6
   %.not96 = icmp ne i32 %136, 0
   %.99 = zext i1 %.not96 to i32
@@ -463,13 +463,13 @@ declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_base_ossl_() #0 {
   %1 = tail call ptr @CRYPTO_THREAD_lock_new() #6
-  store ptr %1, ptr @optsdone_lock, align 8, !tbaa !14
+  store ptr %1, ptr @optsdone_lock, align 8, !tbaa !13
   %2 = icmp eq ptr %1, null
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @CRYPTO_THREAD_lock_new() #6
-  store ptr %4, ptr @init_lock, align 8, !tbaa !14
+  store ptr %4, ptr @init_lock, align 8, !tbaa !13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
@@ -489,23 +489,23 @@ define internal void @ossl_init_base_ossl_() #0 {
   br label %ossl_init_base.exit
 
 11:                                               ; preds = %8, %6, %3, %0
-  %12 = load ptr, ptr @optsdone_lock, align 8, !tbaa !14
+  %12 = load ptr, ptr @optsdone_lock, align 8, !tbaa !13
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %12) #6
-  store ptr null, ptr @optsdone_lock, align 8, !tbaa !14
-  %13 = load ptr, ptr @init_lock, align 8, !tbaa !14
+  store ptr null, ptr @optsdone_lock, align 8, !tbaa !13
+  %13 = load ptr, ptr @init_lock, align 8, !tbaa !13
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %13) #6
-  store ptr null, ptr @init_lock, align 8, !tbaa !14
+  store ptr null, ptr @init_lock, align 8, !tbaa !13
   br label %ossl_init_base.exit
 
 ossl_init_base.exit:                              ; preds = %10, %11
   %.0.i = phi i32 [ 0, %11 ], [ 1, %10 ]
-  store i32 %.0.i, ptr @ossl_init_base_ossl_ret_, align 4, !tbaa !19
+  store i32 %.0.i, ptr @ossl_init_base_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @ossl_init_no_register_atexit_ossl_() #3 {
-  store i32 1, ptr @ossl_init_register_atexit_ossl_ret_, align 4, !tbaa !19
+  store i32 1, ptr @ossl_init_register_atexit_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -514,7 +514,7 @@ define internal void @ossl_init_register_atexit_ossl_() #4 {
   %1 = tail call i32 @atexit(ptr noundef nonnull @OPENSSL_cleanup) #6
   %.not.i = icmp eq i32 %1, 0
   %..i = zext i1 %.not.i to i32
-  store i32 %..i, ptr @ossl_init_register_atexit_ossl_ret_, align 4, !tbaa !19
+  store i32 %..i, ptr @ossl_init_register_atexit_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -526,7 +526,7 @@ define internal void @ossl_init_load_crypto_nodelete_ossl_() #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @ossl_init_no_load_crypto_strings_ossl_() #3 {
-  store i32 1, ptr @ossl_init_load_crypto_strings_ossl_ret_, align 4, !tbaa !19
+  store i32 1, ptr @ossl_init_load_crypto_strings_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -540,14 +540,14 @@ define internal void @ossl_init_load_crypto_strings_ossl_() #0 {
 
 3:                                                ; preds = %0
   %4 = call i32 @ossl_err_load_crypto_strings() #6
-  %5 = load ptr, ptr %1, align 8, !tbaa !14
+  %5 = load ptr, ptr %1, align 8, !tbaa !13
   call void @err_unshelve_state(ptr noundef %5) #6
   br label %ossl_init_load_crypto_strings.exit
 
 ossl_init_load_crypto_strings.exit:               ; preds = %0, %3
   %.0.i = phi i32 [ %4, %3 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
-  store i32 %.0.i, ptr @ossl_init_load_crypto_strings_ossl_ret_, align 4, !tbaa !19
+  store i32 %.0.i, ptr @ossl_init_load_crypto_strings_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -582,7 +582,7 @@ declare i32 @openssl_init_fork_handlers() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_no_config_ossl_() #0 {
   tail call void @ossl_no_config_int() #6
-  store i32 1, ptr @ossl_init_config_ossl_ret_, align 4, !tbaa !19
+  store i32 1, ptr @ossl_init_config_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -593,7 +593,7 @@ declare i32 @CRYPTO_THREAD_set_local(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_config_ossl_() #0 {
   %1 = tail call i32 @ossl_config_int(ptr noundef null) #6
-  store i32 %1, ptr @ossl_init_config_ossl_ret_, align 4, !tbaa !19
+  store i32 %1, ptr @ossl_init_config_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -601,9 +601,9 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_init_config_settings_ossl_() #0 {
-  %1 = load ptr, ptr @conf_settings, align 8, !tbaa !17
+  %1 = load ptr, ptr @conf_settings, align 8, !tbaa !16
   %2 = tail call i32 @ossl_config_int(ptr noundef %1) #6
-  store i32 %2, ptr @ossl_init_config_ossl_ret_, align 4, !tbaa !19
+  store i32 %2, ptr @ossl_init_config_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -621,7 +621,7 @@ define internal void @ossl_init_async_ossl_() #0 {
 
 ossl_init_async.exit:                             ; preds = %0, %2
   %.0.i = phi i32 [ 1, %2 ], [ 0, %0 ]
-  store i32 %.0.i, ptr @ossl_init_async_ossl_ret_, align 4, !tbaa !19
+  store i32 %.0.i, ptr @ossl_init_async_ossl_ret_, align 4, !tbaa !18
   ret void
 }
 
@@ -725,13 +725,12 @@ attributes #6 = { nounwind }
 !8 = !{!9, !5, i64 0}
 !9 = !{!"ossl_init_stop_st", !5, i64 0, !4, i64 8}
 !10 = !{!9, !4, i64 8}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!5, !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS21ossl_init_settings_st", !5, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !6, i64 0}
+!13 = !{!5, !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS21ossl_init_settings_st", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !6, i64 0}

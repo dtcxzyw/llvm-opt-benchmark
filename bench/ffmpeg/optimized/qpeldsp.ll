@@ -77,7 +77,7 @@ copy_block9.exit:                                 ; preds = %8
   %46 = add i32 %45, %44
   %47 = mul nsw i64 %indvars.iv.i, %16
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
-  store i32 %46, ptr %48, align 4, !tbaa !10
+  store i32 %46, ptr %48, align 4, !tbaa !9
   %49 = getelementptr i8, ptr %18, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !4
   %51 = getelementptr i8, ptr %21, i64 4
@@ -109,10 +109,10 @@ copy_block9.exit:                                 ; preds = %8
   %75 = add nuw i32 %narrow57.i, %68
   %76 = add i32 %75, %74
   %77 = getelementptr i8, ptr %48, i64 4
-  store i32 %76, ptr %77, align 4, !tbaa !10
+  store i32 %76, ptr %77, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !11
 
 put_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -386,7 +386,7 @@ define internal fastcc void @put_mpeg4_qpel8_h_lowpass(ptr noundef writeonly cap
   %233 = getelementptr inbounds i8, ptr %.087119, i64 %7
   %234 = add nuw nsw i32 %.0121, 1
   %exitcond.not = icmp eq i32 %234, %4
-  br i1 %exitcond.not, label %235, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %235, label %8, !llvm.loop !12
 
 235:                                              ; preds = %8
   ret void
@@ -593,7 +593,7 @@ define internal fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef writeonly cap
   %173 = getelementptr inbounds nuw i8, ptr %.0109136, i64 1
   %174 = add nuw nsw i32 %.0110135, 1
   %exitcond.not = icmp eq i32 %174, 8
-  br i1 %exitcond.not, label %175, label %33, !llvm.loop !14
+  br i1 %exitcond.not, label %175, label %33, !llvm.loop !13
 
 175:                                              ; preds = %33
   ret void
@@ -675,7 +675,7 @@ copy_block9.exit:                                 ; preds = %8
   %47 = add i32 %46, %45
   %48 = mul nsw i64 %indvars.iv.i, %17
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
-  store i32 %47, ptr %49, align 4, !tbaa !10
+  store i32 %47, ptr %49, align 4, !tbaa !9
   %50 = getelementptr i8, ptr %19, i64 4
   %51 = load i32, ptr %50, align 1, !tbaa !4
   %52 = getelementptr i8, ptr %22, i64 4
@@ -707,10 +707,10 @@ copy_block9.exit:                                 ; preds = %8
   %76 = add nuw i32 %narrow57.i, %69
   %77 = add i32 %76, %75
   %78 = getelementptr i8, ptr %49, i64 4
-  store i32 %77, ptr %78, align 4, !tbaa !10
+  store i32 %77, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !11
 
 put_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -794,7 +794,7 @@ copy_block9.exit:                                 ; preds = %8
   %48 = add i32 %47, %46
   %49 = mul nsw i64 %indvars.iv.i, %18
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  store i32 %48, ptr %50, align 4, !tbaa !10
+  store i32 %48, ptr %50, align 4, !tbaa !9
   %51 = getelementptr i8, ptr %20, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %23, i64 4
@@ -826,10 +826,10 @@ copy_block9.exit:                                 ; preds = %8
   %77 = add nuw i32 %narrow57.i, %70
   %78 = add i32 %77, %76
   %79 = getelementptr i8, ptr %50, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !10
+  store i32 %78, ptr %79, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !11
 
 put_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -914,7 +914,7 @@ copy_block9.exit:                                 ; preds = %8
   %49 = add i32 %48, %47
   %50 = mul nsw i64 %indvars.iv.i, %19
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
-  store i32 %49, ptr %51, align 4, !tbaa !10
+  store i32 %49, ptr %51, align 4, !tbaa !9
   %52 = getelementptr i8, ptr %21, i64 4
   %53 = load i32, ptr %52, align 1, !tbaa !4
   %54 = getelementptr i8, ptr %24, i64 4
@@ -946,10 +946,10 @@ copy_block9.exit:                                 ; preds = %8
   %78 = add nuw i32 %narrow57.i, %71
   %79 = add i32 %78, %77
   %80 = getelementptr i8, ptr %51, i64 4
-  store i32 %79, ptr %80, align 4, !tbaa !10
+  store i32 %79, ptr %80, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i3, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !11
 
 put_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -1009,7 +1009,7 @@ copy_block9.exit:                                 ; preds = %8
   %26 = sub i32 %22, %25
   %27 = mul nsw i64 %indvars.iv.i, %16
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  store i32 %26, ptr %28, align 4, !tbaa !10
+  store i32 %26, ptr %28, align 4, !tbaa !9
   %29 = getelementptr i8, ptr %18, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %20, i64 4
@@ -1020,10 +1020,10 @@ copy_block9.exit:                                 ; preds = %8
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
   %38 = getelementptr i8, ptr %28, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !10
+  store i32 %37, ptr %38, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -1084,7 +1084,7 @@ copy_block9.exit:                                 ; preds = %8
   %27 = sub i32 %23, %26
   %28 = mul nsw i64 %indvars.iv.i, %17
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
-  store i32 %27, ptr %29, align 4, !tbaa !10
+  store i32 %27, ptr %29, align 4, !tbaa !9
   %30 = getelementptr i8, ptr %19, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr i8, ptr %21, i64 4
@@ -1095,10 +1095,10 @@ copy_block9.exit:                                 ; preds = %8
   %37 = and i32 %36, 2139062143
   %38 = sub i32 %34, %37
   %39 = getelementptr i8, ptr %29, i64 4
-  store i32 %38, ptr %39, align 4, !tbaa !10
+  store i32 %38, ptr %39, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -1138,7 +1138,7 @@ define void @ff_put_qpel16_mc11_old_c(ptr noundef writeonly captures(none) %0, p
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -1686,7 +1686,7 @@ define internal fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef writeonly ca
   %481 = getelementptr inbounds i8, ptr %.0167231, i64 %7
   %482 = add nuw nsw i32 %.0233, 1
   %exitcond.not = icmp eq i32 %482, %4
-  br i1 %exitcond.not, label %483, label %8, !llvm.loop !17
+  br i1 %exitcond.not, label %483, label %8, !llvm.loop !16
 
 483:                                              ; preds = %8
   ret void
@@ -2085,7 +2085,7 @@ define internal fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef writeonly ca
   %341 = getelementptr inbounds nuw i8, ptr %.0213264, i64 1
   %342 = add nuw nsw i32 %.0214263, 1
   %exitcond.not = icmp eq i32 %342, 16
-  br i1 %exitcond.not, label %343, label %65, !llvm.loop !18
+  br i1 %exitcond.not, label %343, label %65, !llvm.loop !17
 
 343:                                              ; preds = %65
   ret void
@@ -2143,7 +2143,7 @@ define internal fastcc void @put_pixels16_l4_8(ptr noundef writeonly captures(no
   %49 = add i32 %48, %47
   %50 = mul nsw i64 %indvars.iv.i, %17
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
-  store i32 %49, ptr %51, align 4, !tbaa !10
+  store i32 %49, ptr %51, align 4, !tbaa !9
   %52 = getelementptr i8, ptr %19, i64 4
   %53 = load i32, ptr %52, align 1, !tbaa !4
   %54 = getelementptr i8, ptr %22, i64 4
@@ -2175,10 +2175,10 @@ define internal fastcc void @put_pixels16_l4_8(ptr noundef writeonly captures(no
   %78 = add nuw i32 %narrow57.i, %71
   %79 = add i32 %78, %77
   %80 = getelementptr i8, ptr %51, i64 4
-  store i32 %79, ptr %80, align 4, !tbaa !10
+  store i32 %79, ptr %80, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i21, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i21, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.preheader.i21:                             ; preds = %.lr.ph.i
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2226,7 +2226,7 @@ define internal fastcc void @put_pixels16_l4_8(ptr noundef writeonly captures(no
   %117 = add i32 %116, %115
   %118 = mul nsw i64 %indvars.iv.i24, %17
   %119 = getelementptr inbounds i8, ptr %81, i64 %118
-  store i32 %117, ptr %119, align 4, !tbaa !10
+  store i32 %117, ptr %119, align 4, !tbaa !9
   %120 = getelementptr i8, ptr %87, i64 4
   %121 = load i32, ptr %120, align 1, !tbaa !4
   %122 = getelementptr i8, ptr %90, i64 4
@@ -2258,10 +2258,10 @@ define internal fastcc void @put_pixels16_l4_8(ptr noundef writeonly captures(no
   %146 = add nuw i32 %narrow57.i28, %139
   %147 = add i32 %146, %145
   %148 = getelementptr i8, ptr %119, i64 4
-  store i32 %147, ptr %148, align 4, !tbaa !10
+  store i32 %147, ptr %148, align 4, !tbaa !9
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i
-  br i1 %exitcond.not.i30, label %put_pixels8_l4_8.exit31, label %.lr.ph.i23, !llvm.loop !12
+  br i1 %exitcond.not.i30, label %put_pixels8_l4_8.exit31, label %.lr.ph.i23, !llvm.loop !11
 
 put_pixels8_l4_8.exit31:                          ; preds = %.lr.ph.i23, %11
   ret void
@@ -2297,7 +2297,7 @@ define void @ff_put_qpel16_mc31_old_c(ptr noundef writeonly captures(none) %0, p
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -2343,7 +2343,7 @@ define void @ff_put_qpel16_mc13_old_c(ptr noundef writeonly captures(none) %0, p
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -2390,7 +2390,7 @@ define void @ff_put_qpel16_mc33_old_c(ptr noundef writeonly captures(none) %0, p
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -2438,7 +2438,7 @@ define void @ff_put_qpel16_mc12_old_c(ptr noundef writeonly captures(none) %0, p
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -2462,7 +2462,7 @@ copy_block17.exit:                                ; preds = %8
   %29 = sub i32 %25, %28
   %30 = mul nsw i64 %indvars.iv.i.i, %19
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
-  store i32 %29, ptr %31, align 4, !tbaa !10
+  store i32 %29, ptr %31, align 4, !tbaa !9
   %32 = getelementptr i8, ptr %21, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = getelementptr i8, ptr %23, i64 4
@@ -2473,10 +2473,10 @@ copy_block17.exit:                                ; preds = %8
   %39 = and i32 %38, 2139062143
   %40 = sub i32 %36, %39
   %41 = getelementptr i8, ptr %31, i64 4
-  store i32 %40, ptr %41, align 4, !tbaa !10
+  store i32 %40, ptr %41, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2498,7 +2498,7 @@ copy_block17.exit:                                ; preds = %8
   %54 = sub i32 %50, %53
   %55 = mul nsw i64 %indvars.iv.i16.i, %19
   %56 = getelementptr inbounds i8, ptr %42, i64 %55
-  store i32 %54, ptr %56, align 4, !tbaa !10
+  store i32 %54, ptr %56, align 4, !tbaa !9
   %57 = getelementptr i8, ptr %46, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = getelementptr i8, ptr %48, i64 4
@@ -2509,10 +2509,10 @@ copy_block17.exit:                                ; preds = %8
   %64 = and i32 %63, 2139062143
   %65 = sub i32 %61, %64
   %66 = getelementptr i8, ptr %56, i64 4
-  store i32 %65, ptr %66, align 4, !tbaa !10
+  store i32 %65, ptr %66, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
@@ -2552,7 +2552,7 @@ define void @ff_put_qpel16_mc32_old_c(ptr noundef writeonly captures(none) %0, p
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -2577,7 +2577,7 @@ copy_block17.exit:                                ; preds = %8
   %30 = sub i32 %26, %29
   %31 = mul nsw i64 %indvars.iv.i.i, %20
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
-  store i32 %30, ptr %32, align 4, !tbaa !10
+  store i32 %30, ptr %32, align 4, !tbaa !9
   %33 = getelementptr i8, ptr %22, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !4
   %35 = getelementptr i8, ptr %24, i64 4
@@ -2588,10 +2588,10 @@ copy_block17.exit:                                ; preds = %8
   %40 = and i32 %39, 2139062143
   %41 = sub i32 %37, %40
   %42 = getelementptr i8, ptr %32, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !10
+  store i32 %41, ptr %42, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2613,7 +2613,7 @@ copy_block17.exit:                                ; preds = %8
   %55 = sub i32 %51, %54
   %56 = mul nsw i64 %indvars.iv.i16.i, %20
   %57 = getelementptr inbounds i8, ptr %43, i64 %56
-  store i32 %55, ptr %57, align 4, !tbaa !10
+  store i32 %55, ptr %57, align 4, !tbaa !9
   %58 = getelementptr i8, ptr %47, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = getelementptr i8, ptr %49, i64 4
@@ -2624,10 +2624,10 @@ copy_block17.exit:                                ; preds = %8
   %65 = and i32 %64, 2139062143
   %66 = sub i32 %62, %65
   %67 = getelementptr i8, ptr %57, i64 4
-  store i32 %66, ptr %67, align 4, !tbaa !10
+  store i32 %66, ptr %67, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
@@ -2709,7 +2709,7 @@ copy_block9.exit:                                 ; preds = %8
   %47 = add i32 %46, %45
   %48 = mul nsw i64 %indvars.iv.i, %16
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
-  store i32 %47, ptr %49, align 4, !tbaa !10
+  store i32 %47, ptr %49, align 4, !tbaa !9
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -2741,10 +2741,10 @@ copy_block9.exit:                                 ; preds = %8
   %76 = add nuw i32 %narrow57.i, %69
   %77 = add i32 %76, %75
   %78 = getelementptr i8, ptr %49, i64 4
-  store i32 %77, ptr %78, align 4, !tbaa !10
+  store i32 %77, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %17, !llvm.loop !19
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %17, !llvm.loop !18
 
 put_no_rnd_pixels8_l4_8.exit:                     ; preds = %17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -3015,7 +3015,7 @@ define internal fastcc void @put_no_rnd_mpeg4_qpel8_h_lowpass(ptr noundef writeo
   %233 = getelementptr inbounds i8, ptr %.087119, i64 %7
   %234 = add nuw nsw i32 %.0121, 1
   %exitcond.not = icmp eq i32 %234, %4
-  br i1 %exitcond.not, label %235, label %8, !llvm.loop !20
+  br i1 %exitcond.not, label %235, label %8, !llvm.loop !19
 
 235:                                              ; preds = %8
   ret void
@@ -3222,7 +3222,7 @@ define internal fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef writeo
   %173 = getelementptr inbounds nuw i8, ptr %.0109136, i64 1
   %174 = add nuw nsw i32 %.0110135, 1
   %exitcond.not = icmp eq i32 %174, 8
-  br i1 %exitcond.not, label %175, label %33, !llvm.loop !21
+  br i1 %exitcond.not, label %175, label %33, !llvm.loop !20
 
 175:                                              ; preds = %33
   ret void
@@ -3301,7 +3301,7 @@ copy_block9.exit:                                 ; preds = %8
   %48 = add i32 %47, %46
   %49 = mul nsw i64 %indvars.iv.i, %17
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  store i32 %48, ptr %50, align 4, !tbaa !10
+  store i32 %48, ptr %50, align 4, !tbaa !9
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %52 = load i32, ptr %51, align 1, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -3333,10 +3333,10 @@ copy_block9.exit:                                 ; preds = %8
   %77 = add nuw i32 %narrow57.i, %70
   %78 = add i32 %77, %76
   %79 = getelementptr i8, ptr %50, i64 4
-  store i32 %78, ptr %79, align 4, !tbaa !10
+  store i32 %78, ptr %79, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %18, !llvm.loop !19
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %18, !llvm.loop !18
 
 put_no_rnd_pixels8_l4_8.exit:                     ; preds = %18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -3420,7 +3420,7 @@ copy_block9.exit:                                 ; preds = %8
   %49 = add i32 %48, %47
   %50 = mul nsw i64 %indvars.iv.i, %18
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
-  store i32 %49, ptr %51, align 4, !tbaa !10
+  store i32 %49, ptr %51, align 4, !tbaa !9
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -3452,10 +3452,10 @@ copy_block9.exit:                                 ; preds = %8
   %78 = add nuw i32 %narrow57.i, %71
   %79 = add i32 %78, %77
   %80 = getelementptr i8, ptr %51, i64 4
-  store i32 %79, ptr %80, align 4, !tbaa !10
+  store i32 %79, ptr %80, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %19, !llvm.loop !19
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %19, !llvm.loop !18
 
 put_no_rnd_pixels8_l4_8.exit:                     ; preds = %19
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -3540,7 +3540,7 @@ copy_block9.exit:                                 ; preds = %8
   %50 = add i32 %49, %48
   %51 = mul nsw i64 %indvars.iv.i, %19
   %52 = getelementptr inbounds i8, ptr %0, i64 %51
-  store i32 %50, ptr %52, align 4, !tbaa !10
+  store i32 %50, ptr %52, align 4, !tbaa !9
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %54 = load i32, ptr %53, align 1, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -3572,10 +3572,10 @@ copy_block9.exit:                                 ; preds = %8
   %79 = add nuw i32 %narrow57.i, %72
   %80 = add i32 %79, %78
   %81 = getelementptr i8, ptr %52, i64 4
-  store i32 %80, ptr %81, align 4, !tbaa !10
+  store i32 %80, ptr %81, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %20, !llvm.loop !19
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l4_8.exit, label %20, !llvm.loop !18
 
 put_no_rnd_pixels8_l4_8.exit:                     ; preds = %20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -3635,7 +3635,7 @@ copy_block9.exit:                                 ; preds = %8
   %27 = add i32 %26, %23
   %28 = mul nsw i64 %indvars.iv.i, %16
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
-  store i32 %27, ptr %29, align 4, !tbaa !10
+  store i32 %27, ptr %29, align 4, !tbaa !9
   %30 = getelementptr i8, ptr %19, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -3646,10 +3646,10 @@ copy_block9.exit:                                 ; preds = %8
   %37 = and i32 %36, 2139062143
   %38 = add i32 %37, %34
   %39 = getelementptr i8, ptr %29, i64 4
-  store i32 %38, ptr %39, align 4, !tbaa !10
+  store i32 %38, ptr %39, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %17, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %17, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -3710,7 +3710,7 @@ copy_block9.exit:                                 ; preds = %8
   %28 = add i32 %27, %24
   %29 = mul nsw i64 %indvars.iv.i, %17
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
-  store i32 %28, ptr %30, align 4, !tbaa !10
+  store i32 %28, ptr %30, align 4, !tbaa !9
   %31 = getelementptr i8, ptr %20, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -3721,10 +3721,10 @@ copy_block9.exit:                                 ; preds = %8
   %38 = and i32 %37, 2139062143
   %39 = add i32 %38, %35
   %40 = getelementptr i8, ptr %30, i64 4
-  store i32 %39, ptr %40, align 4, !tbaa !10
+  store i32 %39, ptr %40, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %18, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %18, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -3764,7 +3764,7 @@ define void @ff_put_no_rnd_qpel16_mc11_old_c(ptr noundef writeonly captures(none
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -4312,7 +4312,7 @@ define internal fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef write
   %481 = getelementptr inbounds i8, ptr %.0167231, i64 %7
   %482 = add nuw nsw i32 %.0233, 1
   %exitcond.not = icmp eq i32 %482, %4
-  br i1 %exitcond.not, label %483, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %483, label %8, !llvm.loop !22
 
 483:                                              ; preds = %8
   ret void
@@ -4711,7 +4711,7 @@ define internal fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef write
   %341 = getelementptr inbounds nuw i8, ptr %.0213264, i64 1
   %342 = add nuw nsw i32 %.0214263, 1
   %exitcond.not = icmp eq i32 %342, 16
-  br i1 %exitcond.not, label %343, label %65, !llvm.loop !24
+  br i1 %exitcond.not, label %343, label %65, !llvm.loop !23
 
 343:                                              ; preds = %65
   ret void
@@ -4758,7 +4758,7 @@ define internal fastcc void @put_no_rnd_pixels16_l4_8(ptr noundef writeonly capt
   %38 = add i32 %37, %36
   %39 = mul nsw i64 %indvars.iv.i, %7
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  store i32 %38, ptr %40, align 4, !tbaa !10
+  store i32 %38, ptr %40, align 4, !tbaa !9
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %42 = load i32, ptr %41, align 1, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -4790,10 +4790,10 @@ define internal fastcc void @put_no_rnd_pixels16_l4_8(ptr noundef writeonly capt
   %67 = add nuw i32 %narrow57.i, %60
   %68 = add i32 %67, %66
   %69 = getelementptr i8, ptr %40, i64 4
-  store i32 %68, ptr %69, align 4, !tbaa !10
+  store i32 %68, ptr %69, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l4_8.exit, label %8, !llvm.loop !19
+  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l4_8.exit, label %8, !llvm.loop !18
 
 put_no_rnd_pixels8_l4_8.exit:                     ; preds = %8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4839,7 +4839,7 @@ put_no_rnd_pixels8_l4_8.exit:                     ; preds = %8
   %105 = add i32 %104, %103
   %106 = mul nsw i64 %indvars.iv.i21, %7
   %107 = getelementptr inbounds i8, ptr %70, i64 %106
-  store i32 %105, ptr %107, align 4, !tbaa !10
+  store i32 %105, ptr %107, align 4, !tbaa !9
   %108 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %109 = load i32, ptr %108, align 1, !tbaa !4
   %110 = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -4871,10 +4871,10 @@ put_no_rnd_pixels8_l4_8.exit:                     ; preds = %8
   %134 = add nuw i32 %narrow57.i25, %127
   %135 = add i32 %134, %133
   %136 = getelementptr i8, ptr %107, i64 4
-  store i32 %135, ptr %136, align 4, !tbaa !10
+  store i32 %135, ptr %136, align 4, !tbaa !9
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 16
-  br i1 %exitcond.not.i27, label %put_no_rnd_pixels8_l4_8.exit28, label %75, !llvm.loop !19
+  br i1 %exitcond.not.i27, label %put_no_rnd_pixels8_l4_8.exit28, label %75, !llvm.loop !18
 
 put_no_rnd_pixels8_l4_8.exit28:                   ; preds = %75
   ret void
@@ -4910,7 +4910,7 @@ define void @ff_put_no_rnd_qpel16_mc31_old_c(ptr noundef writeonly captures(none
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -4956,7 +4956,7 @@ define void @ff_put_no_rnd_qpel16_mc13_old_c(ptr noundef writeonly captures(none
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -5003,7 +5003,7 @@ define void @ff_put_no_rnd_qpel16_mc33_old_c(ptr noundef writeonly captures(none
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -5051,7 +5051,7 @@ define void @ff_put_no_rnd_qpel16_mc12_old_c(ptr noundef writeonly captures(none
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -5075,7 +5075,7 @@ copy_block17.exit:                                ; preds = %8
   %30 = add i32 %29, %26
   %31 = mul nsw i64 %indvars.iv.i.i, %19
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
-  store i32 %30, ptr %32, align 4, !tbaa !10
+  store i32 %30, ptr %32, align 4, !tbaa !9
   %33 = getelementptr i8, ptr %22, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -5086,10 +5086,10 @@ copy_block17.exit:                                ; preds = %8
   %40 = and i32 %39, 2139062143
   %41 = add i32 %40, %37
   %42 = getelementptr i8, ptr %32, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !10
+  store i32 %41, ptr %42, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %20, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %20, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5111,7 +5111,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %20
   %56 = add i32 %55, %52
   %57 = mul nsw i64 %indvars.iv.i14.i, %19
   %58 = getelementptr inbounds i8, ptr %43, i64 %57
-  store i32 %56, ptr %58, align 4, !tbaa !10
+  store i32 %56, ptr %58, align 4, !tbaa !9
   %59 = getelementptr i8, ptr %48, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -5122,10 +5122,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %20
   %66 = and i32 %65, 2139062143
   %67 = add i32 %66, %63
   %68 = getelementptr i8, ptr %58, i64 4
-  store i32 %67, ptr %68, align 4, !tbaa !10
+  store i32 %67, ptr %68, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %46, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %46, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %46
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
@@ -5165,7 +5165,7 @@ define void @ff_put_no_rnd_qpel16_mc32_old_c(ptr noundef writeonly captures(none
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -5190,7 +5190,7 @@ copy_block17.exit:                                ; preds = %8
   %31 = add i32 %30, %27
   %32 = mul nsw i64 %indvars.iv.i.i, %20
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  store i32 %31, ptr %33, align 4, !tbaa !10
+  store i32 %31, ptr %33, align 4, !tbaa !9
   %34 = getelementptr i8, ptr %23, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -5201,10 +5201,10 @@ copy_block17.exit:                                ; preds = %8
   %41 = and i32 %40, 2139062143
   %42 = add i32 %41, %38
   %43 = getelementptr i8, ptr %33, i64 4
-  store i32 %42, ptr %43, align 4, !tbaa !10
+  store i32 %42, ptr %43, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %21, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %21, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %21
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5226,7 +5226,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %21
   %57 = add i32 %56, %53
   %58 = mul nsw i64 %indvars.iv.i14.i, %20
   %59 = getelementptr inbounds i8, ptr %44, i64 %58
-  store i32 %57, ptr %59, align 4, !tbaa !10
+  store i32 %57, ptr %59, align 4, !tbaa !9
   %60 = getelementptr i8, ptr %49, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -5237,10 +5237,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %21
   %67 = and i32 %66, 2139062143
   %68 = add i32 %67, %64
   %69 = getelementptr i8, ptr %59, i64 4
-  store i32 %68, ptr %69, align 4, !tbaa !10
+  store i32 %68, ptr %69, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %47, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %47, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %47
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
@@ -5312,7 +5312,7 @@ copy_block9.exit:                                 ; preds = %8
   %38 = and i32 %37, 1061109567
   %39 = mul nsw i64 %indvars.iv.i, %16
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !10
+  %41 = load i32, ptr %40, align 4, !tbaa !9
   %42 = add nuw nsw i32 %27, 33686018
   %43 = add nuw nsw i32 %42, %28
   %44 = add nuw nsw i32 %43, %33
@@ -5328,7 +5328,7 @@ copy_block9.exit:                                 ; preds = %8
   %52 = lshr i32 %51, 1
   %53 = and i32 %52, 2139062143
   %54 = sub i32 %50, %53
-  store i32 %54, ptr %40, align 4, !tbaa !10
+  store i32 %54, ptr %40, align 4, !tbaa !9
   %55 = getelementptr i8, ptr %18, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !4
   %57 = getelementptr i8, ptr %21, i64 4
@@ -5350,7 +5350,7 @@ copy_block9.exit:                                 ; preds = %8
   %73 = lshr i32 %62, 2
   %74 = and i32 %73, 1061109567
   %75 = getelementptr i8, ptr %40, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !10
+  %76 = load i32, ptr %75, align 4, !tbaa !9
   %77 = add nuw nsw i32 %63, 33686018
   %78 = add nuw nsw i32 %77, %64
   %79 = add nuw nsw i32 %78, %69
@@ -5366,10 +5366,10 @@ copy_block9.exit:                                 ; preds = %8
   %87 = lshr i32 %86, 1
   %88 = and i32 %87, 2139062143
   %89 = sub i32 %85, %88
-  store i32 %89, ptr %75, align 4, !tbaa !10
+  store i32 %89, ptr %75, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !24
 
 avg_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -5442,7 +5442,7 @@ copy_block9.exit:                                 ; preds = %8
   %39 = and i32 %38, 1061109567
   %40 = mul nsw i64 %indvars.iv.i, %17
   %41 = getelementptr inbounds i8, ptr %0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %42 = load i32, ptr %41, align 4, !tbaa !9
   %43 = add nuw nsw i32 %28, 33686018
   %44 = add nuw nsw i32 %43, %29
   %45 = add nuw nsw i32 %44, %34
@@ -5458,7 +5458,7 @@ copy_block9.exit:                                 ; preds = %8
   %53 = lshr i32 %52, 1
   %54 = and i32 %53, 2139062143
   %55 = sub i32 %51, %54
-  store i32 %55, ptr %41, align 4, !tbaa !10
+  store i32 %55, ptr %41, align 4, !tbaa !9
   %56 = getelementptr i8, ptr %19, i64 4
   %57 = load i32, ptr %56, align 1, !tbaa !4
   %58 = getelementptr i8, ptr %22, i64 4
@@ -5480,7 +5480,7 @@ copy_block9.exit:                                 ; preds = %8
   %74 = lshr i32 %63, 2
   %75 = and i32 %74, 1061109567
   %76 = getelementptr i8, ptr %41, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %77 = load i32, ptr %76, align 4, !tbaa !9
   %78 = add nuw nsw i32 %64, 33686018
   %79 = add nuw nsw i32 %78, %65
   %80 = add nuw nsw i32 %79, %70
@@ -5496,10 +5496,10 @@ copy_block9.exit:                                 ; preds = %8
   %88 = lshr i32 %87, 1
   %89 = and i32 %88, 2139062143
   %90 = sub i32 %86, %89
-  store i32 %90, ptr %76, align 4, !tbaa !10
+  store i32 %90, ptr %76, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !24
 
 avg_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -5573,7 +5573,7 @@ copy_block9.exit:                                 ; preds = %8
   %40 = and i32 %39, 1061109567
   %41 = mul nsw i64 %indvars.iv.i, %18
   %42 = getelementptr inbounds i8, ptr %0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = add nuw nsw i32 %29, 33686018
   %45 = add nuw nsw i32 %44, %30
   %46 = add nuw nsw i32 %45, %35
@@ -5589,7 +5589,7 @@ copy_block9.exit:                                 ; preds = %8
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 2139062143
   %56 = sub i32 %52, %55
-  store i32 %56, ptr %42, align 4, !tbaa !10
+  store i32 %56, ptr %42, align 4, !tbaa !9
   %57 = getelementptr i8, ptr %20, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = getelementptr i8, ptr %23, i64 4
@@ -5611,7 +5611,7 @@ copy_block9.exit:                                 ; preds = %8
   %75 = lshr i32 %64, 2
   %76 = and i32 %75, 1061109567
   %77 = getelementptr i8, ptr %42, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !10
+  %78 = load i32, ptr %77, align 4, !tbaa !9
   %79 = add nuw nsw i32 %65, 33686018
   %80 = add nuw nsw i32 %79, %66
   %81 = add nuw nsw i32 %80, %71
@@ -5627,10 +5627,10 @@ copy_block9.exit:                                 ; preds = %8
   %89 = lshr i32 %88, 1
   %90 = and i32 %89, 2139062143
   %91 = sub i32 %87, %90
-  store i32 %91, ptr %77, align 4, !tbaa !10
+  store i32 %91, ptr %77, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !24
 
 avg_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -5705,7 +5705,7 @@ copy_block9.exit:                                 ; preds = %8
   %41 = and i32 %40, 1061109567
   %42 = mul nsw i64 %indvars.iv.i, %19
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = add nuw nsw i32 %30, 33686018
   %46 = add nuw nsw i32 %45, %31
   %47 = add nuw nsw i32 %46, %36
@@ -5721,7 +5721,7 @@ copy_block9.exit:                                 ; preds = %8
   %55 = lshr i32 %54, 1
   %56 = and i32 %55, 2139062143
   %57 = sub i32 %53, %56
-  store i32 %57, ptr %43, align 4, !tbaa !10
+  store i32 %57, ptr %43, align 4, !tbaa !9
   %58 = getelementptr i8, ptr %21, i64 4
   %59 = load i32, ptr %58, align 1, !tbaa !4
   %60 = getelementptr i8, ptr %24, i64 4
@@ -5743,7 +5743,7 @@ copy_block9.exit:                                 ; preds = %8
   %76 = lshr i32 %65, 2
   %77 = and i32 %76, 1061109567
   %78 = getelementptr i8, ptr %43, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !10
+  %79 = load i32, ptr %78, align 4, !tbaa !9
   %80 = add nuw nsw i32 %66, 33686018
   %81 = add nuw nsw i32 %80, %67
   %82 = add nuw nsw i32 %81, %72
@@ -5759,10 +5759,10 @@ copy_block9.exit:                                 ; preds = %8
   %90 = lshr i32 %89, 1
   %91 = and i32 %90, 2139062143
   %92 = sub i32 %88, %91
-  store i32 %92, ptr %78, align 4, !tbaa !10
+  store i32 %92, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i3, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !24
 
 avg_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -5817,7 +5817,7 @@ copy_block9.exit:                                 ; preds = %8
   %21 = load i32, ptr %20, align 8, !tbaa !4
   %22 = mul nsw i64 %indvars.iv.i, %16
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = or i32 %21, %19
   %26 = xor i32 %21, %19
   %27 = lshr i32 %26, 1
@@ -5828,13 +5828,13 @@ copy_block9.exit:                                 ; preds = %8
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %23, align 4, !tbaa !10
+  store i32 %34, ptr %23, align 4, !tbaa !9
   %35 = getelementptr i8, ptr %18, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = getelementptr i8, ptr %20, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !4
   %39 = getelementptr i8, ptr %23, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %40 = load i32, ptr %39, align 4, !tbaa !9
   %41 = or i32 %38, %36
   %42 = xor i32 %38, %36
   %43 = lshr i32 %42, 1
@@ -5845,10 +5845,10 @@ copy_block9.exit:                                 ; preds = %8
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %39, align 4, !tbaa !10
+  store i32 %50, ptr %39, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -5904,7 +5904,7 @@ copy_block9.exit:                                 ; preds = %8
   %22 = load i32, ptr %21, align 8, !tbaa !4
   %23 = mul nsw i64 %indvars.iv.i, %17
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %25 = load i32, ptr %24, align 4, !tbaa !9
   %26 = or i32 %22, %20
   %27 = xor i32 %22, %20
   %28 = lshr i32 %27, 1
@@ -5915,13 +5915,13 @@ copy_block9.exit:                                 ; preds = %8
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %24, align 4, !tbaa !10
+  store i32 %35, ptr %24, align 4, !tbaa !9
   %36 = getelementptr i8, ptr %19, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !4
   %38 = getelementptr i8, ptr %21, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = getelementptr i8, ptr %24, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !10
+  %41 = load i32, ptr %40, align 4, !tbaa !9
   %42 = or i32 %39, %37
   %43 = xor i32 %39, %37
   %44 = lshr i32 %43, 1
@@ -5932,10 +5932,10 @@ copy_block9.exit:                                 ; preds = %8
   %49 = lshr i32 %48, 1
   %50 = and i32 %49, 2139062143
   %51 = sub i32 %47, %50
-  store i32 %51, ptr %40, align 4, !tbaa !10
+  store i32 %51, ptr %40, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
@@ -5975,7 +5975,7 @@ define void @ff_avg_qpel16_mc11_old_c(ptr noundef captures(none) %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -6032,7 +6032,7 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %41 = and i32 %40, 1061109567
   %42 = mul nsw i64 %indvars.iv.i, %17
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = add nuw nsw i32 %30, 33686018
   %46 = add nuw nsw i32 %45, %31
   %47 = add nuw nsw i32 %46, %36
@@ -6048,7 +6048,7 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %55 = lshr i32 %54, 1
   %56 = and i32 %55, 2139062143
   %57 = sub i32 %53, %56
-  store i32 %57, ptr %43, align 4, !tbaa !10
+  store i32 %57, ptr %43, align 4, !tbaa !9
   %58 = getelementptr i8, ptr %19, i64 4
   %59 = load i32, ptr %58, align 1, !tbaa !4
   %60 = getelementptr i8, ptr %22, i64 4
@@ -6070,7 +6070,7 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %76 = lshr i32 %65, 2
   %77 = and i32 %76, 1061109567
   %78 = getelementptr i8, ptr %43, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !10
+  %79 = load i32, ptr %78, align 4, !tbaa !9
   %80 = add nuw nsw i32 %66, 33686018
   %81 = add nuw nsw i32 %80, %67
   %82 = add nuw nsw i32 %81, %72
@@ -6086,10 +6086,10 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %90 = lshr i32 %89, 1
   %91 = and i32 %90, 2139062143
   %92 = sub i32 %88, %91
-  store i32 %92, ptr %78, align 4, !tbaa !10
+  store i32 %92, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i21, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i21, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.preheader.i21:                             ; preds = %.lr.ph.i
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6127,7 +6127,7 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %121 = and i32 %120, 1061109567
   %122 = mul nsw i64 %indvars.iv.i24, %17
   %123 = getelementptr inbounds i8, ptr %93, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %124 = load i32, ptr %123, align 4, !tbaa !9
   %125 = add nuw nsw i32 %110, 33686018
   %126 = add nuw nsw i32 %125, %111
   %127 = add nuw nsw i32 %126, %116
@@ -6143,7 +6143,7 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %135 = lshr i32 %134, 1
   %136 = and i32 %135, 2139062143
   %137 = sub i32 %133, %136
-  store i32 %137, ptr %123, align 4, !tbaa !10
+  store i32 %137, ptr %123, align 4, !tbaa !9
   %138 = getelementptr i8, ptr %99, i64 4
   %139 = load i32, ptr %138, align 1, !tbaa !4
   %140 = getelementptr i8, ptr %102, i64 4
@@ -6165,7 +6165,7 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %156 = lshr i32 %145, 2
   %157 = and i32 %156, 1061109567
   %158 = getelementptr i8, ptr %123, i64 4
-  %159 = load i32, ptr %158, align 4, !tbaa !10
+  %159 = load i32, ptr %158, align 4, !tbaa !9
   %160 = add nuw nsw i32 %146, 33686018
   %161 = add nuw nsw i32 %160, %147
   %162 = add nuw nsw i32 %161, %152
@@ -6181,10 +6181,10 @@ define internal fastcc void @avg_pixels16_l4_8(ptr noundef captures(none) %0, pt
   %170 = lshr i32 %169, 1
   %171 = and i32 %170, 2139062143
   %172 = sub i32 %168, %171
-  store i32 %172, ptr %158, align 4, !tbaa !10
+  store i32 %172, ptr %158, align 4, !tbaa !9
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i
-  br i1 %exitcond.not.i30, label %avg_pixels8_l4_8.exit31, label %.lr.ph.i23, !llvm.loop !25
+  br i1 %exitcond.not.i30, label %avg_pixels8_l4_8.exit31, label %.lr.ph.i23, !llvm.loop !24
 
 avg_pixels8_l4_8.exit31:                          ; preds = %.lr.ph.i23, %11
   ret void
@@ -6220,7 +6220,7 @@ define void @ff_avg_qpel16_mc31_old_c(ptr noundef captures(none) %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -6266,7 +6266,7 @@ define void @ff_avg_qpel16_mc13_old_c(ptr noundef captures(none) %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -6313,7 +6313,7 @@ define void @ff_avg_qpel16_mc33_old_c(ptr noundef captures(none) %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -6361,7 +6361,7 @@ define void @ff_avg_qpel16_mc12_old_c(ptr noundef captures(none) %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -6380,7 +6380,7 @@ copy_block17.exit:                                ; preds = %8
   %24 = load i32, ptr %23, align 16, !tbaa !4
   %25 = mul nsw i64 %indvars.iv.i.i, %19
   %26 = getelementptr inbounds i8, ptr %0, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !10
+  %27 = load i32, ptr %26, align 4, !tbaa !9
   %28 = or i32 %24, %22
   %29 = xor i32 %24, %22
   %30 = lshr i32 %29, 1
@@ -6391,13 +6391,13 @@ copy_block17.exit:                                ; preds = %8
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %26, align 4, !tbaa !10
+  store i32 %37, ptr %26, align 4, !tbaa !9
   %38 = getelementptr i8, ptr %21, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = getelementptr i8, ptr %23, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !4
   %42 = getelementptr i8, ptr %26, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = or i32 %41, %39
   %45 = xor i32 %41, %39
   %46 = lshr i32 %45, 1
@@ -6408,10 +6408,10 @@ copy_block17.exit:                                ; preds = %8
   %51 = lshr i32 %50, 1
   %52 = and i32 %51, 2139062143
   %53 = sub i32 %49, %52
-  store i32 %53, ptr %42, align 4, !tbaa !10
+  store i32 %53, ptr %42, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6428,7 +6428,7 @@ copy_block17.exit:                                ; preds = %8
   %61 = load i32, ptr %60, align 8, !tbaa !4
   %62 = mul nsw i64 %indvars.iv.i16.i, %19
   %63 = getelementptr inbounds i8, ptr %54, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %64 = load i32, ptr %63, align 4, !tbaa !9
   %65 = or i32 %61, %59
   %66 = xor i32 %61, %59
   %67 = lshr i32 %66, 1
@@ -6439,13 +6439,13 @@ copy_block17.exit:                                ; preds = %8
   %72 = lshr i32 %71, 1
   %73 = and i32 %72, 2139062143
   %74 = sub i32 %70, %73
-  store i32 %74, ptr %63, align 4, !tbaa !10
+  store i32 %74, ptr %63, align 4, !tbaa !9
   %75 = getelementptr i8, ptr %58, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = getelementptr i8, ptr %60, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !4
   %79 = getelementptr i8, ptr %63, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !10
+  %80 = load i32, ptr %79, align 4, !tbaa !9
   %81 = or i32 %78, %76
   %82 = xor i32 %78, %76
   %83 = lshr i32 %82, 1
@@ -6456,10 +6456,10 @@ copy_block17.exit:                                ; preds = %8
   %88 = lshr i32 %87, 1
   %89 = and i32 %88, 2139062143
   %90 = sub i32 %86, %89
-  store i32 %90, ptr %79, align 4, !tbaa !10
+  store i32 %90, ptr %79, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
@@ -6499,7 +6499,7 @@ define void @ff_avg_qpel16_mc32_old_c(ptr noundef captures(none) %0, ptr noundef
   %17 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %18 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %18, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %8, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %8
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -6519,7 +6519,7 @@ copy_block17.exit:                                ; preds = %8
   %25 = load i32, ptr %24, align 16, !tbaa !4
   %26 = mul nsw i64 %indvars.iv.i.i, %20
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %28 = load i32, ptr %27, align 4, !tbaa !9
   %29 = or i32 %25, %23
   %30 = xor i32 %25, %23
   %31 = lshr i32 %30, 1
@@ -6530,13 +6530,13 @@ copy_block17.exit:                                ; preds = %8
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = sub i32 %34, %37
-  store i32 %38, ptr %27, align 4, !tbaa !10
+  store i32 %38, ptr %27, align 4, !tbaa !9
   %39 = getelementptr i8, ptr %22, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !4
   %41 = getelementptr i8, ptr %24, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !4
   %43 = getelementptr i8, ptr %27, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = or i32 %42, %40
   %46 = xor i32 %42, %40
   %47 = lshr i32 %46, 1
@@ -6547,10 +6547,10 @@ copy_block17.exit:                                ; preds = %8
   %52 = lshr i32 %51, 1
   %53 = and i32 %52, 2139062143
   %54 = sub i32 %50, %53
-  store i32 %54, ptr %43, align 4, !tbaa !10
+  store i32 %54, ptr %43, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6567,7 +6567,7 @@ copy_block17.exit:                                ; preds = %8
   %62 = load i32, ptr %61, align 8, !tbaa !4
   %63 = mul nsw i64 %indvars.iv.i16.i, %20
   %64 = getelementptr inbounds i8, ptr %55, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !10
+  %65 = load i32, ptr %64, align 4, !tbaa !9
   %66 = or i32 %62, %60
   %67 = xor i32 %62, %60
   %68 = lshr i32 %67, 1
@@ -6578,13 +6578,13 @@ copy_block17.exit:                                ; preds = %8
   %73 = lshr i32 %72, 1
   %74 = and i32 %73, 2139062143
   %75 = sub i32 %71, %74
-  store i32 %75, ptr %64, align 4, !tbaa !10
+  store i32 %75, ptr %64, align 4, !tbaa !9
   %76 = getelementptr i8, ptr %59, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !4
   %78 = getelementptr i8, ptr %61, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = getelementptr i8, ptr %64, i64 4
-  %81 = load i32, ptr %80, align 4, !tbaa !10
+  %81 = load i32, ptr %80, align 4, !tbaa !9
   %82 = or i32 %79, %77
   %83 = xor i32 %79, %77
   %84 = lshr i32 %83, 1
@@ -6595,10 +6595,10 @@ copy_block17.exit:                                ; preds = %8
   %89 = lshr i32 %88, 1
   %90 = and i32 %89, 2139062143
   %91 = sub i32 %87, %90
-  store i32 %91, ptr %80, align 4, !tbaa !10
+  store i32 %91, ptr %80, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
@@ -6617,16 +6617,16 @@ define void @ff_put_pixels8x8_c(ptr noundef writeonly captures(none) %0, ptr nou
   %.01013.i = phi ptr [ %9, %.lr.ph.i ], [ %0, %3 ]
   %.01112.i = phi ptr [ %8, %.lr.ph.i ], [ %1, %3 ]
   %4 = load i32, ptr %.01112.i, align 1, !tbaa !4
-  store i32 %4, ptr %.01013.i, align 4, !tbaa !10
+  store i32 %4, ptr %.01013.i, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 4
   %6 = load i32, ptr %5, align 1, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 4
-  store i32 %6, ptr %7, align 4, !tbaa !10
+  store i32 %6, ptr %7, align 4, !tbaa !9
   %8 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %9 = getelementptr inbounds i8, ptr %.01013.i, i64 %2
   %10 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond.not.i, label %put_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %put_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !26
 
 put_pixels8_8_c.exit:                             ; preds = %.lr.ph.i
   ret void
@@ -6640,16 +6640,16 @@ define void @ff_avg_pixels8x8_c(ptr noundef captures(none) %0, ptr noundef reado
   %.016.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %3 ]
   %.01215.i = phi ptr [ %21, %.lr.ph.i ], [ %0, %3 ]
   %.01314.i = phi ptr [ %20, %.lr.ph.i ], [ %1, %3 ]
-  %4 = load i32, ptr %.01215.i, align 4, !tbaa !10
+  %4 = load i32, ptr %.01215.i, align 4, !tbaa !9
   %5 = load i32, ptr %.01314.i, align 1, !tbaa !4
   %6 = or i32 %5, %4
   %7 = xor i32 %5, %4
   %8 = lshr i32 %7, 1
   %9 = and i32 %8, 2139062143
   %10 = sub i32 %6, %9
-  store i32 %10, ptr %.01215.i, align 4, !tbaa !10
+  store i32 %10, ptr %.01215.i, align 4, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %.01314.i, i64 4
   %14 = load i32, ptr %13, align 1, !tbaa !4
   %15 = or i32 %14, %12
@@ -6657,12 +6657,12 @@ define void @ff_avg_pixels8x8_c(ptr noundef captures(none) %0, ptr noundef reado
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 2139062143
   %19 = sub i32 %15, %18
-  store i32 %19, ptr %11, align 4, !tbaa !10
+  store i32 %19, ptr %11, align 4, !tbaa !9
   %20 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %21 = getelementptr inbounds i8, ptr %.01215.i, i64 %2
   %22 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond.not.i, label %avg_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %avg_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !27
 
 avg_pixels8_8_c.exit:                             ; preds = %.lr.ph.i
   ret void
@@ -6677,16 +6677,16 @@ define void @ff_put_pixels16x16_c(ptr noundef writeonly captures(none) %0, ptr n
   %.01013.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %0, %3 ]
   %.01112.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %1, %3 ]
   %4 = load i32, ptr %.01112.i.i, align 1, !tbaa !4
-  store i32 %4, ptr %.01013.i.i, align 4, !tbaa !10
+  store i32 %4, ptr %.01013.i.i, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 4
   %6 = load i32, ptr %5, align 1, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %.01013.i.i, i64 4
-  store i32 %6, ptr %7, align 4, !tbaa !10
+  store i32 %6, ptr %7, align 4, !tbaa !9
   %8 = getelementptr inbounds i8, ptr %.01112.i.i, i64 %2
   %9 = getelementptr inbounds i8, ptr %.01013.i.i, i64 %2
   %10 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %10, 16
-  br i1 %exitcond.not.i.i, label %put_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %put_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !26
 
 put_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6698,16 +6698,16 @@ put_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %.01013.i9.i = phi ptr [ %18, %.lr.ph.i7.i ], [ %11, %put_pixels8_8_c.exit.i ]
   %.01112.i10.i = phi ptr [ %17, %.lr.ph.i7.i ], [ %12, %put_pixels8_8_c.exit.i ]
   %13 = load i32, ptr %.01112.i10.i, align 1, !tbaa !4
-  store i32 %13, ptr %.01013.i9.i, align 4, !tbaa !10
+  store i32 %13, ptr %.01013.i9.i, align 4, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %.01112.i10.i, i64 4
   %15 = load i32, ptr %14, align 1, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %.01013.i9.i, i64 4
-  store i32 %15, ptr %16, align 4, !tbaa !10
+  store i32 %15, ptr %16, align 4, !tbaa !9
   %17 = getelementptr inbounds i8, ptr %.01112.i10.i, i64 %2
   %18 = getelementptr inbounds i8, ptr %.01013.i9.i, i64 %2
   %19 = add nuw nsw i32 %.014.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i11.i, label %put_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !27
+  br i1 %exitcond.not.i11.i, label %put_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !26
 
 put_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   ret void
@@ -6721,16 +6721,16 @@ define void @ff_avg_pixels16x16_c(ptr noundef captures(none) %0, ptr noundef rea
   %.016.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ 0, %3 ]
   %.01215.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %0, %3 ]
   %.01314.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %1, %3 ]
-  %4 = load i32, ptr %.01215.i.i, align 4, !tbaa !10
+  %4 = load i32, ptr %.01215.i.i, align 4, !tbaa !9
   %5 = load i32, ptr %.01314.i.i, align 1, !tbaa !4
   %6 = or i32 %5, %4
   %7 = xor i32 %5, %4
   %8 = lshr i32 %7, 1
   %9 = and i32 %8, 2139062143
   %10 = sub i32 %6, %9
-  store i32 %10, ptr %.01215.i.i, align 4, !tbaa !10
+  store i32 %10, ptr %.01215.i.i, align 4, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %.01215.i.i, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %.01314.i.i, i64 4
   %14 = load i32, ptr %13, align 1, !tbaa !4
   %15 = or i32 %14, %12
@@ -6738,12 +6738,12 @@ define void @ff_avg_pixels16x16_c(ptr noundef captures(none) %0, ptr noundef rea
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 2139062143
   %19 = sub i32 %15, %18
-  store i32 %19, ptr %11, align 4, !tbaa !10
+  store i32 %19, ptr %11, align 4, !tbaa !9
   %20 = getelementptr inbounds i8, ptr %.01314.i.i, i64 %2
   %21 = getelementptr inbounds i8, ptr %.01215.i.i, i64 %2
   %22 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %22, 16
-  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6754,16 +6754,16 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %.016.i8.i = phi i32 [ %43, %.lr.ph.i7.i ], [ 0, %avg_pixels8_8_c.exit.i ]
   %.01215.i9.i = phi ptr [ %42, %.lr.ph.i7.i ], [ %23, %avg_pixels8_8_c.exit.i ]
   %.01314.i10.i = phi ptr [ %41, %.lr.ph.i7.i ], [ %24, %avg_pixels8_8_c.exit.i ]
-  %25 = load i32, ptr %.01215.i9.i, align 4, !tbaa !10
+  %25 = load i32, ptr %.01215.i9.i, align 4, !tbaa !9
   %26 = load i32, ptr %.01314.i10.i, align 1, !tbaa !4
   %27 = or i32 %26, %25
   %28 = xor i32 %26, %25
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 2139062143
   %31 = sub i32 %27, %30
-  store i32 %31, ptr %.01215.i9.i, align 4, !tbaa !10
+  store i32 %31, ptr %.01215.i9.i, align 4, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %.01215.i9.i, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !10
+  %33 = load i32, ptr %32, align 4, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %.01314.i10.i, i64 4
   %35 = load i32, ptr %34, align 1, !tbaa !4
   %36 = or i32 %35, %33
@@ -6771,12 +6771,12 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %38 = lshr i32 %37, 1
   %39 = and i32 %38, 2139062143
   %40 = sub i32 %36, %39
-  store i32 %40, ptr %32, align 4, !tbaa !10
+  store i32 %40, ptr %32, align 4, !tbaa !9
   %41 = getelementptr inbounds i8, ptr %.01314.i10.i, i64 %2
   %42 = getelementptr inbounds i8, ptr %.01215.i9.i, i64 %2
   %43 = add nuw nsw i32 %.016.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %43, 16
-  br i1 %exitcond.not.i11.i, label %avg_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !28
+  br i1 %exitcond.not.i11.i, label %avg_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !27
 
 avg_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   ret void
@@ -6809,7 +6809,7 @@ define void @ff_put_pixels8_l2_8(ptr noundef writeonly captures(none) %0, ptr no
   %22 = sub i32 %18, %21
   %23 = mul nsw i64 %indvars.iv.i, %11
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  store i32 %22, ptr %24, align 4, !tbaa !10
+  store i32 %22, ptr %24, align 4, !tbaa !9
   %25 = getelementptr i8, ptr %13, i64 4
   %26 = load i32, ptr %25, align 1, !tbaa !4
   %27 = getelementptr i8, ptr %16, i64 4
@@ -6820,10 +6820,10 @@ define void @ff_put_pixels8_l2_8(ptr noundef writeonly captures(none) %0, ptr no
   %32 = and i32 %31, 2139062143
   %33 = sub i32 %29, %32
   %34 = getelementptr i8, ptr %24, i64 4
-  store i32 %33, ptr %34, align 4, !tbaa !10
+  store i32 %33, ptr %34, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i, %7
   ret void
@@ -6836,7 +6836,7 @@ define void @ff_put_dirac_pixels8_c(ptr noundef writeonly captures(none) %0, ptr
   br i1 %6, label %.lr.ph.i.preheader, label %put_pixels8_8_c.exit
 
 .lr.ph.i.preheader:                               ; preds = %4
-  %7 = load ptr, ptr %1, align 8, !tbaa !29
+  %7 = load ptr, ptr %1, align 8, !tbaa !28
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -6844,16 +6844,16 @@ define void @ff_put_dirac_pixels8_c(ptr noundef writeonly captures(none) %0, ptr
   %.01013.i = phi ptr [ %13, %.lr.ph.i ], [ %0, %.lr.ph.i.preheader ]
   %.01112.i = phi ptr [ %12, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
   %8 = load i32, ptr %.01112.i, align 1, !tbaa !4
-  store i32 %8, ptr %.01013.i, align 4, !tbaa !10
+  store i32 %8, ptr %.01013.i, align 4, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 4
   %10 = load i32, ptr %9, align 1, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 4
-  store i32 %10, ptr %11, align 4, !tbaa !10
+  store i32 %10, ptr %11, align 4, !tbaa !9
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %5
   %13 = getelementptr inbounds i8, ptr %.01013.i, i64 %5
   %14 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %14, %3
-  br i1 %exitcond.not.i, label %put_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %put_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !26
 
 put_pixels8_8_c.exit:                             ; preds = %.lr.ph.i, %4
   ret void
@@ -6861,7 +6861,7 @@ put_pixels8_8_c.exit:                             ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels16_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = sext i32 %2 to i64
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i.i, label %put_pixels16_8_c.exit
@@ -6871,16 +6871,16 @@ define void @ff_put_dirac_pixels16_c(ptr noundef writeonly captures(none) %0, pt
   %.01013.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %0, %4 ]
   %.01112.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %5, %4 ]
   %8 = load i32, ptr %.01112.i.i, align 1, !tbaa !4
-  store i32 %8, ptr %.01013.i.i, align 4, !tbaa !10
+  store i32 %8, ptr %.01013.i.i, align 4, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 4
   %10 = load i32, ptr %9, align 1, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %.01013.i.i, i64 4
-  store i32 %10, ptr %11, align 4, !tbaa !10
+  store i32 %10, ptr %11, align 4, !tbaa !9
   %12 = getelementptr inbounds i8, ptr %.01112.i.i, i64 %6
   %13 = getelementptr inbounds i8, ptr %.01013.i.i, i64 %6
   %14 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %14, %3
-  br i1 %exitcond.not.i.i, label %put_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %put_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !26
 
 put_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6892,16 +6892,16 @@ put_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %.01013.i9.i = phi ptr [ %22, %.lr.ph.i7.i ], [ %15, %put_pixels8_8_c.exit.i ]
   %.01112.i10.i = phi ptr [ %21, %.lr.ph.i7.i ], [ %16, %put_pixels8_8_c.exit.i ]
   %17 = load i32, ptr %.01112.i10.i, align 1, !tbaa !4
-  store i32 %17, ptr %.01013.i9.i, align 4, !tbaa !10
+  store i32 %17, ptr %.01013.i9.i, align 4, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %.01112.i10.i, i64 4
   %19 = load i32, ptr %18, align 1, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %.01013.i9.i, i64 4
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr inbounds i8, ptr %.01112.i10.i, i64 %6
   %22 = getelementptr inbounds i8, ptr %.01013.i9.i, i64 %6
   %23 = add nuw nsw i32 %.014.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %23, %3
-  br i1 %exitcond.not.i11.i, label %put_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !27
+  br i1 %exitcond.not.i11.i, label %put_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !26
 
 put_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i, %4
   ret void
@@ -6909,7 +6909,7 @@ put_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels32_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = sext i32 %2 to i64
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i.i, label %put_pixels16_8_c.exit18
@@ -6919,16 +6919,16 @@ define void @ff_put_dirac_pixels32_c(ptr noundef writeonly captures(none) %0, pt
   %.01013.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %0, %4 ]
   %.01112.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %5, %4 ]
   %8 = load i32, ptr %.01112.i.i, align 1, !tbaa !4
-  store i32 %8, ptr %.01013.i.i, align 4, !tbaa !10
+  store i32 %8, ptr %.01013.i.i, align 4, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 4
   %10 = load i32, ptr %9, align 1, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %.01013.i.i, i64 4
-  store i32 %10, ptr %11, align 4, !tbaa !10
+  store i32 %10, ptr %11, align 4, !tbaa !9
   %12 = getelementptr inbounds i8, ptr %.01112.i.i, i64 %6
   %13 = getelementptr inbounds i8, ptr %.01013.i.i, i64 %6
   %14 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %14, %3
-  br i1 %exitcond.not.i.i, label %put_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %put_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !26
 
 put_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6940,16 +6940,16 @@ put_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %.01013.i9.i = phi ptr [ %22, %.lr.ph.i7.i ], [ %15, %put_pixels8_8_c.exit.i ]
   %.01112.i10.i = phi ptr [ %21, %.lr.ph.i7.i ], [ %16, %put_pixels8_8_c.exit.i ]
   %17 = load i32, ptr %.01112.i10.i, align 1, !tbaa !4
-  store i32 %17, ptr %.01013.i9.i, align 4, !tbaa !10
+  store i32 %17, ptr %.01013.i9.i, align 4, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %.01112.i10.i, i64 4
   %19 = load i32, ptr %18, align 1, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %.01013.i9.i, i64 4
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr inbounds i8, ptr %.01112.i10.i, i64 %6
   %22 = getelementptr inbounds i8, ptr %.01013.i9.i, i64 %6
   %23 = add nuw nsw i32 %.014.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %23, %3
-  br i1 %exitcond.not.i11.i, label %put_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !27
+  br i1 %exitcond.not.i11.i, label %put_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !26
 
 put_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6961,16 +6961,16 @@ put_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   %.01013.i.i9 = phi ptr [ %31, %.lr.ph.i.i7 ], [ %24, %put_pixels16_8_c.exit ]
   %.01112.i.i10 = phi ptr [ %30, %.lr.ph.i.i7 ], [ %25, %put_pixels16_8_c.exit ]
   %26 = load i32, ptr %.01112.i.i10, align 1, !tbaa !4
-  store i32 %26, ptr %.01013.i.i9, align 4, !tbaa !10
+  store i32 %26, ptr %.01013.i.i9, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.01112.i.i10, i64 4
   %28 = load i32, ptr %27, align 1, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %.01013.i.i9, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %30 = getelementptr inbounds i8, ptr %.01112.i.i10, i64 %6
   %31 = getelementptr inbounds i8, ptr %.01013.i.i9, i64 %6
   %32 = add nuw nsw i32 %.014.i.i8, 1
   %exitcond.not.i.i11 = icmp eq i32 %32, %3
-  br i1 %exitcond.not.i.i11, label %put_pixels8_8_c.exit.i12, label %.lr.ph.i.i7, !llvm.loop !27
+  br i1 %exitcond.not.i.i11, label %put_pixels8_8_c.exit.i12, label %.lr.ph.i.i7, !llvm.loop !26
 
 put_pixels8_8_c.exit.i12:                         ; preds = %.lr.ph.i.i7
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6982,16 +6982,16 @@ put_pixels8_8_c.exit.i12:                         ; preds = %.lr.ph.i.i7
   %.01013.i9.i15 = phi ptr [ %40, %.lr.ph.i7.i13 ], [ %33, %put_pixels8_8_c.exit.i12 ]
   %.01112.i10.i16 = phi ptr [ %39, %.lr.ph.i7.i13 ], [ %34, %put_pixels8_8_c.exit.i12 ]
   %35 = load i32, ptr %.01112.i10.i16, align 1, !tbaa !4
-  store i32 %35, ptr %.01013.i9.i15, align 4, !tbaa !10
+  store i32 %35, ptr %.01013.i9.i15, align 4, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %.01112.i10.i16, i64 4
   %37 = load i32, ptr %36, align 1, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %.01013.i9.i15, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !10
+  store i32 %37, ptr %38, align 4, !tbaa !9
   %39 = getelementptr inbounds i8, ptr %.01112.i10.i16, i64 %6
   %40 = getelementptr inbounds i8, ptr %.01013.i9.i15, i64 %6
   %41 = add nuw nsw i32 %.014.i8.i14, 1
   %exitcond.not.i11.i17 = icmp eq i32 %41, %3
-  br i1 %exitcond.not.i11.i17, label %put_pixels16_8_c.exit18, label %.lr.ph.i7.i13, !llvm.loop !27
+  br i1 %exitcond.not.i11.i17, label %put_pixels16_8_c.exit18, label %.lr.ph.i7.i13, !llvm.loop !26
 
 put_pixels16_8_c.exit18:                          ; preds = %.lr.ph.i7.i13, %4
   ret void
@@ -6999,9 +6999,9 @@ put_pixels16_8_c.exit18:                          ; preds = %.lr.ph.i7.i13, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels8_l2_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph.preheader.i, label %put_pixels8_l2_8.exit
 
@@ -7023,7 +7023,7 @@ define void @ff_put_dirac_pixels8_l2_c(ptr noundef writeonly captures(none) %0, 
   %18 = and i32 %17, 2139062143
   %19 = sub i32 %15, %18
   %20 = getelementptr inbounds i8, ptr %0, i64 %10
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %11, i64 4
   %22 = load i32, ptr %21, align 1, !tbaa !4
   %23 = getelementptr i8, ptr %13, i64 4
@@ -7034,10 +7034,10 @@ define void @ff_put_dirac_pixels8_l2_c(ptr noundef writeonly captures(none) %0, 
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i, %4
   ret void
@@ -7045,9 +7045,9 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels16_l2_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %put_pixels16_l2_8.exit
 
@@ -7069,7 +7069,7 @@ define void @ff_put_dirac_pixels16_l2_c(ptr noundef writeonly captures(none) %0,
   %18 = and i32 %17, 2139062143
   %19 = sub i32 %15, %18
   %20 = getelementptr inbounds i8, ptr %0, i64 %10
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %11, i64 4
   %22 = load i32, ptr %21, align 1, !tbaa !4
   %23 = getelementptr i8, ptr %13, i64 4
@@ -7080,10 +7080,10 @@ define void @ff_put_dirac_pixels16_l2_c(ptr noundef writeonly captures(none) %0,
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7104,7 +7104,7 @@ define void @ff_put_dirac_pixels16_l2_c(ptr noundef writeonly captures(none) %0,
   %42 = and i32 %41, 2139062143
   %43 = sub i32 %39, %42
   %44 = getelementptr inbounds i8, ptr %31, i64 %34
-  store i32 %43, ptr %44, align 4, !tbaa !10
+  store i32 %43, ptr %44, align 4, !tbaa !9
   %45 = getelementptr i8, ptr %35, i64 4
   %46 = load i32, ptr %45, align 1, !tbaa !4
   %47 = getelementptr i8, ptr %37, i64 4
@@ -7115,10 +7115,10 @@ define void @ff_put_dirac_pixels16_l2_c(ptr noundef writeonly captures(none) %0,
   %52 = and i32 %51, 2139062143
   %53 = sub i32 %49, %52
   %54 = getelementptr i8, ptr %44, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !10
+  store i32 %53, ptr %54, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i, %4
   ret void
@@ -7126,9 +7126,9 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %put_pixels16_l2_8.exit24
 
@@ -7150,7 +7150,7 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %18 = and i32 %17, 2139062143
   %19 = sub i32 %15, %18
   %20 = getelementptr inbounds i8, ptr %0, i64 %10
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %11, i64 4
   %22 = load i32, ptr %21, align 1, !tbaa !4
   %23 = getelementptr i8, ptr %13, i64 4
@@ -7161,10 +7161,10 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7185,7 +7185,7 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %42 = and i32 %41, 2139062143
   %43 = sub i32 %39, %42
   %44 = getelementptr inbounds i8, ptr %31, i64 %34
-  store i32 %43, ptr %44, align 4, !tbaa !10
+  store i32 %43, ptr %44, align 4, !tbaa !9
   %45 = getelementptr i8, ptr %35, i64 4
   %46 = load i32, ptr %45, align 1, !tbaa !4
   %47 = getelementptr i8, ptr %37, i64 4
@@ -7196,10 +7196,10 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %52 = and i32 %51, 2139062143
   %53 = sub i32 %49, %52
   %54 = getelementptr i8, ptr %44, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !10
+  store i32 %53, ptr %54, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i18.i, label %.lr.ph.preheader.i.i13, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %.lr.ph.preheader.i.i13, label %.lr.ph.i15.i, !llvm.loop !14
 
 .lr.ph.preheader.i.i13:                           ; preds = %.lr.ph.i15.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7220,7 +7220,7 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %66 = and i32 %65, 2139062143
   %67 = sub i32 %63, %66
   %68 = getelementptr inbounds i8, ptr %55, i64 %58
-  store i32 %67, ptr %68, align 4, !tbaa !10
+  store i32 %67, ptr %68, align 4, !tbaa !9
   %69 = getelementptr i8, ptr %59, i64 4
   %70 = load i32, ptr %69, align 1, !tbaa !4
   %71 = getelementptr i8, ptr %61, i64 4
@@ -7231,10 +7231,10 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %76 = and i32 %75, 2139062143
   %77 = sub i32 %73, %76
   %78 = getelementptr i8, ptr %68, i64 4
-  store i32 %77, ptr %78, align 4, !tbaa !10
+  store i32 %77, ptr %78, align 4, !tbaa !9
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i18, label %.lr.ph.preheader.i13.i19, label %.lr.ph.i.i15, !llvm.loop !15
+  br i1 %exitcond.not.i.i18, label %.lr.ph.preheader.i13.i19, label %.lr.ph.i.i15, !llvm.loop !14
 
 .lr.ph.preheader.i13.i19:                         ; preds = %.lr.ph.i.i15
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7255,7 +7255,7 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %90 = and i32 %89, 2139062143
   %91 = sub i32 %87, %90
   %92 = getelementptr inbounds i8, ptr %79, i64 %82
-  store i32 %91, ptr %92, align 4, !tbaa !10
+  store i32 %91, ptr %92, align 4, !tbaa !9
   %93 = getelementptr i8, ptr %83, i64 4
   %94 = load i32, ptr %93, align 1, !tbaa !4
   %95 = getelementptr i8, ptr %85, i64 4
@@ -7266,10 +7266,10 @@ define void @ff_put_dirac_pixels32_l2_c(ptr noundef writeonly captures(none) %0,
   %100 = and i32 %99, 2139062143
   %101 = sub i32 %97, %100
   %102 = getelementptr i8, ptr %92, i64 4
-  store i32 %101, ptr %102, align 4, !tbaa !10
+  store i32 %101, ptr %102, align 4, !tbaa !9
   %indvars.iv.next.i17.i22 = add nuw nsw i64 %indvars.iv.i16.i21, 1
   %exitcond.not.i18.i23 = icmp eq i64 %indvars.iv.next.i17.i22, %wide.trip.count.i.i
-  br i1 %exitcond.not.i18.i23, label %put_pixels16_l2_8.exit24, label %.lr.ph.i15.i20, !llvm.loop !15
+  br i1 %exitcond.not.i18.i23, label %put_pixels16_l2_8.exit24, label %.lr.ph.i15.i20, !llvm.loop !14
 
 put_pixels16_l2_8.exit24:                         ; preds = %.lr.ph.i15.i20, %4
   ret void
@@ -7277,13 +7277,13 @@ put_pixels16_l2_8.exit24:                         ; preds = %.lr.ph.i15.i20, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels8_l4_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp sgt i32 %3, 0
   br i1 %12, label %.lr.ph.preheader.i, label %put_pixels8_l4_8.exit
 
@@ -7326,7 +7326,7 @@ define void @ff_put_dirac_pixels8_l4_c(ptr noundef writeonly captures(none) %0, 
   %41 = add nuw i32 %narrow.i, %34
   %42 = add i32 %41, %40
   %43 = getelementptr inbounds i8, ptr %0, i64 %14
-  store i32 %42, ptr %43, align 4, !tbaa !10
+  store i32 %42, ptr %43, align 4, !tbaa !9
   %44 = getelementptr i8, ptr %15, i64 4
   %45 = load i32, ptr %44, align 1, !tbaa !4
   %46 = getelementptr i8, ptr %17, i64 4
@@ -7358,10 +7358,10 @@ define void @ff_put_dirac_pixels8_l4_c(ptr noundef writeonly captures(none) %0, 
   %70 = add nuw i32 %narrow57.i, %63
   %71 = add i32 %70, %69
   %72 = getelementptr i8, ptr %43, i64 4
-  store i32 %71, ptr %72, align 4, !tbaa !10
+  store i32 %71, ptr %72, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %put_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !11
 
 put_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i, %4
   ret void
@@ -7369,35 +7369,35 @@ put_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels16_l4_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   tail call fastcc void @put_pixels16_l4_8(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ff_put_dirac_pixels32_l4_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   tail call fastcc void @put_pixels16_l4_8(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %1, align 8, !tbaa !29
+  %13 = load ptr, ptr %1, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %6, align 8, !tbaa !29
+  %15 = load ptr, ptr %6, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %8, align 8, !tbaa !29
+  %17 = load ptr, ptr %8, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %10, align 8, !tbaa !29
+  %19 = load ptr, ptr %10, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   tail call fastcc void @put_pixels16_l4_8(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %3)
   ret void
@@ -7410,23 +7410,23 @@ define void @ff_avg_dirac_pixels8_c(ptr noundef captures(none) %0, ptr noundef r
   br i1 %6, label %.lr.ph.i.preheader, label %avg_pixels8_8_c.exit
 
 .lr.ph.i.preheader:                               ; preds = %4
-  %7 = load ptr, ptr %1, align 8, !tbaa !29
+  %7 = load ptr, ptr %1, align 8, !tbaa !28
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.016.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.01215.i = phi ptr [ %25, %.lr.ph.i ], [ %0, %.lr.ph.i.preheader ]
   %.01314.i = phi ptr [ %24, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
-  %8 = load i32, ptr %.01215.i, align 4, !tbaa !10
+  %8 = load i32, ptr %.01215.i, align 4, !tbaa !9
   %9 = load i32, ptr %.01314.i, align 1, !tbaa !4
   %10 = or i32 %9, %8
   %11 = xor i32 %9, %8
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 2139062143
   %14 = sub i32 %10, %13
-  store i32 %14, ptr %.01215.i, align 4, !tbaa !10
+  store i32 %14, ptr %.01215.i, align 4, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %.01314.i, i64 4
   %18 = load i32, ptr %17, align 1, !tbaa !4
   %19 = or i32 %18, %16
@@ -7434,12 +7434,12 @@ define void @ff_avg_dirac_pixels8_c(ptr noundef captures(none) %0, ptr noundef r
   %21 = lshr i32 %20, 1
   %22 = and i32 %21, 2139062143
   %23 = sub i32 %19, %22
-  store i32 %23, ptr %15, align 4, !tbaa !10
+  store i32 %23, ptr %15, align 4, !tbaa !9
   %24 = getelementptr inbounds i8, ptr %.01314.i, i64 %5
   %25 = getelementptr inbounds i8, ptr %.01215.i, i64 %5
   %26 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %26, %3
-  br i1 %exitcond.not.i, label %avg_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %avg_pixels8_8_c.exit, label %.lr.ph.i, !llvm.loop !27
 
 avg_pixels8_8_c.exit:                             ; preds = %.lr.ph.i, %4
   ret void
@@ -7447,7 +7447,7 @@ avg_pixels8_8_c.exit:                             ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels16_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = sext i32 %2 to i64
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i.i, label %avg_pixels16_8_c.exit
@@ -7456,16 +7456,16 @@ define void @ff_avg_dirac_pixels16_c(ptr noundef captures(none) %0, ptr noundef 
   %.016.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 0, %4 ]
   %.01215.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %0, %4 ]
   %.01314.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %5, %4 ]
-  %8 = load i32, ptr %.01215.i.i, align 4, !tbaa !10
+  %8 = load i32, ptr %.01215.i.i, align 4, !tbaa !9
   %9 = load i32, ptr %.01314.i.i, align 1, !tbaa !4
   %10 = or i32 %9, %8
   %11 = xor i32 %9, %8
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 2139062143
   %14 = sub i32 %10, %13
-  store i32 %14, ptr %.01215.i.i, align 4, !tbaa !10
+  store i32 %14, ptr %.01215.i.i, align 4, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %.01215.i.i, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %.01314.i.i, i64 4
   %18 = load i32, ptr %17, align 1, !tbaa !4
   %19 = or i32 %18, %16
@@ -7473,12 +7473,12 @@ define void @ff_avg_dirac_pixels16_c(ptr noundef captures(none) %0, ptr noundef 
   %21 = lshr i32 %20, 1
   %22 = and i32 %21, 2139062143
   %23 = sub i32 %19, %22
-  store i32 %23, ptr %15, align 4, !tbaa !10
+  store i32 %23, ptr %15, align 4, !tbaa !9
   %24 = getelementptr inbounds i8, ptr %.01314.i.i, i64 %6
   %25 = getelementptr inbounds i8, ptr %.01215.i.i, i64 %6
   %26 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %26, %3
-  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7489,16 +7489,16 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %.016.i8.i = phi i32 [ %47, %.lr.ph.i7.i ], [ 0, %avg_pixels8_8_c.exit.i ]
   %.01215.i9.i = phi ptr [ %46, %.lr.ph.i7.i ], [ %27, %avg_pixels8_8_c.exit.i ]
   %.01314.i10.i = phi ptr [ %45, %.lr.ph.i7.i ], [ %28, %avg_pixels8_8_c.exit.i ]
-  %29 = load i32, ptr %.01215.i9.i, align 4, !tbaa !10
+  %29 = load i32, ptr %.01215.i9.i, align 4, !tbaa !9
   %30 = load i32, ptr %.01314.i10.i, align 1, !tbaa !4
   %31 = or i32 %30, %29
   %32 = xor i32 %30, %29
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %.01215.i9.i, align 4, !tbaa !10
+  store i32 %35, ptr %.01215.i9.i, align 4, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %.01215.i9.i, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %.01314.i10.i, i64 4
   %39 = load i32, ptr %38, align 1, !tbaa !4
   %40 = or i32 %39, %37
@@ -7506,12 +7506,12 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %42 = lshr i32 %41, 1
   %43 = and i32 %42, 2139062143
   %44 = sub i32 %40, %43
-  store i32 %44, ptr %36, align 4, !tbaa !10
+  store i32 %44, ptr %36, align 4, !tbaa !9
   %45 = getelementptr inbounds i8, ptr %.01314.i10.i, i64 %6
   %46 = getelementptr inbounds i8, ptr %.01215.i9.i, i64 %6
   %47 = add nuw nsw i32 %.016.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %47, %3
-  br i1 %exitcond.not.i11.i, label %avg_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !28
+  br i1 %exitcond.not.i11.i, label %avg_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !27
 
 avg_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i, %4
   ret void
@@ -7519,7 +7519,7 @@ avg_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels32_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = sext i32 %2 to i64
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i.i, label %avg_pixels16_8_c.exit18
@@ -7528,16 +7528,16 @@ define void @ff_avg_dirac_pixels32_c(ptr noundef captures(none) %0, ptr noundef 
   %.016.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 0, %4 ]
   %.01215.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %0, %4 ]
   %.01314.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %5, %4 ]
-  %8 = load i32, ptr %.01215.i.i, align 4, !tbaa !10
+  %8 = load i32, ptr %.01215.i.i, align 4, !tbaa !9
   %9 = load i32, ptr %.01314.i.i, align 1, !tbaa !4
   %10 = or i32 %9, %8
   %11 = xor i32 %9, %8
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 2139062143
   %14 = sub i32 %10, %13
-  store i32 %14, ptr %.01215.i.i, align 4, !tbaa !10
+  store i32 %14, ptr %.01215.i.i, align 4, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %.01215.i.i, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %.01314.i.i, i64 4
   %18 = load i32, ptr %17, align 1, !tbaa !4
   %19 = or i32 %18, %16
@@ -7545,12 +7545,12 @@ define void @ff_avg_dirac_pixels32_c(ptr noundef captures(none) %0, ptr noundef 
   %21 = lshr i32 %20, 1
   %22 = and i32 %21, 2139062143
   %23 = sub i32 %19, %22
-  store i32 %23, ptr %15, align 4, !tbaa !10
+  store i32 %23, ptr %15, align 4, !tbaa !9
   %24 = getelementptr inbounds i8, ptr %.01314.i.i, i64 %6
   %25 = getelementptr inbounds i8, ptr %.01215.i.i, i64 %6
   %26 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %26, %3
-  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7561,16 +7561,16 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %.016.i8.i = phi i32 [ %47, %.lr.ph.i7.i ], [ 0, %avg_pixels8_8_c.exit.i ]
   %.01215.i9.i = phi ptr [ %46, %.lr.ph.i7.i ], [ %27, %avg_pixels8_8_c.exit.i ]
   %.01314.i10.i = phi ptr [ %45, %.lr.ph.i7.i ], [ %28, %avg_pixels8_8_c.exit.i ]
-  %29 = load i32, ptr %.01215.i9.i, align 4, !tbaa !10
+  %29 = load i32, ptr %.01215.i9.i, align 4, !tbaa !9
   %30 = load i32, ptr %.01314.i10.i, align 1, !tbaa !4
   %31 = or i32 %30, %29
   %32 = xor i32 %30, %29
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %.01215.i9.i, align 4, !tbaa !10
+  store i32 %35, ptr %.01215.i9.i, align 4, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %.01215.i9.i, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %.01314.i10.i, i64 4
   %39 = load i32, ptr %38, align 1, !tbaa !4
   %40 = or i32 %39, %37
@@ -7578,12 +7578,12 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %42 = lshr i32 %41, 1
   %43 = and i32 %42, 2139062143
   %44 = sub i32 %40, %43
-  store i32 %44, ptr %36, align 4, !tbaa !10
+  store i32 %44, ptr %36, align 4, !tbaa !9
   %45 = getelementptr inbounds i8, ptr %.01314.i10.i, i64 %6
   %46 = getelementptr inbounds i8, ptr %.01215.i9.i, i64 %6
   %47 = add nuw nsw i32 %.016.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %47, %3
-  br i1 %exitcond.not.i11.i, label %avg_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !28
+  br i1 %exitcond.not.i11.i, label %avg_pixels16_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !27
 
 avg_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7594,16 +7594,16 @@ avg_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   %.016.i.i8 = phi i32 [ %68, %.lr.ph.i.i7 ], [ 0, %avg_pixels16_8_c.exit ]
   %.01215.i.i9 = phi ptr [ %67, %.lr.ph.i.i7 ], [ %48, %avg_pixels16_8_c.exit ]
   %.01314.i.i10 = phi ptr [ %66, %.lr.ph.i.i7 ], [ %49, %avg_pixels16_8_c.exit ]
-  %50 = load i32, ptr %.01215.i.i9, align 4, !tbaa !10
+  %50 = load i32, ptr %.01215.i.i9, align 4, !tbaa !9
   %51 = load i32, ptr %.01314.i.i10, align 1, !tbaa !4
   %52 = or i32 %51, %50
   %53 = xor i32 %51, %50
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 2139062143
   %56 = sub i32 %52, %55
-  store i32 %56, ptr %.01215.i.i9, align 4, !tbaa !10
+  store i32 %56, ptr %.01215.i.i9, align 4, !tbaa !9
   %57 = getelementptr inbounds nuw i8, ptr %.01215.i.i9, i64 4
-  %58 = load i32, ptr %57, align 4, !tbaa !10
+  %58 = load i32, ptr %57, align 4, !tbaa !9
   %59 = getelementptr inbounds nuw i8, ptr %.01314.i.i10, i64 4
   %60 = load i32, ptr %59, align 1, !tbaa !4
   %61 = or i32 %60, %58
@@ -7611,12 +7611,12 @@ avg_pixels16_8_c.exit:                            ; preds = %.lr.ph.i7.i
   %63 = lshr i32 %62, 1
   %64 = and i32 %63, 2139062143
   %65 = sub i32 %61, %64
-  store i32 %65, ptr %57, align 4, !tbaa !10
+  store i32 %65, ptr %57, align 4, !tbaa !9
   %66 = getelementptr inbounds i8, ptr %.01314.i.i10, i64 %6
   %67 = getelementptr inbounds i8, ptr %.01215.i.i9, i64 %6
   %68 = add nuw nsw i32 %.016.i.i8, 1
   %exitcond.not.i.i11 = icmp eq i32 %68, %3
-  br i1 %exitcond.not.i.i11, label %avg_pixels8_8_c.exit.i12, label %.lr.ph.i.i7, !llvm.loop !28
+  br i1 %exitcond.not.i.i11, label %avg_pixels8_8_c.exit.i12, label %.lr.ph.i.i7, !llvm.loop !27
 
 avg_pixels8_8_c.exit.i12:                         ; preds = %.lr.ph.i.i7
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7627,16 +7627,16 @@ avg_pixels8_8_c.exit.i12:                         ; preds = %.lr.ph.i.i7
   %.016.i8.i14 = phi i32 [ %89, %.lr.ph.i7.i13 ], [ 0, %avg_pixels8_8_c.exit.i12 ]
   %.01215.i9.i15 = phi ptr [ %88, %.lr.ph.i7.i13 ], [ %69, %avg_pixels8_8_c.exit.i12 ]
   %.01314.i10.i16 = phi ptr [ %87, %.lr.ph.i7.i13 ], [ %70, %avg_pixels8_8_c.exit.i12 ]
-  %71 = load i32, ptr %.01215.i9.i15, align 4, !tbaa !10
+  %71 = load i32, ptr %.01215.i9.i15, align 4, !tbaa !9
   %72 = load i32, ptr %.01314.i10.i16, align 1, !tbaa !4
   %73 = or i32 %72, %71
   %74 = xor i32 %72, %71
   %75 = lshr i32 %74, 1
   %76 = and i32 %75, 2139062143
   %77 = sub i32 %73, %76
-  store i32 %77, ptr %.01215.i9.i15, align 4, !tbaa !10
+  store i32 %77, ptr %.01215.i9.i15, align 4, !tbaa !9
   %78 = getelementptr inbounds nuw i8, ptr %.01215.i9.i15, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !10
+  %79 = load i32, ptr %78, align 4, !tbaa !9
   %80 = getelementptr inbounds nuw i8, ptr %.01314.i10.i16, i64 4
   %81 = load i32, ptr %80, align 1, !tbaa !4
   %82 = or i32 %81, %79
@@ -7644,12 +7644,12 @@ avg_pixels8_8_c.exit.i12:                         ; preds = %.lr.ph.i.i7
   %84 = lshr i32 %83, 1
   %85 = and i32 %84, 2139062143
   %86 = sub i32 %82, %85
-  store i32 %86, ptr %78, align 4, !tbaa !10
+  store i32 %86, ptr %78, align 4, !tbaa !9
   %87 = getelementptr inbounds i8, ptr %.01314.i10.i16, i64 %6
   %88 = getelementptr inbounds i8, ptr %.01215.i9.i15, i64 %6
   %89 = add nuw nsw i32 %.016.i8.i14, 1
   %exitcond.not.i11.i17 = icmp eq i32 %89, %3
-  br i1 %exitcond.not.i11.i17, label %avg_pixels16_8_c.exit18, label %.lr.ph.i7.i13, !llvm.loop !28
+  br i1 %exitcond.not.i11.i17, label %avg_pixels16_8_c.exit18, label %.lr.ph.i7.i13, !llvm.loop !27
 
 avg_pixels16_8_c.exit18:                          ; preds = %.lr.ph.i7.i13, %4
   ret void
@@ -7657,9 +7657,9 @@ avg_pixels16_8_c.exit18:                          ; preds = %.lr.ph.i7.i13, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels8_l2_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph.preheader.i, label %avg_pixels8_l2_8.exit
 
@@ -7676,7 +7676,7 @@ define void @ff_avg_dirac_pixels8_l2_c(ptr noundef captures(none) %0, ptr nounde
   %13 = getelementptr inbounds i8, ptr %7, i64 %10
   %14 = load i32, ptr %13, align 1, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %0, i64 %10
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = or i32 %14, %12
   %18 = xor i32 %14, %12
   %19 = lshr i32 %18, 1
@@ -7687,13 +7687,13 @@ define void @ff_avg_dirac_pixels8_l2_c(ptr noundef captures(none) %0, ptr nounde
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %15, align 4, !tbaa !10
+  store i32 %26, ptr %15, align 4, !tbaa !9
   %27 = getelementptr i8, ptr %11, i64 4
   %28 = load i32, ptr %27, align 1, !tbaa !4
   %29 = getelementptr i8, ptr %13, i64 4
   %30 = load i32, ptr %29, align 1, !tbaa !4
   %31 = getelementptr i8, ptr %15, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = or i32 %30, %28
   %34 = xor i32 %30, %28
   %35 = lshr i32 %34, 1
@@ -7704,10 +7704,10 @@ define void @ff_avg_dirac_pixels8_l2_c(ptr noundef captures(none) %0, ptr nounde
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 2139062143
   %42 = sub i32 %38, %41
-  store i32 %42, ptr %31, align 4, !tbaa !10
+  store i32 %42, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i, %4
   ret void
@@ -7715,9 +7715,9 @@ avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %avg_pixels16_l2_8.exit
 
@@ -7734,7 +7734,7 @@ define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr nound
   %13 = getelementptr inbounds i8, ptr %7, i64 %10
   %14 = load i32, ptr %13, align 1, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %0, i64 %10
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = or i32 %14, %12
   %18 = xor i32 %14, %12
   %19 = lshr i32 %18, 1
@@ -7745,13 +7745,13 @@ define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr nound
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %15, align 4, !tbaa !10
+  store i32 %26, ptr %15, align 4, !tbaa !9
   %27 = getelementptr i8, ptr %11, i64 4
   %28 = load i32, ptr %27, align 1, !tbaa !4
   %29 = getelementptr i8, ptr %13, i64 4
   %30 = load i32, ptr %29, align 1, !tbaa !4
   %31 = getelementptr i8, ptr %15, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = or i32 %30, %28
   %34 = xor i32 %30, %28
   %35 = lshr i32 %34, 1
@@ -7762,10 +7762,10 @@ define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr nound
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 2139062143
   %42 = sub i32 %38, %41
-  store i32 %42, ptr %31, align 4, !tbaa !10
+  store i32 %42, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7781,7 +7781,7 @@ define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr nound
   %49 = getelementptr inbounds i8, ptr %45, i64 %46
   %50 = load i32, ptr %49, align 1, !tbaa !4
   %51 = getelementptr inbounds i8, ptr %43, i64 %46
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !9
   %53 = or i32 %50, %48
   %54 = xor i32 %50, %48
   %55 = lshr i32 %54, 1
@@ -7792,13 +7792,13 @@ define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr nound
   %60 = lshr i32 %59, 1
   %61 = and i32 %60, 2139062143
   %62 = sub i32 %58, %61
-  store i32 %62, ptr %51, align 4, !tbaa !10
+  store i32 %62, ptr %51, align 4, !tbaa !9
   %63 = getelementptr i8, ptr %47, i64 4
   %64 = load i32, ptr %63, align 1, !tbaa !4
   %65 = getelementptr i8, ptr %49, i64 4
   %66 = load i32, ptr %65, align 1, !tbaa !4
   %67 = getelementptr i8, ptr %51, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !9
   %69 = or i32 %66, %64
   %70 = xor i32 %66, %64
   %71 = lshr i32 %70, 1
@@ -7809,10 +7809,10 @@ define void @ff_avg_dirac_pixels16_l2_c(ptr noundef captures(none) %0, ptr nound
   %76 = lshr i32 %75, 1
   %77 = and i32 %76, 2139062143
   %78 = sub i32 %74, %77
-  store i32 %78, ptr %67, align 4, !tbaa !10
+  store i32 %78, ptr %67, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i, %4
   ret void
@@ -7820,9 +7820,9 @@ avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %avg_pixels16_l2_8.exit24
 
@@ -7839,7 +7839,7 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %13 = getelementptr inbounds i8, ptr %7, i64 %10
   %14 = load i32, ptr %13, align 1, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %0, i64 %10
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = or i32 %14, %12
   %18 = xor i32 %14, %12
   %19 = lshr i32 %18, 1
@@ -7850,13 +7850,13 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %15, align 4, !tbaa !10
+  store i32 %26, ptr %15, align 4, !tbaa !9
   %27 = getelementptr i8, ptr %11, i64 4
   %28 = load i32, ptr %27, align 1, !tbaa !4
   %29 = getelementptr i8, ptr %13, i64 4
   %30 = load i32, ptr %29, align 1, !tbaa !4
   %31 = getelementptr i8, ptr %15, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = or i32 %30, %28
   %34 = xor i32 %30, %28
   %35 = lshr i32 %34, 1
@@ -7867,10 +7867,10 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 2139062143
   %42 = sub i32 %38, %41
-  store i32 %42, ptr %31, align 4, !tbaa !10
+  store i32 %42, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7886,7 +7886,7 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %49 = getelementptr inbounds i8, ptr %45, i64 %46
   %50 = load i32, ptr %49, align 1, !tbaa !4
   %51 = getelementptr inbounds i8, ptr %43, i64 %46
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !9
   %53 = or i32 %50, %48
   %54 = xor i32 %50, %48
   %55 = lshr i32 %54, 1
@@ -7897,13 +7897,13 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %60 = lshr i32 %59, 1
   %61 = and i32 %60, 2139062143
   %62 = sub i32 %58, %61
-  store i32 %62, ptr %51, align 4, !tbaa !10
+  store i32 %62, ptr %51, align 4, !tbaa !9
   %63 = getelementptr i8, ptr %47, i64 4
   %64 = load i32, ptr %63, align 1, !tbaa !4
   %65 = getelementptr i8, ptr %49, i64 4
   %66 = load i32, ptr %65, align 1, !tbaa !4
   %67 = getelementptr i8, ptr %51, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !9
   %69 = or i32 %66, %64
   %70 = xor i32 %66, %64
   %71 = lshr i32 %70, 1
@@ -7914,10 +7914,10 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %76 = lshr i32 %75, 1
   %77 = and i32 %76, 2139062143
   %78 = sub i32 %74, %77
-  store i32 %78, ptr %67, align 4, !tbaa !10
+  store i32 %78, ptr %67, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i18.i, label %.lr.ph.preheader.i.i13, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %.lr.ph.preheader.i.i13, label %.lr.ph.i15.i, !llvm.loop !25
 
 .lr.ph.preheader.i.i13:                           ; preds = %.lr.ph.i15.i
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7933,7 +7933,7 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %85 = getelementptr inbounds i8, ptr %81, i64 %82
   %86 = load i32, ptr %85, align 1, !tbaa !4
   %87 = getelementptr inbounds i8, ptr %79, i64 %82
-  %88 = load i32, ptr %87, align 4, !tbaa !10
+  %88 = load i32, ptr %87, align 4, !tbaa !9
   %89 = or i32 %86, %84
   %90 = xor i32 %86, %84
   %91 = lshr i32 %90, 1
@@ -7944,13 +7944,13 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %96 = lshr i32 %95, 1
   %97 = and i32 %96, 2139062143
   %98 = sub i32 %94, %97
-  store i32 %98, ptr %87, align 4, !tbaa !10
+  store i32 %98, ptr %87, align 4, !tbaa !9
   %99 = getelementptr i8, ptr %83, i64 4
   %100 = load i32, ptr %99, align 1, !tbaa !4
   %101 = getelementptr i8, ptr %85, i64 4
   %102 = load i32, ptr %101, align 1, !tbaa !4
   %103 = getelementptr i8, ptr %87, i64 4
-  %104 = load i32, ptr %103, align 4, !tbaa !10
+  %104 = load i32, ptr %103, align 4, !tbaa !9
   %105 = or i32 %102, %100
   %106 = xor i32 %102, %100
   %107 = lshr i32 %106, 1
@@ -7961,10 +7961,10 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %112 = lshr i32 %111, 1
   %113 = and i32 %112, 2139062143
   %114 = sub i32 %110, %113
-  store i32 %114, ptr %103, align 4, !tbaa !10
+  store i32 %114, ptr %103, align 4, !tbaa !9
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i18, label %.lr.ph.preheader.i13.i19, label %.lr.ph.i.i15, !llvm.loop !26
+  br i1 %exitcond.not.i.i18, label %.lr.ph.preheader.i13.i19, label %.lr.ph.i.i15, !llvm.loop !25
 
 .lr.ph.preheader.i13.i19:                         ; preds = %.lr.ph.i.i15
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7980,7 +7980,7 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %121 = getelementptr inbounds i8, ptr %117, i64 %118
   %122 = load i32, ptr %121, align 1, !tbaa !4
   %123 = getelementptr inbounds i8, ptr %115, i64 %118
-  %124 = load i32, ptr %123, align 4, !tbaa !10
+  %124 = load i32, ptr %123, align 4, !tbaa !9
   %125 = or i32 %122, %120
   %126 = xor i32 %122, %120
   %127 = lshr i32 %126, 1
@@ -7991,13 +7991,13 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %132 = lshr i32 %131, 1
   %133 = and i32 %132, 2139062143
   %134 = sub i32 %130, %133
-  store i32 %134, ptr %123, align 4, !tbaa !10
+  store i32 %134, ptr %123, align 4, !tbaa !9
   %135 = getelementptr i8, ptr %119, i64 4
   %136 = load i32, ptr %135, align 1, !tbaa !4
   %137 = getelementptr i8, ptr %121, i64 4
   %138 = load i32, ptr %137, align 1, !tbaa !4
   %139 = getelementptr i8, ptr %123, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !10
+  %140 = load i32, ptr %139, align 4, !tbaa !9
   %141 = or i32 %138, %136
   %142 = xor i32 %138, %136
   %143 = lshr i32 %142, 1
@@ -8008,10 +8008,10 @@ define void @ff_avg_dirac_pixels32_l2_c(ptr noundef captures(none) %0, ptr nound
   %148 = lshr i32 %147, 1
   %149 = and i32 %148, 2139062143
   %150 = sub i32 %146, %149
-  store i32 %150, ptr %139, align 4, !tbaa !10
+  store i32 %150, ptr %139, align 4, !tbaa !9
   %indvars.iv.next.i17.i22 = add nuw nsw i64 %indvars.iv.i16.i21, 1
   %exitcond.not.i18.i23 = icmp eq i64 %indvars.iv.next.i17.i22, %wide.trip.count.i.i
-  br i1 %exitcond.not.i18.i23, label %avg_pixels16_l2_8.exit24, label %.lr.ph.i15.i20, !llvm.loop !26
+  br i1 %exitcond.not.i18.i23, label %avg_pixels16_l2_8.exit24, label %.lr.ph.i15.i20, !llvm.loop !25
 
 avg_pixels16_l2_8.exit24:                         ; preds = %.lr.ph.i15.i20, %4
   ret void
@@ -8019,13 +8019,13 @@ avg_pixels16_l2_8.exit24:                         ; preds = %.lr.ph.i15.i20, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels8_l4_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp sgt i32 %3, 0
   br i1 %12, label %.lr.ph.preheader.i, label %avg_pixels8_l4_8.exit
 
@@ -8058,7 +8058,7 @@ define void @ff_avg_dirac_pixels8_l4_c(ptr noundef captures(none) %0, ptr nounde
   %33 = lshr i32 %22, 2
   %34 = and i32 %33, 1061109567
   %35 = getelementptr inbounds i8, ptr %0, i64 %14
-  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %36 = load i32, ptr %35, align 4, !tbaa !9
   %37 = add nuw nsw i32 %23, 33686018
   %38 = add nuw nsw i32 %37, %24
   %39 = add nuw nsw i32 %38, %29
@@ -8074,7 +8074,7 @@ define void @ff_avg_dirac_pixels8_l4_c(ptr noundef captures(none) %0, ptr nounde
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 2139062143
   %49 = sub i32 %45, %48
-  store i32 %49, ptr %35, align 4, !tbaa !10
+  store i32 %49, ptr %35, align 4, !tbaa !9
   %50 = getelementptr i8, ptr %15, i64 4
   %51 = load i32, ptr %50, align 1, !tbaa !4
   %52 = getelementptr i8, ptr %17, i64 4
@@ -8096,7 +8096,7 @@ define void @ff_avg_dirac_pixels8_l4_c(ptr noundef captures(none) %0, ptr nounde
   %68 = lshr i32 %57, 2
   %69 = and i32 %68, 1061109567
   %70 = getelementptr i8, ptr %35, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !10
+  %71 = load i32, ptr %70, align 4, !tbaa !9
   %72 = add nuw nsw i32 %58, 33686018
   %73 = add nuw nsw i32 %72, %59
   %74 = add nuw nsw i32 %73, %64
@@ -8112,10 +8112,10 @@ define void @ff_avg_dirac_pixels8_l4_c(ptr noundef captures(none) %0, ptr nounde
   %82 = lshr i32 %81, 1
   %83 = and i32 %82, 2139062143
   %84 = sub i32 %80, %83
-  store i32 %84, ptr %70, align 4, !tbaa !10
+  store i32 %84, ptr %70, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %avg_pixels8_l4_8.exit, label %.lr.ph.i, !llvm.loop !24
 
 avg_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i, %4
   ret void
@@ -8123,35 +8123,35 @@ avg_pixels8_l4_8.exit:                            ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels16_l4_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   tail call fastcc void @avg_pixels16_l4_8(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ff_avg_dirac_pixels32_l4_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   tail call fastcc void @avg_pixels16_l4_8(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %1, align 8, !tbaa !29
+  %13 = load ptr, ptr %1, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %6, align 8, !tbaa !29
+  %15 = load ptr, ptr %6, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %8, align 8, !tbaa !29
+  %17 = load ptr, ptr %8, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %10, align 8, !tbaa !29
+  %19 = load ptr, ptr %10, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   tail call fastcc void @avg_pixels16_l4_8(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %3)
   ret void
@@ -8159,197 +8159,197 @@ define void @ff_avg_dirac_pixels32_l4_c(ptr noundef captures(none) %0, ptr nound
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable
 define void @ff_qpeldsp_init(ptr noundef writeonly initializes((0, 768)) %0) local_unnamed_addr #5 {
-  store ptr @ff_put_pixels16x16_c, ptr %0, align 8, !tbaa !32
+  store ptr @ff_put_pixels16x16_c, ptr %0, align 8, !tbaa !31
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @put_qpel16_mc10_c, ptr %2, align 8, !tbaa !32
+  store ptr @put_qpel16_mc10_c, ptr %2, align 8, !tbaa !31
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @put_qpel16_mc20_c, ptr %3, align 8, !tbaa !32
+  store ptr @put_qpel16_mc20_c, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @put_qpel16_mc30_c, ptr %4, align 8, !tbaa !32
+  store ptr @put_qpel16_mc30_c, ptr %4, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @put_qpel16_mc01_c, ptr %5, align 8, !tbaa !32
+  store ptr @put_qpel16_mc01_c, ptr %5, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr @put_qpel16_mc11_c, ptr %6, align 8, !tbaa !32
+  store ptr @put_qpel16_mc11_c, ptr %6, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @put_qpel16_mc21_c, ptr %7, align 8, !tbaa !32
+  store ptr @put_qpel16_mc21_c, ptr %7, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr @put_qpel16_mc31_c, ptr %8, align 8, !tbaa !32
+  store ptr @put_qpel16_mc31_c, ptr %8, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr @put_qpel16_mc02_c, ptr %9, align 8, !tbaa !32
+  store ptr @put_qpel16_mc02_c, ptr %9, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @put_qpel16_mc12_c, ptr %10, align 8, !tbaa !32
+  store ptr @put_qpel16_mc12_c, ptr %10, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr @put_qpel16_mc22_c, ptr %11, align 8, !tbaa !32
+  store ptr @put_qpel16_mc22_c, ptr %11, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @put_qpel16_mc32_c, ptr %12, align 8, !tbaa !32
+  store ptr @put_qpel16_mc32_c, ptr %12, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @put_qpel16_mc03_c, ptr %13, align 8, !tbaa !32
+  store ptr @put_qpel16_mc03_c, ptr %13, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @put_qpel16_mc13_c, ptr %14, align 8, !tbaa !32
+  store ptr @put_qpel16_mc13_c, ptr %14, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @put_qpel16_mc23_c, ptr %15, align 8, !tbaa !32
+  store ptr @put_qpel16_mc23_c, ptr %15, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @put_qpel16_mc33_c, ptr %16, align 8, !tbaa !32
+  store ptr @put_qpel16_mc33_c, ptr %16, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr @ff_put_pixels8x8_c, ptr %17, align 8, !tbaa !32
+  store ptr @ff_put_pixels8x8_c, ptr %17, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @put_qpel8_mc10_c, ptr %18, align 8, !tbaa !32
+  store ptr @put_qpel8_mc10_c, ptr %18, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr @put_qpel8_mc20_c, ptr %19, align 8, !tbaa !32
+  store ptr @put_qpel8_mc20_c, ptr %19, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr @put_qpel8_mc30_c, ptr %20, align 8, !tbaa !32
+  store ptr @put_qpel8_mc30_c, ptr %20, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr @put_qpel8_mc01_c, ptr %21, align 8, !tbaa !32
+  store ptr @put_qpel8_mc01_c, ptr %21, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr @put_qpel8_mc11_c, ptr %22, align 8, !tbaa !32
+  store ptr @put_qpel8_mc11_c, ptr %22, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr @put_qpel8_mc21_c, ptr %23, align 8, !tbaa !32
+  store ptr @put_qpel8_mc21_c, ptr %23, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr @put_qpel8_mc31_c, ptr %24, align 8, !tbaa !32
+  store ptr @put_qpel8_mc31_c, ptr %24, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr @put_qpel8_mc02_c, ptr %25, align 8, !tbaa !32
+  store ptr @put_qpel8_mc02_c, ptr %25, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr @put_qpel8_mc12_c, ptr %26, align 8, !tbaa !32
+  store ptr @put_qpel8_mc12_c, ptr %26, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr @put_qpel8_mc22_c, ptr %27, align 8, !tbaa !32
+  store ptr @put_qpel8_mc22_c, ptr %27, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr @put_qpel8_mc32_c, ptr %28, align 8, !tbaa !32
+  store ptr @put_qpel8_mc32_c, ptr %28, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr @put_qpel8_mc03_c, ptr %29, align 8, !tbaa !32
+  store ptr @put_qpel8_mc03_c, ptr %29, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr @put_qpel8_mc13_c, ptr %30, align 8, !tbaa !32
+  store ptr @put_qpel8_mc13_c, ptr %30, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr @put_qpel8_mc23_c, ptr %31, align 8, !tbaa !32
+  store ptr @put_qpel8_mc23_c, ptr %31, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr @put_qpel8_mc33_c, ptr %32, align 8, !tbaa !32
+  store ptr @put_qpel8_mc33_c, ptr %32, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store ptr @ff_put_pixels16x16_c, ptr %33, align 8, !tbaa !32
+  store ptr @ff_put_pixels16x16_c, ptr %33, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store ptr @put_no_rnd_qpel16_mc10_c, ptr %34, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc10_c, ptr %34, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr @put_no_rnd_qpel16_mc20_c, ptr %35, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc20_c, ptr %35, align 8, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store ptr @put_no_rnd_qpel16_mc30_c, ptr %36, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc30_c, ptr %36, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store ptr @put_no_rnd_qpel16_mc01_c, ptr %37, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc01_c, ptr %37, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store ptr @put_no_rnd_qpel16_mc11_c, ptr %38, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc11_c, ptr %38, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store ptr @put_no_rnd_qpel16_mc21_c, ptr %39, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc21_c, ptr %39, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @put_no_rnd_qpel16_mc31_c, ptr %40, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc31_c, ptr %40, align 8, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store ptr @put_no_rnd_qpel16_mc02_c, ptr %41, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc02_c, ptr %41, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr @put_no_rnd_qpel16_mc12_c, ptr %42, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc12_c, ptr %42, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr @put_no_rnd_qpel16_mc22_c, ptr %43, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc22_c, ptr %43, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @put_no_rnd_qpel16_mc32_c, ptr %44, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc32_c, ptr %44, align 8, !tbaa !31
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @put_no_rnd_qpel16_mc03_c, ptr %45, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc03_c, ptr %45, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @put_no_rnd_qpel16_mc13_c, ptr %46, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc13_c, ptr %46, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr @put_no_rnd_qpel16_mc23_c, ptr %47, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc23_c, ptr %47, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @put_no_rnd_qpel16_mc33_c, ptr %48, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel16_mc33_c, ptr %48, align 8, !tbaa !31
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @ff_put_pixels8x8_c, ptr %49, align 8, !tbaa !32
+  store ptr @ff_put_pixels8x8_c, ptr %49, align 8, !tbaa !31
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store ptr @put_no_rnd_qpel8_mc10_c, ptr %50, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc10_c, ptr %50, align 8, !tbaa !31
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store ptr @put_no_rnd_qpel8_mc20_c, ptr %51, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc20_c, ptr %51, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store ptr @put_no_rnd_qpel8_mc30_c, ptr %52, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc30_c, ptr %52, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store ptr @put_no_rnd_qpel8_mc01_c, ptr %53, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc01_c, ptr %53, align 8, !tbaa !31
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store ptr @put_no_rnd_qpel8_mc11_c, ptr %54, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc11_c, ptr %54, align 8, !tbaa !31
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store ptr @put_no_rnd_qpel8_mc21_c, ptr %55, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc21_c, ptr %55, align 8, !tbaa !31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store ptr @put_no_rnd_qpel8_mc31_c, ptr %56, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc31_c, ptr %56, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr @put_no_rnd_qpel8_mc02_c, ptr %57, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc02_c, ptr %57, align 8, !tbaa !31
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store ptr @put_no_rnd_qpel8_mc12_c, ptr %58, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc12_c, ptr %58, align 8, !tbaa !31
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  store ptr @put_no_rnd_qpel8_mc22_c, ptr %59, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc22_c, ptr %59, align 8, !tbaa !31
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  store ptr @put_no_rnd_qpel8_mc32_c, ptr %60, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc32_c, ptr %60, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  store ptr @put_no_rnd_qpel8_mc03_c, ptr %61, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc03_c, ptr %61, align 8, !tbaa !31
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  store ptr @put_no_rnd_qpel8_mc13_c, ptr %62, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc13_c, ptr %62, align 8, !tbaa !31
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store ptr @put_no_rnd_qpel8_mc23_c, ptr %63, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc23_c, ptr %63, align 8, !tbaa !31
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store ptr @put_no_rnd_qpel8_mc33_c, ptr %64, align 8, !tbaa !32
+  store ptr @put_no_rnd_qpel8_mc33_c, ptr %64, align 8, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr @ff_avg_pixels16x16_c, ptr %65, align 8, !tbaa !32
+  store ptr @ff_avg_pixels16x16_c, ptr %65, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr @avg_qpel16_mc10_c, ptr %66, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc10_c, ptr %66, align 8, !tbaa !31
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr @avg_qpel16_mc20_c, ptr %67, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc20_c, ptr %67, align 8, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr @avg_qpel16_mc30_c, ptr %68, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc30_c, ptr %68, align 8, !tbaa !31
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr @avg_qpel16_mc01_c, ptr %69, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc01_c, ptr %69, align 8, !tbaa !31
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr @avg_qpel16_mc11_c, ptr %70, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc11_c, ptr %70, align 8, !tbaa !31
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store ptr @avg_qpel16_mc21_c, ptr %71, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc21_c, ptr %71, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr @avg_qpel16_mc31_c, ptr %72, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc31_c, ptr %72, align 8, !tbaa !31
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr @avg_qpel16_mc02_c, ptr %73, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc02_c, ptr %73, align 8, !tbaa !31
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr @avg_qpel16_mc12_c, ptr %74, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc12_c, ptr %74, align 8, !tbaa !31
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr @avg_qpel16_mc22_c, ptr %75, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc22_c, ptr %75, align 8, !tbaa !31
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store ptr @avg_qpel16_mc32_c, ptr %76, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc32_c, ptr %76, align 8, !tbaa !31
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr @avg_qpel16_mc03_c, ptr %77, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc03_c, ptr %77, align 8, !tbaa !31
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr @avg_qpel16_mc13_c, ptr %78, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc13_c, ptr %78, align 8, !tbaa !31
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store ptr @avg_qpel16_mc23_c, ptr %79, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc23_c, ptr %79, align 8, !tbaa !31
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store ptr @avg_qpel16_mc33_c, ptr %80, align 8, !tbaa !32
+  store ptr @avg_qpel16_mc33_c, ptr %80, align 8, !tbaa !31
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store ptr @ff_avg_pixels8x8_c, ptr %81, align 8, !tbaa !32
+  store ptr @ff_avg_pixels8x8_c, ptr %81, align 8, !tbaa !31
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr @avg_qpel8_mc10_c, ptr %82, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc10_c, ptr %82, align 8, !tbaa !31
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr @avg_qpel8_mc20_c, ptr %83, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc20_c, ptr %83, align 8, !tbaa !31
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr @avg_qpel8_mc30_c, ptr %84, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc30_c, ptr %84, align 8, !tbaa !31
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr @avg_qpel8_mc01_c, ptr %85, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc01_c, ptr %85, align 8, !tbaa !31
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr @avg_qpel8_mc11_c, ptr %86, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc11_c, ptr %86, align 8, !tbaa !31
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr @avg_qpel8_mc21_c, ptr %87, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc21_c, ptr %87, align 8, !tbaa !31
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr @avg_qpel8_mc31_c, ptr %88, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc31_c, ptr %88, align 8, !tbaa !31
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr @avg_qpel8_mc02_c, ptr %89, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc02_c, ptr %89, align 8, !tbaa !31
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr @avg_qpel8_mc12_c, ptr %90, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc12_c, ptr %90, align 8, !tbaa !31
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store ptr @avg_qpel8_mc22_c, ptr %91, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc22_c, ptr %91, align 8, !tbaa !31
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store ptr @avg_qpel8_mc32_c, ptr %92, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc32_c, ptr %92, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr @avg_qpel8_mc03_c, ptr %93, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc03_c, ptr %93, align 8, !tbaa !31
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store ptr @avg_qpel8_mc13_c, ptr %94, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc13_c, ptr %94, align 8, !tbaa !31
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store ptr @avg_qpel8_mc23_c, ptr %95, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc23_c, ptr %95, align 8, !tbaa !31
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store ptr @avg_qpel8_mc33_c, ptr %96, align 8, !tbaa !32
+  store ptr @avg_qpel8_mc33_c, ptr %96, align 8, !tbaa !31
   ret void
 }
 
@@ -8377,7 +8377,7 @@ define internal void @put_qpel16_mc10_c(ptr noundef writeonly captures(none) %0,
   %16 = and i32 %15, 2139062143
   %17 = sub i32 %13, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 %7
-  store i32 %17, ptr %18, align 4, !tbaa !10
+  store i32 %17, ptr %18, align 4, !tbaa !9
   %19 = getelementptr i8, ptr %8, i64 4
   %20 = load i32, ptr %19, align 1, !tbaa !4
   %21 = getelementptr i8, ptr %11, i64 4
@@ -8388,10 +8388,10 @@ define internal void @put_qpel16_mc10_c(ptr noundef writeonly captures(none) %0,
   %26 = and i32 %25, 2139062143
   %27 = sub i32 %23, %26
   %28 = getelementptr i8, ptr %18, i64 4
-  store i32 %27, ptr %28, align 4, !tbaa !10
+  store i32 %27, ptr %28, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8413,7 +8413,7 @@ define internal void @put_qpel16_mc10_c(ptr noundef writeonly captures(none) %0,
   %41 = and i32 %40, 2139062143
   %42 = sub i32 %38, %41
   %43 = getelementptr inbounds i8, ptr %29, i64 %32
-  store i32 %42, ptr %43, align 4, !tbaa !10
+  store i32 %42, ptr %43, align 4, !tbaa !9
   %44 = getelementptr i8, ptr %33, i64 4
   %45 = load i32, ptr %44, align 1, !tbaa !4
   %46 = getelementptr i8, ptr %36, i64 4
@@ -8424,10 +8424,10 @@ define internal void @put_qpel16_mc10_c(ptr noundef writeonly captures(none) %0,
   %51 = and i32 %50, 2139062143
   %52 = sub i32 %48, %51
   %53 = getelementptr i8, ptr %43, i64 4
-  store i32 %52, ptr %53, align 4, !tbaa !10
+  store i32 %52, ptr %53, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
@@ -8466,7 +8466,7 @@ define internal void @put_qpel16_mc30_c(ptr noundef writeonly captures(none) %0,
   %17 = and i32 %16, 2139062143
   %18 = sub i32 %14, %17
   %19 = getelementptr inbounds i8, ptr %0, i64 %8
-  store i32 %18, ptr %19, align 4, !tbaa !10
+  store i32 %18, ptr %19, align 4, !tbaa !9
   %20 = getelementptr i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 1, !tbaa !4
   %22 = getelementptr i8, ptr %12, i64 4
@@ -8477,10 +8477,10 @@ define internal void @put_qpel16_mc30_c(ptr noundef writeonly captures(none) %0,
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
   %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8502,7 +8502,7 @@ define internal void @put_qpel16_mc30_c(ptr noundef writeonly captures(none) %0,
   %42 = and i32 %41, 2139062143
   %43 = sub i32 %39, %42
   %44 = getelementptr inbounds i8, ptr %30, i64 %33
-  store i32 %43, ptr %44, align 4, !tbaa !10
+  store i32 %43, ptr %44, align 4, !tbaa !9
   %45 = getelementptr i8, ptr %34, i64 4
   %46 = load i32, ptr %45, align 1, !tbaa !4
   %47 = getelementptr i8, ptr %37, i64 4
@@ -8513,10 +8513,10 @@ define internal void @put_qpel16_mc30_c(ptr noundef writeonly captures(none) %0,
   %52 = and i32 %51, 2139062143
   %53 = sub i32 %49, %52
   %54 = getelementptr i8, ptr %44, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !10
+  store i32 %53, ptr %54, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
@@ -8545,7 +8545,7 @@ define internal void @put_qpel16_mc01_c(ptr noundef writeonly captures(none) %0,
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %13 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %13, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 16, i32 noundef 24)
@@ -8568,7 +8568,7 @@ copy_block16.exit:                                ; preds = %6
   %25 = sub i32 %21, %24
   %26 = mul nsw i64 %indvars.iv.i.i, %14
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
-  store i32 %25, ptr %27, align 4, !tbaa !10
+  store i32 %25, ptr %27, align 4, !tbaa !9
   %28 = getelementptr i8, ptr %16, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %19, i64 4
@@ -8579,10 +8579,10 @@ copy_block16.exit:                                ; preds = %6
   %35 = and i32 %34, 2139062143
   %36 = sub i32 %32, %35
   %37 = getelementptr i8, ptr %27, i64 4
-  store i32 %36, ptr %37, align 4, !tbaa !10
+  store i32 %36, ptr %37, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8605,7 +8605,7 @@ copy_block16.exit:                                ; preds = %6
   %51 = sub i32 %47, %50
   %52 = mul nsw i64 %indvars.iv.i16.i, %14
   %53 = getelementptr inbounds i8, ptr %38, i64 %52
-  store i32 %51, ptr %53, align 4, !tbaa !10
+  store i32 %51, ptr %53, align 4, !tbaa !9
   %54 = getelementptr i8, ptr %42, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = getelementptr i8, ptr %45, i64 4
@@ -8616,10 +8616,10 @@ copy_block16.exit:                                ; preds = %6
   %61 = and i32 %60, 2139062143
   %62 = sub i32 %58, %61
   %63 = getelementptr i8, ptr %53, i64 4
-  store i32 %62, ptr %63, align 4, !tbaa !10
+  store i32 %62, ptr %63, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -8655,7 +8655,7 @@ define internal void @put_qpel16_mc11_c(ptr noundef writeonly captures(none) %0,
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -8674,7 +8674,7 @@ copy_block17.exit:                                ; preds = %7
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %22, i64 4
@@ -8684,10 +8684,10 @@ copy_block17.exit:                                ; preds = %7
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8707,7 +8707,7 @@ copy_block17.exit:                                ; preds = %7
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %41, align 8, !tbaa !10
+  store i32 %50, ptr %41, align 8, !tbaa !9
   %51 = getelementptr i8, ptr %41, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %44, i64 4
@@ -8717,10 +8717,10 @@ copy_block17.exit:                                ; preds = %7
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 2139062143
   %59 = sub i32 %55, %58
-  store i32 %59, ptr %51, align 4, !tbaa !10
+  store i32 %59, ptr %51, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -8742,7 +8742,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %70 = sub i32 %66, %69
   %71 = mul nsw i64 %indvars.iv.i.i4, %60
   %72 = getelementptr inbounds i8, ptr %0, i64 %71
-  store i32 %70, ptr %72, align 4, !tbaa !10
+  store i32 %70, ptr %72, align 4, !tbaa !9
   %73 = getelementptr i8, ptr %62, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = getelementptr i8, ptr %64, i64 4
@@ -8753,10 +8753,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %80 = and i32 %79, 2139062143
   %81 = sub i32 %77, %80
   %82 = getelementptr i8, ptr %72, i64 4
-  store i32 %81, ptr %82, align 4, !tbaa !10
+  store i32 %81, ptr %82, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !15
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !14
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8777,7 +8777,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %94 = sub i32 %90, %93
   %95 = mul nsw i64 %indvars.iv.i16.i9, %60
   %96 = getelementptr inbounds i8, ptr %83, i64 %95
-  store i32 %94, ptr %96, align 4, !tbaa !10
+  store i32 %94, ptr %96, align 4, !tbaa !9
   %97 = getelementptr i8, ptr %86, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !4
   %99 = getelementptr i8, ptr %88, i64 4
@@ -8788,10 +8788,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %104 = and i32 %103, 2139062143
   %105 = sub i32 %101, %104
   %106 = getelementptr i8, ptr %96, i64 4
-  store i32 %105, ptr %106, align 4, !tbaa !10
+  store i32 %105, ptr %106, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !15
+  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !14
 
 put_pixels16_l2_8.exit12:                         ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -8827,7 +8827,7 @@ define internal void @put_qpel16_mc21_c(ptr noundef writeonly captures(none) %0,
   %17 = sub i32 %13, %16
   %18 = mul nsw i64 %indvars.iv.i.i, %7
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  store i32 %17, ptr %19, align 4, !tbaa !10
+  store i32 %17, ptr %19, align 4, !tbaa !9
   %20 = getelementptr i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = getelementptr i8, ptr %11, i64 4
@@ -8838,10 +8838,10 @@ define internal void @put_qpel16_mc21_c(ptr noundef writeonly captures(none) %0,
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
   %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8863,7 +8863,7 @@ define internal void @put_qpel16_mc21_c(ptr noundef writeonly captures(none) %0,
   %42 = sub i32 %38, %41
   %43 = mul nsw i64 %indvars.iv.i16.i, %7
   %44 = getelementptr inbounds i8, ptr %30, i64 %43
-  store i32 %42, ptr %44, align 4, !tbaa !10
+  store i32 %42, ptr %44, align 4, !tbaa !9
   %45 = getelementptr i8, ptr %34, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !4
   %47 = getelementptr i8, ptr %36, i64 4
@@ -8874,10 +8874,10 @@ define internal void @put_qpel16_mc21_c(ptr noundef writeonly captures(none) %0,
   %52 = and i32 %51, 2139062143
   %53 = sub i32 %49, %52
   %54 = getelementptr i8, ptr %44, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !10
+  store i32 %53, ptr %54, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -8913,7 +8913,7 @@ define internal void @put_qpel16_mc31_c(ptr noundef writeonly captures(none) %0,
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -8933,7 +8933,7 @@ copy_block17.exit:                                ; preds = %7
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr i8, ptr %23, i64 4
@@ -8943,10 +8943,10 @@ copy_block17.exit:                                ; preds = %7
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = sub i32 %34, %37
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8966,7 +8966,7 @@ copy_block17.exit:                                ; preds = %7
   %49 = lshr i32 %48, 1
   %50 = and i32 %49, 2139062143
   %51 = sub i32 %47, %50
-  store i32 %51, ptr %42, align 8, !tbaa !10
+  store i32 %51, ptr %42, align 8, !tbaa !9
   %52 = getelementptr i8, ptr %42, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr i8, ptr %45, i64 4
@@ -8976,10 +8976,10 @@ copy_block17.exit:                                ; preds = %7
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 2139062143
   %60 = sub i32 %56, %59
-  store i32 %60, ptr %52, align 4, !tbaa !10
+  store i32 %60, ptr %52, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -9001,7 +9001,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %71 = sub i32 %67, %70
   %72 = mul nsw i64 %indvars.iv.i.i4, %61
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
-  store i32 %71, ptr %73, align 4, !tbaa !10
+  store i32 %71, ptr %73, align 4, !tbaa !9
   %74 = getelementptr i8, ptr %63, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !4
   %76 = getelementptr i8, ptr %65, i64 4
@@ -9012,10 +9012,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %81 = and i32 %80, 2139062143
   %82 = sub i32 %78, %81
   %83 = getelementptr i8, ptr %73, i64 4
-  store i32 %82, ptr %83, align 4, !tbaa !10
+  store i32 %82, ptr %83, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !15
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !14
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9036,7 +9036,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %95 = sub i32 %91, %94
   %96 = mul nsw i64 %indvars.iv.i16.i9, %61
   %97 = getelementptr inbounds i8, ptr %84, i64 %96
-  store i32 %95, ptr %97, align 4, !tbaa !10
+  store i32 %95, ptr %97, align 4, !tbaa !9
   %98 = getelementptr i8, ptr %87, i64 4
   %99 = load i32, ptr %98, align 4, !tbaa !4
   %100 = getelementptr i8, ptr %89, i64 4
@@ -9047,10 +9047,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %105 = and i32 %104, 2139062143
   %106 = sub i32 %102, %105
   %107 = getelementptr i8, ptr %97, i64 4
-  store i32 %106, ptr %107, align 4, !tbaa !10
+  store i32 %106, ptr %107, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !15
+  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !14
 
 put_pixels16_l2_8.exit12:                         ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -9079,7 +9079,7 @@ define internal void @put_qpel16_mc02_c(ptr noundef writeonly captures(none) %0,
   %11 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %12 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %12, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %5, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %5, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %5
   %13 = trunc i64 %2 to i32
@@ -9114,7 +9114,7 @@ define internal void @put_qpel16_mc12_c(ptr noundef writeonly captures(none) %0,
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %16 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %16, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -9133,7 +9133,7 @@ copy_block17.exit:                                ; preds = %6
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 2139062143
   %27 = sub i32 %23, %26
-  store i32 %27, ptr %18, align 16, !tbaa !10
+  store i32 %27, ptr %18, align 16, !tbaa !9
   %28 = getelementptr i8, ptr %18, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %21, i64 4
@@ -9143,10 +9143,10 @@ copy_block17.exit:                                ; preds = %6
   %34 = lshr i32 %33, 1
   %35 = and i32 %34, 2139062143
   %36 = sub i32 %32, %35
-  store i32 %36, ptr %28, align 4, !tbaa !10
+  store i32 %36, ptr %28, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9166,7 +9166,7 @@ copy_block17.exit:                                ; preds = %6
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 2139062143
   %49 = sub i32 %45, %48
-  store i32 %49, ptr %40, align 8, !tbaa !10
+  store i32 %49, ptr %40, align 8, !tbaa !9
   %50 = getelementptr i8, ptr %40, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = getelementptr i8, ptr %43, i64 4
@@ -9176,10 +9176,10 @@ copy_block17.exit:                                ; preds = %6
   %56 = lshr i32 %55, 1
   %57 = and i32 %56, 2139062143
   %58 = sub i32 %54, %57
-  store i32 %58, ptr %50, align 4, !tbaa !10
+  store i32 %58, ptr %50, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %59 = trunc i64 %2 to i32
@@ -9226,7 +9226,7 @@ define internal void @put_qpel16_mc32_c(ptr noundef writeonly captures(none) %0,
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %16 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %16, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -9246,7 +9246,7 @@ copy_block17.exit:                                ; preds = %6
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %22, i64 4
@@ -9256,10 +9256,10 @@ copy_block17.exit:                                ; preds = %6
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9279,7 +9279,7 @@ copy_block17.exit:                                ; preds = %6
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %41, align 8, !tbaa !10
+  store i32 %50, ptr %41, align 8, !tbaa !9
   %51 = getelementptr i8, ptr %41, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %44, i64 4
@@ -9289,10 +9289,10 @@ copy_block17.exit:                                ; preds = %6
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 2139062143
   %59 = sub i32 %55, %58
-  store i32 %59, ptr %51, align 4, !tbaa !10
+  store i32 %59, ptr %51, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %60 = trunc i64 %2 to i32
@@ -9324,7 +9324,7 @@ define internal void @put_qpel16_mc03_c(ptr noundef writeonly captures(none) %0,
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %13 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %13, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 16, i32 noundef 24)
@@ -9348,7 +9348,7 @@ copy_block16.exit:                                ; preds = %6
   %26 = sub i32 %22, %25
   %27 = mul nsw i64 %indvars.iv.i.i, %15
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  store i32 %26, ptr %28, align 4, !tbaa !10
+  store i32 %26, ptr %28, align 4, !tbaa !9
   %29 = getelementptr i8, ptr %17, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %20, i64 4
@@ -9359,10 +9359,10 @@ copy_block16.exit:                                ; preds = %6
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
   %38 = getelementptr i8, ptr %28, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !10
+  store i32 %37, ptr %38, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9385,7 +9385,7 @@ copy_block16.exit:                                ; preds = %6
   %52 = sub i32 %48, %51
   %53 = mul nsw i64 %indvars.iv.i16.i, %15
   %54 = getelementptr inbounds i8, ptr %39, i64 %53
-  store i32 %52, ptr %54, align 4, !tbaa !10
+  store i32 %52, ptr %54, align 4, !tbaa !9
   %55 = getelementptr i8, ptr %43, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !4
   %57 = getelementptr i8, ptr %46, i64 4
@@ -9396,10 +9396,10 @@ copy_block16.exit:                                ; preds = %6
   %62 = and i32 %61, 2139062143
   %63 = sub i32 %59, %62
   %64 = getelementptr i8, ptr %54, i64 4
-  store i32 %63, ptr %64, align 4, !tbaa !10
+  store i32 %63, ptr %64, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -9435,7 +9435,7 @@ define internal void @put_qpel16_mc13_c(ptr noundef writeonly captures(none) %0,
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -9454,7 +9454,7 @@ copy_block17.exit:                                ; preds = %7
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %22, i64 4
@@ -9464,10 +9464,10 @@ copy_block17.exit:                                ; preds = %7
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9487,7 +9487,7 @@ copy_block17.exit:                                ; preds = %7
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %41, align 8, !tbaa !10
+  store i32 %50, ptr %41, align 8, !tbaa !9
   %51 = getelementptr i8, ptr %41, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %44, i64 4
@@ -9497,10 +9497,10 @@ copy_block17.exit:                                ; preds = %7
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 2139062143
   %59 = sub i32 %55, %58
-  store i32 %59, ptr %51, align 4, !tbaa !10
+  store i32 %59, ptr %51, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -9523,7 +9523,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %71 = sub i32 %67, %70
   %72 = mul nsw i64 %indvars.iv.i.i4, %61
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
-  store i32 %71, ptr %73, align 4, !tbaa !10
+  store i32 %71, ptr %73, align 4, !tbaa !9
   %74 = getelementptr i8, ptr %63, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !4
   %76 = getelementptr i8, ptr %65, i64 4
@@ -9534,10 +9534,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %81 = and i32 %80, 2139062143
   %82 = sub i32 %78, %81
   %83 = getelementptr i8, ptr %73, i64 4
-  store i32 %82, ptr %83, align 4, !tbaa !10
+  store i32 %82, ptr %83, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !15
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !14
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9559,7 +9559,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %96 = sub i32 %92, %95
   %97 = mul nsw i64 %indvars.iv.i16.i9, %61
   %98 = getelementptr inbounds i8, ptr %84, i64 %97
-  store i32 %96, ptr %98, align 4, !tbaa !10
+  store i32 %96, ptr %98, align 4, !tbaa !9
   %99 = getelementptr i8, ptr %88, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !4
   %101 = getelementptr i8, ptr %90, i64 4
@@ -9570,10 +9570,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %106 = and i32 %105, 2139062143
   %107 = sub i32 %103, %106
   %108 = getelementptr i8, ptr %98, i64 4
-  store i32 %107, ptr %108, align 4, !tbaa !10
+  store i32 %107, ptr %108, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !15
+  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !14
 
 put_pixels16_l2_8.exit12:                         ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -9610,7 +9610,7 @@ define internal void @put_qpel16_mc23_c(ptr noundef writeonly captures(none) %0,
   %18 = sub i32 %14, %17
   %19 = mul nsw i64 %indvars.iv.i.i, %8
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  store i32 %18, ptr %20, align 4, !tbaa !10
+  store i32 %18, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = getelementptr i8, ptr %12, i64 4
@@ -9621,10 +9621,10 @@ define internal void @put_qpel16_mc23_c(ptr noundef writeonly captures(none) %0,
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9646,7 +9646,7 @@ define internal void @put_qpel16_mc23_c(ptr noundef writeonly captures(none) %0,
   %43 = sub i32 %39, %42
   %44 = mul nsw i64 %indvars.iv.i16.i, %8
   %45 = getelementptr inbounds i8, ptr %31, i64 %44
-  store i32 %43, ptr %45, align 4, !tbaa !10
+  store i32 %43, ptr %45, align 4, !tbaa !9
   %46 = getelementptr i8, ptr %35, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !4
   %48 = getelementptr i8, ptr %37, i64 4
@@ -9657,10 +9657,10 @@ define internal void @put_qpel16_mc23_c(ptr noundef writeonly captures(none) %0,
   %53 = and i32 %52, 2139062143
   %54 = sub i32 %50, %53
   %55 = getelementptr i8, ptr %45, i64 4
-  store i32 %54, ptr %55, align 4, !tbaa !10
+  store i32 %54, ptr %55, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -9696,7 +9696,7 @@ define internal void @put_qpel16_mc33_c(ptr noundef writeonly captures(none) %0,
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -9716,7 +9716,7 @@ copy_block17.exit:                                ; preds = %7
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr i8, ptr %23, i64 4
@@ -9726,10 +9726,10 @@ copy_block17.exit:                                ; preds = %7
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = sub i32 %34, %37
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9749,7 +9749,7 @@ copy_block17.exit:                                ; preds = %7
   %49 = lshr i32 %48, 1
   %50 = and i32 %49, 2139062143
   %51 = sub i32 %47, %50
-  store i32 %51, ptr %42, align 8, !tbaa !10
+  store i32 %51, ptr %42, align 8, !tbaa !9
   %52 = getelementptr i8, ptr %42, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr i8, ptr %45, i64 4
@@ -9759,10 +9759,10 @@ copy_block17.exit:                                ; preds = %7
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 2139062143
   %60 = sub i32 %56, %59
-  store i32 %60, ptr %52, align 4, !tbaa !10
+  store i32 %60, ptr %52, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -9785,7 +9785,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %72 = sub i32 %68, %71
   %73 = mul nsw i64 %indvars.iv.i.i4, %62
   %74 = getelementptr inbounds i8, ptr %0, i64 %73
-  store i32 %72, ptr %74, align 4, !tbaa !10
+  store i32 %72, ptr %74, align 4, !tbaa !9
   %75 = getelementptr i8, ptr %64, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = getelementptr i8, ptr %66, i64 4
@@ -9796,10 +9796,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %82 = and i32 %81, 2139062143
   %83 = sub i32 %79, %82
   %84 = getelementptr i8, ptr %74, i64 4
-  store i32 %83, ptr %84, align 4, !tbaa !10
+  store i32 %83, ptr %84, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !15
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !14
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9821,7 +9821,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %97 = sub i32 %93, %96
   %98 = mul nsw i64 %indvars.iv.i16.i9, %62
   %99 = getelementptr inbounds i8, ptr %85, i64 %98
-  store i32 %97, ptr %99, align 4, !tbaa !10
+  store i32 %97, ptr %99, align 4, !tbaa !9
   %100 = getelementptr i8, ptr %89, i64 4
   %101 = load i32, ptr %100, align 4, !tbaa !4
   %102 = getelementptr i8, ptr %91, i64 4
@@ -9832,10 +9832,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %107 = and i32 %106, 2139062143
   %108 = sub i32 %104, %107
   %109 = getelementptr i8, ptr %99, i64 4
-  store i32 %108, ptr %109, align 4, !tbaa !10
+  store i32 %108, ptr %109, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !15
+  br i1 %exitcond.not.i18.i11, label %put_pixels16_l2_8.exit12, label %.lr.ph.i15.i8, !llvm.loop !14
 
 put_pixels16_l2_8.exit12:                         ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -9868,7 +9868,7 @@ define internal void @put_qpel8_mc10_c(ptr noundef writeonly captures(none) %0, 
   %16 = and i32 %15, 2139062143
   %17 = sub i32 %13, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 %7
-  store i32 %17, ptr %18, align 4, !tbaa !10
+  store i32 %17, ptr %18, align 4, !tbaa !9
   %19 = getelementptr i8, ptr %8, i64 4
   %20 = load i32, ptr %19, align 1, !tbaa !4
   %21 = getelementptr i8, ptr %11, i64 4
@@ -9879,10 +9879,10 @@ define internal void @put_qpel8_mc10_c(ptr noundef writeonly captures(none) %0, 
   %26 = and i32 %25, 2139062143
   %27 = sub i32 %23, %26
   %28 = getelementptr i8, ptr %18, i64 4
-  store i32 %27, ptr %28, align 4, !tbaa !10
+  store i32 %27, ptr %28, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -9921,7 +9921,7 @@ define internal void @put_qpel8_mc30_c(ptr noundef writeonly captures(none) %0, 
   %17 = and i32 %16, 2139062143
   %18 = sub i32 %14, %17
   %19 = getelementptr inbounds i8, ptr %0, i64 %8
-  store i32 %18, ptr %19, align 4, !tbaa !10
+  store i32 %18, ptr %19, align 4, !tbaa !9
   %20 = getelementptr i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 1, !tbaa !4
   %22 = getelementptr i8, ptr %12, i64 4
@@ -9932,10 +9932,10 @@ define internal void @put_qpel8_mc30_c(ptr noundef writeonly captures(none) %0, 
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
   %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -9960,7 +9960,7 @@ define internal void @put_qpel8_mc01_c(ptr noundef writeonly captures(none) %0, 
   %9 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %6
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 8, i32 noundef 16)
@@ -9983,7 +9983,7 @@ copy_block8.exit:                                 ; preds = %6
   %22 = sub i32 %18, %21
   %23 = mul nsw i64 %indvars.iv.i, %11
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  store i32 %22, ptr %24, align 4, !tbaa !10
+  store i32 %22, ptr %24, align 4, !tbaa !9
   %25 = getelementptr i8, ptr %13, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = getelementptr i8, ptr %16, i64 4
@@ -9994,10 +9994,10 @@ copy_block8.exit:                                 ; preds = %6
   %32 = and i32 %31, 2139062143
   %33 = sub i32 %29, %32
   %34 = getelementptr i8, ptr %24, i64 4
-  store i32 %33, ptr %34, align 4, !tbaa !10
+  store i32 %33, ptr %34, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -10048,7 +10048,7 @@ copy_block9.exit:                                 ; preds = %7
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %19, i64 4
@@ -10058,10 +10058,10 @@ copy_block9.exit:                                 ; preds = %7
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -10083,7 +10083,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %45 = sub i32 %41, %44
   %46 = mul nsw i64 %indvars.iv.i5, %35
   %47 = getelementptr inbounds i8, ptr %0, i64 %46
-  store i32 %45, ptr %47, align 4, !tbaa !10
+  store i32 %45, ptr %47, align 4, !tbaa !9
   %48 = getelementptr i8, ptr %37, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = getelementptr i8, ptr %39, i64 4
@@ -10094,10 +10094,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %55 = and i32 %54, 2139062143
   %56 = sub i32 %52, %55
   %57 = getelementptr i8, ptr %47, i64 4
-  store i32 %56, ptr %57, align 4, !tbaa !10
+  store i32 %56, ptr %57, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !15
+  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !14
 
 put_pixels8_l2_8.exit8:                           ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -10133,7 +10133,7 @@ define internal void @put_qpel8_mc21_c(ptr noundef writeonly captures(none) %0, 
   %17 = sub i32 %13, %16
   %18 = mul nsw i64 %indvars.iv.i, %7
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  store i32 %17, ptr %19, align 4, !tbaa !10
+  store i32 %17, ptr %19, align 4, !tbaa !9
   %20 = getelementptr i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = getelementptr i8, ptr %11, i64 4
@@ -10144,10 +10144,10 @@ define internal void @put_qpel8_mc21_c(ptr noundef writeonly captures(none) %0, 
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
   %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -10199,7 +10199,7 @@ copy_block9.exit:                                 ; preds = %7
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %20, i64 4
@@ -10209,10 +10209,10 @@ copy_block9.exit:                                 ; preds = %7
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -10234,7 +10234,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %46 = sub i32 %42, %45
   %47 = mul nsw i64 %indvars.iv.i5, %36
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
-  store i32 %46, ptr %48, align 4, !tbaa !10
+  store i32 %46, ptr %48, align 4, !tbaa !9
   %49 = getelementptr i8, ptr %38, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !4
   %51 = getelementptr i8, ptr %40, i64 4
@@ -10245,10 +10245,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %56 = and i32 %55, 2139062143
   %57 = sub i32 %53, %56
   %58 = getelementptr i8, ptr %48, i64 4
-  store i32 %57, ptr %58, align 4, !tbaa !10
+  store i32 %57, ptr %58, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !15
+  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !14
 
 put_pixels8_l2_8.exit8:                           ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -10273,7 +10273,7 @@ define internal void @put_qpel8_mc02_c(ptr noundef writeonly captures(none) %0, 
   %8 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %9 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %9, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %5, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %5, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %5
   %10 = trunc i64 %2 to i32
@@ -10323,7 +10323,7 @@ copy_block9.exit:                                 ; preds = %6
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 2139062143
   %24 = sub i32 %20, %23
-  store i32 %24, ptr %15, align 8, !tbaa !10
+  store i32 %24, ptr %15, align 8, !tbaa !9
   %25 = getelementptr i8, ptr %15, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = getelementptr i8, ptr %18, i64 4
@@ -10333,10 +10333,10 @@ copy_block9.exit:                                 ; preds = %6
   %31 = lshr i32 %30, 1
   %32 = and i32 %31, 2139062143
   %33 = sub i32 %29, %32
-  store i32 %33, ptr %25, align 4, !tbaa !10
+  store i32 %33, ptr %25, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %34 = trunc i64 %2 to i32
@@ -10399,7 +10399,7 @@ copy_block9.exit:                                 ; preds = %6
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %19, i64 4
@@ -10409,10 +10409,10 @@ copy_block9.exit:                                 ; preds = %6
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %35 = trunc i64 %2 to i32
@@ -10440,7 +10440,7 @@ define internal void @put_qpel8_mc03_c(ptr noundef writeonly captures(none) %0, 
   %9 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %6
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 8, i32 noundef 16)
@@ -10464,7 +10464,7 @@ copy_block8.exit:                                 ; preds = %6
   %23 = sub i32 %19, %22
   %24 = mul nsw i64 %indvars.iv.i, %12
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  store i32 %23, ptr %25, align 4, !tbaa !10
+  store i32 %23, ptr %25, align 4, !tbaa !9
   %26 = getelementptr i8, ptr %14, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %17, i64 4
@@ -10475,10 +10475,10 @@ copy_block8.exit:                                 ; preds = %6
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
   %35 = getelementptr i8, ptr %25, i64 4
-  store i32 %34, ptr %35, align 4, !tbaa !10
+  store i32 %34, ptr %35, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -10529,7 +10529,7 @@ copy_block9.exit:                                 ; preds = %7
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %19, i64 4
@@ -10539,10 +10539,10 @@ copy_block9.exit:                                 ; preds = %7
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -10565,7 +10565,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %46 = sub i32 %42, %45
   %47 = mul nsw i64 %indvars.iv.i5, %36
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
-  store i32 %46, ptr %48, align 4, !tbaa !10
+  store i32 %46, ptr %48, align 4, !tbaa !9
   %49 = getelementptr i8, ptr %38, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !4
   %51 = getelementptr i8, ptr %40, i64 4
@@ -10576,10 +10576,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %56 = and i32 %55, 2139062143
   %57 = sub i32 %53, %56
   %58 = getelementptr i8, ptr %48, i64 4
-  store i32 %57, ptr %58, align 4, !tbaa !10
+  store i32 %57, ptr %58, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !15
+  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !14
 
 put_pixels8_l2_8.exit8:                           ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -10616,7 +10616,7 @@ define internal void @put_qpel8_mc23_c(ptr noundef writeonly captures(none) %0, 
   %18 = sub i32 %14, %17
   %19 = mul nsw i64 %indvars.iv.i, %8
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  store i32 %18, ptr %20, align 4, !tbaa !10
+  store i32 %18, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = getelementptr i8, ptr %12, i64 4
@@ -10627,10 +10627,10 @@ define internal void @put_qpel8_mc23_c(ptr noundef writeonly captures(none) %0, 
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -10682,7 +10682,7 @@ copy_block9.exit:                                 ; preds = %7
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %20, i64 4
@@ -10692,10 +10692,10 @@ copy_block9.exit:                                 ; preds = %7
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -10718,7 +10718,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %47 = sub i32 %43, %46
   %48 = mul nsw i64 %indvars.iv.i5, %37
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
-  store i32 %47, ptr %49, align 4, !tbaa !10
+  store i32 %47, ptr %49, align 4, !tbaa !9
   %50 = getelementptr i8, ptr %39, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = getelementptr i8, ptr %41, i64 4
@@ -10729,10 +10729,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %57 = and i32 %56, 2139062143
   %58 = sub i32 %54, %57
   %59 = getelementptr i8, ptr %49, i64 4
-  store i32 %58, ptr %59, align 4, !tbaa !10
+  store i32 %58, ptr %59, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !15
+  br i1 %exitcond.not.i7, label %put_pixels8_l2_8.exit8, label %.lr.ph.i4, !llvm.loop !14
 
 put_pixels8_l2_8.exit8:                           ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -10765,7 +10765,7 @@ define internal void @put_no_rnd_qpel16_mc10_c(ptr noundef writeonly captures(no
   %17 = and i32 %16, 2139062143
   %18 = add i32 %17, %14
   %19 = getelementptr inbounds i8, ptr %0, i64 %8
-  store i32 %18, ptr %19, align 4, !tbaa !10
+  store i32 %18, ptr %19, align 4, !tbaa !9
   %20 = getelementptr i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 1, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -10776,10 +10776,10 @@ define internal void @put_no_rnd_qpel16_mc10_c(ptr noundef writeonly captures(no
   %27 = and i32 %26, 2139062143
   %28 = add i32 %27, %24
   %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %7, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %7, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10801,7 +10801,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %7
   %43 = and i32 %42, 2139062143
   %44 = add i32 %43, %40
   %45 = getelementptr inbounds i8, ptr %30, i64 %34
-  store i32 %44, ptr %45, align 4, !tbaa !10
+  store i32 %44, ptr %45, align 4, !tbaa !9
   %46 = getelementptr i8, ptr %35, i64 4
   %47 = load i32, ptr %46, align 1, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -10812,10 +10812,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %7
   %53 = and i32 %52, 2139062143
   %54 = add i32 %53, %50
   %55 = getelementptr i8, ptr %45, i64 4
-  store i32 %54, ptr %55, align 4, !tbaa !10
+  store i32 %54, ptr %55, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %33, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %33, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %33
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
@@ -10854,7 +10854,7 @@ define internal void @put_no_rnd_qpel16_mc30_c(ptr noundef writeonly captures(no
   %18 = and i32 %17, 2139062143
   %19 = add i32 %18, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 %9
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 1, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -10865,10 +10865,10 @@ define internal void @put_no_rnd_qpel16_mc30_c(ptr noundef writeonly captures(no
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %8, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %8, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10890,7 +10890,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %8
   %44 = and i32 %43, 2139062143
   %45 = add i32 %44, %41
   %46 = getelementptr inbounds i8, ptr %31, i64 %35
-  store i32 %45, ptr %46, align 4, !tbaa !10
+  store i32 %45, ptr %46, align 4, !tbaa !9
   %47 = getelementptr i8, ptr %36, i64 4
   %48 = load i32, ptr %47, align 1, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -10901,10 +10901,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %8
   %54 = and i32 %53, 2139062143
   %55 = add i32 %54, %51
   %56 = getelementptr i8, ptr %46, i64 4
-  store i32 %55, ptr %56, align 4, !tbaa !10
+  store i32 %55, ptr %56, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %34, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %34, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %34
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
@@ -10933,7 +10933,7 @@ define internal void @put_no_rnd_qpel16_mc01_c(ptr noundef writeonly captures(no
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %13 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %13, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %6
   call fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 16, i32 noundef 24)
@@ -10956,7 +10956,7 @@ copy_block16.exit:                                ; preds = %6
   %26 = add i32 %25, %22
   %27 = mul nsw i64 %indvars.iv.i.i, %14
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  store i32 %26, ptr %28, align 4, !tbaa !10
+  store i32 %26, ptr %28, align 4, !tbaa !9
   %29 = getelementptr i8, ptr %17, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -10967,10 +10967,10 @@ copy_block16.exit:                                ; preds = %6
   %36 = and i32 %35, 2139062143
   %37 = add i32 %36, %33
   %38 = getelementptr i8, ptr %28, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !10
+  store i32 %37, ptr %38, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %15, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %15, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %15
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10993,7 +10993,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %15
   %53 = add i32 %52, %49
   %54 = mul nsw i64 %indvars.iv.i14.i, %14
   %55 = getelementptr inbounds i8, ptr %39, i64 %54
-  store i32 %53, ptr %55, align 4, !tbaa !10
+  store i32 %53, ptr %55, align 4, !tbaa !9
   %56 = getelementptr i8, ptr %44, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -11004,10 +11004,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %15
   %63 = and i32 %62, 2139062143
   %64 = add i32 %63, %60
   %65 = getelementptr i8, ptr %55, i64 4
-  store i32 %64, ptr %65, align 4, !tbaa !10
+  store i32 %64, ptr %65, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %42, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %42, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -11043,7 +11043,7 @@ define internal void @put_no_rnd_qpel16_mc11_c(ptr noundef writeonly captures(no
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -11062,7 +11062,7 @@ copy_block17.exit:                                ; preds = %7
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -11072,10 +11072,10 @@ copy_block17.exit:                                ; preds = %7
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = add i32 %37, %34
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %18, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %18, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11095,7 +11095,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %50 = lshr i32 %49, 1
   %51 = and i32 %50, 2139062143
   %52 = add i32 %51, %48
-  store i32 %52, ptr %43, align 8, !tbaa !10
+  store i32 %52, ptr %43, align 8, !tbaa !9
   %53 = getelementptr i8, ptr %43, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -11105,10 +11105,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %59 = lshr i32 %58, 1
   %60 = and i32 %59, 2139062143
   %61 = add i32 %60, %57
-  store i32 %61, ptr %53, align 4, !tbaa !10
+  store i32 %61, ptr %53, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 17
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %41, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %41, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   call fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -11130,7 +11130,7 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   %73 = add i32 %72, %69
   %74 = mul nsw i64 %indvars.iv.i.i3, %62
   %75 = getelementptr inbounds i8, ptr %0, i64 %74
-  store i32 %73, ptr %75, align 4, !tbaa !10
+  store i32 %73, ptr %75, align 4, !tbaa !9
   %76 = getelementptr i8, ptr %65, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 4
@@ -11141,10 +11141,10 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   %83 = and i32 %82, 2139062143
   %84 = add i32 %83, %80
   %85 = getelementptr i8, ptr %75, i64 4
-  store i32 %84, ptr %85, align 4, !tbaa !10
+  store i32 %84, ptr %85, align 4, !tbaa !9
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, 16
-  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %63, !llvm.loop !22
+  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %63, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %63
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11165,7 +11165,7 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %63
   %98 = add i32 %97, %94
   %99 = mul nsw i64 %indvars.iv.i14.i7, %62
   %100 = getelementptr inbounds i8, ptr %86, i64 %99
-  store i32 %98, ptr %100, align 4, !tbaa !10
+  store i32 %98, ptr %100, align 4, !tbaa !9
   %101 = getelementptr i8, ptr %90, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !4
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -11176,10 +11176,10 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %63
   %108 = and i32 %107, 2139062143
   %109 = add i32 %108, %105
   %110 = getelementptr i8, ptr %100, i64 4
-  store i32 %109, ptr %110, align 4, !tbaa !10
+  store i32 %109, ptr %110, align 4, !tbaa !9
   %indvars.iv.next.i15.i8 = add nuw nsw i64 %indvars.iv.i14.i7, 1
   %exitcond.not.i16.i9 = icmp eq i64 %indvars.iv.next.i15.i8, 16
-  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %88, !llvm.loop !22
+  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %88, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit10:                  ; preds = %88
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -11215,7 +11215,7 @@ define internal void @put_no_rnd_qpel16_mc21_c(ptr noundef writeonly captures(no
   %18 = add i32 %17, %14
   %19 = mul nsw i64 %indvars.iv.i.i, %7
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  store i32 %18, ptr %20, align 4, !tbaa !10
+  store i32 %18, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -11226,10 +11226,10 @@ define internal void @put_no_rnd_qpel16_mc21_c(ptr noundef writeonly captures(no
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %8, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %8, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11251,7 +11251,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %8
   %44 = add i32 %43, %40
   %45 = mul nsw i64 %indvars.iv.i14.i, %7
   %46 = getelementptr inbounds i8, ptr %31, i64 %45
-  store i32 %44, ptr %46, align 4, !tbaa !10
+  store i32 %44, ptr %46, align 4, !tbaa !9
   %47 = getelementptr i8, ptr %36, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -11262,10 +11262,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %8
   %54 = and i32 %53, 2139062143
   %55 = add i32 %54, %51
   %56 = getelementptr i8, ptr %46, i64 4
-  store i32 %55, ptr %56, align 4, !tbaa !10
+  store i32 %55, ptr %56, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %34, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %34, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %34
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -11301,7 +11301,7 @@ define internal void @put_no_rnd_qpel16_mc31_c(ptr noundef writeonly captures(no
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -11321,7 +11321,7 @@ copy_block17.exit:                                ; preds = %7
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 2139062143
   %30 = add i32 %29, %26
-  store i32 %30, ptr %21, align 16, !tbaa !10
+  store i32 %30, ptr %21, align 16, !tbaa !9
   %31 = getelementptr i8, ptr %21, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -11331,10 +11331,10 @@ copy_block17.exit:                                ; preds = %7
   %37 = lshr i32 %36, 1
   %38 = and i32 %37, 2139062143
   %39 = add i32 %38, %35
-  store i32 %39, ptr %31, align 4, !tbaa !10
+  store i32 %39, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %19, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %19, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %19
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11354,7 +11354,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %19
   %51 = lshr i32 %50, 1
   %52 = and i32 %51, 2139062143
   %53 = add i32 %52, %49
-  store i32 %53, ptr %44, align 8, !tbaa !10
+  store i32 %53, ptr %44, align 8, !tbaa !9
   %54 = getelementptr i8, ptr %44, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -11364,10 +11364,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %19
   %60 = lshr i32 %59, 1
   %61 = and i32 %60, 2139062143
   %62 = add i32 %61, %58
-  store i32 %62, ptr %54, align 4, !tbaa !10
+  store i32 %62, ptr %54, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 17
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %42, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %42, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   call fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -11389,7 +11389,7 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   %74 = add i32 %73, %70
   %75 = mul nsw i64 %indvars.iv.i.i3, %63
   %76 = getelementptr inbounds i8, ptr %0, i64 %75
-  store i32 %74, ptr %76, align 4, !tbaa !10
+  store i32 %74, ptr %76, align 4, !tbaa !9
   %77 = getelementptr i8, ptr %66, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -11400,10 +11400,10 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   %84 = and i32 %83, 2139062143
   %85 = add i32 %84, %81
   %86 = getelementptr i8, ptr %76, i64 4
-  store i32 %85, ptr %86, align 4, !tbaa !10
+  store i32 %85, ptr %86, align 4, !tbaa !9
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, 16
-  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %64, !llvm.loop !22
+  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %64, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %64
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11424,7 +11424,7 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %64
   %99 = add i32 %98, %95
   %100 = mul nsw i64 %indvars.iv.i14.i7, %63
   %101 = getelementptr inbounds i8, ptr %87, i64 %100
-  store i32 %99, ptr %101, align 4, !tbaa !10
+  store i32 %99, ptr %101, align 4, !tbaa !9
   %102 = getelementptr i8, ptr %91, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !4
   %104 = getelementptr inbounds nuw i8, ptr %93, i64 4
@@ -11435,10 +11435,10 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %64
   %109 = and i32 %108, 2139062143
   %110 = add i32 %109, %106
   %111 = getelementptr i8, ptr %101, i64 4
-  store i32 %110, ptr %111, align 4, !tbaa !10
+  store i32 %110, ptr %111, align 4, !tbaa !9
   %indvars.iv.next.i15.i8 = add nuw nsw i64 %indvars.iv.i14.i7, 1
   %exitcond.not.i16.i9 = icmp eq i64 %indvars.iv.next.i15.i8, 16
-  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %89, !llvm.loop !22
+  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %89, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit10:                  ; preds = %89
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -11467,7 +11467,7 @@ define internal void @put_no_rnd_qpel16_mc02_c(ptr noundef writeonly captures(no
   %11 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %12 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %12, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %5, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %5, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %5
   %13 = trunc i64 %2 to i32
@@ -11502,7 +11502,7 @@ define internal void @put_no_rnd_qpel16_mc12_c(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %16 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %16, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %6
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -11521,7 +11521,7 @@ copy_block17.exit:                                ; preds = %6
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = add i32 %27, %24
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -11531,10 +11531,10 @@ copy_block17.exit:                                ; preds = %6
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = add i32 %36, %33
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %17, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %17, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %17
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11554,7 +11554,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %17
   %49 = lshr i32 %48, 1
   %50 = and i32 %49, 2139062143
   %51 = add i32 %50, %47
-  store i32 %51, ptr %42, align 8, !tbaa !10
+  store i32 %51, ptr %42, align 8, !tbaa !9
   %52 = getelementptr i8, ptr %42, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -11564,10 +11564,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %17
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 2139062143
   %60 = add i32 %59, %56
-  store i32 %60, ptr %52, align 4, !tbaa !10
+  store i32 %60, ptr %52, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 17
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %40, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %40, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %40
   %61 = trunc i64 %2 to i32
@@ -11614,7 +11614,7 @@ define internal void @put_no_rnd_qpel16_mc32_c(ptr noundef writeonly captures(no
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %16 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %16, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %6
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -11634,7 +11634,7 @@ copy_block17.exit:                                ; preds = %6
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -11644,10 +11644,10 @@ copy_block17.exit:                                ; preds = %6
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = add i32 %37, %34
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %18, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %18, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11667,7 +11667,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %50 = lshr i32 %49, 1
   %51 = and i32 %50, 2139062143
   %52 = add i32 %51, %48
-  store i32 %52, ptr %43, align 8, !tbaa !10
+  store i32 %52, ptr %43, align 8, !tbaa !9
   %53 = getelementptr i8, ptr %43, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -11677,10 +11677,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %59 = lshr i32 %58, 1
   %60 = and i32 %59, 2139062143
   %61 = add i32 %60, %57
-  store i32 %61, ptr %53, align 4, !tbaa !10
+  store i32 %61, ptr %53, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 17
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %41, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %41, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   %62 = trunc i64 %2 to i32
@@ -11712,7 +11712,7 @@ define internal void @put_no_rnd_qpel16_mc03_c(ptr noundef writeonly captures(no
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %13 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %13, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %6
   call fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 16, i32 noundef 24)
@@ -11736,7 +11736,7 @@ copy_block16.exit:                                ; preds = %6
   %27 = add i32 %26, %23
   %28 = mul nsw i64 %indvars.iv.i.i, %15
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
-  store i32 %27, ptr %29, align 4, !tbaa !10
+  store i32 %27, ptr %29, align 4, !tbaa !9
   %30 = getelementptr i8, ptr %18, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -11747,10 +11747,10 @@ copy_block16.exit:                                ; preds = %6
   %37 = and i32 %36, 2139062143
   %38 = add i32 %37, %34
   %39 = getelementptr i8, ptr %29, i64 4
-  store i32 %38, ptr %39, align 4, !tbaa !10
+  store i32 %38, ptr %39, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %16, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %16, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11773,7 +11773,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %16
   %54 = add i32 %53, %50
   %55 = mul nsw i64 %indvars.iv.i14.i, %15
   %56 = getelementptr inbounds i8, ptr %40, i64 %55
-  store i32 %54, ptr %56, align 4, !tbaa !10
+  store i32 %54, ptr %56, align 4, !tbaa !9
   %57 = getelementptr i8, ptr %45, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -11784,10 +11784,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %16
   %64 = and i32 %63, 2139062143
   %65 = add i32 %64, %61
   %66 = getelementptr i8, ptr %56, i64 4
-  store i32 %65, ptr %66, align 4, !tbaa !10
+  store i32 %65, ptr %66, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %43, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %43, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %43
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -11823,7 +11823,7 @@ define internal void @put_no_rnd_qpel16_mc13_c(ptr noundef writeonly captures(no
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -11842,7 +11842,7 @@ copy_block17.exit:                                ; preds = %7
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -11852,10 +11852,10 @@ copy_block17.exit:                                ; preds = %7
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = add i32 %37, %34
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %18, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %18, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11875,7 +11875,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %50 = lshr i32 %49, 1
   %51 = and i32 %50, 2139062143
   %52 = add i32 %51, %48
-  store i32 %52, ptr %43, align 8, !tbaa !10
+  store i32 %52, ptr %43, align 8, !tbaa !9
   %53 = getelementptr i8, ptr %43, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -11885,10 +11885,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %18
   %59 = lshr i32 %58, 1
   %60 = and i32 %59, 2139062143
   %61 = add i32 %60, %57
-  store i32 %61, ptr %53, align 4, !tbaa !10
+  store i32 %61, ptr %53, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 17
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %41, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %41, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   call fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -11911,7 +11911,7 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   %74 = add i32 %73, %70
   %75 = mul nsw i64 %indvars.iv.i.i3, %63
   %76 = getelementptr inbounds i8, ptr %0, i64 %75
-  store i32 %74, ptr %76, align 4, !tbaa !10
+  store i32 %74, ptr %76, align 4, !tbaa !9
   %77 = getelementptr i8, ptr %66, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -11922,10 +11922,10 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %41
   %84 = and i32 %83, 2139062143
   %85 = add i32 %84, %81
   %86 = getelementptr i8, ptr %76, i64 4
-  store i32 %85, ptr %86, align 4, !tbaa !10
+  store i32 %85, ptr %86, align 4, !tbaa !9
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, 16
-  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %64, !llvm.loop !22
+  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %64, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %64
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11947,7 +11947,7 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %64
   %100 = add i32 %99, %96
   %101 = mul nsw i64 %indvars.iv.i14.i7, %63
   %102 = getelementptr inbounds i8, ptr %87, i64 %101
-  store i32 %100, ptr %102, align 4, !tbaa !10
+  store i32 %100, ptr %102, align 4, !tbaa !9
   %103 = getelementptr i8, ptr %92, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -11958,10 +11958,10 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %64
   %110 = and i32 %109, 2139062143
   %111 = add i32 %110, %107
   %112 = getelementptr i8, ptr %102, i64 4
-  store i32 %111, ptr %112, align 4, !tbaa !10
+  store i32 %111, ptr %112, align 4, !tbaa !9
   %indvars.iv.next.i15.i8 = add nuw nsw i64 %indvars.iv.i14.i7, 1
   %exitcond.not.i16.i9 = icmp eq i64 %indvars.iv.next.i15.i8, 16
-  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %90, !llvm.loop !22
+  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %90, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit10:                  ; preds = %90
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -11998,7 +11998,7 @@ define internal void @put_no_rnd_qpel16_mc23_c(ptr noundef writeonly captures(no
   %19 = add i32 %18, %15
   %20 = mul nsw i64 %indvars.iv.i.i, %8
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
-  store i32 %19, ptr %21, align 4, !tbaa !10
+  store i32 %19, ptr %21, align 4, !tbaa !9
   %22 = getelementptr i8, ptr %11, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -12009,10 +12009,10 @@ define internal void @put_no_rnd_qpel16_mc23_c(ptr noundef writeonly captures(no
   %29 = and i32 %28, 2139062143
   %30 = add i32 %29, %26
   %31 = getelementptr i8, ptr %21, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !10
+  store i32 %30, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %9, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %9, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %9
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12034,7 +12034,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %9
   %45 = add i32 %44, %41
   %46 = mul nsw i64 %indvars.iv.i14.i, %8
   %47 = getelementptr inbounds i8, ptr %32, i64 %46
-  store i32 %45, ptr %47, align 4, !tbaa !10
+  store i32 %45, ptr %47, align 4, !tbaa !9
   %48 = getelementptr i8, ptr %37, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -12045,10 +12045,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %9
   %55 = and i32 %54, 2139062143
   %56 = add i32 %55, %52
   %57 = getelementptr i8, ptr %47, i64 4
-  store i32 %56, ptr %57, align 4, !tbaa !10
+  store i32 %56, ptr %57, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %35, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %35, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %35
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -12084,7 +12084,7 @@ define internal void @put_no_rnd_qpel16_mc33_c(ptr noundef writeonly captures(no
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_no_rnd_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -12104,7 +12104,7 @@ copy_block17.exit:                                ; preds = %7
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 2139062143
   %30 = add i32 %29, %26
-  store i32 %30, ptr %21, align 16, !tbaa !10
+  store i32 %30, ptr %21, align 16, !tbaa !9
   %31 = getelementptr i8, ptr %21, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -12114,10 +12114,10 @@ copy_block17.exit:                                ; preds = %7
   %37 = lshr i32 %36, 1
   %38 = and i32 %37, 2139062143
   %39 = add i32 %38, %35
-  store i32 %39, ptr %31, align 4, !tbaa !10
+  store i32 %39, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %19, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %put_no_rnd_pixels8_l2_8.exit.i, label %19, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %19
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12137,7 +12137,7 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %19
   %51 = lshr i32 %50, 1
   %52 = and i32 %51, 2139062143
   %53 = add i32 %52, %49
-  store i32 %53, ptr %44, align 8, !tbaa !10
+  store i32 %53, ptr %44, align 8, !tbaa !9
   %54 = getelementptr i8, ptr %44, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -12147,10 +12147,10 @@ put_no_rnd_pixels8_l2_8.exit.i:                   ; preds = %19
   %60 = lshr i32 %59, 1
   %61 = and i32 %60, 2139062143
   %62 = add i32 %61, %58
-  store i32 %62, ptr %54, align 4, !tbaa !10
+  store i32 %62, ptr %54, align 4, !tbaa !9
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 17
-  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %42, !llvm.loop !22
+  br i1 %exitcond.not.i16.i, label %put_no_rnd_pixels16_l2_8.exit, label %42, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   call fastcc void @put_no_rnd_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -12173,7 +12173,7 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   %75 = add i32 %74, %71
   %76 = mul nsw i64 %indvars.iv.i.i3, %64
   %77 = getelementptr inbounds i8, ptr %0, i64 %76
-  store i32 %75, ptr %77, align 4, !tbaa !10
+  store i32 %75, ptr %77, align 4, !tbaa !9
   %78 = getelementptr i8, ptr %67, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -12184,10 +12184,10 @@ put_no_rnd_pixels16_l2_8.exit:                    ; preds = %42
   %85 = and i32 %84, 2139062143
   %86 = add i32 %85, %82
   %87 = getelementptr i8, ptr %77, i64 4
-  store i32 %86, ptr %87, align 4, !tbaa !10
+  store i32 %86, ptr %87, align 4, !tbaa !9
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, 16
-  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %65, !llvm.loop !22
+  br i1 %exitcond.not.i.i5, label %put_no_rnd_pixels8_l2_8.exit.i6, label %65, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %65
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12209,7 +12209,7 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %65
   %101 = add i32 %100, %97
   %102 = mul nsw i64 %indvars.iv.i14.i7, %64
   %103 = getelementptr inbounds i8, ptr %88, i64 %102
-  store i32 %101, ptr %103, align 4, !tbaa !10
+  store i32 %101, ptr %103, align 4, !tbaa !9
   %104 = getelementptr i8, ptr %93, i64 4
   %105 = load i32, ptr %104, align 4, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -12220,10 +12220,10 @@ put_no_rnd_pixels8_l2_8.exit.i6:                  ; preds = %65
   %111 = and i32 %110, 2139062143
   %112 = add i32 %111, %108
   %113 = getelementptr i8, ptr %103, i64 4
-  store i32 %112, ptr %113, align 4, !tbaa !10
+  store i32 %112, ptr %113, align 4, !tbaa !9
   %indvars.iv.next.i15.i8 = add nuw nsw i64 %indvars.iv.i14.i7, 1
   %exitcond.not.i16.i9 = icmp eq i64 %indvars.iv.next.i15.i8, 16
-  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %91, !llvm.loop !22
+  br i1 %exitcond.not.i16.i9, label %put_no_rnd_pixels16_l2_8.exit10, label %91, !llvm.loop !21
 
 put_no_rnd_pixels16_l2_8.exit10:                  ; preds = %91
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -12256,7 +12256,7 @@ define internal void @put_no_rnd_qpel8_mc10_c(ptr noundef writeonly captures(non
   %17 = and i32 %16, 2139062143
   %18 = add i32 %17, %14
   %19 = getelementptr inbounds i8, ptr %0, i64 %8
-  store i32 %18, ptr %19, align 4, !tbaa !10
+  store i32 %18, ptr %19, align 4, !tbaa !9
   %20 = getelementptr i8, ptr %9, i64 4
   %21 = load i32, ptr %20, align 1, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -12267,10 +12267,10 @@ define internal void @put_no_rnd_qpel8_mc10_c(ptr noundef writeonly captures(non
   %27 = and i32 %26, 2139062143
   %28 = add i32 %27, %24
   %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %28, ptr %29, align 4, !tbaa !10
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %7, !llvm.loop !22
+  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %7, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -12309,7 +12309,7 @@ define internal void @put_no_rnd_qpel8_mc30_c(ptr noundef writeonly captures(non
   %18 = and i32 %17, 2139062143
   %19 = add i32 %18, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 %9
-  store i32 %19, ptr %20, align 4, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 1, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -12320,10 +12320,10 @@ define internal void @put_no_rnd_qpel8_mc30_c(ptr noundef writeonly captures(non
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %8, !llvm.loop !22
+  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %8, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -12348,7 +12348,7 @@ define internal void @put_no_rnd_qpel8_mc01_c(ptr noundef writeonly captures(non
   %9 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %6
   call fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 8, i32 noundef 16)
@@ -12371,7 +12371,7 @@ copy_block8.exit:                                 ; preds = %6
   %23 = add i32 %22, %19
   %24 = mul nsw i64 %indvars.iv.i, %11
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
-  store i32 %23, ptr %25, align 4, !tbaa !10
+  store i32 %23, ptr %25, align 4, !tbaa !9
   %26 = getelementptr i8, ptr %14, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -12382,10 +12382,10 @@ copy_block8.exit:                                 ; preds = %6
   %33 = and i32 %32, 2139062143
   %34 = add i32 %33, %30
   %35 = getelementptr i8, ptr %25, i64 4
-  store i32 %34, ptr %35, align 4, !tbaa !10
+  store i32 %34, ptr %35, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %12, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %12, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -12436,7 +12436,7 @@ copy_block9.exit:                                 ; preds = %7
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = add i32 %25, %22
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -12446,10 +12446,10 @@ copy_block9.exit:                                 ; preds = %7
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = add i32 %34, %31
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %15, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %15, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   call fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -12471,7 +12471,7 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   %47 = add i32 %46, %43
   %48 = mul nsw i64 %indvars.iv.i4, %36
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
-  store i32 %47, ptr %49, align 4, !tbaa !10
+  store i32 %47, ptr %49, align 4, !tbaa !9
   %50 = getelementptr i8, ptr %39, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -12482,10 +12482,10 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   %57 = and i32 %56, 2139062143
   %58 = add i32 %57, %54
   %59 = getelementptr i8, ptr %49, i64 4
-  store i32 %58, ptr %59, align 4, !tbaa !10
+  store i32 %58, ptr %59, align 4, !tbaa !9
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 8
-  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %37, !llvm.loop !22
+  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %37, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit7:                    ; preds = %37
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -12521,7 +12521,7 @@ define internal void @put_no_rnd_qpel8_mc21_c(ptr noundef writeonly captures(non
   %18 = add i32 %17, %14
   %19 = mul nsw i64 %indvars.iv.i, %7
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  store i32 %18, ptr %20, align 4, !tbaa !10
+  store i32 %18, ptr %20, align 4, !tbaa !9
   %21 = getelementptr i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -12532,10 +12532,10 @@ define internal void @put_no_rnd_qpel8_mc21_c(ptr noundef writeonly captures(non
   %28 = and i32 %27, 2139062143
   %29 = add i32 %28, %25
   %30 = getelementptr i8, ptr %20, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !10
+  store i32 %29, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %8, !llvm.loop !22
+  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %8, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -12587,7 +12587,7 @@ copy_block9.exit:                                 ; preds = %7
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 2139062143
   %27 = add i32 %26, %23
-  store i32 %27, ptr %18, align 8, !tbaa !10
+  store i32 %27, ptr %18, align 8, !tbaa !9
   %28 = getelementptr i8, ptr %18, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -12597,10 +12597,10 @@ copy_block9.exit:                                 ; preds = %7
   %34 = lshr i32 %33, 1
   %35 = and i32 %34, 2139062143
   %36 = add i32 %35, %32
-  store i32 %36, ptr %28, align 4, !tbaa !10
+  store i32 %36, ptr %28, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %16, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %16, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %16
   call fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -12622,7 +12622,7 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %16
   %48 = add i32 %47, %44
   %49 = mul nsw i64 %indvars.iv.i4, %37
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  store i32 %48, ptr %50, align 4, !tbaa !10
+  store i32 %48, ptr %50, align 4, !tbaa !9
   %51 = getelementptr i8, ptr %40, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -12633,10 +12633,10 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %16
   %58 = and i32 %57, 2139062143
   %59 = add i32 %58, %55
   %60 = getelementptr i8, ptr %50, i64 4
-  store i32 %59, ptr %60, align 4, !tbaa !10
+  store i32 %59, ptr %60, align 4, !tbaa !9
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 8
-  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %38, !llvm.loop !22
+  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %38, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit7:                    ; preds = %38
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -12661,7 +12661,7 @@ define internal void @put_no_rnd_qpel8_mc02_c(ptr noundef writeonly captures(non
   %8 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %9 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %9, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %5, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %5, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %5
   %10 = trunc i64 %2 to i32
@@ -12711,7 +12711,7 @@ copy_block9.exit:                                 ; preds = %6
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = add i32 %24, %21
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -12721,10 +12721,10 @@ copy_block9.exit:                                 ; preds = %6
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = add i32 %33, %30
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %14, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %14, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %14
   %35 = trunc i64 %2 to i32
@@ -12787,7 +12787,7 @@ copy_block9.exit:                                 ; preds = %6
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = add i32 %25, %22
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -12797,10 +12797,10 @@ copy_block9.exit:                                 ; preds = %6
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = add i32 %34, %31
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %15, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %15, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   %36 = trunc i64 %2 to i32
@@ -12828,7 +12828,7 @@ define internal void @put_no_rnd_qpel8_mc03_c(ptr noundef writeonly captures(non
   %9 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %6
   call fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 8, i32 noundef 16)
@@ -12852,7 +12852,7 @@ copy_block8.exit:                                 ; preds = %6
   %24 = add i32 %23, %20
   %25 = mul nsw i64 %indvars.iv.i, %12
   %26 = getelementptr inbounds i8, ptr %0, i64 %25
-  store i32 %24, ptr %26, align 4, !tbaa !10
+  store i32 %24, ptr %26, align 4, !tbaa !9
   %27 = getelementptr i8, ptr %15, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -12863,10 +12863,10 @@ copy_block8.exit:                                 ; preds = %6
   %34 = and i32 %33, 2139062143
   %35 = add i32 %34, %31
   %36 = getelementptr i8, ptr %26, i64 4
-  store i32 %35, ptr %36, align 4, !tbaa !10
+  store i32 %35, ptr %36, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %13, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %13, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -12917,7 +12917,7 @@ copy_block9.exit:                                 ; preds = %7
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = add i32 %25, %22
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -12927,10 +12927,10 @@ copy_block9.exit:                                 ; preds = %7
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = add i32 %34, %31
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %15, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %15, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   call fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -12953,7 +12953,7 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   %48 = add i32 %47, %44
   %49 = mul nsw i64 %indvars.iv.i4, %37
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  store i32 %48, ptr %50, align 4, !tbaa !10
+  store i32 %48, ptr %50, align 4, !tbaa !9
   %51 = getelementptr i8, ptr %40, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -12964,10 +12964,10 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %15
   %58 = and i32 %57, 2139062143
   %59 = add i32 %58, %55
   %60 = getelementptr i8, ptr %50, i64 4
-  store i32 %59, ptr %60, align 4, !tbaa !10
+  store i32 %59, ptr %60, align 4, !tbaa !9
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 8
-  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %38, !llvm.loop !22
+  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %38, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit7:                    ; preds = %38
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -13004,7 +13004,7 @@ define internal void @put_no_rnd_qpel8_mc23_c(ptr noundef writeonly captures(non
   %19 = add i32 %18, %15
   %20 = mul nsw i64 %indvars.iv.i, %8
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
-  store i32 %19, ptr %21, align 4, !tbaa !10
+  store i32 %19, ptr %21, align 4, !tbaa !9
   %22 = getelementptr i8, ptr %11, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -13015,10 +13015,10 @@ define internal void @put_no_rnd_qpel8_mc23_c(ptr noundef writeonly captures(non
   %29 = and i32 %28, 2139062143
   %30 = add i32 %29, %26
   %31 = getelementptr i8, ptr %21, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !10
+  store i32 %30, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %9, !llvm.loop !22
+  br i1 %exitcond.not.i, label %put_no_rnd_pixels8_l2_8.exit, label %9, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -13070,7 +13070,7 @@ copy_block9.exit:                                 ; preds = %7
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 2139062143
   %27 = add i32 %26, %23
-  store i32 %27, ptr %18, align 8, !tbaa !10
+  store i32 %27, ptr %18, align 8, !tbaa !9
   %28 = getelementptr i8, ptr %18, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -13080,10 +13080,10 @@ copy_block9.exit:                                 ; preds = %7
   %34 = lshr i32 %33, 1
   %35 = and i32 %34, 2139062143
   %36 = add i32 %35, %32
-  store i32 %36, ptr %28, align 4, !tbaa !10
+  store i32 %36, ptr %28, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %16, !llvm.loop !22
+  br i1 %exitcond.not.i3, label %put_no_rnd_pixels8_l2_8.exit, label %16, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit:                     ; preds = %16
   call fastcc void @put_no_rnd_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -13106,7 +13106,7 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %16
   %49 = add i32 %48, %45
   %50 = mul nsw i64 %indvars.iv.i4, %38
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
-  store i32 %49, ptr %51, align 4, !tbaa !10
+  store i32 %49, ptr %51, align 4, !tbaa !9
   %52 = getelementptr i8, ptr %41, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -13117,10 +13117,10 @@ put_no_rnd_pixels8_l2_8.exit:                     ; preds = %16
   %59 = and i32 %58, 2139062143
   %60 = add i32 %59, %56
   %61 = getelementptr i8, ptr %51, i64 4
-  store i32 %60, ptr %61, align 4, !tbaa !10
+  store i32 %60, ptr %61, align 4, !tbaa !9
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 8
-  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %39, !llvm.loop !22
+  br i1 %exitcond.not.i6, label %put_no_rnd_pixels8_l2_8.exit7, label %39, !llvm.loop !21
 
 put_no_rnd_pixels8_l2_8.exit7:                    ; preds = %39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -13148,7 +13148,7 @@ define internal void @avg_qpel16_mc10_c(ptr noundef captures(none) %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 16, !tbaa !4
   %13 = getelementptr inbounds i8, ptr %0, i64 %7
-  %14 = load i32, ptr %13, align 4, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = or i32 %12, %9
   %16 = xor i32 %12, %9
   %17 = lshr i32 %16, 1
@@ -13159,13 +13159,13 @@ define internal void @avg_qpel16_mc10_c(ptr noundef captures(none) %0, ptr nound
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 2139062143
   %24 = sub i32 %20, %23
-  store i32 %24, ptr %13, align 4, !tbaa !10
+  store i32 %24, ptr %13, align 4, !tbaa !9
   %25 = getelementptr i8, ptr %8, i64 4
   %26 = load i32, ptr %25, align 1, !tbaa !4
   %27 = getelementptr i8, ptr %11, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %13, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !10
+  %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = or i32 %28, %26
   %32 = xor i32 %28, %26
   %33 = lshr i32 %32, 1
@@ -13176,10 +13176,10 @@ define internal void @avg_qpel16_mc10_c(ptr noundef captures(none) %0, ptr nound
   %38 = lshr i32 %37, 1
   %39 = and i32 %38, 2139062143
   %40 = sub i32 %36, %39
-  store i32 %40, ptr %29, align 4, !tbaa !10
+  store i32 %40, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13196,7 +13196,7 @@ define internal void @avg_qpel16_mc10_c(ptr noundef captures(none) %0, ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
   %49 = load i32, ptr %48, align 8, !tbaa !4
   %50 = getelementptr inbounds i8, ptr %41, i64 %44
-  %51 = load i32, ptr %50, align 4, !tbaa !10
+  %51 = load i32, ptr %50, align 4, !tbaa !9
   %52 = or i32 %49, %46
   %53 = xor i32 %49, %46
   %54 = lshr i32 %53, 1
@@ -13207,13 +13207,13 @@ define internal void @avg_qpel16_mc10_c(ptr noundef captures(none) %0, ptr nound
   %59 = lshr i32 %58, 1
   %60 = and i32 %59, 2139062143
   %61 = sub i32 %57, %60
-  store i32 %61, ptr %50, align 4, !tbaa !10
+  store i32 %61, ptr %50, align 4, !tbaa !9
   %62 = getelementptr i8, ptr %45, i64 4
   %63 = load i32, ptr %62, align 1, !tbaa !4
   %64 = getelementptr i8, ptr %48, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = getelementptr i8, ptr %50, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !10
+  %67 = load i32, ptr %66, align 4, !tbaa !9
   %68 = or i32 %65, %63
   %69 = xor i32 %65, %63
   %70 = lshr i32 %69, 1
@@ -13224,10 +13224,10 @@ define internal void @avg_qpel16_mc10_c(ptr noundef captures(none) %0, ptr nound
   %75 = lshr i32 %74, 1
   %76 = and i32 %75, 2139062143
   %77 = sub i32 %73, %76
-  store i32 %77, ptr %66, align 4, !tbaa !10
+  store i32 %77, ptr %66, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
@@ -13879,7 +13879,7 @@ define internal void @avg_qpel16_mc20_c(ptr noundef captures(none) %0, ptr nound
   %579 = getelementptr inbounds i8, ptr %.0183247.i, i64 %4
   %580 = add nuw nsw i32 %.0249.i, 1
   %exitcond.not.i = icmp eq i32 %580, 16
-  br i1 %exitcond.not.i, label %avg_mpeg4_qpel16_h_lowpass.exit, label %5, !llvm.loop !35
+  br i1 %exitcond.not.i, label %avg_mpeg4_qpel16_h_lowpass.exit, label %5, !llvm.loop !34
 
 avg_mpeg4_qpel16_h_lowpass.exit:                  ; preds = %5
   ret void
@@ -13905,7 +13905,7 @@ define internal void @avg_qpel16_mc30_c(ptr noundef captures(none) %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = load i32, ptr %12, align 16, !tbaa !4
   %14 = getelementptr inbounds i8, ptr %0, i64 %8
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %16 = or i32 %13, %10
   %17 = xor i32 %13, %10
   %18 = lshr i32 %17, 1
@@ -13916,13 +13916,13 @@ define internal void @avg_qpel16_mc30_c(ptr noundef captures(none) %0, ptr nound
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %14, align 4, !tbaa !10
+  store i32 %25, ptr %14, align 4, !tbaa !9
   %26 = getelementptr i8, ptr %9, i64 4
   %27 = load i32, ptr %26, align 1, !tbaa !4
   %28 = getelementptr i8, ptr %12, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %14, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !9
   %32 = or i32 %29, %27
   %33 = xor i32 %29, %27
   %34 = lshr i32 %33, 1
@@ -13933,10 +13933,10 @@ define internal void @avg_qpel16_mc30_c(ptr noundef captures(none) %0, ptr nound
   %39 = lshr i32 %38, 1
   %40 = and i32 %39, 2139062143
   %41 = sub i32 %37, %40
-  store i32 %41, ptr %30, align 4, !tbaa !10
+  store i32 %41, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13953,7 +13953,7 @@ define internal void @avg_qpel16_mc30_c(ptr noundef captures(none) %0, ptr nound
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
   %50 = load i32, ptr %49, align 8, !tbaa !4
   %51 = getelementptr inbounds i8, ptr %42, i64 %45
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !9
   %53 = or i32 %50, %47
   %54 = xor i32 %50, %47
   %55 = lshr i32 %54, 1
@@ -13964,13 +13964,13 @@ define internal void @avg_qpel16_mc30_c(ptr noundef captures(none) %0, ptr nound
   %60 = lshr i32 %59, 1
   %61 = and i32 %60, 2139062143
   %62 = sub i32 %58, %61
-  store i32 %62, ptr %51, align 4, !tbaa !10
+  store i32 %62, ptr %51, align 4, !tbaa !9
   %63 = getelementptr i8, ptr %46, i64 4
   %64 = load i32, ptr %63, align 1, !tbaa !4
   %65 = getelementptr i8, ptr %49, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !4
   %67 = getelementptr i8, ptr %51, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !9
   %69 = or i32 %66, %64
   %70 = xor i32 %66, %64
   %71 = lshr i32 %70, 1
@@ -13981,10 +13981,10 @@ define internal void @avg_qpel16_mc30_c(ptr noundef captures(none) %0, ptr nound
   %76 = lshr i32 %75, 1
   %77 = and i32 %76, 2139062143
   %78 = sub i32 %74, %77
-  store i32 %78, ptr %67, align 4, !tbaa !10
+  store i32 %78, ptr %67, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
@@ -14013,7 +14013,7 @@ define internal void @avg_qpel16_mc01_c(ptr noundef captures(none) %0, ptr nound
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %13 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %13, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 16, i32 noundef 24)
@@ -14031,7 +14031,7 @@ copy_block16.exit:                                ; preds = %6
   %20 = load i32, ptr %19, align 16, !tbaa !4
   %21 = mul nsw i64 %indvars.iv.i.i, %14
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %23 = load i32, ptr %22, align 4, !tbaa !9
   %24 = or i32 %20, %17
   %25 = xor i32 %20, %17
   %26 = lshr i32 %25, 1
@@ -14042,13 +14042,13 @@ copy_block16.exit:                                ; preds = %6
   %31 = lshr i32 %30, 1
   %32 = and i32 %31, 2139062143
   %33 = sub i32 %29, %32
-  store i32 %33, ptr %22, align 4, !tbaa !10
+  store i32 %33, ptr %22, align 4, !tbaa !9
   %34 = getelementptr i8, ptr %16, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = getelementptr i8, ptr %19, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !4
   %38 = getelementptr i8, ptr %22, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !10
+  %39 = load i32, ptr %38, align 4, !tbaa !9
   %40 = or i32 %37, %35
   %41 = xor i32 %37, %35
   %42 = lshr i32 %41, 1
@@ -14059,10 +14059,10 @@ copy_block16.exit:                                ; preds = %6
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 2139062143
   %49 = sub i32 %45, %48
-  store i32 %49, ptr %38, align 4, !tbaa !10
+  store i32 %49, ptr %38, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14080,7 +14080,7 @@ copy_block16.exit:                                ; preds = %6
   %58 = load i32, ptr %57, align 8, !tbaa !4
   %59 = mul nsw i64 %indvars.iv.i16.i, %14
   %60 = getelementptr inbounds i8, ptr %50, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %61 = load i32, ptr %60, align 4, !tbaa !9
   %62 = or i32 %58, %55
   %63 = xor i32 %58, %55
   %64 = lshr i32 %63, 1
@@ -14091,13 +14091,13 @@ copy_block16.exit:                                ; preds = %6
   %69 = lshr i32 %68, 1
   %70 = and i32 %69, 2139062143
   %71 = sub i32 %67, %70
-  store i32 %71, ptr %60, align 4, !tbaa !10
+  store i32 %71, ptr %60, align 4, !tbaa !9
   %72 = getelementptr i8, ptr %54, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !4
   %74 = getelementptr i8, ptr %57, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !4
   %76 = getelementptr i8, ptr %60, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !10
+  %77 = load i32, ptr %76, align 4, !tbaa !9
   %78 = or i32 %75, %73
   %79 = xor i32 %75, %73
   %80 = lshr i32 %79, 1
@@ -14108,10 +14108,10 @@ copy_block16.exit:                                ; preds = %6
   %85 = lshr i32 %84, 1
   %86 = and i32 %85, 2139062143
   %87 = sub i32 %83, %86
-  store i32 %87, ptr %76, align 4, !tbaa !10
+  store i32 %87, ptr %76, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -14147,7 +14147,7 @@ define internal void @avg_qpel16_mc11_c(ptr noundef captures(none) %0, ptr nound
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -14166,7 +14166,7 @@ copy_block17.exit:                                ; preds = %7
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %22, i64 4
@@ -14176,10 +14176,10 @@ copy_block17.exit:                                ; preds = %7
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14199,7 +14199,7 @@ copy_block17.exit:                                ; preds = %7
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %41, align 8, !tbaa !10
+  store i32 %50, ptr %41, align 8, !tbaa !9
   %51 = getelementptr i8, ptr %41, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %44, i64 4
@@ -14209,10 +14209,10 @@ copy_block17.exit:                                ; preds = %7
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 2139062143
   %59 = sub i32 %55, %58
-  store i32 %59, ptr %51, align 4, !tbaa !10
+  store i32 %59, ptr %51, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -14229,7 +14229,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %65 = load i32, ptr %64, align 16, !tbaa !4
   %66 = mul nsw i64 %indvars.iv.i.i4, %60
   %67 = getelementptr inbounds i8, ptr %0, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !9
   %69 = or i32 %65, %63
   %70 = xor i32 %65, %63
   %71 = lshr i32 %70, 1
@@ -14240,13 +14240,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %76 = lshr i32 %75, 1
   %77 = and i32 %76, 2139062143
   %78 = sub i32 %74, %77
-  store i32 %78, ptr %67, align 4, !tbaa !10
+  store i32 %78, ptr %67, align 4, !tbaa !9
   %79 = getelementptr i8, ptr %62, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !4
   %81 = getelementptr i8, ptr %64, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = getelementptr i8, ptr %67, i64 4
-  %84 = load i32, ptr %83, align 4, !tbaa !10
+  %84 = load i32, ptr %83, align 4, !tbaa !9
   %85 = or i32 %82, %80
   %86 = xor i32 %82, %80
   %87 = lshr i32 %86, 1
@@ -14257,10 +14257,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %92 = lshr i32 %91, 1
   %93 = and i32 %92, 2139062143
   %94 = sub i32 %90, %93
-  store i32 %94, ptr %83, align 4, !tbaa !10
+  store i32 %94, ptr %83, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !26
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !25
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14276,7 +14276,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %101 = load i32, ptr %100, align 8, !tbaa !4
   %102 = mul nsw i64 %indvars.iv.i16.i9, %60
   %103 = getelementptr inbounds i8, ptr %95, i64 %102
-  %104 = load i32, ptr %103, align 4, !tbaa !10
+  %104 = load i32, ptr %103, align 4, !tbaa !9
   %105 = or i32 %101, %99
   %106 = xor i32 %101, %99
   %107 = lshr i32 %106, 1
@@ -14287,13 +14287,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %112 = lshr i32 %111, 1
   %113 = and i32 %112, 2139062143
   %114 = sub i32 %110, %113
-  store i32 %114, ptr %103, align 4, !tbaa !10
+  store i32 %114, ptr %103, align 4, !tbaa !9
   %115 = getelementptr i8, ptr %98, i64 4
   %116 = load i32, ptr %115, align 4, !tbaa !4
   %117 = getelementptr i8, ptr %100, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !4
   %119 = getelementptr i8, ptr %103, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !10
+  %120 = load i32, ptr %119, align 4, !tbaa !9
   %121 = or i32 %118, %116
   %122 = xor i32 %118, %116
   %123 = lshr i32 %122, 1
@@ -14304,10 +14304,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %128 = lshr i32 %127, 1
   %129 = and i32 %128, 2139062143
   %130 = sub i32 %126, %129
-  store i32 %130, ptr %119, align 4, !tbaa !10
+  store i32 %130, ptr %119, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !26
+  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -14338,7 +14338,7 @@ define internal void @avg_qpel16_mc21_c(ptr noundef captures(none) %0, ptr nound
   %12 = load i32, ptr %11, align 16, !tbaa !4
   %13 = mul nsw i64 %indvars.iv.i.i, %7
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %16 = or i32 %12, %10
   %17 = xor i32 %12, %10
   %18 = lshr i32 %17, 1
@@ -14349,13 +14349,13 @@ define internal void @avg_qpel16_mc21_c(ptr noundef captures(none) %0, ptr nound
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %14, align 4, !tbaa !10
+  store i32 %25, ptr %14, align 4, !tbaa !9
   %26 = getelementptr i8, ptr %9, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %11, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %14, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !9
   %32 = or i32 %29, %27
   %33 = xor i32 %29, %27
   %34 = lshr i32 %33, 1
@@ -14366,10 +14366,10 @@ define internal void @avg_qpel16_mc21_c(ptr noundef captures(none) %0, ptr nound
   %39 = lshr i32 %38, 1
   %40 = and i32 %39, 2139062143
   %41 = sub i32 %37, %40
-  store i32 %41, ptr %30, align 4, !tbaa !10
+  store i32 %41, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14386,7 +14386,7 @@ define internal void @avg_qpel16_mc21_c(ptr noundef captures(none) %0, ptr nound
   %49 = load i32, ptr %48, align 8, !tbaa !4
   %50 = mul nsw i64 %indvars.iv.i16.i, %7
   %51 = getelementptr inbounds i8, ptr %42, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !10
+  %52 = load i32, ptr %51, align 4, !tbaa !9
   %53 = or i32 %49, %47
   %54 = xor i32 %49, %47
   %55 = lshr i32 %54, 1
@@ -14397,13 +14397,13 @@ define internal void @avg_qpel16_mc21_c(ptr noundef captures(none) %0, ptr nound
   %60 = lshr i32 %59, 1
   %61 = and i32 %60, 2139062143
   %62 = sub i32 %58, %61
-  store i32 %62, ptr %51, align 4, !tbaa !10
+  store i32 %62, ptr %51, align 4, !tbaa !9
   %63 = getelementptr i8, ptr %46, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !4
   %65 = getelementptr i8, ptr %48, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !4
   %67 = getelementptr i8, ptr %51, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = load i32, ptr %67, align 4, !tbaa !9
   %69 = or i32 %66, %64
   %70 = xor i32 %66, %64
   %71 = lshr i32 %70, 1
@@ -14414,10 +14414,10 @@ define internal void @avg_qpel16_mc21_c(ptr noundef captures(none) %0, ptr nound
   %76 = lshr i32 %75, 1
   %77 = and i32 %76, 2139062143
   %78 = sub i32 %74, %77
-  store i32 %78, ptr %67, align 4, !tbaa !10
+  store i32 %78, ptr %67, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -14453,7 +14453,7 @@ define internal void @avg_qpel16_mc31_c(ptr noundef captures(none) %0, ptr nound
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -14473,7 +14473,7 @@ copy_block17.exit:                                ; preds = %7
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr i8, ptr %23, i64 4
@@ -14483,10 +14483,10 @@ copy_block17.exit:                                ; preds = %7
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = sub i32 %34, %37
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14506,7 +14506,7 @@ copy_block17.exit:                                ; preds = %7
   %49 = lshr i32 %48, 1
   %50 = and i32 %49, 2139062143
   %51 = sub i32 %47, %50
-  store i32 %51, ptr %42, align 8, !tbaa !10
+  store i32 %51, ptr %42, align 8, !tbaa !9
   %52 = getelementptr i8, ptr %42, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr i8, ptr %45, i64 4
@@ -14516,10 +14516,10 @@ copy_block17.exit:                                ; preds = %7
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 2139062143
   %60 = sub i32 %56, %59
-  store i32 %60, ptr %52, align 4, !tbaa !10
+  store i32 %60, ptr %52, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -14536,7 +14536,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %66 = load i32, ptr %65, align 16, !tbaa !4
   %67 = mul nsw i64 %indvars.iv.i.i4, %61
   %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %69 = load i32, ptr %68, align 4, !tbaa !9
   %70 = or i32 %66, %64
   %71 = xor i32 %66, %64
   %72 = lshr i32 %71, 1
@@ -14547,13 +14547,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %77 = lshr i32 %76, 1
   %78 = and i32 %77, 2139062143
   %79 = sub i32 %75, %78
-  store i32 %79, ptr %68, align 4, !tbaa !10
+  store i32 %79, ptr %68, align 4, !tbaa !9
   %80 = getelementptr i8, ptr %63, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %82 = getelementptr i8, ptr %65, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !4
   %84 = getelementptr i8, ptr %68, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !10
+  %85 = load i32, ptr %84, align 4, !tbaa !9
   %86 = or i32 %83, %81
   %87 = xor i32 %83, %81
   %88 = lshr i32 %87, 1
@@ -14564,10 +14564,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %93 = lshr i32 %92, 1
   %94 = and i32 %93, 2139062143
   %95 = sub i32 %91, %94
-  store i32 %95, ptr %84, align 4, !tbaa !10
+  store i32 %95, ptr %84, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !26
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !25
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14583,7 +14583,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %102 = load i32, ptr %101, align 8, !tbaa !4
   %103 = mul nsw i64 %indvars.iv.i16.i9, %61
   %104 = getelementptr inbounds i8, ptr %96, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !10
+  %105 = load i32, ptr %104, align 4, !tbaa !9
   %106 = or i32 %102, %100
   %107 = xor i32 %102, %100
   %108 = lshr i32 %107, 1
@@ -14594,13 +14594,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %113 = lshr i32 %112, 1
   %114 = and i32 %113, 2139062143
   %115 = sub i32 %111, %114
-  store i32 %115, ptr %104, align 4, !tbaa !10
+  store i32 %115, ptr %104, align 4, !tbaa !9
   %116 = getelementptr i8, ptr %99, i64 4
   %117 = load i32, ptr %116, align 4, !tbaa !4
   %118 = getelementptr i8, ptr %101, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !4
   %120 = getelementptr i8, ptr %104, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !10
+  %121 = load i32, ptr %120, align 4, !tbaa !9
   %122 = or i32 %119, %117
   %123 = xor i32 %119, %117
   %124 = lshr i32 %123, 1
@@ -14611,10 +14611,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %129 = lshr i32 %128, 1
   %130 = and i32 %129, 2139062143
   %131 = sub i32 %127, %130
-  store i32 %131, ptr %120, align 4, !tbaa !10
+  store i32 %131, ptr %120, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !26
+  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -14643,7 +14643,7 @@ define internal void @avg_qpel16_mc02_c(ptr noundef captures(none) %0, ptr nound
   %11 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %12 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %12, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %5, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %5, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %5
   %13 = trunc i64 %2 to i32
@@ -14678,7 +14678,7 @@ define internal void @avg_qpel16_mc12_c(ptr noundef captures(none) %0, ptr nound
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %16 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %16, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -14697,7 +14697,7 @@ copy_block17.exit:                                ; preds = %6
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 2139062143
   %27 = sub i32 %23, %26
-  store i32 %27, ptr %18, align 16, !tbaa !10
+  store i32 %27, ptr %18, align 16, !tbaa !9
   %28 = getelementptr i8, ptr %18, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %21, i64 4
@@ -14707,10 +14707,10 @@ copy_block17.exit:                                ; preds = %6
   %34 = lshr i32 %33, 1
   %35 = and i32 %34, 2139062143
   %36 = sub i32 %32, %35
-  store i32 %36, ptr %28, align 4, !tbaa !10
+  store i32 %36, ptr %28, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14730,7 +14730,7 @@ copy_block17.exit:                                ; preds = %6
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 2139062143
   %49 = sub i32 %45, %48
-  store i32 %49, ptr %40, align 8, !tbaa !10
+  store i32 %49, ptr %40, align 8, !tbaa !9
   %50 = getelementptr i8, ptr %40, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = getelementptr i8, ptr %43, i64 4
@@ -14740,10 +14740,10 @@ copy_block17.exit:                                ; preds = %6
   %56 = lshr i32 %55, 1
   %57 = and i32 %56, 2139062143
   %58 = sub i32 %54, %57
-  store i32 %58, ptr %50, align 4, !tbaa !10
+  store i32 %58, ptr %50, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %59 = trunc i64 %2 to i32
@@ -14790,7 +14790,7 @@ define internal void @avg_qpel16_mc32_c(ptr noundef captures(none) %0, ptr nound
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %16 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %16, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %6, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -14810,7 +14810,7 @@ copy_block17.exit:                                ; preds = %6
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %22, i64 4
@@ -14820,10 +14820,10 @@ copy_block17.exit:                                ; preds = %6
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14843,7 +14843,7 @@ copy_block17.exit:                                ; preds = %6
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %41, align 8, !tbaa !10
+  store i32 %50, ptr %41, align 8, !tbaa !9
   %51 = getelementptr i8, ptr %41, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %44, i64 4
@@ -14853,10 +14853,10 @@ copy_block17.exit:                                ; preds = %6
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 2139062143
   %59 = sub i32 %55, %58
-  store i32 %59, ptr %51, align 4, !tbaa !10
+  store i32 %59, ptr %51, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %60 = trunc i64 %2 to i32
@@ -14888,7 +14888,7 @@ define internal void @avg_qpel16_mc03_c(ptr noundef captures(none) %0, ptr nound
   %12 = getelementptr inbounds i8, ptr %.01112.i, i64 %2
   %13 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %13, 17
-  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !33
+  br i1 %exitcond.not.i, label %copy_block16.exit, label %6, !llvm.loop !32
 
 copy_block16.exit:                                ; preds = %6
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 16, i32 noundef 24)
@@ -14907,7 +14907,7 @@ copy_block16.exit:                                ; preds = %6
   %21 = load i32, ptr %20, align 16, !tbaa !4
   %22 = mul nsw i64 %indvars.iv.i.i, %15
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = or i32 %21, %18
   %26 = xor i32 %21, %18
   %27 = lshr i32 %26, 1
@@ -14918,13 +14918,13 @@ copy_block16.exit:                                ; preds = %6
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %23, align 4, !tbaa !10
+  store i32 %34, ptr %23, align 4, !tbaa !9
   %35 = getelementptr i8, ptr %17, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = getelementptr i8, ptr %20, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !4
   %39 = getelementptr i8, ptr %23, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !10
+  %40 = load i32, ptr %39, align 4, !tbaa !9
   %41 = or i32 %38, %36
   %42 = xor i32 %38, %36
   %43 = lshr i32 %42, 1
@@ -14935,10 +14935,10 @@ copy_block16.exit:                                ; preds = %6
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %39, align 4, !tbaa !10
+  store i32 %50, ptr %39, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14956,7 +14956,7 @@ copy_block16.exit:                                ; preds = %6
   %59 = load i32, ptr %58, align 8, !tbaa !4
   %60 = mul nsw i64 %indvars.iv.i16.i, %15
   %61 = getelementptr inbounds i8, ptr %51, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %62 = load i32, ptr %61, align 4, !tbaa !9
   %63 = or i32 %59, %56
   %64 = xor i32 %59, %56
   %65 = lshr i32 %64, 1
@@ -14967,13 +14967,13 @@ copy_block16.exit:                                ; preds = %6
   %70 = lshr i32 %69, 1
   %71 = and i32 %70, 2139062143
   %72 = sub i32 %68, %71
-  store i32 %72, ptr %61, align 4, !tbaa !10
+  store i32 %72, ptr %61, align 4, !tbaa !9
   %73 = getelementptr i8, ptr %55, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = getelementptr i8, ptr %58, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = getelementptr i8, ptr %61, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !10
+  %78 = load i32, ptr %77, align 4, !tbaa !9
   %79 = or i32 %76, %74
   %80 = xor i32 %76, %74
   %81 = lshr i32 %80, 1
@@ -14984,10 +14984,10 @@ copy_block16.exit:                                ; preds = %6
   %86 = lshr i32 %85, 1
   %87 = and i32 %86, 2139062143
   %88 = sub i32 %84, %87
-  store i32 %88, ptr %77, align 4, !tbaa !10
+  store i32 %88, ptr %77, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -15023,7 +15023,7 @@ define internal void @avg_qpel16_mc13_c(ptr noundef captures(none) %0, ptr nound
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -15042,7 +15042,7 @@ copy_block17.exit:                                ; preds = %7
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 2139062143
   %28 = sub i32 %24, %27
-  store i32 %28, ptr %19, align 16, !tbaa !10
+  store i32 %28, ptr %19, align 16, !tbaa !9
   %29 = getelementptr i8, ptr %19, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %22, i64 4
@@ -15052,10 +15052,10 @@ copy_block17.exit:                                ; preds = %7
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2139062143
   %37 = sub i32 %33, %36
-  store i32 %37, ptr %29, align 4, !tbaa !10
+  store i32 %37, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15075,7 +15075,7 @@ copy_block17.exit:                                ; preds = %7
   %48 = lshr i32 %47, 1
   %49 = and i32 %48, 2139062143
   %50 = sub i32 %46, %49
-  store i32 %50, ptr %41, align 8, !tbaa !10
+  store i32 %50, ptr %41, align 8, !tbaa !9
   %51 = getelementptr i8, ptr %41, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !4
   %53 = getelementptr i8, ptr %44, i64 4
@@ -15085,10 +15085,10 @@ copy_block17.exit:                                ; preds = %7
   %57 = lshr i32 %56, 1
   %58 = and i32 %57, 2139062143
   %59 = sub i32 %55, %58
-  store i32 %59, ptr %51, align 4, !tbaa !10
+  store i32 %59, ptr %51, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -15106,7 +15106,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %66 = load i32, ptr %65, align 16, !tbaa !4
   %67 = mul nsw i64 %indvars.iv.i.i4, %61
   %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %69 = load i32, ptr %68, align 4, !tbaa !9
   %70 = or i32 %66, %64
   %71 = xor i32 %66, %64
   %72 = lshr i32 %71, 1
@@ -15117,13 +15117,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %77 = lshr i32 %76, 1
   %78 = and i32 %77, 2139062143
   %79 = sub i32 %75, %78
-  store i32 %79, ptr %68, align 4, !tbaa !10
+  store i32 %79, ptr %68, align 4, !tbaa !9
   %80 = getelementptr i8, ptr %63, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %82 = getelementptr i8, ptr %65, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !4
   %84 = getelementptr i8, ptr %68, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !10
+  %85 = load i32, ptr %84, align 4, !tbaa !9
   %86 = or i32 %83, %81
   %87 = xor i32 %83, %81
   %88 = lshr i32 %87, 1
@@ -15134,10 +15134,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %93 = lshr i32 %92, 1
   %94 = and i32 %93, 2139062143
   %95 = sub i32 %91, %94
-  store i32 %95, ptr %84, align 4, !tbaa !10
+  store i32 %95, ptr %84, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !26
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !25
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15154,7 +15154,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %103 = load i32, ptr %102, align 8, !tbaa !4
   %104 = mul nsw i64 %indvars.iv.i16.i9, %61
   %105 = getelementptr inbounds i8, ptr %96, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !10
+  %106 = load i32, ptr %105, align 4, !tbaa !9
   %107 = or i32 %103, %101
   %108 = xor i32 %103, %101
   %109 = lshr i32 %108, 1
@@ -15165,13 +15165,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %114 = lshr i32 %113, 1
   %115 = and i32 %114, 2139062143
   %116 = sub i32 %112, %115
-  store i32 %116, ptr %105, align 4, !tbaa !10
+  store i32 %116, ptr %105, align 4, !tbaa !9
   %117 = getelementptr i8, ptr %100, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !4
   %119 = getelementptr i8, ptr %102, i64 4
   %120 = load i32, ptr %119, align 4, !tbaa !4
   %121 = getelementptr i8, ptr %105, i64 4
-  %122 = load i32, ptr %121, align 4, !tbaa !10
+  %122 = load i32, ptr %121, align 4, !tbaa !9
   %123 = or i32 %120, %118
   %124 = xor i32 %120, %118
   %125 = lshr i32 %124, 1
@@ -15182,10 +15182,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %130 = lshr i32 %129, 1
   %131 = and i32 %130, 2139062143
   %132 = sub i32 %128, %131
-  store i32 %132, ptr %121, align 4, !tbaa !10
+  store i32 %132, ptr %121, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !26
+  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -15217,7 +15217,7 @@ define internal void @avg_qpel16_mc23_c(ptr noundef captures(none) %0, ptr nound
   %13 = load i32, ptr %12, align 16, !tbaa !4
   %14 = mul nsw i64 %indvars.iv.i.i, %8
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = or i32 %13, %11
   %18 = xor i32 %13, %11
   %19 = lshr i32 %18, 1
@@ -15228,13 +15228,13 @@ define internal void @avg_qpel16_mc23_c(ptr noundef captures(none) %0, ptr nound
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %15, align 4, !tbaa !10
+  store i32 %26, ptr %15, align 4, !tbaa !9
   %27 = getelementptr i8, ptr %10, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %12, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %15, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = or i32 %30, %28
   %34 = xor i32 %30, %28
   %35 = lshr i32 %34, 1
@@ -15245,10 +15245,10 @@ define internal void @avg_qpel16_mc23_c(ptr noundef captures(none) %0, ptr nound
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 2139062143
   %42 = sub i32 %38, %41
-  store i32 %42, ptr %31, align 4, !tbaa !10
+  store i32 %42, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15265,7 +15265,7 @@ define internal void @avg_qpel16_mc23_c(ptr noundef captures(none) %0, ptr nound
   %50 = load i32, ptr %49, align 8, !tbaa !4
   %51 = mul nsw i64 %indvars.iv.i16.i, %8
   %52 = getelementptr inbounds i8, ptr %43, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !10
+  %53 = load i32, ptr %52, align 4, !tbaa !9
   %54 = or i32 %50, %48
   %55 = xor i32 %50, %48
   %56 = lshr i32 %55, 1
@@ -15276,13 +15276,13 @@ define internal void @avg_qpel16_mc23_c(ptr noundef captures(none) %0, ptr nound
   %61 = lshr i32 %60, 1
   %62 = and i32 %61, 2139062143
   %63 = sub i32 %59, %62
-  store i32 %63, ptr %52, align 4, !tbaa !10
+  store i32 %63, ptr %52, align 4, !tbaa !9
   %64 = getelementptr i8, ptr %47, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = getelementptr i8, ptr %49, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !4
   %68 = getelementptr i8, ptr %52, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %69 = load i32, ptr %68, align 4, !tbaa !9
   %70 = or i32 %67, %65
   %71 = xor i32 %67, %65
   %72 = lshr i32 %71, 1
@@ -15293,10 +15293,10 @@ define internal void @avg_qpel16_mc23_c(ptr noundef captures(none) %0, ptr nound
   %77 = lshr i32 %76, 1
   %78 = and i32 %77, 2139062143
   %79 = sub i32 %75, %78
-  store i32 %79, ptr %68, align 4, !tbaa !10
+  store i32 %79, ptr %68, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 16
-  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !26
+  br i1 %exitcond.not.i18.i, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
@@ -15332,7 +15332,7 @@ define internal void @avg_qpel16_mc33_c(ptr noundef captures(none) %0, ptr nound
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 %2
   %17 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %17, 17
-  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %copy_block17.exit, label %7, !llvm.loop !15
 
 copy_block17.exit:                                ; preds = %7
   call fastcc void @put_mpeg4_qpel16_h_lowpass(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 16, i32 noundef 24, i32 noundef 17)
@@ -15352,7 +15352,7 @@ copy_block17.exit:                                ; preds = %7
   %27 = lshr i32 %26, 1
   %28 = and i32 %27, 2139062143
   %29 = sub i32 %25, %28
-  store i32 %29, ptr %20, align 16, !tbaa !10
+  store i32 %29, ptr %20, align 16, !tbaa !9
   %30 = getelementptr i8, ptr %20, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = getelementptr i8, ptr %23, i64 4
@@ -15362,10 +15362,10 @@ copy_block17.exit:                                ; preds = %7
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 2139062143
   %38 = sub i32 %34, %37
-  store i32 %38, ptr %30, align 4, !tbaa !10
+  store i32 %38, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i13.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i13.i:                           ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15385,7 +15385,7 @@ copy_block17.exit:                                ; preds = %7
   %49 = lshr i32 %48, 1
   %50 = and i32 %49, 2139062143
   %51 = sub i32 %47, %50
-  store i32 %51, ptr %42, align 8, !tbaa !10
+  store i32 %51, ptr %42, align 8, !tbaa !9
   %52 = getelementptr i8, ptr %42, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = getelementptr i8, ptr %45, i64 4
@@ -15395,10 +15395,10 @@ copy_block17.exit:                                ; preds = %7
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 2139062143
   %60 = sub i32 %56, %59
-  store i32 %60, ptr %52, align 4, !tbaa !10
+  store i32 %60, ptr %52, align 4, !tbaa !9
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, 17
-  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !15
+  br i1 %exitcond.not.i18.i, label %put_pixels16_l2_8.exit, label %.lr.ph.i15.i, !llvm.loop !14
 
 put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   call fastcc void @put_mpeg4_qpel16_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 16, i32 noundef 16)
@@ -15416,7 +15416,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %67 = load i32, ptr %66, align 16, !tbaa !4
   %68 = mul nsw i64 %indvars.iv.i.i4, %62
   %69 = getelementptr inbounds i8, ptr %0, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !10
+  %70 = load i32, ptr %69, align 4, !tbaa !9
   %71 = or i32 %67, %65
   %72 = xor i32 %67, %65
   %73 = lshr i32 %72, 1
@@ -15427,13 +15427,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %78 = lshr i32 %77, 1
   %79 = and i32 %78, 2139062143
   %80 = sub i32 %76, %79
-  store i32 %80, ptr %69, align 4, !tbaa !10
+  store i32 %80, ptr %69, align 4, !tbaa !9
   %81 = getelementptr i8, ptr %64, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = getelementptr i8, ptr %66, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !4
   %85 = getelementptr i8, ptr %69, i64 4
-  %86 = load i32, ptr %85, align 4, !tbaa !10
+  %86 = load i32, ptr %85, align 4, !tbaa !9
   %87 = or i32 %84, %82
   %88 = xor i32 %84, %82
   %89 = lshr i32 %88, 1
@@ -15444,10 +15444,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %94 = lshr i32 %93, 1
   %95 = and i32 %94, 2139062143
   %96 = sub i32 %92, %95
-  store i32 %96, ptr %85, align 4, !tbaa !10
+  store i32 %96, ptr %85, align 4, !tbaa !9
   %indvars.iv.next.i.i5 = add nuw nsw i64 %indvars.iv.i.i4, 1
   %exitcond.not.i.i6 = icmp eq i64 %indvars.iv.next.i.i5, 16
-  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !26
+  br i1 %exitcond.not.i.i6, label %.lr.ph.preheader.i13.i7, label %.lr.ph.i.i3, !llvm.loop !25
 
 .lr.ph.preheader.i13.i7:                          ; preds = %.lr.ph.i.i3
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15464,7 +15464,7 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %104 = load i32, ptr %103, align 8, !tbaa !4
   %105 = mul nsw i64 %indvars.iv.i16.i9, %62
   %106 = getelementptr inbounds i8, ptr %97, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !10
+  %107 = load i32, ptr %106, align 4, !tbaa !9
   %108 = or i32 %104, %102
   %109 = xor i32 %104, %102
   %110 = lshr i32 %109, 1
@@ -15475,13 +15475,13 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %115 = lshr i32 %114, 1
   %116 = and i32 %115, 2139062143
   %117 = sub i32 %113, %116
-  store i32 %117, ptr %106, align 4, !tbaa !10
+  store i32 %117, ptr %106, align 4, !tbaa !9
   %118 = getelementptr i8, ptr %101, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !4
   %120 = getelementptr i8, ptr %103, i64 4
   %121 = load i32, ptr %120, align 4, !tbaa !4
   %122 = getelementptr i8, ptr %106, i64 4
-  %123 = load i32, ptr %122, align 4, !tbaa !10
+  %123 = load i32, ptr %122, align 4, !tbaa !9
   %124 = or i32 %121, %119
   %125 = xor i32 %121, %119
   %126 = lshr i32 %125, 1
@@ -15492,10 +15492,10 @@ put_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i
   %131 = lshr i32 %130, 1
   %132 = and i32 %131, 2139062143
   %133 = sub i32 %129, %132
-  store i32 %133, ptr %122, align 4, !tbaa !10
+  store i32 %133, ptr %122, align 4, !tbaa !9
   %indvars.iv.next.i17.i10 = add nuw nsw i64 %indvars.iv.i16.i9, 1
   %exitcond.not.i18.i11 = icmp eq i64 %indvars.iv.next.i17.i10, 16
-  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !26
+  br i1 %exitcond.not.i18.i11, label %avg_pixels16_l2_8.exit, label %.lr.ph.i15.i8, !llvm.loop !25
 
 avg_pixels16_l2_8.exit:                           ; preds = %.lr.ph.i15.i8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
@@ -15523,7 +15523,7 @@ define internal void @avg_qpel8_mc10_c(ptr noundef captures(none) %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds i8, ptr %0, i64 %7
-  %14 = load i32, ptr %13, align 4, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = or i32 %12, %9
   %16 = xor i32 %12, %9
   %17 = lshr i32 %16, 1
@@ -15534,13 +15534,13 @@ define internal void @avg_qpel8_mc10_c(ptr noundef captures(none) %0, ptr nounde
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 2139062143
   %24 = sub i32 %20, %23
-  store i32 %24, ptr %13, align 4, !tbaa !10
+  store i32 %24, ptr %13, align 4, !tbaa !9
   %25 = getelementptr i8, ptr %8, i64 4
   %26 = load i32, ptr %25, align 1, !tbaa !4
   %27 = getelementptr i8, ptr %11, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %13, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !10
+  %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = or i32 %28, %26
   %32 = xor i32 %28, %26
   %33 = lshr i32 %32, 1
@@ -15551,10 +15551,10 @@ define internal void @avg_qpel8_mc10_c(ptr noundef captures(none) %0, ptr nounde
   %38 = lshr i32 %37, 1
   %39 = and i32 %38, 2139062143
   %40 = sub i32 %36, %39
-  store i32 %40, ptr %29, align 4, !tbaa !10
+  store i32 %40, ptr %29, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -15878,7 +15878,7 @@ define internal void @avg_qpel8_mc20_c(ptr noundef captures(none) %0, ptr nounde
   %283 = getelementptr inbounds i8, ptr %.095127.i, i64 %4
   %284 = add nuw nsw i32 %.0129.i, 1
   %exitcond.not.i = icmp eq i32 %284, 8
-  br i1 %exitcond.not.i, label %avg_mpeg4_qpel8_h_lowpass.exit, label %5, !llvm.loop !36
+  br i1 %exitcond.not.i, label %avg_mpeg4_qpel8_h_lowpass.exit, label %5, !llvm.loop !35
 
 avg_mpeg4_qpel8_h_lowpass.exit:                   ; preds = %5
   ret void
@@ -15904,7 +15904,7 @@ define internal void @avg_qpel8_mc30_c(ptr noundef captures(none) %0, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds i8, ptr %0, i64 %8
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %16 = or i32 %13, %10
   %17 = xor i32 %13, %10
   %18 = lshr i32 %17, 1
@@ -15915,13 +15915,13 @@ define internal void @avg_qpel8_mc30_c(ptr noundef captures(none) %0, ptr nounde
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %14, align 4, !tbaa !10
+  store i32 %25, ptr %14, align 4, !tbaa !9
   %26 = getelementptr i8, ptr %9, i64 4
   %27 = load i32, ptr %26, align 1, !tbaa !4
   %28 = getelementptr i8, ptr %12, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %14, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !9
   %32 = or i32 %29, %27
   %33 = xor i32 %29, %27
   %34 = lshr i32 %33, 1
@@ -15932,10 +15932,10 @@ define internal void @avg_qpel8_mc30_c(ptr noundef captures(none) %0, ptr nounde
   %39 = lshr i32 %38, 1
   %40 = and i32 %39, 2139062143
   %41 = sub i32 %37, %40
-  store i32 %41, ptr %30, align 4, !tbaa !10
+  store i32 %41, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -15960,7 +15960,7 @@ define internal void @avg_qpel8_mc01_c(ptr noundef captures(none) %0, ptr nounde
   %9 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %6
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 8, i32 noundef 16)
@@ -15978,7 +15978,7 @@ copy_block8.exit:                                 ; preds = %6
   %17 = load i32, ptr %16, align 8, !tbaa !4
   %18 = mul nsw i64 %indvars.iv.i, %11
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !10
+  %20 = load i32, ptr %19, align 4, !tbaa !9
   %21 = or i32 %17, %14
   %22 = xor i32 %17, %14
   %23 = lshr i32 %22, 1
@@ -15989,13 +15989,13 @@ copy_block8.exit:                                 ; preds = %6
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 2139062143
   %30 = sub i32 %26, %29
-  store i32 %30, ptr %19, align 4, !tbaa !10
+  store i32 %30, ptr %19, align 4, !tbaa !9
   %31 = getelementptr i8, ptr %13, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = getelementptr i8, ptr %16, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !4
   %35 = getelementptr i8, ptr %19, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %36 = load i32, ptr %35, align 4, !tbaa !9
   %37 = or i32 %34, %32
   %38 = xor i32 %34, %32
   %39 = lshr i32 %38, 1
@@ -16006,10 +16006,10 @@ copy_block8.exit:                                 ; preds = %6
   %44 = lshr i32 %43, 1
   %45 = and i32 %44, 2139062143
   %46 = sub i32 %42, %45
-  store i32 %46, ptr %35, align 4, !tbaa !10
+  store i32 %46, ptr %35, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -16060,7 +16060,7 @@ copy_block9.exit:                                 ; preds = %7
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %19, i64 4
@@ -16070,10 +16070,10 @@ copy_block9.exit:                                 ; preds = %7
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -16090,7 +16090,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %40 = load i32, ptr %39, align 8, !tbaa !4
   %41 = mul nsw i64 %indvars.iv.i5, %35
   %42 = getelementptr inbounds i8, ptr %0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = or i32 %40, %38
   %45 = xor i32 %40, %38
   %46 = lshr i32 %45, 1
@@ -16101,13 +16101,13 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %51 = lshr i32 %50, 1
   %52 = and i32 %51, 2139062143
   %53 = sub i32 %49, %52
-  store i32 %53, ptr %42, align 4, !tbaa !10
+  store i32 %53, ptr %42, align 4, !tbaa !9
   %54 = getelementptr i8, ptr %37, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = getelementptr i8, ptr %39, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !4
   %58 = getelementptr i8, ptr %42, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %59 = load i32, ptr %58, align 4, !tbaa !9
   %60 = or i32 %57, %55
   %61 = xor i32 %57, %55
   %62 = lshr i32 %61, 1
@@ -16118,10 +16118,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %67 = lshr i32 %66, 1
   %68 = and i32 %67, 2139062143
   %69 = sub i32 %65, %68
-  store i32 %69, ptr %58, align 4, !tbaa !10
+  store i32 %69, ptr %58, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !26
+  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -16152,7 +16152,7 @@ define internal void @avg_qpel8_mc21_c(ptr noundef captures(none) %0, ptr nounde
   %12 = load i32, ptr %11, align 8, !tbaa !4
   %13 = mul nsw i64 %indvars.iv.i, %7
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %16 = or i32 %12, %10
   %17 = xor i32 %12, %10
   %18 = lshr i32 %17, 1
@@ -16163,13 +16163,13 @@ define internal void @avg_qpel8_mc21_c(ptr noundef captures(none) %0, ptr nounde
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %14, align 4, !tbaa !10
+  store i32 %25, ptr %14, align 4, !tbaa !9
   %26 = getelementptr i8, ptr %9, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %11, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr i8, ptr %14, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !9
   %32 = or i32 %29, %27
   %33 = xor i32 %29, %27
   %34 = lshr i32 %33, 1
@@ -16180,10 +16180,10 @@ define internal void @avg_qpel8_mc21_c(ptr noundef captures(none) %0, ptr nounde
   %39 = lshr i32 %38, 1
   %40 = and i32 %39, 2139062143
   %41 = sub i32 %37, %40
-  store i32 %41, ptr %30, align 4, !tbaa !10
+  store i32 %41, ptr %30, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -16235,7 +16235,7 @@ copy_block9.exit:                                 ; preds = %7
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %20, i64 4
@@ -16245,10 +16245,10 @@ copy_block9.exit:                                 ; preds = %7
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -16265,7 +16265,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %41 = load i32, ptr %40, align 8, !tbaa !4
   %42 = mul nsw i64 %indvars.iv.i5, %36
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = or i32 %41, %39
   %46 = xor i32 %41, %39
   %47 = lshr i32 %46, 1
@@ -16276,13 +16276,13 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %52 = lshr i32 %51, 1
   %53 = and i32 %52, 2139062143
   %54 = sub i32 %50, %53
-  store i32 %54, ptr %43, align 4, !tbaa !10
+  store i32 %54, ptr %43, align 4, !tbaa !9
   %55 = getelementptr i8, ptr %38, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !4
   %57 = getelementptr i8, ptr %40, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = getelementptr i8, ptr %43, i64 4
-  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = or i32 %58, %56
   %62 = xor i32 %58, %56
   %63 = lshr i32 %62, 1
@@ -16293,10 +16293,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %68 = lshr i32 %67, 1
   %69 = and i32 %68, 2139062143
   %70 = sub i32 %66, %69
-  store i32 %70, ptr %59, align 4, !tbaa !10
+  store i32 %70, ptr %59, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !26
+  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -16321,7 +16321,7 @@ define internal void @avg_qpel8_mc02_c(ptr noundef captures(none) %0, ptr nounde
   %8 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %9 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %9, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %5, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %5, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %5
   %10 = trunc i64 %2 to i32
@@ -16371,7 +16371,7 @@ copy_block9.exit:                                 ; preds = %6
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 2139062143
   %24 = sub i32 %20, %23
-  store i32 %24, ptr %15, align 8, !tbaa !10
+  store i32 %24, ptr %15, align 8, !tbaa !9
   %25 = getelementptr i8, ptr %15, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = getelementptr i8, ptr %18, i64 4
@@ -16381,10 +16381,10 @@ copy_block9.exit:                                 ; preds = %6
   %31 = lshr i32 %30, 1
   %32 = and i32 %31, 2139062143
   %33 = sub i32 %29, %32
-  store i32 %33, ptr %25, align 4, !tbaa !10
+  store i32 %33, ptr %25, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %34 = trunc i64 %2 to i32
@@ -16447,7 +16447,7 @@ copy_block9.exit:                                 ; preds = %6
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %19, i64 4
@@ -16457,10 +16457,10 @@ copy_block9.exit:                                 ; preds = %6
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %35 = trunc i64 %2 to i32
@@ -16488,7 +16488,7 @@ define internal void @avg_qpel8_mc03_c(ptr noundef captures(none) %0, ptr nounde
   %9 = getelementptr inbounds i8, ptr %.0910.i, i64 %2
   %10 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %10, 9
-  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !34
+  br i1 %exitcond.not.i, label %copy_block8.exit, label %6, !llvm.loop !33
 
 copy_block8.exit:                                 ; preds = %6
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %5, ptr noundef %4, i32 noundef 8, i32 noundef 16)
@@ -16507,7 +16507,7 @@ copy_block8.exit:                                 ; preds = %6
   %18 = load i32, ptr %17, align 8, !tbaa !4
   %19 = mul nsw i64 %indvars.iv.i, %12
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %21 = load i32, ptr %20, align 4, !tbaa !9
   %22 = or i32 %18, %15
   %23 = xor i32 %18, %15
   %24 = lshr i32 %23, 1
@@ -16518,13 +16518,13 @@ copy_block8.exit:                                 ; preds = %6
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 2139062143
   %31 = sub i32 %27, %30
-  store i32 %31, ptr %20, align 4, !tbaa !10
+  store i32 %31, ptr %20, align 4, !tbaa !9
   %32 = getelementptr i8, ptr %14, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = getelementptr i8, ptr %17, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = getelementptr i8, ptr %20, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = or i32 %35, %33
   %39 = xor i32 %35, %33
   %40 = lshr i32 %39, 1
@@ -16535,10 +16535,10 @@ copy_block8.exit:                                 ; preds = %6
   %45 = lshr i32 %44, 1
   %46 = and i32 %45, 2139062143
   %47 = sub i32 %43, %46
-  store i32 %47, ptr %36, align 4, !tbaa !10
+  store i32 %47, ptr %36, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i3, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -16589,7 +16589,7 @@ copy_block9.exit:                                 ; preds = %7
   %23 = lshr i32 %22, 1
   %24 = and i32 %23, 2139062143
   %25 = sub i32 %21, %24
-  store i32 %25, ptr %16, align 8, !tbaa !10
+  store i32 %25, ptr %16, align 8, !tbaa !9
   %26 = getelementptr i8, ptr %16, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = getelementptr i8, ptr %19, i64 4
@@ -16599,10 +16599,10 @@ copy_block9.exit:                                 ; preds = %7
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 2139062143
   %34 = sub i32 %30, %33
-  store i32 %34, ptr %26, align 4, !tbaa !10
+  store i32 %34, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -16620,7 +16620,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %41 = load i32, ptr %40, align 8, !tbaa !4
   %42 = mul nsw i64 %indvars.iv.i5, %36
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = or i32 %41, %39
   %46 = xor i32 %41, %39
   %47 = lshr i32 %46, 1
@@ -16631,13 +16631,13 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %52 = lshr i32 %51, 1
   %53 = and i32 %52, 2139062143
   %54 = sub i32 %50, %53
-  store i32 %54, ptr %43, align 4, !tbaa !10
+  store i32 %54, ptr %43, align 4, !tbaa !9
   %55 = getelementptr i8, ptr %38, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !4
   %57 = getelementptr i8, ptr %40, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = getelementptr i8, ptr %43, i64 4
-  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = or i32 %58, %56
   %62 = xor i32 %58, %56
   %63 = lshr i32 %62, 1
@@ -16648,10 +16648,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %68 = lshr i32 %67, 1
   %69 = and i32 %68, 2139062143
   %70 = sub i32 %66, %69
-  store i32 %70, ptr %59, align 4, !tbaa !10
+  store i32 %70, ptr %59, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !26
+  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -16683,7 +16683,7 @@ define internal void @avg_qpel8_mc23_c(ptr noundef captures(none) %0, ptr nounde
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %14 = mul nsw i64 %indvars.iv.i, %8
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !10
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = or i32 %13, %11
   %18 = xor i32 %13, %11
   %19 = lshr i32 %18, 1
@@ -16694,13 +16694,13 @@ define internal void @avg_qpel8_mc23_c(ptr noundef captures(none) %0, ptr nounde
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %15, align 4, !tbaa !10
+  store i32 %26, ptr %15, align 4, !tbaa !9
   %27 = getelementptr i8, ptr %10, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %12, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = getelementptr i8, ptr %15, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = or i32 %30, %28
   %34 = xor i32 %30, %28
   %35 = lshr i32 %34, 1
@@ -16711,10 +16711,10 @@ define internal void @avg_qpel8_mc23_c(ptr noundef captures(none) %0, ptr nounde
   %40 = lshr i32 %39, 1
   %41 = and i32 %40, 2139062143
   %42 = sub i32 %38, %41
-  store i32 %42, ptr %31, align 4, !tbaa !10
+  store i32 %42, ptr %31, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %avg_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
@@ -16766,7 +16766,7 @@ copy_block9.exit:                                 ; preds = %7
   %24 = lshr i32 %23, 1
   %25 = and i32 %24, 2139062143
   %26 = sub i32 %22, %25
-  store i32 %26, ptr %17, align 8, !tbaa !10
+  store i32 %26, ptr %17, align 8, !tbaa !9
   %27 = getelementptr i8, ptr %17, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = getelementptr i8, ptr %20, i64 4
@@ -16776,10 +16776,10 @@ copy_block9.exit:                                 ; preds = %7
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 2139062143
   %35 = sub i32 %31, %34
-  store i32 %35, ptr %27, align 4, !tbaa !10
+  store i32 %35, ptr %27, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i3, label %put_pixels8_l2_8.exit, label %.lr.ph.i, !llvm.loop !14
 
 put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   call fastcc void @put_mpeg4_qpel8_v_lowpass(ptr noundef nonnull %6, ptr noundef %5, i32 noundef 8, i32 noundef 8)
@@ -16797,7 +16797,7 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %42 = load i32, ptr %41, align 8, !tbaa !4
   %43 = mul nsw i64 %indvars.iv.i5, %37
   %44 = getelementptr inbounds i8, ptr %0, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !10
+  %45 = load i32, ptr %44, align 4, !tbaa !9
   %46 = or i32 %42, %40
   %47 = xor i32 %42, %40
   %48 = lshr i32 %47, 1
@@ -16808,13 +16808,13 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %53 = lshr i32 %52, 1
   %54 = and i32 %53, 2139062143
   %55 = sub i32 %51, %54
-  store i32 %55, ptr %44, align 4, !tbaa !10
+  store i32 %55, ptr %44, align 4, !tbaa !9
   %56 = getelementptr i8, ptr %39, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !4
   %58 = getelementptr i8, ptr %41, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = getelementptr i8, ptr %44, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %61 = load i32, ptr %60, align 4, !tbaa !9
   %62 = or i32 %59, %57
   %63 = xor i32 %59, %57
   %64 = lshr i32 %63, 1
@@ -16825,10 +16825,10 @@ put_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i
   %69 = lshr i32 %68, 1
   %70 = and i32 %69, 2139062143
   %71 = sub i32 %67, %70
-  store i32 %71, ptr %60, align 4, !tbaa !10
+  store i32 %71, ptr %60, align 4, !tbaa !9
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
-  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !26
+  br i1 %exitcond.not.i7, label %avg_pixels8_l2_8.exit, label %.lr.ph.i4, !llvm.loop !25
 
 avg_pixels8_l2_8.exit:                            ; preds = %.lr.ph.i4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
@@ -17342,7 +17342,7 @@ define internal fastcc void @avg_mpeg4_qpel16_v_lowpass(ptr noundef captures(non
   %453 = getelementptr inbounds nuw i8, ptr %.0245296, i64 1
   %454 = add nuw nsw i32 %.0246295, 1
   %exitcond.not = icmp eq i32 %454, 16
-  br i1 %exitcond.not, label %455, label %65, !llvm.loop !37
+  br i1 %exitcond.not, label %455, label %65, !llvm.loop !36
 
 455:                                              ; preds = %65
   ret void
@@ -17605,7 +17605,7 @@ define internal fastcc void @avg_mpeg4_qpel8_v_lowpass(ptr noundef captures(none
   %229 = getelementptr inbounds nuw i8, ptr %.0125152, i64 1
   %230 = add nuw nsw i32 %.0126151, 1
   %exitcond.not = icmp eq i32 %230, 8
-  br i1 %exitcond.not, label %231, label %33, !llvm.loop !38
+  br i1 %exitcond.not, label %231, label %33, !llvm.loop !37
 
 231:                                              ; preds = %33
   ret void
@@ -17628,35 +17628,34 @@ attributes #6 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9}
-!27 = distinct !{!27, !8, !9}
-!28 = distinct !{!28, !8, !9}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 omnipotent char", !31, i64 0}
-!31 = !{!"any pointer", !5, i64 0}
-!32 = !{!31, !31, i64 0}
-!33 = distinct !{!33, !8, !9}
-!34 = distinct !{!34, !8, !9}
-!35 = distinct !{!35, !8, !9}
-!36 = distinct !{!36, !8, !9}
-!37 = distinct !{!37, !8, !9}
-!38 = distinct !{!38, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 omnipotent char", !30, i64 0}
+!30 = !{!"any pointer", !5, i64 0}
+!31 = !{!30, !30, i64 0}
+!32 = distinct !{!32, !8}
+!33 = distinct !{!33, !8}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !8}

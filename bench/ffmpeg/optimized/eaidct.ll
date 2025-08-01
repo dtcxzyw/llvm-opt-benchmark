@@ -194,7 +194,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %.0.i = select i1 %.not.i, i8 %150, i8 %149
   %151 = mul nsw i64 %1, %indvars.iv116
   %152 = getelementptr inbounds i8, ptr %0, i64 %151
-  store i8 %.0.i, ptr %152, align 1, !tbaa !11
+  store i8 %.0.i, ptr %152, align 1, !tbaa !10
   %153 = add nsw i32 %130, %123
   %154 = add nsw i32 %153, %139
   %155 = ashr i32 %154, 4
@@ -204,7 +204,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %157 = trunc nuw i32 %155 to i8
   %.0.i91 = select i1 %.not.i89, i8 %157, i8 %156
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 1
-  store i8 %.0.i91, ptr %158, align 1, !tbaa !11
+  store i8 %.0.i91, ptr %158, align 1, !tbaa !10
   %159 = sub nsw i32 %130, %123
   %160 = add nsw i32 %159, %144
   %161 = ashr i32 %160, 4
@@ -214,7 +214,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %163 = trunc nuw i32 %161 to i8
   %.0.i94 = select i1 %.not.i92, i8 %163, i8 %162
   %164 = getelementptr inbounds nuw i8, ptr %152, i64 2
-  store i8 %.0.i94, ptr %164, align 1, !tbaa !11
+  store i8 %.0.i94, ptr %164, align 1, !tbaa !10
   %165 = sub nsw i32 %129, %145
   %166 = add nsw i32 %165, %143
   %167 = ashr i32 %166, 4
@@ -224,7 +224,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %169 = trunc nuw i32 %167 to i8
   %.0.i97 = select i1 %.not.i95, i8 %169, i8 %168
   %170 = getelementptr inbounds nuw i8, ptr %152, i64 3
-  store i8 %.0.i97, ptr %170, align 1, !tbaa !11
+  store i8 %.0.i97, ptr %170, align 1, !tbaa !10
   %171 = sub nsw i32 %165, %143
   %172 = ashr i32 %171, 4
   %.not.i98 = icmp ult i32 %172, 256
@@ -233,7 +233,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %174 = trunc nuw i32 %172 to i8
   %.0.i100 = select i1 %.not.i98, i8 %174, i8 %173
   %175 = getelementptr inbounds nuw i8, ptr %152, i64 4
-  store i8 %.0.i100, ptr %175, align 1, !tbaa !11
+  store i8 %.0.i100, ptr %175, align 1, !tbaa !10
   %176 = sub nsw i32 %159, %144
   %177 = ashr i32 %176, 4
   %.not.i101 = icmp ult i32 %177, 256
@@ -242,7 +242,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %179 = trunc nuw i32 %177 to i8
   %.0.i103 = select i1 %.not.i101, i8 %179, i8 %178
   %180 = getelementptr inbounds nuw i8, ptr %152, i64 5
-  store i8 %.0.i103, ptr %180, align 1, !tbaa !11
+  store i8 %.0.i103, ptr %180, align 1, !tbaa !10
   %181 = sub nsw i32 %153, %139
   %182 = ashr i32 %181, 4
   %.not.i104 = icmp ult i32 %182, 256
@@ -251,7 +251,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %184 = trunc nuw i32 %182 to i8
   %.0.i106 = select i1 %.not.i104, i8 %184, i8 %183
   %185 = getelementptr inbounds nuw i8, ptr %152, i64 6
-  store i8 %.0.i106, ptr %185, align 1, !tbaa !11
+  store i8 %.0.i106, ptr %185, align 1, !tbaa !10
   %186 = sub nsw i32 %146, %135
   %187 = ashr i32 %186, 4
   %.not.i107 = icmp ult i32 %187, 256
@@ -260,10 +260,10 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %189 = trunc nuw i32 %187 to i8
   %.0.i109 = select i1 %.not.i107, i8 %189, i8 %188
   %190 = getelementptr inbounds nuw i8, ptr %152, i64 7
-  store i8 %.0.i109, ptr %190, align 1, !tbaa !11
+  store i8 %.0.i109, ptr %190, align 1, !tbaa !10
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 8
-  br i1 %exitcond119.not, label %191, label %.preheader, !llvm.loop !12
+  br i1 %exitcond119.not, label %191, label %.preheader, !llvm.loop !11
 
 191:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #2
@@ -290,8 +290,7 @@ attributes #2 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9, !10}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}

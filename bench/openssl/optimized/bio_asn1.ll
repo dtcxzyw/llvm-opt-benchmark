@@ -156,63 +156,63 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   br label %.backedge
 
 .backedge:                                        ; preds = %asn1_bio_setup_ex.exit, %54, %57, %30, %39, %23
-  br label %23, !llvm.loop !16
+  br label %23
 
 30:                                               ; preds = %23
-  %31 = load ptr, ptr %18, align 8, !tbaa !18
+  %31 = load ptr, ptr %18, align 8, !tbaa !16
   %32 = call fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef %5, ptr noundef %31, i32 noundef 2)
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %.loopexit91, label %.backedge
 
 34:                                               ; preds = %23
-  %35 = load i32, ptr %15, align 4, !tbaa !19
+  %35 = load i32, ptr %15, align 4, !tbaa !17
   %36 = call i32 @ASN1_object_size(i32 noundef 0, i32 noundef %.074.ph, i32 noundef %35) #6
   %37 = sub nsw i32 %36, %.074.ph
-  store i32 %37, ptr %14, align 8, !tbaa !20
-  %38 = load i32, ptr %16, align 8, !tbaa !21
+  store i32 %37, ptr %14, align 8, !tbaa !18
+  %38 = load i32, ptr %16, align 8, !tbaa !19
   %.not87 = icmp sgt i32 %37, %38
-  br i1 %.not87, label %.loopexit, label %39, !prof !22
+  br i1 %.not87, label %.loopexit, label %39, !prof !20
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %12, align 8, !tbaa !23
-  store ptr %40, ptr %4, align 8, !tbaa !24
-  %41 = load i32, ptr %15, align 4, !tbaa !19
-  %42 = load i32, ptr %17, align 8, !tbaa !25
+  %40 = load ptr, ptr %12, align 8, !tbaa !21
+  store ptr %40, ptr %4, align 8, !tbaa !22
+  %41 = load i32, ptr %15, align 4, !tbaa !17
+  %42 = load i32, ptr %17, align 8, !tbaa !23
   call void @ASN1_put_object(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %.074.ph, i32 noundef %41, i32 noundef %42) #6
-  store i32 %.074.ph, ptr %11, align 4, !tbaa !26
+  store i32 %.074.ph, ptr %11, align 4, !tbaa !24
   store i32 3, ptr %5, align 8, !tbaa !10
   br label %.backedge
 
 43:                                               ; preds = %23
-  %44 = load ptr, ptr %12, align 8, !tbaa !23
-  %45 = load i32, ptr %13, align 4, !tbaa !27
+  %44 = load ptr, ptr %12, align 8, !tbaa !21
+  %45 = load i32, ptr %13, align 4, !tbaa !25
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %44, i64 %46
-  %48 = load i32, ptr %14, align 8, !tbaa !20
+  %48 = load i32, ptr %14, align 8, !tbaa !18
   %49 = call i32 @BIO_write(ptr noundef %6, ptr noundef %47, i32 noundef %48) #6
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %.loopexit91, label %51
 
 51:                                               ; preds = %43
-  %52 = load i32, ptr %14, align 8, !tbaa !20
+  %52 = load i32, ptr %14, align 8, !tbaa !18
   %53 = sub nsw i32 %52, %49
-  store i32 %53, ptr %14, align 8, !tbaa !20
+  store i32 %53, ptr %14, align 8, !tbaa !18
   %.not = icmp eq i32 %52, %49
   br i1 %.not, label %57, label %54
 
 54:                                               ; preds = %51
-  %55 = load i32, ptr %13, align 4, !tbaa !27
+  %55 = load i32, ptr %13, align 4, !tbaa !25
   %56 = add nsw i32 %55, %49
-  store i32 %56, ptr %13, align 4, !tbaa !27
+  store i32 %56, ptr %13, align 4, !tbaa !25
   br label %.backedge
 
 57:                                               ; preds = %51
-  store i32 0, ptr %13, align 4, !tbaa !27
+  store i32 0, ptr %13, align 4, !tbaa !25
   store i32 4, ptr %5, align 8, !tbaa !10
   br label %.backedge
 
 58:                                               ; preds = %23
-  %59 = load i32, ptr %11, align 4, !tbaa !26
+  %59 = load i32, ptr %11, align 4, !tbaa !24
   %..074 = call i32 @llvm.smin.i32(i32 %.074.ph, i32 %59)
   %60 = call i32 @BIO_write(ptr noundef %6, ptr noundef %.072.ph, i32 noundef %..074) #6
   %61 = icmp slt i32 %60, 1
@@ -220,9 +220,9 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
 
 62:                                               ; preds = %58
   %63 = add nuw nsw i32 %60, %.070.ph
-  %64 = load i32, ptr %11, align 4, !tbaa !26
+  %64 = load i32, ptr %11, align 4, !tbaa !24
   %65 = sub nsw i32 %64, %60
-  store i32 %65, ptr %11, align 4, !tbaa !26
+  store i32 %65, ptr %11, align 4, !tbaa !24
   %66 = zext nneg i32 %60 to i64
   %67 = getelementptr inbounds nuw i8, ptr %.072.ph, i64 %66
   %68 = sub nsw i32 %.074.ph, %60
@@ -235,7 +235,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
 
 71:                                               ; preds = %70, %62
   %72 = icmp eq i32 %68, 0
-  br i1 %72, label %.loopexit91, label %.outer, !llvm.loop !16
+  br i1 %72, label %.loopexit91, label %.outer
 
 73:                                               ; preds = %23, %23
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
@@ -321,7 +321,7 @@ define internal i64 @asn1_bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %13, ptr %14, align 8, !tbaa !18
+  store ptr %13, ptr %14, align 8, !tbaa !16
   br label %74
 
 15:                                               ; preds = %7
@@ -329,7 +329,7 @@ define internal i64 @asn1_bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   store ptr %17, ptr %3, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !8
   br label %74
@@ -337,31 +337,31 @@ define internal i64 @asn1_bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %
 21:                                               ; preds = %7
   %22 = load ptr, ptr %3, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %22, ptr %23, align 8, !tbaa !28
+  store ptr %22, ptr %23, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %25, ptr %26, align 8, !tbaa !29
+  store ptr %25, ptr %26, align 8, !tbaa !27
   br label %74
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !28
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
   store ptr %29, ptr %3, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %31, ptr %32, align 8, !tbaa !8
   br label %74
 
 33:                                               ; preds = %7
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr %3, ptr %34, align 8, !tbaa !30
+  store ptr %3, ptr %34, align 8, !tbaa !28
   br label %74
 
 35:                                               ; preds = %7
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %37 = load ptr, ptr %36, align 8, !tbaa !28
   store ptr %37, ptr %3, align 8, !tbaa !9
   br label %74
 
@@ -376,7 +376,7 @@ define internal i64 @asn1_bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %45 = load ptr, ptr %44, align 8, !tbaa !28
+  %45 = load ptr, ptr %44, align 8, !tbaa !26
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %asn1_bio_setup_ex.exit, label %46
 
@@ -407,7 +407,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %43, %46
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %59 = load ptr, ptr %58, align 8, !tbaa !29
+  %59 = load ptr, ptr %58, align 8, !tbaa !27
   %60 = tail call fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef %5, ptr noundef %59, i32 noundef 6)
   %61 = icmp slt i32 %60, 1
   br i1 %61, label %62, label %._crit_edge
@@ -455,7 +455,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_new(ptr noundef %0) #1 {
 4:                                                ; preds = %1
   %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 20, ptr noundef nonnull @.str.2, i32 noundef 121) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !23
+  store ptr %5, ptr %6, align 8, !tbaa !21
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %9
 
@@ -465,11 +465,11 @@ define internal range(i32 0, 2) i32 @asn1_bio_new(ptr noundef %0) #1 {
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 20, ptr %10, align 8, !tbaa !21
+  store i32 20, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %11, align 8, !tbaa !25
+  store i32 0, ptr %11, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 4, ptr %12, align 4, !tbaa !19
+  store i32 4, ptr %12, align 4, !tbaa !17
   store i32 0, ptr %2, align 8, !tbaa !10
   tail call void @BIO_set_data(ptr noundef %0, ptr noundef nonnull %2) #6
   tail call void @BIO_set_init(ptr noundef %0, i32 noundef 1) #6
@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_free(ptr noundef %0) #1 {
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !18
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %14, label %9
 
@@ -505,7 +505,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_free(ptr noundef %0) #1 {
 
 14:                                               ; preds = %9, %6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   %.not23 = icmp eq ptr %16, null
   br i1 %.not23, label %22, label %17
 
@@ -518,7 +518,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_free(ptr noundef %0) #1 {
 
 22:                                               ; preds = %17, %14
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %24 = load ptr, ptr %23, align 8, !tbaa !21
   tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.2, i32 noundef 146) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i32 noundef 147) #6
   tail call void @BIO_set_data(ptr noundef nonnull %0, ptr noundef null) #6
@@ -562,9 +562,9 @@ define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnul
 .preheader:                                       ; preds = %4
   %8 = tail call ptr @BIO_next(ptr noundef %0) #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !31
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %12 = load i32, ptr %11, align 4, !tbaa !32
+  %12 = load i32, ptr %11, align 4, !tbaa !30
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
   %15 = load i32, ptr %5, align 8, !tbaa !15
@@ -581,18 +581,18 @@ define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnul
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %.lr.ph
-  %23 = load i32, ptr %11, align 4, !tbaa !32
+  %23 = load i32, ptr %11, align 4, !tbaa !30
   %24 = add nsw i32 %23, %18
-  store i32 %24, ptr %11, align 4, !tbaa !32
+  store i32 %24, ptr %11, align 4, !tbaa !30
   %25 = tail call ptr @BIO_next(ptr noundef %0) #6
-  %26 = load ptr, ptr %9, align 8, !tbaa !31
-  %27 = load i32, ptr %11, align 4, !tbaa !32
+  %26 = load ptr, ptr %9, align 8, !tbaa !29
+  %27 = load i32, ptr %11, align 4, !tbaa !30
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %26, i64 %28
   %30 = load i32, ptr %5, align 8, !tbaa !15
   %31 = tail call i32 @BIO_write(ptr noundef %25, ptr noundef %29, i32 noundef %30) #6
   %32 = icmp slt i32 %31, 1
-  br i1 %32, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %32, label %.loopexit, label %.lr.ph
 
 33:                                               ; preds = %.lr.ph
   %.not = icmp eq ptr %2, null
@@ -605,7 +605,7 @@ define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnul
 
 37:                                               ; preds = %34, %33
   store i32 %3, ptr %1, align 8, !tbaa !10
-  store i32 0, ptr %11, align 4, !tbaa !32
+  store i32 0, ptr %11, align 4, !tbaa !30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %.preheader, %37, %4
@@ -677,21 +677,18 @@ attributes #7 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 omnipotent char", !5, i64 0}
 !14 = !{!11, !5, i64 40}
 !15 = !{!11, !12, i64 80}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!11, !5, i64 48}
-!19 = !{!11, !12, i64 36}
-!20 = !{!11, !12, i64 24}
-!21 = !{!11, !12, i64 16}
-!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!23 = !{!11, !13, i64 8}
-!24 = !{!13, !13, i64 0}
-!25 = !{!11, !12, i64 32}
-!26 = !{!11, !12, i64 28}
-!27 = !{!11, !12, i64 20}
-!28 = !{!11, !5, i64 56}
-!29 = !{!11, !5, i64 64}
-!30 = !{!11, !5, i64 88}
-!31 = !{!11, !13, i64 72}
-!32 = !{!11, !12, i64 84}
-!33 = distinct !{!33, !17}
+!16 = !{!11, !5, i64 48}
+!17 = !{!11, !12, i64 36}
+!18 = !{!11, !12, i64 24}
+!19 = !{!11, !12, i64 16}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!21 = !{!11, !13, i64 8}
+!22 = !{!13, !13, i64 0}
+!23 = !{!11, !12, i64 32}
+!24 = !{!11, !12, i64 28}
+!25 = !{!11, !12, i64 20}
+!26 = !{!11, !5, i64 56}
+!27 = !{!11, !5, i64 64}
+!28 = !{!11, !5, i64 88}
+!29 = !{!11, !13, i64 72}
+!30 = !{!11, !12, i64 84}

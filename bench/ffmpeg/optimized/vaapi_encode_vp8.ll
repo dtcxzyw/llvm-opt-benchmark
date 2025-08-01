@@ -272,14 +272,14 @@ define internal noundef i32 @vaapi_encode_vp8_init_picture_params(ptr noundef re
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 1980
-  %63 = load i32, ptr %62, align 4, !tbaa !88
+  %63 = load i32, ptr %62, align 4, !tbaa !87
   %64 = trunc i32 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i8 %64, ptr %65, align 4, !tbaa !89
+  store i8 %64, ptr %65, align 4, !tbaa !88
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 42
-  store i8 0, ptr %66, align 2, !tbaa !90
+  store i8 0, ptr %66, align 2, !tbaa !89
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 41
-  store i8 127, ptr %67, align 1, !tbaa !91
+  store i8 127, ptr %67, align 1, !tbaa !90
   ret i32 0
 }
 
@@ -293,13 +293,13 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_vp8_write_quant_table
   br i1 %10, label %22, label %11
 
 11:                                               ; preds = %6
-  %12 = load i64, ptr %5, align 8, !tbaa !92
+  %12 = load i64, ptr %5, align 8, !tbaa !91
   %13 = icmp ult i64 %12, 36
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %11
   store i32 11, ptr %3, align 4, !tbaa !78
-  store i64 36, ptr %5, align 8, !tbaa !92
+  store i64 36, ptr %5, align 8, !tbaa !91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = load i32, ptr %15, align 8, !tbaa !77
@@ -312,17 +312,17 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_vp8_write_quant_table
 
 .preheader:                                       ; preds = %20
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %19, i8 0, i64 10, i1 false), !tbaa !93
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %19, i8 0, i64 10, i1 false), !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %7, i64 36, i1 false)
   br label %22
 
 20:                                               ; preds = %14, %20
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %indvars.iv
-  store i16 %18, ptr %21, align 2, !tbaa !93
+  store i16 %18, ptr %21, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !95
+  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !94
 
 22:                                               ; preds = %11, %6, %.preheader
   %.017 = phi i32 [ 0, %.preheader ], [ -541478725, %6 ], [ -22, %11 ]
@@ -452,14 +452,13 @@ attributes #13 = { noreturn nounwind }
 !82 = !{!74, !10, i64 4}
 !83 = !{!50, !10, i64 1976}
 !84 = !{!8, !8, i64 0}
-!85 = distinct !{!85, !86, !87}
+!85 = distinct !{!85, !86}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!"llvm.loop.estimated_trip_count"}
-!88 = !{!50, !10, i64 1980}
-!89 = !{!74, !8, i64 40}
-!90 = !{!74, !8, i64 42}
-!91 = !{!74, !8, i64 41}
-!92 = !{!13, !13, i64 0}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"short", !8, i64 0}
-!95 = distinct !{!95, !86, !87}
+!87 = !{!50, !10, i64 1980}
+!88 = !{!74, !8, i64 40}
+!89 = !{!74, !8, i64 42}
+!90 = !{!74, !8, i64 41}
+!91 = !{!13, !13, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"short", !8, i64 0}
+!94 = distinct !{!94, !86}

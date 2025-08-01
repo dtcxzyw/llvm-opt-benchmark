@@ -209,20 +209,20 @@ sdslen.exit.thread:                               ; preds = %32, %29, %sdslen.ex
 ._crit_edge:                                      ; preds = %93, %4
   %94 = tail call i64 @time(ptr noundef null) #9
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %94, ptr %95, align 8, !tbaa !29
+  store i64 %94, ptr %95, align 8, !tbaa !28
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %3, ptr %96, align 8, !tbaa !30
-  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2736), align 8, !tbaa !31
+  store i64 %3, ptr %96, align 8, !tbaa !29
+  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2736), align 8, !tbaa !30
   %98 = add nsw i64 %97, 1
-  store i64 %98, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2736), align 8, !tbaa !31
+  store i64 %98, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2736), align 8, !tbaa !30
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %97, ptr %99, align 8, !tbaa !57
+  store i64 %97, ptr %99, align 8, !tbaa !56
   %100 = tail call ptr @getClientPeerId(ptr noundef %0) #9
   %101 = tail call ptr @sdsnew(ptr noundef %100) #9
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %101, ptr %102, align 8, !tbaa !58
+  store ptr %101, ptr %102, align 8, !tbaa !57
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %104 = load ptr, ptr %103, align 8, !tbaa !59
+  %104 = load ptr, ptr %103, align 8, !tbaa !58
   %.not = icmp eq ptr %104, null
   br i1 %.not, label %109, label %105
 
@@ -239,7 +239,7 @@ sdslen.exit.thread:                               ; preds = %32, %29, %sdslen.ex
 111:                                              ; preds = %109, %105
   %112 = phi ptr [ %108, %105 ], [ %110, %109 ]
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %112, ptr %113, align 8, !tbaa !68
+  store ptr %112, ptr %113, align 8, !tbaa !67
   ret ptr %5
 }
 
@@ -286,16 +286,16 @@ define dso_local void @slowlogFreeEntry(ptr noundef %0) #0 {
   %8 = load i32, ptr %2, align 8, !tbaa !5
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !69
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %11 = load ptr, ptr %0, align 8, !tbaa !15
   tail call void @zfree(ptr noundef %11) #9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !58
+  %13 = load ptr, ptr %12, align 8, !tbaa !57
   tail call void @sdsfree(ptr noundef %13) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !68
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
   tail call void @sdsfree(ptr noundef %15) #9
   tail call void @zfree(ptr noundef nonnull %0) #9
   ret void
@@ -310,10 +310,10 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @slowlogInit() local_unnamed_addr #0 {
   %1 = tail call ptr @listCreate() #9
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2736), align 8, !tbaa !31
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2736), align 8, !tbaa !30
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr @slowlogFreeEntry, ptr %2, align 8, !tbaa !71
+  store ptr @slowlogFreeEntry, ptr %2, align 8, !tbaa !70
   ret void
 }
 
@@ -321,7 +321,7 @@ declare ptr @listCreate() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @slowlogPushEntryIfNeeded(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2744), align 8, !tbaa !73
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2744), align 8, !tbaa !72
   %6 = icmp slt i64 %5, 0
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2752), align 8
   %8 = icmp eq i64 %7, 0
@@ -333,31 +333,31 @@ define dso_local void @slowlogPushEntryIfNeeded(ptr noundef %0, ptr noundef read
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %9
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %12 = tail call ptr @slowlogCreateEntry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3)
   %13 = tail call ptr @listAddNodeHead(ptr noundef %11, ptr noundef %12) #9
-  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2752), align 8, !tbaa !74
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2752), align 8, !tbaa !73
   br label %14
 
 14:                                               ; preds = %10, %9
   %15 = phi i64 [ %.pre, %10 ], [ %7, %9 ]
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !75
+  %18 = load i64, ptr %17, align 8, !tbaa !74
   %19 = icmp ugt i64 %18, %15
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %20 = phi ptr [ %23, %.lr.ph ], [ %16, %14 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !76
+  %22 = load ptr, ptr %21, align 8, !tbaa !75
   tail call void @listDelNode(ptr noundef nonnull %20, ptr noundef %22) #9
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !75
-  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2752), align 8, !tbaa !74
+  %25 = load i64, ptr %24, align 8, !tbaa !74
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2752), align 8, !tbaa !73
   %27 = icmp ugt i64 %25, %26
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !77
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %4
   ret void
@@ -369,22 +369,22 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @slowlogReset() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !75
+  %3 = load i64, ptr %2, align 8, !tbaa !74
   %.not1 = icmp eq i64 %3, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %4 = phi ptr [ %7, %.lr.ph ], [ %1, %0 ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !76
+  %6 = load ptr, ptr %5, align 8, !tbaa !75
   tail call void @listDelNode(ptr noundef nonnull %4, ptr noundef %6) #9
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %9 = load i64, ptr %8, align 8, !tbaa !75
+  %9 = load i64, ptr %8, align 8, !tbaa !74
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -396,13 +396,13 @@ define dso_local void @slowlogCommand(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.listIter, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load i32, ptr %5, align 8, !tbaa !79
+  %6 = load i32, ptr %5, align 8, !tbaa !78
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %8, label %36
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !80
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -424,25 +424,25 @@ define dso_local void @slowlogCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40, label %19, label %30
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %22 = load i64, ptr %21, align 8, !tbaa !75
+  %22 = load i64, ptr %21, align 8, !tbaa !74
   %.not1.i = icmp eq i64 %22, 0
   br i1 %.not1.i, label %slowlogReset.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
   %23 = phi ptr [ %26, %.lr.ph.i ], [ %20, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !76
+  %25 = load ptr, ptr %24, align 8, !tbaa !75
   tail call void @listDelNode(ptr noundef nonnull %23, ptr noundef %25) #9
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load i64, ptr %27, align 8, !tbaa !75
+  %28 = load i64, ptr %27, align 8, !tbaa !74
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %slowlogReset.exit, label %.lr.ph.i, !llvm.loop !78
+  br i1 %.not.i, label %slowlogReset.exit, label %.lr.ph.i, !llvm.loop !77
 
 slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
-  %29 = load ptr, ptr @shared, align 8, !tbaa !81
+  %29 = load ptr, ptr @shared, align 8, !tbaa !80
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %29) #9
   br label %136
 
@@ -452,9 +452,9 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
   br i1 %.not41, label %32, label %.thread48
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load i64, ptr %34, align 8, !tbaa !75
+  %35 = load i64, ptr %34, align 8, !tbaa !74
   tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %35) #9
   br label %136
 
@@ -465,7 +465,7 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
 
 ..thread48_crit_edge:                             ; preds = %36
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !80
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
   %.phi.trans.insert56 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre57 = load ptr, ptr %.phi.trans.insert56, align 8, !tbaa !16
   %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %.pre57, i64 8
@@ -487,7 +487,7 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
   br i1 %42, label %43, label %._crit_edge60
 
 ._crit_edge60:                                    ; preds = %41
-  %.pre61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %.pre61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   br label %53
 
 43:                                               ; preds = %41
@@ -500,12 +500,12 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
 47:                                               ; preds = %43
   %48 = load i64, ptr %3, align 8, !tbaa !24
   %49 = icmp eq i64 %48, -1
-  %.pre62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %.pre62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %.pre62, i64 40
-  %52 = load i64, ptr %51, align 8, !tbaa !75
+  %52 = load i64, ptr %51, align 8, !tbaa !74
   store i64 %52, ptr %3, align 8, !tbaa !24
   br label %53
 
@@ -513,7 +513,7 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
   %54 = phi ptr [ %.pre62, %47 ], [ %.pre62, %50 ], [ %.pre61, %._crit_edge60 ]
   %55 = phi i64 [ %48, %47 ], [ %52, %50 ], [ 10, %._crit_edge60 ]
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %57 = load i64, ptr %56, align 8, !tbaa !75
+  %57 = load i64, ptr %56, align 8, !tbaa !74
   %58 = icmp sgt i64 %55, %57
   br i1 %58, label %59, label %60
 
@@ -524,7 +524,7 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
 60:                                               ; preds = %59, %53
   %61 = phi i64 [ %57, %59 ], [ %55, %53 ]
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %61) #9
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !70
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2728), align 8, !tbaa !69
   call void @listRewind(ptr noundef %62, ptr noundef nonnull %4) #9
   %63 = load i64, ptr %3, align 8, !tbaa !24
   %64 = add nsw i64 %63, -1
@@ -535,16 +535,16 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
 .lr.ph54:                                         ; preds = %60, %sdslen.exit46
   %65 = call ptr @listNext(ptr noundef nonnull %4) #9
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !83
+  %67 = load ptr, ptr %66, align 8, !tbaa !82
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 6) #9
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !57
+  %69 = load i64, ptr %68, align 8, !tbaa !56
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %69) #9
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %71 = load i64, ptr %70, align 8, !tbaa !29
+  %71 = load i64, ptr %70, align 8, !tbaa !28
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %71) #9
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %73 = load i64, ptr %72, align 8, !tbaa !30
+  %73 = load i64, ptr %72, align 8, !tbaa !29
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %73) #9
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !5
@@ -564,11 +564,11 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
   %82 = load i32, ptr %74, align 8, !tbaa !5
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph54
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  %86 = load ptr, ptr %85, align 8, !tbaa !58
+  %86 = load ptr, ptr %85, align 8, !tbaa !57
   %87 = getelementptr inbounds i8, ptr %86, i64 -1
   %88 = load i8, ptr %87, align 1, !tbaa !20
   %89 = zext i8 %88 to i32
@@ -613,7 +613,7 @@ sdslen.exit:                                      ; preds = %._crit_edge, %91, %
   %.0.i = phi i64 [ %93, %91 ], [ %97, %94 ], [ %101, %98 ], [ %105, %102 ], [ %108, %106 ], [ 0, %._crit_edge ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %86, i64 noundef %.0.i) #9
   %109 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !68
+  %110 = load ptr, ptr %109, align 8, !tbaa !67
   %111 = getelementptr inbounds i8, ptr %110, i64 -1
   %112 = load i8, ptr %111, align 1, !tbaa !20
   %113 = zext i8 %112 to i32
@@ -661,7 +661,7 @@ sdslen.exit46:                                    ; preds = %sdslen.exit, %115, 
   %134 = add nsw i64 %133, -1
   store i64 %134, ptr %3, align 8, !tbaa !24
   %.not44 = icmp eq i64 %133, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph54, !llvm.loop !85
+  br i1 %.not44, label %.loopexit, label %.lr.ph54, !llvm.loop !84
 
 .loopexit:                                        ; preds = %sdslen.exit46, %60, %43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
@@ -745,63 +745,62 @@ attributes #10 = { nounwind willreturn memory(read) }
 !23 = !{!11, !11, i64 0}
 !24 = !{!13, !13, i64 0}
 !25 = !{!19, !11, i64 4}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!6, !13, i64 32}
-!30 = !{!6, !12, i64 24}
-!31 = !{!32, !12, i64 2736}
-!32 = !{!"redisServer", !11, i64 0, !13, i64 8, !14, i64 16, !14, i64 24, !33, i64 32, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !34, i64 64, !35, i64 72, !35, i64 80, !36, i64 88, !37, i64 96, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !12, i64 120, !11, i64 128, !11, i64 132, !11, i64 136, !11, i64 140, !14, i64 144, !11, i64 152, !11, i64 156, !9, i64 160, !11, i64 204, !13, i64 208, !11, i64 216, !11, i64 220, !11, i64 224, !14, i64 232, !14, i64 240, !11, i64 248, !11, i64 252, !13, i64 256, !35, i64 264, !35, i64 272, !35, i64 280, !38, i64 288, !9, i64 296, !11, i64 304, !11, i64 308, !9, i64 312, !11, i64 316, !11, i64 320, !11, i64 324, !9, i64 328, !11, i64 456, !14, i64 464, !14, i64 472, !11, i64 480, !9, i64 488, !11, i64 1320, !39, i64 1328, !38, i64 1432, !38, i64 1440, !38, i64 1448, !38, i64 1456, !38, i64 1464, !38, i64 1472, !41, i64 1480, !41, i64 1488, !8, i64 1496, !37, i64 1504, !11, i64 1512, !37, i64 1520, !11, i64 1528, !38, i64 1536, !9, i64 1544, !9, i64 1592, !35, i64 1848, !9, i64 1856, !11, i64 1864, !11, i64 1868, !9, i64 1872, !11, i64 2384, !11, i64 2388, !12, i64 2392, !11, i64 2400, !11, i64 2404, !11, i64 2408, !11, i64 2412, !11, i64 2416, !13, i64 2424, !13, i64 2432, !13, i64 2440, !13, i64 2448, !13, i64 2456, !13, i64 2464, !12, i64 2472, !12, i64 2480, !12, i64 2488, !12, i64 2496, !42, i64 2504, !12, i64 2512, !12, i64 2520, !12, i64 2528, !12, i64 2536, !12, i64 2544, !12, i64 2552, !13, i64 2560, !12, i64 2568, !12, i64 2576, !12, i64 2584, !12, i64 2592, !12, i64 2600, !12, i64 2608, !12, i64 2616, !12, i64 2624, !13, i64 2632, !13, i64 2640, !12, i64 2648, !12, i64 2656, !12, i64 2664, !12, i64 2672, !42, i64 2680, !12, i64 2688, !12, i64 2696, !12, i64 2704, !12, i64 2712, !12, i64 2720, !38, i64 2728, !12, i64 2736, !12, i64 2744, !13, i64 2752, !43, i64 2760, !9, i64 2848, !9, i64 2856, !9, i64 2864, !9, i64 2872, !13, i64 2880, !13, i64 2888, !13, i64 2896, !13, i64 2904, !13, i64 2912, !13, i64 2920, !13, i64 2928, !13, i64 2936, !42, i64 2944, !9, i64 2952, !13, i64 2984, !12, i64 2992, !12, i64 3000, !12, i64 3008, !9, i64 3016, !9, i64 4040, !9, i64 5064, !12, i64 5072, !9, i64 5080, !12, i64 6144, !12, i64 6152, !13, i64 6160, !12, i64 6168, !12, i64 6176, !13, i64 6184, !9, i64 6192, !11, i64 6288, !11, i64 6292, !11, i64 6296, !11, i64 6300, !11, i64 6304, !11, i64 6308, !11, i64 6312, !11, i64 6316, !11, i64 6320, !11, i64 6324, !11, i64 6328, !11, i64 6332, !13, i64 6336, !11, i64 6344, !11, i64 6348, !11, i64 6352, !11, i64 6356, !13, i64 6360, !13, i64 6368, !11, i64 6376, !11, i64 6380, !11, i64 6384, !11, i64 6388, !11, i64 6392, !14, i64 6400, !9, i64 6408, !11, i64 6480, !11, i64 6484, !11, i64 6488, !44, i64 6496, !11, i64 6504, !11, i64 6508, !11, i64 6512, !11, i64 6516, !11, i64 6520, !11, i64 6524, !14, i64 6528, !14, i64 6536, !11, i64 6544, !11, i64 6548, !13, i64 6552, !13, i64 6560, !13, i64 6568, !13, i64 6576, !13, i64 6584, !11, i64 6592, !11, i64 6596, !14, i64 6600, !11, i64 6608, !11, i64 6612, !12, i64 6616, !12, i64 6624, !13, i64 6632, !13, i64 6640, !13, i64 6648, !11, i64 6656, !11, i64 6660, !13, i64 6664, !11, i64 6672, !11, i64 6676, !11, i64 6680, !11, i64 6684, !11, i64 6688, !11, i64 6692, !9, i64 6696, !9, i64 6700, !8, i64 6704, !11, i64 6712, !12, i64 6720, !12, i64 6728, !12, i64 6736, !12, i64 6744, !11, i64 6752, !45, i64 6760, !11, i64 6768, !14, i64 6776, !11, i64 6784, !11, i64 6788, !11, i64 6792, !13, i64 6800, !13, i64 6808, !13, i64 6816, !13, i64 6824, !11, i64 6832, !11, i64 6836, !11, i64 6840, !11, i64 6844, !11, i64 6848, !11, i64 6852, !46, i64 6856, !11, i64 6864, !11, i64 6868, !14, i64 6872, !11, i64 6880, !11, i64 6884, !11, i64 6888, !9, i64 6892, !11, i64 6900, !47, i64 6904, !11, i64 6920, !14, i64 6928, !11, i64 6936, !14, i64 6944, !11, i64 6952, !11, i64 6956, !11, i64 6960, !11, i64 6964, !11, i64 6968, !11, i64 6972, !11, i64 6976, !9, i64 6980, !9, i64 7021, !12, i64 7064, !12, i64 7072, !9, i64 7080, !12, i64 7088, !11, i64 7096, !11, i64 7100, !49, i64 7104, !12, i64 7112, !12, i64 7120, !50, i64 7128, !13, i64 7168, !13, i64 7176, !11, i64 7184, !11, i64 7188, !11, i64 7192, !11, i64 7196, !11, i64 7200, !11, i64 7204, !11, i64 7208, !11, i64 7212, !11, i64 7216, !13, i64 7224, !38, i64 7232, !13, i64 7240, !14, i64 7248, !14, i64 7256, !14, i64 7264, !11, i64 7272, !11, i64 7276, !41, i64 7280, !41, i64 7288, !11, i64 7296, !11, i64 7300, !11, i64 7304, !13, i64 7312, !13, i64 7320, !13, i64 7328, !13, i64 7336, !51, i64 7344, !51, i64 7352, !11, i64 7360, !14, i64 7368, !13, i64 7376, !11, i64 7384, !11, i64 7388, !11, i64 7392, !13, i64 7400, !11, i64 7408, !11, i64 7412, !11, i64 7416, !11, i64 7420, !14, i64 7424, !11, i64 7432, !11, i64 7436, !9, i64 7440, !12, i64 7488, !11, i64 7496, !38, i64 7504, !11, i64 7512, !11, i64 7516, !12, i64 7520, !13, i64 7528, !11, i64 7536, !11, i64 7540, !11, i64 7544, !11, i64 7548, !11, i64 7552, !12, i64 7560, !9, i64 7568, !11, i64 7580, !11, i64 7584, !11, i64 7588, !9, i64 7592, !38, i64 7632, !38, i64 7640, !11, i64 7648, !13, i64 7656, !38, i64 7664, !38, i64 7672, !11, i64 7680, !11, i64 7684, !11, i64 7688, !11, i64 7692, !13, i64 7696, !13, i64 7704, !13, i64 7712, !13, i64 7720, !13, i64 7728, !13, i64 7736, !13, i64 7744, !13, i64 7752, !13, i64 7760, !12, i64 7768, !11, i64 7776, !11, i64 7780, !9, i64 7784, !13, i64 7792, !9, i64 7800, !12, i64 7808, !12, i64 7816, !12, i64 7824, !13, i64 7832, !12, i64 7840, !52, i64 7848, !35, i64 7856, !11, i64 7864, !52, i64 7872, !11, i64 7880, !11, i64 7884, !11, i64 7888, !11, i64 7892, !12, i64 7896, !12, i64 7904, !14, i64 7912, !53, i64 7920, !11, i64 7928, !11, i64 7932, !11, i64 7936, !11, i64 7940, !11, i64 7944, !14, i64 7952, !14, i64 7960, !14, i64 7968, !11, i64 7976, !11, i64 7980, !11, i64 7984, !11, i64 7988, !11, i64 7992, !11, i64 7996, !11, i64 8000, !12, i64 8008, !11, i64 8016, !11, i64 8020, !12, i64 8024, !11, i64 8032, !11, i64 8036, !11, i64 8040, !11, i64 8044, !11, i64 8048, !11, i64 8052, !11, i64 8056, !12, i64 8064, !35, i64 8072, !14, i64 8080, !13, i64 8088, !14, i64 8096, !11, i64 8104, !54, i64 8112, !11, i64 8144, !13, i64 8152, !11, i64 8160, !11, i64 8164, !11, i64 8168, !55, i64 8176, !14, i64 8288, !14, i64 8296, !14, i64 8304, !14, i64 8312, !56, i64 8320, !12, i64 8328, !11, i64 8336, !14, i64 8344, !11, i64 8352, !11, i64 8356, !11, i64 8360, !13, i64 8368, !11, i64 8376, !14, i64 8384}
-!33 = !{!"p2 omnipotent char", !8, i64 0}
-!34 = !{!"p1 _ZTS7redisDb", !8, i64 0}
-!35 = !{!"p1 _ZTS4dict", !8, i64 0}
-!36 = !{!"p1 _ZTS11aeEventLoop", !8, i64 0}
-!37 = !{!"p1 _ZTS3rax", !8, i64 0}
-!38 = !{!"p1 _ZTS4list", !8, i64 0}
-!39 = !{!"connListener", !9, i64 0, !11, i64 64, !33, i64 72, !11, i64 80, !11, i64 84, !40, i64 88, !8, i64 96}
-!40 = !{!"p1 _ZTS14ConnectionType", !8, i64 0}
-!41 = !{!"p1 _ZTS6client", !8, i64 0}
-!42 = !{!"double", !9, i64 0}
-!43 = !{!"malloc_stats", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80}
-!44 = !{!"p1 double", !8, i64 0}
-!45 = !{!"p1 _ZTS9saveparam", !8, i64 0}
-!46 = !{!"p2 _ZTS10connection", !8, i64 0}
-!47 = !{!"redisOpArray", !48, i64 0, !11, i64 8, !11, i64 12}
-!48 = !{!"p1 _ZTS7redisOp", !8, i64 0}
-!49 = !{!"p1 _ZTS11replBacklog", !8, i64 0}
-!50 = !{!"replDataBuf", !38, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
-!51 = !{!"p1 _ZTS10connection", !8, i64 0}
-!52 = !{!"p1 _ZTS8_kvstore", !8, i64 0}
-!53 = !{!"p1 _ZTS12clusterState", !8, i64 0}
-!54 = !{!"aclInfo", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!55 = !{!"redisTLSContextConfig", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108}
-!56 = !{!"p1 _ZTS14sentinelConfig", !8, i64 0}
-!57 = !{!6, !12, i64 16}
-!58 = !{!6, !14, i64 48}
-!59 = !{!60, !17, i64 40}
-!60 = !{!"client", !13, i64 0, !13, i64 8, !51, i64 16, !9, i64 24, !9, i64 25, !9, i64 26, !9, i64 27, !11, i64 28, !34, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !14, i64 64, !13, i64 72, !13, i64 80, !11, i64 88, !7, i64 96, !11, i64 104, !11, i64 108, !7, i64 112, !13, i64 120, !61, i64 128, !61, i64 136, !61, i64 144, !61, i64 152, !8, i64 160, !11, i64 168, !11, i64 172, !13, i64 176, !38, i64 184, !12, i64 192, !38, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !11, i64 232, !62, i64 240, !13, i64 248, !13, i64 256, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !13, i64 280, !13, i64 288, !14, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !9, i64 368, !11, i64 412, !14, i64 416, !11, i64 424, !11, i64 428, !13, i64 432, !63, i64 440, !65, i64 480, !12, i64 552, !38, i64 560, !35, i64 568, !35, i64 576, !35, i64 584, !14, i64 592, !14, i64 600, !66, i64 608, !66, i64 616, !66, i64 624, !8, i64 632, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !13, i64 672, !37, i64 680, !13, i64 688, !11, i64 696, !66, i64 704, !8, i64 712, !66, i64 720, !13, i64 728, !67, i64 736, !13, i64 760, !12, i64 768, !11, i64 776, !13, i64 784, !14, i64 792}
-!61 = !{!"p1 _ZTS12redisCommand", !8, i64 0}
-!62 = !{!"p1 _ZTS9dictEntry", !8, i64 0}
-!63 = !{!"multiState", !64, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !13, i64 24, !11, i64 32}
-!64 = !{!"p1 _ZTS8multiCmd", !8, i64 0}
-!65 = !{!"blockingState", !11, i64 0, !12, i64 8, !11, i64 16, !35, i64 24, !11, i64 32, !11, i64 36, !12, i64 40, !8, i64 48, !8, i64 56, !13, i64 64}
-!66 = !{!"p1 _ZTS8listNode", !8, i64 0}
-!67 = !{!"listNode", !66, i64 0, !66, i64 8, !8, i64 16}
-!68 = !{!6, !14, i64 40}
-!69 = distinct !{!69, !27, !28}
-!70 = !{!32, !38, i64 2728}
-!71 = !{!72, !8, i64 24}
-!72 = !{!"list", !66, i64 0, !66, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !13, i64 40}
-!73 = !{!32, !12, i64 2744}
-!74 = !{!32, !13, i64 2752}
-!75 = !{!72, !13, i64 40}
-!76 = !{!72, !66, i64 8}
-!77 = distinct !{!77, !27, !28}
-!78 = distinct !{!78, !27, !28}
-!79 = !{!60, !11, i64 88}
-!80 = !{!60, !7, i64 96}
-!81 = !{!82, !17, i64 0}
-!82 = !{!"sharedObjectsStruct", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !17, i64 192, !17, i64 200, !17, i64 208, !17, i64 216, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !17, i64 256, !17, i64 264, !17, i64 272, !17, i64 280, !17, i64 288, !17, i64 296, !17, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !17, i64 360, !17, i64 368, !17, i64 376, !17, i64 384, !17, i64 392, !17, i64 400, !17, i64 408, !17, i64 416, !17, i64 424, !17, i64 432, !17, i64 440, !17, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !17, i64 480, !17, i64 488, !17, i64 496, !17, i64 504, !17, i64 512, !17, i64 520, !17, i64 528, !17, i64 536, !17, i64 544, !17, i64 552, !17, i64 560, !17, i64 568, !17, i64 576, !17, i64 584, !17, i64 592, !17, i64 600, !17, i64 608, !17, i64 616, !17, i64 624, !17, i64 632, !17, i64 640, !17, i64 648, !17, i64 656, !17, i64 664, !17, i64 672, !17, i64 680, !17, i64 688, !17, i64 696, !17, i64 704, !17, i64 712, !17, i64 720, !17, i64 728, !17, i64 736, !17, i64 744, !17, i64 752, !17, i64 760, !17, i64 768, !17, i64 776, !17, i64 784, !17, i64 792, !9, i64 800, !9, i64 880, !9, i64 80880, !9, i64 81136, !9, i64 81392, !9, i64 81648, !14, i64 81904, !14, i64 81912}
-!83 = !{!67, !8, i64 16}
-!84 = distinct !{!84, !27, !28}
-!85 = distinct !{!85, !27, !28}
+!28 = !{!6, !13, i64 32}
+!29 = !{!6, !12, i64 24}
+!30 = !{!31, !12, i64 2736}
+!31 = !{!"redisServer", !11, i64 0, !13, i64 8, !14, i64 16, !14, i64 24, !32, i64 32, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !33, i64 64, !34, i64 72, !34, i64 80, !35, i64 88, !36, i64 96, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !12, i64 120, !11, i64 128, !11, i64 132, !11, i64 136, !11, i64 140, !14, i64 144, !11, i64 152, !11, i64 156, !9, i64 160, !11, i64 204, !13, i64 208, !11, i64 216, !11, i64 220, !11, i64 224, !14, i64 232, !14, i64 240, !11, i64 248, !11, i64 252, !13, i64 256, !34, i64 264, !34, i64 272, !34, i64 280, !37, i64 288, !9, i64 296, !11, i64 304, !11, i64 308, !9, i64 312, !11, i64 316, !11, i64 320, !11, i64 324, !9, i64 328, !11, i64 456, !14, i64 464, !14, i64 472, !11, i64 480, !9, i64 488, !11, i64 1320, !38, i64 1328, !37, i64 1432, !37, i64 1440, !37, i64 1448, !37, i64 1456, !37, i64 1464, !37, i64 1472, !40, i64 1480, !40, i64 1488, !8, i64 1496, !36, i64 1504, !11, i64 1512, !36, i64 1520, !11, i64 1528, !37, i64 1536, !9, i64 1544, !9, i64 1592, !34, i64 1848, !9, i64 1856, !11, i64 1864, !11, i64 1868, !9, i64 1872, !11, i64 2384, !11, i64 2388, !12, i64 2392, !11, i64 2400, !11, i64 2404, !11, i64 2408, !11, i64 2412, !11, i64 2416, !13, i64 2424, !13, i64 2432, !13, i64 2440, !13, i64 2448, !13, i64 2456, !13, i64 2464, !12, i64 2472, !12, i64 2480, !12, i64 2488, !12, i64 2496, !41, i64 2504, !12, i64 2512, !12, i64 2520, !12, i64 2528, !12, i64 2536, !12, i64 2544, !12, i64 2552, !13, i64 2560, !12, i64 2568, !12, i64 2576, !12, i64 2584, !12, i64 2592, !12, i64 2600, !12, i64 2608, !12, i64 2616, !12, i64 2624, !13, i64 2632, !13, i64 2640, !12, i64 2648, !12, i64 2656, !12, i64 2664, !12, i64 2672, !41, i64 2680, !12, i64 2688, !12, i64 2696, !12, i64 2704, !12, i64 2712, !12, i64 2720, !37, i64 2728, !12, i64 2736, !12, i64 2744, !13, i64 2752, !42, i64 2760, !9, i64 2848, !9, i64 2856, !9, i64 2864, !9, i64 2872, !13, i64 2880, !13, i64 2888, !13, i64 2896, !13, i64 2904, !13, i64 2912, !13, i64 2920, !13, i64 2928, !13, i64 2936, !41, i64 2944, !9, i64 2952, !13, i64 2984, !12, i64 2992, !12, i64 3000, !12, i64 3008, !9, i64 3016, !9, i64 4040, !9, i64 5064, !12, i64 5072, !9, i64 5080, !12, i64 6144, !12, i64 6152, !13, i64 6160, !12, i64 6168, !12, i64 6176, !13, i64 6184, !9, i64 6192, !11, i64 6288, !11, i64 6292, !11, i64 6296, !11, i64 6300, !11, i64 6304, !11, i64 6308, !11, i64 6312, !11, i64 6316, !11, i64 6320, !11, i64 6324, !11, i64 6328, !11, i64 6332, !13, i64 6336, !11, i64 6344, !11, i64 6348, !11, i64 6352, !11, i64 6356, !13, i64 6360, !13, i64 6368, !11, i64 6376, !11, i64 6380, !11, i64 6384, !11, i64 6388, !11, i64 6392, !14, i64 6400, !9, i64 6408, !11, i64 6480, !11, i64 6484, !11, i64 6488, !43, i64 6496, !11, i64 6504, !11, i64 6508, !11, i64 6512, !11, i64 6516, !11, i64 6520, !11, i64 6524, !14, i64 6528, !14, i64 6536, !11, i64 6544, !11, i64 6548, !13, i64 6552, !13, i64 6560, !13, i64 6568, !13, i64 6576, !13, i64 6584, !11, i64 6592, !11, i64 6596, !14, i64 6600, !11, i64 6608, !11, i64 6612, !12, i64 6616, !12, i64 6624, !13, i64 6632, !13, i64 6640, !13, i64 6648, !11, i64 6656, !11, i64 6660, !13, i64 6664, !11, i64 6672, !11, i64 6676, !11, i64 6680, !11, i64 6684, !11, i64 6688, !11, i64 6692, !9, i64 6696, !9, i64 6700, !8, i64 6704, !11, i64 6712, !12, i64 6720, !12, i64 6728, !12, i64 6736, !12, i64 6744, !11, i64 6752, !44, i64 6760, !11, i64 6768, !14, i64 6776, !11, i64 6784, !11, i64 6788, !11, i64 6792, !13, i64 6800, !13, i64 6808, !13, i64 6816, !13, i64 6824, !11, i64 6832, !11, i64 6836, !11, i64 6840, !11, i64 6844, !11, i64 6848, !11, i64 6852, !45, i64 6856, !11, i64 6864, !11, i64 6868, !14, i64 6872, !11, i64 6880, !11, i64 6884, !11, i64 6888, !9, i64 6892, !11, i64 6900, !46, i64 6904, !11, i64 6920, !14, i64 6928, !11, i64 6936, !14, i64 6944, !11, i64 6952, !11, i64 6956, !11, i64 6960, !11, i64 6964, !11, i64 6968, !11, i64 6972, !11, i64 6976, !9, i64 6980, !9, i64 7021, !12, i64 7064, !12, i64 7072, !9, i64 7080, !12, i64 7088, !11, i64 7096, !11, i64 7100, !48, i64 7104, !12, i64 7112, !12, i64 7120, !49, i64 7128, !13, i64 7168, !13, i64 7176, !11, i64 7184, !11, i64 7188, !11, i64 7192, !11, i64 7196, !11, i64 7200, !11, i64 7204, !11, i64 7208, !11, i64 7212, !11, i64 7216, !13, i64 7224, !37, i64 7232, !13, i64 7240, !14, i64 7248, !14, i64 7256, !14, i64 7264, !11, i64 7272, !11, i64 7276, !40, i64 7280, !40, i64 7288, !11, i64 7296, !11, i64 7300, !11, i64 7304, !13, i64 7312, !13, i64 7320, !13, i64 7328, !13, i64 7336, !50, i64 7344, !50, i64 7352, !11, i64 7360, !14, i64 7368, !13, i64 7376, !11, i64 7384, !11, i64 7388, !11, i64 7392, !13, i64 7400, !11, i64 7408, !11, i64 7412, !11, i64 7416, !11, i64 7420, !14, i64 7424, !11, i64 7432, !11, i64 7436, !9, i64 7440, !12, i64 7488, !11, i64 7496, !37, i64 7504, !11, i64 7512, !11, i64 7516, !12, i64 7520, !13, i64 7528, !11, i64 7536, !11, i64 7540, !11, i64 7544, !11, i64 7548, !11, i64 7552, !12, i64 7560, !9, i64 7568, !11, i64 7580, !11, i64 7584, !11, i64 7588, !9, i64 7592, !37, i64 7632, !37, i64 7640, !11, i64 7648, !13, i64 7656, !37, i64 7664, !37, i64 7672, !11, i64 7680, !11, i64 7684, !11, i64 7688, !11, i64 7692, !13, i64 7696, !13, i64 7704, !13, i64 7712, !13, i64 7720, !13, i64 7728, !13, i64 7736, !13, i64 7744, !13, i64 7752, !13, i64 7760, !12, i64 7768, !11, i64 7776, !11, i64 7780, !9, i64 7784, !13, i64 7792, !9, i64 7800, !12, i64 7808, !12, i64 7816, !12, i64 7824, !13, i64 7832, !12, i64 7840, !51, i64 7848, !34, i64 7856, !11, i64 7864, !51, i64 7872, !11, i64 7880, !11, i64 7884, !11, i64 7888, !11, i64 7892, !12, i64 7896, !12, i64 7904, !14, i64 7912, !52, i64 7920, !11, i64 7928, !11, i64 7932, !11, i64 7936, !11, i64 7940, !11, i64 7944, !14, i64 7952, !14, i64 7960, !14, i64 7968, !11, i64 7976, !11, i64 7980, !11, i64 7984, !11, i64 7988, !11, i64 7992, !11, i64 7996, !11, i64 8000, !12, i64 8008, !11, i64 8016, !11, i64 8020, !12, i64 8024, !11, i64 8032, !11, i64 8036, !11, i64 8040, !11, i64 8044, !11, i64 8048, !11, i64 8052, !11, i64 8056, !12, i64 8064, !34, i64 8072, !14, i64 8080, !13, i64 8088, !14, i64 8096, !11, i64 8104, !53, i64 8112, !11, i64 8144, !13, i64 8152, !11, i64 8160, !11, i64 8164, !11, i64 8168, !54, i64 8176, !14, i64 8288, !14, i64 8296, !14, i64 8304, !14, i64 8312, !55, i64 8320, !12, i64 8328, !11, i64 8336, !14, i64 8344, !11, i64 8352, !11, i64 8356, !11, i64 8360, !13, i64 8368, !11, i64 8376, !14, i64 8384}
+!32 = !{!"p2 omnipotent char", !8, i64 0}
+!33 = !{!"p1 _ZTS7redisDb", !8, i64 0}
+!34 = !{!"p1 _ZTS4dict", !8, i64 0}
+!35 = !{!"p1 _ZTS11aeEventLoop", !8, i64 0}
+!36 = !{!"p1 _ZTS3rax", !8, i64 0}
+!37 = !{!"p1 _ZTS4list", !8, i64 0}
+!38 = !{!"connListener", !9, i64 0, !11, i64 64, !32, i64 72, !11, i64 80, !11, i64 84, !39, i64 88, !8, i64 96}
+!39 = !{!"p1 _ZTS14ConnectionType", !8, i64 0}
+!40 = !{!"p1 _ZTS6client", !8, i64 0}
+!41 = !{!"double", !9, i64 0}
+!42 = !{!"malloc_stats", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80}
+!43 = !{!"p1 double", !8, i64 0}
+!44 = !{!"p1 _ZTS9saveparam", !8, i64 0}
+!45 = !{!"p2 _ZTS10connection", !8, i64 0}
+!46 = !{!"redisOpArray", !47, i64 0, !11, i64 8, !11, i64 12}
+!47 = !{!"p1 _ZTS7redisOp", !8, i64 0}
+!48 = !{!"p1 _ZTS11replBacklog", !8, i64 0}
+!49 = !{!"replDataBuf", !37, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
+!50 = !{!"p1 _ZTS10connection", !8, i64 0}
+!51 = !{!"p1 _ZTS8_kvstore", !8, i64 0}
+!52 = !{!"p1 _ZTS12clusterState", !8, i64 0}
+!53 = !{!"aclInfo", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!54 = !{!"redisTLSContextConfig", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108}
+!55 = !{!"p1 _ZTS14sentinelConfig", !8, i64 0}
+!56 = !{!6, !12, i64 16}
+!57 = !{!6, !14, i64 48}
+!58 = !{!59, !17, i64 40}
+!59 = !{!"client", !13, i64 0, !13, i64 8, !50, i64 16, !9, i64 24, !9, i64 25, !9, i64 26, !9, i64 27, !11, i64 28, !33, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !14, i64 64, !13, i64 72, !13, i64 80, !11, i64 88, !7, i64 96, !11, i64 104, !11, i64 108, !7, i64 112, !13, i64 120, !60, i64 128, !60, i64 136, !60, i64 144, !60, i64 152, !8, i64 160, !11, i64 168, !11, i64 172, !13, i64 176, !37, i64 184, !12, i64 192, !37, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !11, i64 232, !61, i64 240, !13, i64 248, !13, i64 256, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !13, i64 280, !13, i64 288, !14, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !9, i64 368, !11, i64 412, !14, i64 416, !11, i64 424, !11, i64 428, !13, i64 432, !62, i64 440, !64, i64 480, !12, i64 552, !37, i64 560, !34, i64 568, !34, i64 576, !34, i64 584, !14, i64 592, !14, i64 600, !65, i64 608, !65, i64 616, !65, i64 624, !8, i64 632, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !13, i64 672, !36, i64 680, !13, i64 688, !11, i64 696, !65, i64 704, !8, i64 712, !65, i64 720, !13, i64 728, !66, i64 736, !13, i64 760, !12, i64 768, !11, i64 776, !13, i64 784, !14, i64 792}
+!60 = !{!"p1 _ZTS12redisCommand", !8, i64 0}
+!61 = !{!"p1 _ZTS9dictEntry", !8, i64 0}
+!62 = !{!"multiState", !63, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !13, i64 24, !11, i64 32}
+!63 = !{!"p1 _ZTS8multiCmd", !8, i64 0}
+!64 = !{!"blockingState", !11, i64 0, !12, i64 8, !11, i64 16, !34, i64 24, !11, i64 32, !11, i64 36, !12, i64 40, !8, i64 48, !8, i64 56, !13, i64 64}
+!65 = !{!"p1 _ZTS8listNode", !8, i64 0}
+!66 = !{!"listNode", !65, i64 0, !65, i64 8, !8, i64 16}
+!67 = !{!6, !14, i64 40}
+!68 = distinct !{!68, !27}
+!69 = !{!31, !37, i64 2728}
+!70 = !{!71, !8, i64 24}
+!71 = !{!"list", !65, i64 0, !65, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !13, i64 40}
+!72 = !{!31, !12, i64 2744}
+!73 = !{!31, !13, i64 2752}
+!74 = !{!71, !13, i64 40}
+!75 = !{!71, !65, i64 8}
+!76 = distinct !{!76, !27}
+!77 = distinct !{!77, !27}
+!78 = !{!59, !11, i64 88}
+!79 = !{!59, !7, i64 96}
+!80 = !{!81, !17, i64 0}
+!81 = !{!"sharedObjectsStruct", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !17, i64 192, !17, i64 200, !17, i64 208, !17, i64 216, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !17, i64 256, !17, i64 264, !17, i64 272, !17, i64 280, !17, i64 288, !17, i64 296, !17, i64 304, !17, i64 312, !17, i64 320, !17, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !17, i64 360, !17, i64 368, !17, i64 376, !17, i64 384, !17, i64 392, !17, i64 400, !17, i64 408, !17, i64 416, !17, i64 424, !17, i64 432, !17, i64 440, !17, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !17, i64 480, !17, i64 488, !17, i64 496, !17, i64 504, !17, i64 512, !17, i64 520, !17, i64 528, !17, i64 536, !17, i64 544, !17, i64 552, !17, i64 560, !17, i64 568, !17, i64 576, !17, i64 584, !17, i64 592, !17, i64 600, !17, i64 608, !17, i64 616, !17, i64 624, !17, i64 632, !17, i64 640, !17, i64 648, !17, i64 656, !17, i64 664, !17, i64 672, !17, i64 680, !17, i64 688, !17, i64 696, !17, i64 704, !17, i64 712, !17, i64 720, !17, i64 728, !17, i64 736, !17, i64 744, !17, i64 752, !17, i64 760, !17, i64 768, !17, i64 776, !17, i64 784, !17, i64 792, !9, i64 800, !9, i64 880, !9, i64 80880, !9, i64 81136, !9, i64 81392, !9, i64 81648, !14, i64 81904, !14, i64 81912}
+!82 = !{!66, !8, i64 16}
+!83 = distinct !{!83, !27}
+!84 = distinct !{!84, !27}

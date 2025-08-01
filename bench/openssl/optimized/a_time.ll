@@ -365,7 +365,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 149:                                              ; preds = %.lr.ph
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, %19
-  br i1 %exitcond189.not, label %.thread, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond189.not, label %.thread, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph
   %150 = trunc nuw nsw i64 %indvars.iv186 to i32
@@ -384,7 +384,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 
 158:                                              ; preds = %153
   %159 = add nsw i32 %.1127, 1
-  br label %241
+  br label %243
 
 160:                                              ; preds = %153
   br i1 %.not145, label %161, label %.thread
@@ -404,16 +404,15 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 .preheader:                                       ; preds = %162
   %165 = add i32 %.1127, 1
   %166 = add nuw nsw i32 %.0131, 2
-  %invariant.gep = getelementptr i8, ptr %10, i64 1
   %.not154 = icmp eq ptr %0, null
   %167 = add nuw nsw i32 %.0131, 1
   %168 = sext i32 %165 to i64
   br i1 %.not154, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %197
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %197 ], [ %168, %.preheader ]
-  %.1125178.us = phi i32 [ %187, %197 ], [ %.0131, %.preheader ]
-  %169 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv194
+.preheader.split.us:                              ; preds = %.preheader, %198
+  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %198 ], [ %168, %.preheader ]
+  %.1125178.us = phi i32 [ %188, %198 ], [ %.0131, %.preheader ]
+  %169 = getelementptr i8, ptr %10, i64 %indvars.iv194
   %170 = load i8, ptr %169, align 1, !tbaa !15
   %171 = sext i8 %170 to i32
   %172 = tail call i32 @ossl_ascii_isdigit(i32 noundef %171) #8
@@ -422,139 +421,139 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 
 173:                                              ; preds = %.preheader.split.us
   %174 = load i8, ptr %169, align 1, !tbaa !15
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv194
-  %175 = load i8, ptr %gep.us, align 1, !tbaa !15
-  %176 = sext i8 %175 to i32
-  %177 = tail call i32 @ossl_ascii_isdigit(i32 noundef %176) #8
-  %.not153.us = icmp eq i32 %177, 0
-  br i1 %.not153.us, label %.thread, label %178
+  %175 = getelementptr i8, ptr %169, i64 1
+  %176 = load i8, ptr %175, align 1, !tbaa !15
+  %177 = sext i8 %176 to i32
+  %178 = tail call i32 @ossl_ascii_isdigit(i32 noundef %177) #8
+  %.not153.us = icmp eq i32 %178, 0
+  br i1 %.not153.us, label %.thread, label %179
 
-178:                                              ; preds = %173
-  %179 = sext i8 %174 to i32
-  %180 = mul nsw i32 %179, 10
-  %181 = load i8, ptr %gep.us, align 1, !tbaa !15
-  %182 = sext i8 %181 to i32
-  %183 = add nsw i32 %180, -528
-  %184 = add nsw i32 %183, %182
-  %185 = load i32, ptr %4, align 4, !tbaa !4
-  %186 = icmp eq i32 %185, 23
-  %187 = add nuw nsw i32 %.1125178.us, 1
-  %188 = select i1 %186, i32 %187, i32 %.1125178.us
-  %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %189
-  %191 = load i32, ptr %190, align 4, !tbaa !16
-  %192 = icmp slt i32 %184, %191
-  br i1 %192, label %.thread, label %193
+179:                                              ; preds = %173
+  %180 = sext i8 %174 to i32
+  %181 = mul nsw i32 %180, 10
+  %182 = load i8, ptr %175, align 1, !tbaa !15
+  %183 = sext i8 %182 to i32
+  %184 = add nsw i32 %181, -528
+  %185 = add nsw i32 %184, %183
+  %186 = load i32, ptr %4, align 4, !tbaa !4
+  %187 = icmp eq i32 %186, 23
+  %188 = add nuw nsw i32 %.1125178.us, 1
+  %189 = select i1 %187, i32 %188, i32 %.1125178.us
+  %190 = zext nneg i32 %189 to i64
+  %191 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !16
+  %193 = icmp slt i32 %185, %192
+  br i1 %193, label %.thread, label %194
 
-193:                                              ; preds = %178
-  %194 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %189
-  %195 = load i32, ptr %194, align 4, !tbaa !16
-  %196 = icmp sgt i32 %184, %195
-  br i1 %196, label %.thread, label %197
+194:                                              ; preds = %179
+  %195 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %190
+  %196 = load i32, ptr %195, align 4, !tbaa !16
+  %197 = icmp sgt i32 %185, %196
+  br i1 %197, label %.thread, label %198
 
-197:                                              ; preds = %193
+198:                                              ; preds = %194
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, 2
-  %exitcond197.not = icmp eq i32 %187, %166
-  br i1 %exitcond197.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !30
+  %exitcond197.not = icmp eq i32 %188, %166
+  br i1 %exitcond197.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !29
 
-.split.us.thread:                                 ; preds = %197
+.split.us.thread:                                 ; preds = %198
   %.us-phi202 = trunc i64 %indvars.iv.next195 to i32
-  br label %241
+  br label %243
 
-.preheader.split:                                 ; preds = %.preheader, %235
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %235 ], [ %168, %.preheader ]
-  %.0179 = phi i32 [ %.1, %235 ], [ 0, %.preheader ]
-  %.1125178 = phi i32 [ %216, %235 ], [ %.0131, %.preheader ]
-  %198 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv190
-  %199 = load i8, ptr %198, align 1, !tbaa !15
-  %200 = sext i8 %199 to i32
-  %201 = tail call i32 @ossl_ascii_isdigit(i32 noundef %200) #8
-  %.not152 = icmp eq i32 %201, 0
-  br i1 %.not152, label %.thread, label %202
+.preheader.split:                                 ; preds = %.preheader, %237
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %237 ], [ %168, %.preheader ]
+  %.0179 = phi i32 [ %.1, %237 ], [ 0, %.preheader ]
+  %.1125178 = phi i32 [ %218, %237 ], [ %.0131, %.preheader ]
+  %199 = getelementptr i8, ptr %10, i64 %indvars.iv190
+  %200 = load i8, ptr %199, align 1, !tbaa !15
+  %201 = sext i8 %200 to i32
+  %202 = tail call i32 @ossl_ascii_isdigit(i32 noundef %201) #8
+  %.not152 = icmp eq i32 %202, 0
+  br i1 %.not152, label %.thread, label %203
 
-202:                                              ; preds = %.preheader.split
-  %203 = load i8, ptr %198, align 1, !tbaa !15
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv190
-  %204 = load i8, ptr %gep, align 1, !tbaa !15
-  %205 = sext i8 %204 to i32
-  %206 = tail call i32 @ossl_ascii_isdigit(i32 noundef %205) #8
-  %.not153 = icmp eq i32 %206, 0
-  br i1 %.not153, label %.thread, label %207
+203:                                              ; preds = %.preheader.split
+  %204 = load i8, ptr %199, align 1, !tbaa !15
+  %205 = getelementptr i8, ptr %199, i64 1
+  %206 = load i8, ptr %205, align 1, !tbaa !15
+  %207 = sext i8 %206 to i32
+  %208 = tail call i32 @ossl_ascii_isdigit(i32 noundef %207) #8
+  %.not153 = icmp eq i32 %208, 0
+  br i1 %.not153, label %.thread, label %209
 
-207:                                              ; preds = %202
-  %208 = sext i8 %203 to i32
-  %209 = mul nsw i32 %208, 10
-  %210 = load i8, ptr %gep, align 1, !tbaa !15
-  %211 = sext i8 %210 to i32
-  %212 = add nsw i32 %209, -528
-  %213 = add nsw i32 %212, %211
-  %214 = load i32, ptr %4, align 4, !tbaa !4
-  %215 = icmp eq i32 %214, 23
-  %216 = add nuw nsw i32 %.1125178, 1
-  %217 = select i1 %215, i32 %216, i32 %.1125178
-  %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %218
-  %220 = load i32, ptr %219, align 4, !tbaa !16
-  %221 = icmp slt i32 %213, %220
-  br i1 %221, label %.thread, label %222
+209:                                              ; preds = %203
+  %210 = sext i8 %204 to i32
+  %211 = mul nsw i32 %210, 10
+  %212 = load i8, ptr %205, align 1, !tbaa !15
+  %213 = sext i8 %212 to i32
+  %214 = add nsw i32 %211, -528
+  %215 = add nsw i32 %214, %213
+  %216 = load i32, ptr %4, align 4, !tbaa !4
+  %217 = icmp eq i32 %216, 23
+  %218 = add nuw nsw i32 %.1125178, 1
+  %219 = select i1 %217, i32 %218, i32 %.1125178
+  %220 = zext nneg i32 %219 to i64
+  %221 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %220
+  %222 = load i32, ptr %221, align 4, !tbaa !16
+  %223 = icmp slt i32 %215, %222
+  br i1 %223, label %.thread, label %224
 
-222:                                              ; preds = %207
-  %223 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %218
-  %224 = load i32, ptr %223, align 4, !tbaa !16
-  %225 = icmp sgt i32 %213, %224
-  br i1 %225, label %.thread, label %226
+224:                                              ; preds = %209
+  %225 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %220
+  %226 = load i32, ptr %225, align 4, !tbaa !16
+  %227 = icmp sgt i32 %215, %226
+  br i1 %227, label %.thread, label %228
 
-226:                                              ; preds = %222
-  %227 = icmp eq i32 %.1125178, %.0131
-  br i1 %227, label %228, label %230
+228:                                              ; preds = %224
+  %229 = icmp eq i32 %.1125178, %.0131
+  br i1 %229, label %230, label %232
 
-228:                                              ; preds = %226
-  %229 = mul nsw i32 %213, 3600
-  br label %235
+230:                                              ; preds = %228
+  %231 = mul nsw i32 %215, 3600
+  br label %237
 
-230:                                              ; preds = %226
-  %231 = icmp eq i32 %.1125178, %167
-  br i1 %231, label %232, label %235
+232:                                              ; preds = %228
+  %233 = icmp eq i32 %.1125178, %167
+  br i1 %233, label %234, label %237
 
-232:                                              ; preds = %230
-  %233 = mul nsw i32 %213, 60
-  %234 = add nsw i32 %233, %.0179
-  br label %235
+234:                                              ; preds = %232
+  %235 = mul nsw i32 %215, 60
+  %236 = add nsw i32 %235, %.0179
+  br label %237
 
-235:                                              ; preds = %228, %232, %230
-  %.1 = phi i32 [ %229, %228 ], [ %234, %232 ], [ %.0179, %230 ]
+237:                                              ; preds = %230, %234, %232
+  %.1 = phi i32 [ %231, %230 ], [ %236, %234 ], [ %.0179, %232 ]
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, 2
-  %exitcond193.not = icmp eq i32 %216, %166
-  br i1 %exitcond193.not, label %.split.us, label %.preheader.split, !llvm.loop !32
+  %exitcond193.not = icmp eq i32 %218, %166
+  br i1 %exitcond193.not, label %.split.us, label %.preheader.split, !llvm.loop !31
 
-.split.us:                                        ; preds = %235
+.split.us:                                        ; preds = %237
   %.us-phi = trunc i64 %indvars.iv.next191 to i32
   %.not150 = icmp eq i32 %.1, 0
-  br i1 %.not150, label %241, label %236
+  br i1 %.not150, label %243, label %238
 
-236:                                              ; preds = %.split.us
-  %237 = sub nsw i32 0, %.1
-  %238 = select i1 %163, i32 %.1, i32 %237
-  %239 = sext i32 %238 to i64
-  %240 = call i32 @OPENSSL_gmtime_adj(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %239) #8
-  %.not151 = icmp eq i32 %240, 0
-  br i1 %.not151, label %.thread, label %241
+238:                                              ; preds = %.split.us
+  %239 = sub nsw i32 0, %.1
+  %240 = select i1 %163, i32 %.1, i32 %239
+  %241 = sext i32 %240 to i64
+  %242 = call i32 @OPENSSL_gmtime_adj(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %241) #8
+  %.not151 = icmp eq i32 %242, 0
+  br i1 %.not151, label %.thread, label %243
 
-241:                                              ; preds = %.split.us.thread, %236, %.split.us, %158
-  %.3 = phi i32 [ %159, %158 ], [ %.us-phi, %.split.us ], [ %.us-phi, %236 ], [ %.us-phi202, %.split.us.thread ]
-  %242 = icmp eq i32 %.3, %8
-  br i1 %242, label %243, label %.thread
+243:                                              ; preds = %.split.us.thread, %238, %.split.us, %158
+  %.3 = phi i32 [ %159, %158 ], [ %.us-phi, %.split.us ], [ %.us-phi, %238 ], [ %.us-phi202, %.split.us.thread ]
+  %244 = icmp eq i32 %.3, %8
+  br i1 %244, label %245, label %.thread
 
-243:                                              ; preds = %241
+245:                                              ; preds = %243
   %.not155 = icmp eq ptr %0, null
-  br i1 %.not155, label %.thread, label %244
+  br i1 %.not155, label %.thread, label %246
 
-244:                                              ; preds = %243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !33
+246:                                              ; preds = %245
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !32
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %31, %37, %42, %59, %50, %leap_year.exit, %149, %.preheader.split, %202, %222, %207, %193, %178, %173, %.preheader.split.us, %236, %162, %7, %140, %141, %.critedge, %160, %241, %161, %243, %244, %2
-  %.0122 = phi i32 [ 0, %2 ], [ 1, %244 ], [ 1, %243 ], [ 0, %161 ], [ 0, %241 ], [ 0, %160 ], [ 0, %.critedge ], [ 0, %141 ], [ 0, %140 ], [ 0, %7 ], [ 0, %162 ], [ 0, %236 ], [ 0, %.preheader.split.us ], [ 0, %173 ], [ 0, %178 ], [ 0, %193 ], [ 0, %207 ], [ 0, %222 ], [ 0, %202 ], [ 0, %.preheader.split ], [ 0, %149 ], [ 0, %leap_year.exit ], [ 0, %50 ], [ 0, %59 ], [ 0, %42 ], [ 0, %37 ], [ 0, %31 ], [ 0, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %31, %37, %42, %59, %50, %leap_year.exit, %149, %.preheader.split, %203, %224, %209, %194, %179, %173, %.preheader.split.us, %238, %162, %7, %140, %141, %.critedge, %160, %243, %161, %245, %246, %2
+  %.0122 = phi i32 [ 0, %2 ], [ 1, %246 ], [ 1, %245 ], [ 0, %161 ], [ 0, %243 ], [ 0, %160 ], [ 0, %.critedge ], [ 0, %141 ], [ 0, %140 ], [ 0, %7 ], [ 0, %162 ], [ 0, %238 ], [ 0, %.preheader.split.us ], [ 0, %173 ], [ 0, %179 ], [ 0, %194 ], [ 0, %209 ], [ 0, %224 ], [ 0, %203 ], [ 0, %.preheader.split ], [ 0, %149 ], [ 0, %leap_year.exit ], [ 0, %50 ], [ 0, %59 ], [ 0, %42 ], [ 0, %37 ], [ 0, %31 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #8
   ret i32 %.0122
 }
@@ -692,7 +691,7 @@ define dso_local noundef ptr @ASN1_TIME_set(ptr noundef %0, i64 noundef %1) loca
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %1, ptr %3, align 8, !tbaa !34
+  store i64 %1, ptr %3, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
   %5 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %6 = icmp eq ptr %5, null
@@ -719,7 +718,7 @@ ASN1_TIME_adj.exit:                               ; preds = %7, %8
 define dso_local noundef ptr @ASN1_TIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
-  store i64 %1, ptr %5, align 8, !tbaa !34
+  store i64 %1, ptr %5, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   %7 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %8 = icmp eq ptr %7, null
@@ -813,7 +812,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %2
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %1, align 8, !tbaa !36
+  %13 = load ptr, ptr %1, align 8, !tbaa !35
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %.thread.i
 
@@ -867,7 +866,7 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %25
   br i1 %.not, label %ossl_asn1_time_from_tm.exit.thread, label %41
 
 41:                                               ; preds = %ossl_asn1_time_from_tm.exit
-  store ptr %.149.i, ptr %1, align 8, !tbaa !36
+  store ptr %.149.i, ptr %1, align 8, !tbaa !35
   br label %ossl_asn1_time_from_tm.exit.thread
 
 ossl_asn1_time_from_tm.exit.thread:               ; preds = %6, %29, %30, %.thread, %ossl_asn1_time_from_tm.exit, %41, %ASN1_TIME_to_tm.exit
@@ -1146,7 +1145,7 @@ define dso_local range(i32 -1, 2) i32 @ossl_asn1_time_print_ex(ptr noundef %0, p
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !37
 
 .critedge.split.loop.exit43:                      ; preds = %.lr.ph
   %28 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1263,7 +1262,7 @@ define dso_local range(i32 -2, 2) i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store i64 %1, ptr %4, align 8, !tbaa !34
+  store i64 %1, ptr %4, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
@@ -1469,16 +1468,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !23 = !{!18, !6, i64 8}
 !24 = !{!18, !6, i64 4}
 !25 = !{!18, !6, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !27, !28}
-!30 = distinct !{!30, !27, !28, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !27, !28}
-!33 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 4, !16, i64 28, i64 4, !16, i64 32, i64 4, !16, i64 40, i64 8, !34, i64 48, i64 8, !35}
-!34 = !{!11, !11, i64 0}
-!35 = !{!9, !9, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS14asn1_string_st", !10, i64 0}
-!38 = distinct !{!38, !27, !28}
+!28 = distinct !{!28, !27}
+!29 = distinct !{!29, !27, !30}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !27}
+!32 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 4, !16, i64 28, i64 4, !16, i64 32, i64 4, !16, i64 40, i64 8, !33, i64 48, i64 8, !34}
+!33 = !{!11, !11, i64 0}
+!34 = !{!9, !9, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS14asn1_string_st", !10, i64 0}
+!37 = distinct !{!37, !27}

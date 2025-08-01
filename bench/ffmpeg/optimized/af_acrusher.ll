@@ -437,8 +437,8 @@ bitreduction.exit:                                ; preds = %145, %150, %164, %1
 
 253:                                              ; preds = %._crit_edge
   %254 = load double, ptr %34, align 8, !tbaa !52
-  %255 = load double, ptr %51, align 8, !tbaa !77
-  %256 = load i32, ptr %52, align 8, !tbaa !78
+  %255 = load double, ptr %51, align 8, !tbaa !76
+  %256 = load i32, ptr %52, align 8, !tbaa !77
   %257 = sitofp i32 %256 to double
   %258 = fdiv nsz double 1.000000e+00, %257
   %259 = tail call nsz double @llvm.fmuladd.f64(double %255, double %258, double %254)
@@ -453,7 +453,7 @@ bitreduction.exit:                                ; preds = %145, %150, %164, %1
   %264 = add nuw nsw i32 %.05166, 1
   %265 = load i32, ptr %27, align 8, !tbaa !43
   %266 = icmp slt i32 %264, %265
-  br i1 %266, label %53, label %._crit_edge69, !llvm.loop !79
+  br i1 %266, label %53, label %._crit_edge69, !llvm.loop !78
 
 ._crit_edge69:                                    ; preds = %263, %26
   %.not58 = icmp eq ptr %1, %.053
@@ -484,7 +484,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %8, ptr %9, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %11 = load double, ptr %10, align 8, !tbaa !80
+  %11 = load double, ptr %10, align 8, !tbaa !79
   %12 = tail call nsz double @llvm.exp2.f64(double %11)
   %13 = fadd nsz double %12, -1.000000e+00
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -506,7 +506,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i32 %26, ptr %27, align 8, !tbaa !57
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %29 = load double, ptr %28, align 8, !tbaa !81
+  %29 = load double, ptr %28, align 8, !tbaa !80
   %30 = fmul nsz double %29, 5.000000e-01
   %31 = fsub nsz double %24, %30
   %32 = fcmp nsz ogt double %31, 1.000000e+00
@@ -525,17 +525,17 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store double %43, ptr %44, align 8, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %46 = load double, ptr %45, align 8, !tbaa !82
+  %46 = load double, ptr %45, align 8, !tbaa !81
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  store double %46, ptr %47, align 8, !tbaa !83
+  store double %46, ptr %47, align 8, !tbaa !82
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  store double 1.000000e+00, ptr %48, align 8, !tbaa !84
+  store double 1.000000e+00, ptr %48, align 8, !tbaa !83
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %50 = load i32, ptr %49, align 8, !tbaa !85
+  %50 = load i32, ptr %49, align 8, !tbaa !84
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store i32 %50, ptr %51, align 8, !tbaa !86
+  store i32 %50, ptr %51, align 8, !tbaa !85
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  store double 5.000000e-01, ptr %52, align 8, !tbaa !87
+  store double 5.000000e-01, ptr %52, align 8, !tbaa !86
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %54 = load ptr, ptr %53, align 8, !tbaa !60
   %.not = icmp eq ptr %54, null
@@ -687,17 +687,16 @@ attributes #5 = { nounwind }
 !71 = !{!37, !38, i64 48}
 !72 = !{!37, !38, i64 56}
 !73 = !{!37, !15, i64 40}
-!74 = distinct !{!74, !75, !76}
+!74 = distinct !{!74, !75}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.estimated_trip_count"}
-!77 = !{!39, !38, i64 0}
-!78 = !{!39, !15, i64 16}
-!79 = distinct !{!79, !75, !76}
-!80 = !{!37, !38, i64 24}
-!81 = !{!37, !38, i64 88}
-!82 = !{!37, !38, i64 96}
-!83 = !{!37, !38, i64 160}
-!84 = !{!37, !38, i64 192}
-!85 = !{!26, !15, i64 64}
-!86 = !{!37, !15, i64 176}
-!87 = !{!37, !38, i64 184}
+!76 = !{!39, !38, i64 0}
+!77 = !{!39, !15, i64 16}
+!78 = distinct !{!78, !75}
+!79 = !{!37, !38, i64 24}
+!80 = !{!37, !38, i64 88}
+!81 = !{!37, !38, i64 96}
+!82 = !{!37, !38, i64 160}
+!83 = !{!37, !38, i64 192}
+!84 = !{!26, !15, i64 64}
+!85 = !{!37, !15, i64 176}
+!86 = !{!37, !38, i64 184}

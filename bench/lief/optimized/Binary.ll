@@ -115,6 +115,5 @@ attributes #3 = { nounwind }
 !20 = !{!4, !8, i64 8}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"p1 _ZTS14Macho_Binary_t", !5, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}

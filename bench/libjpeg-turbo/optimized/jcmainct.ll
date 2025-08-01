@@ -126,15 +126,15 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
 
 12:                                               ; preds = %8, %7
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %13, align 8, !tbaa !52
+  store i32 0, ptr %13, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 0, ptr %14, align 4, !tbaa !53
+  store i32 0, ptr %14, align 4, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %15, align 8, !tbaa !54
+  store i32 0, ptr %15, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %1, ptr %16, align 4, !tbaa !55
+  store i32 %1, ptr %16, align 4, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @process_data_simple_main, ptr %17, align 8, !tbaa !56
+  store ptr @process_data_simple_main, ptr %17, align 8, !tbaa !55
   br label %18
 
 18:                                               ; preds = %2, %12
@@ -153,8 +153,8 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   %11 = select i1 %.not, i32 8, i32 1
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %14 = load i32, ptr %12, align 8, !tbaa !52
-  %15 = load i32, ptr %13, align 8, !tbaa !57
+  %14 = load i32, ptr %12, align 8, !tbaa !51
+  %15 = load i32, ptr %13, align 8, !tbaa !56
   %16 = icmp ult i32 %14, %15
   br i1 %16, label %.lr.ph, label %.loopexit
 
@@ -164,7 +164,7 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.pre = load i32, ptr %17, align 4, !tbaa !53
+  %.pre = load i32, ptr %17, align 4, !tbaa !52
   br label %22
 
 22:                                               ; preds = %.lr.ph, %45
@@ -173,11 +173,11 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %18, align 8, !tbaa !58
+  %26 = load ptr, ptr %18, align 8, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
   tail call void %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %19, ptr noundef nonnull %17, i32 noundef %11) #2
-  %.pre31 = load i32, ptr %17, align 4, !tbaa !53
+  %.pre31 = load i32, ptr %17, align 4, !tbaa !52
   br label %29
 
 29:                                               ; preds = %25, %22
@@ -186,12 +186,12 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   br i1 %.not26, label %31, label %.loopexit
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %20, align 8, !tbaa !61
+  %32 = load ptr, ptr %20, align 8, !tbaa !60
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !62
+  %34 = load ptr, ptr %33, align 8, !tbaa !61
   %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef nonnull %19) #2
   %.not27 = icmp eq i32 %35, 0
-  %36 = load i32, ptr %21, align 8, !tbaa !54
+  %36 = load i32, ptr %21, align 8, !tbaa !53
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not27, label %37, label %41
 
@@ -199,30 +199,30 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
   br i1 %.not28, label %38, label %.loopexit
 
 38:                                               ; preds = %37
-  %39 = load i32, ptr %2, align 4, !tbaa !64
+  %39 = load i32, ptr %2, align 4, !tbaa !63
   %40 = add i32 %39, -1
-  store i32 %40, ptr %2, align 4, !tbaa !64
-  store i32 1, ptr %21, align 8, !tbaa !54
+  store i32 %40, ptr %2, align 4, !tbaa !63
+  store i32 1, ptr %21, align 8, !tbaa !53
   br label %.loopexit
 
 41:                                               ; preds = %31
   br i1 %.not28, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = load i32, ptr %2, align 4, !tbaa !64
+  %43 = load i32, ptr %2, align 4, !tbaa !63
   %44 = add i32 %43, 1
-  store i32 %44, ptr %2, align 4, !tbaa !64
-  store i32 0, ptr %21, align 8, !tbaa !54
+  store i32 %44, ptr %2, align 4, !tbaa !63
+  store i32 0, ptr %21, align 8, !tbaa !53
   br label %45
 
 45:                                               ; preds = %42, %41
-  store i32 0, ptr %17, align 4, !tbaa !53
-  %46 = load i32, ptr %12, align 8, !tbaa !52
+  store i32 0, ptr %17, align 4, !tbaa !52
+  %46 = load i32, ptr %12, align 8, !tbaa !51
   %47 = add i32 %46, 1
-  store i32 %47, ptr %12, align 8, !tbaa !52
-  %48 = load i32, ptr %13, align 8, !tbaa !57
+  store i32 %47, ptr %12, align 8, !tbaa !51
+  %48 = load i32, ptr %13, align 8, !tbaa !56
   %49 = icmp ult i32 %47, %48
-  br i1 %49, label %22, label %.loopexit, !llvm.loop !65
+  br i1 %49, label %22, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %29, %45, %4, %37, %38
   ret void
@@ -283,20 +283,19 @@ attributes #2 = { nounwind }
 !46 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !6, i64 80, !6, i64 88}
 !47 = !{!46, !11, i64 12}
 !48 = !{!31, !31, i64 0}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!39, !11, i64 32}
-!53 = !{!39, !11, i64 36}
-!54 = !{!39, !11, i64 40}
-!55 = !{!39, !11, i64 44}
-!56 = !{!39, !6, i64 8}
-!57 = !{!4, !11, i64 320}
-!58 = !{!4, !17, i64 448}
-!59 = !{!60, !6, i64 8}
-!60 = !{!"jpeg_c_prep_controller", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!61 = !{!4, !18, i64 456}
-!62 = !{!63, !6, i64 8}
-!63 = !{!"jpeg_c_coef_controller", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!64 = !{!11, !11, i64 0}
-!65 = distinct !{!65, !50, !51}
+!51 = !{!39, !11, i64 32}
+!52 = !{!39, !11, i64 36}
+!53 = !{!39, !11, i64 40}
+!54 = !{!39, !11, i64 44}
+!55 = !{!39, !6, i64 8}
+!56 = !{!4, !11, i64 320}
+!57 = !{!4, !17, i64 448}
+!58 = !{!59, !6, i64 8}
+!59 = !{!"jpeg_c_prep_controller", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!60 = !{!4, !18, i64 456}
+!61 = !{!62, !6, i64 8}
+!62 = !{!"jpeg_c_coef_controller", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!63 = !{!11, !11, i64 0}
+!64 = distinct !{!64, !50}

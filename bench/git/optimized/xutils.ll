@@ -42,35 +42,35 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local range(i32 -1, 1) i32 @xdl_emit_diffrec(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca [3 x %struct.s_mmbuffer], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #18
-  store ptr %2, ptr %6, align 16, !tbaa !7
+  store ptr %2, ptr %6, align 16, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %3, ptr %7, align 8, !tbaa !14
+  store i64 %3, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %0, ptr %8, align 16, !tbaa !7
+  store ptr %0, ptr %8, align 16, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %1, ptr %9, align 8, !tbaa !14
+  store i64 %1, ptr %9, align 8, !tbaa !13
   %10 = icmp sgt i64 %1, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %5
   %12 = getelementptr i8, ptr %0, i64 %1
   %13 = getelementptr i8, ptr %12, i64 -1
-  %14 = load i8, ptr %13, align 1, !tbaa !15
+  %14 = load i8, ptr %13, align 1, !tbaa !14
   %.not = icmp eq i8 %14, 10
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @.str, ptr %16, align 16, !tbaa !7
+  store ptr @.str, ptr %16, align 16, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 29, ptr %17, align 8, !tbaa !14
+  store i64 29, ptr %17, align 8, !tbaa !13
   br label %18
 
 18:                                               ; preds = %15, %11, %5
   %.0 = phi i32 [ 3, %15 ], [ 2, %11 ], [ 2, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !16
-  %21 = load ptr, ptr %4, align 8, !tbaa !18
+  %20 = load ptr, ptr %19, align 8, !tbaa !15
+  %21 = load ptr, ptr %4, align 8, !tbaa !17
   %22 = call i32 %20(ptr noundef %21, ptr noundef nonnull %6, i32 noundef %.0) #18
   %.lobit = ashr i32 %22, 31
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #18
@@ -80,16 +80,16 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_diffrec(ptr noundef %0, i64 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local ptr @xdl_mmfile_first(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !19
-  store i64 %4, ptr %1, align 8, !tbaa !21
-  %5 = load ptr, ptr %0, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !18
+  store i64 %4, ptr %1, align 8, !tbaa !20
+  %5 = load ptr, ptr %0, align 8, !tbaa !21
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @xdl_mmfile_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !19
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
@@ -97,10 +97,10 @@ define dso_local i64 @xdl_mmfile_size(ptr noundef readonly captures(none) %0) lo
 define dso_local noundef i32 @xdl_cha_init(ptr noundef writeonly captures(none) initializes((0, 56)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i64 %1, ptr %4, align 8, !tbaa !23
+  store i64 %1, ptr %4, align 8, !tbaa !22
   %5 = mul nsw i64 %2, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %5, ptr %6, align 8, !tbaa !26
+  store i64 %5, ptr %6, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   ret i32 0
@@ -108,16 +108,16 @@ define dso_local noundef i32 @xdl_cha_init(ptr noundef writeonly captures(none) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xdl_cha_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !27
+  %2 = load ptr, ptr %0, align 8, !tbaa !26
   %.not4 = icmp eq ptr %2, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.05 = phi ptr [ %3, %.lr.ph ], [ %2, %1 ]
-  %3 = load ptr, ptr %.05, align 8, !tbaa !28
+  %3 = load ptr, ptr %.05, align 8, !tbaa !27
   tail call void @free(ptr noundef nonnull %.05) #18
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -129,20 +129,20 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @xdl_cha_alloc(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %4
 
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !26
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %10
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !32
+  %6 = load i64, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !26
+  %8 = load i64, ptr %7, align 8, !tbaa !25
   %9 = icmp eq i64 %6, %8
   br i1 %9, label %10, label %22
 
@@ -156,26 +156,26 @@ define dso_local ptr @xdl_cha_alloc(ptr noundef captures(none) %0) local_unnamed
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %18, label %17
 
 17:                                               ; preds = %14
-  store ptr %13, ptr %16, align 8, !tbaa !28
+  store ptr %13, ptr %16, align 8, !tbaa !27
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = load ptr, ptr %0, align 8, !tbaa !27
+  %19 = load ptr, ptr %0, align 8, !tbaa !26
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %20, label %21
 
 20:                                               ; preds = %18
-  store ptr %13, ptr %0, align 8, !tbaa !27
+  store ptr %13, ptr %0, align 8, !tbaa !26
   br label %21
 
 21:                                               ; preds = %20, %18
-  store ptr %13, ptr %15, align 8, !tbaa !33
-  store ptr %13, ptr %2, align 8, !tbaa !31
+  store ptr %13, ptr %15, align 8, !tbaa !32
+  store ptr %13, ptr %2, align 8, !tbaa !30
   br label %22
 
 22:                                               ; preds = %21, %4
@@ -185,9 +185,9 @@ define dso_local ptr @xdl_cha_alloc(ptr noundef captures(none) %0) local_unnamed
   %25 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %26 = getelementptr inbounds i8, ptr %24, i64 %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !23
+  %28 = load i64, ptr %27, align 8, !tbaa !22
   %29 = add nsw i64 %28, %23
-  store i64 %29, ptr %25, align 8, !tbaa !32
+  store i64 %29, ptr %25, align 8, !tbaa !31
   br label %30
 
 30:                                               ; preds = %10, %22
@@ -200,8 +200,8 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @xdl_guess_lines(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !19
-  %5 = load ptr, ptr %0, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !18
+  %5 = load ptr, ptr %0, align 8, !tbaa !21
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
 
@@ -229,7 +229,7 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @xdl_
   %18 = icmp slt i64 %13, %1
   %19 = icmp ult ptr %.122, %7
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %12, label %._crit_edge, !llvm.loop !34
+  br i1 %20, label %12, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %12
   %.not37 = icmp eq ptr %.122, %5
@@ -269,10 +269,10 @@ define dso_local range(i32 0, 2) i32 @xdl_blankline(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.preheader, %14
   %.011 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.011
-  %9 = load i8, ptr %8, align 1, !tbaa !15
+  %9 = load i8, ptr %8, align 1, !tbaa !14
   %10 = zext i8 %9 to i64
   %11 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !15
+  %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = and i8 %12, 1
   %.not10 = icmp eq i8 %13, 0
   br i1 %.not10, label %.critedge, label %14
@@ -280,7 +280,7 @@ define dso_local range(i32 0, 2) i32 @xdl_blankline(ptr noundef readonly capture
 14:                                               ; preds = %.lr.ph
   %15 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %15, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph, %14, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %1, %14 ], [ %.011, %.lr.ph ]
@@ -316,10 +316,10 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 12:                                               ; preds = %.critedge2
   %13 = add nsw i32 %.1109.lcssa, 1
   %14 = getelementptr inbounds i8, ptr %0, i64 %.lcssa180
-  %15 = load i8, ptr %14, align 1, !tbaa !15
+  %15 = load i8, ptr %14, align 1, !tbaa !14
   %16 = add nsw i32 %37, 1
   %.not150 = icmp eq i8 %15, %30
-  br i1 %.not150, label %.preheader168, label %ends_with_optional_cr.exit, !llvm.loop !36
+  br i1 %.not150, label %.preheader168, label %ends_with_optional_cr.exit
 
 .preheader168:                                    ; preds = %10, %12
   %.0108 = phi i32 [ %13, %12 ], [ 0, %10 ]
@@ -331,10 +331,10 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.preheader168, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ %17, %.preheader168 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !15
+  %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = and i8 %23, 1
   %.not145 = icmp eq i8 %24, 0
   br i1 %.not145, label %.critedge.loopexit, label %25
@@ -342,7 +342,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %26 = icmp sgt i64 %1, %indvars.iv.next
-  br i1 %26, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !37
+  br i1 %26, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !35
 
 .critedge.loopexit:                               ; preds = %25, %.lr.ph
   %.lcssa180.ph = phi i64 [ %indvars.iv.next, %25 ], [ %indvars.iv, %.lr.ph ]
@@ -360,10 +360,10 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 .lr.ph195:                                        ; preds = %.critedge, %35
   %indvars.iv258 = phi i64 [ %indvars.iv.next259, %35 ], [ %27, %.critedge ]
   %29 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv258
-  %30 = load i8, ptr %29, align 1, !tbaa !15
+  %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !15
+  %33 = load i8, ptr %32, align 1, !tbaa !14
   %34 = and i8 %33, 1
   %.not146 = icmp eq i8 %34, 0
   br i1 %.not146, label %.critedge2, label %35
@@ -371,7 +371,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 35:                                               ; preds = %.lr.ph195
   %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
   %36 = icmp sgt i64 %3, %indvars.iv.next259
-  br i1 %36, label %.lr.ph195, label %.critedge8.loopexit242, !llvm.loop !38
+  br i1 %36, label %.lr.ph195, label %.critedge8.loopexit242, !llvm.loop !36
 
 .critedge2:                                       ; preds = %.lr.ph195
   %37 = trunc nsw i64 %indvars.iv258 to i32
@@ -394,20 +394,20 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %.3211 = phi i32 [ %.3.be, %.backedge ], [ 0, %.preheader165 ]
   %.3111210 = phi i32 [ %.3111.be, %.backedge ], [ 0, %.preheader165 ]
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !15
+  %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = zext i8 %46 to i64
   %48 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !15
+  %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = and i8 %49, 1
   %.not140 = icmp eq i8 %50, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 %43
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !15
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !14
   br i1 %.not140, label %.lr.ph212._crit_edge, label %51
 
 51:                                               ; preds = %.lr.ph212
   %52 = zext i8 %.pre to i64
   %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !15
+  %54 = load i8, ptr %53, align 1, !tbaa !14
   %55 = and i8 %54, 1
   %.not141 = icmp eq i8 %55, 0
   br i1 %.not141, label %.lr.ph212._crit_edge, label %.preheader164
@@ -420,10 +420,10 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 .lr.ph201:                                        ; preds = %.preheader164, %64
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %64 ], [ %56, %.preheader164 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv262
-  %59 = load i8, ptr %58, align 1, !tbaa !15
+  %59 = load i8, ptr %58, align 1, !tbaa !14
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !15
+  %62 = load i8, ptr %61, align 1, !tbaa !14
   %63 = and i8 %62, 1
   %.not143 = icmp eq i8 %63, 0
   br i1 %.not143, label %.critedge4.loopexit, label %64
@@ -431,7 +431,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 64:                                               ; preds = %.lr.ph201
   %indvars.iv.next263 = add nsw i64 %indvars.iv262, 1
   %65 = icmp sgt i64 %1, %indvars.iv.next263
-  br i1 %65, label %.lr.ph201, label %.critedge4.loopexit, !llvm.loop !39
+  br i1 %65, label %.lr.ph201, label %.critedge4.loopexit, !llvm.loop !37
 
 .critedge4.loopexit:                              ; preds = %64, %.lr.ph201
   %.4112.lcssa.ph.in = phi i64 [ %indvars.iv262, %.lr.ph201 ], [ %indvars.iv.next263, %64 ]
@@ -447,10 +447,10 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 .lr.ph206:                                        ; preds = %.critedge4, %74
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %74 ], [ %66, %.critedge4 ]
   %68 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv266
-  %69 = load i8, ptr %68, align 1, !tbaa !15
+  %69 = load i8, ptr %68, align 1, !tbaa !14
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !15
+  %72 = load i8, ptr %71, align 1, !tbaa !14
   %73 = and i8 %72, 1
   %.not144 = icmp eq i8 %73, 0
   br i1 %.not144, label %.backedge.loopexit, label %74
@@ -458,7 +458,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 74:                                               ; preds = %.lr.ph206
   %indvars.iv.next267 = add nsw i64 %indvars.iv266, 1
   %75 = icmp sgt i64 %3, %indvars.iv.next267
-  br i1 %75, label %.lr.ph206, label %.backedge.loopexit, !llvm.loop !40
+  br i1 %75, label %.lr.ph206, label %.backedge.loopexit, !llvm.loop !38
 
 .backedge.loopexit:                               ; preds = %.lr.ph206, %74
   %.3.be.ph.in = phi i64 [ %indvars.iv.next267, %74 ], [ %indvars.iv266, %.lr.ph206 ]
@@ -473,7 +473,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %78 = sext i32 %.3.be to i64
   %79 = icmp sgt i64 %3, %78
   %80 = select i1 %77, i1 %79, i1 false
-  br i1 %80, label %.lr.ph212, label %.critedge8, !llvm.loop !41
+  br i1 %80, label %.lr.ph212, label %.critedge8, !llvm.loop !39
 
 .lr.ph212._crit_edge:                             ; preds = %.lr.ph212, %51
   %81 = add nsw i32 %.3111210, 1
@@ -501,16 +501,16 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 
 86:                                               ; preds = %.lr.ph217
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv270
-  %88 = load i8, ptr %87, align 1, !tbaa !15
+  %88 = load i8, ptr %87, align 1, !tbaa !14
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv270
-  %90 = load i8, ptr %89, align 1, !tbaa !15
+  %90 = load i8, ptr %89, align 1, !tbaa !14
   %91 = icmp eq i8 %88, %90
   br i1 %91, label %92, label %.critedge8.loopexit
 
 92:                                               ; preds = %86
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next271, %1
-  br i1 %exitcond276.not, label %.critedge8.loopexit, label %.lr.ph217, !llvm.loop !42
+  br i1 %exitcond276.not, label %.critedge8.loopexit, label %.lr.ph217, !llvm.loop !40
 
 93:                                               ; preds = %83
   %94 = and i64 %4, 16
@@ -532,16 +532,16 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 
 96:                                               ; preds = %.lr.ph228
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv277
-  %98 = load i8, ptr %97, align 1, !tbaa !15
+  %98 = load i8, ptr %97, align 1, !tbaa !14
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv277
-  %100 = load i8, ptr %99, align 1, !tbaa !15
+  %100 = load i8, ptr %99, align 1, !tbaa !14
   %101 = icmp eq i8 %98, %100
   br i1 %101, label %102, label %.critedge10.thread.loopexit
 
 102:                                              ; preds = %96
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next278, %1
-  br i1 %exitcond285.not, label %.critedge10.thread294, label %.lr.ph228, !llvm.loop !43
+  br i1 %exitcond285.not, label %.critedge10.thread294, label %.lr.ph228, !llvm.loop !41
 
 .critedge10.thread294:                            ; preds = %102
   %103 = trunc nuw i64 %1 to i32
@@ -561,7 +561,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %104 = phi i64 [ 0, %.critedge10 ], [ %.lcssa247, %.critedge10.thread.loopexit ], [ %1, %.critedge10.thread294 ]
   %105 = getelementptr i8, ptr %0, i64 %1
   %106 = getelementptr i8, ptr %105, i64 -1
-  %107 = load i8, ptr %106, align 1, !tbaa !15
+  %107 = load i8, ptr %106, align 1, !tbaa !14
   %.fr.i = freeze i8 %107
   %108 = icmp eq i8 %.fr.i, 10
   %109 = sext i1 %108 to i64
@@ -577,7 +577,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 %104
-  %116 = load i8, ptr %115, align 1, !tbaa !15
+  %116 = load i8, ptr %115, align 1, !tbaa !14
   %117 = icmp eq i8 %116, 13
   br i1 %117, label %.thread.i.thread, label %ends_with_optional_cr.exit
 
@@ -590,7 +590,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 119:                                              ; preds = %.thread.i.thread
   %120 = getelementptr i8, ptr %2, i64 %3
   %121 = getelementptr i8, ptr %120, i64 -1
-  %122 = load i8, ptr %121, align 1, !tbaa !15
+  %122 = load i8, ptr %121, align 1, !tbaa !14
   %.fr.i152 = freeze i8 %122
   %123 = icmp eq i8 %.fr.i152, 10
   %124 = sext i1 %123 to i64
@@ -611,7 +611,7 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 %118
-  %133 = load i8, ptr %132, align 1, !tbaa !15
+  %133 = load i8, ptr %132, align 1, !tbaa !14
   %134 = icmp eq i8 %133, 13
   br i1 %134, label %ends_with_optional_cr.exit, label %135
 
@@ -637,15 +637,15 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 139:                                              ; preds = %.lr.ph232
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
   %140 = icmp sgt i64 %1, %indvars.iv.next287
-  br i1 %140, label %.lr.ph232, label %.critedge12, !llvm.loop !44
+  br i1 %140, label %.lr.ph232, label %.critedge12, !llvm.loop !42
 
 .lr.ph232:                                        ; preds = %.critedge8, %139
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %139 ], [ %137, %.critedge8 ]
   %141 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv286
-  %142 = load i8, ptr %141, align 1, !tbaa !15
+  %142 = load i8, ptr %141, align 1, !tbaa !14
   %143 = zext i8 %142 to i64
   %144 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %143
-  %145 = load i8, ptr %144, align 1, !tbaa !15
+  %145 = load i8, ptr %144, align 1, !tbaa !14
   %146 = and i8 %145, 1
   %.not147 = icmp eq i8 %146, 0
   br i1 %.not147, label %.critedge12, label %139
@@ -663,15 +663,15 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 150:                                              ; preds = %.lr.ph237
   %indvars.iv.next291 = add nsw i64 %indvars.iv290, 1
   %151 = icmp sgt i64 %3, %indvars.iv.next291
-  br i1 %151, label %.lr.ph237, label %.critedge14, !llvm.loop !45
+  br i1 %151, label %.lr.ph237, label %.critedge14, !llvm.loop !43
 
 .lr.ph237:                                        ; preds = %147, %150
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %150 ], [ %148, %147 ]
   %152 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv290
-  %153 = load i8, ptr %152, align 1, !tbaa !15
+  %153 = load i8, ptr %152, align 1, !tbaa !14
   %154 = zext i8 %153 to i64
   %155 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !15
+  %156 = load i8, ptr %155, align 1, !tbaa !14
   %157 = and i8 %156, 1
   %.not149 = icmp eq i8 %157, 0
   br i1 %.not149, label %.critedge14, label %150
@@ -690,7 +690,7 @@ ends_with_optional_cr.exit:                       ; preds = %12, %.lr.ph212._cri
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #12 {
   %4 = ptrtoint ptr %1 to i64
-  %5 = load ptr, ptr %0, align 8, !tbaa !46
+  %5 = load ptr, ptr %0, align 8, !tbaa !44
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %2, 30
   %.not = icmp eq i64 %7, 0
@@ -716,7 +716,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %14 = icmp eq i64 %13, 0
   %15 = and i64 %2, 8
   %16 = icmp eq i64 %15, 0
-  %17 = load i8, ptr %5, align 1, !tbaa !15
+  %17 = load i8, ptr %5, align 1, !tbaa !14
   %.not.us110.i = icmp eq i8 %17, 10
   br i1 %11, label %.lr.ph76.split.us.i, label %.lr.ph76.split.i
 
@@ -729,9 +729,9 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br label %.lr.ph.i
 
 19:                                               ; preds = %33
-  %20 = load i8, ptr %34, align 1, !tbaa !15
+  %20 = load i8, ptr %34, align 1, !tbaa !14
   %.not.us.i = icmp eq i8 %20, 10
-  br i1 %.not.us.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %.not.us.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph.i, !llvm.loop !45
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %21 = phi i8 [ %20, %19 ], [ %17, %.lr.ph.preheader.i ]
@@ -746,7 +746,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = load i8, ptr %24, align 1, !tbaa !15
+  %27 = load i8, ptr %24, align 1, !tbaa !14
   %28 = icmp eq i8 %27, 10
   br i1 %28, label %33, label %29
 
@@ -760,7 +760,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.1.us.i = phi i64 [ %.075.us111.i, %26 ], [ %32, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %.05174.us112.i, i64 1
   %35 = icmp ult ptr %34, %1
-  br i1 %35, label %19, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !47
+  br i1 %35, label %19, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
 
 .lr.ph76.split.i:                                 ; preds = %.lr.ph76.i
   br i1 %.not.us110.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.i
@@ -774,15 +774,15 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.07590.us.i = phi i64 [ %.1.us100.i, %41 ], [ 5381, %.lr.ph92.i ]
   %37 = zext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !15
+  %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = and i8 %39, 1
   %.not59.us.i = icmp eq i8 %40, 0
   br i1 %.not59.us.i, label %60, label %.preheader66.us.i
 
 41:                                               ; preds = %.loopexit.us.i
-  %42 = load i8, ptr %64, align 1, !tbaa !15
+  %42 = load i8, ptr %64, align 1, !tbaa !14
   %.not.us98.i = icmp eq i8 %42, 10
-  br i1 %.not.us98.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.us.i, !llvm.loop !49
+  br i1 %.not.us98.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.us.i, !llvm.loop !47
 
 .preheader66.us.i:                                ; preds = %.lr.ph92.split.us.i, %45
   %.253.us.i = phi ptr [ %43, %45 ], [ %.0517491.us.i, %.lr.ph92.split.us.i ]
@@ -791,15 +791,15 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br i1 %44, label %45, label %.loopexit.us.i
 
 45:                                               ; preds = %.preheader66.us.i
-  %46 = load i8, ptr %43, align 1, !tbaa !15
+  %46 = load i8, ptr %43, align 1, !tbaa !14
   %47 = zext i8 %46 to i64
   %48 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !15
+  %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = and i8 %49, 1
   %.not60.us.i = icmp eq i8 %50, 0
   %.not61.us.i = icmp eq i8 %46, 10
   %or.cond65.us.i = or i1 %.not61.us.i, %.not60.us.i
-  br i1 %or.cond65.us.i, label %.critedge2.us.i, label %.preheader66.us.i, !llvm.loop !50
+  br i1 %or.cond65.us.i, label %.critedge2.us.i, label %.preheader66.us.i, !llvm.loop !48
 
 .critedge2.us.i:                                  ; preds = %45
   %or.cond.us.i = or i1 %14, %.not61.us.i
@@ -818,12 +818,12 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.373.us.i = phi i64 [ %58, %.lr.ph.us.i ], [ %.07590.us.i, %54 ]
   %.05072.us.i = phi ptr [ %59, %.lr.ph.us.i ], [ %.0517491.us.i, %54 ]
   %55 = mul i64 %.373.us.i, 33
-  %56 = load i8, ptr %.05072.us.i, align 1, !tbaa !15
+  %56 = load i8, ptr %.05072.us.i, align 1, !tbaa !14
   %57 = sext i8 %56 to i64
   %58 = xor i64 %55, %57
   %59 = getelementptr inbounds nuw i8, ptr %.05072.us.i, i64 1
   %.not64.us.i = icmp eq ptr %.05072.us.i, %.253.us.i
-  br i1 %.not64.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !51
+  br i1 %.not64.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !49
 
 60:                                               ; preds = %.lr.ph92.split.us.i
   %61 = mul i64 %.07590.us.i, 33
@@ -836,12 +836,12 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.1.us100.i = phi i64 [ %63, %60 ], [ %53, %51 ], [ %.07590.us.i, %54 ], [ %58, %.lr.ph.us.i ], [ %.07590.us.i, %.preheader66.us.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.152.us99.i, i64 1
   %65 = icmp ult ptr %64, %1
-  br i1 %65, label %41, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !52
+  br i1 %65, label %41, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !50
 
 66:                                               ; preds = %.critedge2.i
-  %67 = load i8, ptr %85, align 1, !tbaa !15
+  %67 = load i8, ptr %85, align 1, !tbaa !14
   %.not.i = icmp eq i8 %67, 10
-  br i1 %.not.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.i, !llvm.loop !52
+  br i1 %.not.i, label %xdl_hash_record_with_whitespace.exit, label %.lr.ph92.split.i, !llvm.loop !50
 
 .lr.ph92.split.i:                                 ; preds = %.lr.ph92.i, %66
   %68 = phi i8 [ %67, %66 ], [ %17, %.lr.ph92.i ]
@@ -849,7 +849,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.07590.i = phi i64 [ %.1.i, %66 ], [ 5381, %.lr.ph92.i ]
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !15
+  %71 = load i8, ptr %70, align 1, !tbaa !14
   %72 = and i8 %71, 1
   %.not59.i = icmp eq i8 %72, 0
   br i1 %.not59.i, label %81, label %.preheader66.i
@@ -861,15 +861,15 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br i1 %74, label %75, label %.critedge2.i
 
 75:                                               ; preds = %.preheader66.i
-  %76 = load i8, ptr %73, align 1, !tbaa !15
+  %76 = load i8, ptr %73, align 1, !tbaa !14
   %77 = zext i8 %76 to i64
   %78 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !15
+  %79 = load i8, ptr %78, align 1, !tbaa !14
   %80 = and i8 %79, 1
   %.not60.i = icmp eq i8 %80, 0
   %.not61.i = icmp eq i8 %76, 10
   %or.cond65.i = or i1 %.not61.i, %.not60.i
-  br i1 %or.cond65.i, label %.critedge2.i, label %.preheader66.i, !llvm.loop !50
+  br i1 %or.cond65.i, label %.critedge2.i, label %.preheader66.i, !llvm.loop !48
 
 81:                                               ; preds = %.lr.ph92.split.i
   %82 = mul i64 %.07590.i, 33
@@ -882,7 +882,7 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   %.1.i = phi i64 [ %84, %81 ], [ %.07590.i, %.preheader66.i ], [ %.07590.i, %75 ]
   %85 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
   %86 = icmp ult ptr %85, %1
-  br i1 %86, label %66, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !52
+  br i1 %86, label %66, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !50
 
 xdl_hash_record_with_whitespace.exit:             ; preds = %66, %.critedge2.i, %41, %.loopexit.us.i, %19, %33, %10, %.lr.ph76.split.us.i, %.lr.ph76.split.i
   %.051.lcssa.i = phi ptr [ %5, %10 ], [ %5, %.lr.ph76.split.us.i ], [ %5, %.lr.ph76.split.i ], [ %scevgep.i, %33 ], [ %34, %19 ], [ %64, %.loopexit.us.i ], [ %64, %41 ], [ %85, %.critedge2.i ], [ %85, %66 ]
@@ -894,7 +894,7 @@ xdl_hash_record_with_whitespace.exit:             ; preds = %66, %.critedge2.i, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %89
   %.032 = phi ptr [ %93, %89 ], [ %5, %.lr.ph.preheader ]
   %.01931 = phi i64 [ %92, %89 ], [ 5381, %.lr.ph.preheader ]
-  %88 = load i8, ptr %.032, align 1, !tbaa !15
+  %88 = load i8, ptr %.032, align 1, !tbaa !14
   %.not21 = icmp eq i8 %88, 10
   br i1 %.not21, label %.critedge, label %89
 
@@ -904,7 +904,7 @@ xdl_hash_record_with_whitespace.exit:             ; preds = %66, %.critedge2.i, 
   %92 = xor i64 %90, %91
   %93 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   %exitcond.not = icmp eq ptr %93, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %89, %.preheader
   %.019.lcssa = phi i64 [ 5381, %.preheader ], [ %92, %89 ], [ %.01931, %.lr.ph ]
@@ -916,7 +916,7 @@ xdl_hash_record_with_whitespace.exit:             ; preds = %66, %.critedge2.i, 
 95:                                               ; preds = %.critedge, %xdl_hash_record_with_whitespace.exit
   %storemerge = phi ptr [ %87, %xdl_hash_record_with_whitespace.exit ], [ %94, %.critedge ]
   %.020 = phi i64 [ %.0.lcssa.i, %xdl_hash_record_with_whitespace.exit ], [ %.019.lcssa, %.critedge ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !46
+  store ptr %storemerge, ptr %0, align 8, !tbaa !44
   ret i64 %.020
 }
 
@@ -933,7 +933,7 @@ define dso_local range(i32 1, 33) i32 @xdl_hashbits(i32 noundef %0) local_unname
   %5 = icmp ult i32 %3, %0
   %6 = icmp samesign ult i32 %.09, 31
   %7 = select i1 %5, i1 %6, i1 false
-  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 1, %1 ], [ %4, %.lr.ph ]
@@ -945,13 +945,13 @@ define dso_local noundef i32 @xdl_num_out(ptr noundef %0, i64 noundef %1) local_
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 31
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !14
   %5 = icmp slt i64 %1, 0
   br i1 %5, label %.thread, label %8
 
 .thread:                                          ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 30
-  store i8 45, ptr %6, align 2, !tbaa !15
+  store i8 45, ptr %6, align 2, !tbaa !14
   %7 = sub nsw i64 0, %1
   br label %.lr.ph.preheader
 
@@ -969,34 +969,34 @@ define dso_local noundef i32 @xdl_num_out(ptr noundef %0, i64 noundef %1) local_
   %.12227 = phi i64 [ %13, %.lr.ph ], [ %.12227.ph, %.lr.ph.preheader ]
   %9 = urem i64 %.12227, 10
   %10 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !15
+  %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = getelementptr inbounds i8, ptr %.12028, i64 -1
-  store i8 %11, ptr %12, align 1, !tbaa !15
+  store i8 %11, ptr %12, align 1, !tbaa !14
   %13 = udiv i64 %.12227, 10
   %14 = icmp samesign ugt i64 %.12227, 9
   %15 = icmp ugt ptr %12, %3
   %16 = and i1 %14, %15
-  br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !55
+  br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !53
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader
   %.030 = phi ptr [ %19, %.preheader ], [ %0, %.lr.ph ]
   %.229 = phi ptr [ %18, %.preheader ], [ %12, %.lr.ph ]
   %17 = phi i8 [ %.pr, %.preheader ], [ %11, %.lr.ph ]
-  store i8 %17, ptr %.030, align 1, !tbaa !15
+  store i8 %17, ptr %.030, align 1, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %.229, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %.030, i64 1
-  %.pr = load i8, ptr %18, align 1, !tbaa !15
+  %.pr = load i8, ptr %18, align 1, !tbaa !14
   %.not26 = icmp eq i8 %.pr, 0
-  br i1 %.not26, label %.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %.not26, label %.loopexit, label %.preheader, !llvm.loop !54
 
 ._crit_edge.thread:                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 48, ptr %0, align 1, !tbaa !15
+  store i8 48, ptr %0, align 1, !tbaa !14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge.thread
   %.1 = phi ptr [ %20, %._crit_edge.thread ], [ %19, %.preheader ]
-  store i8 0, ptr %.1, align 1, !tbaa !15
+  store i8 0, ptr %.1, align 1, !tbaa !14
   %21 = ptrtoint ptr %.1 to i64
   %22 = ptrtoint ptr %0 to i64
   %23 = sub i64 %21, %22
@@ -1014,7 +1014,7 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_hunk_hdr(i64 noundef %0, i64 nou
   %12 = alloca %struct.s_mmbuffer, align 8
   %13 = alloca [128 x i8], align 16
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !57
+  %15 = load ptr, ptr %14, align 8, !tbaa !55
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %152
 
@@ -1028,13 +1028,13 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_hunk_hdr(i64 noundef %0, i64 nou
   %19 = add nsw i64 %0, %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 31
-  store i8 0, ptr %20, align 1, !tbaa !15
+  store i8 0, ptr %20, align 1, !tbaa !14
   %21 = icmp slt i64 %19, 0
   br i1 %21, label %.thread.i.i, label %24
 
 .thread.i.i:                                      ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 30
-  store i8 45, ptr %22, align 2, !tbaa !15
+  store i8 45, ptr %22, align 2, !tbaa !14
   %23 = sub nsw i64 0, %19
   br label %.lr.ph.i.i.preheader
 
@@ -1052,34 +1052,34 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_hunk_hdr(i64 noundef %0, i64 nou
   %.12227.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %.12227.i.i.ph, %.lr.ph.i.i.preheader ]
   %25 = urem i64 %.12227.i.i, 10
   %26 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !15
+  %27 = load i8, ptr %26, align 1, !tbaa !14
   %28 = getelementptr inbounds i8, ptr %.12028.i.i, i64 -1
-  store i8 %27, ptr %28, align 1, !tbaa !15
+  store i8 %27, ptr %28, align 1, !tbaa !14
   %29 = udiv i64 %.12227.i.i, 10
   %30 = icmp samesign ugt i64 %.12227.i.i, 9
   %31 = icmp ugt ptr %28, %11
   %32 = and i1 %30, %31
-  br i1 %32, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !55
+  br i1 %32, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !53
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.030.i.i = phi ptr [ %35, %.preheader.i.i ], [ %17, %.lr.ph.i.i ]
   %.229.i.i = phi ptr [ %34, %.preheader.i.i ], [ %28, %.lr.ph.i.i ]
   %33 = phi i8 [ %.pr.i.i, %.preheader.i.i ], [ %27, %.lr.ph.i.i ]
-  store i8 %33, ptr %.030.i.i, align 1, !tbaa !15
+  store i8 %33, ptr %.030.i.i, align 1, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %.229.i.i, i64 1
   %35 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 1
-  %.pr.i.i = load i8, ptr %34, align 1, !tbaa !15
+  %.pr.i.i = load i8, ptr %34, align 1, !tbaa !14
   %.not26.i.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not26.i.i, label %xdl_num_out.exit.i, label %.preheader.i.i, !llvm.loop !56
+  br i1 %.not26.i.i, label %xdl_num_out.exit.i, label %.preheader.i.i, !llvm.loop !54
 
 ._crit_edge.thread.i.i:                           ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 5
-  store i8 48, ptr %17, align 4, !tbaa !15
+  store i8 48, ptr %17, align 4, !tbaa !14
   br label %xdl_num_out.exit.i
 
 xdl_num_out.exit.i:                               ; preds = %.preheader.i.i, %._crit_edge.thread.i.i
   %.1.i.i = phi ptr [ %36, %._crit_edge.thread.i.i ], [ %35, %.preheader.i.i ]
-  store i8 0, ptr %.1.i.i, align 1, !tbaa !15
+  store i8 0, ptr %.1.i.i, align 1, !tbaa !14
   %37 = ptrtoint ptr %.1.i.i to i64
   %38 = ptrtoint ptr %17 to i64
   %39 = sub i64 %37, %38
@@ -1098,13 +1098,13 @@ xdl_num_out.exit.i:                               ; preds = %.preheader.i.i, %._
   %47 = getelementptr inbounds i8, ptr %13, i64 %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 31
-  store i8 0, ptr %48, align 1, !tbaa !15
+  store i8 0, ptr %48, align 1, !tbaa !14
   %49 = icmp slt i64 %1, 0
   br i1 %49, label %.thread.i68.i, label %52
 
 .thread.i68.i:                                    ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  store i8 45, ptr %50, align 2, !tbaa !15
+  store i8 45, ptr %50, align 2, !tbaa !14
   %51 = sub nsw i64 0, %1
   br label %.lr.ph.i57.i.preheader
 
@@ -1121,34 +1121,34 @@ xdl_num_out.exit.i:                               ; preds = %.preheader.i.i, %._
   %.12227.i59.i = phi i64 [ %57, %.lr.ph.i57.i ], [ %.12227.i59.i.ph, %.lr.ph.i57.i.preheader ]
   %53 = urem i64 %.12227.i59.i, 10
   %54 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !15
+  %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = getelementptr inbounds i8, ptr %.12028.i58.i, i64 -1
-  store i8 %55, ptr %56, align 1, !tbaa !15
+  store i8 %55, ptr %56, align 1, !tbaa !14
   %57 = udiv i64 %.12227.i59.i, 10
   %58 = icmp samesign ugt i64 %.12227.i59.i, 9
   %59 = icmp ugt ptr %56, %10
   %60 = and i1 %58, %59
-  br i1 %60, label %.lr.ph.i57.i, label %.preheader.i61.i, !llvm.loop !55
+  br i1 %60, label %.lr.ph.i57.i, label %.preheader.i61.i, !llvm.loop !53
 
 .preheader.i61.i:                                 ; preds = %.lr.ph.i57.i, %.preheader.i61.i
   %.030.i62.i = phi ptr [ %63, %.preheader.i61.i ], [ %47, %.lr.ph.i57.i ]
   %.229.i63.i = phi ptr [ %62, %.preheader.i61.i ], [ %56, %.lr.ph.i57.i ]
   %61 = phi i8 [ %.pr.i64.i, %.preheader.i61.i ], [ %55, %.lr.ph.i57.i ]
-  store i8 %61, ptr %.030.i62.i, align 1, !tbaa !15
+  store i8 %61, ptr %.030.i62.i, align 1, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %.229.i63.i, i64 1
   %63 = getelementptr inbounds nuw i8, ptr %.030.i62.i, i64 1
-  %.pr.i64.i = load i8, ptr %62, align 1, !tbaa !15
+  %.pr.i64.i = load i8, ptr %62, align 1, !tbaa !14
   %.not26.i65.i = icmp eq i8 %.pr.i64.i, 0
-  br i1 %.not26.i65.i, label %xdl_num_out.exit69.i, label %.preheader.i61.i, !llvm.loop !56
+  br i1 %.not26.i65.i, label %xdl_num_out.exit69.i, label %.preheader.i61.i, !llvm.loop !54
 
 ._crit_edge.thread.i67.i:                         ; preds = %52
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store i8 48, ptr %47, align 1, !tbaa !15
+  store i8 48, ptr %47, align 1, !tbaa !14
   br label %xdl_num_out.exit69.i
 
 xdl_num_out.exit69.i:                             ; preds = %.preheader.i61.i, %._crit_edge.thread.i67.i
   %.1.i66.i = phi ptr [ %64, %._crit_edge.thread.i67.i ], [ %63, %.preheader.i61.i ]
-  store i8 0, ptr %.1.i66.i, align 1, !tbaa !15
+  store i8 0, ptr %.1.i66.i, align 1, !tbaa !14
   %65 = ptrtoint ptr %.1.i66.i to i64
   %66 = ptrtoint ptr %47 to i64
   %67 = sub i64 %65, %66
@@ -1170,13 +1170,13 @@ xdl_num_out.exit69.i:                             ; preds = %.preheader.i61.i, %
   %77 = add nsw i64 %2, %76
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #18
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 31
-  store i8 0, ptr %78, align 1, !tbaa !15
+  store i8 0, ptr %78, align 1, !tbaa !14
   %79 = icmp slt i64 %77, 0
   br i1 %79, label %.thread.i85.i, label %82
 
 .thread.i85.i:                                    ; preds = %70
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 30
-  store i8 45, ptr %80, align 2, !tbaa !15
+  store i8 45, ptr %80, align 2, !tbaa !14
   %81 = sub nsw i64 0, %77
   br label %.lr.ph.i74.i.preheader
 
@@ -1194,34 +1194,34 @@ xdl_num_out.exit69.i:                             ; preds = %.preheader.i61.i, %
   %.12227.i76.i = phi i64 [ %87, %.lr.ph.i74.i ], [ %.12227.i76.i.ph, %.lr.ph.i74.i.preheader ]
   %83 = urem i64 %.12227.i76.i, 10
   %84 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !15
+  %85 = load i8, ptr %84, align 1, !tbaa !14
   %86 = getelementptr inbounds i8, ptr %.12028.i75.i, i64 -1
-  store i8 %85, ptr %86, align 1, !tbaa !15
+  store i8 %85, ptr %86, align 1, !tbaa !14
   %87 = udiv i64 %.12227.i76.i, 10
   %88 = icmp samesign ugt i64 %.12227.i76.i, 9
   %89 = icmp ugt ptr %86, %9
   %90 = and i1 %88, %89
-  br i1 %90, label %.lr.ph.i74.i, label %.preheader.i78.i, !llvm.loop !55
+  br i1 %90, label %.lr.ph.i74.i, label %.preheader.i78.i, !llvm.loop !53
 
 .preheader.i78.i:                                 ; preds = %.lr.ph.i74.i, %.preheader.i78.i
   %.030.i79.i = phi ptr [ %93, %.preheader.i78.i ], [ %75, %.lr.ph.i74.i ]
   %.229.i80.i = phi ptr [ %92, %.preheader.i78.i ], [ %86, %.lr.ph.i74.i ]
   %91 = phi i8 [ %.pr.i81.i, %.preheader.i78.i ], [ %85, %.lr.ph.i74.i ]
-  store i8 %91, ptr %.030.i79.i, align 1, !tbaa !15
+  store i8 %91, ptr %.030.i79.i, align 1, !tbaa !14
   %92 = getelementptr inbounds nuw i8, ptr %.229.i80.i, i64 1
   %93 = getelementptr inbounds nuw i8, ptr %.030.i79.i, i64 1
-  %.pr.i81.i = load i8, ptr %92, align 1, !tbaa !15
+  %.pr.i81.i = load i8, ptr %92, align 1, !tbaa !14
   %.not26.i82.i = icmp eq i8 %.pr.i81.i, 0
-  br i1 %.not26.i82.i, label %xdl_num_out.exit86.i, label %.preheader.i78.i, !llvm.loop !56
+  br i1 %.not26.i82.i, label %xdl_num_out.exit86.i, label %.preheader.i78.i, !llvm.loop !54
 
 ._crit_edge.thread.i84.i:                         ; preds = %82
   %94 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store i8 48, ptr %75, align 1, !tbaa !15
+  store i8 48, ptr %75, align 1, !tbaa !14
   br label %xdl_num_out.exit86.i
 
 xdl_num_out.exit86.i:                             ; preds = %.preheader.i78.i, %._crit_edge.thread.i84.i
   %.1.i83.i = phi ptr [ %94, %._crit_edge.thread.i84.i ], [ %93, %.preheader.i78.i ]
-  store i8 0, ptr %.1.i83.i, align 1, !tbaa !15
+  store i8 0, ptr %.1.i83.i, align 1, !tbaa !14
   %95 = ptrtoint ptr %.1.i83.i to i64
   %96 = ptrtoint ptr %75 to i64
   %97 = sub i64 %95, %96
@@ -1240,13 +1240,13 @@ xdl_num_out.exit86.i:                             ; preds = %.preheader.i78.i, %
   %105 = getelementptr inbounds i8, ptr %13, i64 %104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 31
-  store i8 0, ptr %106, align 1, !tbaa !15
+  store i8 0, ptr %106, align 1, !tbaa !14
   %107 = icmp slt i64 %3, 0
   br i1 %107, label %.thread.i102.i, label %110
 
 .thread.i102.i:                                   ; preds = %100
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  store i8 45, ptr %108, align 2, !tbaa !15
+  store i8 45, ptr %108, align 2, !tbaa !14
   %109 = sub nsw i64 0, %3
   br label %.lr.ph.i91.i.preheader
 
@@ -1263,34 +1263,34 @@ xdl_num_out.exit86.i:                             ; preds = %.preheader.i78.i, %
   %.12227.i93.i = phi i64 [ %115, %.lr.ph.i91.i ], [ %.12227.i93.i.ph, %.lr.ph.i91.i.preheader ]
   %111 = urem i64 %.12227.i93.i, 10
   %112 = getelementptr inbounds nuw [11 x i8], ptr @.str.1, i64 0, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !15
+  %113 = load i8, ptr %112, align 1, !tbaa !14
   %114 = getelementptr inbounds i8, ptr %.12028.i92.i, i64 -1
-  store i8 %113, ptr %114, align 1, !tbaa !15
+  store i8 %113, ptr %114, align 1, !tbaa !14
   %115 = udiv i64 %.12227.i93.i, 10
   %116 = icmp samesign ugt i64 %.12227.i93.i, 9
   %117 = icmp ugt ptr %114, %8
   %118 = and i1 %116, %117
-  br i1 %118, label %.lr.ph.i91.i, label %.preheader.i95.i, !llvm.loop !55
+  br i1 %118, label %.lr.ph.i91.i, label %.preheader.i95.i, !llvm.loop !53
 
 .preheader.i95.i:                                 ; preds = %.lr.ph.i91.i, %.preheader.i95.i
   %.030.i96.i = phi ptr [ %121, %.preheader.i95.i ], [ %105, %.lr.ph.i91.i ]
   %.229.i97.i = phi ptr [ %120, %.preheader.i95.i ], [ %114, %.lr.ph.i91.i ]
   %119 = phi i8 [ %.pr.i98.i, %.preheader.i95.i ], [ %113, %.lr.ph.i91.i ]
-  store i8 %119, ptr %.030.i96.i, align 1, !tbaa !15
+  store i8 %119, ptr %.030.i96.i, align 1, !tbaa !14
   %120 = getelementptr inbounds nuw i8, ptr %.229.i97.i, i64 1
   %121 = getelementptr inbounds nuw i8, ptr %.030.i96.i, i64 1
-  %.pr.i98.i = load i8, ptr %120, align 1, !tbaa !15
+  %.pr.i98.i = load i8, ptr %120, align 1, !tbaa !14
   %.not26.i99.i = icmp eq i8 %.pr.i98.i, 0
-  br i1 %.not26.i99.i, label %xdl_num_out.exit103.i, label %.preheader.i95.i, !llvm.loop !56
+  br i1 %.not26.i99.i, label %xdl_num_out.exit103.i, label %.preheader.i95.i, !llvm.loop !54
 
 ._crit_edge.thread.i101.i:                        ; preds = %110
   %122 = getelementptr inbounds nuw i8, ptr %105, i64 1
-  store i8 48, ptr %105, align 1, !tbaa !15
+  store i8 48, ptr %105, align 1, !tbaa !14
   br label %xdl_num_out.exit103.i
 
 xdl_num_out.exit103.i:                            ; preds = %.preheader.i95.i, %._crit_edge.thread.i101.i
   %.1.i100.i = phi ptr [ %122, %._crit_edge.thread.i101.i ], [ %121, %.preheader.i95.i ]
-  store i8 0, ptr %.1.i100.i, align 1, !tbaa !15
+  store i8 0, ptr %.1.i100.i, align 1, !tbaa !14
   %123 = ptrtoint ptr %.1.i100.i to i64
   %124 = ptrtoint ptr %105 to i64
   %125 = sub i64 %123, %124
@@ -1314,7 +1314,7 @@ xdl_num_out.exit103.i:                            ; preds = %.preheader.i95.i, %
   %135 = add nsw i32 %.1.i, 4
   %136 = sext i32 %131 to i64
   %137 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %136
-  store i8 32, ptr %137, align 1, !tbaa !15
+  store i8 32, ptr %137, align 1, !tbaa !14
   %138 = sext i32 %135 to i64
   %139 = sub nsw i64 127, %138
   %spec.select.i = call i64 @llvm.umin.i64(i64 %5, i64 %139)
@@ -1329,21 +1329,21 @@ xdl_format_hunk_hdr.exit:                         ; preds = %128, %134
   %143 = add nsw i32 %.2.i, 1
   %144 = sext i32 %.2.i to i64
   %145 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %144
-  store i8 10, ptr %145, align 1, !tbaa !15
-  store ptr %13, ptr %12, align 8, !tbaa !7
+  store i8 10, ptr %145, align 1, !tbaa !14
+  store ptr %13, ptr %12, align 8, !tbaa !6
   %146 = sext i32 %143 to i64
   %147 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %146, ptr %147, align 8, !tbaa !14
+  store i64 %146, ptr %147, align 8, !tbaa !13
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %149 = load ptr, ptr %148, align 8, !tbaa !16
-  %150 = load ptr, ptr %6, align 8, !tbaa !18
+  %149 = load ptr, ptr %148, align 8, !tbaa !15
+  %150 = load ptr, ptr %6, align 8, !tbaa !17
   %151 = call i32 %149(ptr noundef %150, ptr noundef nonnull %12, i32 noundef 1) #18
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #18
   br label %159
 
 152:                                              ; preds = %7
-  %153 = load ptr, ptr %6, align 8, !tbaa !18
+  %153 = load ptr, ptr %6, align 8, !tbaa !17
   %.not21 = icmp eq i64 %1, 0
   %154 = sext i1 %.not21 to i64
   %155 = add nsw i64 %0, %154
@@ -1368,72 +1368,72 @@ define dso_local range(i32 -1, 1) i32 @xdl_fall_back_diff(ptr noundef readonly c
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %9) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !58
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = sext i32 %2 to i64
   %13 = getelementptr ptr, ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
-  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %15 = load ptr, ptr %14, align 8, !tbaa !62
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !66
-  store ptr %17, ptr %7, align 8, !tbaa !22
+  %17 = load ptr, ptr %16, align 8, !tbaa !64
+  store ptr %17, ptr %7, align 8, !tbaa !21
   %18 = add nsw i32 %3, %2
   %19 = sext i32 %18 to i64
   %20 = getelementptr ptr, ptr %11, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
-  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %22 = load ptr, ptr %21, align 8, !tbaa !62
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !66
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %17 to i64
   %30 = sub i64 %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %30, ptr %31, align 8, !tbaa !19
+  store i64 %30, ptr %31, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %33 = load ptr, ptr %32, align 8, !tbaa !69
+  %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = sext i32 %4 to i64
   %35 = getelementptr ptr, ptr %33, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -8
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !66
-  store ptr %39, ptr %8, align 8, !tbaa !22
+  %39 = load ptr, ptr %38, align 8, !tbaa !64
+  store ptr %39, ptr %8, align 8, !tbaa !21
   %40 = add nsw i32 %5, %4
   %41 = sext i32 %40 to i64
   %42 = getelementptr ptr, ptr %33, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -16
-  %44 = load ptr, ptr %43, align 8, !tbaa !64
+  %44 = load ptr, ptr %43, align 8, !tbaa !62
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !66
+  %46 = load ptr, ptr %45, align 8, !tbaa !64
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %48 = load i64, ptr %47, align 8, !tbaa !68
+  %48 = load i64, ptr %47, align 8, !tbaa !66
   %49 = getelementptr inbounds i8, ptr %46, i64 %48
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %39 to i64
   %52 = sub i64 %50, %51
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %52, ptr %53, align 8, !tbaa !19
+  store i64 %52, ptr %53, align 8, !tbaa !18
   %54 = call i32 @xdl_do_diff(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %9) #18
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %71, label %56
 
 56:                                               ; preds = %6
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %58 = load ptr, ptr %57, align 8, !tbaa !70
+  %58 = load ptr, ptr %57, align 8, !tbaa !68
   %59 = getelementptr inbounds i8, ptr %58, i64 %12
   %60 = getelementptr inbounds i8, ptr %59, i64 -1
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %62 = load ptr, ptr %61, align 8, !tbaa !70
+  %62 = load ptr, ptr %61, align 8, !tbaa !68
   %63 = sext i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %62, i64 %63, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %65 = load ptr, ptr %64, align 8, !tbaa !71
+  %65 = load ptr, ptr %64, align 8, !tbaa !69
   %66 = getelementptr inbounds i8, ptr %65, i64 %34
   %67 = getelementptr inbounds i8, ptr %66, i64 -1
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 240
-  %69 = load ptr, ptr %68, align 8, !tbaa !71
+  %69 = load ptr, ptr %68, align 8, !tbaa !69
   %70 = sext i32 %5 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %69, i64 %70, i1 false)
   call void @xdl_free_env(ptr noundef nonnull %9) #18
@@ -1456,7 +1456,7 @@ declare void @xdl_free_env(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @xdl_alloc_grow_helper(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = load i64, ptr %2, align 8, !tbaa !21
+  %5 = load i64, ptr %2, align 8, !tbaa !20
   %6 = icmp slt i64 %5, 4611686018427387896
   %7 = shl nsw i64 %5, 1
   %8 = add nsw i64 %7, 16
@@ -1479,7 +1479,7 @@ define dso_local ptr @xdl_alloc_grow_helper(ptr noundef %0, i64 noundef %1, ptr 
 13:                                               ; preds = %10, %.thread
   %.01521 = phi ptr [ null, %.thread ], [ %12, %10 ]
   %storemerge = phi i64 [ 0, %.thread ], [ %.0, %10 ]
-  store i64 %storemerge, ptr %2, align 8, !tbaa !21
+  store i64 %storemerge, ptr %2, align 8, !tbaa !20
   ret ptr %.01521
 }
 
@@ -1530,71 +1530,69 @@ attributes #19 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"s_mmbuffer", !9, i64 0, !13, i64 8}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !11, i64 0}
-!11 = !{!"omnipotent char", !12, i64 0}
-!12 = !{!"Simple C/C++ TBAA"}
-!13 = !{!"long", !11, i64 0}
-!14 = !{!8, !13, i64 8}
-!15 = !{!11, !11, i64 0}
-!16 = !{!17, !10, i64 16}
-!17 = !{!"s_xdemitcb", !10, i64 0, !10, i64 8, !10, i64 16}
-!18 = !{!17, !10, i64 0}
-!19 = !{!20, !13, i64 8}
-!20 = !{!"s_mmfile", !9, i64 0, !13, i64 8}
-!21 = !{!13, !13, i64 0}
-!22 = !{!20, !9, i64 0}
-!23 = !{!24, !13, i64 16}
-!24 = !{!"s_chastore", !25, i64 0, !25, i64 8, !13, i64 16, !13, i64 24, !25, i64 32, !25, i64 40, !13, i64 48}
-!25 = !{!"p1 _ZTS9s_chanode", !10, i64 0}
-!26 = !{!24, !13, i64 24}
-!27 = !{!24, !25, i64 0}
-!28 = !{!29, !25, i64 0}
-!29 = !{!"s_chanode", !25, i64 0, !13, i64 8}
-!30 = distinct !{!30, !5, !6}
-!31 = !{!24, !25, i64 32}
-!32 = !{!29, !13, i64 8}
-!33 = !{!24, !25, i64 8}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !5, !6}
-!38 = distinct !{!38, !5, !6}
-!39 = distinct !{!39, !5, !6}
-!40 = distinct !{!40, !5, !6}
-!41 = distinct !{!41, !5, !6}
-!42 = distinct !{!42, !5, !6}
-!43 = distinct !{!43, !5, !6}
-!44 = distinct !{!44, !5, !6}
-!45 = distinct !{!45, !5, !6}
-!46 = !{!9, !9, i64 0}
-!47 = distinct !{!47, !5, !6, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !5, !6, !48}
-!50 = distinct !{!50, !5, !6}
-!51 = distinct !{!51, !5, !6}
-!52 = distinct !{!52, !5, !6}
-!53 = distinct !{!53, !5, !6}
-!54 = distinct !{!54, !5, !6}
-!55 = distinct !{!55, !5, !6}
-!56 = distinct !{!56, !5, !6}
-!57 = !{!17, !10, i64 8}
-!58 = !{!59, !62, i64 96}
-!59 = !{!"s_xdfenv", !60, i64 0, !60, i64 136}
-!60 = !{!"s_xdfile", !24, i64 0, !13, i64 56, !61, i64 64, !62, i64 72, !13, i64 80, !13, i64 88, !62, i64 96, !9, i64 104, !63, i64 112, !13, i64 120, !63, i64 128}
-!61 = !{!"int", !11, i64 0}
-!62 = !{!"p2 _ZTS9s_xrecord", !10, i64 0}
-!63 = !{!"p1 long", !10, i64 0}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS9s_xrecord", !10, i64 0}
-!66 = !{!67, !9, i64 8}
-!67 = !{!"s_xrecord", !65, i64 0, !9, i64 8, !13, i64 16, !13, i64 24}
-!68 = !{!67, !13, i64 16}
-!69 = !{!59, !62, i64 232}
-!70 = !{!59, !9, i64 104}
-!71 = !{!59, !9, i64 240}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"s_mmbuffer", !8, i64 0, !12, i64 8}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"long", !10, i64 0}
+!13 = !{!7, !12, i64 8}
+!14 = !{!10, !10, i64 0}
+!15 = !{!16, !9, i64 16}
+!16 = !{!"s_xdemitcb", !9, i64 0, !9, i64 8, !9, i64 16}
+!17 = !{!16, !9, i64 0}
+!18 = !{!19, !12, i64 8}
+!19 = !{!"s_mmfile", !8, i64 0, !12, i64 8}
+!20 = !{!12, !12, i64 0}
+!21 = !{!19, !8, i64 0}
+!22 = !{!23, !12, i64 16}
+!23 = !{!"s_chastore", !24, i64 0, !24, i64 8, !12, i64 16, !12, i64 24, !24, i64 32, !24, i64 40, !12, i64 48}
+!24 = !{!"p1 _ZTS9s_chanode", !9, i64 0}
+!25 = !{!23, !12, i64 24}
+!26 = !{!23, !24, i64 0}
+!27 = !{!28, !24, i64 0}
+!28 = !{!"s_chanode", !24, i64 0, !12, i64 8}
+!29 = distinct !{!29, !5}
+!30 = !{!23, !24, i64 32}
+!31 = !{!28, !12, i64 8}
+!32 = !{!23, !24, i64 8}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = !{!8, !8, i64 0}
+!45 = distinct !{!45, !5, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !5, !46}
+!48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = !{!16, !9, i64 8}
+!56 = !{!57, !60, i64 96}
+!57 = !{!"s_xdfenv", !58, i64 0, !58, i64 136}
+!58 = !{!"s_xdfile", !23, i64 0, !12, i64 56, !59, i64 64, !60, i64 72, !12, i64 80, !12, i64 88, !60, i64 96, !8, i64 104, !61, i64 112, !12, i64 120, !61, i64 128}
+!59 = !{!"int", !10, i64 0}
+!60 = !{!"p2 _ZTS9s_xrecord", !9, i64 0}
+!61 = !{!"p1 long", !9, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS9s_xrecord", !9, i64 0}
+!64 = !{!65, !8, i64 8}
+!65 = !{!"s_xrecord", !63, i64 0, !8, i64 8, !12, i64 16, !12, i64 24}
+!66 = !{!65, !12, i64 16}
+!67 = !{!57, !60, i64 232}
+!68 = !{!57, !8, i64 104}
+!69 = !{!57, !8, i64 240}

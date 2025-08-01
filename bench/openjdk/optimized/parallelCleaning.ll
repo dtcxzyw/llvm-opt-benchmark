@@ -70,7 +70,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .backedge.i:                                      ; preds = %29, %24, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp eq i64 %indvars.iv.next, %13
-  br i1 %31, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit.thread.loopexit, label %14, !llvm.loop !9
+  br i1 %31, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit.thread.loopexit, label %14, !llvm.loop !8
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %20, %.lr.ph.i.i
   %.sroa.0.5 = phi ptr [ %.sroa.0.2, %.lr.ph.i.i ], [ %18, %20 ]
@@ -138,7 +138,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ult ptr %5, %24
   %26 = select i1 %.not.i.i, i1 %25, i1 false
-  br i1 %26, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %26, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit: ; preds = %.lr.ph.i
   %27 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -208,7 +208,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %50 = trunc nsw i64 %indvars.iv.next to i32
   %51 = icmp eq i32 %.sroa.9.064, %50
-  br i1 %51, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %51, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.lr.ph, !llvm.loop !8
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %38, %.lr.ph.i.i
   %.sroa.015.6 = phi ptr [ %.sroa.015.3, %.lr.ph.i.i ], [ %36, %38 ]
@@ -220,13 +220,13 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %
   store i32 %54, ptr %2, align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, 16
-  br i1 %exitcond.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader, !llvm.loop !10
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread: ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, %.preheader, %.backedge.i, %8, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
   %.sroa.015.1 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ null, %8 ], [ null, %.backedge.i ], [ %.sroa.015.047, %.preheader ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %55 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.015.1, ptr %5, ptr nonnull %3) #3, !srcloc !12
+  %55 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.015.1, ptr %5, ptr nonnull %3) #3, !srcloc !11
   %.not10 = icmp eq ptr %55, %5
-  br i1 %.not10, label %56, label %4, !llvm.loop !13
+  br i1 %.not10, label %56, label %4, !llvm.loop !12
 
 56:                                               ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread
   ret void
@@ -262,7 +262,7 @@ define hidden void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align
   call void @_ZN22CodeCacheUnloadingTask14claim_nmethodsEPP7nmethodPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %15 = load i32, ptr %3, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %._crit_edge, label %.preheader, !llvm.loop !14
+  br i1 %16, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %12, %.loopexit
   %17 = phi i32 [ %15, %.loopexit ], [ %13, %12 ]
@@ -282,7 +282,7 @@ define hidden void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align
   tail call void @_ZN7nmethod12do_unloadingEb(ptr noundef nonnull align 8 dereferenceable(214) %20, i1 noundef zeroext %22) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %12
   ret void
@@ -307,7 +307,7 @@ define hidden noundef zeroext i1 @_ZN17KlassCleaningTask27claim_clean_klass_tree
   br i1 %.not, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #3, !srcloc !16
+  %4 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #3, !srcloc !15
   %5 = icmp eq i32 %4, 0
   br label %6
 
@@ -330,7 +330,7 @@ define hidden noundef ptr @_ZN17KlassCleaningTask16claim_next_klassEv(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 5
-  br i1 %8, label %.critedge, label %3, !llvm.loop !17
+  br i1 %8, label %.critedge, label %3, !llvm.loop !16
 
 .critedge:                                        ; preds = %3, %5
   ret ptr %4
@@ -357,7 +357,7 @@ define hidden void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 de
   br i1 %.not.i, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
 _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit: ; preds = %1
-  %15 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull align 8 dereferenceable(16) %0) #3, !srcloc !16
+  %15 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull align 8 dereferenceable(16) %0) #3, !srcloc !15
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
@@ -381,7 +381,7 @@ _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread: ; preds = %1,
   br i1 %24, label %_ZN17KlassCleaningTask16claim_next_klassEv.exit, label %.backedge
 
 .backedge:                                        ; preds = %21, %_ZN17KlassCleaningTask16claim_next_klassEv.exit
-  br label %19, !llvm.loop !18
+  br label %19, !llvm.loop !17
 
 _ZN17KlassCleaningTask16claim_next_klassEv.exit:  ; preds = %21
   tail call void @_ZN13InstanceKlass30clean_weak_instanceklass_linksEv(ptr noundef nonnull align 8 dereferenceable(464) %20) #3
@@ -440,16 +440,15 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i64 2145412694}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i64 2145411161}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i64 2145412694}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{i64 2145411161}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

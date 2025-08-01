@@ -59,7 +59,7 @@ define dso_local void @__rq_qos_cleanup(ptr noundef %0, ptr noundef %1) local_un
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %3, !llvm.loop !11
+  br i1 %13, label %14, label %3, !llvm.loop !10
 
 14:                                               ; preds = %10
   ret void
@@ -85,7 +85,7 @@ define dso_local void @__rq_qos_done(ptr noundef %0, ptr noundef %1) local_unnam
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %3, !llvm.loop !12
+  br i1 %13, label %14, label %3, !llvm.loop !11
 
 14:                                               ; preds = %10
   ret void
@@ -111,7 +111,7 @@ define dso_local void @__rq_qos_issue(ptr noundef %0, ptr noundef %1) local_unna
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %3, !llvm.loop !13
+  br i1 %13, label %14, label %3, !llvm.loop !12
 
 14:                                               ; preds = %10
   ret void
@@ -137,7 +137,7 @@ define dso_local void @__rq_qos_requeue(ptr noundef %0, ptr noundef %1) local_un
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %3, !llvm.loop !14
+  br i1 %13, label %14, label %3, !llvm.loop !13
 
 14:                                               ; preds = %10
   ret void
@@ -162,7 +162,7 @@ define dso_local void @__rq_qos_throttle(ptr noundef %0, ptr noundef %1) local_u
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %3, !llvm.loop !15
+  br i1 %12, label %13, label %3, !llvm.loop !14
 
 13:                                               ; preds = %9
   ret void
@@ -188,7 +188,7 @@ define dso_local void @__rq_qos_track(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %4, !llvm.loop !16
+  br i1 %14, label %15, label %4, !llvm.loop !15
 
 15:                                               ; preds = %11
   ret void
@@ -214,7 +214,7 @@ define dso_local void @__rq_qos_merge(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %4, !llvm.loop !17
+  br i1 %14, label %15, label %4, !llvm.loop !16
 
 15:                                               ; preds = %11
   ret void
@@ -240,7 +240,7 @@ define dso_local void @__rq_qos_done_bio(ptr noundef %0, ptr noundef %1) local_u
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %3, !llvm.loop !18
+  br i1 %13, label %14, label %3, !llvm.loop !17
 
 14:                                               ; preds = %10
   ret void
@@ -266,7 +266,7 @@ define dso_local void @__rq_qos_queue_depth_changed(ptr noundef %0) local_unname
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %2, !llvm.loop !19
+  br i1 %12, label %13, label %2, !llvm.loop !18
 
 13:                                               ; preds = %9
   ret void
@@ -333,7 +333,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef zeroext i1 @rq_depth_scale_up(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 4, !range !20, !noundef !21
+  %3 = load i8, ptr %2, align 4, !range !19, !noundef !20
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %40
 
@@ -468,7 +468,7 @@ define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %10 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !22
+  %10 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !21
   %11 = inttoptr i64 %10 to ptr
   store ptr %11, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -478,7 +478,7 @@ define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
+  call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
@@ -490,7 +490,7 @@ define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 21:                                               ; preds = %19, %4
   %22 = call zeroext i1 @prepare_to_wait_exclusive(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 2) #7
-  %23 = load i8, ptr %15, align 8, !range !20, !noundef !21
+  %23 = load i8, ptr %15, align 8, !range !19, !noundef !20
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %.loopexit
 
@@ -507,8 +507,8 @@ define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 29:                                               ; preds = %27
   call void @finish_wait(ptr noundef %0, ptr noundef nonnull %5) #7
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
-  %30 = load i8, ptr %15, align 8, !range !20, !noundef !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
+  %30 = load i8, ptr %15, align 8, !range !19, !noundef !20
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %.loopexit, label %32
 
@@ -518,10 +518,10 @@ define dso_local void @rq_qos_wait(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 33:                                               ; preds = %.preheader, %33
   call void @io_schedule() #7
-  %34 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 2, ptr nonnull elementtype(i32) %26) #7, !srcloc !25
-  %35 = load i8, ptr %15, align 8, !range !20, !noundef !21
+  %34 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 2, ptr nonnull elementtype(i32) %26) #7, !srcloc !24
+  %35 = load i8, ptr %15, align 8, !range !19, !noundef !20
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %33, label %.loopexit, !llvm.loop !26
+  br i1 %36, label %33, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %33, %32, %29, %21
   call void @finish_wait(ptr noundef %0, ptr noundef nonnull %5) #7
@@ -549,7 +549,7 @@ define internal noundef range(i32 -1, 2) i32 @rq_qos_wake_function(ptr noundef %
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 1, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !26
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -598,7 +598,7 @@ define dso_local void @rq_qos_exit(ptr noundef %0) local_unnamed_addr #0 align 1
   tail call void %11(ptr noundef nonnull %6) #7
   %12 = load ptr, ptr %3, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #7
@@ -638,7 +638,7 @@ define dso_local noundef range(i32 -16, 1) i32 @rq_qos_add(ptr noundef initializ
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %17, %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -697,11 +697,11 @@ define dso_local void @rq_qos_del(ptr noundef %0) local_unnamed_addr #0 align 16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %15, !llvm.loop !30
+  br i1 %14, label %.loopexit, label %15, !llvm.loop !29
 
 15:                                               ; preds = %.preheader
   %16 = icmp eq ptr %13, %0
-  br i1 %16, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %16, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit2.loopexit:                              ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -754,28 +754,26 @@ attributes #8 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2149147499, i64 2149147538, i64 2149147559, i64 2149147596, i64 2149147619, i64 2149147628, i64 2149147926}
 !6 = !{!"branch_weights", i32 2000, i32 1}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
-!19 = distinct !{!19, !8, !9, !10}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = !{i64 2148542372}
-!23 = !{i64 2150045130}
-!24 = !{i64 2156122981}
-!25 = !{i64 2156124608}
-!26 = distinct !{!26, !9, !10}
-!27 = !{i64 2156122729}
-!28 = distinct !{!28, !8, !9, !10}
-!29 = distinct !{!29, !8, !9, !10}
-!30 = distinct !{!30, !8, !9}
-!31 = distinct !{!31, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{i64 2148542372}
+!22 = !{i64 2150045130}
+!23 = !{i64 2156122981}
+!24 = !{i64 2156124608}
+!25 = distinct !{!25, !9}
+!26 = !{i64 2156122729}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}

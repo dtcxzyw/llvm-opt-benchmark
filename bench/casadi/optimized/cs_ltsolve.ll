@@ -77,7 +77,7 @@ define range(i32 0, 2) i32 @cs_ltsolve(ptr noundef readonly captures(address_is_
   %41 = fdiv double %37, %39
   store double %41, ptr %40, align 8, !tbaa !16
   %42 = icmp samesign ugt i64 %indvars.iv41, 1
-  br i1 %42, label %.lr.ph39, label %.loopexit, !llvm.loop !21
+  br i1 %42, label %.lr.ph39, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge, %8, %2, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %._crit_edge ]
@@ -110,7 +110,6 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !15 = !{!5, !5, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"double", !6, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
+!20 = distinct !{!20, !19}

@@ -222,7 +222,7 @@ add_message.exit:                                 ; preds = %55, %60
   %64 = add i32 %43, %.02933
   %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64)
   %66 = icmp sgt i32 %65, 2
-  br i1 %66, label %31, label %._crit_edge, !llvm.loop !9
+  br i1 %66, label %31, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %add_message.exit, %18
   %.029.lcssa = phi i32 [ 0, %18 ], [ %64, %add_message.exit ]
@@ -326,7 +326,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

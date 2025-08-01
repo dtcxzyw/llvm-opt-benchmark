@@ -665,7 +665,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPor
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %64 = load i8, ptr %8, align 4
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %23, label %._crit_edge, !llvm.loop !9
+  br i1 %65, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN10XStatTimerD2Ev.exit, %1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -867,7 +867,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPor
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %64 = load i8, ptr %8, align 4
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %23, label %._crit_edge, !llvm.loop !10
+  br i1 %65, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN10XStatTimerD2Ev.exit, %1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -1307,7 +1307,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPor
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #12
   %64 = load i8, ptr %8, align 4
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %23, label %._crit_edge, !llvm.loop !11
+  br i1 %65, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN10XStatTimerD2Ev.exit, %1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -1457,7 +1457,7 @@ _ZN7XDriver24concurrent_mark_continueEv.exit:     ; preds = %_ZN10XStatTimerC2ER
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %44 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
-  br i1 %44, label %.loopexit, label %22, !llvm.loop !12
+  br i1 %44, label %.loopexit, label %22, !llvm.loop !8
 
 45:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -1859,7 +1859,7 @@ _ZN13MonitorLocker4waitEl.exit.i:                 ; preds = %.lr.ph.i
   %17 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(152) %4, i64 noundef 0) #12
   %18 = load i8, ptr %5, align 8
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %19, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !9
 
 20:                                               ; preds = %.lr.ph.i
   %21 = load i64, ptr %7, align 8
@@ -1898,7 +1898,7 @@ _ZN12XMessagePortI14XDriverRequestE7receiveEv.exit: ; preds = %.critedge.thread.
 
 .backedge:                                        ; preds = %31, %_ZN12XMessagePortI14XDriverRequestE7receiveEv.exit
   %34 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
-  br i1 %34, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %34, label %._crit_edge, label %10, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.backedge, %29, %1
   ret void
@@ -1975,7 +1975,7 @@ define linkonce_odr hidden void @_ZN12XMessagePortI14XDriverRequestE3ackEv(ptr n
 .critedge:                                        ; preds = %15, %28, %23
   %.not.i.not18 = icmp eq i64 %20, 0
   %.not.i.not = select i1 %18, i1 true, i1 %.not.i.not18
-  br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XMessageRequestI14XDriverRequestELb1EE4nextEPPS2_.exit.loopexit, label %15, !llvm.loop !15
+  br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XMessageRequestI14XDriverRequestELb1EE4nextEPPS2_.exit.loopexit, label %15, !llvm.loop !11
 
 _ZN17XListIteratorImplI15XMessageRequestI14XDriverRequestELb1EE4nextEPPS2_.exit.loopexit: ; preds = %.critedge
   %.pre = load i64, ptr %7, align 8
@@ -2333,7 +2333,7 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   store volatile i32 10, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 792
@@ -2343,11 +2343,11 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   store volatile i32 %7, ptr %6, align 8
   store volatile i32 6, ptr %4, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %9 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %10 = and i64 %9, 1
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %11
@@ -2372,7 +2372,7 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
 
 19:                                               ; preds = %16, %13, %11
   %20 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %21 = and i64 %20, 1
   %.not.i1.i = icmp eq i64 %21, 0
   br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %22
@@ -2741,7 +2741,7 @@ define linkonce_odr hidden void @_ZN12XMessagePortIbE3ackEv(ptr noundef nonnull 
 select.unfold:                                    ; preds = %30, %25, %15
   %.not.i.not14 = icmp eq i64 %20, 0
   %.not.i.not = select i1 %18, i1 true, i1 %.not.i.not14
-  br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XMessageRequestIbELb1EE4nextEPPS1_.exit.loopexit, label %15, !llvm.loop !18
+  br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XMessageRequestIbELb1EE4nextEPPS1_.exit.loopexit, label %15, !llvm.loop !14
 
 _ZN17XListIteratorImplI15XMessageRequestIbELb1EE4nextEPPS1_.exit.loopexit: ; preds = %select.unfold
   %.pre = load i64, ptr %7, align 8
@@ -2955,16 +2955,12 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i64 2145392468}
-!17 = !{i64 2145392998}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i64 2145392468}
+!13 = !{i64 2145392998}
+!14 = distinct !{!14, !7}

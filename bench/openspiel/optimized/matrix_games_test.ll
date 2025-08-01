@@ -315,7 +315,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counte
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   %.011.add.i = add nuw nsw i64 %.011.idx24.i, 8
   %.not.i = icmp eq i64 %.011.add.i, 40
-  br i1 %.not.i, label %_ZN10open_spiel12_GLOBAL__N_121BasicMatrixGamesTestsEv.exit, label %13, !llvm.loop !5
+  br i1 %.not.i, label %_ZN10open_spiel12_GLOBAL__N_121BasicMatrixGamesTestsEv.exit, label %13
 
 102:                                              ; preds = %.noexc.i, %13
   %103 = landingpad { ptr, i32 }
@@ -733,5 +733,3 @@ attributes #15 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

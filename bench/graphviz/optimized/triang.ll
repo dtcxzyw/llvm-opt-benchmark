@@ -108,19 +108,19 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   %15 = urem i64 %14, %1
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i110 = load double, ptr %17, align 8, !tbaa !17
+  %.sroa.0.0.copyload.i110 = load double, ptr %17, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i111 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.2.0.copyload.i112 = load double, ptr %.sroa.2.0..sroa_idx.i111, align 8, !tbaa !17
+  %.sroa.2.0.copyload.i112 = load double, ptr %.sroa.2.0..sroa_idx.i111, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %.043126
   %19 = load ptr, ptr %18, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i105 = load double, ptr %19, align 8, !tbaa !17
+  %.sroa.0.0.copyload.i105 = load double, ptr %19, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i106 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sroa.2.0.copyload.i107 = load double, ptr %.sroa.2.0..sroa_idx.i106, align 8, !tbaa !17
+  %.sroa.2.0.copyload.i107 = load double, ptr %.sroa.2.0..sroa_idx.i106, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %13
   %21 = load ptr, ptr %20, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i100 = load double, ptr %21, align 8, !tbaa !17
+  %.sroa.0.0.copyload.i100 = load double, ptr %21, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.2.0.copyload.i102 = load double, ptr %.sroa.2.0..sroa_idx.i101, align 8, !tbaa !17
+  %.sroa.2.0.copyload.i102 = load double, ptr %.sroa.2.0..sroa_idx.i101, align 8, !tbaa !16
   %22 = fsub double %.sroa.2.0.copyload.i112, %.sroa.2.0.copyload.i107
   %23 = fsub double %.sroa.0.0.copyload.i100, %.sroa.0.0.copyload.i105
   %24 = fsub double %.sroa.2.0.copyload.i102, %.sroa.2.0.copyload.i107
@@ -131,9 +131,9 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
   %29 = fcmp olt double %28, 0.000000e+00
   %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %31 = load ptr, ptr %30, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i90 = load double, ptr %31, align 8, !tbaa !17
+  %.sroa.0.0.copyload.i90 = load double, ptr %31, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.2.0.copyload.i92 = load double, ptr %.sroa.2.0..sroa_idx.i91, align 8, !tbaa !17
+  %.sroa.2.0.copyload.i92 = load double, ptr %.sroa.2.0..sroa_idx.i91, align 8, !tbaa !16
   %32 = fsub double %.sroa.2.0.copyload.i107, %.sroa.2.0.copyload.i92
   %33 = fsub double %.sroa.0.0.copyload.i105, %.sroa.0.0.copyload.i90
   %34 = fneg double %33
@@ -184,26 +184,26 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(no
 60:                                               ; preds = %.preheader.i
   %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0103114.i
   %62 = load ptr, ptr %61, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i50 = load double, ptr %62, align 8, !tbaa !17
+  %.sroa.0.0.copyload.i50 = load double, ptr %62, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.sroa.2.0.copyload.i52 = load double, ptr %.sroa.2.0..sroa_idx.i51, align 8, !tbaa !17
+  %.sroa.2.0.copyload.i52 = load double, ptr %.sroa.2.0..sroa_idx.i51, align 8, !tbaa !16
   %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
   %64 = load ptr, ptr %63, align 8, !tbaa !13
-  %.sroa.0.0.copyload.i = load double, ptr %64, align 8, !tbaa !17
+  %.sroa.0.0.copyload.i = load double, ptr %64, align 8, !tbaa !16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !17
+  %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !16
   %65 = tail call zeroext i1 @intersects(double %.sroa.0.0.copyload.i105, double %.sroa.2.0.copyload.i107, double %.sroa.0.0.copyload.i90, double %.sroa.2.0.copyload.i92, double %.sroa.0.0.copyload.i50, double %.sroa.2.0.copyload.i52, double %.sroa.0.0.copyload.i, double %.sroa.2.0.copyload.i)
   br i1 %65, label %.loopexit, label %.critedge111.i
 
 .critedge111.i:                                   ; preds = %60, %.preheader.i
-  br i1 %54, label %isdiagonal.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %54, label %isdiagonal.exit, label %.preheader.i, !llvm.loop !18
 
 isdiagonal.exit:                                  ; preds = %.critedge111.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !19
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !19
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !19
   call void %2(ptr noundef %3, ptr noundef nonnull %5) #13
   br label %68
 
@@ -225,7 +225,7 @@ isdiagonal.exit:                                  ; preds = %.critedge111.i
   %.1 = phi i64 [ %72, %69 ], [ %.0128, %68 ]
   %75 = add nuw i64 %.144127, 1
   %exitcond134.not = icmp eq i64 %75, %1
-  br i1 %exitcond134.not, label %.thread, label %68, !llvm.loop !21
+  br i1 %exitcond134.not, label %.thread, label %68, !llvm.loop !20
 
 .thread:                                          ; preds = %74
   %76 = call fastcc i32 @triangulate(ptr noundef %0, i64 noundef %7, ptr noundef %2, ptr noundef %3)
@@ -233,19 +233,19 @@ isdiagonal.exit:                                  ; preds = %.critedge111.i
 
 .loopexit:                                        ; preds = %60, %41, %35, %47
   %exitcond.not = icmp eq i64 %9, %1
-  br i1 %exitcond.not, label %.loopexit120, label %8, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit120, label %8, !llvm.loop !21
 
 77:                                               ; preds = %4
   %78 = load ptr, ptr %0, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !19
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !19
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !19
   call void %2(ptr noundef %3, ptr noundef nonnull %5) #13
   br label %.loopexit120
 
@@ -370,7 +370,7 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
 
 .critedge111:                                     ; preds = %79, %.preheader
   %exitcond.not = icmp eq i64 %72, %3
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !18
 
 .critedge:                                        ; preds = %.critedge111, %79, %46, %37, %55
   %.0 = phi i1 [ false, %55 ], [ false, %37 ], [ false, %46 ], [ true, %.critedge111 ], [ false, %79 ]
@@ -618,12 +618,11 @@ attributes #14 = { cold noreturn nounwind }
 !11 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !12 = !{!4, !5, i64 0}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"double", !7, i64 0}
-!19 = distinct !{!19, !15, !16}
-!20 = !{i64 0, i64 8, !17, i64 8, i64 8, !17}
-!21 = distinct !{!21, !15, !16}
-!22 = distinct !{!22, !15, !16}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"double", !7, i64 0}
+!18 = distinct !{!18, !15}
+!19 = !{i64 0, i64 8, !16, i64 8, i64 8, !16}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}

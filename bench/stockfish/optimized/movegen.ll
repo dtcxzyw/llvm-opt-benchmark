@@ -130,7 +130,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE0EEEP
   %61 = getelementptr inbounds nuw i8, ptr %.263.i.i, i64 32
   store i16 %60, ptr %59, align 4
   %.not31.i.i = icmp eq i64 %50, 0
-  br i1 %.not31.i.i, label %.preheader55.i.i, label %.lr.ph64.i.i, !llvm.loop !8
+  br i1 %.not31.i.i, label %.preheader55.i.i, label %.lr.ph64.i.i, !llvm.loop !7
 
 .lr.ph69.i.i:                                     ; preds = %.preheader55.i.i, %.lr.ph69.i.i
   %.368.i.i = phi ptr [ %69, %.lr.ph69.i.i ], [ %.2.lcssa.i.i, %.preheader55.i.i ]
@@ -145,7 +145,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE0EEEP
   %69 = getelementptr inbounds nuw i8, ptr %.368.i.i, i64 8
   store i16 %68, ptr %.368.i.i, align 4
   %.not32.i.i = icmp eq i64 %65, 0
-  br i1 %.not32.i.i, label %.loopexit56.i.i, label %.lr.ph69.i.i, !llvm.loop !9
+  br i1 %.not32.i.i, label %.loopexit56.i.i, label %.lr.ph69.i.i, !llvm.loop !8
 
 .loopexit56.i.i:                                  ; preds = %.lr.ph69.i.i, %.preheader55.i.i, %9
   %.0.i.i = phi ptr [ %1, %9 ], [ %.2.lcssa.i.i, %.preheader55.i.i ], [ %69, %.lr.ph69.i.i ]
@@ -176,7 +176,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE0EEEP
   %83 = getelementptr inbounds nuw i8, ptr %.473.i.i, i64 8
   store i16 %82, ptr %.473.i.i, align 4
   %.not33.i.i = icmp eq i64 %79, 0
-  br i1 %.not33.i.i, label %.preheader.i.i, label %.lr.ph74.i.i, !llvm.loop !10
+  br i1 %.not33.i.i, label %.preheader.i.i, label %.lr.ph74.i.i, !llvm.loop !9
 
 .lr.ph79.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph79.i.i
   %.578.i.i = phi ptr [ %91, %.lr.ph79.i.i ], [ %.4.lcssa.i.i, %.preheader.i.i ]
@@ -191,7 +191,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE0EEEP
   %91 = getelementptr inbounds nuw i8, ptr %.578.i.i, i64 8
   store i16 %90, ptr %.578.i.i, align 4
   %.not34.i.i = icmp eq i64 %87, 0
-  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph79.i.i, !llvm.loop !11
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph79.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph79.i.i, %.preheader.i.i
   %.5.lcssa.i.i = phi ptr [ %.4.lcssa.i.i, %.preheader.i.i ], [ %91, %.lr.ph79.i.i ]
@@ -228,7 +228,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE0EEEP
   %113 = getelementptr inbounds nuw i8, ptr %.783.i.i, i64 8
   store i16 %112, ptr %.783.i.i, align 4
   %.not36.i.i = icmp eq i64 %104, 0
-  br i1 %.not36.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph85.i.i, !llvm.loop !12
+  br i1 %.not36.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph85.i.i, !llvm.loop !11
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph85.i.i, %96, %._crit_edge.i.i
   %.6.i.i = phi ptr [ %.5.lcssa.i.i, %._crit_edge.i.i ], [ %.5.lcssa.i.i, %96 ], [ %113, %.lr.ph85.i.i ]
@@ -242,7 +242,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEP
 .loopexit.i.i:                                    ; preds = %126, %.lr.ph18.i.i
   %.1.lcssa.i22.i = phi ptr [ %.017.i.i, %.lr.ph18.i.i ], [ %132, %126 ]
   %.not.i23.i = icmp eq i64 %120, 0
-  br i1 %.not.i23.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !13
+  br i1 %.not.i23.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !12
 
 .lr.ph18.i.i:                                     ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i
   %.017.i.i = phi ptr [ %.1.lcssa.i22.i, %.loopexit.i.i ], [ %.6.i.i, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -272,7 +272,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE0EEEP
   %132 = getelementptr inbounds nuw i8, ptr %.114.i.i, i64 8
   store i16 %131, ptr %.114.i.i, align 4
   %.not6.i.i = icmp eq i64 %130, 0
-  br i1 %.not6.i.i, label %.loopexit.i.i, label %126, !llvm.loop !14
+  br i1 %.not6.i.i, label %.loopexit.i.i, label %126, !llvm.loop !13
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i
   %.pre.i = load i64, ptr %6, align 8
@@ -291,7 +291,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i34.i:                                  ; preds = %160, %.lr.ph18.i26.i
   %.1.lcssa.i35.i = phi ptr [ %.017.i27.i, %.lr.ph18.i26.i ], [ %166, %160 ]
   %.not.i36.i = icmp eq i64 %140, 0
-  br i1 %.not.i36.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i26.i, !llvm.loop !15
+  br i1 %.not.i36.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i26.i, !llvm.loop !14
 
 .lr.ph18.i26.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i34.i
   %.017.i27.i = phi ptr [ %.1.lcssa.i35.i, %.loopexit.i34.i ], [ %.0.lcssa.i.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -335,7 +335,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %166 = getelementptr inbounds nuw i8, ptr %.114.i31.i, i64 8
   store i16 %165, ptr %.114.i31.i, align 4
   %.not6.i33.i = icmp eq i64 %164, 0
-  br i1 %.not6.i33.i, label %.loopexit.i34.i, label %160, !llvm.loop !16
+  br i1 %.not6.i33.i, label %.loopexit.i34.i, label %160, !llvm.loop !15
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i34.i
   %.pre91.i = load i64, ptr %6, align 8
@@ -353,7 +353,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i48.i:                                  ; preds = %193, %.lr.ph18.i40.i
   %.1.lcssa.i49.i = phi ptr [ %.017.i41.i, %.lr.ph18.i40.i ], [ %199, %193 ]
   %.not.i50.i = icmp eq i64 %173, 0
-  br i1 %.not.i50.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i40.i, !llvm.loop !17
+  br i1 %.not.i50.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i40.i, !llvm.loop !16
 
 .lr.ph18.i40.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i48.i
   %.017.i41.i = phi ptr [ %.1.lcssa.i49.i, %.loopexit.i48.i ], [ %.0.lcssa.i38.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -397,7 +397,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %199 = getelementptr inbounds nuw i8, ptr %.114.i45.i, i64 8
   store i16 %198, ptr %.114.i45.i, align 4
   %.not6.i47.i = icmp eq i64 %197, 0
-  br i1 %.not6.i47.i, label %.loopexit.i48.i, label %193, !llvm.loop !18
+  br i1 %.not6.i47.i, label %.loopexit.i48.i, label %193, !llvm.loop !17
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i48.i
   %.pre92.i = load i64, ptr %6, align 8
@@ -415,7 +415,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i62.i:                                  ; preds = %242, %.lr.ph18.i54.i
   %.1.lcssa.i63.i = phi ptr [ %.017.i55.i, %.lr.ph18.i54.i ], [ %248, %242 ]
   %.not.i64.i = icmp eq i64 %206, 0
-  br i1 %.not.i64.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i54.i, !llvm.loop !19
+  br i1 %.not.i64.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i54.i, !llvm.loop !18
 
 .lr.ph18.i54.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i62.i
   %.017.i55.i = phi ptr [ %.1.lcssa.i63.i, %.loopexit.i62.i ], [ %.0.lcssa.i52.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -475,7 +475,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %248 = getelementptr inbounds nuw i8, ptr %.114.i59.i, i64 8
   store i16 %247, ptr %.114.i59.i, align 4
   %.not6.i61.i = icmp eq i64 %246, 0
-  br i1 %.not6.i61.i, label %.loopexit.i62.i, label %242, !llvm.loop !20
+  br i1 %.not6.i61.i, label %.loopexit.i62.i, label %242, !llvm.loop !19
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i62.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i66.i = phi ptr [ %.0.lcssa.i52.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i63.i, %.loopexit.i62.i ]
@@ -500,7 +500,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %259 = getelementptr inbounds nuw i8, ptr %.080.i, i64 8
   store i16 %258, ptr %.080.i, align 4
   %.not.i = icmp eq i64 %257, 0
-  br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %253, !llvm.loop !21
+  br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %253, !llvm.loop !20
 
 260:                                              ; preds = %2
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -563,7 +563,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %297 = getelementptr inbounds nuw i8, ptr %.160.i.i8, i64 32
   store i16 %296, ptr %295, align 4
   %.not30.i.i10 = icmp eq i64 %286, 0
-  br i1 %.not30.i.i10, label %.preheader57.i.i11, label %.lr.ph.i.i7, !llvm.loop !22
+  br i1 %.not30.i.i10, label %.preheader57.i.i11, label %.lr.ph.i.i7, !llvm.loop !21
 
 .preheader55.i.i18:                               ; preds = %.lr.ph64.i.i14, %.preheader57.i.i11
   %.2.lcssa.i.i19 = phi ptr [ %.1.lcssa.i.i12, %.preheader57.i.i11 ], [ %312, %.lr.ph64.i.i14 ]
@@ -593,7 +593,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %312 = getelementptr inbounds nuw i8, ptr %.263.i.i15, i64 32
   store i16 %311, ptr %310, align 4
   %.not31.i.i17 = icmp eq i64 %301, 0
-  br i1 %.not31.i.i17, label %.preheader55.i.i18, label %.lr.ph64.i.i14, !llvm.loop !23
+  br i1 %.not31.i.i17, label %.preheader55.i.i18, label %.lr.ph64.i.i14, !llvm.loop !22
 
 .lr.ph69.i.i21:                                   ; preds = %.preheader55.i.i18, %.lr.ph69.i.i21
   %.368.i.i22 = phi ptr [ %320, %.lr.ph69.i.i21 ], [ %.2.lcssa.i.i19, %.preheader55.i.i18 ]
@@ -608,7 +608,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %320 = getelementptr inbounds nuw i8, ptr %.368.i.i22, i64 8
   store i16 %319, ptr %.368.i.i22, align 4
   %.not32.i.i24 = icmp eq i64 %316, 0
-  br i1 %.not32.i.i24, label %.loopexit56.i.i25, label %.lr.ph69.i.i21, !llvm.loop !24
+  br i1 %.not32.i.i24, label %.loopexit56.i.i25, label %.lr.ph69.i.i21, !llvm.loop !23
 
 .loopexit56.i.i25:                                ; preds = %.lr.ph69.i.i21, %.preheader55.i.i18, %..loopexit56_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %..loopexit56_crit_edge.i.i ], [ %278, %.preheader55.i.i18 ], [ %278, %.lr.ph69.i.i21 ]
@@ -639,7 +639,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %333 = getelementptr inbounds nuw i8, ptr %.473.i.i29, i64 8
   store i16 %332, ptr %.473.i.i29, align 4
   %.not33.i.i31 = icmp eq i64 %329, 0
-  br i1 %.not33.i.i31, label %.preheader.i.i32, label %.lr.ph74.i.i28, !llvm.loop !25
+  br i1 %.not33.i.i31, label %.preheader.i.i32, label %.lr.ph74.i.i28, !llvm.loop !24
 
 .lr.ph79.i.i35:                                   ; preds = %.preheader.i.i32, %.lr.ph79.i.i35
   %.578.i.i36 = phi ptr [ %341, %.lr.ph79.i.i35 ], [ %.4.lcssa.i.i33, %.preheader.i.i32 ]
@@ -654,7 +654,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %341 = getelementptr inbounds nuw i8, ptr %.578.i.i36, i64 8
   store i16 %340, ptr %.578.i.i36, align 4
   %.not34.i.i38 = icmp eq i64 %337, 0
-  br i1 %.not34.i.i38, label %._crit_edge.i.i39, label %.lr.ph79.i.i35, !llvm.loop !26
+  br i1 %.not34.i.i38, label %._crit_edge.i.i39, label %.lr.ph79.i.i35, !llvm.loop !25
 
 ._crit_edge.i.i39:                                ; preds = %.lr.ph79.i.i35, %.preheader.i.i32
   %.5.lcssa.i.i40 = phi ptr [ %.4.lcssa.i.i33, %.preheader.i.i32 ], [ %341, %.lr.ph79.i.i35 ]
@@ -691,7 +691,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %363 = getelementptr inbounds nuw i8, ptr %.783.i.i44, i64 8
   store i16 %362, ptr %.783.i.i44, align 4
   %.not36.i.i46 = icmp eq i64 %354, 0
-  br i1 %.not36.i.i46, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph85.i.i43, !llvm.loop !27
+  br i1 %.not36.i.i46, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph85.i.i43, !llvm.loop !26
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph85.i.i43, %346, %._crit_edge.i.i39
   %.6.i.i47 = phi ptr [ %.5.lcssa.i.i40, %._crit_edge.i.i39 ], [ %.5.lcssa.i.i40, %346 ], [ %363, %.lr.ph85.i.i43 ]
@@ -705,7 +705,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEP
 .loopexit.i.i57:                                  ; preds = %376, %.lr.ph18.i.i49
   %.1.lcssa.i22.i58 = phi ptr [ %.017.i.i50, %.lr.ph18.i.i49 ], [ %382, %376 ]
   %.not.i23.i59 = icmp eq i64 %370, 0
-  br i1 %.not.i23.i59, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i49, !llvm.loop !28
+  br i1 %.not.i23.i59, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i49, !llvm.loop !27
 
 .lr.ph18.i.i49:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i57
   %.017.i.i50 = phi ptr [ %.1.lcssa.i22.i58, %.loopexit.i.i57 ], [ %.6.i.i47, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -735,7 +735,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE0EEEP
   %382 = getelementptr inbounds nuw i8, ptr %.114.i.i54, i64 8
   store i16 %381, ptr %.114.i.i54, align 4
   %.not6.i.i56 = icmp eq i64 %380, 0
-  br i1 %.not6.i.i56, label %.loopexit.i.i57, label %376, !llvm.loop !29
+  br i1 %.not6.i.i56, label %.loopexit.i.i57, label %376, !llvm.loop !28
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i57
   %.pre.i60 = load i64, ptr %261, align 8
@@ -754,7 +754,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i34.i71:                                ; preds = %410, %.lr.ph18.i26.i63
   %.1.lcssa.i35.i72 = phi ptr [ %.017.i27.i64, %.lr.ph18.i26.i63 ], [ %416, %410 ]
   %.not.i36.i73 = icmp eq i64 %390, 0
-  br i1 %.not.i36.i73, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i26.i63, !llvm.loop !30
+  br i1 %.not.i36.i73, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i26.i63, !llvm.loop !29
 
 .lr.ph18.i26.i63:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i34.i71
   %.017.i27.i64 = phi ptr [ %.1.lcssa.i35.i72, %.loopexit.i34.i71 ], [ %.0.lcssa.i.i61, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -798,7 +798,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %416 = getelementptr inbounds nuw i8, ptr %.114.i31.i68, i64 8
   store i16 %415, ptr %.114.i31.i68, align 4
   %.not6.i33.i70 = icmp eq i64 %414, 0
-  br i1 %.not6.i33.i70, label %.loopexit.i34.i71, label %410, !llvm.loop !31
+  br i1 %.not6.i33.i70, label %.loopexit.i34.i71, label %410, !llvm.loop !30
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i34.i71
   %.pre91.i74 = load i64, ptr %261, align 8
@@ -816,7 +816,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i48.i85:                                ; preds = %443, %.lr.ph18.i40.i77
   %.1.lcssa.i49.i86 = phi ptr [ %.017.i41.i78, %.lr.ph18.i40.i77 ], [ %449, %443 ]
   %.not.i50.i87 = icmp eq i64 %423, 0
-  br i1 %.not.i50.i87, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i40.i77, !llvm.loop !32
+  br i1 %.not.i50.i87, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i40.i77, !llvm.loop !31
 
 .lr.ph18.i40.i77:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i48.i85
   %.017.i41.i78 = phi ptr [ %.1.lcssa.i49.i86, %.loopexit.i48.i85 ], [ %.0.lcssa.i38.i75, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -860,7 +860,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %449 = getelementptr inbounds nuw i8, ptr %.114.i45.i82, i64 8
   store i16 %448, ptr %.114.i45.i82, align 4
   %.not6.i47.i84 = icmp eq i64 %447, 0
-  br i1 %.not6.i47.i84, label %.loopexit.i48.i85, label %443, !llvm.loop !33
+  br i1 %.not6.i47.i84, label %.loopexit.i48.i85, label %443, !llvm.loop !32
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i48.i85
   %.pre92.i88 = load i64, ptr %261, align 8
@@ -878,7 +878,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i62.i99:                                ; preds = %492, %.lr.ph18.i54.i91
   %.1.lcssa.i63.i100 = phi ptr [ %.017.i55.i92, %.lr.ph18.i54.i91 ], [ %498, %492 ]
   %.not.i64.i101 = icmp eq i64 %456, 0
-  br i1 %.not.i64.i101, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i54.i91, !llvm.loop !34
+  br i1 %.not.i64.i101, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i54.i91, !llvm.loop !33
 
 .lr.ph18.i54.i91:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i62.i99
   %.017.i55.i92 = phi ptr [ %.1.lcssa.i63.i100, %.loopexit.i62.i99 ], [ %.0.lcssa.i52.i89, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -938,7 +938,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %498 = getelementptr inbounds nuw i8, ptr %.114.i59.i96, i64 8
   store i16 %497, ptr %.114.i59.i96, align 4
   %.not6.i61.i98 = icmp eq i64 %496, 0
-  br i1 %.not6.i61.i98, label %.loopexit.i62.i99, label %492, !llvm.loop !35
+  br i1 %.not6.i61.i98, label %.loopexit.i62.i99, label %492, !llvm.loop !34
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i62.i99, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i66.i102 = phi ptr [ %.0.lcssa.i52.i89, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i63.i100, %.loopexit.i62.i99 ]
@@ -963,7 +963,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %509 = getelementptr inbounds nuw i8, ptr %.080.i105, i64 8
   store i16 %508, ptr %.080.i105, align 4
   %.not.i107 = icmp eq i64 %507, 0
-  br i1 %.not.i107, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %503, !llvm.loop !36
+  br i1 %.not.i107, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %503, !llvm.loop !35
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE0EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %503, %253, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %510 = phi ptr [ %.0.lcssa.i66.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.0.lcssa.i66.i102, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %259, %253 ], [ %509, %503 ]
@@ -1022,7 +1022,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE1EEEP
   %36 = getelementptr inbounds nuw i8, ptr %.048.i.i, i64 8
   store i16 %35, ptr %.048.i.i, align 4
   %.not.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i, label %.preheader45.i.i, label %.lr.ph.i.i, !llvm.loop !37
+  br i1 %.not.i.i, label %.preheader45.i.i, label %.lr.ph.i.i, !llvm.loop !36
 
 .lr.ph52.i.i:                                     ; preds = %.preheader45.i.i, %.lr.ph52.i.i
   %.151.i.i = phi ptr [ %44, %.lr.ph52.i.i ], [ %.0.lcssa.i.i, %.preheader45.i.i ]
@@ -1037,7 +1037,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE1EEEP
   %44 = getelementptr inbounds nuw i8, ptr %.151.i.i, i64 8
   store i16 %43, ptr %.151.i.i, align 4
   %.not24.i.i = icmp eq i64 %40, 0
-  br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i, !llvm.loop !38
+  br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i, !llvm.loop !37
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph52.i.i, %.preheader45.i.i
   %.1.lcssa.i.i = phi ptr [ %.0.lcssa.i.i, %.preheader45.i.i ], [ %44, %.lr.ph52.i.i ]
@@ -1070,7 +1070,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE1EEEP
   %59 = getelementptr inbounds nuw i8, ptr %.563.i.i, i64 24
   store i16 %58, ptr %57, align 4
   %.not28.i.i = icmp eq i64 %50, 0
-  br i1 %.not28.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph64.i.i, !llvm.loop !39
+  br i1 %.not28.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph64.i.i, !llvm.loop !38
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph64.i.i, %.preheader44.i.i, %._crit_edge.i.i
   %.2.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %.1.lcssa.i.i, %.preheader44.i.i ], [ %59, %.lr.ph64.i.i ]
@@ -1084,7 +1084,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEP
 .loopexit.i.i:                                    ; preds = %72, %.lr.ph18.i.i
   %.1.lcssa.i39.i = phi ptr [ %.017.i.i, %.lr.ph18.i.i ], [ %78, %72 ]
   %.not.i40.i = icmp eq i64 %66, 0
-  br i1 %.not.i40.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !13
+  br i1 %.not.i40.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !12
 
 .lr.ph18.i.i:                                     ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i
   %.017.i.i = phi ptr [ %.1.lcssa.i39.i, %.loopexit.i.i ], [ %.2.i.i, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1114,7 +1114,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE1EEEP
   %78 = getelementptr inbounds nuw i8, ptr %.114.i.i, i64 8
   store i16 %77, ptr %.114.i.i, align 4
   %.not6.i.i = icmp eq i64 %76, 0
-  br i1 %.not6.i.i, label %.loopexit.i.i, label %72, !llvm.loop !14
+  br i1 %.not6.i.i, label %.loopexit.i.i, label %72, !llvm.loop !13
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i
   %.pre.i = load i64, ptr %12, align 8
@@ -1132,7 +1132,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i52.i:                                  ; preds = %105, %.lr.ph18.i44.i
   %.1.lcssa.i53.i = phi ptr [ %.017.i45.i, %.lr.ph18.i44.i ], [ %111, %105 ]
   %.not.i54.i = icmp eq i64 %85, 0
-  br i1 %.not.i54.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i, !llvm.loop !15
+  br i1 %.not.i54.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i, !llvm.loop !14
 
 .lr.ph18.i44.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i52.i
   %.017.i45.i = phi ptr [ %.1.lcssa.i53.i, %.loopexit.i52.i ], [ %.0.lcssa.i42.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1176,7 +1176,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %111 = getelementptr inbounds nuw i8, ptr %.114.i49.i, i64 8
   store i16 %110, ptr %.114.i49.i, align 4
   %.not6.i51.i = icmp eq i64 %109, 0
-  br i1 %.not6.i51.i, label %.loopexit.i52.i, label %105, !llvm.loop !16
+  br i1 %.not6.i51.i, label %.loopexit.i52.i, label %105, !llvm.loop !15
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i52.i
   %.pre110.i = load i64, ptr %12, align 8
@@ -1194,7 +1194,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i66.i:                                  ; preds = %138, %.lr.ph18.i58.i
   %.1.lcssa.i67.i = phi ptr [ %.017.i59.i, %.lr.ph18.i58.i ], [ %144, %138 ]
   %.not.i68.i = icmp eq i64 %118, 0
-  br i1 %.not.i68.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i, !llvm.loop !17
+  br i1 %.not.i68.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i, !llvm.loop !16
 
 .lr.ph18.i58.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i66.i
   %.017.i59.i = phi ptr [ %.1.lcssa.i67.i, %.loopexit.i66.i ], [ %.0.lcssa.i56.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1238,7 +1238,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %144 = getelementptr inbounds nuw i8, ptr %.114.i63.i, i64 8
   store i16 %143, ptr %.114.i63.i, align 4
   %.not6.i65.i = icmp eq i64 %142, 0
-  br i1 %.not6.i65.i, label %.loopexit.i66.i, label %138, !llvm.loop !18
+  br i1 %.not6.i65.i, label %.loopexit.i66.i, label %138, !llvm.loop !17
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i66.i
   %.pre111.i = load i64, ptr %12, align 8
@@ -1256,7 +1256,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i80.i:                                  ; preds = %187, %.lr.ph18.i72.i
   %.1.lcssa.i81.i = phi ptr [ %.017.i73.i, %.lr.ph18.i72.i ], [ %193, %187 ]
   %.not.i82.i = icmp eq i64 %151, 0
-  br i1 %.not.i82.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i, !llvm.loop !19
+  br i1 %.not.i82.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i, !llvm.loop !18
 
 .lr.ph18.i72.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i80.i
   %.017.i73.i = phi ptr [ %.1.lcssa.i81.i, %.loopexit.i80.i ], [ %.0.lcssa.i70.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1316,7 +1316,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %193 = getelementptr inbounds nuw i8, ptr %.114.i77.i, i64 8
   store i16 %192, ptr %.114.i77.i, align 4
   %.not6.i79.i = icmp eq i64 %191, 0
-  br i1 %.not6.i79.i, label %.loopexit.i80.i, label %187, !llvm.loop !20
+  br i1 %.not6.i79.i, label %.loopexit.i80.i, label %187, !llvm.loop !19
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i = phi ptr [ %.0.lcssa.i70.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i, %.loopexit.i80.i ]
@@ -1342,7 +1342,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %205 = getelementptr inbounds nuw i8, ptr %.0100.i, i64 8
   store i16 %204, ptr %.0100.i, align 4
   %.not.i = icmp eq i64 %202, 0
-  br i1 %.not.i, label %._crit_edge.i, label %198, !llvm.loop !40
+  br i1 %.not.i, label %._crit_edge.i, label %198, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %198, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i = phi ptr [ %.0.lcssa.i84.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %205, %198 ]
@@ -1399,7 +1399,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %.3.i = phi ptr [ %.2102.i, %217 ], [ %235, %229 ], [ %.2102.i, %224 ]
   %.036.add.i = add nuw nsw i64 %.036.idx101.i, 4
   %.not37.i = icmp eq i64 %.036.add.i, 8
-  br i1 %.not37.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %217, !llvm.loop !41
+  br i1 %.not37.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %217
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %236, %._crit_edge.i
   %.1.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.3.i, %236 ]
@@ -1446,7 +1446,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7Ext
   %262 = getelementptr inbounds nuw i8, ptr %.048.i.i7, i64 8
   store i16 %261, ptr %.048.i.i7, align 4
   %.not.i.i9 = icmp eq i64 %258, 0
-  br i1 %.not.i.i9, label %.preheader45.i.i10, label %.lr.ph.i.i6, !llvm.loop !42
+  br i1 %.not.i.i9, label %.preheader45.i.i10, label %.lr.ph.i.i6, !llvm.loop !40
 
 .lr.ph52.i.i13:                                   ; preds = %.preheader45.i.i10, %.lr.ph52.i.i13
   %.151.i.i14 = phi ptr [ %270, %.lr.ph52.i.i13 ], [ %.0.lcssa.i.i11, %.preheader45.i.i10 ]
@@ -1461,7 +1461,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7Ext
   %270 = getelementptr inbounds nuw i8, ptr %.151.i.i14, i64 8
   store i16 %269, ptr %.151.i.i14, align 4
   %.not24.i.i16 = icmp eq i64 %266, 0
-  br i1 %.not24.i.i16, label %._crit_edge.i.i17, label %.lr.ph52.i.i13, !llvm.loop !43
+  br i1 %.not24.i.i16, label %._crit_edge.i.i17, label %.lr.ph52.i.i13, !llvm.loop !41
 
 ._crit_edge.i.i17:                                ; preds = %.lr.ph52.i.i13, %.preheader45.i.i10
   %.1.lcssa.i.i18 = phi ptr [ %.0.lcssa.i.i11, %.preheader45.i.i10 ], [ %270, %.lr.ph52.i.i13 ]
@@ -1494,7 +1494,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7Ext
   %285 = getelementptr inbounds nuw i8, ptr %.563.i.i23, i64 24
   store i16 %284, ptr %283, align 4
   %.not28.i.i25 = icmp eq i64 %276, 0
-  br i1 %.not28.i.i25, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph64.i.i22, !llvm.loop !44
+  br i1 %.not28.i.i25, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph64.i.i22, !llvm.loop !42
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph64.i.i22, %.preheader44.i.i20, %._crit_edge.i.i17
   %.2.i.i26 = phi ptr [ %.1.lcssa.i.i18, %._crit_edge.i.i17 ], [ %.1.lcssa.i.i18, %.preheader44.i.i20 ], [ %285, %.lr.ph64.i.i22 ]
@@ -1508,7 +1508,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEP
 .loopexit.i.i36:                                  ; preds = %298, %.lr.ph18.i.i28
   %.1.lcssa.i39.i37 = phi ptr [ %.017.i.i29, %.lr.ph18.i.i28 ], [ %304, %298 ]
   %.not.i40.i38 = icmp eq i64 %292, 0
-  br i1 %.not.i40.i38, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i28, !llvm.loop !28
+  br i1 %.not.i40.i38, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i28, !llvm.loop !27
 
 .lr.ph18.i.i28:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i36
   %.017.i.i29 = phi ptr [ %.1.lcssa.i39.i37, %.loopexit.i.i36 ], [ %.2.i.i26, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1538,7 +1538,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE1EEEP
   %304 = getelementptr inbounds nuw i8, ptr %.114.i.i33, i64 8
   store i16 %303, ptr %.114.i.i33, align 4
   %.not6.i.i35 = icmp eq i64 %302, 0
-  br i1 %.not6.i.i35, label %.loopexit.i.i36, label %298, !llvm.loop !29
+  br i1 %.not6.i.i35, label %.loopexit.i.i36, label %298, !llvm.loop !28
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i36
   %.pre.i39 = load i64, ptr %238, align 8
@@ -1556,7 +1556,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i52.i50:                                ; preds = %331, %.lr.ph18.i44.i42
   %.1.lcssa.i53.i51 = phi ptr [ %.017.i45.i43, %.lr.ph18.i44.i42 ], [ %337, %331 ]
   %.not.i54.i52 = icmp eq i64 %311, 0
-  br i1 %.not.i54.i52, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i42, !llvm.loop !30
+  br i1 %.not.i54.i52, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i42, !llvm.loop !29
 
 .lr.ph18.i44.i42:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i52.i50
   %.017.i45.i43 = phi ptr [ %.1.lcssa.i53.i51, %.loopexit.i52.i50 ], [ %.0.lcssa.i42.i40, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1600,7 +1600,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %337 = getelementptr inbounds nuw i8, ptr %.114.i49.i47, i64 8
   store i16 %336, ptr %.114.i49.i47, align 4
   %.not6.i51.i49 = icmp eq i64 %335, 0
-  br i1 %.not6.i51.i49, label %.loopexit.i52.i50, label %331, !llvm.loop !31
+  br i1 %.not6.i51.i49, label %.loopexit.i52.i50, label %331, !llvm.loop !30
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i52.i50
   %.pre110.i53 = load i64, ptr %238, align 8
@@ -1618,7 +1618,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i66.i64:                                ; preds = %364, %.lr.ph18.i58.i56
   %.1.lcssa.i67.i65 = phi ptr [ %.017.i59.i57, %.lr.ph18.i58.i56 ], [ %370, %364 ]
   %.not.i68.i66 = icmp eq i64 %344, 0
-  br i1 %.not.i68.i66, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i56, !llvm.loop !32
+  br i1 %.not.i68.i66, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i56, !llvm.loop !31
 
 .lr.ph18.i58.i56:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i66.i64
   %.017.i59.i57 = phi ptr [ %.1.lcssa.i67.i65, %.loopexit.i66.i64 ], [ %.0.lcssa.i56.i54, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1662,7 +1662,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %370 = getelementptr inbounds nuw i8, ptr %.114.i63.i61, i64 8
   store i16 %369, ptr %.114.i63.i61, align 4
   %.not6.i65.i63 = icmp eq i64 %368, 0
-  br i1 %.not6.i65.i63, label %.loopexit.i66.i64, label %364, !llvm.loop !33
+  br i1 %.not6.i65.i63, label %.loopexit.i66.i64, label %364, !llvm.loop !32
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i66.i64
   %.pre111.i67 = load i64, ptr %238, align 8
@@ -1680,7 +1680,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i80.i78:                                ; preds = %413, %.lr.ph18.i72.i70
   %.1.lcssa.i81.i79 = phi ptr [ %.017.i73.i71, %.lr.ph18.i72.i70 ], [ %419, %413 ]
   %.not.i82.i80 = icmp eq i64 %377, 0
-  br i1 %.not.i82.i80, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i70, !llvm.loop !34
+  br i1 %.not.i82.i80, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i70, !llvm.loop !33
 
 .lr.ph18.i72.i70:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i80.i78
   %.017.i73.i71 = phi ptr [ %.1.lcssa.i81.i79, %.loopexit.i80.i78 ], [ %.0.lcssa.i70.i68, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -1740,7 +1740,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %419 = getelementptr inbounds nuw i8, ptr %.114.i77.i75, i64 8
   store i16 %418, ptr %.114.i77.i75, align 4
   %.not6.i79.i77 = icmp eq i64 %417, 0
-  br i1 %.not6.i79.i77, label %.loopexit.i80.i78, label %413, !llvm.loop !35
+  br i1 %.not6.i79.i77, label %.loopexit.i80.i78, label %413, !llvm.loop !34
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i78, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i81 = phi ptr [ %.0.lcssa.i70.i68, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i79, %.loopexit.i80.i78 ]
@@ -1766,7 +1766,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %431 = getelementptr inbounds nuw i8, ptr %.0100.i84, i64 8
   store i16 %430, ptr %.0100.i84, align 4
   %.not.i86 = icmp eq i64 %428, 0
-  br i1 %.not.i86, label %._crit_edge.i87, label %424, !llvm.loop !45
+  br i1 %.not.i86, label %._crit_edge.i87, label %424, !llvm.loop !43
 
 ._crit_edge.i87:                                  ; preds = %424, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i88 = phi ptr [ %.0.lcssa.i84.i81, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %431, %424 ]
@@ -1823,7 +1823,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %.3.i94 = phi ptr [ %.2102.i90, %443 ], [ %461, %455 ], [ %.2102.i90, %450 ]
   %.036.add.i95 = add nuw nsw i64 %.036.idx101.i91, 4
   %.not37.i96 = icmp eq i64 %.036.add.i95, 8
-  br i1 %.not37.i96, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %443, !llvm.loop !46
+  br i1 %.not37.i96, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %443
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %462, %._crit_edge.i87
   %.1.i97 = phi ptr [ %.0.lcssa.i88, %._crit_edge.i87 ], [ %.3.i94, %462 ]
@@ -1899,7 +1899,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %47 = getelementptr inbounds nuw i8, ptr %.04590.i.i, i64 8
   store i16 %46, ptr %.04590.i.i, align 4
   %.not.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i, label %.preheader87.i.i, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %.not.i.i, label %.preheader87.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 .lr.ph94.i.i:                                     ; preds = %.preheader87.i.i, %.lr.ph94.i.i
   %.193.i.i = phi ptr [ %55, %.lr.ph94.i.i ], [ %.045.lcssa.i.i, %.preheader87.i.i ]
@@ -1914,7 +1914,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %55 = getelementptr inbounds nuw i8, ptr %.193.i.i, i64 8
   store i16 %54, ptr %.193.i.i, align 4
   %.not47.i.i = icmp eq i64 %51, 0
-  br i1 %.not47.i.i, label %._crit_edge.i.i, label %.lr.ph94.i.i, !llvm.loop !48
+  br i1 %.not47.i.i, label %._crit_edge.i.i, label %.lr.ph94.i.i, !llvm.loop !45
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph94.i.i, %.preheader87.i.i
   %.1.lcssa.i.i = phi ptr [ %.045.lcssa.i.i, %.preheader87.i.i ], [ %55, %.lr.ph94.i.i ]
@@ -1961,7 +1961,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %79 = getelementptr inbounds nuw i8, ptr %.398.i.i, i64 32
   store i16 %78, ptr %77, align 4
   %.not49.i.i = icmp eq i64 %68, 0
-  br i1 %.not49.i.i, label %.preheader86.i.i, label %.lr.ph100.i.i, !llvm.loop !49
+  br i1 %.not49.i.i, label %.preheader86.i.i, label %.lr.ph100.i.i, !llvm.loop !46
 
 .preheader84.i.i:                                 ; preds = %.lr.ph105.i.i, %.preheader86.i.i
   %.4.lcssa.i.i = phi ptr [ %.3.lcssa.i.i, %.preheader86.i.i ], [ %94, %.lr.ph105.i.i ]
@@ -1991,7 +1991,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %94 = getelementptr inbounds nuw i8, ptr %.4104.i.i, i64 32
   store i16 %93, ptr %92, align 4
   %.not50.i.i = icmp eq i64 %83, 0
-  br i1 %.not50.i.i, label %.preheader84.i.i, label %.lr.ph105.i.i, !llvm.loop !50
+  br i1 %.not50.i.i, label %.preheader84.i.i, label %.lr.ph105.i.i, !llvm.loop !47
 
 .lr.ph110.i.i:                                    ; preds = %.preheader84.i.i, %.lr.ph110.i.i
   %.5109.i.i = phi ptr [ %109, %.lr.ph110.i.i ], [ %.4.lcssa.i.i, %.preheader84.i.i ]
@@ -2016,7 +2016,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %109 = getelementptr inbounds nuw i8, ptr %.5109.i.i, i64 32
   store i16 %108, ptr %107, align 4
   %.not51.i.i = icmp eq i64 %98, 0
-  br i1 %.not51.i.i, label %.loopexit85.i.i, label %.lr.ph110.i.i, !llvm.loop !51
+  br i1 %.not51.i.i, label %.loopexit85.i.i, label %.lr.ph110.i.i, !llvm.loop !48
 
 .loopexit85.i.i:                                  ; preds = %.lr.ph110.i.i, %.preheader84.i.i, %._crit_edge.i.i
   %.2.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %.4.lcssa.i.i, %.preheader84.i.i ], [ %109, %.lr.ph110.i.i ]
@@ -2047,7 +2047,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %123 = getelementptr inbounds nuw i8, ptr %.6114.i.i, i64 8
   store i16 %122, ptr %.6114.i.i, align 4
   %.not52.i.i = icmp eq i64 %119, 0
-  br i1 %.not52.i.i, label %.preheader.i.i, label %.lr.ph116.i.i, !llvm.loop !52
+  br i1 %.not52.i.i, label %.preheader.i.i, label %.lr.ph116.i.i, !llvm.loop !49
 
 .lr.ph121.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph121.i.i
   %.7120.i.i = phi ptr [ %131, %.lr.ph121.i.i ], [ %.6.lcssa.i.i, %.preheader.i.i ]
@@ -2062,7 +2062,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %131 = getelementptr inbounds nuw i8, ptr %.7120.i.i, i64 8
   store i16 %130, ptr %.7120.i.i, align 4
   %.not53.i.i = icmp eq i64 %127, 0
-  br i1 %.not53.i.i, label %._crit_edge122.i.i, label %.lr.ph121.i.i, !llvm.loop !53
+  br i1 %.not53.i.i, label %._crit_edge122.i.i, label %.lr.ph121.i.i, !llvm.loop !50
 
 ._crit_edge122.i.i:                               ; preds = %.lr.ph121.i.i, %.preheader.i.i
   %.7.lcssa.i.i = phi ptr [ %.6.lcssa.i.i, %.preheader.i.i ], [ %131, %.lr.ph121.i.i ]
@@ -2106,7 +2106,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE3EEEP
   %157 = getelementptr inbounds nuw i8, ptr %.9126.i.i, i64 8
   store i16 %156, ptr %.9126.i.i, align 4
   %.not56.i.i = icmp eq i64 %148, 0
-  br i1 %.not56.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph128.i.i, !llvm.loop !54
+  br i1 %.not56.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph128.i.i, !llvm.loop !51
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph128.i.i, %140, %135, %._crit_edge122.i.i
   %.0.i.i = phi ptr [ %.7.lcssa.i.i, %135 ], [ %.7.lcssa.i.i, %._crit_edge122.i.i ], [ %.7.lcssa.i.i, %140 ], [ %157, %.lr.ph128.i.i ]
@@ -2120,7 +2120,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEP
 .loopexit.i.i:                                    ; preds = %170, %.lr.ph18.i.i
   %.1.lcssa.i24.i = phi ptr [ %.017.i.i, %.lr.ph18.i.i ], [ %176, %170 ]
   %.not.i25.i = icmp eq i64 %164, 0
-  br i1 %.not.i25.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !13
+  br i1 %.not.i25.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !12
 
 .lr.ph18.i.i:                                     ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i
   %.017.i.i = phi ptr [ %.1.lcssa.i24.i, %.loopexit.i.i ], [ %.0.i.i, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2150,7 +2150,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE3EEEP
   %176 = getelementptr inbounds nuw i8, ptr %.114.i.i, i64 8
   store i16 %175, ptr %.114.i.i, align 4
   %.not6.i.i = icmp eq i64 %174, 0
-  br i1 %.not6.i.i, label %.loopexit.i.i, label %170, !llvm.loop !14
+  br i1 %.not6.i.i, label %.loopexit.i.i, label %170, !llvm.loop !13
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i
   %.pre.i = load i64, ptr %15, align 8
@@ -2168,7 +2168,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i36.i:                                  ; preds = %203, %.lr.ph18.i28.i
   %.1.lcssa.i37.i = phi ptr [ %.017.i29.i, %.lr.ph18.i28.i ], [ %209, %203 ]
   %.not.i38.i = icmp eq i64 %183, 0
-  br i1 %.not.i38.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i28.i, !llvm.loop !15
+  br i1 %.not.i38.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i28.i, !llvm.loop !14
 
 .lr.ph18.i28.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i36.i
   %.017.i29.i = phi ptr [ %.1.lcssa.i37.i, %.loopexit.i36.i ], [ %.0.lcssa.i.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2212,7 +2212,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %209 = getelementptr inbounds nuw i8, ptr %.114.i33.i, i64 8
   store i16 %208, ptr %.114.i33.i, align 4
   %.not6.i35.i = icmp eq i64 %207, 0
-  br i1 %.not6.i35.i, label %.loopexit.i36.i, label %203, !llvm.loop !16
+  br i1 %.not6.i35.i, label %.loopexit.i36.i, label %203, !llvm.loop !15
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i36.i
   %.pre97.i = load i64, ptr %15, align 8
@@ -2230,7 +2230,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i50.i:                                  ; preds = %236, %.lr.ph18.i42.i
   %.1.lcssa.i51.i = phi ptr [ %.017.i43.i, %.lr.ph18.i42.i ], [ %242, %236 ]
   %.not.i52.i = icmp eq i64 %216, 0
-  br i1 %.not.i52.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i42.i, !llvm.loop !17
+  br i1 %.not.i52.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i42.i, !llvm.loop !16
 
 .lr.ph18.i42.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i50.i
   %.017.i43.i = phi ptr [ %.1.lcssa.i51.i, %.loopexit.i50.i ], [ %.0.lcssa.i40.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2274,7 +2274,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %242 = getelementptr inbounds nuw i8, ptr %.114.i47.i, i64 8
   store i16 %241, ptr %.114.i47.i, align 4
   %.not6.i49.i = icmp eq i64 %240, 0
-  br i1 %.not6.i49.i, label %.loopexit.i50.i, label %236, !llvm.loop !18
+  br i1 %.not6.i49.i, label %.loopexit.i50.i, label %236, !llvm.loop !17
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i50.i
   %.pre98.i = load i64, ptr %15, align 8
@@ -2292,7 +2292,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i64.i:                                  ; preds = %285, %.lr.ph18.i56.i
   %.1.lcssa.i65.i = phi ptr [ %.017.i57.i, %.lr.ph18.i56.i ], [ %291, %285 ]
   %.not.i66.i = icmp eq i64 %249, 0
-  br i1 %.not.i66.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i56.i, !llvm.loop !19
+  br i1 %.not.i66.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i56.i, !llvm.loop !18
 
 .lr.ph18.i56.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i64.i
   %.017.i57.i = phi ptr [ %.1.lcssa.i65.i, %.loopexit.i64.i ], [ %.0.lcssa.i54.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2352,7 +2352,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %291 = getelementptr inbounds nuw i8, ptr %.114.i61.i, i64 8
   store i16 %290, ptr %.114.i61.i, align 4
   %.not6.i63.i = icmp eq i64 %289, 0
-  br i1 %.not6.i63.i, label %.loopexit.i64.i, label %285, !llvm.loop !20
+  br i1 %.not6.i63.i, label %.loopexit.i64.i, label %285, !llvm.loop !19
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i64.i
   %.pre99.i = load i64, ptr %15, align 8
@@ -2383,7 +2383,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %304 = getelementptr inbounds nuw i8, ptr %.184.i, i64 8
   store i16 %303, ptr %.184.i, align 4
   %.not.i = icmp eq i64 %302, 0
-  br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %298, !llvm.loop !55
+  br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %298, !llvm.loop !52
 
 305:                                              ; preds = %2
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -2434,7 +2434,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %338 = getelementptr inbounds nuw i8, ptr %.04590.i.i7, i64 8
   store i16 %337, ptr %.04590.i.i7, align 4
   %.not.i.i9 = icmp eq i64 %334, 0
-  br i1 %.not.i.i9, label %.preheader87.i.i10, label %.lr.ph.i.i6, !llvm.loop !56
+  br i1 %.not.i.i9, label %.preheader87.i.i10, label %.lr.ph.i.i6, !llvm.loop !53
 
 .lr.ph94.i.i13:                                   ; preds = %.preheader87.i.i10, %.lr.ph94.i.i13
   %.193.i.i14 = phi ptr [ %346, %.lr.ph94.i.i13 ], [ %.045.lcssa.i.i11, %.preheader87.i.i10 ]
@@ -2449,7 +2449,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %346 = getelementptr inbounds nuw i8, ptr %.193.i.i14, i64 8
   store i16 %345, ptr %.193.i.i14, align 4
   %.not47.i.i16 = icmp eq i64 %342, 0
-  br i1 %.not47.i.i16, label %._crit_edge.i.i17, label %.lr.ph94.i.i13, !llvm.loop !57
+  br i1 %.not47.i.i16, label %._crit_edge.i.i17, label %.lr.ph94.i.i13, !llvm.loop !54
 
 ._crit_edge.i.i17:                                ; preds = %.lr.ph94.i.i13, %.preheader87.i.i10
   %.1.lcssa.i.i18 = phi ptr [ %.045.lcssa.i.i11, %.preheader87.i.i10 ], [ %346, %.lr.ph94.i.i13 ]
@@ -2500,7 +2500,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %370 = getelementptr inbounds nuw i8, ptr %.398.i.i22, i64 32
   store i16 %369, ptr %368, align 4
   %.not49.i.i24 = icmp eq i64 %359, 0
-  br i1 %.not49.i.i24, label %.preheader86.i.i25, label %.lr.ph100.i.i21, !llvm.loop !58
+  br i1 %.not49.i.i24, label %.preheader86.i.i25, label %.lr.ph100.i.i21, !llvm.loop !55
 
 .preheader84.i.i32:                               ; preds = %.lr.ph105.i.i28, %.preheader86.i.i25
   %.4.lcssa.i.i33 = phi ptr [ %.3.lcssa.i.i26, %.preheader86.i.i25 ], [ %385, %.lr.ph105.i.i28 ]
@@ -2530,7 +2530,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %385 = getelementptr inbounds nuw i8, ptr %.4104.i.i29, i64 32
   store i16 %384, ptr %383, align 4
   %.not50.i.i31 = icmp eq i64 %374, 0
-  br i1 %.not50.i.i31, label %.preheader84.i.i32, label %.lr.ph105.i.i28, !llvm.loop !59
+  br i1 %.not50.i.i31, label %.preheader84.i.i32, label %.lr.ph105.i.i28, !llvm.loop !56
 
 .lr.ph110.i.i35:                                  ; preds = %.preheader84.i.i32, %.lr.ph110.i.i35
   %.5109.i.i36 = phi ptr [ %400, %.lr.ph110.i.i35 ], [ %.4.lcssa.i.i33, %.preheader84.i.i32 ]
@@ -2555,7 +2555,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %400 = getelementptr inbounds nuw i8, ptr %.5109.i.i36, i64 32
   store i16 %399, ptr %398, align 4
   %.not51.i.i38 = icmp eq i64 %389, 0
-  br i1 %.not51.i.i38, label %.loopexit85.i.i39, label %.lr.ph110.i.i35, !llvm.loop !60
+  br i1 %.not51.i.i38, label %.loopexit85.i.i39, label %.lr.ph110.i.i35, !llvm.loop !57
 
 .loopexit85.i.i39:                                ; preds = %.lr.ph110.i.i35, %.preheader84.i.i32, %._crit_edge..loopexit85_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge..loopexit85_crit_edge.i.i ], [ %350, %.preheader84.i.i32 ], [ %350, %.lr.ph110.i.i35 ]
@@ -2586,7 +2586,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %413 = getelementptr inbounds nuw i8, ptr %.6114.i.i43, i64 8
   store i16 %412, ptr %.6114.i.i43, align 4
   %.not52.i.i45 = icmp eq i64 %409, 0
-  br i1 %.not52.i.i45, label %.preheader.i.i46, label %.lr.ph116.i.i42, !llvm.loop !61
+  br i1 %.not52.i.i45, label %.preheader.i.i46, label %.lr.ph116.i.i42, !llvm.loop !58
 
 .lr.ph121.i.i49:                                  ; preds = %.preheader.i.i46, %.lr.ph121.i.i49
   %.7120.i.i50 = phi ptr [ %421, %.lr.ph121.i.i49 ], [ %.6.lcssa.i.i47, %.preheader.i.i46 ]
@@ -2601,7 +2601,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %421 = getelementptr inbounds nuw i8, ptr %.7120.i.i50, i64 8
   store i16 %420, ptr %.7120.i.i50, align 4
   %.not53.i.i52 = icmp eq i64 %417, 0
-  br i1 %.not53.i.i52, label %._crit_edge122.i.i53, label %.lr.ph121.i.i49, !llvm.loop !62
+  br i1 %.not53.i.i52, label %._crit_edge122.i.i53, label %.lr.ph121.i.i49, !llvm.loop !59
 
 ._crit_edge122.i.i53:                             ; preds = %.lr.ph121.i.i49, %.preheader.i.i46
   %.7.lcssa.i.i54 = phi ptr [ %.6.lcssa.i.i47, %.preheader.i.i46 ], [ %421, %.lr.ph121.i.i49 ]
@@ -2645,7 +2645,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %447 = getelementptr inbounds nuw i8, ptr %.9126.i.i122, i64 8
   store i16 %446, ptr %.9126.i.i122, align 4
   %.not56.i.i124 = icmp eq i64 %438, 0
-  br i1 %.not56.i.i124, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph128.i.i121, !llvm.loop !63
+  br i1 %.not56.i.i124, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph128.i.i121, !llvm.loop !60
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph128.i.i121, %430, %425, %._crit_edge122.i.i53
   %.0.i.i57 = phi ptr [ %.7.lcssa.i.i54, %425 ], [ %.7.lcssa.i.i54, %._crit_edge122.i.i53 ], [ %.7.lcssa.i.i54, %430 ], [ %447, %.lr.ph128.i.i121 ]
@@ -2659,7 +2659,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEP
 .loopexit.i.i67:                                  ; preds = %460, %.lr.ph18.i.i59
   %.1.lcssa.i24.i68 = phi ptr [ %.017.i.i60, %.lr.ph18.i.i59 ], [ %466, %460 ]
   %.not.i25.i69 = icmp eq i64 %454, 0
-  br i1 %.not.i25.i69, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i59, !llvm.loop !28
+  br i1 %.not.i25.i69, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i59, !llvm.loop !27
 
 .lr.ph18.i.i59:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i67
   %.017.i.i60 = phi ptr [ %.1.lcssa.i24.i68, %.loopexit.i.i67 ], [ %.0.i.i57, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2689,7 +2689,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE3EEEP
   %466 = getelementptr inbounds nuw i8, ptr %.114.i.i64, i64 8
   store i16 %465, ptr %.114.i.i64, align 4
   %.not6.i.i66 = icmp eq i64 %464, 0
-  br i1 %.not6.i.i66, label %.loopexit.i.i67, label %460, !llvm.loop !29
+  br i1 %.not6.i.i66, label %.loopexit.i.i67, label %460, !llvm.loop !28
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i67
   %.pre.i70 = load i64, ptr %306, align 8
@@ -2707,7 +2707,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i36.i81:                                ; preds = %493, %.lr.ph18.i28.i73
   %.1.lcssa.i37.i82 = phi ptr [ %.017.i29.i74, %.lr.ph18.i28.i73 ], [ %499, %493 ]
   %.not.i38.i83 = icmp eq i64 %473, 0
-  br i1 %.not.i38.i83, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i28.i73, !llvm.loop !30
+  br i1 %.not.i38.i83, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i28.i73, !llvm.loop !29
 
 .lr.ph18.i28.i73:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i36.i81
   %.017.i29.i74 = phi ptr [ %.1.lcssa.i37.i82, %.loopexit.i36.i81 ], [ %.0.lcssa.i.i71, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2751,7 +2751,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %499 = getelementptr inbounds nuw i8, ptr %.114.i33.i78, i64 8
   store i16 %498, ptr %.114.i33.i78, align 4
   %.not6.i35.i80 = icmp eq i64 %497, 0
-  br i1 %.not6.i35.i80, label %.loopexit.i36.i81, label %493, !llvm.loop !31
+  br i1 %.not6.i35.i80, label %.loopexit.i36.i81, label %493, !llvm.loop !30
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i36.i81
   %.pre97.i84 = load i64, ptr %306, align 8
@@ -2769,7 +2769,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i50.i95:                                ; preds = %526, %.lr.ph18.i42.i87
   %.1.lcssa.i51.i96 = phi ptr [ %.017.i43.i88, %.lr.ph18.i42.i87 ], [ %532, %526 ]
   %.not.i52.i97 = icmp eq i64 %506, 0
-  br i1 %.not.i52.i97, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i42.i87, !llvm.loop !32
+  br i1 %.not.i52.i97, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i42.i87, !llvm.loop !31
 
 .lr.ph18.i42.i87:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i50.i95
   %.017.i43.i88 = phi ptr [ %.1.lcssa.i51.i96, %.loopexit.i50.i95 ], [ %.0.lcssa.i40.i85, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2813,7 +2813,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %532 = getelementptr inbounds nuw i8, ptr %.114.i47.i92, i64 8
   store i16 %531, ptr %.114.i47.i92, align 4
   %.not6.i49.i94 = icmp eq i64 %530, 0
-  br i1 %.not6.i49.i94, label %.loopexit.i50.i95, label %526, !llvm.loop !33
+  br i1 %.not6.i49.i94, label %.loopexit.i50.i95, label %526, !llvm.loop !32
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i50.i95
   %.pre98.i98 = load i64, ptr %306, align 8
@@ -2831,7 +2831,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i64.i109:                               ; preds = %575, %.lr.ph18.i56.i101
   %.1.lcssa.i65.i110 = phi ptr [ %.017.i57.i102, %.lr.ph18.i56.i101 ], [ %581, %575 ]
   %.not.i66.i111 = icmp eq i64 %539, 0
-  br i1 %.not.i66.i111, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i56.i101, !llvm.loop !34
+  br i1 %.not.i66.i111, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i56.i101, !llvm.loop !33
 
 .lr.ph18.i56.i101:                                ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i64.i109
   %.017.i57.i102 = phi ptr [ %.1.lcssa.i65.i110, %.loopexit.i64.i109 ], [ %.0.lcssa.i54.i99, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -2891,7 +2891,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %581 = getelementptr inbounds nuw i8, ptr %.114.i61.i106, i64 8
   store i16 %580, ptr %.114.i61.i106, align 4
   %.not6.i63.i108 = icmp eq i64 %579, 0
-  br i1 %.not6.i63.i108, label %.loopexit.i64.i109, label %575, !llvm.loop !35
+  br i1 %.not6.i63.i108, label %.loopexit.i64.i109, label %575, !llvm.loop !34
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i64.i109
   %.pre99.i112 = load i64, ptr %306, align 8
@@ -2922,7 +2922,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %594 = getelementptr inbounds nuw i8, ptr %.184.i116, i64 8
   store i16 %593, ptr %.184.i116, align 4
   %.not.i118 = icmp eq i64 %592, 0
-  br i1 %.not.i118, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %588, !llvm.loop !64
+  br i1 %.not.i118, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %588, !llvm.loop !61
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE3EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %588, %298, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %595 = phi ptr [ %.0.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.0.i113, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %304, %298 ], [ %594, %588 ]
@@ -2997,7 +2997,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE2EEEP
   %53 = getelementptr inbounds nuw i8, ptr %.057.i.i, i64 8
   store i16 %52, ptr %.057.i.i, align 4
   %.not.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i, label %.preheader54.i.i, label %.lr.ph.i.i, !llvm.loop !65
+  br i1 %.not.i.i, label %.preheader54.i.i, label %.lr.ph.i.i, !llvm.loop !62
 
 .lr.ph61.i.i:                                     ; preds = %.preheader54.i.i, %.lr.ph61.i.i
   %.160.i.i = phi ptr [ %61, %.lr.ph61.i.i ], [ %.0.lcssa.i.i, %.preheader54.i.i ]
@@ -3012,7 +3012,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE2EEEP
   %61 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
   store i16 %60, ptr %.160.i.i, align 4
   %.not31.i.i = icmp eq i64 %57, 0
-  br i1 %.not31.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph61.i.i, !llvm.loop !66
+  br i1 %.not31.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph61.i.i, !llvm.loop !63
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph61.i.i, %.preheader54.i.i
   %.1.lcssa.i.i = phi ptr [ %.0.lcssa.i.i, %.preheader54.i.i ], [ %61, %.lr.ph61.i.i ]
@@ -3026,7 +3026,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEP
 .loopexit.i.i:                                    ; preds = %84, %82
   %.1.lcssa.i26.i = phi ptr [ %.023.i.i, %82 ], [ %90, %84 ]
   %.not.i27.i = icmp eq i64 %69, 0
-  br i1 %.not.i27.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i.i, !llvm.loop !67
+  br i1 %.not.i27.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i.i, !llvm.loop !64
 
 .lr.ph24.i.i:                                     ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i
   %.023.i.i = phi ptr [ %.1.lcssa.i26.i, %.loopexit.i.i ], [ %.1.lcssa.i.i, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3072,7 +3072,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE2EEEP
   %90 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 8
   store i16 %89, ptr %.120.i.i, align 4
   %.not10.i.i = icmp eq i64 %88, 0
-  br i1 %.not10.i.i, label %.loopexit.i.i, label %84, !llvm.loop !68
+  br i1 %.not10.i.i, label %.loopexit.i.i, label %84, !llvm.loop !65
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i
   %.pre.i = load i64, ptr %6, align 8
@@ -3090,7 +3090,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEE
 .loopexit.i40.i:                                  ; preds = %127, %125
   %.1.lcssa.i41.i = phi ptr [ %.023.i31.i, %125 ], [ %133, %127 ]
   %.not.i42.i = icmp eq i64 %98, 0
-  br i1 %.not.i42.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i30.i, !llvm.loop !69
+  br i1 %.not.i42.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i30.i, !llvm.loop !66
 
 .lr.ph24.i30.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i40.i
   %.023.i31.i = phi ptr [ %.1.lcssa.i41.i, %.loopexit.i40.i ], [ %.0.lcssa.i28.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3150,7 +3150,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb1EEE
   %133 = getelementptr inbounds nuw i8, ptr %.120.i37.i, i64 8
   store i16 %132, ptr %.120.i37.i, align 4
   %.not10.i39.i = icmp eq i64 %131, 0
-  br i1 %.not10.i39.i, label %.loopexit.i40.i, label %127, !llvm.loop !70
+  br i1 %.not10.i39.i, label %.loopexit.i40.i, label %127, !llvm.loop !67
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i40.i
   %.pre81.i = load i64, ptr %6, align 8
@@ -3168,7 +3168,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEE
 .loopexit.i55.i:                                  ; preds = %170, %168
   %.1.lcssa.i56.i = phi ptr [ %.023.i46.i, %168 ], [ %176, %170 ]
   %.not.i57.i = icmp eq i64 %141, 0
-  br i1 %.not.i57.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i45.i, !llvm.loop !71
+  br i1 %.not.i57.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i45.i, !llvm.loop !68
 
 .lr.ph24.i45.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i55.i
   %.023.i46.i = phi ptr [ %.1.lcssa.i56.i, %.loopexit.i55.i ], [ %.0.lcssa.i43.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3228,7 +3228,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb1EEE
   %176 = getelementptr inbounds nuw i8, ptr %.120.i52.i, i64 8
   store i16 %175, ptr %.120.i52.i, align 4
   %.not10.i54.i = icmp eq i64 %174, 0
-  br i1 %.not10.i54.i, label %.loopexit.i55.i, label %170, !llvm.loop !72
+  br i1 %.not10.i54.i, label %.loopexit.i55.i, label %170, !llvm.loop !69
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i55.i
   %.pre82.i = load i64, ptr %6, align 8
@@ -3246,7 +3246,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEE
 .loopexit.i60.i:                                  ; preds = %223, %.lr.ph20.i.i
   %.1.lcssa.i61.i = phi ptr [ %.019.i.i, %.lr.ph20.i.i ], [ %229, %223 ]
   %.not.i62.i = icmp eq i64 %183, 0
-  br i1 %.not.i62.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph20.i.i, !llvm.loop !73
+  br i1 %.not.i62.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph20.i.i, !llvm.loop !70
 
 .lr.ph20.i.i:                                     ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i60.i
   %.019.i.i = phi ptr [ %.1.lcssa.i61.i, %.loopexit.i60.i ], [ %.0.lcssa.i58.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3310,7 +3310,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEE
   %229 = getelementptr inbounds nuw i8, ptr %.116.i.i, i64 8
   store i16 %228, ptr %.116.i.i, align 4
   %.not7.i.i = icmp eq i64 %227, 0
-  br i1 %.not7.i.i, label %.loopexit.i60.i, label %223, !llvm.loop !74
+  br i1 %.not7.i.i, label %.loopexit.i60.i, label %223, !llvm.loop !71
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i60.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i63.i = phi ptr [ %.0.lcssa.i58.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i61.i, %.loopexit.i60.i ]
@@ -3352,7 +3352,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEE
   %254 = getelementptr inbounds nuw i8, ptr %.174.i, i64 8
   store i16 %253, ptr %.174.i, align 4
   %.not24.i = icmp eq i64 %252, 0
-  br i1 %.not24.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %248, !llvm.loop !75
+  br i1 %.not24.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %248, !llvm.loop !72
 
 255:                                              ; preds = %2
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -3410,7 +3410,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEE
   %297 = getelementptr inbounds nuw i8, ptr %.057.i.i7, i64 8
   store i16 %296, ptr %.057.i.i7, align 4
   %.not.i.i9 = icmp eq i64 %293, 0
-  br i1 %.not.i.i9, label %.preheader54.i.i10, label %.lr.ph.i.i6, !llvm.loop !76
+  br i1 %.not.i.i9, label %.preheader54.i.i10, label %.lr.ph.i.i6, !llvm.loop !73
 
 .lr.ph61.i.i13:                                   ; preds = %.preheader54.i.i10, %.lr.ph61.i.i13
   %.160.i.i14 = phi ptr [ %305, %.lr.ph61.i.i13 ], [ %.0.lcssa.i.i11, %.preheader54.i.i10 ]
@@ -3425,7 +3425,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEE
   %305 = getelementptr inbounds nuw i8, ptr %.160.i.i14, i64 8
   store i16 %304, ptr %.160.i.i14, align 4
   %.not31.i.i16 = icmp eq i64 %301, 0
-  br i1 %.not31.i.i16, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph61.i.i13, !llvm.loop !77
+  br i1 %.not31.i.i16, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph61.i.i13, !llvm.loop !74
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph61.i.i13, %.preheader54.i.i10
   %.1.lcssa.i.i17 = phi ptr [ %.0.lcssa.i.i11, %.preheader54.i.i10 ], [ %305, %.lr.ph61.i.i13 ]
@@ -3439,7 +3439,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEP
 .loopexit.i.i29:                                  ; preds = %328, %326
   %.1.lcssa.i26.i30 = phi ptr [ %.023.i.i20, %326 ], [ %334, %328 ]
   %.not.i27.i31 = icmp eq i64 %313, 0
-  br i1 %.not.i27.i31, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i.i19, !llvm.loop !78
+  br i1 %.not.i27.i31, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i.i19, !llvm.loop !75
 
 .lr.ph24.i.i19:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i29
   %.023.i.i20 = phi ptr [ %.1.lcssa.i26.i30, %.loopexit.i.i29 ], [ %.1.lcssa.i.i17, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3485,7 +3485,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE2EEEP
   %334 = getelementptr inbounds nuw i8, ptr %.120.i.i26, i64 8
   store i16 %333, ptr %.120.i.i26, align 4
   %.not10.i.i28 = icmp eq i64 %332, 0
-  br i1 %.not10.i.i28, label %.loopexit.i.i29, label %328, !llvm.loop !79
+  br i1 %.not10.i.i28, label %.loopexit.i.i29, label %328, !llvm.loop !76
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i29
   %.pre.i32 = load i64, ptr %256, align 8
@@ -3503,7 +3503,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEE
 .loopexit.i40.i45:                                ; preds = %371, %369
   %.1.lcssa.i41.i46 = phi ptr [ %.023.i31.i36, %369 ], [ %377, %371 ]
   %.not.i42.i47 = icmp eq i64 %342, 0
-  br i1 %.not.i42.i47, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i30.i35, !llvm.loop !80
+  br i1 %.not.i42.i47, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i30.i35, !llvm.loop !77
 
 .lr.ph24.i30.i35:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i40.i45
   %.023.i31.i36 = phi ptr [ %.1.lcssa.i41.i46, %.loopexit.i40.i45 ], [ %.0.lcssa.i28.i33, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3563,7 +3563,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb1EEE
   %377 = getelementptr inbounds nuw i8, ptr %.120.i37.i42, i64 8
   store i16 %376, ptr %.120.i37.i42, align 4
   %.not10.i39.i44 = icmp eq i64 %375, 0
-  br i1 %.not10.i39.i44, label %.loopexit.i40.i45, label %371, !llvm.loop !81
+  br i1 %.not10.i39.i44, label %.loopexit.i40.i45, label %371, !llvm.loop !78
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i40.i45
   %.pre81.i48 = load i64, ptr %256, align 8
@@ -3581,7 +3581,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEE
 .loopexit.i55.i61:                                ; preds = %414, %412
   %.1.lcssa.i56.i62 = phi ptr [ %.023.i46.i52, %412 ], [ %420, %414 ]
   %.not.i57.i63 = icmp eq i64 %385, 0
-  br i1 %.not.i57.i63, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i45.i51, !llvm.loop !82
+  br i1 %.not.i57.i63, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph24.i45.i51, !llvm.loop !79
 
 .lr.ph24.i45.i51:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i55.i61
   %.023.i46.i52 = phi ptr [ %.1.lcssa.i56.i62, %.loopexit.i55.i61 ], [ %.0.lcssa.i43.i49, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3641,7 +3641,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb1EEE
   %420 = getelementptr inbounds nuw i8, ptr %.120.i52.i58, i64 8
   store i16 %419, ptr %.120.i52.i58, align 4
   %.not10.i54.i60 = icmp eq i64 %418, 0
-  br i1 %.not10.i54.i60, label %.loopexit.i55.i61, label %414, !llvm.loop !83
+  br i1 %.not10.i54.i60, label %.loopexit.i55.i61, label %414, !llvm.loop !80
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i55.i61
   %.pre82.i64 = load i64, ptr %256, align 8
@@ -3659,7 +3659,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEE
 .loopexit.i60.i75:                                ; preds = %467, %.lr.ph20.i.i67
   %.1.lcssa.i61.i76 = phi ptr [ %.019.i.i68, %.lr.ph20.i.i67 ], [ %473, %467 ]
   %.not.i62.i77 = icmp eq i64 %427, 0
-  br i1 %.not.i62.i77, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph20.i.i67, !llvm.loop !84
+  br i1 %.not.i62.i77, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph20.i.i67, !llvm.loop !81
 
 .lr.ph20.i.i67:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i60.i75
   %.019.i.i68 = phi ptr [ %.1.lcssa.i61.i76, %.loopexit.i60.i75 ], [ %.0.lcssa.i58.i65, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -3723,7 +3723,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEE
   %473 = getelementptr inbounds nuw i8, ptr %.116.i.i72, i64 8
   store i16 %472, ptr %.116.i.i72, align 4
   %.not7.i.i74 = icmp eq i64 %471, 0
-  br i1 %.not7.i.i74, label %.loopexit.i60.i75, label %467, !llvm.loop !85
+  br i1 %.not7.i.i74, label %.loopexit.i60.i75, label %467, !llvm.loop !82
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i60.i75, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i63.i78 = phi ptr [ %.0.lcssa.i58.i65, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i61.i76, %.loopexit.i60.i75 ]
@@ -3765,7 +3765,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEE
   %498 = getelementptr inbounds nuw i8, ptr %.174.i82, i64 8
   store i16 %497, ptr %.174.i82, align 4
   %.not24.i84 = icmp eq i64 %496, 0
-  br i1 %.not24.i84, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %492, !llvm.loop !86
+  br i1 %.not24.i84, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %492, !llvm.loop !83
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE2EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %492, %248, %479, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %235, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %499 = phi ptr [ %.0.lcssa.i63.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.0.lcssa.i63.i, %235 ], [ %.0.lcssa.i63.i78, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb1EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.0.lcssa.i63.i78, %479 ], [ %254, %248 ], [ %498, %492 ]
@@ -3827,7 +3827,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %39 = getelementptr inbounds nuw i8, ptr %.080.i.i, i64 8
   store i16 %38, ptr %.080.i.i, align 4
   %.not.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i, label %.preheader77.i.i, label %.lr.ph.i.i, !llvm.loop !87
+  br i1 %.not.i.i, label %.preheader77.i.i, label %.lr.ph.i.i, !llvm.loop !84
 
 .lr.ph84.i.i:                                     ; preds = %.preheader77.i.i, %.lr.ph84.i.i
   %.183.i.i = phi ptr [ %47, %.lr.ph84.i.i ], [ %.0.lcssa.i.i, %.preheader77.i.i ]
@@ -3842,7 +3842,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %47 = getelementptr inbounds nuw i8, ptr %.183.i.i, i64 8
   store i16 %46, ptr %.183.i.i, align 4
   %.not39.i.i = icmp eq i64 %43, 0
-  br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph84.i.i, !llvm.loop !88
+  br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph84.i.i, !llvm.loop !85
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph84.i.i, %.preheader77.i.i
   %.1.lcssa.i.i = phi ptr [ %.0.lcssa.i.i, %.preheader77.i.i ], [ %47, %.lr.ph84.i.i ]
@@ -3888,7 +3888,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %70 = getelementptr inbounds nuw i8, ptr %.388.i.i, i64 32
   store i16 %69, ptr %68, align 4
   %.not41.i.i = icmp eq i64 %59, 0
-  br i1 %.not41.i.i, label %.preheader76.i.i, label %.lr.ph90.i.i, !llvm.loop !89
+  br i1 %.not41.i.i, label %.preheader76.i.i, label %.lr.ph90.i.i, !llvm.loop !86
 
 .preheader74.i.i:                                 ; preds = %.lr.ph95.i.i, %.preheader76.i.i
   %.4.lcssa.i.i = phi ptr [ %.3.lcssa.i.i, %.preheader76.i.i ], [ %85, %.lr.ph95.i.i ]
@@ -3918,7 +3918,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %85 = getelementptr inbounds nuw i8, ptr %.494.i.i, i64 32
   store i16 %84, ptr %83, align 4
   %.not42.i.i = icmp eq i64 %74, 0
-  br i1 %.not42.i.i, label %.preheader74.i.i, label %.lr.ph95.i.i, !llvm.loop !90
+  br i1 %.not42.i.i, label %.preheader74.i.i, label %.lr.ph95.i.i, !llvm.loop !87
 
 .lr.ph100.i.i:                                    ; preds = %.preheader74.i.i, %.lr.ph100.i.i
   %.599.i.i = phi ptr [ %100, %.lr.ph100.i.i ], [ %.4.lcssa.i.i, %.preheader74.i.i ]
@@ -3943,7 +3943,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %100 = getelementptr inbounds nuw i8, ptr %.599.i.i, i64 32
   store i16 %99, ptr %98, align 4
   %.not43.i.i = icmp eq i64 %89, 0
-  br i1 %.not43.i.i, label %.loopexit75.i.i, label %.lr.ph100.i.i, !llvm.loop !91
+  br i1 %.not43.i.i, label %.loopexit75.i.i, label %.lr.ph100.i.i, !llvm.loop !88
 
 .loopexit75.i.i:                                  ; preds = %.lr.ph100.i.i, %.preheader74.i.i, %._crit_edge.i.i
   %.2.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %.4.lcssa.i.i, %.preheader74.i.i ], [ %100, %.lr.ph100.i.i ]
@@ -3974,7 +3974,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %114 = getelementptr inbounds nuw i8, ptr %.6104.i.i, i64 8
   store i16 %113, ptr %.6104.i.i, align 4
   %.not44.i.i = icmp eq i64 %110, 0
-  br i1 %.not44.i.i, label %.preheader.i.i, label %.lr.ph106.i.i, !llvm.loop !92
+  br i1 %.not44.i.i, label %.preheader.i.i, label %.lr.ph106.i.i, !llvm.loop !89
 
 .lr.ph111.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph111.i.i
   %.7110.i.i = phi ptr [ %122, %.lr.ph111.i.i ], [ %.6.lcssa.i.i, %.preheader.i.i ]
@@ -3989,7 +3989,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %122 = getelementptr inbounds nuw i8, ptr %.7110.i.i, i64 8
   store i16 %121, ptr %.7110.i.i, align 4
   %.not45.i.i = icmp eq i64 %118, 0
-  br i1 %.not45.i.i, label %._crit_edge112.i.i, label %.lr.ph111.i.i, !llvm.loop !93
+  br i1 %.not45.i.i, label %._crit_edge112.i.i, label %.lr.ph111.i.i, !llvm.loop !90
 
 ._crit_edge112.i.i:                               ; preds = %.lr.ph111.i.i, %.preheader.i.i
   %.7.lcssa.i.i = phi ptr [ %.6.lcssa.i.i, %.preheader.i.i ], [ %122, %.lr.ph111.i.i ]
@@ -4026,7 +4026,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   %144 = getelementptr inbounds nuw i8, ptr %.9116.i.i, i64 8
   store i16 %143, ptr %.9116.i.i, align 4
   %.not47.i.i = icmp eq i64 %135, 0
-  br i1 %.not47.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph118.i.i, !llvm.loop !94
+  br i1 %.not47.i.i, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph118.i.i, !llvm.loop !91
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph118.i.i, %127, %._crit_edge112.i.i
   %.8.i.i = phi ptr [ %.7.lcssa.i.i, %._crit_edge112.i.i ], [ %.7.lcssa.i.i, %127 ], [ %144, %.lr.ph118.i.i ]
@@ -4040,7 +4040,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEP
 .loopexit.i.i:                                    ; preds = %157, %.lr.ph18.i.i
   %.1.lcssa.i39.i = phi ptr [ %.017.i.i, %.lr.ph18.i.i ], [ %163, %157 ]
   %.not.i40.i = icmp eq i64 %151, 0
-  br i1 %.not.i40.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !13
+  br i1 %.not.i40.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i, !llvm.loop !12
 
 .lr.ph18.i.i:                                     ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i
   %.017.i.i = phi ptr [ %.1.lcssa.i39.i, %.loopexit.i.i ], [ %.8.i.i, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4070,7 +4070,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE0ELNS_7GenTypeE4EEEP
   %163 = getelementptr inbounds nuw i8, ptr %.114.i.i, i64 8
   store i16 %162, ptr %.114.i.i, align 4
   %.not6.i.i = icmp eq i64 %161, 0
-  br i1 %.not6.i.i, label %.loopexit.i.i, label %157, !llvm.loop !14
+  br i1 %.not6.i.i, label %.loopexit.i.i, label %157, !llvm.loop !13
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i
   %.pre.i = load i64, ptr %8, align 8
@@ -4088,7 +4088,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i52.i:                                  ; preds = %190, %.lr.ph18.i44.i
   %.1.lcssa.i53.i = phi ptr [ %.017.i45.i, %.lr.ph18.i44.i ], [ %196, %190 ]
   %.not.i54.i = icmp eq i64 %170, 0
-  br i1 %.not.i54.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i, !llvm.loop !15
+  br i1 %.not.i54.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i, !llvm.loop !14
 
 .lr.ph18.i44.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i52.i
   %.017.i45.i = phi ptr [ %.1.lcssa.i53.i, %.loopexit.i52.i ], [ %.0.lcssa.i42.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4132,7 +4132,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE2ELb0EEE
   %196 = getelementptr inbounds nuw i8, ptr %.114.i49.i, i64 8
   store i16 %195, ptr %.114.i49.i, align 4
   %.not6.i51.i = icmp eq i64 %194, 0
-  br i1 %.not6.i51.i, label %.loopexit.i52.i, label %190, !llvm.loop !16
+  br i1 %.not6.i51.i, label %.loopexit.i52.i, label %190, !llvm.loop !15
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i52.i
   %.pre120.i = load i64, ptr %8, align 8
@@ -4150,7 +4150,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i66.i:                                  ; preds = %223, %.lr.ph18.i58.i
   %.1.lcssa.i67.i = phi ptr [ %.017.i59.i, %.lr.ph18.i58.i ], [ %229, %223 ]
   %.not.i68.i = icmp eq i64 %203, 0
-  br i1 %.not.i68.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i, !llvm.loop !17
+  br i1 %.not.i68.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i, !llvm.loop !16
 
 .lr.ph18.i58.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i66.i
   %.017.i59.i = phi ptr [ %.1.lcssa.i67.i, %.loopexit.i66.i ], [ %.0.lcssa.i56.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4194,7 +4194,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE3ELb0EEE
   %229 = getelementptr inbounds nuw i8, ptr %.114.i63.i, i64 8
   store i16 %228, ptr %.114.i63.i, align 4
   %.not6.i65.i = icmp eq i64 %227, 0
-  br i1 %.not6.i65.i, label %.loopexit.i66.i, label %223, !llvm.loop !18
+  br i1 %.not6.i65.i, label %.loopexit.i66.i, label %223, !llvm.loop !17
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i66.i
   %.pre121.i = load i64, ptr %8, align 8
@@ -4212,7 +4212,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i80.i:                                  ; preds = %272, %.lr.ph18.i72.i
   %.1.lcssa.i81.i = phi ptr [ %.017.i73.i, %.lr.ph18.i72.i ], [ %278, %272 ]
   %.not.i82.i = icmp eq i64 %236, 0
-  br i1 %.not.i82.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i, !llvm.loop !19
+  br i1 %.not.i82.i, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i, !llvm.loop !18
 
 .lr.ph18.i72.i:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i80.i
   %.017.i73.i = phi ptr [ %.1.lcssa.i81.i, %.loopexit.i80.i ], [ %.0.lcssa.i70.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4272,7 +4272,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEE
   %278 = getelementptr inbounds nuw i8, ptr %.114.i77.i, i64 8
   store i16 %277, ptr %.114.i77.i, align 4
   %.not6.i79.i = icmp eq i64 %276, 0
-  br i1 %.not6.i79.i, label %.loopexit.i80.i, label %272, !llvm.loop !20
+  br i1 %.not6.i79.i, label %.loopexit.i80.i, label %272, !llvm.loop !19
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i = phi ptr [ %.0.lcssa.i70.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i, %.loopexit.i80.i ]
@@ -4298,7 +4298,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %290 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 8
   store i16 %289, ptr %.0105.i, align 4
   %.not.i = icmp eq i64 %287, 0
-  br i1 %.not.i, label %._crit_edge.i, label %283, !llvm.loop !95
+  br i1 %.not.i, label %._crit_edge.i, label %283, !llvm.loop !92
 
 ._crit_edge.i:                                    ; preds = %283, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i = phi ptr [ %.0.lcssa.i84.i, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %290, %283 ]
@@ -4354,7 +4354,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   %.3.i = phi ptr [ %.2107.i, %301 ], [ %319, %313 ], [ %.2107.i, %308 ]
   %.036.add.i = add nuw nsw i64 %.036.idx106.i, 4
   %.not37.i = icmp eq i64 %.036.add.i, 8
-  br i1 %.not37.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %301, !llvm.loop !96
+  br i1 %.not37.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %301
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %320, %._crit_edge.i
   %.1.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.3.i, %320 ]
@@ -4405,7 +4405,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %350 = getelementptr inbounds nuw i8, ptr %.080.i.i7, i64 8
   store i16 %349, ptr %.080.i.i7, align 4
   %.not.i.i9 = icmp eq i64 %346, 0
-  br i1 %.not.i.i9, label %.preheader77.i.i10, label %.lr.ph.i.i6, !llvm.loop !97
+  br i1 %.not.i.i9, label %.preheader77.i.i10, label %.lr.ph.i.i6, !llvm.loop !93
 
 .lr.ph84.i.i13:                                   ; preds = %.preheader77.i.i10, %.lr.ph84.i.i13
   %.183.i.i14 = phi ptr [ %358, %.lr.ph84.i.i13 ], [ %.0.lcssa.i.i11, %.preheader77.i.i10 ]
@@ -4420,7 +4420,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %358 = getelementptr inbounds nuw i8, ptr %.183.i.i14, i64 8
   store i16 %357, ptr %.183.i.i14, align 4
   %.not39.i.i16 = icmp eq i64 %354, 0
-  br i1 %.not39.i.i16, label %._crit_edge.i.i17, label %.lr.ph84.i.i13, !llvm.loop !98
+  br i1 %.not39.i.i16, label %._crit_edge.i.i17, label %.lr.ph84.i.i13, !llvm.loop !94
 
 ._crit_edge.i.i17:                                ; preds = %.lr.ph84.i.i13, %.preheader77.i.i10
   %.1.lcssa.i.i18 = phi ptr [ %.0.lcssa.i.i11, %.preheader77.i.i10 ], [ %358, %.lr.ph84.i.i13 ]
@@ -4470,7 +4470,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %381 = getelementptr inbounds nuw i8, ptr %.388.i.i22, i64 32
   store i16 %380, ptr %379, align 4
   %.not41.i.i24 = icmp eq i64 %370, 0
-  br i1 %.not41.i.i24, label %.preheader76.i.i25, label %.lr.ph90.i.i21, !llvm.loop !99
+  br i1 %.not41.i.i24, label %.preheader76.i.i25, label %.lr.ph90.i.i21, !llvm.loop !95
 
 .preheader74.i.i32:                               ; preds = %.lr.ph95.i.i28, %.preheader76.i.i25
   %.4.lcssa.i.i33 = phi ptr [ %.3.lcssa.i.i26, %.preheader76.i.i25 ], [ %396, %.lr.ph95.i.i28 ]
@@ -4500,7 +4500,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %396 = getelementptr inbounds nuw i8, ptr %.494.i.i29, i64 32
   store i16 %395, ptr %394, align 4
   %.not42.i.i31 = icmp eq i64 %385, 0
-  br i1 %.not42.i.i31, label %.preheader74.i.i32, label %.lr.ph95.i.i28, !llvm.loop !100
+  br i1 %.not42.i.i31, label %.preheader74.i.i32, label %.lr.ph95.i.i28, !llvm.loop !96
 
 .lr.ph100.i.i35:                                  ; preds = %.preheader74.i.i32, %.lr.ph100.i.i35
   %.599.i.i36 = phi ptr [ %411, %.lr.ph100.i.i35 ], [ %.4.lcssa.i.i33, %.preheader74.i.i32 ]
@@ -4525,7 +4525,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %411 = getelementptr inbounds nuw i8, ptr %.599.i.i36, i64 32
   store i16 %410, ptr %409, align 4
   %.not43.i.i38 = icmp eq i64 %400, 0
-  br i1 %.not43.i.i38, label %.loopexit75.i.i39, label %.lr.ph100.i.i35, !llvm.loop !101
+  br i1 %.not43.i.i38, label %.loopexit75.i.i39, label %.lr.ph100.i.i35, !llvm.loop !97
 
 .loopexit75.i.i39:                                ; preds = %.lr.ph100.i.i35, %.preheader74.i.i32, %._crit_edge..loopexit75_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge..loopexit75_crit_edge.i.i ], [ %362, %.preheader74.i.i32 ], [ %362, %.lr.ph100.i.i35 ]
@@ -4556,7 +4556,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %424 = getelementptr inbounds nuw i8, ptr %.6104.i.i43, i64 8
   store i16 %423, ptr %.6104.i.i43, align 4
   %.not44.i.i45 = icmp eq i64 %420, 0
-  br i1 %.not44.i.i45, label %.preheader.i.i46, label %.lr.ph106.i.i42, !llvm.loop !102
+  br i1 %.not44.i.i45, label %.preheader.i.i46, label %.lr.ph106.i.i42, !llvm.loop !98
 
 .lr.ph111.i.i49:                                  ; preds = %.preheader.i.i46, %.lr.ph111.i.i49
   %.7110.i.i50 = phi ptr [ %432, %.lr.ph111.i.i49 ], [ %.6.lcssa.i.i47, %.preheader.i.i46 ]
@@ -4571,7 +4571,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %432 = getelementptr inbounds nuw i8, ptr %.7110.i.i50, i64 8
   store i16 %431, ptr %.7110.i.i50, align 4
   %.not45.i.i52 = icmp eq i64 %428, 0
-  br i1 %.not45.i.i52, label %._crit_edge112.i.i53, label %.lr.ph111.i.i49, !llvm.loop !103
+  br i1 %.not45.i.i52, label %._crit_edge112.i.i53, label %.lr.ph111.i.i49, !llvm.loop !99
 
 ._crit_edge112.i.i53:                             ; preds = %.lr.ph111.i.i49, %.preheader.i.i46
   %.7.lcssa.i.i54 = phi ptr [ %.6.lcssa.i.i47, %.preheader.i.i46 ], [ %432, %.lr.ph111.i.i49 ]
@@ -4608,7 +4608,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
   %454 = getelementptr inbounds nuw i8, ptr %.9116.i.i58, i64 8
   store i16 %453, ptr %.9116.i.i58, align 4
   %.not47.i.i60 = icmp eq i64 %445, 0
-  br i1 %.not47.i.i60, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph118.i.i57, !llvm.loop !104
+  br i1 %.not47.i.i60, label %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph118.i.i57, !llvm.loop !100
 
 _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.lr.ph118.i.i57, %437, %._crit_edge112.i.i53
   %.8.i.i61 = phi ptr [ %.7.lcssa.i.i54, %._crit_edge112.i.i53 ], [ %.7.lcssa.i.i54, %437 ], [ %454, %.lr.ph118.i.i57 ]
@@ -4622,7 +4622,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEP
 .loopexit.i.i71:                                  ; preds = %467, %.lr.ph18.i.i63
   %.1.lcssa.i39.i72 = phi ptr [ %.017.i.i64, %.lr.ph18.i.i63 ], [ %473, %467 ]
   %.not.i40.i73 = icmp eq i64 %461, 0
-  br i1 %.not.i40.i73, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i63, !llvm.loop !28
+  br i1 %.not.i40.i73, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i.i63, !llvm.loop !27
 
 .lr.ph18.i.i63:                                   ; preds = %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i.i71
   %.017.i.i64 = phi ptr [ %.1.lcssa.i39.i72, %.loopexit.i.i71 ], [ %.8.i.i61, %_ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4652,7 +4652,7 @@ _ZN9Stockfish12_GLOBAL__N_119generate_pawn_movesILNS_5ColorE1ELNS_7GenTypeE4EEEP
   %473 = getelementptr inbounds nuw i8, ptr %.114.i.i68, i64 8
   store i16 %472, ptr %.114.i.i68, align 4
   %.not6.i.i70 = icmp eq i64 %471, 0
-  br i1 %.not6.i.i70, label %.loopexit.i.i71, label %467, !llvm.loop !29
+  br i1 %.not6.i.i70, label %.loopexit.i.i71, label %467, !llvm.loop !28
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i.i71
   %.pre.i74 = load i64, ptr %322, align 8
@@ -4670,7 +4670,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
 .loopexit.i52.i85:                                ; preds = %500, %.lr.ph18.i44.i77
   %.1.lcssa.i53.i86 = phi ptr [ %.017.i45.i78, %.lr.ph18.i44.i77 ], [ %506, %500 ]
   %.not.i54.i87 = icmp eq i64 %480, 0
-  br i1 %.not.i54.i87, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i77, !llvm.loop !30
+  br i1 %.not.i54.i87, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i44.i77, !llvm.loop !29
 
 .lr.ph18.i44.i77:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i52.i85
   %.017.i45.i78 = phi ptr [ %.1.lcssa.i53.i86, %.loopexit.i52.i85 ], [ %.0.lcssa.i42.i75, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4714,7 +4714,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE2ELb0EEE
   %506 = getelementptr inbounds nuw i8, ptr %.114.i49.i82, i64 8
   store i16 %505, ptr %.114.i49.i82, align 4
   %.not6.i51.i84 = icmp eq i64 %504, 0
-  br i1 %.not6.i51.i84, label %.loopexit.i52.i85, label %500, !llvm.loop !31
+  br i1 %.not6.i51.i84, label %.loopexit.i52.i85, label %500, !llvm.loop !30
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i52.i85
   %.pre120.i88 = load i64, ptr %322, align 8
@@ -4732,7 +4732,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
 .loopexit.i66.i99:                                ; preds = %533, %.lr.ph18.i58.i91
   %.1.lcssa.i67.i100 = phi ptr [ %.017.i59.i92, %.lr.ph18.i58.i91 ], [ %539, %533 ]
   %.not.i68.i101 = icmp eq i64 %513, 0
-  br i1 %.not.i68.i101, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i91, !llvm.loop !32
+  br i1 %.not.i68.i101, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i, label %.lr.ph18.i58.i91, !llvm.loop !31
 
 .lr.ph18.i58.i91:                                 ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i66.i99
   %.017.i59.i92 = phi ptr [ %.1.lcssa.i67.i100, %.loopexit.i66.i99 ], [ %.0.lcssa.i56.i89, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4776,7 +4776,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE3ELb0EEE
   %539 = getelementptr inbounds nuw i8, ptr %.114.i63.i96, i64 8
   store i16 %538, ptr %.114.i63.i96, align 4
   %.not6.i65.i98 = icmp eq i64 %537, 0
-  br i1 %.not6.i65.i98, label %.loopexit.i66.i99, label %533, !llvm.loop !33
+  br i1 %.not6.i65.i98, label %.loopexit.i66.i99, label %533, !llvm.loop !32
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.loopexit.i: ; preds = %.loopexit.i66.i99
   %.pre121.i102 = load i64, ptr %322, align 8
@@ -4794,7 +4794,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
 .loopexit.i80.i113:                               ; preds = %582, %.lr.ph18.i72.i105
   %.1.lcssa.i81.i114 = phi ptr [ %.017.i73.i106, %.lr.ph18.i72.i105 ], [ %588, %582 ]
   %.not.i82.i115 = icmp eq i64 %546, 0
-  br i1 %.not.i82.i115, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i105, !llvm.loop !34
+  br i1 %.not.i82.i115, label %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, label %.lr.ph18.i72.i105, !llvm.loop !33
 
 .lr.ph18.i72.i105:                                ; preds = %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i, %.loopexit.i80.i113
   %.017.i73.i106 = phi ptr [ %.1.lcssa.i81.i114, %.loopexit.i80.i113 ], [ %.0.lcssa.i70.i103, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ]
@@ -4854,7 +4854,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEE
   %588 = getelementptr inbounds nuw i8, ptr %.114.i77.i110, i64 8
   store i16 %587, ptr %.114.i77.i110, align 4
   %.not6.i79.i112 = icmp eq i64 %586, 0
-  br i1 %.not6.i79.i112, label %.loopexit.i80.i113, label %582, !llvm.loop !35
+  br i1 %.not6.i79.i112, label %.loopexit.i80.i113, label %582, !llvm.loop !34
 
 _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i: ; preds = %.loopexit.i80.i113, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i84.i116 = phi ptr [ %.0.lcssa.i70.i103, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE4ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %.1.lcssa.i81.i114, %.loopexit.i80.i113 ]
@@ -4880,7 +4880,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %600 = getelementptr inbounds nuw i8, ptr %.0105.i119, i64 8
   store i16 %599, ptr %.0105.i119, align 4
   %.not.i121 = icmp eq i64 %597, 0
-  br i1 %.not.i121, label %._crit_edge.i122, label %593, !llvm.loop !105
+  br i1 %.not.i121, label %._crit_edge.i122, label %593, !llvm.loop !101
 
 ._crit_edge.i122:                                 ; preds = %593, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i
   %.0.lcssa.i123 = phi ptr [ %.0.lcssa.i84.i116, %_ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEEPNS_7ExtMoveERKNS_8PositionES5_m.exit.i ], [ %600, %593 ]
@@ -4936,7 +4936,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %.3.i129 = phi ptr [ %.2107.i125, %611 ], [ %629, %623 ], [ %.2107.i125, %618 ]
   %.036.add.i130 = add nuw nsw i64 %.036.idx106.i126, 4
   %.not37.i131 = icmp eq i64 %.036.add.i130, 8
-  br i1 %.not37.i131, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %611, !llvm.loop !106
+  br i1 %.not37.i131, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %611
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %630, %._crit_edge.i122
   %.1.i132 = phi ptr [ %.0.lcssa.i123, %._crit_edge.i122 ], [ %.3.i129, %630 ]
@@ -5021,7 +5021,7 @@ define dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMo
   %.126 = phi ptr [ %39, %38 ], [ %.02531, %35 ]
   %.1 = phi ptr [ %.032, %38 ], [ %36, %35 ]
   %.not27 = icmp eq ptr %.126, %.1
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !107
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %40, %24
   %.0.lcssa = phi ptr [ %25, %24 ], [ %.1, %40 ]
@@ -5066,106 +5066,101 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}
-!44 = distinct !{!44, !6, !7}
-!45 = distinct !{!45, !6, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !6, !7}
-!48 = distinct !{!48, !6, !7}
-!49 = distinct !{!49, !6, !7}
-!50 = distinct !{!50, !6, !7}
-!51 = distinct !{!51, !6, !7}
-!52 = distinct !{!52, !6, !7}
-!53 = distinct !{!53, !6, !7}
-!54 = distinct !{!54, !6, !7}
-!55 = distinct !{!55, !6, !7}
-!56 = distinct !{!56, !6, !7}
-!57 = distinct !{!57, !6, !7}
-!58 = distinct !{!58, !6, !7}
-!59 = distinct !{!59, !6, !7}
-!60 = distinct !{!60, !6, !7}
-!61 = distinct !{!61, !6, !7}
-!62 = distinct !{!62, !6, !7}
-!63 = distinct !{!63, !6, !7}
-!64 = distinct !{!64, !6, !7}
-!65 = distinct !{!65, !6, !7}
-!66 = distinct !{!66, !6, !7}
-!67 = distinct !{!67, !6, !7}
-!68 = distinct !{!68, !6, !7}
-!69 = distinct !{!69, !6, !7}
-!70 = distinct !{!70, !6, !7}
-!71 = distinct !{!71, !6, !7}
-!72 = distinct !{!72, !6, !7}
-!73 = distinct !{!73, !6, !7}
-!74 = distinct !{!74, !6, !7}
-!75 = distinct !{!75, !6, !7}
-!76 = distinct !{!76, !6, !7}
-!77 = distinct !{!77, !6, !7}
-!78 = distinct !{!78, !6, !7}
-!79 = distinct !{!79, !6, !7}
-!80 = distinct !{!80, !6, !7}
-!81 = distinct !{!81, !6, !7}
-!82 = distinct !{!82, !6, !7}
-!83 = distinct !{!83, !6, !7}
-!84 = distinct !{!84, !6, !7}
-!85 = distinct !{!85, !6, !7}
-!86 = distinct !{!86, !6, !7}
-!87 = distinct !{!87, !6, !7}
-!88 = distinct !{!88, !6, !7}
-!89 = distinct !{!89, !6, !7}
-!90 = distinct !{!90, !6, !7}
-!91 = distinct !{!91, !6, !7}
-!92 = distinct !{!92, !6, !7}
-!93 = distinct !{!93, !6, !7}
-!94 = distinct !{!94, !6, !7}
-!95 = distinct !{!95, !6, !7}
-!96 = distinct !{!96, !7}
-!97 = distinct !{!97, !6, !7}
-!98 = distinct !{!98, !6, !7}
-!99 = distinct !{!99, !6, !7}
-!100 = distinct !{!100, !6, !7}
-!101 = distinct !{!101, !6, !7}
-!102 = distinct !{!102, !6, !7}
-!103 = distinct !{!103, !6, !7}
-!104 = distinct !{!104, !6, !7}
-!105 = distinct !{!105, !6, !7}
-!106 = distinct !{!106, !7}
-!107 = distinct !{!107, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
+!59 = distinct !{!59, !6}
+!60 = distinct !{!60, !6}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}
+!69 = distinct !{!69, !6}
+!70 = distinct !{!70, !6}
+!71 = distinct !{!71, !6}
+!72 = distinct !{!72, !6}
+!73 = distinct !{!73, !6}
+!74 = distinct !{!74, !6}
+!75 = distinct !{!75, !6}
+!76 = distinct !{!76, !6}
+!77 = distinct !{!77, !6}
+!78 = distinct !{!78, !6}
+!79 = distinct !{!79, !6}
+!80 = distinct !{!80, !6}
+!81 = distinct !{!81, !6}
+!82 = distinct !{!82, !6}
+!83 = distinct !{!83, !6}
+!84 = distinct !{!84, !6}
+!85 = distinct !{!85, !6}
+!86 = distinct !{!86, !6}
+!87 = distinct !{!87, !6}
+!88 = distinct !{!88, !6}
+!89 = distinct !{!89, !6}
+!90 = distinct !{!90, !6}
+!91 = distinct !{!91, !6}
+!92 = distinct !{!92, !6}
+!93 = distinct !{!93, !6}
+!94 = distinct !{!94, !6}
+!95 = distinct !{!95, !6}
+!96 = distinct !{!96, !6}
+!97 = distinct !{!97, !6}
+!98 = distinct !{!98, !6}
+!99 = distinct !{!99, !6}
+!100 = distinct !{!100, !6}
+!101 = distinct !{!101, !6}
+!102 = distinct !{!102, !6}

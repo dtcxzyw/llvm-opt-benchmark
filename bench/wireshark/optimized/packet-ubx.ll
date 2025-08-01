@@ -1181,7 +1181,7 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
   store ptr %3, ptr %5, align 8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 255
-  br i1 %exitcond45.not, label %.preheader31, label %.preheader32, !llvm.loop !9
+  br i1 %exitcond45.not, label %.preheader31, label %.preheader32, !llvm.loop !8
 
 .preheader31:                                     ; preds = %.preheader32, %.preheader31
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader31 ], [ 0, %.preheader32 ]
@@ -1191,7 +1191,7 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
   store ptr %6, ptr %8, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 255
-  br i1 %exitcond49.not, label %.preheader30, label %.preheader31, !llvm.loop !10
+  br i1 %exitcond49.not, label %.preheader30, label %.preheader31, !llvm.loop !9
 
 .preheader30:                                     ; preds = %.preheader31, %.preheader30
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.preheader30 ], [ 0, %.preheader31 ]
@@ -1201,7 +1201,7 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
   store ptr %9, ptr %11, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 255
-  br i1 %exitcond53.not, label %.preheader, label %.preheader30, !llvm.loop !11
+  br i1 %exitcond53.not, label %.preheader, label %.preheader30, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader30, %.preheader
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.preheader ], [ 0, %.preheader30 ]
@@ -1211,7 +1211,7 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
   store ptr %12, ptr %14, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 255
-  br i1 %exitcond57.not, label %15, label %.preheader, !llvm.loop !12
+  br i1 %exitcond57.not, label %15, label %.preheader, !llvm.loop !11
 
 15:                                               ; preds = %.preheader
   %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.526, ptr noundef nonnull @.str.527, ptr noundef nonnull @.str.528)
@@ -1462,7 +1462,7 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %31 = add i8 %30, %.0912.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %25
-  br i1 %exitcond.not.i, label %chksum_fletcher_8.exit, label %27, !llvm.loop !13
+  br i1 %exitcond.not.i, label %chksum_fletcher_8.exit, label %27, !llvm.loop !12
 
 chksum_fletcher_8.exit:                           ; preds = %27
   %32 = add nuw nsw i32 %10, 6
@@ -1677,7 +1677,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %.0, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %53, %4
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2060,7 +2060,7 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef readonly ca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %60 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2143,7 +2143,7 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef readonly c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %66 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2367,7 +2367,7 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef readonly 
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %101, ptr noundef %0, i32 noundef %103, i32 noundef 2, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %105 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2483,7 +2483,7 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef readonly c
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %95, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %99 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2590,7 +2590,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %59, ptr %60, align 1
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %41
   %61 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %45, i32 noundef %13, i32 noundef %13)
@@ -2718,17 +2718,16 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

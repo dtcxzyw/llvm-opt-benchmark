@@ -535,6 +535,5 @@ attributes #8 = { builtin nounwind }
 !33 = !{!"p1 _ZTSN4llvm3pdb18IPDBSectionContribE", !9, i64 0}
 !34 = !{!35, !35, i64 0}
 !35 = !{!"p1 _ZTSN4llvm3pdb9PDBSymbolE", !9, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}

@@ -84,7 +84,7 @@ _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit: ; preds = %.p
   %8 = tail call noundef i32 @sched_yield() #3
   %9 = cmpxchg ptr %0, i8 0, i8 1 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
-  br i1 %10, label %.loopexit, label %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit, !llvm.loop !6
+  br i1 %10, label %.loopexit, label %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit, !llvm.loop !5
 
 11:                                               ; preds = %4
   %12 = trunc nuw i8 %.04 to i1
@@ -104,7 +104,7 @@ _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit: ; preds = %.p
   %17 = icmp eq i64 %16, 0
   %18 = trunc nuw i8 %.1 to i1
   %.not5 = select i1 %17, i1 %18, i1 false
-  br i1 %.not5, label %19, label %4, !llvm.loop !7
+  br i1 %.not5, label %19, label %4, !llvm.loop !6
 
 19:                                               ; preds = %.loopexit
   ret void
@@ -164,8 +164,7 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

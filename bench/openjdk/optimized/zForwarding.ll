@@ -251,7 +251,7 @@ define hidden void @_ZN11ZForwarding30in_place_relocation_claim_pageEv(ptr nound
   %5 = sub nsw i32 0, %4
   %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %4, ptr nonnull %2) #13, !srcloc !8
   %.not = icmp eq i32 %6, %4
-  br i1 %.not, label %7, label %3, !llvm.loop !12
+  br i1 %.not, label %7, label %3, !llvm.loop !11
 
 7:                                                ; preds = %3
   %.not4 = icmp eq i32 %4, 1
@@ -270,7 +270,7 @@ define hidden void @_ZN11ZForwarding30in_place_relocation_claim_pageEv(ptr nound
   %13 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %.not5 = icmp eq i32 %13, -1
-  br i1 %.not5, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not5, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !12
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.lr.ph, %8
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %9) #13
@@ -297,7 +297,7 @@ define hidden void @_ZN11ZForwarding12release_pageEv(ptr noundef nonnull align 8
   br i1 %.not11, label %8, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %5, %10
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge, !llvm.loop !13
 
 8:                                                ; preds = %5
   %9 = icmp eq i32 %3, 1
@@ -346,7 +346,7 @@ define hidden noundef ptr @_ZN11ZForwarding11detach_pageEv(ptr noundef nonnull a
   %9 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %.not1 = icmp eq i32 %9, 0
-  br i1 %.not1, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not1, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !14
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.lr.ph, %4
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %5) #13
@@ -606,7 +606,7 @@ define hidden noundef zeroext i1 @_ZN11ZForwarding46relocated_remembered_fields_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not14 = icmp eq i64 %indvars.iv.next, %7
   %or.cond = select i1 %11, i1 true, i1 %.not14
-  br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !16
+  br i1 %or.cond, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %8, %2
   %.lcssa = phi i1 [ false, %2 ], [ %11, %8 ]
@@ -755,7 +755,7 @@ _ZNK5ZPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5ZPage22ob
   %storemerge10 = add nuw i64 %storemerge1039, 1
   %55 = load i64, ptr %9, align 8
   %56 = icmp ult i64 %storemerge10, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %54, %.preheader
   %57 = lshr i64 %20, 1
@@ -883,7 +883,7 @@ _ZNK5ZPage16object_alignmentEv.exit:              ; preds = %_ZNK5ZPage16object_
   %.1 = phi i32 [ %.042, %._crit_edge47 ], [ %130, %_ZNK5ZPage16object_alignmentEv.exit ]
   %132 = load i64, ptr %9, align 8
   %133 = icmp ult i64 %.pre-phi, %132
-  br i1 %133, label %18, label %._crit_edge44.loopexit, !llvm.loop !18
+  br i1 %133, label %18, label %._crit_edge44.loopexit, !llvm.loop !16
 
 ._crit_edge44.loopexit:                           ; preds = %131
   %.pre = load ptr, ptr %7, align 8
@@ -1128,13 +1128,11 @@ attributes #14 = { noreturn nounwind }
 !6 = !{i64 2145410579}
 !7 = !{i64 2145392468}
 !8 = !{i64 2145411161}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}

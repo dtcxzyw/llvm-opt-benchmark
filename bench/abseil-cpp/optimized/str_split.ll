@@ -225,7 +225,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %4, %12
 12:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %13 = add i64 %.01116.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %13, %1
-  br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, !llvm.loop !18
 
 _ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.01116.i.i.i.i
@@ -248,7 +248,7 @@ define dso_local { i64, ptr } @_ZNK4absl6ByChar4FindESt17basic_string_viewIcSt11
   br i1 %5, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %4
-  %6 = load i8, ptr %0, align 1, !tbaa !20
+  %6 = load i8, ptr %0, align 1, !tbaa !19
   %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %9 = sext i8 %6 to i32
@@ -371,7 +371,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %13, %20
 20:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %21 = add i64 %.01116.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %21, %1
-  br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, !llvm.loop !18
 
 _ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.01116.i.i.i.i
@@ -390,9 +390,9 @@ _ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcS
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl8ByLengthC2El(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
-  store i64 %1, ptr %0, align 8, !tbaa !22
+  store i64 %1, ptr %0, align 8, !tbaa !21
   %3 = icmp slt i64 %1, 1
-  br i1 %3, label %4, label %5, !prof !24
+  br i1 %3, label %4, label %5, !prof !23
 
 4:                                                ; preds = %2
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 112), i32 noundef 129, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -410,7 +410,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %4 = sub nuw i64 %1, %.sroa.speculated
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.speculated
-  %6 = load i64, ptr %0, align 8, !tbaa !22
+  %6 = load i64, ptr %0, align 8, !tbaa !21
   %.not = icmp ugt i64 %4, %6
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %1
@@ -467,12 +467,11 @@ attributes #11 = { nounwind }
 !13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0, !11, i64 8, !8, i64 16}
 !14 = !{!8, !8, i64 0}
 !15 = !{!13, !11, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !8, i64 0}
-!21 = !{!"_ZTSN4absl6ByCharE", !8, i64 0}
-!22 = !{!23, !11, i64 0}
-!23 = !{!"_ZTSN4absl8ByLengthE", !11, i64 0}
-!24 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !8, i64 0}
+!20 = !{!"_ZTSN4absl6ByCharE", !8, i64 0}
+!21 = !{!22, !11, i64 0}
+!22 = !{!"_ZTSN4absl8ByLengthE", !11, i64 0}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -64,24 +64,24 @@ define void @CRYPTO_ctr128_encrypt(ptr noundef readonly captures(none) %0, ptr n
   store i8 %34, ptr %30, align 1, !tbaa !7
   %35 = lshr i32 %33, 8
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 0
-  br i1 %.not.i.i, label %ctr128_inc_aligned.exit, label %29, !llvm.loop !11
+  br i1 %.not.i.i, label %ctr128_inc_aligned.exit, label %29, !llvm.loop !10
 
 ctr128_inc_aligned.exit:                          ; preds = %29
-  %36 = load i64, ptr %.164, align 1, !tbaa !12
-  %37 = load i64, ptr %5, align 1, !tbaa !12
+  %36 = load i64, ptr %.164, align 1, !tbaa !11
+  %37 = load i64, ptr %5, align 1, !tbaa !11
   %38 = xor i64 %37, %36
-  store i64 %38, ptr %.14263, align 1, !tbaa !12
+  store i64 %38, ptr %.14263, align 1, !tbaa !11
   %39 = getelementptr inbounds nuw i8, ptr %.164, i64 8
-  %40 = load i64, ptr %39, align 1, !tbaa !12
-  %41 = load i64, ptr %14, align 1, !tbaa !12
+  %40 = load i64, ptr %39, align 1, !tbaa !11
+  %41 = load i64, ptr %14, align 1, !tbaa !11
   %42 = xor i64 %41, %40
   %43 = getelementptr inbounds nuw i8, ptr %.14263, i64 8
-  store i64 %42, ptr %43, align 1, !tbaa !12
+  store i64 %42, ptr %43, align 1, !tbaa !11
   %44 = add i64 %.14662, -16
   %45 = getelementptr inbounds nuw i8, ptr %.14263, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %.164, i64 16
   %47 = icmp ugt i64 %44, 15
-  br i1 %47, label %.lr.ph65, label %._crit_edge, !llvm.loop !14
+  br i1 %47, label %.lr.ph65, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %ctr128_inc_aligned.exit, %.preheader
   %.146.lcssa = phi i64 [ %.045.lcssa, %.preheader ], [ %44, %ctr128_inc_aligned.exit ]
@@ -107,7 +107,7 @@ ctr128_inc_aligned.exit:                          ; preds = %29
   store i8 %54, ptr %50, align 1, !tbaa !7
   %55 = lshr i32 %53, 8
   %.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, 0
-  br i1 %.not.i.i52, label %ctr128_inc_aligned.exit53, label %49, !llvm.loop !11
+  br i1 %.not.i.i52, label %ctr128_inc_aligned.exit53, label %49, !llvm.loop !10
 
 ctr128_inc_aligned.exit53:                        ; preds = %49, %ctr128_inc_aligned.exit53
   %.471 = phi i32 [ %64, %ctr128_inc_aligned.exit53 ], [ %.144.lcssa, %49 ]
@@ -123,7 +123,7 @@ ctr128_inc_aligned.exit53:                        ; preds = %49, %ctr128_inc_ali
   store i8 %62, ptr %63, align 1, !tbaa !7
   %64 = add i32 %.471, 1
   %.not48 = icmp eq i64 %56, 0
-  br i1 %.not48, label %.loopexit, label %ctr128_inc_aligned.exit53, !llvm.loop !15
+  br i1 %.not48, label %.loopexit, label %ctr128_inc_aligned.exit53, !llvm.loop !14
 
 .loopexit:                                        ; preds = %ctr128_inc_aligned.exit53, %._crit_edge
   %.3 = phi i32 [ %.144.lcssa, %._crit_edge ], [ %64, %ctr128_inc_aligned.exit53 ]
@@ -159,7 +159,7 @@ define void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef %0, ptr noundef %1, i64 nou
   %24 = icmp ne i32 %23, 15
   %25 = icmp ne i64 %20, 0
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.070.lcssa = phi i32 [ %9, %8 ], [ %22, %.lr.ph ]
@@ -168,7 +168,7 @@ define void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef %0, ptr noundef %1, i64 nou
   %.0.lcssa = phi ptr [ %0, %8 ], [ %13, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !3
-  %29 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #4, !srcloc !17
+  %29 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #4, !srcloc !16
   %30 = icmp ugt i64 %.068.lcssa, 15
   br i1 %30, label %.lr.ph97, label %._crit_edge98
 
@@ -187,7 +187,7 @@ define void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef %0, ptr noundef %1, i64 nou
   %36 = select i1 %35, i64 %34, i64 0
   %spec.select78 = sub nuw nsw i64 %spec.store.select, %36
   tail call void %7(ptr noundef %.195, ptr noundef %.16794, i64 noundef %spec.select78, ptr noundef %3, ptr noundef nonnull %4) #3
-  %37 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %spec.select) #4, !srcloc !18
+  %37 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %spec.select) #4, !srcloc !17
   store i32 %37, ptr %27, align 4, !tbaa !3
   %38 = icmp eq i32 %spec.select, 0
   br i1 %38, label %.preheader84, label %ctr96_inc.exit
@@ -204,7 +204,7 @@ define void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef %0, ptr noundef %1, i64 nou
   store i8 %43, ptr %39, align 1, !tbaa !7
   %44 = lshr i32 %42, 8
   %.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %.not.i, label %ctr96_inc.exit, label %.preheader84, !llvm.loop !19
+  br i1 %.not.i, label %ctr96_inc.exit, label %.preheader84, !llvm.loop !18
 
 ctr96_inc.exit:                                   ; preds = %.preheader84, %.lr.ph97
   %45 = shl nuw nsw i64 %spec.select78, 4
@@ -212,7 +212,7 @@ ctr96_inc.exit:                                   ; preds = %.preheader84, %.lr.
   %47 = getelementptr inbounds nuw i8, ptr %.16794, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %.195, i64 %45
   %49 = icmp ugt i64 %46, 15
-  br i1 %49, label %.lr.ph97, label %._crit_edge98, !llvm.loop !20
+  br i1 %49, label %.lr.ph97, label %._crit_edge98, !llvm.loop !19
 
 ._crit_edge98:                                    ; preds = %ctr96_inc.exit, %._crit_edge
   %.074.lcssa = phi i32 [ %29, %._crit_edge ], [ %spec.select, %ctr96_inc.exit ]
@@ -226,7 +226,7 @@ ctr96_inc.exit:                                   ; preds = %.preheader84, %.lr.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void %7(ptr noundef nonnull %5, ptr noundef nonnull %5, i64 noundef 1, ptr noundef %3, ptr noundef nonnull %4) #3
   %51 = add i32 %.074.lcssa, 1
-  %52 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #4, !srcloc !21
+  %52 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #4, !srcloc !20
   store i32 %52, ptr %27, align 4, !tbaa !3
   %53 = icmp eq i32 %51, 0
   br i1 %53, label %.preheader, label %ctr96_inc.exit83.preheader
@@ -243,7 +243,7 @@ ctr96_inc.exit:                                   ; preds = %.preheader84, %.lr.
   store i8 %58, ptr %54, align 1, !tbaa !7
   %59 = lshr i32 %57, 8
   %.not.i82 = icmp eq i64 %indvars.iv.next.i81, 0
-  br i1 %.not.i82, label %ctr96_inc.exit83.preheader, label %.preheader, !llvm.loop !19
+  br i1 %.not.i82, label %ctr96_inc.exit83.preheader, label %.preheader, !llvm.loop !18
 
 ctr96_inc.exit83.preheader:                       ; preds = %.preheader, %50
   br label %ctr96_inc.exit83
@@ -262,7 +262,7 @@ ctr96_inc.exit83:                                 ; preds = %ctr96_inc.exit83.pr
   store i8 %66, ptr %67, align 1, !tbaa !7
   %68 = add i32 %.272103, 1
   %.not77 = icmp eq i64 %60, 0
-  br i1 %.not77, label %.loopexit, label %ctr96_inc.exit83, !llvm.loop !22
+  br i1 %.not77, label %.loopexit, label %ctr96_inc.exit83, !llvm.loop !21
 
 .loopexit:                                        ; preds = %ctr96_inc.exit83, %._crit_edge98
   %.171 = phi i32 [ %.070.lcssa, %._crit_edge98 ], [ %68, %ctr96_inc.exit83 ]
@@ -292,18 +292,17 @@ attributes #4 = { nounwind memory(none) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !5, i64 0}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = !{i64 2148274555}
-!18 = !{i64 2148274777}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{i64 2148274977}
-!22 = distinct !{!22, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = !{i64 2148274555}
+!17 = !{i64 2148274777}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{i64 2148274977}
+!21 = distinct !{!21, !9}

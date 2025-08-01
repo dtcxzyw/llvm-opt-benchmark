@@ -137,7 +137,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   store i16 %4, ptr %.sroa.4.0..sroa_idx.i18.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SetXidCommitTsInPage.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %SetXidCommitTsInPage.exit, label %.lr.ph.i, !llvm.loop !8
 
 SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_edge
   %61 = load ptr, ptr @CommitTsCtlData, align 8
@@ -153,7 +153,7 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %67 = getelementptr inbounds i32, ptr %2, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %.0.lcssa, 1
-  br label %19, !llvm.loop !10
+  br label %19
 
 70:                                               ; preds = %SetXidCommitTsInPage.exit
   %71 = load ptr, ptr @MainLWLockArray, align 8
@@ -1192,8 +1192,6 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
+!8 = distinct !{!8, !7}

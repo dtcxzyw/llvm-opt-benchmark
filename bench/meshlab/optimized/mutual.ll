@@ -205,7 +205,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %44 = zext i32 %40 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next84, %44
-  br i1 %45, label %.lr.ph58.split, label %._crit_edge59, !llvm.loop !8
+  br i1 %45, label %.lr.ph58.split, label %._crit_edge59, !llvm.loop !7
 
 ._crit_edge59:                                    ; preds = %._crit_edge
   %46 = fcmp oeq double %43, 0.000000e+00
@@ -271,7 +271,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next90, %82
-  br i1 %83, label %.lr.ph63, label %.loopexit, !llvm.loop !10
+  br i1 %83, label %.lr.ph63, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %79, %48
   %84 = phi i32 [ %49, %48 ], [ %80, %79 ]
@@ -279,7 +279,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next93, %85
-  br i1 %86, label %48, label %._crit_edge69, !llvm.loop !11
+  br i1 %86, label %48, label %._crit_edge69, !llvm.loop !10
 
 ._crit_edge69:                                    ; preds = %.loopexit, %9, %._crit_edge59
   %.199 = phi double [ %.1, %._crit_edge59 ], [ 1.000000e+00, %9 ], [ %.1, %.loopexit ]
@@ -326,7 +326,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %21 = lshr i32 %.04050, 1
   %22 = add nuw nsw i32 %.03951, 1
   %.not = icmp samesign ult i32 %.04050, 4
-  br i1 %.not, label %.preheader48, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.preheader48, label %.lr.ph, !llvm.loop !11
 
 .preheader47:                                     ; preds = %.lr.ph55, %.preheader48
   %.039.lcssa78 = phi i32 [ %22, %.preheader48 ], [ %.039.lcssa77, %.lr.ph55 ]
@@ -369,13 +369,13 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %44 = add nsw i32 %.03458.us, 1
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %exitcond.not = icmp eq i32 %44, %spec.select
-  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %28
   %45 = add nsw i32 %.03660.us, 1
   %indvars.iv.next = add i32 %indvars.iv, %1
   %exitcond71.not = icmp eq i32 %45, %.033
-  br i1 %exitcond71.not, label %._crit_edge62, label %.lr.ph59.us, !llvm.loop !14
+  br i1 %exitcond71.not, label %._crit_edge62, label %.lr.ph59.us, !llvm.loop !13
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %.03754 = phi i32 [ %47, %.lr.ph55 ], [ 0, %.lr.ph55.preheader ]
@@ -383,7 +383,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %46 = ashr i32 %.03853, 1
   %47 = add nuw nsw i32 %.03754, 1
   %.not45 = icmp ult i32 %46, 2
-  br i1 %.not45, label %.preheader47, label %.lr.ph55, !llvm.loop !16
+  br i1 %.not45, label %.preheader47, label %.lr.ph55, !llvm.loop !15
 
 ._crit_edge62:                                    ; preds = %._crit_edge.us, %.preheader47
   %48 = load i32, ptr %0, align 8
@@ -407,7 +407,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %55 = load i32, ptr %14, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next73, %56
-  br i1 %57, label %.lr.ph64, label %.loopexit, !llvm.loop !17
+  br i1 %57, label %.lr.ph64, label %.loopexit, !llvm.loop !16
 
 58:                                               ; preds = %._crit_edge62
   %59 = load ptr, ptr %12, align 8
@@ -461,16 +461,15 @@ attributes #15 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

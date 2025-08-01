@@ -95,12 +95,12 @@ define hidden zeroext i1 @SDL_SYS_EnumerateDirectory(ptr noundef %0, ptr noundef
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 19
   %36 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %35, ptr noundef nonnull @.str.2) #7
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %44, label %38, !llvm.loop !6
+  br i1 %37, label %44, label %38, !llvm.loop !5
 
 38:                                               ; preds = %34
   %39 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %35, ptr noundef nonnull @.str.3) #7
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %44, label %41, !llvm.loop !6
+  br i1 %40, label %44, label %41, !llvm.loop !5
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %4, align 8
@@ -110,7 +110,7 @@ define hidden zeroext i1 @SDL_SYS_EnumerateDirectory(ptr noundef %0, ptr noundef
 44:                                               ; preds = %34, %38, %41
   %.124 = phi i32 [ %43, %41 ], [ 0, %38 ], [ 0, %34 ]
   %45 = icmp eq i32 %.124, 0
-  br i1 %45, label %32, label %.critedge3, !llvm.loop !7
+  br i1 %45, label %32, label %.critedge3
 
 .critedge3:                                       ; preds = %44, %32
   %.023.lcssa = phi i32 [ %.124, %44 ], [ 0, %32 ]
@@ -224,7 +224,7 @@ define hidden zeroext i1 @SDL_SYS_CopyFile(ptr noundef %0, ptr noundef %1) local
 9:                                                ; preds = %.preheader
   %10 = tail call i64 @SDL_WriteIO_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef %8) #7
   %11 = icmp ult i64 %10, %8
-  br i1 %11, label %.thread55.sink.split, label %.preheader, !llvm.loop !8
+  br i1 %11, label %.thread55.sink.split, label %.preheader, !llvm.loop !6
 
 12:                                               ; preds = %.preheader
   %13 = tail call i32 @SDL_GetIOStatus_REAL(ptr noundef nonnull %3) #7
@@ -481,9 +481,7 @@ attributes #9 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !4, !5}

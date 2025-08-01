@@ -370,7 +370,7 @@ define hidden void @_ZN4lean19event_loop_run_loopEPNS_12event_loop_tE(ptr nounde
   %12 = load ptr, ptr %0, align 8, !tbaa !17
   %13 = tail call i32 @uv_loop_alive(ptr noundef %12)
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %._crit_edge12, label %7, !llvm.loop !31
+  br i1 %.not, label %._crit_edge12, label %7, !llvm.loop !30
 
 ._crit_edge12:                                    ; preds = %._crit_edge, %1
   ret void
@@ -566,7 +566,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i64 noundef %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !32
+  store ptr %11, ptr %0, align 8, !tbaa !31
   %12 = load ptr, ptr %10, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = icmp eq ptr %12, %13
@@ -671,8 +671,7 @@ attributes #12 = { builtin nounwind }
 !25 = !{!"long", !6, i64 0}
 !26 = !{!22, !25, i64 8}
 !27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
-!32 = !{!23, !24, i64 0}
+!30 = distinct !{!30, !29}
+!31 = !{!23, !24, i64 0}

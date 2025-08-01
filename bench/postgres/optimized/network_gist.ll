@@ -530,7 +530,7 @@ define dso_local i64 @inet_gist_compress(ptr noundef readonly captures(none) %0)
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !7, !noundef !8
+  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %50
 
@@ -830,7 +830,7 @@ calc_inet_union_params.exit:                      ; preds = %42
   %59 = add i16 %.081188, 1
   %60 = zext i16 %59 to i32
   %.not92 = icmp slt i32 %10, %60
-  br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union_params.exit
   %spec.select51.i163 = phi i32 [ %.2.i, %calc_inet_union_params.exit ], [ %26, %1 ]
@@ -892,7 +892,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   %89 = add i16 %.1190, 1
   %90 = zext i16 %89 to i32
   %.not88 = icmp samesign ult i32 %10, %90
-  br i1 %.not88, label %._crit_edge, label %69, !llvm.loop !10
+  br i1 %.not88, label %._crit_edge, label %69, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %86
   %.pre = load i32, ptr %16, align 8
@@ -907,7 +907,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
 ._crit_edge.thread:                               ; preds = %64, %._crit_edge, %92
   %95 = add nsw i32 %.0151192, 1
   %exitcond.not = icmp eq i32 %95, %62
-  br i1 %exitcond.not, label %.thread.thread, label %64, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread.thread, label %64
 
 .thread:                                          ; preds = %92
   %96 = icmp slt i32 %.0151192, %62
@@ -937,7 +937,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   %103 = add i16 %.2197, 1
   %104 = zext i16 %103 to i32
   %.not90 = icmp slt i32 %97, %104
-  br i1 %.not90, label %.preheader, label %.lr.ph199, !llvm.loop !12
+  br i1 %.not90, label %.preheader, label %.lr.ph199, !llvm.loop !10
 
 .lr.ph203:                                        ; preds = %.preheader, %.lr.ph203
   %.3202 = phi i16 [ %109, %.lr.ph203 ], [ %.2.lcssa, %.preheader ]
@@ -950,7 +950,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   %109 = add i16 %.3202, 1
   %110 = zext i16 %109 to i32
   %.not91 = icmp samesign ult i32 %10, %110
-  br i1 %.not91, label %.loopexit, label %.lr.ph203, !llvm.loop !13
+  br i1 %.not91, label %.loopexit, label %.lr.ph203, !llvm.loop !11
 
 .loopexit:                                        ; preds = %56, %.lr.ph203, %.preheader, %.thread
   %111 = load i32, ptr %16, align 8
@@ -1013,7 +1013,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   %.2.i108 = phi i32 [ %146, %144 ], [ %.139.i107, %.lr.ph.i103 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %calc_inet_union_params_indexed.exit, label %.lr.ph.i103, !llvm.loop !14
+  br i1 %exitcond.not.i, label %calc_inet_union_params_indexed.exit, label %.lr.ph.i103, !llvm.loop !12
 
 calc_inet_union_params_indexed.exit:              ; preds = %147
   %.not.i100 = icmp eq i32 %spec.select.i104, %.144.i105
@@ -1139,7 +1139,7 @@ build_inet_union_key.exit:                        ; preds = %168, %171
   %.2.i129 = phi i32 [ %219, %217 ], [ %.139.i128, %.lr.ph.i119 ]
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, %wide.trip.count.i118
-  br i1 %exitcond.not.i131, label %calc_inet_union_params_indexed.exit132, label %.lr.ph.i119, !llvm.loop !14
+  br i1 %exitcond.not.i131, label %calc_inet_union_params_indexed.exit132, label %.lr.ph.i119, !llvm.loop !12
 
 calc_inet_union_params_indexed.exit132:           ; preds = %220
   %.not.i114 = icmp eq i32 %spec.select.i125, %.144.i126
@@ -1295,14 +1295,12 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

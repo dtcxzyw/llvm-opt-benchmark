@@ -27,12 +27,12 @@ define void @lv_mem_init() local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %0, %.preheader
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 784), align 8, !tbaa !3
   %5 = tail call ptr @lv_tlsf_get_pool(ptr noundef %4) #4
-  store ptr %5, ptr %2, align 8, !tbaa !32
+  store ptr %5, ptr %2, align 8, !tbaa !30
   ret void
 }
 
@@ -69,10 +69,10 @@ define ptr @lv_mem_add_pool(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not9, label %.preheader, label %7
 
 .preheader:                                       ; preds = %5, %.preheader
-  br label %.preheader, !llvm.loop !33
+  br label %.preheader
 
 7:                                                ; preds = %5
-  store ptr %4, ptr %6, align 8, !tbaa !32
+  store ptr %4, ptr %6, align 8, !tbaa !30
   br label %8
 
 8:                                                ; preds = %2, %7
@@ -89,7 +89,7 @@ define void @lv_mem_remove_pool(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %7
   %.010 = phi ptr [ %8, %7 ], [ %2, %1 ]
-  %3 = load ptr, ptr %.010, align 8, !tbaa !32
+  %3 = load ptr, ptr %.010, align 8, !tbaa !30
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %5, label %7
 
@@ -103,7 +103,7 @@ define void @lv_mem_remove_pool(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.010) #4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %7, %1, %5
   ret void
@@ -128,12 +128,12 @@ define ptr @lv_malloc_core(i64 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call i64 @lv_tlsf_block_size(ptr noundef nonnull %3) #4
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %7 = add i64 %6, %5
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !37
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   %9 = tail call i64 @llvm.umax.i64(i64 %7, i64 %8)
-  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !37
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -153,16 +153,16 @@ define ptr @lv_realloc_core(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %8 = sub i64 %7, %3
-  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %9 = tail call i64 @lv_tlsf_block_size(ptr noundef nonnull %5) #4
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %11 = add i64 %10, %9
-  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !37
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   %13 = tail call i64 @llvm.umax.i64(i64 %11, i64 %12)
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !37
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   br label %14
 
 14:                                               ; preds = %6, %2
@@ -176,9 +176,9 @@ define void @lv_free_core(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @lv_tlsf_block_size(ptr noundef %0) #4
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 784), align 8, !tbaa !3
   %4 = tail call i64 @lv_tlsf_free(ptr noundef %3, ptr noundef %0) #4
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   %storemerge = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %2)
-  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !36
+  store i64 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !33
   ret void
 }
 
@@ -193,28 +193,28 @@ define void @lv_mem_monitor_core(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.019 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
-  %3 = load ptr, ptr %.019, align 8, !tbaa !32
+  %3 = load ptr, ptr %.019, align 8, !tbaa !30
   tail call void @lv_tlsf_walk_pool(ptr noundef %3, ptr noundef nonnull @lv_mem_walker, ptr noundef %0) #4
   %4 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.019) #4
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !39
+  %6 = load i64, ptr %5, align 8, !tbaa !36
   %7 = mul i64 %6, 100
-  %8 = load i64, ptr %0, align 8, !tbaa !41
+  %8 = load i64, ptr %0, align 8, !tbaa !38
   %9 = udiv i64 %7, %8
   %10 = trunc i64 %9 to i8
   %11 = sub i8 100, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %11, ptr %12, align 8, !tbaa !42
+  store i8 %11, ptr %12, align 8, !tbaa !39
   %.not17 = icmp eq i64 %6, 0
   br i1 %.not17, label %20, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !43
+  %15 = load i64, ptr %14, align 8, !tbaa !40
   %16 = mul i64 %15, 100
   %17 = udiv i64 %16, %6
   %18 = trunc i64 %17 to i8
@@ -224,10 +224,10 @@ define void @lv_mem_monitor_core(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %._crit_edge, %13
   %.sink = phi i8 [ %19, %13 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %.sink, ptr %21, align 1, !tbaa !44
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !37
+  store i8 %.sink, ptr %21, align 1, !tbaa !41
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %22, ptr %23, align 8, !tbaa !45
+  store i64 %22, ptr %23, align 8, !tbaa !42
   ret void
 }
 
@@ -235,35 +235,35 @@ declare void @lv_tlsf_walk_pool(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @lv_mem_walker(ptr readnone captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #2 {
-  %5 = load i64, ptr %3, align 8, !tbaa !41
+  %5 = load i64, ptr %3, align 8, !tbaa !38
   %6 = add i64 %5, %1
-  store i64 %6, ptr %3, align 8, !tbaa !41
+  store i64 %6, ptr %3, align 8, !tbaa !38
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !46
+  %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = add i64 %9, 1
-  store i64 %10, ptr %8, align 8, !tbaa !46
+  store i64 %10, ptr %8, align 8, !tbaa !43
   br label %22
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !47
+  %13 = load i64, ptr %12, align 8, !tbaa !44
   %14 = add i64 %13, 1
-  store i64 %14, ptr %12, align 8, !tbaa !47
+  store i64 %14, ptr %12, align 8, !tbaa !44
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !39
+  %16 = load i64, ptr %15, align 8, !tbaa !36
   %17 = add i64 %16, %1
-  store i64 %17, ptr %15, align 8, !tbaa !39
+  store i64 %17, ptr %15, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !43
+  %19 = load i64, ptr %18, align 8, !tbaa !40
   %20 = icmp ugt i64 %1, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %11
-  store i64 %1, ptr %18, align 8, !tbaa !43
+  store i64 %1, ptr %18, align 8, !tbaa !40
   br label %22
 
 22:                                               ; preds = %11, %21, %7
@@ -284,7 +284,7 @@ define range(i32 0, 2) i32 @lv_mem_test_core() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %3, %7
   %.07 = phi ptr [ %8, %7 ], [ %4, %3 ]
-  %5 = load ptr, ptr %.07, align 8, !tbaa !32
+  %5 = load ptr, ptr %.07, align 8, !tbaa !30
   %6 = tail call i32 @lv_tlsf_check_pool(ptr noundef %5) #4
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %7, label %.loopexit
@@ -292,7 +292,7 @@ define range(i32 0, 2) i32 @lv_mem_test_core() local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 808), ptr noundef nonnull %.07) #4
   %.not4 = icmp eq ptr %8, null
-  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %.not4, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %7, %.lr.ph, %3, %0
   %.03 = phi i32 [ 0, %0 ], [ 1, %3 ], [ 1, %7 ], [ 0, %.lr.ph ]
@@ -349,22 +349,19 @@ attributes #4 = { nounwind }
 !27 = !{!"p1 _ZTS22_lv_freetype_context_t", !11, i64 0}
 !28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
 !29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!11, !11, i64 0}
-!33 = distinct !{!33, !31}
-!34 = distinct !{!34, !35, !31}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!4, !26, i64 792}
-!37 = !{!4, !26, i64 800}
-!38 = distinct !{!38, !35, !31}
-!39 = !{!40, !26, i64 16}
-!40 = !{!"", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !6, i64 48, !6, i64 49}
-!41 = !{!40, !26, i64 0}
-!42 = !{!40, !6, i64 48}
-!43 = !{!40, !26, i64 24}
-!44 = !{!40, !6, i64 49}
-!45 = !{!40, !26, i64 40}
-!46 = !{!40, !26, i64 32}
-!47 = !{!40, !26, i64 8}
-!48 = distinct !{!48, !35, !31}
+!30 = !{!11, !11, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!4, !26, i64 792}
+!34 = !{!4, !26, i64 800}
+!35 = distinct !{!35, !32}
+!36 = !{!37, !26, i64 16}
+!37 = !{!"", !26, i64 0, !26, i64 8, !26, i64 16, !26, i64 24, !26, i64 32, !26, i64 40, !6, i64 48, !6, i64 49}
+!38 = !{!37, !26, i64 0}
+!39 = !{!37, !6, i64 48}
+!40 = !{!37, !26, i64 24}
+!41 = !{!37, !6, i64 49}
+!42 = !{!37, !26, i64 40}
+!43 = !{!37, !26, i64 32}
+!44 = !{!37, !26, i64 8}
+!45 = distinct !{!45, !32}

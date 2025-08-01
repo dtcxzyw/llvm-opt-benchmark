@@ -466,7 +466,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit32:        ; preds = %103, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i31
   %125 = icmp eq i32 %60, %41
-  br i1 %125, label %126, label %45, !llvm.loop !24
+  br i1 %125, label %126, label %45
 
 126:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit32
   ret void
@@ -534,7 +534,5 @@ attributes #13 = { nounwind }
 !18 = !{!"int", !8, i64 0}
 !19 = !{!16, !14, i64 8}
 !20 = !{!13, !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !23}

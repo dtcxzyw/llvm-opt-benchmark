@@ -172,7 +172,7 @@ define dso_local ptr @topology_p_get_bitmap(ptr noundef %0) local_unnamed_addr #
   %4 = load i32, ptr @switch_record_cnt, align 4
   %5 = sext i32 %4 to i64
   %.not8 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %.not8, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %.not8, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
@@ -275,7 +275,7 @@ define dso_local noundef zeroext i1 @topology_p_generate_node_ranking() local_un
   %32 = load i32, ptr @node_record_count, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 35:                                               ; preds = %.lr.ph21, %._crit_edge
   %.pre28 = phi i32 [ %.pre27, %.lr.ph21 ], [ %.pre, %._crit_edge ]
@@ -284,7 +284,7 @@ define dso_local noundef zeroext i1 @topology_p_generate_node_ranking() local_un
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next25, %37
-  br i1 %38, label %.lr.ph21, label %._crit_edge22, !llvm.loop !14
+  br i1 %38, label %.lr.ph21, label %._crit_edge22, !llvm.loop !13
 
 39:                                               ; preds = %3, %0, %._crit_edge22
   %.014 = phi i1 [ true, %._crit_edge22 ], [ false, %0 ], [ false, %3 ]
@@ -332,7 +332,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, 
   %spec.select = tail call i32 @llvm.smax.i32(i32 %18, i32 %.03545)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %16, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %16, !llvm.loop !14
 
 .preheader.lr.ph:                                 ; preds = %16, %.preheader44
   %.035.lcssa = phi i32 [ 0, %.preheader44 ], [ %spec.select, %16 ]
@@ -388,7 +388,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, 
   %43 = load i32, ptr @switch_record_cnt, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next56, %44
-  br i1 %45, label %.lr.ph49, label %._crit_edge50, !llvm.loop !16
+  br i1 %45, label %.lr.ph49, label %._crit_edge50, !llvm.loop !15
 
 ._crit_edge50:                                    ; preds = %42
   %.not = icmp eq ptr %.2, null
@@ -409,7 +409,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, 
   call void @slurm_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #13
   %48 = add nsw i32 %.052, -1
   %49 = icmp sgt i32 %.052, 0
-  br i1 %49, label %.preheader, label %._crit_edge53, !llvm.loop !17
+  br i1 %49, label %.preheader, label %._crit_edge53, !llvm.loop !16
 
 ._crit_edge53:                                    ; preds = %._crit_edge50.thread
   call void @slurm_xstrcat(ptr noundef nonnull %1, ptr noundef %0) #13
@@ -574,7 +574,7 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %72 = add nuw nsw i32 %49, 1
   %73 = load i32, ptr @switch_record_cnt, align 4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %48, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %74, label %48, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %71
   %.pre = load ptr, ptr %10, align 8
@@ -655,7 +655,7 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %.1 = phi i32 [ %104, %106 ], [ %.073123, %.lr.ph126 ], [ %104, %102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !18
 
 ._crit_edge127:                                   ; preds = %108
   %109 = icmp sgt i32 %.1, 1
@@ -681,7 +681,7 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %118 = icmp sge i32 %116, %117
   %119 = icmp slt i32 %.2, 2
   %or.cond3 = select i1 %118, i1 true, i1 %119
-  br i1 %or.cond3, label %._crit_edge134.loopexit, label %.lr.ph133, !llvm.loop !20
+  br i1 %or.cond3, label %._crit_edge134.loopexit, label %.lr.ph133, !llvm.loop !19
 
 ._crit_edge134.loopexit:                          ; preds = %._crit_edge127.thread
   %.pre160 = load i32, ptr @switch_levels, align 4
@@ -696,7 +696,7 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %123 = icmp sge i32 %.071140, %120
   %124 = icmp slt i32 %.177.lcssa, 2
   %or.cond = select i1 %123, i1 true, i1 %124
-  br i1 %or.cond, label %._crit_edge141, label %.preheader, !llvm.loop !21
+  br i1 %or.cond, label %._crit_edge141, label %.preheader, !llvm.loop !20
 
 ._crit_edge141:                                   ; preds = %._crit_edge134, %._crit_edge
   %.080.lcssa = phi i32 [ 0, %._crit_edge ], [ %.181.lcssa, %._crit_edge134 ]
@@ -886,7 +886,7 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %219 = load i16, ptr %218, align 2
   %220 = zext i16 %219 to i64
   %221 = icmp samesign ult i64 %indvars.iv.next.i, %220
-  br i1 %221, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %221, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %216, %211
   %.1.ph.i = phi i32 [ %.2.ph.i, %216 ], [ %.0117146, %211 ]
@@ -910,7 +910,7 @@ _subtree_split_hostlist.exit:                     ; preds = %166, %._crit_edge.i
   %227 = add nsw i32 %226, 1
   store i32 %227, ptr %7, align 4
   %.not103.not = icmp slt i32 %226, %.084
-  br i1 %.not103.not, label %.lr.ph149, label %._crit_edge150, !llvm.loop !24
+  br i1 %.not103.not, label %.lr.ph149, label %._crit_edge150, !llvm.loop !23
 
 ._crit_edge150:                                   ; preds = %225, %157
   %.0117.lcssa = phi i32 [ %161, %157 ], [ %.1118, %225 ]
@@ -977,7 +977,7 @@ _subtree_split_hostlist.exit:                     ; preds = %166, %._crit_edge.i
   %265 = load ptr, ptr %9, align 8
   %266 = call ptr @next_node_bitmap(ptr noundef %265, ptr noundef nonnull %7) #13
   %.not107 = icmp eq ptr %266, null
-  br i1 %.not107, label %.loopexit, label %.lr.ph154, !llvm.loop !25
+  br i1 %.not107, label %.loopexit, label %.lr.ph154, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph154, %240, %._crit_edge150
   %267 = call zeroext i1 @slurm_running_in_slurmctld() #13
@@ -1120,7 +1120,7 @@ define dso_local noundef i32 @topology_p_topology_free(ptr noundef %0) local_unn
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull %4) #13
@@ -1201,7 +1201,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nounde
   %42 = load i32, ptr %4, align 8
   %43 = zext i32 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 45:                                               ; preds = %2
   %46 = load i32, ptr @switch_record_cnt, align 4
@@ -1294,7 +1294,7 @@ define dso_local noundef i32 @topology_p_topology_pack(ptr noundef readonly capt
   %38 = load i32, ptr %0, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %7, label %._crit_edge, !llvm.loop !28
+  br i1 %40, label %7, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %37, %3
   ret i32 0
@@ -1416,14 +1416,14 @@ define dso_local noundef i32 @topology_p_topology_print(ptr noundef readonly cap
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next65, %20
-  br i1 %21, label %16, label %.loopexit, !llvm.loop !29
+  br i1 %21, label %16, label %.loopexit, !llvm.loop !28
 
 22:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %28, label %.preheader46, !llvm.loop !30
+  br i1 %25, label %28, label %.preheader46, !llvm.loop !29
 
 .preheader46:                                     ; preds = %22
   %26 = icmp eq i32 %23, 0
@@ -1490,7 +1490,7 @@ define dso_local noundef i32 @topology_p_topology_print(ptr noundef readonly cap
   %55 = load i32, ptr %0, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next62, %56
-  br i1 %57, label %36, label %._crit_edge, !llvm.loop !31
+  br i1 %57, label %36, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %54
   %58 = icmp eq i32 %.142, 0
@@ -1554,7 +1554,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %21 = load i32, ptr %8, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %24, label %.loopexit, !llvm.loop !32
+  br i1 %23, label %24, label %.loopexit, !llvm.loop !31
 
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
@@ -1635,7 +1635,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr noundef wr
   %55 = load i32, ptr %8, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next.i, %56
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
+  br i1 %57, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @slurm_xfree(ptr noundef nonnull %46) #13
@@ -1710,28 +1710,27 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11, !22}
-!22 = !{!"llvm.loop.unswitch.partial.disable"}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10, !21}
+!21 = !{!"llvm.loop.unswitch.partial.disable"}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}

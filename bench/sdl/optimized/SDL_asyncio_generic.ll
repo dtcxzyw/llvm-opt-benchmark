@@ -601,7 +601,7 @@ AsyncIOTaskComplete.exit.i:                       ; preds = %23, %.lr.ph._crit_e
   tail call void @SDL_WaitCondition_REAL(ptr noundef %32, ptr noundef %33) #8
   %34 = load i32, ptr @running_threadpool_threads, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph13.i, label %._crit_edge14.i, !llvm.loop !6
+  br i1 %35, label %.lr.ph13.i, label %._crit_edge14.i, !llvm.loop !5
 
 ._crit_edge14.i:                                  ; preds = %.lr.ph13.i, %._crit_edge.i
   %36 = load ptr, ptr @threadpool_lock, align 8
@@ -688,7 +688,7 @@ define internal noundef i32 @AsyncIOThreadpoolWorker(ptr readnone captures(none)
 
 .backedge:                                        ; preds = %6, %SynchronousIO.exit
   %.b1314 = load i1, ptr @stop_threadpool, align 1
-  br i1 %.b1314, label %.thread, label %.lr.ph, !llvm.loop !7
+  br i1 %.b1314, label %.thread, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -730,7 +730,7 @@ define internal noundef i32 @AsyncIOThreadpoolWorker(ptr readnone captures(none)
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %39 = load i8, ptr %38, align 8, !range !8, !noundef !9
+  %39 = load i8, ptr %38, align 8, !range !6, !noundef !7
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %44
 
@@ -890,10 +890,8 @@ attributes #8 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}

@@ -1051,12 +1051,12 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %88, %92
   br label %109
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %104, %.lr.ph ]
+  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %105, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %103 = load i32, ptr %28, align 4, !tbaa !29
-  %104 = add nsw i32 %103, %store_forwarded
-  %105 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
-  store i32 %104, ptr %105, align 4, !tbaa !62
+  %103 = getelementptr i32, ptr %98, i64 %indvars.iv
+  %104 = load i32, ptr %28, align 4, !tbaa !29
+  %105 = add nsw i32 %104, %store_forwarded
+  store i32 %105, ptr %103, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load i32, ptr %29, align 8, !tbaa !30
   %107 = sext i32 %106 to i64
@@ -1495,7 +1495,7 @@ _ZNSt6vectorIsSaIsEED2Ev.exit22:                  ; preds = %_ZNSt6vectorIsSaIsE
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing9BitMatrix6copyOfENS_3RefIS0_EERNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !67
+  %4 = load ptr, ptr %1, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1517,7 +1517,7 @@ define hidden void @_ZN5zxing9BitMatrix6copyOfENS_3RefIS0_EERNS_12ErrorHandlerE(
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = load ptr, ptr %1, align 8, !tbaa !67
+  %16 = load ptr, ptr %1, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !53
   %19 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1545,7 +1545,7 @@ define hidden void @_ZN5zxing9BitMatrix6copyOfENS_3RefIS0_EERNS_12ErrorHandlerE(
   %39 = load i32, ptr %9, align 8, !tbaa !30
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %15, label %._crit_edge, !llvm.loop !70
+  br i1 %41, label %15, label %._crit_edge, !llvm.loop !69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1602,7 +1602,7 @@ define hidden void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull read
 define hidden void @_ZN5zxing9BitMatrix4xxorENS_3RefIS0_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(346) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !29
-  %5 = load ptr, ptr %1, align 8, !tbaa !67
+  %5 = load ptr, ptr %1, align 8, !tbaa !66
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !29
   %.not = icmp eq i32 %4, %7
@@ -1626,7 +1626,7 @@ define hidden void @_ZN5zxing9BitMatrix4xxorENS_3RefIS0_EE(ptr noundef nonnull r
 
 17:                                               ; preds = %.lr.ph23, %.critedge2
   %indvars.iv29 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next30, %.critedge2 ]
-  %18 = load ptr, ptr %1, align 8, !tbaa !67
+  %18 = load ptr, ptr %1, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !30
   %21 = sext i32 %20 to i64
@@ -1682,19 +1682,19 @@ define hidden void @_ZN5zxing9BitMatrix4xxorENS_3RefIS0_EE(ptr noundef nonnull r
   %54 = load i32, ptr %9, align 8, !tbaa !30
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next30, %55
-  br i1 %56, label %17, label %.critedge, !llvm.loop !71
+  br i1 %56, label %17, label %.critedge, !llvm.loop !70
 
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
-  %59 = load i8, ptr %58, align 1, !tbaa !72, !range !27, !noundef !28
+  %59 = load i8, ptr %58, align 1, !tbaa !71, !range !27, !noundef !28
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
-  %61 = load i8, ptr %60, align 1, !tbaa !72, !range !27, !noundef !28
+  %61 = load i8, ptr %60, align 1, !tbaa !71, !range !27, !noundef !28
   %62 = icmp ne i8 %59, %61
   %63 = zext i1 %62 to i8
-  store i8 %63, ptr %58, align 1, !tbaa !72
+  store i8 %63, ptr %58, align 1, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next, %wide.trip.count27
-  br i1 %exitcond28.not, label %.critedge2, label %45, !llvm.loop !73
+  br i1 %exitcond28.not, label %.critedge2, label %45, !llvm.loop !72
 
 .critedge:                                        ; preds = %.critedge2, %17, %2, %8
   ret void
@@ -1914,10 +1914,10 @@ define hidden void @_ZN5zxing9BitMatrix4flipEii(ptr noundef nonnull readonly ali
   %15 = sext i32 %11 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
-  %18 = load i8, ptr %17, align 1, !tbaa !74
+  %18 = load i8, ptr %17, align 1, !tbaa !73
   %19 = icmp eq i8 %18, 0
   %20 = zext i1 %19 to i8
-  store i8 %20, ptr %17, align 1, !tbaa !74
+  store i8 %20, ptr %17, align 1, !tbaa !73
   ret void
 }
 
@@ -1946,12 +1946,12 @@ define hidden void @_ZN5zxing9BitMatrix7flipAllEv(ptr noundef nonnull readonly a
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !tbaa !72, !range !27, !noundef !28
+  %14 = load i8, ptr %13, align 1, !tbaa !71, !range !27, !noundef !28
   %15 = xor i8 %14, 1
-  store i8 %15, ptr %13, align 1, !tbaa !72
+  store i8 %15, ptr %13, align 1, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2119,17 +2119,17 @@ _ZN5zxing12ErrorHandlerD2Ev.exit48:               ; preds = %_ZNKSt7__cxx1112bas
   %76 = sext i32 %73 to i64
   %77 = load ptr, ptr %75, align 8, !tbaa !54
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %76
-  %79 = load i8, ptr %78, align 1, !tbaa !74
+  %79 = load i8, ptr %78, align 1, !tbaa !73
   %80 = xor i8 %79, 1
-  store i8 %80, ptr %78, align 1, !tbaa !74
+  store i8 %80, ptr %78, align 1, !tbaa !73
   %81 = add nuw nsw i32 %.056.us, 1
   %82 = icmp slt i32 %81, %55
-  br i1 %82, label %67, label %._crit_edge.us, !llvm.loop !76
+  br i1 %82, label %67, label %._crit_edge.us, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %83, label %.preheader.us, label %.loopexit, !llvm.loop !77
+  br i1 %83, label %.preheader.us, label %.loopexit, !llvm.loop !76
 
 84:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
@@ -2387,15 +2387,15 @@ _ZN5zxing12ErrorHandlerD2Ev.exit48:               ; preds = %_ZNKSt7__cxx1112bas
   %76 = sext i32 %73 to i64
   %77 = load ptr, ptr %75, align 8, !tbaa !54
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %76
-  store i8 1, ptr %78, align 1, !tbaa !74
+  store i8 1, ptr %78, align 1, !tbaa !73
   %79 = add nuw nsw i32 %.056.us, 1
   %80 = icmp slt i32 %79, %55
-  br i1 %80, label %67, label %._crit_edge.us, !llvm.loop !79
+  br i1 %80, label %67, label %._crit_edge.us, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %81, label %.preheader.us, label %.loopexit, !llvm.loop !80
+  br i1 %81, label %.preheader.us, label %.loopexit, !llvm.loop !79
 
 82:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
@@ -2464,7 +2464,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit54:               ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing9BitMatrix6getRowEiNS_3RefINS_8BitArrayEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref.16") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(346) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !81
+  %5 = load ptr, ptr %3, align 8, !tbaa !80
   %6 = icmp eq ptr %5, null
   br i1 %6, label %._crit_edge, label %7
 
@@ -2481,7 +2481,7 @@ define hidden void @_ZN5zxing9BitMatrix6getRowEiNS_3RefINS_8BitArrayEEE(ptr dead
   br i1 %11, label %12, label %._crit_edge4
 
 ._crit_edge4:                                     ; preds = %7
-  %.pre5 = load ptr, ptr %3, align 8, !tbaa !81
+  %.pre5 = load ptr, ptr %3, align 8, !tbaa !80
   br label %32
 
 12:                                               ; preds = %._crit_edge, %7
@@ -2496,7 +2496,7 @@ define hidden void @_ZN5zxing9BitMatrix6getRowEiNS_3RefINS_8BitArrayEEE(ptr dead
   %18 = load i32, ptr %17, align 8, !tbaa !39
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8, !tbaa !39
-  %20 = load ptr, ptr %3, align 8, !tbaa !81
+  %20 = load ptr, ptr %3, align 8, !tbaa !80
   %.not5.i.i = icmp eq ptr %20, null
   br i1 %.not5.i.i, label %_ZN5zxing3RefINS_8BitArrayEEaSEPS1_.exit, label %21
 
@@ -2517,7 +2517,7 @@ define hidden void @_ZN5zxing9BitMatrix6getRowEiNS_3RefINS_8BitArrayEEE(ptr dead
   br label %_ZN5zxing3RefINS_8BitArrayEEaSEPS1_.exit
 
 _ZN5zxing3RefINS_8BitArrayEEaSEPS1_.exit:         ; preds = %16, %21, %26
-  store ptr %14, ptr %3, align 8, !tbaa !81
+  store ptr %14, ptr %3, align 8, !tbaa !80
   %.pre7 = load i32, ptr %15, align 4, !tbaa !29
   br label %32
 
@@ -2549,7 +2549,7 @@ _ZN5zxing3RefINS_8BitArrayEEaSEPS1_.exit:         ; preds = %16, %21, %26
   %51 = load ptr, ptr %50, align 8, !tbaa !54
   %52 = sext i32 %33 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %47, i64 %52, i1 false)
-  %53 = load ptr, ptr %3, align 8, !tbaa !81
+  %53 = load ptr, ptr %3, align 8, !tbaa !80
   %.not.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit, label %54
 
@@ -2561,7 +2561,7 @@ _ZN5zxing3RefINS_8BitArrayEEaSEPS1_.exit:         ; preds = %16, %21, %26
   br label %_ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit
 
 _ZN5zxing3RefINS_8BitArrayEEC2ERKS2_.exit:        ; preds = %32, %54
-  store ptr %53, ptr %0, align 8, !tbaa !81
+  store ptr %53, ptr %0, align 8, !tbaa !80
   ret void
 }
 
@@ -2594,14 +2594,14 @@ define hidden void @_ZNK5zxing9BitMatrix15getTopLeftOnBitEv(ptr dead_on_unwind n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 1, !tbaa !74
+  %15 = load i8, ptr %14, align 1, !tbaa !73
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %.critedge.loopexit
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !83
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %18 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2686,9 +2686,9 @@ define hidden void @_ZNK5zxing9BitMatrix19getBottomRightOnBitEv(ptr dead_on_unwi
 16:                                               ; preds = %13
   %17 = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !74
+  %19 = load i8, ptr %18, align 1, !tbaa !73
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %13, label %.critedge, !llvm.loop !85
+  br i1 %20, label %13, label %.critedge, !llvm.loop !84
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2825,7 +2825,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(p
   %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = sext i32 %22 to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !72, !range !27, !noundef !28
+  %29 = load i8, ptr %28, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %18, align 2, !tbaa !31
   %30 = icmp sgt i32 %12, 0
   br i1 %30, label %.lr.ph.preheader.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -2840,7 +2840,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(p
   %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %48 ]
   %.03338.i = phi i8 [ %31, %.lr.ph.preheader.i ], [ %.134.i, %48 ]
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
-  %33 = load i8, ptr %32, align 1, !tbaa !72, !range !27, !noundef !28
+  %33 = load i8, ptr %32, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %33, %.03338.i
   br i1 %.not.i, label %39, label %34
 
@@ -2875,7 +2875,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(p
   store i16 %49, ptr %50, align 2, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !86
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !85
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %39, %48, %8
   %.1.i = phi i32 [ 0, %8 ], [ %.2.i, %48 ], [ %12, %39 ]
@@ -2898,9 +2898,9 @@ _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %39, %48, %8
   %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i.i.i.i
   %64 = and i64 %4, 63
   %65 = shl nuw i64 1, %64
-  %66 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !87
+  %66 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !86
   %67 = or i64 %66, %65
-  store i64 %67, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %67, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !86
   br label %68
 
 68:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -2933,7 +2933,7 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr noundef nonnull rea
   %22 = load ptr, ptr %21, align 8, !tbaa !54
   %23 = sext i32 %18 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !72, !range !27, !noundef !28
+  %25 = load i8, ptr %24, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %12, align 2, !tbaa !31
   %26 = icmp sgt i32 %6, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
@@ -2948,7 +2948,7 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr noundef nonnull rea
   %.03239 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %44 ]
   %.03338 = phi i8 [ %27, %.lr.ph.preheader ], [ %.134, %44 ]
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
-  %29 = load i8, ptr %28, align 1, !tbaa !72, !range !27, !noundef !28
+  %29 = load i8, ptr %28, align 1, !tbaa !71, !range !27, !noundef !28
   %.not = icmp eq i8 %29, %.03338
   br i1 %.not, label %35, label %30
 
@@ -2983,7 +2983,7 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr noundef nonnull rea
   store i16 %45, ptr %46, align 2, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %44, %35, %2
   %.1 = phi i32 [ 0, %2 ], [ %6, %35 ], [ %.2, %44 ]
@@ -3007,9 +3007,9 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr noundef nonnull rea
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 %storemerge.idx.i.i.i.i.i
   %61 = and i64 %52, 63
   %62 = shl nuw i64 1, %61
-  %63 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %63 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %64 = or i64 %63, %62
-  store i64 %64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   ret void
 }
 
@@ -3027,7 +3027,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr noun
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %storemerge.idx.i.i.i.i.i
   %10 = and i64 %4, 63
   %11 = shl nuw i64 1, %10
-  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %13 = and i64 %12, %11
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %14, label %._crit_edge
@@ -3064,7 +3064,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr noun
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = sext i32 %30 to i64
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !72, !range !27, !noundef !28
+  %37 = load i8, ptr %36, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %24, align 2, !tbaa !31
   %38 = icmp sgt i32 %18, 0
   br i1 %38, label %.lr.ph.preheader.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -3079,7 +3079,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr noun
   %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %56 ]
   %.03338.i = phi i8 [ %39, %.lr.ph.preheader.i ], [ %.134.i, %56 ]
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
-  %41 = load i8, ptr %40, align 1, !tbaa !72, !range !27, !noundef !28
+  %41 = load i8, ptr %40, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %41, %.03338.i
   br i1 %.not.i, label %47, label %42
 
@@ -3114,7 +3114,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr noun
   store i16 %57, ptr %58, align 2, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !86
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !85
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %47, %56, %14
   %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %56 ], [ %18, %47 ]
@@ -3127,7 +3127,7 @@ _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %47, %56, %14
   %65 = getelementptr inbounds nuw i16, ptr %64, i64 %4
   store i16 %62, ptr %65, align 2, !tbaa !31
   %66 = or i64 %12, %11
-  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   br label %67
 
 67:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -3151,7 +3151,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(pt
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %storemerge.idx.i.i.i.i.i
   %10 = and i64 %4, 63
   %11 = shl nuw i64 1, %10
-  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %13 = and i64 %12, %11
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %14, label %._crit_edge
@@ -3188,7 +3188,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(pt
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = sext i32 %30 to i64
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !72, !range !27, !noundef !28
+  %37 = load i8, ptr %36, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %24, align 2, !tbaa !31
   %38 = icmp sgt i32 %18, 0
   br i1 %38, label %.lr.ph.preheader.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -3203,7 +3203,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(pt
   %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %56 ]
   %.03338.i = phi i8 [ %39, %.lr.ph.preheader.i ], [ %.134.i, %56 ]
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
-  %41 = load i8, ptr %40, align 1, !tbaa !72, !range !27, !noundef !28
+  %41 = load i8, ptr %40, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %41, %.03338.i
   br i1 %.not.i, label %47, label %42
 
@@ -3238,7 +3238,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(pt
   store i16 %57, ptr %58, align 2, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !86
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !85
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %47, %56, %14
   %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %56 ], [ %18, %47 ]
@@ -3251,7 +3251,7 @@ _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %47, %56, %14
   %65 = getelementptr inbounds nuw i16, ptr %64, i64 %4
   store i16 %62, ptr %65, align 2, !tbaa !31
   %66 = or i64 %12, %11
-  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   br label %67
 
 67:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -3272,7 +3272,7 @@ define hidden noundef zeroext i1 @_ZN5zxing9BitMatrix18getRowFirstIsWhiteEi(ptr 
   %9 = sext i32 %5 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
-  %12 = load i8, ptr %11, align 1, !tbaa !74
+  %12 = load i8, ptr %11, align 1, !tbaa !73
   %.not = icmp eq i8 %12, 0
   ret i1 %.not
 }
@@ -3290,7 +3290,7 @@ define hidden noundef zeroext i1 @_ZN5zxing9BitMatrix17getRowLastIsWhiteEi(ptr n
   %11 = sext i32 %7 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
-  %14 = load i8, ptr %13, align 1, !tbaa !74
+  %14 = load i8, ptr %13, align 1, !tbaa !73
   %.not = icmp eq i8 %14, 0
   ret i1 %.not
 }
@@ -3309,7 +3309,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %storemerge.idx.i.i.i.i.i
   %10 = and i64 %4, 63
   %11 = shl nuw i64 1, %10
-  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %13 = and i64 %12, %11
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %14, label %._crit_edge
@@ -3344,7 +3344,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = sext i32 %30 to i64
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !72, !range !27, !noundef !28
+  %37 = load i8, ptr %36, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %24, align 2, !tbaa !31
   %38 = icmp sgt i32 %18, 0
   br i1 %38, label %.lr.ph.preheader.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -3359,7 +3359,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
   %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %56 ]
   %.03338.i = phi i8 [ %39, %.lr.ph.preheader.i ], [ %.134.i, %56 ]
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
-  %41 = load i8, ptr %40, align 1, !tbaa !72, !range !27, !noundef !28
+  %41 = load i8, ptr %40, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %41, %.03338.i
   br i1 %.not.i, label %47, label %42
 
@@ -3394,7 +3394,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
   store i16 %57, ptr %58, align 2, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !86
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !85
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %47, %56, %14
   %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %56 ], [ %18, %47 ]
@@ -3407,7 +3407,7 @@ _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %47, %56, %14
   %65 = getelementptr inbounds nuw i16, ptr %64, i64 %4
   store i16 %62, ptr %65, align 2, !tbaa !31
   %66 = or i64 %12, %11
-  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   br label %67
 
 67:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix13setRowRecordsEi.exit
@@ -3448,7 +3448,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(
   %21 = load ptr, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !54
-  %24 = load i8, ptr %23, align 1, !tbaa !72, !range !27, !noundef !28
+  %24 = load i8, ptr %23, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %18, align 2, !tbaa !31
   %25 = icmp sgt i32 %12, 0
   br i1 %25, label %.lr.ph.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3467,7 +3467,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(
   %.03340.i = phi i8 [ %26, %.lr.ph.i ], [ %.134.i, %47 ]
   %.03539.i = phi ptr [ %23, %.lr.ph.i ], [ %50, %47 ]
   %31 = getelementptr inbounds nuw i8, ptr %.03539.i, i64 %indvars.iv.i
-  %32 = load i8, ptr %31, align 1, !tbaa !72, !range !27, !noundef !28
+  %32 = load i8, ptr %31, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %32, %.03340.i
   br i1 %.not.i, label %38, label %33
 
@@ -3503,7 +3503,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = getelementptr inbounds i8, ptr %.03539.i, i64 %29
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %30, !llvm.loop !88
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %30, !llvm.loop !87
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %38, %47, %8
   %.1.i = phi i32 [ 0, %8 ], [ %.2.i, %47 ], [ %12, %38 ]
@@ -3526,9 +3526,9 @@ _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %38, %47, %8
   %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i.i.i.i
   %64 = and i64 %4, 63
   %65 = shl nuw i64 1, %64
-  %66 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !87
+  %66 = load i64, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !86
   %67 = or i64 %66, %65
-  store i64 %67, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %67, ptr %storemerge.i.i.i.i.i.i, align 8, !tbaa !86
   br label %68
 
 68:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3556,7 +3556,7 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr noundef nonnull re
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !54
-  %20 = load i8, ptr %19, align 1, !tbaa !72, !range !27, !noundef !28
+  %20 = load i8, ptr %19, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %12, align 2, !tbaa !31
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -3575,7 +3575,7 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr noundef nonnull re
   %.03340 = phi i8 [ %22, %.lr.ph ], [ %.134, %43 ]
   %.03539 = phi ptr [ %19, %.lr.ph ], [ %46, %43 ]
   %27 = getelementptr inbounds nuw i8, ptr %.03539, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1, !tbaa !72, !range !27, !noundef !28
+  %28 = load i8, ptr %27, align 1, !tbaa !71, !range !27, !noundef !28
   %.not = icmp eq i8 %28, %.03340
   br i1 %.not, label %34, label %29
 
@@ -3611,7 +3611,7 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr noundef nonnull re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = getelementptr inbounds i8, ptr %.03539, i64 %25
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %43, %34, %2
   %.1 = phi i32 [ 0, %2 ], [ %6, %34 ], [ %.2, %43 ]
@@ -3635,9 +3635,9 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr noundef nonnull re
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 %storemerge.idx.i.i.i.i.i
   %61 = and i64 %52, 63
   %62 = shl nuw i64 1, %61
-  %63 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %63 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %64 = or i64 %63, %62
-  store i64 %64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   ret void
 }
 
@@ -3655,7 +3655,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nou
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %storemerge.idx.i.i.i.i.i
   %10 = and i64 %4, 63
   %11 = shl nuw i64 1, %10
-  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %13 = and i64 %12, %11
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %14, label %._crit_edge
@@ -3687,7 +3687,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nou
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !54
-  %32 = load i8, ptr %31, align 1, !tbaa !72, !range !27, !noundef !28
+  %32 = load i8, ptr %31, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %24, align 2, !tbaa !31
   %33 = icmp sgt i32 %18, 0
   br i1 %33, label %.lr.ph.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3706,7 +3706,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nou
   %.03340.i = phi i8 [ %34, %.lr.ph.i ], [ %.134.i, %55 ]
   %.03539.i = phi ptr [ %31, %.lr.ph.i ], [ %58, %55 ]
   %39 = getelementptr inbounds nuw i8, ptr %.03539.i, i64 %indvars.iv.i
-  %40 = load i8, ptr %39, align 1, !tbaa !72, !range !27, !noundef !28
+  %40 = load i8, ptr %39, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %40, %.03340.i
   br i1 %.not.i, label %46, label %41
 
@@ -3742,7 +3742,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nou
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = getelementptr inbounds i8, ptr %.03539.i, i64 %37
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %38, !llvm.loop !88
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %38, !llvm.loop !87
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
   %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %55 ], [ %18, %46 ]
@@ -3755,7 +3755,7 @@ _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
   %65 = getelementptr inbounds nuw i16, ptr %64, i64 %4
   store i16 %62, ptr %65, align 2, !tbaa !31
   %66 = or i64 %12, %11
-  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   br label %67
 
 67:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3779,7 +3779,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(p
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %storemerge.idx.i.i.i.i.i
   %10 = and i64 %4, 63
   %11 = shl nuw i64 1, %10
-  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %13 = and i64 %12, %11
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %14, label %._crit_edge
@@ -3811,7 +3811,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(p
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !54
-  %32 = load i8, ptr %31, align 1, !tbaa !72, !range !27, !noundef !28
+  %32 = load i8, ptr %31, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %24, align 2, !tbaa !31
   %33 = icmp sgt i32 %18, 0
   br i1 %33, label %.lr.ph.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3830,7 +3830,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(p
   %.03340.i = phi i8 [ %34, %.lr.ph.i ], [ %.134.i, %55 ]
   %.03539.i = phi ptr [ %31, %.lr.ph.i ], [ %58, %55 ]
   %39 = getelementptr inbounds nuw i8, ptr %.03539.i, i64 %indvars.iv.i
-  %40 = load i8, ptr %39, align 1, !tbaa !72, !range !27, !noundef !28
+  %40 = load i8, ptr %39, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %40, %.03340.i
   br i1 %.not.i, label %46, label %41
 
@@ -3866,7 +3866,7 @@ define hidden noundef nonnull ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(p
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = getelementptr inbounds i8, ptr %.03539.i, i64 %37
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %38, !llvm.loop !88
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %38, !llvm.loop !87
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
   %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %55 ], [ %18, %46 ]
@@ -3879,7 +3879,7 @@ _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
   %65 = getelementptr inbounds nuw i16, ptr %64, i64 %4
   store i16 %62, ptr %65, align 2, !tbaa !31
   %66 = or i64 %12, %11
-  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   br label %67
 
 67:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3903,7 +3903,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %storemerge.idx.i.i.i.i.i
   %10 = and i64 %4, 63
   %11 = shl nuw i64 1, %10
-  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  %12 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   %13 = and i64 %12, %11
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %14, label %._crit_edge
@@ -3933,7 +3933,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
   %29 = load ptr, ptr %28, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !54
-  %32 = load i8, ptr %31, align 1, !tbaa !72, !range !27, !noundef !28
+  %32 = load i8, ptr %31, align 1, !tbaa !71, !range !27, !noundef !28
   store i16 0, ptr %24, align 2, !tbaa !31
   %33 = icmp sgt i32 %18, 0
   br i1 %33, label %.lr.ph.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -3952,7 +3952,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
   %.03340.i = phi i8 [ %34, %.lr.ph.i ], [ %.134.i, %55 ]
   %.03539.i = phi ptr [ %31, %.lr.ph.i ], [ %58, %55 ]
   %39 = getelementptr inbounds nuw i8, ptr %.03539.i, i64 %indvars.iv.i
-  %40 = load i8, ptr %39, align 1, !tbaa !72, !range !27, !noundef !28
+  %40 = load i8, ptr %39, align 1, !tbaa !71, !range !27, !noundef !28
   %.not.i = icmp eq i8 %40, %.03340.i
   br i1 %.not.i, label %46, label %41
 
@@ -3988,7 +3988,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = getelementptr inbounds i8, ptr %.03539.i, i64 %37
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %38, !llvm.loop !88
+  br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %38, !llvm.loop !87
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
   %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %55 ], [ %18, %46 ]
@@ -4001,7 +4001,7 @@ _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
   %65 = getelementptr inbounds nuw i16, ptr %64, i64 %4
   store i16 %62, ptr %65, align 2, !tbaa !31
   %66 = or i64 %12, %11
-  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !87
+  store i64 %66, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !86
   br label %67
 
 67:                                               ; preds = %._crit_edge, %_ZN5zxing9BitMatrix14setColsRecordsEi.exit
@@ -4104,7 +4104,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #14 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !89
+  %3 = load i32, ptr %2, align 4, !tbaa !88
   ret i32 %3
 }
 
@@ -4288,29 +4288,28 @@ attributes #20 = { nounwind }
 !61 = !{!59, !60, i64 16}
 !62 = !{!6, !6, i64 0}
 !63 = !{!59, !60, i64 8}
-!64 = distinct !{!64, !65, !66}
+!64 = distinct !{!64, !65}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!68, !69, i64 0}
-!68 = !{!"_ZTSN5zxing3RefINS_9BitMatrixEEE", !69, i64 0}
-!69 = !{!"p1 _ZTSN5zxing9BitMatrixE", !14, i64 0}
-!70 = distinct !{!70, !65, !66}
-!71 = distinct !{!71, !65, !66}
-!72 = !{!26, !26, i64 0}
-!73 = distinct !{!73, !65, !66}
-!74 = !{!7, !7, i64 0}
-!75 = distinct !{!75, !65, !66}
-!76 = distinct !{!76, !65, !66}
-!77 = distinct !{!77, !65, !66, !78}
-!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!79 = distinct !{!79, !65, !66}
-!80 = distinct !{!80, !65, !66, !78}
-!81 = !{!82, !83, i64 0}
-!82 = !{!"_ZTSN5zxing3RefINS_8BitArrayEEE", !83, i64 0}
-!83 = !{!"p1 _ZTSN5zxing8BitArrayE", !14, i64 0}
-!84 = distinct !{!84, !65, !66}
-!85 = distinct !{!85, !65, !66}
-!86 = distinct !{!86, !65, !66}
-!87 = !{!50, !50, i64 0}
-!88 = distinct !{!88, !65, !66}
-!89 = !{!46, !6, i64 12}
+!66 = !{!67, !68, i64 0}
+!67 = !{!"_ZTSN5zxing3RefINS_9BitMatrixEEE", !68, i64 0}
+!68 = !{!"p1 _ZTSN5zxing9BitMatrixE", !14, i64 0}
+!69 = distinct !{!69, !65}
+!70 = distinct !{!70, !65}
+!71 = !{!26, !26, i64 0}
+!72 = distinct !{!72, !65}
+!73 = !{!7, !7, i64 0}
+!74 = distinct !{!74, !65}
+!75 = distinct !{!75, !65}
+!76 = distinct !{!76, !65, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = distinct !{!78, !65}
+!79 = distinct !{!79, !65, !77}
+!80 = !{!81, !82, i64 0}
+!81 = !{!"_ZTSN5zxing3RefINS_8BitArrayEEE", !82, i64 0}
+!82 = !{!"p1 _ZTSN5zxing8BitArrayE", !14, i64 0}
+!83 = distinct !{!83, !65}
+!84 = distinct !{!84, !65}
+!85 = distinct !{!85, !65}
+!86 = !{!50, !50, i64 0}
+!87 = distinct !{!87, !65}
+!88 = !{!46, !6, i64 12}

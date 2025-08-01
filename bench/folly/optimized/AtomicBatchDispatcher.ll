@@ -171,22 +171,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   br label %71
 
 .noexc19:                                         ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8, !noalias !31
-  call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %58 = load ptr, ptr %6, align 8, !tbaa !26, !noalias !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8, !noalias !30
+  call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %58 = load ptr, ptr %6, align 8, !tbaa !26, !noalias !33
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %60 = load i64, ptr %59, align 8, !tbaa !22, !noalias !34
+  %60 = load i64, ptr %59, align 8, !tbaa !22, !noalias !33
   %61 = ptrtoint ptr %58 to i64
-  store i64 %14, ptr %3, align 16, !alias.scope !34
+  store i64 %14, ptr %3, align 16, !alias.scope !33
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %61, ptr %62, align 16, !alias.scope !34
+  store i64 %61, ptr %62, align 16, !alias.scope !33
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %60, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !27, !alias.scope !34
+  store i64 %60, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !27, !alias.scope !33
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.3, i64 64, i64 212, ptr nonnull %3)
           to label %63 unwind label %56
 
 63:                                               ; preds = %.noexc19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8, !noalias !31
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8, !noalias !30
   %64 = load ptr, ptr %6, align 8, !tbaa !26
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %66 = icmp eq ptr %64, %65
@@ -254,12 +254,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6fibers6detail39createUnexpectedNumResultsABDUsageExMsgB5cxx11Emm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.fmt::v8::format_arg_store.9", align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8, !noalias !37
-  store i64 %2, ptr %4, align 16, !alias.scope !40, !noalias !37
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8, !noalias !36
+  store i64 %2, ptr %4, align 16, !alias.scope !39, !noalias !36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %1, ptr %5, align 16, !alias.scope !40, !noalias !37
+  store i64 %1, ptr %5, align 16, !alias.scope !39, !noalias !36
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.5, i64 80, i64 68, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8, !noalias !37
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8, !noalias !36
   ret void
 }
 
@@ -314,18 +314,17 @@ attributes #10 = { builtin nounwind }
 !25 = !{!"p1 omnipotent char", !10, i64 0}
 !26 = !{!23, !25, i64 0}
 !27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN3fmt2v86formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: argument 0"}
-!33 = distinct !{!33, !"_ZN3fmt2v86formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_: argument 0"}
-!36 = distinct !{!36, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN3fmt2v86formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_: argument 0"}
-!39 = distinct !{!39, !"_ZN3fmt2v86formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_: argument 0"}
-!42 = distinct !{!42, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN3fmt2v86formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: argument 0"}
+!32 = distinct !{!32, !"_ZN3fmt2v86formatIJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES8_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_: argument 0"}
+!35 = distinct !{!35, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSH_"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN3fmt2v86formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_: argument 0"}
+!38 = distinct !{!38, !"_ZN3fmt2v86formatIJRmS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSB_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_: argument 0"}
+!41 = distinct !{!41, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_"}

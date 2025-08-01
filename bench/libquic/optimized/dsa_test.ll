@@ -89,10 +89,10 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
   br i1 %34, label %17, label %35, !llvm.loop !12
 
 35:                                               ; preds = %17
-  %36 = load i32, ptr %4, align 4, !tbaa !15
-  %37 = load i64, ptr %6, align 8, !tbaa !17
+  %36 = load i32, ptr %4, align 4, !tbaa !14
+  %37 = load i64, ptr %6, align 8, !tbaa !16
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef %36, i64 noundef %37) #7
-  %39 = load i32, ptr %4, align 4, !tbaa !15
+  %39 = load i32, ptr %4, align 4, !tbaa !14
   %.not34.i = icmp eq i32 %39, 105
   br i1 %.not34.i, label %43, label %40
 
@@ -102,7 +102,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
   br label %test_generate.exit.thread
 
 43:                                               ; preds = %35
-  %44 = load i64, ptr %6, align 8, !tbaa !17
+  %44 = load i64, ptr %6, align 8, !tbaa !16
   %.not35.i = icmp eq i64 %44, 2
   br i1 %.not35.i, label %48, label %45
 
@@ -113,7 +113,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %50 = load ptr, ptr %49, align 8, !tbaa !18
   %51 = call i64 @BN_bn2bin(ptr noundef %50, ptr noundef nonnull %5) #7
   %52 = and i64 %51, 4294967295
   %.not36.i = icmp eq i64 %52, 20
@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !25
+  %59 = load ptr, ptr %58, align 8, !tbaa !24
   %60 = call i64 @BN_bn2bin(ptr noundef %59, ptr noundef nonnull %5) #7
   %61 = and i64 %60, 4294967295
   %.not38.i = icmp eq i64 %61, 64
@@ -149,7 +149,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !26
+  %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = call i64 @BN_bn2bin(ptr noundef %68, ptr noundef nonnull %5) #7
   %70 = and i64 %69, 4294967295
   %.not41.i = icmp eq i64 %70, 64
@@ -176,7 +176,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
   br i1 %.not45.i, label %test_generate.exit.thread, label %79
 
 79:                                               ; preds = %77
-  %80 = load i32, ptr %8, align 4, !tbaa !15
+  %80 = load i32, ptr %8, align 4, !tbaa !14
   %81 = zext i32 %80 to i64
   %82 = call i32 @DSA_verify(i32 noundef 0, ptr noundef nonnull @fips_digest, i64 noundef 20, ptr noundef nonnull %7, i64 noundef %81, ptr noundef nonnull %11) #7
   %83 = icmp eq i32 %82, 1
@@ -254,35 +254,35 @@ define internal fastcc range(i32 0, 2) i32 @test_verify(ptr noundef %0, i64 noun
 5:                                                ; preds = %3
   %6 = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_p, i64 noundef 64, ptr noundef null) #7
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !25
+  store ptr %6, ptr %7, align 8, !tbaa !24
   %8 = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_q, i64 noundef 20, ptr noundef null) #7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !19
+  store ptr %8, ptr %9, align 8, !tbaa !18
   %10 = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_g, i64 noundef 64, ptr noundef null) #7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %10, ptr %11, align 8, !tbaa !26
+  store ptr %10, ptr %11, align 8, !tbaa !25
   %12 = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_y, i64 noundef 64, ptr noundef null) #7
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %12, ptr %13, align 8, !tbaa !27
+  store ptr %12, ptr %13, align 8, !tbaa !26
   %14 = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_x, i64 noundef 20, ptr noundef null) #7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %14, ptr %15, align 8, !tbaa !28
-  %16 = load ptr, ptr %7, align 8, !tbaa !25
+  store ptr %14, ptr %15, align 8, !tbaa !27
+  %16 = load ptr, ptr %7, align 8, !tbaa !24
   %17 = icmp eq ptr %16, null
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %5
-  %19 = load ptr, ptr %9, align 8, !tbaa !19
+  %19 = load ptr, ptr %9, align 8, !tbaa !18
   %20 = icmp eq ptr %19, null
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %11, align 8, !tbaa !26
+  %22 = load ptr, ptr %11, align 8, !tbaa !25
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %13, align 8, !tbaa !27
+  %25 = load ptr, ptr %13, align 8, !tbaa !26
   %26 = icmp eq ptr %25, null
   %27 = icmp eq ptr %14, null
   %or.cond.i = select i1 %26, i1 true, i1 %27
@@ -333,18 +333,18 @@ define internal range(i32 0, 2) i32 @dsa_cb(i32 noundef %0, i32 %1, ptr noundef 
   ]
 
 4:                                                ; preds = %3
-  %5 = load i32, ptr @dsa_cb.num, align 4, !tbaa !15
+  %5 = load i32, ptr @dsa_cb.num, align 4, !tbaa !14
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr @dsa_cb.num, align 4, !tbaa !15
+  store i32 %6, ptr @dsa_cb.num, align 4, !tbaa !14
   br label %12
 
 7:                                                ; preds = %3
   br label %12
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr @dsa_cb.ok, align 4, !tbaa !15
+  %9 = load i32, ptr @dsa_cb.ok, align 4, !tbaa !14
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr @dsa_cb.ok, align 4, !tbaa !15
+  store i32 %10, ptr @dsa_cb.ok, align 4, !tbaa !14
   br label %12
 
 11:                                               ; preds = %3
@@ -352,11 +352,11 @@ define internal range(i32 0, 2) i32 @dsa_cb(i32 noundef %0, i32 %1, ptr noundef 
 
 12:                                               ; preds = %11, %8, %7, %4, %3
   %.0 = phi i32 [ 42, %3 ], [ 46, %4 ], [ 43, %7 ], [ 42, %8 ], [ 10, %11 ]
-  %13 = load ptr, ptr %2, align 8, !tbaa !29
+  %13 = load ptr, ptr %2, align 8, !tbaa !28
   %14 = tail call i32 @fputc(i32 noundef %.0, ptr noundef %13)
-  %15 = load ptr, ptr %2, align 8, !tbaa !29
+  %15 = load ptr, ptr %2, align 8, !tbaa !28
   %16 = tail call i32 @fflush(ptr noundef %15)
-  %17 = load i32, ptr @dsa_cb.ok, align 4, !tbaa !15
+  %17 = load i32, ptr @dsa_cb.ok, align 4, !tbaa !14
   %18 = or i32 %17, %0
   %or.cond = icmp eq i32 %18, 0
   %19 = load i32, ptr @dsa_cb.num, align 4
@@ -435,22 +435,21 @@ attributes #9 = { cold nounwind }
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !9, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !9, i64 0}
-!19 = !{!20, !21, i64 16}
-!20 = !{!"dsa_st", !18, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !16, i64 64, !9, i64 72, !22, i64 128, !16, i64 136, !23, i64 144}
-!21 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
-!22 = !{!"p1 _ZTS14bn_mont_ctx_st", !8, i64 0}
-!23 = !{!"crypto_ex_data_st", !24, i64 0}
-!24 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
-!25 = !{!20, !21, i64 8}
-!26 = !{!20, !21, i64 24}
-!27 = !{!20, !21, i64 32}
-!28 = !{!20, !21, i64 40}
-!29 = !{!30, !8, i64 0}
-!30 = !{!"bn_gencb_st", !8, i64 0, !8, i64 8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !9, i64 0}
+!18 = !{!19, !20, i64 16}
+!19 = !{!"dsa_st", !17, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !15, i64 64, !9, i64 72, !21, i64 128, !15, i64 136, !22, i64 144}
+!20 = !{!"p1 _ZTS9bignum_st", !8, i64 0}
+!21 = !{!"p1 _ZTS14bn_mont_ctx_st", !8, i64 0}
+!22 = !{!"crypto_ex_data_st", !23, i64 0}
+!23 = !{!"p1 _ZTS13stack_st_void", !8, i64 0}
+!24 = !{!19, !20, i64 8}
+!25 = !{!19, !20, i64 24}
+!26 = !{!19, !20, i64 32}
+!27 = !{!19, !20, i64 40}
+!28 = !{!29, !8, i64 0}
+!29 = !{!"bn_gencb_st", !8, i64 0, !8, i64 8}

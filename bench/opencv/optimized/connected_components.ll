@@ -877,7 +877,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
 
 .preheader67:                                     ; preds = %._crit_edge
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !71
+  %64 = load i32, ptr %63, align 8, !tbaa !70
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.preheader.lr.ph, label %.noexc.i
 
@@ -887,7 +887,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %71 = load i32, ptr %66, align 4, !tbaa !72
+  %71 = load i32, ptr %66, align 4, !tbaa !71
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.preheader, label %.noexc.i
 
@@ -935,7 +935,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EED2Ev.exit54
 
 ._crit_edge71.loopexit:                           ; preds = %.lr.ph70
-  %.pre = load i32, ptr %63, align 8, !tbaa !71
+  %.pre = load i32, ptr %63, align 8, !tbaa !70
   br label %._crit_edge71
 
 ._crit_edge71:                                    ; preds = %._crit_edge71.loopexit, %.preheader
@@ -944,19 +944,19 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %89 = sext i32 %87 to i64
   %90 = icmp slt i64 %indvars.iv.next79, %89
-  br i1 %90, label %.preheader, label %.noexc.i, !llvm.loop !73
+  br i1 %90, label %.preheader, label %.noexc.i, !llvm.loop !72
 
 .lr.ph70:                                         ; preds = %.preheader, %.lr.ph70
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph70 ], [ 0, %.preheader ]
-  %91 = load ptr, ptr %67, align 8, !tbaa !75
-  %92 = load ptr, ptr %68, align 8, !tbaa !76
+  %91 = load ptr, ptr %67, align 8, !tbaa !74
+  %92 = load ptr, ptr %68, align 8, !tbaa !75
   %93 = load i64, ptr %92, align 8, !tbaa !10
   %94 = mul i64 %93, %indvars.iv78
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 %94
   %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv75
   %97 = load i32, ptr %96, align 4, !tbaa !50
-  %98 = load ptr, ptr %69, align 8, !tbaa !75
-  %99 = load ptr, ptr %70, align 8, !tbaa !76
+  %98 = load ptr, ptr %69, align 8, !tbaa !74
+  %99 = load ptr, ptr %70, align 8, !tbaa !75
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = mul i64 %100, %indvars.iv78
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 %101
@@ -965,10 +965,10 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   %105 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %44, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %103, ptr noundef nonnull align 1 dereferenceable(3) %105, i64 3, i1 false)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %106 = load i32, ptr %66, align 4, !tbaa !72
+  %106 = load i32, ptr %66, align 4, !tbaa !71
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next76, %107
-  br i1 %108, label %.lr.ph70, label %._crit_edge71.loopexit, !llvm.loop !77
+  br i1 %108, label %.lr.ph70, label %._crit_edge71.loopexit, !llvm.loop !76
 
 109:                                              ; preds = %.noexc49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
@@ -1207,13 +1207,12 @@ attributes #17 = { builtin allocsize(0) }
 !65 = distinct !{!65, !66, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
 !66 = distinct !{!66, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
 !67 = !{!57, !42, i64 0}
-!68 = distinct !{!68, !69, !70}
+!68 = distinct !{!68, !69}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = !{!54, !28, i64 8}
-!72 = !{!54, !28, i64 12}
-!73 = distinct !{!73, !69, !70, !74}
-!74 = !{!"llvm.loop.unswitch.partial.disable"}
-!75 = !{!54, !6, i64 16}
-!76 = !{!54, !59, i64 72}
-!77 = distinct !{!77, !69, !70}
+!70 = !{!54, !28, i64 8}
+!71 = !{!54, !28, i64 12}
+!72 = distinct !{!72, !69, !73}
+!73 = !{!"llvm.loop.unswitch.partial.disable"}
+!74 = !{!54, !6, i64 16}
+!75 = !{!54, !59, i64 72}
+!76 = distinct !{!76, !69}

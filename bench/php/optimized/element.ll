@@ -771,7 +771,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %4, %php_dom_follow_
   %25 = load ptr, ptr %24, align 8, !tbaa !101
   %26 = call i32 @xmlStrEqual(ptr noundef %25, ptr noundef nonnull %13) #11
   %.not44 = icmp eq i32 %26, 0
-  br i1 %.not44, label %22, label %.thread, !llvm.loop !102
+  br i1 %.not44, label %22, label %.thread
 
 27:                                               ; preds = %14
   %28 = call ptr @xmlStrndup(ptr noundef %2, i32 noundef %15) #11
@@ -815,7 +815,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %4, %php_dom_follow_
   %45 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !101
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread, label %43, !llvm.loop !104
+  br i1 %47, label %.thread, label %43
 
 48:                                               ; preds = %34, %39
   %49 = call ptr @xmlHasNsProp(ptr noundef %1, ptr noundef %2, ptr noundef null) #11
@@ -936,11 +936,11 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %21, %php_dom_follow
   %48 = call ptr @zend_hash_next_index_insert(ptr noundef %23, ptr noundef nonnull %3) #11
   %.0 = load ptr, ptr %.045, align 8, !tbaa !100
   %.not40 = icmp eq ptr %.0, null
-  br i1 %.not40, label %.loopexit42, label %33, !llvm.loop !105
+  br i1 %.not40, label %.loopexit42, label %33
 
 .loopexit42:                                      ; preds = %47, %php_dom_follow_spec_doc_ref.exit.thread, %php_dom_follow_spec_doc_ref.exit
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 88
-  %.03746 = load ptr, ptr %49, align 8, !tbaa !106
+  %.03746 = load ptr, ptr %49, align 8, !tbaa !102
   %.not4147 = icmp eq ptr %.03746, null
   br i1 %.not4147, label %.loopexit, label %.lr.ph49
 
@@ -955,9 +955,9 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %21, %php_dom_follow
   store i32 262, ptr %50, align 8, !tbaa !13
   %53 = call ptr @zend_hash_next_index_insert(ptr noundef %23, ptr noundef nonnull %3) #11
   %54 = getelementptr inbounds nuw i8, ptr %.03748, i64 48
-  %.037 = load ptr, ptr %54, align 8, !tbaa !106
+  %.037 = load ptr, ptr %54, align 8, !tbaa !102
   %.not41 = icmp eq ptr %.037, null
-  br i1 %.not41, label %.loopexit, label %51, !llvm.loop !107
+  br i1 %.not41, label %.loopexit, label %51
 
 .loopexit:                                        ; preds = %51, %.loopexit42, %13, %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
@@ -998,7 +998,7 @@ define hidden void @zim_DOMElement_setAttribute(ptr noundef %0, ptr noundef %1) 
 
 zend_parse_arg_str_ex.exit113:                    ; preds = %9
   %14 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #11
-  br i1 %14, label %zend_parse_arg_str_ex.exit113.thread, label %zend_parse_arg_string.exit111, !prof !108
+  br i1 %14, label %zend_parse_arg_str_ex.exit113.thread, label %zend_parse_arg_string.exit111, !prof !103
 
 zend_parse_arg_string.exit111:                    ; preds = %zend_parse_arg_str_ex.exit113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
@@ -1114,7 +1114,7 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %49
   call void @dom_attr_value_will_change(ptr noundef nonnull %38, ptr noundef nonnull %62) #11
   call void @dom_remove_all_children(ptr noundef nonnull %62) #11
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %65 = load ptr, ptr %64, align 8, !tbaa !109
+  %65 = load ptr, ptr %64, align 8, !tbaa !104
   %66 = call ptr @xmlNewDocText(ptr noundef %65, ptr noundef nonnull %26) #11
   %67 = call ptr @xmlAddChild(ptr noundef nonnull %62, ptr noundef %66) #11
   br label %dom_check_register_attribute_id.exit
@@ -1149,21 +1149,21 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %72, %70
 
 82:                                               ; preds = %dom_mark_document_cache_as_modified_since_parsing.exit.i
   %83 = getelementptr inbounds nuw i8, ptr %69, i64 64
-  %84 = load ptr, ptr %83, align 8, !tbaa !109
+  %84 = load ptr, ptr %83, align 8, !tbaa !104
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load i32, ptr %85, align 8, !tbaa !110
+  %86 = load i32, ptr %85, align 8, !tbaa !105
   %87 = icmp eq i32 %86, 13
   br i1 %87, label %88, label %dom_check_register_attribute_id.exit
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  %90 = load ptr, ptr %89, align 8, !tbaa !113
+  %90 = load ptr, ptr %89, align 8, !tbaa !108
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %dom_check_register_attribute_id.exit
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !114
+  %94 = load ptr, ptr %93, align 8, !tbaa !109
   %95 = call i32 @xmlStrEqual(ptr noundef %94, ptr noundef nonnull @.str.2) #11
   %.not6.i = icmp eq i32 %95, 0
   br i1 %.not6.i, label %dom_check_register_attribute_id.exit, label %96
@@ -1380,13 +1380,13 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %15 = load ptr, ptr %14, align 8, !tbaa !115
+  %15 = load ptr, ptr %14, align 8, !tbaa !110
   %16 = icmp eq ptr %15, %1
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %1, align 8, !tbaa !116
-  store ptr %18, ptr %14, align 8, !tbaa !115
+  %18 = load ptr, ptr %1, align 8, !tbaa !111
+  store ptr %18, ptr %14, align 8, !tbaa !110
   br label %.loopexit
 
 19:                                               ; preds = %13
@@ -1395,28 +1395,28 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 
 .preheader:                                       ; preds = %19, %20
   %.028 = phi ptr [ %.0, %20 ], [ %15, %19 ]
-  %.0 = load ptr, ptr %.028, align 8, !tbaa !116
+  %.0 = load ptr, ptr %.028, align 8, !tbaa !111
   %.not31 = icmp eq ptr %.0, null
   br i1 %.not31, label %.loopexit, label %20
 
 20:                                               ; preds = %.preheader
   %21 = icmp eq ptr %.0, %1
-  br i1 %21, label %22, label %.preheader, !llvm.loop !117
+  br i1 %21, label %22, label %.preheader
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %.0, align 8, !tbaa !116
-  store ptr %23, ptr %.028, align 8, !tbaa !116
+  %23 = load ptr, ptr %.0, align 8, !tbaa !111
+  store ptr %23, ptr %.028, align 8, !tbaa !111
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %22, %17
-  store ptr null, ptr %1, align 8, !tbaa !116
+  store ptr null, ptr %1, align 8, !tbaa !111
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !91
   tail call void @php_libxml_set_old_ns(ptr noundef %25, ptr noundef nonnull %1) #11
   %26 = tail call noalias ptr @_emalloc_2048() #11
-  store ptr %0, ptr %26, align 8, !tbaa !118
+  store ptr %0, ptr %26, align 8, !tbaa !112
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr null, ptr %27, align 8, !tbaa !120
+  store ptr null, ptr %27, align 8, !tbaa !114
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %30
@@ -1426,7 +1426,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.190.lcssa.i = phi i64 [ %31, %._crit_edge.i ], [ %.291.i, %84 ]
   %.186.lcssa.i = phi i64 [ %.085127.i, %._crit_edge.i ], [ %.287.i, %84 ]
   %.not.i = icmp eq i64 %.190.lcssa.i, 0
-  br i1 %.not.i, label %dom_deep_ns_redef.exit, label %30, !llvm.loop !121
+  br i1 %.not.i, label %dom_deep_ns_redef.exit, label %30
 
 30:                                               ; preds = %.loopexit.i, %.loopexit
   %.085127.i = phi i64 [ 128, %.loopexit ], [ %.186.lcssa.i, %.loopexit.i ]
@@ -1434,15 +1434,15 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.092125.i = phi ptr [ %26, %.loopexit ], [ %.193.lcssa.i, %.loopexit.i ]
   %31 = add i64 %.089126.i, -1
   %32 = getelementptr inbounds nuw %struct.dom_deep_ns_redef_item, ptr %.092125.i, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !118
+  %33 = load ptr, ptr %32, align 8, !tbaa !112
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !88
   %36 = icmp eq i32 %35, 1
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !120
+  %38 = load ptr, ptr %37, align 8, !tbaa !114
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 72
-  %40 = load ptr, ptr %39, align 8, !tbaa !122
+  %40 = load ptr, ptr %39, align 8, !tbaa !115
   %41 = icmp eq ptr %40, %1
   br i1 %41, label %42, label %51
 
@@ -1454,33 +1454,33 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %45 = load ptr, ptr %28, align 8, !tbaa !93
   %46 = load ptr, ptr %29, align 8, !tbaa !101
   %47 = tail call ptr @xmlNewNs(ptr noundef nonnull %33, ptr noundef %45, ptr noundef %46) #11
-  %.pre.i = load ptr, ptr %32, align 8, !tbaa !118
+  %.pre.i = load ptr, ptr %32, align 8, !tbaa !112
   br label %48
 
 48:                                               ; preds = %44, %42
   %49 = phi ptr [ %.pre.i, %44 ], [ %33, %42 ]
   %.1.i = phi ptr [ %47, %44 ], [ %38, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  store ptr %.1.i, ptr %50, align 8, !tbaa !122
+  store ptr %.1.i, ptr %50, align 8, !tbaa !115
   br label %51
 
 51:                                               ; preds = %48, %30
   %52 = phi ptr [ %49, %48 ], [ %33, %30 ]
   %.084.i = phi ptr [ %.1.i, %48 ], [ %38, %30 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
-  %.083110.i = load ptr, ptr %53, align 8, !tbaa !106
+  %.083110.i = load ptr, ptr %53, align 8, !tbaa !102
   %.not100111.i = icmp eq ptr %.083110.i, null
   br i1 %.not100111.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %67
-  %.pre130.i = load ptr, ptr %32, align 8, !tbaa !118
+  %.pre130.i = load ptr, ptr %32, align 8, !tbaa !112
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %51
   %54 = phi ptr [ %52, %51 ], [ %.pre130.i, %._crit_edge.loopexit.i ]
   %.2.lcssa.i = phi ptr [ %.084.i, %51 ], [ %.4.i, %._crit_edge.loopexit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %.082114.i = load ptr, ptr %55, align 8, !tbaa !123
+  %.082114.i = load ptr, ptr %55, align 8, !tbaa !116
   %.not101115.i = icmp eq ptr %.082114.i, null
   br i1 %.not101115.i, label %.loopexit.i, label %.lr.ph121.i
 
@@ -1488,7 +1488,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.083113.i = phi ptr [ %.083.i, %67 ], [ %.083110.i, %51 ]
   %.2112.i = phi ptr [ %.4.i, %67 ], [ %.084.i, %51 ]
   %56 = getelementptr inbounds nuw i8, ptr %.083113.i, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !113
+  %57 = load ptr, ptr %56, align 8, !tbaa !108
   %58 = icmp eq ptr %57, %1
   br i1 %58, label %59, label %67
 
@@ -1497,7 +1497,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %59
-  %62 = load ptr, ptr %32, align 8, !tbaa !118
+  %62 = load ptr, ptr %32, align 8, !tbaa !112
   %63 = load ptr, ptr %28, align 8, !tbaa !93
   %64 = load ptr, ptr %29, align 8, !tbaa !101
   %65 = tail call ptr @xmlNewNs(ptr noundef %62, ptr noundef %63, ptr noundef %64) #11
@@ -1505,15 +1505,15 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 
 66:                                               ; preds = %61, %59
   %.3.i = phi ptr [ %65, %61 ], [ %.2112.i, %59 ]
-  store ptr %.3.i, ptr %56, align 8, !tbaa !113
+  store ptr %.3.i, ptr %56, align 8, !tbaa !108
   br label %67
 
 67:                                               ; preds = %66, %.lr.ph.i
   %.4.i = phi ptr [ %.3.i, %66 ], [ %.2112.i, %.lr.ph.i ]
   %68 = getelementptr inbounds nuw i8, ptr %.083113.i, i64 48
-  %.083.i = load ptr, ptr %68, align 8, !tbaa !106
+  %.083.i = load ptr, ptr %68, align 8, !tbaa !102
   %.not100.i = icmp eq ptr %.083.i, null
-  br i1 %.not100.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !124
+  br i1 %.not100.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 .lr.ph121.i:                                      ; preds = %._crit_edge.i, %84
   %.082119.i = phi ptr [ %.082.i, %84 ], [ %.082114.i, %._crit_edge.i ]
@@ -1544,9 +1544,9 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.395.i = phi ptr [ %79, %75 ], [ %.193116.i, %71 ]
   %.388.i = phi i64 [ %77, %75 ], [ %.186118.i, %71 ]
   %81 = getelementptr inbounds nuw %struct.dom_deep_ns_redef_item, ptr %.395.i, i64 %.190117.i
-  store ptr %.082119.i, ptr %81, align 8, !tbaa !118
+  store ptr %.082119.i, ptr %81, align 8, !tbaa !112
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %.2.lcssa.i, ptr %82, align 8, !tbaa !120
+  store ptr %.2.lcssa.i, ptr %82, align 8, !tbaa !114
   %83 = add i64 %.190117.i, 1
   br label %84
 
@@ -1555,9 +1555,9 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.291.i = phi i64 [ %.190117.i, %.lr.ph121.i ], [ %83, %80 ]
   %.287.i = phi i64 [ %.186118.i, %.lr.ph121.i ], [ %.388.i, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %.082119.i, i64 48
-  %.082.i = load ptr, ptr %85, align 8, !tbaa !123
+  %.082.i = load ptr, ptr %85, align 8, !tbaa !116
   %.not101.i = icmp eq ptr %.082.i, null
-  br i1 %.not101.i, label %.loopexit.i, label %.lr.ph121.i, !llvm.loop !125
+  br i1 %.not101.i, label %.loopexit.i, label %.lr.ph121.i
 
 dom_deep_ns_redef.exit:                           ; preds = %.loopexit.i, %73
   %.496.i = phi ptr [ %.193116.i, %73 ], [ %.193.lcssa.i, %.loopexit.i ]
@@ -1785,7 +1785,7 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 30:                                               ; preds = %16
   %31 = load ptr, ptr %20, align 8, !tbaa !86
-  %32 = load ptr, ptr %5, align 8, !tbaa !126
+  %32 = load ptr, ptr %5, align 8, !tbaa !117
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   %34 = getelementptr inbounds i8, ptr %33, i64 -24
   %35 = load ptr, ptr %34, align 8, !tbaa !73
@@ -1807,14 +1807,14 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 45:                                               ; preds = %30
   %46 = load ptr, ptr %35, align 8, !tbaa !86
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !127
+  %48 = load i32, ptr %47, align 8, !tbaa !118
   %49 = icmp eq i32 %48, 2
   call void @llvm.assume(i1 %49)
   br i1 %3, label %50, label %64
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !128
+  %52 = load ptr, ptr %51, align 8, !tbaa !119
   %.not = icmp eq ptr %52, null
   %.not69 = icmp eq ptr %52, %31
   %or.cond78 = select i1 %.not, i1 true, i1 %.not69
@@ -1829,7 +1829,7 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !109
+  %58 = load ptr, ptr %57, align 8, !tbaa !104
   %.not70 = icmp eq ptr %58, null
   br i1 %.not70, label %77, label %59
 
@@ -1845,7 +1845,7 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 64:                                               ; preds = %45
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !109
+  %66 = load ptr, ptr %65, align 8, !tbaa !104
   %67 = icmp eq ptr %66, null
   br i1 %67, label %77, label %68
 
@@ -1866,11 +1866,11 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 77:                                               ; preds = %64, %68, %56, %59, %62
   %78 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %79 = load ptr, ptr %78, align 8, !tbaa !113
+  %79 = load ptr, ptr %78, align 8, !tbaa !108
   %80 = icmp ne ptr %79, null
   %or.cond = select i1 %2, i1 %80, i1 false
   %81 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !114
+  %82 = load ptr, ptr %81, align 8, !tbaa !109
   br i1 %or.cond, label %83, label %87
 
 83:                                               ; preds = %77
@@ -1890,7 +1890,7 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !127
+  %92 = load i32, ptr %91, align 8, !tbaa !118
   %.not73 = icmp eq i32 %92, 16
   br i1 %.not73, label %102, label %93
 
@@ -1916,7 +1916,7 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 102:                                              ; preds = %101, %90, %89
   %103 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %104 = load ptr, ptr %103, align 8, !tbaa !128
+  %104 = load ptr, ptr %103, align 8, !tbaa !119
   %.not75 = icmp eq ptr %104, null
   br i1 %.not75, label %106, label %105
 
@@ -1926,7 +1926,7 @@ define internal fastcc void @dom_element_set_attribute_node_common(ptr noundef r
 
 106:                                              ; preds = %105, %102
   %107 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %108 = load ptr, ptr %107, align 8, !tbaa !109
+  %108 = load ptr, ptr %107, align 8, !tbaa !104
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %117
 
@@ -1994,20 +1994,20 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %131, %130
   br i1 %.not.i79, label %dom_check_register_attribute_id.exit, label %141
 
 141:                                              ; preds = %dom_mark_document_cache_as_modified_since_parsing.exit.i
-  %142 = load ptr, ptr %107, align 8, !tbaa !109
+  %142 = load ptr, ptr %107, align 8, !tbaa !104
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load i32, ptr %143, align 8, !tbaa !110
+  %144 = load i32, ptr %143, align 8, !tbaa !105
   %145 = icmp eq i32 %144, 13
   br i1 %145, label %146, label %dom_check_register_attribute_id.exit
 
 146:                                              ; preds = %141
-  %147 = load ptr, ptr %78, align 8, !tbaa !113
+  %147 = load ptr, ptr %78, align 8, !tbaa !108
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %dom_check_register_attribute_id.exit
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %151 = load ptr, ptr %150, align 8, !tbaa !114
+  %151 = load ptr, ptr %150, align 8, !tbaa !109
   %152 = call i32 @xmlStrEqual(ptr noundef %151, ptr noundef nonnull @.str.2) #11
   %.not6.i = icmp eq i32 %152, 0
   br i1 %.not6.i, label %dom_check_register_attribute_id.exit, label %153
@@ -2066,13 +2066,13 @@ define internal fastcc void @dom_element_remove_attribute_node(ptr noundef %0, p
 14:                                               ; preds = %13
   %15 = load ptr, ptr %9, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !129
+  %17 = load ptr, ptr %16, align 8, !tbaa !120
   %18 = icmp eq ptr %17, %2
   br i1 %18, label %.critedge, label %instanceof_function.exit
 
 instanceof_function.exit:                         ; preds = %14
   %19 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %17, ptr noundef nonnull %2) #11
-  br i1 %19, label %.critedge, label %.thread, !prof !130
+  br i1 %19, label %.critedge, label %.thread, !prof !121
 
 20:                                               ; preds = %8
   br i1 %.not.i, label %24, label %.thread
@@ -2134,11 +2134,11 @@ instanceof_function.exit:                         ; preds = %14
   %51 = load ptr, ptr %27, align 8, !tbaa !86
   %52 = load ptr, ptr %40, align 8, !tbaa !86
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !127
+  %54 = load i32, ptr %53, align 8, !tbaa !118
   %55 = icmp eq i32 %54, 2
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !128
+  %57 = load ptr, ptr %56, align 8, !tbaa !119
   %.not60 = icmp eq ptr %57, %51
   br i1 %.not60, label %63, label %58
 
@@ -2507,21 +2507,21 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i.i: ; preds = %59, %57
 
 69:                                               ; preds = %dom_mark_document_cache_as_modified_since_parsing.exit.i.i
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !109
+  %71 = load ptr, ptr %70, align 8, !tbaa !104
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !110
+  %73 = load i32, ptr %72, align 8, !tbaa !105
   %74 = icmp eq i32 %73, 13
   br i1 %74, label %75, label %dom_set_attribute_ns_modern.exit
 
 75:                                               ; preds = %69
   %76 = getelementptr inbounds nuw i8, ptr %54, i64 72
-  %77 = load ptr, ptr %76, align 8, !tbaa !113
+  %77 = load ptr, ptr %76, align 8, !tbaa !108
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %dom_set_attribute_ns_modern.exit
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !114
+  %81 = load ptr, ptr %80, align 8, !tbaa !109
   %82 = call i32 @xmlStrEqual(ptr noundef %81, ptr noundef nonnull @.str.2) #11
   %.not6.i.i = icmp eq i32 %82, 0
   br i1 %.not6.i.i, label %dom_set_attribute_ns_modern.exit, label %83
@@ -2669,7 +2669,7 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %112, %110
   br i1 %153, label %.preheader.i, label %.thread92.i
 
 .preheader.i:                                     ; preds = %150
-  %.095.i = load ptr, ptr %149, align 8, !tbaa !116
+  %.095.i = load ptr, ptr %149, align 8, !tbaa !111
   %.not7796.i = icmp eq ptr %.095.i, null
   br i1 %.not7796.i, label %.thread.i, label %.lr.ph.i
 
@@ -2692,9 +2692,9 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %112, %110
   br i1 %.not80.i, label %161, label %.thread92.i
 
 161:                                              ; preds = %159, %156, %.lr.ph.i
-  %.0.i = load ptr, ptr %.097.i, align 8, !tbaa !116
+  %.0.i = load ptr, ptr %.097.i, align 8, !tbaa !111
   %.not77.i = icmp eq ptr %.0.i, null
-  br i1 %.not77.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !131
+  br i1 %.not77.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %161, %.preheader.i
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 16
@@ -2771,13 +2771,13 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %112, %110
 
 197:                                              ; preds = %194
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %199 = load i32, ptr %198, align 8, !tbaa !127
+  %199 = load i32, ptr %198, align 8, !tbaa !118
   %.not70.i = icmp eq i32 %199, 16
   br i1 %.not70.i, label %203, label %200
 
 200:                                              ; preds = %197
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 24
-  %202 = load ptr, ptr %201, align 8, !tbaa !132
+  %202 = load ptr, ptr %201, align 8, !tbaa !122
   call void @node_list_unlink(ptr noundef %202) #11
   br label %203
 
@@ -2940,32 +2940,32 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %28
 
 66:                                               ; preds = %64, %61
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 96
-  %68 = load ptr, ptr %67, align 8, !tbaa !115
+  %68 = load ptr, ptr %67, align 8, !tbaa !110
   %69 = icmp eq ptr %68, %51
   br i1 %69, label %70, label %.preheader.i
 
 70:                                               ; preds = %66
-  %71 = load ptr, ptr %51, align 8, !tbaa !116
-  store ptr %71, ptr %67, align 8, !tbaa !115
+  %71 = load ptr, ptr %51, align 8, !tbaa !111
+  store ptr %71, ptr %67, align 8, !tbaa !110
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %66, %76
   %.0.i = phi ptr [ %72, %76 ], [ %68, %66 ]
-  %72 = load ptr, ptr %.0.i, align 8, !tbaa !116
+  %72 = load ptr, ptr %.0.i, align 8, !tbaa !111
   %73 = icmp eq ptr %72, %51
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %.preheader.i
-  %75 = load ptr, ptr %51, align 8, !tbaa !116
-  store ptr %75, ptr %.0.i, align 8, !tbaa !116
+  %75 = load ptr, ptr %51, align 8, !tbaa !111
+  store ptr %75, ptr %.0.i, align 8, !tbaa !111
   br label %.loopexit.i
 
 76:                                               ; preds = %.preheader.i
   %.not28.i = icmp eq ptr %72, null
-  br i1 %.not28.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !133
+  br i1 %.not28.i, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %76, %74, %70
-  store ptr null, ptr %51, align 8, !tbaa !116
+  store ptr null, ptr %51, align 8, !tbaa !111
   %77 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %78 = load ptr, ptr %77, align 8, !tbaa !91
   call void @php_libxml_set_old_ns(ptr noundef %78, ptr noundef nonnull %51) #11
@@ -2974,36 +2974,36 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %28
   %81 = icmp eq i32 %80, 1
   call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %83 = load ptr, ptr %82, align 8, !tbaa !122
+  %83 = load ptr, ptr %82, align 8, !tbaa !115
   %84 = icmp eq ptr %83, %51
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %.loopexit.i
-  store ptr null, ptr %82, align 8, !tbaa !122
+  store ptr null, ptr %82, align 8, !tbaa !115
   br label %86
 
 86:                                               ; preds = %85, %.loopexit.i
   %87 = getelementptr inbounds nuw i8, ptr %29, i64 88
-  %.010.i.i.i = load ptr, ptr %87, align 8, !tbaa !106
+  %.010.i.i.i = load ptr, ptr %87, align 8, !tbaa !102
   %.not11.i.i.i = icmp eq ptr %.010.i.i.i, null
   br i1 %.not11.i.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %86, %92
   %.012.i12.i.i = phi ptr [ %.0.i13.i.i, %92 ], [ %.010.i.i.i, %86 ]
   %88 = getelementptr inbounds nuw i8, ptr %.012.i12.i.i, i64 72
-  %89 = load ptr, ptr %88, align 8, !tbaa !113
+  %89 = load ptr, ptr %88, align 8, !tbaa !108
   %90 = icmp eq ptr %89, %51
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %.lr.ph.i.i.i
-  store ptr null, ptr %88, align 8, !tbaa !113
+  store ptr null, ptr %88, align 8, !tbaa !108
   br label %92
 
 92:                                               ; preds = %91, %.lr.ph.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %.012.i12.i.i, i64 48
-  %.0.i13.i.i = load ptr, ptr %93, align 8, !tbaa !106
+  %.0.i13.i.i = load ptr, ptr %93, align 8, !tbaa !102
   %.not.i14.i.i = icmp eq ptr %.0.i13.i.i, null
-  br i1 %.not.i14.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !134
+  br i1 %.not.i14.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i
 
 dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %92, %86
   %94 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3011,8 +3011,8 @@ dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %92, %86
   %.not23.i.i = icmp eq ptr %95, null
   br i1 %.not23.i.i, label %dom_eliminate_ns.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %dom_remove_eliminated_ns_single_element.exit.i.i, %php_dom_next_in_tree_order.exit.i.i
-  %.024.i.i = phi ptr [ %.0.i.i.i, %php_dom_next_in_tree_order.exit.i.i ], [ %95, %dom_remove_eliminated_ns_single_element.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %dom_remove_eliminated_ns_single_element.exit.i.i, %.lr.ph.i.i.backedge
+  %.024.i.i = phi ptr [ %.024.i.i.be, %.lr.ph.i.i.backedge ], [ %95, %dom_remove_eliminated_ns_single_element.exit.i.i ]
   %96 = icmp ne ptr %.024.i.i, %29
   call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
@@ -3022,53 +3022,57 @@ dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %92, %86
 
 100:                                              ; preds = %.lr.ph.i.i
   %101 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 72
-  %102 = load ptr, ptr %101, align 8, !tbaa !122
+  %102 = load ptr, ptr %101, align 8, !tbaa !115
   %103 = icmp eq ptr %102, %51
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %100
-  store ptr null, ptr %101, align 8, !tbaa !122
+  store ptr null, ptr %101, align 8, !tbaa !115
   br label %105
 
 105:                                              ; preds = %104, %100
   %106 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 88
-  %.010.i15.i.i = load ptr, ptr %106, align 8, !tbaa !106
+  %.010.i15.i.i = load ptr, ptr %106, align 8, !tbaa !102
   %.not11.i16.i.i = icmp eq ptr %.010.i15.i.i, null
   br i1 %.not11.i16.i.i, label %dom_remove_eliminated_ns_single_element.exit21.thread.i.i, label %.lr.ph.i17.i.i
 
 .lr.ph.i17.i.i:                                   ; preds = %105, %111
   %.012.i18.i.i = phi ptr [ %.0.i19.i.i, %111 ], [ %.010.i15.i.i, %105 ]
   %107 = getelementptr inbounds nuw i8, ptr %.012.i18.i.i, i64 72
-  %108 = load ptr, ptr %107, align 8, !tbaa !113
+  %108 = load ptr, ptr %107, align 8, !tbaa !108
   %109 = icmp eq ptr %108, %51
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %.lr.ph.i17.i.i
-  store ptr null, ptr %107, align 8, !tbaa !113
+  store ptr null, ptr %107, align 8, !tbaa !108
   br label %111
 
 111:                                              ; preds = %110, %.lr.ph.i17.i.i
   %112 = getelementptr inbounds nuw i8, ptr %.012.i18.i.i, i64 48
-  %.0.i19.i.i = load ptr, ptr %112, align 8, !tbaa !106
+  %.0.i19.i.i = load ptr, ptr %112, align 8, !tbaa !102
   %.not.i20.i.i = icmp eq ptr %.0.i19.i.i, null
-  br i1 %.not.i20.i.i, label %dom_remove_eliminated_ns_single_element.exit21.thread.i.i, label %.lr.ph.i17.i.i, !llvm.loop !134
+  br i1 %.not.i20.i.i, label %dom_remove_eliminated_ns_single_element.exit21.thread.i.i, label %.lr.ph.i17.i.i
 
 dom_remove_eliminated_ns_single_element.exit21.thread.i.i: ; preds = %111, %105
   %113 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 24
   %114 = load ptr, ptr %113, align 8, !tbaa !92
   %.not.i.i.i = icmp eq ptr %114, null
-  br i1 %.not.i.i.i, label %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i, label %php_dom_next_in_tree_order.exit.i.i
+  br i1 %.not.i.i.i, label %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i, label %.lr.ph.i.i.backedge
 
 dom_remove_eliminated_ns_single_element.exit21.thread22.i.i: ; preds = %dom_remove_eliminated_ns_single_element.exit21.thread.i.i, %.lr.ph.i.i
   %115 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 48
-  %116 = load ptr, ptr %115, align 8, !tbaa !135
+  %116 = load ptr, ptr %115, align 8, !tbaa !123
   %.not17.i.i.i = icmp eq ptr %116, null
-  br i1 %.not17.i.i.i, label %.preheader.i.i, label %php_dom_next_in_tree_order.exit.i.i
+  br i1 %.not17.i.i.i, label %.preheader.i.i, label %.lr.ph.i.i.backedge
+
+.lr.ph.i.i.backedge:                              ; preds = %123, %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i, %dom_remove_eliminated_ns_single_element.exit21.thread.i.i
+  %.024.i.i.be = phi ptr [ %114, %dom_remove_eliminated_ns_single_element.exit21.thread.i.i ], [ %116, %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i ], [ %125, %123 ]
+  br label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i, %123
   %.012.i.i.i = phi ptr [ %118, %123 ], [ %.024.i.i, %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i ]
   %117 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
-  %118 = load ptr, ptr %117, align 8, !tbaa !136
+  %118 = load ptr, ptr %117, align 8, !tbaa !124
   %119 = icmp eq ptr %118, %29
   br i1 %119, label %dom_eliminate_ns.exit, label %120
 
@@ -3082,13 +3086,9 @@ dom_remove_eliminated_ns_single_element.exit21.thread22.i.i: ; preds = %dom_remo
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  %125 = load ptr, ptr %124, align 8, !tbaa !135
+  %125 = load ptr, ptr %124, align 8, !tbaa !123
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.preheader.i.i, label %php_dom_next_in_tree_order.exit.i.i, !llvm.loop !137
-
-php_dom_next_in_tree_order.exit.i.i:              ; preds = %123, %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i, %dom_remove_eliminated_ns_single_element.exit21.thread.i.i
-  %.0.i.i.i = phi ptr [ %114, %dom_remove_eliminated_ns_single_element.exit21.thread.i.i ], [ %116, %dom_remove_eliminated_ns_single_element.exit21.thread22.i.i ], [ %125, %123 ]
-  br label %.lr.ph.i.i, !llvm.loop !138
+  br i1 %126, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
 dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %41, %122, %dom_remove_eliminated_ns_single_element.exit.i.i, %48, %44
   %127 = phi ptr [ %49, %48 ], [ %47, %44 ], [ %43, %41 ], [ %49, %dom_remove_eliminated_ns_single_element.exit.i.i ], [ %49, %122 ], [ %49, %.preheader.i.i ]
@@ -3097,7 +3097,7 @@ dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %41
 
 128:                                              ; preds = %dom_eliminate_ns.exit
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %130 = load i32, ptr %129, align 8, !tbaa !127
+  %130 = load i32, ptr %129, align 8, !tbaa !118
   %.not26 = icmp eq i32 %130, 16
   br i1 %.not26, label %138, label %131
 
@@ -3108,7 +3108,7 @@ dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %41
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %136 = load ptr, ptr %135, align 8, !tbaa !132
+  %136 = load ptr, ptr %135, align 8, !tbaa !122
   call void @node_list_unlink(ptr noundef %136) #11
   call void @xmlUnlinkNode(ptr noundef nonnull %127) #11
   call void @xmlFreeProp(ptr noundef nonnull %127) #11
@@ -3590,7 +3590,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr noundef readonly captures(
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !127
+  %34 = load i32, ptr %33, align 8, !tbaa !118
   %35 = icmp eq i32 %34, 16
   br i1 %35, label %36, label %40
 
@@ -3602,7 +3602,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr noundef readonly captures(
   br label %php_set_attribute_id.exit
 
 40:                                               ; preds = %32
-  %41 = load i8, ptr %5, align 1, !tbaa !139, !range !140, !noundef !141
+  %41 = load i8, ptr %5, align 1, !tbaa !125, !range !126, !noundef !127
   %42 = trunc nuw i8 %41 to i1
   %43 = getelementptr inbounds i8, ptr %15, i64 -16
   %44 = load ptr, ptr %43, align 8, !tbaa !48
@@ -3619,7 +3619,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr noundef readonly captures(
 
 48:                                               ; preds = %.critedge.i
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %50 = load ptr, ptr %49, align 8, !tbaa !109
+  %50 = load ptr, ptr %49, align 8, !tbaa !104
   %51 = call i32 @xmlRemoveID(ptr noundef %50, ptr noundef nonnull %30) #11
   br label %.sink.split.i
 
@@ -3707,7 +3707,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr noundef readonly capture
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !127
+  %37 = load i32, ptr %36, align 8, !tbaa !118
   %38 = icmp eq i32 %37, 16
   br i1 %38, label %39, label %43
 
@@ -3719,7 +3719,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr noundef readonly capture
   br label %php_set_attribute_id.exit
 
 43:                                               ; preds = %35
-  %44 = load i8, ptr %7, align 1, !tbaa !139, !range !140, !noundef !141
+  %44 = load i8, ptr %7, align 1, !tbaa !125, !range !126, !noundef !127
   %45 = trunc nuw i8 %44 to i1
   %46 = getelementptr inbounds i8, ptr %17, i64 -16
   %47 = load ptr, ptr %46, align 8, !tbaa !48
@@ -3736,7 +3736,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr noundef readonly capture
 
 51:                                               ; preds = %.critedge.i
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %53 = load ptr, ptr %52, align 8, !tbaa !109
+  %53 = load ptr, ptr %52, align 8, !tbaa !104
   %54 = call i32 @xmlRemoveID(ptr noundef %53, ptr noundef nonnull %33) #11
   br label %.sink.split.i
 
@@ -3816,7 +3816,7 @@ define internal fastcc void @dom_element_set_id_attribute_node(ptr noundef reado
   br label %php_set_attribute_id.exit
 
 25:                                               ; preds = %11
-  %26 = load ptr, ptr %3, align 8, !tbaa !126
+  %26 = load ptr, ptr %3, align 8, !tbaa !117
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = getelementptr inbounds i8, ptr %27, i64 -24
   %29 = load ptr, ptr %28, align 8, !tbaa !73
@@ -3839,7 +3839,7 @@ define internal fastcc void @dom_element_set_id_attribute_node(ptr noundef reado
   %40 = load ptr, ptr %15, align 8, !tbaa !86
   %41 = load ptr, ptr %29, align 8, !tbaa !86
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !128
+  %43 = load ptr, ptr %42, align 8, !tbaa !119
   %.not16 = icmp eq ptr %43, %40
   br i1 %.not16, label %48, label %44
 
@@ -3851,7 +3851,7 @@ define internal fastcc void @dom_element_set_id_attribute_node(ptr noundef reado
   br label %php_set_attribute_id.exit
 
 48:                                               ; preds = %39
-  %49 = load i8, ptr %4, align 1, !tbaa !139, !range !140, !noundef !141
+  %49 = load i8, ptr %4, align 1, !tbaa !125, !range !126, !noundef !127
   %50 = trunc nuw i8 %49 to i1
   %51 = getelementptr inbounds i8, ptr %13, i64 -16
   %52 = load ptr, ptr %51, align 8, !tbaa !48
@@ -3868,7 +3868,7 @@ define internal fastcc void @dom_element_set_id_attribute_node(ptr noundef reado
 
 56:                                               ; preds = %.critedge.i
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !109
+  %58 = load ptr, ptr %57, align 8, !tbaa !104
   %59 = call i32 @xmlRemoveID(ptr noundef %58, ptr noundef nonnull %41) #11
   br label %.sink.split.i
 
@@ -4273,7 +4273,7 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr noundef readonly ca
   br label %dom_element_insert_adjacent_element.exit
 
 26:                                               ; preds = %12
-  %27 = load ptr, ptr %4, align 8, !tbaa !126
+  %27 = load ptr, ptr %4, align 8, !tbaa !117
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds i8, ptr %28, i64 -24
   %30 = load ptr, ptr %29, align 8, !tbaa !73
@@ -4350,13 +4350,13 @@ define hidden void @zim_Dom_Element_insertAdjacentElement(ptr noundef %0, ptr no
 13:                                               ; preds = %12
   %14 = load ptr, ptr %7, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !129
+  %16 = load ptr, ptr %15, align 8, !tbaa !120
   %17 = icmp eq ptr %16, %8
   br i1 %17, label %zend_parse_arg_object.exit, label %instanceof_function.exit61
 
 instanceof_function.exit61:                       ; preds = %13
   %18 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %16, ptr noundef nonnull %8) #11
-  br i1 %18, label %zend_parse_arg_object.exit, label %thread-pre-split, !prof !130
+  br i1 %18, label %zend_parse_arg_object.exit, label %thread-pre-split, !prof !121
 
 thread-pre-split:                                 ; preds = %instanceof_function.exit61
   %.pr = load ptr, ptr @dom_adjacent_position_class_entry, align 8, !tbaa !58
@@ -4388,13 +4388,13 @@ zend_parse_arg_object.exit:                       ; preds = %13, %instanceof_fun
 31:                                               ; preds = %30
   %32 = load ptr, ptr %25, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !129
+  %34 = load ptr, ptr %33, align 8, !tbaa !120
   %35 = icmp eq ptr %34, %26
   br i1 %35, label %.critedge, label %instanceof_function.exit
 
 instanceof_function.exit:                         ; preds = %31
   %36 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %34, ptr noundef nonnull %26) #11
-  br i1 %36, label %.critedge, label %thread-pre-split67, !prof !130
+  br i1 %36, label %.critedge, label %thread-pre-split67, !prof !121
 
 thread-pre-split67:                               ; preds = %instanceof_function.exit
   %.pr68 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !58
@@ -4423,9 +4423,9 @@ thread-pre-split67:                               ; preds = %instanceof_function
 .critedge:                                        ; preds = %31, %instanceof_function.exit, %30
   %44 = load ptr, ptr %7, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !129
+  %46 = load ptr, ptr %45, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  %48 = load i32, ptr %47, align 4, !tbaa !142
+  %48 = load i32, ptr %47, align 4, !tbaa !128
   %49 = and i32 %48, 268435456
   %50 = icmp ne i32 %49, 0
   tail call void @llvm.assume(i1 %50)
@@ -4604,13 +4604,13 @@ define hidden void @zim_Dom_Element_insertAdjacentText(ptr noundef %0, ptr nound
 14:                                               ; preds = %13
   %15 = load ptr, ptr %8, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !129
+  %17 = load ptr, ptr %16, align 8, !tbaa !120
   %18 = icmp eq ptr %17, %9
   br i1 %18, label %zend_parse_arg_object.exit, label %instanceof_function.exit
 
 instanceof_function.exit:                         ; preds = %14
   %19 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %17, ptr noundef nonnull %9) #11
-  br i1 %19, label %zend_parse_arg_object.exit, label %thread-pre-split, !prof !130
+  br i1 %19, label %zend_parse_arg_object.exit, label %thread-pre-split, !prof !121
 
 thread-pre-split:                                 ; preds = %instanceof_function.exit
   %.pr = load ptr, ptr @dom_adjacent_position_class_entry, align 8, !tbaa !58
@@ -4619,7 +4619,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
 20:                                               ; preds = %thread-pre-split, %7
   %21 = phi ptr [ %.pr, %thread-pre-split ], [ %9, %7 ]
   %.not54 = icmp eq ptr %21, null
-  br i1 %.not54, label %.thread71, label %22, !prof !108
+  br i1 %.not54, label %.thread71, label %22, !prof !103
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -4642,7 +4642,7 @@ zend_parse_arg_object.exit:                       ; preds = %14, %instanceof_fun
 zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_object.exit
   %31 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %26, ptr noundef nonnull %3, i32 noundef 2) #11
   %cond.fr61 = freeze i1 %31
-  br i1 %cond.fr61, label %zend_parse_arg_str_ex.exit..critedge_crit_edge, label %.thread71, !prof !143
+  br i1 %cond.fr61, label %zend_parse_arg_str_ex.exit..critedge_crit_edge, label %.thread71, !prof !129
 
 zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_ex.exit
   %.pre = load ptr, ptr %3, align 8, !tbaa !53
@@ -4661,9 +4661,9 @@ zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_
   %32 = phi ptr [ %.pre, %zend_parse_arg_str_ex.exit..critedge_crit_edge ], [ %30, %.thread85 ]
   %33 = load ptr, ptr %8, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !129
+  %35 = load ptr, ptr %34, align 8, !tbaa !120
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %37 = load i32, ptr %36, align 4, !tbaa !142
+  %37 = load i32, ptr %36, align 4, !tbaa !128
   %38 = and i32 %37, 268435456
   %39 = icmp ne i32 %38, 0
   call void @llvm.assume(i1 %39)
@@ -4753,13 +4753,13 @@ define hidden void @zim_Dom_Element_insertAdjacentHTML(ptr noundef %0, ptr nound
 15:                                               ; preds = %14
   %16 = load ptr, ptr %9, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !129
+  %18 = load ptr, ptr %17, align 8, !tbaa !120
   %19 = icmp eq ptr %18, %10
   br i1 %19, label %zend_parse_arg_object.exit, label %instanceof_function.exit
 
 instanceof_function.exit:                         ; preds = %15
   %20 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %18, ptr noundef nonnull %10) #11
-  br i1 %20, label %zend_parse_arg_object.exit, label %thread-pre-split, !prof !130
+  br i1 %20, label %zend_parse_arg_object.exit, label %thread-pre-split, !prof !121
 
 thread-pre-split:                                 ; preds = %instanceof_function.exit
   %.pr = load ptr, ptr @dom_adjacent_position_class_entry, align 8, !tbaa !58
@@ -4768,7 +4768,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
 21:                                               ; preds = %thread-pre-split, %8
   %22 = phi ptr [ %.pr, %thread-pre-split ], [ %10, %8 ]
   %.not102 = icmp eq ptr %22, null
-  br i1 %.not102, label %.thread123, label %23, !prof !108
+  br i1 %.not102, label %.thread123, label %23, !prof !103
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -4791,7 +4791,7 @@ zend_parse_arg_object.exit:                       ; preds = %15, %instanceof_fun
 zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_object.exit
   %32 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 2) #11
   %cond.fr113 = freeze i1 %32
-  br i1 %cond.fr113, label %.critedge, label %.thread123, !prof !143
+  br i1 %cond.fr113, label %.critedge, label %.thread123, !prof !129
 
 .thread123:                                       ; preds = %zend_parse_arg_str_ex.exit, %21, %23, %7
   %.087135 = phi i32 [ 1, %21 ], [ 1, %23 ], [ 0, %7 ], [ 2, %zend_parse_arg_str_ex.exit ]
@@ -4825,9 +4825,9 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %46 = load ptr, ptr %35, align 8, !tbaa !86
   %47 = load ptr, ptr %9, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !129
+  %49 = load ptr, ptr %48, align 8, !tbaa !120
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
-  %51 = load i32, ptr %50, align 4, !tbaa !142
+  %51 = load i32, ptr %50, align 4, !tbaa !128
   %52 = and i32 %51, 268435456
   %53 = icmp ne i32 %52, 0
   call void @llvm.assume(i1 %53)
@@ -4848,7 +4848,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
 
 62:                                               ; preds = %45, %45
   %63 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !136
+  %64 = load ptr, ptr %63, align 8, !tbaa !124
   %65 = icmp eq ptr %64, null
   br i1 %65, label %69, label %66
 
@@ -4883,7 +4883,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %.088, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !144
+  %80 = load ptr, ptr %79, align 8, !tbaa !130
   %81 = call i32 @xmlStrEqual(ptr noundef %80, ptr noundef nonnull @.str.14) #11
   %.not105 = icmp eq i32 %81, 0
   br i1 %.not105, label %.thread137, label %82
@@ -4917,9 +4917,9 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %97 = load i64, ptr %96, align 8, !tbaa !145
+  %97 = load i64, ptr %96, align 8, !tbaa !131
   %98 = add i64 %97, 1
-  store i64 %98, ptr %96, align 8, !tbaa !145
+  store i64 %98, ptr %96, align 8, !tbaa !131
   br label %php_libxml_invalidate_node_list_cache.exit
 
 php_libxml_invalidate_node_list_cache.exit:       ; preds = %92, %95
@@ -4936,15 +4936,15 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %92, %95
 
 103:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
   %104 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %105 = load ptr, ptr %104, align 8, !tbaa !136
+  %105 = load ptr, ptr %104, align 8, !tbaa !124
   %106 = call zeroext i1 @php_dom_pre_insert(ptr noundef %94, ptr noundef nonnull %90, ptr noundef %105, ptr noundef %46) #11
   br label %119
 
 107:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
   %108 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %109 = load ptr, ptr %108, align 8, !tbaa !136
+  %109 = load ptr, ptr %108, align 8, !tbaa !124
   %110 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %111 = load ptr, ptr %110, align 8, !tbaa !135
+  %111 = load ptr, ptr %110, align 8, !tbaa !123
   %112 = call zeroext i1 @php_dom_pre_insert(ptr noundef %94, ptr noundef nonnull %90, ptr noundef %109, ptr noundef %111) #11
   br label %119
 
@@ -4997,7 +4997,7 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr noundef readonly captures
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
-  store i8 1, ptr %6, align 1, !tbaa !139
+  store i8 1, ptr %6, align 1, !tbaa !125
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.16, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
@@ -5066,13 +5066,13 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %36, %39
 
 47:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !110
+  %49 = load i32, ptr %48, align 8, !tbaa !105
   %50 = icmp eq i32 %49, 13
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %47
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !122
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !115
   %.not39 = icmp eq ptr %.pre, null
   br i1 %44, label %53, label %52
 
@@ -5106,12 +5106,12 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %36, %39
   %64 = load i64, ptr %4, align 8, !tbaa !11
   %65 = call fastcc ptr @dom_get_attribute_or_nsdecl(ptr noundef nonnull %18, ptr noundef nonnull %30, ptr noundef %63, i64 noundef %64)
   %66 = icmp eq ptr %65, null
-  %67 = load i8, ptr %6, align 1, !tbaa !139, !range !140, !noundef !141
+  %67 = load i8, ptr %6, align 1, !tbaa !125, !range !126, !noundef !127
   %68 = trunc nuw i8 %67 to i1
   br i1 %66, label %69, label %92
 
 69:                                               ; preds = %62
-  %70 = load i8, ptr %5, align 1, !range !140
+  %70 = load i8, ptr %5, align 1, !range !126
   %71 = trunc nuw i8 %70 to i1
   %or.cond = select i1 %68, i1 true, i1 %71
   br i1 %or.cond, label %72, label %96
@@ -5157,7 +5157,7 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %36, %39
 
 92:                                               ; preds = %62
   %.not = xor i1 %68, true
-  %93 = load i8, ptr %5, align 1, !range !140
+  %93 = load i8, ptr %5, align 1, !range !126
   %94 = trunc nuw i8 %93 to i1
   %or.cond3 = select i1 %.not, i1 %94, i1 false
   br i1 %or.cond3, label %96, label %95
@@ -5230,7 +5230,7 @@ define internal fastcc void @php_dom_dispatch_query_selector(ptr noundef %0, ptr
 zend_parse_arg_str_ex.exit:                       ; preds = %8
   %14 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %4, i32 noundef 1) #11
   %cond.fr52 = freeze i1 %14
-  br i1 %cond.fr52, label %.critedge, label %15, !prof !143
+  br i1 %cond.fr52, label %.critedge, label %15, !prof !129
 
 15:                                               ; preds = %zend_parse_arg_str_ex.exit, %.thread62
   %.071 = phi i32 [ 0, %.thread62 ], [ 1, %zend_parse_arg_str_ex.exit ]
@@ -5312,7 +5312,7 @@ define hidden void @zim_Dom_Element_matches(ptr noundef %0, ptr noundef %1) loca
 zend_parse_arg_str_ex.exit:                       ; preds = %7
   %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #11
   %cond.fr48 = freeze i1 %13
-  br i1 %cond.fr48, label %.critedge, label %14, !prof !143
+  br i1 %cond.fr48, label %.critedge, label %14, !prof !129
 
 14:                                               ; preds = %zend_parse_arg_str_ex.exit, %.thread58
   %.067 = phi i32 [ 0, %.thread58 ], [ 1, %zend_parse_arg_str_ex.exit ]
@@ -5383,7 +5383,7 @@ define hidden void @zim_Dom_Element_closest(ptr noundef %0, ptr noundef %1) loca
 zend_parse_arg_str_ex.exit:                       ; preds = %7
   %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #11
   %cond.fr48 = freeze i1 %13
-  br i1 %cond.fr48, label %.critedge, label %14, !prof !143
+  br i1 %cond.fr48, label %.critedge, label %14, !prof !129
 
 14:                                               ; preds = %zend_parse_arg_str_ex.exit, %.thread58
   %.067 = phi i32 [ 0, %.thread58 ], [ 1, %zend_parse_arg_str_ex.exit ]
@@ -5492,9 +5492,9 @@ define hidden range(i32 -1, 1) i32 @dom_modern_element_substituted_node_value_wr
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !145
+  %11 = load i64, ptr %10, align 8, !tbaa !131
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !145
+  store i64 %12, ptr %10, align 8, !tbaa !131
   br label %php_libxml_invalidate_node_list_cache.exit
 
 php_libxml_invalidate_node_list_cache.exit:       ; preds = %6, %9
@@ -5574,7 +5574,7 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !146
+  %10 = load i32, ptr %9, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5604,10 +5604,10 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
 24:                                               ; preds = %24, %22
   %.066.in = phi ptr [ %23, %22 ], [ %25, %24 ]
   %.065 = phi ptr [ null, %22 ], [ %.066, %24 ]
-  %.066 = load ptr, ptr %.066.in, align 8, !tbaa !106
+  %.066 = load ptr, ptr %.066.in, align 8, !tbaa !102
   %.not82 = icmp eq ptr %.066, null
   %25 = getelementptr inbounds nuw i8, ptr %.066, i64 48
-  br i1 %.not82, label %.preheader, label %24, !llvm.loop !147
+  br i1 %.not82, label %.preheader, label %24
 
 .preheader:                                       ; preds = %24
   %.not8387 = icmp eq ptr %.065, null
@@ -5616,29 +5616,29 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
 .lr.ph:                                           ; preds = %.preheader, %52
   %.06788 = phi ptr [ %54, %52 ], [ %.065, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %.06788, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !113
+  %27 = load ptr, ptr %26, align 8, !tbaa !108
   %.not84 = icmp eq ptr %27, null
   br i1 %.not84, label %52, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !148
+  %29 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !133
   %30 = call zeroext i1 @php_dom_ns_is_fast_ex(ptr noundef nonnull %27, ptr noundef %29) #11
   br i1 %30, label %31, label %52
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %.06788, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !132
+  %33 = load ptr, ptr %32, align 8, !tbaa !122
   %.not85 = icmp eq ptr %33, null
   br i1 %.not85, label %52, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %36 = load ptr, ptr %35, align 8, !tbaa !150
+  %36 = load ptr, ptr %35, align 8, !tbaa !135
   %.not86 = icmp eq ptr %36, null
   br i1 %.not86, label %52, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %26, align 8, !tbaa !113
+  %38 = load ptr, ptr %26, align 8, !tbaa !108
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !101
   %41 = icmp eq ptr %40, null
@@ -5646,7 +5646,7 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %.06788, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !114
+  %44 = load ptr, ptr %43, align 8, !tbaa !109
   br label %45
 
 45:                                               ; preds = %37, %42
@@ -5664,15 +5664,15 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
 
 52:                                               ; preds = %.lr.ph, %28, %31, %34, %45
   %53 = getelementptr inbounds nuw i8, ptr %.06788, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !151
+  %54 = load ptr, ptr %53, align 8, !tbaa !136
   %.not83 = icmp eq ptr %54, null
-  br i1 %.not83, label %.loopexit, label %.lr.ph, !llvm.loop !152
+  br i1 %.not83, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %52, %.preheader, %18
   %55 = getelementptr inbounds nuw i8, ptr %.090, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !136
+  %56 = load ptr, ptr %55, align 8, !tbaa !124
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !153
+  br i1 %.not, label %._crit_edge, label %18
 
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %112
   %.06894 = phi i32 [ %113, %112 ], [ %10, %.lr.ph96.preheader ]
@@ -5685,7 +5685,7 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
 
 61:                                               ; preds = %.lr.ph96
   %62 = getelementptr inbounds i8, ptr %.06993, i64 -8
-  %63 = load ptr, ptr %62, align 8, !tbaa !154
+  %63 = load ptr, ptr %62, align 8, !tbaa !137
   %64 = load ptr, ptr %57, align 8, !tbaa !13
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %66 = load i64, ptr %65, align 8, !tbaa !57
@@ -5782,7 +5782,7 @@ zend_string_alloc.exit:                           ; preds = %95
 112:                                              ; preds = %68, %70, %74, %.lr.ph96, %107
   %113 = add i32 %.06894, -1
   %.not76 = icmp eq i32 %113, 0
-  br i1 %.not76, label %._crit_edge97, label %.lr.ph96, !llvm.loop !156
+  br i1 %.not76, label %._crit_edge97, label %.lr.ph96
 
 ._crit_edge97:                                    ; preds = %112, %._crit_edge
   call void @zend_hash_destroy(ptr noundef nonnull %5) #11
@@ -5834,8 +5834,8 @@ define hidden void @zim_Dom_Element_getDescendantNamespaces(ptr noundef readonly
   %.not2627 = icmp eq ptr %26, null
   br i1 %.not2627, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %php_dom_next_in_tree_order.exit
-  %.028 = phi ptr [ %.0.i, %php_dom_next_in_tree_order.exit ], [ %26, %20 ]
+.lr.ph:                                           ; preds = %20, %.lr.ph.backedge
+  %.028 = phi ptr [ %.028.be, %.lr.ph.backedge ], [ %26, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !88
   %29 = icmp eq i32 %28, 1
@@ -5851,18 +5851,22 @@ define hidden void @zim_Dom_Element_getDescendantNamespaces(ptr noundef readonly
   %33 = getelementptr inbounds nuw i8, ptr %.028, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !92
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %.thread, label %php_dom_next_in_tree_order.exit
+  br i1 %.not.i, label %.thread, label %.lr.ph.backedge
+
+.lr.ph.backedge:                                  ; preds = %43, %32, %.thread
+  %.028.be = phi ptr [ %34, %32 ], [ %36, %.thread ], [ %45, %43 ]
+  br label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %32, %30
   %35 = getelementptr inbounds nuw i8, ptr %.028, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !135
+  %36 = load ptr, ptr %35, align 8, !tbaa !123
   %.not17.i = icmp eq ptr %36, null
-  br i1 %.not17.i, label %.preheader, label %php_dom_next_in_tree_order.exit
+  br i1 %.not17.i, label %.preheader, label %.lr.ph.backedge
 
 .preheader:                                       ; preds = %.thread, %43
   %.012.i = phi ptr [ %38, %43 ], [ %.028, %.thread ]
   %37 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !136
+  %38 = load ptr, ptr %37, align 8, !tbaa !124
   %39 = icmp eq ptr %38, %21
   br i1 %39, label %.loopexit, label %40
 
@@ -5876,13 +5880,9 @@ define hidden void @zim_Dom_Element_getDescendantNamespaces(ptr noundef readonly
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %45 = load ptr, ptr %44, align 8, !tbaa !135
+  %45 = load ptr, ptr %44, align 8, !tbaa !123
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.preheader, label %php_dom_next_in_tree_order.exit, !llvm.loop !137
-
-php_dom_next_in_tree_order.exit:                  ; preds = %43, %32, %.thread
-  %.0.i = phi ptr [ %34, %32 ], [ %36, %.thread ], [ %45, %43 ]
-  br label %.lr.ph, !llvm.loop !157
+  br i1 %46, label %.preheader, label %.lr.ph.backedge
 
 .loopexit:                                        ; preds = %.preheader, %42, %20, %12, %5
   ret void
@@ -5913,7 +5913,7 @@ define hidden void @zim_Dom_Element_rename(ptr noundef %0, ptr noundef readnone 
   switch i8 %14, label %zend_parse_arg_str_ex.exit [
     i8 6, label %15
     i8 1, label %zend_parse_arg_str_ex.exit.thread
-  ], !prof !158
+  ], !prof !139
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %12, align 8, !tbaa !13
@@ -5926,7 +5926,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %11, %15
 
 zend_parse_arg_str_ex.exit:                       ; preds = %11
   %17 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #11
-  br i1 %17, label %18, label %.thread122, !prof !143
+  br i1 %17, label %18, label %.thread122, !prof !129
 
 18:                                               ; preds = %zend_parse_arg_str_ex.exit.thread, %zend_parse_arg_str_ex.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5943,7 +5943,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %11
 zend_parse_arg_str_ex.exit110:                    ; preds = %18
   %24 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef 2) #11
   %cond.fr112 = freeze i1 %24
-  br i1 %cond.fr112, label %.critedge, label %.thread122, !prof !143
+  br i1 %cond.fr112, label %.critedge, label %.thread122, !prof !129
 
 .thread122:                                       ; preds = %zend_parse_arg_str_ex.exit110, %zend_parse_arg_str_ex.exit, %10
   %.0131 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_str_ex.exit110 ]
@@ -5996,7 +5996,7 @@ zend_parse_arg_str_ex.exit110:                    ; preds = %18
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %49 = load ptr, ptr %48, align 8, !tbaa !136
+  %49 = load ptr, ptr %48, align 8, !tbaa !124
   %50 = load ptr, ptr %5, align 8, !tbaa !4
   %51 = load ptr, ptr %3, align 8, !tbaa !53
   %.not96 = icmp eq ptr %51, null
@@ -6024,7 +6024,7 @@ zend_parse_arg_str_ex.exit110:                    ; preds = %18
 59:                                               ; preds = %43
   %60 = icmp eq i32 %45, 1
   call void @llvm.assume(i1 %60)
-  %61 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !148
+  %61 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !133
   %62 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %38, ptr noundef %61) #11
   %63 = load ptr, ptr %3, align 8, !tbaa !53
   %.not92 = icmp eq ptr %63, null
@@ -6065,7 +6065,7 @@ zend_string_equals_cstr.exit:                     ; preds = %68, %64, %59
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !144
+  %79 = load ptr, ptr %78, align 8, !tbaa !130
   %80 = call i32 @xmlStrEqual(ptr noundef %79, ptr noundef nonnull @.str.23) #11
   %.not94 = icmp eq i32 %80, 0
   br i1 %.not94, label %.thread132, label %81
@@ -6088,9 +6088,9 @@ zend_string_equals_cstr.exit:                     ; preds = %68, %64, %59
 
 87:                                               ; preds = %.thread132
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %89 = load i64, ptr %88, align 8, !tbaa !145
+  %89 = load i64, ptr %88, align 8, !tbaa !131
   %90 = add i64 %89, 1
-  store i64 %90, ptr %88, align 8, !tbaa !145
+  store i64 %90, ptr %88, align 8, !tbaa !131
   br label %php_libxml_invalidate_node_list_cache.exit
 
 php_libxml_invalidate_node_list_cache.exit:       ; preds = %.thread132, %87
@@ -6101,39 +6101,39 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %.thread132, %87
   %95 = load ptr, ptr %3, align 8, !tbaa !53
   %96 = call ptr @php_dom_libxml_ns_mapper_get_ns_raw_prefix_string(ptr noundef %91, ptr noundef %92, i64 noundef %94, ptr noundef %95) #11
   %97 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  store ptr %96, ptr %97, align 8, !tbaa !122
+  store ptr %96, ptr %97, align 8, !tbaa !115
   %98 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %99 = load ptr, ptr %98, align 8, !tbaa !91
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 152
-  %101 = load ptr, ptr %100, align 8, !tbaa !159
+  %101 = load ptr, ptr %100, align 8, !tbaa !140
   %102 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !144
+  %103 = load ptr, ptr %102, align 8, !tbaa !130
   %104 = call i32 @xmlDictOwns(ptr noundef %101, ptr noundef %103) #11
   %.not100 = icmp eq i32 %104, 1
   br i1 %.not100, label %108, label %105
 
 105:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
   %106 = load ptr, ptr @xmlFree, align 8, !tbaa !46
-  %107 = load ptr, ptr %102, align 8, !tbaa !144
+  %107 = load ptr, ptr %102, align 8, !tbaa !130
   call void %106(ptr noundef %107) #11
   br label %108
 
 108:                                              ; preds = %105, %php_libxml_invalidate_node_list_cache.exit
   %109 = load ptr, ptr %98, align 8, !tbaa !91
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 152
-  %111 = load ptr, ptr %110, align 8, !tbaa !159
+  %111 = load ptr, ptr %110, align 8, !tbaa !140
   %112 = load ptr, ptr %5, align 8, !tbaa !4
   %113 = call ptr @xmlDictLookup(ptr noundef %111, ptr noundef %112, i32 noundef -1) #11
   %.not101 = icmp eq ptr %113, null
   br i1 %.not101, label %115, label %114
 
 114:                                              ; preds = %108
-  store ptr %113, ptr %102, align 8, !tbaa !144
+  store ptr %113, ptr %102, align 8, !tbaa !130
   br label %117
 
 115:                                              ; preds = %108
   %116 = load ptr, ptr %5, align 8, !tbaa !4
-  store ptr %116, ptr %102, align 8, !tbaa !144
+  store ptr %116, ptr %102, align 8, !tbaa !130
   store ptr null, ptr %5, align 8, !tbaa !4
   br label %117
 
@@ -6228,7 +6228,7 @@ define internal fastcc noundef ptr @dom_insert_adjacent(ptr noundef %0, ptr noun
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !136
+  %13 = load ptr, ptr %12, align 8, !tbaa !124
   %14 = icmp eq ptr %13, null
   br i1 %14, label %80, label %15
 
@@ -6241,7 +6241,7 @@ define internal fastcc noundef ptr @dom_insert_adjacent(ptr noundef %0, ptr noun
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !48
-  %22 = load ptr, ptr %12, align 8, !tbaa !136
+  %22 = load ptr, ptr %12, align 8, !tbaa !124
   %23 = tail call zeroext i1 @php_dom_pre_insert(ptr noundef %21, ptr noundef %3, ptr noundef %22, ptr noundef nonnull %1) #11
   br i1 %23, label %79, label %80
 
@@ -6318,7 +6318,7 @@ thread-pre-split51:                               ; preds = %43
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !136
+  %62 = load ptr, ptr %61, align 8, !tbaa !124
   %63 = icmp eq ptr %62, null
   br i1 %63, label %80, label %64
 
@@ -6331,9 +6331,9 @@ thread-pre-split51:                               ; preds = %43
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !48
-  %71 = load ptr, ptr %61, align 8, !tbaa !136
+  %71 = load ptr, ptr %61, align 8, !tbaa !124
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !135
+  %73 = load ptr, ptr %72, align 8, !tbaa !123
   %74 = tail call zeroext i1 @php_dom_pre_insert(ptr noundef %70, ptr noundef %3, ptr noundef %71, ptr noundef %73) #11
   br i1 %74, label %79, label %80
 
@@ -6504,61 +6504,42 @@ attributes #14 = { nounwind allocsize(1) }
 !99 = !{!"p1 _ZTS15_xmlEnumeration", !6, i64 0}
 !100 = !{!64, !64, i64 0}
 !101 = !{!94, !5, i64 24}
-!102 = distinct !{!102, !103}
-!103 = !{!"llvm.loop.estimated_trip_count"}
-!104 = distinct !{!104, !103}
-!105 = distinct !{!105, !103}
-!106 = !{!62, !62, i64 0}
-!107 = distinct !{!107, !103}
-!108 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!109 = !{!60, !63, i64 64}
-!110 = !{!111, !10, i64 8}
-!111 = !{!"_xmlDoc", !6, i64 0, !10, i64 8, !5, i64 16, !61, i64 24, !61, i64 32, !61, i64 40, !61, i64 48, !61, i64 56, !63, i64 64, !10, i64 72, !10, i64 76, !97, i64 80, !97, i64 88, !64, i64 96, !5, i64 104, !5, i64 112, !6, i64 120, !6, i64 128, !5, i64 136, !10, i64 144, !112, i64 152, !6, i64 160, !10, i64 168, !10, i64 172}
-!112 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
-!113 = !{!60, !64, i64 72}
-!114 = !{!60, !5, i64 16}
-!115 = !{!89, !64, i64 96}
-!116 = !{!94, !64, i64 0}
-!117 = distinct !{!117, !103}
-!118 = !{!119, !61, i64 0}
-!119 = !{!"dom_deep_ns_redef_item", !61, i64 0, !64, i64 8}
-!120 = !{!119, !64, i64 8}
-!121 = distinct !{!121, !103}
-!122 = !{!89, !64, i64 72}
-!123 = !{!61, !61, i64 0}
-!124 = distinct !{!124, !103}
-!125 = distinct !{!125, !103}
-!126 = !{!23, !23, i64 0}
-!127 = !{!60, !10, i64 8}
-!128 = !{!60, !61, i64 40}
-!129 = !{!51, !26, i64 16}
-!130 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
-!131 = distinct !{!131, !103}
-!132 = !{!60, !61, i64 24}
-!133 = distinct !{!133, !103}
-!134 = distinct !{!134, !103}
-!135 = !{!89, !61, i64 48}
-!136 = !{!89, !61, i64 40}
-!137 = distinct !{!137, !103}
-!138 = distinct !{!138, !103}
-!139 = !{!21, !21, i64 0}
-!140 = !{i8 0, i8 2}
-!141 = !{}
-!142 = !{!76, !10, i64 28}
-!143 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!144 = !{!89, !5, i64 16}
-!145 = !{!68, !12, i64 0}
-!146 = !{!18, !10, i64 24}
-!147 = distinct !{!147, !103}
-!148 = !{!149, !149, i64 0}
-!149 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
-!150 = !{!89, !5, i64 80}
-!151 = !{!60, !62, i64 56}
-!152 = distinct !{!152, !103}
-!153 = distinct !{!153, !103}
-!154 = !{!155, !42, i64 24}
-!155 = !{!"_Bucket", !16, i64 0, !12, i64 16, !42, i64 24}
-!156 = distinct !{!156, !103}
-!157 = distinct !{!157, !103}
-!158 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!159 = !{!111, !112, i64 152}
+!102 = !{!62, !62, i64 0}
+!103 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!104 = !{!60, !63, i64 64}
+!105 = !{!106, !10, i64 8}
+!106 = !{!"_xmlDoc", !6, i64 0, !10, i64 8, !5, i64 16, !61, i64 24, !61, i64 32, !61, i64 40, !61, i64 48, !61, i64 56, !63, i64 64, !10, i64 72, !10, i64 76, !97, i64 80, !97, i64 88, !64, i64 96, !5, i64 104, !5, i64 112, !6, i64 120, !6, i64 128, !5, i64 136, !10, i64 144, !107, i64 152, !6, i64 160, !10, i64 168, !10, i64 172}
+!107 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
+!108 = !{!60, !64, i64 72}
+!109 = !{!60, !5, i64 16}
+!110 = !{!89, !64, i64 96}
+!111 = !{!94, !64, i64 0}
+!112 = !{!113, !61, i64 0}
+!113 = !{!"dom_deep_ns_redef_item", !61, i64 0, !64, i64 8}
+!114 = !{!113, !64, i64 8}
+!115 = !{!89, !64, i64 72}
+!116 = !{!61, !61, i64 0}
+!117 = !{!23, !23, i64 0}
+!118 = !{!60, !10, i64 8}
+!119 = !{!60, !61, i64 40}
+!120 = !{!51, !26, i64 16}
+!121 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
+!122 = !{!60, !61, i64 24}
+!123 = !{!89, !61, i64 48}
+!124 = !{!89, !61, i64 40}
+!125 = !{!21, !21, i64 0}
+!126 = !{i8 0, i8 2}
+!127 = !{}
+!128 = !{!76, !10, i64 28}
+!129 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!130 = !{!89, !5, i64 16}
+!131 = !{!68, !12, i64 0}
+!132 = !{!18, !10, i64 24}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
+!135 = !{!89, !5, i64 80}
+!136 = !{!60, !62, i64 56}
+!137 = !{!138, !42, i64 24}
+!138 = !{!"_Bucket", !16, i64 0, !12, i64 16, !42, i64 24}
+!139 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!140 = !{!106, !107, i64 152}

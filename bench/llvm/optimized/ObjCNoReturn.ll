@@ -327,9 +327,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !402
+  %15 = load i32, ptr %14, align 8, !tbaa !401
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 8, !tbaa !402
+  store i32 %16, ptr %14, align 8, !tbaa !401
   br label %17
 
 17:                                               ; preds = %5, %13
@@ -375,14 +375,14 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i, %39
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %2
   store i8 0, ptr %40, align 1, !tbaa !378
-  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !403
+  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !402
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store ptr null, ptr %41, align 8, !tbaa !405
+  store ptr null, ptr %41, align 8, !tbaa !404
   store ptr %.0.i.i.i.i, ptr %9, align 8, !tbaa !381
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !407
+  %43 = load i32, ptr %42, align 4, !tbaa !406
   %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !407
+  store i32 %44, ptr %42, align 4, !tbaa !406
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #8
   %46 = load ptr, ptr %0, align 8, !tbaa !398
   %47 = zext i32 %45 to i64
@@ -936,12 +936,11 @@ attributes #8 = { nounwind }
 !396 = !{!397, !159, i64 0}
 !397 = !{!"_ZTSN5clang15DeclarationNameE", !159, i64 0}
 !398 = !{!154, !155, i64 0}
-!399 = distinct !{!399, !400, !401}
+!399 = distinct !{!399, !400}
 !400 = !{!"llvm.loop.mustprogress"}
-!401 = !{!"llvm.loop.estimated_trip_count"}
-!402 = !{!154, !6, i64 16}
-!403 = !{!404, !159, i64 0}
-!404 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !159, i64 0}
-!405 = !{!406, !167, i64 8}
-!406 = !{!"_ZTSN4llvm21StringMapEntryStorageIPN5clang14IdentifierInfoEEE", !404, i64 0, !167, i64 8}
-!407 = !{!154, !6, i64 12}
+!401 = !{!154, !6, i64 16}
+!402 = !{!403, !159, i64 0}
+!403 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !159, i64 0}
+!404 = !{!405, !167, i64 8}
+!405 = !{!"_ZTSN4llvm21StringMapEntryStorageIPN5clang14IdentifierInfoEEE", !403, i64 0, !167, i64 8}
+!406 = !{!154, !6, i64 12}

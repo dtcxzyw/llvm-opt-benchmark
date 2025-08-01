@@ -97,7 +97,7 @@ define range(i32 -154, 1) i32 @Base64_SkipNewline(ptr noundef readonly captures(
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !7
   %41 = icmp eq i8 %40, 32
-  br i1 %41, label %.lr.ph62, label %._crit_edge63, !llvm.loop !11
+  br i1 %41, label %.lr.ph62, label %._crit_edge63, !llvm.loop !10
 
 ._crit_edge63:                                    ; preds = %36, %33
   %.346.lcssa = phi i32 [ %.144, %33 ], [ %35, %36 ]
@@ -218,7 +218,7 @@ define range(i32 -173, 1) i32 @Base64_Decode(ptr noundef readonly captures(none)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !7
   %45 = icmp eq i8 %44, 32
-  br i1 %45, label %.lr.ph62.i, label %.loopexit, !llvm.loop !11
+  br i1 %45, label %.lr.ph62.i, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %40, %..loopexit_crit_edge
   %46 = phi i8 [ %.pre, %..loopexit_crit_edge ], [ %44, %40 ]
@@ -323,7 +323,7 @@ define range(i32 -173, 1) i32 @Base64_Decode(ptr noundef readonly captures(none)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !7
   %86 = icmp eq i8 %85, 32
-  br i1 %86, label %.lr.ph62.i140, label %Base64_SkipNewline.exit150, !llvm.loop !11
+  br i1 %86, label %.lr.ph62.i140, label %Base64_SkipNewline.exit150, !llvm.loop !10
 
 Base64_SkipNewline.exit150:                       ; preds = %81, %.Base64_SkipNewline.exit150_crit_edge
   %87 = phi i8 [ %.pre354, %.Base64_SkipNewline.exit150_crit_edge ], [ %85, %81 ]
@@ -424,7 +424,7 @@ Base64_SkipNewline.exit150:                       ; preds = %81, %.Base64_SkipNe
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !7
   %125 = icmp eq i8 %124, 32
-  br i1 %125, label %.lr.ph62.i171, label %Base64_SkipNewline.exit181, !llvm.loop !11
+  br i1 %125, label %.lr.ph62.i171, label %Base64_SkipNewline.exit181, !llvm.loop !10
 
 Base64_SkipNewline.exit181:                       ; preds = %120, %.Base64_SkipNewline.exit181_crit_edge
   %126 = phi i8 [ %.pre357, %.Base64_SkipNewline.exit181_crit_edge ], [ %124, %120 ]
@@ -525,7 +525,7 @@ Base64_SkipNewline.exit181:                       ; preds = %120, %.Base64_SkipN
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 %161
   %163 = load i8, ptr %162, align 1, !tbaa !7
   %164 = icmp eq i8 %163, 32
-  br i1 %164, label %.lr.ph62.i202, label %Base64_SkipNewline.exit212, !llvm.loop !11
+  br i1 %164, label %.lr.ph62.i202, label %Base64_SkipNewline.exit212, !llvm.loop !10
 
 Base64_SkipNewline.exit212:                       ; preds = %159, %.Base64_SkipNewline.exit212_crit_edge
   %165 = phi i8 [ %.pre360, %.Base64_SkipNewline.exit212_crit_edge ], [ %163, %159 ]
@@ -1247,7 +1247,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %.2254 = phi i32 [ %.10.ph, %242 ], [ %.10.ph, %244 ], [ %252, %256 ], [ %254, %257 ], [ %.2254.ph, %CEscape.exit.sink.split ]
   %.1132 = phi i32 [ %.0131357, %242 ], [ %245, %244 ], [ %245, %256 ], [ %245, %257 ], [ %245, %CEscape.exit.sink.split ]
   %267 = icmp ugt i32 %243, 2
-  br i1 %267, label %26, label %._crit_edge, !llvm.loop !12
+  br i1 %267, label %26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %CEscape.exit, %.preheader
   %.0252.lcssa = phi i32 [ 0, %.preheader ], [ %.2254, %CEscape.exit ]
@@ -1798,8 +1798,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
+!10 = distinct !{!10, !9}

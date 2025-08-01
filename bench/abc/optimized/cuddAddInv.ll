@@ -41,10 +41,10 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load double, ptr %7, align 8, !tbaa !29
+  %8 = load double, ptr %7, align 8, !tbaa !28
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load double, ptr %10, align 8, !tbaa !29
+  %11 = load double, ptr %10, align 8, !tbaa !28
   %12 = fcmp olt double %9, %11
   br i1 %12, label %53, label %13
 
@@ -60,7 +60,7 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %20, ptr noundef %2)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %53, label %23
@@ -70,11 +70,11 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !30
+  %28 = load i32, ptr %27, align 4, !tbaa !29
   %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !30
+  store i32 %29, ptr %27, align 4, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = tail call ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %31, ptr noundef %2)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -88,9 +88,9 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !30
+  %40 = load i32, ptr %39, align 4, !tbaa !29
   %41 = add i32 %40, 1
-  store i32 %41, ptr %39, align 4, !tbaa !30
+  store i32 %41, ptr %39, align 4, !tbaa !29
   %42 = icmp eq ptr %21, %32
   br i1 %42, label %.thread, label %43
 
@@ -107,12 +107,12 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .thread:                                          ; preds = %35, %43
   %48 = phi ptr [ %45, %43 ], [ %21, %35 ]
-  %49 = load i32, ptr %27, align 4, !tbaa !30
+  %49 = load i32, ptr %27, align 4, !tbaa !29
   %50 = add i32 %49, -1
-  store i32 %50, ptr %27, align 4, !tbaa !30
-  %51 = load i32, ptr %39, align 4, !tbaa !30
+  store i32 %50, ptr %27, align 4, !tbaa !29
+  %51 = load i32, ptr %39, align 4, !tbaa !29
   %52 = add i32 %51, -1
-  store i32 %52, ptr %39, align 4, !tbaa !30
+  store i32 %52, ptr %39, align 4, !tbaa !29
   tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_addScalarInverse, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %48) #4
   br label %53
 
@@ -171,8 +171,7 @@ attributes #4 = { nounwind }
 !23 = !{!"p1 _ZTS6DdHook", !9, i64 0}
 !24 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !25 = !{!12, !5, i64 448}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!6, !6, i64 0}
-!30 = !{!4, !5, i64 4}
+!28 = !{!6, !6, i64 0}
+!29 = !{!4, !5, i64 4}

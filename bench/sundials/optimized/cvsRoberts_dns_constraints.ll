@@ -255,7 +255,7 @@ check_retval.exit78:                              ; preds = %107
   %114 = zext i1 %112 to i32
   %.1 = add nuw nsw i32 %.0, %114
   %115 = icmp eq i32 %.1, 12
-  br i1 %115, label %.loopexit, label %86, !llvm.loop !23
+  br i1 %115, label %.loopexit, label %86
 
 .loopexit:                                        ; preds = %111, %check_retval.exit78
   call fastcc void @PrintFinalStats(ptr noundef nonnull %38)
@@ -355,18 +355,18 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
   %13 = load double, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !19
-  %16 = load ptr, ptr %3, align 8, !tbaa !25
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
-  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
   store double -4.000000e-02, ptr %19, align 8, !tbaa !19
   %20 = fmul double %15, 1.000000e+04
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   store double %20, ptr %22, align 8, !tbaa !19
   %23 = fmul double %13, 1.000000e+04
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !31
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
   store double %23, ptr %25, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 4.000000e-02, ptr %26, align 8, !tbaa !19
@@ -521,17 +521,17 @@ check_retval.exit25:                              ; preds = %check_retval.exit23
 
 check_retval.exit27:                              ; preds = %check_retval.exit25, %59
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %62 = load i64, ptr %2, align 8, !tbaa !32
-  %63 = load i64, ptr %3, align 8, !tbaa !32
-  %64 = load i64, ptr %4, align 8, !tbaa !32
-  %65 = load i64, ptr %6, align 8, !tbaa !32
-  %66 = load i64, ptr %5, align 8, !tbaa !32
+  %62 = load i64, ptr %2, align 8, !tbaa !30
+  %63 = load i64, ptr %3, align 8, !tbaa !30
+  %64 = load i64, ptr %4, align 8, !tbaa !30
+  %65 = load i64, ptr %6, align 8, !tbaa !30
+  %66 = load i64, ptr %5, align 8, !tbaa !30
   %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i64 noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65, i64 noundef %66)
-  %68 = load i64, ptr %7, align 8, !tbaa !32
-  %69 = load i64, ptr %8, align 8, !tbaa !32
-  %70 = load i64, ptr %10, align 8, !tbaa !32
-  %71 = load i64, ptr %9, align 8, !tbaa !32
-  %72 = load i64, ptr %11, align 8, !tbaa !32
+  %68 = load i64, ptr %7, align 8, !tbaa !30
+  %69 = load i64, ptr %8, align 8, !tbaa !30
+  %70 = load i64, ptr %10, align 8, !tbaa !30
+  %71 = load i64, ptr %9, align 8, !tbaa !30
+  %72 = load i64, ptr %11, align 8, !tbaa !30
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i64 noundef %68, i64 noundef %69, i64 noundef %70, i64 noundef %71, i64 noundef %72)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
@@ -688,13 +688,11 @@ attributes #11 = { cold }
 !20 = !{!"double", !7, i64 0}
 !21 = !{!6, !6, i64 0}
 !22 = !{!17, !17, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !6, i64 0}
-!26 = !{!"_generic_SUNMatrix", !6, i64 0, !27, i64 8, !10, i64 16}
-!27 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!28 = !{!29, !30, i64 32}
-!29 = !{!"_SUNMatrixContent_Dense", !16, i64 0, !16, i64 8, !18, i64 16, !16, i64 24, !30, i64 32}
-!30 = !{!"p2 double", !6, i64 0}
-!31 = !{!18, !18, i64 0}
-!32 = !{!16, !16, i64 0}
+!23 = !{!24, !6, i64 0}
+!24 = !{!"_generic_SUNMatrix", !6, i64 0, !25, i64 8, !10, i64 16}
+!25 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!26 = !{!27, !28, i64 32}
+!27 = !{!"_SUNMatrixContent_Dense", !16, i64 0, !16, i64 8, !18, i64 16, !16, i64 24, !28, i64 32}
+!28 = !{!"p2 double", !6, i64 0}
+!29 = !{!18, !18, i64 0}
+!30 = !{!16, !16, i64 0}

@@ -403,7 +403,7 @@ _index_job.exit:                                  ; preds = %79
 
 103:                                              ; preds = %96, %102, %99, %._crit_edge
   %.b3537 = load i1, ptr @thread_shutdown, align 1
-  br i1 %.b3537, label %._crit_edge70, label %.lr.ph69, !llvm.loop !12
+  br i1 %.b3537, label %._crit_edge70, label %.lr.ph69, !llvm.loop !11
 
 ._crit_edge70:                                    ; preds = %103, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
@@ -607,7 +607,7 @@ define dso_local i32 @init() local_unnamed_addr #0 {
   %66 = add nuw nsw i32 %.01933.i, 1
   %67 = load i32, ptr %3, align 4
   %68 = icmp ult i32 %66, %67
-  br i1 %68, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %68, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %61
   %69 = icmp eq i32 %67, 0
@@ -748,7 +748,7 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
   tail call void @slurm_packmem(ptr noundef %15, i32 noundef %.0.i, ptr noundef %7) #7
   %21 = tail call ptr @slurm_list_next(ptr noundef %11) #7
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %20, %.thread
   tail call void @slurm_list_iterator_destroy(ptr noundef %11) #7
@@ -928,10 +928,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

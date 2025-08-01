@@ -92,7 +92,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %52 = add i8 %.0916.i, -1
   %53 = shl nuw i32 %.017.i, 1
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !5
+  br i1 %54, label %.lr.ph18.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %52, %.lr.ph18.i ]
@@ -106,7 +106,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %56 = add nuw nsw i8 %.11013.i, 1
   %57 = shl i32 %.114.i, 1
   %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %58, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit, label %.lr.ph.i
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %56, %.lr.ph.i ]
@@ -131,7 +131,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %65 = add i8 %.0916.i92, -1
   %66 = shl nuw i32 %.017.i91, 1
   %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %.lr.ph18.i90, label %._crit_edge.i87, !llvm.loop !5
+  br i1 %67, label %.lr.ph18.i90, label %._crit_edge.i87
 
 ._crit_edge.i87:                                  ; preds = %.lr.ph18.i90, %.preheader.i86
   %.09.lcssa.i88 = phi i8 [ -1, %.preheader.i86 ], [ %65, %.lr.ph18.i90 ]
@@ -145,7 +145,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %69 = add nuw nsw i8 %.11013.i83, 1
   %70 = shl i32 %.114.i82, 1
   %71 = icmp sgt i32 %70, -1
-  br i1 %71, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93, label %.lr.ph.i81, !llvm.loop !7
+  br i1 %71, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93, label %.lr.ph.i81
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds = %.lr.ph.i81, %.preheader12.i80, %._crit_edge.i87
   %.211.i84 = phi i8 [ %.09.lcssa.i88, %._crit_edge.i87 ], [ 0, %.preheader12.i80 ], [ %69, %.lr.ph.i81 ]
@@ -243,7 +243,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %122 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 -8
   %123 = load i64, ptr %122, align 8, !noundef !4
   %.not = icmp eq i64 %123, 0
-  br i1 %.not, label %119, label %124, !llvm.loop !8
+  br i1 %.not, label %119, label %124
 
 124:                                              ; preds = %121
   %125 = sub i64 0, %123
@@ -258,7 +258,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %129 = xor i64 %128, -1
   store i64 %129, ptr %127, align 8
   %130 = icmp eq ptr %5, %127
-  br i1 %130, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", label %.lr.ph, !llvm.loop !9
+  br i1 %130, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", label %.lr.ph
 
 131:                                              ; preds = %178
   %.sroa.046.0.copyload = load i64, ptr %4, align 8
@@ -372,7 +372,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds =
   store i64 %storemerge, ptr %141, align 8
   %.165 = icmp slt i64 %.165.in.in, 0
   %.not189 = icmp eq i64 %140, 0
-  br i1 %.not189, label %131, label %139, !llvm.loop !10
+  br i1 %.not189, label %131, label %139
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -456,7 +456,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %48 = add i8 %.0916.i, -1
   %49 = shl nuw i32 %.017.i, 1
   %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !5
+  br i1 %50, label %.lr.ph18.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %48, %.lr.ph18.i ]
@@ -470,7 +470,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit:
   %52 = add nuw nsw i8 %.11013.i, 1
   %53 = shl i32 %.114.i, 1
   %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %54, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit, label %.lr.ph.i
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %52, %.lr.ph.i ]
@@ -541,7 +541,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   %89 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 -8
   %90 = load i64, ptr %89, align 8, !noundef !4
   %.not = icmp eq i64 %90, 0
-  br i1 %.not, label %86, label %91, !llvm.loop !11
+  br i1 %.not, label %86, label %91
 
 91:                                               ; preds = %88
   %92 = sub i64 0, %90
@@ -556,7 +556,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   %96 = xor i64 %95, -1
   store i64 %96, ptr %94, align 8
   %97 = icmp eq ptr %4, %94
-  br i1 %97, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", label %.lr.ph, !llvm.loop !12
+  br i1 %97, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread", label %.lr.ph
 
 98:                                               ; preds = %145
   %.sroa.035.0.copyload = load i64, ptr %3, align 8
@@ -670,7 +670,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread: ; preds = 
   store i64 %storemerge, ptr %108, align 8
   %.153 = icmp slt i64 %.153.in.in, 0
   %.not160 = icmp eq i64 %107, 0
-  br i1 %.not160, label %98, label %106, !llvm.loop !13
+  br i1 %.not160, label %98, label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -709,12 +709,3 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}

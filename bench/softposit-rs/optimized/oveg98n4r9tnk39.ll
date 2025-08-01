@@ -53,7 +53,7 @@ define noundef i16 @_ZN9softposit5p16e14math7mul_add7mul_add17hf2387534eed70830E
   %26 = add i8 %.0916.i, -1
   %27 = shl nuw i16 %.017.i, 1
   %28 = icmp sgt i16 %27, -1
-  br i1 %28, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %28, label %.lr.ph18.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %26, %.lr.ph18.i ]
@@ -67,7 +67,7 @@ define noundef i16 @_ZN9softposit5p16e14math7mul_add7mul_add17hf2387534eed70830E
   %30 = add nuw nsw i8 %.11013.i, 1
   %31 = shl i16 %.114.i, 1
   %32 = icmp sgt i16 %31, -1
-  br i1 %32, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %32, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit, label %.lr.ph.i
 
 _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %30, %.lr.ph.i ]
@@ -93,7 +93,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %40 = add i8 %.0916.i240, -1
   %41 = shl nuw i16 %.017.i239, 1
   %42 = icmp sgt i16 %41, -1
-  br i1 %42, label %.lr.ph18.i238, label %._crit_edge.i235, !llvm.loop !4
+  br i1 %42, label %.lr.ph18.i238, label %._crit_edge.i235
 
 ._crit_edge.i235:                                 ; preds = %.lr.ph18.i238, %.preheader.i234
   %.09.lcssa.i236 = phi i8 [ -1, %.preheader.i234 ], [ %40, %.lr.ph18.i238 ]
@@ -107,7 +107,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %44 = add nuw nsw i8 %.11013.i231, 1
   %45 = shl i16 %.114.i230, 1
   %46 = icmp sgt i16 %45, -1
-  br i1 %46, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241, label %.lr.ph.i229, !llvm.loop !6
+  br i1 %46, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241, label %.lr.ph.i229
 
 _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241: ; preds = %.lr.ph.i229, %.preheader12.i228, %._crit_edge.i235
   %.211.i232 = phi i8 [ %.09.lcssa.i236, %._crit_edge.i235 ], [ 0, %.preheader12.i228 ], [ %44, %.lr.ph.i229 ]
@@ -156,7 +156,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241: ; pred
   %65 = add i8 %.0916.i254, -1
   %66 = shl nuw i16 %.017.i253, 1
   %67 = icmp sgt i16 %66, -1
-  br i1 %67, label %.lr.ph18.i252, label %._crit_edge.i249, !llvm.loop !4
+  br i1 %67, label %.lr.ph18.i252, label %._crit_edge.i249
 
 ._crit_edge.i249:                                 ; preds = %.lr.ph18.i252, %.preheader.i248
   %.09.lcssa.i250 = phi i8 [ -1, %.preheader.i248 ], [ %65, %.lr.ph18.i252 ]
@@ -170,7 +170,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241: ; pred
   %69 = add nuw nsw i8 %.11013.i245, 1
   %70 = shl i16 %.114.i244, 1
   %71 = icmp sgt i16 %70, -1
-  br i1 %71, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit255, label %.lr.ph.i243, !llvm.loop !6
+  br i1 %71, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit255, label %.lr.ph.i243
 
 _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit255: ; preds = %.lr.ph.i243, %.preheader12.i242, %._crit_edge.i249
   %.211.i246 = phi i8 [ %.09.lcssa.i250, %._crit_edge.i249 ], [ 0, %.preheader12.i242 ], [ %69, %.lr.ph.i243 ]
@@ -393,7 +393,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %174 = add i8 %.3294, -1
   %175 = shl nuw nsw i32 %.10293, 2
   %176 = icmp samesign ult i32 %.10293, 134217728
-  br i1 %176, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %176, label %.lr.ph, label %._crit_edge
 
 .thread277:                                       ; preds = %.thread, %._crit_edge
   %.1193261323 = phi i8 [ %.1193261322329, %._crit_edge ], [ %.1193261, %.thread ]
@@ -478,7 +478,3 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}

@@ -123,7 +123,7 @@ define void @lv_list_set_button_text(ptr noundef readnone captures(none) %0, ptr
   %6 = add nuw i32 %.089, 1
   %7 = tail call i32 @lv_obj_get_child_count(ptr noundef %1) #2
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.critedge, label %.loopexit, !llvm.loop !6
+  br i1 %8, label %.critedge, label %.loopexit, !llvm.loop !5
 
 .critedge:                                        ; preds = %3, %5
   %.089 = phi i32 [ %6, %5 ], [ 0, %3 ]
@@ -148,7 +148,6 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

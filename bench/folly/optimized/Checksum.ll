@@ -136,7 +136,7 @@ define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj517762881EEEjPKhmj(pt
 _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   %13 = load atomic i8, ptr @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table acquire, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %20, !prof !10
+  br i1 %14, label %15, label %20, !prof !9
 
 15:                                               ; preds = %_ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit
   %16 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #9
@@ -148,7 +148,7 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; p
           to label %19 unwind label %33
 
 19:                                               ; preds = %17
-  store ptr %18, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table, align 8, !tbaa !11
+  store ptr %18, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table, align 8, !tbaa !10
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table) #9
   br label %20
 
@@ -157,7 +157,7 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; p
   br i1 %.not1011.i.i, label %_ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20
-  %21 = load ptr, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table, align 8, !tbaa !11
+  %21 = load ptr, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm517762881EE10crc_updateEjPKhmE5table, align 8, !tbaa !10
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph.i.i
@@ -166,16 +166,16 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; p
   %.0912.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %23, %22 ]
   %23 = add i64 %.0912.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 1
-  %25 = load i8, ptr %.0813.i.i, align 1, !tbaa !16
+  %25 = load i8, ptr %.0813.i.i, align 1, !tbaa !15
   %26 = trunc i32 %.014.i.i to i8
   %27 = xor i8 %25, %26
   %28 = lshr i32 %.014.i.i, 8
   %29 = zext i8 %27 to i64
   %30 = getelementptr inbounds nuw [256 x i32], ptr %21, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !17
+  %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = xor i32 %31, %28
   %.not10.i.i = icmp eq i64 %23, 0
-  br i1 %.not10.i.i, label %_ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit, label %22, !llvm.loop !19
+  br i1 %.not10.i.i, label %_ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit, label %22, !llvm.loop !18
 
 33:                                               ; preds = %17
   %34 = landingpad { ptr, i32 }
@@ -198,7 +198,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
 define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEv() local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %8, !prof !10
+  br i1 %2, label %3, label %8, !prof !9
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEvE5table) #9
@@ -262,7 +262,7 @@ define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8E
   %20 = shl nuw nsw i32 %10, 1
   %21 = and i32 %20, 65534
   %22 = icmp samesign ugt i32 %19, %21
-  br i1 %22, label %.lr.ph.i.i.i.us, label %.lr.ph.i.us, !llvm.loop !20
+  br i1 %22, label %.lr.ph.i.i.i.us, label %.lr.ph.i.us, !llvm.loop !19
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.i.i.us, %.lr.ph.i.us
   %.021.i.us = phi i16 [ %32, %.lr.ph.i.us ], [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ]
@@ -280,7 +280,7 @@ define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8E
   %31 = add nsw i32 %.01620.i.us, -1
   %32 = lshr i16 %.021.i.us, 1
   %.not.i.us = icmp eq i32 %31, 0
-  br i1 %.not.i.us, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us, label %.lr.ph.i.us, !llvm.loop !21
+  br i1 %.not.i.us, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us, label %.lr.ph.i.us, !llvm.loop !20
 
 _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us: ; preds = %.lr.ph.i.us
   br i1 %.not.i.i, label %.loopexit.us, label %.lr.ph.i.i.us
@@ -323,15 +323,15 @@ _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us: ; preds = %.
   %51 = shl nuw nsw i32 %41, 1
   %52 = and i32 %51, 65534
   %53 = icmp samesign ugt i32 %50, %52
-  br i1 %53, label %.lr.ph.i.i9.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, !llvm.loop !20
+  br i1 %53, label %.lr.ph.i.i9.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, !llvm.loop !19
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr.ph.i.i9.us
   %54 = zext i16 %.1.i.i11.us to i64
   %55 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %54
-  store i32 %.ph.us, ptr %55, align 4, !tbaa !17
+  store i32 %.ph.us, ptr %55, align 4, !tbaa !16
   %56 = add nuw nsw i16 %.013.us, 1
   %exitcond19.not = icmp eq i16 %56, 256
-  br i1 %exitcond19.not, label %.split15.us, label %.split.us, !llvm.loop !22
+  br i1 %exitcond19.not, label %.split15.us, label %.split.us, !llvm.loop !21
 
 .split15.us:                                      ; preds = %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us
   ret void
@@ -359,7 +359,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr
   %68 = shl nuw nsw i32 %58, 1
   %69 = and i32 %68, 65534
   %70 = icmp samesign ugt i32 %67, %69
-  br i1 %70, label %.lr.ph.i.i.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %70, label %.lr.ph.i.i.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i, %.lr.ph.i
   %.021.i = phi i16 [ %80, %.lr.ph.i ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
@@ -377,14 +377,14 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr
   %79 = add nsw i32 %.01620.i, -1
   %80 = lshr i16 %.021.i, 1
   %.not.i = icmp eq i32 %79, 0
-  br i1 %.not.i, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit: ; preds = %.lr.ph.i
   %81 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv
-  store i32 %78, ptr %81, align 4, !tbaa !17
+  store i32 %78, ptr %81, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.split15.us, label %.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.split15.us, label %.split, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -420,7 +420,7 @@ define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj79764919EEEjPKhmj(ptr
 _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   %13 = load atomic i8, ptr @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table acquire, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %20, !prof !10
+  br i1 %14, label %15, label %20, !prof !9
 
 15:                                               ; preds = %_ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit
   %16 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #9
@@ -432,7 +432,7 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; pr
           to label %19 unwind label %33
 
 19:                                               ; preds = %17
-  store ptr %18, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table, align 8, !tbaa !11
+  store ptr %18, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table, align 8, !tbaa !10
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table) #9
   br label %20
 
@@ -441,7 +441,7 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; pr
   br i1 %.not1011.i.i, label %_ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20
-  %21 = load ptr, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table, align 8, !tbaa !11
+  %21 = load ptr, ptr @_ZZN5boost6detail32reflected_byte_table_driven_crcsILi32ELm79764919EE10crc_updateEjPKhmE5table, align 8, !tbaa !10
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph.i.i
@@ -450,16 +450,16 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EEC2Ej.exit: ; pr
   %.0912.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %23, %22 ]
   %23 = add i64 %.0912.i.i, -1
   %24 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 1
-  %25 = load i8, ptr %.0813.i.i, align 1, !tbaa !16
+  %25 = load i8, ptr %.0813.i.i, align 1, !tbaa !15
   %26 = trunc i32 %.014.i.i to i8
   %27 = xor i8 %25, %26
   %28 = lshr i32 %.014.i.i, 8
   %29 = zext i8 %27 to i64
   %30 = getelementptr inbounds nuw [256 x i32], ptr %21, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !17
+  %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = xor i32 %31, %28
   %.not10.i.i = icmp eq i64 %23, 0
-  br i1 %.not10.i.i, label %_ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit, label %22, !llvm.loop !25
+  br i1 %.not10.i.i, label %_ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EE13process_bytesEPKvm.exit, label %22, !llvm.loop !24
 
 33:                                               ; preds = %17
   %34 = landingpad { ptr, i32 }
@@ -476,7 +476,7 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj0ELb1ELb1EE13process_bytes
 define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEv() local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %8, !prof !10
+  br i1 %2, label %3, label %8, !prof !9
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail11crc_table_tILi32ELi8ELm79764919ELb1EE9get_tableEvE5table) #9
@@ -590,22 +590,21 @@ attributes #10 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", i32 1, i32 1048575}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTSN5boost5arrayIjLm256EEE", !13, i64 0}
-!13 = !{!"any pointer", !14, i64 0}
-!14 = !{!"omnipotent char", !15, i64 0}
-!15 = !{!"Simple C++ TBAA"}
-!16 = !{!14, !14, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !14, i64 0}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
+!9 = !{!"branch_weights", i32 1, i32 1048575}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN5boost5arrayIjLm256EEE", !12, i64 0}
+!12 = !{!"any pointer", !13, i64 0}
+!13 = !{!"omnipotent char", !14, i64 0}
+!14 = !{!"Simple C++ TBAA"}
+!15 = !{!13, !13, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !13, i64 0}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}

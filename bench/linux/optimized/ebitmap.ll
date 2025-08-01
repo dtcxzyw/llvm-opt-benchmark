@@ -96,7 +96,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef captures
   %17 = load ptr, ptr @ebitmap_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %17, ptr noundef nonnull %15) #12
   %18 = icmp eq ptr %16, null
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118,7 +118,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef captures
   store ptr %8, ptr %27, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit6, label %.preheader5, !llvm.loop !10
+  br i1 %29, label %.loopexit6, label %.preheader5, !llvm.loop !9
 
 .loopexit6:                                       ; preds = %20, %2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -148,7 +148,7 @@ define dso_local void @ebitmap_destroy(ptr noundef captures(address_is_null) %0)
   %8 = load ptr, ptr @ebitmap_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %8, ptr noundef nonnull %6) #12
   %9 = icmp eq ptr %7, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -181,7 +181,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
 11:                                               ; preds = %.preheader13
   %12 = load ptr, ptr %6, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader13, !llvm.loop !12
+  br i1 %13, label %.loopexit, label %.preheader13, !llvm.loop !10
 
 14:                                               ; preds = %.preheader13
   %15 = trunc i64 %8 to i32
@@ -223,16 +223,16 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
 38:                                               ; preds = %33
   %39 = add nuw nsw i64 %36, 384
   %40 = icmp ugt i64 %39, %26
-  br i1 %40, label %41, label %.preheader12, !llvm.loop !13
+  br i1 %40, label %41, label %.preheader12, !llvm.loop !11
 
 41:                                               ; preds = %38
   %42 = sub i32 %24, %35
   %43 = icmp ugt i32 %42, 383
-  br i1 %43, label %44, label %45, !prof !14
+  br i1 %43, label %44, label %45, !prof !12
 
 44:                                               ; preds = %41
-  tail call void asm sideeffect "674: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 674b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 674) #12, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 94, i32 0, i64 12) #12, !srcloc !16
+  tail call void asm sideeffect "674: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 674b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 674) #12, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 94, i32 0, i64 12) #12, !srcloc !14
   unreachable
 
 45:                                               ; preds = %41
@@ -249,7 +249,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
   br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %45
-  %57 = tail call i32 @ebitmap_set_bit(ptr noundef %0, i64 noundef %26, i32 noundef 1), !range !17
+  %57 = tail call i32 @ebitmap_set_bit(ptr noundef %0, i64 noundef %26, i32 noundef 1), !range !15
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %.loopexit, label %.critedge
 
@@ -282,7 +282,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
   %77 = tail call i64 @_find_first_bit(ptr noundef nonnull %76, i64 noundef 384) #12
   %78 = and i64 %77, 4294967168
   %79 = icmp samesign ult i64 %78, 384
-  br i1 %79, label %80, label %.preheader, !llvm.loop !18
+  br i1 %79, label %80, label %.preheader, !llvm.loop !16
 
 80:                                               ; preds = %75
   %81 = trunc i64 %77 to i32
@@ -300,7 +300,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
   %89 = phi i32 [ %71, %68 ], [ %86, %85 ], [ %84, %80 ]
   %90 = load i32, ptr %20, align 8
   %91 = icmp ult i32 %89, %90
-  br i1 %91, label %23, label %.loopexit, !llvm.loop !19
+  br i1 %91, label %23, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %11, %87, %56, %3, %14
   %92 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %87 ], [ %57, %56 ], [ 0, %11 ]
@@ -331,17 +331,17 @@ define dso_local range(i32 0, 2) i32 @ebitmap_get_bit(ptr noundef readonly captu
 15:                                               ; preds = %10
   %16 = add nuw nsw i64 %13, 384
   %17 = icmp ugt i64 %16, %1
-  br i1 %17, label %18, label %.preheader, !llvm.loop !20
+  br i1 %17, label %18, label %.preheader, !llvm.loop !11
 
 18:                                               ; preds = %15
   %19 = trunc i64 %1 to i32
   %20 = sub i32 %19, %12
   %21 = icmp ugt i32 %20, 383
-  br i1 %21, label %22, label %23, !prof !14
+  br i1 %21, label %22, label %23, !prof !12
 
 22:                                               ; preds = %18
-  tail call void asm sideeffect "674: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 674b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 674) #12, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 94, i32 0, i64 12) #12, !srcloc !16
+  tail call void asm sideeffect "674: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 674b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 674) #12, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 94, i32 0, i64 12) #12, !srcloc !14
   unreachable
 
 23:                                               ; preds = %18
@@ -383,7 +383,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
 14:                                               ; preds = %9
   %15 = add nuw nsw i64 %12, 384
   %16 = icmp ugt i64 %15, %1
-  br i1 %16, label %17, label %4, !llvm.loop !21
+  br i1 %16, label %17, label %4, !llvm.loop !18
 
 17:                                               ; preds = %14
   %18 = icmp eq i32 %2, 0
@@ -393,11 +393,11 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
   br i1 %18, label %34, label %22
 
 22:                                               ; preds = %17
-  br i1 %21, label %23, label %24, !prof !14
+  br i1 %21, label %23, label %24, !prof !12
 
 23:                                               ; preds = %22
-  tail call void asm sideeffect "675: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 675b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 675) #12, !srcloc !22
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 106, i32 0, i64 12) #12, !srcloc !23
+  tail call void asm sideeffect "675: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 675b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 675) #12, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 106, i32 0, i64 12) #12, !srcloc !20
   unreachable
 
 24:                                               ; preds = %22
@@ -414,11 +414,11 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
   br label %102
 
 34:                                               ; preds = %17
-  br i1 %21, label %35, label %36, !prof !14
+  br i1 %21, label %35, label %36, !prof !12
 
 35:                                               ; preds = %34
-  tail call void asm sideeffect "676: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 676b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 676) #12, !srcloc !24
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 116, i32 0, i64 12) #12, !srcloc !25
+  tail call void asm sideeffect "676: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 676b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 676) #12, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 116, i32 0, i64 12) #12, !srcloc !22
   unreachable
 
 36:                                               ; preds = %34
@@ -488,11 +488,11 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_set_bit(ptr noundef capt
   %78 = trunc i64 %1 to i32
   %79 = sub i32 %78, %76
   %80 = icmp ugt i32 %79, 383
-  br i1 %80, label %81, label %82, !prof !14
+  br i1 %80, label %81, label %82, !prof !12
 
 81:                                               ; preds = %73
-  tail call void asm sideeffect "675: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 675b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 675) #12, !srcloc !22
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 106, i32 0, i64 12) #12, !srcloc !23
+  tail call void asm sideeffect "675: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 675b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 675) #12, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 106, i32 0, i64 12) #12, !srcloc !20
   unreachable
 
 82:                                               ; preds = %73
@@ -557,7 +557,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_export(ptr nounde
   %11 = load ptr, ptr %10, align 8
   tail call void @kfree(ptr noundef nonnull %9) #12
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit8, label %.preheader7, !llvm.loop !26
+  br i1 %12, label %.loopexit8, label %.preheader7, !llvm.loop !23
 
 .loopexit8:                                       ; preds = %.preheader7, %6
   store ptr null, ptr %1, align 8
@@ -587,12 +587,12 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_export(ptr nounde
   %28 = add i32 %20, 64
   %29 = add nuw nsw i64 %19, 1
   %30 = icmp eq i64 %29, 6
-  br i1 %30, label %31, label %18, !llvm.loop !27
+  br i1 %30, label %31, label %18, !llvm.loop !24
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %14, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %13, !llvm.loop !28
+  br i1 %33, label %.loopexit, label %13, !llvm.loop !25
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %1, align 8
@@ -605,7 +605,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_export(ptr nounde
   %39 = load ptr, ptr %38, align 8
   tail call void @kfree(ptr noundef nonnull %37) #12
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %31, %.preheader, %34, %5
   %41 = phi i32 [ 0, %5 ], [ -12, %34 ], [ -12, %.preheader ], [ 0, %31 ]
@@ -622,7 +622,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store i64 0, ptr %4, align 8, !annotation !30
+  store i64 0, ptr %4, align 8, !annotation !26
   %5 = call i32 @netlbl_catmap_getlong(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.loopexit6, label %7
@@ -650,7 +650,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr nounde
   store i32 %18, ptr %3, align 4
   %19 = call i32 @netlbl_catmap_getlong(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %.loopexit6, label %11, !llvm.loop !31
+  br i1 %20, label %.loopexit6, label %11, !llvm.loop !27
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %10, null
@@ -700,7 +700,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr nounde
   store i32 %52, ptr %3, align 4
   %53 = call i32 @netlbl_catmap_getlong(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.loopexit6, label %9, !llvm.loop !32
+  br i1 %54, label %.loopexit6, label %9, !llvm.loop !27
 
 .loopexit6:                                       ; preds = %42, %30, %17, %2
   %55 = icmp eq ptr %0, null
@@ -717,7 +717,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_netlbl_import(ptr nounde
   %61 = load ptr, ptr @ebitmap_node_cachep, align 8
   call void @kmem_cache_free(ptr noundef %61, ptr noundef nonnull %59) #12
   %62 = icmp eq ptr %60, null
-  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -782,14 +782,14 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 .preheader.us:                                    ; preds = %26, %31
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %31 ], [ 5, %26 ]
   %.not.us = icmp eq i64 %indvars.iv28, 0
-  br i1 %.not.us, label %.thread13.us, label %31, !llvm.loop !34
+  br i1 %.not.us, label %.thread13.us, label %31, !llvm.loop !28
 
 31:                                               ; preds = %.preheader.us
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, -1
   %32 = getelementptr [6 x i64], ptr %27, i64 0, i64 %indvars.iv.next29
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.preheader.us, label %.loopexit16.us, !llvm.loop !35
+  br i1 %34, label %.preheader.us, label %.loopexit16.us, !llvm.loop !28
 
 .loopexit16.us:                                   ; preds = %31
   %35 = trunc nsw i64 %indvars.iv.next29 to i32
@@ -815,7 +815,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 48:                                               ; preds = %39
   %49 = add nsw i32 %40, -1
   %50 = icmp sgt i32 %40, 0
-  br i1 %50, label %39, label %.thread13.us, !llvm.loop !36
+  br i1 %50, label %39, label %.thread13.us, !llvm.loop !29
 
 .thread13.us:                                     ; preds = %.preheader.us, %48, %.loopexit16.us
   %51 = load ptr, ptr %23, align 8
@@ -827,7 +827,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %55 = icmp ne ptr %54, null
   %56 = icmp ne ptr %53, null
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %58, label %.loopexit19, !llvm.loop !37
+  br i1 %57, label %58, label %.loopexit19, !llvm.loop !30
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 56
@@ -835,7 +835,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %62 = load i32, ptr %61, align 8
   %63 = icmp ugt i32 %60, %62
-  br i1 %63, label %.loopexit19, label %.preheader17.split.us, !llvm.loop !38
+  br i1 %63, label %.loopexit19, label %.preheader17.split.us, !llvm.loop !31
 
 64:                                               ; preds = %112
   %65 = getelementptr inbounds nuw i8, ptr %114, i64 56
@@ -843,7 +843,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %67 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %68 = load i32, ptr %67, align 8
   %69 = icmp ugt i32 %66, %68
-  br i1 %69, label %.loopexit19, label %.preheader17.split, !llvm.loop !40
+  br i1 %69, label %.loopexit19, label %.preheader17.split, !llvm.loop !30
 
 .preheader17.split:                               ; preds = %.preheader17, %64
   %70 = phi i32 [ %68, %64 ], [ %19, %.preheader17 ]
@@ -865,12 +865,12 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %81 = getelementptr [6 x i64], ptr %76, i64 0, i64 %indvars.iv.next
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %.preheader, label %.loopexit16.loopexit, !llvm.loop !35
+  br i1 %83, label %.preheader, label %.loopexit16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %75, %80
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 5, %75 ]
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.thread13, label %80, !llvm.loop !34
+  br i1 %.not, label %.thread13, label %80, !llvm.loop !28
 
 .loopexit16.loopexit:                             ; preds = %80
   %84 = trunc nsw i64 %indvars.iv.next to i32
@@ -883,7 +883,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %88 = zext nneg i32 %85 to i64
   %89 = getelementptr [6 x i64], ptr %76, i64 0, i64 %88
   %90 = load i64, ptr %89, align 8
-  %91 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %90) #13, !srcloc !41
+  %91 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %90) #13, !srcloc !33
   %92 = trunc i64 %91 to i32
   %93 = add i32 %87, %92
   %94 = icmp ugt i32 %93, %2
@@ -900,7 +900,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
 99:                                               ; preds = %102
   %100 = add nsw i32 %103, -1
   %101 = icmp sgt i32 %103, 0
-  br i1 %101, label %102, label %.thread13, !llvm.loop !36
+  br i1 %101, label %102, label %.thread13, !llvm.loop !29
 
 102:                                              ; preds = %99, %97
   %103 = phi i32 [ %85, %97 ], [ %100, %99 ]
@@ -923,7 +923,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr noundef readonly capt
   %115 = icmp ne ptr %114, null
   %116 = icmp ne ptr %113, null
   %117 = select i1 %115, i1 %116, i1 false
-  br i1 %117, label %64, label %.loopexit19, !llvm.loop !37
+  br i1 %117, label %64, label %.loopexit19, !llvm.loop !30
 
 .loopexit19:                                      ; preds = %64, %112, %58, %52, %15, %9
   %118 = phi i1 [ %13, %9 ], [ true, %15 ], [ %56, %52 ], [ true, %58 ], [ %116, %112 ], [ true, %64 ]
@@ -1089,7 +1089,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
 88:                                               ; preds = %80, %74
   %89 = add nuw i32 %27, 1
   %90 = icmp eq i32 %89, %12
-  br i1 %90, label %.thread, label %.preheader20, !llvm.loop !42
+  br i1 %90, label %.thread, label %.preheader20, !llvm.loop !34
 
 91:                                               ; preds = %24, %67, %45, %39, %17, %30, %72, %63
   %92 = phi i32 [ -22, %30 ], [ -22, %72 ], [ -12, %63 ], [ -22, %17 ], [ -22, %39 ], [ -22, %45 ], [ -22, %67 ], [ -22, %24 ]
@@ -1107,7 +1107,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
   %99 = load ptr, ptr @ebitmap_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %99, ptr noundef nonnull %97) #12
   %100 = icmp eq ptr %98, null
-  br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %94
   store i32 0, ptr %15, align 8
@@ -1146,7 +1146,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
 10:                                               ; preds = %.preheader33
   %11 = load ptr, ptr %5, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread, label %.preheader33, !llvm.loop !44
+  br i1 %12, label %.thread, label %.preheader33, !llvm.loop !10
 
 .thread:                                          ; preds = %10, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1203,7 +1203,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   %50 = tail call i64 @_find_first_bit(ptr noundef nonnull %49, i64 noundef 384) #12
   %51 = and i64 %50, 4294967168
   %52 = icmp samesign ult i64 %51, 384
-  br i1 %52, label %53, label %.preheader31, !llvm.loop !45
+  br i1 %52, label %53, label %.preheader31, !llvm.loop !16
 
 53:                                               ; preds = %48
   %54 = trunc i64 %50 to i32
@@ -1221,7 +1221,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   %62 = phi i32 [ %44, %41 ], [ %59, %58 ], [ %57, %53 ]
   %63 = load i32, ptr %20, align 8
   %64 = icmp ult i32 %62, %63
-  br i1 %64, label %.preheader32, label %65, !llvm.loop !46
+  br i1 %64, label %.preheader32, label %65, !llvm.loop !35
 
 65:                                               ; preds = %60
   %66 = add i32 %28, 64
@@ -1264,7 +1264,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
 89:                                               ; preds = %.preheader30
   %90 = load ptr, ptr %84, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread24, label %.preheader30, !llvm.loop !47
+  br i1 %91, label %.thread24, label %.preheader30, !llvm.loop !10
 
 92:                                               ; preds = %.preheader30
   %93 = trunc i64 %86 to i32
@@ -1364,7 +1364,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   %155 = tail call i64 @_find_first_bit(ptr noundef nonnull %154, i64 noundef 384) #12
   %156 = and i64 %155, 4294967168
   %157 = icmp samesign ult i64 %156, 384
-  br i1 %157, label %158, label %.preheader, !llvm.loop !48
+  br i1 %157, label %158, label %.preheader, !llvm.loop !16
 
 158:                                              ; preds = %153
   %159 = trunc i64 %155 to i32
@@ -1382,7 +1382,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   %167 = phi i32 [ %149, %146 ], [ %164, %163 ], [ %162, %158 ]
   %168 = load i32, ptr %68, align 8
   %169 = icmp ult i32 %167, %168
-  br i1 %169, label %.preheader29, label %170, !llvm.loop !49
+  br i1 %169, label %.preheader29, label %170, !llvm.loop !36
 
 170:                                              ; preds = %165
   %171 = load i64, ptr %71, align 8
@@ -1518,7 +1518,7 @@ define dso_local i32 @ebitmap_hash(ptr noundef readonly captures(none) %0, i32 n
   %95 = add nsw i32 %62, -12
   %96 = getelementptr i8, ptr %58, i64 12
   %97 = icmp ugt i32 %95, 12
-  br i1 %97, label %57, label %98, !llvm.loop !50
+  br i1 %97, label %57, label %98, !llvm.loop !37
 
 98:                                               ; preds = %57
   %99 = getelementptr i8, ptr %29, i64 55
@@ -1601,7 +1601,7 @@ define dso_local i32 @ebitmap_hash(ptr noundef readonly captures(none) %0, i32 n
   %176 = sub i32 %174, %175
   %177 = load ptr, ptr %29, align 8
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %178, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %98, %2
   %179 = phi i32 [ %26, %2 ], [ %176, %98 ]
@@ -1659,50 +1659,37 @@ attributes #14 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{!"branch_weights", i32 1, i32 2000}
-!15 = !{i64 2157689558, i64 2157689367, i64 2157689419, i64 2157689465, i64 2157689493}
-!16 = !{i64 2157689632, i64 2157689661, i64 2157689707, i64 2157689765, i64 2157689819, i64 2157689873, i64 2157689928, i64 2157689959}
-!17 = !{i32 -12, i32 1}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = !{i64 2157691363, i64 2157691172, i64 2157691224, i64 2157691270, i64 2157691298}
-!23 = !{i64 2157691437, i64 2157691466, i64 2157691512, i64 2157691570, i64 2157691624, i64 2157691678, i64 2157691733, i64 2157691764}
-!24 = !{i64 2157693169, i64 2157692978, i64 2157693030, i64 2157693076, i64 2157693104}
-!25 = !{i64 2157693243, i64 2157693272, i64 2157693318, i64 2157693376, i64 2157693430, i64 2157693484, i64 2157693539, i64 2157693570}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = distinct !{!28, !6, !7, !8}
-!29 = distinct !{!29, !6, !7, !8}
-!30 = !{!"auto-init"}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{i64 2157689558, i64 2157689367, i64 2157689419, i64 2157689465, i64 2157689493}
+!14 = !{i64 2157689632, i64 2157689661, i64 2157689707, i64 2157689765, i64 2157689819, i64 2157689873, i64 2157689928, i64 2157689959}
+!15 = !{i32 -12, i32 1}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = !{i64 2157691363, i64 2157691172, i64 2157691224, i64 2157691270, i64 2157691298}
+!20 = !{i64 2157691437, i64 2157691466, i64 2157691512, i64 2157691570, i64 2157691624, i64 2157691678, i64 2157691733, i64 2157691764}
+!21 = !{i64 2157693169, i64 2157692978, i64 2157693030, i64 2157693076, i64 2157693104}
+!22 = !{i64 2157693243, i64 2157693272, i64 2157693318, i64 2157693376, i64 2157693430, i64 2157693484, i64 2157693539, i64 2157693570}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = !{!"auto-init"}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = !{i64 304608}
 !34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7, !8}
-!36 = distinct !{!36, !6, !7, !8}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
 !37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7, !8, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !6, !7, !8}
-!41 = !{i64 304608}
-!42 = distinct !{!42, !6, !7, !8}
-!43 = distinct !{!43, !6, !7, !8}
-!44 = distinct !{!44, !6, !7, !8}
-!45 = distinct !{!45, !6, !7, !8}
-!46 = distinct !{!46, !6, !7, !8}
-!47 = distinct !{!47, !6, !7, !8}
-!48 = distinct !{!48, !6, !7, !8}
-!49 = distinct !{!49, !6, !7, !8}
-!50 = distinct !{!50, !6, !7, !8}
-!51 = distinct !{!51, !6, !7, !8}
+!38 = distinct !{!38, !6, !7}

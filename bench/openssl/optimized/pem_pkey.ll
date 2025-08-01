@@ -195,10 +195,10 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
 
 83:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  store ptr null, ptr %8, align 8, !tbaa !11
+  store ptr null, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
-  store ptr null, ptr %10, align 8, !tbaa !11
+  store ptr null, ptr %10, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
   %84 = call i32 @ERR_set_mark() #6
   %85 = and i32 %6, 1
@@ -220,15 +220,15 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
 
 .critedge.i:                                      ; preds = %88, %86
   %91 = call i32 @ERR_clear_last_mark() #6
-  %92 = load ptr, ptr %10, align 8, !tbaa !11
-  store ptr %92, ptr %9, align 8, !tbaa !11
-  %93 = load ptr, ptr %8, align 8, !tbaa !11
+  %92 = load ptr, ptr %10, align 8, !tbaa !10
+  store ptr %92, ptr %9, align 8, !tbaa !10
+  %93 = load ptr, ptr %8, align 8, !tbaa !10
   %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(12) @.str.9) #7
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %105
 
 96:                                               ; preds = %.critedge.i
-  %97 = load i64, ptr %11, align 8, !tbaa !13
+  %97 = load i64, ptr %11, align 8, !tbaa !12
   %98 = call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef nonnull %9, i64 noundef %97) #6
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread4.i, label %100
@@ -255,7 +255,7 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
 
 108:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #6
-  %109 = load i64, ptr %11, align 8, !tbaa !13
+  %109 = load i64, ptr %11, align 8, !tbaa !12
   %110 = call ptr @d2i_X509_SIG(ptr noundef null, ptr noundef nonnull %9, i64 noundef %109) #6
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread.i, label %112
@@ -307,20 +307,20 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
   br i1 %127, label %128, label %140
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr %8, align 8, !tbaa !11
+  %129 = load ptr, ptr %8, align 8, !tbaa !10
   %130 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef %129, i32 noundef %126) #6
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.thread4.i, label %132
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 184
-  %134 = load ptr, ptr %133, align 8, !tbaa !15
+  %134 = load ptr, ptr %133, align 8, !tbaa !14
   %135 = icmp eq ptr %134, null
   br i1 %135, label %.thread4.i, label %136
 
 136:                                              ; preds = %132
-  %137 = load i32, ptr %130, align 8, !tbaa !18
-  %138 = load i64, ptr %11, align 8, !tbaa !13
+  %137 = load i32, ptr %130, align 8, !tbaa !17
+  %138 = load i64, ptr %11, align 8, !tbaa !12
   %139 = call ptr @ossl_d2i_PrivateKey_legacy(i32 noundef %137, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %138, ptr noundef %4, ptr noundef %5) #6
   br label %145
 
@@ -330,7 +330,7 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
   br i1 %or.cond.not.i, label %142, label %.thread4.i
 
 142:                                              ; preds = %140
-  %143 = load i64, ptr %11, align 8, !tbaa !13
+  %143 = load i64, ptr %11, align 8, !tbaa !12
   %144 = call ptr @ossl_d2i_PUBKEY_legacy(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %143) #6
   br label %145
 
@@ -360,10 +360,10 @@ pem_read_bio_key_legacy.exit.thread:              ; preds = %88, %86
 
 pem_read_bio_key_legacy.exit:                     ; preds = %124, %145, %.thread4.i, %149
   %.3.i = phi ptr [ null, %149 ], [ null, %.thread4.i ], [ %.166.i, %145 ], [ null, %124 ]
-  %151 = load ptr, ptr %8, align 8, !tbaa !11
+  %151 = load ptr, ptr %8, align 8, !tbaa !10
   call void @CRYPTO_secure_free(ptr noundef %151, ptr noundef nonnull @.str, i32 noundef 209) #6
-  %152 = load ptr, ptr %10, align 8, !tbaa !11
-  %153 = load i64, ptr %11, align 8, !tbaa !13
+  %152 = load ptr, ptr %10, align 8, !tbaa !10
+  %153 = load i64, ptr %11, align 8, !tbaa !12
   call void @CRYPTO_secure_clear_free(ptr noundef %152, i64 noundef %153, ptr noundef nonnull @.str, i32 noundef 210) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
@@ -536,13 +536,13 @@ define i32 @PEM_write_bio_PrivateKey_ex(ptr noundef %0, ptr noundef %1, ptr noun
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !19
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
   %36 = icmp eq ptr %35, null
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  %39 = load ptr, ptr %38, align 8, !tbaa !31
+  %39 = load ptr, ptr %38, align 8, !tbaa !30
   %.not63 = icmp eq ptr %39, null
   br i1 %.not63, label %.split48, label %41
 
@@ -594,19 +594,19 @@ define i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %17
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
   %.not19 = icmp eq ptr %16, null
   br i1 %.not19, label %23, label %17
 
 17:                                               ; preds = %14, %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %23, label %20
 
@@ -620,13 +620,13 @@ define i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef %0, ptr noundef %1,
 23:                                               ; preds = %20, %17, %14
   %.016 = phi ptr [ %1, %17 ], [ %1, %14 ], [ %spec.select, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = icmp eq ptr %25, null
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 192
-  %29 = load ptr, ptr %28, align 8, !tbaa !35
+  %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
@@ -638,7 +638,7 @@ define i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef %0, ptr noundef %1,
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !36
+  %34 = load ptr, ptr %33, align 8, !tbaa !35
   %35 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %8, i64 noundef 80, ptr noundef nonnull @.str.3, ptr noundef %34) #6
   %36 = call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_PrivateKey, ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %.016, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #6
   br label %.sink.split
@@ -701,7 +701,7 @@ define i32 @PEM_write_bio_Parameters(ptr noundef %0, ptr noundef %1) local_unnam
 7:                                                ; preds = %2
   tail call void @OSSL_ENCODER_CTX_free(ptr noundef %4) #6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %23, label %12
 
@@ -712,17 +712,17 @@ define i32 @PEM_write_bio_Parameters(ptr noundef %0, ptr noundef %1) local_unnam
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %23, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !36
+  %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %3, i64 noundef 80, ptr noundef nonnull @.str.5, ptr noundef %17) #6
-  %19 = load ptr, ptr %8, align 8, !tbaa !19
+  %19 = load ptr, ptr %8, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = call i32 @PEM_ASN1_write_bio(ptr noundef %21, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #6
   br label %23
 
@@ -897,33 +897,32 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = !{!16, !5, i64 184}
-!16 = !{!"evp_pkey_asn1_method_st", !17, i64 0, !17, i64 4, !14, i64 8, !12, i64 16, !12, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312}
-!17 = !{!"int", !6, i64 0}
-!18 = !{!16, !17, i64 0}
-!19 = !{!20, !21, i64 8}
-!20 = !{!"evp_pkey_st", !17, i64 0, !17, i64 4, !21, i64 8, !22, i64 16, !22, i64 24, !6, i64 32, !6, i64 40, !23, i64 48, !5, i64 56, !24, i64 64, !17, i64 72, !17, i64 76, !25, i64 80, !28, i64 96, !5, i64 104, !14, i64 112, !29, i64 120, !14, i64 128, !30, i64 136}
-!21 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !5, i64 0}
-!22 = !{!"p1 _ZTS9engine_st", !5, i64 0}
-!23 = !{!"", !6, i64 0}
-!24 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !5, i64 0}
-!25 = !{!"crypto_ex_data_st", !26, i64 0, !27, i64 8}
-!26 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
-!27 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
-!28 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
-!29 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !5, i64 0}
-!30 = !{!"", !17, i64 0, !17, i64 4, !17, i64 8}
-!31 = !{!16, !5, i64 72}
-!32 = !{!6, !6, i64 0}
-!33 = !{!20, !5, i64 104}
-!34 = !{!20, !28, i64 96}
-!35 = !{!16, !5, i64 192}
-!36 = !{!16, !12, i64 16}
-!37 = !{!16, !5, i64 120}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!15, !5, i64 184}
+!15 = !{!"evp_pkey_asn1_method_st", !16, i64 0, !16, i64 4, !13, i64 8, !11, i64 16, !11, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!15, !16, i64 0}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"evp_pkey_st", !16, i64 0, !16, i64 4, !20, i64 8, !21, i64 16, !21, i64 24, !6, i64 32, !6, i64 40, !22, i64 48, !5, i64 56, !23, i64 64, !16, i64 72, !16, i64 76, !24, i64 80, !27, i64 96, !5, i64 104, !13, i64 112, !28, i64 120, !13, i64 128, !29, i64 136}
+!20 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !5, i64 0}
+!21 = !{!"p1 _ZTS9engine_st", !5, i64 0}
+!22 = !{!"", !6, i64 0}
+!23 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !5, i64 0}
+!24 = !{!"crypto_ex_data_st", !25, i64 0, !26, i64 8}
+!25 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!26 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!27 = !{!"p1 _ZTS14evp_keymgmt_st", !5, i64 0}
+!28 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !5, i64 0}
+!29 = !{!"", !16, i64 0, !16, i64 4, !16, i64 8}
+!30 = !{!15, !5, i64 72}
+!31 = !{!6, !6, i64 0}
+!32 = !{!19, !5, i64 104}
+!33 = !{!19, !27, i64 96}
+!34 = !{!15, !5, i64 192}
+!35 = !{!15, !11, i64 16}
+!36 = !{!15, !5, i64 120}

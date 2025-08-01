@@ -285,7 +285,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %17, ptr %15, align 8, !tbaa !64
   %18 = add nuw nsw i64 %.08.i, 1
   %exitcond13.not.i = icmp eq i64 %18, %.val.val
-  br i1 %exitcond13.not.i, label %Vaxpy_Serial.exit, label %.lr.ph9.i, !llvm.loop !66
+  br i1 %exitcond13.not.i, label %Vaxpy_Serial.exit, label %.lr.ph9.i
 
 19:                                               ; preds = %8
   %20 = fcmp oeq double %0, -1.000000e+00
@@ -308,7 +308,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %26, ptr %24, align 8, !tbaa !64
   %27 = add nuw nsw i64 %.16.i, 1
   %exitcond12.not.i = icmp eq i64 %27, %.val.val
-  br i1 %exitcond12.not.i, label %Vaxpy_Serial.exit, label %.lr.ph7.i, !llvm.loop !68
+  br i1 %exitcond12.not.i, label %Vaxpy_Serial.exit, label %.lr.ph7.i
 
 .lr.ph.i:                                         ; preds = %.preheader3.i, %.lr.ph.i
   %.25.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %.preheader3.i ]
@@ -320,7 +320,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %32, ptr %30, align 8, !tbaa !64
   %33 = add nuw nsw i64 %.25.i, 1
   %exitcond.not.i = icmp eq i64 %33, %.val.val
-  br i1 %exitcond.not.i, label %Vaxpy_Serial.exit, label %.lr.ph.i, !llvm.loop !69
+  br i1 %exitcond.not.i, label %Vaxpy_Serial.exit, label %.lr.ph.i
 
 34:                                               ; preds = %5
   %35 = fcmp oeq double %0, 1.000000e+00
@@ -352,7 +352,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %45, ptr %43, align 8, !tbaa !64
   %46 = add nuw nsw i64 %.08.i138, 1
   %exitcond13.not.i139 = icmp eq i64 %46, %.val100.val
-  br i1 %exitcond13.not.i139, label %Vaxpy_Serial.exit, label %.lr.ph9.i137, !llvm.loop !66
+  br i1 %exitcond13.not.i139, label %Vaxpy_Serial.exit, label %.lr.ph9.i137
 
 47:                                               ; preds = %37
   %48 = fcmp oeq double %2, -1.000000e+00
@@ -375,7 +375,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %54, ptr %52, align 8, !tbaa !64
   %55 = add nuw nsw i64 %.16.i134, 1
   %exitcond12.not.i135 = icmp eq i64 %55, %.val100.val
-  br i1 %exitcond12.not.i135, label %Vaxpy_Serial.exit, label %.lr.ph7.i133, !llvm.loop !68
+  br i1 %exitcond12.not.i135, label %Vaxpy_Serial.exit, label %.lr.ph7.i133
 
 .lr.ph.i129:                                      ; preds = %.preheader3.i128, %.lr.ph.i129
   %.25.i130 = phi i64 [ %61, %.lr.ph.i129 ], [ 0, %.preheader3.i128 ]
@@ -387,7 +387,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %60, ptr %58, align 8, !tbaa !64
   %61 = add nuw nsw i64 %.25.i130, 1
   %exitcond.not.i131 = icmp eq i64 %61, %.val100.val
-  br i1 %exitcond.not.i131, label %Vaxpy_Serial.exit, label %.lr.ph.i129, !llvm.loop !69
+  br i1 %exitcond.not.i131, label %Vaxpy_Serial.exit, label %.lr.ph.i129
 
 62:                                               ; preds = %34
   %or.cond = and i1 %35, %6
@@ -418,7 +418,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %72, ptr %73, align 8, !tbaa !64
   %74 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i142 = icmp eq i64 %74, %.val104.val
-  br i1 %exitcond.not.i142, label %Vaxpy_Serial.exit, label %.lr.ph.i141, !llvm.loop !70
+  br i1 %exitcond.not.i142, label %Vaxpy_Serial.exit, label %.lr.ph.i141
 
 75:                                               ; preds = %62
   %76 = fcmp oeq double %2, -1.000000e+00
@@ -457,7 +457,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %91, ptr %92, align 8, !tbaa !64
   %93 = add nuw nsw i64 %.01.i144, 1
   %exitcond.not.i145 = icmp eq i64 %93, %.val108.val
-  br i1 %exitcond.not.i145, label %Vaxpy_Serial.exit, label %.lr.ph.i143, !llvm.loop !71
+  br i1 %exitcond.not.i145, label %Vaxpy_Serial.exit, label %.lr.ph.i143
 
 94:                                               ; preds = %78
   %or.cond5 = or i1 %35, %6
@@ -491,7 +491,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %107, ptr %108, align 8, !tbaa !64
   %109 = add nuw nsw i64 %.01.i147, 1
   %exitcond.not.i148 = icmp eq i64 %109, %.val112.val
-  br i1 %exitcond.not.i148, label %Vaxpy_Serial.exit, label %.lr.ph.i146, !llvm.loop !72
+  br i1 %exitcond.not.i148, label %Vaxpy_Serial.exit, label %.lr.ph.i146
 
 110:                                              ; preds = %94
   %or.cond7 = or i1 %79, %76
@@ -526,7 +526,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %124, ptr %125, align 8, !tbaa !64
   %126 = add nuw nsw i64 %.01.i150, 1
   %exitcond.not.i151 = icmp eq i64 %126, %.val116.val
-  br i1 %exitcond.not.i151, label %Vaxpy_Serial.exit, label %.lr.ph.i149, !llvm.loop !73
+  br i1 %exitcond.not.i151, label %Vaxpy_Serial.exit, label %.lr.ph.i149
 
 127:                                              ; preds = %110
   %128 = fcmp oeq double %0, %2
@@ -558,7 +558,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %139, ptr %140, align 8, !tbaa !64
   %141 = add nuw nsw i64 %.01.i153, 1
   %exitcond.not.i154 = icmp eq i64 %141, %.val120.val
-  br i1 %exitcond.not.i154, label %Vaxpy_Serial.exit, label %.lr.ph.i152, !llvm.loop !74
+  br i1 %exitcond.not.i154, label %Vaxpy_Serial.exit, label %.lr.ph.i152
 
 142:                                              ; preds = %127
   %143 = fneg double %2
@@ -591,7 +591,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %155, ptr %156, align 8, !tbaa !64
   %157 = add nuw nsw i64 %.01.i156, 1
   %exitcond.not.i157 = icmp eq i64 %157, %.val124.val
-  br i1 %exitcond.not.i157, label %Vaxpy_Serial.exit, label %.lr.ph.i155, !llvm.loop !75
+  br i1 %exitcond.not.i157, label %Vaxpy_Serial.exit, label %.lr.ph.i155
 
 158:                                              ; preds = %142
   %159 = load i64, ptr %.val124, align 8, !tbaa !55
@@ -618,7 +618,7 @@ define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly capture
   store double %174, ptr %175, align 8, !tbaa !64
   %176 = add nuw nsw i64 %.0170, 1
   %exitcond.not = icmp eq i64 %176, %159
-  br i1 %exitcond.not, label %Vaxpy_Serial.exit, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %Vaxpy_Serial.exit, label %.lr.ph
 
 Vaxpy_Serial.exit:                                ; preds = %.lr.ph, %.lr.ph.i155, %.lr.ph.i152, %.lr.ph.i149, %.lr.ph.i146, %.lr.ph.i143, %.lr.ph.i141, %.lr.ph.i129, %.lr.ph7.i133, %.lr.ph9.i137, %.lr.ph.i, %.lr.ph7.i, %.lr.ph9.i, %158, %145, %129, %111, %95, %80, %63, %.preheader1.i132, %.preheader3.i128, %.preheader.i136, %.preheader1.i, %.preheader3.i, %.preheader.i
   ret void
@@ -639,7 +639,7 @@ define void @N_VConst_Serial(double noundef %0, ptr noundef readonly captures(no
   store double %0, ptr %8, align 8, !tbaa !64
   %9 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -671,7 +671,7 @@ define void @N_VProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef 
   store double %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %21, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -703,7 +703,7 @@ define void @N_VDiv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   store double %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %21, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -730,7 +730,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
   store double %10, ptr %8, align 8, !tbaa !64
   %11 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %11, %.val.val
-  br i1 %exitcond.not.i, label %VScaleBy_Serial.exit, label %.lr.ph.i, !llvm.loop !80
+  br i1 %exitcond.not.i, label %VScaleBy_Serial.exit, label %.lr.ph.i
 
 12:                                               ; preds = %3
   %13 = fcmp oeq double %0, 1.000000e+00
@@ -755,7 +755,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
   store double %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.01.i31, 1
   %exitcond.not.i32 = icmp eq i64 %21, %.val24.val
-  br i1 %exitcond.not.i32, label %VScaleBy_Serial.exit, label %.lr.ph.i30, !llvm.loop !81
+  br i1 %exitcond.not.i32, label %VScaleBy_Serial.exit, label %.lr.ph.i30
 
 22:                                               ; preds = %12
   %23 = fcmp oeq double %0, -1.000000e+00
@@ -781,7 +781,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
   store double %30, ptr %31, align 8, !tbaa !64
   %32 = add nuw nsw i64 %.01.i34, 1
   %exitcond.not.i35 = icmp eq i64 %32, %.val27.val
-  br i1 %exitcond.not.i35, label %VScaleBy_Serial.exit, label %.lr.ph.i33, !llvm.loop !82
+  br i1 %exitcond.not.i35, label %VScaleBy_Serial.exit, label %.lr.ph.i33
 
 33:                                               ; preds = %22
   %34 = load i64, ptr %.val27, align 8, !tbaa !55
@@ -802,7 +802,7 @@ define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(ad
   store double %43, ptr %44, align 8, !tbaa !64
   %45 = add nuw nsw i64 %.039, 1
   %exitcond.not = icmp eq i64 %45, %34
-  br i1 %exitcond.not, label %VScaleBy_Serial.exit, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %VScaleBy_Serial.exit, label %.lr.ph
 
 VScaleBy_Serial.exit:                             ; preds = %.lr.ph, %.lr.ph.i33, %.lr.ph.i30, %.lr.ph.i, %33, %24, %14, %5
   ret void
@@ -829,7 +829,7 @@ define void @N_VAbs_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   store double %13, ptr %14, align 8, !tbaa !64
   %15 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %15, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -856,7 +856,7 @@ define void @N_VInv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
   store double %13, ptr %14, align 8, !tbaa !64
   %15 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %15, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -883,7 +883,7 @@ define void @N_VAddConst_Serial(ptr noundef readonly captures(none) %0, double n
   store double %14, ptr %15, align 8, !tbaa !64
   %16 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %16, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -911,7 +911,7 @@ define double @N_VDotProd_Serial(ptr noundef readonly captures(none) %0, ptr nou
   %15 = tail call double @llvm.fmuladd.f64(double %12, double %14, double %.013)
   %16 = add nuw nsw i64 %.01112, 1
   %exitcond.not = icmp eq i64 %16, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %15, %.lr.ph ]
@@ -937,7 +937,7 @@ define double @N_VMaxNorm_Serial(ptr noundef readonly captures(none) %0) #8 {
   %.1 = select i1 %10, double %9, double %.013
   %11 = add nuw nsw i64 %.01012, 1
   %exitcond.not = icmp eq i64 %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
@@ -980,7 +980,7 @@ define double @N_VWrmsNormMask_Serial(ptr noundef readonly captures(none) %0, pt
   %.1.i = phi double [ %24, %18 ], [ %.01617.i, %.lr.ph.i ]
   %26 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %26, %5
-  br i1 %exitcond.not.i, label %N_VWSqrSumMaskLocal_Serial.exit, label %.lr.ph.i, !llvm.loop !89
+  br i1 %exitcond.not.i, label %N_VWSqrSumMaskLocal_Serial.exit, label %.lr.ph.i
 
 N_VWSqrSumMaskLocal_Serial.exit:                  ; preds = %25, %3
   %.016.lcssa.i = phi double [ 0.000000e+00, %3 ], [ %.1.i, %25 ]
@@ -990,7 +990,7 @@ N_VWSqrSumMaskLocal_Serial.exit:                  ; preds = %25, %3
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %N_VWSqrSumMaskLocal_Serial.exit
-  %31 = tail call double @sqrt(double noundef %28) #21, !tbaa !90
+  %31 = tail call double @sqrt(double noundef %28) #21, !tbaa !66
   br label %32
 
 32:                                               ; preds = %N_VWSqrSumMaskLocal_Serial.exit, %30
@@ -1021,7 +1021,7 @@ define double @N_VWrmsNorm_Serial(ptr noundef readonly captures(none) %0, ptr no
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01314.i)
   %17 = add nuw nsw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %17, %4
-  br i1 %exitcond.not.i, label %N_VWSqrSumLocal_Serial.exit, label %.lr.ph.i, !llvm.loop !91
+  br i1 %exitcond.not.i, label %N_VWSqrSumLocal_Serial.exit, label %.lr.ph.i
 
 N_VWSqrSumLocal_Serial.exit:                      ; preds = %.lr.ph.i, %2
   %.013.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %16, %.lr.ph.i ]
@@ -1031,7 +1031,7 @@ N_VWSqrSumLocal_Serial.exit:                      ; preds = %.lr.ph.i, %2
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %N_VWSqrSumLocal_Serial.exit
-  %22 = tail call double @sqrt(double noundef %19) #21, !tbaa !90
+  %22 = tail call double @sqrt(double noundef %19) #21, !tbaa !66
   br label %23
 
 23:                                               ; preds = %N_VWSqrSumLocal_Serial.exit, %21
@@ -1058,7 +1058,7 @@ define double @N_VMin_Serial(ptr noundef readonly captures(none) %0) #8 {
   %.1 = select i1 %10, double %9, double %.014
   %11 = add nuw nsw i64 %.01113, 1
   %exitcond.not = icmp eq i64 %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi double [ %6, %1 ], [ %.1, %.lr.ph ]
@@ -1088,14 +1088,14 @@ define double @N_VWL2Norm_Serial(ptr noundef readonly captures(none) %0, ptr nou
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01415)
   %17 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %18 = fcmp ugt double %16, 0.000000e+00
   br i1 %18, label %19, label %._crit_edge.thread
 
 19:                                               ; preds = %._crit_edge
-  %20 = tail call double @sqrt(double noundef %16) #21, !tbaa !90
+  %20 = tail call double @sqrt(double noundef %16) #21, !tbaa !66
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %19
@@ -1121,7 +1121,7 @@ define double @N_VL1Norm_Serial(ptr noundef readonly captures(none) %0) #8 {
   %10 = fadd double %.010, %9
   %11 = add nuw nsw i64 %.089, 1
   %exitcond.not = icmp eq i64 %11, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %10, %.lr.ph ]
@@ -1151,7 +1151,7 @@ define void @N_VCompare_Serial(double noundef %0, ptr noundef readonly captures(
   store double %16, ptr %17, align 8, !tbaa !64
   %18 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1187,7 +1187,7 @@ define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr noundef readonly captures(none
   %.1 = phi i32 [ %.015, %14 ], [ 0, %.lr.ph ]
   %18 = add nuw nsw i64 %.01214, 1
   %exitcond.not = icmp eq i64 %18, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %17, %2
   %.0.lcssa = phi i32 [ 1, %2 ], [ %.1, %17 ]
@@ -1250,7 +1250,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   %.1 = phi double [ %.02630, %.lr.ph ], [ 1.000000e+00, %.critedge ], [ %.02630, %29 ], [ %.02630, %27 ]
   %34 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %34, %5
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.critedge29
   %35 = fcmp une double %.1, 1.000000e+00
@@ -1300,7 +1300,7 @@ define double @N_VMinQuotient_Serial(ptr noundef readonly captures(none) %0, ptr
   %.1 = phi double [ %.030, %.lr.ph ], [ %.0., %18 ], [ %17, %14 ]
   %21 = add nuw nsw i64 %.02528, 1
   %exitcond.not = icmp eq i64 %21, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %20, %2
   %.0.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %2 ], [ %.1, %20 ]
@@ -1330,7 +1330,7 @@ define double @N_VWSqrSumLocal_Serial(ptr noundef readonly captures(none) %0, pt
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01314)
   %17 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.013.lcssa = phi double [ 0.000000e+00, %2 ], [ %16, %.lr.ph ]
@@ -1373,7 +1373,7 @@ define double @N_VWSqrSumMaskLocal_Serial(ptr noundef readonly captures(none) %0
   %.1 = phi double [ %24, %18 ], [ %.01617, %.lr.ph ]
   %26 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %26, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %25, %3
   %.016.lcssa = phi double [ 0.000000e+00, %3 ], [ %.1, %25 ]
@@ -1386,7 +1386,7 @@ define noundef i32 @N_VDotProdMulti_Serial(i32 noundef %0, ptr noundef readonly 
   br i1 %5, label %6, label %22
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %2, align 8, !tbaa !99
+  %7 = load ptr, ptr %2, align 8, !tbaa !67
   %8 = load ptr, ptr %1, align 8, !tbaa !54
   %9 = load i64, ptr %8, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1407,7 +1407,7 @@ define noundef i32 @N_VDotProdMulti_Serial(i32 noundef %0, ptr noundef readonly 
   %20 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %.013.i)
   %21 = add nuw nsw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %21, %9
-  br i1 %exitcond.not.i, label %N_VDotProd_Serial.exit, label %.lr.ph.i, !llvm.loop !87
+  br i1 %exitcond.not.i, label %N_VDotProd_Serial.exit, label %.lr.ph.i
 
 N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
   %.0.lcssa.i = phi double [ 0.000000e+00, %6 ], [ %20, %.lr.ph.i ]
@@ -1435,7 +1435,7 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
 .lr.ph.us:                                        ; preds = %.lr.ph28, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph28 ]
   %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !99
+  %31 = load ptr, ptr %30, align 8, !tbaa !67
   %32 = load ptr, ptr %31, align 8, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !61
@@ -1454,12 +1454,12 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
   store double %42, ptr %35, align 8, !tbaa !64
   %43 = add nuw nsw i64 %.02325.us, 1
   %exitcond.not = icmp eq i64 %43, %24
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge.us, label %36
 
 ._crit_edge.us:                                   ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !102
+  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !69
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph28.split.preheader, %22, %N_VDotProd_Serial.exit
   ret i32 0
@@ -1491,7 +1491,7 @@ define noundef i32 @N_VBufPack_Serial(ptr noundef readonly captures(none) %0, pt
   store double %9, ptr %10, align 8, !tbaa !64
   %11 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %11, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret i32 0
@@ -1514,7 +1514,7 @@ define noundef i32 @N_VBufUnpack_Serial(ptr noundef readonly captures(none) %0, 
   store double %9, ptr %10, align 8, !tbaa !64
   %11 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %11, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret i32 0
@@ -1522,7 +1522,7 @@ define noundef i32 @N_VBufUnpack_Serial(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: nofree nounwind uwtable
 define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) #11 {
-  %2 = load ptr, ptr @stdout, align 8, !tbaa !106
+  %2 = load ptr, ptr @stdout, align 8, !tbaa !71
   %3 = load ptr, ptr %0, align 8, !tbaa !54
   %4 = load i64, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1537,7 +1537,7 @@ define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) #11 {
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, double noundef %9) #21
   %11 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %11, %4
-  br i1 %exitcond.not.i, label %N_VPrintFile_Serial.exit, label %.lr.ph.i, !llvm.loop !108
+  br i1 %exitcond.not.i, label %N_VPrintFile_Serial.exit, label %.lr.ph.i
 
 N_VPrintFile_Serial.exit:                         ; preds = %.lr.ph.i, %1
   %fputc.i = tail call i32 @fputc(i32 10, ptr %2)
@@ -1560,7 +1560,7 @@ define void @N_VPrintFile_Serial(ptr noundef readonly captures(none) %0, ptr nou
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, double noundef %9) #21
   %11 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
@@ -1801,7 +1801,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3) #7 {
-  %5 = load ptr, ptr %2, align 8, !tbaa !99
+  %5 = load ptr, ptr %2, align 8, !tbaa !67
   switch i32 %0, label %56 [
     i32 1, label %6
     i32 2, label %50
@@ -1828,7 +1828,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %14, ptr %12, align 8, !tbaa !64
   %15 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, %.val.val.i
-  br i1 %exitcond.not.i.i, label %N_VScale_Serial.exit, label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %N_VScale_Serial.exit, label %.lr.ph.i.i
 
 16:                                               ; preds = %6
   %17 = fcmp oeq double %7, 1.000000e+00
@@ -1853,7 +1853,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %23, ptr %24, align 8, !tbaa !64
   %25 = add nuw nsw i64 %.01.i31.i, 1
   %exitcond.not.i32.i = icmp eq i64 %25, %.val24.val.i
-  br i1 %exitcond.not.i32.i, label %N_VScale_Serial.exit, label %.lr.ph.i30.i, !llvm.loop !81
+  br i1 %exitcond.not.i32.i, label %N_VScale_Serial.exit, label %.lr.ph.i30.i
 
 26:                                               ; preds = %16
   %27 = fcmp oeq double %7, -1.000000e+00
@@ -1879,7 +1879,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %34, ptr %35, align 8, !tbaa !64
   %36 = add nuw nsw i64 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i64 %36, %.val27.val.i
-  br i1 %exitcond.not.i35.i, label %N_VScale_Serial.exit, label %.lr.ph.i33.i, !llvm.loop !82
+  br i1 %exitcond.not.i35.i, label %N_VScale_Serial.exit, label %.lr.ph.i33.i
 
 37:                                               ; preds = %26
   %38 = load i64, ptr %.val27.i, align 8, !tbaa !55
@@ -1900,14 +1900,14 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %47, ptr %48, align 8, !tbaa !64
   %49 = add nuw nsw i64 %.039.i, 1
   %exitcond.not.i = icmp eq i64 %49, %38
-  br i1 %exitcond.not.i, label %N_VScale_Serial.exit, label %.lr.ph.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %N_VScale_Serial.exit, label %.lr.ph.i
 
 50:                                               ; preds = %4
   %51 = load double, ptr %1, align 8, !tbaa !64
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load double, ptr %52, align 8, !tbaa !64
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !99
+  %55 = load ptr, ptr %54, align 8, !tbaa !67
   tail call void @N_VLinearSum_Serial(double noundef %51, ptr noundef %5, double noundef %53, ptr noundef %55, ptr noundef %3)
   br label %N_VScale_Serial.exit
 
@@ -1941,7 +1941,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 .lr.ph104.us:                                     ; preds = %.lr.ph104.us.preheader, %._crit_edge.us107
   %indvars.iv128 = phi i64 [ 1, %.lr.ph104.us.preheader ], [ %indvars.iv.next129, %._crit_edge.us107 ]
   %68 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv128
-  %69 = load ptr, ptr %68, align 8, !tbaa !99
+  %69 = load ptr, ptr %68, align 8, !tbaa !67
   %70 = load ptr, ptr %69, align 8, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !61
@@ -1959,12 +1959,12 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %80, ptr %78, align 8, !tbaa !64
   %81 = add nuw nsw i64 %.075103.us, 1
   %exitcond127.not = icmp eq i64 %81, %58
-  br i1 %exitcond127.not, label %._crit_edge.us107, label %74, !llvm.loop !109
+  br i1 %exitcond127.not, label %._crit_edge.us107, label %74
 
 ._crit_edge.us107:                                ; preds = %74
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %N_VScale_Serial.exit, label %.lr.ph104.us, !llvm.loop !110
+  br i1 %exitcond132.not, label %N_VScale_Serial.exit, label %.lr.ph104.us, !llvm.loop !73
 
 .preheader82:                                     ; preds = %.lr.ph97
   %82 = icmp slt i32 %0, 2
@@ -1977,7 +1977,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 .lr.ph99.us:                                      ; preds = %.lr.ph99.us.preheader, %._crit_edge.us102
   %indvars.iv122 = phi i64 [ 1, %.lr.ph99.us.preheader ], [ %indvars.iv.next123, %._crit_edge.us102 ]
   %83 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv122
-  %84 = load ptr, ptr %83, align 8, !tbaa !99
+  %84 = load ptr, ptr %83, align 8, !tbaa !67
   %85 = load ptr, ptr %84, align 8, !tbaa !54
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !61
@@ -1995,12 +1995,12 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %95, ptr %93, align 8, !tbaa !64
   %96 = add nuw nsw i64 %.298.us, 1
   %exitcond121.not = icmp eq i64 %96, %58
-  br i1 %exitcond121.not, label %._crit_edge.us102, label %89, !llvm.loop !111
+  br i1 %exitcond121.not, label %._crit_edge.us102, label %89
 
 ._crit_edge.us102:                                ; preds = %89
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %N_VScale_Serial.exit, label %.lr.ph99.us, !llvm.loop !112
+  br i1 %exitcond126.not, label %N_VScale_Serial.exit, label %.lr.ph99.us, !llvm.loop !74
 
 .lr.ph97:                                         ; preds = %.preheader84, %.lr.ph97
   %.196 = phi i64 [ %101, %.lr.ph97 ], [ 0, %.preheader84 ]
@@ -2011,7 +2011,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %100, ptr %98, align 8, !tbaa !64
   %101 = add nuw nsw i64 %.196, 1
   %exitcond120.not = icmp eq i64 %101, %58
-  br i1 %exitcond120.not, label %.preheader82, label %.lr.ph97, !llvm.loop !113
+  br i1 %exitcond120.not, label %.preheader82, label %.lr.ph97
 
 102:                                              ; preds = %56
   %103 = load ptr, ptr %5, align 8, !tbaa !54
@@ -2031,7 +2031,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
 .lr.ph93.us:                                      ; preds = %.lr.ph93.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 1, %.lr.ph93.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %108 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %109 = load ptr, ptr %108, align 8, !tbaa !99
+  %109 = load ptr, ptr %108, align 8, !tbaa !67
   %110 = load ptr, ptr %109, align 8, !tbaa !54
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !61
@@ -2049,12 +2049,12 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %120, ptr %118, align 8, !tbaa !64
   %121 = add nuw nsw i64 %.492.us, 1
   %exitcond117.not = icmp eq i64 %121, %58
-  br i1 %exitcond117.not, label %._crit_edge.us, label %114, !llvm.loop !114
+  br i1 %exitcond117.not, label %._crit_edge.us, label %114
 
 ._crit_edge.us:                                   ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond119.not, label %N_VScale_Serial.exit, label %.lr.ph93.us, !llvm.loop !115
+  br i1 %exitcond119.not, label %N_VScale_Serial.exit, label %.lr.ph93.us, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %102, %.lr.ph
   %.391 = phi i64 [ %127, %.lr.ph ], [ 0, %102 ]
@@ -2066,7 +2066,7 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef read
   store double %125, ptr %126, align 8, !tbaa !64
   %127 = add nuw nsw i64 %.391, 1
   %exitcond.not = icmp eq i64 %127, %58
-  br i1 %exitcond.not, label %.preheader85, label %.lr.ph, !llvm.loop !116
+  br i1 %exitcond.not, label %.preheader85, label %.lr.ph
 
 N_VScale_Serial.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %._crit_edge.us, %._crit_edge.us102, %._crit_edge.us107, %.preheader85, %102, %.preheader82, %.preheader84, %.preheader, %37, %28, %18, %9, %50
   ret i32 0
@@ -2079,8 +2079,8 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
 
 7:                                                ; preds = %5
   %8 = load double, ptr %1, align 8, !tbaa !64
-  %9 = load ptr, ptr %3, align 8, !tbaa !99
-  %10 = load ptr, ptr %4, align 8, !tbaa !99
+  %9 = load ptr, ptr %3, align 8, !tbaa !67
+  %10 = load ptr, ptr %4, align 8, !tbaa !67
   tail call void @N_VLinearSum_Serial(double noundef %8, ptr noundef %2, double noundef 1.000000e+00, ptr noundef %9, ptr noundef %10)
   br label %.loopexit
 
@@ -2105,12 +2105,12 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !99
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
   %21 = load ptr, ptr %20, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !61
   %24 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !99
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
@@ -2129,12 +2129,12 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
   store double %36, ptr %37, align 8, !tbaa !64
   %38 = add nuw nsw i64 %.150.us, 1
   %exitcond.not = icmp eq i64 %38, %13
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge.us, label %30
 
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !118
+  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !76
 
 .preheader:                                       ; preds = %11
   br i1 %or.cond70, label %.lr.ph.us56.preheader, label %.loopexit
@@ -2146,7 +2146,7 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
 .lr.ph.us56:                                      ; preds = %.lr.ph.us56.preheader, %._crit_edge.us57
   %indvars.iv64 = phi i64 [ 0, %.lr.ph.us56.preheader ], [ %indvars.iv.next65, %._crit_edge.us57 ]
   %39 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv64
-  %40 = load ptr, ptr %39, align 8, !tbaa !99
+  %40 = load ptr, ptr %39, align 8, !tbaa !67
   %41 = load ptr, ptr %40, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !61
@@ -2164,12 +2164,12 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly
   store double %51, ptr %49, align 8, !tbaa !64
   %52 = add nuw nsw i64 %.04253.us, 1
   %exitcond63.not = icmp eq i64 %52, %13
-  br i1 %exitcond63.not, label %._crit_edge.us57, label %45, !llvm.loop !119
+  br i1 %exitcond63.not, label %._crit_edge.us57, label %45
 
 ._crit_edge.us57:                                 ; preds = %45
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph.us56, !llvm.loop !120
+  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph.us56, !llvm.loop !77
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us57, %.preheader48, %.preheader, %7
   ret i32 0
@@ -2181,9 +2181,9 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %2, align 8, !tbaa !99
-  %10 = load ptr, ptr %4, align 8, !tbaa !99
-  %11 = load ptr, ptr %5, align 8, !tbaa !99
+  %9 = load ptr, ptr %2, align 8, !tbaa !67
+  %10 = load ptr, ptr %4, align 8, !tbaa !67
+  %11 = load ptr, ptr %5, align 8, !tbaa !67
   tail call void @N_VLinearSum_Serial(double noundef %1, ptr noundef %9, double noundef %3, ptr noundef %10, ptr noundef %11)
   br label %VSumVectorArray_Serial.exit
 
@@ -2212,7 +2212,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br i1 %or.cond, label %21, label %50
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %2, align 8, !tbaa !99
+  %22 = load ptr, ptr %2, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = load i64, ptr %23, align 8, !tbaa !55
   %25 = icmp sgt i32 %0, 0
@@ -2227,17 +2227,17 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i ]
   %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8, !tbaa !99
+  %28 = load ptr, ptr %27, align 8, !tbaa !67
   %29 = load ptr, ptr %28, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !61
   %32 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !99
+  %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !61
   %37 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
-  %38 = load ptr, ptr %37, align 8, !tbaa !99
+  %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !61
@@ -2254,12 +2254,12 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   store double %47, ptr %48, align 8, !tbaa !64
   %49 = add nuw nsw i64 %.01819.us.i, 1
   %exitcond.not.i = icmp eq i64 %49, %24
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %42, !llvm.loop !121
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %42
 
 ._crit_edge.us.i:                                 ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond26.not.i, label %VSumVectorArray_Serial.exit, label %.lr.ph.us.i, !llvm.loop !122
+  br i1 %exitcond26.not.i, label %VSumVectorArray_Serial.exit, label %.lr.ph.us.i, !llvm.loop !78
 
 50:                                               ; preds = %20
   %51 = fcmp oeq double %3, -1.000000e+00
@@ -2274,7 +2274,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 55:                                               ; preds = %53, %50
   %56 = phi ptr [ %4, %53 ], [ %2, %50 ]
   %57 = phi ptr [ %2, %53 ], [ %4, %50 ]
-  %58 = load ptr, ptr %56, align 8, !tbaa !99
+  %58 = load ptr, ptr %56, align 8, !tbaa !67
   %59 = load ptr, ptr %58, align 8, !tbaa !54
   %60 = load i64, ptr %59, align 8, !tbaa !55
   %61 = icmp sgt i32 %0, 0
@@ -2289,17 +2289,17 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 .lr.ph.us.i126:                                   ; preds = %._crit_edge.us.i130, %.lr.ph.us.preheader.i124
   %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.us.preheader.i124 ], [ %indvars.iv.next.i131, %._crit_edge.us.i130 ]
   %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i127
-  %64 = load ptr, ptr %63, align 8, !tbaa !99
+  %64 = load ptr, ptr %63, align 8, !tbaa !67
   %65 = load ptr, ptr %64, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !61
   %68 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i127
-  %69 = load ptr, ptr %68, align 8, !tbaa !99
+  %69 = load ptr, ptr %68, align 8, !tbaa !67
   %70 = load ptr, ptr %69, align 8, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !61
   %73 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i127
-  %74 = load ptr, ptr %73, align 8, !tbaa !99
+  %74 = load ptr, ptr %73, align 8, !tbaa !67
   %75 = load ptr, ptr %74, align 8, !tbaa !54
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !61
@@ -2316,12 +2316,12 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   store double %83, ptr %84, align 8, !tbaa !64
   %85 = add nuw nsw i64 %.01819.us.i128, 1
   %exitcond.not.i129 = icmp eq i64 %85, %60
-  br i1 %exitcond.not.i129, label %._crit_edge.us.i130, label %78, !llvm.loop !123
+  br i1 %exitcond.not.i129, label %._crit_edge.us.i130, label %78
 
 ._crit_edge.us.i130:                              ; preds = %78
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond26.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i125
-  br i1 %exitcond26.not.i132, label %VSumVectorArray_Serial.exit, label %.lr.ph.us.i126, !llvm.loop !124
+  br i1 %exitcond26.not.i132, label %VSumVectorArray_Serial.exit, label %.lr.ph.us.i126, !llvm.loop !79
 
 86:                                               ; preds = %53
   %or.cond5 = or i1 %17, %13
@@ -2363,7 +2363,7 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br label %VSumVectorArray_Serial.exit
 
 103:                                              ; preds = %99
-  %104 = load ptr, ptr %5, align 8, !tbaa !99
+  %104 = load ptr, ptr %5, align 8, !tbaa !67
   %105 = load ptr, ptr %104, align 8, !tbaa !54
   %106 = load i64, ptr %105, align 8, !tbaa !55
   %107 = icmp sgt i32 %0, 0
@@ -2378,17 +2378,17 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %109 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %110 = load ptr, ptr %109, align 8, !tbaa !99
+  %110 = load ptr, ptr %109, align 8, !tbaa !67
   %111 = load ptr, ptr %110, align 8, !tbaa !54
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !61
   %114 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %115 = load ptr, ptr %114, align 8, !tbaa !99
+  %115 = load ptr, ptr %114, align 8, !tbaa !67
   %116 = load ptr, ptr %115, align 8, !tbaa !54
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !61
   %119 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %120 = load ptr, ptr %119, align 8, !tbaa !99
+  %120 = load ptr, ptr %119, align 8, !tbaa !67
   %121 = load ptr, ptr %120, align 8, !tbaa !54
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !61
@@ -2406,12 +2406,12 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   store double %130, ptr %131, align 8, !tbaa !64
   %132 = add nuw nsw i64 %.0115135.us, 1
   %exitcond.not = icmp eq i64 %132, %106
-  br i1 %exitcond.not, label %._crit_edge.us, label %124, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge.us, label %124
 
 ._crit_edge.us:                                   ; preds = %124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond143.not, label %VSumVectorArray_Serial.exit, label %.lr.ph.us, !llvm.loop !126
+  br i1 %exitcond143.not, label %VSumVectorArray_Serial.exit, label %.lr.ph.us, !llvm.loop !80
 
 VSumVectorArray_Serial.exit:                      ; preds = %._crit_edge.us, %._crit_edge.us.i130, %._crit_edge.us.i, %103, %55, %21, %102, %98, %92, %87, %19, %15, %8
   ret i32 0
@@ -2419,7 +2419,7 @@ VSumVectorArray_Serial.exit:                      ; preds = %._crit_edge.us, %._
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 {
-  %5 = load ptr, ptr %2, align 8, !tbaa !99
+  %5 = load ptr, ptr %2, align 8, !tbaa !67
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = fcmp oeq double %1, 1.000000e+00
@@ -2438,12 +2438,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 .lr.ph.us64:                                      ; preds = %.lr.ph.us64.preheader, %._crit_edge.us65
   %indvars.iv80 = phi i64 [ 0, %.lr.ph.us64.preheader ], [ %indvars.iv.next81, %._crit_edge.us65 ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv80
-  %12 = load ptr, ptr %11, align 8, !tbaa !99
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv80
-  %17 = load ptr, ptr %16, align 8, !tbaa !99
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
@@ -2459,12 +2459,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
   store double %26, ptr %24, align 8, !tbaa !64
   %27 = add nuw nsw i64 %.04561.us, 1
   %exitcond79.not = icmp eq i64 %27, %7
-  br i1 %exitcond79.not, label %._crit_edge.us65, label %21, !llvm.loop !127
+  br i1 %exitcond79.not, label %._crit_edge.us65, label %21
 
 ._crit_edge.us65:                                 ; preds = %21
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.us64, !llvm.loop !128
+  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.us64, !llvm.loop !81
 
 28:                                               ; preds = %4
   %29 = fcmp oeq double %1, -1.000000e+00
@@ -2483,12 +2483,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !99
+  %33 = load ptr, ptr %32, align 8, !tbaa !67
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !61
   %37 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8, !tbaa !99
+  %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !61
@@ -2504,12 +2504,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
   store double %47, ptr %45, align 8, !tbaa !64
   %48 = add nuw nsw i64 %.24753.us, 1
   %exitcond.not = icmp eq i64 %48, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge.us, label %42
 
 ._crit_edge.us:                                   ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !130
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !82
 
 .preheader49:                                     ; preds = %28
   br i1 %or.cond88, label %.lr.ph.us59.preheader, label %.loopexit
@@ -2521,12 +2521,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 .lr.ph.us59:                                      ; preds = %.lr.ph.us59.preheader, %._crit_edge.us60
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us59.preheader ], [ %indvars.iv.next75, %._crit_edge.us60 ]
   %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv74
-  %50 = load ptr, ptr %49, align 8, !tbaa !99
+  %50 = load ptr, ptr %49, align 8, !tbaa !67
   %51 = load ptr, ptr %50, align 8, !tbaa !54
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !61
   %54 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv74
-  %55 = load ptr, ptr %54, align 8, !tbaa !99
+  %55 = load ptr, ptr %54, align 8, !tbaa !67
   %56 = load ptr, ptr %55, align 8, !tbaa !54
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !61
@@ -2542,12 +2542,12 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
   store double %64, ptr %62, align 8, !tbaa !64
   %65 = add nuw nsw i64 %.14656.us, 1
   %exitcond73.not = icmp eq i64 %65, %7
-  br i1 %exitcond73.not, label %._crit_edge.us60, label %59, !llvm.loop !131
+  br i1 %exitcond73.not, label %._crit_edge.us60, label %59
 
 ._crit_edge.us60:                                 ; preds = %59
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph.us59, !llvm.loop !132
+  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph.us59, !llvm.loop !83
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us60, %._crit_edge.us65, %.preheader51, %.preheader49, %.preheader
   ret void
@@ -2555,7 +2555,7 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !99
+  %6 = load ptr, ptr %2, align 8, !tbaa !67
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = icmp sgt i32 %0, 0
@@ -2570,17 +2570,17 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1)
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !99
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !99
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !61
@@ -2597,12 +2597,12 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1)
   store double %31, ptr %32, align 8, !tbaa !64
   %33 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %33, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge.us, label %26
 
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !134
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !84
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -2610,7 +2610,7 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !99
+  %6 = load ptr, ptr %2, align 8, !tbaa !67
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = icmp sgt i32 %0, 0
@@ -2625,17 +2625,17 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1)
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !99
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !99
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !61
@@ -2653,12 +2653,12 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1)
   store double %32, ptr %33, align 8, !tbaa !64
   %34 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %34, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge.us, label %26
 
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !136
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !85
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -2666,7 +2666,7 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !99
+  %6 = load ptr, ptr %2, align 8, !tbaa !67
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = icmp sgt i32 %0, 0
@@ -2681,17 +2681,17 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !99
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !99
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !61
@@ -2709,12 +2709,12 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2
   store double %32, ptr %33, align 8, !tbaa !64
   %34 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %34, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge.us, label %26
 
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !138
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !86
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -2722,7 +2722,7 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !99
+  %6 = load ptr, ptr %2, align 8, !tbaa !67
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = icmp sgt i32 %0, 0
@@ -2737,17 +2737,17 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !99
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !99
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !61
@@ -2765,12 +2765,12 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 
   store double %32, ptr %33, align 8, !tbaa !64
   %34 = add nuw nsw i64 %.01920.us, 1
   %exitcond.not = icmp eq i64 %34, %8
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge.us, label %26
 
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !140
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !87
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -2782,9 +2782,9 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   br i1 %5, label %6, label %52
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr %2, align 8, !tbaa !99
+  %7 = load ptr, ptr %2, align 8, !tbaa !67
   %8 = load double, ptr %1, align 8, !tbaa !64
-  %9 = load ptr, ptr %3, align 8, !tbaa !99
+  %9 = load ptr, ptr %3, align 8, !tbaa !67
   %10 = icmp eq ptr %9, %7
   br i1 %10, label %11, label %18
 
@@ -2804,7 +2804,7 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   store double %16, ptr %14, align 8, !tbaa !64
   %17 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %17, %.val.val.i
-  br i1 %exitcond.not.i.i, label %N_VScale_Serial.exit, label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %N_VScale_Serial.exit, label %.lr.ph.i.i
 
 18:                                               ; preds = %6
   %19 = fcmp oeq double %8, 1.000000e+00
@@ -2829,7 +2829,7 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   store double %25, ptr %26, align 8, !tbaa !64
   %27 = add nuw nsw i64 %.01.i31.i, 1
   %exitcond.not.i32.i = icmp eq i64 %27, %.val24.val.i
-  br i1 %exitcond.not.i32.i, label %N_VScale_Serial.exit, label %.lr.ph.i30.i, !llvm.loop !81
+  br i1 %exitcond.not.i32.i, label %N_VScale_Serial.exit, label %.lr.ph.i30.i
 
 28:                                               ; preds = %18
   %29 = fcmp oeq double %8, -1.000000e+00
@@ -2855,7 +2855,7 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   store double %36, ptr %37, align 8, !tbaa !64
   %38 = add nuw nsw i64 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i64 %38, %.val27.val.i
-  br i1 %exitcond.not.i35.i, label %N_VScale_Serial.exit, label %.lr.ph.i33.i, !llvm.loop !82
+  br i1 %exitcond.not.i35.i, label %N_VScale_Serial.exit, label %.lr.ph.i33.i
 
 39:                                               ; preds = %28
   %40 = load i64, ptr %.val27.i, align 8, !tbaa !55
@@ -2876,10 +2876,10 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   store double %49, ptr %50, align 8, !tbaa !64
   %51 = add nuw nsw i64 %.039.i, 1
   %exitcond.not.i = icmp eq i64 %51, %40
-  br i1 %exitcond.not.i, label %N_VScale_Serial.exit, label %.lr.ph.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %N_VScale_Serial.exit, label %.lr.ph.i
 
 52:                                               ; preds = %4
-  %53 = load ptr, ptr %3, align 8, !tbaa !99
+  %53 = load ptr, ptr %3, align 8, !tbaa !67
   %54 = load ptr, ptr %53, align 8, !tbaa !54
   %55 = load i64, ptr %54, align 8, !tbaa !55
   %56 = icmp eq ptr %2, %3
@@ -2898,12 +2898,12 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %59 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !99
+  %60 = load ptr, ptr %59, align 8, !tbaa !67
   %61 = load ptr, ptr %60, align 8, !tbaa !54
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !61
   %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8, !tbaa !99
+  %65 = load ptr, ptr %64, align 8, !tbaa !67
   %66 = load ptr, ptr %65, align 8, !tbaa !54
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !61
@@ -2920,12 +2920,12 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   store double %74, ptr %75, align 8, !tbaa !64
   %76 = add nuw nsw i64 %.148.us, 1
   %exitcond.not = icmp eq i64 %76, %55
-  br i1 %exitcond.not, label %._crit_edge.us, label %70, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge.us, label %70
 
 ._crit_edge.us:                                   ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond64.not, label %N_VScale_Serial.exit, label %.lr.ph.us, !llvm.loop !142
+  br i1 %exitcond64.not, label %N_VScale_Serial.exit, label %.lr.ph.us, !llvm.loop !88
 
 .preheader:                                       ; preds = %52
   br i1 %or.cond76, label %.lr.ph.us54.preheader, label %N_VScale_Serial.exit
@@ -2937,7 +2937,7 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
 .lr.ph.us54:                                      ; preds = %.lr.ph.us54.preheader, %._crit_edge.us55
   %indvars.iv66 = phi i64 [ 0, %.lr.ph.us54.preheader ], [ %indvars.iv.next67, %._crit_edge.us55 ]
   %77 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv66
-  %78 = load ptr, ptr %77, align 8, !tbaa !99
+  %78 = load ptr, ptr %77, align 8, !tbaa !67
   %79 = load ptr, ptr %78, align 8, !tbaa !54
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !61
@@ -2953,12 +2953,12 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef reado
   store double %87, ptr %85, align 8, !tbaa !64
   %88 = add nuw nsw i64 %.03651.us, 1
   %exitcond65.not = icmp eq i64 %88, %55
-  br i1 %exitcond65.not, label %._crit_edge.us55, label %83, !llvm.loop !143
+  br i1 %exitcond65.not, label %._crit_edge.us55, label %83
 
 ._crit_edge.us55:                                 ; preds = %83
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %N_VScale_Serial.exit, label %.lr.ph.us54, !llvm.loop !144
+  br i1 %exitcond70.not, label %N_VScale_Serial.exit, label %.lr.ph.us54, !llvm.loop !89
 
 N_VScale_Serial.exit:                             ; preds = %._crit_edge.us, %._crit_edge.us55, %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %.preheader46, %.preheader, %39, %30, %20, %11
   ret i32 0
@@ -2966,7 +2966,7 @@ N_VScale_Serial.exit:                             ; preds = %._crit_edge.us, %._
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1, ptr noundef readonly captures(none) %2) #7 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = load ptr, ptr %2, align 8, !tbaa !67
   %5 = icmp eq i32 %0, 1
   %6 = load ptr, ptr %4, align 8, !tbaa !54
   %7 = load i64, ptr %6, align 8, !tbaa !55
@@ -2984,7 +2984,7 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
   store double %1, ptr %12, align 8, !tbaa !64
   %13 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %13, %7
-  br i1 %exitcond.not.i, label %N_VConst_Serial.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %N_VConst_Serial.exit, label %.lr.ph.i
 
 14:                                               ; preds = %3
   %15 = icmp sgt i32 %0, 0
@@ -2999,7 +2999,7 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !99
+  %18 = load ptr, ptr %17, align 8, !tbaa !67
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !61
@@ -3011,12 +3011,12 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
   store double %1, ptr %23, align 8, !tbaa !64
   %24 = add nuw nsw i64 %.01619.us, 1
   %exitcond.not = icmp eq i64 %24, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !145
+  br i1 %exitcond.not, label %._crit_edge.us, label %22
 
 ._crit_edge.us:                                   ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond26.not, label %N_VConst_Serial.exit, label %.lr.ph.us, !llvm.loop !146
+  br i1 %exitcond26.not, label %N_VConst_Serial.exit, label %.lr.ph.us, !llvm.loop !90
 
 N_VConst_Serial.exit:                             ; preds = %._crit_edge.us, %.lr.ph.i, %14, %8
   ret i32 0
@@ -3024,12 +3024,12 @@ N_VConst_Serial.exit:                             ; preds = %._crit_edge.us, %.l
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define noundef i32 @N_VWrmsNormVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #17 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !99
+  %5 = load ptr, ptr %1, align 8, !tbaa !67
   %6 = icmp eq i32 %0, 1
   br i1 %6, label %7, label %30
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %2, align 8, !tbaa !99
+  %8 = load ptr, ptr %2, align 8, !tbaa !67
   %9 = load ptr, ptr %5, align 8, !tbaa !54
   %10 = load i64, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -3051,7 +3051,7 @@ define noundef i32 @N_VWrmsNormVectorArray_Serial(i32 noundef %0, ptr noundef re
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %.01314.i.i)
   %23 = add nuw nsw i64 %.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %23, %10
-  br i1 %exitcond.not.i.i, label %N_VWSqrSumLocal_Serial.exit.i, label %.lr.ph.i.i, !llvm.loop !91
+  br i1 %exitcond.not.i.i, label %N_VWSqrSumLocal_Serial.exit.i, label %.lr.ph.i.i
 
 N_VWSqrSumLocal_Serial.exit.i:                    ; preds = %.lr.ph.i.i, %7
   %.013.lcssa.i.i = phi double [ 0.000000e+00, %7 ], [ %22, %.lr.ph.i.i ]
@@ -3061,7 +3061,7 @@ N_VWSqrSumLocal_Serial.exit.i:                    ; preds = %.lr.ph.i.i, %7
   br i1 %26, label %27, label %N_VWrmsNorm_Serial.exit
 
 27:                                               ; preds = %N_VWSqrSumLocal_Serial.exit.i
-  %28 = tail call double @sqrt(double noundef %25) #21, !tbaa !90
+  %28 = tail call double @sqrt(double noundef %25) #21, !tbaa !66
   br label %N_VWrmsNorm_Serial.exit
 
 N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Serial.exit.i, %27
@@ -3089,12 +3089,12 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 .lr.ph.us:                                        ; preds = %.lr.ph43, %51
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %51 ], [ 0, %.lr.ph43 ]
   %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv47
-  %39 = load ptr, ptr %38, align 8, !tbaa !99
+  %39 = load ptr, ptr %38, align 8, !tbaa !67
   %40 = load ptr, ptr %39, align 8, !tbaa !54
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv47
-  %44 = load ptr, ptr %43, align 8, !tbaa !99
+  %44 = load ptr, ptr %43, align 8, !tbaa !67
   %45 = load ptr, ptr %44, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !61
@@ -3103,7 +3103,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
   br label %53
 
 49:                                               ; preds = %._crit_edge.us
-  %50 = tail call double @sqrt(double noundef %62) #21, !tbaa !90
+  %50 = tail call double @sqrt(double noundef %62) #21, !tbaa !66
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.us
@@ -3111,7 +3111,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
   store double %52, ptr %48, align 8, !tbaa !64
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !147
+  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !91
 
 53:                                               ; preds = %.lr.ph.us, %53
   %54 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %60, %53 ]
@@ -3125,7 +3125,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
   store double %60, ptr %48, align 8, !tbaa !64
   %61 = add nuw nsw i64 %.03640.us, 1
   %exitcond46.not = icmp eq i64 %61, %32
-  br i1 %exitcond46.not, label %._crit_edge.us, label %53, !llvm.loop !148
+  br i1 %exitcond46.not, label %._crit_edge.us, label %53
 
 ._crit_edge.us:                                   ; preds = %53
   %62 = fdiv double %60, %35
@@ -3138,7 +3138,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
   br i1 %37, label %65, label %67
 
 65:                                               ; preds = %.lr.ph43.split
-  %66 = tail call double @sqrt(double noundef %36) #21, !tbaa !90
+  %66 = tail call double @sqrt(double noundef %36) #21, !tbaa !66
   br label %67
 
 67:                                               ; preds = %.lr.ph43.split, %65
@@ -3146,7 +3146,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
   store double %68, ptr %64, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph43.split, !llvm.loop !149
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph43.split
 
 .loopexit:                                        ; preds = %67, %51, %30, %N_VWrmsNorm_Serial.exit
   ret i32 0
@@ -3154,12 +3154,12 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define noundef i32 @N_VWrmsNormMaskVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) #17 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !99
+  %6 = load ptr, ptr %1, align 8, !tbaa !67
   %7 = icmp eq i32 %0, 1
   br i1 %7, label %8, label %39
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %2, align 8, !tbaa !99
+  %9 = load ptr, ptr %2, align 8, !tbaa !67
   %10 = load ptr, ptr %6, align 8, !tbaa !54
   %11 = load i64, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3194,7 +3194,7 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_Serial(i32 noundef %0, ptr nounde
   %.1.i.i = phi double [ %30, %24 ], [ %.01617.i.i, %.lr.ph.i.i ]
   %32 = add nuw nsw i64 %.018.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %32, %11
-  br i1 %exitcond.not.i.i, label %N_VWSqrSumMaskLocal_Serial.exit.i, label %.lr.ph.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i.i, label %N_VWSqrSumMaskLocal_Serial.exit.i, label %.lr.ph.i.i
 
 N_VWSqrSumMaskLocal_Serial.exit.i:                ; preds = %31, %8
   %.016.lcssa.i.i = phi double [ 0.000000e+00, %8 ], [ %.1.i.i, %31 ]
@@ -3204,7 +3204,7 @@ N_VWSqrSumMaskLocal_Serial.exit.i:                ; preds = %31, %8
   br i1 %35, label %36, label %N_VWrmsNormMask_Serial.exit
 
 36:                                               ; preds = %N_VWSqrSumMaskLocal_Serial.exit.i
-  %37 = tail call double @sqrt(double noundef %34) #21, !tbaa !90
+  %37 = tail call double @sqrt(double noundef %34) #21, !tbaa !66
   br label %N_VWrmsNormMask_Serial.exit
 
 N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal_Serial.exit.i, %36
@@ -3235,12 +3235,12 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 .lr.ph.us:                                        ; preds = %.lr.ph47, %63
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %63 ], [ 0, %.lr.ph47 ]
   %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51
-  %51 = load ptr, ptr %50, align 8, !tbaa !99
+  %51 = load ptr, ptr %50, align 8, !tbaa !67
   %52 = load ptr, ptr %51, align 8, !tbaa !54
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !61
   %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv51
-  %56 = load ptr, ptr %55, align 8, !tbaa !99
+  %56 = load ptr, ptr %55, align 8, !tbaa !67
   %57 = load ptr, ptr %56, align 8, !tbaa !54
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !61
@@ -3249,7 +3249,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
   br label %65
 
 61:                                               ; preds = %._crit_edge.us
-  %62 = tail call double @sqrt(double noundef %80) #21, !tbaa !90
+  %62 = tail call double @sqrt(double noundef %80) #21, !tbaa !66
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge.us
@@ -3257,7 +3257,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
   store double %64, ptr %60, align 8, !tbaa !64
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !150
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !92
 
 65:                                               ; preds = %.lr.ph.us, %77
   %66 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %78, %77 ]
@@ -3281,7 +3281,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
   %78 = phi double [ %76, %70 ], [ %66, %65 ]
   %79 = add nuw nsw i64 %.04044.us, 1
   %exitcond50.not = icmp eq i64 %79, %41
-  br i1 %exitcond50.not, label %._crit_edge.us, label %65, !llvm.loop !151
+  br i1 %exitcond50.not, label %._crit_edge.us, label %65
 
 ._crit_edge.us:                                   ; preds = %77
   %80 = fdiv double %78, %47
@@ -3294,7 +3294,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
   br i1 %49, label %83, label %85
 
 83:                                               ; preds = %.lr.ph47.split
-  %84 = tail call double @sqrt(double noundef %48) #21, !tbaa !90
+  %84 = tail call double @sqrt(double noundef %48) #21, !tbaa !66
   br label %85
 
 85:                                               ; preds = %.lr.ph47.split, %83
@@ -3302,7 +3302,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
   store double %86, ptr %82, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !152
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph47.split
 
 .loopexit:                                        ; preds = %85, %63, %39, %N_VWrmsNormMask_Serial.exit
   ret i32 0
@@ -3310,7 +3310,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4, ptr noundef readonly captures(address) %5) #0 {
-  %7 = load ptr, ptr %3, align 8, !tbaa !99
+  %7 = load ptr, ptr %3, align 8, !tbaa !67
   %8 = icmp eq i32 %0, 1
   %9 = icmp eq i32 %1, 1
   br i1 %8, label %10, label %71
@@ -3320,10 +3320,10 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 
 11:                                               ; preds = %10
   %12 = load double, ptr %2, align 8, !tbaa !64
-  %13 = load ptr, ptr %4, align 8, !tbaa !153
-  %14 = load ptr, ptr %13, align 8, !tbaa !99
-  %15 = load ptr, ptr %5, align 8, !tbaa !153
-  %16 = load ptr, ptr %15, align 8, !tbaa !99
+  %13 = load ptr, ptr %4, align 8, !tbaa !93
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
+  %15 = load ptr, ptr %5, align 8, !tbaa !93
+  %16 = load ptr, ptr %15, align 8, !tbaa !67
   tail call void @N_VLinearSum_Serial(double noundef %12, ptr noundef %7, double noundef 1.000000e+00, ptr noundef %14, ptr noundef %16)
   br label %.loopexit
 
@@ -3342,18 +3342,18 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
   %indvars.iv141 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next142, %.lr.ph116 ]
   %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv141
-  %24 = load ptr, ptr %23, align 8, !tbaa !153
-  %25 = load ptr, ptr %24, align 8, !tbaa !99
+  %24 = load ptr, ptr %23, align 8, !tbaa !93
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
   %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv141
-  store ptr %25, ptr %26, align 8, !tbaa !99
+  store ptr %25, ptr %26, align 8, !tbaa !67
   %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv141
-  %28 = load ptr, ptr %27, align 8, !tbaa !153
-  %29 = load ptr, ptr %28, align 8, !tbaa !99
+  %28 = load ptr, ptr %27, align 8, !tbaa !93
+  %29 = load ptr, ptr %28, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv141
-  store ptr %29, ptr %30, align 8, !tbaa !99
+  store ptr %29, ptr %30, align 8, !tbaa !67
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph116, !llvm.loop !155
+  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph116
 
 ._crit_edge:                                      ; preds = %.lr.ph116, %17
   %31 = load ptr, ptr %7, align 8, !tbaa !54
@@ -3375,12 +3375,12 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i ]
   %37 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
-  %38 = load ptr, ptr %37, align 8, !tbaa !99
+  %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !61
   %42 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
-  %43 = load ptr, ptr %42, align 8, !tbaa !99
+  %43 = load ptr, ptr %42, align 8, !tbaa !67
   %44 = load ptr, ptr %43, align 8, !tbaa !54
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !61
@@ -3399,12 +3399,12 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
   store double %54, ptr %55, align 8, !tbaa !64
   %56 = add nuw nsw i64 %.150.us.i, 1
   %exitcond.not.i = icmp eq i64 %56, %32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %48, !llvm.loop !117
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %48
 
 ._crit_edge.us.i:                                 ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond62.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us.i, !llvm.loop !118
+  br i1 %exitcond62.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us.i, !llvm.loop !76
 
 .preheader.i:                                     ; preds = %._crit_edge
   br i1 %or.cond70.i, label %.lr.ph.us56.preheader.i, label %N_VScaleAddMulti_Serial.exit
@@ -3416,7 +3416,7 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
 .lr.ph.us56.i:                                    ; preds = %._crit_edge.us57.i, %.lr.ph.us56.preheader.i
   %indvars.iv64.i = phi i64 [ 0, %.lr.ph.us56.preheader.i ], [ %indvars.iv.next65.i, %._crit_edge.us57.i ]
   %57 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv64.i
-  %58 = load ptr, ptr %57, align 8, !tbaa !99
+  %58 = load ptr, ptr %57, align 8, !tbaa !67
   %59 = load ptr, ptr %58, align 8, !tbaa !54
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !61
@@ -3434,12 +3434,12 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
   store double %69, ptr %67, align 8, !tbaa !64
   %70 = add nuw nsw i64 %.04253.us.i, 1
   %exitcond63.not.i = icmp eq i64 %70, %32
-  br i1 %exitcond63.not.i, label %._crit_edge.us57.i, label %63, !llvm.loop !119
+  br i1 %exitcond63.not.i, label %._crit_edge.us57.i, label %63
 
 ._crit_edge.us57.i:                               ; preds = %63
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
-  br i1 %exitcond68.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us56.i, !llvm.loop !120
+  br i1 %exitcond68.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us56.i, !llvm.loop !77
 
 N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %._crit_edge.us57.i, %.preheader48.i, %.preheader.i
   tail call void @free(ptr noundef %20) #21
@@ -3451,8 +3451,8 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 
 72:                                               ; preds = %71
   %73 = load double, ptr %2, align 8, !tbaa !64
-  %74 = load ptr, ptr %4, align 8, !tbaa !153
-  %75 = load ptr, ptr %5, align 8, !tbaa !153
+  %74 = load ptr, ptr %4, align 8, !tbaa !93
+  %75 = load ptr, ptr %5, align 8, !tbaa !93
   %76 = tail call i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double noundef %73, ptr noundef nonnull %3, double noundef 1.000000e+00, ptr noundef %74, ptr noundef %75)
   br label %.loopexit
 
@@ -3479,7 +3479,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 .lr.ph97.us:                                      ; preds = %.lr.ph97.us.preheader, %._crit_edge98.us
   %indvars.iv125 = phi i64 [ 0, %.lr.ph97.us.preheader ], [ %indvars.iv.next126, %._crit_edge98.us ]
   %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv125
-  %85 = load ptr, ptr %84, align 8, !tbaa !99
+  %85 = load ptr, ptr %84, align 8, !tbaa !67
   %86 = load ptr, ptr %85, align 8, !tbaa !54
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !61
@@ -3488,21 +3488,21 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 ._crit_edge98.us:                                 ; preds = %._crit_edge.us.us, %.lr.ph97.us
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit, label %.lr.ph97.us, !llvm.loop !156
+  br i1 %exitcond129.not, label %.loopexit, label %.lr.ph97.us, !llvm.loop !95
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph97.us, %._crit_edge.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us ], [ 0, %.lr.ph97.us ]
   %89 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %90 = load ptr, ptr %89, align 8, !tbaa !153
+  %90 = load ptr, ptr %89, align 8, !tbaa !93
   %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv125
-  %92 = load ptr, ptr %91, align 8, !tbaa !99
+  %92 = load ptr, ptr %91, align 8, !tbaa !67
   %93 = load ptr, ptr %92, align 8, !tbaa !54
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !61
   %96 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %97 = load ptr, ptr %96, align 8, !tbaa !153
+  %97 = load ptr, ptr %96, align 8, !tbaa !93
   %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv125
-  %99 = load ptr, ptr %98, align 8, !tbaa !99
+  %99 = load ptr, ptr %98, align 8, !tbaa !67
   %100 = load ptr, ptr %99, align 8, !tbaa !54
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !61
@@ -3521,12 +3521,12 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
   store double %110, ptr %111, align 8, !tbaa !64
   %112 = add nuw nsw i64 %.18594.us.us, 1
   %exitcond.not = icmp eq i64 %112, %79
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %104, !llvm.loop !157
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %104
 
 ._crit_edge.us.us:                                ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond124.not, label %._crit_edge98.us, label %.lr.ph.us.us, !llvm.loop !158
+  br i1 %exitcond124.not, label %._crit_edge98.us, label %.lr.ph.us.us, !llvm.loop !96
 
 .preheader:                                       ; preds = %77
   br i1 %81, label %.lr.ph110, label %.loopexit
@@ -3544,7 +3544,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 .lr.ph107.us:                                     ; preds = %.lr.ph107.us.preheader, %._crit_edge108.us
   %indvars.iv136 = phi i64 [ 0, %.lr.ph107.us.preheader ], [ %indvars.iv.next137, %._crit_edge108.us ]
   %115 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv136
-  %116 = load ptr, ptr %115, align 8, !tbaa !99
+  %116 = load ptr, ptr %115, align 8, !tbaa !67
   %117 = load ptr, ptr %116, align 8, !tbaa !54
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !61
@@ -3553,14 +3553,14 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 ._crit_edge108.us:                                ; preds = %._crit_edge.us.us114, %.lr.ph107.us
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph107.us, !llvm.loop !159
+  br i1 %exitcond140.not, label %.loopexit, label %.lr.ph107.us, !llvm.loop !97
 
 .lr.ph104.us.us:                                  ; preds = %.lr.ph107.us, %._crit_edge.us.us114
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %._crit_edge.us.us114 ], [ 0, %.lr.ph107.us ]
   %120 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv131
-  %121 = load ptr, ptr %120, align 8, !tbaa !153
+  %121 = load ptr, ptr %120, align 8, !tbaa !93
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv136
-  %123 = load ptr, ptr %122, align 8, !tbaa !99
+  %123 = load ptr, ptr %122, align 8, !tbaa !67
   %124 = load ptr, ptr %123, align 8, !tbaa !54
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !61
@@ -3578,12 +3578,12 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
   store double %134, ptr %132, align 8, !tbaa !64
   %135 = add nuw nsw i64 %.084103.us.us, 1
   %exitcond130.not = icmp eq i64 %135, %79
-  br i1 %exitcond130.not, label %._crit_edge.us.us114, label %128, !llvm.loop !160
+  br i1 %exitcond130.not, label %._crit_edge.us.us114, label %128
 
 ._crit_edge.us.us114:                             ; preds = %128
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %._crit_edge108.us, label %.lr.ph104.us.us, !llvm.loop !161
+  br i1 %exitcond135.not, label %._crit_edge108.us, label %.lr.ph104.us.us, !llvm.loop !98
 
 .loopexit:                                        ; preds = %._crit_edge98.us, %._crit_edge108.us, %.lr.ph110, %.lr.ph, %.preheader92, %.preheader, %72, %N_VScaleAddMulti_Serial.exit, %11
   ret i32 0
@@ -3591,8 +3591,8 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address) %4) #0 {
-  %6 = load ptr, ptr %3, align 8, !tbaa !153
-  %7 = load ptr, ptr %6, align 8, !tbaa !99
+  %6 = load ptr, ptr %3, align 8, !tbaa !93
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = icmp eq i32 %0, 1
   br i1 %8, label %9, label %74
 
@@ -3604,7 +3604,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 
 10:                                               ; preds = %9
   %11 = load double, ptr %2, align 8, !tbaa !64
-  %12 = load ptr, ptr %4, align 8, !tbaa !99
+  %12 = load ptr, ptr %4, align 8, !tbaa !67
   %13 = icmp eq ptr %12, %7
   br i1 %13, label %14, label %21
 
@@ -3624,7 +3624,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %19, ptr %17, align 8, !tbaa !64
   %20 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %.val.val.i
-  br i1 %exitcond.not.i.i, label %N_VScale_Serial.exit, label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %N_VScale_Serial.exit, label %.lr.ph.i.i
 
 21:                                               ; preds = %10
   %22 = fcmp oeq double %11, 1.000000e+00
@@ -3649,7 +3649,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %28, ptr %29, align 8, !tbaa !64
   %30 = add nuw nsw i64 %.01.i31.i, 1
   %exitcond.not.i32.i = icmp eq i64 %30, %.val24.val.i
-  br i1 %exitcond.not.i32.i, label %N_VScale_Serial.exit, label %.lr.ph.i30.i, !llvm.loop !81
+  br i1 %exitcond.not.i32.i, label %N_VScale_Serial.exit, label %.lr.ph.i30.i
 
 31:                                               ; preds = %21
   %32 = fcmp oeq double %11, -1.000000e+00
@@ -3675,7 +3675,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %39, ptr %40, align 8, !tbaa !64
   %41 = add nuw nsw i64 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i64 %41, %.val27.val.i
-  br i1 %exitcond.not.i35.i, label %N_VScale_Serial.exit, label %.lr.ph.i33.i, !llvm.loop !82
+  br i1 %exitcond.not.i35.i, label %N_VScale_Serial.exit, label %.lr.ph.i33.i
 
 42:                                               ; preds = %31
   %43 = load i64, ptr %.val27.i, align 8, !tbaa !55
@@ -3696,16 +3696,16 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %52, ptr %53, align 8, !tbaa !64
   %54 = add nuw nsw i64 %.039.i, 1
   %exitcond.not.i = icmp eq i64 %54, %43
-  br i1 %exitcond.not.i, label %N_VScale_Serial.exit, label %.lr.ph.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %N_VScale_Serial.exit, label %.lr.ph.i
 
 55:                                               ; preds = %9
   %56 = load double, ptr %2, align 8, !tbaa !64
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !64
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !153
-  %61 = load ptr, ptr %60, align 8, !tbaa !99
-  %62 = load ptr, ptr %4, align 8, !tbaa !99
+  %60 = load ptr, ptr %59, align 8, !tbaa !93
+  %61 = load ptr, ptr %60, align 8, !tbaa !67
+  %62 = load ptr, ptr %4, align 8, !tbaa !67
   tail call void @N_VLinearSum_Serial(double noundef %56, ptr noundef %7, double noundef %58, ptr noundef %61, ptr noundef %62)
   br label %N_VScale_Serial.exit
 
@@ -3723,16 +3723,16 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %.lr.ph192
   %indvars.iv240 = phi i64 [ 0, %.lr.ph192.preheader ], [ %indvars.iv.next241, %.lr.ph192 ]
   %68 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv240
-  %69 = load ptr, ptr %68, align 8, !tbaa !153
-  %70 = load ptr, ptr %69, align 8, !tbaa !99
+  %69 = load ptr, ptr %68, align 8, !tbaa !93
+  %70 = load ptr, ptr %69, align 8, !tbaa !67
   %71 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv240
-  store ptr %70, ptr %71, align 8, !tbaa !99
+  store ptr %70, ptr %71, align 8, !tbaa !67
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
-  br i1 %exitcond244.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !162
+  br i1 %exitcond244.not, label %._crit_edge193, label %.lr.ph192
 
 ._crit_edge193:                                   ; preds = %.lr.ph192, %63
-  %72 = load ptr, ptr %4, align 8, !tbaa !99
+  %72 = load ptr, ptr %4, align 8, !tbaa !67
   %73 = tail call i32 @N_VLinearCombination_Serial(i32 noundef %1, ptr noundef %2, ptr noundef %66, ptr noundef %72)
   tail call void @free(ptr noundef %66) #21
   br label %N_VScale_Serial.exit
@@ -3761,7 +3761,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %80, ptr %82, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %81, !llvm.loop !163
+  br i1 %exitcond.not, label %._crit_edge, label %81
 
 ._crit_edge:                                      ; preds = %81, %75
   %83 = tail call i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef %78, ptr noundef nonnull %6, ptr noundef %4)
@@ -3773,12 +3773,12 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load double, ptr %86, align 8, !tbaa !64
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !153
+  %89 = load ptr, ptr %88, align 8, !tbaa !93
   %90 = tail call i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double noundef %85, ptr noundef nonnull %6, double noundef %87, ptr noundef %89, ptr noundef %4)
   br label %N_VScale_Serial.exit
 
 91:                                               ; preds = %74
-  %92 = load ptr, ptr %4, align 8, !tbaa !99
+  %92 = load ptr, ptr %4, align 8, !tbaa !67
   %93 = load ptr, ptr %92, align 8, !tbaa !54
   %94 = load i64, ptr %93, align 8, !tbaa !55
   %95 = icmp eq ptr %6, %4
@@ -3827,7 +3827,7 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 .lr.ph183.us:                                     ; preds = %.lr.ph183.us.preheader, %._crit_edge184.us
   %indvars.iv235 = phi i64 [ 0, %.lr.ph183.us.preheader ], [ %indvars.iv.next236, %._crit_edge184.us ]
   %107 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv235
-  %108 = load ptr, ptr %107, align 8, !tbaa !99
+  %108 = load ptr, ptr %107, align 8, !tbaa !67
   %109 = load ptr, ptr %108, align 8, !tbaa !54
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !61
@@ -3836,14 +3836,14 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 ._crit_edge184.us:                                ; preds = %._crit_edge180.us.us, %.lr.ph183.us
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
-  br i1 %exitcond239.not, label %N_VScale_Serial.exit, label %.lr.ph183.us, !llvm.loop !164
+  br i1 %exitcond239.not, label %N_VScale_Serial.exit, label %.lr.ph183.us, !llvm.loop !99
 
 .lr.ph179.us.us:                                  ; preds = %.lr.ph183.us, %._crit_edge180.us.us
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %._crit_edge180.us.us ], [ 1, %.lr.ph183.us ]
   %112 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv230
-  %113 = load ptr, ptr %112, align 8, !tbaa !153
+  %113 = load ptr, ptr %112, align 8, !tbaa !93
   %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv235
-  %115 = load ptr, ptr %114, align 8, !tbaa !99
+  %115 = load ptr, ptr %114, align 8, !tbaa !67
   %116 = load ptr, ptr %115, align 8, !tbaa !54
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !61
@@ -3861,17 +3861,17 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %126, ptr %124, align 8, !tbaa !64
   %127 = add nuw nsw i64 %.0132177.us.us, 1
   %exitcond229.not = icmp eq i64 %127, %94
-  br i1 %exitcond229.not, label %._crit_edge180.us.us, label %120, !llvm.loop !165
+  br i1 %exitcond229.not, label %._crit_edge180.us.us, label %120
 
 ._crit_edge180.us.us:                             ; preds = %120
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %._crit_edge184.us, label %.lr.ph179.us.us, !llvm.loop !166
+  br i1 %exitcond234.not, label %._crit_edge184.us, label %.lr.ph179.us.us, !llvm.loop !100
 
 128:                                              ; preds = %.lr.ph176, %._crit_edge174
   %indvars.iv224 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next225, %._crit_edge174 ]
   %129 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv224
-  %130 = load ptr, ptr %129, align 8, !tbaa !99
+  %130 = load ptr, ptr %129, align 8, !tbaa !67
   %131 = load ptr, ptr %130, align 8, !tbaa !54
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !61
@@ -3883,9 +3883,9 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 .lr.ph170.us:                                     ; preds = %.preheader147, %._crit_edge171.us
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %._crit_edge171.us ], [ 1, %.preheader147 ]
   %134 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv219
-  %135 = load ptr, ptr %134, align 8, !tbaa !153
+  %135 = load ptr, ptr %134, align 8, !tbaa !93
   %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv224
-  %137 = load ptr, ptr %136, align 8, !tbaa !99
+  %137 = load ptr, ptr %136, align 8, !tbaa !67
   %138 = load ptr, ptr %137, align 8, !tbaa !54
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !61
@@ -3903,12 +3903,12 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %148, ptr %146, align 8, !tbaa !64
   %149 = add nuw nsw i64 %.2134168.us, 1
   %exitcond218.not = icmp eq i64 %149, %94
-  br i1 %exitcond218.not, label %._crit_edge171.us, label %142, !llvm.loop !167
+  br i1 %exitcond218.not, label %._crit_edge171.us, label %142
 
 ._crit_edge171.us:                                ; preds = %142
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
-  br i1 %exitcond223.not, label %._crit_edge174, label %.lr.ph170.us, !llvm.loop !168
+  br i1 %exitcond223.not, label %._crit_edge174, label %.lr.ph170.us, !llvm.loop !101
 
 .lr.ph167:                                        ; preds = %128, %.lr.ph167
   %.1133165 = phi i64 [ %154, %.lr.ph167 ], [ 0, %128 ]
@@ -3919,22 +3919,22 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %153, ptr %151, align 8, !tbaa !64
   %154 = add nuw nsw i64 %.1133165, 1
   %exitcond217.not = icmp eq i64 %154, %94
-  br i1 %exitcond217.not, label %.preheader147, label %.lr.ph167, !llvm.loop !169
+  br i1 %exitcond217.not, label %.preheader147, label %.lr.ph167
 
 ._crit_edge174:                                   ; preds = %._crit_edge171.us, %.preheader147, %128
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %N_VScale_Serial.exit, label %128, !llvm.loop !170
+  br i1 %exitcond228.not, label %N_VScale_Serial.exit, label %128
 
 155:                                              ; preds = %.lr.ph164, %.critedge
   %indvars.iv212 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next213, %.critedge ]
   %156 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv212
-  %157 = load ptr, ptr %156, align 8, !tbaa !99
+  %157 = load ptr, ptr %156, align 8, !tbaa !67
   %158 = load ptr, ptr %157, align 8, !tbaa !54
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !61
   %161 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv212
-  %162 = load ptr, ptr %161, align 8, !tbaa !99
+  %162 = load ptr, ptr %161, align 8, !tbaa !67
   %163 = load ptr, ptr %162, align 8, !tbaa !54
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8, !tbaa !61
@@ -3946,9 +3946,9 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
 .lr.ph158.us:                                     ; preds = %.preheader150, %._crit_edge159.us
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %._crit_edge159.us ], [ 1, %.preheader150 ]
   %166 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv207
-  %167 = load ptr, ptr %166, align 8, !tbaa !153
+  %167 = load ptr, ptr %166, align 8, !tbaa !93
   %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv212
-  %169 = load ptr, ptr %168, align 8, !tbaa !99
+  %169 = load ptr, ptr %168, align 8, !tbaa !67
   %170 = load ptr, ptr %169, align 8, !tbaa !54
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !61
@@ -3966,12 +3966,12 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %180, ptr %178, align 8, !tbaa !64
   %181 = add nuw nsw i64 %.4156.us, 1
   %exitcond206.not = icmp eq i64 %181, %94
-  br i1 %exitcond206.not, label %._crit_edge159.us, label %174, !llvm.loop !171
+  br i1 %exitcond206.not, label %._crit_edge159.us, label %174
 
 ._crit_edge159.us:                                ; preds = %174
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %.critedge, label %.lr.ph158.us, !llvm.loop !172
+  br i1 %exitcond211.not, label %.critedge, label %.lr.ph158.us, !llvm.loop !102
 
 .lr.ph155:                                        ; preds = %155, %.lr.ph155
   %.3135153 = phi i64 [ %187, %.lr.ph155 ], [ 0, %155 ]
@@ -3983,12 +3983,12 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   store double %185, ptr %186, align 8, !tbaa !64
   %187 = add nuw nsw i64 %.3135153, 1
   %exitcond205.not = icmp eq i64 %187, %94
-  br i1 %exitcond205.not, label %.preheader150, label %.lr.ph155, !llvm.loop !173
+  br i1 %exitcond205.not, label %.preheader150, label %.lr.ph155
 
 .critedge:                                        ; preds = %._crit_edge159.us, %.preheader150, %155
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
-  br i1 %exitcond216.not, label %N_VScale_Serial.exit, label %155, !llvm.loop !174
+  br i1 %exitcond216.not, label %N_VScale_Serial.exit, label %155
 
 N_VScale_Serial.exit:                             ; preds = %.critedge, %._crit_edge174, %._crit_edge184.us, %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %.lr.ph186, %.critedge.preheader, %.preheader148, %.preheader, %42, %33, %23, %14, %84, %._crit_edge, %._crit_edge193, %55
   ret i32 0
@@ -4003,25 +4003,25 @@ define noundef i32 @N_VEnableFusedOps_Serial(ptr noundef readonly captures(none)
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %2
-  store ptr @N_VLinearCombination_Serial, ptr %5, align 8, !tbaa !175
+  store ptr @N_VLinearCombination_Serial, ptr %5, align 8, !tbaa !103
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 248
-  store ptr @N_VScaleAddMulti_Serial, ptr %7, align 8, !tbaa !176
+  store ptr @N_VScaleAddMulti_Serial, ptr %7, align 8, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  store ptr @N_VDotProdMulti_Serial, ptr %8, align 8, !tbaa !177
+  store ptr @N_VDotProdMulti_Serial, ptr %8, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 264
-  store ptr @N_VLinearSumVectorArray_Serial, ptr %9, align 8, !tbaa !178
+  store ptr @N_VLinearSumVectorArray_Serial, ptr %9, align 8, !tbaa !106
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  store ptr @N_VScaleVectorArray_Serial, ptr %10, align 8, !tbaa !179
+  store ptr @N_VScaleVectorArray_Serial, ptr %10, align 8, !tbaa !107
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  store ptr @N_VConstVectorArray_Serial, ptr %11, align 8, !tbaa !180
+  store ptr @N_VConstVectorArray_Serial, ptr %11, align 8, !tbaa !108
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  store ptr @N_VWrmsNormVectorArray_Serial, ptr %12, align 8, !tbaa !181
+  store ptr @N_VWrmsNormVectorArray_Serial, ptr %12, align 8, !tbaa !109
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  store ptr @N_VWrmsNormMaskVectorArray_Serial, ptr %13, align 8, !tbaa !182
+  store ptr @N_VWrmsNormMaskVectorArray_Serial, ptr %13, align 8, !tbaa !110
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 304
-  store ptr @N_VScaleAddMultiVectorArray_Serial, ptr %14, align 8, !tbaa !183
+  store ptr @N_VScaleAddMultiVectorArray_Serial, ptr %14, align 8, !tbaa !111
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 312
-  store ptr @N_VLinearCombinationVectorArray_Serial, ptr %15, align 8, !tbaa !184
+  store ptr @N_VLinearCombinationVectorArray_Serial, ptr %15, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 392
   store ptr @N_VDotProdMulti_Serial, ptr %16, align 8, !tbaa !48
   br label %19
@@ -4043,7 +4043,7 @@ define noundef i32 @N_VEnableLinearCombination_Serial(ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  store ptr %3, ptr %6, align 8, !tbaa !175
+  store ptr %3, ptr %6, align 8, !tbaa !103
   ret i32 0
 }
 
@@ -4054,7 +4054,7 @@ define noundef i32 @N_VEnableScaleAddMulti_Serial(ptr noundef readonly captures(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store ptr %3, ptr %6, align 8, !tbaa !176
+  store ptr %3, ptr %6, align 8, !tbaa !104
   ret i32 0
 }
 
@@ -4065,7 +4065,7 @@ define noundef i32 @N_VEnableDotProdMulti_Serial(ptr noundef readonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  store ptr %3, ptr %6, align 8, !tbaa !177
+  store ptr %3, ptr %6, align 8, !tbaa !105
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 392
   store ptr %3, ptr %7, align 8, !tbaa !48
   ret i32 0
@@ -4078,7 +4078,7 @@ define noundef i32 @N_VEnableLinearSumVectorArray_Serial(ptr noundef readonly ca
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store ptr %3, ptr %6, align 8, !tbaa !178
+  store ptr %3, ptr %6, align 8, !tbaa !106
   ret i32 0
 }
 
@@ -4089,7 +4089,7 @@ define noundef i32 @N_VEnableScaleVectorArray_Serial(ptr noundef readonly captur
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  store ptr %3, ptr %6, align 8, !tbaa !179
+  store ptr %3, ptr %6, align 8, !tbaa !107
   ret i32 0
 }
 
@@ -4100,7 +4100,7 @@ define noundef i32 @N_VEnableConstVectorArray_Serial(ptr noundef readonly captur
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  store ptr %3, ptr %6, align 8, !tbaa !180
+  store ptr %3, ptr %6, align 8, !tbaa !108
   ret i32 0
 }
 
@@ -4111,7 +4111,7 @@ define noundef i32 @N_VEnableWrmsNormVectorArray_Serial(ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  store ptr %3, ptr %6, align 8, !tbaa !181
+  store ptr %3, ptr %6, align 8, !tbaa !109
   ret i32 0
 }
 
@@ -4122,7 +4122,7 @@ define noundef i32 @N_VEnableWrmsNormMaskVectorArray_Serial(ptr noundef readonly
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  store ptr %3, ptr %6, align 8, !tbaa !182
+  store ptr %3, ptr %6, align 8, !tbaa !110
   ret i32 0
 }
 
@@ -4133,7 +4133,7 @@ define noundef i32 @N_VEnableScaleAddMultiVectorArray_Serial(ptr noundef readonl
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr %3, ptr %6, align 8, !tbaa !183
+  store ptr %3, ptr %6, align 8, !tbaa !111
   ret i32 0
 }
 
@@ -4144,7 +4144,7 @@ define noundef i32 @N_VEnableLinearCombinationVectorArray_Serial(ptr noundef rea
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
-  store ptr %3, ptr %6, align 8, !tbaa !184
+  store ptr %3, ptr %6, align 8, !tbaa !112
   ret i32 0
 }
 
@@ -4246,122 +4246,50 @@ attributes #22 = { nounwind allocsize(0) }
 !63 = !{!57, !57, i64 0}
 !64 = !{!65, !65, i64 0}
 !65 = !{!"double", !6, i64 0}
-!66 = distinct !{!66, !67}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !67}
-!69 = distinct !{!69, !67}
-!70 = distinct !{!70, !67}
-!71 = distinct !{!71, !67}
-!72 = distinct !{!72, !67}
-!73 = distinct !{!73, !67}
-!74 = distinct !{!74, !67}
-!75 = distinct !{!75, !67}
-!76 = distinct !{!76, !67}
-!77 = distinct !{!77, !67}
-!78 = distinct !{!78, !67}
-!79 = distinct !{!79, !67}
-!80 = distinct !{!80, !67}
-!81 = distinct !{!81, !67}
-!82 = distinct !{!82, !67}
-!83 = distinct !{!83, !67}
-!84 = distinct !{!84, !67}
-!85 = distinct !{!85, !67}
-!86 = distinct !{!86, !67}
-!87 = distinct !{!87, !67}
-!88 = distinct !{!88, !67}
-!89 = distinct !{!89, !67}
-!90 = !{!58, !58, i64 0}
-!91 = distinct !{!91, !67}
-!92 = distinct !{!92, !67}
-!93 = distinct !{!93, !67}
-!94 = distinct !{!94, !67}
-!95 = distinct !{!95, !67}
-!96 = distinct !{!96, !67}
-!97 = distinct !{!97, !67}
-!98 = distinct !{!98, !67}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
-!101 = distinct !{!101, !67}
-!102 = distinct !{!102, !67, !103}
-!103 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!104 = distinct !{!104, !67}
-!105 = distinct !{!105, !67}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!108 = distinct !{!108, !67}
-!109 = distinct !{!109, !67}
-!110 = distinct !{!110, !67, !103}
-!111 = distinct !{!111, !67}
-!112 = distinct !{!112, !67, !103}
-!113 = distinct !{!113, !67}
-!114 = distinct !{!114, !67}
-!115 = distinct !{!115, !67, !103}
-!116 = distinct !{!116, !67}
-!117 = distinct !{!117, !67}
-!118 = distinct !{!118, !67, !103}
-!119 = distinct !{!119, !67}
-!120 = distinct !{!120, !67, !103}
-!121 = distinct !{!121, !67}
-!122 = distinct !{!122, !67, !103}
-!123 = distinct !{!123, !67}
-!124 = distinct !{!124, !67, !103}
-!125 = distinct !{!125, !67}
-!126 = distinct !{!126, !67, !103}
-!127 = distinct !{!127, !67}
-!128 = distinct !{!128, !67, !103}
-!129 = distinct !{!129, !67}
-!130 = distinct !{!130, !67, !103}
-!131 = distinct !{!131, !67}
-!132 = distinct !{!132, !67, !103}
-!133 = distinct !{!133, !67}
-!134 = distinct !{!134, !67, !103}
-!135 = distinct !{!135, !67}
-!136 = distinct !{!136, !67, !103}
-!137 = distinct !{!137, !67}
-!138 = distinct !{!138, !67, !103}
-!139 = distinct !{!139, !67}
-!140 = distinct !{!140, !67, !103}
-!141 = distinct !{!141, !67}
-!142 = distinct !{!142, !67, !103}
-!143 = distinct !{!143, !67}
-!144 = distinct !{!144, !67, !103}
-!145 = distinct !{!145, !67}
-!146 = distinct !{!146, !67, !103}
-!147 = distinct !{!147, !67, !103}
-!148 = distinct !{!148, !67}
-!149 = distinct !{!149, !67}
-!150 = distinct !{!150, !67, !103}
-!151 = distinct !{!151, !67}
-!152 = distinct !{!152, !67}
-!153 = !{!154, !154, i64 0}
-!154 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
-!155 = distinct !{!155, !67}
-!156 = distinct !{!156, !67, !103}
-!157 = distinct !{!157, !67}
-!158 = distinct !{!158, !67, !103}
-!159 = distinct !{!159, !67, !103}
-!160 = distinct !{!160, !67}
-!161 = distinct !{!161, !67, !103}
-!162 = distinct !{!162, !67}
-!163 = distinct !{!163, !67}
-!164 = distinct !{!164, !67, !103}
-!165 = distinct !{!165, !67}
-!166 = distinct !{!166, !67, !103}
-!167 = distinct !{!167, !67}
-!168 = distinct !{!168, !67, !103}
-!169 = distinct !{!169, !67}
-!170 = distinct !{!170, !67}
-!171 = distinct !{!171, !67}
-!172 = distinct !{!172, !67, !103}
-!173 = distinct !{!173, !67}
-!174 = distinct !{!174, !67}
-!175 = !{!11, !5, i64 240}
-!176 = !{!11, !5, i64 248}
-!177 = !{!11, !5, i64 256}
-!178 = !{!11, !5, i64 264}
-!179 = !{!11, !5, i64 272}
-!180 = !{!11, !5, i64 280}
-!181 = !{!11, !5, i64 288}
-!182 = !{!11, !5, i64 296}
-!183 = !{!11, !5, i64 304}
-!184 = !{!11, !5, i64 312}
+!66 = !{!58, !58, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
+!69 = distinct !{!69, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!73 = distinct !{!73, !70}
+!74 = distinct !{!74, !70}
+!75 = distinct !{!75, !70}
+!76 = distinct !{!76, !70}
+!77 = distinct !{!77, !70}
+!78 = distinct !{!78, !70}
+!79 = distinct !{!79, !70}
+!80 = distinct !{!80, !70}
+!81 = distinct !{!81, !70}
+!82 = distinct !{!82, !70}
+!83 = distinct !{!83, !70}
+!84 = distinct !{!84, !70}
+!85 = distinct !{!85, !70}
+!86 = distinct !{!86, !70}
+!87 = distinct !{!87, !70}
+!88 = distinct !{!88, !70}
+!89 = distinct !{!89, !70}
+!90 = distinct !{!90, !70}
+!91 = distinct !{!91, !70}
+!92 = distinct !{!92, !70}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
+!95 = distinct !{!95, !70}
+!96 = distinct !{!96, !70}
+!97 = distinct !{!97, !70}
+!98 = distinct !{!98, !70}
+!99 = distinct !{!99, !70}
+!100 = distinct !{!100, !70}
+!101 = distinct !{!101, !70}
+!102 = distinct !{!102, !70}
+!103 = !{!11, !5, i64 240}
+!104 = !{!11, !5, i64 248}
+!105 = !{!11, !5, i64 256}
+!106 = !{!11, !5, i64 264}
+!107 = !{!11, !5, i64 272}
+!108 = !{!11, !5, i64 280}
+!109 = !{!11, !5, i64 288}
+!110 = !{!11, !5, i64 296}
+!111 = !{!11, !5, i64 304}
+!112 = !{!11, !5, i64 312}

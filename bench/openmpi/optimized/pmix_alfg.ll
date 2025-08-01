@@ -43,7 +43,7 @@ define noundef i32 @pmix_srand(ptr noundef captures(none) initializes((0, 516)) 
   store i32 %14, ptr %6, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next, 127
-  br i1 %exitcond28.not, label %17, label %.preheader, !llvm.loop !13
+  br i1 %exitcond28.not, label %17, label %.preheader, !llvm.loop !12
 
 17:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(516) @alfg_buffer, ptr noundef nonnull align 4 dereferenceable(516) %0, i64 516, i1 false)
@@ -135,7 +135,6 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !7 = !{!"int", !5, i64 0}
 !8 = !{!4, !7, i64 512}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

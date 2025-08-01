@@ -219,7 +219,7 @@ define hidden void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list
   %52 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %51, i64 noundef %spec.select.i, i8 noundef zeroext 17, i32 noundef 0) #7
   store ptr %52, ptr %24, align 8
   store i64 %spec.select.i, ptr %22, align 8
-  br i1 %29, label %26, label %53, !llvm.loop !9
+  br i1 %29, label %26, label %53, !llvm.loop !8
 
 53:                                               ; preds = %41, %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -394,7 +394,6 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

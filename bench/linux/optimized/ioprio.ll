@@ -243,7 +243,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   %63 = getelementptr i8, ptr %62, i64 -1488
   %64 = tail call i32 @set_task_ioprio(ptr noundef %63, i32 noundef %6) #3
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %57, label %66, !llvm.loop !10
+  br i1 %65, label %57, label %66, !llvm.loop !6
 
 66:                                               ; preds = %.preheader
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #3
@@ -257,7 +257,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   %70 = getelementptr i8, ptr %68, i64 -1456
   %71 = icmp eq ptr %70, null
   %72 = or i1 %69, %71
-  br i1 %72, label %.loopexit16, label %.preheader15, !llvm.loop !11
+  br i1 %72, label %.loopexit16, label %.preheader15, !llvm.loop !9
 
 .loopexit16:                                      ; preds = %.loopexit, %43, %40
   %73 = phi i32 [ -3, %40 ], [ -3, %43 ], [ %.ph13, %.loopexit ]
@@ -301,7 +301,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   %95 = load volatile ptr, ptr %98, align 8
   %96 = getelementptr i8, ptr %95, i64 -1112
   %97 = icmp eq ptr %96, @init_task
-  br i1 %97, label %.loopexit18, label %.preheader20, !llvm.loop !12
+  br i1 %97, label %.loopexit18, label %.preheader20, !llvm.loop !10
 
 .preheader20:                                     ; preds = %90, %.loopexit19
   %98 = phi ptr [ %95, %.loopexit19 ], [ %91, %90 ]
@@ -342,7 +342,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   %122 = load ptr, ptr %100, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = icmp eq ptr %121, %123
-  br i1 %124, label %.loopexit19, label %.preheader17, !llvm.loop !13
+  br i1 %124, label %.loopexit19, label %.preheader17, !llvm.loop !11
 
 .loopexit18:                                      ; preds = %.loopexit19, %116, %90
   %125 = phi i32 [ -3, %90 ], [ %117, %116 ], [ %94, %.loopexit19 ]
@@ -384,7 +384,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_ioprio_get(pt
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_ioprio_get(i64 noundef %3, i64 noundef %5), !range !14
+  %6 = tail call fastcc i64 @__se_sys_ioprio_get(i64 noundef %3, i64 noundef %5), !range !12
   ret i64 %6
 }
 
@@ -560,7 +560,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %107 = load ptr, ptr %52, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = icmp eq ptr %106, %108
-  br i1 %109, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %109, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %104, %.preheader25
   %110 = phi i32 [ %51, %.preheader25 ], [ %105, %104 ]
@@ -570,7 +570,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %114 = getelementptr i8, ptr %112, i64 -1456
   %115 = icmp eq ptr %114, null
   %116 = or i1 %113, %115
-  br i1 %116, label %.loopexit26, label %.preheader25, !llvm.loop !16
+  br i1 %116, label %.loopexit26, label %.preheader25, !llvm.loop !14
 
 .loopexit26:                                      ; preds = %.loopexit, %43, %40
   %117 = phi i32 [ -3, %40 ], [ -3, %43 ], [ %110, %.loopexit ]
@@ -614,7 +614,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %139 = load volatile ptr, ptr %143, align 8
   %140 = getelementptr i8, ptr %139, i64 -1112
   %141 = icmp eq ptr %140, @init_task
-  br i1 %141, label %.loopexit29, label %142, !llvm.loop !17
+  br i1 %141, label %.loopexit29, label %142, !llvm.loop !15
 
 142:                                              ; preds = %.loopexit28, %136
   %143 = phi ptr [ %133, %136 ], [ %139, %.loopexit28 ]
@@ -719,7 +719,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   %210 = load ptr, ptr %145, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = icmp eq ptr %209, %211
-  br i1 %212, label %.loopexit28, label %.preheader27, !llvm.loop !18
+  br i1 %212, label %.loopexit28, label %.preheader27, !llvm.loop !16
 
 .loopexit29:                                      ; preds = %.loopexit28, %132
   %213 = phi i32 [ -3, %132 ], [ %138, %.loopexit28 ]
@@ -744,7 +744,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_ioprio_get(p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_ioprio_get(i64 noundef %4, i64 noundef %7), !range !14
+  %8 = tail call fastcc i64 @__se_sys_ioprio_get(i64 noundef %4, i64 noundef %7), !range !12
   ret i64 %8
 }
 
@@ -804,16 +804,14 @@ attributes #4 = { nounwind memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2147911308}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
 !10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = !{i64 -2147483648, i64 2147483648}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8, !9}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 -2147483648, i64 2147483648}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

@@ -704,8 +704,8 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %7, label %56, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !51
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %9 = load ptr, ptr %3, align 8, !tbaa !50
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
   %.not58 = icmp eq ptr %10, null
   br i1 %.not58, label %._crit_edge.thread, label %.lr.ph
 
@@ -719,9 +719,9 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   %.03556 = phi ptr [ null, %.lr.ph ], [ %.1, %45 ]
   %.03855 = phi ptr [ %9, %.lr.ph ], [ %46, %45 ]
   %15 = call ptr @snd_device_name_get_hint(ptr noundef nonnull %14, ptr noundef nonnull @.str.24) #10
-  %16 = load ptr, ptr %.03855, align 8, !tbaa !52
+  %16 = load ptr, ptr %.03855, align 8, !tbaa !51
   %17 = call ptr @snd_device_name_get_hint(ptr noundef %16, ptr noundef nonnull @.str.25) #10
-  %18 = load ptr, ptr %.03855, align 8, !tbaa !52
+  %18 = load ptr, ptr %.03855, align 8, !tbaa !51
   %19 = call ptr @snd_device_name_get_hint(ptr noundef %18, ptr noundef nonnull @.str.26) #10
   %.not47 = icmp eq ptr %19, null
   br i1 %.not47, label %22, label %20
@@ -738,7 +738,7 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
 
 24:                                               ; preds = %22
   %25 = call noalias ptr @av_strdup(ptr noundef %15) #10
-  store ptr %25, ptr %23, align 8, !tbaa !53
+  store ptr %25, ptr %23, align 8, !tbaa !52
   %26 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 10) #13
   %.not50 = icmp eq ptr %26, null
   br i1 %.not50, label %30, label %27
@@ -756,12 +756,12 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   %.sink64 = phi ptr [ %17, %30 ], [ %28, %27 ]
   %32 = call noalias ptr @av_strdup(ptr noundef nonnull %.sink64) #10
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %32, ptr %33, align 8, !tbaa !55
+  store ptr %32, ptr %33, align 8, !tbaa !54
   %.not52 = icmp eq ptr %32, null
   br i1 %.not52, label %45, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %23, align 8, !tbaa !53
+  %35 = load ptr, ptr %23, align 8, !tbaa !52
   %.not53 = icmp eq ptr %35, null
   br i1 %.not53, label %45, label %36
 
@@ -771,15 +771,15 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %23, align 8, !tbaa !53
+  %40 = load ptr, ptr %23, align 8, !tbaa !52
   %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(8) @.str) #13
   %.not54 = icmp eq i32 %41, 0
   br i1 %.not54, label %42, label %45
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %11, align 8, !tbaa !56
+  %43 = load i32, ptr %11, align 8, !tbaa !55
   %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %12, align 4, !tbaa !59
+  store i32 %44, ptr %12, align 4, !tbaa !58
   br label %45
 
 45:                                               ; preds = %39, %42, %31, %34, %22, %20, %36
@@ -789,11 +789,11 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   call void @free(ptr noundef %15) #10
   call void @free(ptr noundef %17) #10
   %46 = getelementptr inbounds nuw i8, ptr %.03855, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !52
+  %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = icmp ne ptr %47, null
   %.not = icmp eq i32 %.137, 0
   %49 = and i1 %.not, %48
-  br i1 %49, label %13, label %._crit_edge, !llvm.loop !60
+  br i1 %49, label %13, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %45
   %.not46 = icmp eq ptr %.1, null
@@ -801,16 +801,16 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
 
 50:                                               ; preds = %._crit_edge
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !55
+  %52 = load ptr, ptr %51, align 8, !tbaa !54
   call void @av_free(ptr noundef %52) #10
-  %53 = load ptr, ptr %.1, align 8, !tbaa !53
+  %53 = load ptr, ptr %.1, align 8, !tbaa !52
   call void @av_free(ptr noundef %53) #10
   call void @av_free(ptr noundef nonnull %.1) #10
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %8, %50, %._crit_edge
   %.036.lcssa62 = phi i32 [ %.137, %50 ], [ %.137, %._crit_edge ], [ 0, %8 ]
-  %54 = load ptr, ptr %3, align 8, !tbaa !51
+  %54 = load ptr, ptr %3, align 8, !tbaa !50
   %55 = call i32 @snd_device_name_free_hint(ptr noundef %54) #10
   br label %56
 
@@ -876,7 +876,7 @@ define internal void @alsa_reorder_int8_out_50(ptr noundef readonly captures(non
   %19 = getelementptr inbounds nuw i8, ptr %.01417, i64 5
   %20 = getelementptr inbounds nuw i8, ptr %.018, i64 5
   %21 = icmp samesign ugt i32 %.01516, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -892,28 +892,28 @@ define internal void @alsa_reorder_int16_out_50(ptr noundef readonly captures(no
   %.01417 = phi ptr [ %19, %.lr.ph ], [ %0, %3 ]
   %.01516 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.01516, -1
-  %6 = load i16, ptr %.01417, align 2, !tbaa !62
-  store i16 %6, ptr %.018, align 2, !tbaa !62
+  %6 = load i16, ptr %.01417, align 2, !tbaa !61
+  store i16 %6, ptr %.018, align 2, !tbaa !61
   %7 = getelementptr inbounds nuw i8, ptr %.01417, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !62
+  %8 = load i16, ptr %7, align 2, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %.018, i64 2
-  store i16 %8, ptr %9, align 2, !tbaa !62
+  store i16 %8, ptr %9, align 2, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %.01417, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !62
+  %11 = load i16, ptr %10, align 2, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %.018, i64 4
-  store i16 %11, ptr %12, align 2, !tbaa !62
+  store i16 %11, ptr %12, align 2, !tbaa !61
   %13 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
-  %14 = load i16, ptr %13, align 2, !tbaa !62
+  %14 = load i16, ptr %13, align 2, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %.018, i64 6
-  store i16 %14, ptr %15, align 2, !tbaa !62
+  store i16 %14, ptr %15, align 2, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %.01417, i64 4
-  %17 = load i16, ptr %16, align 2, !tbaa !62
+  %17 = load i16, ptr %16, align 2, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store i16 %17, ptr %18, align 2, !tbaa !62
+  store i16 %17, ptr %18, align 2, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %.01417, i64 10
   %20 = getelementptr inbounds nuw i8, ptr %.018, i64 10
   %21 = icmp samesign ugt i32 %.01516, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -950,7 +950,7 @@ define internal void @alsa_reorder_int32_out_50(ptr noundef readonly captures(no
   %19 = getelementptr inbounds nuw i8, ptr %.01417, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %.018, i64 20
   %21 = icmp samesign ugt i32 %.01516, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -966,28 +966,28 @@ define internal void @alsa_reorder_f32_out_50(ptr noundef readonly captures(none
   %.01417 = phi ptr [ %19, %.lr.ph ], [ %0, %3 ]
   %.01516 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.01516, -1
-  %6 = load float, ptr %.01417, align 4, !tbaa !66
-  store float %6, ptr %.018, align 4, !tbaa !66
+  %6 = load float, ptr %.01417, align 4, !tbaa !65
+  store float %6, ptr %.018, align 4, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %.01417, i64 4
-  %8 = load float, ptr %7, align 4, !tbaa !66
+  %8 = load float, ptr %7, align 4, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %.018, i64 4
-  store float %8, ptr %9, align 4, !tbaa !66
+  store float %8, ptr %9, align 4, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %.01417, i64 12
-  %11 = load float, ptr %10, align 4, !tbaa !66
+  %11 = load float, ptr %10, align 4, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store float %11, ptr %12, align 4, !tbaa !66
+  store float %11, ptr %12, align 4, !tbaa !65
   %13 = getelementptr inbounds nuw i8, ptr %.01417, i64 16
-  %14 = load float, ptr %13, align 4, !tbaa !66
+  %14 = load float, ptr %13, align 4, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %.018, i64 12
-  store float %14, ptr %15, align 4, !tbaa !66
+  store float %14, ptr %15, align 4, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
-  %17 = load float, ptr %16, align 4, !tbaa !66
+  %17 = load float, ptr %16, align 4, !tbaa !65
   %18 = getelementptr inbounds nuw i8, ptr %.018, i64 16
-  store float %17, ptr %18, align 4, !tbaa !66
+  store float %17, ptr %18, align 4, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %.01417, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %.018, i64 20
   %21 = icmp samesign ugt i32 %.01516, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !68
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1028,7 +1028,7 @@ define internal void @alsa_reorder_int8_out_51(ptr noundef readonly captures(non
   %22 = getelementptr inbounds nuw i8, ptr %.01619, i64 6
   %23 = getelementptr inbounds nuw i8, ptr %.020, i64 6
   %24 = icmp samesign ugt i32 %.01718, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !69
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1044,32 +1044,32 @@ define internal void @alsa_reorder_int16_out_51(ptr noundef readonly captures(no
   %.01619 = phi ptr [ %22, %.lr.ph ], [ %0, %3 ]
   %.01718 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.01718, -1
-  %6 = load i16, ptr %.01619, align 2, !tbaa !62
-  store i16 %6, ptr %.020, align 2, !tbaa !62
+  %6 = load i16, ptr %.01619, align 2, !tbaa !61
+  store i16 %6, ptr %.020, align 2, !tbaa !61
   %7 = getelementptr inbounds nuw i8, ptr %.01619, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !62
+  %8 = load i16, ptr %7, align 2, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %.020, i64 2
-  store i16 %8, ptr %9, align 2, !tbaa !62
+  store i16 %8, ptr %9, align 2, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %.01619, i64 8
-  %11 = load i16, ptr %10, align 2, !tbaa !62
+  %11 = load i16, ptr %10, align 2, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %.020, i64 4
-  store i16 %11, ptr %12, align 2, !tbaa !62
+  store i16 %11, ptr %12, align 2, !tbaa !61
   %13 = getelementptr inbounds nuw i8, ptr %.01619, i64 10
-  %14 = load i16, ptr %13, align 2, !tbaa !62
+  %14 = load i16, ptr %13, align 2, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %.020, i64 6
-  store i16 %14, ptr %15, align 2, !tbaa !62
+  store i16 %14, ptr %15, align 2, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %.01619, i64 4
-  %17 = load i16, ptr %16, align 2, !tbaa !62
+  %17 = load i16, ptr %16, align 2, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  store i16 %17, ptr %18, align 2, !tbaa !62
+  store i16 %17, ptr %18, align 2, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %.01619, i64 6
-  %20 = load i16, ptr %19, align 2, !tbaa !62
+  %20 = load i16, ptr %19, align 2, !tbaa !61
   %21 = getelementptr inbounds nuw i8, ptr %.020, i64 10
-  store i16 %20, ptr %21, align 2, !tbaa !62
+  store i16 %20, ptr %21, align 2, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %.01619, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %.020, i64 12
   %24 = icmp samesign ugt i32 %.01718, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !70
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1110,7 +1110,7 @@ define internal void @alsa_reorder_int32_out_51(ptr noundef readonly captures(no
   %22 = getelementptr inbounds nuw i8, ptr %.01619, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %24 = icmp samesign ugt i32 %.01718, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1126,32 +1126,32 @@ define internal void @alsa_reorder_f32_out_51(ptr noundef readonly captures(none
   %.01619 = phi ptr [ %22, %.lr.ph ], [ %0, %3 ]
   %.01718 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.01718, -1
-  %6 = load float, ptr %.01619, align 4, !tbaa !66
-  store float %6, ptr %.020, align 4, !tbaa !66
+  %6 = load float, ptr %.01619, align 4, !tbaa !65
+  store float %6, ptr %.020, align 4, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %.01619, i64 4
-  %8 = load float, ptr %7, align 4, !tbaa !66
+  %8 = load float, ptr %7, align 4, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %.020, i64 4
-  store float %8, ptr %9, align 4, !tbaa !66
+  store float %8, ptr %9, align 4, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %.01619, i64 16
-  %11 = load float, ptr %10, align 4, !tbaa !66
+  %11 = load float, ptr %10, align 4, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  store float %11, ptr %12, align 4, !tbaa !66
+  store float %11, ptr %12, align 4, !tbaa !65
   %13 = getelementptr inbounds nuw i8, ptr %.01619, i64 20
-  %14 = load float, ptr %13, align 4, !tbaa !66
+  %14 = load float, ptr %13, align 4, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %.020, i64 12
-  store float %14, ptr %15, align 4, !tbaa !66
+  store float %14, ptr %15, align 4, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %.01619, i64 8
-  %17 = load float, ptr %16, align 4, !tbaa !66
+  %17 = load float, ptr %16, align 4, !tbaa !65
   %18 = getelementptr inbounds nuw i8, ptr %.020, i64 16
-  store float %17, ptr %18, align 4, !tbaa !66
+  store float %17, ptr %18, align 4, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %.01619, i64 12
-  %20 = load float, ptr %19, align 4, !tbaa !66
+  %20 = load float, ptr %19, align 4, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %.020, i64 20
-  store float %20, ptr %21, align 4, !tbaa !66
+  store float %20, ptr %21, align 4, !tbaa !65
   %22 = getelementptr inbounds nuw i8, ptr %.01619, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %24 = icmp samesign ugt i32 %.01718, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1200,7 +1200,7 @@ define internal void @alsa_reorder_int8_out_71(ptr noundef readonly captures(non
   %28 = getelementptr inbounds nuw i8, ptr %.02023, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %30 = icmp samesign ugt i32 %.02122, 1
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1216,40 +1216,40 @@ define internal void @alsa_reorder_int16_out_71(ptr noundef readonly captures(no
   %.02023 = phi ptr [ %28, %.lr.ph ], [ %0, %3 ]
   %.02122 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.02122, -1
-  %6 = load i16, ptr %.02023, align 2, !tbaa !62
-  store i16 %6, ptr %.024, align 2, !tbaa !62
+  %6 = load i16, ptr %.02023, align 2, !tbaa !61
+  store i16 %6, ptr %.024, align 2, !tbaa !61
   %7 = getelementptr inbounds nuw i8, ptr %.02023, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !62
+  %8 = load i16, ptr %7, align 2, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %.024, i64 2
-  store i16 %8, ptr %9, align 2, !tbaa !62
+  store i16 %8, ptr %9, align 2, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %.02023, i64 8
-  %11 = load i16, ptr %10, align 2, !tbaa !62
+  %11 = load i16, ptr %10, align 2, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %.024, i64 4
-  store i16 %11, ptr %12, align 2, !tbaa !62
+  store i16 %11, ptr %12, align 2, !tbaa !61
   %13 = getelementptr inbounds nuw i8, ptr %.02023, i64 10
-  %14 = load i16, ptr %13, align 2, !tbaa !62
+  %14 = load i16, ptr %13, align 2, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %.024, i64 6
-  store i16 %14, ptr %15, align 2, !tbaa !62
+  store i16 %14, ptr %15, align 2, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %.02023, i64 4
-  %17 = load i16, ptr %16, align 2, !tbaa !62
+  %17 = load i16, ptr %16, align 2, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %.024, i64 8
-  store i16 %17, ptr %18, align 2, !tbaa !62
+  store i16 %17, ptr %18, align 2, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %.02023, i64 6
-  %20 = load i16, ptr %19, align 2, !tbaa !62
+  %20 = load i16, ptr %19, align 2, !tbaa !61
   %21 = getelementptr inbounds nuw i8, ptr %.024, i64 10
-  store i16 %20, ptr %21, align 2, !tbaa !62
+  store i16 %20, ptr %21, align 2, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %.02023, i64 12
-  %23 = load i16, ptr %22, align 2, !tbaa !62
+  %23 = load i16, ptr %22, align 2, !tbaa !61
   %24 = getelementptr inbounds nuw i8, ptr %.024, i64 12
-  store i16 %23, ptr %24, align 2, !tbaa !62
+  store i16 %23, ptr %24, align 2, !tbaa !61
   %25 = getelementptr inbounds nuw i8, ptr %.02023, i64 14
-  %26 = load i16, ptr %25, align 2, !tbaa !62
+  %26 = load i16, ptr %25, align 2, !tbaa !61
   %27 = getelementptr inbounds nuw i8, ptr %.024, i64 14
-  store i16 %26, ptr %27, align 2, !tbaa !62
+  store i16 %26, ptr %27, align 2, !tbaa !61
   %28 = getelementptr inbounds nuw i8, ptr %.02023, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %30 = icmp samesign ugt i32 %.02122, 1
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !74
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1298,7 +1298,7 @@ define internal void @alsa_reorder_int32_out_71(ptr noundef readonly captures(no
   %28 = getelementptr inbounds nuw i8, ptr %.02023, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %30 = icmp samesign ugt i32 %.02122, 1
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !75
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1314,40 +1314,40 @@ define internal void @alsa_reorder_f32_out_71(ptr noundef readonly captures(none
   %.02023 = phi ptr [ %28, %.lr.ph ], [ %0, %3 ]
   %.02122 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.02122, -1
-  %6 = load float, ptr %.02023, align 4, !tbaa !66
-  store float %6, ptr %.024, align 4, !tbaa !66
+  %6 = load float, ptr %.02023, align 4, !tbaa !65
+  store float %6, ptr %.024, align 4, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %.02023, i64 4
-  %8 = load float, ptr %7, align 4, !tbaa !66
+  %8 = load float, ptr %7, align 4, !tbaa !65
   %9 = getelementptr inbounds nuw i8, ptr %.024, i64 4
-  store float %8, ptr %9, align 4, !tbaa !66
+  store float %8, ptr %9, align 4, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %.02023, i64 16
-  %11 = load float, ptr %10, align 4, !tbaa !66
+  %11 = load float, ptr %10, align 4, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %.024, i64 8
-  store float %11, ptr %12, align 4, !tbaa !66
+  store float %11, ptr %12, align 4, !tbaa !65
   %13 = getelementptr inbounds nuw i8, ptr %.02023, i64 20
-  %14 = load float, ptr %13, align 4, !tbaa !66
+  %14 = load float, ptr %13, align 4, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %.024, i64 12
-  store float %14, ptr %15, align 4, !tbaa !66
+  store float %14, ptr %15, align 4, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %.02023, i64 8
-  %17 = load float, ptr %16, align 4, !tbaa !66
+  %17 = load float, ptr %16, align 4, !tbaa !65
   %18 = getelementptr inbounds nuw i8, ptr %.024, i64 16
-  store float %17, ptr %18, align 4, !tbaa !66
+  store float %17, ptr %18, align 4, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %.02023, i64 12
-  %20 = load float, ptr %19, align 4, !tbaa !66
+  %20 = load float, ptr %19, align 4, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %.024, i64 20
-  store float %20, ptr %21, align 4, !tbaa !66
+  store float %20, ptr %21, align 4, !tbaa !65
   %22 = getelementptr inbounds nuw i8, ptr %.02023, i64 24
-  %23 = load float, ptr %22, align 4, !tbaa !66
+  %23 = load float, ptr %22, align 4, !tbaa !65
   %24 = getelementptr inbounds nuw i8, ptr %.024, i64 24
-  store float %23, ptr %24, align 4, !tbaa !66
+  store float %23, ptr %24, align 4, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %.02023, i64 28
-  %26 = load float, ptr %25, align 4, !tbaa !66
+  %26 = load float, ptr %25, align 4, !tbaa !65
   %27 = getelementptr inbounds nuw i8, ptr %.024, i64 28
-  store float %26, ptr %27, align 4, !tbaa !66
+  store float %26, ptr %27, align 4, !tbaa !65
   %28 = getelementptr inbounds nuw i8, ptr %.02023, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %30 = icmp samesign ugt i32 %.02122, 1
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1421,32 +1421,31 @@ attributes #13 = { nounwind willreturn memory(read) }
 !45 = !{!30, !31, i64 8}
 !46 = !{!28, !7, i64 16}
 !47 = !{!30, !32, i64 64}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!15, !15, i64 0}
-!52 = !{!7, !7, i64 0}
-!53 = !{!54, !18, i64 0}
-!54 = !{!"AVDeviceInfo", !18, i64 0, !18, i64 8, !7, i64 16, !13, i64 24}
-!55 = !{!54, !18, i64 8}
-!56 = !{!57, !13, i64 8}
-!57 = !{!"AVDeviceInfoList", !58, i64 0, !13, i64 8, !13, i64 12}
-!58 = !{!"p2 _ZTS12AVDeviceInfo", !15, i64 0}
-!59 = !{!57, !13, i64 12}
-!60 = distinct !{!60, !49, !50}
-!61 = distinct !{!61, !49, !50}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"short", !8, i64 0}
-!64 = distinct !{!64, !49, !50}
-!65 = distinct !{!65, !49, !50}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"float", !8, i64 0}
-!68 = distinct !{!68, !49, !50}
-!69 = distinct !{!69, !49, !50}
-!70 = distinct !{!70, !49, !50}
-!71 = distinct !{!71, !49, !50}
-!72 = distinct !{!72, !49, !50}
-!73 = distinct !{!73, !49, !50}
-!74 = distinct !{!74, !49, !50}
-!75 = distinct !{!75, !49, !50}
-!76 = distinct !{!76, !49, !50}
+!50 = !{!15, !15, i64 0}
+!51 = !{!7, !7, i64 0}
+!52 = !{!53, !18, i64 0}
+!53 = !{!"AVDeviceInfo", !18, i64 0, !18, i64 8, !7, i64 16, !13, i64 24}
+!54 = !{!53, !18, i64 8}
+!55 = !{!56, !13, i64 8}
+!56 = !{!"AVDeviceInfoList", !57, i64 0, !13, i64 8, !13, i64 12}
+!57 = !{!"p2 _ZTS12AVDeviceInfo", !15, i64 0}
+!58 = !{!56, !13, i64 12}
+!59 = distinct !{!59, !49}
+!60 = distinct !{!60, !49}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"short", !8, i64 0}
+!63 = distinct !{!63, !49}
+!64 = distinct !{!64, !49}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"float", !8, i64 0}
+!67 = distinct !{!67, !49}
+!68 = distinct !{!68, !49}
+!69 = distinct !{!69, !49}
+!70 = distinct !{!70, !49}
+!71 = distinct !{!71, !49}
+!72 = distinct !{!72, !49}
+!73 = distinct !{!73, !49}
+!74 = distinct !{!74, !49}
+!75 = distinct !{!75, !49}

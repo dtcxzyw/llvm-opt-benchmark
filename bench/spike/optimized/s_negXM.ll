@@ -31,7 +31,7 @@ define void @softfloat_negXM(i8 noundef zeroext %0, ptr noundef captures(none) %
   %14 = add i32 %12, %13
   store i32 %14, ptr %10, align 4, !tbaa !3
   %15 = icmp eq i64 %indvars.iv.next, %8
-  br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -48,5 +48,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}

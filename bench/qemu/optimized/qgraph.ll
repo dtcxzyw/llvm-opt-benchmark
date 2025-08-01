@@ -375,7 +375,7 @@ qos_push.exit.i:                                  ; preds = %1
   br i1 %10, label %.lr.ph.i, label %qos_traverse_graph.exit
 
 .thread-pre-split.loopexit_crit_edge.i:           ; preds = %89
-  br label %thread-pre-split.backedgethread-pre-split.i, !llvm.loop !9
+  br label %thread-pre-split.backedgethread-pre-split.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %qos_push.exit.i, %thread-pre-split.backedge.i
   %.pr49.i = phi i32 [ %.pr.i, %thread-pre-split.backedge.i ], [ %7, %qos_push.exit.i ]
@@ -399,7 +399,7 @@ qos_pop.exit.i:                                   ; preds = %12
   store i32 %indvars.i, ptr @qos_node_tos, align 4
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %12, label %qos_traverse_graph.exit, !llvm.loop !9
+  br i1 %20, label %12, label %qos_traverse_graph.exit, !llvm.loop !8
 
 21:                                               ; preds = %12
   store i8 1, ptr %16, align 1
@@ -439,7 +439,7 @@ thread-pre-split.backedgethread-pre-split.i:      ; preds = %55, %qos_reverse_pa
 thread-pre-split.backedge.i:                      ; preds = %thread-pre-split.backedgethread-pre-split.i, %qos_pop.exit30.i
   %.pr.i = phi i32 [ %.pr.pr.i, %thread-pre-split.backedgethread-pre-split.i ], [ %30, %qos_pop.exit30.i ]
   %37 = icmp sgt i32 %.pr.i, 0
-  br i1 %37, label %.lr.ph.i, label %qos_traverse_graph.exit, !llvm.loop !9
+  br i1 %37, label %.lr.ph.i, label %qos_traverse_graph.exit, !llvm.loop !8
 
 38:                                               ; preds = %qos_pop.exit30.i
   store i8 0, ptr %16, align 1
@@ -464,7 +464,7 @@ thread-pre-split.backedge.i:                      ; preds = %thread-pre-split.ba
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not11.i.i = icmp eq ptr %51, null
-  br i1 %.not11.i.i, label %qos_reverse_path.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not11.i.i, label %qos_reverse_path.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 qos_reverse_path.exit.i:                          ; preds = %.lr.ph.i.i, %38
   %.0.lcssa.i.i = phi ptr [ %14, %38 ], [ %49, %.lr.ph.i.i ]
@@ -477,11 +477,11 @@ qos_reverse_path.exit.i:                          ; preds = %.lr.ph.i.i, %38
 55:                                               ; preds = %21
   %56 = load ptr, ptr %25, align 8
   %.not2844.i = icmp eq ptr %56, null
-  br i1 %.not2844.i, label %thread-pre-split.backedgethread-pre-split.i, label %.lr.ph47.i, !llvm.loop !9
+  br i1 %.not2844.i, label %thread-pre-split.backedgethread-pre-split.i, label %.lr.ph47.i, !llvm.loop !8
 
 .lr.ph47.i:                                       ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  br label %58, !llvm.loop !9
+  br label %58, !llvm.loop !8
 
 58:                                               ; preds = %89, %.lr.ph47.i
   %.045.i = phi ptr [ %56, %.lr.ph47.i ], [ %60, %89 ]
@@ -546,7 +546,7 @@ qos_push.exit35.i:                                ; preds = %80
 
 89:                                               ; preds = %qos_push.exit35.i, %76, %72
   %.not28.i = icmp eq ptr %60, null
-  br i1 %.not28.i, label %.thread-pre-split.loopexit_crit_edge.i, label %58, !llvm.loop !11
+  br i1 %.not28.i, label %.thread-pre-split.loopexit_crit_edge.i, label %58, !llvm.loop !10
 
 qos_traverse_graph.exit:                          ; preds = %thread-pre-split.backedge.i, %qos_pop.exit.i, %qos_push.exit.i
   ret void
@@ -658,7 +658,7 @@ define internal void @destroy_edges(ptr noundef %0) #0 {
   tail call void @g_free(ptr noundef nonnull %3) #12
   %18 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @g_free(ptr noundef nonnull %0) #12
@@ -927,7 +927,7 @@ create_node.exit:                                 ; preds = %3
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br label %14, !llvm.loop !13
+  br label %14, !llvm.loop !12
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
@@ -1060,7 +1060,7 @@ define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr nou
   br label %25
 
 7:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !13
   call void @llvm.va_start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1091,7 +1091,7 @@ define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = phi ptr [ %16, %13 ], [ %19, %18 ]
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %24, label %10, !llvm.loop !15
+  br i1 %.not, label %24, label %10, !llvm.loop !14
 
 24:                                               ; preds = %21
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -1227,13 +1227,13 @@ define dso_local void @qos_graph_node_set_availability(ptr noundef %0, i1 nounde
 
 32:                                               ; preds = %.lr.ph, %29
   %.not27 = icmp eq ptr %27, null
-  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !15
 
 .critedge:                                        ; preds = %32, %24, %18, %14
   %33 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   tail call void @g_list_free(ptr noundef %5) #12
@@ -1283,7 +1283,7 @@ define internal fastcc void @qos_graph_node_set_availability_explicit(ptr nounde
 
 18:                                               ; preds = %.lr.ph, %15
   %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 .critedge:                                        ; preds = %18, %10, %5, %2
   ret void
@@ -1295,7 +1295,7 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #4
 define dso_local ptr @qos_machine_new(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %4, !prof !19
+  br i1 %.not, label %5, label %4, !prof !18
 
 4:                                                ; preds = %2
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 744, ptr noundef nonnull @__func__.qos_machine_new, ptr noundef nonnull @.str.5) #13
@@ -1317,7 +1317,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 define dso_local ptr @qos_driver_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 1
-  br i1 %.not, label %7, label %6, !prof !19
+  br i1 %.not, label %7, label %6, !prof !18
 
 6:                                                ; preds = %4
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 755, ptr noundef nonnull @__func__.qos_driver_new, ptr noundef nonnull @.str.6) #13
@@ -1398,7 +1398,7 @@ define dso_local noundef nonnull ptr @qos_get_machine_type(ptr noundef readonly 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %2, !llvm.loop !13
+  br label %2, !llvm.loop !12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -1478,13 +1478,13 @@ define dso_local void @qos_dump_graph() local_unnamed_addr #0 {
 20:                                               ; preds = %18, %.lr.ph
   %21 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.12) #12
   %.not32 = icmp eq ptr %10, null
-  br i1 %.not32, label %.critedge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not32, label %.critedge, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %20, %.lr.ph38
   %22 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph38, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph38, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge, %0
   tail call void @g_list_free(ptr noundef %3) #12
@@ -1522,7 +1522,7 @@ define dso_local void @qos_dump_graph() local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %.140, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not30 = icmp eq ptr %46, null
-  br i1 %.not30, label %._crit_edge43, label %.lr.ph42, !llvm.loop !22
+  br i1 %.not30, label %._crit_edge43, label %.lr.ph42, !llvm.loop !21
 
 ._crit_edge43:                                    ; preds = %36, %._crit_edge
   tail call void @g_list_free(ptr noundef %27) #12
@@ -1569,20 +1569,19 @@ attributes #15 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{!"auto-init"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!"auto-init"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

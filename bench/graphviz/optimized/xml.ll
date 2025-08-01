@@ -102,7 +102,7 @@ switch.early.test.i.i:                            ; preds = %26
 
 gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %26
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br label %26, !llvm.loop !9
+  br label %26, !llvm.loop !8
 
 .preheader20.i.i:                                 ; preds = %21, %.preheader20.i.i
   %.1.i.i = phi ptr [ %36, %.preheader20.i.i ], [ %22, %21 ]
@@ -111,7 +111,7 @@ gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i
   %34 = add nsw i32 %33, -48
   %35 = icmp ult i32 %34, 10
   %36 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
-  br i1 %35, label %.preheader20.i.i, label %xml_isentity.exit.i, !llvm.loop !10
+  br i1 %35, label %.preheader20.i.i, label %xml_isentity.exit.i, !llvm.loop !9
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
   %.3.i.i = phi ptr [ %42, %.preheader.i.i ], [ %17, %19 ]
@@ -121,7 +121,7 @@ gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i
   %40 = add nsw i32 %39, -65
   %41 = icmp ult i32 %40, 26
   %42 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
-  br i1 %41, label %.preheader.i.i, label %xml_isentity.exit.i, !llvm.loop !11
+  br i1 %41, label %.preheader.i.i, label %xml_isentity.exit.i, !llvm.loop !10
 
 xml_isentity.exit.i:                              ; preds = %switch.early.test.i.i, %.preheader20.i.i, %.preheader.i.i
   %43 = phi i8 [ %37, %.preheader.i.i ], [ %32, %.preheader20.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
@@ -224,10 +224,10 @@ xml_isentity.exit.thread.i:                       ; preds = %xml_isentity.exit.i
   %81 = add nuw nsw i64 %.081107.i, 1
   %82 = icmp samesign ule i64 %77, %81
   %.not93.i = select i1 %80, i1 true, i1 %82
-  br i1 %.not93.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not93.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i.thread:                             ; preds = %76, %._crit_edge.i
-  %83 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !12
   %84 = call i64 @fwrite(ptr nonnull @.str.9, i64 45, i64 1, ptr %83) #7
   call fastcc void @graphviz_exit() #8
   unreachable
@@ -362,13 +362,12 @@ attributes #9 = { cold noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
-!15 = !{!"any pointer", !4, i64 0}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!14 = !{!"any pointer", !4, i64 0}

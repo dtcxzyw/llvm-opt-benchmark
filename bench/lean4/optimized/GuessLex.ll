@@ -70521,7 +70521,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit220.backedge:                        ; preds = %76, %78, %88, %87, %85
   %.0179.be = phi ptr [ %80, %78 ], [ %82, %85 ], [ %82, %87 ], [ %82, %88 ], [ inttoptr (i64 1 to ptr), %76 ]
   %.0178.be = phi ptr [ %.1.i290338, %78 ], [ %81, %85 ], [ %81, %87 ], [ %81, %88 ], [ %.1.i290338, %76 ]
-  br label %lean_dec.exit220, !llvm.loop !20
+  br label %lean_dec.exit220
 
 78:                                               ; preds = %76
   %79 = add i64 %53, -2
@@ -94222,7 +94222,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   %.148 = phi ptr [ %21, %17 ], [ %28, %24 ], [ %35, %31 ], [ %44, %47 ], [ %52, %select.unfold.sink.split ]
   %53 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.148) #8
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.thread, label %.lr.ph, !llvm.loop !22
+  br i1 %54, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %select.unfold, %38, %lean_obj_tag.exit, %17, %24, %31, %47, %2, %13
   %.174 = phi i8 [ %16, %13 ], [ 0, %2 ], [ 1, %47 ], [ 1, %31 ], [ 1, %24 ], [ 1, %17 ], [ 0, %lean_obj_tag.exit ], [ 1, %38 ], [ 0, %select.unfold ]
@@ -94331,7 +94331,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   %.150 = phi ptr [ %22, %18 ], [ %29, %25 ], [ %36, %32 ], [ %45, %48 ], [ %53, %select.unfold.sink.split ]
   %54 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.150) #8
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.thread, label %.lr.ph, !llvm.loop !23
+  br i1 %55, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %select.unfold, %39, %lean_obj_tag.exit, %18, %25, %32, %48, %2, %13
   %.178 = phi i8 [ %., %13 ], [ 0, %2 ], [ 1, %48 ], [ 1, %32 ], [ 1, %25 ], [ 1, %18 ], [ 0, %lean_obj_tag.exit ], [ 1, %39 ], [ 0, %select.unfold ]
@@ -94438,7 +94438,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   %.150 = phi ptr [ %22, %18 ], [ %29, %25 ], [ %36, %32 ], [ %45, %48 ], [ %53, %select.unfold.sink.split ]
   %54 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.150) #8
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %55, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %select.unfold, %39, %lean_obj_tag.exit, %18, %25, %32, %48, %2, %13
   %.178 = phi i8 [ %., %13 ], [ 0, %2 ], [ 1, %48 ], [ 1, %32 ], [ 1, %25 ], [ 1, %18 ], [ 0, %lean_obj_tag.exit ], [ 1, %39 ], [ 0, %select.unfold ]
@@ -138934,7 +138934,7 @@ define noalias noundef nonnull ptr @l_Lean_Elab_WF_GuessLex_inspectCall___lambda
   %15 = and i64 %14, 1
   %16 = and i64 %15, %13
   %or.cond.not = icmp eq i64 %16, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %17, !prof !25
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %17, !prof !20
 
 17:                                               ; preds = %8
   %18 = icmp eq ptr %12, %1
@@ -138950,7 +138950,7 @@ lean_nat_eq.exit:                                 ; preds = %8
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %15, %23
   %or.cond36.not = icmp eq i64 %24, 0
-  br i1 %or.cond36.not, label %lean_nat_eq.exit29, label %25, !prof !25
+  br i1 %or.cond36.not, label %lean_nat_eq.exit29, label %25, !prof !20
 
 25:                                               ; preds = %20
   %26 = icmp eq ptr %22, %1
@@ -140151,7 +140151,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_WF_Guess
 12:                                               ; preds = %25, %26, %lean_array_uget.exit.thread.us, %lean_dec.exit.us
   %13 = add i64 %.01536.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %lean_dec.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %.not.us, label %lean_dec.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 lean_array_uget.exit.thread.us:                   ; preds = %.lr.ph.split.us
   %14 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %0, ptr noundef %9) #8
@@ -142386,7 +142386,7 @@ lean_dec.exit44:                                  ; preds = %66, %65, %63, %lean
 .thread:                                          ; preds = %lean_inc.exit41.thread74, %11
   %.val7173 = phi i32 [ %12, %11 ], [ %.val.pr75, %lean_inc.exit41.thread74 ]
   %67 = icmp sgt i32 %.val7173, 1
-  br i1 %67, label %68, label %70, !prof !28
+  br i1 %67, label %68, label %70, !prof !23
 
 68:                                               ; preds = %.thread
   %69 = add nsw i32 %.val7173, -1
@@ -195693,7 +195693,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.033.be = phi ptr [ %.0, %21 ], [ %52, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !29
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -208669,13 +208669,7 @@ attributes #9 = { noreturn nounwind }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"short", !6, i64 0}
 !19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = !{!"branch_weights", i32 4001, i32 4000000}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = !{!"branch_weights", !"expected", i32 2146812832, i32 670816}
-!29 = distinct !{!29, !21}
+!20 = !{!"branch_weights", i32 4001, i32 4000000}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = !{!"branch_weights", !"expected", i32 2146812832, i32 670816}

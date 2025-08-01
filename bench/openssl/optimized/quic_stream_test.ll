@@ -479,7 +479,7 @@ define internal range(i32 0, 2) i32 @test_sstream_simple() #0 {
   br i1 %.not77, label %.loopexit, label %.preheader
 
 196:                                              ; preds = %213
-  br i1 %197, label %.preheader, label %216, !llvm.loop !17
+  br i1 %197, label %.preheader, label %216, !llvm.loop !16
 
 .preheader:                                       ; preds = %191, %196
   %197 = phi i1 [ false, %196 ], [ true, %191 ]
@@ -646,10 +646,10 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %41 = call i32 @test_random() #7
   %42 = trunc i32 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 %.095131
-  store i8 %42, ptr %43, align 1, !tbaa !18
+  store i8 %42, ptr %43, align 1, !tbaa !17
   %44 = add nuw nsw i64 %.095131, 1
   %exitcond.not = icmp eq i64 %44, 8192
-  br i1 %exitcond.not, label %.preheader123, label %.preheader125, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader123, label %.preheader125, !llvm.loop !18
 
 .preheader123:                                    ; preds = %.preheader125, %52
   %.094 = phi i64 [ %55, %52 ], [ 0, %.preheader125 ]
@@ -671,7 +671,7 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %54 = getelementptr inbounds nuw i8, ptr %.081, i64 %53
   %55 = add i64 %53, %.094
   %.not108 = icmp eq i64 %53, 0
-  br i1 %.not108, label %56, label %.preheader123, !llvm.loop !20
+  br i1 %.not108, label %56, label %.preheader123, !llvm.loop !19
 
 56:                                               ; preds = %52
   %57 = call i64 @ossl_quic_sstream_get_buffer_used(ptr noundef %6) #7
@@ -700,9 +700,9 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   br i1 %.not117, label %68, label %64
 
 64:                                               ; preds = %.lr.ph
-  %65 = load i8, ptr %.182135, align 1, !tbaa !18
+  %65 = load i8, ptr %.182135, align 1, !tbaa !17
   %66 = getelementptr inbounds nuw i8, ptr %.083134, i64 1
-  store i8 %65, ptr %.083134, align 1, !tbaa !18
+  store i8 %65, ptr %.083134, align 1, !tbaa !17
   %67 = add i64 %.090133, 1
   br label %74
 
@@ -721,7 +721,7 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %75 = getelementptr inbounds nuw i8, ptr %.182135, i64 1
   %76 = add nuw i64 %.196132, 1
   %exitcond158.not = icmp eq i64 %76, %55
-  br i1 %exitcond158.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond158.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %74, %.preheader121
   %.090.lcssa = phi i64 [ 0, %.preheader121 ], [ %.191, %74 ]
@@ -771,23 +771,23 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %.097136 = phi i64 [ %104, %98 ], [ 0, %.preheader ]
   %93 = getelementptr inbounds nuw [2 x %struct.ossl_qtx_iovec_st], ptr %3, i64 0, i64 %.097136
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load i64, ptr %94, align 8, !tbaa !22
+  %95 = load i64, ptr %94, align 8, !tbaa !21
   %96 = add i64 %95, %.093144
   %97 = call i32 @test_size_t_le(ptr noundef nonnull @.str.4, i32 noundef 314, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i64 noundef %96, i64 noundef %.090.lcssa) #7
   %.not116 = icmp eq i32 %97, 0
   br i1 %.not116, label %.loopexit, label %98
 
 98:                                               ; preds = %.lr.ph139
-  %99 = load ptr, ptr %93, align 16, !tbaa !24
-  %100 = load i64, ptr %94, align 8, !tbaa !22
+  %99 = load ptr, ptr %93, align 16, !tbaa !23
+  %100 = load i64, ptr %94, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1138, ptr align 1 %99, i64 %100, i1 false)
-  %101 = load i64, ptr %94, align 8, !tbaa !22
+  %101 = load i64, ptr %94, align 8, !tbaa !21
   %102 = getelementptr inbounds nuw i8, ptr %.1138, i64 %101
   %103 = add i64 %101, %.092137
   %104 = add nuw i64 %.097136, 1
   %105 = load i64, ptr %4, align 8, !tbaa !4
   %106 = icmp ult i64 %104, %105
-  br i1 %106, label %.lr.ph139, label %._crit_edge140, !llvm.loop !25
+  br i1 %106, label %.lr.ph139, label %._crit_edge140, !llvm.loop !24
 
 ._crit_edge140:                                   ; preds = %98, %.preheader
   %.092.lcssa = phi i64 [ 0, %.preheader ], [ %103, %98 ]
@@ -801,7 +801,7 @@ define internal range(i32 0, 2) i32 @test_sstream_bulk(i32 %0) #0 {
   %110 = add i64 %.092.lcssa, %.093144
   %111 = add i64 %.2143, 1
   %112 = icmp ult i64 %110, %.090.lcssa
-  br i1 %112, label %87, label %._crit_edge147, !llvm.loop !26
+  br i1 %112, label %87, label %._crit_edge147, !llvm.loop !25
 
 ._crit_edge147:                                   ; preds = %109, %.preheader119
   %.093.lcssa = phi i64 [ 0, %.preheader119 ], [ %110, %109 ]
@@ -840,7 +840,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  store i32 0, ptr %5, align 4, !tbaa !27
+  store i32 0, ptr %5, align 4, !tbaa !26
   %6 = icmp sgt i32 %0, 1
   %7 = and i32 %0, 1
   %.not = icmp eq i32 %7, 0
@@ -875,7 +875,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not41, label %213, label %26
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr %5, align 4, !tbaa !27
+  %27 = load i32, ptr %5, align 4, !tbaa !26
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
   %30 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 400, ptr noundef nonnull @.str.61, i32 noundef %29) #7
@@ -913,7 +913,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not46, label %213, label %49
 
 49:                                               ; preds = %44
-  %50 = load i32, ptr %5, align 4, !tbaa !27
+  %50 = load i32, ptr %5, align 4, !tbaa !26
   %51 = icmp ne i32 %50, 0
   %52 = zext i1 %51 to i32
   %53 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 410, ptr noundef nonnull @.str.61, i32 noundef %52) #7
@@ -983,7 +983,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not55, label %213, label %88
 
 88:                                               ; preds = %83
-  %89 = load i32, ptr %5, align 4, !tbaa !27
+  %89 = load i32, ptr %5, align 4, !tbaa !26
   %90 = icmp ne i32 %89, 0
   %91 = zext i1 %90 to i32
   %92 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.61, i32 noundef %91) #7
@@ -1018,7 +1018,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not60, label %213, label %108
 
 108:                                              ; preds = %103
-  %109 = load i32, ptr %5, align 4, !tbaa !27
+  %109 = load i32, ptr %5, align 4, !tbaa !26
   %110 = icmp ne i32 %109, 0
   %111 = zext i1 %110 to i32
   %112 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 435, ptr noundef nonnull @.str.61, i32 noundef %111) #7
@@ -1032,7 +1032,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not62, label %213, label %116
 
 116:                                              ; preds = %113
-  %117 = call i32 %8(ptr noundef %9, ptr noundef nonnull %2, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !28
+  %117 = call i32 %8(ptr noundef %9, ptr noundef nonnull %2, i64 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !27
   %118 = icmp ne i32 %117, 0
   %119 = zext i1 %118 to i32
   %120 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @.str.77, i32 noundef %119) #7
@@ -1040,7 +1040,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not63, label %213, label %121
 
 121:                                              ; preds = %116
-  %122 = load i32, ptr %5, align 4, !tbaa !27
+  %122 = load i32, ptr %5, align 4, !tbaa !26
   %123 = icmp ne i32 %122, 0
   %124 = zext i1 %123 to i32
   %125 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 438, ptr noundef nonnull @.str.61, i32 noundef %124) #7
@@ -1060,7 +1060,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %133 = call i32 %8(ptr noundef %9, ptr noundef nonnull %132, i64 noundef 12, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !28
+  %133 = call i32 %8(ptr noundef %9, ptr noundef nonnull %132, i64 noundef 12, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !27
   %134 = icmp ne i32 %133, 0
   %135 = zext i1 %134 to i32
   %136 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 441, ptr noundef nonnull @.str.79, i32 noundef %135) #7
@@ -1068,7 +1068,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not67, label %213, label %137
 
 137:                                              ; preds = %131
-  %138 = load i32, ptr %5, align 4, !tbaa !27
+  %138 = load i32, ptr %5, align 4, !tbaa !26
   %139 = icmp ne i32 %138, 0
   %140 = zext i1 %139 to i32
   %141 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 442, ptr noundef nonnull @.str.61, i32 noundef %140) #7
@@ -1115,7 +1115,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
 
 .critedge88:                                      ; preds = %152, %158
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  %164 = call i32 %8(ptr noundef %9, ptr noundef nonnull %163, i64 noundef 5, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !28
+  %164 = call i32 %8(ptr noundef %9, ptr noundef nonnull %163, i64 noundef 5, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !27
   %165 = icmp ne i32 %164, 0
   %166 = zext i1 %165 to i32
   %167 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 453, ptr noundef nonnull @.str.84, i32 noundef %166) #7
@@ -1123,7 +1123,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not74, label %213, label %168
 
 168:                                              ; preds = %.critedge88
-  %169 = load i32, ptr %5, align 4, !tbaa !27
+  %169 = load i32, ptr %5, align 4, !tbaa !26
   %170 = icmp ne i32 %169, 0
   %171 = zext i1 %170 to i32
   %172 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 454, ptr noundef nonnull @.str.61, i32 noundef %171) #7
@@ -1143,7 +1143,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
 
 178:                                              ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  %180 = call i32 %8(ptr noundef %9, ptr noundef nonnull %179, i64 noundef 26, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !28
+  %180 = call i32 %8(ptr noundef %9, ptr noundef nonnull %179, i64 noundef 26, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !27
   %181 = icmp ne i32 %180, 0
   %182 = zext i1 %181 to i32
   %183 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 458, ptr noundef nonnull @.str.86, i32 noundef %182) #7
@@ -1151,7 +1151,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not78, label %213, label %184
 
 184:                                              ; preds = %178
-  %185 = load i32, ptr %5, align 4, !tbaa !27
+  %185 = load i32, ptr %5, align 4, !tbaa !26
   %186 = icmp ne i32 %185, 0
   %187 = zext i1 %186 to i32
   %188 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 459, ptr noundef nonnull @.str.61, i32 noundef %187) #7
@@ -1181,7 +1181,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not82, label %213, label %200
 
 200:                                              ; preds = %195, %194
-  %201 = call i32 %8(ptr noundef %9, ptr noundef nonnull %2, i64 noundef 45, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !28
+  %201 = call i32 %8(ptr noundef %9, ptr noundef nonnull %2, i64 noundef 45, ptr noundef nonnull %3, ptr noundef nonnull %5) #7, !callees !27
   %202 = icmp ne i32 %201, 0
   %203 = zext i1 %202 to i32
   %204 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 463, ptr noundef nonnull @.str.88, i32 noundef %203) #7
@@ -1189,7 +1189,7 @@ define internal range(i32 0, 2) i32 @test_rstream_simple(i32 noundef %0) #0 {
   br i1 %.not83, label %213, label %205
 
 205:                                              ; preds = %200
-  %206 = load i32, ptr %5, align 4, !tbaa !27
+  %206 = load i32, ptr %5, align 4, !tbaa !26
   %207 = icmp ne i32 %206, 0
   %208 = zext i1 %207 to i32
   %209 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 464, ptr noundef nonnull @.str.61, i32 noundef %208) #7
@@ -1220,7 +1220,7 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !tbaa !4
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 10000, ptr noundef nonnull @.str.4, i32 noundef 486) #7
@@ -1262,10 +1262,10 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   %21 = tail call i32 @test_random() #7
   %22 = trunc i32 %21 to i8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.0110167
-  store i8 %22, ptr %23, align 1, !tbaa !18
+  store i8 %22, ptr %23, align 1, !tbaa !17
   %24 = add nuw nsw i64 %.0110167, 1
   %exitcond.not = icmp eq i64 %24, 10000
-  br i1 %exitcond.not, label %.preheader159, label %20, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader159, label %20, !llvm.loop !28
 
 .preheader157:                                    ; preds = %.preheader159, %133
   %indvars.iv181 = phi i64 [ 0, %.preheader159 ], [ %indvars.iv.next182, %133 ]
@@ -1343,7 +1343,7 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   %.2.ph = phi i64 [ %spec.select147, %39 ], [ %.1103169, %26 ], [ %spec.select150, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond180.not, label %64, label %26, !llvm.loop !30
+  br i1 %exitcond180.not, label %64, label %26, !llvm.loop !29
 
 64:                                               ; preds = %63
   br i1 %19, label %65, label %87
@@ -1372,12 +1372,12 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
 
 73:                                               ; preds = %71
   store i64 %.015.i, ptr %3, align 8, !tbaa !4
-  store i32 0, ptr %4, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4, !tbaa !26
   br label %74
 
 74:                                               ; preds = %73, %71
   %75 = phi i64 [ %.015.i, %73 ], [ %69, %71 ]
-  %76 = load ptr, ptr %2, align 8, !tbaa !31
+  %76 = load ptr, ptr %2, align 8, !tbaa !30
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014.i, ptr align 1 %76, i64 %75, i1 false)
   %77 = load i64, ptr %5, align 8, !tbaa !4
   %78 = add i64 %77, %75
@@ -1389,11 +1389,11 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %75
   %82 = sub i64 %.015.i, %75
-  %83 = load i32, ptr %4, align 4, !tbaa !27
+  %83 = load i32, ptr %4, align 4, !tbaa !26
   %84 = icmp ne i32 %83, 0
   %85 = icmp eq i64 %82, 0
   %or.cond.i = select i1 %84, i1 true, i1 %85
-  br i1 %or.cond.i, label %test_single_copy_read.exit, label %66, !llvm.loop !32
+  br i1 %or.cond.i, label %test_single_copy_read.exit, label %66
 
 test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %.0.i = phi i32 [ 0, %66 ], [ 0, %74 ], [ 1, %80 ], [ 1, %68 ]
@@ -1486,10 +1486,10 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %.198 = phi i32 [ 1, %123 ], [ 1, %128 ], [ 0, %124 ]
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 100
-  br i1 %exitcond184.not, label %135, label %.preheader157, !llvm.loop !33
+  br i1 %exitcond184.not, label %135, label %.preheader157, !llvm.loop !31
 
 135:                                              ; preds = %133
-  %136 = load i32, ptr %4, align 4, !tbaa !27
+  %136 = load i32, ptr %4, align 4, !tbaa !26
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 567, ptr noundef nonnull @.str.101, i64 noundef %107, i32 noundef %136) #7
   %137 = icmp ne i64 %107, 0
   %or.cond = and i1 %16, %137
@@ -1498,12 +1498,12 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
 138:                                              ; preds = %.lr.ph
   %139 = add nuw i64 %.1111175, 1
   %exitcond185.not = icmp eq i64 %139, %107
-  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %135, %138
   %.1111175 = phi i64 [ %139, %138 ], [ 0, %135 ]
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 %.1111175
-  %141 = load i8, ptr %140, align 1, !tbaa !18
+  %141 = load i8, ptr %140, align 1, !tbaa !17
   %142 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.4, i32 noundef 571, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.12, i8 noundef zeroext %141, i8 noundef zeroext 0) #7
   %.not130 = icmp eq i32 %142, 0
   br i1 %.not130, label %.loopexit156, label %138
@@ -1540,7 +1540,7 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   br i1 %.not128, label %.loopexit156, label %158
 
 158:                                              ; preds = %155
-  %159 = load i32, ptr %4, align 4, !tbaa !27
+  %159 = load i32, ptr %4, align 4, !tbaa !26
   %160 = icmp ne i32 %159, 0
   %161 = zext i1 %160 to i32
   %162 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 585, ptr noundef nonnull @.str.61, i32 noundef %161) #7
@@ -1594,11 +1594,11 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
   %.02026 = phi i64 [ %7, %.lr.ph ], [ 0, %4 ]
   %.02125 = phi i64 [ %8, %.lr.ph ], [ 0, %4 ]
   %5 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.02125, i32 1
-  %6 = load i64, ptr %5, align 8, !tbaa !22
+  %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = add i64 %6, %.02026
   %8 = add nuw i64 %.02125, 1
   %exitcond.not = icmp eq i64 %8, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %9 = icmp eq i64 %1, %7
@@ -1608,9 +1608,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
   %.028 = phi ptr [ %15, %14 ], [ %0, %._crit_edge ]
   %.127 = phi i64 [ %16, %14 ], [ 0, %._crit_edge ]
   %10 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.127
-  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !22
+  %13 = load i64, ptr %12, align 8, !tbaa !21
   %bcmp = tail call i32 @bcmp(ptr %.028, ptr %11, i64 %13)
   %.not24 = icmp eq i32 %bcmp, 0
   br i1 %.not24, label %14, label %.loopexit
@@ -1619,7 +1619,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
   %15 = getelementptr inbounds nuw i8, ptr %.028, i64 %13
   %16 = add nuw i64 %.127, 1
   %exitcond35.not = icmp eq i64 %16, %3
-  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph29, !llvm.loop !36
+  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph29, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph29, %14, %4, %._crit_edge
   %.022 = phi i32 [ 0, %._crit_edge ], [ 0, %4 ], [ 0, %.lr.ph29 ], [ 1, %14 ]
@@ -1695,12 +1695,12 @@ define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %0, ptr n
 
 15:                                               ; preds = %13
   store i64 %.015, ptr %7, align 8, !tbaa !4
-  store i32 0, ptr %4, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4, !tbaa !26
   br label %16
 
 16:                                               ; preds = %15, %13
   %17 = phi i64 [ %.015, %15 ], [ %11, %13 ]
-  %18 = load ptr, ptr %6, align 8, !tbaa !31
+  %18 = load ptr, ptr %6, align 8, !tbaa !30
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014, ptr align 1 %18, i64 %17, i1 false)
   %19 = load i64, ptr %3, align 8, !tbaa !4
   %20 = add i64 %19, %17
@@ -1712,11 +1712,11 @@ define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %0, ptr n
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %.014, i64 %17
   %24 = sub i64 %.015, %17
-  %25 = load i32, ptr %4, align 4, !tbaa !27
+  %25 = load i32, ptr %4, align 4, !tbaa !26
   %26 = icmp ne i32 %25, 0
   %27 = icmp eq i64 %24, 0
   %or.cond = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond, label %28, label %8, !llvm.loop !32
+  br i1 %or.cond, label %28, label %8
 
 28:                                               ; preds = %10, %22, %16, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %16 ], [ 1, %22 ], [ 1, %10 ]
@@ -1784,26 +1784,24 @@ attributes #7 = { nounwind }
 !11 = !{!"any pointer", !6, i64 0}
 !12 = !{!"int", !6, i64 0}
 !13 = !{!9, !5, i64 16}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
-!21 = distinct !{!21, !15, !16}
-!22 = !{!23, !5, i64 8}
-!23 = !{!"ossl_qtx_iovec_st", !10, i64 0, !5, i64 8}
-!24 = !{!23, !10, i64 0}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
-!27 = !{!12, !12, i64 0}
-!28 = !{ptr @ossl_quic_rstream_read, ptr @test_single_copy_read}
-!29 = distinct !{!29, !15, !16}
-!30 = distinct !{!30, !15, !16}
-!31 = !{!10, !10, i64 0}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !15, !16}
-!34 = distinct !{!34, !15, !16}
-!35 = distinct !{!35, !15, !16}
-!36 = distinct !{!36, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = !{!22, !5, i64 8}
+!22 = !{!"ossl_qtx_iovec_st", !10, i64 0, !5, i64 8}
+!23 = !{!22, !10, i64 0}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = !{!12, !12, i64 0}
+!27 = !{ptr @ossl_quic_rstream_read, ptr @test_single_copy_read}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = !{!10, !10, i64 0}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !15}

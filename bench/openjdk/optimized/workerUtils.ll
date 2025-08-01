@@ -123,7 +123,7 @@ define hidden void @_ZN12SubTasksDoneC2Ej(ptr noundef nonnull align 8 captures(n
   %9 = load i32, ptr %3, align 8
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -141,7 +141,7 @@ define hidden noundef zeroext i1 @_ZN12SubTasksDone14try_claim_taskEj(ptr nounde
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %5) #4, !srcloc !10
+  %9 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %5) #4, !srcloc !9
   %10 = trunc i8 %9 to i1
   %11 = xor i1 %10, true
   br label %12
@@ -170,7 +170,7 @@ define hidden noundef zeroext i1 @_ZN22SequentialSubTasksDone14try_claim_taskERj
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #4, !srcloc !11
+  %8 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #4, !srcloc !10
   store i32 %8, ptr %1, align 4
   %.pre = load i32, ptr %0, align 4
   %9 = icmp ult i32 %8, %.pre
@@ -206,9 +206,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2145410579}
-!11 = !{i64 2145409567}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2145410579}
+!10 = !{i64 2145409567}

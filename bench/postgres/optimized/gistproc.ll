@@ -424,7 +424,7 @@ rt_box_union.exit:                                ; preds = %float8_min.exit.i, 
   %47 = fsub double %45, %46
   %48 = tail call double @llvm.fabs.f64(double %47)
   %49 = fcmp oeq double %48, 0x7FF0000000000000
-  br i1 %49, label %50, label %float8_mi.exit, !prof !7
+  br i1 %49, label %50, label %float8_mi.exit, !prof !6
 
 50:                                               ; preds = %rt_box_union.exit
   %51 = tail call double @llvm.fabs.f64(double %45)
@@ -555,7 +555,7 @@ float8_gt.exit17.i:                               ; preds = %float8_lt.exit16.th
 adjustBox.exit:                                   ; preds = %float8_gt.exit17.i, %float8_lt.exit16.thread.i, %30
   %61 = add i16 %.0236309, 1
   %.not = icmp ugt i16 %61, %23
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %adjustBox.exit, %1
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -593,7 +593,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   store double %79, ptr %80, align 8
   %81 = add i16 %.1237311.us, 1
   %.not252.us = icmp ugt i16 %81, %69
-  br i1 %.not252.us, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !9
+  br i1 %.not252.us, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !8
 
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %.lr.ph312.split
   %.1237311 = phi i16 [ %93, %.lr.ph312.split ], [ 1, %.lr.ph312 ]
@@ -612,7 +612,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   store double %91, ptr %92, align 8
   %93 = add i16 %.1237311, 1
   %.not252 = icmp ugt i16 %93, %68
-  br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !11
+  br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !10
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
@@ -662,7 +662,7 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
   %.2234 = phi double [ %105, %110 ], [ %.1233314.fr, %float8_lt.exit ], [ %.1233314.fr, %103 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %111 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %111, label %98, label %.lr.ph331.preheader, !llvm.loop !12
+  br i1 %111, label %98, label %.lr.ph331.preheader, !llvm.loop !11
 
 112:                                              ; preds = %98
   %113 = trunc nsw i64 %indvars.iv to i32
@@ -691,7 +691,7 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
 123:                                              ; preds = %.lr.ph321.split
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next366, %67
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !12
 
 .critedge2.loopexit.split.loop.exit383:           ; preds = %.lr.ph321.split
   %124 = trunc nsw i64 %indvars.iv365 to i32
@@ -701,7 +701,7 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
   %.1.lcssa = phi i32 [ %.0223327, %112 ], [ %11, %.lr.ph321 ], [ %124, %.critedge2.loopexit.split.loop.exit383 ], [ %11, %123 ]
   call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %116, i32 noundef %113, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
   %125 = icmp sgt i32 %11, %113
-  br i1 %125, label %.lr.ph317, label %.lr.ph331.preheader, !llvm.loop !14
+  br i1 %125, label %.lr.ph317, label %.lr.ph331.preheader
 
 .lr.ph331.preheader:                              ; preds = %.critedge2, %float8_lt.exit.thread
   %126 = load double, ptr %66, align 8
@@ -747,7 +747,7 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   %indvars.iv.next369 = add nsw i64 %indvars.iv368, -1
   %143 = trunc nuw i64 %indvars.iv368 to i32
   %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %130, label %._crit_edge332, !llvm.loop !15
+  br i1 %144, label %130, label %._crit_edge332, !llvm.loop !13
 
 .critedge4:                                       ; preds = %130
   %145 = trunc nuw i64 %indvars.iv368 to i32
@@ -773,7 +773,7 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
 156:                                              ; preds = %.lr.ph335
   %indvars.iv.next372 = add nsw i64 %indvars.iv371, -1
   %157 = icmp sgt i64 %indvars.iv371, 0
-  br i1 %157, label %.lr.ph335, label %.critedge6, !llvm.loop !16
+  br i1 %157, label %.lr.ph335, label %.critedge6, !llvm.loop !14
 
 .critedge6.loopexit.split.loop.exit385:           ; preds = %.lr.ph335
   %158 = trunc nuw nsw i64 %indvars.iv371 to i32
@@ -785,7 +785,7 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   %160 = add nuw nsw i32 %145, 1
   call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %.2230328, i32 noundef %159, double noundef %148, i32 noundef %160)
   %161 = icmp sgt i32 %145, -1
-  br i1 %161, label %.lr.ph331, label %._crit_edge332, !llvm.loop !17
+  br i1 %161, label %.lr.ph331, label %._crit_edge332
 
 ._crit_edge332.critedge:                          ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
@@ -794,10 +794,10 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   br label %._crit_edge332
 
 ._crit_edge332:                                   ; preds = %.critedge6, %float8_gt.exit.thread, %._crit_edge332.critedge
-  br i1 %70, label %.preheader, label %162, !llvm.loop !18
+  br i1 %70, label %.preheader, label %162, !llvm.loop !15
 
 162:                                              ; preds = %._crit_edge332
-  %163 = load i8, ptr %62, align 8, !range !19, !noundef !20
+  %163 = load i8, ptr %62, align 8, !range !16, !noundef !17
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %282
 
@@ -1026,7 +1026,7 @@ adjustBox.exit50.i:                               ; preds = %273, %float8_gt.exi
   %277 = add i16 %.054.i, 1
   %278 = zext i16 %277 to i32
   %.not.i = icmp ugt i16 %277, %179
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %180, !llvm.loop !21
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %180, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %276
   %279 = ptrtoint ptr %.2.i to i64
@@ -1277,7 +1277,7 @@ adjustBox.exit270:                                ; preds = %395, %float8_gt.exi
   %403 = add i16 %.2238346, 1
   %404 = zext i16 %403 to i32
   %.not249 = icmp ugt i16 %403, %306
-  br i1 %.not249, label %._crit_edge349, label %307, !llvm.loop !22
+  br i1 %.not249, label %._crit_edge349, label %307, !llvm.loop !19
 
 ._crit_edge349:                                   ; preds = %402
   %405 = icmp sgt i32 %.1242, 0
@@ -1304,7 +1304,7 @@ adjustBox.exit270:                                ; preds = %395, %float8_gt.exi
   %421 = fsub double %419, %420
   %422 = tail call double @llvm.fabs.f64(double %421)
   %423 = fcmp oeq double %422, 0x7FF0000000000000
-  br i1 %423, label %424, label %float8_mi.exit, !prof !7
+  br i1 %423, label %424, label %float8_mi.exit, !prof !6
 
 424:                                              ; preds = %411
   %425 = tail call double @llvm.fabs.f64(double %419)
@@ -1324,7 +1324,7 @@ float8_mi.exit:                                   ; preds = %411, %424
   %431 = add i16 %.3239351, 1
   %432 = zext i16 %431 to i32
   %433 = icmp samesign ugt i32 %.1242, %432
-  br i1 %433, label %411, label %434, !llvm.loop !23
+  br i1 %433, label %411, label %434, !llvm.loop !20
 
 434:                                              ; preds = %float8_mi.exit
   %435 = zext nneg i32 %.1242 to i64
@@ -1710,7 +1710,7 @@ adjustBox.exit302:                                ; preds = %613, %float8_gt.exi
   %622 = add i16 %.4352, 1
   %623 = zext i16 %622 to i32
   %624 = icmp samesign ugt i32 %.1242, %623
-  br i1 %624, label %442, label %.loopexit, !llvm.loop !24
+  br i1 %624, label %442, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %619, %282, %._crit_edge349
   %625 = ptrtoint ptr %289 to i64
@@ -1768,7 +1768,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
   %13 = sub i32 %7, %.052
   %14 = tail call i32 @llvm.smin.i32(i32 %.052, i32 %13)
   %15 = icmp eq i32 %7, 0
-  br i1 %15, label %16, label %17, !prof !7
+  br i1 %15, label %16, label %17, !prof !6
 
 16:                                               ; preds = %12
   tail call void @float_zero_divide_error() #17
@@ -1780,7 +1780,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
   %20 = fdiv float %18, %19
   %21 = tail call float @llvm.fabs.f32(float %20)
   %22 = fcmp oeq float %21, 0x7FF0000000000000
-  br i1 %22, label %23, label %24, !prof !7
+  br i1 %22, label %23, label %24, !prof !6
 
 23:                                               ; preds = %17
   tail call void @float_overflow_error() #17
@@ -1788,7 +1788,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
 
 24:                                               ; preds = %17
   %25 = fcmp oeq float %20, 0.000000e+00
-  br i1 %25, label %26, label %float4_div.exit, !prof !7
+  br i1 %25, label %26, label %float4_div.exit, !prof !6
 
 26:                                               ; preds = %24
   %27 = icmp eq i32 %14, 0
@@ -1815,7 +1815,7 @@ float4_div.exit:                                  ; preds = %24, %26
   %38 = fsub double %35, %37
   %39 = tail call double @llvm.fabs.f64(double %38)
   %40 = fcmp oeq double %39, 0x7FF0000000000000
-  br i1 %40, label %41, label %float8_mi.exit, !prof !7
+  br i1 %40, label %41, label %float8_mi.exit, !prof !6
 
 41:                                               ; preds = %33
   %42 = tail call double @llvm.fabs.f64(double %35)
@@ -1837,7 +1837,7 @@ float4_div.exit:                                  ; preds = %24, %26
   %52 = fsub double %49, %51
   %53 = tail call double @llvm.fabs.f64(double %52)
   %54 = fcmp oeq double %53, 0x7FF0000000000000
-  br i1 %54, label %55, label %float8_mi.exit, !prof !7
+  br i1 %54, label %55, label %float8_mi.exit, !prof !6
 
 55:                                               ; preds = %47
   %56 = tail call double @llvm.fabs.f64(double %49)
@@ -1856,7 +1856,7 @@ float8_mi.exit:                                   ; preds = %55, %47, %41, %33
   %61 = fsub double %4, %2
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp oeq double %62, 0x7FF0000000000000
-  br i1 %63, label %64, label %float8_mi.exit62, !prof !7
+  br i1 %63, label %64, label %float8_mi.exit62, !prof !6
 
 64:                                               ; preds = %float8_mi.exit
   %65 = tail call double @llvm.fabs.f64(double %4)
@@ -1872,7 +1872,7 @@ float8_mi.exit:                                   ; preds = %55, %47, %41, %33
 
 float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
   %70 = fcmp oeq double %.051, 0.000000e+00
-  br i1 %70, label %71, label %74, !prof !7
+  br i1 %70, label %71, label %74, !prof !6
 
 71:                                               ; preds = %float8_mi.exit62
   %72 = fcmp uno double %61, 0.000000e+00
@@ -1886,7 +1886,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
   %75 = fdiv double %61, %.051
   %76 = tail call double @llvm.fabs.f64(double %75)
   %77 = fcmp oeq double %76, 0x7FF0000000000000
-  br i1 %77, label %78, label %80, !prof !7
+  br i1 %77, label %78, label %80, !prof !6
 
 78:                                               ; preds = %74
   br i1 %63, label %80, label %79
@@ -1897,7 +1897,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
 
 80:                                               ; preds = %78, %74
   %81 = fcmp oeq double %75, 0.000000e+00
-  br i1 %81, label %82, label %float8_div.exit, !prof !7
+  br i1 %81, label %82, label %float8_div.exit, !prof !6
 
 82:                                               ; preds = %80
   %83 = fcmp oeq double %61, 0.000000e+00
@@ -1913,7 +1913,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
 float8_div.exit:                                  ; preds = %80, %82
   %87 = fptrunc double %75 to float
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %89 = load i8, ptr %88, align 8, !range !19, !noundef !20
+  %89 = load i8, ptr %88, align 8, !range !16, !noundef !17
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %.critedge, label %91
 
@@ -2072,7 +2072,7 @@ define dso_local i64 @gist_poly_compress(ptr noundef readonly captures(none) %0)
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !19, !noundef !20
+  %6 = load i8, ptr %5, align 2, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %27
 
@@ -2160,7 +2160,7 @@ define dso_local i64 @gist_circle_compress(ptr noundef readonly captures(none) %
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !19, !noundef !20
+  %6 = load i8, ptr %5, align 2, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %74
 
@@ -2174,7 +2174,7 @@ define dso_local i64 @gist_circle_compress(ptr noundef readonly captures(none) %
   %15 = fadd double %12, %14
   %16 = tail call double @llvm.fabs.f64(double %15)
   %17 = fcmp oeq double %16, 0x7FF0000000000000
-  br i1 %17, label %18, label %float8_pl.exit, !prof !7
+  br i1 %17, label %18, label %float8_pl.exit, !prof !6
 
 18:                                               ; preds = %8
   %19 = tail call double @llvm.fabs.f64(double %12)
@@ -2195,7 +2195,7 @@ float8_pl.exit:                                   ; preds = %8, %18
   %26 = fsub double %24, %25
   %27 = tail call double @llvm.fabs.f64(double %26)
   %28 = fcmp oeq double %27, 0x7FF0000000000000
-  br i1 %28, label %29, label %float8_mi.exit, !prof !7
+  br i1 %28, label %29, label %float8_mi.exit, !prof !6
 
 29:                                               ; preds = %float8_pl.exit
   %30 = tail call double @llvm.fabs.f64(double %24)
@@ -2218,7 +2218,7 @@ float8_mi.exit:                                   ; preds = %float8_pl.exit, %29
   %39 = fadd double %37, %38
   %40 = tail call double @llvm.fabs.f64(double %39)
   %41 = fcmp oeq double %40, 0x7FF0000000000000
-  br i1 %41, label %42, label %float8_pl.exit28, !prof !7
+  br i1 %41, label %42, label %float8_pl.exit28, !prof !6
 
 42:                                               ; preds = %float8_mi.exit
   %43 = tail call double @llvm.fabs.f64(double %37)
@@ -2240,7 +2240,7 @@ float8_pl.exit28:                                 ; preds = %float8_mi.exit, %42
   %51 = fsub double %49, %50
   %52 = tail call double @llvm.fabs.f64(double %51)
   %53 = fcmp oeq double %52, 0x7FF0000000000000
-  br i1 %53, label %54, label %float8_mi.exit30, !prof !7
+  br i1 %53, label %54, label %float8_mi.exit30, !prof !6
 
 54:                                               ; preds = %float8_pl.exit28
   %55 = tail call double @llvm.fabs.f64(double %49)
@@ -2312,7 +2312,7 @@ define dso_local range(i64 0, 2) i64 @gist_circle_consistent(ptr noundef readonl
   %22 = fadd double %19, %21
   %23 = tail call double @llvm.fabs.f64(double %22)
   %24 = fcmp oeq double %23, 0x7FF0000000000000
-  br i1 %24, label %25, label %float8_pl.exit, !prof !7
+  br i1 %24, label %25, label %float8_pl.exit, !prof !6
 
 25:                                               ; preds = %18
   %26 = tail call double @llvm.fabs.f64(double %19)
@@ -2331,7 +2331,7 @@ float8_pl.exit:                                   ; preds = %18, %25
   %31 = fsub double %19, %21
   %32 = tail call double @llvm.fabs.f64(double %31)
   %33 = fcmp oeq double %32, 0x7FF0000000000000
-  br i1 %33, label %34, label %float8_mi.exit, !prof !7
+  br i1 %33, label %34, label %float8_mi.exit, !prof !6
 
 34:                                               ; preds = %float8_pl.exit
   %35 = tail call double @llvm.fabs.f64(double %19)
@@ -2353,7 +2353,7 @@ float8_mi.exit:                                   ; preds = %float8_pl.exit, %34
   %43 = fadd double %42, %21
   %44 = tail call double @llvm.fabs.f64(double %43)
   %45 = fcmp oeq double %44, 0x7FF0000000000000
-  br i1 %45, label %46, label %float8_pl.exit22, !prof !7
+  br i1 %45, label %46, label %float8_pl.exit22, !prof !6
 
 46:                                               ; preds = %float8_mi.exit
   %47 = tail call double @llvm.fabs.f64(double %42)
@@ -2373,7 +2373,7 @@ float8_pl.exit22:                                 ; preds = %float8_mi.exit, %46
   %53 = fsub double %42, %21
   %54 = tail call double @llvm.fabs.f64(double %53)
   %55 = fcmp oeq double %54, 0x7FF0000000000000
-  br i1 %55, label %56, label %float8_mi.exit24, !prof !7
+  br i1 %55, label %56, label %float8_mi.exit24, !prof !6
 
 56:                                               ; preds = %float8_pl.exit22
   %57 = tail call double @llvm.fabs.f64(double %42)
@@ -2407,7 +2407,7 @@ define dso_local i64 @gist_point_compress(ptr noundef readonly captures(none) %0
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !19, !noundef !20
+  %6 = load i8, ptr %5, align 2, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %26
 
@@ -2835,7 +2835,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %36 = fsub double %31, %33
   %37 = tail call double @llvm.fabs.f64(double %36)
   %38 = fcmp oeq double %37, 0x7FF0000000000000
-  br i1 %38, label %39, label %float8_mi.exit, !prof !7
+  br i1 %38, label %39, label %float8_mi.exit, !prof !6
 
 39:                                               ; preds = %35
   %40 = tail call double @llvm.fabs.f64(double %31)
@@ -2859,7 +2859,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %50 = fsub double %47, %31
   %51 = tail call double @llvm.fabs.f64(double %50)
   %52 = fcmp oeq double %51, 0x7FF0000000000000
-  br i1 %52, label %53, label %float8_mi.exit, !prof !7
+  br i1 %52, label %53, label %float8_mi.exit, !prof !6
 
 53:                                               ; preds = %49
   %54 = tail call double @llvm.fabs.f64(double %47)
@@ -2903,7 +2903,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %76 = fsub double %12, %13
   %77 = tail call double @llvm.fabs.f64(double %76)
   %78 = fcmp oeq double %77, 0x7FF0000000000000
-  br i1 %78, label %79, label %float8_mi.exit, !prof !7
+  br i1 %78, label %79, label %float8_mi.exit, !prof !6
 
 79:                                               ; preds = %75
   %80 = tail call double @llvm.fabs.f64(double %12)
@@ -2926,7 +2926,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %89 = fsub double %86, %12
   %90 = tail call double @llvm.fabs.f64(double %89)
   %91 = fcmp oeq double %90, 0x7FF0000000000000
-  br i1 %91, label %92, label %float8_mi.exit, !prof !7
+  br i1 %91, label %92, label %float8_mi.exit, !prof !6
 
 92:                                               ; preds = %88
   %93 = tail call double @llvm.fabs.f64(double %86)
@@ -3093,7 +3093,7 @@ define dso_local noundef i64 @gist_point_sortsupport(ptr noundef readonly captur
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load i8, ptr %5, align 8, !range !19, !noundef !20
+  %6 = load i8, ptr %5, align 8, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %12
 
@@ -3385,7 +3385,7 @@ define internal fastcc double @size_box(ptr noundef readonly captures(none) %0) 
   %18 = fsub double %2, %4
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp oeq double %19, 0x7FF0000000000000
-  br i1 %20, label %21, label %float8_mi.exit, !prof !7
+  br i1 %20, label %21, label %float8_mi.exit, !prof !6
 
 21:                                               ; preds = %17
   %22 = tail call double @llvm.fabs.f64(double %2)
@@ -3403,7 +3403,7 @@ float8_mi.exit:                                   ; preds = %17, %21
   %27 = fsub double %10, %12
   %28 = tail call double @llvm.fabs.f64(double %27)
   %29 = fcmp oeq double %28, 0x7FF0000000000000
-  br i1 %29, label %30, label %float8_mi.exit12, !prof !7
+  br i1 %29, label %30, label %float8_mi.exit12, !prof !6
 
 30:                                               ; preds = %float8_mi.exit
   %31 = tail call double @llvm.fabs.f64(double %10)
@@ -3421,7 +3421,7 @@ float8_mi.exit12:                                 ; preds = %float8_mi.exit, %30
   %36 = fmul double %18, %27
   %37 = tail call double @llvm.fabs.f64(double %36)
   %38 = fcmp oeq double %37, 0x7FF0000000000000
-  br i1 %38, label %39, label %41, !prof !7
+  br i1 %38, label %39, label %41, !prof !6
 
 39:                                               ; preds = %float8_mi.exit12
   %or.cond11.i = or i1 %20, %29
@@ -3433,7 +3433,7 @@ float8_mi.exit12:                                 ; preds = %float8_mi.exit, %30
 
 41:                                               ; preds = %39, %float8_mi.exit12
   %42 = fcmp oeq double %36, 0.000000e+00
-  br i1 %42, label %43, label %float8_mul.exit, !prof !7
+  br i1 %42, label %43, label %float8_mul.exit, !prof !6
 
 43:                                               ; preds = %41
   %44 = fcmp une double %18, 0.000000e+00
@@ -3526,24 +3526,21 @@ attributes #17 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
+!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

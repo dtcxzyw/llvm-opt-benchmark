@@ -1094,7 +1094,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2r125cancellation_dissemin
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.022.028, i64 8
   %.sroa.022.0 = load ptr, ptr %38, align 8, !tbaa !122
   %.not25 = icmp eq ptr %.sroa.022.0, %14
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !149
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 39:                                               ; preds = %.lr.ph
   %40 = landingpad { ptr, i32 }
@@ -1148,7 +1148,7 @@ define noundef i32 @_ZN3tbb6detail2r122threading_control_impl15max_num_workersEv
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %5 = load i32, ptr %4, align 8, !tbaa !150
+  %5 = load i32, ptr %4, align 8, !tbaa !148
   ret i32 %5
 }
 
@@ -1228,7 +1228,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control10remove_refEb(pt
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   br label %11
 
 11:                                               ; preds = %10, %6
@@ -1237,7 +1237,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control10remove_refEb(pt
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN3tbb6detail2r117threading_control21get_threading_controlEb(i1 noundef zeroext %0) local_unnamed_addr #9 align 2 {
-  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3tbb6detail2r117threading_control7add_refEb.exit, label %3
 
@@ -1261,14 +1261,14 @@ define noundef ptr @_ZN3tbb6detail2r117threading_control24create_threading_contr
   %2 = alloca ptr, align 8
   tail call void @_ZN3tbb6detail2r119global_control_lockEv()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  store ptr null, ptr %2, align 8, !tbaa !151
+  store ptr null, ptr %2, align 8, !tbaa !149
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
   store ptr null, ptr %1, align 8, !tbaa !118
   invoke void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
           to label %.noexc.i unwind label %40
 
 .noexc.i:                                         ; preds = %0
-  %3 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %3 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %8, label %_ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit.i.i
 
@@ -1277,11 +1277,11 @@ _ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit.i.i: ; preds 
   %5 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = atomicrmw add ptr %6, i32 1 seq_cst, align 4
-  store ptr %3, ptr %2, align 8, !tbaa !151
+  store ptr %3, ptr %2, align 8, !tbaa !149
   br label %31
 
 8:                                                ; preds = %.noexc.i
-  store ptr null, ptr %2, align 8, !tbaa !151
+  store ptr null, ptr %2, align 8, !tbaa !149
   %9 = invoke noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 16)
           to label %10 unwind label %26
 
@@ -1290,7 +1290,7 @@ _ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit.i.i: ; preds 
           to label %11 unwind label %26
 
 11:                                               ; preds = %10
-  store ptr %9, ptr %2, align 8, !tbaa !151
+  store ptr %9, ptr %2, align 8, !tbaa !149
   %12 = invoke noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 40)
           to label %.noexc.i.i unwind label %28
 
@@ -1299,8 +1299,8 @@ _ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit.i.i: ; preds 
           to label %_ZN3tbb6detail2r125make_cache_aligned_uniqueINS1_22threading_control_implEJRPNS1_17threading_controlEEEESt10unique_ptrIT_NS1_21cache_aligned_deleterEEDpOT0_.exit.i.i unwind label %28
 
 _ZN3tbb6detail2r125make_cache_aligned_uniqueINS1_22threading_control_implEJRPNS1_17threading_controlEEEESt10unique_ptrIT_NS1_21cache_aligned_deleterEEDpOT0_.exit.i.i: ; preds = %.noexc.i.i
-  %13 = load ptr, ptr %9, align 8, !tbaa !152
-  store ptr %12, ptr %9, align 8, !tbaa !152
+  %13 = load ptr, ptr %9, align 8, !tbaa !150
+  store ptr %12, ptr %9, align 8, !tbaa !150
   %.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3tbb6detail2r122threading_control_implENS2_21cache_aligned_deleterEED2Ev.exit.i.i, label %14
 
@@ -1346,7 +1346,7 @@ _ZNSt10unique_ptrIN3tbb6detail2r122threading_control_implENS2_21cache_aligned_de
   br label %39
 
 30:                                               ; preds = %21, %20
-  store ptr %9, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  store ptr %9, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   br label %31
 
 31:                                               ; preds = %30, %_ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit.i.i
@@ -1396,7 +1396,7 @@ declare void @_ZN3tbb6detail2r121global_control_unlockEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r117threading_control7destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !152
+  %2 = load ptr, ptr %0, align 8, !tbaa !150
   %.not.i.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i.i, label %_ZNK3tbb6detail2r121cache_aligned_deleterclINS1_17threading_controlEEEvPT_.exit, label %3
 
@@ -1413,7 +1413,7 @@ define void @_ZN3tbb6detail2r117threading_control7destroyEv(ptr noundef nonnull 
   unreachable
 
 _ZNK3tbb6detail2r121cache_aligned_deleterclINS1_17threading_controlEEEvPT_.exit: ; preds = %1, %3
-  store ptr null, ptr %0, align 8, !tbaa !152
+  store ptr null, ptr %0, align 8, !tbaa !150
   tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %0)
   tail call void @_ZN3tbb6detail2r114__TBB_InitOnce10remove_refEv()
   ret void
@@ -1452,13 +1452,13 @@ define void @_ZN3tbb6detail2r117threading_control19wait_last_referenceERNS0_2d11
   %17 = tail call noundef i32 @sched_yield() #16
   %18 = load atomic i32, ptr %4 acquire, align 8
   %19 = icmp eq i32 %18, 1
-  br i1 %19, label %.lr.ph, label %.critedge2, !llvm.loop !154
+  br i1 %19, label %.lr.ph, label %.critedge2, !llvm.loop !152
 
 .critedge2:                                       ; preds = %.lr.ph, %16, %9
   tail call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
   %20 = load atomic i32, ptr %4 monotonic, align 8
   %21 = icmp eq i32 %20, 1
-  br i1 %21, label %.lr.ph6, label %.critedge, !llvm.loop !155
+  br i1 %21, label %.lr.ph6, label %.critedge, !llvm.loop !153
 
 .critedge:                                        ; preds = %.lr.ph6, %.critedge2, %2
   ret void
@@ -1490,11 +1490,11 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i8 1, ptr %3, align 1, !tbaa !27
-  store i32 0, ptr %4, align 4, !tbaa !156
+  store i32 0, ptr %4, align 4, !tbaa !154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
-  store ptr %1, ptr %5, align 8, !tbaa !158
-  store ptr %4, ptr %7, align 8, !tbaa !162
-  store ptr %3, ptr %8, align 8, !tbaa !163
+  store ptr %1, ptr %5, align 8, !tbaa !156
+  store ptr %4, ptr %7, align 8, !tbaa !160
+  store ptr %3, ptr %8, align 8, !tbaa !161
   %15 = load atomic i8, ptr %1 monotonic, align 1
   %16 = and i8 %15, 1
   %.not.i.not = icmp eq i8 %16, 0
@@ -1512,10 +1512,10 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.
   %17 = add nsw i32 %.01.i.i, -1
   call void @llvm.x86.sse2.pause()
   %18 = icmp samesign ugt i32 %.01.i.i, 1
-  br i1 %18, label %.lr.ph.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !164
+  br i1 %18, label %.lr.ph.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !162
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %.lr.ph.i.i
-  %19 = load i32, ptr %4, align 4, !tbaa !156
+  %19 = load i32, ptr %4, align 4, !tbaa !154
   switch i32 %19, label %20 [
     i32 1, label %22
     i32 2, label %22
@@ -1542,12 +1542,12 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit1
   %29 = shl nuw nsw i32 %.0816.i, 1
   %30 = icmp samesign ugt i32 %.0816.i, 15
   %.not10.i = select i1 %28, i1 true, i1 %30
-  br i1 %.not10.i, label %.preheader.i, label %.lr.ph.i.preheader.i, !llvm.loop !165
+  br i1 %.not10.i, label %.preheader.i, label %.lr.ph.i.preheader.i, !llvm.loop !163
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i
   %.017.i = phi i32 [ %42, %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i ], [ 32, %.preheader.i ]
   %31 = call noundef i32 @sched_yield() #16
-  %32 = load i32, ptr %4, align 4, !tbaa !156
+  %32 = load i32, ptr %4, align 4, !tbaa !154
   switch i32 %32, label %33 [
     i32 1, label %35
     i32 2, label %35
@@ -1574,7 +1574,7 @@ _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit1
   %42 = add nuw nsw i32 %.017.i, 1
   %43 = icmp samesign ugt i32 %.017.i, 62
   %.not11.i = select i1 %41, i1 true, i1 %43
-  br i1 %.not11.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit, label %.lr.ph.i, !llvm.loop !166
+  br i1 %.not11.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit, label %.lr.ph.i, !llvm.loop !164
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit: ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit15.i
   br i1 %41, label %_ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i, label %44
@@ -1582,14 +1582,14 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt1
 44:                                               ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EEbT_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE, i64 16), ptr %6, align 8, !tbaa !14
-  store ptr %5, ptr %9, align 8, !tbaa !162
+  store ptr %5, ptr %9, align 8, !tbaa !160
   br label %45
 
 45:                                               ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i, %44
   call void @_ZN3tbb6detail2r115wait_on_addressEPvRNS0_2d113delegate_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
-  %46 = load ptr, ptr %5, align 8, !tbaa !158
-  %47 = load ptr, ptr %7, align 8, !tbaa !167
-  %48 = load i32, ptr %47, align 4, !tbaa !156
+  %46 = load ptr, ptr %5, align 8, !tbaa !156
+  %47 = load ptr, ptr %7, align 8, !tbaa !165
+  %48 = load i32, ptr %47, align 4, !tbaa !154
   switch i32 %48, label %49 [
     i32 1, label %51
     i32 2, label %51
@@ -1610,11 +1610,11 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2d115waitable_atomicIbE4waitEbmSt1
 
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i: ; preds = %53, %51, %49
   %.0.i.i.i.i.i = phi i8 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
-  %55 = load ptr, ptr %8, align 8, !tbaa !168
+  %55 = load ptr, ptr %8, align 8, !tbaa !166
   %56 = load i8, ptr %55, align 1, !tbaa !27, !range !29, !noundef !30
   %57 = and i8 %.0.i.i.i.i.i, 1
   %.not.i.i = icmp eq i8 %56, %57
-  br i1 %.not.i.i, label %45, label %58, !llvm.loop !169
+  br i1 %.not.i.i, label %45, label %58, !llvm.loop !167
 
 58:                                               ; preds = %_ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
@@ -1624,7 +1624,7 @@ _ZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_order.exit.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %10, !llvm.loop !170
+  br label %10, !llvm.loop !168
 
 _ZN3tbb6detail2d15mutex4lockEv.exit:              ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i
   ret void
@@ -1671,7 +1671,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control7releaseEbb(ptr n
   %20 = call noundef i32 @sched_yield() #16
   %21 = load atomic i32, ptr %7 acquire, align 8
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !154
+  br i1 %22, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !152
 
 .critedge2.i:                                     ; preds = %19, %.lr.ph.i, %.noexc
   invoke void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
@@ -1680,7 +1680,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control7releaseEbb(ptr n
 .noexc8:                                          ; preds = %.critedge2.i
   %23 = load atomic i32, ptr %7 monotonic, align 8
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %.lr.ph6.i, label %_ZN3tbb6detail2r117threading_control19wait_last_referenceERNS0_2d118unique_scoped_lockINS3_5mutexEEE.exit, !llvm.loop !155
+  br i1 %24, label %.lr.ph6.i, label %_ZN3tbb6detail2r117threading_control19wait_last_referenceERNS0_2d118unique_scoped_lockINS3_5mutexEEE.exit, !llvm.loop !153
 
 25:                                               ; preds = %.critedge2.i, %12
   %26 = landingpad { ptr, i32 }
@@ -1704,7 +1704,7 @@ _ZN3tbb6detail2r117threading_control19wait_last_referenceERNS0_2d118unique_scope
   br i1 %33, label %34, label %_ZN3tbb6detail2r117threading_control10remove_refEb.exit
 
 34:                                               ; preds = %30
-  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   br label %_ZN3tbb6detail2r117threading_control10remove_refEb.exit
 
 _ZN3tbb6detail2r117threading_control10remove_refEb.exit: ; preds = %30, %34
@@ -1729,7 +1729,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %36, %_ZN
   br i1 %33, label %41, label %45
 
 41:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit
-  %42 = load ptr, ptr %0, align 8, !tbaa !152
+  %42 = load ptr, ptr %0, align 8, !tbaa !150
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   call void @_ZN3tbb6detail2r117thread_dispatcher7releaseEb(ptr noundef nonnull align 8 dereferenceable(152) %44, i1 noundef zeroext %2)
@@ -1768,11 +1768,11 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit: ; preds = %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define void @_ZN3tbb6detail2r117threading_controlC2Ejj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !171
+  store ptr null, ptr %0, align 8, !tbaa !169
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %4, align 8, !tbaa !173
+  store i32 %1, ptr %4, align 8, !tbaa !171
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !173
+  store i32 %2, ptr %5, align 4, !tbaa !171
   ret void
 }
 
@@ -1782,7 +1782,7 @@ define noundef ptr @_ZN3tbb6detail2r117threading_control25register_public_refere
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
   store ptr null, ptr %1, align 8, !tbaa !118
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
-  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %7, label %_ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit
 
@@ -1836,7 +1836,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %16, %14
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control27unregister_public_referenceEb(i1 noundef zeroext %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %3 = tail call noundef zeroext i1 @_ZN3tbb6detail2r117threading_control7releaseEbb(ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext true, i1 noundef zeroext %0)
   ret i1 %3
 }
@@ -1867,7 +1867,7 @@ define { ptr, ptr } @_ZN3tbb6detail2r117threading_control13create_clientERNS1_5a
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %7, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  %12 = load ptr, ptr %0, align 8, !tbaa !152
+  %12 = load ptr, ptr %0, align 8, !tbaa !150
   %13 = load ptr, ptr %12, align 8, !tbaa !47
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1883,7 +1883,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %7, %2
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r117threading_control14publish_clientENS1_24threading_control_clientERNS0_2d111constraintsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr %1, ptr %2, ptr noundef nonnull align 4 dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !152
+  %5 = load ptr, ptr %0, align 8, !tbaa !150
   %6 = load ptr, ptr %5, align 8, !tbaa !47
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1897,34 +1897,34 @@ define void @_ZN3tbb6detail2r117threading_control14publish_clientENS1_24threadin
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN3tbb6detail2r117threading_control26prepare_client_destructionENS1_24threading_control_clientE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.tbb::detail::r1::threading_control_impl::client_snapshot") align 8 captures(none) initializes((0, 12), (16, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr %2, ptr %3) local_unnamed_addr #11 align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !80, !noalias !174
-  store i64 %6, ptr %0, align 8, !tbaa !83, !alias.scope !174
+  %6 = load i64, ptr %5, align 8, !tbaa !80, !noalias !172
+  store i64 %6, ptr %0, align 8, !tbaa !83, !alias.scope !172
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !86, !noalias !174
+  %9 = load ptr, ptr %8, align 8, !tbaa !86, !noalias !172
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 220
-  %11 = load i32, ptr %10, align 4, !tbaa !87, !noalias !174
-  store i32 %11, ptr %7, align 8, !tbaa !115, !alias.scope !174
+  %11 = load i32, ptr %10, align 4, !tbaa !87, !noalias !172
+  store i32 %11, ptr %7, align 8, !tbaa !115, !alias.scope !172
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %12, align 8, !tbaa !116, !alias.scope !174
+  store ptr %3, ptr %12, align 8, !tbaa !116, !alias.scope !172
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %13, align 8, !tbaa !117, !alias.scope !174
+  store ptr %2, ptr %13, align 8, !tbaa !117, !alias.scope !172
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control18try_destroy_clientENS1_22threading_control_impl15client_snapshotE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly byval(%"struct.tbb::detail::r1::threading_control_impl::client_snapshot") align 8 captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !152
-  %.sroa.03.0.copyload = load i64, ptr %1, align 8, !tbaa !177
+  %4 = load ptr, ptr %0, align 8, !tbaa !150
+  %.sroa.03.0.copyload = load i64, ptr %1, align 8, !tbaa !175
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !4
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !178
+  %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !176
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.55.0.copyload = load ptr, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !179
+  %.sroa.55.0.copyload = load ptr, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !177
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = tail call noundef zeroext i1 @_ZN3tbb6detail2r117thread_dispatcher21try_unregister_clientEPNS1_24thread_dispatcher_clientEmj(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %.sroa.44.0.copyload, i64 noundef %.sroa.03.0.copyload, i32 noundef %.sroa.2.0.copyload)
@@ -1945,7 +1945,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control18try_destroy_cli
   br i1 %15, label %16, label %_ZN3tbb6detail2r117threading_control10remove_refEb.exit.i
 
 16:                                               ; preds = %8
-  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   br label %_ZN3tbb6detail2r117threading_control10remove_refEb.exit.i
 
 _ZN3tbb6detail2r117threading_control10remove_refEb.exit.i: ; preds = %16, %8
@@ -1970,7 +1970,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit.i: ; preds = %18, %_
   br i1 %15, label %23, label %_ZN3tbb6detail2r122threading_control_impl18try_destroy_clientENS2_15client_snapshotE.exit
 
 23:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit.i
-  %24 = load ptr, ptr %0, align 8, !tbaa !152
+  %24 = load ptr, ptr %0, align 8, !tbaa !150
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   call void @_ZN3tbb6detail2r117thread_dispatcher7releaseEb(ptr noundef nonnull align 8 dereferenceable(152) %26, i1 noundef zeroext false)
@@ -1987,7 +1987,7 @@ define void @_ZN3tbb6detail2r117threading_control22set_active_num_workersEj(i32 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store ptr null, ptr %3, align 8, !tbaa !118
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
-  %4 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %4 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit, label %5
 
@@ -2018,7 +2018,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %9, %_ZN3
   br i1 %.not.i, label %_ZN3tbb6detail2r117threading_control7releaseEbb.exit, label %14
 
 14:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit
-  %15 = load ptr, ptr %4, align 8, !tbaa !152
+  %15 = load ptr, ptr %4, align 8, !tbaa !150
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !54
   call void @_ZN3tbb6detail2r131thread_request_serializer_proxy22set_active_num_workersEi(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %0)
@@ -2036,7 +2036,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %9, %_ZN3
   br i1 %24, label %25, label %_ZN3tbb6detail2r117threading_control10remove_refEb.exit.i
 
 25:                                               ; preds = %14
-  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  store ptr null, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   br label %_ZN3tbb6detail2r117threading_control10remove_refEb.exit.i
 
 _ZN3tbb6detail2r117threading_control10remove_refEb.exit.i: ; preds = %25, %14
@@ -2061,7 +2061,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit.i: ; preds = %27, %_
   br i1 %24, label %32, label %_ZN3tbb6detail2r117threading_control7releaseEbb.exit
 
 32:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit.i
-  %33 = load ptr, ptr %4, align 8, !tbaa !152
+  %33 = load ptr, ptr %4, align 8, !tbaa !150
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   call void @_ZN3tbb6detail2r117thread_dispatcher7releaseEb(ptr noundef nonnull align 8 dereferenceable(152) %35, i1 noundef zeroext false)
@@ -2077,7 +2077,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control10is_presentEv() 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
   store ptr null, ptr %1, align 8, !tbaa !118
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
-  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %3 = load ptr, ptr %1, align 8, !tbaa !118
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit, label %4
@@ -2106,7 +2106,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control25register_lifeti
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
   store ptr null, ptr %1, align 8, !tbaa !118
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
-  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN3tbb6detail2r117threading_control21get_threading_controlEb.exit, label %3
 
@@ -2146,7 +2146,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control27unregister_life
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   store ptr null, ptr %2, align 8, !tbaa !118
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
-  %3 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %3 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %4 = load ptr, ptr %2, align 8, !tbaa !118
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit, label %5
@@ -2180,7 +2180,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %5, %1
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r117threading_control15register_threadERNS1_11thread_dataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 16)) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !152
+  %4 = load ptr, ptr %0, align 8, !tbaa !150
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -2222,7 +2222,7 @@ _ZN3tbb6detail2r122threading_control_impl15register_threadERNS1_11thread_dataE.e
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r117threading_control17unregister_threadERNS1_11thread_dataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !152
+  %4 = load ptr, ptr %0, align 8, !tbaa !150
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -2261,7 +2261,7 @@ _ZN3tbb6detail2r122threading_control_impl17unregister_threadERNS1_11thread_dataE
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r117threading_control26propagate_task_group_stateEMNS0_2d118task_group_contextESt6atomicIjERS4_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !152
+  %5 = load ptr, ptr %0, align 8, !tbaa !150
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = tail call noundef zeroext i1 @_ZN3tbb6detail2r125cancellation_disseminator26propagate_task_group_stateEMNS0_2d118task_group_contextESt6atomicIjERS4_j(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %3)
@@ -2270,7 +2270,7 @@ define void @_ZN3tbb6detail2r117threading_control26propagate_task_group_stateEMN
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i64 @_ZN3tbb6detail2r117threading_control17worker_stack_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !152
+  %2 = load ptr, ptr %0, align 8, !tbaa !150
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = tail call noundef i64 @_ZNK3tbb6detail2r117thread_dispatcher17worker_stack_sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %4)
@@ -2283,16 +2283,16 @@ define noundef i32 @_ZN3tbb6detail2r117threading_control15max_num_workersEv() lo
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
   store ptr null, ptr %1, align 8, !tbaa !118
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN3tbb6detail2r117threading_control25g_threading_control_mutexE)
-  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !151
+  %2 = load ptr, ptr @_ZN3tbb6detail2r117threading_control19g_threading_controlE, align 8, !tbaa !149
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr %2, align 8, !tbaa !152
+  %4 = load ptr, ptr %2, align 8, !tbaa !150
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %8 = load i32, ptr %7, align 8, !tbaa !150
+  %8 = load i32, ptr %7, align 8, !tbaa !148
   br label %9
 
 9:                                                ; preds = %0, %3
@@ -2320,7 +2320,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %12, %9
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r117threading_control13adjust_demandENS1_24threading_control_clientEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !152
+  %6 = load ptr, ptr %0, align 8, !tbaa !150
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !54
   tail call void @_ZN3tbb6detail2r131thread_request_serializer_proxy26register_mandatory_requestEi(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %3)
@@ -2334,7 +2334,7 @@ define void @_ZN3tbb6detail2r117threading_control13adjust_demandENS1_24threading
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef zeroext i1 @_ZN3tbb6detail2r117threading_control26is_any_other_client_activeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !152
+  %2 = load ptr, ptr %0, align 8, !tbaa !150
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = tail call noundef i32 @_ZN3tbb6detail2r131thread_request_serializer_proxy21num_workers_requestedEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
@@ -2354,7 +2354,7 @@ _ZN3tbb6detail2r122threading_control_impl26is_any_other_client_activeEv.exit: ; 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 dereferenceable(36) ptr @_ZN3tbb6detail2r117threading_control27get_waiting_threads_monitorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !152
+  %2 = load ptr, ptr %0, align 8, !tbaa !150
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !76
   ret ptr %4
@@ -2398,7 +2398,7 @@ define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseINS1_14marke
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
-  store i64 0, ptr %2, align 8, !tbaa !180
+  store i64 0, ptr %2, align 8, !tbaa !178
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %7, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2428,7 +2428,7 @@ define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseINS1_14marke
   %13 = add nsw i32 %.01.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
   %14 = icmp samesign ugt i32 %.01.i.i.i.i, 1
-  br i1 %14, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !164
+  br i1 %14, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !162
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
   %15 = load atomic i32, ptr %0 monotonic, align 8
@@ -2436,7 +2436,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
   %.09.in.i.i.i = icmp eq i32 %15, 0
   %17 = icmp samesign ugt i32 %.0815.i.i.i, 15
   %.not10.i.i.i = select i1 %.09.in.i.i.i, i1 true, i1 %17
-  br i1 %.not10.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.preheader.i.i.i, !llvm.loop !181
+  br i1 %.not10.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.preheader.i.i.i, !llvm.loop !179
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %.016.i.i.i = phi i32 [ %21, %.lr.ph.i.i.i ], [ 32, %.preheader.i.i.i ]
@@ -2446,7 +2446,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
   %21 = add nuw nsw i32 %.016.i.i.i, 1
   %22 = icmp samesign ugt i32 %.016.i.i.i, 62
   %.not11.i.i.i = select i1 %20, i1 true, i1 %22
-  br i1 %.not11.i.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !182
+  br i1 %.not11.i.i.i, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !180
 
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.i.i: ; preds = %.lr.ph.i.i.i
   br i1 %20, label %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.thread.i.i, label %23
@@ -2461,7 +2461,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
   %27 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef 128, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #16
   %28 = load atomic i32, ptr %0 monotonic, align 8
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !183
+  br i1 %29, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !181
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %23
   %30 = atomicrmw sub ptr %10, i32 1 seq_cst, align 4
@@ -2470,7 +2470,7 @@ _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lock
 _ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.thread.i.i: ; preds = %._crit_edge.i.i, %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.i.i, %.preheader.i.i.i, %11
   %31 = atomicrmw xchg ptr %0, i32 1 seq_cst, align 4
   %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit, label %11, !llvm.loop !184
+  br i1 %.not.i.i, label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit, label %11, !llvm.loop !182
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d021timed_spin_wait_untilIZNS0_2r124concurrent_monitor_mutex4lockEvEUlvE_EEbT_.exit.thread.i.i, %6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2484,22 +2484,22 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit: ; pre
 36:                                               ; preds = %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit
   store atomic i64 %35, ptr %2 monotonic, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !185
-  store ptr %38, ptr %7, align 8, !tbaa !185
+  %38 = load ptr, ptr %37, align 8, !tbaa !183
+  store ptr %38, ptr %7, align 8, !tbaa !183
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !186
-  store ptr %40, ptr %8, align 8, !tbaa !186
+  %40 = load ptr, ptr %39, align 8, !tbaa !184
+  store ptr %40, ptr %8, align 8, !tbaa !184
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %7, ptr %41, align 8, !tbaa !75
-  %42 = load ptr, ptr %39, align 8, !tbaa !186
+  %42 = load ptr, ptr %39, align 8, !tbaa !184
   store ptr %7, ptr %42, align 8, !tbaa !72
-  store ptr %37, ptr %37, align 8, !tbaa !185
-  store ptr %37, ptr %39, align 8, !tbaa !186
+  store ptr %37, ptr %37, align 8, !tbaa !183
+  store ptr %37, ptr %39, align 8, !tbaa !184
   store atomic i64 0, ptr %3 monotonic, align 8
   br label %_ZN3tbb6detail2r141circular_doubly_linked_list_with_sentinel8flush_toERS2_.exit
 
 _ZN3tbb6detail2r141circular_doubly_linked_list_with_sentinel8flush_toERS2_.exit: ; preds = %36, %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit
-  %43 = load ptr, ptr %7, align 8, !tbaa !185
+  %43 = load ptr, ptr %7, align 8, !tbaa !183
   %.not16 = icmp eq ptr %43, %7
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -2515,7 +2515,7 @@ _ZN3tbb6detail2r141circular_doubly_linked_list_with_sentinel8flush_toERS2_.exit:
   br label %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit
 
 _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds = %._crit_edge, %47
-  %49 = load ptr, ptr %7, align 8, !tbaa !185
+  %49 = load ptr, ptr %7, align 8, !tbaa !183
   %.not1418 = icmp eq ptr %49, %7
   br i1 %.not1418, label %._crit_edge21, label %.lr.ph20
 
@@ -2528,7 +2528,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
   store atomic i8 0, ptr %53 monotonic, align 1
   %54 = load ptr, ptr %.01217, align 8, !tbaa !72
   %.not = icmp eq ptr %54, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !185
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #16
@@ -2539,13 +2539,13 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
   %55 = load ptr, ptr %.019, align 8, !tbaa !72
   %56 = getelementptr inbounds i8, ptr %.019, i64 -8
   %57 = getelementptr inbounds nuw i8, ptr %.019, i64 35
-  store i8 1, ptr %57, align 1, !tbaa !188
+  store i8 1, ptr %57, align 1, !tbaa !186
   %58 = load ptr, ptr %56, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(48) %56)
   %.not14 = icmp eq ptr %55, %7
-  br i1 %.not14, label %._crit_edge21, label %.lr.ph20, !llvm.loop !191
+  br i1 %.not14, label %._crit_edge21, label %.lr.ph20, !llvm.loop !189
 
 61:                                               ; preds = %1, %._crit_edge21
   ret void
@@ -2703,8 +2703,8 @@ define internal fastcc void @"_ZN3tbb6detail2d010raii_guardIZNS0_2r117threading_
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %2
-  %3 = load ptr, ptr %.0.val, align 8, !tbaa !151
-  %4 = load ptr, ptr %3, align 8, !tbaa !152
+  %3 = load ptr, ptr %.0.val, align 8, !tbaa !149
+  %4 = load ptr, ptr %3, align 8, !tbaa !150
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNK3tbb6detail2r121cache_aligned_deleterclINS1_17threading_controlEEEvPT_.exit.i, label %5
 
@@ -2721,7 +2721,7 @@ define internal fastcc void @"_ZN3tbb6detail2d010raii_guardIZNS0_2r117threading_
   unreachable
 
 _ZNK3tbb6detail2r121cache_aligned_deleterclINS1_17threading_controlEEEvPT_.exit.i: ; preds = %5, %.noexc
-  store ptr null, ptr %3, align 8, !tbaa !152
+  store ptr null, ptr %3, align 8, !tbaa !150
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %3)
           to label %"_ZZN3tbb6detail2r117threading_control24create_threading_controlEvENK3$_1clEv.exit" unwind label %9
 
@@ -2748,11 +2748,11 @@ define linkonce_odr void @_ZN3tbb6detail2d113delegate_baseD2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !192
-  %4 = load ptr, ptr %3, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8, !tbaa !190
+  %4 = load ptr, ptr %3, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !167
-  %7 = load i32, ptr %6, align 4, !tbaa !156
+  %6 = load ptr, ptr %5, align 8, !tbaa !165
+  %7 = load i32, ptr %6, align 4, !tbaa !154
   switch i32 %7, label %8 [
     i32 1, label %10
     i32 2, label %10
@@ -2774,7 +2774,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3tbb6detail2d118delegated_functionIZ
 _ZZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderENKUlvE_clEv.exit: ; preds = %8, %10, %12
   %.0.i.i.i = phi i8 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !168
+  %15 = load ptr, ptr %14, align 8, !tbaa !166
   %16 = load i8, ptr %15, align 1, !tbaa !27, !range !29, !noundef !30
   %17 = and i8 %.0.i.i.i, 1
   %18 = icmp ne i8 %16, %17
@@ -2972,52 +2972,50 @@ attributes #23 = { builtin nounwind }
 !143 = !{!"_ZTSSt13__atomic_baseIPN3tbb6detail2r117tbb_exception_ptrEE", !144, i64 0}
 !144 = !{!"p1 _ZTSN3tbb6detail2r117tbb_exception_ptrE", !13, i64 0}
 !145 = !{!"_ZTSN3tbb6detail2d021string_resource_indexE", !6, i64 0}
-!146 = distinct !{!146, !147, !148}
+!146 = distinct !{!146, !147}
 !147 = !{!"llvm.loop.mustprogress"}
-!148 = !{!"llvm.loop.estimated_trip_count"}
-!149 = distinct !{!149, !148}
-!150 = !{!32, !5, i64 120}
-!151 = !{!41, !41, i64 0}
-!152 = !{!153, !153, i64 0}
-!153 = !{!"p1 _ZTSN3tbb6detail2r122threading_control_implE", !13, i64 0}
-!154 = distinct !{!154, !147, !148}
-!155 = distinct !{!155, !147, !148}
-!156 = !{!157, !157, i64 0}
-!157 = !{!"_ZTSSt12memory_order", !6, i64 0}
-!158 = !{!159, !160, i64 0}
-!159 = !{!"_ZTSZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_", !160, i64 0, !13, i64 8, !161, i64 16}
-!160 = !{!"p1 _ZTSN3tbb6detail2d115waitable_atomicIbEE", !13, i64 0}
-!161 = !{!"p1 bool", !13, i64 0}
-!162 = !{!13, !13, i64 0}
-!163 = !{!161, !161, i64 0}
-!164 = distinct !{!164, !147, !148}
-!165 = distinct !{!165, !147, !148}
-!166 = distinct !{!166, !147, !148}
-!167 = !{!159, !13, i64 8}
-!168 = !{!159, !161, i64 16}
-!169 = distinct !{!169, !147, !148}
-!170 = distinct !{!170, !147, !148}
-!171 = !{!172, !153, i64 0}
-!172 = !{!"_ZTSSt10_Head_baseILm0EPN3tbb6detail2r122threading_control_implELb0EE", !153, i64 0}
-!173 = !{!45, !5, i64 0}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN3tbb6detail2r122threading_control_impl26prepare_client_destructionENS1_24threading_control_clientE: argument 0"}
-!176 = distinct !{!176, !"_ZN3tbb6detail2r122threading_control_impl26prepare_client_destructionENS1_24threading_control_clientE"}
-!177 = !{!39, !39, i64 0}
-!178 = !{!40, !40, i64 0}
-!179 = !{!85, !85, i64 0}
-!180 = !{!43, !39, i64 0}
-!181 = distinct !{!181, !147, !148}
-!182 = distinct !{!182, !147, !148}
-!183 = distinct !{!183, !147, !148}
-!184 = distinct !{!184, !147, !148}
-!185 = !{!109, !74, i64 8}
-!186 = !{!109, !74, i64 16}
-!187 = distinct !{!187, !147, !148}
-!188 = !{!189, !28, i64 43}
-!189 = !{!"_ZTSN3tbb6detail2r19wait_nodeINS1_14market_contextEEE", !73, i64 8, !190, i64 24, !94, i64 40, !28, i64 41, !28, i64 42, !28, i64 43, !5, i64 44}
-!190 = !{!"_ZTSN3tbb6detail2r114market_contextE", !39, i64 0, !82, i64 8}
-!191 = distinct !{!191, !147, !148}
-!192 = !{!193, !13, i64 8}
-!193 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE", !194, i64 0, !13, i64 8}
-!194 = !{!"_ZTSN3tbb6detail2d113delegate_baseE"}
+!148 = !{!32, !5, i64 120}
+!149 = !{!41, !41, i64 0}
+!150 = !{!151, !151, i64 0}
+!151 = !{!"p1 _ZTSN3tbb6detail2r122threading_control_implE", !13, i64 0}
+!152 = distinct !{!152, !147}
+!153 = distinct !{!153, !147}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!156 = !{!157, !158, i64 0}
+!157 = !{!"_ZTSZN3tbb6detail2d115waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_", !158, i64 0, !13, i64 8, !159, i64 16}
+!158 = !{!"p1 _ZTSN3tbb6detail2d115waitable_atomicIbEE", !13, i64 0}
+!159 = !{!"p1 bool", !13, i64 0}
+!160 = !{!13, !13, i64 0}
+!161 = !{!159, !159, i64 0}
+!162 = distinct !{!162, !147}
+!163 = distinct !{!163, !147}
+!164 = distinct !{!164, !147}
+!165 = !{!157, !13, i64 8}
+!166 = !{!157, !159, i64 16}
+!167 = distinct !{!167, !147}
+!168 = distinct !{!168, !147}
+!169 = !{!170, !151, i64 0}
+!170 = !{!"_ZTSSt10_Head_baseILm0EPN3tbb6detail2r122threading_control_implELb0EE", !151, i64 0}
+!171 = !{!45, !5, i64 0}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZN3tbb6detail2r122threading_control_impl26prepare_client_destructionENS1_24threading_control_clientE: argument 0"}
+!174 = distinct !{!174, !"_ZN3tbb6detail2r122threading_control_impl26prepare_client_destructionENS1_24threading_control_clientE"}
+!175 = !{!39, !39, i64 0}
+!176 = !{!40, !40, i64 0}
+!177 = !{!85, !85, i64 0}
+!178 = !{!43, !39, i64 0}
+!179 = distinct !{!179, !147}
+!180 = distinct !{!180, !147}
+!181 = distinct !{!181, !147}
+!182 = distinct !{!182, !147}
+!183 = !{!109, !74, i64 8}
+!184 = !{!109, !74, i64 16}
+!185 = distinct !{!185, !147}
+!186 = !{!187, !28, i64 43}
+!187 = !{!"_ZTSN3tbb6detail2r19wait_nodeINS1_14market_contextEEE", !73, i64 8, !188, i64 24, !94, i64 40, !28, i64 41, !28, i64 42, !28, i64 43, !5, i64 44}
+!188 = !{!"_ZTSN3tbb6detail2r114market_contextE", !39, i64 0, !82, i64 8}
+!189 = distinct !{!189, !147}
+!190 = !{!191, !13, i64 8}
+!191 = !{!"_ZTSN3tbb6detail2d118delegated_functionIZNS1_15waitable_atomicIbE4waitEbmSt12memory_orderEUlvE_EE", !192, i64 0, !13, i64 8}
+!192 = !{!"_ZTSN3tbb6detail2d113delegate_baseE"}

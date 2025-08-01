@@ -237,7 +237,7 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nounde
   %56 = icmp ugt i64 %55, %53
   %57 = icmp eq i32 %38, 0
   %58 = and i1 %57, %56
-  br i1 %58, label %.lr.ph30.split.us, label %.loopexit, !llvm.loop !45
+  br i1 %58, label %.lr.ph30.split.us, label %.loopexit, !llvm.loop !44
 
 .lr.ph30.split:                                   ; preds = %.lr.ph30, %76
   %59 = phi ptr [ %79, %76 ], [ %13, %.lr.ph30 ]
@@ -273,7 +273,7 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nounde
   %82 = icmp ugt i64 %81, %78
   %83 = icmp eq i32 %71, 0
   %84 = and i1 %83, %82
-  br i1 %84, label %.lr.ph30.split, label %.loopexit, !llvm.loop !47
+  br i1 %84, label %.lr.ph30.split, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %76, %._crit_edge.us, %11, %.split.us, %3
   %.0 = phi i32 [ -1, %.split.us ], [ 0, %3 ], [ 0, %11 ], [ %38, %._crit_edge.us ], [ %71, %76 ]
@@ -426,7 +426,7 @@ define internal noundef i32 @H5D__none_idx_reset(ptr noundef writeonly captures(
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
   %or.cond = and i1 %1, %8
-  br i1 %or.cond, label %9, label %11, !prof !48
+  br i1 %or.cond, label %9, label %11, !prof !47
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -534,10 +534,9 @@ attributes #9 = { nounwind }
 !39 = !{!"H5D_chunk_rec_t", !5, i64 0, !19, i64 264, !19, i64 268, !20, i64 272}
 !40 = !{!18, !20, i64 152}
 !41 = !{!39, !20, i64 272}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = distinct !{!45, !43, !44, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !43, !44}
-!48 = !{!"branch_weights", i32 2000, i32 2002}
+!44 = distinct !{!44, !43, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !43}
+!47 = !{!"branch_weights", i32 2000, i32 2002}

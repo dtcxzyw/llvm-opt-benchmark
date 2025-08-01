@@ -394,12 +394,12 @@ default.unreachable:                              ; preds = %.preheader.split
   %119 = getelementptr inbounds nuw i8, ptr %.16, i64 %22
   %120 = add i64 %.6, -1
   %.not163 = icmp eq i64 %120, 0
-  br i1 %.not163, label %121, label %88, !llvm.loop !21
+  br i1 %.not163, label %121, label %88, !llvm.loop !20
 
 121:                                              ; preds = %116
   %122 = add nuw nsw i64 %.1125174, 1
   %exitcond179.not = icmp eq i64 %122, %22
-  br i1 %exitcond179.not, label %123, label %.preheader.split, !llvm.loop !22
+  br i1 %exitcond179.not, label %123, label %.preheader.split, !llvm.loop !21
 
 123:                                              ; preds = %121
   %.not162 = icmp eq i64 %24, 0
@@ -480,7 +480,6 @@ attributes #6 = { nounwind allocsize(0) }
 !16 = !{!5, !5, i64 0}
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
 !21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18, !20}

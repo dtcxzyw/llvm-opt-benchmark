@@ -91,7 +91,7 @@ define double @dt_calculator_solve(double noundef %0, ptr noundef %1) local_unna
   %.123.i.i = phi nsz double [ %38, %37 ], [ %40, %39 ], [ %.022.i4.i, %34 ]
   %42 = load ptr, ptr %13, align 8, !tbaa !16
   %.not27.i.i = icmp eq ptr %42, null
-  br i1 %.not27.i.i, label %_parse_expression.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not27.i.i, label %_parse_expression.exit, label %.lr.ph.i
 
 _parse_expression.exit:                           ; preds = %.lr.ph.i, %30, %41, %7, %24
   %43 = phi ptr [ null, %24 ], [ null, %7 ], [ %27, %30 ], [ null, %41 ], [ %27, %.lr.ph.i ]
@@ -262,7 +262,7 @@ define internal fastcc noalias noundef ptr @_get_token(ptr noundef %0) unnamed_a
 49:                                               ; preds = %5
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %50, ptr %0, align 8, !tbaa !9
-  br label %5, !llvm.loop !22
+  br label %5
 
 51:                                               ; preds = %5
   tail call void @free(ptr noundef %4) #5
@@ -317,7 +317,7 @@ define internal fastcc double @_parse_multiplicative_expression(ptr noundef %0) 
   %16 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double %.014.i54, double %15)
   %17 = load ptr, ptr %2, align 8, !tbaa !16
   %.not16.i = icmp eq ptr %17, null
-  br i1 %.not16.i, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not16.i, label %.critedge, label %.lr.ph
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.backedge
   %18 = phi ptr [ %55, %.backedge ], [ %7, %.lr.ph70.preheader ]
@@ -371,7 +371,7 @@ define internal fastcc double @_parse_multiplicative_expression(ptr noundef %0) 
   %38 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double %.014.i4860, double %37)
   %39 = load ptr, ptr %2, align 8, !tbaa !16
   %.not16.i49 = icmp eq ptr %39, null
-  br i1 %.not16.i49, label %_parse_power_expression.exit52, label %.lr.ph61, !llvm.loop !23
+  br i1 %.not16.i49, label %_parse_power_expression.exit52, label %.lr.ph61
 
 _parse_power_expression.exit52:                   ; preds = %32, %.lr.ph61, %35, %26, %24
   %40 = phi ptr [ null, %24 ], [ null, %26 ], [ %29, %32 ], [ %29, %.lr.ph61 ], [ null, %35 ]
@@ -414,7 +414,7 @@ _parse_power_expression.exit52:                   ; preds = %32, %.lr.ph61, %35,
   %.14180 = phi double [ %.04068, %53 ], [ %42, %41 ], [ %46, %45 ], [ %52, %47 ], [ %44, %43 ]
   %55 = phi ptr [ %54, %53 ], [ %40, %41 ], [ %40, %45 ], [ %40, %47 ], [ %40, %43 ]
   %.not45 = icmp eq ptr %55, null
-  br i1 %.not45, label %.critedge, label %.lr.ph70, !llvm.loop !24
+  br i1 %.not45, label %.critedge, label %.lr.ph70
 
 .critedge:                                        ; preds = %13, %53, %.lr.ph70, %.backedge, %4, %1
   %.0 = phi nsz double [ 0x7FF8000000000000, %1 ], [ %5, %4 ], [ %.04068, %.lr.ph70 ], [ %.14180, %.backedge ], [ %.2, %53 ], [ %16, %13 ]
@@ -521,7 +521,7 @@ tailrecurse:                                      ; preds = %6
   %.123.i.i = phi nsz double [ %33, %32 ], [ %35, %34 ], [ %.022.i.i40, %29 ]
   %37 = load ptr, ptr %2, align 8, !tbaa !16
   %.not27.i.i = icmp eq ptr %37, null
-  br i1 %.not27.i.i, label %common.ret79, label %.lr.ph41, !llvm.loop !20
+  br i1 %.not27.i.i, label %common.ret79, label %.lr.ph41
 
 _parse_expression.exit:                           ; preds = %25
   %.not26.i = icmp eq i32 %27, 10
@@ -567,8 +567,3 @@ attributes #6 = { nounwind allocsize(0) }
 !17 = !{!18, !19, i64 0}
 !18 = !{!"token_t", !19, i64 0, !7, i64 8}
 !19 = !{!"int", !7, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}

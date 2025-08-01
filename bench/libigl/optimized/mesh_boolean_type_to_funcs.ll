@@ -442,7 +442,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 7:                                                ; preds = %6, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %6 ]
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
-  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %6
 
@@ -489,8 +489,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE9_M_invokeERKSt9_Any_dataOiSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat align 2 {
-  %4 = load i32, ptr %1, align 4, !tbaa !20
-  %5 = load i32, ptr %2, align 4, !tbaa !20
+  %4 = load i32, ptr %1, align 4, !tbaa !19
+  %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp sgt i32 %5, 0
   %7 = icmp slt i32 %4, 1
   %or.cond.i.i.i = and i1 %7, %6
@@ -535,12 +535,12 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 6:                                                ; preds = %7
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %4
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7, !llvm.loop !21
 
 7:                                                ; preds = %6, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %6 ]
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
-  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %6
 
@@ -579,16 +579,16 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 1, %2 ]
   %6 = getelementptr inbounds nuw i32, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = icmp slt i32 %7, 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i, %4
   %or.cond.not = select i1 %8, i1 %exitcond.not.i.i.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE2EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, !llvm.loop !23
+  br i1 %or.cond.not, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE2EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, !llvm.loop !22
 
 _ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE2EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %.lr.ph.i.i.i, %2
   %.lcssa.i.i.i = phi i1 [ true, %2 ], [ %8, %.lr.ph.i.i.i ]
-  %9 = load i32, ptr %.pre.i.i.i, align 4, !tbaa !20
+  %9 = load i32, ptr %.pre.i.i.i, align 4, !tbaa !19
   %10 = icmp sgt i32 %9, 0
   %11 = and i1 %.lcssa.i.i.i, %10
   %12 = zext i1 %11 to i32
@@ -633,13 +633,13 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %8 ]
   %.068.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %8 ]
   %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
-  %10 = load i32, ptr %9, align 4, !tbaa !20
+  %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = icmp sgt i32 %10, 0
   %12 = zext i1 %11 to i32
   %spec.select.i.i.i = add nuw nsw i32 %.068.i.i.i, %12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %4
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %8, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %8, !llvm.loop !23
 
 _ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE3EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %2, %._crit_edge.loopexit.i.i.i
   %.06.lcssa.i.i.i = phi i32 [ 0, %2 ], [ %7, %._crit_edge.loopexit.i.i.i ]
@@ -742,11 +742,10 @@ attributes #8 = { noreturn nounwind }
 !14 = !{!"p1 int", !11, i64 0}
 !15 = !{!"long", !6, i64 0}
 !16 = !{!13, !14, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !6, i64 0}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18, !19}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !6, i64 0}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}

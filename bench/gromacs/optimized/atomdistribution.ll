@@ -282,7 +282,6 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %104, %101, %78
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %110, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit, %76
   %.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit ], [ %.pn, %110 ]
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
   br label %116
 
 116:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -294,47 +293,48 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %110, %_ZNSt6vectorI
   br i1 %.not.i.i.i.i40, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %118
 
 118:                                              ; preds = %116
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %119 = load ptr, ptr %gep, align 8, !tbaa !31
-  %120 = ptrtoint ptr %119 to i64
-  %121 = ptrtoint ptr %117 to i64
-  %122 = sub i64 %120, %121
-  tail call void @_ZdlPvm(ptr noundef nonnull %117, i64 noundef %122) #11
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %119 = getelementptr inbounds i8, ptr %.ptr, i64 -8
+  %120 = load ptr, ptr %119, align 8, !tbaa !30
+  %121 = ptrtoint ptr %120 to i64
+  %122 = ptrtoint ptr %117 to i64
+  %123 = sub i64 %121, %122
+  tail call void @_ZdlPvm(ptr noundef nonnull %117, i64 noundef %123) #11
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %118, %116
-  %123 = icmp eq i64 %.add, 48
-  br i1 %123, label %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit, label %116, !llvm.loop !32
+  %124 = icmp eq i64 %.add, 48
+  br i1 %124, label %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit, label %116
 
 _ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit:      ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  %124 = load ptr, ptr %20, align 8, !tbaa !14
-  %.not.i.i.i41 = icmp eq ptr %124, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIiSaIiEED2Ev.exit42, label %125
+  %125 = load ptr, ptr %20, align 8, !tbaa !14
+  %.not.i.i.i41 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i41, label %_ZNSt6vectorIiSaIiEED2Ev.exit42, label %126
 
-125:                                              ; preds = %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %127 = load ptr, ptr %126, align 8, !tbaa !17
-  %128 = ptrtoint ptr %127 to i64
-  %129 = ptrtoint ptr %124 to i64
-  %130 = sub i64 %128, %129
-  tail call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %130) #11
+126:                                              ; preds = %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %128 = load ptr, ptr %127, align 8, !tbaa !17
+  %129 = ptrtoint ptr %128 to i64
+  %130 = ptrtoint ptr %125 to i64
+  %131 = sub i64 %129, %130
+  tail call void @_ZdlPvm(ptr noundef nonnull %125, i64 noundef %131) #11
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit42
 
-_ZNSt6vectorIiSaIiEED2Ev.exit42:                  ; preds = %125, %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit, %74
-  %.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %.pn.pn, %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit ], [ %.pn.pn, %125 ]
-  %131 = load ptr, ptr %0, align 8, !tbaa !8
-  %.not.i.i.i43 = icmp eq ptr %131, null
-  br i1 %.not.i.i.i43, label %_ZNSt6vectorIN16AtomDistribution16DomainAtomGroupsESaIS1_EED2Ev.exit, label %132
+_ZNSt6vectorIiSaIiEED2Ev.exit42:                  ; preds = %126, %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit, %74
+  %.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %.pn.pn, %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit ], [ %.pn.pn, %126 ]
+  %132 = load ptr, ptr %0, align 8, !tbaa !8
+  %.not.i.i.i43 = icmp eq ptr %132, null
+  br i1 %.not.i.i.i43, label %_ZNSt6vectorIN16AtomDistribution16DomainAtomGroupsESaIS1_EED2Ev.exit, label %133
 
-132:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit42
-  %133 = load ptr, ptr %19, align 8, !tbaa !12
-  %134 = ptrtoint ptr %133 to i64
-  %135 = ptrtoint ptr %131 to i64
-  %136 = sub i64 %134, %135
-  tail call void @_ZdlPvm(ptr noundef nonnull %131, i64 noundef %136) #11
+133:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit42
+  %134 = load ptr, ptr %19, align 8, !tbaa !12
+  %135 = ptrtoint ptr %134 to i64
+  %136 = ptrtoint ptr %132 to i64
+  %137 = sub i64 %135, %136
+  tail call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef %137) #11
   br label %_ZNSt6vectorIN16AtomDistribution16DomainAtomGroupsESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN16AtomDistribution16DomainAtomGroupsESaIS1_EED2Ev.exit: ; preds = %132, %_ZNSt6vectorIiSaIiEED2Ev.exit42
+_ZNSt6vectorIN16AtomDistribution16DomainAtomGroupsESaIS1_EED2Ev.exit: ; preds = %133, %_ZNSt6vectorIiSaIiEED2Ev.exit42
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -366,7 +366,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !31
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -379,7 +379,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not28, label %26, label %19
 
 19:                                               ; preds = %3
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !33
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !31
   %20 = getelementptr i8, ptr %5, i64 4
   %21 = add i64 %1, -1
   %22 = icmp eq i64 %21, 0
@@ -388,7 +388,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %23 = shl i64 %1, 2
   %24 = add i64 %23, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !31
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
@@ -413,7 +413,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %26
   %31 = shl nuw nsw i64 %30, 2
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
-  store float 0.000000e+00, ptr %33, align 4, !tbaa !33
+  store float 0.000000e+00, ptr %33, align 4, !tbaa !31
   %34 = icmp eq i64 %1, 1
   br i1 %34, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30
 
@@ -421,7 +421,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIf
   %35 = getelementptr i8, ptr %33, i64 4
   %36 = shl nuw nsw i64 %1, 2
   %37 = add nsw i64 %36, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !31
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit33: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit
@@ -446,7 +446,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIf
   %42 = getelementptr inbounds nuw float, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw float, ptr %32, i64 %30
-  store ptr %43, ptr %11, align 8, !tbaa !31
+  store ptr %43, ptr %11, align 8, !tbaa !30
   br label %44
 
 44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36, %2
@@ -492,7 +492,7 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
 19:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %20 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %17, i64 %indvars.iv, i32 1
-  %21 = load i32, ptr %20, align 8, !tbaa !35
+  %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !4
   %23 = icmp eq i64 %indvars.iv, 0
@@ -513,7 +513,7 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
   store i32 %32, ptr %33, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !37
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -568,15 +568,13 @@ attributes #11 = { builtin nounwind }
 !25 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !26, i64 0, !26, i64 8, !26, i64 16}
 !26 = !{!"p1 float", !11, i64 0}
 !27 = !{!25, !26, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!25, !26, i64 16}
-!32 = distinct !{!32, !30}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"float", !6, i64 0}
-!35 = !{!36, !5, i64 16}
-!36 = !{!"_ZTSN16AtomDistribution16DomainAtomGroupsE", !37, i64 0, !5, i64 16}
-!37 = !{!"_ZTSN3gmx8ArrayRefIKiEE", !38, i64 0, !38, i64 8}
-!38 = !{!"_ZTSN3gmx12ArrayRefIterIKiEE", !16, i64 0}
-!39 = distinct !{!39, !29, !30}
+!30 = !{!25, !26, i64 16}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"float", !6, i64 0}
+!33 = !{!34, !5, i64 16}
+!34 = !{!"_ZTSN16AtomDistribution16DomainAtomGroupsE", !35, i64 0, !5, i64 16}
+!35 = !{!"_ZTSN3gmx8ArrayRefIKiEE", !36, i64 0, !36, i64 8}
+!36 = !{!"_ZTSN3gmx12ArrayRefIterIKiEE", !16, i64 0}
+!37 = distinct !{!37, !29}

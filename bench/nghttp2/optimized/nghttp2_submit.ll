@@ -609,19 +609,19 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %.173 = phi i64 [ 0, %22 ], [ %34, %25 ]
   %.06372 = phi ptr [ %24, %22 ], [ %33, %25 ]
   %26 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %20, i64 %.173
-  store ptr %.06372, ptr %26, align 8, !tbaa !53
+  store ptr %.06372, ptr %26, align 8, !tbaa !52
   %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.173
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %29, ptr %30, align 8, !tbaa !48
-  %31 = load ptr, ptr %27, align 8, !tbaa !53
+  %31 = load ptr, ptr %27, align 8, !tbaa !52
   %32 = tail call ptr @nghttp2_cpymem(ptr noundef %.06372, ptr noundef %31, i64 noundef %29) #8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 0, ptr %32, align 1, !tbaa !7
   %34 = add nuw i64 %.173, 1
   %exitcond75.not = icmp eq i64 %34, %3
-  br i1 %exitcond75.not, label %35, label %25, !llvm.loop !54
+  br i1 %exitcond75.not, label %35, label %25, !llvm.loop !53
 
 35:                                               ; preds = %25
   %36 = ptrtoint ptr %33 to i64
@@ -683,7 +683,7 @@ define i32 @nghttp2_submit_priority_update(ptr noundef %0, i8 noundef zeroext %1
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2624
-  %11 = load i32, ptr %10, align 4, !tbaa !55
+  %11 = load i32, ptr %10, align 4, !tbaa !54
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %34, label %13
 
@@ -910,9 +910,9 @@ define hidden i32 @nghttp2_submit_data_shared(ptr noundef %0, i8 noundef zeroext
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 121
-  store i8 0, ptr %13, align 1, !tbaa !56
+  store i8 0, ptr %13, align 1, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i8 %5, ptr %14, align 8, !tbaa !59
+  store i8 %5, ptr %14, align 8, !tbaa !58
   tail call void @nghttp2_frame_data_init(ptr noundef nonnull %9, i8 noundef zeroext 0, i32 noundef %2) #8
   %15 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %9) #8
   %.not = icmp eq i32 %15, 0
@@ -963,9 +963,9 @@ define i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 nound
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 121
-  store i8 0, ptr %17, align 1, !tbaa !56
+  store i8 0, ptr %17, align 1, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store i8 %9, ptr %18, align 8, !tbaa !59
+  store i8 %9, ptr %18, align 8, !tbaa !58
   call void @nghttp2_frame_data_init(ptr noundef nonnull %13, i8 noundef zeroext 0, i32 noundef %2) #8
   %19 = call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %13) #8
   %.not.i = icmp eq i32 %19, 0
@@ -1010,9 +1010,9 @@ define i32 @nghttp2_submit_data2(ptr noundef %0, i8 noundef zeroext %1, i32 noun
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 121
-  store i8 0, ptr %17, align 1, !tbaa !56
+  store i8 0, ptr %17, align 1, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store i8 %9, ptr %18, align 8, !tbaa !59
+  store i8 %9, ptr %18, align 8, !tbaa !58
   call void @nghttp2_frame_data_init(ptr noundef nonnull %13, i8 noundef zeroext 0, i32 noundef %2) #8
   %19 = call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %13) #8
   %.not.i = icmp eq i32 %19, 0
@@ -1081,13 +1081,13 @@ define i32 @nghttp2_submit_extension(ptr noundef %0, i8 noundef zeroext %1, i8 n
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %10 = load ptr, ptr %9, align 8, !tbaa !60
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2296
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %.not22 = icmp eq ptr %13, null
   br i1 %.not22, label %20, label %14
 
@@ -1189,15 +1189,14 @@ attributes #9 = { noreturn nounwind }
 !47 = !{!43, !10, i64 100}
 !48 = !{!49, !15, i64 8}
 !49 = !{!"", !23, i64 0, !15, i64 8}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!49, !23, i64 0}
-!54 = distinct !{!54, !51, !52}
-!55 = !{!12, !10, i64 2624}
-!56 = !{!57, !5, i64 25}
-!57 = !{!"", !58, i64 0, !5, i64 24, !5, i64 25, !5, i64 26}
-!58 = !{!"nghttp2_data_provider_wrap", !10, i64 0, !5, i64 8}
-!59 = !{!57, !5, i64 24}
-!60 = !{!12, !4, i64 2304}
-!61 = !{!12, !4, i64 2296}
+!52 = !{!49, !23, i64 0}
+!53 = distinct !{!53, !51}
+!54 = !{!12, !10, i64 2624}
+!55 = !{!56, !5, i64 25}
+!56 = !{!"", !57, i64 0, !5, i64 24, !5, i64 25, !5, i64 26}
+!57 = !{!"nghttp2_data_provider_wrap", !10, i64 0, !5, i64 8}
+!58 = !{!56, !5, i64 24}
+!59 = !{!12, !4, i64 2304}
+!60 = !{!12, !4, i64 2296}

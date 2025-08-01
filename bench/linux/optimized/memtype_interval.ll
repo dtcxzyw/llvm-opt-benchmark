@@ -172,7 +172,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
 
 .preheader46.backedge:                            ; preds = %89, %73
   %.pn35.be = phi ptr [ %71, %73 ], [ %87, %89 ]
-  br label %.preheader46, !llvm.loop !8
+  br label %.preheader46, !llvm.loop !5
 
 .thread25:                                        ; preds = %.thread25.preheader, %98
   %93 = phi ptr [ %100, %98 ], [ %63, %.thread25.preheader ]
@@ -188,7 +188,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %94, %102
-  br i1 %103, label %.thread25, label %104, !llvm.loop !9
+  br i1 %103, label %.thread25, label %104, !llvm.loop !7
 
 104:                                              ; preds = %98
   %105 = load i64, ptr %100, align 8
@@ -200,7 +200,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, -1
   %111 = icmp ult i64 %110, %3
-  br i1 %111, label %61, label %.loopexit47, !llvm.loop !11
+  br i1 %111, label %61, label %.loopexit47, !llvm.loop !9
 
 .loopexit47:                                      ; preds = %107, %80
   %112 = phi ptr [ %69, %80 ], [ %100, %107 ]
@@ -274,7 +274,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
 
 .preheader40.backedge:                            ; preds = %149, %133
   %.pn37.be = phi ptr [ %131, %133 ], [ %147, %149 ]
-  br label %.preheader40, !llvm.loop !12
+  br label %.preheader40, !llvm.loop !5
 
 .thread28:                                        ; preds = %.thread28.preheader, %158
   %153 = phi ptr [ %160, %158 ], [ %123, %.thread28.preheader ]
@@ -290,7 +290,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %154, %162
-  br i1 %163, label %.thread28, label %164, !llvm.loop !13
+  br i1 %163, label %.thread28, label %164, !llvm.loop !7
 
 164:                                              ; preds = %158
   %165 = load i64, ptr %160, align 8
@@ -302,12 +302,12 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %169, -1
   %171 = icmp ult i64 %170, %3
-  br i1 %171, label %121, label %.loopexit, !llvm.loop !14
+  br i1 %171, label %121, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %167, %140
   %172 = phi ptr [ %129, %140 ], [ %160, %167 ]
   %173 = icmp eq ptr %172, null
-  br i1 %173, label %.thread, label %.preheader43, !llvm.loop !15
+  br i1 %173, label %.thread, label %.preheader43, !llvm.loop !10
 
 .thread:                                          ; preds = %28, %40, %36, %104, %.thread25, %77, %89, %85, %.loopexit, %164, %137, %149, %145, %.thread28, %15, %11, %2, %.loopexit47, %44
   %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %.thread28 ], [ %58, %145 ], [ %58, %149 ], [ %58, %137 ], [ %58, %164 ], [ %58, %.loopexit ], [ %58, %85 ], [ %58, %89 ], [ %58, %77 ], [ %58, %.thread25 ], [ %58, %104 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
@@ -317,7 +317,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
 .loopexit44:                                      ; preds = %.preheader43, %46
   %176 = phi i32 [ %7, %46 ], [ %58, %.preheader43 ]
   %177 = phi ptr [ %20, %46 ], [ %114, %.preheader43 ]
-  %178 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !16
+  %178 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !11
   %179 = inttoptr i64 %178 to ptr
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 1800
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 1320
@@ -427,7 +427,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %222 = getelementptr inbounds nuw i8, ptr %210, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = icmp eq ptr %223, null
-  br i1 %224, label %225, label %.preheader, !llvm.loop !17
+  br i1 %224, label %225, label %.preheader, !llvm.loop !12
 
 225:                                              ; preds = %217
   %226 = getelementptr inbounds nuw i8, ptr %210, i64 %221
@@ -574,7 +574,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %.preheader.i, !llvm.loop !18
+  br i1 %71, label %72, label %.preheader.i, !llvm.loop !13
 
 72:                                               ; preds = %.preheader.i
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -636,7 +636,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %111 = and i64 %110, -4
   %112 = inttoptr i64 %111 to ptr
   %113 = icmp eq ptr %67, %112
-  br i1 %113, label %.critedge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %113, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %109, %104, %72, %61
   %.pre-phi.i = phi i64 [ %78, %72 ], [ %.pre.i, %61 ], [ %78, %104 ], [ %78, %109 ]
@@ -786,7 +786,7 @@ interval_remove.exit:                             ; preds = %.thread.i, %180
   %200 = getelementptr inbounds nuw i8, ptr %188, i64 %199
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %203, label %.preheader, !llvm.loop !20
+  br i1 %202, label %203, label %.preheader, !llvm.loop !12
 
 203:                                              ; preds = %195
   %204 = getelementptr inbounds nuw i8, ptr %188, i64 %199
@@ -872,7 +872,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
 
 .preheader25.backedge:                            ; preds = %36, %20
   %.pn20.be = phi ptr [ %18, %20 ], [ %34, %36 ]
-  br label %.preheader25, !llvm.loop !21
+  br label %.preheader25, !llvm.loop !5
 
 40:                                               ; preds = %27
   %41 = icmp eq ptr %16, null
@@ -971,7 +971,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
 
 .preheader.backedge:                              ; preds = %93, %77
   %.pn18.be = phi ptr [ %75, %77 ], [ %91, %93 ]
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader, !llvm.loop !5
 
 .thread15:                                        ; preds = %.thread15.preheader, %102
   %97 = phi ptr [ %104, %102 ], [ %67, %.thread15.preheader ]
@@ -987,7 +987,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %98, %106
-  br i1 %107, label %.thread15, label %108, !llvm.loop !23
+  br i1 %107, label %.thread15, label %108, !llvm.loop !7
 
 108:                                              ; preds = %102
   %109 = load i64, ptr %104, align 8
@@ -999,12 +999,12 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   %113 = load i64, ptr %112, align 8
   %114 = add i64 %113, -1
   %115 = icmp ult i64 %114, %0
-  br i1 %115, label %65, label %.loopexit, !llvm.loop !24
+  br i1 %115, label %65, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %111, %84
   %116 = phi ptr [ %73, %84 ], [ %104, %111 ]
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %.thread, label %45, !llvm.loop !25
+  br i1 %117, label %.thread, label %45, !llvm.loop !14
 
 .thread:                                          ; preds = %24, %36, %32, %.loopexit, %59, %52, %45, %108, %81, %93, %89, %.thread15, %11, %7, %3, %40
   %118 = phi ptr [ null, %40 ], [ null, %3 ], [ null, %7 ], [ null, %11 ], [ null, %.thread15 ], [ null, %89 ], [ null, %93 ], [ null, %81 ], [ null, %108 ], [ null, %45 ], [ null, %.loopexit ], [ %46, %59 ], [ %46, %52 ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
@@ -1071,7 +1071,7 @@ define dso_local noundef ptr @memtype_lookup(i64 noundef %0) local_unnamed_addr 
 
 .preheader.backedge:                              ; preds = %34, %18
   %.pn5.be = phi ptr [ %16, %18 ], [ %32, %34 ]
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %34, %30, %25, %22, %9, %5, %1
   %38 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %9 ], [ null, %22 ], [ null, %34 ], [ null, %30 ], [ %14, %25 ]
@@ -1089,7 +1089,7 @@ define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nound
   %6 = getelementptr i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.preheader10, !llvm.loop !27
+  br i1 %8, label %9, label %.preheader10, !llvm.loop !5
 
 9:                                                ; preds = %.preheader10
   %10 = getelementptr i8, ptr %5, i64 -32
@@ -1111,7 +1111,7 @@ define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nound
   %20 = getelementptr i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %.preheader7, !llvm.loop !28
+  br i1 %22, label %23, label %.preheader7, !llvm.loop !5
 
 23:                                               ; preds = %.preheader7
   %24 = getelementptr i8, ptr %19, i64 -32
@@ -1131,7 +1131,7 @@ define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nound
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %26, %34
-  br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %30, %23
   %36 = phi ptr [ %24, %23 ], [ %32, %30 ]
@@ -1140,7 +1140,7 @@ define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nound
   %39 = sext i32 %37 to i64
   %40 = icmp ne i64 %1, %39
   %41 = select i1 %38, i1 %40, i1 false
-  br i1 %41, label %.preheader8, label %.loopexit9, !llvm.loop !30
+  br i1 %41, label %.preheader8, label %.loopexit9, !llvm.loop !15
 
 .loopexit9:                                       ; preds = %.loopexit, %9
   %42 = phi ptr [ %10, %9 ], [ %36, %.loopexit ]
@@ -1236,29 +1236,14 @@ attributes #11 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.unroll.disable"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !10, !6, !7}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !10, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !10, !6, !7}
-!16 = !{i64 2147977222}
-!17 = distinct !{!17, !10, !6, !7}
-!18 = distinct !{!18, !10, !6, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !10, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !10, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !10, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !10, !6, !7}
-!30 = distinct !{!30, !10, !6, !7}
+!7 = distinct !{!7, !8, !6}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !8, !6}
+!11 = !{i64 2147977222}
+!12 = distinct !{!12, !8, !6}
+!13 = distinct !{!13, !8, !6}
+!14 = distinct !{!14, !8, !6}
+!15 = distinct !{!15, !8, !6}

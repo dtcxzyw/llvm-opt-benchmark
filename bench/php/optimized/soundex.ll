@@ -125,15 +125,15 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %50 = icmp ult i64 %49, %16
   %51 = icmp samesign ult i64 %.2, 4
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %.lr.ph, label %.preheader, !llvm.loop !18
+  br i1 %52, label %.lr.ph, label %.preheader
 
 ._crit_edge:                                      ; preds = %.preheader, %.lr.ph112.preheader
   %53 = call noalias ptr @_emalloc_32() #5
-  store i32 1, ptr %53, align 4, !tbaa !20
+  store i32 1, ptr %53, align 4, !tbaa !18
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 22, ptr %54, align 4, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 0, ptr %55, align 8, !tbaa !21
+  store i64 0, ptr %55, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 4, ptr %56, align 8, !tbaa !9
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -199,7 +199,5 @@ attributes #6 = { nounwind willreturn memory(none) }
 !15 = !{!"p1 int", !16, i64 0}
 !16 = !{!"any pointer", !5, i64 0}
 !17 = !{!12, !12, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!11, !12, i64 0}
-!21 = !{!10, !13, i64 8}
+!18 = !{!11, !12, i64 0}
+!19 = !{!10, !13, i64 8}

@@ -391,7 +391,7 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly c
 46:                                               ; preds = %45
   %47 = load i8, ptr %.5, align 1
   %.not37 = icmp eq i8 %47, 32
-  br i1 %.not37, label %45, label %48, !llvm.loop !9
+  br i1 %.not37, label %45, label %48, !llvm.loop !8
 
 48:                                               ; preds = %46
   store i8 0, ptr %.029.pn, align 1
@@ -506,7 +506,7 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
 48:                                               ; preds = %47
   %49 = load i8, ptr %.5.i, align 1
   %.not37.i = icmp eq i8 %49, 32
-  br i1 %.not37.i, label %47, label %50, !llvm.loop !9
+  br i1 %.not37.i, label %47, label %50, !llvm.loop !8
 
 50:                                               ; preds = %48
   store i8 0, ptr %.029.pn.i, align 1
@@ -629,7 +629,7 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
 49:                                               ; preds = %48
   %50 = load i8, ptr %.5.i.i, align 1
   %.not37.i.i = icmp eq i8 %50, 32
-  br i1 %.not37.i.i, label %48, label %51, !llvm.loop !9
+  br i1 %.not37.i.i, label %48, label %51, !llvm.loop !8
 
 51:                                               ; preds = %49
   store i8 0, ptr %.029.pn.i.i, align 1
@@ -839,7 +839,7 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
 68:                                               ; preds = %67
   %69 = load i8, ptr %.5.i.i, align 1
   %.not37.i.i = icmp eq i8 %69, 32
-  br i1 %.not37.i.i, label %67, label %70, !llvm.loop !9
+  br i1 %.not37.i.i, label %67, label %70, !llvm.loop !8
 
 70:                                               ; preds = %68
   store i8 0, ptr %.029.pn.i.i, align 1
@@ -949,7 +949,7 @@ get_netbios_name.exit:                            ; preds = %67, %70
 118:                                              ; preds = %117
   %119 = load i8, ptr %.5.i.i120, align 1
   %.not37.i.i122 = icmp eq i8 %119, 32
-  br i1 %.not37.i.i122, label %117, label %120, !llvm.loop !9
+  br i1 %.not37.i.i122, label %117, label %120, !llvm.loop !8
 
 120:                                              ; preds = %118
   store i8 0, ptr %.029.pn.i.i119, align 1
@@ -1000,7 +1000,7 @@ get_netbios_name.exit123:                         ; preds = %117, %120
   %148 = zext i16 %17 to i32
   %149 = add nuw nsw i32 %.0, %148
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %151 = load i8, ptr %150, align 8, !range !10, !noundef !11
+  %151 = load i8, ptr %150, align 8, !range !9, !noundef !10
   switch i8 %20, label %188 [
     i8 8, label %152
     i8 9, label %152
@@ -1025,7 +1025,7 @@ dissect_netbios_payload.exit:                     ; preds = %152, %156
 
 158:                                              ; preds = %143, %143
   %159 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %149)
-  %160 = load i8, ptr @netbios_defragment, align 1, !range !10, !noundef !11
+  %160 = load i8, ptr @netbios_defragment, align 1, !range !9, !noundef !10
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %162, label %178
 
@@ -1794,9 +1794,8 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}

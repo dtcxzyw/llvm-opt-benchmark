@@ -225,10 +225,10 @@ define hidden void @RSA_free(ptr noundef %0) local_unnamed_addr #0 {
   %48 = load ptr, ptr %47, align 8, !tbaa !45
   tail call void @free(ptr noundef %48) #10
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %50 = load ptr, ptr %49, align 8, !tbaa !51
+  %50 = load ptr, ptr %49, align 8, !tbaa !50
   tail call void @free(ptr noundef %50) #10
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %52 = load ptr, ptr %51, align 8, !tbaa !52
+  %52 = load ptr, ptr %51, align 8, !tbaa !51
   %.not33 = icmp eq ptr %52, null
   br i1 %.not33, label %54, label %53
 
@@ -265,7 +265,7 @@ declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #3
 define hidden i32 @RSA_generate_key_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %6, align 8, !tbaa !52
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -288,7 +288,7 @@ declare i32 @rsa_default_keygen(ptr noundef, i32 noundef, ptr noundef, ptr nound
 define hidden i32 @RSA_generate_multi_prime_key(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
@@ -311,7 +311,7 @@ declare i32 @rsa_default_multi_prime_keygen(ptr noundef, i32 noundef, i32 nounde
 define hidden i32 @RSA_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !55
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
@@ -336,7 +336,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_public_encrypt(i64 noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %12, label %10
 
@@ -353,7 +353,7 @@ RSA_size.exit:                                    ; preds = %10, %12
   %14 = and i64 %.0.in.i, 4294967295
   %15 = load ptr, ptr %3, align 8, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load ptr, ptr %16, align 8, !tbaa !55
+  %17 = load ptr, ptr %16, align 8, !tbaa !54
   %.not.i7 = icmp eq ptr %17, null
   br i1 %.not.i7, label %20, label %18
 
@@ -371,7 +371,7 @@ RSA_encrypt.exit:                                 ; preds = %18, %20
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %RSA_encrypt.exit
-  %23 = load i64, ptr %6, align 8, !tbaa !57
+  %23 = load i64, ptr %6, align 8, !tbaa !56
   %24 = icmp ugt i64 %23, 2147483647
   br i1 %24, label %25, label %26
 
@@ -393,7 +393,7 @@ RSA_encrypt.exit:                                 ; preds = %18, %20
 define hidden i32 @RSA_size(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -415,7 +415,7 @@ define hidden i32 @RSA_size(ptr noundef %0) local_unnamed_addr #0 {
 define hidden i32 @RSA_sign_raw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
@@ -440,7 +440,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_private_encrypt(i64 noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %12, label %10
 
@@ -457,7 +457,7 @@ RSA_size.exit:                                    ; preds = %10, %12
   %14 = and i64 %.0.in.i, 4294967295
   %15 = load ptr, ptr %3, align 8, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !59
+  %17 = load ptr, ptr %16, align 8, !tbaa !58
   %.not.i7 = icmp eq ptr %17, null
   br i1 %.not.i7, label %20, label %18
 
@@ -475,7 +475,7 @@ RSA_sign_raw.exit:                                ; preds = %18, %20
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %RSA_sign_raw.exit
-  %23 = load i64, ptr %6, align 8, !tbaa !57
+  %23 = load i64, ptr %6, align 8, !tbaa !56
   %24 = icmp ugt i64 %23, 2147483647
   br i1 %24, label %25, label %26
 
@@ -497,7 +497,7 @@ RSA_sign_raw.exit:                                ; preds = %18, %20
 define hidden i32 @RSA_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !60
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
@@ -522,7 +522,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_private_decrypt(i64 noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %12, label %10
 
@@ -539,7 +539,7 @@ RSA_size.exit:                                    ; preds = %10, %12
   %14 = and i64 %.0.in.i, 4294967295
   %15 = load ptr, ptr %3, align 8, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !60
+  %17 = load ptr, ptr %16, align 8, !tbaa !59
   %.not.i7 = icmp eq ptr %17, null
   br i1 %.not.i7, label %20, label %18
 
@@ -557,7 +557,7 @@ RSA_decrypt.exit:                                 ; preds = %18, %20
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %RSA_decrypt.exit
-  %23 = load i64, ptr %6, align 8, !tbaa !57
+  %23 = load i64, ptr %6, align 8, !tbaa !56
   %24 = icmp ugt i64 %23, 2147483647
   br i1 %24, label %25, label %26
 
@@ -581,7 +581,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_public_decrypt(i64 noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %12, label %10
 
@@ -601,7 +601,7 @@ RSA_size.exit:                                    ; preds = %10, %12
   br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %RSA_size.exit
-  %17 = load i64, ptr %6, align 8, !tbaa !57
+  %17 = load i64, ptr %6, align 8, !tbaa !56
   %18 = icmp ugt i64 %17, 2147483647
   br i1 %18, label %19, label %20
 
@@ -648,7 +648,7 @@ define hidden i32 @RSA_supports_digest(ptr noundef %0, ptr noundef %1) local_unn
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %6 = load ptr, ptr %5, align 8, !tbaa !61
+  %6 = load ptr, ptr %5, align 8, !tbaa !60
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %9, label %7
 
@@ -709,28 +709,28 @@ define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly ca
   br label %.thread
 
 9:                                                ; preds = %7
-  store ptr %4, ptr %0, align 8, !tbaa !62
-  store i64 36, ptr %1, align 8, !tbaa !57
-  store i32 0, ptr %2, align 4, !tbaa !63
+  store ptr %4, ptr %0, align 8, !tbaa !61
+  store i64 36, ptr %1, align 8, !tbaa !56
+  store i32 0, ptr %2, align 4, !tbaa !62
   br label %.thread
 
 .lr.ph:                                           ; preds = %6, %.preheader
   %indvars.iv50 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv50, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %27, label %.preheader, !llvm.loop !64
+  br i1 %exitcond, label %27, label %.preheader, !llvm.loop !63
 
 .preheader:                                       ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 8, !tbaa !65
+  %11 = load i32, ptr %10, align 8, !tbaa !64
   %.not39.not = icmp eq i32 %11, %3
-  br i1 %.not39.not, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not39.not, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !63
 
 .preheader._crit_edge:                            ; preds = %.preheader, %6
   %.lcssa = phi ptr [ @kPKCS1SigPrefixes, %6 ], [ %10, %.preheader ]
   %12 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 5
   %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
-  %14 = load i8, ptr %13, align 4, !tbaa !67
+  %14 = load i8, ptr %13, align 4, !tbaa !66
   %15 = zext i8 %14 to i32
   %16 = zext i8 %14 to i64
   %17 = add i64 %5, %16
@@ -756,9 +756,9 @@ define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly ca
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %12, i64 %16, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %4, i64 %5, i1 false)
-  store ptr %23, ptr %0, align 8, !tbaa !62
-  store i64 %22, ptr %1, align 8, !tbaa !57
-  store i32 1, ptr %2, align 4, !tbaa !63
+  store ptr %23, ptr %0, align 8, !tbaa !61
+  store i64 %22, ptr %1, align 8, !tbaa !56
+  store i32 1, ptr %2, align 4, !tbaa !62
   br label %.thread
 
 27:                                               ; preds = %.lr.ph
@@ -781,7 +781,7 @@ define hidden i32 @RSA_sign(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   %10 = alloca i64, align 8
   %11 = load ptr, ptr %5, align 8, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %13 = load ptr, ptr %12, align 8, !tbaa !55
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %16, label %14
 
@@ -799,11 +799,11 @@ RSA_size.exit:                                    ; preds = %14, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
-  store i32 0, ptr %9, align 4, !tbaa !63
+  store i32 0, ptr %9, align 4, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
   %18 = load ptr, ptr %5, align 8, !tbaa !6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !68
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %23, label %21
 
@@ -822,7 +822,7 @@ RSA_size.exit:                                    ; preds = %14, %16
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %26
-  %29 = load i64, ptr %8, align 8, !tbaa !57
+  %29 = load i64, ptr %8, align 8, !tbaa !56
   %30 = add i64 %.0.in.i, 4294967285
   %31 = and i64 %30, 4294967295
   %32 = icmp ugt i64 %29, %31
@@ -834,10 +834,10 @@ RSA_size.exit:                                    ; preds = %14, %16
 
 34:                                               ; preds = %28
   %35 = and i64 %.0.in.i, 4294967295
-  %36 = load ptr, ptr %7, align 8, !tbaa !62
+  %36 = load ptr, ptr %7, align 8, !tbaa !61
   %37 = load ptr, ptr %5, align 8, !tbaa !6
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %39 = load ptr, ptr %38, align 8, !tbaa !59
+  %39 = load ptr, ptr %38, align 8, !tbaa !58
   %.not.i26 = icmp eq ptr %39, null
   br i1 %.not.i26, label %42, label %40
 
@@ -855,19 +855,19 @@ RSA_sign_raw.exit:                                ; preds = %40, %42
   br i1 %.not24, label %47, label %44
 
 44:                                               ; preds = %RSA_sign_raw.exit
-  %45 = load i64, ptr %10, align 8, !tbaa !57
+  %45 = load i64, ptr %10, align 8, !tbaa !56
   %46 = trunc i64 %45 to i32
-  store i32 %46, ptr %4, align 4, !tbaa !63
+  store i32 %46, ptr %4, align 4, !tbaa !62
   br label %47
 
 47:                                               ; preds = %RSA_sign_raw.exit, %44, %33
   %.0 = phi i32 [ 0, %33 ], [ 1, %44 ], [ 0, %RSA_sign_raw.exit ]
-  %48 = load i32, ptr %9, align 4, !tbaa !63
+  %48 = load i32, ptr %9, align 4, !tbaa !62
   %.not25 = icmp eq i32 %48, 0
   br i1 %.not25, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr %7, align 8, !tbaa !62
+  %50 = load ptr, ptr %7, align 8, !tbaa !61
   call void @free(ptr noundef %50) #10
   br label %51
 
@@ -904,7 +904,7 @@ define hidden range(i32 0, 2) i32 @RSA_verify(i32 noundef %0, ptr noundef %1, i6
 19:                                               ; preds = %14
   %20 = load ptr, ptr %5, align 8, !tbaa !6
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
+  %22 = load ptr, ptr %21, align 8, !tbaa !55
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %25, label %23
 
@@ -920,11 +920,11 @@ RSA_size.exit:                                    ; preds = %23, %25
   %.0.in.i = phi i64 [ %24, %23 ], [ %26, %25 ]
   %27 = and i64 %.0.in.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr null, ptr %7, align 8, !tbaa !62
+  store ptr null, ptr %7, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
-  store i32 0, ptr %10, align 4, !tbaa !63
+  store i32 0, ptr %10, align 4, !tbaa !62
   %28 = icmp eq i32 %0, 114
   %29 = icmp ne i64 %2, 36
   %or.cond = and i1 %28, %29
@@ -954,13 +954,13 @@ RSA_size.exit:                                    ; preds = %23, %25
   br i1 %.not23, label %44, label %38
 
 38:                                               ; preds = %36
-  %39 = load i64, ptr %9, align 8, !tbaa !57
-  %40 = load i64, ptr %8, align 8, !tbaa !57
+  %39 = load i64, ptr %9, align 8, !tbaa !56
+  %40 = load i64, ptr %8, align 8, !tbaa !56
   %.not24 = icmp eq i64 %39, %40
   br i1 %.not24, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %7, align 8, !tbaa !62
+  %42 = load ptr, ptr %7, align 8, !tbaa !61
   %bcmp = call i32 @bcmp(ptr nonnull %32, ptr %42, i64 %39)
   %.not25 = icmp eq i32 %bcmp, 0
   br i1 %.not25, label %44, label %43
@@ -972,12 +972,12 @@ RSA_size.exit:                                    ; preds = %23, %25
 44:                                               ; preds = %41, %36, %34, %43
   %.0 = phi i32 [ 0, %43 ], [ 0, %36 ], [ 0, %34 ], [ 1, %41 ]
   call void @free(ptr noundef nonnull %32) #10
-  %45 = load i32, ptr %10, align 4, !tbaa !63
+  %45 = load i32, ptr %10, align 4, !tbaa !62
   %.not26 = icmp eq i32 %45, 0
   br i1 %.not26, label %48, label %46
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %7, align 8, !tbaa !62
+  %47 = load ptr, ptr %7, align 8, !tbaa !61
   call void @free(ptr noundef %47) #10
   br label %48
 
@@ -1117,7 +1117,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %55 = load ptr, ptr %54, align 8, !tbaa !52
+  %55 = load ptr, ptr %54, align 8, !tbaa !51
   %.not70 = icmp eq ptr %55, null
   br i1 %.not70, label %._crit_edge, label %56
 
@@ -1129,11 +1129,11 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
 58:                                               ; preds = %70
   %59 = add nuw i64 %.05493, 1
   %exitcond.not = icmp eq i64 %59, %57
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 .lr.ph:                                           ; preds = %56, %58
   %.05493 = phi i64 [ %59, %58 ], [ 0, %56 ]
-  %60 = load ptr, ptr %54, align 8, !tbaa !52
+  %60 = load ptr, ptr %54, align 8, !tbaa !51
   %61 = call ptr @sk_value(ptr noundef %60, i64 noundef %.05493) #10
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %63 = call i32 @BN_mul(ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %62, ptr noundef nonnull %33) #10
@@ -1389,7 +1389,7 @@ define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr noundef captures(n
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
   %.not119 = icmp eq ptr %32, null
   br i1 %.not119, label %34, label %33
 
@@ -1626,21 +1626,21 @@ define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr noundef captures(n
   br i1 %.not142, label %143, label %149
 
 143:                                              ; preds = %142
-  %144 = load ptr, ptr %15, align 8, !tbaa !70
+  %144 = load ptr, ptr %15, align 8, !tbaa !69
   tail call void @BN_free(ptr noundef %144) #10
-  store ptr null, ptr %15, align 8, !tbaa !70
-  %145 = load ptr, ptr %18, align 8, !tbaa !70
+  store ptr null, ptr %15, align 8, !tbaa !69
+  %145 = load ptr, ptr %18, align 8, !tbaa !69
   tail call void @BN_free(ptr noundef %145) #10
-  store ptr null, ptr %18, align 8, !tbaa !70
-  %146 = load ptr, ptr %21, align 8, !tbaa !70
+  store ptr null, ptr %18, align 8, !tbaa !69
+  %146 = load ptr, ptr %21, align 8, !tbaa !69
   tail call void @BN_free(ptr noundef %146) #10
-  store ptr null, ptr %21, align 8, !tbaa !70
-  %147 = load ptr, ptr %24, align 8, !tbaa !70
+  store ptr null, ptr %21, align 8, !tbaa !69
+  %147 = load ptr, ptr %24, align 8, !tbaa !69
   tail call void @BN_free(ptr noundef %147) #10
-  store ptr null, ptr %24, align 8, !tbaa !70
-  %148 = load ptr, ptr %27, align 8, !tbaa !70
+  store ptr null, ptr %24, align 8, !tbaa !69
+  %148 = load ptr, ptr %27, align 8, !tbaa !69
   tail call void @BN_free(ptr noundef %148) #10
-  store ptr null, ptr %27, align 8, !tbaa !70
+  store ptr null, ptr %27, align 8, !tbaa !69
   br label %149
 
 149:                                              ; preds = %142, %143, %37, %33, %29, %13
@@ -1674,7 +1674,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
 define hidden i32 @RSA_private_transform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !71
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -1767,27 +1767,26 @@ attributes #11 = { nounwind allocsize(0) }
 !45 = !{!7, !18, i64 184}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"p1 _ZTS14bn_blinding_st", !9, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!7, !19, i64 192}
-!52 = !{!7, !13, i64 72}
-!53 = !{!22, !9, i64 120}
-!54 = !{!22, !9, i64 128}
-!55 = !{!22, !9, i64 56}
-!56 = !{!22, !9, i64 32}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"long", !10, i64 0}
-!59 = !{!22, !9, i64 64}
-!60 = !{!22, !9, i64 72}
-!61 = !{!22, !9, i64 136}
-!62 = !{!19, !19, i64 0}
-!63 = !{!16, !16, i64 0}
-!64 = distinct !{!64, !49, !50}
-!65 = !{!66, !16, i64 0}
-!66 = !{!"pkcs1_sig_prefix", !16, i64 0, !10, i64 4, !10, i64 5}
-!67 = !{!66, !10, i64 4}
-!68 = !{!22, !9, i64 40}
-!69 = distinct !{!69, !49, !50}
-!70 = !{!12, !12, i64 0}
-!71 = !{!22, !9, i64 88}
+!50 = !{!7, !19, i64 192}
+!51 = !{!7, !13, i64 72}
+!52 = !{!22, !9, i64 120}
+!53 = !{!22, !9, i64 128}
+!54 = !{!22, !9, i64 56}
+!55 = !{!22, !9, i64 32}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"long", !10, i64 0}
+!58 = !{!22, !9, i64 64}
+!59 = !{!22, !9, i64 72}
+!60 = !{!22, !9, i64 136}
+!61 = !{!19, !19, i64 0}
+!62 = !{!16, !16, i64 0}
+!63 = distinct !{!63, !49}
+!64 = !{!65, !16, i64 0}
+!65 = !{!"pkcs1_sig_prefix", !16, i64 0, !10, i64 4, !10, i64 5}
+!66 = !{!65, !10, i64 4}
+!67 = !{!22, !9, i64 40}
+!68 = distinct !{!68, !49}
+!69 = !{!12, !12, i64 0}
+!70 = !{!22, !9, i64 88}

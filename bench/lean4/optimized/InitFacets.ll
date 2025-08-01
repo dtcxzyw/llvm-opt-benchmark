@@ -188,7 +188,7 @@ lean_inc.exit22:                                  ; preds = %55, %54, %52, %lean
 lean_dec.exit:                                    ; preds = %62, %61, %59, %lean_inc.exit22
   %63 = tail call ptr @l_Lean_RBNode_fold___at_Lake_initFacetConfigs_insert___spec__1(ptr noundef %0, ptr noundef %.0, ptr noundef %17)
   %64 = tail call ptr @l_Lean_RBNode_insert___at_Lake_Workspace_addFacetConfig___spec__1(ptr noundef %63, ptr noundef %27, ptr noundef %37) #4
-  br label %4, !llvm.loop !12
+  br label %4
 }
 
 declare ptr @l_Lean_RBNode_insert___at_Lake_Workspace_addFacetConfig___spec__1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -573,5 +573,3 @@ attributes #5 = { noreturn nounwind }
 !9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}

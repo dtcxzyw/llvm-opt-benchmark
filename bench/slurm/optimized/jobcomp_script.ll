@@ -1471,7 +1471,7 @@ _jobcomp_exec_child.exit:                         ; preds = %45, %51, %546, %550
 556:                                              ; preds = %552, %553
   %557 = call i32 @pthread_mutex_lock(ptr noundef nonnull @comp_list_mutex) #10
   %.not = icmp eq i32 %557, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %.not, label %.lr.ph, label %._crit_edge
 
 558:                                              ; preds = %553
   ret ptr null
@@ -2250,8 +2250,6 @@ attributes #12 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}

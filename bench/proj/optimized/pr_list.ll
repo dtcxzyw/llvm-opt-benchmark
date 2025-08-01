@@ -61,7 +61,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
   %3 = load ptr, ptr @stdout, align 8, !tbaa !3
   %4 = tail call i32 @putc(i32 noundef 35, ptr noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.01722 = load ptr, ptr %5, align 8, !tbaa !42
+  %.01722 = load ptr, ptr %5, align 8, !tbaa !41
   %.not23 = icmp eq ptr %.01722, null
   br i1 %.not23, label %._crit_edge.thread, label %.lr.ph
 
@@ -114,9 +114,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
 29:                                               ; preds = %25, %.lr.ph.split.us
   %.2.us = phi i32 [ %28, %25 ], [ %.01524.us, %.lr.ph.split.us ]
   %.1.us = phi i32 [ %.025.us, %25 ], [ 1, %.lr.ph.split.us ]
-  %.017.us = load ptr, ptr %.01726.us, align 8, !tbaa !42
+  %.017.us = load ptr, ptr %.01726.us, align 8, !tbaa !41
   %.not.us = icmp eq ptr %.017.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph, %53
   %.01726 = phi ptr [ %.017, %53 ], [ %.01722, %.lr.ph ]
@@ -163,9 +163,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
 53:                                               ; preds = %.critedge, %49
   %.2 = phi i32 [ %52, %49 ], [ %.01524, %.critedge ]
   %.1 = phi i32 [ %.025, %49 ], [ 1, %.critedge ]
-  %.017 = load ptr, ptr %.01726, align 8, !tbaa !42
+  %.017 = load ptr, ptr %.01726, align 8, !tbaa !41
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %53, %29
   %.015.lcssa = phi i32 [ %.2.us, %29 ], [ %.2, %53 ]
@@ -195,7 +195,7 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef readonly captu
 4:                                                ; preds = %2
   store i8 0, ptr %3, align 1, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.03341 = load ptr, ptr %5, align 8, !tbaa !42
+  %.03341 = load ptr, ptr %5, align 8, !tbaa !41
   %.not3642 = icmp eq ptr %.03341, null
   br i1 %.not3642, label %.loopexit, label %.lr.ph
 
@@ -249,9 +249,9 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef readonly captu
 26:                                               ; preds = %.lr.ph, %24
   %.130 = phi ptr [ %.231, %24 ], [ %.02943, %.lr.ph ]
   %.127 = phi i64 [ %.228, %24 ], [ %.02644, %.lr.ph ]
-  %.033 = load ptr, ptr %.03345, align 8, !tbaa !42
+  %.033 = load ptr, ptr %.03345, align 8, !tbaa !41
   %.not36 = icmp eq ptr %.033, null
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %26, %4, %.thread, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.thread ], [ %3, %4 ], [ %.130, %26 ]
@@ -336,11 +336,10 @@ attributes #11 = { nounwind }
 !36 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
 !37 = !{!"p1 _ZTS16PJCoordOperation", !5, i64 0}
 !38 = !{!6, !6, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!12, !12, i64 0}
-!43 = distinct !{!43, !40, !41, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !40, !41}
-!46 = distinct !{!46, !40, !41}
+!41 = !{!12, !12, i64 0}
+!42 = distinct !{!42, !40, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !40}
+!45 = distinct !{!45, !40}

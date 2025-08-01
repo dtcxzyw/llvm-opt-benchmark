@@ -157,7 +157,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr noundef readon
   call void @ahwrite(ptr noundef %8, i64 noundef 1, i64 noundef %37, ptr noundef %0) #11
   %.pr = load i32, ptr %14, align 8
   %.not48 = icmp eq i32 %.pr, 0
-  br i1 %.not48, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not48, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit
   %38 = icmp eq i32 %.1.lcssa, 1
@@ -196,7 +196,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr noundef readon
   %54 = zext i32 %53 to i64
   call void @ahwrite(ptr noundef %8, i64 noundef 1, i64 noundef %54, ptr noundef %0) #11
   %.not46 = icmp eq i32 %43, 1
-  br i1 %.not46, label %._crit_edge59, label %42, !llvm.loop !8
+  br i1 %.not46, label %._crit_edge59, label %42, !llvm.loop !7
 
 ._crit_edge59:                                    ; preds = %47, %._crit_edge
   %55 = call i32 @inflateEnd(ptr noundef nonnull %5) #11
@@ -291,7 +291,7 @@ define internal void @WriteDataToArchiveGzip(ptr noundef %0, ptr noundef readonl
 
 43:                                               ; preds = %40, %31
   %44 = icmp eq i32 %24, 1
-  br i1 %44, label %DeflateCompressorCommon.exit, label %.split.i, !llvm.loop !9
+  br i1 %44, label %DeflateCompressorCommon.exit, label %.split.i, !llvm.loop !8
 
 DeflateCompressorCommon.exit:                     ; preds = %.split.i, %43
   ret void
@@ -356,7 +356,7 @@ define internal void @EndCompressorGzip(ptr noundef %0, ptr noundef captures(non
 
 33:                                               ; preds = %.thread.i.i, %26
   %34 = icmp eq i32 %17, 1
-  br i1 %34, label %DeflateCompressorCommon.exit.i, label %.split.us.i.i, !llvm.loop !10
+  br i1 %34, label %DeflateCompressorCommon.exit.i, label %.split.us.i.i, !llvm.loop !9
 
 .split31.us.i.i:                                  ; preds = %.split.us.i.i
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -725,11 +725,10 @@ attributes #13 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}

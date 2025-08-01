@@ -598,12 +598,12 @@ define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr noundef readonl
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !8
 
 18:                                               ; preds = %.lr.ph20
   %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %19, %10
-  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
+  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
 
 ._crit_edge21:                                    ; preds = %18, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %17, %18 ]
@@ -775,7 +775,7 @@ define internal void @uat_key_record_post_update_cb() #3 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = zext i32 %14 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %13, %0
   ret void
@@ -825,7 +825,7 @@ define internal void @gp_init_zbee_security() #1 {
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
   %24 = select i1 %20, i1 %23, i1 false
-  br i1 %24, label %9, label %._crit_edge, !llvm.loop !11
+  br i1 %24, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
@@ -1197,7 +1197,7 @@ zbee_gp_decrypt_payload.exit.us:                  ; preds = %185, %._crit_edge.i
   %.0153.us = load ptr, ptr %187, align 8
   %188 = icmp eq ptr %.0153.us, null
   %.not162.us = select i1 %188, i1 true, i1 %186
-  br i1 %.not162.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %.not162.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   switch i8 %169, label %.thread.i [
@@ -1220,7 +1220,7 @@ zbee_gp_decrypt_payload.exit.us:                  ; preds = %185, %._crit_edge.i
   %.0153.us189 = load ptr, ptr %192, align 8
   %193 = icmp eq ptr %.0153.us189, null
   %.not162.us190 = select i1 %193, i1 true, i1 %191
-  br i1 %.not162.us190, label %._crit_edge, label %._crit_edge.i.us185, !llvm.loop !14
+  br i1 %.not162.us190, label %._crit_edge, label %._crit_edge.i.us185, !llvm.loop !13
 
 zbee_gp_decrypt_payload.exit.us196:               ; preds = %.lr.ph.split.split, %zbee_gp_decrypt_payload.exit.us196
   %.0153174.us194 = phi ptr [ %.0153.us198, %zbee_gp_decrypt_payload.exit.us196 ], [ %.0153173, %.lr.ph.split.split ]
@@ -1236,7 +1236,7 @@ zbee_gp_decrypt_payload.exit.us196:               ; preds = %.lr.ph.split.split,
   %.0153.us198 = load ptr, ptr %197, align 8
   %198 = icmp eq ptr %.0153.us198, null
   %.not162.us199 = select i1 %198, i1 true, i1 %196
-  br i1 %.not162.us199, label %._crit_edge, label %zbee_gp_decrypt_payload.exit.us196, !llvm.loop !15
+  br i1 %.not162.us199, label %._crit_edge, label %zbee_gp_decrypt_payload.exit.us196, !llvm.loop !14
 
 .thread.i:                                        ; preds = %.lr.ph.split.split, %.thread.i
   %.0153174 = phi ptr [ %.0153, %.thread.i ], [ %.0153173, %.lr.ph.split.split ]
@@ -1252,7 +1252,7 @@ zbee_gp_decrypt_payload.exit.us196:               ; preds = %.lr.ph.split.split,
   %.0153 = load ptr, ptr %202, align 8
   %203 = icmp eq ptr %.0153, null
   %.not162 = select i1 %203, i1 true, i1 %201
-  br i1 %.not162, label %._crit_edge, label %.thread.i, !llvm.loop !16
+  br i1 %.not162, label %._crit_edge, label %.thread.i, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %zbee_gp_decrypt_payload.exit.us196, %._crit_edge.i.us185, %.thread.i, %zbee_gp_decrypt_payload.exit.us
   %.1.lcssa = phi i1 [ %186, %zbee_gp_decrypt_payload.exit.us ], [ %201, %.thread.i ], [ %191, %._crit_edge.i.us185 ], [ %196, %zbee_gp_decrypt_payload.exit.us196 ]
@@ -1456,7 +1456,7 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
 .loopexit.i:                                      ; preds = %127, %.lr.ph1.i
   %96 = phi i32 [ %113, %.lr.ph1.i ], [ %128, %127 ]
   %97 = icmp ult i32 %96, %94
-  br i1 %97, label %.lr.ph1.i, label %dissect_zbee_nwk_gp_cmd_read_attributes_response.exit, !llvm.loop !17
+  br i1 %97, label %.lr.ph1.i, label %dissect_zbee_nwk_gp_cmd_read_attributes_response.exit, !llvm.loop !16
 
 .lr.ph1.i:                                        ; preds = %92, %.loopexit.i
   %98 = phi i32 [ %96, %.loopexit.i ], [ %93, %92 ]
@@ -1505,7 +1505,7 @@ define internal i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %0, ptr noundef %1, ptr
 127:                                              ; preds = %125, %124
   %128 = load i32, ptr %13, align 4
   %129 = icmp ult i32 %128, %115
-  br i1 %129, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
+  br i1 %129, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !17
 
 dissect_zbee_nwk_gp_cmd_read_attributes_response.exit: ; preds = %.loopexit.i, %92
   %.lcssa.i = phi i32 [ %93, %92 ], [ %96, %.loopexit.i ]
@@ -1623,7 +1623,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %182, %179
   %.0141.i = load ptr, ptr %184, align 8
   %185 = icmp eq ptr %.0141.i, null
   %.not155.i = select i1 %185, i1 true, i1 %183
-  br i1 %.not155.i, label %._crit_edge.i, label %170, !llvm.loop !19
+  br i1 %.not155.i, label %._crit_edge.i, label %170, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %zbee_gp_decrypt_payload.exit.i
   br i1 %183, label %186, label %.critedge.i
@@ -1750,7 +1750,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %182, %179
   %248 = add nuw i8 %.0144178.i, 1
   %249 = add nuw nsw i32 %.6179.i, 1
   %exitcond.not.i = icmp eq i8 %248, %235
-  br i1 %exitcond.not.i, label %.loopexit175.i, label %245, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.loopexit175.i, label %245, !llvm.loop !19
 
 .loopexit175.i:                                   ; preds = %245, %234, %232
   %.5.i = phi i32 [ %238, %234 ], [ %.4.i, %232 ], [ %249, %245 ]
@@ -1786,7 +1786,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %182, %179
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %269 = add nuw nsw i32 %.8181.i, 2
   %exitcond192.not.i = icmp eq i32 %indvars.iv.next.i, %254
-  br i1 %exitcond192.not.i, label %.loopexit174.i, label %266, !llvm.loop !21
+  br i1 %exitcond192.not.i, label %.loopexit174.i, label %266, !llvm.loop !20
 
 .loopexit174.i:                                   ; preds = %266, %251
   %.7.i = phi i32 [ %259, %251 ], [ %269, %266 ]
@@ -1809,7 +1809,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %182, %179
   %indvars.iv.next194.i = add nuw nsw i32 %indvars.iv193.i, 1
   %277 = add nuw nsw i32 %.9183.i, 2
   %exitcond196.not.i = icmp eq i32 %indvars.iv.next194.i, %255
-  br i1 %exitcond196.not.i, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit, label %.lr.ph185.i, !llvm.loop !22
+  br i1 %exitcond196.not.i, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit, label %.lr.ph185.i, !llvm.loop !21
 
 278:                                              ; preds = %4
   %279 = load i32, ptr @hf_zbee_nwk_gp_cmd_channel_request_toggling_behaviour, align 4
@@ -1849,7 +1849,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %182, %179
 .loopexit.i113:                                   ; preds = %.lr.ph1.i111, %.loopexit.loopexit.i
   %296 = phi i32 [ %.pre.i, %.loopexit.loopexit.i ], [ %313, %.lr.ph1.i111 ]
   %297 = icmp ult i32 %296, %294
-  br i1 %297, label %.lr.ph1.i111, label %dissect_zbee_nwk_gp_cmd_read_attributes.exit, !llvm.loop !23
+  br i1 %297, label %.lr.ph1.i111, label %dissect_zbee_nwk_gp_cmd_read_attributes.exit, !llvm.loop !22
 
 .lr.ph1.i111:                                     ; preds = %292, %.loopexit.i113
   %298 = phi i32 [ %296, %.loopexit.i113 ], [ %293, %292 ]
@@ -1880,7 +1880,7 @@ zbee_gp_decrypt_payload.exit.i:                   ; preds = %182, %179
   %316 = add nuw nsw i32 %315, 2
   %317 = and i32 %316, 255
   %318 = icmp samesign ult i32 %317, %314
-  br i1 %318, label %.lr.ph.i112, label %.loopexit.loopexit.i, !llvm.loop !24
+  br i1 %318, label %.lr.ph.i112, label %.loopexit.loopexit.i, !llvm.loop !23
 
 dissect_zbee_nwk_gp_cmd_read_attributes.exit:     ; preds = %.loopexit.i113, %292
   %.lcssa.i110 = phi i32 [ %293, %292 ], [ %296, %.loopexit.i113 ]
@@ -2032,7 +2032,7 @@ zbee_gp_decrypt_payload.exit.i118:                ; preds = %387, %384
   %.071.i = load ptr, ptr %389, align 8
   %390 = icmp eq ptr %.071.i, null
   %.not80.i = select i1 %390, i1 true, i1 %388
-  br i1 %.not80.i, label %._crit_edge.i120, label %374, !llvm.loop !25
+  br i1 %.not80.i, label %._crit_edge.i120, label %374, !llvm.loop !24
 
 ._crit_edge.i120:                                 ; preds = %zbee_gp_decrypt_payload.exit.i118
   br i1 %388, label %391, label %dissect_zbee_nwk_gp_cmd_move_up_down.exit
@@ -2085,7 +2085,7 @@ zbee_gp_decrypt_payload.exit.i118:                ; preds = %387, %384
 .loopexit.i129:                                   ; preds = %.lr.ph.i130, %.lr.ph1.i128
   %414 = phi i32 [ %431, %.lr.ph1.i128 ], [ %440, %.lr.ph.i130 ]
   %415 = icmp ult i32 %414, %412
-  br i1 %415, label %.lr.ph1.i128, label %dissect_zbee_nwk_gp_cmd_write_attributes.exit, !llvm.loop !26
+  br i1 %415, label %.lr.ph1.i128, label %dissect_zbee_nwk_gp_cmd_write_attributes.exit, !llvm.loop !25
 
 .lr.ph1.i128:                                     ; preds = %410, %.loopexit.i129
   %416 = phi i32 [ %414, %.loopexit.i129 ], [ %411, %410 ]
@@ -2121,7 +2121,7 @@ zbee_gp_decrypt_payload.exit.i118:                ; preds = %387, %384
   call void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %437, ptr noundef nonnull %5, i16 noundef zeroext %439, i16 noundef zeroext %420, i16 noundef zeroext %.0.i125, i1 noundef zeroext true)
   %440 = load i32, ptr %5, align 4
   %441 = icmp ult i32 %440, %433
-  br i1 %441, label %.lr.ph.i130, label %.loopexit.i129, !llvm.loop !27
+  br i1 %441, label %.lr.ph.i130, label %.loopexit.i129, !llvm.loop !26
 
 dissect_zbee_nwk_gp_cmd_write_attributes.exit:    ; preds = %.loopexit.i129, %410
   %.lcssa.i127 = phi i32 [ %411, %410 ], [ %414, %.loopexit.i129 ]
@@ -2287,7 +2287,7 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   %23 = add nsw i32 %.03549.us, -1
   %.not56 = icmp eq i32 %.03549.us, 0
   %indvars.iv.next54 = add i64 %indvars.iv53, %15
-  br i1 %.not56, label %.loopexit, label %.split.us, !llvm.loop !28
+  br i1 %.not56, label %.loopexit, label %.split.us, !llvm.loop !27
 
 .split:                                           ; preds = %.split.preheader, %41
   %indvars.iv = phi i64 [ %10, %.split.preheader ], [ %indvars.iv.next, %41 ]
@@ -2340,7 +2340,7 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   %47 = add nsw i32 %.03549, -1
   %.not55 = icmp eq i32 %.03549, 0
   %indvars.iv.next = add i64 %indvars.iv, %11
-  br i1 %.not55, label %.loopexit, label %.split, !llvm.loop !29
+  br i1 %.not55, label %.loopexit, label %.split, !llvm.loop !28
 
 .loopexit:                                        ; preds = %27, %32, %41, %20, %.split.us, %3
   %.039 = phi i1 [ false, %3 ], [ %.not46.us.not.not, %.split.us ], [ %.not46.us.not.not, %20 ], [ true, %41 ], [ false, %32 ], [ false, %27 ]
@@ -2484,7 +2484,7 @@ define internal fastcc range(i32 1, 0) i32 @dissect_zbee_nwk_gp_cmd_multi_cluste
   call void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %5, i16 noundef zeroext %18, i16 noundef zeroext %12, i16 noundef zeroext %3, i1 noundef zeroext true)
   %19 = load i32, ptr %5, align 4
   %20 = icmp ult i32 %19, %6
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.lcssa = phi i32 [ %2, %4 ], [ %19, %.lr.ph ]
@@ -2554,28 +2554,27 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8, !13}
-!15 = distinct !{!15, !7, !8, !13}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8, !13}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !12}
+!14 = distinct !{!14, !7, !12}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7, !12}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

@@ -175,23 +175,23 @@ define internal ptr @grp_getgrgid(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %24 = shl i64 %.02234.i, 1
   %25 = call ptr @PyMem_RawRealloc(ptr noundef nonnull %27, i64 noundef %24) #4
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %26, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %23, %17
   %.024.lcssa.i = phi ptr [ null, %17 ], [ %27, %23 ]
-  store ptr null, ptr %6, align 8, !tbaa !15
+  store ptr null, ptr %6, align 8, !tbaa !13
   br label %.thread.i
 
 .lr.ph.i:                                         ; preds = %17, %23
   %27 = phi ptr [ %25, %23 ], [ %21, %17 ]
   %.02234.i = phi i64 [ %24, %23 ], [ %spec.store.select.i, %17 ]
-  %28 = load i32, ptr %5, align 4, !tbaa !17
+  %28 = load i32, ptr %5, align 4, !tbaa !15
   %29 = call i32 @getgrgid_r(i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull %27, i64 noundef %.02234.i, ptr noundef nonnull %6) #4
   %.not29.i = icmp eq i32 %29, 0
   br i1 %.not29.i, label %.thread.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  store ptr null, ptr %6, align 8, !tbaa !15
+  store ptr null, ptr %6, align 8, !tbaa !13
   %.not31.i = icmp eq i32 %29, 34
   br i1 %.not31.i, label %31, label %.thread.i
 
@@ -203,7 +203,7 @@ define internal ptr @grp_getgrgid(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %.125.i = phi ptr [ %.024.lcssa.i, %._crit_edge.i ], [ %27, %.lr.ph.i ], [ %27, %30 ], [ %27, %31 ]
   %33 = phi i1 [ true, %._crit_edge.i ], [ true, %31 ], [ false, %30 ], [ false, %.lr.ph.i ]
   call void @PyEval_RestoreThread(ptr noundef %18) #4
-  %34 = load ptr, ptr %6, align 8, !tbaa !15
+  %34 = load ptr, ptr %6, align 8, !tbaa !13
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %51
 
@@ -216,7 +216,7 @@ define internal ptr @grp_getgrgid(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %Py_DECREF.exit.i
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %5, align 4, !tbaa !17
+  %40 = load i32, ptr %5, align 4, !tbaa !15
   %41 = call ptr @_PyLong_FromGid(i32 noundef %40) #4
   %42 = icmp eq ptr %41, null
   br i1 %42, label %Py_DECREF.exit.i, label %43
@@ -283,9 +283,9 @@ define internal ptr @grp_getgrnam(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %14 = phi ptr [ %13, %12 ], [ %1, %4 ]
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   %16 = getelementptr i8, ptr %15, i64 8
-  %.val = load ptr, ptr %16, align 8, !tbaa !19
+  %.val = load ptr, ptr %16, align 8, !tbaa !17
   %17 = getelementptr i8, ptr %.val, i64 168
-  %.val22 = load i64, ptr %17, align 8, !tbaa !21
+  %.val22 = load i64, ptr %17, align 8, !tbaa !19
   %18 = and i64 %.val22, 268435456
   %.not21 = icmp eq i64 %18, 0
   br i1 %.not21, label %19, label %20
@@ -320,23 +320,23 @@ define internal ptr @grp_getgrnam(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %33 = shl i64 %.02132.i, 1
   %34 = call ptr @PyMem_RawRealloc(ptr noundef nonnull %36, i64 noundef %33) #4
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %35, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %32, %26
   %.1.lcssa.i = phi ptr [ null, %26 ], [ %36, %32 ]
-  store ptr null, ptr %6, align 8, !tbaa !15
+  store ptr null, ptr %6, align 8, !tbaa !13
   br label %.thread.i
 
 .lr.ph.i:                                         ; preds = %26, %32
   %36 = phi ptr [ %34, %32 ], [ %30, %26 ]
   %.02132.i = phi i64 [ %33, %32 ], [ %spec.store.select.i, %26 ]
-  %37 = load ptr, ptr %5, align 8, !tbaa !31
+  %37 = load ptr, ptr %5, align 8, !tbaa !28
   %38 = call i32 @getgrnam_r(ptr noundef %37, ptr noundef nonnull %7, ptr noundef nonnull %36, i64 noundef %.02132.i, ptr noundef nonnull %6) #4
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %.thread.i, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  store ptr null, ptr %6, align 8, !tbaa !15
+  store ptr null, ptr %6, align 8, !tbaa !13
   %.not29.i = icmp eq i32 %38, 34
   br i1 %.not29.i, label %40, label %.thread.i
 
@@ -348,7 +348,7 @@ define internal ptr @grp_getgrnam(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %42 = phi i1 [ true, %._crit_edge.i ], [ false, %39 ], [ true, %40 ], [ false, %.lr.ph.i ]
   %.2.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ %36, %.lr.ph.i ], [ %36, %39 ], [ %36, %40 ]
   call void @PyEval_RestoreThread(ptr noundef %27) #4
-  %43 = load ptr, ptr %6, align 8, !tbaa !15
+  %43 = load ptr, ptr %6, align 8, !tbaa !13
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %51
 
@@ -550,7 +550,7 @@ define internal fastcc ptr @mkgrent(ptr noundef %0, ptr noundef nonnull readonly
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !32
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   %.0.copyload62 = load ptr, ptr %17, align 8
   %18 = icmp eq ptr %.0.copyload62, null
   br i1 %18, label %Py_DECREF.exit47, label %.lr.ph
@@ -625,14 +625,14 @@ Py_DECREF.exit49:                                 ; preds = %.split, %29, %32
   %43 = getelementptr i8, ptr %.03663, i64 8
   %.0.copyload = load ptr, ptr %43, align 8
   %44 = icmp eq ptr %.0.copyload, null
-  br i1 %44, label %Py_DECREF.exit47, label %.lr.ph, !llvm.loop !35
+  br i1 %44, label %Py_DECREF.exit47, label %.lr.ph
 
 Py_DECREF.exit47:                                 ; preds = %42, %15
-  %45 = load ptr, ptr %1, align 8, !tbaa !36
+  %45 = load ptr, ptr %1, align 8, !tbaa !32
   %46 = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef %45) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %5, i64 noundef 0, ptr noundef %46) #4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !37
+  %48 = load ptr, ptr %47, align 8, !tbaa !33
   %.not42 = icmp eq ptr %48, null
   br i1 %.not42, label %51, label %49
 
@@ -654,7 +654,7 @@ Py_DECREF.exit47:                                 ; preds = %42, %15
 
 Py_INCREF.exit:                                   ; preds = %54, %51, %49
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !38
+  %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = tail call ptr @_PyLong_FromGid(i32 noundef %57) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %5, i64 noundef 2, ptr noundef %58) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %5, i64 noundef 3, ptr noundef nonnull %8) #4
@@ -759,29 +759,25 @@ attributes #4 = { nounwind }
 !10 = !{!7, !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS7_object", !6, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS5group", !6, i64 0}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS5group", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !7, i64 0}
-!19 = !{!20, !5, i64 8}
-!20 = !{!"_object", !7, i64 0, !5, i64 8}
-!21 = !{!22, !24, i64 168}
-!22 = !{!"_typeobject", !23, i64 0, !25, i64 24, !24, i64 32, !24, i64 40, !6, i64 48, !24, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !24, i64 168, !25, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !24, i64 208, !6, i64 216, !6, i64 224, !26, i64 232, !27, i64 240, !28, i64 248, !5, i64 256, !12, i64 264, !6, i64 272, !6, i64 280, !24, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !6, i64 360, !12, i64 368, !6, i64 376, !18, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !29, i64 410}
-!23 = !{!"", !20, i64 0, !24, i64 16}
-!24 = !{!"long", !7, i64 0}
-!25 = !{!"p1 omnipotent char", !6, i64 0}
-!26 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
-!27 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
-!28 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
-!29 = !{!"short", !7, i64 0}
-!30 = distinct !{!30, !14}
-!31 = !{!25, !25, i64 0}
-!32 = !{!33, !34, i64 24}
-!33 = !{!"group", !25, i64 0, !25, i64 8, !18, i64 16, !34, i64 24}
-!34 = !{!"p2 omnipotent char", !6, i64 0}
-!35 = distinct !{!35, !14}
-!36 = !{!33, !25, i64 0}
-!37 = !{!33, !25, i64 8}
-!38 = !{!33, !18, i64 16}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!18, !5, i64 8}
+!18 = !{!"_object", !7, i64 0, !5, i64 8}
+!19 = !{!20, !22, i64 168}
+!20 = !{!"_typeobject", !21, i64 0, !23, i64 24, !22, i64 32, !22, i64 40, !6, i64 48, !22, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !22, i64 168, !23, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !22, i64 208, !6, i64 216, !6, i64 224, !24, i64 232, !25, i64 240, !26, i64 248, !5, i64 256, !12, i64 264, !6, i64 272, !6, i64 280, !22, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !6, i64 360, !12, i64 368, !6, i64 376, !16, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !27, i64 410}
+!21 = !{!"", !18, i64 0, !22, i64 16}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!"p1 omnipotent char", !6, i64 0}
+!24 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
+!25 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
+!26 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
+!27 = !{!"short", !7, i64 0}
+!28 = !{!23, !23, i64 0}
+!29 = !{!30, !31, i64 24}
+!30 = !{!"group", !23, i64 0, !23, i64 8, !16, i64 16, !31, i64 24}
+!31 = !{!"p2 omnipotent char", !6, i64 0}
+!32 = !{!30, !23, i64 0}
+!33 = !{!30, !23, i64 8}
+!34 = !{!30, !16, i64 16}

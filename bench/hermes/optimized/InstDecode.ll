@@ -3655,6 +3655,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN4llvh12left_justifyENS_9StringRefEj: %agg.result"}
 !6 = distinct !{!6, !"_ZN4llvh12left_justifyENS_9StringRefEj"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}

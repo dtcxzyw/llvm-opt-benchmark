@@ -53,7 +53,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall_unlocked(ptr noundef %0) loca
   %.2 = phi i32 [ %.121, %.lr.ph ], [ %spec.select, %11 ]
   %.012 = load ptr, ptr %.01222, align 8
   %.not16 = icmp eq ptr %.012, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %15, %6, %1
   %.013 = phi i32 [ 0, %1 ], [ 0, %6 ], [ %.2, %15 ]
@@ -78,7 +78,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed
   %7 = tail call i64 @lib_fflush(ptr noundef nonnull %6) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %8, label %5, !llvm.loop !10
+  br i1 %exitcond.not, label %8, label %5, !llvm.loop !9
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -106,7 +106,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed
   %.2 = phi i32 [ %.123, %.lr.ph ], [ %spec.select, %13 ]
   %.014 = load ptr, ptr %.01424, align 8
   %.not18 = icmp eq ptr %.014, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %8
   %.1.lcssa = phi i32 [ 0, %8 ], [ %.2, %17 ]
@@ -136,9 +136,8 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

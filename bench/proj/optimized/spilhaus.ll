@@ -577,7 +577,7 @@ define internal { double, double } @_ZL16spilhaus_forward5PJ_LPP8PJconsts(double
   %.sroa.05.142 = phi double [ %39, %.lr.ph43 ], [ %.sroa.05.0.lcssa, %.preheader ]
   %39 = fadd double %.sroa.05.142, 0x401921FB54442D18
   %40 = fcmp olt double %39, 0xC00921FB54442D18
-  br i1 %40, label %.lr.ph43, label %._crit_edge, !llvm.loop !68
+  br i1 %40, label %.lr.ph43, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph43, %.preheader
   %.sroa.05.1.lcssa = phi double [ %.sroa.05.0.lcssa, %.preheader ], [ %39, %.lr.ph43 ]
@@ -591,7 +591,7 @@ define internal { double, double } @_ZL16spilhaus_forward5PJ_LPP8PJconsts(double
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %49 = load double, ptr %48, align 8, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %51 = load double, ptr %50, align 8, !tbaa !69
+  %51 = load double, ptr %50, align 8, !tbaa !68
   %52 = fmul double %49, %51
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %54 = load double, ptr %53, align 8, !tbaa !55
@@ -618,7 +618,7 @@ define internal { double, double } @_ZL16spilhaus_inverse5PJ_XYP8PJconsts(double
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load double, ptr %6, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %9 = load double, ptr %8, align 8, !tbaa !69
+  %9 = load double, ptr %8, align 8, !tbaa !68
   %10 = fmul double %7, %9
   %11 = fdiv double 1.000000e+00, %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -855,8 +855,7 @@ attributes #15 = { noreturn }
 !62 = !{!44, !14, i64 32}
 !63 = !{!4, !6, i64 104}
 !64 = !{!4, !6, i64 112}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !66, !67}
-!69 = !{!4, !14, i64 488}
+!67 = distinct !{!67, !66}
+!68 = !{!4, !14, i64 488}

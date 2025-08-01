@@ -588,7 +588,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
 25:                                               ; preds = %.lr.ph.i, %.lr.ph.i
   %.0.i = add nuw i64 %.017.i, 1
   %26 = icmp ult i64 %.0.i, %11
-  br i1 %26, label %.lr.ph.i, label %.loopexit, !llvm.loop !98
+  br i1 %26, label %.lr.ph.i, label %.loopexit
 
 27:                                               ; preds = %2
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %6, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.61fab05b91fe711afd0fa8b31be1b8b0.11.llvm.4803845676742659809) #17
@@ -625,11 +625,11 @@ define hidden void @"_ZN94_$LT$uu_cut..searcher..Searcher$LT$M$GT$$u20$as$u20$co
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !13, !align !88, !noundef !13
-  %12 = load ptr, ptr %1, align 8, !nonnull !13, !align !100, !noundef !13
+  %12 = load ptr, ptr %1, align 8, !nonnull !13, !align !98, !noundef !13
   %13 = sub nuw i64 %5, %7
   %14 = getelementptr inbounds i8, ptr %11, i64 %7
   call void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17hd452d9749b1037e0E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %13)
-  %15 = load i64, ptr %3, align 8, !range !101, !noundef !13
+  %15 = load i64, ptr %3, align 8, !range !99, !noundef !13
   %trunc = trunc nuw i64 %15 to i1
   br i1 %trunc, label %17, label %26
 
@@ -840,7 +840,5 @@ attributes #19 = { cold noreturn nounwind }
 !95 = distinct !{!95, !91, !"_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..matcher..Matcher$GT$10next_match17h70b02bb3eb0d28cbE: argument 0"}
 !96 = !{!93, !95}
 !97 = !{!95}
-!98 = distinct !{!98, !99}
-!99 = !{!"llvm.loop.estimated_trip_count"}
-!100 = !{i64 8}
-!101 = !{i64 0, i64 2}
+!98 = !{i64 8}
+!99 = !{i64 0, i64 2}

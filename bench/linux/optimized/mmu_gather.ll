@@ -180,7 +180,7 @@ define dso_local void @tlb_flush_rmaps(ptr noundef captures(address) %0, ptr nou
   %102 = phi i32 [ %.pre4, %99 ], [ %65, %64 ]
   %103 = add nuw i32 %66, 1
   %104 = icmp ult i32 %103, %102
-  br i1 %104, label %64, label %.loopexit, !llvm.loop !11
+  br i1 %104, label %64, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %101, %58, %.loopexit3
   %105 = load i16, ptr %3, align 8
@@ -337,7 +337,7 @@ define dso_local void @tlb_remove_table(ptr noundef captures(none) %0, ptr nound
   br label %64
 
 46:                                               ; preds = %36
-  %47 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
+  %47 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !10
   %48 = inttoptr i64 %47 to ptr
   %49 = load volatile i64, ptr %48, align 8
   %50 = and i64 %49, 536870912
@@ -353,7 +353,7 @@ define dso_local void @tlb_remove_table(ptr noundef captures(none) %0, ptr nound
   br label %60
 
 58:                                               ; preds = %46
-  %59 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !13
+  %59 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !11
   %.pre1.pre = load i16, ptr %11, align 8
   br label %60
 
@@ -466,7 +466,7 @@ define internal fastcc void @tlb_table_flush(ptr noundef captures(none) %0) unna
   br label %59
 
 41:                                               ; preds = %31
-  %42 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
+  %42 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !10
   %43 = inttoptr i64 %42 to ptr
   %44 = load volatile i64, ptr %43, align 8
   %45 = and i64 %44, 536870912
@@ -482,7 +482,7 @@ define internal fastcc void @tlb_table_flush(ptr noundef captures(none) %0) unna
   br label %55
 
 53:                                               ; preds = %41
-  %54 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !13
+  %54 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !11
   %.pre.pre = load i16, ptr %6, align 8
   br label %55
 
@@ -562,7 +562,7 @@ define dso_local void @tlb_flush_mmu(ptr noundef %0) local_unnamed_addr #0 align
   br label %55
 
 37:                                               ; preds = %27
-  %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
+  %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !10
   %39 = inttoptr i64 %38 to ptr
   %40 = load volatile i64, ptr %39, align 8
   %41 = and i64 %40, 536870912
@@ -578,7 +578,7 @@ define dso_local void @tlb_flush_mmu(ptr noundef %0) local_unnamed_addr #0 align
   br label %51
 
 49:                                               ; preds = %37
-  %50 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !13
+  %50 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !11
   %.pre.pre = load i16, ptr %2, align 8
   br label %51
 
@@ -626,12 +626,12 @@ define dso_local void @tlb_flush_mmu(ptr noundef %0) local_unnamed_addr #0 align
   %75 = tail call i32 @__SCT__cond_resched() #5
   %76 = load i32, ptr %62, align 8
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %67, !llvm.loop !14
+  br i1 %77, label %78, label %67, !llvm.loop !12
 
 78:                                               ; preds = %67
   %79 = load ptr, ptr %61, align 8
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %60, !llvm.loop !15
+  br i1 %80, label %81, label %60, !llvm.loop !13
 
 81:                                               ; preds = %78, %60
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -658,7 +658,7 @@ define dso_local void @tlb_gather_mmu(ptr noundef initializes((0, 8), (48, 64)) 
   store i16 %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %11, align 8
-  %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !12
+  %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !10
   %13 = inttoptr i64 %12 to ptr
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 536870912
@@ -674,7 +674,7 @@ define dso_local void @tlb_gather_mmu(ptr noundef initializes((0, 8), (48, 64)) 
   br label %25
 
 23:                                               ; preds = %2
-  %24 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !13
+  %24 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #5, !srcloc !11
   %.pre = load i16, ptr %3, align 8
   %.pre1 = load ptr, ptr %0, align 8
   br label %25
@@ -690,7 +690,7 @@ define dso_local void @tlb_gather_mmu(ptr noundef initializes((0, 8), (48, 64)) 
   %31 = and i16 %27, -245
   store i16 %31, ptr %3, align 8
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 1168
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %32, ptr nonnull elementtype(i32) %32) #5, !srcloc !16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %32, ptr nonnull elementtype(i32) %32) #5, !srcloc !14
   ret void
 }
 
@@ -717,7 +717,7 @@ define dso_local void @tlb_gather_mmu_fullmm(ptr noundef initializes((0, 8), (48
   %13 = or disjoint i16 %12, 1
   store i16 %13, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1168
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, ptr nonnull elementtype(i32) %14) #5, !srcloc !16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, ptr nonnull elementtype(i32) %14) #5, !srcloc !14
   ret void
 }
 
@@ -752,13 +752,13 @@ define dso_local void @tlb_finish_mmu(ptr noundef %0) local_unnamed_addr #0 alig
   %18 = ptrtoint ptr %16 to i64
   tail call void @free_pages(i64 noundef %18, i32 noundef 0) #5
   %19 = icmp eq ptr %17, null
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %12
   store ptr null, ptr %13, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1168
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, ptr nonnull elementtype(i32) %21) #5, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, ptr nonnull elementtype(i32) %21) #5, !srcloc !16
   ret void
 }
 
@@ -791,7 +791,7 @@ define internal void @tlb_remove_table_rcu(ptr noundef %0) #0 align 16 {
   %12 = add nuw i32 %8, 1
   %13 = load i32, ptr %2, align 8
   %14 = icmp ult i32 %12, %13
-  br i1 %14, label %7, label %.loopexit, !llvm.loop !19
+  br i1 %14, label %7, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %7, %1
   %15 = ptrtoint ptr %0 to i64
@@ -834,16 +834,14 @@ attributes #6 = { nounwind memory(none) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{i64 572242, i64 572286, i64 2148059261, i64 2148059282, i64 2148059308, i64 2148059341, i64 2148059375, i64 2148059399}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{i64 2147916110}
-!13 = !{i64 2148472567, i64 2148472595, i64 2148472601, i64 2148472617, i64 2148472633, i64 2148472660, i64 2148472990, i64 2148472305, i64 2148472996, i64 2148473044, i64 2148473108, i64 2148473172, i64 2148473229, i64 2148472386, i64 2148472411, i64 2148473436, i64 2148473568, i64 2148473497, i64 2148473582, i64 2148472503}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = !{i64 2148850496, i64 2148850535, i64 2148850556, i64 2148850593, i64 2148850616, i64 2148850486}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = !{i64 2148850859, i64 2148850898, i64 2148850919, i64 2148850956, i64 2148850979, i64 2148850849}
-!19 = distinct !{!19, !8, !9, !10}
+!10 = !{i64 2147916110}
+!11 = !{i64 2148472567, i64 2148472595, i64 2148472601, i64 2148472617, i64 2148472633, i64 2148472660, i64 2148472990, i64 2148472305, i64 2148472996, i64 2148473044, i64 2148473108, i64 2148473172, i64 2148473229, i64 2148472386, i64 2148472411, i64 2148473436, i64 2148473568, i64 2148473497, i64 2148473582, i64 2148472503}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{i64 2148850496, i64 2148850535, i64 2148850556, i64 2148850593, i64 2148850616, i64 2148850486}
+!15 = distinct !{!15, !8, !9}
+!16 = !{i64 2148850859, i64 2148850898, i64 2148850919, i64 2148850956, i64 2148850979, i64 2148850849}
+!17 = distinct !{!17, !8, !9}

@@ -91,7 +91,7 @@ switch.edge:                                      ; preds = %4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %37, i64 %indvars.iv, i32 3
-  %39 = load ptr, ptr %38, align 8, !tbaa !30
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = tail call i32 @H5T__visit(ptr noundef %39, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %29
@@ -104,7 +104,7 @@ switch.edge:                                      ; preds = %4
 
 46:                                               ; preds = %24, %24, %24, %24
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !33
+  %48 = load ptr, ptr %47, align 8, !tbaa !32
   %49 = tail call i32 @H5T__visit(ptr noundef %48, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %.thread
@@ -194,10 +194,9 @@ attributes #2 = { nounwind }
 !24 = !{!"p1 _ZTS5H5T_t", !15, i64 0}
 !25 = !{!18, !18, i64 0}
 !26 = !{!5, !5, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!31, !24, i64 24}
-!31 = !{!"H5T_cmemb_t", !32, i64 0, !18, i64 8, !18, i64 16, !24, i64 24}
-!32 = !{!"p1 omnipotent char", !15, i64 0}
-!33 = !{!23, !24, i64 32}
+!29 = !{!30, !24, i64 24}
+!30 = !{!"H5T_cmemb_t", !31, i64 0, !18, i64 8, !18, i64 16, !24, i64 24}
+!31 = !{!"p1 omnipotent char", !15, i64 0}
+!32 = !{!23, !24, i64 32}

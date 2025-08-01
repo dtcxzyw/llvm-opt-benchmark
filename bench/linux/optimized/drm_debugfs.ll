@@ -196,7 +196,7 @@ define dso_local void @drm_debugfs_create_files(ptr noundef %0, i32 noundef %1, 
 34:                                               ; preds = %29, %26, %18
   %35 = add nuw nsw i64 %13, 1
   %36 = icmp eq i64 %35, %11
-  br i1 %36, label %.loopexit, label %12, !llvm.loop !10
+  br i1 %36, label %.loopexit, label %12, !llvm.loop !9
 
 .loopexit:                                        ; preds = %34, %4
   ret void
@@ -236,7 +236,7 @@ define dso_local noundef i32 @drm_debugfs_remove_files(ptr noundef readonly capt
 21:                                               ; preds = %15, %9
   %22 = add nuw nsw i64 %10, 1
   %23 = icmp eq i64 %22, %8
-  br i1 %23, label %.loopexit, label %9, !llvm.loop !11
+  br i1 %23, label %.loopexit, label %9, !llvm.loop !10
 
 .loopexit:                                        ; preds = %21, %4
   ret i32 0
@@ -303,7 +303,7 @@ define dso_local void @drm_debugfs_dev_register(ptr noundef %0) local_unnamed_ad
 17:                                               ; preds = %11, %3
   %18 = add nuw nsw i64 %4, 1
   %19 = icmp eq i64 %18, 3
-  br i1 %19, label %20, label %3, !llvm.loop !12
+  br i1 %19, label %20, label %3, !llvm.loop !11
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -391,7 +391,7 @@ define dso_local void @drm_debugfs_add_files(ptr noundef %0, ptr noundef readonl
 24:                                               ; preds = %18, %8
   %25 = add nuw nsw i64 %9, 1
   %26 = icmp eq i64 %25, %7
-  br i1 %26, label %.loopexit, label %8, !llvm.loop !13
+  br i1 %26, label %.loopexit, label %8, !llvm.loop !11
 
 .loopexit:                                        ; preds = %24, %3
   ret void
@@ -412,7 +412,7 @@ define dso_local noundef i32 @drm_debugfs_register(ptr noundef initializes((24, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !12
   %7 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1) #6
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %9 = load ptr, ptr %8, align 8
@@ -770,7 +770,7 @@ define internal noundef i32 @drm_clients_info(ptr noundef %0, ptr readnone captu
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 8
   %31 = select i1 %13, i32 121, i32 110
-  %32 = load i8, ptr %12, align 8, !range !15, !noundef !16
+  %32 = load i8, ptr %12, align 8, !range !13, !noundef !14
   %33 = icmp eq i8 %32, 0
   %34 = select i1 %33, i32 110, i32 121
   %35 = icmp eq i32 %.fr, -1
@@ -783,7 +783,7 @@ define internal noundef i32 @drm_clients_info(ptr noundef %0, ptr readnone captu
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %7
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %24, %2
   tail call void @mutex_unlock(ptr noundef nonnull %6) #6
@@ -889,7 +889,7 @@ define internal noundef range(i64 -22, 12) i64 @connector_write(ptr noundef read
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !12
   %12 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2) #6
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %26
@@ -1102,13 +1102,13 @@ define internal noundef i32 @bridges_show(ptr noundef %0, ptr readnone captures(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
-  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !18
+  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !18
+  store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %7, align 8, !alias.scope !18
+  store ptr %0, ptr %7, align 8, !alias.scope !16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr null, ptr %8, align 8, !alias.scope !18
+  store ptr null, ptr %8, align 8, !alias.scope !16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
@@ -1174,7 +1174,7 @@ define internal noundef i32 @bridges_show(ptr noundef %0, ptr readnone captures(
   call void @drm_puts(ptr noundef nonnull %3, ptr noundef nonnull @.str.2) #6
   %42 = load ptr, ptr %12, align 8
   %43 = icmp eq ptr %42, %9
-  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %41, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
@@ -1212,19 +1212,17 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"branch_weights", i32 1, i32 2000}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = !{!"auto-init"}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"drm_seq_file_printer: argument 0"}
-!20 = distinct !{!20, !"drm_seq_file_printer"}
-!21 = distinct !{!21, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!"auto-init"}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7, !8}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"drm_seq_file_printer: argument 0"}
+!18 = distinct !{!18, !"drm_seq_file_printer"}
+!19 = distinct !{!19, !7, !8}

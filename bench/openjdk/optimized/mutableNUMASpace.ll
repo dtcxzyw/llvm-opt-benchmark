@@ -273,7 +273,7 @@ _ZN16MutableNUMASpace9LGRPSpaceD2Ev.exit:         ; preds = %21, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sext i32 %27 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %26, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %28, %26 ]
@@ -362,7 +362,7 @@ define hidden void @_ZN16MutableNUMASpace18ensure_parsabilityEv(ptr noundef nonn
   %35 = getelementptr inbounds ptr, ptr %.01821, i64 %34
   %36 = sub i64 %.01722, %34
   %.not19 = icmp eq i64 %36, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -370,7 +370,7 @@ define hidden void @_ZN16MutableNUMASpace18ensure_parsabilityEv(ptr noundef nonn
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %7, label %._crit_edge, !llvm.loop !11
+  br i1 %40, label %7, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %7, %1
   ret void
@@ -406,7 +406,7 @@ define hidden noundef i64 @_ZNK16MutableNUMASpace13used_in_wordsEv(ptr noundef n
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %17, %.lr.ph ]
@@ -441,7 +441,7 @@ define hidden noundef i64 @_ZNK16MutableNUMASpace13free_in_wordsEv(ptr noundef n
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %17, %.lr.ph ]
@@ -473,7 +473,7 @@ define hidden noundef i32 @_ZNK16MutableNUMASpace16lgrp_space_indexEi(ptr nounde
 11:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.exit", label %7, !llvm.loop !14
+  br i1 %exitcond.not.i, label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.exit", label %7, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit5.i:          ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -543,7 +543,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace13tlab_capacit
 32:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %28, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %28, !llvm.loop !13
 
 _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %28
   %sext = shl i64 %indvars.iv.i.i, 32
@@ -628,7 +628,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace9tlab_usedEP6T
 31:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %27, !llvm.loop !13
 
 _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %27
   %sext = shl i64 %indvars.iv.i.i, 32
@@ -707,7 +707,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace21unsafe_max_t
 31:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %27, !llvm.loop !13
 
 _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %27
   %sext = shl i64 %indvars.iv.i.i, 32
@@ -857,7 +857,7 @@ _ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit:    ; preds = %18, %27
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit, %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1010,7 +1010,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %41 = sub i64 %.04498, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit, %.._crit_edge_crit_edge
   %42 = phi i32 [ %.pre113, %.._crit_edge_crit_edge ], [ %14, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit ]
@@ -1040,7 +1040,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %57 = fadd float %.042100, %56
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge104, label %51, !llvm.loop !17
+  br i1 %exitcond112.not, label %._crit_edge104, label %51, !llvm.loop !16
 
 ._crit_edge104:                                   ; preds = %51
   %58 = fcmp ogt float %57, 0.000000e+00
@@ -2195,7 +2195,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115: ; preds = %_ZN16MutableN
   %447 = load i32, ptr %446, align 4
   %448 = sext i32 %447 to i64
   %449 = icmp slt i64 %indvars.iv.next, %448
-  br i1 %449, label %237, label %._crit_edge, !llvm.loop !18
+  br i1 %449, label %237, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115, %233
   ret void
@@ -2270,7 +2270,7 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv, %46
-  br i1 %47, label %9, label %.outer._crit_edge, !llvm.loop !19
+  br i1 %47, label %9, label %.outer._crit_edge, !llvm.loop !18
 
 48:                                               ; preds = %30, %26
   %49 = load ptr, ptr %17, align 8
@@ -2300,7 +2300,7 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !19
+  br i1 %61, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %42, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %43, %42 ], [ %.038, %.outer ]
@@ -2339,7 +2339,7 @@ define hidden void @_ZN16MutableNUMASpace5clearEb(ptr noundef nonnull align 8 de
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2375,7 +2375,7 @@ define hidden noundef ptr @_ZN16MutableNUMASpace12cas_allocateEm(ptr noundef non
 15:                                               ; preds = %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread, label %11, !llvm.loop !13
 
 _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %11
   %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -2444,9 +2444,9 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %54
-  %58 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %52, ptr %55, ptr nonnull %53) #11, !srcloc !21
+  %58 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %52, ptr %55, ptr nonnull %53) #11, !srcloc !20
   %59 = icmp eq ptr %58, %55
-  br i1 %59, label %.loopexit, label %54, !llvm.loop !22
+  br i1 %59, label %.loopexit, label %54, !llvm.loop !21
 
 60:                                               ; preds = %21, %47
   %61 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -2513,7 +2513,7 @@ define hidden void @_ZNK16MutableNUMASpace14print_short_onEP12outputStream(ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %30 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %29, %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #11
@@ -2616,7 +2616,7 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %58 = icmp ult ptr %56, %47
   %59 = select i1 %57, i1 %58, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %59, label %53, label %60, !llvm.loop !24
+  br i1 %59, label %53, label %60, !llvm.loop !23
 
 60:                                               ; preds = %53
   %61 = call noundef zeroext i1 @_ZN2os28numa_get_group_ids_for_rangeEPPKvPim(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %54) #11
@@ -2665,10 +2665,10 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %82 = phi i64 [ %67, %71 ], [ %67, %77 ], [ %76, %75 ]
   %83 = add nuw nsw i64 %.028.i, 1
   %exitcond.not.i = icmp eq i64 %83, %indvars.iv.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %64, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.loopexit.i, label %64, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %79, %60
-  br i1 %58, label %.preheader25.i, label %._crit_edge.loopexit.i, !llvm.loop !26
+  br i1 %58, label %.preheader25.i, label %._crit_edge.loopexit.i, !llvm.loop !25
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
   %.pre.i = load ptr, ptr %34, align 8
@@ -2695,7 +2695,7 @@ _ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit: ; preds = %.lr.ph
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit, %.preheader
   %92 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -2719,7 +2719,7 @@ _ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit: ; preds = %.lr.ph
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next29, %107
-  br i1 %108, label %10, label %._crit_edge24, !llvm.loop !28
+  br i1 %108, label %10, label %._crit_edge24, !llvm.loop !27
 
 ._crit_edge24:                                    ; preds = %104, %2
   ret void
@@ -2773,7 +2773,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %30 = icmp ult ptr %28, %19
   %31 = select i1 %29, i1 %30, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %31, label %25, label %32, !llvm.loop !24
+  br i1 %31, label %25, label %32, !llvm.loop !23
 
 32:                                               ; preds = %25
   %33 = call noundef zeroext i1 @_ZN2os28numa_get_group_ids_for_rangeEPPKvPim(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %26) #11
@@ -2822,10 +2822,10 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %54 = phi i64 [ %39, %43 ], [ %39, %49 ], [ %48, %47 ]
   %55 = add nuw nsw i64 %.028, 1
   %exitcond.not = icmp eq i64 %55, %indvars.iv
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !24
 
 .loopexit:                                        ; preds = %51, %32
-  br i1 %30, label %.preheader25, label %._crit_edge.loopexit, !llvm.loop !26
+  br i1 %30, label %.preheader25, label %._crit_edge.loopexit, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %6, align 8
@@ -3037,7 +3037,7 @@ _ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE8allocateEv.exit: ; preds = %
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !29
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3053,7 +3053,7 @@ _ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE8allocateEv.exit: ; preds = %
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !30
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3133,7 +3133,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMA
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3200,29 +3200,28 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = !{i64 2145412694}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = !{i64 2145412694}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

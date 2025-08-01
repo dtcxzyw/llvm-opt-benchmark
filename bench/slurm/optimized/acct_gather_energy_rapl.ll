@@ -276,7 +276,7 @@ define dso_local void @acct_gather_energy_p_conf_set(i32 %0, ptr readnone captur
 63:                                               ; preds = %64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %exitcond.not.i.i, label %_is_dram_model.exit.i, label %64, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %_is_dram_model.exit.i, label %64, !llvm.loop !11
 
 64:                                               ; preds = %63, %61
   %indvars.iv.i.i = phi i64 [ 0, %61 ], [ %indvars.iv.next.i.i, %63 ]
@@ -369,7 +369,7 @@ _open_msr.exit:                                   ; preds = %.lr.ph, %94, %96, %
   %101 = load i32, ptr @nb_pkg, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_open_msr.exit, %_hardware.exit
   %104 = call ptr @acct_gather_energy_alloc(i16 noundef zeroext 1) #11
@@ -505,7 +505,7 @@ _read_msr.exit:                                   ; preds = %27, %29, %32
   %36 = uitofp nneg i64 %35 to double
   %mul = fneg double %36
   %exp2 = tail call double @exp2(double %mul) #11
-  %37 = load i8, ptr @dram_specific_unit, align 1, !range !14, !noundef !15
+  %37 = load i8, ptr @dram_specific_unit, align 1, !range !13, !noundef !14
   %38 = trunc nuw i8 %37 to i1
   %.exp2 = select i1 %38, double 0x3EF0000000000000, double %exp2
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -688,7 +688,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i54,
   %126 = load i32, ptr @nb_pkg, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_get_dram_energy.exit, %68
   %.041.lcssa = phi double [ 0.000000e+00, %68 ], [ %125, %_get_dram_energy.exit ]
@@ -835,7 +835,7 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %9, %.preheader
   %13 = load ptr, ptr @local_energy, align 8
@@ -1156,13 +1156,12 @@ attributes #13 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

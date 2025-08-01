@@ -52,7 +52,7 @@ define dso_local noundef i32 @arc4_setkey(ptr noundef captures(none) initializes
   %29 = select i1 %28, i32 %27, i32 0
   %30 = add nuw nsw i64 %12, 1
   %31 = icmp eq i64 %30, 256
-  br i1 %31, label %32, label %.preheader, !llvm.loop !9
+  br i1 %31, label %32, label %.preheader, !llvm.loop !8
 
 32:                                               ; preds = %.preheader
   ret i32 0
@@ -118,7 +118,7 @@ define dso_local void @arc4_crypt(ptr noundef captures(none) %0, ptr noundef wri
 51:                                               ; preds = %19
   %52 = getelementptr i8, ptr %20, i64 1
   %53 = getelementptr i8, ptr %21, i64 1
-  br label %19, !llvm.loop !10
+  br label %19, !llvm.loop !9
 
 54:                                               ; preds = %19
   store i32 %34, ptr %7, align 4
@@ -138,9 +138,8 @@ attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_poin
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !7}

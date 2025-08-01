@@ -551,7 +551,7 @@ is_andclause.exit131.thread.i:                    ; preds = %is_andclause.exit13
   %100 = load i32, ptr %45, align 4
   %101 = sext i32 %100 to i64
   %.not119.i = icmp slt i64 %indvars.iv.next208.i, %101
-  br i1 %.not119.i, label %.lr.ph188.i, label %.critedge123.i, !llvm.loop !9
+  br i1 %.not119.i, label %.lr.ph188.i, label %.critedge123.i, !llvm.loop !8
 
 .critedge123.i:                                   ; preds = %99, %.lr.ph198.i
   %102 = tail call ptr @lappend(ptr noundef %.091190196.i, ptr noundef %81) #5
@@ -623,7 +623,7 @@ is_andclause.exit133.thread.i:                    ; preds = %is_andclause.exit13
   %130 = load i32, ptr %45, align 4
   %131 = sext i32 %130 to i64
   %.not115.i = icmp slt i64 %indvars.iv.next214.i, %131
-  br i1 %.not115.i, label %.lr.ph203.i, label %.critedge125.i, !llvm.loop !10
+  br i1 %.not115.i, label %.lr.ph203.i, label %.critedge125.i, !llvm.loop !9
 
 .critedge125.i:                                   ; preds = %.thread149.i
   %.not117.i = icmp eq ptr %129, null
@@ -724,7 +724,7 @@ select.unfold108.us147:                           ; preds = %172, %169, %165
   %174 = load i32, ptr %154, align 4
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next181, %175
-  br i1 %176, label %.lr.ph144.split.us, label %._crit_edge138, !llvm.loop !11
+  br i1 %176, label %.lr.ph144.split.us, label %._crit_edge138, !llvm.loop !10
 
 .lr.ph144.split:                                  ; preds = %.lr.ph144, %select.unfold108
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold108 ], [ 0, %.lr.ph144 ]
@@ -944,10 +944,9 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

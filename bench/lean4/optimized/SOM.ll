@@ -6138,7 +6138,7 @@ lean_dec.exit:                                    ; preds = %95, %91, %86, %105,
 lean_inc.exit:                                    ; preds = %112, %111, %109, %lean_dec.exit
   %113 = tail call ptr @l_Nat_SOM_Mon_mul_go(ptr noundef %106, ptr noundef %1, ptr noundef %68)
   %114 = tail call ptr @l_Nat_SOM_Poly_insertSorted(ptr noundef %.2.i55, ptr noundef %113, ptr noundef %.025)
-  br label %11, !llvm.loop !13
+  br label %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6454,7 +6454,7 @@ lean_inc.exit:                                    ; preds = %84, %83, %81, %lean
 lean_dec.exit:                                    ; preds = %92, %91, %89, %lean_inc.exit
   %93 = load ptr, ptr @l_Nat_Linear_hugeFuel, align 8, !tbaa !4
   %94 = tail call ptr @l_Nat_SOM_Poly_add_go(ptr noundef %93, ptr noundef %.023, ptr noundef %85)
-  br label %6, !llvm.loop !15
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7092,9 +7092,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Nat_SOM_0__Nat_SOM_Mon_mul_go_match__1_splitter___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !16
+  store i16 5, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !13
   ret ptr %2
 }
 
@@ -7663,9 +7663,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Init_Data_Nat_SOM_0__Nat_SOM_Poly_add_go_match__1_splitter___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !16
+  store i16 5, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !16
+  store i16 0, ptr %8, align 2, !tbaa !13
   ret ptr %2
 }
 
@@ -7774,9 +7774,9 @@ _init_l_Nat_SOM_Poly_add_go___closed__1.exit:     ; preds = %_init_l_Nat_SOM_ins
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr @l_instDecidableEqNat___boxed, ptr %38, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i16 2, ptr %39, align 8, !tbaa !16
+  store i16 2, ptr %39, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 18
-  store i16 0, ptr %40, align 2, !tbaa !16
+  store i16 0, ptr %40, align 2, !tbaa !13
   store ptr %34, ptr @l_Nat_SOM_Poly_add_go___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %34) #5
   tail call void @lean_inc_heartbeat() #5
@@ -7795,9 +7795,9 @@ _init_l_Nat_SOM_Poly_add_go___closed__2.exit:     ; preds = %_init_l_Nat_SOM_Pol
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @l_Nat_decLt___boxed, ptr %45, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i16 2, ptr %46, align 8, !tbaa !16
+  store i16 2, ptr %46, align 8, !tbaa !13
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  store i16 0, ptr %47, align 2, !tbaa !16
+  store i16 0, ptr %47, align 2, !tbaa !13
   store ptr %41, ptr @l_Nat_SOM_Poly_add_go___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %41) #5
   tail call void @lean_inc_heartbeat() #5
@@ -7884,8 +7884,5 @@ attributes #6 = { noreturn nounwind }
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !6, i64 0}

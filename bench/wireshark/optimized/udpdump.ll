@@ -530,7 +530,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   %72 = call noalias dereferenceable_or_null(65535) ptr @g_malloc(i64 noundef 65535) #12
-  %73 = load i8, ptr @extcap_end_application, align 1, !range !10, !noundef !11
+  %73 = load i8, ptr @extcap_end_application, align 1, !range !9, !noundef !10
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %._crit_edge, label %.lr.ph
 
@@ -591,7 +591,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   store i8 %103, ptr %104, align 1
   %105 = getelementptr i8, ptr %94, i64 4
   %106 = add i64 %93, -4
-  %107 = call ptr @__memcpy_chk(ptr noundef %105, ptr noundef readonly %2, i64 noundef %95, i64 noundef %106) #11, !alias.scope !12
+  %107 = call ptr @__memcpy_chk(ptr noundef %105, ptr noundef readonly %2, i64 noundef %95, i64 noundef %106) #11, !alias.scope !11
   %108 = zext i16 %98 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.sroa.2.0.extract.trunc.i, ptr %7, align 4
@@ -609,7 +609,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr i8, ptr %94, i64 %116
   %118 = call i64 @llvm.usub.sat.i64(i64 %93, i64 %116)
-  %119 = call ptr @__memcpy_chk(ptr noundef %117, ptr noundef nonnull %7, i64 noundef 4, i64 noundef %118) #11, !alias.scope !16
+  %119 = call ptr @__memcpy_chk(ptr noundef %117, ptr noundef nonnull %7, i64 noundef 4, i64 noundef %118) #11, !alias.scope !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 16777343, ptr %6, align 4
@@ -625,7 +625,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr i8, ptr %94, i64 %125
   %127 = call i64 @llvm.usub.sat.i64(i64 %93, i64 %125)
-  %128 = call ptr @__memcpy_chk(ptr noundef %126, ptr noundef nonnull %6, i64 noundef 4, i64 noundef %127) #11, !alias.scope !20
+  %128 = call ptr @__memcpy_chk(ptr noundef %126, ptr noundef nonnull %6, i64 noundef 4, i64 noundef %127) #11, !alias.scope !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   %129 = call i32 @llvm.bswap.i32(i32 %87)
@@ -643,7 +643,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr i8, ptr %94, i64 %135
   %137 = call i64 @llvm.usub.sat.i64(i64 %93, i64 %135)
-  %138 = call ptr @__memcpy_chk(ptr noundef %136, ptr noundef nonnull %5, i64 noundef 4, i64 noundef %137) #11, !alias.scope !24
+  %138 = call ptr @__memcpy_chk(ptr noundef %136, ptr noundef nonnull %5, i64 noundef 4, i64 noundef %137) #11, !alias.scope !23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 %rev.i.i29.i, ptr %4, align 4
@@ -659,7 +659,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   %144 = zext nneg i32 %143 to i64
   %145 = getelementptr i8, ptr %94, i64 %144
   %146 = call i64 @llvm.usub.sat.i64(i64 %93, i64 %144)
-  %147 = call ptr @__memcpy_chk(ptr noundef %145, ptr noundef nonnull %4, i64 noundef 4, i64 noundef %146) #11, !alias.scope !28
+  %147 = call ptr @__memcpy_chk(ptr noundef %145, ptr noundef nonnull %4, i64 noundef 4, i64 noundef %146) #11, !alias.scope !27
   %148 = add nuw nsw i32 %108, 36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   %149 = zext nneg i32 %148 to i64
@@ -670,7 +670,7 @@ setup_listener.exit.thread:                       ; preds = %41, %69
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr i8, ptr %94, i64 %154
   %156 = call i64 @llvm.usub.sat.i64(i64 %93, i64 %154)
-  %157 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef readonly %72, i64 noundef range(i64 0, -9223372036854775808) %77, i64 noundef %156) #11, !alias.scope !32
+  %157 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef readonly %72, i64 noundef range(i64 0, -9223372036854775808) %77, i64 noundef %156) #11, !alias.scope !31
   %158 = trunc i64 %77 to i32
   %159 = add i32 %153, %158
   %160 = sdiv i64 %88, 1000000
@@ -699,9 +699,9 @@ dump_packet.exit:                                 ; preds = %85
   br label %169
 
 169:                                              ; preds = %.critedge, %dump_packet.exit, %82, %79, %79
-  %170 = load i8, ptr @extcap_end_application, align 1, !range !10, !noundef !11
+  %170 = load i8, ptr @extcap_end_application, align 1, !range !9, !noundef !10
   %171 = trunc nuw i8 %170 to i1
-  br i1 %171, label %._crit_edge, label %76, !llvm.loop !36
+  br i1 %171, label %._crit_edge, label %76, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %169, %71
   %172 = call zeroext i1 @writecap_close(ptr noundef nonnull %.0, ptr noundef null)
@@ -824,33 +824,32 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = !{!29, !31}
-!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
-!30 = distinct !{!30, !"memcpy.inline"}
-!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
-!32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
-!34 = distinct !{!34, !"memcpy.inline"}
-!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
-!36 = distinct !{!36, !8, !9}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = distinct !{!35, !8}

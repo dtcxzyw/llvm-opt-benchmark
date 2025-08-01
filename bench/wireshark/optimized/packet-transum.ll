@@ -1118,7 +1118,7 @@ append_to_rrpd_list.exit.i.i:                     ; preds = %399, %396
 433:                                              ; preds = %428, %422
   %434 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0911.i.i.i)
   %.not.i.i.i = icmp eq ptr %434, null
-  br i1 %.not.i.i.i, label %find_temp_rsp_rrpd.exit.thread.i.i, label %422, !llvm.loop !11
+  br i1 %.not.i.i.i, label %find_temp_rsp_rrpd.exit.thread.i.i, label %422, !llvm.loop !10
 
 find_temp_rsp_rrpd.exit.i.i:                      ; preds = %428
   %.not43.i.i = icmp eq ptr %423, null
@@ -1178,7 +1178,7 @@ find_temp_rsp_rrpd.exit.thread.i.i:               ; preds = %433, %find_temp_rsp
 460:                                              ; preds = %455, %449
   %461 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0911.i48.i.i)
   %.not.i49.i.i = icmp eq ptr %461, null
-  br i1 %.not.i49.i.i, label %find_temp_rsp_rrpd.exit51.thread.i.i, label %449, !llvm.loop !11
+  br i1 %.not.i49.i.i, label %find_temp_rsp_rrpd.exit51.thread.i.i, label %449, !llvm.loop !10
 
 find_temp_rsp_rrpd.exit51.i.i:                    ; preds = %455
   %.not41.i.i = icmp eq ptr %450, null
@@ -1244,7 +1244,7 @@ find_temp_rsp_rrpd.exit51.thread.i.i:             ; preds = %460, %find_temp_rsp
 update_rrpd_rte_data.exit:                        ; preds = %363, %append_to_rrpd_list.exit.i.i, %435, %442, %find_temp_rsp_rrpd.exit.thread.i.i, %445, %462, %473, %474, %478, %482, %484, %485, %487
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %update_rrpd_rte_data.exit, %set_proto_values.exit, %16, %write_rte.exit
   ret i32 0
@@ -1312,7 +1312,7 @@ define internal void @init_globals() #0 {
 30:                                               ; preds = %25, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond.not, label %14, label %22, !llvm.loop !13
+  br i1 %exitcond.not, label %14, label %22, !llvm.loop !12
 
 .preheader:                                       ; preds = %._crit_edge, %14
   %31 = load ptr, ptr @udp_svc_port_range_values, align 8
@@ -1344,7 +1344,7 @@ define internal void @init_globals() #0 {
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %43 = zext i32 %41 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next45, %43
-  br i1 %44, label %.lr.ph32, label %.preheader, !llvm.loop !14
+  br i1 %44, label %.lr.ph32, label %.preheader, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.lr.ph32, %.lr.ph
   %.02129 = phi i32 [ %49, %.lr.ph ], [ %37, %.lr.ph32 ]
@@ -1358,7 +1358,7 @@ define internal void @init_globals() #0 {
   %52 = getelementptr i8, ptr %51, i64 %.idx24
   %53 = load i32, ptr %52, align 4
   %.not25 = icmp ugt i32 %49, %53
-  br i1 %.not25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge40:                                    ; preds = %._crit_edge37, %.preheader
   %54 = tail call ptr @wmem_file_scope()
@@ -1414,7 +1414,7 @@ define internal void @init_globals() #0 {
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %88 = zext i32 %86 to i64
   %89 = icmp samesign ult i64 %indvars.iv.next48, %88
-  br i1 %89, label %.lr.ph39, label %._crit_edge40, !llvm.loop !16
+  br i1 %89, label %.lr.ph39, label %._crit_edge40, !llvm.loop !15
 
 .lr.ph36:                                         ; preds = %.lr.ph39, %.lr.ph36
   %.034 = phi i32 [ %94, %.lr.ph36 ], [ %82, %.lr.ph39 ]
@@ -1428,7 +1428,7 @@ define internal void @init_globals() #0 {
   %97 = getelementptr i8, ptr %96, i64 %.idx
   %98 = load i32, ptr %97, align 4
   %.not = icmp ugt i32 %94, %98
-  br i1 %.not, label %._crit_edge37.loopexit, label %.lr.ph36, !llvm.loop !17
+  br i1 %.not, label %._crit_edge37.loopexit, label %.lr.ph36, !llvm.loop !16
 
 99:                                               ; preds = %0, %._crit_edge40
   ret void
@@ -1478,7 +1478,7 @@ define hidden void @proto_reg_handoff_transum() local_unnamed_addr #0 {
   store i32 %6, ptr %3, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !18
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1705,7 +1705,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr noundef captures(none) %0) unna
 82:                                               ; preds = %79, %76, %27
   %83 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.040.i)
   %.not.i = icmp eq ptr %83, null
-  br i1 %.not.i, label %find_latest_rrpd_dcerpc.exit, label %27, !llvm.loop !19
+  br i1 %.not.i, label %find_latest_rrpd_dcerpc.exit, label %27, !llvm.loop !18
 
 84:                                               ; preds = %.thread
   %85 = load ptr, ptr @rrpd_list, align 8
@@ -1791,7 +1791,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr noundef captures(none) %0) unna
 132:                                              ; preds = %129, %126, %92
   %133 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.023.i)
   %.not.i17 = icmp eq ptr %133, null
-  br i1 %.not.i17, label %find_latest_rrpd_dcerpc.exit, label %92, !llvm.loop !20
+  br i1 %.not.i17, label %find_latest_rrpd_dcerpc.exit, label %92, !llvm.loop !19
 
 134:                                              ; preds = %.thread
   %135 = load ptr, ptr @rrpd_list, align 8
@@ -1862,7 +1862,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr noundef captures(none) %0) unna
 170:                                              ; preds = %167, %164, %140
   %171 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.022.i)
   %.not.i20 = icmp eq ptr %171, null
-  br i1 %.not.i20, label %find_latest_rrpd_dcerpc.exit, label %140, !llvm.loop !21
+  br i1 %.not.i20, label %find_latest_rrpd_dcerpc.exit, label %140, !llvm.loop !20
 
 172:                                              ; preds = %.thread
   %173 = load ptr, ptr @rrpd_list, align 8
@@ -1932,7 +1932,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr noundef captures(none) %0) unna
 208:                                              ; preds = %205, %202, %178
   %209 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.019.i23)
   %.not.i24 = icmp eq ptr %209, null
-  br i1 %.not.i24, label %find_latest_rrpd_dcerpc.exit, label %178, !llvm.loop !22
+  br i1 %.not.i24, label %find_latest_rrpd_dcerpc.exit, label %178, !llvm.loop !21
 
 210:                                              ; preds = %.thread
   %211 = load ptr, ptr @rrpd_list, align 8
@@ -2052,7 +2052,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr noundef captures(none) %0) unna
 274:                                              ; preds = %271, %268, %219
   %275 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.040.i27)
   %.not.i28 = icmp eq ptr %275, null
-  br i1 %.not.i28, label %find_latest_rrpd_dcerpc.exit, label %219, !llvm.loop !23
+  br i1 %.not.i28, label %find_latest_rrpd_dcerpc.exit, label %219, !llvm.loop !22
 
 276:                                              ; preds = %.thread
   %277 = load ptr, ptr @rrpd_list, align 8
@@ -2108,7 +2108,7 @@ define internal fastcc ptr @find_latest_rrpd(ptr noundef captures(none) %0) unna
 305:                                              ; preds = %302, %299, %282
   %306 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.016.i37)
   %.not.i38 = icmp eq ptr %306, null
-  br i1 %.not.i38, label %find_latest_rrpd_dcerpc.exit, label %282, !llvm.loop !24
+  br i1 %.not.i38, label %find_latest_rrpd_dcerpc.exit, label %282, !llvm.loop !23
 
 find_latest_rrpd_dcerpc.exit:                     ; preds = %305, %291, %274, %262, %255, %252, %243, %238, %208, %170, %132, %82, %70, %63, %60, %51, %46, %276, %260, %210, %198, %195, %172, %160, %157, %134, %122, %119, %84, %68, %18, %.thread, %15, %9
   %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ null, %.thread ], [ %..i, %68 ], [ null, %18 ], [ %93, %122 ], [ null, %119 ], [ null, %84 ], [ %141, %160 ], [ null, %157 ], [ null, %134 ], [ %179, %198 ], [ null, %195 ], [ null, %172 ], [ %..i33, %260 ], [ null, %210 ], [ null, %276 ], [ null, %82 ], [ %28, %70 ], [ %28, %63 ], [ null, %60 ], [ %28, %51 ], [ %28, %46 ], [ null, %132 ], [ null, %170 ], [ null, %208 ], [ null, %274 ], [ %220, %262 ], [ %220, %255 ], [ null, %252 ], [ %220, %243 ], [ %220, %238 ], [ %283, %291 ], [ null, %305 ]
@@ -2339,20 +2339,19 @@ attributes #10 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}

@@ -84,12 +84,12 @@ define i64 @SUNDlsMat_bandGBTRF(ptr noundef readonly captures(none) %0, i64 noun
   %27 = add nuw i64 %.0122154, 1
   %28 = getelementptr inbounds nuw i8, ptr %.0120155, i64 8
   %exitcond183.not = icmp eq i64 %.0122154, %smin184
-  br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph177
   %.0127.lcssa = phi i64 [ %.0126174, %.lr.ph177 ], [ %.1128, %.lr.ph ]
   %29 = sub nsw i64 %.0127.lcssa, %.0126174
-  store i64 %.0127.lcssa, ptr %.0115175, align 8, !tbaa !23
+  store i64 %.0127.lcssa, ptr %.0115175, align 8, !tbaa !21
   %30 = getelementptr double, ptr %17, i64 %29
   %31 = getelementptr double, ptr %30, i64 %4
   %32 = load double, ptr %31, align 8, !tbaa !17
@@ -119,7 +119,7 @@ define i64 @SUNDlsMat_bandGBTRF(ptr noundef readonly captures(none) %0, i64 noun
   %41 = add nuw i64 %.1123158, 1
   %42 = getelementptr inbounds nuw i8, ptr %.1121159, i64 8
   %exitcond185.not = icmp eq i64 %.1123158, %smin184
-  br i1 %exitcond185.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !24
+  br i1 %exitcond185.not, label %._crit_edge162, label %.lr.ph161
 
 ._crit_edge162:                                   ; preds = %.lr.ph161, %36
   %43 = add nsw i64 %.0126174, %4
@@ -169,23 +169,23 @@ define i64 @SUNDlsMat_bandGBTRF(ptr noundef readonly captures(none) %0, i64 noun
   %64 = getelementptr inbounds nuw i8, ptr %.2165, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.0119166, i64 8
   %.not141.not = icmp slt i64 %.2124164, %.
-  br i1 %.not141.not, label %.lr.ph168, label %.loopexit, !llvm.loop !25
+  br i1 %.not141.not, label %.lr.ph168, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph168, %55
   %66 = add nuw i64 %.0125170, 1
   %exitcond189.not = icmp eq i64 %.0125170, %smin188
-  br i1 %exitcond189.not, label %._crit_edge173, label %.lr.ph172, !llvm.loop !26
+  br i1 %exitcond189.not, label %._crit_edge173, label %.lr.ph172
 
 ._crit_edge173:                                   ; preds = %.loopexit, %._crit_edge162
   %67 = getelementptr inbounds nuw i8, ptr %.0115175, i64 8
   %indvars.iv.next = add i64 %indvars.iv, 1
   %indvars.iv.next187 = add i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %22, %14
-  br i1 %exitcond190.not, label %._crit_edge178, label %.lr.ph177, !llvm.loop !27
+  br i1 %exitcond190.not, label %._crit_edge178, label %.lr.ph177
 
 ._crit_edge178:                                   ; preds = %._crit_edge173, %.loopexit145
   %.0115.lcssa = phi ptr [ %5, %.loopexit145 ], [ %67, %._crit_edge173 ]
-  store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !23
+  store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !21
   %68 = getelementptr inbounds ptr, ptr %0, i64 %14
   %69 = load ptr, ptr %68, align 8, !tbaa !16
   %70 = getelementptr inbounds double, ptr %69, i64 %4
@@ -216,7 +216,7 @@ define void @SUNDlsMat_BandGBTRS(ptr noundef readonly captures(none) %0, ptr nou
 .loopexit.i:                                      ; preds = %.lr.ph.i, %22
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   %exitcond75.not.i = icmp eq i64 %27, %12
-  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i, !llvm.loop !28
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.lr.ph68.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %3
   %14 = icmp sgt i64 %7, 0
@@ -227,7 +227,7 @@ define void @SUNDlsMat_BandGBTRS(ptr noundef readonly captures(none) %0, ptr nou
   %.067.i = phi i64 [ %27, %.loopexit.i ], [ 0, %3 ]
   %smin.i = tail call i64 @llvm.smin.i64(i64 %indvars.iv.i, i64 %12)
   %15 = getelementptr inbounds nuw i64, ptr %1, i64 %.067.i
-  %16 = load i64, ptr %15, align 8, !tbaa !23
+  %16 = load i64, ptr %15, align 8, !tbaa !21
   %17 = getelementptr inbounds double, ptr %2, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !17
   %.not.i = icmp eq i64 %16, %.067.i
@@ -261,7 +261,7 @@ define void @SUNDlsMat_BandGBTRS(ptr noundef readonly captures(none) %0, ptr nou
   store double %33, ptr %31, align 8, !tbaa !17
   %34 = add nuw i64 %.05966.i, 1
   %exitcond.not.i = icmp eq i64 %.05966.i, %smin.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph73.i:                                       ; preds = %.preheader.i, %._crit_edge.i
   %.172.i = phi i64 [ %52, %._crit_edge.i ], [ %12, %.preheader.i ]
@@ -290,12 +290,12 @@ define void @SUNDlsMat_BandGBTRS(ptr noundef readonly captures(none) %0, ptr nou
   store double %50, ptr %48, align 8, !tbaa !17
   %51 = add nuw nsw i64 %.16070.i, 1
   %.not.not.i = icmp slt i64 %51, %.172.i
-  br i1 %.not.not.i, label %.lr.ph71.i, label %._crit_edge.i, !llvm.loop !30
+  br i1 %.not.not.i, label %.lr.ph71.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph71.i, %.lr.ph73.i
   %52 = add nsw i64 %.172.i, -1
   %53 = icmp sgt i64 %.172.i, 0
-  br i1 %53, label %.lr.ph73.i, label %SUNDlsMat_bandGBTRS.exit, !llvm.loop !31
+  br i1 %53, label %.lr.ph73.i, label %SUNDlsMat_bandGBTRS.exit
 
 SUNDlsMat_bandGBTRS.exit:                         ; preds = %._crit_edge.i, %.preheader.i
   ret void
@@ -310,7 +310,7 @@ define void @SUNDlsMat_bandGBTRS(ptr noundef readonly captures(none) %0, i64 nou
 .loopexit:                                        ; preds = %.lr.ph, %17
   %indvars.iv.next = add i64 %indvars.iv, 1
   %exitcond75.not = icmp eq i64 %22, %7
-  br i1 %exitcond75.not, label %.preheader, label %.lr.ph68, !llvm.loop !28
+  br i1 %exitcond75.not, label %.preheader, label %.lr.ph68
 
 .preheader:                                       ; preds = %.loopexit, %6
   %9 = icmp sgt i64 %1, 0
@@ -321,7 +321,7 @@ define void @SUNDlsMat_bandGBTRS(ptr noundef readonly captures(none) %0, i64 nou
   %.067 = phi i64 [ %22, %.loopexit ], [ 0, %6 ]
   %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv, i64 %7)
   %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.067
-  %11 = load i64, ptr %10, align 8, !tbaa !23
+  %11 = load i64, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds double, ptr %5, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !17
   %.not = icmp eq i64 %11, %.067
@@ -355,7 +355,7 @@ define void @SUNDlsMat_bandGBTRS(ptr noundef readonly captures(none) %0, i64 nou
   store double %28, ptr %26, align 8, !tbaa !17
   %29 = add nuw i64 %.05966, 1
   %exitcond.not = icmp eq i64 %.05966, %smin
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .lr.ph73:                                         ; preds = %.preheader, %._crit_edge
   %.172 = phi i64 [ %47, %._crit_edge ], [ %7, %.preheader ]
@@ -384,12 +384,12 @@ define void @SUNDlsMat_bandGBTRS(ptr noundef readonly captures(none) %0, i64 nou
   store double %45, ptr %43, align 8, !tbaa !17
   %46 = add nuw nsw i64 %.16070, 1
   %.not.not = icmp slt i64 %46, %.172
-  br i1 %.not.not, label %.lr.ph71, label %._crit_edge, !llvm.loop !30
+  br i1 %.not.not, label %.lr.ph71, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph71, %.lr.ph73
   %47 = add nsw i64 %.172, -1
   %48 = icmp sgt i64 %.172, 0
-  br i1 %48, label %.lr.ph73, label %._crit_edge74, !llvm.loop !31
+  br i1 %48, label %.lr.ph73, label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -436,12 +436,12 @@ define void @SUNDlsMat_BandCopy(ptr noundef readonly captures(none) %0, ptr noun
   store double %28, ptr %29, align 8, !tbaa !17
   %30 = add nuw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %.021.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %26, !llvm.loop !32
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %26
 
 ._crit_edge.i:                                    ; preds = %26
   %31 = add nuw nsw i64 %.01922.i, 1
   %exitcond27.not.i = icmp eq i64 %31, %10
-  br i1 %exitcond27.not.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond27.not.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
 SUNDlsMat_bandCopy.exit:                          ; preds = %._crit_edge.i, %4, %.lr.ph24.i
   ret void
@@ -478,12 +478,12 @@ define void @SUNDlsMat_bandCopy(ptr noundef readonly captures(none) %0, ptr noun
   store double %21, ptr %22, align 8, !tbaa !17
   %23 = add nuw i64 %.021, 1
   %exitcond.not = icmp eq i64 %.021, %8
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19
   %24 = add nuw nsw i64 %.01922, 1
   %exitcond27.not = icmp eq i64 %24, %2
-  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph
 
 ._crit_edge25:                                    ; preds = %._crit_edge, %.lr.ph24, %7
   ret void
@@ -526,12 +526,12 @@ define void @SUNDlsMat_BandScale(double noundef %0, ptr noundef readonly capture
   store double %23, ptr %21, align 8, !tbaa !17
   %24 = add nuw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %.016.i, %13
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !34
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %20
 
 ._crit_edge.i:                                    ; preds = %20
   %25 = add nuw nsw i64 %.01417.i, 1
   %exitcond22.not.i = icmp eq i64 %25, %6
-  br i1 %exitcond22.not.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond22.not.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
 SUNDlsMat_bandScale.exit:                         ; preds = %._crit_edge.i, %2, %.lr.ph19.i
   ret void
@@ -564,12 +564,12 @@ define void @SUNDlsMat_bandScale(double noundef %0, ptr noundef readonly capture
   store double %17, ptr %15, align 8, !tbaa !17
   %18 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %7
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %14
   %19 = add nuw nsw i64 %.01417, 1
   %exitcond22.not = icmp eq i64 %19, %2
-  br i1 %exitcond22.not, label %._crit_edge20, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond22.not, label %._crit_edge20, label %.lr.ph
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %.lr.ph19, %6
   ret void
@@ -624,12 +624,12 @@ define void @SUNDlsMat_BandMatvec(ptr noundef readonly captures(none) %0, ptr no
   store double %33, ptr %31, align 8, !tbaa !17
   %34 = add nuw nsw i64 %.140.i, 1
   %.not37.not.i = icmp slt i64 %.140.i, %24
-  br i1 %.not37.not.i, label %26, label %._crit_edge.i, !llvm.loop !36
+  br i1 %.not37.not.i, label %26, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26, %17
   %35 = add nuw nsw i64 %.03342.i, 1
   %exitcond.not.i = icmp eq i64 %35, %7
-  br i1 %exitcond.not.i, label %SUNDlsMat_bandMatvec.exit, label %17, !llvm.loop !37
+  br i1 %exitcond.not.i, label %SUNDlsMat_bandMatvec.exit, label %17
 
 SUNDlsMat_bandMatvec.exit:                        ; preds = %._crit_edge.i, %3
   ret void
@@ -674,12 +674,12 @@ define void @SUNDlsMat_bandMatvec(ptr noundef readonly captures(none) %0, ptr no
   store double %27, ptr %25, align 8, !tbaa !17
   %28 = add nuw nsw i64 %.140, 1
   %.not37.not = icmp slt i64 %.140, %18
-  br i1 %.not37.not, label %20, label %._crit_edge, !llvm.loop !36
+  br i1 %.not37.not, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %11
   %29 = add nuw nsw i64 %.03342, 1
   %exitcond.not = icmp eq i64 %29, %3
-  br i1 %exitcond.not, label %._crit_edge44, label %11, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge44, label %11
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %7
   ret void
@@ -706,7 +706,7 @@ define void @SUNDlsMat_bandAddIdentity(ptr noundef readonly captures(none) %0, i
   store double %9, ptr %7, align 8, !tbaa !17
   %10 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %10, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -748,23 +748,6 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !16 = !{!9, !9, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"double", !6, i64 0}
-!19 = distinct !{!19, !20, !21}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !20}
-!23 = !{!8, !8, i64 0}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
-!35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20}
-!37 = distinct !{!37, !20}
-!38 = distinct !{!38, !20}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!8, !8, i64 0}

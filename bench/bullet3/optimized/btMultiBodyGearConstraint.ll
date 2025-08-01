@@ -320,7 +320,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i: ; 
 _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %81, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i
   %85 = load ptr, ptr %61, align 8, !tbaa !71
   %.not.i5.i.i = icmp ne ptr %85, null
-  %86 = load i8, ptr %62, align 8, !range !81
+  %86 = load i8, ptr %62, align 8, !range !80
   %87 = trunc nuw i8 %86 to i1
   %or.cond.i.i = select i1 %.not.i5.i.i, i1 %87, i1 false
   br i1 %or.cond.i.i, label %88, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
@@ -330,7 +330,7 @@ _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: 
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i: ; preds = %88, %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %62, align 8, !tbaa !82
+  store i8 1, ptr %62, align 8, !tbaa !81
   store ptr %.0.i.i.i, ptr %61, align 8, !tbaa !71
   store i32 %72, ptr %60, align 8, !tbaa !70
   %.pre2.i = load i32, ptr %59, align 4, !tbaa !66
@@ -414,9 +414,9 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %147 = fneg float %146
   %148 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %93, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef %141, ptr noundef %145, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %7, float noundef %.1, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %147, float noundef %146, i1 noundef zeroext false, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef %.043, float noundef 0.000000e+00, float noundef 1.000000e+00)
   %149 = getelementptr inbounds nuw i8, ptr %93, i64 208
-  store ptr %0, ptr %149, align 8, !tbaa !83
+  store ptr %0, ptr %149, align 8, !tbaa !82
   %150 = getelementptr inbounds nuw i8, ptr %93, i64 216
-  store i32 %.04275, ptr %150, align 8, !tbaa !85
+  store i32 %.04275, ptr %150, align 8, !tbaa !84
   %151 = load ptr, ptr %21, align 8, !tbaa !27
   %152 = load i32, ptr %23, align 8, !tbaa !28
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 192
@@ -424,7 +424,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %155 = sext i32 %152 to i64
   %156 = getelementptr inbounds %struct.btMultibodyLink, ptr %154, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 564
-  %158 = load i32, ptr %157, align 4, !tbaa !86
+  %158 = load i32, ptr %157, align 4, !tbaa !85
   switch i32 %158, label %260 [
     i32 0, label %159
     i32 1, label %212
@@ -584,7 +584,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
 260:                                              ; preds = %134, %212, %159
   %261 = add nuw nsw i32 %.04275, 1
   %exitcond.not = icmp eq i32 %261, %42
-  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !86
 
 262:                                              ; preds = %.thread, %12, %._crit_edge
   ret void
@@ -602,20 +602,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint11setFrameInBERK11btMatrix3x3(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(48) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !87
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !87
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !87
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint11setPivotInBERK9btVector3(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !87
   ret void
 }
 
@@ -893,14 +893,13 @@ attributes #14 = { noreturn nounwind }
 !75 = !{!10, !10, i64 0}
 !76 = !{!77, !77, i64 0}
 !77 = !{!"p1 _ZTS21btMultiBodyConstraint", !11, i64 0}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{i8 0, i8 2}
-!82 = !{!67, !14, i64 24}
-!83 = !{!84, !77, i64 208}
-!84 = !{!"_ZTS27btMultiBodySolverConstraint", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !20, i64 16, !20, i64 32, !20, i64 48, !20, i64 64, !20, i64 80, !20, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !12, i64 152, !13, i64 160, !13, i64 164, !13, i64 168, !10, i64 176, !13, i64 184, !13, i64 188, !10, i64 192, !13, i64 200, !77, i64 208, !13, i64 216}
-!85 = !{!84, !13, i64 216}
-!86 = !{!46, !48, i64 564}
-!87 = distinct !{!87, !79, !80}
-!88 = !{i64 0, i64 16, !74}
+!80 = !{i8 0, i8 2}
+!81 = !{!67, !14, i64 24}
+!82 = !{!83, !77, i64 208}
+!83 = !{!"_ZTS27btMultiBodySolverConstraint", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !20, i64 16, !20, i64 32, !20, i64 48, !20, i64 64, !20, i64 80, !20, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !12, i64 152, !13, i64 160, !13, i64 164, !13, i64 168, !10, i64 176, !13, i64 184, !13, i64 188, !10, i64 192, !13, i64 200, !77, i64 208, !13, i64 216}
+!84 = !{!83, !13, i64 216}
+!85 = !{!46, !48, i64 564}
+!86 = distinct !{!86, !79}
+!87 = !{i64 0, i64 16, !74}

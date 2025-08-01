@@ -80,29 +80,29 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %48 = lshr i64 %47, %42
   %49 = and i64 %48, 4294967295
   %50 = getelementptr inbounds nuw i16, ptr %36, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !6
+  %51 = load i16, ptr %50, align 2, !tbaa !5
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %43
   %54 = getelementptr inbounds nuw i32, ptr %38, i64 %49
-  %55 = load i32, ptr %54, align 4, !tbaa !10
+  %55 = load i32, ptr %54, align 4, !tbaa !9
   br label %56
 
 56:                                               ; preds = %53, %43
   %57 = phi i32 [ %55, %53 ], [ -1, %43 ]
   %58 = getelementptr inbounds nuw i32, ptr %39, i64 %44
-  store i32 %57, ptr %58, align 4, !tbaa !10
+  store i32 %57, ptr %58, align 4, !tbaa !9
   %59 = getelementptr inbounds nuw i32, ptr %38, i64 %49
-  store i32 %.0179219.i, ptr %59, align 4, !tbaa !10
+  store i32 %.0179219.i, ptr %59, align 4, !tbaa !9
   %60 = add i16 %51, 1
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %60, i16 32)
-  store i16 %spec.select.i, ptr %50, align 2, !tbaa !6
+  store i16 %spec.select.i, ptr %50, align 2, !tbaa !5
   %61 = add i32 %.0179219.i, 1
   %.reass.i = add i32 %.0179219.i, 8
   %62 = zext i32 %.reass.i to i64
   %63 = icmp ugt i64 %2, %62
-  br i1 %63, label %43, label %.preheader217.i.preheader, !llvm.loop !12
+  br i1 %63, label %43, label %.preheader217.i.preheader, !llvm.loop !11
 
 .preheader217.i.preheader:                        ; preds = %56, %32
   br label %.preheader217.i
@@ -126,28 +126,28 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i16, ptr %36, i64 %.0169220.us.i
-  %70 = load i16, ptr %69, align 2, !tbaa !6
+  %70 = load i16, ptr %69, align 2, !tbaa !5
   %71 = zext i16 %70 to i32
   %spec.select195.us.i = tail call i32 @llvm.umin.i32(i32 %storemerge226.us.i, i32 %71)
   %72 = add nuw nsw i32 %spec.select195.us.i, %.0168221.us.i
   %73 = add nuw nsw i64 %.0169220.us.i, %34
   %74 = icmp samesign ult i64 %73, %37
-  br i1 %74, label %66, label %._crit_edge.i, !llvm.loop !13
+  br i1 %74, label %66, label %._crit_edge.i, !llvm.loop !12
 
 75:                                               ; preds = %66
   %76 = add i32 %storemerge226.us.i, -1
-  br label %.lr.ph222.us.i, !llvm.loop !14
+  br label %.lr.ph222.us.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %68, %.preheader217.i
   %storemerge.i = phi i32 [ 32, %.preheader217.i ], [ %storemerge226.us.i, %68 ]
   %.0168.lcssa.i = phi i32 [ 0, %.preheader217.i ], [ %72, %68 ]
-  store i32 %storemerge.i, ptr %64, align 4, !tbaa !10
+  store i32 %storemerge.i, ptr %64, align 4, !tbaa !9
   %77 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
-  store i32 %.0168.lcssa.i, ptr %77, align 4, !tbaa !10
+  store i32 %.0168.lcssa.i, ptr %77, align 4, !tbaa !9
   %78 = add i32 %.0168.lcssa.i, %.0176231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %34
-  br i1 %exitcond.not.i, label %79, label %.preheader217.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %79, label %.preheader217.i, !llvm.loop !15
 
 79:                                               ; preds = %._crit_edge.i
   %80 = zext i32 %78 to i64
@@ -162,67 +162,67 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %87 = getelementptr inbounds nuw i32, ptr %86, i64 %34
   %88 = getelementptr inbounds nuw i16, ptr %87, i64 %37
   %89 = getelementptr inbounds nuw i32, ptr %88, i64 %80
-  store i32 -558043677, ptr %85, align 4, !tbaa !17
+  store i32 -558043677, ptr %85, align 4, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store i32 %78, ptr %90, align 4, !tbaa !19
+  store i32 %78, ptr %90, align 4, !tbaa !18
   %91 = trunc nuw i64 %2 to i32
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store i32 %91, ptr %92, align 4, !tbaa !20
+  store i32 %91, ptr %92, align 4, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  store i32 40, ptr %93, align 4, !tbaa !21
+  store i32 40, ptr %93, align 4, !tbaa !20
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i32 %.013.lcssa, ptr %94, align 4, !tbaa !22
+  store i32 %.013.lcssa, ptr %94, align 4, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 20
-  store i32 %.014.lcssa, ptr %95, align 4, !tbaa !23
+  store i32 %.014.lcssa, ptr %95, align 4, !tbaa !22
   store ptr %1, ptr %89, align 1
   br label %96
 
 96:                                               ; preds = %96, %79
-  %indvars.iv240.i = phi i64 [ 0, %79 ], [ %indvars.iv.next241.i, %96 ]
+  %indvars.iv241.i = phi i64 [ 0, %79 ], [ %indvars.iv.next242.i, %96 ]
   %.3233.i = phi i32 [ 0, %79 ], [ %100, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv240.i
-  store i32 %.3233.i, ptr %97, align 4, !tbaa !10
-  %98 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv240.i
-  %99 = load i32, ptr %98, align 4, !tbaa !10
+  %97 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv241.i
+  store i32 %.3233.i, ptr %97, align 4, !tbaa !9
+  %98 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv241.i
+  %99 = load i32, ptr %98, align 4, !tbaa !9
   %100 = add i32 %99, %.3233.i
-  store i32 0, ptr %98, align 4, !tbaa !10
-  %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
-  %exitcond244.not.i = icmp eq i64 %indvars.iv.next241.i, %34
-  br i1 %exitcond244.not.i, label %.preheader.i, label %96, !llvm.loop !24
+  store i32 0, ptr %98, align 4, !tbaa !9
+  %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
+  %exitcond245.not.i = icmp eq i64 %indvars.iv.next242.i, %34
+  br i1 %exitcond245.not.i, label %.preheader.i, label %96, !llvm.loop !23
 
-.preheader.i:                                     ; preds = %96, %134
-  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %134 ], [ 0, %96 ]
-  %101 = trunc nuw i64 %indvars.iv246.i to i32
+.preheader.i:                                     ; preds = %96, %135
+  %indvars.iv247.i = phi i64 [ %indvars.iv.next248.i, %135 ], [ 0, %96 ]
+  %101 = trunc nuw i64 %indvars.iv247.i to i32
   %102 = and i32 %14, %101
-  %103 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv246.i
-  %104 = load i16, ptr %103, align 2, !tbaa !6
+  %103 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv247.i
+  %104 = load i16, ptr %103, align 2, !tbaa !5
   %105 = zext i16 %104 to i32
   %106 = zext nneg i32 %102 to i64
   %107 = getelementptr inbounds nuw i32, ptr %35, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !10
+  %108 = load i32, ptr %107, align 4, !tbaa !9
   %spec.select198.i = tail call i32 @llvm.umin.i32(i32 %108, i32 %105)
   %109 = icmp eq i32 %spec.select198.i, 0
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %.preheader.i
-  %111 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv246.i
-  store i16 -1, ptr %111, align 2, !tbaa !6
-  br label %134
+  %111 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv247.i
+  store i16 -1, ptr %111, align 2, !tbaa !5
+  br label %135
 
 112:                                              ; preds = %.preheader.i
   %113 = getelementptr inbounds nuw i32, ptr %33, i64 %106
-  %114 = load i32, ptr %113, align 4, !tbaa !10
+  %114 = load i32, ptr %113, align 4, !tbaa !9
   %115 = zext i32 %114 to i64
   %116 = trunc i32 %114 to i16
-  %117 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv246.i
-  store i16 %116, ptr %117, align 2, !tbaa !6
+  %117 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv247.i
+  store i16 %116, ptr %117, align 2, !tbaa !5
   %118 = getelementptr inbounds nuw i32, ptr %86, i64 %106
-  %119 = load i32, ptr %118, align 4, !tbaa !10
+  %119 = load i32, ptr %118, align 4, !tbaa !9
   %120 = zext i32 %119 to i64
   %121 = add nuw nsw i64 %120, %115
   %122 = add i32 %114, %spec.select198.i
-  store i32 %122, ptr %113, align 4, !tbaa !10
-  %123 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv246.i
+  store i32 %122, ptr %113, align 4, !tbaa !9
+  %123 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv247.i
   %124 = zext nneg i32 %spec.select198.i to i64
   br label %125
 
@@ -230,33 +230,34 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %.0236.i = phi i64 [ %121, %112 ], [ %126, %125 ]
   %.0163235.i = phi i64 [ 0, %112 ], [ %130, %125 ]
   %.0164.in234.i = phi ptr [ %123, %112 ], [ %129, %125 ]
-  %.0164.i = load i32, ptr %.0164.in234.i, align 4, !tbaa !10
+  %.0164.i = load i32, ptr %.0164.in234.i, align 4, !tbaa !9
   %126 = add nuw nsw i64 %.0236.i, 1
-  %127 = getelementptr i32, ptr %88, i64 %.0236.i
-  store i32 %.0164.i, ptr %127, align 4, !tbaa !10
+  %127 = getelementptr inbounds nuw i32, ptr %88, i64 %.0236.i
+  store i32 %.0164.i, ptr %127, align 4, !tbaa !9
   %128 = zext i32 %.0164.i to i64
   %129 = getelementptr inbounds nuw i32, ptr %39, i64 %128
   %130 = add nuw nsw i64 %.0163235.i, 1
-  %exitcond245.not.i = icmp eq i64 %130, %124
-  br i1 %exitcond245.not.i, label %131, label %125, !llvm.loop !25
+  %exitcond246.not.i = icmp eq i64 %130, %124
+  br i1 %exitcond246.not.i, label %131, label %125, !llvm.loop !24
 
 131:                                              ; preds = %125
-  %132 = getelementptr i32, ptr %88, i64 %.0236.i
-  %133 = or i32 %.0164.i, -2147483648
-  store i32 %133, ptr %132, align 4, !tbaa !10
-  br label %134
+  %132 = getelementptr i32, ptr %88, i64 %126
+  %133 = getelementptr i8, ptr %132, i64 -4
+  %134 = or i32 %.0164.i, -2147483648
+  store i32 %134, ptr %133, align 4, !tbaa !9
+  br label %135
 
-134:                                              ; preds = %131, %110
-  %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
-  %exitcond251.not.i = icmp eq i64 %indvars.iv.next247.i, %37
-  br i1 %exitcond251.not.i, label %135, label %.preheader.i, !llvm.loop !26
+135:                                              ; preds = %131, %110
+  %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
+  %exitcond252.not.i = icmp eq i64 %indvars.iv.next248.i, %37
+  br i1 %exitcond252.not.i, label %136, label %.preheader.i, !llvm.loop !25
 
-135:                                              ; preds = %134
+136:                                              ; preds = %135
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef nonnull %33)
   br label %_ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit
 
-_ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit: ; preds = %._crit_edge, %135
-  %.0166.i = phi ptr [ %85, %135 ], [ null, %._crit_edge ]
+_ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit: ; preds = %._crit_edge, %136
+  %.0166.i = phi ptr [ %85, %136 ], [ null, %._crit_edge ]
   ret ptr %.0166.i
 }
 
@@ -277,7 +278,7 @@ declare void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionaryEPNS_18CompoundDictionaryEPKNS_18PreparedDictionaryE(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load i64, ptr %0, align 8, !tbaa !27
+  %3 = load i64, ptr %0, align 8, !tbaa !26
   %4 = icmp eq i64 %3, 15
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %4
@@ -285,35 +286,35 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionary
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !30
+  %10 = load i64, ptr %9, align 8, !tbaa !29
   %11 = add i64 %10, %8
-  store i64 %11, ptr %9, align 8, !tbaa !30
+  store i64 %11, ptr %9, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %3
-  store ptr %1, ptr %13, align 8, !tbaa !31
+  store ptr %1, ptr %13, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %15 = add i64 %3, 1
   %16 = getelementptr inbounds nuw [16 x i64], ptr %14, i64 0, i64 %15
-  store i64 %11, ptr %16, align 8, !tbaa !34
+  store i64 %11, ptr %16, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !23
+  %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = shl nuw i32 1, %19
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %17, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !22
+  %24 = load i32, ptr %23, align 4, !tbaa !21
   %25 = shl nuw i32 1, %24
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i16, ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !19
+  %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
-  %32 = load i32, ptr %1, align 4, !tbaa !17
+  %32 = load i32, ptr %1, align 4, !tbaa !16
   %33 = icmp eq i32 %32, -558043680
   br i1 %33, label %35, label %34
 
@@ -325,10 +326,10 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionary
   %.0.copyload.i.sink = phi ptr [ %.0.copyload.i, %34 ], [ %31, %5 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = getelementptr inbounds nuw [16 x ptr], ptr %36, i64 0, i64 %3
-  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !35
-  %38 = load i64, ptr %0, align 8, !tbaa !27
+  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !34
+  %38 = load i64, ptr %0, align 8, !tbaa !26
   %39 = add i64 %38, 1
-  store i64 %39, ptr %0, align 8, !tbaa !27
+  store i64 %39, ptr %0, align 8, !tbaa !26
   br label %40
 
 40:                                               ; preds = %2, %35
@@ -362,37 +363,36 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"short", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !8, i64 0}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !4, !5}
-!17 = !{!18, !11, i64 0}
-!18 = !{!"_ZTSN13duckdb_brotli18PreparedDictionaryE", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20}
-!19 = !{!18, !11, i64 4}
-!20 = !{!18, !11, i64 8}
-!21 = !{!18, !11, i64 12}
-!22 = !{!18, !11, i64 16}
-!23 = !{!18, !11, i64 20}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"_ZTSN13duckdb_brotli18CompoundDictionaryE", !29, i64 0, !29, i64 8, !8, i64 16, !8, i64 144, !8, i64 272, !29, i64 400, !8, i64 408}
-!29 = !{!"long", !8, i64 0}
-!30 = !{!28, !29, i64 8}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTSN13duckdb_brotli18PreparedDictionaryE", !33, i64 0}
-!33 = !{!"any pointer", !8, i64 0}
-!34 = !{!29, !29, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 omnipotent char", !33, i64 0}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"short", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !4}
+!16 = !{!17, !10, i64 0}
+!17 = !{!"_ZTSN13duckdb_brotli18PreparedDictionaryE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
+!18 = !{!17, !10, i64 4}
+!19 = !{!17, !10, i64 8}
+!20 = !{!17, !10, i64 12}
+!21 = !{!17, !10, i64 16}
+!22 = !{!17, !10, i64 20}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTSN13duckdb_brotli18CompoundDictionaryE", !28, i64 0, !28, i64 8, !7, i64 16, !7, i64 144, !7, i64 272, !28, i64 400, !7, i64 408}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!27, !28, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN13duckdb_brotli18PreparedDictionaryE", !32, i64 0}
+!32 = !{!"any pointer", !7, i64 0}
+!33 = !{!28, !28, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 omnipotent char", !32, i64 0}

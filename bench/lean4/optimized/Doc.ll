@@ -23836,7 +23836,7 @@ lean_inc.exit:                                    ; preds = %62, %61, %59, %lean
 
 lean_dec.exit:                                    ; preds = %69, %68, %66, %lean_inc.exit
   %70 = tail call ptr @l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1(ptr noundef %.0, ptr noundef %44, ptr noundef %54) #5
-  br label %4, !llvm.loop !18
+  br label %4
 }
 
 declare ptr @l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -24020,7 +24020,7 @@ lean_inc.exit:                                    ; preds = %61, %60, %58, %lean
 
 lean_dec.exit:                                    ; preds = %68, %67, %65, %lean_inc.exit
   %69 = tail call ptr @l_Lean_RBNode_insert___at___private_Lean_Elab_PatternVar_0__Lean_Elab_Term_CollectPatternVars_throwCtorExpected_showName___spec__1(ptr noundef %.0, ptr noundef %43, ptr noundef %53) #5
-  br label %3, !llvm.loop !20
+  br label %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -29355,7 +29355,7 @@ lean_inc.exit:                                    ; preds = %115, %114, %112, %l
 
 lean_dec.exit:                                    ; preds = %122, %121, %119, %lean_inc.exit
   %123 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %107, ptr noundef %40, ptr noundef %50) #5
-  br label %6, !llvm.loop !21
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -30166,7 +30166,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit33
   %.029.be = phi ptr [ %.0, %lean_dec.exit33 ], [ %64, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !22
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -41199,7 +41199,7 @@ lean_dec.exit149:                                 ; preds = %lean_dec.exit149.ba
   %28 = ptrtoint ptr %.0111 to i64
   %29 = and i64 %28, 1
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %lean_dec.exit167, label %30, !prof !23
+  br i1 %.not, label %lean_dec.exit167, label %30, !prof !18
 
 30:                                               ; preds = %lean_dec.exit149
   %31 = icmp ult ptr %.0111, %27
@@ -42086,7 +42086,7 @@ lean_inc.exit132:                                 ; preds = %334, %333, %331, %l
   br label %lean_dec.exit150
 
 lean_dec.exit150:                                 ; preds = %341, %340, %338, %lean_inc.exit132
-  br i1 %.not, label %351, label %342, !prof !23
+  br i1 %.not, label %351, label %342, !prof !18
 
 342:                                              ; preds = %lean_dec.exit150
   %343 = add nuw i64 %88, 1
@@ -50325,9 +50325,4 @@ attributes #6 = { noreturn nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !6, i64 0}
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -278,7 +278,7 @@ define dso_local ptr @readArgFromStdin() local_unnamed_addr #1 {
   %sext = shl i64 %6, 32
   %10 = ashr exact i64 %sext, 32
   %11 = call ptr @hi_sdscatlen(ptr noundef %.05, ptr noundef nonnull %1, i64 noundef %10) #12
-  br label %3, !llvm.loop !27
+  br label %3
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #12
@@ -316,18 +316,18 @@ define dso_local ptr @getSdsArrayFromArgv(i32 noundef %0, ptr noundef readonly c
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv48
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = tail call ptr @hi_sdsnew(ptr noundef %9) #12
   %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv48
-  store ptr %10, ptr %11, align 8, !tbaa !29
+  store ptr %10, ptr %11, align 8, !tbaa !27
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
   %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   %14 = call ptr @hi_sdssplitargs(ptr noundef %13, ptr noundef nonnull %4) #12
   %15 = icmp ne ptr %14, null
@@ -344,8 +344,8 @@ unquoteCString.exit.thread55:                     ; preds = %18
   br label %.preheader.sink.split
 
 unquoteCString.exit:                              ; preds = %.lr.ph.split
-  %19 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr null, ptr %14, align 8, !tbaa !29
+  %19 = load ptr, ptr %14, align 8, !tbaa !27
+  store ptr null, ptr %14, align 8, !tbaa !27
   call void @hi_sdsfreesplitres(ptr noundef nonnull %14, i32 noundef %16) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %.not32.not = icmp eq ptr %19, null
@@ -363,17 +363,17 @@ unquoteCString.exit:                              ; preds = %.lr.ph.split
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.lr.ph39 ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next46
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
   call void @hi_sdsfree(ptr noundef %21) #12
   %22 = icmp sgt i64 %indvars.iv45, 1
-  br i1 %22, label %.lr.ph39, label %._crit_edge, !llvm.loop !33
+  br i1 %22, label %.lr.ph39, label %._crit_edge, !llvm.loop !31
 
 .thread:                                          ; preds = %unquoteCString.exit
   %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  store ptr %19, ptr %23, align 8, !tbaa !29
+  store ptr %19, ptr %23, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph39, %.preheader
   call void @hi_sds_free(ptr noundef %7) #12
@@ -398,8 +398,8 @@ define dso_local ptr @unquoteCString(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %or.cond, label %.thread, label %8
 
 .thread:                                          ; preds = %1
-  %7 = load ptr, ptr %3, align 8, !tbaa !29
-  store ptr null, ptr %3, align 8, !tbaa !29
+  %7 = load ptr, ptr %3, align 8, !tbaa !27
+  store ptr null, ptr %3, align 8, !tbaa !27
   br label %9
 
 8:                                                ; preds = %1
@@ -474,7 +474,7 @@ define dso_local void @parseRedisUri(ptr noundef %0, ptr noundef %1, ptr noundef
   %27 = sub i64 %25, %26
   %28 = tail call fastcc ptr @percentDecode(ptr noundef nonnull %14, i64 noundef %27)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !35
+  store ptr %28, ptr %29, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %31
 
@@ -485,7 +485,7 @@ define dso_local void @parseRedisUri(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = sub i64 %32, %33
   %35 = tail call fastcc ptr @percentDecode(ptr noundef nonnull %.1, i64 noundef %34)
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %35, ptr %36, align 8, !tbaa !37
+  store ptr %35, ptr %36, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %38
 
@@ -524,7 +524,7 @@ define dso_local void @parseRedisUri(ptr noundef %0, ptr noundef %1, ptr noundef
   %56 = tail call i64 @strtol(ptr noundef nonnull captures(none) %55, ptr noundef null, i32 noundef 10) #12
   %57 = trunc i64 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %57, ptr %58, align 8, !tbaa !38
+  store i32 %57, ptr %58, align 8, !tbaa !36
   br label %59
 
 59:                                               ; preds = %54, %50
@@ -541,21 +541,21 @@ define dso_local void @parseRedisUri(ptr noundef %0, ptr noundef %1, ptr noundef
   %65 = tail call i64 @strtol(ptr noundef nonnull captures(none) %64, ptr noundef null, i32 noundef 10) #12
   %66 = trunc i64 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %66, ptr %67, align 8, !tbaa !38
+  store i32 %66, ptr %67, align 8, !tbaa !36
   %68 = getelementptr inbounds i8, ptr %62, i64 -1
   br label %69
 
 69:                                               ; preds = %61, %63, %47, %59
   %.058 = phi ptr [ %60, %59 ], [ %45, %47 ], [ %68, %63 ], [ %45, %61 ]
   %.2 = phi ptr [ %48, %59 ], [ %48, %47 ], [ %.0, %63 ], [ %.0, %61 ]
-  %70 = load ptr, ptr %2, align 8, !tbaa !39
+  %70 = load ptr, ptr %2, align 8, !tbaa !37
   tail call void @hi_sdsfree(ptr noundef %70) #12
   %71 = ptrtoint ptr %.058 to i64
   %72 = ptrtoint ptr %.2 to i64
   %73 = add i64 %71, 1
   %74 = sub i64 %73, %72
   %75 = tail call ptr @hi_sdsnewlen(ptr noundef nonnull %.2, i64 noundef %74) #12
-  store ptr %75, ptr %2, align 8, !tbaa !39
+  store ptr %75, ptr %2, align 8, !tbaa !37
   br label %76
 
 76:                                               ; preds = %69, %40
@@ -569,7 +569,7 @@ define dso_local void @parseRedisUri(ptr noundef %0, ptr noundef %1, ptr noundef
   %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %77, ptr noundef null, i32 noundef 10) #12
   %82 = trunc i64 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %82, ptr %83, align 4, !tbaa !40
+  store i32 %82, ptr %83, align 4, !tbaa !38
   br label %84
 
 84:                                               ; preds = %76, %38, %13, %80
@@ -621,14 +621,14 @@ define internal fastcc ptr @percentDecode(ptr noundef %0, i64 noundef %1) unname
 
 17:                                               ; preds = %10
   %18 = tail call ptr @__ctype_tolower_loc() #13
-  %19 = load ptr, ptr %18, align 8, !tbaa !41
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %.03547, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !21
   %22 = sext i8 %21 to i64
   %23 = getelementptr inbounds i32, ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !5
   %25 = tail call ptr @__ctype_b_loc() #13
-  %26 = load ptr, ptr %25, align 8, !tbaa !43
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
   %sext = shl i32 %24, 24
   %27 = ashr exact i32 %sext, 24
   %28 = sext i32 %27 to i64
@@ -691,7 +691,7 @@ define internal fastcc ptr @percentDecode(ptr noundef %0, i64 noundef %1) unname
   %.136 = phi ptr [ %55, %48 ], [ %57, %56 ]
   %.1 = phi ptr [ %54, %48 ], [ %58, %56 ]
   %60 = icmp ult ptr %.136, %4
-  br i1 %60, label %7, label %._crit_edge, !llvm.loop !45
+  br i1 %60, label %7, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %59, %2
   %.0.lcssa = phi ptr [ %5, %2 ], [ %.1, %59 ]
@@ -702,7 +702,7 @@ declare ptr @hi_sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeCliConnInfo(ptr noundef readonly byval(%struct.cliConnInfo) align 8 captures(none) %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !39
+  %2 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -712,7 +712,7 @@ define dso_local void @freeCliConnInfo(ptr noundef readonly byval(%struct.cliCon
 
 4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !35
   %.not3 = icmp eq ptr %6, null
   br i1 %.not3, label %8, label %7
 
@@ -722,7 +722,7 @@ define dso_local void @freeCliConnInfo(ptr noundef readonly byval(%struct.cliCon
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %12, label %11
 
@@ -792,7 +792,7 @@ define dso_local ptr @escapeJsonString(ptr noundef %0, ptr noundef readonly capt
   %.1 = phi ptr [ %24, %20 ], [ %9, %7 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %.01418, i64 1
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %25, %3
   %.015.lcssa = phi ptr [ %4, %3 ], [ %.1, %25 ]
@@ -950,23 +950,21 @@ attributes #17 = { cold nounwind }
 !24 = !{!19, !19, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!13, !13, i64 0}
-!30 = distinct !{!30, !31, !28, !32}
-!31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !31, !28}
-!34 = distinct !{!34, !31, !28}
-!35 = !{!36, !13, i64 24}
-!36 = !{!"cliConnInfo", !13, i64 0, !6, i64 8, !6, i64 12, !13, i64 16, !13, i64 24}
-!37 = !{!36, !13, i64 16}
-!38 = !{!36, !6, i64 8}
-!39 = !{!36, !13, i64 0}
-!40 = !{!36, !6, i64 12}
+!27 = !{!13, !13, i64 0}
+!28 = distinct !{!28, !29, !30}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !29}
+!33 = !{!34, !13, i64 24}
+!34 = !{!"cliConnInfo", !13, i64 0, !6, i64 8, !6, i64 12, !13, i64 16, !13, i64 24}
+!35 = !{!34, !13, i64 16}
+!36 = !{!34, !6, i64 8}
+!37 = !{!34, !13, i64 0}
+!38 = !{!34, !6, i64 12}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 int", !12, i64 0}
 !41 = !{!42, !42, i64 0}
-!42 = !{!"p1 int", !12, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 short", !12, i64 0}
-!45 = distinct !{!45, !31, !28}
-!46 = distinct !{!46, !31, !28}
+!42 = !{!"p1 short", !12, i64 0}
+!43 = distinct !{!43, !29}
+!44 = distinct !{!44, !29}

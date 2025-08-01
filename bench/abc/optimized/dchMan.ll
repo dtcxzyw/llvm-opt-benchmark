@@ -510,7 +510,7 @@ define void @Dch_ManSatSolverRecycle(ptr noundef captures(none) %0) local_unname
   store i32 1, ptr %21, align 8, !tbaa !18
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !76
+  %24 = load i32, ptr %23, align 8, !tbaa !75
   %.not20 = icmp eq i32 %24, 0
   %spec.store.select = select i1 %.not20, i32 2, i32 3
   store i32 %spec.store.select, ptr %2, align 4
@@ -520,7 +520,7 @@ define void @Dch_ManSatSolverRecycle(ptr noundef captures(none) %0) local_unname
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !68
   %30 = getelementptr i8, ptr %29, i64 48
-  %.val26 = load ptr, ptr %30, align 8, !tbaa !77
+  %.val26 = load ptr, ptr %30, align 8, !tbaa !76
   %31 = load i32, ptr %21, align 8, !tbaa !18
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %21, align 8, !tbaa !18
@@ -536,7 +536,7 @@ define void @Dch_ManSatSolverRecycle(ptr noundef captures(none) %0) local_unname
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8, !tbaa !44
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 0, ptr %40, align 4, !tbaa !78
+  store i32 0, ptr %40, align 4, !tbaa !77
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
   ret void
 }
@@ -655,9 +655,8 @@ attributes #13 = { nounwind willreturn memory(read) }
 !70 = !{!4, !12, i64 40}
 !71 = !{!6, !6, i64 0}
 !72 = !{!23, !13, i64 36}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = !{!40, !13, i64 16}
-!77 = !{!20, !22, i64 48}
-!78 = !{!4, !13, i64 76}
+!75 = !{!40, !13, i64 16}
+!76 = !{!20, !22, i64 48}
+!77 = !{!4, !13, i64 76}

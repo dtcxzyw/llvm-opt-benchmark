@@ -526,7 +526,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
   %21 = getelementptr i8, ptr %3, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread, label %1, !llvm.loop !12
+  br i1 %23, label %.thread, label %1, !llvm.loop !8
 
 24:                                               ; preds = %snb_pci2phy_map_init.exit
   store ptr @snb_pci_uncores, ptr @uncore_pci_uncores, align 8
@@ -583,7 +583,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
   %21 = getelementptr i8, ptr %3, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread, label %1, !llvm.loop !13
+  br i1 %23, label %.thread, label %1, !llvm.loop !8
 
 24:                                               ; preds = %snb_pci2phy_map_init.exit
   store ptr @snb_pci_uncores, ptr @uncore_pci_uncores, align 8
@@ -640,7 +640,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
   %21 = getelementptr i8, ptr %3, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread, label %1, !llvm.loop !14
+  br i1 %23, label %.thread, label %1, !llvm.loop !8
 
 24:                                               ; preds = %snb_pci2phy_map_init.exit
   store ptr @snb_pci_uncores, ptr @uncore_pci_uncores, align 8
@@ -697,7 +697,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
   %21 = getelementptr i8, ptr %3, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread, label %1, !llvm.loop !15
+  br i1 %23, label %.thread, label %1, !llvm.loop !8
 
 24:                                               ; preds = %snb_pci2phy_map_init.exit
   store ptr @snb_pci_uncores, ptr @uncore_pci_uncores, align 8
@@ -916,7 +916,7 @@ define internal void @skl_uncore_msr_init_box(ptr noundef %0) #1 align 16 {
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, i64 2) #10, !srcloc !16
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, i64 2) #10, !srcloc !11
   br label %16
 
 16:                                               ; preds = %14, %9
@@ -1111,7 +1111,7 @@ define internal void @snb_uncore_imc_init_box(ptr noundef captures(none) initial
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  store i32 0, ptr %2, align 4, !annotation !17
+  store i32 0, ptr %2, align 4, !annotation !12
   %9 = call i32 @pci_read_config_dword(ptr noundef %8, i32 noundef 72, ptr noundef nonnull %2) #10
   %10 = load i32, ptr %2, align 4
   %11 = call i32 @pci_read_config_dword(ptr noundef %8, i32 noundef 76, ptr noundef nonnull %2) #10
@@ -1172,7 +1172,7 @@ define internal range(i64 0, 4294967296) i64 @snb_uncore_imc_read_counter(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #10, !srcloc !18
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #10, !srcloc !13
   %9 = zext i32 %8 to i64
   ret i64 %9
 }
@@ -1419,7 +1419,7 @@ define internal fastcc void @__uncore_imc_init_box(ptr noundef captures(none) %0
   %5 = getelementptr i8, ptr %9, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %14, label %8, !llvm.loop !19
+  br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4, %2
   %9 = phi ptr [ @tgl_uncore_pci_ids, %2 ], [ %5, %4 ]
@@ -1440,7 +1440,7 @@ define internal fastcc void @__uncore_imc_init_box(ptr noundef captures(none) %0
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  store i32 0, ptr %3, align 4, !annotation !17
+  store i32 0, ptr %3, align 4, !annotation !12
   %21 = call i32 @pci_read_config_dword(ptr noundef nonnull %12, i32 noundef 72, ptr noundef nonnull %3) #10
   %22 = load i32, ptr %3, align 4
   %23 = and i32 %22, 1
@@ -1508,7 +1508,7 @@ define internal void @adl_uncore_imc_init_box(ptr noundef captures(none) %0) #1 
 
 11:                                               ; preds = %5
   %12 = getelementptr i8, ptr %3, i64 192
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %12) #10, !srcloc !20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %12) #10, !srcloc !14
   br label %13
 
 13:                                               ; preds = %11, %5, %1
@@ -1537,7 +1537,7 @@ define internal void @adl_uncore_mmio_disable_box(ptr noundef readonly captures(
   %17 = add i32 %16, %11
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %3, i64 %18
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %19) #10, !srcloc !20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %19) #10, !srcloc !14
   br label %20
 
 20:                                               ; preds = %5, %1
@@ -1566,7 +1566,7 @@ define internal void @adl_uncore_mmio_enable_box(ptr noundef readonly captures(n
   %17 = add i32 %16, %11
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %3, i64 %18
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %19) #10, !srcloc !20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %19) #10, !srcloc !14
   br label %20
 
 20:                                               ; preds = %5, %1
@@ -1617,16 +1617,10 @@ attributes #11 = { cold nounwind }
 !5 = !{i64 1218643, i64 1218664, i64 2149452329, i64 2149452373, i64 2149452396, i64 2149452429, i64 2149452460, i64 2149452499}
 !6 = !{i64 658612, i64 658656, i64 2148145631, i64 2148145652, i64 2148145678, i64 2148145711, i64 2148145745, i64 2148145769}
 !7 = !{i64 1218899, i64 1218920, i64 2149452828, i64 2149452872, i64 2149452895, i64 2149452928, i64 2149452959, i64 2149452998}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = !{i64 2148454090}
-!17 = !{!"auto-init"}
-!18 = !{i64 2154325054}
-!19 = distinct !{!19, !11}
-!20 = !{i64 2154327447}
+!11 = !{i64 2148454090}
+!12 = !{!"auto-init"}
+!13 = !{i64 2154325054}
+!14 = !{i64 2154327447}

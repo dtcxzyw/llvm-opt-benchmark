@@ -66,7 +66,7 @@ define dso_local void @_Z12luaL_sandboxP9lua_State(ptr noundef %0) local_unnamed
   tail call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
   %7 = tail call noundef i32 @_Z8lua_nextP9lua_Statei(ptr noundef %0, i32 noundef -10002)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %6, %1
   tail call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 0)
@@ -200,7 +200,6 @@ attributes #6 = { nounwind allocsize(1) }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!5, !7, i64 8}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

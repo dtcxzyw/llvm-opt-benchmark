@@ -2815,7 +2815,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
   %319 = add i32 %318, %314
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %320 = icmp samesign ult i64 %indvars.iv.next.i, %307
-  br i1 %320, label %.lr.ph110.i, label %._crit_edge111.i, !llvm.loop !9
+  br i1 %320, label %.lr.ph110.i, label %._crit_edge111.i, !llvm.loop !8
 
 ._crit_edge111.i:                                 ; preds = %317
   %321 = icmp eq i32 %319, 0
@@ -2865,7 +2865,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
   %345 = getelementptr inbounds nuw i8, ptr %.078113.i, i64 %344
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %346 = icmp samesign ult i64 %indvars.iv.next120.i, %307
-  br i1 %346, label %.lr.ph115.i, label %._crit_edge116.i, !llvm.loop !10
+  br i1 %346, label %.lr.ph115.i, label %._crit_edge116.i, !llvm.loop !9
 
 ._crit_edge116.i:                                 ; preds = %.lr.ph115.i
   %347 = load ptr, ptr %0, align 8
@@ -3094,7 +3094,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   %narrow = select i1 %.0289367, i1 %.not354, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %61
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %70 = load ptr, ptr %0, align 8
@@ -3349,7 +3349,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   %205 = call i32 @jReadScanlines(ptr noundef nonnull %32, ptr noundef nonnull %21, i32 noundef 1) #13
   %206 = load i8, ptr %152, align 8
   %207 = icmp eq i8 %206, 0
-  br i1 %207, label %.lr.ph369, label %.critedge19, !llvm.loop !12
+  br i1 %207, label %.lr.ph369, label %.critedge19, !llvm.loop !11
 
 .lr.ph385:                                        ; preds = %.lr.ph369
   %208 = load ptr, ptr %21, align 8
@@ -3367,7 +3367,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 .loopexit:                                        ; preds = %.lr.ph383, %GET_ARRAYS.exit
   %217 = load i8, ptr %152, align 8
   %218 = icmp eq i8 %217, 0
-  br i1 %218, label %219, label %.critedge19, !llvm.loop !13
+  br i1 %218, label %219, label %.critedge19, !llvm.loop !12
 
 219:                                              ; preds = %.lr.ph385, %.loopexit
   %.0297384 = phi i32 [ 0, %.lr.ph385 ], [ %270, %.loopexit ]
@@ -3422,13 +3422,13 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   store i8 %244, ptr %.1301371.us, align 1
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %158
-  br i1 %exitcond396.not, label %._crit_edge374.us, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond396.not, label %._crit_edge374.us, label %.preheader.us, !llvm.loop !13
 
 ._crit_edge374.us:                                ; preds = %.preheader.us
   %246 = add i64 %.1378.us, %158
   %247 = getelementptr inbounds i8, ptr %.0302376.us, i64 %215
   %248 = icmp ult ptr %247, %212
-  br i1 %248, label %.lr.ph380.split.us, label %.critedge21, !llvm.loop !15
+  br i1 %248, label %.lr.ph380.split.us, label %.critedge21, !llvm.loop !14
 
 .critedge21:                                      ; preds = %._crit_edge374.us, %.lr.ph380.split.us, %237, %231, %232
   %249 = load ptr, ptr %160, align 8
@@ -3567,7 +3567,7 @@ GET_ARRAYS.exit:                                  ; preds = %289, %287, %GET_ARR
   %316 = call i32 @jReadScanlines(ptr noundef nonnull %32, ptr noundef nonnull %21, i32 noundef 1) #13
   %317 = add nuw nsw i32 %.2382, 1
   %exitcond397.not = icmp eq i32 %317, %spec.select360
-  br i1 %exitcond397.not, label %.loopexit, label %.lr.ph383, !llvm.loop !17
+  br i1 %exitcond397.not, label %.loopexit, label %.lr.ph383, !llvm.loop !16
 
 .critedge19:                                      ; preds = %204, %219, %.loopexit, %200
   br i1 %126, label %318, label %325
@@ -3617,7 +3617,7 @@ GET_ARRAYS.exit:                                  ; preds = %289, %287, %GET_ARR
   br label %341
 
 341:                                              ; preds = %336, %338, %325
-  br i1 %.not335, label %167, label %342, !llvm.loop !18
+  br i1 %.not335, label %167, label %342, !llvm.loop !17
 
 342:                                              ; preds = %341
   %343 = load i32, ptr %154, align 8
@@ -3788,7 +3788,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   store i16 %50, ptr %51, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %52, label %47, !llvm.loop !19
+  br i1 %exitcond.not, label %52, label %47, !llvm.loop !18
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.051, i64 128
@@ -3799,7 +3799,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void %56(ptr noundef nonnull %0, ptr noundef %26, ptr noundef nonnull %30, i32 noundef 0) #13
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
-  br i1 %exitcond65.not, label %._crit_edge, label %14, !llvm.loop !20
+  br i1 %exitcond65.not, label %._crit_edge, label %14, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %14, %21, %52, %4
   ret void
@@ -3872,7 +3872,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %15, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %39, %5
   %41 = load ptr, ptr %0, align 8
@@ -3940,7 +3940,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %49, ptr %74, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.loopexit, label %50, !llvm.loop !22
+  br i1 %exitcond95.not, label %.loopexit, label %50, !llvm.loop !21
 
 .loopexit:                                        ; preds = %30, %37, %71, %64, %73, %._crit_edge
   ret void
@@ -5190,7 +5190,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 67:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph441, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.lr.ph441, label %.lr.ph, !llvm.loop !22
 
 .lr.ph441:                                        ; preds = %67
   %68 = zext nneg i32 %6 to i64
@@ -5266,7 +5266,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   call void @free(ptr noundef %96) #13
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count494
-  br i1 %exitcond495.not, label %._crit_edge469, label %.lr.ph468, !llvm.loop !24
+  br i1 %exitcond495.not, label %._crit_edge469, label %.lr.ph468, !llvm.loop !23
 
 ._crit_edge469:                                   ; preds = %.lr.ph468, %.preheader
   call void @free(ptr noundef nonnull %.1) #13
@@ -5299,14 +5299,14 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   store i8 %106, ptr %108, align 1
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %exitcond480.not = icmp eq i64 %indvars.iv.next477, %wide.trip.count479
-  br i1 %exitcond480.not, label %.loopexit, label %.lr.ph438, !llvm.loop !25
+  br i1 %exitcond480.not, label %.loopexit, label %.lr.ph438, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph438, %100, %76
   %.2 = phi ptr [ %.0370440, %76 ], [ %.1, %100 ], [ %.1, %.lr.ph438 ]
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
   %exitcond486.not = icmp eq i64 %indvars.iv.next482, %wide.trip.count485
   %indvars.iv.next491 = add nuw nsw i32 %indvars.iv490, 1
-  br i1 %exitcond486.not, label %._crit_edge, label %76, !llvm.loop !26
+  br i1 %exitcond486.not, label %._crit_edge, label %76, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit
   %109 = load ptr, ptr %0, align 8
@@ -5448,7 +5448,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   store i32 %191, ptr %193, align 8
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond501.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count500
-  br i1 %exitcond501.not, label %.thread, label %177, !llvm.loop !27
+  br i1 %exitcond501.not, label %.thread, label %177, !llvm.loop !26
 
 194:                                              ; preds = %147
   br i1 %172, label %.thread, label %198
@@ -5611,7 +5611,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   store i32 %271, ptr %272, align 4
   %indvars.iv.next503 = add nuw nsw i64 %indvars.iv502, 1
   %exitcond507.not = icmp eq i64 %indvars.iv.next503, %wide.trip.count506
-  br i1 %exitcond507.not, label %._crit_edge446, label %.lr.ph445, !llvm.loop !28
+  br i1 %exitcond507.not, label %._crit_edge446, label %.lr.ph445, !llvm.loop !27
 
 ._crit_edge446:                                   ; preds = %.lr.ph445, %.preheader427
   %273 = load ptr, ptr %0, align 8
@@ -5745,7 +5745,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   store i8 %storemerge.us459, ptr %.1380447.us457, align 1
   %indvars.iv.next509 = add nuw nsw i64 %indvars.iv508, 1
   %exitcond513.not = icmp eq i64 %indvars.iv.next509, %wide.trip.count512
-  br i1 %exitcond513.not, label %._crit_edge450.us, label %.lr.ph449.split.us462, !llvm.loop !29
+  br i1 %exitcond513.not, label %._crit_edge450.us, label %.lr.ph449.split.us462, !llvm.loop !28
 
 ._crit_edge450.us:                                ; preds = %338, %.lr.ph449.split.us.us
   %.us-phi.us = phi ptr [ %.2381.us.us, %.lr.ph449.split.us.us ], [ %.2381.us458, %338 ]
@@ -5753,7 +5753,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   %340 = icmp ult ptr %339, %327
   %341 = icmp ult ptr %.us-phi.us, %129
   %342 = select i1 %340, i1 %341, i1 false
-  br i1 %342, label %.preheader426.us, label %._crit_edge455, !llvm.loop !30
+  br i1 %342, label %.preheader426.us, label %._crit_edge455, !llvm.loop !29
 
 .lr.ph449.split.us.us:                            ; preds = %.preheader426.us, %.lr.ph449.split.us.us
   %indvars.iv514 = phi i64 [ %indvars.iv.next515, %.lr.ph449.split.us.us ], [ 0, %.preheader426.us ]
@@ -5764,14 +5764,14 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   store i8 %storemerge.us.us, ptr %.1380447.us.us, align 1
   %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
   %exitcond519.not = icmp eq i64 %indvars.iv.next515, %wide.trip.count518
-  br i1 %exitcond519.not, label %._crit_edge450.us, label %.lr.ph449.split.us.us, !llvm.loop !31
+  br i1 %exitcond519.not, label %._crit_edge450.us, label %.lr.ph449.split.us.us, !llvm.loop !30
 
 ._crit_edge455:                                   ; preds = %._crit_edge450.us, %322
   %344 = call i32 @jWrtScanlines(ptr noundef nonnull %112, ptr noundef nonnull %29, i32 noundef 1) #13
   %345 = add nuw nsw i32 %.0382463, %12
   %346 = load i8, ptr %296, align 8
   %347 = icmp eq i8 %346, 0
-  br i1 %347, label %303, label %.critedge, !llvm.loop !32
+  br i1 %347, label %303, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %303, %._crit_edge455, %293
   %348 = load i32, ptr %295, align 8
@@ -5830,7 +5830,7 @@ define internal fastcc void @freeArray(ptr noundef captures(address_is_null) %0,
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %7, %.preheader
   tail call void @free(ptr noundef nonnull %0) #13
@@ -5975,10 +5975,9 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #13
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %51, label %18
+  br i1 %17, label %53, label %18
 
 18:                                               ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %16, i64 -2
   %.not47 = icmp slt i32 %12, 1
   br i1 %.not47, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5990,64 +5989,65 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %21 = load i16, ptr %gep, align 2
-  %22 = trunc i16 %21 to i8
-  %23 = getelementptr inbounds nuw [17 x i8], ptr %1, i64 0, i64 %indvars.iv
-  store i8 %22, ptr %23, align 1
+  %21 = getelementptr i16, ptr %16, i64 %indvars.iv
+  %22 = getelementptr i8, ptr %21, i64 -2
+  %23 = load i16, ptr %22, align 2
+  %24 = trunc i16 %23 to i8
+  %25 = getelementptr inbounds nuw [17 x i8], ptr %1, i64 0, i64 %indvars.iv
+  store i8 %24, ptr %25, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1552
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %16, i32 noundef 2) #13
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 760
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr @JPEGHuffmanTable_valuesID, align 8
-  %31 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %30) #13
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1368
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %31) #13
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1488
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %31, ptr noundef null) #13
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %51, label %.preheader
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1552
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %16, i32 noundef 2) #13
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 760
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr @JPEGHuffmanTable_valuesID, align 8
+  %33 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %32) #13
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1368
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef %33) #13
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1488
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %33, ptr noundef null) #13
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %53, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %41 = icmp sgt i32 %35, 0
-  br i1 %41, label %.lr.ph50, label %._crit_edge51
+  %43 = icmp sgt i32 %37, 0
+  br i1 %43, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %.preheader
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %wide.trip.count56 = zext nneg i32 %35 to i64
-  br label %43
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %wide.trip.count56 = zext nneg i32 %37 to i64
+  br label %45
 
-43:                                               ; preds = %.lr.ph50, %43
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv53
-  %45 = load i16, ptr %44, align 2
-  %46 = trunc i16 %45 to i8
-  %47 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %indvars.iv53
-  store i8 %46, ptr %47, align 1
+45:                                               ; preds = %.lr.ph50, %45
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next54, %45 ]
+  %46 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv53
+  %47 = load i16, ptr %46, align 2
+  %48 = trunc i16 %47 to i8
+  %49 = getelementptr inbounds nuw [256 x i8], ptr %44, i64 0, i64 %indvars.iv53
+  store i8 %48, ptr %49, align 1
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge51, label %43, !llvm.loop !35
+  br i1 %exitcond57.not, label %._crit_edge51, label %45, !llvm.loop !34
 
-._crit_edge51:                                    ; preds = %43, %.preheader
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1552
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %39, i32 noundef 2) #13
-  br label %51
+._crit_edge51:                                    ; preds = %45, %.preheader
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1552
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull %0, ptr noundef %33, ptr noundef nonnull %41, i32 noundef 2) #13
+  br label %53
 
-51:                                               ; preds = %._crit_edge, %3, %._crit_edge51
+53:                                               ; preds = %._crit_edge, %3, %._crit_edge51
   %.044 = phi i32 [ 1, %._crit_edge51 ], [ 0, %3 ], [ 0, %._crit_edge ]
   ret i32 %.044
 }
@@ -6103,33 +6103,32 @@ attributes #17 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8, !16}
-!31 = distinct !{!31, !7, !8, !16}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7, !15}
+!30 = distinct !{!30, !7, !15}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}

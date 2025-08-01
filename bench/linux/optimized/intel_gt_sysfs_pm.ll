@@ -739,7 +739,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
 
 32:                                               ; preds = %15, %22, %8
   %33 = phi i32 [ %11, %8 ], [ %31, %22 ], [ 0, %15 ]
-  br i1 %9, label %8, label %.loopexit, !llvm.loop !12
+  br i1 %9, label %8, label %.loopexit, !llvm.loop !8
 
 34:                                               ; preds = %3
   %35 = load ptr, ptr %1, align 8
@@ -820,7 +820,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
 
 32:                                               ; preds = %15, %22, %8
   %33 = phi i32 [ %11, %8 ], [ %31, %22 ], [ 0, %15 ]
-  br i1 %9, label %8, label %.loopexit, !llvm.loop !13
+  br i1 %9, label %8, label %.loopexit, !llvm.loop !8
 
 34:                                               ; preds = %3
   %35 = load ptr, ptr %1, align 8
@@ -913,7 +913,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
 
 32:                                               ; preds = %15, %22, %8
   %33 = phi i32 [ %11, %8 ], [ %31, %22 ], [ 0, %15 ]
-  br i1 %9, label %8, label %.loopexit, !llvm.loop !14
+  br i1 %9, label %8, label %.loopexit, !llvm.loop !8
 
 34:                                               ; preds = %3
   %35 = load ptr, ptr %1, align 8
@@ -978,7 +978,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %act_freq_mhz_show_common.exit, !llvm.loop !15
+  br i1 %9, label %8, label %act_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1024,7 +1024,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %cur_freq_mhz_show_common.exit, !llvm.loop !16
+  br i1 %9, label %8, label %cur_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1070,7 +1070,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %boost_freq_mhz_show_common.exit, !llvm.loop !17
+  br i1 %9, label %8, label %boost_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1099,7 +1099,7 @@ declare dso_local i32 @intel_rps_get_boost_frequency(ptr noundef) local_unnamed_
 define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  store i32 0, ptr %5, align 4, !annotation !18
+  store i32 0, ptr %5, align 4, !annotation !11
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
@@ -1137,7 +1137,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noun
   br label %35
 
 27:                                               ; preds = %22, %16
-  br i1 %17, label %16, label %.thread, !llvm.loop !19
+  br i1 %17, label %16, label %.thread, !llvm.loop !12
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
@@ -1191,7 +1191,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %max_freq_mhz_show_common.exit, !llvm.loop !20
+  br i1 %9, label %8, label %max_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1220,7 +1220,7 @@ declare dso_local i32 @intel_rps_get_max_frequency(ptr noundef) local_unnamed_ad
 define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  store i32 0, ptr %5, align 4, !annotation !18
+  store i32 0, ptr %5, align 4, !annotation !11
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
@@ -1258,7 +1258,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nounde
   br label %35
 
 27:                                               ; preds = %22, %16
-  br i1 %17, label %16, label %.thread, !llvm.loop !21
+  br i1 %17, label %16, label %.thread, !llvm.loop !12
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
@@ -1309,7 +1309,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %min_freq_mhz_show_common.exit, !llvm.loop !22
+  br i1 %9, label %8, label %min_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1338,7 +1338,7 @@ declare dso_local i32 @intel_rps_get_min_frequency(ptr noundef) local_unnamed_ad
 define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  store i32 0, ptr %5, align 4, !annotation !18
+  store i32 0, ptr %5, align 4, !annotation !11
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
@@ -1376,7 +1376,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nounde
   br label %35
 
 27:                                               ; preds = %22, %16
-  br i1 %17, label %16, label %.thread, !llvm.loop !23
+  br i1 %17, label %16, label %.thread, !llvm.loop !12
 
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
@@ -1427,7 +1427,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %RP0_freq_mhz_show_common.exit, !llvm.loop !24
+  br i1 %9, label %8, label %RP0_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1473,7 +1473,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %RP1_freq_mhz_show_common.exit, !llvm.loop !25
+  br i1 %9, label %8, label %RP1_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1519,7 +1519,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %RPn_freq_mhz_show_common.exit, !llvm.loop !26
+  br i1 %9, label %8, label %RPn_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1568,7 +1568,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
 
 22:                                               ; preds = %15, %8
   %23 = phi i32 [ %11, %8 ], [ %21, %15 ]
-  br i1 %9, label %8, label %vlv_rpe_freq_mhz_show_common.exit, !llvm.loop !27
+  br i1 %9, label %8, label %vlv_rpe_freq_mhz_show_common.exit, !llvm.loop !8
 
 24:                                               ; preds = %3
   %25 = load ptr, ptr %1, align 8
@@ -1617,7 +1617,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %act_freq_mhz_show_common.exit, !llvm.loop !15
+  br i1 %9, label %8, label %act_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1660,7 +1660,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %cur_freq_mhz_show_common.exit, !llvm.loop !16
+  br i1 %9, label %8, label %cur_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1703,7 +1703,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %boost_freq_mhz_show_common.exit, !llvm.loop !17
+  br i1 %9, label %8, label %boost_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1752,7 +1752,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %max_freq_mhz_show_common.exit, !llvm.loop !20
+  br i1 %9, label %8, label %max_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1801,7 +1801,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %min_freq_mhz_show_common.exit, !llvm.loop !22
+  br i1 %9, label %8, label %min_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1850,7 +1850,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %RP0_freq_mhz_show_common.exit, !llvm.loop !24
+  br i1 %9, label %8, label %RP0_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1893,7 +1893,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %RP1_freq_mhz_show_common.exit, !llvm.loop !25
+  br i1 %9, label %8, label %RP1_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1936,7 +1936,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %11, %8 ], [ %18, %15 ]
-  br i1 %9, label %8, label %RPn_freq_mhz_show_common.exit, !llvm.loop !26
+  br i1 %9, label %8, label %RPn_freq_mhz_show_common.exit, !llvm.loop !8
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
@@ -1982,7 +1982,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
 
 22:                                               ; preds = %15, %8
   %23 = phi i32 [ %11, %8 ], [ %21, %15 ]
-  br i1 %9, label %8, label %vlv_rpe_freq_mhz_show_common.exit, !llvm.loop !27
+  br i1 %9, label %8, label %vlv_rpe_freq_mhz_show_common.exit, !llvm.loop !8
 
 24:                                               ; preds = %3
   %25 = load ptr, ptr %1, align 8
@@ -2019,7 +2019,7 @@ define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr noundef read
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  store i8 0, ptr %5, align 1, !annotation !18
+  store i8 0, ptr %5, align 1, !annotation !11
   %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
@@ -2070,7 +2070,7 @@ define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr noundef re
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  store i8 0, ptr %5, align 1, !annotation !18
+  store i8 0, ptr %5, align 1, !annotation !11
   %8 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
@@ -2135,7 +2135,7 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr noundef read
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  store i32 0, ptr %5, align 4, !annotation !18
+  store i32 0, ptr %5, align 4, !annotation !11
   %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
@@ -2242,7 +2242,7 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr noundef readonl
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1504
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  store i32 0, ptr %5, align 4, !annotation !18
+  store i32 0, ptr %5, align 4, !annotation !11
   %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
@@ -2272,7 +2272,7 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr noundef readonl
 22:                                               ; preds = %.thread6, %19
   %23 = add nuw nsw i32 %17, 1
   %24 = icmp eq i32 %23, 3
-  br i1 %24, label %.thread, label %16, !llvm.loop !28
+  br i1 %24, label %.thread, label %16, !llvm.loop !13
 
 25:                                               ; preds = %19
   %26 = icmp samesign ugt i32 %17, 2
@@ -2319,7 +2319,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !annotation !18
+  store i32 0, ptr %4, align 4, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #5
@@ -2349,7 +2349,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !annotation !18
+  store i32 0, ptr %4, align 4, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %4) #5
@@ -2440,24 +2440,9 @@ attributes #6 = { cold nounwind }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{i64 -2147483648, i64 2147483648}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = !{!"auto-init"}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

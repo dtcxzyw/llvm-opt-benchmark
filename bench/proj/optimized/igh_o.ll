@@ -230,17 +230,17 @@ _ZL19pj_igh_o_destructorP8PJconstsi.exit:         ; preds = %65, %_ZL19pj_igh_o_
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 440
   store double 0xC0038C35418A5BF6, ptr %81, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 104
-  %83 = load ptr, ptr %82, align 8, !tbaa !51
+  %83 = load ptr, ptr %82, align 8, !tbaa !50
   %84 = tail call { double, double } %83(double 0.000000e+00, double 0x3FE6C069E29BDA5B, ptr noundef nonnull %74)
   %85 = extractvalue { double, double } %84, 1
   %86 = load ptr, ptr %9, align 8, !tbaa !42
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 104
-  %88 = load ptr, ptr %87, align 8, !tbaa !51
+  %88 = load ptr, ptr %87, align 8, !tbaa !50
   %89 = tail call { double, double } %88(double 0.000000e+00, double 0x3FE6C069E29BDA5B, ptr noundef %86)
   %90 = extractvalue { double, double } %89, 1
   %91 = fsub double %90, %85
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store double %91, ptr %92, align 8, !tbaa !52
+  store double %91, ptr %92, align 8, !tbaa !51
   %93 = load ptr, ptr %2, align 8, !tbaa !42
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 464
   store double %91, ptr %94, align 8, !tbaa !45
@@ -265,7 +265,7 @@ _ZL19pj_igh_o_destructorP8PJconstsi.exit:         ; preds = %65, %_ZL19pj_igh_o_
   store double %91, ptr %102, align 8, !tbaa !45
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 440
   store double 0xBFC657184AE74487, ptr %103, align 8, !tbaa !46
-  %104 = load double, ptr %92, align 8, !tbaa !52
+  %104 = load double, ptr %92, align 8, !tbaa !51
   %105 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %105, ptr %106, align 8, !tbaa !42
@@ -287,7 +287,7 @@ _ZL19pj_igh_o_destructorP8PJconstsi.exit:         ; preds = %65, %_ZL19pj_igh_o_
   store double %104, ptr %112, align 8, !tbaa !45
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 440
   store double 0x400226C3BCDBE7AE, ptr %113, align 8, !tbaa !46
-  %114 = load double, ptr %92, align 8, !tbaa !52
+  %114 = load double, ptr %92, align 8, !tbaa !51
   %115 = fneg double %114
   %116 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -310,7 +310,7 @@ _ZL19pj_igh_o_destructorP8PJconstsi.exit:         ; preds = %65, %_ZL19pj_igh_o_
   store double %115, ptr %123, align 8, !tbaa !45
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 440
   store double 0xBFFEB7C166FDFE3A, ptr %124, align 8, !tbaa !46
-  %125 = load double, ptr %92, align 8, !tbaa !52
+  %125 = load double, ptr %92, align 8, !tbaa !51
   %126 = fneg double %125
   %127 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -333,7 +333,7 @@ _ZL19pj_igh_o_destructorP8PJconstsi.exit:         ; preds = %65, %_ZL19pj_igh_o_
   store double %126, ptr %134, align 8, !tbaa !45
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 440
   store double 0x3FD657184AE74487, ptr %135, align 8, !tbaa !46
-  %136 = load double, ptr %92, align 8, !tbaa !52
+  %136 = load double, ptr %92, align 8, !tbaa !51
   %137 = fneg double %136
   %138 = tail call noundef ptr @pj_moll(ptr noundef null), !callees !41
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -361,13 +361,13 @@ _ZL19pj_igh_o_setup_zoneP8PJconstsPN11pj_igh_o_ns13pj_igh_o_dataEiPFS0_S0_Eddd.e
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 440
   store double 0x4004F1A6C638D03F, ptr %147, align 8, !tbaa !46
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts, ptr %148, align 8, !tbaa !54
+  store ptr @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts, ptr %148, align 8, !tbaa !53
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL15igh_o_s_forward5PJ_LPP8PJconsts, ptr %149, align 8, !tbaa !51
+  store ptr @_ZL15igh_o_s_forward5PJ_LPP8PJconsts, ptr %149, align 8, !tbaa !50
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL19pj_igh_o_destructorP8PJconstsi, ptr %150, align 8, !tbaa !47
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %151, align 8, !tbaa !55
+  store double 0.000000e+00, ptr %151, align 8, !tbaa !54
   br label %152
 
 152:                                              ; preds = %143, %_ZL19pj_igh_o_setup_zoneP8PJconstsPN11pj_igh_o_ns13pj_igh_o_dataEiPFS0_S0_Eddd.exit88.thread, %75, %_ZL19pj_igh_o_destructorP8PJconstsi.exit, %4
@@ -429,7 +429,7 @@ define internal { double, double } @_ZL15igh_o_s_inverse5PJ_XYP8PJconsts(double 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = load double, ptr %6, align 8, !tbaa !52
+  %7 = load double, ptr %6, align 8, !tbaa !51
   %8 = fadd double %7, 0x3FF6A09E667F3BCD
   %9 = fadd double %8, 1.000000e-10
   %10 = fcmp ogt double %1, %9
@@ -506,7 +506,7 @@ select.unfold99:                                  ; preds = %32
   %43 = load double, ptr %42, align 8, !tbaa !45
   %44 = fsub double %1, %43
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 112
-  %46 = load ptr, ptr %45, align 8, !tbaa !54
+  %46 = load ptr, ptr %45, align 8, !tbaa !53
   %47 = tail call { double, double } %46(double %41, double %44, ptr noundef %38)
   %48 = extractvalue { double, double } %47, 0
   %49 = extractvalue { double, double } %47, 1
@@ -721,7 +721,7 @@ define internal { double, double } @_ZL15igh_o_s_forward5PJ_LPP8PJconsts(double 
   %30 = load double, ptr %29, align 8, !tbaa !46
   %31 = fsub double %0, %30
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  %33 = load ptr, ptr %32, align 8, !tbaa !51
+  %33 = load ptr, ptr %32, align 8, !tbaa !50
   %34 = tail call { double, double } %33(double %31, double %1, ptr noundef %28)
   %35 = extractvalue { double, double } %34, 0
   %36 = extractvalue { double, double } %34, 1
@@ -792,11 +792,10 @@ attributes #3 = { nounwind allocsize(0,1) }
 !45 = !{!4, !14, i64 464}
 !46 = !{!4, !14, i64 440}
 !47 = !{!4, !6, i64 152}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!4, !6, i64 104}
-!52 = !{!53, !14, i64 96}
-!53 = !{!"_ZTSN11pj_igh_o_ns13pj_igh_o_dataE", !7, i64 0, !14, i64 96}
-!54 = !{!4, !6, i64 112}
-!55 = !{!4, !14, i64 216}
+!50 = !{!4, !6, i64 104}
+!51 = !{!52, !14, i64 96}
+!52 = !{!"_ZTSN11pj_igh_o_ns13pj_igh_o_dataE", !7, i64 0, !14, i64 96}
+!53 = !{!4, !6, i64 112}
+!54 = !{!4, !14, i64 216}

@@ -174,7 +174,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %53 = load i64, ptr %52, align 8, !tbaa !56
+  %53 = load i64, ptr %52, align 8, !tbaa !55
   %54 = trunc i64 %53 to i32
   store i32 %54, ptr %30, align 8, !tbaa !47
   store i32 1, ptr %3, align 4, !tbaa !50
@@ -282,7 +282,6 @@ attributes #6 = { noreturn nounwind }
 !50 = !{!10, !10, i64 0}
 !51 = !{!31, !14, i64 0}
 !52 = !{!31, !10, i64 8}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!31, !13, i64 40}
+!55 = !{!31, !13, i64 40}

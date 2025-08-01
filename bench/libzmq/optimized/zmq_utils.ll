@@ -208,7 +208,7 @@ define noundef ptr @zmq_z85_encode(ptr noundef writeonly captures(ret: address, 
   %.1 = phi i32 [ %13, %.lr.ph ], [ 0, %.preheader ]
   %26 = zext i32 %9 to i64
   %27 = icmp ugt i64 %2, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !36
+  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %28 = zext i32 %.119 to i64
@@ -290,7 +290,7 @@ define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, 
   store i8 %29, ptr %32, align 1, !tbaa !32
   %33 = lshr i32 %.02652, 8
   %exitcond = icmp eq i32 %30, %26
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !37
+  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.preheader, %22
   %.132 = phi i32 [ %23, %22 ], [ 0, %.preheader ]
@@ -299,7 +299,7 @@ define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, 
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !32
   %.not39 = icmp eq i8 %36, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.loopexit
   %37 = urem i32 %11, 5
@@ -340,7 +340,7 @@ define noalias noundef ptr @zmq_atomic_counter_new() local_unnamed_addr #0 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  store i32 0, ptr %1, align 4, !tbaa !39
+  store i32 0, ptr %1, align 4, !tbaa !37
   br label %9
 
 4:                                                ; preds = %0
@@ -383,7 +383,7 @@ define i32 @zmq_atomic_counter_value(ptr noundef readonly captures(none) %0) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @zmq_atomic_counter_destroy(ptr noundef captures(none) %0) local_unnamed_addr #13 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !41
+  %2 = load ptr, ptr %0, align 8, !tbaa !39
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
@@ -392,7 +392,7 @@ define void @zmq_atomic_counter_destroy(ptr noundef captures(none) %0) local_unn
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr null, ptr %0, align 8, !tbaa !41
+  store ptr null, ptr %0, align 8, !tbaa !39
   ret void
 }
 
@@ -419,13 +419,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -496,15 +496,13 @@ attributes #25 = { nounwind willreturn memory(read) }
 !30 = !{!20, !10, i64 32}
 !31 = !{!14, !14, i64 0}
 !32 = !{!7, !7, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = distinct !{!37, !34, !35}
-!38 = distinct !{!38, !35}
-!39 = !{!40, !14, i64 0}
-!40 = !{!"_ZTSSt13__atomic_baseIjE", !14, i64 0}
-!41 = !{!6, !6, i64 0}
-!42 = !{!21, !23, i64 24}
-!43 = !{!21, !23, i64 16}
-!44 = distinct !{!44, !34, !35}
+!35 = distinct !{!35, !34}
+!36 = distinct !{!36, !34}
+!37 = !{!38, !14, i64 0}
+!38 = !{!"_ZTSSt13__atomic_baseIjE", !14, i64 0}
+!39 = !{!6, !6, i64 0}
+!40 = !{!21, !23, i64 24}
+!41 = !{!21, !23, i64 16}
+!42 = distinct !{!42, !34}

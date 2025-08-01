@@ -152,7 +152,7 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %86 = sub i64 %61, %85
   %87 = add i64 %86, %.neg.i
   %.not179 = icmp sgt i64 %87, -1
-  br i1 %.not179, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not179, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %50
   %.0171.lcssa = phi i64 [ %60, %50 ], [ %75, %.lr.ph ]
@@ -193,7 +193,7 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %111 = sub i64 %110, %108
   %.not180 = icmp sgt i64 %111, -1
   %112 = add i64 %.1, -1
-  br i1 %.not180, label %113, label %96, !llvm.loop !9
+  br i1 %.not180, label %113, label %96
 
 113:                                              ; preds = %96
   %114 = lshr i64 %111, 2
@@ -339,6 +339,3 @@ attributes #4 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}

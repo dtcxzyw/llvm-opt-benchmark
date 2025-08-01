@@ -1186,7 +1186,7 @@ for.body144:                                      ; preds = %land.lhs.true133, %
   %77 = extractvalue { double, double } %call4.i.i246, 1
   %dec = add nsw i64 %k.0453, -1
   %cmp142.not = icmp eq i64 %dec, 0
-  br i1 %cmp142.not, label %for.cond.cleanup143, label %for.body144, !llvm.loop !26
+  br i1 %cmp142.not, label %for.cond.cleanup143, label %for.body144, !llvm.loop !25
 
 if.end189:                                        ; preds = %land.lhs.true133, %if.end131
   %sn.sroa.0.0.copyload = load double, ptr %z, align 8
@@ -1256,7 +1256,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit307:       ; preds = %if.end211, %complex
   %imag_mul_phi.i302 = phi double [ %mul_i.i299, %if.end211 ], [ %mul_i.i299, %complex_mul_imag_nan.i303 ], [ %85, %complex_mul_libcall.i305 ]
   %inc223 = add nuw nsw i64 %n.0450, 1
   %exitcond.not = icmp eq i64 %inc223, 1000
-  br i1 %exitcond.not, label %if.then227, label %land.rhs, !llvm.loop !27
+  br i1 %exitcond.not, label %if.then227, label %land.rhs, !llvm.loop !26
 
 if.then227:                                       ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit307
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream228) #21
@@ -1692,7 +1692,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %_ZStmlIdESt7complex
   %imag_mul_phi.i = phi double [ %mul_i.i, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit ], [ %mul_i.i, %complex_mul_imag_nan.i ], [ %13, %complex_mul_libcall.i ]
   %inc = add nuw nsw i64 %k.0196, 1
   %exitcond.not = icmp eq i64 %inc, 100
-  br i1 %exitcond.not, label %if.then29, label %land.rhs, !llvm.loop !28
+  br i1 %exitcond.not, label %if.then29, label %land.rhs, !llvm.loop !27
 
 if.then29:                                        ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #21
@@ -2172,9 +2172,8 @@ attributes #24 = { noreturn nounwind }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"double", !5, i64 0}
 !22 = !{!"branch_weights", i32 1, i32 1048575}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
-!27 = distinct !{!27, !24, !25}
-!28 = distinct !{!28, !24, !25}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}

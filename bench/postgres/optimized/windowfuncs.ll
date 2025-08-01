@@ -374,7 +374,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %10 = tail call i64 @WinGetPartitionRowCount(ptr noundef %4) #6
   %11 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 0, ptr noundef nonnull %2) #6
-  %12 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %12 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %32, label %14
 
@@ -511,7 +511,7 @@ define dso_local i64 @window_lag(ptr noundef captures(none) %0) local_unnamed_ad
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef -1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %leadlag_common.exit
 
@@ -536,7 +536,7 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
 
@@ -546,7 +546,7 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
   %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
   %13 = sub i32 0, %10
   %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %15 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %15 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.sink.split.i, label %leadlag_common.exit
 
@@ -571,7 +571,7 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
 
@@ -581,7 +581,7 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
   %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
   %13 = sub i32 0, %10
   %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %15 = load i8, ptr %3, align 1, !range !7, !noundef !8
+  %15 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %19
 
@@ -591,7 +591,7 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
 
 19:                                               ; preds = %17, %9
   %.0.i = phi i64 [ %18, %17 ], [ %14, %9 ]
-  %20 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %20 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.sink.split.i, label %leadlag_common.exit
 
@@ -616,7 +616,7 @@ define dso_local i64 @window_lead(ptr noundef captures(none) %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %leadlag_common.exit
 
@@ -641,7 +641,7 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
 
@@ -650,7 +650,7 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
   %11 = load ptr, ptr %0, align 8
   %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
   %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %14 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %14 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.sink.split.i, label %leadlag_common.exit
 
@@ -675,7 +675,7 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
   %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
 
@@ -684,7 +684,7 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
   %11 = load ptr, ptr %0, align 8
   %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
   %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %14 = load i8, ptr %3, align 1, !range !7, !noundef !8
+  %14 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %18
 
@@ -694,7 +694,7 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
 
 18:                                               ; preds = %16, %9
   %.0.i = phi i64 [ %17, %16 ], [ %13, %9 ]
-  %19 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %19 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %.sink.split.i, label %leadlag_common.exit
 
@@ -717,7 +717,7 @@ define dso_local i64 @window_first_value(ptr noundef captures(none) %0) local_un
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
-  %6 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %6 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
 
@@ -741,7 +741,7 @@ define dso_local i64 @window_last_value(ptr noundef captures(none) %0) local_unn
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
-  %6 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %6 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
 
@@ -764,7 +764,7 @@ define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unna
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %5 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %2) #6
   %6 = trunc i64 %5 to i32
-  %7 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split, label %9
 
@@ -785,7 +785,7 @@ define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unna
 17:                                               ; preds = %9
   %18 = add nsw i32 %6, -1
   %19 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef %18, i32 noundef 1, i1 noundef zeroext %11, ptr noundef nonnull %2, ptr noundef null) #6
-  %20 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %20 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.sink.split, label %23
 
@@ -822,8 +822,7 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!6 = !{i8 0, i8 2}
+!7 = !{}

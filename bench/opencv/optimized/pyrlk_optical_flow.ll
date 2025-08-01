@@ -2434,7 +2434,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
           to label %801 unwind label %810
 
 801:                                              ; preds = %799
-  %802 = load ptr, ptr %79, align 8, !tbaa !80
+  %802 = load ptr, ptr %79, align 8, !tbaa !79
   %.not.i.i.i = icmp eq ptr %802, null
   br i1 %.not.i.i.i, label %.thread.thread, label %803
 
@@ -2472,7 +2472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444: ; preds = %_Z
 810:                                              ; preds = %799
   %811 = landingpad { ptr, i32 }
           cleanup
-  %812 = load ptr, ptr %79, align 8, !tbaa !80
+  %812 = load ptr, ptr %79, align 8, !tbaa !79
   %.not.i.i.i445 = icmp eq ptr %812, null
   br i1 %.not.i.i.i445, label %_ZNSt6vectorIiSaIiEED2Ev.exit446, label %813
 
@@ -2488,7 +2488,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit446:                 ; preds = %810, %813
 .thread:                                          ; preds = %750, %757
   %814 = add nuw nsw i32 %.0617, 1
   %exitcond.not = icmp eq i32 %814, 11
-  br i1 %exitcond.not, label %.loopexit, label %722, !llvm.loop !82
+  br i1 %exitcond.not, label %.loopexit, label %722, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.thread, %.thread.thread, %_ZNSolsEPFRSoS_E.exit379
   %815 = invoke noundef i32 @_ZN2cv7waitKeyEi(i32 noundef 0)
@@ -2496,7 +2496,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit446:                 ; preds = %810, %813
 
 816:                                              ; preds = %.loopexit, %_ZNSolsEPFRSoS_E.exit379
   %.2 = phi i32 [ %.1, %_ZNSolsEPFRSoS_E.exit379 ], [ 0, %.loopexit ]
-  %817 = load ptr, ptr %32, align 8, !tbaa !83
+  %817 = load ptr, ptr %32, align 8, !tbaa !82
   %.not.i.i.i447 = icmp eq ptr %817, null
   br i1 %.not.i.i.i447, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %818
 
@@ -2612,7 +2612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit463: ; preds = %_Z
 
 .loopexit611:                                     ; preds = %.loopexit611.loopexit, %.loopexit611.loopexit.split-lp, %.loopexit.split-lp, %753, %755, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444, %_ZNSt6vectorIiSaIiEED2Ev.exit446, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420, %654, %395
   %.pn202 = phi { ptr, i32 } [ %396, %395 ], [ %686, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420 ], [ %.pn198.pn.pn, %654 ], [ %811, %_ZNSt6vectorIiSaIiEED2Ev.exit446 ], [ %805, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444 ], [ %756, %755 ], [ %754, %753 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit619, %.loopexit611.loopexit ], [ %lpad.loopexit.split-lp620, %.loopexit611.loopexit.split-lp ]
-  %845 = load ptr, ptr %32, align 8, !tbaa !83
+  %845 = load ptr, ptr %32, align 8, !tbaa !82
   %.not.i.i.i464 = icmp eq ptr %845, null
   br i1 %.not.i.i.i464, label %_ZNSt6vectorIfSaIfEED2Ev.exit465, label %846
 
@@ -2854,20 +2854,20 @@ define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfE
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw %"class.cv::Point_.22", ptr %20, i64 %.093
-  %27 = load float, ptr %26, align 4, !tbaa !86
+  %27 = load float, ptr %26, align 4, !tbaa !85
   %28 = insertelement <4 x float> poison, float %27, i64 0
   %29 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %28)
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %31 = load float, ptr %30, align 4, !tbaa !88
+  %31 = load float, ptr %30, align 4, !tbaa !87
   %32 = insertelement <4 x float> poison, float %31, i64 0
   %33 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %32)
   %34 = load ptr, ptr %2, align 8, !tbaa !60
   %35 = getelementptr inbounds nuw %"class.cv::Point_.22", ptr %34, i64 %.093
-  %36 = load float, ptr %35, align 4, !tbaa !86
+  %36 = load float, ptr %35, align 4, !tbaa !85
   %37 = insertelement <4 x float> poison, float %36, i64 0
   %38 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %37)
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %40 = load float, ptr %39, align 4, !tbaa !88
+  %40 = load float, ptr %39, align 4, !tbaa !87
   %41 = insertelement <4 x float> poison, float %40, i64 0
   %42 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %41)
   %43 = sitofp i32 %33 to double
@@ -2991,7 +2991,7 @@ define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfE
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 3
   %99 = icmp ult i64 %94, %98
-  br i1 %99, label %19, label %._crit_edge, !llvm.loop !89
+  br i1 %99, label %19, label %._crit_edge, !llvm.loop !88
 }
 
 declare void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
@@ -3191,16 +3191,15 @@ attributes #21 = { builtin allocsize(0) }
 !74 = !{!"_ZTSN2cv12TermCriteriaE", !25, i64 0, !25, i64 4, !55, i64 8}
 !75 = !{!74, !25, i64 4}
 !76 = !{!74, !55, i64 8}
-!77 = distinct !{!77, !78, !79}
+!77 = distinct !{!77, !78}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!"llvm.loop.estimated_trip_count"}
-!80 = !{!81, !39, i64 0}
-!81 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
-!82 = distinct !{!82, !78, !79}
-!83 = !{!84, !85, i64 0}
-!84 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !85, i64 0, !85, i64 8, !85, i64 16}
-!85 = !{!"p1 float", !7, i64 0}
-!86 = !{!87, !64, i64 0}
-!87 = !{!"_ZTSN2cv6Point_IfEE", !64, i64 0, !64, i64 4}
-!88 = !{!87, !64, i64 4}
-!89 = distinct !{!89, !78, !79}
+!79 = !{!80, !39, i64 0}
+!80 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
+!81 = distinct !{!81, !78}
+!82 = !{!83, !84, i64 0}
+!83 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !84, i64 0, !84, i64 8, !84, i64 16}
+!84 = !{!"p1 float", !7, i64 0}
+!85 = !{!86, !64, i64 0}
+!86 = !{!"_ZTSN2cv6Point_IfEE", !64, i64 0, !64, i64 4}
+!87 = !{!86, !64, i64 4}
+!88 = distinct !{!88, !78}

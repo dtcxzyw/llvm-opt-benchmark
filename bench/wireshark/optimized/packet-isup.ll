@@ -2757,7 +2757,7 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %7, ptr noundef %0, i32 noundef %.1118, i32 noundef 1, i32 noundef 0)
   %73 = add nuw i32 %.1118, 1
   %74 = icmp sgt i32 %.078116, 1
-  br i1 %74, label %.lr.ph120, label %.loopexit, !llvm.loop !9
+  br i1 %74, label %.lr.ph120, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %71, %.thread129, %51, %69, %58
   %.1101 = phi i32 [ %.1118, %58 ], [ %.1118, %69 ], [ %1, %51 ], [ %65, %.thread129 ], [ %73, %71 ]
@@ -3276,7 +3276,7 @@ define hidden void @dissect_japan_isup_additonal_user_cat(ptr noundef %0, ptr no
 25:                                               ; preds = %23, %20, %17, %14, %11
   %26 = add i32 %.027, 2
   %27 = icmp slt i32 %26, %5
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %25, %4
   ret void
@@ -3328,7 +3328,7 @@ define internal i32 @dissect_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @col_set_str(ptr noundef %11, i32 noundef 35, ptr noundef nonnull @.str.1754)
   %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
   %13 = and i16 %12, 16383
-  %14 = load i8, ptr @isup_show_cic_in_info, align 1, !range !11, !noundef !12
+  %14 = load i8, ptr @isup_show_cic_in_info, align 1, !range !10, !noundef !11
   %15 = trunc nuw i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = zext i8 %7 to i32
@@ -3413,7 +3413,7 @@ define internal i32 @dissect_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2
 46:                                               ; preds = %45, %42, %41, %40, %39, %38
   %.054 = phi i16 [ %35, %45 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %44, %42 ]
   %.0 = phi ptr [ @isup_message_type_value_acro_ext, %45 ], [ @french_isup_message_type_value_acro_ext, %38 ], [ @israeli_isup_message_type_value_acro_ext, %39 ], [ @russian_isup_message_type_value_acro_ext, %40 ], [ @japan_isup_message_type_value_acro_ext, %41 ], [ @japan_isup_message_type_value_acro_ext, %42 ]
-  %47 = load i8, ptr @isup_show_cic_in_info, align 1, !range !11, !noundef !12
+  %47 = load i8, ptr @isup_show_cic_in_info, align 1, !range !10, !noundef !11
   %48 = trunc nuw i8 %47 to i1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -3729,7 +3729,7 @@ switch.lookup:                                    ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_clear(ptr noundef %15, i32 noundef 25)
-  %16 = load i8, ptr @isup_show_cic_in_info, align 1, !range !11, !noundef !12
+  %16 = load i8, ptr @isup_show_cic_in_info, align 1, !range !10, !noundef !11
   %17 = trunc nuw i8 %16 to i1
   %18 = load ptr, ptr %14, align 8
   %19 = zext i8 %12 to i32
@@ -5779,7 +5779,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %315 = add nuw i32 %.01.i, 1
   %316 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %313, ptr noundef %31, i32 noundef %.01.i, i32 noundef 1, i32 noundef %314, ptr noundef nonnull @.str.1887, i32 noundef %315, i32 noundef %314)
   %exitcond.not.i = icmp eq i32 %315, %311
-  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i, !llvm.loop !12
 
 317:                                              ; preds = %29
   %318 = call i32 @tvb_reported_length(ptr noundef %31)
@@ -6165,7 +6165,7 @@ dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %310, %53
   %.0.be = phi i32 [ %25, %11 ], [ %25, %27 ], [ %558, %dissect_isup_access_transport_parameter.exit ]
   %562 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.be)
   %563 = icmp sgt i32 %562, 0
-  br i1 %563, label %9, label %._crit_edge, !llvm.loop !14
+  br i1 %563, label %9, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.thread, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
@@ -6350,7 +6350,7 @@ define internal fastcc void @dissect_isup_circuit_state_ind_parameter(ptr nounde
   %24 = add i32 %.031, 1
   %25 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24)
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.1869)
@@ -6476,7 +6476,7 @@ define internal fastcc void @dissect_isup_parameter_compatibility_information_pa
   %.133 = phi i32 [ %19, %5 ], [ %28, %22 ]
   %.1 = phi i32 [ %18, %5 ], [ %27, %22 ]
   %30 = icmp eq i32 %.133, 0
-  br i1 %30, label %31, label %4, !llvm.loop !16
+  br i1 %30, label %31, label %4, !llvm.loop !15
 
 31:                                               ; preds = %4, %29, %20
   ret void
@@ -6679,14 +6679,14 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
 
 84:                                               ; preds = %65, %70, %44
   %.2 = phi i32 [ %83, %70 ], [ %69, %65 ], [ %.1, %44 ]
-  %85 = load i8, ptr @isup_apm_desegment, align 1, !range !11, !noundef !12
+  %85 = load i8, ptr @isup_apm_desegment, align 1, !range !10, !noundef !11
   %86 = trunc nuw i8 %85 to i1
   %or.cond154 = and i1 %34, %86
   br i1 %or.cond154, label %87, label %.thread
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %89 = load i8, ptr %88, align 8, !range !11, !noundef !12
+  %89 = load i8, ptr %88, align 8, !range !10, !noundef !11
   store i8 1, ptr %88, align 8
   %90 = icmp ne i8 %29, 0
   %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
@@ -6932,7 +6932,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %218 = add nsw i32 %.1262.i, -1
   %219 = call noundef i32 @dissect_codec_mode(ptr noundef %140, ptr noundef %.0, i32 noundef %217, i32 noundef %218)
   %220 = icmp slt i32 %219, %198
-  br i1 %220, label %.lr.ph290.i, label %.loopexit.i, !llvm.loop !17
+  br i1 %220, label %.lr.ph290.i, label %.loopexit.i, !llvm.loop !16
 
 221:                                              ; preds = %150
   %222 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0, i32 noundef %167)
@@ -6965,7 +6965,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %238 = add nuw nsw i32 %228, 253
   %.6.i = add i32 %.6286.i, 3
   %.not276.i = icmp eq i32 %228, 3
-  br i1 %.not276.i, label %.loopexit.i, label %.lr.ph287.i, !llvm.loop !18
+  br i1 %.not276.i, label %.loopexit.i, label %.lr.ph287.i, !llvm.loop !17
 
 239:                                              ; preds = %150
   %240 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0, i32 noundef %167)
@@ -7087,7 +7087,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %318 = add nuw nsw i32 %312, 1
   %319 = and i32 %318, 255
   %320 = icmp ult i32 %319, %168
-  br i1 %320, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !19
+  br i1 %320, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
 
 321:                                              ; preds = %150
   %322 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0, i32 noundef %167)
@@ -7115,7 +7115,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %.3.i = phi i32 [ %336, %333 ], [ %176, %169 ], [ %189, %185 ], [ %195, %190 ], [ %149, %.thread.i ], [ %246, %239 ], [ %281, %280 ], [ %291, %290 ], [ %305, %302 ], [ %167, %150 ], [ %311, %306 ], [ %326, %321 ], [ %332, %327 ], [ %167, %196 ], [ %.6283.i, %221 ], [ %167, %.preheader.i ], [ %219, %209 ], [ %.6.i, %.lr.ph287.i ], [ %317, %.lr.ph.i ]
   %337 = call i32 @tvb_reported_length_remaining(ptr noundef %.0, i32 noundef %.3.i)
   %338 = icmp sgt i32 %337, 0
-  br i1 %338, label %.lr.ph294.i, label %dissect_bat_ase_Encapsulated_Application_Information.exit, !llvm.loop !20
+  br i1 %338, label %.lr.ph294.i, label %dissect_bat_ase_Encapsulated_Application_Information.exit, !llvm.loop !19
 
 dissect_bat_ase_Encapsulated_Application_Information.exit: ; preds = %.loopexit.i, %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -7378,7 +7378,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %41 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %40, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %20)
   %42 = add i32 %.0295, 2
   %43 = icmp eq i8 %39, 0
-  br i1 %43, label %10, label %44, !llvm.loop !21
+  br i1 %43, label %10, label %44, !llvm.loop !20
 
 44:                                               ; preds = %37
   %45 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %42)
@@ -7387,7 +7387,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
 
 .outer.backedge:                                  ; preds = %44, %577
   %.0295.ph.be = phi i32 [ %42, %44 ], [ %.0295, %577 ]
-  br label %.outer, !llvm.loop !21
+  br label %.outer, !llvm.loop !20
 
 46:                                               ; preds = %44
   %47 = call i32 @llvm.umin.i32(i32 %45, i32 %20)
@@ -7929,7 +7929,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %339 = add nuw i32 %.01.i, 1
   %340 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %30, i32 noundef %337, ptr noundef %48, i32 noundef %.01.i, i32 noundef 1, i32 noundef %338, ptr noundef nonnull @.str.1887, i32 noundef %339, i32 noundef %338)
   %exitcond.not.i = icmp eq i32 %339, %335
-  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i, !llvm.loop !12
 
 341:                                              ; preds = %46
   %342 = call i32 @tvb_reported_length(ptr noundef %48)
@@ -8348,7 +8348,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %412, %420
 dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %530, %527, %450, %445, %334, %70, %66, %572, %571, %570, %569, %567, %565, %564, %563, %562, %560, %559, %556, %553, %552, %551, %550, %547, %543, %541, %533, %519, %513, %509, %500, %496, %487, %479, %470, %466, %462, %453, %437, %433, %425, %423, %dissect_isup_loop_prevention_indicators_parameter.exit, %406, %400, %398, %391, %384, %378, %372, %370, %369, %365, %358, %352, %345, %341, %330, %325, %321, %317, %310, %304, %294, %287, %278, %274, %266, %259, %257, %250, %238, %230, %223, %215, %211, %204, %200, %198, %193, %191, %184, %182, %177, %171, %164, %160, %156, %154, %146, %138, %124, %117, %111, %104, %97, %86, %72, %59, %49
   %.1 = phi i16 [ %.0.ph.ph, %572 ], [ %.0.ph.ph, %571 ], [ %.0.ph.ph, %550 ], [ %.0.ph.ph, %551 ], [ %.0.ph.ph, %552 ], [ %.0.ph.ph, %553 ], [ %.0.ph.ph, %556 ], [ %.0.ph.ph, %559 ], [ %.0.ph.ph, %560 ], [ %.0.ph.ph, %562 ], [ %.0.ph.ph, %563 ], [ %.0.ph.ph, %564 ], [ %.0.ph.ph, %565 ], [ %568, %567 ], [ %.0.ph.ph, %569 ], [ %.0.ph.ph, %570 ], [ %.0.ph.ph, %49 ], [ %.0.ph.ph, %59 ], [ %.0.ph.ph, %72 ], [ %.0.ph.ph, %86 ], [ %.0.ph.ph, %97 ], [ %.0.ph.ph, %104 ], [ %.0.ph.ph, %111 ], [ %.0.ph.ph, %117 ], [ %.0.ph.ph, %124 ], [ %.0.ph.ph, %138 ], [ %.0.ph.ph, %146 ], [ %.0.ph.ph, %154 ], [ %.0.ph.ph, %156 ], [ %.0.ph.ph, %160 ], [ %.0.ph.ph, %164 ], [ %.0.ph.ph, %171 ], [ %.0.ph.ph, %177 ], [ %.0.ph.ph, %182 ], [ %.0.ph.ph, %184 ], [ %.0.ph.ph, %191 ], [ %.0.ph.ph, %193 ], [ %.0.ph.ph, %198 ], [ %.0.ph.ph, %200 ], [ %.0.ph.ph, %204 ], [ %.0.ph.ph, %211 ], [ %.0.ph.ph, %215 ], [ %.0.ph.ph, %223 ], [ %.0.ph.ph, %230 ], [ %.0.ph.ph, %238 ], [ %.0.ph.ph, %250 ], [ %.0.ph.ph, %257 ], [ %.0.ph.ph, %259 ], [ %.0.ph.ph, %266 ], [ %.0.ph.ph, %274 ], [ %.0.ph.ph, %278 ], [ %.0.ph.ph, %287 ], [ %.0.ph.ph, %294 ], [ %.0.ph.ph, %304 ], [ %.0.ph.ph, %310 ], [ %.0.ph.ph, %317 ], [ %.0.ph.ph, %321 ], [ %.0.ph.ph, %325 ], [ %.0.ph.ph, %330 ], [ %.0.ph.ph, %341 ], [ %.0.ph.ph, %345 ], [ %.0.ph.ph, %352 ], [ %.0.ph.ph, %358 ], [ %.0.ph.ph, %365 ], [ %.0.ph.ph, %369 ], [ %.0.ph.ph, %370 ], [ %.0.ph.ph, %372 ], [ %.0.ph.ph, %378 ], [ %.0.ph.ph, %384 ], [ %.0.ph.ph, %391 ], [ %.0.ph.ph, %398 ], [ %.0.ph.ph, %400 ], [ %.0.ph.ph, %406 ], [ %.0.ph.ph, %dissect_isup_loop_prevention_indicators_parameter.exit ], [ %.0.ph.ph, %423 ], [ %.0.ph.ph, %425 ], [ %.0.ph.ph, %433 ], [ %.0.ph.ph, %437 ], [ %.0.ph.ph, %453 ], [ %.0.ph.ph, %462 ], [ %.0.ph.ph, %466 ], [ %.0.ph.ph, %470 ], [ %.0.ph.ph, %479 ], [ %.0.ph.ph, %487 ], [ %.0.ph.ph, %496 ], [ %.0.ph.ph, %500 ], [ %.0.ph.ph, %509 ], [ %.0.ph.ph, %513 ], [ %.0.ph.ph, %519 ], [ %.0.ph.ph, %533 ], [ %.0.ph.ph, %541 ], [ %.0.ph.ph, %543 ], [ %.0.ph.ph, %547 ], [ %.0.ph.ph, %66 ], [ %.0.ph.ph, %70 ], [ %.0.ph.ph, %334 ], [ %.0.ph.ph, %445 ], [ %.0.ph.ph, %450 ], [ %.0.ph.ph, %527 ], [ %.0.ph.ph, %530 ], [ %.0.ph.ph, %.lr.ph.i ]
   %576 = add i32 %47, %42
-  br label %.outer.outer, !llvm.loop !21
+  br label %.outer.outer, !llvm.loop !20
 
 577:                                              ; preds = %14
   %578 = load i32, ptr @hf_isup_parameter_type, align 4
@@ -8557,7 +8557,7 @@ define internal fastcc void @dissect_japan_isup_redirect_fwd_inf(ptr noundef %0,
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0)
   %22 = add i32 %.14, 2
   %23 = icmp sgt i8 %14, -1
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !22
+  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .preheader1:                                      ; preds = %.lr.ph, %.preheader1
   %.33 = phi i32 [ %29, %.preheader1 ], [ %13, %.lr.ph ]
@@ -8568,7 +8568,7 @@ define internal fastcc void @dissect_japan_isup_redirect_fwd_inf(ptr noundef %0,
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %.33, i32 noundef 1, i32 noundef 0)
   %29 = add i32 %.33, 1
   %30 = icmp sgt i8 %24, -1
-  br i1 %30, label %.preheader1, label %.loopexit, !llvm.loop !23
+  br i1 %30, label %.preheader1, label %.loopexit, !llvm.loop !22
 
 31:                                               ; preds = %.lr.ph
   %32 = zext i8 %10 to i32
@@ -8579,7 +8579,7 @@ define internal fastcc void @dissect_japan_isup_redirect_fwd_inf(ptr noundef %0,
 .loopexit:                                        ; preds = %.preheader1, %.preheader, %31
   %.2 = phi i32 [ %34, %31 ], [ %22, %.preheader ], [ %29, %.preheader1 ]
   %35 = icmp slt i32 %.2, %4
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -8613,7 +8613,7 @@ define internal fastcc void @dissect_japan_isup_redirect_backw_inf(ptr noundef %
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %.11, i32 noundef 1, i32 noundef 0)
   %19 = add i32 %.11, 1
   %20 = icmp sgt i8 %14, -1
-  br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !24
 
 21:                                               ; preds = %.lr.ph
   %22 = zext i8 %10 to i32
@@ -8624,7 +8624,7 @@ define internal fastcc void @dissect_japan_isup_redirect_backw_inf(ptr noundef %
 .loopexit:                                        ; preds = %.preheader, %21
   %.2 = phi i32 [ %24, %21 ], [ %19, %.preheader ]
   %25 = icmp slt i32 %.2, %4
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -8711,7 +8711,7 @@ define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, 
 52:                                               ; preds = %.sink.split, %39
   %.1 = phi i32 [ %27, %39 ], [ %.1.ph, %.sink.split ]
   %exitcond.not = icmp eq i32 %.03, %22
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !26
 
 .loopexit.sink.split:                             ; preds = %43, %40, %24
   %53 = load ptr, ptr %4, align 8
@@ -8887,7 +8887,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   call void @wmem_strbuf_append_c(ptr noundef %56, i8 noundef signext %.0.i143)
   %103 = add i32 %65, 1
   %104 = icmp eq i32 %91, 32
-  br i1 %104, label %61, label %64, !llvm.loop !28
+  br i1 %104, label %61, label %64, !llvm.loop !27
 
 .loopexit150:                                     ; preds = %83, %76, %47, %93, %80, %61
   %.5 = phi i32 [ %103, %61 ], [ %65, %80 ], [ %65, %93 ], [ %50, %47 ], [ %65, %76 ], [ %65, %83 ]
@@ -8989,7 +8989,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   call void @wmem_strbuf_append_c(ptr noundef %118, i8 noundef signext %.0.i146)
   %165 = add i32 %127, 1
   %166 = icmp eq i32 %153, 32
-  br i1 %166, label %123, label %126, !llvm.loop !29
+  br i1 %166, label %123, label %126, !llvm.loop !28
 
 .loopexit:                                        ; preds = %145, %138, %109, %155, %142, %123
   %.8 = phi i32 [ %165, %123 ], [ %127, %142 ], [ %127, %155 ], [ %112, %109 ], [ %127, %138 ], [ %127, %145 ]
@@ -9001,14 +9001,14 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
 169:                                              ; preds = %.thread148, %.loopexit, %107
   %.6 = phi i32 [ %.8, %.loopexit ], [ %.3134, %107 ], [ %40, %.thread148 ]
   %170 = icmp slt i32 %.6, %29
-  br i1 %170, label %.lr.ph174, label %._crit_edge, !llvm.loop !30
+  br i1 %170, label %.lr.ph174, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %169, %18
   %.1132.lcssa = phi i32 [ %25, %18 ], [ %.6, %169 ]
   %171 = add nuw i32 %.1132.lcssa, 1
   %172 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %171)
   %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %18, label %.loopexit151, !llvm.loop !31
+  br i1 %173, label %18, label %.loopexit151, !llvm.loop !30
 
 .loopexit151:                                     ; preds = %._crit_edge, %.preheader, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
@@ -9029,7 +9029,7 @@ define internal fastcc void @dissect_japan_isup_charge_inf_delay(ptr noundef %0,
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %.01, i32 noundef 1, i32 noundef 0)
   %7 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %7, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -9174,7 +9174,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %53 = add nuw i32 %.1857, 1
   %54 = add nsw i32 %.0866, -1
   %exitcond.not = icmp eq i32 %.1857, %17
-  br i1 %exitcond.not, label %.loopexit1, label %25, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit1, label %25, !llvm.loop !32
 
 .loopexit1.sink.split:                            ; preds = %43, %40, %25
   %55 = load ptr, ptr %4, align 8
@@ -9242,7 +9242,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %93 = zext i8 %91 to i32
   %94 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %93)
   %95 = icmp eq i32 %90, 1
-  br i1 %95, label %.loopexit.loopexit, label %.lr.ph11.split.us, !llvm.loop !34
+  br i1 %95, label %.loopexit.loopexit, label %.lr.ph11.split.us, !llvm.loop !33
 
 .lr.ph11.split:                                   ; preds = %.lr.ph11.split.preheader, %.lr.ph11.split
   %96 = phi i32 [ %103, %.lr.ph11.split ], [ %83, %.lr.ph11.split.preheader ]
@@ -9257,7 +9257,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %103 = zext i8 %101 to i32
   %104 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %102, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %103)
   %105 = icmp eq i32 %100, 1
-  br i1 %105, label %.loopexit, label %.lr.ph11.split, !llvm.loop !36
+  br i1 %105, label %.loopexit, label %.lr.ph11.split, !llvm.loop !35
 
 .loopexit.loopexit:                               ; preds = %.lr.ph11.split.us, %.lr.ph11.split.us.preheader
   %.lcssa = phi i32 [ %83, %.lr.ph11.split.us.preheader ], [ %93, %.lr.ph11.split.us ]
@@ -9338,34 +9338,33 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !7}

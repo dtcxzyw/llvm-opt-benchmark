@@ -93,7 +93,7 @@ define dso_local i64 @crc32_pclmul_batch(ptr noundef captures(none) %0, ptr noun
   %.1138 = add i64 %.1138156, -64
   %.1 = getelementptr inbounds nuw i8, ptr %.1157, i64 64
   %63 = icmp ugt i64 %.1138, 63
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %.0145.lcssa = phi <2 x i64> [ %29, %18 ], [ %62, %.lr.ph ]
@@ -140,7 +140,7 @@ define dso_local i64 @crc32_pclmul_batch(ptr noundef captures(none) %0, ptr noun
   %88 = getelementptr inbounds nuw i8, ptr %.2165, i64 16
   %89 = add nsw i64 %.2139164, -16
   %90 = icmp ugt i64 %89, 15
-  br i1 %90, label %.lr.ph167, label %._crit_edge168, !llvm.loop !11
+  br i1 %90, label %.lr.ph167, label %._crit_edge168
 
 ._crit_edge168:                                   ; preds = %.lr.ph167, %78
   %.2142.lcssa = phi <2 x i64> [ %.0140, %78 ], [ %87, %.lr.ph167 ]
@@ -248,7 +248,7 @@ define dso_local i64 @crc32_pclmul_reflected_batch(ptr noundef captures(none) %0
   %.1118 = add i64 %.1118136, -64
   %.1 = getelementptr inbounds nuw i8, ptr %.1137, i64 64
   %46 = icmp ugt i64 %.1118, 63
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.0125.lcssa = phi <2 x i64> [ %20, %15 ], [ %45, %.lr.ph ]
@@ -293,7 +293,7 @@ define dso_local i64 @crc32_pclmul_reflected_batch(ptr noundef captures(none) %0
   %69 = getelementptr inbounds nuw i8, ptr %.2145, i64 16
   %70 = add nsw i64 %.2119144, -16
   %71 = icmp ugt i64 %70, 15
-  br i1 %71, label %.lr.ph147, label %._crit_edge148, !llvm.loop !13
+  br i1 %71, label %.lr.ph147, label %._crit_edge148
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %61
   %.2122.lcssa = phi <2 x i64> [ %.0120, %61 ], [ %68, %.lr.ph147 ]
@@ -361,8 +361,8 @@ define hidden i64 @crc32_sse42_pclmul_update(i32 noundef %0, ptr noundef capture
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @crc32_x86_simd_update(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 {
-  %5 = load ptr, ptr @crc32_x86_simd_ptr, align 8, !tbaa !14
-  %6 = tail call i64 %5(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #7, !callees !16
+  %5 = load ptr, ptr @crc32_x86_simd_ptr, align 8, !tbaa !9
+  %6 = tail call i64 %5(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #7, !callees !11
   ret i64 %6
 }
 
@@ -380,7 +380,7 @@ define hidden noundef i32 @zm_startup_crc32_x86_intrin(i32 noundef %0, i32 nound
   br i1 %.not1, label %8, label %7
 
 7:                                                ; preds = %5
-  store ptr @crc32_sse42_pclmul_update, ptr @crc32_x86_simd_ptr, align 8, !tbaa !14
+  store ptr @crc32_sse42_pclmul_update, ptr @crc32_x86_simd_ptr, align 8, !tbaa !9
   br label %8
 
 8:                                                ; preds = %7, %5, %2
@@ -416,11 +416,6 @@ attributes #7 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = !{ptr @crc32_sse42_pclmul_update, ptr @crc32_x86_simd_update_default}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{ptr @crc32_sse42_pclmul_update, ptr @crc32_x86_simd_update_default}

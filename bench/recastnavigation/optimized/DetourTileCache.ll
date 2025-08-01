@@ -262,7 +262,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %31 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %30, i64 %indvars.iv.next
   store ptr %31, ptr %21, align 8
   %32 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -339,7 +339,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %79 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %78, i64 %indvars.iv.next28
   store ptr %79, ptr %69, align 8
   %80 = icmp samesign ugt i64 %indvars.iv27, 1
-  br i1 %80, label %.lr.ph24, label %._crit_edge25.loopexit, !llvm.loop !8
+  br i1 %80, label %.lr.ph24, label %._crit_edge25.loopexit, !llvm.loop !7
 
 ._crit_edge25.loopexit:                           ; preds = %.lr.ph24
   %.pre31 = load i32, ptr %33, align 4
@@ -459,7 +459,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit: ; preds = %25
   %44 = getelementptr inbounds nuw i8, ptr %.022, i64 48
   %.0 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %43, %5
   %.016.lcssa = phi i32 [ 0, %5 ], [ %.1, %43 ]
@@ -536,7 +536,7 @@ define noundef ptr @_ZN11dtTileCache9getTileAtEiii(ptr noundef nonnull readonly 
   %30 = getelementptr inbounds nuw i8, ptr %.019, i64 48
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %25, %29, %4
   %.0.lcssa = phi ptr [ null, %4 ], [ null, %29 ], [ %.019, %25 ]
@@ -674,7 +674,7 @@ define noundef range(i32 1073741824, -2147483643) i32 @_ZN11dtTileCache7addTileE
   %42 = getelementptr inbounds nuw i8, ptr %.019.i, i64 48
   %.0.i = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %41, %10
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -799,7 +799,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
 
 .lr.ph:                                           ; preds = %.lr.ph78
   %41 = icmp eq ptr %.0, %21
-  br i1 %41, label %.lr.ph._crit_edge, label %.lr.ph78, !llvm.loop !11
+  br i1 %41, label %.lr.ph._crit_edge, label %.lr.ph78, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.070.lcssa = phi ptr [ %.067, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
@@ -823,7 +823,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
   %47 = getelementptr inbounds nuw i8, ptr %.07077, i64 48
   %.0 = load ptr, ptr %47, align 8
   %.not57 = icmp eq ptr %.0, null
-  br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph78, %23, %44, %46
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 44
@@ -1285,7 +1285,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %69
   %85 = getelementptr inbounds nuw i8, ptr %.022.i, i64 48
   %.0.i = load ptr, ptr %85, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK11dtTileCache10getTilesAtEiiPji.exit, label %62, !llvm.loop !9
+  br i1 %.not.i, label %_ZNK11dtTileCache10getTilesAtEiiPji.exit, label %62, !llvm.loop !8
 
 _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %84
   %86 = icmp sgt i32 %.1.i, 0
@@ -1388,18 +1388,18 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %139, %143, %148
   %.3 = phi i32 [ %149, %148 ], [ %.242, %143 ], [ %.242, %139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, %51, %_ZNK11dtTileCache10getTilesAtEiiPji.exit
   %.2.lcssa = phi i32 [ %.145, %_ZNK11dtTileCache10getTilesAtEiiPji.exit ], [ %.145, %51 ], [ %.3, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %152 = add i32 %.03444, 1
   %exitcond56.not = icmp eq i32 %.03444, %29
-  br i1 %exitcond56.not, label %._crit_edge47, label %51, !llvm.loop !13
+  br i1 %exitcond56.not, label %._crit_edge47, label %51, !llvm.loop !12
 
 ._crit_edge47:                                    ; preds = %._crit_edge
   %153 = add i32 %.03350, 1
   %exitcond57.not = icmp eq i32 %.03350, %43
-  br i1 %exitcond57.not, label %._crit_edge52, label %.preheader, !llvm.loop !14
+  br i1 %exitcond57.not, label %._crit_edge52, label %.preheader, !llvm.loop !13
 
 ._crit_edge52:                                    ; preds = %._crit_edge47, %.preheader.lr.ph, %6
   %.0.lcssa = phi i32 [ 0, %6 ], [ 0, %.preheader.lr.ph ], [ %.2.lcssa, %._crit_edge47 ]
@@ -1640,7 +1640,7 @@ _ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit: ; preds 
 106:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit100, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.loopexit100, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %106 ]
@@ -1674,7 +1674,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %120 = zext i8 %119 to i64
   %121 = icmp samesign ult i64 %indvars.iv.next132, %120
-  br i1 %121, label %.lr.ph113.splitthread-pre-split, label %.loopexit102, !llvm.loop !16
+  br i1 %121, label %.lr.ph113.splitthread-pre-split, label %.loopexit102, !llvm.loop !15
 
 122:                                              ; preds = %36
   %123 = getelementptr inbounds nuw i8, ptr %31, i64 99
@@ -1717,7 +1717,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
 138:                                              ; preds = %.lr.ph.i91
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, %wide.trip.count.i90
-  br i1 %exitcond.not.i94, label %.loopexit101, label %.lr.ph.i91, !llvm.loop !15
+  br i1 %exitcond.not.i94, label %.loopexit101, label %.lr.ph.i91, !llvm.loop !14
 
 .lr.ph.i91:                                       ; preds = %138, %.lr.ph.preheader.i89
   %indvars.iv.i92 = phi i64 [ 0, %.lr.ph.preheader.i89 ], [ %indvars.iv.next.i93, %138 ]
@@ -1751,14 +1751,14 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %152 = zext i8 %151 to i64
   %153 = icmp samesign ult i64 %indvars.iv.next, %152
-  br i1 %153, label %.lr.ph.splitthread-pre-split, label %.loopexit102, !llvm.loop !18
+  br i1 %153, label %.lr.ph.splitthread-pre-split, label %.loopexit102, !llvm.loop !17
 
 .loopexit102:                                     ; preds = %150, %118, %.lr.ph, %.lr.ph113, %122, %_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit, %36, %28, %22
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %154 = load i32, ptr %11, align 8
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next135, %155
-  br i1 %156, label %22, label %._crit_edge, !llvm.loop !19
+  br i1 %156, label %22, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit102
   %.pr.pre = load i32, ptr %8, align 4
@@ -1820,7 +1820,7 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
 184:                                              ; preds = %185
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread150, label %185, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit.thread150, label %185, !llvm.loop !19
 
 185:                                              ; preds = %.lr.ph119, %184
   %indvars.iv137 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next138, %184 ]
@@ -1873,7 +1873,7 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %207 = load i32, ptr %169, align 8
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next141, %208
-  br i1 %209, label %174, label %.loopexit99, !llvm.loop !21
+  br i1 %209, label %174, label %.loopexit99, !llvm.loop !20
 
 .loopexit99:                                      ; preds = %.loopexit.thread150, %._crit_edge.thread, %168, %._crit_edge
   %.074 = phi i32 [ 1073741824, %._crit_edge ], [ %160, %168 ], [ 1073741824, %._crit_edge.thread ], [ %160, %.loopexit.thread150 ]
@@ -2140,7 +2140,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache16buildNavMeshTileE
 75:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL8containsPKjij.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZL8containsPKjij.exit.thread, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %75 ]
@@ -2197,7 +2197,7 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %75, %71, %_ZL8conta
   %109 = load i32, ptr %59, align 8
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %66, label %._crit_edge, !llvm.loop !22
+  br i1 %111, label %66, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZL8containsPKjij.exit.thread, %.preheader
   %112 = load ptr, ptr %10, align 8
@@ -2517,7 +2517,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %28
   %44 = getelementptr inbounds nuw i8, ptr %.022.i, i64 48
   %.0.i = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK11dtTileCache10getTilesAtEiiPji.exit, label %21, !llvm.loop !9
+  br i1 %.not.i, label %_ZNK11dtTileCache10getTilesAtEiiPji.exit, label %21, !llvm.loop !8
 
 _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %43
   %45 = icmp sgt i32 %.1.i, 0
@@ -2530,7 +2530,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %43
 46:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
@@ -2656,23 +2656,22 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
-!18 = distinct !{!18, !5, !6, !17}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !5, !16}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

@@ -260,7 +260,7 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   %69 = load i32, ptr %4, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next45, %70
-  br i1 %71, label %57, label %._crit_edge41, !llvm.loop !9
+  br i1 %71, label %57, label %._crit_edge41, !llvm.loop !8
 
 ._crit_edge41:                                    ; preds = %57, %._crit_edge
   ret i64 0
@@ -393,7 +393,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %78 = load i32, ptr %47, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next147, %79
-  br i1 %80, label %59, label %.loopexit, !llvm.loop !10
+  br i1 %80, label %59, label %.loopexit, !llvm.loop !9
 
 81:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
@@ -498,7 +498,7 @@ select.unfold:                                    ; preds = %98, %96, %89, %87, 
   %131 = load i32, ptr %42, align 8
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %81, label %select.unfold._crit_edge, !llvm.loop !11
+  br i1 %133, label %81, label %select.unfold._crit_edge, !llvm.loop !10
 
 select.unfold._crit_edge:                         ; preds = %.thread, %select.unfold, %.preheader
   %.1 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.2123, %.thread ]
@@ -514,7 +514,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   store i32 1, ptr %138, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next143, 4
-  br i1 %exitcond.not, label %139, label %136, !llvm.loop !12
+  br i1 %exitcond.not, label %139, label %136, !llvm.loop !11
 
 139:                                              ; preds = %136
   %140 = call ptr @palloc(i64 noundef 16) #7
@@ -629,7 +629,7 @@ getQuadrantArea.exit:                             ; preds = %161, %165, %167, %1
   %201 = phi i32 [ %151, %150 ], [ %199, %197 ]
   %202 = add nuw nsw i32 %.3134, 1
   %exitcond145.not = icmp eq i32 %202, 5
-  br i1 %exitcond145.not, label %.loopexit, label %150, !llvm.loop !13
+  br i1 %exitcond145.not, label %.loopexit, label %150, !llvm.loop !12
 
 .loopexit:                                        ; preds = %200, %77, %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
@@ -745,7 +745,7 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   %40 = load i32, ptr %12, align 8
   %41 = sext i32 %40 to i64
   %.not51 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %.not51, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %.not51, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %39, %1
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -794,12 +794,11 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

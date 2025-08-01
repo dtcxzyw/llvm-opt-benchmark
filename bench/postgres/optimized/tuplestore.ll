@@ -413,7 +413,7 @@ tuplestore_updatemax.exit:                        ; preds = %6, %22
   %51 = add nuw nsw i32 %.02022, 1
   %52 = load i32, ptr %43, align 4
   %53 = icmp slt i32 %51, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   ret void
@@ -648,7 +648,7 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %.090, i64 24
   %28 = add nuw nsw i32 %.07489, 1
   %29 = icmp slt i32 %28, %26
-  br i1 %29, label %15, label %._crit_edge93, !llvm.loop !10
+  br i1 %29, label %15, label %._crit_edge93, !llvm.loop !9
 
 ._crit_edge93:                                    ; preds = %25, %7
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -886,7 +886,7 @@ tuplestore_updatemax.exit:                        ; preds = %119, %133
   %159 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 24
   %160 = add nuw nsw i32 %.02127.i, 1
   %161 = icmp slt i32 %160, %158
-  br i1 %161, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %161, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %157, %140
   %162 = load i32, ptr %30, align 4
@@ -901,7 +901,7 @@ tuplestore_updatemax.exit:                        ; preds = %119, %133
   %168 = load ptr, ptr %167, align 8
   tail call void %165(ptr noundef nonnull %0, ptr noundef %168) #9
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  br label %140, !llvm.loop !12
+  br label %140
 
 dumptuples.exit:                                  ; preds = %._crit_edge.i
   store i32 0, ptr %136, align 8
@@ -949,7 +949,7 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
   %190 = getelementptr inbounds nuw i8, ptr %.185, i64 24
   %191 = add nuw nsw i32 %.17584, 1
   %192 = icmp slt i32 %191, %189
-  br i1 %192, label %177, label %._crit_edge88, !llvm.loop !13
+  br i1 %192, label %177, label %._crit_edge88, !llvm.loop !11
 
 ._crit_edge88:                                    ; preds = %188, %169
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1037,7 +1037,7 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
   %240 = getelementptr inbounds nuw i8, ptr %.283, i64 24
   %241 = add nuw nsw i32 %.27682, 1
   %242 = icmp slt i32 %241, %239
-  br i1 %242, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %242, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %238, %222
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1507,7 +1507,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
 54:                                               ; preds = %50, %53
   %55 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %57, label %56, !prof !15
+  br i1 %.not, label %57, label %56, !prof !13
 
 56:                                               ; preds = %54
   tail call void @ProcessInterrupts() #9
@@ -1516,7 +1516,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
 57:                                               ; preds = %54, %56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
   %58 = icmp samesign ugt i64 %.in, 1
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
@@ -1626,7 +1626,7 @@ define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %
   %22 = or i32 %21, %.03642
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %.036.lcssa = phi i32 [ %16, %14 ], [ %22, %.lr.ph ]
@@ -1765,7 +1765,7 @@ define dso_local void @tuplestore_trim(ptr noundef captures(none) %0) local_unna
   %.154 = phi i32 [ %.05359, %15 ], [ %.053., %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %7
   %.053.lcssa = phi i32 [ %9, %7 ], [ %.154, %23 ]
@@ -1812,7 +1812,7 @@ tuplestore_updatemax.exit:                        ; preds = %._crit_edge
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next69 to i32
   %exitcond71.not = icmp eq i32 %24, %lftr.wideiv
-  br i1 %exitcond71.not, label %._crit_edge63.loopexit, label %38, !llvm.loop !19
+  br i1 %exitcond71.not, label %._crit_edge63.loopexit, label %38, !llvm.loop !17
 
 ._crit_edge63.loopexit:                           ; preds = %38
   %.pre = load i32, ptr %8, align 4
@@ -1883,7 +1883,7 @@ tuplestore_updatemax.exit:                        ; preds = %._crit_edge
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next73, %85
-  br i1 %86, label %72, label %.loopexit, !llvm.loop !20
+  br i1 %86, label %72, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %83, %66, %._crit_edge63, %._crit_edge, %5, %1
   ret void
@@ -2005,18 +2005,16 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

@@ -651,7 +651,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i.i: ; preds = %_ZN7QStri
 _ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i.i: ; preds = %17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i.i.i
   %19 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %19, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i.i, %4
   %20 = load ptr, ptr %0, align 8
@@ -867,7 +867,7 @@ _ZN20QMutableListIteratorIN10LabelStack10_StackItemEEC2ER5QListIS1_E.exit: ; pre
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %1
-  br i1 %29, label %30, label %24, !llvm.loop !13
+  br i1 %29, label %30, label %24, !llvm.loop !12
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %3, align 8
@@ -935,7 +935,7 @@ define void @_ZN10LabelStack13setShrinkableEb(ptr noundef align 8 dereferenceabl
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !noalias !14
+  %8 = load ptr, ptr %7, align 8, !noalias !13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   call void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable_or_null(8) %3, ptr noundef nonnull align 8 dereferenceable(12) %9)
   %10 = invoke noundef i32 @_ZNK12QFontMetrics6heightEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %3)
@@ -1043,7 +1043,7 @@ define void @_ZN10LabelStack10paintEventEP11QPaintEvent(ptr noundef align 8 dere
   %7 = alloca %class.QRect, align 8
   %8 = alloca %class.QStyleOption, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load i8, ptr %9, align 8, !range !17, !noundef !18
+  %10 = load i8, ptr %9, align 8, !range !16, !noundef !17
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %13, label %12
 
@@ -1056,7 +1056,7 @@ define void @_ZN10LabelStack10paintEventEP11QPaintEvent(ptr noundef align 8 dere
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !noalias !19
+  %15 = load ptr, ptr %14, align 8, !noalias !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   call void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable_or_null(8) %4, ptr noundef nonnull align 8 dereferenceable(12) %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
@@ -1395,7 +1395,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i: ; preds = %_ZN7QString
 _ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i: ; preds = %17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i.i
   %19 = getelementptr i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %19, %9
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit: ; preds = %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i, %4
   %20 = load ptr, ptr %0, align 8
@@ -1463,7 +1463,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM10LabelStackFvvENS_4ListIJ
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !18
+  %17 = load ptr, ptr %16, align 8, !nosanitize !17
   br label %_ZN9QtPrivate15FunctionPointerIM10LabelStackFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1608,7 +1608,7 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit.i:       ; preds = %49, %_ZN7QStringC2E
   %56 = add i64 %55, 1
   store i64 %56, ptr %27, align 8
   %57 = icmp ult ptr %54, %24
-  br i1 %57, label %28, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit, !llvm.loop !22
+  br i1 %57, label %28, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit, !llvm.loop !21
 
 58:                                               ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1672,7 +1672,7 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit.i:       ; preds = %49, %_ZN7QStringC2E
   %93 = add i64 %92, 1
   store i64 %93, ptr %64, align 8
   %94 = icmp ult ptr %91, %61
-  br i1 %94, label %65, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit, !llvm.loop !23
+  br i1 %94, label %65, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit, !llvm.loop !22
 
 _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit: ; preds = %65, %_ZN10LabelStack10_StackItemC2ERKS0_.exit.i, %58, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread, %13
   %95 = load ptr, ptr %0, align 8
@@ -1759,7 +1759,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i.i: ; preds = %_ZN7QStri
 _ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i.i: ; preds = %123, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i.i.i
   %125 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i23 = icmp eq ptr %125, %115
-  br i1 %.not.i.i.i.i.i23, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i23, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i.i, %112
   %126 = load ptr, ptr %5, align 8
@@ -2513,7 +2513,7 @@ _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.ex
   %123 = add i64 %.09, -1
   %124 = load i64, ptr %18, align 8
   %.not7 = icmp eq i64 %123, %124
-  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 125:                                              ; preds = %._crit_edge, %21
   ret void
@@ -2708,7 +2708,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
   %35 = getelementptr i8, ptr %10, i64 56
   %36 = getelementptr i8, ptr %11, i64 56
   %.not = icmp eq ptr %35, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %37 = phi ptr [ %2, %3 ], [ %35, %.lr.ph ]
@@ -2763,7 +2763,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10Labe
   %65 = getelementptr i8, ptr %.1, i64 56
   %66 = getelementptr i8, ptr %39, i64 56
   %.not6 = icmp eq ptr %65, %6
-  br i1 %.not6, label %._crit_edge18, label %.lr.ph17, !llvm.loop !26
+  br i1 %.not6, label %._crit_edge18, label %.lr.ph17, !llvm.loop !25
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %._crit_edge
   %.lcssa14 = phi ptr [ %.lcssa, %._crit_edge ], [ %66, %.lr.ph17 ]
@@ -2806,7 +2806,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i:   ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i, %76
   %.not7 = icmp eq ptr %68, %9
-  br i1 %.not7, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !27
+  br i1 %.not7, label %._crit_edge23.loopexit, label %.lr.ph22, !llvm.loop !26
 
 ._crit_edge23.loopexit:                           ; preds = %_ZN10LabelStack10_StackItemD2Ev.exit
   %.pre = load ptr, ptr %4, align 8
@@ -2866,7 +2866,7 @@ _ZN10LabelStack10_StackItemD2Ev.exit.i:           ; preds = %96, %_ZN17QArrayDat
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %99, %100
-  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit, label %83, !llvm.loop !28
+  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit, label %83, !llvm.loop !27
 
 _ZZN9QtPrivate30q_relocate_overlap_n_left_moveIPN10LabelStack10_StackItemExEEvT_T0_S4_EN10DestructorD2Ev.exit: ; preds = %_ZN10LabelStack10_StackItemD2Ev.exit.i, %._crit_edge23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
@@ -2941,7 +2941,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
   store ptr %44, ptr %0, align 8
   %45 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %45, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %46 = phi ptr [ %10, %3 ], [ %44, %.lr.ph ]
@@ -3003,7 +3003,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
   store ptr %81, ptr %0, align 8
   %82 = load ptr, ptr %2, align 8
   %.not8 = icmp eq ptr %82, %9
-  br i1 %.not8, label %._crit_edge14, label %.lr.ph13, !llvm.loop !30
+  br i1 %.not8, label %._crit_edge14, label %.lr.ph13, !llvm.loop !29
 
 ._crit_edge14:                                    ; preds = %.lr.ph13, %._crit_edge
   %83 = phi ptr [ %46, %._crit_edge ], [ %81, %.lr.ph13 ]
@@ -3048,7 +3048,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i:   ; preds = %_ZN7QStringD2Ev.exi
 _ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i, %93
   %95 = load ptr, ptr %0, align 8
   %.not9 = icmp eq ptr %95, %13
-  br i1 %.not9, label %._crit_edge18.loopexit, label %.lr.ph17, !llvm.loop !31
+  br i1 %.not9, label %._crit_edge18.loopexit, label %.lr.ph17, !llvm.loop !30
 
 ._crit_edge18.loopexit:                           ; preds = %_ZN10LabelStack10_StackItemD2Ev.exit
   %.pre = load ptr, ptr %4, align 8
@@ -3109,7 +3109,7 @@ _ZN10LabelStack10_StackItemD2Ev.exit.i:           ; preds = %114, %_ZN17QArrayDa
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %117, %118
-  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIPN10LabelStack10_StackItemEExEEvT_T0_S6_EN10DestructorD2Ev.exit, label %100, !llvm.loop !32
+  br i1 %.not.i, label %_ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIPN10LabelStack10_StackItemEExEEvT_T0_S6_EN10DestructorD2Ev.exit, label %100, !llvm.loop !31
 
 _ZZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reverse_iteratorIPN10LabelStack10_StackItemEExEEvT_T0_S6_EN10DestructorD2Ev.exit: ; preds = %_ZN10LabelStack10_StackItemD2Ev.exit.i, %._crit_edge18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
@@ -3183,7 +3183,7 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackI
   %39 = getelementptr i8, ptr %.121, i64 56
   %40 = getelementptr i8, ptr %.11520, i64 56
   %.not18 = icmp eq ptr %40, %13
-  br i1 %.not18, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not18, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %.pre25 = load i64, ptr %12, align 8
@@ -3234,7 +3234,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i: ; preds = %_ZN7QStringD2
 _ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i: ; preds = %51, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i.i.i.i.i, %_ZN7QStringD2Ev.exit.i.i.i.i.i
   %53 = getelementptr i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %53, %.014
-  br i1 %.not.i.i.i, label %_ZSt7destroyIPN10LabelStack10_StackItemEEvT_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %_ZSt7destroyIPN10LabelStack10_StackItemEEvT_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZSt7destroyIPN10LabelStack10_StackItemEEvT_S3_.exit: ; preds = %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i, %.loopexit
   ret void
@@ -3281,28 +3281,27 @@ attributes #19 = { cold noreturn }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN7QObject7connectIM6QTimerFvNS1_14QPrivateSignalEEM10LabelStackFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE: argument 0"}
 !8 = distinct !{!8, !"_ZN7QObject7connectIM6QTimerFvNS1_14QPrivateSignalEEM10LabelStackFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
-!16 = distinct !{!16, !"_ZNK7QWidget11fontMetricsEv"}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK7QWidget11fontMetricsEv"}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
-!29 = distinct !{!29, !10, !11}
-!30 = distinct !{!30, !10, !11}
-!31 = distinct !{!31, !10, !11}
-!32 = distinct !{!32, !10, !11}
-!33 = distinct !{!33, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
+!15 = distinct !{!15, !"_ZNK7QWidget11fontMetricsEv"}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK7QWidget11fontMetricsEv"}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10}
+!31 = distinct !{!31, !10}
+!32 = distinct !{!32, !10}

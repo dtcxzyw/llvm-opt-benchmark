@@ -1977,13 +1977,13 @@ switch.lookup:                                    ; preds = %82
   %99 = add nuw nsw i32 %.0120.us, 1
   %100 = load i32, ptr %13, align 4
   %.not114.us = icmp slt i32 %99, %100
-  br i1 %.not114.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
+  br i1 %.not114.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
 101:                                              ; preds = %.lr.ph.split
   %102 = add nuw nsw i32 %.0120, 1
   %103 = load i32, ptr %13, align 4
   %.not114 = icmp slt i32 %102, %103
-  br i1 %.not114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %.not114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %101
   %.0120 = phi i32 [ %102, %101 ], [ 0, %.lr.ph ]
@@ -2228,7 +2228,7 @@ thrift_get_varint_enc.exit.thread145:             ; preds = %41
 108:                                              ; preds = %.lr.ph
   %109 = add nuw nsw i32 %.0132151, 1
   %exitcond.not = icmp eq i32 %109, %52
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %97, %108
   %.1125152 = phi i32 [ %111, %108 ], [ %53, %97 ]
@@ -2825,7 +2825,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %67 = getelementptr inbounds nuw i8, ptr %.083108, i64 10
   %68 = load i8, ptr %67, align 2, !range !6, !noundef !7
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %119, label %70, !llvm.loop !15
+  br i1 %69, label %119, label %70, !llvm.loop !14
 
 70:                                               ; preds = %66
   %71 = load i32, ptr %12, align 4
@@ -2844,7 +2844,7 @@ thread-pre-split:                                 ; preds = %24, %25
   %79 = getelementptr inbounds nuw i8, ptr %.083108, i64 10
   %80 = load i8, ptr %79, align 2, !range !6, !noundef !7
   %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %119, label %82, !llvm.loop !15
+  br i1 %81, label %119, label %82, !llvm.loop !14
 
 82:                                               ; preds = %78
   %83 = load i32, ptr %12, align 4
@@ -4599,7 +4599,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
 232:                                              ; preds = %236
   %233 = add nuw nsw i32 %.083.i107, 1
   %exitcond.not = icmp eq i32 %233, %211
-  br i1 %exitcond.not, label %dissect_thrift_compact_map.exit.loopexit, label %.lr.ph108, !llvm.loop !16
+  br i1 %exitcond.not, label %dissect_thrift_compact_map.exit.loopexit, label %.lr.ph108, !llvm.loop !15
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %232
   %.083.i107 = phi i32 [ %233, %232 ], [ 0, %.lr.ph108.preheader ]
@@ -4712,7 +4712,7 @@ dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_comp
   store i64 %290, ptr %273, align 8
   %291 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %9, i1 noundef zeroext true)
   %292 = icmp eq i32 %291, -1
-  br i1 %292, label %dissect_thrift_compact_fields.exit.thread, label %279, !llvm.loop !17
+  br i1 %292, label %dissect_thrift_compact_fields.exit.thread, label %279
 
 dissect_thrift_compact_fields.exit.thread:        ; preds = %284, %289, %265
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #10
@@ -5094,7 +5094,7 @@ dissect_thrift_binary_binary.exit:                ; preds = %133
   %190 = load ptr, ptr %181, align 8
   %191 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %178, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %189, i32 noundef %186, ptr noundef %190)
   %192 = icmp eq i32 %191, -1
-  br i1 %192, label %dissect_thrift_binary_fields.exit.thread, label %182, !llvm.loop !18
+  br i1 %192, label %dissect_thrift_binary_fields.exit.thread, label %182
 
 dissect_thrift_binary_fields.exit.thread:         ; preds = %182, %188
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #10
@@ -5353,7 +5353,7 @@ select.unfold.us:                                 ; preds = %49, %47, %18, %15
   %.142.us = phi i32 [ %.04176.us, %18 ], [ %48, %47 ], [ %17, %15 ], [ %.04176.us, %49 ]
   %50 = add i32 %.05771.us, 1
   %exitcond99.not = icmp eq i32 %50, %6
-  br i1 %exitcond99.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond99.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
   %.04176 = phi i32 [ %.142, %select.unfold ], [ 0, %.lr.ph ]
@@ -5455,7 +5455,7 @@ select.unfold:                                    ; preds = %52, %55, %83, %88
   %.142 = phi i32 [ %.04176, %55 ], [ %84, %83 ], [ %90, %88 ], [ %.04176, %52 ]
   %91 = add i32 %.05771, 1
   %exitcond.not = icmp eq i32 %91, %6
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !17
 
 .thread:                                          ; preds = %select.unfold, %60, %68, %81, %76, %85, %52, %select.unfold.us, %46, %39, %34, %29, %12, %49, %4
   %.2 = phi i32 [ 0, %4 ], [ -1, %49 ], [ -1, %12 ], [ -1, %29 ], [ -1, %34 ], [ -1, %39 ], [ -1, %46 ], [ %.142.us, %select.unfold.us ], [ -1, %52 ], [ -1, %85 ], [ -1, %76 ], [ -1, %81 ], [ -1, %68 ], [ -1, %60 ], [ %.142, %select.unfold ]
@@ -5624,7 +5624,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 98:                                               ; preds = %.lr.ph
   %99 = add nuw nsw i32 %.09098, 1
   %exitcond.not = icmp eq i32 %99, %.091
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %97, %98
   %.09098 = phi i32 [ %99, %98 ], [ 0, %97 ]
@@ -5684,7 +5684,7 @@ define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr no
   store i64 %24, ptr %7, align 8
   %25 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6, i1 noundef zeroext true)
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %.loopexit, label %13, !llvm.loop !17
+  br i1 %26, label %.loopexit, label %13
 
 27:                                               ; preds = %13
   %28 = load i32, ptr %3, align 4
@@ -5822,7 +5822,7 @@ default.unreachable74:                            ; preds = %6
   %62 = add nuw nsw i32 %.06871.us, 1
   %63 = load i32, ptr %9, align 4
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
+  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
 
 65:                                               ; preds = %.lr.ph.split.us
   %66 = load i32, ptr %8, align 4
@@ -5838,7 +5838,7 @@ default.unreachable74:                            ; preds = %6
   %72 = add nuw nsw i32 %.06871, 1
   %73 = load i32, ptr %9, align 4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
+  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %.06871 = phi i32 [ %72, %71 ], [ 0, %.lr.ph ]
@@ -5892,7 +5892,7 @@ define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr nou
   %18 = load ptr, ptr %9, align 8
   %19 = call fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %17, i32 noundef %14, ptr noundef %18)
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %.loopexit, label %10, !llvm.loop !18
+  br i1 %20, label %.loopexit, label %10
 
 21:                                               ; preds = %13
   %22 = load i32, ptr %3, align 4
@@ -6092,7 +6092,7 @@ is_thrift_strict_version.exit:                    ; preds = %21
 38:                                               ; preds = %34
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %35)
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %13, label %.loopexit, !llvm.loop !24
+  br i1 %40, label %13, label %.loopexit, !llvm.loop !21
 
 41:                                               ; preds = %34, %13
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 332
@@ -6715,20 +6715,17 @@ attributes #10 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !9, !10, !12}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10, !12}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
+!16 = distinct !{!16, !9, !11}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9, !11}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

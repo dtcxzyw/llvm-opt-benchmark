@@ -2229,7 +2229,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726FractionalPartSubstitutio
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %20, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 -1, ptr %21, align 4, !tbaa !77
+  store i32 -1, ptr %21, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #11
   invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %12)
           to label %.preheader unwind label %57
@@ -2417,7 +2417,7 @@ _ZN6icu_7713UnicodeString13removeBetweenEii.exit54: ; preds = %92
   %100 = load i32, ptr %23, align 4
   %101 = select i1 %97, i32 %100, i32 %99
   %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph, label %.critedge2, !llvm.loop !78
+  br i1 %102, label %.lr.ph, label %.critedge2, !llvm.loop !77
 
 .critedge2:                                       ; preds = %_ZN6icu_7713UnicodeString13removeBetweenEii.exit54, %.lr.ph, %_ZN6icu_7713UnicodeString13removeBetweenEii.exit.preheader, %.thread
   %.167 = phi ptr [ %.1.ph, %.thread ], [ %.166, %_ZN6icu_7713UnicodeString13removeBetweenEii.exit.preheader ], [ %.166, %.lr.ph ], [ %.166, %_ZN6icu_7713UnicodeString13removeBetweenEii.exit54 ]
@@ -2435,7 +2435,7 @@ _ZN6icu_7713UnicodeString13removeBetweenEii.exit54: ; preds = %92
   %110 = load i32, ptr %20, align 8
   %.not44 = icmp eq i32 %110, 0
   %or.cond = select i1 %109, i1 true, i1 %.not44
-  br i1 %or.cond, label %.critedge, label %36, !llvm.loop !79
+  br i1 %or.cond, label %.critedge, label %36, !llvm.loop !78
 
 111:                                              ; preds = %65, %63
   %.pn = phi { ptr, i32 } [ %lpad.phi, %65 ], [ %64, %63 ]
@@ -2673,7 +2673,7 @@ define void @_ZNK6icu_7721NumeratorSubstitution14doSubstitutionEdRNS_13UnicodeSt
   %44 = sitofp i64 %43 to double
   %45 = load double, ptr %30, align 8, !tbaa !53
   %46 = fcmp ogt double %45, %44
-  br i1 %46, label %36, label %._crit_edge.loopexit, !llvm.loop !80
+  br i1 %46, label %36, label %._crit_edge.loopexit, !llvm.loop !79
 
 ._crit_edge.loopexit:                             ; preds = %36
   %.pre = load i16, ptr %22, align 8, !tbaa !14
@@ -2804,7 +2804,7 @@ define noundef signext i8 @_ZNK6icu_7721NumeratorSubstitution7doParseERKNS_13Uni
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1, ptr %17, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 -1, ptr %18, align 4, !tbaa !77
+  store i32 -1, ptr %18, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %13) #11
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
           to label %.preheader55 unwind label %39
@@ -2919,7 +2919,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %._ZN6icu_7713Unicod
   %66 = select i1 %.not.i.i.i, ptr %65, ptr %31
   %67 = load i16, ptr %66, align 2, !tbaa !15
   %68 = icmp eq i16 %67, 32
-  br i1 %68, label %.lr.ph108, label %.lr.ph..critedge2.loopexit_crit_edge, !llvm.loop !81
+  br i1 %68, label %.lr.ph108, label %.lr.ph..critedge2.loopexit_crit_edge, !llvm.loop !80
 
 .lr.ph..critedge2.loopexit_crit_edge:             ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa101 = phi i32 [ %56, %.lr.ph.preheader ], [ %76, %.lr.ph ]
@@ -2943,7 +2943,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit49:       ; preds = %.lr.ph108
   %76 = load i32, ptr %20, align 4
   %77 = select i1 %73, i32 %76, i32 %75
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph, label %.critedge2, !llvm.loop !81
+  br i1 %78, label %.lr.ph, label %.critedge2, !llvm.loop !80
 
 .critedge2:                                       ; preds = %_ZN6icu_7713UnicodeString6removeEii.exit49, %.lr.ph..critedge2.loopexit_crit_edge, %_ZN6icu_7713UnicodeString6removeEii.exit
   %.pre-phi84 = phi i32 [ %55, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ %.pre86, %.lr.ph..critedge2.loopexit_crit_edge ], [ %75, %_ZN6icu_7713UnicodeString6removeEii.exit49 ]
@@ -2955,7 +2955,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit49:       ; preds = %.lr.ph108
   %84 = load i32, ptr %17, align 8
   %.not39 = icmp eq i32 %84, 0
   %or.cond = select i1 %83, i1 true, i1 %.not39
-  br i1 %or.cond, label %.critedge, label %33, !llvm.loop !82
+  br i1 %or.cond, label %.critedge, label %33, !llvm.loop !81
 
 .critedge:                                        ; preds = %36, %.critedge2, %.preheader55
   %.132.lcssa = phi i32 [ 0, %.preheader55 ], [ %42, %.critedge2 ], [ %.13266, %36 ]
@@ -3028,7 +3028,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit54:       ; preds = %90, %94
   %.073 = phi i64 [ %108, %.lr.ph74 ], [ 1, %105 ]
   %108 = mul nuw nsw i64 %.073, 10
   %.not43 = icmp sgt i64 %108, %106
-  br i1 %.not43, label %.preheader, label %.lr.ph74, !llvm.loop !83
+  br i1 %.not43, label %.preheader, label %.lr.ph74, !llvm.loop !82
 
 109:                                              ; preds = %99
   %110 = landingpad { ptr, i32 }
@@ -3046,7 +3046,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit54:       ; preds = %90, %94
   %113 = mul nuw nsw i64 %.177, 10
   %114 = add nsw i32 %.276, -1
   %115 = icmp samesign ugt i32 %.276, 1
-  br i1 %115, label %.lr.ph78, label %._crit_edge, !llvm.loop !84
+  br i1 %115, label %.lr.ph78, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %113, %.lr.ph78 ]
@@ -3231,7 +3231,7 @@ define linkonce_odr noundef double @_ZNK6icu_7722MultiplierSubstitution15transfo
 9:                                                ; preds = %5
   %10 = load ptr, ptr %6, align 8, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %12 = load ptr, ptr %11, align 8, !tbaa !85
+  %12 = load ptr, ptr %11, align 8, !tbaa !84
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 272
   %15 = load ptr, ptr %14, align 8
@@ -3598,15 +3598,14 @@ attributes #12 = { noreturn nounwind }
 !71 = !{!72, !10, i64 32}
 !72 = !{!"_ZTSN6icu_7726FractionalPartSubstitutionE", !7, i64 0, !10, i64 32, !10, i64 33}
 !73 = !{!72, !10, i64 33}
-!74 = distinct !{!74, !75, !76}
+!74 = distinct !{!74, !75}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.estimated_trip_count"}
-!77 = !{!67, !9, i64 12}
-!78 = distinct !{!78, !75, !76}
-!79 = distinct !{!79, !75, !76}
-!80 = distinct !{!80, !75, !76}
-!81 = distinct !{!81, !75, !76}
-!82 = distinct !{!82, !75, !76}
-!83 = distinct !{!83, !75, !76}
-!84 = distinct !{!84, !75, !76}
-!85 = !{!18, !24, i64 96}
+!76 = !{!67, !9, i64 12}
+!77 = distinct !{!77, !75}
+!78 = distinct !{!78, !75}
+!79 = distinct !{!79, !75}
+!80 = distinct !{!80, !75}
+!81 = distinct !{!81, !75}
+!82 = distinct !{!82, !75}
+!83 = distinct !{!83, !75}
+!84 = !{!18, !24, i64 96}

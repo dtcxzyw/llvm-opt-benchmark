@@ -268,7 +268,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   call void @free(ptr noundef %102) #7
   %.not69.i = icmp eq ptr %101, %96
-  br i1 %.not69.i, label %.loopexit.i, label %.lr.ph119.i, !llvm.loop !21
+  br i1 %.not69.i, label %.loopexit.i, label %.lr.ph119.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %.lr.ph119.i, %97, %.preheader.i
   %.0128.i = phi ptr [ %95, %97 ], [ null, %.preheader.i ], [ null, %.lr.ph119.i ]
@@ -461,7 +461,6 @@ attributes #9 = { nounwind willreturn memory(none) }
 !15 = !{!"p1 short", !10, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
+!20 = distinct !{!20, !19}

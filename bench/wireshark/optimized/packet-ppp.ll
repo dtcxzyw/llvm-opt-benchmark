@@ -2598,7 +2598,7 @@ remove_escape_chars.exit128:                      ; preds = %._crit_edge.i125
 
 remove_escape_chars.exit128.thread:               ; preds = %38, %._crit_edge.i125, %4, %remove_escape_chars.exit128, %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %67 = load i8, ptr %66, align 8, !range !9, !noundef !10
+  %67 = load i8, ptr %66, align 8, !range !8, !noundef !9
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -2760,7 +2760,7 @@ remove_escape_chars.exit152.thread:               ; preds = %118, %._crit_edge.i
   %.1102 = phi i1 [ false, %139 ], [ %.0101163, %remove_escape_chars.exit152 ], [ %.0101163, %113 ], [ %.0101163, %._crit_edge.i149 ], [ %.0101163, %118 ]
   %140 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0100)
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %75, label %remove_escape_chars.exit.thread, !llvm.loop !11
+  br i1 %141, label %75, label %remove_escape_chars.exit.thread, !llvm.loop !10
 
 remove_escape_chars.exit.thread.sink.split:       ; preds = %remove_escape_chars.exit140, %remove_escape_chars.exit
   %.sink171 = phi ptr [ %37, %remove_escape_chars.exit ], [ %105, %remove_escape_chars.exit140 ]
@@ -3083,16 +3083,16 @@ define internal i32 @dissect_mp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %8 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.1011)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 8, !range !8, !noundef !9
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %12 = load i32, ptr @proto_mp, align 4
-  %13 = load i8, ptr @mp_short_seqno, align 1, !range !9, !noundef !10
+  %13 = load i8, ptr @mp_short_seqno, align 1, !range !8, !noundef !9
   %14 = trunc nuw i8 %13 to i1
   %15 = select i1 %14, i32 2, i32 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %15, i32 noundef 0)
   %17 = load i32, ptr @ett_mp, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17)
-  %19 = load i8, ptr @mp_short_seqno, align 1, !range !9, !noundef !10
+  %19 = load i8, ptr @mp_short_seqno, align 1, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   %21 = load i32, ptr @ett_mp_flags, align 4
   br i1 %20, label %22, label %27
@@ -3112,7 +3112,7 @@ define internal i32 @dissect_mp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %32
 
 32:                                               ; preds = %27, %22
-  %33 = load i8, ptr @mp_short_seqno, align 1, !range !9, !noundef !10
+  %33 = load i8, ptr @mp_short_seqno, align 1, !range !8, !noundef !9
   %34 = trunc nuw i8 %33 to i1
   %35 = select i1 %34, i32 2, i32 4
   %36 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %35)
@@ -3536,7 +3536,7 @@ define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, p
   %.1 = phi i1 [ %.02124, %.preheader ], [ true, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not26 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not26, label %25, label %.preheader, !llvm.loop !12
+  br i1 %.not26, label %25, label %.preheader, !llvm.loop !11
 
 25:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1323)
@@ -4144,7 +4144,7 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
   %63 = add nsw i32 %.055, -4
   %64 = add nuw nsw i32 %.05054, 4
   %65 = icmp samesign ugt i32 %.055, 7
-  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 66:                                               ; preds = %24
   %67 = load i32, ptr @hf_lcp_opt_psndn, align 4
@@ -4368,7 +4368,7 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %22 = sub nuw nsw i32 %.023, %18
   %23 = icmp samesign ugt i32 %22, 1
-  br i1 %23, label %13, label %.loopexit, !llvm.loop !14
+  br i1 %23, label %13, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %19, %13, %4
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -4650,7 +4650,7 @@ define internal i32 @dissect_vsncp_apname_opt(ptr noundef %0, ptr noundef readon
   %38 = add nuw nsw i32 %37, %26
   %39 = and i32 %38, 255
   %40 = icmp samesign ult i32 %39, %19
-  br i1 %40, label %21, label %.loopexit, !llvm.loop !15
+  br i1 %40, label %21, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %21, %4
   %41 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -4843,7 +4843,7 @@ define internal i32 @dissect_vsncp_pco_opt(ptr noundef %0, ptr readnone captures
   %35 = add nuw nsw i32 %33, %20
   %36 = and i32 %35, 255
   %37 = icmp samesign ult i32 %36, %18
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %32, %4
   %38 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -5480,7 +5480,7 @@ define internal i32 @dissect_ipcp_rohc_profiles_opt(ptr noundef %0, ptr readnone
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %18, ptr noundef %0, i32 noundef %.024, i32 noundef 2, i32 noundef 0)
   %20 = add nuw nsw i32 %.024, 2
   %21 = icmp samesign ugt i32 %.020.in23, 5
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %22 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -5934,7 +5934,7 @@ define internal i32 @dissect_bcp_ncp_stp(ptr noundef %0, ptr readnone captures(n
   %21 = add i32 %.020, -1
   %22 = add i32 %.01719, 1
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %23 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -7085,7 +7085,7 @@ define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1,
   %69 = add i32 %.06877, %19
   %70 = sub nsw i32 %.06976, %19
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %15, label %.loopexit, !llvm.loop !19
+  br i1 %71, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %68, %29, %33, %11, %4
   %72 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -7700,7 +7700,7 @@ proto_item_set_generated.exit:                    ; preds = %60, %57, %39
   %79 = add nuw nsw i32 %40, %67
   %80 = sub nsw i32 %.07788, %79
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %77, %4
   %82 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -8124,7 +8124,7 @@ define internal i32 @dissect_iphc_crtp_cs(ptr noundef %0, ptr noundef readonly c
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0)
   %33 = add nuw nsw i32 %25, 2
   %34 = icmp samesign ult i32 %33, %.036
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %35 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -8417,7 +8417,7 @@ define internal fastcc void @ppp_dissect_options(ptr noundef %0, i32 noundef ran
   %25 = add i32 %.086.us, %16
   %26 = sub i32 %.06284.us, %16
   %.not.us = icmp eq i32 %26, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %.086 = phi i32 [ %61, %60 ], [ %1, %.lr.ph ]
@@ -8499,7 +8499,7 @@ define internal fastcc void @ppp_dissect_options(ptr noundef %0, i32 noundef ran
   %61 = add i32 %.086, %42
   %62 = sub i32 %.06284, %42
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %60, %22, %6, %.split95.us, %.split89.us, %.split.us
   ret void
@@ -9118,7 +9118,7 @@ define internal fastcc i32 @dissect_cbcp_callback_opt_common(ptr noundef %0, ptr
   %26 = add i32 %19, %17
   %27 = sub nuw nsw i32 %18, %19
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %23, %4, %21
   %29 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -9243,23 +9243,22 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

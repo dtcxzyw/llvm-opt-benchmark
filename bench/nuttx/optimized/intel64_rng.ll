@@ -50,7 +50,7 @@ define internal noundef i64 @x86_rngread(ptr readnone captures(none) %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %16 = add i64 %.01725, -8
   %17 = icmp ugt i64 %16, 8
-  br i1 %17, label %.preheader24, label %.preheader23, !llvm.loop !9
+  br i1 %17, label %.preheader24, label %.preheader23, !llvm.loop !8
 
 .preheader22:                                     ; preds = %.preheader23, %._crit_edge29
   %.131 = phi ptr [ %28, %._crit_edge29 ], [ %.0.lcssa, %.preheader23 ]
@@ -75,13 +75,13 @@ define internal noundef i64 @x86_rngread(ptr readnone captures(none) %0, ptr nou
   store i32 %25, ptr %.131, align 4
   %26 = extractvalue { i32, i32 } %24, 1
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.lr.ph28, label %._crit_edge29, !llvm.loop !10
+  br i1 %27, label %.lr.ph28, label %._crit_edge29, !llvm.loop !9
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %.preheader22
   %28 = getelementptr inbounds nuw i8, ptr %.131, i64 4
   %29 = add i64 %.11830, -4
   %30 = icmp ugt i64 %29, 4
-  br i1 %30, label %.preheader22, label %.preheader21, !llvm.loop !11
+  br i1 %30, label %.preheader22, label %.preheader21, !llvm.loop !10
 
 .preheader20:                                     ; preds = %.preheader21, %._crit_edge35
   %.237 = phi ptr [ %40, %._crit_edge35 ], [ %.1.lcssa, %.preheader21 ]
@@ -100,13 +100,13 @@ define internal noundef i64 @x86_rngread(ptr readnone captures(none) %0, ptr nou
   store i16 %37, ptr %.237, align 2
   %38 = extractvalue { i16, i32 } %36, 1
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.lr.ph34, label %._crit_edge35, !llvm.loop !12
+  br i1 %39, label %.lr.ph34, label %._crit_edge35, !llvm.loop !11
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %.preheader20
   %40 = getelementptr inbounds nuw i8, ptr %.237, i64 2
   %41 = add i64 %.21936, -2
   %42 = icmp ugt i64 %41, 2
-  br i1 %42, label %.preheader20, label %._crit_edge38, !llvm.loop !13
+  br i1 %42, label %.preheader20, label %._crit_edge38, !llvm.loop !12
 
 ._crit_edge38:                                    ; preds = %._crit_edge35, %.preheader21
   %.219.lcssa = phi i64 [ %.118.lcssa, %.preheader21 ], [ %41, %._crit_edge35 ]
@@ -125,7 +125,7 @@ define internal noundef i64 @x86_rngread(ptr readnone captures(none) %0, ptr nou
   %47 = tail call { i16, i32 } @llvm.x86.rdrand.16()
   %48 = extractvalue { i16, i32 } %47, 1
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.lr.ph41, label %._crit_edge42, !llvm.loop !14
+  br i1 %49, label %.lr.ph41, label %._crit_edge42, !llvm.loop !13
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %.preheader
   %.lcssa = phi { i16, i32 } [ %43, %.preheader ], [ %47, %.lr.ph41 ]
@@ -161,12 +161,11 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

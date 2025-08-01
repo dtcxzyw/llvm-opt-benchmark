@@ -158,7 +158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
 
 33:                                               ; preds = %.loopexit, %.loopexit.split-lp, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %34 = load ptr, ptr %0, align 8, !tbaa !18
+  %34 = load ptr, ptr %0, align 8, !tbaa !17
   %35 = icmp eq ptr %34, %2
   br i1 %35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -222,7 +222,6 @@ attributes #9 = { builtin nounwind }
 !12 = !{!"long", !7, i64 0}
 !13 = !{!14, !12, i64 0}
 !14 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!11, !5, i64 0}
+!17 = !{!11, !5, i64 0}

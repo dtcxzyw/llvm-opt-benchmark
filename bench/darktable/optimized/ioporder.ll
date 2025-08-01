@@ -421,7 +421,7 @@ define internal fastcc void @_update(ptr noundef %0) unnamed_addr #1 {
   %49 = load ptr, ptr %2, align 8, !tbaa !97
   %50 = call i32 @sqlite3_step(ptr noundef %49) #10
   %.not39 = icmp eq i32 %50, 100
-  br i1 %.not39, label %.lr.ph, label %.critedge, !llvm.loop !99
+  br i1 %.not39, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %48, %32
   %51 = load ptr, ptr %2, align 8, !tbaa !97
@@ -459,7 +459,7 @@ define ptr @get_params(ptr noundef readnone captures(none) %0, ptr noundef write
   %7 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %6, ptr noundef nonnull %3) #10
   %8 = load i64, ptr %3, align 8, !tbaa !89
   %9 = trunc i64 %8 to i32
-  store i32 %9, ptr %1, align 4, !tbaa !101
+  store i32 %9, ptr %1, align 4, !tbaa !99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   ret ptr %7
 }
@@ -619,6 +619,4 @@ attributes #13 = { nounwind willreturn memory(read) }
 !96 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
 !97 = !{!98, !98, i64 0}
 !98 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
-!99 = distinct !{!99, !100}
-!100 = !{!"llvm.loop.estimated_trip_count"}
-!101 = !{!9, !9, i64 0}
+!99 = !{!9, !9, i64 0}

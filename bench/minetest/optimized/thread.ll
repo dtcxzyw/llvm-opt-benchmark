@@ -481,7 +481,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 
 invoke.cont5:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %m_retval = getelementptr inbounds nuw i8, ptr %thr, i64 40
-  store ptr %call2, ptr %m_retval, align 8, !tbaa !39
+  store ptr %call2, ptr %m_retval, align 8, !tbaa !38
   store atomic i8 0, ptr %m_running seq_cst, align 1
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_start_finished_mutex) #23
   tail call void @_ZN6Logger16deregisterThreadEv(ptr noundef nonnull align 8 dereferenceable(272) @g_logger)
@@ -525,7 +525,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %m_retval = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %2 = load ptr, ptr %m_retval, align 8, !tbaa !39
+  %2 = load ptr, ptr %m_retval, align 8, !tbaa !38
   store ptr %2, ptr %ret, align 8, !tbaa !35
   br label %return
 
@@ -620,18 +620,18 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %policy, align 4, !tbaa !40
+  %2 = load i32, ptr %policy, align 4, !tbaa !39
   %call3 = call i32 @sched_get_priority_min(i32 noundef %2) #23
-  %3 = load i32, ptr %policy, align 4, !tbaa !40
+  %3 = load i32, ptr %policy, align 4, !tbaa !39
   %call4 = call i32 @sched_get_priority_max(i32 noundef %3) #23
   %sub = sub nsw i32 %call4, %call3
   %mul = mul nsw i32 %sub, %prio
   %div = sdiv i32 %mul, 4
   %add = add nsw i32 %div, %call3
-  store i32 %add, ptr %sparam, align 4, !tbaa !42
+  store i32 %add, ptr %sparam, align 4, !tbaa !41
   %4 = load ptr, ptr %m_thread_obj.i, align 8, !tbaa !17
   %5 = load i64, ptr %4, align 8, !tbaa !24
-  %6 = load i32, ptr %policy, align 4, !tbaa !40
+  %6 = load i32, ptr %policy, align 4, !tbaa !39
   %call6 = call i32 @pthread_setschedparam(i64 noundef %5, i32 noundef %6, ptr noundef nonnull %sparam) #23
   %cmp7 = icmp eq i32 %call6, 0
   br label %cleanup
@@ -785,11 +785,10 @@ attributes #27 = { builtin allocsize(0) }
 !33 = !{!34, !9, i64 0}
 !34 = !{!"_ZTSSt10_Head_baseILm0EPFvP6ThreadELb0EE", !9, i64 0}
 !35 = !{!9, !9, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!18, !9, i64 40}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"int", !10, i64 0}
-!42 = !{!43, !41, i64 0}
-!43 = !{!"_ZTS11sched_param", !41, i64 0}
+!38 = !{!18, !9, i64 40}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"int", !10, i64 0}
+!41 = !{!42, !40, i64 0}
+!42 = !{!"_ZTS11sched_param", !40, i64 0}

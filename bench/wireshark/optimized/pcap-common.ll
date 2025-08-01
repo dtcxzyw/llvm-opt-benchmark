@@ -83,7 +83,7 @@ define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_a
 4:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 162
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
@@ -572,7 +572,7 @@ pcap_read_sita_pseudoheader.exit:                 ; preds = %173
 
 pcap_read_bt_pseudoheader.exit:                   ; preds = %195
   %197 = load i32, ptr %15, align 4
-  %198 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %197) #10, !srcloc !10
+  %198 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %197) #10, !srcloc !9
   %199 = trunc i32 %198 to i8
   %200 = and i8 %199, 1
   %201 = xor i8 %200, 1
@@ -845,7 +845,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %229
 341:                                              ; preds = %310, %307
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not98.i = icmp sgt i8 %308, -1
-  br i1 %.not98.i, label %342, label %296, !llvm.loop !11
+  br i1 %.not98.i, label %342, label %296, !llvm.loop !10
 
 342:                                              ; preds = %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
@@ -1420,7 +1420,7 @@ define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1
   %180 = icmp samesign ult i64 %indvars.iv.next.i.i, %141
   %181 = icmp ugt i32 %179, 15
   %182 = select i1 %180, i1 %181, i1 false
-  br i1 %182, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %182, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
 183:                                              ; preds = %._crit_edge.i.i
   %simplifycfg.merge.i.i = tail call i32 @llvm.umax.i32(i32 %130, i32 %169)
@@ -1491,7 +1491,7 @@ define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1
   %217 = getelementptr i8, ptr %.03341.i, i64 %215
   %218 = icmp ugt i32 %216, 3
   %or.cond50.i = select i1 %or.cond.not53.i, i1 %218, i1 false
-  br i1 %or.cond50.i, label %.lr.ph.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, !llvm.loop !13
+  br i1 %or.cond50.i, label %.lr.ph.i, label %pcap_byteswap_linux_sll_pseudoheader.exit, !llvm.loop !12
 
 219:                                              ; preds = %5
   %220 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -1936,7 +1936,7 @@ define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(ptr noundef re
   %208 = getelementptr i8, ptr %.1262, i64 16
   %209 = add nuw nsw i32 %.0253261, 1
   %exitcond.not = icmp eq i32 %209, %162
-  br i1 %exitcond.not, label %.loopexit, label %164, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %164, !llvm.loop !13
 
 .loopexit:                                        ; preds = %164, %167, %178, %189, %200, %160, %159, %140, %130, %120, %118, %98, %96, %74, %64, %54, %36, %30, %13, %2
   ret void
@@ -2014,7 +2014,7 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captu
   %15 = icmp slt i64 %13, 0
   %16 = icmp samesign ult i64 %indvars.iv, 15
   %17 = and i1 %16, %15
-  br i1 %17, label %11, label %.loopexit, !llvm.loop !15
+  br i1 %17, label %11, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %11, %7
   %.1 = phi i32 [ 16, %7 ], [ %14, %11 ]
@@ -2221,11 +2221,11 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   br i1 %90, label %299, label %300
 
 pcap_write_bt_pseudoheader.exit:                  ; preds = %4
-  %.val = load i8, ptr %2, align 8, !range !16, !noundef !17
+  %.val = load i8, ptr %2, align 8, !range !15, !noundef !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
   %91 = xor i8 %.val, 1
   %not..i = zext nneg i8 %91 to i32
-  %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not..i) #10, !srcloc !18
+  %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not..i) #10, !srcloc !17
   store i32 %92, ptr %12, align 4
   %93 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
@@ -2258,7 +2258,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   br i1 %101, label %299, label %300
 
 102:                                              ; preds = %4
-  %.val38 = load i8, ptr %2, align 8, !range !16, !noundef !17
+  %.val38 = load i8, ptr %2, align 8, !range !15, !noundef !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #9
   store i8 %.val38, ptr %9, align 1
   %103 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %3)
@@ -2301,7 +2301,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   %123 = icmp slt i64 %121, 0
   %124 = icmp samesign ult i64 %indvars.iv.i.i, 15
   %125 = and i1 %124, %123
-  br i1 %125, label %119, label %.loopexit.i.i, !llvm.loop !15
+  br i1 %125, label %119, label %.loopexit.i.i, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %119, %104
   %.1.i.i = phi i32 [ 16, %104 ], [ %122, %119 ]
@@ -2356,7 +2356,7 @@ pcap_get_phdr_size.exit.i:                        ; preds = %131, %129, %127, %.
   %141 = icmp slt i64 %139, 0
   %142 = icmp samesign ult i64 %indvars.iv.i75.i, 15
   %143 = and i1 %142, %141
-  br i1 %143, label %137, label %.loopexit.i78.i, !llvm.loop !15
+  br i1 %143, label %137, label %.loopexit.i78.i, !llvm.loop !14
 
 .loopexit.i78.i:                                  ; preds = %137, %135
   %.1.i79.i = phi i32 [ 16, %135 ], [ %140, %137 ]
@@ -2414,7 +2414,7 @@ pcap_get_phdr_size.exit81.i:                      ; preds = %148, %146, %144, %.
   %161 = icmp slt i64 %159, 0
   %162 = icmp samesign ult i64 %indvars.iv.i84.i, 15
   %163 = and i1 %162, %161
-  br i1 %163, label %157, label %.loopexit.i87.i, !llvm.loop !15
+  br i1 %163, label %157, label %.loopexit.i87.i, !llvm.loop !14
 
 .loopexit.i87.i:                                  ; preds = %157, %151
   %.1.i88.i = phi i32 [ 16, %151 ], [ %160, %157 ]
@@ -2468,7 +2468,7 @@ pcap_get_phdr_size.exit90.i:                      ; preds = %168, %166, %164, %.
   %178 = icmp slt i64 %176, 0
   %179 = icmp samesign ult i64 %indvars.iv.i93.i, 15
   %180 = and i1 %179, %178
-  br i1 %180, label %174, label %.loopexit.i96.i, !llvm.loop !15
+  br i1 %180, label %174, label %.loopexit.i96.i, !llvm.loop !14
 
 .loopexit.i96.i:                                  ; preds = %174, %172
   %.1.i97.i = phi i32 [ 16, %172 ], [ %177, %174 ]
@@ -2589,7 +2589,7 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
   %240 = icmp slt i64 %218, 0
   %241 = icmp samesign ult i64 %indvars.iv.i, 15
   %242 = and i1 %241, %240
-  br i1 %242, label %216, label %243, !llvm.loop !19
+  br i1 %242, label %216, label %243, !llvm.loop !18
 
 243:                                              ; preds = %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
@@ -2763,17 +2763,16 @@ attributes #10 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2150048106}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = !{i64 2150048771}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2150048106}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{i64 2150048771}
+!18 = distinct !{!18, !7}

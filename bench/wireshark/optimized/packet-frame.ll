@@ -1078,7 +1078,7 @@ switch.lookup:                                    ; preds = %31
   ]
 
 47:                                               ; preds = %43, %43, %43, %43, %43
-  %48 = load i8, ptr %42, align 8, !range !9, !noundef !10
+  %48 = load i8, ptr %42, align 8, !range !8, !noundef !9
   %49 = xor i8 %48, 1
   %not.594 = zext nneg i8 %49 to i32
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 348
@@ -1086,7 +1086,7 @@ switch.lookup:                                    ; preds = %31
   br label %78
 
 51:                                               ; preds = %43
-  %52 = load i8, ptr %42, align 8, !range !9, !noundef !10
+  %52 = load i8, ptr %42, align 8, !range !8, !noundef !9
   %53 = xor i8 %52, 1
   %not.593 = zext nneg i8 %53 to i32
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 348
@@ -1102,7 +1102,7 @@ switch.lookup:                                    ; preds = %31
   br label %78
 
 59:                                               ; preds = %43, %43, %43, %43
-  %60 = load i8, ptr %42, align 8, !range !9, !noundef !10
+  %60 = load i8, ptr %42, align 8, !range !8, !noundef !9
   %61 = xor i8 %60, 1
   %not.591 = zext nneg i8 %61 to i32
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 348
@@ -1131,7 +1131,7 @@ switch.lookup:                                    ; preds = %31
   br label %78
 
 74:                                               ; preds = %43
-  %75 = load i8, ptr %42, align 8, !range !9, !noundef !10
+  %75 = load i8, ptr %42, align 8, !range !8, !noundef !9
   %76 = xor i8 %75, 1
   %not. = zext nneg i8 %76 to i32
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 348
@@ -1335,7 +1335,7 @@ switch.lookup:                                    ; preds = %31
   %174 = load i32, ptr %173, align 4
   %175 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.0..0..0..0.226, i32 noundef %171, ptr noundef %0, i32 noundef 0, i32 noundef %172, ptr noundef nonnull @.str.570, i32 noundef %174, i32 noundef %146, ptr noundef nonnull %167)
   store volatile ptr %175, ptr %5, align 8
-  %176 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %176 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %180
 
@@ -1348,7 +1348,7 @@ switch.lookup:                                    ; preds = %31
 180:                                              ; preds = %178, %170
   %.0..0..0..0.281 = load volatile ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.281, ptr noundef nonnull @.str.572, i32 noundef %145, ptr noundef nonnull %165)
-  %181 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %181 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %185
 
@@ -1430,7 +1430,7 @@ switch.lookup:                                    ; preds = %31
   %220 = load i32, ptr %219, align 4
   %221 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.0..0..0..0.227, i32 noundef %217, ptr noundef %0, i32 noundef 0, i32 noundef %218, ptr noundef nonnull @.str.577, i32 noundef %220, i32 noundef %146, ptr noundef nonnull %167)
   store volatile ptr %221, ptr %5, align 8
-  %222 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %222 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %223 = trunc nuw i8 %222 to i1
   br i1 %223, label %224, label %226
 
@@ -1443,7 +1443,7 @@ switch.lookup:                                    ; preds = %31
 226:                                              ; preds = %224, %216
   %.0..0..0..0.288 = load volatile ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.288, ptr noundef nonnull @.str.572, i32 noundef %145, ptr noundef nonnull %165)
-  %227 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %227 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %289
 
@@ -1461,7 +1461,7 @@ switch.lookup:                                    ; preds = %31
   %235 = load i32, ptr %234, align 4
   %236 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.0..0..0..0.228, i32 noundef %232, ptr noundef %0, i32 noundef 0, i32 noundef %233, ptr noundef nonnull @.str.578, i32 noundef %235, i32 noundef %146, ptr noundef nonnull %167)
   store volatile ptr %236, ptr %5, align 8
-  %237 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %237 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %241
 
@@ -1474,7 +1474,7 @@ switch.lookup:                                    ; preds = %31
 241:                                              ; preds = %239, %231
   %.0..0..0..0.291 = load volatile ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.291, ptr noundef nonnull @.str.572, i32 noundef %145, ptr noundef nonnull %165)
-  %242 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %242 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %289
 
@@ -1526,7 +1526,7 @@ switch.lookup:                                    ; preds = %31
   %270 = load i32, ptr %261, align 4
   %271 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.0..0..0..0.231, i32 noundef %268, ptr noundef %0, i32 noundef 0, i32 noundef %269, ptr noundef nonnull @.str.582, i32 noundef %270, i32 noundef %146, ptr noundef nonnull %167)
   store volatile ptr %271, ptr %5, align 8
-  %272 = load i8, ptr @generate_bits_field, align 1, !range !9, !noundef !10
+  %272 = load i8, ptr @generate_bits_field, align 1, !range !8, !noundef !9
   %273 = trunc nuw i8 %272 to i1
   br i1 %273, label %274, label %276
 
@@ -1549,7 +1549,7 @@ switch.lookup:                                    ; preds = %31
   %.0..0..0..0.295 = load volatile ptr, ptr %5, align 8
   %284 = load ptr, ptr %28, align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 72
-  %286 = load i8, ptr %285, align 8, !range !9, !noundef !10
+  %286 = load i8, ptr %285, align 8, !range !8, !noundef !9
   %287 = trunc nuw i8 %286 to i1
   %288 = select i1 %287, ptr @.str.568, ptr @.str.585
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.295, ptr noundef nonnull @.str.584, ptr noundef nonnull %288)
@@ -1962,7 +1962,7 @@ proto_item_set_generated.exit651:                 ; preds = %490, %498, %501
 
 proto_item_set_generated.exit654:                 ; preds = %515, %512, %509, %proto_item_set_generated.exit651
   %519 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %520 = load i8, ptr %519, align 8, !range !9, !noundef !10
+  %520 = load i8, ptr %519, align 8, !range !8, !noundef !9
   %521 = trunc nuw i8 %520 to i1
   br i1 %521, label %522, label %proto_item_set_generated.exit657
 
@@ -2022,7 +2022,7 @@ proto_item_set_generated.exit657:                 ; preds = %529, %526, %522, %p
   br label %554
 
 554:                                              ; preds = %550, %543
-  %555 = load i8, ptr @generate_md5_hash, align 1, !range !9, !noundef !10
+  %555 = load i8, ptr @generate_md5_hash, align 1, !range !8, !noundef !9
   %556 = trunc nuw i8 %555 to i1
   br i1 %556, label %557, label %572
 
@@ -2368,7 +2368,7 @@ proto_item_set_generated.exit666:                 ; preds = %proto_item_set_gene
   br label %822
 
 822:                                              ; preds = %627, %687, %proto_item_set_generated.exit666
-  %823 = load i8, ptr @show_file_off, align 1, !range !9, !noundef !10
+  %823 = load i8, ptr @show_file_off, align 1, !range !8, !noundef !9
   %824 = trunc nuw i8 %823 to i1
   br i1 %824, label %825, label %831
 
@@ -2457,7 +2457,7 @@ proto_item_set_generated.exit666:                 ; preds = %proto_item_set_gene
   ]
 
 860:                                              ; preds = %857
-  %861 = load i8, ptr @force_docsis_encap, align 1, !range !9, !noundef !10
+  %861 = load i8, ptr @force_docsis_encap, align 1, !range !8, !noundef !9
   %862 = trunc nuw i8 %861 to i1
   %863 = load ptr, ptr @docsis_handle, align 8
   %864 = icmp ne ptr %863, null
@@ -2566,7 +2566,7 @@ proto_item_set_generated.exit666:                 ; preds = %proto_item_set_gene
   %924 = load i32, ptr @hf_frame_cb_copy_allowed, align 4
   %925 = load ptr, ptr %28, align 8
   %926 = getelementptr inbounds nuw i8, ptr %925, i64 72
-  %927 = load i8, ptr %926, align 8, !range !9, !noundef !10
+  %927 = load i8, ptr %926, align 8, !range !8, !noundef !9
   %928 = zext nneg i8 %927 to i64
   %929 = call ptr @proto_tree_add_boolean(ptr noundef %.0..0..0..0.216, i32 noundef %924, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %928)
   %930 = load ptr, ptr %913, align 8
@@ -2578,7 +2578,7 @@ proto_item_set_generated.exit666:                 ; preds = %proto_item_set_gene
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 68
   %937 = load i32, ptr %936, align 4
   %938 = getelementptr inbounds nuw i8, ptr %935, i64 72
-  %939 = load i8, ptr %938, align 8, !range !9, !noundef !10
+  %939 = load i8, ptr %938, align 8, !range !8, !noundef !9
   %940 = trunc nuw i8 %939 to i1
   %941 = select i1 %940, ptr @.str.568, ptr @.str.585
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %930, i32 noundef 25, ptr noundef nonnull @.str.596, ptr noundef %934, i32 noundef %937, ptr noundef nonnull %941)
@@ -2735,7 +2735,7 @@ ensure_tree_item.exit:                            ; preds = %974, %976, %982
   call void @wmem_strbuf_append(ptr noundef %1001, ptr noundef %1015)
   %1016 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1692)
   %.not627 = icmp eq ptr %1016, null
-  br i1 %.not627, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not627, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %998, %1006
   %.0..0..0..0.217 = load volatile ptr, ptr %12, align 8
@@ -3065,7 +3065,7 @@ proto_item_set_generated.exit684:                 ; preds = %1155, %1152, %ensur
   br label %1163
 
 1163:                                             ; preds = %1162, %proto_item_set_generated.exit684
-  %1164 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 388), align 4, !range !9, !noundef !10
+  %1164 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 388), align 4, !range !8, !noundef !9
   %1165 = trunc nuw i8 %1164 to i1
   br i1 %1165, label %1166, label %.loopexit
 
@@ -3079,7 +3079,7 @@ proto_item_set_generated.exit684:                 ; preds = %1155, %1152, %ensur
   %1168 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.242, i64 48
   %1169 = load ptr, ptr %1168, align 8
   %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 8
-  %1171 = load i8, ptr %1170, align 8, !range !9, !noundef !10
+  %1171 = load i8, ptr %1170, align 8, !range !8, !noundef !9
   %1172 = trunc nuw i8 %1171 to i1
   br i1 %1172, label %1173, label %.loopexit
 
@@ -3122,7 +3122,7 @@ proto_item_set_generated.exit684:                 ; preds = %1155, %1152, %ensur
   br i1 %.not639, label %1214, label %1193
 
 1193:                                             ; preds = %1188
-  %1194 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 389), align 1, !range !9, !noundef !10
+  %1194 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 389), align 1, !range !8, !noundef !9
   %1195 = trunc nuw i8 %1194 to i1
   br i1 %1195, label %1196, label %1202
 
@@ -3163,7 +3163,7 @@ ensure_tree_item.exit686:                         ; preds = %1202, %1203, %1209
 1214:                                             ; preds = %1186, %1188, %ensure_tree_item.exit686, %1177
   %1215 = add nuw i32 %.0567693, 1
   %exitcond.not = icmp eq i32 %1215, %1174
-  br i1 %exitcond.not, label %.loopexit, label %1177, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %1177, !llvm.loop !11
 
 .loopexit:                                        ; preds = %1214, %1163, %1166, %1167, %1173, %837
   %1216 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3351,7 +3351,7 @@ define internal noundef zeroext i1 @frame_add_comment(ptr readnone captures(none
   %40 = add nuw i32 %.057, 1
   %41 = load i32, ptr @max_comment_lines, align 4
   %42 = icmp ult i32 %40, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %39, %.._crit_edge.loopexit_crit_edge
   %.pre = phi i32 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %41, %39 ]
@@ -3782,11 +3782,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

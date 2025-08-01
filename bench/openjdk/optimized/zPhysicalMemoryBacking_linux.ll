@@ -844,7 +844,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking27fallocate_compat_mmap_tmpfsE7zo
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %.010.i, i64 %13
   %.not.i = icmp ult ptr %18, %14
-  br i1 %.not.i, label %.lr.ph.i, label %_ZL18safe_touch_mappingPvmm.exit, !llvm.loop !9
+  br i1 %.not.i, label %.lr.ph.i, label %_ZL18safe_touch_mappingPvmm.exit, !llvm.loop !8
 
 _ZL18safe_touch_mappingPvmm.exit:                 ; preds = %.lr.ph.i, %17, %11
   %.lcssa.i = phi i32 [ 0, %11 ], [ 0, %17 ], [ 12, %.lr.ph.i ]
@@ -897,7 +897,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffse
   %17 = load i64, ptr %8, align 8
   %18 = add i64 %17, %.05
   %19 = icmp ult i64 %18, %6
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !10
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %16, %3, %13
   %.sink = phi i32 [ %15, %13 ], [ 0, %3 ], [ 0, %16 ]
@@ -975,7 +975,7 @@ _ZNK22ZPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsE7zoffsetmb.exit: ;
   %32 = load i64, ptr %23, align 8
   %33 = add i64 %32, %.05.i
   %34 = icmp ult i64 %33, %21
-  br i1 %34, label %24, label %_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffsetm.exit, !llvm.loop !10
+  br i1 %34, label %24, label %_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffsetm.exit, !llvm.loop !9
 
 _ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffsetm.exit: ; preds = %31, %20, %28
   %.sink.i6 = phi i32 [ %30, %28 ], [ 0, %20 ], [ 0, %31 ]
@@ -1337,7 +1337,7 @@ _ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm.exit: ; preds = %21, %23
   %36 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.52, ptr noundef %36)
   %37 = call i32 @sleep(i32 noundef 1) #12
-  br label %16, !llvm.loop !11
+  br label %16
 
 38:                                               ; preds = %31, %27, %25
   store i32 5, ptr %7, align 8
@@ -1399,7 +1399,7 @@ _ZN2os5Linux18numa_set_preferredEi.exit:          ; preds = %.lr.ph, %6
 18:                                               ; preds = %_ZN2os5Linux18numa_set_preferredEi.exit
   %19 = add i64 %.010, 2097152
   %20 = icmp ult i64 %19, %2
-  br i1 %20, label %.lr.ph, label %_ZN2os5Linux18numa_set_preferredEi.exit._crit_edge, !llvm.loop !12
+  br i1 %20, label %.lr.ph, label %_ZN2os5Linux18numa_set_preferredEi.exit._crit_edge, !llvm.loop !10
 
 _ZN2os5Linux18numa_set_preferredEi.exit._crit_edge: ; preds = %18, %_ZN2os5Linux18numa_set_preferredEi.exit, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %.010, %_ZN2os5Linux18numa_set_preferredEi.exit ], [ %19, %18 ]
@@ -1446,7 +1446,7 @@ define hidden noundef i64 @_ZNK22ZPhysicalMemoryBacking14commit_defaultE7zoffset
   %.1 = sub i64 %.01822, %14
   %15 = sub i64 %.1, %.120
   %16 = icmp ult i64 %15, 4194304
-  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 17:                                               ; preds = %3, %._crit_edge
   %.0 = phi i64 [ %8, %._crit_edge ], [ %2, %3 ]
@@ -1495,7 +1495,7 @@ _ZN2os5Linux18numa_set_preferredEi.exit.i:        ; preds = %11, %.lr.ph.i
 23:                                               ; preds = %_ZN2os5Linux18numa_set_preferredEi.exit.i
   %24 = add i64 %.010.i, 2097152
   %25 = icmp ult i64 %24, %2
-  br i1 %25, label %.lr.ph.i, label %_ZN2os5Linux18numa_set_preferredEi.exit._crit_edge.i, !llvm.loop !12
+  br i1 %25, label %.lr.ph.i, label %_ZN2os5Linux18numa_set_preferredEi.exit._crit_edge.i, !llvm.loop !10
 
 _ZN2os5Linux18numa_set_preferredEi.exit._crit_edge.i: ; preds = %23, %_ZN2os5Linux18numa_set_preferredEi.exit.i, %8
   %.0.lcssa.i = phi i64 [ 0, %8 ], [ %24, %23 ], [ %.010.i, %_ZN2os5Linux18numa_set_preferredEi.exit.i ]
@@ -1537,7 +1537,7 @@ _ZN2os5Linux18numa_set_preferredEi.exit._crit_edge.i: ; preds = %23, %_ZN2os5Lin
   %.1.i = sub i64 %.01822.i, %39
   %40 = sub i64 %.1.i, %.120.i
   %41 = icmp ult i64 %40, 4194304
-  br i1 %41, label %._crit_edge.i, label %.lr.ph.i5, !llvm.loop !13
+  br i1 %41, label %._crit_edge.i, label %.lr.ph.i5, !llvm.loop !11
 
 _ZNK22ZPhysicalMemoryBacking23commit_numa_interleavedE7zoffsetm.exit: ; preds = %._crit_edge.i, %28, %27, %_ZN2os5Linux18numa_set_preferredEi.exit._crit_edge.i
   %.0 = phi i64 [ %.0.lcssa.i, %_ZN2os5Linux18numa_set_preferredEi.exit._crit_edge.i ], [ %.0.lcssa.i, %27 ], [ %33, %._crit_edge.i ], [ %2, %28 ]
@@ -1767,11 +1767,9 @@ attributes #14 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

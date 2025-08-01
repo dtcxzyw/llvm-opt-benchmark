@@ -142,7 +142,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   %38 = add i64 %.13641, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %39, label %27, !llvm.loop !7
+  br i1 %exitcond.not, label %39, label %27, !llvm.loop !6
 
 39:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false)
@@ -293,7 +293,7 @@ run_ifaddr_callback.exit:                         ; preds = %8, %pg_sockaddr_cid
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
   %.0 = load ptr, ptr %.09, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %8, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.loopexit, label %8, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %run_ifaddr_callback.exit
   %.pre = load ptr, ptr %5, align 8
@@ -333,8 +333,7 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

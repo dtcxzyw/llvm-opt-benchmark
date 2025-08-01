@@ -255,7 +255,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
 ._crit_edge:                                      ; preds = %.lr.ph, %101
   %.lcssa = phi i64 [ 0, %101 ], [ %116, %.lr.ph ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 698
-  %119 = load i8, ptr %118, align 2, !tbaa !52
+  %119 = load i8, ptr %118, align 2, !tbaa !51
   %.not95 = icmp eq i8 %119, 0
   br i1 %.not95, label %._crit_edge93, label %.lr.ph92.preheader
 
@@ -272,16 +272,16 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   store i8 %121, ptr %.090, align 1, !tbaa !41
   %123 = add nuw nsw i64 %.06689, 1
   %124 = lshr i64 %.06788, 8
-  %125 = load i8, ptr %118, align 2, !tbaa !52
+  %125 = load i8, ptr %118, align 2, !tbaa !51
   %126 = zext i8 %125 to i64
   %127 = icmp samesign ult i64 %123, %126
-  br i1 %127, label %.lr.ph92, label %._crit_edge93, !llvm.loop !53
+  br i1 %127, label %.lr.ph92, label %._crit_edge93, !llvm.loop !52
 
 ._crit_edge93:                                    ; preds = %.lr.ph92, %._crit_edge
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %129 = load i64, ptr %128, align 8, !tbaa !54
+  %129 = load i64, ptr %128, align 8, !tbaa !53
   %130 = add i64 %129, 1
-  store i64 %130, ptr %128, align 8, !tbaa !54
+  store i64 %130, ptr %128, align 8, !tbaa !53
   %131 = sub nsw i64 0, %1
   %132 = call i32 @H5HF__hdr_adj_free(ptr noundef nonnull %0, i64 noundef %131) #5
   %133 = icmp slt i32 %132, 0
@@ -318,7 +318,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   %.2104 = phi i32 [ -1, %.thread ], [ 0, %._crit_edge93 ]
   %.07183103 = phi ptr [ %.071, %.thread ], [ %84, %._crit_edge93 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %148 = load ptr, ptr %147, align 8, !tbaa !55
+  %148 = load ptr, ptr %147, align 8, !tbaa !54
   %149 = load i64, ptr %6, align 8, !tbaa !8
   %150 = call i32 @H5AC_unprotect(ptr noundef %148, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %149, ptr noundef nonnull %.07183103, i32 noundef 2) #5
   %151 = icmp slt i32 %150, 0
@@ -386,7 +386,7 @@ define noundef i32 @H5HF__man_get_obj_len(ptr noundef readonly captures(none) %0
   %12 = load i8, ptr %11, align 1, !tbaa !48
   store i64 0, ptr %2, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 698
-  %14 = load i8, ptr %13, align 2, !tbaa !52
+  %14 = load i8, ptr %13, align 2, !tbaa !51
   %15 = zext i8 %14 to i64
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -410,7 +410,7 @@ define noundef i32 @H5HF__man_get_obj_len(ptr noundef readonly captures(none) %0
   store i64 %26, ptr %2, align 8, !tbaa !8
   %27 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %27, %15
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !55
 
 .loopexit:                                        ; preds = %20, %10, %3
   ret i32 0
@@ -451,7 +451,7 @@ define void @H5HF__man_get_obj_off(ptr noundef readonly captures(none) %0, ptr n
   store i64 %22, ptr %2, align 8, !tbaa !8
   %23 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %23, %13
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !57
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !56
 
 .loopexit:                                        ; preds = %16, %10, %3
   ret void
@@ -550,13 +550,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %42 = or disjoint i64 %38, %41
   %43 = add nuw nsw i64 %.088146, 1
   %exitcond.not = icmp eq i64 %43, %36
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %.094.lcssa = phi i64 [ 0, %32 ], [ %42, %.lr.ph ]
   %.091.lcssa = phi ptr [ %37, %32 ], [ %33, %.lr.ph ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 698
-  %45 = load i8, ptr %44, align 2, !tbaa !52
+  %45 = load i8, ptr %44, align 2, !tbaa !51
   %46 = zext i8 %45 to i64
   %.not156 = icmp eq i8 %45, 0
   br i1 %.not156, label %._crit_edge153, label %.lr.ph152.preheader
@@ -577,7 +577,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %53 = or disjoint i64 %49, %52
   %54 = add nuw nsw i64 %.087150, 1
   %exitcond159.not = icmp eq i64 %54, %46
-  br i1 %exitcond159.not, label %._crit_edge153, label %.lr.ph152, !llvm.loop !59
+  br i1 %exitcond159.not, label %._crit_edge153, label %.lr.ph152, !llvm.loop !58
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %._crit_edge
   %.093.lcssa = phi i64 [ 0, %._crit_edge ], [ %53, %.lr.ph152 ]
@@ -592,7 +592,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 
 60:                                               ; preds = %._crit_edge153
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %62 = load i64, ptr %61, align 8, !tbaa !60
+  %62 = load i64, ptr %61, align 8, !tbaa !59
   %63 = icmp ugt i64 %.094.lcssa, %62
   br i1 %63, label %64, label %68
 
@@ -615,7 +615,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %77 = load i64, ptr %76, align 8, !tbaa !61
+  %77 = load i64, ptr %76, align 8, !tbaa !60
   %78 = icmp ugt i64 %.093.lcssa, %77
   br i1 %78, label %79, label %83
 
@@ -627,7 +627,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %85 = load i32, ptr %84, align 8, !tbaa !62
+  %85 = load i32, ptr %84, align 8, !tbaa !61
   %86 = zext i32 %85 to i64
   %87 = icmp ugt i64 %.093.lcssa, %86
   br i1 %87, label %88, label %92
@@ -640,15 +640,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 
 92:                                               ; preds = %83
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %94 = load i32, ptr %93, align 8, !tbaa !63
+  %94 = load i32, ptr %93, align 8, !tbaa !62
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %107
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %98 = load i64, ptr %97, align 8, !tbaa !64
+  %98 = load i64, ptr %97, align 8, !tbaa !63
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %100 = load i64, ptr %99, align 8, !tbaa !65
+  %100 = load i64, ptr %99, align 8, !tbaa !64
   %101 = tail call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %0, i64 noundef %98, i64 noundef %100, ptr noundef null, i32 noundef 0, i32 noundef %.0102) #5
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %159
@@ -674,16 +674,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %.thread140
 
 114:                                              ; preds = %107
-  %115 = load ptr, ptr %6, align 8, !tbaa !66
+  %115 = load ptr, ptr %6, align 8, !tbaa !65
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 344
-  %117 = load ptr, ptr %116, align 8, !tbaa !67
-  %118 = load i32, ptr %8, align 4, !tbaa !72
+  %117 = load ptr, ptr %116, align 8, !tbaa !66
+  %118 = load i32, ptr %8, align 4, !tbaa !71
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %117, i64 %119
-  %121 = load i64, ptr %120, align 8, !tbaa !73
+  %121 = load i64, ptr %120, align 8, !tbaa !72
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %123 = load ptr, ptr %122, align 8, !tbaa !75
-  %124 = load i32, ptr %75, align 8, !tbaa !76
+  %123 = load ptr, ptr %122, align 8, !tbaa !74
+  %124 = load i32, ptr %75, align 8, !tbaa !75
   %125 = udiv i32 %118, %124
   %126 = zext i32 %125 to i64
   %127 = getelementptr inbounds nuw i64, ptr %123, i64 %126
@@ -712,7 +712,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 141:                                              ; preds = %114
   %142 = call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %0, i64 noundef %121, i64 noundef %128, ptr noundef nonnull %115, i32 noundef %118, i32 noundef %.0102) #5
   %143 = icmp eq ptr %142, null
-  %144 = load ptr, ptr %6, align 8, !tbaa !66
+  %144 = load ptr, ptr %6, align 8, !tbaa !65
   %145 = load i8, ptr %7, align 1, !tbaa !10, !range !12, !noundef !13
   %146 = trunc nuw i8 %145 to i1
   %147 = call i32 @H5HF__man_iblock_unprotect(ptr noundef %144, i32 noundef 0, i1 noundef zeroext %146) #5
@@ -750,12 +750,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %161 = load i64, ptr %160, align 8, !tbaa !43
   %162 = sub i64 %.094.lcssa, %161
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %164 = load i8, ptr %163, align 1, !tbaa !77, !range !12, !noundef !13
+  %164 = load i8, ptr %163, align 1, !tbaa !76, !range !12, !noundef !13
   %165 = shl nuw nsw i8 %164, 2
   %narrow = add nuw nsw i8 %165, 5
   %166 = zext nneg i8 %narrow to i64
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 618
-  %168 = load i8, ptr %167, align 2, !tbaa !78
+  %168 = load i8, ptr %167, align 2, !tbaa !77
   %169 = zext i8 %168 to i64
   %170 = add nuw nsw i64 %166, %169
   %171 = load i8, ptr %34, align 1, !tbaa !48
@@ -815,7 +815,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %.099136 = phi i64 [ %121, %196 ], [ %.1100, %186 ], [ %.1100, %192 ], [ %.1100, %182 ], [ %.1100, %175 ]
   %.0103135 = phi ptr [ %142, %196 ], [ %.1104, %186 ], [ %.1104, %192 ], [ %.1104, %182 ], [ %.1104, %175 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %201 = load ptr, ptr %200, align 8, !tbaa !55
+  %201 = load ptr, ptr %200, align 8, !tbaa !54
   %202 = call i32 @H5AC_unprotect(ptr noundef %201, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %.099136, ptr noundef nonnull %.0103135, i32 noundef %.196) #5
   %203 = icmp slt i32 %202, 0
   br i1 %203, label %204, label %.thread122
@@ -893,7 +893,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !tbaa !66
+  store ptr null, ptr %3, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
   store i8 0, ptr %4, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
@@ -953,13 +953,13 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %38 = or disjoint i64 %34, %37
   %39 = add nuw nsw i64 %.080102, 1
   %exitcond.not = icmp eq i64 %39, %32
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.087.lcssa = phi i64 [ 0, %28 ], [ %38, %.lr.ph ]
   %.082.lcssa = phi ptr [ %33, %28 ], [ %29, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 698
-  %41 = load i8, ptr %40, align 2, !tbaa !52
+  %41 = load i8, ptr %40, align 2, !tbaa !51
   %42 = zext i8 %41 to i64
   %.not112 = icmp eq i8 %41, 0
   br i1 %.not112, label %._crit_edge109, label %.lr.ph108.preheader
@@ -980,7 +980,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %49 = or disjoint i64 %45, %48
   %50 = add nuw nsw i64 %.0106, 1
   %exitcond115.not = icmp eq i64 %50, %42
-  br i1 %exitcond115.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !80
+  br i1 %exitcond115.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !79
 
 ._crit_edge109:                                   ; preds = %.lr.ph108, %._crit_edge
   %.086.lcssa = phi i64 [ 0, %._crit_edge ], [ %49, %.lr.ph108 ]
@@ -995,7 +995,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 
 56:                                               ; preds = %._crit_edge109
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %58 = load i64, ptr %57, align 8, !tbaa !60
+  %58 = load i64, ptr %57, align 8, !tbaa !59
   %59 = icmp ugt i64 %.087.lcssa, %58
   br i1 %59, label %60, label %64
 
@@ -1018,7 +1018,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %73 = load i64, ptr %72, align 8, !tbaa !61
+  %73 = load i64, ptr %72, align 8, !tbaa !60
   %74 = icmp ugt i64 %.086.lcssa, %73
   br i1 %74, label %75, label %79
 
@@ -1030,7 +1030,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 
 79:                                               ; preds = %70
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %81 = load i32, ptr %80, align 8, !tbaa !62
+  %81 = load i32, ptr %80, align 8, !tbaa !61
   %82 = zext i32 %81 to i64
   %83 = icmp ugt i64 %.086.lcssa, %82
   br i1 %83, label %84, label %88
@@ -1043,14 +1043,14 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 
 88:                                               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %90 = load i32, ptr %89, align 8, !tbaa !63
+  %90 = load i32, ptr %89, align 8, !tbaa !62
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %94 = load i64, ptr %93, align 8, !tbaa !65
-  store i32 0, ptr %5, align 4, !tbaa !72
+  %94 = load i64, ptr %93, align 8, !tbaa !64
+  store i32 0, ptr %5, align 4, !tbaa !71
   br label %133
 
 95:                                               ; preds = %88
@@ -1065,13 +1065,13 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   br label %.thread
 
 102:                                              ; preds = %95
-  %103 = load ptr, ptr %3, align 8, !tbaa !66
+  %103 = load ptr, ptr %3, align 8, !tbaa !65
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 344
-  %105 = load ptr, ptr %104, align 8, !tbaa !67
-  %106 = load i32, ptr %5, align 4, !tbaa !72
+  %105 = load ptr, ptr %104, align 8, !tbaa !66
+  %106 = load i32, ptr %5, align 4, !tbaa !71
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %105, i64 %107
-  %109 = load i64, ptr %108, align 8, !tbaa !73
+  %109 = load i64, ptr %108, align 8, !tbaa !72
   %.not94 = icmp eq i64 %109, -1
   br i1 %.not94, label %110, label %114
 
@@ -1083,16 +1083,16 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 
 114:                                              ; preds = %102
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %116 = load ptr, ptr %115, align 8, !tbaa !75
-  %117 = load i32, ptr %71, align 8, !tbaa !76
+  %116 = load ptr, ptr %115, align 8, !tbaa !74
+  %117 = load i32, ptr %71, align 8, !tbaa !75
   %118 = udiv i32 %106, %117
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds nuw i64, ptr %116, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !8
   %122 = getelementptr inbounds nuw i8, ptr %103, i64 336
-  %123 = load i64, ptr %122, align 8, !tbaa !81
+  %123 = load i64, ptr %122, align 8, !tbaa !80
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %125 = load ptr, ptr %124, align 8, !tbaa !82
+  %125 = load ptr, ptr %124, align 8, !tbaa !81
   %126 = getelementptr inbounds nuw i64, ptr %125, i64 %119
   %127 = load i64, ptr %126, align 8, !tbaa !8
   %128 = add i64 %127, %123
@@ -1112,12 +1112,12 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %.084 = phi i64 [ %132, %114 ], [ 0, %92 ]
   %136 = sub i64 %.087.lcssa, %.084
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %138 = load i8, ptr %137, align 1, !tbaa !77, !range !12, !noundef !13
+  %138 = load i8, ptr %137, align 1, !tbaa !76, !range !12, !noundef !13
   %139 = shl nuw nsw i8 %138, 2
   %narrow = add nuw nsw i8 %139, 5
   %140 = zext nneg i8 %narrow to i64
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 618
-  %142 = load i8, ptr %141, align 2, !tbaa !78
+  %142 = load i8, ptr %141, align 2, !tbaa !77
   %143 = zext i8 %142 to i64
   %144 = add nuw nsw i64 %140, %143
   %145 = add nuw nsw i64 %144, %.pre-phi
@@ -1153,7 +1153,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   br label %.thread
 
 165:                                              ; preds = %158
-  %166 = load ptr, ptr %3, align 8, !tbaa !66
+  %166 = load ptr, ptr %3, align 8, !tbaa !65
   %.not95 = icmp eq ptr %166, null
   br i1 %.not95, label %177, label %167
 
@@ -1171,7 +1171,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   br label %194
 
 176:                                              ; preds = %167
-  store ptr null, ptr %3, align 8, !tbaa !66
+  store ptr null, ptr %3, align 8, !tbaa !65
   br label %177
 
 177:                                              ; preds = %176, %165
@@ -1187,9 +1187,9 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 
 184:                                              ; preds = %177
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %186 = load i64, ptr %185, align 8, !tbaa !54
+  %186 = load i64, ptr %185, align 8, !tbaa !53
   %187 = add i64 %186, -1
-  store i64 %187, ptr %185, align 8, !tbaa !54
+  store i64 %187, ptr %185, align 8, !tbaa !53
   %188 = call i32 @H5HF__space_add(ptr noundef nonnull %0, ptr noundef nonnull %159, i32 noundef 2) #5
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %190, label %.thread
@@ -1213,7 +1213,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
 
 .thread:                                          ; preds = %23, %110, %98, %161, %154, %147, %84, %75, %66, %60, %52, %184, %194, %197
   %.2 = phi i32 [ -1, %197 ], [ -1, %194 ], [ 0, %184 ], [ -1, %23 ], [ -1, %110 ], [ -1, %98 ], [ -1, %161 ], [ -1, %154 ], [ -1, %147 ], [ -1, %84 ], [ -1, %75 ], [ -1, %66 ], [ -1, %60 ], [ -1, %52 ]
-  %201 = load ptr, ptr %3, align 8, !tbaa !66
+  %201 = load ptr, ptr %3, align 8, !tbaa !65
   %.not96 = icmp eq ptr %201, null
   br i1 %.not96, label %211, label %202
 
@@ -1304,37 +1304,36 @@ attributes #5 = { nounwind }
 !46 = !{!"p1 omnipotent char", !5, i64 0}
 !47 = !{!44, !46, i64 296}
 !48 = !{!16, !6, i64 697}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!16, !6, i64 698}
-!53 = distinct !{!53, !50, !51}
-!54 = !{!16, !9, i64 528}
-!55 = !{!16, !29, i64 600}
-!56 = distinct !{!56, !50, !51}
-!57 = distinct !{!57, !50, !51}
-!58 = distinct !{!58, !50, !51}
-!59 = distinct !{!59, !50, !51}
-!60 = !{!16, !9, i64 504}
-!61 = !{!16, !9, i64 280}
-!62 = !{!16, !20, i64 392}
-!63 = !{!16, !20, i64 304}
-!64 = !{!16, !9, i64 296}
-!65 = !{!16, !9, i64 272}
-!66 = !{!31, !31, i64 0}
-!67 = !{!68, !70, i64 344}
-!68 = !{!"H5HF_indirect_t", !17, i64 0, !9, i64 248, !45, i64 256, !31, i64 264, !5, i64 272, !20, i64 280, !9, i64 288, !9, i64 296, !20, i64 304, !20, i64 308, !20, i64 312, !20, i64 316, !69, i64 320, !11, i64 328, !9, i64 336, !70, i64 344, !71, i64 352}
-!69 = !{!"p2 _ZTS15H5HF_indirect_t", !5, i64 0}
-!70 = !{!"p1 _ZTS19H5HF_indirect_ent_t", !5, i64 0}
-!71 = !{!"p1 _ZTS24H5HF_indirect_filt_ent_t", !5, i64 0}
-!72 = !{!20, !20, i64 0}
-!73 = !{!74, !9, i64 0}
-!74 = !{!"H5HF_indirect_ent_t", !9, i64 0}
-!75 = !{!16, !23, i64 344}
-!76 = !{!16, !20, i64 264}
-!77 = !{!16, !11, i64 259}
-!78 = !{!16, !6, i64 618}
-!79 = distinct !{!79, !50, !51}
-!80 = distinct !{!80, !50, !51}
-!81 = !{!68, !9, i64 336}
-!82 = !{!16, !23, i64 352}
+!51 = !{!16, !6, i64 698}
+!52 = distinct !{!52, !50}
+!53 = !{!16, !9, i64 528}
+!54 = !{!16, !29, i64 600}
+!55 = distinct !{!55, !50}
+!56 = distinct !{!56, !50}
+!57 = distinct !{!57, !50}
+!58 = distinct !{!58, !50}
+!59 = !{!16, !9, i64 504}
+!60 = !{!16, !9, i64 280}
+!61 = !{!16, !20, i64 392}
+!62 = !{!16, !20, i64 304}
+!63 = !{!16, !9, i64 296}
+!64 = !{!16, !9, i64 272}
+!65 = !{!31, !31, i64 0}
+!66 = !{!67, !69, i64 344}
+!67 = !{!"H5HF_indirect_t", !17, i64 0, !9, i64 248, !45, i64 256, !31, i64 264, !5, i64 272, !20, i64 280, !9, i64 288, !9, i64 296, !20, i64 304, !20, i64 308, !20, i64 312, !20, i64 316, !68, i64 320, !11, i64 328, !9, i64 336, !69, i64 344, !70, i64 352}
+!68 = !{!"p2 _ZTS15H5HF_indirect_t", !5, i64 0}
+!69 = !{!"p1 _ZTS19H5HF_indirect_ent_t", !5, i64 0}
+!70 = !{!"p1 _ZTS24H5HF_indirect_filt_ent_t", !5, i64 0}
+!71 = !{!20, !20, i64 0}
+!72 = !{!73, !9, i64 0}
+!73 = !{!"H5HF_indirect_ent_t", !9, i64 0}
+!74 = !{!16, !23, i64 344}
+!75 = !{!16, !20, i64 264}
+!76 = !{!16, !11, i64 259}
+!77 = !{!16, !6, i64 618}
+!78 = distinct !{!78, !50}
+!79 = distinct !{!79, !50}
+!80 = !{!67, !9, i64 336}
+!81 = !{!16, !23, i64 352}

@@ -150,7 +150,7 @@ _ZN5boost4urls6detail18segments_iter_impl6updateEv.exit: ; preds = %.lr.ph.i, %.
   %48 = ptrtoint ptr %.0.lcssa.i to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
-  store i64 %50, ptr %46, align 8, !tbaa !20
+  store i64 %50, ptr %46, align 8, !tbaa !19
   %51 = ptrtoint ptr %36 to i64
   %52 = sub i64 %48, %51
   %53 = load i64, ptr %6, align 8, !tbaa !16
@@ -215,7 +215,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_impl6updateEv(ptr nound
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %20, ptr %21, align 8, !tbaa !20
+  store i64 %20, ptr %21, align 8, !tbaa !19
   %22 = ptrtoint ptr %7 to i64
   %23 = sub i64 %18, %22
   %24 = load i64, ptr %8, align 8, !tbaa !16
@@ -239,10 +239,10 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE
   store i64 %6, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = tail call noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
-  store i64 %8, ptr %7, align 8, !tbaa !20
+  store i64 %8, ptr %7, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = tail call noundef i64 @_ZNK5boost4urls6detail8path_ref4nsegEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
-  store i64 %10, ptr %9, align 8, !tbaa !21
+  store i64 %10, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   ret void
@@ -262,9 +262,9 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8url_implE
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 0, ptr %8, align 8, !tbaa !20
+  store i64 0, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %3, ptr %9, align 8, !tbaa !21
+  store i64 %3, ptr %9, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = icmp eq i64 %3, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
@@ -393,7 +393,7 @@ _ZN5boost4urls6detail18segments_iter_impl6updateEv.exit: ; preds = %.lr.ph.i, %.
   %59 = ptrtoint ptr %.0.lcssa.i to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  store i64 %61, ptr %8, align 8, !tbaa !20
+  store i64 %61, ptr %8, align 8, !tbaa !19
   %62 = ptrtoint ptr %48 to i64
   %63 = sub i64 %59, %62
   %64 = load i64, ptr %10, align 8, !tbaa !16
@@ -419,11 +419,11 @@ declare noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) initializes((48, 56)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i64, ptr %2, align 8, !tbaa !21
+  %3 = load i64, ptr %2, align 8, !tbaa !20
   %4 = add i64 %3, 1
-  store i64 %4, ptr %2, align 8, !tbaa !21
+  store i64 %4, ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load i64, ptr %5, align 8, !tbaa !20
+  %6 = load i64, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %6, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -459,7 +459,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef n
   %22 = phi i64 [ %18, %20 ], [ %25, %23 ]
   %.0.be = phi ptr [ %21, %20 ], [ %24, %23 ]
   %.not = icmp eq ptr %.0.be, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %.018, i64 3
@@ -473,7 +473,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef n
   %27 = ptrtoint ptr %.0.lcssa to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
-  store i64 %29, ptr %5, align 8, !tbaa !20
+  store i64 %29, ptr %5, align 8, !tbaa !19
   %30 = ptrtoint ptr %17 to i64
   %31 = sub i64 %27, %30
   %32 = load i64, ptr %16, align 8, !tbaa !16
@@ -497,9 +497,9 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9decrementEv(ptr noundef n
   %3 = alloca %"class.boost::urls::pct_string_view", align 8
   %4 = alloca %"class.boost::urls::pct_string_view", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i64, ptr %5, align 8, !tbaa !21
+  %6 = load i64, ptr %5, align 8, !tbaa !20
   %7 = add i64 %6, -1
-  store i64 %7, ptr %5, align 8, !tbaa !21
+  store i64 %7, ptr %5, align 8, !tbaa !20
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %47
 
@@ -507,7 +507,7 @@ define void @_ZN5boost4urls6detail18segments_iter_impl9decrementEv(ptr noundef n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %11, ptr %12, align 8, !tbaa !20
+  store i64 %11, ptr %12, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::pct_string_view") align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %13) #8
@@ -581,7 +581,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit: ; preds
   %40 = call noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %13) #8
   %41 = load i64, ptr %10, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
-  %43 = load i64, ptr %12, align 8, !tbaa !20
+  %43 = load i64, ptr %12, align 8, !tbaa !19
   %44 = sub i64 %43, %41
   invoke void @_ZN5boost4urls15pct_string_viewC1ENS_4core17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %42, i64 %44)
           to label %45 unwind label %106
@@ -666,9 +666,9 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23: ; pre
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i64, ptr %77, align 8, !tbaa !10
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %78, ptr %79, align 8, !tbaa !20
+  store i64 %78, ptr %79, align 8, !tbaa !19
   %80 = call noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %48) #8
-  %81 = load i64, ptr %79, align 8, !tbaa !20
+  %81 = load i64, ptr %79, align 8, !tbaa !19
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %83, align 8, !tbaa !16
@@ -697,7 +697,7 @@ _ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23: ; pre
 91:                                               ; preds = %.lr.ph, %89
   %92 = phi i64 [ %84, %.lr.ph ], [ %90, %89 ]
   %.not = icmp eq ptr %85, %76
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %91, %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23, %87
   %93 = phi i64 [ %88, %87 ], [ 0, %_ZN5boost4urls6detail11path_prefixENS_4core17basic_string_viewIcEE.exit23 ], [ %92, %91 ]
@@ -768,10 +768,9 @@ attributes #9 = { noreturn nounwind }
 !14 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !15, i64 0}
 !15 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !4, i64 0, !8, i64 8}
 !16 = !{!11, !8, i64 72}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!11, !8, i64 56}
-!21 = !{!11, !8, i64 64}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
+!19 = !{!11, !8, i64 56}
+!20 = !{!11, !8, i64 64}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}

@@ -108,7 +108,7 @@ define i64 @mbrtowc(ptr noundef writeonly captures(address_is_null) %0, ptr noun
 48:                                               ; preds = %47
   %49 = load i8, ptr %39, align 1
   %.not48 = icmp slt i8 %49, -64
-  br i1 %.not48, label %.preheader, label %.loopexit60, !llvm.loop !6
+  br i1 %.not48, label %.preheader, label %.loopexit60
 
 .loopexit:                                        ; preds = %47, %24
   %.1 = phi i32 [ %28, %24 ], [ %42, %47 ]
@@ -140,5 +140,3 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -80,7 +80,7 @@ define i32 @crc32c_calculate_no_swap(ptr noundef readonly captures(none) %0, i32
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, %6
   %13 = icmp samesign ugt i32 %.067, 1
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.05.lcssa = phi i32 [ %2, %3 ], [ %12, %.lr.ph ]
@@ -130,7 +130,7 @@ define i32 @crc32_mpeg2_seed(ptr noundef readonly captures(none) %0, i32 noundef
   %13 = xor i32 %12, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %2, %3 ], [ %13, %.lr.ph ]
@@ -157,7 +157,7 @@ define i32 @crc32_0x0AA725CF_seed(ptr noundef readonly captures(none) %0, i32 no
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, %5
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %2, %3 ], [ %11, %.lr.ph ]
@@ -185,7 +185,7 @@ define range(i32 0, 16777216) i32 @crc32_0x5D6DCB_seed(ptr noundef readonly capt
   %11 = shl i32 %.112, 8
   %12 = xor i32 %10, %11
   %.not10 = icmp eq i32 %4, 0
-  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %3
   %.07 = phi i32 [ %2, %3 ], [ %12, %.preheader ]
@@ -210,10 +210,9 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -2196,18 +2196,18 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK10OpenSubdi
 define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIfEixEi(ptr dead_on_unwind noalias writable sret(%"class.OpenSubdiv::v3_6_0::Far::StencilReal") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = sext i32 %2 to i64
-  %6 = load ptr, ptr %4, align 8, !noalias !8
+  %6 = load ptr, ptr %4, align 8, !noalias !7
   %7 = getelementptr inbounds i32, ptr %6, i64 %5
-  %8 = load i32, ptr %7, align 4, !noalias !8
+  %8 = load i32, ptr %7, align 4, !noalias !7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !noalias !8
+  %10 = load ptr, ptr %9, align 8, !noalias !7
   %11 = getelementptr inbounds i32, ptr %10, i64 %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = sext i32 %8 to i64
-  %14 = load ptr, ptr %12, align 8, !noalias !8
+  %14 = load ptr, ptr %12, align 8, !noalias !7
   %15 = getelementptr inbounds i32, ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %17 = load ptr, ptr %16, align 8, !noalias !8
+  %17 = load ptr, ptr %16, align 8, !noalias !7
   %18 = getelementptr inbounds float, ptr %17, i64 %13
   tail call void @_ZN10OpenSubdiv6v3_6_03Far11StencilRealIfEC1EPiS4_Pf(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %18)
   ret void
@@ -2338,7 +2338,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %sext17 = shl i64 %38, 30
   %39 = ashr i64 %sext17, 32
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   ret void
@@ -2804,7 +2804,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %25, %23, %21, %19
   %sext17.i = shl i64 %38, 30
   %39 = ashr i64 %sext17.i, 32
   %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit, !llvm.loop !11
+  br i1 %40, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
   ret void
@@ -3408,7 +3408,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit154:            ; preds = %225, %223, %221, %2
   %323 = sub i64 %321, %322
   %324 = ashr exact i64 %323, 2
   %325 = icmp ult i64 %318, %324
-  br i1 %325, label %244, label %._crit_edge, !llvm.loop !12
+  br i1 %325, label %244, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %314
   %326 = load ptr, ptr %30, align 8
@@ -3922,18 +3922,18 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK10OpenSubdi
 define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIdEixEi(ptr dead_on_unwind noalias writable sret(%"class.OpenSubdiv::v3_6_0::Far::StencilReal.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = sext i32 %2 to i64
-  %6 = load ptr, ptr %4, align 8, !noalias !13
+  %6 = load ptr, ptr %4, align 8, !noalias !12
   %7 = getelementptr inbounds i32, ptr %6, i64 %5
-  %8 = load i32, ptr %7, align 4, !noalias !13
+  %8 = load i32, ptr %7, align 4, !noalias !12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !noalias !13
+  %10 = load ptr, ptr %9, align 8, !noalias !12
   %11 = getelementptr inbounds i32, ptr %10, i64 %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = sext i32 %8 to i64
-  %14 = load ptr, ptr %12, align 8, !noalias !13
+  %14 = load ptr, ptr %12, align 8, !noalias !12
   %15 = getelementptr inbounds i32, ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %17 = load ptr, ptr %16, align 8, !noalias !13
+  %17 = load ptr, ptr %16, align 8, !noalias !12
   %18 = getelementptr inbounds double, ptr %17, i64 %13
   tail call void @_ZN10OpenSubdiv6v3_6_03Far11StencilRealIdEC1EPiS4_Pd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %18)
   ret void
@@ -4064,7 +4064,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %sext17 = shl i64 %38, 30
   %39 = ashr i64 %sext17, 32
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   ret void
@@ -4530,7 +4530,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %25, %23, %21, %19
   %sext17.i = shl i64 %38, 30
   %39 = ashr i64 %sext17.i, 32
   %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit, !llvm.loop !16
+  br i1 %40, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit, !llvm.loop !15
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
   ret void
@@ -5432,15 +5432,14 @@ attributes #16 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIfE10GetStencilEi: argument 0"}
-!10 = distinct !{!10, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIfE10GetStencilEi"}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIdE10GetStencilEi: argument 0"}
-!15 = distinct !{!15, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIdE10GetStencilEi"}
-!16 = distinct !{!16, !6, !7}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIfE10GetStencilEi: argument 0"}
+!9 = distinct !{!9, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIfE10GetStencilEi"}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIdE10GetStencilEi: argument 0"}
+!14 = distinct !{!14, !"_ZNK10OpenSubdiv6v3_6_03Far16StencilTableRealIdE10GetStencilEi"}
+!15 = distinct !{!15, !6}

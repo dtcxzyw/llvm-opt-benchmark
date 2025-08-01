@@ -3057,19 +3057,19 @@ EVP_MD_free.exit115:                              ; preds = %152, %CRYPTO_DOWN_R
 175:                                              ; preds = %164
   %176 = trunc nuw nsw i64 %173 to i32
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store i32 %176, ptr %177, align 8, !tbaa !93
+  store i32 %176, ptr %177, align 8, !tbaa !92
   %178 = trunc nuw nsw i64 %171 to i32
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 %178, ptr %179, align 8, !tbaa !94
+  store i32 %178, ptr %179, align 8, !tbaa !93
   %180 = load i32, ptr %4, align 4, !tbaa !52
   %.not.i116 = icmp eq i32 %180, 0
   br i1 %.not.i116, label %185, label %181
 
 181:                                              ; preds = %175
   %182 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %183 = load i64, ptr %182, align 8, !tbaa !95
+  %183 = load i64, ptr %182, align 8, !tbaa !94
   %184 = or i64 %183, 2
-  store i64 %184, ptr %182, align 8, !tbaa !95
+  store i64 %184, ptr %182, align 8, !tbaa !94
   br label %185
 
 185:                                              ; preds = %181, %175
@@ -3079,9 +3079,9 @@ EVP_MD_free.exit115:                              ; preds = %152, %CRYPTO_DOWN_R
 
 187:                                              ; preds = %185
   %188 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %189 = load i64, ptr %188, align 8, !tbaa !95
+  %189 = load i64, ptr %188, align 8, !tbaa !94
   %190 = or i64 %189, 8
-  store i64 %190, ptr %188, align 8, !tbaa !95
+  store i64 %190, ptr %188, align 8, !tbaa !94
   br label %evp_md_cache_constants.exit.thread
 
 evp_md_cache_constants.exit.thread:               ; preds = %185, %187
@@ -3205,18 +3205,18 @@ define i32 @ossl_hmac2mdnid(i32 noundef %0) local_unnamed_addr #7 {
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %3, 15
-  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !96
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !95
 
 4:                                                ; preds = %1, %2
   %.07 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [15 x %struct.ossl_hmacmd_pair], ptr @ossl_hmacmd_pairs, i64 0, i64 %.07
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !97
+  %7 = load i32, ptr %6, align 4, !tbaa !96
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %5, align 8, !tbaa !99
+  %10 = load i32, ptr %5, align 8, !tbaa !98
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %9
@@ -3231,19 +3231,19 @@ define i32 @ossl_md2hmacnid(i32 noundef %0) local_unnamed_addr #7 {
 2:                                                ; preds = %1, %9
   %.07 = phi i64 [ 0, %1 ], [ %10, %9 ]
   %3 = getelementptr inbounds nuw [15 x %struct.ossl_hmacmd_pair], ptr @ossl_hmacmd_pairs, i64 0, i64 %.07
-  %4 = load i32, ptr %3, align 8, !tbaa !99
+  %4 = load i32, ptr %3, align 8, !tbaa !98
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw [15 x %struct.ossl_hmacmd_pair], ptr @ossl_hmacmd_pairs, i64 0, i64 %.07, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !97
+  %8 = load i32, ptr %7, align 4, !tbaa !96
   br label %.loopexit
 
 9:                                                ; preds = %2
   %10 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %10, 15
-  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !100
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !99
 
 .loopexit:                                        ; preds = %9, %6
   %.06 = phi i32 [ %8, %6 ], [ 0, %9 ]
@@ -3406,14 +3406,13 @@ attributes #9 = { noreturn nounwind }
 !87 = !{!"ossl_dispatch_st", !15, i64 0, !6, i64 8}
 !88 = !{!87, !6, i64 8}
 !89 = !{!14, !6, i64 168}
-!90 = distinct !{!90, !91, !92}
+!90 = distinct !{!90, !91}
 !91 = !{!"llvm.loop.mustprogress"}
-!92 = !{!"llvm.loop.estimated_trip_count"}
-!93 = !{!14, !15, i64 72}
-!94 = !{!14, !15, i64 8}
-!95 = !{!14, !10, i64 16}
-!96 = distinct !{!96, !91, !92}
-!97 = !{!98, !15, i64 4}
-!98 = !{!"", !15, i64 0, !15, i64 4}
-!99 = !{!98, !15, i64 0}
-!100 = distinct !{!100, !91, !92}
+!92 = !{!14, !15, i64 72}
+!93 = !{!14, !15, i64 8}
+!94 = !{!14, !10, i64 16}
+!95 = distinct !{!95, !91}
+!96 = !{!97, !15, i64 4}
+!97 = !{!"", !15, i64 0, !15, i64 4}
+!98 = !{!97, !15, i64 0}
+!99 = distinct !{!99, !91}

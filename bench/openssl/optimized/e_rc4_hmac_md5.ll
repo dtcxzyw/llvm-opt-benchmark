@@ -300,7 +300,7 @@ define internal range(i32 -1, 17) i32 @rc4_hmac_md5_ctrl(ptr noundef %0, i32 nou
   store i8 %28, ptr %26, align 1, !tbaa !8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 64
-  br i1 %exitcond57.not, label %29, label %25, !llvm.loop !21
+  br i1 %exitcond57.not, label %29, label %25, !llvm.loop !20
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 1124
@@ -418,7 +418,6 @@ attributes #6 = { nounwind }
 !15 = !{!10, !5, i64 1304}
 !16 = !{!10, !5, i64 1236}
 !17 = !{!10, !5, i64 1232}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
+!20 = distinct !{!20, !19}

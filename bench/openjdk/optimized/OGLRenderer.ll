@@ -340,7 +340,7 @@ define hidden void @OGLRenderer_DrawScanlines(ptr noundef readnone captures(addr
   tail call void %21(float noundef %15, float noundef %19) #4
   %22 = add nsw i32 %.014, -1
   %23 = icmp samesign ugt i32 %.014, 1
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   ret void
@@ -406,7 +406,7 @@ define hidden void @OGLRenderer_FillSpans(ptr noundef readnone captures(address_
   tail call void %19(i32 noundef %9, i32 noundef %15) #4
   %20 = add nsw i32 %.019, -1
   %21 = icmp samesign ugt i32 %.019, 1
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   ret void
@@ -912,8 +912,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

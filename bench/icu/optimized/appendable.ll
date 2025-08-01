@@ -110,7 +110,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710Appendable12appendStringEP
   %22 = getelementptr inbounds nuw i8, ptr %.115, i64 2
   %23 = icmp uge ptr %22, %15
   %or.cond.not = select i1 %.not17, i1 true, i1 %23
-  br i1 %or.cond.not, label %24, label %16, !llvm.loop !12
+  br i1 %or.cond.not, label %24, label %16, !llvm.loop !11
 
 24:                                               ; preds = %16
   br i1 %.not17, label %.loopexit, label %.thread
@@ -135,7 +135,7 @@ define noundef ptr @_ZN6icu_7710Appendable15getAppendBufferEiiPDsiPi(ptr nonnull
   %or.cond = or i1 %7, %8
   %storemerge = select i1 %or.cond, i32 0, i32 %4
   %.0 = select i1 %or.cond, ptr null, ptr %3
-  store i32 %storemerge, ptr %5, align 4, !tbaa !13
+  store i32 %storemerge, ptr %5, align 4, !tbaa !12
   ret ptr %.0
 }
 
@@ -165,9 +165,8 @@ attributes #9 = { noreturn nounwind }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"char16_t", !8, i64 0}
 !8 = !{!"omnipotent char", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !8, i64 0}
+!11 = distinct !{!11, !10}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !8, i64 0}

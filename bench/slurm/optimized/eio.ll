@@ -316,7 +316,7 @@ _poll_internal.exit:                              ; preds = %63
   %82 = load i32, ptr %10, align 4
   %83 = call i64 @read(i32 noundef %82, ptr noundef nonnull %2, i64 noundef 1) #10
   %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i, label %_eio_wakeup_handler.exit, !llvm.loop !12
+  br i1 %84, label %.lr.ph.i, label %_eio_wakeup_handler.exit, !llvm.loop !11
 
 _eio_wakeup_handler.exit:                         ; preds = %81, %72
   %85 = load ptr, ptr %7, align 8
@@ -516,7 +516,7 @@ _eio_wakeup_handler.exit:                         ; preds = %81, %72
 _poll_handle_event.exit.i:                        ; preds = %180, %174, %173, %.thread.i.i, %124, %115, %110, %105, %92
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %44
-  br i1 %exitcond.not.i, label %_poll_dispatch.exit, label %92, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_poll_dispatch.exit, label %92, !llvm.loop !12
 
 _poll_dispatch.exit:                              ; preds = %_poll_handle_event.exit.i
   %182 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #10
@@ -554,7 +554,7 @@ _poll_dispatch.exit:                              ; preds = %_poll_handle_event.
   br i1 %196, label %.backedge, label %197
 
 .backedge:                                        ; preds = %191, %190
-  br label %15, !llvm.loop !14
+  br label %15, !llvm.loop !13
 
 197:                                              ; preds = %191
   %198 = zext i16 %194 to i32
@@ -578,7 +578,7 @@ define dso_local noundef zeroext i1 @eio_message_socket_readable(ptr noundef cap
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !range !15, !noundef !16
+  %6 = load i8, ptr %5, align 8, !range !14, !noundef !15
   %7 = zext nneg i8 %6 to i32
   %8 = load i32, ptr %0, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.eio_message_socket_readable, i32 noundef %7, i32 noundef %8) #10
@@ -586,7 +586,7 @@ define dso_local noundef zeroext i1 @eio_message_socket_readable(ptr noundef cap
 
 9:                                                ; preds = %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i8, ptr %10, align 8, !range !15, !noundef !16
+  %11 = load i8, ptr %10, align 8, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %24
 
@@ -650,7 +650,7 @@ define dso_local noundef i32 @eio_message_socket_accept(ptr noundef captures(non
     i32 4, label %7
     i32 11, label %.loopexit
     i32 103, label %.loopexit
-  ], !llvm.loop !17
+  ]
 
 14:                                               ; preds = %11
   %15 = call zeroext i1 @running_in_daemon() #10
@@ -714,7 +714,7 @@ define dso_local noundef i32 @eio_message_socket_accept(ptr noundef captures(non
   %41 = tail call ptr @__errno_location() #11
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 4
-  br i1 %43, label %35, label %44, !llvm.loop !18
+  br i1 %43, label %35, label %44
 
 44:                                               ; preds = %40
   %45 = call zeroext i1 @running_in_daemon() #10
@@ -1109,14 +1109,11 @@ attributes #12 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !10}
+!14 = !{i8 0, i8 2}
+!15 = !{}

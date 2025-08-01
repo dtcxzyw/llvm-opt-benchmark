@@ -191,7 +191,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 45:                                               ; preds = %43, %.lr.ph.i.i
   %.02837.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %43 ]
   %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %42, i64 %.02837.i.i, i32 1
-  %47 = load ptr, ptr %46, align 8, !tbaa !37
+  %47 = load ptr, ptr %46, align 8, !tbaa !36
   %48 = load ptr, ptr %47, align 8, !tbaa !22
   %49 = icmp eq ptr %48, %36
   br i1 %49, label %.loopexit.i.i, label %43
@@ -254,7 +254,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   %72 = phi i32 [ %.pre.i.i, %68 ], [ %66, %.lr.ph24.i.i ]
   %73 = and i32 %72, 1
   %.not16.i.i = icmp eq i32 %73, 0
-  br i1 %.not16.i.i, label %.loopexit.i39.i, label %74, !llvm.loop !39
+  br i1 %.not16.i.i, label %.loopexit.i39.i, label %74, !llvm.loop !38
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 48
@@ -281,12 +281,12 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   %83 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %.0.i38.i = load ptr, ptr %83, align 8, !tbaa !29
   %.not17.i.i = icmp eq ptr %.0.i38.i, null
-  br i1 %.not17.i.i, label %.loopexit.i39.i, label %.lr.ph.i37.i, !llvm.loop !40
+  br i1 %.not17.i.i, label %.loopexit.i39.i, label %.lr.ph.i37.i, !llvm.loop !39
 
 .loopexit.i39.i:                                  ; preds = %82, %74, %71
   %84 = call ptr @prio_queue_get(ptr noundef nonnull %2) #6
   %.not14.i.i = icmp eq ptr %84, null
-  br i1 %.not14.i.i, label %._crit_edge.i40.i, label %.lr.ph24.i.i, !llvm.loop !41
+  br i1 %.not14.i.i, label %._crit_edge.i40.i, label %.lr.ph24.i.i
 
 ._crit_edge.i40.i:                                ; preds = %.loopexit.i39.i, %61
   call void @clear_prio_queue(ptr noundef nonnull %2) #6
@@ -299,20 +299,20 @@ mark_common.exit.i:                               ; preds = %._crit_edge.i40.i, 
 85:                                               ; preds = %.loopexit.i.i
   %86 = load i16, ptr %33, align 2, !tbaa !28
   %.not33.i.i = icmp eq i16 %86, 0
-  %87 = load i16, ptr %34, align 8, !tbaa !42
+  %87 = load i16, ptr %34, align 8, !tbaa !40
   %88 = lshr i16 %87, 1
   %89 = add i16 %87, 1
   %90 = add i16 %89, %88
   %91 = select i1 %.not33.i.i, i16 %90, i16 %87
   %92 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 8
-  %93 = load i16, ptr %92, align 8, !tbaa !42
+  %93 = load i16, ptr %92, align 8, !tbaa !40
   %94 = icmp ult i16 %93, %91
   br i1 %94, label %95, label %push_parent.exit.i
 
 95:                                               ; preds = %85
   %96 = add i16 %86, -1
   %97 = select i1 %.not33.i.i, i16 %90, i16 %96
-  store i16 %91, ptr %92, align 8, !tbaa !42
+  store i16 %91, ptr %92, align 8, !tbaa !40
   %98 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 10
   store i16 %97, ptr %98, align 2, !tbaa !28
   br label %push_parent.exit.i
@@ -323,7 +323,7 @@ push_parent.exit.i:                               ; preds = %95, %85, %mark_comm
   %100 = getelementptr inbounds nuw i8, ptr %.02752.i, i64 8
   %.027.i = load ptr, ptr %100, align 8, !tbaa !29
   %.not34.i = icmp eq ptr %.027.i, null
-  br i1 %.not34.i, label %select.unfold.loopexit.i, label %35, !llvm.loop !43
+  br i1 %.not34.i, label %select.unfold.loopexit.i, label %35, !llvm.loop !41
 
 select.unfold.loopexit.i:                         ; preds = %push_parent.exit.i
   %101 = icmp ne i32 %99, 0
@@ -393,12 +393,12 @@ define internal void @release(ptr noundef readonly captures(none) %0) #0 {
   %.07 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %8, i64 %.07, i32 1
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %10 = load ptr, ptr %9, align 8, !tbaa !36
   tail call void @free(ptr noundef %10) #6
   %11 = add nuw i64 %.07, 1
   %12 = load i64, ptr %4, align 8, !tbaa !27
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !44
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !42
 }
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -493,7 +493,7 @@ define internal fastcc void @mark_common(ptr noundef captures(none) %0, ptr noun
   %19 = phi i32 [ %.pre, %15 ], [ %13, %11 ]
   %20 = and i32 %19, 1
   %.not16 = icmp eq i32 %20, 0
-  br i1 %.not16, label %.loopexit, label %21, !llvm.loop !39
+  br i1 %.not16, label %.loopexit, label %21, !llvm.loop !38
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -520,12 +520,12 @@ define internal fastcc void @mark_common(ptr noundef captures(none) %0, ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.0 = load ptr, ptr %30, align 8, !tbaa !29
   %.not17 = icmp eq ptr %.0, null
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %29, %21, %18
   %31 = call ptr @prio_queue_get(ptr noundef nonnull %3) #6
   %.not14 = icmp eq ptr %31, null
-  br i1 %.not14, label %._crit_edge, label %11, !llvm.loop !41
+  br i1 %.not14, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   call void @clear_prio_queue(ptr noundef nonnull %3) #6
@@ -599,14 +599,12 @@ attributes #7 = { noreturn nounwind }
 !31 = !{!32, !24, i64 0}
 !32 = !{!"commit_list", !24, i64 0, !30, i64 8}
 !33 = !{!15, !18, i64 40}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!38, !6, i64 8}
-!38 = !{!"prio_queue_entry", !17, i64 0, !6, i64 8}
+!36 = !{!37, !6, i64 8}
+!37 = !{!"prio_queue_entry", !17, i64 0, !6, i64 8}
+!38 = distinct !{!38, !35}
 !39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35, !36}
-!41 = distinct !{!41, !36}
-!42 = !{!23, !25, i64 8}
-!43 = distinct !{!43, !35, !36}
-!44 = distinct !{!44, !35, !36}
+!40 = !{!23, !25, i64 8}
+!41 = distinct !{!41, !35}
+!42 = distinct !{!42, !35}

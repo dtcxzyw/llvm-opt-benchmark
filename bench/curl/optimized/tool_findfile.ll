@@ -94,7 +94,7 @@ define dso_local ptr @findfile(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
   %.not62 = icmp eq ptr %31, null
   br i1 %.not62, label %checkhome.exit, label %32
 
@@ -161,7 +161,7 @@ define internal fastcc noalias ptr @checkhome(ptr noundef nonnull %0, ptr nounde
 14:                                               ; preds = %13, %.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond41.not, label %.loopexit, label %.split.us, !llvm.loop !22
+  br i1 %exitcond41.not, label %.loopexit, label %.split.us, !llvm.loop !21
 
 .split:                                           ; preds = %3, %22
   %.02228 = phi i32 [ %23, %22 ], [ 0, %3 ]
@@ -189,7 +189,7 @@ define internal fastcc noalias ptr @checkhome(ptr noundef nonnull %0, ptr nounde
 22:                                               ; preds = %.split, %19
   %23 = add nuw nsw i32 %.02228, 1
   %exitcond.not = icmp eq i32 %23, %4
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %22, %14, %.split30.us
   %.4 = phi ptr [ %20, %.split30.us ], [ null, %14 ], [ null, %22 ]
@@ -234,12 +234,11 @@ attributes #5 = { nounwind }
 !13 = !{i8 0, i8 2}
 !14 = !{}
 !15 = !{!8, !9, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !9, i64 32}
-!20 = !{!"passwd", !9, i64 0, !9, i64 8, !21, i64 16, !21, i64 20, !9, i64 24, !9, i64 32, !9, i64 40}
-!21 = !{!"int", !5, i64 0}
-!22 = distinct !{!22, !17, !18, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !17, !18}
+!18 = !{!19, !9, i64 32}
+!19 = !{!"passwd", !9, i64 0, !9, i64 8, !20, i64 16, !20, i64 20, !9, i64 24, !9, i64 32, !9, i64 40}
+!20 = !{!"int", !5, i64 0}
+!21 = distinct !{!21, !17, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !17}

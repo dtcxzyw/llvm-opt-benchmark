@@ -353,7 +353,7 @@ define dso_local noundef nonnull ptr @_ZNK17btTypedConstraint9serializeEPvP12btS
 84:                                               ; preds = %79, %83
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge, label %79, !llvm.loop !58
+  br i1 %exitcond38.not, label %._crit_edge, label %79, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %84, %.preheader
   ret ptr @.str
@@ -391,11 +391,11 @@ define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull ali
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %1, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  store i8 1, ptr %4, align 8, !tbaa !59
+  store i8 1, ptr %4, align 8, !tbaa !58
   store ptr null, ptr %2, align 8, !tbaa !52
   store i32 0, ptr %11, align 4, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 0, ptr %12, align 8, !tbaa !60
+  store i32 0, ptr %12, align 8, !tbaa !59
   tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) #18
   ret void
 }
@@ -416,9 +416,9 @@ define dso_local void @_ZN14btAngularLimit3setEfffff(ptr noundef nonnull writeon
   %7 = fsub float %2, %1
   %8 = fmul float %7, 5.000000e-01
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %8, ptr %9, align 4, !tbaa !61
+  store float %8, ptr %9, align 4, !tbaa !60
   %10 = fadd float %1, %8
-  %11 = tail call noundef float @fmodf(float noundef %10, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %11 = tail call noundef float @fmodf(float noundef %10, float noundef 0x401921FB60000000) #18, !tbaa !62
   %12 = fcmp olt float %11, 0xC00921FB60000000
   br i1 %12, label %13, label %15
 
@@ -436,13 +436,13 @@ define dso_local void @_ZN14btAngularLimit3setEfffff(ptr noundef nonnull writeon
 
 _Z16btNormalizeAnglef.exit:                       ; preds = %13, %15, %17
   %.0.i = phi float [ %14, %13 ], [ %18, %17 ], [ %11, %15 ]
-  store float %.0.i, ptr %0, align 4, !tbaa !64
+  store float %.0.i, ptr %0, align 4, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %3, ptr %19, align 4, !tbaa !65
+  store float %3, ptr %19, align 4, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %4, ptr %20, align 4, !tbaa !66
+  store float %4, ptr %20, align 4, !tbaa !65
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %5, ptr %21, align 4, !tbaa !67
+  store float %5, ptr %21, align 4, !tbaa !66
   ret void
 }
 
@@ -453,14 +453,14 @@ define dso_local void @_ZN14btAngularLimit4testEf(ptr noundef nonnull align 4 ca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %3, i8 0, i64 9, i1 false)
-  %7 = load float, ptr %6, align 4, !tbaa !61
+  %7 = load float, ptr %6, align 4, !tbaa !60
   %8 = fcmp ult float %7, 0.000000e+00
   br i1 %8, label %29, label %9
 
 9:                                                ; preds = %2
-  %10 = load float, ptr %0, align 4, !tbaa !64
+  %10 = load float, ptr %0, align 4, !tbaa !63
   %11 = fsub float %1, %10
-  %12 = tail call noundef float @fmodf(float noundef %11, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %12 = tail call noundef float @fmodf(float noundef %11, float noundef 0x401921FB60000000) #18, !tbaa !62
   %13 = fcmp olt float %12, 0xC00921FB60000000
   br i1 %13, label %14, label %16
 
@@ -483,7 +483,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %14, %16, %18
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %_Z16btNormalizeAnglef.exit
-  store i8 1, ptr %5, align 4, !tbaa !68
+  store i8 1, ptr %5, align 4, !tbaa !67
   %23 = fadd float %7, %.0.i
   %24 = fneg float %23
   br label %.sink.split
@@ -493,15 +493,15 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %14, %16, %18
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  store i8 1, ptr %5, align 4, !tbaa !68
+  store i8 1, ptr %5, align 4, !tbaa !67
   %28 = fsub float %7, %.0.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %22
   %.sink6 = phi float [ %24, %22 ], [ %28, %27 ]
   %.sink = phi float [ 1.000000e+00, %22 ], [ -1.000000e+00, %27 ]
-  store float %.sink6, ptr %3, align 4, !tbaa !69
-  store float %.sink, ptr %4, align 4, !tbaa !70
+  store float %.sink6, ptr %3, align 4, !tbaa !68
+  store float %.sink, ptr %4, align 4, !tbaa !69
   br label %29
 
 29:                                               ; preds = %.sink.split, %25, %2
@@ -511,9 +511,9 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %14, %16, %18
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZNK14btAngularLimit8getErrorEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load float, ptr %2, align 4, !tbaa !69
+  %3 = load float, ptr %2, align 4, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load float, ptr %4, align 4, !tbaa !70
+  %5 = load float, ptr %4, align 4, !tbaa !69
   %6 = fmul float %3, %5
   ret float %6
 }
@@ -521,15 +521,15 @@ define dso_local noundef float @_ZNK14btAngularLimit8getErrorEv(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZNK14btAngularLimit3fitERf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load float, ptr %3, align 4, !tbaa !61
+  %4 = load float, ptr %3, align 4, !tbaa !60
   %5 = fcmp ogt float %4, 0.000000e+00
   br i1 %5, label %6, label %44
 
 6:                                                ; preds = %2
-  %7 = load float, ptr %1, align 4, !tbaa !71
-  %8 = load float, ptr %0, align 4, !tbaa !64
+  %7 = load float, ptr %1, align 4, !tbaa !70
+  %8 = load float, ptr %0, align 4, !tbaa !63
   %9 = fsub float %7, %8
-  %10 = tail call noundef float @fmodf(float noundef %9, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %10 = tail call noundef float @fmodf(float noundef %9, float noundef 0x401921FB60000000) #18, !tbaa !62
   %11 = fcmp olt float %10, 0xC00921FB60000000
   br i1 %11, label %12, label %14
 
@@ -559,7 +559,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %12, %14, %16
 
 24:                                               ; preds = %22
   %25 = fadd float %4, %8
-  %26 = tail call noundef float @fmodf(float noundef %25, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %26 = tail call noundef float @fmodf(float noundef %25, float noundef 0x401921FB60000000) #18, !tbaa !62
   %27 = fcmp olt float %26, 0xC00921FB60000000
   br i1 %27, label %28, label %30
 
@@ -577,7 +577,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %12, %14, %16
 
 34:                                               ; preds = %22
   %35 = fsub float %8, %4
-  %36 = tail call noundef float @fmodf(float noundef %35, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %36 = tail call noundef float @fmodf(float noundef %35, float noundef 0x401921FB60000000) #18, !tbaa !62
   %37 = fcmp olt float %36, 0xC00921FB60000000
   br i1 %37, label %38, label %40
 
@@ -595,7 +595,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %12, %14, %16
 
 .sink.split:                                      ; preds = %42, %40, %38, %32, %30, %28
   %.0.i.i6.sink = phi float [ %29, %28 ], [ %33, %32 ], [ %26, %30 ], [ %39, %38 ], [ %43, %42 ], [ %36, %40 ]
-  store float %.0.i.i6.sink, ptr %1, align 4, !tbaa !71
+  store float %.0.i.i6.sink, ptr %1, align 4, !tbaa !70
   br label %44
 
 44:                                               ; preds = %.sink.split, %_Z16btNormalizeAnglef.exit, %2
@@ -604,11 +604,11 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %12, %14, %16
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define dso_local noundef float @_ZNK14btAngularLimit7getHighEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #11 align 2 {
-  %2 = load float, ptr %0, align 4, !tbaa !64
+  %2 = load float, ptr %0, align 4, !tbaa !63
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load float, ptr %3, align 4, !tbaa !61
+  %4 = load float, ptr %3, align 4, !tbaa !60
   %5 = fadd float %2, %4
-  %6 = tail call noundef float @fmodf(float noundef %5, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %6 = tail call noundef float @fmodf(float noundef %5, float noundef 0x401921FB60000000) #18, !tbaa !62
   %7 = fcmp olt float %6, 0xC00921FB60000000
   br i1 %7, label %8, label %10
 
@@ -631,11 +631,11 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %8, %10, %12
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define dso_local noundef float @_ZNK14btAngularLimit6getLowEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #11 align 2 {
-  %2 = load float, ptr %0, align 4, !tbaa !64
+  %2 = load float, ptr %0, align 4, !tbaa !63
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load float, ptr %3, align 4, !tbaa !61
+  %4 = load float, ptr %3, align 4, !tbaa !60
   %5 = fsub float %2, %4
-  %6 = tail call noundef float @fmodf(float noundef %5, float noundef 0x401921FB60000000) #18, !tbaa !63
+  %6 = tail call noundef float @fmodf(float noundef %5, float noundef 0x401921FB60000000) #18, !tbaa !62
   %7 = fcmp olt float %6, 0xC00921FB60000000
   br i1 %7, label %8, label %10
 
@@ -788,20 +788,19 @@ attributes #19 = { noreturn nounwind }
 !52 = !{!49, !51, i64 16}
 !53 = !{!54, !54, i64 0}
 !54 = !{!"p1 _ZTS17btTypedConstraint", !16, i64 0}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = distinct !{!58, !56, !57}
-!59 = !{!49, !14, i64 24}
-!60 = !{!49, !6, i64 8}
-!61 = !{!62, !13, i64 4}
-!62 = !{!"_ZTS14btAngularLimit", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !14, i64 28}
-!63 = !{!6, !6, i64 0}
-!64 = !{!62, !13, i64 0}
-!65 = !{!62, !13, i64 8}
-!66 = !{!62, !13, i64 12}
-!67 = !{!62, !13, i64 16}
-!68 = !{!62, !14, i64 28}
-!69 = !{!62, !13, i64 20}
-!70 = !{!62, !13, i64 24}
-!71 = !{!13, !13, i64 0}
+!57 = distinct !{!57, !56}
+!58 = !{!49, !14, i64 24}
+!59 = !{!49, !6, i64 8}
+!60 = !{!61, !13, i64 4}
+!61 = !{!"_ZTS14btAngularLimit", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !14, i64 28}
+!62 = !{!6, !6, i64 0}
+!63 = !{!61, !13, i64 0}
+!64 = !{!61, !13, i64 8}
+!65 = !{!61, !13, i64 12}
+!66 = !{!61, !13, i64 16}
+!67 = !{!61, !14, i64 28}
+!68 = !{!61, !13, i64 20}
+!69 = !{!61, !13, i64 24}
+!70 = !{!13, !13, i64 0}

@@ -99,7 +99,7 @@ define i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.next
   store i64 %20, ptr %24, align 8, !tbaa !11
   %25 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre41 = load i32, ptr %4, align 8, !tbaa !3
@@ -133,7 +133,7 @@ thread-pre-split:                                 ; preds = %13, %35, %._crit_ed
 
 39:                                               ; preds = %thread-pre-split
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %40, align 8, !tbaa !17
+  store i32 0, ptr %40, align 8, !tbaa !16
   br label %41
 
 41:                                               ; preds = %thread-pre-split.thread, %thread-pre-split, %39, %7, %3, %2
@@ -165,7 +165,7 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !17
+  %9 = load i32, ptr %8, align 8, !tbaa !16
   %.not38 = icmp eq i32 %9, 0
   br i1 %.not38, label %.preheader, label %12
 
@@ -177,17 +177,17 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %18
 
 12:                                               ; preds = %7
-  store i32 0, ptr %8, align 8, !tbaa !17
+  store i32 0, ptr %8, align 8, !tbaa !16
   %13 = tail call i32 @BN_sub_word(ptr noundef nonnull %0, i64 noundef %1)
   %14 = tail call i32 @BN_is_zero(ptr noundef nonnull %0) #3
   %.not40 = icmp eq i32 %14, 0
   br i1 %.not40, label %15, label %.critedge42
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %8, align 8, !tbaa !17
+  %16 = load i32, ptr %8, align 8, !tbaa !16
   %.not41 = icmp eq i32 %16, 0
   %17 = zext i1 %.not41 to i32
-  store i32 %17, ptr %8, align 8, !tbaa !17
+  store i32 %17, ptr %8, align 8, !tbaa !16
   br label %.critedge42
 
 18:                                               ; preds = %.preheader, %19
@@ -204,7 +204,7 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   store i64 %23, ptr %21, align 8, !tbaa !11
   %24 = icmp ugt i64 %.03446, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %24, label %18, label %.critedge42, !llvm.loop !18
+  br i1 %24, label %18, label %.critedge42, !llvm.loop !17
 
 .critedge:                                        ; preds = %18
   %25 = icmp sgt i32 %11, -1
@@ -256,14 +256,14 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !17
+  %10 = load i32, ptr %9, align 8, !tbaa !16
   %.not44 = icmp eq i32 %10, 0
   br i1 %.not44, label %13, label %11
 
 11:                                               ; preds = %8
-  store i32 0, ptr %9, align 8, !tbaa !17
+  store i32 0, ptr %9, align 8, !tbaa !16
   %12 = tail call i32 @BN_add_word(ptr noundef nonnull %0, i64 noundef %1)
-  store i32 1, ptr %9, align 8, !tbaa !17
+  store i32 1, ptr %9, align 8, !tbaa !16
   br label %33
 
 13:                                               ; preds = %8
@@ -279,7 +279,7 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %19 = sub nuw i64 %1, %.pre58
   store i64 %19, ptr %.pre, align 8, !tbaa !11
-  store i32 1, ptr %9, align 8, !tbaa !17
+  store i32 1, ptr %9, align 8, !tbaa !16
   br label %33
 
 20:                                               ; preds = %13
@@ -317,7 +317,7 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %30 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8, !tbaa !11
   %.not45 = icmp eq i64 %31, 0
-  br i1 %.not45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %.not45, label %.lr.ph, label %._crit_edge.loopexit
 
 32:                                               ; preds = %._crit_edge
   store i32 %.0.lcssa, ptr %14, align 8, !tbaa !3
@@ -405,10 +405,8 @@ attributes #3 = { nounwind }
 !10 = !{!4, !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{!4, !9, i64 16}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !15}
+!15 = distinct !{!15, !14}
+!16 = !{!4, !9, i64 16}
+!17 = distinct !{!17, !14}

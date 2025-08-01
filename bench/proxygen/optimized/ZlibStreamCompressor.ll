@@ -321,12 +321,12 @@ invoke.cont21.us:                                 ; preds = %if.end.i.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %call.i8.us, ptr %status_, align 8
   %cmp24.not.us = icmp eq i32 %call.i8.us, 0
-  br i1 %cmp24.not.us, label %while.cond15thread-pre-split.us, label %cleanup, !llvm.loop !7
+  br i1 %cmp24.not.us, label %while.cond15thread-pre-split.us, label %cleanup, !llvm.loop !6
 
 while.cond15thread-pre-split.us:                  ; preds = %invoke.cont21.us
   %.pr.us = load i32, ptr %avail_in, align 8
   %cmp.not.us = icmp eq i32 %.pr.us, 0
-  br i1 %cmp.not.us, label %for.inc.loopexit, label %while.body18.us, !llvm.loop !8
+  br i1 %cmp.not.us, label %for.inc.loopexit, label %while.body18.us, !llvm.loop !7
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %if.end.i.us, %if.then.i.us
   %lpad.loopexit49.us = landingpad { ptr, i32 }
@@ -417,7 +417,7 @@ invoke.cont21:                                    ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %call.i8, ptr %status_, align 8
   %cmp24.not = icmp eq i32 %call.i8, 0
-  br i1 %cmp24.not, label %while.cond15thread-pre-split, label %cleanup, !llvm.loop !7
+  br i1 %cmp24.not, label %while.cond15thread-pre-split, label %cleanup, !llvm.loop !6
 
 lpad.loopexit:                                    ; preds = %if.then.i13, %if.end.i12
   %lpad.loopexit44 = landingpad { ptr, i32 }
@@ -540,7 +540,7 @@ invoke.cont32:                                    ; preds = %if.end.i12
   switch i32 %call.i23, label %cleanup [
     i32 0, label %do.body
     i32 1, label %cleanup.thread.loopexit
-  ], !llvm.loop !10
+  ]
 
 do.body41:                                        ; preds = %do.body41.preheader, %invoke.cont44
   %cmp.i27 = phi i1 [ %30, %do.body41.preheader ], [ true, %invoke.cont44 ]
@@ -587,7 +587,7 @@ invoke.cont44:                                    ; preds = %if.end.i28
   store i32 %call.i39, ptr %status_34, align 8
   %40 = load i32, ptr %avail_out.i10, align 8
   %cmp49 = icmp eq i32 %40, 0
-  br i1 %cmp49, label %do.body41, label %do.end50, !llvm.loop !11
+  br i1 %cmp49, label %do.body41, label %do.end50, !llvm.loop !9
 
 do.end50:                                         ; preds = %invoke.cont44
   %cmp52.not = icmp eq i32 %call.i39, 0
@@ -800,11 +800,9 @@ attributes #14 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}

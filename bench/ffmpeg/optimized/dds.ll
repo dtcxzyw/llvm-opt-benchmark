@@ -1207,9 +1207,9 @@ parse_pixel_format.exit:                          ; preds = %101, %328, %329, %3
   %509 = sub i64 %507, %508
   %510 = trunc i64 %509 to i32
   %511 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %512 = load i32, ptr %511, align 4, !tbaa !73
+  %512 = load i32, ptr %511, align 4, !tbaa !72
   %513 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %514 = load i32, ptr %513, align 8, !tbaa !78
+  %514 = load i32, ptr %513, align 8, !tbaa !77
   %515 = mul nsw i32 %514, %512
   %516 = sdiv i32 %515, 2
   %.not161 = icmp sgt i32 %516, %510
@@ -1268,13 +1268,13 @@ bytestream2_get_byte.exit:                        ; preds = %529, %530
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 1
   store i8 %538, ptr %539, align 1, !tbaa !35
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 2
-  %540 = load i32, ptr %513, align 8, !tbaa !78
+  %540 = load i32, ptr %513, align 8, !tbaa !77
   %541 = sext i32 %540 to i64
   %542 = icmp slt i64 %indvars.iv.next203, %541
-  br i1 %542, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !79
+  br i1 %542, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !78
 
 ._crit_edge.loopexit:                             ; preds = %bytestream2_get_byte.exit
-  %.pre = load i32, ptr %511, align 4, !tbaa !73
+  %.pre = load i32, ptr %511, align 4, !tbaa !72
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -1285,13 +1285,13 @@ bytestream2_get_byte.exit:                        ; preds = %529, %530
   %547 = getelementptr inbounds i8, ptr %.0148194, i64 %546
   %548 = add nuw nsw i32 %.0146195, 1
   %549 = icmp slt i32 %548, %543
-  br i1 %549, label %.preheader, label %.loopexit, !llvm.loop !80
+  br i1 %549, label %.preheader, label %.loopexit, !llvm.loop !79
 
 550:                                              ; preds = %466, %462, %459
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %552 = load i32, ptr %551, align 8, !tbaa !46
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %554 = load i32, ptr %553, align 8, !tbaa !78
+  %554 = load i32, ptr %553, align 8, !tbaa !77
   %555 = call i32 @av_image_get_linesize(i32 noundef %552, i32 noundef %554, i32 noundef 0) #8
   %556 = load i32, ptr %460, align 4, !tbaa !44
   %.not162 = icmp eq i32 %556, 0
@@ -1338,7 +1338,7 @@ bytestream2_get_byte.exit:                        ; preds = %529, %530
   store i32 %589, ptr %572, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit190, label %569, !llvm.loop !82
+  br i1 %exitcond.not, label %.loopexit190, label %569, !llvm.loop !81
 
 .loopexit190:                                     ; preds = %569, %550
   %590 = load ptr, ptr %20, align 8, !tbaa !33
@@ -1348,7 +1348,7 @@ bytestream2_get_byte.exit:                        ; preds = %529, %530
   %594 = sub i64 %592, %593
   %595 = trunc i64 %594 to i32
   %596 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %597 = load i32, ptr %596, align 4, !tbaa !73
+  %597 = load i32, ptr %596, align 4, !tbaa !72
   %598 = mul nsw i32 %597, %555
   %.not163 = icmp sgt i32 %598, %595
   br i1 %.not163, label %.thread188, label %599
@@ -1424,7 +1424,7 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %10 = load i32, ptr %8, align 8, !tbaa !66
-  %11 = load i32, ptr %9, align 4, !tbaa !73
+  %11 = load i32, ptr %9, align 4, !tbaa !72
   %12 = mul nsw i32 %11, %10
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph182, label %do_swizzle.exit
@@ -1462,11 +1462,11 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   store i8 -1, ptr %24, align 1, !tbaa !35
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 4
   %36 = load i32, ptr %8, align 8, !tbaa !66
-  %37 = load i32, ptr %9, align 4, !tbaa !73
+  %37 = load i32, ptr %9, align 4, !tbaa !72
   %38 = mul nsw i32 %37, %36
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next202, %39
-  br i1 %40, label %.lr.ph182, label %do_swizzle.exit, !llvm.loop !83
+  br i1 %40, label %.lr.ph182, label %do_swizzle.exit, !llvm.loop !82
 
 41:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.22) #8
@@ -1477,7 +1477,7 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %48 = load i32, ptr %46, align 8, !tbaa !66
-  %49 = load i32, ptr %47, align 4, !tbaa !73
+  %49 = load i32, ptr %47, align 4, !tbaa !72
   %50 = mul nsw i32 %49, %48
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph180, label %do_swizzle.exit
@@ -1517,18 +1517,18 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   store i8 -1, ptr %74, align 1, !tbaa !35
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 4
   %75 = load i32, ptr %46, align 8, !tbaa !66
-  %76 = load i32, ptr %47, align 4, !tbaa !73
+  %76 = load i32, ptr %47, align 4, !tbaa !72
   %77 = mul nsw i32 %76, %75
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next199, %78
-  br i1 %79, label %.lr.ph180, label %do_swizzle.exit, !llvm.loop !84
+  br i1 %79, label %.lr.ph180, label %do_swizzle.exit, !llvm.loop !83
 
 80:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.23) #8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %83 = load i32, ptr %81, align 8, !tbaa !66
-  %84 = load i32, ptr %82, align 4, !tbaa !73
+  %84 = load i32, ptr %82, align 4, !tbaa !72
   %85 = mul nsw i32 %84, %83
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph178, label %do_swizzle.exit
@@ -1577,18 +1577,18 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   store i8 %89, ptr %98, align 1, !tbaa !35
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 4
   %111 = load i32, ptr %81, align 8, !tbaa !66
-  %112 = load i32, ptr %82, align 4, !tbaa !73
+  %112 = load i32, ptr %82, align 4, !tbaa !72
   %113 = mul nsw i32 %112, %111
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next196, %114
-  br i1 %115, label %.lr.ph178, label %do_swizzle.exit, !llvm.loop !85
+  br i1 %115, label %.lr.ph178, label %do_swizzle.exit, !llvm.loop !84
 
 116:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.24) #8
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %119 = load i32, ptr %117, align 8, !tbaa !66
-  %120 = load i32, ptr %118, align 4, !tbaa !73
+  %120 = load i32, ptr %118, align 4, !tbaa !72
   %121 = mul nsw i32 %120, %119
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph, label %do_swizzle.exit
@@ -1604,18 +1604,18 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   store i8 %126, ptr %124, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %128 = load i32, ptr %117, align 8, !tbaa !66
-  %129 = load i32, ptr %118, align 4, !tbaa !73
+  %129 = load i32, ptr %118, align 4, !tbaa !72
   %130 = mul nsw i32 %129, %128
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next, %131
-  br i1 %132, label %.lr.ph, label %do_swizzle.exit, !llvm.loop !86
+  br i1 %132, label %.lr.ph, label %do_swizzle.exit, !llvm.loop !85
 
 133:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.25) #8
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %136 = load i32, ptr %134, align 8, !tbaa !66
-  %137 = load i32, ptr %135, align 4, !tbaa !73
+  %137 = load i32, ptr %135, align 4, !tbaa !72
   %138 = mul nsw i32 %137, %136
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %.lr.ph.i, label %do_swizzle.exit
@@ -1631,18 +1631,18 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   store i8 %143, ptr %141, align 1, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %145 = load i32, ptr %134, align 8, !tbaa !66
-  %146 = load i32, ptr %135, align 4, !tbaa !73
+  %146 = load i32, ptr %135, align 4, !tbaa !72
   %147 = mul nsw i32 %146, %145
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next.i, %148
-  br i1 %149, label %.lr.ph.i, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %149, label %.lr.ph.i, label %do_swizzle.exit, !llvm.loop !86
 
 150:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.26) #8
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %153 = load i32, ptr %151, align 8, !tbaa !66
-  %154 = load i32, ptr %152, align 4, !tbaa !73
+  %154 = load i32, ptr %152, align 4, !tbaa !72
   %155 = mul nsw i32 %154, %153
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %.lr.ph.i111, label %do_swizzle.exit
@@ -1659,11 +1659,11 @@ define internal fastcc void @run_postproc(ptr noundef %0, ptr noundef readonly c
   store i8 %160, ptr %161, align 1, !tbaa !35
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 4
   %163 = load i32, ptr %151, align 8, !tbaa !66
-  %164 = load i32, ptr %152, align 4, !tbaa !73
+  %164 = load i32, ptr %152, align 4, !tbaa !72
   %165 = mul nsw i32 %164, %163
   %166 = sext i32 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next.i113, %166
-  br i1 %167, label %.lr.ph.i111, label %do_swizzle.exit114, !llvm.loop !87
+  br i1 %167, label %.lr.ph.i111, label %do_swizzle.exit114, !llvm.loop !86
 
 do_swizzle.exit114:                               ; preds = %.lr.ph.i111
   %168 = icmp sgt i32 %165, 0
@@ -1681,18 +1681,18 @@ do_swizzle.exit114:                               ; preds = %.lr.ph.i111
   store i8 %172, ptr %173, align 1, !tbaa !35
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 4
   %175 = load i32, ptr %151, align 8, !tbaa !66
-  %176 = load i32, ptr %152, align 4, !tbaa !73
+  %176 = load i32, ptr %152, align 4, !tbaa !72
   %177 = mul nsw i32 %176, %175
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv.next.i117, %178
-  br i1 %179, label %.lr.ph.i115, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %179, label %.lr.ph.i115, label %do_swizzle.exit, !llvm.loop !86
 
 180:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.27) #8
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %183 = load i32, ptr %181, align 8, !tbaa !66
-  %184 = load i32, ptr %182, align 4, !tbaa !73
+  %184 = load i32, ptr %182, align 4, !tbaa !72
   %185 = mul nsw i32 %184, %183
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %.lr.ph.i119, label %do_swizzle.exit
@@ -1709,18 +1709,18 @@ do_swizzle.exit114:                               ; preds = %.lr.ph.i111
   store i8 %190, ptr %191, align 1, !tbaa !35
   %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i120, 4
   %193 = load i32, ptr %181, align 8, !tbaa !66
-  %194 = load i32, ptr %182, align 4, !tbaa !73
+  %194 = load i32, ptr %182, align 4, !tbaa !72
   %195 = mul nsw i32 %194, %193
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next.i121, %196
-  br i1 %197, label %.lr.ph.i119, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %197, label %.lr.ph.i119, label %do_swizzle.exit, !llvm.loop !86
 
 198:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.28) #8
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %201 = load i32, ptr %199, align 8, !tbaa !66
-  %202 = load i32, ptr %200, align 4, !tbaa !73
+  %202 = load i32, ptr %200, align 4, !tbaa !72
   %203 = mul nsw i32 %202, %201
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %.lr.ph.i123, label %do_swizzle.exit
@@ -1737,18 +1737,18 @@ do_swizzle.exit114:                               ; preds = %.lr.ph.i111
   store i8 %208, ptr %209, align 1, !tbaa !35
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 4
   %211 = load i32, ptr %199, align 8, !tbaa !66
-  %212 = load i32, ptr %200, align 4, !tbaa !73
+  %212 = load i32, ptr %200, align 4, !tbaa !72
   %213 = mul nsw i32 %212, %211
   %214 = sext i32 %213 to i64
   %215 = icmp slt i64 %indvars.iv.next.i125, %214
-  br i1 %215, label %.lr.ph.i123, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %215, label %.lr.ph.i123, label %do_swizzle.exit, !llvm.loop !86
 
 216:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.29) #8
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %219 = load i32, ptr %217, align 8, !tbaa !66
-  %220 = load i32, ptr %218, align 4, !tbaa !73
+  %220 = load i32, ptr %218, align 4, !tbaa !72
   %221 = mul nsw i32 %220, %219
   %222 = icmp sgt i32 %221, 0
   br i1 %222, label %.lr.ph.i127, label %do_swizzle.exit
@@ -1764,18 +1764,18 @@ do_swizzle.exit114:                               ; preds = %.lr.ph.i111
   store i8 %226, ptr %224, align 1, !tbaa !35
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i128, 4
   %228 = load i32, ptr %217, align 8, !tbaa !66
-  %229 = load i32, ptr %218, align 4, !tbaa !73
+  %229 = load i32, ptr %218, align 4, !tbaa !72
   %230 = mul nsw i32 %229, %228
   %231 = sext i32 %230 to i64
   %232 = icmp slt i64 %indvars.iv.next.i129, %231
-  br i1 %232, label %.lr.ph.i127, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %232, label %.lr.ph.i127, label %do_swizzle.exit, !llvm.loop !86
 
 233:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.30) #8
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %236 = load i32, ptr %234, align 8, !tbaa !66
-  %237 = load i32, ptr %235, align 4, !tbaa !73
+  %237 = load i32, ptr %235, align 4, !tbaa !72
   %238 = mul nsw i32 %237, %236
   %239 = icmp sgt i32 %238, 0
   br i1 %239, label %.lr.ph.i131, label %do_swizzle.exit
@@ -1792,11 +1792,11 @@ do_swizzle.exit114:                               ; preds = %.lr.ph.i111
   store i8 %243, ptr %244, align 1, !tbaa !35
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i132, 4
   %246 = load i32, ptr %234, align 8, !tbaa !66
-  %247 = load i32, ptr %235, align 4, !tbaa !73
+  %247 = load i32, ptr %235, align 4, !tbaa !72
   %248 = mul nsw i32 %247, %246
   %249 = sext i32 %248 to i64
   %250 = icmp slt i64 %indvars.iv.next.i133, %249
-  br i1 %250, label %.lr.ph.i131, label %do_swizzle.exit134, !llvm.loop !87
+  br i1 %250, label %.lr.ph.i131, label %do_swizzle.exit134, !llvm.loop !86
 
 do_swizzle.exit134:                               ; preds = %.lr.ph.i131
   %251 = icmp sgt i32 %248, 0
@@ -1813,18 +1813,18 @@ do_swizzle.exit134:                               ; preds = %.lr.ph.i131
   store i8 %255, ptr %253, align 1, !tbaa !35
   %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i136, 4
   %257 = load i32, ptr %234, align 8, !tbaa !66
-  %258 = load i32, ptr %235, align 4, !tbaa !73
+  %258 = load i32, ptr %235, align 4, !tbaa !72
   %259 = mul nsw i32 %258, %257
   %260 = sext i32 %259 to i64
   %261 = icmp slt i64 %indvars.iv.next.i137, %260
-  br i1 %261, label %.lr.ph.i135, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %261, label %.lr.ph.i135, label %do_swizzle.exit, !llvm.loop !86
 
 262:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.31) #8
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %265 = load i32, ptr %263, align 8, !tbaa !66
-  %266 = load i32, ptr %264, align 4, !tbaa !73
+  %266 = load i32, ptr %264, align 4, !tbaa !72
   %267 = mul nsw i32 %266, %265
   %268 = icmp sgt i32 %267, 0
   br i1 %268, label %.lr.ph.i139, label %do_swizzle.exit
@@ -1841,11 +1841,11 @@ do_swizzle.exit134:                               ; preds = %.lr.ph.i131
   store i8 %272, ptr %273, align 1, !tbaa !35
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 4
   %275 = load i32, ptr %263, align 8, !tbaa !66
-  %276 = load i32, ptr %264, align 4, !tbaa !73
+  %276 = load i32, ptr %264, align 4, !tbaa !72
   %277 = mul nsw i32 %276, %275
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next.i141, %278
-  br i1 %279, label %.lr.ph.i139, label %do_swizzle.exit142, !llvm.loop !87
+  br i1 %279, label %.lr.ph.i139, label %do_swizzle.exit142, !llvm.loop !86
 
 do_swizzle.exit142:                               ; preds = %.lr.ph.i139
   %280 = icmp sgt i32 %277, 0
@@ -1862,11 +1862,11 @@ do_swizzle.exit142:                               ; preds = %.lr.ph.i139
   store i8 %284, ptr %282, align 1, !tbaa !35
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i144, 4
   %286 = load i32, ptr %263, align 8, !tbaa !66
-  %287 = load i32, ptr %264, align 4, !tbaa !73
+  %287 = load i32, ptr %264, align 4, !tbaa !72
   %288 = mul nsw i32 %287, %286
   %289 = sext i32 %288 to i64
   %290 = icmp slt i64 %indvars.iv.next.i145, %289
-  br i1 %290, label %.lr.ph.i143, label %do_swizzle.exit146, !llvm.loop !87
+  br i1 %290, label %.lr.ph.i143, label %do_swizzle.exit146, !llvm.loop !86
 
 do_swizzle.exit146:                               ; preds = %.lr.ph.i143
   %291 = icmp sgt i32 %288, 0
@@ -1883,18 +1883,18 @@ do_swizzle.exit146:                               ; preds = %.lr.ph.i143
   store i8 %295, ptr %293, align 1, !tbaa !35
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i148, 4
   %297 = load i32, ptr %263, align 8, !tbaa !66
-  %298 = load i32, ptr %264, align 4, !tbaa !73
+  %298 = load i32, ptr %264, align 4, !tbaa !72
   %299 = mul nsw i32 %298, %297
   %300 = sext i32 %299 to i64
   %301 = icmp slt i64 %indvars.iv.next.i149, %300
-  br i1 %301, label %.lr.ph.i147, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %301, label %.lr.ph.i147, label %do_swizzle.exit, !llvm.loop !86
 
 302:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.32) #8
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %305 = load i32, ptr %303, align 8, !tbaa !66
-  %306 = load i32, ptr %304, align 4, !tbaa !73
+  %306 = load i32, ptr %304, align 4, !tbaa !72
   %307 = mul nsw i32 %306, %305
   %308 = icmp sgt i32 %307, 0
   br i1 %308, label %.lr.ph.i151, label %do_swizzle.exit
@@ -1911,11 +1911,11 @@ do_swizzle.exit146:                               ; preds = %.lr.ph.i143
   store i8 %312, ptr %313, align 1, !tbaa !35
   %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i152, 4
   %315 = load i32, ptr %303, align 8, !tbaa !66
-  %316 = load i32, ptr %304, align 4, !tbaa !73
+  %316 = load i32, ptr %304, align 4, !tbaa !72
   %317 = mul nsw i32 %316, %315
   %318 = sext i32 %317 to i64
   %319 = icmp slt i64 %indvars.iv.next.i153, %318
-  br i1 %319, label %.lr.ph.i151, label %do_swizzle.exit154, !llvm.loop !87
+  br i1 %319, label %.lr.ph.i151, label %do_swizzle.exit154, !llvm.loop !86
 
 do_swizzle.exit154:                               ; preds = %.lr.ph.i151
   %320 = icmp sgt i32 %317, 0
@@ -1932,11 +1932,11 @@ do_swizzle.exit154:                               ; preds = %.lr.ph.i151
   store i8 %324, ptr %322, align 1, !tbaa !35
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i156, 4
   %326 = load i32, ptr %303, align 8, !tbaa !66
-  %327 = load i32, ptr %304, align 4, !tbaa !73
+  %327 = load i32, ptr %304, align 4, !tbaa !72
   %328 = mul nsw i32 %327, %326
   %329 = sext i32 %328 to i64
   %330 = icmp slt i64 %indvars.iv.next.i157, %329
-  br i1 %330, label %.lr.ph.i155, label %do_swizzle.exit, !llvm.loop !87
+  br i1 %330, label %.lr.ph.i155, label %do_swizzle.exit, !llvm.loop !86
 
 do_swizzle.exit:                                  ; preds = %.lr.ph.i155, %.lr.ph.i147, %.lr.ph.i135, %.lr.ph.i127, %.lr.ph.i123, %.lr.ph.i119, %.lr.ph.i115, %.lr.ph.i, %.lr.ph, %.lr.ph178, %72, %.lr.ph182, %302, %262, %do_swizzle.exit142, %233, %150, %116, %80, %41, %7, %do_swizzle.exit154, %do_swizzle.exit146, %do_swizzle.exit134, %216, %198, %180, %do_swizzle.exit114, %133, %2
   ret void
@@ -2057,21 +2057,20 @@ attributes #9 = { noreturn nounwind }
 !67 = !{!41, !13, i64 168}
 !68 = !{!41, !10, i64 176}
 !69 = !{!41, !10, i64 180}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = !{!74, !10, i64 108}
-!74 = !{!"AVFrame", !8, i64 0, !8, i64 64, !75, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !76, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !77, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!75 = !{!"p2 omnipotent char", !26, i64 0}
-!76 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!77 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!78 = !{!74, !10, i64 104}
-!79 = distinct !{!79, !71, !72}
-!80 = distinct !{!80, !71, !72, !81}
-!81 = !{!"llvm.loop.unswitch.partial.disable"}
-!82 = distinct !{!82, !71, !72}
-!83 = distinct !{!83, !71, !72}
-!84 = distinct !{!84, !71, !72}
-!85 = distinct !{!85, !71, !72}
-!86 = distinct !{!86, !71, !72}
-!87 = distinct !{!87, !71, !72}
+!72 = !{!73, !10, i64 108}
+!73 = !{!"AVFrame", !8, i64 0, !8, i64 64, !74, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !75, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !76, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!74 = !{!"p2 omnipotent char", !26, i64 0}
+!75 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!76 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!77 = !{!73, !10, i64 104}
+!78 = distinct !{!78, !71}
+!79 = distinct !{!79, !71, !80}
+!80 = !{!"llvm.loop.unswitch.partial.disable"}
+!81 = distinct !{!81, !71}
+!82 = distinct !{!82, !71}
+!83 = distinct !{!83, !71}
+!84 = distinct !{!84, !71}
+!85 = distinct !{!85, !71}
+!86 = distinct !{!86, !71}

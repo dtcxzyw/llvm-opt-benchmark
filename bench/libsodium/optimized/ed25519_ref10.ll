@@ -788,7 +788,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %580 = add nuw nsw i64 %578, %560
   %581 = add nuw nsw i32 %.137, 1
   %exitcond133.not = icmp eq i32 %581, 10
-  br i1 %exitcond133.not, label %582, label %511, !llvm.loop !7
+  br i1 %exitcond133.not, label %582, label %511, !llvm.loop !6
 
 582:                                              ; preds = %511
   store i64 %576, ptr %5, align 16
@@ -949,7 +949,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %729 = add nuw nsw i64 %727, %707
   %730 = add nuw nsw i32 %.243, 1
   %exitcond134.not = icmp eq i32 %730, 20
-  br i1 %exitcond134.not, label %731, label %660, !llvm.loop !8
+  br i1 %exitcond134.not, label %731, label %660, !llvm.loop !7
 
 731:                                              ; preds = %660
   store i64 %725, ptr %6, align 16
@@ -1042,7 +1042,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %805 = add nuw nsw i64 %803, %783
   %806 = add nuw nsw i32 %.354, 1
   %exitcond135.not = icmp eq i32 %806, 11
-  br i1 %exitcond135.not, label %807, label %732, !llvm.loop !9
+  br i1 %exitcond135.not, label %807, label %732, !llvm.loop !8
 
 807:                                              ; preds = %732
   store i64 %801, ptr %5, align 16
@@ -1199,7 +1199,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %950 = add nuw nsw i64 %948, %930
   %951 = add nuw nsw i32 %.465, 1
   %exitcond136.not = icmp eq i32 %951, 50
-  br i1 %exitcond136.not, label %952, label %881, !llvm.loop !10
+  br i1 %exitcond136.not, label %952, label %881, !llvm.loop !9
 
 952:                                              ; preds = %881
   store i64 %946, ptr %5, align 16
@@ -1356,7 +1356,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %1095 = add nuw nsw i64 %1093, %1073
   %1096 = add nuw nsw i32 %.571, 1
   %exitcond137.not = icmp eq i32 %1096, 100
-  br i1 %exitcond137.not, label %1097, label %1026, !llvm.loop !11
+  br i1 %exitcond137.not, label %1097, label %1026, !llvm.loop !10
 
 1097:                                             ; preds = %1026
   store i64 %1091, ptr %6, align 16
@@ -1449,7 +1449,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %1171 = add nuw nsw i64 %1169, %1149
   %1172 = add nuw nsw i32 %.682, 1
   %exitcond138.not = icmp eq i32 %1172, 51
-  br i1 %exitcond138.not, label %1173, label %1098, !llvm.loop !12
+  br i1 %exitcond138.not, label %1173, label %1098, !llvm.loop !11
 
 1173:                                             ; preds = %1098
   store i64 %1167, ptr %5, align 16
@@ -1542,7 +1542,7 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %1247 = add nuw nsw i64 %1245, %1225
   %1248 = add nuw nsw i32 %.793, 1
   %exitcond139.not = icmp eq i32 %1248, 6
-  br i1 %exitcond139.not, label %1249, label %1174, !llvm.loop !13
+  br i1 %exitcond139.not, label %1249, label %1174, !llvm.loop !12
 
 1249:                                             ; preds = %1174
   store i64 %1243, ptr %4, align 16
@@ -2013,7 +2013,7 @@ define hidden i32 @_sodium_ge25519_frombytes(ptr noundef initializes((40, 88)) %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
   call fastcc void @fe25519_mul(ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull @fe25519_sqrtm1)
   %266 = sub i32 1, %264
-  %267 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %12, i32 %266) #12, !srcloc !14
+  %267 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %12, i32 %266) #12, !srcloc !13
   %268 = load i64, ptr %0, align 8
   %269 = load i64, ptr %147, align 8
   %270 = load i64, ptr %150, align 8
@@ -2062,7 +2062,7 @@ define hidden i32 @_sodium_ge25519_frombytes(ptr noundef initializes((40, 88)) %
   %303 = xor i8 %301, %297
   %304 = xor i8 %303, %302
   %305 = zext nneg i8 %304 to i32
-  %306 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %11, i32 %305) #12, !srcloc !14
+  %306 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %11, i32 %305) #12, !srcloc !13
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %307, ptr noundef nonnull %0, ptr noundef nonnull %13)
   %308 = or i32 %265, %264
@@ -2533,7 +2533,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %430 = add nuw nsw i64 %428, %410
   %431 = add nuw nsw i32 %.025, 1
   %exitcond.not = icmp eq i32 %431, 5
-  br i1 %exitcond.not, label %432, label %361, !llvm.loop !15
+  br i1 %exitcond.not, label %432, label %361, !llvm.loop !14
 
 432:                                              ; preds = %361
   store i64 %426, ptr %4, align 16
@@ -2690,7 +2690,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %575 = add nuw nsw i64 %573, %555
   %576 = add nuw nsw i32 %.136, 1
   %exitcond116.not = icmp eq i32 %576, 10
-  br i1 %exitcond116.not, label %577, label %506, !llvm.loop !16
+  br i1 %exitcond116.not, label %577, label %506, !llvm.loop !15
 
 577:                                              ; preds = %506
   store i64 %571, ptr %4, align 16
@@ -2851,7 +2851,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %724 = add nuw nsw i64 %722, %702
   %725 = add nuw nsw i32 %.242, 1
   %exitcond117.not = icmp eq i32 %725, 20
-  br i1 %exitcond117.not, label %726, label %655, !llvm.loop !17
+  br i1 %exitcond117.not, label %726, label %655, !llvm.loop !16
 
 726:                                              ; preds = %655
   store i64 %720, ptr %5, align 16
@@ -2944,7 +2944,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %800 = add nuw nsw i64 %798, %778
   %801 = add nuw nsw i32 %.353, 1
   %exitcond118.not = icmp eq i32 %801, 11
-  br i1 %exitcond118.not, label %802, label %727, !llvm.loop !18
+  br i1 %exitcond118.not, label %802, label %727, !llvm.loop !17
 
 802:                                              ; preds = %727
   store i64 %796, ptr %4, align 16
@@ -3101,7 +3101,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %945 = add nuw nsw i64 %943, %925
   %946 = add nuw nsw i32 %.464, 1
   %exitcond119.not = icmp eq i32 %946, 50
-  br i1 %exitcond119.not, label %947, label %876, !llvm.loop !19
+  br i1 %exitcond119.not, label %947, label %876, !llvm.loop !18
 
 947:                                              ; preds = %876
   store i64 %941, ptr %4, align 16
@@ -3258,7 +3258,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %1090 = add nuw nsw i64 %1088, %1068
   %1091 = add nuw nsw i32 %.570, 1
   %exitcond120.not = icmp eq i32 %1091, 100
-  br i1 %exitcond120.not, label %1092, label %1021, !llvm.loop !20
+  br i1 %exitcond120.not, label %1092, label %1021, !llvm.loop !19
 
 1092:                                             ; preds = %1021
   store i64 %1086, ptr %5, align 16
@@ -3351,7 +3351,7 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %1166 = add nuw nsw i64 %1164, %1144
   %1167 = add nuw nsw i32 %.681, 1
   %exitcond121.not = icmp eq i32 %1167, 51
-  br i1 %exitcond121.not, label %1168, label %1093, !llvm.loop !21
+  br i1 %exitcond121.not, label %1168, label %1093, !llvm.loop !20
 
 1168:                                             ; preds = %1093
   store i64 %1162, ptr %4, align 16
@@ -4197,7 +4197,7 @@ define hidden void @_sodium_ge25519_double_scalarmult_vartime(ptr noundef %0, pt
   store i8 %20, ptr %21, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.preheader57.i, label %12, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.preheader57.i, label %12, !llvm.loop !21
 
 .preheader57.i:                                   ; preds = %12, %.loopexit56.i
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %.loopexit56.i ], [ 0, %12 ]
@@ -4265,20 +4265,20 @@ define hidden void @_sodium_ge25519_double_scalarmult_vartime(ptr noundef %0, pt
   store i8 0, ptr %42, align 1
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next73.i, 256
-  br i1 %exitcond75.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond75.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %45, %44, %36, %.lr.ph61.i
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next77.i, %wide.trip.count.i
-  br i1 %exitcond83.not.i, label %.loopexit56.i, label %.lr.ph61.i, !llvm.loop !24
+  br i1 %exitcond83.not.i, label %.loopexit56.i, label %.lr.ph61.i, !llvm.loop !23
 
 .loopexit56.i:                                    ; preds = %.loopexit.i, %38, %.preheader57.i
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %indvars.iv.next82.i = add nsw i32 %indvars.iv81.i, -1
   %exitcond87.not.i = icmp eq i64 %indvars.iv.next85.i, 256
-  br i1 %exitcond87.not.i, label %slide_vartime.exit, label %.preheader57.i, !llvm.loop !25
+  br i1 %exitcond87.not.i, label %slide_vartime.exit, label %.preheader57.i, !llvm.loop !24
 
 slide_vartime.exit:                               ; preds = %.loopexit56.i, %slide_vartime.exit
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i24, %slide_vartime.exit ], [ 0, %.loopexit56.i ]
@@ -4294,7 +4294,7 @@ slide_vartime.exit:                               ; preds = %.loopexit56.i, %sli
   store i8 %53, ptr %54, align 1
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 256
-  br i1 %exitcond.not.i25, label %.preheader57.i26, label %slide_vartime.exit, !llvm.loop !22
+  br i1 %exitcond.not.i25, label %.preheader57.i26, label %slide_vartime.exit, !llvm.loop !21
 
 .preheader57.i26:                                 ; preds = %slide_vartime.exit, %.loopexit56.i32
   %indvars.iv84.i27 = phi i64 [ %indvars.iv.next85.i33, %.loopexit56.i32 ], [ 0, %slide_vartime.exit ]
@@ -4362,20 +4362,20 @@ slide_vartime.exit:                               ; preds = %.loopexit56.i, %sli
   store i8 0, ptr %75, align 1
   %indvars.iv.next73.i48 = add nuw nsw i64 %indvars.iv72.i46, 1
   %exitcond75.not.i49 = icmp eq i64 %indvars.iv.next73.i48, 256
-  br i1 %exitcond75.not.i49, label %.loopexit.i50, label %.lr.ph.i45, !llvm.loop !23
+  br i1 %exitcond75.not.i49, label %.loopexit.i50, label %.lr.ph.i45, !llvm.loop !22
 
 .loopexit.i50:                                    ; preds = %78, %77, %69, %.lr.ph61.i40
   %indvars.iv.next77.i51 = add nuw nsw i64 %indvars.iv76.i41, 1
   %indvars.iv.next71.i52 = add nuw nsw i64 %indvars.iv70.i42, 1
   %exitcond83.not.i53 = icmp eq i64 %indvars.iv.next77.i51, %wide.trip.count.i39
-  br i1 %exitcond83.not.i53, label %.loopexit56.i32, label %.lr.ph61.i40, !llvm.loop !24
+  br i1 %exitcond83.not.i53, label %.loopexit56.i32, label %.lr.ph61.i40, !llvm.loop !23
 
 .loopexit56.i32:                                  ; preds = %.loopexit.i50, %71, %.preheader57.i26
   %indvars.iv.next85.i33 = add nuw nsw i64 %indvars.iv84.i27, 1
   %indvars.iv.next69.i34 = add nuw nsw i64 %indvars.iv68.i29, 1
   %indvars.iv.next82.i35 = add nsw i32 %indvars.iv81.i28, -1
   %exitcond87.not.i36 = icmp eq i64 %indvars.iv.next85.i33, 256
-  br i1 %exitcond87.not.i36, label %slide_vartime.exit54, label %.preheader57.i26, !llvm.loop !25
+  br i1 %exitcond87.not.i36, label %slide_vartime.exit54, label %.preheader57.i26, !llvm.loop !24
 
 slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -5000,7 +5000,7 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
 503:                                              ; preds = %500
   %504 = add nsw i32 %.0173, -1
   %.not186 = icmp eq i32 %.0173, 0
-  br i1 %.not186, label %._crit_edge, label %496, !llvm.loop !26
+  br i1 %.not186, label %._crit_edge, label %496, !llvm.loop !25
 
 505:                                              ; preds = %496, %500
   %506 = icmp sgt i32 %.0173, -1
@@ -5430,7 +5430,7 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   call fastcc void @fe25519_mul(ptr noundef nonnull %494, ptr noundef nonnull readonly %142, ptr noundef nonnull readonly %139)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %788 = icmp sgt i64 %indvars.iv, 0
-  br i1 %788, label %528, label %._crit_edge, !llvm.loop !27
+  br i1 %788, label %528, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %503, %787, %505
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11) #12
@@ -7072,7 +7072,7 @@ define hidden void @_sodium_ge25519_scalarmult(ptr noundef %0, ptr noundef reado
   store i8 %533, ptr %535, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.preheader, label %527, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader, label %527, !llvm.loop !27
 
 .preheader:                                       ; preds = %527, %.preheader
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.preheader ], [ 0, %527 ]
@@ -7087,7 +7087,7 @@ define hidden void @_sodium_ge25519_scalarmult(ptr noundef %0, ptr noundef reado
   store i8 %542, ptr %536, align 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next111, 63
-  br i1 %exitcond112.not, label %543, label %.preheader, !llvm.loop !29
+  br i1 %exitcond112.not, label %543, label %.preheader, !llvm.loop !28
 
 543:                                              ; preds = %.preheader
   %544 = getelementptr inbounds nuw i8, ptr %8, i64 63
@@ -7140,7 +7140,7 @@ define hidden void @_sodium_ge25519_scalarmult(ptr noundef %0, ptr noundef reado
   call fastcc void @fe25519_mul(ptr noundef nonnull %551, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %554)
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, -1
   %.not = icmp eq i64 %indvars.iv.next114, 0
-  br i1 %.not, label %560, label %557, !llvm.loop !30
+  br i1 %.not, label %560, label %557, !llvm.loop !29
 
 560:                                              ; preds = %557
   %561 = load i8, ptr %8, align 16
@@ -7176,7 +7176,7 @@ define hidden void @_sodium_ge25519_scalarmult(ptr noundef %0, ptr noundef reado
 define internal fastcc void @ge25519_cmov8_cached(ptr noundef nonnull initializes((0, 8)) %0, ptr noundef nonnull %1, i8 noundef signext %2) unnamed_addr #4 {
   %4 = alloca %struct.ge25519_cached, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #12
-  %5 = tail call i8 asm "shrb $$7,$0", "=r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i8 %2) #13, !srcloc !31
+  %5 = tail call i8 asm "shrb $$7,$0", "=r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i8 %2) #13, !srcloc !30
   %6 = sub i8 0, %5
   %7 = and i8 %2, %6
   %8 = shl i8 %7, 1
@@ -7195,93 +7195,93 @@ define internal fastcc void @ge25519_cmov8_cached(ptr noundef nonnull initialize
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %15, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
   %16 = sext i8 %9 to i32
-  %17 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 1) #13, !srcloc !32
+  %17 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 1) #13, !srcloc !31
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = and i32 %18, 255
-  %20 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %1, i32 %19) #12, !srcloc !14
+  %20 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %1, i32 %19) #12, !srcloc !13
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %21, i32 %19) #12, !srcloc !14
+  %22 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %21, i32 %19) #12, !srcloc !13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %23, i32 %19) #12, !srcloc !14
+  %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %23, i32 %19) #12, !srcloc !13
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %26 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %25, i32 %19) #12, !srcloc !14
+  %26 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %25, i32 %19) #12, !srcloc !13
   %27 = getelementptr i8, ptr %1, i64 160
-  %28 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 2) #13, !srcloc !32
+  %28 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 2) #13, !srcloc !31
   %29 = extractvalue { i32, i32 } %28, 0
   %30 = and i32 %29, 255
-  %31 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %27, i32 %30) #12, !srcloc !14
+  %31 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %27, i32 %30) #12, !srcloc !13
   %32 = getelementptr i8, ptr %1, i64 200
-  %33 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %32, i32 %30) #12, !srcloc !14
+  %33 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %32, i32 %30) #12, !srcloc !13
   %34 = getelementptr i8, ptr %1, i64 240
-  %35 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %34, i32 %30) #12, !srcloc !14
+  %35 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %34, i32 %30) #12, !srcloc !13
   %36 = getelementptr i8, ptr %1, i64 280
-  %37 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %36, i32 %30) #12, !srcloc !14
+  %37 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %36, i32 %30) #12, !srcloc !13
   %38 = getelementptr i8, ptr %1, i64 320
-  %39 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 3) #13, !srcloc !32
+  %39 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 3) #13, !srcloc !31
   %40 = extractvalue { i32, i32 } %39, 0
   %41 = and i32 %40, 255
-  %42 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %38, i32 %41) #12, !srcloc !14
+  %42 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %38, i32 %41) #12, !srcloc !13
   %43 = getelementptr i8, ptr %1, i64 360
-  %44 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %43, i32 %41) #12, !srcloc !14
+  %44 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %43, i32 %41) #12, !srcloc !13
   %45 = getelementptr i8, ptr %1, i64 400
-  %46 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %45, i32 %41) #12, !srcloc !14
+  %46 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %45, i32 %41) #12, !srcloc !13
   %47 = getelementptr i8, ptr %1, i64 440
-  %48 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %47, i32 %41) #12, !srcloc !14
+  %48 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %47, i32 %41) #12, !srcloc !13
   %49 = getelementptr i8, ptr %1, i64 480
-  %50 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 4) #13, !srcloc !32
+  %50 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 4) #13, !srcloc !31
   %51 = extractvalue { i32, i32 } %50, 0
   %52 = and i32 %51, 255
-  %53 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %49, i32 %52) #12, !srcloc !14
+  %53 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %49, i32 %52) #12, !srcloc !13
   %54 = getelementptr i8, ptr %1, i64 520
-  %55 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %54, i32 %52) #12, !srcloc !14
+  %55 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %54, i32 %52) #12, !srcloc !13
   %56 = getelementptr i8, ptr %1, i64 560
-  %57 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %56, i32 %52) #12, !srcloc !14
+  %57 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %56, i32 %52) #12, !srcloc !13
   %58 = getelementptr i8, ptr %1, i64 600
-  %59 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %58, i32 %52) #12, !srcloc !14
+  %59 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %58, i32 %52) #12, !srcloc !13
   %60 = getelementptr i8, ptr %1, i64 640
-  %61 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 5) #13, !srcloc !32
+  %61 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 5) #13, !srcloc !31
   %62 = extractvalue { i32, i32 } %61, 0
   %63 = and i32 %62, 255
-  %64 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %60, i32 %63) #12, !srcloc !14
+  %64 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %60, i32 %63) #12, !srcloc !13
   %65 = getelementptr i8, ptr %1, i64 680
-  %66 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %65, i32 %63) #12, !srcloc !14
+  %66 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %65, i32 %63) #12, !srcloc !13
   %67 = getelementptr i8, ptr %1, i64 720
-  %68 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %67, i32 %63) #12, !srcloc !14
+  %68 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %67, i32 %63) #12, !srcloc !13
   %69 = getelementptr i8, ptr %1, i64 760
-  %70 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %69, i32 %63) #12, !srcloc !14
+  %70 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %69, i32 %63) #12, !srcloc !13
   %71 = getelementptr i8, ptr %1, i64 800
-  %72 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 6) #13, !srcloc !32
+  %72 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 6) #13, !srcloc !31
   %73 = extractvalue { i32, i32 } %72, 0
   %74 = and i32 %73, 255
-  %75 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %71, i32 %74) #12, !srcloc !14
+  %75 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %71, i32 %74) #12, !srcloc !13
   %76 = getelementptr i8, ptr %1, i64 840
-  %77 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %76, i32 %74) #12, !srcloc !14
+  %77 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %76, i32 %74) #12, !srcloc !13
   %78 = getelementptr i8, ptr %1, i64 880
-  %79 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %78, i32 %74) #12, !srcloc !14
+  %79 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %78, i32 %74) #12, !srcloc !13
   %80 = getelementptr i8, ptr %1, i64 920
-  %81 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %80, i32 %74) #12, !srcloc !14
+  %81 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %80, i32 %74) #12, !srcloc !13
   %82 = getelementptr i8, ptr %1, i64 960
-  %83 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 7) #13, !srcloc !32
+  %83 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 7) #13, !srcloc !31
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = and i32 %84, 255
-  %86 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %82, i32 %85) #12, !srcloc !14
+  %86 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %82, i32 %85) #12, !srcloc !13
   %87 = getelementptr i8, ptr %1, i64 1000
-  %88 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %87, i32 %85) #12, !srcloc !14
+  %88 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %87, i32 %85) #12, !srcloc !13
   %89 = getelementptr i8, ptr %1, i64 1040
-  %90 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %89, i32 %85) #12, !srcloc !14
+  %90 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %89, i32 %85) #12, !srcloc !13
   %91 = getelementptr i8, ptr %1, i64 1080
-  %92 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %91, i32 %85) #12, !srcloc !14
+  %92 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %91, i32 %85) #12, !srcloc !13
   %93 = getelementptr i8, ptr %1, i64 1120
-  %94 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 8) #13, !srcloc !32
+  %94 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 8) #13, !srcloc !31
   %95 = extractvalue { i32, i32 } %94, 0
   %96 = and i32 %95, 255
-  %97 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %93, i32 %96) #12, !srcloc !14
+  %97 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %93, i32 %96) #12, !srcloc !13
   %98 = getelementptr i8, ptr %1, i64 1160
-  %99 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %98, i32 %96) #12, !srcloc !14
+  %99 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %98, i32 %96) #12, !srcloc !13
   %100 = getelementptr i8, ptr %1, i64 1200
-  %101 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %100, i32 %96) #12, !srcloc !14
+  %101 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %100, i32 %96) #12, !srcloc !13
   %102 = getelementptr i8, ptr %1, i64 1240
-  %103 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %102, i32 %96) #12, !srcloc !14
+  %103 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %102, i32 %96) #12, !srcloc !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 1 dereferenceable(40) %11, i64 noundef 40, i1 noundef false) #12
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull readonly align 1 dereferenceable(40) %0, i64 noundef 40, i1 noundef false) #12
@@ -7328,10 +7328,10 @@ define internal fastcc void @ge25519_cmov8_cached(ptr noundef nonnull initialize
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 %134, ptr %138, align 8
   %139 = zext i8 %5 to i32
-  %140 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %4, i32 %139) #12, !srcloc !14
-  %141 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %104, i32 %139) #12, !srcloc !14
-  %142 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %105, i32 %139) #12, !srcloc !14
-  %143 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %106, i32 %139) #12, !srcloc !14
+  %140 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %4, i32 %139) #12, !srcloc !13
+  %141 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr nonnull %104, i32 %139) #12, !srcloc !13
+  %142 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %105, i32 %139) #12, !srcloc !13
+  %143 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %106, i32 %139) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #12
   ret void
 }
@@ -7363,7 +7363,7 @@ define hidden void @_sodium_ge25519_scalarmult_base(ptr noundef %0, ptr noundef 
   store i8 %14, ptr %16, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !32
 
 .preheader:                                       ; preds = %8, %.preheader
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.preheader ], [ 0, %8 ]
@@ -7378,7 +7378,7 @@ define hidden void @_sodium_ge25519_scalarmult_base(ptr noundef %0, ptr noundef 
   store i8 %23, ptr %17, align 1
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next39, 63
-  br i1 %exitcond40.not, label %24, label %.preheader, !llvm.loop !34
+  br i1 %exitcond40.not, label %24, label %.preheader, !llvm.loop !33
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 63
@@ -7415,7 +7415,7 @@ define hidden void @_sodium_ge25519_scalarmult_base(ptr noundef %0, ptr noundef 
   call fastcc void @fe25519_mul(ptr noundef nonnull %32, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %34)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 2
   %41 = icmp samesign ult i64 %indvars.iv41, 62
-  br i1 %41, label %36, label %42, !llvm.loop !35
+  br i1 %41, label %36, label %42, !llvm.loop !34
 
 42:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #12
@@ -7460,7 +7460,7 @@ define hidden void @_sodium_ge25519_scalarmult_base(ptr noundef %0, ptr noundef 
   call fastcc void @fe25519_mul(ptr noundef nonnull %32, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %34)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 2
   %52 = icmp samesign ult i64 %indvars.iv44, 62
-  br i1 %52, label %47, label %53, !llvm.loop !36
+  br i1 %52, label %47, label %53, !llvm.loop !35
 
 53:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #12
@@ -7476,7 +7476,7 @@ define internal fastcc void @ge25519_cmov8_base(ptr noundef nonnull initializes(
   %5 = sext i32 %1 to i64
   %6 = getelementptr [32 x [8 x %struct.ge25519_precomp]], ptr @ge25519_cmov8_base.base, i64 0, i64 %5
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #12
-  %7 = tail call i8 asm "shrb $$7,$0", "=r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i8 %2) #13, !srcloc !31
+  %7 = tail call i8 asm "shrb $$7,$0", "=r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i8 %2) #13, !srcloc !30
   %8 = sub i8 0, %7
   %9 = and i8 %2, %8
   %10 = shl i8 %9, 1
@@ -7491,77 +7491,77 @@ define internal fastcc void @ge25519_cmov8_base(ptr noundef nonnull initializes(
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %15, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
   %16 = sext i8 %11 to i32
-  %17 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 1) #13, !srcloc !32
+  %17 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 1) #13, !srcloc !31
   %18 = extractvalue { i32, i32 } %17, 0
   %19 = and i32 %18, 255
-  %20 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %6, i32 %19) #12, !srcloc !14
+  %20 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %6, i32 %19) #12, !srcloc !13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %22 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %21, i32 %19) #12, !srcloc !14
+  %22 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %21, i32 %19) #12, !srcloc !13
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %23, i32 %19) #12, !srcloc !14
+  %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %23, i32 %19) #12, !srcloc !13
   %25 = getelementptr i8, ptr %6, i64 120
-  %26 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 2) #13, !srcloc !32
+  %26 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 2) #13, !srcloc !31
   %27 = extractvalue { i32, i32 } %26, 0
   %28 = and i32 %27, 255
-  %29 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %25, i32 %28) #12, !srcloc !14
+  %29 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %25, i32 %28) #12, !srcloc !13
   %30 = getelementptr i8, ptr %6, i64 160
-  %31 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %30, i32 %28) #12, !srcloc !14
+  %31 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %30, i32 %28) #12, !srcloc !13
   %32 = getelementptr i8, ptr %6, i64 200
-  %33 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %32, i32 %28) #12, !srcloc !14
+  %33 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %32, i32 %28) #12, !srcloc !13
   %34 = getelementptr i8, ptr %6, i64 240
-  %35 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 3) #13, !srcloc !32
+  %35 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 3) #13, !srcloc !31
   %36 = extractvalue { i32, i32 } %35, 0
   %37 = and i32 %36, 255
-  %38 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %34, i32 %37) #12, !srcloc !14
+  %38 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %34, i32 %37) #12, !srcloc !13
   %39 = getelementptr i8, ptr %6, i64 280
-  %40 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %39, i32 %37) #12, !srcloc !14
+  %40 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %39, i32 %37) #12, !srcloc !13
   %41 = getelementptr i8, ptr %6, i64 320
-  %42 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %41, i32 %37) #12, !srcloc !14
+  %42 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %41, i32 %37) #12, !srcloc !13
   %43 = getelementptr i8, ptr %6, i64 360
-  %44 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 4) #13, !srcloc !32
+  %44 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 4) #13, !srcloc !31
   %45 = extractvalue { i32, i32 } %44, 0
   %46 = and i32 %45, 255
-  %47 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %43, i32 %46) #12, !srcloc !14
+  %47 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %43, i32 %46) #12, !srcloc !13
   %48 = getelementptr i8, ptr %6, i64 400
-  %49 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %48, i32 %46) #12, !srcloc !14
+  %49 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %48, i32 %46) #12, !srcloc !13
   %50 = getelementptr i8, ptr %6, i64 440
-  %51 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %50, i32 %46) #12, !srcloc !14
+  %51 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %50, i32 %46) #12, !srcloc !13
   %52 = getelementptr i8, ptr %6, i64 480
-  %53 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 5) #13, !srcloc !32
+  %53 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 5) #13, !srcloc !31
   %54 = extractvalue { i32, i32 } %53, 0
   %55 = and i32 %54, 255
-  %56 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %52, i32 %55) #12, !srcloc !14
+  %56 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %52, i32 %55) #12, !srcloc !13
   %57 = getelementptr i8, ptr %6, i64 520
-  %58 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %57, i32 %55) #12, !srcloc !14
+  %58 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %57, i32 %55) #12, !srcloc !13
   %59 = getelementptr i8, ptr %6, i64 560
-  %60 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %59, i32 %55) #12, !srcloc !14
+  %60 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %59, i32 %55) #12, !srcloc !13
   %61 = getelementptr i8, ptr %6, i64 600
-  %62 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 6) #13, !srcloc !32
+  %62 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 6) #13, !srcloc !31
   %63 = extractvalue { i32, i32 } %62, 0
   %64 = and i32 %63, 255
-  %65 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %61, i32 %64) #12, !srcloc !14
+  %65 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %61, i32 %64) #12, !srcloc !13
   %66 = getelementptr i8, ptr %6, i64 640
-  %67 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %66, i32 %64) #12, !srcloc !14
+  %67 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %66, i32 %64) #12, !srcloc !13
   %68 = getelementptr i8, ptr %6, i64 680
-  %69 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %68, i32 %64) #12, !srcloc !14
+  %69 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %68, i32 %64) #12, !srcloc !13
   %70 = getelementptr i8, ptr %6, i64 720
-  %71 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 7) #13, !srcloc !32
+  %71 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 7) #13, !srcloc !31
   %72 = extractvalue { i32, i32 } %71, 0
   %73 = and i32 %72, 255
-  %74 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %70, i32 %73) #12, !srcloc !14
+  %74 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %70, i32 %73) #12, !srcloc !13
   %75 = getelementptr i8, ptr %6, i64 760
-  %76 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %75, i32 %73) #12, !srcloc !14
+  %76 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %75, i32 %73) #12, !srcloc !13
   %77 = getelementptr i8, ptr %6, i64 800
-  %78 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %77, i32 %73) #12, !srcloc !14
+  %78 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %77, i32 %73) #12, !srcloc !13
   %79 = getelementptr i8, ptr %6, i64 840
-  %80 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 8) #13, !srcloc !32
+  %80 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 8) #13, !srcloc !31
   %81 = extractvalue { i32, i32 } %80, 0
   %82 = and i32 %81, 255
-  %83 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %79, i32 %82) #12, !srcloc !14
+  %83 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %79, i32 %82) #12, !srcloc !13
   %84 = getelementptr i8, ptr %6, i64 880
-  %85 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %84, i32 %82) #12, !srcloc !14
+  %85 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %84, i32 %82) #12, !srcloc !13
   %86 = getelementptr i8, ptr %6, i64 920
-  %87 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %86, i32 %82) #12, !srcloc !14
+  %87 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %86, i32 %82) #12, !srcloc !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 1 dereferenceable(40) %13, i64 noundef 40, i1 noundef false) #12
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull readonly align 1 dereferenceable(40) %0, i64 noundef 40, i1 noundef false) #12
@@ -7606,9 +7606,9 @@ define internal fastcc void @ge25519_cmov8_base(ptr noundef nonnull initializes(
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 %117, ptr %121, align 8
   %122 = zext i8 %7 to i32
-  %123 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %4, i32 %122) #12, !srcloc !14
-  %124 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %88, i32 %122) #12, !srcloc !14
-  %125 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %89, i32 %122) #12, !srcloc !14
+  %123 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %4, i32 %122) #12, !srcloc !13
+  %124 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %88, i32 %122) #12, !srcloc !13
+  %125 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %89, i32 %122) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #12
   ret void
 }
@@ -8458,7 +8458,7 @@ define hidden range(i32 0, 2) i32 @_sodium_ge25519_is_canonical(ptr noundef read
   %10 = or i8 %.0910, %9
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %11, label %6, !llvm.loop !37
+  br i1 %.not, label %11, label %6, !llvm.loop !36
 
 11:                                               ; preds = %6
   %12 = zext i8 %10 to i32
@@ -10818,7 +10818,7 @@ define hidden void @_sodium_sc25519_invert(ptr noundef captures(none) initialize
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %27 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %27, 126
-  br i1 %exitcond.not.i, label %sc25519_sqmul.exit, label %26, !llvm.loop !38
+  br i1 %exitcond.not.i, label %sc25519_sqmul.exit, label %26, !llvm.loop !37
 
 sc25519_sqmul.exit:                               ; preds = %26
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %14)
@@ -10829,7 +10829,7 @@ sc25519_sqmul.exit:                               ; preds = %26
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %29 = add nuw nsw i32 %.07.i21, 1
   %exitcond.not.i22 = icmp eq i32 %29, 9
-  br i1 %exitcond.not.i22, label %sc25519_sqmul.exit23, label %28, !llvm.loop !38
+  br i1 %exitcond.not.i22, label %sc25519_sqmul.exit23, label %28, !llvm.loop !37
 
 sc25519_sqmul.exit23:                             ; preds = %28
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %3)
@@ -10841,7 +10841,7 @@ sc25519_sqmul.exit23:                             ; preds = %28
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %31 = add nuw nsw i32 %.07.i24, 1
   %exitcond.not.i25 = icmp eq i32 %31, 7
-  br i1 %exitcond.not.i25, label %sc25519_sqmul.exit26, label %30, !llvm.loop !38
+  br i1 %exitcond.not.i25, label %sc25519_sqmul.exit26, label %30, !llvm.loop !37
 
 sc25519_sqmul.exit26:                             ; preds = %30
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %20)
@@ -10852,7 +10852,7 @@ sc25519_sqmul.exit26:                             ; preds = %30
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %33 = add nuw nsw i32 %.07.i27, 1
   %exitcond.not.i28 = icmp eq i32 %33, 9
-  br i1 %exitcond.not.i28, label %sc25519_sqmul.exit29, label %32, !llvm.loop !38
+  br i1 %exitcond.not.i28, label %sc25519_sqmul.exit29, label %32, !llvm.loop !37
 
 sc25519_sqmul.exit29:                             ; preds = %32
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %25)
@@ -10863,7 +10863,7 @@ sc25519_sqmul.exit29:                             ; preds = %32
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %35 = add nuw nsw i32 %.07.i30, 1
   %exitcond.not.i31 = icmp eq i32 %35, 11
-  br i1 %exitcond.not.i31, label %sc25519_sqmul.exit32, label %34, !llvm.loop !38
+  br i1 %exitcond.not.i31, label %sc25519_sqmul.exit32, label %34, !llvm.loop !37
 
 sc25519_sqmul.exit32:                             ; preds = %34
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %17)
@@ -10874,7 +10874,7 @@ sc25519_sqmul.exit32:                             ; preds = %34
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %37 = add nuw nsw i32 %.07.i33, 1
   %exitcond.not.i34 = icmp eq i32 %37, 8
-  br i1 %exitcond.not.i34, label %sc25519_sqmul.exit35, label %36, !llvm.loop !38
+  br i1 %exitcond.not.i34, label %sc25519_sqmul.exit35, label %36, !llvm.loop !37
 
 sc25519_sqmul.exit35:                             ; preds = %36
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %23)
@@ -10885,7 +10885,7 @@ sc25519_sqmul.exit35:                             ; preds = %36
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %39 = add nuw nsw i32 %.07.i36, 1
   %exitcond.not.i37 = icmp eq i32 %39, 9
-  br i1 %exitcond.not.i37, label %sc25519_sqmul.exit38, label %38, !llvm.loop !38
+  br i1 %exitcond.not.i37, label %sc25519_sqmul.exit38, label %38, !llvm.loop !37
 
 sc25519_sqmul.exit38:                             ; preds = %38
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %22)
@@ -10896,7 +10896,7 @@ sc25519_sqmul.exit38:                             ; preds = %38
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %41 = add nuw nsw i32 %.07.i39, 1
   %exitcond.not.i40 = icmp eq i32 %41, 6
-  br i1 %exitcond.not.i40, label %sc25519_sqmul.exit41, label %40, !llvm.loop !38
+  br i1 %exitcond.not.i40, label %sc25519_sqmul.exit41, label %40, !llvm.loop !37
 
 sc25519_sqmul.exit41:                             ; preds = %40
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %15)
@@ -10907,7 +10907,7 @@ sc25519_sqmul.exit41:                             ; preds = %40
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %43 = add nuw nsw i32 %.07.i42, 1
   %exitcond.not.i43 = icmp eq i32 %43, 14
-  br i1 %exitcond.not.i43, label %sc25519_sqmul.exit44, label %42, !llvm.loop !38
+  br i1 %exitcond.not.i43, label %sc25519_sqmul.exit44, label %42, !llvm.loop !37
 
 sc25519_sqmul.exit44:                             ; preds = %42
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %9)
@@ -10918,7 +10918,7 @@ sc25519_sqmul.exit44:                             ; preds = %42
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %45 = add nuw nsw i32 %.07.i45, 1
   %exitcond.not.i46 = icmp eq i32 %45, 10
-  br i1 %exitcond.not.i46, label %sc25519_sqmul.exit47, label %44, !llvm.loop !38
+  br i1 %exitcond.not.i46, label %sc25519_sqmul.exit47, label %44, !llvm.loop !37
 
 sc25519_sqmul.exit47:                             ; preds = %44
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %19)
@@ -10929,7 +10929,7 @@ sc25519_sqmul.exit47:                             ; preds = %44
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %47 = add nuw nsw i32 %.07.i48, 1
   %exitcond.not.i49 = icmp eq i32 %47, 9
-  br i1 %exitcond.not.i49, label %sc25519_sqmul.exit50, label %46, !llvm.loop !38
+  br i1 %exitcond.not.i49, label %sc25519_sqmul.exit50, label %46, !llvm.loop !37
 
 sc25519_sqmul.exit50:                             ; preds = %46
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %10)
@@ -10940,7 +10940,7 @@ sc25519_sqmul.exit50:                             ; preds = %46
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %49 = add nuw nsw i32 %.07.i51, 1
   %exitcond.not.i52 = icmp eq i32 %49, 10
-  br i1 %exitcond.not.i52, label %sc25519_sqmul.exit53, label %48, !llvm.loop !38
+  br i1 %exitcond.not.i52, label %sc25519_sqmul.exit53, label %48, !llvm.loop !37
 
 sc25519_sqmul.exit53:                             ; preds = %48
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %25)
@@ -10951,7 +10951,7 @@ sc25519_sqmul.exit53:                             ; preds = %48
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %51 = add nuw nsw i32 %.07.i54, 1
   %exitcond.not.i55 = icmp eq i32 %51, 8
-  br i1 %exitcond.not.i55, label %sc25519_sqmul.exit56, label %50, !llvm.loop !38
+  br i1 %exitcond.not.i55, label %sc25519_sqmul.exit56, label %50, !llvm.loop !37
 
 sc25519_sqmul.exit56:                             ; preds = %50
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %21)
@@ -10962,7 +10962,7 @@ sc25519_sqmul.exit56:                             ; preds = %50
   tail call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0)
   %53 = add nuw nsw i32 %.07.i57, 1
   %exitcond.not.i58 = icmp eq i32 %53, 8
-  br i1 %exitcond.not.i58, label %sc25519_sqmul.exit59, label %52, !llvm.loop !38
+  br i1 %exitcond.not.i58, label %sc25519_sqmul.exit59, label %52, !llvm.loop !37
 
 sc25519_sqmul.exit59:                             ; preds = %52
   call void @_sodium_sc25519_mul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull readonly %24)
@@ -11630,7 +11630,7 @@ define hidden range(i32 0, 2) i32 @_sodium_sc25519_is_canonical(ptr noundef read
   %15 = ashr i32 %14, 8
   %16 = and i32 %15, %.011
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %17, label %2, !llvm.loop !39
+  br i1 %.not, label %17, label %2, !llvm.loop !38
 
 17:                                               ; preds = %2
   %18 = icmp ne i32 %12, 0
@@ -11779,7 +11779,7 @@ define hidden void @_sodium_ge25519_from_uniform(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
   %75 = xor i8 %74, %16
   %76 = zext nneg i8 %75 to i32
-  %77 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, ptr nonnull %11, i32 %76) #12, !srcloc !14
+  %77 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, ptr nonnull %11, i32 %76) #12, !srcloc !13
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i64 1, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 88
@@ -12702,9 +12702,9 @@ define internal fastcc void @ge25519_elligator2(ptr noundef nonnull initializes(
   store i64 %795, ptr %799, align 8
   %800 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i64 %796, ptr %800, align 16
-  %801 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %26, i32 %777) #12, !srcloc !14
+  %801 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %26, i32 %777) #12, !srcloc !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
-  %802 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %24, ptr nonnull @ed25519_A, i32 %777) #12, !srcloc !14
+  %802 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %24, ptr nonnull @ed25519_A, i32 %777) #12, !srcloc !13
   %803 = load i64, ptr %24, align 16
   %804 = load i64, ptr %237, align 8
   %805 = load i64, ptr %238, align 16
@@ -13003,7 +13003,7 @@ define internal fastcc void @ge25519_elligator2(ptr noundef nonnull initializes(
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %6, ptr noundef nonnull readonly %9)
   %1056 = call i32 @sodium_is_zero(ptr noundef nonnull %6, i64 noundef 32) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
-  %1057 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr nonnull %8, i32 %1056) #12, !srcloc !14
+  %1057 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr nonnull %8, i32 %1056) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #12
@@ -13197,7 +13197,7 @@ define internal fastcc void @ge25519_mont_to_ed(ptr noundef nonnull captures(non
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %5, ptr noundef nonnull readonly %9)
   %32 = call i32 @sodium_is_zero(ptr noundef nonnull %5, i64 noundef 32) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
-  %33 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr nonnull %6, i32 %32) #12, !srcloc !14
+  %33 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr nonnull %6, i32 %32) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #12
@@ -13321,7 +13321,7 @@ define hidden void @_sodium_ge25519_from_hash(ptr noundef %0, ptr noundef readon
   store i64 %61, ptr %59, align 8
   %62 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %62, 5
-  br i1 %exitcond.not.i, label %fe25519_reduce64.exit, label %55, !llvm.loop !40
+  br i1 %exitcond.not.i, label %fe25519_reduce64.exit, label %55, !llvm.loop !39
 
 fe25519_reduce64.exit:                            ; preds = %55
   %63 = load i64, ptr %12, align 16
@@ -13463,7 +13463,7 @@ fe25519_reduce64.exit:                            ; preds = %55
   %180 = and i32 %144, 255
   %181 = xor i32 %180, %179
   %182 = xor i32 %181, 1
-  %183 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr nonnull %15, i32 %182) #12, !srcloc !14
+  %183 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr nonnull %15, i32 %182) #12, !srcloc !13
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call fastcc void @ge25519_mont_to_ed(ptr noundef %11, ptr noundef %184, ptr noundef %13, ptr noundef %14)
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 80
@@ -13540,7 +13540,7 @@ define hidden i32 @_sodium_ristretto255_frombytes(ptr noundef %0, ptr noundef re
   %24 = or i8 %.01213.i, %23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %.not.i, label %ristretto255_is_canonical.exit, label %20, !llvm.loop !41
+  br i1 %.not.i, label %ristretto255_is_canonical.exit, label %20, !llvm.loop !40
 
 ristretto255_is_canonical.exit:                   ; preds = %20
   %25 = zext i8 %24 to i32
@@ -13947,7 +13947,7 @@ ristretto255_is_canonical.exit:                   ; preds = %20
   store i64 %362, ptr %366, align 8
   %367 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %363, ptr %367, align 16
-  %368 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %5, i32 range(i32 0, 2) %344) #12, !srcloc !14
+  %368 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %5, i32 range(i32 0, 2) %344) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
   call fastcc void @fe25519_mul(ptr noundef nonnull %327, ptr noundef nonnull %10, ptr noundef nonnull %327)
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -14359,7 +14359,7 @@ define internal fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull initi
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
   call fastcc void @fe25519_mul(ptr noundef nonnull %14, ptr noundef nonnull %0, ptr noundef nonnull @fe25519_sqrtm1)
   %315 = or i32 %314, %313
-  %316 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %14, i32 %315) #12, !srcloc !14
+  %316 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %14, i32 %315) #12, !srcloc !13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %5, ptr noundef nonnull readonly %0)
   %317 = load i8, ptr %5, align 16
@@ -14402,7 +14402,7 @@ define internal fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull initi
   store i64 %342, ptr %346, align 8
   %347 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %343, ptr %347, align 16
-  %348 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %4, i32 range(i32 0, 2) %319) #12, !srcloc !14
+  %348 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %4, i32 range(i32 0, 2) %319) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
   %349 = or i32 %313, %312
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #12
@@ -14637,9 +14637,9 @@ define hidden void @_sodium_ristretto255_p3_tobytes(ptr noundef %0, ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 noundef 40, i1 noundef false) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, ptr noundef nonnull readonly align 1 dereferenceable(40) %27, i64 noundef 40, i1 noundef false) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull readonly align 16 dereferenceable(40) %9, i64 noundef 40, i1 noundef false) #12
-  %167 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr nonnull %14, i32 %166) #12, !srcloc !14
-  %168 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr nonnull %13, i32 %166) #12, !srcloc !14
-  %169 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, ptr nonnull %11, i32 %166) #12, !srcloc !14
+  %167 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr nonnull %14, i32 %166) #12, !srcloc !13
+  %168 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr nonnull %13, i32 %166) #12, !srcloc !13
+  %169 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, ptr nonnull %11, i32 %166) #12, !srcloc !13
   call fastcc void @fe25519_mul(ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %6, ptr noundef nonnull readonly %23)
@@ -14687,7 +14687,7 @@ define hidden void @_sodium_ristretto255_p3_tobytes(ptr noundef %0, ptr noundef 
   store i64 %199, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %200, ptr %204, align 16
-  %205 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr nonnull %5, i32 range(i32 0, 2) %172) #12, !srcloc !14
+  %205 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr nonnull %5, i32 range(i32 0, 2) %172) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
   %206 = load i64, ptr %22, align 16
   %207 = load i64, ptr %174, align 8
@@ -14777,7 +14777,7 @@ define hidden void @_sodium_ristretto255_p3_tobytes(ptr noundef %0, ptr noundef 
   store i64 %266, ptr %270, align 8
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %267, ptr %271, align 16
-  %272 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %16, ptr nonnull %3, i32 range(i32 0, 2) %243) #12, !srcloc !14
+  %272 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %16, ptr nonnull %3, i32 range(i32 0, 2) %243) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
   call void @_sodium_fe25519_tobytes(ptr noundef %0, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #12
@@ -15120,7 +15120,7 @@ define internal fastcc void @ristretto255_elligator(ptr noundef nonnull writeonl
   store i64 %180, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %181, ptr %185, align 16
-  %186 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, ptr nonnull %3, i32 range(i32 0, 2) %153) #12, !srcloc !14
+  %186 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, ptr nonnull %3, i32 range(i32 0, 2) %153) #12, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
   %187 = load i64, ptr %10, align 16
   %188 = load i64, ptr %155, align 8
@@ -15153,8 +15153,8 @@ define internal fastcc void @ristretto255_elligator(ptr noundef nonnull writeonl
   store i64 %208, ptr %157, align 16
   store i64 %209, ptr %159, align 8
   store i64 %210, ptr %161, align 16
-  %211 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %9, ptr nonnull %10, i32 %150) #12, !srcloc !14
-  %212 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr nonnull %7, i32 %150) #12, !srcloc !14
+  %211 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %9, ptr nonnull %10, i32 %150) #12, !srcloc !13
+  %212 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr nonnull %7, i32 %150) #12, !srcloc !13
   %213 = load i64, ptr %7, align 16
   %214 = add i64 %213, 4503599627370457
   %215 = load i64, ptr %94, align 8
@@ -15394,7 +15394,7 @@ define internal fastcc void @ge25519_p3_dbladd(ptr noundef nonnull captures(none
   call fastcc void @fe25519_mul(ptr noundef nonnull %8, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %10)
   %14 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %14, %1
-  br i1 %exitcond.not, label %15, label %13, !llvm.loop !42
+  br i1 %exitcond.not, label %15, label %13, !llvm.loop !41
 
 15:                                               ; preds = %13
   call fastcc void @fe25519_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %10)
@@ -15501,7 +15501,7 @@ define internal fastcc void @fe25519_sqmul(ptr noundef nonnull captures(none) %0
   %81 = add nuw nsw i64 %79, %59
   %82 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %82, %1
-  br i1 %exitcond.not, label %83, label %8, !llvm.loop !43
+  br i1 %exitcond.not, label %83, label %8, !llvm.loop !42
 
 83:                                               ; preds = %8
   store i64 %77, ptr %0, align 8
@@ -15544,43 +15544,42 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = !{i64 537045, i64 537083, i64 537121, i64 537159, i64 537197, i64 537235, i64 537273, i64 537311, i64 537349, i64 537387, i64 537425, i64 537463, i64 537501, i64 537539, i64 537577, i64 537615}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = !{i64 14143}
-!32 = !{i64 13419, i64 13432, i64 13445, i64 13460}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = distinct !{!37, !5, !6}
-!38 = distinct !{!38, !5, !6}
-!39 = distinct !{!39, !5, !6}
-!40 = distinct !{!40, !5, !6}
-!41 = distinct !{!41, !5, !6}
-!42 = distinct !{!42, !5, !6}
-!43 = distinct !{!43, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = !{i64 537045, i64 537083, i64 537121, i64 537159, i64 537197, i64 537235, i64 537273, i64 537311, i64 537349, i64 537387, i64 537425, i64 537463, i64 537501, i64 537539, i64 537577, i64 537615}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = !{i64 14143}
+!31 = !{i64 13419, i64 13432, i64 13445, i64 13460}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}

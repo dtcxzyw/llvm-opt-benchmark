@@ -217,17 +217,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !19
+  %9 = load i64, ptr %8, align 8, !tbaa !18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @_ZL10zalloc_gprPvjj, ptr %10, align 8, !tbaa !20
+  store ptr @_ZL10zalloc_gprPvjj, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @_ZL9zfree_gprPvS_, ptr %11, align 8, !tbaa !25
+  store ptr @_ZL9zfree_gprPvS_, ptr %11, align 8, !tbaa !24
   %.not = icmp eq i32 %2, 0
   %12 = select i1 %.not, i32 15, i32 31
   %13 = call i32 @inflateInit2_(ptr noundef nonnull %4, i32 noundef %12, ptr noundef nonnull @.str.2, i32 noundef 112)
   %.not21.not = icmp eq i32 %13, 0
-  br i1 %.not21.not, label %.critedge, label %14, !prof !26
+  br i1 %.not21.not, label %.critedge, label %14, !prof !25
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
@@ -264,7 +264,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
@@ -272,11 +272,11 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %19
   %30 = add nuw i64 %.02024, 1
   %31 = load i64, ptr %6, align 8, !tbaa !7
   %32 = icmp ult i64 %30, %31
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !31
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %.preheader
   store i64 %7, ptr %6, align 8, !tbaa !7
-  store i64 %9, ptr %8, align 8, !tbaa !19
+  store i64 %9, ptr %8, align 8, !tbaa !18
   br label %33
 
 33:                                               ; preds = %._crit_edge, %.critedge
@@ -298,7 +298,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %7 unwind label %11
@@ -335,17 +335,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_sl
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !19
+  %9 = load i64, ptr %8, align 8, !tbaa !18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @_ZL10zalloc_gprPvjj, ptr %10, align 8, !tbaa !20
+  store ptr @_ZL10zalloc_gprPvjj, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @_ZL9zfree_gprPvS_, ptr %11, align 8, !tbaa !25
+  store ptr @_ZL9zfree_gprPvS_, ptr %11, align 8, !tbaa !24
   %.not = icmp eq i32 %2, 0
   %12 = select i1 %.not, i32 15, i32 31
   %13 = call i32 @deflateInit2_(ptr noundef nonnull %4, i32 noundef -1, i32 noundef 8, i32 noundef %12, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 112)
   %.not23.not = icmp eq i32 %13, 0
-  br i1 %.not23.not, label %.critedge, label %14, !prof !26
+  br i1 %.not23.not, label %.critedge, label %14, !prof !25
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
@@ -359,9 +359,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_sl
   br i1 %.not24, label %.preheader, label %16
 
 16:                                               ; preds = %.critedge
-  %17 = load i64, ptr %8, align 8, !tbaa !19
+  %17 = load i64, ptr %8, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %38, label %.preheader
 
@@ -389,7 +389,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_sl
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !27
+  %34 = load ptr, ptr %33, align 8, !tbaa !26
   call void %34(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
@@ -397,11 +397,11 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %24
   %35 = add nuw i64 %.02226, 1
   %36 = load i64, ptr %6, align 8, !tbaa !7
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %24, label %._crit_edge, !llvm.loop !34
+  br i1 %37, label %24, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %.preheader
   store i64 %7, ptr %6, align 8, !tbaa !7
-  store i64 %9, ptr %8, align 8, !tbaa !19
+  store i64 %9, ptr %8, align 8, !tbaa !18
   br label %38
 
 38:                                               ; preds = %16, %._crit_edge
@@ -456,7 +456,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %17, 4294967295
   %.not87 = select i1 %.not, i1 %18, i1 false
-  br i1 %.not87, label %19, label %.critedge, !prof !35
+  br i1 %.not87, label %19, label %.critedge, !prof !34
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
@@ -470,13 +470,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %21 = select i1 %.not88, i64 %20, i64 %17
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %22, ptr %23, align 8, !tbaa !36
+  store i32 %22, ptr %23, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %27 = select i1 %.not88, ptr %26, ptr %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %27, ptr %28, align 8, !tbaa !37
+  store ptr %27, ptr %28, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !7
   %.not153 = icmp eq i64 %30, 0
@@ -492,7 +492,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %35 = add nuw i64 %.083151, 1
   %36 = load i64, ptr %29, align 8, !tbaa !7
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %38, label %._crit_edge, !llvm.loop !38
+  br i1 %37, label %38, label %._crit_edge, !llvm.loop !37
 
 38:                                               ; preds = %.lr.ph, %34
   %.pr = phi i1 [ %33, %.lr.ph ], [ false, %34 ]
@@ -510,9 +510,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083151, i32 1
-  %47 = load i64, ptr %46, align 8, !tbaa !39
+  %47 = load i64, ptr %46, align 8, !tbaa !38
   %48 = icmp ugt i64 %47, 4294967295
-  br i1 %48, label %49, label %50, !prof !35
+  br i1 %48, label %49, label %50, !prof !34
 
 49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
@@ -522,36 +522,36 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
 
 50:                                               ; preds = %45
   %51 = trunc nuw i64 %47 to i32
-  store i32 %51, ptr %32, align 8, !tbaa !40
+  store i32 %51, ptr %32, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !39
+  %53 = load ptr, ptr %52, align 8, !tbaa !38
   br label %59
 
 54:                                               ; preds = %38
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %56 = load i8, ptr %55, align 8, !tbaa !39
+  %56 = load i8, ptr %55, align 8, !tbaa !38
   %57 = zext i8 %56 to i32
-  store i32 %57, ptr %32, align 8, !tbaa !40
+  store i32 %57, ptr %32, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 9
   br label %59
 
 59:                                               ; preds = %54, %50
   %60 = phi ptr [ %53, %50 ], [ %58, %54 ]
-  store ptr %60, ptr %0, align 8, !tbaa !41
+  store ptr %60, ptr %0, align 8, !tbaa !40
   br i1 %.pr, label %.critedge145, label %71
 
 .critedge145:                                     ; preds = %86, %59
   %61 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %9, i64 noundef 1024)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   %62 = load ptr, ptr %6, align 8, !tbaa !13
   %.not95 = icmp ne ptr %62, null
   %63 = load i64, ptr %16, align 8
   %64 = icmp ugt i64 %63, 4294967295
   %.not97 = select i1 %.not95, i1 %64, i1 false
-  br i1 %.not97, label %65, label %.critedge105, !prof !35
+  br i1 %.not97, label %65, label %.critedge105, !prof !34
 
 65:                                               ; preds = %.critedge145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
@@ -564,14 +564,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %66 = and i64 %63, 255
   %67 = select i1 %.not98, i64 %66, i64 %63
   %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %23, align 8, !tbaa !36
+  store i32 %68, ptr %23, align 8, !tbaa !35
   %69 = load ptr, ptr %24, align 8
   %70 = select i1 %.not98, ptr %26, ptr %69
-  store ptr %70, ptr %28, align 8, !tbaa !37
+  store ptr %70, ptr %28, align 8, !tbaa !36
   br label %71
 
 71:                                               ; preds = %.critedge105, %59
-  %72 = call noundef i32 %3(ptr noundef nonnull %0, i32 noundef %spec.select), !callees !44
+  %72 = call noundef i32 %3(ptr noundef nonnull %0, i32 noundef %spec.select), !callees !43
   %73 = icmp slt i32 %72, 0
   %74 = icmp ne i32 %72, -5
   %or.cond = and i1 %73, %74
@@ -580,7 +580,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
 75:                                               ; preds = %71
   %76 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_0clEvE4site", i64 8) monotonic, align 8
   %77 = icmp slt i32 %76, 2
-  br i1 %77, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !26
+  br i1 %77, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !25
 
 _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %75
   %78 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_0clEvE4site", i32 noundef %76)
@@ -598,7 +598,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %75
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; preds = %81
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %72, ptr %5, align 4, !tbaa !45
+  store i32 %72, ptr %5, align 4, !tbaa !44
   %82 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %83 unwind label %84
 
@@ -620,19 +620,19 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
   br label %125
 
 86:                                               ; preds = %71
-  %87 = load i32, ptr %23, align 8, !tbaa !36
+  %87 = load i32, ptr %23, align 8, !tbaa !35
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.critedge145, label %89, !llvm.loop !46
+  br i1 %88, label %.critedge145, label %89, !llvm.loop !45
 
 89:                                               ; preds = %86
-  %90 = load i32, ptr %32, align 8, !tbaa !40
+  %90 = load i32, ptr %32, align 8, !tbaa !39
   %.not100 = icmp eq i32 %90, 0
   br i1 %.not100, label %34, label %91
 
 91:                                               ; preds = %89
   %92 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_1clEvE4site", i64 8) monotonic, align 8
   %93 = icmp slt i32 %92, 2
-  br i1 %93, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119, !prof !26
+  br i1 %93, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119, !prof !25
 
 _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119: ; preds = %91
   %94 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_1clEvE4site", i32 noundef %92)
@@ -667,7 +667,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119: ; preds = %91
 101:                                              ; preds = %._crit_edge
   %102 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_2clEvE4site", i64 8) monotonic, align 8
   %103 = icmp slt i32 %102, 2
-  br i1 %103, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121, !prof !26
+  br i1 %103, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121, !prof !25
 
 _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121: ; preds = %101
   %104 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_2clEvE4site", i32 noundef %102)
@@ -699,7 +699,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121: ; preds = %10
   %110 = phi i32 [ %87, %._crit_edge ], [ %22, %.critedge ]
   %111 = load ptr, ptr %6, align 8, !tbaa !13
   %.not91 = icmp eq ptr %111, null
-  br i1 %.not91, label %112, label %.critedge116, !prof !35
+  br i1 %.not91, label %112, label %.critedge116, !prof !34
 
 112:                                              ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #12
@@ -709,9 +709,9 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121: ; preds = %10
 
 .critedge116:                                     ; preds = %._crit_edge.thread
   %113 = zext i32 %110 to i64
-  %114 = load i64, ptr %16, align 8, !tbaa !39
+  %114 = load i64, ptr %16, align 8, !tbaa !38
   %115 = sub i64 %114, %113
-  store i64 %115, ptr %16, align 8, !tbaa !39
+  store i64 %115, ptr %16, align 8, !tbaa !38
   %116 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
@@ -727,7 +727,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121: ; preds = %10
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !27
+  %124 = load ptr, ptr %123, align 8, !tbaa !26
   call void %124(ptr noundef nonnull align 8 dereferenceable(16) %117)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
@@ -827,34 +827,33 @@ attributes #15 = { noreturn nounwind }
 !13 = !{!14, !15, i64 0}
 !14 = !{!"_ZTS10grpc_slice", !15, i64 0, !5, i64 8}
 !15 = !{!"p1 _ZTS19grpc_slice_refcount", !10, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!8, !11, i64 32}
-!20 = !{!21, !10, i64 64}
-!21 = !{!"_ZTS10z_stream_s", !22, i64 0, !23, i64 8, !11, i64 16, !22, i64 24, !23, i64 32, !11, i64 40, !22, i64 48, !24, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !23, i64 88, !11, i64 96, !11, i64 104}
-!22 = !{!"p1 omnipotent char", !10, i64 0}
-!23 = !{!"int", !5, i64 0}
-!24 = !{!"p1 _ZTS14internal_state", !10, i64 0}
-!25 = !{!21, !10, i64 72}
-!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!27 = !{!28, !10, i64 8}
-!28 = !{!"_ZTS19grpc_slice_refcount", !29, i64 0, !10, i64 8}
-!29 = !{!"_ZTSSt6atomicImE", !30, i64 0}
-!30 = !{!"_ZTSSt13__atomic_baseImE", !11, i64 0}
-!31 = distinct !{!31, !17, !18}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !10, i64 0}
-!34 = distinct !{!34, !17, !18}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = !{!21, !23, i64 32}
-!37 = !{!21, !22, i64 24}
-!38 = distinct !{!38, !17, !18}
-!39 = !{!5, !5, i64 0}
-!40 = !{!21, !23, i64 8}
-!41 = !{!21, !22, i64 0}
-!42 = !{i64 0, i64 8, !43, i64 8, i64 24, !39}
-!43 = !{!15, !15, i64 0}
-!44 = !{ptr @deflate, ptr @inflate}
-!45 = !{!23, !23, i64 0}
-!46 = distinct !{!46, !17, !18}
+!18 = !{!8, !11, i64 32}
+!19 = !{!20, !10, i64 64}
+!20 = !{!"_ZTS10z_stream_s", !21, i64 0, !22, i64 8, !11, i64 16, !21, i64 24, !22, i64 32, !11, i64 40, !21, i64 48, !23, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !22, i64 88, !11, i64 96, !11, i64 104}
+!21 = !{!"p1 omnipotent char", !10, i64 0}
+!22 = !{!"int", !5, i64 0}
+!23 = !{!"p1 _ZTS14internal_state", !10, i64 0}
+!24 = !{!20, !10, i64 72}
+!25 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!26 = !{!27, !10, i64 8}
+!27 = !{!"_ZTS19grpc_slice_refcount", !28, i64 0, !10, i64 8}
+!28 = !{!"_ZTSSt6atomicImE", !29, i64 0}
+!29 = !{!"_ZTSSt13__atomic_baseImE", !11, i64 0}
+!30 = distinct !{!30, !17}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !10, i64 0}
+!33 = distinct !{!33, !17}
+!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!35 = !{!20, !22, i64 32}
+!36 = !{!20, !21, i64 24}
+!37 = distinct !{!37, !17}
+!38 = !{!5, !5, i64 0}
+!39 = !{!20, !22, i64 8}
+!40 = !{!20, !21, i64 0}
+!41 = !{i64 0, i64 8, !42, i64 8, i64 24, !38}
+!42 = !{!15, !15, i64 0}
+!43 = !{ptr @deflate, ptr @inflate}
+!44 = !{!22, !22, i64 0}
+!45 = distinct !{!45, !17}

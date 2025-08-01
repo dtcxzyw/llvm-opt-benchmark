@@ -271,7 +271,7 @@ strncmp_nullcheck.exit.thread.i:                  ; preds = %strncmp_nullcheck.e
   %51 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !9
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %43, !llvm.loop !15
+  br i1 %53, label %54, label %43, !llvm.loop !14
 
 54:                                               ; preds = %strncmp_nullcheck.exit.thread.i
   %55 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
@@ -297,11 +297,11 @@ createTestNode.exit37.i:                          ; preds = %59, %54
 .loopexit47.i:                                    ; preds = %strncmp_nullcheck.exit.i, %createTestNode.exit37.i
   %.124.i = phi ptr [ %57, %createTestNode.exit37.i ], [ %.023.i, %strncmp_nullcheck.exit.i ]
   %65 = icmp eq ptr %.041.i, null
-  br i1 %65, label %addTestNode.exit, label %12, !llvm.loop !16
+  br i1 %65, label %addTestNode.exit, label %12
 
 addTestNode.exit:                                 ; preds = %.loopexit47.i, %createTestNode.exit.i
   %.027.i = phi ptr [ %34, %createTestNode.exit.i ], [ %.124.i, %.loopexit47.i ]
-  store ptr %1, ptr %.027.i, align 8, !tbaa !17
+  store ptr %1, ptr %.027.i, align 8, !tbaa !15
   ret void
 }
 
@@ -405,7 +405,7 @@ define void @log_err(ptr noundef readonly %0, ...) local_unnamed_addr #2 {
   br i1 %.b6.i.i, label %first_line_err.exit, label %4
 
 4:                                                ; preds = %3, %.thread.i
-  %5 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %5 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i = tail call i32 @fputc(i32 33, ptr %5)
   br label %first_line_err.exit
 
@@ -415,13 +415,13 @@ first_line_err.exit:                              ; preds = %3, %4
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %first_line_err.exit
-  %8 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %8 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr @ERROR_COUNT, align 4, !tbaa !20
+  store i32 %9, ptr @ERROR_COUNT, align 4, !tbaa !18
   br label %11
 
 10:                                               ; preds = %first_line_err.exit
-  store i32 1, ptr @ONE_ERROR, align 4, !tbaa !20
+  store i32 1, ptr @ONE_ERROR, align 4, !tbaa !18
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -475,7 +475,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   store i16 47, ptr %endptr, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %23 = zext nneg i32 %1 to i64
@@ -487,7 +487,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %26) #23
-  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i8, ptr %28, align 8, !tbaa !11
   %.not = icmp eq i8 %29, 0
@@ -498,7 +498,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br label %33
 
 31:                                               ; preds = %._crit_edge
-  %32 = load ptr, ptr @ARGV_0, align 8, !tbaa !23
+  %32 = load ptr, ptr @ARGV_0, align 8, !tbaa !21
   call void (ptr, ...) @log_testinfo_i(ptr noundef nonnull @.str.58, ptr noundef %32)
   br label %33
 
@@ -508,22 +508,22 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br i1 %34, label %35, label %.thread95
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr %0, align 8, !tbaa !17
+  %36 = load ptr, ptr %0, align 8, !tbaa !15
   %.not84 = icmp eq ptr %36, null
   br i1 %.not84, label %89, label %37
 
 37:                                               ; preds = %35
-  %38 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
-  %39 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %38 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
+  %39 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #23
   store ptr %0, ptr @currentTest, align 8, !tbaa !10
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !20
-  store i32 0, ptr @ONE_ERROR, align 4, !tbaa !20
+  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
+  store i32 0, ptr @ONE_ERROR, align 4, !tbaa !18
   store i1 false, ptr @HANGING_OUTPUT, align 1
   %40 = call double @uprv_getRawUTCtime_77() #23
   %41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @gTestName, ptr noundef nonnull dereferenceable(1) %6) #23
-  %42 = load ptr, ptr %0, align 8, !tbaa !17
+  %42 = load ptr, ptr %0, align 8, !tbaa !15
   call void %42() #23
   %43 = call double @uprv_getRawUTCtime_77() #23
   %.b83 = load i1, ptr @HANGING_OUTPUT, align 1
@@ -535,9 +535,9 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br label %45
 
 45:                                               ; preds = %44, %37
-  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   store ptr null, ptr @currentTest, align 8, !tbaa !10
-  %46 = load i32, ptr @ONE_ERROR, align 4, !tbaa !20
+  %46 = load i32, ptr @ONE_ERROR, align 4, !tbaa !18
   %47 = icmp sgt i32 %46, 0
   %48 = load i32, ptr @ERROR_COUNT, align 4
   %49 = icmp eq i32 %48, 0
@@ -545,24 +545,24 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %50, label %51
 
 50:                                               ; preds = %45
-  store i32 1, ptr @ERROR_COUNT, align 4, !tbaa !20
+  store i32 1, ptr @ERROR_COUNT, align 4, !tbaa !18
   br label %51
 
 51:                                               ; preds = %50, %45
-  store i32 0, ptr @ONE_ERROR, align 4, !tbaa !20
+  store i32 0, ptr @ONE_ERROR, align 4, !tbaa !18
   %52 = fsub double %43, %40
   call void @str_timeDelta(ptr noundef nonnull %7, double noundef %52)
   %53 = fdiv double %52, 1.000000e+03
   %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.60, double noundef %53) #23
-  %55 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %55 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %ctest_xml_testcase.exit, label %56
 
 56:                                               ; preds = %51
-  %57 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %57 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %.not85 = icmp eq i32 %38, %57
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.54, ptr noundef nonnull @XML_PREFIX, ptr noundef nonnull %6, ptr noundef nonnull @XML_PREFIX, ptr noundef nonnull %6, ptr noundef nonnull %8) #23
-  %59 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %59 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   br i1 %.not85, label %62, label %60
 
 60:                                               ; preds = %56
@@ -574,16 +574,16 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br label %ctest_xml_testcase.exit
 
 ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
-  %64 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %64 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %.not86 = icmp eq i32 %38, %64
   br i1 %.not86, label %72, label %65
 
 65:                                               ; preds = %ctest_xml_testcase.exit
   %66 = sub nsw i32 %64, %38
   call void (ptr, ...) @log_testinfo_i(ptr noundef nonnull @.str.62, i32 noundef %66, ptr noundef nonnull %6)
-  %67 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  %67 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %68 = add nsw i32 %67, 1
-  store i32 %68, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  store i32 %68, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %69 = sext i32 %67 to i64
   %70 = getelementptr inbounds [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %69
   %71 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %6) #23
@@ -596,7 +596,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
 73:                                               ; preds = %72
   %74 = sub nsw i32 45, %1
   call void (ptr, ...) @log_testinfo_i(ptr noundef nonnull @.str.63, i32 noundef %74, ptr noundef nonnull @.str.64)
-  %75 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %75 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %76 = sub nsw i32 %75, %39
   %77 = icmp sgt i32 %76, 25
   br i1 %77, label %78, label %84
@@ -630,34 +630,34 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   br label %89
 
 89:                                               ; preds = %35, %88
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !3
   %.not90 = icmp eq ptr %91, null
   br i1 %.not90, label %119, label %97
 
 .thread95:                                        ; preds = %33
-  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %92 = load ptr, ptr %24, align 8, !tbaa !10
-  %93 = load ptr, ptr %92, align 8, !tbaa !17
+  %93 = load ptr, ptr %92, align 8, !tbaa !15
   %.not89 = icmp eq ptr %93, null
   %94 = select i1 %.not89, i32 47, i32 32
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.68, ptr noundef nonnull %6, i32 noundef %94)
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !3
   %.not9096 = icmp eq ptr %96, null
   br i1 %.not9096, label %119, label %.thread97
 
 97:                                               ; preds = %89
-  %98 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
-  %99 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
-  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  %98 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
+  %99 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
+  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.69)
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %100 = load ptr, ptr %90, align 8, !tbaa !3
   call fastcc void @iterateTestsWithLevel(ptr noundef %100, i32 noundef %15, ptr noundef %2, i32 noundef 0)
-  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   call void (ptr, ...) @log_testinfo_i(ptr noundef nonnull @.str.70)
   br i1 %18, label %101, label %108
 
@@ -666,7 +666,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   br label %119
 
 101:                                              ; preds = %97
-  %102 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %102 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %103 = icmp sgt i32 %102, %98
   br i1 %103, label %104, label %108
 
@@ -678,7 +678,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   br label %118
 
 108:                                              ; preds = %101, %97
-  %109 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %109 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %110 = sub nsw i32 %109, %99
   %111 = icmp sgt i32 %110, 25
   %112 = icmp slt i32 %1, 0
@@ -695,7 +695,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   br label %118
 
 116:                                              ; preds = %113
-  %117 = load ptr, ptr @ARGV_0, align 8, !tbaa !23
+  %117 = load ptr, ptr @ARGV_0, align 8, !tbaa !21
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.73, ptr noundef %117)
   br label %118
 
@@ -755,21 +755,21 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %.split11, label %.split
 
 .split:                                           ; preds = %1
-  store i32 0, ptr @ERROR_COUNT, align 4, !tbaa !20
-  store i32 0, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  store i32 0, ptr @ERROR_COUNT, align 4, !tbaa !18
+  store i32 0, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2, i32 noundef 0)
   br label %5
 
 .split11:                                         ; preds = %1
   tail call void (ptr, ...) @log_err(ptr noundef nonnull @.str.6)
-  store i32 0, ptr @ERROR_COUNT, align 4, !tbaa !20
-  store i32 0, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  store i32 0, ptr @ERROR_COUNT, align 4, !tbaa !18
+  store i32 0, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %4 = tail call double @uprv_getRawUTCtime_77() #23
   br label %5
 
 5:                                                ; preds = %.split, %.split11
   store i1 false, ptr @ON_LINE, align 1
-  %6 = load ptr, ptr @knownList, align 8, !tbaa !25
+  %6 = load ptr, ptr @knownList, align 8, !tbaa !23
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %7
 
@@ -779,50 +779,50 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !16
   %11 = call i64 @fwrite(ptr nonnull @.str.7, i64 48, i64 1, ptr %10)
   br label %12
 
 12:                                               ; preds = %9, %7
-  %13 = load ptr, ptr @knownList, align 8, !tbaa !25
+  %13 = load ptr, ptr @knownList, align 8, !tbaa !23
   call void @udbg_knownIssue_close(ptr noundef %13) #23
-  store ptr null, ptr @knownList, align 8, !tbaa !25
+  store ptr null, ptr @knownList, align 8, !tbaa !23
   br label %14
 
 14:                                               ; preds = %12, %5
-  %15 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %15 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %.not17 = icmp eq i32 %15, 0
   br i1 %.not17, label %47, label %16
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !16
   %18 = call i64 @fwrite(ptr nonnull @.str.8, i64 10, i64 1, ptr %17)
-  %19 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !16
   %20 = call i32 @fflush(ptr noundef %19)
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !18
-  %22 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %22 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.9, i32 noundef %22) #23
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !16
   %25 = call i32 @fflush(ptr noundef %24)
-  %26 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %26 = load ptr, ptr @stdout, align 8, !tbaa !16
   %27 = call i64 @fwrite(ptr nonnull @.str.10, i64 11, i64 1, ptr %26)
-  %28 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  %28 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %16 ]
-  %30 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %indvars.iv
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.11, ptr noundef nonnull %31) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  %33 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %36 = load ptr, ptr @SUMMARY_FILE, align 8, !tbaa !23
+  %36 = load ptr, ptr @SUMMARY_FILE, align 8, !tbaa !21
   %.not18 = icmp eq ptr %36, null
   br i1 %.not18, label %48, label %37
 
@@ -832,7 +832,7 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %48, label %.preheader
 
 .preheader:                                       ; preds = %37
-  %39 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  %39 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph23, label %._crit_edge24
 
@@ -841,10 +841,10 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %indvars.iv26
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %38, ptr noundef nonnull @.str.13, ptr noundef nonnull %41) #23
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %43 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !20
+  %43 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next27, %44
-  br i1 %45, label %.lr.ph23, label %._crit_edge24, !llvm.loop !27
+  br i1 %45, label %.lr.ph23, label %._crit_edge24, !llvm.loop !25
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %.preheader
   %46 = call i32 @fclose(ptr noundef nonnull %38)
@@ -855,12 +855,12 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %37, %._crit_edge24, %._crit_edge, %47
-  %49 = load i32, ptr @DATA_ERROR_COUNT, align 4, !tbaa !20
+  %49 = load i32, ptr @DATA_ERROR_COUNT, align 4, !tbaa !18
   %.not20 = icmp eq i32 %49, 0
   br i1 %.not20, label %52, label %.sink.split
 
 .sink.split:                                      ; preds = %48
-  %50 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !20
+  %50 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !18
   %51 = icmp eq i32 %50, 0
   %.str.15..str.16 = select i1 %51, ptr @.str.15, ptr @.str.16
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull %.str.15..str.16)
@@ -892,16 +892,16 @@ define internal void @log_testinfo(ptr noundef readonly captures(none) %0, ...) 
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #23
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i = call i32 @fputc(i32 32, ptr %3)
-  %4 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !16
   %5 = call i32 @vfprintf(ptr noundef %4, ptr noundef %0, ptr noundef nonnull %2) #23
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !16
   %7 = call i32 @fflush(ptr noundef %6)
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %8 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %8 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  store i32 %9, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #23
   ret void
 }
@@ -986,11 +986,11 @@ strncmp_nullcheck.exit.thread:                    ; preds = %24, %strncmp_nullch
   %28 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %20, !llvm.loop !28
+  br i1 %30, label %.loopexit, label %20, !llvm.loop !26
 
 31:                                               ; preds = %strncmp_nullcheck.exit
   %32 = icmp eq ptr %.023, null
-  br i1 %32, label %.loopexit, label %8, !llvm.loop !29
+  br i1 %32, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %31, %getNextLevel.exit, %strncmp_nullcheck.exit.thread, %4
   %.017 = phi ptr [ null, %4 ], [ null, %strncmp_nullcheck.exit.thread ], [ %.015, %31 ], [ null, %getNextLevel.exit ]
@@ -1012,26 +1012,26 @@ define void @vlog_info(ptr noundef readonly captures(address_is_null) %0, ptr no
   br i1 %.b6.i.i, label %first_line_info.exit, label %5
 
 5:                                                ; preds = %4, %.thread.i
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i = tail call i32 @fputc(i32 34, ptr %6)
   br label %first_line_info.exit
 
 first_line_info.exit:                             ; preds = %4, %5
-  %7 = load ptr, ptr @stdout, align 8, !tbaa !18
-  %8 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %8 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.17, i32 noundef %8, ptr noundef nonnull @.str) #23
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %first_line_info.exit
-  %11 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %11 = load ptr, ptr @stdout, align 8, !tbaa !16
   %12 = tail call i32 @fputs(ptr noundef nonnull %0, ptr noundef %11)
   br label %13
 
 13:                                               ; preds = %10, %first_line_info.exit
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !16
   %15 = tail call i32 @vfprintf(ptr noundef %14, ptr noundef %1, ptr noundef %2) #23
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !16
   %17 = tail call i32 @fflush(ptr noundef %16)
   %18 = load i8, ptr %1, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 0
@@ -1048,9 +1048,9 @@ first_line_info.exit:                             ; preds = %4, %5
 25:                                               ; preds = %20, %13
   %storemerge = phi i1 [ true, %13 ], [ %.not7, %20 ]
   store i1 %storemerge, ptr @HANGING_OUTPUT, align 1
-  %26 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %26 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %27 = add nsw i32 %26, 1
-  store i32 %27, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  store i32 %27, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   ret void
 }
 
@@ -1071,19 +1071,19 @@ declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @vlog_err(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #2 {
-  %3 = load i32, ptr @ERR_MSG, align 4, !tbaa !20
+  %3 = load i32, ptr @ERR_MSG, align 4, !tbaa !18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %24, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc = tail call i32 @fputc(i32 33, ptr %6)
-  %7 = load ptr, ptr @stdout, align 8, !tbaa !18
-  %8 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %8 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.17, i32 noundef %8, ptr noundef nonnull @.str) #23
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !16
   %11 = tail call i32 @vfprintf(ptr noundef %10, ptr noundef %0, ptr noundef nonnull %1) #23
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !16
   %13 = tail call i32 @fflush(ptr noundef %12)
   %14 = load i8, ptr %0, align 1, !tbaa !11
   %15 = icmp eq i8 %14, 0
@@ -1100,9 +1100,9 @@ define internal fastcc void @vlog_err(ptr noundef readonly captures(none) %0, pt
 21:                                               ; preds = %16, %5
   %storemerge = phi i1 [ true, %5 ], [ %.not, %16 ]
   store i1 %storemerge, ptr @HANGING_OUTPUT, align 1
-  %22 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %22 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  store i32 %23, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   br label %24
 
 24:                                               ; preds = %2, %21
@@ -1130,9 +1130,9 @@ define signext range(i8 0, 2) i8 @log_knownIssue(ptr noundef %0, ptr noundef rea
   %8 = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %8, ptr @.str, ptr %1
   %9 = call i32 @vsprintf(ptr noundef nonnull %3, ptr noundef nonnull %spec.store.select.i, ptr noundef nonnull %6) #23
-  %10 = load ptr, ptr @knownList, align 8, !tbaa !25
+  %10 = load ptr, ptr @knownList, align 8, !tbaa !23
   %11 = call ptr @udbg_knownIssue_open(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @gTestName, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
-  store ptr %11, ptr @knownList, align 8, !tbaa !25
+  store ptr %11, ptr @knownList, align 8, !tbaa !23
   %12 = load i8, ptr %4, align 1, !tbaa !11
   %13 = icmp ne i8 %12, 0
   %14 = load i8, ptr %5, align 1
@@ -1169,10 +1169,10 @@ define void @log_err_status(i32 noundef %0, ptr noundef readonly %1, ...) local_
   ]
 
 4:                                                ; preds = %2, %2
-  %5 = load i32, ptr @DATA_ERROR_COUNT, align 4, !tbaa !20
+  %5 = load i32, ptr @DATA_ERROR_COUNT, align 4, !tbaa !18
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr @DATA_ERROR_COUNT, align 4, !tbaa !20
-  %7 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !20
+  store i32 %6, ptr @DATA_ERROR_COUNT, align 4, !tbaa !18
+  %7 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !18
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %16
 
@@ -1190,7 +1190,7 @@ define void @log_err_status(i32 noundef %0, ptr noundef readonly %1, ...) local_
   br i1 %.b6.i.i, label %first_line_err.exit, label %11
 
 11:                                               ; preds = %10, %.thread.i
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i = call i32 @fputc(i32 33, ptr %12)
   br label %first_line_err.exit
 
@@ -1198,9 +1198,9 @@ first_line_err.exit:                              ; preds = %10, %11
   %13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #25
   %.not7 = icmp eq ptr %13, null
   %ONE_ERROR.ERROR_COUNT = select i1 %.not7, ptr @ONE_ERROR, ptr @ERROR_COUNT
-  %14 = load i32, ptr %ONE_ERROR.ERROR_COUNT, align 4, !tbaa !20
+  %14 = load i32, ptr %ONE_ERROR.ERROR_COUNT, align 4, !tbaa !18
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %ONE_ERROR.ERROR_COUNT, align 4, !tbaa !20
+  store i32 %15, ptr %ONE_ERROR.ERROR_COUNT, align 4, !tbaa !18
   call fastcc void @vlog_err(ptr noundef nonnull %1, ptr noundef %3)
   br label %24
 
@@ -1222,7 +1222,7 @@ first_line_err.exit:                              ; preds = %10, %11
   br i1 %.b6.i.i9, label %first_line_err.exit12, label %19
 
 19:                                               ; preds = %18, %.thread.i11
-  %20 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %20 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i10 = call i32 @fputc(i32 33, ptr %20)
   br label %first_line_err.exit12
 
@@ -1230,9 +1230,9 @@ first_line_err.exit12:                            ; preds = %18, %19
   %21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #25
   %.not = icmp eq ptr %21, null
   %ONE_ERROR.ERROR_COUNT18 = select i1 %.not, ptr @ONE_ERROR, ptr @ERROR_COUNT
-  %22 = load i32, ptr %ONE_ERROR.ERROR_COUNT18, align 4, !tbaa !20
+  %22 = load i32, ptr %ONE_ERROR.ERROR_COUNT18, align 4, !tbaa !18
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %ONE_ERROR.ERROR_COUNT18, align 4, !tbaa !20
+  store i32 %23, ptr %ONE_ERROR.ERROR_COUNT18, align 4, !tbaa !18
   call fastcc void @vlog_err(ptr noundef nonnull %1, ptr noundef %3)
   br label %24
 
@@ -1258,7 +1258,7 @@ define void @log_verbose(ptr noundef readonly captures(none) %0, ...) local_unna
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #23
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load i32, ptr @VERBOSITY, align 4, !tbaa !20
+  %3 = load i32, ptr @VERBOSITY, align 4, !tbaa !18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %vlog_verbose.exit, label %5
 
@@ -1276,21 +1276,21 @@ define void @log_verbose(ptr noundef readonly captures(none) %0, ...) local_unna
   br i1 %.b6.i.i.i, label %first_line_verbose.exit.i, label %7
 
 7:                                                ; preds = %6, %.thread.i.i
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i.i = call i32 @fputc(i32 118, ptr %8)
   br label %first_line_verbose.exit.i
 
 first_line_verbose.exit.i:                        ; preds = %7, %6
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !18
-  %10 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %10 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %10, ptr noundef nonnull @.str) #23
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !16
   %13 = call i32 @vfprintf(ptr noundef %12, ptr noundef readonly %0, ptr noundef nonnull %2) #23
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !16
   %15 = call i32 @fflush(ptr noundef %14)
-  %16 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %16 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %17 = add nsw i32 %16, 1
-  store i32 %17, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  store i32 %17, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %18 = load i8, ptr %0, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.sink.split.i, label %20
@@ -1328,10 +1328,10 @@ define void @log_data_err(ptr noundef readonly %0, ...) local_unnamed_addr #2 {
   br label %go_offline_err.exit
 
 go_offline_err.exit:                              ; preds = %1, %3
-  %4 = load i32, ptr @DATA_ERROR_COUNT, align 4, !tbaa !20
+  %4 = load i32, ptr @DATA_ERROR_COUNT, align 4, !tbaa !18
   %5 = add nsw i32 %4, 1
-  store i32 %5, ptr @DATA_ERROR_COUNT, align 4, !tbaa !20
-  %6 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !20
+  store i32 %5, ptr @DATA_ERROR_COUNT, align 4, !tbaa !18
+  %6 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !18
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -1341,9 +1341,9 @@ go_offline_err.exit:                              ; preds = %1, %3
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %11 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %12 = add nsw i32 %11, 1
-  store i32 %12, ptr @ERROR_COUNT, align 4, !tbaa !20
+  store i32 %12, ptr @ERROR_COUNT, align 4, !tbaa !18
   br label %13
 
 13:                                               ; preds = %10, %8
@@ -1364,10 +1364,10 @@ go_offline_err.exit:                              ; preds = %1, %3
 define range(i32 0, 2) i32 @initArgs(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store i32 0, ptr @VERBOSITY, align 4, !tbaa !20
-  store i32 1, ptr @ERR_MSG, align 4, !tbaa !20
-  %7 = load ptr, ptr %1, align 8, !tbaa !23
-  store ptr %7, ptr @ARGV_0, align 8, !tbaa !23
+  store i32 0, ptr @VERBOSITY, align 4, !tbaa !18
+  store i32 1, ptr @ERR_MSG, align 4, !tbaa !18
+  %7 = load ptr, ptr %1, align 8, !tbaa !21
+  store ptr %7, ptr @ARGV_0, align 8, !tbaa !21
   %8 = icmp sgt i32 %0, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -1379,7 +1379,7 @@ define range(i32 0, 2) i32 @initArgs(i32 noundef %0, ptr noundef %1, ptr noundef
   %.094184 = phi i32 [ 1, %.lr.ph ], [ %186, %185 ]
   %10 = zext nneg i32 %.094184 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = icmp eq i8 %13, 47
   br i1 %14, label %185, label %sub_0
@@ -1443,7 +1443,7 @@ sub_1117:                                         ; preds = %.tail.thread, %.thr
   br i1 %36, label %37, label %sub_1122
 
 37:                                               ; preds = %.tail115.thread.thread, %.thread222, %.tail115.thread, %.tail115
-  store i32 1, ptr @VERBOSITY, align 4, !tbaa !20
+  store i32 1, ptr @VERBOSITY, align 4, !tbaa !18
   br label %185
 
 sub_1122:                                         ; preds = %.tail115.thread, %.thread222
@@ -1474,7 +1474,7 @@ sub_1122:                                         ; preds = %.tail115.thread, %.
   br i1 %48, label %49, label %sub_1127
 
 49:                                               ; preds = %.tail120.thread.thread, %.thread223, %.tail120.thread
-  store i32 -1, ptr @QUICK, align 4, !tbaa !20
+  store i32 -1, ptr @QUICK, align 4, !tbaa !18
   br label %185
 
 sub_1127:                                         ; preds = %.tail120.thread.thread, %.thread223
@@ -1490,7 +1490,7 @@ sub_1127:                                         ; preds = %.tail120.thread.thr
   br i1 %54, label %55, label %sub_1132
 
 55:                                               ; preds = %.tail125
-  store i32 0, ptr @QUICK, align 4, !tbaa !20
+  store i32 0, ptr @QUICK, align 4, !tbaa !18
   br label %185
 
 sub_1132:                                         ; preds = %.tail125, %sub_1127
@@ -1517,7 +1517,7 @@ sub_1132:                                         ; preds = %.tail125, %sub_1127
 
 65:                                               ; preds = %.tail135
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  store ptr %66, ptr @SUMMARY_FILE, align 8, !tbaa !23
+  store ptr %66, ptr @SUMMARY_FILE, align 8, !tbaa !21
   br label %185
 
 sub_1141:                                         ; preds = %.tail135
@@ -1533,7 +1533,7 @@ sub_1141:                                         ; preds = %.tail135
   br i1 %71, label %72, label %sub_1146
 
 72:                                               ; preds = %.tail139
-  store i32 1, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !20
+  store i32 1, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !18
   br label %185
 
 sub_1146:                                         ; preds = %.tail139, %sub_1141
@@ -1550,21 +1550,21 @@ sub_1146:                                         ; preds = %.tail139, %sub_1141
 
 78:                                               ; preds = %.tail144
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23
-  store i32 0, ptr %5, align 4, !tbaa !20
+  store i32 0, ptr %5, align 4, !tbaa !18
   %79 = add nuw nsw i32 %.094184, 1
   %80 = icmp slt i32 %79, %0
   br i1 %80, label %81, label %97
 
 81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  store ptr null, ptr %6, align 8, !tbaa !23
+  store ptr null, ptr %6, align 8, !tbaa !21
   %82 = zext nneg i32 %79 to i64
   %83 = getelementptr inbounds nuw ptr, ptr %1, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !23
+  %84 = load ptr, ptr %83, align 8, !tbaa !21
   %85 = call i64 @strtol(ptr noundef %84, ptr noundef nonnull %6, i32 noundef 10) #23
-  store i64 %85, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !30
-  %86 = load ptr, ptr %6, align 8, !tbaa !23
-  %87 = load ptr, ptr %83, align 8, !tbaa !23
+  store i64 %85, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !27
+  %86 = load ptr, ptr %6, align 8, !tbaa !21
+  %87 = load ptr, ptr %83, align 8, !tbaa !21
   %88 = icmp eq ptr %86, %87
   br i1 %88, label %.critedge112, label %89
 
@@ -1575,11 +1575,11 @@ sub_1146:                                         ; preds = %.tail139, %sub_1141
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 1
-  store ptr null, ptr %6, align 8, !tbaa !23
+  store ptr null, ptr %6, align 8, !tbaa !21
   %94 = call i64 @strtol(ptr noundef nonnull %93, ptr noundef nonnull %6, i32 noundef 10) #23
-  store i64 %94, ptr @MAXIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !30
-  %95 = load ptr, ptr %6, align 8, !tbaa !23
-  %96 = load ptr, ptr %83, align 8, !tbaa !23
+  store i64 %94, ptr @MAXIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !27
+  %95 = load ptr, ptr %6, align 8, !tbaa !21
+  %96 = load ptr, ptr %83, align 8, !tbaa !21
   %.not110 = icmp eq ptr %95, %96
   br i1 %.not110, label %.critedge112, label %.critedge
 
@@ -1590,7 +1590,7 @@ sub_1146:                                         ; preds = %.tail139, %sub_1141
 97:                                               ; preds = %.critedge, %78
   %.296 = phi i32 [ %79, %.critedge ], [ %.094184, %78 ]
   call void @u_setMemoryFunctions_77(ptr noundef null, ptr noundef nonnull @ctest_libMalloc, ptr noundef nonnull @ctest_libRealloc, ptr noundef nonnull @ctest_libFree, ptr noundef nonnull %5) #23
-  %98 = load i32, ptr %5, align 4, !tbaa !20
+  %98 = load i32, ptr %5, align 4, !tbaa !18
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %105
 
@@ -1602,7 +1602,7 @@ sub_1146:                                         ; preds = %.tail139, %sub_1141
 .critedge112:                                     ; preds = %92, %81
   %.lcssa236.sink = phi ptr [ %87, %81 ], [ %96, %92 ]
   %103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %.lcssa236.sink)
-  %104 = load ptr, ptr %1, align 8, !tbaa !23
+  %104 = load ptr, ptr %1, align 8, !tbaa !21
   call fastcc void @help(ptr noundef %104)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   br label %.thread
@@ -1643,7 +1643,7 @@ sub_1151:                                         ; preds = %.tail144, %sub_1146
   br i1 %116, label %117, label %sub_1156
 
 117:                                              ; preds = %.tail149.thread.thread, %.thread228, %.tail149.thread, %.tail149
-  store i32 0, ptr @ERR_MSG, align 4, !tbaa !20
+  store i32 0, ptr @ERR_MSG, align 4, !tbaa !18
   br label %185
 
 sub_1156:                                         ; preds = %.tail149.thread, %.thread228
@@ -1659,14 +1659,14 @@ sub_1156:                                         ; preds = %.tail149.thread, %.
   br i1 %122, label %123, label %sub_1161
 
 123:                                              ; preds = %.tail154
-  %124 = load i32, ptr @REPEAT_TESTS_INIT, align 4, !tbaa !20
+  %124 = load i32, ptr @REPEAT_TESTS_INIT, align 4, !tbaa !18
   %.not109 = icmp eq i32 %124, 0
   br i1 %.not109, label %125, label %185
 
 125:                                              ; preds = %123
-  %126 = load i32, ptr @REPEAT_TESTS, align 4, !tbaa !20
+  %126 = load i32, ptr @REPEAT_TESTS, align 4, !tbaa !18
   %127 = add nsw i32 %126, 1
-  store i32 %127, ptr @REPEAT_TESTS, align 4, !tbaa !20
+  store i32 %127, ptr @REPEAT_TESTS, align 4, !tbaa !18
   br label %185
 
 sub_1161:                                         ; preds = %.tail154, %sub_1156
@@ -1693,8 +1693,8 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
 136:                                              ; preds = %133
   %137 = zext nneg i32 %134 to i64
   %138 = getelementptr inbounds nuw ptr, ptr %1, i64 %137
-  %139 = load ptr, ptr %138, align 8, !tbaa !23
-  store ptr %139, ptr @XML_FILE_NAME, align 8, !tbaa !23
+  %139 = load ptr, ptr %138, align 8, !tbaa !21
+  store ptr %139, ptr @XML_FILE_NAME, align 8, !tbaa !21
   br label %185
 
 .tail159.thread:                                  ; preds = %.tail149.thread.thread, %sub_1161, %.tail159
@@ -1703,7 +1703,7 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %.tail159.thread
-  store i32 7, ptr @ICU_TRACE, align 4, !tbaa !20
+  store i32 7, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %185
 
 143:                                              ; preds = %.tail159.thread
@@ -1712,7 +1712,7 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %143
-  store i32 0, ptr @ICU_TRACE, align 4, !tbaa !20
+  store i32 0, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %185
 
 147:                                              ; preds = %143
@@ -1721,7 +1721,7 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %147
-  store i32 3, ptr @ICU_TRACE, align 4, !tbaa !20
+  store i32 3, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %185
 
 151:                                              ; preds = %147
@@ -1730,7 +1730,7 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %151
-  store i32 9, ptr @ICU_TRACE, align 4, !tbaa !20
+  store i32 9, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %185
 
 155:                                              ; preds = %151
@@ -1739,7 +1739,7 @@ sub_1161:                                         ; preds = %.tail154, %sub_1156
   br i1 %157, label %158, label %sub_0165
 
 158:                                              ; preds = %155
-  store i32 5, ptr @ICU_TRACE, align 4, !tbaa !20
+  store i32 5, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %185
 
 sub_0165:                                         ; preds = %155
@@ -1758,7 +1758,7 @@ sub_1166:                                         ; preds = %sub_0165
   br i1 %163, label %164, label %sub_1171
 
 164:                                              ; preds = %.tail164
-  store i32 1, ptr @WRITE_GOLDEN_DATA, align 4, !tbaa !20
+  store i32 1, ptr @WRITE_GOLDEN_DATA, align 4, !tbaa !18
   br label %185
 
 sub_1171:                                         ; preds = %.tail164, %sub_1166
@@ -1779,7 +1779,7 @@ sub_1171:                                         ; preds = %.tail164, %sub_1166
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %.tail169.thread, %.tail169
-  %173 = load ptr, ptr %1, align 8, !tbaa !23
+  %173 = load ptr, ptr %1, align 8, !tbaa !21
   call fastcc void @help(ptr noundef %173)
   br label %191
 
@@ -1793,7 +1793,7 @@ sub_1171:                                         ; preds = %.tail164, %sub_1166
 
 ._crit_edge220:                                   ; preds = %175
   %178 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
-  %.pre = load ptr, ptr %178, align 8, !tbaa !23
+  %.pre = load ptr, ptr %178, align 8, !tbaa !21
   br label %split
 
 179:                                              ; preds = %175
@@ -1804,7 +1804,7 @@ sub_1171:                                         ; preds = %.tail164, %sub_1166
 split:                                            ; preds = %174, %._crit_edge220
   %182 = phi ptr [ %.pre, %._crit_edge220 ], [ %12, %174 ]
   %183 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %182)
-  %184 = load ptr, ptr %1, align 8, !tbaa !23
+  %184 = load ptr, ptr %1, align 8, !tbaa !21
   call fastcc void @help(ptr noundef %184)
   br label %191
 
@@ -1812,16 +1812,16 @@ split:                                            ; preds = %174, %._crit_edge22
   %.195 = phi i32 [ %.094184, %9 ], [ %.094184, %.tail ], [ %.094184, %.tail.thread ], [ %.094184, %37 ], [ %.094184, %.tail120 ], [ %.094184, %49 ], [ %.094184, %55 ], [ %.094184, %61 ], [ %.094184, %65 ], [ %.094184, %72 ], [ %.296, %105 ], [ %.094184, %117 ], [ %.094184, %123 ], [ %.094184, %125 ], [ %134, %136 ], [ %.094184, %142 ], [ %.094184, %146 ], [ %.094184, %150 ], [ %.094184, %154 ], [ %.094184, %158 ], [ %.094184, %164 ], [ %181, %179 ], [ %.094184, %.thread221 ], [ %.094184, %.tail.thread.thread ]
   %186 = add nuw nsw i32 %.195, 1
   %187 = icmp slt i32 %186, %0
-  br i1 %187, label %9, label %._crit_edge, !llvm.loop !32
+  br i1 %187, label %9, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %185, %4
-  %188 = load i32, ptr @ICU_TRACE, align 4, !tbaa !20
+  %188 = load i32, ptr @ICU_TRACE, align 4, !tbaa !18
   %.not = icmp eq i32 %188, -1
   br i1 %.not, label %191, label %189
 
 189:                                              ; preds = %._crit_edge
   call void @utrace_setFunctions_77(ptr noundef null, ptr noundef nonnull @TraceEntry, ptr noundef nonnull @TraceExit, ptr noundef nonnull @TraceData) #23
-  %190 = load i32, ptr @ICU_TRACE, align 4, !tbaa !20
+  %190 = load i32, ptr @ICU_TRACE, align 4, !tbaa !18
   call void @utrace_setLevel_77(i32 noundef %190) #23
   br label %191
 
@@ -1869,7 +1869,7 @@ declare void @u_setMemoryFunctions_77(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: none, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ctest_libMalloc(ptr readnone captures(none) %0, i64 noundef %1) #11 {
-  %3 = load i64, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !30
+  %3 = load i64, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !27
   %.not = icmp ugt i64 %3, %1
   %4 = load i64, ptr @MAXIMUM_MEMORY_SIZE_FAILURE, align 8
   %.not4 = icmp ugt i64 %1, %4
@@ -1887,7 +1887,7 @@ define internal noalias noundef ptr @ctest_libMalloc(ptr readnone captures(none)
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ctest_libRealloc(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #12 {
-  %4 = load i64, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !30
+  %4 = load i64, ptr @MINIMUM_MEMORY_SIZE_FAILURE, align 8, !tbaa !27
   %.not = icmp ugt i64 %4, %2
   %5 = load i64, ptr @MAXIMUM_MEMORY_SIZE_FAILURE, align 8
   %.not5 = icmp ugt i64 %2, %5
@@ -1913,7 +1913,7 @@ declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @ctest_xml_setFileName(ptr noundef %0) local_unnamed_addr #14 {
-  store ptr %0, ptr @XML_FILE_NAME, align 8, !tbaa !23
+  store ptr %0, ptr @XML_FILE_NAME, align 8, !tbaa !21
   ret i32 0
 }
 
@@ -1923,17 +1923,17 @@ declare void @utrace_setFunctions_77(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal void @TraceEntry(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca [500 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %3) #23
-  %4 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  %4 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !18
   %5 = mul nsw i32 %4, 3
   %6 = tail call ptr @utrace_functionName_77(i32 noundef %1) #23
   %7 = call i32 (ptr, i32, i32, ptr, ...) @utrace_format_77(ptr noundef nonnull %3, i32 noundef 500, i32 noundef %5, ptr noundef nonnull @.str.81, ptr noundef %6) #23
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 499
   store i8 0, ptr %8, align 1, !tbaa !11
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !16
   %10 = call i32 @fputs(ptr noundef nonnull %3, ptr noundef %9)
-  %11 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  %11 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !18
   %12 = add nsw i32 %11, 1
-  store i32 %12, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  store i32 %12, ptr @traceFnNestingDepth, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %3) #23
   ret void
 }
@@ -1942,13 +1942,13 @@ define internal void @TraceEntry(ptr readnone captures(none) %0, i32 noundef %1)
 define internal void @TraceExit(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [500 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %5) #23
-  %6 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  %6 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !18
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = add nsw i32 %6, -1
-  store i32 %9, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  store i32 %9, ptr @traceFnNestingDepth, align 4, !tbaa !18
   br label %10
 
 10:                                               ; preds = %8, %4
@@ -1958,15 +1958,15 @@ define internal void @TraceExit(ptr readnone captures(none) %0, i32 noundef %1, 
   %14 = call i32 (ptr, i32, i32, ptr, ...) @utrace_format_77(ptr noundef nonnull %5, i32 noundef 500, i32 noundef %12, ptr noundef nonnull @.str.82, ptr noundef %13) #23
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 499
   store i8 0, ptr %15, align 1, !tbaa !11
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !16
   %17 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef %16)
-  %18 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  %18 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !18
   %19 = mul nsw i32 %18, 3
   %20 = call i32 @utrace_vformat_77(ptr noundef nonnull %5, i32 noundef 500, i32 noundef %19, ptr noundef %2, ptr noundef %3) #23
   store i8 0, ptr %15, align 1, !tbaa !11
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !16
   %22 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef %21)
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !16
   %24 = call i32 @putc(i32 noundef 10, ptr noundef %23)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %5) #23
   ret void
@@ -1976,14 +1976,14 @@ define internal void @TraceExit(ptr readnone captures(none) %0, i32 noundef %1, 
 define internal void @TraceData(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [500 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %6) #23
-  %7 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !20
+  %7 = load i32, ptr @traceFnNestingDepth, align 4, !tbaa !18
   %8 = mul nsw i32 %7, 3
   %9 = call i32 @utrace_vformat_77(ptr noundef nonnull %6, i32 noundef 500, i32 noundef %8, ptr noundef %3, ptr noundef %4) #23
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 499
   store i8 0, ptr %10, align 1, !tbaa !11
-  %11 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %11 = load ptr, ptr @stdout, align 8, !tbaa !16
   %12 = call i32 @fputs(ptr noundef nonnull %6, ptr noundef %11)
-  %13 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !16
   %14 = call i32 @putc(i32 noundef 10, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %6) #23
   ret void
@@ -1995,7 +1995,7 @@ declare void @utrace_setLevel_77(i32 noundef) local_unnamed_addr #4
 define i32 @runTestRequest(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [512 x ptr], align 16
   %5 = alloca [512 x ptr], align 16
-  %6 = load ptr, ptr @ARGV_0, align 8, !tbaa !23
+  %6 = load ptr, ptr @ARGV_0, align 8, !tbaa !21
   %7 = tail call i32 @ctest_xml_init(ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.preheader, label %ctest_xml_fini.exit
@@ -2025,7 +2025,7 @@ define i32 @runTestRequest(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   %.03660 = phi i32 [ %.137, %.tail48 ], [ %.03660.ph, %.lr.ph.outer ]
   %.03859 = phi i32 [ %.139, %.tail48 ], [ %.03859.ph, %.lr.ph.outer ]
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = load i8, ptr %10, align 1, !tbaa !11
   switch i8 %11, label %.tail.thread.thread [
     i8 47, label %12
@@ -2035,7 +2035,7 @@ define i32 @runTestRequest(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %10)
-  %15 = load ptr, ptr %13, align 8, !tbaa !23
+  %15 = load ptr, ptr %13, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 0
@@ -2115,15 +2115,15 @@ sub_251:                                          ; preds = %sub_150
   %.137 = phi i32 [ 0, %.tail.thread ], [ 0, %.tail ], [ 0, %.thread ], [ %.03660, %sub_150 ], [ %.03660, %sub_251 ], [ %spec.select, %.tail.thread.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .tail48.thread:                                   ; preds = %showTests.exit, %26
   store i1 false, ptr @ON_LINE, align 1
-  %44 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %44 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %45 = add nsw i32 %44, %.061.ph
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not82 = icmp eq i64 %indvars.iv.next81, %wide.trip.count
-  br i1 %exitcond.not82, label %._crit_edge.thread87, label %.lr.ph.outer, !llvm.loop !33
+  br i1 %exitcond.not82, label %._crit_edge.thread87, label %.lr.ph.outer, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.tail48
   %46 = icmp eq i32 %.137, 0
@@ -2161,7 +2161,7 @@ showTests.exit47:                                 ; preds = %.split.i45, %.split
 53:                                               ; preds = %52, %showTests.exit47
   %.0.lcssa7698 = phi i32 [ %.0.lcssa7699, %52 ], [ %.061.ph, %showTests.exit47 ]
   store i1 false, ptr @ON_LINE, align 1
-  %54 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !20
+  %54 = load i32, ptr @ERROR_COUNT, align 4, !tbaa !18
   %55 = add nsw i32 %54, %.0.lcssa7698
   br label %60
 
@@ -2179,18 +2179,18 @@ showTests.exit47:                                 ; preds = %.split.i45, %.split
 
 60:                                               ; preds = %._crit_edge.thread87, %58, %53
   %.2 = phi i32 [ %55, %53 ], [ %.18692, %58 ], [ %.18692, %._crit_edge.thread87 ]
-  store i32 1, ptr @REPEAT_TESTS_INIT, align 4, !tbaa !20
-  %61 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  store i32 1, ptr @REPEAT_TESTS_INIT, align 4, !tbaa !18
+  %61 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %ctest_xml_fini.exit, label %62
 
 62:                                               ; preds = %60
   %63 = call i64 @fwrite(ptr nonnull @.str.52, i64 13, i64 1, ptr nonnull %61)
-  %64 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %64 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   %65 = call i32 @fclose(ptr noundef %64)
-  %66 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !23
+  %66 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !21
   %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %66)
-  store ptr null, ptr @XML_FILE, align 8, !tbaa !18
+  store ptr null, ptr @XML_FILE, align 8, !tbaa !16
   br label %ctest_xml_fini.exit
 
 ctest_xml_fini.exit:                              ; preds = %62, %60, %3, %23
@@ -2200,13 +2200,13 @@ ctest_xml_fini.exit:                              ; preds = %62, %60, %3, %23
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !23
+  %2 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !21
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %40, label %3
 
 3:                                                ; preds = %1
   %4 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.12)
-  store ptr %4, ptr @XML_FILE, align 8, !tbaa !18
+  store ptr %4, ptr @XML_FILE, align 8, !tbaa !16
   %.not18 = icmp eq ptr %4, null
   br i1 %.not18, label %8, label %.preheader
 
@@ -2217,13 +2217,13 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %.preheader
   %6 = tail call ptr @__ctype_b_loc() #27
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   br label %12
 
 8:                                                ; preds = %3
   tail call void @perror(ptr noundef nonnull @.str.49) #28
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %10 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !23
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %10 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !21
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.50, ptr noundef %10) #29
   br label %40
 
@@ -2232,7 +2232,7 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %.01323 = phi ptr [ %0, %.lr.ph ], [ %19, %18 ]
   %14 = sext i8 %13 to i64
   %15 = getelementptr inbounds i16, ptr %7, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !36
+  %16 = load i16, ptr %15, align 2, !tbaa !33
   %17 = and i16 %16, 8
   %.not20 = icmp eq i16 %17, 0
   br i1 %.not20, label %18, label %.critedge
@@ -2241,7 +2241,7 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %19 = getelementptr inbounds nuw i8, ptr %.01323, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !11
   %.not19 = icmp eq i8 %20, 0
-  br i1 %.not19, label %.critedge, label %12, !llvm.loop !38
+  br i1 %.not19, label %.critedge, label %12, !llvm.loop !35
 
 .critedge:                                        ; preds = %12, %18, %.preheader
   %.013.lcssa = phi ptr [ %0, %.preheader ], [ %19, %18 ], [ %.01323, %12 ]
@@ -2262,10 +2262,10 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
 28:                                               ; preds = %.lr.ph29, %35
   %29 = phi i8 [ %24, %.lr.ph29 ], [ %36, %35 ]
   %.028 = phi ptr [ %.026, %.lr.ph29 ], [ %.0, %35 ]
-  %30 = load ptr, ptr %27, align 8, !tbaa !34
+  %30 = load ptr, ptr %27, align 8, !tbaa !31
   %31 = sext i8 %29 to i64
   %32 = getelementptr inbounds i16, ptr %30, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !36
+  %33 = load i16, ptr %32, align 2, !tbaa !33
   %34 = and i16 %33, 8
   %.not21 = icmp eq i16 %34, 0
   br i1 %.not21, label %35, label %.critedge3
@@ -2277,7 +2277,7 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %37 = icmp ne i8 %36, 0
   %38 = icmp ugt ptr %.0, @XML_PREFIX
   %or.cond = and i1 %37, %38
-  br i1 %or.cond, label %28, label %.critedge3, !llvm.loop !39
+  br i1 %or.cond, label %28, label %.critedge3, !llvm.loop !36
 
 .critedge3:                                       ; preds = %28, %35, %.critedge
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.51, ptr noundef nonnull @XML_PREFIX) #23
@@ -2290,17 +2290,17 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @ctest_xml_fini() local_unnamed_addr #2 {
-  %1 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %1 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %0
   %3 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 13, i64 1, ptr nonnull %1)
-  %4 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %4 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   %5 = tail call i32 @fclose(ptr noundef %4)
-  %6 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !23
+  %6 = load ptr, ptr @XML_FILE_NAME, align 8, !tbaa !21
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %6)
-  store ptr null, ptr @XML_FILE, align 8, !tbaa !18
+  store ptr null, ptr @XML_FILE, align 8, !tbaa !16
   br label %8
 
 8:                                                ; preds = %0, %2
@@ -2320,31 +2320,31 @@ define i32 @getTestOption(i32 noundef %0) local_unnamed_addr #7 {
   ]
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr @VERBOSITY, align 4, !tbaa !20
+  %3 = load i32, ptr @VERBOSITY, align 4, !tbaa !18
   br label %16
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !20
+  %5 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !18
   br label %16
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr @QUICK, align 4, !tbaa !20
+  %7 = load i32, ptr @QUICK, align 4, !tbaa !18
   br label %16
 
 8:                                                ; preds = %1
-  %9 = load i32, ptr @REPEAT_TESTS, align 4, !tbaa !20
+  %9 = load i32, ptr @REPEAT_TESTS, align 4, !tbaa !18
   br label %16
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr @ERR_MSG, align 4, !tbaa !20
+  %11 = load i32, ptr @ERR_MSG, align 4, !tbaa !18
   br label %16
 
 12:                                               ; preds = %1
-  %13 = load i32, ptr @ICU_TRACE, align 4, !tbaa !20
+  %13 = load i32, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %16
 
 14:                                               ; preds = %1
-  %15 = load i32, ptr @WRITE_GOLDEN_DATA, align 4, !tbaa !20
+  %15 = load i32, ptr @WRITE_GOLDEN_DATA, align 4, !tbaa !18
   br label %16
 
 16:                                               ; preds = %1, %14, %12, %10, %8, %6, %4, %2
@@ -2369,31 +2369,31 @@ define void @setTestOption(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1
   ]
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr @VERBOSITY, align 4, !tbaa !20
+  %6 = load i32, ptr @VERBOSITY, align 4, !tbaa !18
   br label %getTestOption.exit
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !20
+  %8 = load i32, ptr @WARN_ON_MISSING_DATA, align 4, !tbaa !18
   br label %getTestOption.exit
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr @QUICK, align 4, !tbaa !20
+  %10 = load i32, ptr @QUICK, align 4, !tbaa !18
   br label %getTestOption.exit
 
 11:                                               ; preds = %4
-  %12 = load i32, ptr @REPEAT_TESTS, align 4, !tbaa !20
+  %12 = load i32, ptr @REPEAT_TESTS, align 4, !tbaa !18
   br label %getTestOption.exit
 
 13:                                               ; preds = %4
-  %14 = load i32, ptr @ERR_MSG, align 4, !tbaa !20
+  %14 = load i32, ptr @ERR_MSG, align 4, !tbaa !18
   br label %getTestOption.exit
 
 15:                                               ; preds = %4
-  %16 = load i32, ptr @ICU_TRACE, align 4, !tbaa !20
+  %16 = load i32, ptr @ICU_TRACE, align 4, !tbaa !18
   br label %getTestOption.exit
 
 17:                                               ; preds = %4
-  %18 = load i32, ptr @WRITE_GOLDEN_DATA, align 4, !tbaa !20
+  %18 = load i32, ptr @WRITE_GOLDEN_DATA, align 4, !tbaa !18
   br label %getTestOption.exit
 
 getTestOption.exit:                               ; preds = %4, %5, %7, %9, %11, %13, %15, %17
@@ -2415,7 +2415,7 @@ switch.lookup:                                    ; preds = %20
   %22 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.setTestOption, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
-  store i32 %.0, ptr %switch.load, align 4, !tbaa !20
+  store i32 %.0, ptr %switch.load, align 4, !tbaa !18
   br label %23
 
 23:                                               ; preds = %20, %switch.lookup
@@ -2433,14 +2433,14 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @ctest_xml_testcase(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %5 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.54, ptr noundef nonnull @XML_PREFIX, ptr noundef %0, ptr noundef nonnull @XML_PREFIX, ptr noundef %1, ptr noundef %2) #23
   %.not6 = icmp eq ptr %3, null
-  %8 = load ptr, ptr @XML_FILE, align 8, !tbaa !18
+  %8 = load ptr, ptr @XML_FILE, align 8, !tbaa !16
   br i1 %.not6, label %11, label %9
 
 9:                                                ; preds = %6
@@ -2473,20 +2473,20 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly c
 define internal void @log_testinfo_i(ptr noundef readonly captures(none) %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #23
-  %3 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %3 = load ptr, ptr @stdout, align 8, !tbaa !16
   %fputc.i = tail call i32 @fputc(i32 32, ptr %3)
-  %4 = load ptr, ptr @stdout, align 8, !tbaa !18
-  %5 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !20
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %5 = load i32, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %5, ptr noundef nonnull @.str) #23
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %7 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !16
   %8 = call i32 @vfprintf(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %2) #23
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !16
   %10 = call i32 @fflush(ptr noundef %9)
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %11 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  %11 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   %12 = add nsw i32 %11, 1
-  store i32 %12, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !20
+  store i32 %12, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #23
   ret void
 }
@@ -2565,31 +2565,28 @@ attributes #29 = { cold nounwind }
 !9 = !{!4, !8, i64 8}
 !10 = !{!8, !8, i64 0}
 !11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !14}
-!17 = !{!4, !5, i64 0}
+!14 = distinct !{!14, !13}
+!15 = !{!4, !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !6, i64 0}
-!22 = distinct !{!22, !13, !14}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 omnipotent char", !5, i64 0}
-!25 = !{!5, !5, i64 0}
-!26 = distinct !{!26, !13, !14}
-!27 = distinct !{!27, !13, !14}
-!28 = distinct !{!28, !13, !14}
-!29 = distinct !{!29, !14}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"long", !6, i64 0}
-!32 = distinct !{!32, !13, !14}
-!33 = distinct !{!33, !13, !14}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 short", !5, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"short", !6, i64 0}
-!38 = distinct !{!38, !13, !14}
-!39 = distinct !{!39, !13, !14}
+!19 = !{!"int", !6, i64 0}
+!20 = distinct !{!20, !13}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 omnipotent char", !5, i64 0}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"long", !6, i64 0}
+!29 = distinct !{!29, !13}
+!30 = distinct !{!30, !13}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 short", !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"short", !6, i64 0}
+!35 = distinct !{!35, !13}
+!36 = distinct !{!36, !13}

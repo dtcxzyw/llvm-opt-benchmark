@@ -273,7 +273,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.sink.
   %.151 = phi ptr [ %33, %29 ], [ %40, %36 ], [ %47, %43 ], [ %56, %59 ], [ %64, %lean_dec.exit.sink.split ]
   %65 = tail call zeroext i8 @l_Lean_Expr_hasFVar(ptr noundef %.151) #3
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %lean_dec.exit.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %66, label %lean_dec.exit.thread, label %.lr.ph
 
 lean_dec.exit.thread:                             ; preds = %lean_dec.exit, %50, %lean_obj_tag.exit, %29, %36, %43, %59, %2, %lean_obj_tag.exit77, %25, %27, %28, %lean_obj_tag.exit77.thread
   %.184 = phi i8 [ 1, %25 ], [ 1, %27 ], [ 1, %28 ], [ 0, %lean_obj_tag.exit77.thread ], [ %spec.select, %lean_obj_tag.exit77 ], [ 0, %2 ], [ 1, %59 ], [ 1, %43 ], [ 1, %36 ], [ 1, %29 ], [ 0, %lean_obj_tag.exit ], [ 1, %50 ], [ 0, %lean_dec.exit ]
@@ -806,7 +806,7 @@ lean_nat_lt.exit:                                 ; preds = %lean_obj_tag.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = getelementptr i8, ptr %28, i64 8
-  %.val51 = load i64, ptr %29, align 8, !tbaa !14
+  %.val51 = load i64, ptr %29, align 8, !tbaa !12
   %.mask71 = and i64 %.val51, 9223372036854775807
   %.not70 = icmp eq i64 %.mask71, 0
   br i1 %.not70, label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit, label %lean_dec.exit40
@@ -857,7 +857,7 @@ l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit64:
 
 lean_nat_lt.exit50:                               ; preds = %lean_obj_tag.exit.thread.i60, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit64
   %48 = getelementptr i8, ptr %35, i64 8
-  %.val = load i64, ptr %48, align 8, !tbaa !14
+  %.val = load i64, ptr %48, align 8, !tbaa !12
   %.mask = and i64 %.val, 9223372036854775807
   %.not69 = icmp eq i64 %.mask, 0
   br i1 %.not69, label %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit, label %lean_dec.exit
@@ -874,7 +874,7 @@ l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit: ;
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_letValueDepOn___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !14
+  %.val = load i64, ptr %5, align 8, !tbaa !12
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -900,7 +900,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at___private_Lean_Compiler_LCNF_Dep
 
 lean_dec.exit13:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val20 = load i64, ptr %15, align 8, !tbaa !14
+  %.val20 = load i64, ptr %15, align 8, !tbaa !12
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not21 = icmp eq i64 %17, 0
@@ -1282,7 +1282,7 @@ l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exi
 
 .outer.backedge:                                  ; preds = %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit, %94
   %.072.be = phi ptr [ %15, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_LetDecl_depOn.exit ], [ %89, %94 ]
-  br label %.outer, !llvm.loop !16
+  br label %.outer
 
 24:                                               ; preds = %lean_obj_tag.exit
   %25 = getelementptr inbounds nuw i8, ptr %.072, i64 8
@@ -1326,7 +1326,7 @@ l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit: ;
 
 lean_nat_lt.exit:                                 ; preds = %lean_obj_tag.exit.thread.i, %l___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_fvarDepOn.exit
   %41 = getelementptr i8, ptr %28, i64 8
-  %.val94 = load i64, ptr %41, align 8, !tbaa !14
+  %.val94 = load i64, ptr %41, align 8, !tbaa !12
   %.mask136 = and i64 %.val94, 9223372036854775807
   %.not135 = icmp eq i64 %.mask136, 0
   br i1 %.not135, label %lean_dec.exit84, label %lean_dec.exit83
@@ -1386,7 +1386,7 @@ lean_nat_lt.exit93:                               ; preds = %lean_obj_tag.exit.t
   %65 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !10
   %67 = getelementptr i8, ptr %66, i64 8
-  %.val = load i64, ptr %67, align 8, !tbaa !14
+  %.val = load i64, ptr %67, align 8, !tbaa !12
   %.mask = and i64 %.val, 9223372036854775807
   %.not133 = icmp eq i64 %.mask, 0
   br i1 %.not133, label %lean_dec.exit84, label %lean_dec.exit
@@ -1460,7 +1460,7 @@ lean_dec.exit84:                                  ; preds = %85, %94, %11, %l___
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Array_anyMUnsafe_any___at___private_Lean_Compiler_LCNF_DependsOn_0__Lean_Compiler_LCNF_depOn___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val20 = load i64, ptr %5, align 8, !tbaa !14
+  %.val20 = load i64, ptr %5, align 8, !tbaa !12
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -1486,7 +1486,7 @@ define nonnull ptr @l_Array_anyMUnsafe_any___at___private_Lean_Compiler_LCNF_Dep
 
 lean_dec.exit13:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !14
+  %.val = load i64, ptr %15, align 8, !tbaa !12
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not21 = icmp eq i64 %17, 0
@@ -2131,8 +2131,5 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !7, i64 0}
-!16 = distinct !{!16, !13}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !7, i64 0}

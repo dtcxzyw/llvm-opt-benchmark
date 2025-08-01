@@ -279,9 +279,9 @@ ossl_determine_dirsep.exit:                       ; preds = %ossl_ends_with_dirs
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %54 = tail call i32 @ossl_json_flush(ptr noundef nonnull %53) #11
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 88
-  %56 = load ptr, ptr %55, align 8, !tbaa !38
+  %56 = load ptr, ptr %55, align 8, !tbaa !37
   tail call void @BIO_free_all(ptr noundef %56) #11
-  store ptr %50, ptr %55, align 8, !tbaa !38
+  store ptr %50, ptr %55, align 8, !tbaa !37
   %57 = tail call i32 @ossl_json_set0_sink(ptr noundef nonnull %53, ptr noundef nonnull %50) #11
   %58 = icmp eq ptr %3, null
   br i1 %58, label %62, label %59
@@ -337,9 +337,9 @@ ossl_qlog_set_sink_bio.exit:                      ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = tail call i32 @ossl_json_flush(ptr noundef nonnull %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   tail call void @BIO_free_all(ptr noundef %10) #11
-  store ptr %5, ptr %9, align 8, !tbaa !38
+  store ptr %5, ptr %9, align 8, !tbaa !37
   %11 = tail call i32 @ossl_json_set0_sink(ptr noundef nonnull %7, ptr noundef nonnull %5) #11
   br label %12
 
@@ -375,7 +375,7 @@ lex_init.exit:
 is_term_sep_ws.exit.i:                            ; preds = %6, %6, %6, %6
   %8 = icmp ult ptr %.022.i, %5
   %9 = getelementptr inbounds nuw i8, ptr %.022.i, i64 1
-  br i1 %8, label %6, label %is_term_sep_ws.exit.thread.i, !llvm.loop !39
+  br i1 %8, label %6, label %is_term_sep_ws.exit.thread.i, !llvm.loop !38
 
 is_term_sep_ws.exit.thread.i:                     ; preds = %is_term_sep_ws.exit.i, %6
   %10 = icmp eq ptr %.022.i, %5
@@ -401,7 +401,7 @@ is_term_sep_ws.exit25.i:                          ; preds = %.preheader.i
   %.0.i36.add = add nuw nsw i64 %.0.i36.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr %.022.i, i64 %.0.i36.add
   %.pre.i = load i8, ptr %.ptr, align 1, !tbaa !4
-  br label %.preheader.i, !llvm.loop !40
+  br label %.preheader.i, !llvm.loop !39
 
 16:                                               ; preds = %is_term_sep_ws.exit25.i, %.preheader.i, %.preheader.i, %.preheader.i
   %.not.i = icmp samesign eq i64 %.0.i36.idx, 0
@@ -516,7 +516,7 @@ lex_match.exit.thread:                            ; preds = %is_name_char.exit.t
 48:                                               ; preds = %.lr.ph.i
   %49 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   %exitcond.not.i = icmp eq ptr %49, %.0.i36.ptr
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !40
 
 .critedge.i:                                      ; preds = %48, %.lr.ph.i, %lex_match.exit.thread
   %.0.lcssa.i = phi ptr [ %.sroa.0105.0, %lex_match.exit.thread ], [ %.018.i, %.lr.ph.i ], [ %scevgep.i, %48 ]
@@ -566,7 +566,7 @@ switch.early.test.i:                              ; preds = %64
 is_name_char.exit.thread.i:                       ; preds = %switch.early.test.i, %switch.early.test.i, %64, %.lr.ph.i50
   %66 = add nuw i64 %.01215.i, 1
   %exitcond.not.i51 = icmp eq i64 %66, %53
-  br i1 %exitcond.not.i51, label %validate_name.exit, label %.lr.ph.i50, !llvm.loop !42
+  br i1 %exitcond.not.i51, label %validate_name.exit, label %.lr.ph.i50, !llvm.loop !41
 
 validate_name.exit:                               ; preds = %is_name_char.exit.thread.i, %57
   %.2117 = phi ptr [ null, %57 ], [ %.sroa.0105.0, %is_name_char.exit.thread.i ]
@@ -608,7 +608,7 @@ switch.early.test.i61:                            ; preds = %74
 is_name_char.exit.thread.i57:                     ; preds = %switch.early.test.i61, %switch.early.test.i61, %74, %.lr.ph.i54
   %76 = add nuw i64 %.01215.i55, 1
   %exitcond.not.i58 = icmp eq i64 %76, %56
-  br i1 %exitcond.not.i58, label %validate_name.exit62, label %.lr.ph.i54, !llvm.loop !42
+  br i1 %exitcond.not.i58, label %validate_name.exit62, label %.lr.ph.i54, !llvm.loop !41
 
 validate_name.exit62:                             ; preds = %is_name_char.exit.thread.i57, %67
   %.0114 = phi ptr [ null, %67 ], [ %54, %is_name_char.exit.thread.i57 ]
@@ -842,7 +842,7 @@ filter_match_event.exit134.i:                     ; preds = %115, %114
 
 .backedge.backedge:                               ; preds = %filter_match_event.exit134.i, %115, %113, %111, %filter_match_event.exit119.thread.i, %43
   %.sroa.0.0.be = phi i64 [ %storemerge.i136.i66, %filter_match_event.exit134.i ], [ %.sroa.0.2, %115 ], [ %.sroa.0.2, %113 ], [ %.sroa.0.2, %111 ], [ %.sroa.0.2, %filter_match_event.exit119.thread.i ], [ %storemerge.i136.i, %43 ]
-  br label %.backedge, !llvm.loop !43
+  br label %.backedge, !llvm.loop !42
 
 lex_do.exit:                                      ; preds = %is_term_sep_ws.exit.thread.i
   store i64 %.sroa.0.0, ptr %2, align 8
@@ -862,7 +862,7 @@ define void @ossl_qlog_free(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = tail call i32 @ossl_json_flush_cleanup(ptr noundef nonnull %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void @BIO_free_all(ptr noundef %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !27
@@ -896,9 +896,9 @@ ossl_qlog_flush.exit:                             ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = tail call i32 @ossl_json_flush(ptr noundef nonnull %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void @BIO_free_all(ptr noundef %7) #11
-  store ptr %1, ptr %6, align 8, !tbaa !38
+  store ptr %1, ptr %6, align 8, !tbaa !37
   %8 = tail call i32 @ossl_json_set0_sink(ptr noundef nonnull %4, ptr noundef %1) #11
   br label %9
 
@@ -938,9 +938,9 @@ ossl_qlog_set_sink_bio.exit:                      ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = tail call i32 @ossl_json_flush(ptr noundef nonnull %8) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   tail call void @BIO_free_all(ptr noundef %11) #11
-  store ptr %6, ptr %10, align 8, !tbaa !38
+  store ptr %6, ptr %10, align 8, !tbaa !37
   %12 = tail call i32 @ossl_json_set0_sink(ptr noundef nonnull %8, ptr noundef nonnull %6) #11
   br label %13
 
@@ -970,19 +970,19 @@ define range(i32 0, 2) i32 @ossl_qlog_set_event_type_enabled(ptr noundef capture
   br i1 %.not.i, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = load i64, ptr %7, align 8, !tbaa !44
+  %11 = load i64, ptr %7, align 8, !tbaa !43
   %12 = or i64 %11, %9
   br label %bit_set.exit
 
 13:                                               ; preds = %6
   %14 = xor i64 %9, -1
-  %15 = load i64, ptr %7, align 8, !tbaa !44
+  %15 = load i64, ptr %7, align 8, !tbaa !43
   %16 = and i64 %15, %14
   br label %bit_set.exit
 
 bit_set.exit:                                     ; preds = %10, %13
   %storemerge.i = phi i64 [ %12, %10 ], [ %16, %13 ]
-  store i64 %storemerge.i, ptr %7, align 8, !tbaa !44
+  store i64 %storemerge.i, ptr %7, align 8, !tbaa !43
   br label %17
 
 17:                                               ; preds = %3, %bit_set.exit
@@ -1000,7 +1000,7 @@ define range(i32 0, 2) i32 @ossl_qlog_enabled(ptr noundef readonly captures(addr
   %6 = zext i32 %1 to i64
   %7 = lshr i64 %6, 6
   %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
-  %9 = load i64, ptr %8, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, 4294967295
@@ -1022,16 +1022,16 @@ define range(i32 0, 2) i32 @ossl_qlog_event_try_begin(ptr noundef %0, i32 nounde
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = load i32, ptr %9, align 8, !tbaa !45
+  %10 = load i32, ptr %9, align 8, !tbaa !44
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %ossl_qlog_enabled.exit, label %74, !prof !46
+  br i1 %11, label %ossl_qlog_enabled.exit, label %74, !prof !45
 
 ossl_qlog_enabled.exit:                           ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = zext i32 %1 to i64
   %14 = lshr i64 %13, 6
   %15 = getelementptr inbounds nuw i64, ptr %12, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !44
+  %16 = load i64, ptr %15, align 8, !tbaa !43
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17
   %19 = and i64 %18, 4294967295
@@ -1040,22 +1040,22 @@ ossl_qlog_enabled.exit:                           ; preds = %8
   br i1 %.not17, label %74, label %21
 
 21:                                               ; preds = %ossl_qlog_enabled.exit
-  store i32 %1, ptr %9, align 8, !tbaa !45
+  store i32 %1, ptr %9, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %2, ptr %22, align 8, !tbaa !47
+  store ptr %2, ptr %22, align 8, !tbaa !46
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %3, ptr %23, align 8, !tbaa !48
+  store ptr %3, ptr %23, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %4, ptr %24, align 8, !tbaa !49
+  store ptr %4, ptr %24, align 8, !tbaa !48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !23
   %30 = tail call i64 %27(ptr noundef %29) #11
-  store i64 %30, ptr %25, align 8, !tbaa !44
+  store i64 %30, ptr %25, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %32 = load i32, ptr %31, align 8, !tbaa !50
+  %32 = load i32, ptr %31, align 8, !tbaa !49
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %33, label %qlog_event_prologue.exit
 
@@ -1067,32 +1067,32 @@ ossl_qlog_enabled.exit:                           ; preds = %8
   tail call void @ossl_json_key(ptr noundef nonnull %34, ptr noundef nonnull @.str.18) #11
   tail call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef nonnull @.str.19) #11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %36 = load ptr, ptr %35, align 8, !tbaa !50
   %37 = icmp eq ptr %36, null
   br i1 %37, label %write_str_once.exit.i.i, label %38
 
 38:                                               ; preds = %33
   tail call void @ossl_json_key(ptr noundef nonnull %34, ptr noundef nonnull @.str.20) #11
-  %39 = load ptr, ptr %35, align 8, !tbaa !51
+  %39 = load ptr, ptr %35, align 8, !tbaa !50
   tail call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef %39) #11
-  %40 = load ptr, ptr %35, align 8, !tbaa !51
+  %40 = load ptr, ptr %35, align 8, !tbaa !50
   tail call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str, i32 noundef 274) #11
-  store ptr null, ptr %35, align 8, !tbaa !51
+  store ptr null, ptr %35, align 8, !tbaa !50
   br label %write_str_once.exit.i.i
 
 write_str_once.exit.i.i:                          ; preds = %38, %33
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !51
+  %42 = load ptr, ptr %41, align 8, !tbaa !50
   %43 = icmp eq ptr %42, null
   br i1 %43, label %write_str_once.exit50.i.i, label %44
 
 44:                                               ; preds = %write_str_once.exit.i.i
   tail call void @ossl_json_key(ptr noundef nonnull %34, ptr noundef nonnull @.str.21) #11
-  %45 = load ptr, ptr %41, align 8, !tbaa !51
+  %45 = load ptr, ptr %41, align 8, !tbaa !50
   tail call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef %45) #11
-  %46 = load ptr, ptr %41, align 8, !tbaa !51
+  %46 = load ptr, ptr %41, align 8, !tbaa !50
   tail call void @CRYPTO_free(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 274) #11
-  store ptr null, ptr %41, align 8, !tbaa !51
+  store ptr null, ptr %41, align 8, !tbaa !50
   br label %write_str_once.exit50.i.i
 
 write_str_once.exit50.i.i:                        ; preds = %44, %write_str_once.exit.i.i
@@ -1107,17 +1107,17 @@ write_str_once.exit50.i.i:                        ; preds = %44, %write_str_once
   tail call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef nonnull @.str.27) #11
   tail call void @ossl_json_array_end(ptr noundef nonnull %34) #11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !51
+  %48 = load ptr, ptr %47, align 8, !tbaa !50
   %49 = icmp eq ptr %48, null
   br i1 %49, label %write_str_once.exit51.i.i, label %50
 
 50:                                               ; preds = %write_str_once.exit50.i.i
   tail call void @ossl_json_key(ptr noundef nonnull %34, ptr noundef nonnull @.str.28) #11
-  %51 = load ptr, ptr %47, align 8, !tbaa !51
+  %51 = load ptr, ptr %47, align 8, !tbaa !50
   tail call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef %51) #11
-  %52 = load ptr, ptr %47, align 8, !tbaa !51
+  %52 = load ptr, ptr %47, align 8, !tbaa !50
   tail call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str, i32 noundef 274) #11
-  store ptr null, ptr %47, align 8, !tbaa !51
+  store ptr null, ptr %47, align 8, !tbaa !50
   br label %write_str_once.exit51.i.i
 
 write_str_once.exit51.i.i:                        ; preds = %50, %write_str_once.exit50.i.i
@@ -1172,14 +1172,14 @@ write_str_once.exit51.i.i:                        ; preds = %50, %write_str_once
   call void @ossl_json_object_end(ptr noundef nonnull %34) #11
   call void @ossl_json_object_end(ptr noundef nonnull %34) #11
   call void @ossl_json_object_end(ptr noundef nonnull %34) #11
-  store i32 1, ptr %31, align 8, !tbaa !50
+  store i32 1, ptr %31, align 8, !tbaa !49
   br label %qlog_event_prologue.exit
 
 qlog_event_prologue.exit:                         ; preds = %21, %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @ossl_json_object_begin(ptr noundef nonnull %72) #11
   call void @ossl_json_key(ptr noundef nonnull %72, ptr noundef nonnull @.str.14) #11
-  %73 = load ptr, ptr %24, align 8, !tbaa !49
+  %73 = load ptr, ptr %24, align 8, !tbaa !48
   call void @ossl_json_str(ptr noundef nonnull %72, ptr noundef %73) #11
   call void @ossl_json_key(ptr noundef nonnull %72, ptr noundef nonnull @.str.15) #11
   call void @ossl_json_object_begin(ptr noundef nonnull %72) #11
@@ -1197,16 +1197,16 @@ define void @ossl_qlog_event_end(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load i32, ptr %3, align 8, !tbaa !45
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %.not4 = icmp eq i32 %4, 0
-  br i1 %.not4, label %.critedge, label %5, !prof !52
+  br i1 %.not4, label %.critedge, label %5, !prof !51
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @ossl_json_object_end(ptr noundef nonnull %6) #11
   tail call void @ossl_json_key(ptr noundef nonnull %6, ptr noundef nonnull @.str.34) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  %8 = load i32, ptr %7, align 4, !tbaa !53
+  %8 = load i32, ptr %7, align 4, !tbaa !52
   %.not.i = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br i1 %.not.i, label %10, label %15
@@ -1216,9 +1216,9 @@ define void @ossl_qlog_event_end(ptr noundef %0) local_unnamed_addr #0 {
   %12 = udiv i64 %11, 1000000
   tail call void @ossl_json_u64(ptr noundef nonnull %6, i64 noundef %12) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %14 = load i64, ptr %9, align 8, !tbaa !44
-  store i64 %14, ptr %13, align 8, !tbaa !44
-  store i32 1, ptr %7, align 4, !tbaa !53
+  %14 = load i64, ptr %9, align 8, !tbaa !43
+  store i64 %14, ptr %13, align 8, !tbaa !43
+  store i32 1, ptr %7, align 4, !tbaa !52
   br label %qlog_event_epilogue.exit
 
 15:                                               ; preds = %5
@@ -1228,13 +1228,13 @@ define void @ossl_qlog_event_end(ptr noundef %0) local_unnamed_addr #0 {
   %..i.i = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 %18)
   %19 = udiv i64 %..i.i, 1000000
   tail call void @ossl_json_u64(ptr noundef nonnull %6, i64 noundef %19) #11
-  %20 = load i64, ptr %9, align 8, !tbaa !44
-  store i64 %20, ptr %16, align 8, !tbaa !44
+  %20 = load i64, ptr %9, align 8, !tbaa !43
+  store i64 %20, ptr %16, align 8, !tbaa !43
   br label %qlog_event_epilogue.exit
 
 qlog_event_epilogue.exit:                         ; preds = %10, %15
   tail call void @ossl_json_object_end(ptr noundef nonnull %6) #11
-  store i32 0, ptr %3, align 8, !tbaa !45
+  store i32 0, ptr %3, align 8, !tbaa !44
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %2, %qlog_event_epilogue.exit
@@ -1300,7 +1300,7 @@ declare void @ossl_json_array_end(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_qlog_override_time(ptr noundef writeonly captures(none) initializes((136, 144)) %0, i64 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %1, ptr %3, align 8, !tbaa !44
+  store i64 %1, ptr %3, align 8, !tbaa !43
   ret void
 }
 
@@ -1480,22 +1480,21 @@ attributes #12 = { nounwind willreturn memory(read) }
 !32 = !{!8, !10, i64 80}
 !33 = !{!15, !10, i64 80}
 !34 = !{!8, !5, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!15, !16, i64 88}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
-!41 = distinct !{!41, !36, !37}
-!42 = distinct !{!42, !36, !37}
-!43 = distinct !{!43, !36, !37}
-!44 = !{!13, !13, i64 0}
-!45 = !{!15, !12, i64 104}
-!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!47 = !{!15, !10, i64 112}
-!48 = !{!15, !10, i64 120}
-!49 = !{!15, !10, i64 128}
-!50 = !{!15, !12, i64 240}
-!51 = !{!10, !10, i64 0}
-!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!53 = !{!15, !12, i64 244}
+!37 = !{!15, !16, i64 88}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}
+!40 = distinct !{!40, !36}
+!41 = distinct !{!41, !36}
+!42 = distinct !{!42, !36}
+!43 = !{!13, !13, i64 0}
+!44 = !{!15, !12, i64 104}
+!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!46 = !{!15, !10, i64 112}
+!47 = !{!15, !10, i64 120}
+!48 = !{!15, !10, i64 128}
+!49 = !{!15, !12, i64 240}
+!50 = !{!10, !10, i64 0}
+!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!52 = !{!15, !12, i64 244}

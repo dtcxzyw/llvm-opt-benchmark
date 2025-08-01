@@ -945,7 +945,7 @@ libpcap_try_variant.exit:                         ; preds = %190, %.thread47.sin
 207:                                              ; preds = %203
   %208 = add nuw nsw i64 %.03394, 1
   %exitcond.not = icmp eq i64 %208, %2
-  br i1 %exitcond.not, label %.preheader, label %21, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader, label %21, !llvm.loop !18
 
 .preheader:                                       ; preds = %207
   %209 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -969,7 +969,7 @@ libpcap_try_variant.exit:                         ; preds = %190, %.thread47.sin
   %.136 = phi i32 [ %212, %214 ], [ %.03596, %210 ]
   %218 = add nuw nsw i64 %.097, 1
   %exitcond151.not = icmp eq i64 %218, %2
-  br i1 %exitcond151.not, label %.loopexit, label %210, !llvm.loop !20
+  br i1 %exitcond151.not, label %.loopexit, label %210, !llvm.loop !19
 
 .loopexit:                                        ; preds = %libpcap_try_variant.exit, %203, %217, %195, %199
   %.1 = phi i1 [ false, %195 ], [ true, %199 ], [ true, %217 ], [ false, %203 ], [ false, %libpcap_try_variant.exit ]
@@ -1079,19 +1079,19 @@ switch.lookup:                                    ; preds = %5
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %6, align 4
-  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #8, !srcloc !21
+  %20 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #8, !srcloc !20
   store i32 %20, ptr %6, align 4
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #8, !srcloc !22
+  %23 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #8, !srcloc !21
   store i32 %23, ptr %21, align 4
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i32, ptr %24, align 4
-  %26 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #8, !srcloc !23
+  %26 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #8, !srcloc !22
   store i32 %26, ptr %24, align 4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #8, !srcloc !24
+  %29 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #8, !srcloc !23
   store i32 %29, ptr %27, align 4
   br label %30
 
@@ -1914,12 +1914,11 @@ attributes #10 = { noreturn }
 !13 = !{i64 2150011504}
 !14 = !{i64 2150012123}
 !15 = !{i64 2150012735}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17, !18}
-!21 = !{i64 2150014619}
-!22 = !{i64 2150015239}
-!23 = !{i64 2150015861}
-!24 = !{i64 2150016484}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = !{i64 2150014619}
+!21 = !{i64 2150015239}
+!22 = !{i64 2150015861}
+!23 = !{i64 2150016484}

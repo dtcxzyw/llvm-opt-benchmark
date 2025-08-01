@@ -277,7 +277,7 @@ fmap_readn.exit95.thread:                         ; preds = %46, %.lr.ph, %fmap_
 .thread:                                          ; preds = %51, %74, %76
   %84 = add nuw i16 %.047157, 1
   %exitcond.not = icmp eq i16 %84, %.in
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.thread, %40
   %.lcssa = phi i32 [ %41, %40 ], [ %52, %.thread ]
@@ -322,7 +322,7 @@ fmap_readn.exit100.thread:                        ; preds = %88, %._crit_edge, %
 
 99:                                               ; preds = %93
   %.not67 = icmp eq i32 %95, 0
-  br i1 %.not67, label %100, label %32, !llvm.loop !36
+  br i1 %.not67, label %100, label %32
 
 100:                                              ; preds = %99
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, i32 noundef %85) #6
@@ -410,6 +410,3 @@ attributes #6 = { nounwind }
 !31 = !{!30, !28, i64 2}
 !32 = !{!30, !14, i64 4}
 !33 = !{!30, !14, i64 8}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !35}

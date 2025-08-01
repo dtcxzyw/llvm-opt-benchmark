@@ -53,7 +53,7 @@ define internal void @add_bytes_l2_c(ptr noundef writeonly captures(none) %0, pt
   store i8 %25, ptr %26, align 1, !tbaa !10
   %27 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %27, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph24, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph24, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph24, %.preheader
   ret void
@@ -78,7 +78,6 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !6, i64 8}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

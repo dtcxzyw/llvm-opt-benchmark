@@ -176,7 +176,7 @@ define internal void @BicubicInterp(ptr noundef captures(none) %0, i32 noundef %
   store i32 %14, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.lr.ph.i, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.lr.ph.i, label %.preheader, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader, %.lr.ph.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.lr.ph.i ], [ 256, %.preheader ]
@@ -192,7 +192,7 @@ define internal void @BicubicInterp(ptr noundef captures(none) %0, i32 noundef %
   store i32 %23, ptr %24, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 384
-  br i1 %exitcond43.not.i, label %.lr.ph36.preheader.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond43.not.i, label %.lr.ph36.preheader.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph36.preheader.i:                             ; preds = %.lr.ph.i
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bicubic_coeff, i64 512), align 16
@@ -220,7 +220,7 @@ define internal void @BicubicInterp(ptr noundef captures(none) %0, i32 noundef %
   %41 = getelementptr inbounds nuw [513 x i32], ptr @bicubic_coeff, i64 0, i64 %indvars.iv.next45.i
   store i32 %40, ptr %41, align 4
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 512
-  br i1 %exitcond47.not.i, label %init_bicubic_table.exit, label %.lr.ph36.i, !llvm.loop !11
+  br i1 %exitcond47.not.i, label %init_bicubic_table.exit, label %.lr.ph36.i, !llvm.loop !10
 
 init_bicubic_table.exit:                          ; preds = %.lr.ph36.i
   store i1 true, ptr @bicubictableinited, align 1
@@ -570,7 +570,7 @@ init_bicubic_table.exit:                          ; preds = %.lr.ph36.i
   %374 = add nsw i32 %.0291300, %5
   %375 = add nuw nsw i32 %.0292299, 1
   %exitcond.not = icmp eq i32 %375, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %42
   ret void
@@ -882,7 +882,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
 .loopexit.us:                                     ; preds = %._crit_edge.split.us.us.us, %.lr.ph246.split.us
   %198 = call i32 @Region_NextIteration(ptr noundef nonnull %24, ptr noundef nonnull %30) #8
   %.not221.us = icmp eq i32 %198, 0
-  br i1 %.not221.us, label %._crit_edge, label %.lr.ph246.split.us, !llvm.loop !13
+  br i1 %.not221.us, label %._crit_edge, label %.lr.ph246.split.us, !llvm.loop !12
 
 .lr.ph244.us:                                     ; preds = %.lr.ph244.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv256 = phi i64 [ %197, %.lr.ph244.us.preheader ], [ %indvars.iv.next257, %._crit_edge.split.us.us.us ]
@@ -911,7 +911,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   %indvars.iv.next257 = add nsw i64 %indvars.iv256, 1
   %lftr.wideiv259 = trunc i64 %indvars.iv.next257 to i32
   %exitcond260.not = icmp eq i32 %188, %lftr.wideiv259
-  br i1 %exitcond260.not, label %.loopexit.us, label %.lr.ph244.us, !llvm.loop !15
+  br i1 %exitcond260.not, label %.loopexit.us, label %.lr.ph244.us, !llvm.loop !14
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph244.us
   %214 = call i32 @llvm.smax.i32(i32 %206, i32 %209)
@@ -947,12 +947,12 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   call void %237(ptr noundef %236, ptr noundef nonnull %29, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %spec.select231.us.us.us, i32 noundef 1, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %34, ptr noundef nonnull %23) #8
   %indvars.iv.next255 = add nsw i64 %indvars.iv254, %186
   %238 = icmp slt i64 %indvars.iv.next255, %215
-  br i1 %238, label %216, label %._crit_edge.split.us.us.us, !llvm.loop !16
+  br i1 %238, label %216, label %._crit_edge.split.us.us.us, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.lr.ph246.split
   %239 = call i32 @Region_NextIteration(ptr noundef nonnull %24, ptr noundef nonnull %30) #8
   %.not221 = icmp eq i32 %239, 0
-  br i1 %.not221, label %._crit_edge, label %.lr.ph246.split, !llvm.loop !17
+  br i1 %.not221, label %._crit_edge, label %.lr.ph246.split, !llvm.loop !16
 
 .lr.ph246.split:                                  ; preds = %.lr.ph246, %.loopexit
   %240 = load i32, ptr %178, align 4
@@ -1031,7 +1031,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   call void %291(ptr noundef %290, ptr noundef nonnull %29, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %spec.select231, i32 noundef 1, ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef nonnull %34, ptr noundef nonnull %23) #8
   %indvars.iv.next = add nsw i64 %indvars.iv, %186
   %292 = icmp slt i64 %indvars.iv.next, %265
-  br i1 %292, label %266, label %._crit_edge.split, !llvm.loop !18
+  br i1 %292, label %266, label %._crit_edge.split, !llvm.loop !17
 
 ._crit_edge.split:                                ; preds = %266, %.lr.ph244
   %293 = add nsw i64 %.0189238, %164
@@ -1039,7 +1039,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   %indvars.iv.next251 = add nsw i64 %indvars.iv250, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next251 to i32
   %exitcond.not = icmp eq i32 %241, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph244, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph244, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %153
   call void @Region_EndIteration(ptr noundef %0, ptr noundef nonnull %24) #8
@@ -1269,7 +1269,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef no
   store i32 %23, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   tail call void @Region_StartIteration(ptr noundef %0, ptr noundef nonnull %7) #8
@@ -1293,7 +1293,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef no
 .loopexit:                                        ; preds = %._crit_edge5, %.lr.ph8, %44
   %43 = call i32 @Region_NextIteration(ptr noundef nonnull %7, ptr noundef nonnull %16) #8
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %._crit_edge12, label %44, !llvm.loop !21
+  br i1 %.not, label %._crit_edge12, label %44, !llvm.loop !20
 
 44:                                               ; preds = %.lr.ph11, %.loopexit
   %45 = load i32, ptr %34, align 4
@@ -1421,13 +1421,13 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef no
   %indvars.iv.next16 = add nsw i64 %indvars.iv15, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next16 to i32
   %exitcond18.not = icmp eq i32 %53, %lftr.wideiv
-  br i1 %exitcond18.not, label %._crit_edge5, label %68, !llvm.loop !22
+  br i1 %exitcond18.not, label %._crit_edge5, label %68, !llvm.loop !21
 
 ._crit_edge5:                                     ; preds = %120, %.lr.ph8.split
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, 1
   %lftr.wideiv22 = trunc i64 %indvars.iv.next20 to i32
   %exitcond23.not = icmp eq i32 %46, %lftr.wideiv22
-  br i1 %exitcond23.not, label %.loopexit, label %.lr.ph8.split, !llvm.loop !23
+  br i1 %exitcond23.not, label %.loopexit, label %.lr.ph8.split, !llvm.loop !22
 
 ._crit_edge12:                                    ; preds = %.loopexit, %._crit_edge
   call void @Region_EndIteration(ptr noundef %0, ptr noundef nonnull %7) #8
@@ -1498,7 +1498,7 @@ define internal fastcc void @calculateEdges(ptr noundef nonnull writeonly captur
   %49 = add nsw i64 %.06069, %10
   %50 = add nsw i64 %.070, %14
   %exitcond.not = icmp eq i32 %48, %38
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph86
   %.065.lcssa = phi i32 [ %37, %.lr.ph86 ], [ %.06568, %.lr.ph ]
@@ -1528,7 +1528,7 @@ define internal fastcc void @calculateEdges(ptr noundef nonnull writeonly captur
   %63 = sub nsw i64 %.16174, %10
   %64 = sub nsw i64 %.175, %14
   %65 = icmp sgt i32 %62, %.065.lcssa
-  br i1 %65, label %.lr.ph76, label %.critedge2, !llvm.loop !26
+  br i1 %65, label %.lr.ph76, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %47, %.lr.ph76, %61, %.critedge
   %.065.lcssa89 = phi i32 [ %.065.lcssa, %.critedge ], [ %.065.lcssa, %61 ], [ %.065.lcssa, %.lr.ph76 ], [ %38, %47 ]
@@ -1540,7 +1540,7 @@ define internal fastcc void @calculateEdges(ptr noundef nonnull writeonly captur
   %68 = add nsw i64 %.06781, %22
   %69 = add nsw i32 %.06483, 1
   %exitcond87.not = icmp eq i32 %69, %29
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph86, !llvm.loop !27
+  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph86, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.critedge2, %7
   ret void
@@ -1591,25 +1591,24 @@ attributes #9 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8, !14}
-!16 = distinct !{!16, !7, !8, !14}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !13}
+!15 = distinct !{!15, !7, !13}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}

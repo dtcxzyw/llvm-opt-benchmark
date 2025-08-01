@@ -1633,7 +1633,7 @@ define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly ca
   %92 = load i32, ptr %5, align 4
   %93 = sext i32 %92 to i64
   %.not = icmp slt i64 %indvars.iv.next, %93
-  br i1 %.not, label %42, label %.critedge, !llvm.loop !9
+  br i1 %.not, label %42, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %89, %41, %.preheader, %9
   %.2 = phi ptr [ null, %9 ], [ %1, %.preheader ], [ %.1, %41 ], [ %1, %89 ]
@@ -1752,7 +1752,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   call void @TupleDescInitEntryCollation(ptr noundef %29, i16 noundef signext %.089, i32 noundef %61) #8
   %62 = add i16 %.089, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %list_length.exit.split, !llvm.loop !10
+  br label %list_length.exit.split, !llvm.loop !9
 
 63:                                               ; preds = %tailrecurse
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1810,7 +1810,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %91 = load ptr, ptr %.083131, align 8
   %92 = add nuw i32 %.085130, 1
   %exitcond.not = icmp eq i32 %92, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %89
   %.083.lcssa = phi ptr [ %0, %89 ], [ %91, %.lr.ph ]
@@ -1898,7 +1898,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %143 = load ptr, ptr %.184132, align 8
   %144 = add nuw i32 %.0133, 1
   %exitcond156.not = icmp eq i32 %144, %142
-  br i1 %exitcond156.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !12
+  br i1 %exitcond156.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !11
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %138
   %.184.lcssa = phi ptr [ %0, %138 ], [ %143, %.lr.ph135 ]
@@ -2363,7 +2363,6 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
 53:                                               ; preds = %51, %49
   %.043 = phi ptr [ %50, %49 ], [ %52, %51 ]
   %54 = load i32, ptr %.043, align 8
-  %invariant.gep = getelementptr i8, ptr %.043, i64 24
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %ExpandSingleTable.exit
 
@@ -2372,103 +2371,105 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   %wide.trip.count54 = zext nneg i32 %54 to i64
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %87
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %87 ], [ 0, %.lr.ph ]
-  %.04247.us = phi ptr [ %.1.us, %87 ], [ null, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %89
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %89 ], [ 0, %.lr.ph ]
+  %.04247.us = phi ptr [ %.1.us, %89 ], [ null, %.lr.ph ]
   %57 = load i32, ptr %.043, align 8
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 4
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %59
-  %60 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep.us, i64 %indvars.iv51
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 91
-  %62 = load i8, ptr %61, align 1, !range !4, !noundef !5
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %87, label %64
+  %60 = getelementptr i8, ptr %.043, i64 %59
+  %61 = getelementptr i8, ptr %60, i64 24
+  %62 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %61, i64 %indvars.iv51
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 91
+  %64 = load i8, ptr %63, align 1, !range !4, !noundef !5
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %89, label %66
 
-64:                                               ; preds = %.lr.ph.split.us
-  %65 = tail call noundef ptr @palloc0(i64 noundef 32) #8
-  store i32 25, ptr %65, align 4
-  %66 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %66, ptr %67, align 8
-  %68 = trunc i64 %indvars.iv51 to i16
-  %69 = add i16 %68, 1
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i16 %69, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 68
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 20
-  store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %60, i64 76
-  %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store i32 %75, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %65, i64 28
-  store i32 %78, ptr %79, align 4
-  %80 = load i32, ptr %56, align 4
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %56, align 4
-  %82 = trunc i32 %80 to i16
-  %83 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %84 = tail call ptr @pstrdup(ptr noundef nonnull %83) #8
-  %85 = tail call ptr @makeTargetEntry(ptr noundef nonnull %65, i16 noundef signext %82, ptr noundef %84, i1 noundef zeroext false) #8
-  %86 = tail call ptr @lappend(ptr noundef %.04247.us, ptr noundef %85) #8
-  br label %87
+66:                                               ; preds = %.lr.ph.split.us
+  %67 = tail call noundef ptr @palloc0(i64 noundef 32) #8
+  store i32 25, ptr %67, align 4
+  %68 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store ptr %68, ptr %69, align 8
+  %70 = trunc i64 %indvars.iv51 to i16
+  %71 = add i16 %70, 1
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store i16 %71, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 68
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 20
+  store i32 %74, ptr %75, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 76
+  %77 = load i32, ptr %76, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store i32 %77, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 96
+  %80 = load i32, ptr %79, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 28
+  store i32 %80, ptr %81, align 4
+  %82 = load i32, ptr %56, align 4
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %56, align 4
+  %84 = trunc i32 %82 to i16
+  %85 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %86 = tail call ptr @pstrdup(ptr noundef nonnull %85) #8
+  %87 = tail call ptr @makeTargetEntry(ptr noundef nonnull %67, i16 noundef signext %84, ptr noundef %86, i1 noundef zeroext false) #8
+  %88 = tail call ptr @lappend(ptr noundef %.04247.us, ptr noundef %87) #8
+  br label %89
 
-87:                                               ; preds = %64, %.lr.ph.split.us
-  %.1.us = phi ptr [ %.04247.us, %.lr.ph.split.us ], [ %86, %64 ]
+89:                                               ; preds = %66, %.lr.ph.split.us
+  %.1.us = phi ptr [ %.04247.us, %.lr.ph.split.us ], [ %88, %66 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %ExpandSingleTable.exit, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %exitcond55.not, label %ExpandSingleTable.exit, label %.lr.ph.split.us, !llvm.loop !12
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %112
-  %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph ]
-  %.04247 = phi ptr [ %.1, %112 ], [ null, %.lr.ph ]
-  %88 = load i32, ptr %.043, align 8
-  %89 = sext i32 %88 to i64
-  %90 = shl nsw i64 %89, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %90
-  %91 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 91
-  %93 = load i8, ptr %92, align 1, !range !4, !noundef !5
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %112, label %95
+.lr.ph.split:                                     ; preds = %.lr.ph, %116
+  %indvars.iv = phi i64 [ %indvars.iv.next, %116 ], [ 0, %.lr.ph ]
+  %.04247 = phi ptr [ %.1, %116 ], [ null, %.lr.ph ]
+  %90 = load i32, ptr %.043, align 8
+  %91 = sext i32 %90 to i64
+  %92 = shl nsw i64 %91, 4
+  %93 = getelementptr i8, ptr %.043, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 24
+  %95 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %94, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 91
+  %97 = load i8, ptr %96, align 1, !range !4, !noundef !5
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %116, label %99
 
-95:                                               ; preds = %.lr.ph.split
-  %96 = tail call noundef ptr @palloc0(i64 noundef 32) #8
-  store i32 25, ptr %96, align 4
-  %97 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #8
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %97, ptr %98, align 8
-  %99 = trunc i64 %indvars.iv to i16
-  %100 = add i16 %99, 1
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store i16 %100, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %91, i64 68
-  %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %96, i64 20
-  store i32 %103, ptr %104, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %91, i64 76
-  %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store i32 %106, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %91, i64 96
-  %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %96, i64 28
-  store i32 %109, ptr %110, align 4
-  %111 = tail call ptr @lappend(ptr noundef %.04247, ptr noundef nonnull %96) #8
-  br label %112
+99:                                               ; preds = %.lr.ph.split
+  %100 = tail call noundef ptr @palloc0(i64 noundef 32) #8
+  store i32 25, ptr %100, align 4
+  %101 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store ptr %101, ptr %102, align 8
+  %103 = trunc i64 %indvars.iv to i16
+  %104 = add i16 %103, 1
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  store i16 %104, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 68
+  %107 = load i32, ptr %106, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 20
+  store i32 %107, ptr %108, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %95, i64 76
+  %110 = load i32, ptr %109, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  store i32 %110, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %95, i64 96
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %100, i64 28
+  store i32 %113, ptr %114, align 4
+  %115 = tail call ptr @lappend(ptr noundef %.04247, ptr noundef nonnull %100) #8
+  br label %116
 
-112:                                              ; preds = %95, %.lr.ph.split
-  %.1 = phi ptr [ %.04247, %.lr.ph.split ], [ %111, %95 ]
+116:                                              ; preds = %99, %.lr.ph.split
+  %.1 = phi ptr [ %.04247, %.lr.ph.split ], [ %115, %99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
-  br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !14
 
-ExpandSingleTable.exit:                           ; preds = %112, %87, %.lr.ph30.i, %53, %.lr.ph.i, %34, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %26, %.lr.ph30.i ], [ %.1.us, %87 ], [ %.1, %112 ]
+ExpandSingleTable.exit:                           ; preds = %116, %89, %.lr.ph30.i, %53, %.lr.ph.i, %34, %19
+  %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %26, %.lr.ph30.i ], [ %.1.us, %89 ], [ %.1, %116 ]
   ret ptr %.0
 }
 
@@ -2522,13 +2523,12 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}

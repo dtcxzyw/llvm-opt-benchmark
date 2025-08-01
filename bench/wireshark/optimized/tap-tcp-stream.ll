@@ -746,7 +746,7 @@ compare_headers.exit:                             ; preds = %14, %22, %cmp_addre
   %spec.select = add i32 %not..0.i, %.01216
   %.0 = load ptr, ptr %.017, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %compare_headers.exit, %1
   %.012.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %compare_headers.exit ]
@@ -855,7 +855,7 @@ compare_headers.exit.thread:                      ; preds = %35, %cmp_address.ex
   %.1 = phi i32 [ %.01427, %compare_headers.exit ], [ %49, %compare_headers.exit.thread ]
   %.0 = load ptr, ptr %.028, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %55, %2
   %.014.lcssa = phi i32 [ 0, %2 ], [ %.1, %55 ]
@@ -1002,7 +1002,7 @@ free_address.exit23:                              ; preds = %free_address.exit, 
   %70 = load i32, ptr %5, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %free_address.exit23, %40, %13, %1, %38, %34, %8
   %.016 = phi i32 [ -1, %34 ], [ -1, %38 ], [ -1, %8 ], [ -1, %1 ], [ -1, %13 ], [ %44, %40 ], [ %44, %free_address.exit23 ]
@@ -1115,7 +1115,7 @@ compare_headers.exit:                             ; preds = %42, %44
 compare_headers.exit.thread:                      ; preds = %38, %cmp_address.exit.thread33.i, %26, %18, %cmp_address.exit.i, %compare_headers.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compare_headers.exit._crit_edge, label %18, !llvm.loop !14
+  br i1 %exitcond.not, label %compare_headers.exit._crit_edge, label %18, !llvm.loop !13
 
 compare_headers.exit._crit_edge:                  ; preds = %compare_headers.exit.thread, %5
   %51 = icmp slt i32 %6, 8
@@ -1236,7 +1236,7 @@ define hidden noundef zeroext i1 @rtt_is_retrans(ptr noundef readonly captures(a
 10:                                               ; preds = %.lr.ph, %6
   %11 = load ptr, ptr %.011, align 8
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %6, %10, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ false, %10 ], [ true, %6 ]
@@ -1273,7 +1273,7 @@ define hidden void @rtt_put_unack_on_list(ptr noundef captures(none) %0, ptr nou
 5:                                                ; preds = %4
   %6 = load ptr, ptr %.0, align 8
   %.not11 = icmp eq ptr %6, null
-  br i1 %.not11, label %.critedge, label %4, !llvm.loop !16
+  br i1 %.not11, label %.critedge, label %4, !llvm.loop !15
 
 .critedge:                                        ; preds = %4, %5
   %.sink = phi ptr [ %.0, %5 ], [ %0, %4 ]
@@ -1301,7 +1301,7 @@ define hidden void @rtt_delete_unack_from_list(ptr noundef captures(none) %0, pt
 8:                                                ; preds = %.preheader
   %9 = load ptr, ptr %.0, align 8
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %.loopexit.sink.split, label %.preheader, !llvm.loop !17
+  br i1 %10, label %.loopexit.sink.split, label %.preheader, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %8, %6
   %.sink25 = phi ptr [ %3, %6 ], [ %9, %8 ]
@@ -1329,7 +1329,7 @@ define hidden void @rtt_destroy_unack_list(ptr noundef captures(none) %0) local_
   tail call void @g_free(ptr noundef nonnull %3)
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1380,14 +1380,13 @@ attributes #18 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

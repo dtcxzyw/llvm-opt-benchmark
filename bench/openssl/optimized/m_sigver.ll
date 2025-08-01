@@ -251,9 +251,9 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %115 = select i1 %.not208, i32 128, i32 256
   store i32 %115, ptr %27, align 8, !tbaa !24
   %116 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 40
-  %117 = load ptr, ptr %116, align 8, !tbaa !43
+  %117 = load ptr, ptr %116, align 8, !tbaa !42
   %118 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 24
-  %119 = load ptr, ptr %118, align 8, !tbaa !46
+  %119 = load ptr, ptr %118, align 8, !tbaa !45
   %120 = call ptr @ossl_provider_ctx(ptr noundef %119) #6
   %121 = call ptr %117(ptr noundef %120, ptr noundef %.0183) #6
   %122 = getelementptr inbounds nuw i8, ptr %27, i64 48
@@ -275,7 +275,7 @@ canon_mdname.exit:                                ; preds = %72, %69, %112, %63
   br i1 %.not211, label %126, label %125
 
 125:                                              ; preds = %canon_mdname.exit
-  store ptr %27, ptr %1, align 8, !tbaa !47
+  store ptr %27, ptr %1, align 8, !tbaa !46
   br label %126
 
 126:                                              ; preds = %125, %canon_mdname.exit
@@ -328,19 +328,19 @@ canon_mdname.exit233.thread253:                   ; preds = %141, %canon_mdname.
   %145 = load ptr, ptr %144, align 8, !tbaa !39
   %146 = call ptr @EVP_MD_fetch(ptr noundef %145, ptr noundef nonnull %.2182256, ptr noundef %.0183) #6
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %146, ptr %147, align 8, !tbaa !48
+  store ptr %146, ptr %147, align 8, !tbaa !47
   %.not214 = icmp eq ptr %146, null
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not214, label %150, label %149
 
 149:                                              ; preds = %canon_mdname.exit233.thread253
   store ptr %146, ptr %0, align 8, !tbaa !38
-  store ptr %146, ptr %148, align 8, !tbaa !49
+  store ptr %146, ptr %148, align 8, !tbaa !48
   br label %155
 
 150:                                              ; preds = %canon_mdname.exit233.thread253
   %151 = call ptr @EVP_get_digestbyname(ptr noundef nonnull %.2182256) #6
-  store ptr %151, ptr %148, align 8, !tbaa !49
+  store ptr %151, ptr %148, align 8, !tbaa !48
   store ptr %151, ptr %0, align 8, !tbaa !38
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %155
@@ -363,7 +363,7 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 
 157:                                              ; preds = %canon_mdname.exit230
   %158 = getelementptr inbounds nuw i8, ptr %.2173, i64 176
-  %159 = load ptr, ptr %158, align 8, !tbaa !50
+  %159 = load ptr, ptr %158, align 8, !tbaa !49
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %167
 
@@ -375,7 +375,7 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 
 162:                                              ; preds = %canon_mdname.exit230
   %163 = getelementptr inbounds nuw i8, ptr %.2173, i64 144
-  %164 = load ptr, ptr %163, align 8, !tbaa !51
+  %164 = load ptr, ptr %163, align 8, !tbaa !50
   %165 = icmp eq ptr %164, null
   br i1 %165, label %166, label %167
 
@@ -431,7 +431,7 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
   %.0176 = phi ptr [ %184, %181 ], [ %2, %.loopexit ]
   %186 = load ptr, ptr %16, align 8, !tbaa !8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 120
-  %188 = load ptr, ptr %187, align 8, !tbaa !52
+  %188 = load ptr, ptr %187, align 8, !tbaa !51
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %191
 
@@ -443,7 +443,7 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 
 191:                                              ; preds = %185
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  %193 = load i32, ptr %192, align 4, !tbaa !53
+  %193 = load i32, ptr %192, align 4, !tbaa !52
   %194 = and i32 %193, 4
   %.not216 = icmp eq i32 %194, 0
   %195 = icmp eq ptr %.0176, null
@@ -461,7 +461,7 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
   br label %204
 
 199:                                              ; preds = %196
-  %200 = load i32, ptr %13, align 4, !tbaa !55
+  %200 = load i32, ptr %13, align 4, !tbaa !54
   %201 = call ptr @OBJ_nid2sn(i32 noundef %200) #6
   %202 = call ptr @EVP_get_digestbyname(ptr noundef %201) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
@@ -479,12 +479,12 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
   %.not217 = icmp eq i32 %8, 0
   %205 = load ptr, ptr %16, align 8, !tbaa !8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 120
-  %207 = load ptr, ptr %206, align 8, !tbaa !52
+  %207 = load ptr, ptr %206, align 8, !tbaa !51
   br i1 %.not217, label %224, label %208
 
 208:                                              ; preds = %.thread257
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 128
-  %210 = load ptr, ptr %209, align 8, !tbaa !56
+  %210 = load ptr, ptr %209, align 8, !tbaa !55
   %.not220 = icmp eq ptr %210, null
   br i1 %.not220, label %216, label %211
 
@@ -500,14 +500,14 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 
 216:                                              ; preds = %208
   %217 = getelementptr inbounds nuw i8, ptr %207, i64 216
-  %218 = load ptr, ptr %217, align 8, !tbaa !57
+  %218 = load ptr, ptr %217, align 8, !tbaa !56
   %.not221 = icmp eq ptr %218, null
   br i1 %.not221, label %221, label %219
 
 219:                                              ; preds = %216
   store i32 32, ptr %205, align 8, !tbaa !24
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @update, ptr %220, align 8, !tbaa !58
+  store ptr @update, ptr %220, align 8, !tbaa !57
   br label %240
 
 221:                                              ; preds = %216
@@ -517,7 +517,7 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 
 224:                                              ; preds = %.thread257
   %225 = getelementptr inbounds nuw i8, ptr %207, i64 112
-  %226 = load ptr, ptr %225, align 8, !tbaa !59
+  %226 = load ptr, ptr %225, align 8, !tbaa !58
   %.not218 = icmp eq ptr %226, null
   br i1 %.not218, label %232, label %227
 
@@ -533,14 +533,14 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
 
 232:                                              ; preds = %224
   %233 = getelementptr inbounds nuw i8, ptr %207, i64 208
-  %234 = load ptr, ptr %233, align 8, !tbaa !60
+  %234 = load ptr, ptr %233, align 8, !tbaa !59
   %.not219 = icmp eq ptr %234, null
   br i1 %.not219, label %237, label %235
 
 235:                                              ; preds = %232
   store i32 16, ptr %205, align 8, !tbaa !24
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @update, ptr %236, align 8, !tbaa !58
+  store ptr @update, ptr %236, align 8, !tbaa !57
   br label %240
 
 237:                                              ; preds = %232
@@ -560,14 +560,14 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
   br i1 %.not222, label %246, label %245
 
 245:                                              ; preds = %244
-  store ptr %.pre270, ptr %1, align 8, !tbaa !47
+  store ptr %.pre270, ptr %1, align 8, !tbaa !46
   br label %246
 
 246:                                              ; preds = %245, %244
   %247 = getelementptr inbounds nuw i8, ptr %.pre270, i64 120
-  %248 = load ptr, ptr %247, align 8, !tbaa !52
+  %248 = load ptr, ptr %247, align 8, !tbaa !51
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  %250 = load i32, ptr %249, align 4, !tbaa !53
+  %250 = load i32, ptr %249, align 4, !tbaa !52
   %251 = and i32 %250, 4
   %.not223 = icmp eq i32 %251, 0
   br i1 %.not223, label %252, label %274
@@ -585,9 +585,9 @@ canon_mdname.exit230:                             ; preds = %141, %137, %134, %1
   store i8 %258, ptr %256, align 8
   %259 = load ptr, ptr %16, align 8, !tbaa !8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 120
-  %261 = load ptr, ptr %260, align 8, !tbaa !52
+  %261 = load ptr, ptr %260, align 8, !tbaa !51
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 248
-  %263 = load ptr, ptr %262, align 8, !tbaa !61
+  %263 = load ptr, ptr %262, align 8, !tbaa !60
   %.not225 = icmp eq ptr %263, null
   br i1 %.not225, label %.thread262, label %264
 
@@ -643,7 +643,7 @@ define i32 @EVP_DigestSignUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !62
+  %7 = load i64, ptr %6, align 8, !tbaa !61
   %8 = and i64 %7, 2048
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %10, label %9
@@ -677,7 +677,7 @@ define i32 @EVP_DigestSignUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 152
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !62
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -700,9 +700,9 @@ define i32 @EVP_DigestSignUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %34 = load ptr, ptr %33, align 8, !tbaa !52
+  %34 = load ptr, ptr %33, align 8, !tbaa !51
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 248
-  %36 = load ptr, ptr %35, align 8, !tbaa !61
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
   %37 = tail call i32 %36(ptr noundef nonnull %5, ptr noundef nonnull %0) #6
   %.not27 = icmp eq i32 %37, 0
   br i1 %.not27, label %43, label %._crit_edge
@@ -745,7 +745,7 @@ define i32 @EVP_DigestVerifyUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !62
+  %7 = load i64, ptr %6, align 8, !tbaa !61
   %8 = and i64 %7, 2048
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %10, label %9
@@ -779,7 +779,7 @@ define i32 @EVP_DigestVerifyUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 184
-  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -802,9 +802,9 @@ define i32 @EVP_DigestVerifyUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %34 = load ptr, ptr %33, align 8, !tbaa !52
+  %34 = load ptr, ptr %33, align 8, !tbaa !51
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 248
-  %36 = load ptr, ptr %35, align 8, !tbaa !61
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
   %37 = tail call i32 %36(ptr noundef nonnull %5, ptr noundef nonnull %0) #6
   %.not27 = icmp eq i32 %37, 0
   br i1 %.not27, label %43, label %._crit_edge
@@ -835,7 +835,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !62
+  %9 = load i64, ptr %8, align 8, !tbaa !61
   %10 = and i64 %9, 2048
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %12, label %11
@@ -881,14 +881,14 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %29 = getelementptr inbounds nuw i8, ptr %spec.select134, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 160
-  %32 = load ptr, ptr %31, align 8, !tbaa !65
+  %32 = load ptr, ptr %31, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %spec.select134, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   br label %40
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  %37 = load ptr, ptr %36, align 8, !tbaa !65
+  %37 = load ptr, ptr %36, align 8, !tbaa !64
   %38 = icmp eq ptr %1, null
   br i1 %38, label %.thread143, label %40
 
@@ -900,16 +900,16 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %41 = phi ptr [ %34, %.thread ], [ %18, %35 ]
   %42 = phi ptr [ %32, %.thread ], [ %37, %35 ]
   %.0105141 = phi ptr [ %28, %.thread ], [ null, %35 ]
-  %43 = load i64, ptr %2, align 8, !tbaa !66
+  %43 = load i64, ptr %2, align 8, !tbaa !65
   %44 = tail call i32 %42(ptr noundef %41, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %43) #6
   %45 = icmp eq ptr %.0105141, null
   %or.cond = and i1 %25, %45
   br i1 %or.cond, label %46, label %49
 
 46:                                               ; preds = %40
-  %47 = load i64, ptr %8, align 8, !tbaa !62
+  %47 = load i64, ptr %8, align 8, !tbaa !61
   %48 = or i64 %47, 2048
-  store i64 %48, ptr %8, align 8, !tbaa !62
+  store i64 %48, ptr %8, align 8, !tbaa !61
   br label %141
 
 49:                                               ; preds = %.thread143, %40
@@ -920,7 +920,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 51:                                               ; preds = %20, %16, %14
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %53 = load ptr, ptr %52, align 8, !tbaa !52
+  %53 = load ptr, ptr %52, align 8, !tbaa !51
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.critedge, label %55
 
@@ -939,14 +939,14 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 248
-  %61 = load ptr, ptr %60, align 8, !tbaa !61
+  %61 = load ptr, ptr %60, align 8, !tbaa !60
   %62 = tail call i32 %61(ptr noundef nonnull %7, ptr noundef nonnull %0) #6
   %.not122 = icmp eq i32 %62, 0
   br i1 %.not122, label %141, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %59
   %.pre = load i8, ptr %56, align 8
-  %.pre152 = load ptr, ptr %52, align 8, !tbaa !52
+  %.pre152 = load ptr, ptr %52, align 8, !tbaa !51
   br label %63
 
 63:                                               ; preds = %._crit_edge, %55
@@ -955,7 +955,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %66 = and i8 %65, -2
   store i8 %66, ptr %56, align 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !53
+  %68 = load i32, ptr %67, align 4, !tbaa !52
   %69 = and i32 %68, 4
   %.not123 = icmp eq i32 %69, 0
   br i1 %.not123, label %94, label %70
@@ -966,23 +966,23 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 120
-  %74 = load ptr, ptr %73, align 8, !tbaa !67
+  %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = tail call i32 %74(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef nonnull %0) #6
   br label %141
 
 76:                                               ; preds = %70
-  %77 = load i64, ptr %8, align 8, !tbaa !62
+  %77 = load i64, ptr %8, align 8, !tbaa !61
   %78 = and i64 %77, 512
   %.not131 = icmp eq i64 %78, 0
   br i1 %.not131, label %85, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %64, i64 120
-  %81 = load ptr, ptr %80, align 8, !tbaa !67
+  %81 = load ptr, ptr %80, align 8, !tbaa !66
   %82 = tail call i32 %81(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
-  %83 = load i64, ptr %8, align 8, !tbaa !62
+  %83 = load i64, ptr %8, align 8, !tbaa !61
   %84 = or i64 %83, 2048
-  store i64 %84, ptr %8, align 8, !tbaa !62
+  store i64 %84, ptr %8, align 8, !tbaa !61
   br label %141
 
 85:                                               ; preds = %76
@@ -992,16 +992,16 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 120
-  %90 = load ptr, ptr %89, align 8, !tbaa !52
+  %90 = load ptr, ptr %89, align 8, !tbaa !51
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 120
-  %92 = load ptr, ptr %91, align 8, !tbaa !67
+  %92 = load ptr, ptr %91, align 8, !tbaa !66
   %93 = tail call i32 %92(ptr noundef nonnull %86, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %86) #6
   br label %141
 
 94:                                               ; preds = %63
   %95 = getelementptr inbounds nuw i8, ptr %64, i64 120
-  %96 = load ptr, ptr %95, align 8, !tbaa !67
+  %96 = load ptr, ptr %95, align 8, !tbaa !66
   %.not124 = icmp eq ptr %96, null
   %.not125 = icmp eq ptr %1, null
   br i1 %.not125, label %128, label %97
@@ -1009,8 +1009,8 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  store i32 0, ptr %5, align 4, !tbaa !55
-  %98 = load i64, ptr %8, align 8, !tbaa !62
+  store i32 0, ptr %5, align 4, !tbaa !54
+  %98 = load i64, ptr %8, align 8, !tbaa !61
   %99 = and i64 %98, 512
   %.not127 = icmp eq i64 %99, 0
   br i1 %.not127, label %104, label %100
@@ -1047,9 +1047,9 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %113 = load ptr, ptr %112, align 8, !tbaa !8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 120
-  %115 = load ptr, ptr %114, align 8, !tbaa !52
+  %115 = load ptr, ptr %114, align 8, !tbaa !51
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
-  %117 = load ptr, ptr %116, align 8, !tbaa !67
+  %117 = load ptr, ptr %116, align 8, !tbaa !66
   %118 = tail call i32 %117(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %105) #6
   br label %121
 
@@ -1075,7 +1075,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %141
 
 .critedge136:                                     ; preds = %122
-  %124 = load i32, ptr %5, align 4, !tbaa !55
+  %124 = load i32, ptr %5, align 4, !tbaa !54
   %125 = zext i32 %124 to i64
   %126 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %125) #6
   %127 = icmp sgt i32 %126, 0
@@ -1093,7 +1093,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !49
+  %134 = load ptr, ptr %133, align 8, !tbaa !48
   %135 = tail call i32 @EVP_MD_get_size(ptr noundef %134) #6
   %136 = icmp slt i32 %135, 1
   br i1 %136, label %141, label %137
@@ -1143,7 +1143,7 @@ define i32 @EVP_DigestSign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !62
+  %12 = load i64, ptr %11, align 8, !tbaa !61
   %13 = and i64 %12, 2048
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %15, label %14
@@ -1173,7 +1173,7 @@ define i32 @EVP_DigestSign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 168
-  %26 = load ptr, ptr %25, align 8, !tbaa !68
+  %26 = load ptr, ptr %25, align 8, !tbaa !67
   %.not42 = icmp eq ptr %26, null
   br i1 %.not42, label %43, label %27
 
@@ -1183,11 +1183,11 @@ define i32 @EVP_DigestSign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 28:                                               ; preds = %27
   %29 = or disjoint i64 %12, 2048
-  store i64 %29, ptr %11, align 8, !tbaa !62
-  %30 = load i64, ptr %2, align 8, !tbaa !66
+  store i64 %29, ptr %11, align 8, !tbaa !61
+  %30 = load i64, ptr %2, align 8, !tbaa !65
   %.pn.pre = load ptr, ptr %19, align 8, !tbaa !25
   %.in.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pn.pre, i64 168
-  %.pre = load ptr, ptr %.in.phi.trans.insert, align 8, !tbaa !68
+  %.pre = load ptr, ptr %.in.phi.trans.insert, align 8, !tbaa !67
   %.pre46 = load ptr, ptr %20, align 8, !tbaa !25
   br label %.thread
 
@@ -1200,13 +1200,13 @@ define i32 @EVP_DigestSign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 35:                                               ; preds = %22, %18, %15
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  %37 = load ptr, ptr %36, align 8, !tbaa !51
   %.not40 = icmp eq ptr %37, null
   br i1 %.not40, label %43, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  %40 = load ptr, ptr %39, align 8, !tbaa !60
+  %40 = load ptr, ptr %39, align 8, !tbaa !59
   %.not41 = icmp eq ptr %40, null
   br i1 %.not41, label %43, label %41
 
@@ -1241,12 +1241,12 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %4 = alloca i32, align 4
   %5 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  store i32 0, ptr %4, align 4, !tbaa !55
+  store i32 0, ptr %4, align 4, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !62
+  %9 = load i64, ptr %8, align 8, !tbaa !61
   %10 = and i64 %9, 2048
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %12, label %11
@@ -1285,7 +1285,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 .thread83:                                        ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 192
-  %28 = load ptr, ptr %27, align 8, !tbaa !69
+  %28 = load ptr, ptr %27, align 8, !tbaa !68
   %29 = tail call i32 %28(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %2) #6
   br label %36
 
@@ -1298,16 +1298,16 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %spec.select74, i64 48
   %.pre80 = load ptr, ptr %.phi.trans.insert79, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
-  %33 = load ptr, ptr %32, align 8, !tbaa !69
+  %33 = load ptr, ptr %32, align 8, !tbaa !68
   %34 = tail call i32 %33(ptr noundef %.pre80, ptr noundef %1, i64 noundef %2) #6
   %35 = icmp eq ptr %31, null
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %.thread83, %30
   %37 = phi i32 [ %29, %.thread83 ], [ %34, %30 ]
-  %38 = load i64, ptr %8, align 8, !tbaa !62
+  %38 = load i64, ptr %8, align 8, !tbaa !61
   %39 = or i64 %38, 2048
-  store i64 %39, ptr %8, align 8, !tbaa !62
+  store i64 %39, ptr %8, align 8, !tbaa !61
   br label %.critedge76
 
 40:                                               ; preds = %30
@@ -1316,7 +1316,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 41:                                               ; preds = %20, %16, %14
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %43 = load ptr, ptr %42, align 8, !tbaa !52
+  %43 = load ptr, ptr %42, align 8, !tbaa !51
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.critedge, label %45
 
@@ -1335,14 +1335,14 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 248
-  %51 = load ptr, ptr %50, align 8, !tbaa !61
+  %51 = load ptr, ptr %50, align 8, !tbaa !60
   %52 = tail call i32 %51(ptr noundef nonnull %7, ptr noundef nonnull %0) #6
   %.not68 = icmp eq i32 %52, 0
   br i1 %.not68, label %.critedge76, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49
   %.pre81 = load i8, ptr %46, align 8
-  %.pre82 = load ptr, ptr %42, align 8, !tbaa !52
+  %.pre82 = load ptr, ptr %42, align 8, !tbaa !51
   br label %53
 
 53:                                               ; preds = %._crit_edge, %45
@@ -1351,9 +1351,9 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %56 = and i8 %55, -2
   store i8 %56, ptr %46, align 8
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 136
-  %58 = load ptr, ptr %57, align 8, !tbaa !70
+  %58 = load ptr, ptr %57, align 8, !tbaa !69
   %.not69 = icmp eq ptr %58, null
-  %59 = load i64, ptr %8, align 8, !tbaa !62
+  %59 = load i64, ptr %8, align 8, !tbaa !61
   %60 = and i64 %59, 512
   %.not70 = icmp eq i64 %60, 0
   br i1 %.not70, label %68, label %61
@@ -1364,9 +1364,9 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 .thread:                                          ; preds = %61
   %62 = trunc i64 %2 to i32
   %63 = tail call i32 %58(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %62, ptr noundef nonnull %0) #6
-  %64 = load i64, ptr %8, align 8, !tbaa !62
+  %64 = load i64, ptr %8, align 8, !tbaa !61
   %65 = or i64 %64, 2048
-  store i64 %65, ptr %8, align 8, !tbaa !62
+  store i64 %65, ptr %8, align 8, !tbaa !61
   br label %.critedge76
 
 66:                                               ; preds = %61
@@ -1394,9 +1394,9 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 120
-  %79 = load ptr, ptr %78, align 8, !tbaa !52
+  %79 = load ptr, ptr %78, align 8, !tbaa !51
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
-  %81 = load ptr, ptr %80, align 8, !tbaa !70
+  %81 = load ptr, ptr %80, align 8, !tbaa !69
   %82 = trunc i64 %2 to i32
   %83 = tail call i32 %81(ptr noundef %77, ptr noundef %1, i32 noundef %82, ptr noundef nonnull %69) #6
   br label %86
@@ -1417,7 +1417,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %or.cond, label %89, label %.critedge76
 
 89:                                               ; preds = %87
-  %90 = load i32, ptr %4, align 4, !tbaa !55
+  %90 = load i32, ptr %4, align 4, !tbaa !54
   %91 = zext i32 %90 to i64
   %92 = call i32 @EVP_PKEY_verify(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef %91) #6
   br label %.critedge76
@@ -1446,7 +1446,7 @@ define i32 @EVP_DigestVerify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !62
+  %12 = load i64, ptr %11, align 8, !tbaa !61
   %13 = and i64 %12, 2048
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %15, label %14
@@ -1476,29 +1476,29 @@ define i32 @EVP_DigestVerify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 200
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
+  %26 = load ptr, ptr %25, align 8, !tbaa !70
   %.not36 = icmp eq ptr %26, null
   br i1 %.not36, label %42, label %27
 
 27:                                               ; preds = %24
   %28 = or disjoint i64 %12, 2048
-  store i64 %28, ptr %11, align 8, !tbaa !62
+  store i64 %28, ptr %11, align 8, !tbaa !61
   %29 = load ptr, ptr %19, align 8, !tbaa !25
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 200
-  %31 = load ptr, ptr %30, align 8, !tbaa !71
+  %31 = load ptr, ptr %30, align 8, !tbaa !70
   %32 = load ptr, ptr %20, align 8, !tbaa !25
   %33 = tail call i32 %31(ptr noundef %32, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6
   br label %47
 
 34:                                               ; preds = %22, %18, %15
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
   %.not34 = icmp eq ptr %36, null
   br i1 %.not34, label %42, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 216
-  %39 = load ptr, ptr %38, align 8, !tbaa !57
+  %39 = load ptr, ptr %38, align 8, !tbaa !56
   %.not35 = icmp eq ptr %39, null
   br i1 %.not35, label %42, label %40
 
@@ -1652,35 +1652,34 @@ attributes #7 = { nounwind willreturn memory(read) }
 !37 = !{!"branch_weights", i32 4001, i32 1}
 !38 = !{!9, !10, i64 0}
 !39 = !{!15, !17, i64 8}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !5, i64 40}
-!44 = !{!"evp_signature_st", !16, i64 0, !18, i64 8, !18, i64 16, !45, i64 24, !31, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288}
-!45 = !{!"p1 _ZTS16ossl_provider_st", !5, i64 0}
-!46 = !{!44, !45, i64 24}
-!47 = !{!13, !13, i64 0}
-!48 = !{!9, !10, i64 64}
-!49 = !{!9, !10, i64 8}
-!50 = !{!44, !5, i64 176}
-!51 = !{!44, !5, i64 144}
-!52 = !{!15, !21, i64 120}
-!53 = !{!54, !16, i64 4}
-!54 = !{!"evp_pkey_method_st", !16, i64 0, !16, i64 4, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248}
-!55 = !{!16, !16, i64 0}
-!56 = !{!54, !5, i64 128}
-!57 = !{!54, !5, i64 216}
-!58 = !{!9, !5, i64 48}
-!59 = !{!54, !5, i64 112}
-!60 = !{!54, !5, i64 208}
-!61 = !{!54, !5, i64 248}
-!62 = !{!9, !12, i64 24}
-!63 = !{!44, !5, i64 152}
-!64 = !{!44, !5, i64 184}
-!65 = !{!44, !5, i64 160}
-!66 = !{!12, !12, i64 0}
-!67 = !{!54, !5, i64 120}
-!68 = !{!44, !5, i64 168}
-!69 = !{!44, !5, i64 192}
-!70 = !{!54, !5, i64 136}
-!71 = !{!44, !5, i64 200}
+!42 = !{!43, !5, i64 40}
+!43 = !{!"evp_signature_st", !16, i64 0, !18, i64 8, !18, i64 16, !44, i64 24, !31, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288}
+!44 = !{!"p1 _ZTS16ossl_provider_st", !5, i64 0}
+!45 = !{!43, !44, i64 24}
+!46 = !{!13, !13, i64 0}
+!47 = !{!9, !10, i64 64}
+!48 = !{!9, !10, i64 8}
+!49 = !{!43, !5, i64 176}
+!50 = !{!43, !5, i64 144}
+!51 = !{!15, !21, i64 120}
+!52 = !{!53, !16, i64 4}
+!53 = !{!"evp_pkey_method_st", !16, i64 0, !16, i64 4, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248}
+!54 = !{!16, !16, i64 0}
+!55 = !{!53, !5, i64 128}
+!56 = !{!53, !5, i64 216}
+!57 = !{!9, !5, i64 48}
+!58 = !{!53, !5, i64 112}
+!59 = !{!53, !5, i64 208}
+!60 = !{!53, !5, i64 248}
+!61 = !{!9, !12, i64 24}
+!62 = !{!43, !5, i64 152}
+!63 = !{!43, !5, i64 184}
+!64 = !{!43, !5, i64 160}
+!65 = !{!12, !12, i64 0}
+!66 = !{!53, !5, i64 120}
+!67 = !{!43, !5, i64 168}
+!68 = !{!43, !5, i64 192}
+!69 = !{!53, !5, i64 136}
+!70 = !{!43, !5, i64 200}

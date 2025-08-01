@@ -195,9 +195,9 @@ define dso_local i32 @blkdev_issue_discard(ptr noundef %0, i64 noundef %1, i64 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !14
   call void @blk_start_plug(ptr noundef nonnull %6) #6
-  %7 = call i32 @__blkdev_issue_discard(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5), !range !16
+  %7 = call i32 @__blkdev_issue_discard(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5), !range !15
   %8 = icmp eq i32 %7, 0
   %9 = load ptr, ptr %5, align 8
   %10 = icmp ne ptr %9, null
@@ -322,7 +322,7 @@ define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_zeroout(ptr nound
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store i64 %60, ptr %63, align 8
   %64 = icmp ugt i64 %59, %50
-  br i1 %64, label %.lr.ph12.i, label %.thread6.i, !llvm.loop !17
+  br i1 %64, label %.lr.ph12.i, label %.thread6.i, !llvm.loop !16
 
 .split.split.i:                                   ; preds = %.split.i
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -372,7 +372,7 @@ __blkdev_issue_write_zeroes.exit:                 ; preds = %41, %42
   br i1 %89, label %90, label %__blkdev_issue_write_zeroes.exit.thread
 
 90:                                               ; preds = %__blkdev_issue_write_zeroes.exit
-  %91 = tail call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4), !range !19
+  %91 = tail call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4), !range !18
   br label %__blkdev_issue_write_zeroes.exit.thread
 
 __blkdev_issue_write_zeroes.exit.thread:          ; preds = %23, %28, %36, %86, %90, %__blkdev_issue_write_zeroes.exit, %18
@@ -446,12 +446,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %52 = icmp uge i32 %47, %40
   %53 = icmp ne i64 %50, 0
   %54 = and i1 %52, %53
-  br i1 %54, label %35, label %.split5.us.us, !llvm.loop !20
+  br i1 %54, label %35, label %.split5.us.us, !llvm.loop !19
 
 .split5.us.us:                                    ; preds = %35
   %55 = tail call i32 @__SCT__cond_resched() #6
   %56 = icmp eq i64 %50, 0
-  br i1 %56, label %.loopexit, label %.split.us.us, !llvm.loop !21
+  br i1 %56, label %.loopexit, label %.split.us.us, !llvm.loop !20
 
 .split:                                           ; preds = %.preheader, %.split5
   %57 = phi i64 [ %82, %.split5 ], [ %1, %.preheader ]
@@ -486,12 +486,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(p
   %83 = icmp uge i32 %78, %71
   %84 = icmp ne i64 %81, 0
   %85 = and i1 %83, %84
-  br i1 %85, label %66, label %.split5, !llvm.loop !22
+  br i1 %85, label %66, label %.split5, !llvm.loop !21
 
 .split5:                                          ; preds = %66
   %86 = tail call i32 @__SCT__cond_resched() #6
   %87 = icmp eq i64 %81, 0
-  br i1 %87, label %.loopexit, label %.split, !llvm.loop !23
+  br i1 %87, label %.loopexit, label %.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.split5, %.split5.us.us, %23
   %88 = phi ptr [ %6, %23 ], [ %33, %.split5.us.us ], [ %64, %.split5 ]
@@ -536,7 +536,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %26, label %27, label %.loopexit14
 
 27:                                               ; preds = %.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !14
   %28 = and i32 %4, 2
   %29 = icmp eq i32 %28, 0
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -595,7 +595,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br label %.thread13.us.thread
 
 58:                                               ; preds = %35
-  %59 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef 0, i32 noundef %3, ptr noundef nonnull %6), !range !19
+  %59 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef 0, i32 noundef %3, ptr noundef nonnull %6), !range !18
   %.pre41 = load ptr, ptr %6, align 8
   %60 = icmp eq i32 %59, 0
   %61 = icmp ne ptr %.pre41, null
@@ -615,7 +615,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
 .thread13.us:                                     ; preds = %54, %51, %46, %39, %36
   %65 = phi i32 [ -1, %36 ], [ -1, %39 ], [ -95, %54 ], [ -1, %46 ], [ -95, %51 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
-  br i1 %29, label %.critedge, label %.split28.us.loopexit, !llvm.loop !24
+  br i1 %29, label %.critedge, label %.split28.us.loopexit, !llvm.loop !23
 
 .split25:                                         ; preds = %27, %139
   %66 = phi i1 [ false, %139 ], [ %22, %27 ]
@@ -680,7 +680,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i64 %99, ptr %102, align 8
   %103 = icmp ugt i64 %98, %89
-  br i1 %103, label %.lr.ph22, label %.thread12, !llvm.loop !25
+  br i1 %103, label %.lr.ph22, label %.thread12, !llvm.loop !24
 
 .split.split:                                     ; preds = %.split
   %104 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -728,7 +728,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br label %.loopexit14
 
 126:                                              ; preds = %125
-  %127 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6), !range !19
+  %127 = call fastcc i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6), !range !18
   %.pre = load ptr, ptr %6, align 8
   br label %128
 
@@ -753,7 +753,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %138, label %139, label %.loopexit14
 
 139:                                              ; preds = %.thread13
-  br i1 %29, label %.split25, label %.split28.us, !llvm.loop !26
+  br i1 %29, label %.split25, label %.split28.us
 
 .split28.us.loopexit:                             ; preds = %.thread13.us
   store ptr null, ptr %6, align 8
@@ -800,7 +800,7 @@ define dso_local i32 @blkdev_issue_secure_erase(ptr noundef %0, i64 noundef %1, 
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 196
   %18 = load i32, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !14
   %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 8388607)
   %20 = sub nsw i32 0, %16
   %21 = and i32 %19, %20
@@ -870,7 +870,7 @@ define dso_local i32 @blkdev_issue_secure_erase(ptr noundef %0, i64 noundef %1, 
   store i32 %66, ptr %67, align 8
   %68 = sub i64 %56, %62
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %69, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
   %.lcssa = phi ptr [ %50, %46 ], [ %64, %.lr.ph ]
@@ -919,20 +919,17 @@ attributes #7 = { cold nounwind }
 !8 = !{i64 2156170344, i64 2156170153, i64 2156170205, i64 2156170251, i64 2156170279}
 !9 = !{i64 2156170418, i64 2156170447, i64 2156170493, i64 2156170551, i64 2156170605, i64 2156170659, i64 2156170714, i64 2156170745, i64 2156171053, i64 2156171059, i64 2156171106, i64 2156171129, i64 2156171155}
 !10 = !{i64 2156171602, i64 2156171413, i64 2156171463, i64 2156171509, i64 2156171537}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!"auto-init"}
-!16 = !{i32 -95, i32 1}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{i32 -1, i32 1}
-!20 = distinct !{!20, !12, !13, !14, !18}
-!21 = distinct !{!21, !12, !13, !14, !18}
-!22 = distinct !{!22, !12, !13, !14}
-!23 = distinct !{!23, !12, !13, !14}
-!24 = distinct !{!24, !14, !18}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
+!14 = !{!"auto-init"}
+!15 = !{i32 -95, i32 1}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = !{i32 -1, i32 1}
+!19 = distinct !{!19, !12, !13, !17}
+!20 = distinct !{!20, !12, !13, !17}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}

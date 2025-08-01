@@ -205,7 +205,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   ]
 
 .preheader.backedge:                              ; preds = %.preheader, %.preheader
-  br label %.preheader, !llvm.loop !4
+  br label %.preheader
 
 42:                                               ; preds = %.preheader
   %43 = load i32, ptr %32, align 8
@@ -241,7 +241,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   %55 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %56 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %56, %3
-  br i1 %exitcond.not.i, label %_add.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_add.exit, label %.lr.ph.i, !llvm.loop !4
 
 57:                                               ; preds = %.preheader
   %58 = load i32, ptr %32, align 8
@@ -277,7 +277,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   %70 = getelementptr inbounds nuw i8, ptr %.08.i260, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %.067.i261, i64 1
   %exitcond.not.i263 = icmp eq ptr %71, %3
-  br i1 %exitcond.not.i263, label %_add.exit, label %.lr.ph.i259, !llvm.loop !6
+  br i1 %exitcond.not.i263, label %_add.exit, label %.lr.ph.i259, !llvm.loop !4
 
 72:                                               ; preds = %.preheader
   %73 = load i32, ptr %35, align 8
@@ -313,7 +313,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   %85 = getelementptr inbounds nuw i8, ptr %.08.i269, i64 1
   %86 = getelementptr inbounds nuw i8, ptr %.067.i270, i64 1
   %exitcond.not.i272 = icmp eq ptr %86, %3
-  br i1 %exitcond.not.i272, label %_add.exit, label %.lr.ph.i268, !llvm.loop !6
+  br i1 %exitcond.not.i272, label %_add.exit, label %.lr.ph.i268, !llvm.loop !4
 
 87:                                               ; preds = %.preheader, %.preheader
   %88 = load i32, ptr %35, align 8
@@ -349,7 +349,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   %100 = getelementptr inbounds nuw i8, ptr %.08.i278, i64 1
   %101 = getelementptr inbounds nuw i8, ptr %.067.i279, i64 1
   %exitcond.not.i281 = icmp eq ptr %101, %3
-  br i1 %exitcond.not.i281, label %_add.exit, label %.lr.ph.i277, !llvm.loop !6
+  br i1 %exitcond.not.i281, label %_add.exit, label %.lr.ph.i277, !llvm.loop !4
 
 102:                                              ; preds = %.preheader
   %103 = load i32, ptr %31, align 4
@@ -398,7 +398,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   %.08.i.add.i = add nuw nsw i64 %.08.i.idx.i, 1
   %120 = getelementptr inbounds nuw i8, ptr %.067.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %120, %3
-  br i1 %exitcond.not.i.i, label %_add.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_add.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 121:                                              ; preds = %.thread, %109
   %.033.i506 = phi i32 [ %108, %.thread ], [ %.033.i, %109 ]
@@ -425,7 +425,7 @@ define internal fastcc ptr @_fmt(ptr noundef readonly captures(none) %0, ptr nou
   %128 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 1
   %129 = getelementptr inbounds nuw i8, ptr %.067.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %129, %3
-  br i1 %exitcond.not.i.i.i, label %_conv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %_conv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i, %121
   %.06.lcssa.i.i.i = phi ptr [ %.0209, %121 ], [ %.067.i.i.i, %.lr.ph.i.i.i ], [ %scevgep.i.i.i, %127 ]
@@ -480,7 +480,7 @@ _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i,
   %148 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %149 = getelementptr inbounds nuw i8, ptr %.067.i.i286, i64 1
   %exitcond.not.i.i287 = icmp eq ptr %149, %3
-  br i1 %exitcond.not.i.i287, label %_conv.exit, label %.lr.ph.i.i285, !llvm.loop !6
+  br i1 %exitcond.not.i.i287, label %_conv.exit, label %.lr.ph.i.i285, !llvm.loop !4
 
 _conv.exit:                                       ; preds = %.lr.ph.i.i285, %147, %140
   %.06.lcssa.i.i = phi ptr [ %.0209, %140 ], [ %scevgep.i.i284, %147 ], [ %.067.i.i286, %.lr.ph.i.i285 ]
@@ -512,7 +512,7 @@ _conv.exit:                                       ; preds = %.lr.ph.i.i285, %147
   %158 = getelementptr inbounds nuw i8, ptr %.08.i.i292, i64 1
   %159 = getelementptr inbounds nuw i8, ptr %.067.i.i293, i64 1
   %exitcond.not.i.i295 = icmp eq ptr %159, %3
-  br i1 %exitcond.not.i.i295, label %_conv.exit296, label %.lr.ph.i.i291, !llvm.loop !6
+  br i1 %exitcond.not.i.i295, label %_conv.exit296, label %.lr.ph.i.i291, !llvm.loop !4
 
 _conv.exit296:                                    ; preds = %.lr.ph.i.i291, %157, %150
   %.06.lcssa.i.i288 = phi ptr [ %.0209, %150 ], [ %scevgep.i.i290, %157 ], [ %.067.i.i293, %.lr.ph.i.i291 ]
@@ -548,7 +548,7 @@ _conv.exit296:                                    ; preds = %.lr.ph.i.i291, %157
   %170 = getelementptr inbounds nuw i8, ptr %.08.i.i301, i64 1
   %171 = getelementptr inbounds nuw i8, ptr %.067.i.i302, i64 1
   %exitcond.not.i.i304 = icmp eq ptr %171, %3
-  br i1 %exitcond.not.i.i304, label %_conv.exit305, label %.lr.ph.i.i300, !llvm.loop !6
+  br i1 %exitcond.not.i.i304, label %_conv.exit305, label %.lr.ph.i.i300, !llvm.loop !4
 
 _conv.exit305:                                    ; preds = %.lr.ph.i.i300, %169, %162
   %.06.lcssa.i.i297 = phi ptr [ %.0209, %162 ], [ %scevgep.i.i299, %169 ], [ %.067.i.i302, %.lr.ph.i.i300 ]
@@ -583,7 +583,7 @@ _conv.exit305:                                    ; preds = %.lr.ph.i.i300, %169
   %181 = getelementptr inbounds nuw i8, ptr %.08.i.i310, i64 1
   %182 = getelementptr inbounds nuw i8, ptr %.067.i.i311, i64 1
   %exitcond.not.i.i313 = icmp eq ptr %182, %3
-  br i1 %exitcond.not.i.i313, label %_conv.exit314, label %.lr.ph.i.i309, !llvm.loop !6
+  br i1 %exitcond.not.i.i313, label %_conv.exit314, label %.lr.ph.i.i309, !llvm.loop !4
 
 _conv.exit314:                                    ; preds = %.lr.ph.i.i309, %180, %172
   %.06.lcssa.i.i306 = phi ptr [ %.0209, %172 ], [ %scevgep.i.i308, %180 ], [ %.067.i.i311, %.lr.ph.i.i309 ]
@@ -616,7 +616,7 @@ _conv.exit314:                                    ; preds = %.lr.ph.i.i309, %180
   %192 = getelementptr inbounds nuw i8, ptr %.08.i.i319, i64 1
   %193 = getelementptr inbounds nuw i8, ptr %.067.i.i320, i64 1
   %exitcond.not.i.i322 = icmp eq ptr %193, %3
-  br i1 %exitcond.not.i.i322, label %_conv.exit323, label %.lr.ph.i.i318, !llvm.loop !6
+  br i1 %exitcond.not.i.i322, label %_conv.exit323, label %.lr.ph.i.i318, !llvm.loop !4
 
 _conv.exit323:                                    ; preds = %.lr.ph.i.i318, %191, %183
   %.06.lcssa.i.i315 = phi ptr [ %.0209, %183 ], [ %scevgep.i.i317, %191 ], [ %.067.i.i320, %.lr.ph.i.i318 ]
@@ -648,7 +648,7 @@ _conv.exit323:                                    ; preds = %.lr.ph.i.i318, %191
   %202 = getelementptr inbounds nuw i8, ptr %.08.i.i328, i64 1
   %203 = getelementptr inbounds nuw i8, ptr %.067.i.i329, i64 1
   %exitcond.not.i.i331 = icmp eq ptr %203, %3
-  br i1 %exitcond.not.i.i331, label %_conv.exit332, label %.lr.ph.i.i327, !llvm.loop !6
+  br i1 %exitcond.not.i.i331, label %_conv.exit332, label %.lr.ph.i.i327, !llvm.loop !4
 
 _conv.exit332:                                    ; preds = %.lr.ph.i.i327, %201, %194
   %.06.lcssa.i.i324 = phi ptr [ %.0209, %194 ], [ %scevgep.i.i326, %201 ], [ %.067.i.i329, %.lr.ph.i.i327 ]
@@ -683,7 +683,7 @@ _conv.exit332:                                    ; preds = %.lr.ph.i.i327, %201
   %213 = getelementptr inbounds nuw i8, ptr %.08.i.i337, i64 1
   %214 = getelementptr inbounds nuw i8, ptr %.067.i.i338, i64 1
   %exitcond.not.i.i340 = icmp eq ptr %214, %3
-  br i1 %exitcond.not.i.i340, label %_conv.exit341, label %.lr.ph.i.i336, !llvm.loop !6
+  br i1 %exitcond.not.i.i340, label %_conv.exit341, label %.lr.ph.i.i336, !llvm.loop !4
 
 _conv.exit341:                                    ; preds = %.lr.ph.i.i336, %212, %204
   %.06.lcssa.i.i333 = phi ptr [ %.0209, %204 ], [ %scevgep.i.i335, %212 ], [ %.067.i.i338, %.lr.ph.i.i336 ]
@@ -715,7 +715,7 @@ _conv.exit341:                                    ; preds = %.lr.ph.i.i336, %212
   %223 = getelementptr inbounds nuw i8, ptr %.08.i.i346, i64 1
   %224 = getelementptr inbounds nuw i8, ptr %.067.i.i347, i64 1
   %exitcond.not.i.i349 = icmp eq ptr %224, %3
-  br i1 %exitcond.not.i.i349, label %_conv.exit350, label %.lr.ph.i.i345, !llvm.loop !6
+  br i1 %exitcond.not.i.i349, label %_conv.exit350, label %.lr.ph.i.i345, !llvm.loop !4
 
 _conv.exit350:                                    ; preds = %.lr.ph.i.i345, %222, %215
   %.06.lcssa.i.i342 = phi ptr [ %.0209, %215 ], [ %scevgep.i.i344, %222 ], [ %.067.i.i347, %.lr.ph.i.i345 ]
@@ -748,7 +748,7 @@ _conv.exit350:                                    ; preds = %.lr.ph.i.i345, %222
   %234 = getelementptr inbounds nuw i8, ptr %.08.i.i355, i64 1
   %235 = getelementptr inbounds nuw i8, ptr %.067.i.i356, i64 1
   %exitcond.not.i.i358 = icmp eq ptr %235, %3
-  br i1 %exitcond.not.i.i358, label %_conv.exit359, label %.lr.ph.i.i354, !llvm.loop !6
+  br i1 %exitcond.not.i.i358, label %_conv.exit359, label %.lr.ph.i.i354, !llvm.loop !4
 
 _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233, %225
   %.06.lcssa.i.i351 = phi ptr [ %.0209, %225 ], [ %scevgep.i.i353, %233 ], [ %.067.i.i356, %.lr.ph.i.i354 ]
@@ -778,7 +778,7 @@ _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233
   %.08.i364.add = add nuw nsw i64 %.08.i364.idx, 1
   %242 = getelementptr inbounds nuw i8, ptr %.067.i365, i64 1
   %exitcond.not.i367 = icmp eq ptr %242, %3
-  br i1 %exitcond.not.i367, label %_add.exit, label %.lr.ph.i363, !llvm.loop !6
+  br i1 %exitcond.not.i367, label %_add.exit, label %.lr.ph.i363, !llvm.loop !4
 
 243:                                              ; preds = %.preheader
   %244 = icmp ult ptr %.0209, %3
@@ -805,7 +805,7 @@ _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233
   %252 = getelementptr inbounds nuw i8, ptr %.08.i373, i64 1
   %253 = getelementptr inbounds nuw i8, ptr %.067.i374, i64 1
   %exitcond.not.i376 = icmp eq ptr %253, %3
-  br i1 %exitcond.not.i376, label %_add.exit, label %.lr.ph.i372, !llvm.loop !6
+  br i1 %exitcond.not.i376, label %_add.exit, label %.lr.ph.i372, !llvm.loop !4
 
 254:                                              ; preds = %.preheader
   %255 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %4)
@@ -840,7 +840,7 @@ _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233
   %266 = getelementptr inbounds nuw i8, ptr %.08.i.i382, i64 1
   %267 = getelementptr inbounds nuw i8, ptr %.067.i.i383, i64 1
   %exitcond.not.i.i385 = icmp eq ptr %267, %3
-  br i1 %exitcond.not.i.i385, label %_conv.exit386, label %.lr.ph.i.i381, !llvm.loop !6
+  br i1 %exitcond.not.i.i385, label %_conv.exit386, label %.lr.ph.i.i381, !llvm.loop !4
 
 _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265, %258
   %.06.lcssa.i.i378 = phi ptr [ %.0209, %258 ], [ %scevgep.i.i380, %265 ], [ %.067.i.i383, %.lr.ph.i.i381 ]
@@ -874,7 +874,7 @@ _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265
   %.08.i391.add = add nuw nsw i64 %.08.i391.idx, 1
   %276 = getelementptr inbounds nuw i8, ptr %.067.i392, i64 1
   %exitcond.not.i394 = icmp eq ptr %276, %3
-  br i1 %exitcond.not.i394, label %_add.exit, label %.lr.ph.i390, !llvm.loop !6
+  br i1 %exitcond.not.i394, label %_add.exit, label %.lr.ph.i390, !llvm.loop !4
 
 277:                                              ; preds = %.preheader
   %278 = load i32, ptr %33, align 4
@@ -905,7 +905,7 @@ _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265
   %289 = getelementptr inbounds nuw i8, ptr %.08.i.i400, i64 1
   %290 = getelementptr inbounds nuw i8, ptr %.067.i.i401, i64 1
   %exitcond.not.i.i403 = icmp eq ptr %290, %3
-  br i1 %exitcond.not.i.i403, label %_conv.exit404, label %.lr.ph.i.i399, !llvm.loop !6
+  br i1 %exitcond.not.i.i403, label %_conv.exit404, label %.lr.ph.i.i399, !llvm.loop !4
 
 _conv.exit404:                                    ; preds = %.lr.ph.i.i399, %288, %277
   %.06.lcssa.i.i396 = phi ptr [ %.0209, %277 ], [ %scevgep.i.i398, %288 ], [ %.067.i.i401, %.lr.ph.i.i399 ]
@@ -939,7 +939,7 @@ _conv.exit404:                                    ; preds = %.lr.ph.i.i399, %288
   %300 = getelementptr inbounds nuw i8, ptr %.08.i.i409, i64 1
   %301 = getelementptr inbounds nuw i8, ptr %.067.i.i410, i64 1
   %exitcond.not.i.i412 = icmp eq ptr %301, %3
-  br i1 %exitcond.not.i.i412, label %_conv.exit413, label %.lr.ph.i.i408, !llvm.loop !6
+  br i1 %exitcond.not.i.i412, label %_conv.exit413, label %.lr.ph.i.i408, !llvm.loop !4
 
 _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299, %291
   %.06.lcssa.i.i405 = phi ptr [ %.0209, %291 ], [ %scevgep.i.i407, %299 ], [ %.067.i.i410, %.lr.ph.i.i408 ]
@@ -1028,7 +1028,7 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
 347:                                              ; preds = %335, %343, %341
   %348 = phi i32 [ 365, %335 ], [ 366, %341 ], [ %346, %343 ]
   %349 = add nsw i32 %348, %.0219
-  br label %307, !llvm.loop !8
+  br label %307
 
 350:                                              ; preds = %328, %331
   %.1218.ph = phi i32 [ %.0217, %331 ], [ %329, %328 ]
@@ -1062,7 +1062,7 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
   %358 = getelementptr inbounds nuw i8, ptr %.08.i.i418, i64 1
   %359 = getelementptr inbounds nuw i8, ptr %.067.i.i419, i64 1
   %exitcond.not.i.i421 = icmp eq ptr %359, %3
-  br i1 %exitcond.not.i.i421, label %_conv.exit422, label %.lr.ph.i.i417, !llvm.loop !6
+  br i1 %exitcond.not.i.i421, label %_conv.exit422, label %.lr.ph.i.i417, !llvm.loop !4
 
 _conv.exit422:                                    ; preds = %.lr.ph.i.i417, %357, %351
   %.06.lcssa.i.i414 = phi ptr [ %.0209, %351 ], [ %scevgep.i.i416, %357 ], [ %.067.i.i419, %.lr.ph.i.i417 ]
@@ -1126,7 +1126,7 @@ _conv.exit422:                                    ; preds = %.lr.ph.i.i417, %357
   %386 = getelementptr inbounds nuw i8, ptr %.08.i.i43.i, i64 1
   %387 = getelementptr inbounds nuw i8, ptr %.067.i.i44.i, i64 1
   %exitcond.not.i.i46.i = icmp eq ptr %387, %3
-  br i1 %exitcond.not.i.i46.i, label %_yconv.exit431, label %.lr.ph.i.i42.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i46.i, label %_yconv.exit431, label %.lr.ph.i.i42.i, !llvm.loop !4
 
 _yconv.exit431:                                   ; preds = %.lr.ph.i.i42.i, %385, %378
   %.06.lcssa.i.i39.i = phi ptr [ %.0209, %378 ], [ %.067.i.i44.i, %.lr.ph.i.i42.i ], [ %scevgep.i.i41.i, %385 ]
@@ -1173,7 +1173,7 @@ _yconv.exit431:                                   ; preds = %.lr.ph.i.i42.i, %38
   %404 = getelementptr inbounds nuw i8, ptr %.08.i.i436, i64 1
   %405 = getelementptr inbounds nuw i8, ptr %.067.i.i437, i64 1
   %exitcond.not.i.i439 = icmp eq ptr %405, %3
-  br i1 %exitcond.not.i.i439, label %_conv.exit440, label %.lr.ph.i.i435, !llvm.loop !6
+  br i1 %exitcond.not.i.i439, label %_conv.exit440, label %.lr.ph.i.i435, !llvm.loop !4
 
 _conv.exit440:                                    ; preds = %.lr.ph.i.i435, %403, %392
   %.06.lcssa.i.i432 = phi ptr [ %.0209, %392 ], [ %scevgep.i.i434, %403 ], [ %.067.i.i437, %.lr.ph.i.i435 ]
@@ -1205,7 +1205,7 @@ _conv.exit440:                                    ; preds = %.lr.ph.i.i435, %403
   %414 = getelementptr inbounds nuw i8, ptr %.08.i.i445, i64 1
   %415 = getelementptr inbounds nuw i8, ptr %.067.i.i446, i64 1
   %exitcond.not.i.i448 = icmp eq ptr %415, %3
-  br i1 %exitcond.not.i.i448, label %_conv.exit449, label %.lr.ph.i.i444, !llvm.loop !6
+  br i1 %exitcond.not.i.i448, label %_conv.exit449, label %.lr.ph.i.i444, !llvm.loop !4
 
 _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413, %406
   %.06.lcssa.i.i441 = phi ptr [ %.0209, %406 ], [ %scevgep.i.i443, %413 ], [ %.067.i.i446, %.lr.ph.i.i444 ]
@@ -1282,7 +1282,7 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
   %445 = getelementptr inbounds nuw i8, ptr %.08.i.i43.i462, i64 1
   %446 = getelementptr inbounds nuw i8, ptr %.067.i.i44.i463, i64 1
   %exitcond.not.i.i46.i465 = icmp eq ptr %446, %3
-  br i1 %exitcond.not.i.i46.i465, label %_yconv.exit466, label %.lr.ph.i.i42.i461, !llvm.loop !6
+  br i1 %exitcond.not.i.i46.i465, label %_yconv.exit466, label %.lr.ph.i.i42.i461, !llvm.loop !4
 
 _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, %444, %437
   %.06.lcssa.i.i39.i458 = phi ptr [ %.0209, %437 ], [ %.067.i.i44.i463, %.lr.ph.i.i42.i461 ], [ %scevgep.i.i41.i460, %444 ]
@@ -1319,7 +1319,7 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %457 = getelementptr inbounds nuw i8, ptr %.08.i471, i64 1
   %458 = getelementptr inbounds nuw i8, ptr %.067.i472, i64 1
   %exitcond.not.i474 = icmp eq ptr %458, %3
-  br i1 %exitcond.not.i474, label %_add.exit, label %.lr.ph.i470, !llvm.loop !6
+  br i1 %exitcond.not.i474, label %_add.exit, label %.lr.ph.i470, !llvm.loop !4
 
 459:                                              ; preds = %.preheader
   %460 = load i32, ptr %27, align 8
@@ -1369,7 +1369,7 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %.08.i480.add = add nuw nsw i64 %.08.i480.idx, 1
   %478 = getelementptr inbounds nuw i8, ptr %.067.i481, i64 1
   %exitcond.not.i483 = icmp eq ptr %478, %3
-  br i1 %exitcond.not.i483, label %_add.exit484, label %.lr.ph.i479, !llvm.loop !6
+  br i1 %exitcond.not.i483, label %_add.exit484, label %.lr.ph.i479, !llvm.loop !4
 
 .split:                                           ; preds = %468, %471
   %479 = icmp ult ptr %.0209, %3
@@ -1394,7 +1394,7 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %.08.i489.add = add nuw nsw i64 %.08.i489.idx, 1
   %484 = getelementptr inbounds nuw i8, ptr %.067.i490, i64 1
   %exitcond.not.i492 = icmp eq ptr %484, %3
-  br i1 %exitcond.not.i492, label %_add.exit484, label %.lr.ph.i488, !llvm.loop !6
+  br i1 %exitcond.not.i492, label %_add.exit484, label %.lr.ph.i488, !llvm.loop !4
 
 _add.exit484:                                     ; preds = %483, %.lr.ph.i488, %477, %.lr.ph.i479, %.split, %.split222
   %phi.call = phi ptr [ %.0209, %.split222 ], [ %.0209, %.split ], [ %.067.i481, %.lr.ph.i479 ], [ %scevgep.i478, %477 ], [ %.067.i490, %.lr.ph.i488 ], [ %scevgep.i487, %483 ]
@@ -1428,7 +1428,7 @@ _add.exit484:                                     ; preds = %483, %.lr.ph.i488, 
   %497 = getelementptr inbounds nuw i8, ptr %.08.i.i498, i64 1
   %498 = getelementptr inbounds nuw i8, ptr %.067.i.i499, i64 1
   %exitcond.not.i.i501 = icmp eq ptr %498, %3
-  br i1 %exitcond.not.i.i501, label %_conv.exit502, label %.lr.ph.i.i497, !llvm.loop !6
+  br i1 %exitcond.not.i.i501, label %_conv.exit502, label %.lr.ph.i.i497, !llvm.loop !4
 
 _conv.exit502:                                    ; preds = %.lr.ph.i.i497, %496, %_add.exit484
   %.06.lcssa.i.i494 = phi ptr [ %phi.call, %_add.exit484 ], [ %scevgep.i.i496, %496 ], [ %.067.i.i499, %.lr.ph.i.i497 ]
@@ -1457,7 +1457,7 @@ _add.exit:                                        ; preds = %456, %.lr.ph.i470, 
   %.1210 = phi ptr [ %504, %502 ], [ %131, %137 ], [ %139, %138 ], [ %.06.lcssa.i.i, %_conv.exit ], [ %.06.lcssa.i.i288, %_conv.exit296 ], [ %161, %160 ], [ %.06.lcssa.i.i297, %_conv.exit305 ], [ %.06.lcssa.i.i306, %_conv.exit314 ], [ %.06.lcssa.i.i315, %_conv.exit323 ], [ %.06.lcssa.i.i324, %_conv.exit332 ], [ %.06.lcssa.i.i333, %_conv.exit341 ], [ %.06.lcssa.i.i342, %_conv.exit350 ], [ %.06.lcssa.i.i351, %_conv.exit359 ], [ %255, %254 ], [ %257, %256 ], [ %.06.lcssa.i.i378, %_conv.exit386 ], [ %269, %268 ], [ %.06.lcssa.i.i396, %_conv.exit404 ], [ %.06.lcssa.i.i405, %_conv.exit413 ], [ %391, %390 ], [ %.06.lcssa.i.i432, %_conv.exit440 ], [ %.06.lcssa.i.i441, %_conv.exit449 ], [ %417, %416 ], [ %419, %425 ], [ %.06.lcssa.i.i39.i458, %_yconv.exit466 ], [ %449, %447 ], [ %.0209, %450 ], [ %500, %499 ], [ %.06.lcssa.i.i414, %_conv.exit422 ], [ %.06.lcssa.i.i39.i, %_yconv.exit431 ], [ %389, %388 ], [ %.06.lcssa.i.i494, %_conv.exit502 ], [ %.0209, %459 ], [ %.0209, %48 ], [ %.0209, %63 ], [ %.0209, %78 ], [ %.0209, %93 ], [ %.06.lcssa.i.i.i, %_conv.exit.i ], [ %.0209, %114 ], [ %.0209, %236 ], [ %.0209, %243 ], [ %.0209, %270 ], [ %.067.i, %.lr.ph.i ], [ %scevgep.i, %54 ], [ %.067.i261, %.lr.ph.i259 ], [ %scevgep.i258, %69 ], [ %.067.i270, %.lr.ph.i268 ], [ %scevgep.i267, %84 ], [ %.067.i279, %.lr.ph.i277 ], [ %scevgep.i276, %99 ], [ %scevgep.i.i, %119 ], [ %.067.i.i, %.lr.ph.i.i ], [ %.067.i365, %.lr.ph.i363 ], [ %scevgep.i362, %241 ], [ %.067.i374, %.lr.ph.i372 ], [ %scevgep.i371, %251 ], [ %.067.i392, %.lr.ph.i390 ], [ %scevgep.i389, %275 ], [ %.067.i472, %.lr.ph.i470 ], [ %scevgep.i469, %456 ]
   %.3 = phi ptr [ %.1, %502 ], [ %40, %137 ], [ %40, %138 ], [ %40, %_conv.exit ], [ %40, %_conv.exit296 ], [ %40, %160 ], [ %40, %_conv.exit305 ], [ %40, %_conv.exit314 ], [ %40, %_conv.exit323 ], [ %40, %_conv.exit332 ], [ %40, %_conv.exit341 ], [ %40, %_conv.exit350 ], [ %40, %_conv.exit359 ], [ %40, %254 ], [ %40, %256 ], [ %40, %_conv.exit386 ], [ %40, %268 ], [ %40, %_conv.exit404 ], [ %40, %_conv.exit413 ], [ %40, %390 ], [ %40, %_conv.exit440 ], [ %40, %_conv.exit449 ], [ %40, %416 ], [ %40, %425 ], [ %40, %_yconv.exit466 ], [ %40, %447 ], [ %40, %450 ], [ %40, %499 ], [ %40, %_conv.exit422 ], [ %40, %_yconv.exit431 ], [ %40, %388 ], [ %40, %_conv.exit502 ], [ %40, %459 ], [ %40, %48 ], [ %40, %63 ], [ %40, %78 ], [ %40, %93 ], [ %40, %_conv.exit.i ], [ %40, %114 ], [ %40, %236 ], [ %40, %243 ], [ %40, %270 ], [ %40, %.lr.ph.i ], [ %40, %54 ], [ %40, %.lr.ph.i259 ], [ %40, %69 ], [ %40, %.lr.ph.i268 ], [ %40, %84 ], [ %40, %.lr.ph.i277 ], [ %40, %99 ], [ %40, %.lr.ph.i.i ], [ %40, %119 ], [ %40, %.lr.ph.i363 ], [ %40, %241 ], [ %40, %.lr.ph.i372 ], [ %40, %251 ], [ %40, %.lr.ph.i390 ], [ %40, %275 ], [ %40, %.lr.ph.i470 ], [ %40, %456 ]
   %505 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br label %38, !llvm.loop !9
+  br label %38, !llvm.loop !6
 
 506:                                              ; preds = %38, %.loopexit
   ret ptr %.0209
@@ -1538,7 +1538,7 @@ define internal fastcc ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %.08.i.add = add nuw nsw i64 %.08.i.idx, 1
   %40 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %40, %5
-  br i1 %exitcond.not.i, label %_add.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_add.exit, label %.lr.ph.i, !llvm.loop !4
 
 41:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #6
@@ -1565,7 +1565,7 @@ define internal fastcc ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %50 = getelementptr inbounds nuw i8, ptr %.067.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %50, %5
-  br i1 %exitcond.not.i.i, label %_conv.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_conv.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 _conv.exit:                                       ; preds = %.lr.ph.i.i, %48, %41
   %.06.lcssa.i.i = phi ptr [ %4, %41 ], [ %scevgep.i.i, %48 ], [ %.067.i.i, %.lr.ph.i.i ]
@@ -1602,7 +1602,7 @@ _add.exit:                                        ; preds = %39, %.lr.ph.i, %33,
   %60 = getelementptr inbounds nuw i8, ptr %.08.i.i43, i64 1
   %61 = getelementptr inbounds nuw i8, ptr %.067.i.i44, i64 1
   %exitcond.not.i.i46 = icmp eq ptr %61, %5
-  br i1 %exitcond.not.i.i46, label %_conv.exit47, label %.lr.ph.i.i42, !llvm.loop !6
+  br i1 %exitcond.not.i.i46, label %_conv.exit47, label %.lr.ph.i.i42, !llvm.loop !4
 
 _conv.exit47:                                     ; preds = %.lr.ph.i.i42, %59, %51
   %.06.lcssa.i.i39 = phi ptr [ %.034, %51 ], [ %scevgep.i.i41, %59 ], [ %.067.i.i44, %.lr.ph.i.i42 ]
@@ -1634,8 +1634,5 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -558,7 +558,7 @@ define hidden void @_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure(ptr no
   %26 = add nuw nsw i32 %.018, 1
   %27 = shl i64 %.1, 2
   %exitcond.not = icmp eq i32 %26, %5
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %25, %2
   ret void
@@ -619,7 +619,7 @@ define hidden void @_ZNK17InterpreterOopMap5printEv(ptr noundef nonnull readonly
 32:                                               ; preds = %.sink.split, %28
   %33 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %33, %4
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %32, %1
   %34 = load ptr, ptr @tty, align 8
@@ -690,7 +690,7 @@ define hidden noundef zeroext i1 @_ZN16OopMapCacheEntry11verify_maskEP13CellType
   %33 = add nuw nsw i32 %.018.i, 1
   %34 = shl i64 %.1.i, 2
   %exitcond.not.i = icmp eq i32 %33, %12
-  br i1 %exitcond.not.i, label %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit, label %15, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit, label %15, !llvm.loop !8
 
 _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit: ; preds = %32
   %.pre = load i8, ptr %9, align 8
@@ -740,7 +740,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %55) #17
   %56 = add nuw nsw i32 %.02427, 1
   %exitcond.not = icmp eq i32 %56, %3
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph.split, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph.split, !llvm.loop !10
 
 .critedge.thread:                                 ; preds = %.lr.ph.split, %.thread
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
@@ -773,7 +773,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %74) #17
   %75 = add nuw nsw i32 %.02528, 1
   %exitcond33.not = icmp eq i32 %75, %4
-  br i1 %exitcond33.not, label %._crit_edge30.thread, label %.lr.ph29.split, !llvm.loop !12
+  br i1 %exitcond33.not, label %._crit_edge30.thread, label %.lr.ph29.split, !llvm.loop !11
 
 ._crit_edge30.thread:                             ; preds = %.lr.ph29.split, %.critedge.thread
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
@@ -941,7 +941,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
   store i64 0, ptr %59, align 8
   %60 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %60, label %.lr.ph.i, label %_ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit, !llvm.loop !13
+  br i1 %60, label %.lr.ph.i, label %_ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit, !llvm.loop !12
 
 _ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit: ; preds = %.lr.ph.i, %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit
   call void @_ZN23NativeSignatureIterator7iterateEv(ptr noundef nonnull align 8 dereferenceable(76) %4)
@@ -1146,7 +1146,7 @@ define hidden void @_ZN11OopMapCacheC2Ev(ptr noundef nonnull align 8 dereference
   store volatile ptr null, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %4, label %2, !llvm.loop !14
+  br i1 %exitcond.not, label %4, label %2, !llvm.loop !13
 
 4:                                                ; preds = %2
   ret void
@@ -1196,7 +1196,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit.i:     ; preds = %12, %9, %5
 17:                                               ; preds = %_ZN16OopMapCacheEntry10deallocateEPS_.exit.i, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN11OopMapCache5flushEv.exit, label %2, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN11OopMapCache5flushEv.exit, label %2, !llvm.loop !14
 
 _ZN11OopMapCache5flushEv.exit:                    ; preds = %17
   ret void
@@ -1246,7 +1246,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %5, %9, %12
 17:                                               ; preds = %2, %_ZN16OopMapCacheEntry10deallocateEPS_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %18, label %2, !llvm.loop !15
+  br i1 %exitcond.not, label %18, label %2, !llvm.loop !14
 
 18:                                               ; preds = %17
   ret void
@@ -1258,7 +1258,7 @@ define hidden noundef ptr @_ZNK11OopMapCache8entry_atEi(ptr noundef nonnull alig
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   ret ptr %6
 }
 
@@ -1267,7 +1267,7 @@ define hidden noundef zeroext i1 @_ZN11OopMapCache6put_atEiP16OopMapCacheEntryS1
   %5 = srem i32 %1, 32
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %6
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr nonnull %7) #17, !srcloc !17
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr nonnull %7) #17, !srcloc !16
   %9 = icmp eq ptr %8, %3
   ret i1 %9
 }
@@ -1399,7 +1399,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %_ZN12ResourceMarkD2
 70:                                               ; preds = %3, %6, %9, %_ZN16OopMapCacheEntry10deallocateEPS_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %71, label %3, !llvm.loop !18
+  br i1 %exitcond.not, label %71, label %3, !llvm.loop !17
 
 71:                                               ; preds = %70
   ret void
@@ -1501,7 +1501,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %4, %46, %44
 
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMarkD2Ev.exit, %52
   %.0.i.i = phi i64 [ %54, %52 ], [ %49, %_ZN12ResourceMarkD2Ev.exit ]
-  %55 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %48) #17, !srcloc !19
+  %55 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %48) #17, !srcloc !18
   br label %56
 
 56:                                               ; preds = %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit, %113
@@ -1511,7 +1511,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMar
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %113, label %62
 
@@ -1594,15 +1594,15 @@ _ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit: ; preds = %88, %95
 113:                                              ; preds = %56, %62, %65
   %114 = add nuw nsw i32 %.061, 1
   %exitcond.not = icmp eq i32 %114, 3
-  br i1 %exitcond.not, label %115, label %56, !llvm.loop !20
+  br i1 %exitcond.not, label %115, label %56, !llvm.loop !19
 
 .thread:                                          ; preds = %112, %_ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   store volatile i64 %49, ptr %48, align 8
   br label %.loopexit
 
 115:                                              ; preds = %113
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   store volatile i64 %49, ptr %48, align 8
   %116 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 1, i32 noundef 0) #17
   store ptr null, ptr %116, align 8
@@ -1700,19 +1700,19 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %167
   %169 = load volatile ptr, ptr %168, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %170 = icmp eq ptr %169, null
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %.preheader
-  %172 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %116, ptr null, ptr nonnull %168) #17, !srcloc !17
+  %172 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %116, ptr null, ptr nonnull %168) #17, !srcloc !16
   %173 = icmp eq ptr %172, null
   br i1 %173, label %.loopexit, label %174
 
 174:                                              ; preds = %.preheader, %171
   %175 = add nuw nsw i32 %.04262, 1
   %exitcond67.not = icmp eq i32 %175, 3
-  br i1 %exitcond67.not, label %176, label %.preheader, !llvm.loop !21
+  br i1 %exitcond67.not, label %176, label %.preheader, !llvm.loop !20
 
 176:                                              ; preds = %174
   %177 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1728,8 +1728,8 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %181
   %183 = load volatile ptr, ptr %182, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %184 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %116, ptr %183, ptr nonnull %182) #17, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
+  %184 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %116, ptr %183, ptr nonnull %182) #17, !srcloc !16
   %185 = icmp eq ptr %184, %183
   br i1 %185, label %186, label %187
 
@@ -1787,9 +1787,9 @@ define hidden void @_ZN11OopMapCache19enqueue_for_cleanupEP16OopMapCacheEntry(pt
 3:                                                ; preds = %3, %1
   %4 = load volatile ptr, ptr @_ZN11OopMapCache12_old_entriesE, align 8
   store ptr %4, ptr %2, align 8
-  %5 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %4, ptr nonnull @_ZN11OopMapCache12_old_entriesE) #17, !srcloc !17
+  %5 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %4, ptr nonnull @_ZN11OopMapCache12_old_entriesE) #17, !srcloc !16
   %6 = icmp eq ptr %5, %4
-  br i1 %6, label %7, label %3, !llvm.loop !22
+  br i1 %6, label %7, label %3, !llvm.loop !21
 
 7:                                                ; preds = %3
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1884,7 +1884,7 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11OopMapCache7cleanupEv() local_unnamed_addr #0 align 2 {
-  %1 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull @_ZN11OopMapCache12_old_entriesE) #17, !srcloc !23
+  %1 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull @_ZN11OopMapCache12_old_entriesE) #17, !srcloc !22
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit, label %3
 
@@ -1975,7 +1975,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %_ZN12ResourceMarkD2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %44, i8 0, i64 36, i1 false)
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.013) #17
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZN16OopMapCacheEntry10deallocateEPS_.exit, %0
   ret void
@@ -2504,7 +2504,7 @@ _ZN23NativeSignatureIterator7do_typeE9BasicType.exit: ; preds = %17, %20, %23, %
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
   %43 = load i32, ptr %9, align 4
   %44 = icmp eq i32 %43, 3
-  br i1 %44, label %._crit_edge, label %15, !llvm.loop !25
+  br i1 %44, label %._crit_edge, label %15, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN23NativeSignatureIterator7do_typeE9BasicType.exit, %7
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2590,7 +2590,7 @@ _ZN23NativeSignatureIterator7do_typeE9BasicType.exit6: ; preds = %56, %59, %62, 
   %80 = load i32, ptr %51, align 8
   %81 = add nsw i32 %80, %.sink5.i4
   store i32 %81, ptr %51, align 8
-  br label %52, !llvm.loop !26
+  br label %52, !llvm.loop !25
 
 .loopexit:                                        ; preds = %52, %._crit_edge
   ret void
@@ -2746,24 +2746,23 @@ attributes #18 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{i64 2145392468}
-!17 = !{i64 2145412694}
-!18 = distinct !{!18, !7, !8}
-!19 = !{i64 2145415582}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = !{i64 2145412131}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{i64 2145392468}
+!16 = !{i64 2145412694}
+!17 = distinct !{!17, !7}
+!18 = !{i64 2145415582}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = !{i64 2145412131}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

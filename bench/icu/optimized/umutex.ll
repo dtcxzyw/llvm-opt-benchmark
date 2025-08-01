@@ -221,7 +221,7 @@ _ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_o
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %11 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19initMutexE, align 8, !tbaa !7
-  store ptr %11, ptr %3, align 8, !tbaa !20
+  store ptr %11, ptr %3, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %11) #11
   %.not.i.i.i = icmp eq i32 %13, 0
@@ -232,7 +232,7 @@ _ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_o
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit
-  store i8 1, ptr %12, align 8, !tbaa !23
+  store i8 1, ptr %12, align 8, !tbaa !22
   %15 = load atomic i32, ptr %0 acquire, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.preheader
@@ -244,12 +244,12 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZSt9call_onceIRFvv
 18:                                               ; preds = %28
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load i8, ptr %12, align 8, !tbaa !23, !range !24, !noundef !25
+  %20 = load i8, ptr %12, align 8, !tbaa !22, !range !23, !noundef !24
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %3, align 8, !tbaa !20
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %24
 
@@ -269,16 +269,16 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %18, %22, %24
 28:                                               ; preds = %.preheader
   %29 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_113initConditionE, align 8, !tbaa !15
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %.preheader unwind label %18, !llvm.loop !26
+          to label %.preheader unwind label %18, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %17
   %.0 = phi i8 [ 1, %17 ], [ 0, %.preheader ]
-  %30 = load i8, ptr %12, align 8, !tbaa !23, !range !24, !noundef !25
+  %30 = load i8, ptr %12, align 8, !tbaa !22, !range !23, !noundef !24
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
 
 32:                                               ; preds = %.loopexit
-  %33 = load ptr, ptr %3, align 8, !tbaa !20
+  %33 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i.i5 = icmp eq ptr %33, null
   br i1 %.not.i.i5, label %_ZNSt11unique_lockISt5mutexED2Ev.exit6, label %34
 
@@ -319,12 +319,12 @@ declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @u_setMutexFunctions_77(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #7 {
-  %7 = load i32, ptr %5, align 4, !tbaa !27
+  %7 = load i32, ptr %5, align 4, !tbaa !26
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6
-  store i32 16, ptr %5, align 4, !tbaa !27
+  store i32 16, ptr %5, align 4, !tbaa !26
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -333,12 +333,12 @@ define void @u_setMutexFunctions_77(ptr noundef readnone captures(none) %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @u_setAtomicIncDecFunctions_77(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 {
-  %5 = load i32, ptr %3, align 4, !tbaa !27
+  %5 = load i32, ptr %3, align 4, !tbaa !26
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  store i32 16, ptr %3, align 4, !tbaa !27
+  store i32 16, ptr %3, align 4, !tbaa !26
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -368,7 +368,7 @@ define internal noundef signext i8 @_ZN6icu_77L12umtx_cleanupEv() #4 {
 
 _ZN6icu_776UMutex7cleanupEv.exit:                 ; preds = %.lr.ph.i, %0
   store ptr null, ptr @_ZN6icu_776UMutex9gListHeadE, align 8, !tbaa !9
-  store i32 0, ptr @_ZN6icu_7712_GLOBAL__N_18initFlagE, align 4, !tbaa !29
+  store i32 0, ptr @_ZN6icu_7712_GLOBAL__N_18initFlagE, align 4, !tbaa !28
   ret i8 1
 }
 
@@ -396,7 +396,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 define linkonce_odr void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv() #10 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   tail call void %3()
   ret void
 }
@@ -436,20 +436,19 @@ attributes #12 = { noreturn }
 !14 = !{!"_ZTSSt13__atomic_baseIPSt5mutexE", !8, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTSSt18condition_variable", !4, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !8, i64 0}
-!21 = !{!"_ZTSSt11unique_lockISt5mutexE", !8, i64 0, !22, i64 8}
-!22 = !{!"bool", !5, i64 0}
-!23 = !{!21, !22, i64 8}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !18, !19}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"_ZTSSt9once_flag", !31, i64 0}
-!31 = !{!"int", !5, i64 0}
-!32 = !{!33, !4, i64 0}
-!33 = !{!"_ZTSZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0}
+!19 = !{!20, !8, i64 0}
+!20 = !{!"_ZTSSt11unique_lockISt5mutexE", !8, i64 0, !21, i64 8}
+!21 = !{!"bool", !5, i64 0}
+!22 = !{!20, !21, i64 8}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = distinct !{!25, !18}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSSt9once_flag", !30, i64 0}
+!30 = !{!"int", !5, i64 0}
+!31 = !{!32, !4, i64 0}
+!32 = !{!"_ZTSZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0}

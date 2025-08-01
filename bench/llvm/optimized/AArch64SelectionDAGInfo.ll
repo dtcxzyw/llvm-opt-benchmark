@@ -1993,5 +1993,5 @@ attributes #20 = { noreturn nounwind }
 !483 = !{!484, !297, i64 8}
 !484 = !{!"_ZTSN4llvm3EVTE", !482, i64 0, !297, i64 8}
 !485 = distinct !{!485, !486}
-!486 = !{!"llvm.loop.estimated_trip_count"}
+!486 = !{!"llvm.loop.mustprogress"}
 !487 = !{!12, !12, i64 0}

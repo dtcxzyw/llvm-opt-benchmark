@@ -400,7 +400,7 @@ define internal fastcc noundef ptr @cli_decodesig(ptr noundef readonly captures(
 16:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
@@ -420,7 +420,7 @@ define internal fastcc noundef ptr @cli_decodesig(ptr noundef readonly captures(
 25:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %cli_ndecode.exit.thread, label %20, !llvm.loop !25
+  br i1 %exitcond.not.i, label %cli_ndecode.exit.thread, label %20
 
 cli_ndecode.exit.thread:                          ; preds = %25
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.29) #15
@@ -617,7 +617,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   store i8 %52, ptr %50, align 1, !tbaa !3
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 223
-  br i1 %exitcond58.not, label %53, label %.preheader, !llvm.loop !26
+  br i1 %exitcond58.not, label %53, label %.preheader
 
 53:                                               ; preds = %.preheader
   %54 = load i8, ptr %9, align 16, !tbaa !3
@@ -757,7 +757,3 @@ attributes #19 = { nounwind allocsize(0,1) }
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 short", !19, i64 0}
 !22 = !{!13, !13, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}

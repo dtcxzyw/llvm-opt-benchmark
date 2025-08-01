@@ -2521,7 +2521,7 @@ define internal void @xfrm_trans_reinject(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.sk_buff_head, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %3, align 8, !annotation !46
+  store i64 0, ptr %3, align 8, !annotation !45
   store ptr %2, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %4, align 8
@@ -2555,9 +2555,9 @@ define internal void @xfrm_trans_reinject(ptr noundef %0) #0 align 16 {
 
 20:                                               ; preds = %10, %1
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %6) #10
-  %21 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !47
-  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !48
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !49
+  %21 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !46
+  call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !47
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !48
   %22 = load ptr, ptr %2, align 8
   %23 = icmp eq ptr %22, %2
   %24 = icmp eq ptr %22, null
@@ -2585,7 +2585,7 @@ define internal void @xfrm_trans_reinject(ptr noundef %0) #0 align 16 {
   %39 = icmp eq ptr %38, %2
   %40 = icmp eq ptr %38, null
   %41 = or i1 %39, %40
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !50
+  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.preheader, %20
   call void @__local_bh_enable_ip(i64 noundef %21, i32 noundef 512) #10
@@ -2713,10 +2713,9 @@ attributes #12 = { nounwind memory(none) }
 !41 = !{i64 2159792192}
 !42 = !{i64 467009}
 !43 = !{!"branch_weights", i32 1, i32 1999}
-!44 = distinct !{!44, !34, !35, !45}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!"auto-init"}
-!47 = !{i64 2147845722}
-!48 = !{i64 2147824783}
-!49 = !{i64 2147845510}
-!50 = distinct !{!50, !34, !35, !45}
+!44 = distinct !{!44, !34, !35}
+!45 = !{!"auto-init"}
+!46 = !{i64 2147845722}
+!47 = !{i64 2147824783}
+!48 = !{i64 2147845510}
+!49 = distinct !{!49, !34, !35}

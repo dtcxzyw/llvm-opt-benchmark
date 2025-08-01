@@ -180,6 +180,5 @@ attributes #5 = { nounwind willreturn memory(read) }
 !16 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !6, i64 8, !17, i64 16}
 !17 = !{!"long", !8, i64 0}
 !18 = !{!16, !10, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}

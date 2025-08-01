@@ -150,7 +150,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   store i64 0, ptr %6, align 8, !tbaa !16
   %48 = load ptr, ptr %3, align 8, !tbaa !32
   store i8 0, ptr %48, align 1, !tbaa !19
-  br label %59, !llvm.loop !33
+  br label %59, !llvm.loop !30
 
 49:                                               ; preds = %.split.us
   %50 = and i64 %45, 134217728
@@ -169,7 +169,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %51
   %56 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, i64 noundef 8) #8
-  br label %59, !llvm.loop !33
+  br label %59, !llvm.loop !30
 
 57:                                               ; preds = %49
   %58 = and i64 %45, 33554432
@@ -345,7 +345,7 @@ thread-pre-split:                                 ; preds = %104, %95
   %121 = load i8, ptr %.sroa.013.025.i, align 1, !tbaa !19
   %122 = zext i8 %121 to i64
   %123 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %122
-  %124 = load i16, ptr %123, align 2, !tbaa !35
+  %124 = load i16, ptr %123, align 2, !tbaa !33
   %125 = and i16 %124, 7
   %.not23.i = icmp ne i16 %125, 0
   %brmerge.not.i = and i1 %.027.i, %.not23.i
@@ -361,7 +361,7 @@ thread-pre-split:                                 ; preds = %104, %95
   %.sroa.016.1.i = phi ptr [ %126, %.sink.split.i ], [ %.sroa.016.026.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.013.025.i, i64 1
   %.not.i = icmp eq ptr %128, %120
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
 129:                                              ; preds = %._crit_edge.i
   %130 = getelementptr inbounds i8, ptr %.sroa.016.1.i, i64 -1
@@ -420,7 +420,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %151 = load i8, ptr %.sroa.013.025.i56, align 1, !tbaa !19
   %152 = zext i8 %151 to i64
   %153 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %152
-  %154 = load i16, ptr %153, align 2, !tbaa !35
+  %154 = load i16, ptr %153, align 2, !tbaa !33
   %155 = and i16 %154, 7
   %.not23.i57 = icmp ne i16 %155, 0
   %brmerge.not.i58 = and i1 %.027.i54, %.not23.i57
@@ -436,7 +436,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %.sroa.016.1.i61 = phi ptr [ %156, %.sink.split.i59 ], [ %.sroa.016.026.i55, %.lr.ph.i53 ]
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.013.025.i56, i64 1
   %.not.i62 = icmp eq ptr %158, %150
-  br i1 %.not.i62, label %._crit_edge.i63, label %.lr.ph.i53, !llvm.loop !37
+  br i1 %.not.i62, label %._crit_edge.i63, label %.lr.ph.i53, !llvm.loop !35
 
 159:                                              ; preds = %._crit_edge.i63
   %160 = getelementptr inbounds i8, ptr %.sroa.016.1.i61, i64 -1
@@ -553,7 +553,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %8 = load i8, ptr %.02946.i.i.i.i.i, align 1, !tbaa !19
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
-  %11 = load i16, ptr %10, align 2, !tbaa !35
+  %11 = load i16, ptr %10, align 2, !tbaa !33
   %12 = and i16 %11, 7
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %13
@@ -563,7 +563,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %15 = load i8, ptr %14, align 1, !tbaa !19
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %16
-  %18 = load i16, ptr %17, align 2, !tbaa !35
+  %18 = load i16, ptr %17, align 2, !tbaa !33
   %19 = and i16 %18, 7
   %.not1 = icmp eq i16 %19, 0
   br i1 %.not1, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit, label %20
@@ -573,7 +573,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %22 = load i8, ptr %21, align 1, !tbaa !19
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !35
+  %25 = load i16, ptr %24, align 2, !tbaa !33
   %26 = and i16 %25, 7
   %.not2 = icmp eq i16 %26, 0
   br i1 %.not2, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19, label %27
@@ -583,7 +583,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !35
+  %32 = load i16, ptr %31, align 2, !tbaa !33
   %33 = and i16 %32, 7
   %.not3 = icmp eq i16 %33, 0
   br i1 %.not3, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21, label %34
@@ -592,7 +592,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %35 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %36 = add nsw i64 %.047.i.i.i.i.i, -1
   %37 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %37, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !38
+  br i1 %37, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !36
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %34, %2
   %.029.lcssa.i.i.i.i.i = phi ptr [ %0, %2 ], [ %scevgep, %34 ]
@@ -608,7 +608,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %40 = load i8, ptr %.029.lcssa.i.i.i.i.i, align 1, !tbaa !19
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %41
-  %43 = load i16, ptr %42, align 2, !tbaa !35
+  %43 = load i16, ptr %42, align 2, !tbaa !33
   %44 = and i16 %43, 7
   %.not4 = icmp eq i16 %44, 0
   br i1 %.not4, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %45
@@ -622,7 +622,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %48 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !19
   %49 = zext i8 %48 to i64
   %50 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !35
+  %51 = load i16, ptr %50, align 2, !tbaa !33
   %52 = and i16 %51, 7
   %.not5 = icmp eq i16 %52, 0
   br i1 %.not5, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %53
@@ -636,7 +636,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %56 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !19
   %57 = zext i8 %56 to i64
   %58 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !35
+  %59 = load i16, ptr %58, align 2, !tbaa !33
   %60 = and i16 %59, 7
   %.not6 = icmp eq i16 %60, 0
   br i1 %.not6, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %61
@@ -724,14 +724,12 @@ attributes #10 = { builtin nounwind }
 !25 = !{!26, !4, i64 0}
 !26 = !{!"_ZTSN5clang8comments11BriefParserE", !4, i64 0, !9, i64 8, !21, i64 16}
 !27 = distinct !{!27, !28, !29}
-!28 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!"llvm.loop.mustprogress"}
 !29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !30 = distinct !{!30, !28}
 !31 = !{!26, !9, i64 8}
 !32 = !{!17, !15, i64 0}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"short", !6, i64 0}
-!37 = distinct !{!37, !34, !28}
-!38 = distinct !{!38, !34, !28}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"short", !6, i64 0}
+!35 = distinct !{!35, !28}
+!36 = distinct !{!36, !28}

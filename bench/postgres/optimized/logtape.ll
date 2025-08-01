@@ -490,7 +490,7 @@ define internal fastcc i64 @ltsGetBlock(ptr noundef captures(none) %0, ptr nound
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i64, ptr %42, i64 %.042.i.i
   store i64 %70, ptr %72, align 8
-  br label %54, !llvm.loop !9
+  br label %54
 
 73:                                               ; preds = %68, %67
   %74 = getelementptr inbounds nuw i64, ptr %42, i64 %.042.i.i
@@ -505,7 +505,7 @@ ltsGetFreeBlock.exit.i:                           ; preds = %73, %47, %44
   store i64 %.041.i.i, ptr %77, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %78 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %78, label %41, label %._crit_edge.loopexit.i, !llvm.loop !10
+  br i1 %78, label %41, label %._crit_edge.loopexit.i, !llvm.loop !8
 
 ltsGetPreallocBlock.exit:                         ; preds = %12, %._crit_edge.i
   %.024.in.i = phi ptr [ %15, %12 ], [ %40, %._crit_edge.i ]
@@ -576,7 +576,7 @@ ltsGetPreallocBlock.exit:                         ; preds = %12, %._crit_edge.i
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i64, ptr %81, i64 %.042.i
   store i64 %111, ptr %113, align 8
-  br label %95, !llvm.loop !9
+  br label %95
 
 114:                                              ; preds = %109, %108
   %115 = getelementptr inbounds nuw i64, ptr %81, i64 %.042.i
@@ -604,7 +604,7 @@ define internal fastcc void @ltsWriteBlock(ptr noundef captures(none) %0, i64 no
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #10
   %9 = load i64, ptr %5, align 8
   %10 = icmp sgt i64 %1, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %11 = load ptr, ptr %0, align 8
@@ -793,7 +793,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
   %80 = getelementptr inbounds nuw i64, ptr %72, i64 %.033.i
   store i64 %77, ptr %80, align 8
   %.not28.i = icmp ult i64 %74, 2
-  br i1 %.not28.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not28.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %79, %.lr.ph.i, %70
   %.0.lcssa.i = phi i64 [ 0, %70 ], [ %75, %79 ], [ %.033.i, %.lr.ph.i ]
@@ -804,7 +804,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
 ltsReleaseBlock.exit:                             ; preds = %.lr.ph.split, %63, %.thread.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %82 = icmp sgt i64 %indvars.iv, 1
-  br i1 %82, label %.lr.ph.split, label %._crit_edge.loopexit36, !llvm.loop !13
+  br i1 %82, label %.lr.ph.split, label %._crit_edge.loopexit36, !llvm.loop !10
 
 83:                                               ; preds = %._crit_edge, %38
   ret void
@@ -880,7 +880,7 @@ define dso_local i64 @LogicalTapeRead(ptr noundef captures(none) %0, ptr noundef
   %38 = sub i64 %.02430, %spec.select
   %39 = add i64 %spec.select, %.02331
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %26, %24, %18
   %.023.lcssa = phi i64 [ 0, %18 ], [ %.02331, %24 ], [ %39, %26 ]
@@ -991,7 +991,7 @@ ltsReadBlock.exit:                                ; preds = %17
   %58 = getelementptr inbounds nuw i64, ptr %50, i64 %.033.i
   store i64 %55, ptr %58, align 8
   %.not28.i = icmp ult i64 %52, 2
-  br i1 %.not28.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not28.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %57, %.lr.ph.i, %48
   %.0.lcssa.i = phi i64 [ 0, %48 ], [ %53, %57 ], [ %.033.i, %.lr.ph.i ]
@@ -1024,7 +1024,7 @@ ltsReleaseBlock.exit:                             ; preds = %.thread.i, %40, %30
   %73 = load i32, ptr %9, align 8
   %74 = sub i32 %73, %68
   %75 = icmp sgt i32 %74, 8192
-  br i1 %75, label %10, label %.thread, !llvm.loop !16
+  br i1 %75, label %10, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %10, %72, %71
   %76 = phi i32 [ %68, %71 ], [ %12, %10 ], [ %68, %72 ]
@@ -1255,7 +1255,7 @@ ltsReadBlock.exit:                                ; preds = %38
   store i64 %59, ptr %23, align 8
   %60 = add i64 %.03653, 8176
   %61 = icmp ugt i64 %1, %60
-  br i1 %61, label %27, label %62, !llvm.loop !17
+  br i1 %61, label %27, label %62, !llvm.loop !14
 
 62:                                               ; preds = %58
   %63 = sub nuw i64 %60, %1
@@ -1446,15 +1446,12 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.partial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

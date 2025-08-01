@@ -128,7 +128,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %14, %10
   %17 = phi ptr [ %16, %14 ], [ null, %10 ]
-  %18 = getelementptr i8, ptr %1, i64 33
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %19 = getelementptr i8, ptr %0, i64 4
   %20 = getelementptr i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -138,7 +138,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03138 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %22 = getelementptr i8, ptr %18, i64 %.idx
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %37, label %.preheader
@@ -159,7 +159,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 42
   %32 = load i8, ptr %31, align 2, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %27, label %.thread, !llvm.loop !6
+  br i1 %33, label %27, label %.thread
 
 .thread:                                          ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -172,7 +172,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %.1 = phi ptr [ %.03138, %21 ], [ %..i, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !6
 
 .loopexit:                                        ; preds = %37, %7
   %.032 = phi ptr [ null, %7 ], [ %13, %37 ]
@@ -372,7 +372,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   store i8 %.sink, ptr %45, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %44, %slot_getallattrs.exit
   %46 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %21) #4
@@ -399,7 +399,5 @@ attributes #5 = { nounwind willreturn memory(read) }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

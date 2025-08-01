@@ -114,7 +114,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_subsys_init() #0 section ".in
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call i32 @pci_legacy_init() #7, !range !10
+  %5 = tail call i32 @pci_legacy_init() #7, !range !9
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
 
@@ -134,7 +134,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_subsys_init() #0 section ".in
   %14 = add i32 %13, 1
   %15 = load i32, ptr @pcibios_last_bus, align 4
   %16 = icmp sgt i32 %14, %15
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %9
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 160), align 8
@@ -167,9 +167,8 @@ attributes #7 = { cold }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !7, !8, !9}
+!9 = !{i32 0, i32 2}
+!10 = distinct !{!10, !7, !8}

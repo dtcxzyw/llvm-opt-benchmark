@@ -128,7 +128,7 @@ define dso_local noundef range(i32 -1, 2) i32 @msdos_partition(ptr noundef %0) l
   %65 = phi i1 [ true, %56 ], [ true, %52 ], [ true, %49 ], [ %63, %60 ]
   %66 = load ptr, ptr %6, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 52
-  %68 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %67, ptr nonnull elementtype(i32) %67) #9, !srcloc !10
+  %68 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %67, ptr nonnull elementtype(i32) %67) #9, !srcloc !9
   %69 = icmp ult i8 %68, 2
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
@@ -149,7 +149,7 @@ switch.edge:                                      ; preds = %71, %64
 72:                                               ; preds = %switch.edge
   %73 = load ptr, ptr %7, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 52
-  %75 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %74, ptr nonnull elementtype(i32) %74) #9, !srcloc !10
+  %75 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %74, ptr nonnull elementtype(i32) %74) #9, !srcloc !9
   %76 = icmp ult i8 %75, 2
   call void @llvm.assume(i1 %76)
   %77 = icmp eq i8 %75, 0
@@ -180,7 +180,7 @@ switch.edge:                                      ; preds = %71, %64
 91:                                               ; preds = %87, %83
   %92 = load ptr, ptr %7, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 52
-  %94 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %93, ptr nonnull elementtype(i32) %93) #9, !srcloc !10
+  %94 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %93, ptr nonnull elementtype(i32) %93) #9, !srcloc !9
   %95 = icmp ult i8 %94, 2
   call void @llvm.assume(i1 %95)
   %96 = icmp eq i8 %94, 0
@@ -236,7 +236,7 @@ switch.edge:                                      ; preds = %71, %64
   %117 = call i64 @strlcat(ptr noundef %116, ptr noundef nonnull @.str.1, i64 noundef 4096) #9
   %118 = load ptr, ptr %7, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 52
-  %120 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, ptr nonnull elementtype(i32) %119) #9, !srcloc !10
+  %120 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, ptr nonnull elementtype(i32) %119) #9, !srcloc !9
   %121 = icmp ult i8 %120, 2
   call void @llvm.assume(i1 %121)
   %122 = icmp eq i8 %120, 0
@@ -249,7 +249,7 @@ switch.edge:                                      ; preds = %71, %64
 124:                                              ; preds = %111, %107, %103, %101
   %125 = load ptr, ptr %7, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 52
-  %127 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %126, ptr nonnull elementtype(i32) %126) #9, !srcloc !10
+  %127 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %126, ptr nonnull elementtype(i32) %126) #9, !srcloc !9
   %128 = icmp ult i8 %127, 2
   call void @llvm.assume(i1 %128)
   %129 = icmp eq i8 %127, 0
@@ -263,7 +263,7 @@ switch.edge:                                      ; preds = %71, %64
   %132 = add nuw nsw i32 %99, 1
   %133 = getelementptr i8, ptr %98, i64 16
   %134 = icmp eq i32 %132, 5
-  br i1 %134, label %.preheader32, label %.preheader33, !llvm.loop !11
+  br i1 %134, label %.preheader32, label %.preheader33, !llvm.loop !10
 
 .preheader32:                                     ; preds = %131, %147
   %135 = phi ptr [ %149, %147 ], [ %24, %131 ]
@@ -276,7 +276,7 @@ switch.edge:                                      ; preds = %71, %64
 140:                                              ; preds = %.preheader32
   %141 = load ptr, ptr %7, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 52
-  %143 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %142, ptr nonnull elementtype(i32) %142) #9, !srcloc !10
+  %143 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %142, ptr nonnull elementtype(i32) %142) #9, !srcloc !9
   %144 = icmp ult i8 %143, 2
   call void @llvm.assume(i1 %144)
   %145 = icmp eq i8 %143, 0
@@ -290,7 +290,7 @@ switch.edge:                                      ; preds = %71, %64
   %148 = add nuw nsw i32 %136, 1
   %149 = getelementptr i8, ptr %135, i64 16
   %150 = icmp eq i32 %148, 5
-  br i1 %150, label %151, label %.preheader32, !llvm.loop !12
+  br i1 %150, label %151, label %.preheader32, !llvm.loop !11
 
 151:                                              ; preds = %147
   %152 = getelementptr i8, ptr %21, i64 440
@@ -513,7 +513,7 @@ switch.edge:                                      ; preds = %71, %64
   %290 = add nuw nsw i32 %229, 1
   %291 = getelementptr i8, ptr %231, i64 16
   %292 = icmp eq i32 %290, 4
-  br i1 %292, label %293, label %228, !llvm.loop !13
+  br i1 %292, label %293, label %228, !llvm.loop !12
 
 293:                                              ; preds = %289
   %294 = getelementptr i8, ptr %231, i64 -48
@@ -540,7 +540,7 @@ switch.edge:                                      ; preds = %71, %64
   %305 = add nuw nsw i32 %296, 1
   %306 = getelementptr i8, ptr %297, i64 16
   %307 = icmp eq i32 %305, 4
-  br i1 %307, label %.critedge21, label %295, !llvm.loop !14
+  br i1 %307, label %.critedge21, label %295, !llvm.loop !13
 
 .critedge27:                                      ; preds = %301, %301, %301
   %308 = icmp eq i32 %296, 4
@@ -556,7 +556,7 @@ switch.edge:                                      ; preds = %71, %64
   %316 = mul nuw nsw i64 %207, %315
   %317 = load ptr, ptr %4, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 52
-  %319 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %318, ptr nonnull elementtype(i32) %318) #9, !srcloc !10
+  %319 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %318, ptr nonnull elementtype(i32) %318) #9, !srcloc !9
   %320 = icmp ult i8 %319, 2
   call void @llvm.assume(i1 %320)
   %321 = icmp eq i8 %319, 0
@@ -569,12 +569,12 @@ switch.edge:                                      ; preds = %71, %64
 323:                                              ; preds = %322, %309
   %324 = add i32 %.ph, 1
   %325 = icmp sgt i32 %324, 100
-  br i1 %325, label %.loopexit30, label %209, !llvm.loop !15
+  br i1 %325, label %.loopexit30, label %209, !llvm.loop !14
 
 .critedge21:                                      ; preds = %219, %.critedge27, %223, %284, %304
   %326 = load ptr, ptr %4, align 8
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 52
-  %328 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %327, ptr nonnull elementtype(i32) %327) #9, !srcloc !10
+  %328 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %327, ptr nonnull elementtype(i32) %327) #9, !srcloc !9
   %329 = icmp ult i8 %328, 2
   call void @llvm.assume(i1 %329)
   %330 = icmp eq i8 %328, 0
@@ -651,7 +651,7 @@ switch.edge:                                      ; preds = %71, %64
   %367 = add nuw nsw i64 %161, 1
   %368 = getelementptr i8, ptr %162, i64 16
   %369 = icmp eq i64 %367, 5
-  br i1 %369, label %370, label %160, !llvm.loop !16
+  br i1 %369, label %370, label %160, !llvm.loop !15
 
 370:                                              ; preds = %366
   %371 = load ptr, ptr %159, align 8
@@ -677,13 +677,13 @@ switch.edge:                                      ; preds = %71, %64
   %384 = phi i64 [ %385, %387 ], [ 0, %382 ]
   %385 = add nuw nsw i64 %384, 1
   %386 = icmp eq i64 %385, 7
-  br i1 %386, label %.loopexit, label %387, !llvm.loop !17
+  br i1 %386, label %.loopexit, label %387, !llvm.loop !16
 
 387:                                              ; preds = %.preheader
   %388 = getelementptr [8 x %struct.anon.6], ptr @subtypes, i64 0, i64 %385
   %389 = load i8, ptr %388, align 16
   %390 = icmp eq i8 %377, %389
-  br i1 %390, label %391, label %.preheader, !llvm.loop !18
+  br i1 %390, label %391, label %.preheader, !llvm.loop !16
 
 391:                                              ; preds = %387
   %392 = getelementptr inbounds nuw i8, ptr %388, i64 8
@@ -705,12 +705,12 @@ switch.edge:                                      ; preds = %71, %64
   %401 = add nuw nsw i32 %375, 1
   %402 = getelementptr i8, ptr %374, i64 16
   %403 = icmp eq i32 %401, 5
-  br i1 %403, label %404, label %373, !llvm.loop !19
+  br i1 %403, label %404, label %373, !llvm.loop !17
 
 404:                                              ; preds = %.loopexit
   %405 = load ptr, ptr %7, align 8
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 52
-  %407 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %406, ptr nonnull elementtype(i32) %406) #9, !srcloc !10
+  %407 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %406, ptr nonnull elementtype(i32) %406) #9, !srcloc !9
   %408 = icmp ult i8 %407, 2
   call void @llvm.assume(i1 %408)
   %409 = icmp eq i8 %407, 0
@@ -805,17 +805,15 @@ attributes #9 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2149059892, i64 2149059931, i64 2149059952, i64 2149059989, i64 2149060012, i64 2149060021, i64 2149060095}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
+!9 = !{i64 2149059892, i64 2149059931, i64 2149059952, i64 2149059989, i64 2149060012, i64 2149060021, i64 2149060095}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
 !17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}

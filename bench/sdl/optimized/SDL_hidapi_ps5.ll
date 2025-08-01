@@ -156,7 +156,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_InitDevice(ptr noundef %0) #0 {
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %39 = load i8, ptr %38, align 4, !range !6, !noundef !7
+  %39 = load i8, ptr %38, align 4, !range !5, !noundef !6
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %73
 
@@ -349,19 +349,19 @@ switch.lookup:                                    ; preds = %109
   %138 = phi i16 [ 1356, %75 ], [ 5426, %128 ], [ 5426, %134 ], [ 5426, %132 ], [ 12933, %116 ], [ 12933, %120 ], [ %114, %112 ], [ %123, %122 ]
   %.088 = phi i32 [ 1, %75 ], [ 1, %128 ], [ 3, %134 ], [ 1, %132 ], [ %.1, %116 ], [ %.1, %120 ], [ %.1, %112 ], [ 1, %122 ]
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %140 = load i8, ptr %139, align 1, !range !6, !noundef !7
+  %140 = load i8, ptr %139, align 1, !range !5, !noundef !6
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %149, label %142
 
 142:                                              ; preds = %137
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %144 = load i8, ptr %143, align 4, !range !6, !noundef !7
+  %144 = load i8, ptr %143, align 4, !range !5, !noundef !6
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %149, label %146
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %148 = load i8, ptr %147, align 1, !range !6, !noundef !7
+  %148 = load i8, ptr %147, align 1, !range !5, !noundef !6
   br label %149
 
 149:                                              ; preds = %146, %142, %137
@@ -414,13 +414,13 @@ switch.lookup:                                    ; preds = %109
 171:                                              ; preds = %.thread105, %169, %170, %161
   call void @HIDAPI_SetDeviceSerial(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %173 = load i8, ptr %172, align 8, !range !6, !noundef !7
+  %173 = load i8, ptr %172, align 8, !range !5, !noundef !6
   %174 = trunc nuw i8 %173 to i1
   br i1 %174, label %185, label %175
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %177 = load i8, ptr %176, align 4, !range !6, !noundef !7
+  %177 = load i8, ptr %176, align 4, !range !5, !noundef !6
   %178 = trunc nuw i8 %177 to i1
   %179 = load ptr, ptr %7, align 8
   br i1 %178, label %180, label %182
@@ -493,7 +493,6 @@ define internal zeroext i1 @HIDAPI_DriverPS5_UpdateDevice(ptr noundef %0) #0 {
 17:                                               ; preds = %12, %1
   %.0 = phi ptr [ %16, %12 ], [ null, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %invariant.gep = getelementptr i8, ptr %5, i64 -4
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %19, ptr noundef nonnull %5, i64 noundef 128, i32 noundef 0) #9
   %21 = icmp sgt i32 %20, 0
@@ -542,502 +541,503 @@ define internal zeroext i1 @HIDAPI_DriverPS5_UpdateDevice(ptr noundef %0) #0 {
   br label %60
 
 60:                                               ; preds = %.lr.ph, %HIDAPI_DriverPS5_IsPacketValid.exit
-  %61 = phi i32 [ %20, %.lr.ph ], [ %231, %HIDAPI_DriverPS5_IsPacketValid.exit ]
+  %61 = phi i32 [ %20, %.lr.ph ], [ %233, %HIDAPI_DriverPS5_IsPacketValid.exit ]
   %.06473 = phi i32 [ 0, %.lr.ph ], [ %.1, %HIDAPI_DriverPS5_IsPacketValid.exit ]
   %62 = call i64 @SDL_GetTicksNS_REAL() #9
   %63 = load i8, ptr %5, align 16
   switch i8 %63, label %HIDAPI_DriverPS5_IsPacketValid.exit [
     i8 1, label %64
     i8 49, label %90
-  ], !llvm.loop !8
+  ], !llvm.loop !7
 
 64:                                               ; preds = %60
-  %65 = load i8, ptr %22, align 8, !range !6, !noundef !7
+  %65 = load i8, ptr %22, align 8, !range !5, !noundef !6
   %66 = trunc nuw i8 %65 to i1
   %67 = icmp samesign ugt i32 %61, 39
   %or.cond.i = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond.i, label %68, label %97
+  br i1 %or.cond.i, label %68, label %99
 
 68:                                               ; preds = %64
   %69 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %24, ptr noundef nonnull %26, i64 noundef 4) #9
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %HIDAPI_DriverPS5_IsPacketValid.exit, label %71, !llvm.loop !8
+  br i1 %70, label %HIDAPI_DriverPS5_IsPacketValid.exit, label %71, !llvm.loop !7
 
 71:                                               ; preds = %68
   %72 = load i8, ptr %27, align 1
   %73 = icmp eq i8 %72, 0
-  br i1 %73, label %74, label %97
+  br i1 %73, label %74, label %99
 
 74:                                               ; preds = %71
   %75 = load i8, ptr %28, align 1
   %76 = icmp eq i8 %75, 0
-  br i1 %76, label %77, label %97
+  br i1 %76, label %77, label %99
 
 77:                                               ; preds = %74
   %78 = load i8, ptr %29, align 1
   %79 = icmp eq i8 %78, 0
-  br i1 %79, label %80, label %97
+  br i1 %79, label %80, label %99
 
 80:                                               ; preds = %77
   %81 = load i8, ptr %30, align 1
   %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %97
+  br i1 %82, label %83, label %99
 
 83:                                               ; preds = %80
   %84 = load i8, ptr %31, align 1
   %85 = icmp eq i8 %84, 0
-  br i1 %85, label %86, label %97
+  br i1 %85, label %86, label %99
 
 86:                                               ; preds = %83
   %87 = load i8, ptr %32, align 1
   %88 = icmp eq i8 %87, 0
-  br i1 %88, label %89, label %97
+  br i1 %88, label %89, label %99
 
 89:                                               ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(39) %25, ptr noundef nonnull align 1 dereferenceable(39) %23, i64 39, i1 false)
-  br label %HIDAPI_DriverPS5_IsPacketValid.exit, !llvm.loop !8
+  br label %HIDAPI_DriverPS5_IsPacketValid.exit, !llvm.loop !7
 
 90:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
   store i8 -95, ptr %4, align 1
   %91 = zext nneg i32 %61 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %91
-  %92 = call i32 @SDL_crc32_REAL(i32 noundef 0, ptr noundef nonnull %4, i64 noundef 1) #9
-  %93 = add nsw i64 %91, -4
-  %94 = call i32 @SDL_crc32_REAL(i32 noundef %92, ptr noundef nonnull %5, i64 noundef %93) #9
-  %95 = load i32, ptr %gep, align 1
-  %96 = icmp eq i32 %94, %95
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 %91
+  %93 = getelementptr inbounds i8, ptr %92, i64 -4
+  %94 = call i32 @SDL_crc32_REAL(i32 noundef 0, ptr noundef nonnull %4, i64 noundef 1) #9
+  %95 = add nsw i64 %91, -4
+  %96 = call i32 @SDL_crc32_REAL(i32 noundef %94, ptr noundef nonnull %5, i64 noundef %95) #9
+  %97 = load i32, ptr %93, align 1
+  %98 = icmp eq i32 %96, %97
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
-  br i1 %96, label %97, label %HIDAPI_DriverPS5_IsPacketValid.exit, !llvm.loop !8
+  br i1 %98, label %99, label %HIDAPI_DriverPS5_IsPacketValid.exit, !llvm.loop !7
 
-97:                                               ; preds = %90, %64, %86, %83, %80, %77, %74, %71
-  %98 = add nsw i32 %.06473, 1
+99:                                               ; preds = %90, %64, %86, %83, %80, %77, %74, %71
+  %100 = add nsw i32 %.06473, 1
   store i64 %8, ptr %33, align 8
-  br i1 %.not69, label %HIDAPI_DriverPS5_IsPacketValid.exit, label %99, !llvm.loop !8
-
-99:                                               ; preds = %97
-  %100 = load i8, ptr %5, align 16
-  switch i8 %100, label %HIDAPI_DriverPS5_IsPacketValid.exit [
-    i8 1, label %101
-    i8 49, label %184
-  ]
+  br i1 %.not69, label %HIDAPI_DriverPS5_IsPacketValid.exit, label %101, !llvm.loop !7
 
 101:                                              ; preds = %99
-  switch i32 %61, label %179 [
-    i32 78, label %102
-    i32 10, label %102
+  %102 = load i8, ptr %5, align 16
+  switch i8 %102, label %HIDAPI_DriverPS5_IsPacketValid.exit [
+    i8 1, label %103
+    i8 49, label %186
   ]
 
-102:                                              ; preds = %101, %101
-  %103 = load i8, ptr %50, align 4
-  %104 = load i8, ptr %51, align 1
-  %.not.i = icmp eq i8 %103, %104
-  br i1 %.not.i, label %119, label %105
+103:                                              ; preds = %101
+  switch i32 %61, label %181 [
+    i32 78, label %104
+    i32 10, label %104
+  ]
 
-105:                                              ; preds = %102
-  %106 = lshr i8 %104, 4
-  %107 = zext nneg i8 %106 to i32
-  %108 = and i32 %107, 1
-  %109 = icmp ne i32 %108, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %109) #9
-  %110 = and i32 %107, 2
+104:                                              ; preds = %103, %103
+  %105 = load i8, ptr %50, align 4
+  %106 = load i8, ptr %51, align 1
+  %.not.i = icmp eq i8 %105, %106
+  br i1 %.not.i, label %121, label %107
+
+107:                                              ; preds = %104
+  %108 = lshr i8 %106, 4
+  %109 = zext nneg i8 %108 to i32
+  %110 = and i32 %109, 1
   %111 = icmp ne i32 %110, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 0, i1 noundef zeroext %111) #9
-  %112 = and i32 %107, 4
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 2, i1 noundef zeroext %111) #9
+  %112 = and i32 %109, 2
   %113 = icmp ne i32 %112, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 1, i1 noundef zeroext %113) #9
-  %114 = icmp slt i8 %104, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 3, i1 noundef zeroext %114) #9
-  %115 = load i8, ptr %51, align 1
-  %116 = and i8 %115, 15
-  %117 = icmp samesign ult i8 %116, 8
-  %118 = shl nuw nsw i8 %116, 3
-  %switch.shiftamt = zext nneg i8 %118 to i64
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 0, i1 noundef zeroext %113) #9
+  %114 = and i32 %109, 4
+  %115 = icmp ne i32 %114, 0
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 1, i1 noundef zeroext %115) #9
+  %116 = icmp slt i8 %106, 0
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 3, i1 noundef zeroext %116) #9
+  %117 = load i8, ptr %51, align 1
+  %118 = and i8 %117, 15
+  %119 = icmp samesign ult i8 %118, 8
+  %120 = shl nuw nsw i8 %118, 3
+  %switch.shiftamt = zext nneg i8 %120 to i64
   %switch.downshift = lshr i64 650783357575234305, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
-  %.079.i = select i1 %117, i8 %switch.masked, i8 0
+  %.079.i = select i1 %119, i8 %switch.masked, i8 0
   call void @SDL_SendJoystickHat(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 0, i8 noundef zeroext %.079.i) #9
-  br label %119
+  br label %121
 
-119:                                              ; preds = %105, %102
-  %120 = load i8, ptr %52, align 1
-  %121 = load i8, ptr %53, align 2
-  %.not83.i = icmp eq i8 %120, %121
-  br i1 %.not83.i, label %135, label %122
+121:                                              ; preds = %107, %104
+  %122 = load i8, ptr %52, align 1
+  %123 = load i8, ptr %53, align 2
+  %.not83.i = icmp eq i8 %122, %123
+  br i1 %.not83.i, label %137, label %124
 
-122:                                              ; preds = %119
-  %123 = zext i8 %121 to i32
-  %124 = and i32 %123, 1
-  %125 = icmp ne i32 %124, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 9, i1 noundef zeroext %125) #9
-  %126 = and i32 %123, 2
+124:                                              ; preds = %121
+  %125 = zext i8 %123 to i32
+  %126 = and i32 %125, 1
   %127 = icmp ne i32 %126, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 10, i1 noundef zeroext %127) #9
-  %128 = and i32 %123, 16
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 9, i1 noundef zeroext %127) #9
+  %128 = and i32 %125, 2
   %129 = icmp ne i32 %128, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 4, i1 noundef zeroext %129) #9
-  %130 = and i32 %123, 32
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 10, i1 noundef zeroext %129) #9
+  %130 = and i32 %125, 16
   %131 = icmp ne i32 %130, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 6, i1 noundef zeroext %131) #9
-  %132 = and i32 %123, 64
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 4, i1 noundef zeroext %131) #9
+  %132 = and i32 %125, 32
   %133 = icmp ne i32 %132, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 7, i1 noundef zeroext %133) #9
-  %134 = icmp slt i8 %121, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 8, i1 noundef zeroext %134) #9
-  br label %135
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 6, i1 noundef zeroext %133) #9
+  %134 = and i32 %125, 64
+  %135 = icmp ne i32 %134, 0
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 7, i1 noundef zeroext %135) #9
+  %136 = icmp slt i8 %123, 0
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 8, i1 noundef zeroext %136) #9
+  br label %137
 
-135:                                              ; preds = %122, %119
-  %136 = load i8, ptr %54, align 2
-  %137 = load i8, ptr %55, align 1
-  %.not84.i = icmp eq i8 %136, %137
-  br i1 %.not84.i, label %143, label %138
+137:                                              ; preds = %124, %121
+  %138 = load i8, ptr %54, align 2
+  %139 = load i8, ptr %55, align 1
+  %.not84.i = icmp eq i8 %138, %139
+  br i1 %.not84.i, label %145, label %140
 
-138:                                              ; preds = %135
-  %139 = and i8 %137, 2
-  %140 = and i8 %137, 1
-  %141 = icmp ne i8 %140, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 5, i1 noundef zeroext %141) #9
-  %142 = icmp ne i8 %139, 0
-  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 11, i1 noundef zeroext %142) #9
-  br label %143
+140:                                              ; preds = %137
+  %141 = and i8 %139, 2
+  %142 = and i8 %139, 1
+  %143 = icmp ne i8 %142, 0
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 5, i1 noundef zeroext %143) #9
+  %144 = icmp ne i8 %141, 0
+  call void @SDL_SendJoystickButton(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 11, i1 noundef zeroext %144) #9
+  br label %145
 
-143:                                              ; preds = %138, %135
-  %144 = load i8, ptr %56, align 8
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %146, label %149
+145:                                              ; preds = %140, %137
+  %146 = load i8, ptr %56, align 8
+  %147 = icmp eq i8 %146, 0
+  br i1 %147, label %148, label %151
 
-146:                                              ; preds = %143
-  %147 = load i8, ptr %53, align 2
-  %148 = and i8 %147, 4
-  %.not85.i = icmp eq i8 %148, 0
-  br i1 %.not85.i, label %149, label %153
+148:                                              ; preds = %145
+  %149 = load i8, ptr %53, align 2
+  %150 = and i8 %149, 4
+  %.not85.i = icmp eq i8 %150, 0
+  br i1 %.not85.i, label %151, label %155
 
-149:                                              ; preds = %146, %143
-  %150 = zext i8 %144 to i16
-  %151 = mul nuw i16 %150, 257
-  %152 = xor i16 %151, -32768
-  br label %153
+151:                                              ; preds = %148, %145
+  %152 = zext i8 %146 to i16
+  %153 = mul nuw i16 %152, 257
+  %154 = xor i16 %153, -32768
+  br label %155
 
-153:                                              ; preds = %149, %146
-  %.0.i = phi i16 [ %152, %149 ], [ 32767, %146 ]
+155:                                              ; preds = %151, %148
+  %.0.i = phi i16 [ %154, %151 ], [ 32767, %148 ]
   call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 4, i16 noundef signext %.0.i) #9
-  %154 = load i8, ptr %57, align 1
-  %155 = icmp eq i8 %154, 0
-  br i1 %155, label %156, label %159
+  %156 = load i8, ptr %57, align 1
+  %157 = icmp eq i8 %156, 0
+  br i1 %157, label %158, label %161
 
-156:                                              ; preds = %153
-  %157 = load i8, ptr %53, align 2
-  %158 = and i8 %157, 8
-  %.not86.i = icmp eq i8 %158, 0
-  br i1 %.not86.i, label %159, label %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit
+158:                                              ; preds = %155
+  %159 = load i8, ptr %53, align 2
+  %160 = and i8 %159, 8
+  %.not86.i = icmp eq i8 %160, 0
+  br i1 %.not86.i, label %161, label %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit
 
-159:                                              ; preds = %156, %153
-  %160 = zext i8 %154 to i16
-  %161 = mul nuw i16 %160, 257
-  %162 = xor i16 %161, -32768
+161:                                              ; preds = %158, %155
+  %162 = zext i8 %156 to i16
+  %163 = mul nuw i16 %162, 257
+  %164 = xor i16 %163, -32768
   br label %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit
 
-HIDAPI_DriverPS5_HandleSimpleStatePacket.exit:    ; preds = %156, %159
-  %.1.i70 = phi i16 [ %162, %159 ], [ 32767, %156 ]
+HIDAPI_DriverPS5_HandleSimpleStatePacket.exit:    ; preds = %158, %161
+  %.1.i70 = phi i16 [ %164, %161 ], [ 32767, %158 ]
   call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 5, i16 noundef signext %.1.i70) #9
-  %163 = load i8, ptr %23, align 1
-  %164 = zext i8 %163 to i16
-  %165 = mul nuw i16 %164, 257
-  %166 = xor i16 %165, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %166) #9
-  %167 = load i8, ptr %37, align 2
-  %168 = zext i8 %167 to i16
-  %169 = mul nuw i16 %168, 257
-  %170 = xor i16 %169, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 1, i16 noundef signext %170) #9
-  %171 = load i8, ptr %58, align 1
-  %172 = zext i8 %171 to i16
-  %173 = mul nuw i16 %172, 257
-  %174 = xor i16 %173, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 2, i16 noundef signext %174) #9
-  %175 = load i8, ptr %59, align 4
-  %176 = zext i8 %175 to i16
-  %177 = mul nuw i16 %176, 257
-  %178 = xor i16 %177, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 3, i16 noundef signext %178) #9
+  %165 = load i8, ptr %23, align 1
+  %166 = zext i8 %165 to i16
+  %167 = mul nuw i16 %166, 257
+  %168 = xor i16 %167, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %168) #9
+  %169 = load i8, ptr %37, align 2
+  %170 = zext i8 %169 to i16
+  %171 = mul nuw i16 %170, 257
+  %172 = xor i16 %171, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 1, i16 noundef signext %172) #9
+  %173 = load i8, ptr %58, align 1
+  %174 = zext i8 %173 to i16
+  %175 = mul nuw i16 %174, 257
+  %176 = xor i16 %175, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 2, i16 noundef signext %176) #9
+  %177 = load i8, ptr %59, align 4
+  %178 = zext i8 %177 to i16
+  %179 = mul nuw i16 %178, 257
+  %180 = xor i16 %179, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %.0, i8 noundef zeroext 3, i16 noundef signext %180) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %25, ptr noundef nonnull readonly align 1 dereferenceable(9) %23, i64 9, i1 false)
   br label %HIDAPI_DriverPS5_IsPacketValid.exit
 
-179:                                              ; preds = %101
-  %180 = load i8, ptr %36, align 1, !range !6, !noundef !7
-  %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %182, label %183
+181:                                              ; preds = %103
+  %182 = load i8, ptr %36, align 1, !range !5, !noundef !6
+  %183 = trunc nuw i8 %182 to i1
+  br i1 %183, label %184, label %185
 
-182:                                              ; preds = %179
+184:                                              ; preds = %181
   call fastcc void @HIDAPI_DriverPS5_HandleStatePacketAlt(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %23, i64 noundef %62)
   br label %HIDAPI_DriverPS5_IsPacketValid.exit
 
-183:                                              ; preds = %179
+185:                                              ; preds = %181
   call fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %23, i64 noundef %62)
   br label %HIDAPI_DriverPS5_IsPacketValid.exit
 
-184:                                              ; preds = %99
+186:                                              ; preds = %101
   store i8 1, ptr %34, align 4
-  %185 = load i32, ptr %35, align 8
-  %186 = icmp eq i32 %185, 2
-  br i1 %186, label %187, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
+  %187 = load i32, ptr %35, align 8
+  %188 = icmp eq i32 %187, 2
+  br i1 %188, label %189, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
 
-187:                                              ; preds = %184
+189:                                              ; preds = %186
   call fastcc void @HIDAPI_DriverPS5_SetEnhancedReportHint(ptr noundef nonnull %7, i32 noundef 1)
   br label %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
 
-HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit: ; preds = %184, %187
-  %188 = load i8, ptr %36, align 1, !range !6, !noundef !7
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %191
+HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit: ; preds = %186, %189
+  %190 = load i8, ptr %36, align 1, !range !5, !noundef !6
+  %191 = trunc nuw i8 %190 to i1
+  br i1 %191, label %192, label %193
 
-190:                                              ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
+192:                                              ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
   call fastcc void @HIDAPI_DriverPS5_HandleStatePacketAlt(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %37, i64 noundef %62)
-  br label %192
+  br label %194
 
-191:                                              ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
+193:                                              ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnEnhancedReport.exit
   call fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %37, i64 noundef %62)
-  br label %192
+  br label %194
 
-192:                                              ; preds = %191, %190
-  %193 = load i32, ptr %38, align 4
-  %194 = icmp eq i32 %193, 1
-  br i1 %194, label %195, label %HIDAPI_DriverPS5_IsPacketValid.exit
+194:                                              ; preds = %193, %192
+  %195 = load i32, ptr %38, align 4
+  %196 = icmp eq i32 %195, 1
+  br i1 %196, label %197, label %HIDAPI_DriverPS5_IsPacketValid.exit
 
-195:                                              ; preds = %192
-  %196 = load i8, ptr %34, align 4, !range !6, !noundef !7
-  %197 = trunc nuw i8 %196 to i1
-  br i1 %197, label %198, label %.critedge.i
+197:                                              ; preds = %194
+  %198 = load i8, ptr %34, align 4, !range !5, !noundef !6
+  %199 = trunc nuw i8 %198 to i1
+  br i1 %199, label %200, label %.critedge.i
 
-198:                                              ; preds = %195
-  %199 = load i8, ptr %39, align 2, !range !6, !noundef !7
-  %200 = trunc nuw i8 %199 to i1
-  br i1 %200, label %201, label %.critedge.i
+200:                                              ; preds = %197
+  %201 = load i8, ptr %39, align 2, !range !5, !noundef !6
+  %202 = trunc nuw i8 %201 to i1
+  br i1 %202, label %203, label %.critedge.i
 
-201:                                              ; preds = %198
-  %202 = load i8, ptr %36, align 1, !range !6, !noundef !7
-  %203 = trunc nuw i8 %202 to i1
-  br i1 %203, label %.critedge.i, label %204
+203:                                              ; preds = %200
+  %204 = load i8, ptr %36, align 1, !range !5, !noundef !6
+  %205 = trunc nuw i8 %204 to i1
+  br i1 %205, label %.critedge.i, label %206
 
-204:                                              ; preds = %201
-  %205 = load i32, ptr %40, align 1
-  %206 = icmp ugt i32 %205, 10199999
-  br i1 %206, label %.critedge.i, label %HIDAPI_DriverPS5_IsPacketValid.exit
+206:                                              ; preds = %203
+  %207 = load i32, ptr %40, align 1
+  %208 = icmp ugt i32 %207, 10199999
+  br i1 %208, label %.critedge.i, label %HIDAPI_DriverPS5_IsPacketValid.exit
 
-.critedge.i:                                      ; preds = %204, %201, %198, %195
+.critedge.i:                                      ; preds = %206, %203, %200, %197
   call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %3, i8 0, i64 47, i1 false)
-  %207 = load i8, ptr %41, align 4, !range !6, !noundef !7
-  %208 = trunc nuw i8 %207 to i1
-  br i1 %208, label %209, label %224
+  %209 = load i8, ptr %41, align 4, !range !5, !noundef !6
+  %210 = trunc nuw i8 %209 to i1
+  br i1 %210, label %211, label %226
 
-209:                                              ; preds = %.critedge.i
-  %210 = load i8, ptr %42, align 1
-  %.not31.i.i = icmp eq i8 %210, 0
-  br i1 %.not31.i.i, label %211, label %213
+211:                                              ; preds = %.critedge.i
+  %212 = load i8, ptr %42, align 1
+  %.not31.i.i = icmp eq i8 %212, 0
+  br i1 %.not31.i.i, label %213, label %215
 
-211:                                              ; preds = %209
-  %212 = load i8, ptr %43, align 2
-  %.not32.i.i = icmp eq i8 %212, 0
-  br i1 %.not32.i.i, label %224, label %213
+213:                                              ; preds = %211
+  %214 = load i8, ptr %43, align 2
+  %.not32.i.i = icmp eq i8 %214, 0
+  br i1 %.not32.i.i, label %226, label %215
 
-213:                                              ; preds = %211, %209
-  %214 = load i16, ptr %44, align 4
-  %215 = icmp ult i16 %214, 548
-  br i1 %215, label %216, label %220
+215:                                              ; preds = %213, %211
+  %216 = load i16, ptr %44, align 4
+  %217 = icmp ult i16 %216, 548
+  br i1 %217, label %218, label %222
 
-216:                                              ; preds = %213
-  %217 = lshr i8 %210, 1
-  %218 = load i8, ptr %43, align 2
-  %219 = lshr i8 %218, 1
-  br label %222
-
-220:                                              ; preds = %213
-  store i8 4, ptr %45, align 1
-  %221 = load i8, ptr %43, align 2
-  br label %222
-
-222:                                              ; preds = %220, %216
-  %223 = phi i8 [ 3, %216 ], [ 2, %220 ]
-  %.sink40.i.i = phi i8 [ %217, %216 ], [ %210, %220 ]
-  %.sink.i.i = phi i8 [ %219, %216 ], [ %221, %220 ]
-  store i8 %.sink40.i.i, ptr %46, align 1
-  store i8 %.sink.i.i, ptr %47, align 1
-  store i8 %223, ptr %3, align 1
+218:                                              ; preds = %215
+  %219 = lshr i8 %212, 1
+  %220 = load i8, ptr %43, align 2
+  %221 = lshr i8 %220, 1
   br label %224
 
-224:                                              ; preds = %222, %211, %.critedge.i
-  %225 = load i8, ptr %48, align 1, !range !6, !noundef !7
-  %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %227, label %HIDAPI_DriverPS5_UpdateEffects.exit.i
+222:                                              ; preds = %215
+  store i8 4, ptr %45, align 1
+  %223 = load i8, ptr %43, align 2
+  br label %224
 
-227:                                              ; preds = %224
+224:                                              ; preds = %222, %218
+  %225 = phi i8 [ 3, %218 ], [ 2, %222 ]
+  %.sink40.i.i = phi i8 [ %219, %218 ], [ %212, %222 ]
+  %.sink.i.i = phi i8 [ %221, %218 ], [ %223, %222 ]
+  store i8 %.sink40.i.i, ptr %46, align 1
+  store i8 %.sink.i.i, ptr %47, align 1
+  store i8 %225, ptr %3, align 1
+  br label %226
+
+226:                                              ; preds = %224, %213, %.critedge.i
+  %227 = load i8, ptr %48, align 1, !range !5, !noundef !6
+  %228 = trunc nuw i8 %227 to i1
+  br i1 %228, label %229, label %HIDAPI_DriverPS5_UpdateEffects.exit.i
+
+229:                                              ; preds = %226
   store i8 8, ptr %49, align 1
   br label %HIDAPI_DriverPS5_UpdateEffects.exit.i
 
-HIDAPI_DriverPS5_UpdateEffects.exit.i:            ; preds = %227, %224
-  %228 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 47, i1 noundef zeroext false) #11
+HIDAPI_DriverPS5_UpdateEffects.exit.i:            ; preds = %229, %226
+  %230 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 47, i1 noundef zeroext false) #11
   call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %3) #9
   store i32 2, ptr %38, align 4
-  %229 = call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %7, i32 noundef 24, i1 noundef zeroext false)
+  %231 = call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %7, i32 noundef 24, i1 noundef zeroext false)
   br label %HIDAPI_DriverPS5_IsPacketValid.exit
 
-HIDAPI_DriverPS5_IsPacketValid.exit:              ; preds = %60, %90, %HIDAPI_DriverPS5_UpdateEffects.exit.i, %204, %89, %68, %182, %183, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit, %192, %99, %97
-  %.1 = phi i32 [ %98, %97 ], [ %98, %99 ], [ %98, %192 ], [ %98, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit ], [ %98, %183 ], [ %98, %182 ], [ %.06473, %68 ], [ %.06473, %89 ], [ %98, %204 ], [ %98, %HIDAPI_DriverPS5_UpdateEffects.exit.i ], [ %.06473, %90 ], [ %.06473, %60 ]
-  %230 = load ptr, ptr %18, align 8
-  %231 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %230, ptr noundef nonnull %5, i64 noundef 128, i32 noundef 0) #9
-  %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %60, label %._crit_edge, !llvm.loop !9
+HIDAPI_DriverPS5_IsPacketValid.exit:              ; preds = %60, %90, %HIDAPI_DriverPS5_UpdateEffects.exit.i, %206, %89, %68, %184, %185, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit, %194, %101, %99
+  %.1 = phi i32 [ %100, %99 ], [ %100, %101 ], [ %100, %194 ], [ %100, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit ], [ %100, %185 ], [ %100, %184 ], [ %.06473, %68 ], [ %.06473, %89 ], [ %100, %206 ], [ %100, %HIDAPI_DriverPS5_UpdateEffects.exit.i ], [ %.06473, %90 ], [ %.06473, %60 ]
+  %232 = load ptr, ptr %18, align 8
+  %233 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %232, ptr noundef nonnull %5, i64 noundef 128, i32 noundef 0) #9
+  %234 = icmp sgt i32 %233, 0
+  br i1 %234, label %60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %HIDAPI_DriverPS5_IsPacketValid.exit
-  %233 = icmp eq i32 %.1, 0
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %235 = load i8, ptr %234, align 4, !range !6, !noundef !7
-  %236 = trunc nuw i8 %235 to i1
-  br i1 %236, label %240, label %271
+  %235 = icmp eq i32 %.1, 0
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %237 = load i8, ptr %236, align 4, !range !5, !noundef !6
+  %238 = trunc nuw i8 %237 to i1
+  br i1 %238, label %242, label %273
 
 ._crit_edge.thread:                               ; preds = %17
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %238 = load i8, ptr %237, align 4, !range !6, !noundef !7
-  %239 = trunc nuw i8 %238 to i1
-  br i1 %239, label %.thread82, label %.thread87
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %240 = load i8, ptr %239, align 4, !range !5, !noundef !6
+  %241 = trunc nuw i8 %240 to i1
+  br i1 %241, label %.thread82, label %.thread87
 
-240:                                              ; preds = %._crit_edge
-  br i1 %233, label %.thread82, label %262
+242:                                              ; preds = %._crit_edge
+  br i1 %235, label %.thread82, label %264
 
-.thread82:                                        ; preds = %._crit_edge.thread, %240
-  %.lcssa8185 = phi i32 [ %231, %240 ], [ %20, %._crit_edge.thread ]
-  %241 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %242 = load i64, ptr %241, align 8
-  %243 = add i64 %242, 500
-  %.not = icmp ult i64 %8, %243
-  br i1 %.not, label %271, label %244
+.thread82:                                        ; preds = %._crit_edge.thread, %242
+  %.lcssa8185 = phi i32 [ %233, %242 ], [ %20, %._crit_edge.thread ]
+  %243 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %244 = load i64, ptr %243, align 8
+  %245 = add i64 %244, 500
+  %.not = icmp ult i64 %8, %245
+  br i1 %.not, label %273, label %246
 
-244:                                              ; preds = %.thread82
-  %245 = load ptr, ptr %6, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 28
-  %247 = load i8, ptr %246, align 4, !range !6, !noundef !7
-  %248 = trunc nuw i8 %247 to i1
-  br i1 %248, label %249, label %255
+246:                                              ; preds = %.thread82
+  %247 = load ptr, ptr %6, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 28
+  %249 = load i8, ptr %248, align 4, !range !5, !noundef !6
+  %250 = trunc nuw i8 %249 to i1
+  br i1 %250, label %251, label %257
 
-249:                                              ; preds = %244
+251:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %2, i8 0, i64 78, i1 false)
   store i8 49, ptr %2, align 16
-  %250 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 2, ptr %250, align 1
-  %251 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %251, label %252, label %254
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 2, ptr %252, align 1
+  %253 = call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %253, label %254, label %256
 
-252:                                              ; preds = %249
-  %253 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 78) #9
-  br label %254
+254:                                              ; preds = %251
+  %255 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 78) #9
+  br label %256
 
-254:                                              ; preds = %252, %249
+256:                                              ; preds = %254, %251
   call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %2) #9
   br label %HIDAPI_DriverPS5_TickleBluetooth.exit
 
-255:                                              ; preds = %244
-  %256 = load i32, ptr %9, align 4
-  %257 = icmp sgt i32 %256, 0
-  br i1 %257, label %258, label %HIDAPI_DriverPS5_TickleBluetooth.exit
+257:                                              ; preds = %246
+  %258 = load i32, ptr %9, align 4
+  %259 = icmp sgt i32 %258, 0
+  br i1 %259, label %260, label %HIDAPI_DriverPS5_TickleBluetooth.exit
 
-258:                                              ; preds = %255
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %260 = load ptr, ptr %259, align 8
-  %261 = load i32, ptr %260, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %261) #9
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %262 = load ptr, ptr %261, align 8
+  %263 = load i32, ptr %262, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %263) #9
   br label %HIDAPI_DriverPS5_TickleBluetooth.exit
 
-HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %254, %255, %258
-  store i64 %8, ptr %241, align 8
-  br label %271
+HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %256, %257, %260
+  store i64 %8, ptr %243, align 8
+  br label %273
 
-262:                                              ; preds = %240
-  %263 = load i32, ptr %9, align 4
-  %264 = icmp eq i32 %263, 0
-  br i1 %264, label %265, label %271
+264:                                              ; preds = %242
+  %265 = load i32, ptr %9, align 4
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %267, label %273
 
-265:                                              ; preds = %262
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %267 = load ptr, ptr %266, align 8
-  %268 = call zeroext i1 @HIDAPI_HasConnectedUSBDevice(ptr noundef %267) #9
-  br i1 %268, label %271, label %269
+267:                                              ; preds = %264
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %269 = load ptr, ptr %268, align 8
+  %270 = call zeroext i1 @HIDAPI_HasConnectedUSBDevice(ptr noundef %269) #9
+  br i1 %270, label %273, label %271
 
-269:                                              ; preds = %265
-  %270 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
-  br label %271
+271:                                              ; preds = %267
+  %272 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
+  br label %273
 
-271:                                              ; preds = %HIDAPI_DriverPS5_TickleBluetooth.exit, %.thread82, %269, %265, %262, %._crit_edge
-  %.lcssa80 = phi i32 [ %.lcssa8185, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ %.lcssa8185, %.thread82 ], [ %231, %269 ], [ %231, %265 ], [ %231, %262 ], [ %231, %._crit_edge ]
-  %.064.lcssa78 = phi i1 [ true, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ true, %.thread82 ], [ false, %269 ], [ false, %265 ], [ false, %262 ], [ %233, %._crit_edge ]
-  %272 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %273 = load i8, ptr %272, align 8, !range !6, !noundef !7
-  %274 = trunc nuw i8 %273 to i1
-  br i1 %274, label %278, label %294
+273:                                              ; preds = %HIDAPI_DriverPS5_TickleBluetooth.exit, %.thread82, %271, %267, %264, %._crit_edge
+  %.lcssa80 = phi i32 [ %.lcssa8185, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ %.lcssa8185, %.thread82 ], [ %233, %271 ], [ %233, %267 ], [ %233, %264 ], [ %233, %._crit_edge ]
+  %.064.lcssa78 = phi i1 [ true, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ true, %.thread82 ], [ false, %271 ], [ false, %267 ], [ false, %264 ], [ %235, %._crit_edge ]
+  %274 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %275 = load i8, ptr %274, align 8, !range !5, !noundef !6
+  %276 = trunc nuw i8 %275 to i1
+  br i1 %276, label %280, label %296
 
 .thread87:                                        ; preds = %._crit_edge.thread
-  %275 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %276 = load i8, ptr %275, align 8, !range !6, !noundef !7
-  %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %.thread95, label %294
+  %277 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %278 = load i8, ptr %277, align 8, !range !5, !noundef !6
+  %279 = trunc nuw i8 %278 to i1
+  br i1 %279, label %.thread95, label %296
 
-278:                                              ; preds = %271
-  br i1 %.064.lcssa78, label %.thread95, label %289
+280:                                              ; preds = %273
+  br i1 %.064.lcssa78, label %.thread95, label %291
 
-.thread95:                                        ; preds = %.thread87, %278
-  %.lcssa809299 = phi i32 [ %.lcssa80, %278 ], [ %20, %.thread87 ]
-  %279 = load i32, ptr %9, align 4
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %281, label %294
+.thread95:                                        ; preds = %.thread87, %280
+  %.lcssa809299 = phi i32 [ %.lcssa80, %280 ], [ %20, %.thread87 ]
+  %281 = load i32, ptr %9, align 4
+  %282 = icmp sgt i32 %281, 0
+  br i1 %282, label %283, label %296
 
-281:                                              ; preds = %.thread95
-  %282 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %283 = load i64, ptr %282, align 8
-  %284 = add i64 %283, 500
-  %.not68 = icmp ult i64 %8, %284
-  br i1 %.not68, label %294, label %285
+283:                                              ; preds = %.thread95
+  %284 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %285 = load i64, ptr %284, align 8
+  %286 = add i64 %285, 500
+  %.not68 = icmp ult i64 %8, %286
+  br i1 %.not68, label %296, label %287
 
-285:                                              ; preds = %281
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %287 = load ptr, ptr %286, align 8
-  %288 = load i32, ptr %287, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %288) #9
-  br label %294
+287:                                              ; preds = %283
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %289 = load ptr, ptr %288, align 8
+  %290 = load i32, ptr %289, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %290) #9
+  br label %296
 
-289:                                              ; preds = %278
-  %290 = load i32, ptr %9, align 4
-  %291 = icmp eq i32 %290, 0
-  br i1 %291, label %292, label %.thread
+291:                                              ; preds = %280
+  %292 = load i32, ptr %9, align 4
+  %293 = icmp eq i32 %292, 0
+  br i1 %293, label %294, label %.thread
 
-292:                                              ; preds = %289
-  %293 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
+294:                                              ; preds = %291
+  %295 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
   br label %.thread
 
-294:                                              ; preds = %.thread87, %281, %285, %.thread95, %271
-  %.064.lcssa7894 = phi i1 [ true, %.thread87 ], [ true, %281 ], [ true, %285 ], [ true, %.thread95 ], [ %.064.lcssa78, %271 ]
-  %.lcssa8091 = phi i32 [ %20, %.thread87 ], [ %.lcssa809299, %281 ], [ %.lcssa809299, %285 ], [ %.lcssa809299, %.thread95 ], [ %.lcssa80, %271 ]
-  %295 = icmp ne i32 %.lcssa8091, 0
-  %or.cond3 = and i1 %.064.lcssa7894, %295
-  br i1 %or.cond3, label %296, label %.thread
+296:                                              ; preds = %.thread87, %283, %287, %.thread95, %273
+  %.064.lcssa7894 = phi i1 [ true, %.thread87 ], [ true, %283 ], [ true, %287 ], [ true, %.thread95 ], [ %.064.lcssa78, %273 ]
+  %.lcssa8091 = phi i32 [ %20, %.thread87 ], [ %.lcssa809299, %283 ], [ %.lcssa809299, %287 ], [ %.lcssa809299, %.thread95 ], [ %.lcssa80, %273 ]
+  %297 = icmp ne i32 %.lcssa8091, 0
+  %or.cond3 = and i1 %.064.lcssa7894, %297
+  br i1 %or.cond3, label %298, label %.thread
 
-296:                                              ; preds = %294
-  %297 = load i32, ptr %9, align 4
-  %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %299, label %.thread
+298:                                              ; preds = %296
+  %299 = load i32, ptr %9, align 4
+  %300 = icmp sgt i32 %299, 0
+  br i1 %300, label %301, label %.thread
 
-299:                                              ; preds = %296
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %301 = load ptr, ptr %300, align 8
-  %302 = load i32, ptr %301, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %302) #9
+301:                                              ; preds = %298
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %303 = load ptr, ptr %302, align 8
+  %304 = load i32, ptr %303, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %304) #9
   br label %.thread
 
-.thread:                                          ; preds = %289, %292, %299, %296, %294
-  %.lcssa8090 = phi i32 [ %.lcssa80, %289 ], [ %.lcssa80, %292 ], [ 1, %299 ], [ 1, %296 ], [ %.lcssa8091, %294 ]
-  %303 = icmp eq i32 %.lcssa8090, 0
+.thread:                                          ; preds = %291, %294, %301, %298, %296
+  %.lcssa8090 = phi i32 [ %.lcssa80, %291 ], [ %.lcssa80, %294 ], [ 1, %301 ], [ 1, %298 ], [ %.lcssa8091, %296 ]
+  %305 = icmp eq i32 %.lcssa8090, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
-  ret i1 %303
+  ret i1 %305
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1085,7 +1085,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS5_OpenJoystick(ptr noundef re
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %29 = load i8, ptr %28, align 2, !range !6, !noundef !7
+  %29 = load i8, ptr %28, align 2, !range !5, !noundef !6
   %30 = trunc nuw i8 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br i1 %30, label %32, label %33
@@ -1119,7 +1119,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_RumbleJoystick(ptr noundef readonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i8, ptr %9, align 4, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 4, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %14, label %12
 
@@ -1146,7 +1146,7 @@ HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %17
   store i8 2, ptr %6, align 1
   %21 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef 47, i1 noundef zeroext true) #11
   call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %6) #9
-  %.pre = load i8, ptr %9, align 4, !range !6
+  %.pre = load i8, ptr %9, align 4, !range !5
   %22 = trunc nuw i8 %.pre to i1
   br label %23
 
@@ -1214,20 +1214,20 @@ define internal range(i32 0, 24) i32 @HIDAPI_DriverPS5_GetJoystickCapabilities(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
-  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 2, !range !5, !noundef !6
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %11 = shl nuw nsw i8 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %14 = shl nuw nsw i8 %13, 2
   %.29 = or disjoint i8 %14, %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %16 = load i8, ptr %15, align 4, !range !6, !noundef !7
+  %16 = load i8, ptr %15, align 4, !range !5, !noundef !6
   %17 = shl nuw nsw i8 %16, 4
   %spec.select810 = or disjoint i8 %.29, %17
   %spec.select8 = zext nneg i8 %spec.select810 to i32
@@ -1243,7 +1243,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_SetJoystickLED(ptr noundef readonly
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 19
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %13, label %11
 
@@ -1293,7 +1293,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_SetJoystickSensorsEnabled(ptr nound
 
 HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  %13 = load i8, ptr %12, align 2, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 2, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %20
 
@@ -1302,7 +1302,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 29
-  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %20
 
@@ -1464,7 +1464,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 140:                                              ; preds = %139, %130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %HIDAPI_DriverPS5_LoadCalibrationData.exit, label %124, !llvm.loop !10
+  br i1 %exitcond.not.i, label %HIDAPI_DriverPS5_LoadCalibrationData.exit, label %124, !llvm.loop !8
 
 HIDAPI_DriverPS5_LoadCalibrationData.exit:        ; preds = %140, %22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
@@ -1548,13 +1548,13 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %4) #9
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %7 = load i8, ptr %6, align 4, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = load i8, ptr %10, align 4, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 4, !range !5, !noundef !6
   %12 = trunc nuw i8 %11 to i1
   %.not = icmp samesign ugt i32 %1, 7
   %or.cond.not = select i1 %12, i1 %.not, i1 false
@@ -1573,7 +1573,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
 17:                                               ; preds = %13, %9, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %4, i8 0, i64 47, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i8, ptr %18, align 4, !range !6, !noundef !7
+  %19 = load i8, ptr %18, align 4, !range !5, !noundef !6
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %48
 
@@ -1632,7 +1632,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
 
 48:                                               ; preds = %44, %47, %17
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %50 = load i8, ptr %49, align 1, !range !6, !noundef !7
+  %50 = load i8, ptr %49, align 1, !range !5, !noundef !6
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %85
 
@@ -1657,7 +1657,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   %61 = or disjoint i8 %57, 4
   store i8 %61, ptr %60, align 1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 103
-  %63 = load i8, ptr %62, align 1, !range !6, !noundef !7
+  %63 = load i8, ptr %62, align 1, !range !5, !noundef !6
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %65, label %73
 
@@ -1701,7 +1701,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
 85:                                               ; preds = %.sink.split, %56, %48
   %86 = phi i8 [ %57, %56 ], [ 0, %48 ], [ %61, %.sink.split ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %88 = load i8, ptr %87, align 1, !range !6, !noundef !7
+  %88 = load i8, ptr %87, align 1, !range !5, !noundef !6
   %89 = trunc nuw i8 %88 to i1
   %.not36 = icmp samesign ugt i32 %1, 15
   %or.cond39.not = select i1 %89, i1 %.not36, i1 false
@@ -1712,7 +1712,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   %92 = or i8 %86, 16
   store i8 %92, ptr %91, align 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %94 = load i8, ptr %93, align 4, !range !6, !noundef !7
+  %94 = load i8, ptr %93, align 4, !range !5, !noundef !6
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %.sink.split43
 
@@ -1759,7 +1759,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
   %.030.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 2
   %.030.sroa.gep32 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1771,7 +1771,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(p
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %81, label %20
 
@@ -1786,14 +1786,14 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(p
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
+  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread, label %29
 
 29:                                               ; preds = %25
   store i8 1, ptr %26, align 2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %31 = load i8, ptr %30, align 2, !range !6, !noundef !7
+  %31 = load i8, ptr %30, align 2, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %37
 
@@ -1807,14 +1807,14 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(p
 
 37:                                               ; preds = %33, %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %39 = load i8, ptr %38, align 2, !range !6, !noundef !7
+  %39 = load i8, ptr %38, align 2, !range !5, !noundef !6
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %.sink.split.i, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit
 
 .sink.split.i:                                    ; preds = %37
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 84
-  %43 = load i8, ptr %42, align 4, !range !6, !noundef !7
+  %43 = load i8, ptr %42, align 4, !range !5, !noundef !6
   %44 = trunc nuw i8 %43 to i1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -1829,7 +1829,7 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit:   ; preds = %37, %.sink.split.i
   store i8 1, ptr %48, align 1
   %49 = load ptr, ptr %0, align 8
   tail call void @HIDAPI_UpdateDeviceProperties(ptr noundef %49) #9
-  %.pre = load i8, ptr %17, align 1, !range !6
+  %.pre = load i8, ptr %17, align 1, !range !5
   %50 = trunc nuw i8 %.pre to i1
   br i1 %50, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread
 
@@ -1842,7 +1842,7 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread: ; preds = %25, %HIDAPI_Dr
   call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %5, i8 0, i64 47, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %52 = load i8, ptr %51, align 4, !range !6, !noundef !7
+  %52 = load i8, ptr %51, align 4, !range !5, !noundef !6
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit
 
@@ -1893,7 +1893,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %57, %73, 
   %77 = call fastcc zeroext i1 @HIDAPI_DriverPS5_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 47, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %5) #9
   %78 = tail call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %0, i32 noundef 24, i1 noundef zeroext false)
-  %.pre35.pre = load i8, ptr %17, align 1, !range !6
+  %.pre35.pre = load i8, ptr %17, align 1, !range !5
   %79 = trunc nuw i8 %.pre35.pre to i1
   store i32 1, ptr %22, align 8
   br i1 %79, label %81, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread
@@ -1906,7 +1906,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %6, i8 0, i64 78, i1 false)
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 84
-  %84 = load i8, ptr %83, align 4, !range !6, !noundef !7
+  %84 = load i8, ptr %83, align 4, !range !5, !noundef !6
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %87
 
@@ -2015,14 +2015,14 @@ define internal fastcc void @HIDAPI_DriverPS5_SetEnhancedReportHint(ptr noundef 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 2, !range !5, !noundef !6
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit6, label %8
 
 8:                                                ; preds = %4
   store i8 1, ptr %5, align 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %10 = load i8, ptr %9, align 2, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 2, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %16
 
@@ -2036,14 +2036,14 @@ define internal fastcc void @HIDAPI_DriverPS5_SetEnhancedReportHint(ptr noundef 
 
 16:                                               ; preds = %12, %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %18 = load i8, ptr %17, align 2, !range !6, !noundef !7
+  %18 = load i8, ptr %17, align 2, !range !5, !noundef !6
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.sink.split.i4, label %27
 
 .sink.split.i4:                                   ; preds = %16
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 84
-  %22 = load i8, ptr %21, align 4, !range !6, !noundef !7
+  %22 = load i8, ptr %21, align 4, !range !5, !noundef !6
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -2062,7 +2062,7 @@ define internal fastcc void @HIDAPI_DriverPS5_SetEnhancedReportHint(ptr noundef 
 
 HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit6:  ; preds = %4, %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %31 = load i8, ptr %30, align 1, !range !6, !noundef !7
+  %31 = load i8, ptr %30, align 1, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %HIDAPI_DriverPS5_SetEnhancedMode.exit, label %33
 
@@ -2071,7 +2071,7 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit6:  ; preds = %4, %27
   call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %3, i8 0, i64 47, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %35 = load i8, ptr %34, align 4, !range !6, !noundef !7
+  %35 = load i8, ptr %34, align 4, !range !5, !noundef !6
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %HIDAPI_DriverPS5_UpdateEffects.exit
 
@@ -2126,14 +2126,14 @@ HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %33, %56, %40
 
 62:                                               ; preds = %2
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %64 = load i8, ptr %63, align 2, !range !6, !noundef !7
+  %64 = load i8, ptr %63, align 2, !range !5, !noundef !6
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %HIDAPI_DriverPS5_SetEnhancedMode.exit, label %66
 
 66:                                               ; preds = %62
   store i8 1, ptr %63, align 2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %68 = load i8, ptr %67, align 2, !range !6, !noundef !7
+  %68 = load i8, ptr %67, align 2, !range !5, !noundef !6
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %74
 
@@ -2147,14 +2147,14 @@ HIDAPI_DriverPS5_UpdateEffects.exit:              ; preds = %33, %56, %40
 
 74:                                               ; preds = %70, %66
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %76 = load i8, ptr %75, align 2, !range !6, !noundef !7
+  %76 = load i8, ptr %75, align 2, !range !5, !noundef !6
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %.sink.split.i, label %85
 
 .sink.split.i:                                    ; preds = %74
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 84
-  %80 = load i8, ptr %79, align 4, !range !6, !noundef !7
+  %80 = load i8, ptr %79, align 4, !range !5, !noundef !6
   %81 = trunc nuw i8 %80 to i1
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
@@ -2192,7 +2192,7 @@ declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketAlt(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %55
 
@@ -2257,7 +2257,7 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketAlt(ptr noundef n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %55
 
@@ -2314,7 +2314,7 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef nonn
 
 55:                                               ; preds = %8, %4
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %57 = load i8, ptr %56, align 1, !range !6, !noundef !7
+  %57 = load i8, ptr %56, align 1, !range !5, !noundef !6
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %70
 
@@ -2531,14 +2531,14 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketCommon(ptr nounde
   %103 = xor i16 %102, -32768
   tail call void @SDL_SendJoystickAxis(i64 noundef %3, ptr noundef nonnull %0, i8 noundef zeroext 3, i16 noundef signext %103) #9
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %105 = load i8, ptr %104, align 1, !range !6, !noundef !7
+  %105 = load i8, ptr %104, align 1, !range !5, !noundef !6
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %297
 
 107:                                              ; preds = %84
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #9
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %109 = load i8, ptr %108, align 1, !range !6, !noundef !7
+  %109 = load i8, ptr %108, align 1, !range !5, !noundef !6
   %110 = trunc nuw i8 %109 to i1
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 27
   br i1 %110, label %112, label %130
@@ -2603,7 +2603,7 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketCommon(ptr nounde
   %158 = shl nuw i16 %157, 8
   %159 = or disjoint i16 %158, %154
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %161 = load i8, ptr %160, align 2, !range !6, !noundef !7
+  %161 = load i8, ptr %160, align 2, !range !5, !noundef !6
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %166, label %163
 
@@ -2707,7 +2707,7 @@ HIDAPI_DriverPS5_ApplyCalibrationData.exit168:    ; preds = %212, %215
   %234 = zext i8 %233 to i16
   %235 = shl nuw i16 %234, 8
   %236 = or disjoint i16 %235, %231
-  %237 = load i8, ptr %160, align 2, !range !6, !noundef !7
+  %237 = load i8, ptr %160, align 2, !range !5, !noundef !6
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %241, label %239
 
@@ -2814,7 +2814,7 @@ declare i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef) local_unnamed_addr #3
 define internal void @SDL_PS5EnhancedReportsChanged(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %7 = load i8, ptr %6, align 4, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %45
 
@@ -2829,14 +2829,14 @@ define internal void @SDL_PS5EnhancedReportsChanged(ptr noundef captures(none) %
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %15 = load i8, ptr %14, align 2, !range !6, !noundef !7
+  %15 = load i8, ptr %14, align 2, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %HIDAPI_DriverPS5_SetEnhancedReportHint.exit, label %17
 
 17:                                               ; preds = %13
   store i8 1, ptr %14, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %19 = load i8, ptr %18, align 2, !range !6, !noundef !7
+  %19 = load i8, ptr %18, align 2, !range !5, !noundef !6
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %25
 
@@ -2850,14 +2850,14 @@ define internal void @SDL_PS5EnhancedReportsChanged(ptr noundef captures(none) %
 
 25:                                               ; preds = %21, %17
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
+  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %.sink.split.i.i, label %36
 
 .sink.split.i.i:                                  ; preds = %25
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 84
-  %31 = load i8, ptr %30, align 4, !range !6, !noundef !7
+  %31 = load i8, ptr %30, align 4, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -2905,7 +2905,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
   %5 = alloca %struct.DS5EffectsState_t, align 1
   %6 = tail call zeroext i1 @SDL_GetStringBoolean(ptr noundef %3, i1 noundef zeroext true) #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
   %9 = zext i1 %6 to i8
   %.not = icmp eq i8 %8, %9
   br i1 %.not, label %69, label %10
@@ -2915,13 +2915,13 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
   call void @llvm.lifetime.start.p0(i64 47, ptr nonnull %5) #9
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %17 = load i8, ptr %16, align 4, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %23
 
@@ -2938,7 +2938,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
 23:                                               ; preds = %19, %15, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %5, i8 0, i64 47, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %25 = load i8, ptr %24, align 4, !range !6, !noundef !7
+  %25 = load i8, ptr %24, align 4, !range !5, !noundef !6
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %50
 
@@ -2987,7 +2987,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
 
 50:                                               ; preds = %23, %46, %30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %52 = load i8, ptr %51, align 1, !range !6, !noundef !7
+  %52 = load i8, ptr %51, align 1, !range !5, !noundef !6
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %67
 
@@ -3060,11 +3060,9 @@ attributes #11 = { "function-inline-cost-multiplier"="2" }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !4, !5}

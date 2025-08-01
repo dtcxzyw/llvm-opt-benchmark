@@ -83,7 +83,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.critedge31
 
 24:                                               ; preds = %14
-  %25 = load i8, ptr @ecpg_internal_regression_mode, align 1, !range !6, !noundef !7
+  %25 = load i8, ptr @ecpg_internal_regression_mode, align 1, !range !5, !noundef !6
   %26 = trunc nuw i8 %25 to i1
   %. = select i1 %26, i64 -1, i64 %9
   %.not = icmp eq ptr %19, null
@@ -367,7 +367,7 @@ array_boundary.exit688:                           ; preds = %array_delimiter.exi
   %142 = load i16, ptr %141, align 2
   %143 = and i16 %142, 2048
   %.not.i = icmp eq i16 %143, 0
-  br i1 %.not.i, label %garbage_left.exit, label %135, !llvm.loop !8
+  br i1 %.not.i, label %garbage_left.exit, label %135, !llvm.loop !7
 
 144:                                              ; preds = %129
   br i1 %31, label %145, label %garbage_left.exit.thread694
@@ -455,7 +455,7 @@ garbage_left.exit.thread694:                      ; preds = %array_delimiter.exi
   %182 = load i16, ptr %181, align 2
   %183 = and i16 %182, 2048
   %.not.i615 = icmp eq i16 %183, 0
-  br i1 %.not.i615, label %garbage_left.exit616, label %175, !llvm.loop !8
+  br i1 %.not.i615, label %garbage_left.exit616, label %175, !llvm.loop !7
 
 184:                                              ; preds = %169
   br i1 %31, label %185, label %garbage_left.exit616.thread697
@@ -547,7 +547,7 @@ garbage_left.exit616.thread697:                   ; preds = %array_delimiter.exi
   %225 = load i16, ptr %224, align 2
   %226 = and i16 %225, 2048
   %.not.i631 = icmp eq i16 %226, 0
-  br i1 %.not.i631, label %garbage_left.exit632, label %218, !llvm.loop !8
+  br i1 %.not.i631, label %garbage_left.exit632, label %218, !llvm.loop !7
 
 227:                                              ; preds = %209
   br i1 %31, label %228, label %array_delimiter.exit684.thread721
@@ -608,7 +608,7 @@ garbage_left.exit632.thread:                      ; preds = %array_delimiter.exi
   %253 = load i16, ptr %252, align 2
   %254 = and i16 %253, 2048
   %.not.i647 = icmp eq i16 %254, 0
-  br i1 %.not.i647, label %garbage_left.exit648, label %246, !llvm.loop !8
+  br i1 %.not.i647, label %garbage_left.exit648, label %246, !llvm.loop !7
 
 255:                                              ; preds = %237
   br i1 %31, label %256, label %array_delimiter.exit684.thread721
@@ -813,7 +813,7 @@ garbage_left.exit664.thread710:                   ; preds = %280, %array_delimit
 335:                                              ; preds = %333, %333, %333, %333
   %336 = getelementptr inbounds nuw i8, ptr %.02130.i, i64 1
   %337 = icmp ult ptr %336, %332
-  br i1 %337, label %333, label %.outer._crit_edge.i, !llvm.loop !9
+  br i1 %337, label %333, label %.outer._crit_edge.i, !llvm.loop !8
 
 338:                                              ; preds = %333
   %339 = getelementptr inbounds nuw i8, ptr %.02130.i, i64 1
@@ -852,7 +852,7 @@ get_hex.exit27.i:                                 ; preds = %350, %346
   %355 = getelementptr inbounds nuw i8, ptr %.0.ph33.i, i64 1
   store i8 %354, ptr %.0.ph33.i, align 1
   %356 = icmp ult ptr %347, %332
-  br i1 %356, label %.lr.ph.i, label %.outer._crit_edge.i, !llvm.loop !9
+  br i1 %356, label %.lr.ph.i, label %.outer._crit_edge.i, !llvm.loop !8
 
 .outer._crit_edge.i:                              ; preds = %get_hex.exit27.i, %335, %326
   %.0.ph.lcssa29.i = phi ptr [ %331, %326 ], [ %.0.ph33.i, %335 ], [ %355, %get_hex.exit27.i ]
@@ -993,7 +993,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   store i8 0, ptr %.0516765, align 1
   %405 = getelementptr inbounds i8, ptr %.0516765, i64 -1
   %406 = icmp ugt ptr %405, %.0517
-  br i1 %406, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %406, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 407:                                              ; preds = %383
   %408 = call ptr @strncpy(ptr noundef %.0517, ptr noundef nonnull %.1521, i64 noundef %84) #11
@@ -1125,7 +1125,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 454:                                              ; preds = %452
   %455 = getelementptr inbounds nuw i8, ptr %.0524, i64 1
-  br label %452, !llvm.loop !11
+  br label %452, !llvm.loop !10
 
 .critedge9:                                       ; preds = %452, %452, %452
   store i8 0, ptr %.0524, align 1
@@ -1196,7 +1196,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 481:                                              ; preds = %479
   %482 = getelementptr inbounds nuw i8, ptr %.1525, i64 1
-  br label %479, !llvm.loop !12
+  br label %479, !llvm.loop !11
 
 .critedge13:                                      ; preds = %479, %479, %479, %479
   store i8 0, ptr %.1525, align 1
@@ -1265,7 +1265,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 509:                                              ; preds = %507
   %510 = getelementptr inbounds nuw i8, ptr %.2526, i64 1
-  br label %507, !llvm.loop !13
+  br label %507, !llvm.loop !12
 
 .critedge17:                                      ; preds = %507, %507, %507, %507
   store i8 0, ptr %.2526, align 1
@@ -1329,7 +1329,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 534:                                              ; preds = %532
   %535 = getelementptr inbounds nuw i8, ptr %.3527, i64 1
-  br label %532, !llvm.loop !14
+  br label %532, !llvm.loop !13
 
 .critedge21:                                      ; preds = %532, %532, %532, %532
   store i8 0, ptr %.3527, align 1
@@ -1422,7 +1422,7 @@ array_delimiter.exit:                             ; preds = %559
   %565 = getelementptr inbounds nuw i8, ptr %.7768, i64 1
   %566 = load i8, ptr %565, align 1
   %.not585 = icmp eq i8 %566, 0
-  br i1 %.not585, label %.critedge31, label %.lr.ph770, !llvm.loop !15
+  br i1 %.not585, label %.critedge31, label %.lr.ph770, !llvm.loop !14
 
 array_delimiter.exit684.thread:                   ; preds = %559
   %567 = getelementptr inbounds nuw i8, ptr %.7768, i64 1
@@ -1440,7 +1440,7 @@ array_delimiter.exit684.thread721:                ; preds = %562, %227, %garbage
   %569 = icmp eq i8 %.pr, 125
   %or.cond.i685 = and i1 %29, %569
   %or.cond733 = or i1 %.not587, %or.cond.i685
-  br i1 %or.cond733, label %.critedge31, label %array_boundary.exit688, !llvm.loop !16
+  br i1 %or.cond733, label %.critedge31, label %array_boundary.exit688, !llvm.loop !15
 
 .critedge31:                                      ; preds = %array_delimiter.exit684.thread721, %488, %garbage_left.exit632.thread700.thread, %.critedge29, %.thread, %63, %554, %541, %516, %491, %465, %464, %.thread713, %garbage_left.exit664.thread, %garbage_left.exit648.thread, %garbage_left.exit632.thread, %garbage_left.exit616.thread, %garbage_left.exit.thread, %66, %61, %60, %33, %23
   %.0514 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %66 ], [ false, %554 ], [ false, %garbage_left.exit.thread ], [ false, %garbage_left.exit616.thread ], [ false, %garbage_left.exit632.thread ], [ false, %garbage_left.exit648.thread ], [ false, %garbage_left.exit664.thread ], [ false, %.thread713 ], [ false, %464 ], [ false, %465 ], [ false, %491 ], [ false, %516 ], [ false, %541 ], [ false, %60 ], [ false, %33 ], [ true, %63 ], [ true, %.thread ], [ true, %.critedge29 ], [ true, %garbage_left.exit632.thread700.thread ], [ true, %array_delimiter.exit684.thread721 ], [ false, %488 ]
@@ -1542,17 +1542,16 @@ attributes #12 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

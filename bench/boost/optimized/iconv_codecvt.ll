@@ -674,7 +674,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6locale19mb2_iconv_converter5c
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %3, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, ptr noundef nonnull align 8 dereferenceable(1024) %5, i64 1024, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, ptr noundef nonnull align 8 dereferenceable(1024) %5, i64 1024, i1 false), !tbaa.struct !28
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1048
@@ -938,7 +938,7 @@ _ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit: ; pr
   %42 = add i32 %.024, 1
   %43 = zext i32 %42 to i64
   %44 = icmp ugt i64 %32, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 45:                                               ; preds = %._crit_edge, %31, %_ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit
   %.1 = phi i32 [ -1, %_ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit ], [ %37, %._crit_edge ], [ -2, %31 ]
@@ -1025,8 +1025,7 @@ attributes #23 = { nounwind willreturn memory(none) }
 !23 = !{!8, !8, i64 0}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"int", !9, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{i64 0, i64 1024, !20}
-!30 = distinct !{!30, !27, !28}
+!28 = !{i64 0, i64 1024, !20}
+!29 = distinct !{!29, !27}

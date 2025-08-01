@@ -64,7 +64,7 @@ define double @cs_norm(ptr noundef readonly captures(address_is_null) %0) local_
   %24 = fcmp ogt double %.02334, %.0.lcssa
   %25 = select i1 %24, double %.02334, double %.0.lcssa
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %.loopexit, label %.lr.ph36, !llvm.loop !20
+  br i1 %exitcond44.not, label %.loopexit, label %.lr.ph36, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %9, %1, %2, %6
   %.024 = phi double [ -1.000000e+00, %6 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %1 ], [ 0.000000e+00, %9 ], [ %25, %._crit_edge ]
@@ -96,7 +96,6 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !14 = !{!5, !5, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"double", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
+!19 = distinct !{!19, !18}

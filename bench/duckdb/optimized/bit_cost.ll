@@ -89,11 +89,11 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16Hi
   store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = add nuw nsw i64 %.198121, 1
   %exitcond150.not = icmp eq i64 %49, 4
-  br i1 %exitcond150.not, label %.preheader117, label %43, !llvm.loop !15
+  br i1 %exitcond150.not, label %.preheader117, label %43, !llvm.loop !14
 
 .loopexit:                                        ; preds = %59, %.preheader117
   %exitcond152.not = icmp eq i64 %50, 4
-  br i1 %exitcond152.not, label %62, label %.preheader117, !llvm.loop !16
+  br i1 %exitcond152.not, label %62, label %.preheader117, !llvm.loop !15
 
 .preheader117:                                    ; preds = %43, %.loopexit
   %.299123 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
@@ -123,7 +123,7 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16Hi
   %60 = phi i32 [ %54, %53 ], [ %56, %58 ]
   %61 = add nuw nsw i64 %.096122, 1
   %exitcond151.not = icmp eq i64 %61, 4
-  br i1 %exitcond151.not, label %.loopexit, label %53, !llvm.loop !17
+  br i1 %exitcond151.not, label %.loopexit, label %53, !llvm.loop !16
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -155,7 +155,7 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostLiteralEPKNS_16Hi
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %6
-  %85 = load double, ptr %84, align 8, !tbaa !18
+  %85 = load double, ptr %84, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 86:                                               ; preds = %81
@@ -189,7 +189,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %83, %86
 95:                                               ; preds = %93
   %96 = zext nneg i32 %92 to i64
   %97 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %96
-  %98 = load double, ptr %97, align 8, !tbaa !18
+  %98 = load double, ptr %97, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit112
 
 99:                                               ; preds = %93
@@ -227,7 +227,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
 115:                                              ; preds = %.lr.ph127
   %116 = add nuw nsw i32 %.086125, 1
   %117 = icmp samesign ult i64 %.0126.in, 254
-  br i1 %117, label %.lr.ph127, label %.critedge, !llvm.loop !19
+  br i1 %117, label %.lr.ph127, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph127, %115
   %.086.lcssa = phi i32 [ %.086125, %.lr.ph127 ], [ %116, %115 ]
@@ -258,7 +258,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
   %129 = fadd double %.5131, 3.000000e+00
   %130 = lshr i32 %.1132, 3
   %.not110 = icmp ult i32 %.1132, 8
-  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !20
+  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !19
 
 .thread:                                          ; preds = %.lr.ph133, %123, %_ZN13duckdb_brotliL8FastLog2Em.exit112
   %.lcssa139 = phi i32 [ %.lcssa141, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.lcssa141, %123 ], [ %128, %.lr.ph133 ]
@@ -266,7 +266,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
   %.295 = phi double [ %107, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.093136, %123 ], [ %129, %.lr.ph133 ]
   %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit112 ], [ %.090137, %123 ], [ %.090137, %.lr.ph133 ]
   %131 = icmp ult i64 %.4101, 256
-  br i1 %131, label %90, label %.critedge.thread, !llvm.loop !21
+  br i1 %131, label %90, label %.critedge.thread, !llvm.loop !20
 
 .critedge.thread:                                 ; preds = %.critedge, %.thread, %.preheader
   %.lcssa142 = phi i32 [ %.lcssa141, %.preheader ], [ %.lcssa139, %.thread ], [ %.lcssa141, %.critedge ]
@@ -287,7 +287,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %95, %99
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %134
-  %138 = load double, ptr %137, align 8, !tbaa !18
+  %138 = load double, ptr %137, align 8, !tbaa !17
   %.pre154 = uitofp nneg i32 %133 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
@@ -313,7 +313,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit31.i:          ; preds = %139, %136
 
 150:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
   %151 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %146
-  %152 = load double, ptr %151, align 8, !tbaa !18
+  %152 = load double, ptr %151, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
 
 153:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
@@ -325,7 +325,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %153, %150
   %155 = fneg double %148
   %156 = tail call double @llvm.fmuladd.f64(double %155, double %.0.i28.i, double %143)
   %157 = icmp samesign ult i64 %.1.idx.i145, 64
-  br i1 %157, label %132, label %158, !llvm.loop !22
+  br i1 %157, label %132, label %158, !llvm.loop !21
 
 158:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
   %159 = shl nuw nsw i64 %.090.lcssa, 1
@@ -342,7 +342,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %153, %150
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %147
-  %167 = load double, ptr %166, align 8, !tbaa !18
+  %167 = load double, ptr %166, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 168:                                              ; preds = %163
@@ -387,7 +387,7 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
   %4 = alloca [18 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  %6 = load i64, ptr %5, align 8, !tbaa !23
+  %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %178, label %.preheader118
 
@@ -411,7 +411,7 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
   %.2 = phi i32 [ %13, %10 ], [ %.088120, %.preheader118 ]
   %16 = add nuw nsw i64 %.097119, 1
   %exitcond.not = icmp eq i64 %16, 704
-  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !25
+  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !24
 
 17:                                               ; preds = %10, %15
   %.189 = phi i32 [ %13, %10 ], [ %.2, %15 ]
@@ -464,11 +464,11 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
   store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = add nuw nsw i64 %.198121, 1
   %exitcond149.not = icmp eq i64 %49, 4
-  br i1 %exitcond149.not, label %.preheader117, label %43, !llvm.loop !26
+  br i1 %exitcond149.not, label %.preheader117, label %43, !llvm.loop !25
 
 .loopexit:                                        ; preds = %59, %.preheader117
   %exitcond151.not = icmp eq i64 %50, 4
-  br i1 %exitcond151.not, label %62, label %.preheader117, !llvm.loop !27
+  br i1 %exitcond151.not, label %62, label %.preheader117, !llvm.loop !26
 
 .preheader117:                                    ; preds = %43, %.loopexit
   %.299123 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
@@ -498,7 +498,7 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
   %60 = phi i32 [ %54, %53 ], [ %56, %58 ]
   %61 = add nuw nsw i64 %.096122, 1
   %exitcond150.not = icmp eq i64 %61, 4
-  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !28
+  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !27
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -530,7 +530,7 @@ define noundef double @_ZN13duckdb_brotli27BrotliPopulationCostCommandEPKNS_16Hi
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %6
-  %85 = load double, ptr %84, align 8, !tbaa !18
+  %85 = load double, ptr %84, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit112
 
 86:                                               ; preds = %81
@@ -569,7 +569,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %83, %86
 98:                                               ; preds = %96
   %99 = zext nneg i32 %92 to i64
   %100 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %99
-  %101 = load double, ptr %100, align 8, !tbaa !18
+  %101 = load double, ptr %100, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 102:                                              ; preds = %96
@@ -607,7 +607,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
 118:                                              ; preds = %.lr.ph127
   %119 = add nuw nsw i32 %.086125, 1
   %exitcond152.not = icmp eq i64 %.0126, 703
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph127, !llvm.loop !29
+  br i1 %exitcond152.not, label %.critedge, label %.lr.ph127, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph127, %118
   %.086.lcssa = phi i32 [ %.086125, %.lr.ph127 ], [ %95, %118 ]
@@ -645,7 +645,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   %133 = fadd double %.5131, 3.000000e+00
   %134 = lshr i32 %.1132, 3
   %.not110 = icmp ult i32 %.1132, 8
-  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !30
+  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !29
 
 .thread:                                          ; preds = %.lr.ph133, %.thread159, %_ZN13duckdb_brotliL8FastLog2Em.exit
   %.lcssa139 = phi i32 [ %.lcssa141, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa141, %.thread159 ], [ %132, %.lr.ph133 ]
@@ -653,7 +653,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   %.295 = phi double [ %110, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.093136, %.thread159 ], [ %133, %.lr.ph133 ]
   %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.090137, %.thread159 ], [ %.090137, %.lr.ph133 ]
   %135 = icmp ult i64 %.4101, 704
-  br i1 %135, label %90, label %136, !llvm.loop !31
+  br i1 %135, label %90, label %136, !llvm.loop !30
 
 136:                                              ; preds = %.critedge.thread, %.critedge, %.thread
   %.lcssa142 = phi i32 [ %.lcssa141, %.critedge ], [ %.lcssa139, %.thread ], [ %.lcssa141, %.critedge.thread ]
@@ -674,7 +674,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %139
-  %143 = load double, ptr %142, align 8, !tbaa !18
+  %143 = load double, ptr %142, align 8, !tbaa !17
   %.pre154 = uitofp nneg i32 %138 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
@@ -700,7 +700,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit31.i:          ; preds = %144, %141
 
 155:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
   %156 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %151
-  %157 = load double, ptr %156, align 8, !tbaa !18
+  %157 = load double, ptr %156, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
 
 158:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
@@ -712,7 +712,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %158, %155
   %160 = fneg double %153
   %161 = tail call double @llvm.fmuladd.f64(double %160, double %.0.i28.i, double %148)
   %162 = icmp samesign ult i64 %.1.idx.i145, 64
-  br i1 %162, label %137, label %163, !llvm.loop !22
+  br i1 %162, label %137, label %163, !llvm.loop !21
 
 163:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
   %164 = shl nuw nsw i64 %.090.lcssa, 1
@@ -729,7 +729,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %158, %155
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %152
-  %172 = load double, ptr %171, align 8, !tbaa !18
+  %172 = load double, ptr %171, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 173:                                              ; preds = %168
@@ -762,7 +762,7 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
   %4 = alloca [18 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %6 = load i64, ptr %5, align 8, !tbaa !32
+  %6 = load i64, ptr %5, align 8, !tbaa !31
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %178, label %.preheader118
 
@@ -786,7 +786,7 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
   %.2 = phi i32 [ %13, %10 ], [ %.088120, %.preheader118 ]
   %16 = add nuw nsw i64 %.097119, 1
   %exitcond.not = icmp eq i64 %16, 544
-  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !34
+  br i1 %exitcond.not, label %17, label %.preheader118, !llvm.loop !33
 
 17:                                               ; preds = %10, %15
   %.189 = phi i32 [ %13, %10 ], [ %.2, %15 ]
@@ -839,11 +839,11 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
   store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = add nuw nsw i64 %.198121, 1
   %exitcond149.not = icmp eq i64 %49, 4
-  br i1 %exitcond149.not, label %.preheader117, label %43, !llvm.loop !35
+  br i1 %exitcond149.not, label %.preheader117, label %43, !llvm.loop !34
 
 .loopexit:                                        ; preds = %59, %.preheader117
   %exitcond151.not = icmp eq i64 %50, 4
-  br i1 %exitcond151.not, label %62, label %.preheader117, !llvm.loop !36
+  br i1 %exitcond151.not, label %62, label %.preheader117, !llvm.loop !35
 
 .preheader117:                                    ; preds = %43, %.loopexit
   %.299123 = phi i64 [ %50, %.loopexit ], [ 0, %43 ]
@@ -873,7 +873,7 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
   %60 = phi i32 [ %54, %53 ], [ %56, %58 ]
   %61 = add nuw nsw i64 %.096122, 1
   %exitcond150.not = icmp eq i64 %61, 4
-  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !37
+  br i1 %exitcond150.not, label %.loopexit, label %53, !llvm.loop !36
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -905,7 +905,7 @@ define noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17H
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %6
-  %85 = load double, ptr %84, align 8, !tbaa !18
+  %85 = load double, ptr %84, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit112
 
 86:                                               ; preds = %81
@@ -944,7 +944,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit112:           ; preds = %83, %86
 98:                                               ; preds = %96
   %99 = zext nneg i32 %92 to i64
   %100 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %99
-  %101 = load double, ptr %100, align 8, !tbaa !18
+  %101 = load double, ptr %100, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 102:                                              ; preds = %96
@@ -982,7 +982,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
 118:                                              ; preds = %.lr.ph127
   %119 = add nuw nsw i32 %.086125, 1
   %exitcond152.not = icmp eq i64 %.0126, 543
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph127, !llvm.loop !38
+  br i1 %exitcond152.not, label %.critedge, label %.lr.ph127, !llvm.loop !37
 
 .critedge:                                        ; preds = %.lr.ph127, %118
   %.086.lcssa = phi i32 [ %.086125, %.lr.ph127 ], [ %95, %118 ]
@@ -1020,7 +1020,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   %133 = fadd double %.5131, 3.000000e+00
   %134 = lshr i32 %.1132, 3
   %.not110 = icmp ult i32 %.1132, 8
-  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !39
+  br i1 %.not110, label %.thread, label %.lr.ph133, !llvm.loop !38
 
 .thread:                                          ; preds = %.lr.ph133, %.thread159, %_ZN13duckdb_brotliL8FastLog2Em.exit
   %.lcssa139 = phi i32 [ %.lcssa141, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.lcssa141, %.thread159 ], [ %132, %.lr.ph133 ]
@@ -1028,7 +1028,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
   %.295 = phi double [ %110, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.093136, %.thread159 ], [ %133, %.lr.ph133 ]
   %.292 = phi i64 [ %spec.select, %_ZN13duckdb_brotliL8FastLog2Em.exit ], [ %.090137, %.thread159 ], [ %.090137, %.lr.ph133 ]
   %135 = icmp ult i64 %.4101, 544
-  br i1 %135, label %90, label %136, !llvm.loop !40
+  br i1 %135, label %90, label %136, !llvm.loop !39
 
 136:                                              ; preds = %.critedge.thread, %.critedge, %.thread
   %.lcssa142 = phi i32 [ %.lcssa141, %.critedge ], [ %.lcssa139, %.thread ], [ %.lcssa141, %.critedge.thread ]
@@ -1049,7 +1049,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %98, %102
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %139
-  %143 = load double, ptr %142, align 8, !tbaa !18
+  %143 = load double, ptr %142, align 8, !tbaa !17
   %.pre154 = uitofp nneg i32 %138 to double
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
 
@@ -1075,7 +1075,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit31.i:          ; preds = %144, %141
 
 155:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
   %156 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %151
-  %157 = load double, ptr %156, align 8, !tbaa !18
+  %157 = load double, ptr %156, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
 
 158:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit31.i
@@ -1087,7 +1087,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %158, %155
   %160 = fneg double %153
   %161 = tail call double @llvm.fmuladd.f64(double %160, double %.0.i28.i, double %148)
   %162 = icmp samesign ult i64 %.1.idx.i145, 64
-  br i1 %162, label %137, label %163, !llvm.loop !22
+  br i1 %162, label %137, label %163, !llvm.loop !21
 
 163:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit29.i
   %164 = shl nuw nsw i64 %.090.lcssa, 1
@@ -1104,7 +1104,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit29.i:          ; preds = %158, %155
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %152
-  %172 = load double, ptr %171, align 8, !tbaa !18
+  %172 = load double, ptr %171, align 8, !tbaa !17
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 173:                                              ; preds = %168
@@ -1164,32 +1164,31 @@ attributes #6 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !5, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
-!17 = distinct !{!17, !13, !14}
-!18 = !{!8, !8, i64 0}
-!19 = distinct !{!19, !13, !14}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14}
-!22 = distinct !{!22, !13, !14}
-!23 = !{!24, !7, i64 2816}
-!24 = !{!"_ZTSN13duckdb_brotli16HistogramCommandE", !5, i64 0, !7, i64 2816, !8, i64 2824}
-!25 = distinct !{!25, !13, !14}
-!26 = distinct !{!26, !13, !14}
-!27 = distinct !{!27, !13, !14}
-!28 = distinct !{!28, !13, !14}
-!29 = distinct !{!29, !13, !14}
-!30 = distinct !{!30, !13, !14}
-!31 = distinct !{!31, !13, !14}
-!32 = !{!33, !7, i64 2176}
-!33 = !{!"_ZTSN13duckdb_brotli17HistogramDistanceE", !5, i64 0, !7, i64 2176, !8, i64 2184}
-!34 = distinct !{!34, !13, !14}
-!35 = distinct !{!35, !13, !14}
-!36 = distinct !{!36, !13, !14}
-!37 = distinct !{!37, !13, !14}
-!38 = distinct !{!38, !13, !14}
-!39 = distinct !{!39, !13, !14}
-!40 = distinct !{!40, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = !{!8, !8, i64 0}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}
+!22 = !{!23, !7, i64 2816}
+!23 = !{!"_ZTSN13duckdb_brotli16HistogramCommandE", !5, i64 0, !7, i64 2816, !8, i64 2824}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !13}
+!28 = distinct !{!28, !13}
+!29 = distinct !{!29, !13}
+!30 = distinct !{!30, !13}
+!31 = !{!32, !7, i64 2176}
+!32 = !{!"_ZTSN13duckdb_brotli17HistogramDistanceE", !5, i64 0, !7, i64 2176, !8, i64 2184}
+!33 = distinct !{!33, !13}
+!34 = distinct !{!34, !13}
+!35 = distinct !{!35, !13}
+!36 = distinct !{!36, !13}
+!37 = distinct !{!37, !13}
+!38 = distinct !{!38, !13}
+!39 = distinct !{!39, !13}

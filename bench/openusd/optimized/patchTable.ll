@@ -940,7 +940,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
   %sext = shl i64 %290, 29
   %291 = ashr i64 %sext, 32
   %292 = icmp slt i64 %indvars.iv.next, %291
-  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %285, %.preheader, %245
   ret void
@@ -1130,7 +1130,7 @@ _ZSt10_ConstructIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEJRKS4_EE
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %19, %18
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESt6vectorIS6_SaIS6_EEEEPS6_S6_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESt6vectorIS6_SaIS6_EEEEPS6_S6_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
 21:                                               ; preds = %.lr.ph.i.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -1768,14 +1768,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %28, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %31 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !26, !noalias !23
-  store i64 %31, ptr %.012.i.i.i.i.i, align 8, !alias.scope !23, !noalias !26
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %31 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !25, !noalias !22
+  store i64 %31, ptr %.012.i.i.i.i.i, align 8, !alias.scope !22, !noalias !25
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i
   %.not.i35.i = icmp eq ptr %5, null
@@ -1853,7 +1853,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i: ;
 _ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i: ; preds = %15, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %21, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1926,7 +1926,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i: ; pre
 _ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i: ; preds = %13, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %.05.i, i64 64
   %.not.i = icmp eq ptr %19, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEEvT_S8_.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEEvT_S8_.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEEvT_S8_.exit: ; preds = %_ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i, %2
   ret void
@@ -2374,7 +2374,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i: ; p
 _ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i: ; preds = %14, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 64
   %.not.i.i = icmp eq ptr %20, %1
-  br i1 %.not.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_.exit, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_.exit: ; preds = %_ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i, %3
   ret void
@@ -2445,7 +2445,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableD2Ev(ptr noundef nonnull read
   %sext = shl i64 %38, 29
   %39 = ashr i64 %sext, 32
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %33, %15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -2533,7 +2533,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i.i:
 _ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i.i: ; preds = %78, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i.i
   %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %84, %67
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %64, align 8
@@ -2710,7 +2710,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE11_
   %25 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %17
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE20_M_allocate_and_copyIPKS4_EEPS4_mT_SB_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE20_M_allocate_and_copyIPKS4_EEPS4_mT_SB_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE20_M_allocate_and_copyIPKS4_EEPS4_mT_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE11_M_allocateEm.exit.i.i
   %.not.i.i = icmp eq ptr %10, null
@@ -2947,7 +2947,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i.i.
 _ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i.i.i: ; preds = %29, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %35, %6
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i.i.i
   store ptr %18, ptr %5, align 8
@@ -3020,7 +3020,7 @@ _ZSt10_ConstructIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEJRKS4_EE
   %29 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 64
   %30 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !32
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 31:                                               ; preds = %.lr.ph.i.i.i.i.i
   %32 = landingpad { ptr, i32 }
@@ -3102,7 +3102,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i: ;
 _ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i: ; preds = %57, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EED2Ev.exit.i.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %63, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !28
 
 _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvPT_.exit.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE12_M_check_lenEmPKc.exit
   %.not.i45 = icmp eq ptr %6, null
@@ -3294,7 +3294,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS
   store i64 %25, ptr %.06.i.i.i.i.i.i.i, align 4
   %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %26, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !33
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !32
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
@@ -3333,7 +3333,7 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE12_M_check_lenEmPKc.e
   store i64 %40, ptr %.06.i.i.i.i.i.i.i32, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 8
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %41, %39
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !33
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !32
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchParamEmS3_ET_S5_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE12_M_check_lenEmPKc.exit
   %42 = icmp sgt i64 %9, 0
@@ -3507,7 +3507,7 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE12_M_chec
   %28 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 20
   %29 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i = icmp eq ptr %28, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE12_M_check_lenEmPKc.exit ], [ %29, %.lr.ph.i.i.i.i.i ]
@@ -3526,7 +3526,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10
   %34 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 20
   %35 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 20
   %.not.i.i.i.i.i32 = icmp eq ptr %34, %5
-  br i1 %.not.i.i.i.i.i32, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, label %.lr.ph.i.i.i.i.i29, !llvm.loop !31
+  br i1 %.not.i.i.i.i.i32, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, label %.lr.ph.i.i.i.i.i29, !llvm.loop !30
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit34: ; preds = %.lr.ph.i.i.i.i.i29, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit
   %.0.lcssa.i.i.i.i.i33 = phi ptr [ %30, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %35, %.lr.ph.i.i.i.i.i29 ]
@@ -3692,7 +3692,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10OpenSubdiv6v3_6_03Fa
 18:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !33
 
 ._crit_edge.loopexit.split.loop.exit10:           ; preds = %14
   %19 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4413,7 +4413,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %90 = add nuw nsw i32 %.03147, 1
   %91 = load i32, ptr %23, align 4
   %92 = icmp slt i32 %90, %91
-  br i1 %92, label %27, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %92, label %27, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %89
   %.pre = load ptr, ptr %7, align 8
@@ -4431,7 +4431,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %sext = shl i64 %98, 32
   %99 = ashr exact i64 %sext, 32
   %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %18, label %._crit_edge50, !llvm.loop !36
+  br i1 %100, label %18, label %._crit_edge50, !llvm.loop !35
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
   ret void
@@ -4853,7 +4853,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable5printEv(ptr noundef nonnull
   %sext = shl i64 %41, 32
   %42 = ashr exact i64 %sext, 32
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -4930,23 +4930,22 @@ attributes #27 = { builtin nounwind }
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZNK10OpenSubdiv6v3_6_03Far10PatchTable25GetVaryingPatchDescriptorEv: argument 0"}
 !17 = distinct !{!17, !"_ZNK10OpenSubdiv6v3_6_03Far10PatchTable25GetVaryingPatchDescriptorEv"}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_"}
-!26 = !{!27}
-!27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!28 = distinct !{!28, !19, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19, !20}
-!31 = distinct !{!31, !19, !20}
-!32 = distinct !{!32, !19, !20}
-!33 = distinct !{!33, !19, !20}
-!34 = distinct !{!34, !19, !20}
-!35 = distinct !{!35, !19, !20}
-!36 = distinct !{!36, !19, !20}
-!37 = distinct !{!37, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!24 = distinct !{!24, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_"}
+!25 = !{!26}
+!26 = distinct !{!26, !24, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}

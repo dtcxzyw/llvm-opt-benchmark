@@ -492,7 +492,7 @@ bytestream2_put_byte.exit138:                     ; preds = %bytestream2_get_be3
   %.sroa.0.36 = phi ptr [ %243, %242 ], [ %.sroa.0.2504, %bytestream2_get_be32.exit ]
   %244 = add nuw nsw i32 %.068505, 1
   %exitcond519.not = icmp eq i32 %244, 64
-  br i1 %exitcond519.not, label %224, label %230, !llvm.loop !34
+  br i1 %exitcond519.not, label %224, label %230, !llvm.loop !33
 
 245:                                              ; preds = %bytestream2_put_byte.exit142
   store i32 0, ptr %.071.sroa.phi342, align 4, !tbaa !27
@@ -532,7 +532,7 @@ bytestream2_put_byte.exit138:                     ; preds = %bytestream2_get_be3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond522.not = icmp eq i32 %257, %lftr.wideiv
-  br i1 %exitcond522.not, label %.critedge, label %262, !llvm.loop !35
+  br i1 %exitcond522.not, label %.critedge, label %262, !llvm.loop !34
 
 bytestream2_put_byte.exit140:                     ; preds = %bytestream2_put_byte.exit140.preheader, %bytestream2_put_byte.exit142
   %.067509 = phi i32 [ %280, %bytestream2_put_byte.exit142 ], [ 0, %bytestream2_put_byte.exit140.preheader ]
@@ -571,7 +571,7 @@ bytestream2_put_byte.exit142:                     ; preds = %bytestream2_get_be3
   %.sroa.0.38 = phi ptr [ %279, %278 ], [ %.sroa.0.3508, %bytestream2_get_be32.exit145 ]
   %280 = add nuw nsw i32 %.067509, 1
   %exitcond520.not = icmp eq i32 %280, 64
-  br i1 %exitcond520.not, label %245, label %bytestream2_put_byte.exit140, !llvm.loop !37
+  br i1 %exitcond520.not, label %245, label %bytestream2_put_byte.exit140, !llvm.loop !36
 
 .critedge.loopexit.split.loop.exit:               ; preds = %262
   %281 = trunc nsw i64 %indvars.iv to i32
@@ -636,7 +636,7 @@ bytestream2_put_be64.exit:                        ; preds = %.critedge, %298, %b
   %311 = load ptr, ptr %3, align 8, !tbaa !20
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 32
   %313 = load i32, ptr %312, align 8, !tbaa !22
-  br label %36, !llvm.loop !38
+  br label %36
 
 314:                                              ; preds = %bytestream2_put_be64.exit
   %315 = call i32 @llvm.bswap.i32(i32 %.073)
@@ -843,11 +843,9 @@ attributes #9 = { noreturn nounwind }
 !28 = !{!5, !11, i64 24}
 !29 = !{!15, !13, i64 76}
 !30 = !{!15, !13, i64 72}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !32, !33}
-!38 = distinct !{!38, !33}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !32}

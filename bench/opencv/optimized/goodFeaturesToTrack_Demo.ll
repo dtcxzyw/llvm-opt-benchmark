@@ -1507,6 +1507,5 @@ attributes #17 = { noreturn }
 !62 = !{!"_ZTSN2cv3RNGE", !11, i64 0}
 !63 = !{!64, !64, i64 0}
 !64 = !{!"double", !8, i64 0}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}

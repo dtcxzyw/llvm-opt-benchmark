@@ -896,7 +896,7 @@ define { i32, i32 } @_ZN4rope5point5Point9parse_str17h7de359ddfe6263d3E(ptr noal
 12:                                               ; preds = %.lr.ph.i.i.i.i.i
   %13 = add nuw i64 %.sroa.01.05.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %13, %6
-  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !233
+  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i: ; preds = %.lr.ph.split.split.i.i.i.i
   %14 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hefa91f9719f66b93E(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %6), !noalias !222
@@ -915,7 +915,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds 
   br i1 %or.cond93.i.i.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he6168e1e495ddcffE.exit.i.i.i.i", label %20
 
 20:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he6168e1e495ddcffE.exit.i.i.i.i", %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i
-  br i1 %.not13.i.i.i.i, label %.loopexit, label %.lr.ph.split.split.i.i.i.i, !llvm.loop !235
+  br i1 %.not13.i.i.i.i, label %.loopexit, label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he6168e1e495ddcffE.exit.i.i.i.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %0, i64 %19
@@ -942,7 +942,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds 
   %29 = phi i64 [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i" ], [ %18, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he6168e1e495ddcffE.exit.i.i.i.i" ]
   %30 = add i64 %4, 1
   %31 = icmp ult i64 %1, %.sroa.2.sroa.3.sroa.3.0.copyload14
-  br i1 %31, label %.loopexit, label %.lr.ph.split.split.i.i.i.i.preheader, !llvm.loop !236
+  br i1 %31, label %.loopexit, label %.lr.ph.split.split.i.i.i.i.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1046,17 +1046,17 @@ define void @"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssig
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !alias.scope !237, !noundef !4
+  %9 = load i32, ptr %8, align 4, !alias.scope !233, !noundef !4
   %10 = add i32 %9, %5
-  store i32 %10, ptr %8, align 4, !alias.scope !237
+  store i32 %10, ptr %8, align 4, !alias.scope !233
   br label %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit"
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 4, !alias.scope !237, !noundef !4
+  %12 = load i32, ptr %0, align 4, !alias.scope !233, !noundef !4
   %13 = add i32 %12, %3
-  store i32 %13, ptr %0, align 4, !alias.scope !237
+  store i32 %13, ptr %0, align 4, !alias.scope !233
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %5, ptr %14, align 4, !alias.scope !237
+  store i32 %5, ptr %14, align 4, !alias.scope !233
   br label %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit"
 
 "_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit": ; preds = %7, %11
@@ -1089,20 +1089,20 @@ define void @"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssig
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
 define noundef range(i8 -1, 2) i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
-  %3 = load i32, ptr %0, align 4, !alias.scope !240, !noalias !243, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
+  %3 = load i32, ptr %0, align 4, !alias.scope !236, !noalias !239, !noundef !4
   %4 = zext i32 %3 to i64
   %5 = shl nuw i64 %4, 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !alias.scope !240, !noalias !243, !noundef !4
+  %7 = load i32, ptr %6, align 4, !alias.scope !236, !noalias !239, !noundef !4
   %8 = zext i32 %7 to i64
   %9 = or disjoint i64 %5, %8
-  %10 = load i32, ptr %1, align 4, !alias.scope !243, !noalias !240, !noundef !4
+  %10 = load i32, ptr %1, align 4, !alias.scope !239, !noalias !236, !noundef !4
   %11 = zext i32 %10 to i64
   %12 = shl nuw i64 %11, 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4, !alias.scope !243, !noalias !240, !noundef !4
+  %14 = load i32, ptr %13, align 4, !alias.scope !239, !noalias !236, !noundef !4
   %15 = zext i32 %14 to i64
   %16 = or disjoint i64 %12, %15
   %17 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %16)
@@ -1145,17 +1145,17 @@ define void @"_ZN4rope94_$LT$impl$u20$sum_tree..Dimension$LT$rope..ChunkSummary$
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4, !alias.scope !245, !noundef !4
+  %11 = load i32, ptr %10, align 4, !alias.scope !241, !noundef !4
   %12 = add i32 %11, %7
-  store i32 %12, ptr %10, align 4, !alias.scope !245
+  store i32 %12, ptr %10, align 4, !alias.scope !241
   br label %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit"
 
 13:                                               ; preds = %3
-  %14 = load i32, ptr %0, align 4, !alias.scope !245, !noundef !4
+  %14 = load i32, ptr %0, align 4, !alias.scope !241, !noundef !4
   %15 = add i32 %14, %5
-  store i32 %15, ptr %0, align 4, !alias.scope !245
+  store i32 %15, ptr %0, align 4, !alias.scope !241
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %7, ptr %16, align 4, !alias.scope !245
+  store i32 %7, ptr %16, align 4, !alias.scope !241
   br label %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit"
 
 "_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit": ; preds = %9, %13
@@ -1175,27 +1175,27 @@ define { i32, i32 } @"_ZN58_$LT$rope..point..Point$u20$as$u20$rope..TextDimensio
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @"_ZN58_$LT$rope..point..Point$u20$as$u20$rope..TextDimension$GT$10add_assign17h5db4bc78da3b9ecbE"(ptr noalias noundef align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #4 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  %3 = load i32, ptr %1, align 4, !alias.scope !251, !noalias !248, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
+  %3 = load i32, ptr %1, align 4, !alias.scope !247, !noalias !244, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4, !alias.scope !251, !noalias !248, !noundef !4
+  %5 = load i32, ptr %4, align 4, !alias.scope !247, !noalias !244, !noundef !4
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !alias.scope !253, !noalias !251, !noundef !4
+  %9 = load i32, ptr %8, align 4, !alias.scope !249, !noalias !247, !noundef !4
   %10 = add i32 %9, %5
-  store i32 %10, ptr %8, align 4, !alias.scope !253, !noalias !251
+  store i32 %10, ptr %8, align 4, !alias.scope !249, !noalias !247
   br label %"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E.exit"
 
 11:                                               ; preds = %2
-  %12 = load i32, ptr %0, align 4, !alias.scope !253, !noalias !251, !noundef !4
+  %12 = load i32, ptr %0, align 4, !alias.scope !249, !noalias !247, !noundef !4
   %13 = add i32 %12, %3
-  store i32 %13, ptr %0, align 4, !alias.scope !253, !noalias !251
+  store i32 %13, ptr %0, align 4, !alias.scope !249, !noalias !247
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %5, ptr %14, align 4, !alias.scope !253, !noalias !251
+  store i32 %5, ptr %14, align 4, !alias.scope !249, !noalias !247
   br label %"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E.exit"
 
 "_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E.exit": ; preds = %7, %11
@@ -1558,26 +1558,22 @@ attributes #25 = { cold noreturn nounwind }
 !230 = distinct !{!230, !231, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c9a9718b608aa65E: argument 0"}
 !231 = distinct !{!231, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c9a9718b608aa65E"}
 !232 = distinct !{!232, !231, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c9a9718b608aa65E: argument 1"}
-!233 = distinct !{!233, !234}
-!234 = !{!"llvm.loop.estimated_trip_count"}
-!235 = distinct !{!235, !234}
-!236 = distinct !{!236, !234}
-!237 = !{!238}
-!238 = distinct !{!238, !239, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E: argument 0"}
-!239 = distinct !{!239, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"}
-!240 = !{!241}
-!241 = distinct !{!241, !242, !"_ZN53_$LT$rope..point..Point$u20$as$u20$core..cmp..Ord$GT$3cmp17h2d4d932e52912379E: argument 0"}
-!242 = distinct !{!242, !"_ZN53_$LT$rope..point..Point$u20$as$u20$core..cmp..Ord$GT$3cmp17h2d4d932e52912379E"}
-!243 = !{!244}
-!244 = distinct !{!244, !242, !"_ZN53_$LT$rope..point..Point$u20$as$u20$core..cmp..Ord$GT$3cmp17h2d4d932e52912379E: argument 1"}
-!245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E: argument 0"}
-!247 = distinct !{!247, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"}
-!248 = !{!249}
-!249 = distinct !{!249, !250, !"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E: argument 0"}
-!250 = distinct !{!250, !"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E"}
-!251 = !{!252}
-!252 = distinct !{!252, !250, !"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E: argument 1"}
-!253 = !{!254, !249}
-!254 = distinct !{!254, !255, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E: argument 0"}
-!255 = distinct !{!255, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"}
+!233 = !{!234}
+!234 = distinct !{!234, !235, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E: argument 0"}
+!235 = distinct !{!235, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"}
+!236 = !{!237}
+!237 = distinct !{!237, !238, !"_ZN53_$LT$rope..point..Point$u20$as$u20$core..cmp..Ord$GT$3cmp17h2d4d932e52912379E: argument 0"}
+!238 = distinct !{!238, !"_ZN53_$LT$rope..point..Point$u20$as$u20$core..cmp..Ord$GT$3cmp17h2d4d932e52912379E"}
+!239 = !{!240}
+!240 = distinct !{!240, !238, !"_ZN53_$LT$rope..point..Point$u20$as$u20$core..cmp..Ord$GT$3cmp17h2d4d932e52912379E: argument 1"}
+!241 = !{!242}
+!242 = distinct !{!242, !243, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E: argument 0"}
+!243 = distinct !{!243, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E: argument 0"}
+!246 = distinct !{!246, !"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E"}
+!247 = !{!248}
+!248 = distinct !{!248, !246, !"_ZN96_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$rope..point..Point$GT$$GT$10add_assign17hfc87d76d429b6325E: argument 1"}
+!249 = !{!250, !245}
+!250 = distinct !{!250, !251, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E: argument 0"}
+!251 = distinct !{!251, !"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E"}

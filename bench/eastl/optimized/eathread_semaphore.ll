@@ -323,7 +323,7 @@ land.rhs:                                         ; preds = %while.cond
   %call3 = tail call ptr @__errno_location() #14
   %3 = load i32, ptr %call3, align 4
   %cmp4 = icmp eq i32 %3, 4
-  br i1 %cmp4, label %while.cond, label %return, !llvm.loop !8
+  br i1 %cmp4, label %while.cond, label %return, !llvm.loop !7
 
 if.else:                                          ; preds = %entry
   %cmp.i7 = icmp eq i64 %0, 0
@@ -352,7 +352,7 @@ land.rhs25:                                       ; preds = %while.cond20
   %call26 = tail call ptr @__errno_location() #14
   %6 = load i32, ptr %call26, align 4
   %cmp27 = icmp eq i32 %6, 4
-  br i1 %cmp27, label %while.cond20, label %if.then32, !llvm.loop !9
+  br i1 %cmp27, label %while.cond20, label %if.then32, !llvm.loop !8
 
 if.then32:                                        ; preds = %land.rhs25
   %cmp34 = icmp eq i32 %6, 110
@@ -402,7 +402,7 @@ while.body:                                       ; preds = %while.cond
   %2 = atomicrmw add ptr %mnCount, i32 1 seq_cst, align 4
   %call8 = tail call i32 @sem_post(ptr noundef nonnull %this) #13
   %cmp9 = icmp eq i32 %call8, -1
-  br i1 %cmp9, label %if.then10, label %while.cond, !llvm.loop !10
+  br i1 %cmp9, label %if.then10, label %while.cond, !llvm.loop !9
 
 if.then10:                                        ; preds = %while.body
   %3 = atomicrmw sub ptr %mnCount, i32 1 seq_cst, align 4
@@ -710,9 +710,8 @@ attributes #17 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

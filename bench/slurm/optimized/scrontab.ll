@@ -529,11 +529,11 @@ _reset_options.exit.i:                            ; preds = %148
     i8 9, label %.critedge.i
     i8 0, label %.loopexit.i
     i8 10, label %.loopexit.i
-  ], !llvm.loop !12
+  ], !llvm.loop !11
 
 .critedge.i:                                      ; preds = %155, %155
   %157 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 1
-  br label %155, !llvm.loop !13
+  br label %155, !llvm.loop !12
 
 158:                                              ; preds = %155
   %159 = call i32 @xstrncmp(ptr noundef nonnull %.0110.i, ptr noundef nonnull @.str.21, i64 noundef 6) #16
@@ -556,12 +556,12 @@ _reset_options.exit.i:                            ; preds = %148
 166:                                              ; preds = %160
   %167 = icmp eq i32 %.0100190.i, -1
   %spec.select.i = select i1 %167, i32 %162, i32 %.0100190.i
-  br label %.loopexit.i, !llvm.loop !12
+  br label %.loopexit.i, !llvm.loop !11
 
 168:                                              ; preds = %158
   %169 = load i8, ptr %.0110.i, align 1
   %170 = icmp eq i8 %169, 35
-  br i1 %170, label %.loopexit.i, label %171, !llvm.loop !12
+  br i1 %170, label %.loopexit.i, label %171, !llvm.loop !11
 
 171:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
@@ -774,7 +774,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26)
   %252 = load ptr, ptr @stdin, align 8
   %253 = call i32 @getc(ptr noundef %252)
-  br label %244, !llvm.loop !14
+  br label %244, !llvm.loop !13
 
 .critedge4.i:                                     ; preds = %244, %244
   %254 = icmp eq i32 %sext145.i, 1845493760
@@ -792,7 +792,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
 
 .backedge.i:                                      ; preds = %295, %256
   %.pre.i = load ptr, ptr %4, align 8
-  br label %118, !llvm.loop !15
+  br label %118
 
 258:                                              ; preds = %234
   %259 = load i32, ptr @uid, align 4
@@ -861,7 +861,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %290 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %286, ptr noundef %288, ptr noundef %289)
   %291 = load ptr, ptr @stdin, align 8
   %292 = call i32 @getc(ptr noundef %291)
-  br label %279, !llvm.loop !16
+  br label %279, !llvm.loop !14
 
 .critedge6.i:                                     ; preds = %279, %279
   %293 = icmp eq i32 %sext.i, 1845493760
@@ -913,7 +913,7 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   %309 = load i32, ptr %302, align 8
   %310 = zext i32 %309 to i64
   %311 = icmp samesign ult i64 %indvars.iv.next221.i, %310
-  br i1 %311, label %305, label %._crit_edge.i, !llvm.loop !17
+  br i1 %311, label %305, label %._crit_edge.i, !llvm.loop !15
 
 312:                                              ; preds = %._crit_edge.i
   call void @list_destroy(ptr noundef nonnull %140) #16
@@ -1017,7 +1017,7 @@ define internal fastcc void @_update_crontab_with_disabled_lines(ptr noundef non
   %29 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 31:                                               ; preds = %._crit_edge
   call void @slurm_bit_free(ptr noundef nonnull %6) #16
@@ -1120,7 +1120,7 @@ define internal fastcc ptr @_read_fd(i32 noundef range(i32 0, -2147483648) %0) u
   %16 = sub nsw i64 %.pre-phi, %7
   %17 = call i64 @read(i32 noundef %0, ptr noundef nonnull %15, i64 noundef %16) #16
   %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %18, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %13
   %.pre = load ptr, ptr %2, align 8
@@ -1262,7 +1262,7 @@ define internal fastcc void @_edit_crontab(ptr noundef nonnull %0) unnamed_addr 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %41, %38
-  br label %.lr.ph.split, !llvm.loop !20
+  br label %.lr.ph.split, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.split.us, %18
   %45 = call i32 @close(i32 noundef %14) #16
@@ -1549,16 +1549,14 @@ attributes #21 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
 !12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

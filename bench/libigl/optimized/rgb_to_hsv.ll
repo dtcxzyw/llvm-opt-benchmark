@@ -362,9 +362,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl10rgb_to_hsvIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !25
+  %6 = load i64, ptr %5, align 8, !tbaa !24
   %7 = icmp eq i64 %4, 0
   %8 = icmp eq i64 %6, 0
   %or.cond.i.i = or i1 %7, %8
@@ -384,16 +384,16 @@ define weak_odr dso_local void @_ZN3igl10rgb_to_hsvIN5Eigen6MatrixIfLin1ELin1ELi
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS2_EEvRKNS_9EigenBaseIT_EE.exit: ; preds = %2, %9
   %14 = mul nsw i64 %6, %4
   tail call void @_ZN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14, i64 noundef %4, i64 noundef %6)
-  %15 = load i64, ptr %3, align 8, !tbaa !22
+  %15 = load i64, ptr %3, align 8, !tbaa !21
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS2_EEvRKNS_9EigenBaseIT_EE.exit
-  %17 = load ptr, ptr %0, align 8, !tbaa !26
+  %17 = load ptr, ptr %0, align 8, !tbaa !25
   %.idx = shl i64 %15, 3
-  %18 = load ptr, ptr %1, align 8, !tbaa !26
+  %18 = load ptr, ptr %1, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !22
+  %20 = load i64, ptr %19, align 8, !tbaa !21
   %.idx20 = shl i64 %20, 3
   br label %21
 
@@ -494,7 +494,7 @@ _ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit:           ; preds = %34, %72, %76, %81, 
   store float %32, ptr %88, align 4, !tbaa !4
   %89 = add nuw nsw i64 %.021, 1
   %exitcond.not = icmp eq i64 %89, %15
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -599,7 +599,7 @@ _ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit:           ; preds = %17, %55, %59, %64, 
   store float %15, ptr %71, align 4, !tbaa !4
   %72 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %72, 64
-  br i1 %exitcond.not, label %3, label %4, !llvm.loop !28
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !27
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -670,15 +670,15 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !22
+  %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !25
+  %8 = load i64, ptr %7, align 8, !tbaa !24
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8, !tbaa !26
+  %11 = load ptr, ptr %0, align 8, !tbaa !25
   tail call void @free(ptr noundef %11) #8
   %12 = icmp sgt i64 %1, 0
   br i1 %12, label %13, label %.sink.split
@@ -707,12 +707,12 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i: ; preds = %13
 
 .sink.split:                                      ; preds = %10, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i
   %.sink = phi ptr [ %18, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i ], [ null, %10 ]
-  store ptr %.sink, ptr %0, align 8, !tbaa !26
+  store ptr %.sink, ptr %0, align 8, !tbaa !25
   br label %22
 
 22:                                               ; preds = %.sink.split, %4
-  store i64 %2, ptr %5, align 8, !tbaa !22
-  store i64 %3, ptr %7, align 8, !tbaa !25
+  store i64 %2, ptr %5, align 8, !tbaa !21
+  store i64 %3, ptr %7, align 8, !tbaa !24
   ret void
 }
 
@@ -749,13 +749,12 @@ attributes #10 = { nounwind allocsize(0) }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"vtable pointer", !7, i64 0}
 !18 = !{!11, !12, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !14, i64 8}
-!23 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EEE", !24, i64 0, !14, i64 8, !14, i64 16}
-!24 = !{!"p1 float", !13, i64 0}
-!25 = !{!23, !14, i64 16}
-!26 = !{!23, !24, i64 0}
-!27 = distinct !{!27, !20, !21}
-!28 = distinct !{!28, !20, !21}
+!21 = !{!22, !14, i64 8}
+!22 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EEE", !23, i64 0, !14, i64 8, !14, i64 16}
+!23 = !{!"p1 float", !13, i64 0}
+!24 = !{!22, !14, i64 16}
+!25 = !{!22, !23, i64 0}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}

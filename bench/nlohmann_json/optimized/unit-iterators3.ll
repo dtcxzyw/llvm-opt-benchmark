@@ -2845,7 +2845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
   store i8 %42, ptr %45, align 1, !tbaa !54
   %46 = add i32 %.01819.i.i, -2
   %47 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %47, label %.lr.ph.i11.i, label %._crit_edge.i.i, !llvm.loop !81
+  br i1 %47, label %.lr.ph.i11.i, label %._crit_edge.i.i, !llvm.loop !80
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i
   %.0.lcssa.i.i = phi i32 [ %6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i ], [ %33, %.lr.ph.i11.i ]
@@ -3316,19 +3316,19 @@ define internal void @_GLOBAL__sub_I_unit_iterators3.cpp() #16 section ".text.st
   %11 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull @.str)
   %12 = call noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40) %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #20
-  store i32 0, ptr @_ZL18DOCTEST_ANON_VAR_0, align 4, !tbaa !82
+  store i32 0, ptr @_ZL18DOCTEST_ANON_VAR_0, align 4, !tbaa !81
   %13 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZL18DOCTEST_ANON_VAR_0)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #20
   %14 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN28doctest_detail_test_suite_ns19getCurrentTestSuiteEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #20, !noalias !83
-  call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv), !noalias !83
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #20, !noalias !82
+  call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv), !noalias !82
   %15 = invoke noundef i32 @_ZNK7doctest6String4findEcj(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef signext 61, i32 noundef 0)
-          to label %16 unwind label %21, !noalias !83
+          to label %16 unwind label %21, !noalias !82
 
 16:                                               ; preds = %0
   %17 = invoke noundef i32 @_ZNK7doctest6String4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %18 unwind label %21, !noalias !83
+          to label %18 unwind label %21, !noalias !82
 
 18:                                               ; preds = %16
   %19 = add i32 %15, 2
@@ -3345,12 +3345,12 @@ common.resume.i.i:                                ; preds = %73, %68, %63, %53, 
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20, !noalias !82
   br label %common.resume.i.i
 
 _ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv.exit.i.i: ; preds = %18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20, !noalias !82
   invoke void @_ZN7doctest6detail8TestCaseC1EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull @_ZL18DOCTEST_ANON_TMP_2ISt6vectorIiSaIiEEEvv, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 24000)
           to label %23 unwind label %69
 
@@ -3374,14 +3374,14 @@ _ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv.exit.i.i: ; preds = %18
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #20
   %30 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN28doctest_detail_test_suite_ns19getCurrentTestSuiteEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20, !noalias !86
-  call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv), !noalias !86
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20, !noalias !85
+  call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv), !noalias !85
   %31 = invoke noundef i32 @_ZNK7doctest6String4findEcj(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 noundef signext 61, i32 noundef 0)
-          to label %32 unwind label %37, !noalias !86
+          to label %32 unwind label %37, !noalias !85
 
 32:                                               ; preds = %27
   %33 = invoke noundef i32 @_ZNK7doctest6String4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %34 unwind label %37, !noalias !86
+          to label %34 unwind label %37, !noalias !85
 
 34:                                               ; preds = %32
   %35 = add i32 %31, 2
@@ -3394,12 +3394,12 @@ _ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv.exit.i.i: ; preds = %18
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20, !noalias !86
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20, !noalias !85
   br label %common.resume.i.i
 
 _ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv.exit.i.i.i: ; preds = %34
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20, !noalias !86
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20, !noalias !85
   invoke void @_ZN7doctest6detail8TestCaseC1EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull @_ZL18DOCTEST_ANON_TMP_2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvv, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 24001)
           to label %39 unwind label %64
 
@@ -3423,14 +3423,14 @@ _ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6S
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #20
   %46 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN28doctest_detail_test_suite_ns19getCurrentTestSuiteEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #20, !noalias !89
-  call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv), !noalias !89
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #20, !noalias !88
+  call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv), !noalias !88
   %47 = invoke noundef i32 @_ZNK7doctest6String4findEcj(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 noundef signext 61, i32 noundef 0)
-          to label %48 unwind label %53, !noalias !89
+          to label %48 unwind label %53, !noalias !88
 
 48:                                               ; preds = %43
   %49 = invoke noundef i32 @_ZNK7doctest6String4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %50 unwind label %53, !noalias !89
+          to label %50 unwind label %53, !noalias !88
 
 50:                                               ; preds = %48
   %51 = add i32 %47, 2
@@ -3443,12 +3443,12 @@ _ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6S
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #20, !noalias !89
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #20, !noalias !88
   br label %common.resume.i.i
 
 _ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv.exit.i.i.i.i: ; preds = %50
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #20, !noalias !89
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #20, !noalias !88
   invoke void @_ZN7doctest6detail8TestCaseC1EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull @_ZL18DOCTEST_ANON_TMP_2IN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEvv, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 24002)
           to label %55 unwind label %59
 
@@ -3523,7 +3523,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %57
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #20
-  store i32 0, ptr @_ZL23DOCTEST_ANON_TMP_2DUMMY, align 4, !tbaa !82
+  store i32 0, ptr @_ZL23DOCTEST_ANON_TMP_2DUMMY, align 4, !tbaa !81
   %76 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZL23DOCTEST_ANON_TMP_2DUMMY)
   ret void
 }
@@ -3643,17 +3643,16 @@ attributes #24 = { nounwind willreturn memory(read) }
 !75 = !{!76}
 !76 = distinct !{!76, !77, !"_ZNSt7__cxx119to_stringEi: argument 0"}
 !77 = distinct !{!77, !"_ZNSt7__cxx119to_stringEi"}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = distinct !{!81, !79, !80}
-!82 = !{!23, !23, i64 0}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv: argument 0"}
-!85 = distinct !{!85, !"_ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv: argument 0"}
-!88 = distinct !{!88, !"_ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv: argument 0"}
-!91 = distinct !{!91, !"_ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv"}
+!80 = distinct !{!80, !79}
+!81 = !{!23, !23, i64 0}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv: argument 0"}
+!84 = distinct !{!84, !"_ZN7doctest8toStringISt6vectorIiSaIiEEEENS_6StringEv"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv: argument 0"}
+!87 = distinct !{!87, !"_ZN7doctest8toStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_6StringEv"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv: argument 0"}
+!90 = distinct !{!90, !"_ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEEEENS_6StringEv"}

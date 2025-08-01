@@ -302,12 +302,12 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %17, %10
   %21 = tail call ptr @cli_htu32_next(ptr noundef nonnull %5, ptr noundef nonnull %11) #8
   %.not29 = icmp eq ptr %21, null
-  br i1 %.not29, label %.loopexit31, label %10, !llvm.loop !39
+  br i1 %.not29, label %.loopexit31, label %10
 
 .loopexit31:                                      ; preds = %20, %.preheader30, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !41
+  br i1 %exitcond.not, label %.preheader, label %4
 
 22:                                               ; preds = %.preheader, %31
   %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %31 ]
@@ -327,7 +327,7 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %22, %27
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
-  br i1 %exitcond40.not, label %.loopexit, label %22, !llvm.loop !42
+  br i1 %exitcond40.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %31, %1
   ret void
@@ -412,7 +412,7 @@ hm_cmp.exit.thread86:                             ; preds = %23, %hm_cmp.exit
   %.177 = phi i64 [ %.07688, %30 ], [ %44, %hm_cmp.exit.thread86 ]
   %.2 = phi i64 [ %28, %30 ], [ %.089, %hm_cmp.exit.thread86 ]
   %46 = icmp ult i64 %.177, %.2
-  br i1 %46, label %18, label %47, !llvm.loop !43
+  br i1 %46, label %18, label %47
 
 47:                                               ; preds = %hm_cmp.exit.thread, %45
   %.076.lcssa = phi i64 [ %.07688, %hm_cmp.exit.thread ], [ %.177, %45 ]
@@ -491,8 +491,8 @@ define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly captures(addre
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %.idx = mul nuw nsw i64 %4, 24
-  %5 = getelementptr i8, ptr %0, i64 176
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 8, !tbaa !33
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
@@ -511,16 +511,16 @@ define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly captures(addres
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %.idx = mul nuw nsw i64 %4, 24
-  %5 = getelementptr i8, ptr %0, i64 176
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 8, !tbaa !33
   %.not4 = icmp eq i32 %7, 0
   br i1 %.not4, label %8, label %14
 
 8:                                                ; preds = %3
   %.idx5 = shl nuw nsw i64 %4, 5
-  %9 = getelementptr i8, ptr %0, i64 72
-  %10 = getelementptr i8, ptr %9, i64 %.idx5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx5
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = icmp ne i64 %11, 0
   %13 = zext i1 %12 to i32
@@ -778,7 +778,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @mpool_free(ptr noundef %20, ptr noundef %25) #8
   %26 = load i32, ptr %15, align 8, !tbaa !33
   %.not43 = icmp eq i32 %26, 0
-  br i1 %.not43, label %._crit_edge, label %18, !llvm.loop !44
+  br i1 %.not43, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph48
   %27 = load ptr, ptr %3, align 8, !tbaa !12
@@ -789,7 +789,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @mpool_free(ptr noundef %30, ptr noundef nonnull %12) #8
   %31 = tail call ptr @cli_htu32_next(ptr noundef nonnull %6, ptr noundef nonnull %10) #8
   %.not42 = icmp eq ptr %31, null
-  br i1 %.not42, label %._crit_edge49, label %.lr.ph48, !llvm.loop !45
+  br i1 %.not42, label %._crit_edge49, label %.lr.ph48
 
 ._crit_edge49:                                    ; preds = %._crit_edge, %.preheader44
   %32 = load ptr, ptr %3, align 8, !tbaa !12
@@ -799,7 +799,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 33:                                               ; preds = %5, %._crit_edge49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !46
+  br i1 %exitcond.not, label %.preheader, label %5
 
 34:                                               ; preds = %.preheader, %55
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %55 ]
@@ -833,7 +833,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @mpool_free(ptr noundef %45, ptr noundef %50) #8
   %51 = load i32, ptr %36, align 8, !tbaa !33
   %.not40 = icmp eq i32 %51, 0
-  br i1 %.not40, label %._crit_edge54, label %43, !llvm.loop !47
+  br i1 %.not40, label %._crit_edge54, label %43
 
 ._crit_edge54:                                    ; preds = %43, %38
   %52 = load ptr, ptr %3, align 8, !tbaa !12
@@ -845,7 +845,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 55:                                               ; preds = %34, %._crit_edge54
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 3
-  br i1 %exitcond60.not, label %.loopexit, label %34, !llvm.loop !48
+  br i1 %exitcond60.not, label %.loopexit, label %34
 
 .loopexit:                                        ; preds = %55, %1
   ret void
@@ -908,13 +908,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !36 = !{!34, !14, i64 0}
 !37 = !{!34, !35, i64 8}
 !38 = !{!14, !14, i64 0}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = distinct !{!41, !40}
-!42 = distinct !{!42, !40}
-!43 = distinct !{!43, !40}
-!44 = distinct !{!44, !40}
-!45 = distinct !{!45, !40}
-!46 = distinct !{!46, !40}
-!47 = distinct !{!47, !40}
-!48 = distinct !{!48, !40}

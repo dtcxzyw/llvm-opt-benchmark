@@ -331,15 +331,15 @@ bytestream2_get_byte.exit238.i:                   ; preds = %104, %109
   %.sroa.0.24 = phi ptr [ %110, %109 ], [ %31, %104 ]
   %.0.i237.i = phi i32 [ %112, %109 ], [ 0, %104 ]
   %113 = getelementptr inbounds nuw [4 x i32], ptr %103, i64 0, i64 %indvars.iv338.i
-  store i32 %.0.i237.i, ptr %113, align 4, !tbaa !49
+  store i32 %.0.i237.i, ptr %113, align 4, !tbaa !48
   %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i, 1
   %exitcond341.not.i = icmp eq i64 %indvars.iv.next339.i, 4
-  br i1 %exitcond341.not.i, label %114, label %104, !llvm.loop !50
+  br i1 %exitcond341.not.i, label %114, label %104, !llvm.loop !49
 
 114:                                              ; preds = %bytestream2_get_byte.exit238.i
   %indvars.iv.next343.i = add nuw nsw i64 %indvars.iv342.i, 1
   %exitcond346.not.i = icmp eq i64 %indvars.iv.next343.i, %wide.trip.count345.i
-  br i1 %exitcond346.not.i, label %.loopexit277.i, label %.preheader275.i, !llvm.loop !51
+  br i1 %exitcond346.not.i, label %.loopexit277.i, label %.preheader275.i, !llvm.loop !50
 
 .loopexit277.i:                                   ; preds = %114, %.preheader276.i, %bytestream2_get_le16.exit220.i
   %.sroa.0.25 = phi ptr [ %.sroa.0.17, %bytestream2_get_le16.exit220.i ], [ %.sroa.0.23, %.preheader276.i ], [ %.sroa.0.24, %114 ]
@@ -347,7 +347,7 @@ bytestream2_get_byte.exit238.i:                   ; preds = %104, %109
   %116 = sub i64 %32, %115
   %117 = trunc i64 %116 to i32
   %118 = icmp sgt i32 %117, 7
-  br i1 %118, label %37, label %._crit_edge.i, !llvm.loop !52
+  br i1 %118, label %37, label %._crit_edge.i, !llvm.loop !51
 
 bytestream2_get_le16.exit220._crit_edge.i:        ; preds = %bytestream2_get_le16.exit220.i
   %.pre350.i = ptrtoint ptr %.sroa.0.17 to i64
@@ -500,23 +500,23 @@ bytestream2_get_byte.exit242.i:                   ; preds = %177, %181
   %.sroa.0.6 = phi ptr [ %182, %181 ], [ %31, %177 ]
   %.0.i241.i = phi i64 [ %184, %181 ], [ 0, %177 ]
   %185 = getelementptr inbounds nuw %struct.roq_qcell, ptr %131, i64 %.0.i241.i
-  %186 = load i32, ptr %185, align 4, !tbaa !49
+  %186 = load i32, ptr %185, align 4, !tbaa !48
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %187
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %.0180324.i, i32 noundef %.0179327.i, ptr noundef nonnull %188) #4
   %189 = add nsw i32 %.0180324.i, 4
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %191 = load i32, ptr %190, align 4, !tbaa !49
+  %191 = load i32, ptr %190, align 4, !tbaa !48
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %192
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %189, i32 noundef %.0179327.i, ptr noundef nonnull %193) #4
   %194 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %195 = load i32, ptr %194, align 4, !tbaa !49
+  %195 = load i32, ptr %194, align 4, !tbaa !48
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %196
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %.0180324.i, i32 noundef %145, ptr noundef nonnull %197) #4
   %198 = getelementptr inbounds nuw i8, ptr %185, i64 12
-  %199 = load i32, ptr %198, align 4, !tbaa !49
+  %199 = load i32, ptr %198, align 4, !tbaa !48
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %200
   tail call void @ff_apply_vector_4x4(ptr noundef %10, i32 noundef %189, i32 noundef %145, ptr noundef nonnull %201) #4
@@ -610,24 +610,24 @@ bytestream2_get_byte.exit246.i:                   ; preds = %236, %240
   %.sroa.0.11 = phi ptr [ %241, %240 ], [ %31, %236 ]
   %.0.i245.i = phi i64 [ %243, %240 ], [ 0, %236 ]
   %244 = getelementptr inbounds nuw %struct.roq_qcell, ptr %131, i64 %.0.i245.i
-  %245 = load i32, ptr %244, align 4, !tbaa !49
+  %245 = load i32, ptr %244, align 4, !tbaa !48
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %246
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %spec.select215.i, i32 noundef %.0177.i, ptr noundef nonnull %247) #4
   %248 = add nsw i32 %spec.select215.i, 2
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 4
-  %250 = load i32, ptr %249, align 4, !tbaa !49
+  %250 = load i32, ptr %249, align 4, !tbaa !48
   %251 = sext i32 %250 to i64
   %252 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %251
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %248, i32 noundef %.0177.i, ptr noundef nonnull %252) #4
   %253 = add nsw i32 %.0177.i, 2
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  %255 = load i32, ptr %254, align 4, !tbaa !49
+  %255 = load i32, ptr %254, align 4, !tbaa !48
   %256 = sext i32 %255 to i64
   %257 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %256
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %spec.select215.i, i32 noundef %253, ptr noundef nonnull %257) #4
   %258 = getelementptr inbounds nuw i8, ptr %244, i64 12
-  %259 = load i32, ptr %258, align 4, !tbaa !49
+  %259 = load i32, ptr %258, align 4, !tbaa !48
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds %struct.roq_cell, ptr %132, i64 %260
   tail call void @ff_apply_vector_2x2(ptr noundef %10, i32 noundef %248, i32 noundef %253, ptr noundef nonnull %261) #4
@@ -709,7 +709,7 @@ bytestream2_get_byte.exit254.i:                   ; preds = %bytestream2_get_byt
   %.sroa.0.10 = phi ptr [ %.sroa.0.16, %bytestream2_get_byte.exit254.i ], [ %.sroa.0.12, %bytestream2_get_byte.exit244.i ], [ %.sroa.0.11, %bytestream2_get_byte.exit246.i ], [ %.sroa.0.9, %bytestream2_get_le16.exit224.i ]
   %295 = add nuw nsw i32 %.0196319.i, 1
   %exitcond347.not.i = icmp eq i32 %295, 4
-  br i1 %exitcond347.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !53
+  br i1 %exitcond347.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !52
 
 bytestream2_get_le16.exit224.i.unreachabledefault: ; preds = %bytestream2_get_le16.exit224.i
   unreachable
@@ -723,12 +723,12 @@ bytestream2_get_le16.exit222.i.unreachabledefault: ; preds = %bytestream2_get_le
   %.6.i = phi i32 [ %162, %bytestream2_get_byte.exit240.i ], [ %162, %bytestream2_get_byte.exit242.i ], [ %162, %bytestream2_get_le16.exit222.i ], [ %221, %294 ]
   %296 = add nsw i32 %.0180324.i, 8
   %297 = icmp slt i32 %.0180324.i, %144
-  br i1 %297, label %146, label %298, !llvm.loop !54
+  br i1 %297, label %146, label %298, !llvm.loop !53
 
 298:                                              ; preds = %.loopexit.i
   %299 = add nsw i32 %.0179327.i, 8
   %300 = icmp slt i32 %299, %143
-  br i1 %300, label %.preheader272.i, label %301, !llvm.loop !55
+  br i1 %300, label %.preheader272.i, label %301, !llvm.loop !54
 
 301:                                              ; preds = %298
   %302 = add nsw i32 %.0183.i, 16
@@ -739,7 +739,7 @@ bytestream2_get_le16.exit222.i.unreachabledefault: ; preds = %bytestream2_get_le
   %spec.select218.i = select i1 %.not.i, i32 %.0181.i, i32 %143
   %305 = load i32, ptr %137, align 4, !tbaa !33
   %.not208.i = icmp slt i32 %spec.select218.i, %305
-  br i1 %.not208.i, label %138, label %roqvideo_decode_frame.exit, !llvm.loop !56
+  br i1 %.not208.i, label %138, label %roqvideo_decode_frame.exit, !llvm.loop !55
 
 .loopexit274.sink.split.i:                        ; preds = %146, %.preheader.i
   %306 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -754,7 +754,7 @@ roqvideo_decode_frame.exit:                       ; preds = %138, %301, %.loopex
   br i1 %310, label %315, label %311
 
 311:                                              ; preds = %roqvideo_decode_frame.exit
-  store i32 1, ptr %2, align 4, !tbaa !49
+  store i32 1, ptr %2, align 4, !tbaa !48
   %312 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %313 = load ptr, ptr %312, align 8, !tbaa !34
   %314 = load ptr, ptr %11, align 8, !tbaa !35
@@ -858,14 +858,13 @@ attributes #5 = { noreturn nounwind }
 !43 = !{!44, !8, i64 4}
 !44 = !{!"roq_cell", !8, i64 0, !8, i64 4, !8, i64 5}
 !45 = !{!44, !8, i64 5}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!10, !10, i64 0}
-!50 = distinct !{!50, !47, !48}
-!51 = distinct !{!51, !47, !48}
-!52 = distinct !{!52, !47, !48}
-!53 = distinct !{!53, !47, !48}
-!54 = distinct !{!54, !47, !48}
-!55 = distinct !{!55, !47, !48}
-!56 = distinct !{!56, !47, !48}
+!48 = !{!10, !10, i64 0}
+!49 = distinct !{!49, !47}
+!50 = distinct !{!50, !47}
+!51 = distinct !{!51, !47}
+!52 = distinct !{!52, !47}
+!53 = distinct !{!53, !47}
+!54 = distinct !{!54, !47}
+!55 = distinct !{!55, !47}

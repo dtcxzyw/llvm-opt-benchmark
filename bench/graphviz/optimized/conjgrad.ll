@@ -366,7 +366,7 @@ gv_calloc.exit111:                                ; preds = %.thread.i110, %gv_c
   %.1 = phi double [ %77, %80 ], [ %.084117, %73 ]
   %83 = add nuw nsw i32 %.0118, 1
   %exitcond.not = icmp eq i32 %83, %5
-  br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !10
 
 .critedge:                                        ; preds = %82, %70, %67, %63, %79
   %.083 = phi i32 [ 1, %79 ], [ 0, %63 ], [ 0, %67 ], [ 0, %70 ], [ 0, %82 ]
@@ -517,20 +517,20 @@ gv_calloc.exit98:                                 ; preds = %.thread.i97, %gv_ca
 66:                                               ; preds = %.lr.ph, %66
   %.0102 = phi i64 [ 0, %.lr.ph ], [ %72, %66 ]
   %67 = getelementptr inbounds nuw float, ptr %43, i64 %.0102
-  %68 = load float, ptr %67, align 4, !tbaa !12
+  %68 = load float, ptr %67, align 4, !tbaa !11
   %69 = getelementptr inbounds nuw float, ptr %42, i64 %.0102
-  %70 = load float, ptr %69, align 4, !tbaa !12
+  %70 = load float, ptr %69, align 4, !tbaa !11
   %71 = tail call float @llvm.fmuladd.f32(float %65, float %68, float %70)
-  store float %71, ptr %67, align 4, !tbaa !12
+  store float %71, ptr %67, align 4, !tbaa !11
   %72 = add nuw i64 %.0102, 1
   %exitcond.not = icmp eq i64 %72, %7
-  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !13
 
 .loopexit:                                        ; preds = %66, %63, %54
   %.1 = phi double [ %.081103, %54 ], [ %60, %63 ], [ %60, %66 ]
   %73 = add nuw nsw i32 %.079104, 1
   %exitcond108.not = icmp eq i32 %73, %5
-  br i1 %exitcond108.not, label %.critedge, label %48, !llvm.loop !15
+  br i1 %exitcond108.not, label %.critedge, label %48, !llvm.loop !14
 
 .critedge:                                        ; preds = %.loopexit, %51, %48, %gv_calloc.exit98, %62
   %.080 = phi i32 [ 1, %62 ], [ 0, %gv_calloc.exit98 ], [ 0, %48 ], [ 0, %51 ], [ 0, %.loopexit ]
@@ -597,11 +597,10 @@ attributes #12 = { cold noreturn nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"float", !6, i64 0}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"float", !6, i64 0}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

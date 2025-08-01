@@ -78,7 +78,7 @@ define dso_local noundef nonnull ptr @_ZN15SequenceFactory13make_sequenceEv() lo
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %3
   %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), %3 ]
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !20
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !19
   %8 = icmp eq ptr %.019.lcssa28.i.i.i, %7
   br i1 %8, label %select.unfold.i.i, label %9
 
@@ -111,9 +111,9 @@ _ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRK
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %1, ptr %21, align 8, !tbaa !15
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %20, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)) #14
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !21
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !20
   %23 = add i64 %22, 1
-  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !21
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !20
   br label %_ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
 _ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %11, %_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
@@ -138,7 +138,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15SequenceFactory17destroy_sequencesEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !20
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !19
   %.not4 = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -150,7 +150,7 @@ define dso_local void @_ZN15SequenceFactory17destroy_sequencesEv() local_unnamed
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = load ptr, ptr %3, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
@@ -159,7 +159,7 @@ define dso_local void @_ZN15SequenceFactory17destroy_sequencesEv() local_unnamed
 9:                                                ; preds = %.lr.ph, %5
   %10 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.01.05) #13
   %.not = icmp eq ptr %10, getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %9, %0
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 16), align 8, !tbaa !4
@@ -175,9 +175,9 @@ define dso_local void @_ZN15SequenceFactory17destroy_sequencesEv() local_unnamed
 
 _ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 16), align 8, !tbaa !4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 32), align 8, !tbaa !25
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 32), align 8, !tbaa !24
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !20
   ret void
 }
 
@@ -201,13 +201,13 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !25
   tail call void @_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -226,11 +226,11 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 define internal void @_GLOBAL__sub_I_SequenceFactory.cpp() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), align 8, !tbaa !29
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), align 8, !tbaa !28
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 16), align 8, !tbaa !4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 32), align 8, !tbaa !25
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 32), align 8, !tbaa !24
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 40), align 8, !tbaa !20
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EED2Ev, ptr nonnull @_ZN15SequenceFactory5seqs_E, ptr nonnull @__dso_handle) #14
   ret void
 }
@@ -271,16 +271,15 @@ attributes #15 = { builtin nounwind }
 !14 = !{!10, !10, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTS8Sequence", !11, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!5, !10, i64 16}
-!21 = !{!5, !12, i64 32}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"vtable pointer", !9, i64 0}
-!24 = distinct !{!24, !18, !19}
-!25 = !{!5, !10, i64 24}
-!26 = !{!6, !10, i64 24}
-!27 = !{!6, !10, i64 16}
-!28 = distinct !{!28, !18, !19}
-!29 = !{!5, !7, i64 0}
+!19 = !{!5, !10, i64 16}
+!20 = !{!5, !12, i64 32}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"vtable pointer", !9, i64 0}
+!23 = distinct !{!23, !18}
+!24 = !{!5, !10, i64 24}
+!25 = !{!6, !10, i64 24}
+!26 = !{!6, !10, i64 16}
+!27 = distinct !{!27, !18}
+!28 = !{!5, !7, i64 0}

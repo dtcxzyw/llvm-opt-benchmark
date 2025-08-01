@@ -128,7 +128,7 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
 ._crit_edge:                                      ; preds = %51, %.preheader
   %56 = add nuw nsw i32 %.03954, 1
   %exitcond.not = icmp eq i32 %56, %.038
-  br i1 %exitcond.not, label %.loopexit48, label %15, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit48, label %15, !llvm.loop !8
 
 .loopexit48:                                      ; preds = %._crit_edge, %22
   %57 = load ptr, ptr %0, align 8
@@ -185,15 +185,15 @@ define internal fastcc zeroext i1 @ipfix_read_message_header(ptr noundef %0, ptr
   store i16 %rev53, ptr %8, align 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %11) #6, !srcloc !10
+  %12 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %11) #6, !srcloc !9
   store i32 %12, ptr %10, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #6, !srcloc !11
+  %15 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %14) #6, !srcloc !10
   store i32 %15, ptr %13, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %17) #6, !srcloc !12
+  %18 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %17) #6, !srcloc !11
   store i32 %18, ptr %16, align 4
   %.not = icmp eq i16 %7, 2560
   br i1 %.not, label %23, label %19
@@ -392,10 +392,9 @@ attributes #6 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2149960142}
-!11 = !{i64 2149960928}
-!12 = !{i64 2149961709}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2149960142}
+!10 = !{i64 2149960928}
+!11 = !{i64 2149961709}

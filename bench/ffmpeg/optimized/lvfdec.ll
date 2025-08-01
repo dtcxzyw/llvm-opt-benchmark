@@ -208,7 +208,7 @@ define internal i32 @lvf_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 17:                                               ; preds = %.loopexit35
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %19 = load i32, ptr %18, align 4, !tbaa !47
+  %19 = load i32, ptr %18, align 4, !tbaa !46
   %.not33 = icmp ult i32 %.not32, %19
   br i1 %.not33, label %20, label %.loopexit
 
@@ -226,19 +226,19 @@ define internal i32 @lvf_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !48
+  %31 = load i32, ptr %30, align 8, !tbaa !47
   %32 = or i32 %31, 1
-  store i32 %32, ptr %30, align 8, !tbaa !48
+  store i32 %32, ptr %30, align 8, !tbaa !47
   br label %33
 
 33:                                               ; preds = %29, %20
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.not32, ptr %34, align 4, !tbaa !49
+  store i32 %.not32, ptr %34, align 4, !tbaa !48
   %35 = zext i32 %22 to i64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %35, ptr %36, align 8, !tbaa !50
+  store i64 %35, ptr %36, align 8, !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %5, ptr %37, align 8, !tbaa !51
+  store i64 %5, ptr %37, align 8, !tbaa !50
   br label %.loopexit
 
 38:                                               ; preds = %15
@@ -247,7 +247,7 @@ define internal i32 @lvf_read_packet(ptr noundef readonly captures(none) %0, ptr
   %41 = tail call i64 @avio_skip(ptr noundef %39, i64 noundef %40) #3
   %42 = trunc i64 %41 to i32
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.loopexit, label %6, !llvm.loop !52
+  br i1 %43, label %.loopexit, label %6, !llvm.loop !51
 
 .loopexit:                                        ; preds = %6, %38, %9, %17, %.loopexit35, %33
   %.0 = phi i32 [ %27, %33 ], [ -1094995529, %.loopexit35 ], [ -1094995529, %17 ], [ -541478725, %6 ], [ %42, %38 ], [ -541478725, %9 ]
@@ -327,12 +327,11 @@ attributes #3 = { nounwind }
 !41 = !{!35, !10, i64 152}
 !42 = !{!35, !10, i64 56}
 !43 = !{!35, !10, i64 4}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!13, !10, i64 44}
-!48 = !{!31, !10, i64 40}
-!49 = !{!31, !10, i64 36}
-!50 = !{!31, !22, i64 8}
-!51 = !{!31, !22, i64 72}
-!52 = distinct !{!52, !45, !46}
+!46 = !{!13, !10, i64 44}
+!47 = !{!31, !10, i64 40}
+!48 = !{!31, !10, i64 36}
+!49 = !{!31, !22, i64 8}
+!50 = !{!31, !22, i64 72}
+!51 = distinct !{!51, !45}

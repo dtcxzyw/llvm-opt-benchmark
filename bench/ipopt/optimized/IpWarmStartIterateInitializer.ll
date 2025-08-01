@@ -17410,6 +17410,5 @@ attributes #23 = { noreturn nounwind }
 !654 = !{!"_ZTSN5Ipopt11VectorSpaceE", !4, i64 0, !5, i64 12}
 !655 = !{!36, !36, i64 0}
 !656 = !{!5, !5, i64 0}
-!657 = distinct !{!657, !658, !659}
+!657 = distinct !{!657, !658}
 !658 = !{!"llvm.loop.mustprogress"}
-!659 = !{!"llvm.loop.estimated_trip_count"}

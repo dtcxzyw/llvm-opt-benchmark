@@ -10424,7 +10424,7 @@ lean_inc.exit116:                                 ; preds = %178, %177, %175, %l
 .backedge.backedge:                               ; preds = %lean_inc.exit116, %184, %186, %187, %lean_inc.exit121, %100, %102, %103
   %.096.be = phi ptr [ %86, %103 ], [ %86, %102 ], [ %86, %100 ], [ %86, %lean_inc.exit121 ], [ %170, %187 ], [ %170, %186 ], [ %170, %184 ], [ %170, %lean_inc.exit116 ]
   %.095.be = phi ptr [ %32, %103 ], [ %32, %102 ], [ %32, %100 ], [ %32, %lean_inc.exit121 ], [ %116, %187 ], [ %116, %186 ], [ %116, %184 ], [ %116, %lean_inc.exit116 ]
-  br label %.backedge, !llvm.loop !15
+  br label %.backedge
 
 181:                                              ; preds = %lean_inc.exit116
   %182 = load i32, ptr %168, align 4, !tbaa !8
@@ -14308,7 +14308,7 @@ lean_inc.exit181:                                 ; preds = %28, %27, %25, %18
 39:                                               ; preds = %38, %35
   %.val.i278 = phi i32 [ %.val.i278.pr, %38 ], [ %36, %35 ]
   %40 = icmp sgt i32 %.val.i278, 0
-  br i1 %40, label %41, label %43, !prof !17
+  br i1 %40, label %41, label %43, !prof !15
 
 41:                                               ; preds = %39
   %42 = add nuw i32 %.val.i278, 1
@@ -15940,6 +15940,4 @@ attributes #4 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!15 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

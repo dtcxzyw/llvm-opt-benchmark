@@ -214,7 +214,7 @@ define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %.157.lcssa.i = phi ptr [ %.05673.i, %67 ], [ %80, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next.i, 23
-  br i1 %exitcond80.not.i, label %83, label %50, !llvm.loop !64
+  br i1 %exitcond80.not.i, label %83, label %50, !llvm.loop !63
 
 83:                                               ; preds = %._crit_edge.i
   call void @ff_nelly_get_sample_bits(ptr noundef nonnull %5, ptr noundef nonnull %7) #7
@@ -252,7 +252,7 @@ define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %101 = fptrunc nsz double %100 to float
   %102 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv81.i
   store float %101, ptr %102, align 4, !tbaa !4
-  %103 = load i32, ptr %33, align 4, !tbaa !65
+  %103 = load i32, ptr %33, align 4, !tbaa !64
   %104 = add i32 %103, 40
   %105 = and i32 %104, 63
   %106 = zext nneg i32 %105 to i64
@@ -269,7 +269,7 @@ define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %117 = getelementptr inbounds nuw [64 x i32], ptr %32, i64 0, i64 %116
   store i32 %114, ptr %117, align 4, !tbaa !42
   %118 = add i32 %103, 1
-  store i32 %118, ptr %33, align 4, !tbaa !65
+  store i32 %118, ptr %33, align 4, !tbaa !64
   %119 = and i32 %114, 1
   %.not.i = icmp eq i32 %119, 0
   br i1 %.not.i, label %144, label %120
@@ -310,18 +310,18 @@ define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %145 = phi i32 [ %132, %122 ], [ %92, %120 ], [ %92, %96 ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 124
-  br i1 %exitcond84.not.i, label %146, label %91, !llvm.loop !66
+  br i1 %exitcond84.not.i, label %146, label %91, !llvm.loop !65
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds nuw i8, ptr %87, i64 496
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %147, i8 0, i64 16, i1 false)
-  %148 = load ptr, ptr %34, align 8, !tbaa !67
-  %149 = load ptr, ptr %35, align 16, !tbaa !68
+  %148 = load ptr, ptr %34, align 8, !tbaa !66
+  %149 = load ptr, ptr %35, align 16, !tbaa !67
   %150 = load ptr, ptr %36, align 16, !tbaa !36
   call void %148(ptr noundef %149, ptr noundef %150, ptr noundef nonnull %87, i64 noundef 4) #7
   %151 = load ptr, ptr %37, align 8, !tbaa !39
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 40
-  %153 = load ptr, ptr %152, align 8, !tbaa !69
+  %153 = load ptr, ptr %152, align 8, !tbaa !68
   %154 = load ptr, ptr %38, align 8, !tbaa !37
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 256
   %156 = load ptr, ptr %36, align 16, !tbaa !36
@@ -330,7 +330,7 @@ define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %158 = load ptr, ptr %36, align 16, !tbaa !36
   store ptr %158, ptr %38, align 8, !tbaa !37
   store ptr %157, ptr %36, align 16, !tbaa !36
-  br i1 %86, label %85, label %nelly_decode_block.exit, !llvm.loop !71
+  br i1 %86, label %85, label %nelly_decode_block.exit, !llvm.loop !70
 
 nelly_decode_block.exit:                          ; preds = %146
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #7
@@ -339,7 +339,7 @@ nelly_decode_block.exit:                          ; preds = %146
   %159 = getelementptr inbounds nuw i8, ptr %.034, i64 1024
   %160 = add nuw nsw i32 %.02633, 1
   %exitcond.not = icmp eq i32 %160, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %nelly_decode_block.exit
   store i32 1, ptr %2, align 4, !tbaa !42
@@ -471,15 +471,14 @@ attributes #7 = { nounwind }
 !58 = !{!32, !12, i64 16}
 !59 = !{!60, !60, i64 0}
 !60 = !{!"short", !6, i64 0}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.estimated_trip_count"}
-!64 = distinct !{!64, !62, !63}
-!65 = !{!31, !12, i64 256}
-!66 = distinct !{!66, !62, !63}
-!67 = !{!29, !11, i64 328}
-!68 = !{!29, !34, i64 320}
-!69 = !{!70, !11, i64 40}
-!70 = !{!"AVFloatDSPContext", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88}
-!71 = distinct !{!71, !62, !63}
-!72 = distinct !{!72, !62, !63}
+!63 = distinct !{!63, !62}
+!64 = !{!31, !12, i64 256}
+!65 = distinct !{!65, !62}
+!66 = !{!29, !11, i64 328}
+!67 = !{!29, !34, i64 320}
+!68 = !{!69, !11, i64 40}
+!69 = !{!"AVFloatDSPContext", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88}
+!70 = distinct !{!70, !62}
+!71 = distinct !{!71, !62}

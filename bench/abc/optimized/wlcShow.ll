@@ -181,7 +181,7 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %54 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr nonnull %40)
   %55 = add nsw i32 %.0348544, -1
   %.not657 = icmp eq i32 %.0348544, 0
-  br i1 %.not657, label %.lr.ph550.preheader, label %.lr.ph546, !llvm.loop !27
+  br i1 %.not657, label %.lr.ph550.preheader, label %.lr.ph546, !llvm.loop !26
 
 ._crit_edge547:                                   ; preds = %39
   %56 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
@@ -199,7 +199,7 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %60 = add nsw i32 %.1349548659, -1
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %60) #8
   %.not410 = icmp eq i32 %60, 0
-  br i1 %.not410, label %._crit_edge551.loopexit, label %.lr.ph550, !llvm.loop !28
+  br i1 %.not410, label %._crit_edge551.loopexit, label %.lr.ph550, !llvm.loop !27
 
 ._crit_edge551.loopexit:                          ; preds = %.lr.ph550, %.lr.ph550.preheader
   %fputc411 = tail call i32 @fputc(i32 59, ptr nonnull %40)
@@ -219,9 +219,9 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %68 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 17, i64 1, ptr nonnull %40)
   %69 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr nonnull %40)
   %70 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr nonnull %40)
-  %71 = load ptr, ptr %0, align 8, !tbaa !29
+  %71 = load ptr, ptr %0, align 8, !tbaa !28
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  %73 = load ptr, ptr %72, align 8, !tbaa !29
   %.not371 = icmp eq ptr %73, null
   br i1 %.not371, label %76, label %74
 
@@ -319,9 +319,9 @@ Wlc_ObjCo2PoFo.exit:                              ; preds = %114, %118
   %.not409 = icmp eq i16 %128, 0
   %129 = select i1 %.not409, ptr @.str.42, ptr @.str.41
   %130 = getelementptr i8, ptr %126, i64 8
-  %.val458 = load i32, ptr %130, align 8, !tbaa !31
+  %.val458 = load i32, ptr %130, align 8, !tbaa !30
   %131 = getelementptr i8, ptr %126, i64 12
-  %.val459 = load i32, ptr %131, align 4, !tbaa !33
+  %.val459 = load i32, ptr %131, align 4, !tbaa !32
   %132 = sub nsw i32 %.val458, %.val459
   %133 = tail call i32 @llvm.abs.i32(i32 %132, i1 true)
   %134 = add nuw nsw i32 %133, 1
@@ -341,7 +341,7 @@ Wlc_ObjCo2PoFo.exit:                              ; preds = %114, %118
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %143 = sext i32 %.val429 to i64
   %144 = icmp slt i64 %indvars.iv.next593, %143
-  br i1 %144, label %106, label %.critedge2, !llvm.loop !34
+  br i1 %144, label %106, label %.critedge2, !llvm.loop !33
 
 .critedge2:                                       ; preds = %142, %76
   %fputc378 = tail call i32 @fputc(i32 125, ptr nonnull %40)
@@ -393,21 +393,21 @@ Wlc_ObjCo2PoFo.exit:                              ; preds = %114, %118
 
 160:                                              ; preds = %158
   %161 = getelementptr i8, ptr %153, i64 8
-  %.val460 = load i32, ptr %161, align 8, !tbaa !31
+  %.val460 = load i32, ptr %161, align 8, !tbaa !30
   %162 = getelementptr i8, ptr %153, i64 12
-  %.val461 = load i32, ptr %162, align 4, !tbaa !33
+  %.val461 = load i32, ptr %162, align 4, !tbaa !32
   %163 = sub nsw i32 %.val460, %.val461
   %164 = tail call i32 @llvm.abs.i32(i32 %163, i1 true)
   %165 = add nuw nsw i32 %164, 1
   %166 = trunc nuw nsw i64 %indvars.iv595 to i32
   %167 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.47, i32 noundef %166, i32 noundef %166, i32 noundef %165) #8
-  %.val462 = load i32, ptr %161, align 8, !tbaa !31
-  %.val463 = load i32, ptr %162, align 4, !tbaa !33
+  %.val462 = load i32, ptr %161, align 8, !tbaa !30
+  %.val463 = load i32, ptr %162, align 4, !tbaa !32
   %168 = sub nsw i32 %.val462, %.val463
   %169 = tail call i32 @llvm.abs.i32(i32 %168, i1 true)
   %170 = icmp samesign ugt i32 %169, 63
   %171 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !35
+  %172 = load i32, ptr %171, align 4, !tbaa !34
   %173 = icmp ugt i32 %172, 2
   br i1 %170, label %174, label %198
 
@@ -424,7 +424,7 @@ Wlc_ObjCo2PoFo.exit:                              ; preds = %114, %118
 
 Wlc_ObjHasArray.exit.thread.i.i:                  ; preds = %175, %175, %174
   %178 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %179 = load ptr, ptr %178, align 8, !tbaa !36
+  %179 = load ptr, ptr %178, align 8, !tbaa !35
   br label %Wlc_ObjConstValue.exit
 
 180:                                              ; preds = %175
@@ -441,7 +441,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %183 = lshr i32 %.0.i, 4
   %184 = zext nneg i32 %183 to i64
   %185 = getelementptr inbounds nuw i64, ptr %182, i64 %184
-  %186 = load i64, ptr %185, align 8, !tbaa !37
+  %186 = load i64, ptr %185, align 8, !tbaa !36
   %187 = shl nuw nsw i32 %.0.i, 2
   %188 = and i32 %187, 60
   %189 = zext nneg i32 %188 to i64
@@ -454,7 +454,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %.0.i.i = select i1 %193, i32 %194, i32 %195
   %fputc.i = tail call i32 @fputc(i32 %.0.i.i, ptr nonnull %40)
   %196 = icmp samesign ugt i32 %.0.in5.i, 1
-  br i1 %196, label %.lr.ph.i, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !39
+  br i1 %196, label %.lr.ph.i, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !38
 
 Abc_TtPrintHexArrayRev.exit:                      ; preds = %.lr.ph.i
   %197 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 3, i64 1, ptr nonnull %40)
@@ -473,7 +473,7 @@ Abc_TtPrintHexArrayRev.exit:                      ; preds = %.lr.ph.i
 
 Wlc_ObjHasArray.exit.thread.i.i488:               ; preds = %199, %199, %198
   %202 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %203 = load ptr, ptr %202, align 8, !tbaa !36
+  %203 = load ptr, ptr %202, align 8, !tbaa !35
   br label %Wlc_ObjConstValue.exit489
 
 204:                                              ; preds = %199
@@ -492,7 +492,7 @@ Wlc_ObjConstValue.exit489:                        ; preds = %Wlc_ObjHasArray.exi
   %207 = lshr i32 %.0.i492, 4
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw i64, ptr %206, i64 %208
-  %210 = load i64, ptr %209, align 8, !tbaa !37
+  %210 = load i64, ptr %209, align 8, !tbaa !36
   %211 = shl nuw nsw i32 %.0.i492, 2
   %212 = and i32 %211, 60
   %213 = zext nneg i32 %212 to i64
@@ -505,7 +505,7 @@ Wlc_ObjConstValue.exit489:                        ; preds = %Wlc_ObjHasArray.exi
   %.0.i.i493 = select i1 %217, i32 %218, i32 %219
   %fputc.i494 = tail call i32 @fputc(i32 %.0.i.i493, ptr nonnull %40)
   %220 = icmp samesign ugt i32 %.0.in5.i491, 1
-  br i1 %220, label %.lr.ph.i490, label %Abc_TtPrintHexArrayRev.exit495, !llvm.loop !39
+  br i1 %220, label %.lr.ph.i490, label %Abc_TtPrintHexArrayRev.exit495, !llvm.loop !38
 
 Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_TtPrintHexArrayRev.exit
   %fputc406 = tail call i32 @fputc(i32 34, ptr nonnull %40)
@@ -513,9 +513,9 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
 
 221:                                              ; preds = %158, %158
   %222 = getelementptr i8, ptr %153, i64 8
-  %.val466 = load i32, ptr %222, align 8, !tbaa !31
+  %.val466 = load i32, ptr %222, align 8, !tbaa !30
   %223 = getelementptr i8, ptr %153, i64 12
-  %.val467 = load i32, ptr %223, align 4, !tbaa !33
+  %.val467 = load i32, ptr %223, align 4, !tbaa !32
   %224 = sub nsw i32 %.val466, %.val467
   %225 = tail call i32 @llvm.abs.i32(i32 %224, i1 true)
   %226 = add nuw nsw i32 %225, 1
@@ -536,9 +536,9 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
 
 235:                                              ; preds = %229
   %236 = getelementptr i8, ptr %153, i64 8
-  %.val468 = load i32, ptr %236, align 8, !tbaa !31
+  %.val468 = load i32, ptr %236, align 8, !tbaa !30
   %237 = getelementptr i8, ptr %153, i64 12
-  %.val469 = load i32, ptr %237, align 4, !tbaa !33
+  %.val469 = load i32, ptr %237, align 4, !tbaa !32
   %238 = sub nsw i32 %.val468, %.val469
   %239 = tail call i32 @llvm.abs.i32(i32 %238, i1 true)
   %240 = add nuw nsw i32 %239, 1
@@ -623,7 +623,7 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
   %indvars.iv.next596 = add nuw nsw i64 %indvars.iv595, 1
   %275 = sext i32 %.val478 to i64
   %276 = icmp slt i64 %indvars.iv.next596, %275
-  br i1 %276, label %.lr.ph559, label %.critedge4, !llvm.loop !40
+  br i1 %276, label %.lr.ph559, label %.critedge4, !llvm.loop !39
 
 .critedge4:                                       ; preds = %274, %148
   %fputc401 = tail call i32 @fputc(i32 125, ptr nonnull %40)
@@ -631,7 +631,7 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
   %fputc403 = tail call i32 @fputc(i32 10, ptr nonnull %40)
   %277 = add nsw i32 %.2350560, -1
   %278 = icmp sgt i32 %.2350560, 1
-  br i1 %278, label %148, label %._crit_edge562, !llvm.loop !41
+  br i1 %278, label %148, label %._crit_edge562, !llvm.loop !40
 
 ._crit_edge562:                                   ; preds = %.critedge4, %.critedge2
   %279 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %40)
@@ -659,7 +659,7 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
 
 289:                                              ; preds = %286
   %290 = getelementptr i8, ptr %287, i64 4
-  %.val485 = load i32, ptr %290, align 4, !tbaa !35
+  %.val485 = load i32, ptr %290, align 4, !tbaa !34
   %291 = icmp sgt i32 %.val485, 0
   br i1 %291, label %378, label %292
 
@@ -676,21 +676,21 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
 
 297:                                              ; preds = %294
   %298 = getelementptr i8, ptr %287, i64 8
-  %.val470 = load i32, ptr %298, align 8, !tbaa !31
+  %.val470 = load i32, ptr %298, align 8, !tbaa !30
   %299 = getelementptr i8, ptr %287, i64 12
-  %.val471 = load i32, ptr %299, align 4, !tbaa !33
+  %.val471 = load i32, ptr %299, align 4, !tbaa !32
   %300 = sub nsw i32 %.val470, %.val471
   %301 = tail call i32 @llvm.abs.i32(i32 %300, i1 true)
   %302 = add nuw nsw i32 %301, 1
   %303 = trunc nuw nsw i64 %indvars.iv598 to i32
   %304 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.47, i32 noundef %303, i32 noundef %303, i32 noundef %302) #8
-  %.val472 = load i32, ptr %298, align 8, !tbaa !31
-  %.val473 = load i32, ptr %299, align 4, !tbaa !33
+  %.val472 = load i32, ptr %298, align 8, !tbaa !30
+  %.val473 = load i32, ptr %299, align 4, !tbaa !32
   %305 = sub nsw i32 %.val472, %.val473
   %306 = tail call i32 @llvm.abs.i32(i32 %305, i1 true)
   %307 = icmp samesign ugt i32 %306, 63
   %308 = getelementptr inbounds nuw i8, ptr %287, i64 4
-  %309 = load i32, ptr %308, align 4, !tbaa !35
+  %309 = load i32, ptr %308, align 4, !tbaa !34
   %310 = icmp ugt i32 %309, 2
   br i1 %307, label %311, label %335
 
@@ -707,7 +707,7 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
 
 Wlc_ObjHasArray.exit.thread.i.i496:               ; preds = %312, %312, %311
   %315 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  %316 = load ptr, ptr %315, align 8, !tbaa !36
+  %316 = load ptr, ptr %315, align 8, !tbaa !35
   br label %Wlc_ObjConstValue.exit497
 
 317:                                              ; preds = %312
@@ -724,7 +724,7 @@ Wlc_ObjConstValue.exit497:                        ; preds = %Wlc_ObjHasArray.exi
   %320 = lshr i32 %.0.i500, 4
   %321 = zext nneg i32 %320 to i64
   %322 = getelementptr inbounds nuw i64, ptr %319, i64 %321
-  %323 = load i64, ptr %322, align 8, !tbaa !37
+  %323 = load i64, ptr %322, align 8, !tbaa !36
   %324 = shl nuw nsw i32 %.0.i500, 2
   %325 = and i32 %324, 60
   %326 = zext nneg i32 %325 to i64
@@ -737,7 +737,7 @@ Wlc_ObjConstValue.exit497:                        ; preds = %Wlc_ObjHasArray.exi
   %.0.i.i501 = select i1 %330, i32 %331, i32 %332
   %fputc.i502 = tail call i32 @fputc(i32 %.0.i.i501, ptr nonnull %40)
   %333 = icmp samesign ugt i32 %.0.in5.i499, 1
-  br i1 %333, label %.lr.ph.i498, label %Abc_TtPrintHexArrayRev.exit503, !llvm.loop !39
+  br i1 %333, label %.lr.ph.i498, label %Abc_TtPrintHexArrayRev.exit503, !llvm.loop !38
 
 Abc_TtPrintHexArrayRev.exit503:                   ; preds = %.lr.ph.i498
   %334 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 3, i64 1, ptr nonnull %40)
@@ -756,7 +756,7 @@ Abc_TtPrintHexArrayRev.exit503:                   ; preds = %.lr.ph.i498
 
 Wlc_ObjHasArray.exit.thread.i.i504:               ; preds = %336, %336, %335
   %339 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  %340 = load ptr, ptr %339, align 8, !tbaa !36
+  %340 = load ptr, ptr %339, align 8, !tbaa !35
   br label %Wlc_ObjConstValue.exit505
 
 341:                                              ; preds = %336
@@ -775,7 +775,7 @@ Wlc_ObjConstValue.exit505:                        ; preds = %Wlc_ObjHasArray.exi
   %344 = lshr i32 %.0.i508, 4
   %345 = zext nneg i32 %344 to i64
   %346 = getelementptr inbounds nuw i64, ptr %343, i64 %345
-  %347 = load i64, ptr %346, align 8, !tbaa !37
+  %347 = load i64, ptr %346, align 8, !tbaa !36
   %348 = shl nuw nsw i32 %.0.i508, 2
   %349 = and i32 %348, 60
   %350 = zext nneg i32 %349 to i64
@@ -788,7 +788,7 @@ Wlc_ObjConstValue.exit505:                        ; preds = %Wlc_ObjHasArray.exi
   %.0.i.i509 = select i1 %354, i32 %355, i32 %356
   %fputc.i510 = tail call i32 @fputc(i32 %.0.i.i509, ptr nonnull %40)
   %357 = icmp samesign ugt i32 %.0.in5.i507, 1
-  br i1 %357, label %.lr.ph.i506, label %Abc_TtPrintHexArrayRev.exit511, !llvm.loop !39
+  br i1 %357, label %.lr.ph.i506, label %Abc_TtPrintHexArrayRev.exit511, !llvm.loop !38
 
 Abc_TtPrintHexArrayRev.exit511:                   ; preds = %.lr.ph.i506, %Abc_TtPrintHexArrayRev.exit503
   %fputc400 = tail call i32 @fputc(i32 34, ptr nonnull %40)
@@ -798,9 +798,9 @@ Abc_TtPrintHexArrayRev.exit511:                   ; preds = %.lr.ph.i506, %Abc_T
   %359 = trunc nuw nsw i64 %indvars.iv598 to i32
   %360 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %359) #8
   %361 = getelementptr i8, ptr %287, i64 8
-  %.val476 = load i32, ptr %361, align 8, !tbaa !31
+  %.val476 = load i32, ptr %361, align 8, !tbaa !30
   %362 = getelementptr i8, ptr %287, i64 12
-  %.val477 = load i32, ptr %362, align 4, !tbaa !33
+  %.val477 = load i32, ptr %362, align 4, !tbaa !32
   %363 = sub nsw i32 %.val476, %.val477
   %364 = tail call i32 @llvm.abs.i32(i32 %363, i1 true)
   %365 = add nuw nsw i32 %364, 1
@@ -811,7 +811,7 @@ Abc_TtPrintHexArrayRev.exit511:                   ; preds = %.lr.ph.i506, %Abc_T
 
 368:                                              ; preds = %358
   %369 = getelementptr i8, ptr %287, i64 20
-  %.val487 = load i32, ptr %369, align 4, !tbaa !36
+  %.val487 = load i32, ptr %369, align 4, !tbaa !35
   %.val442 = load i32, ptr %285, align 4, !tbaa !3
   %370 = icmp slt i32 %.val487, %.val442
   %371 = select i1 %370, ptr @.str.59, ptr @.str.45
@@ -833,7 +833,7 @@ Abc_TtPrintHexArrayRev.exit511:                   ; preds = %.lr.ph.i506, %Abc_T
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %379 = sext i32 %.val479 to i64
   %380 = icmp slt i64 %indvars.iv.next599, %379
-  br i1 %380, label %286, label %.critedge6, !llvm.loop !42
+  br i1 %380, label %286, label %.critedge6, !llvm.loop !41
 
 .critedge6:                                       ; preds = %378, %._crit_edge562
   %fputc381 = tail call i32 @fputc(i32 125, ptr nonnull %40)
@@ -909,7 +909,7 @@ Wlc_ObjCo2PoFo.exit518:                           ; preds = %399, %403
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %412 = sext i32 %.val430 to i64
   %413 = icmp slt i64 %indvars.iv.next602, %412
-  br i1 %413, label %391, label %.critedge8.preheader, !llvm.loop !43
+  br i1 %413, label %391, label %.critedge8.preheader, !llvm.loop !42
 
 .critedge10.preheader:                            ; preds = %.critedge8, %.critedge6, %.critedge8.preheader
   %.val432580640 = phi i32 [ %.val430, %.critedge8.preheader ], [ %.val430568, %.critedge6 ], [ %.val431, %.critedge8 ]
@@ -986,7 +986,7 @@ Wlc_ObjCo2PoFo.exit525:                           ; preds = %417, %419
   %.1352 = phi i32 [ %440, %435 ], [ %.0351573, %428 ]
   %441 = add nuw nsw i32 %.5574, 1
   %442 = icmp slt i32 %441, %.val431
-  br i1 %442, label %417, label %.critedge10.preheader, !llvm.loop !44
+  br i1 %442, label %417, label %.critedge10.preheader, !llvm.loop !43
 
 .critedge12.preheader.loopexit:                   ; preds = %.critedge10
   %.val432580.pre = load i32, ptr %100, align 4, !tbaa !3
@@ -1053,7 +1053,7 @@ Wlc_ObjCo2PoFo.exit525:                           ; preds = %417, %419
   %indvars.iv.next605 = add nuw nsw i64 %indvars.iv604, 1
   %466 = sext i32 %.val428 to i64
   %467 = icmp slt i64 %indvars.iv.next605, %466
-  br i1 %467, label %448, label %.critedge12.preheader.loopexit, !llvm.loop !45
+  br i1 %467, label %448, label %.critedge12.preheader.loopexit, !llvm.loop !44
 
 .critedge14.preheader:                            ; preds = %.critedge12, %.critedge12.preheader
   %.val480588 = load i32, ptr %88, align 8, !tbaa !10
@@ -1127,7 +1127,7 @@ Wlc_ObjCo2PoFo.exit532:                           ; preds = %478, %482
   %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
   %503 = sext i32 %.val432 to i64
   %504 = icmp slt i64 %indvars.iv.next608, %503
-  br i1 %504, label %470, label %.critedge14.preheader, !llvm.loop !46
+  br i1 %504, label %470, label %.critedge14.preheader, !llvm.loop !45
 
 505:                                              ; preds = %.lr.ph590, %.critedge18
   %.val480645 = phi i32 [ %.val480588, %.lr.ph590 ], [ %.val480, %.critedge18 ]
@@ -1147,7 +1147,7 @@ Wlc_ObjCo2PoFo.exit532:                           ; preds = %478, %482
 
 .preheader:                                       ; preds = %508
   %510 = getelementptr i8, ptr %506, i64 4
-  %.val486584 = load i32, ptr %510, align 4, !tbaa !35
+  %.val486584 = load i32, ptr %510, align 4, !tbaa !34
   %511 = icmp sgt i32 %.val486584, 0
   br i1 %511, label %.lr.ph587, label %.critedge18
 
@@ -1171,7 +1171,7 @@ Wlc_ObjCo2PoFo.exit532:                           ; preds = %478, %482
   ]
 
 Wlc_ObjHasArray.exit.thread.i.i534:               ; preds = %516, %516, %514
-  %519 = load ptr, ptr %512, align 8, !tbaa !36
+  %519 = load ptr, ptr %512, align 8, !tbaa !35
   br label %Wlc_ObjFaninId.exit
 
 Wlc_ObjFaninId.exit:                              ; preds = %516, %Wlc_ObjHasArray.exit.thread.i.i534
@@ -1208,7 +1208,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %516, %Wlc_ObjHasArr
 540:                                              ; preds = %538, %523
   %fputc391 = tail call i32 @fputc(i32 93, ptr nonnull %40)
   %541 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 2, i64 1, ptr nonnull %40)
-  %.val486.pre = load i32, ptr %510, align 4, !tbaa !35
+  %.val486.pre = load i32, ptr %510, align 4, !tbaa !34
   br label %542
 
 542:                                              ; preds = %Wlc_ObjFaninId.exit, %540
@@ -1216,7 +1216,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %516, %Wlc_ObjHasArr
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
   %543 = sext i32 %.val486 to i64
   %544 = icmp slt i64 %indvars.iv.next611, %543
-  br i1 %544, label %514, label %.critedge18.loopexit, !llvm.loop !47
+  br i1 %544, label %514, label %.critedge18.loopexit, !llvm.loop !46
 
 .critedge18.loopexit:                             ; preds = %542
   %.val480.pre = load i32, ptr %88, align 8, !tbaa !10
@@ -1227,7 +1227,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %516, %Wlc_ObjHasArr
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %545 = sext i32 %.val480 to i64
   %546 = icmp slt i64 %indvars.iv.next614, %545
-  br i1 %546, label %505, label %.critedge16, !llvm.loop !48
+  br i1 %546, label %505, label %.critedge16, !llvm.loop !47
 
 .critedge16:                                      ; preds = %.critedge18, %.critedge14.preheader
   %fputc384 = tail call i32 @fputc(i32 125, ptr nonnull %40)
@@ -1275,10 +1275,10 @@ declare void @Wlc_NtkCleanMarks(ptr noundef) local_unnamed_addr #3
 define void @Wlc_NtkShow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [200 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #8
-  %4 = load ptr, ptr %0, align 8, !tbaa !29
+  %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = tail call ptr @Extra_FileDesignName(ptr noundef %4) #8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -1385,28 +1385,27 @@ attributes #9 = { nounwind willreturn memory(read) }
 !21 = !{!4, !8, i64 8}
 !22 = !{!5, !5, i64 0}
 !23 = !{!11, !14, i64 640}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = distinct !{!28, !25, !26}
-!29 = !{!11, !12, i64 0}
-!30 = !{!11, !12, i64 8}
-!31 = !{!32, !5, i64 8}
-!32 = !{!"Wlc_Obj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16}
-!33 = !{!32, !5, i64 12}
-!34 = distinct !{!34, !25, !26}
-!35 = !{!32, !5, i64 4}
-!36 = !{!6, !6, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"long", !6, i64 0}
-!39 = distinct !{!39, !25, !26}
-!40 = distinct !{!40, !25, !26}
-!41 = distinct !{!41, !25, !26}
-!42 = distinct !{!42, !25, !26}
-!43 = distinct !{!43, !25, !26}
-!44 = distinct !{!44, !25, !26}
-!45 = distinct !{!45, !25, !26}
-!46 = distinct !{!46, !25, !26}
-!47 = distinct !{!47, !25, !26}
-!48 = distinct !{!48, !25, !26}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = !{!11, !12, i64 0}
+!29 = !{!11, !12, i64 8}
+!30 = !{!31, !5, i64 8}
+!31 = !{!"Wlc_Obj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16}
+!32 = !{!31, !5, i64 12}
+!33 = distinct !{!33, !25}
+!34 = !{!31, !5, i64 4}
+!35 = !{!6, !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"long", !6, i64 0}
+!38 = distinct !{!38, !25}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}
+!41 = distinct !{!41, !25}
+!42 = distinct !{!42, !25}
+!43 = distinct !{!43, !25}
+!44 = distinct !{!44, !25}
+!45 = distinct !{!45, !25}
+!46 = distinct !{!46, !25}
+!47 = distinct !{!47, !25}

@@ -15899,7 +15899,7 @@ lean_inc.exit636:                                 ; preds = %47, %46, %44, %lean
   %.sink = phi ptr [ %142, %167 ], [ %142, %166 ], [ %142, %164 ], [ %142, %lean_inc.exit634 ], [ %29, %54 ], [ %29, %53 ], [ %29, %51 ], [ %29, %lean_inc.exit636 ]
   %.0537.be = phi ptr [ %152, %167 ], [ %152, %166 ], [ %152, %164 ], [ %152, %lean_inc.exit634 ], [ %39, %54 ], [ %39, %53 ], [ %39, %51 ], [ %39, %lean_inc.exit636 ]
   %55 = tail call ptr @l_Lean_Elab_PartialContextInfo_mergeIntoOuter_x3f(ptr noundef %.sink, ptr noundef %.0536) #6
-  br label %8, !llvm.loop !16
+  br label %8
 
 56:                                               ; preds = %lean_obj_tag.exit865
   br i1 %.not.i862, label %57, label %lean_dec.exit698
@@ -16474,7 +16474,7 @@ lean_inc.exit626:                                 ; preds = %256, %255, %253, %2
 267:                                              ; preds = %266, %263
   %268 = phi i32 [ %.pr, %266 ], [ %264, %263 ]
   %269 = icmp sgt i32 %268, 1
-  br i1 %269, label %270, label %272, !prof !18
+  br i1 %269, label %270, label %272, !prof !16
 
 270:                                              ; preds = %267
   %271 = add nsw i32 %268, -1
@@ -18446,7 +18446,7 @@ lean_inc.exit585:                                 ; preds = %984, %983, %981, %9
 995:                                              ; preds = %994, %991
   %996 = phi i32 [ %.pr1156, %994 ], [ %992, %991 ]
   %997 = icmp sgt i32 %996, 1
-  br i1 %997, label %998, label %1000, !prof !18
+  br i1 %997, label %998, label %1000, !prof !16
 
 998:                                              ; preds = %995
   %999 = add nsw i32 %996, -1
@@ -20233,9 +20233,9 @@ lean_alloc_closure.exit:                          ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_Elab_InfoTree_visitM_x27___at_Lean_Server_FileWorker_handleInlayHints___spec__2___lambda__1___boxed, ptr %12, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 8, ptr %13, align 8, !tbaa !19
+  store i16 8, ptr %13, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 1, ptr %14, align 2, !tbaa !19
+  store i16 1, ptr %14, align 2, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %1, ptr %15, align 8, !tbaa !4
   %16 = tail call ptr @l_Lean_Elab_InfoTree_visitM_go___at_Lean_Server_FileWorker_handleInlayHints___spec__3(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
@@ -20965,9 +20965,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit94
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr @l_Lean_Elab_InlayHint_resolveDeferred, ptr %83, align 8, !tbaa !4
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i16 6, ptr %84, align 8, !tbaa !19
+  store i16 6, ptr %84, align 8, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 18
-  store i16 1, ptr %85, align 2, !tbaa !19
+  store i16 1, ptr %85, align 2, !tbaa !17
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 24
   store ptr %53, ptr %86, align 8, !tbaa !4
   %87 = tail call ptr @l_Lean_Elab_ContextInfo_runMetaM___rarg(ptr noundef %0, ptr noundef %70, ptr noundef nonnull %79, ptr noundef %5) #6
@@ -27850,7 +27850,7 @@ lean_dec.exit294:                                 ; preds = %247, %246, %244, %2
 259:                                              ; preds = %258, %255
   %260 = phi i32 [ %.pr, %258 ], [ %256, %255 ]
   %261 = icmp sgt i32 %260, 1
-  br i1 %261, label %262, label %264, !prof !18
+  br i1 %261, label %262, label %264, !prof !16
 
 262:                                              ; preds = %259
   %263 = add nsw i32 %260, -1
@@ -28526,7 +28526,7 @@ lean_dec.exit279:                                 ; preds = %501, %500, %498, %l
 513:                                              ; preds = %512, %509
   %514 = phi i32 [ %.pr504, %512 ], [ %510, %509 ]
   %515 = icmp sgt i32 %514, 1
-  br i1 %515, label %516, label %518, !prof !18
+  br i1 %515, label %516, label %518, !prof !16
 
 516:                                              ; preds = %513
   %517 = add nsw i32 %514, -1
@@ -38158,7 +38158,7 @@ lean_dec.exit82:                                  ; preds = %92, %91, %89, %lean
 
 .thread:                                          ; preds = %lean_obj_tag.exit.thread
   %94 = icmp sgt i32 %.val.pre166, 1
-  br i1 %94, label %95, label %97, !prof !18
+  br i1 %94, label %95, label %97, !prof !16
 
 95:                                               ; preds = %.thread
   %96 = add nsw i32 %.val.pre166, -1
@@ -43217,9 +43217,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__3___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 8, ptr %15, align 8, !tbaa !19
+  store i16 8, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 5, ptr %16, align 2, !tbaa !19
+  store i16 5, ptr %16, align 2, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -43542,9 +43542,9 @@ lean_alloc_closure.exit:                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__5___boxed, ptr %13, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 9, ptr %14, align 8, !tbaa !19
+  store i16 9, ptr %14, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 5, ptr %15, align 2, !tbaa !19
+  store i16 5, ptr %15, align 2, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %0, ptr %16, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -43572,9 +43572,9 @@ lean_alloc_closure.exit19:                        ; preds = %lean_alloc_closure.
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @l_ReaderT_bind___at___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___spec__2___rarg, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i16 5, ptr %27, align 8, !tbaa !19
+  store i16 5, ptr %27, align 8, !tbaa !17
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  store i16 2, ptr %28, align 2, !tbaa !19
+  store i16 2, ptr %28, align 2, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %21, ptr %29, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -45411,9 +45411,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__8___boxed, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 8, ptr %15, align 8, !tbaa !19
+  store i16 8, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 5, ptr %16, align 2, !tbaa !19
+  store i16 5, ptr %16, align 2, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -45709,9 +45709,9 @@ lean_alloc_closure.exit:                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__9___boxed, ptr %13, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 9, ptr %14, align 8, !tbaa !19
+  store i16 9, ptr %14, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 5, ptr %15, align 2, !tbaa !19
+  store i16 5, ptr %15, align 2, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %0, ptr %16, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -45739,9 +45739,9 @@ lean_alloc_closure.exit19:                        ; preds = %lean_alloc_closure.
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @l_ReaderT_bind___at___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___spec__2___rarg, ptr %26, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i16 5, ptr %27, align 8, !tbaa !19
+  store i16 5, ptr %27, align 8, !tbaa !17
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  store i16 2, ptr %28, align 2, !tbaa !19
+  store i16 2, ptr %28, align 2, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %21, ptr %29, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -46007,9 +46007,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit256
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__2___boxed, ptr %89, align 8, !tbaa !4
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i16 7, ptr %90, align 8, !tbaa !19
+  store i16 7, ptr %90, align 8, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 18
-  store i16 3, ptr %91, align 2, !tbaa !19
+  store i16 3, ptr %91, align 2, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %2, ptr %92, align 8, !tbaa !4
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 32
@@ -46119,9 +46119,9 @@ lean_alloc_closure.exit313:                       ; preds = %lean_inc.exit252
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__6, ptr %125, align 8, !tbaa !4
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store i16 8, ptr %126, align 8, !tbaa !19
+  store i16 8, ptr %126, align 8, !tbaa !17
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 18
-  store i16 5, ptr %127, align 2, !tbaa !19
+  store i16 5, ptr %127, align 2, !tbaa !17
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr %35, ptr %128, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 32
@@ -46214,9 +46214,9 @@ lean_alloc_closure.exit323:                       ; preds = %lean_inc.exit249
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__7___boxed, ptr %157, align 8, !tbaa !4
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store i16 7, ptr %158, align 8, !tbaa !19
+  store i16 7, ptr %158, align 8, !tbaa !17
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 18
-  store i16 3, ptr %159, align 2, !tbaa !19
+  store i16 3, ptr %159, align 2, !tbaa !17
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store ptr %2, ptr %160, align 8, !tbaa !4
   %161 = getelementptr inbounds nuw i8, ptr %153, i64 32
@@ -46302,9 +46302,9 @@ lean_alloc_closure.exit333:                       ; preds = %lean_inc.exit246
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__10, ptr %185, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i16 8, ptr %186, align 8, !tbaa !19
+  store i16 8, ptr %186, align 8, !tbaa !17
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 18
-  store i16 5, ptr %187, align 2, !tbaa !19
+  store i16 5, ptr %187, align 2, !tbaa !17
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store ptr %35, ptr %188, align 8, !tbaa !4
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 32
@@ -46803,9 +46803,9 @@ lean_alloc_closure.exit375:                       ; preds = %lean_inc.exit233
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__2___boxed, ptr %372, align 8, !tbaa !4
   %373 = getelementptr inbounds nuw i8, ptr %368, i64 16
-  store i16 7, ptr %373, align 8, !tbaa !19
+  store i16 7, ptr %373, align 8, !tbaa !17
   %374 = getelementptr inbounds nuw i8, ptr %368, i64 18
-  store i16 3, ptr %374, align 2, !tbaa !19
+  store i16 3, ptr %374, align 2, !tbaa !17
   %375 = getelementptr inbounds nuw i8, ptr %368, i64 24
   store ptr %2, ptr %375, align 8, !tbaa !4
   %376 = getelementptr inbounds nuw i8, ptr %368, i64 32
@@ -46912,9 +46912,9 @@ lean_alloc_closure.exit388:                       ; preds = %lean_inc.exit229
   %406 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__6, ptr %406, align 8, !tbaa !4
   %407 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  store i16 8, ptr %407, align 8, !tbaa !19
+  store i16 8, ptr %407, align 8, !tbaa !17
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 18
-  store i16 5, ptr %408, align 2, !tbaa !19
+  store i16 5, ptr %408, align 2, !tbaa !17
   %409 = getelementptr inbounds nuw i8, ptr %402, i64 24
   store ptr %318, ptr %409, align 8, !tbaa !4
   %410 = getelementptr inbounds nuw i8, ptr %402, i64 32
@@ -47007,9 +47007,9 @@ lean_alloc_closure.exit398:                       ; preds = %lean_inc.exit226
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__7___boxed, ptr %438, align 8, !tbaa !4
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 16
-  store i16 7, ptr %439, align 8, !tbaa !19
+  store i16 7, ptr %439, align 8, !tbaa !17
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 18
-  store i16 3, ptr %440, align 2, !tbaa !19
+  store i16 3, ptr %440, align 2, !tbaa !17
   %441 = getelementptr inbounds nuw i8, ptr %434, i64 24
   store ptr %2, ptr %441, align 8, !tbaa !4
   %442 = getelementptr inbounds nuw i8, ptr %434, i64 32
@@ -47095,9 +47095,9 @@ lean_alloc_closure.exit408:                       ; preds = %lean_inc.exit223
   %466 = getelementptr inbounds nuw i8, ptr %462, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__10, ptr %466, align 8, !tbaa !4
   %467 = getelementptr inbounds nuw i8, ptr %462, i64 16
-  store i16 8, ptr %467, align 8, !tbaa !19
+  store i16 8, ptr %467, align 8, !tbaa !17
   %468 = getelementptr inbounds nuw i8, ptr %462, i64 18
-  store i16 5, ptr %468, align 2, !tbaa !19
+  store i16 5, ptr %468, align 2, !tbaa !17
   %469 = getelementptr inbounds nuw i8, ptr %462, i64 24
   store ptr %318, ptr %469, align 8, !tbaa !4
   %470 = getelementptr inbounds nuw i8, ptr %462, i64 32
@@ -47537,7 +47537,7 @@ define ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspR
 20:                                               ; preds = %19, %16
   %21 = phi i32 [ %.pr, %19 ], [ %17, %16 ]
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %23, label %25, !prof !18
+  br i1 %22, label %23, label %25, !prof !16
 
 23:                                               ; preds = %20
   %24 = add nsw i32 %21, -1
@@ -48855,9 +48855,9 @@ _init_l_panic___at_Lean_Server_FileWorker_handleInlayHints___spec__1___closed__1
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr @l_EStateM_instInhabited___rarg, ptr %77, align 8, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i16 2, ptr %78, align 8, !tbaa !19
+  store i16 2, ptr %78, align 8, !tbaa !17
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 18
-  store i16 1, ptr %79, align 2, !tbaa !19
+  store i16 1, ptr %79, align 2, !tbaa !17
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %72, ptr %80, align 8, !tbaa !4
   store ptr %73, ptr @l_panic___at_Lean_Server_FileWorker_handleInlayHints___spec__1___closed__1, align 8, !tbaa !4
@@ -48879,9 +48879,9 @@ _init_l_panic___at_Lean_Server_FileWorker_handleInlayHints___spec__1___closed__2
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr @l_instInhabitedReaderT___rarg___boxed, ptr %86, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store i16 2, ptr %87, align 8, !tbaa !19
+  store i16 2, ptr %87, align 8, !tbaa !17
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 18
-  store i16 1, ptr %88, align 2, !tbaa !19
+  store i16 1, ptr %88, align 2, !tbaa !17
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %81, ptr %89, align 8, !tbaa !4
   store ptr %82, ptr @l_panic___at_Lean_Server_FileWorker_handleInlayHints___spec__1___closed__2, align 8, !tbaa !4
@@ -48932,9 +48932,9 @@ _init_l_Subarray_forInUnsafe_loop___at_Lean_Server_FileWorker_handleInlayHints__
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr @l_Subarray_forInUnsafe_loop___at_Lean_Server_FileWorker_handleInlayHints___spec__6___lambda__1___boxed, ptr %108, align 8, !tbaa !4
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i16 6, ptr %109, align 8, !tbaa !19
+  store i16 6, ptr %109, align 8, !tbaa !17
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 18
-  store i16 0, ptr %110, align 2, !tbaa !19
+  store i16 0, ptr %110, align 2, !tbaa !17
   store ptr %104, ptr @l_Subarray_forInUnsafe_loop___at_Lean_Server_FileWorker_handleInlayHints___spec__6___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %104) #6
   tail call void @lean_inc_heartbeat() #6
@@ -48953,9 +48953,9 @@ _init_l_Subarray_forInUnsafe_loop___at_Lean_Server_FileWorker_handleInlayHints__
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr @l_Subarray_forInUnsafe_loop___at_Lean_Server_FileWorker_handleInlayHints___spec__6___lambda__2___boxed, ptr %115, align 8, !tbaa !4
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store i16 6, ptr %116, align 8, !tbaa !19
+  store i16 6, ptr %116, align 8, !tbaa !17
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 18
-  store i16 0, ptr %117, align 2, !tbaa !19
+  store i16 0, ptr %117, align 2, !tbaa !17
   store ptr %111, ptr @l_Subarray_forInUnsafe_loop___at_Lean_Server_FileWorker_handleInlayHints___spec__6___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %111) #6
   %118 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.13, i64 noundef 21, i64 noundef 21) #6
@@ -49043,9 +49043,9 @@ _init_l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequest
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__4___boxed, ptr %149, align 8, !tbaa !4
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  store i16 1, ptr %150, align 8, !tbaa !19
+  store i16 1, ptr %150, align 8, !tbaa !17
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 18
-  store i16 0, ptr %151, align 2, !tbaa !19
+  store i16 0, ptr %151, align 2, !tbaa !17
   store ptr %145, ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__5___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %145) #6
   tail call void @lean_inc_heartbeat() #6
@@ -49064,9 +49064,9 @@ _init_l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequest
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr @l_StateRefT_x27_get___at___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___spec__1___boxed, ptr %156, align 8, !tbaa !4
   %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i16 3, ptr %157, align 8, !tbaa !19
+  store i16 3, ptr %157, align 8, !tbaa !17
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 18
-  store i16 0, ptr %158, align 2, !tbaa !19
+  store i16 0, ptr %158, align 2, !tbaa !17
   store ptr %152, ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__6___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %152) #6
   %159 = tail call ptr @lean_task_pure(ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
@@ -49091,9 +49091,9 @@ _init_l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequest
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__1, ptr %165, align 8, !tbaa !4
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  store i16 1, ptr %166, align 8, !tbaa !19
+  store i16 1, ptr %166, align 8, !tbaa !17
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 18
-  store i16 0, ptr %167, align 2, !tbaa !19
+  store i16 0, ptr %167, align 2, !tbaa !17
   store ptr %161, ptr @l___private_Lean_Server_Requests_0__Lean_Server_overrideStatefulLspRequestHandler___at_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____spec__3___lambda__11___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %161) #6
   %168 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.18, i64 noundef 53, i64 noundef 53) #6
@@ -49130,9 +49130,9 @@ _init_l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints__
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr @l_Lean_Server_FileWorker_handleInlayHints, ptr %178, align 8, !tbaa !4
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  store i16 4, ptr %179, align 8, !tbaa !19
+  store i16 4, ptr %179, align 8, !tbaa !17
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 18
-  store i16 0, ptr %180, align 2, !tbaa !19
+  store i16 0, ptr %180, align 2, !tbaa !17
   store ptr %174, ptr @l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %174) #6
   tail call void @lean_inc_heartbeat() #6
@@ -49151,9 +49151,9 @@ _init_l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints__
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr @l_Lean_Server_FileWorker_handleInlayHintsDidChange___boxed, ptr %185, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i16 4, ptr %186, align 8, !tbaa !19
+  store i16 4, ptr %186, align 8, !tbaa !17
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 18
-  store i16 0, ptr %187, align 2, !tbaa !19
+  store i16 0, ptr %187, align 2, !tbaa !17
   store ptr %181, ptr @l_Lean_Server_FileWorker_initFn____x40_Lean_Server_FileWorker_InlayHints___hyg_2235____closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %181) #6
   %.not = icmp eq i8 %0, 0
@@ -49325,8 +49325,6 @@ attributes #7 = { noreturn nounwind }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!6, !6, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !6, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !6, i64 0}

@@ -317,16 +317,16 @@ define internal void @fn_child_start_fl(ptr noundef %0, i32 noundef %1, i64 %2, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.18, i32 noundef %7) #7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %4
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.19, i64 noundef 4) #7
-  %11 = load ptr, ptr %8, align 8, !tbaa !24
+  %11 = load ptr, ptr %8, align 8, !tbaa !23
   call void @sq_quote_buf_pretty(ptr noundef nonnull %5, ptr noundef %11) #7
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.20, i64 noundef 1) #7
   br label %12
@@ -374,7 +374,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %28
 
 28:                                               ; preds = %27, %strbuf_addch.exit
-  %29 = load ptr, ptr %3, align 8, !tbaa !25
+  %29 = load ptr, ptr %3, align 8, !tbaa !24
   call void @sq_append_quote_argv_pretty(ptr noundef nonnull %5, ptr noundef %29) #7
   call fastcc void @normal_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef %5)
   call void @strbuf_release(ptr noundef nonnull %5) #7
@@ -490,7 +490,7 @@ define internal void @fn_param_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 8, !tbaa !25
   %9 = tail call ptr @config_scope_name(i32 noundef %8) #7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.27, ptr noundef %9, ptr noundef %2) #7
   %.not = icmp eq ptr %3, null
@@ -514,7 +514,7 @@ define internal void @fn_repo_fl(ptr noundef %0, i32 noundef %1, ptr noundef rea
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.29, i64 noundef 9) #7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   call void @sq_quote_buf_pretty(ptr noundef nonnull %4, ptr noundef %6) #7
   call fastcc void @normal_io_write_fl(ptr noundef %0, i32 noundef %1, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
@@ -558,22 +558,22 @@ define internal void @fn_timer(ptr noundef readonly captures(none) %0, ptr nound
   %5 = select i1 %.not, ptr @.str.31, ptr @.str.30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
-  %6 = load i64, ptr %1, align 8, !tbaa !46
+  %6 = load i64, ptr %1, align 8, !tbaa !45
   %7 = uitofp i64 %6 to double
   %8 = fdiv double %7, 1.000000e+09
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !48
+  %10 = load i64, ptr %9, align 8, !tbaa !47
   %11 = uitofp i64 %10 to double
   %12 = fdiv double %11, 1.000000e+09
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !49
+  %14 = load i64, ptr %13, align 8, !tbaa !48
   %15 = uitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+09
-  %17 = load ptr, ptr %0, align 8, !tbaa !50
+  %17 = load ptr, ptr %0, align 8, !tbaa !49
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load i64, ptr %20, align 8, !tbaa !53
+  %21 = load i64, ptr %20, align 8, !tbaa !52
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, ptr noundef nonnull %5, ptr noundef %17, ptr noundef %19, i64 noundef %21, double noundef %8, double noundef %12, double noundef %16) #7
   call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.8, i32 noundef 357, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
@@ -588,10 +588,10 @@ define internal void @fn_counter(ptr noundef readonly captures(none) %0, ptr nou
   %5 = select i1 %.not, ptr @.str.34, ptr @.str.33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
-  %6 = load ptr, ptr %0, align 8, !tbaa !54
+  %6 = load ptr, ptr %0, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !56
-  %9 = load i64, ptr %1, align 8, !tbaa !57
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %9 = load i64, ptr %1, align 8, !tbaa !56
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.35, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %8, i64 noundef %9) #7
   call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.8, i32 noundef 372, ptr noundef %4)
   call void @strbuf_release(ptr noundef nonnull %4) #7
@@ -709,7 +709,7 @@ strbuf_addch.exit20.i:                            ; preds = %strbuf_avail.exit.t
   store i8 0, ptr %31, align 1, !tbaa !4
   %32 = load i64, ptr %5, align 8, !tbaa !14
   %33 = icmp ult i64 %32, 50
-  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !59
+  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %strbuf_addch.exit20.i, %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
@@ -784,46 +784,45 @@ attributes #8 = { nounwind willreturn memory(read) }
 !14 = !{!10, !11, i64 8}
 !15 = !{!10, !12, i64 16}
 !16 = !{!12, !12, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !8, i64 52}
-!21 = !{!"child_process", !22, i64 0, !22, i64 24, !8, i64 48, !8, i64 52, !11, i64 56, !12, i64 64, !12, i64 72, !8, i64 80, !8, i64 84, !8, i64 88, !12, i64 96, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 105, !8, i64 105, !13, i64 112}
-!22 = !{!"strvec", !23, i64 0, !11, i64 8, !11, i64 16}
-!23 = !{!"p2 omnipotent char", !13, i64 0}
-!24 = !{!21, !12, i64 96}
-!25 = !{!21, !23, i64 0}
-!26 = !{!27, !8, i64 16}
-!27 = !{!"key_value_info", !12, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !12, i64 24}
-!28 = !{!29, !12, i64 240}
-!29 = !{!"repository", !12, i64 0, !12, i64 8, !30, i64 16, !31, i64 24, !32, i64 32, !33, i64 40, !33, i64 104, !37, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !38, i64 256, !40, i64 368, !41, i64 376, !42, i64 384, !43, i64 392, !44, i64 400, !44, i64 408, !8, i64 416, !8, i64 420, !8, i64 424, !12, i64 432, !45, i64 440, !8, i64 448, !8, i64 452, !8, i64 456}
-!30 = !{!"p1 _ZTS16raw_object_store", !13, i64 0}
-!31 = !{!"p1 _ZTS18parsed_object_pool", !13, i64 0}
-!32 = !{!"p1 _ZTS9ref_store", !13, i64 0}
-!33 = !{!"strmap", !34, i64 0, !36, i64 48, !8, i64 56}
-!34 = !{!"hashmap", !35, i64 0, !13, i64 8, !13, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40}
-!35 = !{!"p2 _ZTS13hashmap_entry", !13, i64 0}
-!36 = !{!"p1 _ZTS8mem_pool", !13, i64 0}
-!37 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
-!38 = !{!"repo_settings", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !39, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!39 = !{!"p1 _ZTS18fsmonitor_settings", !13, i64 0}
-!40 = !{!"p1 _ZTS10config_set", !13, i64 0}
-!41 = !{!"p1 _ZTS15submodule_cache", !13, i64 0}
-!42 = !{!"p1 _ZTS11index_state", !13, i64 0}
-!43 = !{!"p1 _ZTS12remote_state", !13, i64 0}
-!44 = !{!"p1 _ZTS13git_hash_algo", !13, i64 0}
-!45 = !{!"p1 _ZTS22promisor_remote_config", !13, i64 0}
-!46 = !{!47, !11, i64 0}
-!47 = !{!"tr2_timer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !8, i64 40}
-!48 = !{!47, !11, i64 8}
-!49 = !{!47, !11, i64 16}
-!50 = !{!51, !12, i64 0}
-!51 = !{!"tr2_timer_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
-!52 = !{!51, !12, i64 8}
-!53 = !{!47, !11, i64 32}
-!54 = !{!55, !12, i64 0}
-!55 = !{!"tr2_counter_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
-!56 = !{!55, !12, i64 8}
-!57 = !{!58, !11, i64 0}
-!58 = !{!"tr2_counter", !11, i64 0}
-!59 = distinct !{!59, !18, !19}
+!19 = !{!20, !8, i64 52}
+!20 = !{!"child_process", !21, i64 0, !21, i64 24, !8, i64 48, !8, i64 52, !11, i64 56, !12, i64 64, !12, i64 72, !8, i64 80, !8, i64 84, !8, i64 88, !12, i64 96, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 104, !8, i64 105, !8, i64 105, !13, i64 112}
+!21 = !{!"strvec", !22, i64 0, !11, i64 8, !11, i64 16}
+!22 = !{!"p2 omnipotent char", !13, i64 0}
+!23 = !{!20, !12, i64 96}
+!24 = !{!20, !22, i64 0}
+!25 = !{!26, !8, i64 16}
+!26 = !{!"key_value_info", !12, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !12, i64 24}
+!27 = !{!28, !12, i64 240}
+!28 = !{!"repository", !12, i64 0, !12, i64 8, !29, i64 16, !30, i64 24, !31, i64 32, !32, i64 40, !32, i64 104, !36, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !37, i64 256, !39, i64 368, !40, i64 376, !41, i64 384, !42, i64 392, !43, i64 400, !43, i64 408, !8, i64 416, !8, i64 420, !8, i64 424, !12, i64 432, !44, i64 440, !8, i64 448, !8, i64 452, !8, i64 456}
+!29 = !{!"p1 _ZTS16raw_object_store", !13, i64 0}
+!30 = !{!"p1 _ZTS18parsed_object_pool", !13, i64 0}
+!31 = !{!"p1 _ZTS9ref_store", !13, i64 0}
+!32 = !{!"strmap", !33, i64 0, !35, i64 48, !8, i64 56}
+!33 = !{!"hashmap", !34, i64 0, !13, i64 8, !13, i64 16, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40}
+!34 = !{!"p2 _ZTS13hashmap_entry", !13, i64 0}
+!35 = !{!"p1 _ZTS8mem_pool", !13, i64 0}
+!36 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!37 = !{!"repo_settings", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !38, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
+!38 = !{!"p1 _ZTS18fsmonitor_settings", !13, i64 0}
+!39 = !{!"p1 _ZTS10config_set", !13, i64 0}
+!40 = !{!"p1 _ZTS15submodule_cache", !13, i64 0}
+!41 = !{!"p1 _ZTS11index_state", !13, i64 0}
+!42 = !{!"p1 _ZTS12remote_state", !13, i64 0}
+!43 = !{!"p1 _ZTS13git_hash_algo", !13, i64 0}
+!44 = !{!"p1 _ZTS22promisor_remote_config", !13, i64 0}
+!45 = !{!46, !11, i64 0}
+!46 = !{!"tr2_timer", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !8, i64 40}
+!47 = !{!46, !11, i64 8}
+!48 = !{!46, !11, i64 16}
+!49 = !{!50, !12, i64 0}
+!50 = !{!"tr2_timer_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
+!51 = !{!50, !12, i64 8}
+!52 = !{!46, !11, i64 32}
+!53 = !{!54, !12, i64 0}
+!54 = !{!"tr2_counter_metadata", !12, i64 0, !12, i64 8, !8, i64 16}
+!55 = !{!54, !12, i64 8}
+!56 = !{!57, !11, i64 0}
+!57 = !{!"tr2_counter", !11, i64 0}
+!58 = distinct !{!58, !18}

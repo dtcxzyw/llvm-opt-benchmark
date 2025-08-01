@@ -89,7 +89,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br label %5, !llvm.loop !9
 
 .loopexit:                                        ; preds = %5, %28
-  %7 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %7 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %8 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.20, ptr noundef %4) #3
   br label %.loopexit57
 
@@ -119,7 +119,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 
 21:                                               ; preds = %17, %14
   %.4 = phi ptr [ null, %14 ], [ %.3, %17 ]
-  %22 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %22 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.21, ptr noundef %4) #3
   br label %.loopexit57
 
@@ -145,7 +145,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br i1 %or.cond, label %34, label %37
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %35 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %36 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.22) #3
   br label %.loopexit57
 
@@ -188,7 +188,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br i1 %59, label %60, label %69
 
 60:                                               ; preds = %55
-  %61 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %61 = load ptr, ptr @bio_err, align 8, !tbaa !11
   br i1 %33, label %62, label %65
 
 62:                                               ; preds = %60
@@ -199,26 +199,26 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 65:                                               ; preds = %60, %62
   %66 = phi ptr [ %64, %62 ], [ %.037.ph134, %60 ]
   %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.23, ptr noundef %66) #3
-  %68 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %68 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %68) #3
   br label %.loopexit57
 
 69:                                               ; preds = %55
   %70 = call ptr @EVP_SKEY_get0_key_id(ptr noundef nonnull %58) #3
-  %71 = load ptr, ptr @bio_out, align 8, !tbaa !12
+  %71 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %.not55 = icmp eq ptr %70, null
   %72 = select i1 %.not55, ptr @.str.25, ptr %70
   %73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %71, ptr noundef nonnull @.str.24, ptr noundef nonnull %72) #3
-  %74 = load ptr, ptr @bio_out, align 8, !tbaa !12
+  %74 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %75 = call ptr @EVP_SKEY_get0_provider_name(ptr noundef nonnull %58) #3
   %76 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.26, ptr noundef %75) #3
-  %77 = load ptr, ptr @bio_out, align 8, !tbaa !12
+  %77 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %78 = call ptr @EVP_SKEY_get0_skeymgmt_name(ptr noundef nonnull %58) #3
   %79 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.27, ptr noundef %78) #3
   br label %.loopexit57
 
 80:                                               ; preds = %37
-  %81 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %81 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %82 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %81, ptr noundef nonnull @.str.28) #3
   br label %.loopexit57
 
@@ -227,7 +227,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   %.2 = phi ptr [ %.039.ph131, %.loopexit ], [ %.039.ph131, %9 ], [ %.4, %21 ], [ %.039.ph131, %34 ], [ %.039.ph131, %80 ], [ %.039.ph131, %43 ], [ %.039.ph131, %65 ], [ %.039.ph131, %69 ], [ %.039.ph131, %26 ]
   %.036 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ null, %65 ], [ %58, %69 ], [ null, %26 ]
   %.035 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ %46, %65 ], [ %46, %69 ], [ null, %26 ]
-  %83 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %83 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %83) #3
   call void @OPENSSL_sk_free(ptr noundef %.2) #3
   call void @EVP_SKEYMGMT_free(ptr noundef %.035) #3
@@ -310,8 +310,7 @@ attributes #3 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS6bio_st", !6, i64 0}

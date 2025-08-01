@@ -446,7 +446,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %57 = and i8 %56, -33
   %or.cond = icmp eq i8 %57, 91
   %58 = add nuw i32 %.1, 1
-  br i1 %or.cond, label %59, label %.preheader, !llvm.loop !8
+  br i1 %or.cond, label %59, label %.preheader
 
 59:                                               ; preds = %55, %.preheader
   %.1.lcssa = phi i32 [ %.1, %55 ], [ %smax, %.preheader ]
@@ -537,7 +537,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %107 = load ptr, ptr @want, align 8
   %108 = call ptr @tvbparse_get(ptr noundef %105, ptr noundef %107)
   %.not106 = icmp eq ptr %108, null
-  br i1 %.not106, label %109, label %106, !llvm.loop !10
+  br i1 %.not106, label %109, label %106, !llvm.loop !8
 
 109:                                              ; preds = %106
   %110 = call i32 @tvbparse_curr_offset(ptr noundef %105)
@@ -1982,7 +1982,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   %29 = icmp slt i32 %28, %22
   %30 = icmp ult i64 %27, %14
   %or.cond.i = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.thread176.i, !llvm.loop !12
+  br i1 %or.cond.i, label %.lr.ph.i, label %.thread176.i, !llvm.loop !10
 
 31:                                               ; preds = %.lr.ph197.i
   %32 = add nuw i64 %.0129195.i, 1
@@ -2058,7 +2058,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   %60 = or i32 %56, %59
   %61 = add nuw nsw i32 %.0140188.i, 1
   %exitcond203.not.i = icmp eq i32 %61, 4
-  br i1 %exitcond203.not.i, label %62, label %51, !llvm.loop !13
+  br i1 %exitcond203.not.i, label %62, label %51, !llvm.loop !11
 
 62:                                               ; preds = %58, %52, %51
   %.0149.lcssa.i = phi i32 [ %.0149187.i, %51 ], [ %60, %58 ], [ %.0149187.i, %52 ]
@@ -2111,7 +2111,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   %87 = or i16 %85, %86
   %88 = add nuw nsw i32 %.0130191.i, 1
   %exitcond205.not.i = icmp eq i32 %88, 4
-  br i1 %exitcond205.not.i, label %89, label %.preheader, !llvm.loop !14
+  br i1 %exitcond205.not.i, label %89, label %.preheader, !llvm.loop !12
 
 89:                                               ; preds = %84, %78, %.preheader
   %.0131.lcssa.i = phi i16 [ %.0131190.i, %.preheader ], [ %87, %84 ], [ %.0131190.i, %78 ]
@@ -2166,7 +2166,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
   call void @wmem_strbuf_append_c(ptr noundef %16, i8 noundef signext %105)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond207.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond207.not.i, label %._crit_edge.i, label %.lr.ph194.i, !llvm.loop !15
+  br i1 %exitcond207.not.i, label %._crit_edge.i, label %.lr.ph194.i, !llvm.loop !13
 
 .thread170.i:                                     ; preds = %96, %91, %89, %73, %66
   %.10174.i = phi i64 [ %.6.i, %96 ], [ %.9.i, %89 ], [ %.9.i, %91 ], [ %77, %73 ], [ %70, %66 ]
@@ -2180,7 +2180,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly
 .thread176.i:                                     ; preds = %.lr.ph.i, %.thread170.i, %._crit_edge.i, %99, %97, %47, %45, %43, %41, %39, %37, %.preheader.i
   %.3.i = phi i64 [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %.10174.i, %.thread170.i ], [ %.10209.i, %._crit_edge.i ], [ %.10209.i, %99 ], [ %.10209.i, %97 ], [ %.0129195.i, %.preheader.i ], [ %27, %.lr.ph.i ]
   %107 = icmp ult i64 %.3.i, %14
-  br i1 %107, label %.lr.ph197.i, label %json_string_unescape.exit, !llvm.loop !16
+  br i1 %107, label %.lr.ph197.i, label %json_string_unescape.exit
 
 json_string_unescape.exit:                        ; preds = %19, %31, %64, %71, %.thread176.i, %15
   %108 = call i64 @wmem_strbuf_get_len(ptr noundef %16)
@@ -2434,11 +2434,8 @@ attributes #11 = { noreturn }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
-!13 = distinct !{!13, !11, !9}
-!14 = distinct !{!14, !11, !9}
-!15 = distinct !{!15, !11, !9}
-!16 = distinct !{!16, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

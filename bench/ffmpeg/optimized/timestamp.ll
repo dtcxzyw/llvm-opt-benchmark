@@ -90,7 +90,7 @@ define noundef ptr @av_ts_make_time_string2(ptr noundef returned captures(ret: a
 .critedge5:                                       ; preds = %34, %36
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
   %.not35 = icmp eq i64 %indvars.iv.next48, 0
-  br i1 %.not35, label %.critedge3.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not35, label %.critedge3.loopexit, label %.lr.ph, !llvm.loop !9
 
 .critedge3.loopexit:                              ; preds = %.lr.ph, %.critedge5, %36
   %.1.lcssa.ph = phi i64 [ %indvars.iv47, %36 ], [ 0, %.critedge5 ], [ %indvars.iv47, %.lr.ph ]
@@ -146,7 +146,6 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

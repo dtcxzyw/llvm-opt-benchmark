@@ -86,7 +86,7 @@ define dso_local i64 @strncpy_from_user(ptr noundef writeonly captures(none) %0,
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr i8, ptr %1, i64 %42
   %47 = callbr i8 asm sideeffect "\0A1:\09movb $1,$0\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "=q,*m,!i,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.__large_struct) %46) #2
-          to label %48 [label %.loopexit], !srcloc !15
+          to label %48 [label %.loopexit], !srcloc !14
 
 48:                                               ; preds = %45
   %49 = getelementptr i8, ptr %0, i64 %42
@@ -96,7 +96,7 @@ define dso_local i64 @strncpy_from_user(ptr noundef writeonly captures(none) %0,
   %52 = add i64 %42, %51
   %53 = sext i1 %50 to i64
   %54 = add nsw i64 %43, %53
-  br i1 %50, label %._crit_edge, label %.loopexit8, !llvm.loop !16
+  br i1 %50, label %._crit_edge, label %.loopexit8, !llvm.loop !15
 
 55:                                               ; preds = %._crit_edge
   %56 = icmp ult i64 %42, %2
@@ -107,7 +107,7 @@ define dso_local i64 @strncpy_from_user(ptr noundef writeonly captures(none) %0,
 
 .loopexit8:                                       ; preds = %48, %55, %.loopexit, %.thread
   %57 = phi i64 [ -14, %.loopexit ], [ %42, %55 ], [ %36, %.thread ], [ %42, %48 ]
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !17
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !16
   br label %.thread7
 
 .thread7:                                         ; preds = %5, %9, %.loopexit8, %3
@@ -135,10 +135,9 @@ attributes #2 = { nounwind }
 !8 = !{i64 2150703210, i64 2150703238, i64 2150703244, i64 2150703260, i64 2150703276, i64 2150703303, i64 2150703617, i64 2150702960, i64 2150703623, i64 2150703671, i64 2150703735, i64 2150703799, i64 2150703856, i64 2150703041, i64 2150703066, i64 2150704063, i64 2150704199, i64 2150704124, i64 2150704213, i64 2150703158}
 !9 = !{i64 2151224747, i64 2151224775, i64 2151224781, i64 2151224797, i64 2151224813, i64 2151224840, i64 2151225154, i64 2151224511, i64 2151225160, i64 2151225208, i64 2151225272, i64 2151225336, i64 2151225393, i64 2151224592, i64 2151224617, i64 2151225600, i64 2151225722, i64 2151225661, i64 2151225736, i64 2151224709}
 !10 = !{i64 2153853991, i64 2153854011, i64 2153854047, i64 2153854091, i64 2153854114, i64 2153854146, i64 2153854179, i64 2153854204}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{i64 2153857150, i64 2153857170, i64 2153857206, i64 2153857250, i64 2153857273, i64 2153857305, i64 2153857338, i64 2153857363}
-!16 = distinct !{!16, !12, !13, !14}
-!17 = !{i64 2150701543, i64 2150701571, i64 2150701577, i64 2150701593, i64 2150701609, i64 2150701636, i64 2150701950, i64 2150701293, i64 2150701956, i64 2150702004, i64 2150702068, i64 2150702132, i64 2150702189, i64 2150701374, i64 2150701399, i64 2150702396, i64 2150702532, i64 2150702457, i64 2150702546, i64 2150701491}
+!14 = !{i64 2153857150, i64 2153857170, i64 2153857206, i64 2153857250, i64 2153857273, i64 2153857305, i64 2153857338, i64 2153857363}
+!15 = distinct !{!15, !12, !13}
+!16 = !{i64 2150701543, i64 2150701571, i64 2150701577, i64 2150701593, i64 2150701609, i64 2150701636, i64 2150701950, i64 2150701293, i64 2150701956, i64 2150702004, i64 2150702068, i64 2150702132, i64 2150702189, i64 2150701374, i64 2150701399, i64 2150702396, i64 2150702532, i64 2150702457, i64 2150702546, i64 2150701491}

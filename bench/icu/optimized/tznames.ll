@@ -1276,7 +1276,7 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !36
+  %18 = load i32, ptr %17, align 4, !tbaa !35
   %19 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
   %20 = load ptr, ptr %0, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
@@ -1310,7 +1310,7 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %31, %28
-  %39 = load i32, ptr %17, align 4, !tbaa !36
+  %39 = load i32, ptr %17, align 4, !tbaa !35
   %40 = load ptr, ptr %0, align 8, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %42 = load ptr, ptr %41, align 8
@@ -1320,7 +1320,7 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
 44:                                               ; preds = %24, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 45:                                               ; preds = %7, %._crit_edge
   ret void
@@ -1330,7 +1330,7 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
 define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713TimeZoneNames19MatchInfoCollectionE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %2, align 8, !tbaa !39
+  store ptr null, ptr %2, align 8, !tbaa !38
   ret void
 }
 
@@ -1338,7 +1338,7 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionC2Ev(ptr noundef nonn
 define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713TimeZoneNames19MatchInfoCollectionE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -1378,9 +1378,9 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7addZoneE17UTimeZoneN
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %13, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i16 2, ptr %14, align 8, !tbaa !32
-  store i32 %1, ptr %10, align 8, !tbaa !42
+  store i32 %1, ptr %10, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i32 %2, ptr %15, align 8, !tbaa !46
+  store i32 %2, ptr %15, align 8, !tbaa !45
   %16 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 0)
           to label %.thread unwind label %.body
 
@@ -1393,8 +1393,8 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7addZoneE17UTimeZoneN
 
 .thread:                                          ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  store i8 1, ptr %18, align 4, !tbaa !47
-  store ptr %10, ptr %6, align 8, !tbaa !48
+  store i8 1, ptr %18, align 4, !tbaa !46
+  store ptr %10, ptr %6, align 8, !tbaa !47
   %.pr = load i32, ptr %4, align 4, !tbaa !13
   %19 = icmp slt i32 %.pr, 1
   br i1 %19, label %23, label %.thread26
@@ -1410,7 +1410,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
 
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !39
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
   %.not12.i = icmp eq ptr %25, null
   br i1 %.not12.i, label %26, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread22
 
@@ -1424,7 +1424,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
           to label %33 unwind label %31
 
 30:                                               ; preds = %26
-  store ptr null, ptr %24, align 8, !tbaa !39
+  store ptr null, ptr %24, align 8, !tbaa !38
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %.thread26
 
@@ -1435,7 +1435,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
   br label %.body17
 
 33:                                               ; preds = %29
-  store ptr %27, ptr %24, align 8, !tbaa !39
+  store ptr %27, ptr %24, align 8, !tbaa !38
   %34 = load i32, ptr %4, align 4, !tbaa !13
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread22, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit
@@ -1445,7 +1445,7 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(40) %27) #22
-  store ptr null, ptr %24, align 8, !tbaa !39
+  store ptr null, ptr %24, align 8, !tbaa !38
   %.pre = load i32, ptr %4, align 4, !tbaa !13
   %39 = icmp sgt i32 %.pre, 0
   tail call void @llvm.assume(i1 %39)
@@ -1463,7 +1463,7 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
 
 _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread22: ; preds = %33, %23
   %.0.i24 = phi ptr [ %27, %33 ], [ %25, %23 ]
-  store ptr null, ptr %6, align 8, !tbaa !48
+  store ptr null, ptr %6, align 8, !tbaa !47
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.0.i24, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %40
 
@@ -1494,7 +1494,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %8, label %22
 
@@ -1508,7 +1508,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
           to label %15 unwind label %13
 
 12:                                               ; preds = %8
-  store ptr null, ptr %6, align 8, !tbaa !39
+  store ptr null, ptr %6, align 8, !tbaa !38
   store i32 7, ptr %1, align 4, !tbaa !13
   br label %22
 
@@ -1519,7 +1519,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %11
-  store ptr %9, ptr %6, align 8, !tbaa !39
+  store ptr %9, ptr %6, align 8, !tbaa !38
   %16 = load i32, ptr %1, align 4, !tbaa !13
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %22, label %18
@@ -1529,7 +1529,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(40) %9) #22
-  store ptr null, ptr %6, align 8, !tbaa !39
+  store ptr null, ptr %6, align 8, !tbaa !38
   br label %22
 
 22:                                               ; preds = %12, %18, %15, %5, %2
@@ -1541,7 +1541,7 @@ declare void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !48
+  %2 = load ptr, ptr %0, align 8, !tbaa !47
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
@@ -1573,9 +1573,9 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection11addMetaZoneE17UTime
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %13, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i16 2, ptr %14, align 8, !tbaa !32
-  store i32 %1, ptr %10, align 8, !tbaa !42
+  store i32 %1, ptr %10, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i32 %2, ptr %15, align 8, !tbaa !46
+  store i32 %2, ptr %15, align 8, !tbaa !45
   %16 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 0)
           to label %.thread unwind label %.body
 
@@ -1588,8 +1588,8 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection11addMetaZoneE17UTime
 
 .thread:                                          ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  store i8 0, ptr %18, align 4, !tbaa !47
-  store ptr %10, ptr %6, align 8, !tbaa !48
+  store i8 0, ptr %18, align 4, !tbaa !46
+  store ptr %10, ptr %6, align 8, !tbaa !47
   %.pr = load i32, ptr %4, align 4, !tbaa !13
   %19 = icmp slt i32 %.pr, 1
   br i1 %19, label %23, label %.thread26
@@ -1605,7 +1605,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
 
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !39
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
   %.not12.i = icmp eq ptr %25, null
   br i1 %.not12.i, label %26, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread22
 
@@ -1619,7 +1619,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
           to label %33 unwind label %31
 
 30:                                               ; preds = %26
-  store ptr null, ptr %24, align 8, !tbaa !39
+  store ptr null, ptr %24, align 8, !tbaa !38
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %.thread26
 
@@ -1630,7 +1630,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
   br label %.body17
 
 33:                                               ; preds = %29
-  store ptr %27, ptr %24, align 8, !tbaa !39
+  store ptr %27, ptr %24, align 8, !tbaa !38
   %34 = load i32, ptr %4, align 4, !tbaa !13
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread22, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit
@@ -1640,7 +1640,7 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(40) %27) #22
-  store ptr null, ptr %24, align 8, !tbaa !39
+  store ptr null, ptr %24, align 8, !tbaa !38
   %.pre = load i32, ptr %4, align 4, !tbaa !13
   %39 = icmp sgt i32 %.pre, 0
   tail call void @llvm.assume(i1 %39)
@@ -1658,7 +1658,7 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
 
 _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread22: ; preds = %33, %23
   %.0.i24 = phi ptr [ %27, %33 ], [ %25, %23 ]
-  store ptr null, ptr %6, align 8, !tbaa !48
+  store ptr null, ptr %6, align 8, !tbaa !47
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.0.i24, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %40
 
@@ -1684,13 +1684,13 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit: ; preds = %_ZN6icu_7712LocalP
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7713TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !51
+  %7 = load i32, ptr %6, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -1701,13 +1701,13 @@ define noundef i32 @_ZNK6icu_7713TimeZoneNames19MatchInfoCollection4sizeEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7713TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %5, align 8, !tbaa !42
+  %7 = load i32, ptr %5, align 8, !tbaa !41
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -1720,14 +1720,14 @@ declare noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7713TimeZoneNames19MatchInfoCollection16getMatchLengthAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %8 = load i32, ptr %7, align 8, !tbaa !46
+  %8 = load i32, ptr %7, align 8, !tbaa !45
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -1745,14 +1745,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713TimeZoneNames19MatchInfoC
   %storemerge.i = select i1 %.not.i, i16 %7, i16 2
   store i16 %storemerge.i, ptr %4, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !39
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef %1)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  %13 = load i8, ptr %12, align 4, !tbaa !47
+  %13 = load i8, ptr %12, align 4, !tbaa !46
   %.not8 = icmp eq i8 %13, 0
   br i1 %.not8, label %17, label %14
 
@@ -1776,14 +1776,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713TimeZoneNames19MatchInfoC
   %storemerge.i = select i1 %.not.i, i16 %7, i16 2
   store i16 %storemerge.i, ptr %4, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !39
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef %1)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  %13 = load i8, ptr %12, align 4, !tbaa !47
+  %13 = load i8, ptr %12, align 4, !tbaa !46
   %.not8 = icmp eq i8 %13, 0
   br i1 %.not8, label %14, label %17
 
@@ -1904,24 +1904,23 @@ attributes #25 = { nounwind willreturn memory(read) }
 !30 = !{!27, !9, i64 8}
 !31 = !{!27, !29, i64 16}
 !32 = !{!7, !7, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"_ZTS17UTimeZoneNameType", !7, i64 0}
-!38 = distinct !{!38, !34, !35}
-!39 = !{!40, !41, i64 8}
-!40 = !{!"_ZTSN6icu_7713TimeZoneNames19MatchInfoCollectionE", !41, i64 8}
-!41 = !{!"p1 _ZTSN6icu_777UVectorE", !6, i64 0}
-!42 = !{!43, !37, i64 0}
-!43 = !{!"_ZTSN6icu_779MatchInfoE", !37, i64 0, !44, i64 8, !9, i64 72, !7, i64 76}
-!44 = !{!"_ZTSN6icu_7713UnicodeStringE", !45, i64 0, !7, i64 8}
-!45 = !{!"_ZTSN6icu_7711ReplaceableE", !20, i64 0}
-!46 = !{!43, !9, i64 72}
-!47 = !{!43, !7, i64 76}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_9MatchInfoEEE", !50, i64 0}
-!50 = !{!"p1 _ZTSN6icu_779MatchInfoE", !6, i64 0}
-!51 = !{!52, !9, i64 8}
-!52 = !{!"_ZTSN6icu_777UVectorE", !20, i64 0, !9, i64 8, !9, i64 12, !53, i64 16, !6, i64 24, !6, i64 32}
-!53 = !{!"p1 _ZTS8UElement", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"_ZTS17UTimeZoneNameType", !7, i64 0}
+!37 = distinct !{!37, !34}
+!38 = !{!39, !40, i64 8}
+!39 = !{!"_ZTSN6icu_7713TimeZoneNames19MatchInfoCollectionE", !40, i64 8}
+!40 = !{!"p1 _ZTSN6icu_777UVectorE", !6, i64 0}
+!41 = !{!42, !36, i64 0}
+!42 = !{!"_ZTSN6icu_779MatchInfoE", !36, i64 0, !43, i64 8, !9, i64 72, !7, i64 76}
+!43 = !{!"_ZTSN6icu_7713UnicodeStringE", !44, i64 0, !7, i64 8}
+!44 = !{!"_ZTSN6icu_7711ReplaceableE", !20, i64 0}
+!45 = !{!42, !9, i64 72}
+!46 = !{!42, !7, i64 76}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_9MatchInfoEEE", !49, i64 0}
+!49 = !{!"p1 _ZTSN6icu_779MatchInfoE", !6, i64 0}
+!50 = !{!51, !9, i64 8}
+!51 = !{!"_ZTSN6icu_777UVectorE", !20, i64 0, !9, i64 8, !9, i64 12, !52, i64 16, !6, i64 24, !6, i64 32}
+!52 = !{!"p1 _ZTS8UElement", !6, i64 0}

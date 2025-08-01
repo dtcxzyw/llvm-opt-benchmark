@@ -432,7 +432,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i, %while.body.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #31
   %cmp.not.i.i = icmp eq ptr %1, %this
-  br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i, !llvm.loop !6
 
 _ZNSt7__cxx1110_List_baseISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i, %entry
   ret void
@@ -524,7 +524,7 @@ while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv9.i.i.i.i
   %12 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp.i.i25.i.i.i = icmp eq i64 %5, %12
-  br i1 %cmp.i.i25.i.i.i, label %if.then6.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !8
+  br i1 %cmp.i.i25.i.i.i, label %if.then6.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !7
 
 while.end.i.i.i.i:                                ; preds = %while.cond.i.i.i.i
   %cmp17.i.i.i.i = icmp eq i8 %10, 0
@@ -535,7 +535,7 @@ if.end20.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   %inc.i.i.i.i = add i64 %tries.i.033.i.i.i, 1
   %shr.i.i.i.i = lshr i64 %inc.i.i.i.i, %sh_prom.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %shr.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %invoke.cont, !llvm.loop !9
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %invoke.cont, !llvm.loop !8
 
 if.then6.i.i.i:                                   ; preds = %while.body.i.i.i.i
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKmS7_EEEEESC_ImmE(ptr noundef nonnull align 8 dereferenceable(24) %nodes_, ptr nonnull %arrayidx.i.i.i.i.i.i.i, i64 %conv9.i.i.i.i, i64 %shr5.i.i.i.i, i64 %or.i.i.i.i)
@@ -594,7 +594,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
   %cmp.not.i.i.i = icmp eq ptr %18, %children_
-  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i, %_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev.exit
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #30
@@ -853,7 +853,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
   %cmp.not.i.i.i = icmp eq ptr %22, %children
-  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i, %invoke.cont45
   ret ptr %call44
@@ -1003,11 +1003,11 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
 
 _ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_.exit: ; preds = %while.end
   %prev_.i5.i.i.i = getelementptr inbounds nuw i8, ptr %node.addr.024, i64 176
-  %13 = load ptr, ptr %prev_.i5.i.i.i, align 8, !noalias !10
-  store ptr %10, ptr %13, align 8, !noalias !10
+  %13 = load ptr, ptr %prev_.i5.i.i.i, align 8, !noalias !9
+  store ptr %10, ptr %13, align 8, !noalias !9
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %13, ptr %prev_.i.i.i.i, align 8, !noalias !10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_.i, i8 0, i64 16, i1 false), !noalias !10
+  store ptr %13, ptr %prev_.i.i.i.i, align 8, !noalias !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_.i, i8 0, i64 16, i1 false), !noalias !9
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
   %vtable.i12 = load ptr, ptr %parent.023, align 8
   %vfn.i13 = getelementptr inbounds nuw i8, ptr %vtable.i12, i64 16
@@ -1020,7 +1020,7 @@ _ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_.exit: ; preds = 
   %17 = load ptr, ptr %parent_15, align 8
   %tobool = icmp eq ptr %17, null
   %.not = or i1 %16, %tobool
-  br i1 %.not, label %while.end16, label %while.cond2, !llvm.loop !13
+  br i1 %.not, label %while.end16, label %while.cond2, !llvm.loop !12
 
 while.end16:                                      ; preds = %_ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_.exit, %entry
   ret void
@@ -1204,11 +1204,11 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
 
 invoke.cont11:                                    ; preds = %if.then
   %prev_.i5.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %9 = load ptr, ptr %prev_.i5.i.i.i, align 8, !noalias !14
-  store ptr %6, ptr %9, align 8, !noalias !14
+  %9 = load ptr, ptr %prev_.i5.i.i.i, align 8, !noalias !13
+  store ptr %6, ptr %9, align 8, !noalias !13
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %9, ptr %prev_.i.i.i.i, align 8, !noalias !14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_.i, i8 0, i64 16, i1 false), !noalias !14
+  store ptr %9, ptr %prev_.i.i.i.i, align 8, !noalias !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_.i, i8 0, i64 16, i1 false), !noalias !13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
   %10 = load ptr, ptr %_M_storage.i.i, align 8
   %enqueuedHook_ = getelementptr inbounds nuw i8, ptr %10, i64 168
@@ -1315,7 +1315,7 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   store ptr null, ptr %agg.tmp, align 8
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.050, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %children
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad56:                                           ; preds = %if.end
   %22 = landingpad { ptr, i32 }
@@ -1393,7 +1393,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
   %cmp.not.i.i.i = icmp eq ptr %32, %emptyChilden
-  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i, %if.end67
   ret void
@@ -1436,11 +1436,11 @@ lpad:                                             ; preds = %invoke.cont, %cond.
 
 cleanup.done:                                     ; preds = %entry
   %prev_.i5.i.i = getelementptr inbounds nuw i8, ptr %node, i64 176
-  %3 = load ptr, ptr %prev_.i5.i.i, align 8, !noalias !18
-  store ptr %0, ptr %3, align 8, !noalias !18
+  %3 = load ptr, ptr %prev_.i5.i.i, align 8, !noalias !16
+  store ptr %0, ptr %3, align 8, !noalias !16
   %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %prev_.i.i.i, align 8, !noalias !18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_, i8 0, i64 16, i1 false), !noalias !18
+  store ptr %3, ptr %prev_.i.i.i, align 8, !noalias !16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_, i8 0, i64 16, i1 false), !noalias !16
   ret void
 }
 
@@ -1556,7 +1556,7 @@ _ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit: ; preds = %wh
   %tobool = icmp eq ptr %parent.0, null
   %8 = or i1 %tobool, %call.i
   %.not = select i1 %8, i1 true, i1 %cmp.i
-  br i1 %.not, label %while.end, label %while.body, !llvm.loop !21
+  br i1 %.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %_ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit, %entry
   ret void
@@ -1826,7 +1826,7 @@ while.body:                                       ; preds = %while.cond
   %0 = load i64, ptr %id_, align 8
   %1 = load i64, ptr %id_2, align 8
   %cmp = icmp eq i64 %0, %1
-  br i1 %cmp, label %return, label %while.cond, !llvm.loop !22
+  br i1 %cmp, label %return, label %while.cond, !llvm.loop !20
 
 return:                                           ; preds = %while.cond, %while.body
   ret i1 %tobool.not.not.not.not.not.not
@@ -2086,7 +2086,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true3.i.i
 _ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit: ; preds = %if.end.i, %land.lhs.true3.i.i, %if.then.i.i
   %21 = load ptr, ptr %__begin2.sroa.0.022, align 8
   %cmp.i4.not = icmp eq ptr %21, %children_
-  br i1 %cmp.i4.not, label %if.end, label %for.body, !llvm.loop !23
+  br i1 %cmp.i4.not, label %if.end, label %for.body
 
 if.end:                                           ; preds = %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit, %entry
   %vtable = load ptr, ptr %this, align 8
@@ -2277,7 +2277,7 @@ if.end18:                                         ; preds = %_ZNKSt8functionIFbv
   %call21 = call noundef zeroext i1 @_ZN8proxygen18HTTP2PriorityQueue4Node7iterateERKSt8functionIFbmPNS_15HTTPTransactionEdEERKS2_IFbvEEb(ptr noundef nonnull align 8 dereferenceable(200) %19, ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr noundef nonnull align 8 dereferenceable(32) %stopFn, i1 noundef zeroext %all)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.027, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %children_
-  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !24
+  br i1 %cmp.i.not, label %return, label %for.body
 
 return:                                           ; preds = %_ZNKSt8functionIFbvEEclEv.exit18, %for.body, %if.end18, %if.end8, %_ZNKSt8functionIFbvEEclEv.exit
   %retval.0 = phi i1 [ true, %_ZNKSt8functionIFbvEEclEv.exit ], [ %stop.0, %if.end8 ], [ true, %_ZNKSt8functionIFbvEEclEv.exit18 ], [ true, %for.body ], [ %call21, %if.end18 ]
@@ -2386,7 +2386,7 @@ if.else.i:                                        ; preds = %for.body
 if.end.i13:                                       ; preds = %if.else.i, %if.then.i
   %child.sroa.0.0 = load ptr, ptr %child.sroa.0.044, align 8
   %cmp.i.not = icmp eq ptr %child.sroa.0.0, %enqueuedChildren_
-  br i1 %cmp.i.not, label %if.end32, label %for.body, !llvm.loop !25
+  br i1 %cmp.i.not, label %if.end32, label %for.body, !llvm.loop !21
 
 if.else:                                          ; preds = %if.then
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2431,7 +2431,7 @@ if.else.i31:                                      ; preds = %for.body21
 if.end.i23:                                       ; preds = %if.else.i31, %if.then.i19
   %__begin3.sroa.0.0 = load ptr, ptr %__begin3.sroa.0.041, align 8
   %cmp.i14.not = icmp eq ptr %__begin3.sroa.0.0, %children_
-  br i1 %cmp.i14.not, label %if.end32, label %for.body21, !llvm.loop !26
+  br i1 %cmp.i14.not, label %if.end32, label %for.body21
 
 if.end32:                                         ; preds = %if.end.i23, %if.end.i13, %if.else, %if.then9, %lor.lhs.false
   br i1 %3, label %land.lhs.true34, label %if.end39
@@ -2491,7 +2491,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load ptr, ptr %_M_storage.i.i, align 8
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4Node17dropPriorityNodesEv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   %cmp.i.not = icmp eq ptr %1, %children_
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !27
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %entry
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -2662,7 +2662,7 @@ while.body:                                       ; preds = %entry, %while.body
   %parent_.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %3 = load ptr, ptr %parent_.i, align 8
   %cmp.not = icmp eq ptr %3, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !28
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %while.body, %entry
   %depth.0.lcssa = phi i64 [ 0, %entry ], [ %spec.select, %while.body ]
@@ -2723,7 +2723,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
   %cmp.not.i.i.i = icmp eq ptr %6, %children_.i
-  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i, %invoke.cont
   %_M_prev.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -2751,7 +2751,7 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   store ptr %call5.i.i.i.i.i.i.i4, ptr %self_.i, align 8
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.031, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %oldChildren_
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %for.body
   %10 = landingpad { ptr, i32 }
@@ -2804,7 +2804,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   %20 = phi i64 [ %add6.i.i, %if.then.i.i ], [ %14, %for.body.i ]
   %21 = load ptr, ptr %__first.sroa.0.04.i, align 8
   %cmp.i.not.i = icmp eq ptr %21, %children_
-  br i1 %cmp.i.not.i, label %invoke.cont22, label %for.body.i, !llvm.loop !30
+  br i1 %cmp.i.not.i, label %invoke.cont22, label %for.body.i, !llvm.loop !24
 
 invoke.cont22:                                    ; preds = %"_ZZN8proxygen18HTTP2PriorityQueue4Node14flattenSubtreeEvENK3$_0clERKSt10unique_ptrIS1_St14default_deleteIS1_EE.exit.i", %for.end
   %22 = load ptr, ptr %oldChildren_, align 8
@@ -2829,7 +2829,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i18: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i15, %while.body.i.i.i11
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i12) #31
   %cmp.not.i.i.i19 = icmp eq ptr %23, %oldChildren_
-  br i1 %cmp.not.i.i.i19, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i11, !llvm.loop !7
+  br i1 %cmp.not.i.i.i19, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i11, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i18, %invoke.cont22
   ret void
@@ -2884,7 +2884,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
   %cmp.not.i.i.i = icmp eq ptr %4, %children_.i
-  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i, %for.body
   %_M_prev.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -2912,7 +2912,7 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   store ptr %call5.i.i.i.i.i.i.i4, ptr %self_.i, align 8
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.021, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %children_
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit9: ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i
   %8 = landingpad { ptr, i32 }
@@ -2954,7 +2954,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i, %while.body.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #31
   %cmp.not.i.i = icmp eq ptr %2, %children_
-  br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i, %entry
   %_M_prev.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3081,7 +3081,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp.i.i34.i = icmp eq i64 %id, %8
-  br i1 %cmp.i.i34.i, label %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit, label %while.cond.i.i.i, !llvm.loop !32
+  br i1 %cmp.i.i34.i, label %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit, label %while.cond.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %cmp17.i.i.i = icmp eq i8 %6, 0
@@ -3092,7 +3092,7 @@ if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
   %inc.i.i.i = add i64 %tries.i.i.043.i, 1
   %shr.i.i.i = lshr i64 %inc.i.i.i, %sh_prom.i.i.i
   %cmp.i.i.i = icmp eq i64 %shr.i.i.i, 0
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %if.else, !llvm.loop !33
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %if.else, !llvm.loop !8
 
 _ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit:   ; preds = %while.body.i.i.i
   %second13.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 8
@@ -3206,7 +3206,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i.i34 = icmp eq i64 %id, %8
-  br i1 %cmp.i.i34, label %if.end7, label %while.cond.i.i, !llvm.loop !32
+  br i1 %cmp.i.i34, label %if.end7, label %while.cond.i.i, !llvm.loop !7
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %cmp17.i.i = icmp eq i8 %6, 0
@@ -3217,7 +3217,7 @@ if.end20.i.i:                                     ; preds = %while.end.i.i
   %inc.i.i = add i64 %tries.i.i.043, 1
   %shr.i.i = lshr i64 %inc.i.i, %sh_prom.i.i
   %cmp.i.i = icmp eq i64 %shr.i.i, 0
-  br i1 %cmp.i.i, label %for.body.i.i, label %return, !llvm.loop !33
+  br i1 %cmp.i.i, label %for.body.i.i, label %return, !llvm.loop !8
 
 if.end7:                                          ; preds = %while.body.i.i
   %tobool.not = icmp eq ptr %depth, null
@@ -3473,7 +3473,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i.i
   %18 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp.i.i34.i = icmp eq i64 %id, %18
-  br i1 %cmp.i.i34.i, label %if.end7.i, label %while.cond.i.i.i, !llvm.loop !32
+  br i1 %cmp.i.i34.i, label %if.end7.i, label %while.cond.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %cmp17.i.i.i = icmp eq i8 %16, 0
@@ -3484,7 +3484,7 @@ if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
   %inc.i.i.i = add i64 %tries.i.i.043.i, 1
   %shr.i.i.i = lshr i64 %inc.i.i.i, %sh_prom.i.i.i
   %cmp.i.i.i = icmp eq i64 %shr.i.i.i, 0
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %if.end68, !llvm.loop !33
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %if.end68, !llvm.loop !8
 
 if.end7.i:                                        ; preds = %while.body.i.i.i
   %tobool.not.i = icmp eq ptr %depth, null
@@ -3632,7 +3632,7 @@ while.body.i.i.i78:                               ; preds = %while.cond.i.i.i75
   %arrayidx.i.i.i.i.i82 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i71, i64 0, i64 %conv9.i.i.i81
   %35 = load i64, ptr %arrayidx.i.i.i.i.i82, align 8
   %cmp.i.i34.i83 = icmp eq i64 %pri.coerce0, %35
-  br i1 %cmp.i.i34.i83, label %if.end7.i84, label %while.cond.i.i.i75, !llvm.loop !32
+  br i1 %cmp.i.i34.i83, label %if.end7.i84, label %while.cond.i.i.i75, !llvm.loop !7
 
 while.end.i.i.i94:                                ; preds = %while.cond.i.i.i75
   %cmp17.i.i.i95 = icmp eq i8 %33, 0
@@ -3643,7 +3643,7 @@ if.end20.i.i.i96:                                 ; preds = %while.end.i.i.i94
   %inc.i.i.i98 = add i64 %tries.i.i.043.i68, 1
   %shr.i.i.i99 = lshr i64 %inc.i.i.i98, %sh_prom.i.i.i60
   %cmp.i.i.i100 = icmp eq i64 %shr.i.i.i99, 0
-  br i1 %cmp.i.i.i100, label %for.body.i.i.i66, label %if.then86, !llvm.loop !33
+  br i1 %cmp.i.i.i100, label %for.body.i.i.i66, label %if.then86, !llvm.loop !8
 
 if.end7.i84:                                      ; preds = %while.body.i.i.i78
   %second13.i92 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i82, i64 8
@@ -3834,14 +3834,14 @@ cleanup.action217:                                ; preds = %invoke.cont207
   br label %cleanup.done218
 
 cleanup.done218:                                  ; preds = %cond.true181, %cond.end185, %cleanup.action217
-  %call.i = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #33, !noalias !34
+  %call.i = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #33, !noalias !25
   invoke void @_ZN8proxygen18HTTP2PriorityQueue4NodeC1ERS0_PS1_mhPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %parent.0, i64 noundef %id, i8 noundef zeroext %pri.sroa.9.8.extract.trunc, ptr noundef %txn)
-          to label %_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !34
+          to label %_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !25
 
 lpad.i:                                           ; preds = %cleanup.done218
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i) #31, !noalias !34
+  call void @_ZdlPv(ptr noundef nonnull %call.i) #31, !noalias !25
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %cleanup.done218
@@ -4236,7 +4236,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i.i
   %31 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp.i.i34.i = icmp eq i64 %pri.coerce0, %31
-  br i1 %cmp.i.i34.i, label %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit, label %while.cond.i.i.i, !llvm.loop !32
+  br i1 %cmp.i.i34.i, label %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit, label %while.cond.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %cmp17.i.i.i = icmp eq i8 %29, 0
@@ -4247,7 +4247,7 @@ if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
   %inc.i.i.i = add i64 %tries.i.i.043.i, 1
   %shr.i.i.i = lshr i64 %inc.i.i.i, %sh_prom.i.i.i
   %cmp.i.i.i = icmp eq i64 %shr.i.i.i, 0
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %lor.lhs.false, !llvm.loop !33
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %lor.lhs.false, !llvm.loop !8
 
 _ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit:   ; preds = %while.body.i.i.i
   %second13.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 8
@@ -4342,7 +4342,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %43 = load i64, ptr %id_.i40, align 8
   %44 = load i64, ptr %id_.i31, align 8
   %cmp.i41 = icmp eq i64 %43, %44
-  br i1 %cmp.i41, label %if.then112, label %while.cond.i, !llvm.loop !22
+  br i1 %cmp.i41, label %if.then112, label %while.cond.i, !llvm.loop !20
 
 if.then112:                                       ; preds = %while.body.i
   %45 = load ptr, ptr %parent_.i, align 8
@@ -4796,7 +4796,7 @@ while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv9.i.i.i.i
   %24 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp.i.i34.i.i = icmp eq i64 %15, %24
-  br i1 %cmp.i.i34.i.i, label %invoke.cont32, label %while.cond.i.i.i.i, !llvm.loop !32
+  br i1 %cmp.i.i34.i.i, label %invoke.cont32, label %while.cond.i.i.i.i, !llvm.loop !7
 
 while.end.i.i.i.i:                                ; preds = %while.cond.i.i.i.i
   %cmp17.i.i.i.i = icmp eq i8 %22, 0
@@ -4807,7 +4807,7 @@ if.end20.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   %inc.i.i.i.i = add i64 %tries.i.i.043.i.i, 1
   %shr.i.i.i.i = lshr i64 %inc.i.i.i.i, %sh_prom.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %shr.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %if.end, !llvm.loop !33
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %if.end, !llvm.loop !8
 
 invoke.cont32:                                    ; preds = %while.body.i.i.i.i
   %second13.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
@@ -5078,7 +5078,7 @@ if.end.i23.i:                                     ; preds = %.noexc22, %if.then.
   store ptr %storemerge, ptr %_M_finish.i7, align 8
   %__begin3.sroa.0.0.i = load ptr, ptr %__begin3.sroa.0.041.i, align 8
   %cmp.i14.not.i = icmp eq ptr %__begin3.sroa.0.0.i, %children_.i
-  br i1 %cmp.i14.not.i, label %if.end32.i, label %for.body21.i, !llvm.loop !26
+  br i1 %cmp.i14.not.i, label %if.end32.i, label %for.body21.i
 
 if.end32.i:                                       ; preds = %if.end.i23.i, %if.then.i19, %lor.lhs.false.i
   br i1 %30, label %land.lhs.true34.i, label %if.end39.i
@@ -5143,7 +5143,7 @@ _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontE
   %63 = phi ptr [ %59, %if.then.i27 ], [ %add.ptr.i.i.i, %if.else.i ]
   %storemerge.i = phi ptr [ %incdec.ptr.i, %if.then.i27 ], [ %62, %if.else.i ]
   store ptr %storemerge.i, ptr %_M_start.i, align 8
-  br i1 %stop.2, label %while.endsplit, label %land.rhs26, !llvm.loop !37
+  br i1 %stop.2, label %while.endsplit, label %land.rhs26, !llvm.loop !28
 
 while.endsplit:                                   ; preds = %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit
   %.pre96 = load ptr, ptr %_M_finish.i, align 8
@@ -5171,7 +5171,7 @@ while.end:                                        ; preds = %while.endsplit, %la
   store ptr %70, ptr %_M_last.i16.i, align 8
   store ptr %71, ptr %_M_node.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  br i1 %cmp.i.i12.not, label %land.lhs.true, label %while.end40, !llvm.loop !38
+  br i1 %cmp.i.i12.not, label %land.lhs.true, label %while.end40, !llvm.loop !29
 
 while.end40:                                      ; preds = %invoke.cont7, %while.end, %land.rhs
   %72 = load ptr, ptr %newPendingNodes, align 8
@@ -5191,7 +5191,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   call void @_ZdlPv(ptr noundef %75) #31
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %74
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !39
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i: ; preds = %for.body.i.i.i
   %.pre.i.i = load ptr, ptr %newPendingNodes, align 8
@@ -5220,7 +5220,7 @@ for.body.i.i.i41:                                 ; preds = %if.then.i.i35, %for
   call void @_ZdlPv(ptr noundef %80) #31
   %incdec.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i42, i64 8
   %cmp.i.i.i44 = icmp ult ptr %__n.04.i.i.i42, %79
-  br i1 %cmp.i.i.i44, label %for.body.i.i.i41, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i45, !llvm.loop !39
+  br i1 %cmp.i.i.i44, label %for.body.i.i.i41, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i45, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i45: ; preds = %for.body.i.i.i41
   %.pre.i.i46 = load ptr, ptr %pendingNodes, align 8
@@ -5272,7 +5272,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   tail call void @_ZdlPv(ptr noundef %3) #31
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !39
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i: ; preds = %for.body.i.i
   %.pre.i = load ptr, ptr %this, align 8
@@ -5341,11 +5341,11 @@ _ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !31
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !44
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !35
 
 _ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -5417,11 +5417,11 @@ _ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_M_allocate
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %2, %_ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !36
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %for.body.i.i.i.i, !llvm.loop !44
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %for.body.i.i.i.i, !llvm.loop !35
 
 _ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_M_allocateEm.exit.i
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -5768,7 +5768,7 @@ if.end.i13.i:                                     ; preds = %.noexc27, %if.then.
   store ptr %storemerge, ptr %_M_finish.i.i24, align 8
   %child.sroa.0.0.i = load ptr, ptr %child.sroa.0.044.i, align 8
   %cmp.i.not.i = icmp eq ptr %child.sroa.0.0.i, %enqueuedChildren_.i
-  br i1 %cmp.i.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !25
+  br i1 %cmp.i.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !21
 
 if.end32.i:                                       ; preds = %if.end.i13.i, %if.then.i23, %_ZNK8proxygen18HTTP2PriorityQueue4Node25getRelativeEnqueuedWeightEv.exit.i
   br i1 %17, label %land.lhs.true34.i, label %if.end39.i
@@ -5902,7 +5902,7 @@ _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontE
 
 land.rhs.backedge:                                ; preds = %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit, %land.rhs63
   %.be = phi ptr [ %storemerge.i, %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit ], [ %74, %land.rhs63 ]
-  br label %land.rhs, !llvm.loop !49
+  br label %land.rhs, !llvm.loop !40
 
 while.end:                                        ; preds = %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit, %land.rhs
   %55 = phi ptr [ %storemerge.i, %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit ], [ %9, %land.rhs ]
@@ -5928,7 +5928,7 @@ for.body:                                         ; preds = %land.lhs.true17, %f
   %add = fadd double %60, %add152154
   %incdec.ptr.i56 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0155, i64 16
   %cmp.i55.not = icmp eq ptr %incdec.ptr.i56, %57
-  br i1 %cmp.i55.not, label %while.cond26, label %for.body, !llvm.loop !50
+  br i1 %cmp.i55.not, label %while.cond26, label %for.body
 
 while.cond26:                                     ; preds = %for.body
   store double %add, ptr %totalRatio, align 8
@@ -5977,7 +5977,7 @@ for.body53:                                       ; preds = %for.body53.lr.ph, %
   store double %div, ptr %second56, align 8
   %incdec.ptr.i60 = getelementptr inbounds nuw i8, ptr %__begin345.sroa.0.0157, i64 16
   %cmp.i59.not = icmp eq ptr %incdec.ptr.i60, %63
-  br i1 %cmp.i59.not, label %do.end, label %for.body53, !llvm.loop !51
+  br i1 %cmp.i59.not, label %do.end, label %for.body53
 
 if.end61:                                         ; preds = %land.lhs.true17, %land.lhs.true, %while.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -6060,7 +6060,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store double %81, ptr %second3.i.i.i.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i, !llvm.loop !52
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i, !llvm.loop !41
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
   store ptr %__val.sroa.0.0.copyload.i.i.i.i, ptr %75, align 8
@@ -6084,7 +6084,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %w
   %85 = getelementptr i8, ptr %__last.sroa.0.010.i.i.i.i.i, i64 -24
   %call.val.i.i.i.i.i.i = load double, ptr %85, align 8
   %cmp.i.i.i.i.i.i.i = fcmp ogt double %call.val.i.i.i.i.i, %call.val.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i.i.i.i, !llvm.loop !53
+  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i.i.i.i, !llvm.loop !42
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.else.i.i.i.i
   %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.012.i.ptr.i.i.i, %if.else.i.i.i.i ], [ %__next.sroa.0.0.i.i.i.i.i, %while.body.i.i.i.i.i ]
@@ -6096,7 +6096,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxy
 for.inc.i.i.i.i:                                  ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i.i.i
   %__i.sroa.0.012.i.add.i.i.i = add nuw nsw i64 %__i.sroa.0.012.i.idx.i.i.i, 16
   %cmp.i1.not.i.i.i.i = icmp eq i64 %__i.sroa.0.012.i.add.i.i.i, 256
-  br i1 %cmp.i1.not.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_.exit.i.i.i, label %for.body.i.i.i.i66, !llvm.loop !54
+  br i1 %cmp.i1.not.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_.exit.i.i.i, label %for.body.i.i.i.i66, !llvm.loop !43
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_.exit.i.i.i: ; preds = %for.inc.i.i.i.i
   %add.ptr.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %75, i64 256
@@ -6124,7 +6124,7 @@ while.body.i.i10.i.i.i:                           ; preds = %for.body.i4.i.i.i, 
   %89 = getelementptr i8, ptr %__last.sroa.0.010.i.i11.i.i.i, i64 -24
   %call.val.i.i.i14.i.i.i = load double, ptr %89, align 8
   %cmp.i.i.i.i15.i.i.i = fcmp ogt double %__val.sroa.2.0.copyload.i.i.i.i.i, %call.val.i.i.i14.i.i.i
-  br i1 %cmp.i.i.i.i15.i.i.i, label %while.body.i.i10.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i7.i.i.i, !llvm.loop !53
+  br i1 %cmp.i.i.i.i15.i.i.i, label %while.body.i.i10.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i7.i.i.i, !llvm.loop !42
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i7.i.i.i: ; preds = %while.body.i.i10.i.i.i, %for.body.i4.i.i.i
   %__last.sroa.0.0.lcssa.i.i8.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i4.i.i.i ], [ %__next.sroa.0.0.i.i12.i.i.i, %while.body.i.i10.i.i.i ]
@@ -6133,7 +6133,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxy
   store double %__val.sroa.2.0.copyload.i.i.i.i.i, ptr %second3.i3.i.i9.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %76
-  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont75, label %for.body.i4.i.i.i, !llvm.loop !55
+  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont75, label %for.body.i4.i.i.i, !llvm.loop !44
 
 for.cond.preheader.i17.i.i.i:                     ; preds = %if.then.i.i65
   %__i.sroa.0.09.i18.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -6179,7 +6179,7 @@ for.body.i.i.i.i.i.i52.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   store double %93, ptr %second3.i.i.i.i.i.i.i59.i.i.i, align 8
   %dec.i.i.i.i.i.i60.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i53.i.i.i, -1
   %cmp.i.i.i.i.i.i61.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i53.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i61.i.i.i, label %for.body.i.i.i.i.i.i52.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i49.i.i.i, !llvm.loop !52
+  br i1 %cmp.i.i.i.i.i.i61.i.i.i, label %for.body.i.i.i.i.i.i52.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i49.i.i.i, !llvm.loop !41
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i49.i.i.i: ; preds = %for.body.i.i.i.i.i.i52.i.i.i, %if.then9.i44.i.i.i
   store ptr %__val.sroa.0.0.copyload.i28.i.i.i, ptr %75, align 8
@@ -6203,7 +6203,7 @@ while.body.i.i38.i.i.i:                           ; preds = %if.else.i29.i.i.i, 
   %97 = getelementptr i8, ptr %__last.sroa.0.010.i.i39.i.i.i, i64 -24
   %call.val.i.i.i42.i.i.i = load double, ptr %97, align 8
   %cmp.i.i.i.i43.i.i.i = fcmp ogt double %call.val.i.i25.i.i.i, %call.val.i.i.i42.i.i.i
-  br i1 %cmp.i.i.i.i43.i.i.i, label %while.body.i.i38.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i32.i.i.i, !llvm.loop !53
+  br i1 %cmp.i.i.i.i43.i.i.i, label %while.body.i.i38.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i32.i.i.i, !llvm.loop !42
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i32.i.i.i: ; preds = %while.body.i.i38.i.i.i, %if.else.i29.i.i.i
   %__last.sroa.0.0.lcssa.i.i33.i.i.i = phi ptr [ %__i.sroa.0.012.i23.i.i.i, %if.else.i29.i.i.i ], [ %__next.sroa.0.0.i.i40.i.i.i, %while.body.i.i38.i.i.i ]
@@ -6215,7 +6215,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxy
 for.inc.i35.i.i.i:                                ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i32.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i49.i.i.i
   %__i.sroa.0.0.i36.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.012.i23.i.i.i, i64 16
   %cmp.i1.not.i37.i.i.i = icmp eq ptr %__i.sroa.0.0.i36.i.i.i, %76
-  br i1 %cmp.i1.not.i37.i.i.i, label %invoke.cont75, label %for.body.i22.i.i.i, !llvm.loop !54
+  br i1 %cmp.i1.not.i37.i.i.i, label %invoke.cont75, label %for.body.i22.i.i.i, !llvm.loop !43
 
 invoke.cont75:                                    ; preds = %for.inc.i35.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_.exit.i7.i.i.i, %for.cond.preheader.i17.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_.exit.i.i.i, %do.end
   store ptr null, ptr %nextEgressResults_, align 8
@@ -6236,7 +6236,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i69, %for
   call void @_ZdlPv(ptr noundef %101) #31
   %incdec.ptr.i.i.i71 = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i72 = icmp ult ptr %__n.04.i.i.i, %100
-  br i1 %cmp.i.i.i72, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !39
+  br i1 %cmp.i.i.i72, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i: ; preds = %for.body.i.i.i
   %.pre.i.i = load ptr, ptr %pendingNodesTmp, align 8
@@ -6265,7 +6265,7 @@ for.body.i.i.i80:                                 ; preds = %if.then.i.i74, %for
   call void @_ZdlPv(ptr noundef %106) #31
   %incdec.ptr.i.i.i82 = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i81, i64 8
   %cmp.i.i.i83 = icmp ult ptr %__n.04.i.i.i81, %105
-  br i1 %cmp.i.i.i83, label %for.body.i.i.i80, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i84, !llvm.loop !39
+  br i1 %cmp.i.i.i83, label %for.body.i.i.i80, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i84, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i84: ; preds = %for.body.i.i.i80
   %.pre.i.i85 = load ptr, ptr %pendingNodes, align 8
@@ -6660,7 +6660,7 @@ invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
-  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !56
+  br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !45
 
 lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
@@ -6676,7 +6676,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   tail call void @_ZdlPv(ptr noundef %4) #31
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !39
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %for.body.i.i, %lpad.i
   invoke void @__cxa_rethrow() #34
@@ -6825,7 +6825,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %arrayidx.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i.i33 = icmp eq i64 %1, %7
-  br i1 %cmp.i.i33, label %return, label %while.cond.i, !llvm.loop !57
+  br i1 %cmp.i.i33, label %return, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %cmp17.i = icmp eq i8 %5, 0
@@ -6836,7 +6836,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %inc.i = add i64 %tries.i.077, 1
   %shr.i = lshr i64 %inc.i, %sh_prom.i
   %cmp.i = icmp eq i64 %shr.i, 0
-  br i1 %cmp.i, label %for.body.i, label %if.end7, !llvm.loop !58
+  br i1 %cmp.i, label %for.body.i, label %if.end7, !llvm.loop !8
 
 if.end7:                                          ; preds = %if.end20.i, %while.end.i, %entry
   %sh_prom.i.i.i.i.pre-phi = phi i64 [ %0, %entry ], [ %sh_prom.i, %while.end.i ], [ %sh_prom.i, %if.end20.i ]
@@ -6947,7 +6947,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE2
   %24 = bitcast <16 x i1> %23 to i16
   %25 = and i16 %24, 16383
   %cmp.i57.not = icmp eq i16 %25, 16383
-  br i1 %cmp.i57.not, label %do.body, label %do.end, !llvm.loop !59
+  br i1 %cmp.i57.not, label %do.body, label %do.end, !llvm.loop !46
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE25incrOutboundOverflowCountEv.exit
   %26 = extractelement <16 x i8> %22, i64 14
@@ -7075,7 +7075,7 @@ for.body.i:                                       ; preds = %_ZN5folly3f146detai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %arrayidx.i, i8 0, i64 16, i1 false)
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %newChunkCount
-  br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE16initializeChunksEPhmm.exit.loopexit, label %for.body.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE16initializeChunksEPhmm.exit.loopexit, label %for.body.i, !llvm.loop !47
 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE16initializeChunksEPhmm.exit.loopexit: ; preds = %for.body.i
   %control_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i1.i, i64 14
@@ -7093,7 +7093,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2Prio
   %or.i.i = or disjoint i64 %shr.i.i.i, %3
   store i64 %or.i.i, ptr %sizeAndChunkShiftAndPackedBegin_, align 8
   store i8 0, ptr %success, align 1
-  store i8 0, ptr %SCOPE_EXIT_STATE3, align 8, !alias.scope !61
+  store i8 0, ptr %SCOPE_EXIT_STATE3, align 8, !alias.scope !48
   %function_.i.i.i = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 8
   store ptr %success, ptr %function_.i.i.i, align 8
   %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 16
@@ -7163,7 +7163,7 @@ if.end:                                           ; preds = %invoke.cont20, %whi
   %dstI.1 = phi i64 [ %inc, %invoke.cont20 ], [ %dstI.0121, %while.body ]
   %inc21 = add i64 %srcI.0122, 1
   %cmp12 = icmp ult i64 %dstI.1, %origSize
-  br i1 %cmp12, label %while.body, label %invoke.cont24, !llvm.loop !64
+  br i1 %cmp12, label %while.body, label %invoke.cont24, !llvm.loop !51
 
 invoke.cont24:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
@@ -7211,7 +7211,7 @@ if.end39:                                         ; preds = %_ZNSt15__new_alloca
 while.cond44.loopexit:                            ; preds = %invoke.cont68, %invoke.cont48
   %remaining.1.lcssa = phi i64 [ %remaining.0118, %invoke.cont48 ], [ %dec, %invoke.cont68 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
-  br i1 %cmp45.not, label %while.end74, label %invoke.cont48, !llvm.loop !65
+  br i1 %cmp45.not, label %while.end74, label %invoke.cont48, !llvm.loop !52
 
 invoke.cont48:                                    ; preds = %if.end39, %while.cond44.loopexit
   %add.ptr.pn119 = phi ptr [ %add.ptr, %if.end39 ], [ %srcChunk42.0120, %while.cond44.loopexit ]
@@ -7311,7 +7311,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE2
   %arrayidx.i63 = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.i.i
   %26 = load i8, ptr %arrayidx.i63, align 1
   %cmp.i64 = icmp ult i8 %26, 14
-  br i1 %cmp.i64, label %while.end.i, label %if.end.i, !llvm.loop !66
+  br i1 %cmp.i64, label %while.end.i, label %if.end.i, !llvm.loop !53
 
 while.end.i:                                      ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE25incrOutboundOverflowCountEv.exit.i, %do.end
   %and.i.lcssa.i = phi i64 [ %and.i17.i, %do.end ], [ %and.i.i, %_ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE25incrOutboundOverflowCountEv.exit.i ]
@@ -7361,7 +7361,7 @@ while.cond78:                                     ; preds = %while.end74, %while
   %arrayidx = getelementptr inbounds i8, ptr %fullness.0, i64 %i.0
   %32 = load i8, ptr %arrayidx, align 1
   %cmp80 = icmp eq i8 %32, 0
-  br i1 %cmp80, label %while.cond78, label %if.then.i81, !llvm.loop !67
+  br i1 %cmp80, label %while.cond78, label %if.then.i81, !llvm.loop !54
 
 if.then.i81:                                      ; preds = %while.cond78
   %33 = load ptr, ptr %this, align 8
@@ -7586,7 +7586,7 @@ while.body.i.i.i:                                 ; preds = %if.else.i, %while.c
   %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i, i64 0, i64 %dec.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.not13.i.i = icmp eq i8 %4, 0
-  br i1 %cmp.i.not13.i.i, label %while.cond.i.i.i, label %if.end.i, !llvm.loop !68
+  br i1 %cmp.i.not13.i.i, label %while.cond.i.i.i, label %if.end.i, !llvm.loop !55
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preheader, %for.cond.i.i.i
   %c.i.0.i.i = phi ptr [ %incdec.ptr16.i.i.i, %for.cond.i.i.i ], [ %add.ptr1.i.i.i.i, %for.cond.i.i.i.preheader ]
@@ -7596,7 +7596,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.preh
   %7 = bitcast <16 x i1> %6 to i16
   %8 = and i16 %7, 16383
   %cmp.i10.not.i.i = icmp eq i16 %8, 0
-  br i1 %cmp.i10.not.i.i, label %for.cond.i.i.i, label %if.then23.i.i.i, !llvm.loop !69
+  br i1 %cmp.i10.not.i.i, label %for.cond.i.i.i, label %if.then23.i.i.i, !llvm.loop !56
 
 if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   %and.i.i.i.i = zext nneg i16 %8 to i32
@@ -7687,7 +7687,7 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE2
   %and.i.i = and i64 %add.i, %sub.i.i
   %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %20, i64 %and.i.i
   %cmp8.i = icmp eq ptr %add.ptr.i, %add.ptr1.i.i.i
-  br i1 %cmp8.i, label %if.then9.i, label %if.end.i2, !llvm.loop !70
+  br i1 %cmp8.i, label %if.then9.i, label %if.end.i2, !llvm.loop !57
 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10eraseBlankENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKmS7_EEEEESC_ImmE.exit: ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE8clearTagEm.exit.i, %if.then9.i
   ret void
@@ -8079,7 +8079,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   tail call void @_ZdlPv(ptr noundef %3) #31
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__n.04.i, i64 8
   %cmp.i = icmp ult ptr %__n.04.i, %2
-  br i1 %cmp.i, label %for.body.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit, !llvm.loop !39
+  br i1 %cmp.i, label %for.body.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit: ; preds = %for.body.i
   %.pre = load ptr, ptr %this, align 8
@@ -8233,7 +8233,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEET_SI_SI_T0_.exit
   %cmp2 = icmp eq i64 %dec, 0
-  br i1 %cmp2, label %if.end.i.i.i, label %if.end, !llvm.loop !71
+  br i1 %cmp2, label %if.end.i.i.i, label %if.end, !llvm.loop !58
 
 if.end.i.i.i:                                     ; preds = %while.body, %while.body.lr.ph
   %sub.ptr.div.i36.lcssa = phi i64 [ %sub.ptr.div.i31, %while.body.lr.ph ], [ %sub.ptr.div.i, %while.body ]
@@ -8281,7 +8281,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19.i.i.i.i, i64 8
   store double %5, ptr %second3.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i78.i.i.i
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !72
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !59
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
@@ -8318,7 +8318,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %second3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i.i.i.i.i, i64 8
   store double %call.val.i.i.i.i.i.i, ptr %second3.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.08.i.i.i.i.i, %__parent.0.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_SJ_T1_T2_.exit.i.i.i, !llvm.loop !73
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_SJ_T1_T2_.exit.i.i.i, !llvm.loop !60
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_SJ_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end35.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end35.i.i.i.i ], [ %__holeIndex.addr.07.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
@@ -8328,7 +8328,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTra
   store double %__value.sroa.2.0.copyload.i.i.i, ptr %second3.i11.i.i.i.i.i, align 8
   %cmp9.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp9.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_RT0_.exit.i.i, label %while.body.i.i.i, !llvm.loop !74
+  br i1 %cmp9.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_RT0_.exit.i.i, label %while.body.i.i.i, !llvm.loop !61
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_RT0_.exit.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_SJ_T1_T2_.exit.i.i.i
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i35.lcssa, 16
@@ -8372,7 +8372,7 @@ while.body.i.i15:                                 ; preds = %while.body.i.i, %wh
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19.i.i, i64 8
   store double %15, ptr %second3.i.i.i, align 8
   %cmp.i.i19 = icmp slt i64 %spec.select.i.i, %div.i.i
-  br i1 %cmp.i.i19, label %while.body.i.i15, label %while.end.i.i, !llvm.loop !72
+  br i1 %cmp.i.i19, label %while.body.i.i15, label %while.end.i.i, !llvm.loop !59
 
 while.end.i.i:                                    ; preds = %while.body.i.i15, %while.body.i.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i, %while.body.i.i15 ]
@@ -8424,7 +8424,7 @@ while.body.i.i.i14:                               ; preds = %land.rhs.i.i.i
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i.i.i, i64 8
   store double %call.val.i.i.i.i, ptr %second3.i.i.i.i, align 8
   %cmp.i.i.not.i = icmp ult i64 %__parent.08.in.i.i.i, 2
-  br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !73
+  br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !60
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i14, %if.end35.i.i
   %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %if.end35.i.i ], [ %__holeIndex.addr.07.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i14 ]
@@ -8433,7 +8433,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransa
   %second3.i11.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i, i64 8
   store double %__value.sroa.2.0.copyload.i, ptr %second3.i11.i.i.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i11, 16
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !75
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !62
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
   %storemerge3354 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
@@ -8542,7 +8542,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val.i.i6.i = load double, ptr %41, align 8
   %cmp.i.i.i7.i = fcmp ogt double %call.val.i.i6.i, %call3.val.i.i5.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 16
-  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !76
+  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !63
 
 while.cond10.i.i.preheader:                       ; preds = %while.cond3.i.i
   %42 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
@@ -8554,7 +8554,7 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i.pr
   %43 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %call3.val.i3.i.i = load double, ptr %43, align 8
   %cmp.i.i4.i.i = fcmp ogt double %call3.val.i.i5.i, %call3.val.i3.i.i
-  br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !77
+  br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !64
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
   %cmp.i.i.i7 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -8570,7 +8570,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %48 = load double, ptr %44, align 8
   store double %48, ptr %42, align 8
   store double %47, ptr %44, align 8
-  br label %while.body.i.i6, !llvm.loop !78
+  br label %while.body.i.i6, !llvm.loop !65
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEET_SI_SI_T0_.exit: ; preds = %while.end18.i.i
   tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge3354, i64 noundef %dec)
@@ -8578,7 +8578,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8pro
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !71
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !58
 
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEET_SI_SI_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_RT0_.exit.i.i
   ret void
@@ -8650,78 +8650,65 @@ attributes #35 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_: %agg.result"}
-!12 = distinct !{!12, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_"}
-!13 = distinct !{!13, !5, !6}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_: %agg.result"}
-!16 = distinct !{!16, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_"}
-!17 = distinct !{!17, !6}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_: %agg.result"}
-!20 = distinct !{!20, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_"}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!36 = distinct !{!36, !"_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!37 = distinct !{!37, !5, !6}
-!38 = distinct !{!38, !5, !6}
-!39 = distinct !{!39, !5, !6}
-!40 = !{!41, !43}
-!41 = distinct !{!41, !42, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!42 = distinct !{!42, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_"}
-!43 = distinct !{!43, !42, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
-!44 = distinct !{!44, !5, !6}
-!45 = !{!46, !48}
-!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!47 = distinct !{!47, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_"}
-!48 = distinct !{!48, !47, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
-!49 = distinct !{!49, !5, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !5, !6}
-!53 = distinct !{!53, !5, !6}
-!54 = distinct !{!54, !5, !6}
-!55 = distinct !{!55, !5, !6}
-!56 = distinct !{!56, !5, !6}
-!57 = distinct !{!57, !5, !6}
-!58 = distinct !{!58, !5, !6}
-!59 = distinct !{!59, !5, !6}
-!60 = distinct !{!60, !5, !6}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN5folly6detailplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_EENS0_14ScopeGuardImplINSt5decayIT_E4typeELb1EEENS0_16ScopeGuardOnExitEOSF_: %agg.result"}
-!63 = distinct !{!63, !"_ZN5folly6detailplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_EENS0_14ScopeGuardImplINSt5decayIT_E4typeELb1EEENS0_16ScopeGuardOnExitEOSF_"}
-!64 = distinct !{!64, !5, !6}
-!65 = distinct !{!65, !5, !6}
-!66 = distinct !{!66, !5, !6}
-!67 = distinct !{!67, !5, !6}
-!68 = distinct !{!68, !5, !6}
-!69 = distinct !{!69, !5, !6}
-!70 = distinct !{!70, !5, !6}
-!71 = distinct !{!71, !5, !6}
-!72 = distinct !{!72, !5, !6}
-!73 = distinct !{!73, !5, !6}
-!74 = distinct !{!74, !5, !6}
-!75 = distinct !{!75, !5, !6}
-!76 = distinct !{!76, !5, !6}
-!77 = distinct !{!77, !5, !6}
-!78 = distinct !{!78, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_: %agg.result"}
+!11 = distinct !{!11, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_"}
+!12 = distinct !{!12, !5}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_: %agg.result"}
+!15 = distinct !{!15, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_: %agg.result"}
+!18 = distinct !{!18, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen18HTTP2PriorityQueue4NodeENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_13enqueuedHook_EEEEEmLb0EvE17erase_and_disposeINS0_6detail13null_disposerEEENS0_13list_iteratorISB_Lb0EEENSG_ISB_Lb1EEET_"}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!27 = distinct !{!27, !"_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_"}
+!34 = distinct !{!34, !33, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!35 = distinct !{!35, !5}
+!36 = !{!37, !39}
+!37 = distinct !{!37, !38, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!38 = distinct !{!38, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_"}
+!39 = distinct !{!39, !38, !"_ZSt19__relocate_object_aISt4pairIPN8proxygen15HTTPTransactionEdES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN5folly6detailplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_EENS0_14ScopeGuardImplINSt5decayIT_E4typeELb1EEENS0_16ScopeGuardOnExitEOSF_: %agg.result"}
+!50 = distinct !{!50, !"_ZN5folly6detailplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_EENS0_14ScopeGuardImplINSt5decayIT_E4typeELb1EEENS0_16ScopeGuardOnExitEOSF_"}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}
+!58 = distinct !{!58, !5}
+!59 = distinct !{!59, !5}
+!60 = distinct !{!60, !5}
+!61 = distinct !{!61, !5}
+!62 = distinct !{!62, !5}
+!63 = distinct !{!63, !5}
+!64 = distinct !{!64, !5}
+!65 = distinct !{!65, !5}

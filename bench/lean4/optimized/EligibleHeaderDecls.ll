@@ -1253,7 +1253,7 @@ lean_dec.exit337:                                 ; preds = %454, %453, %451, %4
 
 lean_dec.exit350.backedge:                        ; preds = %lean_dec.exit337, %458, %460, %461, %lean_dec.exit351, %77, %79, %80, %626, %637, %679, %lean_alloc_ctor.exit478, %lean_alloc_ctor.exit465, %lean_alloc_ctor.exit464, %lean_array_uset.exit440, %190, %188
   %.0291.be = phi ptr [ %.0291, %188 ], [ %.0291, %190 ], [ %.0291, %lean_array_uset.exit440 ], [ %395, %lean_alloc_ctor.exit478 ], [ %350, %lean_alloc_ctor.exit464 ], [ %357, %lean_alloc_ctor.exit465 ], [ %.0279, %679 ], [ %.0301, %626 ], [ %.0302, %637 ], [ %.0291, %80 ], [ %.0291, %79 ], [ %.0291, %77 ], [ %.0291, %lean_dec.exit351 ], [ %.0291, %461 ], [ %.0291, %460 ], [ %.0291, %458 ], [ %.0291, %lean_dec.exit337 ]
-  br label %lean_dec.exit350, !llvm.loop !15
+  br label %lean_dec.exit350
 
 455:                                              ; preds = %lean_dec.exit337
   %456 = load i32, ptr %42, align 4, !tbaa !4
@@ -3497,9 +3497,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Server_Completion_forEligibleDeclsM___spec__1___rarg___lambda__1, ptr %131, align 8, !tbaa !9
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store i16 4, ptr %132, align 8, !tbaa !17
+  store i16 4, ptr %132, align 8, !tbaa !15
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 18
-  store i16 3, ptr %133, align 2, !tbaa !17
+  store i16 3, ptr %133, align 2, !tbaa !15
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr %0, ptr %134, align 8, !tbaa !9
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 32
@@ -3536,9 +3536,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Server_Completion_forEligibleDeclsM___spec__1___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -3568,9 +3568,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PersistentHashMap_foldlM___at_Lean_Server_Completion_forEligibleDeclsM___spec__3___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -3598,9 +3598,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_PersistentHashMap_forM___at_Lean_Server_Completion_forEligibleDeclsM___spec__2___rarg___lambda__1___boxed, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 4, ptr %9, align 8, !tbaa !17
+  store i16 4, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 1, ptr %10, align 2, !tbaa !17
+  store i16 1, ptr %10, align 2, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %11, align 8, !tbaa !9
   %12 = tail call ptr @l_Lean_PersistentHashMap_foldlMAux___rarg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
@@ -3655,9 +3655,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_PersistentHashMap_forM___at_Lean_Server_Completion_forEligibleDeclsM___spec__2___rarg, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !17
+  store i16 3, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -3846,9 +3846,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_box_usize.exit
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDeclsM___spec__4___rarg___lambda__1___boxed, ptr %69, align 8, !tbaa !9
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i16 6, ptr %70, align 8, !tbaa !17
+  store i16 6, ptr %70, align 8, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 18
-  store i16 5, ptr %71, align 2, !tbaa !17
+  store i16 5, ptr %71, align 2, !tbaa !15
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr %55, ptr %72, align 8, !tbaa !9
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 32
@@ -4093,9 +4093,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDeclsM___spec__4___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !17
+  store i16 6, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -4507,9 +4507,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @l_Lean_Server_Completion_forEligibleDeclsM___rarg___lambda__1, ptr %45, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i16 5, ptr %46, align 8, !tbaa !17
+  store i16 5, ptr %46, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  store i16 3, ptr %47, align 2, !tbaa !17
+  store i16 3, ptr %47, align 2, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %0, ptr %48, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -4532,9 +4532,9 @@ l_Lean_PersistentHashMap_forM___at_Lean_Server_Completion_forEligibleDeclsM___sp
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @l_Lean_PersistentHashMap_forM___at_Lean_Server_Completion_forEligibleDeclsM___spec__2___rarg___lambda__1___boxed, ptr %55, align 8, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i16 4, ptr %56, align 8, !tbaa !17
+  store i16 4, ptr %56, align 8, !tbaa !15
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 18
-  store i16 1, ptr %57, align 2, !tbaa !17
+  store i16 1, ptr %57, align 2, !tbaa !15
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %41, ptr %58, align 8, !tbaa !9
   %59 = tail call ptr @l_Lean_PersistentHashMap_foldlMAux___rarg(ptr noundef %1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %51, ptr noundef %15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
@@ -4661,9 +4661,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit63
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @l_Lean_Server_Completion_forEligibleDeclsM___rarg___lambda__2___boxed, ptr %46, align 8, !tbaa !9
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i16 4, ptr %47, align 8, !tbaa !17
+  store i16 4, ptr %47, align 8, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 18
-  store i16 3, ptr %48, align 2, !tbaa !17
+  store i16 3, ptr %48, align 2, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %0, ptr %49, align 8, !tbaa !9
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -4894,9 +4894,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit18
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @l_Lean_Server_Completion_getEligibleHeaderDecls, ptr %18, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i16 2, ptr %19, align 8, !tbaa !17
+  store i16 2, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  store i16 1, ptr %20, align 2, !tbaa !17
+  store i16 1, ptr %20, align 2, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %4, ptr %21, align 8, !tbaa !9
   %22 = tail call ptr @lean_apply_2(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %14) #3
@@ -4940,9 +4940,9 @@ lean_alloc_closure.exit22:                        ; preds = %lean_inc.exit
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @l_Lean_Server_Completion_forEligibleDeclsM___rarg___lambda__3, ptr %35, align 8, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i16 5, ptr %36, align 8, !tbaa !17
+  store i16 5, ptr %36, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 18
-  store i16 4, ptr %37, align 2, !tbaa !17
+  store i16 4, ptr %37, align 2, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %4, ptr %38, align 8, !tbaa !9
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -5070,9 +5070,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @l_Lean_Server_Completion_forEligibleDeclsM___rarg___lambda__4, ptr %45, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i16 5, ptr %46, align 8, !tbaa !17
+  store i16 5, ptr %46, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 18
-  store i16 4, ptr %47, align 2, !tbaa !17
+  store i16 4, ptr %47, align 2, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %3, ptr %48, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -5103,9 +5103,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Server_Completion_forEligibleDeclsM___rarg___boxed, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !17
+  store i16 5, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -5632,7 +5632,5 @@ attributes #4 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !7, i64 0}

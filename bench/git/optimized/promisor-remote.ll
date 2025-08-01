@@ -59,7 +59,7 @@ define dso_local void @promisor_remote_clear(ptr noundef %0) local_unnamed_addr 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %0, ptr %9, align 8, !tbaa !17
+  store ptr %0, ptr %9, align 8, !tbaa !16
   ret void
 }
 
@@ -75,7 +75,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @repo_promisor_remote_reinit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %.not8.i = icmp eq ptr %4, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
@@ -94,22 +94,22 @@ define dso_local void @repo_promisor_remote_reinit(ptr noundef %0) local_unnamed
   br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i
-  %.pre = load ptr, ptr %2, align 8, !tbaa !18
+  %.pre = load ptr, ptr %2, align 8, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1
   %11 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %3, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %3, ptr %12, align 8, !tbaa !17
+  store ptr %3, ptr %12, align 8, !tbaa !16
   tail call void @free(ptr noundef %11) #10
-  store ptr null, ptr %2, align 8, !tbaa !18
+  store ptr null, ptr %2, align 8, !tbaa !17
   %13 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #10
-  store ptr %13, ptr %2, align 8, !tbaa !18
+  store ptr %13, ptr %2, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !17
+  store ptr %13, ptr %14, align 8, !tbaa !16
   tail call void @repo_config(ptr noundef nonnull %0, ptr noundef nonnull @promisor_remote_config, ptr noundef %13) #10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %16 = load ptr, ptr %15, align 8, !tbaa !38
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %.not14.i = icmp eq ptr %16, null
   br i1 %.not14.i, label %promisor_remote_init.exit, label %.preheader.i
 
@@ -124,7 +124,7 @@ define dso_local void @repo_promisor_remote_reinit(ptr noundef %0) local_unnamed
   %18 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %16) #11
   %.not14.i.i = icmp eq i32 %19, 0
-  br i1 %.not14.i.i, label %promisor_remote_lookup.exit.i, label %.preheader.i, !llvm.loop !39
+  br i1 %.not14.i.i, label %promisor_remote_lookup.exit.i, label %.preheader.i, !llvm.loop !38
 
 promisor_remote_lookup.exit.i:                    ; preds = %17
   %20 = load ptr, ptr %.011.i.i, align 8, !tbaa !13
@@ -136,9 +136,9 @@ promisor_remote_lookup.exit.i:                    ; preds = %17
   %..i.i = select i1 %.not14.i17.i, ptr %13, ptr %.0.i.i
   store ptr %20, ptr %..i.i, align 8, !tbaa !13
   store ptr null, ptr %.011.i.i, align 8, !tbaa !13
-  %22 = load ptr, ptr %14, align 8, !tbaa !17
+  %22 = load ptr, ptr %14, align 8, !tbaa !16
   store ptr %.011.i.i, ptr %22, align 8, !tbaa !13
-  store ptr %.011.i.i, ptr %14, align 8, !tbaa !17
+  store ptr %.011.i.i, ptr %14, align 8, !tbaa !16
   br label %promisor_remote_init.exit
 
 23:                                               ; preds = %.preheader.i
@@ -152,18 +152,18 @@ promisor_remote_init.exit:                        ; preds = %.loopexit, %promiso
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @repo_promisor_remote_find(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %promisor_remote_init.exit
 
 5:                                                ; preds = %2
   %6 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #10
-  store ptr %6, ptr %3, align 8, !tbaa !18
+  store ptr %6, ptr %3, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !17
+  store ptr %6, ptr %7, align 8, !tbaa !16
   tail call void @repo_config(ptr noundef nonnull %0, ptr noundef nonnull @promisor_remote_config, ptr noundef %6) #10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   %.not14.i = icmp eq ptr %9, null
   br i1 %.not14.i, label %promisor_remote_init.exit, label %.preheader.i
 
@@ -178,7 +178,7 @@ define dso_local ptr @repo_promisor_remote_find(ptr noundef %0, ptr noundef read
   %11 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %9) #11
   %.not14.i.i = icmp eq i32 %12, 0
-  br i1 %.not14.i.i, label %promisor_remote_lookup.exit.i, label %.preheader.i, !llvm.loop !39
+  br i1 %.not14.i.i, label %promisor_remote_lookup.exit.i, label %.preheader.i, !llvm.loop !38
 
 promisor_remote_lookup.exit.i:                    ; preds = %10
   %13 = load ptr, ptr %.011.i.i, align 8, !tbaa !13
@@ -190,9 +190,9 @@ promisor_remote_lookup.exit.i:                    ; preds = %10
   %..i.i = select i1 %.not14.i17.i, ptr %6, ptr %.0.i.i
   store ptr %13, ptr %..i.i, align 8, !tbaa !13
   store ptr null, ptr %.011.i.i, align 8, !tbaa !13
-  %15 = load ptr, ptr %7, align 8, !tbaa !17
+  %15 = load ptr, ptr %7, align 8, !tbaa !16
   store ptr %.011.i.i, ptr %15, align 8, !tbaa !13
-  store ptr %.011.i.i, ptr %7, align 8, !tbaa !17
+  store ptr %.011.i.i, ptr %7, align 8, !tbaa !16
   br label %promisor_remote_init.exit
 
 16:                                               ; preds = %.preheader.i
@@ -201,7 +201,7 @@ promisor_remote_lookup.exit.i:                    ; preds = %10
 
 promisor_remote_init.exit:                        ; preds = %2, %5, %promisor_remote_lookup.exit.i, %14, %16
   %.not = icmp eq ptr %1, null
-  %18 = load ptr, ptr %3, align 8, !tbaa !18
+  %18 = load ptr, ptr %3, align 8, !tbaa !17
   br i1 %.not, label %19, label %.preheader
 
 19:                                               ; preds = %promisor_remote_init.exit
@@ -218,7 +218,7 @@ promisor_remote_init.exit:                        ; preds = %2, %5, %promisor_re
   %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %.not14.i8 = icmp eq i32 %23, 0
-  br i1 %.not14.i8, label %promisor_remote_lookup.exit, label %.preheader, !llvm.loop !39
+  br i1 %.not14.i8, label %promisor_remote_lookup.exit, label %.preheader, !llvm.loop !38
 
 promisor_remote_lookup.exit:                      ; preds = %.preheader, %21, %19
   %.0 = phi ptr [ %20, %19 ], [ null, %.preheader ], [ %.011.i, %21 ]
@@ -242,18 +242,18 @@ define dso_local void @promisor_remote_get_direct(ptr noundef %0, ptr noundef %1
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %promisor_remote_init.exit
 
 10:                                               ; preds = %7
   %11 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #10
-  store ptr %11, ptr %8, align 8, !tbaa !18
+  store ptr %11, ptr %8, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !17
+  store ptr %11, ptr %12, align 8, !tbaa !16
   tail call void @repo_config(ptr noundef nonnull %0, ptr noundef nonnull @promisor_remote_config, ptr noundef %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
   %.not14.i = icmp eq ptr %14, null
   br i1 %.not14.i, label %promisor_remote_init.exit, label %.preheader.i
 
@@ -268,7 +268,7 @@ define dso_local void @promisor_remote_get_direct(ptr noundef %0, ptr noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %14) #11
   %.not14.i.i = icmp eq i32 %17, 0
-  br i1 %.not14.i.i, label %promisor_remote_lookup.exit.i, label %.preheader.i, !llvm.loop !39
+  br i1 %.not14.i.i, label %promisor_remote_lookup.exit.i, label %.preheader.i, !llvm.loop !38
 
 promisor_remote_lookup.exit.i:                    ; preds = %15
   %18 = load ptr, ptr %.011.i.i, align 8, !tbaa !13
@@ -280,9 +280,9 @@ promisor_remote_lookup.exit.i:                    ; preds = %15
   %..i.i = select i1 %.not14.i17.i, ptr %11, ptr %.0.i.i
   store ptr %18, ptr %..i.i, align 8, !tbaa !13
   store ptr null, ptr %.011.i.i, align 8, !tbaa !13
-  %20 = load ptr, ptr %12, align 8, !tbaa !17
+  %20 = load ptr, ptr %12, align 8, !tbaa !16
   store ptr %.011.i.i, ptr %20, align 8, !tbaa !13
-  store ptr %.011.i.i, ptr %12, align 8, !tbaa !17
+  store ptr %.011.i.i, ptr %12, align 8, !tbaa !16
   br label %promisor_remote_init.exit
 
 21:                                               ; preds = %.preheader.i
@@ -290,7 +290,7 @@ promisor_remote_lookup.exit.i:                    ; preds = %15
   br label %promisor_remote_init.exit
 
 promisor_remote_init.exit:                        ; preds = %7, %10, %promisor_remote_lookup.exit.i, %19, %21
-  %23 = load ptr, ptr %8, align 8, !tbaa !18
+  %23 = load ptr, ptr %8, align 8, !tbaa !17
   %.02474 = load ptr, ptr %23, align 8, !tbaa !13
   %.not75 = icmp eq ptr %.02474, null
   br i1 %.not75, label %.preheader, label %.lr.ph
@@ -331,7 +331,7 @@ promisor_remote_init.exit:                        ; preds = %7, %10, %promisor_r
 
 32:                                               ; preds = %31
   store i1 true, ptr @fetch_objects.warning_shown, align 4
-  %33 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !40
+  %33 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
   %.not4.i.i = icmp eq i32 %33, 0
   br i1 %.not4.i.i, label %_.exit.i, label %34
 
@@ -346,19 +346,19 @@ _.exit.i:                                         ; preds = %34, %32
 
 36:                                               ; preds = %28
   store i16 8, ptr %24, align 8
-  store i32 -1, ptr %25, align 8, !tbaa !41
-  %37 = load ptr, ptr @the_repository, align 8, !tbaa !45
+  store i32 -1, ptr %25, align 8, !tbaa !40
+  %37 = load ptr, ptr @the_repository, align 8, !tbaa !44
   %.not16.i = icmp eq ptr %0, %37
   br i1 %.not16.i, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr %0, align 8, !tbaa !47
+  %39 = load ptr, ptr %0, align 8, !tbaa !46
   call void @prepare_other_repo_env(ptr noundef nonnull %26, ptr noundef %39) #10
   br label %40
 
 40:                                               ; preds = %38, %36
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %29, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef null) #10
-  %41 = load ptr, ptr @the_repository, align 8, !tbaa !45
+  %41 = load ptr, ptr @the_repository, align 8, !tbaa !44
   %42 = call i32 @repo_config_get_bool(ptr noundef %41, ptr noundef nonnull @.str.16, ptr noundef nonnull %5) #10
   %43 = icmp eq i32 %42, 0
   %44 = load i32, ptr %5, align 4
@@ -381,7 +381,7 @@ _.exit.i:                                         ; preds = %34, %32
   unreachable
 
 52:                                               ; preds = %48
-  %53 = load i32, ptr %25, align 8, !tbaa !41
+  %53 = load i32, ptr %25, align 8, !tbaa !40
   %54 = call ptr @xfdopen(i32 noundef %53, ptr noundef nonnull @.str.19) #10
   %55 = sext i32 %.02277 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.20, i32 noundef 53, ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef %55) #10
@@ -395,7 +395,7 @@ _.exit.i:                                         ; preds = %34, %32
 57:                                               ; preds = %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %57 ]
@@ -466,7 +466,7 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
 
 82:                                               ; preds = %.lr.ph.i34
   %83 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.i35
-  store i32 1, ptr %83, align 4, !tbaa !40
+  store i32 1, ptr %83, align 4, !tbaa !39
   %84 = add nsw i32 %.02935.i, 1
   br label %85
 
@@ -474,7 +474,7 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
   %.130.i = phi i32 [ %84, %82 ], [ %.02935.i, %.lr.ph.i34 ]
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i33
-  br i1 %exitcond.not.i37, label %._crit_edge.i38, label %.lr.ph.i34, !llvm.loop !49
+  br i1 %exitcond.not.i37, label %._crit_edge.i38, label %.lr.ph.i34, !llvm.loop !48
 
 ._crit_edge.i38:                                  ; preds = %85
   %.not.i39 = icmp eq i32 %.130.i, 0
@@ -489,7 +489,7 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
   %indvars.iv43.i = phi i64 [ 0, %86 ], [ %indvars.iv.next44.i, %99 ]
   %.038.i = phi i32 [ 0, %86 ], [ %.1.i, %99 ]
   %89 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv43.i
-  %90 = load i32, ptr %89, align 4, !tbaa !40
+  %90 = load i32, ptr %89, align 4, !tbaa !39
   %.not33.i = icmp eq i32 %90, 0
   br i1 %.not33.i, label %99, label %91
 
@@ -500,16 +500,16 @@ fetch_objects.exit:                               ; preds = %._crit_edge.i
   %95 = getelementptr inbounds nuw %struct.object_id, ptr %.04476, i64 %indvars.iv43.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull readonly align 4 dereferenceable(32) %95, i64 32, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %97 = load i32, ptr %96, align 4, !tbaa !50
+  %97 = load i32, ptr %96, align 4, !tbaa !49
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store i32 %97, ptr %98, align 4, !tbaa !50
+  store i32 %97, ptr %98, align 4, !tbaa !49
   br label %99
 
 99:                                               ; preds = %91, %.lr.ph40.i
   %.1.i = phi i32 [ %92, %91 ], [ %.038.i, %.lr.ph40.i ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i33
-  br i1 %exitcond47.not.i, label %._crit_edge41.i, label %.lr.ph40.i, !llvm.loop !52
+  br i1 %exitcond47.not.i, label %._crit_edge41.i, label %.lr.ph40.i, !llvm.loop !51
 
 ._crit_edge41.i:                                  ; preds = %99
   %.not32.i = icmp eq i32 %.02178, 0
@@ -533,12 +533,12 @@ remove_fetched_oids.exit:                         ; preds = %._crit_edge41.i, %1
   %.1 = phi i32 [ %.02178, %74 ], [ 1, %remove_fetched_oids.exit ]
   %.024 = load ptr, ptr %.02479, align 8, !tbaa !13
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %.preheader, label %28, !llvm.loop !53
+  br i1 %.not, label %.preheader, label %28, !llvm.loop !52
 
 102:                                              ; preds = %.lr.ph83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph83, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph83, !llvm.loop !53
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next, %102 ]
@@ -574,12 +574,12 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1, !tbaa !55
+  %2 = load i8, ptr %0, align 1, !tbaa !54
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !40
+  %4 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %7, label %5
 
@@ -623,7 +623,7 @@ define internal i32 @promisor_remote_config(ptr noundef %0, ptr noundef %1, ptr 
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %5, align 8, !tbaa !11
-  %17 = load i64, ptr %6, align 8, !tbaa !56
+  %17 = load i64, ptr %6, align 8, !tbaa !55
   %18 = call ptr @xmemdupz(ptr noundef %16, i64 noundef %17) #10
   br label %19
 
@@ -637,7 +637,7 @@ define internal i32 @promisor_remote_config(ptr noundef %0, ptr noundef %1, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %18) #11
   %.not14.i = icmp eq i32 %22, 0
-  br i1 %.not14.i, label %promisor_remote_lookup.exit, label %19, !llvm.loop !39
+  br i1 %.not14.i, label %promisor_remote_lookup.exit, label %19, !llvm.loop !38
 
 23:                                               ; preds = %19
   %24 = call fastcc ptr @promisor_remote_new(ptr noundef %3, ptr noundef %18)
@@ -654,7 +654,7 @@ promisor_remote_lookup.exit:                      ; preds = %20, %23
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %5, align 8, !tbaa !11
-  %29 = load i64, ptr %6, align 8, !tbaa !56
+  %29 = load i64, ptr %6, align 8, !tbaa !55
   %30 = call ptr @xmemdupz(ptr noundef %28, i64 noundef %29) #10
   br label %31
 
@@ -668,7 +668,7 @@ promisor_remote_lookup.exit:                      ; preds = %20, %23
   %33 = getelementptr inbounds nuw i8, ptr %.011.i30, i64 16
   %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %30) #11
   %.not14.i32 = icmp eq i32 %34, 0
-  br i1 %.not14.i32, label %promisor_remote_lookup.exit33.thread34, label %31, !llvm.loop !39
+  br i1 %.not14.i32, label %promisor_remote_lookup.exit33.thread34, label %31, !llvm.loop !38
 
 promisor_remote_lookup.exit33.thread34:           ; preds = %32
   call void @free(ptr noundef nonnull %30) #10
@@ -699,12 +699,12 @@ promisor_remote_lookup.exit33:                    ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @promisor_remote_new(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load i8, ptr %1, align 1, !tbaa !55
+  %3 = load i8, ptr %1, align 1, !tbaa !54
   %4 = icmp eq i8 %3, 47
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !40
+  %6 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !39
   %.not4.i = icmp eq i32 %6, 0
   br i1 %.not4.i, label %_.exit, label %7
 
@@ -740,9 +740,9 @@ st_add.exit12:                                    ; preds = %st_add.exit
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %1, i64 %10, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
   store ptr %16, ptr %19, align 8, !tbaa !13
-  store ptr %16, ptr %18, align 8, !tbaa !17
+  store ptr %16, ptr %18, align 8, !tbaa !16
   br label %20
 
 20:                                               ; preds = %st_add.exit12, %_.exit
@@ -834,46 +834,45 @@ attributes #12 = { noreturn nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !7, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!5, !10, i64 8}
-!18 = !{!19, !37, i64 440}
-!19 = !{!"repository", !12, i64 0, !12, i64 8, !20, i64 16, !21, i64 24, !22, i64 32, !23, i64 40, !23, i64 104, !28, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !29, i64 256, !32, i64 368, !33, i64 376, !34, i64 384, !35, i64 392, !36, i64 400, !36, i64 408, !26, i64 416, !26, i64 420, !26, i64 424, !12, i64 432, !37, i64 440, !26, i64 448, !26, i64 452, !26, i64 456}
-!20 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
-!21 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
-!22 = !{!"p1 _ZTS9ref_store", !7, i64 0}
-!23 = !{!"strmap", !24, i64 0, !27, i64 48, !26, i64 56}
-!24 = !{!"hashmap", !25, i64 0, !7, i64 8, !7, i64 16, !26, i64 24, !26, i64 28, !26, i64 32, !26, i64 36, !26, i64 40}
-!25 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
-!26 = !{!"int", !8, i64 0}
-!27 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
-!28 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
-!29 = !{!"repo_settings", !26, i64 0, !26, i64 4, !26, i64 8, !26, i64 12, !26, i64 16, !26, i64 20, !26, i64 24, !26, i64 28, !26, i64 32, !26, i64 36, !26, i64 40, !26, i64 44, !30, i64 48, !26, i64 56, !26, i64 60, !26, i64 64, !26, i64 68, !26, i64 72, !26, i64 76, !26, i64 80, !31, i64 88, !31, i64 96, !31, i64 104}
-!30 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
-!31 = !{!"long", !8, i64 0}
-!32 = !{!"p1 _ZTS10config_set", !7, i64 0}
-!33 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
-!34 = !{!"p1 _ZTS11index_state", !7, i64 0}
-!35 = !{!"p1 _ZTS12remote_state", !7, i64 0}
-!36 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
-!37 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
-!38 = !{!19, !12, i64 432}
-!39 = distinct !{!39, !15, !16}
-!40 = !{!26, !26, i64 0}
-!41 = !{!42, !26, i64 80}
-!42 = !{!"child_process", !43, i64 0, !43, i64 24, !26, i64 48, !26, i64 52, !31, i64 56, !12, i64 64, !12, i64 72, !26, i64 80, !26, i64 84, !26, i64 88, !12, i64 96, !26, i64 104, !26, i64 104, !26, i64 104, !26, i64 104, !26, i64 104, !26, i64 104, !26, i64 104, !26, i64 104, !26, i64 105, !26, i64 105, !7, i64 112}
-!43 = !{!"strvec", !44, i64 0, !31, i64 8, !31, i64 16}
-!44 = !{!"p2 omnipotent char", !7, i64 0}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS10repository", !7, i64 0}
-!47 = !{!19, !12, i64 0}
-!48 = distinct !{!48, !15, !16}
-!49 = distinct !{!49, !15, !16}
-!50 = !{!51, !26, i64 32}
-!51 = !{!"object_id", !8, i64 0, !26, i64 32}
-!52 = distinct !{!52, !15, !16}
-!53 = distinct !{!53, !15, !16}
-!54 = distinct !{!54, !15, !16}
-!55 = !{!8, !8, i64 0}
-!56 = !{!31, !31, i64 0}
+!16 = !{!5, !10, i64 8}
+!17 = !{!18, !36, i64 440}
+!18 = !{!"repository", !12, i64 0, !12, i64 8, !19, i64 16, !20, i64 24, !21, i64 32, !22, i64 40, !22, i64 104, !27, i64 168, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !28, i64 256, !31, i64 368, !32, i64 376, !33, i64 384, !34, i64 392, !35, i64 400, !35, i64 408, !25, i64 416, !25, i64 420, !25, i64 424, !12, i64 432, !36, i64 440, !25, i64 448, !25, i64 452, !25, i64 456}
+!19 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
+!20 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
+!21 = !{!"p1 _ZTS9ref_store", !7, i64 0}
+!22 = !{!"strmap", !23, i64 0, !26, i64 48, !25, i64 56}
+!23 = !{!"hashmap", !24, i64 0, !7, i64 8, !7, i64 16, !25, i64 24, !25, i64 28, !25, i64 32, !25, i64 36, !25, i64 40}
+!24 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
+!25 = !{!"int", !8, i64 0}
+!26 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
+!27 = !{!"repo_path_cache", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48}
+!28 = !{!"repo_settings", !25, i64 0, !25, i64 4, !25, i64 8, !25, i64 12, !25, i64 16, !25, i64 20, !25, i64 24, !25, i64 28, !25, i64 32, !25, i64 36, !25, i64 40, !25, i64 44, !29, i64 48, !25, i64 56, !25, i64 60, !25, i64 64, !25, i64 68, !25, i64 72, !25, i64 76, !25, i64 80, !30, i64 88, !30, i64 96, !30, i64 104}
+!29 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
+!30 = !{!"long", !8, i64 0}
+!31 = !{!"p1 _ZTS10config_set", !7, i64 0}
+!32 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
+!33 = !{!"p1 _ZTS11index_state", !7, i64 0}
+!34 = !{!"p1 _ZTS12remote_state", !7, i64 0}
+!35 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
+!36 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
+!37 = !{!18, !12, i64 432}
+!38 = distinct !{!38, !15}
+!39 = !{!25, !25, i64 0}
+!40 = !{!41, !25, i64 80}
+!41 = !{!"child_process", !42, i64 0, !42, i64 24, !25, i64 48, !25, i64 52, !30, i64 56, !12, i64 64, !12, i64 72, !25, i64 80, !25, i64 84, !25, i64 88, !12, i64 96, !25, i64 104, !25, i64 104, !25, i64 104, !25, i64 104, !25, i64 104, !25, i64 104, !25, i64 104, !25, i64 104, !25, i64 105, !25, i64 105, !7, i64 112}
+!42 = !{!"strvec", !43, i64 0, !30, i64 8, !30, i64 16}
+!43 = !{!"p2 omnipotent char", !7, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS10repository", !7, i64 0}
+!46 = !{!18, !12, i64 0}
+!47 = distinct !{!47, !15}
+!48 = distinct !{!48, !15}
+!49 = !{!50, !25, i64 32}
+!50 = !{!"object_id", !8, i64 0, !25, i64 32}
+!51 = distinct !{!51, !15}
+!52 = distinct !{!52, !15}
+!53 = distinct !{!53, !15}
+!54 = !{!8, !8, i64 0}
+!55 = !{!30, !30, i64 0}

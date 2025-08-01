@@ -82,27 +82,27 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
   %19 = sub i64 %.052, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %10
 
 .preheader:                                       ; preds = %.preheader.preheader, %26
   %.01948 = phi i64 [ %27, %26 ], [ 0, %.preheader.preheader ]
   br i1 %16, label %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
 
 20:                                               ; preds = %.preheader
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %12, i64 noundef 16384, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.7) #6, !noalias !9
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %12, i64 noundef 16384, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.7) #6, !noalias !7
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit": ; preds = %.preheader
   %21 = sub nuw nsw i64 %12, %.01948
   %22 = getelementptr inbounds i8, ptr %7, i64 %.01948
-  %23 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly align 1 %22, i64 noundef %21), !noalias !12
+  %23 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly align 1 %22, i64 noundef %21), !noalias !10
   switch i64 %23, label %26 [
     i64 -1, label %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
     i64 0, label %25
   ]
 
 _ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
-  %24 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !6, !noalias !15
+  %24 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !6, !noalias !13
   br label %.loopexit
 
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
@@ -112,7 +112,7 @@ _ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..o
 26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
   %27 = add i64 %23, %.01948
   %28 = icmp ult i64 %27, %12
-  br i1 %28, label %.preheader, label %18, !llvm.loop !19
+  br i1 %28, label %.preheader, label %18
 
 .loopexit:                                        ; preds = %10, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
   %.1 = phi i32 [ %24, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit ], [ %13, %10 ]
@@ -171,16 +171,13 @@ attributes #6 = { noreturn }
 !4 = !{i32 0, i32 2}
 !5 = !{}
 !6 = !{i32 0, i32 134}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE: argument 0"}
-!11 = distinct !{!11, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN3nix6unistd5write17h023005b3601ee0cbE: argument 0"}
-!14 = distinct !{!14, !"_ZN3nix6unistd5write17h023005b3601ee0cbE"}
-!15 = !{!16, !13, !18}
-!16 = distinct !{!16, !17, !"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$6result17hc7883d1c1723e48bE.llvm.12372031650670403472: argument 0"}
-!17 = distinct !{!17, !"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$6result17hc7883d1c1723e48bE.llvm.12372031650670403472"}
-!18 = distinct !{!18, !14, !"_ZN3nix6unistd5write17h023005b3601ee0cbE: argument 1"}
-!19 = distinct !{!19, !8}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE: argument 0"}
+!9 = distinct !{!9, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN3nix6unistd5write17h023005b3601ee0cbE: argument 0"}
+!12 = distinct !{!12, !"_ZN3nix6unistd5write17h023005b3601ee0cbE"}
+!13 = !{!14, !11, !16}
+!14 = distinct !{!14, !15, !"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$6result17hc7883d1c1723e48bE.llvm.12372031650670403472: argument 0"}
+!15 = distinct !{!15, !"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$6result17hc7883d1c1723e48bE.llvm.12372031650670403472"}
+!16 = distinct !{!16, !12, !"_ZN3nix6unistd5write17h023005b3601ee0cbE: argument 1"}

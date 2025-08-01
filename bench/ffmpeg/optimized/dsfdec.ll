@@ -356,15 +356,15 @@ define internal range(i32 -2147483648, 1) i32 @dsf_read_packet(ptr noundef reado
 
 ._crit_edge:                                      ; preds = %56, %37
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %10, ptr %65, align 8, !tbaa !67
+  store i64 %10, ptr %65, align 8, !tbaa !66
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %66, align 4, !tbaa !68
+  store i32 0, ptr %66, align 4, !tbaa !67
   %67 = load i64, ptr %27, align 8, !tbaa !58
   %68 = sub nsw i64 %10, %67
   %69 = sext i32 %14 to i64
   %70 = sdiv i64 %68, %69
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %70, ptr %71, align 8, !tbaa !69
+  store i64 %70, ptr %71, align 8, !tbaa !68
   %72 = sdiv i64 %29, %69
   br label %.thread.sink.split
 
@@ -378,14 +378,14 @@ define internal range(i32 -2147483648, 1) i32 @dsf_read_packet(ptr noundef reado
 
 78:                                               ; preds = %.thread90
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %79, align 4, !tbaa !68
+  store i32 0, ptr %79, align 4, !tbaa !67
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %81 = load i64, ptr %80, align 8, !tbaa !58
   %82 = sub nsw i64 %10, %81
   %83 = sext i32 %14 to i64
   %84 = sdiv i64 %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %84, ptr %85, align 8, !tbaa !69
+  store i64 %84, ptr %85, align 8, !tbaa !68
   %86 = load ptr, ptr %11, align 8, !tbaa !33
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 156
   %88 = load i32, ptr %87, align 4, !tbaa !51
@@ -396,7 +396,7 @@ define internal range(i32 -2147483648, 1) i32 @dsf_read_packet(ptr noundef reado
 .thread.sink.split:                               ; preds = %78, %._crit_edge
   %.sink = phi i64 [ %72, %._crit_edge ], [ %90, %78 ]
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %.sink, ptr %91, align 8, !tbaa !70
+  store i64 %.sink, ptr %91, align 8, !tbaa !69
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.thread.sink.split, %33, %26, %.thread90, %2
@@ -524,10 +524,9 @@ attributes #7 = { nounwind }
 !61 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
 !62 = !{!"p1 _ZTS8AVPacket", !7, i64 0}
 !63 = !{!37, !6, i64 24}
-!64 = distinct !{!64, !65, !66}
+!64 = distinct !{!64, !65}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!37, !23, i64 72}
-!68 = !{!37, !10, i64 36}
-!69 = !{!37, !23, i64 8}
-!70 = !{!37, !23, i64 64}
+!66 = !{!37, !23, i64 72}
+!67 = !{!37, !10, i64 36}
+!68 = !{!37, !23, i64 8}
+!69 = !{!37, !23, i64 64}

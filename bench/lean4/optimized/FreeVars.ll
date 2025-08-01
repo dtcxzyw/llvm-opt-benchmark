@@ -5273,7 +5273,7 @@ lean_nat_lt.exit431.thread:                       ; preds = %754
 .backedge.backedge:                               ; preds = %763, %762, %760, %757, %770, %769, %767, %lean_nat_lt.exit431.thread630, %lean_nat_lt.exit431.thread, %lean_inc.exit233, %511, %513, %514, %489, %488, %486, %483, %496, %495, %493, %lean_nat_lt.exit422.thread621, %lean_nat_lt.exit422.thread, %419, %418, %416, %413, %426, %425, %423, %442, %441, %439, %436, %449, %448, %446, %lean_nat_lt.exit416.thread613, %lean_nat_lt.exit419.thread618, %lean_nat_lt.exit416.thread, %lean_nat_lt.exit419.thread, %330, %329, %327, %324, %337, %336, %334, %353, %352, %350, %347, %360, %359, %357, %lean_nat_lt.exit407.thread602, %lean_nat_lt.exit410.thread607, %lean_nat_lt.exit407.thread, %lean_nat_lt.exit410.thread, %247, %246, %244, %lean_dec.exit289, %271, %270, %268, %lean_dec.exit286, %149, %148, %146, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit, %176, %175, %173, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465, %lean_dec.exit298, %lean_dec.exit297
   %.0215.be = phi ptr [ %61, %lean_dec.exit298 ], [ %69, %lean_dec.exit297 ], [ %.0.i456, %149 ], [ %.0.i456, %148 ], [ %.0.i456, %146 ], [ %.0.i456, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %.0.i461, %176 ], [ %.0.i461, %175 ], [ %.0.i461, %173 ], [ %.0.i461, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465 ], [ %240, %247 ], [ %240, %246 ], [ %240, %244 ], [ %240, %lean_dec.exit289 ], [ %264, %271 ], [ %264, %270 ], [ %264, %268 ], [ %264, %lean_dec.exit286 ], [ %.0215, %330 ], [ %.0215, %329 ], [ %.0215, %327 ], [ %.0215, %324 ], [ %284, %337 ], [ %284, %336 ], [ %284, %334 ], [ %274, %353 ], [ %274, %352 ], [ %274, %350 ], [ %274, %347 ], [ %284, %360 ], [ %284, %359 ], [ %284, %357 ], [ %284, %lean_nat_lt.exit407.thread602 ], [ %284, %lean_nat_lt.exit410.thread607 ], [ %spec.select, %lean_nat_lt.exit407.thread ], [ %spec.select633, %lean_nat_lt.exit410.thread ], [ %.0215, %419 ], [ %.0215, %418 ], [ %.0215, %416 ], [ %.0215, %413 ], [ %373, %426 ], [ %373, %425 ], [ %373, %423 ], [ %363, %442 ], [ %363, %441 ], [ %363, %439 ], [ %363, %436 ], [ %373, %449 ], [ %373, %448 ], [ %373, %446 ], [ %373, %lean_nat_lt.exit416.thread613 ], [ %373, %lean_nat_lt.exit419.thread618 ], [ %spec.select634, %lean_nat_lt.exit416.thread ], [ %spec.select635, %lean_nat_lt.exit419.thread ], [ %.0215, %489 ], [ %.0215, %488 ], [ %.0215, %486 ], [ %.0215, %483 ], [ %452, %496 ], [ %452, %495 ], [ %452, %493 ], [ %452, %lean_nat_lt.exit422.thread621 ], [ %spec.select636, %lean_nat_lt.exit422.thread ], [ %.0215, %514 ], [ %.0215, %513 ], [ %.0215, %511 ], [ %.0215, %lean_inc.exit233 ], [ %.0215, %763 ], [ %.0215, %762 ], [ %.0215, %760 ], [ %.0215, %757 ], [ %726, %770 ], [ %726, %769 ], [ %726, %767 ], [ %726, %lean_nat_lt.exit431.thread630 ], [ %spec.select637, %lean_nat_lt.exit431.thread ]
   %.0212.be = phi ptr [ %33, %lean_dec.exit298 ], [ %33, %lean_dec.exit297 ], [ %102, %149 ], [ %102, %148 ], [ %102, %146 ], [ %102, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %102, %176 ], [ %102, %175 ], [ %102, %173 ], [ %102, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465 ], [ %199, %247 ], [ %199, %246 ], [ %199, %244 ], [ %199, %lean_dec.exit289 ], [ %199, %271 ], [ %199, %270 ], [ %199, %268 ], [ %199, %lean_dec.exit286 ], [ %294, %330 ], [ %294, %329 ], [ %294, %327 ], [ %294, %324 ], [ %294, %337 ], [ %294, %336 ], [ %294, %334 ], [ %294, %353 ], [ %294, %352 ], [ %294, %350 ], [ %294, %347 ], [ %294, %360 ], [ %294, %359 ], [ %294, %357 ], [ %294, %lean_nat_lt.exit407.thread602 ], [ %294, %lean_nat_lt.exit410.thread607 ], [ %294, %lean_nat_lt.exit407.thread ], [ %294, %lean_nat_lt.exit410.thread ], [ %383, %419 ], [ %383, %418 ], [ %383, %416 ], [ %383, %413 ], [ %383, %426 ], [ %383, %425 ], [ %383, %423 ], [ %383, %442 ], [ %383, %441 ], [ %383, %439 ], [ %383, %436 ], [ %383, %449 ], [ %383, %448 ], [ %383, %446 ], [ %383, %lean_nat_lt.exit416.thread613 ], [ %383, %lean_nat_lt.exit419.thread618 ], [ %383, %lean_nat_lt.exit416.thread ], [ %383, %lean_nat_lt.exit419.thread ], [ %462, %489 ], [ %462, %488 ], [ %462, %486 ], [ %462, %483 ], [ %462, %496 ], [ %462, %495 ], [ %462, %493 ], [ %462, %lean_nat_lt.exit422.thread621 ], [ %462, %lean_nat_lt.exit422.thread ], [ %499, %514 ], [ %499, %513 ], [ %499, %511 ], [ %499, %lean_inc.exit233 ], [ %736, %763 ], [ %736, %762 ], [ %736, %760 ], [ %736, %757 ], [ %736, %770 ], [ %736, %769 ], [ %736, %767 ], [ %736, %lean_nat_lt.exit431.thread630 ], [ %736, %lean_nat_lt.exit431.thread ]
-  br label %.backedge, !llvm.loop !24
+  br label %.backedge
 
 764:                                              ; preds = %lean_nat_lt.exit431
   %765 = load i32, ptr %.0215, align 4, !tbaa !4
@@ -5770,7 +5770,7 @@ lean_nat_lt.exit.thread46.us:                     ; preds = %lean_obj_tag.exit.u
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread46.us
   %.024.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread46.us ]
-  br label %.split.us, !llvm.loop !26
+  br label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %2, %.split.backedge
   %.024 = phi ptr [ %.024.be, %.split.backedge ], [ %0, %2 ]
@@ -7105,7 +7105,7 @@ lean_dec.exit.us:                                 ; preds = %31, %30, %29, %lean
   %33 = tail call ptr @lean_apply_3(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %1, ptr noundef %.02245.us) #3
   %34 = add i64 %.02046.us, 1
   %.not.us = icmp eq i64 %34, %4
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not43, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -7160,7 +7160,7 @@ lean_dec.exit.us55:                               ; preds = %48, %47, %46
   %50 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %36, ptr noundef nonnull %1, ptr noundef %.02245.us48) #3
   %51 = add i64 %.02046.us47, 1
   %.not.us56 = icmp eq i64 %51, %4
-  br i1 %.not.us56, label %._crit_edge.thread, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %.not.us56, label %._crit_edge.thread, label %.lr.ph.split.split.us, !llvm.loop !26
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %lean_array_uget.exit
   %.02046 = phi i64 [ %63, %lean_array_uget.exit ], [ %3, %.lr.ph.split ]
@@ -11358,7 +11358,7 @@ lean_obj_tag.exit543.thread:                      ; preds = %lean_dec.exit280
   %.0242.be = phi ptr [ %58, %lean_inc.exit275 ], [ %125, %lean_dec.exit315 ], [ %174, %172 ], [ %188, %lean_dec.exit312 ], [ %244, %243 ], [ %279, %278 ], [ %235, %257 ], [ %235, %256 ], [ %235, %254 ], [ %235, %lean_dec.exit310 ], [ %.0242, %292 ], [ %.0242, %291 ], [ %.0242, %289 ], [ %.0242, %lean_dec.exit306 ], [ %348, %347 ], [ %383, %382 ], [ %339, %361 ], [ %339, %360 ], [ %339, %358 ], [ %339, %lean_dec.exit303 ], [ %.0242, %396 ], [ %.0242, %395 ], [ %.0242, %393 ], [ %.0242, %lean_dec.exit299 ], [ %433, %432 ], [ %.0242, %446 ], [ %.0242, %445 ], [ %.0242, %443 ], [ %.0242, %lean_dec.exit296 ], [ %.0242, %464 ], [ %.0242, %463 ], [ %.0242, %461 ], [ %.0242, %lean_inc.exit258 ], [ %713, %712 ], [ %.0242, %726 ], [ %.0242, %725 ], [ %.0242, %723 ], [ %.0242, %lean_dec.exit279 ]
   %.0241.be = phi ptr [ %59, %lean_inc.exit275 ], [ %126, %lean_dec.exit315 ], [ %.0241, %172 ], [ %.0241, %lean_dec.exit312 ], [ %.0241, %243 ], [ %.0241, %278 ], [ %.0241, %257 ], [ %.0241, %256 ], [ %.0241, %254 ], [ %.0241, %lean_dec.exit310 ], [ %.0241, %292 ], [ %.0241, %291 ], [ %.0241, %289 ], [ %.0241, %lean_dec.exit306 ], [ %.0241, %347 ], [ %.0241, %382 ], [ %.0241, %361 ], [ %.0241, %360 ], [ %.0241, %358 ], [ %.0241, %lean_dec.exit303 ], [ %.0241, %396 ], [ %.0241, %395 ], [ %.0241, %393 ], [ %.0241, %lean_dec.exit299 ], [ %.0241, %432 ], [ %.0241, %446 ], [ %.0241, %445 ], [ %.0241, %443 ], [ %.0241, %lean_dec.exit296 ], [ %.0241, %464 ], [ %.0241, %463 ], [ %.0241, %461 ], [ %.0241, %lean_inc.exit258 ], [ %.0241, %712 ], [ %.0241, %726 ], [ %.0241, %725 ], [ %.0241, %723 ], [ %.0241, %lean_dec.exit279 ]
   %.0238.be = phi ptr [ %34, %lean_inc.exit275 ], [ %92, %lean_dec.exit315 ], [ %149, %172 ], [ %149, %lean_dec.exit312 ], [ %211, %243 ], [ %211, %278 ], [ %211, %257 ], [ %211, %256 ], [ %211, %254 ], [ %211, %lean_dec.exit310 ], [ %211, %292 ], [ %211, %291 ], [ %211, %289 ], [ %211, %lean_dec.exit306 ], [ %315, %347 ], [ %315, %382 ], [ %315, %361 ], [ %315, %360 ], [ %315, %358 ], [ %315, %lean_dec.exit303 ], [ %315, %396 ], [ %315, %395 ], [ %315, %393 ], [ %315, %lean_dec.exit299 ], [ %409, %432 ], [ %409, %446 ], [ %409, %445 ], [ %409, %443 ], [ %409, %lean_dec.exit296 ], [ %449, %464 ], [ %449, %463 ], [ %449, %461 ], [ %449, %lean_inc.exit258 ], [ %689, %712 ], [ %689, %726 ], [ %689, %725 ], [ %689, %723 ], [ %689, %lean_dec.exit279 ]
-  br label %.backedge, !llvm.loop !29
+  br label %.backedge
 
 .thread564:                                       ; preds = %lean_obj_tag.exit543.thread
   %714 = load i32, ptr %705, align 4, !tbaa !4
@@ -11423,7 +11423,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_IR_HasIndex_visitVar(ptr noundef %0, pt
   %5 = and i64 %3, 1
   %6 = and i64 %5, %4
   %or.cond.not = icmp eq i64 %6, 0
-  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !30
+  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !27
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %0, %1
@@ -11446,7 +11446,7 @@ define nonnull ptr @l_Lean_IR_HasIndex_visitVar___boxed(ptr noundef %0, ptr noun
   %5 = and i64 %3, 1
   %6 = and i64 %5, %4
   %or.cond.not.i = icmp eq i64 %6, 0
-  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !30
+  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !27
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %0, %1
@@ -11514,7 +11514,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_IR_HasIndex_visitJP(ptr noundef %0, ptr
   %5 = and i64 %3, 1
   %6 = and i64 %5, %4
   %or.cond.not = icmp eq i64 %6, 0
-  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !30
+  br i1 %or.cond.not, label %.critedge.i, label %7, !prof !27
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %0, %1
@@ -11537,7 +11537,7 @@ define nonnull ptr @l_Lean_IR_HasIndex_visitJP___boxed(ptr noundef %0, ptr nound
   %5 = and i64 %3, 1
   %6 = and i64 %5, %4
   %or.cond.not.i = icmp eq i64 %6, 0
-  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !30
+  br i1 %or.cond.not.i, label %.critedge.i.i, label %7, !prof !27
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %0, %1
@@ -11631,7 +11631,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
   %or.cond = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %.critedge.i, !prof !31
+  br i1 %or.cond, label %21, label %.critedge.i, !prof !28
 
 21:                                               ; preds = %12
   %22 = icmp eq ptr %0, %14
@@ -11684,7 +11684,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
   %or.cond.i = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond.i, label %21, label %.critedge.i.i, !prof !31
+  br i1 %or.cond.i, label %21, label %.critedge.i.i, !prof !28
 
 21:                                               ; preds = %12
   %22 = icmp eq ptr %0, %14
@@ -11817,7 +11817,7 @@ lean_obj_tag.exit.i:                              ; preds = %24, %lean_array_uge
   %32 = and i64 %31, 1
   %33 = icmp ne i64 %32, 0
   %or.cond.i = select i1 %8, i1 %33, i1 false
-  br i1 %or.cond.i, label %34, label %.critedge.i.i, !prof !31
+  br i1 %or.cond.i, label %34, label %.critedge.i.i, !prof !28
 
 34:                                               ; preds = %28
   %35 = icmp eq ptr %0, %30
@@ -12454,7 +12454,7 @@ lean_dec.exit.i:                                  ; preds = %11
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
   %or.cond = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %lean_nat_eq.exit, !prof !31
+  br i1 %or.cond, label %27, label %lean_nat_eq.exit, !prof !28
 
 27:                                               ; preds = %16
   %28 = icmp eq ptr %0, %18
@@ -12485,7 +12485,7 @@ lean_dec.exit.i70:                                ; preds = %30
   %40 = and i64 %39, 1
   %41 = icmp ne i64 %40, 0
   %or.cond95 = select i1 %38, i1 %41, i1 false
-  br i1 %or.cond95, label %42, label %.critedge.i48, !prof !31
+  br i1 %or.cond95, label %42, label %.critedge.i48, !prof !28
 
 42:                                               ; preds = %33
   %43 = icmp eq ptr %0, %35
@@ -12538,7 +12538,7 @@ lean_dec.exit.i82:                                ; preds = %51
   %65 = and i64 %64, 1
   %66 = icmp ne i64 %65, 0
   %or.cond98 = select i1 %63, i1 %66, i1 false
-  br i1 %or.cond98, label %67, label %lean_nat_eq.exit53, !prof !31
+  br i1 %or.cond98, label %67, label %lean_nat_eq.exit53, !prof !28
 
 67:                                               ; preds = %56
   %68 = icmp eq ptr %0, %58
@@ -12569,7 +12569,7 @@ lean_dec.exit.i88:                                ; preds = %70
   %80 = and i64 %79, 1
   %81 = icmp ne i64 %80, 0
   %or.cond101 = select i1 %78, i1 %81, i1 false
-  br i1 %or.cond101, label %82, label %.critedge.i54, !prof !31
+  br i1 %or.cond101, label %82, label %.critedge.i54, !prof !28
 
 82:                                               ; preds = %73
   %83 = icmp eq ptr %0, %75
@@ -12594,7 +12594,7 @@ lean_nat_eq.exit56:                               ; preds = %82, %.critedge.i54
   %93 = and i64 %92, 1
   %94 = icmp ne i64 %93, 0
   %or.cond104 = select i1 %91, i1 %94, i1 false
-  br i1 %or.cond104, label %95, label %.critedge.i57, !prof !31
+  br i1 %or.cond104, label %95, label %.critedge.i57, !prof !28
 
 95:                                               ; preds = %86
   %96 = icmp eq ptr %0, %88
@@ -12619,7 +12619,7 @@ lean_nat_eq.exit59:                               ; preds = %95, %.critedge.i57
   %106 = and i64 %105, 1
   %107 = icmp ne i64 %106, 0
   %or.cond107 = select i1 %104, i1 %107, i1 false
-  br i1 %or.cond107, label %108, label %.critedge.i60, !prof !31
+  br i1 %or.cond107, label %108, label %.critedge.i60, !prof !28
 
 108:                                              ; preds = %99
   %109 = icmp eq ptr %0, %101
@@ -12867,7 +12867,7 @@ lean_obj_tag.exit:                                ; preds = %8, %11
   %36 = and i64 %35, 1
   %37 = icmp ne i64 %36, 0
   %or.cond = select i1 %5, i1 %37, i1 false
-  br i1 %or.cond, label %38, label %lean_nat_eq.exit, !prof !31
+  br i1 %or.cond, label %38, label %lean_nat_eq.exit, !prof !28
 
 38:                                               ; preds = %28
   %39 = icmp eq ptr %0, %30
@@ -12906,7 +12906,7 @@ lean_obj_tag.exit.i:                              ; preds = %47, %44
   %55 = and i64 %54, 1
   %56 = icmp ne i64 %55, 0
   %or.cond.i = select i1 %5, i1 %56, i1 false
-  br i1 %or.cond.i, label %57, label %.critedge.i.i, !prof !31
+  br i1 %or.cond.i, label %57, label %.critedge.i.i, !prof !28
 
 57:                                               ; preds = %51
   %58 = icmp eq ptr %0, %53
@@ -12922,7 +12922,7 @@ lean_obj_tag.exit.i:                              ; preds = %47, %44
 
 .backedge.backedge:                               ; preds = %60, %lean_obj_tag.exit.i, %168, %105, %93, %75, %108, %77, %95, %14, %21, %lean_nat_eq.exit161, %lean_nat_eq.exit170
   %.0107.be = phi ptr [ %164, %lean_nat_eq.exit170 ], [ %18, %14 ], [ %25, %21 ], [ %67, %77 ], [ %85, %95 ], [ %101, %lean_nat_eq.exit161 ], [ %110, %108 ], [ %67, %75 ], [ %85, %93 ], [ %101, %105 ], [ %164, %168 ], [ %34, %lean_obj_tag.exit.i ], [ %34, %60 ]
-  br label %.backedge, !llvm.loop !32
+  br label %.backedge
 
 61:                                               ; preds = %lean_obj_tag.exit
   %62 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
@@ -13015,7 +13015,7 @@ lean_nat_eq.exit155.thread:                       ; preds = %86
   %103 = and i64 %102, 1
   %104 = icmp ne i64 %103, 0
   %or.cond217 = select i1 %5, i1 %104, i1 false
-  br i1 %or.cond217, label %105, label %lean_nat_eq.exit161, !prof !31
+  br i1 %or.cond217, label %105, label %lean_nat_eq.exit161, !prof !28
 
 105:                                              ; preds = %97
   %106 = icmp eq ptr %0, %99
@@ -13039,7 +13039,7 @@ lean_nat_eq.exit161:                              ; preds = %97
   %117 = and i64 %116, 1
   %118 = icmp ne i64 %117, 0
   %or.cond220 = select i1 %5, i1 %118, i1 false
-  br i1 %or.cond220, label %119, label %lean_nat_eq.exit164, !prof !31
+  br i1 %or.cond220, label %119, label %lean_nat_eq.exit164, !prof !28
 
 119:                                              ; preds = %111
   %120 = icmp eq ptr %0, %113
@@ -13091,7 +13091,7 @@ lean_obj_tag.exit.i178:                           ; preds = %132, %129
   %140 = and i64 %139, 1
   %141 = icmp ne i64 %140, 0
   %or.cond.i181 = select i1 %5, i1 %141, i1 false
-  br i1 %or.cond.i181, label %142, label %.critedge.i.i182, !prof !31
+  br i1 %or.cond.i181, label %142, label %.critedge.i.i182, !prof !28
 
 142:                                              ; preds = %136
   %143 = icmp eq ptr %0, %138
@@ -13115,7 +13115,7 @@ lean_nat_eq.exit.i183:                            ; preds = %.critedge.i.i182, %
   %152 = and i64 %151, 1
   %153 = icmp ne i64 %152, 0
   %or.cond223 = select i1 %5, i1 %153, i1 false
-  br i1 %or.cond223, label %154, label %lean_nat_eq.exit167, !prof !31
+  br i1 %or.cond223, label %154, label %lean_nat_eq.exit167, !prof !28
 
 154:                                              ; preds = %146
   %155 = icmp eq ptr %0, %148
@@ -13145,7 +13145,7 @@ lean_dec.exit.i:                                  ; preds = %157
   %166 = and i64 %165, 1
   %167 = icmp ne i64 %166, 0
   %or.cond226 = select i1 %5, i1 %167, i1 false
-  br i1 %or.cond226, label %168, label %lean_nat_eq.exit170, !prof !31
+  br i1 %or.cond226, label %168, label %lean_nat_eq.exit170, !prof !28
 
 168:                                              ; preds = %160
   %169 = icmp eq ptr %0, %162
@@ -13361,7 +13361,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
   %or.cond.i = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond.i, label %21, label %.critedge.i.i, !prof !31
+  br i1 %or.cond.i, label %21, label %.critedge.i.i, !prof !28
 
 21:                                               ; preds = %12
   %22 = icmp eq ptr %1, %14
@@ -13419,7 +13419,7 @@ lean_obj_tag.exit.i.i.l_Lean_IR_Arg_hasFreeVar.exit_crit_edge: ; preds = %lean_o
   %19 = and i64 %18, 1
   %20 = icmp ne i64 %19, 0
   %or.cond.i.i = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond.i.i, label %21, label %.critedge.i.i.i, !prof !31
+  br i1 %or.cond.i.i, label %21, label %.critedge.i.i.i, !prof !28
 
 21:                                               ; preds = %12
   %22 = icmp eq ptr %1, %14
@@ -13836,12 +13836,8 @@ attributes #4 = { noreturn nounwind }
 !21 = !{!"branch_weights", !"expected", i32 536736, i32 2146946912}
 !22 = !{!"branch_weights", !"expected", i32 1073203, i32 2146410445}
 !23 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
 !26 = distinct !{!26, !16}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !25}
-!30 = !{!"branch_weights", i32 4001, i32 4000000}
-!31 = !{!"branch_weights", i32 4000000, i32 4001}
-!32 = distinct !{!32, !25}
+!27 = !{!"branch_weights", i32 4001, i32 4000000}
+!28 = !{!"branch_weights", i32 4000000, i32 4001}

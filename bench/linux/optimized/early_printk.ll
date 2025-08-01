@@ -180,7 +180,7 @@ declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(
 define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  store ptr null, ptr %2, align 8, !annotation !9
+  store ptr null, ptr %2, align 8, !annotation !8
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 44
   %5 = zext i1 %4 to i64
@@ -296,7 +296,7 @@ define internal fastcc void @early_pci_serial_init(ptr noundef %0) unnamed_addr 
   br i1 %9, label %79, label %10
 
 10:                                               ; preds = %1
-  store ptr null, ptr %3, align 8, !annotation !9
+  store ptr null, ptr %3, align 8, !annotation !8
   %11 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(7) @.str.10, i64 noundef 6) #6
   %12 = icmp eq i32 %11, 0
   %13 = select i1 %12, i64 6, i64 0
@@ -428,7 +428,7 @@ define internal range(i32 0, 256) i32 @io_serial_in(i64 noundef %0, i32 noundef 
   %3 = zext i32 %1 to i64
   %4 = add i64 %0, %3
   %5 = trunc i64 %4 to i16
-  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #6, !srcloc !10
+  %6 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %5) #6, !srcloc !9
   %7 = zext i8 %6 to i32
   ret i32 %7
 }
@@ -439,7 +439,7 @@ define internal void @io_serial_out(i64 noundef %0, i32 noundef %1, i32 noundef 
   %5 = zext i32 %1 to i64
   %6 = add i64 %0, %5
   %7 = trunc i64 %6 to i16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %7) #6, !srcloc !11
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %7) #6, !srcloc !10
   ret void
 }
 
@@ -447,36 +447,36 @@ define internal void @io_serial_out(i64 noundef %0, i32 noundef %1, i32 noundef 
 define internal fastcc void @early_serial_hw_init(i32 noundef range(i32 0, 115201) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = load ptr, ptr @serial_out, align 8
   %3 = load i64, ptr @early_serial_base, align 8
-  tail call void %2(i64 noundef %3, i32 noundef 3, i32 noundef 3) #6, !callees !12
+  tail call void %2(i64 noundef %3, i32 noundef 3, i32 noundef 3) #6, !callees !11
   %4 = load ptr, ptr @serial_out, align 8
   %5 = load i64, ptr @early_serial_base, align 8
-  tail call void %4(i64 noundef %5, i32 noundef 1, i32 noundef 0) #6, !callees !12
+  tail call void %4(i64 noundef %5, i32 noundef 1, i32 noundef 0) #6, !callees !11
   %6 = load ptr, ptr @serial_out, align 8
   %7 = load i64, ptr @early_serial_base, align 8
-  tail call void %6(i64 noundef %7, i32 noundef 2, i32 noundef 0) #6, !callees !12
+  tail call void %6(i64 noundef %7, i32 noundef 2, i32 noundef 0) #6, !callees !11
   %8 = load ptr, ptr @serial_out, align 8
   %9 = load i64, ptr @early_serial_base, align 8
-  tail call void %8(i64 noundef %9, i32 noundef 4, i32 noundef 3) #6, !callees !12
+  tail call void %8(i64 noundef %9, i32 noundef 4, i32 noundef 3) #6, !callees !11
   %10 = load ptr, ptr @serial_in, align 8
   %11 = load i64, ptr @early_serial_base, align 8
-  %12 = tail call i32 %10(i64 noundef %11, i32 noundef 3) #6, !callees !13
+  %12 = tail call i32 %10(i64 noundef %11, i32 noundef 3) #6, !callees !12
   %13 = load ptr, ptr @serial_out, align 8
   %14 = load i64, ptr @early_serial_base, align 8
   %15 = and i32 %12, 127
   %16 = or disjoint i32 %15, 128
-  tail call void %13(i64 noundef %14, i32 noundef 3, i32 noundef %16) #6, !callees !12
+  tail call void %13(i64 noundef %14, i32 noundef 3, i32 noundef %16) #6, !callees !11
   %17 = load ptr, ptr @serial_out, align 8
   %18 = load i64, ptr @early_serial_base, align 8
   %19 = and i32 %0, 255
-  tail call void %17(i64 noundef %18, i32 noundef 0, i32 noundef %19) #6, !callees !12
+  tail call void %17(i64 noundef %18, i32 noundef 0, i32 noundef %19) #6, !callees !11
   %20 = load ptr, ptr @serial_out, align 8
   %21 = load i64, ptr @early_serial_base, align 8
   %22 = lshr i32 %0, 8
   %23 = and i32 %22, 255
-  tail call void %20(i64 noundef %21, i32 noundef 1, i32 noundef %23) #6, !callees !12
+  tail call void %20(i64 noundef %21, i32 noundef 1, i32 noundef %23) #6, !callees !11
   %24 = load ptr, ptr @serial_out, align 8
   %25 = load i64, ptr @early_serial_base, align 8
-  tail call void %24(i64 noundef %25, i32 noundef 3, i32 noundef %15) #6, !callees !12
+  tail call void %24(i64 noundef %25, i32 noundef 3, i32 noundef %15) #6, !callees !11
   ret void
 }
 
@@ -507,7 +507,7 @@ define internal void @early_serial_write(ptr readnone captures(none) %0, ptr nou
 13:                                               ; preds = %11
   %14 = load ptr, ptr @serial_in, align 8
   %15 = load i64, ptr @early_serial_base, align 8
-  %16 = tail call i32 %14(i64 noundef %15, i32 noundef 5) #6, !callees !13
+  %16 = tail call i32 %14(i64 noundef %15, i32 noundef 5) #6, !callees !12
   %17 = and i32 %16, 32
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.preheader4, label %.loopexit5
@@ -519,18 +519,18 @@ define internal void @early_serial_write(ptr readnone captures(none) %0, ptr nou
   br i1 %21, label %.loopexit5, label %22
 
 22:                                               ; preds = %.preheader4
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
   %23 = load ptr, ptr @serial_in, align 8
   %24 = load i64, ptr @early_serial_base, align 8
-  %25 = tail call i32 %23(i64 noundef %24, i32 noundef 5) #6, !callees !13
+  %25 = tail call i32 %23(i64 noundef %24, i32 noundef 5) #6, !callees !12
   %26 = and i32 %25, 32
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.preheader4, label %.loopexit5, !llvm.loop !15
+  br i1 %27, label %.preheader4, label %.loopexit5, !llvm.loop !14
 
 .loopexit5:                                       ; preds = %22, %.preheader4, %13
   %28 = load ptr, ptr @serial_out, align 8
   %29 = load i64, ptr @early_serial_base, align 8
-  tail call void %28(i64 noundef %29, i32 noundef 0, i32 noundef 13) #6, !callees !12
+  tail call void %28(i64 noundef %29, i32 noundef 0, i32 noundef 13) #6, !callees !11
   %.pre = load i8, ptr %8, align 1
   br label %30
 
@@ -538,7 +538,7 @@ define internal void @early_serial_write(ptr readnone captures(none) %0, ptr nou
   %31 = phi i8 [ %.pre, %.loopexit5 ], [ %6, %11 ]
   %32 = load ptr, ptr @serial_in, align 8
   %33 = load i64, ptr @early_serial_base, align 8
-  %34 = tail call i32 %32(i64 noundef %33, i32 noundef 5) #6, !callees !13
+  %34 = tail call i32 %32(i64 noundef %33, i32 noundef 5) #6, !callees !12
   %35 = and i32 %34, 32
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.preheader, label %.loopexit
@@ -550,23 +550,23 @@ define internal void @early_serial_write(ptr readnone captures(none) %0, ptr nou
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
   %41 = load ptr, ptr @serial_in, align 8
   %42 = load i64, ptr @early_serial_base, align 8
-  %43 = tail call i32 %41(i64 noundef %42, i32 noundef 5) #6, !callees !13
+  %43 = tail call i32 %41(i64 noundef %42, i32 noundef 5) #6, !callees !12
   %44 = and i32 %43, 32
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %40, %.preheader, %30
   %46 = load ptr, ptr @serial_out, align 8
   %47 = load i64, ptr @early_serial_base, align 8
   %48 = zext i8 %31 to i32
-  tail call void %46(i64 noundef %47, i32 noundef 0, i32 noundef %48) #6, !callees !12
+  tail call void %46(i64 noundef %47, i32 noundef 0, i32 noundef %48) #6, !callees !11
   %49 = getelementptr i8, ptr %8, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.loopexit7, label %.preheader6, !llvm.loop !17
+  br i1 %51, label %.loopexit7, label %.preheader6, !llvm.loop !15
 
 .loopexit7:                                       ; preds = %.loopexit, %.preheader6, %3
   ret void
@@ -583,7 +583,7 @@ define internal i32 @mem32_serial_in(i64 noundef %0, i32 noundef %1) #3 align 16
   %3 = inttoptr i64 %0 to ptr
   %4 = sext i32 %1 to i64
   %5 = getelementptr i32, ptr %3, i64 %4
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #6, !srcloc !18
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #6, !srcloc !16
   ret i32 %6
 }
 
@@ -592,7 +592,7 @@ define internal void @mem32_serial_out(i64 noundef %0, i32 noundef %1, i32 nound
   %4 = inttoptr i64 %0 to ptr
   %5 = sext i32 %1 to i64
   %6 = getelementptr i32, ptr %4, i64 %5
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %6) #6, !srcloc !19
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %6) #6, !srcloc !17
   ret void
 }
 
@@ -661,7 +661,7 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %35 = shl i32 %34, 1
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %32, i64 %36
-  %38 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %37) #6, !srcloc !20
+  %38 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %37) #6, !srcloc !18
   %39 = load i64, ptr @page_offset_base, align 8
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr i8, ptr %40, i64 753664
@@ -671,11 +671,11 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %45 = shl i32 %44, 1
   %46 = sext i32 %45 to i64
   %47 = getelementptr i8, ptr %41, i64 %46
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %38, ptr elementtype(i16) %47) #6, !srcloc !21
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %38, ptr elementtype(i16) %47) #6, !srcloc !19
   %48 = add nuw nsw i32 %29, 1
   %49 = load i32, ptr @max_xpos, align 4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %.preheader, label %.loopexit.loopexit, !llvm.loop !22
+  br i1 %50, label %.preheader, label %.loopexit.loopexit, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre = load i32, ptr @max_ypos, align 4
@@ -687,7 +687,7 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %53 = add nuw nsw i32 %26, 1
   %54 = add nuw nsw i32 %25, 1
   %55 = icmp slt i32 %53, %51
-  br i1 %55, label %.preheader8.split, label %.loopexit9, !llvm.loop !23
+  br i1 %55, label %.preheader8.split, label %.loopexit9, !llvm.loop !21
 
 .preheader6:                                      ; preds = %.loopexit9, %.preheader6
   %56 = phi i32 [ %67, %.preheader6 ], [ %20, %.loopexit9 ]
@@ -700,11 +700,11 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %63 = shl i32 %62, 1
   %64 = sext i32 %63 to i64
   %65 = getelementptr i8, ptr %60, i64 %64
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 1824, ptr elementtype(i16) %65) #6, !srcloc !21
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 1824, ptr elementtype(i16) %65) #6, !srcloc !19
   %66 = add nuw nsw i32 %57, 1
   %67 = load i32, ptr @max_xpos, align 4
   %68 = icmp slt i32 %66, %67
-  br i1 %68, label %.preheader6, label %.loopexit7.loopexit, !llvm.loop !25
+  br i1 %68, label %.preheader6, label %.loopexit7.loopexit, !llvm.loop !23
 
 .loopexit7.loopexit:                              ; preds = %.preheader6
   %.pre15 = load i32, ptr @max_ypos, align 4
@@ -738,7 +738,7 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
   %84 = shl i32 %83, 1
   %85 = sext i32 %84 to i64
   %86 = getelementptr i8, ptr %78, i64 %85
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %75, ptr elementtype(i16) %86) #6, !srcloc !21
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %75, ptr elementtype(i16) %86) #6, !srcloc !19
   %87 = load i32, ptr @current_xpos, align 4
   %88 = load i32, ptr @max_xpos, align 4
   %89 = icmp slt i32 %87, %88
@@ -758,7 +758,7 @@ define internal void @early_vga_write(ptr readnone captures(none) %0, ptr nounde
 93:                                               ; preds = %90, %73, %71
   %94 = load i8, ptr %9, align 1
   %95 = icmp eq i8 %94, 0
-  br i1 %95, label %.loopexit11, label %.preheader10, !llvm.loop !26
+  br i1 %95, label %.loopexit11, label %.preheader10, !llvm.loop !24
 
 .loopexit11:                                      ; preds = %93, %.preheader10, %3
   ret void
@@ -781,25 +781,23 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{i64 2151446295}
-!11 = !{i64 2151446099}
-!12 = !{ptr @io_serial_out, ptr @mem32_serial_out}
-!13 = !{ptr @io_serial_in, ptr @mem32_serial_in}
-!14 = !{i64 2082372}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = !{i64 2151449453}
-!19 = !{i64 2151451846}
-!20 = !{i64 2151449036}
-!21 = !{i64 2151451460}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8, !24}
-!24 = !{!"llvm.loop.unswitch.partial.disable"}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{i64 2151446295}
+!10 = !{i64 2151446099}
+!11 = !{ptr @io_serial_out, ptr @mem32_serial_out}
+!12 = !{ptr @io_serial_in, ptr @mem32_serial_in}
+!13 = !{i64 2082372}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = !{i64 2151449453}
+!17 = !{i64 2151451846}
+!18 = !{i64 2151449036}
+!19 = !{i64 2151451460}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7, !22}
+!22 = !{!"llvm.loop.unswitch.partial.disable"}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}

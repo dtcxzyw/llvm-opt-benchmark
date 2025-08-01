@@ -1055,7 +1055,7 @@ define dso_local i32 @typeOrDomainTypeRelid(i32 noundef %0) local_unnamed_addr #
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %17) #7
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 84
@@ -1242,7 +1242,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}

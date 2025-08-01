@@ -206,7 +206,7 @@ _ZNSt12_Vector_baseIN10VisibleSet11FaceVisInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds
   %.267 = select i1 %or.cond26.i, float %55, float %.166
   %58 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %58, 8
-  br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %42, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %42, !llvm.loop !7
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %42
   %59 = fcmp olt float %.264, %.04278
@@ -242,7 +242,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %63 = phi float [ %32, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ], [ %.267, %61 ]
   %.sroa.061.0 = load ptr, ptr %.sroa.061.079, align 8
   %.not = icmp eq ptr %.sroa.061.0, %5
-  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %62, %27
   %64 = phi float [ 0xC7EFFFFFE0000000, %27 ], [ %63, %62 ]
@@ -276,7 +276,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
 .loopexit:                                        ; preds = %_ZN10VisibleSet11FaceVisInfo3addEfP11RasterModel.exit, %.preheader
   %.sroa.053.0 = load ptr, ptr %.sroa.053.084, align 8
   %.not68 = icmp eq ptr %.sroa.053.0, %5
-  br i1 %.not68, label %._crit_edge87, label %77, !llvm.loop !10
+  br i1 %.not68, label %._crit_edge87, label %77
 
 77:                                               ; preds = %.lr.ph86, %.loopexit
   %.sroa.053.084 = phi ptr [ %.sroa.053.082, %.lr.ph86 ], [ %.sroa.053.0, %.loopexit ]
@@ -443,7 +443,7 @@ _ZN10VisibleSet11FaceVisInfo3addEfP11RasterModel.exit: ; preds = %163, %_ZNSt6ve
   %165 = load i32, ptr %9, align 8
   %166 = sext i32 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166
-  br i1 %167, label %.lr.ph81, label %.loopexit, !llvm.loop !11
+  br i1 %167, label %.lr.ph81, label %.loopexit, !llvm.loop !8
 
 ._crit_edge87:                                    ; preds = %.loopexit, %69
   invoke void @_ZN15VisibilityCheck15ReleaseInstanceEv()
@@ -894,7 +894,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137: ; preds = %_Z
   store float %.sink, ptr %250, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %251, label %171, !llvm.loop !12
+  br i1 %exitcond.not, label %251, label %171, !llvm.loop !9
 
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -947,7 +947,7 @@ define linkonce_odr void @_ZNSt6vectorIN10VisibleSet11FaceVisInfoESaIS1_EED2Ev(p
 _ZSt8_DestroyIN10VisibleSet11FaceVisInfoEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %8, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10VisibleSet11FaceVisInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10VisibleSet11FaceVisInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPN10VisibleSet11FaceVisInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN10VisibleSet11FaceVisInfoEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1190,12 +1190,9 @@ attributes #18 = { builtin nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

@@ -408,7 +408,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 227:                                              ; preds = %219, %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.us173, label %.lr.ph.us, !llvm.loop !50
+  br i1 %exitcond.not, label %.thread.us173, label %.lr.ph.us, !llvm.loop !49
 
 .thread.us173:                                    ; preds = %227, %215, %214, %.lr.ph171.split.split.us
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %11) #5
@@ -418,7 +418,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %229 = add nsw i32 %.0123169.us172, 1
   %230 = load i32, ptr %180, align 4, !tbaa !14
   %.not.us174.not = icmp slt i32 %.0123169.us172, %230
-  br i1 %.not.us174.not, label %.lr.ph171.split.split.us, label %._crit_edge, !llvm.loop !51
+  br i1 %.not.us174.not, label %.lr.ph171.split.split.us, label %._crit_edge, !llvm.loop !50
 
 .thread:                                          ; preds = %.thread.preheader, %.thread
   %.0123169 = phi i32 [ %233, %.thread ], [ %210, %.thread.preheader ]
@@ -432,10 +432,10 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %233 = add nsw i32 %.0123169, 1
   %234 = load i32, ptr %209, align 4, !tbaa !14
   %.not.not = icmp slt i32 %.0123169, %234
-  br i1 %.not.not, label %.thread, label %._crit_edge, !llvm.loop !52
+  br i1 %.not.not, label %.thread, label %._crit_edge, !llvm.loop !51
 
 .preheader:                                       ; preds = %.lr.ph171.split.us, %.preheader
-  br label %.preheader, !llvm.loop !53
+  br label %.preheader
 
 ._crit_edge:                                      ; preds = %.thread.us, %.thread, %228, %.thread183, %158
   call void @lv_free(ptr noundef %136) #5
@@ -559,11 +559,9 @@ attributes #5 = { nounwind }
 !43 = !{!42, !34, i64 8}
 !44 = !{!33, !10, i64 20}
 !45 = !{!33, !10, i64 48}
-!46 = distinct !{!46, !47, !48, !49}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !47}
 !50 = distinct !{!50, !47, !48}
-!51 = distinct !{!51, !47, !48, !49}
-!52 = distinct !{!52, !47, !48}
-!53 = distinct !{!53, !48}
+!51 = distinct !{!51, !47}

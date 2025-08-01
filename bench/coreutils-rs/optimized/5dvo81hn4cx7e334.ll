@@ -2921,7 +2921,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit64:  ; preds = %_ZN6uu_cat8cat_path
 "_ZN4core3ptr37drop_in_place$LT$uu_cat..CatError$GT$17had3360dec964c3cfE.exit80": ; preds = %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit, %.thread116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   %278 = icmp eq ptr %103, %52
-  br i1 %278, label %._crit_edge, label %102, !llvm.loop !842
+  br i1 %278, label %._crit_edge, label %102
 
 279:                                              ; preds = %.body
   resume { ptr, i32 } %.pn
@@ -3000,15 +3000,15 @@ define noundef zeroext i1 @"_ZN55_$LT$uu_cat..CatError$u20$as$u20$core..fmt..Dis
   store ptr %12, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h43e0080c7c7bfa03E", ptr %22, align 8
-  store ptr @anon.f218b7438c08e3648fd2764e2960e505.169, ptr %14, align 8, !alias.scope !844, !noalias !847
+  store ptr @anon.f218b7438c08e3648fd2764e2960e505.169, ptr %14, align 8, !alias.scope !842, !noalias !845
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 1, ptr %23, align 8, !alias.scope !844, !noalias !847
+  store i64 1, ptr %23, align 8, !alias.scope !842, !noalias !845
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr null, ptr %24, align 8, !alias.scope !844, !noalias !847
+  store ptr null, ptr %24, align 8, !alias.scope !842, !noalias !845
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %13, ptr %25, align 8, !alias.scope !844, !noalias !847
+  store ptr %13, ptr %25, align 8, !alias.scope !842, !noalias !845
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 1, ptr %26, align 8, !alias.scope !844, !noalias !847
+  store i64 1, ptr %26, align 8, !alias.scope !842, !noalias !845
   %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -3024,15 +3024,15 @@ define noundef zeroext i1 @"_ZN55_$LT$uu_cat..CatError$u20$as$u20$core..fmt..Dis
   store ptr %9, ptr %10, align 8
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8824fd994bdc7149E", ptr %30, align 8
-  store ptr @anon.f218b7438c08e3648fd2764e2960e505.169, ptr %11, align 8, !alias.scope !850, !noalias !853
+  store ptr @anon.f218b7438c08e3648fd2764e2960e505.169, ptr %11, align 8, !alias.scope !848, !noalias !851
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 1, ptr %31, align 8, !alias.scope !850, !noalias !853
+  store i64 1, ptr %31, align 8, !alias.scope !848, !noalias !851
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr null, ptr %32, align 8, !alias.scope !850, !noalias !853
+  store ptr null, ptr %32, align 8, !alias.scope !848, !noalias !851
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %10, ptr %33, align 8, !alias.scope !850, !noalias !853
+  store ptr %10, ptr %33, align 8, !alias.scope !848, !noalias !851
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 1, ptr %34, align 8, !alias.scope !850, !noalias !853
+  store i64 1, ptr %34, align 8, !alias.scope !848, !noalias !851
   %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -3047,15 +3047,15 @@ define noundef zeroext i1 @"_ZN55_$LT$uu_cat..CatError$u20$as$u20$core..fmt..Dis
   store ptr %8, ptr %6, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h82caec9b9586dab5E", ptr %37, align 8
-  store ptr @anon.f218b7438c08e3648fd2764e2960e505.176, ptr %7, align 8, !alias.scope !856, !noalias !859
+  store ptr @anon.f218b7438c08e3648fd2764e2960e505.176, ptr %7, align 8, !alias.scope !854, !noalias !857
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %38, align 8, !alias.scope !856, !noalias !859
+  store i64 1, ptr %38, align 8, !alias.scope !854, !noalias !857
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %39, align 8, !alias.scope !856, !noalias !859
+  store ptr null, ptr %39, align 8, !alias.scope !854, !noalias !857
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %40, align 8, !alias.scope !856, !noalias !859
+  store ptr %6, ptr %40, align 8, !alias.scope !854, !noalias !857
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 1, ptr %41, align 8, !alias.scope !856, !noalias !859
+  store i64 1, ptr %41, align 8, !alias.scope !854, !noalias !857
   %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -4186,23 +4186,21 @@ attributes #16 = { noreturn }
 !839 = distinct !{!839, !"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h775b9c2c457792fcE"}
 !840 = distinct !{!840, !841, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3143ae6a0a7462baE: argument 0"}
 !841 = distinct !{!841, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3143ae6a0a7462baE"}
-!842 = distinct !{!842, !843}
-!843 = !{!"llvm.loop.estimated_trip_count"}
-!844 = !{!845}
-!845 = distinct !{!845, !846, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!846 = distinct !{!846, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!847 = !{!848, !849}
-!848 = distinct !{!848, !846, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!849 = distinct !{!849, !846, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!850 = !{!851}
-!851 = distinct !{!851, !852, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!852 = distinct !{!852, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!853 = !{!854, !855}
-!854 = distinct !{!854, !852, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!855 = distinct !{!855, !852, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
-!856 = !{!857}
-!857 = distinct !{!857, !858, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!858 = distinct !{!858, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!859 = !{!860, !861}
-!860 = distinct !{!860, !858, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!861 = distinct !{!861, !858, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!842 = !{!843}
+!843 = distinct !{!843, !844, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!844 = distinct !{!844, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!845 = !{!846, !847}
+!846 = distinct !{!846, !844, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!847 = distinct !{!847, !844, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!848 = !{!849}
+!849 = distinct !{!849, !850, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!850 = distinct !{!850, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!851 = !{!852, !853}
+!852 = distinct !{!852, !850, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!853 = distinct !{!853, !850, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
+!854 = !{!855}
+!855 = distinct !{!855, !856, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!856 = distinct !{!856, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!857 = !{!858, !859}
+!858 = distinct !{!858, !856, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!859 = distinct !{!859, !856, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}

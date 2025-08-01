@@ -197,7 +197,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   %143 = load i8, ptr %.1, align 1, !tbaa !11
   %144 = icmp slt i8 %143, -64
   %145 = getelementptr inbounds i8, ptr %.1, i64 -1
-  br i1 %144, label %.preheader135, label %.loopexit.thread, !llvm.loop !13
+  br i1 %144, label %.preheader135, label %.loopexit.thread
 
 .loopexit:                                        ; preds = %141
   %146 = icmp ugt ptr %142, %2
@@ -239,7 +239,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
 167:                                              ; preds = %.lr.ph.split.us
   %168 = add nuw nsw i32 %.0105137.us, 1
   %169 = icmp ugt ptr %150, %2
-  br i1 %169, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %169, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .preheader:                                       ; preds = %.loopexit.thread, %275
   %.2138 = phi ptr [ %.3, %275 ], [ %.1, %.loopexit.thread ]
@@ -253,7 +253,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   %172 = zext i8 %171 to i32
   %173 = and i32 %172, 192
   %174 = icmp eq i32 %173, 128
-  br i1 %174, label %170, label %175, !llvm.loop !17
+  br i1 %174, label %170, label %175
 
 175:                                              ; preds = %170
   %176 = icmp ugt i8 %171, -65
@@ -382,7 +382,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
 275:                                              ; preds = %260
   %276 = add nuw nsw i32 %.0105137, 1
   %277 = icmp ugt ptr %.3, %2
-  br i1 %277, label %.preheader, label %._crit_edge, !llvm.loop !18
+  br i1 %277, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %167, %.lr.ph.split.us, %275, %260
   %.0105.lcssa = phi i32 [ %.0105137, %260 ], [ %276, %275 ], [ %.0105137.us, %.lr.ph.split.us ], [ %149, %167 ]
@@ -409,7 +409,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
 
 288:                                              ; preds = %._crit_edge.thread, %285
   %289 = icmp ult ptr %284, %3
-  br i1 %289, label %25, label %.thread, !llvm.loop !19
+  br i1 %289, label %25, label %.thread
 
 .thread:                                          ; preds = %288, %113, %135, %._crit_edge, %6
   %.0116.lcssa = phi ptr [ %1, %6 ], [ %284, %288 ], [ %.0116166, %113 ], [ %.0116166, %135 ], [ %.0116166, %._crit_edge ]
@@ -434,9 +434,4 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !11 = !{!6, !6, i64 0}
 !12 = !{!10, !10, i64 0}
 !13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}

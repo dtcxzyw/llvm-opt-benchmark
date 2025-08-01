@@ -996,6 +996,5 @@ attributes #16 = { nounwind willreturn memory(read) }
 !17 = !{!18, !9, i64 56}
 !18 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}

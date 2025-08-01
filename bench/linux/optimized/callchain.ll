@@ -117,7 +117,7 @@ define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 nounde
   br i1 %47, label %.preheader, label %25, !llvm.loop !11
 
 .thread:                                          ; preds = %29, %25, %34
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !14
   store volatile ptr %15, ptr @callchain_cpus_entries, align 8
   br label %66
 
@@ -143,7 +143,7 @@ define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 nounde
   %62 = add nuw nsw i64 %55, 1
   %63 = and i64 %62, 127
   %64 = icmp samesign ugt i64 %63, 63
-  br i1 %64, label %.thread7, label %.preheader, !prof !16, !llvm.loop !17
+  br i1 %64, label %.thread7, label %.preheader, !prof !15, !llvm.loop !16
 
 .thread7:                                         ; preds = %.preheader, %58, %54
   tail call void @kfree(ptr noundef nonnull %15) #5
@@ -151,7 +151,7 @@ define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 nounde
 
 65:                                               ; preds = %4, %5, %.thread7, %10
   %.ph = phi i32 [ -12, %10 ], [ -12, %.thread7 ], [ -75, %5 ], [ -22, %4 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nr_callchain_events, ptr nonnull elementtype(i32) @nr_callchain_events) #5, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nr_callchain_events, ptr nonnull elementtype(i32) @nr_callchain_events) #5, !srcloc !17
   br label %66
 
 66:                                               ; preds = %8, %.thread, %65
@@ -194,9 +194,9 @@ declare dso_local i32 @atomic_dec_and_mutex_lock(ptr noundef, ptr noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @get_callchain_entry(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !19
+  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !18
   %3 = inttoptr i64 %2 to ptr
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !20
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19
   %5 = zext i32 %4 to i64
   %6 = and i64 %5, 15728640
   %7 = icmp ne i64 %6, 0
@@ -221,7 +221,7 @@ define dso_local ptr @get_callchain_entry(ptr noundef writeonly captures(none) i
 
 21:                                               ; preds = %1
   store i32 1, ptr %18, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !20
   %22 = zext nneg i8 %16 to i32
   store i32 %22, ptr %0, align 4
   %23 = load volatile ptr, ptr @callchain_cpus_entries, align 8
@@ -229,9 +229,9 @@ define dso_local ptr @get_callchain_entry(ptr noundef writeonly captures(none) i
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %21
-  %26 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !22
+  %26 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !21
   %27 = inttoptr i64 %26 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !22
   %28 = getelementptr i32, ptr %27, i64 %17
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, -1
@@ -239,7 +239,7 @@ define dso_local ptr @get_callchain_entry(ptr noundef writeonly captures(none) i
   br label %45
 
 31:                                               ; preds = %21
-  %32 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !24
+  %32 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   %35 = getelementptr [0 x ptr], ptr %33, i64 0, i64 %34
@@ -261,9 +261,9 @@ define dso_local ptr @get_callchain_entry(ptr noundef writeonly captures(none) i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @put_callchain_entry(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !25
+  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !24
   %3 = inttoptr i64 %2 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !22
   %4 = sext i32 %0 to i64
   %5 = getelementptr i32, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
@@ -277,10 +277,10 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   %8 = alloca %struct.perf_callchain_entry_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %9, align 8, !annotation !26
-  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !19
+  store i64 0, ptr %9, align 8, !annotation !25
+  %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !18
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !20
+  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19
   %13 = zext i32 %12 to i64
   %14 = and i64 %13, 15728640
   %15 = icmp ne i64 %14, 0
@@ -300,18 +300,18 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 
 28:                                               ; preds = %7
   store i32 1, ptr %25, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !20
   %29 = load volatile ptr, ptr @callchain_cpus_entries, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !22
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !23
+  %32 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !22
   br label %.thread4.sink.split
 
 33:                                               ; preds = %28
-  %34 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !24
+  %34 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %36 = sext i32 %34 to i64
   %37 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %36
@@ -383,7 +383,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   br i1 %73, label %74, label %87
 
 74:                                               ; preds = %69
-  %75 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !27
+  %75 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !26
   %76 = inttoptr i64 %75 to ptr
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1192
   %78 = load ptr, ptr %77, align 8
@@ -437,8 +437,8 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   br label %.thread5
 
 .thread5:                                         ; preds = %74, %106, %87, %68
-  %107 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !25
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !23
+  %107 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !24
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !22
   br label %.thread4.sink.split
 
 .thread4.sink.split:                              ; preds = %.thread5, %31
@@ -544,7 +544,7 @@ define internal void @release_callchain_buffers_rcu(ptr noundef %0) #0 align 16 
   %17 = add nuw nsw i64 %10, 1
   %18 = and i64 %17, 127
   %19 = icmp samesign ugt i64 %18, 63
-  br i1 %19, label %.thread, label %3, !prof !16, !llvm.loop !28
+  br i1 %19, label %.thread, label %3, !prof !15, !llvm.loop !27
 
 .thread:                                          ; preds = %3, %13, %9
   tail call void @kfree(ptr noundef %0) #5
@@ -574,21 +574,20 @@ attributes #8 = { nounwind memory(none) }
 !8 = !{i64 2155496430, i64 2155496459, i64 2155496505, i64 2155496563, i64 2155496617, i64 2155496671, i64 2155496726, i64 2155496757, i64 2155497065, i64 2155497071, i64 2155497118, i64 2155497141, i64 2155497167}
 !9 = !{i64 2155497625, i64 2155497436, i64 2155497486, i64 2155497532, i64 2155497560}
 !10 = !{i64 938490}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{i64 2155492354}
-!16 = !{!"branch_weights", i32 1, i32 1999}
-!17 = distinct !{!17, !12, !13, !14}
-!18 = !{i64 2148805037, i64 2148805076, i64 2148805097, i64 2148805134, i64 2148805157, i64 2148805027}
-!19 = !{i64 2155498089}
-!20 = !{i64 2149527314}
-!21 = !{i64 2155479337}
-!22 = !{i64 2155506938}
-!23 = !{i64 2155479540}
-!24 = !{i64 2155509881}
-!25 = !{i64 2155511033}
-!26 = !{!"auto-init"}
-!27 = !{i64 2147991591}
-!28 = distinct !{!28, !12, !13, !14}
+!14 = !{i64 2155492354}
+!15 = !{!"branch_weights", i32 1, i32 1999}
+!16 = distinct !{!16, !12, !13}
+!17 = !{i64 2148805037, i64 2148805076, i64 2148805097, i64 2148805134, i64 2148805157, i64 2148805027}
+!18 = !{i64 2155498089}
+!19 = !{i64 2149527314}
+!20 = !{i64 2155479337}
+!21 = !{i64 2155506938}
+!22 = !{i64 2155479540}
+!23 = !{i64 2155509881}
+!24 = !{i64 2155511033}
+!25 = !{!"auto-init"}
+!26 = !{i64 2147991591}
+!27 = distinct !{!27, !12, !13}

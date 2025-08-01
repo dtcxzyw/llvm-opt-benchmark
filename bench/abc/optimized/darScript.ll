@@ -738,7 +738,7 @@ Abc_Clock.exit38:                                 ; preds = %61, %64
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !42
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !41
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -751,7 +751,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #13
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !42
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
@@ -759,7 +759,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !43, !noalias !45
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !42, !noalias !44
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #13
   br label %17
 
@@ -1020,7 +1020,7 @@ define ptr @Dar_NewCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Dar_NewChoiceSynthesisGuard(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = getelementptr i8, ptr %3, i64 4
   %.val12 = load i32, ptr %4, align 4, !tbaa !38
   %5 = icmp sgt i32 %.val12, 0
@@ -1060,7 +1060,7 @@ define range(i32 0, 2) i32 @Dar_NewChoiceSynthesisGuard(ptr noundef readonly cap
   %.1 = phi i32 [ %.017, %7 ], [ %19, %17 ], [ %.017, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %7, !llvm.loop !49
+  br i1 %exitcond.not, label %.critedge.loopexit, label %7, !llvm.loop !48
 
 .critedge.loopexit:                               ; preds = %20
   %21 = icmp sgt i32 %.1, 10
@@ -1079,7 +1079,7 @@ define ptr @Dar_NewChoiceSynthesis(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !48
+  %9 = load ptr, ptr %8, align 8, !tbaa !47
   %10 = getelementptr i8, ptr %9, i64 4
   %.val12.i = load i32, ptr %10, align 4, !tbaa !38
   %11 = icmp sgt i32 %.val12.i, 0
@@ -1119,7 +1119,7 @@ define ptr @Dar_NewChoiceSynthesis(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.1.i = phi i32 [ %.017.i, %13 ], [ %25, %23 ], [ %.017.i, %17 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Dar_NewChoiceSynthesisGuard.exit, label %13, !llvm.loop !49
+  br i1 %exitcond.not.i, label %Dar_NewChoiceSynthesisGuard.exit, label %13, !llvm.loop !48
 
 Dar_NewChoiceSynthesisGuard.exit:                 ; preds = %26
   %27 = icmp slt i32 %.1.i, 11
@@ -1172,7 +1172,7 @@ Vec_PtrPush.exit64:                               ; preds = %6, %Dar_NewChoiceSy
   %.val43 = load i32, ptr %31, align 4, !tbaa !38
   %47 = sext i32 %.val43 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !50
+  br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %.lr.ph, %Vec_PtrPush.exit64
   %49 = load ptr, ptr %33, align 8, !tbaa !36
@@ -1199,7 +1199,7 @@ define ptr @Dar_ManChoiceNewAig(ptr noundef %0, ptr noundef initializes((56, 64)
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %6 = load i32, ptr %5, align 4, !tbaa !51
+  %6 = load i32, ptr %5, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #13
   %8 = icmp slt i32 %7, 0
@@ -1218,7 +1218,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %.0.i.neg = phi i64 [ %.neg60, %9 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !53
+  %14 = load i32, ptr %13, align 8, !tbaa !52
   %15 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %16 = getelementptr i8, ptr %15, i64 4
   store i32 8, ptr %15, align 8, !tbaa !34
@@ -1252,7 +1252,7 @@ Vec_PtrPush.exit:                                 ; preds = %26, %Abc_Clock.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   %33 = add i64 %.0.i52, %.0.i.neg
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %33, ptr %34, align 8, !tbaa !54
+  store i64 %33, ptr %34, align 8, !tbaa !53
   %35 = load ptr, ptr %17, align 8, !tbaa !37
   %36 = load ptr, ptr %23, align 8, !tbaa !37
   store i32 3, ptr %16, align 4, !tbaa !38
@@ -1273,7 +1273,7 @@ Vec_PtrPush.exit:                                 ; preds = %26, %Abc_Clock.exit
   %.val51 = load i32, ptr %16, align 4, !tbaa !38
   %41 = sext i32 %.val51 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !55
+  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %.lr.ph, %Vec_PtrPush.exit
   %43 = load ptr, ptr %18, align 8, !tbaa !36
@@ -1289,9 +1289,9 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %44
   %45 = call ptr @Dch_ComputeChoices(ptr noundef %37, ptr noundef nonnull %1) #13
   call void @Aig_ManStop(ptr noundef %37) #13
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %47 = load ptr, ptr %46, align 8, !tbaa !56
-  store ptr null, ptr %46, align 8, !tbaa !56
-  %48 = load ptr, ptr %0, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !55
+  store ptr null, ptr %46, align 8, !tbaa !55
+  %48 = load ptr, ptr %0, align 8, !tbaa !56
   %.not.i54 = icmp eq ptr %48, null
   br i1 %.not.i54, label %Abc_UtilStrsav.exit, label %49
 
@@ -1305,7 +1305,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %44
 Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrFree.exit, %49
   %54 = phi ptr [ %52, %49 ], [ null, %Vec_PtrFree.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !58
+  %56 = load ptr, ptr %55, align 8, !tbaa !57
   %.not.i55 = icmp eq ptr %56, null
   br i1 %.not.i55, label %Abc_UtilStrsav.exit56, label %57
 
@@ -1334,20 +1334,20 @@ Abc_UtilStrsav.exit56:                            ; preds = %Abc_UtilStrsav.exit
 Vec_PtrFree.exit58:                               ; preds = %Abc_UtilStrsav.exit56, %67
   call void @free(ptr noundef nonnull %63) #13
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 352
-  store ptr %47, ptr %68, align 8, !tbaa !56
+  store ptr %47, ptr %68, align 8, !tbaa !55
   %69 = call i32 @Aig_ManChoiceLevel(ptr noundef %64) #13
-  %70 = load ptr, ptr %64, align 8, !tbaa !57
+  %70 = load ptr, ptr %64, align 8, !tbaa !56
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %72, label %71
 
 71:                                               ; preds = %Vec_PtrFree.exit58
   call void @free(ptr noundef nonnull %70) #13
-  store ptr null, ptr %64, align 8, !tbaa !57
+  store ptr null, ptr %64, align 8, !tbaa !56
   br label %72
 
 72:                                               ; preds = %Vec_PtrFree.exit58, %71
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !58
+  %74 = load ptr, ptr %73, align 8, !tbaa !57
   %.not48 = icmp eq ptr %74, null
   br i1 %.not48, label %76, label %75
 
@@ -1356,8 +1356,8 @@ Vec_PtrFree.exit58:                               ; preds = %Abc_UtilStrsav.exit
   br label %76
 
 76:                                               ; preds = %72, %75
-  store ptr %54, ptr %64, align 8, !tbaa !57
-  store ptr %62, ptr %73, align 8, !tbaa !58
+  store ptr %54, ptr %64, align 8, !tbaa !56
+  store ptr %62, ptr %73, align 8, !tbaa !57
   ret ptr %64
 }
 
@@ -1379,9 +1379,9 @@ define ptr @Dar_ManChoiceNew(ptr noundef %0, ptr noundef initializes((56, 64)) %
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
-  store ptr null, ptr %5, align 8, !tbaa !56
-  %7 = load ptr, ptr %0, align 8, !tbaa !57
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  store ptr null, ptr %5, align 8, !tbaa !55
+  %7 = load ptr, ptr %0, align 8, !tbaa !56
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
@@ -1395,7 +1395,7 @@ define ptr @Dar_ManChoiceNew(ptr noundef %0, ptr noundef initializes((56, 64)) %
 Abc_UtilStrsav.exit:                              ; preds = %2, %8
   %13 = phi ptr [ %11, %8 ], [ null, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !58
+  %15 = load ptr, ptr %14, align 8, !tbaa !57
   %.not.i52 = icmp eq ptr %15, null
   br i1 %.not.i52, label %Abc_UtilStrsav.exit53, label %16
 
@@ -1427,11 +1427,11 @@ Abc_Clock.exit:                                   ; preds = %Abc_UtilStrsav.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   %28 = call ptr @Aig_ManDupDfs(ptr noundef nonnull %0) #13
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !53
+  %30 = load i32, ptr %29, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %32 = load i32, ptr %31, align 4, !tbaa !59
+  %32 = load i32, ptr %31, align 4, !tbaa !58
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %34 = load i32, ptr %33, align 4, !tbaa !51
+  %34 = load i32, ptr %33, align 4, !tbaa !50
   %35 = call ptr @Dar_NewChoiceSynthesis(ptr noundef %28, i32 noundef 1, i32 noundef 1, i32 noundef %30, i32 noundef %32, i32 noundef %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #13
@@ -1452,35 +1452,35 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit, %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   %45 = add i64 %.0.i54, %.0.i.neg
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %45, ptr %46, align 8, !tbaa !54
+  store i64 %45, ptr %46, align 8, !tbaa !53
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !60
+  %48 = load i32, ptr %47, align 4, !tbaa !59
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %54, label %49
 
 49:                                               ; preds = %Abc_Clock.exit55
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !61
-  %52 = load i32, ptr %33, align 4, !tbaa !51
+  %51 = load i32, ptr %50, align 4, !tbaa !60
+  %52 = load i32, ptr %33, align 4, !tbaa !50
   %53 = call ptr @Cec_ComputeChoicesNew(ptr noundef %35, i32 noundef %51, i32 noundef %52) #13
   br label %70
 
 54:                                               ; preds = %Abc_Clock.exit55
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %56 = load i32, ptr %55, align 8, !tbaa !62
+  %56 = load i32, ptr %55, align 8, !tbaa !61
   %.not48 = icmp eq i32 %56, 0
   br i1 %.not48, label %62, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !61
-  %60 = load i32, ptr %33, align 4, !tbaa !51
+  %59 = load i32, ptr %58, align 4, !tbaa !60
+  %60 = load i32, ptr %33, align 4, !tbaa !50
   %61 = call ptr @Cec_ComputeChoicesNew2(ptr noundef %35, i32 noundef %59, i32 noundef %60) #13
   br label %70
 
 62:                                               ; preds = %54
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %64 = load i32, ptr %63, align 4, !tbaa !63
+  %64 = load i32, ptr %63, align 4, !tbaa !62
   %.not49 = icmp eq i32 %64, 0
   br i1 %.not49, label %67, label %65
 
@@ -1513,20 +1513,20 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit, %38
 Vec_PtrFree.exit:                                 ; preds = %70, %75
   call void @free(ptr noundef nonnull %71) #13
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 352
-  store ptr %6, ptr %76, align 8, !tbaa !56
+  store ptr %6, ptr %76, align 8, !tbaa !55
   %77 = call i32 @Aig_ManChoiceLevel(ptr noundef %72) #13
-  %78 = load ptr, ptr %72, align 8, !tbaa !57
+  %78 = load ptr, ptr %72, align 8, !tbaa !56
   %.not50 = icmp eq ptr %78, null
   br i1 %.not50, label %80, label %79
 
 79:                                               ; preds = %Vec_PtrFree.exit
   call void @free(ptr noundef nonnull %78) #13
-  store ptr null, ptr %72, align 8, !tbaa !57
+  store ptr null, ptr %72, align 8, !tbaa !56
   br label %80
 
 80:                                               ; preds = %Vec_PtrFree.exit, %79
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !58
+  %82 = load ptr, ptr %81, align 8, !tbaa !57
   %.not51 = icmp eq ptr %82, null
   br i1 %.not51, label %84, label %83
 
@@ -1535,8 +1535,8 @@ Vec_PtrFree.exit:                                 ; preds = %70, %75
   br label %84
 
 84:                                               ; preds = %80, %83
-  store ptr %13, ptr %72, align 8, !tbaa !57
-  store ptr %21, ptr %81, align 8, !tbaa !58
+  store ptr %13, ptr %72, align 8, !tbaa !56
+  store ptr %21, ptr %81, align 8, !tbaa !57
   ret ptr %72
 }
 
@@ -1636,28 +1636,27 @@ attributes #15 = { nounwind willreturn memory(read) }
 !36 = !{!35, !6, i64 8}
 !37 = !{!6, !6, i64 0}
 !38 = !{!35, !12, i64 4}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!12, !12, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"vprintf: argument 0"}
-!47 = distinct !{!47, !"vprintf"}
-!48 = !{!4, !9, i64 32}
-!49 = distinct !{!49, !40, !41}
-!50 = distinct !{!50, !40, !41}
-!51 = !{!52, !12, i64 52}
-!52 = !{!"Dch_Pars_t_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !20, i64 56, !12, i64 64, !12, i64 68}
-!53 = !{!52, !12, i64 24}
-!54 = !{!52, !20, i64 56}
-!55 = distinct !{!55, !40, !41}
-!56 = !{!4, !6, i64 352}
-!57 = !{!4, !5, i64 0}
-!58 = !{!4, !5, i64 8}
-!59 = !{!52, !12, i64 44}
-!60 = !{!52, !12, i64 36}
-!61 = !{!52, !12, i64 4}
-!62 = !{!52, !12, i64 40}
-!63 = !{!52, !12, i64 28}
+!41 = !{!12, !12, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"vprintf: argument 0"}
+!46 = distinct !{!46, !"vprintf"}
+!47 = !{!4, !9, i64 32}
+!48 = distinct !{!48, !40}
+!49 = distinct !{!49, !40}
+!50 = !{!51, !12, i64 52}
+!51 = !{!"Dch_Pars_t_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !20, i64 56, !12, i64 64, !12, i64 68}
+!52 = !{!51, !12, i64 24}
+!53 = !{!51, !20, i64 56}
+!54 = distinct !{!54, !40}
+!55 = !{!4, !6, i64 352}
+!56 = !{!4, !5, i64 0}
+!57 = !{!4, !5, i64 8}
+!58 = !{!51, !12, i64 44}
+!59 = !{!51, !12, i64 36}
+!60 = !{!51, !12, i64 4}
+!61 = !{!51, !12, i64 40}
+!62 = !{!51, !12, i64 28}

@@ -208,7 +208,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
 .critedge2:                                       ; preds = %23, %24
   %30 = add nuw nsw i64 %.01618, 1
   %exitcond21.not = icmp eq i64 %30, 3
-  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !7
+  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !6
 
 .critedge:                                        ; preds = %.critedge2, %13
   %31 = load float, ptr %3, align 16
@@ -296,12 +296,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   store float %26, ptr %27, align 4
   %28 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %28, 3
-  br i1 %exitcond19.not, label %.critedge2, label %23, !llvm.loop !8
+  br i1 %exitcond19.not, label %.critedge2, label %23, !llvm.loop !7
 
 .critedge2:                                       ; preds = %23, %24
   %29 = add nuw nsw i64 %.01618, 1
   %exitcond21.not = icmp eq i64 %29, 3
-  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !9
+  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge2, %13
   %30 = load float, ptr %3, align 16
@@ -343,9 +343,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
 define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKNS_10GfRotationE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !10
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load double, ptr %4, align 8, !noalias !10
+  %5 = load double, ptr %4, align 8, !noalias !9
   %.sroa.2.8.copyload.i = load double, ptr %3, align 8
   %.sroa.4.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.8.copyload.i = load double, ptr %.sroa.4.8..sroa_idx.i, align 8
@@ -413,9 +413,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKNS_10GfRotati
 define noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3f9SetRotateERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !13
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load double, ptr %4, align 8, !noalias !13
+  %5 = load double, ptr %4, align 8, !noalias !12
   %.sroa.2.8.copyload = load double, ptr %3, align 8
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.8.copyload = load double, ptr %.sroa.4.8..sroa_idx, align 8
@@ -1851,15 +1851,15 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotationQuaternionEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 %6, ptr noundef nonnull readonly align 4 dereferenceable(36) %0), !noalias !16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !16
-  %12 = load double, ptr %6, align 8, !noalias !16
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotationQuaternionEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 %6, ptr noundef nonnull readonly align 4 dereferenceable(36) %0), !noalias !15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !15
+  %12 = load double, ptr %6, align 8, !noalias !15
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !15
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store double %12, ptr %14, align 8, !noalias !16
+  store double %12, ptr %14, align 8, !noalias !15
   %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation7SetQuatERKNS_7GfQuatdE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %16 = load float, ptr %1, align 4
   %17 = fpext float %16 to double
@@ -1932,7 +1932,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 7:                                                ; preds = %9
   %8 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %8, 3
-  br i1 %exitcond.not, label %19, label %9, !llvm.loop !19
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !18
 
 9:                                                ; preds = %.preheader, %7
   %.015 = phi i64 [ 0, %.preheader ], [ %8, %7 ]
@@ -1950,7 +1950,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 19:                                               ; preds = %7
   %20 = add nuw nsw i64 %.01116, 1
   %exitcond19 = icmp eq i64 %20, 3
-  br i1 %exitcond19, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond19, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %19, %9
   ret i1 %18
@@ -2052,20 +2052,19 @@ attributes #19 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv: argument 0"}
-!12 = distinct !{!12, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f15ExtractRotationEv: argument 0"}
-!18 = distinct !{!18, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f15ExtractRotationEv"}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv: argument 0"}
+!11 = distinct !{!11, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv: argument 0"}
+!14 = distinct !{!14, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation13GetQuaternionEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f15ExtractRotationEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f15ExtractRotationEv"}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}

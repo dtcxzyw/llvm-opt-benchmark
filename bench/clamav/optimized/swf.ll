@@ -355,7 +355,7 @@ fmap_readn.exit.thread.i:                         ; preds = %65, %63
   store ptr %10, ptr %46, align 8, !tbaa !37
   store i32 8192, ptr %48, align 8, !tbaa !38
   %97 = icmp eq i32 %78, 0
-  br i1 %97, label %58, label %fmap_readn.exit.thread66.i, !llvm.loop !39
+  br i1 %97, label %58, label %fmap_readn.exit.thread66.i
 
 fmap_readn.exit.thread66.i:                       ; preds = %96, %82, %61
   %.145.i = phi i32 [ %78, %82 ], [ %78, %96 ], [ 0, %61 ]
@@ -409,9 +409,9 @@ fmap_readn.exit.thread66.i:                       ; preds = %96, %82, %61
   %119 = load i32, ptr %12, align 4, !tbaa !31
   %120 = call i32 @close(i32 noundef %119) #8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %122 = load ptr, ptr %121, align 8, !tbaa !41
+  %122 = load ptr, ptr %121, align 8, !tbaa !39
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %124 = load i32, ptr %123, align 8, !tbaa !42
+  %124 = load i32, ptr %123, align 8, !tbaa !40
   %.not59.i = icmp eq i32 %124, 0
   br i1 %.not59.i, label %125, label %130
 
@@ -553,13 +553,13 @@ fmap_readn.exit86.i:                              ; preds = %172
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %175, i64 %spec.select.i83.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, i8 0, i64 168, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  store ptr %3, ptr %176, align 8, !tbaa !61
+  store ptr %3, ptr %176, align 8, !tbaa !59
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store ptr %4, ptr %177, align 8, !tbaa !66
+  store ptr %4, ptr %177, align 8, !tbaa !64
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  store i64 %spec.select.i83.i, ptr %178, align 8, !tbaa !67
+  store i64 %spec.select.i83.i, ptr %178, align 8, !tbaa !65
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store i64 8192, ptr %179, align 8, !tbaa !68
+  store i64 8192, ptr %179, align 8, !tbaa !66
   %180 = load i32, ptr %23, align 4, !tbaa !28
   %181 = zext i32 %180 to i64
   %182 = call i32 @cli_LzmaInit(ptr noundef nonnull %2, i64 noundef %181) #8
@@ -609,12 +609,12 @@ fmap_readn.exit86.thread95.i:                     ; preds = %168
 200:                                              ; preds = %234, %.preheader.i273
   %.053107.i = phi i64 [ 8, %.preheader.i273 ], [ %.154.i, %234 ]
   %.055106.i = phi i64 [ %183, %.preheader.i273 ], [ %.156.i, %234 ]
-  %201 = load i64, ptr %178, align 8, !tbaa !67
+  %201 = load i64, ptr %178, align 8, !tbaa !65
   %202 = icmp eq i64 %201, 0
   br i1 %202, label %203, label %217
 
 203:                                              ; preds = %200
-  store ptr %3, ptr %176, align 8, !tbaa !61
+  store ptr %3, ptr %176, align 8, !tbaa !59
   %204 = load i64, ptr %150, align 8, !tbaa !23
   %.not.i87.i = icmp eq i64 %.055106.i, %204
   br i1 %.not.i87.i, label %.thread.i, label %205
@@ -633,7 +633,7 @@ fmap_readn.exit86.thread95.i:                     ; preds = %168
 
 fmap_readn.exit91.i:                              ; preds = %207
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %210, i64 %spec.select.i88.i, i1 false)
-  store i64 %spec.select.i88.i, ptr %178, align 8, !tbaa !67
+  store i64 %spec.select.i88.i, ptr %178, align 8, !tbaa !65
   %211 = add i64 %spec.select.i88.i, %.055106.i
   br label %217
 
@@ -653,7 +653,7 @@ fmap_readn.exit91.thread.i:                       ; preds = %207, %205
 217:                                              ; preds = %fmap_readn.exit91.i, %200
   %.156.i = phi i64 [ %211, %fmap_readn.exit91.i ], [ %.055106.i, %200 ]
   %218 = call i32 @cli_LzmaDecode(ptr noundef nonnull %2) #8
-  %219 = load i64, ptr %179, align 8, !tbaa !68
+  %219 = load i64, ptr %179, align 8, !tbaa !66
   %220 = sub i64 8192, %219
   %.not68.i = icmp eq i64 %219, 8192
   br i1 %.not68.i, label %234, label %221
@@ -686,10 +686,10 @@ fmap_readn.exit91.thread.i:                       ; preds = %207, %205
 
 234:                                              ; preds = %224, %217
   %.154.i = phi i64 [ %.053107.i, %217 ], [ %222, %224 ]
-  store ptr %4, ptr %177, align 8, !tbaa !66
-  store i64 8192, ptr %179, align 8, !tbaa !68
+  store ptr %4, ptr %177, align 8, !tbaa !64
+  store i64 8192, ptr %179, align 8, !tbaa !66
   %235 = icmp eq i32 %218, 0
-  br i1 %235, label %200, label %236, !llvm.loop !69
+  br i1 %235, label %200, label %236
 
 .thread.i:                                        ; preds = %203
   call void @cli_LzmaShutdown(ptr noundef nonnull %2) #8
@@ -746,9 +746,9 @@ fmap_readn.exit91.thread.i:                       ; preds = %207, %205
   %257 = load i32, ptr %7, align 4, !tbaa !31
   %258 = call i32 @close(i32 noundef %257) #8
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %260 = load ptr, ptr %259, align 8, !tbaa !41
+  %260 = load ptr, ptr %259, align 8, !tbaa !39
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 40
-  %262 = load i32, ptr %261, align 8, !tbaa !42
+  %262 = load i32, ptr %261, align 8, !tbaa !40
   %.not73.i = icmp eq i32 %262, 0
   br i1 %.not73.i, label %263, label %268
 
@@ -836,7 +836,7 @@ fmap_readn.exit283:                               ; preds = %285
   %292 = zext i8 %288 to i32
   %293 = add nuw i64 %.1241480, 1
   %294 = icmp ugt i32 %289, 8
-  br i1 %294, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %294, label %.lr.ph, label %._crit_edge.loopexit
 
 fmap_readn.exit283.thread:                        ; preds = %285, %.lr.ph
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #8
@@ -885,7 +885,7 @@ fmap_readn.exit288:                               ; preds = %304
   %311 = zext i8 %307 to i32
   %312 = add nuw i64 %.3243493, 1
   %313 = icmp ugt i32 %308, 8
-  br i1 %313, label %.lr.ph499, label %._crit_edge500, !llvm.loop !71
+  br i1 %313, label %.lr.ph499, label %._crit_edge500
 
 fmap_readn.exit288.thread:                        ; preds = %304, %.lr.ph499
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #8
@@ -931,7 +931,7 @@ fmap_readn.exit293:                               ; preds = %323
   %330 = zext i8 %326 to i32
   %331 = add nuw i64 %.4244510, 1
   %332 = icmp ugt i32 %327, 8
-  br i1 %332, label %.lr.ph516, label %._crit_edge517, !llvm.loop !72
+  br i1 %332, label %.lr.ph516, label %._crit_edge517
 
 fmap_readn.exit293.thread:                        ; preds = %323, %.lr.ph516
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #8
@@ -977,7 +977,7 @@ fmap_readn.exit298:                               ; preds = %342
   %349 = zext i8 %345 to i32
   %350 = add nuw i64 %.5527, 1
   %351 = icmp ugt i32 %346, 8
-  br i1 %351, label %.lr.ph533, label %._crit_edge534, !llvm.loop !73
+  br i1 %351, label %.lr.ph533, label %._crit_edge534
 
 fmap_readn.exit298.thread:                        ; preds = %342, %.lr.ph533
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #8
@@ -1211,19 +1211,16 @@ fmap_readn.exit348.thread:                        ; preds = %428, %fmap_readn.ex
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i541, 1
   %440 = getelementptr inbounds nuw [83 x %struct.tag_names_s], ptr @tag_names, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 82
-  br i1 %exitcond.i, label %.tagname.exit_crit_edge, label %441, !llvm.loop !74
+  br i1 %exitcond.i, label %tagname.exit, label %441
 
 441:                                              ; preds = %.lr.ph543
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  %443 = load i32, ptr %442, align 8, !tbaa !75
+  %443 = load i32, ptr %442, align 8, !tbaa !67
   %444 = icmp eq i32 %443, %400
-  br i1 %444, label %tagname.exit, label %.lr.ph543, !llvm.loop !74
+  br i1 %444, label %tagname.exit, label %.lr.ph543
 
-.tagname.exit_crit_edge:                          ; preds = %.lr.ph543
-  br label %tagname.exit, !llvm.loop !74
-
-tagname.exit:                                     ; preds = %441, %.tagname.exit_crit_edge
-  %445 = load ptr, ptr %440, align 16, !tbaa !77
+tagname.exit:                                     ; preds = %441, %.lr.ph543
+  %445 = load ptr, ptr %440, align 16, !tbaa !69
   %.not254 = icmp eq ptr %445, null
   %446 = select i1 %.not254, ptr @.str.18, ptr %445
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %446) #8
@@ -1254,7 +1251,7 @@ tagname.exit:                                     ; preds = %441, %.tagname.exit
   %.pn = phi i64 [ 4, %531 ], [ %447, %455 ], [ %447, %458 ]
   %.6.be = add i64 %.7, %.pn
   %457 = icmp ult i64 %.6.be, %456
-  br i1 %457, label %.lr.ph565, label %.critedge, !llvm.loop !78
+  br i1 %457, label %.lr.ph565, label %.critedge
 
 458:                                              ; preds = %455
   switch i32 %400, label %.backedge [
@@ -1582,43 +1579,34 @@ attributes #8 = { nounwind }
 !36 = !{!34, !5, i64 0}
 !37 = !{!34, !5, i64 24}
 !38 = !{!34, !14, i64 32}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!4, !11, i64 48}
-!42 = !{!43, !14, i64 40}
-!43 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !44, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !45, i64 136, !46, i64 144, !46, i64 152, !47, i64 160, !17, i64 168, !48, i64 176, !48, i64 184, !49, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !50, i64 224, !51, i64 232, !52, i64 240, !12, i64 248, !53, i64 256, !54, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !56, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !60, i64 1192}
-!44 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!45 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!46 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!47 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!48 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!49 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!50 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!51 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!52 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!53 = !{!"p1 _ZTS2MP", !6, i64 0}
-!54 = !{!"", !55, i64 0, !14, i64 8}
-!55 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!56 = !{!"cli_all_bc", !57, i64 0, !14, i64 8, !58, i64 16, !59, i64 24, !14, i64 516}
-!57 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!58 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!59 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!60 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
-!61 = !{!62, !5, i64 168}
-!62 = !{!"CLI_LZMA", !63, i64 0, !7, i64 136, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156, !12, i64 160, !5, i64 168, !5, i64 176, !12, i64 184, !12, i64 192}
-!63 = !{!"", !64, i64 0, !65, i64 16, !5, i64 24, !5, i64 32, !14, i64 40, !14, i64 44, !12, i64 48, !12, i64 56, !14, i64 64, !14, i64 68, !14, i64 72, !7, i64 76, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !7, i64 112}
-!64 = !{!"_CLzmaProps", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!65 = !{!"p1 short", !6, i64 0}
-!66 = !{!62, !5, i64 176}
-!67 = !{!62, !12, i64 184}
-!68 = !{!62, !12, i64 192}
-!69 = distinct !{!69, !40}
-!70 = distinct !{!70, !40}
-!71 = distinct !{!71, !40}
-!72 = distinct !{!72, !40}
-!73 = distinct !{!73, !40}
-!74 = distinct !{!74, !40}
-!75 = !{!76, !14, i64 8}
-!76 = !{!"tag_names_s", !5, i64 0, !14, i64 8}
-!77 = !{!76, !5, i64 0}
-!78 = distinct !{!78, !40}
+!39 = !{!4, !11, i64 48}
+!40 = !{!41, !14, i64 40}
+!41 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !42, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !43, i64 136, !44, i64 144, !44, i64 152, !45, i64 160, !17, i64 168, !46, i64 176, !46, i64 184, !47, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !48, i64 224, !49, i64 232, !50, i64 240, !12, i64 248, !51, i64 256, !52, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !54, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !58, i64 1192}
+!42 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!43 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!44 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!45 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!46 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!47 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!48 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!49 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!50 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!51 = !{!"p1 _ZTS2MP", !6, i64 0}
+!52 = !{!"", !53, i64 0, !14, i64 8}
+!53 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!54 = !{!"cli_all_bc", !55, i64 0, !14, i64 8, !56, i64 16, !57, i64 24, !14, i64 516}
+!55 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!56 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!57 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!58 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!59 = !{!60, !5, i64 168}
+!60 = !{!"CLI_LZMA", !61, i64 0, !7, i64 136, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156, !12, i64 160, !5, i64 168, !5, i64 176, !12, i64 184, !12, i64 192}
+!61 = !{!"", !62, i64 0, !63, i64 16, !5, i64 24, !5, i64 32, !14, i64 40, !14, i64 44, !12, i64 48, !12, i64 56, !14, i64 64, !14, i64 68, !14, i64 72, !7, i64 76, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !7, i64 112}
+!62 = !{!"_CLzmaProps", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!63 = !{!"p1 short", !6, i64 0}
+!64 = !{!60, !5, i64 176}
+!65 = !{!60, !12, i64 184}
+!66 = !{!60, !12, i64 192}
+!67 = !{!68, !14, i64 8}
+!68 = !{!"tag_names_s", !5, i64 0, !14, i64 8}
+!69 = !{!68, !5, i64 0}

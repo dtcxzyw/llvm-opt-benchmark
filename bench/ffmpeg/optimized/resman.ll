@@ -103,17 +103,17 @@ get_resman_context.exit:                          ; preds = %1, %9
   %13 = phi i1 [ true, %get_resman_context.exit ], [ false, %11 ]
   %indvars.iv = phi i64 [ 0, %get_resman_context.exit ], [ 1, %11 ]
   %14 = getelementptr inbounds nuw [2 x %struct.FFResourceDefinition], ptr @resource_definitions, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %14, align 16, !tbaa !17
+  %.sroa.0.0.copyload = load i32, ptr %14, align 16, !tbaa !16
   %.not40 = icmp eq i32 %.sroa.0.0.copyload, %0
   br i1 %.not40, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %12
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sroa.5.sroa.6.0.copyload = load ptr, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !19
+  %.sroa.5.sroa.6.0.copyload = load ptr, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !18
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !21
+  %.sroa.5.sroa.5.0.copyload = load ptr, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !20
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !21
+  %.sroa.5.sroa.4.0.copyload = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !20
   %.not41 = icmp eq ptr %.sroa.5.sroa.4.0.copyload, null
   br i1 %.not41, label %.loopexit.thread, label %15
 
@@ -131,7 +131,7 @@ get_resman_context.exit:                          ; preds = %1, %9
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  %21 = load i32, ptr %.sroa.5.sroa.6.0.copyload, align 4, !tbaa !17
+  %21 = load i32, ptr %.sroa.5.sroa.6.0.copyload, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   %22 = tail call noalias ptr @av_mallocz(i64 noundef 65535) #5
@@ -149,39 +149,39 @@ get_resman_context.exit:                          ; preds = %1, %9
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.12, ptr noundef %28) #5
   call void @av_free(ptr noundef nonnull %22) #5
   br label %42
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %21, ptr %30, align 8, !tbaa !27
-  store ptr %.sroa.5.sroa.5.0.copyload, ptr %2, align 8, !tbaa !28
+  store i32 %21, ptr %30, align 8, !tbaa !26
+  store ptr %.sroa.5.sroa.5.0.copyload, ptr %2, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 65534, ptr %31, align 8, !tbaa !29
+  store i32 65534, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %22, ptr %32, align 8, !tbaa !30
+  store ptr %22, ptr %32, align 8, !tbaa !29
   %33 = call i32 @inflate(ptr noundef nonnull %2, i32 noundef 4) #5
   %or.cond.i = icmp ugt i32 %33, 1
   br i1 %or.cond.i, label %34, label %38
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %33, ptr noundef %36) #5
   %37 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
   call void @av_free(ptr noundef nonnull %22) #5
   br label %42
 
 38:                                               ; preds = %29
-  %39 = load i32, ptr %31, align 8, !tbaa !29
+  %39 = load i32, ptr %31, align 8, !tbaa !28
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 24, ptr noundef nonnull @.str.14) #5
-  %.pre.i = load i32, ptr %31, align 8, !tbaa !29
+  %.pre.i = load i32, ptr %31, align 8, !tbaa !28
   br label %43
 
 42:                                               ; preds = %26, %34, %23
@@ -194,9 +194,9 @@ get_resman_context.exit:                          ; preds = %1, %9
   %45 = sub i32 65534, %44
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 %46
-  store i8 0, ptr %47, align 1, !tbaa !31
+  store i8 0, ptr %47, align 1, !tbaa !30
   %48 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
-  store ptr %22, ptr %3, align 8, !tbaa !21
+  store ptr %22, ptr %3, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #5
   %49 = call i32 @av_dict_set(ptr noundef nonnull %17, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef nonnull %22, i32 noundef 0) #5
   %50 = icmp slt i32 %49, 0
@@ -229,7 +229,7 @@ get_resman_context.exit:                          ; preds = %1, %9
 57:                                               ; preds = %56, %15
   %.031 = phi ptr [ %19, %15 ], [ %54, %56 ]
   %58 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !32
+  %59 = load ptr, ptr %58, align 8, !tbaa !31
   br label %60
 
 60:                                               ; preds = %.thread54, %57
@@ -290,23 +290,22 @@ attributes #5 = { nounwind }
 !11 = !{!"p1 _ZTS7AVClass", !6, i64 0}
 !12 = !{!"p1 _ZTS12AVDictionary", !6, i64 0}
 !13 = !{!10, !11, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !7, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 int", !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 omnipotent char", !6, i64 0}
-!23 = !{!24, !22, i64 48}
-!24 = !{!"z_stream_s", !22, i64 0, !18, i64 8, !25, i64 16, !22, i64 24, !18, i64 32, !25, i64 40, !22, i64 48, !26, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !18, i64 88, !25, i64 96, !25, i64 104}
-!25 = !{!"long", !7, i64 0}
-!26 = !{!"p1 _ZTS14internal_state", !6, i64 0}
-!27 = !{!24, !18, i64 8}
-!28 = !{!24, !22, i64 0}
-!29 = !{!24, !18, i64 32}
-!30 = !{!24, !22, i64 24}
-!31 = !{!7, !7, i64 0}
-!32 = !{!33, !22, i64 8}
-!33 = !{!"AVDictionaryEntry", !22, i64 0, !22, i64 8}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !7, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 int", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 omnipotent char", !6, i64 0}
+!22 = !{!23, !21, i64 48}
+!23 = !{!"z_stream_s", !21, i64 0, !17, i64 8, !24, i64 16, !21, i64 24, !17, i64 32, !24, i64 40, !21, i64 48, !25, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !17, i64 88, !24, i64 96, !24, i64 104}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!"p1 _ZTS14internal_state", !6, i64 0}
+!26 = !{!23, !17, i64 8}
+!27 = !{!23, !21, i64 0}
+!28 = !{!23, !17, i64 32}
+!29 = !{!23, !21, i64 24}
+!30 = !{!7, !7, i64 0}
+!31 = !{!32, !21, i64 8}
+!32 = !{!"AVDictionaryEntry", !21, i64 0, !21, i64 8}

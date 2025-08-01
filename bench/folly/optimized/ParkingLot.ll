@@ -40,7 +40,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN5folly18parking_lot_d
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr.i.i.i, i8 0, i64 40, i1 false)
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 64
   %8 = icmp eq i64 %.add.i.i.i, 262144
-  br i1 %8, label %_ZN5folly14IndestructibleISt5arrayINS_18parking_lot_detail6BucketELm4096EEEC2IS4_S4_EEv.exit, label %7, !llvm.loop !8
+  br i1 %8, label %_ZN5folly14IndestructibleISt5arrayINS_18parking_lot_detail6BucketELm4096EEEC2IS4_S4_EEv.exit, label %7
 
 _ZN5folly14IndestructibleISt5arrayINS_18parking_lot_detail6BucketELm4096EEEC2IS4_S4_EEv.exit: ; preds = %7
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly18parking_lot_detail6Bucket9bucketForEmE8gBuckets) #3
@@ -76,5 +76,3 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !7 = !{!"branch_weights", i32 1, i32 1048575}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

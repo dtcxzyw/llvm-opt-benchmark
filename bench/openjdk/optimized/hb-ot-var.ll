@@ -372,7 +372,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
 45:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit, label %23, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit, label %23, !llvm.loop !8
 
 .else13:                                          ; preds = %43
   store i32 %44, ptr %2, align 4
@@ -661,7 +661,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   store i32 0, ptr %131, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit, %4
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -745,7 +745,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
 42:                                               ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread, label %22, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread, label %22, !llvm.loop !8
 
 43:                                               ; preds = %22
   %44 = trunc nuw i64 %indvars.iv.i to i32
@@ -1156,7 +1156,7 @@ _ZNK10hb_array_tIKN2OT7HBFixedINS0_7IntTypeIiLj4EEELj16EEEE9sub_arrayEjPj.exit.i
   store float %80, ptr %81, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %_ZNK10hb_array_tIKN2OT7HBFixedINS0_7IntTypeIiLj4EEELj16EEEE9sub_arrayEjPj.exit.i, %54, %22
   %82 = load i8, ptr %34, align 1
@@ -1232,7 +1232,7 @@ define hidden void @hb_ot_var_normalize_variations(ptr noundef %0, ptr noundef r
 35:                                               ; preds = %.lr.ph26, %25, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge27, label %.lr.ph26, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge27, label %.lr.ph26, !llvm.loop !11
 
 ._crit_edge27:                                    ; preds = %35, %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1400,7 +1400,7 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.036.lcssa = phi ptr [ %10, %3 ], [ %23, %.lr.ph ]
@@ -1439,7 +1439,7 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = add nuw nsw i32 %.035101, 1
   %exitcond125.not = icmp eq i32 %49, %37
-  br i1 %exitcond125.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !14
+  br i1 %exitcond125.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !13
 
 ._crit_edge103:                                   ; preds = %.lr.ph102, %.preheader93
   %.1.lcssa = phi ptr [ %.036.lcssa, %.preheader93 ], [ %48, %.lr.ph102 ]
@@ -1540,7 +1540,7 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   store float 2.000000e+00, ptr %130, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK2OT14VariationStore12create_cacheEv.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZNK2OT14VariationStore12create_cacheEv.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK2OT14VariationStore12create_cacheEv.exit:     ; preds = %.lr.ph.i, %._crit_edge103
   %.not.i43.not = icmp eq i32 %2, 0
@@ -1552,7 +1552,7 @@ _ZNK2OT14VariationStore12create_cacheEv.exit:     ; preds = %.lr.ph.i, %._crit_e
   %132 = add i32 %.143.i, 8
   %133 = add i32 %132, %131
   %134 = icmp ugt i32 %2, %133
-  br i1 %134, label %.preheader.i, label %.thread.i, !llvm.loop !16
+  br i1 %134, label %.preheader.i, label %.thread.i, !llvm.loop !15
 
 .thread.i:                                        ; preds = %.preheader.i
   %135 = icmp ugt i32 %133, 1073741823
@@ -1606,7 +1606,7 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
 
 _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i: ; preds = %149
   %157 = and i32 %148, 65535
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %158 = zext nneg i32 %150 to i64
   %159 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.178"], ptr %140, i64 0, i64 %158
   %160 = load i8, ptr %159, align 1
@@ -1682,7 +1682,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %212 = add i32 %.143.i.i, 8
   %213 = add i32 %212, %211
   %214 = icmp ugt i32 %.pre136, %213
-  br i1 %214, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !16
+  br i1 %214, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !15
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
   %215 = icmp ugt i32 %213, 1073741823
@@ -1718,7 +1718,7 @@ _ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit:  ; preds = %_ZN11hb_vector_tIiL
   %.sroa.0.4 = phi i32 [ %.sroa.0.2, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i ], [ %.sroa.0.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i ]
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %.preheader, label %144, !llvm.loop !18
+  br i1 %exitcond130.not, label %.preheader, label %144, !llvm.loop !17
 
 221:                                              ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, %144
   %222 = landingpad { ptr, i32 }
@@ -1753,7 +1753,7 @@ _ZN11hb_vector_tIiLb0EEixEi.exit:                 ; preds = %226, %225
   store i32 %228, ptr %229, align 4
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %._crit_edge116, label %224, !llvm.loop !19
+  br i1 %exitcond135.not, label %._crit_edge116, label %224, !llvm.loop !18
 
 ._crit_edge116:                                   ; preds = %_ZN11hb_vector_tIiLb0EEixEi.exit
   tail call void @free(ptr noundef %128) #13
@@ -1796,7 +1796,7 @@ define hidden void @hb_ot_var_normalize_coords(ptr noundef %0, i32 noundef %1, p
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1912,7 +1912,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 75:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge.loopexit.split.loop.exit54:             ; preds = %.lr.ph
   %76 = trunc nuw i64 %indvars.iv to i32
@@ -2067,7 +2067,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT16DeltaSetIndexMap3mapEj(ptr noun
   %29 = or disjoint i32 %25, %28
   %30 = add nsw i32 %.01924.i, -1
   %.not22.i = icmp eq i32 %30, 0
-  br i1 %.not22.i, label %31, label %24, !llvm.loop !22
+  br i1 %.not22.i, label %31, label %24, !llvm.loop !21
 
 31:                                               ; preds = %24
   %32 = and i8 %16, 15
@@ -2130,7 +2130,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT16DeltaSetIndexMap3mapEj(ptr noun
   %74 = or disjoint i32 %70, %73
   %75 = add nsw i32 %.01924.i10, -1
   %.not22.i11 = icmp eq i32 %75, 0
-  br i1 %.not22.i11, label %76, label %69, !llvm.loop !23
+  br i1 %.not22.i11, label %76, label %69, !llvm.loop !22
 
 76:                                               ; preds = %69
   %77 = and i8 %61, 15
@@ -2266,7 +2266,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %81 = tail call float @llvm.fmuladd.f32(float %61, float %80, float %.04757)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader54, label %.lr.ph.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader54, label %.lr.ph.split, !llvm.loop !23
 
 .preheader:                                       ; preds = %86, %.preheader54
   %.150.lcssa = phi i32 [ %.049.lcssa, %.preheader54 ], [ %32, %86 ]
@@ -2307,7 +2307,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %105 = tail call float @llvm.fmuladd.f32(float %95, float %104, float %.164)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.preheader, label %86, !llvm.loop !25
+  br i1 %exitcond86.not, label %.preheader, label %86, !llvm.loop !24
 
 106:                                              ; preds = %.lr.ph72, %106
   %indvars.iv87 = phi i64 [ %84, %.lr.ph72 ], [ %indvars.iv.next88, %106 ]
@@ -2328,7 +2328,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %119 = tail call float @llvm.fmuladd.f32(float %115, float %118, float %.270)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %.loopexit, label %106, !llvm.loop !26
+  br i1 %exitcond91.not, label %.loopexit, label %106, !llvm.loop !25
 
 .loopexit:                                        ; preds = %106, %.preheader, %6
   %.0 = phi float [ 0.000000e+00, %6 ], [ %.1.lcssa, %.preheader ], [ %119, %106 ]
@@ -2465,7 +2465,7 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit.thread:    ; preds = %71, %51, %37, %_ZNK
   %83 = fmul float %.02940, %.0.i36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread, %20
   %.029.lcssa = phi float [ 1.000000e+00, %20 ], [ %83, %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread ]
@@ -2589,7 +2589,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_
 _ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
   %34 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %10, label %.loopexit.split.loop.exit12, !llvm.loop !28
+  br i1 %.not, label %10, label %.loopexit.split.loop.exit12
 
 .loopexit.split.loop.exit12:                      ; preds = %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, %1
   %.lcssa = phi i64 [ %3, %1 ], [ %34, %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit ]
@@ -2718,7 +2718,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13, !llvm.loop !29
+  br i1 %.not18, label %.critedge25, label %13
 
 .critedge23:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
@@ -3008,7 +3008,7 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_
 _ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
   %34 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %10, label %.loopexit.split.loop.exit12, !llvm.loop !30
+  br i1 %.not, label %10, label %.loopexit.split.loop.exit12
 
 .loopexit.split.loop.exit12:                      ; preds = %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, %1
   %.lcssa = phi i64 [ %3, %1 ], [ %34, %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit ]
@@ -3107,7 +3107,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13, !llvm.loop !31
+  br i1 %.not18, label %.critedge25, label %13
 
 .critedge23:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
@@ -3231,7 +3231,7 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = add nuw nsw i32 %.02437, 1
   %exitcond.not = icmp eq i32 %65, %33
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %55
   %.pre = load i8, ptr %0, align 1
@@ -3657,7 +3657,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %117, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !33
+  br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !28
 
 .thread33:                                        ; preds = %.lr.ph, %109, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %92, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %23, %14, %2
   %118 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %23 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
@@ -3868,31 +3868,26 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i64 2152595978}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = !{i64 2152595978}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

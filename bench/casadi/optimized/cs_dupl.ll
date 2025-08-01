@@ -111,7 +111,7 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
   %.1.lcssa = phi i32 [ %.05568, %.lr.ph70 ], [ %.2, %48 ]
   store i32 %.05568, ptr %23, align 4, !tbaa !16
   %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !21
 
 ._crit_edge71:                                    ; preds = %._crit_edge, %.preheader
   %.055.lcssa = phi i32 [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge ]
@@ -162,7 +162,6 @@ attributes #3 = { nounwind }
 !16 = !{!5, !5, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"double", !6, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
+!21 = distinct !{!21, !20}

@@ -107,7 +107,7 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
 .backedge.i:                                      ; preds = %17, %13
   %16 = call ptr @g_dir_read_name(ptr noundef nonnull %10) #13
   %.not28.i = icmp eq ptr %16, null
-  br i1 %.not28.i, label %.outer._crit_edge.i, label %13, !llvm.loop !6
+  br i1 %.not28.i, label %.outer._crit_edge.i, label %13
 
 17:                                               ; preds = %13
   %18 = call i32 @g_str_has_suffix(ptr noundef nonnull %14, ptr noundef nonnull @.str.11) #13
@@ -124,7 +124,7 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 208
   %27 = call i64 @g_strlcpy(ptr noundef nonnull %26, ptr noundef nonnull %7, i64 noundef 128) #13
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %29 = and i32 %28, 2
   %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %31, label %30
@@ -136,7 +136,7 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
 31:                                               ; preds = %30, %19
   %32 = call ptr @g_module_open(ptr noundef %25, i32 noundef 3) #13
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 336
-  store ptr %32, ptr %33, align 8, !tbaa !50
+  store ptr %32, ptr %33, align 8, !tbaa !48
   %.not80.i.i = icmp eq ptr %32, null
   br i1 %.not80.i.i, label %51, label %34
 
@@ -146,16 +146,16 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
   br i1 %.not81.i.i, label %51, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %5, align 8, !tbaa !56
+  %37 = load ptr, ptr %5, align 8, !tbaa !54
   %38 = call i32 (...) %37() #13
   %.not82.i.i = icmp eq i32 %38, 25
   br i1 %.not82.i.i, label %47, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %5, align 8, !tbaa !56
+  %40 = load ptr, ptr %5, align 8, !tbaa !54
   %41 = call i32 (...) %40() #13
   %42 = call i32 @llvm.abs.i32(i32 %41, i1 true)
-  %43 = load ptr, ptr %5, align 8, !tbaa !56
+  %43 = load ptr, ptr %5, align 8, !tbaa !54
   %44 = call i32 (...) %43() #13
   %45 = icmp slt i32 %44, 0
   %46 = select i1 %45, ptr @.str.15, ptr @.str.16
@@ -163,7 +163,7 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
   br label %51
 
 47:                                               ; preds = %36
-  %48 = load ptr, ptr %33, align 8, !tbaa !50
+  %48 = load ptr, ptr %33, align 8, !tbaa !48
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %50 = call i32 @g_module_symbol(ptr noundef %48, ptr noundef nonnull @.str.17, ptr noundef nonnull %49) #13
   %.not83.i.i = icmp eq i32 %50, 0
@@ -172,7 +172,7 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
 51:                                               ; preds = %157, %155, %147, %119, %115, %106, %102, %98, %94, %90, %86, %77, %73, %69, %65, %56, %47, %39, %34, %31
   %52 = call ptr @g_module_error() #13
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull %7, ptr noundef %52) #13
-  %53 = load ptr, ptr %33, align 8, !tbaa !50
+  %53 = load ptr, ptr %33, align 8, !tbaa !48
   %.not110.i.i = icmp eq ptr %53, null
   br i1 %.not110.i.i, label %160, label %54
 
@@ -181,276 +181,276 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
   br label %160
 
 56:                                               ; preds = %47
-  %57 = load ptr, ptr %33, align 8, !tbaa !50
+  %57 = load ptr, ptr %33, align 8, !tbaa !48
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %59 = call i32 @g_module_symbol(ptr noundef %57, ptr noundef nonnull @.str.19, ptr noundef nonnull %58) #13
   %.not84.i.i = icmp eq i32 %59, 0
   br i1 %.not84.i.i, label %51, label %60
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr %33, align 8, !tbaa !50
+  %61 = load ptr, ptr %33, align 8, !tbaa !48
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %63 = call i32 @g_module_symbol(ptr noundef %61, ptr noundef nonnull @.str.20, ptr noundef nonnull %62) #13
   %.not85.i.i = icmp eq i32 %63, 0
   br i1 %.not85.i.i, label %64, label %65
 
 64:                                               ; preds = %60
-  store ptr null, ptr %62, align 8, !tbaa !57
+  store ptr null, ptr %62, align 8, !tbaa !55
   br label %65
 
 65:                                               ; preds = %64, %60
-  %66 = load ptr, ptr %33, align 8, !tbaa !50
+  %66 = load ptr, ptr %33, align 8, !tbaa !48
   %67 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %68 = call i32 @g_module_symbol(ptr noundef %66, ptr noundef nonnull @.str.21, ptr noundef nonnull %67) #13
   %.not86.i.i = icmp eq i32 %68, 0
   br i1 %.not86.i.i, label %51, label %69
 
 69:                                               ; preds = %65
-  %70 = load ptr, ptr %33, align 8, !tbaa !50
+  %70 = load ptr, ptr %33, align 8, !tbaa !48
   %71 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %72 = call i32 @g_module_symbol(ptr noundef %70, ptr noundef nonnull @.str.22, ptr noundef nonnull %71) #13
   %.not87.i.i = icmp eq i32 %72, 0
   br i1 %.not87.i.i, label %51, label %73
 
 73:                                               ; preds = %69
-  %74 = load ptr, ptr %33, align 8, !tbaa !50
+  %74 = load ptr, ptr %33, align 8, !tbaa !48
   %75 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %76 = call i32 @g_module_symbol(ptr noundef %74, ptr noundef nonnull @.str.23, ptr noundef nonnull %75) #13
   %.not88.i.i = icmp eq i32 %76, 0
   br i1 %.not88.i.i, label %51, label %77
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr %33, align 8, !tbaa !50
+  %78 = load ptr, ptr %33, align 8, !tbaa !48
   %79 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %80 = call i32 @g_module_symbol(ptr noundef %78, ptr noundef nonnull @.str.24, ptr noundef nonnull %79) #13
   %.not89.i.i = icmp eq i32 %80, 0
   br i1 %.not89.i.i, label %51, label %81
 
 81:                                               ; preds = %77
-  %82 = load ptr, ptr %33, align 8, !tbaa !50
+  %82 = load ptr, ptr %33, align 8, !tbaa !48
   %83 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %84 = call i32 @g_module_symbol(ptr noundef %82, ptr noundef nonnull @.str.25, ptr noundef nonnull %83) #13
   %.not90.i.i = icmp eq i32 %84, 0
   br i1 %.not90.i.i, label %85, label %86
 
 85:                                               ; preds = %81
-  store ptr null, ptr %83, align 8, !tbaa !58
+  store ptr null, ptr %83, align 8, !tbaa !56
   br label %86
 
 86:                                               ; preds = %85, %81
-  %87 = load ptr, ptr %33, align 8, !tbaa !50
+  %87 = load ptr, ptr %33, align 8, !tbaa !48
   %88 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %89 = call i32 @g_module_symbol(ptr noundef %87, ptr noundef nonnull @.str.26, ptr noundef nonnull %88) #13
   %.not91.i.i = icmp eq i32 %89, 0
   br i1 %.not91.i.i, label %51, label %90
 
 90:                                               ; preds = %86
-  %91 = load ptr, ptr %33, align 8, !tbaa !50
+  %91 = load ptr, ptr %33, align 8, !tbaa !48
   %92 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %93 = call i32 @g_module_symbol(ptr noundef %91, ptr noundef nonnull @.str.27, ptr noundef nonnull %92) #13
   %.not92.i.i = icmp eq i32 %93, 0
   br i1 %.not92.i.i, label %51, label %94
 
 94:                                               ; preds = %90
-  %95 = load ptr, ptr %33, align 8, !tbaa !50
+  %95 = load ptr, ptr %33, align 8, !tbaa !48
   %96 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %97 = call i32 @g_module_symbol(ptr noundef %95, ptr noundef nonnull @.str.28, ptr noundef nonnull %96) #13
   %.not93.i.i = icmp eq i32 %97, 0
   br i1 %.not93.i.i, label %51, label %98
 
 98:                                               ; preds = %94
-  %99 = load ptr, ptr %33, align 8, !tbaa !50
+  %99 = load ptr, ptr %33, align 8, !tbaa !48
   %100 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %101 = call i32 @g_module_symbol(ptr noundef %99, ptr noundef nonnull @.str.29, ptr noundef nonnull %100) #13
   %.not94.i.i = icmp eq i32 %101, 0
   br i1 %.not94.i.i, label %51, label %102
 
 102:                                              ; preds = %98
-  %103 = load ptr, ptr %33, align 8, !tbaa !50
+  %103 = load ptr, ptr %33, align 8, !tbaa !48
   %104 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %105 = call i32 @g_module_symbol(ptr noundef %103, ptr noundef nonnull @.str.30, ptr noundef nonnull %104) #13
   %.not95.i.i = icmp eq i32 %105, 0
   br i1 %.not95.i.i, label %51, label %106
 
 106:                                              ; preds = %102
-  %107 = load ptr, ptr %33, align 8, !tbaa !50
+  %107 = load ptr, ptr %33, align 8, !tbaa !48
   %108 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %109 = call i32 @g_module_symbol(ptr noundef %107, ptr noundef nonnull @.str.31, ptr noundef nonnull %108) #13
   %.not96.i.i = icmp eq i32 %109, 0
   br i1 %.not96.i.i, label %51, label %110
 
 110:                                              ; preds = %106
-  %111 = load ptr, ptr %33, align 8, !tbaa !50
+  %111 = load ptr, ptr %33, align 8, !tbaa !48
   %112 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %113 = call i32 @g_module_symbol(ptr noundef %111, ptr noundef nonnull @.str.32, ptr noundef nonnull %112) #13
   %.not97.i.i = icmp eq i32 %113, 0
   br i1 %.not97.i.i, label %114, label %115
 
 114:                                              ; preds = %110
-  store ptr null, ptr %112, align 8, !tbaa !59
+  store ptr null, ptr %112, align 8, !tbaa !57
   br label %115
 
 115:                                              ; preds = %114, %110
-  %116 = load ptr, ptr %33, align 8, !tbaa !50
+  %116 = load ptr, ptr %33, align 8, !tbaa !48
   %117 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %118 = call i32 @g_module_symbol(ptr noundef %116, ptr noundef nonnull @.str.33, ptr noundef nonnull %117) #13
   %.not98.i.i = icmp eq i32 %118, 0
   br i1 %.not98.i.i, label %51, label %119
 
 119:                                              ; preds = %115
-  %120 = load ptr, ptr %33, align 8, !tbaa !50
+  %120 = load ptr, ptr %33, align 8, !tbaa !48
   %121 = getelementptr inbounds nuw i8, ptr %24, i64 176
   %122 = call i32 @g_module_symbol(ptr noundef %120, ptr noundef nonnull @.str.34, ptr noundef nonnull %121) #13
   %.not99.i.i = icmp eq i32 %122, 0
   br i1 %.not99.i.i, label %51, label %123
 
 123:                                              ; preds = %119
-  %124 = load ptr, ptr %33, align 8, !tbaa !50
+  %124 = load ptr, ptr %33, align 8, !tbaa !48
   %125 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %126 = call i32 @g_module_symbol(ptr noundef %124, ptr noundef nonnull @.str.35, ptr noundef nonnull %125) #13
   %.not100.i.i = icmp eq i32 %126, 0
   br i1 %.not100.i.i, label %127, label %128
 
 127:                                              ; preds = %123
-  store ptr null, ptr %125, align 8, !tbaa !60
+  store ptr null, ptr %125, align 8, !tbaa !58
   br label %128
 
 128:                                              ; preds = %127, %123
-  %129 = load ptr, ptr %33, align 8, !tbaa !50
+  %129 = load ptr, ptr %33, align 8, !tbaa !48
   %130 = getelementptr inbounds nuw i8, ptr %24, i64 192
   %131 = call i32 @g_module_symbol(ptr noundef %129, ptr noundef nonnull @.str.36, ptr noundef nonnull %130) #13
   %.not101.i.i = icmp eq i32 %131, 0
   br i1 %.not101.i.i, label %132, label %133
 
 132:                                              ; preds = %128
-  store ptr null, ptr %130, align 8, !tbaa !61
+  store ptr null, ptr %130, align 8, !tbaa !59
   br label %133
 
 133:                                              ; preds = %132, %128
-  %134 = load ptr, ptr %33, align 8, !tbaa !50
+  %134 = load ptr, ptr %33, align 8, !tbaa !48
   %135 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %136 = call i32 @g_module_symbol(ptr noundef %134, ptr noundef nonnull @.str.37, ptr noundef nonnull %135) #13
   %.not102.i.i = icmp eq i32 %136, 0
   br i1 %.not102.i.i, label %137, label %138
 
 137:                                              ; preds = %133
-  store ptr null, ptr %135, align 8, !tbaa !62
+  store ptr null, ptr %135, align 8, !tbaa !60
   br label %138
 
 138:                                              ; preds = %137, %133
-  %139 = load ptr, ptr %112, align 8, !tbaa !59
+  %139 = load ptr, ptr %112, align 8, !tbaa !57
   %.not103.i.i = icmp eq ptr %139, null
   br i1 %.not103.i.i, label %140, label %141
 
 140:                                              ; preds = %138
-  store ptr @_default_format_dimension, ptr %112, align 8, !tbaa !59
+  store ptr @_default_format_dimension, ptr %112, align 8, !tbaa !57
   br label %141
 
 141:                                              ; preds = %140, %138
-  %142 = load ptr, ptr %130, align 8, !tbaa !61
+  %142 = load ptr, ptr %130, align 8, !tbaa !59
   %.not104.i.i = icmp eq ptr %142, null
   br i1 %.not104.i.i, label %143, label %144
 
 143:                                              ; preds = %141
-  store ptr @_default_format_flags, ptr %130, align 8, !tbaa !61
+  store ptr @_default_format_flags, ptr %130, align 8, !tbaa !59
   br label %144
 
 144:                                              ; preds = %143, %141
-  %145 = load ptr, ptr %125, align 8, !tbaa !60
+  %145 = load ptr, ptr %125, align 8, !tbaa !58
   %.not105.i.i = icmp eq ptr %145, null
   br i1 %.not105.i.i, label %146, label %147
 
 146:                                              ; preds = %144
-  store ptr @_default_format_levels, ptr %125, align 8, !tbaa !60
+  store ptr @_default_format_levels, ptr %125, align 8, !tbaa !58
   br label %147
 
 147:                                              ; preds = %146, %144
   %148 = getelementptr inbounds nuw i8, ptr %24, i64 344
-  store ptr null, ptr %148, align 8, !tbaa !63
+  store ptr null, ptr %148, align 8, !tbaa !61
   %149 = getelementptr inbounds nuw i8, ptr %24, i64 360
-  store i32 -1, ptr %149, align 8, !tbaa !64
+  store i32 -1, ptr %149, align 8, !tbaa !62
   %150 = getelementptr inbounds nuw i8, ptr %24, i64 364
-  store i32 1, ptr %150, align 4, !tbaa !65
-  %151 = load ptr, ptr %75, align 8, !tbaa !66
+  store i32 1, ptr %150, align 4, !tbaa !63
+  %151 = load ptr, ptr %75, align 8, !tbaa !64
   call void %151(ptr noundef nonnull %24) #13
-  %152 = load i32, ptr %150, align 4, !tbaa !65
+  %152 = load i32, ptr %150, align 4, !tbaa !63
   %.not106.i.i = icmp eq i32 %152, 0
   br i1 %.not106.i.i, label %51, label %153
 
 153:                                              ; preds = %147
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !65
   %.not107.i.i = icmp eq ptr %154, null
   br i1 %.not107.i.i, label %.thread.i, label %155
 
 155:                                              ; preds = %153
-  %156 = load ptr, ptr %62, align 8, !tbaa !57
+  %156 = load ptr, ptr %62, align 8, !tbaa !55
   %.not108.i.i = icmp eq ptr %156, null
   br i1 %.not108.i.i, label %51, label %157
 
 157:                                              ; preds = %155
-  %158 = load ptr, ptr %33, align 8, !tbaa !50
+  %158 = load ptr, ptr %33, align 8, !tbaa !48
   %.not109.i.i = icmp eq ptr %158, null
   br i1 %.not109.i.i, label %51, label %161
 
 .thread.i:                                        ; preds = %153
-  store ptr @_default_format_gui_init, ptr %62, align 8, !tbaa !57
+  store ptr @_default_format_gui_init, ptr %62, align 8, !tbaa !55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %159 = getelementptr inbounds nuw i8, ptr %24, i64 352
-  store ptr null, ptr %159, align 8, !tbaa !68
+  store ptr null, ptr %159, align 8, !tbaa !66
   br label %171
 
 160:                                              ; preds = %54, %51
-  store ptr null, ptr %33, align 8, !tbaa !50
+  store ptr null, ptr %33, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @g_free(ptr noundef %25) #13
   call void @free(ptr noundef nonnull %24) #13
   br label %.outer.i
 
 161:                                              ; preds = %157
-  %162 = load ptr, ptr %58, align 8, !tbaa !69
+  %162 = load ptr, ptr %58, align 8, !tbaa !67
   %163 = call ptr %162() #13
-  store i32 6, ptr %24, align 8, !tbaa !70
+  store i32 6, ptr %24, align 8, !tbaa !68
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %26, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !71
+  store ptr %26, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !69
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %163, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !71
+  store ptr %163, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !69
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !72
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !70
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 208
   call void @dt_action_insert_sorted(ptr noundef nonnull %165, ptr noundef nonnull %24) #13
-  %.pr.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
+  %.pr.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %166 = getelementptr inbounds nuw i8, ptr %24, i64 352
-  store ptr null, ptr %166, align 8, !tbaa !68
+  store ptr null, ptr %166, align 8, !tbaa !66
   %.not32.i = icmp eq ptr %.pr.i, null
   br i1 %.not32.i, label %171, label %167
 
 167:                                              ; preds = %161
   %168 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 96
-  %169 = load i32, ptr %168, align 8, !tbaa !73
+  %169 = load i32, ptr %168, align 8, !tbaa !71
   %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %168, align 8, !tbaa !73
+  store i32 %170, ptr %168, align 8, !tbaa !71
   br label %171
 
 171:                                              ; preds = %167, %161, %.thread.i
-  %172 = load ptr, ptr %62, align 8, !tbaa !57
+  %172 = load ptr, ptr %62, align 8, !tbaa !55
   call void %172(ptr noundef nonnull %24) #13
-  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !65
   %.not33.i = icmp eq ptr %173, null
   br i1 %.not33.i, label %178, label %174
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 96
-  %176 = load i32, ptr %175, align 8, !tbaa !73
+  %176 = load i32, ptr %175, align 8, !tbaa !71
   %177 = add nsw i32 %176, -1
-  store i32 %177, ptr %175, align 8, !tbaa !73
+  store i32 %177, ptr %175, align 8, !tbaa !71
   br label %178
 
 178:                                              ; preds = %174, %171
-  %179 = load ptr, ptr %148, align 8, !tbaa !63
+  %179 = load ptr, ptr %148, align 8, !tbaa !61
   %.not34.i = icmp eq ptr %179, null
   br i1 %.not34.i, label %182, label %180
 
@@ -467,18 +467,18 @@ define void @dt_imageio_init(ptr noundef writeonly captures(none) initializes((0
   %.1.i = phi ptr [ %.022.ph42.i, %160 ], [ %183, %182 ]
   %184 = call ptr @g_dir_read_name(ptr noundef nonnull %10) #13
   %.not2839.i = icmp eq ptr %184, null
-  br i1 %.not2839.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not2839.i, label %.outer._crit_edge.i, label %.lr.ph.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.preheader.i
   %.022.ph.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.022.ph42.i, %.backedge.i ], [ %.1.i, %.outer.i ]
   call void @g_dir_close(ptr noundef nonnull %10) #13
-  store ptr %.022.ph.lcssa.i, ptr %0, align 8, !tbaa !78
+  store ptr %.022.ph.lcssa.i, ptr %0, align 8, !tbaa !76
   br label %dt_imageio_load_modules_format.exit
 
 dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #13
-  store ptr null, ptr %8, align 8, !tbaa !80
+  store ptr null, ptr %8, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
@@ -502,7 +502,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
 .backedge.i11:                                    ; preds = %dt_imageio_insert_storage.exit.i, %342, %191, %.lr.ph.i6
   %190 = call ptr @g_dir_read_name(ptr noundef nonnull %186) #13
   %.not22.i = icmp eq ptr %190, null
-  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i6, !llvm.loop !81
+  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i6
 
 191:                                              ; preds = %.lr.ph.i6
   %192 = call i32 @g_str_has_suffix(ptr noundef nonnull %188, ptr noundef nonnull @.str.11) #13
@@ -519,7 +519,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 216
   %201 = call i64 @g_strlcpy(ptr noundef nonnull %200, ptr noundef nonnull %4, i64 noundef 128) #13
-  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !8
+  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %203 = and i32 %202, 2
   %.not.i.i7 = icmp eq i32 %203, 0
   br i1 %.not.i.i7, label %205, label %204
@@ -531,7 +531,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
 205:                                              ; preds = %204, %193
   %206 = call ptr @g_module_open(ptr noundef %199, i32 noundef 3) #13
   %207 = getelementptr inbounds nuw i8, ptr %198, i64 344
-  store ptr %206, ptr %207, align 8, !tbaa !82
+  store ptr %206, ptr %207, align 8, !tbaa !79
   %.not84.i.i8 = icmp eq ptr %206, null
   br i1 %.not84.i.i8, label %225, label %208
 
@@ -541,16 +541,16 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   br i1 %.not85.i.i9, label %225, label %210
 
 210:                                              ; preds = %208
-  %211 = load ptr, ptr %2, align 8, !tbaa !56
+  %211 = load ptr, ptr %2, align 8, !tbaa !54
   %212 = call i32 (...) %211() #13
   %.not86.i.i10 = icmp eq i32 %212, 25
   br i1 %.not86.i.i10, label %221, label %213
 
 213:                                              ; preds = %210
-  %214 = load ptr, ptr %2, align 8, !tbaa !56
+  %214 = load ptr, ptr %2, align 8, !tbaa !54
   %215 = call i32 (...) %214() #13
   %216 = call i32 @llvm.abs.i32(i32 %215, i1 true)
-  %217 = load ptr, ptr %2, align 8, !tbaa !56
+  %217 = load ptr, ptr %2, align 8, !tbaa !54
   %218 = call i32 (...) %217() #13
   %219 = icmp slt i32 %218, 0
   %220 = select i1 %219, ptr @.str.15, ptr @.str.16
@@ -558,7 +558,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   br label %225
 
 221:                                              ; preds = %210
-  %222 = load ptr, ptr %207, align 8, !tbaa !82
+  %222 = load ptr, ptr %207, align 8, !tbaa !79
   %223 = getelementptr inbounds nuw i8, ptr %198, i64 48
   %224 = call i32 @g_module_symbol(ptr noundef %222, ptr noundef nonnull @.str.17, ptr noundef nonnull %223) #13
   %.not87.i.i13 = icmp eq i32 %224, 0
@@ -567,7 +567,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
 225:                                              ; preds = %334, %296, %292, %288, %284, %270, %246, %242, %238, %234, %230, %221, %213, %208, %205
   %226 = call ptr @g_module_error() #13
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, ptr noundef nonnull %4, ptr noundef %226) #13
-  %227 = load ptr, ptr %207, align 8, !tbaa !82
+  %227 = load ptr, ptr %207, align 8, !tbaa !79
   %.not113.i.i = icmp eq ptr %227, null
   br i1 %.not113.i.i, label %342, label %228
 
@@ -576,252 +576,252 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   br label %342
 
 230:                                              ; preds = %221
-  %231 = load ptr, ptr %207, align 8, !tbaa !82
+  %231 = load ptr, ptr %207, align 8, !tbaa !79
   %232 = getelementptr inbounds nuw i8, ptr %198, i64 56
   %233 = call i32 @g_module_symbol(ptr noundef %231, ptr noundef nonnull @.str.19, ptr noundef nonnull %232) #13
   %.not88.i.i14 = icmp eq i32 %233, 0
   br i1 %.not88.i.i14, label %225, label %234
 
 234:                                              ; preds = %230
-  %235 = load ptr, ptr %207, align 8, !tbaa !82
+  %235 = load ptr, ptr %207, align 8, !tbaa !79
   %236 = getelementptr inbounds nuw i8, ptr %198, i64 64
   %237 = call i32 @g_module_symbol(ptr noundef %235, ptr noundef nonnull @.str.20, ptr noundef nonnull %236) #13
   %.not89.i.i15 = icmp eq i32 %237, 0
   br i1 %.not89.i.i15, label %225, label %238
 
 238:                                              ; preds = %234
-  %239 = load ptr, ptr %207, align 8, !tbaa !82
+  %239 = load ptr, ptr %207, align 8, !tbaa !79
   %240 = getelementptr inbounds nuw i8, ptr %198, i64 72
   %241 = call i32 @g_module_symbol(ptr noundef %239, ptr noundef nonnull @.str.21, ptr noundef nonnull %240) #13
   %.not90.i.i16 = icmp eq i32 %241, 0
   br i1 %.not90.i.i16, label %225, label %242
 
 242:                                              ; preds = %238
-  %243 = load ptr, ptr %207, align 8, !tbaa !82
+  %243 = load ptr, ptr %207, align 8, !tbaa !79
   %244 = getelementptr inbounds nuw i8, ptr %198, i64 80
   %245 = call i32 @g_module_symbol(ptr noundef %243, ptr noundef nonnull @.str.22, ptr noundef nonnull %244) #13
   %.not91.i.i17 = icmp eq i32 %245, 0
   br i1 %.not91.i.i17, label %225, label %246
 
 246:                                              ; preds = %242
-  %247 = load ptr, ptr %207, align 8, !tbaa !82
+  %247 = load ptr, ptr %207, align 8, !tbaa !79
   %248 = getelementptr inbounds nuw i8, ptr %198, i64 88
   %249 = call i32 @g_module_symbol(ptr noundef %247, ptr noundef nonnull @.str.23, ptr noundef nonnull %248) #13
   %.not92.i.i18 = icmp eq i32 %249, 0
   br i1 %.not92.i.i18, label %225, label %250
 
 250:                                              ; preds = %246
-  %251 = load ptr, ptr %207, align 8, !tbaa !82
+  %251 = load ptr, ptr %207, align 8, !tbaa !79
   %252 = getelementptr inbounds nuw i8, ptr %198, i64 96
   %253 = call i32 @g_module_symbol(ptr noundef %251, ptr noundef nonnull @.str.42, ptr noundef nonnull %252) #13
   %.not93.i.i19 = icmp eq i32 %253, 0
   br i1 %.not93.i.i19, label %254, label %255
 
 254:                                              ; preds = %250
-  store ptr @default_supported, ptr %252, align 8, !tbaa !84
+  store ptr @default_supported, ptr %252, align 8, !tbaa !81
   br label %255
 
 255:                                              ; preds = %254, %250
-  %256 = load ptr, ptr %207, align 8, !tbaa !82
+  %256 = load ptr, ptr %207, align 8, !tbaa !79
   %257 = getelementptr inbounds nuw i8, ptr %198, i64 104
   %258 = call i32 @g_module_symbol(ptr noundef %256, ptr noundef nonnull @.str.32, ptr noundef nonnull %257) #13
   %.not94.i.i20 = icmp eq i32 %258, 0
   br i1 %.not94.i.i20, label %259, label %260
 
 259:                                              ; preds = %255
-  store ptr null, ptr %257, align 8, !tbaa !85
+  store ptr null, ptr %257, align 8, !tbaa !82
   br label %260
 
 260:                                              ; preds = %259, %255
-  %261 = load ptr, ptr %207, align 8, !tbaa !82
+  %261 = load ptr, ptr %207, align 8, !tbaa !79
   %262 = getelementptr inbounds nuw i8, ptr %198, i64 112
   %263 = call i32 @g_module_symbol(ptr noundef %261, ptr noundef nonnull @.str.43, ptr noundef nonnull %262) #13
   %.not95.i.i21 = icmp eq i32 %263, 0
   br i1 %.not95.i.i21, label %264, label %265
 
 264:                                              ; preds = %260
-  store ptr null, ptr %262, align 8, !tbaa !86
+  store ptr null, ptr %262, align 8, !tbaa !83
   br label %265
 
 265:                                              ; preds = %264, %260
-  %266 = load ptr, ptr %207, align 8, !tbaa !82
+  %266 = load ptr, ptr %207, align 8, !tbaa !79
   %267 = getelementptr inbounds nuw i8, ptr %198, i64 120
   %268 = call i32 @g_module_symbol(ptr noundef %266, ptr noundef nonnull @.str.44, ptr noundef nonnull %267) #13
   %.not96.i.i22 = icmp eq i32 %268, 0
   br i1 %.not96.i.i22, label %269, label %270
 
 269:                                              ; preds = %265
-  store ptr null, ptr %267, align 8, !tbaa !87
+  store ptr null, ptr %267, align 8, !tbaa !84
   br label %270
 
 270:                                              ; preds = %269, %265
-  %271 = load ptr, ptr %207, align 8, !tbaa !82
+  %271 = load ptr, ptr %207, align 8, !tbaa !79
   %272 = getelementptr inbounds nuw i8, ptr %198, i64 128
   %273 = call i32 @g_module_symbol(ptr noundef %271, ptr noundef nonnull @.str.45, ptr noundef nonnull %272) #13
   %.not97.i.i23 = icmp eq i32 %273, 0
   br i1 %.not97.i.i23, label %225, label %274
 
 274:                                              ; preds = %270
-  %275 = load ptr, ptr %207, align 8, !tbaa !82
+  %275 = load ptr, ptr %207, align 8, !tbaa !79
   %276 = getelementptr inbounds nuw i8, ptr %198, i64 136
   %277 = call i32 @g_module_symbol(ptr noundef %275, ptr noundef nonnull @.str.46, ptr noundef nonnull %276) #13
   %.not98.i.i24 = icmp eq i32 %277, 0
   br i1 %.not98.i.i24, label %278, label %279
 
 278:                                              ; preds = %274
-  store ptr null, ptr %276, align 8, !tbaa !88
+  store ptr null, ptr %276, align 8, !tbaa !85
   br label %279
 
 279:                                              ; preds = %278, %274
-  %280 = load ptr, ptr %207, align 8, !tbaa !82
+  %280 = load ptr, ptr %207, align 8, !tbaa !79
   %281 = getelementptr inbounds nuw i8, ptr %198, i64 144
   %282 = call i32 @g_module_symbol(ptr noundef %280, ptr noundef nonnull @.str.25, ptr noundef nonnull %281) #13
   %.not99.i.i25 = icmp eq i32 %282, 0
   br i1 %.not99.i.i25, label %283, label %284
 
 283:                                              ; preds = %279
-  store ptr null, ptr %281, align 8, !tbaa !89
+  store ptr null, ptr %281, align 8, !tbaa !86
   br label %284
 
 284:                                              ; preds = %283, %279
-  %285 = load ptr, ptr %207, align 8, !tbaa !82
+  %285 = load ptr, ptr %207, align 8, !tbaa !79
   %286 = getelementptr inbounds nuw i8, ptr %198, i64 152
   %287 = call i32 @g_module_symbol(ptr noundef %285, ptr noundef nonnull @.str.26, ptr noundef nonnull %286) #13
   %.not100.i.i26 = icmp eq i32 %287, 0
   br i1 %.not100.i.i26, label %225, label %288
 
 288:                                              ; preds = %284
-  %289 = load ptr, ptr %207, align 8, !tbaa !82
+  %289 = load ptr, ptr %207, align 8, !tbaa !79
   %290 = getelementptr inbounds nuw i8, ptr %198, i64 160
   %291 = call i32 @g_module_symbol(ptr noundef %289, ptr noundef nonnull @.str.27, ptr noundef nonnull %290) #13
   %.not101.i.i27 = icmp eq i32 %291, 0
   br i1 %.not101.i.i27, label %225, label %292
 
 292:                                              ; preds = %288
-  %293 = load ptr, ptr %207, align 8, !tbaa !82
+  %293 = load ptr, ptr %207, align 8, !tbaa !79
   %294 = getelementptr inbounds nuw i8, ptr %198, i64 168
   %295 = call i32 @g_module_symbol(ptr noundef %293, ptr noundef nonnull @.str.28, ptr noundef nonnull %294) #13
   %.not102.i.i28 = icmp eq i32 %295, 0
   br i1 %.not102.i.i28, label %225, label %296
 
 296:                                              ; preds = %292
-  %297 = load ptr, ptr %207, align 8, !tbaa !82
+  %297 = load ptr, ptr %207, align 8, !tbaa !79
   %298 = getelementptr inbounds nuw i8, ptr %198, i64 176
   %299 = call i32 @g_module_symbol(ptr noundef %297, ptr noundef nonnull @.str.29, ptr noundef nonnull %298) #13
   %.not103.i.i29 = icmp eq i32 %299, 0
   br i1 %.not103.i.i29, label %225, label %300
 
 300:                                              ; preds = %296
-  %301 = load ptr, ptr %207, align 8, !tbaa !82
+  %301 = load ptr, ptr %207, align 8, !tbaa !79
   %302 = getelementptr inbounds nuw i8, ptr %198, i64 184
   %303 = call i32 @g_module_symbol(ptr noundef %301, ptr noundef nonnull @.str.47, ptr noundef nonnull %302) #13
   %.not104.i.i30 = icmp eq i32 %303, 0
   br i1 %.not104.i.i30, label %304, label %305
 
 304:                                              ; preds = %300
-  store ptr null, ptr %302, align 8, !tbaa !90
+  store ptr null, ptr %302, align 8, !tbaa !87
   br label %305
 
 305:                                              ; preds = %304, %300
-  %306 = load ptr, ptr %207, align 8, !tbaa !82
+  %306 = load ptr, ptr %207, align 8, !tbaa !79
   %307 = getelementptr inbounds nuw i8, ptr %198, i64 192
   %308 = call i32 @g_module_symbol(ptr noundef %306, ptr noundef nonnull @.str.48, ptr noundef nonnull %307) #13
   %.not105.i.i31 = icmp eq i32 %308, 0
   br i1 %.not105.i.i31, label %309, label %310
 
 309:                                              ; preds = %305
-  store ptr null, ptr %307, align 8, !tbaa !91
+  store ptr null, ptr %307, align 8, !tbaa !88
   br label %310
 
 310:                                              ; preds = %309, %305
-  %311 = load ptr, ptr %207, align 8, !tbaa !82
+  %311 = load ptr, ptr %207, align 8, !tbaa !79
   %312 = getelementptr inbounds nuw i8, ptr %198, i64 200
   %313 = call i32 @g_module_symbol(ptr noundef %311, ptr noundef nonnull @.str.49, ptr noundef nonnull %312) #13
   %.not106.i.i32 = icmp eq i32 %313, 0
   br i1 %.not106.i.i32, label %314, label %315
 
 314:                                              ; preds = %310
-  store ptr null, ptr %312, align 8, !tbaa !92
+  store ptr null, ptr %312, align 8, !tbaa !89
   br label %315
 
 315:                                              ; preds = %314, %310
-  %316 = load ptr, ptr %207, align 8, !tbaa !82
+  %316 = load ptr, ptr %207, align 8, !tbaa !79
   %317 = getelementptr inbounds nuw i8, ptr %198, i64 208
   %318 = call i32 @g_module_symbol(ptr noundef %316, ptr noundef nonnull @.str.50, ptr noundef nonnull %317) #13
   %.not107.i.i33 = icmp eq i32 %318, 0
   br i1 %.not107.i.i33, label %319, label %320
 
 319:                                              ; preds = %315
-  store ptr null, ptr %317, align 8, !tbaa !93
+  store ptr null, ptr %317, align 8, !tbaa !90
   br label %320
 
 320:                                              ; preds = %319, %315
-  %321 = load ptr, ptr %257, align 8, !tbaa !85
+  %321 = load ptr, ptr %257, align 8, !tbaa !82
   %.not108.i.i34 = icmp eq ptr %321, null
   br i1 %.not108.i.i34, label %322, label %323
 
 322:                                              ; preds = %320
-  store ptr @_default_storage_dimension, ptr %257, align 8, !tbaa !85
+  store ptr @_default_storage_dimension, ptr %257, align 8, !tbaa !82
   br label %323
 
 323:                                              ; preds = %322, %320
-  %324 = load ptr, ptr %262, align 8, !tbaa !86
+  %324 = load ptr, ptr %262, align 8, !tbaa !83
   %.not109.i.i35 = icmp eq ptr %324, null
   br i1 %.not109.i.i35, label %325, label %326
 
 325:                                              ; preds = %323
-  store ptr @_default_storage_dimension, ptr %262, align 8, !tbaa !86
+  store ptr @_default_storage_dimension, ptr %262, align 8, !tbaa !83
   br label %326
 
 326:                                              ; preds = %325, %323
-  %327 = load ptr, ptr %302, align 8, !tbaa !90
+  %327 = load ptr, ptr %302, align 8, !tbaa !87
   %.not110.i.i36 = icmp eq ptr %327, null
   br i1 %.not110.i.i36, label %328, label %329
 
 328:                                              ; preds = %326
-  store ptr @_default_storage_nop, ptr %302, align 8, !tbaa !90
+  store ptr @_default_storage_nop, ptr %302, align 8, !tbaa !87
   br label %329
 
 329:                                              ; preds = %328, %326
   %330 = getelementptr inbounds nuw i8, ptr %198, i64 352
-  store ptr null, ptr %330, align 8, !tbaa !94
+  store ptr null, ptr %330, align 8, !tbaa !91
   %331 = getelementptr inbounds nuw i8, ptr %198, i64 368
-  store i32 -1, ptr %331, align 8, !tbaa !95
-  %332 = load ptr, ptr %248, align 8, !tbaa !96
+  store i32 -1, ptr %331, align 8, !tbaa !92
+  %332 = load ptr, ptr %248, align 8, !tbaa !93
   call void %332(ptr noundef nonnull %198) #13
-  %333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
+  %333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !65
   %.not111.i.i = icmp eq ptr %333, null
   br i1 %.not111.i.i, label %341, label %334
 
 334:                                              ; preds = %329
-  %335 = load ptr, ptr %236, align 8, !tbaa !97
+  %335 = load ptr, ptr %236, align 8, !tbaa !94
   %.not112.i.i = icmp eq ptr %335, null
   br i1 %.not112.i.i, label %225, label %336
 
 336:                                              ; preds = %334
-  %337 = load ptr, ptr %232, align 8, !tbaa !98
+  %337 = load ptr, ptr %232, align 8, !tbaa !95
   %338 = call ptr %337(ptr noundef nonnull %198) #13
-  store i32 6, ptr %198, align 8, !tbaa !70
+  store i32 6, ptr %198, align 8, !tbaa !68
   %.sroa.2.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i37, align 4
   %.sroa.3.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store ptr %200, ptr %.sroa.3.0..sroa_idx.i.i38, align 8, !tbaa !71
+  store ptr %200, ptr %.sroa.3.0..sroa_idx.i.i38, align 8, !tbaa !69
   %.sroa.4.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  store ptr %338, ptr %.sroa.4.0..sroa_idx.i.i39, align 8, !tbaa !71
+  store ptr %338, ptr %.sroa.4.0..sroa_idx.i.i39, align 8, !tbaa !69
   %.sroa.5.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %198, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i40, i8 0, i64 24, i1 false)
-  %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !72
+  %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !70
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 256
   call void @dt_action_insert_sorted(ptr noundef nonnull %340, ptr noundef nonnull %198) #13
-  %.pre.i = load ptr, ptr %236, align 8, !tbaa !97
+  %.pre.i = load ptr, ptr %236, align 8, !tbaa !94
   br label %343
 
 341:                                              ; preds = %329
-  store ptr @_default_storage_nop, ptr %236, align 8, !tbaa !97
+  store ptr @_default_storage_nop, ptr %236, align 8, !tbaa !94
   br label %343
 
 342:                                              ; preds = %228, %225
-  store ptr null, ptr %207, align 8, !tbaa !82
+  store ptr null, ptr %207, align 8, !tbaa !79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @g_free(ptr noundef %199) #13
   call void @free(ptr noundef nonnull %198) #13
@@ -831,9 +831,9 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   %344 = phi ptr [ @_default_storage_nop, %341 ], [ %.pre.i, %336 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %345 = getelementptr inbounds nuw i8, ptr %198, i64 360
-  store ptr null, ptr %345, align 8, !tbaa !99
+  store ptr null, ptr %345, align 8, !tbaa !96
   call void %344(ptr noundef nonnull %198) #13
-  %346 = load ptr, ptr %330, align 8, !tbaa !94
+  %346 = load ptr, ptr %330, align 8, !tbaa !91
   %.not26.i = icmp eq ptr %346, null
   br i1 %.not26.i, label %349, label %347
 
@@ -843,14 +843,14 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
 
 349:                                              ; preds = %347, %343
   call void @g_free(ptr noundef %199) #13
-  %350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  %352 = load ptr, ptr %351, align 8, !tbaa !80
+  %352 = load ptr, ptr %351, align 8, !tbaa !78
   %353 = call ptr @g_list_insert_sorted(ptr noundef %352, ptr noundef nonnull %198, ptr noundef nonnull @dt_imageio_sort_modules_storage) #13
-  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  store ptr %353, ptr %355, align 8, !tbaa !80
-  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !101
+  store ptr %353, ptr %355, align 8, !tbaa !78
+  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !98
   %357 = and i32 %356, 1
   %358 = icmp ne i32 %357, 0
   %359 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
@@ -859,7 +859,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   br i1 %or.cond.i.i, label %361, label %dt_imageio_insert_storage.exit.i
 
 361:                                              ; preds = %349
-  %362 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !8
+  %362 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %363 = and i32 %362, 1048576
   %.not.i27.i = icmp eq i32 %363, 0
   br i1 %.not.i27.i, label %dt_imageio_insert_storage.exit.i, label %364
@@ -869,7 +869,7 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   br label %dt_imageio_insert_storage.exit.i
 
 dt_imageio_insert_storage.exit.i:                 ; preds = %364, %361, %349
-  %365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !102
+  %365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %365, i32 noundef 36) #13
   br label %.backedge.i11
 
@@ -885,27 +885,27 @@ dt_imageio_load_modules_storage.exit:             ; preds = %dt_imageio_load_mod
 
 ; Function Attrs: nounwind uwtable
 define void @dt_imageio_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %.pr = load ptr, ptr %0, align 8, !tbaa !78
+  %.pr = load ptr, ptr %0, align 8, !tbaa !76
   %.not36 = icmp eq ptr %.pr, null
   br i1 %.not36, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %18, %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !78
   %.not3137 = icmp eq ptr %3, null
   br i1 %.not3137, label %._crit_edge, label %.lr.ph38
 
 .lr.ph:                                           ; preds = %1, %18
   %4 = phi ptr [ %20, %18 ], [ %.pr, %1 ]
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %5 = load ptr, ptr %4, align 8, !tbaa !100
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !102
   tail call void %7(ptr noundef %5) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !106
+  %9 = load ptr, ptr %8, align 8, !tbaa !103
   tail call void %9(ptr noundef %5) #13
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !61
   %.not34 = icmp eq ptr %11, null
   br i1 %.not34, label %13, label %12
 
@@ -915,7 +915,7 @@ define void @dt_imageio_cleanup(ptr noundef captures(none) %0) local_unnamed_add
 
 13:                                               ; preds = %12, %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 336
-  %15 = load ptr, ptr %14, align 8, !tbaa !50
+  %15 = load ptr, ptr %14, align 8, !tbaa !48
   %.not35 = icmp eq ptr %15, null
   br i1 %.not35, label %18, label %16
 
@@ -925,20 +925,20 @@ define void @dt_imageio_cleanup(ptr noundef captures(none) %0) local_unnamed_add
 
 18:                                               ; preds = %16, %13
   tail call void @free(ptr noundef nonnull %5) #13
-  %19 = load ptr, ptr %0, align 8, !tbaa !78
+  %19 = load ptr, ptr %0, align 8, !tbaa !76
   %20 = tail call ptr @g_list_delete_link(ptr noundef %19, ptr noundef %19) #13
-  store ptr %20, ptr %0, align 8, !tbaa !78
+  store ptr %20, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !107
+  br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph38:                                         ; preds = %.preheader, %33
   %21 = phi ptr [ %35, %33 ], [ %3, %.preheader ]
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %21, align 8, !tbaa !100
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !108
+  %24 = load ptr, ptr %23, align 8, !tbaa !104
   tail call void %24(ptr noundef %22) #13
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 352
-  %26 = load ptr, ptr %25, align 8, !tbaa !94
+  %26 = load ptr, ptr %25, align 8, !tbaa !91
   %.not32 = icmp eq ptr %26, null
   br i1 %.not32, label %28, label %27
 
@@ -948,7 +948,7 @@ define void @dt_imageio_cleanup(ptr noundef captures(none) %0) local_unnamed_add
 
 28:                                               ; preds = %27, %.lr.ph38
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 344
-  %30 = load ptr, ptr %29, align 8, !tbaa !82
+  %30 = load ptr, ptr %29, align 8, !tbaa !79
   %.not33 = icmp eq ptr %30, null
   br i1 %.not33, label %33, label %31
 
@@ -958,11 +958,11 @@ define void @dt_imageio_cleanup(ptr noundef captures(none) %0) local_unnamed_add
 
 33:                                               ; preds = %31, %28
   tail call void @free(ptr noundef nonnull %22) #13
-  %34 = load ptr, ptr %2, align 8, !tbaa !80
+  %34 = load ptr, ptr %2, align 8, !tbaa !78
   %35 = tail call ptr @g_list_delete_link(ptr noundef %34, ptr noundef %34) #13
-  store ptr %35, ptr %2, align 8, !tbaa !80
+  store ptr %35, ptr %2, align 8, !tbaa !78
   %.not31 = icmp eq ptr %35, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph38, !llvm.loop !109
+  br i1 %.not31, label %._crit_edge, label %.lr.ph38
 
 ._crit_edge:                                      ; preds = %33, %.preheader
   ret void
@@ -985,11 +985,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_imageio_get_format() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %2 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str) #13
   %.not.i = icmp eq ptr %2, null
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
-  %.01418.i7.pre = load ptr, ptr %.pre, align 8, !tbaa !110
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
+  %.01418.i7.pre = load ptr, ptr %.pre, align 8, !tbaa !105
   br i1 %.not.i, label %.loopexit23, label %3
 
 3:                                                ; preds = %0
@@ -998,13 +998,13 @@ define ptr @dt_imageio_get_format() local_unnamed_addr #0 {
 
 4:                                                ; preds = %.lr.ph.i
   %5 = getelementptr inbounds nuw i8, ptr %.01420.i, i64 8
-  %.014.i = load ptr, ptr %5, align 8, !tbaa !110
+  %.014.i = load ptr, ptr %5, align 8, !tbaa !105
   %.not16.i = icmp eq ptr %.014.i, null
-  br i1 %.not16.i, label %.loopexit23, label %.lr.ph.i, !llvm.loop !111
+  br i1 %.not16.i, label %.loopexit23, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %4
   %.01420.i = phi ptr [ %.014.i, %4 ], [ %.01418.i7.pre, %3 ]
-  %6 = load ptr, ptr %.01420.i, align 8, !tbaa !103
+  %6 = load ptr, ptr %.01420.i, align 8, !tbaa !100
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %2) #14
   %.not17.not.i = icmp eq i32 %8, 0
@@ -1016,21 +1016,21 @@ define ptr @dt_imageio_get_format() local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph.i9
   %10 = getelementptr inbounds nuw i8, ptr %.01420.i10, i64 8
-  %.014.i12 = load ptr, ptr %10, align 8, !tbaa !110
+  %.014.i12 = load ptr, ptr %10, align 8, !tbaa !105
   %.not16.i13 = icmp eq ptr %.014.i12, null
-  br i1 %.not16.i13, label %.loopexit, label %.lr.ph.i9, !llvm.loop !111
+  br i1 %.not16.i13, label %.loopexit, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.loopexit23, %9
   %.01420.i10 = phi ptr [ %.014.i12, %9 ], [ %.01418.i7.pre, %.loopexit23 ]
-  %11 = load ptr, ptr %.01420.i10, align 8, !tbaa !103
+  %11 = load ptr, ptr %.01420.i10, align 8, !tbaa !100
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.1) #14
   %.not17.not.i11 = icmp eq i32 %13, 0
   br i1 %.not17.not.i11, label %dt_imageio_get_format_by_name.exit, label %9
 
 .loopexit:                                        ; preds = %9, %3, %.loopexit23
-  %14 = load ptr, ptr %1, align 8, !tbaa !78
-  %15 = load ptr, ptr %14, align 8, !tbaa !103
+  %14 = load ptr, ptr %1, align 8, !tbaa !76
+  %15 = load ptr, ptr %14, align 8, !tbaa !100
   br label %dt_imageio_get_format_by_name.exit
 
 dt_imageio_get_format_by_name.exit:               ; preds = %.lr.ph.i, %.lr.ph.i9, %.loopexit
@@ -1046,20 +1046,20 @@ define ptr @dt_imageio_get_format_by_name(ptr noundef readonly captures(address_
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
-  %.01418 = load ptr, ptr %3, align 8, !tbaa !110
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
+  %.01418 = load ptr, ptr %3, align 8, !tbaa !105
   %.not1619 = icmp eq ptr %.01418, null
   br i1 %.not1619, label %.loopexit, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
-  %.014 = load ptr, ptr %5, align 8, !tbaa !110
+  %.014 = load ptr, ptr %5, align 8, !tbaa !105
   %.not16 = icmp eq ptr %.014, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !111
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %4
   %.01420 = phi ptr [ %.014, %4 ], [ %.01418, %2 ]
-  %6 = load ptr, ptr %.01420, align 8, !tbaa !103
+  %6 = load ptr, ptr %.01420, align 8, !tbaa !100
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not17.not = icmp eq i32 %8, 0
@@ -1072,10 +1072,10 @@ define ptr @dt_imageio_get_format_by_name(ptr noundef readonly captures(address_
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_imageio_get_storage() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %2 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.2) #13
   %.not.i = icmp eq ptr %2, null
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   br i1 %.not.i, label %.loopexit.preheader, label %.preheader
 
 .loopexit.preheader:                              ; preds = %.preheader, %0
@@ -1084,35 +1084,35 @@ define ptr @dt_imageio_get_storage() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %3
   %.pn.i = phi ptr [ %.014.i, %3 ], [ %.pre, %0 ]
   %.014.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !110
+  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !105
   %.not16.i = icmp eq ptr %.014.i, null
   br i1 %.not16.i, label %.loopexit.preheader, label %3
 
 3:                                                ; preds = %.preheader
-  %4 = load ptr, ptr %.014.i, align 8, !tbaa !103
+  %4 = load ptr, ptr %.014.i, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %2) #14
   %.not17.not.i = icmp eq i32 %6, 0
-  br i1 %.not17.not.i, label %dt_imageio_get_storage_by_name.exit.thread17, label %.preheader, !llvm.loop !112
+  br i1 %.not17.not.i, label %dt_imageio_get_storage_by_name.exit.thread17, label %.preheader
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %7
   %.pn.i7 = phi ptr [ %.014.i9, %7 ], [ %.pre, %.loopexit.preheader ]
   %.014.in.i8 = getelementptr inbounds nuw i8, ptr %.pn.i7, i64 8
-  %.014.i9 = load ptr, ptr %.014.in.i8, align 8, !tbaa !110
+  %.014.i9 = load ptr, ptr %.014.in.i8, align 8, !tbaa !105
   %.not16.i10 = icmp eq ptr %.014.i9, null
   br i1 %.not16.i10, label %dt_imageio_get_storage_by_name.exit, label %7
 
 7:                                                ; preds = %.loopexit
-  %8 = load ptr, ptr %.014.i9, align 8, !tbaa !103
+  %8 = load ptr, ptr %.014.i9, align 8, !tbaa !100
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(5) @.str.3) #14
   %.not17.not.i11 = icmp eq i32 %10, 0
-  br i1 %.not17.not.i11, label %dt_imageio_get_storage_by_name.exit.thread17, label %.loopexit, !llvm.loop !112
+  br i1 %.not17.not.i11, label %dt_imageio_get_storage_by_name.exit.thread17, label %.loopexit
 
 dt_imageio_get_storage_by_name.exit:              ; preds = %.loopexit
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !80
-  %13 = load ptr, ptr %12, align 8, !tbaa !103
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
+  %13 = load ptr, ptr %12, align 8, !tbaa !100
   br label %dt_imageio_get_storage_by_name.exit.thread17
 
 dt_imageio_get_storage_by_name.exit.thread17:     ; preds = %3, %7, %dt_imageio_get_storage_by_name.exit
@@ -1126,22 +1126,22 @@ define ptr @dt_imageio_get_storage_by_name(ptr noundef readonly captures(address
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   br label %4
 
 4:                                                ; preds = %5, %2
   %.pn = phi ptr [ %3, %2 ], [ %.014, %5 ]
   %.014.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %.014 = load ptr, ptr %.014.in, align 8, !tbaa !110
+  %.014 = load ptr, ptr %.014.in, align 8, !tbaa !105
   %.not16 = icmp eq ptr %.014, null
   br i1 %.not16, label %.loopexit, label %5
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %.014, align 8, !tbaa !103
+  %6 = load ptr, ptr %.014, align 8, !tbaa !100
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not17.not = icmp eq i32 %8, 0
-  br i1 %.not17.not, label %.loopexit, label %4, !llvm.loop !112
+  br i1 %.not17.not, label %.loopexit, label %4
 
 .loopexit:                                        ; preds = %5, %4, %1
   %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %6, %5 ]
@@ -1153,19 +1153,19 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_imageio_get_format_by_index(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
-  %3 = load ptr, ptr %2, align 8, !tbaa !78
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = tail call ptr @g_list_nth(ptr noundef %3, i32 noundef %0) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8, !tbaa !78
+  %6 = load ptr, ptr %2, align 8, !tbaa !76
   br label %7
 
 7:                                                ; preds = %5, %1
   %.0 = phi ptr [ %4, %1 ], [ %6, %5 ]
-  %8 = load ptr, ptr %.0, align 8, !tbaa !103
+  %8 = load ptr, ptr %.0, align 8, !tbaa !100
   ret ptr %8
 }
 
@@ -1173,27 +1173,27 @@ declare ptr @g_list_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_imageio_get_storage_by_index(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = tail call ptr @g_list_nth(ptr noundef %4, i32 noundef %0) #13
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8, !tbaa !80
+  %7 = load ptr, ptr %3, align 8, !tbaa !78
   br label %8
 
 8:                                                ; preds = %6, %1
   %.0 = phi ptr [ %5, %1 ], [ %7, %6 ]
-  %9 = load ptr, ptr %.0, align 8, !tbaa !103
+  %9 = load ptr, ptr %.0, align 8, !tbaa !100
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_imageio_get_index_of_format(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
-  %3 = load ptr, ptr %2, align 8, !tbaa !78
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = tail call i32 @g_list_index(ptr noundef %3, ptr noundef %0) #13
   ret i32 %4
 }
@@ -1202,23 +1202,23 @@ declare i32 @g_list_index(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_imageio_get_index_of_storage(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = tail call i32 @g_list_index(ptr noundef %4, ptr noundef %0) #13
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_imageio_insert_storage(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = tail call ptr @g_list_insert_sorted(ptr noundef %4, ptr noundef %0, ptr noundef nonnull @dt_imageio_sort_modules_storage) #13
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %5, ptr %7, align 8, !tbaa !80
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !101
+  store ptr %5, ptr %7, align 8, !tbaa !78
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !98
   %9 = and i32 %8, 1
   %10 = icmp ne i32 %9, 0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
@@ -1227,7 +1227,7 @@ define void @dt_imageio_insert_storage(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %13, label %17
 
 13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %15 = and i32 %14, 1048576
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %16
@@ -1237,7 +1237,7 @@ define void @dt_imageio_insert_storage(ptr noundef %0) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %16, %13, %1
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !102
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
   tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %18, i32 noundef 36) #13
   ret void
 }
@@ -1247,10 +1247,10 @@ declare ptr @g_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal i32 @dt_imageio_sort_modules_storage(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = tail call ptr %4(ptr noundef %0) #13
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !98
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = tail call ptr %7(ptr noundef %1) #13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #14
   ret i32 %9
@@ -1262,14 +1262,14 @@ declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define void @dt_imageio_remove_storage(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = tail call ptr @g_list_remove(ptr noundef %4, ptr noundef %0) #13
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !100
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 184), align 8, !tbaa !97
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %5, ptr %7, align 8, !tbaa !80
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !101
+  store ptr %5, ptr %7, align 8, !tbaa !78
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !98
   %9 = and i32 %8, 1
   %10 = icmp ne i32 %9, 0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
@@ -1278,7 +1278,7 @@ define void @dt_imageio_remove_storage(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %13, label %17
 
 13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %15 = and i32 %14, 1048576
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %16
@@ -1288,7 +1288,7 @@ define void @dt_imageio_remove_storage(ptr noundef %0) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %16, %13, %1
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !102
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
   tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %18, i32 noundef 36) #13
   ret void
 }
@@ -1310,7 +1310,7 @@ define ptr @dt_imageio_resizing_factor_get_and_parsing(ptr noundef writeonly cap
   %indvars.iv = phi i64 [ -1, %2 ], [ %indvars.iv.next, %.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %9 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
-  %10 = load i8, ptr %9, align 1, !tbaa !113
+  %10 = load i8, ptr %9, align 1, !tbaa !106
   switch i8 %10, label %.backedge [
     i8 0, label %12
     i8 46, label %11
@@ -1318,10 +1318,10 @@ define ptr @dt_imageio_resizing_factor_get_and_parsing(ptr noundef writeonly cap
   ]
 
 .backedge:                                        ; preds = %8, %11
-  br label %8, !llvm.loop !114
+  br label %8
 
 11:                                               ; preds = %8, %8
-  store i8 %7, ptr %9, align 1, !tbaa !113
+  store i8 %7, ptr %9, align 1, !tbaa !106
   br label %.backedge
 
 12:                                               ; preds = %8
@@ -1355,8 +1355,8 @@ define ptr @dt_imageio_resizing_factor_get_and_parsing(ptr noundef writeonly cap
   %.1 = select nsz i1 %27, double 1.000000e+00, double %.0
   %28 = fcmp reassoc nsz arcp contract afn oeq double %.024, 0.000000e+00
   %.125 = select nsz i1 %28, double 1.000000e+00, double %.024
-  store double %.1, ptr %0, align 8, !tbaa !115
-  store double %.125, ptr %1, align 8, !tbaa !115
+  store double %.1, ptr %0, align 8, !tbaa !107
+  store double %.125, ptr %1, align 8, !tbaa !107
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   ret ptr %4
@@ -1404,10 +1404,10 @@ declare ptr @g_object_ref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @dt_imageio_sort_modules_format(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !69
+  %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = tail call ptr %4() #13
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = tail call ptr %7() #13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #14
   ret i32 %9
@@ -1426,8 +1426,8 @@ declare ptr @g_module_error() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @_default_format_dimension(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) #10 {
-  store i32 0, ptr %2, align 4, !tbaa !70
-  store i32 0, ptr %3, align 4, !tbaa !70
+  store i32 0, ptr %2, align 4, !tbaa !68
+  store i32 0, ptr %3, align 4, !tbaa !68
   ret i32 0
 }
 
@@ -1491,113 +1491,105 @@ attributes #15 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9, !11, i64 8}
-!9 = !{!"darktable_t", !10, i64 0, !11, i64 4, !11, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !16, i64 48, !17, i64 56, !18, i64 64, !19, i64 72, !20, i64 80, !21, i64 88, !22, i64 96, !23, i64 104, !24, i64 112, !25, i64 120, !26, i64 128, !27, i64 136, !28, i64 144, !29, i64 152, !30, i64 160, !31, i64 168, !32, i64 176, !33, i64 184, !34, i64 192, !35, i64 200, !36, i64 208, !37, i64 216, !38, i64 224, !12, i64 232, !39, i64 2792, !39, i64 2832, !39, i64 2872, !39, i64 2912, !39, i64 2952, !40, i64 2992, !40, i64 3000, !40, i64 3008, !40, i64 3016, !40, i64 3024, !40, i64 3032, !40, i64 3040, !40, i64 3048, !40, i64 3056, !40, i64 3064, !40, i64 3072, !40, i64 3080, !40, i64 3088, !41, i64 3096, !14, i64 3104, !42, i64 3112, !14, i64 3120, !11, i64 3128, !12, i64 3132, !11, i64 3320, !11, i64 3324, !43, i64 3328, !44, i64 3336, !45, i64 3344, !48, i64 3384, !49, i64 3416}
-!10 = !{!"dt_codepath_t", !11, i64 0}
-!11 = !{!"int", !12, i64 0}
-!12 = !{!"omnipotent char", !13, i64 0}
-!13 = !{!"Simple C/C++ TBAA"}
-!14 = !{!"p1 _ZTS6_GList", !15, i64 0}
-!15 = !{!"any pointer", !12, i64 0}
-!16 = !{!"p1 _ZTS11_JsonParser", !15, i64 0}
-!17 = !{!"p1 _ZTS9dt_conf_t", !15, i64 0}
-!18 = !{!"p1 _ZTS12dt_develop_t", !15, i64 0}
-!19 = !{!"p1 _ZTS8dt_lib_t", !15, i64 0}
-!20 = !{!"p1 _ZTS17dt_view_manager_t", !15, i64 0}
-!21 = !{!"p1 _ZTS12dt_control_t", !15, i64 0}
-!22 = !{!"p1 _ZTS19dt_control_signal_t", !15, i64 0}
-!23 = !{!"p1 _ZTS12dt_gui_gtk_t", !15, i64 0}
-!24 = !{!"p1 _ZTS17dt_mipmap_cache_t", !15, i64 0}
-!25 = !{!"p1 _ZTS16dt_image_cache_t", !15, i64 0}
-!26 = !{!"p1 _ZTS12dt_bauhaus_t", !15, i64 0}
-!27 = !{!"p1 _ZTS13dt_database_t", !15, i64 0}
-!28 = !{!"p1 _ZTS14dt_pwstorage_t", !15, i64 0}
-!29 = !{!"p1 _ZTS11dt_camctl_t", !15, i64 0}
-!30 = !{!"p1 _ZTS15dt_collection_t", !15, i64 0}
-!31 = !{!"p1 _ZTS14dt_selection_t", !15, i64 0}
-!32 = !{!"p1 _ZTS11dt_points_t", !15, i64 0}
-!33 = !{!"p1 _ZTS12dt_imageio_t", !15, i64 0}
-!34 = !{!"p1 _ZTS11dt_opencl_t", !15, i64 0}
-!35 = !{!"p1 _ZTS9dt_dbus_t", !15, i64 0}
-!36 = !{!"p1 _ZTS9dt_undo_t", !15, i64 0}
-!37 = !{!"p1 _ZTS16dt_colorspaces_t", !15, i64 0}
-!38 = !{!"p1 _ZTS9dt_l10n_t", !15, i64 0}
-!39 = !{!"dt_pthread_mutex_t", !12, i64 0}
-!40 = !{!"p1 omnipotent char", !15, i64 0}
-!41 = !{!"", !11, i64 0}
-!42 = !{!"double", !12, i64 0}
-!43 = !{!"p1 _ZTS10_GTimeZone", !15, i64 0}
-!44 = !{!"p1 _ZTS10_GDateTime", !15, i64 0}
-!45 = !{!"dt_sys_resources_t", !46, i64 0, !46, i64 8, !47, i64 16, !47, i64 24, !11, i64 32}
-!46 = !{!"long", !12, i64 0}
-!47 = !{!"p1 int", !15, i64 0}
-!48 = !{!"dt_backthumb_t", !42, i64 0, !42, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28}
-!49 = !{!"dt_gimp_t", !11, i64 0, !40, i64 8, !40, i64 16, !11, i64 24, !11, i64 28}
-!50 = !{!51, !54, i64 336}
-!51 = !{!"dt_imageio_module_format_t", !52, i64 0, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !12, i64 208, !54, i64 336, !55, i64 344, !15, i64 352, !11, i64 360, !11, i64 364}
-!52 = !{!"dt_action_t", !11, i64 0, !40, i64 8, !40, i64 16, !15, i64 24, !53, i64 32, !53, i64 40}
-!53 = !{!"p1 _ZTS11dt_action_t", !15, i64 0}
-!54 = !{!"p1 _ZTS8_GModule", !15, i64 0}
-!55 = !{!"p1 _ZTS10_GtkWidget", !15, i64 0}
-!56 = !{!15, !15, i64 0}
-!57 = !{!51, !15, i64 64}
-!58 = !{!51, !15, i64 104}
-!59 = !{!51, !15, i64 160}
-!60 = !{!51, !15, i64 184}
-!61 = !{!51, !15, i64 192}
-!62 = !{!51, !15, i64 200}
-!63 = !{!51, !55, i64 344}
-!64 = !{!51, !11, i64 360}
-!65 = !{!51, !11, i64 364}
-!66 = !{!51, !15, i64 88}
-!67 = !{!9, !23, i64 104}
-!68 = !{!51, !15, i64 352}
-!69 = !{!51, !15, i64 56}
-!70 = !{!11, !11, i64 0}
-!71 = !{!40, !40, i64 0}
-!72 = !{!9, !21, i64 88}
-!73 = !{!74, !11, i64 96}
-!74 = !{!"dt_gui_gtk_t", !75, i64 0, !76, i64 8, !77, i64 56, !11, i64 80, !40, i64 88, !11, i64 96, !12, i64 104, !11, i64 1352, !11, i64 1356, !11, i64 1360, !11, i64 1364, !11, i64 1368, !42, i64 1376, !42, i64 1384, !42, i64 1392, !42, i64 1400, !55, i64 1408, !42, i64 1416, !42, i64 1424, !42, i64 1432, !42, i64 1440, !11, i64 1448, !11, i64 1452, !12, i64 1456, !11, i64 5552, !11, i64 5556, !11, i64 5560, !39, i64 5568}
-!75 = !{!"p1 _ZTS7dt_ui_t", !15, i64 0}
-!76 = !{!"dt_gui_widgets_t", !55, i64 0, !55, i64 8, !55, i64 16, !55, i64 24, !11, i64 32, !11, i64 36, !11, i64 40}
-!77 = !{!"dt_gui_scrollbars_t", !55, i64 0, !55, i64 8, !11, i64 16}
-!78 = !{!79, !14, i64 0}
-!79 = !{!"dt_imageio_t", !14, i64 0, !14, i64 8}
-!80 = !{!79, !14, i64 8}
-!81 = distinct !{!81, !7}
-!82 = !{!83, !54, i64 344}
-!83 = !{!"dt_imageio_module_storage_t", !52, i64 0, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !15, i64 208, !12, i64 216, !54, i64 344, !55, i64 352, !15, i64 360, !11, i64 368}
-!84 = !{!83, !15, i64 96}
-!85 = !{!83, !15, i64 104}
-!86 = !{!83, !15, i64 112}
-!87 = !{!83, !15, i64 120}
-!88 = !{!83, !15, i64 136}
-!89 = !{!83, !15, i64 144}
-!90 = !{!83, !15, i64 184}
-!91 = !{!83, !15, i64 192}
-!92 = !{!83, !15, i64 200}
-!93 = !{!83, !15, i64 208}
-!94 = !{!83, !55, i64 352}
-!95 = !{!83, !11, i64 368}
-!96 = !{!83, !15, i64 88}
-!97 = !{!83, !15, i64 64}
-!98 = !{!83, !15, i64 56}
-!99 = !{!83, !15, i64 360}
-!100 = !{!9, !33, i64 184}
-!101 = !{!9, !11, i64 3128}
-!102 = !{!9, !22, i64 96}
-!103 = !{!104, !15, i64 0}
-!104 = !{!"_GList", !15, i64 0, !14, i64 8, !14, i64 16}
-!105 = !{!51, !15, i64 72}
-!106 = !{!51, !15, i64 96}
-!107 = distinct !{!107, !7}
-!108 = !{!83, !15, i64 72}
-!109 = distinct !{!109, !7}
-!110 = !{!14, !14, i64 0}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !7}
-!113 = !{!12, !12, i64 0}
-!114 = distinct !{!114, !7}
-!115 = !{!42, !42, i64 0}
+!6 = !{!7, !9, i64 8}
+!7 = !{!"darktable_t", !8, i64 0, !9, i64 4, !9, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !14, i64 48, !15, i64 56, !16, i64 64, !17, i64 72, !18, i64 80, !19, i64 88, !20, i64 96, !21, i64 104, !22, i64 112, !23, i64 120, !24, i64 128, !25, i64 136, !26, i64 144, !27, i64 152, !28, i64 160, !29, i64 168, !30, i64 176, !31, i64 184, !32, i64 192, !33, i64 200, !34, i64 208, !35, i64 216, !36, i64 224, !10, i64 232, !37, i64 2792, !37, i64 2832, !37, i64 2872, !37, i64 2912, !37, i64 2952, !38, i64 2992, !38, i64 3000, !38, i64 3008, !38, i64 3016, !38, i64 3024, !38, i64 3032, !38, i64 3040, !38, i64 3048, !38, i64 3056, !38, i64 3064, !38, i64 3072, !38, i64 3080, !38, i64 3088, !39, i64 3096, !12, i64 3104, !40, i64 3112, !12, i64 3120, !9, i64 3128, !10, i64 3132, !9, i64 3320, !9, i64 3324, !41, i64 3328, !42, i64 3336, !43, i64 3344, !46, i64 3384, !47, i64 3416}
+!8 = !{!"dt_codepath_t", !9, i64 0}
+!9 = !{!"int", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 _ZTS6_GList", !13, i64 0}
+!13 = !{!"any pointer", !10, i64 0}
+!14 = !{!"p1 _ZTS11_JsonParser", !13, i64 0}
+!15 = !{!"p1 _ZTS9dt_conf_t", !13, i64 0}
+!16 = !{!"p1 _ZTS12dt_develop_t", !13, i64 0}
+!17 = !{!"p1 _ZTS8dt_lib_t", !13, i64 0}
+!18 = !{!"p1 _ZTS17dt_view_manager_t", !13, i64 0}
+!19 = !{!"p1 _ZTS12dt_control_t", !13, i64 0}
+!20 = !{!"p1 _ZTS19dt_control_signal_t", !13, i64 0}
+!21 = !{!"p1 _ZTS12dt_gui_gtk_t", !13, i64 0}
+!22 = !{!"p1 _ZTS17dt_mipmap_cache_t", !13, i64 0}
+!23 = !{!"p1 _ZTS16dt_image_cache_t", !13, i64 0}
+!24 = !{!"p1 _ZTS12dt_bauhaus_t", !13, i64 0}
+!25 = !{!"p1 _ZTS13dt_database_t", !13, i64 0}
+!26 = !{!"p1 _ZTS14dt_pwstorage_t", !13, i64 0}
+!27 = !{!"p1 _ZTS11dt_camctl_t", !13, i64 0}
+!28 = !{!"p1 _ZTS15dt_collection_t", !13, i64 0}
+!29 = !{!"p1 _ZTS14dt_selection_t", !13, i64 0}
+!30 = !{!"p1 _ZTS11dt_points_t", !13, i64 0}
+!31 = !{!"p1 _ZTS12dt_imageio_t", !13, i64 0}
+!32 = !{!"p1 _ZTS11dt_opencl_t", !13, i64 0}
+!33 = !{!"p1 _ZTS9dt_dbus_t", !13, i64 0}
+!34 = !{!"p1 _ZTS9dt_undo_t", !13, i64 0}
+!35 = !{!"p1 _ZTS16dt_colorspaces_t", !13, i64 0}
+!36 = !{!"p1 _ZTS9dt_l10n_t", !13, i64 0}
+!37 = !{!"dt_pthread_mutex_t", !10, i64 0}
+!38 = !{!"p1 omnipotent char", !13, i64 0}
+!39 = !{!"", !9, i64 0}
+!40 = !{!"double", !10, i64 0}
+!41 = !{!"p1 _ZTS10_GTimeZone", !13, i64 0}
+!42 = !{!"p1 _ZTS10_GDateTime", !13, i64 0}
+!43 = !{!"dt_sys_resources_t", !44, i64 0, !44, i64 8, !45, i64 16, !45, i64 24, !9, i64 32}
+!44 = !{!"long", !10, i64 0}
+!45 = !{!"p1 int", !13, i64 0}
+!46 = !{!"dt_backthumb_t", !40, i64 0, !40, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
+!47 = !{!"dt_gimp_t", !9, i64 0, !38, i64 8, !38, i64 16, !9, i64 24, !9, i64 28}
+!48 = !{!49, !52, i64 336}
+!49 = !{!"dt_imageio_module_format_t", !50, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !10, i64 208, !52, i64 336, !53, i64 344, !13, i64 352, !9, i64 360, !9, i64 364}
+!50 = !{!"dt_action_t", !9, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !51, i64 32, !51, i64 40}
+!51 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
+!52 = !{!"p1 _ZTS8_GModule", !13, i64 0}
+!53 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
+!54 = !{!13, !13, i64 0}
+!55 = !{!49, !13, i64 64}
+!56 = !{!49, !13, i64 104}
+!57 = !{!49, !13, i64 160}
+!58 = !{!49, !13, i64 184}
+!59 = !{!49, !13, i64 192}
+!60 = !{!49, !13, i64 200}
+!61 = !{!49, !53, i64 344}
+!62 = !{!49, !9, i64 360}
+!63 = !{!49, !9, i64 364}
+!64 = !{!49, !13, i64 88}
+!65 = !{!7, !21, i64 104}
+!66 = !{!49, !13, i64 352}
+!67 = !{!49, !13, i64 56}
+!68 = !{!9, !9, i64 0}
+!69 = !{!38, !38, i64 0}
+!70 = !{!7, !19, i64 88}
+!71 = !{!72, !9, i64 96}
+!72 = !{!"dt_gui_gtk_t", !73, i64 0, !74, i64 8, !75, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !53, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
+!73 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!74 = !{!"dt_gui_widgets_t", !53, i64 0, !53, i64 8, !53, i64 16, !53, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!75 = !{!"dt_gui_scrollbars_t", !53, i64 0, !53, i64 8, !9, i64 16}
+!76 = !{!77, !12, i64 0}
+!77 = !{!"dt_imageio_t", !12, i64 0, !12, i64 8}
+!78 = !{!77, !12, i64 8}
+!79 = !{!80, !52, i64 344}
+!80 = !{!"dt_imageio_module_storage_t", !50, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !10, i64 216, !52, i64 344, !53, i64 352, !13, i64 360, !9, i64 368}
+!81 = !{!80, !13, i64 96}
+!82 = !{!80, !13, i64 104}
+!83 = !{!80, !13, i64 112}
+!84 = !{!80, !13, i64 120}
+!85 = !{!80, !13, i64 136}
+!86 = !{!80, !13, i64 144}
+!87 = !{!80, !13, i64 184}
+!88 = !{!80, !13, i64 192}
+!89 = !{!80, !13, i64 200}
+!90 = !{!80, !13, i64 208}
+!91 = !{!80, !53, i64 352}
+!92 = !{!80, !9, i64 368}
+!93 = !{!80, !13, i64 88}
+!94 = !{!80, !13, i64 64}
+!95 = !{!80, !13, i64 56}
+!96 = !{!80, !13, i64 360}
+!97 = !{!7, !31, i64 184}
+!98 = !{!7, !9, i64 3128}
+!99 = !{!7, !20, i64 96}
+!100 = !{!101, !13, i64 0}
+!101 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
+!102 = !{!49, !13, i64 72}
+!103 = !{!49, !13, i64 96}
+!104 = !{!80, !13, i64 72}
+!105 = !{!12, !12, i64 0}
+!106 = !{!10, !10, i64 0}
+!107 = !{!40, !40, i64 0}

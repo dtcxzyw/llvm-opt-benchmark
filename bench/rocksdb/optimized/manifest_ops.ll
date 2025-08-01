@@ -682,6 +682,5 @@ attributes #10 = { noreturn }
 !67 = distinct !{!67, !"_ZN7rocksdb6Status2OKEv"}
 !68 = !{!14, !19, i64 16}
 !69 = !{!18, !19, i64 0}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}

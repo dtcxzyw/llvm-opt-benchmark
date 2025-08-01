@@ -624,7 +624,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 159:                                              ; preds = %157, %158
   %.090 = load ptr, ptr %.090195, align 8
   %.not136 = icmp eq ptr %.090, null
-  br i1 %.not136, label %.loopexit162, label %.lr.ph, !llvm.loop !7
+  br i1 %.not136, label %.loopexit162, label %.lr.ph, !llvm.loop !6
 
 .loopexit162:                                     ; preds = %159, %153, %151
   %160 = load ptr, ptr %5, align 8
@@ -656,7 +656,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 167:                                              ; preds = %165, %166
   %.089 = load ptr, ptr %.089198, align 8
   %.not138 = icmp eq ptr %.089, null
-  br i1 %.not138, label %.loopexit161, label %.lr.ph199, !llvm.loop !8
+  br i1 %.not138, label %.loopexit161, label %.lr.ph199, !llvm.loop !7
 
 .loopexit161:                                     ; preds = %167, %161, %.loopexit162
   %168 = load ptr, ptr %6, align 8
@@ -688,7 +688,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 175:                                              ; preds = %173, %174
   %.0 = load ptr, ptr %.0202, align 8
   %.not140 = icmp eq ptr %.0, null
-  br i1 %.not140, label %.loopexit, label %.lr.ph203, !llvm.loop !9
+  br i1 %.not140, label %.loopexit, label %.lr.ph203, !llvm.loop !8
 
 .loopexit:                                        ; preds = %175, %169, %.loopexit161
   call void @appendPQExpBufferChar(ptr noundef nonnull %9, i8 noundef signext 59) #10
@@ -864,9 +864,8 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

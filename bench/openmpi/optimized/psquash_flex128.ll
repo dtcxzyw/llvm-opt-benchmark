@@ -254,7 +254,7 @@ switch.lookup:                                    ; preds = %5
   %20 = icmp slt i8 %14, 0
   %21 = icmp ult i64 %12, %10
   %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %11, label %23, !prof !36, !llvm.loop !41
+  br i1 %22, label %11, label %23, !prof !36, !llvm.loop !40
 
 23:                                               ; preds = %11
   %24 = icmp eq i64 %10, %12
@@ -438,8 +438,6 @@ attributes #6 = { nounwind }
 !35 = !{!19, !19, i64 0}
 !36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !37 = !{!6, !6, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = distinct !{!41, !39, !42}
-!42 = !{!"llvm.loop.estimated_trip_count", i32 1}
+!40 = distinct !{!40, !39}

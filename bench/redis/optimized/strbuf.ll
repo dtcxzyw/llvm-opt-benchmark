@@ -318,7 +318,7 @@ define dso_local void @strbuf_append_string(ptr noundef %0, ptr noundef readonly
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !13
   %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %16, %2
   ret void
@@ -383,7 +383,6 @@ attributes #16 = { nounwind allocsize(1) }
 !18 = !{!5, !11, i64 28}
 !19 = !{!5, !10, i64 16}
 !20 = !{!10, !10, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
+!23 = distinct !{!23, !22}

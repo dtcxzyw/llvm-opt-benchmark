@@ -206,7 +206,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %102 = getelementptr double, ptr %8, i64 %indvars.iv313
   store double 0.000000e+00, ptr %102, align 8, !tbaa !7
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
-  br i1 %exitcond317.not, label %._crit_edge297, label %95, !llvm.loop !12
+  br i1 %exitcond317.not, label %._crit_edge297, label %95, !llvm.loop !11
 
 ._crit_edge297:                                   ; preds = %95, %._crit_edge
   br i1 %.not, label %104, label %103
@@ -237,8 +237,8 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %171
 
 117:                                              ; preds = %104
-  store ptr %0, ptr %.sroa.0330, align 16, !tbaa !13
-  store ptr %1, ptr %.sroa.4331, align 8, !tbaa !13
+  store ptr %0, ptr %.sroa.0330, align 16, !tbaa !12
+  store ptr %1, ptr %.sroa.4331, align 8, !tbaa !12
   br label %120
 
 .preheader:                                       ; preds = %._crit_edge303
@@ -247,7 +247,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph309.preheader:                              ; preds = %.preheader
   %119 = zext nneg i32 %122 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %.1.lcssa, i8 32, i64 %119, i1 false), !tbaa !16
+  call void @llvm.memset.p0.i64(ptr align 1 %.1.lcssa, i8 32, i64 %119, i1 false), !tbaa !15
   br label %._crit_edge310
 
 120:                                              ; preds = %117, %._crit_edge303
@@ -261,7 +261,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %123, label %.lr.ph302.preheader, label %._crit_edge303
 
 .lr.ph302.preheader:                              ; preds = %120
-  %124 = load ptr, ptr %indvars.iv319.sroa.phi, align 8, !tbaa !13
+  %124 = load ptr, ptr %indvars.iv319.sroa.phi, align 8, !tbaa !12
   %125 = zext nneg i32 %spec.select277 to i64
   %126 = getelementptr i8, ptr %.0306, i64 %125
   %scevgep = getelementptr i8, ptr %126, i64 -1
@@ -271,15 +271,15 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1300 = phi ptr [ %129, %.lr.ph302 ], [ %.0306, %.lr.ph302.preheader ]
   %.0233299 = phi ptr [ %127, %.lr.ph302 ], [ %124, %.lr.ph302.preheader ]
   %127 = getelementptr inbounds nuw i8, ptr %.0233299, i64 1
-  %128 = load i8, ptr %.0233299, align 1, !tbaa !16
+  %128 = load i8, ptr %.0233299, align 1, !tbaa !15
   %129 = getelementptr inbounds nuw i8, ptr %.1300, i64 1
-  store i8 %128, ptr %.1300, align 1, !tbaa !16
+  store i8 %128, ptr %.1300, align 1, !tbaa !15
   %exitcond318.not = icmp eq ptr %.1300, %scevgep
-  br i1 %exitcond318.not, label %._crit_edge303, label %.lr.ph302, !llvm.loop !17
+  br i1 %exitcond318.not, label %._crit_edge303, label %.lr.ph302, !llvm.loop !16
 
 ._crit_edge303:                                   ; preds = %.lr.ph302, %120
   %.1.lcssa = phi ptr [ %.0306, %120 ], [ %129, %.lr.ph302 ]
-  br i1 %121, label %120, label %.preheader, !llvm.loop !18
+  br i1 %121, label %120, label %.preheader, !llvm.loop !17
 
 ._crit_edge310:                                   ; preds = %.lr.ph309.preheader, %.preheader
   %130 = call i32 @ilaenv_(ptr noundef nonnull @c__12, ptr noundef nonnull @.str.5, ptr noundef nonnull %17, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %12, i32 noundef 6, i32 noundef 2) #5
@@ -439,13 +439,12 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!5, !5, i64 0}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}

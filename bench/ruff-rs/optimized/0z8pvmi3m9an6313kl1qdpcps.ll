@@ -106,7 +106,7 @@ define range(i8 0, 4) i8 @_ZN18ruff_python_trivia8comments15SuppressionKind12fro
   %49 = call { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h21065938e026ece6E"(ptr nonnull align 8 %5)
   %50 = extractvalue { ptr, i64 } %49, 0
   %.not27 = icmp eq ptr %50, null
-  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !3
+  br i1 %.not27, label %.loopexit, label %.lr.ph
 
 51:                                               ; preds = %.lr.ph
   %52 = extractvalue { ptr, i64 } %47, 1
@@ -195,7 +195,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition
 
 23:                                               ; preds = %22
   %24 = call zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE(i32 %20)
-  br i1 %24, label %17, label %25, !llvm.loop !5
+  br i1 %24, label %17, label %25
 
 25:                                               ; preds = %23, %22, %22, %17
   %.sroa.0.0 = phi i1 [ true, %17 ], [ true, %22 ], [ true, %22 ], [ false, %23 ]
@@ -257,6 +257,3 @@ attributes #5 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}

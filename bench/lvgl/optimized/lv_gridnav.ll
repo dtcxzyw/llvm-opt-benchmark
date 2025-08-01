@@ -33,12 +33,12 @@ lv_gridnav_remove.exit:                           ; preds = %10, %2, %7
   br i1 %.not, label %.preheader, label %13
 
 .preheader:                                       ; preds = %lv_gridnav_remove.exit, %.preheader
-  br label %.preheader, !llvm.loop !6
+  br label %.preheader
 
 13:                                               ; preds = %lv_gridnav_remove.exit
-  store i32 %1, ptr %12, align 8, !tbaa !7
+  store i32 %1, ptr %12, align 8, !tbaa !5
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr null, ptr %14, align 8, !tbaa !14
+  store ptr null, ptr %14, align 8, !tbaa !12
   %15 = tail call ptr @lv_obj_add_event_cb(ptr noundef %0, ptr noundef nonnull @gridnav_event_cb, i32 noundef 0, ptr noundef nonnull %12) #4
   tail call void @lv_obj_remove_flag(ptr noundef %0, i32 noundef 2048) #4
   ret void
@@ -109,20 +109,20 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %9
   %14 = tail call fastcc ptr @find_first_focusable(ptr noundef %3)
-  store ptr %14, ptr %10, align 8, !tbaa !14
+  store ptr %14, ptr %10, align 8, !tbaa !12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %lv_gridnav_remove.exit, label %.thread
 
 .thread:                                          ; preds = %9, %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
   %16 = tail call i32 @lv_event_get_key(ptr noundef %0) #4
-  store i32 %16, ptr %2, align 4, !tbaa !15
+  store i32 %16, ptr %2, align 4, !tbaa !13
   switch i32 %16, label %.thread194 [
     i32 19, label %17
     i32 20, label %50
@@ -131,7 +131,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   ]
 
 17:                                               ; preds = %.thread
-  %18 = load i32, ptr %4, align 8, !tbaa !7
+  %18 = load i32, ptr %4, align 8, !tbaa !5
   %19 = and i32 %18, 8
   %.not166 = icmp eq i32 %19, 0
   br i1 %.not166, label %20, label %.thread194
@@ -142,40 +142,40 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br i1 %.not167, label %35, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %10, align 8, !tbaa !14
+  %23 = load ptr, ptr %10, align 8, !tbaa !12
   %24 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %23, i32 noundef 16) #4
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %10, align 8, !tbaa !14
+  %26 = load ptr, ptr %10, align 8, !tbaa !12
   %27 = tail call i32 @lv_obj_get_scroll_right(ptr noundef %26) #4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %10, align 8, !tbaa !14
+  %30 = load ptr, ptr %10, align 8, !tbaa !12
   %31 = tail call i32 @lv_obj_get_width(ptr noundef %30) #4
   %32 = sdiv i32 %31, 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %32, i32 1)
-  %33 = load ptr, ptr %10, align 8, !tbaa !14
+  %33 = load ptr, ptr %10, align 8, !tbaa !12
   %34 = sub nsw i32 0, %spec.store.select
   tail call void @lv_obj_scroll_by_bounded(ptr noundef %33, i32 noundef %34, i32 noundef 0, i1 noundef zeroext true) #4
   br label %.critedge
 
 35:                                               ; preds = %25, %22, %20
-  %36 = load ptr, ptr %10, align 8, !tbaa !14
+  %36 = load ptr, ptr %10, align 8, !tbaa !12
   %37 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %36, i32 noundef 1)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %.thread200
 
 39:                                               ; preds = %35
-  %40 = load i32, ptr %4, align 8, !tbaa !7
+  %40 = load i32, ptr %4, align 8, !tbaa !5
   %41 = and i32 %40, 1
   %.not168 = icmp eq i32 %41, 0
   br i1 %.not168, label %48, label %42
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr %10, align 8, !tbaa !14
+  %43 = load ptr, ptr %10, align 8, !tbaa !12
   %44 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %43, i32 noundef 4)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %.thread200
@@ -190,7 +190,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br label %.critedge
 
 50:                                               ; preds = %.thread
-  %51 = load i32, ptr %4, align 8, !tbaa !7
+  %51 = load i32, ptr %4, align 8, !tbaa !5
   %52 = and i32 %51, 8
   %.not169 = icmp eq i32 %52, 0
   br i1 %.not169, label %53, label %.thread194
@@ -201,39 +201,39 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br i1 %.not170, label %67, label %55
 
 55:                                               ; preds = %53
-  %56 = load ptr, ptr %10, align 8, !tbaa !14
+  %56 = load ptr, ptr %10, align 8, !tbaa !12
   %57 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %56, i32 noundef 16) #4
   br i1 %57, label %58, label %67
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %10, align 8, !tbaa !14
+  %59 = load ptr, ptr %10, align 8, !tbaa !12
   %60 = tail call i32 @lv_obj_get_scroll_left(ptr noundef %59) #4
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %58
-  %63 = load ptr, ptr %10, align 8, !tbaa !14
+  %63 = load ptr, ptr %10, align 8, !tbaa !12
   %64 = tail call i32 @lv_obj_get_width(ptr noundef %63) #4
   %65 = sdiv i32 %64, 4
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %65, i32 1)
-  %66 = load ptr, ptr %10, align 8, !tbaa !14
+  %66 = load ptr, ptr %10, align 8, !tbaa !12
   tail call void @lv_obj_scroll_by_bounded(ptr noundef %66, i32 noundef %spec.store.select1, i32 noundef 0, i1 noundef zeroext true) #4
   br label %.critedge
 
 67:                                               ; preds = %58, %55, %53
-  %68 = load ptr, ptr %10, align 8, !tbaa !14
+  %68 = load ptr, ptr %10, align 8, !tbaa !12
   %69 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %68, i32 noundef 0)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %.thread200
 
 71:                                               ; preds = %67
-  %72 = load i32, ptr %4, align 8, !tbaa !7
+  %72 = load i32, ptr %4, align 8, !tbaa !5
   %73 = and i32 %72, 1
   %.not171 = icmp eq i32 %73, 0
   br i1 %.not171, label %80, label %74
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr %10, align 8, !tbaa !14
+  %75 = load ptr, ptr %10, align 8, !tbaa !12
   %76 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %75, i32 noundef 5)
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %.thread200
@@ -248,7 +248,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br label %.critedge
 
 82:                                               ; preds = %.thread
-  %83 = load i32, ptr %4, align 8, !tbaa !7
+  %83 = load i32, ptr %4, align 8, !tbaa !5
   %84 = and i32 %83, 4
   %.not172 = icmp eq i32 %84, 0
   br i1 %.not172, label %85, label %.thread194
@@ -259,40 +259,40 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br i1 %.not173, label %100, label %87
 
 87:                                               ; preds = %85
-  %88 = load ptr, ptr %10, align 8, !tbaa !14
+  %88 = load ptr, ptr %10, align 8, !tbaa !12
   %89 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %88, i32 noundef 16) #4
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %10, align 8, !tbaa !14
+  %91 = load ptr, ptr %10, align 8, !tbaa !12
   %92 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef %91) #4
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %90
-  %95 = load ptr, ptr %10, align 8, !tbaa !14
+  %95 = load ptr, ptr %10, align 8, !tbaa !12
   %96 = tail call i32 @lv_obj_get_height(ptr noundef %95) #4
   %97 = sdiv i32 %96, 4
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %97, i32 1)
-  %98 = load ptr, ptr %10, align 8, !tbaa !14
+  %98 = load ptr, ptr %10, align 8, !tbaa !12
   %99 = sub nsw i32 0, %spec.store.select2
   tail call void @lv_obj_scroll_by_bounded(ptr noundef %98, i32 noundef 0, i32 noundef %99, i1 noundef zeroext true) #4
   br label %.critedge
 
 100:                                              ; preds = %90, %87, %85
-  %101 = load ptr, ptr %10, align 8, !tbaa !14
+  %101 = load ptr, ptr %10, align 8, !tbaa !12
   %102 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %101, i32 noundef 3)
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %.thread200
 
 104:                                              ; preds = %100
-  %105 = load i32, ptr %4, align 8, !tbaa !7
+  %105 = load i32, ptr %4, align 8, !tbaa !5
   %106 = and i32 %105, 1
   %.not174 = icmp eq i32 %106, 0
   br i1 %.not174, label %110, label %107
 
 107:                                              ; preds = %104
-  %108 = load ptr, ptr %10, align 8, !tbaa !14
+  %108 = load ptr, ptr %10, align 8, !tbaa !12
   %109 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %108, i32 noundef 6)
   br label %147
 
@@ -302,7 +302,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br label %.critedge
 
 112:                                              ; preds = %.thread
-  %113 = load i32, ptr %4, align 8, !tbaa !7
+  %113 = load i32, ptr %4, align 8, !tbaa !5
   %114 = and i32 %113, 4
   %.not175 = icmp eq i32 %114, 0
   br i1 %.not175, label %115, label %.thread194
@@ -313,39 +313,39 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br i1 %.not176, label %129, label %117
 
 117:                                              ; preds = %115
-  %118 = load ptr, ptr %10, align 8, !tbaa !14
+  %118 = load ptr, ptr %10, align 8, !tbaa !12
   %119 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %118, i32 noundef 16) #4
   br i1 %119, label %120, label %129
 
 120:                                              ; preds = %117
-  %121 = load ptr, ptr %10, align 8, !tbaa !14
+  %121 = load ptr, ptr %10, align 8, !tbaa !12
   %122 = tail call i32 @lv_obj_get_scroll_top(ptr noundef %121) #4
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %124, label %129
 
 124:                                              ; preds = %120
-  %125 = load ptr, ptr %10, align 8, !tbaa !14
+  %125 = load ptr, ptr %10, align 8, !tbaa !12
   %126 = tail call i32 @lv_obj_get_height(ptr noundef %125) #4
   %127 = sdiv i32 %126, 4
   %spec.store.select3 = tail call i32 @llvm.smax.i32(i32 %127, i32 1)
-  %128 = load ptr, ptr %10, align 8, !tbaa !14
+  %128 = load ptr, ptr %10, align 8, !tbaa !12
   tail call void @lv_obj_scroll_by_bounded(ptr noundef %128, i32 noundef 0, i32 noundef %spec.store.select3, i1 noundef zeroext true) #4
   br label %.critedge
 
 129:                                              ; preds = %120, %117, %115
-  %130 = load ptr, ptr %10, align 8, !tbaa !14
+  %130 = load ptr, ptr %10, align 8, !tbaa !12
   %131 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %130, i32 noundef 2)
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %.thread200
 
 133:                                              ; preds = %129
-  %134 = load i32, ptr %4, align 8, !tbaa !7
+  %134 = load i32, ptr %4, align 8, !tbaa !5
   %135 = and i32 %134, 1
   %.not177 = icmp eq i32 %135, 0
   br i1 %.not177, label %139, label %136
 
 136:                                              ; preds = %133
-  %137 = load ptr, ptr %10, align 8, !tbaa !14
+  %137 = load ptr, ptr %10, align 8, !tbaa !12
   %138 = tail call fastcc ptr @find_chid(ptr noundef %3, ptr noundef %137, i32 noundef 7)
   br label %147
 
@@ -361,7 +361,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
   br i1 %143, label %144, label %.critedge
 
 144:                                              ; preds = %.thread194
-  %145 = load ptr, ptr %10, align 8, !tbaa !14
+  %145 = load ptr, ptr %10, align 8, !tbaa !12
   %146 = call i32 @lv_obj_send_event(ptr noundef %145, i32 noundef 17, ptr noundef nonnull %2) #4
   br label %.critedge
 
@@ -372,20 +372,20 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
 
 .thread200:                                       ; preds = %35, %42, %67, %74, %100, %129, %147
   %.0149203 = phi ptr [ %.0149, %147 ], [ %37, %35 ], [ %44, %42 ], [ %69, %67 ], [ %76, %74 ], [ %102, %100 ], [ %131, %129 ]
-  %148 = load ptr, ptr %10, align 8, !tbaa !14
+  %148 = load ptr, ptr %10, align 8, !tbaa !12
   %.not179 = icmp eq ptr %.0149203, %148
   br i1 %.not179, label %.critedge, label %149
 
 149:                                              ; preds = %.thread200
   tail call void @lv_obj_remove_state(ptr noundef %148, i16 noundef zeroext 6) #4
-  %150 = load ptr, ptr %10, align 8, !tbaa !14
+  %150 = load ptr, ptr %10, align 8, !tbaa !12
   %151 = tail call ptr @lv_indev_active() #4
   %152 = tail call i32 @lv_obj_send_event(ptr noundef %150, i32 noundef 20, ptr noundef %151) #4
   tail call void @lv_obj_add_state(ptr noundef nonnull %.0149203, i16 noundef zeroext 6) #4
   %153 = tail call ptr @lv_indev_active() #4
   %154 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %.0149203, i32 noundef 19, ptr noundef %153) #4
   tail call void @lv_obj_scroll_to_view(ptr noundef nonnull %.0149203, i1 noundef zeroext true) #4
-  store ptr %.0149203, ptr %10, align 8, !tbaa !14
+  store ptr %.0149203, ptr %10, align 8, !tbaa !12
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %29, %80, %62, %110, %94, %139, %124, %.thread194, %144, %149, %.thread200, %147
@@ -394,7 +394,7 @@ define internal void @gridnav_event_cb(ptr noundef %0) #0 {
 
 155:                                              ; preds = %1
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !14
+  %157 = load ptr, ptr %156, align 8, !tbaa !12
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %.thread204
 
@@ -416,29 +416,29 @@ obj_is_focusable.exit.i:                          ; preds = %.lr.ph.i
 obj_is_focusable.exit.thread.i:                   ; preds = %obj_is_focusable.exit.i, %.lr.ph.i
   %164 = add nuw i32 %.01014.i, 1
   %exitcond.not.i = icmp eq i32 %164, %160
-  br i1 %exitcond.not.i, label %.thread207, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.thread207, label %.lr.ph.i, !llvm.loop !14
 
 .thread207:                                       ; preds = %obj_is_focusable.exit.thread.i, %159
-  store ptr null, ptr %156, align 8, !tbaa !14
+  store ptr null, ptr %156, align 8, !tbaa !12
   br label %lv_gridnav_remove.exit
 
 165:                                              ; preds = %obj_is_focusable.exit.i
-  store ptr %161, ptr %156, align 8, !tbaa !14
+  store ptr %161, ptr %156, align 8, !tbaa !12
   %.not165 = icmp eq ptr %161, null
   br i1 %.not165, label %lv_gridnav_remove.exit, label %.thread204
 
 .thread204:                                       ; preds = %155, %165
   %166 = phi ptr [ %161, %165 ], [ %157, %155 ]
   tail call void @lv_obj_add_state(ptr noundef nonnull %166, i16 noundef zeroext 6) #4
-  %167 = load ptr, ptr %156, align 8, !tbaa !14
+  %167 = load ptr, ptr %156, align 8, !tbaa !12
   tail call void @lv_obj_remove_state(ptr noundef %167, i16 noundef zeroext 32) #4
-  %168 = load ptr, ptr %156, align 8, !tbaa !14
+  %168 = load ptr, ptr %156, align 8, !tbaa !12
   tail call void @lv_obj_scroll_to_view(ptr noundef %168, i1 noundef zeroext false) #4
   br label %lv_gridnav_remove.exit
 
 169:                                              ; preds = %1
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !14
+  %171 = load ptr, ptr %170, align 8, !tbaa !12
   %.not = icmp eq ptr %171, null
   br i1 %.not, label %lv_gridnav_remove.exit, label %172
 
@@ -454,12 +454,12 @@ obj_is_focusable.exit.thread.i:                   ; preds = %obj_is_focusable.ex
 
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %179 = load ptr, ptr %178, align 8, !tbaa !14
+  %179 = load ptr, ptr %178, align 8, !tbaa !12
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %lv_gridnav_remove.exit
 
 181:                                              ; preds = %177
-  store ptr %174, ptr %178, align 8, !tbaa !14
+  store ptr %174, ptr %178, align 8, !tbaa !12
   %182 = tail call zeroext i1 @lv_obj_has_state(ptr noundef %3, i16 noundef zeroext 2) #4
   br i1 %182, label %183, label %lv_gridnav_remove.exit
 
@@ -491,12 +491,12 @@ obj_is_focusable.exit.i183:                       ; preds = %.lr.ph.i181
 obj_is_focusable.exit.thread.i184:                ; preds = %obj_is_focusable.exit.i183, %.lr.ph.i181
   %192 = add nuw i32 %.01014.i182, 1
   %exitcond.not.i185 = icmp eq i32 %192, %188
-  br i1 %exitcond.not.i185, label %find_first_focusable.exit187, label %.lr.ph.i181, !llvm.loop !16
+  br i1 %exitcond.not.i185, label %find_first_focusable.exit187, label %.lr.ph.i181, !llvm.loop !14
 
 find_first_focusable.exit187:                     ; preds = %obj_is_focusable.exit.i183, %obj_is_focusable.exit.thread.i184, %187
   %.2.i186 = phi ptr [ null, %187 ], [ null, %obj_is_focusable.exit.thread.i184 ], [ %189, %obj_is_focusable.exit.i183 ]
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.2.i186, ptr %193, align 8, !tbaa !14
+  store ptr %.2.i186, ptr %193, align 8, !tbaa !12
   br label %lv_gridnav_remove.exit
 
 194:                                              ; preds = %1
@@ -538,7 +538,7 @@ find_first_focusable.exit187:                     ; preds = %obj_is_focusable.ex
 
 211:                                              ; preds = %208, %208
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %213 = load ptr, ptr %212, align 8, !tbaa !14
+  %213 = load ptr, ptr %212, align 8, !tbaa !12
   %214 = tail call ptr @lv_indev_active() #4
   %215 = tail call i32 @lv_obj_send_event(ptr noundef %213, i32 noundef %5, ptr noundef %214) #4
   br label %lv_gridnav_remove.exit
@@ -570,7 +570,7 @@ define void @lv_gridnav_set_focused(ptr noundef %0, ptr noundef %1, i1 noundef z
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = tail call i32 @lv_obj_get_event_count(ptr noundef %0) #4
@@ -580,7 +580,7 @@ define void @lv_gridnav_set_focused(ptr noundef %0, ptr noundef %1, i1 noundef z
 6:                                                ; preds = %.lr.ph
   %7 = add nuw i32 %.01830, 1
   %exitcond.not = icmp eq i32 %7, %5
-  br i1 %exitcond.not, label %.thread27, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.thread27, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %4, %6
   %.01830 = phi i32 [ %7, %6 ], [ 0, %4 ]
@@ -604,7 +604,7 @@ obj_is_focusable.exit:                            ; preds = %14
 
 17:                                               ; preds = %obj_is_focusable.exit
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
   %.not22 = icmp eq ptr %19, null
   br i1 %.not22, label %21, label %20
 
@@ -615,7 +615,7 @@ obj_is_focusable.exit:                            ; preds = %14
 21:                                               ; preds = %20, %17
   tail call void @lv_obj_add_state(ptr noundef nonnull %1, i16 noundef zeroext 6) #4
   tail call void @lv_obj_scroll_to_view(ptr noundef nonnull %1, i1 noundef zeroext %2) #4
-  store ptr %1, ptr %18, align 8, !tbaa !14
+  store ptr %1, ptr %18, align 8, !tbaa !12
   br label %.thread27
 
 .thread27:                                        ; preds = %6, %4, %14, %obj_is_focusable.exit, %11, %21
@@ -655,7 +655,7 @@ obj_is_focusable.exit:                            ; preds = %.lr.ph
 obj_is_focusable.exit.thread:                     ; preds = %.lr.ph, %obj_is_focusable.exit
   %6 = add nuw i32 %.01014, 1
   %exitcond.not = icmp eq i32 %6, %2
-  br i1 %exitcond.not, label %obj_is_focusable.exit._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %obj_is_focusable.exit._crit_edge, label %.lr.ph, !llvm.loop !14
 
 obj_is_focusable.exit._crit_edge:                 ; preds = %obj_is_focusable.exit.thread, %obj_is_focusable.exit, %1
   %.2 = phi ptr [ null, %1 ], [ %3, %obj_is_focusable.exit ], [ null, %obj_is_focusable.exit.thread ]
@@ -675,12 +675,12 @@ declare void @lv_obj_scroll_by_bounded(ptr noundef, i32 noundef, i32 noundef, i1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @find_chid(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !19
+  %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call i32 @lv_area_get_width(ptr noundef nonnull %4) #4
   %.neg98 = sdiv i32 %6, -2
   %.neg99 = sub i32 %.neg98, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = tail call i32 @lv_area_get_height(ptr noundef nonnull %4) #4
   %.neg = sdiv i32 %9, -2
   %.neg100 = sub i32 %.neg, %8
@@ -730,13 +730,13 @@ obj_is_focusable.exit:                            ; preds = %22
   ]
 
 27:                                               ; preds = %25
-  %28 = load i32, ptr %26, align 8, !tbaa !19
+  %28 = load i32, ptr %26, align 8, !tbaa !16
   %29 = tail call i32 @lv_area_get_width(ptr noundef nonnull %26) #4
   %30 = sdiv i32 %29, 2
   %31 = add i32 %28, %.neg99
   %32 = add i32 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %34 = load i32, ptr %33, align 4, !tbaa !26
+  %34 = load i32, ptr %33, align 4, !tbaa !23
   %35 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #4
   %36 = icmp sgt i32 %32, -1
   br i1 %36, label %obj_is_focusable.exit.thread, label %37
@@ -750,13 +750,13 @@ obj_is_focusable.exit:                            ; preds = %22
   br i1 %42, label %obj_is_focusable.exit.thread, label %123
 
 43:                                               ; preds = %25
-  %44 = load i32, ptr %26, align 8, !tbaa !19
+  %44 = load i32, ptr %26, align 8, !tbaa !16
   %45 = tail call i32 @lv_area_get_width(ptr noundef nonnull %26) #4
   %46 = sdiv i32 %45, 2
   %47 = add i32 %44, %.neg99
   %48 = add i32 %47, %46
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %50 = load i32, ptr %49, align 4, !tbaa !26
+  %50 = load i32, ptr %49, align 4, !tbaa !23
   %51 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #4
   %52 = icmp slt i32 %48, 1
   br i1 %52, label %obj_is_focusable.exit.thread, label %53
@@ -770,13 +770,13 @@ obj_is_focusable.exit:                            ; preds = %22
   br i1 %58, label %obj_is_focusable.exit.thread, label %123
 
 59:                                               ; preds = %25
-  %60 = load i32, ptr %26, align 8, !tbaa !19
+  %60 = load i32, ptr %26, align 8, !tbaa !16
   %61 = tail call i32 @lv_area_get_width(ptr noundef nonnull %26) #4
   %62 = sdiv i32 %61, 2
   %63 = add i32 %60, %.neg99
   %64 = add i32 %63, %62
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %66 = load i32, ptr %65, align 4, !tbaa !26
+  %66 = load i32, ptr %65, align 4, !tbaa !23
   %67 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #4
   %68 = sdiv i32 %67, 2
   %69 = add i32 %66, %.neg100
@@ -785,13 +785,13 @@ obj_is_focusable.exit:                            ; preds = %22
   br i1 %71, label %obj_is_focusable.exit.thread, label %123
 
 72:                                               ; preds = %25
-  %73 = load i32, ptr %26, align 8, !tbaa !19
+  %73 = load i32, ptr %26, align 8, !tbaa !16
   %74 = tail call i32 @lv_area_get_width(ptr noundef nonnull %26) #4
   %75 = sdiv i32 %74, 2
   %76 = add i32 %73, %.neg99
   %77 = add i32 %76, %75
   %78 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %79 = load i32, ptr %78, align 4, !tbaa !26
+  %79 = load i32, ptr %78, align 4, !tbaa !23
   %80 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #4
   %81 = sdiv i32 %80, 2
   %82 = add i32 %79, %.neg100
@@ -801,7 +801,7 @@ obj_is_focusable.exit:                            ; preds = %22
 
 85:                                               ; preds = %25
   %86 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %87 = load i32, ptr %86, align 4, !tbaa !26
+  %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #4
   %89 = sdiv i32 %88, 2
   %90 = add i32 %87, %.neg100
@@ -815,7 +815,7 @@ obj_is_focusable.exit:                            ; preds = %22
 
 95:                                               ; preds = %25
   %96 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %97 = load i32, ptr %96, align 4, !tbaa !26
+  %97 = load i32, ptr %96, align 4, !tbaa !23
   %98 = tail call i32 @lv_area_get_height(ptr noundef nonnull %26) #4
   %99 = sdiv i32 %98, 2
   %100 = add i32 %97, %.neg100
@@ -824,14 +824,14 @@ obj_is_focusable.exit:                            ; preds = %22
   br i1 %102, label %obj_is_focusable.exit.thread, label %103
 
 103:                                              ; preds = %95
-  %104 = load i32, ptr %18, align 8, !tbaa !27
+  %104 = load i32, ptr %18, align 8, !tbaa !24
   %105 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %106 = load i32, ptr %105, align 8, !tbaa !27
+  %106 = load i32, ptr %105, align 8, !tbaa !24
   %107 = sub nsw i32 %104, %106
   br label %123
 
 108:                                              ; preds = %25
-  %109 = load i32, ptr %26, align 8, !tbaa !19
+  %109 = load i32, ptr %26, align 8, !tbaa !16
   %110 = tail call i32 @lv_area_get_width(ptr noundef nonnull %26) #4
   %111 = sdiv i32 %110, 2
   %112 = add i32 %109, %.neg99
@@ -840,7 +840,7 @@ obj_is_focusable.exit:                            ; preds = %22
   br label %123
 
 115:                                              ; preds = %25
-  %116 = load i32, ptr %26, align 8, !tbaa !19
+  %116 = load i32, ptr %26, align 8, !tbaa !16
   %117 = tail call i32 @lv_area_get_width(ptr noundef nonnull %26) #4
   %118 = sdiv i32 %117, 2
   %119 = add i32 %116, %.neg99
@@ -877,7 +877,7 @@ obj_is_focusable.exit.thread:                     ; preds = %22, %27, %37, %43, 
   %.1 = phi ptr [ %.07397, %19 ], [ %.07397, %obj_is_focusable.exit ], [ %.07397, %27 ], [ %.07397, %37 ], [ %.07397, %43 ], [ %.07397, %53 ], [ %.07397, %59 ], [ %.07397, %72 ], [ %.07397, %85 ], [ %.07397, %95 ], [ %20, %133 ], [ %.07397, %125 ], [ %.07397, %22 ]
   %134 = add nuw i32 %.07496, 1
   %exitcond.not = icmp eq i32 %134, %10
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %obj_is_focusable.exit.thread, %3
   %.073.lcssa = phi ptr [ null, %3 ], [ %.1, %obj_is_focusable.exit.thread ]
@@ -966,29 +966,26 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"", !9, i64 0, !12, i64 8}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"p1 _ZTS9_lv_obj_t", !13, i64 0}
-!13 = !{!"any pointer", !10, i64 0}
-!14 = !{!8, !12, i64 8}
-!15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = !{!20, !9, i64 40}
-!20 = !{!"_lv_obj_t", !21, i64 0, !12, i64 8, !22, i64 16, !23, i64 24, !13, i64 32, !24, i64 40, !9, i64 56, !25, i64 60, !25, i64 62, !25, i64 62, !25, i64 62, !25, i64 62, !25, i64 62, !25, i64 63, !25, i64 63, !25, i64 63}
-!21 = !{!"p1 _ZTS15_lv_obj_class_t", !13, i64 0}
-!22 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !13, i64 0}
-!23 = !{!"p1 _ZTS15_lv_obj_style_t", !13, i64 0}
-!24 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!25 = !{!"short", !10, i64 0}
-!26 = !{!20, !9, i64 44}
-!27 = !{!20, !9, i64 48}
-!28 = distinct !{!28, !4, !5}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"", !7, i64 0, !10, i64 8}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"p1 _ZTS9_lv_obj_t", !11, i64 0}
+!11 = !{!"any pointer", !8, i64 0}
+!12 = !{!6, !10, i64 8}
+!13 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = !{!17, !7, i64 40}
+!17 = !{!"_lv_obj_t", !18, i64 0, !10, i64 8, !19, i64 16, !20, i64 24, !11, i64 32, !21, i64 40, !7, i64 56, !22, i64 60, !22, i64 62, !22, i64 62, !22, i64 62, !22, i64 62, !22, i64 62, !22, i64 63, !22, i64 63, !22, i64 63}
+!18 = !{!"p1 _ZTS15_lv_obj_class_t", !11, i64 0}
+!19 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !11, i64 0}
+!20 = !{!"p1 _ZTS15_lv_obj_style_t", !11, i64 0}
+!21 = !{!"", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12}
+!22 = !{!"short", !8, i64 0}
+!23 = !{!17, !7, i64 44}
+!24 = !{!17, !7, i64 48}
+!25 = distinct !{!25, !4}

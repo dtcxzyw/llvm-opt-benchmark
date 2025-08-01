@@ -383,7 +383,7 @@ define dso_local void @_Z19DrawSolidPolygonFcn11b2TransformPK6b2Vec2if10b2HexCol
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store <2 x float> %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   call void @_ZN15GLSolidPolygons10AddPolygonERK11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %2, i32 noundef %3, float noundef %4, i32 noundef %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
@@ -396,7 +396,7 @@ define dso_local void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2He
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store <2 x float> %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   call void @_ZN15GLSolidPolygons10AddPolygonERK11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %3, i32 noundef %4, float noundef %5, i32 noundef %6)
   ret void
 }
@@ -404,7 +404,7 @@ define dso_local void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2He
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z13DrawCircleFcn6b2Vec2f10b2HexColorPv(<2 x float> %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_ZN9GLCircles9AddCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %6, <2 x float> %0, float noundef %1, i32 noundef %2)
   ret void
 }
@@ -412,7 +412,7 @@ define dso_local void @_Z13DrawCircleFcn6b2Vec2f10b2HexColorPv(<2 x float> %0, f
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Draw10DrawCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, <2 x float> %1, float noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_ZN9GLCircles9AddCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %6, <2 x float> %1, float noundef %2, i32 noundef %3)
   ret void
 }
@@ -437,7 +437,7 @@ define dso_local void @_Z18DrawSolidCircleFcn11b2Transformf10b2HexColorPv(<2 x f
   %.sroa.011.4.vec.insert.i.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i.i, float %13, i64 1
   store <2 x float> %.sroa.011.4.vec.insert.i.i, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
   call void @_ZN14GLSolidCircles9AddCircleERK11b2Transformf10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 4 dereferenceable(16) %6, float noundef %2, i32 noundef %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
@@ -467,7 +467,7 @@ define dso_local void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexCol
   %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %17, i64 1
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %19 = load ptr, ptr %18, align 8, !tbaa !35
   call void @_ZN14GLSolidCircles9AddCircleERK11b2Transformf10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 4 dereferenceable(16) %7, float noundef %4, i32 noundef %5)
   ret void
 }
@@ -475,7 +475,7 @@ define dso_local void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexCol
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z19DrawSolidCapsuleFcn6b2Vec2S_f10b2HexColorPv(<2 x float> %0, <2 x float> %1, float noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #5 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   tail call void @_ZN15GLSolidCapsules10AddCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %7, <2 x float> %0, <2 x float> %1, float noundef %2, i32 noundef %3)
   ret void
 }
@@ -483,7 +483,7 @@ define dso_local void @_Z19DrawSolidCapsuleFcn6b2Vec2S_f10b2HexColorPv(<2 x floa
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, <2 x float> %1, <2 x float> %2, float noundef %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   tail call void @_ZN15GLSolidCapsules10AddCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(48) %7, <2 x float> %1, <2 x float> %2, float noundef %3, i32 noundef %4)
   ret void
 }
@@ -555,7 +555,7 @@ define dso_local void @_ZN4Draw13DrawTransformE11b2Transform(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z12DrawPointFcn6b2Vec2f10b2HexColorPv(<2 x float> %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   tail call void @_ZN8GLPoints8AddPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(40) %6, <2 x float> %0, float noundef %1, i32 noundef %2)
   ret void
 }
@@ -563,7 +563,7 @@ define dso_local void @_Z12DrawPointFcn6b2Vec2f10b2HexColorPv(<2 x float> %0, fl
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, <2 x float> %1, float noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   tail call void @_ZN8GLPoints8AddPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(40) %6, <2 x float> %1, float noundef %2, i32 noundef %3)
   ret void
 }
@@ -608,9 +608,9 @@ define dso_local void @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr nonnull readnone ali
   call void @llvm.va_start.p0(ptr nonnull %4)
   %27 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str, ptr noundef null, i32 noundef 197193)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store float %24, ptr %5, align 4, !tbaa !39
+  store float %24, ptr %5, align 4, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %26, ptr %28, align 4, !tbaa !41
+  store float %26, ptr %28, align 4, !tbaa !40
   call void @_ZN5ImGui12SetCursorPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
@@ -627,14 +627,14 @@ define dso_local void @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr nonnull readnone ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4DrawC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) initializes((0, 1), (8, 216)) %0) unnamed_addr #0 align 2 {
-  store i8 1, ptr %0, align 8, !tbaa !42
+  store i8 1, ptr %0, align 8, !tbaa !41
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %5, align 8, !tbaa !43
+  store ptr null, ptr %5, align 8, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   ret void
 }
@@ -652,53 +652,53 @@ define dso_local void @_ZN4Draw6CreateEv(ptr noundef nonnull align 8 dereference
   %2 = alloca [4 x %struct.b2Vec2], align 16
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !43
+  store ptr %3, ptr %4, align 8, !tbaa !42
   %5 = tail call noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %5, ptr %6, align 4, !tbaa !44
-  %7 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %5, ptr %6, align 4, !tbaa !43
+  %7 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %8 = tail call i32 %7(i32 noundef %5, ptr noundef nonnull @.str.4)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %8, ptr %9, align 4, !tbaa !47
-  %10 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
-  %11 = load i32, ptr %6, align 4, !tbaa !44
+  store i32 %8, ptr %9, align 4, !tbaa !46
+  %10 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
+  %11 = load i32, ptr %6, align 4, !tbaa !43
   %12 = tail call i32 %10(i32 noundef %11, ptr noundef nonnull @.str.5)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %12, ptr %13, align 4, !tbaa !48
-  %14 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
-  %15 = load i32, ptr %6, align 4, !tbaa !44
+  store i32 %12, ptr %13, align 4, !tbaa !47
+  %14 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
+  %15 = load i32, ptr %6, align 4, !tbaa !43
   %16 = tail call i32 %14(i32 noundef %15, ptr noundef nonnull @.str.6)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %16, ptr %17, align 4, !tbaa !49
-  %18 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %16, ptr %17, align 4, !tbaa !48
+  %18 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   tail call void %18(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(24) %3)
-  %19 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %19 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   tail call void %19(i32 noundef 1, ptr noundef nonnull %20)
-  %21 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %22 = load i32, ptr %3, align 4, !tbaa !50
+  %21 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %22 = load i32, ptr %3, align 4, !tbaa !49
   tail call void %21(i32 noundef %22)
-  %23 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %23 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %23(i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN12GLBackground6CreateEv.vertices, i64 32, i1 false)
-  %24 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %25 = load i32, ptr %20, align 4, !tbaa !51
+  %24 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %25 = load i32, ptr %20, align 4, !tbaa !50
   tail call void %24(i32 noundef 34962, i32 noundef %25)
-  %26 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %26 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %26(i32 noundef 34962, i64 noundef 32, ptr noundef nonnull %2, i32 noundef 35044)
-  %27 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %27 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %27(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
   call void @_Z12CheckErrorGLv()
-  %28 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %28 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %28(i32 noundef 34962, i32 noundef 0)
-  %29 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %29 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %29(i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #18
   %30 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !38
+  store ptr %30, ptr %31, align 8, !tbaa !37
   call void @_ZN8GLPoints6CreateEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
   %32 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 24, i1 false)
@@ -706,134 +706,134 @@ define dso_local void @_ZN4Draw6CreateEv(ptr noundef nonnull align 8 dereference
   store ptr %32, ptr %33, align 8, !tbaa !16
   %34 = call noundef i32 @_Z24CreateProgramFromStringsPKcS0_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8)
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store i32 %34, ptr %35, align 8, !tbaa !52
-  %36 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %34, ptr %35, align 8, !tbaa !51
+  %36 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %37 = call i32 %36(i32 noundef %34, ptr noundef nonnull @.str.9)
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 36
-  store i32 %37, ptr %38, align 4, !tbaa !59
-  %39 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %37, ptr %38, align 4, !tbaa !58
+  %39 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 24
   call void %39(i32 noundef 1, ptr noundef nonnull %40)
-  %41 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %41 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 28
   call void %41(i32 noundef 1, ptr noundef nonnull %42)
-  %43 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %44 = load i32, ptr %40, align 8, !tbaa !60
+  %43 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %44 = load i32, ptr %40, align 8, !tbaa !59
   call void %43(i32 noundef %44)
-  %45 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %45 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   call void %45(i32 noundef 0)
-  %46 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   call void %46(i32 noundef 1)
-  %47 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %48 = load i32, ptr %42, align 4, !tbaa !61
+  %47 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %48 = load i32, ptr %42, align 4, !tbaa !60
   call void %47(i32 noundef 34962, i32 noundef %48)
-  %49 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %49(i32 noundef 34962, i64 noundef 49152, ptr noundef null, i32 noundef 35048)
-  %50 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %50 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %50(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 12, ptr noundef null)
-  %51 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %51 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %51(i32 noundef 1, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 12, ptr noundef nonnull inttoptr (i64 8 to ptr))
   call void @_Z12CheckErrorGLv()
-  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %52(i32 noundef 34962, i32 noundef 0)
-  %53 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %53 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %53(i32 noundef 0)
   %54 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, i8 0, i64 24, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %54, ptr %55, align 8, !tbaa !62
+  store ptr %54, ptr %55, align 8, !tbaa !61
   %56 = call noundef i32 @_Z24CreateProgramFromStringsPKcS0_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8)
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store i32 %56, ptr %57, align 8, !tbaa !63
-  %58 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %56, ptr %57, align 8, !tbaa !62
+  %58 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %59 = call i32 %58(i32 noundef %56, ptr noundef nonnull @.str.9)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 36
-  store i32 %59, ptr %60, align 4, !tbaa !65
-  %61 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %59, ptr %60, align 4, !tbaa !64
+  %61 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 24
   call void %61(i32 noundef 1, ptr noundef nonnull %62)
-  %63 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 28
   call void %63(i32 noundef 1, ptr noundef nonnull %64)
-  %65 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %66 = load i32, ptr %62, align 8, !tbaa !66
+  %65 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %66 = load i32, ptr %62, align 8, !tbaa !65
   call void %65(i32 noundef %66)
-  %67 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %67 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   call void %67(i32 noundef 0)
-  %68 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %68 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   call void %68(i32 noundef 1)
-  %69 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %70 = load i32, ptr %64, align 4, !tbaa !67
+  %69 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %70 = load i32, ptr %64, align 4, !tbaa !66
   call void %69(i32 noundef 34962, i32 noundef %70)
-  %71 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %71 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %71(i32 noundef 34962, i64 noundef 18432, ptr noundef null, i32 noundef 35048)
-  %72 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %72 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %72(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 12, ptr noundef null)
-  %73 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %73 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %73(i32 noundef 1, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 12, ptr noundef nonnull inttoptr (i64 8 to ptr))
   call void @_Z12CheckErrorGLv()
-  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %74(i32 noundef 34962, i32 noundef 0)
-  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %75(i32 noundef 0)
   %76 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, i8 0, i64 24, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %76, ptr %77, align 8, !tbaa !35
+  store ptr %76, ptr %77, align 8, !tbaa !34
   call void @_ZN9GLCircles6CreateEv(ptr noundef nonnull align 8 dereferenceable(48) %76)
   %78 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %78, i8 0, i64 24, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %78, ptr %79, align 8, !tbaa !36
+  store ptr %78, ptr %79, align 8, !tbaa !35
   call void @_ZN14GLSolidCircles6CreateEv(ptr noundef nonnull align 8 dereferenceable(48) %78)
   %80 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, i8 0, i64 24, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %80, ptr %81, align 8, !tbaa !37
+  store ptr %80, ptr %81, align 8, !tbaa !36
   call void @_ZN15GLSolidCapsules6CreateEv(ptr noundef nonnull align 8 dereferenceable(48) %80)
   %82 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, i8 0, i64 24, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %82, ptr %83, align 8, !tbaa !34
+  store ptr %82, ptr %83, align 8, !tbaa !33
   call void @_ZN15GLSolidPolygons6CreateEv(ptr noundef nonnull align 8 dereferenceable(48) %82)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
-  store ptr @_Z14DrawPolygonFcnPK6b2Vec2i10b2HexColorPv, ptr %84, align 8, !tbaa !68
+  store ptr @_Z14DrawPolygonFcnPK6b2Vec2i10b2HexColorPv, ptr %84, align 8, !tbaa !67
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr @_Z19DrawSolidPolygonFcn11b2TransformPK6b2Vec2if10b2HexColorPv, ptr %86, align 8, !tbaa !69
+  store ptr @_Z19DrawSolidPolygonFcn11b2TransformPK6b2Vec2if10b2HexColorPv, ptr %86, align 8, !tbaa !68
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @_Z13DrawCircleFcn6b2Vec2f10b2HexColorPv, ptr %87, align 8, !tbaa !70
+  store ptr @_Z13DrawCircleFcn6b2Vec2f10b2HexColorPv, ptr %87, align 8, !tbaa !69
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @_Z18DrawSolidCircleFcn11b2Transformf10b2HexColorPv, ptr %88, align 8, !tbaa !71
+  store ptr @_Z18DrawSolidCircleFcn11b2Transformf10b2HexColorPv, ptr %88, align 8, !tbaa !70
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_Z19DrawSolidCapsuleFcn6b2Vec2S_f10b2HexColorPv, ptr %89, align 8, !tbaa !72
+  store ptr @_Z19DrawSolidCapsuleFcn6b2Vec2S_f10b2HexColorPv, ptr %89, align 8, !tbaa !71
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_Z14DrawSegmentFcn6b2Vec2S_10b2HexColorPv, ptr %90, align 8, !tbaa !73
+  store ptr @_Z14DrawSegmentFcn6b2Vec2S_10b2HexColorPv, ptr %90, align 8, !tbaa !72
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @_Z16DrawTransformFcn11b2TransformPv, ptr %91, align 8, !tbaa !74
+  store ptr @_Z16DrawTransformFcn11b2TransformPv, ptr %91, align 8, !tbaa !73
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr @_Z12DrawPointFcn6b2Vec2f10b2HexColorPv, ptr %92, align 8, !tbaa !75
+  store ptr @_Z12DrawPointFcn6b2Vec2f10b2HexColorPv, ptr %92, align 8, !tbaa !74
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_Z13DrawStringFcn6b2Vec2PKc10b2HexColorPv, ptr %93, align 8, !tbaa !76
+  store ptr @_Z13DrawStringFcn6b2Vec2PKc10b2HexColorPv, ptr %93, align 8, !tbaa !75
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN4Draw6CreateEv.bounds, i64 16, i1 false), !tbaa.struct !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN4Draw6CreateEv.bounds, i64 16, i1 false), !tbaa.struct !76
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 0, ptr %95, align 8, !tbaa !78
+  store i8 0, ptr %95, align 8, !tbaa !77
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  store i8 1, ptr %96, align 1, !tbaa !79
+  store i8 1, ptr %96, align 1, !tbaa !78
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 162
-  store i8 1, ptr %97, align 2, !tbaa !80
+  store i8 1, ptr %97, align 2, !tbaa !79
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 163
-  store i8 0, ptr %98, align 1, !tbaa !81
+  store i8 0, ptr %98, align 1, !tbaa !80
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i8 0, ptr %99, align 4, !tbaa !82
+  store i8 0, ptr %99, align 4, !tbaa !81
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 165
-  store i8 0, ptr %100, align 1, !tbaa !83
+  store i8 0, ptr %100, align 1, !tbaa !82
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 167
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %101, i8 0, i64 5, i1 false)
-  store ptr %0, ptr %102, align 8, !tbaa !84
+  store ptr %0, ptr %102, align 8, !tbaa !83
   ret void
 }
 
@@ -844,41 +844,41 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 define linkonce_odr dso_local void @_ZN8GLPoints6CreateEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #8 comdat align 2 {
   %2 = tail call noundef i32 @_Z24CreateProgramFromStringsPKcS0_(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %2, ptr %3, align 8, !tbaa !85
-  %4 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %2, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %5 = tail call i32 %4(i32 noundef %2, ptr noundef nonnull @.str.9)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %5, ptr %6, align 4, !tbaa !92
-  %7 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %5, ptr %6, align 4, !tbaa !91
+  %7 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void %7(i32 noundef 1, ptr noundef nonnull %8)
-  %9 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %9 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void %9(i32 noundef 1, ptr noundef nonnull %10)
-  %11 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %12 = load i32, ptr %8, align 8, !tbaa !93
+  %11 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %12 = load i32, ptr %8, align 8, !tbaa !92
   tail call void %11(i32 noundef %12)
-  %13 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %13(i32 noundef 0)
-  %14 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %14 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %14(i32 noundef 1)
-  %15 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %15 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %15(i32 noundef 2)
-  %16 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %17 = load i32, ptr %10, align 4, !tbaa !94
+  %16 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %17 = load i32, ptr %10, align 4, !tbaa !93
   tail call void %16(i32 noundef 34962, i32 noundef %17)
-  %18 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %18 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   tail call void %18(i32 noundef 34962, i64 noundef 32768, ptr noundef null, i32 noundef 35048)
-  %19 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %19 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   tail call void %19(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef null)
-  %20 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %20 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   tail call void %20(i32 noundef 1, i32 noundef 1, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef nonnull inttoptr (i64 8 to ptr))
-  %21 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %21 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   tail call void %21(i32 noundef 2, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 16, ptr noundef nonnull inttoptr (i64 12 to ptr))
   tail call void @_Z12CheckErrorGLv()
-  %22 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %22 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   tail call void %22(i32 noundef 34962, i32 noundef 0)
-  %23 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %23 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   tail call void %23(i32 noundef 0)
   ret void
 }
@@ -888,86 +888,86 @@ define linkonce_odr dso_local void @_ZN9GLCircles6CreateEv(ptr noundef nonnull a
   %2 = alloca [6 x %struct.b2Vec2], align 16
   %3 = tail call noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %3, ptr %4, align 4, !tbaa !95
-  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %3, ptr %4, align 4, !tbaa !94
+  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %6 = tail call i32 %5(i32 noundef %3, ptr noundef nonnull @.str.9)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !102
-  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
-  %9 = load i32, ptr %4, align 4, !tbaa !95
+  store i32 %6, ptr %7, align 8, !tbaa !101
+  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
+  %9 = load i32, ptr %4, align 4, !tbaa !94
   %10 = tail call i32 %8(i32 noundef %9, ptr noundef nonnull @.str.13)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %10, ptr %11, align 4, !tbaa !103
-  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %10, ptr %11, align 4, !tbaa !102
+  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void %12(i32 noundef 1, ptr noundef nonnull %13)
-  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void %14(i32 noundef 2, ptr noundef nonnull %15)
-  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %17 = load i32, ptr %13, align 8, !tbaa !104
+  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %17 = load i32, ptr %13, align 8, !tbaa !103
   tail call void %16(i32 noundef %17)
-  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %18(i32 noundef 0)
-  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %19(i32 noundef 1)
-  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %20(i32 noundef 2)
-  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %21(i32 noundef 3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #18
-  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !104
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float 0xBFF19999A0000000, ptr %22, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %22, align 4, !tbaa !105
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 0x3FF19999A0000000, ptr %23, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %23, align 8, !tbaa !104
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0xBFF19999A0000000, ptr %24, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %24, align 4, !tbaa !105
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0xBFF19999A0000000, ptr %25, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %25, align 16, !tbaa !104
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float 0x3FF19999A0000000, ptr %26, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %26, align 4, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 0x3FF19999A0000000, ptr %27, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %27, align 8, !tbaa !104
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0xBFF19999A0000000, ptr %28, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %28, align 4, !tbaa !105
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float 0x3FF19999A0000000, ptr %29, align 16, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %29, align 16, !tbaa !104
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float 0x3FF19999A0000000, ptr %30, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %30, align 4, !tbaa !105
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 0xBFF19999A0000000, ptr %31, align 8, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %31, align 8, !tbaa !104
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 0x3FF19999A0000000, ptr %32, align 4, !tbaa !106
-  %33 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %34 = load i32, ptr %15, align 4, !tbaa !107
+  store float 0x3FF19999A0000000, ptr %32, align 4, !tbaa !105
+  %33 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %34 = load i32, ptr %15, align 4, !tbaa !106
   tail call void %33(i32 noundef 34962, i32 noundef %34)
-  %35 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %35 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %35(i32 noundef 34962, i64 noundef 48, ptr noundef nonnull %2, i32 noundef 35044)
-  %36 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %36 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %36(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
-  %37 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %37 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !107
+  %39 = load i32, ptr %38, align 8, !tbaa !106
   call void %37(i32 noundef 34962, i32 noundef %39)
-  %40 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %40 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %40(i32 noundef 34962, i64 noundef 32768, ptr noundef null, i32 noundef 35048)
-  %41 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %41 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %41(i32 noundef 1, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef null)
-  %42 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %42 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %42(i32 noundef 2, i32 noundef 1, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef nonnull inttoptr (i64 8 to ptr))
-  %43 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %43 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %43(i32 noundef 3, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 16, ptr noundef nonnull inttoptr (i64 12 to ptr))
-  %44 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %44 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %44(i32 noundef 1, i32 noundef 1)
-  %45 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %45 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %45(i32 noundef 2, i32 noundef 1)
-  %46 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %46(i32 noundef 3, i32 noundef 1)
   call void @_Z12CheckErrorGLv()
-  %47 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %47 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %47(i32 noundef 34962, i32 noundef 0)
-  %48 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %48 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %48(i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #18
   ret void
@@ -978,86 +978,86 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles6CreateEv(ptr noundef non
   %2 = alloca [6 x %struct.b2Vec2], align 16
   %3 = tail call noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %3, ptr %4, align 4, !tbaa !108
-  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %3, ptr %4, align 4, !tbaa !107
+  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %6 = tail call i32 %5(i32 noundef %3, ptr noundef nonnull @.str.9)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !115
-  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
-  %9 = load i32, ptr %4, align 4, !tbaa !108
+  store i32 %6, ptr %7, align 8, !tbaa !114
+  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
+  %9 = load i32, ptr %4, align 4, !tbaa !107
   %10 = tail call i32 %8(i32 noundef %9, ptr noundef nonnull @.str.13)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %10, ptr %11, align 4, !tbaa !116
-  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %10, ptr %11, align 4, !tbaa !115
+  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void %12(i32 noundef 1, ptr noundef nonnull %13)
-  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void %14(i32 noundef 2, ptr noundef nonnull %15)
-  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %17 = load i32, ptr %13, align 8, !tbaa !117
+  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %17 = load i32, ptr %13, align 8, !tbaa !116
   tail call void %16(i32 noundef %17)
-  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %18(i32 noundef 0)
-  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %19(i32 noundef 1)
-  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %20(i32 noundef 2)
-  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %21(i32 noundef 3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #18
-  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !104
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float 0xBFF19999A0000000, ptr %22, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %22, align 4, !tbaa !105
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 0x3FF19999A0000000, ptr %23, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %23, align 8, !tbaa !104
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0xBFF19999A0000000, ptr %24, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %24, align 4, !tbaa !105
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0xBFF19999A0000000, ptr %25, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %25, align 16, !tbaa !104
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float 0x3FF19999A0000000, ptr %26, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %26, align 4, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 0x3FF19999A0000000, ptr %27, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %27, align 8, !tbaa !104
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0xBFF19999A0000000, ptr %28, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %28, align 4, !tbaa !105
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float 0x3FF19999A0000000, ptr %29, align 16, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %29, align 16, !tbaa !104
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float 0x3FF19999A0000000, ptr %30, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %30, align 4, !tbaa !105
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 0xBFF19999A0000000, ptr %31, align 8, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %31, align 8, !tbaa !104
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 0x3FF19999A0000000, ptr %32, align 4, !tbaa !106
-  %33 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %34 = load i32, ptr %15, align 4, !tbaa !107
+  store float 0x3FF19999A0000000, ptr %32, align 4, !tbaa !105
+  %33 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %34 = load i32, ptr %15, align 4, !tbaa !106
   tail call void %33(i32 noundef 34962, i32 noundef %34)
-  %35 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %35 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %35(i32 noundef 34962, i64 noundef 48, ptr noundef nonnull %2, i32 noundef 35044)
-  %36 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %36 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %36(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
-  %37 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %37 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !107
+  %39 = load i32, ptr %38, align 8, !tbaa !106
   call void %37(i32 noundef 34962, i32 noundef %39)
-  %40 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %40 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %40(i32 noundef 34962, i64 noundef 49152, ptr noundef null, i32 noundef 35048)
-  %41 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %41 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %41(i32 noundef 1, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 24, ptr noundef null)
-  %42 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %42 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %42(i32 noundef 2, i32 noundef 1, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 24, ptr noundef nonnull inttoptr (i64 16 to ptr))
-  %43 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %43 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %43(i32 noundef 3, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 24, ptr noundef nonnull inttoptr (i64 20 to ptr))
-  %44 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %44 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %44(i32 noundef 1, i32 noundef 1)
-  %45 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %45 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %45(i32 noundef 2, i32 noundef 1)
-  %46 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %46(i32 noundef 3, i32 noundef 1)
   call void @_Z12CheckErrorGLv()
-  %47 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %47 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %47(i32 noundef 34962, i32 noundef 0)
-  %48 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %48 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %48(i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #18
   ret void
@@ -1068,92 +1068,92 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules6CreateEv(ptr noundef no
   %2 = alloca [6 x %struct.b2Vec2], align 16
   %3 = tail call noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %3, ptr %4, align 4, !tbaa !118
-  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %3, ptr %4, align 4, !tbaa !117
+  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %6 = tail call i32 %5(i32 noundef %3, ptr noundef nonnull @.str.9)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !125
-  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
-  %9 = load i32, ptr %4, align 4, !tbaa !118
+  store i32 %6, ptr %7, align 8, !tbaa !124
+  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
+  %9 = load i32, ptr %4, align 4, !tbaa !117
   %10 = tail call i32 %8(i32 noundef %9, ptr noundef nonnull @.str.13)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %10, ptr %11, align 4, !tbaa !126
-  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %10, ptr %11, align 4, !tbaa !125
+  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void %12(i32 noundef 1, ptr noundef nonnull %13)
-  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void %14(i32 noundef 2, ptr noundef nonnull %15)
-  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %17 = load i32, ptr %13, align 8, !tbaa !127
+  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %17 = load i32, ptr %13, align 8, !tbaa !126
   tail call void %16(i32 noundef %17)
-  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %18(i32 noundef 0)
-  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %19(i32 noundef 1)
-  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %20(i32 noundef 2)
-  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %21(i32 noundef 3)
-  %22 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %22 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %22(i32 noundef 4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #18
-  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float 0xBFF19999A0000000, ptr %23, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %23, align 4, !tbaa !105
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 0x3FF19999A0000000, ptr %24, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %24, align 8, !tbaa !104
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0xBFF19999A0000000, ptr %25, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %25, align 4, !tbaa !105
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0xBFF19999A0000000, ptr %26, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %26, align 16, !tbaa !104
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float 0x3FF19999A0000000, ptr %27, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %27, align 4, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 0x3FF19999A0000000, ptr %28, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %28, align 8, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0xBFF19999A0000000, ptr %29, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %29, align 4, !tbaa !105
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float 0x3FF19999A0000000, ptr %30, align 16, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %30, align 16, !tbaa !104
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float 0x3FF19999A0000000, ptr %31, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %31, align 4, !tbaa !105
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 0xBFF19999A0000000, ptr %32, align 8, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %32, align 8, !tbaa !104
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 0x3FF19999A0000000, ptr %33, align 4, !tbaa !106
-  %34 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %35 = load i32, ptr %15, align 4, !tbaa !107
+  store float 0x3FF19999A0000000, ptr %33, align 4, !tbaa !105
+  %34 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %35 = load i32, ptr %15, align 4, !tbaa !106
   tail call void %34(i32 noundef 34962, i32 noundef %35)
-  %36 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %36 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %36(i32 noundef 34962, i64 noundef 48, ptr noundef nonnull %2, i32 noundef 35044)
-  %37 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %37 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %37(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
-  %38 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %38 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load i32, ptr %39, align 8, !tbaa !107
+  %40 = load i32, ptr %39, align 8, !tbaa !106
   call void %38(i32 noundef 34962, i32 noundef %40)
-  %41 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %41 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %41(i32 noundef 34962, i64 noundef 57344, ptr noundef null, i32 noundef 35048)
-  %42 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %42 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %42(i32 noundef 1, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 28, ptr noundef null)
-  %43 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %43 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %43(i32 noundef 2, i32 noundef 1, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 28, ptr noundef nonnull inttoptr (i64 16 to ptr))
-  %44 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %44 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %44(i32 noundef 3, i32 noundef 1, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 28, ptr noundef nonnull inttoptr (i64 20 to ptr))
-  %45 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %45 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %45(i32 noundef 4, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 28, ptr noundef nonnull inttoptr (i64 24 to ptr))
-  %46 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %46(i32 noundef 1, i32 noundef 1)
-  %47 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %47 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %47(i32 noundef 2, i32 noundef 1)
-  %48 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %48 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %48(i32 noundef 3, i32 noundef 1)
-  %49 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %49(i32 noundef 4, i32 noundef 1)
   call void @_Z12CheckErrorGLv()
-  %50 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %50 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %50(i32 noundef 34962, i32 noundef 0)
-  %51 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %51 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %51(i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #18
   ret void
@@ -1164,116 +1164,116 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons6CreateEv(ptr noundef no
   %2 = alloca [6 x %struct.b2Vec2], align 16
   %3 = tail call noundef i32 @_Z22CreateProgramFromFilesPKcS0_(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %3, ptr %4, align 4, !tbaa !128
-  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
+  store i32 %3, ptr %4, align 4, !tbaa !127
+  %5 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
   %6 = tail call i32 %5(i32 noundef %3, ptr noundef nonnull @.str.9)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !135
-  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !46
-  %9 = load i32, ptr %4, align 4, !tbaa !128
+  store i32 %6, ptr %7, align 8, !tbaa !134
+  %8 = load ptr, ptr @glad_glGetUniformLocation, align 8, !tbaa !45
+  %9 = load i32, ptr %4, align 4, !tbaa !127
   %10 = tail call i32 %8(i32 noundef %9, ptr noundef nonnull @.str.13)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %10, ptr %11, align 4, !tbaa !136
-  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !46
+  store i32 %10, ptr %11, align 4, !tbaa !135
+  %12 = load ptr, ptr @glad_glGenVertexArrays, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void %12(i32 noundef 1, ptr noundef nonnull %13)
-  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !46
+  %14 = load ptr, ptr @glad_glGenBuffers, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void %14(i32 noundef 2, ptr noundef nonnull %15)
-  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %17 = load i32, ptr %13, align 8, !tbaa !137
+  %16 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %17 = load i32, ptr %13, align 8, !tbaa !136
   tail call void %16(i32 noundef %17)
-  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %18 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %18(i32 noundef 0)
-  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %19 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %19(i32 noundef 1)
-  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %20 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %20(i32 noundef 2)
-  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %21 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %21(i32 noundef 3)
-  %22 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %22 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %22(i32 noundef 4)
-  %23 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %23 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %23(i32 noundef 5)
-  %24 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %24 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %24(i32 noundef 6)
-  %25 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %25 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %25(i32 noundef 7)
-  %26 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !46
+  %26 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !45
   tail call void %26(i32 noundef 8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #18
-  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %2, align 16, !tbaa !104
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float 0xBFF19999A0000000, ptr %27, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %27, align 4, !tbaa !105
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 0x3FF19999A0000000, ptr %28, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %28, align 8, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0xBFF19999A0000000, ptr %29, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %29, align 4, !tbaa !105
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float 0xBFF19999A0000000, ptr %30, align 16, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %30, align 16, !tbaa !104
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float 0x3FF19999A0000000, ptr %31, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %31, align 4, !tbaa !105
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float 0x3FF19999A0000000, ptr %32, align 8, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %32, align 8, !tbaa !104
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0xBFF19999A0000000, ptr %33, align 4, !tbaa !106
+  store float 0xBFF19999A0000000, ptr %33, align 4, !tbaa !105
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float 0x3FF19999A0000000, ptr %34, align 16, !tbaa !105
+  store float 0x3FF19999A0000000, ptr %34, align 16, !tbaa !104
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float 0x3FF19999A0000000, ptr %35, align 4, !tbaa !106
+  store float 0x3FF19999A0000000, ptr %35, align 4, !tbaa !105
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float 0xBFF19999A0000000, ptr %36, align 8, !tbaa !105
+  store float 0xBFF19999A0000000, ptr %36, align 8, !tbaa !104
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 0x3FF19999A0000000, ptr %37, align 4, !tbaa !106
-  %38 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
-  %39 = load i32, ptr %15, align 4, !tbaa !107
+  store float 0x3FF19999A0000000, ptr %37, align 4, !tbaa !105
+  %38 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
+  %39 = load i32, ptr %15, align 4, !tbaa !106
   tail call void %38(i32 noundef 34962, i32 noundef %39)
-  %40 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %40 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %40(i32 noundef 34962, i64 noundef 48, ptr noundef nonnull %2, i32 noundef 35044)
-  %41 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %41 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %41(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
-  %42 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %42 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load i32, ptr %43, align 8, !tbaa !107
+  %44 = load i32, ptr %43, align 8, !tbaa !106
   call void %42(i32 noundef 34962, i32 noundef %44)
-  %45 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !46
+  %45 = load ptr, ptr @glad_glBufferData, align 8, !tbaa !45
   call void %45(i32 noundef 34962, i64 noundef 47104, ptr noundef null, i32 noundef 35048)
-  %46 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %46(i32 noundef 1, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 92, ptr noundef null)
-  %47 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %47 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %47(i32 noundef 2, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 92, ptr noundef nonnull inttoptr (i64 16 to ptr))
-  %48 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %48 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %48(i32 noundef 3, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 92, ptr noundef nonnull inttoptr (i64 32 to ptr))
-  %49 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %49(i32 noundef 4, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 92, ptr noundef nonnull inttoptr (i64 48 to ptr))
-  %50 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %50 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %50(i32 noundef 5, i32 noundef 4, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 92, ptr noundef nonnull inttoptr (i64 64 to ptr))
-  %51 = load ptr, ptr @glad_glVertexAttribIPointer, align 8, !tbaa !46
+  %51 = load ptr, ptr @glad_glVertexAttribIPointer, align 8, !tbaa !45
   call void %51(i32 noundef 6, i32 noundef 1, i32 noundef 5124, i32 noundef 92, ptr noundef nonnull inttoptr (i64 80 to ptr))
-  %52 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %52 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %52(i32 noundef 7, i32 noundef 1, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 92, ptr noundef nonnull inttoptr (i64 84 to ptr))
-  %53 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !46
+  %53 = load ptr, ptr @glad_glVertexAttribPointer, align 8, !tbaa !45
   call void %53(i32 noundef 8, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 92, ptr noundef nonnull inttoptr (i64 88 to ptr))
-  %54 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %54 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %54(i32 noundef 1, i32 noundef 1)
-  %55 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %55 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %55(i32 noundef 2, i32 noundef 1)
-  %56 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %56 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %56(i32 noundef 3, i32 noundef 1)
-  %57 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %57 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %57(i32 noundef 4, i32 noundef 1)
-  %58 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %58 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %58(i32 noundef 5, i32 noundef 1)
-  %59 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %59 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %59(i32 noundef 6, i32 noundef 1)
-  %60 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %60 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %60(i32 noundef 7, i32 noundef 1)
-  %61 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !46
+  %61 = load ptr, ptr @glad_glVertexAttribDivisor, align 8, !tbaa !45
   call void %61(i32 noundef 8, i32 noundef 1)
   call void @_Z12CheckErrorGLv()
-  %62 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %62 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %62(i32 noundef 34962, i32 noundef 0)
-  %63 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %63(i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #18
   ret void
@@ -1282,35 +1282,35 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons6CreateEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Draw7DestroyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
-  %4 = load i32, ptr %3, align 4, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %4 = load i32, ptr %3, align 4, !tbaa !49
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %6 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %6(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(24) %3)
-  %7 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %7 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   tail call void %7(i32 noundef 1, ptr noundef nonnull %8)
-  store i32 0, ptr %3, align 4, !tbaa !50
-  store i32 0, ptr %8, align 4, !tbaa !51
+  store i32 0, ptr %3, align 4, !tbaa !49
+  store i32 0, ptr %8, align 4, !tbaa !50
   br label %9
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !44
+  %11 = load i32, ptr %10, align 4, !tbaa !43
   %.not1.i = icmp eq i32 %11, 0
   br i1 %.not1.i, label %_ZN12GLBackground7DestroyEv.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %13(i32 noundef %11)
-  store i32 0, ptr %10, align 4, !tbaa !44
+  store i32 0, ptr %10, align 4, !tbaa !43
   br label %_ZN12GLBackground7DestroyEv.exit
 
 _ZN12GLBackground7DestroyEv.exit:                 ; preds = %9, %12
-  %14 = load ptr, ptr %2, align 8, !tbaa !43
+  %14 = load ptr, ptr %2, align 8, !tbaa !42
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
 
@@ -1319,49 +1319,49 @@ _ZN12GLBackground7DestroyEv.exit:                 ; preds = %9, %12
   br label %17
 
 17:                                               ; preds = %16, %_ZN12GLBackground7DestroyEv.exit
-  store ptr null, ptr %2, align 8, !tbaa !43
+  store ptr null, ptr %2, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !93
+  %21 = load i32, ptr %20, align 8, !tbaa !92
   %.not.i8 = icmp eq i32 %21, 0
   br i1 %.not.i8, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %23 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %23(i32 noundef 1, ptr noundef nonnull %20)
-  %24 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %24 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 28
   tail call void %24(i32 noundef 1, ptr noundef nonnull %25)
-  store i32 0, ptr %20, align 8, !tbaa !93
-  store i32 0, ptr %25, align 4, !tbaa !94
+  store i32 0, ptr %20, align 8, !tbaa !92
+  store i32 0, ptr %25, align 4, !tbaa !93
   br label %26
 
 26:                                               ; preds = %22, %17
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %28 = load i32, ptr %27, align 8, !tbaa !85
+  %28 = load i32, ptr %27, align 8, !tbaa !84
   %.not1.i9 = icmp eq i32 %28, 0
   br i1 %.not1.i9, label %_ZN8GLPoints7DestroyEv.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %30 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %30(i32 noundef %28)
-  store i32 0, ptr %27, align 8, !tbaa !85
+  store i32 0, ptr %27, align 8, !tbaa !84
   br label %_ZN8GLPoints7DestroyEv.exit
 
 _ZN8GLPoints7DestroyEv.exit:                      ; preds = %26, %29
-  %31 = load ptr, ptr %18, align 8, !tbaa !38
+  %31 = load ptr, ptr %18, align 8, !tbaa !37
   %32 = icmp eq ptr %31, null
   br i1 %32, label %41, label %33
 
 33:                                               ; preds = %_ZN8GLPoints7DestroyEv.exit
-  %34 = load ptr, ptr %31, align 8, !tbaa !138
+  %34 = load ptr, ptr %31, align 8, !tbaa !137
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZN8GLPointsD2Ev.exit, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !139
+  %37 = load ptr, ptr %36, align 8, !tbaa !138
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %34 to i64
   %40 = sub i64 %38, %39
@@ -1373,34 +1373,34 @@ _ZN8GLPointsD2Ev.exit:                            ; preds = %33, %35
   br label %41
 
 41:                                               ; preds = %_ZN8GLPointsD2Ev.exit, %_ZN8GLPoints7DestroyEv.exit
-  store ptr null, ptr %18, align 8, !tbaa !38
+  store ptr null, ptr %18, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load i32, ptr %44, align 8, !tbaa !60
+  %45 = load i32, ptr %44, align 8, !tbaa !59
   %.not.i10 = icmp eq i32 %45, 0
   br i1 %.not.i10, label %50, label %46
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %47 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %47(i32 noundef 1, ptr noundef nonnull %44)
-  %48 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %48 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 28
   tail call void %48(i32 noundef 1, ptr noundef nonnull %49)
-  store i32 0, ptr %44, align 8, !tbaa !60
-  store i32 0, ptr %49, align 4, !tbaa !61
+  store i32 0, ptr %44, align 8, !tbaa !59
+  store i32 0, ptr %49, align 4, !tbaa !60
   br label %50
 
 50:                                               ; preds = %46, %41
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %52 = load i32, ptr %51, align 8, !tbaa !52
+  %52 = load i32, ptr %51, align 8, !tbaa !51
   %.not1.i11 = icmp eq i32 %52, 0
   br i1 %.not1.i11, label %_ZN7GLLines7DestroyEv.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %54 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %54(i32 noundef %52)
-  store i32 0, ptr %51, align 8, !tbaa !52
+  store i32 0, ptr %51, align 8, !tbaa !51
   br label %_ZN7GLLines7DestroyEv.exit
 
 _ZN7GLLines7DestroyEv.exit:                       ; preds = %50, %53
@@ -1409,13 +1409,13 @@ _ZN7GLLines7DestroyEv.exit:                       ; preds = %50, %53
   br i1 %56, label %65, label %57
 
 57:                                               ; preds = %_ZN7GLLines7DestroyEv.exit
-  %58 = load ptr, ptr %55, align 8, !tbaa !140
+  %58 = load ptr, ptr %55, align 8, !tbaa !139
   %.not.i.i.i.i12 = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i12, label %_ZN7GLLinesD2Ev.exit, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !141
+  %61 = load ptr, ptr %60, align 8, !tbaa !140
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %58 to i64
   %64 = sub i64 %62, %63
@@ -1429,47 +1429,47 @@ _ZN7GLLinesD2Ev.exit:                             ; preds = %57, %59
 65:                                               ; preds = %_ZN7GLLinesD2Ev.exit, %_ZN7GLLines7DestroyEv.exit
   store ptr null, ptr %42, align 8, !tbaa !16
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !62
+  %67 = load ptr, ptr %66, align 8, !tbaa !61
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load i32, ptr %68, align 8, !tbaa !66
+  %69 = load i32, ptr %68, align 8, !tbaa !65
   %.not.i13 = icmp eq i32 %69, 0
   br i1 %.not.i13, label %74, label %70
 
 70:                                               ; preds = %65
-  %71 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %71 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %71(i32 noundef 1, ptr noundef nonnull %68)
-  %72 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %72 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 28
   tail call void %72(i32 noundef 1, ptr noundef nonnull %73)
-  store i32 0, ptr %68, align 8, !tbaa !66
-  store i32 0, ptr %73, align 4, !tbaa !67
+  store i32 0, ptr %68, align 8, !tbaa !65
+  store i32 0, ptr %73, align 4, !tbaa !66
   br label %74
 
 74:                                               ; preds = %70, %65
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %76 = load i32, ptr %75, align 8, !tbaa !63
+  %76 = load i32, ptr %75, align 8, !tbaa !62
   %.not1.i14 = icmp eq i32 %76, 0
   br i1 %.not1.i14, label %_ZN11GLTriangles7DestroyEv.exit, label %77
 
 77:                                               ; preds = %74
-  %78 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %78 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %78(i32 noundef %76)
-  store i32 0, ptr %75, align 8, !tbaa !63
+  store i32 0, ptr %75, align 8, !tbaa !62
   br label %_ZN11GLTriangles7DestroyEv.exit
 
 _ZN11GLTriangles7DestroyEv.exit:                  ; preds = %74, %77
-  %79 = load ptr, ptr %66, align 8, !tbaa !62
+  %79 = load ptr, ptr %66, align 8, !tbaa !61
   %80 = icmp eq ptr %79, null
   br i1 %80, label %89, label %81
 
 81:                                               ; preds = %_ZN11GLTriangles7DestroyEv.exit
-  %82 = load ptr, ptr %79, align 8, !tbaa !140
+  %82 = load ptr, ptr %79, align 8, !tbaa !139
   %.not.i.i.i.i15 = icmp eq ptr %82, null
   br i1 %.not.i.i.i.i15, label %_ZN11GLTrianglesD2Ev.exit, label %83
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !141
+  %85 = load ptr, ptr %84, align 8, !tbaa !140
   %86 = ptrtoint ptr %85 to i64
   %87 = ptrtoint ptr %82 to i64
   %88 = sub i64 %86, %87
@@ -1481,51 +1481,51 @@ _ZN11GLTrianglesD2Ev.exit:                        ; preds = %81, %83
   br label %89
 
 89:                                               ; preds = %_ZN11GLTrianglesD2Ev.exit, %_ZN11GLTriangles7DestroyEv.exit
-  store ptr null, ptr %66, align 8, !tbaa !62
+  store ptr null, ptr %66, align 8, !tbaa !61
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !35
+  %91 = load ptr, ptr %90, align 8, !tbaa !34
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %93 = load i32, ptr %92, align 8, !tbaa !104
+  %93 = load i32, ptr %92, align 8, !tbaa !103
   %.not.i16 = icmp eq i32 %93, 0
   br i1 %.not.i16, label %99, label %94
 
 94:                                               ; preds = %89
-  %95 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %95 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %95(i32 noundef 1, ptr noundef nonnull %92)
-  %96 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %96 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 28
   tail call void %96(i32 noundef 2, ptr noundef nonnull %97)
-  store i32 0, ptr %92, align 8, !tbaa !104
-  store i32 0, ptr %97, align 4, !tbaa !107
+  store i32 0, ptr %92, align 8, !tbaa !103
+  store i32 0, ptr %97, align 4, !tbaa !106
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store i32 0, ptr %98, align 4, !tbaa !107
+  store i32 0, ptr %98, align 4, !tbaa !106
   br label %99
 
 99:                                               ; preds = %94, %89
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 36
-  %101 = load i32, ptr %100, align 4, !tbaa !95
+  %101 = load i32, ptr %100, align 4, !tbaa !94
   %.not1.i17 = icmp eq i32 %101, 0
   br i1 %.not1.i17, label %_ZN9GLCircles7DestroyEv.exit, label %102
 
 102:                                              ; preds = %99
-  %103 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %103 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %103(i32 noundef %101)
-  store i32 0, ptr %100, align 4, !tbaa !95
+  store i32 0, ptr %100, align 4, !tbaa !94
   br label %_ZN9GLCircles7DestroyEv.exit
 
 _ZN9GLCircles7DestroyEv.exit:                     ; preds = %99, %102
-  %104 = load ptr, ptr %90, align 8, !tbaa !35
+  %104 = load ptr, ptr %90, align 8, !tbaa !34
   %105 = icmp eq ptr %104, null
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %_ZN9GLCircles7DestroyEv.exit
-  %107 = load ptr, ptr %104, align 8, !tbaa !142
+  %107 = load ptr, ptr %104, align 8, !tbaa !141
   %.not.i.i.i.i18 = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i18, label %_ZN9GLCirclesD2Ev.exit, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %110 = load ptr, ptr %109, align 8, !tbaa !143
+  %110 = load ptr, ptr %109, align 8, !tbaa !142
   %111 = ptrtoint ptr %110 to i64
   %112 = ptrtoint ptr %107 to i64
   %113 = sub i64 %111, %112
@@ -1537,51 +1537,51 @@ _ZN9GLCirclesD2Ev.exit:                           ; preds = %106, %108
   br label %114
 
 114:                                              ; preds = %_ZN9GLCirclesD2Ev.exit, %_ZN9GLCircles7DestroyEv.exit
-  store ptr null, ptr %90, align 8, !tbaa !35
+  store ptr null, ptr %90, align 8, !tbaa !34
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load ptr, ptr %115, align 8, !tbaa !36
+  %116 = load ptr, ptr %115, align 8, !tbaa !35
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = load i32, ptr %117, align 8, !tbaa !117
+  %118 = load i32, ptr %117, align 8, !tbaa !116
   %.not.i19 = icmp eq i32 %118, 0
   br i1 %.not.i19, label %124, label %119
 
 119:                                              ; preds = %114
-  %120 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %120 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %120(i32 noundef 1, ptr noundef nonnull %117)
-  %121 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %121 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 28
   tail call void %121(i32 noundef 2, ptr noundef nonnull %122)
-  store i32 0, ptr %117, align 8, !tbaa !117
-  store i32 0, ptr %122, align 4, !tbaa !107
+  store i32 0, ptr %117, align 8, !tbaa !116
+  store i32 0, ptr %122, align 4, !tbaa !106
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  store i32 0, ptr %123, align 4, !tbaa !107
+  store i32 0, ptr %123, align 4, !tbaa !106
   br label %124
 
 124:                                              ; preds = %119, %114
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 36
-  %126 = load i32, ptr %125, align 4, !tbaa !108
+  %126 = load i32, ptr %125, align 4, !tbaa !107
   %.not1.i20 = icmp eq i32 %126, 0
   br i1 %.not1.i20, label %_ZN14GLSolidCircles7DestroyEv.exit, label %127
 
 127:                                              ; preds = %124
-  %128 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %128 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %128(i32 noundef %126)
-  store i32 0, ptr %125, align 4, !tbaa !108
+  store i32 0, ptr %125, align 4, !tbaa !107
   br label %_ZN14GLSolidCircles7DestroyEv.exit
 
 _ZN14GLSolidCircles7DestroyEv.exit:               ; preds = %124, %127
-  %129 = load ptr, ptr %115, align 8, !tbaa !36
+  %129 = load ptr, ptr %115, align 8, !tbaa !35
   %130 = icmp eq ptr %129, null
   br i1 %130, label %139, label %131
 
 131:                                              ; preds = %_ZN14GLSolidCircles7DestroyEv.exit
-  %132 = load ptr, ptr %129, align 8, !tbaa !144
+  %132 = load ptr, ptr %129, align 8, !tbaa !143
   %.not.i.i.i.i21 = icmp eq ptr %132, null
   br i1 %.not.i.i.i.i21, label %_ZN14GLSolidCirclesD2Ev.exit, label %133
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !145
+  %135 = load ptr, ptr %134, align 8, !tbaa !144
   %136 = ptrtoint ptr %135 to i64
   %137 = ptrtoint ptr %132 to i64
   %138 = sub i64 %136, %137
@@ -1593,51 +1593,51 @@ _ZN14GLSolidCirclesD2Ev.exit:                     ; preds = %131, %133
   br label %139
 
 139:                                              ; preds = %_ZN14GLSolidCirclesD2Ev.exit, %_ZN14GLSolidCircles7DestroyEv.exit
-  store ptr null, ptr %115, align 8, !tbaa !36
+  store ptr null, ptr %115, align 8, !tbaa !35
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %141 = load ptr, ptr %140, align 8, !tbaa !37
+  %141 = load ptr, ptr %140, align 8, !tbaa !36
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %143 = load i32, ptr %142, align 8, !tbaa !127
+  %143 = load i32, ptr %142, align 8, !tbaa !126
   %.not.i22 = icmp eq i32 %143, 0
   br i1 %.not.i22, label %149, label %144
 
 144:                                              ; preds = %139
-  %145 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %145 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %145(i32 noundef 1, ptr noundef nonnull %142)
-  %146 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %146 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 28
   tail call void %146(i32 noundef 2, ptr noundef nonnull %147)
-  store i32 0, ptr %142, align 8, !tbaa !127
-  store i32 0, ptr %147, align 4, !tbaa !107
+  store i32 0, ptr %142, align 8, !tbaa !126
+  store i32 0, ptr %147, align 4, !tbaa !106
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  store i32 0, ptr %148, align 4, !tbaa !107
+  store i32 0, ptr %148, align 4, !tbaa !106
   br label %149
 
 149:                                              ; preds = %144, %139
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 36
-  %151 = load i32, ptr %150, align 4, !tbaa !118
+  %151 = load i32, ptr %150, align 4, !tbaa !117
   %.not1.i23 = icmp eq i32 %151, 0
   br i1 %.not1.i23, label %_ZN15GLSolidCapsules7DestroyEv.exit, label %152
 
 152:                                              ; preds = %149
-  %153 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %153 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %153(i32 noundef %151)
-  store i32 0, ptr %150, align 4, !tbaa !118
+  store i32 0, ptr %150, align 4, !tbaa !117
   br label %_ZN15GLSolidCapsules7DestroyEv.exit
 
 _ZN15GLSolidCapsules7DestroyEv.exit:              ; preds = %149, %152
-  %154 = load ptr, ptr %140, align 8, !tbaa !37
+  %154 = load ptr, ptr %140, align 8, !tbaa !36
   %155 = icmp eq ptr %154, null
   br i1 %155, label %164, label %156
 
 156:                                              ; preds = %_ZN15GLSolidCapsules7DestroyEv.exit
-  %157 = load ptr, ptr %154, align 8, !tbaa !146
+  %157 = load ptr, ptr %154, align 8, !tbaa !145
   %.not.i.i.i.i24 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i24, label %_ZN15GLSolidCapsulesD2Ev.exit, label %158
 
 158:                                              ; preds = %156
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %160 = load ptr, ptr %159, align 8, !tbaa !147
+  %160 = load ptr, ptr %159, align 8, !tbaa !146
   %161 = ptrtoint ptr %160 to i64
   %162 = ptrtoint ptr %157 to i64
   %163 = sub i64 %161, %162
@@ -1649,48 +1649,48 @@ _ZN15GLSolidCapsulesD2Ev.exit:                    ; preds = %156, %158
   br label %164
 
 164:                                              ; preds = %_ZN15GLSolidCapsulesD2Ev.exit, %_ZN15GLSolidCapsules7DestroyEv.exit
-  store ptr null, ptr %140, align 8, !tbaa !37
+  store ptr null, ptr %140, align 8, !tbaa !36
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %166 = load ptr, ptr %165, align 8, !tbaa !34
+  %166 = load ptr, ptr %165, align 8, !tbaa !33
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
-  %168 = load i32, ptr %167, align 8, !tbaa !137
+  %168 = load i32, ptr %167, align 8, !tbaa !136
   %.not.i25 = icmp eq i32 %168, 0
   br i1 %.not.i25, label %173, label %169
 
 169:                                              ; preds = %164
-  %170 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !46
+  %170 = load ptr, ptr @glad_glDeleteVertexArrays, align 8, !tbaa !45
   tail call void %170(i32 noundef 1, ptr noundef nonnull %167)
-  %171 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !46
+  %171 = load ptr, ptr @glad_glDeleteBuffers, align 8, !tbaa !45
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 28
   tail call void %171(i32 noundef 2, ptr noundef nonnull %172)
-  store i32 0, ptr %167, align 8, !tbaa !137
+  store i32 0, ptr %167, align 8, !tbaa !136
   br label %173
 
 173:                                              ; preds = %169, %164
   %174 = getelementptr inbounds nuw i8, ptr %166, i64 36
-  %175 = load i32, ptr %174, align 4, !tbaa !128
+  %175 = load i32, ptr %174, align 4, !tbaa !127
   %.not1.i26 = icmp eq i32 %175, 0
   br i1 %.not1.i26, label %_ZN15GLSolidPolygons7DestroyEv.exit, label %176
 
 176:                                              ; preds = %173
-  %177 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !46
+  %177 = load ptr, ptr @glad_glDeleteProgram, align 8, !tbaa !45
   tail call void %177(i32 noundef %175)
-  store i32 0, ptr %174, align 4, !tbaa !128
+  store i32 0, ptr %174, align 4, !tbaa !127
   br label %_ZN15GLSolidPolygons7DestroyEv.exit
 
 _ZN15GLSolidPolygons7DestroyEv.exit:              ; preds = %173, %176
-  %178 = load ptr, ptr %165, align 8, !tbaa !34
+  %178 = load ptr, ptr %165, align 8, !tbaa !33
   %179 = icmp eq ptr %178, null
   br i1 %179, label %188, label %180
 
 180:                                              ; preds = %_ZN15GLSolidPolygons7DestroyEv.exit
-  %181 = load ptr, ptr %178, align 8, !tbaa !148
+  %181 = load ptr, ptr %178, align 8, !tbaa !147
   %.not.i.i.i.i27 = icmp eq ptr %181, null
   br i1 %.not.i.i.i.i27, label %_ZN15GLSolidPolygonsD2Ev.exit, label %182
 
 182:                                              ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !149
+  %184 = load ptr, ptr %183, align 8, !tbaa !148
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %181 to i64
   %187 = sub i64 %185, %186
@@ -1702,7 +1702,7 @@ _ZN15GLSolidPolygonsD2Ev.exit:                    ; preds = %180, %182
   br label %188
 
 188:                                              ; preds = %_ZN15GLSolidPolygonsD2Ev.exit, %_ZN15GLSolidPolygons7DestroyEv.exit
-  store ptr null, ptr %165, align 8, !tbaa !34
+  store ptr null, ptr %165, align 8, !tbaa !33
   ret void
 }
 
@@ -1719,9 +1719,9 @@ define linkonce_odr dso_local void @_ZN7GLLines7AddLineE6b2Vec2S0_10b2HexColor(p
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i, -16777216
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !150
+  %7 = load ptr, ptr %6, align 8, !tbaa !149
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !141
+  %9 = load ptr, ptr %8, align 8, !tbaa !140
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
 
@@ -1729,14 +1729,14 @@ define linkonce_odr dso_local void @_ZN7GLLines7AddLineE6b2Vec2S0_10b2HexColor(p
   store <2 x float> %1, ptr %7, align 4
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.517.0..sroa_idx, align 4
-  %11 = load ptr, ptr %6, align 8, !tbaa !150
+  %11 = load ptr, ptr %6, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store ptr %12, ptr %6, align 8, !tbaa !150
-  %.pre = load ptr, ptr %8, align 8, !tbaa !141
+  store ptr %12, ptr %6, align 8, !tbaa !149
+  %.pre = load ptr, ptr %8, align 8, !tbaa !140
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %0, align 8, !tbaa !140
+  %14 = load ptr, ptr %0, align 8, !tbaa !139
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -1779,10 +1779,10 @@ _ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pr
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %26, ptr %0, align 8, !tbaa !140
-  store ptr %30, ptr %6, align 8, !tbaa !150
+  store ptr %26, ptr %0, align 8, !tbaa !139
+  store ptr %30, ptr %6, align 8, !tbaa !149
   %32 = getelementptr inbounds nuw %struct.VertexData, ptr %26, i64 %24
-  store ptr %32, ptr %8, align 8, !tbaa !141
+  store ptr %32, ptr %8, align 8, !tbaa !140
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit: ; preds = %10, %_ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
@@ -1795,13 +1795,13 @@ _ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit: ; preds = %10, %_ZNSt6vec
   store <2 x float> %2, ptr %34, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.5.0..sroa_idx, align 4
-  %36 = load ptr, ptr %6, align 8, !tbaa !150
+  %36 = load ptr, ptr %6, align 8, !tbaa !149
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  store ptr %37, ptr %6, align 8, !tbaa !150
+  store ptr %37, ptr %6, align 8, !tbaa !149
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit11
 
 38:                                               ; preds = %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit
-  %39 = load ptr, ptr %0, align 8, !tbaa !140
+  %39 = load ptr, ptr %0, align 8, !tbaa !139
   %40 = ptrtoint ptr %33 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
@@ -1844,10 +1844,10 @@ _ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i8: ; p
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i8
-  store ptr %51, ptr %0, align 8, !tbaa !140
-  store ptr %55, ptr %6, align 8, !tbaa !150
+  store ptr %51, ptr %0, align 8, !tbaa !139
+  store ptr %55, ptr %6, align 8, !tbaa !149
   %57 = getelementptr inbounds nuw %struct.VertexData, ptr %51, i64 %49
-  store ptr %57, ptr %8, align 8, !tbaa !141
+  store ptr %57, ptr %8, align 8, !tbaa !140
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit11
 
 _ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit11: ; preds = %35, %_ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i10
@@ -1873,9 +1873,9 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons10AddPolygonERK11b2Trans
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %6
   %.sroa.6.64..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 64
-  store i32 %7, ptr %.sroa.6.64..sroa_idx17, align 8, !tbaa !151
+  store i32 %7, ptr %.sroa.6.64..sroa_idx17, align 8, !tbaa !150
   %.sroa.6.68..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 68
-  store float %4, ptr %.sroa.6.68..sroa_idx18, align 4, !tbaa !156
+  store float %4, ptr %.sroa.6.68..sroa_idx18, align 4, !tbaa !155
   %13 = lshr i32 %5, 16
   %.sroa.3.0.insert.ext.i = shl i32 %5, 16
   %.sroa.2.0.insert.ext.i = and i32 %5, 65280
@@ -1886,23 +1886,23 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons10AddPolygonERK11b2Trans
   %.sroa.6.72..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 72
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.72..sroa_idx19, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !157
+  %15 = load ptr, ptr %14, align 8, !tbaa !156
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !149
+  %17 = load ptr, ptr %16, align 8, !tbaa !148
   %.not.i = icmp eq ptr %15, %17
   br i1 %.not.i, label %21, label %18
 
 18:                                               ; preds = %._crit_edge
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(76) %.sroa.6, i64 76, i1 false), !tbaa.struct !158
-  %19 = load ptr, ptr %14, align 8, !tbaa !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(76) %.sroa.6, i64 76, i1 false), !tbaa.struct !157
+  %19 = load ptr, ptr %14, align 8, !tbaa !156
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 92
-  store ptr %20, ptr %14, align 8, !tbaa !157
+  store ptr %20, ptr %14, align 8, !tbaa !156
   br label %_ZNSt6vectorI11PolygonDataSaIS0_EE9push_backERKS0_.exit
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr %0, align 8, !tbaa !148
+  %22 = load ptr, ptr %0, align 8, !tbaa !147
   %23 = ptrtoint ptr %15 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -1927,7 +1927,7 @@ _ZNKSt6vectorI11PolygonDataSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %21
   %35 = getelementptr inbounds i8, ptr %34, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(76) %.sroa.6, i64 76, i1 false), !tbaa.struct !158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(76) %.sroa.6, i64 76, i1 false), !tbaa.struct !157
   %36 = icmp sgt i64 %25, 0
   br i1 %36, label %37, label %_ZNSt6vectorI11PolygonDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
 
@@ -1945,10 +1945,10 @@ _ZNSt6vectorI11PolygonDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; pre
   br label %_ZNSt6vectorI11PolygonDataSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorI11PolygonDataSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorI11PolygonDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  store ptr %34, ptr %0, align 8, !tbaa !148
-  store ptr %38, ptr %14, align 8, !tbaa !157
+  store ptr %34, ptr %0, align 8, !tbaa !147
+  store ptr %38, ptr %14, align 8, !tbaa !156
   %40 = getelementptr inbounds nuw %struct.PolygonData, ptr %34, i64 %32
-  store ptr %40, ptr %16, align 8, !tbaa !149
+  store ptr %40, ptr %16, align 8, !tbaa !148
   br label %_ZNSt6vectorI11PolygonDataSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI11PolygonDataSaIS0_EE9push_backERKS0_.exit: ; preds = %18, %_ZNSt6vectorI11PolygonDataSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
@@ -1966,9 +1966,9 @@ define linkonce_odr dso_local void @_ZN9GLCircles9AddCircleE6b2Vec2f10b2HexColor
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i, -16777216
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !160
+  %7 = load ptr, ptr %6, align 8, !tbaa !159
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !143
+  %9 = load ptr, ptr %8, align 8, !tbaa !142
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
 
@@ -1978,13 +1978,13 @@ define linkonce_odr dso_local void @_ZN9GLCircles9AddCircleE6b2Vec2f10b2HexColor
   store float %2, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !12
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.0..sroa_idx, align 4
-  %11 = load ptr, ptr %6, align 8, !tbaa !160
+  %11 = load ptr, ptr %6, align 8, !tbaa !159
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %12, ptr %6, align 8, !tbaa !160
+  store ptr %12, ptr %6, align 8, !tbaa !159
   br label %_ZNSt6vectorI10CircleDataSaIS0_EE9push_backEOS0_.exit
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %0, align 8, !tbaa !142
+  %14 = load ptr, ptr %0, align 8, !tbaa !141
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -2029,10 +2029,10 @@ _ZNSt6vectorI10CircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pr
   br label %_ZNSt6vectorI10CircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI10CircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI10CircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %26, ptr %0, align 8, !tbaa !142
-  store ptr %30, ptr %6, align 8, !tbaa !160
+  store ptr %26, ptr %0, align 8, !tbaa !141
+  store ptr %30, ptr %6, align 8, !tbaa !159
   %32 = getelementptr inbounds nuw %struct.CircleData, ptr %26, i64 %24
-  store ptr %32, ptr %8, align 8, !tbaa !143
+  store ptr %32, ptr %8, align 8, !tbaa !142
   br label %_ZNSt6vectorI10CircleDataSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI10CircleDataSaIS0_EE9push_backEOS0_.exit: ; preds = %10, %_ZNSt6vectorI10CircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
@@ -2049,9 +2049,9 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles9AddCircleERK11b2Transfor
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i, -16777216
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !161
+  %7 = load ptr, ptr %6, align 8, !tbaa !160
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !145
+  %9 = load ptr, ptr %8, align 8, !tbaa !144
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
 
@@ -2061,13 +2061,13 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles9AddCircleERK11b2Transfor
   store float %2, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !12
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.0..sroa_idx, align 4
-  %11 = load ptr, ptr %6, align 8, !tbaa !161
+  %11 = load ptr, ptr %6, align 8, !tbaa !160
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %12, ptr %6, align 8, !tbaa !161
+  store ptr %12, ptr %6, align 8, !tbaa !160
   br label %_ZNSt6vectorI15SolidCircleDataSaIS0_EE9push_backEOS0_.exit
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %0, align 8, !tbaa !144
+  %14 = load ptr, ptr %0, align 8, !tbaa !143
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -2112,10 +2112,10 @@ _ZNSt6vectorI15SolidCircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i:
   br label %_ZNSt6vectorI15SolidCircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI15SolidCircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI15SolidCircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %26, ptr %0, align 8, !tbaa !144
-  store ptr %30, ptr %6, align 8, !tbaa !161
+  store ptr %26, ptr %0, align 8, !tbaa !143
+  store ptr %30, ptr %6, align 8, !tbaa !160
   %32 = getelementptr inbounds nuw %struct.SolidCircleData, ptr %26, i64 %24
-  store ptr %32, ptr %8, align 8, !tbaa !145
+  store ptr %32, ptr %8, align 8, !tbaa !144
   br label %_ZNSt6vectorI15SolidCircleDataSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI15SolidCircleDataSaIS0_EE9push_backEOS0_.exit: ; preds = %10, %_ZNSt6vectorI15SolidCircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
@@ -2159,9 +2159,9 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules10AddCapsuleE6b2Vec2S0_f
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i, -16777216
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !162
+  %25 = load ptr, ptr %24, align 8, !tbaa !161
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !147
+  %27 = load ptr, ptr %26, align 8, !tbaa !146
   %.not.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i, label %31, label %28
 
@@ -2177,13 +2177,13 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules10AddCapsuleE6b2Vec2S0_f
   store float %sqrt.i, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !12
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.9.0..sroa_idx, align 4
-  %29 = load ptr, ptr %24, align 8, !tbaa !162
+  %29 = load ptr, ptr %24, align 8, !tbaa !161
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  store ptr %30, ptr %24, align 8, !tbaa !162
+  store ptr %30, ptr %24, align 8, !tbaa !161
   br label %_ZNSt6vectorI11CapsuleDataSaIS0_EE9push_backEOS0_.exit
 
 31:                                               ; preds = %14
-  %32 = load ptr, ptr %0, align 8, !tbaa !146
+  %32 = load ptr, ptr %0, align 8, !tbaa !145
   %33 = ptrtoint ptr %25 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -2234,10 +2234,10 @@ _ZNSt6vectorI11CapsuleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; p
   br label %_ZNSt6vectorI11CapsuleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI11CapsuleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorI11CapsuleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %44, ptr %0, align 8, !tbaa !146
-  store ptr %48, ptr %24, align 8, !tbaa !162
+  store ptr %44, ptr %0, align 8, !tbaa !145
+  store ptr %48, ptr %24, align 8, !tbaa !161
   %50 = getelementptr inbounds nuw %struct.CapsuleData, ptr %44, i64 %42
-  store ptr %50, ptr %26, align 8, !tbaa !147
+  store ptr %50, ptr %26, align 8, !tbaa !146
   br label %_ZNSt6vectorI11CapsuleDataSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI11CapsuleDataSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI11CapsuleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %28, %13
@@ -2254,9 +2254,9 @@ define linkonce_odr dso_local void @_ZN8GLPoints8AddPointE6b2Vec2f10b2HexColor(p
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i, -16777216
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !163
+  %7 = load ptr, ptr %6, align 8, !tbaa !162
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !139
+  %9 = load ptr, ptr %8, align 8, !tbaa !138
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
 
@@ -2266,13 +2266,13 @@ define linkonce_odr dso_local void @_ZN8GLPoints8AddPointE6b2Vec2f10b2HexColor(p
   store float %2, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !12
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.0..sroa_idx, align 4
-  %11 = load ptr, ptr %6, align 8, !tbaa !163
+  %11 = load ptr, ptr %6, align 8, !tbaa !162
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %12, ptr %6, align 8, !tbaa !163
+  store ptr %12, ptr %6, align 8, !tbaa !162
   br label %_ZNSt6vectorI9PointDataSaIS0_EE9push_backEOS0_.exit
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %0, align 8, !tbaa !138
+  %14 = load ptr, ptr %0, align 8, !tbaa !137
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -2317,10 +2317,10 @@ _ZNSt6vectorI9PointDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pred
   br label %_ZNSt6vectorI9PointDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI9PointDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI9PointDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %26, ptr %0, align 8, !tbaa !138
-  store ptr %30, ptr %6, align 8, !tbaa !163
+  store ptr %26, ptr %0, align 8, !tbaa !137
+  store ptr %30, ptr %6, align 8, !tbaa !162
   %32 = getelementptr inbounds nuw %struct.PointData, ptr %26, i64 %24
-  store ptr %32, ptr %8, align 8, !tbaa !139
+  store ptr %32, ptr %8, align 8, !tbaa !138
   br label %_ZNSt6vectorI9PointDataSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI9PointDataSaIS0_EE9push_backEOS0_.exit: ; preds = %10, %_ZNSt6vectorI9PointDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
@@ -2335,14 +2335,14 @@ define dso_local void @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull readnone 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   call void @llvm.va_start.p0(ptr nonnull %5)
   %8 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str, ptr noundef null, i32 noundef 197193)
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 192), align 8, !tbaa !164
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 192), align 8, !tbaa !163
   call void @_ZN5ImGui8PushFontEP6ImFont(ptr noundef %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   %10 = sitofp i32 %1 to float
   %11 = sitofp i32 %2 to float
-  store float %10, ptr %6, align 4, !tbaa !39
+  store float %10, ptr %6, align 4, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %11, ptr %12, align 4, !tbaa !41
+  store float %11, ptr %12, align 4, !tbaa !40
   call void @_ZN5ImGui12SetCursorPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
@@ -2395,25 +2395,25 @@ define dso_local void @_ZN4Draw8DrawAABBE6b2AABB10b2HexColor(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Draw5FlushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   tail call void @_ZN14GLSolidCircles5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
   tail call void @_ZN15GLSolidCapsules5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   tail call void @_ZN15GLSolidPolygons5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !62
+  %9 = load ptr, ptr %8, align 8, !tbaa !61
   tail call void @_ZN11GLTriangles5FlushEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   tail call void @_ZN9GLCircles5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   tail call void @_ZN7GLLines5FlushEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   tail call void @_ZN8GLPoints5FlushEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
   tail call void @_Z12CheckErrorGLv()
   ret void
@@ -2423,8 +2423,8 @@ define dso_local void @_ZN4Draw5FlushEv(ptr noundef nonnull readonly align 8 cap
 define linkonce_odr dso_local void @_ZN14GLSolidCircles5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !161
-  %5 = load ptr, ptr %0, align 8, !tbaa !144
+  %4 = load ptr, ptr %3, align 8, !tbaa !160
+  %5 = load ptr, ptr %0, align 8, !tbaa !143
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2434,9 +2434,9 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles5FlushEv(ptr noundef nonn
   br i1 %11, label %80, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !108
+  %15 = load i32, ptr %14, align 4, !tbaa !107
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -2482,29 +2482,29 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles5FlushEv(ptr noundef nonn
   store float 0x3FC99999A0000000, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load i32, ptr %47, align 8, !tbaa !115
+  %48 = load i32, ptr %47, align 8, !tbaa !114
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !116
+  %51 = load i32, ptr %50, align 4, !tbaa !115
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 8, !tbaa !11
   %53 = sitofp i32 %52 to float
   %54 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 8), align 8, !tbaa !13
   %55 = fdiv float %53, %54
   call void %49(i32 noundef %51, float noundef %55)
-  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !117
+  %58 = load i32, ptr %57, align 8, !tbaa !116
   call void %56(i32 noundef %58)
-  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !107
+  %61 = load i32, ptr %60, align 8, !tbaa !106
   call void %59(i32 noundef 34962, i32 noundef %61)
-  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !46
+  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !45
   call void %62(i32 noundef 3042)
-  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !45
   call void %63(i32 noundef 770, i32 noundef 771)
   %64 = icmp sgt i32 %10, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
@@ -2513,36 +2513,36 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles5FlushEv(ptr noundef nonn
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %71, %.lr.ph ], [ %10, %12 ]
   %65 = call i32 @llvm.umin.i32(i32 %.011, i32 2048)
-  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %narrow = mul nuw nsw i32 %65, 24
   %67 = zext nneg i32 %narrow to i64
-  %68 = load ptr, ptr %0, align 8, !tbaa !144
+  %68 = load ptr, ptr %0, align 8, !tbaa !143
   %69 = getelementptr inbounds nuw %struct.SolidCircleData, ptr %68, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %67, ptr noundef nonnull %69)
-  %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !46
+  %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %70(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
   call void @_Z12CheckErrorGLv()
   %71 = add nsw i32 %.011, -2048
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2048
   %72 = icmp samesign ugt i32 %.011, 2048
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !165
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %73 = load ptr, ptr @glad_glDisable, align 8, !tbaa !46
+  %73 = load ptr, ptr @glad_glDisable, align 8, !tbaa !45
   call void %73(i32 noundef 3042)
-  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %74(i32 noundef 34962, i32 noundef 0)
-  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %75(i32 noundef 0)
-  %76 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %76 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %76(i32 noundef 0)
-  %77 = load ptr, ptr %0, align 8, !tbaa !144
-  %78 = load ptr, ptr %3, align 8, !tbaa !161
+  %77 = load ptr, ptr %0, align 8, !tbaa !143
+  %78 = load ptr, ptr %3, align 8, !tbaa !160
   %.not.i.i = icmp eq ptr %78, %77
   br i1 %.not.i.i, label %_ZNSt6vectorI15SolidCircleDataSaIS0_EE5clearEv.exit, label %79
 
 79:                                               ; preds = %._crit_edge
-  store ptr %77, ptr %3, align 8, !tbaa !161
+  store ptr %77, ptr %3, align 8, !tbaa !160
   br label %_ZNSt6vectorI15SolidCircleDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI15SolidCircleDataSaIS0_EE5clearEv.exit: ; preds = %._crit_edge, %79
@@ -2557,8 +2557,8 @@ _ZNSt6vectorI15SolidCircleDataSaIS0_EE5clearEv.exit: ; preds = %._crit_edge, %79
 define linkonce_odr dso_local void @_ZN15GLSolidCapsules5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !162
-  %5 = load ptr, ptr %0, align 8, !tbaa !146
+  %4 = load ptr, ptr %3, align 8, !tbaa !161
+  %5 = load ptr, ptr %0, align 8, !tbaa !145
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2568,9 +2568,9 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules5FlushEv(ptr noundef non
   br i1 %11, label %80, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !118
+  %15 = load i32, ptr %14, align 4, !tbaa !117
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -2616,29 +2616,29 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules5FlushEv(ptr noundef non
   store float 0x3FC99999A0000000, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load i32, ptr %47, align 8, !tbaa !125
+  %48 = load i32, ptr %47, align 8, !tbaa !124
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !126
+  %51 = load i32, ptr %50, align 4, !tbaa !125
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 8, !tbaa !11
   %53 = sitofp i32 %52 to float
   %54 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 8), align 8, !tbaa !13
   %55 = fdiv float %53, %54
   call void %49(i32 noundef %51, float noundef %55)
-  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !127
+  %58 = load i32, ptr %57, align 8, !tbaa !126
   call void %56(i32 noundef %58)
-  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !107
+  %61 = load i32, ptr %60, align 8, !tbaa !106
   call void %59(i32 noundef 34962, i32 noundef %61)
-  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !46
+  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !45
   call void %62(i32 noundef 3042)
-  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !45
   call void %63(i32 noundef 770, i32 noundef 771)
   %64 = icmp sgt i32 %10, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
@@ -2647,36 +2647,36 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules5FlushEv(ptr noundef non
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %71, %.lr.ph ], [ %10, %12 ]
   %65 = call i32 @llvm.umin.i32(i32 %.011, i32 2048)
-  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %narrow = mul nuw nsw i32 %65, 28
   %67 = zext nneg i32 %narrow to i64
-  %68 = load ptr, ptr %0, align 8, !tbaa !146
+  %68 = load ptr, ptr %0, align 8, !tbaa !145
   %69 = getelementptr inbounds nuw %struct.CapsuleData, ptr %68, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %67, ptr noundef nonnull %69)
-  %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !46
+  %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %70(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
   call void @_Z12CheckErrorGLv()
   %71 = add nsw i32 %.011, -2048
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2048
   %72 = icmp samesign ugt i32 %.011, 2048
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !166
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %73 = load ptr, ptr @glad_glDisable, align 8, !tbaa !46
+  %73 = load ptr, ptr @glad_glDisable, align 8, !tbaa !45
   call void %73(i32 noundef 3042)
-  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %74(i32 noundef 34962, i32 noundef 0)
-  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %75(i32 noundef 0)
-  %76 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %76 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %76(i32 noundef 0)
-  %77 = load ptr, ptr %0, align 8, !tbaa !146
-  %78 = load ptr, ptr %3, align 8, !tbaa !162
+  %77 = load ptr, ptr %0, align 8, !tbaa !145
+  %78 = load ptr, ptr %3, align 8, !tbaa !161
   %.not.i.i = icmp eq ptr %78, %77
   br i1 %.not.i.i, label %_ZNSt6vectorI11CapsuleDataSaIS0_EE5clearEv.exit, label %79
 
 79:                                               ; preds = %._crit_edge
-  store ptr %77, ptr %3, align 8, !tbaa !162
+  store ptr %77, ptr %3, align 8, !tbaa !161
   br label %_ZNSt6vectorI11CapsuleDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI11CapsuleDataSaIS0_EE5clearEv.exit:  ; preds = %._crit_edge, %79
@@ -2691,8 +2691,8 @@ _ZNSt6vectorI11CapsuleDataSaIS0_EE5clearEv.exit:  ; preds = %._crit_edge, %79
 define linkonce_odr dso_local void @_ZN15GLSolidPolygons5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !157
-  %5 = load ptr, ptr %0, align 8, !tbaa !148
+  %4 = load ptr, ptr %3, align 8, !tbaa !156
+  %5 = load ptr, ptr %0, align 8, !tbaa !147
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2702,9 +2702,9 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons5FlushEv(ptr noundef non
   br i1 %11, label %80, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !128
+  %15 = load i32, ptr %14, align 4, !tbaa !127
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -2750,29 +2750,29 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons5FlushEv(ptr noundef non
   store float 0x3FC99999A0000000, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load i32, ptr %47, align 8, !tbaa !135
+  %48 = load i32, ptr %47, align 8, !tbaa !134
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !136
+  %51 = load i32, ptr %50, align 4, !tbaa !135
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 8, !tbaa !11
   %53 = sitofp i32 %52 to float
   %54 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 8), align 8, !tbaa !13
   %55 = fdiv float %53, %54
   call void %49(i32 noundef %51, float noundef %55)
-  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !137
+  %58 = load i32, ptr %57, align 8, !tbaa !136
   call void %56(i32 noundef %58)
-  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !107
+  %61 = load i32, ptr %60, align 8, !tbaa !106
   call void %59(i32 noundef 34962, i32 noundef %61)
-  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !46
+  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !45
   call void %62(i32 noundef 3042)
-  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !45
   call void %63(i32 noundef 770, i32 noundef 771)
   %64 = icmp sgt i32 %10, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
@@ -2781,36 +2781,36 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons5FlushEv(ptr noundef non
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %71, %.lr.ph ], [ %10, %12 ]
   %65 = call i32 @llvm.umin.i32(i32 %.011, i32 512)
-  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %narrow = mul nuw nsw i32 %65, 92
   %67 = zext nneg i32 %narrow to i64
-  %68 = load ptr, ptr %0, align 8, !tbaa !148
+  %68 = load ptr, ptr %0, align 8, !tbaa !147
   %69 = getelementptr inbounds nuw %struct.PolygonData, ptr %68, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %67, ptr noundef nonnull %69)
-  %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !46
+  %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %70(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
   call void @_Z12CheckErrorGLv()
   %71 = add nsw i32 %.011, -512
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 512
   %72 = icmp samesign ugt i32 %.011, 512
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !167
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %73 = load ptr, ptr @glad_glDisable, align 8, !tbaa !46
+  %73 = load ptr, ptr @glad_glDisable, align 8, !tbaa !45
   call void %73(i32 noundef 3042)
-  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %74 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %74(i32 noundef 34962, i32 noundef 0)
-  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %75 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %75(i32 noundef 0)
-  %76 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %76 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %76(i32 noundef 0)
-  %77 = load ptr, ptr %0, align 8, !tbaa !148
-  %78 = load ptr, ptr %3, align 8, !tbaa !157
+  %77 = load ptr, ptr %0, align 8, !tbaa !147
+  %78 = load ptr, ptr %3, align 8, !tbaa !156
   %.not.i.i = icmp eq ptr %78, %77
   br i1 %.not.i.i, label %_ZNSt6vectorI11PolygonDataSaIS0_EE5clearEv.exit, label %79
 
 79:                                               ; preds = %._crit_edge
-  store ptr %77, ptr %3, align 8, !tbaa !157
+  store ptr %77, ptr %3, align 8, !tbaa !156
   br label %_ZNSt6vectorI11PolygonDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI11PolygonDataSaIS0_EE5clearEv.exit:  ; preds = %._crit_edge, %79
@@ -2825,8 +2825,8 @@ _ZNSt6vectorI11PolygonDataSaIS0_EE5clearEv.exit:  ; preds = %._crit_edge, %79
 define linkonce_odr dso_local void @_ZN11GLTriangles5FlushEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !150
-  %5 = load ptr, ptr %0, align 8, !tbaa !140
+  %4 = load ptr, ptr %3, align 8, !tbaa !149
+  %5 = load ptr, ptr %0, align 8, !tbaa !139
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2836,9 +2836,9 @@ define linkonce_odr dso_local void @_ZN11GLTriangles5FlushEv(ptr noundef nonnull
   br i1 %11, label %73, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !63
+  %15 = load i32, ptr %14, align 8, !tbaa !62
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -2884,21 +2884,21 @@ define linkonce_odr dso_local void @_ZN11GLTriangles5FlushEv(ptr noundef nonnull
   store float 0x3FC99999A0000000, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !65
+  %48 = load i32, ptr %47, align 4, !tbaa !64
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load i32, ptr %50, align 8, !tbaa !66
+  %51 = load i32, ptr %50, align 8, !tbaa !65
   call void %49(i32 noundef %51)
-  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %54 = load i32, ptr %53, align 4, !tbaa !67
+  %54 = load i32, ptr %53, align 4, !tbaa !66
   call void %52(i32 noundef 34962, i32 noundef %54)
-  %55 = load ptr, ptr @glad_glEnable, align 8, !tbaa !46
+  %55 = load ptr, ptr @glad_glEnable, align 8, !tbaa !45
   call void %55(i32 noundef 3042)
-  %56 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !46
+  %56 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !45
   call void %56(i32 noundef 770, i32 noundef 771)
   %57 = icmp sgt i32 %10, 0
   br i1 %57, label %.lr.ph, label %._crit_edge
@@ -2907,36 +2907,36 @@ define linkonce_odr dso_local void @_ZN11GLTriangles5FlushEv(ptr noundef nonnull
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %64, %.lr.ph ], [ %10, %12 ]
   %58 = call i32 @llvm.umin.i32(i32 %.011, i32 1536)
-  %59 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %59 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %narrow = mul nuw nsw i32 %58, 12
   %60 = zext nneg i32 %narrow to i64
-  %61 = load ptr, ptr %0, align 8, !tbaa !140
+  %61 = load ptr, ptr %0, align 8, !tbaa !139
   %62 = getelementptr inbounds nuw %struct.VertexData, ptr %61, i64 %indvars.iv
   call void %59(i32 noundef 34962, i64 noundef 0, i64 noundef %60, ptr noundef nonnull %62)
-  %63 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   call void %63(i32 noundef 4, i32 noundef 0, i32 noundef %58)
   call void @_Z12CheckErrorGLv()
   %64 = add nsw i32 %.011, -1536
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1536
   %65 = icmp samesign ugt i32 %.011, 1536
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !168
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %66 = load ptr, ptr @glad_glDisable, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glDisable, align 8, !tbaa !45
   call void %66(i32 noundef 3042)
-  %67 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %67 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %67(i32 noundef 34962, i32 noundef 0)
-  %68 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %68 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %68(i32 noundef 0)
-  %69 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %69 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %69(i32 noundef 0)
-  %70 = load ptr, ptr %0, align 8, !tbaa !140
-  %71 = load ptr, ptr %3, align 8, !tbaa !150
+  %70 = load ptr, ptr %0, align 8, !tbaa !139
+  %71 = load ptr, ptr %3, align 8, !tbaa !149
   %.not.i.i = icmp eq ptr %71, %70
   br i1 %.not.i.i, label %_ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit, label %72
 
 72:                                               ; preds = %._crit_edge
-  store ptr %70, ptr %3, align 8, !tbaa !150
+  store ptr %70, ptr %3, align 8, !tbaa !149
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit:   ; preds = %._crit_edge, %72
@@ -2951,8 +2951,8 @@ _ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit:   ; preds = %._crit_edge, %72
 define linkonce_odr dso_local void @_ZN9GLCircles5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !160
-  %5 = load ptr, ptr %0, align 8, !tbaa !142
+  %4 = load ptr, ptr %3, align 8, !tbaa !159
+  %5 = load ptr, ptr %0, align 8, !tbaa !141
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2962,9 +2962,9 @@ define linkonce_odr dso_local void @_ZN9GLCircles5FlushEv(ptr noundef nonnull al
   br i1 %11, label %81, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !95
+  %15 = load i32, ptr %14, align 4, !tbaa !94
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -3010,29 +3010,29 @@ define linkonce_odr dso_local void @_ZN9GLCircles5FlushEv(ptr noundef nonnull al
   store float 0x3FC99999A0000000, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load i32, ptr %47, align 8, !tbaa !102
+  %48 = load i32, ptr %47, align 8, !tbaa !101
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4, !tbaa !103
+  %51 = load i32, ptr %50, align 4, !tbaa !102
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 8, !tbaa !11
   %53 = sitofp i32 %52 to float
   %54 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 8), align 8, !tbaa !13
   %55 = fdiv float %53, %54
   call void %49(i32 noundef %51, float noundef %55)
-  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %56 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !104
+  %58 = load i32, ptr %57, align 8, !tbaa !103
   call void %56(i32 noundef %58)
-  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %59 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !107
+  %61 = load i32, ptr %60, align 8, !tbaa !106
   call void %59(i32 noundef 34962, i32 noundef %61)
-  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !46
+  %62 = load ptr, ptr @glad_glEnable, align 8, !tbaa !45
   call void %62(i32 noundef 3042)
-  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glBlendFunc, align 8, !tbaa !45
   call void %63(i32 noundef 770, i32 noundef 771)
   %64 = icmp sgt i32 %10, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
@@ -3041,36 +3041,36 @@ define linkonce_odr dso_local void @_ZN9GLCircles5FlushEv(ptr noundef nonnull al
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %72, %.lr.ph ], [ %10, %12 ]
   %65 = call i32 @llvm.umin.i32(i32 %.011, i32 2048)
-  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %67 = shl nuw nsw i32 %65, 4
   %68 = zext nneg i32 %67 to i64
-  %69 = load ptr, ptr %0, align 8, !tbaa !142
+  %69 = load ptr, ptr %0, align 8, !tbaa !141
   %70 = getelementptr inbounds nuw %struct.CircleData, ptr %69, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %68, ptr noundef nonnull %70)
-  %71 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !46
+  %71 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %71(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
   call void @_Z12CheckErrorGLv()
   %72 = add nsw i32 %.011, -2048
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2048
   %73 = icmp samesign ugt i32 %.011, 2048
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !169
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !168
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %74 = load ptr, ptr @glad_glDisable, align 8, !tbaa !46
+  %74 = load ptr, ptr @glad_glDisable, align 8, !tbaa !45
   call void %74(i32 noundef 3042)
-  %75 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %75 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %75(i32 noundef 34962, i32 noundef 0)
-  %76 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %76 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %76(i32 noundef 0)
-  %77 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %77 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %77(i32 noundef 0)
-  %78 = load ptr, ptr %0, align 8, !tbaa !142
-  %79 = load ptr, ptr %3, align 8, !tbaa !160
+  %78 = load ptr, ptr %0, align 8, !tbaa !141
+  %79 = load ptr, ptr %3, align 8, !tbaa !159
   %.not.i.i = icmp eq ptr %79, %78
   br i1 %.not.i.i, label %_ZNSt6vectorI10CircleDataSaIS0_EE5clearEv.exit, label %80
 
 80:                                               ; preds = %._crit_edge
-  store ptr %78, ptr %3, align 8, !tbaa !160
+  store ptr %78, ptr %3, align 8, !tbaa !159
   br label %_ZNSt6vectorI10CircleDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI10CircleDataSaIS0_EE5clearEv.exit:   ; preds = %._crit_edge, %80
@@ -3085,8 +3085,8 @@ _ZNSt6vectorI10CircleDataSaIS0_EE5clearEv.exit:   ; preds = %._crit_edge, %80
 define linkonce_odr dso_local void @_ZN7GLLines5FlushEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !150
-  %5 = load ptr, ptr %0, align 8, !tbaa !140
+  %4 = load ptr, ptr %3, align 8, !tbaa !149
+  %5 = load ptr, ptr %0, align 8, !tbaa !139
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -3096,9 +3096,9 @@ define linkonce_odr dso_local void @_ZN7GLLines5FlushEv(ptr noundef nonnull alig
   br i1 %11, label %70, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !52
+  %15 = load i32, ptr %14, align 8, !tbaa !51
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -3144,17 +3144,17 @@ define linkonce_odr dso_local void @_ZN7GLLines5FlushEv(ptr noundef nonnull alig
   store float 0x3FB99999A0000000, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !59
+  %48 = load i32, ptr %47, align 4, !tbaa !58
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load i32, ptr %50, align 8, !tbaa !60
+  %51 = load i32, ptr %50, align 8, !tbaa !59
   call void %49(i32 noundef %51)
-  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %54 = load i32, ptr %53, align 4, !tbaa !61
+  %54 = load i32, ptr %53, align 4, !tbaa !60
   call void %52(i32 noundef 34962, i32 noundef %54)
   %55 = icmp sgt i32 %10, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
@@ -3163,34 +3163,34 @@ define linkonce_odr dso_local void @_ZN7GLLines5FlushEv(ptr noundef nonnull alig
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %62, %.lr.ph ], [ %10, %12 ]
   %56 = call i32 @llvm.umin.i32(i32 %.011, i32 4096)
-  %57 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %57 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %narrow = mul nuw nsw i32 %56, 12
   %58 = zext nneg i32 %narrow to i64
-  %59 = load ptr, ptr %0, align 8, !tbaa !140
+  %59 = load ptr, ptr %0, align 8, !tbaa !139
   %60 = getelementptr inbounds nuw %struct.VertexData, ptr %59, i64 %indvars.iv
   call void %57(i32 noundef 34962, i64 noundef 0, i64 noundef %58, ptr noundef nonnull %60)
-  %61 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !46
+  %61 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   call void %61(i32 noundef 1, i32 noundef 0, i32 noundef %56)
   call void @_Z12CheckErrorGLv()
   %62 = add nsw i32 %.011, -4096
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4096
   %63 = icmp samesign ugt i32 %.011, 4096
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !170
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %64 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %64 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %64(i32 noundef 34962, i32 noundef 0)
-  %65 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %65 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %65(i32 noundef 0)
-  %66 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %66(i32 noundef 0)
-  %67 = load ptr, ptr %0, align 8, !tbaa !140
-  %68 = load ptr, ptr %3, align 8, !tbaa !150
+  %67 = load ptr, ptr %0, align 8, !tbaa !139
+  %68 = load ptr, ptr %3, align 8, !tbaa !149
   %.not.i.i = icmp eq ptr %68, %67
   br i1 %.not.i.i, label %_ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit, label %69
 
 69:                                               ; preds = %._crit_edge
-  store ptr %67, ptr %3, align 8, !tbaa !150
+  store ptr %67, ptr %3, align 8, !tbaa !149
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit:   ; preds = %._crit_edge, %69
@@ -3205,8 +3205,8 @@ _ZNSt6vectorI10VertexDataSaIS0_EE5clearEv.exit:   ; preds = %._crit_edge, %69
 define linkonce_odr dso_local void @_ZN8GLPoints5FlushEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x float], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !163
-  %5 = load ptr, ptr %0, align 8, !tbaa !138
+  %4 = load ptr, ptr %3, align 8, !tbaa !162
+  %5 = load ptr, ptr %0, align 8, !tbaa !137
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -3216,9 +3216,9 @@ define linkonce_odr dso_local void @_ZN8GLPoints5FlushEv(ptr noundef nonnull ali
   br i1 %11, label %73, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !85
+  %15 = load i32, ptr %14, align 8, !tbaa !84
   tail call void %13(i32 noundef %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
@@ -3264,19 +3264,19 @@ define linkonce_odr dso_local void @_ZN8GLPoints5FlushEv(ptr noundef nonnull ali
   store float 0.000000e+00, ptr %44, align 8, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store float 1.000000e+00, ptr %45, align 4, !tbaa !12
-  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !46
+  %46 = load ptr, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !92
+  %48 = load i32, ptr %47, align 4, !tbaa !91
   call void %46(i32 noundef %48, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %2)
-  %49 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %49 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load i32, ptr %50, align 8, !tbaa !93
+  %51 = load i32, ptr %50, align 8, !tbaa !92
   call void %49(i32 noundef %51)
-  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %52 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %54 = load i32, ptr %53, align 4, !tbaa !94
+  %54 = load i32, ptr %53, align 4, !tbaa !93
   call void %52(i32 noundef 34962, i32 noundef %54)
-  %55 = load ptr, ptr @glad_glEnable, align 8, !tbaa !46
+  %55 = load ptr, ptr @glad_glEnable, align 8, !tbaa !45
   call void %55(i32 noundef 34370)
   %56 = icmp sgt i32 %10, 0
   br i1 %56, label %.lr.ph, label %._crit_edge
@@ -3285,36 +3285,36 @@ define linkonce_odr dso_local void @_ZN8GLPoints5FlushEv(ptr noundef nonnull ali
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.011 = phi i32 [ %64, %.lr.ph ], [ %10, %12 ]
   %57 = call i32 @llvm.umin.i32(i32 %.011, i32 2048)
-  %58 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !46
+  %58 = load ptr, ptr @glad_glBufferSubData, align 8, !tbaa !45
   %59 = shl nuw nsw i32 %57, 4
   %60 = zext nneg i32 %59 to i64
-  %61 = load ptr, ptr %0, align 8, !tbaa !138
+  %61 = load ptr, ptr %0, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw %struct.PointData, ptr %61, i64 %indvars.iv
   call void %58(i32 noundef 34962, i64 noundef 0, i64 noundef %60, ptr noundef nonnull %62)
-  %63 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !46
+  %63 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   call void %63(i32 noundef 0, i32 noundef 0, i32 noundef %57)
   call void @_Z12CheckErrorGLv()
   %64 = add nsw i32 %.011, -2048
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2048
   %65 = icmp samesign ugt i32 %.011, 2048
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !171
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %66 = load ptr, ptr @glad_glDisable, align 8, !tbaa !46
+  %66 = load ptr, ptr @glad_glDisable, align 8, !tbaa !45
   call void %66(i32 noundef 34370)
-  %67 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %67 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   call void %67(i32 noundef 34962, i32 noundef 0)
-  %68 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %68 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   call void %68(i32 noundef 0)
-  %69 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %69 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   call void %69(i32 noundef 0)
-  %70 = load ptr, ptr %0, align 8, !tbaa !138
-  %71 = load ptr, ptr %3, align 8, !tbaa !163
+  %70 = load ptr, ptr %0, align 8, !tbaa !137
+  %71 = load ptr, ptr %3, align 8, !tbaa !162
   %.not.i.i = icmp eq ptr %71, %70
   br i1 %.not.i.i, label %_ZNSt6vectorI9PointDataSaIS0_EE5clearEv.exit, label %72
 
 72:                                               ; preds = %._crit_edge
-  store ptr %70, ptr %3, align 8, !tbaa !163
+  store ptr %70, ptr %3, align 8, !tbaa !162
   br label %_ZNSt6vectorI9PointDataSaIS0_EE5clearEv.exit
 
 _ZNSt6vectorI9PointDataSaIS0_EE5clearEv.exit:     ; preds = %._crit_edge, %72
@@ -3330,44 +3330,44 @@ declare void @_Z12CheckErrorGLv() local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Draw14DrawBackgroundEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
-  %4 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %4 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !44
+  %6 = load i32, ptr %5, align 4, !tbaa !43
   tail call void %4(i32 noundef %6)
   %7 = tail call double @glfwGetTime()
   %8 = fptrunc double %7 to float
-  %9 = tail call float @fmodf(float noundef %8, float noundef 1.000000e+02) #18, !tbaa !107
-  %10 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !46
+  %9 = tail call float @fmodf(float noundef %8, float noundef 1.000000e+02) #18, !tbaa !106
+  %10 = load ptr, ptr @glad_glUniform1f, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !47
+  %12 = load i32, ptr %11, align 4, !tbaa !46
   tail call void %10(i32 noundef %12, float noundef %9)
-  %13 = load ptr, ptr @glad_glUniform2f, align 8, !tbaa !46
+  %13 = load ptr, ptr @glad_glUniform2f, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load i32, ptr %14, align 4, !tbaa !48
+  %15 = load i32, ptr %14, align 4, !tbaa !47
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !4
   %17 = sitofp i32 %16 to float
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 8, !tbaa !11
   %19 = sitofp i32 %18 to float
   tail call void %13(i32 noundef %15, float noundef %17, float noundef %19)
-  %20 = load ptr, ptr @glad_glUniform3f, align 8, !tbaa !46
+  %20 = load ptr, ptr @glad_glUniform3f, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !49
+  %22 = load i32, ptr %21, align 4, !tbaa !48
   tail call void %20(i32 noundef %22, float noundef 0x3FC99999A0000000, float noundef 0x3FC99999A0000000, float noundef 0x3FC99999A0000000)
-  %23 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
-  %24 = load i32, ptr %3, align 4, !tbaa !50
+  %23 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
+  %24 = load i32, ptr %3, align 4, !tbaa !49
   tail call void %23(i32 noundef %24)
-  %25 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %25 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !51
+  %27 = load i32, ptr %26, align 4, !tbaa !50
   tail call void %25(i32 noundef 34962, i32 noundef %27)
-  %28 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !46
+  %28 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   tail call void %28(i32 noundef 5, i32 noundef 0, i32 noundef 4)
-  %29 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !46
+  %29 = load ptr, ptr @glad_glBindBuffer, align 8, !tbaa !45
   tail call void %29(i32 noundef 34962, i32 noundef 0)
-  %30 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !46
+  %30 = load ptr, ptr @glad_glBindVertexArray, align 8, !tbaa !45
   tail call void %30(i32 noundef 0)
-  %31 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !46
+  %31 = load ptr, ptr @glad_glUseProgram, align 8, !tbaa !45
   tail call void %31(i32 noundef 0)
   ret void
 }
@@ -3466,144 +3466,143 @@ attributes #21 = { noreturn }
 !28 = !{!"_ZTS11b2DebugDraw", !20, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !29, i64 72, !18, i64 88, !18, i64 89, !18, i64 90, !18, i64 91, !18, i64 92, !18, i64 93, !18, i64 94, !18, i64 95, !18, i64 96, !18, i64 97, !18, i64 98, !18, i64 99, !20, i64 104}
 !29 = !{!"_ZTS6b2AABB", !6, i64 0, !6, i64 8}
 !30 = !{!"p1 _ZTS6ImFont", !20, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!17, !27, i64 64}
-!35 = !{!17, !24, i64 40}
-!36 = !{!17, !25, i64 48}
-!37 = !{!17, !26, i64 56}
-!38 = !{!17, !21, i64 16}
-!39 = !{!40, !7, i64 0}
-!40 = !{!"_ZTS6ImVec2", !7, i64 0, !7, i64 4}
-!41 = !{!40, !7, i64 4}
-!42 = !{!17, !18, i64 0}
-!43 = !{!17, !19, i64 8}
-!44 = !{!45, !10, i64 8}
-!45 = !{!"_ZTS12GLBackground", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
-!46 = !{!20, !20, i64 0}
-!47 = !{!45, !10, i64 12}
-!48 = !{!45, !10, i64 16}
-!49 = !{!45, !10, i64 20}
-!50 = !{!45, !10, i64 0}
-!51 = !{!45, !10, i64 4}
-!52 = !{!53, !10, i64 32}
-!53 = !{!"_ZTS7GLLines", !54, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
-!54 = !{!"_ZTSSt6vectorI10VertexDataSaIS0_EE", !55, i64 0}
-!55 = !{!"_ZTSSt12_Vector_baseI10VertexDataSaIS0_EE", !56, i64 0}
-!56 = !{!"_ZTSNSt12_Vector_baseI10VertexDataSaIS0_EE12_Vector_implE", !57, i64 0}
-!57 = !{!"_ZTSNSt12_Vector_baseI10VertexDataSaIS0_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
-!58 = !{!"p1 _ZTS10VertexData", !20, i64 0}
-!59 = !{!53, !10, i64 36}
-!60 = !{!53, !10, i64 24}
-!61 = !{!53, !10, i64 28}
-!62 = !{!17, !23, i64 32}
-!63 = !{!64, !10, i64 32}
-!64 = !{!"_ZTS11GLTriangles", !54, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
-!65 = !{!64, !10, i64 36}
-!66 = !{!64, !10, i64 24}
-!67 = !{!64, !10, i64 28}
-!68 = !{!17, !20, i64 72}
-!69 = !{!17, !20, i64 80}
-!70 = !{!17, !20, i64 88}
-!71 = !{!17, !20, i64 96}
-!72 = !{!17, !20, i64 104}
-!73 = !{!17, !20, i64 112}
-!74 = !{!17, !20, i64 120}
-!75 = !{!17, !20, i64 128}
-!76 = !{!17, !20, i64 136}
-!77 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 4, !12, i64 12, i64 4, !12}
-!78 = !{!17, !18, i64 160}
-!79 = !{!17, !18, i64 161}
-!80 = !{!17, !18, i64 162}
-!81 = !{!17, !18, i64 163}
-!82 = !{!17, !18, i64 164}
-!83 = !{!17, !18, i64 165}
-!84 = !{!17, !20, i64 176}
-!85 = !{!86, !10, i64 32}
-!86 = !{!"_ZTS8GLPoints", !87, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
-!87 = !{!"_ZTSSt6vectorI9PointDataSaIS0_EE", !88, i64 0}
-!88 = !{!"_ZTSSt12_Vector_baseI9PointDataSaIS0_EE", !89, i64 0}
-!89 = !{!"_ZTSNSt12_Vector_baseI9PointDataSaIS0_EE12_Vector_implE", !90, i64 0}
-!90 = !{!"_ZTSNSt12_Vector_baseI9PointDataSaIS0_EE17_Vector_impl_dataE", !91, i64 0, !91, i64 8, !91, i64 16}
-!91 = !{!"p1 _ZTS9PointData", !20, i64 0}
-!92 = !{!86, !10, i64 36}
-!93 = !{!86, !10, i64 24}
-!94 = !{!86, !10, i64 28}
-!95 = !{!96, !10, i64 36}
-!96 = !{!"_ZTS9GLCircles", !97, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
-!97 = !{!"_ZTSSt6vectorI10CircleDataSaIS0_EE", !98, i64 0}
-!98 = !{!"_ZTSSt12_Vector_baseI10CircleDataSaIS0_EE", !99, i64 0}
-!99 = !{!"_ZTSNSt12_Vector_baseI10CircleDataSaIS0_EE12_Vector_implE", !100, i64 0}
-!100 = !{!"_ZTSNSt12_Vector_baseI10CircleDataSaIS0_EE17_Vector_impl_dataE", !101, i64 0, !101, i64 8, !101, i64 16}
-!101 = !{!"p1 _ZTS10CircleData", !20, i64 0}
-!102 = !{!96, !10, i64 40}
-!103 = !{!96, !10, i64 44}
-!104 = !{!96, !10, i64 24}
-!105 = !{!6, !7, i64 0}
-!106 = !{!6, !7, i64 4}
-!107 = !{!10, !10, i64 0}
-!108 = !{!109, !10, i64 36}
-!109 = !{!"_ZTS14GLSolidCircles", !110, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
-!110 = !{!"_ZTSSt6vectorI15SolidCircleDataSaIS0_EE", !111, i64 0}
-!111 = !{!"_ZTSSt12_Vector_baseI15SolidCircleDataSaIS0_EE", !112, i64 0}
-!112 = !{!"_ZTSNSt12_Vector_baseI15SolidCircleDataSaIS0_EE12_Vector_implE", !113, i64 0}
-!113 = !{!"_ZTSNSt12_Vector_baseI15SolidCircleDataSaIS0_EE17_Vector_impl_dataE", !114, i64 0, !114, i64 8, !114, i64 16}
-!114 = !{!"p1 _ZTS15SolidCircleData", !20, i64 0}
-!115 = !{!109, !10, i64 40}
-!116 = !{!109, !10, i64 44}
-!117 = !{!109, !10, i64 24}
-!118 = !{!119, !10, i64 36}
-!119 = !{!"_ZTS15GLSolidCapsules", !120, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
-!120 = !{!"_ZTSSt6vectorI11CapsuleDataSaIS0_EE", !121, i64 0}
-!121 = !{!"_ZTSSt12_Vector_baseI11CapsuleDataSaIS0_EE", !122, i64 0}
-!122 = !{!"_ZTSNSt12_Vector_baseI11CapsuleDataSaIS0_EE12_Vector_implE", !123, i64 0}
-!123 = !{!"_ZTSNSt12_Vector_baseI11CapsuleDataSaIS0_EE17_Vector_impl_dataE", !124, i64 0, !124, i64 8, !124, i64 16}
-!124 = !{!"p1 _ZTS11CapsuleData", !20, i64 0}
-!125 = !{!119, !10, i64 40}
-!126 = !{!119, !10, i64 44}
-!127 = !{!119, !10, i64 24}
-!128 = !{!129, !10, i64 36}
-!129 = !{!"_ZTS15GLSolidPolygons", !130, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
-!130 = !{!"_ZTSSt6vectorI11PolygonDataSaIS0_EE", !131, i64 0}
-!131 = !{!"_ZTSSt12_Vector_baseI11PolygonDataSaIS0_EE", !132, i64 0}
-!132 = !{!"_ZTSNSt12_Vector_baseI11PolygonDataSaIS0_EE12_Vector_implE", !133, i64 0}
-!133 = !{!"_ZTSNSt12_Vector_baseI11PolygonDataSaIS0_EE17_Vector_impl_dataE", !134, i64 0, !134, i64 8, !134, i64 16}
-!134 = !{!"p1 _ZTS11PolygonData", !20, i64 0}
-!135 = !{!129, !10, i64 40}
-!136 = !{!129, !10, i64 44}
-!137 = !{!129, !10, i64 24}
-!138 = !{!90, !91, i64 0}
-!139 = !{!90, !91, i64 16}
-!140 = !{!57, !58, i64 0}
-!141 = !{!57, !58, i64 16}
-!142 = !{!100, !101, i64 0}
-!143 = !{!100, !101, i64 16}
-!144 = !{!113, !114, i64 0}
-!145 = !{!113, !114, i64 16}
-!146 = !{!123, !124, i64 0}
-!147 = !{!123, !124, i64 16}
-!148 = !{!133, !134, i64 0}
-!149 = !{!133, !134, i64 16}
-!150 = !{!57, !58, i64 8}
-!151 = !{!152, !10, i64 80}
-!152 = !{!"_ZTS11PolygonData", !153, i64 0, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !10, i64 80, !7, i64 84, !155, i64 88}
-!153 = !{!"_ZTS11b2Transform", !6, i64 0, !154, i64 8}
-!154 = !{!"_ZTS5b2Rot", !7, i64 0, !7, i64 4}
-!155 = !{!"_ZTS5RGBA8", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3}
-!156 = !{!152, !7, i64 84}
-!157 = !{!133, !134, i64 8}
-!158 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 4, !12, i64 12, i64 4, !12, i64 16, i64 4, !12, i64 20, i64 4, !12, i64 24, i64 4, !12, i64 28, i64 4, !12, i64 32, i64 4, !12, i64 36, i64 4, !12, i64 40, i64 4, !12, i64 44, i64 4, !12, i64 48, i64 4, !12, i64 52, i64 4, !12, i64 56, i64 4, !12, i64 60, i64 4, !12, i64 64, i64 4, !107, i64 68, i64 4, !12, i64 72, i64 1, !159, i64 73, i64 1, !159, i64 74, i64 1, !159, i64 75, i64 1, !159}
-!159 = !{!8, !8, i64 0}
-!160 = !{!100, !101, i64 8}
-!161 = !{!113, !114, i64 8}
-!162 = !{!123, !124, i64 8}
-!163 = !{!90, !91, i64 8}
-!164 = !{!17, !30, i64 192}
-!165 = distinct !{!165, !32, !33}
-!166 = distinct !{!166, !32, !33}
-!167 = distinct !{!167, !32, !33}
-!168 = distinct !{!168, !32, !33}
-!169 = distinct !{!169, !32, !33}
-!170 = distinct !{!170, !32, !33}
-!171 = distinct !{!171, !32, !33}
+!33 = !{!17, !27, i64 64}
+!34 = !{!17, !24, i64 40}
+!35 = !{!17, !25, i64 48}
+!36 = !{!17, !26, i64 56}
+!37 = !{!17, !21, i64 16}
+!38 = !{!39, !7, i64 0}
+!39 = !{!"_ZTS6ImVec2", !7, i64 0, !7, i64 4}
+!40 = !{!39, !7, i64 4}
+!41 = !{!17, !18, i64 0}
+!42 = !{!17, !19, i64 8}
+!43 = !{!44, !10, i64 8}
+!44 = !{!"_ZTS12GLBackground", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
+!45 = !{!20, !20, i64 0}
+!46 = !{!44, !10, i64 12}
+!47 = !{!44, !10, i64 16}
+!48 = !{!44, !10, i64 20}
+!49 = !{!44, !10, i64 0}
+!50 = !{!44, !10, i64 4}
+!51 = !{!52, !10, i64 32}
+!52 = !{!"_ZTS7GLLines", !53, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
+!53 = !{!"_ZTSSt6vectorI10VertexDataSaIS0_EE", !54, i64 0}
+!54 = !{!"_ZTSSt12_Vector_baseI10VertexDataSaIS0_EE", !55, i64 0}
+!55 = !{!"_ZTSNSt12_Vector_baseI10VertexDataSaIS0_EE12_Vector_implE", !56, i64 0}
+!56 = !{!"_ZTSNSt12_Vector_baseI10VertexDataSaIS0_EE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
+!57 = !{!"p1 _ZTS10VertexData", !20, i64 0}
+!58 = !{!52, !10, i64 36}
+!59 = !{!52, !10, i64 24}
+!60 = !{!52, !10, i64 28}
+!61 = !{!17, !23, i64 32}
+!62 = !{!63, !10, i64 32}
+!63 = !{!"_ZTS11GLTriangles", !53, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
+!64 = !{!63, !10, i64 36}
+!65 = !{!63, !10, i64 24}
+!66 = !{!63, !10, i64 28}
+!67 = !{!17, !20, i64 72}
+!68 = !{!17, !20, i64 80}
+!69 = !{!17, !20, i64 88}
+!70 = !{!17, !20, i64 96}
+!71 = !{!17, !20, i64 104}
+!72 = !{!17, !20, i64 112}
+!73 = !{!17, !20, i64 120}
+!74 = !{!17, !20, i64 128}
+!75 = !{!17, !20, i64 136}
+!76 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 4, !12, i64 12, i64 4, !12}
+!77 = !{!17, !18, i64 160}
+!78 = !{!17, !18, i64 161}
+!79 = !{!17, !18, i64 162}
+!80 = !{!17, !18, i64 163}
+!81 = !{!17, !18, i64 164}
+!82 = !{!17, !18, i64 165}
+!83 = !{!17, !20, i64 176}
+!84 = !{!85, !10, i64 32}
+!85 = !{!"_ZTS8GLPoints", !86, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
+!86 = !{!"_ZTSSt6vectorI9PointDataSaIS0_EE", !87, i64 0}
+!87 = !{!"_ZTSSt12_Vector_baseI9PointDataSaIS0_EE", !88, i64 0}
+!88 = !{!"_ZTSNSt12_Vector_baseI9PointDataSaIS0_EE12_Vector_implE", !89, i64 0}
+!89 = !{!"_ZTSNSt12_Vector_baseI9PointDataSaIS0_EE17_Vector_impl_dataE", !90, i64 0, !90, i64 8, !90, i64 16}
+!90 = !{!"p1 _ZTS9PointData", !20, i64 0}
+!91 = !{!85, !10, i64 36}
+!92 = !{!85, !10, i64 24}
+!93 = !{!85, !10, i64 28}
+!94 = !{!95, !10, i64 36}
+!95 = !{!"_ZTS9GLCircles", !96, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
+!96 = !{!"_ZTSSt6vectorI10CircleDataSaIS0_EE", !97, i64 0}
+!97 = !{!"_ZTSSt12_Vector_baseI10CircleDataSaIS0_EE", !98, i64 0}
+!98 = !{!"_ZTSNSt12_Vector_baseI10CircleDataSaIS0_EE12_Vector_implE", !99, i64 0}
+!99 = !{!"_ZTSNSt12_Vector_baseI10CircleDataSaIS0_EE17_Vector_impl_dataE", !100, i64 0, !100, i64 8, !100, i64 16}
+!100 = !{!"p1 _ZTS10CircleData", !20, i64 0}
+!101 = !{!95, !10, i64 40}
+!102 = !{!95, !10, i64 44}
+!103 = !{!95, !10, i64 24}
+!104 = !{!6, !7, i64 0}
+!105 = !{!6, !7, i64 4}
+!106 = !{!10, !10, i64 0}
+!107 = !{!108, !10, i64 36}
+!108 = !{!"_ZTS14GLSolidCircles", !109, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
+!109 = !{!"_ZTSSt6vectorI15SolidCircleDataSaIS0_EE", !110, i64 0}
+!110 = !{!"_ZTSSt12_Vector_baseI15SolidCircleDataSaIS0_EE", !111, i64 0}
+!111 = !{!"_ZTSNSt12_Vector_baseI15SolidCircleDataSaIS0_EE12_Vector_implE", !112, i64 0}
+!112 = !{!"_ZTSNSt12_Vector_baseI15SolidCircleDataSaIS0_EE17_Vector_impl_dataE", !113, i64 0, !113, i64 8, !113, i64 16}
+!113 = !{!"p1 _ZTS15SolidCircleData", !20, i64 0}
+!114 = !{!108, !10, i64 40}
+!115 = !{!108, !10, i64 44}
+!116 = !{!108, !10, i64 24}
+!117 = !{!118, !10, i64 36}
+!118 = !{!"_ZTS15GLSolidCapsules", !119, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
+!119 = !{!"_ZTSSt6vectorI11CapsuleDataSaIS0_EE", !120, i64 0}
+!120 = !{!"_ZTSSt12_Vector_baseI11CapsuleDataSaIS0_EE", !121, i64 0}
+!121 = !{!"_ZTSNSt12_Vector_baseI11CapsuleDataSaIS0_EE12_Vector_implE", !122, i64 0}
+!122 = !{!"_ZTSNSt12_Vector_baseI11CapsuleDataSaIS0_EE17_Vector_impl_dataE", !123, i64 0, !123, i64 8, !123, i64 16}
+!123 = !{!"p1 _ZTS11CapsuleData", !20, i64 0}
+!124 = !{!118, !10, i64 40}
+!125 = !{!118, !10, i64 44}
+!126 = !{!118, !10, i64 24}
+!127 = !{!128, !10, i64 36}
+!128 = !{!"_ZTS15GLSolidPolygons", !129, i64 0, !10, i64 24, !8, i64 28, !10, i64 36, !10, i64 40, !10, i64 44}
+!129 = !{!"_ZTSSt6vectorI11PolygonDataSaIS0_EE", !130, i64 0}
+!130 = !{!"_ZTSSt12_Vector_baseI11PolygonDataSaIS0_EE", !131, i64 0}
+!131 = !{!"_ZTSNSt12_Vector_baseI11PolygonDataSaIS0_EE12_Vector_implE", !132, i64 0}
+!132 = !{!"_ZTSNSt12_Vector_baseI11PolygonDataSaIS0_EE17_Vector_impl_dataE", !133, i64 0, !133, i64 8, !133, i64 16}
+!133 = !{!"p1 _ZTS11PolygonData", !20, i64 0}
+!134 = !{!128, !10, i64 40}
+!135 = !{!128, !10, i64 44}
+!136 = !{!128, !10, i64 24}
+!137 = !{!89, !90, i64 0}
+!138 = !{!89, !90, i64 16}
+!139 = !{!56, !57, i64 0}
+!140 = !{!56, !57, i64 16}
+!141 = !{!99, !100, i64 0}
+!142 = !{!99, !100, i64 16}
+!143 = !{!112, !113, i64 0}
+!144 = !{!112, !113, i64 16}
+!145 = !{!122, !123, i64 0}
+!146 = !{!122, !123, i64 16}
+!147 = !{!132, !133, i64 0}
+!148 = !{!132, !133, i64 16}
+!149 = !{!56, !57, i64 8}
+!150 = !{!151, !10, i64 80}
+!151 = !{!"_ZTS11PolygonData", !152, i64 0, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !10, i64 80, !7, i64 84, !154, i64 88}
+!152 = !{!"_ZTS11b2Transform", !6, i64 0, !153, i64 8}
+!153 = !{!"_ZTS5b2Rot", !7, i64 0, !7, i64 4}
+!154 = !{!"_ZTS5RGBA8", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3}
+!155 = !{!151, !7, i64 84}
+!156 = !{!132, !133, i64 8}
+!157 = !{i64 0, i64 4, !12, i64 4, i64 4, !12, i64 8, i64 4, !12, i64 12, i64 4, !12, i64 16, i64 4, !12, i64 20, i64 4, !12, i64 24, i64 4, !12, i64 28, i64 4, !12, i64 32, i64 4, !12, i64 36, i64 4, !12, i64 40, i64 4, !12, i64 44, i64 4, !12, i64 48, i64 4, !12, i64 52, i64 4, !12, i64 56, i64 4, !12, i64 60, i64 4, !12, i64 64, i64 4, !106, i64 68, i64 4, !12, i64 72, i64 1, !158, i64 73, i64 1, !158, i64 74, i64 1, !158, i64 75, i64 1, !158}
+!158 = !{!8, !8, i64 0}
+!159 = !{!99, !100, i64 8}
+!160 = !{!112, !113, i64 8}
+!161 = !{!122, !123, i64 8}
+!162 = !{!89, !90, i64 8}
+!163 = !{!17, !30, i64 192}
+!164 = distinct !{!164, !32}
+!165 = distinct !{!165, !32}
+!166 = distinct !{!166, !32}
+!167 = distinct !{!167, !32}
+!168 = distinct !{!168, !32}
+!169 = distinct !{!169, !32}
+!170 = distinct !{!170, !32}

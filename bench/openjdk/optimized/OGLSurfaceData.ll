@@ -355,7 +355,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitFBObject(ptr noundef writeonl
   call void %29(i32 noundef 1, ptr noundef nonnull %8) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %30, label %13, !llvm.loop !9
+  br i1 %exitcond, label %30, label %13, !llvm.loop !8
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @j2d_glBindTexture, align 8
@@ -717,7 +717,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

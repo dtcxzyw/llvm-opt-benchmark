@@ -1212,7 +1212,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %608 = icmp samesign ult i64 %indvars.iv.next689, %599
   %or.cond669 = select i1 %607, i1 %608, i1 false
-  br i1 %or.cond669, label %.lr.ph661, label %.loopexit, !llvm.loop !66
+  br i1 %or.cond669, label %.lr.ph661, label %.loopexit
 
 609:                                              ; preds = %604
   store i64 1, ptr %572, align 8, !tbaa !24
@@ -1301,7 +1301,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
   %655 = icmp samesign uge i64 %indvars.iv.next686, %648
   %or.cond670.not = select i1 %.not571, i1 true, i1 %655
-  br i1 %or.cond670.not, label %.loopexit633, label %.lr.ph657, !llvm.loop !68
+  br i1 %or.cond670.not, label %.loopexit633, label %.lr.ph657
 
 656:                                              ; preds = %652
   store i64 1, ptr %619, align 8, !tbaa !24
@@ -1325,7 +1325,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   %664 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %663
   %665 = load i64, ptr %664, align 8, !tbaa !24
   %666 = inttoptr i64 %665 to ptr
-  %667 = load ptr, ptr %18, align 8, !tbaa !69
+  %667 = load ptr, ptr %18, align 8, !tbaa !66
   %668 = load i32, ptr %0, align 8, !tbaa !18
   %669 = zext i32 %668 to i64
   %670 = getelementptr inbounds nuw ptr, ptr %667, i64 %669
@@ -1428,7 +1428,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   %.1517.in = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %indvars.iv.next
   %.1517 = load i64, ptr %.1517.in, align 8, !tbaa !24
   %.not = icmp eq i64 %.1517, -1483400188077313
-  br i1 %.not, label %._crit_edge.loopexit, label %722, !llvm.loop !70
+  br i1 %.not, label %._crit_edge.loopexit, label %722
 
 ._crit_edge.loopexit:                             ; preds = %722
   %731 = trunc nsw i64 %indvars.iv to i32
@@ -1472,7 +1472,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %747, label %748, label %.loopexit634
 
 748:                                              ; preds = %746
-  %749 = load i64, ptr %2, align 8, !tbaa !71
+  %749 = load i64, ptr %2, align 8, !tbaa !67
   %750 = add nsw i32 %.0520, 1
   %751 = sext i32 %.0520 to i64
   %752 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %751
@@ -1484,7 +1484,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %754, label %755, label %.loopexit634
 
 755:                                              ; preds = %753
-  %756 = load i64, ptr %15, align 8, !tbaa !72
+  %756 = load i64, ptr %15, align 8, !tbaa !68
   %757 = add nsw i32 %.0520, 1
   %758 = sext i32 %.0520 to i64
   %759 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %758
@@ -1500,7 +1500,7 @@ define i32 @yr_execute_code(ptr noundef readonly captures(none) %0, ptr noundef 
   %764 = sext i32 %763 to i64
   %765 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %764
   %766 = load i64, ptr %765, align 8, !tbaa !24
-  %767 = load ptr, ptr %14, align 8, !tbaa !73
+  %767 = load ptr, ptr %14, align 8, !tbaa !69
   %768 = add i64 %766, 1
   %769 = getelementptr inbounds nuw i8, ptr %767, i64 88
   %770 = load i64, ptr %769, align 8, !tbaa !3
@@ -1533,7 +1533,7 @@ read_int8_t.exit:                                 ; preds = %762, %771, %775
   %782 = sext i32 %781 to i64
   %783 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %782
   %784 = load i64, ptr %783, align 8, !tbaa !24
-  %785 = load ptr, ptr %14, align 8, !tbaa !73
+  %785 = load ptr, ptr %14, align 8, !tbaa !69
   %786 = add i64 %784, 2
   %787 = getelementptr inbounds nuw i8, ptr %785, i64 88
   %788 = load i64, ptr %787, align 8, !tbaa !3
@@ -1566,7 +1566,7 @@ read_int16_t.exit:                                ; preds = %780, %789, %793
   %800 = sext i32 %799 to i64
   %801 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %800
   %802 = load i64, ptr %801, align 8, !tbaa !24
-  %803 = load ptr, ptr %14, align 8, !tbaa !73
+  %803 = load ptr, ptr %14, align 8, !tbaa !69
   %804 = add i64 %802, 4
   %805 = getelementptr inbounds nuw i8, ptr %803, i64 88
   %806 = load i64, ptr %805, align 8, !tbaa !3
@@ -1599,7 +1599,7 @@ read_int32_t.exit:                                ; preds = %798, %807, %811
   %818 = sext i32 %817 to i64
   %819 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %818
   %820 = load i64, ptr %819, align 8, !tbaa !24
-  %821 = load ptr, ptr %14, align 8, !tbaa !73
+  %821 = load ptr, ptr %14, align 8, !tbaa !69
   %822 = add i64 %820, 1
   %823 = getelementptr inbounds nuw i8, ptr %821, i64 88
   %824 = load i64, ptr %823, align 8, !tbaa !3
@@ -1632,7 +1632,7 @@ read_uint8_t.exit:                                ; preds = %816, %825, %829
   %836 = sext i32 %835 to i64
   %837 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %836
   %838 = load i64, ptr %837, align 8, !tbaa !24
-  %839 = load ptr, ptr %14, align 8, !tbaa !73
+  %839 = load ptr, ptr %14, align 8, !tbaa !69
   %840 = add i64 %838, 2
   %841 = getelementptr inbounds nuw i8, ptr %839, i64 88
   %842 = load i64, ptr %841, align 8, !tbaa !3
@@ -1665,7 +1665,7 @@ read_uint16_t.exit:                               ; preds = %834, %843, %847
   %854 = sext i32 %853 to i64
   %855 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %854
   %856 = load i64, ptr %855, align 8, !tbaa !24
-  %857 = load ptr, ptr %14, align 8, !tbaa !73
+  %857 = load ptr, ptr %14, align 8, !tbaa !69
   %858 = add i64 %856, 4
   %859 = getelementptr inbounds nuw i8, ptr %857, i64 88
   %860 = load i64, ptr %859, align 8, !tbaa !3
@@ -1761,7 +1761,7 @@ read_uint32_t.exit:                               ; preds = %852, %861, %865
 908:                                              ; preds = %904, %901, %900
   %.1 = phi i32 [ %902, %901 ], [ %.0, %900 ], [ 0, %904 ]
   %909 = getelementptr inbounds nuw i8, ptr %.1526, i64 1
-  br label %23, !llvm.loop !74
+  br label %23
 
 .loopexit634:                                     ; preds = %904, %897, %895, %868, %850, %832, %814, %796, %778, %760, %753, %746, %744, %741, %719, %712, %685, %659, %.loopexit633, %652, %623, %.loopexit, %604, %575, %549, %._crit_edge667, %543, %520, %517, %508, %502, %489, %454, %439, %424, %409, %399, %382, %365, %350, %335, %320, %315, %313, %299, %297, %278, %276, %249, %234, %219, %204, %189, %174, %171, %169, %159, %158, %152, %139, %137, %109, %96, %92, %91, %65, %35, %34, %33
   %.0513 = phi i32 [ 27, %33 ], [ %., %34 ], [ 26, %904 ], [ 25, %897 ], [ 25, %895 ], [ 25, %868 ], [ 25, %850 ], [ 25, %832 ], [ 25, %814 ], [ 25, %796 ], [ 25, %778 ], [ 25, %760 ], [ 25, %753 ], [ 25, %746 ], [ 25, %744 ], [ 25, %741 ], [ 25, %719 ], [ 25, %712 ], [ 25, %685 ], [ 25, %659 ], [ 25, %.loopexit633 ], [ 25, %652 ], [ 25, %623 ], [ 25, %.loopexit ], [ 25, %604 ], [ 25, %575 ], [ 25, %549 ], [ %541, %._crit_edge667 ], [ 25, %543 ], [ 25, %520 ], [ 25, %517 ], [ 25, %508 ], [ 25, %502 ], [ 25, %489 ], [ 25, %454 ], [ 25, %439 ], [ 25, %424 ], [ 25, %409 ], [ 25, %399 ], [ 25, %382 ], [ 25, %365 ], [ 25, %350 ], [ 25, %335 ], [ 25, %320 ], [ 25, %315 ], [ 25, %313 ], [ 25, %299 ], [ 25, %297 ], [ 25, %278 ], [ 25, %276 ], [ 25, %249 ], [ 25, %234 ], [ 25, %219 ], [ 25, %204 ], [ 25, %189 ], [ 25, %174 ], [ 25, %171 ], [ 25, %169 ], [ 25, %159 ], [ 25, %158 ], [ 25, %152 ], [ 25, %139 ], [ 25, %137 ], [ 25, %109 ], [ 25, %96 ], [ 25, %92 ], [ 25, %91 ], [ 25, %65 ], [ 25, %35 ]
@@ -1877,12 +1877,7 @@ attributes #11 = { nounwind willreturn memory(none) }
 !63 = !{!"p1 _ZTS18cli_subsig_matches", !5, i64 0}
 !64 = !{!65, !17, i64 4}
 !65 = !{!"cli_subsig_matches", !17, i64 0, !17, i64 4, !6, i64 8}
-!66 = distinct !{!66, !67}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !67}
-!69 = !{!26, !28, i64 24}
-!70 = distinct !{!70, !67}
-!71 = !{!43, !8, i64 0}
-!72 = !{!43, !8, i64 8}
-!73 = !{!43, !45, i64 40}
-!74 = distinct !{!74, !67}
+!66 = !{!26, !28, i64 24}
+!67 = !{!43, !8, i64 0}
+!68 = !{!43, !8, i64 8}
+!69 = !{!43, !45, i64 40}

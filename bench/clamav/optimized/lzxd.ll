@@ -534,7 +534,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %168 = or i32 %167, %.211353255
   %169 = add nsw i32 %.211963254, 16
   %170 = icmp slt i32 %.211963254, 0
-  br i1 %170, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %170, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %159, %.preheader1895
   %.21196.lcssa = phi i32 [ %.011943523, %.preheader1895 ], [ %169, %159 ]
@@ -672,7 +672,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %232 = or i32 %231, %.511383262
   %233 = add nsw i32 %.511993261, 16
   %234 = icmp slt i32 %.511993261, -15
-  br i1 %234, label %.lr.ph3265, label %._crit_edge3266, !llvm.loop !54
+  br i1 %234, label %.lr.ph3265, label %._crit_edge3266
 
 ._crit_edge3266:                                  ; preds = %223, %.preheader1894
   %.51199.lcssa = phi i32 [ %.11195, %.preheader1894 ], [ %233, %223 ]
@@ -802,7 +802,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %294 = or i32 %293, %.811413272
   %295 = add nuw nsw i32 %.812023271, 16
   %296 = icmp slt i32 %.812023271, 0
-  br i1 %296, label %.lr.ph3275, label %._crit_edge3276, !llvm.loop !55
+  br i1 %296, label %.lr.ph3275, label %._crit_edge3276
 
 ._crit_edge3276:                                  ; preds = %285, %.preheader1893
   %.81202.lcssa = phi i32 [ %236, %.preheader1893 ], [ %295, %285 ]
@@ -873,7 +873,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %327 = or i32 %326, %.1011433282
   %328 = add nuw nsw i32 %.1012043281, 16
   %329 = icmp slt i32 %.1012043281, 0
-  br i1 %329, label %.lr.ph3286, label %._crit_edge3287, !llvm.loop !56
+  br i1 %329, label %.lr.ph3286, label %._crit_edge3287
 
 ._crit_edge3287:                                  ; preds = %318, %._crit_edge3276
   %.101204.lcssa = phi i32 [ %299, %._crit_edge3276 ], [ %328, %318 ]
@@ -940,7 +940,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %350, label %351, label %364
 
 351:                                              ; preds = %348
-  %352 = load i32, ptr %79, align 8, !tbaa !57
+  %352 = load i32, ptr %79, align 8, !tbaa !52
   %353 = and i32 %352, 1
   %.not1467 = icmp eq i32 %353, 0
   br i1 %.not1467, label %364, label %354
@@ -1089,7 +1089,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %422 = or i32 %421, %.1411473293
   %423 = add nsw i32 %.1412083292, 16
   %424 = icmp slt i32 %.1412083292, -13
-  br i1 %424, label %.lr.ph3297, label %._crit_edge3298, !llvm.loop !58
+  br i1 %424, label %.lr.ph3297, label %._crit_edge3298
 
 ._crit_edge3298:                                  ; preds = %413, %364
   %.141208.lcssa = phi i32 [ %.1212063499, %364 ], [ %423, %413 ]
@@ -1218,7 +1218,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %486 = or i32 %485, %.1611493304
   %487 = add nuw nsw i32 %.1612103303, 16
   %488 = icmp slt i32 %.1612103303, 0
-  br i1 %488, label %.lr.ph3308, label %._crit_edge3309, !llvm.loop !59
+  br i1 %488, label %.lr.ph3308, label %._crit_edge3309
 
 ._crit_edge3309:                                  ; preds = %477, %._crit_edge3298
   %.161210.lcssa = phi i32 [ %428, %._crit_edge3298 ], [ %487, %477 ]
@@ -1344,7 +1344,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %548 = or i32 %547, %.1811513315
   %549 = add nuw nsw i32 %.1812123314, 16
   %550 = icmp slt i32 %.1812123314, -8
-  br i1 %550, label %.lr.ph3319, label %._crit_edge3320, !llvm.loop !60
+  br i1 %550, label %.lr.ph3319, label %._crit_edge3320
 
 ._crit_edge3320:                                  ; preds = %539, %._crit_edge3309
   %.181212.lcssa = phi i32 [ %490, %._crit_edge3309 ], [ %549, %539 ]
@@ -1357,7 +1357,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %554 = lshr i32 %.161149.lcssa, 8
   %555 = and i32 %554, 16776960
   %556 = or disjoint i32 %551, %555
-  store i32 %556, ptr %79, align 8, !tbaa !57
+  store i32 %556, ptr %79, align 8, !tbaa !52
   store i32 %556, ptr %66, align 4, !tbaa !41
   %557 = load i8, ptr %68, align 1, !tbaa !42
   switch i8 %557, label %666 [
@@ -1433,7 +1433,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %585 = or i32 %584, %.2111543330
   %586 = add nuw nsw i32 %.2112153329, 16
   %587 = icmp slt i32 %.2112153329, -13
-  br i1 %587, label %.lr.ph3333, label %._crit_edge3334, !llvm.loop !61
+  br i1 %587, label %.lr.ph3333, label %._crit_edge3334
 
 ._crit_edge3334:                                  ; preds = %576, %.preheader1885
   %.211215.lcssa = phi i32 [ %.2012143340, %.preheader1885 ], [ %586, %576 ]
@@ -1448,7 +1448,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   store i8 %591, ptr %592, align 1, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond3641.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond3641.not, label %593, label %.preheader1885, !llvm.loop !62
+  br i1 %exitcond3641.not, label %593, label %.preheader1885
 
 593:                                              ; preds = %._crit_edge3334
   %594 = tail call fastcc i32 @make_decode_table(i32 noundef 8, i32 noundef 7, ptr noundef %83, ptr noundef %84)
@@ -1527,7 +1527,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %622 = load ptr, ptr %39, align 8, !tbaa !45
   %623 = load i32, ptr %40, align 8, !tbaa !46
   %624 = load i32, ptr %41, align 4, !tbaa !47
-  store i8 0, ptr %88, align 2, !tbaa !63
+  store i8 0, ptr %88, align 2, !tbaa !53
   %625 = tail call fastcc i32 @make_decode_table(i32 noundef 250, i32 noundef 12, ptr noundef %70, ptr noundef %89)
   %.not1482 = icmp eq i32 %625, 0
   br i1 %.not1482, label %667, label %.preheader1888
@@ -1535,7 +1535,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 626:                                              ; preds = %.preheader1888
   %indvars.iv.next3643 = add nuw nsw i64 %indvars.iv3642, 1
   %exitcond3645.not = icmp eq i64 %indvars.iv.next3643, 250
-  br i1 %exitcond3645.not, label %630, label %.preheader1888, !llvm.loop !64
+  br i1 %exitcond3645.not, label %630, label %.preheader1888
 
 .preheader1888:                                   ; preds = %620, %626
   %indvars.iv3642 = phi i64 [ %indvars.iv.next3643, %626 ], [ 0, %620 ]
@@ -1549,7 +1549,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %.thread
 
 630:                                              ; preds = %626
-  store i8 1, ptr %88, align 2, !tbaa !63
+  store i8 1, ptr %88, align 2, !tbaa !53
   br label %667
 
 631:                                              ; preds = %._crit_edge3320
@@ -1566,7 +1566,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.461071 = phi ptr [ %650, %648 ], [ %.451070, %642 ]
   %.461008 = phi ptr [ %649, %648 ], [ %643, %642 ]
   %633 = getelementptr inbounds nuw i8, ptr %.461008, i64 1
-  br label %.preheader3858, !llvm.loop !65
+  br label %.preheader3858
 
 634:                                              ; preds = %631
   %.not1470 = icmp ult ptr %.32994.lcssa, %.321057.lcssa
@@ -1637,7 +1637,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.012683326.add = add nuw nsw i64 %.012683326.idx, 1
   store i8 %661, ptr %.012683326.ptr, align 1, !tbaa !43
   %exitcond.not = icmp eq i64 %.012683326.idx, 11
-  br i1 %exitcond.not, label %662, label %651, !llvm.loop !66
+  br i1 %exitcond.not, label %662, label %651
 
 662:                                              ; preds = %659
   %663 = load i32, ptr %3, align 4
@@ -1800,7 +1800,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %731 = or i32 %730, %.2711603355
   %732 = add nsw i32 %.2712213354, 16
   %733 = icmp slt i32 %.2712213354, 0
-  br i1 %733, label %.lr.ph3358, label %._crit_edge3359, !llvm.loop !67
+  br i1 %733, label %.lr.ph3358, label %._crit_edge3359
 
 ._crit_edge3359:                                  ; preds = %722, %.preheader1884
   %.271221.lcssa = phi i32 [ %.2612203481, %.preheader1884 ], [ %732, %722 ]
@@ -1810,7 +1810,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %734 = lshr i32 %.271160.lcssa, 20
   %735 = zext nneg i32 %734 to i64
   %736 = getelementptr inbounds nuw [9248 x i16], ptr %86, i64 0, i64 %735
-  %737 = load i16, ptr %736, align 2, !tbaa !68
+  %737 = load i16, ptr %736, align 2, !tbaa !54
   %738 = icmp ugt i16 %737, 2575
   br i1 %738, label %.preheader1882, label %.loopexit1883
 
@@ -1833,9 +1833,9 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %746 = zext i1 %.not1485 to i64
   %747 = or disjoint i64 %744, %746
   %748 = getelementptr inbounds nuw [9248 x i16], ptr %86, i64 0, i64 %747
-  %749 = load i16, ptr %748, align 2, !tbaa !68
+  %749 = load i16, ptr %748, align 2, !tbaa !54
   %750 = icmp ugt i16 %749, 2575
-  br i1 %750, label %.preheader1882, label %.loopexit1883, !llvm.loop !70
+  br i1 %750, label %.preheader1882, label %.loopexit1883
 
 .loopexit1883:                                    ; preds = %741, %._crit_edge3359
   %.01258 = phi i16 [ %737, %._crit_edge3359 ], [ %749, %741 ]
@@ -1865,7 +1865,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %768, label %769, label %856
 
 769:                                              ; preds = %764
-  %770 = load i8, ptr %88, align 2, !tbaa !63
+  %770 = load i8, ptr %88, align 2, !tbaa !53
   %.not1486 = icmp eq i8 %770, 0
   br i1 %.not1486, label %.preheader1881, label %772
 
@@ -1991,7 +1991,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %829 = or i32 %828, %.3211653365
   %830 = add nsw i32 %.3212263364, 16
   %831 = icmp slt i32 %.3212263364, 0
-  br i1 %831, label %.lr.ph3368, label %._crit_edge3369, !llvm.loop !71
+  br i1 %831, label %.lr.ph3368, label %._crit_edge3369
 
 ._crit_edge3369:                                  ; preds = %820, %.preheader1881
   %.321226.lcssa = phi i32 [ %756, %.preheader1881 ], [ %830, %820 ]
@@ -2001,7 +2001,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %832 = lshr i32 %.321165.lcssa, 20
   %833 = zext nneg i32 %832 to i64
   %834 = getelementptr inbounds nuw [4596 x i16], ptr %89, i64 0, i64 %833
-  %835 = load i16, ptr %834, align 2, !tbaa !68
+  %835 = load i16, ptr %834, align 2, !tbaa !54
   %836 = icmp ugt i16 %835, 249
   br i1 %836, label %.preheader1879, label %.loopexit1880
 
@@ -2024,9 +2024,9 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %844 = zext i1 %.not1487 to i64
   %845 = or disjoint i64 %842, %844
   %846 = getelementptr inbounds nuw [4596 x i16], ptr %89, i64 0, i64 %845
-  %847 = load i16, ptr %846, align 2, !tbaa !68
+  %847 = load i16, ptr %846, align 2, !tbaa !54
   %848 = icmp ugt i16 %847, 249
-  br i1 %848, label %.preheader1879, label %.loopexit1880, !llvm.loop !72
+  br i1 %848, label %.preheader1879, label %.loopexit1880
 
 .loopexit1880:                                    ; preds = %839, %._crit_edge3369
   %.21260 = phi i16 [ %835, %._crit_edge3369 ], [ %847, %839 ]
@@ -2159,7 +2159,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %913 = or i32 %912, %.3511683385
   %914 = add nsw i32 %.3512293384, 16
   %915 = icmp slt i32 %914, %885
-  br i1 %915, label %.lr.ph3388, label %._crit_edge3389, !llvm.loop !73
+  br i1 %915, label %.lr.ph3388, label %._crit_edge3389
 
 ._crit_edge3389:                                  ; preds = %904, %.preheader1877
   %.351229.lcssa = phi i32 [ %.311225, %.preheader1877 ], [ %914, %904 ]
@@ -2241,7 +2241,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %950 = or i32 %949, %.3811713396
   %951 = add nsw i32 %.3812323395, 16
   %952 = icmp slt i32 %.3812323395, 0
-  br i1 %952, label %.lr.ph3400, label %._crit_edge3401, !llvm.loop !74
+  br i1 %952, label %.lr.ph3400, label %._crit_edge3401
 
 ._crit_edge3401:                                  ; preds = %941, %922
   %.381232.lcssa = phi i32 [ %.371231, %922 ], [ %951, %941 ]
@@ -2251,7 +2251,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %953 = lshr i32 %.381171.lcssa, 25
   %954 = zext nneg i32 %953 to i64
   %955 = getelementptr inbounds nuw [144 x i16], ptr %84, i64 0, i64 %954
-  %956 = load i16, ptr %955, align 2, !tbaa !68
+  %956 = load i16, ptr %955, align 2, !tbaa !54
   %957 = icmp ugt i16 %956, 7
   br i1 %957, label %.preheader1875, label %.loopexit1876
 
@@ -2274,9 +2274,9 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %965 = zext i1 %.not1494 to i64
   %966 = or disjoint i64 %963, %965
   %967 = getelementptr inbounds nuw [144 x i16], ptr %84, i64 0, i64 %966
-  %968 = load i16, ptr %967, align 2, !tbaa !68
+  %968 = load i16, ptr %967, align 2, !tbaa !54
   %969 = icmp ugt i16 %968, 7
-  br i1 %969, label %.preheader1875, label %.loopexit1876, !llvm.loop !75
+  br i1 %969, label %.preheader1875, label %.loopexit1876
 
 .loopexit1876:                                    ; preds = %960, %._crit_edge3401
   %.41262 = phi i16 [ %956, %._crit_edge3401 ], [ %968, %960 ]
@@ -2414,7 +2414,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1038 = or i32 %1037, %.4111743375
   %1039 = add nsw i32 %.4112353374, 16
   %1040 = icmp slt i32 %1039, %979
-  br i1 %1040, label %.lr.ph3378, label %._crit_edge3379, !llvm.loop !76
+  br i1 %1040, label %.lr.ph3378, label %._crit_edge3379
 
 ._crit_edge3379:                                  ; preds = %1029, %.preheader1878
   %.411235.lcssa = phi i32 [ %.311225, %.preheader1878 ], [ %1039, %1029 ]
@@ -2562,7 +2562,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1107 = or i32 %1106, %.4411773407
   %1108 = add nsw i32 %.4412383406, 16
   %1109 = icmp slt i32 %.4412383406, -13
-  br i1 %1109, label %.lr.ph3410, label %._crit_edge3411, !llvm.loop !77
+  br i1 %1109, label %.lr.ph3410, label %._crit_edge3411
 
 ._crit_edge3411:                                  ; preds = %1098, %.preheader
   %.441238.lcssa = phi i32 [ %.341228, %.preheader ], [ %1108, %1098 ]
@@ -2692,7 +2692,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1171 = or i32 %1170, %.4711803450
   %1172 = add nuw nsw i32 %.4712413449, 16
   %1173 = icmp slt i32 %.4712413449, -8
-  br i1 %1173, label %.lr.ph3454, label %._crit_edge3455, !llvm.loop !78
+  br i1 %1173, label %.lr.ph3454, label %._crit_edge3455
 
 ._crit_edge3455:                                  ; preds = %1162, %1111
   %.471241.lcssa = phi i32 [ %1113, %1111 ], [ %1172, %1162 ]
@@ -2772,7 +2772,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1209 = or i32 %1208, %.5011833439
   %1210 = add nuw nsw i32 %.5012443438, 16
   %1211 = icmp slt i32 %.5012443438, -6
-  br i1 %1211, label %.lr.ph3443, label %._crit_edge3444, !llvm.loop !79
+  br i1 %1211, label %.lr.ph3443, label %._crit_edge3444
 
 ._crit_edge3444:                                  ; preds = %1200, %1179
   %.501244.lcssa = phi i32 [ %1181, %1179 ], [ %1210, %1200 ]
@@ -2854,7 +2854,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1248 = or i32 %1247, %.5211853428
   %1249 = add nuw nsw i32 %.5212463427, 16
   %1250 = icmp slt i32 %.5212463427, -4
-  br i1 %1250, label %.lr.ph3432, label %._crit_edge3433, !llvm.loop !80
+  br i1 %1250, label %.lr.ph3432, label %._crit_edge3433
 
 ._crit_edge3433:                                  ; preds = %1239, %1220
   %.521246.lcssa = phi i32 [ %1219, %1220 ], [ %1249, %1239 ]
@@ -2929,7 +2929,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1283 = or i32 %1282, %.5411873417
   %1284 = add nuw nsw i32 %.5412483416, 16
   %1285 = icmp slt i32 %.5412483416, -1
-  br i1 %1285, label %.lr.ph3421, label %._crit_edge3422, !llvm.loop !81
+  br i1 %1285, label %.lr.ph3421, label %._crit_edge3422
 
 ._crit_edge3422:                                  ; preds = %1274, %1255
   %.541248.lcssa = phi i32 [ %1219, %1255 ], [ %1284, %1274 ]
@@ -3017,7 +3017,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1322 = getelementptr inbounds nuw i8, ptr %.212703466, i64 1
   store i8 %1321, ptr %.212703466, align 1, !tbaa !43
   %1323 = icmp samesign ugt i32 %.113313465, 1
-  br i1 %1323, label %.lr.ph3469, label %.loopexit1873, !llvm.loop !82
+  br i1 %1323, label %.lr.ph3469, label %.loopexit1873
 
 .loopexit1873:                                    ; preds = %.lr.ph3469, %1316, %1311
   %.51326 = phi i32 [ %.11355, %1311 ], [ %1317, %1316 ], [ %1317, %.lr.ph3469 ]
@@ -3036,7 +3036,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1328 = getelementptr inbounds nuw i8, ptr %.312713472, i64 1
   store i8 %1327, ptr %.312713472, align 1, !tbaa !43
   %1329 = icmp samesign ugt i32 %.613273471, 1
-  br i1 %1329, label %.lr.ph3475, label %.loopexit, !llvm.loop !83
+  br i1 %1329, label %.lr.ph3475, label %.loopexit
 
 .lr.ph3464.preheader:                             ; preds = %1296
   %1330 = sub nsw i64 0, %1300
@@ -3053,7 +3053,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1335 = getelementptr inbounds nuw i8, ptr %.412723461, i64 1
   store i8 %1334, ptr %.412723461, align 1, !tbaa !43
   %1336 = icmp sgt i32 %.713283460, 1
-  br i1 %1336, label %.lr.ph3464, label %.loopexit, !llvm.loop !84
+  br i1 %1336, label %.lr.ph3464, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph3464, %.lr.ph3475, %.loopexit1873
   %1337 = sub nsw i32 %.113153476, %.11355
@@ -3070,7 +3070,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.541079 = phi ptr [ %.501075.lcssa, %758 ], [ %.761101, %.loopexit ]
   %.541016 = phi ptr [ %.501012.lcssa, %758 ], [ %.76, %.loopexit ]
   %1339 = icmp sgt i32 %.21316, 0
-  br i1 %1339, label %.preheader1884, label %.loopexit1886, !llvm.loop !85
+  br i1 %1339, label %.preheader1884, label %.loopexit1886
 
 1340:                                             ; preds = %667
   %1341 = add i32 %spec.select1554, %.112803498
@@ -3144,7 +3144,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %spec.select1555 = tail call i32 @llvm.smin.i32(i32 %.513193345, i32 %1348)
   %1374 = load ptr, ptr %0, align 8, !tbaa !17
   %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 72
-  %1376 = load ptr, ptr %1375, align 8, !tbaa !86
+  %1376 = load ptr, ptr %1375, align 8, !tbaa !56
   %1377 = sext i32 %spec.select1555 to i64
   tail call void %1376(ptr noundef %.1003348, ptr noundef %.512733346, i64 noundef %1377) #6
   %1378 = getelementptr inbounds i8, ptr %.512733346, i64 %1377
@@ -3158,7 +3158,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.1011126 = phi ptr [ %1372, %1369 ], [ %.10011253347, %1350 ], [ %.10011253347, %1373 ]
   %.101 = phi ptr [ %1370, %1369 ], [ %.1003348, %1350 ], [ %1379, %1373 ]
   %1382 = icmp sgt i32 %.61320, 0
-  br i1 %1382, label %.lr.ph3350, label %.loopexit1886, !llvm.loop !87
+  br i1 %1382, label %.lr.ph3350, label %.loopexit1886
 
 1383:                                             ; preds = %667
   store i32 11, ptr %7, align 4, !tbaa !31
@@ -3194,7 +3194,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 1392:                                             ; preds = %1390, %.loopexit1886
   %1393 = icmp sgt i32 %669, 0
-  br i1 %1393, label %.lr.ph3504, label %._crit_edge3505.loopexit, !llvm.loop !88
+  br i1 %1393, label %.lr.ph3504, label %._crit_edge3505.loopexit
 
 ._crit_edge3505.loopexit:                         ; preds = %1392
   %.pre = load i32, ptr %78, align 8, !tbaa !26
@@ -3320,7 +3320,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   store ptr %92, ptr %12, align 8, !tbaa !36
   %1444 = load ptr, ptr %0, align 8, !tbaa !17
   %1445 = getelementptr inbounds nuw i8, ptr %1444, i64 72
-  %1446 = load ptr, ptr %1445, align 8, !tbaa !86
+  %1446 = load ptr, ptr %1445, align 8, !tbaa !56
   %1447 = load ptr, ptr %42, align 8, !tbaa !8
   %1448 = load i32, ptr %78, align 8, !tbaa !26
   %1449 = zext i32 %1448 to i64
@@ -3343,7 +3343,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.01132.be = phi ptr [ %1476, %1475 ], [ %1453, %.lr.ph3517 ]
   %1455 = add nsw i32 %.010243515, %.sink
   %1456 = icmp ult ptr %.01132.be, %1442
-  br i1 %1456, label %.lr.ph3517, label %.loopexit1890, !llvm.loop !89
+  br i1 %1456, label %.lr.ph3517, label %.loopexit1890
 
 1457:                                             ; preds = %.lr.ph3517
   %1458 = getelementptr inbounds nuw i8, ptr %.011323514, i64 4
@@ -3431,7 +3431,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 1507:                                             ; preds = %1506, %1492
   %1508 = icmp ult i32 %1502, %53
-  br i1 %1508, label %94, label %._crit_edge3530, !llvm.loop !90
+  br i1 %1508, label %94, label %._crit_edge3530
 
 ._crit_edge3530:                                  ; preds = %1507
   %1509 = icmp eq i64 %1498, 0
@@ -3551,7 +3551,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 .preheader101.us:                                 ; preds = %.preheader103.split.us
   %14 = add nuw nsw i16 %.087113.us, 1
   %15 = icmp samesign ult i16 %14, %9
-  br i1 %15, label %.preheader103.split.us, label %.split.us, !llvm.loop !91
+  br i1 %15, label %.preheader103.split.us, label %.split.us, !llvm.loop !57
 
 .preheader103.split:                              ; preds = %.preheader103, %..loopexit102_crit_edge
   %.174115 = phi i32 [ %.2, %..loopexit102_crit_edge ], [ %.073117, %.preheader103 ]
@@ -3574,22 +3574,22 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %23 = add i32 %.079111, 1
   %24 = zext i32 %.079111 to i64
   %25 = getelementptr inbounds nuw i16, ptr %3, i64 %24
-  store i16 %.087113, ptr %25, align 2, !tbaa !68
+  store i16 %.087113, ptr %25, align 2, !tbaa !54
   %.not100 = icmp eq i32 %22, 0
-  br i1 %.not100, label %..loopexit102_crit_edge, label %.preheader101, !llvm.loop !93
+  br i1 %.not100, label %..loopexit102_crit_edge, label %.preheader101
 
 ..loopexit102_crit_edge:                          ; preds = %.preheader101, %.preheader103.split
   %.2 = phi i32 [ %.174115, %.preheader103.split ], [ %20, %.preheader101 ]
   %26 = add nuw nsw i16 %.087113, 1
   %27 = icmp samesign ult i16 %26, %8
-  br i1 %27, label %.preheader103.split, label %.split.us, !llvm.loop !94
+  br i1 %27, label %.preheader103.split, label %.split.us
 
 .split.us:                                        ; preds = %..loopexit102_crit_edge, %.preheader101.us
   %.us-phi = phi i32 [ %.073117, %.preheader101.us ], [ %.2, %..loopexit102_crit_edge ]
   %28 = lshr i32 %.0118, 1
   %29 = add nuw nsw i8 %.075116, 1
   %.not.not = icmp samesign ult i8 %.075116, %7
-  br i1 %.not.not, label %.preheader103, label %30, !llvm.loop !95
+  br i1 %.not.not, label %.preheader103, label %30
 
 30:                                               ; preds = %.split.us
   %31 = icmp eq i32 %.us-phi, %.fr141
@@ -3608,11 +3608,11 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.188119 = phi i16 [ %38, %.lr.ph ], [ %35, %.lr.ph.preheader ]
   %36 = zext i16 %.188119 to i64
   %37 = getelementptr inbounds nuw i16, ptr %3, i64 %36
-  store i16 -1, ptr %37, align 2, !tbaa !68
+  store i16 -1, ptr %37, align 2, !tbaa !54
   %38 = add i16 %.188119, 1
   %39 = zext i16 %38 to i32
   %40 = icmp samesign ugt i32 %.fr141, %39
-  br i1 %40, label %.lr.ph, label %.preheader.preheader, !llvm.loop !96
+  br i1 %40, label %.lr.ph, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph, %32
   %41 = shl nuw nsw i32 65536, %1
@@ -3655,7 +3655,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.5.us = phi i32 [ %.4129.us, %.preheader.split.us ], [ %76, %._crit_edge125.us ]
   %54 = add nuw nsw i16 %.289127.us, 1
   %55 = icmp samesign ult i16 %54, %46
-  br i1 %55, label %.preheader.split.us, label %.split131.us, !llvm.loop !97
+  br i1 %55, label %.preheader.split.us, label %.split131.us, !llvm.loop !59
 
 56:                                               ; preds = %.lr.ph124.us, %66
   %.178122.us = phi i32 [ 0, %.lr.ph124.us ], [ %73, %66 ]
@@ -3663,7 +3663,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.385120.us = phi i16 [ %.183128.us, %.lr.ph124.us ], [ %.486.us, %66 ]
   %57 = zext nneg i32 %.180121.us to i64
   %58 = getelementptr inbounds nuw i16, ptr %3, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !68
+  %59 = load i16, ptr %58, align 2, !tbaa !54
   %60 = icmp eq i16 %59, -1
   br i1 %60, label %61, label %66
 
@@ -3671,11 +3671,11 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %62 = zext i16 %.385120.us to i64
   %.idx.us = shl nuw nsw i64 %62, 2
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.us
-  store i16 -1, ptr %63, align 2, !tbaa !68
+  store i16 -1, ptr %63, align 2, !tbaa !54
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
-  store i16 -1, ptr %64, align 2, !tbaa !68
+  store i16 -1, ptr %64, align 2, !tbaa !54
   %65 = add i16 %.385120.us, 1
-  store i16 %.385120.us, ptr %58, align 2, !tbaa !68
+  store i16 %.385120.us, ptr %58, align 2, !tbaa !54
   br label %66
 
 66:                                               ; preds = %61, %56
@@ -3689,12 +3689,12 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %spec.select.us = or disjoint i32 %69, %72
   %73 = add nuw nsw i32 %.178122.us, 1
   %exitcond.not = icmp eq i32 %73, %indvars.iv
-  br i1 %exitcond.not, label %._crit_edge125.us, label %56, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge125.us, label %56
 
 ._crit_edge125.us:                                ; preds = %66
   %74 = zext nneg i32 %spec.select.us to i64
   %75 = getelementptr inbounds nuw i16, ptr %3, i64 %74
-  store i16 %.289127.us, ptr %75, align 2, !tbaa !68
+  store i16 %.289127.us, ptr %75, align 2, !tbaa !54
   %76 = add i32 %.4129.us, %.1137
   br label %53
 
@@ -3703,7 +3703,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %indvars.iv.next150 = add nuw nsw i32 %indvars.iv149, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond152.not = icmp eq i32 %indvars.iv.next150, 17
-  br i1 %exitcond152.not, label %._crit_edge139, label %.preheader.split.us.preheader, !llvm.loop !99
+  br i1 %exitcond152.not, label %._crit_edge139, label %.preheader.split.us.preheader
 
 ._crit_edge139:                                   ; preds = %.split131.us
   %78 = icmp ne i32 %.5.us, %41
@@ -3867,7 +3867,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %81 = or i32 %80, %.1273631
   %82 = add nsw i32 %.1288630, 16
   %83 = icmp slt i32 %.1288630, -12
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  br i1 %83, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %.preheader468
   %.1288.lcssa = phi i32 [ %.0287638, %.preheader468 ], [ %82, %72 ]
@@ -3882,7 +3882,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   store i8 %87, ptr %88, align 1, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %89, label %.preheader468, !llvm.loop !101
+  br i1 %exitcond.not, label %89, label %.preheader468
 
 89:                                               ; preds = %._crit_edge
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 3274
@@ -4034,7 +4034,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %158 = or i32 %157, %.4276643
   %159 = add nsw i32 %.4291642, 16
   %160 = icmp slt i32 %.4291642, 0
-  br i1 %160, label %.lr.ph646, label %._crit_edge647, !llvm.loop !102
+  br i1 %160, label %.lr.ph646, label %._crit_edge647
 
 ._crit_edge647:                                   ; preds = %149, %.preheader466
   %.4291.lcssa = phi i32 [ %.3290700, %.preheader466 ], [ %159, %149 ]
@@ -4044,7 +4044,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %161 = lshr i32 %.4276.lcssa, 26
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw [104 x i16], ptr %90, i64 0, i64 %162
-  %164 = load i16, ptr %163, align 2, !tbaa !68
+  %164 = load i16, ptr %163, align 2, !tbaa !54
   %165 = icmp ugt i16 %164, 19
   br i1 %165, label %.preheader464, label %.loopexit465
 
@@ -4068,9 +4068,9 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %174 = zext i1 %.not344 to i64
   %175 = or disjoint i64 %172, %174
   %176 = getelementptr inbounds nuw [104 x i16], ptr %90, i64 0, i64 %175
-  %177 = load i16, ptr %176, align 2, !tbaa !68
+  %177 = load i16, ptr %176, align 2, !tbaa !54
   %178 = icmp ugt i16 %177, 19
-  br i1 %178, label %.preheader464, label %.loopexit465, !llvm.loop !103
+  br i1 %178, label %.preheader464, label %.loopexit465
 
 .loopexit465:                                     ; preds = %169, %._crit_edge647
   %.0304 = phi i16 [ %164, %._crit_edge647 ], [ %177, %169 ]
@@ -4191,7 +4191,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %233 = or i32 %232, %.6278688
   %234 = add nsw i32 %.6293687, 16
   %235 = icmp slt i32 %.6293687, -12
-  br i1 %235, label %.lr.ph691, label %._crit_edge692, !llvm.loop !104
+  br i1 %235, label %.lr.ph691, label %._crit_edge692
 
 ._crit_edge692:                                   ; preds = %224, %.preheader
   %.6293.lcssa = phi i32 [ %184, %.preheader ], [ %234, %224 ]
@@ -4211,7 +4211,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 %241
   store i8 0, ptr %242, align 1, !tbaa !43
   %.not360 = icmp eq i32 %239, 0
-  br i1 %.not360, label %.loopexit.loopexit, label %238, !llvm.loop !105
+  br i1 %.not360, label %.loopexit.loopexit, label %238
 
 .lr.ph679:                                        ; preds = %.preheader459, %279
   %.15244678 = phi ptr [ %280, %279 ], [ %.6235.lcssa, %.preheader459 ]
@@ -4306,7 +4306,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %288 = or i32 %287, %.9281676
   %289 = add nsw i32 %.9296675, 16
   %290 = icmp slt i32 %.9296675, -11
-  br i1 %290, label %.lr.ph679, label %._crit_edge680, !llvm.loop !106
+  br i1 %290, label %.lr.ph679, label %._crit_edge680
 
 ._crit_edge680:                                   ; preds = %279, %.preheader459
   %.9296.lcssa = phi i32 [ %184, %.preheader459 ], [ %289, %279 ]
@@ -4326,7 +4326,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 %296
   store i8 0, ptr %297, align 1, !tbaa !43
   %.not355 = icmp eq i32 %294, 0
-  br i1 %.not355, label %.loopexit.loopexit709, label %293, !llvm.loop !107
+  br i1 %.not355, label %.loopexit.loopexit709, label %293
 
 .lr.ph656:                                        ; preds = %.preheader463, %334
   %.19655 = phi ptr [ %335, %334 ], [ %.6235.lcssa, %.preheader463 ]
@@ -4421,7 +4421,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %343 = or i32 %342, %.11283653
   %344 = add nsw i32 %.11298652, 16
   %345 = icmp slt i32 %.11298652, -15
-  br i1 %345, label %.lr.ph656, label %._crit_edge657, !llvm.loop !108
+  br i1 %345, label %.lr.ph656, label %._crit_edge657
 
 ._crit_edge657:                                   ; preds = %334, %.preheader463
   %.11298.lcssa = phi i32 [ %184, %.preheader463 ], [ %344, %334 ]
@@ -4495,7 +4495,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %379 = or i32 %378, %.13285663
   %380 = add nuw nsw i32 %.13300662, 16
   %381 = icmp slt i32 %.13300662, 0
-  br i1 %381, label %.lr.ph667, label %._crit_edge668, !llvm.loop !109
+  br i1 %381, label %.lr.ph667, label %._crit_edge668
 
 ._crit_edge668:                                   ; preds = %370, %._crit_edge657
   %.13300.lcssa = phi i32 [ %348, %._crit_edge657 ], [ %380, %370 ]
@@ -4505,7 +4505,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %382 = lshr i32 %.13285.lcssa, 26
   %383 = zext nneg i32 %382 to i64
   %384 = getelementptr inbounds nuw [104 x i16], ptr %90, i64 0, i64 %383
-  %385 = load i16, ptr %384, align 2, !tbaa !68
+  %385 = load i16, ptr %384, align 2, !tbaa !54
   %386 = icmp ugt i16 %385, 19
   br i1 %386, label %.preheader461, label %.loopexit462
 
@@ -4529,9 +4529,9 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %395 = zext i1 %.not345 to i64
   %396 = or disjoint i64 %393, %395
   %397 = getelementptr inbounds nuw [104 x i16], ptr %90, i64 0, i64 %396
-  %398 = load i16, ptr %397, align 2, !tbaa !68
+  %398 = load i16, ptr %397, align 2, !tbaa !54
   %399 = icmp ugt i16 %398, 19
-  br i1 %399, label %.preheader461, label %.loopexit462, !llvm.loop !110
+  br i1 %399, label %.preheader461, label %.loopexit462
 
 .loopexit462:                                     ; preds = %390, %._crit_edge668
   %.2306 = phi i16 [ %385, %._crit_edge668 ], [ %398, %390 ]
@@ -4559,7 +4559,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %416 = getelementptr inbounds nuw i8, ptr %1, i64 %415
   store i8 %411, ptr %416, align 1, !tbaa !43
   %.not346 = icmp eq i32 %413, 0
-  br i1 %.not346, label %.loopexit.loopexit710, label %412, !llvm.loop !111
+  br i1 %.not346, label %.loopexit.loopexit710, label %412
 
 417:                                              ; preds = %.loopexit465
   %418 = zext nneg i16 %.0304 to i32
@@ -4599,7 +4599,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr noundef n
   %.14259 = phi ptr [ %.6251.lcssa, %417 ], [ %.10255.lcssa, %.loopexit.loopexit ], [ %.15260.lcssa, %.loopexit.loopexit709 ], [ %.23268.lcssa, %.loopexit.loopexit710 ]
   %.14243 = phi ptr [ %.6235.lcssa, %417 ], [ %.10239.lcssa, %.loopexit.loopexit ], [ %.15244.lcssa, %.loopexit.loopexit709 ], [ %.23.lcssa, %.loopexit.loopexit710 ]
   %435 = icmp ult i32 %.3311, %3
-  br i1 %435, label %.preheader466, label %._crit_edge704, !llvm.loop !112
+  br i1 %435, label %.preheader466, label %._crit_edge704
 
 ._crit_edge704:                                   ; preds = %.loopexit, %.preheader467
   %.3290.lcssa = phi i32 [ %86, %.preheader467 ], [ %.8295, %.loopexit ]
@@ -4715,64 +4715,11 @@ attributes #6 = { nounwind }
 !49 = !{!4, !5, i64 16}
 !50 = !{!4, !5, i64 24}
 !51 = !{!4, !5, i64 48}
-!52 = distinct !{!52, !53}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = distinct !{!54, !53}
-!55 = distinct !{!55, !53}
-!56 = distinct !{!56, !53}
-!57 = !{!9, !14, i64 88}
-!58 = distinct !{!58, !53}
-!59 = distinct !{!59, !53}
-!60 = distinct !{!60, !53}
-!61 = distinct !{!61, !53}
-!62 = distinct !{!62, !53}
-!63 = !{!9, !6, i64 31458}
-!64 = distinct !{!64, !53}
-!65 = distinct !{!65, !53}
-!66 = distinct !{!66, !53}
-!67 = distinct !{!67, !53}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"short", !6, i64 0}
-!70 = distinct !{!70, !53}
-!71 = distinct !{!71, !53}
-!72 = distinct !{!72, !53}
-!73 = distinct !{!73, !53}
-!74 = distinct !{!74, !53}
-!75 = distinct !{!75, !53}
-!76 = distinct !{!76, !53}
-!77 = distinct !{!77, !53}
-!78 = distinct !{!78, !53}
-!79 = distinct !{!79, !53}
-!80 = distinct !{!80, !53}
-!81 = distinct !{!81, !53}
-!82 = distinct !{!82, !53}
-!83 = distinct !{!83, !53}
-!84 = distinct !{!84, !53}
-!85 = distinct !{!85, !53}
-!86 = !{!4, !5, i64 72}
-!87 = distinct !{!87, !53}
-!88 = distinct !{!88, !53}
-!89 = distinct !{!89, !53}
-!90 = distinct !{!90, !53}
-!91 = distinct !{!91, !53, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!93 = distinct !{!93, !53}
-!94 = distinct !{!94, !53}
-!95 = distinct !{!95, !53}
-!96 = distinct !{!96, !53}
-!97 = distinct !{!97, !53, !92}
-!98 = distinct !{!98, !53}
-!99 = distinct !{!99, !53}
-!100 = distinct !{!100, !53}
-!101 = distinct !{!101, !53}
-!102 = distinct !{!102, !53}
-!103 = distinct !{!103, !53}
-!104 = distinct !{!104, !53}
-!105 = distinct !{!105, !53}
-!106 = distinct !{!106, !53}
-!107 = distinct !{!107, !53}
-!108 = distinct !{!108, !53}
-!109 = distinct !{!109, !53}
-!110 = distinct !{!110, !53}
-!111 = distinct !{!111, !53}
-!112 = distinct !{!112, !53}
+!52 = !{!9, !14, i64 88}
+!53 = !{!9, !6, i64 31458}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"short", !6, i64 0}
+!56 = !{!4, !5, i64 72}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !58}

@@ -288,7 +288,7 @@ define hidden void @VP8PutBits(ptr noundef captures(none) %0, i32 noundef %1, i3
 VP8PutBitUniform.exit:                            ; preds = %17, %19, %29
   %30 = lshr i32 %.05, 1
   %.not = icmp ult i32 %.05, 2
-  br i1 %.not, label %31, label %8, !llvm.loop !22
+  br i1 %.not, label %31, label %8, !llvm.loop !21
 
 31:                                               ; preds = %VP8PutBitUniform.exit
   ret void
@@ -396,7 +396,7 @@ VP8PutBitUniform.exit:                            ; preds = %12, %14, %26
 VP8PutBitUniform.exit.i:                          ; preds = %55, %45, %43
   %56 = lshr i32 %.05.i, 1
   %.not.i8 = icmp ult i32 %.05.i, 2
-  br i1 %.not.i8, label %VP8PutBits.exit, label %34, !llvm.loop !22
+  br i1 %.not.i8, label %VP8PutBits.exit, label %34, !llvm.loop !21
 
 57:                                               ; preds = %27
   %58 = shl nuw i32 %1, 1
@@ -449,7 +449,7 @@ VP8PutBitUniform.exit.i:                          ; preds = %55, %45, %43
 VP8PutBitUniform.exit.i12:                        ; preds = %83, %73, %71
   %84 = lshr i32 %.05.i9, 1
   %.not.i13 = icmp ult i32 %.05.i9, 2
-  br i1 %.not.i13, label %VP8PutBits.exit, label %62, !llvm.loop !22
+  br i1 %.not.i13, label %VP8PutBits.exit, label %62, !llvm.loop !21
 
 VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.exit.i12, %VP8PutBitUniform.exit.i, %VP8PutBitUniform.exit
   ret void
@@ -543,7 +543,7 @@ define hidden ptr @VP8BitWriterFinish(ptr noundef captures(none) %0) local_unnam
 VP8PutBitUniform.exit.i:                          ; preds = %21, %11, %7
   %22 = lshr i32 %.05.i, 1
   %.not.i = icmp ult i32 %.05.i, 2
-  br i1 %.not.i, label %VP8PutBits.exit, label %7, !llvm.loop !22
+  br i1 %.not.i, label %VP8PutBits.exit, label %7, !llvm.loop !21
 
 VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.exit.i
   store i32 0, ptr %2, align 4, !tbaa !13
@@ -657,19 +657,19 @@ define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr noundef captures(none) 
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %8, align 8, !tbaa !23
+  store i32 1, ptr %8, align 8, !tbaa !22
   br label %VP8LBitWriterResize.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre = load ptr, ptr %11, align 8, !tbaa !25
+  %.pre = load ptr, ptr %11, align 8, !tbaa !24
   tail call void @WebPSafeFree(ptr noundef %.pre) #7
-  store ptr %5, ptr %11, align 8, !tbaa !25
-  store ptr %5, ptr %10, align 8, !tbaa !26
+  store ptr %5, ptr %11, align 8, !tbaa !24
+  store ptr %5, ptr %10, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %4
-  store ptr %13, ptr %12, align 8, !tbaa !27
+  store ptr %13, ptr %12, align 8, !tbaa !26
   br label %VP8LBitWriterResize.exit
 
 VP8LBitWriterResize.exit:                         ; preds = %7, %9
@@ -680,21 +680,21 @@ VP8LBitWriterResize.exit:                         ; preds = %7, %9
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((40, 44)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %15
   %21 = add i64 %20, %9
@@ -718,43 +718,43 @@ define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr noundef readonly captu
   br i1 %.not41.i, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr %12, align 8, !tbaa !25
+  %31 = load ptr, ptr %12, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %31, i64 %20, i1 false)
   br label %32
 
 32:                                               ; preds = %30, %29
-  %33 = load ptr, ptr %12, align 8, !tbaa !25
+  %33 = load ptr, ptr %12, align 8, !tbaa !24
   tail call void @WebPSafeFree(ptr noundef %33) #7
-  store ptr %27, ptr %12, align 8, !tbaa !25
+  store ptr %27, ptr %12, align 8, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 %20
-  store ptr %34, ptr %17, align 8, !tbaa !26
+  store ptr %34, ptr %17, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 %26
-  store ptr %35, ptr %10, align 8, !tbaa !27
-  %.pre = load ptr, ptr %5, align 8, !tbaa !25
+  store ptr %35, ptr %10, align 8, !tbaa !26
+  %.pre = load ptr, ptr %5, align 8, !tbaa !24
   br label %37
 
 VP8LBitWriterResize.exit:                         ; preds = %22
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 1, ptr %36, align 8, !tbaa !23
+  store i32 1, ptr %36, align 8, !tbaa !22
   br label %49
 
 37:                                               ; preds = %32, %2
   %38 = phi ptr [ %.pre, %32 ], [ %6, %2 ]
   %39 = phi ptr [ %27, %32 ], [ %13, %2 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %38, i64 %9, i1 false)
-  %40 = load i64, ptr %0, align 8, !tbaa !28
-  store i64 %40, ptr %1, align 8, !tbaa !28
+  %40 = load i64, ptr %0, align 8, !tbaa !27
+  store i64 %40, ptr %1, align 8, !tbaa !27
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load i32, ptr %41, align 8, !tbaa !29
+  %42 = load i32, ptr %41, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %42, ptr %43, align 8, !tbaa !29
+  store i32 %42, ptr %43, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = load i32, ptr %44, align 8, !tbaa !23
+  %45 = load i32, ptr %44, align 8, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %45, ptr %46, align 8, !tbaa !23
-  %47 = load ptr, ptr %12, align 8, !tbaa !25
+  store i32 %45, ptr %46, align 8, !tbaa !22
+  %47 = load ptr, ptr %12, align 8, !tbaa !24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %9
-  store ptr %48, ptr %17, align 8, !tbaa !26
+  store ptr %48, ptr %17, align 8, !tbaa !25
   br label %49
 
 49:                                               ; preds = %VP8LBitWriterResize.exit, %37
@@ -769,7 +769,7 @@ define hidden void @VP8LBitWriterWipeOut(ptr noundef captures(address_is_null) %
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   tail call void @WebPSafeFree(ptr noundef %4) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   br label %5
@@ -780,28 +780,28 @@ define hidden void @VP8LBitWriterWipeOut(ptr noundef captures(address_is_null) %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @VP8LBitWriterReset(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 12), (24, 32), (40, 44)) %1) local_unnamed_addr #5 {
-  %3 = load i64, ptr %0, align 8, !tbaa !28
-  store i64 %3, ptr %1, align 8, !tbaa !28
+  %3 = load i64, ptr %0, align 8, !tbaa !27
+  store i64 %3, ptr %1, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !29
+  %5 = load i32, ptr %4, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %5, ptr %6, align 8, !tbaa !29
+  store i32 %5, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !26
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = getelementptr inbounds i8, ptr %8, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %16, ptr %17, align 8, !tbaa !26
+  store ptr %16, ptr %17, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !23
+  %19 = load i32, ptr %18, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %19, ptr %20, align 8, !tbaa !23
+  store i32 %19, ptr %20, align 8, !tbaa !22
   ret void
 }
 
@@ -809,9 +809,9 @@ define hidden void @VP8LBitWriterReset(ptr noundef readonly captures(none) %0, p
 define hidden void @VP8LBitWriterSwap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca %struct.VP8LBitWriter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !29
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret void
 }
@@ -819,16 +819,16 @@ define hidden void @VP8LBitWriterSwap(ptr noundef captures(none) %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LPutBitsFlushBits(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = icmp ugt ptr %4, %6
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = ptrtoint ptr %6 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -856,39 +856,39 @@ define hidden void @VP8LPutBitsFlushBits(ptr noundef captures(none) %0) local_un
   br i1 %.not41.i, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %9, align 8, !tbaa !25
+  %27 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %27, i64 %16, i1 false)
   br label %28
 
 28:                                               ; preds = %26, %25
-  %29 = load ptr, ptr %9, align 8, !tbaa !25
+  %29 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @WebPSafeFree(ptr noundef %29) #7
-  store ptr %23, ptr %9, align 8, !tbaa !25
+  store ptr %23, ptr %9, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 %16
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 %22
-  store ptr %31, ptr %5, align 8, !tbaa !27
+  store ptr %31, ptr %5, align 8, !tbaa !26
   br label %.thread
 
 32:                                               ; preds = %18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load ptr, ptr %9, align 8, !tbaa !25
-  store ptr %34, ptr %2, align 8, !tbaa !26
-  store i32 1, ptr %33, align 8, !tbaa !23
+  %34 = load ptr, ptr %9, align 8, !tbaa !24
+  store ptr %34, ptr %2, align 8, !tbaa !25
+  store i32 1, ptr %33, align 8, !tbaa !22
   br label %43
 
 .thread:                                          ; preds = %28, %8, %1
   %35 = phi ptr [ %30, %28 ], [ %3, %8 ], [ %3, %1 ]
-  %36 = load i64, ptr %0, align 8, !tbaa !28
+  %36 = load i64, ptr %0, align 8, !tbaa !27
   %37 = trunc i64 %36 to i32
-  store i32 %37, ptr %35, align 4, !tbaa !32
+  store i32 %37, ptr %35, align 4, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store ptr %38, ptr %2, align 8, !tbaa !26
+  store ptr %38, ptr %2, align 8, !tbaa !25
   %39 = lshr i64 %36, 32
-  store i64 %39, ptr %0, align 8, !tbaa !28
+  store i64 %39, ptr %0, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !29
+  %41 = load i32, ptr %40, align 8, !tbaa !28
   %42 = add nsw i32 %41, -32
-  store i32 %42, ptr %40, align 8, !tbaa !29
+  store i32 %42, ptr %40, align 8, !tbaa !28
   br label %43
 
 43:                                               ; preds = %32, %.thread
@@ -901,9 +901,9 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   br i1 %4, label %5, label %56
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8, !tbaa !28
+  %6 = load i64, ptr %0, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = icmp sgt i32 %8, 31
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -911,8 +911,8 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %10, align 8, !tbaa !26
-  %.pre39 = load ptr, ptr %11, align 8, !tbaa !27
+  %.pre = load ptr, ptr %10, align 8, !tbaa !25
+  %.pre39 = load ptr, ptr %11, align 8, !tbaa !26
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.critedge
@@ -925,7 +925,7 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %12, align 8, !tbaa !25
+  %19 = load ptr, ptr %12, align 8, !tbaa !24
   %20 = ptrtoint ptr %14 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -953,37 +953,37 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   br i1 %.not41.i, label %37, label %35
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr %12, align 8, !tbaa !25
+  %36 = load ptr, ptr %12, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %36, i64 %25, i1 false)
   br label %37
 
 37:                                               ; preds = %35, %34
-  %38 = load ptr, ptr %12, align 8, !tbaa !25
+  %38 = load ptr, ptr %12, align 8, !tbaa !24
   tail call void @WebPSafeFree(ptr noundef %38) #7
-  store ptr %32, ptr %12, align 8, !tbaa !25
+  store ptr %32, ptr %12, align 8, !tbaa !24
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 %25
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 %31
-  store ptr %40, ptr %11, align 8, !tbaa !27
+  store ptr %40, ptr %11, align 8, !tbaa !26
   br label %.critedge
 
 41:                                               ; preds = %27
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load ptr, ptr %12, align 8, !tbaa !25
-  store ptr %43, ptr %10, align 8, !tbaa !26
-  store i32 1, ptr %42, align 8, !tbaa !23
+  %43 = load ptr, ptr %12, align 8, !tbaa !24
+  store ptr %43, ptr %10, align 8, !tbaa !25
+  store i32 1, ptr %42, align 8, !tbaa !22
   br label %56
 
 .critedge:                                        ; preds = %18, %37, %13
   %44 = phi ptr [ %15, %18 ], [ %39, %37 ], [ %15, %13 ]
   %45 = phi ptr [ %14, %18 ], [ %40, %37 ], [ %14, %13 ]
   %46 = trunc i64 %.02636 to i32
-  store i32 %46, ptr %44, align 4, !tbaa !32
+  store i32 %46, ptr %44, align 4, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store ptr %47, ptr %10, align 8, !tbaa !26
+  store ptr %47, ptr %10, align 8, !tbaa !25
   %48 = lshr i64 %.02636, 32
   %49 = add nsw i32 %.02735, -32
   %50 = icmp sgt i32 %.02735, 63
-  br i1 %50, label %13, label %._crit_edge, !llvm.loop !34
+  br i1 %50, label %13, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.critedge, %5
   %.027.lcssa = phi i32 [ %8, %5 ], [ %49, %.critedge ]
@@ -992,9 +992,9 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
   %52 = zext nneg i32 %.027.lcssa to i64
   %53 = shl i64 %51, %52
   %54 = or i64 %53, %.026.lcssa
-  store i64 %54, ptr %0, align 8, !tbaa !28
+  store i64 %54, ptr %0, align 8, !tbaa !27
   %55 = add nsw i32 %.027.lcssa, %2
-  store i32 %55, ptr %7, align 8, !tbaa !29
+  store i32 %55, ptr %7, align 8, !tbaa !28
   br label %56
 
 56:                                               ; preds = %41, %._crit_edge, %3
@@ -1004,19 +1004,19 @@ define hidden void @VP8LPutBitsInternal(ptr noundef captures(none) %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8LBitWriterFinish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = add nsw i32 %3, 7
   %5 = ashr i32 %4, 3
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %12
   %18 = add i64 %17, %6
@@ -1037,7 +1037,7 @@ define hidden ptr @VP8LBitWriterFinish(ptr noundef captures(none) %0) local_unna
 
 VP8LBitWriterResize.exit.thread:                  ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %26, align 8, !tbaa !23
+  store i32 1, ptr %26, align 8, !tbaa !22
   br label %44
 
 27:                                               ; preds = %19
@@ -1045,19 +1045,19 @@ VP8LBitWriterResize.exit.thread:                  ; preds = %19
   br i1 %.not41.i, label %30, label %28
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %9, align 8, !tbaa !25
+  %29 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %29, i64 %17, i1 false)
   br label %30
 
 30:                                               ; preds = %28, %27
-  %31 = load ptr, ptr %9, align 8, !tbaa !25
+  %31 = load ptr, ptr %9, align 8, !tbaa !24
   tail call void @WebPSafeFree(ptr noundef %31) #7
-  store ptr %24, ptr %9, align 8, !tbaa !25
+  store ptr %24, ptr %9, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 %17
-  store ptr %32, ptr %14, align 8, !tbaa !26
+  store ptr %32, ptr %14, align 8, !tbaa !25
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 %23
-  store ptr %33, ptr %7, align 8, !tbaa !27
-  %.pr.pre = load i32, ptr %2, align 8, !tbaa !29
+  store ptr %33, ptr %7, align 8, !tbaa !26
+  %.pr.pre = load i32, ptr %2, align 8, !tbaa !28
   br label %VP8LBitWriterResize.exit
 
 VP8LBitWriterResize.exit:                         ; preds = %1, %30
@@ -1066,31 +1066,31 @@ VP8LBitWriterResize.exit:                         ; preds = %1, %30
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %VP8LBitWriterResize.exit
-  %.pre = load i64, ptr %0, align 8, !tbaa !28
+  %.pre = load i64, ptr %0, align 8, !tbaa !27
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %35 = phi i64 [ %.pre, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %36 = trunc i64 %35 to i8
-  %37 = load ptr, ptr %14, align 8, !tbaa !26
+  %37 = load ptr, ptr %14, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store ptr %38, ptr %14, align 8, !tbaa !26
+  store ptr %38, ptr %14, align 8, !tbaa !25
   store i8 %36, ptr %37, align 1, !tbaa !12
-  %39 = load i64, ptr %0, align 8, !tbaa !28
+  %39 = load i64, ptr %0, align 8, !tbaa !27
   %40 = lshr i64 %39, 8
-  store i64 %40, ptr %0, align 8, !tbaa !28
-  %41 = load i32, ptr %2, align 8, !tbaa !29
+  store i64 %40, ptr %0, align 8, !tbaa !27
+  %41 = load i32, ptr %2, align 8, !tbaa !28
   %42 = add nsw i32 %41, -8
-  store i32 %42, ptr %2, align 8, !tbaa !29
+  store i32 %42, ptr %2, align 8, !tbaa !28
   %43 = icmp sgt i32 %41, 8
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %VP8LBitWriterResize.exit
-  store i32 0, ptr %2, align 8, !tbaa !29
+  store i32 0, ptr %2, align 8, !tbaa !28
   br label %44
 
 44:                                               ; preds = %VP8LBitWriterResize.exit.thread, %._crit_edge
-  %45 = load ptr, ptr %9, align 8, !tbaa !25
+  %45 = load ptr, ptr %9, align 8, !tbaa !24
   ret ptr %45
 }
 
@@ -1129,20 +1129,19 @@ attributes #7 = { nounwind }
 !16 = !{!4, !10, i64 32}
 !17 = !{!4, !8, i64 16}
 !18 = !{!4, !5, i64 40}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = !{!24, !5, i64 40}
-!24 = !{!"", !10, i64 0, !5, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40}
-!25 = !{!24, !8, i64 16}
-!26 = !{!24, !8, i64 24}
-!27 = !{!24, !8, i64 32}
-!28 = !{!24, !10, i64 0}
-!29 = !{!24, !5, i64 8}
-!30 = !{i64 0, i64 8, !31, i64 8, i64 4, !32, i64 16, i64 8, !33, i64 24, i64 8, !33, i64 32, i64 8, !33, i64 40, i64 4, !32}
-!31 = !{!10, !10, i64 0}
-!32 = !{!5, !5, i64 0}
-!33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !20, !21}
-!35 = distinct !{!35, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = !{!23, !5, i64 40}
+!23 = !{!"", !10, i64 0, !5, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40}
+!24 = !{!23, !8, i64 16}
+!25 = !{!23, !8, i64 24}
+!26 = !{!23, !8, i64 32}
+!27 = !{!23, !10, i64 0}
+!28 = !{!23, !5, i64 8}
+!29 = !{i64 0, i64 8, !30, i64 8, i64 4, !31, i64 16, i64 8, !32, i64 24, i64 8, !32, i64 32, i64 8, !32, i64 40, i64 4, !31}
+!30 = !{!10, !10, i64 0}
+!31 = !{!5, !5, i64 0}
+!32 = !{!8, !8, i64 0}
+!33 = distinct !{!33, !20}
+!34 = distinct !{!34, !20}

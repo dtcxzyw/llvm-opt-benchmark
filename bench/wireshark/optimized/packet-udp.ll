@@ -1303,7 +1303,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %51, %54
   store volatile i32 %106, ptr %9, align 4
   %.0..0..0..0.47 = load volatile i32, ptr %9, align 4
   %.not92 = icmp sgt i32 %.0..0..0..0.47, %.0..0..0..0.45
-  br i1 %.not92, label %21, label %.loopexit, !llvm.loop !11
+  br i1 %.not92, label %21, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %21, %103, %28, %26, %33
   %.0..0..0..081 = load volatile i32, ptr %9, align 4
@@ -2269,13 +2269,13 @@ proto_item_set_generated.exit:                    ; preds = %172, %175, %178
 269:                                              ; preds = %268
   %270 = load i32, ptr %129, align 4
   %271 = or i32 %270, 1114112
-  %272 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %271) #19, !srcloc !12
+  %272 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %271) #19, !srcloc !11
   br label %277
 
 273:                                              ; preds = %268
   %274 = shl nuw nsw i32 %3, 16
   %275 = or i32 %43, %274
-  %276 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %275) #19, !srcloc !13
+  %276 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %275) #19, !srcloc !12
   br label %277
 
 277:                                              ; preds = %273, %269
@@ -2288,17 +2288,17 @@ proto_item_set_generated.exit:                    ; preds = %172, %175, %178
 
 279:                                              ; preds = %278
   %280 = load i32, ptr %129, align 4
-  %281 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %280) #19, !srcloc !14
+  %281 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %280) #19, !srcloc !13
   br label %284
 
 282:                                              ; preds = %278
-  %283 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %43) #19, !srcloc !15
+  %283 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %43) #19, !srcloc !14
   br label %284
 
 284:                                              ; preds = %282, %279
   %storemerge = phi i32 [ %281, %279 ], [ %283, %282 ]
   store i32 %storemerge, ptr %9, align 4
-  %285 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %3) #19, !srcloc !16
+  %285 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %3) #19, !srcloc !15
   %286 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %285, ptr %286, align 4
   br label %288
@@ -3044,12 +3044,11 @@ attributes #19 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i64 2151283979}
-!13 = !{i64 2151284736}
-!14 = !{i64 2151285596}
-!15 = !{i64 2151286285}
-!16 = !{i64 2151286961}
+!10 = distinct !{!10, !9}
+!11 = !{i64 2151283979}
+!12 = !{i64 2151284736}
+!13 = !{i64 2151285596}
+!14 = !{i64 2151286285}
+!15 = !{i64 2151286961}

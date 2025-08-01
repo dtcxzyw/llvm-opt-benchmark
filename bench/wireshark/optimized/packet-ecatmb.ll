@@ -931,7 +931,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %197 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %194, ptr noundef %43, i32 noundef %196, i32 noundef 4, i32 noundef 0)
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next201.i, %wide.trip.count203.i
-  br i1 %exitcond204.not.i, label %.loopexit.i, label %.lr.ph196.i, !llvm.loop !9
+  br i1 %exitcond204.not.i, label %.loopexit.i, label %.lr.ph196.i, !llvm.loop !8
 
 198:                                              ; preds = %160
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef nonnull @.str.360)
@@ -2025,7 +2025,6 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -1224,7 +1224,7 @@ grow_init_buf.exit.i:                             ; preds = %213
   br label %.backedge
 
 .backedge:                                        ; preds = %275, %266, %265, %264
-  br label %179, !llvm.loop !139
+  br label %179
 
 276:                                              ; preds = %266
   %277 = load ptr, ptr %155, align 8, !tbaa !109
@@ -1296,7 +1296,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   ]
 
 ._crit_edge.i:                                    ; preds = %293
-  %.pre.i = load i32, ptr %153, align 8, !tbaa !141
+  %.pre.i = load i32, ptr %153, align 8, !tbaa !139
   br label %385
 
 295:                                              ; preds = %293
@@ -1310,7 +1310,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   br label %297
 
 297:                                              ; preds = %.sink.split.i137, %295
-  %298 = call i32 %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i(ptr noundef nonnull %0) #7, !callees !142
+  %298 = call i32 %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i(ptr noundef nonnull %0) #7, !callees !140
   switch i32 %298, label %.backedge223 [
     i32 1, label %299
     i32 2, label %395
@@ -1319,7 +1319,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
 
 299:                                              ; preds = %297
   store i32 1, ptr %152, align 4, !tbaa !122
-  store i32 3, ptr %153, align 8, !tbaa !141
+  store i32 3, ptr %153, align 8, !tbaa !139
   br label %.backedge223
 
 300:                                              ; preds = %297
@@ -1334,9 +1334,9 @@ get_callback.exit.i124:                           ; preds = %288, %285
   br i1 %305, label %write_state_machine.exit.thread, label %write_state_machine.exit.thread.sink.split, !prof !136
 
 306:                                              ; preds = %293
-  %307 = load i32, ptr %153, align 8, !tbaa !141
-  %308 = call i32 %ossl_statem_client_pre_work.ossl_statem_server_pre_work.i(ptr noundef nonnull %0, i32 noundef %307) #7, !callees !143
-  store i32 %308, ptr %153, align 8, !tbaa !141
+  %307 = load i32, ptr %153, align 8, !tbaa !139
+  %308 = call i32 %ossl_statem_client_pre_work.ossl_statem_server_pre_work.i(ptr noundef nonnull %0, i32 noundef %307) #7, !callees !141
+  store i32 %308, ptr %153, align 8, !tbaa !139
   switch i32 %308, label %316 [
     i32 0, label %309
     i32 3, label %write_state_machine.exit.thread153
@@ -1362,7 +1362,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   br label %316
 
 316:                                              ; preds = %315, %306
-  %317 = call i32 %ossl_statem_client_construct_message.ossl_statem_server_construct_message.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #7, !callees !144
+  %317 = call i32 %ossl_statem_client_construct_message.ossl_statem_server_construct_message.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #7, !callees !142
   %.not71.i130 = icmp eq i32 %317, 0
   br i1 %.not71.i130, label %write_state_machine.exit.thread153, label %318
 
@@ -1373,7 +1373,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
 
 321:                                              ; preds = %318
   store i32 3, ptr %152, align 4, !tbaa !122
-  store i32 3, ptr %153, align 8, !tbaa !141
+  store i32 3, ptr %153, align 8, !tbaa !139
   br label %.backedge223
 
 322:                                              ; preds = %318
@@ -1387,14 +1387,14 @@ get_callback.exit.i124:                           ; preds = %288, %285
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 216
   %328 = load ptr, ptr %327, align 8, !tbaa !110
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 88
-  %330 = load ptr, ptr %329, align 8, !tbaa !145
+  %330 = load ptr, ptr %329, align 8, !tbaa !143
   %331 = load i32, ptr %4, align 4, !tbaa !85
   %332 = call i32 %330(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %331) #7
   %.not73.i132 = icmp eq i32 %332, 0
   br i1 %.not73.i132, label %write_state_machine.exit.thread.sink.split.sink.split, label %333
 
 333:                                              ; preds = %325
-  %334 = load ptr, ptr %3, align 8, !tbaa !146
+  %334 = load ptr, ptr %3, align 8, !tbaa !144
   %.not74.i133 = icmp eq ptr %334, null
   br i1 %.not74.i133, label %.thread93.i, label %335
 
@@ -1420,7 +1420,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
 343:                                              ; preds = %335
   call void @WPACKET_cleanup(ptr noundef nonnull %5) #7
   store i32 3, ptr %152, align 4, !tbaa !122
-  store i32 3, ptr %153, align 8, !tbaa !141
+  store i32 3, ptr %153, align 8, !tbaa !139
   br label %.backedge223
 
 .thread93.i:                                      ; preds = %335, %333
@@ -1428,7 +1428,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 216
   %346 = load ptr, ptr %345, align 8, !tbaa !110
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 96
-  %348 = load ptr, ptr %347, align 8, !tbaa !147
+  %348 = load ptr, ptr %347, align 8, !tbaa !145
   %349 = load i32, ptr %4, align 4, !tbaa !85
   %350 = call i32 %348(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %349) #7
   %.not76.i135 = icmp eq i32 %350, 0
@@ -1450,7 +1450,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   br i1 %.not78.i129, label %363, label %360
 
 360:                                              ; preds = %353
-  %361 = load i32, ptr %156, align 8, !tbaa !148
+  %361 = load i32, ptr %156, align 8, !tbaa !146
   %.not79.i = icmp eq i32 %361, 0
   br i1 %.not79.i, label %363, label %362
 
@@ -1488,7 +1488,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 216
   %379 = load ptr, ptr %378, align 8, !tbaa !110
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 104
-  %381 = load ptr, ptr %380, align 8, !tbaa !149
+  %381 = load ptr, ptr %380, align 8, !tbaa !147
   %382 = call i32 %381(ptr noundef nonnull %0) #7
   br label %statem_do_write.exit.i
 
@@ -1499,13 +1499,13 @@ statem_do_write.exit.i:                           ; preds = %376, %374, %372
 
 384:                                              ; preds = %statem_do_write.exit.i
   store i32 3, ptr %152, align 4, !tbaa !122
-  store i32 3, ptr %153, align 8, !tbaa !141
+  store i32 3, ptr %153, align 8, !tbaa !139
   br label %385
 
 385:                                              ; preds = %384, %._crit_edge.i
   %386 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 3, %384 ]
-  %387 = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %0, i32 noundef %386) #7, !callees !150
-  store i32 %387, ptr %153, align 8, !tbaa !141
+  %387 = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %0, i32 noundef %386) #7, !callees !148
+  store i32 %387, ptr %153, align 8, !tbaa !139
   switch i32 %387, label %.backedge223 [
     i32 0, label %388
     i32 3, label %write_state_machine.exit.thread153
@@ -1531,7 +1531,7 @@ statem_do_write.exit.i:                           ; preds = %376, %374, %372
   br label %.backedge223
 
 .backedge223:                                     ; preds = %394, %385, %343, %321, %299, %297
-  br label %293, !llvm.loop !151
+  br label %293
 
 write_state_machine.exit.thread.sink.split.sink.split: ; preds = %.thread93.i, %351, %322, %325
   %.sink205.ph = phi i32 [ 891, %325 ], [ 891, %322 ], [ 916, %351 ], [ 916, %.thread93.i ]
@@ -1575,7 +1575,7 @@ write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %3
 
 .backedge224:                                     ; preds = %396, %395, %284
   %.be = phi i32 [ 4, %396 ], [ 2, %395 ], [ 3, %284 ]
-  br label %166, !llvm.loop !152
+  br label %166, !llvm.loop !149
 
 397:                                              ; preds = %166
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -1651,16 +1651,16 @@ define range(i32 -1, 2) i32 @ossl_statem_accept(ptr noundef %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @statem_flush(ptr noundef captures(none) initializes((104, 108)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 2, ptr %2, align 8, !tbaa !154
+  store i32 2, ptr %2, align 8, !tbaa !151
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !155
+  %4 = load ptr, ptr %3, align 8, !tbaa !152
   %5 = tail call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 11, i64 noundef 0, ptr noundef null) #7
   %6 = trunc i64 %5 to i32
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  store i32 1, ptr %2, align 8, !tbaa !154
+  store i32 1, ptr %2, align 8, !tbaa !151
   br label %9
 
 9:                                                ; preds = %1, %8
@@ -1679,13 +1679,13 @@ define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr noundef readonly ca
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %7 = load i32, ptr %6, align 8, !tbaa !156
+  %7 = load i32, ptr %6, align 8, !tbaa !153
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %20, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %10 = load i32, ptr %9, align 8, !tbaa !157
+  %10 = load i32, ptr %9, align 8, !tbaa !154
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %20, label %12
 
@@ -1716,7 +1716,7 @@ define range(i32 0, 2) i32 @ossl_statem_app_data_allowed(ptr noundef readonly ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ossl_statem_export_allowed(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %3 = load i64, ptr %2, align 8, !tbaa !158
+  %3 = load i64, ptr %2, align 8, !tbaa !155
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %4
 
@@ -1987,23 +1987,20 @@ attributes #8 = { nounwind willreturn memory(none) }
 !136 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !137 = !{!21, !5, i64 16}
 !138 = !{ptr @ossl_statem_client_post_process_message, ptr @ossl_statem_server_post_process_message}
-!139 = distinct !{!139, !140}
-!140 = !{!"llvm.loop.estimated_trip_count"}
-!141 = !{!21, !5, i64 8}
-!142 = !{ptr @ossl_statem_client_write_transition, ptr @ossl_statem_server_write_transition}
-!143 = !{ptr @ossl_statem_client_pre_work, ptr @ossl_statem_server_pre_work}
-!144 = !{ptr @ossl_statem_client_construct_message, ptr @ossl_statem_server_construct_message}
-!145 = !{!114, !9, i64 88}
-!146 = !{!9, !9, i64 0}
-!147 = !{!114, !9, i64 96}
-!148 = !{!21, !5, i64 48}
-!149 = !{!114, !9, i64 104}
-!150 = !{ptr @ossl_statem_client_post_work, ptr @ossl_statem_server_post_work}
-!151 = distinct !{!151, !140}
-!152 = distinct !{!152, !153, !140}
-!153 = !{!"llvm.loop.mustprogress"}
-!154 = !{!16, !5, i64 104}
-!155 = !{!16, !18, i64 88}
-!156 = !{!16, !5, i64 472}
-!157 = !{!16, !5, i64 464}
-!158 = !{!16, !20, i64 1192}
+!139 = !{!21, !5, i64 8}
+!140 = !{ptr @ossl_statem_client_write_transition, ptr @ossl_statem_server_write_transition}
+!141 = !{ptr @ossl_statem_client_pre_work, ptr @ossl_statem_server_pre_work}
+!142 = !{ptr @ossl_statem_client_construct_message, ptr @ossl_statem_server_construct_message}
+!143 = !{!114, !9, i64 88}
+!144 = !{!9, !9, i64 0}
+!145 = !{!114, !9, i64 96}
+!146 = !{!21, !5, i64 48}
+!147 = !{!114, !9, i64 104}
+!148 = !{ptr @ossl_statem_client_post_work, ptr @ossl_statem_server_post_work}
+!149 = distinct !{!149, !150}
+!150 = !{!"llvm.loop.mustprogress"}
+!151 = !{!16, !5, i64 104}
+!152 = !{!16, !18, i64 88}
+!153 = !{!16, !5, i64 472}
+!154 = !{!16, !5, i64 464}
+!155 = !{!16, !20, i64 1192}

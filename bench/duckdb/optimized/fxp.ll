@@ -34,7 +34,7 @@ define noundef zeroext i1 @duckdb_je_fxp_parse(ptr noundef writeonly captures(no
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = add i8 %14, -48
   %or.cond = icmp ult i8 %15, 10
-  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !6
+  br i1 %or.cond, label %.lr.ph, label %.critedge.loopexit
 
 .critedge.loopexit:                               ; preds = %12
   %16 = shl nuw i32 %10, 16
@@ -48,7 +48,7 @@ define noundef zeroext i1 @duckdb_je_fxp_parse(ptr noundef writeonly captures(no
   br i1 %.not46, label %18, label %17
 
 17:                                               ; preds = %.critedge
-  store i32 %.041.lcssa, ptr %0, align 4, !tbaa !8
+  store i32 %.041.lcssa, ptr %0, align 4, !tbaa !6
   %.not48 = icmp eq ptr %2, null
   br i1 %.not48, label %.loopexit, label %.loopexit.sink.split
 
@@ -75,7 +75,7 @@ define noundef zeroext i1 @duckdb_je_fxp_parse(ptr noundef writeonly captures(no
   %.1 = add i64 %29, %23
   %30 = add nuw nsw i32 %.03664, 1
   %exitcond.not = icmp eq i32 %30, 14
-  br i1 %exitcond.not, label %.preheader, label %.preheader51, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %.preheader51
 
 .preheader:                                       ; preds = %.preheader51, %.preheader
   %.3 = phi ptr [ %34, %.preheader ], [ %.2, %.preheader51 ]
@@ -83,20 +83,20 @@ define noundef zeroext i1 @duckdb_je_fxp_parse(ptr noundef writeonly captures(no
   %32 = add i8 %31, -48
   %33 = icmp ult i8 %32, 10
   %34 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %33, label %.preheader, label %35, !llvm.loop !11
+  br i1 %33, label %.preheader, label %35
 
 35:                                               ; preds = %.preheader
   %36 = shl i64 %.1, 16
   %37 = udiv i64 %36, 100000000000000
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = add i32 %.041.lcssa, %38
-  store i32 %39, ptr %0, align 4, !tbaa !8
+  store i32 %39, ptr %0, align 4, !tbaa !6
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %35, %17
   %.3.lcssa.sink = phi ptr [ %.039.lcssa, %17 ], [ %.3, %35 ]
-  store ptr %.3.lcssa.sink, ptr %2, align 8, !tbaa !12
+  store ptr %.3.lcssa.sink, ptr %2, align 8, !tbaa !8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %3, %35, %18, %17
@@ -129,7 +129,7 @@ define void @duckdb_je_fxp_print(i32 noundef %0, ptr noundef %1) local_unnamed_a
   %12 = mul i64 %.02632, 10
   %13 = add nuw nsw i32 %.02533, 1
   %exitcond.not = icmp eq i32 %13, 14
-  br i1 %exitcond.not, label %5, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %5, label %10
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.136 = phi i64 [ %14, %.lr.ph ], [ %7, %5 ]
@@ -138,7 +138,7 @@ define void @duckdb_je_fxp_print(i32 noundef %0, ptr noundef %1) local_unnamed_a
   %15 = urem i64 %14, 10
   %16 = icmp eq i64 %15, 0
   %or.cond30 = and i1 %.not, %16
-  br i1 %or.cond30, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %or.cond30, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %5
   %.1.lcssa = phi i64 [ %7, %5 ], [ %14, %.lr.ph ]
@@ -183,14 +183,8 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !4, i64 0}
 !8 = !{!9, !9, i64 0}
-!9 = !{!"int", !4, i64 0}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !4, i64 0}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}

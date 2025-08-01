@@ -183,6 +183,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !24 = !{!"any pointer", !5, i64 0}
 !25 = !{i8 0, i8 2}
 !26 = !{}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}

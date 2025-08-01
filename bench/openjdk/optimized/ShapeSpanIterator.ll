@@ -1688,7 +1688,7 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(
 28:                                               ; preds = %.lr.ph34.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %initSegmentTable.exit, label %.lr.ph34.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %initSegmentTable.exit, label %.lr.ph34.i, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit43.i:           ; preds = %.lr.ph34.i
   %29 = trunc nuw nsw i64 %indvars.iv38.i to i32
@@ -1734,7 +1734,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %.lr.ph.split.us
 
 ..loopexit192_crit_edge:                          ; preds = %._crit_edge252
-  br label %.loopexit192, !llvm.loop !10
+  br label %.loopexit192, !llvm.loop !9
 
 .loopexit192:                                     ; preds = %..loopexit192_crit_edge, %.critedge
   br i1 %104, label %.lr.ph.split.us, label %.loopexit193
@@ -1802,7 +1802,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %81 = sext i8 %80 to i32
   %82 = add nsw i32 %.0147.us, %81
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.loopexit.us.loopexit.split.loop.exit, label %75, !llvm.loop !11
+  br i1 %83, label %.loopexit.us.loopexit.split.loop.exit, label %75
 
 .loopexit.us.loopexit.split.loop.exit:            ; preds = %76
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -1818,7 +1818,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 .backedge.us:                                     ; preds = %.loopexit.us
   %84 = icmp slt i32 %.2.us, %.0160.ph258
-  br i1 %84, label %56, label %.split.us, !llvm.loop !12
+  br i1 %84, label %56, label %.split.us, !llvm.loop !10
 
 .split213.us:                                     ; preds = %.loopexit.us
   store i32 %spec.select.us, ptr %1, align 4
@@ -1867,7 +1867,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 102:                                              ; preds = %98, %.lr.ph241
   %.1164 = phi i32 [ %99, %98 ], [ %.0163240, %.lr.ph241 ]
   %.not180.not = icmp sgt i64 %indvars.iv.next279, %92
-  br i1 %.not180.not, label %.lr.ph241, label %._crit_edge, !llvm.loop !14
+  br i1 %.not180.not, label %.lr.ph241, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %102, %.preheader
   %.0163.lcssa = phi i32 [ %.0160.ph258, %.preheader ], [ %.1164, %102 ]
@@ -1906,7 +1906,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 118:                                              ; preds = %.lr.ph245
   %indvars.iv.next283 = add nsw i64 %indvars.iv282, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next283, %52
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph245, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph245, !llvm.loop !13
 
 .critedge.loopexit.split.loop.exit312:            ; preds = %.lr.ph245
   %119 = trunc nsw i64 %indvars.iv282 to i32
@@ -1915,13 +1915,13 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 .critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit312, %111
   %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit312 ], [ %39, %118 ]
   %120 = icmp slt i32 %.0163.lcssa, %.2162.lcssa
-  br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !10
+  br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !9
 
 .lr.ph257:                                        ; preds = %.critedge
   %121 = sext i32 %.2153 to i64
   %122 = sext i32 %.0163.lcssa to i64
   %wide.trip.count = sext i32 %.2162.lcssa to i64
-  br label %123, !llvm.loop !10
+  br label %123, !llvm.loop !9
 
 123:                                              ; preds = %.lr.ph257, %._crit_edge252
   %indvars.iv286 = phi i64 [ %122, %.lr.ph257 ], [ %indvars.iv.next287, %._crit_edge252 ]
@@ -1991,7 +1991,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   store ptr %164, ptr %162, align 8
   %indvars.iv.next289 = add nsw i64 %indvars.iv288, -1
   %167 = icmp sgt i64 %indvars.iv.next289, %122
-  br i1 %167, label %.lr.ph251, label %._crit_edge252, !llvm.loop !16
+  br i1 %167, label %.lr.ph251, label %._crit_edge252, !llvm.loop !14
 
 ._crit_edge252.loopexit.split.loop.exit:          ; preds = %.lr.ph251
   %168 = trunc nsw i64 %indvars.iv288 to i32
@@ -2004,7 +2004,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   store ptr %125, ptr %170, align 8
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond294.not, label %..loopexit192_crit_edge, label %123, !llvm.loop !17
+  br i1 %exitcond294.not, label %..loopexit192_crit_edge, label %123, !llvm.loop !15
 
 .loopexit193:                                     ; preds = %.loopexit192, %.split.us, %36, %.split213.us
   %.1161 = phi i32 [ %.0160.ph258, %.split213.us ], [ %40, %36 ], [ %.2162.lcssa, %.loopexit192 ], [ %39, %.split.us ]
@@ -2124,7 +2124,7 @@ define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 nound
 28:                                               ; preds = %.lr.ph34.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %initSegmentTable.exit, label %.lr.ph34.i, !llvm.loop !9
+  br i1 %exitcond42.not.i, label %initSegmentTable.exit, label %.lr.ph34.i, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit43.i:           ; preds = %.lr.ph34.i
   %29 = trunc nuw nsw i64 %indvars.iv38.i to i32
@@ -2560,7 +2560,7 @@ GetSpanData.exit:                                 ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %194 = icmp samesign ult i64 %indvars.iv.next, %97
   %195 = select i1 %.4174, i1 %194, i1 false
-  br i1 %195, label %98, label %._crit_edge, !llvm.loop !18
+  br i1 %195, label %98, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %189
   %196 = load ptr, ptr %0, align 8
@@ -4763,16 +4763,14 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

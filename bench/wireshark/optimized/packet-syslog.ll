@@ -626,7 +626,7 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
 222:                                              ; preds = %211
   %223 = add i32 %.02447.i, 1
   %exitcond.not.i = icmp eq i32 %223, %208
-  br i1 %exitcond.not.i, label %.loopexit.i, label %211, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit.i, label %211, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %222, %217, %204
   %.1.i = phi i32 [ %221, %217 ], [ %207, %204 ], [ %207, %222 ]
@@ -767,7 +767,7 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %or.cond = and i1 %18, %19
   %20 = add nuw nsw i32 %.040, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond, label %.thread48, label %6, !llvm.loop !10
+  br i1 %or.cond, label %.thread48, label %6
 
 .thread:                                          ; preds = %11, %6
   %.not51 = icmp eq i32 %.040, 0
@@ -777,43 +777,43 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %1, i32 noundef %2, i32 noundef %.040, i32 noundef 0)
-  %invariant.gep = getelementptr i8, ptr %24, i64 -1
   br label %25
 
 25:                                               ; preds = %21, %25
   %indvars.iv55 = phi i64 [ %indvars.iv, %21 ], [ %indvars.iv.next56, %25 ]
-  %.03753 = phi i32 [ 1, %21 ], [ %31, %25 ]
-  %.152 = phi i32 [ 0, %21 ], [ %30, %25 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv55
-  %26 = load i8, ptr %gep, align 1
-  %27 = zext i8 %26 to i32
-  %28 = add nsw i32 %27, -48
-  %29 = mul i32 %28, %.03753
-  %30 = add i32 %29, %.152
-  %31 = mul i32 %.03753, 10
+  %.03753 = phi i32 [ 1, %21 ], [ %33, %25 ]
+  %.152 = phi i32 [ 0, %21 ], [ %32, %25 ]
+  %26 = getelementptr i8, ptr %24, i64 %indvars.iv55
+  %27 = getelementptr i8, ptr %26, i64 -1
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = add nsw i32 %29, -48
+  %31 = mul i32 %30, %.03753
+  %32 = add i32 %31, %.152
+  %33 = mul i32 %.03753, 10
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %32 = icmp eq i64 %indvars.iv.next56, 0
-  br i1 %32, label %33, label %25, !llvm.loop !11
+  %34 = icmp eq i64 %indvars.iv.next56, 0
+  br i1 %34, label %35, label %25, !llvm.loop !9
 
-33:                                               ; preds = %25
-  %.not43 = icmp eq i32 %30, 0
-  br i1 %.not43, label %.thread48, label %34
+35:                                               ; preds = %25
+  %.not43 = icmp eq i32 %32, 0
+  br i1 %.not43, label %.thread48, label %36
 
-34:                                               ; preds = %33
-  %35 = add nuw nsw i32 %.040, 1
-  %36 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %35)
-  br i1 %36, label %37, label %.thread48
+36:                                               ; preds = %35
+  %37 = add nuw nsw i32 %.040, 1
+  %38 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %37)
+  br i1 %38, label %39, label %.thread48
 
-37:                                               ; preds = %34
-  %38 = add i32 %.040, %2
-  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %38)
-  %40 = icmp eq i8 %39, 32
-  %41 = add i32 %35, %30
-  %spec.select = select i1 %40, i32 %41, i32 0
+39:                                               ; preds = %36
+  %40 = add i32 %.040, %2
+  %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %40)
+  %42 = icmp eq i8 %41, 32
+  %43 = add i32 %37, %32
+  %spec.select = select i1 %42, i32 %43, i32 0
   br label %.thread48
 
-.thread48:                                        ; preds = %17, %37, %.thread, %33, %34
-  %.036 = phi i32 [ 0, %34 ], [ 0, %33 ], [ 0, %.thread ], [ %spec.select, %37 ], [ 0, %17 ]
+.thread48:                                        ; preds = %17, %39, %.thread, %35, %36
+  %.036 = phi i32 [ 0, %36 ], [ 0, %35 ], [ 0, %.thread ], [ %spec.select, %39 ], [ 0, %17 ]
   ret i32 %.036
 }
 
@@ -1061,7 +1061,7 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   store i32 %96, ptr %3, align 4
   %97 = add i32 %.0118163, 1
   %98 = icmp ult i32 %96, %40
-  br i1 %98, label %.lr.ph, label %.thread, !llvm.loop !12
+  br i1 %98, label %.lr.ph, label %.thread
 
 .thread.sink.split:                               ; preds = %68, %.lr.ph
   store i32 %43, ptr %3, align 4
@@ -1080,13 +1080,13 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   %101 = add i32 %.1121164, 1
   %102 = load i32, ptr %3, align 4
   %103 = icmp ult i32 %102, %40
-  br i1 %103, label %.lr.ph165, label %.loopexit, !llvm.loop !13
+  br i1 %103, label %.lr.ph165, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread.thread, %38, %.thread149
   %104 = phi i32 [ %43, %.thread149 ], [ %49, %38 ], [ %102, %.thread.thread ]
   %.1121162 = phi i32 [ %.1121164, %.thread149 ], [ %.0120167, %38 ], [ %101, %.thread.thread ]
   %105 = icmp ult i32 %104, %26
-  br i1 %105, label %38, label %._crit_edge, !llvm.loop !14
+  br i1 %105, label %38, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit
   %106 = icmp eq i32 %.1121162, 1
@@ -1142,12 +1142,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

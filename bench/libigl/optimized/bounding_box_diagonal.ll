@@ -122,29 +122,29 @@ define dso_local noundef double @_ZN3igl21bounding_box_diagonalERKN5Eigen6Matrix
   %.182.i.i.i = phi double [ %68, %.lr.ph85.i.i.i ], [ %60, %58 ]
   %62 = getelementptr inbounds double, ptr %12, i64 %.05283.i.i.i
   %63 = getelementptr inbounds double, ptr %13, i64 %.05283.i.i.i
-  %64 = load double, ptr %62, align 8, !tbaa !16
-  %65 = load double, ptr %63, align 8, !tbaa !16
+  %64 = load double, ptr %62, align 8, !tbaa !15
+  %65 = load double, ptr %63, align 8, !tbaa !15
   %66 = fsub double %64, %65
   %67 = fmul double %66, %66
   %68 = fadd double %.182.i.i.i, %67
   %69 = add nsw i64 %.05283.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %69, %9
-  br i1 %exitcond.not.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEESB_EEEEEEE3sumEv.exit, label %.lr.ph85.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEESB_EEEEEEE3sumEv.exit, label %.lr.ph85.i.i.i, !llvm.loop !17
 
 70:                                               ; preds = %11
-  %71 = load double, ptr %12, align 8, !tbaa !16
-  %72 = load double, ptr %13, align 8, !tbaa !16
+  %71 = load double, ptr %12, align 8, !tbaa !15
+  %72 = load double, ptr %13, align 8, !tbaa !15
   %73 = fsub double %71, %72
   %74 = fmul double %73, %73
   br label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEESB_EEEEEEE3sumEv.exit
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEESB_EEEEEEE3sumEv.exit: ; preds = %.lr.ph85.i.i.i, %70, %58, %7
   %.0.i = phi double [ 0.000000e+00, %7 ], [ %74, %70 ], [ %60, %58 ], [ %68, %.lr.ph85.i.i.i ]
-  %75 = call double @sqrt(double noundef %.0.i) #6, !tbaa !19
-  %76 = load ptr, ptr %5, align 8, !tbaa !21
+  %75 = call double @sqrt(double noundef %.0.i) #6, !tbaa !18
+  %76 = load ptr, ptr %5, align 8, !tbaa !20
   call void @free(ptr noundef %76) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  %77 = load ptr, ptr %4, align 8, !tbaa !21
+  %77 = load ptr, ptr %4, align 8, !tbaa !20
   call void @free(ptr noundef %77) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   %78 = load ptr, ptr %3, align 8, !tbaa !11
@@ -158,10 +158,10 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12A
 80:                                               ; preds = %6, %1
   %81 = landingpad { ptr, i32 }
           cleanup
-  %82 = load ptr, ptr %5, align 8, !tbaa !21
+  %82 = load ptr, ptr %5, align 8, !tbaa !20
   call void @free(ptr noundef %82) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  %83 = load ptr, ptr %4, align 8, !tbaa !21
+  %83 = load ptr, ptr %4, align 8, !tbaa !20
   call void @free(ptr noundef %83) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   %84 = load ptr, ptr %3, align 8, !tbaa !11
@@ -217,14 +217,13 @@ attributes #6 = { nounwind }
 !10 = !{!"long", !8, i64 0}
 !11 = !{!5, !6, i64 0}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"double", !8, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !8, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EEE", !23, i64 0, !10, i64 8}
-!23 = !{!"p1 int", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"double", !8, i64 0}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !8, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EEE", !22, i64 0, !10, i64 8}
+!22 = !{!"p1 int", !7, i64 0}

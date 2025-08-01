@@ -578,9 +578,9 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef readonly captures(
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #7
-  store ptr %4, ptr %10, align 8, !tbaa !62
+  store ptr %4, ptr %10, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %5, ptr %12, align 8, !tbaa !62
+  store ptr %5, ptr %12, align 8, !tbaa !61
   %13 = icmp slt i32 %0, 0
   br i1 %13, label %29, label %.preheader
 
@@ -589,7 +589,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef readonly captures(
   %.185.i58 = phi i32 [ %.286.i, %26 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !62
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = icmp slt i32 %.185.i58, %0
   %.not103.i = icmp eq ptr %15, null
   br i1 %16, label %17, label %24
@@ -618,7 +618,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef readonly captures(
 26:                                               ; preds = %25, %24, %22
   %.286.i = phi i32 [ %23, %22 ], [ %.185.i58, %25 ], [ %.185.i58, %24 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !64
+  br i1 %exitcond.not, label %27, label %.preheader, !llvm.loop !63
 
 27:                                               ; preds = %26
   %28 = icmp eq i32 %.286.i, %0
@@ -710,7 +710,7 @@ rb_scan_args_set.exit:                            ; preds = %27
   %67 = load i32, ptr %6, align 8, !tbaa !58
   %68 = call i32 @rb_io_wait_readable(i32 noundef %67) #7
   %.not33 = icmp eq i32 %68, 0
-  br i1 %.not33, label %69, label %56, !llvm.loop !65
+  br i1 %.not33, label %69, label %56
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -733,7 +733,7 @@ rb_scan_args_set.exit:                            ; preds = %27
   %.sink = phi i32 [ 24, %75 ], [ 24, %60 ], [ 12, %64 ]
   %77 = or disjoint i32 %.021, %.sink85
   %78 = call i32 @rb_gc_for_fd(i32 noundef %.sink) #7
-  br label %47, !llvm.loop !65
+  br label %47
 
 79:                                               ; preds = %75
   %80 = load i64, ptr @rb_eSocket, align 8, !tbaa !17
@@ -818,7 +818,7 @@ rb_scan_args_set.exit:                            ; preds = %27
   %115 = call i64 @rb_intern2(ptr noundef nonnull @.str.26, i64 noundef 6) #7
   store i64 %115, ptr @unix_recv_io.rbimpl_id, align 8, !tbaa !17
   %.not.i35 = icmp eq i64 %115, 0
-  br i1 %.not.i35, label %.lr.ph.i, label %rbimpl_intern_const.exit.loopexit, !llvm.loop !66
+  br i1 %.not.i35, label %.lr.ph.i, label %rbimpl_intern_const.exit.loopexit, !llvm.loop !64
 
 rbimpl_intern_const.exit.loopexit:                ; preds = %.lr.ph.i
   %.pre = load i64, ptr %4, align 8, !tbaa !17
@@ -862,9 +862,9 @@ define internal i64 @unix_s_socketpair(i32 noundef %0, ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
-  store ptr %4, ptr %7, align 8, !tbaa !62
+  store ptr %4, ptr %7, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %8, align 8, !tbaa !62
+  store ptr %5, ptr %8, align 8, !tbaa !61
   %9 = icmp slt i32 %0, 0
   br i1 %9, label %25, label %.preheader
 
@@ -873,7 +873,7 @@ define internal i64 @unix_s_socketpair(i32 noundef %0, ptr noundef readonly capt
   %.185.i6 = phi i32 [ %.286.i, %22 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !62
+  %11 = load ptr, ptr %10, align 8, !tbaa !61
   %12 = icmp slt i32 %.185.i6, %0
   %.not103.i = icmp eq ptr %11, null
   br i1 %12, label %13, label %20
@@ -902,7 +902,7 @@ define internal i64 @unix_s_socketpair(i32 noundef %0, ptr noundef readonly capt
 22:                                               ; preds = %21, %20, %18
   %.286.i = phi i32 [ %19, %18 ], [ %.185.i6, %21 ], [ %.185.i6, %20 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !64
+  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !63
 
 23:                                               ; preds = %22
   %24 = icmp eq i32 %.286.i, %0
@@ -1091,11 +1091,9 @@ attributes #8 = { noreturn nounwind }
 !56 = !{!46, !8, i64 48}
 !57 = !{!46, !32, i64 56}
 !58 = !{!46, !32, i64 0}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 long", !28, i64 0}
-!64 = distinct !{!64, !60, !61}
-!65 = distinct !{!65, !61}
-!66 = distinct !{!66, !60, !61}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 long", !28, i64 0}
+!63 = distinct !{!63, !60}
+!64 = distinct !{!64, !60}

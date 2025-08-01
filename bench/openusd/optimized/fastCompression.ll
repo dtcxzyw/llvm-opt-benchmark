@@ -220,7 +220,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression20De
   %39 = add i64 %.02743, %36
   %40 = add nuw nsw i32 %.02644, 1
   %.not = icmp eq i32 %40, %9
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %33, %28, %22, %17
   %.0 = phi i64 [ 0, %17 ], [ %23, %22 ], [ 0, %28 ], [ %39, %33 ]
@@ -243,7 +243,6 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

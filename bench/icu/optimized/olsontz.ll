@@ -994,9 +994,9 @@ define noundef zeroext i1 @_ZNK6icu_7713OlsonTimeZoneeqERKNS_8TimeZoneE(ptr noun
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !61
+  %12 = load ptr, ptr %11, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !61
+  %14 = load ptr, ptr %13, align 8, !tbaa !60
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %16
 
@@ -1185,7 +1185,7 @@ define void @_ZNK6icu_7713OlsonTimeZone19getHistoricalOffsetEdaiiRiS1_(ptr nound
   %14 = load i16, ptr %13, align 4, !tbaa !28
   %15 = add i16 %12, %14
   %16 = icmp sgt i16 %15, 0
-  br i1 %16, label %17, label %220
+  br i1 %16, label %17, label %222
 
 17:                                               ; preds = %7
   %18 = fdiv double %1, 1.000000e+03
@@ -1255,7 +1255,7 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit: ; preds = %22, %36, 
   %64 = mul nsw i32 %63, 1000
   store i32 %64, ptr %5, align 4, !tbaa !39
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  br label %226
+  br label %228
 
 66:                                               ; preds = %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit, %17
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1282,11 +1282,7 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit: ; preds = %22, %36, 
   %88 = icmp eq i32 %87, 4
   %89 = zext nneg i16 %15 to i64
   %90 = sext i16 %.pre to i64
-  br i1 %.not, label %.split.us, label %.split.preheader
-
-.split.preheader:                                 ; preds = %66
-  %invariant.gep = getelementptr i8, ptr %75, i64 -2
-  br label %.split
+  br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %66, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us ], [ %89, %66 ]
@@ -1343,10 +1339,10 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us: ; preds = %120,
   %.0.i91.us = phi i64 [ %102, %93 ], [ %124, %120 ], [ %119, %107 ]
   %125 = sitofp i64 %.0.i91.us to double
   %126 = fcmp ult double %19, %125
-  br i1 %126, label %.split.us, label %.split104.us, !llvm.loop !63
+  br i1 %126, label %.split.us, label %.split104.us, !llvm.loop !62
 
-.split:                                           ; preds = %.split.preheader, %204
-  %indvars.iv = phi i64 [ %89, %.split.preheader ], [ %indvars.iv.next, %204 ]
+.split:                                           ; preds = %66, %206
+  %indvars.iv = phi i64 [ %indvars.iv.next, %206 ], [ %89, %66 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %127 = icmp sgt i64 %indvars.iv, 0
   br i1 %127, label %130, label %_ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread
@@ -1407,7 +1403,7 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92: ; preds = %131, %1
   %163 = add nsw i64 %.0.i91, -86400
   %164 = sitofp i64 %163 to double
   %165 = fcmp ult double %19, %164
-  br i1 %165, label %204, label %166
+  br i1 %165, label %206, label %166
 
 166:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92
   %167 = icmp eq i64 %indvars.iv, 1
@@ -1420,115 +1416,116 @@ _ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit:  ; preds = %166
   br label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94
 
 171:                                              ; preds = %166
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %172 = load i8, ptr %gep, align 1, !tbaa !45
-  %173 = zext i8 %172 to i64
-  %.idx98 = shl nuw nsw i64 %173, 3
-  %174 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx98
-  %175 = load i32, ptr %174, align 4, !tbaa !39
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
+  %172 = getelementptr i8, ptr %75, i64 %indvars.iv
+  %173 = getelementptr i8, ptr %172, i64 -2
+  %174 = load i8, ptr %173, align 1, !tbaa !45
+  %175 = zext i8 %174 to i64
+  %.idx98 = shl nuw nsw i64 %175, 3
+  %176 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx98
   %177 = load i32, ptr %176, align 4, !tbaa !39
-  %178 = add nsw i32 %177, %175
-  %179 = shl nuw nsw i64 %173, 1
-  %180 = or disjoint i64 %179, 1
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  %179 = load i32, ptr %178, align 4, !tbaa !39
+  %180 = add nsw i32 %179, %177
+  %181 = shl nuw nsw i64 %175, 1
+  %182 = or disjoint i64 %181, 1
   br label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94
 
 _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94: ; preds = %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit, %171
-  %181 = phi i32 [ %178, %171 ], [ %170, %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit ]
-  %182 = phi i64 [ %180, %171 ], [ 1, %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit ]
-  %183 = getelementptr inbounds nuw i32, ptr %77, i64 %182
-  %184 = load i32, ptr %183, align 4, !tbaa !39
-  %185 = icmp ne i32 %184, 0
-  %186 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv.next
-  %187 = load i8, ptr %186, align 1, !tbaa !45
-  %188 = zext i8 %187 to i64
-  %.idx99 = shl nuw nsw i64 %188, 3
-  %189 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx99
-  %190 = load i32, ptr %189, align 4, !tbaa !39
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 4
+  %183 = phi i32 [ %180, %171 ], [ %170, %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit ]
+  %184 = phi i64 [ %182, %171 ], [ 1, %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit ]
+  %185 = getelementptr inbounds nuw i32, ptr %77, i64 %184
+  %186 = load i32, ptr %185, align 4, !tbaa !39
+  %187 = icmp ne i32 %186, 0
+  %188 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv.next
+  %189 = load i8, ptr %188, align 1, !tbaa !45
+  %190 = zext i8 %189 to i64
+  %.idx99 = shl nuw nsw i64 %190, 3
+  %191 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx99
   %192 = load i32, ptr %191, align 4, !tbaa !39
-  %193 = add nsw i32 %192, %190
-  %194 = icmp ne i32 %192, 0
-  %195 = xor i1 %194, true
-  %196 = and i1 %185, %195
-  %not. = xor i1 %185, true
-  %197 = and i1 %194, %not.
-  %.not85 = icmp slt i32 %193, %181
-  br i1 %.not85, label %200, label %198
-
-198:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94
-  %or.cond = and i1 %80, %196
-  %or.cond3 = and i1 %81, %197
-  %or.cond105 = select i1 %or.cond, i1 true, i1 %or.cond3
-  br i1 %or.cond105, label %203, label %199
-
-199:                                              ; preds = %198
-  %or.cond5 = and i1 %80, %197
-  %or.cond7 = and i1 %81, %196
-  %or.cond87 = or i1 %or.cond5, %or.cond7
-  %. = select i1 %83, i32 %181, i32 %193
-  %spec.select = select i1 %or.cond87, i32 %193, i32 %.
-  br label %203
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  %194 = load i32, ptr %193, align 4, !tbaa !39
+  %195 = add nsw i32 %194, %192
+  %196 = icmp ne i32 %194, 0
+  %197 = xor i1 %196, true
+  %198 = and i1 %187, %197
+  %not. = xor i1 %187, true
+  %199 = and i1 %196, %not.
+  %.not85 = icmp slt i32 %195, %183
+  br i1 %.not85, label %202, label %200
 
 200:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94
-  %or.cond9 = and i1 %85, %196
-  %or.cond11 = and i1 %86, %197
-  %or.cond106 = select i1 %or.cond9, i1 true, i1 %or.cond11
-  br i1 %or.cond106, label %203, label %201
+  %or.cond = and i1 %80, %198
+  %or.cond3 = and i1 %81, %199
+  %or.cond105 = select i1 %or.cond, i1 true, i1 %or.cond3
+  br i1 %or.cond105, label %205, label %201
 
 201:                                              ; preds = %200
-  %or.cond13 = and i1 %85, %197
-  %or.cond15 = and i1 %86, %196
-  %or.cond88 = or i1 %or.cond13, %or.cond15
-  %202 = or i1 %or.cond88, %88
-  %spec.select107 = select i1 %202, i32 %181, i32 %193
-  br label %203
+  %or.cond5 = and i1 %80, %199
+  %or.cond7 = and i1 %81, %198
+  %or.cond87 = or i1 %or.cond5, %or.cond7
+  %. = select i1 %83, i32 %183, i32 %195
+  %spec.select = select i1 %or.cond87, i32 %195, i32 %.
+  br label %205
 
-203:                                              ; preds = %201, %199, %200, %198
-  %.pn.in = phi i32 [ %181, %198 ], [ %193, %200 ], [ %spec.select, %199 ], [ %spec.select107, %201 ]
+202:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94
+  %or.cond9 = and i1 %85, %198
+  %or.cond11 = and i1 %86, %199
+  %or.cond106 = select i1 %or.cond9, i1 true, i1 %or.cond11
+  br i1 %or.cond106, label %205, label %203
+
+203:                                              ; preds = %202
+  %or.cond13 = and i1 %85, %199
+  %or.cond15 = and i1 %86, %198
+  %or.cond88 = or i1 %or.cond13, %or.cond15
+  %204 = or i1 %or.cond88, %88
+  %spec.select107 = select i1 %204, i32 %183, i32 %195
+  br label %205
+
+205:                                              ; preds = %203, %201, %202, %200
+  %.pn.in = phi i32 [ %183, %200 ], [ %195, %202 ], [ %spec.select, %201 ], [ %spec.select107, %203 ]
   %.pn = sext i32 %.pn.in to i64
   %.1 = add nsw i64 %.0.i91, %.pn
-  br label %204
+  br label %206
 
-204:                                              ; preds = %203, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92
-  %.082 = phi i64 [ %.1, %203 ], [ %.0.i91, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92 ]
-  %205 = sitofp i64 %.082 to double
-  %206 = fcmp ult double %19, %205
-  br i1 %206, label %.split, label %.split104.us, !llvm.loop !65
+206:                                              ; preds = %205, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92
+  %.082 = phi i64 [ %.1, %205 ], [ %.0.i91, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92 ]
+  %207 = sitofp i64 %.082 to double
+  %208 = fcmp ult double %19, %207
+  br i1 %208, label %.split, label %.split104.us
 
-.split104.us:                                     ; preds = %204, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us
-  %.us-phi.in = phi i64 [ %indvars.iv.next115, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us ], [ %indvars.iv.next, %204 ]
-  %207 = and i64 %.us-phi.in, 65535
-  %208 = getelementptr inbounds nuw i8, ptr %75, i64 %207
-  %209 = load i8, ptr %208, align 1, !tbaa !45
-  %210 = zext i8 %209 to i64
-  %.idx101 = shl nuw nsw i64 %210, 3
-  %211 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx101
-  %212 = load i32, ptr %211, align 4, !tbaa !39
-  %213 = mul nsw i32 %212, 1000
-  store i32 %213, ptr %5, align 4, !tbaa !39
-  %214 = load i8, ptr %208, align 1, !tbaa !45
-  %215 = zext i8 %214 to i64
-  %216 = shl nuw nsw i64 %215, 1
-  %217 = or disjoint i64 %216, 1
+.split104.us:                                     ; preds = %206, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us
+  %.us-phi.in = phi i64 [ %indvars.iv.next115, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us ], [ %indvars.iv.next, %206 ]
+  %209 = and i64 %.us-phi.in, 65535
+  %210 = getelementptr inbounds nuw i8, ptr %75, i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !45
+  %212 = zext i8 %211 to i64
+  %.idx101 = shl nuw nsw i64 %212, 3
+  %213 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx101
+  %214 = load i32, ptr %213, align 4, !tbaa !39
+  %215 = mul nsw i32 %214, 1000
+  store i32 %215, ptr %5, align 4, !tbaa !39
+  %216 = load i8, ptr %210, align 1, !tbaa !45
+  %217 = zext i8 %216 to i64
+  %218 = shl nuw nsw i64 %217, 1
+  %219 = or disjoint i64 %218, 1
   br label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95
 
 _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95: ; preds = %_ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread, %.split104.us
-  %218 = phi i64 [ %217, %.split104.us ], [ 1, %_ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread ]
-  %219 = getelementptr inbounds nuw i32, ptr %77, i64 %218
-  br label %226
+  %220 = phi i64 [ %219, %.split104.us ], [ 1, %_ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread ]
+  %221 = getelementptr inbounds nuw i32, ptr %77, i64 %220
+  br label %228
 
-220:                                              ; preds = %7
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %222 = load ptr, ptr %221, align 8, !tbaa !33
-  %223 = load i32, ptr %222, align 4, !tbaa !39
-  %224 = mul nsw i32 %223, 1000
-  store i32 %224, ptr %5, align 4, !tbaa !39
-  %225 = getelementptr inbounds nuw i8, ptr %222, i64 4
-  br label %226
+222:                                              ; preds = %7
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %224 = load ptr, ptr %223, align 8, !tbaa !33
+  %225 = load i32, ptr %224, align 4, !tbaa !39
+  %226 = mul nsw i32 %225, 1000
+  store i32 %226, ptr %5, align 4, !tbaa !39
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 4
+  br label %228
 
-226:                                              ; preds = %60, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95, %220
-  %storemerge86.in.in = phi ptr [ %225, %220 ], [ %65, %60 ], [ %219, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95 ]
+228:                                              ; preds = %60, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95, %222
+  %storemerge86.in.in = phi ptr [ %227, %222 ], [ %65, %60 ], [ %221, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95 ]
   %storemerge86.in = load i32, ptr %storemerge86.in.in, align 4, !tbaa !39
   %storemerge86 = mul nsw i32 %storemerge86.in, 1000
   store i32 %storemerge86, ptr %6, align 4, !tbaa !39
@@ -1706,7 +1703,7 @@ define noundef signext i8 @_ZNK6icu_7713OlsonTimeZone15useDaylightTimeEv(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(160) %5)
-  br label %102
+  br label %106
 
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #18
@@ -1748,12 +1745,10 @@ define noundef signext i8 @_ZNK6icu_7713OlsonTimeZone15useDaylightTimeEv(ptr nou
   %44 = load ptr, ptr %43, align 8
   %45 = sext i16 %27 to i64
   %wide.trip.count = zext nneg i16 %33 to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %invariant.gep47 = getelementptr i8, ptr %42, i64 -1
   br label %46
 
-46:                                               ; preds = %.lr.ph, %101
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
+46:                                               ; preds = %.lr.ph, %105
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
   %47 = icmp slt i64 %indvars.iv, %45
   br i1 %47, label %48, label %60
 
@@ -1807,52 +1802,54 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit: ; preds = %48, %64, 
 
 84:                                               ; preds = %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit
   %85 = fcmp ult double %82, %21
-  br i1 %85, label %90, label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit
+  br i1 %85, label %92, label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit
 
 _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit:   ; preds = %84
   %86 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv
   %87 = load i8, ptr %86, align 1, !tbaa !45
   %88 = zext i8 %87 to i64
   %.idx = shl nuw nsw i64 %88, 3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %89 = load i32, ptr %gep, align 4, !tbaa !39
-  %.not26 = icmp eq i32 %89, 0
-  br i1 %.not26, label %90, label %.thread33
+  %89 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  %91 = load i32, ptr %90, align 4, !tbaa !39
+  %.not26 = icmp eq i32 %91, 0
+  br i1 %.not26, label %92, label %.thread33
 
-90:                                               ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit, %84
-  %91 = fcmp ogt double %82, %21
-  br i1 %91, label %92, label %101
+92:                                               ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit, %84
+  %93 = fcmp ogt double %82, %21
+  br i1 %93, label %94, label %105
 
-92:                                               ; preds = %90
+94:                                               ; preds = %92
   %.not46 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not46, label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, label %93
+  br i1 %.not46, label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, label %95
 
-93:                                               ; preds = %92
-  %gep48 = getelementptr i8, ptr %invariant.gep47, i64 %indvars.iv
-  %94 = load i8, ptr %gep48, align 1, !tbaa !45
-  %95 = zext i8 %94 to i64
-  %96 = shl nuw nsw i64 %95, 1
-  %97 = or disjoint i64 %96, 1
+95:                                               ; preds = %94
+  %96 = getelementptr i8, ptr %42, i64 %indvars.iv
+  %97 = getelementptr i8, ptr %96, i64 -1
+  %98 = load i8, ptr %97, align 1, !tbaa !45
+  %99 = zext i8 %98 to i64
+  %100 = shl nuw nsw i64 %99, 1
+  %101 = or disjoint i64 %100, 1
   br label %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30
 
-_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30: ; preds = %92, %93
-  %98 = phi i64 [ %97, %93 ], [ 1, %92 ]
-  %99 = getelementptr inbounds nuw i32, ptr %44, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !39
-  %.not27 = icmp eq i32 %100, 0
-  br i1 %.not27, label %101, label %.thread33
+_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30: ; preds = %94, %95
+  %102 = phi i64 [ %101, %95 ], [ 1, %94 ]
+  %103 = getelementptr inbounds nuw i32, ptr %44, i64 %102
+  %104 = load i32, ptr %103, align 4, !tbaa !39
+  %.not27 = icmp eq i32 %104, 0
+  br i1 %.not27, label %105, label %.thread33
 
-101:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, %90
+105:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread33, label %46, !llvm.loop !66
+  br i1 %exitcond.not, label %.thread33, label %46, !llvm.loop !64
 
-.thread33:                                        ; preds = %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit, %101, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, %18, %14
-  %.1 = phi i8 [ 0, %14 ], [ 0, %18 ], [ 0, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit ], [ 0, %101 ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30 ]
+.thread33:                                        ; preds = %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit, %105, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, %18, %14
+  %.1 = phi i8 [ 0, %14 ], [ 0, %18 ], [ 0, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit ], [ 0, %105 ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
-  br label %102
+  br label %106
 
-102:                                              ; preds = %.thread33, %9
+106:                                              ; preds = %.thread33, %9
   %.0 = phi i8 [ %13, %9 ], [ %.1, %.thread33 ]
   ret i8 %.0
 }
@@ -2275,7 +2272,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
 
 67:                                               ; preds = %55
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i16 0, ptr %68, align 8, !tbaa !67
+  store i16 0, ptr %68, align 8, !tbaa !65
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %70 = load ptr, ptr %69, align 8, !tbaa !31
   br label %71
@@ -2290,9 +2287,9 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
 
 75:                                               ; preds = %71
   %76 = add nuw nsw i16 %.0107166, 1
-  store i16 %76, ptr %68, align 8, !tbaa !67
+  store i16 %76, ptr %68, align 8, !tbaa !65
   %exitcond.not = icmp eq i16 %76, %64
-  br i1 %exitcond.not, label %.critedge147, label %71, !llvm.loop !68
+  br i1 %exitcond.not, label %.critedge147, label %71, !llvm.loop !66
 
 77:                                               ; preds = %71
   %78 = icmp eq i16 %.0107166, %64
@@ -2332,7 +2329,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
 97:                                               ; preds = %.lr.ph173, %._crit_edge.thread
   %98 = phi i16 [ %85, %.lr.ph173 ], [ %198, %._crit_edge.thread ]
   %indvars.iv184 = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next185, %._crit_edge.thread ]
-  %99 = load i16, ptr %68, align 8, !tbaa !67
+  %99 = load i16, ptr %68, align 8, !tbaa !65
   %100 = icmp slt i16 %99, %64
   br i1 %100, label %.lr.ph, label %._crit_edge.thread
 
@@ -2417,14 +2414,14 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
   %157 = add nsw i32 %.097169, 1
   %158 = sext i32 %.097169 to i64
   %159 = getelementptr inbounds double, ptr %81, i64 %158
-  store double %154, ptr %159, align 8, !tbaa !69
+  store double %154, ptr %159, align 8, !tbaa !67
   br label %160
 
 160:                                              ; preds = %156, %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit, %112
   %.299 = phi i32 [ %.097169, %112 ], [ %157, %156 ], [ %.097169, %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %161 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %161, label %112, label %._crit_edge, !llvm.loop !70
+  br i1 %161, label %112, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %160
   %162 = icmp sgt i32 %.299, 0
@@ -2524,7 +2521,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %199 = sext i16 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next185, %199
-  br i1 %200, label %97, label %._crit_edge174, !llvm.loop !71
+  br i1 %200, label %97, label %._crit_edge174, !llvm.loop !69
 
 ._crit_edge174:                                   ; preds = %._crit_edge.thread, %.preheader155
   invoke void @uprv_free_77(ptr noundef nonnull %81)
@@ -2532,7 +2529,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
 
 201:                                              ; preds = %._crit_edge174
   %202 = load ptr, ptr %69, align 8, !tbaa !31
-  %203 = load i16, ptr %68, align 8, !tbaa !67
+  %203 = load i16, ptr %68, align 8, !tbaa !65
   %204 = sext i16 %203 to i64
   %205 = getelementptr inbounds i8, ptr %202, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !45
@@ -2541,7 +2538,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
   br i1 %208, label %220, label %209
 
 209:                                              ; preds = %201
-  %210 = load i16, ptr %68, align 8, !tbaa !67
+  %210 = load i16, ptr %68, align 8, !tbaa !65
   %211 = call noundef double @_ZNK6icu_7713OlsonTimeZone14transitionTimeEs(ptr noundef nonnull align 8 dereferenceable(224) %0, i16 noundef signext %210)
   %212 = load ptr, ptr %56, align 8, !tbaa !51
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2583,7 +2580,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %228 = load double, ptr %227, align 8, !tbaa !47
-  store double %228, ptr %10, align 8, !tbaa !69
+  store double %228, ptr %10, align 8, !tbaa !67
   %229 = load ptr, ptr %225, align 8, !tbaa !35
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
@@ -2673,7 +2670,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
           to label %270 unwind label %266
 
 270:                                              ; preds = %268
-  store double %269, ptr %10, align 8, !tbaa !69
+  store double %269, ptr %10, align 8, !tbaa !67
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #18
   br label %292
@@ -2778,7 +2775,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit149: ; preds = %277
 316:                                              ; preds = %309
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %307, ptr %317, align 8, !tbaa !53
-  %318 = load double, ptr %10, align 8, !tbaa !69
+  %318 = load double, ptr %10, align 8, !tbaa !67
   invoke void @_ZN6icu_7718TimeZoneTransition7setTimeEd(ptr noundef nonnull align 8 dereferenceable(32) %307, double noundef %318)
           to label %319 unwind label %314
 
@@ -3040,7 +3037,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %64 = add nsw i32 %63, -1
   %65 = trunc i32 %64 to i16
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %67 = load i16, ptr %66, align 8, !tbaa !67
+  %67 = load i16, ptr %66, align 8, !tbaa !65
   %sext70 = shl i32 %64, 16
   %68 = ashr exact i32 %sext70, 16
   %.not5468 = icmp sgt i16 %67, %65
@@ -3116,7 +3113,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   %115 = add i16 %.04569, -1
   %116 = sext i16 %115 to i32
   %.not54 = icmp slt i16 %115, %67
-  br i1 %.not54, label %._crit_edge, label %75, !llvm.loop !72
+  br i1 %.not54, label %._crit_edge, label %75, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %114, %54
   %.lcssa = phi i32 [ %68, %54 ], [ %116, %114 ]
@@ -3466,7 +3463,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %64 = load i16, ptr %63, align 4, !tbaa !28
   %65 = add i16 %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %67 = load i16, ptr %66, align 8, !tbaa !67
+  %67 = load i16, ptr %66, align 8, !tbaa !65
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3535,7 +3532,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
   %113 = fcmp une double %1, %111
   %or.cond.not60 = or i1 %.not53, %113
   %.not59 = and i1 %112, %or.cond.not60
-  br i1 %.not59, label %74, label %114, !llvm.loop !73
+  br i1 %.not59, label %74, label %114, !llvm.loop !71
 
 114:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
   %115 = icmp eq i16 %.043, %67
@@ -3816,7 +3813,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %spec.select = add nuw nsw i32 %.119, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %18
   %.011 = phi i32 [ 0, %18 ], [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -3891,7 +3888,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 23:                                               ; preds = %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8, !tbaa !51
-  store ptr %25, ptr %1, align 8, !tbaa !75
+  store ptr %25, ptr %1, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = load ptr, ptr %26, align 8, !tbaa !54
   %.not32 = icmp ne ptr %27, null
@@ -3922,7 +3919,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %36 = add nsw i32 %.140, 1
   %37 = sext i32 %.140 to i64
   %38 = getelementptr inbounds ptr, ptr %2, i64 %37
-  store ptr %34, ptr %38, align 8, !tbaa !76
+  store ptr %34, ptr %38, align 8, !tbaa !74
   %.not34 = icmp slt i32 %36, %28
   br i1 %.not34, label %39, label %.loopexit.loopexit
 
@@ -3930,7 +3927,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %.3 = phi i32 [ %36, %35 ], [ %.140, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit.loopexit:                               ; preds = %39, %35
   %.027.ph = phi i32 [ %.3, %39 ], [ %36, %35 ]
@@ -4078,24 +4075,22 @@ attributes #20 = { allocsize(0) }
 !55 = !{!4, !12, i64 200}
 !56 = !{!57, !57, i64 0}
 !57 = !{!"p1 _ZTSN6icu_7721TimeArrayTimeZoneRuleE", !14, i64 0}
-!58 = distinct !{!58, !59, !60}
+!58 = distinct !{!58, !59}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = !{!62, !15, i64 8}
-!62 = !{!"_ZTSSt9type_info", !15, i64 8}
-!63 = distinct !{!63, !60, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !60}
-!66 = distinct !{!66, !59, !60}
-!67 = !{!4, !12, i64 176}
-!68 = distinct !{!68, !59, !60}
-!69 = !{!17, !17, i64 0}
-!70 = distinct !{!70, !59, !60}
-!71 = distinct !{!71, !59, !60}
-!72 = distinct !{!72, !59, !60}
-!73 = distinct !{!73, !59, !60}
-!74 = distinct !{!74, !59, !60}
-!75 = !{!20, !20, i64 0}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"p1 _ZTSN6icu_7712TimeZoneRuleE", !14, i64 0}
-!78 = distinct !{!78, !59, !60}
+!60 = !{!61, !15, i64 8}
+!61 = !{!"_ZTSSt9type_info", !15, i64 8}
+!62 = distinct !{!62, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !59}
+!65 = !{!4, !12, i64 176}
+!66 = distinct !{!66, !59}
+!67 = !{!17, !17, i64 0}
+!68 = distinct !{!68, !59}
+!69 = distinct !{!69, !59}
+!70 = distinct !{!70, !59}
+!71 = distinct !{!71, !59}
+!72 = distinct !{!72, !59}
+!73 = !{!20, !20, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSN6icu_7712TimeZoneRuleE", !14, i64 0}
+!76 = distinct !{!76, !59}

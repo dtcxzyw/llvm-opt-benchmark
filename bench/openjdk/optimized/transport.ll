@@ -312,7 +312,7 @@ loadTransportLibrary.exit.i:                      ; preds = %44
   br label %87
 
 86:                                               ; preds = %87
-  br i1 %88, label %87, label %.thread61.i, !llvm.loop !9
+  br i1 %88, label %87, label %.thread61.i, !llvm.loop !8
 
 87:                                               ; preds = %86, %81
   %88 = phi i1 [ true, %81 ], [ false, %86 ]
@@ -1125,7 +1125,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

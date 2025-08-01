@@ -190,7 +190,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %30 = load i8, ptr %29, align 1, !range !9, !noundef !10
+  %30 = load i8, ptr %29, align 1, !range !8, !noundef !9
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %34
 
@@ -240,7 +240,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 17
-  %59 = load i8, ptr %58, align 1, !range !9, !noundef !10
+  %59 = load i8, ptr %58, align 1, !range !8, !noundef !9
   %60 = icmp eq i8 %59, 0
   %61 = select i1 %60, ptr getelementptr inbounds nuw (i8, ptr @netconsole, i64 72), ptr getelementptr inbounds nuw (i8, ptr @netconsole_ext, i64 72)
   %62 = select i1 %60, i8 %8, i8 1
@@ -258,7 +258,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %65) #11
   %69 = call ptr @strsep(ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #11
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %.preheader8, !llvm.loop !11
+  br i1 %70, label %71, label %.preheader8, !llvm.loop !10
 
 71:                                               ; preds = %57
   %72 = icmp eq i8 %62, 0
@@ -303,7 +303,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   call void @netpoll_cleanup(ptr noundef nonnull %91) #11
   call void @kfree(ptr noundef %86) #11
   %92 = icmp eq ptr %87, @target_list
-  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %81, %79
   %93 = phi i32 [ 0, %79 ], [ %82, %81 ], [ %82, %.preheader ]
@@ -322,7 +322,7 @@ declare dso_local void @console_list_unlock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
-  %4 = load i8, ptr @oops_only, align 1, !range !9, !noundef !10
+  %4 = load i8, ptr @oops_only, align 1, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
   %6 = load i32, ptr @oops_in_progress, align 4
   %7 = icmp ne i32 %6, 0
@@ -350,13 +350,13 @@ define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef 
 20:                                               ; preds = %.loopexit, %16
   %21 = phi ptr [ %14, %16 ], [ %91, %.loopexit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 17
-  %23 = load i8, ptr %22, align 1, !range !9, !noundef !10
+  %23 = load i8, ptr %22, align 1, !range !8, !noundef !9
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %27 = load i8, ptr %26, align 8, !range !9, !noundef !10
+  %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %.loopexit, label %29
 
@@ -371,7 +371,7 @@ define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef 
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 18
-  %38 = load i8, ptr %37, align 2, !range !9, !noundef !10
+  %38 = load i8, ptr %37, align 2, !range !8, !noundef !9
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %.thread
 
@@ -401,12 +401,12 @@ define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef 
   %52 = phi ptr [ getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), %.thread ], [ null, %40 ]
   %53 = tail call ptr @memchr(ptr noundef %1, i32 noundef 59, i64 noundef %17) #11
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %56, !prof !13
+  br i1 %54, label %55, label %56, !prof !12
 
 55:                                               ; preds = %50
-  tail call void asm sideeffect "523: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 523b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 523) #11, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 847, i32 2307, i64 12) #11, !srcloc !15
-  tail call void asm sideeffect "524: nop\0A\09.pushsection .discard.instr_end\0A\09.long 524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 524) #11, !srcloc !16
+  tail call void asm sideeffect "523: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 523b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 523) #11, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 847, i32 2307, i64 12) #11, !srcloc !14
+  tail call void asm sideeffect "524: nop\0A\09.pushsection .discard.instr_end\0A\09.long 524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 524) #11, !srcloc !15
   br label %.loopexit
 
 56:                                               ; preds = %50
@@ -443,12 +443,12 @@ define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef 
   %79 = sub i32 1000, %77
   %80 = tail call i32 @llvm.smin.i32(i32 %78, i32 %79)
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %82, label %.thread8, !prof !17
+  br i1 %81, label %82, label %.thread8, !prof !16
 
 .thread8:                                         ; preds = %.lr.ph
-  tail call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 873, i32 2307, i64 12) #11, !srcloc !19
-  tail call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !20
+  tail call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 873, i32 2307, i64 12) #11, !srcloc !18
+  tail call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !19
   br label %.loopexit
 
 82:                                               ; preds = %.lr.ph
@@ -462,12 +462,12 @@ define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef 
   tail call void @netpoll_send_udp(ptr noundef nonnull %30, ptr noundef nonnull @send_ext_msg_udp.buf, i32 noundef %88) #11
   %89 = add i32 %80, %75
   %90 = icmp slt i32 %89, %61
-  br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %82, %65, %.thread8, %55, %47, %29, %25, %20
   %91 = load ptr, ptr %21, align 8
   %92 = icmp eq ptr %91, @target_list
-  br i1 %92, label %.loopexit9, label %20, !llvm.loop !22
+  br i1 %92, label %.loopexit9, label %20, !llvm.loop !21
 
 .loopexit9:                                       ; preds = %.loopexit, %12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %13) #11
@@ -500,7 +500,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @write_msg(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
-  %4 = load i8, ptr @oops_only, align 1, !range !9, !noundef !10
+  %4 = load i8, ptr @oops_only, align 1, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
   %6 = load i32, ptr @oops_in_progress, align 4
   %7 = icmp ne i32 %6, 0
@@ -525,13 +525,13 @@ define internal void @write_msg(ptr readnone captures(none) %0, ptr noundef %1, 
 .split.us:                                        ; preds = %16, %31
   %18 = phi ptr [ %32, %31 ], [ %14, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
-  %20 = load i8, ptr %19, align 1, !range !9, !noundef !10
+  %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %.split.us
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %24 = load i8, ptr %23, align 8, !range !9, !noundef !10
+  %24 = load i8, ptr %23, align 8, !range !8, !noundef !9
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %31, label %26
 
@@ -545,18 +545,18 @@ define internal void @write_msg(ptr readnone captures(none) %0, ptr noundef %1, 
 31:                                               ; preds = %26, %22, %.split.us
   %32 = load ptr, ptr %18, align 8
   %33 = icmp eq ptr %32, @target_list
-  br i1 %33, label %.loopexit3, label %.split.us, !llvm.loop !23
+  br i1 %33, label %.loopexit3, label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %16, %.loopexit
   %34 = phi ptr [ %56, %.loopexit ], [ %14, %16 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 17
-  %36 = load i8, ptr %35, align 1, !range !9, !noundef !10
+  %36 = load i8, ptr %35, align 1, !range !8, !noundef !9
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %.split
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %40 = load i8, ptr %39, align 8, !range !9, !noundef !10
+  %40 = load i8, ptr %39, align 8, !range !8, !noundef !9
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %.loopexit, label %42
 
@@ -578,12 +578,12 @@ define internal void @write_msg(ptr readnone captures(none) %0, ptr noundef %1, 
   %53 = getelementptr i8, ptr %50, i64 %52
   %54 = sub i32 %49, %51
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %42, %38, %.split
   %56 = load ptr, ptr %34, align 8
   %57 = icmp eq ptr %56, @target_list
-  br i1 %57, label %.loopexit3, label %.split, !llvm.loop !26
+  br i1 %57, label %.loopexit3, label %.split, !llvm.loop !25
 
 .loopexit3:                                       ; preds = %.loopexit, %31, %12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %13) #11
@@ -630,7 +630,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
 14:                                               ; preds = %.split18.us.us
   %15 = getelementptr inbounds nuw i8, ptr %31, i64 1280
   %16 = load ptr, ptr %15, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #11, !srcloc !27
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #11, !srcloc !26
   br label %17
 
 17:                                               ; preds = %.split18.us.us, %14
@@ -639,7 +639,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
   store i8 0, ptr %18, align 8
   %19 = load ptr, ptr @target_list, align 8
   %20 = icmp eq ptr %19, @target_list
-  br i1 %20, label %.split44.us, label %.split.us16.us, !llvm.loop !28
+  br i1 %20, label %.split44.us, label %.split.us16.us, !llvm.loop !27
 
 21:                                               ; preds = %26, %.split.us16.us
   %22 = phi ptr [ %11, %.split.us16.us ], [ %27, %26 ]
@@ -651,7 +651,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
 26:                                               ; preds = %21
   %27 = load ptr, ptr %22, align 8
   %28 = icmp eq ptr %27, @target_list
-  br i1 %28, label %.split14.us, label %21, !llvm.loop !29
+  br i1 %28, label %.split14.us, label %21, !llvm.loop !28
 
 .split18.us.us:                                   ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -677,7 +677,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
 40:                                               ; preds = %37, %.split.us
   %41 = load ptr, ptr %33, align 8
   %42 = icmp eq ptr %41, @target_list
-  br i1 %42, label %.split14.us.thread, label %.split.us, !llvm.loop !30
+  br i1 %42, label %.split14.us.thread, label %.split.us, !llvm.loop !29
 
 .split14.us.thread:                               ; preds = %40, %9
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %6) #11
@@ -778,29 +778,28 @@ attributes #13 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{i64 2156703413, i64 2156703222, i64 2156703274, i64 2156703320, i64 2156703348}
-!15 = !{i64 2156703487, i64 2156703516, i64 2156703562, i64 2156703620, i64 2156703674, i64 2156703728, i64 2156703783, i64 2156703814, i64 2156704122, i64 2156704128, i64 2156704175, i64 2156704198, i64 2156704224}
-!16 = !{i64 2156704681, i64 2156704492, i64 2156704542, i64 2156704588, i64 2156704616}
-!17 = !{!"branch_weights", i32 2000, i32 1}
-!18 = !{i64 2156714885, i64 2156714694, i64 2156714746, i64 2156714792, i64 2156714820}
-!19 = !{i64 2156714959, i64 2156714988, i64 2156715034, i64 2156715092, i64 2156715146, i64 2156715200, i64 2156715255, i64 2156715286, i64 2156715594, i64 2156715600, i64 2156715647, i64 2156715670, i64 2156715696}
-!20 = !{i64 2156716153, i64 2156715964, i64 2156716014, i64 2156716060, i64 2156716088}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = !{i64 2156449831}
-!28 = distinct !{!28, !8, !24}
-!29 = distinct !{!29, !6, !7, !8, !24}
-!30 = distinct !{!30, !6, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{i64 2156703413, i64 2156703222, i64 2156703274, i64 2156703320, i64 2156703348}
+!14 = !{i64 2156703487, i64 2156703516, i64 2156703562, i64 2156703620, i64 2156703674, i64 2156703728, i64 2156703783, i64 2156703814, i64 2156704122, i64 2156704128, i64 2156704175, i64 2156704198, i64 2156704224}
+!15 = !{i64 2156704681, i64 2156704492, i64 2156704542, i64 2156704588, i64 2156704616}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{i64 2156714885, i64 2156714694, i64 2156714746, i64 2156714792, i64 2156714820}
+!18 = !{i64 2156714959, i64 2156714988, i64 2156715034, i64 2156715092, i64 2156715146, i64 2156715200, i64 2156715255, i64 2156715286, i64 2156715594, i64 2156715600, i64 2156715647, i64 2156715670, i64 2156715696}
+!19 = !{i64 2156716153, i64 2156715964, i64 2156716014, i64 2156716060, i64 2156716088}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = !{i64 2156449831}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !6, !7, !23}
+!29 = distinct !{!29, !6, !7}

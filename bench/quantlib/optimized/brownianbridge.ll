@@ -453,12 +453,11 @@ entry:
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %t_, align 8, !tbaa !17
   %1 = load double, ptr %0, align 8, !tbaa !19
-  %call2 = tail call double @sqrt(double noundef %1) #10, !tbaa !29
+  %call2 = tail call double @sqrt(double noundef %1) #10, !tbaa !28
   %sqrtdt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %sqrtdt_, align 8, !tbaa !17
   store double %call2, ptr %2, align 8, !tbaa !19
   %3 = load i64, ptr %this, align 8, !tbaa !3
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
   %cmp102 = icmp ugt i64 %3, 1
   br i1 %cmp102, label %for.body, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -484,17 +483,17 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.cond.cleanup, %
 
 for.body:                                         ; preds = %entry, %for.body
   %i.0103 = phi i64 [ %inc, %for.body ], [ 1, %entry ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.0103
+  %add.ptr.i = getelementptr double, ptr %0, i64 %i.0103
   %5 = load double, ptr %add.ptr.i, align 8, !tbaa !19
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i.0103
-  %6 = load double, ptr %gep, align 8, !tbaa !19
+  %add.ptr.i52 = getelementptr i8, ptr %add.ptr.i, i64 -8
+  %6 = load double, ptr %add.ptr.i52, align 8, !tbaa !19
   %sub8 = fsub double %5, %6
-  %call9 = tail call double @sqrt(double noundef %sub8) #10, !tbaa !29
+  %call9 = tail call double @sqrt(double noundef %sub8) #10, !tbaa !28
   %add.ptr.i53 = getelementptr inbounds nuw double, ptr %2, i64 %i.0103
   store double %call9, ptr %add.ptr.i53, align 8, !tbaa !19
   %inc = add nuw i64 %i.0103, 1
   %exitcond.not = icmp eq i64 %inc, %3
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !30
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %map.sroa.12.0 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %4, %if.end.i.i.i.i.i.i.i ]
@@ -509,7 +508,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   %9 = getelementptr double, ptr %0, i64 %8
   %add.ptr.i56 = getelementptr i8, ptr %9, i64 -8
   %10 = load double, ptr %add.ptr.i56, align 8, !tbaa !19
-  %call24 = tail call double @sqrt(double noundef %10) #10, !tbaa !29
+  %call24 = tail call double @sqrt(double noundef %10) #10, !tbaa !28
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %11 = load ptr, ptr %stdDev_, align 8, !tbaa !17
   store double %call24, ptr %11, align 8, !tbaa !19
@@ -519,8 +518,8 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   %leftWeight_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %13 = load ptr, ptr %leftWeight_, align 8, !tbaa !17
   store double 0.000000e+00, ptr %13, align 8, !tbaa !19
-  %cmp31106 = icmp ugt i64 %8, 1
-  br i1 %cmp31106, label %while.cond.preheader.lr.ph, label %_ZNSt6vectorImSaImEED2Ev.exit
+  %cmp31104 = icmp ugt i64 %8, 1
+  br i1 %cmp31104, label %while.cond.preheader.lr.ph, label %_ZNSt6vectorImSaImEED2Ev.exit
 
 while.cond.preheader.lr.ph:                       ; preds = %invoke.cont
   %leftIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -530,8 +529,8 @@ while.cond.preheader.lr.ph:                       ; preds = %invoke.cont
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %if.end
-  %i28.0108 = phi i64 [ 1, %while.cond.preheader.lr.ph ], [ %inc137, %if.end ]
-  %j.0107 = phi i64 [ 0, %while.cond.preheader.lr.ph ], [ %spec.store.select, %if.end ]
+  %i28.0106 = phi i64 [ 1, %while.cond.preheader.lr.ph ], [ %inc137, %if.end ]
+  %j.0105 = phi i64 [ 0, %while.cond.preheader.lr.ph ], [ %spec.store.select, %if.end ]
   br label %while.cond
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.end, %invoke.cont
@@ -541,12 +540,12 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.end, %invoke.con
   ret void
 
 while.cond:                                       ; preds = %while.cond, %while.cond.preheader
-  %j.1 = phi i64 [ %inc36, %while.cond ], [ %j.0107, %while.cond.preheader ]
+  %j.1 = phi i64 [ %inc36, %while.cond ], [ %j.0105, %while.cond.preheader ]
   %add.ptr.i60 = getelementptr inbounds nuw i64, ptr %map.sroa.0.0, i64 %j.1
   %16 = load i64, ptr %add.ptr.i60, align 8, !tbaa !24
   %cmp35.not = icmp eq i64 %16, 0
   %inc36 = add i64 %j.1, 1
-  br i1 %cmp35.not, label %while.cond37, label %while.cond, !llvm.loop !32
+  br i1 %cmp35.not, label %while.cond37, label %while.cond, !llvm.loop !31
 
 while.cond37:                                     ; preds = %while.cond, %while.cond37
   %k.0 = phi i64 [ %inc41, %while.cond37 ], [ %j.1, %while.cond ]
@@ -554,7 +553,7 @@ while.cond37:                                     ; preds = %while.cond, %while.
   %17 = load i64, ptr %add.ptr.i61, align 8, !tbaa !24
   %cmp39 = icmp eq i64 %17, 0
   %inc41 = add i64 %k.0, 1
-  br i1 %cmp39, label %while.cond37, label %while.end42, !llvm.loop !33
+  br i1 %cmp39, label %while.cond37, label %while.end42, !llvm.loop !32
 
 while.end42:                                      ; preds = %while.cond37
   %18 = xor i64 %j.1, -1
@@ -562,12 +561,12 @@ while.end42:                                      ; preds = %while.cond37
   %shr = lshr i64 %sub44, 1
   %add = add i64 %shr, %j.1
   %add.ptr.i62 = getelementptr inbounds nuw i64, ptr %map.sroa.0.0, i64 %add
-  store i64 %i28.0108, ptr %add.ptr.i62, align 8, !tbaa !24
-  %add.ptr.i63 = getelementptr inbounds nuw i64, ptr %7, i64 %i28.0108
+  store i64 %i28.0106, ptr %add.ptr.i62, align 8, !tbaa !24
+  %add.ptr.i63 = getelementptr inbounds nuw i64, ptr %7, i64 %i28.0106
   store i64 %add, ptr %add.ptr.i63, align 8, !tbaa !24
-  %add.ptr.i64 = getelementptr inbounds nuw i64, ptr %14, i64 %i28.0108
+  %add.ptr.i64 = getelementptr inbounds nuw i64, ptr %14, i64 %i28.0106
   store i64 %j.1, ptr %add.ptr.i64, align 8, !tbaa !24
-  %add.ptr.i65 = getelementptr inbounds nuw i64, ptr %15, i64 %i28.0108
+  %add.ptr.i65 = getelementptr inbounds nuw i64, ptr %15, i64 %i28.0106
   store i64 %k.0, ptr %add.ptr.i65, align 8, !tbaa !24
   %cmp50.not = icmp eq i64 %j.1, 0
   %add.ptr.i83 = getelementptr inbounds nuw double, ptr %0, i64 %k.0
@@ -578,57 +577,58 @@ while.end42:                                      ; preds = %while.cond37
   br i1 %cmp50.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.end42
-  %gep105 = getelementptr double, ptr %invariant.gep, i64 %j.1
-  %21 = load double, ptr %gep105, align 8, !tbaa !19
-  %sub61 = fsub double %19, %21
+  %21 = getelementptr double, ptr %0, i64 %j.1
+  %add.ptr.i69 = getelementptr i8, ptr %21, i64 -8
+  %22 = load double, ptr %add.ptr.i69, align 8, !tbaa !19
+  %sub61 = fsub double %19, %22
   %div = fdiv double %sub104, %sub61
-  %add.ptr.i70 = getelementptr inbounds nuw double, ptr %13, i64 %i28.0108
+  %add.ptr.i70 = getelementptr inbounds nuw double, ptr %13, i64 %i28.0106
   store double %div, ptr %add.ptr.i70, align 8, !tbaa !19
-  %22 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
-  %23 = load double, ptr %gep105, align 8, !tbaa !19
-  %sub69 = fsub double %22, %23
-  %24 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
-  %sub75 = fsub double %24, %23
+  %23 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
+  %24 = load double, ptr %add.ptr.i69, align 8, !tbaa !19
+  %sub69 = fsub double %23, %24
+  %25 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
+  %sub75 = fsub double %25, %24
   %div76 = fdiv double %sub69, %sub75
-  %add.ptr.i75 = getelementptr inbounds nuw double, ptr %12, i64 %i28.0108
+  %add.ptr.i75 = getelementptr inbounds nuw double, ptr %12, i64 %i28.0106
   store double %div76, ptr %add.ptr.i75, align 8, !tbaa !19
-  %25 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
-  %26 = load double, ptr %gep105, align 8, !tbaa !19
-  %sub84 = fsub double %25, %26
-  %27 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
-  %sub89 = fsub double %27, %25
+  %26 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
+  %27 = load double, ptr %add.ptr.i69, align 8, !tbaa !19
+  %sub84 = fsub double %26, %27
+  %28 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
+  %sub89 = fsub double %28, %26
   %mul = fmul double %sub84, %sub89
-  %sub95 = fsub double %27, %26
+  %sub95 = fsub double %28, %27
   %div96 = fdiv double %mul, %sub95
   br label %if.end
 
 if.else:                                          ; preds = %while.end42
   %div107 = fdiv double %sub104, %19
-  %add.ptr.i86 = getelementptr inbounds nuw double, ptr %13, i64 %i28.0108
+  %add.ptr.i86 = getelementptr inbounds nuw double, ptr %13, i64 %i28.0106
   store double %div107, ptr %add.ptr.i86, align 8, !tbaa !19
-  %28 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
-  %29 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
-  %div114 = fdiv double %28, %29
-  %add.ptr.i89 = getelementptr inbounds nuw double, ptr %12, i64 %i28.0108
+  %29 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
+  %30 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
+  %div114 = fdiv double %29, %30
+  %add.ptr.i89 = getelementptr inbounds nuw double, ptr %12, i64 %i28.0106
   store double %div114, ptr %add.ptr.i89, align 8, !tbaa !19
-  %30 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
-  %31 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
-  %sub123 = fsub double %31, %30
-  %mul124 = fmul double %30, %sub123
-  %div127 = fdiv double %mul124, %31
+  %31 = load double, ptr %add.ptr.i84, align 8, !tbaa !19
+  %32 = load double, ptr %add.ptr.i83, align 8, !tbaa !19
+  %sub123 = fsub double %32, %31
+  %mul124 = fmul double %31, %sub123
+  %div127 = fdiv double %mul124, %32
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %div127.sink = phi double [ %div127, %if.else ], [ %div96, %if.then ]
-  %call128 = tail call double @sqrt(double noundef %div127.sink) #10, !tbaa !29
-  %32 = getelementptr inbounds nuw double, ptr %11, i64 %i28.0108
-  store double %call128, ptr %32, align 8, !tbaa !19
-  %33 = load i64, ptr %this, align 8, !tbaa !3
-  %cmp133.not = icmp ult i64 %inc41, %33
+  %call128 = tail call double @sqrt(double noundef %div127.sink) #10, !tbaa !28
+  %33 = getelementptr inbounds nuw double, ptr %11, i64 %i28.0106
+  store double %call128, ptr %33, align 8, !tbaa !19
+  %34 = load i64, ptr %this, align 8, !tbaa !3
+  %cmp133.not = icmp ult i64 %inc41, %34
   %spec.store.select = select i1 %cmp133.not, i64 %inc41, i64 0
-  %inc137 = add nuw i64 %i28.0108, 1
-  %cmp31 = icmp ult i64 %inc137, %33
-  br i1 %cmp31, label %while.cond.preheader, label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !34
+  %inc137 = add nuw i64 %i28.0106, 1
+  %cmp31 = icmp ult i64 %inc137, %34
+  br i1 %cmp31, label %while.cond.preheader, label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -649,7 +649,7 @@ entry:
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !35
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !34
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #7
@@ -667,8 +667,8 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !18
-  %2 = load ptr, ptr %times, align 8, !tbaa !36
-  %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !36
+  %2 = load ptr, ptr %times, align 8, !tbaa !35
+  %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !35
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
@@ -1363,7 +1363,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i13, i64 %i.0300
   store double %18, ptr %add.ptr.i, align 8, !tbaa !19
   %exitcond.not = icmp eq i64 %add, %sub
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !36
 
 invoke.cont38:                                    ; preds = %for.cond.cleanup
   ret void
@@ -1575,15 +1575,14 @@ attributes #10 = { nounwind }
 !23 = !{!16, !12, i64 16}
 !24 = !{!5, !5, i64 0}
 !25 = !{!16, !12, i64 8}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"int", !6, i64 0}
-!31 = distinct !{!31, !27, !28}
-!32 = distinct !{!32, !27, !28}
-!33 = distinct !{!33, !27, !28}
-!34 = distinct !{!34, !27, !28}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = !{!12, !12, i64 0}
-!37 = distinct !{!37, !27, !28}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"int", !6, i64 0}
+!30 = distinct !{!30, !27}
+!31 = distinct !{!31, !27}
+!32 = distinct !{!32, !27}
+!33 = distinct !{!33, !27}
+!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!35 = !{!12, !12, i64 0}
+!36 = distinct !{!36, !27}

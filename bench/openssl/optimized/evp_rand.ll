@@ -685,7 +685,7 @@ EVP_RAND_up_ref.exit:                             ; preds = %18
   %27 = atomicrmw add ptr %26, i32 1 monotonic, align 4
   store ptr %0, ptr %6, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %28, align 8, !tbaa !51
+  store ptr %1, ptr %28, align 8, !tbaa !50
   br label %32
 
 29:                                               ; preds = %18
@@ -732,7 +732,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %.lr.ph
 
 7:                                                ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
   %8 = getelementptr inbounds nuw i8, ptr %.tr10, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = load ptr, ptr %.tr10, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !31
@@ -1130,7 +1130,7 @@ define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr noundef
   %8 = alloca i64, align 8
   %9 = alloca [2 x %struct.ossl_param_st], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  store i64 0, ptr %8, align 8, !tbaa !52
+  store i64 0, ptr %8, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #8
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -1155,7 +1155,7 @@ define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr noundef
   %.01725 = phi ptr [ %26, %24 ], [ %1, %.preheader ]
   %.01824 = phi i64 [ %25, %24 ], [ %2, %.preheader ]
   %.01923 = phi i32 [ 0, %24 ], [ %4, %.preheader ]
-  %17 = load i64, ptr %8, align 8, !tbaa !52
+  %17 = load i64, ptr %8, align 8, !tbaa !51
   %18 = call i64 @llvm.umin.i64(i64 %.01824, i64 %17)
   %19 = load ptr, ptr %0, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
@@ -1169,7 +1169,7 @@ define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr noundef
   %25 = sub i64 %.01824, %18
   %26 = getelementptr inbounds nuw i8, ptr %.01725, i64 %18
   %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %7
   %.sink26 = phi i32 [ 565, %7 ], [ 572, %.lr.ph ]
@@ -1258,7 +1258,7 @@ evp_rand_lock.exit:                               ; preds = %1
 evp_rand_lock.exit.thread:                        ; preds = %1, %evp_rand_lock.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  store i32 0, ptr %3, align 4, !tbaa !55
+  store i32 0, ptr %3, align 4, !tbaa !54
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
@@ -1309,7 +1309,7 @@ evp_rand_lock.exit:                               ; preds = %3
 evp_rand_lock.exit.thread:                        ; preds = %3, %evp_rand_lock.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 4, !tbaa !55
+  store i32 0, ptr %5, align 4, !tbaa !54
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
@@ -1659,11 +1659,10 @@ attributes #8 = { nounwind }
 !45 = !{!12, !6, i64 176}
 !46 = !{!12, !6, i64 184}
 !47 = !{!12, !6, i64 192}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!4, !9, i64 16}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"long", !7, i64 0}
-!54 = distinct !{!54, !49, !50}
-!55 = !{!14, !14, i64 0}
+!50 = !{!4, !9, i64 16}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"long", !7, i64 0}
+!53 = distinct !{!53, !49}
+!54 = !{!14, !14, i64 0}

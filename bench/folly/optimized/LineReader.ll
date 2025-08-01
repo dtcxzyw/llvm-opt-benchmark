@@ -109,15 +109,15 @@ define noundef i32 @_ZN5folly10symbolizer10LineReader8readLineERNS_5RangeIPKcEE(
   %49 = sub i64 %47, %48
   %50 = tail call noundef ptr @memchr(ptr noundef %46, i32 noundef 10, i64 noundef %49) #5
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %16, label %._crit_edge, !llvm.loop !21
+  br i1 %.not, label %16, label %._crit_edge
 
 .loopexit:                                        ; preds = %16, %21, %._crit_edge
   %storemerge = phi ptr [ %15, %._crit_edge ], [ %18, %21 ], [ %18, %16 ]
   store ptr %storemerge, ptr %3, align 8, !tbaa !18
   %51 = load ptr, ptr %5, align 8, !tbaa !17
-  store ptr %51, ptr %1, align 8, !tbaa !23
+  store ptr %51, ptr %1, align 8, !tbaa !21
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %storemerge, ptr %52, align 8, !tbaa !25
+  store ptr %storemerge, ptr %52, align 8, !tbaa !23
   %.not13 = icmp eq ptr %storemerge, %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load i32, ptr %53, align 8
@@ -163,8 +163,6 @@ attributes #5 = { nounwind willreturn memory(read) }
 !18 = !{!8, !12, i64 32}
 !19 = !{!8, !12, i64 40}
 !20 = !{!8, !14, i64 48}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !12, i64 0}
-!24 = !{!"_ZTSN5folly5RangeIPKcEE", !12, i64 0, !12, i64 8}
-!25 = !{!24, !12, i64 8}
+!21 = !{!22, !12, i64 0}
+!22 = !{!"_ZTSN5folly5RangeIPKcEE", !12, i64 0, !12, i64 8}
+!23 = !{!22, !12, i64 8}

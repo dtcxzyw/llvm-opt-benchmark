@@ -4625,14 +4625,14 @@ invoke.cont19:                                    ; preds = %call5.i.i.i95.noexc
   %_M_in_end.i.i.i103 = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.5, i64 24
   %77 = load ptr, ptr %_M_in_end.i.i.i103, align 8, !tbaa !109
   %cmp.i.i104 = icmp ult ptr %76, %77
-  br i1 %cmp.i.i104, label %land.lhs.true2.i.i.i.i65.sink.split.loopexit, label %if.else.i.i105, !prof !110, !llvm.loop !116
+  br i1 %cmp.i.i104, label %land.lhs.true2.i.i.i.i65.sink.split.loopexit, label %if.else.i.i105, !prof !110, !llvm.loop !115
 
 if.else.i.i105:                                   ; preds = %invoke.cont19
   %vtable.i.i106 = load ptr, ptr %__beg.sroa.0.5, align 8, !tbaa !21
   %vfn.i.i107 = getelementptr inbounds nuw i8, ptr %vtable.i.i106, i64 80
   %78 = load ptr, ptr %vfn.i.i107, align 8
   %call5.i.i108112 = invoke noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.5)
-          to label %land.lhs.true2.i.i.i.i65 unwind label %lpad.loopexit, !llvm.loop !117
+          to label %land.lhs.true2.i.i.i.i65 unwind label %lpad.loopexit, !llvm.loop !115
 
 lpad18.loopexit:                                  ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.i.i92
   %lpad.loopexit164 = landingpad { ptr, i32 }
@@ -4820,9 +4820,7 @@ attributes #16 = { builtin nounwind }
 !109 = !{!108, !9, i64 24}
 !110 = !{!"branch_weights", i32 2000, i32 1}
 !111 = !{!"branch_weights", i32 1999, i32 1}
-!112 = distinct !{!112, !113, !114, !115}
+!112 = distinct !{!112, !113, !114}
 !113 = !{!"llvm.loop.mustprogress"}
 !114 = !{!"llvm.loop.peeled.count", i32 1}
-!115 = !{!"llvm.loop.estimated_trip_count"}
-!116 = distinct !{!116, !114}
-!117 = distinct !{!117, !114, !115}
+!115 = distinct !{!115, !114}

@@ -745,7 +745,7 @@ format_octal.exit:                                ; preds = %62, %.preheader.pre
   store i8 %82, ptr %83, align 1, !tbaa !26
   %84 = lshr i64 %.078.i.i, 8
   %85 = icmp samesign ugt i32 %.010.i.i, 1
-  br i1 %85, label %80, label %format_256.exit.i, !llvm.loop !47
+  br i1 %85, label %80, label %format_256.exit.i, !llvm.loop !46
 
 format_256.exit.i:                                ; preds = %80
   %86 = or i8 %82, -128
@@ -801,7 +801,7 @@ format_number.exit.thread:                        ; preds = %76, %format_256.exi
   store i8 %107, ptr %108, align 1, !tbaa !26
   %109 = lshr i64 %.078.i.i98, 8
   %110 = icmp samesign ugt i32 %.010.i.i96, 1
-  br i1 %110, label %105, label %format_256.exit.i99, !llvm.loop !47
+  br i1 %110, label %105, label %format_256.exit.i99, !llvm.loop !46
 
 format_256.exit.i99:                              ; preds = %105
   %111 = or i8 %107, -128
@@ -857,7 +857,7 @@ format_number.exit106.thread:                     ; preds = %101, %format_256.ex
   store i8 %132, ptr %133, align 1, !tbaa !26
   %134 = lshr i64 %.078.i.i109, 8
   %135 = icmp samesign ugt i32 %.010.i.i107, 1
-  br i1 %135, label %130, label %format_256.exit.i110, !llvm.loop !47
+  br i1 %135, label %130, label %format_256.exit.i110, !llvm.loop !46
 
 format_256.exit.i110:                             ; preds = %130
   %136 = or i8 %132, -128
@@ -983,7 +983,7 @@ format_octal.exit137.thread:                      ; preds = %179, %181, %152
   %188 = add i32 %.0169, %187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %189, label %184, !llvm.loop !48
+  br i1 %exitcond.not, label %189, label %184, !llvm.loop !47
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 154
@@ -1117,8 +1117,7 @@ attributes #14 = { nounwind willreturn memory(none) }
 !41 = !{!28, !14, i64 56}
 !42 = !{!28, !12, i64 64}
 !43 = !{!28, !14, i64 72}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = distinct !{!47, !45, !46}
-!48 = distinct !{!48, !45, !46}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}

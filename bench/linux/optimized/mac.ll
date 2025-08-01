@@ -121,7 +121,7 @@ define dso_local void @e1000e_init_rx_addrs(ptr noundef %0, i16 noundef zeroext 
   %12 = call i32 %11(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %10) #6
   %13 = add nuw nsw i32 %10, 1
   %14 = icmp eq i32 %13, %8
-  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %2
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #6
@@ -203,7 +203,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
   store i8 %41, ptr %43, align 1
   %44 = add nuw nsw i64 %28, 2
   %45 = icmp samesign ult i64 %28, 4
-  br i1 %45, label %27, label %46, !llvm.loop !12
+  br i1 %45, label %27, label %46, !llvm.loop !11
 
 46:                                               ; preds = %36
   %47 = load i32, ptr %4, align 4
@@ -311,7 +311,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %19 = lshr i32 %9, %18
   %20 = icmp eq i32 %19, 255
   %21 = add i8 %17, 1
-  br i1 %20, label %22, label %16, !llvm.loop !13
+  br i1 %20, label %22, label %16, !llvm.loop !12
 
 22:                                               ; preds = %16
   switch i32 %11, label %28 [
@@ -357,7 +357,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %50 = getelementptr i8, ptr %15, i64 6
   %51 = add nuw i32 %14, 1
   %52 = icmp eq i32 %51, %2
-  br i1 %52, label %.loopexit3, label %13, !llvm.loop !14
+  br i1 %52, label %.loopexit3, label %13, !llvm.loop !13
 
 .loopexit3:                                       ; preds = %28, %3
   %53 = icmp eq i16 %.pre, 0
@@ -376,7 +376,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %62 = load i32, ptr %61, align 4
   tail call void @__ew32(ptr noundef %0, i64 noundef %60, i32 noundef %62) #6
   %63 = icmp samesign ugt i64 %57, 1
-  br i1 %63, label %56, label %.loopexit, !llvm.loop !15
+  br i1 %63, label %56, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %56, %.loopexit3
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -508,7 +508,7 @@ define dso_local i32 @e1000e_check_for_copper_link(ptr noundef %0) local_unnamed
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %4 = load i8, ptr %3, align 8, !range !16, !noundef !17
+  %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %22, label %6
 
@@ -517,7 +517,7 @@ define dso_local i32 @e1000e_check_for_copper_link(ptr noundef %0) local_unnamed
   store i8 0, ptr %3, align 8
   %7 = call i32 @e1000e_phy_has_link_generic(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %2) #6
   %8 = icmp ne i32 %7, 0
-  %9 = load i8, ptr %2, align 1, !range !16
+  %9 = load i8, ptr %2, align 1, !range !15
   %10 = icmp eq i8 %9, 0
   %11 = select i1 %8, i1 true, i1 %10
   br i1 %11, label %21, label %12
@@ -525,7 +525,7 @@ define dso_local i32 @e1000e_check_for_copper_link(ptr noundef %0) local_unnamed
 12:                                               ; preds = %6
   %13 = call i32 @e1000e_check_downshift(ptr noundef %0) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 782
-  %15 = load i8, ptr %14, align 2, !range !16, !noundef !17
+  %15 = load i8, ptr %14, align 2, !range !15, !noundef !16
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %22, label %17
 
@@ -570,7 +570,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #6
   store i16 0, ptr %6, align 2, !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 783
-  %8 = load i8, ptr %7, align 1, !range !16, !noundef !17
+  %8 = load i8, ptr %7, align 1, !range !15, !noundef !16
   %9 = icmp eq i8 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   %11 = load i32, ptr %10, align 4
@@ -660,7 +660,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 782
-  %56 = load i8, ptr %55, align 2, !range !16, !noundef !17
+  %56 = load i8, ptr %55, align 2, !range !15, !noundef !16
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %.thread7.thread, label %58
 
@@ -774,7 +774,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
   br label %120
 
 120:                                              ; preds = %118, %115
-  %121 = call i32 @e1000e_force_mac_fc(ptr noundef %0), !range !18
+  %121 = call i32 @e1000e_force_mac_fc(ptr noundef %0), !range !17
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.thread-pre-split_crit_edge, label %.thread7.thread
 
@@ -789,7 +789,7 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 
 125:                                              ; preds = %.thread7
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 782
-  %127 = load i8, ptr %126, align 2, !range !16, !noundef !17
+  %127 = load i8, ptr %126, align 2, !range !15, !noundef !16
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %.thread7.thread, label %129
 
@@ -935,7 +935,7 @@ define dso_local i32 @e1000e_check_for_fiber_link(ptr noundef %0) local_unnamed_
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 783
-  %21 = load i8, ptr %20, align 1, !range !16, !noundef !17
+  %21 = load i8, ptr %20, align 1, !range !15, !noundef !16
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %24
 
@@ -1000,7 +1000,7 @@ define dso_local i32 @e1000e_check_for_serdes_link(ptr noundef %0) local_unnamed
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 783
-  %18 = load i8, ptr %17, align 1, !range !16, !noundef !17
+  %18 = load i8, ptr %17, align 1, !range !15, !noundef !16
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %21
 
@@ -1186,7 +1186,7 @@ define dso_local i32 @e1000e_setup_link_generic(ptr noundef %0) local_unnamed_ad
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 796
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  %44 = load i8, ptr %43, align 4, !range !16, !noundef !17
+  %44 = load i8, ptr %43, align 4, !range !15, !noundef !16
   %45 = icmp eq i8 %44, 0
   %46 = or i32 %42, -2147483648
   %47 = select i1 %45, i32 %42, i32 %46
@@ -1218,7 +1218,7 @@ define dso_local noundef i32 @e1000e_set_fc_watermarks(ptr noundef %0) local_unn
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 796
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  %11 = load i8, ptr %10, align 4, !range !16, !noundef !17
+  %11 = load i8, ptr %10, align 4, !range !15, !noundef !16
   %12 = icmp eq i8 %11, 0
   %13 = or i32 %9, -2147483648
   %14 = select i1 %12, i32 %9, i32 %13
@@ -1295,7 +1295,7 @@ define dso_local i32 @e1000e_setup_fiber_serdes_link(ptr noundef %0) local_unnam
 33:                                               ; preds = %26
   %34 = add nuw nsw i32 %27, 1
   %35 = icmp eq i32 %34, 50
-  br i1 %35, label %.thread2, label %26, !llvm.loop !19
+  br i1 %35, label %.thread2, label %26, !llvm.loop !18
 
 .thread2:                                         ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 783
@@ -1431,7 +1431,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_get_hw_semaphore(ptr nound
   tail call void @__const_udelay(i64 noundef 429500) #6
   %15 = add nuw nsw i32 %8, 1
   %16 = icmp eq i32 %8, %4
-  br i1 %16, label %.thread, label %7, !llvm.loop !20
+  br i1 %16, label %.thread, label %7, !llvm.loop !19
 
 17:                                               ; preds = %7
   %18 = icmp eq i32 %8, %5
@@ -1455,7 +1455,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_get_hw_semaphore(ptr nound
   tail call void @__const_udelay(i64 noundef 429500) #6
   %30 = add nuw nsw i32 %19, 1
   %31 = icmp eq i32 %19, %4
-  br i1 %31, label %.thread1, label %.preheader, !llvm.loop !21
+  br i1 %31, label %.thread1, label %.preheader, !llvm.loop !20
 
 32:                                               ; preds = %.preheader
   %33 = icmp eq i32 %19, %5
@@ -1506,7 +1506,7 @@ define dso_local range(i32 -9, 1) i32 @e1000e_get_auto_rd_done(ptr noundef reado
   tail call void @usleep_range_state(i64 noundef 1000, i64 noundef 2000, i32 noundef 2) #6
   %11 = add nuw nsw i32 %4, 1
   %12 = icmp eq i32 %11, 10
-  br i1 %12, label %.thread, label %3, !llvm.loop !22
+  br i1 %12, label %.thread, label %3, !llvm.loop !21
 
 13:                                               ; preds = %3
   %14 = icmp eq i32 %4, 10
@@ -1627,7 +1627,7 @@ define dso_local i32 @e1000e_id_led_init_generic(ptr noundef %0) local_unnamed_a
   %44 = phi i32 [ %35, %34 ], [ %31, %25 ], [ %19, %17 ]
   %45 = add nuw nsw i32 %20, 1
   %46 = icmp eq i32 %45, 4
-  br i1 %46, label %.loopexit, label %17, !llvm.loop !23
+  br i1 %46, label %.loopexit, label %17, !llvm.loop !22
 
 .loopexit:                                        ; preds = %42, %1
   %47 = phi i32 [ %5, %1 ], [ 0, %42 ]
@@ -1728,7 +1728,7 @@ define dso_local noundef i32 @e1000e_blink_led_generic(ptr noundef %0) local_unn
   %31 = phi i32 [ %29, %24 ], [ %12, %20 ]
   %32 = add nuw nsw i32 %11, 8
   %33 = icmp samesign ult i32 %11, 24
-  br i1 %33, label %10, label %.loopexit, !llvm.loop !24
+  br i1 %33, label %10, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %30, %1
   %34 = phi i32 [ 142, %1 ], [ %31, %30 ]
@@ -1832,7 +1832,7 @@ define dso_local noundef range(i32 -10, 1) i32 @e1000e_disable_pcie_master(ptr n
   tail call void @usleep_range_state(i64 noundef 100, i64 noundef 200, i32 noundef 2) #6
   %14 = add nsw i32 %7, -1
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %6, !llvm.loop !25
+  br i1 %15, label %16, label %6, !llvm.loop !24
 
 16:                                               ; preds = %13, %6
   %17 = phi i32 [ 0, %6 ], [ -10, %13 ]
@@ -1842,7 +1842,7 @@ define dso_local noundef range(i32 -10, 1) i32 @e1000e_disable_pcie_master(ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @e1000e_reset_adaptive(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 779
-  %3 = load i8, ptr %2, align 1, !range !16, !noundef !17
+  %3 = load i8, ptr %2, align 1, !range !15, !noundef !16
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %12, label %5
 
@@ -1869,7 +1869,7 @@ define dso_local void @e1000e_reset_adaptive(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @e1000e_update_adaptive(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 779
-  %3 = load i8, ptr %2, align 1, !range !16, !noundef !17
+  %3 = load i8, ptr %2, align 1, !range !15, !noundef !16
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %46, label %5
 
@@ -1922,7 +1922,7 @@ define dso_local void @e1000e_update_adaptive(ptr noundef %0) local_unnamed_addr
 
 36:                                               ; preds = %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 785
-  %38 = load i8, ptr %37, align 1, !range !16, !noundef !17
+  %38 = load i8, ptr %37, align 1, !range !15, !noundef !16
   %39 = icmp ne i8 %38, 0
   %40 = icmp ult i32 %13, 1001
   %41 = and i1 %40, %39
@@ -1963,22 +1963,21 @@ attributes #6 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i64 2150138347}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = !{i32 -3, i32 1}
-!19 = distinct !{!19, !8, !9, !10}
-!20 = distinct !{!20, !8, !9, !10}
-!21 = distinct !{!21, !8, !9, !10}
-!22 = distinct !{!22, !8, !9, !10}
-!23 = distinct !{!23, !8, !9, !10}
-!24 = distinct !{!24, !8, !9, !10}
-!25 = distinct !{!25, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{i32 -3, i32 1}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}

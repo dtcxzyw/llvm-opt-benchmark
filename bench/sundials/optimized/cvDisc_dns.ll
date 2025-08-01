@@ -171,7 +171,7 @@ check_retval.exit114:                             ; preds = %.lr.ph
   %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %73, double noundef %77)
   %79 = load double, ptr %4, align 8, !tbaa !19
   %80 = fcmp olt double %79, 1.000000e+00
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %80, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %60
   %81 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %5) #6
@@ -238,7 +238,7 @@ check_retval.exit122:                             ; preds = %.lr.ph242
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %111, double noundef %115)
   %117 = load double, ptr %4, align 8, !tbaa !19
   %118 = fcmp olt double %117, 2.000000e+00
-  br i1 %118, label %.lr.ph242, label %._crit_edge243, !llvm.loop !25
+  br i1 %118, label %.lr.ph242, label %._crit_edge243
 
 ._crit_edge243:                                   ; preds = %110, %98
   %119 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %6) #6
@@ -251,10 +251,10 @@ check_retval.exit124:                             ; preds = %._crit_edge243
   br label %275
 
 123:                                              ; preds = %._crit_edge243
-  %124 = load i64, ptr %5, align 8, !tbaa !26
-  %125 = load i64, ptr %6, align 8, !tbaa !26
+  %124 = load i64, ptr %5, align 8, !tbaa !23
+  %125 = load i64, ptr %6, align 8, !tbaa !23
   %126 = add nsw i64 %125, %124
-  store i64 %126, ptr %7, align 8, !tbaa !26
+  store i64 %126, ptr %7, align 8, !tbaa !23
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %124, i64 noundef %125, i64 noundef %126)
   %puts79 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %128 = load ptr, ptr %14, align 8, !tbaa !11
@@ -311,7 +311,7 @@ check_retval.exit130:                             ; preds = %.lr.ph245
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %153, double noundef %157)
   %159 = load double, ptr %4, align 8, !tbaa !19
   %160 = fcmp olt double %159, 1.000000e+00
-  br i1 %160, label %.lr.ph245, label %._crit_edge246, !llvm.loop !27
+  br i1 %160, label %.lr.ph245, label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %152, %140
   %161 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %5) #6
@@ -365,7 +365,7 @@ check_retval.exit136:                             ; preds = %.lr.ph248
   %189 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %184, double noundef %188)
   %190 = load double, ptr %4, align 8, !tbaa !19
   %191 = fcmp olt double %190, 2.000000e+00
-  br i1 %191, label %.lr.ph248, label %._crit_edge249, !llvm.loop !28
+  br i1 %191, label %.lr.ph248, label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %183, %171
   %192 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %6) #6
@@ -378,10 +378,10 @@ check_retval.exit138:                             ; preds = %._crit_edge249
   br label %275
 
 196:                                              ; preds = %._crit_edge249
-  %197 = load i64, ptr %5, align 8, !tbaa !26
-  %198 = load i64, ptr %6, align 8, !tbaa !26
+  %197 = load i64, ptr %5, align 8, !tbaa !23
+  %198 = load i64, ptr %6, align 8, !tbaa !23
   %199 = add nsw i64 %198, %197
-  store i64 %199, ptr %7, align 8, !tbaa !26
+  store i64 %199, ptr %7, align 8, !tbaa !23
   %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %197, i64 noundef %198, i64 noundef %199)
   %puts85 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %201 = load ptr, ptr %14, align 8, !tbaa !11
@@ -438,7 +438,7 @@ check_retval.exit144:                             ; preds = %.lr.ph251
   %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %226, double noundef %230)
   %232 = load double, ptr %4, align 8, !tbaa !19
   %233 = fcmp olt double %232, 1.000000e+00
-  br i1 %233, label %.lr.ph251, label %._crit_edge252, !llvm.loop !29
+  br i1 %233, label %.lr.ph251, label %._crit_edge252
 
 ._crit_edge252:                                   ; preds = %225, %213
   %234 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %5) #6
@@ -491,7 +491,7 @@ check_retval.exit150:                             ; preds = %.lr.ph254
   %261 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %256, double noundef %260)
   %262 = load double, ptr %4, align 8, !tbaa !19
   %263 = fcmp olt double %262, 2.000000e+00
-  br i1 %263, label %.lr.ph254, label %._crit_edge255, !llvm.loop !30
+  br i1 %263, label %.lr.ph254, label %._crit_edge255
 
 ._crit_edge255:                                   ; preds = %255, %243
   %264 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %7) #6
@@ -504,10 +504,10 @@ check_retval.exit152:                             ; preds = %._crit_edge255
   br label %275
 
 268:                                              ; preds = %._crit_edge255
-  %269 = load i64, ptr %7, align 8, !tbaa !26
-  %270 = load i64, ptr %5, align 8, !tbaa !26
+  %269 = load i64, ptr %7, align 8, !tbaa !23
+  %270 = load i64, ptr %5, align 8, !tbaa !23
   %271 = sub nsw i64 %269, %270
-  store i64 %271, ptr %6, align 8, !tbaa !26
+  store i64 %271, ptr %6, align 8, !tbaa !23
   %272 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %270, i64 noundef %271, i64 noundef %269)
   call void @N_VDestroy(ptr noundef nonnull %14) #6
   call void @SUNMatDestroy(ptr noundef nonnull %40) #6
@@ -649,11 +649,4 @@ attributes #7 = { cold nounwind }
 !20 = !{!"double", !7, i64 0}
 !21 = !{!6, !6, i64 0}
 !22 = !{!17, !17, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !24}
-!26 = !{!16, !16, i64 0}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
+!23 = !{!16, !16, i64 0}

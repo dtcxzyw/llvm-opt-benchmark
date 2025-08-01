@@ -223,7 +223,7 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %22, -58
   %24 = icmp ult i32 %23, -10
-  br i1 %24, label %25, label %.preheader, !llvm.loop !12
+  br i1 %24, label %25, label %.preheader, !llvm.loop !11
 
 25:                                               ; preds = %19, %.preheader
   %26 = icmp eq ptr %17, %3
@@ -370,14 +370,14 @@ define dso_local void @printk_all_partitions() local_unnamed_addr #0 section ".i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %64, label %14, !llvm.loop !13
+  br i1 %13, label %64, label %14, !llvm.loop !12
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 344
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %64, !llvm.loop !13
+  br i1 %18, label %19, label %64, !llvm.loop !12
 
 19:                                               ; preds = %14
   call void @__rcu_read_lock() #12
@@ -444,7 +444,7 @@ define dso_local void @printk_all_partitions() local_unnamed_addr #0 section ".i
 61:                                               ; preds = %59, %56, %47, %25
   %62 = call ptr @xa_find_after(ptr noundef nonnull %20, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #12
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %25, !llvm.loop !14
+  br i1 %63, label %.loopexit, label %25, !llvm.loop !13
 
 .loopexit:                                        ; preds = %61, %19
   call void @__rcu_read_unlock() #12
@@ -455,7 +455,7 @@ define dso_local void @printk_all_partitions() local_unnamed_addr #0 section ".i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #12
   %65 = call ptr @class_dev_iter_next(ptr noundef nonnull %1) #12
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit6, label %.preheader, !llvm.loop !15
+  br i1 %66, label %.loopexit6, label %.preheader
 
 .loopexit6:                                       ; preds = %64, %0
   call void @class_dev_iter_exit(ptr noundef nonnull %1) #12
@@ -591,70 +591,64 @@ define internal fastcc i32 @blk_lookup_devt(ptr noundef readonly captures(none) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !7
   call void @class_dev_iter_init(ptr noundef nonnull %3, ptr noundef nonnull @block_class, ptr noundef null, ptr noundef nonnull @disk_type) #12
   %4 = trunc i32 %1 to i8
-  %5 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %.loopexit, label %.lr.ph
+  br label %.outer
 
-.lr.ph:                                           ; preds = %2, %.outer.backedge
-  %7 = phi ptr [ %35, %.outer.backedge ], [ %5, %2 ]
-  %.ph8 = phi i32 [ %.ph.be, %.outer.backedge ], [ 0, %2 ]
-  br label %11
+.outer:                                           ; preds = %.outer.backedge, %2
+  %.ph = phi i32 [ 0, %2 ], [ %.ph.be, %.outer.backedge ]
+  br label %5
 
-8:                                                ; preds = %20
-  %9 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit, label %11, !llvm.loop !16
+5:                                                ; preds = %.outer, %16
+  %6 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.loopexit, label %8
 
-11:                                               ; preds = %.lr.ph, %8
-  %12 = phi ptr [ %7, %.lr.ph ], [ %9, %8 ]
-  %13 = getelementptr i8, ptr %12, i64 -184
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %20
+8:                                                ; preds = %5
+  %9 = getelementptr i8, ptr %6, i64 -184
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-18:                                               ; preds = %11
-  %19 = load ptr, ptr %12, align 8
-  br label %20
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %6, align 8
+  br label %16
 
-20:                                               ; preds = %18, %11
-  %21 = phi ptr [ %19, %18 ], [ %16, %11 ]
-  %22 = call i32 @strcmp(ptr noundef %21, ptr noundef %0) #12
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %8, !llvm.loop !17
+16:                                               ; preds = %14, %8
+  %17 = phi ptr [ %15, %14 ], [ %12, %8 ]
+  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef %0) #12
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %5, !llvm.loop !14
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp sgt i32 %22, %1
+  br i1 %23, label %24, label %31
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp sgt i32 %26, %1
-  br i1 %27, label %28, label %37
-
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 644
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, -1048576
-  %32 = and i32 %30, 1048575
-  %33 = add i32 %32, %1
-  %34 = or i32 %33, %31
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 644
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, -1048576
+  %28 = and i32 %26, 1048575
+  %29 = add i32 %28, %1
+  %30 = or i32 %29, %27
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %28, %37
-  %.ph.be = phi i32 [ 0, %37 ], [ %34, %28 ]
-  %35 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit, label %.lr.ph, !llvm.loop !16
+.outer.backedge:                                  ; preds = %24, %31
+  %.ph.be = phi i32 [ 0, %31 ], [ %30, %24 ]
+  br label %.outer
 
-37:                                               ; preds = %24
-  %38 = call i32 @part_devt(ptr noundef %14, i8 noundef zeroext %4) #12
-  %.not = icmp eq i32 %38, 0
+31:                                               ; preds = %20
+  %32 = call i32 @part_devt(ptr noundef %10, i8 noundef zeroext %4) #12
+  %.not = icmp eq i32 %32, 0
   br i1 %.not, label %.outer.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %37, %.outer.backedge, %8, %2
-  %39 = phi i32 [ 0, %2 ], [ %.ph8, %8 ], [ %.ph.be, %.outer.backedge ], [ %38, %37 ]
+.loopexit:                                        ; preds = %31, %5
+  %33 = phi i32 [ %.ph, %5 ], [ %32, %31 ]
   call void @class_dev_iter_exit(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
-  ret i32 %39
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -695,13 +689,10 @@ attributes #14 = { cold nounwind }
 !5 = !{i32 -19, i32 1}
 !6 = !{i32 -22, i32 1}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
 !13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !9, !10}
+!14 = distinct !{!14, !9, !10}

@@ -25,7 +25,7 @@ define i32 @CrcUpdate(i32 noundef %0, ptr noundef readonly captures(none) %1, i6
   %10 = add i64 %.0711, -1
   %11 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.08.lcssa = phi i32 [ %0, %3 ], [ %9, %.lr.ph ]
@@ -52,7 +52,7 @@ define i32 @CrcCalc(ptr noundef readonly captures(none) %0, i64 noundef %1) loca
   %9 = add i64 %.0711.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %CrcUpdate.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %CrcUpdate.exit.loopexit, label %.lr.ph.i
 
 CrcUpdate.exit.loopexit:                          ; preds = %.lr.ph.i
   %11 = xor i32 %8, -1
@@ -75,5 +75,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

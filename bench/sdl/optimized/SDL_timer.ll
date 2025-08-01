@@ -141,7 +141,7 @@ SDL_AddTimerInternal.exit:                        ; preds = %._crit_edge.thread2
   %.0.lcssa26.i = phi ptr [ %.015.i, %._crit_edge.thread.i ], [ %.0.i, %._crit_edge.thread28.i ]
   store ptr %.0.lcssa26.i, ptr %14, align 8
   %.not69 = icmp eq ptr %15, null
-  br i1 %.not69, label %._crit_edge, label %.lr.ph107, !llvm.loop !6
+  br i1 %.not69, label %._crit_edge, label %.lr.ph107, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %SDL_AddTimerInternal.exit, %13
   %27 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %2) #3
@@ -273,7 +273,7 @@ SDL_AddTimerInternal.exit92:                      ; preds = %._crit_edge.thread2
   %.2 = phi ptr [ %.159114, %SDL_AddTimerInternal.exit92 ], [ %31, %79 ]
   %82 = load ptr, ptr %6, align 8
   %.not71 = icmp eq ptr %82, null
-  br i1 %.not71, label %.loopexit, label %.lr.ph116, !llvm.loop !7
+  br i1 %.not71, label %.loopexit, label %.lr.ph116, !llvm.loop !6
 
 .loopexit:                                        ; preds = %81, %28, %35
   %.161102 = phi ptr [ %.161113, %35 ], [ null, %28 ], [ %.262, %81 ]
@@ -284,7 +284,7 @@ SDL_AddTimerInternal.exit92:                      ; preds = %._crit_edge.thread2
   %.1 = tail call i64 @llvm.usub.sat.i64(i64 %.0, i64 %84)
   %85 = load ptr, ptr %7, align 8
   %86 = tail call zeroext i1 @SDL_WaitSemaphoreTimeoutNS(ptr noundef %85, i64 noundef %.1) #3
-  br label %8, !llvm.loop !8
+  br label %8
 
 87:                                               ; preds = %._crit_edge
   ret i32 0
@@ -339,7 +339,7 @@ define hidden void @SDL_QuitTimers() local_unnamed_addr #0 {
   tail call void @SDL_free_REAL(ptr noundef nonnull %14) #3
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_timer_data, i64 216), align 8
   %.not33 = icmp eq ptr %17, null
-  br i1 %.not33, label %.preheader37, label %.lr.ph, !llvm.loop !9
+  br i1 %.not33, label %.preheader37, label %.lr.ph, !llvm.loop !7
 
 .preheader:                                       ; preds = %.lr.ph40, %.preheader37
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_timer_data, i64 32), align 8
@@ -354,7 +354,7 @@ define hidden void @SDL_QuitTimers() local_unnamed_addr #0 {
   tail call void @SDL_free_REAL(ptr noundef nonnull %19) #3
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_timer_data, i64 200), align 8
   %.not34 = icmp eq ptr %22, null
-  br i1 %.not34, label %.preheader, label %.lr.ph40, !llvm.loop !10
+  br i1 %.not34, label %.preheader, label %.lr.ph40, !llvm.loop !8
 
 .lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
   %23 = phi ptr [ %26, %.lr.ph42 ], [ %18, %.preheader ]
@@ -364,7 +364,7 @@ define hidden void @SDL_QuitTimers() local_unnamed_addr #0 {
   tail call void @SDL_free_REAL(ptr noundef nonnull %23) #3
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_timer_data, i64 32), align 8
   %.not35 = icmp eq ptr %26, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph42, !llvm.loop !11
+  br i1 %.not35, label %._crit_edge, label %.lr.ph42, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %.preheader
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_timer_data, i64 40), align 8
@@ -526,7 +526,7 @@ define hidden zeroext i1 @SDL_RemoveTimer_REAL(i32 noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.lr.ph42
   %8 = load i32, ptr %.019, align 8
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph42, !llvm.loop !12
+  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph42, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01934.lcssa = phi ptr [ %.01931, %.lr.ph.preheader ], [ %.019, %.lr.ph ]
@@ -550,7 +550,7 @@ define hidden zeroext i1 @SDL_RemoveTimer_REAL(i32 noundef %0) local_unnamed_add
   %15 = getelementptr inbounds nuw i8, ptr %.0193441, i64 16
   %.019 = load ptr, ptr %15, align 8
   %.not23 = icmp eq ptr %.019, null
-  br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 16:                                               ; preds = %14, %12
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_timer_data, i64 40), align 8
@@ -783,7 +783,7 @@ define hidden void @SDL_DelayPrecise_REAL(i64 noundef %0) local_unnamed_addr #0 
   %spec.select = tail call i64 @llvm.umax.i64(i64 %7, i64 %.02430)
   %8 = add i64 %6, %spec.select
   %9 = icmp ult i64 %8, %3
-  br i1 %9, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %9, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %10 = add i64 %spec.select, -1000000
@@ -822,13 +822,13 @@ define hidden void @SDL_DelayPrecise_REAL(i64 noundef %0) local_unnamed_addr #0 
   %22 = tail call i64 @SDL_GetTicksNS_REAL()
   %23 = add i64 %22, 1000000
   %24 = icmp ult i64 %23, %3
-  br i1 %24, label %.lr.ph34, label %.preheader, !llvm.loop !14
+  br i1 %24, label %.lr.ph34, label %.preheader, !llvm.loop !12
 
 .lr.ph36:                                         ; preds = %.preheader, %.lr.ph36
-  tail call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !15
+  tail call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !13
   %25 = tail call i64 @SDL_GetTicksNS_REAL()
   %26 = icmp ult i64 %25, %3
-  br i1 %26, label %.lr.ph36, label %._crit_edge37, !llvm.loop !16
+  br i1 %26, label %.lr.ph36, label %._crit_edge37, !llvm.loop !14
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %.preheader
   ret void
@@ -862,17 +862,15 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = !{i64 2147644940}
-!16 = distinct !{!16, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = !{i64 2147644940}
+!14 = distinct !{!14, !4}

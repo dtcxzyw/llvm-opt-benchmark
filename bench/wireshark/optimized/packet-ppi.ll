@@ -1573,7 +1573,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 .thread:                                          ; preds = %561, %40, %565, %572, %571, %573, %562, %.thread358, %thread-pre-split
   %.0323.lcssa407 = phi i32 [ %64, %572 ], [ %64, %571 ], [ %64, %573 ], [ %64, %562 ], [ %64, %.thread358 ], [ %64, %thread-pre-split ], [ %64, %565 ], [ %41, %40 ], [ %64, %561 ]
   %.0325.lcssa403 = phi i32 [ %.1326, %572 ], [ %.1326, %571 ], [ %.1326, %573 ], [ %.1326, %562 ], [ %.1326, %.thread358 ], [ %.1326, %thread-pre-split ], [ %.1326, %565 ], [ 8, %40 ], [ %.1326, %561 ]
-  %580 = load i8, ptr @ppi_ampdu_reassemble, align 1, !range !9, !noundef !10
+  %580 = load i8, ptr @ppi_ampdu_reassemble, align 1, !range !8, !noundef !9
   %581 = trunc nuw i8 %580 to i1
   br i1 %581, label %582, label %677
 
@@ -1608,7 +1608,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
   %595 = add i32 %594, %593
   %.0320 = load ptr, ptr %.0320368, align 8
   %.not337 = icmp eq ptr %.0320, null
-  br i1 %.not337, label %._crit_edge370, label %.lr.ph369, !llvm.loop !11
+  br i1 %.not337, label %._crit_edge370, label %.lr.ph369, !llvm.loop !10
 
 ._crit_edge370:                                   ; preds = %.lr.ph369
   %596 = icmp sgt i32 %595, 65535
@@ -1697,7 +1697,7 @@ proto_item_set_generated.exit:                    ; preds = %602, %607, %610
   %.1314 = phi i32 [ %621, %623 ], [ %.0313375, %616 ], [ %.0313375, %.lr.ph376 ]
   %633 = load ptr, ptr %.1321373, align 8
   %.not338 = icmp eq ptr %633, null
-  br i1 %.not338, label %._crit_edge377, label %.lr.ph376, !llvm.loop !12
+  br i1 %.not338, label %._crit_edge377, label %.lr.ph376, !llvm.loop !11
 
 ._crit_edge377:                                   ; preds = %632
   %.not339 = icmp eq i32 %.1314, 0
@@ -1777,7 +1777,7 @@ proto_item_set_generated.exit:                    ; preds = %602, %607, %610
   %.1319 = phi i32 [ %658, %657 ], [ %.0318381, %654 ], [ %.0318381, %651 ]
   %.2 = load ptr, ptr %.2382, align 8
   %.not343 = icmp eq ptr %.2, null
-  br i1 %.not343, label %._crit_edge385, label %651, !llvm.loop !13
+  br i1 %.not343, label %._crit_edge385, label %651, !llvm.loop !12
 
 ._crit_edge385:                                   ; preds = %667, %649
   %.0318.lcssa = phi i32 [ 0, %649 ], [ %.1319, %667 ]
@@ -2191,11 +2191,10 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

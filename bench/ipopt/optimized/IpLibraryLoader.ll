@@ -700,7 +700,7 @@ define noundef nonnull ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112
   store i8 %26, ptr %22, align 1, !tbaa !12
   %27 = add nuw i64 %.04474.us, 1
   %exitcond.not = icmp eq i64 %27, %.fr92
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !24
 
 28:                                               ; preds = %.split.us
   store i8 0, ptr %16, align 1, !tbaa !12
@@ -716,7 +716,7 @@ define noundef nonnull ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112
   store i8 %33, ptr %29, align 1, !tbaa !12
   %34 = add nuw i64 %.04575.us, 1
   %exitcond106.not = icmp eq i64 %34, %.fr92
-  br i1 %exitcond106.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond106.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !25
 
 35:                                               ; preds = %.split.us
   store i8 95, ptr %16, align 1, !tbaa !12
@@ -737,7 +737,7 @@ define noundef nonnull ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112
 40:                                               ; preds = %.preheader
   %41 = add nuw nsw i32 %.04677, 1
   %exitcond109.not = icmp eq i32 %41, 7
-  br i1 %exitcond109.not, label %.split79.us, label %.split.split, !llvm.loop !27
+  br i1 %exitcond109.not, label %.split79.us, label %.split.split, !llvm.loop !26
 
 .split.split:                                     ; preds = %11, %40
   %.04677 = phi i32 [ %41, %40 ], [ 1, %11 ]
@@ -1015,7 +1015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %41, align 1, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %3, ptr %42, align 8, !tbaa !28
+  store i32 %3, ptr %42, align 8, !tbaa !27
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %44, ptr %43, align 8, !tbaa !17
@@ -1300,12 +1300,11 @@ attributes #18 = { nounwind willreturn memory(read) }
 !18 = !{!10, !10, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"vtable pointer", !9, i64 0}
-!21 = distinct !{!21, !22, !23, !24}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !22, !23}
-!26 = distinct !{!26, !22, !23}
-!27 = distinct !{!27, !22, !23}
-!28 = !{!29, !16, i64 72}
-!29 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !4, i64 8, !4, i64 40, !16, i64 72, !4, i64 80}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22}
+!26 = distinct !{!26, !22}
+!27 = !{!28, !16, i64 72}
+!28 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !4, i64 8, !4, i64 40, !16, i64 72, !4, i64 80}

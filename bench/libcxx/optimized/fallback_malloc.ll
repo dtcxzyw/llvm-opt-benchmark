@@ -262,7 +262,7 @@ define hidden void @_ZN10__cxxabiv128__aligned_free_with_fallbackEPv(ptr noundef
   %41 = shl nuw nsw i64 %40, 2
   %42 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 %41
   %.not.i = icmp eq i16 %39, 128
-  br i1 %.not.i, label %._crit_edge.i, label %13, !llvm.loop !17
+  br i1 %.not.i, label %._crit_edge.i, label %13, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %38, %5
   %43 = ptrtoint ptr %8 to i64
@@ -355,7 +355,7 @@ define hidden void @_ZN10__cxxabiv120__free_with_fallbackEPv(ptr noundef %0) loc
   %41 = shl nuw nsw i64 %40, 2
   %42 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_14heapE, i64 %41
   %.not.i = icmp eq i16 %39, 128
-  br i1 %.not.i, label %._crit_edge.i, label %13, !llvm.loop !17
+  br i1 %.not.i, label %._crit_edge.i, label %13, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %38, %5
   %43 = ptrtoint ptr %8 to i64
@@ -434,7 +434,6 @@ attributes #13 = { nounwind allocsize(0,1) }
 !11 = !{!"_ZTSN12_GLOBAL__N_19heap_nodeE", !12, i64 0, !12, i64 2}
 !12 = !{!"short", !8, i64 0}
 !13 = !{!11, !12, i64 2}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
+!16 = distinct !{!16, !15}

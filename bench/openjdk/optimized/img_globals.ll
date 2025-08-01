@@ -44,12 +44,12 @@ define void @make_uns_ordered_dither_array(ptr noundef captures(none) initialize
 17:                                               ; preds = %5
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %3
-  br i1 %exitcond63.not, label %18, label %.preheader51, !llvm.loop !9
+  br i1 %exitcond63.not, label %18, label %.preheader51, !llvm.loop !8
 
 18:                                               ; preds = %17
   %19 = shl nuw nsw i32 %.055, 1
   %20 = icmp samesign ult i32 %.055, 4
-  br i1 %20, label %.preheader52, label %.preheader, !llvm.loop !10
+  br i1 %20, label %.preheader52, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %18, %29
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %29 ], [ 0, %18 ]
@@ -67,12 +67,12 @@ define void @make_uns_ordered_dither_array(ptr noundef captures(none) initialize
   store i8 %28, ptr %23, align 1
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 8
-  br i1 %exitcond67.not, label %29, label %22, !llvm.loop !11
+  br i1 %exitcond67.not, label %29, label %22, !llvm.loop !10
 
 29:                                               ; preds = %22
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 8
-  br i1 %exitcond71.not, label %30, label %.preheader, !llvm.loop !12
+  br i1 %exitcond71.not, label %30, label %.preheader, !llvm.loop !11
 
 30:                                               ; preds = %29
   ret void
@@ -124,17 +124,17 @@ define hidden void @make_sgn_ordered_dither_array(ptr noundef captures(none) ini
   store i8 %15, ptr %gep88, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
-  br i1 %exitcond.not, label %16, label %9, !llvm.loop !13
+  br i1 %exitcond.not, label %16, label %9, !llvm.loop !12
 
 16:                                               ; preds = %9
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count72
-  br i1 %exitcond73.not, label %17, label %.preheader53, !llvm.loop !14
+  br i1 %exitcond73.not, label %17, label %.preheader53, !llvm.loop !13
 
 17:                                               ; preds = %16
   %18 = shl nuw nsw i32 %.059, 1
   %19 = icmp samesign ult i32 %.059, 4
-  br i1 %19, label %.preheader54, label %.preheader52, !llvm.loop !15
+  br i1 %19, label %.preheader54, label %.preheader52, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader52, %30
   %.163 = phi i32 [ 0, %.preheader52 ], [ %21, %30 ]
@@ -156,12 +156,12 @@ define hidden void @make_sgn_ordered_dither_array(ptr noundef captures(none) ini
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next75 to i32
   %exitcond77.not = icmp eq i32 %21, %lftr.wideiv
-  br i1 %exitcond77.not, label %30, label %22, !llvm.loop !16
+  br i1 %exitcond77.not, label %30, label %22, !llvm.loop !15
 
 30:                                               ; preds = %22
   %31 = add nuw nsw i32 %.15162, 1
   %exitcond78.not = icmp eq i32 %31, 8
-  br i1 %exitcond78.not, label %32, label %.preheader, !llvm.loop !17
+  br i1 %exitcond78.not, label %32, label %.preheader, !llvm.loop !16
 
 32:                                               ; preds = %30
   ret void
@@ -177,15 +177,14 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

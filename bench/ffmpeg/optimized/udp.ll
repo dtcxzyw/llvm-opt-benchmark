@@ -612,9 +612,9 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   store i32 %199, ptr %10, align 4, !tbaa !15
   call void @freeaddrinfo(ptr noundef nonnull %181) #11
   %200 = getelementptr inbounds nuw i8, ptr %14, i64 65896
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %200, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 128, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %200, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 128, i1 false), !tbaa.struct !55
   %201 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %202 = load i32, ptr %201, align 8, !tbaa !59
+  %202 = load i32, ptr %201, align 8, !tbaa !58
   %203 = icmp sgt i32 %202, 0
   br i1 %203, label %207, label %204
 
@@ -626,7 +626,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   br i1 %or.cond, label %207, label %213
 
 207:                                              ; preds = %204, %193
-  store i32 1, ptr %201, align 8, !tbaa !59
+  store i32 1, ptr %201, align 8, !tbaa !58
   %208 = call i32 @setsockopt(i32 noundef %187, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %201, i32 noundef 4) #11
   %.not246 = icmp eq i32 %208, 0
   br i1 %.not246, label %213, label %209
@@ -639,7 +639,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
 
 213:                                              ; preds = %207, %204
   %214 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %215 = load i32, ptr %214, align 8, !tbaa !60
+  %215 = load i32, ptr %214, align 8, !tbaa !59
   %.not247 = icmp eq i32 %215, 0
   br i1 %.not247, label %222, label %216
 
@@ -767,7 +767,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
 
 278:                                              ; preds = %275
   %279 = getelementptr inbounds nuw i8, ptr %14, i64 66040
-  %280 = load i32, ptr %279, align 8, !tbaa !61
+  %280 = load i32, ptr %279, align 8, !tbaa !60
   %.not258 = icmp eq i32 %280, 0
   %281 = getelementptr inbounds nuw i8, ptr %14, i64 48
   br i1 %.not258, label %289, label %282
@@ -776,7 +776,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   %283 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %284 = load i32, ptr %283, align 8, !tbaa !16
   %285 = getelementptr inbounds nuw i8, ptr %14, i64 66048
-  %286 = load ptr, ptr %285, align 8, !tbaa !62
+  %286 = load ptr, ptr %285, align 8, !tbaa !61
   %287 = call fastcc i32 @udp_set_multicast_sources(ptr noundef nonnull %0, i32 noundef %187, ptr noundef nonnull %281, i32 noundef %284, ptr noundef nonnull %200, ptr noundef %286, i32 noundef %280, i32 noundef 1)
   %288 = icmp slt i32 %287, 0
   br i1 %288, label %376, label %292
@@ -788,7 +788,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
 
 292:                                              ; preds = %289, %282
   %293 = getelementptr inbounds nuw i8, ptr %14, i64 66044
-  %294 = load i32, ptr %293, align 4, !tbaa !63
+  %294 = load i32, ptr %293, align 4, !tbaa !62
   %.not259 = icmp eq i32 %294, 0
   br i1 %.not259, label %303, label %295
 
@@ -797,7 +797,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   %297 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %298 = load i32, ptr %297, align 8, !tbaa !16
   %299 = getelementptr inbounds nuw i8, ptr %14, i64 66056
-  %300 = load ptr, ptr %299, align 8, !tbaa !64
+  %300 = load ptr, ptr %299, align 8, !tbaa !63
   %301 = call fastcc i32 @udp_set_multicast_sources(ptr noundef nonnull %0, i32 noundef %187, ptr noundef nonnull %296, i32 noundef %298, ptr noundef nonnull %200, ptr noundef %300, i32 noundef %294, i32 noundef 0)
   %302 = icmp slt i32 %301, 0
   br i1 %302, label %376, label %303
@@ -912,7 +912,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
   %351 = sext i32 %350 to i64
   %352 = call ptr @av_fifo_alloc2(i64 noundef %351, i64 noundef 1, i32 noundef 0) #11
   %353 = getelementptr inbounds nuw i8, ptr %14, i64 192
-  store ptr %352, ptr %353, align 8, !tbaa !65
+  store ptr %352, ptr %353, align 8, !tbaa !64
   %.not267 = icmp eq ptr %352, null
   br i1 %.not267, label %376, label %354
 
@@ -954,7 +954,7 @@ udp_socket_create.exit.thread280:                 ; preds = %188, %191
 
 372:                                              ; preds = %365
   %373 = getelementptr inbounds nuw i8, ptr %14, i64 328
-  store i32 1, ptr %373, align 8, !tbaa !66
+  store i32 1, ptr %373, align 8, !tbaa !65
   br label %.critedge278.thread
 
 374:                                              ; preds = %369, %363
@@ -1003,14 +1003,14 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   %11 = load i32, ptr %10, align 8, !tbaa !48
   %12 = and i32 %11, 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  %14 = load ptr, ptr %13, align 8, !tbaa !65
+  %14 = load ptr, ptr %13, align 8, !tbaa !64
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %61, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #11
-  %18 = load ptr, ptr %13, align 8, !tbaa !65
+  %18 = load ptr, ptr %13, align 8, !tbaa !64
   %19 = tail call i64 @av_fifo_can_read(ptr noundef %18) #11
   %20 = and i64 %19, 4294967295
   %.not5564 = icmp eq i64 %20, 0
@@ -1025,7 +1025,7 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
 
 ._crit_edge:                                      ; preds = %57, %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  %25 = load ptr, ptr %13, align 8, !tbaa !65
+  %25 = load ptr, ptr %13, align 8, !tbaa !64
   %26 = call i32 @av_fifo_read(ptr noundef %25, ptr noundef nonnull %6, i64 noundef 4) #11
   %27 = load i32, ptr %6, align 4, !tbaa !47
   %28 = icmp sgt i32 %27, %2
@@ -1037,10 +1037,10 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
 
 30:                                               ; preds = %29, %._crit_edge
   %.043 = phi i32 [ %2, %29 ], [ %27, %._crit_edge ]
-  %31 = load ptr, ptr %13, align 8, !tbaa !65
+  %31 = load ptr, ptr %13, align 8, !tbaa !64
   %32 = sext i32 %.043 to i64
   %33 = call i32 @av_fifo_read(ptr noundef %31, ptr noundef %1, i64 noundef %32) #11
-  %34 = load ptr, ptr %13, align 8, !tbaa !65
+  %34 = load ptr, ptr %13, align 8, !tbaa !64
   %35 = load i32, ptr %6, align 4, !tbaa !47
   %36 = sub i32 %35, %.043
   %37 = zext i32 %36 to i64
@@ -1051,7 +1051,7 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
 
 39:                                               ; preds = %.lr.ph, %57
   %.04565 = phi i1 [ %21, %.lr.ph ], [ false, %57 ]
-  %40 = load i32, ptr %22, align 8, !tbaa !67
+  %40 = load i32, ptr %22, align 8, !tbaa !66
   %.not56 = icmp eq i32 %40, 0
   br i1 %.not56, label %43, label %41
 
@@ -1071,10 +1071,10 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   %48 = add nsw i64 %47, 100000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %49 = sdiv i64 %48, 1000000
-  store i64 %49, ptr %7, align 8, !tbaa !68
+  store i64 %49, ptr %7, align 8, !tbaa !67
   %50 = srem i64 %48, 1000000
   %51 = mul nsw i64 %50, 1000
-  store i64 %51, ptr %23, align 8, !tbaa !70
+  store i64 %51, ptr %23, align 8, !tbaa !69
   %52 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %24, ptr noundef nonnull %16, ptr noundef nonnull %7) #11
   %.not58 = icmp eq i32 %52, 0
   br i1 %.not58, label %57, label %.thread
@@ -1089,11 +1089,11 @@ define internal i32 @udp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
 
 57:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  %58 = load ptr, ptr %13, align 8, !tbaa !65
+  %58 = load ptr, ptr %13, align 8, !tbaa !64
   %59 = call i64 @av_fifo_can_read(ptr noundef %58) #11
   %60 = and i64 %59, 4294967295
   %.not55 = icmp eq i64 %60, 0
-  br i1 %.not55, label %39, label %._crit_edge, !llvm.loop !71
+  br i1 %.not55, label %39, label %._crit_edge
 
 61:                                               ; preds = %3
   %.not53 = icmp eq i32 %12, 0
@@ -1141,7 +1141,7 @@ define internal i32 @udp_write(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !64
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %35, label %9
 
@@ -1150,7 +1150,7 @@ define internal i32 @udp_write(ptr noundef readonly captures(none) %0, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #11
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %13 = load i32, ptr %12, align 8, !tbaa !67
+  %13 = load i32, ptr %12, align 8, !tbaa !66
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %17
 
@@ -1159,7 +1159,7 @@ define internal i32 @udp_write(ptr noundef readonly captures(none) %0, ptr nound
   br label %34
 
 17:                                               ; preds = %9
-  %18 = load ptr, ptr %7, align 8, !tbaa !65
+  %18 = load ptr, ptr %7, align 8, !tbaa !64
   %19 = tail call i64 @av_fifo_can_write(ptr noundef %18) #11
   %20 = add nsw i32 %2, 4
   %21 = sext i32 %20 to i64
@@ -1172,9 +1172,9 @@ define internal i32 @udp_write(ptr noundef readonly captures(none) %0, ptr nound
 
 25:                                               ; preds = %17
   store i32 %2, ptr %4, align 4, !tbaa !47
-  %26 = load ptr, ptr %7, align 8, !tbaa !65
+  %26 = load ptr, ptr %7, align 8, !tbaa !64
   %27 = call i32 @av_fifo_write(ptr noundef %26, ptr noundef nonnull %4, i64 noundef 4) #11
-  %28 = load ptr, ptr %7, align 8, !tbaa !65
+  %28 = load ptr, ptr %7, align 8, !tbaa !64
   %29 = sext i32 %2 to i64
   %30 = call i32 @av_fifo_write(ptr noundef %28, ptr noundef %1, i64 noundef %29) #11
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 280
@@ -1245,7 +1245,7 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  %7 = load i32, ptr %6, align 8, !tbaa !66
+  %7 = load i32, ptr %6, align 8, !tbaa !65
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %19, label %8
 
@@ -1260,7 +1260,7 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  store i32 1, ptr %15, align 8, !tbaa !72
+  store i32 1, ptr %15, align 8, !tbaa !70
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %16) #11
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #11
@@ -1290,8 +1290,8 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
 32:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %34 = load i32, ptr %33, align 4, !tbaa !73
-  store i32 %34, ptr %2, align 4, !tbaa !76
+  %34 = load i32, ptr %33, align 4, !tbaa !71
+  store i32 %34, ptr %2, align 4, !tbaa !74
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 65900
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1320,7 +1320,7 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(16) %45, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %46, align 4, !tbaa !78
+  store i32 0, ptr %46, align 4, !tbaa !76
   %47 = call i32 @setsockopt(i32 noundef %28, i32 noundef 41, i32 noundef 21, ptr noundef nonnull %3, i32 noundef 20) #11
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %.thread18.i
@@ -1335,7 +1335,7 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   br label %udp_leave_multicast_group.exit
 
 udp_leave_multicast_group.exit:                   ; preds = %49, %.thread18.i, %41, %40, %22, %19
-  %50 = load i32, ptr %6, align 8, !tbaa !66
+  %50 = load i32, ptr %6, align 8, !tbaa !65
   %.not27 = icmp eq i32 %50, 0
   br i1 %.not27, label %70, label %51
 
@@ -1348,13 +1348,13 @@ udp_leave_multicast_group.exit:                   ; preds = %49, %.thread18.i, %
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %57 = load i64, ptr %56, align 8, !tbaa !81
+  %57 = load i64, ptr %56, align 8, !tbaa !79
   %58 = call i32 @pthread_cancel(i64 noundef %57) #11
   br label %59
 
 59:                                               ; preds = %55, %51
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %61 = load i64, ptr %60, align 8, !tbaa !81
+  %61 = load i64, ptr %60, align 8, !tbaa !79
   %62 = call i32 @pthread_join(i64 noundef %61, ptr noundef null) #11
   %.not29 = icmp eq i32 %62, 0
   br i1 %.not29, label %65, label %63
@@ -1544,17 +1544,17 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %30 ], [ 0, %.lr.ph55 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #11
   %22 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv73
-  %23 = load i16, ptr %22, align 8, !tbaa !82
+  %23 = load i16, ptr %22, align 8, !tbaa !80
   %.not40.us = icmp eq i16 %23, 2
   br i1 %.not40.us, label %24, label %.split.us
 
 24:                                               ; preds = %.lr.ph55.split.us
-  %25 = load i32, ptr %17, align 4, !tbaa !73
-  store i32 %25, ptr %10, align 4, !tbaa !83
-  store i32 0, ptr %18, align 4, !tbaa !85
+  %25 = load i32, ptr %17, align 4, !tbaa !71
+  store i32 %25, ptr %10, align 4, !tbaa !81
+  store i32 0, ptr %18, align 4, !tbaa !83
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !73
-  store i32 %27, ptr %20, align 4, !tbaa !86
+  %27 = load i32, ptr %26, align 4, !tbaa !71
+  store i32 %27, ptr %20, align 4, !tbaa !84
   %28 = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %10, i32 noundef 12) #11
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.split57.us, label %30
@@ -1563,7 +1563,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #11
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.loopexit, label %.lr.ph55.split.us, !llvm.loop !87
+  br i1 %exitcond77.not, label %.loopexit, label %.lr.ph55.split.us, !llvm.loop !85
 
 31:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
@@ -1571,7 +1571,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   %32 = load i16, ptr %2, align 2, !tbaa !49
   %33 = icmp eq i16 %32, 2
   %34 = select i1 %33, i32 0, i32 41
-  store i32 0, ptr %9, align 8, !tbaa !89
+  store i32 0, ptr %9, align 8, !tbaa !87
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 2 %2, i64 %14, i1 false)
   %35 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) %35, i64 128, i1 false)
@@ -1592,13 +1592,13 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !91
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !89
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %56
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %56 ], [ 0, %.lr.ph55 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #11
   %43 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv68
-  %44 = load i16, ptr %43, align 8, !tbaa !82
+  %44 = load i16, ptr %43, align 8, !tbaa !80
   %.not40 = icmp eq i16 %44, 2
   br i1 %.not40, label %46, label %.split.us
 
@@ -1610,13 +1610,13 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   br label %.thread46
 
 46:                                               ; preds = %.lr.ph55.split
-  %47 = load i32, ptr %17, align 4, !tbaa !73
-  store i32 %47, ptr %10, align 4, !tbaa !83
+  %47 = load i32, ptr %17, align 4, !tbaa !71
+  store i32 %47, ptr %10, align 4, !tbaa !81
   %48 = load i32, ptr %19, align 4, !tbaa !15
   store i32 %48, ptr %18, align 4, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !73
-  store i32 %50, ptr %20, align 4, !tbaa !86
+  %50 = load i32, ptr %49, align 4, !tbaa !71
+  store i32 %50, ptr %20, align 4, !tbaa !84
   %51 = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %10, i32 noundef 12) #11
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %.split57.us, label %56
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count76
-  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph55.split, !llvm.loop !92
+  br i1 %exitcond72.not, label %.loopexit, label %.lr.ph55.split, !llvm.loop !90
 
 .loopexit:                                        ; preds = %42, %56, %30, %.preheader49, %.preheader, %.thread46, %38
   %.3 = phi i32 [ %41, %38 ], [ %.5.ph, %.thread46 ], [ 0, %.preheader ], [ 0, %.preheader49 ], [ 0, %30 ], [ 0, %56 ], [ 0, %42 ]
@@ -1656,8 +1656,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_join_multica
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !73
-  store i32 %11, ptr %5, align 4, !tbaa !76
+  %11 = load i32, ptr %10, align 4, !tbaa !71
+  store i32 %11, ptr %5, align 4, !tbaa !74
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %12
 
@@ -1697,7 +1697,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_join_multica
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %28, align 4, !tbaa !78
+  store i32 0, ptr %28, align 4, !tbaa !76
   %29 = call i32 @setsockopt(i32 noundef %0, i32 noundef 41, i32 noundef 20, ptr noundef nonnull %6, i32 noundef 20) #11
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %.thread19
@@ -1788,7 +1788,7 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
 36:                                               ; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.43) #11
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  store i32 -5, ptr %37, align 8, !tbaa !67
+  store i32 -5, ptr %37, align 8, !tbaa !66
   br label %109
 
 38:                                               ; preds = %.preheader, %._crit_edge134
@@ -1796,14 +1796,14 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
   %.088 = phi i64 [ %.290, %._crit_edge134 ], [ %6, %.preheader ]
   %.085 = phi i64 [ %.287, %._crit_edge134 ], [ %5, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  %39 = load ptr, ptr %29, align 8, !tbaa !65
+  %39 = load ptr, ptr %29, align 8, !tbaa !64
   %40 = call i64 @av_fifo_can_read(ptr noundef %39) #11
   %.081128 = trunc i64 %40 to i32
   %41 = icmp slt i32 %.081128, 4
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %43
-  %42 = load i32, ptr %30, align 8, !tbaa !72
+  %42 = load i32, ptr %30, align 8, !tbaa !70
   %.not112 = icmp eq i32 %42, 0
   br i1 %.not112, label %43, label %.thread123
 
@@ -1813,14 +1813,14 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
 
 43:                                               ; preds = %.lr.ph
   %44 = call i32 @pthread_cond_wait(ptr noundef nonnull %31, ptr noundef nonnull %23) #11
-  %45 = load ptr, ptr %29, align 8, !tbaa !65
+  %45 = load ptr, ptr %29, align 8, !tbaa !64
   %46 = call i64 @av_fifo_can_read(ptr noundef %45) #11
   %.081 = trunc i64 %46 to i32
   %47 = icmp slt i32 %.081, 4
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !93
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %43, %38
-  %48 = load ptr, ptr %29, align 8, !tbaa !65
+  %48 = load ptr, ptr %29, align 8, !tbaa !64
   %49 = call i32 @av_fifo_read(ptr noundef %48, ptr noundef nonnull %2, i64 noundef 4) #11
   %50 = load i32, ptr %2, align 4, !tbaa !47
   %51 = icmp sgt i32 %50, -1
@@ -1842,7 +1842,7 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
 
 56:                                               ; preds = %53
   %57 = zext nneg i32 %50 to i64
-  %58 = load ptr, ptr %29, align 8, !tbaa !65
+  %58 = load ptr, ptr %29, align 8, !tbaa !64
   %59 = call i32 @av_fifo_read(ptr noundef %58, ptr noundef nonnull %32, i64 noundef %57) #11
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #11
   %61 = load i64, ptr %7, align 8, !tbaa !41
@@ -1942,7 +1942,7 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
   %103 = sub nsw i32 0, %102
   %104 = call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #11
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  store i32 %103, ptr %105, align 8, !tbaa !67
+  store i32 %103, ptr %105, align 8, !tbaa !66
   %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   br label %111
@@ -1951,7 +1951,7 @@ define internal noalias noundef ptr @circular_buffer_task_tx(ptr noundef %0) #0 
   %.384 = phi i32 [ %97, %96 ], [ %.182130, %100 ], [ %.182130, %100 ]
   %.280 = phi ptr [ %99, %96 ], [ %.078131, %100 ], [ %.078131, %100 ]
   %.not110 = icmp eq i32 %.384, 0
-  br i1 %.not110, label %._crit_edge134, label %.lr.ph133, !llvm.loop !94
+  br i1 %.not110, label %._crit_edge134, label %.lr.ph133, !llvm.loop !92
 
 ._crit_edge134:                                   ; preds = %107, %82
   %108 = call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #11
@@ -1996,7 +1996,7 @@ define internal noalias noundef ptr @circular_buffer_task_rx(ptr noundef %0) #0 
 21:                                               ; preds = %1
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.43) #11
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  store i32 -5, ptr %22, align 8, !tbaa !67
+  store i32 -5, ptr %22, align 8, !tbaa !66
   br label %55
 
 23:                                               ; preds = %.preheader, %54
@@ -2032,7 +2032,7 @@ define internal noalias noundef ptr @circular_buffer_task_rx(ptr noundef %0) #0 
 
 39:                                               ; preds = %37
   store i32 %28, ptr %15, align 4, !tbaa !47
-  %40 = load ptr, ptr %18, align 8, !tbaa !65
+  %40 = load ptr, ptr %18, align 8, !tbaa !64
   %41 = call i64 @av_fifo_can_write(ptr noundef %40) #11
   %42 = add nuw nsw i64 %27, 4
   %43 = and i64 %42, 4294967295
@@ -2040,7 +2040,7 @@ define internal noalias noundef ptr @circular_buffer_task_rx(ptr noundef %0) #0 
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %39
-  %46 = load i32, ptr %20, align 4, !tbaa !95
+  %46 = load i32, ptr %20, align 4, !tbaa !93
   %.not31 = icmp eq i32 %46, 0
   br i1 %.not31, label %48, label %47
 
@@ -2053,7 +2053,7 @@ define internal noalias noundef ptr @circular_buffer_task_rx(ptr noundef %0) #0 
   br label %.thread
 
 49:                                               ; preds = %39
-  %50 = load ptr, ptr %18, align 8, !tbaa !65
+  %50 = load ptr, ptr %18, align 8, !tbaa !64
   %51 = call i32 @av_fifo_write(ptr noundef %50, ptr noundef nonnull %15, i64 noundef %43) #11
   %52 = call i32 @pthread_cond_signal(ptr noundef nonnull %19) #11
   br label %54
@@ -2061,7 +2061,7 @@ define internal noalias noundef ptr @circular_buffer_task_rx(ptr noundef %0) #0 
 .thread:                                          ; preds = %35, %48
   %.sink = phi i32 [ %36, %35 ], [ -5, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  store i32 %.sink, ptr %53, align 8, !tbaa !67
+  store i32 %.sink, ptr %53, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #11
   br label %55
@@ -2225,46 +2225,44 @@ attributes #14 = { noreturn nounwind }
 !50 = !{!"sockaddr", !19, i64 0, !8, i64 2}
 !51 = !{!24, !12, i64 4}
 !52 = !{!24, !26, i64 40}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{i64 0, i64 2, !57, i64 2, i64 118, !47, i64 120, i64 8, !58}
-!57 = !{!19, !19, i64 0}
-!58 = !{!14, !14, i64 0}
-!59 = !{!17, !12, i64 40}
-!60 = !{!17, !12, i64 32}
-!61 = !{!17, !12, i64 66040}
-!62 = !{!17, !22, i64 66048}
-!63 = !{!17, !12, i64 66044}
-!64 = !{!17, !22, i64 66056}
-!65 = !{!17, !20, i64 192}
-!66 = !{!17, !12, i64 328}
-!67 = !{!17, !12, i64 200}
-!68 = !{!69, !14, i64 0}
-!69 = !{!"timespec", !14, i64 0, !14, i64 8}
-!70 = !{!69, !14, i64 8}
-!71 = distinct !{!71, !55}
-!72 = !{!17, !12, i64 224}
-!73 = !{!74, !12, i64 4}
-!74 = !{!"sockaddr_in", !19, i64 0, !19, i64 2, !75, i64 4, !8, i64 8}
-!75 = !{!"in_addr", !12, i64 0}
-!76 = !{!77, !12, i64 0}
-!77 = !{!"ip_mreq", !75, i64 0, !75, i64 4}
-!78 = !{!79, !12, i64 16}
-!79 = !{!"ipv6_mreq", !80, i64 0, !12, i64 16}
-!80 = !{!"in6_addr", !8, i64 0}
-!81 = !{!17, !14, i64 232}
-!82 = !{!18, !19, i64 0}
-!83 = !{!84, !12, i64 0}
-!84 = !{!"ip_mreq_source", !75, i64 0, !75, i64 4, !75, i64 8}
-!85 = !{!84, !12, i64 4}
-!86 = !{!84, !12, i64 8}
-!87 = distinct !{!87, !54, !55, !88}
-!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!89 = !{!90, !12, i64 0}
-!90 = !{!"group_source_req", !12, i64 0, !18, i64 8, !18, i64 136}
-!91 = distinct !{!91, !54, !55}
-!92 = distinct !{!92, !54, !55}
-!93 = distinct !{!93, !54, !55}
-!94 = distinct !{!94, !54, !55}
-!95 = !{!17, !12, i64 44}
+!55 = !{i64 0, i64 2, !56, i64 2, i64 118, !47, i64 120, i64 8, !57}
+!56 = !{!19, !19, i64 0}
+!57 = !{!14, !14, i64 0}
+!58 = !{!17, !12, i64 40}
+!59 = !{!17, !12, i64 32}
+!60 = !{!17, !12, i64 66040}
+!61 = !{!17, !22, i64 66048}
+!62 = !{!17, !12, i64 66044}
+!63 = !{!17, !22, i64 66056}
+!64 = !{!17, !20, i64 192}
+!65 = !{!17, !12, i64 328}
+!66 = !{!17, !12, i64 200}
+!67 = !{!68, !14, i64 0}
+!68 = !{!"timespec", !14, i64 0, !14, i64 8}
+!69 = !{!68, !14, i64 8}
+!70 = !{!17, !12, i64 224}
+!71 = !{!72, !12, i64 4}
+!72 = !{!"sockaddr_in", !19, i64 0, !19, i64 2, !73, i64 4, !8, i64 8}
+!73 = !{!"in_addr", !12, i64 0}
+!74 = !{!75, !12, i64 0}
+!75 = !{!"ip_mreq", !73, i64 0, !73, i64 4}
+!76 = !{!77, !12, i64 16}
+!77 = !{!"ipv6_mreq", !78, i64 0, !12, i64 16}
+!78 = !{!"in6_addr", !8, i64 0}
+!79 = !{!17, !14, i64 232}
+!80 = !{!18, !19, i64 0}
+!81 = !{!82, !12, i64 0}
+!82 = !{!"ip_mreq_source", !73, i64 0, !73, i64 4, !73, i64 8}
+!83 = !{!82, !12, i64 4}
+!84 = !{!82, !12, i64 8}
+!85 = distinct !{!85, !54, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = !{!88, !12, i64 0}
+!88 = !{!"group_source_req", !12, i64 0, !18, i64 8, !18, i64 136}
+!89 = distinct !{!89, !54}
+!90 = distinct !{!90, !54}
+!91 = distinct !{!91, !54}
+!92 = distinct !{!92, !54}
+!93 = !{!17, !12, i64 44}

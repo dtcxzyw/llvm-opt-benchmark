@@ -2307,7 +2307,7 @@ define internal void @rs2d(ptr noundef %0, ptr readnone captures(none) %1, ptr n
 27:                                               ; preds = %26
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %27, %3
   ret void
@@ -2322,7 +2322,7 @@ define internal void @rq2e(ptr noundef %0, ptr readnone captures(none) %1, ptr n
 6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 49
-  br i1 %exitcond.not.i, label %13, label %7, !llvm.loop !10
+  br i1 %exitcond.not.i, label %13, label %7, !llvm.loop !9
 
 7:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
@@ -2369,7 +2369,7 @@ define internal void @rs2f(ptr noundef %0, ptr readnone captures(none) %1, ptr n
 6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 49
-  br i1 %exitcond.not.i, label %13, label %7, !llvm.loop !10
+  br i1 %exitcond.not.i, label %13, label %7, !llvm.loop !9
 
 7:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
@@ -2413,7 +2413,7 @@ define internal fastcc void @parse_platform_event(ptr noundef %0, ptr noundef %1
 5:                                                ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 49
-  br i1 %exitcond.not.i, label %12, label %6, !llvm.loop !10
+  br i1 %exitcond.not.i, label %12, label %6, !llvm.loop !9
 
 6:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
@@ -2441,7 +2441,7 @@ get_sensor_info.exit:                             ; preds = %10, %12
 17:                                               ; preds = %18
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, 13
-  br i1 %exitcond.not.i108, label %24, label %18, !llvm.loop !11
+  br i1 %exitcond.not.i108, label %24, label %18, !llvm.loop !10
 
 18:                                               ; preds = %17, %get_sensor_info.exit
   %indvars.iv.i106 = phi i64 [ 0, %get_sensor_info.exit ], [ %indvars.iv.next.i107, %17 ]
@@ -2725,7 +2725,7 @@ define internal noundef zeroext i1 @ssi_10_2(ptr noundef %0, ptr noundef %1, ptr
 11:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 13
-  br i1 %exitcond.not.i, label %17, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i, label %17, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %9, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %9 ]
@@ -3616,7 +3616,7 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
 28:                                               ; preds = %16, %19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not38 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not38, label %29, label %16, !llvm.loop !12
+  br i1 %.not38, label %29, label %16, !llvm.loop !11
 
 29:                                               ; preds = %28
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
@@ -3624,7 +3624,7 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
   %31 = icmp slt i32 %30, %6
   %32 = icmp samesign ult i64 %indvars.iv35, 3
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %29, %5
   ret void
@@ -3653,11 +3653,10 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

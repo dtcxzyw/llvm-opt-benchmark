@@ -211,7 +211,7 @@ define internal range(i32 -2147483648, 1) i32 @bmp_encode_frame(ptr noundef %0, 
   %88 = add nuw nsw i32 %.155100, 1
   %89 = load i32, ptr %32, align 4, !tbaa !30
   %90 = icmp slt i32 %88, %89
-  br i1 %90, label %81, label %._crit_edge104, !llvm.loop !38
+  br i1 %90, label %81, label %._crit_edge104, !llvm.loop !37
 
 ._crit_edge104:                                   ; preds = %81, %._crit_edge
   store i32 1, ptr %3, align 4, !tbaa !34
@@ -284,7 +284,6 @@ attributes #6 = { nounwind }
 !32 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !33 = !{!8, !8, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
+!37 = distinct !{!37, !36}

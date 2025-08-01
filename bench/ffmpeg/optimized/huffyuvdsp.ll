@@ -50,18 +50,18 @@ define internal void @add_int16_c(ptr noundef captures(none) %0, ptr noundef rea
 .lr.ph30:                                         ; preds = %.preheader, %.lr.ph30
   %.129 = phi i64 [ %33, %.lr.ph30 ], [ %.0.lcssa, %.preheader ]
   %24 = getelementptr inbounds nuw i16, ptr %0, i64 %.129
-  %25 = load i16, ptr %24, align 2, !tbaa !16
+  %25 = load i16, ptr %24, align 2, !tbaa !15
   %26 = zext i16 %25 to i32
   %27 = getelementptr inbounds nuw i16, ptr %1, i64 %.129
-  %28 = load i16, ptr %27, align 2, !tbaa !16
+  %28 = load i16, ptr %27, align 2, !tbaa !15
   %29 = zext i16 %28 to i32
   %30 = add nuw nsw i32 %29, %26
   %31 = and i32 %30, %2
   %32 = trunc i32 %31 to i16
-  store i16 %32, ptr %24, align 2, !tbaa !16
+  store i16 %32, ptr %24, align 2, !tbaa !15
   %33 = add nuw nsw i64 %.129, 1
   %exitcond.not = icmp eq i64 %33, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph30, %.preheader
   ret void
@@ -69,8 +69,8 @@ define internal void @add_int16_c(ptr noundef captures(none) %0, ptr noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @add_hfyu_median_pred_int16_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) #1 {
-  %8 = load i32, ptr %5, align 4, !tbaa !19
-  %9 = load i32, ptr %6, align 4, !tbaa !19
+  %8 = load i32, ptr %5, align 4, !tbaa !18
+  %9 = load i32, ptr %6, align 4, !tbaa !18
   %10 = icmp sgt i32 %4, 0
   br i1 %10, label %.lr.ph.preheader, label %.._crit_edge_crit_edge
 
@@ -90,7 +90,7 @@ define internal void @add_hfyu_median_pred_int16_c(ptr noundef writeonly capture
   %.02427 = phi i16 [ %12, %.lr.ph.preheader ], [ %33, %mid_pred.exit ]
   %13 = zext i16 %.02427 to i32
   %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %15 = load i16, ptr %14, align 2, !tbaa !16
+  %15 = load i16, ptr %14, align 2, !tbaa !15
   %16 = zext i16 %15 to i32
   %17 = zext i16 %.028 to i32
   %18 = sub nsw i32 %13, %17
@@ -118,35 +118,35 @@ define internal void @add_hfyu_median_pred_int16_c(ptr noundef writeonly capture
 mid_pred.exit:                                    ; preds = %22, %24, %25, %27
   %.0.i = phi i32 [ %16, %22 ], [ %16, %25 ], [ %..i, %24 ], [ %.20.i, %27 ]
   %28 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
-  %29 = load i16, ptr %28, align 2, !tbaa !16
+  %29 = load i16, ptr %28, align 2, !tbaa !15
   %30 = zext i16 %29 to i32
   %31 = add nuw nsw i32 %.0.i, %30
   %32 = and i32 %31, %3
   %33 = trunc i32 %32 to i16
   %34 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %33, ptr %34, align 2, !tbaa !16
+  store i16 %33, ptr %34, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %mid_pred.exit, %.._crit_edge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %16, %mid_pred.exit ]
   %.024.lcssa = phi i32 [ %8, %.._crit_edge_crit_edge ], [ %32, %mid_pred.exit ]
   %35 = and i32 %.024.lcssa, 65535
-  store i32 %35, ptr %5, align 4, !tbaa !19
-  store i32 %.pre-phi, ptr %6, align 4, !tbaa !19
+  store i32 %35, ptr %5, align 4, !tbaa !18
+  store i32 %.pre-phi, ptr %6, align 4, !tbaa !18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @add_hfyu_left_pred_bgr32_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %6 = load i8, ptr %5, align 1, !tbaa !22
+  %6 = load i8, ptr %5, align 1, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1, !tbaa !22
-  %9 = load i8, ptr %3, align 1, !tbaa !22
+  %8 = load i8, ptr %7, align 1, !tbaa !21
+  %9 = load i8, ptr %3, align 1, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %11 = load i8, ptr %10, align 1, !tbaa !22
+  %11 = load i8, ptr %10, align 1, !tbaa !21
   %12 = icmp sgt i64 %2, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -158,41 +158,41 @@ define internal void @add_hfyu_left_pred_bgr32_c(ptr noundef writeonly captures(
   %.04043 = phi i8 [ %24, %.lr.ph ], [ %6, %4 ]
   %13 = shl nsw i64 %indvars.iv, 2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !22
+  %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = add i8 %15, %.03845
   %17 = or disjoint i64 %13, 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !22
+  %19 = load i8, ptr %18, align 1, !tbaa !21
   %20 = add i8 %19, %.03944
   %21 = or disjoint i64 %13, 2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !22
+  %23 = load i8, ptr %22, align 1, !tbaa !21
   %24 = add i8 %23, %.04043
   %25 = or disjoint i64 %13, 3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !22
+  %27 = load i8, ptr %26, align 1, !tbaa !21
   %28 = add i8 %27, %.046
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %13
-  store i8 %16, ptr %29, align 1, !tbaa !22
+  store i8 %16, ptr %29, align 1, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %17
-  store i8 %20, ptr %30, align 1, !tbaa !22
+  store i8 %20, ptr %30, align 1, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  store i8 %24, ptr %31, align 1, !tbaa !22
+  store i8 %24, ptr %31, align 1, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %25
-  store i8 %28, ptr %32, align 1, !tbaa !22
+  store i8 %28, ptr %32, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.040.lcssa = phi i8 [ %6, %4 ], [ %24, %.lr.ph ]
   %.039.lcssa = phi i8 [ %8, %4 ], [ %20, %.lr.ph ]
   %.038.lcssa = phi i8 [ %9, %4 ], [ %16, %.lr.ph ]
   %.0.lcssa = phi i8 [ %11, %4 ], [ %28, %.lr.ph ]
-  store i8 %.038.lcssa, ptr %3, align 1, !tbaa !22
-  store i8 %.039.lcssa, ptr %7, align 1, !tbaa !22
-  store i8 %.040.lcssa, ptr %5, align 1, !tbaa !22
-  store i8 %.0.lcssa, ptr %10, align 1, !tbaa !22
+  store i8 %.038.lcssa, ptr %3, align 1, !tbaa !21
+  store i8 %.039.lcssa, ptr %7, align 1, !tbaa !21
+  store i8 %.040.lcssa, ptr %5, align 1, !tbaa !21
+  store i8 %.0.lcssa, ptr %10, align 1, !tbaa !21
   ret void
 }
 
@@ -221,14 +221,13 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!5, !6, i64 16}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !7, i64 0}
-!21 = distinct !{!21, !14, !15}
-!22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !7, i64 0}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !7, i64 0}
+!20 = distinct !{!20, !14}
+!21 = !{!7, !7, i64 0}
+!22 = distinct !{!22, !14}

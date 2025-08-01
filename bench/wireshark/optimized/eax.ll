@@ -143,7 +143,7 @@ Dbl.exit45:                                       ; preds = %37, %38
   store i8 %59, ptr %57, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %60, label %54, !llvm.loop !9
+  br i1 %exitcond.not, label %60, label %54, !llvm.loop !8
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -251,7 +251,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 12:                                               ; preds = %6
   %13 = zext i16 %3 to i64
-  %14 = tail call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef %2, i64 noundef range(i64 0, 65536) %13, i64 noundef %9) #9, !alias.scope !10
+  %14 = tail call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef %2, i64 noundef range(i64 0, 65536) %13, i64 noundef %9) #9, !alias.scope !9
   %.not62 = icmp eq ptr %4, null
   br i1 %.not62, label %23, label %15
 
@@ -263,7 +263,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef r
   %20 = select i1 %19, i64 0, i64 %18
   %21 = icmp ne i64 %20, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = tail call ptr @__memcpy_chk(ptr noundef %16, ptr noundef nonnull %4, i64 noundef range(i64 0, 65536) %17, i64 noundef %20) #9, !alias.scope !14
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %16, ptr noundef nonnull %4, i64 noundef range(i64 0, 65536) %17, i64 noundef %20) #9, !alias.scope !13
   br label %23
 
 23:                                               ; preds = %15, %12
@@ -299,7 +299,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef r
   store i8 %37, ptr %35, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !17
 
 38:                                               ; preds = %23
   %39 = getelementptr i8, ptr %10, i64 %9
@@ -316,7 +316,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef r
   store i8 %46, ptr %44, align 1
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 16
-  br i1 %exitcond78.not, label %.loopexit, label %41, !llvm.loop !19
+  br i1 %exitcond78.not, label %.loopexit, label %41, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %41
   %.1 = phi ptr [ %40, %41 ], [ %31, %32 ]
@@ -438,17 +438,16 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

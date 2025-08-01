@@ -250,6 +250,5 @@ attributes #4 = { nounwind }
 !20 = !{!"AVBufferRef", !21, i64 0, !11, i64 8, !12, i64 16}
 !21 = !{!"p1 _ZTS8AVBuffer", !5, i64 0}
 !22 = !{!20, !11, i64 8}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}

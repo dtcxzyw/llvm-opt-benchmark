@@ -174,22 +174,22 @@ define internal void @_ZL14eventfd_wakeupP14grpc_wakeup_fd(ptr dead_on_unwind no
 .critedge:                                        ; preds = %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
   call void @_Z13grpc_os_errorRKN9grpc_core13DebugLocationEiPKc(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %12, ptr noundef nonnull @.str.5)
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %14 = load i64, ptr %4, align 8, !tbaa !13, !noalias !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  %14 = load i64, ptr %4, align 8, !tbaa !13, !noalias !28
   %15 = icmp eq i64 %14, 1
   br i1 %15, label %16, label %_ZN4absl12lts_202407226StatusD2Ev.exit, !prof !16
 
 16:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13, !noalias !29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13, !noalias !28
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.2, i32 noundef 75, i64 11, ptr nonnull @.str.3) #15
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %16
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16, !noalias !29
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16, !noalias !28
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.critedge
-  store i64 %14, ptr %0, align 8, !tbaa !13, !alias.scope !29
+  store i64 %14, ptr %0, align 8, !tbaa !13, !alias.scope !28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   br label %19
 
@@ -201,7 +201,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.critedge
   resume { ptr, i32 } %18
 
 .critedge4:                                       ; preds = %6
-  store i64 1, ptr %0, align 8, !tbaa !13, !alias.scope !32
+  store i64 1, ptr %0, align 8, !tbaa !13, !alias.scope !31
   br label %19
 
 19:                                               ; preds = %.critedge4, %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -358,12 +358,11 @@ attributes #16 = { noreturn nounwind }
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
 !25 = distinct !{!25, !"_ZN4absl12lts_202407228OkStatusEv"}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE: argument 0"}
-!31 = distinct !{!31, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!34 = distinct !{!34, !"_ZN4absl12lts_202407228OkStatusEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE: argument 0"}
+!30 = distinct !{!30, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!33 = distinct !{!33, !"_ZN4absl12lts_202407228OkStatusEv"}

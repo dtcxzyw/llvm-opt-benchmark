@@ -37,9 +37,9 @@ define internal range(i32 0, 2) i32 @oid_module_init(ptr noundef %0, ptr noundef
   %.01017 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %4, i32 noundef %.01017) #5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !6
+  %14 = load ptr, ptr %13, align 8, !tbaa !5
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !12
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 44) #6
   %18 = icmp eq ptr %17, null
   br i1 %18, label %do_create.exit, label %19
@@ -50,32 +50,32 @@ define internal range(i32 0, 2) i32 @oid_module_init(ptr noundef %0, ptr noundef
   br i1 %20, label %do_create.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = load i8, ptr %21, align 1, !tbaa !13
+  %23 = load i8, ptr %21, align 1, !tbaa !12
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %.loopexit.sink.split, label %.preheader47.i
 
 .preheader47.i:                                   ; preds = %22, %.preheader47.i
   %.1.i = phi ptr [ %28, %.preheader47.i ], [ %21, %22 ]
-  %25 = load i8, ptr %.1.i, align 1, !tbaa !13
+  %25 = load i8, ptr %.1.i, align 1, !tbaa !12
   %26 = sext i8 %25 to i32
   %27 = tail call i32 @ossl_ctype_check(i32 noundef %26, i32 noundef 8) #5
   %.not.i = icmp eq i32 %27, 0
   %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br i1 %.not.i, label %.preheader46.i, label %.preheader47.i, !llvm.loop !14
+  br i1 %.not.i, label %.preheader46.i, label %.preheader47.i, !llvm.loop !13
 
 .preheader46.i:                                   ; preds = %.preheader47.i, %.preheader46.i
   %.139.i = phi ptr [ %32, %.preheader46.i ], [ %14, %.preheader47.i ]
-  %29 = load i8, ptr %.139.i, align 1, !tbaa !13
+  %29 = load i8, ptr %.139.i, align 1, !tbaa !12
   %30 = sext i8 %29 to i32
   %31 = tail call i32 @ossl_ctype_check(i32 noundef %30, i32 noundef 8) #5
   %.not44.i = icmp eq i32 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %.139.i, i64 1
-  br i1 %.not44.i, label %.preheader.i, label %.preheader46.i, !llvm.loop !15
+  br i1 %.not44.i, label %.preheader.i, label %.preheader46.i, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %.preheader46.i, %36
   %.pn.i = phi ptr [ %.036.i, %36 ], [ %17, %.preheader46.i ]
   %.036.i = getelementptr inbounds i8, ptr %.pn.i, i64 -1
-  %33 = load i8, ptr %.036.i, align 1, !tbaa !13
+  %33 = load i8, ptr %.036.i, align 1, !tbaa !12
   %34 = sext i8 %33 to i32
   %35 = tail call i32 @ossl_ctype_check(i32 noundef %34, i32 noundef 8) #5
   %.not45.i = icmp eq i32 %35, 0
@@ -83,7 +83,7 @@ define internal range(i32 0, 2) i32 @oid_module_init(ptr noundef %0, ptr noundef
 
 36:                                               ; preds = %.preheader.i
   %37 = icmp eq ptr %.036.i, %.139.i
-  br i1 %37, label %.loopexit.sink.split, label %.preheader.i, !llvm.loop !16
+  br i1 %37, label %.loopexit.sink.split, label %.preheader.i, !llvm.loop !15
 
 38:                                               ; preds = %.preheader.i
   %39 = ptrtoint ptr %.pn.i to i64
@@ -97,7 +97,7 @@ define internal range(i32 0, 2) i32 @oid_module_init(ptr noundef %0, ptr noundef
 45:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %.139.i, i64 %41, i1 false)
   %46 = getelementptr inbounds i8, ptr %43, i64 %41
-  store i8 0, ptr %46, align 1, !tbaa !13
+  store i8 0, ptr %46, align 1, !tbaa !12
   br label %do_create.exit
 
 do_create.exit:                                   ; preds = %.lr.ph, %19, %45
@@ -168,17 +168,16 @@ attributes #6 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !8, i64 16}
-!7 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!7, !8, i64 8}
-!13 = !{!10, !10, i64 0}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
+!5 = !{!6, !7, i64 16}
+!6 = !{!"", !7, i64 0, !7, i64 8, !7, i64 16}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!6, !7, i64 8}
+!12 = !{!9, !9, i64 0}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

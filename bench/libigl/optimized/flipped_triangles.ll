@@ -178,13 +178,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %79, label %13, label %._crit_edge, !llvm.loop !23
 
 80:                                               ; preds = %11
-  %81 = load ptr, ptr %4, align 8, !tbaa !26
+  %81 = load ptr, ptr %4, align 8, !tbaa !25
   %.not.i.i.i55 = icmp eq ptr %81, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !28
+  %84 = load ptr, ptr %83, align 8, !tbaa !27
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %81 to i64
   %87 = sub i64 %85, %86
@@ -198,7 +198,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %80, %82
 88:                                               ; preds = %11
   %89 = landingpad { ptr, i32 }
           cleanup
-  %.pre157 = load ptr, ptr %4, align 8, !tbaa !26
+  %.pre157 = load ptr, ptr %4, align 8, !tbaa !25
   br label %90
 
 90:                                               ; preds = %.loopexit, %.loopexit.split-lp, %88
@@ -209,7 +209,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %80, %82
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !28
+  %94 = load ptr, ptr %93, align 8, !tbaa !27
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %91 to i64
   %97 = sub i64 %95, %96
@@ -240,7 +240,7 @@ define weak_odr dso_local void @_ZN3igl17flipped_trianglesIN5Eigen6MatrixIdLin1E
 4:                                                ; preds = %3
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %0, align 8, !tbaa !29
+  %6 = load ptr, ptr %0, align 8, !tbaa !28
   tail call void @free(ptr noundef %6) #11
   resume { ptr, i32 } %5
 
@@ -316,11 +316,10 @@ attributes #14 = { builtin nounwind }
 !20 = !{!15, !10, i64 8}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !8, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !6, i64 0}
-!27 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
-!28 = !{!27, !6, i64 16}
-!29 = !{!30, !6, i64 0}
-!30 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EEE", !6, i64 0, !10, i64 8}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
+!27 = !{!26, !6, i64 16}
+!28 = !{!29, !6, i64 0}
+!29 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EEE", !6, i64 0, !10, i64 8}

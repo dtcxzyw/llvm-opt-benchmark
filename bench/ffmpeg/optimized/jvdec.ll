@@ -253,7 +253,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 130:                                              ; preds = %114
   %indvars.iv.next49.i = add nsw i64 %indvars.iv48.i, -1
   %.not.i = icmp eq i64 %indvars.iv48.i, 0
-  br i1 %.not.i, label %decode8x8.exit, label %.preheader.i, !llvm.loop !44
+  br i1 %.not.i, label %decode8x8.exit, label %.preheader.i, !llvm.loop !43
 
 .preheader30.i:                                   ; preds = %305, %.preheader31.i
   %.sroa.12.2 = phi i32 [ %75, %.preheader31.i ], [ %.sroa.12.4, %305 ]
@@ -306,7 +306,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %159, i8 %156, i64 4, i1 false)
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1
   %exitcond70.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, 4
-  br i1 %exitcond70.not.i.i, label %decode4x4.exit.i.loopexit, label %157, !llvm.loop !45
+  br i1 %exitcond70.not.i.i, label %decode4x4.exit.i.loopexit, label %157, !llvm.loop !44
 
 160:                                              ; preds = %134
   %161 = lshr i32 %146, 3
@@ -369,7 +369,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i8 %199, ptr %gep.i.i, align 1, !tbaa !37
   %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next58.i.i, 4
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %184, !llvm.loop !46
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %184, !llvm.loop !45
 
 200:                                              ; preds = %200, %.preheader.i.i
   %.sroa.12.14 = phi i32 [ %spec.select.i.i.i, %.preheader.i.i ], [ %spec.select.i37.i.i, %200 ]
@@ -394,12 +394,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i8 %215, ptr %gep75.i.i, align 1, !tbaa !37
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 4
-  br i1 %exitcond63.not.i.i, label %216, label %200, !llvm.loop !47
+  br i1 %exitcond63.not.i.i, label %216, label %200, !llvm.loop !46
 
 216:                                              ; preds = %200
   %indvars.iv.next65.i.i = add nsw i64 %indvars.iv64.i.i, -2
   %.not.i.i = icmp eq i64 %indvars.iv64.i.i, 0
-  br i1 %.not.i.i, label %decode4x4.exit.i, label %.preheader38.i.i, !llvm.loop !48
+  br i1 %.not.i.i, label %decode4x4.exit.i, label %.preheader38.i.i, !llvm.loop !47
 
 .preheader41.i.i:                                 ; preds = %134, %302
   %.sroa.12.5 = phi i32 [ %.sroa.12.7, %302 ], [ %146, %134 ]
@@ -505,10 +505,10 @@ decode2x2.exit.critedge.i.i:                      ; preds = %220
   %284 = trunc i32 %283 to i8
   %gep55.i.i.i = getelementptr i8, ptr %invariant.gep54.i.i.i, i64 %indvars.iv43.i.i.i
   store i8 %284, ptr %gep55.i.i.i, align 1, !tbaa !37
-  br i1 %269, label %268, label %285, !llvm.loop !49
+  br i1 %269, label %268, label %285, !llvm.loop !48
 
 285:                                              ; preds = %268
-  br i1 %266, label %.preheader.i.i.i, label %decode2x2.exit.i.i, !llvm.loop !50
+  br i1 %266, label %.preheader.i.i.i, label %decode2x2.exit.i.i, !llvm.loop !49
 
 .preheader29.i.i.i:                               ; preds = %220, %301
   %.sroa.12.8 = phi i32 [ %299, %301 ], [ %232, %220 ]
@@ -535,18 +535,18 @@ decode2x2.exit.critedge.i.i:                      ; preds = %220
   %300 = trunc nuw i32 %297 to i8
   %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   store i8 %300, ptr %gep.i.i.i, align 1, !tbaa !37
-  br i1 %289, label %288, label %301, !llvm.loop !51
+  br i1 %289, label %288, label %301, !llvm.loop !50
 
 301:                                              ; preds = %288
-  br i1 %286, label %.preheader29.i.i.i, label %decode2x2.exit.i.i, !llvm.loop !52
+  br i1 %286, label %.preheader29.i.i.i, label %decode2x2.exit.i.i, !llvm.loop !51
 
 decode2x2.exit.i.i:                               ; preds = %301, %285, %decode2x2.exit.critedge.i.i, %220
   %.sroa.12.7 = phi i32 [ %242, %decode2x2.exit.critedge.i.i ], [ %232, %220 ], [ %spec.select.i.i.i.i, %285 ], [ %299, %301 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br i1 %221, label %220, label %302, !llvm.loop !53
+  br i1 %221, label %220, label %302, !llvm.loop !52
 
 302:                                              ; preds = %decode2x2.exit.i.i
-  br i1 %217, label %.preheader41.i.i, label %decode4x4.exit.i, !llvm.loop !54
+  br i1 %217, label %.preheader41.i.i, label %decode4x4.exit.i, !llvm.loop !53
 
 decode4x4.exit.i.loopexit:                        ; preds = %157
   %303 = add nuw i32 %146, 8
@@ -556,10 +556,10 @@ decode4x4.exit.i.loopexit:                        ; preds = %157
 decode4x4.exit.i:                                 ; preds = %302, %216, %decode4x4.exit.i.loopexit, %134
   %.sroa.12.4 = phi i32 [ %146, %134 ], [ %304, %decode4x4.exit.i.loopexit ], [ %spec.select.i37.i.i, %216 ], [ %.sroa.12.7, %302 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  br i1 %135, label %134, label %305, !llvm.loop !55
+  br i1 %135, label %134, label %305, !llvm.loop !54
 
 305:                                              ; preds = %decode4x4.exit.i
-  br i1 %131, label %.preheader30.i, label %decode8x8.exit, !llvm.loop !56
+  br i1 %131, label %.preheader30.i, label %decode8x8.exit, !llvm.loop !55
 
 .unreachabledefault155:                           ; preds = %220
   unreachable
@@ -577,7 +577,7 @@ decode8x8.exit:                                   ; preds = %305, %130, %.lr.ph1
   %306 = load i32, ptr %42, align 8, !tbaa !27
   %307 = trunc nuw i64 %indvars.iv.next to i32
   %308 = icmp sgt i32 %306, %307
-  br i1 %308, label %.lr.ph133, label %._crit_edge.loopexit, !llvm.loop !57
+  br i1 %308, label %.lr.ph133, label %._crit_edge.loopexit, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %decode8x8.exit
   %.pre = load i32, ptr %39, align 4, !tbaa !28
@@ -589,7 +589,7 @@ decode8x8.exit:                                   ; preds = %305, %130, %.lr.ph1
   %.sroa.12.1.lcssa = phi i32 [ %.sroa.12.0134, %.preheader123 ], [ %.sroa.12.17, %._crit_edge.loopexit ]
   %311 = add nuw nsw i32 %.084135, 8
   %312 = icmp slt i32 %311, %309
-  br i1 %312, label %.preheader123, label %._crit_edge136, !llvm.loop !58
+  br i1 %312, label %.preheader123, label %._crit_edge136, !llvm.loop !57
 
 ._crit_edge136:                                   ; preds = %._crit_edge, %.preheader123.lr.ph, %.preheader124
   %313 = zext nneg i32 %18 to i64
@@ -636,7 +636,7 @@ decode8x8.exit:                                   ; preds = %305, %130, %.lr.ph1
   %339 = add nuw nsw i32 %.185130, 1
   %340 = load i32, ptr %325, align 4, !tbaa !28
   %341 = icmp slt i32 %339, %340
-  br i1 %341, label %329, label %.loopexit126, !llvm.loop !60
+  br i1 %341, label %329, label %.loopexit126, !llvm.loop !59
 
 342:                                              ; preds = %315
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.5, i32 noundef %21) #7
@@ -679,7 +679,7 @@ decode8x8.exit:                                   ; preds = %305, %130, %.lr.ph1
   %367 = getelementptr inbounds nuw i8, ptr %.281138, i64 3
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next146, 256
-  br i1 %exitcond.not, label %.loopexit, label %348, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %348, !llvm.loop !60
 
 .loopexit:                                        ; preds = %348, %.loopexit126
   br i1 %.not, label %378, label %368
@@ -804,24 +804,23 @@ attributes #7 = { nounwind }
 !38 = !{!14, !14, i64 0}
 !39 = !{!10, !10, i64 0}
 !40 = !{!7, !7, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
-!45 = distinct !{!45, !42, !43}
-!46 = distinct !{!46, !42, !43}
-!47 = distinct !{!47, !42, !43}
-!48 = distinct !{!48, !42, !43}
-!49 = distinct !{!49, !42, !43}
-!50 = distinct !{!50, !42, !43}
-!51 = distinct !{!51, !42, !43}
-!52 = distinct !{!52, !42, !43}
-!53 = distinct !{!53, !42, !43}
-!54 = distinct !{!54, !42, !43}
-!55 = distinct !{!55, !42, !43}
-!56 = distinct !{!56, !42, !43}
-!57 = distinct !{!57, !42, !43}
-!58 = distinct !{!58, !42, !43, !59}
-!59 = !{!"llvm.loop.unswitch.partial.disable"}
-!60 = distinct !{!60, !42, !43}
-!61 = distinct !{!61, !42, !43}
+!43 = distinct !{!43, !42}
+!44 = distinct !{!44, !42}
+!45 = distinct !{!45, !42}
+!46 = distinct !{!46, !42}
+!47 = distinct !{!47, !42}
+!48 = distinct !{!48, !42}
+!49 = distinct !{!49, !42}
+!50 = distinct !{!50, !42}
+!51 = distinct !{!51, !42}
+!52 = distinct !{!52, !42}
+!53 = distinct !{!53, !42}
+!54 = distinct !{!54, !42}
+!55 = distinct !{!55, !42}
+!56 = distinct !{!56, !42}
+!57 = distinct !{!57, !42, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = distinct !{!59, !42}
+!60 = distinct !{!60, !42}

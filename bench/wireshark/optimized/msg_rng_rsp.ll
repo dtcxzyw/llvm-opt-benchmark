@@ -656,7 +656,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   br label %.loopexit
 
 233:                                              ; preds = %28
-  %234 = load i8, ptr @include_cor2_changes, align 1, !range !9, !noundef !10
+  %234 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
   %235 = trunc nuw i8 %234 to i1
   br i1 %235, label %236, label %241
 
@@ -686,7 +686,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %.1 = phi ptr [ %.0352, %244 ], [ %.0352, %42 ], [ %.0352, %31 ], [ %.0352, %43 ], [ %.0352, %53 ], [ %58, %56 ], [ %.0352, %59 ], [ %.0352, %62 ], [ %.0352, %65 ], [ %.0352, %76 ], [ %.0352, %79 ], [ %.0352, %82 ], [ %.0352, %85 ], [ %.0352, %88 ], [ %.0352, %91 ], [ %.0352, %99 ], [ %.0352, %94 ], [ %.0352, %100 ], [ %.0352, %103 ], [ %.0352, %106 ], [ %.0352, %141 ], [ %.0352, %148 ], [ %.0352, %155 ], [ %.0352, %166 ], [ %.0352, %169 ], [ %.0352, %172 ], [ %.0352, %185 ], [ %.0352, %198 ], [ %.0352, %210 ], [ %.0352, %215 ], [ %.0352, %220 ], [ %.0352, %236 ], [ %.0352, %241 ], [ %.0352, %189 ], [ %.0352, %203 ]
   %247 = add i32 %30, %19
   %248 = icmp ult i32 %247, %7
-  br i1 %248, label %16, label %.loopexit334, !llvm.loop !11
+  br i1 %248, label %16, label %.loopexit334, !llvm.loop !10
 
 .loopexit334:                                     ; preds = %.loopexit, %23
   %.0326344 = phi ptr [ %.0326348, %23 ], [ %.1327, %.loopexit ]
@@ -840,9 +840,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

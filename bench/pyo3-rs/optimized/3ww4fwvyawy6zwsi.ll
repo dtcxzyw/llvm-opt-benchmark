@@ -199,7 +199,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attr
   br i1 %.not24, label %.backedge.backedge, label %64
 
 .backedge.backedge:                               ; preds = %51, %64
-  br label %.backedge, !llvm.loop !3
+  br label %.backedge
 
 54:                                               ; preds = %44, %42, %40
   %55 = landingpad { ptr, i32 }
@@ -405,7 +405,7 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %60, %66, %78, %88, %98
-  br label %.backedge, !llvm.loop !5
+  br label %.backedge
 
 61:                                               ; preds = %56, %54, %52
   %62 = landingpad { ptr, i32 }
@@ -707,7 +707,7 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %60, %66, %78, %88, %98
-  br label %.backedge, !llvm.loop !6
+  br label %.backedge
 
 61:                                               ; preds = %56, %54, %52
   %62 = landingpad { ptr, i32 }
@@ -980,7 +980,3 @@ attributes #6 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}

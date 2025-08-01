@@ -123,15 +123,15 @@ parse_qn.exit.i:                                  ; preds = %44, %get_unary.exit
   %71 = tail call i32 @llvm.umin.i32(i32 %61, i32 %70)
   store i32 %71, ptr %27, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
-  store i32 %69, ptr %72, align 4, !tbaa !24
+  store i32 %69, ptr %72, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.loopexit, label %59, !llvm.loop !25
+  br i1 %exitcond.not.i, label %.loopexit, label %59, !llvm.loop !24
 
 .loopexit:                                        ; preds = %59, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %parse_codebook_idx.exit, label %30, !llvm.loop !26
+  br i1 %exitcond.not, label %parse_codebook_idx.exit, label %30, !llvm.loop !25
 
 parse_codebook_idx.exit:                          ; preds = %parse_qn.exit.i, %.loopexit, %.preheader, %23
   %.014 = phi i32 [ -1163346256, %23 ], [ 0, %.preheader ], [ -1163346256, %parse_qn.exit.i ], [ 0, %.loopexit ]
@@ -251,13 +251,13 @@ define range(i32 -1163346256, 1) i32 @ff_aac_ldp_parse_channel_stream(ptr nounde
 
 96:                                               ; preds = %4
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 -1, ptr %97, align 4, !tbaa !27
+  store i32 -1, ptr %97, align 4, !tbaa !26
   %.not28 = icmp eq i16 %92, 0
   br i1 %.not28, label %.thread, label %98
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %100 = load i16, ptr %99, align 2, !tbaa !28
+  %100 = load i16, ptr %99, align 2, !tbaa !27
   %101 = load i32, ptr %5, align 8, !tbaa !4
   %102 = load ptr, ptr %3, align 8, !tbaa !12
   %103 = lshr i32 %101, 3
@@ -321,13 +321,12 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !18 = !{!"", !8, i64 0, !8, i64 4}
 !19 = !{!"AACArithState", !8, i64 0, !10, i64 516, !8, i64 520, !20, i64 524}
 !20 = !{!"short", !8, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !22, !23}
-!26 = distinct !{!26, !22, !23}
-!27 = !{!15, !10, i64 24}
-!28 = !{!29, !20, i64 2}
-!29 = !{!"AACUSACConfig", !8, i64 0, !20, i64 2, !20, i64 4, !8, i64 8, !10, i64 4104, !30, i64 4108}
-!30 = !{!"", !8, i64 0, !8, i64 2, !8, i64 3714, !8, i64 3716}
+!23 = !{!10, !10, i64 0}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22}
+!26 = !{!15, !10, i64 24}
+!27 = !{!28, !20, i64 2}
+!28 = !{!"AACUSACConfig", !8, i64 0, !20, i64 2, !20, i64 4, !8, i64 8, !10, i64 4104, !29, i64 4108}
+!29 = !{!"", !8, i64 0, !8, i64 2, !8, i64 3714, !8, i64 3716}

@@ -553,7 +553,7 @@ define dso_local noundef zeroext i1 @psmouse_matches_pnp_id(ptr noundef readonly
 .critedge:                                        ; preds = %.preheader, %.lr.ph
   %14 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #14
   %.not12 = icmp eq ptr %14, null
-  br i1 %.not12, label %.loopexit7, label %.lr.ph, !llvm.loop !8
+  br i1 %.not12, label %.loopexit7, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader6, %.critedge
   %15 = phi ptr [ %14, %.critedge ], [ %13, %.preheader6 ]
@@ -573,15 +573,15 @@ define dso_local noundef zeroext i1 @psmouse_matches_pnp_id(ptr noundef readonly
   %23 = getelementptr ptr, ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not5 = icmp eq ptr %24, null
-  br i1 %.not5, label %.critedge, label %25, !llvm.loop !10
+  br i1 %.not5, label %.critedge, label %25, !llvm.loop !8
 
 25:                                               ; preds = %.preheader
   %26 = call i32 @strcasecmp(ptr noundef nonnull %15, ptr noundef nonnull %24)
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %17, %25
-  br label %.loopexit7, !llvm.loop !14
+  br label %.loopexit7, !llvm.loop !11
 
 .loopexit7:                                       ; preds = %.critedge, %.preheader6, %.loopexit
   %28 = phi i1 [ true, %.loopexit ], [ false, %.preheader6 ], [ false, %.critedge ]
@@ -850,7 +850,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @psmouse_attr_set_helper
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %88
-  %94 = tail call i32 @psmouse_activate(ptr noundef %10), !range !15
+  %94 = tail call i32 @psmouse_activate(ptr noundef %10), !range !12
   br label %95
 
 95:                                               ; preds = %93, %88, %86
@@ -1000,7 +1000,7 @@ define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef 
 24:                                               ; preds = %21, %16
   %25 = add nuw nsw i64 %7, 1
   %26 = icmp eq i64 %25, 17
-  br i1 %26, label %.thread, label %6, !llvm.loop !16
+  br i1 %26, label %.thread, label %6, !llvm.loop !13
 
 27:                                               ; preds = %21, %13
   %28 = icmp eq ptr %8, null
@@ -1034,7 +1034,7 @@ define internal noundef i32 @psmouse_get_maxproto(ptr noundef writeonly captures
 6:                                                ; preds = %9
   %7 = add nuw nsw i64 %10, 1
   %8 = icmp eq i64 %7, 17
-  br i1 %8, label %.thread, label %9, !llvm.loop !17
+  br i1 %8, label %.thread, label %9, !llvm.loop !14
 
 9:                                                ; preds = %6, %2
   %10 = phi i64 [ 0, %2 ], [ %7, %6 ]
@@ -1048,9 +1048,9 @@ define internal noundef i32 @psmouse_get_maxproto(ptr noundef writeonly captures
   br i1 %15, label %.thread, label %16
 
 .thread:                                          ; preds = %6, %14
-  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #14, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 936, i32 2305, i64 12) #14, !srcloc !19
-  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #14, !srcloc !20
+  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #14, !srcloc !15
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 936, i32 2305, i64 12) #14, !srcloc !16
+  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #14, !srcloc !17
   br label %16
 
 16:                                               ; preds = %.thread, %14
@@ -1120,7 +1120,7 @@ define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 nounde
   %11 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 4339) #14
   %12 = add nuw nsw i64 %8, 1
   %13 = icmp eq i64 %12, 9
-  br i1 %13, label %14, label %7, !llvm.loop !21
+  br i1 %13, label %14, label %7, !llvm.loop !18
 
 14:                                               ; preds = %7
   %15 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 754) #14
@@ -1134,10 +1134,10 @@ define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 nounde
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 274) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 274) #14, !srcloc !19
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 276) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 276) #14, !srcloc !19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @.str.40, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1185,16 +1185,16 @@ define internal range(i32 -19, 1) i32 @genius_detect(ptr noundef %0, i1 noundef 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 274) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 274) #14, !srcloc !19
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 276) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 276) #14, !srcloc !19
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %26, i64 275) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %26, i64 275) #14, !srcloc !19
   %27 = load ptr, ptr %20, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 144
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %28, i64 8) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %28, i64 8) #14, !srcloc !19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @.str.42, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -1231,10 +1231,10 @@ define internal range(i32 -19, 1) i32 @intellimouse_detect(ptr noundef %0, i1 no
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 274) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 274) #14, !srcloc !19
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 8) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 8) #14, !srcloc !19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
@@ -1304,19 +1304,19 @@ define internal noundef range(i32 -19, 1) i32 @im_explorer_detect(ptr noundef %0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 274) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 274) #14, !srcloc !19
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 8) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 8) #14, !srcloc !19
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %27, i64 6) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %27, i64 6) #14, !srcloc !19
   %28 = load ptr, ptr %21, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %29, i64 275) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %29, i64 275) #14, !srcloc !19
   %30 = load ptr, ptr %21, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %31, i64 276) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %31, i64 276) #14, !srcloc !19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
@@ -1386,10 +1386,10 @@ define internal noundef i32 @cortron_detect(ptr noundef captures(none) %0, i1 no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 274) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 274) #14, !srcloc !19
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 275) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 275) #14, !srcloc !19
   br label %11
 
 11:                                               ; preds = %3, %2
@@ -1476,7 +1476,7 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
 26:                                               ; preds = %23, %18
   %27 = add nuw nsw i64 %9, 1
   %28 = icmp eq i64 %27, 17
-  br i1 %28, label %.thread, label %8, !llvm.loop !23
+  br i1 %28, label %.thread, label %8, !llvm.loop !13
 
 29:                                               ; preds = %23, %15
   %30 = icmp eq ptr %10, null
@@ -1531,7 +1531,7 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
 55:                                               ; preds = %51
   %56 = load ptr, ptr %32, align 8
   %57 = icmp eq ptr %56, %10
-  br i1 %57, label %58, label %41, !llvm.loop !24
+  br i1 %57, label %58, label %41, !llvm.loop !20
 
 58:                                               ; preds = %55
   tail call void @input_free_device(ptr noundef nonnull %36) #14
@@ -1607,7 +1607,7 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
   %98 = load ptr, ptr %6, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 208
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %99) #14
-  %100 = tail call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef nonnull %10), !range !15
+  %100 = tail call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef nonnull %10), !range !12
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %105
 
@@ -1616,7 +1616,7 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
   store i16 0, ptr %5, align 2, !annotation !7
   %103 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 767) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
-  %104 = call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef nonnull @psmouse_protocols), !range !15
+  %104 = call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef nonnull @psmouse_protocols), !range !12
   br label %105
 
 105:                                              ; preds = %102, %84
@@ -1684,7 +1684,7 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
   call void @input_free_device(ptr noundef nonnull %36) #14
   store ptr %78, ptr %77, align 8
   call void @psmouse_set_state(ptr noundef %0, i32 noundef 1)
-  %139 = call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef %79), !range !15
+  %139 = call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef %79), !range !12
   call fastcc void @psmouse_initialize(ptr noundef %0)
   call void @psmouse_set_state(ptr noundef %0, i32 noundef 3)
   %140 = sext i32 %132 to i64
@@ -1762,7 +1762,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
   tail call void @input_set_capability(ptr noundef %19, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %19, i32 noundef 2, i32 noundef 1) #14
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %21, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %21, i64 0) #14, !srcloc !19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -1803,13 +1803,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
 
 43:                                               ; preds = %14, %2
   %44 = load i32, ptr @psmouse_max_proto, align 4
-  %45 = tail call fastcc i32 @psmouse_extensions(ptr noundef %0, i32 noundef %44, i1 noundef zeroext true), !range !25
+  %45 = tail call fastcc i32 @psmouse_extensions(ptr noundef %0, i32 noundef %44, i1 noundef zeroext true), !range !21
   br label %49
 
 46:                                               ; preds = %49
   %47 = add nuw nsw i64 %50, 1
   %48 = icmp eq i64 %47, 17
-  br i1 %48, label %.thread, label %49, !llvm.loop !26
+  br i1 %48, label %.thread, label %49, !llvm.loop !14
 
 49:                                               ; preds = %46, %43
   %50 = phi i64 [ 0, %43 ], [ %47, %46 ]
@@ -1823,9 +1823,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
   br i1 %55, label %.thread, label %56
 
 .thread:                                          ; preds = %46, %54
-  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #14, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 936, i32 2305, i64 12) #14, !srcloc !19
-  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #14, !srcloc !20
+  tail call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #14, !srcloc !15
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.48, i32 936, i32 2305, i64 12) #14, !srcloc !16
+  tail call void asm sideeffect "330: nop\0A\09.pushsection .discard.instr_end\0A\09.long 330b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 330) #14, !srcloc !17
   br label %56
 
 56:                                               ; preds = %.thread, %54, %40, %36
@@ -1950,7 +1950,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @psmouse_extensions(ptr nou
   tail call void @input_set_capability(ptr noundef %14, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %14, i32 noundef 2, i32 noundef 1) #14
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 0) #14, !srcloc !19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2024,7 +2024,7 @@ thread-pre-split:                                 ; preds = %3, %26
   tail call void @input_set_capability(ptr noundef %49, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %49, i32 noundef 2, i32 noundef 1) #14
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %51, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %51, i64 0) #14, !srcloc !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2067,7 +2067,7 @@ thread-pre-split:                                 ; preds = %3, %26
 69:                                               ; preds = %72
   %70 = add nuw nsw i64 %73, 1
   %71 = icmp eq i64 %70, 17
-  br i1 %71, label %.thread16, label %72, !llvm.loop !27
+  br i1 %71, label %.thread16, label %72, !llvm.loop !14
 
 72:                                               ; preds = %69, %.thread15
   %73 = phi i64 [ 0, %.thread15 ], [ %70, %69 ]
@@ -2132,7 +2132,7 @@ thread-pre-split:                                 ; preds = %3, %26
   tail call void @input_set_capability(ptr noundef %103, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %103, i32 noundef 2, i32 noundef 1) #14
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %105, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %105, i64 0) #14, !srcloc !19
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2184,7 +2184,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
   tail call void @input_set_capability(ptr noundef %128, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %128, i32 noundef 2, i32 noundef 1) #14
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %130, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %130, i64 0) #14, !srcloc !19
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2261,7 +2261,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
   tail call void @input_set_capability(ptr noundef %164, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %164, i32 noundef 2, i32 noundef 1) #14
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %166, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %166, i64 0) #14, !srcloc !19
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2315,7 +2315,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
   tail call void @input_set_capability(ptr noundef %191, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %191, i32 noundef 2, i32 noundef 1) #14
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %193, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %193, i64 0) #14, !srcloc !19
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2349,7 +2349,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
 208:                                              ; preds = %.preheader62
   %209 = add nuw nsw i64 %211, 1
   %210 = icmp eq i64 %209, 17
-  br i1 %210, label %.preheader61.preheader, label %.preheader62, !llvm.loop !28
+  br i1 %210, label %.preheader61.preheader, label %.preheader62, !llvm.loop !14
 
 .preheader62:                                     ; preds = %.preheader62.preheader, %208
   %211 = phi i64 [ %209, %208 ], [ 0, %.preheader62.preheader ]
@@ -2392,7 +2392,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
 233:                                              ; preds = %.preheader61
   %234 = add nuw nsw i64 %236, 1
   %235 = icmp eq i64 %234, 17
-  br i1 %235, label %.thread44, label %.preheader61, !llvm.loop !29
+  br i1 %235, label %.thread44, label %.preheader61, !llvm.loop !14
 
 .preheader61:                                     ; preds = %.preheader61.preheader, %233
   %236 = phi i64 [ %234, %233 ], [ 0, %.preheader61.preheader ]
@@ -2436,7 +2436,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
   tail call void @input_set_capability(ptr noundef %257, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %257, i32 noundef 2, i32 noundef 1) #14
   %259 = getelementptr inbounds nuw i8, ptr %257, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %259, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %259, i64 0) #14, !srcloc !19
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %260, align 8
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2482,7 +2482,7 @@ psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse
 277:                                              ; preds = %.preheader
   %278 = add nuw nsw i64 %280, 1
   %279 = icmp eq i64 %278, 17
-  br i1 %279, label %.thread47, label %.preheader, !llvm.loop !30
+  br i1 %279, label %.thread47, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %.thread43, %277
   %280 = phi i64 [ %278, %277 ], [ 0, %.thread43 ]
@@ -2559,7 +2559,7 @@ psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse
   call void @input_set_capability(ptr noundef %315, i32 noundef 2, i32 noundef 0) #14
   call void @input_set_capability(ptr noundef %315, i32 noundef 2, i32 noundef 1) #14
   %317 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %317, i64 0) #14, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %317, i64 0) #14, !srcloc !19
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @psmouse_protocols, ptr %318, align 8
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2631,7 +2631,7 @@ define internal void @psmouse_set_rate(ptr noundef %0, i32 noundef %1) #2 align 
   %9 = zext i8 %8 to i32
   %10 = icmp ult i32 %1, %9
   %11 = add i32 %5, 1
-  br i1 %10, label %4, label %12, !llvm.loop !31
+  br i1 %10, label %4, label %12, !llvm.loop !22
 
 12:                                               ; preds = %4
   store i8 %8, ptr %3, align 1
@@ -2690,7 +2690,7 @@ define internal fastcc zeroext i1 @psmouse_do_detect(ptr noundef readonly captur
   tail call void @input_set_capability(ptr noundef %14, i32 noundef 2, i32 noundef 0) #14
   tail call void @input_set_capability(ptr noundef %14, i32 noundef 2, i32 noundef 1) #14
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 0) #14, !srcloc !22
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 0) #14, !srcloc !19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr @psmouse_protocols, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2728,7 +2728,7 @@ define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noun
 5:                                                ; preds = %8
   %6 = add nuw nsw i64 %9, 1
   %7 = icmp eq i64 %6, 17
-  br i1 %7, label %.thread, label %8, !llvm.loop !32
+  br i1 %7, label %.thread, label %8, !llvm.loop !14
 
 8:                                                ; preds = %5, %4
   %9 = phi i64 [ 0, %4 ], [ %6, %5 ]
@@ -2952,7 +2952,7 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
   %92 = load i8, ptr @psmouse_smartscroll, align 1, !range !5, !noundef !6
   %93 = getelementptr inbounds nuw i8, ptr %34, i64 396
   store i8 %92, ptr %93, align 4
-  %94 = call fastcc i32 @psmouse_switch_protocol(ptr noundef nonnull %34, ptr noundef null), !range !15
+  %94 = call fastcc i32 @psmouse_switch_protocol(ptr noundef nonnull %34, ptr noundef null), !range !12
   %95 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 7
@@ -3133,13 +3133,13 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2, 1) i32 @psmouse_reconnect(ptr noundef readonly captures(none) %0) #2 align 16 {
-  %2 = tail call fastcc i32 @__psmouse_reconnect(ptr noundef %0, i1 noundef zeroext false), !range !33
+  %2 = tail call fastcc i32 @__psmouse_reconnect(ptr noundef %0, i1 noundef zeroext false), !range !23
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2, 1) i32 @psmouse_fast_reconnect(ptr noundef readonly captures(none) %0) #2 align 16 {
-  %2 = tail call fastcc i32 @__psmouse_reconnect(ptr noundef %0, i1 noundef zeroext true), !range !33
+  %2 = tail call fastcc i32 @__psmouse_reconnect(ptr noundef %0, i1 noundef zeroext true), !range !23
   ret i32 %2
 }
 
@@ -3463,7 +3463,7 @@ define internal noundef range(i32 0, 3) i32 @psmouse_pre_receive_byte(ptr nounde
   %8 = zext i32 %2 to i64
   %9 = and i64 %8, 1
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %20, !prof !34
+  br i1 %10, label %11, label %20, !prof !24
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 2
@@ -3476,7 +3476,7 @@ define internal noundef range(i32 0, 3) i32 @psmouse_pre_receive_byte(ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 5
   %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %29, !prof !35
+  br i1 %19, label %20, label %29, !prof !25
 
 20:                                               ; preds = %14, %7
   %21 = icmp eq i32 %5, 4
@@ -3614,7 +3614,7 @@ define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1
 46:                                               ; preds = %._crit_edge
   %47 = load i8, ptr %40, align 1
   %48 = icmp ult i8 %47, 3
-  br i1 %48, label %49, label %79, !prof !35
+  br i1 %48, label %49, label %79, !prof !25
 
 49:                                               ; preds = %46
   %50 = icmp eq i8 %47, 1
@@ -3657,7 +3657,7 @@ define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1
 
 71:                                               ; preds = %58
   store i8 1, ptr %40, align 1
-  %72 = tail call fastcc i32 @psmouse_handle_byte(ptr noundef %3), !range !36
+  %72 = tail call fastcc i32 @psmouse_handle_byte(ptr noundef %3), !range !26
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %111
 
@@ -3718,7 +3718,7 @@ define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1
   %108 = load volatile i64, ptr @jiffies, align 64
   %109 = getelementptr i8, ptr %0, i64 240
   store i64 %108, ptr %109, align 8
-  %110 = tail call fastcc i32 @psmouse_handle_byte(ptr noundef %3), !range !36
+  %110 = tail call fastcc i32 @psmouse_handle_byte(ptr noundef %3), !range !26
   br label %111
 
 111:                                              ; preds = %107, %98, %71, %65, %51, %22, %2
@@ -3846,7 +3846,7 @@ define internal void @psmouse_resync(ptr noundef %0) #2 align 16 {
   %74 = load i8, ptr %67, align 2
   %75 = zext i8 %74 to i32
   %76 = icmp samesign ult i32 %73, %75
-  br i1 %76, label %77, label %.thread6, !llvm.loop !37
+  br i1 %76, label %77, label %.thread6, !llvm.loop !27
 
 77:                                               ; preds = %72, %70
   %78 = phi i32 [ 0, %70 ], [ %73, %72 ]
@@ -3893,7 +3893,7 @@ define internal void @psmouse_resync(ptr noundef %0) #2 align 16 {
   tail call void @msleep(i32 noundef 200) #14
   %98 = add nuw nsw i32 %94, 1
   %99 = icmp eq i32 %98, 5
-  br i1 %99, label %100, label %93, !llvm.loop !38
+  br i1 %99, label %100, label %93, !llvm.loop !28
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %3, align 8
@@ -4253,7 +4253,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr nou
 
 75:                                               ; preds = %.thread, %73
   %76 = load i32, ptr @psmouse_max_proto, align 4
-  %77 = call fastcc i32 @psmouse_extensions(ptr noundef %7, i32 noundef %76, i1 noundef zeroext false), !range !25
+  %77 = call fastcc i32 @psmouse_extensions(ptr noundef %7, i32 noundef %76, i1 noundef zeroext false), !range !21
   %78 = getelementptr i8, ptr %6, i64 208
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %79, align 8
@@ -4534,34 +4534,24 @@ attributes #16 = { nounwind allocsize(2) }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !12}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12, !9}
-!14 = distinct !{!14, !11, !12}
-!15 = !{i32 -1, i32 1}
-!16 = distinct !{!16, !11, !12, !9}
-!17 = distinct !{!17, !11, !12, !9}
-!18 = !{i64 2154399712, i64 2154399521, i64 2154399573, i64 2154399619, i64 2154399647}
-!19 = !{i64 2154399786, i64 2154399815, i64 2154399861, i64 2154399919, i64 2154399973, i64 2154400027, i64 2154400082, i64 2154400113, i64 2154400421, i64 2154400427, i64 2154400474, i64 2154400497, i64 2154400523}
-!20 = !{i64 2154400990, i64 2154400801, i64 2154400851, i64 2154400897, i64 2154400925}
-!21 = distinct !{!21, !11, !12, !9}
-!22 = !{i64 2147788344}
-!23 = distinct !{!23, !11, !12, !9}
-!24 = distinct !{!24, !11, !12, !9}
-!25 = !{i32 0, i32 -2147483648}
-!26 = distinct !{!26, !11, !12, !9}
-!27 = distinct !{!27, !11, !12, !9}
-!28 = distinct !{!28, !11, !12, !9}
-!29 = distinct !{!29, !11, !12, !9}
-!30 = distinct !{!30, !11, !12, !9}
-!31 = distinct !{!31, !11, !12, !9}
-!32 = distinct !{!32, !11, !12, !9}
-!33 = !{i32 -2, i32 1}
-!34 = !{!"branch_weights", i32 2000, i32 1}
-!35 = !{!"branch_weights", i32 1, i32 2000}
-!36 = !{i32 -5, i32 1}
-!37 = distinct !{!37, !11, !12, !9}
-!38 = distinct !{!38, !11, !12, !9}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{i64 2154399712, i64 2154399521, i64 2154399573, i64 2154399619, i64 2154399647}
+!16 = !{i64 2154399786, i64 2154399815, i64 2154399861, i64 2154399919, i64 2154399973, i64 2154400027, i64 2154400082, i64 2154400113, i64 2154400421, i64 2154400427, i64 2154400474, i64 2154400497, i64 2154400523}
+!17 = !{i64 2154400990, i64 2154400801, i64 2154400851, i64 2154400897, i64 2154400925}
+!18 = distinct !{!18, !9, !10}
+!19 = !{i64 2147788344}
+!20 = distinct !{!20, !9, !10}
+!21 = !{i32 0, i32 -2147483648}
+!22 = distinct !{!22, !9, !10}
+!23 = !{i32 -2, i32 1}
+!24 = !{!"branch_weights", i32 2000, i32 1}
+!25 = !{!"branch_weights", i32 1, i32 2000}
+!26 = !{i32 -5, i32 1}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}

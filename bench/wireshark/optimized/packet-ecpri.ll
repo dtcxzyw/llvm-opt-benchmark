@@ -1436,7 +1436,7 @@ proto_item_set_generated.exit482:                 ; preds = %409, %406, %405, %3
   %637 = sub i32 %21, %636
   %638 = icmp ugt i32 %637, 3
   %639 = select i1 %635, i1 %638, i1 false
-  br i1 %639, label %35, label %640, !llvm.loop !11
+  br i1 %639, label %35, label %640, !llvm.loop !10
 
 640:                                              ; preds = %.loopexit
   br i1 %635, label %641, label %643
@@ -1635,7 +1635,6 @@ attributes #5 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

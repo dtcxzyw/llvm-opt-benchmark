@@ -182,7 +182,7 @@ _multi_cluster.exit:                              ; preds = %53
   %putchar = call i32 @putchar(i32 10)
   %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %61 = call i32 @sleep(i32 noundef %60) #14
-  br label %21, !llvm.loop !14
+  br label %21, !llvm.loop !13
 
 62:                                               ; preds = %56
   %.not19 = icmp eq i32 %.1, 0
@@ -752,7 +752,7 @@ _populate_array_job_states.exit.i.i:              ; preds = %247, %242, %233, %2
   %253 = load i32, ptr %252, align 8
   %254 = zext i32 %253 to i64
   %255 = icmp samesign ult i64 %indvars.iv.next.i.i, %254
-  br i1 %255, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !15
+  br i1 %255, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %_populate_array_job_states.exit.i.i, %209, %207, %.thread.i.i
   %256 = getelementptr inbounds nuw i8, ptr %205, i64 24
@@ -1111,9 +1111,8 @@ attributes #17 = { nounwind willreturn memory(none) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !11, !12}

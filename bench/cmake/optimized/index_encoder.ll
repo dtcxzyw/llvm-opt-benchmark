@@ -206,7 +206,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   %68 = phi i32 [ %39, %.thread84 ], [ 4, %.thread ], [ 5, %42 ], [ 5, %27 ], [ 1, %18 ]
   %69 = load i64, ptr %6, align 8, !tbaa !23
   %70 = icmp ult i64 %69, %7
-  br i1 %70, label %15, label %._crit_edge, !llvm.loop !28
+  br i1 %70, label %15, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %66, %21, %34
   %.3.ph = phi i32 [ 0, %66 ], [ %24, %21 ], [ %37, %34 ]
@@ -242,9 +242,9 @@ define dso_local i32 @lzma_index_encoder(ptr noundef %0, ptr noundef %1) local_u
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !4
   %.not.i = icmp eq i64 %10, ptrtoint (ptr @lzma_index_encoder_init to i64)
@@ -293,11 +293,11 @@ define dso_local i32 @lzma_index_encoder(ptr noundef %0, ptr noundef %1) local_u
   store i64 0, ptr %28, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 328
   store i32 0, ptr %29, align 8, !tbaa !22
-  %30 = load ptr, ptr %5, align 8, !tbaa !29
+  %30 = load ptr, ptr %5, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  store i8 1, ptr %31, align 8, !tbaa !34
+  store i8 1, ptr %31, align 8, !tbaa !33
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 99
-  store i8 1, ptr %32, align 1, !tbaa !34
+  store i8 1, ptr %32, align 1, !tbaa !33
   br label %33
 
 33:                                               ; preds = %23, %2, %24
@@ -424,14 +424,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !22 = !{!14, !15, i64 328}
 !23 = !{!9, !9, i64 0}
 !24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = !{!30, !32, i64 56}
-!30 = !{!"", !31, i64 0, !9, i64 8, !9, i64 16, !31, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !32, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !15, i64 128, !15, i64 132}
-!31 = !{!"p1 omnipotent char", !6, i64 0}
-!32 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
-!33 = !{!30, !6, i64 48}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"_Bool", !7, i64 0}
+!27 = distinct !{!27, !26}
+!28 = !{!29, !31, i64 56}
+!29 = !{!"", !30, i64 0, !9, i64 8, !9, i64 16, !30, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !31, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !15, i64 128, !15, i64 132}
+!30 = !{!"p1 omnipotent char", !6, i64 0}
+!31 = !{!"p1 _ZTS15lzma_internal_s", !6, i64 0}
+!32 = !{!29, !6, i64 48}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"_Bool", !7, i64 0}

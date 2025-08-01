@@ -105,8 +105,6 @@ module asm ".previous"
 %"class.vcg::Arity1" = type { %"class.vcg::face::InfoOcf" }
 %"class.vcg::face::InfoOcf" = type { ptr }
 %"class.vcg::Point3" = type { [3 x float] }
-%"class.vcg::Color4" = type { %"class.vcg::Point4" }
-%"class.vcg::Point4" = type { [4 x i8] }
 %"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.141"], [1 x i16], [2 x i8] }>
 %"class.vcg::Point2.141" = type { [2 x float] }
 %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack" = type { [3 x %"class.vcg::TexCoord2"] }
@@ -145,6 +143,8 @@ module asm ".previous"
 %"class.vcg::vertex::Coord.base" = type <{ %"class.vcg::Arity1.280", %"class.vcg::Point3" }>
 %"class.vcg::Arity1.280" = type { %"class.vcg::vertex::InfoOcf" }
 %"class.vcg::vertex::InfoOcf" = type { ptr }
+%"class.vcg::Color4" = type { %"class.vcg::Point4" }
+%"class.vcg::Point4" = type { [4 x i8] }
 %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd" = type { [2 x i32] }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.std::tuple.291" = type { %"struct.std::_Tuple_impl.292" }
@@ -620,7 +620,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
   %.pr = phi i64 [ %.pr20, %28 ], [ %41, %.noexc7 ]
   %42 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
   %.not.i = icmp eq ptr %42, %11
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit: ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i, %5
   ret void
@@ -734,7 +734,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i:
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 26:                                               ; preds = %_ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
@@ -794,7 +794,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, %2
   ret void
@@ -950,7 +950,7 @@ define void @_ZN26MLSceneGLSharedDataContextC2ER12MeshDocumentRN3vcg22QtThreadSa
 
 62:                                               ; preds = %59
   %.not17 = icmp eq ptr %61, null
-  br i1 %.not17, label %63, label %.preheader, !llvm.loop !11
+  br i1 %.not17, label %63, label %.preheader, !llvm.loop !10
 
 63:                                               ; preds = %62
   call void @_ZN9QGLFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #27
@@ -1158,7 +1158,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAt
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1205,7 +1205,7 @@ _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18
 16:                                               ; preds = %.lr.ph, %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit
   %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #29
   %.not = icmp eq ptr %17, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1275,7 +1275,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = icmp ult i64 %20, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %17
   %26 = icmp eq ptr %19, %18
@@ -1309,7 +1309,7 @@ _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EED2Ev.exit: ; 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #27
   %36 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %36, %35
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %32, align 8
@@ -1405,7 +1405,7 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9DebugInfoD2Ev(ptr nounde
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #27
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -1494,7 +1494,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt
 _ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, %2
   ret void
@@ -1549,7 +1549,7 @@ _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit
 _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %19, %21
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
@@ -1643,7 +1643,7 @@ define noundef ptr @_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerM
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -1738,7 +1738,7 @@ define void @_ZN26MLSceneGLSharedDataContext27setRenderingDataPerMeshViewEiP10QG
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.19.i.i.i.i, %13
@@ -1813,30 +1813,30 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   %14 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %15, i64 %indvars.iv
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, i8 0, i64 9, i1 false), !alias.scope !19
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, i8 0, i64 9, i1 false), !alias.scope !17
   br label %17
 
 17:                                               ; preds = %24, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %24 ]
   %18 = getelementptr inbounds nuw [9 x i8], ptr %14, i64 0, i64 %indvars.iv.i
-  %19 = load i8, ptr %18, align 1, !noalias !19
+  %19 = load i8, ptr %18, align 1, !noalias !17
   %20 = trunc i8 %19 to i1
   br i1 %20, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, label %24
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i: ; preds = %17
   %21 = getelementptr inbounds nuw [9 x i8], ptr %16, i64 0, i64 %indvars.iv.i
-  %22 = load i8, ptr %21, align 1, !noalias !19
+  %22 = load i8, ptr %21, align 1, !noalias !17
   %23 = and i8 %22, 1
   br label %24
 
 24:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, %17
   %25 = phi i8 [ 0, %17 ], [ %23, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i ]
   %26 = getelementptr inbounds nuw [9 x i8], ptr %9, i64 0, i64 %indvars.iv.i
-  store i8 %25, ptr %26, align 1, !alias.scope !19
+  store i8 %25, ptr %26, align 1, !alias.scope !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit, label %17, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit, label %17, !llvm.loop !20
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit: ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
@@ -1851,7 +1851,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i:
   store i8 %30, ptr %29, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %14, i8 0, i64 9, i1 false)
@@ -1866,7 +1866,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i1
   store i8 %34, ptr %33, align 1
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, 9
-  br i1 %exitcond.not.i.i17, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i14, !llvm.loop !24
+  br i1 %exitcond.not.i.i17, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i14, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1899,7 +1899,7 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %45 = icmp eq ptr %.19.i.i.i.i, %41
@@ -2079,13 +2079,13 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.
   store i8 %26, ptr %25, align 1
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 9
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 9
   %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 9
   %.not.i.i.i.i.i = icmp eq ptr %27, %22
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EEC2ERKS4_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EEC2ERKS4_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EEC2ERKS4_.exit: ; preds = %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %16
   %.0.lcssa.i.i.i.i.i = phi ptr [ %17, %16 ], [ %28, %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
@@ -2574,7 +2574,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg1
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !27
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -2646,7 +2646,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg1
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !27
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !25
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -2711,7 +2711,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg1
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !27
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !25
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -2902,13 +2902,13 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.
   store i8 %25, ptr %24, align 1
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 9
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 9
   %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 9
   %.not.i.i.i.i.i = icmp eq ptr %26, %5
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit: ; preds = %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE11_M_allocateEm.exit.i
   %.not.i = icmp eq ptr %12, null
@@ -2956,14 +2956,14 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.
   store i8 %41, ptr %40, align 1
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 9
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 9
   %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 9
   %44 = add nsw i64 %.012.i.i.i.i.i, -1
   %45 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %45, label %.lr.ph.i.i.i.i.i25, label %_ZSt22__uninitialized_copy_aIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_S2_ET0_T_S5_S4_RSaIT1_E.exit, !llvm.loop !28
+  br i1 %45, label %.lr.ph.i.i.i.i.i25, label %_ZSt22__uninitialized_copy_aIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_S2_ET0_T_S5_S4_RSaIT1_E.exit, !llvm.loop !26
 
 46:                                               ; preds = %30
   %47 = icmp sgt i64 %34, 0
@@ -2989,14 +2989,14 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.
   store i8 %52, ptr %51, align 1
   %indvars.iv.next.i.i.i.i.i.i.i34 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i33, 1
   %exitcond.not.i.i.i.i.i.i.i35 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i34, 9
-  br i1 %exitcond.not.i.i.i.i.i.i.i35, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i36, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i32, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i.i.i.i.i35, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i36, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i32, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i36: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i32
   %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i31, i64 9
   %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i30, i64 9
   %55 = add nsw i64 %.012.i.i.i.i.i29, -1
   %56 = icmp sgt i64 %.012.i.i.i.i.i29, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i28, label %_ZSt4copyIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !29
+  br i1 %56, label %.lr.ph.i.i.i.i.i28, label %_ZSt4copyIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !27
 
 _ZSt4copyIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i36
   %.pre = load ptr, ptr %1, align 8
@@ -3032,13 +3032,13 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.
   store i8 %64, ptr %63, align 1
   %indvars.iv.next.i.i.i.i.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i38, 1
   %exitcond.not.i.i.i.i.i.i.i40 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i39, 9
-  br i1 %exitcond.not.i.i.i.i.i.i.i40, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRS2_EEvPT_DpOT0_.exit.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i37, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i.i.i.i40, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRS2_EEvPT_DpOT0_.exit.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i37, !llvm.loop !21
 
 _ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i37
   %65 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 9
   %66 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 9
   %.not.i.i.i.i = icmp eq ptr %65, %57
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_S2_ET0_T_S5_S4_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_S2_ET0_T_S5_S4_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZSt22__uninitialized_copy_aIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_S2_ET0_T_S5_S4_RSaIT1_E.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i, %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRS2_EEvPT_DpOT0_.exit.i.i.i.i, %35, %_ZSt4copyIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_ET0_T_S5_S4_.exit, %_ZNSt12_Vector_baseIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE13_M_deallocateEPS2_m.exit
   %67 = load ptr, ptr %0, align 8
@@ -3080,7 +3080,7 @@ define void @_ZN26MLSceneGLSharedDataContext31setRenderingDataPerAllMeshViewsEiR
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %16 = icmp eq ptr %.19.i.i.i.i, %12
@@ -3149,30 +3149,30 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   %10 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %11, i64 %indvars.iv
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false), !alias.scope !31
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false), !alias.scope !29
   br label %13
 
 13:                                               ; preds = %20, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %20 ]
   %14 = getelementptr inbounds nuw [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !noalias !31
+  %15 = load i8, ptr %14, align 1, !noalias !29
   %16 = trunc i8 %15 to i1
   br i1 %16, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, label %20
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i: ; preds = %13
   %17 = getelementptr inbounds nuw [9 x i8], ptr %12, i64 0, i64 %indvars.iv.i
-  %18 = load i8, ptr %17, align 1, !noalias !31
+  %18 = load i8, ptr %17, align 1, !noalias !29
   %19 = and i8 %18, 1
   br label %20
 
 20:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, %13
   %21 = phi i8 [ 0, %13 ], [ %19, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i ]
   %22 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  store i8 %21, ptr %22, align 1, !alias.scope !31
+  store i8 %21, ptr %22, align 1, !alias.scope !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit, label %13, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit, label %13, !llvm.loop !20
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit: ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, i8 0, i64 9, i1 false)
@@ -3187,7 +3187,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i:
   store i8 %26, ptr %25, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false)
@@ -3202,7 +3202,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i1
   store i8 %30, ptr %29, align 1
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, 9
-  br i1 %exitcond.not.i.i17, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i14, !llvm.loop !24
+  br i1 %exitcond.not.i.i17, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i14, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3261,7 +3261,7 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
 _ZN3vcg11PerViewDataI18MLPerViewGLOptionsEaSERKS2_.exit: ; preds = %46, %.noexc18
   %50 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.022.027) #29
   %.not = icmp eq ptr %50, %36
-  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsEaSERKS2_.exit, %33
   %51 = load ptr, ptr %6, align 8
@@ -3325,7 +3325,7 @@ define void @_ZN26MLSceneGLSharedDataContext25deAllocateTexturesPerMeshEi(ptr no
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %9 = icmp eq ptr %.19.i.i.i.i, %5
@@ -3465,7 +3465,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %.sroa.027.1 = phi ptr [ %52, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %.sroa.027.0, %39 ]
   %.sroa.8.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %58 = add nuw i64 %.0, 1
-  br label %20, !llvm.loop !35
+  br label %20, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3503,7 +3503,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
 62:                                               ; preds = %.lr.ph
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.023.058, i64 4
   %.not38 = icmp eq ptr %63, %.sroa.8.0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %62, %.preheader
   %64 = ptrtoint ptr %.sroa.8.0 to i64
@@ -3590,7 +3590,7 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   %29 = add nsw i64 %.052.i.i.i, -1
   %30 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %30, label %12, label %._crit_edge.loopexit.i.i.i, !llvm.loop !37
+  br i1 %30, label %12, label %._crit_edge.loopexit.i.i.i, !llvm.loop !34
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %27
   %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -3736,7 +3736,7 @@ define noundef i32 @_ZNK26MLSceneGLSharedDataContext12getTextureIdEim(ptr nounde
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.19.i.i.i.i, %6
@@ -3842,7 +3842,7 @@ define noundef i32 @_ZN26MLSceneGLSharedDataContext22allocateTexturePerMeshEiRK6
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %18 = icmp eq ptr %.19.i.i.i.i, %14
@@ -3954,20 +3954,20 @@ _ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit: ; preds = %.noexc
   %.02130 = phi i32 [ %81, %.lr.ph ], [ %65, %53 ]
   %81 = sdiv i32 %.02130, 2
   %82 = icmp sgt i32 %81, %78
-  br i1 %82, label %.lr.ph, label %.preheader, !llvm.loop !38
+  br i1 %82, label %.lr.ph, label %.preheader, !llvm.loop !35
 
 .lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
   %.02032 = phi i32 [ %83, %.lr.ph33 ], [ %77, %.preheader ]
   %83 = sdiv i32 %.02032, 2
   %84 = icmp sgt i32 %83, %78
-  br i1 %84, label %.lr.ph33, label %._crit_edge, !llvm.loop !39
+  br i1 %84, label %.lr.ph33, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
   %.020.lcssa = phi i32 [ %77, %.preheader ], [ %83, %.lr.ph33 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store i32 %.021.lcssa, ptr %5, align 4, !noalias !40
+  store i32 %.021.lcssa, ptr %5, align 4, !noalias !37
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.020.lcssa, ptr %85, align 4, !noalias !40
+  store i32 %.020.lcssa, ptr %85, align 4, !noalias !37
   invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef 0, i32 noundef 1)
           to label %86 unwind label %47
 
@@ -4200,7 +4200,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiP
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE11lower_boundERSB_.exit, label %.lr.ph.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i, label %_ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE11lower_boundERSB_.exit, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE11lower_boundERSB_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -4350,13 +4350,13 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.
   store i8 %40, ptr %39, align 1
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 9
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i.i
   %41 = add nsw i64 %.01113.i.i.i.i.i.i, -1
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i.i, i64 9
   %.not.i.i.i.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i.i.i.i, label %43, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i.i, label %43, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !41
 
 43:                                               ; preds = %_ZSt10_ConstructIN3vcg20GLMeshAttributesInfo16InternalRendAttsEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   store ptr %42, ptr %34, align 8
@@ -4812,7 +4812,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafe
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !45
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -4884,7 +4884,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafe
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !45
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !42
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -4949,7 +4949,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafe
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !45
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !42
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -5003,7 +5003,7 @@ define void @_ZN26MLSceneGLSharedDataContext11meshRemovedEi(ptr noundef nonnull 
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -5193,30 +5193,30 @@ define linkonce_odr noundef zeroext i1 @_ZNK3vcg49NotThreadSafeGLMeshAttributesM
   br i1 %27, label %28, label %47
 
 28:                                               ; preds = %24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false), !alias.scope !46
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false), !alias.scope !43
   br label %29
 
 29:                                               ; preds = %36, %28
   %indvars.iv.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i, %36 ]
   %30 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  %31 = load i8, ptr %30, align 1, !noalias !46
+  %31 = load i8, ptr %30, align 1, !noalias !43
   %32 = trunc i8 %31 to i1
   br i1 %32, label %36, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i: ; preds = %29
   %33 = getelementptr inbounds nuw [9 x i8], ptr %25, i64 0, i64 %indvars.iv.i
-  %34 = load i8, ptr %33, align 1, !noalias !46
+  %34 = load i8, ptr %33, align 1, !noalias !43
   %35 = and i8 %34, 1
   br label %36
 
 36:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, %29
   %37 = phi i8 [ 1, %29 ], [ %35, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i ]
   %38 = getelementptr inbounds nuw [9 x i8], ptr %8, i64 0, i64 %indvars.iv.i
-  store i8 %37, ptr %38, align 1, !alias.scope !46
+  store i8 %37, ptr %38, align 1, !alias.scope !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_.exit, label %29, !llvm.loop !49
+  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_.exit, label %29, !llvm.loop !46
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_.exit: ; preds = %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, i8 0, i64 9, i1 false)
@@ -5231,7 +5231,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i:
   store i8 %42, ptr %41, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
@@ -5246,33 +5246,33 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i1
   store i8 %46, ptr %45, align 1
   %indvars.iv.next.i.i151 = add nuw nsw i64 %indvars.iv.i.i150, 1
   %exitcond.not.i.i152 = icmp eq i64 %indvars.iv.next.i.i151, 9
-  br i1 %exitcond.not.i.i152, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i149, !llvm.loop !24
+  br i1 %exitcond.not.i.i152, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i149, !llvm.loop !22
 
 47:                                               ; preds = %24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false), !alias.scope !50
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false), !alias.scope !47
   br label %48
 
 48:                                               ; preds = %55, %47
   %indvars.iv.i153 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i155, %55 ]
   %49 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %indvars.iv.i153
-  %50 = load i8, ptr %49, align 1, !noalias !50
+  %50 = load i8, ptr %49, align 1, !noalias !47
   %51 = trunc i8 %50 to i1
   br i1 %51, label %55, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i154
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i154: ; preds = %48
   %52 = getelementptr inbounds nuw [9 x i8], ptr %25, i64 0, i64 %indvars.iv.i153
-  %53 = load i8, ptr %52, align 1, !noalias !50
+  %53 = load i8, ptr %52, align 1, !noalias !47
   %54 = and i8 %53, 1
   br label %55
 
 55:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i154, %48
   %56 = phi i8 [ 1, %48 ], [ %54, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i154 ]
   %57 = getelementptr inbounds nuw [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i153
-  store i8 %56, ptr %57, align 1, !alias.scope !50
+  store i8 %56, ptr %57, align 1, !alias.scope !47
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, 9
-  br i1 %exitcond.not.i156, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_.exit157, label %48, !llvm.loop !49
+  br i1 %exitcond.not.i156, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_.exit157, label %48, !llvm.loop !46
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_.exit157: ; preds = %55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, i8 0, i64 9, i1 false)
@@ -5287,7 +5287,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i1
   store i8 %61, ptr %60, align 1
   %indvars.iv.next.i.i160 = add nuw nsw i64 %indvars.iv.i.i159, 1
   %exitcond.not.i.i161 = icmp eq i64 %indvars.iv.next.i.i160, 9
-  br i1 %exitcond.not.i.i161, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit162, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i158, !llvm.loop !23
+  br i1 %exitcond.not.i.i161, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit162, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i158, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit162: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
@@ -5302,7 +5302,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i1
   store i8 %65, ptr %64, align 1
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i164, 1
   %exitcond.not.i.i166 = icmp eq i64 %indvars.iv.next.i.i165, 9
-  br i1 %exitcond.not.i.i166, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i163, !llvm.loop !24
+  br i1 %exitcond.not.i.i166, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i163, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i163, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5312,23 +5312,23 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
 66:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %67 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0319.0353) #29
   %.not346 = icmp eq ptr %67, %22
-  br i1 %.not346, label %._crit_edge, label %.preheader, !llvm.loop !53
+  br i1 %.not346, label %._crit_edge, label %.preheader, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %66, %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false), !alias.scope !54
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false), !alias.scope !51
   br label %68
 
 68:                                               ; preds = %68, %._crit_edge
   %indvars.iv.i168 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i169, %68 ]
   %69 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i168
-  %70 = load i8, ptr %69, align 1, !noalias !54
+  %70 = load i8, ptr %69, align 1, !noalias !51
   %71 = getelementptr inbounds nuw [7 x i8], ptr %11, i64 0, i64 %indvars.iv.i168
   %72 = and i8 %70, 1
-  store i8 %72, ptr %71, align 1, !alias.scope !54
+  store i8 %72, ptr %71, align 1, !alias.scope !51
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 7
-  br i1 %exitcond.not.i170, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %68, !llvm.loop !57
+  br i1 %exitcond.not.i170, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %68, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit: ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 2
@@ -5356,40 +5356,40 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %90 = select i1 %85, i1 %89, i1 false
   %91 = zext i1 %90 to i8
   store i8 %91, ptr %86, align 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %13, i8 0, i64 9, i1 false), !alias.scope !58
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %13, i8 0, i64 9, i1 false), !alias.scope !55
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171, %83
   %indvars.iv.i.i172 = phi i64 [ 0, %83 ], [ %indvars.iv.next.i.i173, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171 ]
   %92 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i172
-  %93 = load i8, ptr %92, align 1, !noalias !58
+  %93 = load i8, ptr %92, align 1, !noalias !55
   %94 = getelementptr inbounds nuw [9 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i172
   %95 = and i8 %93, 1
-  store i8 %95, ptr %94, align 1, !alias.scope !58
+  store i8 %95, ptr %94, align 1, !alias.scope !55
   %indvars.iv.next.i.i173 = add nuw nsw i64 %indvars.iv.i.i172, 1
   %exitcond.not.i.i174 = icmp eq i64 %indvars.iv.next.i.i173, 9
-  br i1 %exitcond.not.i.i174, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171, !llvm.loop !23
+  br i1 %exitcond.not.i.i174, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i
   %indvars.iv.i175 = phi i64 [ %indvars.iv.next.i176, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i ], [ 0, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i171 ]
   %96 = getelementptr inbounds nuw [9 x i8], ptr %13, i64 0, i64 %indvars.iv.i175
-  %97 = load i8, ptr %96, align 1, !alias.scope !58
+  %97 = load i8, ptr %96, align 1, !alias.scope !55
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i
 
 99:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i
   %100 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i175
-  %101 = load i8, ptr %100, align 1, !noalias !58
+  %101 = load i8, ptr %100, align 1, !noalias !55
   %102 = and i8 %101, 1
   %103 = xor i8 %102, 1
-  store i8 %103, ptr %96, align 1, !alias.scope !58
+  store i8 %103, ptr %96, align 1, !alias.scope !55
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i: ; preds = %99, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i
   %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i175, 1
   %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, 9
-  br i1 %exitcond.not.i177, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i, !llvm.loop !61
+  br i1 %exitcond.not.i177, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i, !llvm.loop !58
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %12, i8 0, i64 9, i1 false)
@@ -5404,24 +5404,24 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i1
   store i8 %107, ptr %106, align 1
   %indvars.iv.next.i.i180 = add nuw nsw i64 %indvars.iv.i.i179, 1
   %exitcond.not.i.i181 = icmp eq i64 %indvars.iv.next.i.i180, 9
-  br i1 %exitcond.not.i.i181, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit183, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i178, !llvm.loop !23
+  br i1 %exitcond.not.i.i181, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit183, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i178, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit183: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i178
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, i8 0, i64 7, i1 false), !alias.scope !62
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, i8 0, i64 7, i1 false), !alias.scope !59
   br label %109
 
 109:                                              ; preds = %109, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit183
   %indvars.iv.i184 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit183 ], [ %indvars.iv.next.i185, %109 ]
   %110 = getelementptr inbounds nuw [9 x i8], ptr %108, i64 0, i64 %indvars.iv.i184
-  %111 = load i8, ptr %110, align 1, !noalias !62
+  %111 = load i8, ptr %110, align 1, !noalias !59
   %112 = getelementptr inbounds nuw [7 x i8], ptr %14, i64 0, i64 %indvars.iv.i184
   %113 = and i8 %111, 1
-  store i8 %113, ptr %112, align 1, !alias.scope !62
+  store i8 %113, ptr %112, align 1, !alias.scope !59
   %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i184, 1
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, 7
-  br i1 %exitcond.not.i186, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit187, label %109, !llvm.loop !57
+  br i1 %exitcond.not.i186, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit187, label %109, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit187: ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 2
@@ -5442,20 +5442,20 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_
   br i1 %or.cond, label %.thread, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189.thread
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189.thread: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit187, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %15, i8 0, i64 7, i1 false), !alias.scope !65
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %15, i8 0, i64 7, i1 false), !alias.scope !62
   br label %123
 
 123:                                              ; preds = %123, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189.thread
   %indvars.iv.i190 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189.thread ], [ %indvars.iv.next.i191, %123 ]
   %124 = getelementptr inbounds nuw [9 x i8], ptr %108, i64 0, i64 %indvars.iv.i190
-  %125 = load i8, ptr %124, align 1, !noalias !65
+  %125 = load i8, ptr %124, align 1, !noalias !62
   %126 = getelementptr inbounds nuw [7 x i8], ptr %15, i64 0, i64 %indvars.iv.i190
   %127 = and i8 %125, 1
-  store i8 %127, ptr %126, align 1, !alias.scope !65
+  store i8 %127, ptr %126, align 1, !alias.scope !62
   %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i190, 1
   %exitcond.not.i192 = icmp eq i64 %indvars.iv.next.i191, 7
-  br i1 %exitcond.not.i192, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193, label %123, !llvm.loop !57
+  br i1 %exitcond.not.i192, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193, label %123, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193: ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -5480,40 +5480,40 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = load i64, ptr %142, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %17, i8 0, i64 9, i1 false), !alias.scope !68
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %17, i8 0, i64 9, i1 false), !alias.scope !65
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196, %.thread
   %indvars.iv.i.i197 = phi i64 [ 0, %.thread ], [ %indvars.iv.next.i.i198, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196 ]
   %144 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i197
-  %145 = load i8, ptr %144, align 1, !noalias !68
+  %145 = load i8, ptr %144, align 1, !noalias !65
   %146 = getelementptr inbounds nuw [9 x i8], ptr %17, i64 0, i64 %indvars.iv.i.i197
   %147 = and i8 %145, 1
-  store i8 %147, ptr %146, align 1, !alias.scope !68
+  store i8 %147, ptr %146, align 1, !alias.scope !65
   %indvars.iv.next.i.i198 = add nuw nsw i64 %indvars.iv.i.i197, 1
   %exitcond.not.i.i199 = icmp eq i64 %indvars.iv.next.i.i198, 9
-  br i1 %exitcond.not.i.i199, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196, !llvm.loop !23
+  br i1 %exitcond.not.i.i199, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i202
   %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i203, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i202 ], [ 0, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196 ]
   %148 = getelementptr inbounds nuw [9 x i8], ptr %17, i64 0, i64 %indvars.iv.i201
-  %149 = load i8, ptr %148, align 1, !alias.scope !68
+  %149 = load i8, ptr %148, align 1, !alias.scope !65
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i202
 
 151:                                              ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200
   %152 = getelementptr inbounds nuw [9 x i8], ptr %108, i64 0, i64 %indvars.iv.i201
-  %153 = load i8, ptr %152, align 1, !noalias !68
+  %153 = load i8, ptr %152, align 1, !noalias !65
   %154 = and i8 %153, 1
   %155 = xor i8 %154, 1
-  store i8 %155, ptr %148, align 1, !alias.scope !68
+  store i8 %155, ptr %148, align 1, !alias.scope !65
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i202
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i202: ; preds = %151, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200
   %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i201, 1
   %exitcond.not.i204 = icmp eq i64 %indvars.iv.next.i203, 9
-  br i1 %exitcond.not.i204, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit205, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200, !llvm.loop !61
+  br i1 %exitcond.not.i204, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit205, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i200, !llvm.loop !58
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit205: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i202
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %16, i8 0, i64 9, i1 false)
@@ -5528,43 +5528,43 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i2
   store i8 %159, ptr %158, align 1
   %indvars.iv.next.i.i208 = add nuw nsw i64 %indvars.iv.i.i207, 1
   %exitcond.not.i.i209 = icmp eq i64 %indvars.iv.next.i.i208, 9
-  br i1 %exitcond.not.i.i209, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit211, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i206, !llvm.loop !23
+  br i1 %exitcond.not.i.i209, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit211, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i206, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit211: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i206
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %19, i8 0, i64 9, i1 false), !alias.scope !71
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %19, i8 0, i64 9, i1 false), !alias.scope !68
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit211
   %indvars.iv.i.i213 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit211 ], [ %indvars.iv.next.i.i214, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212 ]
   %160 = getelementptr inbounds nuw [9 x i8], ptr %108, i64 0, i64 %indvars.iv.i.i213
-  %161 = load i8, ptr %160, align 1, !noalias !71
+  %161 = load i8, ptr %160, align 1, !noalias !68
   %162 = getelementptr inbounds nuw [9 x i8], ptr %19, i64 0, i64 %indvars.iv.i.i213
   %163 = and i8 %161, 1
-  store i8 %163, ptr %162, align 1, !alias.scope !71
+  store i8 %163, ptr %162, align 1, !alias.scope !68
   %indvars.iv.next.i.i214 = add nuw nsw i64 %indvars.iv.i.i213, 1
   %exitcond.not.i.i215 = icmp eq i64 %indvars.iv.next.i.i214, 9
-  br i1 %exitcond.not.i.i215, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212, !llvm.loop !23
+  br i1 %exitcond.not.i.i215, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i218
   %indvars.iv.i217 = phi i64 [ %indvars.iv.next.i219, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i218 ], [ 0, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i212 ]
   %164 = getelementptr inbounds nuw [9 x i8], ptr %19, i64 0, i64 %indvars.iv.i217
-  %165 = load i8, ptr %164, align 1, !alias.scope !71
+  %165 = load i8, ptr %164, align 1, !alias.scope !68
   %166 = trunc i8 %165 to i1
   br i1 %166, label %167, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i218
 
 167:                                              ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216
   %168 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i217
-  %169 = load i8, ptr %168, align 1, !noalias !71
+  %169 = load i8, ptr %168, align 1, !noalias !68
   %170 = and i8 %169, 1
   %171 = xor i8 %170, 1
-  store i8 %171, ptr %164, align 1, !alias.scope !71
+  store i8 %171, ptr %164, align 1, !alias.scope !68
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i218
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i218: ; preds = %167, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i217, 1
   %exitcond.not.i220 = icmp eq i64 %indvars.iv.next.i219, 9
-  br i1 %exitcond.not.i220, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit221, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216, !llvm.loop !61
+  br i1 %exitcond.not.i220, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit221, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.preheader.i216, !llvm.loop !58
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_.exit221: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEC2ERKS3_.exit.i218
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %18, i8 0, i64 9, i1 false)
@@ -5579,7 +5579,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i2
   store i8 %175, ptr %174, align 1
   %indvars.iv.next.i.i224 = add nuw nsw i64 %indvars.iv.i.i223, 1
   %exitcond.not.i.i225 = icmp eq i64 %indvars.iv.next.i.i224, 9
-  br i1 %exitcond.not.i.i225, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i222, !llvm.loop !23
+  br i1 %exitcond.not.i.i225, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i222, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i222
   %.not112 = icmp eq i64 %139, %143
@@ -5892,7 +5892,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13IN
   %316 = phi i1 [ true, %308 ], [ true, %304 ], [ true, %303 ], [ %315, %312 ]
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next363, 9
-  br i1 %exitcond364.not, label %317, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit, !llvm.loop !74
+  br i1 %exitcond364.not, label %317, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit, !llvm.loop !71
 
 317:                                              ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227
   %318 = xor i1 %316, true
@@ -5967,20 +5967,20 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
 38:                                               ; preds = %36
   %39 = load ptr, ptr %34, align 8
   %40 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %39, i64 %.01018.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !75
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !72
   br label %41
 
 41:                                               ; preds = %41, %38
   %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %41 ]
   %42 = getelementptr inbounds nuw [9 x i8], ptr %40, i64 0, i64 %indvars.iv.i.i
-  %43 = load i8, ptr %42, align 1, !noalias !75
+  %43 = load i8, ptr %42, align 1, !noalias !72
   %44 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
   %45 = and i8 %43, 1
-  store i8 %45, ptr %44, align 1, !alias.scope !75
+  store i8 %45, ptr %44, align 1, !alias.scope !72
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %exitcond.not.i.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i, label %41, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i, label %41, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i: ; preds = %41
   %46 = load i8, ptr %31, align 1
@@ -6003,12 +6003,12 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i:                ; preds = %_ZNK3vcg20GLMeshAtt
   %56 = phi i8 [ 1, %36 ], [ %54, %_ZNKSt6bitsetILm4EE4testEm.exit.i ], [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ]
   %57 = add nuw nsw i64 %.01018.i, 1
   %exitcond.not.i = icmp eq i64 %57, 4
-  br i1 %exitcond.not.i, label %58, label %36, !llvm.loop !78
+  br i1 %exitcond.not.i, label %58, label %36, !llvm.loop !75
 
 58:                                               ; preds = %55
   %59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.012.021.i) #29
   %.not.i = icmp eq ptr %59, %30
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !79
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !76
 
 ._crit_edge.loopexit.i:                           ; preds = %58
   %60 = trunc i8 %56 to i1
@@ -6035,7 +6035,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
 .preheader.backedge:                              ; preds = %61, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %61 ], [ %indvars.iv.next31, %.thread ]
   %.01829.be = phi i1 [ %64, %61 ], [ true, %.thread ]
-  br label %.preheader, !llvm.loop !80
+  br label %.preheader, !llvm.loop !77
 
 .thread:                                          ; preds = %.preheader
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv, 1
@@ -6061,7 +6061,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i:
   store i8 %70, ptr %69, align 1
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %exitcond.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i22, 9
-  br i1 %exitcond.not.i.i23, label %71, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i23, label %71, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !21
 
 71:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -6083,7 +6083,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i2
   store i8 %80, ptr %79, align 1
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 9
-  br i1 %exitcond.not.i.i27, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i24, !llvm.loop !24
+  br i1 %exitcond.not.i.i27, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i24, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i24, %71
   %81 = call noundef zeroext i1 @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE31updateBuffersReplicatedPipelineERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %6)
@@ -6163,7 +6163,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #27
   %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %53, %52
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %50, ptr %51, align 8
@@ -6386,7 +6386,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %121, label %62, !llvm.loop !81
+  br i1 %exitcond.not, label %121, label %62, !llvm.loop !78
 
 119:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit88
   %120 = landingpad { ptr, i32 }
@@ -6425,15 +6425,15 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %125 unwind label %204
 
 125:                                              ; preds = %124
-  %126 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #27, !noalias !82
-  %127 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #27, !noalias !82
+  %126 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #27, !noalias !79
+  %127 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #27, !noalias !79
   %128 = add i64 %127, %126
-  %129 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #27, !noalias !82
+  %129 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #27, !noalias !79
   %130 = icmp ugt i64 %128, %129
   br i1 %130, label %131, label %135
 
 131:                                              ; preds = %125
-  %132 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #27, !noalias !82
+  %132 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #27, !noalias !79
   %.not.i90 = icmp ugt i64 %128, %132
   br i1 %.not.i90, label %135, label %133
 
@@ -6470,15 +6470,15 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %142 unwind label %215
 
 142:                                              ; preds = %141
-  %143 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #27, !noalias !85
-  %144 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #27, !noalias !85
+  %143 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #27, !noalias !82
+  %144 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #27, !noalias !82
   %145 = add i64 %144, %143
-  %146 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #27, !noalias !85
+  %146 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #27, !noalias !82
   %147 = icmp ugt i64 %145, %146
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %142
-  %149 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #27, !noalias !85
+  %149 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #27, !noalias !82
   %.not.i96 = icmp ugt i64 %145, %149
   br i1 %.not.i96, label %152, label %150
 
@@ -6515,15 +6515,15 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %159 unwind label %226
 
 159:                                              ; preds = %158
-  %160 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #27, !noalias !88
-  %161 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #27, !noalias !88
+  %160 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #27, !noalias !85
+  %161 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #27, !noalias !85
   %162 = add i64 %161, %160
-  %163 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #27, !noalias !88
+  %163 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #27, !noalias !85
   %164 = icmp ugt i64 %162, %163
   br i1 %164, label %165, label %169
 
 165:                                              ; preds = %159
-  %166 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #27, !noalias !88
+  %166 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #27, !noalias !85
   %.not.i103 = icmp ugt i64 %162, %166
   br i1 %.not.i103, label %169, label %167
 
@@ -6765,7 +6765,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #27
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 9
-  br i1 %exitcond153.not, label %246, label %.preheader124, !llvm.loop !91
+  br i1 %exitcond153.not, label %246, label %.preheader124, !llvm.loop !88
 
 246:                                              ; preds = %245
   %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %176, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -6774,7 +6774,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 248:                                              ; preds = %246
   %249 = add nuw nsw i64 %.025144, 1
   %exitcond154.not = icmp eq i64 %249, 4
-  br i1 %exitcond154.not, label %250, label %186, !llvm.loop !92
+  br i1 %exitcond154.not, label %250, label %186, !llvm.loop !89
 
 250:                                              ; preds = %248
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull align 8 dereferenceable(128) %39)
@@ -6803,7 +6803,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %39) #27
   %259 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0121.0146) #29
   %.not = icmp eq ptr %259, %175
-  br i1 %.not, label %._crit_edge, label %178, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %178, !llvm.loop !90
 
 260:                                              ; preds = %257
   %261 = landingpad { ptr, i32 }
@@ -6885,7 +6885,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #27
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next156, 9
-  br i1 %exitcond158.not, label %286, label %266, !llvm.loop !94
+  br i1 %exitcond158.not, label %286, label %266, !llvm.loop !91
 
 286:                                              ; preds = %285
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr noundef nonnull align 8 dereferenceable(128) %42)
@@ -7071,20 +7071,20 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg49NotThreadSafeGLMeshAttributesMu
 16:                                               ; preds = %14
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %17, i64 %.01018.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !95
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !92
   br label %19
 
 19:                                               ; preds = %19, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %19 ]
   %20 = getelementptr inbounds nuw [9 x i8], ptr %18, i64 0, i64 %indvars.iv.i.i
-  %21 = load i8, ptr %20, align 1, !noalias !95
+  %21 = load i8, ptr %20, align 1, !noalias !92
   %22 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
   %23 = and i8 %21, 1
-  store i8 %23, ptr %22, align 1, !alias.scope !95
+  store i8 %23, ptr %22, align 1, !alias.scope !92
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %exitcond.not.i.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i, label %19, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i, label %19, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i: ; preds = %19
   %24 = load i8, ptr %9, align 1
@@ -7107,12 +7107,12 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i:                ; preds = %_ZNK3vcg20GLMeshAtt
   %34 = phi i8 [ 1, %14 ], [ %32, %_ZNKSt6bitsetILm4EE4testEm.exit.i ], [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ]
   %35 = add nuw nsw i64 %.01018.i, 1
   %exitcond.not.i = icmp eq i64 %35, 4
-  br i1 %exitcond.not.i, label %36, label %14, !llvm.loop !78
+  br i1 %exitcond.not.i, label %36, label %14, !llvm.loop !75
 
 36:                                               ; preds = %33
   %37 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.012.021.i) #29
   %.not.i = icmp eq ptr %37, %8
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !79
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !76
 
 ._crit_edge.loopexit.i:                           ; preds = %36
   %38 = trunc i8 %34 to i1
@@ -7180,7 +7180,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit: ; 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.084.0104, i64 8
   %.not89 = icmp eq ptr %59, %58
-  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %57, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE30isThereAReplicatedPipelineViewEv.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7240,7 +7240,7 @@ _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit56: ; preds = %.lr.ph110
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.077.0107, i64 8
   %86 = load ptr, ptr %44, align 8
   %.not90 = icmp eq ptr %85, %86
-  br i1 %.not90, label %._crit_edge111, label %.lr.ph110, !llvm.loop !99
+  br i1 %.not90, label %._crit_edge111, label %.lr.ph110, !llvm.loop !96
 
 ._crit_edge111:                                   ; preds = %83, %66
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 97
@@ -7426,7 +7426,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit63: 
   %177 = load ptr, ptr %44, align 8
   %178 = icmp eq ptr %176, %177
   %.not92 = or i1 %.149, %178
-  br i1 %.not92, label %._crit_edge118, label %94, !llvm.loop !100
+  br i1 %.not92, label %._crit_edge118, label %94, !llvm.loop !97
 
 ._crit_edge118:                                   ; preds = %175
   %179 = xor i1 %.149, true
@@ -7458,7 +7458,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i: 
 190:                                              ; preds = %188, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i, %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i65, label %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE28buffersDeAllocationRequestedERKNS_20GLMeshAttributesInfo16InternalRendAttsE.exit, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i, !llvm.loop !101
+  br i1 %exitcond.not.i65, label %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE28buffersDeAllocationRequestedERKNS_20GLMeshAttributesInfo16InternalRendAttsE.exit, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i, !llvm.loop !98
 
 _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE28buffersDeAllocationRequestedERKNS_20GLMeshAttributesInfo16InternalRendAttsE.exit: ; preds = %190, %88, %._crit_edge118
   %191 = phi i1 [ true, %._crit_edge118 ], [ true, %88 ], [ %179, %190 ]
@@ -7757,7 +7757,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i409: ; preds = %88
   store i16 0, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  store ptr %7, ptr %5, align 8, !alias.scope !102
+  store ptr %7, ptr %5, align 8, !alias.scope !99
   %118 = invoke ptr @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOsEESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr nonnull %108, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %119 unwind label %95
 
@@ -7814,14 +7814,14 @@ _ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %129
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc291, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %145, %.lr.ph.i.i.i.i.i.i.i ], [ %141, %.noexc291 ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %144, %.lr.ph.i.i.i.i.i.i.i ], [ %130, %.noexc291 ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %143 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !108, !noalias !105
-  store i64 %143, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !105, !noalias !108
+  %143 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !105, !noalias !102
+  store i64 %143, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !102, !noalias !105
   %144 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %144, %123
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !107
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc291
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %141, %.noexc291 ], [ %145, %.lr.ph.i.i.i.i.i.i.i ]
@@ -7893,7 +7893,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
   store i16 -1, ptr %8, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr %8, ptr %3, align 8, !alias.scope !111
+  store ptr %8, ptr %3, align 8, !alias.scope !108
   %178 = invoke ptr @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOsEESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %168, ptr nonnull %174, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %179 unwind label %95
 
@@ -7957,14 +7957,14 @@ _ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i311: ; preds = %1
 .lr.ph.i.i.i.i.i.i.i315:                          ; preds = %.noexc324, %.lr.ph.i.i.i.i.i.i.i315
   %.012.i.i.i.i.i.i.i316 = phi ptr [ %205, %.lr.ph.i.i.i.i.i.i.i315 ], [ %201, %.noexc324 ]
   %.0911.i.i.i.i.i.i.i317 = phi ptr [ %204, %.lr.ph.i.i.i.i.i.i.i315 ], [ %190, %.noexc324 ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !111)
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %203 = load i64, ptr %.0911.i.i.i.i.i.i.i317, align 4, !alias.scope !117, !noalias !114
-  store i64 %203, ptr %.012.i.i.i.i.i.i.i316, align 4, !alias.scope !114, !noalias !117
+  %203 = load i64, ptr %.0911.i.i.i.i.i.i.i317, align 4, !alias.scope !114, !noalias !111
+  store i64 %203, ptr %.012.i.i.i.i.i.i.i316, align 4, !alias.scope !111, !noalias !114
   %204 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i317, i64 8
   %205 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i316, i64 8
   %.not.i.i.i.i.i.i.i318 = icmp eq ptr %204, %183
-  br i1 %.not.i.i.i.i.i.i.i318, label %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i319, label %.lr.ph.i.i.i.i.i.i.i315, !llvm.loop !110
+  br i1 %.not.i.i.i.i.i.i.i318, label %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i319, label %.lr.ph.i.i.i.i.i.i.i315, !llvm.loop !107
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i319: ; preds = %.lr.ph.i.i.i.i.i.i.i315, %.noexc324
   %.0.lcssa.i.i.i.i.i.i.i320 = phi ptr [ %201, %.noexc324 ], [ %205, %.lr.ph.i.i.i.i.i.i.i315 ]
@@ -8006,8 +8006,8 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 _ZNSt6vectorISt4pairIsjESaIS1_EE5clearEv.exit:    ; preds = %214, %219
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %221 = load i64, ptr %220, align 8
-  %.not690 = icmp eq i64 %221, 0
-  br i1 %.not690, label %223, label %222
+  %.not664 = icmp eq i64 %221, 0
+  br i1 %.not664, label %223, label %222
 
 222:                                              ; preds = %_ZNSt6vectorISt4pairIsjESaIS1_EE5clearEv.exit
   invoke void @_ZNSt6vectorISt4pairIsjESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %215, i64 noundef %221)
@@ -8025,20 +8025,20 @@ _ZNSt6vectorISt4pairIsjESaIS1_EE5clearEv.exit:    ; preds = %214, %219
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 264
   %230 = load i32, ptr %229, align 8
   store i32 -1, ptr %10, align 4
-  %.not691 = icmp eq i32 %230, 0
-  br i1 %.not691, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %231
+  %.not665 = icmp eq i32 %230, 0
+  br i1 %.not665, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %231
 
 231:                                              ; preds = %227
   %232 = sext i32 %230 to i64
   invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr null, i64 noundef %232, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit unwind label %.loopexit.split-lp
 
-.loopexit610:                                     ; preds = %724, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347, %750, %755, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351, %782, %787, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355, %814, %819, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359, %846, %851, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363, %878, %883, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367, %910, %915, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371, %942
+.loopexit610:                                     ; preds = %734, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347, %760, %765, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351, %792, %797, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355, %824, %829, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359, %856, %861, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363, %888, %893, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367, %920, %925, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371, %952
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %233
 
-.loopexit.split-lp:                               ; preds = %987, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373, %1011, %231
+.loopexit.split-lp:                               ; preds = %997, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373, %1021, %231
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %233
@@ -8057,24 +8057,10 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.not596663 = icmp eq ptr %237, %238
-  br i1 %.not596663, label %._crit_edge670, label %.lr.ph669
+  %.not596637 = icmp eq ptr %237, %238
+  br i1 %.not596637, label %._crit_edge644, label %.lr.ph643
 
-.lr.ph669:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
-  %invariant.gep = getelementptr i8, ptr %.sroa.0503.0, i64 4
-  %invariant.gep620 = getelementptr i8, ptr %.sroa.0503.0, i64 8
-  %invariant.gep622 = getelementptr i8, ptr %.sroa.0495.0, i64 4
-  %invariant.gep624 = getelementptr i8, ptr %.sroa.0495.0, i64 8
-  %invariant.gep626 = getelementptr i8, ptr %.sroa.0481.0, i64 4
-  %invariant.gep628 = getelementptr i8, ptr %.sroa.0481.0, i64 8
-  %invariant.gep630 = getelementptr i8, ptr %.sroa.0481.0, i64 12
-  %invariant.gep632 = getelementptr i8, ptr %.sroa.0481.0, i64 16
-  %invariant.gep634 = getelementptr i8, ptr %.sroa.0481.0, i64 20
-  %invariant.gep636 = getelementptr i8, ptr %.sroa.0469.1, i64 4
-  %invariant.gep638 = getelementptr i8, ptr %.sroa.0469.1, i64 8
-  %invariant.gep640 = getelementptr i8, ptr %.sroa.0469.1, i64 12
-  %invariant.gep642 = getelementptr i8, ptr %.sroa.0469.1, i64 16
-  %invariant.gep644 = getelementptr i8, ptr %.sroa.0469.1, i64 20
+.lr.ph643:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
   %239 = add i32 %13, -1
   %240 = add i64 %.sroa.speculated, -1
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8083,42 +8069,42 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %sext = sext i32 %239 to i64
   br label %244
 
-244:                                              ; preds = %.lr.ph669, %966
-  %indvars.iv681 = phi i64 [ 0, %.lr.ph669 ], [ %indvars.iv.next682, %966 ]
-  %.0201668 = phi i64 [ 0, %.lr.ph669 ], [ %.1202.lcssa, %966 ]
-  %.0207666 = phi i32 [ 0, %.lr.ph669 ], [ %.1208.lcssa, %966 ]
-  %.sroa.0434.0665 = phi ptr [ %237, %.lr.ph669 ], [ %967, %966 ]
-  %.0664 = phi i32 [ 0, %.lr.ph669 ], [ %.1.lcssa, %966 ]
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0665, i64 32
-  %246 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0665, i64 40
+244:                                              ; preds = %.lr.ph643, %976
+  %indvars.iv655 = phi i64 [ 0, %.lr.ph643 ], [ %indvars.iv.next656, %976 ]
+  %.0201642 = phi i64 [ 0, %.lr.ph643 ], [ %.1202.lcssa, %976 ]
+  %.0207640 = phi i32 [ 0, %.lr.ph643 ], [ %.1208.lcssa, %976 ]
+  %.sroa.0434.0639 = phi ptr [ %237, %.lr.ph643 ], [ %977, %976 ]
+  %.0638 = phi i32 [ 0, %.lr.ph643 ], [ %.1.lcssa, %976 ]
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0639, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0639, i64 40
   %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0665, i64 48
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.0434.0639, i64 48
   %249 = load ptr, ptr %248, align 8
-  %.not598652 = icmp eq ptr %247, %249
-  br i1 %.not598652, label %._crit_edge659, label %.lr.ph658
+  %.not598626 = icmp eq ptr %247, %249
+  br i1 %.not598626, label %._crit_edge633, label %.lr.ph632
 
-.lr.ph658:                                        ; preds = %244, %._crit_edge
-  %250 = phi ptr [ %951, %._crit_edge ], [ %249, %244 ]
-  %.1202656 = phi i64 [ %.2203.lcssa, %._crit_edge ], [ %.0201668, %244 ]
-  %.1208655 = phi i32 [ %.2209.lcssa, %._crit_edge ], [ %.0207666, %244 ]
-  %.sroa.0425.0654 = phi ptr [ %956, %._crit_edge ], [ %247, %244 ]
-  %.1653 = phi i32 [ %955, %._crit_edge ], [ %.0664, %244 ]
-  %251 = load i32, ptr %.sroa.0425.0654, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0654, i64 4
+.lr.ph632:                                        ; preds = %244, %._crit_edge
+  %250 = phi ptr [ %961, %._crit_edge ], [ %249, %244 ]
+  %.1202630 = phi i64 [ %.2203.lcssa, %._crit_edge ], [ %.0201642, %244 ]
+  %.1208629 = phi i32 [ %.2209.lcssa, %._crit_edge ], [ %.0207640, %244 ]
+  %.sroa.0425.0628 = phi ptr [ %966, %._crit_edge ], [ %247, %244 ]
+  %.1627 = phi i32 [ %965, %._crit_edge ], [ %.0638, %244 ]
+  %251 = load i32, ptr %.sroa.0425.0628, align 4
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0628, i64 4
   %253 = load i32, ptr %252, align 4
-  %.not213646 = icmp ugt i32 %251, %253
-  br i1 %.not213646, label %._crit_edge, label %.lr.ph.preheader
+  %.not213620 = icmp ugt i32 %251, %253
+  br i1 %.not213620, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph658
+.lr.ph.preheader:                                 ; preds = %.lr.ph632
   %254 = zext i32 %251 to i64
-  %255 = sext i32 %.1208655 to i64
+  %255 = sext i32 %.1208629 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %946
-  %indvars.iv678 = phi i64 [ %255, %.lr.ph.preheader ], [ %indvars.iv.next679, %946 ]
-  %.2203649 = phi i64 [ %.1202656, %.lr.ph.preheader ], [ %.3204, %946 ]
-  %.0210647 = phi i64 [ %254, %.lr.ph.preheader ], [ %947, %946 ]
-  %256 = urem i64 %indvars.iv678, %.sroa.speculated
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %956
+  %indvars.iv652 = phi i64 [ %255, %.lr.ph.preheader ], [ %indvars.iv.next653, %956 ]
+  %.2203623 = phi i64 [ %.1202630, %.lr.ph.preheader ], [ %.3204, %956 ]
+  %.0210621 = phi i64 [ %254, %.lr.ph.preheader ], [ %957, %956 ]
+  %256 = urem i64 %indvars.iv652, %.sroa.speculated
   %257 = load i8, ptr %1, align 1
   %258 = trunc i8 %257 to i1
   br i1 %258, label %259, label %298
@@ -8129,7 +8115,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %261 = load ptr, ptr %0, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 304
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw %class.CFaceO, ptr %263, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %264 = getelementptr inbounds nuw %class.CFaceO, ptr %263, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load float, ptr %266, align 4
@@ -8144,7 +8130,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   store float %272, ptr %273, align 4
   %274 = getelementptr i8, ptr %260, i64 12
   %275 = load ptr, ptr %262, align 8
-  %276 = getelementptr inbounds nuw %class.CFaceO, ptr %275, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %276 = getelementptr inbounds nuw %class.CFaceO, ptr %275, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load float, ptr %278, align 4
@@ -8159,7 +8145,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   store float %284, ptr %285, align 4
   %286 = getelementptr i8, ptr %260, i64 24
   %287 = load ptr, ptr %262, align 8
-  %288 = getelementptr inbounds nuw %class.CFaceO, ptr %287, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %288 = getelementptr inbounds nuw %class.CFaceO, ptr %287, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = load float, ptr %290, align 4
@@ -8180,12 +8166,12 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   br i1 %300, label %301, label %379
 
 301:                                              ; preds = %298
-  %.idx692 = mul i64 %256, 36
-  %302 = getelementptr i8, ptr %.sroa.0521.0, i64 %.idx692
+  %.idx666 = mul i64 %256, 36
+  %302 = getelementptr i8, ptr %.sroa.0521.0, i64 %.idx666
   %303 = load ptr, ptr %0, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 304
   %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds nuw %class.CFaceO, ptr %305, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %306 = getelementptr inbounds nuw %class.CFaceO, ptr %305, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
   %309 = load float, ptr %308, align 4
@@ -8223,7 +8209,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %329 = getelementptr i8, ptr %302, i64 12
   %330 = getelementptr inbounds nuw i8, ptr %323, i64 304
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw %class.CFaceO, ptr %331, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %332 = getelementptr inbounds nuw %class.CFaceO, ptr %331, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
   %333 = load ptr, ptr %332, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 24
   %335 = load float, ptr %334, align 4
@@ -8245,11 +8231,11 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   store float %346, ptr %336, align 4
   %347 = fdiv float %341, %sqrt.i331
   store float %347, ptr %340, align 4
-  %.pre684 = load ptr, ptr %0, align 8
+  %.pre658 = load ptr, ptr %0, align 8
   br label %348
 
 348:                                              ; preds = %322, %344
-  %349 = phi ptr [ %323, %322 ], [ %.pre684, %344 ]
+  %349 = phi ptr [ %323, %322 ], [ %.pre658, %344 ]
   %350 = phi float [ %335, %322 ], [ %345, %344 ]
   store float %350, ptr %329, align 4
   %351 = load float, ptr %336, align 4
@@ -8261,7 +8247,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %227, %231, %223
   %355 = getelementptr i8, ptr %302, i64 24
   %356 = getelementptr inbounds nuw i8, ptr %349, i64 304
   %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds nuw %class.CFaceO, ptr %357, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %358 = getelementptr inbounds nuw %class.CFaceO, ptr %357, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 24
   %361 = load float, ptr %360, align 4
@@ -8302,12 +8288,12 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %370, %348
   br i1 %381, label %382, label %454
 
 382:                                              ; preds = %379
-  %.idx693 = mul i64 %256, 36
-  %383 = getelementptr i8, ptr %.sroa.0512.0, i64 %.idx693
+  %.idx667 = mul i64 %256, 36
+  %383 = getelementptr i8, ptr %.sroa.0512.0, i64 %.idx667
   %384 = load ptr, ptr %0, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 304
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds nuw %class.CFaceO, ptr %386, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %387 = getelementptr inbounds nuw %class.CFaceO, ptr %386, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %388 = load float, ptr %387, align 4
   %389 = getelementptr inbounds nuw i8, ptr %387, i64 4
   %390 = load float, ptr %389, align 4
@@ -8327,11 +8313,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %370, %348
   store float %399, ptr %389, align 4
   %400 = fdiv float %394, %sqrt.i335
   store float %400, ptr %393, align 4
-  %.pre685 = load ptr, ptr %0, align 8
+  %.pre659 = load ptr, ptr %0, align 8
   br label %401
 
 401:                                              ; preds = %382, %397
-  %402 = phi ptr [ %384, %382 ], [ %.pre685, %397 ]
+  %402 = phi ptr [ %384, %382 ], [ %.pre659, %397 ]
   %403 = phi float [ %388, %382 ], [ %398, %397 ]
   store float %403, ptr %383, align 4
   %404 = load float, ptr %389, align 4
@@ -8343,7 +8329,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %370, %348
   %408 = getelementptr i8, ptr %383, i64 12
   %409 = getelementptr inbounds nuw i8, ptr %402, i64 304
   %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds nuw %class.CFaceO, ptr %410, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %411 = getelementptr inbounds nuw %class.CFaceO, ptr %410, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %412 = load float, ptr %411, align 4
   %413 = getelementptr inbounds nuw i8, ptr %411, i64 4
   %414 = load float, ptr %413, align 4
@@ -8363,11 +8349,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %370, %348
   store float %423, ptr %413, align 4
   %424 = fdiv float %418, %sqrt.i337
   store float %424, ptr %417, align 4
-  %.pre686 = load ptr, ptr %0, align 8
+  %.pre660 = load ptr, ptr %0, align 8
   br label %425
 
 425:                                              ; preds = %401, %421
-  %426 = phi ptr [ %402, %401 ], [ %.pre686, %421 ]
+  %426 = phi ptr [ %402, %401 ], [ %.pre660, %421 ]
   %427 = phi float [ %412, %401 ], [ %422, %421 ]
   store float %427, ptr %408, align 4
   %428 = load float, ptr %413, align 4
@@ -8379,7 +8365,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit334:            ; preds = %370, %348
   %432 = getelementptr i8, ptr %383, i64 24
   %433 = getelementptr inbounds nuw i8, ptr %426, i64 304
   %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds nuw %class.CFaceO, ptr %434, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %435 = getelementptr inbounds nuw %class.CFaceO, ptr %434, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %436 = load float, ptr %435, align 4
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 4
   %438 = load float, ptr %437, align 4
@@ -8415,60 +8401,60 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %445, %425
 454:                                              ; preds = %379, %_ZN3vcg6Point3IfE9NormalizeEv.exit340
   %455 = load i8, ptr %47, align 1
   %456 = trunc i8 %455 to i1
-  br i1 %456, label %457, label %477
+  br i1 %456, label %457, label %478
 
 457:                                              ; preds = %454
   %458 = load ptr, ptr %0, align 8
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 304
   %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds nuw %class.CFaceO, ptr %460, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %461 = getelementptr inbounds nuw %class.CFaceO, ptr %460, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 40
-  %464 = mul i64 %256, 3
-  %465 = getelementptr inbounds %"class.vcg::Color4", ptr %.sroa.0503.0, i64 %464
-  %466 = load i32, ptr %463, align 1
-  store i32 %466, ptr %465, align 1
-  %467 = load ptr, ptr %459, align 8
-  %468 = getelementptr inbounds nuw %class.CFaceO, ptr %467, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 40
-  %gep = getelementptr %"class.vcg::Color4", ptr %invariant.gep, i64 %464
-  %471 = load i32, ptr %470, align 1
-  store i32 %471, ptr %gep, align 1
+  %.idx668 = mul i64 %256, 12
+  %464 = getelementptr i8, ptr %.sroa.0503.0, i64 %.idx668
+  %465 = load i32, ptr %463, align 1
+  store i32 %465, ptr %464, align 1
+  %466 = load ptr, ptr %459, align 8
+  %467 = getelementptr inbounds nuw %class.CFaceO, ptr %466, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %468 = load ptr, ptr %467, align 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 40
+  %470 = getelementptr i8, ptr %464, i64 4
+  %471 = load i32, ptr %469, align 1
+  store i32 %471, ptr %470, align 1
   %472 = load ptr, ptr %459, align 8
-  %473 = getelementptr inbounds nuw %class.CFaceO, ptr %472, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %473 = getelementptr inbounds nuw %class.CFaceO, ptr %472, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 40
-  %gep621 = getelementptr %"class.vcg::Color4", ptr %invariant.gep620, i64 %464
-  %476 = load i32, ptr %475, align 1
-  store i32 %476, ptr %gep621, align 1
-  br label %477
+  %476 = getelementptr i8, ptr %464, i64 8
+  %477 = load i32, ptr %475, align 1
+  store i32 %477, ptr %476, align 1
+  br label %478
 
-477:                                              ; preds = %454, %457
-  %478 = load i8, ptr %58, align 1
-  %479 = trunc i8 %478 to i1
-  br i1 %479, label %480, label %521
+478:                                              ; preds = %454, %457
+  %479 = load i8, ptr %58, align 1
+  %480 = trunc i8 %479 to i1
+  br i1 %480, label %481, label %523
 
-480:                                              ; preds = %477
-  %481 = load ptr, ptr %0, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 304
-  %483 = load ptr, ptr %482, align 8
-  %484 = getelementptr inbounds nuw %class.CFaceO, ptr %483, i64 %.0210647
-  %485 = load ptr, ptr %484, align 8
-  %486 = getelementptr inbounds nuw i8, ptr %485, i64 24
-  %487 = load ptr, ptr %485, align 8
-  %488 = ptrtoint ptr %484 to i64
-  %489 = ptrtoint ptr %487 to i64
-  %490 = sub i64 %488, %489
-  %491 = load ptr, ptr %486, align 8
-  %492 = sdiv exact i64 %490, 12
-  %493 = getelementptr inbounds i8, ptr %491, i64 %492
-  %494 = mul i64 %256, 3
-  %495 = getelementptr inbounds %"class.vcg::Color4", ptr %.sroa.0495.0, i64 %494
-  %496 = load i32, ptr %493, align 1
+481:                                              ; preds = %478
+  %482 = load ptr, ptr %0, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 304
+  %484 = load ptr, ptr %483, align 8
+  %485 = getelementptr inbounds nuw %class.CFaceO, ptr %484, i64 %.0210621
+  %486 = load ptr, ptr %485, align 8
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 24
+  %488 = load ptr, ptr %486, align 8
+  %489 = ptrtoint ptr %485 to i64
+  %490 = ptrtoint ptr %488 to i64
+  %491 = sub i64 %489, %490
+  %492 = load ptr, ptr %487, align 8
+  %493 = sdiv exact i64 %491, 12
+  %494 = getelementptr inbounds i8, ptr %492, i64 %493
+  %.idx669 = mul i64 %256, 12
+  %495 = getelementptr i8, ptr %.sroa.0495.0, i64 %.idx669
+  %496 = load i32, ptr %494, align 1
   store i32 %496, ptr %495, align 1
-  %497 = load ptr, ptr %482, align 8
-  %498 = getelementptr inbounds nuw %class.CFaceO, ptr %497, i64 %.0210647
+  %497 = load ptr, ptr %483, align 8
+  %498 = getelementptr inbounds nuw %class.CFaceO, ptr %497, i64 %.0210621
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 24
   %501 = load ptr, ptr %499, align 8
@@ -8478,1037 +8464,1037 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit340:            ; preds = %445, %425
   %505 = load ptr, ptr %500, align 8
   %506 = sdiv exact i64 %504, 12
   %507 = getelementptr inbounds i8, ptr %505, i64 %506
-  %gep623 = getelementptr %"class.vcg::Color4", ptr %invariant.gep622, i64 %494
-  %508 = load i32, ptr %507, align 1
-  store i32 %508, ptr %gep623, align 1
-  %509 = load ptr, ptr %482, align 8
-  %510 = getelementptr inbounds nuw %class.CFaceO, ptr %509, i64 %.0210647
-  %511 = load ptr, ptr %510, align 8
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 24
-  %513 = load ptr, ptr %511, align 8
-  %514 = ptrtoint ptr %510 to i64
-  %515 = ptrtoint ptr %513 to i64
-  %516 = sub i64 %514, %515
-  %517 = load ptr, ptr %512, align 8
-  %518 = sdiv exact i64 %516, 12
-  %519 = getelementptr inbounds i8, ptr %517, i64 %518
-  %gep625 = getelementptr %"class.vcg::Color4", ptr %invariant.gep624, i64 %494
-  %520 = load i32, ptr %519, align 1
-  store i32 %520, ptr %gep625, align 1
-  br label %521
+  %508 = getelementptr i8, ptr %495, i64 4
+  %509 = load i32, ptr %507, align 1
+  store i32 %509, ptr %508, align 1
+  %510 = load ptr, ptr %483, align 8
+  %511 = getelementptr inbounds nuw %class.CFaceO, ptr %510, i64 %.0210621
+  %512 = load ptr, ptr %511, align 8
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 24
+  %514 = load ptr, ptr %512, align 8
+  %515 = ptrtoint ptr %511 to i64
+  %516 = ptrtoint ptr %514 to i64
+  %517 = sub i64 %515, %516
+  %518 = load ptr, ptr %513, align 8
+  %519 = sdiv exact i64 %517, 12
+  %520 = getelementptr inbounds i8, ptr %518, i64 %519
+  %521 = getelementptr i8, ptr %495, i64 8
+  %522 = load i32, ptr %520, align 1
+  store i32 %522, ptr %521, align 1
+  br label %523
 
-521:                                              ; preds = %477, %480
-  %522 = load i8, ptr %69, align 1
-  %523 = trunc i8 %522 to i1
-  br i1 %523, label %524, label %613
+523:                                              ; preds = %478, %481
+  %524 = load i8, ptr %69, align 1
+  %525 = trunc i8 %524 to i1
+  br i1 %525, label %526, label %619
 
-524:                                              ; preds = %521
-  %525 = load ptr, ptr %0, align 8
-  %526 = getelementptr inbounds nuw i8, ptr %525, i64 304
-  %527 = load ptr, ptr %526, align 8
-  %528 = getelementptr inbounds nuw %class.CFaceO, ptr %527, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+526:                                              ; preds = %523
+  %527 = load ptr, ptr %0, align 8
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 304
   %529 = load ptr, ptr %528, align 8
-  %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr inbounds nuw i8, ptr %530, i64 192
-  %532 = load ptr, ptr %530, align 8
-  %533 = ptrtoint ptr %529 to i64
-  %534 = ptrtoint ptr %532 to i64
-  %535 = sub i64 %533, %534
-  %536 = sdiv exact i64 %535, 48
-  %sext.i = shl i64 %536, 32
-  %537 = ashr exact i64 %sext.i, 32
-  %538 = load ptr, ptr %531, align 8
-  %539 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %538, i64 %537
-  %540 = load float, ptr %539, align 4
-  %541 = mul i64 %256, 6
-  %542 = getelementptr inbounds float, ptr %.sroa.0481.0, i64 %541
-  store float %540, ptr %542, align 4
-  %543 = load ptr, ptr %526, align 8
-  %544 = getelementptr inbounds nuw %class.CFaceO, ptr %543, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %545 = load ptr, ptr %544, align 8
+  %530 = getelementptr inbounds nuw %class.CFaceO, ptr %529, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %531 = load ptr, ptr %530, align 8
+  %532 = load ptr, ptr %531, align 8
+  %533 = getelementptr inbounds nuw i8, ptr %532, i64 192
+  %534 = load ptr, ptr %532, align 8
+  %535 = ptrtoint ptr %531 to i64
+  %536 = ptrtoint ptr %534 to i64
+  %537 = sub i64 %535, %536
+  %538 = sdiv exact i64 %537, 48
+  %sext.i = shl i64 %538, 32
+  %539 = ashr exact i64 %sext.i, 32
+  %540 = load ptr, ptr %533, align 8
+  %541 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %540, i64 %539
+  %542 = load float, ptr %541, align 4
+  %.idx670 = mul i64 %256, 24
+  %543 = getelementptr i8, ptr %.sroa.0481.0, i64 %.idx670
+  store float %542, ptr %543, align 4
+  %544 = load ptr, ptr %528, align 8
+  %545 = getelementptr inbounds nuw %class.CFaceO, ptr %544, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %546 = load ptr, ptr %545, align 8
-  %547 = getelementptr inbounds nuw i8, ptr %546, i64 192
-  %548 = load ptr, ptr %546, align 8
-  %549 = ptrtoint ptr %545 to i64
-  %550 = ptrtoint ptr %548 to i64
-  %551 = sub i64 %549, %550
-  %552 = sdiv exact i64 %551, 48
-  %sext.i341 = shl i64 %552, 32
-  %553 = ashr exact i64 %sext.i341, 32
-  %554 = load ptr, ptr %547, align 8
-  %555 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %554, i64 %553, i32 0, i64 0, i32 0, i64 1
-  %556 = load float, ptr %555, align 4
-  %gep627 = getelementptr float, ptr %invariant.gep626, i64 %541
-  store float %556, ptr %gep627, align 4
-  %557 = load ptr, ptr %526, align 8
-  %558 = getelementptr inbounds nuw %class.CFaceO, ptr %557, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  %559 = load ptr, ptr %558, align 8
-  %560 = load ptr, ptr %559, align 8
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 192
-  %562 = load ptr, ptr %560, align 8
-  %563 = ptrtoint ptr %559 to i64
-  %564 = ptrtoint ptr %562 to i64
-  %565 = sub i64 %563, %564
-  %566 = sdiv exact i64 %565, 48
-  %sext.i342 = shl i64 %566, 32
-  %567 = ashr exact i64 %sext.i342, 32
-  %568 = load ptr, ptr %561, align 8
-  %569 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %568, i64 %567
-  %570 = load float, ptr %569, align 4
-  %gep629 = getelementptr float, ptr %invariant.gep628, i64 %541
-  store float %570, ptr %gep629, align 4
-  %571 = load ptr, ptr %526, align 8
-  %572 = getelementptr inbounds nuw %class.CFaceO, ptr %571, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  %573 = load ptr, ptr %572, align 8
-  %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr inbounds nuw i8, ptr %574, i64 192
-  %576 = load ptr, ptr %574, align 8
-  %577 = ptrtoint ptr %573 to i64
-  %578 = ptrtoint ptr %576 to i64
-  %579 = sub i64 %577, %578
-  %580 = sdiv exact i64 %579, 48
-  %sext.i343 = shl i64 %580, 32
-  %581 = ashr exact i64 %sext.i343, 32
-  %582 = load ptr, ptr %575, align 8
-  %583 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %582, i64 %581, i32 0, i64 0, i32 0, i64 1
-  %584 = load float, ptr %583, align 4
-  %gep631 = getelementptr float, ptr %invariant.gep630, i64 %541
-  store float %584, ptr %gep631, align 4
-  %585 = load ptr, ptr %526, align 8
-  %586 = getelementptr inbounds nuw %class.CFaceO, ptr %585, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
-  %587 = load ptr, ptr %586, align 8
-  %588 = load ptr, ptr %587, align 8
-  %589 = getelementptr inbounds nuw i8, ptr %588, i64 192
-  %590 = load ptr, ptr %588, align 8
-  %591 = ptrtoint ptr %587 to i64
-  %592 = ptrtoint ptr %590 to i64
-  %593 = sub i64 %591, %592
-  %594 = sdiv exact i64 %593, 48
-  %sext.i344 = shl i64 %594, 32
-  %595 = ashr exact i64 %sext.i344, 32
-  %596 = load ptr, ptr %589, align 8
-  %597 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %596, i64 %595
-  %598 = load float, ptr %597, align 4
-  %gep633 = getelementptr float, ptr %invariant.gep632, i64 %541
-  store float %598, ptr %gep633, align 4
-  %599 = load ptr, ptr %526, align 8
-  %600 = getelementptr inbounds nuw %class.CFaceO, ptr %599, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
-  %601 = load ptr, ptr %600, align 8
-  %602 = load ptr, ptr %601, align 8
-  %603 = getelementptr inbounds nuw i8, ptr %602, i64 192
-  %604 = load ptr, ptr %602, align 8
-  %605 = ptrtoint ptr %601 to i64
-  %606 = ptrtoint ptr %604 to i64
-  %607 = sub i64 %605, %606
-  %608 = sdiv exact i64 %607, 48
-  %sext.i345 = shl i64 %608, 32
-  %609 = ashr exact i64 %sext.i345, 32
-  %610 = load ptr, ptr %603, align 8
-  %611 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %610, i64 %609, i32 0, i64 0, i32 0, i64 1
-  %612 = load float, ptr %611, align 4
-  %gep635 = getelementptr float, ptr %invariant.gep634, i64 %541
-  store float %612, ptr %gep635, align 4
-  br label %613
+  %547 = load ptr, ptr %546, align 8
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 192
+  %549 = load ptr, ptr %547, align 8
+  %550 = ptrtoint ptr %546 to i64
+  %551 = ptrtoint ptr %549 to i64
+  %552 = sub i64 %550, %551
+  %553 = sdiv exact i64 %552, 48
+  %sext.i341 = shl i64 %553, 32
+  %554 = ashr exact i64 %sext.i341, 32
+  %555 = load ptr, ptr %548, align 8
+  %556 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %555, i64 %554, i32 0, i64 0, i32 0, i64 1
+  %557 = load float, ptr %556, align 4
+  %558 = getelementptr i8, ptr %543, i64 4
+  store float %557, ptr %558, align 4
+  %559 = load ptr, ptr %528, align 8
+  %560 = getelementptr inbounds nuw %class.CFaceO, ptr %559, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %561 = load ptr, ptr %560, align 8
+  %562 = load ptr, ptr %561, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 192
+  %564 = load ptr, ptr %562, align 8
+  %565 = ptrtoint ptr %561 to i64
+  %566 = ptrtoint ptr %564 to i64
+  %567 = sub i64 %565, %566
+  %568 = sdiv exact i64 %567, 48
+  %sext.i342 = shl i64 %568, 32
+  %569 = ashr exact i64 %sext.i342, 32
+  %570 = load ptr, ptr %563, align 8
+  %571 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %570, i64 %569
+  %572 = load float, ptr %571, align 4
+  %573 = getelementptr i8, ptr %543, i64 8
+  store float %572, ptr %573, align 4
+  %574 = load ptr, ptr %528, align 8
+  %575 = getelementptr inbounds nuw %class.CFaceO, ptr %574, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %576 = load ptr, ptr %575, align 8
+  %577 = load ptr, ptr %576, align 8
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 192
+  %579 = load ptr, ptr %577, align 8
+  %580 = ptrtoint ptr %576 to i64
+  %581 = ptrtoint ptr %579 to i64
+  %582 = sub i64 %580, %581
+  %583 = sdiv exact i64 %582, 48
+  %sext.i343 = shl i64 %583, 32
+  %584 = ashr exact i64 %sext.i343, 32
+  %585 = load ptr, ptr %578, align 8
+  %586 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %585, i64 %584, i32 0, i64 0, i32 0, i64 1
+  %587 = load float, ptr %586, align 4
+  %588 = getelementptr i8, ptr %543, i64 12
+  store float %587, ptr %588, align 4
+  %589 = load ptr, ptr %528, align 8
+  %590 = getelementptr inbounds nuw %class.CFaceO, ptr %589, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %591 = load ptr, ptr %590, align 8
+  %592 = load ptr, ptr %591, align 8
+  %593 = getelementptr inbounds nuw i8, ptr %592, i64 192
+  %594 = load ptr, ptr %592, align 8
+  %595 = ptrtoint ptr %591 to i64
+  %596 = ptrtoint ptr %594 to i64
+  %597 = sub i64 %595, %596
+  %598 = sdiv exact i64 %597, 48
+  %sext.i344 = shl i64 %598, 32
+  %599 = ashr exact i64 %sext.i344, 32
+  %600 = load ptr, ptr %593, align 8
+  %601 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %600, i64 %599
+  %602 = load float, ptr %601, align 4
+  %603 = getelementptr i8, ptr %543, i64 16
+  store float %602, ptr %603, align 4
+  %604 = load ptr, ptr %528, align 8
+  %605 = getelementptr inbounds nuw %class.CFaceO, ptr %604, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %606 = load ptr, ptr %605, align 8
+  %607 = load ptr, ptr %606, align 8
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 192
+  %609 = load ptr, ptr %607, align 8
+  %610 = ptrtoint ptr %606 to i64
+  %611 = ptrtoint ptr %609 to i64
+  %612 = sub i64 %610, %611
+  %613 = sdiv exact i64 %612, 48
+  %sext.i345 = shl i64 %613, 32
+  %614 = ashr exact i64 %sext.i345, 32
+  %615 = load ptr, ptr %608, align 8
+  %616 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %615, i64 %614, i32 0, i64 0, i32 0, i64 1
+  %617 = load float, ptr %616, align 4
+  %618 = getelementptr i8, ptr %543, i64 20
+  store float %617, ptr %618, align 4
+  br label %619
 
-613:                                              ; preds = %521, %524
-  %614 = load i8, ptr %83, align 1
-  %615 = trunc i8 %614 to i1
-  br i1 %615, label %616, label %693
+619:                                              ; preds = %523, %526
+  %620 = load i8, ptr %83, align 1
+  %621 = trunc i8 %620 to i1
+  br i1 %621, label %622, label %703
 
-616:                                              ; preds = %613
-  %617 = load ptr, ptr %0, align 8
-  %618 = getelementptr inbounds nuw i8, ptr %617, i64 304
-  %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds nuw %class.CFaceO, ptr %619, i64 %.0210647
-  %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr inbounds nuw i8, ptr %621, i64 192
-  %623 = load ptr, ptr %621, align 8
-  %624 = ptrtoint ptr %620 to i64
-  %625 = ptrtoint ptr %623 to i64
-  %626 = sub i64 %624, %625
-  %627 = sdiv exact i64 %626, 48
-  %628 = load ptr, ptr %622, align 8
-  %629 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %628, i64 %627
-  %630 = load float, ptr %629, align 4
-  %631 = mul i64 %256, 6
-  %632 = getelementptr inbounds float, ptr %.sroa.0469.1, i64 %631
-  store float %630, ptr %632, align 4
-  %633 = load ptr, ptr %618, align 8
-  %634 = getelementptr inbounds nuw %class.CFaceO, ptr %633, i64 %.0210647
-  %635 = load ptr, ptr %634, align 8
-  %636 = getelementptr inbounds nuw i8, ptr %635, i64 192
-  %637 = load ptr, ptr %635, align 8
-  %638 = ptrtoint ptr %634 to i64
-  %639 = ptrtoint ptr %637 to i64
-  %640 = sub i64 %638, %639
-  %641 = sdiv exact i64 %640, 48
-  %642 = load ptr, ptr %636, align 8
-  %643 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %642, i64 %641, i32 0, i64 0, i32 0, i64 0, i32 0, i64 1
-  %644 = load float, ptr %643, align 4
-  %gep637 = getelementptr float, ptr %invariant.gep636, i64 %631
-  store float %644, ptr %gep637, align 4
-  %645 = load ptr, ptr %618, align 8
-  %646 = getelementptr inbounds nuw %class.CFaceO, ptr %645, i64 %.0210647
-  %647 = load ptr, ptr %646, align 8
-  %648 = getelementptr inbounds nuw i8, ptr %647, i64 192
-  %649 = load ptr, ptr %647, align 8
-  %650 = ptrtoint ptr %646 to i64
-  %651 = ptrtoint ptr %649 to i64
-  %652 = sub i64 %650, %651
-  %653 = sdiv exact i64 %652, 48
-  %654 = load ptr, ptr %648, align 8
-  %655 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %654, i64 %653, i32 0, i64 1
-  %656 = load float, ptr %655, align 4
-  %gep639 = getelementptr float, ptr %invariant.gep638, i64 %631
-  store float %656, ptr %gep639, align 4
-  %657 = load ptr, ptr %618, align 8
-  %658 = getelementptr inbounds nuw %class.CFaceO, ptr %657, i64 %.0210647
-  %659 = load ptr, ptr %658, align 8
-  %660 = getelementptr inbounds nuw i8, ptr %659, i64 192
-  %661 = load ptr, ptr %659, align 8
-  %662 = ptrtoint ptr %658 to i64
-  %663 = ptrtoint ptr %661 to i64
-  %664 = sub i64 %662, %663
-  %665 = sdiv exact i64 %664, 48
-  %666 = load ptr, ptr %660, align 8
-  %667 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %666, i64 %665, i32 0, i64 1, i32 0, i64 0, i32 0, i64 1
-  %668 = load float, ptr %667, align 4
-  %gep641 = getelementptr float, ptr %invariant.gep640, i64 %631
-  store float %668, ptr %gep641, align 4
-  %669 = load ptr, ptr %618, align 8
-  %670 = getelementptr inbounds nuw %class.CFaceO, ptr %669, i64 %.0210647
-  %671 = load ptr, ptr %670, align 8
-  %672 = getelementptr inbounds nuw i8, ptr %671, i64 192
-  %673 = load ptr, ptr %671, align 8
-  %674 = ptrtoint ptr %670 to i64
-  %675 = ptrtoint ptr %673 to i64
-  %676 = sub i64 %674, %675
-  %677 = sdiv exact i64 %676, 48
-  %678 = load ptr, ptr %672, align 8
-  %679 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %678, i64 %677, i32 0, i64 2
-  %680 = load float, ptr %679, align 4
-  %gep643 = getelementptr float, ptr %invariant.gep642, i64 %631
-  store float %680, ptr %gep643, align 4
-  %681 = load ptr, ptr %618, align 8
-  %682 = getelementptr inbounds nuw %class.CFaceO, ptr %681, i64 %.0210647
-  %683 = load ptr, ptr %682, align 8
-  %684 = getelementptr inbounds nuw i8, ptr %683, i64 192
-  %685 = load ptr, ptr %683, align 8
-  %686 = ptrtoint ptr %682 to i64
-  %687 = ptrtoint ptr %685 to i64
-  %688 = sub i64 %686, %687
-  %689 = sdiv exact i64 %688, 48
-  %690 = load ptr, ptr %684, align 8
-  %691 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %690, i64 %689, i32 0, i64 2, i32 0, i64 0, i32 0, i64 1
-  %692 = load float, ptr %691, align 4
-  %gep645 = getelementptr float, ptr %invariant.gep644, i64 %631
-  store float %692, ptr %gep645, align 4
-  br label %693
+622:                                              ; preds = %619
+  %623 = load ptr, ptr %0, align 8
+  %624 = getelementptr inbounds nuw i8, ptr %623, i64 304
+  %625 = load ptr, ptr %624, align 8
+  %626 = getelementptr inbounds nuw %class.CFaceO, ptr %625, i64 %.0210621
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 192
+  %629 = load ptr, ptr %627, align 8
+  %630 = ptrtoint ptr %626 to i64
+  %631 = ptrtoint ptr %629 to i64
+  %632 = sub i64 %630, %631
+  %633 = sdiv exact i64 %632, 48
+  %634 = load ptr, ptr %628, align 8
+  %635 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %634, i64 %633
+  %636 = load float, ptr %635, align 4
+  %.idx671 = mul i64 %256, 24
+  %637 = getelementptr i8, ptr %.sroa.0469.1, i64 %.idx671
+  store float %636, ptr %637, align 4
+  %638 = load ptr, ptr %624, align 8
+  %639 = getelementptr inbounds nuw %class.CFaceO, ptr %638, i64 %.0210621
+  %640 = load ptr, ptr %639, align 8
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 192
+  %642 = load ptr, ptr %640, align 8
+  %643 = ptrtoint ptr %639 to i64
+  %644 = ptrtoint ptr %642 to i64
+  %645 = sub i64 %643, %644
+  %646 = sdiv exact i64 %645, 48
+  %647 = load ptr, ptr %641, align 8
+  %648 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %647, i64 %646, i32 0, i64 0, i32 0, i64 0, i32 0, i64 1
+  %649 = load float, ptr %648, align 4
+  %650 = getelementptr i8, ptr %637, i64 4
+  store float %649, ptr %650, align 4
+  %651 = load ptr, ptr %624, align 8
+  %652 = getelementptr inbounds nuw %class.CFaceO, ptr %651, i64 %.0210621
+  %653 = load ptr, ptr %652, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 192
+  %655 = load ptr, ptr %653, align 8
+  %656 = ptrtoint ptr %652 to i64
+  %657 = ptrtoint ptr %655 to i64
+  %658 = sub i64 %656, %657
+  %659 = sdiv exact i64 %658, 48
+  %660 = load ptr, ptr %654, align 8
+  %661 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %660, i64 %659, i32 0, i64 1
+  %662 = load float, ptr %661, align 4
+  %663 = getelementptr i8, ptr %637, i64 8
+  store float %662, ptr %663, align 4
+  %664 = load ptr, ptr %624, align 8
+  %665 = getelementptr inbounds nuw %class.CFaceO, ptr %664, i64 %.0210621
+  %666 = load ptr, ptr %665, align 8
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 192
+  %668 = load ptr, ptr %666, align 8
+  %669 = ptrtoint ptr %665 to i64
+  %670 = ptrtoint ptr %668 to i64
+  %671 = sub i64 %669, %670
+  %672 = sdiv exact i64 %671, 48
+  %673 = load ptr, ptr %667, align 8
+  %674 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %673, i64 %672, i32 0, i64 1, i32 0, i64 0, i32 0, i64 1
+  %675 = load float, ptr %674, align 4
+  %676 = getelementptr i8, ptr %637, i64 12
+  store float %675, ptr %676, align 4
+  %677 = load ptr, ptr %624, align 8
+  %678 = getelementptr inbounds nuw %class.CFaceO, ptr %677, i64 %.0210621
+  %679 = load ptr, ptr %678, align 8
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 192
+  %681 = load ptr, ptr %679, align 8
+  %682 = ptrtoint ptr %678 to i64
+  %683 = ptrtoint ptr %681 to i64
+  %684 = sub i64 %682, %683
+  %685 = sdiv exact i64 %684, 48
+  %686 = load ptr, ptr %680, align 8
+  %687 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %686, i64 %685, i32 0, i64 2
+  %688 = load float, ptr %687, align 4
+  %689 = getelementptr i8, ptr %637, i64 16
+  store float %688, ptr %689, align 4
+  %690 = load ptr, ptr %624, align 8
+  %691 = getelementptr inbounds nuw %class.CFaceO, ptr %690, i64 %.0210621
+  %692 = load ptr, ptr %691, align 8
+  %693 = getelementptr inbounds nuw i8, ptr %692, i64 192
+  %694 = load ptr, ptr %692, align 8
+  %695 = ptrtoint ptr %691 to i64
+  %696 = ptrtoint ptr %694 to i64
+  %697 = sub i64 %695, %696
+  %698 = sdiv exact i64 %697, 48
+  %699 = load ptr, ptr %693, align 8
+  %700 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %699, i64 %698, i32 0, i64 2, i32 0, i64 0, i32 0, i64 1
+  %701 = load float, ptr %700, align 4
+  %702 = getelementptr i8, ptr %637, i64 20
+  store float %701, ptr %702, align 4
+  br label %703
 
-693:                                              ; preds = %613, %616
-  %694 = load i8, ptr %224, align 1
-  %695 = trunc i8 %694 to i1
-  br i1 %695, label %.preheader609, label %.loopexit
+703:                                              ; preds = %619, %622
+  %704 = load i8, ptr %224, align 1
+  %705 = trunc i8 %704 to i1
+  br i1 %705, label %.preheader609, label %.loopexit
 
-.preheader609:                                    ; preds = %693
-  %696 = mul nsw i64 %indvars.iv678, 3
-  br label %697
+.preheader609:                                    ; preds = %703
+  %706 = mul nsw i64 %indvars.iv652, 3
+  br label %707
 
-697:                                              ; preds = %.preheader609, %717
-  %indvars.iv = phi i64 [ 0, %.preheader609 ], [ %indvars.iv.next, %717 ]
-  %698 = load ptr, ptr %0, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %698, i64 304
-  %700 = load ptr, ptr %699, align 8
-  %701 = getelementptr inbounds nuw %class.CFaceO, ptr %700, i64 %.0210647, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %702 = getelementptr inbounds nuw [3 x ptr], ptr %701, i64 0, i64 %indvars.iv
-  %703 = load ptr, ptr %702, align 8
-  %704 = getelementptr inbounds nuw i8, ptr %698, i64 8
-  %705 = load ptr, ptr %704, align 8
-  %706 = ptrtoint ptr %703 to i64
-  %707 = ptrtoint ptr %705 to i64
-  %708 = sub i64 %706, %707
-  %709 = load ptr, ptr %9, align 8
-  %710 = sdiv exact i64 %708, 12
-  %711 = getelementptr inbounds i8, ptr %709, i64 %710
-  %712 = load i32, ptr %711, align 4
-  %713 = icmp eq i32 %712, -1
-  br i1 %713, label %714, label %717
+707:                                              ; preds = %.preheader609, %727
+  %indvars.iv = phi i64 [ 0, %.preheader609 ], [ %indvars.iv.next, %727 ]
+  %708 = load ptr, ptr %0, align 8
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 304
+  %710 = load ptr, ptr %709, align 8
+  %711 = getelementptr inbounds nuw %class.CFaceO, ptr %710, i64 %.0210621, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %712 = getelementptr inbounds nuw [3 x ptr], ptr %711, i64 0, i64 %indvars.iv
+  %713 = load ptr, ptr %712, align 8
+  %714 = getelementptr inbounds nuw i8, ptr %708, i64 8
+  %715 = load ptr, ptr %714, align 8
+  %716 = ptrtoint ptr %713 to i64
+  %717 = ptrtoint ptr %715 to i64
+  %718 = sub i64 %716, %717
+  %719 = load ptr, ptr %9, align 8
+  %720 = sdiv exact i64 %718, 12
+  %721 = getelementptr inbounds i8, ptr %719, i64 %720
+  %722 = load i32, ptr %721, align 4
+  %723 = icmp eq i32 %722, -1
+  br i1 %723, label %724, label %727
 
-714:                                              ; preds = %697
-  %715 = add nsw i64 %indvars.iv, %696
-  %716 = trunc nsw i64 %715 to i32
-  store i32 %716, ptr %711, align 4
-  br label %717
+724:                                              ; preds = %707
+  %725 = add nsw i64 %indvars.iv, %706
+  %726 = trunc nsw i64 %725 to i32
+  store i32 %726, ptr %721, align 4
+  br label %727
 
-717:                                              ; preds = %697, %714
+727:                                              ; preds = %707, %724
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %697, !llvm.loop !119
+  br i1 %exitcond.not, label %.loopexit, label %707, !llvm.loop !116
 
-.loopexit:                                        ; preds = %717, %693
-  %718 = icmp eq i64 %indvars.iv678, %sext
-  %719 = icmp eq i64 %256, %240
-  %or.cond = select i1 %718, i1 true, i1 %719
-  br i1 %or.cond, label %720, label %946
+.loopexit:                                        ; preds = %727, %703
+  %728 = icmp eq i64 %indvars.iv652, %sext
+  %729 = icmp eq i64 %256, %240
+  %or.cond = select i1 %728, i1 true, i1 %729
+  br i1 %or.cond, label %730, label %956
 
-720:                                              ; preds = %.loopexit
-  %721 = add nuw i64 %256, 1
-  %spec.select = select i1 %718, i64 %721, i64 %.sroa.speculated
-  %722 = load i8, ptr %1, align 1
-  %723 = trunc i8 %722 to i1
-  br i1 %723, label %724, label %752
+730:                                              ; preds = %.loopexit
+  %731 = add nuw i64 %256, 1
+  %spec.select = select i1 %728, i64 %731, i64 %.sroa.speculated
+  %732 = load i8, ptr %1, align 1
+  %733 = trunc i8 %732 to i1
+  br i1 %733, label %734, label %762
 
-724:                                              ; preds = %720
-  %725 = load ptr, ptr %241, align 8
-  %726 = load ptr, ptr %725, align 8
-  %727 = load ptr, ptr @__glewBindBuffer, align 8
-  %728 = getelementptr inbounds nuw i8, ptr %726, i64 32
-  %729 = load i32, ptr %728, align 8
-  invoke void %727(i32 noundef 34962, i32 noundef %729)
-          to label %730 unwind label %.loopexit610
+734:                                              ; preds = %730
+  %735 = load ptr, ptr %241, align 8
+  %736 = load ptr, ptr %735, align 8
+  %737 = load ptr, ptr @__glewBindBuffer, align 8
+  %738 = getelementptr inbounds nuw i8, ptr %736, i64 32
+  %739 = load i32, ptr %738, align 8
+  invoke void %737(i32 noundef 34962, i32 noundef %739)
+          to label %740 unwind label %.loopexit610
 
-730:                                              ; preds = %724
-  %731 = load ptr, ptr @__glewBufferSubData, align 8
-  %732 = getelementptr inbounds nuw i8, ptr %726, i64 8
-  %733 = load i64, ptr %732, align 8
-  %734 = mul i64 %242, %.2203649
-  %735 = mul i64 %734, %733
-  %736 = getelementptr inbounds nuw i8, ptr %726, i64 20
-  %737 = load i32, ptr %736, align 4
-  switch i32 %737, label %739 [
+740:                                              ; preds = %734
+  %741 = load ptr, ptr @__glewBufferSubData, align 8
+  %742 = getelementptr inbounds nuw i8, ptr %736, i64 8
+  %743 = load i64, ptr %742, align 8
+  %744 = mul i64 %242, %.2203623
+  %745 = mul i64 %744, %743
+  %746 = getelementptr inbounds nuw i8, ptr %736, i64 20
+  %747 = load i32, ptr %746, align 4
+  switch i32 %747, label %749 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread: ; preds = %730
-  %738 = mul i64 %733, 3
-  br label %742
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread: ; preds = %740
+  %748 = mul i64 %743, 3
+  br label %752
 
-739:                                              ; preds = %730
+749:                                              ; preds = %740
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit: ; preds = %730, %730, %730, %739
-  %.0.i = phi i64 [ 0, %739 ], [ 4, %730 ], [ 4, %730 ], [ 4, %730 ]
-  %740 = mul i64 %.0.i, %735
-  %741 = mul i64 %733, 3
-  switch i32 %737, label %745 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit: ; preds = %740, %740, %740, %749
+  %.0.i = phi i64 [ 0, %749 ], [ 4, %740 ], [ 4, %740 ], [ 4, %740 ]
+  %750 = mul i64 %.0.i, %745
+  %751 = mul i64 %743, 3
+  switch i32 %747, label %755 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
-    i32 5121, label %742
+    i32 5121, label %752
   ]
 
-742:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
-  %743 = phi i64 [ %738, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %744 = phi i64 [ %735, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+752:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
+  %753 = phi i64 [ %748, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %751, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %754 = phi i64 [ %745, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ %750, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
 
-745:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
+755:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %742, %745
-  %746 = phi i64 [ %741, %745 ], [ %743, %742 ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %741, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %747 = phi i64 [ %740, %745 ], [ %744, %742 ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %740, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %.0.i346 = phi i64 [ 0, %745 ], [ 1, %742 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
-  %748 = mul i64 %746, %spec.select
-  %749 = mul i64 %748, %.0.i346
-  invoke void %731(i32 noundef 34962, i64 noundef %747, i64 noundef %749, ptr noundef nonnull %.sroa.0530.0)
-          to label %750 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %752, %755
+  %756 = phi i64 [ %751, %755 ], [ %753, %752 ], [ %751, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %751, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %751, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %757 = phi i64 [ %750, %755 ], [ %754, %752 ], [ %750, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %750, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ %750, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %.0.i346 = phi i64 [ 0, %755 ], [ 1, %752 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
+  %758 = mul i64 %756, %spec.select
+  %759 = mul i64 %758, %.0.i346
+  invoke void %741(i32 noundef 34962, i64 noundef %757, i64 noundef %759, ptr noundef nonnull %.sroa.0530.0)
+          to label %760 unwind label %.loopexit610
 
-750:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
-  %751 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %751(i32 noundef 34962, i32 noundef 0)
-          to label %752 unwind label %.loopexit610
-
-752:                                              ; preds = %720, %750
-  %753 = load i8, ptr %25, align 1
-  %754 = trunc i8 %753 to i1
-  br i1 %754, label %755, label %784
-
-755:                                              ; preds = %752
-  %756 = load ptr, ptr %241, align 8
-  %757 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  %758 = load ptr, ptr %757, align 8
-  %759 = load ptr, ptr @__glewBindBuffer, align 8
-  %760 = getelementptr inbounds nuw i8, ptr %758, i64 32
-  %761 = load i32, ptr %760, align 8
-  invoke void %759(i32 noundef 34962, i32 noundef %761)
+760:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit347
+  %761 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %761(i32 noundef 34962, i32 noundef 0)
           to label %762 unwind label %.loopexit610
 
-762:                                              ; preds = %755
-  %763 = load ptr, ptr @__glewBufferSubData, align 8
-  %764 = getelementptr inbounds nuw i8, ptr %758, i64 8
-  %765 = load i64, ptr %764, align 8
-  %766 = mul i64 %242, %.2203649
-  %767 = mul i64 %766, %765
-  %768 = getelementptr inbounds nuw i8, ptr %758, i64 20
-  %769 = load i32, ptr %768, align 4
-  switch i32 %769, label %771 [
+762:                                              ; preds = %730, %760
+  %763 = load i8, ptr %25, align 1
+  %764 = trunc i8 %763 to i1
+  br i1 %764, label %765, label %794
+
+765:                                              ; preds = %762
+  %766 = load ptr, ptr %241, align 8
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 8
+  %768 = load ptr, ptr %767, align 8
+  %769 = load ptr, ptr @__glewBindBuffer, align 8
+  %770 = getelementptr inbounds nuw i8, ptr %768, i64 32
+  %771 = load i32, ptr %770, align 8
+  invoke void %769(i32 noundef 34962, i32 noundef %771)
+          to label %772 unwind label %.loopexit610
+
+772:                                              ; preds = %765
+  %773 = load ptr, ptr @__glewBufferSubData, align 8
+  %774 = getelementptr inbounds nuw i8, ptr %768, i64 8
+  %775 = load i64, ptr %774, align 8
+  %776 = mul i64 %242, %.2203623
+  %777 = mul i64 %776, %775
+  %778 = getelementptr inbounds nuw i8, ptr %768, i64 20
+  %779 = load i32, ptr %778, align 4
+  switch i32 %779, label %781 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread: ; preds = %762
-  %770 = mul i64 %765, 3
-  br label %774
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread: ; preds = %772
+  %780 = mul i64 %775, 3
+  br label %784
 
-771:                                              ; preds = %762
+781:                                              ; preds = %772
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349: ; preds = %762, %762, %762, %771
-  %.0.i348 = phi i64 [ 0, %771 ], [ 4, %762 ], [ 4, %762 ], [ 4, %762 ]
-  %772 = mul i64 %.0.i348, %767
-  %773 = mul i64 %765, 3
-  switch i32 %769, label %777 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349: ; preds = %772, %772, %772, %781
+  %.0.i348 = phi i64 [ 0, %781 ], [ 4, %772 ], [ 4, %772 ], [ 4, %772 ]
+  %782 = mul i64 %.0.i348, %777
+  %783 = mul i64 %775, 3
+  switch i32 %779, label %787 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
-    i32 5121, label %774
+    i32 5121, label %784
   ]
 
-774:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
-  %775 = phi i64 [ %770, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %776 = phi i64 [ %767, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+784:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
+  %785 = phi i64 [ %780, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %783, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %786 = phi i64 [ %777, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349.thread ], [ %782, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
 
-777:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
+787:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %774, %777
-  %778 = phi i64 [ %773, %777 ], [ %775, %774 ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %773, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %779 = phi i64 [ %772, %777 ], [ %776, %774 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %772, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %.0.i350 = phi i64 [ 0, %777 ], [ 1, %774 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
-  %780 = mul i64 %778, %spec.select
-  %781 = mul i64 %780, %.0.i350
-  invoke void %763(i32 noundef 34962, i64 noundef %779, i64 noundef %781, ptr noundef nonnull %.sroa.0521.0)
-          to label %782 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349, %784, %787
+  %788 = phi i64 [ %783, %787 ], [ %785, %784 ], [ %783, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %783, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %783, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %789 = phi i64 [ %782, %787 ], [ %786, %784 ], [ %782, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %782, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ %782, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %.0.i350 = phi i64 [ 0, %787 ], [ 1, %784 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit349 ]
+  %790 = mul i64 %788, %spec.select
+  %791 = mul i64 %790, %.0.i350
+  invoke void %773(i32 noundef 34962, i64 noundef %789, i64 noundef %791, ptr noundef nonnull %.sroa.0521.0)
+          to label %792 unwind label %.loopexit610
 
-782:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
-  %783 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %783(i32 noundef 34962, i32 noundef 0)
-          to label %784 unwind label %.loopexit610
-
-784:                                              ; preds = %752, %782
-  %785 = load i8, ptr %36, align 1
-  %786 = trunc i8 %785 to i1
-  br i1 %786, label %787, label %816
-
-787:                                              ; preds = %784
-  %788 = load ptr, ptr %241, align 8
-  %789 = getelementptr inbounds nuw i8, ptr %788, i64 16
-  %790 = load ptr, ptr %789, align 8
-  %791 = load ptr, ptr @__glewBindBuffer, align 8
-  %792 = getelementptr inbounds nuw i8, ptr %790, i64 32
-  %793 = load i32, ptr %792, align 8
-  invoke void %791(i32 noundef 34962, i32 noundef %793)
+792:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit351
+  %793 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %793(i32 noundef 34962, i32 noundef 0)
           to label %794 unwind label %.loopexit610
 
-794:                                              ; preds = %787
-  %795 = load ptr, ptr @__glewBufferSubData, align 8
-  %796 = getelementptr inbounds nuw i8, ptr %790, i64 8
-  %797 = load i64, ptr %796, align 8
-  %798 = mul i64 %242, %.2203649
-  %799 = mul i64 %798, %797
-  %800 = getelementptr inbounds nuw i8, ptr %790, i64 20
-  %801 = load i32, ptr %800, align 4
-  switch i32 %801, label %803 [
+794:                                              ; preds = %762, %792
+  %795 = load i8, ptr %36, align 1
+  %796 = trunc i8 %795 to i1
+  br i1 %796, label %797, label %826
+
+797:                                              ; preds = %794
+  %798 = load ptr, ptr %241, align 8
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
+  %800 = load ptr, ptr %799, align 8
+  %801 = load ptr, ptr @__glewBindBuffer, align 8
+  %802 = getelementptr inbounds nuw i8, ptr %800, i64 32
+  %803 = load i32, ptr %802, align 8
+  invoke void %801(i32 noundef 34962, i32 noundef %803)
+          to label %804 unwind label %.loopexit610
+
+804:                                              ; preds = %797
+  %805 = load ptr, ptr @__glewBufferSubData, align 8
+  %806 = getelementptr inbounds nuw i8, ptr %800, i64 8
+  %807 = load i64, ptr %806, align 8
+  %808 = mul i64 %242, %.2203623
+  %809 = mul i64 %808, %807
+  %810 = getelementptr inbounds nuw i8, ptr %800, i64 20
+  %811 = load i32, ptr %810, align 4
+  switch i32 %811, label %813 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread: ; preds = %794
-  %802 = mul i64 %797, 3
-  br label %806
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread: ; preds = %804
+  %812 = mul i64 %807, 3
+  br label %816
 
-803:                                              ; preds = %794
+813:                                              ; preds = %804
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353: ; preds = %794, %794, %794, %803
-  %.0.i352 = phi i64 [ 0, %803 ], [ 4, %794 ], [ 4, %794 ], [ 4, %794 ]
-  %804 = mul i64 %.0.i352, %799
-  %805 = mul i64 %797, 3
-  switch i32 %801, label %809 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353: ; preds = %804, %804, %804, %813
+  %.0.i352 = phi i64 [ 0, %813 ], [ 4, %804 ], [ 4, %804 ], [ 4, %804 ]
+  %814 = mul i64 %.0.i352, %809
+  %815 = mul i64 %807, 3
+  switch i32 %811, label %819 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
-    i32 5121, label %806
+    i32 5121, label %816
   ]
 
-806:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
-  %807 = phi i64 [ %802, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %808 = phi i64 [ %799, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+816:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
+  %817 = phi i64 [ %812, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %815, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %818 = phi i64 [ %809, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353.thread ], [ %814, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
 
-809:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
+819:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %806, %809
-  %810 = phi i64 [ %805, %809 ], [ %807, %806 ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %805, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %811 = phi i64 [ %804, %809 ], [ %808, %806 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %804, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %.0.i354 = phi i64 [ 0, %809 ], [ 1, %806 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
-  %812 = mul i64 %810, %spec.select
-  %813 = mul i64 %812, %.0.i354
-  invoke void %795(i32 noundef 34962, i64 noundef %811, i64 noundef %813, ptr noundef nonnull %.sroa.0512.0)
-          to label %814 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353, %816, %819
+  %820 = phi i64 [ %815, %819 ], [ %817, %816 ], [ %815, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %815, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %815, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %821 = phi i64 [ %814, %819 ], [ %818, %816 ], [ %814, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %814, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ %814, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %.0.i354 = phi i64 [ 0, %819 ], [ 1, %816 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit353 ]
+  %822 = mul i64 %820, %spec.select
+  %823 = mul i64 %822, %.0.i354
+  invoke void %805(i32 noundef 34962, i64 noundef %821, i64 noundef %823, ptr noundef nonnull %.sroa.0512.0)
+          to label %824 unwind label %.loopexit610
 
-814:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
-  %815 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %815(i32 noundef 34962, i32 noundef 0)
-          to label %816 unwind label %.loopexit610
-
-816:                                              ; preds = %784, %814
-  %817 = load i8, ptr %47, align 1
-  %818 = trunc i8 %817 to i1
-  br i1 %818, label %819, label %848
-
-819:                                              ; preds = %816
-  %820 = load ptr, ptr %241, align 8
-  %821 = getelementptr inbounds nuw i8, ptr %820, i64 24
-  %822 = load ptr, ptr %821, align 8
-  %823 = load ptr, ptr @__glewBindBuffer, align 8
-  %824 = getelementptr inbounds nuw i8, ptr %822, i64 32
-  %825 = load i32, ptr %824, align 8
-  invoke void %823(i32 noundef 34962, i32 noundef %825)
+824:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit355
+  %825 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %825(i32 noundef 34962, i32 noundef 0)
           to label %826 unwind label %.loopexit610
 
-826:                                              ; preds = %819
-  %827 = load ptr, ptr @__glewBufferSubData, align 8
-  %828 = getelementptr inbounds nuw i8, ptr %822, i64 8
-  %829 = load i64, ptr %828, align 8
-  %830 = mul i64 %242, %.2203649
-  %831 = mul i64 %830, %829
-  %832 = getelementptr inbounds nuw i8, ptr %822, i64 20
-  %833 = load i32, ptr %832, align 4
-  switch i32 %833, label %835 [
+826:                                              ; preds = %794, %824
+  %827 = load i8, ptr %47, align 1
+  %828 = trunc i8 %827 to i1
+  br i1 %828, label %829, label %858
+
+829:                                              ; preds = %826
+  %830 = load ptr, ptr %241, align 8
+  %831 = getelementptr inbounds nuw i8, ptr %830, i64 24
+  %832 = load ptr, ptr %831, align 8
+  %833 = load ptr, ptr @__glewBindBuffer, align 8
+  %834 = getelementptr inbounds nuw i8, ptr %832, i64 32
+  %835 = load i32, ptr %834, align 8
+  invoke void %833(i32 noundef 34962, i32 noundef %835)
+          to label %836 unwind label %.loopexit610
+
+836:                                              ; preds = %829
+  %837 = load ptr, ptr @__glewBufferSubData, align 8
+  %838 = getelementptr inbounds nuw i8, ptr %832, i64 8
+  %839 = load i64, ptr %838, align 8
+  %840 = mul i64 %242, %.2203623
+  %841 = mul i64 %840, %839
+  %842 = getelementptr inbounds nuw i8, ptr %832, i64 20
+  %843 = load i32, ptr %842, align 4
+  switch i32 %843, label %845 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread: ; preds = %826
-  %834 = mul i64 %829, 3
-  br label %838
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread: ; preds = %836
+  %844 = mul i64 %839, 3
+  br label %848
 
-835:                                              ; preds = %826
+845:                                              ; preds = %836
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357: ; preds = %826, %826, %826, %835
-  %.0.i356 = phi i64 [ 0, %835 ], [ 4, %826 ], [ 4, %826 ], [ 4, %826 ]
-  %836 = mul i64 %.0.i356, %831
-  %837 = mul i64 %829, 3
-  switch i32 %833, label %841 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357: ; preds = %836, %836, %836, %845
+  %.0.i356 = phi i64 [ 0, %845 ], [ 4, %836 ], [ 4, %836 ], [ 4, %836 ]
+  %846 = mul i64 %.0.i356, %841
+  %847 = mul i64 %839, 3
+  switch i32 %843, label %851 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
-    i32 5121, label %838
+    i32 5121, label %848
   ]
 
-838:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
-  %839 = phi i64 [ %834, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %840 = phi i64 [ %831, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+848:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
+  %849 = phi i64 [ %844, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %847, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %850 = phi i64 [ %841, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357.thread ], [ %846, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
 
-841:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
+851:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %838, %841
-  %842 = phi i64 [ %837, %841 ], [ %839, %838 ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %837, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %843 = phi i64 [ %836, %841 ], [ %840, %838 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %836, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %.0.i358 = phi i64 [ 0, %841 ], [ 1, %838 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
-  %844 = mul i64 %842, %spec.select
-  %845 = mul i64 %844, %.0.i358
-  invoke void %827(i32 noundef 34962, i64 noundef %843, i64 noundef %845, ptr noundef nonnull %.sroa.0503.0)
-          to label %846 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357, %848, %851
+  %852 = phi i64 [ %847, %851 ], [ %849, %848 ], [ %847, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %847, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %847, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %853 = phi i64 [ %846, %851 ], [ %850, %848 ], [ %846, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %846, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ %846, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %.0.i358 = phi i64 [ 0, %851 ], [ 1, %848 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit357 ]
+  %854 = mul i64 %852, %spec.select
+  %855 = mul i64 %854, %.0.i358
+  invoke void %837(i32 noundef 34962, i64 noundef %853, i64 noundef %855, ptr noundef nonnull %.sroa.0503.0)
+          to label %856 unwind label %.loopexit610
 
-846:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
-  %847 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %847(i32 noundef 34962, i32 noundef 0)
-          to label %848 unwind label %.loopexit610
-
-848:                                              ; preds = %816, %846
-  %849 = load i8, ptr %58, align 1
-  %850 = trunc i8 %849 to i1
-  br i1 %850, label %851, label %880
-
-851:                                              ; preds = %848
-  %852 = load ptr, ptr %241, align 8
-  %853 = getelementptr inbounds nuw i8, ptr %852, i64 32
-  %854 = load ptr, ptr %853, align 8
-  %855 = load ptr, ptr @__glewBindBuffer, align 8
-  %856 = getelementptr inbounds nuw i8, ptr %854, i64 32
-  %857 = load i32, ptr %856, align 8
-  invoke void %855(i32 noundef 34962, i32 noundef %857)
+856:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit359
+  %857 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %857(i32 noundef 34962, i32 noundef 0)
           to label %858 unwind label %.loopexit610
 
-858:                                              ; preds = %851
-  %859 = load ptr, ptr @__glewBufferSubData, align 8
-  %860 = getelementptr inbounds nuw i8, ptr %854, i64 8
-  %861 = load i64, ptr %860, align 8
-  %862 = mul i64 %242, %.2203649
-  %863 = mul i64 %862, %861
-  %864 = getelementptr inbounds nuw i8, ptr %854, i64 20
-  %865 = load i32, ptr %864, align 4
-  switch i32 %865, label %867 [
+858:                                              ; preds = %826, %856
+  %859 = load i8, ptr %58, align 1
+  %860 = trunc i8 %859 to i1
+  br i1 %860, label %861, label %890
+
+861:                                              ; preds = %858
+  %862 = load ptr, ptr %241, align 8
+  %863 = getelementptr inbounds nuw i8, ptr %862, i64 32
+  %864 = load ptr, ptr %863, align 8
+  %865 = load ptr, ptr @__glewBindBuffer, align 8
+  %866 = getelementptr inbounds nuw i8, ptr %864, i64 32
+  %867 = load i32, ptr %866, align 8
+  invoke void %865(i32 noundef 34962, i32 noundef %867)
+          to label %868 unwind label %.loopexit610
+
+868:                                              ; preds = %861
+  %869 = load ptr, ptr @__glewBufferSubData, align 8
+  %870 = getelementptr inbounds nuw i8, ptr %864, i64 8
+  %871 = load i64, ptr %870, align 8
+  %872 = mul i64 %242, %.2203623
+  %873 = mul i64 %872, %871
+  %874 = getelementptr inbounds nuw i8, ptr %864, i64 20
+  %875 = load i32, ptr %874, align 4
+  switch i32 %875, label %877 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread: ; preds = %858
-  %866 = mul i64 %861, 3
-  br label %870
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread: ; preds = %868
+  %876 = mul i64 %871, 3
+  br label %880
 
-867:                                              ; preds = %858
+877:                                              ; preds = %868
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361: ; preds = %858, %858, %858, %867
-  %.0.i360 = phi i64 [ 0, %867 ], [ 4, %858 ], [ 4, %858 ], [ 4, %858 ]
-  %868 = mul i64 %.0.i360, %863
-  %869 = mul i64 %861, 3
-  switch i32 %865, label %873 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361: ; preds = %868, %868, %868, %877
+  %.0.i360 = phi i64 [ 0, %877 ], [ 4, %868 ], [ 4, %868 ], [ 4, %868 ]
+  %878 = mul i64 %.0.i360, %873
+  %879 = mul i64 %871, 3
+  switch i32 %875, label %883 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
-    i32 5121, label %870
+    i32 5121, label %880
   ]
 
-870:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
-  %871 = phi i64 [ %866, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %872 = phi i64 [ %863, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+880:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
+  %881 = phi i64 [ %876, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %879, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %882 = phi i64 [ %873, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361.thread ], [ %878, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
 
-873:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
+883:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %870, %873
-  %874 = phi i64 [ %869, %873 ], [ %871, %870 ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %869, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %875 = phi i64 [ %868, %873 ], [ %872, %870 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %868, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %.0.i362 = phi i64 [ 0, %873 ], [ 1, %870 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
-  %876 = mul i64 %874, %spec.select
-  %877 = mul i64 %876, %.0.i362
-  invoke void %859(i32 noundef 34962, i64 noundef %875, i64 noundef %877, ptr noundef nonnull %.sroa.0495.0)
-          to label %878 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361, %880, %883
+  %884 = phi i64 [ %879, %883 ], [ %881, %880 ], [ %879, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %879, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %879, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %885 = phi i64 [ %878, %883 ], [ %882, %880 ], [ %878, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %878, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ %878, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %.0.i362 = phi i64 [ 0, %883 ], [ 1, %880 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit361 ]
+  %886 = mul i64 %884, %spec.select
+  %887 = mul i64 %886, %.0.i362
+  invoke void %869(i32 noundef 34962, i64 noundef %885, i64 noundef %887, ptr noundef nonnull %.sroa.0495.0)
+          to label %888 unwind label %.loopexit610
 
-878:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
-  %879 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %879(i32 noundef 34962, i32 noundef 0)
-          to label %880 unwind label %.loopexit610
-
-880:                                              ; preds = %848, %878
-  %881 = load i8, ptr %69, align 1
-  %882 = trunc i8 %881 to i1
-  br i1 %882, label %883, label %912
-
-883:                                              ; preds = %880
-  %884 = load ptr, ptr %241, align 8
-  %885 = getelementptr inbounds nuw i8, ptr %884, i64 40
-  %886 = load ptr, ptr %885, align 8
-  %887 = load ptr, ptr @__glewBindBuffer, align 8
-  %888 = getelementptr inbounds nuw i8, ptr %886, i64 32
-  %889 = load i32, ptr %888, align 8
-  invoke void %887(i32 noundef 34962, i32 noundef %889)
+888:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit363
+  %889 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %889(i32 noundef 34962, i32 noundef 0)
           to label %890 unwind label %.loopexit610
 
-890:                                              ; preds = %883
-  %891 = load ptr, ptr @__glewBufferSubData, align 8
-  %892 = getelementptr inbounds nuw i8, ptr %886, i64 8
-  %893 = load i64, ptr %892, align 8
-  %894 = mul i64 %242, %.2203649
-  %895 = mul i64 %894, %893
-  %896 = getelementptr inbounds nuw i8, ptr %886, i64 20
-  %897 = load i32, ptr %896, align 4
-  switch i32 %897, label %899 [
+890:                                              ; preds = %858, %888
+  %891 = load i8, ptr %69, align 1
+  %892 = trunc i8 %891 to i1
+  br i1 %892, label %893, label %922
+
+893:                                              ; preds = %890
+  %894 = load ptr, ptr %241, align 8
+  %895 = getelementptr inbounds nuw i8, ptr %894, i64 40
+  %896 = load ptr, ptr %895, align 8
+  %897 = load ptr, ptr @__glewBindBuffer, align 8
+  %898 = getelementptr inbounds nuw i8, ptr %896, i64 32
+  %899 = load i32, ptr %898, align 8
+  invoke void %897(i32 noundef 34962, i32 noundef %899)
+          to label %900 unwind label %.loopexit610
+
+900:                                              ; preds = %893
+  %901 = load ptr, ptr @__glewBufferSubData, align 8
+  %902 = getelementptr inbounds nuw i8, ptr %896, i64 8
+  %903 = load i64, ptr %902, align 8
+  %904 = mul i64 %242, %.2203623
+  %905 = mul i64 %904, %903
+  %906 = getelementptr inbounds nuw i8, ptr %896, i64 20
+  %907 = load i32, ptr %906, align 4
+  switch i32 %907, label %909 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread: ; preds = %890
-  %898 = mul i64 %893, 3
-  br label %902
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread: ; preds = %900
+  %908 = mul i64 %903, 3
+  br label %912
 
-899:                                              ; preds = %890
+909:                                              ; preds = %900
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365: ; preds = %890, %890, %890, %899
-  %.0.i364 = phi i64 [ 0, %899 ], [ 4, %890 ], [ 4, %890 ], [ 4, %890 ]
-  %900 = mul i64 %.0.i364, %895
-  %901 = mul i64 %893, 3
-  switch i32 %897, label %905 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365: ; preds = %900, %900, %900, %909
+  %.0.i364 = phi i64 [ 0, %909 ], [ 4, %900 ], [ 4, %900 ], [ 4, %900 ]
+  %910 = mul i64 %.0.i364, %905
+  %911 = mul i64 %903, 3
+  switch i32 %907, label %915 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
-    i32 5121, label %902
+    i32 5121, label %912
   ]
 
-902:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
-  %903 = phi i64 [ %898, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %904 = phi i64 [ %895, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+912:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
+  %913 = phi i64 [ %908, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %911, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %914 = phi i64 [ %905, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365.thread ], [ %910, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
 
-905:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
+915:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %902, %905
-  %906 = phi i64 [ %901, %905 ], [ %903, %902 ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %901, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %907 = phi i64 [ %900, %905 ], [ %904, %902 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %900, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %.0.i366 = phi i64 [ 0, %905 ], [ 1, %902 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
-  %908 = mul i64 %906, %spec.select
-  %909 = mul i64 %908, %.0.i366
-  invoke void %891(i32 noundef 34962, i64 noundef %907, i64 noundef %909, ptr noundef nonnull %.sroa.0481.0)
-          to label %910 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365, %912, %915
+  %916 = phi i64 [ %911, %915 ], [ %913, %912 ], [ %911, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %911, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %911, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %917 = phi i64 [ %910, %915 ], [ %914, %912 ], [ %910, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %910, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ %910, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %.0.i366 = phi i64 [ 0, %915 ], [ 1, %912 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit365 ]
+  %918 = mul i64 %916, %spec.select
+  %919 = mul i64 %918, %.0.i366
+  invoke void %901(i32 noundef 34962, i64 noundef %917, i64 noundef %919, ptr noundef nonnull %.sroa.0481.0)
+          to label %920 unwind label %.loopexit610
 
-910:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
-  %911 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %911(i32 noundef 34962, i32 noundef 0)
-          to label %912 unwind label %.loopexit610
-
-912:                                              ; preds = %880, %910
-  %913 = load i8, ptr %83, align 1
-  %914 = trunc i8 %913 to i1
-  br i1 %914, label %915, label %944
-
-915:                                              ; preds = %912
-  %916 = load ptr, ptr %241, align 8
-  %917 = getelementptr inbounds nuw i8, ptr %916, i64 48
-  %918 = load ptr, ptr %917, align 8
-  %919 = load ptr, ptr @__glewBindBuffer, align 8
-  %920 = getelementptr inbounds nuw i8, ptr %918, i64 32
-  %921 = load i32, ptr %920, align 8
-  invoke void %919(i32 noundef 34962, i32 noundef %921)
+920:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit367
+  %921 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %921(i32 noundef 34962, i32 noundef 0)
           to label %922 unwind label %.loopexit610
 
-922:                                              ; preds = %915
-  %923 = load ptr, ptr @__glewBufferSubData, align 8
-  %924 = getelementptr inbounds nuw i8, ptr %918, i64 8
-  %925 = load i64, ptr %924, align 8
-  %926 = mul i64 %242, %.2203649
-  %927 = mul i64 %926, %925
-  %928 = getelementptr inbounds nuw i8, ptr %918, i64 20
-  %929 = load i32, ptr %928, align 4
-  switch i32 %929, label %931 [
+922:                                              ; preds = %890, %920
+  %923 = load i8, ptr %83, align 1
+  %924 = trunc i8 %923 to i1
+  br i1 %924, label %925, label %954
+
+925:                                              ; preds = %922
+  %926 = load ptr, ptr %241, align 8
+  %927 = getelementptr inbounds nuw i8, ptr %926, i64 48
+  %928 = load ptr, ptr %927, align 8
+  %929 = load ptr, ptr @__glewBindBuffer, align 8
+  %930 = getelementptr inbounds nuw i8, ptr %928, i64 32
+  %931 = load i32, ptr %930, align 8
+  invoke void %929(i32 noundef 34962, i32 noundef %931)
+          to label %932 unwind label %.loopexit610
+
+932:                                              ; preds = %925
+  %933 = load ptr, ptr @__glewBufferSubData, align 8
+  %934 = getelementptr inbounds nuw i8, ptr %928, i64 8
+  %935 = load i64, ptr %934, align 8
+  %936 = mul i64 %242, %.2203623
+  %937 = mul i64 %936, %935
+  %938 = getelementptr inbounds nuw i8, ptr %928, i64 20
+  %939 = load i32, ptr %938, align 4
+  switch i32 %939, label %941 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread: ; preds = %922
-  %930 = mul i64 %925, 3
-  br label %934
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread: ; preds = %932
+  %940 = mul i64 %935, 3
+  br label %944
 
-931:                                              ; preds = %922
+941:                                              ; preds = %932
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369: ; preds = %922, %922, %922, %931
-  %.0.i368 = phi i64 [ 0, %931 ], [ 4, %922 ], [ 4, %922 ], [ 4, %922 ]
-  %932 = mul i64 %.0.i368, %927
-  %933 = mul i64 %925, 3
-  switch i32 %929, label %937 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369: ; preds = %932, %932, %932, %941
+  %.0.i368 = phi i64 [ 0, %941 ], [ 4, %932 ], [ 4, %932 ], [ 4, %932 ]
+  %942 = mul i64 %.0.i368, %937
+  %943 = mul i64 %935, 3
+  switch i32 %939, label %947 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
-    i32 5121, label %934
+    i32 5121, label %944
   ]
 
-934:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
-  %935 = phi i64 [ %930, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %936 = phi i64 [ %927, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+944:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
+  %945 = phi i64 [ %940, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %943, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %946 = phi i64 [ %937, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369.thread ], [ %942, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
 
-937:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
+947:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %934, %937
-  %938 = phi i64 [ %933, %937 ], [ %935, %934 ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %933, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %939 = phi i64 [ %932, %937 ], [ %936, %934 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %932, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %.0.i370 = phi i64 [ 0, %937 ], [ 1, %934 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
-  %940 = mul i64 %938, %spec.select
-  %941 = mul i64 %940, %.0.i370
-  invoke void %923(i32 noundef 34962, i64 noundef %939, i64 noundef %941, ptr noundef nonnull %.sroa.0469.1)
-          to label %942 unwind label %.loopexit610
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369, %944, %947
+  %948 = phi i64 [ %943, %947 ], [ %945, %944 ], [ %943, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %943, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %943, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %949 = phi i64 [ %942, %947 ], [ %946, %944 ], [ %942, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %942, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ %942, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %.0.i370 = phi i64 [ 0, %947 ], [ 1, %944 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit369 ]
+  %950 = mul i64 %948, %spec.select
+  %951 = mul i64 %950, %.0.i370
+  invoke void %933(i32 noundef 34962, i64 noundef %949, i64 noundef %951, ptr noundef nonnull %.sroa.0469.1)
+          to label %952 unwind label %.loopexit610
 
-942:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
-  %943 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %943(i32 noundef 34962, i32 noundef 0)
-          to label %944 unwind label %.loopexit610
+952:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit371
+  %953 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %953(i32 noundef 34962, i32 noundef 0)
+          to label %954 unwind label %.loopexit610
 
-944:                                              ; preds = %942, %912
-  %945 = add i64 %.2203649, 1
-  br label %946
+954:                                              ; preds = %952, %922
+  %955 = add i64 %.2203623, 1
+  br label %956
 
-946:                                              ; preds = %.loopexit, %944
-  %.3204 = phi i64 [ %945, %944 ], [ %.2203649, %.loopexit ]
-  %indvars.iv.next679 = add nsw i64 %indvars.iv678, 1
-  %947 = add nuw nsw i64 %.0210647, 1
-  %948 = load i32, ptr %252, align 4
-  %949 = zext i32 %948 to i64
-  %.not213.not = icmp samesign ult i64 %.0210647, %949
-  br i1 %.not213.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !120
+956:                                              ; preds = %.loopexit, %954
+  %.3204 = phi i64 [ %955, %954 ], [ %.2203623, %.loopexit ]
+  %indvars.iv.next653 = add nsw i64 %indvars.iv652, 1
+  %957 = add nuw nsw i64 %.0210621, 1
+  %958 = load i32, ptr %252, align 4
+  %959 = zext i32 %958 to i64
+  %.not213.not = icmp samesign ult i64 %.0210621, %959
+  br i1 %.not213.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !117
 
-._crit_edge.loopexit:                             ; preds = %946
-  %950 = trunc nsw i64 %indvars.iv.next679 to i32
-  %.pre687 = load i32, ptr %.sroa.0425.0654, align 4
-  %.pre688 = load ptr, ptr %248, align 8
+._crit_edge.loopexit:                             ; preds = %956
+  %960 = trunc nsw i64 %indvars.iv.next653 to i32
+  %.pre661 = load i32, ptr %.sroa.0425.0628, align 4
+  %.pre662 = load ptr, ptr %248, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph658
-  %951 = phi ptr [ %250, %.lr.ph658 ], [ %.pre688, %._crit_edge.loopexit ]
-  %952 = phi i32 [ %251, %.lr.ph658 ], [ %.pre687, %._crit_edge.loopexit ]
-  %.2209.lcssa = phi i32 [ %.1208655, %.lr.ph658 ], [ %950, %._crit_edge.loopexit ]
-  %.2203.lcssa = phi i64 [ %.1202656, %.lr.ph658 ], [ %.3204, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ %253, %.lr.ph658 ], [ %948, %._crit_edge.loopexit ]
-  %953 = add i32 %.1653, 1
-  %954 = add i32 %953, %.lcssa
-  %955 = sub i32 %954, %952
-  %956 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0654, i64 8
-  %.not598 = icmp eq ptr %956, %951
-  br i1 %.not598, label %._crit_edge659, label %.lr.ph658, !llvm.loop !121
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph632
+  %961 = phi ptr [ %250, %.lr.ph632 ], [ %.pre662, %._crit_edge.loopexit ]
+  %962 = phi i32 [ %251, %.lr.ph632 ], [ %.pre661, %._crit_edge.loopexit ]
+  %.2209.lcssa = phi i32 [ %.1208629, %.lr.ph632 ], [ %960, %._crit_edge.loopexit ]
+  %.2203.lcssa = phi i64 [ %.1202630, %.lr.ph632 ], [ %.3204, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %253, %.lr.ph632 ], [ %958, %._crit_edge.loopexit ]
+  %963 = add i32 %.1627, 1
+  %964 = add i32 %963, %.lcssa
+  %965 = sub i32 %964, %962
+  %966 = getelementptr inbounds nuw i8, ptr %.sroa.0425.0628, i64 8
+  %.not598 = icmp eq ptr %966, %961
+  br i1 %.not598, label %._crit_edge633, label %.lr.ph632, !llvm.loop !118
 
-._crit_edge659:                                   ; preds = %._crit_edge, %244
-  %.1.lcssa = phi i32 [ %.0664, %244 ], [ %955, %._crit_edge ]
-  %.1208.lcssa = phi i32 [ %.0207666, %244 ], [ %.2209.lcssa, %._crit_edge ]
-  %.1202.lcssa = phi i64 [ %.0201668, %244 ], [ %.2203.lcssa, %._crit_edge ]
-  %957 = load i8, ptr %83, align 1
-  %958 = trunc i8 %957 to i1
-  %959 = load i8, ptr %69, align 1
-  %960 = trunc i8 %959 to i1
-  %or.cond588 = select i1 %958, i1 true, i1 %960
-  br i1 %or.cond588, label %961, label %966
+._crit_edge633:                                   ; preds = %._crit_edge, %244
+  %.1.lcssa = phi i32 [ %.0638, %244 ], [ %965, %._crit_edge ]
+  %.1208.lcssa = phi i32 [ %.0207640, %244 ], [ %.2209.lcssa, %._crit_edge ]
+  %.1202.lcssa = phi i64 [ %.0201642, %244 ], [ %.2203.lcssa, %._crit_edge ]
+  %967 = load i8, ptr %83, align 1
+  %968 = trunc i8 %967 to i1
+  %969 = load i8, ptr %69, align 1
+  %970 = trunc i8 %969 to i1
+  %or.cond588 = select i1 %968, i1 true, i1 %970
+  br i1 %or.cond588, label %971, label %976
 
-961:                                              ; preds = %._crit_edge659
-  %962 = load i16, ptr %245, align 2
-  %963 = load ptr, ptr %243, align 8
-  %964 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %963, i64 %indvars.iv681
-  store i16 %962, ptr %964, align 4
-  %965 = getelementptr inbounds nuw i8, ptr %964, i64 4
-  store i32 %.1.lcssa, ptr %965, align 4
-  br label %966
+971:                                              ; preds = %._crit_edge633
+  %972 = load i16, ptr %245, align 2
+  %973 = load ptr, ptr %243, align 8
+  %974 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %973, i64 %indvars.iv655
+  store i16 %972, ptr %974, align 4
+  %975 = getelementptr inbounds nuw i8, ptr %974, i64 4
+  store i32 %.1.lcssa, ptr %975, align 4
+  br label %976
 
-966:                                              ; preds = %._crit_edge659, %961
-  %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
-  %967 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0434.0665) #29
-  %.not596 = icmp eq ptr %967, %238
-  br i1 %.not596, label %._crit_edge670, label %244, !llvm.loop !122
+976:                                              ; preds = %._crit_edge633, %971
+  %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
+  %977 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0434.0639) #29
+  %.not596 = icmp eq ptr %977, %238
+  br i1 %.not596, label %._crit_edge644, label %244, !llvm.loop !119
 
-._crit_edge670:                                   ; preds = %966, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
-  %968 = load i8, ptr %224, align 1
-  %969 = trunc i8 %968 to i1
-  br i1 %969, label %970, label %1013
+._crit_edge644:                                   ; preds = %976, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
+  %978 = load i8, ptr %224, align 1
+  %979 = trunc i8 %978 to i1
+  br i1 %979, label %980, label %1023
 
-970:                                              ; preds = %._crit_edge670
-  %971 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %972 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %973 = load ptr, ptr %972, align 8
-  %974 = load ptr, ptr %971, align 8
-  %.not = icmp eq ptr %973, %974
-  br i1 %.not, label %1013, label %.preheader
+980:                                              ; preds = %._crit_edge644
+  %981 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %982 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %983 = load ptr, ptr %982, align 8
+  %984 = load ptr, ptr %981, align 8
+  %.not = icmp eq ptr %983, %984
+  br i1 %.not, label %1023, label %.preheader
 
-.preheader:                                       ; preds = %970, %.preheader
-  %.sroa.0419.0671 = phi ptr [ %986, %.preheader ], [ %974, %970 ]
-  %975 = load i32, ptr %.sroa.0419.0671, align 4
-  %976 = zext i32 %975 to i64
-  %977 = load ptr, ptr %9, align 8
-  %978 = getelementptr inbounds nuw i32, ptr %977, i64 %976
-  %979 = load i32, ptr %978, align 4
-  store i32 %979, ptr %.sroa.0419.0671, align 4
-  %980 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0671, i64 4
-  %981 = load i32, ptr %980, align 4
-  %982 = zext i32 %981 to i64
-  %983 = load ptr, ptr %9, align 8
-  %984 = getelementptr inbounds nuw i32, ptr %983, i64 %982
-  %985 = load i32, ptr %984, align 4
-  store i32 %985, ptr %980, align 4
-  %986 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0671, i64 8
-  %.not597 = icmp eq ptr %986, %973
-  br i1 %.not597, label %987, label %.preheader, !llvm.loop !123
+.preheader:                                       ; preds = %980, %.preheader
+  %.sroa.0419.0645 = phi ptr [ %996, %.preheader ], [ %984, %980 ]
+  %985 = load i32, ptr %.sroa.0419.0645, align 4
+  %986 = zext i32 %985 to i64
+  %987 = load ptr, ptr %9, align 8
+  %988 = getelementptr inbounds nuw i32, ptr %987, i64 %986
+  %989 = load i32, ptr %988, align 4
+  store i32 %989, ptr %.sroa.0419.0645, align 4
+  %990 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0645, i64 4
+  %991 = load i32, ptr %990, align 4
+  %992 = zext i32 %991 to i64
+  %993 = load ptr, ptr %9, align 8
+  %994 = getelementptr inbounds nuw i32, ptr %993, i64 %992
+  %995 = load i32, ptr %994, align 4
+  store i32 %995, ptr %990, align 4
+  %996 = getelementptr inbounds nuw i8, ptr %.sroa.0419.0645, i64 8
+  %.not597 = icmp eq ptr %996, %983
+  br i1 %.not597, label %997, label %.preheader
 
-987:                                              ; preds = %.preheader
-  %988 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %989 = load ptr, ptr %988, align 8
-  %990 = getelementptr inbounds nuw i8, ptr %989, i64 64
-  %991 = load ptr, ptr %990, align 8
-  %992 = load ptr, ptr @__glewBindBuffer, align 8
-  %993 = getelementptr inbounds nuw i8, ptr %991, i64 32
-  %994 = load i32, ptr %993, align 8
-  invoke void %992(i32 noundef 34963, i32 noundef %994)
-          to label %995 unwind label %.loopexit.split-lp
+997:                                              ; preds = %.preheader
+  %998 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %999 = load ptr, ptr %998, align 8
+  %1000 = getelementptr inbounds nuw i8, ptr %999, i64 64
+  %1001 = load ptr, ptr %1000, align 8
+  %1002 = load ptr, ptr @__glewBindBuffer, align 8
+  %1003 = getelementptr inbounds nuw i8, ptr %1001, i64 32
+  %1004 = load i32, ptr %1003, align 8
+  invoke void %1002(i32 noundef 34963, i32 noundef %1004)
+          to label %1005 unwind label %.loopexit.split-lp
 
-995:                                              ; preds = %987
-  %996 = load ptr, ptr @__glewBufferSubData, align 8
-  %997 = getelementptr inbounds nuw i8, ptr %991, i64 8
-  %998 = load i64, ptr %997, align 8
-  %999 = getelementptr inbounds nuw i8, ptr %991, i64 20
-  %1000 = load i32, ptr %999, align 4
-  %switch.tableidx = add i32 %1000, -5121
-  %1001 = icmp ult i32 %switch.tableidx, 6
-  br i1 %1001, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
+1005:                                             ; preds = %997
+  %1006 = load ptr, ptr @__glewBufferSubData, align 8
+  %1007 = getelementptr inbounds nuw i8, ptr %1001, i64 8
+  %1008 = load i64, ptr %1007, align 8
+  %1009 = getelementptr inbounds nuw i8, ptr %1001, i64 20
+  %1010 = load i32, ptr %1009, align 4
+  %switch.tableidx = add i32 %1010, -5121
+  %1011 = icmp ult i32 %switch.tableidx, 6
+  br i1 %1011, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
 
-switch.lookup:                                    ; preds = %995
-  %1002 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 0, i64 %1002
+switch.lookup:                                    ; preds = %1005
+  %1012 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 0, i64 %1012
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373: ; preds = %995, %switch.lookup
-  %.0.i372 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %995 ]
-  %1003 = mul i64 %.0.i372, %998
-  %1004 = load ptr, ptr %972, align 8
-  %1005 = load ptr, ptr %971, align 8
-  %1006 = ptrtoint ptr %1004 to i64
-  %1007 = ptrtoint ptr %1005 to i64
-  %1008 = sub i64 %1006, %1007
-  %1009 = ashr exact i64 %1008, 3
-  %1010 = mul i64 %1003, %1009
-  invoke void %996(i32 noundef 34963, i64 noundef 0, i64 noundef %1010, ptr noundef nonnull %1005)
-          to label %1011 unwind label %.loopexit.split-lp
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373: ; preds = %1005, %switch.lookup
+  %.0.i372 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1005 ]
+  %1013 = mul i64 %.0.i372, %1008
+  %1014 = load ptr, ptr %982, align 8
+  %1015 = load ptr, ptr %981, align 8
+  %1016 = ptrtoint ptr %1014 to i64
+  %1017 = ptrtoint ptr %1015 to i64
+  %1018 = sub i64 %1016, %1017
+  %1019 = ashr exact i64 %1018, 3
+  %1020 = mul i64 %1013, %1019
+  invoke void %1006(i32 noundef 34963, i64 noundef 0, i64 noundef %1020, ptr noundef nonnull %1015)
+          to label %1021 unwind label %.loopexit.split-lp
 
-1011:                                             ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
-  %1012 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %1012(i32 noundef 34963, i32 noundef 0)
-          to label %1013 unwind label %.loopexit.split-lp
+1021:                                             ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
+  %1022 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %1022(i32 noundef 34963, i32 noundef 0)
+          to label %1023 unwind label %.loopexit.split-lp
 
-1013:                                             ; preds = %1011, %970, %._crit_edge670
-  %1014 = load ptr, ptr %9, align 8
-  %.not.i.i.i374 = icmp eq ptr %1014, null
-  br i1 %.not.i.i.i374, label %_ZNSt6vectorIjSaIjEED2Ev.exit375, label %1015
+1023:                                             ; preds = %1021, %980, %._crit_edge644
+  %1024 = load ptr, ptr %9, align 8
+  %.not.i.i.i374 = icmp eq ptr %1024, null
+  br i1 %.not.i.i.i374, label %_ZNSt6vectorIjSaIjEED2Ev.exit375, label %1025
 
-1015:                                             ; preds = %1013
-  call void @_ZdlPv(ptr noundef nonnull %1014) #26
+1025:                                             ; preds = %1023
+  call void @_ZdlPv(ptr noundef nonnull %1024) #26
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit375
 
-_ZNSt6vectorIjSaIjEED2Ev.exit375:                 ; preds = %1013, %1015
+_ZNSt6vectorIjSaIjEED2Ev.exit375:                 ; preds = %1023, %1025
   %.not.i.i.i376 = icmp eq ptr %.sroa.0469.1, null
-  br i1 %.not.i.i.i376, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %1016
+  br i1 %.not.i.i.i376, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %1026
 
-1016:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375
+1026:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0469.1) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375, %1016
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit375, %1026
   %.not.i.i.i377 = icmp eq ptr %.sroa.0481.0, null
-  br i1 %.not.i.i.i377, label %_ZNSt6vectorIfSaIfEED2Ev.exit378, label %1017
+  br i1 %.not.i.i.i377, label %_ZNSt6vectorIfSaIfEED2Ev.exit378, label %1027
 
-1017:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+1027:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0481.0) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit378
 
-_ZNSt6vectorIfSaIfEED2Ev.exit378:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %1017
+_ZNSt6vectorIfSaIfEED2Ev.exit378:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %1027
   %.not.i.i.i379 = icmp eq ptr %.sroa.0495.0, null
-  br i1 %.not.i.i.i379, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, label %1018
+  br i1 %.not.i.i.i379, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, label %1028
 
-1018:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378
+1028:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0495.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378, %1018
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit378, %1028
   %.not.i.i.i380 = icmp eq ptr %.sroa.0503.0, null
-  br i1 %.not.i.i.i380, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, label %1019
+  br i1 %.not.i.i.i380, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, label %1029
 
-1019:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
+1029:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0503.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, %1019
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, %1029
   %.not.i.i.i382 = icmp eq ptr %.sroa.0512.0, null
-  br i1 %.not.i.i.i382, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %1020
+  br i1 %.not.i.i.i382, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %1030
 
-1020:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381
+1030:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0512.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, %1020
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit381, %1030
   %.not.i.i.i383 = icmp eq ptr %.sroa.0521.0, null
-  br i1 %.not.i.i.i383, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, label %1021
+  br i1 %.not.i.i.i383, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, label %1031
 
-1021:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
+1031:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0521.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %1021
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %1031
   %.not.i.i.i385 = icmp eq ptr %.sroa.0530.0, null
-  br i1 %.not.i.i.i385, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386, label %1022
+  br i1 %.not.i.i.i385, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386, label %1032
 
-1022:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384
+1032:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0530.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, %1022
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit386: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit384, %1032
   ret i1 true
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %235, %233, %95
   %.sroa.0469.2 = phi ptr [ %.sroa.0469.0, %95 ], [ %.sroa.0469.1, %233 ], [ %.sroa.0469.1, %235 ]
   %.pn = phi { ptr, i32 } [ %96, %95 ], [ %lpad.phi, %233 ], [ %lpad.phi, %235 ]
   %.not.i.i.i387 = icmp eq ptr %.sroa.0469.2, null
-  br i1 %.not.i.i.i387, label %_ZNSt6vectorIfSaIfEED2Ev.exit388, label %1023
+  br i1 %.not.i.i.i387, label %_ZNSt6vectorIfSaIfEED2Ev.exit388, label %1033
 
-1023:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
+1033:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0469.2) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit388
 
-_ZNSt6vectorIfSaIfEED2Ev.exit388:                 ; preds = %1023, %_ZNSt6vectorIjSaIjEED2Ev.exit
+_ZNSt6vectorIfSaIfEED2Ev.exit388:                 ; preds = %1033, %_ZNSt6vectorIjSaIjEED2Ev.exit
   %.not.i.i.i389 = icmp eq ptr %.sroa.0481.0, null
-  br i1 %.not.i.i.i389, label %_ZNSt6vectorIfSaIfEED2Ev.exit390, label %1024
+  br i1 %.not.i.i.i389, label %_ZNSt6vectorIfSaIfEED2Ev.exit390, label %1034
 
-1024:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit388
+1034:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit388
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0481.0) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit390
 
-_ZNSt6vectorIfSaIfEED2Ev.exit390:                 ; preds = %1024, %_ZNSt6vectorIfSaIfEED2Ev.exit388, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread
-  %.pn.pn.pn = phi { ptr, i32 } [ %81, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit388 ], [ %.pn, %1024 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit390:                 ; preds = %1034, %_ZNSt6vectorIfSaIfEED2Ev.exit388, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread
+  %.pn.pn.pn = phi { ptr, i32 } [ %81, %_ZNSt6vectorIfSaIfEED2Ev.exit388.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit388 ], [ %.pn, %1034 ]
   %.not.i.i.i391 = icmp eq ptr %.sroa.0495.0, null
-  br i1 %.not.i.i.i391, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, label %1025
+  br i1 %.not.i.i.i391, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, label %1035
 
-1025:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit390
+1035:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit390
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0495.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392: ; preds = %1025, %_ZNSt6vectorIfSaIfEED2Ev.exit390, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread ], [ %.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit390 ], [ %.pn.pn.pn, %1025 ]
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392: ; preds = %1035, %_ZNSt6vectorIfSaIfEED2Ev.exit390, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %_ZNSt6vectorIfSaIfEED2Ev.exit390.thread ], [ %.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit390 ], [ %.pn.pn.pn, %1035 ]
   %.not.i.i.i393 = icmp eq ptr %.sroa.0503.0, null
-  br i1 %.not.i.i.i393, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, label %1026
+  br i1 %.not.i.i.i393, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, label %1036
 
-1026:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392
+1036:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0503.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394: ; preds = %1026, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392 ], [ %.pn.pn.pn.pn, %1026 ]
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394: ; preds = %1036, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392.thread ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit392 ], [ %.pn.pn.pn.pn, %1036 ]
   %.not.i.i.i395 = icmp eq ptr %.sroa.0512.0, null
-  br i1 %.not.i.i.i395, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, label %1027
+  br i1 %.not.i.i.i395, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, label %1037
 
-1027:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394
+1037:                                             ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0512.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396: ; preds = %1027, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394 ], [ %.pn.pn.pn.pn.pn, %1027 ]
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396: ; preds = %1037, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394.thread ], [ %.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit394 ], [ %.pn.pn.pn.pn.pn, %1037 ]
   %.not.i.i.i397 = icmp eq ptr %.sroa.0521.0, null
-  br i1 %.not.i.i.i397, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, label %1028
+  br i1 %.not.i.i.i397, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, label %1038
 
-1028:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396
+1038:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0521.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398: ; preds = %1028, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396 ], [ %.pn.pn.pn.pn.pn.pn, %1028 ]
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398: ; preds = %1038, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396.thread ], [ %.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit396 ], [ %.pn.pn.pn.pn.pn.pn, %1038 ]
   %.not.i.i.i399 = icmp eq ptr %.sroa.0530.0, null
-  br i1 %.not.i.i.i399, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400, label %1029
+  br i1 %.not.i.i.i399, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400, label %1039
 
-1029:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398
+1039:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0530.0) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, %1029
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit400: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit398, %1039
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -9635,8 +9621,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit202.thread:          ; preds = %48, %_ZNKSt6vectorI
 
 _ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i: ; preds = %.thread270.thread, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.thread270
   %52 = phi ptr [ %42, %.thread270 ], [ %42, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %.thread270.thread ]
-  %.sroa.0240.0325 = phi ptr [ %.sroa.0240.0, %.thread270 ], [ %.sroa.0240.0, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %.thread270.thread ]
-  %.sroa.0249.0268321 = phi ptr [ %.sroa.0249.0, %.thread270 ], [ %.sroa.0249.0, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %.thread270.thread ]
+  %.sroa.0240.0322 = phi ptr [ %.sroa.0240.0, %.thread270 ], [ %.sroa.0240.0, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %.thread270.thread ]
+  %.sroa.0249.0268318 = phi ptr [ %.sroa.0249.0, %.thread270 ], [ %.sroa.0249.0, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %.thread270.thread ]
   %53 = phi ptr [ %30, %.thread270 ], [ %30, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %34, %.thread270.thread ]
   %.sroa.0233.0 = phi ptr [ null, %.thread270 ], [ %50, %_ZNKSt6vectorIN3vcg6Color4IhEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %.thread270.thread ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 5
@@ -9684,9 +9670,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %_ZNKSt6vectorIfSaIf
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i
   %.sroa.0222.1 = phi ptr [ null, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i ], [ %63, %.noexc160 ], [ null, %57 ]
-  %invariant.gep = getelementptr i8, ptr %.sroa.0222.1, i64 4
-  %.not314 = icmp eq i32 %16, 0
-  br i1 %.not314, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %.lr.ph
+  %.not310 = icmp eq i32 %16, 0
+  br i1 %.not310, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %66 = add nsw i64 %17, -1
@@ -9703,7 +9688,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   br i1 %72, label %73, label %86
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0249.0268321, i64 %70
+  %74 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0249.0268318, i64 %70
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
@@ -9726,7 +9711,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   br i1 %88, label %89, label %110
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0240.0325, i64 %70
+  %90 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0240.0322, i64 %70
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
@@ -9795,25 +9780,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc160, %57, %_Z
   %137 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %136, i64 %135
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %137, align 4
   %.sroa.0220.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
-  %138 = shl i64 %70, 1
-  %139 = getelementptr inbounds float, ptr %.sroa.0222.1, i64 %138
-  store float %.sroa.0220.0.vec.extract, ptr %139, align 4
-  %140 = load ptr, ptr %125, align 8
-  %141 = getelementptr inbounds %class.CVertexO, ptr %140, i64 %.0118305
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 192
-  %144 = load ptr, ptr %142, align 8
-  %145 = ptrtoint ptr %141 to i64
-  %146 = ptrtoint ptr %144 to i64
-  %147 = sub i64 %145, %146
-  %148 = sdiv exact i64 %147, 48
-  %sext.i161 = shl i64 %148, 32
-  %149 = ashr exact i64 %sext.i161, 32
-  %150 = load ptr, ptr %143, align 8
-  %151 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %150, i64 %149, i32 0, i64 0, i32 0, i64 1
-  %.sroa.0219.4.vec.extract = load float, ptr %151, align 4
-  %gep = getelementptr float, ptr %invariant.gep, i64 %138
-  store float %.sroa.0219.4.vec.extract, ptr %gep, align 4
+  %.idx = shl i64 %70, 3
+  %138 = getelementptr i8, ptr %.sroa.0222.1, i64 %.idx
+  store float %.sroa.0220.0.vec.extract, ptr %138, align 4
+  %139 = load ptr, ptr %125, align 8
+  %140 = getelementptr inbounds %class.CVertexO, ptr %139, i64 %.0118305
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 192
+  %143 = load ptr, ptr %141, align 8
+  %144 = ptrtoint ptr %140 to i64
+  %145 = ptrtoint ptr %143 to i64
+  %146 = sub i64 %144, %145
+  %147 = sdiv exact i64 %146, 48
+  %sext.i161 = shl i64 %147, 32
+  %148 = ashr exact i64 %sext.i161, 32
+  %149 = load ptr, ptr %142, align 8
+  %150 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %149, i64 %148, i32 0, i64 0, i32 0, i64 1
+  %.sroa.0219.4.vec.extract = load float, ptr %150, align 4
+  %151 = getelementptr i8, ptr %138, i64 4
+  store float %.sroa.0219.4.vec.extract, ptr %151, align 4
   br label %152
 
 152:                                              ; preds = %123, %120
@@ -9878,20 +9863,20 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %.0.i167 = phi i64 [ 0, %176 ], [ 1, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.thread ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit ]
   %178 = mul i64 %169, %spec.select
   %179 = mul i64 %178, %.0.i167
-  invoke void %166(i32 noundef 34962, i64 noundef %177, i64 noundef %179, ptr noundef nonnull %.sroa.0249.0268321)
+  invoke void %166(i32 noundef 34962, i64 noundef %177, i64 noundef %179, ptr noundef nonnull %.sroa.0249.0268318)
           to label %180 unwind label %.loopexit
 
 180:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit168
   %181 = load ptr, ptr @__glewBindBuffer, align 8
   invoke void %181(i32 noundef 34962, i32 noundef 0)
-          to label %._crit_edge317 unwind label %.loopexit
+          to label %._crit_edge313 unwind label %.loopexit
 
-._crit_edge317:                                   ; preds = %180
+._crit_edge313:                                   ; preds = %180
   %.pre = load i8, ptr %53, align 1
   br label %182
 
-182:                                              ; preds = %._crit_edge317, %155
-  %183 = phi i8 [ %.pre, %._crit_edge317 ], [ %87, %155 ]
+182:                                              ; preds = %._crit_edge313, %155
+  %183 = phi i8 [ %.pre, %._crit_edge313 ], [ %87, %155 ]
   %184 = trunc i8 %183 to i1
   br i1 %184, label %185, label %209
 
@@ -9945,7 +9930,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %.0.i171 = phi i64 [ 0, %203 ], [ 1, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit170.thread ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit170 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit170 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit170 ]
   %205 = mul i64 %196, %spec.select
   %206 = mul i64 %205, %.0.i171
-  invoke void %193(i32 noundef 34962, i64 noundef %204, i64 noundef %206, ptr noundef nonnull %.sroa.0240.0325)
+  invoke void %193(i32 noundef 34962, i64 noundef %204, i64 noundef %206, ptr noundef nonnull %.sroa.0240.0322)
           to label %207 unwind label %.loopexit
 
 207:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit172
@@ -10091,7 +10076,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %.1115 = phi i64 [ %265, %264 ], [ %.0114306, %152 ]
   %267 = add nuw i64 %.0118305, 1
   %exitcond.not = icmp eq i64 %267, %17
-  br i1 %exitcond.not, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %69, !llvm.loop !124
+  br i1 %exitcond.not, label %_ZNSt6vectorIfSaIfEE5clearEv.exit, label %69, !llvm.loop !120
 
 _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %266, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %268 = mul i64 %.sroa.speculated260, 3
@@ -10100,7 +10085,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit:                ; preds = %266, %_ZNSt6vectorI
 
 270:                                              ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #31
-          to label %.noexc186 unwind label %317
+          to label %.noexc186 unwind label %318
 
 .noexc186:                                        ; preds = %270
   unreachable
@@ -10112,7 +10097,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIf
 271:                                              ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %272 = mul i64 %.sroa.speculated260, 12
   %273 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %272) #30
-          to label %.noexc187 unwind label %317
+          to label %.noexc187 unwind label %318
 
 .noexc187:                                        ; preds = %271
   store i32 0, ptr %273, align 4
@@ -10127,26 +10112,24 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc187
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc187, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0.0 = phi ptr [ %273, %.noexc187 ], [ %273, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %invariant.gep307 = getelementptr i8, ptr %.sroa.0.0, i64 4
-  %invariant.gep309 = getelementptr i8, ptr %.sroa.0.0, i64 8
-  %.not315 = icmp eq i32 %19, 0
-  br i1 %.not315, label %._crit_edge, label %.lr.ph313
+  %.not311 = icmp eq i32 %19, 0
+  br i1 %.not311, label %._crit_edge, label %.lr.ph309
 
-.lr.ph313:                                        ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
+.lr.ph309:                                        ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
   %277 = add nsw i64 %20, -1
   %278 = add i64 %.sroa.speculated260, -1
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %281
 
-281:                                              ; preds = %.lr.ph313, %354
-  %.0109312 = phi i64 [ 0, %.lr.ph313 ], [ %355, %354 ]
-  %.2116311 = phi i64 [ 0, %.lr.ph313 ], [ %.3117, %354 ]
-  %282 = urem i64 %.0109312, %.sroa.speculated260
+281:                                              ; preds = %.lr.ph309, %355
+  %.0109308 = phi i64 [ 0, %.lr.ph309 ], [ %356, %355 ]
+  %.2116307 = phi i64 [ 0, %.lr.ph309 ], [ %.3117, %355 ]
+  %282 = urem i64 %.0109308, %.sroa.speculated260
   %283 = load ptr, ptr %0, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 304
   %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds %class.CFaceO, ptr %285, i64 %.0109312, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %286 = getelementptr inbounds %class.CFaceO, ptr %285, i64 %.0109308, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %289 = load ptr, ptr %288, align 8
@@ -10155,22 +10138,22 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %292 = sub i64 %290, %291
   %293 = sdiv exact i64 %292, 48
   %294 = trunc i64 %293 to i32
-  %295 = mul i64 %282, 3
-  %296 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %295
-  store i32 %294, ptr %296, align 4
-  %297 = load ptr, ptr %284, align 8
-  %298 = getelementptr inbounds %class.CFaceO, ptr %297, i64 %.0109312, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  %299 = load ptr, ptr %298, align 8
-  %300 = load ptr, ptr %288, align 8
+  %.idx314 = mul i64 %282, 12
+  %295 = getelementptr i8, ptr %.sroa.0.0, i64 %.idx314
+  store i32 %294, ptr %295, align 4
+  %296 = load ptr, ptr %284, align 8
+  %297 = getelementptr inbounds %class.CFaceO, ptr %296, i64 %.0109308, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  %298 = load ptr, ptr %297, align 8
+  %299 = load ptr, ptr %288, align 8
+  %300 = ptrtoint ptr %298 to i64
   %301 = ptrtoint ptr %299 to i64
-  %302 = ptrtoint ptr %300 to i64
-  %303 = sub i64 %301, %302
-  %304 = sdiv exact i64 %303, 48
-  %305 = trunc i64 %304 to i32
-  %gep308 = getelementptr i32, ptr %invariant.gep307, i64 %295
-  store i32 %305, ptr %gep308, align 4
+  %302 = sub i64 %300, %301
+  %303 = sdiv exact i64 %302, 48
+  %304 = trunc i64 %303 to i32
+  %305 = getelementptr i8, ptr %295, i64 4
+  store i32 %304, ptr %305, align 4
   %306 = load ptr, ptr %284, align 8
-  %307 = getelementptr inbounds %class.CFaceO, ptr %306, i64 %.0109312, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  %307 = getelementptr inbounds %class.CFaceO, ptr %306, i64 %.0109308, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
   %308 = load ptr, ptr %307, align 8
   %309 = load ptr, ptr %288, align 8
   %310 = ptrtoint ptr %308 to i64
@@ -10178,257 +10161,257 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %312 = sub i64 %310, %311
   %313 = sdiv exact i64 %312, 48
   %314 = trunc i64 %313 to i32
-  %gep310 = getelementptr i32, ptr %invariant.gep309, i64 %295
-  store i32 %314, ptr %gep310, align 4
-  %315 = icmp eq i64 %.0109312, %277
-  %316 = icmp eq i64 %282, %278
-  %or.cond128 = select i1 %315, i1 true, i1 %316
-  br i1 %or.cond128, label %319, label %354
+  %315 = getelementptr i8, ptr %295, i64 8
+  store i32 %314, ptr %315, align 4
+  %316 = icmp eq i64 %.0109308, %277
+  %317 = icmp eq i64 %282, %278
+  %or.cond128 = select i1 %316, i1 true, i1 %317
+  br i1 %or.cond128, label %320, label %355
 
-317:                                              ; preds = %271, %270
-  %318 = landingpad { ptr, i32 }
+318:                                              ; preds = %271, %270
+  %319 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-319:                                              ; preds = %281
-  %320 = add nuw i64 %282, 1
-  %spec.select129 = select i1 %315, i64 %320, i64 %.sroa.speculated260
-  %321 = load i8, ptr %279, align 1
-  %322 = trunc i8 %321 to i1
-  br i1 %322, label %323, label %352
+320:                                              ; preds = %281
+  %321 = add nuw i64 %282, 1
+  %spec.select129 = select i1 %316, i64 %321, i64 %.sroa.speculated260
+  %322 = load i8, ptr %279, align 1
+  %323 = trunc i8 %322 to i1
+  br i1 %323, label %324, label %353
 
-323:                                              ; preds = %319
-  %324 = load ptr, ptr @__glewBindBuffer, align 8
-  %325 = load ptr, ptr %280, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 56
-  %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 32
-  %329 = load i32, ptr %328, align 8
-  invoke void %324(i32 noundef 34963, i32 noundef %329)
-          to label %330 unwind label %.thread282
+324:                                              ; preds = %320
+  %325 = load ptr, ptr @__glewBindBuffer, align 8
+  %326 = load ptr, ptr %280, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 56
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 32
+  %330 = load i32, ptr %329, align 8
+  invoke void %325(i32 noundef 34963, i32 noundef %330)
+          to label %331 unwind label %.thread282
 
-330:                                              ; preds = %323
-  %331 = load ptr, ptr @__glewBufferSubData, align 8
-  %332 = mul i64 %.2116311, %.sroa.speculated260
-  %333 = load ptr, ptr %280, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 56
-  %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
-  %337 = load i64, ptr %336, align 8
-  %338 = mul i64 %332, %337
-  %339 = getelementptr inbounds nuw i8, ptr %335, i64 20
-  %340 = load i32, ptr %339, align 4
-  switch i32 %340, label %341 [
+331:                                              ; preds = %324
+  %332 = load ptr, ptr @__glewBufferSubData, align 8
+  %333 = mul i64 %.2116307, %.sroa.speculated260
+  %334 = load ptr, ptr %280, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 56
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  %338 = load i64, ptr %337, align 8
+  %339 = mul i64 %333, %338
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 20
+  %341 = load i32, ptr %340, align 4
+  switch i32 %341, label %342 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread
   ]
 
-341:                                              ; preds = %330
+342:                                              ; preds = %331
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189: ; preds = %330, %330, %330, %341
-  %.0.i188 = phi i64 [ 0, %341 ], [ 4, %330 ], [ 4, %330 ], [ 4, %330 ]
-  %342 = mul i64 %.0.i188, %338
-  switch i32 %340, label %344 [
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189: ; preds = %331, %331, %331, %342
+  %.0.i188 = phi i64 [ 0, %342 ], [ 4, %331 ], [ 4, %331 ], [ 4, %331 ]
+  %343 = mul i64 %.0.i188, %339
+  switch i32 %341, label %345 [
     i32 5126, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
     i32 5124, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
     i32 5125, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
     i32 5121, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread
   ]
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread: ; preds = %330, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
-  %343 = phi i64 [ %342, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ %338, %330 ]
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread: ; preds = %331, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
+  %344 = phi i64 [ %343, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ %339, %331 ]
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
 
-344:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
+345:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread, %344
-  %345 = phi i64 [ %342, %344 ], [ %343, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread ], [ %342, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ %342, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ %342, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ]
-  %.0.i190 = phi i64 [ 0, %344 ], [ 1, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ]
-  %346 = mul i64 %337, %spec.select129
-  %347 = mul i64 %346, %.0.i190
-  invoke void %331(i32 noundef 34963, i64 noundef %345, i64 noundef %347, ptr noundef nonnull %.sroa.0.0)
-          to label %348 unwind label %.thread282
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191: ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread, %345
+  %346 = phi i64 [ %343, %345 ], [ %344, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread ], [ %343, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ %343, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ %343, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ]
+  %.0.i190 = phi i64 [ 0, %345 ], [ 1, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189.thread ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ], [ 4, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit189 ]
+  %347 = mul i64 %338, %spec.select129
+  %348 = mul i64 %347, %.0.i190
+  invoke void %332(i32 noundef 34963, i64 noundef %346, i64 noundef %348, ptr noundef nonnull %.sroa.0.0)
+          to label %349 unwind label %.thread282
 
-348:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
-  %349 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %349(i32 noundef 34963, i32 noundef 0)
-          to label %352 unwind label %.thread282
+349:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191
+  %350 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %350(i32 noundef 34963, i32 noundef 0)
+          to label %353 unwind label %.thread282
 
-.thread282:                                       ; preds = %348, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191, %323
+.thread282:                                       ; preds = %349, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit191, %324
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %351
+  br label %352
 
-350:                                              ; preds = %391, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193, %364
+351:                                              ; preds = %392, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193, %365
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %351
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %352
 
-351:                                              ; preds = %.thread282, %350
-  %lpad.phi285 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread282 ], [ %lpad.thr_comm.split-lp, %350 ]
+352:                                              ; preds = %.thread282, %351
+  %lpad.phi285 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread282 ], [ %lpad.thr_comm.split-lp, %351 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #26
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-352:                                              ; preds = %348, %319
-  %353 = add i64 %.2116311, 1
-  br label %354
+353:                                              ; preds = %349, %320
+  %354 = add i64 %.2116307, 1
+  br label %355
 
-354:                                              ; preds = %281, %352
-  %.3117 = phi i64 [ %353, %352 ], [ %.2116311, %281 ]
-  %355 = add nuw i64 %.0109312, 1
-  %exitcond316.not = icmp eq i64 %355, %20
-  br i1 %exitcond316.not, label %._crit_edge, label %281, !llvm.loop !125
+355:                                              ; preds = %281, %353
+  %.3117 = phi i64 [ %354, %353 ], [ %.2116307, %281 ]
+  %356 = add nuw i64 %.0109308, 1
+  %exitcond312.not = icmp eq i64 %356, %20
+  br i1 %exitcond312.not, label %._crit_edge, label %281, !llvm.loop !121
 
-._crit_edge:                                      ; preds = %354, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-  %356 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %357 = load i8, ptr %356, align 1
-  %358 = trunc i8 %357 to i1
-  br i1 %358, label %359, label %393
+._crit_edge:                                      ; preds = %355, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %358 = load i8, ptr %357, align 1
+  %359 = trunc i8 %358 to i1
+  br i1 %359, label %360, label %394
 
-359:                                              ; preds = %._crit_edge
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %362 = load ptr, ptr %361, align 8
-  %363 = load ptr, ptr %360, align 8
-  %.not = icmp eq ptr %362, %363
-  br i1 %.not, label %393, label %364
+360:                                              ; preds = %._crit_edge
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %363 = load ptr, ptr %362, align 8
+  %364 = load ptr, ptr %361, align 8
+  %.not = icmp eq ptr %363, %364
+  br i1 %.not, label %394, label %365
 
-364:                                              ; preds = %359
-  %365 = load ptr, ptr @__glewBindBuffer, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 64
-  %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 32
-  %371 = load i32, ptr %370, align 8
-  invoke void %365(i32 noundef 34963, i32 noundef %371)
-          to label %372 unwind label %350
+365:                                              ; preds = %360
+  %366 = load ptr, ptr @__glewBindBuffer, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %368 = load ptr, ptr %367, align 8
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 64
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 32
+  %372 = load i32, ptr %371, align 8
+  invoke void %366(i32 noundef 34963, i32 noundef %372)
+          to label %373 unwind label %351
 
-372:                                              ; preds = %364
-  %373 = load ptr, ptr @__glewBufferSubData, align 8
-  %374 = load ptr, ptr %366, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 64
-  %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
-  %378 = load i64, ptr %377, align 8
-  %379 = load ptr, ptr %361, align 8
-  %380 = load ptr, ptr %360, align 8
-  %381 = ptrtoint ptr %379 to i64
+373:                                              ; preds = %365
+  %374 = load ptr, ptr @__glewBufferSubData, align 8
+  %375 = load ptr, ptr %367, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 64
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
+  %379 = load i64, ptr %378, align 8
+  %380 = load ptr, ptr %362, align 8
+  %381 = load ptr, ptr %361, align 8
   %382 = ptrtoint ptr %380 to i64
-  %383 = sub i64 %381, %382
-  %384 = ashr exact i64 %383, 3
-  %385 = mul i64 %384, %378
-  %386 = getelementptr inbounds nuw i8, ptr %376, i64 20
-  %387 = load i32, ptr %386, align 4
-  %switch.tableidx = add i32 %387, -5121
-  %388 = icmp ult i32 %switch.tableidx, 6
-  br i1 %388, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193
+  %383 = ptrtoint ptr %381 to i64
+  %384 = sub i64 %382, %383
+  %385 = ashr exact i64 %384, 3
+  %386 = mul i64 %385, %379
+  %387 = getelementptr inbounds nuw i8, ptr %377, i64 20
+  %388 = load i32, ptr %387, align 4
+  %switch.tableidx = add i32 %388, -5121
+  %389 = icmp ult i32 %switch.tableidx, 6
+  br i1 %389, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193
 
-switch.lookup:                                    ; preds = %372
-  %389 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 0, i64 %389
+switch.lookup:                                    ; preds = %373
+  %390 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 0, i64 %390
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193: ; preds = %372, %switch.lookup
-  %.0.i192 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %372 ]
-  %390 = mul i64 %385, %.0.i192
-  invoke void %373(i32 noundef 34963, i64 noundef 0, i64 noundef %390, ptr noundef nonnull %380)
-          to label %391 unwind label %350
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193: ; preds = %373, %switch.lookup
+  %.0.i192 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %373 ]
+  %391 = mul i64 %386, %.0.i192
+  invoke void %374(i32 noundef 34963, i64 noundef 0, i64 noundef %391, ptr noundef nonnull %381)
+          to label %392 unwind label %351
 
-391:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193
-  %392 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %392(i32 noundef 34963, i32 noundef 0)
-          to label %393 unwind label %350
+392:                                              ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit193
+  %393 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %393(i32 noundef 34963, i32 noundef 0)
+          to label %394 unwind label %351
 
-393:                                              ; preds = %391, %359, %._crit_edge
+394:                                              ; preds = %392, %360, %._crit_edge
   %.not.i.i.i194 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i194, label %_ZNSt6vectorIjSaIjEED2Ev.exit195, label %394
+  br i1 %.not.i.i.i194, label %_ZNSt6vectorIjSaIjEED2Ev.exit195, label %395
 
-394:                                              ; preds = %393
+395:                                              ; preds = %394
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #26
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit195
 
-_ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %393, %394
+_ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %394, %395
   %.not.i.i.i196 = icmp eq ptr %.sroa.0222.1, null
-  br i1 %.not.i.i.i196, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %395
+  br i1 %.not.i.i.i196, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %396
 
-395:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit195
+396:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit195
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0222.1) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit195, %395
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit195, %396
   %.not.i.i.i197 = icmp eq ptr %.sroa.0233.0, null
-  br i1 %.not.i.i.i197, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, label %396
+  br i1 %.not.i.i.i197, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, label %397
 
-396:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+397:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0233.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %396
-  %.not.i.i.i198 = icmp eq ptr %.sroa.0240.0325, null
-  br i1 %.not.i.i.i198, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %397
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %397
+  %.not.i.i.i198 = icmp eq ptr %.sroa.0240.0322, null
+  br i1 %.not.i.i.i198, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %398
 
-397:                                              ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0240.0325) #26
+398:                                              ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0240.0322) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, %397
-  %.not.i.i.i199 = icmp eq ptr %.sroa.0249.0268321, null
-  br i1 %.not.i.i.i199, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit200, label %398
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit, %398
+  %.not.i.i.i199 = icmp eq ptr %.sroa.0249.0268318, null
+  br i1 %.not.i.i.i199, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit200, label %399
 
-398:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0249.0268321) #26
+399:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0249.0268318) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit200
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit200: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %398
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit200: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %399
   ret i1 true
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.loopexit, %351, %350, %317
-  %.pn = phi { ptr, i32 } [ %318, %317 ], [ %lpad.thr_comm.split-lp, %350 ], [ %lpad.phi285, %351 ], [ %lpad.loopexit, %.loopexit ]
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.loopexit, %352, %351, %318
+  %.pn = phi { ptr, i32 } [ %319, %318 ], [ %lpad.thr_comm.split-lp, %351 ], [ %lpad.phi285, %352 ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i201 = icmp eq ptr %.sroa.0222.1, null
-  br i1 %.not.i.i.i201, label %_ZNSt6vectorIfSaIfEED2Ev.exit202, label %399
+  br i1 %.not.i.i.i201, label %_ZNSt6vectorIfSaIfEED2Ev.exit202, label %400
 
-399:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
+400:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0222.1) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit202
 
-_ZNSt6vectorIfSaIfEED2Ev.exit202:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.thread, %399, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %.pn336 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIjSaIjEED2Ev.exit.thread ], [ %.pn, %399 ], [ %.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+_ZNSt6vectorIfSaIfEED2Ev.exit202:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.thread, %400, %_ZNSt6vectorIjSaIjEED2Ev.exit
+  %.pn333 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIjSaIjEED2Ev.exit.thread ], [ %.pn, %400 ], [ %.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %.not.i.i.i203 = icmp eq ptr %.sroa.0233.0, null
-  br i1 %.not.i.i.i203, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204, label %400
+  br i1 %.not.i.i.i203, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204, label %401
 
-400:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit202
+401:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit202
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0233.0) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204
 
-_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204: ; preds = %400, %_ZNSt6vectorIfSaIfEED2Ev.exit202, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread
-  %.sroa.0240.0326 = phi ptr [ %.sroa.0240.0, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread ], [ %.sroa.0240.0325, %_ZNSt6vectorIfSaIfEED2Ev.exit202 ], [ %.sroa.0240.0325, %400 ]
-  %.sroa.0249.0268322 = phi ptr [ %.sroa.0249.0, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread ], [ %.sroa.0249.0268321, %_ZNSt6vectorIfSaIfEED2Ev.exit202 ], [ %.sroa.0249.0268321, %400 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %51, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread ], [ %.pn336, %_ZNSt6vectorIfSaIfEED2Ev.exit202 ], [ %.pn336, %400 ]
-  %.not.i.i.i205 = icmp eq ptr %.sroa.0240.0326, null
-  br i1 %.not.i.i.i205, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206, label %401
+_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204: ; preds = %401, %_ZNSt6vectorIfSaIfEED2Ev.exit202, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread
+  %.sroa.0240.0323 = phi ptr [ %.sroa.0240.0, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread ], [ %.sroa.0240.0322, %_ZNSt6vectorIfSaIfEED2Ev.exit202 ], [ %.sroa.0240.0322, %401 ]
+  %.sroa.0249.0268319 = phi ptr [ %.sroa.0249.0, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread ], [ %.sroa.0249.0268318, %_ZNSt6vectorIfSaIfEED2Ev.exit202 ], [ %.sroa.0249.0268318, %401 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %51, %_ZNSt6vectorIfSaIfEED2Ev.exit202.thread ], [ %.pn333, %_ZNSt6vectorIfSaIfEED2Ev.exit202 ], [ %.pn333, %401 ]
+  %.not.i.i.i205 = icmp eq ptr %.sroa.0240.0323, null
+  br i1 %.not.i.i.i205, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206, label %402
 
-401:                                              ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0240.0326) #26
+402:                                              ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0240.0323) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206: ; preds = %401, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204.thread
-  %.sroa.0249.1 = phi ptr [ %.sroa.0249.0, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204.thread ], [ %.sroa.0249.0268322, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204 ], [ %.sroa.0249.0268322, %401 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204.thread ], [ %.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204 ], [ %.pn.pn.pn, %401 ]
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206: ; preds = %402, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204.thread
+  %.sroa.0249.1 = phi ptr [ %.sroa.0249.0, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204.thread ], [ %.sroa.0249.0268319, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204 ], [ %.sroa.0249.0268319, %402 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204.thread ], [ %.pn.pn.pn, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit204 ], [ %.pn.pn.pn, %402 ]
   %.not.i.i.i207 = icmp eq ptr %.sroa.0249.1, null
-  br i1 %.not.i.i.i207, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit208, label %402
+  br i1 %.not.i.i.i207, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit208, label %403
 
-402:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206
+403:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0249.1) #26
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit208
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit208: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206, %402
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit208: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit206, %403
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -10472,7 +10455,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMu
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
   %24 = select i1 %18, i1 %23, i1 false
-  br i1 %24, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops19_Iter_equal_to_iterEET_SH_SH_T0_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !126
+  br i1 %24, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops19_Iter_equal_to_iterEET_SH_SH_T0_.exit.i.i, label %.preheader.i.i.i, !llvm.loop !122
 
 _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops19_Iter_equal_to_iterEET_SH_SH_T0_.exit.i.i: ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i.i, i64 16
@@ -10506,7 +10489,7 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMesh
   %.sroa.0.1.i.i = phi ptr [ %.sroa.0.020.i.i, %.lr.ph.i.i ], [ %37, %36 ]
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.not.i.i11 = icmp eq ptr %42, %.pre19
-  br i1 %.not.i.i11, label %._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !127
+  br i1 %.not.i.i11, label %._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !123
 
 ._crit_edge.i.i.loopexit:                         ; preds = %40
   %.pre20.pre = load ptr, ptr %1, align 8
@@ -10562,14 +10545,14 @@ _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CM
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %12, %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %24 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !131, !noalias !128
-  store i64 %24, ptr %.012.i.i.i.i.i, align 4, !alias.scope !128, !noalias !131
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
+  %24 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !127, !noalias !124
+  store i64 %24, ptr %.012.i.i.i.i.i, align 4, !alias.scope !124, !noalias !127
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %25, %19
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !133
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !129
 
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %12, null
@@ -10701,14 +10684,14 @@ _ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP1
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i.i ], [ %84, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ %72, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  %86 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !137, !noalias !134
-  store i64 %86, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !134, !noalias !137
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  %86 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !133, !noalias !130
+  store i64 %86, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !130, !noalias !133
   %87 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %87, %66
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !133
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !129
 
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %84, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %88, %.lr.ph.i.i.i.i.i.i.i ]
@@ -10730,7 +10713,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit: ; preds = %._ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit_crit_edge, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i, %68
   %indvars.iv.next103.pre-phi = phi i64 [ %.pre107, %._ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit_crit_edge ], [ %56, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i ], [ %56, %68 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next103.pre-phi, 3
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %42, !llvm.loop !139
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %42, !llvm.loop !135
 
 .loopexit.loopexit:                               ; preds = %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit
   %.pre106 = load ptr, ptr %32, align 8
@@ -10740,7 +10723,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
   %92 = phi ptr [ %.pre106, %.loopexit.loopexit ], [ %37, %36 ]
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.073.096, i64 48
   %.not83 = icmp eq ptr %93, %92
-  br i1 %.not83, label %.loopexit86, label %36, !llvm.loop !140
+  br i1 %.not83, label %.loopexit86, label %36, !llvm.loop !136
 
 94:                                               ; preds = %3
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -10780,14 +10763,14 @@ _ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CM
 .lr.ph.i.i.i.i.i25:                               ; preds = %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i23, %.lr.ph.i.i.i.i.i25
   %.012.i.i.i.i.i26 = phi ptr [ %121, %.lr.ph.i.i.i.i.i25 ], [ %118, %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i23 ]
   %.0911.i.i.i.i.i27 = phi ptr [ %120, %.lr.ph.i.i.i.i.i25 ], [ %107, %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i23 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  %119 = load i64, ptr %.0911.i.i.i.i.i27, align 4, !alias.scope !144, !noalias !141
-  store i64 %119, ptr %.012.i.i.i.i.i26, align 4, !alias.scope !141, !noalias !144
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  %119 = load i64, ptr %.0911.i.i.i.i.i27, align 4, !alias.scope !140, !noalias !137
+  store i64 %119, ptr %.012.i.i.i.i.i26, align 4, !alias.scope !137, !noalias !140
   %120 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i27, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i26, i64 8
   %.not.i.i.i.i.i28 = icmp eq ptr %120, %114
-  br i1 %.not.i.i.i.i.i28, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i29, label %.lr.ph.i.i.i.i.i25, !llvm.loop !133
+  br i1 %.not.i.i.i.i.i28, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i29, label %.lr.ph.i.i.i.i.i25, !llvm.loop !129
 
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i29: ; preds = %.lr.ph.i.i.i.i.i25, %_ZNSt12_Vector_baseIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_M_allocateEm.exit.i23
   %.not.i8.i30 = icmp eq ptr %107, null
@@ -10905,14 +10888,14 @@ _ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP1
 .lr.ph.i.i.i.i.i.i.i38:                           ; preds = %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i34, %.lr.ph.i.i.i.i.i.i.i38
   %.012.i.i.i.i.i.i.i39 = phi ptr [ %175, %.lr.ph.i.i.i.i.i.i.i38 ], [ %171, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i34 ]
   %.0911.i.i.i.i.i.i.i40 = phi ptr [ %174, %.lr.ph.i.i.i.i.i.i.i38 ], [ %159, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i34 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
-  %173 = load i64, ptr %.0911.i.i.i.i.i.i.i40, align 4, !alias.scope !149, !noalias !146
-  store i64 %173, ptr %.012.i.i.i.i.i.i.i39, align 4, !alias.scope !146, !noalias !149
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
+  %173 = load i64, ptr %.0911.i.i.i.i.i.i.i40, align 4, !alias.scope !145, !noalias !142
+  store i64 %173, ptr %.012.i.i.i.i.i.i.i39, align 4, !alias.scope !142, !noalias !145
   %174 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i40, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i39, i64 8
   %.not.i.i.i.i.i.i.i41 = icmp eq ptr %174, %136
-  br i1 %.not.i.i.i.i.i.i.i41, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i42, label %.lr.ph.i.i.i.i.i.i.i38, !llvm.loop !133
+  br i1 %.not.i.i.i.i.i.i.i41, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i42, label %.lr.ph.i.i.i.i.i.i.i38, !llvm.loop !129
 
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i42: ; preds = %.lr.ph.i.i.i.i.i.i.i38, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i34
   %.0.lcssa.i.i.i.i.i.i.i43 = phi ptr [ %171, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i34 ], [ %175, %.lr.ph.i.i.i.i.i.i.i38 ]
@@ -10933,7 +10916,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
 
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit46: ; preds = %155, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i45
   %179 = phi ptr [ %157, %155 ], [ %176, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i45 ]
-  br i1 %.cmp, label %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndC2ERKS1_P6CEdgeOi.exit, label %.loopexit88.loopexit, !llvm.loop !151
+  br i1 %.cmp, label %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndC2ERKS1_P6CEdgeOi.exit, label %.loopexit88.loopexit, !llvm.loop !147
 
 .loopexit88.loopexit:                             ; preds = %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE9push_backEOS7_.exit46
   %.pre105 = load ptr, ptr %127, align 8
@@ -10943,7 +10926,7 @@ _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10
   %180 = phi ptr [ %.pre105, %.loopexit88.loopexit ], [ %132, %131 ]
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 48
   %.not = icmp eq ptr %181, %180
-  br i1 %.not, label %.loopexit86, label %131, !llvm.loop !152
+  br i1 %.not, label %.loopexit86, label %131, !llvm.loop !148
 
 .loopexit86:                                      ; preds = %.loopexit88, %.loopexit, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE7reserveEm.exit32, %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE7reserveEm.exit, %94, %98
   ret void
@@ -11003,14 +10986,14 @@ _ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP1
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %31 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !156, !noalias !153
-  store i64 %31, ptr %.012.i.i.i.i.i, align 4, !alias.scope !153, !noalias !156
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
+  %31 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !152, !noalias !149
+  store i64 %31, ptr %.012.i.i.i.i.i, align 4, !alias.scope !149, !noalias !152
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !133
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !129
 
 _ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EE12_M_check_lenEmPKc.exit.i
   %.not.i31.i = icmp eq ptr %5, null
@@ -11061,7 +11044,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %.lr.ph25
   %10 = icmp eq i64 %62, 0
-  br i1 %10, label %.split.i.i, label %.lr.ph25, !llvm.loop !158
+  br i1 %10, label %.split.i.i, label %.lr.ph25, !llvm.loop !154
 
 .split.i.i:                                       ; preds = %.lr.ph, %.lr.ph.preheader
   %.fr.i16.lcssa = phi i64 [ %.fr.i13, %.lr.ph.preheader ], [ %.fr.i, %.lr.ph ]
@@ -11121,7 +11104,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
   %41 = load i64, ptr %39, align 4
   store i64 %41, ptr %40, align 4
   %42 = icmp slt i64 %38, %15
-  br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !159
+  br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !155
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i.i, %21
   %.0.lcssa.i.i.i = phi i64 [ %.0.i.i, %21 ], [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i.i ]
@@ -11166,7 +11149,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadS
   %57 = load i64, ptr %48, align 4
   store i64 %57, ptr %56, align 4
   %58 = icmp sgt i64 %.0924.i.i.i.i, %.0.i.i
-  br i1 %58, label %.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i, !llvm.loop !160
+  br i1 %58, label %.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i, !llvm.loop !156
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i.i, %51, %46
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %46 ], [ %.023.i.i.i.i, %51 ], [ %.0924.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i.i ], [ %.023.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i.i ]
@@ -11174,7 +11157,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAt
   store i64 %.sroa.02.0.copyload.i.i, ptr %59, align 4
   %60 = icmp eq i64 %.0.i.i, 0
   %61 = add nsw i64 %.0.i.i, -1
-  br i1 %60, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_T0_.exit, label %21, !llvm.loop !161
+  br i1 %60, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_T0_.exit, label %21, !llvm.loop !157
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_T0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i
   call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_RT0_(ptr nonnull %0, ptr %storemerge14.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -11191,7 +11174,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAt
   %65 = sub i64 %64, %5
   %.fr.i = freeze i64 %65
   %66 = icmp sgt i64 %.fr.i, 128
-  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !158
+  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !154
 
 .loopexit:                                        ; preds = %.lr.ph25, %3, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_T0_.exit
   ret void
@@ -11263,7 +11246,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMulti
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i, %19
   %27 = load i64, ptr %.sroa.0.0.i.i, align 4
   store i64 %27, ptr %.sroa.05.0.i.i, align 4
-  br label %19, !llvm.loop !162
+  br label %19, !llvm.loop !158
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i, %22
   store i64 %18, ptr %.sroa.05.0.i.i, align 4
@@ -11272,7 +11255,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThread
 28:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i
   %.sroa.0.023.i.add = add nuw nsw i64 %.sroa.0.023.i.idx, 8
   %.not.i = icmp eq i64 %.sroa.0.023.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit, label %8, !llvm.loop !163
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit, label %8, !llvm.loop !159
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit: ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -11307,13 +11290,13 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMulti
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.thread.i.i15: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i12, %31
   %39 = load i64, ptr %.sroa.0.0.i.i11, align 4
   store i64 %39, ptr %.sroa.05.0.i.i10, align 4
-  br label %31, !llvm.loop !162
+  br label %31, !llvm.loop !158
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i12, %34
   store i64 %30, ptr %.sroa.05.0.i.i10, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 8
   %.not.i14 = icmp eq ptr %40, %1
-  br i1 %.not.i14, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit, label %.lr.ph.i6, !llvm.loop !164
+  br i1 %.not.i14, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit, label %.lr.ph.i6, !llvm.loop !160
 
 41:                                               ; preds = %2
   %42 = icmp eq ptr %0, %1
@@ -11386,7 +11369,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMulti
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.thread.i.i33: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i29, %61
   %69 = load i64, ptr %.sroa.0.0.i.i28, align 4
   store i64 %69, ptr %.sroa.05.0.i.i27, align 4
-  br label %61, !llvm.loop !162
+  br label %61, !llvm.loop !158
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i30: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndENS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbRT_T0_.exit.i.i29, %64
   store i64 %60, ptr %.sroa.05.0.i.i27, align 4
@@ -11395,7 +11378,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThread
 70:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i30, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i34
   %.sroa.0.0.i31 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i20, i64 8
   %.not.i32 = icmp eq ptr %.sroa.0.0.i31, %1
-  br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit, label %44, !llvm.loop !163
+  br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit, label %44, !llvm.loop !159
 
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit: ; preds = %70, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i13, %.preheader.i16, %41, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_T0_.exit
   ret void
@@ -11537,7 +11520,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread.i10: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.i9, %59
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i, i64 8
-  br label %59, !llvm.loop !165
+  br label %59, !llvm.loop !161
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i.preheader
   %.sroa.0.0.pn.i = phi ptr [ %.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i.preheader ], [ %.sroa.0.1.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i.backedge ]
@@ -11558,7 +11541,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
   br i1 %76, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit9.thread19.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i.backedge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit9.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i, !llvm.loop !166
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread16.i, !llvm.loop !162
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit9.thread19.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit9.i, %71
   %77 = icmp ult ptr %.sroa.012.1.i, %.sroa.0.1.i
@@ -11570,7 +11553,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
   store i64 %79, ptr %.sroa.012.1.i, align 4
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.sroa.0.1.i, align 4
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i, i64 8
-  br label %57, !llvm.loop !167
+  br label %57, !llvm.loop !163
 
 _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEET_SH_SH_SH_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit9.thread19.i
   ret ptr %.sroa.012.1.i
@@ -11633,7 +11616,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThread
   %34 = load i64, ptr %32, align 4
   store i64 %34, ptr %33, align 4
   %35 = icmp slt i64 %31, %14
-  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !159
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !155
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread37.i.i ]
@@ -11688,14 +11671,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadS
   %59 = load i64, ptr %50, align 4
   store i64 %59, ptr %58, align 4
   %.not.i = icmp ult i64 %.0924.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !160
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !156
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_RT0_.exit: ; preds = %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i, %48
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %48 ], [ %.023.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i.i.i ], [ %.023.i.i.i, %53 ]
   %60 = getelementptr inbounds %"class.vcg::NotThreadSafeGLMeshAttributesMultiViewerBOManager<CMeshO, QGLContext *, MLPerViewGLOptions>::EdgeVertInd", ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.02.0.copyload.i, ptr %60, align 4
   %61 = icmp sgt i64 %11, 8
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !168
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_RT0_.exit, %3
   ret void
@@ -11707,20 +11690,20 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferObjectsMemoryRequiredERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts.230", align 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false), !alias.scope !169
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false), !alias.scope !165
   br label %4
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %5 = getelementptr inbounds nuw [9 x i8], ptr %1, i64 0, i64 %indvars.iv.i
-  %6 = load i8, ptr %5, align 1, !noalias !169
+  %6 = load i8, ptr %5, align 1, !noalias !165
   %7 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i
   %8 = and i8 %6, 1
-  store i8 %8, ptr %7, align 1, !alias.scope !169
+  store i8 %8, ptr %7, align 1, !alias.scope !165
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %4, !llvm.loop !57
+  br i1 %exitcond.not.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %4, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit: ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -11824,7 +11807,7 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %.1 = phi i64 [ %55, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit ], [ %.016, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %57, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit, !llvm.loop !172
+  br i1 %exitcond.not, label %57, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit, !llvm.loop !168
 
 57:                                               ; preds = %56
   ret i64 %.1
@@ -12112,7 +12095,7 @@ _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE5clearEv.exit: 
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE11lower_boundERS7_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !173
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE11lower_boundERS7_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !169
 
 _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE11lower_boundERS7_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %65 = icmp eq ptr %.19.i.i.i.i, %11
@@ -12183,14 +12166,14 @@ _ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %79
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i.i ], [ %92, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i.i ], [ %80, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !174)
-  call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  %94 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !177, !noalias !174
-  store i64 %94, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !174, !noalias !177
+  call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  call void @llvm.experimental.noalias.scope.decl(metadata !173)
+  %94 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !173, !noalias !170
+  store i64 %94, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !170, !noalias !173
   %95 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %95, %73
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !107
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %92, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %96, %.lr.ph.i.i.i.i.i.i.i ]
@@ -12231,7 +12214,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit: ; preds = %76, %_ZNSt6vect
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 312
   %114 = load ptr, ptr %113, align 8
   %.not = icmp eq ptr %112, %114
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !179
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !175
 
 .loopexit:                                        ; preds = %109, %_ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE5clearEv.exit, %19
   ret void
@@ -12347,7 +12330,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaI
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !180
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !176
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -12419,7 +12402,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaI
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !180
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !176
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -12484,7 +12467,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaI
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !180
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !176
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -12649,7 +12632,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairIsjESaIS1_EE17_M_default_appendEm(
   %20 = add i64 %.01012.i.i.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   %.not.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !181
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !177
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %21, ptr %4, align 8
@@ -12681,7 +12664,7 @@ _ZNKSt6vectorISt4pairIsjESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %22
   %31 = add i64 %.01012.i.i.i32, -1
   %32 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 8
   %.not.i.i.i33 = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !181
+  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !177
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
   %.not10.i.i.i.i = icmp eq ptr %6, %5
@@ -12690,14 +12673,14 @@ _ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35: ; pr
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %28, %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  %33 = load i64, ptr %.0911.i.i.i.i, align 4, !alias.scope !185, !noalias !182
-  store i64 %33, ptr %.012.i.i.i.i, align 4, !alias.scope !182, !noalias !185
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  %33 = load i64, ptr %.0911.i.i.i.i, align 4, !alias.scope !181, !noalias !178
+  store i64 %33, ptr %.012.i.i.i.i, align 4, !alias.scope !178, !noalias !181
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %34, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIsjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !187
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIsjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !183
 
 _ZNSt6vectorISt4pairIsjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt4pairIsjEmS1_ET_S3_T0_RSaIT1_E.exit35
   %.not.i37 = icmp eq ptr %6, null
@@ -12782,7 +12765,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %32, %31
-  br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !188
+  br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !184
 
 33:                                               ; preds = %14
   %34 = icmp eq i64 %2, %18
@@ -12799,7 +12782,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !188
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !184
 
 _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
   %39 = phi ptr [ %9, %33 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
@@ -12824,7 +12807,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   store i32 %15, ptr %.06.i.i.i72, align 4
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %43, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !188
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !184
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %0, align 8
@@ -12868,7 +12851,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %44
   store i32 %65, ptr %.06.i.i.i.i.i.i.i77, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 4
   %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
-  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !188
+  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !184
 
 _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
@@ -12934,7 +12917,7 @@ define linkonce_odr noundef ptr @_ZN3vcg20GLMeshAttributesInfo9DebugInfo13primit
   %9 = alloca %"class.std::allocator.187", align 1
   %10 = load atomic i8, ptr @_ZGVZN3vcg20GLMeshAttributesInfo9DebugInfo13primitiveNameEmE3resB5cxx11 acquire, align 8
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %12, label %16, !prof !189
+  br i1 %11, label %12, label %16, !prof !185
 
 12:                                               ; preds = %1
   %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg20GLMeshAttributesInfo9DebugInfo13primitiveNameEmE3resB5cxx11) #27
@@ -13088,7 +13071,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !186
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ], [ %23, %.lr.ph.i.i.i.i ]
@@ -13104,7 +13087,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 32
   %.not.i.i.i.i20 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !190
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !186
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %26, %.lr.ph.i.i.i.i17 ]
@@ -13146,7 +13129,7 @@ define void @_ZN26MLSceneGLSharedDataContext27setMeshTransformationMatrixEiRKN3v
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.19.i.i.i.i, %6
@@ -13207,7 +13190,7 @@ define void @_ZN26MLSceneGLSharedDataContext12setGLOptionsEiP10QGLContextRK18MLP
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %11 = icmp eq ptr %.19.i.i.i.i, %7
@@ -13259,7 +13242,7 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %13 = icmp eq ptr %.19.i.i.i.i, %9
@@ -13346,7 +13329,7 @@ define void @_ZNK26MLSceneGLSharedDataContext4drawEiP10QGLContext(ptr noundef no
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %10 = icmp eq ptr %.19.i.i.i.i, %6
@@ -13415,7 +13398,7 @@ _ZNK3vcg33QtThreadSafeTextureNamesContainer6textIdEv.exit: ; preds = %.noexc
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !191
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !187
 
 _ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.19.i.i.i.i, %13
@@ -13488,18 +13471,18 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %10 = shl i64 %indvars.iv.i.i.i, 2
   %11 = add nuw nsw i64 %10, %indvars.iv15.i.i.i
   %12 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %11
-  %13 = load float, ptr %9, align 4, !alias.scope !192
-  %14 = load float, ptr %12, align 4, !alias.scope !192
-  store float %14, ptr %9, align 4, !alias.scope !192
-  store float %13, ptr %12, align 4, !alias.scope !192
+  %13 = load float, ptr %9, align 4, !alias.scope !188
+  %14 = load float, ptr %12, align 4, !alias.scope !188
+  store float %14, ptr %9, align 4, !alias.scope !188
+  store float %13, ptr %12, align 4, !alias.scope !188
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %15, label %7, !llvm.loop !195
+  br i1 %exitcond.not.i.i.i, label %15, label %7, !llvm.loop !191
 
 15:                                               ; preds = %7
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !196
+  br i1 %exitcond18.not.i.i.i, label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !192
 
 _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %15
   call void @glMultMatrixf(ptr noundef nonnull %4)
@@ -14320,18 +14303,18 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %85 = shl i64 %indvars.iv.i.i.i, 2
   %86 = add nuw nsw i64 %85, %indvars.iv15.i.i.i
   %87 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %86
-  %88 = load float, ptr %84, align 4, !alias.scope !197
-  %89 = load float, ptr %87, align 4, !alias.scope !197
-  store float %89, ptr %84, align 4, !alias.scope !197
-  store float %88, ptr %87, align 4, !alias.scope !197
+  %88 = load float, ptr %84, align 4, !alias.scope !193
+  %89 = load float, ptr %87, align 4, !alias.scope !193
+  store float %89, ptr %84, align 4, !alias.scope !193
+  store float %88, ptr %87, align 4, !alias.scope !193
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %90, label %82, !llvm.loop !195
+  br i1 %exitcond.not.i.i.i, label %90, label %82, !llvm.loop !191
 
 90:                                               ; preds = %82
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %91, label %.preheader.i.i.i, !llvm.loop !196
+  br i1 %exitcond18.not.i.i.i, label %91, label %.preheader.i.i.i, !llvm.loop !192
 
 91:                                               ; preds = %90
   %.sroa.061.0.copyload = load float, ptr %10, align 4
@@ -14479,20 +14462,20 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 264
   %163 = load i32, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, i8 0, i64 7, i1 false), !alias.scope !200
+  call void @llvm.experimental.noalias.scope.decl(metadata !196)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, i8 0, i64 7, i1 false), !alias.scope !196
   br label %165
 
 165:                                              ; preds = %165, %160
   %indvars.iv.i.i = phi i64 [ 0, %160 ], [ %indvars.iv.next.i.i, %165 ]
   %166 = getelementptr inbounds nuw [9 x i8], ptr %164, i64 0, i64 %indvars.iv.i.i
-  %167 = load i8, ptr %166, align 1, !noalias !200
+  %167 = load i8, ptr %166, align 1, !noalias !196
   %168 = getelementptr inbounds nuw [7 x i8], ptr %7, i64 0, i64 %indvars.iv.i.i
   %169 = and i8 %167, 1
-  store i8 %169, ptr %168, align 1, !alias.scope !200
+  store i8 %169, ptr %168, align 1, !alias.scope !196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %exitcond.not.i.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i, label %165, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i, label %165, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i: ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -14555,20 +14538,20 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 264
   %198 = load i32, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @llvm.experimental.noalias.scope.decl(metadata !203)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !203
+  call void @llvm.experimental.noalias.scope.decl(metadata !199)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !199
   br label %200
 
 200:                                              ; preds = %200, %195
   %indvars.iv.i.i50 = phi i64 [ 0, %195 ], [ %indvars.iv.next.i.i51, %200 ]
   %201 = getelementptr inbounds nuw [9 x i8], ptr %199, i64 0, i64 %indvars.iv.i.i50
-  %202 = load i8, ptr %201, align 1, !noalias !203
+  %202 = load i8, ptr %201, align 1, !noalias !199
   %203 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i50
   %204 = and i8 %202, 1
-  store i8 %204, ptr %203, align 1, !alias.scope !203
+  store i8 %204, ptr %203, align 1, !alias.scope !199
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i50, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, 7
-  br i1 %exitcond.not.i.i52, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i53, label %200, !llvm.loop !57
+  br i1 %exitcond.not.i.i52, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i53, label %200, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i53: ; preds = %200
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -15004,20 +14987,20 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", align 1
   tail call void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE17updateClientStateERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !206
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !202
   br label %7
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %indvars.iv.i
-  %9 = load i8, ptr %8, align 1, !noalias !206
+  %9 = load i8, ptr %8, align 1, !noalias !202
   %10 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i
   %11 = and i8 %9, 1
-  store i8 %11, ptr %10, align 1, !alias.scope !206
+  store i8 %11, ptr %10, align 1, !alias.scope !202
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %7, !llvm.loop !57
+  br i1 %exitcond.not.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %7, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -15101,7 +15084,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.017.031, i64 8
   %60 = load ptr, ptr %35, align 8
   %.not29 = icmp eq ptr %59, %60
-  br i1 %.not29, label %._crit_edge, label %38, !llvm.loop !209
+  br i1 %.not29, label %._crit_edge, label %38, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %52, %32
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
@@ -15579,7 +15562,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 312
   %254 = load ptr, ptr %253, align 8
   %.not63 = icmp eq ptr %252, %254
-  br i1 %.not63, label %._crit_edge, label %92, !llvm.loop !210
+  br i1 %.not63, label %._crit_edge, label %92, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %250, %87
   tail call void @glEnd()
@@ -15678,20 +15661,20 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit9: ;
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %44 = load i32, ptr %43, align 8
   tail call void %40(i32 noundef %42, i32 noundef %44)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false), !alias.scope !211
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false), !alias.scope !207
   br label %45
 
 45:                                               ; preds = %45, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %45 ]
   %46 = getelementptr inbounds nuw [9 x i8], ptr %1, i64 0, i64 %indvars.iv.i
-  %47 = load i8, ptr %46, align 1, !noalias !211
+  %47 = load i8, ptr %46, align 1, !noalias !207
   %48 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i
   %49 = and i8 %47, 1
-  store i8 %49, ptr %48, align 1, !alias.scope !211
+  store i8 %49, ptr %48, align 1, !alias.scope !207
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %45, !llvm.loop !57
+  br i1 %exitcond.not.i, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit, label %45, !llvm.loop !54
 
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit: ; preds = %45
   %50 = trunc nuw nsw i64 %indvars.iv to i32
@@ -15747,7 +15730,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.017.029, i64 8
   %72 = load ptr, ptr %6, align 8
   %.not27 = icmp eq ptr %71, %72
-  br i1 %.not27, label %._crit_edge, label %15, !llvm.loop !214
+  br i1 %.not27, label %._crit_edge, label %15, !llvm.loop !210
 
 ._crit_edge:                                      ; preds = %70, %2
   ret void
@@ -15965,7 +15948,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 312
   %109 = load ptr, ptr %108, align 8
   %.not = icmp eq ptr %106, %109
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !215
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %105, %2
   tail call void @glEnd()
@@ -16068,7 +16051,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load ptr, ptr %48, align 8
   %.not.us = icmp eq ptr %47, %49
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !216
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !212
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %5, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -16104,7 +16087,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not.us18 = icmp eq ptr %62, %64
-  br i1 %.not.us18, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !218
+  br i1 %.not.us18, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !214
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %8, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -16132,7 +16115,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load ptr, ptr %75, align 8
   %.not.us22 = icmp eq ptr %74, %76
-  br i1 %.not.us22, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !219
+  br i1 %.not.us22, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !215
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %83
   %77 = phi ptr [ %84, %83 ], [ %18, %.lr.ph.split.split ]
@@ -16155,7 +16138,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %87 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %85, %87
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !220
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %83, %72, %60, %45, %17
   tail call void @glEnd()
@@ -16183,7 +16166,7 @@ define void @_ZN26MLSceneGLSharedDataContext29drawAllocatedAttributesSubsetEiP10
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %11 = icmp eq ptr %.19.i.i.i.i, %7
@@ -16284,7 +16267,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !191
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !187
 
 _ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %17 = icmp eq ptr %.19.i.i.i, %13
@@ -16330,7 +16313,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i:
   store i8 %36, ptr %35, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -16349,30 +16332,30 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
   %40 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %39, i64 %indvars.iv64
   %41 = load ptr, ptr %26, align 8
   %42 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %41, i64 %indvars.iv64
-  call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false), !alias.scope !221
+  call void @llvm.experimental.noalias.scope.decl(metadata !217)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false), !alias.scope !217
   br label %43
 
 43:                                               ; preds = %50, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %50 ]
   %44 = getelementptr inbounds nuw [9 x i8], ptr %40, i64 0, i64 %indvars.iv.i
-  %45 = load i8, ptr %44, align 1, !noalias !221
+  %45 = load i8, ptr %44, align 1, !noalias !217
   %46 = trunc i8 %45 to i1
   br i1 %46, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, label %50
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i: ; preds = %43
   %47 = getelementptr inbounds nuw [9 x i8], ptr %42, i64 0, i64 %indvars.iv.i
-  %48 = load i8, ptr %47, align 1, !noalias !221
+  %48 = load i8, ptr %47, align 1, !noalias !217
   %49 = and i8 %48, 1
   br label %50
 
 50:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i, %43
   %51 = phi i8 [ 0, %43 ], [ %49, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i ]
   %52 = getelementptr inbounds nuw [9 x i8], ptr %8, i64 0, i64 %indvars.iv.i
-  store i8 %51, ptr %52, align 1, !alias.scope !221
+  store i8 %51, ptr %52, align 1, !alias.scope !217
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit, label %43, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit, label %43, !llvm.loop !20
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit: ; preds = %50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, i8 0, i64 9, i1 false)
@@ -16387,7 +16370,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i2
   store i8 %56, ptr %55, align 1
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i27, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, 9
-  br i1 %exitcond.not.i.i29, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i26, !llvm.loop !23
+  br i1 %exitcond.not.i.i29, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i26, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %40, i8 0, i64 9, i1 false)
@@ -16402,35 +16385,35 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i3
   store i8 %60, ptr %59, align 1
   %indvars.iv.next.i.i32 = add nuw nsw i64 %indvars.iv.i.i31, 1
   %exitcond.not.i.i33 = icmp eq i64 %indvars.iv.next.i.i32, 9
-  br i1 %exitcond.not.i.i33, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit34, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i30, !llvm.loop !24
+  br i1 %exitcond.not.i.i33, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit34, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i30, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit34: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i30
   %61 = load ptr, ptr %25, align 8
   %62 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %61, i64 %indvars.iv64
-  call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false), !alias.scope !224
+  call void @llvm.experimental.noalias.scope.decl(metadata !220)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, i8 0, i64 9, i1 false), !alias.scope !220
   br label %63
 
 63:                                               ; preds = %70, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit34
   %indvars.iv.i35 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit34 ], [ %indvars.iv.next.i36, %70 ]
   %64 = getelementptr inbounds nuw [9 x i8], ptr %62, i64 0, i64 %indvars.iv.i35
-  %65 = load i8, ptr %64, align 1, !noalias !224
+  %65 = load i8, ptr %64, align 1, !noalias !220
   %66 = trunc i8 %65 to i1
   br i1 %66, label %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i38, label %70
 
 _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i38: ; preds = %63
   %67 = getelementptr inbounds nuw [9 x i8], ptr %22, i64 0, i64 %indvars.iv.i35
-  %68 = load i8, ptr %67, align 1, !noalias !224
+  %68 = load i8, ptr %67, align 1, !noalias !220
   %69 = and i8 %68, 1
   br label %70
 
 70:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i38, %63
   %71 = phi i8 [ 0, %63 ], [ %69, %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit13.i38 ]
   %72 = getelementptr inbounds nuw [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i35
-  store i8 %71, ptr %72, align 1, !alias.scope !224
+  store i8 %71, ptr %72, align 1, !alias.scope !220
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 9
-  br i1 %exitcond.not.i37, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit39, label %63, !llvm.loop !22
+  br i1 %exitcond.not.i37, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit39, label %63, !llvm.loop !20
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_.exit39: ; preds = %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, i8 0, i64 9, i1 false)
@@ -16445,7 +16428,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i4
   store i8 %76, ptr %75, align 1
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, 9
-  br i1 %exitcond.not.i.i43, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit44, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i40, !llvm.loop !23
+  br i1 %exitcond.not.i.i43, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit44, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i40, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit44: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %62, i8 0, i64 9, i1 false)
@@ -16460,7 +16443,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i4
   store i8 %80, ptr %79, align 1
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i46, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, 9
-  br i1 %exitcond.not.i.i48, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit53, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i45, !llvm.loop !24
+  br i1 %exitcond.not.i.i48, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit53, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i45, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit53: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i45
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -16535,7 +16518,7 @@ define void @_ZN26MLSceneGLSharedDataContext10removeViewEP10QGLContext(ptr nound
 11:                                               ; preds = %.lr.ph, %9
   %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.011) #29
   %.not9 = icmp eq ptr %12, %6
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !227
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !223
 
 ._crit_edge:                                      ; preds = %11, %2
   tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
@@ -16580,7 +16563,7 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %13 = icmp eq ptr %.19.i.i.i.i, %9
@@ -16623,7 +16606,7 @@ _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaIS
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i, label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !23
 
 _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %22
   %.08.lcssa.i.i.i.i.i = phi ptr [ %.044.i.i.i.i, %22 ], [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
@@ -16641,7 +16624,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
   %.1.in.i30.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i26.i.i.i.i, i64 %.1.in.v.i29.i.i.i.i
   %.1.i31.i.i.i.i = load ptr, ptr %.1.in.i30.i.i.i.i, align 8
   %.not.i32.i.i.i.i = icmp eq ptr %.1.i31.i.i.i.i, null
-  br i1 %.not.i32.i.i.i.i, label %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE5eraseERS9_.exit.i, label %.lr.ph.i25.i.i.i.i, !llvm.loop !228
+  br i1 %.not.i32.i.i.i.i, label %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE5eraseERS9_.exit.i, label %.lr.ph.i25.i.i.i.i, !llvm.loop !224
 
 33:                                               ; preds = %20, %.lr.ph.i.i.i2.i
   %.sink.i.i.i.i = phi i64 [ 24, %.lr.ph.i.i.i2.i ], [ 16, %20 ]
@@ -16649,7 +16632,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
   %34 = getelementptr inbounds nuw i8, ptr %.044.i.i.i.i, i64 %.sink.i.i.i.i
   %.0.i.i.i.i = load ptr, ptr %34, align 8
   %.not.i.i.i3.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i3.i, label %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE5eraseERS9_.exit.i, label %.lr.ph.i.i.i2.i, !llvm.loop !229
+  br i1 %.not.i.i.i3.i, label %_ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE5eraseERS9_.exit.i, label %.lr.ph.i.i.i2.i, !llvm.loop !225
 
 _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaISt4pairIKS1_S5_EEE5eraseERS9_.exit.i: ; preds = %33, %.lr.ph.i25.i.i.i.i, %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i
   %.sroa.037.0.i.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i.i ], [ %.08.lcssa.i.i.i.i.i, %.lr.ph.i25.i.i.i.i ], [ %.123.i.i.i.i, %33 ]
@@ -16841,7 +16824,7 @@ _ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsE
   %39 = add i64 %38, -1
   store i64 %39, ptr %19, align 8
   %.not = icmp eq ptr %21, %2
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !230
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !226
 
 .loopexit:                                        ; preds = %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_E.exit, %.critedge, %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE5clearEv.exit
   ret void
@@ -16881,7 +16864,7 @@ define void @_ZN26MLSceneGLSharedDataContext7addViewEP10QGLContextR15MLRendering
 19:                                               ; preds = %9, %14
   %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.013) #29
   %.not11 = icmp eq ptr %20, %6
-  br i1 %.not11, label %._crit_edge, label %9, !llvm.loop !231
+  br i1 %.not11, label %._crit_edge, label %9, !llvm.loop !227
 
 ._crit_edge:                                      ; preds = %19, %3
   ret void
@@ -16915,7 +16898,7 @@ define noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr 
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %14 = icmp eq ptr %.19.i.i.i.i, %10
@@ -17024,7 +17007,7 @@ _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit
 _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %30, %28, %11
   %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.010) #29
   %.not8 = icmp eq ptr %33, %6
-  br i1 %.not8, label %._crit_edge, label %11, !llvm.loop !232
+  br i1 %.not8, label %._crit_edge, label %11, !llvm.loop !228
 
 ._crit_edge:                                      ; preds = %_ZN15MLRenderingDataD2Ev.exit, %2
   ret void
@@ -17092,7 +17075,7 @@ define void @_ZN26MLSceneGLSharedDataContext23deAllocateGPUSharedDataEv(ptr noun
   tail call void @_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE29removeAllViewsAndDeallocateBOEv(ptr noundef nonnull align 8 dereferenceable(512) %8)
   %10 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.03.08) #29
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !233
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
@@ -17137,7 +17120,7 @@ define void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20G
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.19.i.i.i.i, %13
@@ -17171,7 +17154,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   store i8 %29, ptr %28, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 7
-  br i1 %exitcond.not.i.i.i, label %30, label %25, !llvm.loop !234
+  br i1 %exitcond.not.i.i.i, label %30, label %25, !llvm.loop !230
 
 30:                                               ; preds = %25
   %31 = zext i1 %2 to i8
@@ -17211,7 +17194,7 @@ _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i: ; preds = %49, %30
 49:                                               ; preds = %47, %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %50, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i, !llvm.loop !235
+  br i1 %exitcond.not.i.i, label %50, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i, !llvm.loop !231
 
 50:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
@@ -17253,7 +17236,7 @@ define void @_ZN26MLSceneGLSharedDataContext24getRenderInfoPerMeshViewEiP10QGLCo
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %11 = icmp eq ptr %.19.i.i.i.i, %7
@@ -17305,7 +17288,7 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !191
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !187
 
 _ZNKSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %13 = icmp eq ptr %.19.i.i.i.i, %9
@@ -17424,7 +17407,7 @@ define void @_ZN26MLSceneGLSharedDataContext24getRenderInfoPerMeshViewEP10QGLCon
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %20 = icmp eq ptr %.19.i.i.i.i, %8
@@ -17491,7 +17474,7 @@ _ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit
 _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %41, %43
   %44 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.015) #29
   %.not13 = icmp eq ptr %44, %8
-  br i1 %.not13, label %._crit_edge, label %13, !llvm.loop !236
+  br i1 %.not13, label %._crit_edge, label %13, !llvm.loop !232
 
 ._crit_edge:                                      ; preds = %_ZN15MLRenderingDataD2Ev.exit, %3
   ret void
@@ -17614,7 +17597,7 @@ _ZN4QMapIi15MLRenderingDataE6detachEv.exit:       ; preds = %3, %7
   %.1.in = getelementptr inbounds nuw i8, ptr %.027, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !237
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %12
   %.not23 = icmp eq ptr %.121, null
@@ -17941,7 +17924,7 @@ define void @_ZN26MLSceneGLSharedDataContext12setDebugModeEib(ptr noundef nonnul
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %15 = icmp eq ptr %.19.i.i.i.i, %11
@@ -18006,7 +17989,7 @@ define void @_ZN26MLSceneGLSharedDataContext6getLogEiRN3vcg20GLMeshAttributesInf
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %16 = icmp eq ptr %.19.i.i.i.i, %12
@@ -18080,7 +18063,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #27
   %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr %7, ptr %8, align 8
@@ -18112,7 +18095,7 @@ _ZN3vcg20GLMeshAttributesInfo9DebugInfo5resetEv.exit: ; preds = %2, %_ZSt8_Destr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i9) #27
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i9, i64 32
   %.not.i.i.i.i.i.i10 = icmp eq ptr %24, %23
-  br i1 %.not.i.i.i.i.i.i10, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i11, label %.lr.ph.i.i.i.i.i.i8, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i10, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i11, label %.lr.ph.i.i.i.i.i.i8, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i11: ; preds = %.lr.ph.i.i.i.i.i.i8
   store ptr %21, ptr %22, align 8
@@ -18157,7 +18140,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #27
   %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %23, %22
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -18199,7 +18182,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
   %38 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !238
+  br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !234
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
   %.pre = load ptr, ptr %28, align 8
@@ -18223,7 +18206,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i) #27
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i, i64 32
   %.not.i.i.i27 = icmp eq ptr %42, %39
-  br i1 %.not.i.i.i27, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !239
+  br i1 %.not.i.i.i27, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !235
 
 43:                                               ; preds = %27
   %44 = ashr exact i64 %31, 5
@@ -18239,7 +18222,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i31, i64 32
   %49 = add nsw i64 %.012.i.i.i.i.i30, -1
   %50 = icmp samesign ugt i64 %.012.i.i.i.i.i30, 1
-  br i1 %50, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !240
+  br i1 %50, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !236
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29
   %.pre37 = load ptr, ptr %1, align 8
@@ -18270,7 +18253,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
   %55 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %55, %51
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !241
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !237
 
 57:                                               ; preds = %.lr.ph.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -18285,7 +18268,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS5_EEvPT_
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #27
   %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %61, %.016.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %57
   invoke void @__cxa_rethrow() #31
@@ -18362,7 +18345,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %14, %3
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !242
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !238
 
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -18377,7 +18360,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #27
   %20 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %20, %.014.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %16
   invoke void @__cxa_rethrow() #31
@@ -18462,7 +18445,7 @@ define noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext22isBORenderingAvailab
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %14 = icmp eq ptr %.19.i.i.i.i, %10
@@ -18546,7 +18529,7 @@ define void @_ZN26MLSceneGLSharedDataContext26removePerMeshViewRequestedEP10QGLC
 11:                                               ; preds = %9, %.lr.ph.i
   %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.011.i) #29
   %.not9.i = icmp eq ptr %12, %6
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !227
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !223
 
 ._crit_edge.i:                                    ; preds = %11, %2
   tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
@@ -18629,7 +18612,7 @@ define void @_ZN26MLSceneGLSharedDataContext24requestRemovePerMeshViewEP7QThread
 15:                                               ; preds = %13, %.lr.ph.i
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.011.i) #29
   %.not9.i = icmp eq ptr %16, %10
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !227
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !223
 
 ._crit_edge.i:                                    ; preds = %15, %6
   tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
@@ -20120,7 +20103,7 @@ _ZNSt16allocator_traitsISaIN3vcg6Color4IhEEEE8allocateERS3_m.exit.i.i.i.i.i120.i
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; preds = %53, %48
   %54 = icmp eq ptr %50, %1
-  br i1 %54, label %__cxx_global_var_init.5.exit, label %48, !llvm.loop !243
+  br i1 %54, label %__cxx_global_var_init.5.exit, label %48
 
 .body.thread724.i:                                ; preds = %0
   %55 = landingpad { ptr, i32 }
@@ -20168,7 +20151,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i: ; pred
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i: ; preds = %72, %67
   %73 = icmp eq ptr %69, %1
-  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67, !llvm.loop !244
+  br i1 %73, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, label %67
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i, %62
   %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit145.i ]
@@ -20220,7 +20203,7 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
 
 _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; preds = %80, %.preheader.i
   %81 = icmp eq ptr %77, %1
-  br i1 %81, label %.body.thread.i, label %.preheader.i, !llvm.loop !245
+  br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
@@ -20312,244 +20295,237 @@ attributes #31 = { noreturn }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
-!21 = distinct !{!21, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
-!33 = distinct !{!33, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE: argument 0"}
-!42 = distinct !{!42, !"_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE"}
-!43 = distinct !{!43, !6, !7}
-!44 = distinct !{!44, !6, !7}
-!45 = distinct !{!45, !6, !7}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_: argument 0"}
-!48 = distinct !{!48, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_"}
-!49 = distinct !{!49, !6, !7}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_: argument 0"}
-!52 = distinct !{!52, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_"}
-!53 = distinct !{!53, !6, !7}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!56 = distinct !{!56, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!57 = distinct !{!57, !6, !7}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_: argument 0"}
-!60 = distinct !{!60, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_"}
-!61 = distinct !{!61, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
+!19 = distinct !{!19, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
+!31 = distinct !{!31, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE: argument 0"}
+!39 = distinct !{!39, !"_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE"}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_: argument 0"}
+!45 = distinct !{!45, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_"}
+!46 = distinct !{!46, !6}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_: argument 0"}
+!49 = distinct !{!49, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE8unionSetERKS3_S5_"}
+!50 = distinct !{!50, !6}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!53 = distinct !{!53, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!54 = distinct !{!54, !6}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_: argument 0"}
+!57 = distinct !{!57, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_"}
+!58 = distinct !{!58, !6}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!61 = distinct !{!61, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
 !64 = distinct !{!64, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!67 = distinct !{!67, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!66 = distinct !{!66, !67, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_: argument 0"}
+!67 = distinct !{!67, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_"}
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_: argument 0"}
 !70 = distinct !{!70, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_: argument 0"}
-!73 = distinct !{!73, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE13complementSetERKS3_S5_"}
-!74 = distinct !{!74, !6, !7}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!77 = distinct !{!77, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!78 = distinct !{!78, !6, !7}
-!79 = distinct !{!79, !6, !7}
-!80 = distinct !{!80, !6, !7}
-!81 = distinct !{!81, !6, !7}
+!71 = distinct !{!71, !6}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!74 = distinct !{!74, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!75 = distinct !{!75, !6}
+!76 = distinct !{!76, !6}
+!77 = distinct !{!77, !6}
+!78 = distinct !{!78, !6}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
+!81 = distinct !{!81, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !82 = !{!83}
 !83 = distinct !{!83, !84, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
 !84 = distinct !{!84, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
 !87 = distinct !{!87, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: argument 0"}
-!90 = distinct !{!90, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!91 = distinct !{!91, !6, !7}
-!92 = distinct !{!92, !6, !7}
-!93 = distinct !{!93, !6, !7}
-!94 = distinct !{!94, !6, !7}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!97 = distinct !{!97, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!98 = distinct !{!98, !6, !7}
-!99 = distinct !{!99, !6, !7}
-!100 = distinct !{!100, !6, !7}
-!101 = distinct !{!101, !6, !7}
+!88 = distinct !{!88, !6}
+!89 = distinct !{!89, !6}
+!90 = distinct !{!90, !6}
+!91 = distinct !{!91, !6}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!94 = distinct !{!94, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!95 = distinct !{!95, !6}
+!96 = distinct !{!96, !6}
+!97 = distinct !{!97, !6}
+!98 = distinct !{!98, !6}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_: argument 0"}
+!101 = distinct !{!101, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_: argument 0"}
-!104 = distinct !{!104, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_"}
+!103 = distinct !{!103, !104, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!104 = distinct !{!104, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!107 = distinct !{!107, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_"}
+!106 = distinct !{!106, !104, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!107 = distinct !{!107, !6}
 !108 = !{!109}
-!109 = distinct !{!109, !107, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!110 = distinct !{!110, !6, !7}
+!109 = distinct !{!109, !110, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_: argument 0"}
+!110 = distinct !{!110, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_: argument 0"}
-!113 = distinct !{!113, !"_ZSt16forward_as_tupleIJsEESt5tupleIJDpOT_EES3_"}
+!112 = distinct !{!112, !113, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!113 = distinct !{!113, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!116 = distinct !{!116, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_"}
-!117 = !{!118}
-!118 = distinct !{!118, !116, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!119 = distinct !{!119, !6, !7}
-!120 = distinct !{!120, !6, !7}
-!121 = distinct !{!121, !6, !7}
-!122 = distinct !{!122, !6, !7}
-!123 = distinct !{!123, !7}
-!124 = distinct !{!124, !6, !7}
-!125 = distinct !{!125, !6, !7}
-!126 = distinct !{!126, !6, !7}
-!127 = distinct !{!127, !6, !7}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!130 = distinct !{!130, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
-!131 = !{!132}
-!132 = distinct !{!132, !130, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!133 = distinct !{!133, !6, !7}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!136 = distinct !{!136, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!115 = distinct !{!115, !113, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!116 = distinct !{!116, !6}
+!117 = distinct !{!117, !6}
+!118 = distinct !{!118, !6}
+!119 = distinct !{!119, !6}
+!120 = distinct !{!120, !6}
+!121 = distinct !{!121, !6}
+!122 = distinct !{!122, !6}
+!123 = distinct !{!123, !6}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!126 = distinct !{!126, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!127 = !{!128}
+!128 = distinct !{!128, !126, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!129 = distinct !{!129, !6}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!132 = distinct !{!132, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!133 = !{!134}
+!134 = distinct !{!134, !132, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!135 = distinct !{!135, !6}
+!136 = distinct !{!136, !6}
 !137 = !{!138}
-!138 = distinct !{!138, !136, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!139 = distinct !{!139, !6, !7}
-!140 = distinct !{!140, !6, !7}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!143 = distinct !{!143, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
-!144 = !{!145}
-!145 = distinct !{!145, !143, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!148 = distinct !{!148, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!138 = distinct !{!138, !139, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!139 = distinct !{!139, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!140 = !{!141}
+!141 = distinct !{!141, !139, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!142 = !{!143}
+!143 = distinct !{!143, !144, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!144 = distinct !{!144, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!145 = !{!146}
+!146 = distinct !{!146, !144, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!147 = distinct !{!147, !6}
+!148 = distinct !{!148, !6}
 !149 = !{!150}
-!150 = distinct !{!150, !148, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!151 = distinct !{!151, !6, !7}
-!152 = distinct !{!152, !6, !7}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!155 = distinct !{!155, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
-!156 = !{!157}
-!157 = distinct !{!157, !155, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!158 = distinct !{!158, !6, !7}
-!159 = distinct !{!159, !6, !7}
-!160 = distinct !{!160, !6, !7}
-!161 = distinct !{!161, !6, !7}
-!162 = distinct !{!162, !6, !7}
-!163 = distinct !{!163, !6, !7}
-!164 = distinct !{!164, !6, !7}
-!165 = distinct !{!165, !6, !7}
-!166 = distinct !{!166, !6, !7}
-!167 = distinct !{!167, !6, !7}
-!168 = distinct !{!168, !6, !7}
-!169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!171 = distinct !{!171, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!172 = distinct !{!172, !6, !7}
-!173 = distinct !{!173, !6, !7}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!176 = distinct !{!176, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_"}
-!177 = !{!178}
-!178 = distinct !{!178, !176, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!179 = distinct !{!179, !6, !7}
-!180 = distinct !{!180, !6, !7}
-!181 = distinct !{!181, !6, !7}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZSt19__relocate_object_aISt4pairIsjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!184 = distinct !{!184, !"_ZSt19__relocate_object_aISt4pairIsjES1_SaIS1_EEvPT_PT0_RT1_"}
-!185 = !{!186}
-!186 = distinct !{!186, !184, !"_ZSt19__relocate_object_aISt4pairIsjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!187 = distinct !{!187, !6, !7}
-!188 = distinct !{!188, !6, !7}
-!189 = !{!"branch_weights", i32 1, i32 1048575}
-!190 = distinct !{!190, !6, !7}
-!191 = distinct !{!191, !6, !7}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!194 = distinct !{!194, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!195 = distinct !{!195, !6, !7}
-!196 = distinct !{!196, !6, !7}
-!197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!199 = distinct !{!199, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!202 = distinct !{!202, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!205 = distinct !{!205, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!208 = distinct !{!208, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!209 = distinct !{!209, !6, !7}
-!210 = distinct !{!210, !6, !7}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
-!213 = distinct !{!213, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
-!214 = distinct !{!214, !6, !7}
-!215 = distinct !{!215, !6, !7}
-!216 = distinct !{!216, !6, !7, !217}
-!217 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!218 = distinct !{!218, !6, !7, !217}
-!219 = distinct !{!219, !6, !7, !217}
-!220 = distinct !{!220, !6, !7}
-!221 = !{!222}
-!222 = distinct !{!222, !223, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
-!223 = distinct !{!223, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
-!224 = !{!225}
-!225 = distinct !{!225, !226, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
-!226 = distinct !{!226, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
-!227 = distinct !{!227, !6, !7}
-!228 = distinct !{!228, !6, !7}
-!229 = distinct !{!229, !6, !7}
-!230 = distinct !{!230, !6, !7}
-!231 = distinct !{!231, !6, !7}
-!232 = distinct !{!232, !6, !7}
-!233 = distinct !{!233, !6, !7}
-!234 = distinct !{!234, !6, !7}
-!235 = distinct !{!235, !6, !7}
-!236 = distinct !{!236, !6, !7}
-!237 = distinct !{!237, !6, !7}
-!238 = distinct !{!238, !6, !7}
-!239 = distinct !{!239, !6, !7}
-!240 = distinct !{!240, !6, !7}
-!241 = distinct !{!241, !6, !7}
-!242 = distinct !{!242, !6, !7}
-!243 = distinct !{!243, !7}
-!244 = distinct !{!244, !7}
-!245 = distinct !{!245, !7}
+!150 = distinct !{!150, !151, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!151 = distinct !{!151, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_"}
+!152 = !{!153}
+!153 = distinct !{!153, !151, !"_ZSt19__relocate_object_aIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!154 = distinct !{!154, !6}
+!155 = distinct !{!155, !6}
+!156 = distinct !{!156, !6}
+!157 = distinct !{!157, !6}
+!158 = distinct !{!158, !6}
+!159 = distinct !{!159, !6}
+!160 = distinct !{!160, !6}
+!161 = distinct !{!161, !6}
+!162 = distinct !{!162, !6}
+!163 = distinct !{!163, !6}
+!164 = distinct !{!164, !6}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!167 = distinct !{!167, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!168 = distinct !{!168, !6}
+!169 = distinct !{!169, !6}
+!170 = !{!171}
+!171 = distinct !{!171, !172, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!172 = distinct !{!172, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_"}
+!173 = !{!174}
+!174 = distinct !{!174, !172, !"_ZSt19__relocate_object_aISt4pairIjjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!175 = distinct !{!175, !6}
+!176 = distinct !{!176, !6}
+!177 = distinct !{!177, !6}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZSt19__relocate_object_aISt4pairIsjES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!180 = distinct !{!180, !"_ZSt19__relocate_object_aISt4pairIsjES1_SaIS1_EEvPT_PT0_RT1_"}
+!181 = !{!182}
+!182 = distinct !{!182, !180, !"_ZSt19__relocate_object_aISt4pairIsjES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!183 = distinct !{!183, !6}
+!184 = distinct !{!184, !6}
+!185 = !{!"branch_weights", i32 1, i32 1048575}
+!186 = distinct !{!186, !6}
+!187 = distinct !{!187, !6}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!190 = distinct !{!190, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!191 = distinct !{!191, !6}
+!192 = distinct !{!192, !6}
+!193 = !{!194}
+!194 = distinct !{!194, !195, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!195 = distinct !{!195, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!198 = distinct !{!198, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!201 = distinct !{!201, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!204 = distinct !{!204, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!205 = distinct !{!205, !6}
+!206 = distinct !{!206, !6}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv: argument 0"}
+!209 = distinct !{!209, !"_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv"}
+!210 = distinct !{!210, !6}
+!211 = distinct !{!211, !6}
+!212 = distinct !{!212, !6, !213}
+!213 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!214 = distinct !{!214, !6, !213}
+!215 = distinct !{!215, !6, !213}
+!216 = distinct !{!216, !6}
+!217 = !{!218}
+!218 = distinct !{!218, !219, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
+!219 = distinct !{!219, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
+!220 = !{!221}
+!221 = distinct !{!221, !222, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_: argument 0"}
+!222 = distinct !{!222, !"_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEE15intersectionSetERKS3_S5_"}
+!223 = distinct !{!223, !6}
+!224 = distinct !{!224, !6}
+!225 = distinct !{!225, !6}
+!226 = distinct !{!226, !6}
+!227 = distinct !{!227, !6}
+!228 = distinct !{!228, !6}
+!229 = distinct !{!229, !6}
+!230 = distinct !{!230, !6}
+!231 = distinct !{!231, !6}
+!232 = distinct !{!232, !6}
+!233 = distinct !{!233, !6}
+!234 = distinct !{!234, !6}
+!235 = distinct !{!235, !6}
+!236 = distinct !{!236, !6}
+!237 = distinct !{!237, !6}
+!238 = distinct !{!238, !6}

@@ -250,7 +250,7 @@ define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64
   br label %53
 
 48:                                               ; preds = %.preheader7
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %1, ptr nonnull elementtype(i64) %5) #5, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %1, ptr nonnull elementtype(i64) %5) #5, !srcloc !17
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 1
@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64
 53:                                               ; preds = %47, %43
   %54 = load ptr, ptr %12, align 32
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %.preheader7, !llvm.loop !19
+  br i1 %55, label %.loopexit, label %.preheader7, !llvm.loop !18
 
 .preheader:                                       ; preds = %48, %.preheader
   %56 = phi ptr [ %58, %.preheader ], [ %0, %48 ]
@@ -271,7 +271,7 @@ define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64
   %58 = load ptr, ptr %57, align 32
   %59 = load ptr, ptr %2, align 8
   %60 = icmp eq ptr %58, %59
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %53, %.preheader, %48, %3
   %61 = phi i1 [ false, %48 ], [ true, %3 ], [ false, %.preheader ], [ true, %53 ]
@@ -289,7 +289,7 @@ define dso_local void @page_counter_uncharge(ptr noundef %0, i64 noundef %1) loc
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %6 = load ptr, ptr %5, align 32
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -304,7 +304,7 @@ define dso_local range(i32 -16, 1) i32 @page_counter_set_max(ptr noundef %0, i64
 
 .lr.ph:                                           ; preds = %2, %12
   %6 = phi i64 [ %14, %12 ], [ %4, %2 ]
-  %7 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %1, ptr nonnull elementtype(i64) %3) #5, !srcloc !22
+  %7 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %1, ptr nonnull elementtype(i64) %3) #5, !srcloc !21
   %8 = load volatile i64, ptr %0, align 8
   %9 = icmp ugt i64 %8, %6
   %10 = icmp ugt i64 %7, %1
@@ -316,7 +316,7 @@ define dso_local range(i32 -16, 1) i32 @page_counter_set_max(ptr noundef %0, i64
   %13 = tail call i32 @__SCT__cond_resched() #5
   %14 = load volatile i64, ptr %0, align 8
   %15 = icmp ugt i64 %14, %1
-  br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12, %2
   %.ph = phi i32 [ -16, %2 ], [ -16, %12 ], [ 0, %.lr.ph ]
@@ -383,7 +383,7 @@ define dso_local void @page_counter_set_min(ptr noundef %0, i64 noundef %1) loca
 38:                                               ; preds = %34, %31, %24
   %.pr = load ptr, ptr %7, align 32
   %39 = icmp eq ptr %.pr, null
-  br i1 %39, label %.thread, label %.preheader, !llvm.loop !24
+  br i1 %39, label %.thread, label %.preheader, !llvm.loop !22
 
 .thread:                                          ; preds = %.preheader, %38, %2
   ret void
@@ -449,7 +449,7 @@ define dso_local void @page_counter_set_low(ptr noundef %0, i64 noundef %1) loca
 38:                                               ; preds = %34, %31, %24
   %.pr = load ptr, ptr %7, align 32
   %39 = icmp eq ptr %.pr, null
-  br i1 %39, label %.thread, label %.preheader, !llvm.loop !25
+  br i1 %39, label %.thread, label %.preheader, !llvm.loop !23
 
 .thread:                                          ; preds = %.preheader, %38, %2
   ret void
@@ -464,7 +464,7 @@ define dso_local noundef range(i32 -22, 1) i32 @page_counter_memparse(ptr nounde
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  store ptr null, ptr %4, align 8, !annotation !26
+  store ptr null, ptr %4, align 8, !annotation !24
   %8 = call i64 @memparse(ptr noundef %0, ptr noundef nonnull %4) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load i8, ptr %9, align 1
@@ -522,16 +522,14 @@ attributes #5 = { nounwind }
 !11 = !{i64 2150123908, i64 2150123724, i64 2150123774, i64 2150123820, i64 2150123848}
 !12 = !{i64 2147819634}
 !13 = !{i64 2147796649, i64 2147796688, i64 2147796709, i64 2147796746, i64 2147796769, i64 2147796639}
-!14 = distinct !{!14, !15, !16, !17}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!"llvm.loop.unroll.disable"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{i64 2147797016, i64 2147797055, i64 2147797076, i64 2147797113, i64 2147797136, i64 2147797006}
-!19 = distinct !{!19, !15, !16, !17}
-!20 = distinct !{!20, !15, !16, !17}
-!21 = distinct !{!21, !15, !16, !17}
-!22 = !{i64 2150136033}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !15, !16, !17}
-!25 = distinct !{!25, !15, !16, !17}
-!26 = !{!"auto-init"}
+!17 = !{i64 2147797016, i64 2147797055, i64 2147797076, i64 2147797113, i64 2147797136, i64 2147797006}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = !{i64 2150136033}
+!22 = distinct !{!22, !15, !16}
+!23 = distinct !{!23, !15, !16}
+!24 = !{!"auto-init"}

@@ -614,7 +614,7 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %26, %29
   store i8 %94, ptr %92, align 1, !tbaa !29
   %95 = add nuw nsw i64 %.080, 1
   %exitcond.not = icmp eq i64 %95, %87
-  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !32
 
 .loopexit:                                        ; preds = %89, %.preheader, %83
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -688,7 +688,6 @@ attributes #8 = { nounwind }
 !27 = !{!28, !28, i64 0}
 !28 = !{!"long", !10, i64 0}
 !29 = !{!10, !10, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
+!32 = distinct !{!32, !31}

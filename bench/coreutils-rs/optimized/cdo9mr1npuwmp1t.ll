@@ -47,7 +47,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 
 "_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge": ; preds = %13, %.lr.ph
   %15 = icmp eq ptr %10, %8
-  br i1 %15, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %15, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge", %3, %20
   %.0 = phi ptr [ %23, %20 ], [ null, %3 ], [ null, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge" ]
@@ -57,7 +57,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8, !noundef !4
   %19 = icmp ult i64 %.sroa.8.025, %18
-  br i1 %19, label %20, label %24, !prof !15
+  br i1 %19, label %20, label %24, !prof !13
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -80,7 +80,7 @@ define hidden void @_ZN12clap_builder6parser5error12MatchesError6unwrap17h3bcc80
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  %10 = load i64, ptr %3, align 16, !range !16, !noundef !4
+  %10 = load i64, ptr %3, align 16, !range !14, !noundef !4
   %trunc = trunc nuw i64 %10 to i1
   br i1 %trunc, label %13, label %11
 
@@ -102,24 +102,24 @@ define hidden void @_ZN12clap_builder6parser5error12MatchesError6unwrap17h3bcc80
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN80_$LT$clap_builder..parser..error..MatchesError$u20$as$u20$core..fmt..Display$GT$3fmt17h3766d98f16f49d7cE", ptr %17, align 8
-  store ptr @anon.5e6bc4ac6a068a31112e6038942b63bf.4.llvm.10423984322793842754, ptr %6, align 8, !alias.scope !17, !noalias !20
+  store ptr @anon.5e6bc4ac6a068a31112e6038942b63bf.4.llvm.10423984322793842754, ptr %6, align 8, !alias.scope !15, !noalias !18
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 2, ptr %18, align 8, !alias.scope !17, !noalias !20
+  store i64 2, ptr %18, align 8, !alias.scope !15, !noalias !18
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %19, align 8, !alias.scope !17, !noalias !20
+  store ptr null, ptr %19, align 8, !alias.scope !15, !noalias !18
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %20, align 8, !alias.scope !17, !noalias !20
+  store ptr %5, ptr %20, align 8, !alias.scope !15, !noalias !18
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %21, align 8, !alias.scope !17, !noalias !20
+  store i64 2, ptr %21, align 8, !alias.scope !15, !noalias !18
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5e6bc4ac6a068a31112e6038942b63bf.6.llvm.10423984322793842754) #7
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18dc9dd7e8118235E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !23, !noundef !4
+  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !21, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %5 = load i32, ptr %4, align 4, !alias.scope !24, !noalias !27, !noundef !4
+  %5 = load i32, ptr %4, align 4, !alias.scope !22, !noalias !25, !noundef !4
   %6 = and i32 %5, 16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
@@ -150,7 +150,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h316bb2baa30b2faeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %5 = load i32, ptr %4, align 4, !alias.scope !29, !noalias !32, !noundef !4
+  %5 = load i32, ptr %4, align 4, !alias.scope !27, !noalias !30, !noundef !4
   %6 = and i32 %5, 16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
@@ -242,15 +242,15 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  store ptr @anon.5e6bc4ac6a068a31112e6038942b63bf.9.llvm.10423984322793842754, ptr %4, align 8, !alias.scope !34, !noalias !37
+  store ptr @anon.5e6bc4ac6a068a31112e6038942b63bf.9.llvm.10423984322793842754, ptr %4, align 8, !alias.scope !32, !noalias !35
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %12, align 8, !alias.scope !34, !noalias !37
+  store i64 1, ptr %12, align 8, !alias.scope !32, !noalias !35
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %13, align 8, !alias.scope !34, !noalias !37
+  store ptr null, ptr %13, align 8, !alias.scope !32, !noalias !35
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @anon.5e6bc4ac6a068a31112e6038942b63bf.10.llvm.10423984322793842754, ptr %14, align 8, !alias.scope !34, !noalias !37
+  store ptr @anon.5e6bc4ac6a068a31112e6038942b63bf.10.llvm.10423984322793842754, ptr %14, align 8, !alias.scope !32, !noalias !35
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %15, align 8, !alias.scope !34, !noalias !37
+  store i64 0, ptr %15, align 8, !alias.scope !32, !noalias !35
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5e6bc4ac6a068a31112e6038942b63bf.13.llvm.10423984322793842754) #7
   unreachable
 }
@@ -340,29 +340,27 @@ attributes #7 = { noreturn }
 !10 = distinct !{!10, !11, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E: argument 0"}
 !11 = distinct !{!11, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E"}
 !12 = distinct !{!12, !11, !"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E: argument 1"}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = !{i64 0, i64 2}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754: argument 0"}
-!19 = distinct !{!19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754"}
-!20 = !{!21, !22}
-!21 = distinct !{!21, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754: argument 1"}
-!22 = distinct !{!22, !19, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754: argument 2"}
-!23 = !{i64 8}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E: argument 1"}
-!26 = distinct !{!26, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E"}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{i64 0, i64 2}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754: argument 0"}
+!17 = distinct !{!17, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754"}
+!18 = !{!19, !20}
+!19 = distinct !{!19, !17, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754: argument 1"}
+!20 = distinct !{!20, !17, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.10423984322793842754: argument 2"}
+!21 = !{i64 8}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E: argument 1"}
+!24 = distinct !{!24, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E"}
+!25 = !{!26}
+!26 = distinct !{!26, !24, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E: argument 0"}
 !27 = !{!28}
-!28 = distinct !{!28, !26, !"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h43c6e3c26e6cf3f5E: argument 0"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h8784f4a140dfab15E: argument 1"}
-!31 = distinct !{!31, !"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h8784f4a140dfab15E"}
+!28 = distinct !{!28, !29, !"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h8784f4a140dfab15E: argument 1"}
+!29 = distinct !{!29, !"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h8784f4a140dfab15E"}
+!30 = !{!31}
+!31 = distinct !{!31, !29, !"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h8784f4a140dfab15E: argument 0"}
 !32 = !{!33}
-!33 = distinct !{!33, !31, !"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h8784f4a140dfab15E: argument 0"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10423984322793842754: argument 0"}
-!36 = distinct !{!36, !"_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10423984322793842754"}
-!37 = !{!38}
-!38 = distinct !{!38, !36, !"_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10423984322793842754: argument 1"}
+!33 = distinct !{!33, !34, !"_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10423984322793842754: argument 0"}
+!34 = distinct !{!34, !"_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10423984322793842754"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.10423984322793842754: argument 1"}

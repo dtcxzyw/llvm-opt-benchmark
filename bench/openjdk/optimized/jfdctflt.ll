@@ -131,7 +131,7 @@ define hidden void @jFDfloat(ptr noundef captures(none) %0) local_unnamed_addr #
   %99 = getelementptr inbounds nuw i8, ptr %.1142145, i64 4
   %100 = add nsw i32 %.1146, -1
   %.not147 = icmp eq i32 %.1146, 0
-  br i1 %.not147, label %101, label %.preheader, !llvm.loop !9
+  br i1 %.not147, label %101, label %.preheader, !llvm.loop !8
 
 101:                                              ; preds = %.preheader
   ret void
@@ -151,7 +151,6 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

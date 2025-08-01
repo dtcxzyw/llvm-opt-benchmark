@@ -422,7 +422,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exi
   store ptr %.sink76, ptr %86, align 8, !tbaa !10
   %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !10
-  br label %6, !llvm.loop !12
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -649,7 +649,7 @@ lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, 
 define ptr @l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1(ptr noundef %0) local_unnamed_addr #0 {
 lean_dec.exit27:
   %1 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %1, align 8, !tbaa !14
+  %.val = load i64, ptr %1, align 8, !tbaa !12
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %33, label %2
@@ -724,7 +724,7 @@ lean_alloc_ctor.exit31:                           ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit32:                           ; preds = %lean_alloc_ctor.exit31
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 1, ptr %31, align 8, !tbaa !14
+  store i64 1, ptr %31, align 8, !tbaa !12
   store i32 1, ptr %27, align 4, !tbaa !4
   store i32 100728856, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -825,7 +825,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit63
 lean_alloc_ctor.exit65:                           ; preds = %lean_alloc_ctor.exit
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 0, ptr %25, align 8, !tbaa !14
+  store i64 0, ptr %25, align 8, !tbaa !12
   store i32 1, ptr %21, align 4, !tbaa !4
   store i32 100728856, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -999,7 +999,7 @@ lean_alloc_ctor.exit74:                           ; preds = %lean_dec.exit
 lean_alloc_ctor.exit76:                           ; preds = %lean_alloc_ctor.exit74
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store i64 0, ptr %91, align 8, !tbaa !14
+  store i64 0, ptr %91, align 8, !tbaa !12
   store i32 1, ptr %87, align 4, !tbaa !4
   store i32 100728856, ptr %90, align 4
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -1087,7 +1087,7 @@ lean_alloc_ctor.exit80:                           ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit82:                           ; preds = %lean_alloc_ctor.exit80
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store i64 0, ptr %124, align 8, !tbaa !14
+  store i64 0, ptr %124, align 8, !tbaa !12
   store i32 1, ptr %120, align 4, !tbaa !4
   store i32 100728856, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -1158,7 +1158,7 @@ lean_alloc_ctor.exit:                             ; preds = %2
 lean_alloc_ctor.exit50:                           ; preds = %lean_alloc_ctor.exit
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 0, ptr %15, align 8, !tbaa !14
+  store i64 0, ptr %15, align 8, !tbaa !12
   store i32 1, ptr %11, align 4, !tbaa !4
   store i32 100728856, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1336,7 +1336,7 @@ lean_alloc_ctor.exit59:                           ; preds = %lean_alloc_ctor.exi
 lean_alloc_ctor.exit61:                           ; preds = %lean_alloc_ctor.exit59
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i64 0, ptr %83, align 8, !tbaa !14
+  store i64 0, ptr %83, align 8, !tbaa !12
   store i32 1, ptr %79, align 4, !tbaa !4
   store i32 100728856, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -1364,9 +1364,9 @@ lean_alloc_closure.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleFacet____x40_Lake_Build_Facets___hyg_138____rarg___boxed, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 2, ptr %8, align 8, !tbaa !16
+  store i16 2, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !14
   ret ptr %3
 }
 
@@ -1418,9 +1418,9 @@ l___private_Lake_Build_Facets_0__Lake_reprModuleFacet____x40_Lake_Build_Facets__
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleFacet____x40_Lake_Build_Facets___hyg_138____rarg___boxed, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i16 2, ptr %8, align 8, !tbaa !16
+  store i16 2, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i16 0, ptr %9, align 2, !tbaa !16
+  store i16 0, ptr %9, align 2, !tbaa !14
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -1542,7 +1542,7 @@ define noundef ptr @l_Lake_instCoeDepNameModuleFacetOfFamilyOutFacetOut___boxed(
 12:                                               ; preds = %8, %11
   %13 = phi i32 [ %9, %8 ], [ %.pr, %11 ]
   %14 = icmp sgt i32 %13, 1
-  br i1 %14, label %15, label %17, !prof !18
+  br i1 %14, label %15, label %17, !prof !16
 
 15:                                               ; preds = %12
   %16 = add nsw i32 %13, -1
@@ -1736,7 +1736,7 @@ _init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps
   tail call void @lean_mark_persistent(ptr noundef %66) #5
   %67 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__4, align 8, !tbaa !10
   %68 = getelementptr i8, ptr %67, i64 24
-  %.val.i = load i64, ptr %68, align 8, !tbaa !14
+  %.val.i = load i64, ptr %68, align 8, !tbaa !12
   %69 = shl i64 %.val.i, 1
   %70 = or disjoint i64 %69, 1
   %71 = inttoptr i64 %70 to ptr
@@ -1930,7 +1930,7 @@ _init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Fac
   tail call void @lean_mark_persistent(ptr noundef %135) #5
   %136 = load ptr, ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__10, align 8, !tbaa !10
   %137 = getelementptr i8, ptr %136, i64 24
-  %.val.i21 = load i64, ptr %137, align 8, !tbaa !14
+  %.val.i21 = load i64, ptr %137, align 8, !tbaa !12
   %138 = shl i64 %.val.i21, 1
   %139 = or disjoint i64 %138, 1
   %140 = inttoptr i64 %139 to ptr
@@ -2008,9 +2008,9 @@ _init_l_Lake_instReprModuleDeps___closed__1.exit: ; preds = %_init_l___private_L
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____boxed, ptr %165, align 8, !tbaa !10
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  store i16 2, ptr %166, align 8, !tbaa !16
+  store i16 2, ptr %166, align 8, !tbaa !14
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 18
-  store i16 0, ptr %167, align 2, !tbaa !16
+  store i16 0, ptr %167, align 2, !tbaa !14
   store ptr %161, ptr @l_Lake_instReprModuleDeps___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %161) #5
   %168 = load ptr, ptr @l_Lake_instReprModuleDeps___closed__1, align 8, !tbaa !10
@@ -2138,9 +2138,9 @@ _init_l_Lake_instReprModuleFacet___closed__1.exit: ; preds = %_init_l___private_
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleFacet____x40_Lake_Build_Facets___hyg_138____rarg___boxed, ptr %209, align 8, !tbaa !10
   %210 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  store i16 2, ptr %210, align 8, !tbaa !16
+  store i16 2, ptr %210, align 8, !tbaa !14
   %211 = getelementptr inbounds nuw i8, ptr %205, i64 18
-  store i16 0, ptr %211, align 2, !tbaa !16
+  store i16 0, ptr %211, align 2, !tbaa !14
   store ptr %205, ptr @l_Lake_instReprModuleFacet___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %205) #5
   %212 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.12, i64 noundef 6, i64 noundef 6) #5
@@ -2589,10 +2589,8 @@ attributes #6 = { noreturn nounwind }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !7, i64 0}
 !14 = !{!15, !15, i64 0}
-!15 = !{!"long", !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!15 = !{!"short", !7, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

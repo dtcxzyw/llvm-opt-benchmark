@@ -1547,7 +1547,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noun
   %50 = load ptr, ptr %22, align 8
   %51 = call zeroext i8 %50(ptr noundef %21, ptr noundef nonnull %9) #10
   %.not = icmp eq i8 %51, 0
-  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %30, %19
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1636,7 +1636,6 @@ attributes #12 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

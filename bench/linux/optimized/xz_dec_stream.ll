@@ -271,7 +271,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %155 = add i32 %135, 7
   store i32 %155, ptr %28, align 4
   %156 = icmp eq i32 %155, 63
-  br i1 %156, label %.thread, label %134, !llvm.loop !8
+  br i1 %156, label %.thread, label %134, !llvm.loop !7
 
 157:                                              ; preds = %153, %125
   %158 = phi i64 [ %141, %153 ], [ 2, %125 ]
@@ -327,7 +327,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %186 = add i32 %166, 7
   store i32 %186, ptr %28, align 4
   %187 = icmp eq i32 %186, 63
-  br i1 %187, label %.thread, label %165, !llvm.loop !10
+  br i1 %187, label %.thread, label %165, !llvm.loop !7
 
 188:                                              ; preds = %184, %157
   %189 = phi i64 [ %172, %184 ], [ %158, %157 ]
@@ -419,7 +419,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %241 = getelementptr [1024 x i8], ptr %21, i64 0, i64 %237
   %242 = load i8, ptr %241, align 1
   %243 = icmp eq i8 %242, 0
-  br i1 %243, label %236, label %.thread, !llvm.loop !11
+  br i1 %243, label %236, label %.thread, !llvm.loop !9
 
 244:                                              ; preds = %236
   store i64 0, ptr %19, align 8
@@ -432,7 +432,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   store i64 %245, ptr %17, align 8
   %246 = load i64, ptr %15, align 8
   store i64 %246, ptr %36, align 8
-  %247 = load i8, ptr %32, align 8, !range !12, !noundef !13
+  %247 = load i8, ptr %32, align 8, !range !10, !noundef !11
   %248 = icmp eq i8 %247, 0
   br i1 %248, label %253, label %249
 
@@ -553,7 +553,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   store i64 %326, ptr %35, align 8
   %327 = and i64 %326, 3
   %328 = icmp eq i64 %327, 0
-  br i1 %328, label %.loopexit, label %.preheader38, !llvm.loop !14
+  br i1 %328, label %.loopexit, label %.preheader38, !llvm.loop !12
 
 .loopexit:                                        ; preds = %324, %311
   store i32 5, ptr %0, align 8
@@ -588,7 +588,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %346 = add i32 %345, 8
   store i32 %346, ptr %28, align 4
   %347 = icmp ult i32 %346, 32
-  br i1 %347, label %.preheader, label %348, !llvm.loop !15
+  br i1 %347, label %.preheader, label %348, !llvm.loop !13
 
 348:                                              ; preds = %344
   store i32 0, ptr %38, align 8
@@ -635,7 +635,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %369 = getelementptr i8, ptr %367, i64 %355
   %370 = load i8, ptr %369, align 1
   %371 = icmp eq i8 %370, 0
-  br i1 %371, label %354, label %.thread, !llvm.loop !16
+  br i1 %371, label %354, label %.thread, !llvm.loop !14
 
 372:                                              ; preds = %354
   tail call fastcc void @index_update(ptr noundef %0, ptr noundef %1)
@@ -649,7 +649,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %44, %376
-  %377 = tail call fastcc i32 @crc32_validate(ptr noundef %0, ptr noundef %1), !range !17
+  %377 = tail call fastcc i32 @crc32_validate(ptr noundef %0, ptr noundef %1), !range !15
   %378 = icmp eq i32 %377, 1
   br i1 %378, label %379, label %.thread
 
@@ -686,7 +686,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   br i1 %395, label %397, label %.thread
 
 397:                                              ; preds = %.loopexit46
-  %398 = tail call fastcc i32 @dec_stream_footer(ptr noundef %0), !range !18
+  %398 = tail call fastcc i32 @dec_stream_footer(ptr noundef %0), !range !16
   br label %.thread
 
 399:                                              ; preds = %348, %.loopexit123, %88
@@ -736,7 +736,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 
 421:                                              ; preds = %418
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %423 = load i8, ptr %422, align 4, !range !12, !noundef !13
+  %423 = load i8, ptr %422, align 4, !range !10, !noundef !11
   %424 = icmp eq i8 %423, 0
   %425 = select i1 %424, i32 0, i32 8
   store i8 1, ptr %422, align 4
@@ -885,7 +885,7 @@ define internal fastcc noundef range(i32 0, 8) i32 @crc32_validate(ptr noundef c
   %23 = add i32 %22, 8
   store i32 %23, ptr %6, align 4
   %24 = icmp ult i32 %23, 32
-  br i1 %24, label %7, label %25, !llvm.loop !19
+  br i1 %24, label %7, label %25, !llvm.loop !13
 
 25:                                               ; preds = %21
   store i32 0, ptr %5, align 8
@@ -957,7 +957,7 @@ define internal fastcc noundef range(i32 0, 8) i32 @dec_index(ptr noundef %0, pt
   %39 = add i32 %28, 7
   store i32 %39, ptr %5, align 4
   %40 = icmp eq i32 %39, 63
-  br i1 %40, label %.loopexit, label %19, !llvm.loop !20
+  br i1 %40, label %.loopexit, label %19, !llvm.loop !7
 
 .loopexit:                                        ; preds = %34, %38, %19
   %.ph = phi i32 [ 7, %38 ], [ 0, %19 ], [ 7, %34 ]
@@ -1022,7 +1022,7 @@ define internal fastcc noundef range(i32 0, 8) i32 @dec_index(ptr noundef %0, pt
 75:                                               ; preds = %73, %55
   %76 = load i64, ptr %11, align 8
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %.loopexit3, label %14, !llvm.loop !21
+  br i1 %77, label %.loopexit3, label %14, !llvm.loop !17
 
 .loopexit3:                                       ; preds = %75, %57, %.loopexit
   %78 = phi i32 [ %.ph, %.loopexit ], [ 1, %75 ], [ 7, %57 ]
@@ -1151,20 +1151,16 @@ attributes #15 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.unroll.disable"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !6, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !6, !7}
-!11 = distinct !{!11, !9, !6, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !6, !7}
-!15 = distinct !{!15, !9, !6, !7}
-!16 = distinct !{!16, !9, !6, !7}
-!17 = !{i32 0, i32 8}
-!18 = !{i32 1, i32 8}
-!19 = distinct !{!19, !9, !6, !7}
-!20 = distinct !{!20, !9, !6, !7}
-!21 = distinct !{!21, !9, !6, !7}
+!7 = distinct !{!7, !8, !6}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !8, !6}
+!13 = distinct !{!13, !8, !6}
+!14 = distinct !{!14, !8, !6}
+!15 = !{i32 0, i32 8}
+!16 = !{i32 1, i32 8}
+!17 = distinct !{!17, !8, !6}

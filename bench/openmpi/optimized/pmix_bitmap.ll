@@ -405,7 +405,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
   %59 = lshr exact i64 %.02839, 1
   %60 = and i64 %.02839, 2
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.lr.ph40, label %._crit_edge, !llvm.loop !21
+  br i1 %.not, label %.lr.ph40, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph40, %47
   %61 = phi i32 [ 0, %47 ], [ %58, %.lr.ph40 ]
@@ -456,7 +456,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_and_inplace(ptr noundef readon
   store i64 %20, ptr %18, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !21
 
 .loopexit:                                        ; preds = %15, %.preheader, %5, %2
   %.012 = phi i32 [ -27, %2 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %15 ]
@@ -500,7 +500,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_or_inplace(ptr noundef readonl
   store i64 %20, ptr %18, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !22
 
 .loopexit:                                        ; preds = %15, %.preheader, %5, %2
   %.012 = phi i32 [ -27, %2 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %15 ]
@@ -544,7 +544,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_xor_inplace(ptr noundef readon
   store i64 %20, ptr %18, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !23
 
 .loopexit:                                        ; preds = %15, %.preheader, %5, %2
   %.012 = phi i32 [ -27, %2 ], [ -27, %5 ], [ 0, %.preheader ], [ 0, %15 ]
@@ -588,7 +588,7 @@ define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly captur
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond21 = select i1 %.not15.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond21, label %.loopexit, label %13, !llvm.loop !25
+  br i1 %or.cond21, label %.loopexit, label %13, !llvm.loop !24
 
 .loopexit:                                        ; preds = %13, %.preheader, %5, %2
   %.012 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %.preheader ], [ %.not15.not, %13 ]
@@ -613,7 +613,7 @@ define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures
 11:                                               ; preds = %3
   %12 = sext i32 %6 to i64
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  store i8 0, ptr %13, align 1, !tbaa !26
+  store i8 0, ptr %13, align 1, !tbaa !25
   %14 = icmp sgt i32 %5, 0
   br i1 %14, label %pmix_bitmap_is_set_bit.exit.lr.ph, label %.loopexit
 
@@ -636,10 +636,10 @@ pmix_bitmap_is_set_bit.exit:                      ; preds = %pmix_bitmap_is_set_
   %.not12.i.not = icmp eq i64 %23, 0
   %spec.select = select i1 %.not12.i.not, i8 95, i8 88
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 %spec.select, ptr %24, align 1, !tbaa !26
+  store i8 %spec.select, ptr %24, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %pmix_bitmap_is_set_bit.exit, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %pmix_bitmap_is_set_bit.exit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %pmix_bitmap_is_set_bit.exit, %11, %3, %1
   %.015 = phi ptr [ null, %1 ], [ null, %3 ], [ %9, %11 ], [ %9, %pmix_bitmap_is_set_bit.exit ]
@@ -672,13 +672,13 @@ define i32 @pmix_bitmap_num_unset_bits(ptr noundef readonly captures(none) %0, i
   %10 = and i64 %9, %.0.i
   %11 = add nsw i32 %.2.i, 1
   %.old1.not.i = icmp eq i64 %10, 0
-  br i1 %.old1.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !28
+  br i1 %.old1.not.i, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %6
   %.1.i = phi i32 [ %.01115.i, %6 ], [ %11, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %pmix_bitmap_num_set_bits.exit, label %6, !llvm.loop !29
+  br i1 %exitcond.not.i, label %pmix_bitmap_num_set_bits.exit, label %6, !llvm.loop !27
 
 pmix_bitmap_num_set_bits.exit:                    ; preds = %.loopexit.i, %2
   %.011.lcssa.i = phi i32 [ 0, %2 ], [ %.1.i, %.loopexit.i ]
@@ -712,13 +712,13 @@ define range(i32 -2147483647, -2147483648) i32 @pmix_bitmap_num_set_bits(ptr nou
   %10 = and i64 %9, %.0
   %11 = add nsw i32 %.2, 1
   %.old1.not = icmp eq i64 %10, 0
-  br i1 %.old1.not, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %.old1.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %6
   %.1 = phi i32 [ %.01115, %6 ], [ %11, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.011.lcssa = phi i32 [ 0, %2 ], [ %.1, %.loopexit ]
@@ -746,7 +746,7 @@ define noundef zeroext i1 @pmix_bitmap_is_clear(ptr noundef readonly captures(no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %7, label %._crit_edge, !llvm.loop !30
+  br i1 %or.cond.not, label %7, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %7, %1
   %.lcssa = phi i1 [ true, %1 ], [ %.not, %7 ]
@@ -798,16 +798,14 @@ attributes #17 = { nounwind allocsize(0) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !6, i64 0}
 !17 = !{!10, !10, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = distinct !{!23, !19, !20}
-!24 = distinct !{!24, !19, !20}
-!25 = distinct !{!25, !19, !20}
-!26 = !{!6, !6, i64 0}
-!27 = distinct !{!27, !19, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !19}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}

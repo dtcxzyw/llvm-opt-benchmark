@@ -69,60 +69,60 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   %44 = tail call ptr @reoUnitsGetNextUnit(ptr noundef nonnull %0) #2
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 1, ptr %45, align 2, !tbaa !29
-  %46 = load i32, ptr %7, align 8, !tbaa !35
+  %46 = load i32, ptr %7, align 8, !tbaa !34
   %47 = icmp eq i32 %46, 2147483647
   br i1 %47, label %48, label %66
 
 48:                                               ; preds = %.loopexit
-  store i16 30000, ptr %44, align 8, !tbaa !36
+  store i16 30000, ptr %44, align 8, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %50 = load double, ptr %49, align 8, !tbaa !37
+  %50 = load double, ptr %49, align 8, !tbaa !36
   %51 = fptoui double %50 to i64
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %52, ptr %53, align 8, !tbaa !38
+  store ptr %52, ptr %53, align 8, !tbaa !37
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr null, ptr %54, align 8, !tbaa !39
+  store ptr null, ptr %54, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !40
+  %56 = load ptr, ptr %55, align 8, !tbaa !39
   %.not66 = icmp eq ptr %56, %7
   br i1 %.not66, label %59, label %57
 
 57:                                               ; preds = %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %58, align 8, !tbaa !51
+  store i32 1, ptr %58, align 8, !tbaa !50
   br label %59
 
 59:                                               ; preds = %57, %48
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %61 = load ptr, ptr %60, align 8, !tbaa !52
+  %61 = load ptr, ptr %60, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %63 = load i32, ptr %62, align 4, !tbaa !53
+  %63 = load i32, ptr %62, align 4, !tbaa !52
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds %struct._reo_plane, ptr %61, i64 %64
   br label %86
 
 66:                                               ; preds = %.loopexit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %68 = load ptr, ptr %67, align 8, !tbaa !54
+  %68 = load ptr, ptr %67, align 8, !tbaa !53
   %69 = zext i32 %46 to i64
   %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !55
+  %71 = load i32, ptr %70, align 4, !tbaa !54
   %72 = trunc i32 %71 to i16
-  store i16 %72, ptr %44, align 8, !tbaa !36
+  store i16 %72, ptr %44, align 8, !tbaa !35
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !37
+  %75 = load ptr, ptr %74, align 8, !tbaa !36
   %76 = tail call ptr @reoTransferNodesToUnits_rec(ptr noundef nonnull %0, ptr noundef %75)
   %77 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %76, ptr %77, align 8, !tbaa !38
-  %78 = load ptr, ptr %73, align 8, !tbaa !37
+  store ptr %76, ptr %77, align 8, !tbaa !37
+  %78 = load ptr, ptr %73, align 8, !tbaa !36
   %79 = tail call ptr @reoTransferNodesToUnits_rec(ptr noundef nonnull %0, ptr noundef %78)
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %79, ptr %80, align 8, !tbaa !39
+  store ptr %79, ptr %80, align 8, !tbaa !38
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %82 = load ptr, ptr %81, align 8, !tbaa !52
-  %83 = load i16, ptr %44, align 8, !tbaa !36
+  %82 = load ptr, ptr %81, align 8, !tbaa !51
+  %83 = load i16, ptr %44, align 8, !tbaa !35
   %84 = sext i16 %83 to i64
   %85 = getelementptr inbounds %struct._reo_plane, ptr %82, i64 %84
   br label %86
@@ -158,7 +158,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   %102 = getelementptr inbounds %struct._reo_hash, ptr %89, i64 %101
   %103 = load i32, ptr %102, align 8, !tbaa !25
   %104 = icmp eq i32 %103, %91
-  br i1 %104, label %98, label %._crit_edge, !llvm.loop !56
+  br i1 %104, label %98, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %98, %.preheader
   %.lcssa69 = phi i64 [ %92, %.preheader ], [ %101, %98 ]
@@ -172,9 +172,9 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
 
 107:                                              ; preds = %._crit_edge, %86
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %109 = load i32, ptr %108, align 4, !tbaa !57
+  %109 = load i32, ptr %108, align 4, !tbaa !56
   %110 = add nsw i32 %109, 1
-  store i32 %110, ptr %108, align 4, !tbaa !57
+  store i32 %110, ptr %108, align 4, !tbaa !56
   br label %111
 
 111:                                              ; preds = %107, %31
@@ -246,14 +246,14 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %42 = getelementptr inbounds %struct._reo_hash, ptr %23, i64 %41
   %43 = load i32, ptr %42, align 8, !tbaa !25
   %44 = icmp eq i32 %43, %13
-  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !58
+  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %38, %11, %2
   %.069 = phi i32 [ -1, %2 ], [ %21, %11 ], [ %40, %38 ]
-  %45 = load i16, ptr %8, align 8, !tbaa !36
+  %45 = load i16, ptr %8, align 8, !tbaa !35
   %46 = icmp eq i16 %45, 30000
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !38
+  %48 = load ptr, ptr %47, align 8, !tbaa !37
   br i1 %46, label %49, label %60
 
 49:                                               ; preds = %.loopexit
@@ -284,7 +284,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4, !tbaa !18
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !39
+  %71 = load ptr, ptr %70, align 8, !tbaa !38
   %72 = tail call ptr @reoTransferUnitsToNodes_rec(ptr noundef nonnull %0, ptr noundef %71)
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %75
@@ -302,11 +302,11 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4, !tbaa !18
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  %84 = load i16, ptr %8, align 8, !tbaa !36
+  %83 = load ptr, ptr %82, align 8, !tbaa !58
+  %84 = load i16, ptr %8, align 8, !tbaa !35
   %85 = sext i16 %84 to i64
   %86 = getelementptr inbounds i32, ptr %83, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !55
+  %87 = load i32, ptr %86, align 4, !tbaa !54
   %88 = tail call ptr @cuddUniqueInter(ptr noundef %4, i32 noundef %87, ptr noundef nonnull %72, ptr noundef nonnull %61) #2
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %91
@@ -362,7 +362,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %118 = getelementptr inbounds %struct._reo_hash, ptr %105, i64 %117
   %119 = load i32, ptr %118, align 8, !tbaa !25
   %120 = icmp eq i32 %119, %107
-  br i1 %120, label %114, label %._crit_edge, !llvm.loop !60
+  br i1 %120, label %114, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %114, %.preheader
   %.lcssa77 = phi i64 [ %108, %.preheader ], [ %117, %114 ]
@@ -373,22 +373,22 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %122 = getelementptr inbounds %struct._reo_hash, ptr %105, i64 %.lcssa77, i32 2
   store ptr %.070, ptr %122, align 8, !tbaa !28
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %124 = load ptr, ptr %123, align 8, !tbaa !61
+  %124 = load ptr, ptr %123, align 8, !tbaa !60
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %126 = load i32, ptr %125, align 8, !tbaa !62
+  %126 = load i32, ptr %125, align 8, !tbaa !61
   %127 = add nsw i32 %126, 1
-  store i32 %127, ptr %125, align 8, !tbaa !62
+  store i32 %127, ptr %125, align 8, !tbaa !61
   %128 = sext i32 %126 to i64
   %129 = getelementptr inbounds ptr, ptr %124, i64 %128
-  store ptr %.070, ptr %129, align 8, !tbaa !63
+  store ptr %.070, ptr %129, align 8, !tbaa !62
   tail call void @Cudd_Ref(ptr noundef %.070) #2
   br label %130
 
 130:                                              ; preds = %._crit_edge, %102
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %132 = load i32, ptr %131, align 4, !tbaa !57
+  %132 = load i32, ptr %131, align 4, !tbaa !56
   %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %131, align 4, !tbaa !57
+  store i32 %133, ptr %131, align 4, !tbaa !56
   %134 = ptrtoint ptr %.070 to i64
   %135 = and i64 %134, -2
   %136 = inttoptr i64 %135 to ptr
@@ -451,35 +451,34 @@ attributes #2 = { nounwind }
 !29 = !{!30, !31, i64 6}
 !30 = !{!"_reo_unit", !31, i64 0, !31, i64 2, !31, i64 4, !31, i64 6, !5, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !13, i64 40}
 !31 = !{!"short", !6, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!19, !5, i64 0}
-!36 = !{!30, !31, i64 0}
-!37 = !{!6, !6, i64 0}
-!38 = !{!30, !17, i64 16}
-!39 = !{!30, !17, i64 24}
-!40 = !{!41, !20, i64 40}
-!41 = !{!"DdManager", !19, i64 0, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !42, i64 80, !42, i64 88, !5, i64 96, !5, i64 100, !13, i64 104, !13, i64 112, !13, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !43, i64 152, !43, i64 160, !44, i64 168, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !13, i64 256, !5, i64 264, !5, i64 268, !5, i64 272, !16, i64 280, !21, i64 288, !13, i64 296, !5, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !10, i64 336, !16, i64 344, !10, i64 352, !16, i64 360, !5, i64 368, !45, i64 376, !45, i64 384, !16, i64 392, !20, i64 400, !46, i64 408, !16, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !13, i64 440, !5, i64 448, !5, i64 452, !5, i64 456, !5, i64 460, !13, i64 464, !13, i64 472, !5, i64 480, !5, i64 484, !5, i64 488, !5, i64 492, !5, i64 496, !5, i64 500, !5, i64 504, !5, i64 508, !5, i64 512, !47, i64 520, !47, i64 528, !5, i64 536, !5, i64 540, !5, i64 544, !5, i64 548, !5, i64 552, !5, i64 556, !48, i64 560, !46, i64 568, !49, i64 576, !49, i64 584, !49, i64 592, !49, i64 600, !50, i64 608, !50, i64 616, !5, i64 624, !21, i64 632, !21, i64 640, !21, i64 648, !5, i64 656, !21, i64 664, !21, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !13, i64 720, !5, i64 728, !20, i64 736, !20, i64 744, !21, i64 752}
-!42 = !{!"p1 _ZTS7DdCache", !9, i64 0}
-!43 = !{!"p1 _ZTS10DdSubtable", !9, i64 0}
-!44 = !{!"DdSubtable", !16, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48}
-!45 = !{!"p1 long", !9, i64 0}
-!46 = !{!"p1 omnipotent char", !9, i64 0}
-!47 = !{!"p1 _ZTS7MtrNode", !9, i64 0}
-!48 = !{!"p1 _ZTS12DdLocalCache", !9, i64 0}
-!49 = !{!"p1 _ZTS6DdHook", !9, i64 0}
-!50 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!51 = !{!4, !5, i64 40}
-!52 = !{!4, !14, i64 168}
-!53 = !{!4, !5, i64 60}
-!54 = !{!4, !10, i64 144}
-!55 = !{!5, !5, i64 0}
-!56 = distinct !{!56, !33, !34}
-!57 = !{!4, !5, i64 100}
-!58 = distinct !{!58, !33, !34}
-!59 = !{!4, !10, i64 160}
-!60 = distinct !{!60, !33, !34}
-!61 = !{!4, !16, i64 224}
-!62 = !{!4, !5, i64 232}
-!63 = !{!20, !20, i64 0}
+!34 = !{!19, !5, i64 0}
+!35 = !{!30, !31, i64 0}
+!36 = !{!6, !6, i64 0}
+!37 = !{!30, !17, i64 16}
+!38 = !{!30, !17, i64 24}
+!39 = !{!40, !20, i64 40}
+!40 = !{!"DdManager", !19, i64 0, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !41, i64 80, !41, i64 88, !5, i64 96, !5, i64 100, !13, i64 104, !13, i64 112, !13, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !42, i64 152, !42, i64 160, !43, i64 168, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !5, i64 248, !13, i64 256, !5, i64 264, !5, i64 268, !5, i64 272, !16, i64 280, !21, i64 288, !13, i64 296, !5, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !10, i64 336, !16, i64 344, !10, i64 352, !16, i64 360, !5, i64 368, !44, i64 376, !44, i64 384, !16, i64 392, !20, i64 400, !45, i64 408, !16, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !13, i64 440, !5, i64 448, !5, i64 452, !5, i64 456, !5, i64 460, !13, i64 464, !13, i64 472, !5, i64 480, !5, i64 484, !5, i64 488, !5, i64 492, !5, i64 496, !5, i64 500, !5, i64 504, !5, i64 508, !5, i64 512, !46, i64 520, !46, i64 528, !5, i64 536, !5, i64 540, !5, i64 544, !5, i64 548, !5, i64 552, !5, i64 556, !47, i64 560, !45, i64 568, !48, i64 576, !48, i64 584, !48, i64 592, !48, i64 600, !49, i64 608, !49, i64 616, !5, i64 624, !21, i64 632, !21, i64 640, !21, i64 648, !5, i64 656, !21, i64 664, !21, i64 672, !13, i64 680, !13, i64 688, !13, i64 696, !13, i64 704, !13, i64 712, !13, i64 720, !5, i64 728, !20, i64 736, !20, i64 744, !21, i64 752}
+!41 = !{!"p1 _ZTS7DdCache", !9, i64 0}
+!42 = !{!"p1 _ZTS10DdSubtable", !9, i64 0}
+!43 = !{!"DdSubtable", !16, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48}
+!44 = !{!"p1 long", !9, i64 0}
+!45 = !{!"p1 omnipotent char", !9, i64 0}
+!46 = !{!"p1 _ZTS7MtrNode", !9, i64 0}
+!47 = !{!"p1 _ZTS12DdLocalCache", !9, i64 0}
+!48 = !{!"p1 _ZTS6DdHook", !9, i64 0}
+!49 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!50 = !{!4, !5, i64 40}
+!51 = !{!4, !14, i64 168}
+!52 = !{!4, !5, i64 60}
+!53 = !{!4, !10, i64 144}
+!54 = !{!5, !5, i64 0}
+!55 = distinct !{!55, !33}
+!56 = !{!4, !5, i64 100}
+!57 = distinct !{!57, !33}
+!58 = !{!4, !10, i64 160}
+!59 = distinct !{!59, !33}
+!60 = !{!4, !16, i64 224}
+!61 = !{!4, !5, i64 232}
+!62 = !{!20, !20, i64 0}

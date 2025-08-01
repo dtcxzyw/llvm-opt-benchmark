@@ -6048,7 +6048,7 @@ _ZN4Node8init_reqEjPS_.exit616:                   ; preds = %1790, %1779, %1775,
   %1796 = load i32, ptr %1766, align 8
   %1797 = zext i32 %1796 to i64
   %1798 = icmp samesign ult i64 %indvars.iv.next, %1797
-  br i1 %1798, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %1798, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit616, %_ZN4Node8init_reqEjPS_.exit612
   store ptr %.0.i.i.i397, ptr %3, align 8
@@ -8592,7 +8592,6 @@ attributes #7 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

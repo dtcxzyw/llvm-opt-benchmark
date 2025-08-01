@@ -125,7 +125,7 @@ define internal noundef i32 @H5FA__test_encode(ptr noundef writeonly captures(no
   %20 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %21 = add i64 %.021, -1
   %.old1.not = icmp eq i64 %21, 0
-  br i1 %.old1.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.old1.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %18, %4
   ret i32 0
@@ -163,14 +163,14 @@ define internal noundef i32 @H5FA__test_decode(ptr noundef readonly captures(non
   store i64 %19, ptr %.015, align 8, !tbaa !10
   %20 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %20, 8
-  br i1 %exitcond.not, label %21, label %13, !llvm.loop !21
+  br i1 %exitcond.not, label %21, label %13, !llvm.loop !19
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %.119, i64 7
   %23 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %24 = add i64 %.016, -1
   %.old1.not = icmp eq i64 %24, 0
-  br i1 %.old1.not, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %.old1.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %21, %4
   ret i32 0
@@ -240,15 +240,15 @@ define noundef i32 @H5FA__get_cparam_test(ptr noundef readonly captures(none) %0
   br i1 %8, label %9, label %17, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !23
+  %10 = load ptr, ptr %0, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 256
-  %12 = load i8, ptr %11, align 8, !tbaa !28
+  %12 = load i8, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %12, ptr %13, align 8, !tbaa !41
+  store i8 %12, ptr %13, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 264
-  %15 = load i64, ptr %14, align 8, !tbaa !42
+  %15 = load i64, ptr %14, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %15, ptr %16, align 8, !tbaa !43
+  store i64 %15, ptr %16, align 8, !tbaa !40
   br label %17
 
 17:                                               ; preds = %9, %2
@@ -267,9 +267,9 @@ define range(i32 -1, 2) i32 @H5FA__cmp_cparam_test(ptr noundef readonly captures
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !41
+  %11 = load i8, ptr %10, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !41
+  %13 = load i8, ptr %12, align 8, !tbaa !38
   %14 = icmp ult i8 %11, %13
   br i1 %14, label %17, label %15
 
@@ -332,30 +332,27 @@ attributes #8 = { nounwind }
 !14 = !{!"int", !5, i64 0}
 !15 = !{!"branch_weights", i32 2000, i32 2002}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !19}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"H5FA_t", !25, i64 0, !27, i64 8}
-!25 = !{!"p1 _ZTS10H5FA_hdr_t", !26, i64 0}
-!26 = !{!"any pointer", !5, i64 0}
-!27 = !{!"p1 _ZTS5H5F_t", !26, i64 0}
-!28 = !{!29, !5, i64 256}
-!29 = !{!"H5FA_hdr_t", !30, i64 0, !37, i64 248, !11, i64 272, !39, i64 280, !11, i64 304, !11, i64 312, !11, i64 320, !27, i64 328, !11, i64 336, !4, i64 344, !11, i64 352, !11, i64 360, !26, i64 368, !4, i64 376, !40, i64 384, !26, i64 392}
-!30 = !{!"H5C_cache_entry_t", !31, i64 0, !11, i64 8, !11, i64 16, !26, i64 24, !4, i64 32, !32, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !14, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !14, i64 64, !33, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !4, i64 100, !4, i64 101, !34, i64 104, !34, i64 112, !34, i64 120, !34, i64 128, !34, i64 136, !34, i64 144, !4, i64 152, !14, i64 156, !4, i64 160, !11, i64 168, !35, i64 176, !11, i64 184, !11, i64 192, !14, i64 200, !4, i64 204, !14, i64 208, !14, i64 212, !4, i64 216, !34, i64 224, !34, i64 232, !36, i64 240}
-!31 = !{!"p1 _ZTS5H5C_t", !26, i64 0}
-!32 = !{!"p1 _ZTS11H5C_class_t", !26, i64 0}
-!33 = !{!"p2 _ZTS17H5C_cache_entry_t", !26, i64 0}
-!34 = !{!"p1 _ZTS17H5C_cache_entry_t", !26, i64 0}
-!35 = !{!"p1 long", !26, i64 0}
-!36 = !{!"p1 _ZTS14H5C_tag_info_t", !26, i64 0}
-!37 = !{!"H5FA_create_t", !38, i64 0, !5, i64 8, !5, i64 9, !11, i64 16}
-!38 = !{!"p1 _ZTS12H5FA_class_t", !26, i64 0}
-!39 = !{!"H5FA_stat_t", !11, i64 0, !11, i64 8, !11, i64 16}
-!40 = !{!"p1 _ZTS18H5AC_proxy_entry_t", !26, i64 0}
-!41 = !{!37, !5, i64 8}
-!42 = !{!29, !11, i64 264}
-!43 = !{!37, !11, i64 16}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"H5FA_t", !22, i64 0, !24, i64 8}
+!22 = !{!"p1 _ZTS10H5FA_hdr_t", !23, i64 0}
+!23 = !{!"any pointer", !5, i64 0}
+!24 = !{!"p1 _ZTS5H5F_t", !23, i64 0}
+!25 = !{!26, !5, i64 256}
+!26 = !{!"H5FA_hdr_t", !27, i64 0, !34, i64 248, !11, i64 272, !36, i64 280, !11, i64 304, !11, i64 312, !11, i64 320, !24, i64 328, !11, i64 336, !4, i64 344, !11, i64 352, !11, i64 360, !23, i64 368, !4, i64 376, !37, i64 384, !23, i64 392}
+!27 = !{!"H5C_cache_entry_t", !28, i64 0, !11, i64 8, !11, i64 16, !23, i64 24, !4, i64 32, !29, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !14, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !14, i64 64, !30, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !4, i64 100, !4, i64 101, !31, i64 104, !31, i64 112, !31, i64 120, !31, i64 128, !31, i64 136, !31, i64 144, !4, i64 152, !14, i64 156, !4, i64 160, !11, i64 168, !32, i64 176, !11, i64 184, !11, i64 192, !14, i64 200, !4, i64 204, !14, i64 208, !14, i64 212, !4, i64 216, !31, i64 224, !31, i64 232, !33, i64 240}
+!28 = !{!"p1 _ZTS5H5C_t", !23, i64 0}
+!29 = !{!"p1 _ZTS11H5C_class_t", !23, i64 0}
+!30 = !{!"p2 _ZTS17H5C_cache_entry_t", !23, i64 0}
+!31 = !{!"p1 _ZTS17H5C_cache_entry_t", !23, i64 0}
+!32 = !{!"p1 long", !23, i64 0}
+!33 = !{!"p1 _ZTS14H5C_tag_info_t", !23, i64 0}
+!34 = !{!"H5FA_create_t", !35, i64 0, !5, i64 8, !5, i64 9, !11, i64 16}
+!35 = !{!"p1 _ZTS12H5FA_class_t", !23, i64 0}
+!36 = !{!"H5FA_stat_t", !11, i64 0, !11, i64 8, !11, i64 16}
+!37 = !{!"p1 _ZTS18H5AC_proxy_entry_t", !23, i64 0}
+!38 = !{!34, !5, i64 8}
+!39 = !{!26, !11, i64 264}
+!40 = !{!34, !11, i64 16}

@@ -110,7 +110,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %70 = xor <2 x i64> %69, %.val48
   %71 = add i64 %54, 32
   %.not = icmp ugt i64 %71, %6
-  br i1 %.not, label %.preheader, label %aegis256_init.exit, !llvm.loop !7
+  br i1 %.not, label %.preheader, label %aegis256_init.exit, !llvm.loop !6
 
 .lr.ph129:                                        ; preds = %.preheader, %.lr.ph129
   %72 = phi i64 [ %81, %.lr.ph129 ], [ %53, %.preheader ]
@@ -132,7 +132,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %80 = xor <2 x i64> %79, %.val49
   %81 = add i64 %72, 16
   %.not40 = icmp ugt i64 %81, %6
-  br i1 %.not40, label %._crit_edge, label %.lr.ph129, !llvm.loop !8
+  br i1 %.not40, label %._crit_edge, label %.lr.ph129, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph129, %.preheader
   %.sroa.77.1.lcssa = phi <2 x i64> [ %.sroa.77.0.lcssa, %.preheader ], [ %74, %.lr.ph129 ]
@@ -149,7 +149,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
 83:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   %84 = getelementptr i8, ptr %5, i64 %.1.lcssa
-  %85 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %84, i64 noundef range(i64 1, 16) %82, i64 noundef 16) #8, !alias.scope !9
+  %85 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %84, i64 noundef range(i64 1, 16) %82, i64 noundef 16) #8, !alias.scope !8
   %.val50 = load <2 x i64>, ptr %10, align 16
   %86 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.1.lcssa, <2 x i64> %.sroa.77.1.lcssa)
   %87 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.45.1.lcssa, <2 x i64> %.sroa.61.1.lcssa)
@@ -197,7 +197,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %108 = xor <2 x i64> %107, %.val51
   %109 = add i64 %94, 16
   %.not42 = icmp ugt i64 %109, %4
-  br i1 %.not42, label %._crit_edge147, label %.lr.ph146, !llvm.loop !13
+  br i1 %.not42, label %._crit_edge147, label %.lr.ph146, !llvm.loop !12
 
 ._crit_edge147:                                   ; preds = %.lr.ph146, %93
   %.sroa.77.3.lcssa = phi <2 x i64> [ %.sroa.77.2, %93 ], [ %102, %.lr.ph146 ]
@@ -214,7 +214,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
 111:                                              ; preds = %._crit_edge147
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   %112 = getelementptr i8, ptr %3, i64 %.2.lcssa
-  %113 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %112, i64 noundef range(i64 1, 16) %110, i64 noundef 16) #8, !alias.scope !14
+  %113 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %112, i64 noundef range(i64 1, 16) %110, i64 noundef 16) #8, !alias.scope !13
   %.val52 = load <2 x i64>, ptr %10, align 16
   %114 = and <2 x i64> %.sroa.30.3.lcssa, %.sroa.45.3.lcssa
   %115 = xor <2 x i64> %.sroa.77.3.lcssa, %114
@@ -264,7 +264,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %.reass.i.reass.reass = xor <2 x i64> %144, %invariant.op
   %145 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i53 = icmp eq i32 %145, 7
-  br i1 %exitcond.not.i53, label %146, label %132, !llvm.loop !18
+  br i1 %exitcond.not.i53, label %146, label %132, !llvm.loop !17
 
 146:                                              ; preds = %132
   switch i64 %2, label %159 [
@@ -409,7 +409,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %74 = xor <2 x i64> %73, %.val73
   %75 = add i64 %58, 32
   %.not = icmp ugt i64 %75, %6
-  br i1 %.not, label %.preheader147, label %aegis256_init.exit, !llvm.loop !19
+  br i1 %.not, label %.preheader147, label %aegis256_init.exit, !llvm.loop !18
 
 .lr.ph180:                                        ; preds = %.preheader147, %.lr.ph180
   %76 = phi i64 [ %85, %.lr.ph180 ], [ %57, %.preheader147 ]
@@ -431,7 +431,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %84 = xor <2 x i64> %83, %.val74
   %85 = add i64 %76, 16
   %.not64 = icmp ugt i64 %85, %6
-  br i1 %.not64, label %._crit_edge, label %.lr.ph180, !llvm.loop !20
+  br i1 %.not64, label %._crit_edge, label %.lr.ph180, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph180, %.preheader147
   %.sroa.105.1.lcssa = phi <2 x i64> [ %.sroa.105.0.lcssa, %.preheader147 ], [ %78, %.lr.ph180 ]
@@ -448,7 +448,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
 87:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   %88 = getelementptr i8, ptr %5, i64 %.1.lcssa
-  %89 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef nonnull %88, i64 noundef range(i64 1, 16) %86, i64 noundef 16) #8, !alias.scope !21
+  %89 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef nonnull %88, i64 noundef range(i64 1, 16) %86, i64 noundef 16) #8, !alias.scope !20
   %.val75 = load <2 x i64>, ptr %12, align 16
   %90 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.83.1.lcssa, <2 x i64> %.sroa.105.1.lcssa)
   %91 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.1.lcssa, <2 x i64> %.sroa.83.1.lcssa)
@@ -503,7 +503,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %113 = xor <2 x i64> %112, %106
   %114 = add i64 %99, 16
   %.not67 = icmp ugt i64 %114, %2
-  br i1 %.not67, label %.loopexit, label %.lr.ph214, !llvm.loop !25
+  br i1 %.not67, label %.loopexit, label %.lr.ph214, !llvm.loop !24
 
 .lr.ph197:                                        ; preds = %.preheader145, %.lr.ph197
   %115 = phi i64 [ %129, %.lr.ph197 ], [ 16, %.preheader145 ]
@@ -530,7 +530,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %128 = xor <2 x i64> %127, %121
   %129 = add i64 %115, 16
   %.not66 = icmp ugt i64 %129, %2
-  br i1 %.not66, label %.loopexit.thread, label %.lr.ph197, !llvm.loop !26
+  br i1 %.not66, label %.loopexit.thread, label %.lr.ph197, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph214, %.preheader
   %.sroa.105.4 = phi <2 x i64> [ %.sroa.105.2, %.preheader ], [ %107, %.lr.ph214 ]
@@ -563,7 +563,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %134 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
-  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %134, i64 noundef range(i64 1, 16) %130, i64 noundef 16) #8, !alias.scope !27
+  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %134, i64 noundef range(i64 1, 16) %130, i64 noundef 16) #8, !alias.scope !26
   %136 = load <2 x i64>, ptr %11, align 16
   %137 = and <2 x i64> %.sroa.40.4, %.sroa.61.4
   %138 = xor <2 x i64> %137, %136
@@ -590,7 +590,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %152 = getelementptr i8, ptr %1, i64 %.4.lcssa
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
-  %153 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %152, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !31
+  %153 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %152, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !30
   %154 = load <2 x i64>, ptr %10, align 16
   %155 = and <2 x i64> %.sroa.40.5.lcssa, %.sroa.61.5.lcssa
   %156 = xor <2 x i64> %155, %154
@@ -601,7 +601,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %160 = getelementptr i8, ptr %10, i64 %131
   %161 = sub nuw nsw i64 16, %131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %160, i8 noundef 0, i64 noundef %161, i1 noundef false) #8
-  %162 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %10, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !35
+  %162 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %10, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !34
   %163 = load <2 x i64>, ptr %10, align 16
   %164 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.83.5.lcssa, <2 x i64> %.sroa.105.5.lcssa)
   %165 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.5.lcssa, <2 x i64> %.sroa.83.5.lcssa)
@@ -644,7 +644,7 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %.reass.i.reass.reass = xor <2 x i64> %188, %invariant.op
   %189 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i78 = icmp eq i32 %189, 7
-  br i1 %exitcond.not.i78, label %190, label %176, !llvm.loop !18
+  br i1 %exitcond.not.i78, label %190, label %176, !llvm.loop !17
 
 190:                                              ; preds = %176
   switch i64 %4, label %aegis256_mac.exit [
@@ -735,38 +735,37 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = distinct !{!13, !5, !6}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
-!29 = distinct !{!29, !"memcpy.inline"}
-!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
-!31 = !{!32, !34}
-!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
-!33 = distinct !{!33, !"memcpy.inline"}
-!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
-!35 = !{!36, !38}
-!36 = distinct !{!36, !37, !"memcpy.inline: argument 0"}
-!37 = distinct !{!37, !"memcpy.inline"}
-!38 = distinct !{!38, !37, !"memcpy.inline: argument 1"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !5}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
+!32 = distinct !{!32, !"memcpy.inline"}
+!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
+!36 = distinct !{!36, !"memcpy.inline"}
+!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}

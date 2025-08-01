@@ -154,7 +154,7 @@ define dso_local void @acpi_ns_get_internal_name_length(ptr noundef captures(non
   %16 = getelementptr i8, ptr %14, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 94
-  br i1 %18, label %.preheader, label %.loopexit1, !llvm.loop !10
+  br i1 %18, label %.preheader, label %.loopexit1, !llvm.loop !9
 
 .loopexit1:                                       ; preds = %.preheader, %8, %1
   %19 = phi i32 [ 0, %1 ], [ 0, %8 ], [ %15, %.preheader ]
@@ -186,7 +186,7 @@ define dso_local void @acpi_ns_get_internal_name_length(ptr noundef captures(non
 32:                                               ; preds = %30, %24
   %33 = phi i32 [ %31, %30 ], [ %25, %24 ]
   %34 = add i32 %26, 1
-  br label %24, !llvm.loop !11
+  br label %24, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %24
   %35 = shl i32 %25, 2
@@ -253,7 +253,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
   %29 = load i32, ptr %23, align 8
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %28, %30
-  br i1 %31, label %.preheader5, label %.loopexit6, !llvm.loop !12
+  br i1 %31, label %.preheader5, label %.loopexit6, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %.preheader5, %22
   %32 = phi i64 [ 0, %22 ], [ %28, %.preheader5 ]
@@ -325,7 +325,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
   %66 = phi ptr [ %51, %53 ], [ %64, %55 ]
   %67 = add nuw nsw i64 %50, 1
   %68 = icmp eq i64 %67, 4
-  br i1 %68, label %69, label %49, !llvm.loop !13
+  br i1 %68, label %69, label %49, !llvm.loop !12
 
 69:                                               ; preds = %65
   %70 = load i8, ptr %66, align 1
@@ -339,7 +339,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
   %73 = getelementptr i8, ptr %46, i64 4
   %74 = add i32 %48, -1
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.loopexit4, label %.preheader, !llvm.loop !14
+  br i1 %75, label %.loopexit4, label %.preheader, !llvm.loop !13
 
 .loopexit4:                                       ; preds = %71, %43
   %76 = phi ptr [ %44, %43 ], [ %73, %71 ]
@@ -375,7 +375,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %12 = getelementptr i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 92
-  br i1 %14, label %.preheader, label %.loopexit23, !llvm.loop !15
+  br i1 %14, label %.preheader, label %.loopexit23, !llvm.loop !6
 
 .preheader24:                                     ; preds = %10, %.preheader24
   %15 = phi i32 [ %17, %.preheader24 ], [ 0, %10 ]
@@ -384,7 +384,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %18 = getelementptr i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 94
-  br i1 %20, label %.preheader24, label %.loopexit23, !llvm.loop !16
+  br i1 %20, label %.preheader24, label %.loopexit23, !llvm.loop !9
 
 .loopexit23:                                      ; preds = %.preheader24, %.preheader
   %21 = phi i8 [ %13, %.preheader ], [ %19, %.preheader24 ]
@@ -422,7 +422,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %.phi.trans.insert = zext i32 %34 to i64
   %.phi.trans.insert41 = getelementptr i8, ptr %25, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert41, align 1
-  br label %26, !llvm.loop !17
+  br label %26, !llvm.loop !10
 
 .loopexit22:                                      ; preds = %26, %.loopexit23
   %35 = phi ptr [ %22, %.loopexit23 ], [ %25, %26 ]
@@ -434,7 +434,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %38 = add i32 %37, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !annotation !5
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #9, !srcloc !18
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #9, !srcloc !14
   %39 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %40 = and i64 %39, 512
@@ -551,7 +551,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %96 = phi ptr [ %81, %83 ], [ %94, %85 ]
   %97 = add nuw nsw i64 %80, 1
   %98 = icmp eq i64 %97, 4
-  br i1 %98, label %99, label %79, !llvm.loop !13
+  br i1 %98, label %99, label %79, !llvm.loop !12
 
 99:                                               ; preds = %95
   %100 = load i8, ptr %96, align 1
@@ -565,7 +565,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_internalize_name(ptr no
   %103 = getelementptr i8, ptr %76, i64 4
   %104 = add i32 %78, -1
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.loopexit, label %.preheader.i, !llvm.loop !14
+  br i1 %105, label %.loopexit, label %.preheader.i, !llvm.loop !13
 
 acpi_ns_build_internal_name.exit:                 ; preds = %99
   call void @kfree(ptr noundef nonnull %44) #9
@@ -616,7 +616,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
 21:                                               ; preds = %16
   %22 = add nuw nsw i64 %17, 1
   %23 = icmp eq i64 %22, %14
-  br i1 %23, label %.thread, label %16, !llvm.loop !19
+  br i1 %23, label %.thread, label %16, !llvm.loop !15
 
 24:                                               ; preds = %16
   %25 = trunc i64 %17 to i32
@@ -671,7 +671,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
 52:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store i64 0, ptr %5, align 8, !annotation !5
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #9, !srcloc !18
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #9, !srcloc !14
   %53 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   %54 = and i64 %53, 512
@@ -700,7 +700,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
   %70 = getelementptr i8, ptr %68, i64 %65
   store i8 %67, ptr %70, align 1
   %71 = icmp eq i64 %69, %63
-  br i1 %71, label %.loopexit14, label %64, !llvm.loop !20
+  br i1 %71, label %.loopexit14, label %64, !llvm.loop !16
 
 .loopexit14:                                      ; preds = %64, %60
   br i1 %45, label %.loopexit, label %.preheader
@@ -737,7 +737,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
   %91 = add i32 %74, 4
   %92 = add nuw nsw i32 %73, 1
   %93 = icmp eq i32 %92, %43
-  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %80, %.loopexit14
   %94 = icmp eq ptr %2, null
@@ -872,7 +872,7 @@ define dso_local i32 @acpi_ns_get_node_unlocked(ptr noundef %0, ptr noundef read
 21:                                               ; preds = %15, %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false), !annotation !5
   store ptr null, ptr %6, align 8, !annotation !5
-  %22 = call i32 @acpi_ns_internalize_name(ptr noundef nonnull %1, ptr noundef nonnull %6), !range !22
+  %22 = call i32 @acpi_ns_internalize_name(ptr noundef nonnull %1, ptr noundef nonnull %6), !range !18
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %30
 
@@ -939,7 +939,7 @@ define dso_local i32 @acpi_ns_get_node(ptr noundef %0, ptr noundef readonly capt
   br label %33
 
 24:                                               ; preds = %18, %15
-  %25 = call i32 @acpi_ns_internalize_name(ptr noundef nonnull %1, ptr noundef nonnull %6), !range !22
+  %25 = call i32 @acpi_ns_internalize_name(ptr noundef nonnull %1, ptr noundef nonnull %6), !range !18
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %33
 
@@ -994,20 +994,16 @@ attributes #10 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = !{i64 1816985, i64 1817006}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = !{i32 0, i32 4100}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i64 1816985, i64 1817006}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{i32 0, i32 4100}

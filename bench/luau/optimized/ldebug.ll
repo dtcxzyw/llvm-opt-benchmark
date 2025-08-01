@@ -683,7 +683,7 @@ _ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit: ; preds = %58
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 12
   store i32 7, ptr %173, align 4, !tbaa !24
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %175 = load ptr, ptr %174, align 8, !tbaa !70
+  %175 = load ptr, ptr %174, align 8, !tbaa !69
   %176 = load ptr, ptr %171, align 8, !tbaa !44
   %177 = ptrtoint ptr %175 to i64
   %178 = ptrtoint ptr %176 to i64
@@ -754,7 +754,7 @@ define hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
   %6 = tail call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef %2)
   %7 = zext i32 %3 to i64
   %8 = getelementptr inbounds nuw [0 x ptr], ptr @luaT_eventname, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !71
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = icmp eq ptr %5, %6
   br i1 %11, label %12, label %13
@@ -935,9 +935,9 @@ define hidden void @_Z14luaG_pusherrorP9lua_StatePKc(ptr noundef %0, ptr noundef
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3400
-  %8 = load ptr, ptr %7, align 8, !tbaa !73
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !57
   %.not = icmp eq ptr %10, null
@@ -949,13 +949,13 @@ define hidden void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %0, ptr 
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !84
+  %15 = load ptr, ptr %14, align 8, !tbaa !83
   %.not51 = icmp eq ptr %15, null
   br i1 %.not51, label %16, label %.loopexit54
 
 16:                                               ; preds = %13, %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %18 = load i32, ptr %17, align 8, !tbaa !85
+  %18 = load i32, ptr %17, align 8, !tbaa !84
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %.loopexit54
 
@@ -992,16 +992,16 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
 
 40:                                               ; preds = %_Z12luaG_getlineP5Protoi.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %42 = load ptr, ptr %41, align 8, !tbaa !86
+  %42 = load ptr, ptr %41, align 8, !tbaa !85
   %.not53 = icmp eq ptr %42, null
   br i1 %.not53, label %43, label %.loopexit
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %45 = load i8, ptr %44, align 2, !tbaa !87
+  %45 = load i8, ptr %44, align 2, !tbaa !86
   %46 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %wide.trip.count, i8 noundef zeroext %45)
-  store ptr %46, ptr %41, align 8, !tbaa !86
-  %47 = load i32, ptr %17, align 8, !tbaa !85
+  store ptr %46, ptr %41, align 8, !tbaa !85
+  %47 = load i32, ptr %17, align 8, !tbaa !84
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph62, label %.loopexit
 
@@ -1011,20 +1011,20 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
   %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv67
   %51 = load i32, ptr %50, align 4, !tbaa !46
   %52 = trunc i32 %51 to i8
-  %53 = load ptr, ptr %41, align 8, !tbaa !86
+  %53 = load ptr, ptr %41, align 8, !tbaa !85
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv67
   store i8 %52, ptr %54, align 1, !tbaa !26
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %55 = load i32, ptr %17, align 8, !tbaa !85
+  %55 = load i32, ptr %17, align 8, !tbaa !84
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next68, %56
-  br i1 %57, label %.lr.ph62, label %.loopexit, !llvm.loop !88
+  br i1 %57, label %.lr.ph62, label %.loopexit, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.lr.ph62, %43, %40
   br i1 %3, label %.critedge, label %58
 
 58:                                               ; preds = %.loopexit
-  %59 = load ptr, ptr %41, align 8, !tbaa !86
+  %59 = load ptr, ptr %41, align 8, !tbaa !85
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %61 = load i8, ptr %60, align 1, !tbaa !26
   %62 = zext i8 %61 to i32
@@ -1044,7 +1044,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
   %72 = or disjoint i32 %71, 1
   store i32 %72, ptr %69, align 4, !tbaa !46
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %74 = load ptr, ptr %73, align 8, !tbaa !84
+  %74 = load ptr, ptr %73, align 8, !tbaa !83
   %75 = icmp ne ptr %74, null
   %or.cond = and i1 %12, %75
   br i1 %or.cond, label %76, label %.loopexit54
@@ -1056,11 +1056,11 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
 77:                                               ; preds = %_Z12luaG_getlineP5Protoi.exit, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit54, label %24, !llvm.loop !89
+  br i1 %exitcond.not, label %.loopexit54, label %24, !llvm.loop !88
 
 .loopexit54:                                      ; preds = %77, %16, %58, %76, %.critedge, %13, %4
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %79 = load i32, ptr %78, align 4, !tbaa !90
+  %79 = load i32, ptr %78, align 4, !tbaa !89
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph64, label %._crit_edge
 
@@ -1073,15 +1073,15 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %24
 
 82:                                               ; preds = %.lr.ph64, %82
   %indvars.iv70 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next71, %82 ]
-  %83 = load ptr, ptr %81, align 8, !tbaa !91
+  %83 = load ptr, ptr %81, align 8, !tbaa !90
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv70
-  %85 = load ptr, ptr %84, align 8, !tbaa !92
+  %85 = load ptr, ptr %84, align 8, !tbaa !91
   tail call void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %0, ptr noundef %85, i32 noundef %2, i1 noundef zeroext %3)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %86 = load i32, ptr %78, align 4, !tbaa !90
+  %86 = load i32, ptr %78, align 4, !tbaa !89
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next71, %87
-  br i1 %88, label %82, label %._crit_edge, !llvm.loop !94
+  br i1 %88, label %82, label %._crit_edge, !llvm.loop !93
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1218,7 +1218,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %19
 
 26:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !84
+  %28 = load ptr, ptr %27, align 8, !tbaa !83
   %29 = icmp ne ptr %28, null
   %30 = zext i1 %29 to i32
   br label %_ZL11getluaprotoP8CallInfo.exit.thread
@@ -1233,7 +1233,7 @@ define dso_local void @_Z14lua_singlestepP9lua_Statei(ptr noundef writeonly capt
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %5 = zext i1 %3 to i8
-  store i8 %5, ptr %4, align 2, !tbaa !95
+  store i8 %5, ptr %4, align 2, !tbaa !94
   ret void
 }
 
@@ -1267,7 +1267,7 @@ define internal fastcc noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef readonl
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %6 = load i32, ptr %5, align 8, !tbaa !85
+  %6 = load i32, ptr %5, align 8, !tbaa !84
   %.not6281 = icmp sgt i32 %6, 0
   br i1 %.not6281, label %.lr.ph, label %.loopexit
 
@@ -1317,18 +1317,18 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %11
   %.344 = phi i32 [ %.14283, %11 ], [ %spec.select66, %29 ], [ %.14283, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !96
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.thread, %.preheader, %2
   %.041 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ %.344, %.thread ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %33 = load i32, ptr %32, align 4, !tbaa !90
+  %33 = load i32, ptr %32, align 4, !tbaa !89
   %.not6484 = icmp sgt i32 %33, 0
   br i1 %.not6484, label %.lr.ph87, label %.thread70
 
 .lr.ph87:                                         ; preds = %.loopexit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !91
+  %35 = load ptr, ptr %34, align 8, !tbaa !90
   %wide.trip.count96 = zext nneg i32 %33 to i64
   br label %36
 
@@ -1336,7 +1336,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %11
   %indvars.iv93 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next94, %40 ]
   %.64785 = phi i32 [ %.041, %.lr.ph87 ], [ %.849.ph, %40 ]
   %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv93
-  %38 = load ptr, ptr %37, align 8, !tbaa !92
+  %38 = load ptr, ptr %37, align 8, !tbaa !91
   %39 = tail call fastcc noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %38, i32 noundef %1)
   %.not63 = icmp eq i32 %39, %1
   br i1 %.not63, label %.thread70, label %40
@@ -1349,7 +1349,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %11
   %.849.ph = select i1 %41, i32 %spec.select67, i32 %.64785
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %.thread70, label %36, !llvm.loop !97
+  br i1 %exitcond97.not, label %.thread70, label %36, !llvm.loop !96
 
 .thread70:                                        ; preds = %_Z12luaG_getlineP5Protoi.exit, %36, %40, %.loopexit
   %.5 = phi i32 [ %.041, %.loopexit ], [ %1, %36 ], [ %.849.ph, %40 ], [ %1, %_Z12luaG_getlineP5Protoi.exit ]
@@ -1382,7 +1382,7 @@ define dso_local void @_Z15lua_getcoverageP9lua_StateiPvPFvS1_PKciiPKimE(ptr nou
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZL10getmaxlineP5Proto(ptr noundef readonly captures(none) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load i32, ptr %2, align 8, !tbaa !85
+  %3 = load i32, ptr %2, align 8, !tbaa !84
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
 
@@ -1403,13 +1403,13 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZL10getmaxlineP5
 .preheader:                                       ; preds = %_Z12luaG_getlineP5Protoi.exit, %.lr.ph, %1
   %.0.lcssa = phi i32 [ -1, %1 ], [ 0, %.lr.ph ], [ %25, %_Z12luaG_getlineP5Protoi.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %12 = load i32, ptr %11, align 4, !tbaa !90
+  %12 = load i32, ptr %11, align 4, !tbaa !89
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph24, label %._crit_edge
 
 .lr.ph24:                                         ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !91
+  %15 = load ptr, ptr %14, align 8, !tbaa !90
   %wide.trip.count32 = zext nneg i32 %12 to i64
   br label %26
 
@@ -1428,7 +1428,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12
   %25 = tail call i32 @llvm.smax.i32(i32 %.021, i32 %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %_Z12luaG_getlineP5Protoi.exit, !llvm.loop !98
+  br i1 %exitcond.not, label %.preheader, label %_Z12luaG_getlineP5Protoi.exit, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %30, %26 ]
@@ -1438,12 +1438,12 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next30, %26 ]
   %.123 = phi i32 [ %.0.lcssa, %.lr.ph24 ], [ %30, %26 ]
   %27 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv29
-  %28 = load ptr, ptr %27, align 8, !tbaa !92
+  %28 = load ptr, ptr %27, align 8, !tbaa !91
   %29 = tail call fastcc noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %28)
   %30 = tail call i32 @llvm.smax.i32(i32 %.123, i32 %29)
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge, label %26, !llvm.loop !99
+  br i1 %exitcond33.not, label %._crit_edge, label %26, !llvm.loop !98
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1451,7 +1451,7 @@ define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr n
   %7 = shl nuw i64 %3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 -1, i64 %7, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %9 = load i32, ptr %8, align 8, !tbaa !85
+  %9 = load i32, ptr %8, align 8, !tbaa !84
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -1473,7 +1473,7 @@ define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr n
   %20 = load i32, ptr %19, align 4, !tbaa !54
   tail call void %5(ptr noundef %4, ptr noundef %spec.select, i32 noundef %20, i32 noundef %1, ptr noundef %2, i64 noundef %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %22 = load i32, ptr %21, align 4, !tbaa !90
+  %22 = load i32, ptr %21, align 4, !tbaa !89
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph47, label %._crit_edge48
 
@@ -1518,7 +1518,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %31, %33
   %48 = load i32, ptr %47, align 4, !tbaa !46
   %. = tail call i32 @llvm.smax.i32(i32 %48, i32 %46)
   store i32 %., ptr %47, align 4, !tbaa !46
-  %.pre = load i32, ptr %8, align 8, !tbaa !85
+  %.pre = load i32, ptr %8, align 8, !tbaa !84
   br label %49
 
 49:                                               ; preds = %26, %_Z12luaG_getlineP5Protoi.exit
@@ -1526,22 +1526,22 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %31, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %26, label %._crit_edge, !llvm.loop !100
+  br i1 %52, label %26, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge48:                                    ; preds = %53, %._crit_edge
   ret void
 
 53:                                               ; preds = %.lr.ph47, %53
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %53 ]
-  %54 = load ptr, ptr %24, align 8, !tbaa !91
+  %54 = load ptr, ptr %24, align 8, !tbaa !90
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv50
-  %56 = load ptr, ptr %55, align 8, !tbaa !92
+  %56 = load ptr, ptr %55, align 8, !tbaa !91
   tail call fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %56, i32 noundef %25, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %57 = load i32, ptr %21, align 4, !tbaa !90
+  %57 = load i32, ptr %21, align 4, !tbaa !89
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next51, %58
-  br i1 %59, label %53, label %._crit_edge48, !llvm.loop !101
+  br i1 %59, label %53, label %._crit_edge48, !llvm.loop !100
 }
 
 declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
@@ -1677,7 +1677,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
   %79 = add nsw i32 %.1, 1
   %80 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %0, i32 noundef %79, ptr noundef nonnull @.str.13, ptr noundef nonnull %2)
   %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !102
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !101
 }
 
 ; Function Attrs: nofree nounwind
@@ -1789,39 +1789,38 @@ attributes #17 = { nounwind willreturn memory(read) }
 !64 = !{!49, !6, i64 41}
 !65 = !{!30, !18, i64 96}
 !66 = !{!49, !34, i64 0}
-!67 = distinct !{!67, !68, !69}
+!67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = !{!5, !9, i64 40}
-!71 = !{!34, !34, i64 0}
-!72 = !{!5, !11, i64 24}
-!73 = !{!74, !10, i64 3400}
-!74 = !{!"_ZTS12global_State", !75, i64 0, !10, i64 16, !10, i64 24, !6, i64 32, !6, i64 33, !17, i64 40, !17, i64 48, !17, i64 56, !33, i64 64, !33, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !6, i64 96, !6, i64 416, !76, i64 736, !76, i64 744, !76, i64 752, !6, i64 760, !77, i64 2808, !78, i64 2816, !6, i64 2856, !6, i64 2944, !6, i64 3032, !25, i64 3200, !25, i64 3216, !13, i64 3232, !79, i64 3240, !33, i64 3248, !6, i64 3256, !80, i64 3288, !81, i64 3368, !6, i64 3424, !6, i64 4448, !6, i64 5472, !82, i64 6496}
-!75 = !{!"_ZTS11stringtable", !36, i64 0, !13, i64 8, !13, i64 12}
-!76 = !{!"p1 _ZTS8lua_Page", !10, i64 0}
-!77 = !{!"p1 _ZTS9lua_State", !10, i64 0}
-!78 = !{!"_ZTS5UpVal", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !9, i64 8, !6, i64 16}
-!79 = !{!"p1 _ZTS10lua_jmpbuf", !10, i64 0}
-!80 = !{!"_ZTS13lua_Callbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
-!81 = !{!"_ZTS22lua_ExecutionCallbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
-!82 = !{!"_ZTS7GCStats", !6, i64 0, !13, i64 128, !13, i64 132, !33, i64 136, !33, i64 144, !33, i64 152, !83, i64 160, !83, i64 168, !83, i64 176}
-!83 = !{!"double", !6, i64 0}
-!84 = !{!30, !10, i64 40}
-!85 = !{!30, !13, i64 136}
-!86 = !{!30, !34, i64 104}
-!87 = !{!30, !6, i64 2}
-!88 = distinct !{!88, !68, !69}
-!89 = distinct !{!89, !68, !69}
-!90 = !{!30, !13, i64 140}
-!91 = !{!30, !31, i64 24}
-!92 = !{!93, !93, i64 0}
-!93 = !{!"p1 _ZTS5Proto", !10, i64 0}
-!94 = distinct !{!94, !68, !69}
-!95 = !{!5, !8, i64 6}
-!96 = distinct !{!96, !68, !69}
-!97 = distinct !{!97, !68, !69}
-!98 = distinct !{!98, !68, !69}
-!99 = distinct !{!99, !68, !69}
-!100 = distinct !{!100, !68, !69}
-!101 = distinct !{!101, !68, !69}
-!102 = distinct !{!102, !68, !69}
+!69 = !{!5, !9, i64 40}
+!70 = !{!34, !34, i64 0}
+!71 = !{!5, !11, i64 24}
+!72 = !{!73, !10, i64 3400}
+!73 = !{!"_ZTS12global_State", !74, i64 0, !10, i64 16, !10, i64 24, !6, i64 32, !6, i64 33, !17, i64 40, !17, i64 48, !17, i64 56, !33, i64 64, !33, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !6, i64 96, !6, i64 416, !75, i64 736, !75, i64 744, !75, i64 752, !6, i64 760, !76, i64 2808, !77, i64 2816, !6, i64 2856, !6, i64 2944, !6, i64 3032, !25, i64 3200, !25, i64 3216, !13, i64 3232, !78, i64 3240, !33, i64 3248, !6, i64 3256, !79, i64 3288, !80, i64 3368, !6, i64 3424, !6, i64 4448, !6, i64 5472, !81, i64 6496}
+!74 = !{!"_ZTS11stringtable", !36, i64 0, !13, i64 8, !13, i64 12}
+!75 = !{!"p1 _ZTS8lua_Page", !10, i64 0}
+!76 = !{!"p1 _ZTS9lua_State", !10, i64 0}
+!77 = !{!"_ZTS5UpVal", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !9, i64 8, !6, i64 16}
+!78 = !{!"p1 _ZTS10lua_jmpbuf", !10, i64 0}
+!79 = !{!"_ZTS13lua_Callbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
+!80 = !{!"_ZTS22lua_ExecutionCallbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!81 = !{!"_ZTS7GCStats", !6, i64 0, !13, i64 128, !13, i64 132, !33, i64 136, !33, i64 144, !33, i64 152, !82, i64 160, !82, i64 168, !82, i64 176}
+!82 = !{!"double", !6, i64 0}
+!83 = !{!30, !10, i64 40}
+!84 = !{!30, !13, i64 136}
+!85 = !{!30, !34, i64 104}
+!86 = !{!30, !6, i64 2}
+!87 = distinct !{!87, !68}
+!88 = distinct !{!88, !68}
+!89 = !{!30, !13, i64 140}
+!90 = !{!30, !31, i64 24}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTS5Proto", !10, i64 0}
+!93 = distinct !{!93, !68}
+!94 = !{!5, !8, i64 6}
+!95 = distinct !{!95, !68}
+!96 = distinct !{!96, !68}
+!97 = distinct !{!97, !68}
+!98 = distinct !{!98, !68}
+!99 = distinct !{!99, !68}
+!100 = distinct !{!100, !68}
+!101 = distinct !{!101, !68}

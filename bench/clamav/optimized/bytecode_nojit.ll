@@ -43,7 +43,7 @@ define noundef i32 @cli_bytecode_prepare_jit(ptr noundef readonly captures(none)
 13:                                               ; preds = %5, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %13, %1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #5
@@ -147,5 +147,3 @@ attributes #5 = { nounwind }
 !24 = !{!"short", !7, i64 0}
 !25 = !{!"p1 _ZTS14cli_bc_dbgnode", !6, i64 0}
 !26 = !{!14, !9, i64 52}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.estimated_trip_count"}

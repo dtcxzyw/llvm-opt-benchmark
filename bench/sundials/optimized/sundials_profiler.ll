@@ -653,7 +653,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef captures(address_i
   %32 = load i32, ptr %31, align 4, !tbaa !33
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -704,7 +704,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef captures(address_i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store ptr null, ptr %4, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store ptr null, ptr %5, align 8, !tbaa !43
+  store ptr null, ptr %5, align 8, !tbaa !41
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %6
 
@@ -752,21 +752,21 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %14
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #18
   %33 = call i64 @fwrite(ptr nonnull @.str.9, i64 113, i64 1, ptr %1)
   %34 = load ptr, ptr %10, align 8, !tbaa !30
-  %35 = load i32, ptr %34, align 8, !tbaa !44
+  %35 = load i32, ptr %34, align 8, !tbaa !42
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %SUNProfiler_GetTimerResolution.exit, %56
   %37 = phi i32 [ %57, %56 ], [ %35, %SUNProfiler_GetTimerResolution.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %SUNProfiler_GetTimerResolution.exit ]
-  %38 = load ptr, ptr %5, align 8, !tbaa !43
+  %38 = load ptr, ptr %5, align 8, !tbaa !41
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %.not37 = icmp eq ptr %40, null
   br i1 %.not37, label %56, label %41
 
 41:                                               ; preds = %.lr.ph
-  %.val38 = load ptr, ptr %40, align 8, !tbaa !45
+  %.val38 = load ptr, ptr %40, align 8, !tbaa !43
   %42 = getelementptr i8, ptr %40, i64 8
   %.val39 = load ptr, ptr %42, align 8, !tbaa !39
   %43 = getelementptr inbounds nuw i8, ptr %.val39, i64 24
@@ -789,7 +789,7 @@ sunPrintTimer.exit:                               ; preds = %41, %48
   %54 = load i64, ptr %53, align 8, !tbaa !31
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull %.val38, double noundef %52, double noundef %44, double noundef %46, i64 noundef %54) #18
   %.pre = load ptr, ptr %10, align 8, !tbaa !30
-  %.pre45 = load i32, ptr %.pre, align 8, !tbaa !44
+  %.pre45 = load i32, ptr %.pre, align 8, !tbaa !42
   br label %56
 
 56:                                               ; preds = %.lr.ph, %sunPrintTimer.exit
@@ -797,10 +797,10 @@ sunPrintTimer.exit:                               ; preds = %41, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %59, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56, %SUNProfiler_GetTimerResolution.exit
-  %60 = load ptr, ptr %5, align 8, !tbaa !43
+  %60 = load ptr, ptr %5, align 8, !tbaa !41
   call void @free(ptr noundef %60) #18
   %61 = load ptr, ptr %7, align 8, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -977,9 +977,6 @@ attributes #19 = { nounwind willreturn memory(read) }
 !38 = !{!"p1 _ZTS19SUNHashMapKeyValue_", !5, i64 0}
 !39 = !{!40, !5, i64 8}
 !40 = !{!"SUNHashMapKeyValue_", !17, i64 0, !5, i64 8}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!35, !35, i64 0}
-!44 = !{!34, !16, i64 0}
-!45 = !{!40, !17, i64 0}
-!46 = distinct !{!46, !42}
+!41 = !{!35, !35, i64 0}
+!42 = !{!34, !16, i64 0}
+!43 = !{!40, !17, i64 0}

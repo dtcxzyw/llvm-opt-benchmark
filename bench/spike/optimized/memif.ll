@@ -214,12 +214,12 @@ define void @_ZN7memif_t5writeEmmPKv(ptr noundef nonnull readonly align 8 captur
   %.05180 = phi i64 [ %51, %.lr.ph ], [ 0, %44 ]
   %.052.in79 = phi i1 [ %50, %.lr.ph ], [ true, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.054, i64 %.05180
-  %48 = load i8, ptr %47, align 1, !tbaa !14
+  %48 = load i8, ptr %47, align 1, !tbaa !13
   %49 = icmp eq i8 %48, 0
   %50 = and i1 %.052.in79, %49
   %51 = add nuw i64 %.05180, 1
   %exitcond.not = icmp eq i64 %51, %.1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 52:                                               ; preds = %._crit_edge
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -246,7 +246,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr noundef nonnull readonly align 8 captur
   call void %64(ptr noundef nonnull align 8 dereferenceable(8) %58, i64 noundef %59, i64 noundef %.sroa.speculated, ptr noundef %61)
   %65 = add i64 %.081, %57
   %66 = icmp ult i64 %65, %.1
-  br i1 %66, label %.lr.ph83, label %.loopexit, !llvm.loop !16
+  br i1 %66, label %.lr.ph83, label %.loopexit, !llvm.loop !15
 
 .loopexit.critedge:                               ; preds = %44
   %67 = load ptr, ptr %5, align 8, !tbaa !3
@@ -263,7 +263,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr noundef nonnull readonly align 8 captur
 ; Function Attrs: mustprogress uwtable
 define i8 @_ZN7memif_t10read_uint8Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian, align 1
-  store i8 0, ptr %3, align 1, !tbaa !17
+  store i8 0, ptr %3, align 1, !tbaa !16
   %4 = load ptr, ptr %0, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -289,7 +289,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define i8 @_ZN7memif_t9read_int8Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.0, align 1
-  store i8 0, ptr %3, align 1, !tbaa !19
+  store i8 0, ptr %3, align 1, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -323,7 +323,7 @@ define void @_ZN7memif_t10write_int8Em13target_endianIaE(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define i16 @_ZN7memif_t11read_uint16Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.2, align 2
-  store i16 0, ptr %3, align 2, !tbaa !21
+  store i16 0, ptr %3, align 2, !tbaa !20
   %4 = and i64 %1, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -355,7 +355,7 @@ define i16 @_ZN7memif_t11read_uint16Em(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define i16 @_ZN7memif_t10read_int16Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.4, align 2
-  store i16 0, ptr %3, align 2, !tbaa !24
+  store i16 0, ptr %3, align 2, !tbaa !23
   %4 = and i64 %1, 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -449,7 +449,7 @@ define void @_ZN7memif_t11write_int16Em13target_endianIsE(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define i32 @_ZN7memif_t11read_uint32Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.6, align 4
-  store i32 0, ptr %3, align 4, !tbaa !26
+  store i32 0, ptr %3, align 4, !tbaa !25
   %4 = and i64 %1, 3
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -481,7 +481,7 @@ define i32 @_ZN7memif_t11read_uint32Em(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define i32 @_ZN7memif_t10read_int32Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.8, align 4
-  store i32 0, ptr %3, align 4, !tbaa !29
+  store i32 0, ptr %3, align 4, !tbaa !28
   %4 = and i64 %1, 3
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -575,7 +575,7 @@ define void @_ZN7memif_t11write_int32Em13target_endianIiE(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN7memif_t11read_uint64Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.10, align 8
-  store i64 0, ptr %3, align 8, !tbaa !31
+  store i64 0, ptr %3, align 8, !tbaa !30
   %4 = and i64 %1, 7
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -607,7 +607,7 @@ define i64 @_ZN7memif_t11read_uint64Em(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN7memif_t10read_int64Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.target_endian.12, align 8
-  store i64 0, ptr %3, align 8, !tbaa !34
+  store i64 0, ptr %3, align 8, !tbaa !33
   %4 = and i64 %1, 7
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -753,28 +753,27 @@ attributes #11 = { builtin nounwind }
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"vtable pointer", !8, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = !{!18, !7, i64 0}
-!18 = !{!"_ZTS11base_endianIhE", !7, i64 0}
-!19 = !{!20, !7, i64 0}
-!20 = !{!"_ZTS11base_endianIaE", !7, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_ZTS11base_endianItE", !23, i64 0}
-!23 = !{!"short", !7, i64 0}
-!24 = !{!25, !23, i64 0}
-!25 = !{!"_ZTS11base_endianIsE", !23, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTS11base_endianIjE", !28, i64 0}
-!28 = !{!"int", !7, i64 0}
-!29 = !{!30, !28, i64 0}
-!30 = !{!"_ZTS11base_endianIiE", !28, i64 0}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"_ZTS11base_endianImE", !33, i64 0}
-!33 = !{!"long", !7, i64 0}
-!34 = !{!35, !33, i64 0}
-!35 = !{!"_ZTS11base_endianIlE", !33, i64 0}
+!13 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = !{!17, !7, i64 0}
+!17 = !{!"_ZTS11base_endianIhE", !7, i64 0}
+!18 = !{!19, !7, i64 0}
+!19 = !{!"_ZTS11base_endianIaE", !7, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTS11base_endianItE", !22, i64 0}
+!22 = !{!"short", !7, i64 0}
+!23 = !{!24, !22, i64 0}
+!24 = !{!"_ZTS11base_endianIsE", !22, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTS11base_endianIjE", !27, i64 0}
+!27 = !{!"int", !7, i64 0}
+!28 = !{!29, !27, i64 0}
+!29 = !{!"_ZTS11base_endianIiE", !27, i64 0}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"_ZTS11base_endianImE", !32, i64 0}
+!32 = !{!"long", !7, i64 0}
+!33 = !{!34, !32, i64 0}
+!34 = !{!"_ZTS11base_endianIlE", !32, i64 0}

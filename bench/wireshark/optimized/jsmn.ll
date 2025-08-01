@@ -186,7 +186,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
 76:                                               ; preds = %.lr.ph224, %70
   %indvars.iv.next263 = add nsw i64 %indvars.iv262, -1
   %77 = icmp sgt i64 %indvars.iv262, 0
-  br i1 %77, label %.lr.ph224, label %.loopexit, !llvm.loop !9
+  br i1 %77, label %.lr.ph224, label %.loopexit, !llvm.loop !8
 
 78:                                               ; preds = %12
   %79 = add i32 %14, 1
@@ -299,7 +299,7 @@ switch.early.test.i:                              ; preds = %112
   store i32 %115, ptr %0, align 4
   %116 = add nuw nsw i32 %.079.i, 1
   %exitcond.not.i = icmp eq i32 %116, 4
-  br i1 %exitcond.not.i, label %.critedge3.i, label %105, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.critedge3.i, label %105, !llvm.loop !9
 
 .critedge3.i:                                     ; preds = %114, %109, %105
   %.promoted81.i = phi i32 [ %106, %105 ], [ %115, %114 ], [ %106, %109 ]
@@ -312,7 +312,7 @@ switch.early.test.i:                              ; preds = %112
   store i32 %119, ptr %0, align 4
   %120 = zext i32 %119 to i64
   %121 = icmp ugt i64 %2, %120
-  br i1 %121, label %.lr.ph.i, label %jsmn_alloc_token.exit.thread.sink.split, !llvm.loop !11
+  br i1 %121, label %.lr.ph.i, label %jsmn_alloc_token.exit.thread.sink.split, !llvm.loop !10
 
 jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.exit.i
   %122 = load i32, ptr %0, align 4
@@ -393,7 +393,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 155:                                              ; preds = %.lr.ph, %149, %146
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %156 = icmp sgt i64 %indvars.iv, 0
-  br i1 %156, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %156, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 157:                                              ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
   br i1 %.not236, label %.lr.ph.i160.preheader, label %158
@@ -447,7 +447,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
   store i32 %174, ptr %0, align 4
   %175 = zext i32 %174 to i64
   %176 = icmp ugt i64 %2, %175
-  br i1 %176, label %.lr.ph.i160, label %jsmn_alloc_token.exit.thread.sink.split, !llvm.loop !13
+  br i1 %176, label %.lr.ph.i160, label %jsmn_alloc_token.exit.thread.sink.split, !llvm.loop !12
 
 177:                                              ; preds = %.lr.ph.i160, %.lr.ph.i160, %.lr.ph.i160, %.lr.ph.i160, %.lr.ph.i160, %.lr.ph.i160, %.lr.ph.i160
   br i1 %.not236, label %.thread173, label %180
@@ -506,7 +506,7 @@ jsmn_alloc_token.exit.i162:                       ; preds = %180
   store i32 %201, ptr %0, align 4
   %202 = zext i32 %201 to i64
   %203 = icmp ugt i64 %2, %202
-  br i1 %203, label %12, label %.critedge, !llvm.loop !14
+  br i1 %203, label %12, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %.loopexit, %12, %5
   %.0120.lcssa = phi i32 [ %7, %5 ], [ %.0120225, %12 ], [ %.2122.ph, %.loopexit ]
@@ -540,7 +540,7 @@ jsmn_alloc_token.exit.i162:                       ; preds = %180
 215:                                              ; preds = %.lr.ph232, %211
   %indvars.iv.next266 = add nsw i64 %indvars.iv265, -1
   %216 = icmp sgt i64 %indvars.iv265, 0
-  br i1 %216, label %.lr.ph232, label %jsmn_alloc_token.exit.thread, !llvm.loop !15
+  br i1 %216, label %.lr.ph232, label %jsmn_alloc_token.exit.thread, !llvm.loop !14
 
 jsmn_alloc_token.exit.thread.sink.split:          ; preds = %jsmn_alloc_token.exit.i162, %180, %78, %87, %jsmn_alloc_token.exit.i, %.lr.ph.i160, %173, %171, %.lr.ph.i, %118, %100, %switch.early.test.i
   %.5.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %100 ], [ -3, %118 ], [ -3, %.lr.ph.i ], [ -2, %171 ], [ -3, %173 ], [ -3, %.lr.ph.i160 ], [ -1, %jsmn_alloc_token.exit.i ], [ -1, %87 ], [ -3, %78 ], [ -1, %jsmn_alloc_token.exit.i162 ], [ -1, %180 ]
@@ -573,13 +573,12 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

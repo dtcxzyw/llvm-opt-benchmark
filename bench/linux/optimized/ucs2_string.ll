@@ -62,7 +62,7 @@ define dso_local i64 @ucs2_strlen(ptr noundef readonly captures(none) %0) #0 ali
   %9 = icmp ne i16 %8, 0
   %10 = icmp ne i64 %7, -1
   %11 = select i1 %9, i1 %10, i1 false
-  br i1 %11, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %11, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %1
   %12 = phi i64 [ 0, %1 ], [ %7, %.preheader ]
@@ -87,7 +87,7 @@ define dso_local range(i64 0, -1) i64 @ucs2_strsize(ptr noundef readonly capture
   %13 = icmp ne i16 %12, 0
   %14 = icmp samesign ult i64 %11, %3
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.preheader, label %16, !llvm.loop !10
+  br i1 %15, label %.preheader, label %16, !llvm.loop !5
 
 16:                                               ; preds = %.preheader
   %17 = shl nuw i64 %11, 1
@@ -105,18 +105,18 @@ define dso_local i64 @ucs2_strscpy(ptr noundef writeonly captures(none) %0, ptr 
 
 5:                                                ; preds = %3
   %6 = icmp ugt i64 %2, 1073741823
-  br i1 %6, label %7, label %.preheader, !prof !11
+  br i1 %6, label %7, label %.preheader, !prof !8
 
 7:                                                ; preds = %5
-  tail call void asm sideeffect "306: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 306b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 306) #3, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 60, i32 2307, i64 12) #3, !srcloc !13
-  tail call void asm sideeffect "307: nop\0A\09.pushsection .discard.instr_end\0A\09.long 307b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 307) #3, !srcloc !14
+  tail call void asm sideeffect "306: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 306b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 306) #3, !srcloc !9
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 60, i32 2307, i64 12) #3, !srcloc !10
+  tail call void asm sideeffect "307: nop\0A\09.pushsection .discard.instr_end\0A\09.long 307b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 307) #3, !srcloc !11
   br label %.loopexit
 
 8:                                                ; preds = %.preheader
   %9 = add nuw nsw i64 %11, 1
   %10 = icmp eq i64 %9, %2
-  br i1 %10, label %16, label %.preheader, !llvm.loop !15
+  br i1 %10, label %16, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %5, %8
   %11 = phi i64 [ %9, %8 ], [ 0, %5 ]
@@ -163,7 +163,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ucs2_strncmp(ptr noundef readonly
   %17 = add i64 %5, -1
   %18 = icmp eq i64 %17, 0
   %19 = select i1 %14, i1 true, i1 %18
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %13, %11, %.preheader, %3
   %20 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %11 ], [ -1, %.preheader ]
@@ -189,7 +189,7 @@ define dso_local i64 @ucs2_utf8size(ptr noundef readonly captures(none) %0) #0 a
   %13 = getelementptr i16, ptr %0, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = icmp eq i16 %14, 0
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %1
   %16 = phi i64 [ 0, %1 ], [ %11, %.preheader ]
@@ -213,7 +213,7 @@ define dso_local i64 @ucs2_as_utf8(ptr noundef writeonly captures(none) %0, ptr 
   %13 = icmp ne i16 %12, 0
   %14 = icmp ult i64 %11, %2
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.preheader12, label %.preheader, !llvm.loop !18
+  br i1 %15, label %.preheader12, label %.preheader, !llvm.loop !5
 
 16:                                               ; preds = %31, %51, %62
   %.ph = phi i64 [ %63, %62 ], [ %52, %51 ], [ %32, %31 ]
@@ -223,7 +223,7 @@ define dso_local i64 @ucs2_as_utf8(ptr noundef writeonly captures(none) %0, ptr 
   %19 = zext i32 %17 to i64
   %20 = icmp uge i64 %8, %19
   %21 = select i1 %18, i1 %20, i1 false
-  br i1 %21, label %.preheader, label %.thread, !llvm.loop !19
+  br i1 %21, label %.preheader, label %.thread, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader12, %16
   %22 = phi i64 [ %19, %16 ], [ 0, %.preheader12 ]
@@ -320,18 +320,14 @@ attributes #3 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = !{i64 2153750004, i64 2153749813, i64 2153749865, i64 2153749911, i64 2153749939}
-!13 = !{i64 2153750078, i64 2153750107, i64 2153750153, i64 2153750211, i64 2153750265, i64 2153750319, i64 2153750374, i64 2153750405, i64 2153750713, i64 2153750719, i64 2153750766, i64 2153750789, i64 2153750815}
-!14 = !{i64 2153751264, i64 2153751075, i64 2153751125, i64 2153751171, i64 2153751199}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
+!8 = !{!"branch_weights", i32 1, i32 2000}
+!9 = !{i64 2153750004, i64 2153749813, i64 2153749865, i64 2153749911, i64 2153749939}
+!10 = !{i64 2153750078, i64 2153750107, i64 2153750153, i64 2153750211, i64 2153750265, i64 2153750319, i64 2153750374, i64 2153750405, i64 2153750713, i64 2153750719, i64 2153750766, i64 2153750789, i64 2153750815}
+!11 = !{i64 2153751264, i64 2153751075, i64 2153751125, i64 2153751171, i64 2153751199}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

@@ -265,7 +265,7 @@ define internal range(i32 -2147483648, 1) i32 @fsb_read_header(ptr noundef %0) #
   %117 = load i32, ptr %90, align 4, !tbaa !40
   %118 = zext i32 %117 to i64
   %119 = icmp samesign ult i64 %indvars.iv.next, %118
-  br i1 %119, label %110, label %._crit_edge.loopexit, !llvm.loop !48
+  br i1 %119, label %110, label %._crit_edge.loopexit, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %110
   %120 = shl nsw i32 %117, 3
@@ -297,8 +297,8 @@ define internal range(i32 -2147483648, 1) i32 @fsb_read_header(ptr noundef %0) #
 ; Function Attrs: nounwind uwtable
 define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
-  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -349,7 +349,7 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   %33 = load ptr, ptr %8, align 8, !tbaa !12
   %34 = tail call i32 @avio_r8(ptr noundef %33) #5
   %35 = trunc i32 %34 to i8
-  %36 = load ptr, ptr %26, align 8, !tbaa !52
+  %36 = load ptr, ptr %26, align 8, !tbaa !51
   %37 = shl nsw i64 %indvars.iv, 3
   %38 = add nuw nsw i64 %37, %31
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
@@ -357,7 +357,7 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   %40 = load ptr, ptr %8, align 8, !tbaa !12
   %41 = tail call i32 @avio_r8(ptr noundef %40) #5
   %42 = trunc i32 %41 to i8
-  %43 = load ptr, ptr %26, align 8, !tbaa !52
+  %43 = load ptr, ptr %26, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %38
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %42, ptr %45, align 1, !tbaa !11
@@ -365,13 +365,13 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   %46 = load i32, ptr %18, align 4, !tbaa !40
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %32, label %._crit_edge, !llvm.loop !53
+  br i1 %48, label %32, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %32, %.preheader
   %49 = phi i32 [ %29, %.preheader ], [ %46, %32 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !53
 
 50:                                               ; preds = %17, %11
   %51 = load ptr, ptr %8, align 8, !tbaa !12
@@ -388,26 +388,26 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 57:                                               ; preds = %.loopexit
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %59 = load i32, ptr %58, align 8, !tbaa !56
+  %59 = load i32, ptr %58, align 8, !tbaa !55
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !52
+  %63 = load ptr, ptr %62, align 8, !tbaa !51
   %64 = load i8, ptr %63, align 1, !tbaa !11
   %65 = lshr i8 %64, 2
   %66 = zext nneg i8 %65 to i64
   %67 = shl nuw nsw i64 %66, 9
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %67, ptr %68, align 8, !tbaa !57
+  store i64 %67, ptr %68, align 8, !tbaa !56
   br label %69
 
 69:                                               ; preds = %61, %57, %.loopexit
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %13, ptr %70, align 8, !tbaa !58
+  store i64 %13, ptr %70, align 8, !tbaa !57
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %71, align 4, !tbaa !59
+  store i32 0, ptr %71, align 4, !tbaa !58
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %2, %69
@@ -503,18 +503,17 @@ attributes #5 = { nounwind }
 !42 = !{!35, !10, i64 56}
 !43 = !{!35, !10, i64 156}
 !44 = !{!35, !6, i64 16}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = distinct !{!48, !46, !47}
-!49 = !{!13, !18, i64 48}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!52 = !{!31, !6, i64 24}
-!53 = distinct !{!53, !46, !47}
-!54 = distinct !{!54, !46, !47, !55}
-!55 = !{!"llvm.loop.unswitch.partial.disable"}
-!56 = !{!31, !10, i64 32}
-!57 = !{!31, !22, i64 64}
-!58 = !{!31, !22, i64 72}
-!59 = !{!31, !10, i64 36}
+!47 = distinct !{!47, !46}
+!48 = !{!13, !18, i64 48}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!51 = !{!31, !6, i64 24}
+!52 = distinct !{!52, !46}
+!53 = distinct !{!53, !46, !54}
+!54 = !{!"llvm.loop.unswitch.partial.disable"}
+!55 = !{!31, !10, i64 32}
+!56 = !{!31, !22, i64 64}
+!57 = !{!31, !22, i64 72}
+!58 = !{!31, !10, i64 36}

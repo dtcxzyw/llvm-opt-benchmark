@@ -159,7 +159,7 @@ define hidden ptr @X509V3_EXT_get_nid(i32 noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @ext_list, align 8, !tbaa !6
-  %24 = load i64, ptr %3, align 8, !tbaa !21
+  %24 = load i64, ptr %3, align 8, !tbaa !20
   %25 = call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
   br label %bsearch.exit
 
@@ -184,7 +184,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 define hidden ptr @X509V3_EXT_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.v3_ext_method, align 8
   %3 = alloca i64, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %5 = tail call i32 @OBJ_obj2nid(ptr noundef %4) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %30, label %7
@@ -237,7 +237,7 @@ define hidden ptr @X509V3_EXT_get(ptr noundef readonly captures(none) %0) local_
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @ext_list, align 8, !tbaa !6
-  %28 = load i64, ptr %3, align 8, !tbaa !21
+  %28 = load i64, ptr %3, align 8, !tbaa !20
   %29 = call ptr @sk_value(ptr noundef %27, i64 noundef %28) #10
   br label %X509V3_EXT_get_nid.exit
 
@@ -315,7 +315,7 @@ X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %19, %21
 
 X509V3_EXT_get_nid.exit:                          ; preds = %21
   %23 = load ptr, ptr @ext_list, align 8, !tbaa !6
-  %24 = load i64, ptr %4, align 8, !tbaa !21
+  %24 = load i64, ptr %4, align 8, !tbaa !20
   %25 = call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
@@ -329,7 +329,7 @@ X509V3_EXT_get_nid.exit:                          ; preds = %21
 28:                                               ; preds = %X509V3_EXT_get_nid.exit.thread13, %X509V3_EXT_get_nid.exit
   %.0.i15 = phi ptr [ %11, %X509V3_EXT_get_nid.exit.thread13 ], [ %25, %X509V3_EXT_get_nid.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !27
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %32, label %31
 
@@ -339,7 +339,7 @@ X509V3_EXT_get_nid.exit:                          ; preds = %21
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !27
   %.not11 = icmp eq ptr %34, null
   br i1 %.not11, label %36, label %35
 
@@ -368,7 +368,7 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_add_list(ptr noundef %0) local_unn
   %4 = getelementptr inbounds nuw i8, ptr %.06, i64 104
   %5 = load i32, ptr %4, align 8, !tbaa !17
   %.not = icmp eq i32 %5, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %1, %3
   %.06 = phi ptr [ %4, %3 ], [ %0, %1 ]
@@ -442,7 +442,7 @@ X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %19, %21
 
 X509V3_EXT_get_nid.exit:                          ; preds = %21
   %23 = load ptr, ptr @ext_list, align 8, !tbaa !6
-  %24 = load i64, ptr %4, align 8, !tbaa !21
+  %24 = load i64, ptr %4, align 8, !tbaa !20
   %25 = call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
@@ -464,7 +464,7 @@ X509V3_EXT_get_nid.exit:                          ; preds = %21
   br label %35
 
 30:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %.0.i15, i64 104, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %.0.i15, i64 104, i1 false), !tbaa.struct !29
   store i32 %0, ptr %28, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !11
@@ -505,7 +505,7 @@ define hidden ptr @X509V3_EXT_d2i(ptr noundef readonly captures(none) %0) local_
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  %5 = load ptr, ptr %0, align 8, !tbaa !23
+  %5 = load ptr, ptr %0, align 8, !tbaa !22
   %6 = tail call i32 @OBJ_obj2nid(ptr noundef %5) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %X509V3_EXT_get.exit.thread, label %8
@@ -568,7 +568,7 @@ X509V3_EXT_get.exit.thread13:                     ; preds = %8, %23, %25
 
 X509V3_EXT_get.exit:                              ; preds = %25
   %27 = load ptr, ptr @ext_list, align 8, !tbaa !6
-  %28 = load i64, ptr %3, align 8, !tbaa !21
+  %28 = load i64, ptr %3, align 8, !tbaa !20
   %29 = call ptr @sk_value(ptr noundef %27, i64 noundef %28) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #10
@@ -578,25 +578,25 @@ X509V3_EXT_get.exit:                              ; preds = %25
 30:                                               ; preds = %X509V3_EXT_get.exit.thread16, %X509V3_EXT_get.exit
   %.0.i.i19 = phi ptr [ %15, %X509V3_EXT_get.exit.thread16 ], [ %29, %X509V3_EXT_get.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !34
+  %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
-  store ptr %34, ptr %4, align 8, !tbaa !38
+  %34 = load ptr, ptr %33, align 8, !tbaa !34
+  store ptr %34, ptr %4, align 8, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i19, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
   %.not10 = icmp eq ptr %36, null
   br i1 %.not10, label %41, label %37
 
 37:                                               ; preds = %30
-  %38 = load i32, ptr %32, align 8, !tbaa !39
+  %38 = load i32, ptr %32, align 8, !tbaa !38
   %39 = sext i32 %38 to i64
   %40 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %4, i64 noundef %39, ptr noundef nonnull %36) #10
   br label %X509V3_EXT_get.exit.thread
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i19, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !40
-  %44 = load i32, ptr %32, align 8, !tbaa !39
+  %43 = load ptr, ptr %42, align 8, !tbaa !39
+  %44 = load i32, ptr %32, align 8, !tbaa !38
   %45 = sext i32 %44 to i64
   %46 = call ptr %43(ptr noundef null, ptr noundef nonnull %4, i64 noundef %45) #10
   br label %X509V3_EXT_get.exit.thread
@@ -619,7 +619,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not44, label %7, label %6
 
 6:                                                ; preds = %5
-  store i32 -1, ptr %3, align 4, !tbaa !31
+  store i32 -1, ptr %3, align 4, !tbaa !30
   br label %7
 
 7:                                                ; preds = %6, %5
@@ -627,7 +627,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not45, label %44, label %8
 
 8:                                                ; preds = %7
-  store i32 -1, ptr %2, align 4, !tbaa !31
+  store i32 -1, ptr %2, align 4, !tbaa !30
   br label %44
 
 9:                                                ; preds = %4
@@ -639,7 +639,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not77, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .thread68:                                        ; preds = %9
-  %12 = load i32, ptr %3, align 4, !tbaa !31
+  %12 = load i32, ptr %3, align 4, !tbaa !30
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 -1)
   %14 = add nsw i32 %13, 1
   %15 = zext nneg i32 %14 to i64
@@ -651,7 +651,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   %.061.us = phi ptr [ %.2.us, %23 ], [ null, %10 ]
   %.03460.us = phi i64 [ %24, %23 ], [ 0, %10 ]
   %18 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %.03460.us) #10
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = tail call i32 @OBJ_obj2nid(ptr noundef %19) #10
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %22, label %23
@@ -665,19 +665,19 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   %24 = add nuw i64 %.03460.us, 1
   %25 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
   %26 = icmp ult i64 %24, %25
-  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !41
+  br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.thread68, %33
   %.03460 = phi i64 [ %34, %33 ], [ %15, %.thread68 ]
   %27 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %.03460) #10
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = tail call i32 @OBJ_obj2nid(ptr noundef %28) #10
   %30 = icmp eq i32 %29, %1
   br i1 %30, label %.thread, label %33
 
 .thread:                                          ; preds = %.lr.ph.split
   %31 = trunc i64 %.03460 to i32
-  store i32 %31, ptr %3, align 4, !tbaa !31
+  store i32 %31, ptr %3, align 4, !tbaa !30
   br label %37
 
 .split.us:                                        ; preds = %22
@@ -685,14 +685,14 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not48, label %44, label %32
 
 32:                                               ; preds = %.split.us
-  store i32 -2, ptr %2, align 4, !tbaa !31
+  store i32 -2, ptr %2, align 4, !tbaa !30
   br label %44
 
 33:                                               ; preds = %.lr.ph.split
   %34 = add nuw i64 %.03460, 1
   %35 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
   %36 = icmp ult i64 %34, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !43
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %23
   %.not49 = icmp eq ptr %.2.us, null
@@ -705,7 +705,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
 
 38:                                               ; preds = %37
   %39 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %.154) #10
-  store i32 %39, ptr %2, align 4, !tbaa !31
+  store i32 %39, ptr %2, align 4, !tbaa !30
   br label %40
 
 40:                                               ; preds = %38, %37
@@ -716,7 +716,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not44, label %42, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %.thread68, %._crit_edge.thread
-  store i32 -1, ptr %3, align 4, !tbaa !31
+  store i32 -1, ptr %3, align 4, !tbaa !30
   br label %42
 
 42:                                               ; preds = %._crit_edge.thread.thread, %._crit_edge.thread
@@ -724,7 +724,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br i1 %.not50, label %44, label %43
 
 43:                                               ; preds = %42
-  store i32 -1, ptr %2, align 4, !tbaa !31
+  store i32 -1, ptr %2, align 4, !tbaa !30
   br label %44
 
 44:                                               ; preds = %42, %43, %.split.us, %32, %7, %8, %40
@@ -743,7 +743,7 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   br i1 %.not, label %.thread48, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !44
+  %8 = load ptr, ptr %0, align 8, !tbaa !43
   %9 = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %8, i32 noundef %1, i32 noundef -1) #10
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %16
@@ -756,7 +756,7 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   ]
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %0, align 8, !tbaa !44
+  %13 = load ptr, ptr %0, align 8, !tbaa !43
   %14 = zext nneg i32 %9 to i64
   %15 = tail call ptr @sk_delete(ptr noundef %13, i64 noundef %14) #10
   %.not39 = icmp eq ptr %15, null
@@ -789,11 +789,11 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   br label %38
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %0, align 8, !tbaa !44
+  %23 = load ptr, ptr %0, align 8, !tbaa !43
   %24 = zext nneg i32 %9 to i64
   %25 = tail call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
   tail call void @X509_EXTENSION_free(ptr noundef %25) #10
-  %26 = load ptr, ptr %0, align 8, !tbaa !44
+  %26 = load ptr, ptr %0, align 8, !tbaa !43
   %27 = tail call ptr @sk_set(ptr noundef %26, i64 noundef %24, ptr noundef nonnull %18) #10
   %.not38 = icmp eq ptr %27, null
   %.41 = select i1 %.not38, i32 -1, i32 1
@@ -801,13 +801,13 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
 
 .thread52:                                        ; preds = %.thread, %.thread48
   %28 = phi ptr [ %20, %.thread48 ], [ %19, %.thread ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !44
+  %29 = load ptr, ptr %0, align 8, !tbaa !43
   %.not35 = icmp eq ptr %29, null
   br i1 %.not35, label %30, label %32
 
 30:                                               ; preds = %.thread52
   %31 = tail call ptr @sk_new_null() #10
-  store ptr %31, ptr %0, align 8, !tbaa !44
+  store ptr %31, ptr %0, align 8, !tbaa !43
   %.not36 = icmp eq ptr %31, null
   br i1 %.not36, label %38, label %32
 
@@ -884,31 +884,30 @@ attributes #11 = { nounwind allocsize(0) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTS13v3_ext_method", !8, i64 0}
 !17 = !{!12, !13, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !9, i64 0}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"X509_extension_st", !25, i64 0, !13, i64 8, !26, i64 16}
-!25 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
-!26 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
-!27 = !{!12, !14, i64 8}
-!28 = !{!12, !8, i64 24}
-!29 = distinct !{!29, !19, !20}
-!30 = !{i64 0, i64 4, !31, i64 4, i64 4, !31, i64 8, i64 8, !32, i64 16, i64 8, !33, i64 24, i64 8, !33, i64 32, i64 8, !33, i64 40, i64 8, !33, i64 48, i64 8, !33, i64 56, i64 8, !33, i64 64, i64 8, !33, i64 72, i64 8, !33, i64 80, i64 8, !33, i64 88, i64 8, !33, i64 96, i64 8, !33}
-!31 = !{!13, !13, i64 0}
-!32 = !{!14, !14, i64 0}
-!33 = !{!8, !8, i64 0}
-!34 = !{!24, !26, i64 16}
-!35 = !{!36, !37, i64 8}
-!36 = !{!"asn1_string_st", !13, i64 0, !13, i64 4, !37, i64 8, !22, i64 16}
-!37 = !{!"p1 omnipotent char", !8, i64 0}
-!38 = !{!37, !37, i64 0}
-!39 = !{!36, !13, i64 0}
-!40 = !{!12, !8, i64 32}
-!41 = distinct !{!41, !19, !20, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !19, !20}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !9, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"X509_extension_st", !24, i64 0, !13, i64 8, !25, i64 16}
+!24 = !{!"p1 _ZTS14asn1_object_st", !8, i64 0}
+!25 = !{!"p1 _ZTS14asn1_string_st", !8, i64 0}
+!26 = !{!12, !14, i64 8}
+!27 = !{!12, !8, i64 24}
+!28 = distinct !{!28, !19}
+!29 = !{i64 0, i64 4, !30, i64 4, i64 4, !30, i64 8, i64 8, !31, i64 16, i64 8, !32, i64 24, i64 8, !32, i64 32, i64 8, !32, i64 40, i64 8, !32, i64 48, i64 8, !32, i64 56, i64 8, !32, i64 64, i64 8, !32, i64 72, i64 8, !32, i64 80, i64 8, !32, i64 88, i64 8, !32, i64 96, i64 8, !32}
+!30 = !{!13, !13, i64 0}
+!31 = !{!14, !14, i64 0}
+!32 = !{!8, !8, i64 0}
+!33 = !{!23, !25, i64 16}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"asn1_string_st", !13, i64 0, !13, i64 4, !36, i64 8, !21, i64 16}
+!36 = !{!"p1 omnipotent char", !8, i64 0}
+!37 = !{!36, !36, i64 0}
+!38 = !{!35, !13, i64 0}
+!39 = !{!12, !8, i64 32}
+!40 = distinct !{!40, !19, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !19}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}

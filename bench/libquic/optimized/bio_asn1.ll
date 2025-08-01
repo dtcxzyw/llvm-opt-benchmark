@@ -187,7 +187,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %28, %30
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
   %55 = call i32 @BIO_write(ptr noundef %51, ptr noundef %54, i32 noundef %46) #11
   %56 = icmp slt i32 %55, 1
-  br i1 %56, label %asn1_bio_flush_ex.exit.thread, label %.lr.ph.i, !llvm.loop !28
+  br i1 %56, label %asn1_bio_flush_ex.exit.thread, label %.lr.ph.i
 
 57:                                               ; preds = %.lr.ph.i
   %.not.i79 = icmp eq ptr %34, null
@@ -206,53 +206,53 @@ asn1_bio_flush_ex.exit.backedge:                  ; preds = %60, %33, %asn1_bio_
   %.067.be = phi ptr [ %.067, %asn1_bio_setup_ex.exit ], [ %.067, %61 ], [ %.067, %80 ], [ %.067, %83 ], [ %.067, %84 ], [ %94, %98 ], [ %.067, %33 ], [ %.067, %60 ]
   %.065.be = phi i32 [ %.065, %asn1_bio_setup_ex.exit ], [ %.065, %61 ], [ %.065, %80 ], [ %.065, %83 ], [ %.065, %84 ], [ %95, %98 ], [ %.065, %33 ], [ %.065, %60 ]
   %.062.be = phi i32 [ %.062, %asn1_bio_setup_ex.exit ], [ %.062, %61 ], [ %.062, %80 ], [ %.062, %83 ], [ %.062, %84 ], [ %90, %98 ], [ %.062, %33 ], [ %.062, %60 ]
-  br label %asn1_bio_flush_ex.exit, !llvm.loop !30
+  br label %asn1_bio_flush_ex.exit
 
 61:                                               ; preds = %asn1_bio_flush_ex.exit
-  %62 = load i32, ptr %19, align 4, !tbaa !31
+  %62 = load i32, ptr %19, align 4, !tbaa !28
   %63 = call i32 @ASN1_object_size(i32 noundef 0, i32 noundef %.065, i32 noundef %62) #11
   %64 = sub nsw i32 %63, %.065
-  store i32 %64, ptr %18, align 8, !tbaa !32
-  %65 = load ptr, ptr %16, align 8, !tbaa !33
-  store ptr %65, ptr %4, align 8, !tbaa !34
-  %66 = load i32, ptr %19, align 4, !tbaa !31
-  %67 = load i32, ptr %20, align 8, !tbaa !35
+  store i32 %64, ptr %18, align 8, !tbaa !29
+  %65 = load ptr, ptr %16, align 8, !tbaa !30
+  store ptr %65, ptr %4, align 8, !tbaa !31
+  %66 = load i32, ptr %19, align 4, !tbaa !28
+  %67 = load i32, ptr %20, align 8, !tbaa !32
   call void @ASN1_put_object(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %.065, i32 noundef %66, i32 noundef %67) #11
-  store i32 %.065, ptr %15, align 4, !tbaa !36
+  store i32 %.065, ptr %15, align 4, !tbaa !33
   store i32 3, ptr %13, align 8, !tbaa !21
   br label %asn1_bio_flush_ex.exit.backedge
 
 68:                                               ; preds = %asn1_bio_flush_ex.exit
   %69 = load ptr, ptr %8, align 8, !tbaa !13
-  %70 = load ptr, ptr %16, align 8, !tbaa !33
-  %71 = load i32, ptr %17, align 4, !tbaa !37
+  %70 = load ptr, ptr %16, align 8, !tbaa !30
+  %71 = load i32, ptr %17, align 4, !tbaa !34
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %74 = load i32, ptr %18, align 8, !tbaa !32
+  %74 = load i32, ptr %18, align 8, !tbaa !29
   %75 = call i32 @BIO_write(ptr noundef %69, ptr noundef %73, i32 noundef %74) #11
   %76 = icmp slt i32 %75, 1
   br i1 %76, label %asn1_bio_flush_ex.exit.thread, label %77
 
 77:                                               ; preds = %68
-  %78 = load i32, ptr %18, align 8, !tbaa !32
+  %78 = load i32, ptr %18, align 8, !tbaa !29
   %79 = sub nsw i32 %78, %75
-  store i32 %79, ptr %18, align 8, !tbaa !32
+  store i32 %79, ptr %18, align 8, !tbaa !29
   %.not = icmp eq i32 %78, %75
   br i1 %.not, label %83, label %80
 
 80:                                               ; preds = %77
-  %81 = load i32, ptr %17, align 4, !tbaa !37
+  %81 = load i32, ptr %17, align 4, !tbaa !34
   %82 = add nsw i32 %81, %75
-  store i32 %82, ptr %17, align 4, !tbaa !37
+  store i32 %82, ptr %17, align 4, !tbaa !34
   br label %asn1_bio_flush_ex.exit.backedge
 
 83:                                               ; preds = %77
-  store i32 0, ptr %17, align 4, !tbaa !37
+  store i32 0, ptr %17, align 4, !tbaa !34
   store i32 4, ptr %13, align 8, !tbaa !21
   br label %asn1_bio_flush_ex.exit.backedge
 
 84:                                               ; preds = %asn1_bio_flush_ex.exit
-  %85 = load i32, ptr %15, align 4, !tbaa !36
+  %85 = load i32, ptr %15, align 4, !tbaa !33
   %..065 = call i32 @llvm.smin.i32(i32 %.065, i32 %85)
   %86 = load ptr, ptr %8, align 8, !tbaa !13
   %87 = call i32 @BIO_write(ptr noundef %86, ptr noundef %.067, i32 noundef %..065) #11
@@ -261,9 +261,9 @@ asn1_bio_flush_ex.exit.backedge:                  ; preds = %60, %33, %asn1_bio_
 
 89:                                               ; preds = %84
   %90 = add nuw nsw i32 %87, %.062
-  %91 = load i32, ptr %15, align 4, !tbaa !36
+  %91 = load i32, ptr %15, align 4, !tbaa !33
   %92 = sub nsw i32 %91, %87
-  store i32 %92, ptr %15, align 4, !tbaa !36
+  store i32 %92, ptr %15, align 4, !tbaa !33
   %93 = zext nneg i32 %87 to i64
   %94 = getelementptr inbounds nuw i8, ptr %.067, i64 %93
   %95 = sub nsw i32 %.065, %87
@@ -378,31 +378,31 @@ define internal i64 @asn1_bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %
 21:                                               ; preds = %8
   %22 = load ptr, ptr %3, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %22, ptr %23, align 8, !tbaa !38
+  store ptr %22, ptr %23, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %25, ptr %26, align 8, !tbaa !39
+  store ptr %25, ptr %26, align 8, !tbaa !36
   br label %77
 
 27:                                               ; preds = %8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %29 = load ptr, ptr %28, align 8, !tbaa !35
   store ptr %29, ptr %3, align 8, !tbaa !6
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !39
+  %31 = load ptr, ptr %30, align 8, !tbaa !36
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %31, ptr %32, align 8, !tbaa !11
   br label %77
 
 33:                                               ; preds = %8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store ptr %3, ptr %34, align 8, !tbaa !40
+  store ptr %3, ptr %34, align 8, !tbaa !37
   br label %77
 
 35:                                               ; preds = %8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %37 = load ptr, ptr %36, align 8, !tbaa !40
+  %37 = load ptr, ptr %36, align 8, !tbaa !37
   store ptr %37, ptr %3, align 8, !tbaa !12
   br label %77
 
@@ -419,7 +419,7 @@ define internal i64 @asn1_bio_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %46 = load ptr, ptr %45, align 8, !tbaa !38
+  %46 = load ptr, ptr %45, align 8, !tbaa !35
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %asn1_bio_setup_ex.exit, label %47
 
@@ -450,7 +450,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %44, %47
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %60 = load ptr, ptr %59, align 8, !tbaa !39
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
   %61 = tail call fastcc i32 @asn1_bio_flush_ex(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %60, i32 noundef 6)
   %62 = icmp slt i32 %61, 1
   br i1 %62, label %63, label %._crit_edge
@@ -501,7 +501,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_new(ptr noundef writeonly captures
 3:                                                ; preds = %1
   %4 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #13
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %4, ptr %5, align 8, !tbaa !33
+  store ptr %4, ptr %5, align 8, !tbaa !30
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %6, label %7
 
@@ -511,20 +511,20 @@ define internal range(i32 0, 2) i32 @asn1_bio_new(ptr noundef writeonly captures
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 20, ptr %8, align 8, !tbaa !41
+  store i32 20, ptr %8, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  store i32 4, ptr %10, align 4, !tbaa !31
+  store i32 4, ptr %10, align 4, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 0, ptr %2, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %12, align 8, !tbaa !42
+  store i32 1, ptr %12, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %13, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %14, align 8, !tbaa !43
+  store i32 0, ptr %14, align 8, !tbaa !40
   br label %15
 
 15:                                               ; preds = %1, %7, %6
@@ -541,7 +541,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_free(ptr noundef captures(none) %0
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -552,10 +552,10 @@ define internal range(i32 0, 2) i32 @asn1_bio_free(ptr noundef captures(none) %0
 9:                                                ; preds = %8, %5
   tail call void @free(ptr noundef nonnull %3) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %10, align 8, !tbaa !42
+  store i32 0, ptr %10, align 8, !tbaa !39
   store ptr null, ptr %2, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %11, align 8, !tbaa !43
+  store i32 0, ptr %11, align 8, !tbaa !40
   br label %12
 
 12:                                               ; preds = %1, %9
@@ -620,7 +620,7 @@ define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef nonnul
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = tail call i32 @BIO_write(ptr noundef %25, ptr noundef %28, i32 noundef %20) #11
   %30 = icmp slt i32 %29, 1
-  br i1 %30, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %30, label %.loopexit, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph
   %.not = icmp eq ptr %2, null
@@ -722,19 +722,16 @@ attributes #13 = { nounwind allocsize(0) }
 !25 = !{!22, !8, i64 48}
 !26 = !{!22, !16, i64 72}
 !27 = !{!22, !17, i64 84}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !29}
-!31 = !{!22, !17, i64 36}
-!32 = !{!22, !17, i64 24}
-!33 = !{!22, !16, i64 8}
-!34 = !{!16, !16, i64 0}
-!35 = !{!22, !17, i64 32}
-!36 = !{!22, !17, i64 28}
-!37 = !{!22, !17, i64 20}
-!38 = !{!22, !8, i64 56}
-!39 = !{!22, !8, i64 64}
-!40 = !{!22, !8, i64 88}
-!41 = !{!22, !17, i64 16}
-!42 = !{!14, !17, i64 24}
-!43 = !{!14, !17, i64 32}
+!28 = !{!22, !17, i64 36}
+!29 = !{!22, !17, i64 24}
+!30 = !{!22, !16, i64 8}
+!31 = !{!16, !16, i64 0}
+!32 = !{!22, !17, i64 32}
+!33 = !{!22, !17, i64 28}
+!34 = !{!22, !17, i64 20}
+!35 = !{!22, !8, i64 56}
+!36 = !{!22, !8, i64 64}
+!37 = !{!22, !8, i64 88}
+!38 = !{!22, !17, i64 16}
+!39 = !{!14, !17, i64 24}
+!40 = !{!14, !17, i64 32}

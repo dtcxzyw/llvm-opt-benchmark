@@ -556,7 +556,7 @@ define hidden i32 @witness_dissect_struct_interfaceInfo(ptr noundef %0, i32 noun
 
 28:                                               ; preds = %23
   %29 = icmp samesign ult i32 %.02.i, 518
-  br i1 %29, label %23, label %witness_dissect_element_interfaceInfo_group_name.exit, !llvm.loop !11
+  br i1 %29, label %23, label %witness_dissect_element_interfaceInfo_group_name.exit, !llvm.loop !10
 
 witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %23, %28
   %.lcssa.i = phi i32 [ %24, %23 ], [ 520, %28 ]
@@ -1504,7 +1504,6 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

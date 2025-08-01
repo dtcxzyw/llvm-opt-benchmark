@@ -6474,34 +6474,34 @@ for.body99:                                       ; preds = %for.cond.cleanup209
   %conv93407 = sext i16 %x.0404 to i32
   %55 = load ptr, ptr %noise_height1, align 8, !tbaa !57
   %result = getelementptr inbounds nuw i8, ptr %55, i64 80
-  %56 = load ptr, ptr %result, align 8, !tbaa !143
+  %56 = load ptr, ptr %result, align 8, !tbaa !142
   %idxprom = zext i32 %index2d.1405 to i64
   %arrayidx = getelementptr inbounds nuw float, ptr %56, i64 %idxprom
   %57 = load float, ptr %arrayidx, align 4, !tbaa !35
   %58 = load ptr, ptr %noise_height2, align 8, !tbaa !58
   %result102 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  %59 = load ptr, ptr %result102, align 8, !tbaa !143
+  %59 = load ptr, ptr %result102, align 8, !tbaa !142
   %arrayidx104 = getelementptr inbounds nuw float, ptr %59, i64 %idxprom
   %60 = load float, ptr %arrayidx104, align 4, !tbaa !35
   %61 = load ptr, ptr %noise_height3, align 8, !tbaa !59
   %result106 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %62 = load ptr, ptr %result106, align 8, !tbaa !143
+  %62 = load ptr, ptr %result106, align 8, !tbaa !142
   %arrayidx108 = getelementptr inbounds nuw float, ptr %62, i64 %idxprom
   %63 = load float, ptr %arrayidx108, align 4, !tbaa !35
   %64 = load ptr, ptr %noise_height4, align 8, !tbaa !60
   %result110 = getelementptr inbounds nuw i8, ptr %64, i64 80
-  %65 = load ptr, ptr %result110, align 8, !tbaa !143
+  %65 = load ptr, ptr %result110, align 8, !tbaa !142
   %arrayidx112 = getelementptr inbounds nuw float, ptr %65, i64 %idxprom
   %66 = load float, ptr %arrayidx112, align 4, !tbaa !35
   %67 = load ptr, ptr %noise_hills_terrain, align 8, !tbaa !61
   %result114 = getelementptr inbounds nuw i8, ptr %67, i64 80
-  %68 = load ptr, ptr %result114, align 8, !tbaa !143
+  %68 = load ptr, ptr %result114, align 8, !tbaa !142
   %arrayidx116 = getelementptr inbounds nuw float, ptr %68, i64 %idxprom
   %69 = load float, ptr %arrayidx116, align 4, !tbaa !35
   %70 = tail call nsz noundef float @llvm.fabs.f32(float %69)
   %71 = load ptr, ptr %noise_hills, align 8, !tbaa !64
   %result119 = getelementptr inbounds nuw i8, ptr %71, i64 80
-  %72 = load ptr, ptr %result119, align 8, !tbaa !143
+  %72 = load ptr, ptr %result119, align 8, !tbaa !142
   %arrayidx121 = getelementptr inbounds nuw float, ptr %72, i64 %idxprom
   %73 = load float, ptr %arrayidx121, align 4, !tbaa !35
   %mul = fmul nsz float %69, %69
@@ -6510,13 +6510,13 @@ for.body99:                                       ; preds = %for.cond.cleanup209
   %mul124 = fmul nsz float %73, %mul123
   %74 = load ptr, ptr %noise_ridge_terrain, align 8, !tbaa !62
   %result126 = getelementptr inbounds nuw i8, ptr %74, i64 80
-  %75 = load ptr, ptr %result126, align 8, !tbaa !143
+  %75 = load ptr, ptr %result126, align 8, !tbaa !142
   %arrayidx128 = getelementptr inbounds nuw float, ptr %75, i64 %idxprom
   %76 = load float, ptr %arrayidx128, align 4, !tbaa !35
   %77 = tail call nsz noundef float @llvm.fabs.f32(float %76)
   %78 = load ptr, ptr %noise_ridge_mnt, align 8, !tbaa !65
   %result131 = getelementptr inbounds nuw i8, ptr %78, i64 80
-  %79 = load ptr, ptr %result131, align 8, !tbaa !143
+  %79 = load ptr, ptr %result131, align 8, !tbaa !142
   %arrayidx133 = getelementptr inbounds nuw float, ptr %79, i64 %idxprom
   %80 = load float, ptr %arrayidx133, align 4, !tbaa !35
   %mul134 = fmul nsz float %76, %76
@@ -6526,13 +6526,13 @@ for.body99:                                       ; preds = %for.cond.cleanup209
   %mul138 = fmul nsz float %mul135, %sub137
   %82 = load ptr, ptr %noise_step_terrain, align 8, !tbaa !63
   %result140 = getelementptr inbounds nuw i8, ptr %82, i64 80
-  %83 = load ptr, ptr %result140, align 8, !tbaa !143
+  %83 = load ptr, ptr %result140, align 8, !tbaa !142
   %arrayidx142 = getelementptr inbounds nuw float, ptr %83, i64 %idxprom
   %84 = load float, ptr %arrayidx142, align 4, !tbaa !35
   %85 = tail call nsz noundef float @llvm.fabs.f32(float %84)
   %86 = load ptr, ptr %noise_step_mnt, align 8, !tbaa !66
   %result145 = getelementptr inbounds nuw i8, ptr %86, i64 80
-  %87 = load ptr, ptr %result145, align 8, !tbaa !143
+  %87 = load ptr, ptr %result145, align 8, !tbaa !142
   %arrayidx147 = getelementptr inbounds nuw float, ptr %87, i64 %idxprom
   %88 = load float, ptr %arrayidx147, align 4, !tbaa !35
   %mul148 = fmul nsz float %84, %84
@@ -6562,13 +6562,13 @@ land.lhs.true:                                    ; preds = %for.body99
 if.then160:                                       ; preds = %land.lhs.true
   %94 = load ptr, ptr %noise_rivers161, align 8, !tbaa !14
   %result162 = getelementptr inbounds nuw i8, ptr %94, i64 80
-  %95 = load ptr, ptr %result162, align 8, !tbaa !143
+  %95 = load ptr, ptr %result162, align 8, !tbaa !142
   %arrayidx164 = getelementptr inbounds nuw float, ptr %95, i64 %idxprom
   %96 = load float, ptr %arrayidx164, align 4, !tbaa !35
   %97 = tail call nsz noundef float @llvm.fabs.f32(float %96)
-  %98 = load float, ptr %river_width, align 8, !tbaa !145
+  %98 = load float, ptr %river_width, align 8, !tbaa !144
   %sub166 = fsub nsz float %97, %98
-  %99 = load float, ptr %valley_width, align 8, !tbaa !146
+  %99 = load float, ptr %valley_width, align 8, !tbaa !145
   %cmp167 = fcmp nsz ugt float %sub166, %99
   br i1 %cmp167, label %if.end177, label %if.then168
 
@@ -6596,24 +6596,24 @@ if.end177:                                        ; preds = %if.else, %if.then16
 for.body210.lr.ph:                                ; preds = %if.end177
   %102 = load ptr, ptr %vm, align 8, !tbaa !116
   %m_area190 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %103 = load i16, ptr %m_area190, align 2, !tbaa !147
+  %103 = load i16, ptr %m_area190, align 2, !tbaa !146
   %conv19.i = sext i16 %103 to i32
   %sub20.i = sub nsw i32 %conv93407, %conv19.i
   %Z.i = getelementptr inbounds nuw i8, ptr %102, i64 12
-  %104 = load i16, ptr %Z.i, align 2, !tbaa !149
+  %104 = load i16, ptr %Z.i, align 2, !tbaa !148
   %conv2.i = sext i16 %104 to i32
   %sub.i = sub nsw i32 %conv87415, %conv2.i
   %Y.i = getelementptr inbounds nuw i8, ptr %102, i64 22
-  %105 = load i16, ptr %Y.i, align 2, !tbaa !150
+  %105 = load i16, ptr %Y.i, align 2, !tbaa !149
   %conv3.i = sext i16 %105 to i32
   %mul.i381 = mul nsw i32 %sub.i, %conv3.i
   %sub11.i = add nsw i32 %mul.i381, %conv203392
   %Y9.i = getelementptr inbounds nuw i8, ptr %102, i64 10
-  %106 = load i16, ptr %Y9.i, align 2, !tbaa !151
+  %106 = load i16, ptr %Y9.i, align 2, !tbaa !150
   %conv10.i = sext i16 %106 to i32
   %mul622.i = sub i32 %sub11.i, %conv10.i
   %m_cache_extent.i380 = getelementptr inbounds nuw i8, ptr %102, i64 20
-  %107 = load i16, ptr %m_cache_extent.i380, align 2, !tbaa !152
+  %107 = load i16, ptr %m_cache_extent.i380, align 2, !tbaa !151
   %conv5.i = sext i16 %107 to i32
   %add.i382 = mul i32 %mul622.i, %conv5.i
   %add21.i = add nsw i32 %sub20.i, %add.i382
@@ -6623,7 +6623,7 @@ for.body210.lr.ph:                                ; preds = %if.end177
   %109 = load i16, ptr %Z, align 4, !tbaa !134
   %conv181 = sext i16 %109 to i32
   %sub182 = sub nsw i32 %conv87415, %conv181
-  %110 = load i32, ptr %zstride_1u1d, align 8, !tbaa !153
+  %110 = load i32, ptr %zstride_1u1d, align 8, !tbaa !152
   %mul183 = mul nsw i32 %sub182, %110
   %add = add nsw i32 %sub188, %mul183
   %sub.i383 = fsub nsz float %60, %57
@@ -6647,7 +6647,7 @@ for.cond.cleanup209:                              ; preds = %for.cond.cleanup209
   %inc314 = add i16 %x.0404, 1
   %inc315 = add i32 %index2d.1405, 1
   %cmp97.not = icmp sgt i16 %inc314, %112
-  br i1 %cmp97.not, label %for.cond.cleanup98.loopexit, label %for.body99, !llvm.loop !154
+  br i1 %cmp97.not, label %for.cond.cleanup98.loopexit, label %for.body99, !llvm.loop !153
 
 for.body210:                                      ; preds = %for.inc, %for.body210.lr.ph
   %conv206401 = phi i32 [ %.pre422, %for.body210.lr.ph ], [ %conv206, %for.inc ]
@@ -6658,17 +6658,17 @@ for.body210:                                      ; preds = %for.inc, %for.body2
   %vi.0396 = phi i32 [ %add21.i, %for.body210.lr.ph ], [ %add.i387, %for.inc ]
   %113 = load ptr, ptr %vm, align 8, !tbaa !116
   %m_data = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %114 = load ptr, ptr %m_data, align 8, !tbaa !155
+  %114 = load ptr, ptr %m_data, align 8, !tbaa !154
   %idxprom212 = zext i32 %vi.0396 to i64
   %arrayidx213 = getelementptr inbounds nuw %struct.MapNode, ptr %114, i64 %idxprom212
-  %115 = load i16, ptr %arrayidx213, align 4, !tbaa !157
+  %115 = load i16, ptr %arrayidx213, align 4, !tbaa !156
   %cmp216.not = icmp eq i16 %115, 127
   br i1 %cmp216.not, label %if.end218, label %for.inc
 
 if.end218:                                        ; preds = %for.body210
   %116 = load ptr, ptr %noise_mnt_var, align 8, !tbaa !68
   %result220 = getelementptr inbounds nuw i8, ptr %116, i64 80
-  %117 = load ptr, ptr %result220, align 8, !tbaa !143
+  %117 = load ptr, ptr %result220, align 8, !tbaa !142
   %idxprom221 = zext i32 %index3d.0398 to i64
   %arrayidx222 = getelementptr inbounds nuw float, ptr %117, i64 %idxprom221
   %118 = load float, ptr %arrayidx222, align 4, !tbaa !35
@@ -6701,7 +6701,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i32 [ %add240, %cond.true ], [ %sub242, %cond.false ]
   %add243 = fadd nsz float %mul230, %mul231
   %add244 = fadd nsz float %mul232, %add243
-  %128 = load float, ptr %base_level, align 4, !tbaa !159
+  %128 = load float, ptr %base_level, align 4, !tbaa !158
   %add245 = fadd nsz float %add244, %128
   %conv246 = sitofp i32 %cond to float
   %add247 = fadd nsz float %add245, %conv246
@@ -6723,7 +6723,7 @@ if.then261:                                       ; preds = %land.lhs.true251
   br i1 %cmp262, label %if.then263, label %if.else269
 
 if.then263:                                       ; preds = %if.then261
-  %131 = load float, ptr %river_depth, align 4, !tbaa !160
+  %131 = load float, ptr %river_depth, align 4, !tbaa !159
   %132 = tail call nsz float @llvm.fmuladd.f32(float %neg, float %131, float %conv265)
   %133 = tail call nsz noundef float @llvm.minnum.f32(float %add247, float %132)
   br label %if.end282
@@ -6744,7 +6744,7 @@ if.end282:                                        ; preds = %if.then273, %if.els
   br i1 %cmp285, label %if.then286, label %if.else296
 
 if.then286:                                       ; preds = %if.end282
-  store i32 %mn_stone.sroa.0.0.insert.ext, ptr %arrayidx213, align 4, !tbaa.struct !161
+  store i32 %mn_stone.sroa.0.0.insert.ext, ptr %arrayidx213, align 4, !tbaa.struct !160
   %spec.select = tail call i16 @llvm.smax.i16(i16 %y.0397, i16 %stone_surface_max_y.2399)
   br label %for.inc
 
@@ -6753,17 +6753,17 @@ if.else296:                                       ; preds = %if.end282
   br i1 %cmp299.not, label %if.else305, label %if.then300
 
 if.then300:                                       ; preds = %if.else296
-  store i32 %mn_water.sroa.0.0.insert.ext, ptr %arrayidx213, align 4, !tbaa.struct !161
+  store i32 %mn_water.sroa.0.0.insert.ext, ptr %arrayidx213, align 4, !tbaa.struct !160
   br label %for.inc
 
 if.else305:                                       ; preds = %if.else296
-  store i32 126, ptr %arrayidx213, align 4, !tbaa.struct !161
+  store i32 126, ptr %arrayidx213, align 4, !tbaa.struct !160
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else305, %if.then300, %if.then286, %for.body210
   %stone_surface_max_y.4 = phi i16 [ %stone_surface_max_y.2399, %for.body210 ], [ %stone_surface_max_y.2399, %if.then300 ], [ %stone_surface_max_y.2399, %if.else305 ], [ %spec.select, %if.then286 ]
   %inc = add i16 %y.0397, 1
-  %135 = load i32, ptr %ystride, align 4, !tbaa !162
+  %135 = load i32, ptr %ystride, align 4, !tbaa !161
   %add312 = add i32 %135, %index3d.0398
   %136 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !128
   %conv1.i = sext i16 %136 to i32
@@ -6773,7 +6773,7 @@ for.inc:                                          ; preds = %if.else305, %if.the
   %conv206 = sext i16 %137 to i32
   %add207 = add nsw i32 %conv206, 1
   %cmp208.not = icmp slt i32 %add207, %conv203
-  br i1 %cmp208.not, label %for.cond.cleanup209.loopexit, label %for.body210, !llvm.loop !163
+  br i1 %cmp208.not, label %for.cond.cleanup209.loopexit, label %for.body210, !llvm.loop !162
 }
 
 declare void @_ZN6Mapgen15updateHeightmapEN3irr4core8vector3dIsEES3_(ptr noundef nonnull align 8 dereferenceable(200), i48, i48) local_unnamed_addr #0
@@ -6816,7 +6816,7 @@ if.then:                                          ; preds = %entry
   %call = tail call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef %5, float noundef %9, float noundef %8, i32 noundef %7)
   %10 = tail call nsz noundef float @llvm.fabs.f32(float %call)
   %river_width = getelementptr inbounds nuw i8, ptr %this, i64 480
-  %11 = load float, ptr %river_width, align 8, !tbaa !145
+  %11 = load float, ptr %river_width, align 8, !tbaa !144
   %cmp = fcmp nsz uge float %10, %11
   br i1 %cmp, label %if.end5, label %return
 
@@ -6910,10 +6910,10 @@ if.then99:                                        ; preds = %land.lhs.true
   %call107 = tail call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef %42, float noundef %.pre-phi4, float noundef %.pre-phi, i32 noundef %43)
   %44 = tail call nsz noundef float @llvm.fabs.f32(float %call107)
   %river_width109 = getelementptr inbounds nuw i8, ptr %this, i64 480
-  %45 = load float, ptr %river_width109, align 8, !tbaa !145
+  %45 = load float, ptr %river_width109, align 8, !tbaa !144
   %sub110 = fsub nsz float %44, %45
   %valley_width = getelementptr inbounds nuw i8, ptr %this, i64 488
-  %46 = load float, ptr %valley_width, align 8, !tbaa !146
+  %46 = load float, ptr %valley_width, align 8, !tbaa !145
   %cmp111 = fcmp nsz ugt float %sub110, %46
   br i1 %cmp111, label %if.end121, label %if.then112
 
@@ -6977,7 +6977,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %sub146 = sub nsw i32 1, %conv124309
   %add147 = fadd nsz float %mul142, %mul143
   %add148 = fadd nsz float %mul144, %add147
-  %59 = load float, ptr %base_level, align 4, !tbaa !159
+  %59 = load float, ptr %base_level, align 4, !tbaa !158
   %add149 = fadd nsz float %59, %add148
   %conv150 = sitofp i32 %sub146 to float
   %add151 = fadd nsz float %add149, %conv150
@@ -6995,7 +6995,7 @@ if.then158:                                       ; preds = %for.body
   br i1 %cmp159, label %if.then160, label %if.else166
 
 if.then160:                                       ; preds = %if.then158
-  %63 = load float, ptr %river_depth, align 4, !tbaa !160
+  %63 = load float, ptr %river_depth, align 4, !tbaa !159
   %64 = tail call nsz float @llvm.fmuladd.f32(float %neg, float %63, float %conv162)
   %65 = tail call nsz noundef float @llvm.minnum.f32(float %add151, float %64)
   br label %if.end179
@@ -7029,7 +7029,7 @@ for.inc:                                          ; preds = %cleanup194, %if.end
   %67 = load i32, ptr %water_level122, align 4, !tbaa !51
   %add = add nsw i32 %67, 32
   %cmp126.not = icmp slt i32 %add, %conv124
-  br i1 %cmp126.not, label %return, label %for.body, !llvm.loop !164
+  br i1 %cmp126.not, label %return, label %for.body, !llvm.loop !163
 
 return.loopexit.split.loop.exit301:               ; preds = %cleanup194
   %sub191.le = add nsw i32 %conv124309, -1
@@ -7362,7 +7362,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !165
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -7568,30 +7568,28 @@ attributes #17 = { nounwind }
 !136 = !{!16, !21, i64 226}
 !137 = !{!16, !21, i64 222}
 !138 = !{!16, !21, i64 224}
-!139 = distinct !{!139, !140, !141, !142}
+!139 = distinct !{!139, !140, !141}
 !140 = !{!"llvm.loop.mustprogress"}
 !141 = !{!"llvm.loop.unswitch.partial.disable"}
-!142 = !{!"llvm.loop.estimated_trip_count"}
-!143 = !{!144, !7, i64 80}
-!144 = !{!"_ZTS5Noise", !33, i64 0, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
-!145 = !{!15, !32, i64 480}
-!146 = !{!15, !32, i64 488}
-!147 = !{!148, !21, i64 0}
-!148 = !{!"_ZTS9VoxelArea", !20, i64 0, !20, i64 6, !20, i64 12}
-!149 = !{!148, !21, i64 4}
-!150 = !{!148, !21, i64 14}
-!151 = !{!148, !21, i64 2}
-!152 = !{!148, !21, i64 12}
-!153 = !{!16, !18, i64 264}
-!154 = distinct !{!154, !140, !142}
-!155 = !{!156, !7, i64 32}
-!156 = !{!"_ZTS16VoxelManipulator", !148, i64 8, !7, i64 32, !7, i64 40}
-!157 = !{!158, !21, i64 0}
-!158 = !{!"_ZTS7MapNode", !21, i64 0, !8, i64 2, !8, i64 3}
-!159 = !{!15, !32, i64 476}
-!160 = !{!15, !32, i64 484}
-!161 = !{i64 0, i64 2, !45, i64 2, i64 1, !90, i64 3, i64 1, !90}
-!162 = !{!16, !18, i64 252}
-!163 = distinct !{!163, !140, !142}
-!164 = distinct !{!164, !140, !142}
-!165 = distinct !{!165, !142}
+!142 = !{!143, !7, i64 80}
+!143 = !{!"_ZTS5Noise", !33, i64 0, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
+!144 = !{!15, !32, i64 480}
+!145 = !{!15, !32, i64 488}
+!146 = !{!147, !21, i64 0}
+!147 = !{!"_ZTS9VoxelArea", !20, i64 0, !20, i64 6, !20, i64 12}
+!148 = !{!147, !21, i64 4}
+!149 = !{!147, !21, i64 14}
+!150 = !{!147, !21, i64 2}
+!151 = !{!147, !21, i64 12}
+!152 = !{!16, !18, i64 264}
+!153 = distinct !{!153, !140}
+!154 = !{!155, !7, i64 32}
+!155 = !{!"_ZTS16VoxelManipulator", !147, i64 8, !7, i64 32, !7, i64 40}
+!156 = !{!157, !21, i64 0}
+!157 = !{!"_ZTS7MapNode", !21, i64 0, !8, i64 2, !8, i64 3}
+!158 = !{!15, !32, i64 476}
+!159 = !{!15, !32, i64 484}
+!160 = !{i64 0, i64 2, !45, i64 2, i64 1, !90, i64 3, i64 1, !90}
+!161 = !{!16, !18, i64 252}
+!162 = distinct !{!162, !140}
+!163 = distinct !{!163, !140}

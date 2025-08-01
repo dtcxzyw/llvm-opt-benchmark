@@ -1679,7 +1679,7 @@ define internal i32 @dissect_l2tp_vnd_cablelabs_avps(ptr noundef %0, ptr noundef
   %55 = add i32 %.198, 4
   %56 = add i32 %.19497, -4
   %.not95 = icmp eq i32 %56, 0
-  br i1 %.not95, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not95, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 57:                                               ; preds = %23
   %58 = add nsw i32 %7, -6
@@ -2156,7 +2156,7 @@ define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1
   %80 = add nuw nsw i32 %.1133.i, 2
   %81 = add i16 %.1126132.i, -2
   %82 = icmp ugt i16 %81, 1
-  br i1 %82, label %.lr.ph.i, label %dissect_l2tp_cisco_avps.exit, !llvm.loop !10
+  br i1 %82, label %.lr.ph.i, label %dissect_l2tp_cisco_avps.exit, !llvm.loop !9
 
 83:                                               ; preds = %61
   %84 = load i32, ptr @hf_l2tp_cisco_local_session_id, align 4
@@ -2388,7 +2388,7 @@ dissect_l2tp_cisco_avps.exit:                     ; preds = %.lr.ph.i, %134, %67
   %.0546.be = phi ptr [ %.0546675, %448 ], [ %.1547, %store_ccid.exit ], [ %.0546675, %443 ], [ %.0546675, %430 ], [ %.0546675, %420 ], [ %.0546675, %dissect_l2tp_cisco_avps.exit ], [ %.0546675, %dissect_l2tp_broadband_avps.exit ], [ %.0546675, %dissect_l2tp_ericsson_avps.exit ]
   %.0.be = phi i32 [ %450, %448 ], [ %932, %store_ccid.exit ], [ %444, %443 ], [ %431, %430 ], [ %421, %420 ], [ %186, %dissect_l2tp_cisco_avps.exit ], [ %286, %dissect_l2tp_broadband_avps.exit ], [ %405, %dissect_l2tp_ericsson_avps.exit ]
   %187 = icmp slt i32 %.0.be, %4
-  br i1 %187, label %24, label %._crit_edge, !llvm.loop !11
+  br i1 %187, label %24, label %._crit_edge, !llvm.loop !10
 
 188:                                              ; preds = %40
   %189 = call zeroext i16 @tvb_get_ntohs(ptr noundef %41, i32 noundef 0)
@@ -2673,7 +2673,7 @@ dissect_l2tp_broadband_avps.exit:                 ; preds = %213, %217, %221, %2
   %361 = add nuw i32 %.03233.i.i, 1
   %362 = load i32, ptr %14, align 4
   %363 = icmp ult i32 %361, %362
-  br i1 %363, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %363, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph37.i.i
   %.1.lcssa.i.i = phi i32 [ %355, %.lr.ph37.i.i ], [ %359, %.lr.ph.i.i ]
@@ -2694,7 +2694,7 @@ dissect_l2tp_broadband_avps.exit:                 ; preds = %213, %217, %221, %2
   %378 = add i32 %.1.lcssa.i.i, 9
   %379 = call i32 @tvb_reported_length_remaining(ptr noundef %346, i32 noundef %378)
   %380 = icmp sgt i32 %379, 7
-  br i1 %380, label %.lr.ph37.i.i, label %dissect_l2tp_ericsson_transp_cfg.exit.i, !llvm.loop !13
+  br i1 %380, label %.lr.ph37.i.i, label %dissect_l2tp_ericsson_transp_cfg.exit.i, !llvm.loop !12
 
 dissect_l2tp_ericsson_transp_cfg.exit.i:          ; preds = %._crit_edge.i.i, %339
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
@@ -2726,7 +2726,7 @@ dissect_l2tp_ericsson_transp_cfg.exit.i:          ; preds = %._crit_edge.i.i, %3
   %399 = add i32 %.018.i.i, 1
   %400 = call i32 @tvb_reported_length_remaining(ptr noundef %385, i32 noundef %397)
   %401 = icmp sgt i32 %400, 2
-  br i1 %401, label %.lr.ph.i98.i, label %dissect_l2tp_ericsson_avps.exit, !llvm.loop !14
+  br i1 %401, label %.lr.ph.i98.i, label %dissect_l2tp_ericsson_avps.exit, !llvm.loop !13
 
 402:                                              ; preds = %306
   %403 = zext i16 %311 to i32
@@ -3327,7 +3327,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %753 = add i32 %.3667, 2
   %754 = add i16 %.2556666, -2
   %755 = icmp ugt i16 %754, 1
-  br i1 %755, label %.lr.ph, label %store_ccid.exit, !llvm.loop !15
+  br i1 %755, label %.lr.ph, label %store_ccid.exit, !llvm.loop !14
 
 756:                                              ; preds = %451
   %757 = load i32, ptr @hf_l2tp_avp_local_session_id, align 4
@@ -4077,7 +4077,7 @@ check_control_digest.exit:                        ; preds = %md5_hmac_digest.exi
   %1120 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i624 = load ptr, ptr %1120, align 8
   %.not.i.i625 = icmp eq ptr %.0.i.i624, null
-  br i1 %.not.i.i625, label %find_session.exit.thread.i, label %.lr.ph.i.i623, !llvm.loop !16
+  br i1 %.not.i.i625, label %find_session.exit.thread.i, label %.lr.ph.i.i623, !llvm.loop !15
 
 .lr.ph.i.i623:                                    ; preds = %._crit_edge.i, %1119
   %.013.i.i = phi ptr [ %.0.i.i624, %1119 ], [ %.011.i.i, %._crit_edge.i ]
@@ -4267,7 +4267,7 @@ define internal fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef %1,
   %35 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.0.i153 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %.0.i153, null
-  br i1 %.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %32, %34
   %.013.i = phi ptr [ %.0.i153, %34 ], [ %.011.i, %32 ]
@@ -4292,7 +4292,7 @@ addresses_equal.exit:                             ; preds = %25, %17, %11
   %45 = getelementptr inbounds nuw i8, ptr %.013.i157, i64 8
   %.0.i158 = load ptr, ptr %45, align 8
   %.not.i159 = icmp eq ptr %.0.i158, null
-  br i1 %.not.i159, label %.thread, label %.lr.ph.i156, !llvm.loop !16
+  br i1 %.not.i159, label %.thread, label %.lr.ph.i156, !llvm.loop !15
 
 .lr.ph.i156:                                      ; preds = %addresses_equal.exit, %44
   %.013.i157 = phi ptr [ %.0.i158, %44 ], [ %.011.i154, %addresses_equal.exit ]
@@ -4646,14 +4646,13 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

@@ -98,7 +98,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
   br label %7, !llvm.loop !3
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !6
+  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %13 = add nsw i32 %12, 1
   %.not43 = icmp eq i32 %1, %13
   br i1 %.not43, label %14, label %.loopexit
@@ -106,7 +106,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 nound
 14:                                               ; preds = %11
   %15 = sext i32 %12 to i64
   %16 = getelementptr inbounds ptr, ptr %2, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !10
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call noalias ptr @fopen(ptr noundef %17, ptr noundef nonnull @.str.7)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %26
@@ -185,10 +185,10 @@ define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %7
   %10 = xor i32 %.013, 1
-  br label %7, !llvm.loop !13
+  br label %7, !llvm.loop !12
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !6
+  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %.not15 = icmp eq i32 %1, %12
   br i1 %.not15, label %13, label %.loopexit
 
@@ -235,14 +235,14 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 
 9:                                                ; preds = %7
   %10 = xor i32 %.032.ph, 1
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !13
 
 11:                                               ; preds = %7
   %12 = xor i32 %.031, 1
-  br label %7, !llvm.loop !14
+  br label %7, !llvm.loop !13
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr @globalUtilOptind, align 4, !tbaa !6
+  %14 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %15 = add nsw i32 %14, 1
   %.not38 = icmp eq i32 %1, %15
   br i1 %.not38, label %16, label %.loopexit
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 nound
 16:                                               ; preds = %13
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %19 = load ptr, ptr %18, align 8, !tbaa !9
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.7)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %28
@@ -332,15 +332,15 @@ define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %7
   %10 = xor i32 %.013, 1
-  br label %7, !llvm.loop !15
+  br label %7, !llvm.loop !14
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !6
+  %12 = load i32, ptr @globalUtilOptind, align 4, !tbaa !5
   %.not15 = icmp eq i32 %1, %12
   br i1 %.not15, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !15
   %15 = tail call ptr (...) @Abc_FrameReadLibBox() #6
   tail call void @If_LibBoxPrint(ptr noundef %14, ptr noundef %15) #6
   br label %21
@@ -431,18 +431,17 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !8, i64 0}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

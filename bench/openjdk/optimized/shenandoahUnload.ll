@@ -359,7 +359,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK30ShenandoahIsUnloadingBehavi
 41:                                               ; preds = %38, %.lr.ph18.i
   %42 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %43 = icmp ult ptr %42, %35
-  br i1 %43, label %.lr.ph18.i, label %_ZN25ShenandoahReentrantLockerD2Ev.exit, !llvm.loop !9
+  br i1 %43, label %.lr.ph18.i, label %_ZN25ShenandoahReentrantLockerD2Ev.exit, !llvm.loop !8
 
 _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %41, %._crit_edge.i
   %44 = load i8, ptr %13, align 8
@@ -514,7 +514,6 @@ attributes #7 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

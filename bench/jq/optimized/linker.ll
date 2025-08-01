@@ -426,7 +426,7 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
 
 156:                                              ; preds = %144
   %157 = tail call ptr @__errno_location() #13
-  %158 = load i32, ptr %157, align 4, !tbaa !10
+  %158 = load i32, ptr %157, align 4, !tbaa !9
   %159 = icmp eq i32 %158, 2
   br i1 %159, label %160, label %.thread21
 
@@ -446,7 +446,7 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
   br i1 %171, label %.thread11, label %.thread17
 
 .thread11:                                        ; preds = %160
-  %.pre = load i32, ptr %157, align 4, !tbaa !10
+  %.pre = load i32, ptr %157, align 4, !tbaa !9
   %172 = icmp eq i32 %.pre, 2
   br i1 %172, label %173, label %.thread21
 
@@ -483,7 +483,7 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
   tail call void @jv_free(i64 %134, ptr %135) #11
   %187 = add nuw nsw i32 %.114042, 1
   %exitcond.not = icmp eq i32 %187, %129
-  br i1 %exitcond.not, label %.thread33, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread33, label %.lr.ph, !llvm.loop !11
 
 188:                                              ; preds = %.thread17
   tail call void @jv_free(i64 %114, ptr %115) #11
@@ -636,7 +636,7 @@ sub_1:                                            ; preds = %sub_0
   tail call void @jv_free(i64 %28, ptr %29) #11
   %61 = add nuw nsw i32 %.16591, 1
   %exitcond.not = icmp eq i32 %61, %23
-  br i1 %exitcond.not, label %.thread83, label %sub_0, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread83, label %sub_0, !llvm.loop !12
 
 .thread83:                                        ; preds = %60, %10
   tail call void @jv_free(i64 %18, ptr %19) #11
@@ -763,8 +763,8 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   %53 = call { ptr, ptr } @block_join(ptr %49, ptr %50, ptr %51, ptr %52) #11
   %54 = extractvalue { ptr, ptr } %53, 0
   %55 = extractvalue { ptr, ptr } %53, 1
-  store ptr %54, ptr %4, align 8, !tbaa !14
-  store ptr %55, ptr %9, align 8, !tbaa !14
+  store ptr %54, ptr %4, align 8, !tbaa !13
+  store ptr %55, ptr %9, align 8, !tbaa !13
   br label %57
 
 56:                                               ; preds = %18
@@ -783,7 +783,7 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   %66 = extractvalue { ptr, ptr } %65, 0
   %67 = extractvalue { ptr, ptr } %65, 1
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !17
+  %69 = load i64, ptr %68, align 8, !tbaa !16
   %.not67 = icmp eq i64 %69, 0
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
@@ -797,11 +797,11 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   %.sroa.6.064.us = phi ptr [ %.sroa.6.1.us, %89 ], [ %67, %.lr.ph ]
   %.sroa.09.063.us = phi ptr [ %.sroa.09.1.us, %89 ], [ %66, %.lr.ph ]
   %.05562.us = phi i64 [ %91, %89 ], [ 0, %.lr.ph ]
-  %73 = load ptr, ptr %5, align 8, !tbaa !22
+  %73 = load ptr, ptr %5, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.05562.us
-  %75 = load ptr, ptr %74, align 8, !tbaa !23
+  %75 = load ptr, ptr %74, align 8, !tbaa !22
   call void @free(ptr noundef %75) #11
-  %76 = load ptr, ptr %71, align 8, !tbaa !25
+  %76 = load ptr, ptr %71, align 8, !tbaa !24
   %77 = getelementptr inbounds nuw %struct.block, ptr %76, i64 %.05562.us
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -820,7 +820,7 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   %86 = call { ptr, ptr } @block_join(ptr %.sroa.09.063.us, ptr %.sroa.6.064.us, ptr %82, ptr %83) #11
   %87 = extractvalue { ptr, ptr } %86, 0
   %88 = extractvalue { ptr, ptr } %86, 1
-  %.pre70 = load i64, ptr %68, align 8, !tbaa !17
+  %.pre70 = load i64, ptr %68, align 8, !tbaa !16
   br label %89
 
 89:                                               ; preds = %85, %84
@@ -829,20 +829,20 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   %.sroa.6.1.us = phi ptr [ %.sroa.6.064.us, %84 ], [ %88, %85 ]
   %91 = add nuw i64 %.05562.us, 1
   %92 = icmp ult i64 %91, %90
-  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
+  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.pre = load ptr, ptr %5, align 8, !tbaa !22
-  %.pre69 = load ptr, ptr %71, align 8, !tbaa !25
+  %.pre = load ptr, ptr %5, align 8, !tbaa !21
+  %.pre69 = load ptr, ptr %71, align 8, !tbaa !24
   br label %98
 
 ._crit_edge:                                      ; preds = %98, %89, %57
   %.sroa.09.0.lcssa = phi ptr [ %66, %57 ], [ %.sroa.09.1.us, %89 ], [ %66, %98 ]
   %.sroa.6.0.lcssa = phi ptr [ %67, %57 ], [ %.sroa.6.1.us, %89 ], [ %67, %98 ]
-  %93 = load ptr, ptr %5, align 8, !tbaa !22
+  %93 = load ptr, ptr %5, align 8, !tbaa !21
   call void @free(ptr noundef %93) #11
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !25
+  %95 = load ptr, ptr %94, align 8, !tbaa !24
   call void @free(ptr noundef %95) #11
   %.not59 = icmp eq i32 %64, 0
   %96 = load ptr, ptr %4, align 8
@@ -852,7 +852,7 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
 98:                                               ; preds = %.lr.ph.split, %98
   %.05562 = phi i64 [ 0, %.lr.ph.split ], [ %105, %98 ]
   %99 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.05562
-  %100 = load ptr, ptr %99, align 8, !tbaa !23
+  %100 = load ptr, ptr %99, align 8, !tbaa !22
   call void @free(ptr noundef %100) #11
   %101 = getelementptr inbounds nuw %struct.block, ptr %.pre69, i64 %.05562
   %102 = load ptr, ptr %101, align 8
@@ -861,7 +861,7 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   call void @block_free(ptr %102, ptr %104) #11
   %105 = add nuw i64 %.05562, 1
   %exitcond.not = icmp eq i64 %105, %69
-  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !27
 
 106:                                              ; preds = %._crit_edge
   call void @block_free(ptr %96, ptr %97) #11
@@ -874,9 +874,9 @@ define dso_local i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef w
   %111 = call { ptr, ptr } @block_drop_unreferenced(ptr %109, ptr %110) #11
   %112 = extractvalue { ptr, ptr } %111, 0
   %113 = extractvalue { ptr, ptr } %111, 1
-  store ptr %112, ptr %2, align 8, !tbaa !14
+  store ptr %112, ptr %2, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %113, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !14
+  store ptr %113, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
   br label %114
 
 114:                                              ; preds = %106, %107, %3, %12
@@ -914,9 +914,9 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
   %10 = tail call { i64, ptr } @block_take_imports(ptr noundef nonnull %5) #11
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %.sroa.0111.0.copyload = load ptr, ptr %5, align 8, !tbaa !14
+  %.sroa.0111.0.copyload = load ptr, ptr %5, align 8, !tbaa !13
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.11.0.copyload = load ptr, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !14
+  %.sroa.11.0.copyload = load ptr, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !13
   %13 = tail call { i64, ptr } @jv_copy(i64 %11, ptr %12) #11
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
@@ -1074,13 +1074,13 @@ default_search.exit:                              ; preds = %110, %96, %112
 
 131:                                              ; preds = %130
   tail call void @jv_free(i64 %127, ptr %128) #11
-  br label %179, !llvm.loop !29
+  br label %179, !llvm.loop !28
 
 132:                                              ; preds = %default_search.exit
   br i1 %40, label %134, label %.preheader
 
 .preheader:                                       ; preds = %132
-  %133 = load i64, ptr %18, align 8, !tbaa !17
+  %133 = load i64, ptr %18, align 8, !tbaa !16
   %.not = icmp eq i64 %133, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -1110,19 +1110,19 @@ default_search.exit:                              ; preds = %110, %96, %112
 
 .lr.ph:                                           ; preds = %.preheader, %154
   %.0156181 = phi i64 [ %155, %154 ], [ 0, %.preheader ]
-  %148 = load ptr, ptr %6, align 8, !tbaa !22
+  %148 = load ptr, ptr %6, align 8, !tbaa !21
   %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.0156181
-  %150 = load ptr, ptr %149, align 8, !tbaa !23
+  %150 = load ptr, ptr %149, align 8, !tbaa !22
   %151 = tail call ptr @jv_string_value(i64 %127, ptr %128) #11
   %152 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %150, ptr noundef nonnull dereferenceable(1) %151) #12
   %153 = icmp eq i32 %152, 0
-  %.pre.pre = load i64, ptr %18, align 8, !tbaa !17
+  %.pre.pre = load i64, ptr %18, align 8, !tbaa !16
   br i1 %153, label %._crit_edge, label %154
 
 154:                                              ; preds = %.lr.ph
   %155 = add nuw i64 %.0156181, 1
   %156 = icmp ult i64 %155, %.pre.pre
-  br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %154, %.lr.ph
   %.0156.lcssa.ph = phi i64 [ %155, %154 ], [ %.0156181, %.lr.ph ]
@@ -1131,7 +1131,7 @@ default_search.exit:                              ; preds = %110, %96, %112
 
 158:                                              ; preds = %._crit_edge
   tail call void @jv_free(i64 %127, ptr %128) #11
-  %159 = load ptr, ptr %20, align 8, !tbaa !25
+  %159 = load ptr, ptr %20, align 8, !tbaa !24
   %160 = getelementptr inbounds nuw %struct.block, ptr %159, i64 %.0156.lcssa.ph
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
@@ -1279,9 +1279,9 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %17 = tail call { ptr, ptr } (...) @gen_noop() #11
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
-  store ptr %18, ptr %10, align 8, !tbaa !14
+  store ptr %18, ptr %10, align 8, !tbaa !13
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %19, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !14
+  store ptr %19, ptr %.sroa.421.0..sroa_idx, align 8, !tbaa !13
   %.not85 = icmp eq i32 %5, 0
   br i1 %.not85, label %20, label %89
 
@@ -1323,9 +1323,9 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %40 = tail call { ptr, ptr } @gen_const_global(i64 %38, ptr %39, ptr noundef %6) #11
   %41 = extractvalue { ptr, ptr } %40, 0
   %42 = extractvalue { ptr, ptr } %40, 1
-  store ptr %41, ptr %10, align 8, !tbaa !14
+  store ptr %41, ptr %10, align 8, !tbaa !13
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %42, ptr %.sroa.411.0..sroa_idx, align 8, !tbaa !14
+  store ptr %42, ptr %.sroa.411.0..sroa_idx, align 8, !tbaa !13
   br label %70
 
 43:                                               ; preds = %35
@@ -1359,43 +1359,43 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   %67 = call { ptr, ptr } @block_bind_self(ptr %64, ptr %66, i32 noundef 128) #11
   %68 = extractvalue { ptr, ptr } %67, 0
   %69 = extractvalue { ptr, ptr } %67, 1
-  store ptr %68, ptr %10, align 8, !tbaa !14
-  store ptr %69, ptr %65, align 8, !tbaa !14
+  store ptr %68, ptr %10, align 8, !tbaa !13
+  store ptr %69, ptr %65, align 8, !tbaa !13
   br label %70
 
 70:                                               ; preds = %36, %53, %43
   %.1 = phi i32 [ 0, %36 ], [ %63, %53 ], [ %51, %43 ]
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !17
+  %72 = load i64, ptr %71, align 8, !tbaa !16
   %73 = add i64 %72, 1
-  store i64 %73, ptr %71, align 8, !tbaa !17
-  %74 = load ptr, ptr %8, align 8, !tbaa !22
+  store i64 %73, ptr %71, align 8, !tbaa !16
+  %74 = load ptr, ptr %8, align 8, !tbaa !21
   %75 = shl i64 %73, 3
   %76 = call ptr @jv_mem_realloc(ptr noundef %74, i64 noundef %75) #11
-  store ptr %76, ptr %8, align 8, !tbaa !22
+  store ptr %76, ptr %8, align 8, !tbaa !21
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !25
-  %79 = load i64, ptr %71, align 8, !tbaa !17
+  %78 = load ptr, ptr %77, align 8, !tbaa !24
+  %79 = load i64, ptr %71, align 8, !tbaa !16
   %80 = shl i64 %79, 4
   %81 = call ptr @jv_mem_realloc(ptr noundef %78, i64 noundef %80) #11
-  store ptr %81, ptr %77, align 8, !tbaa !25
+  store ptr %81, ptr %77, align 8, !tbaa !24
   %82 = call ptr @jv_string_value(i64 %1, ptr %2) #11
   %83 = call noalias ptr @strdup(ptr noundef %82) #11
-  %84 = load ptr, ptr %8, align 8, !tbaa !22
+  %84 = load ptr, ptr %8, align 8, !tbaa !21
   %sext = shl i64 %72, 32
   %85 = ashr exact i64 %sext, 32
   %86 = getelementptr inbounds ptr, ptr %84, i64 %85
-  store ptr %83, ptr %86, align 8, !tbaa !23
-  %87 = load ptr, ptr %77, align 8, !tbaa !25
+  store ptr %83, ptr %86, align 8, !tbaa !22
+  %87 = load ptr, ptr %77, align 8, !tbaa !24
   %88 = getelementptr inbounds %struct.block, ptr %87, i64 %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !30
   br label %89
 
 89:                                               ; preds = %16, %29, %70
   %.sroa.027.2 = phi i64 [ %.sroa.027.0, %70 ], [ %.sroa.027.0, %16 ], [ %.sroa.027.1, %29 ]
   %.sroa.14.2 = phi ptr [ %.sroa.14.0, %70 ], [ %.sroa.14.0, %16 ], [ %.sroa.14.1, %29 ]
   %.0 = phi i32 [ %.1, %70 ], [ 0, %16 ], [ 1, %29 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !30
   call void @jv_free(i64 %1, ptr %2) #11
   call void @jv_free(i64 %.sroa.027.2, ptr %.sroa.14.2) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
@@ -1444,28 +1444,27 @@ attributes #13 = { nounwind willreturn memory(none) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS4inst", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = !{!18, !21, i64 16}
-!18 = !{!"lib_loading_state", !19, i64 0, !20, i64 8, !21, i64 16}
-!19 = !{!"p2 omnipotent char", !16, i64 0}
-!20 = !{!"p1 _ZTS5block", !16, i64 0}
-!21 = !{!"long", !5, i64 0}
-!22 = !{!18, !19, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 omnipotent char", !16, i64 0}
-!25 = !{!18, !20, i64 8}
-!26 = distinct !{!26, !8, !9, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS4inst", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!17, !20, i64 16}
+!17 = !{!"lib_loading_state", !18, i64 0, !19, i64 8, !20, i64 16}
+!18 = !{!"p2 omnipotent char", !15, i64 0}
+!19 = !{!"p1 _ZTS5block", !15, i64 0}
+!20 = !{!"long", !5, i64 0}
+!21 = !{!17, !18, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 omnipotent char", !15, i64 0}
+!24 = !{!17, !19, i64 8}
+!25 = distinct !{!25, !8, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8, !9}
-!31 = !{i64 0, i64 8, !14, i64 8, i64 8, !14}
+!30 = !{i64 0, i64 8, !13, i64 8, i64 8, !13}

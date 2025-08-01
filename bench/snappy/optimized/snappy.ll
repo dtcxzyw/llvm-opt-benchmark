@@ -270,20 +270,19 @@ define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(pt
   %18 = getelementptr inbounds i8, ptr %8, i64 -8
   br label %19
 
-19:                                               ; preds = %251, %10
-  %.0131 = phi i32 [ %.0.copyload.i, %10 ], [ %253, %251 ]
-  %.0118 = phi ptr [ %0, %10 ], [ %227, %251 ]
-  %.0117 = phi ptr [ %2, %10 ], [ %.10, %251 ]
+19:                                               ; preds = %253, %10
+  %.0131 = phi i32 [ %.0.copyload.i, %10 ], [ %255, %253 ]
+  %.0118 = phi ptr [ %0, %10 ], [ %229, %253 ]
+  %.0117 = phi ptr [ %2, %10 ], [ %.10, %253 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0118, i64 1
   %.0.copyload.i161 = load i64, ptr %20, align 1
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %13, %21
   %23 = icmp sgt i64 %22, 15
-  br i1 %23, label %24, label %53
+  br i1 %23, label %24, label %55
 
 24:                                               ; preds = %19
   %25 = sub i64 %21, %14
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.0118, i64 5
   br label %.preheader
 
 .preheader:                                       ; preds = %24, %46
@@ -294,7 +293,7 @@ define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(pt
 
 .thread209:                                       ; preds = %46
   %27 = getelementptr inbounds nuw i8, ptr %.0118, i64 17
-  br label %53
+  br label %55
 
 28:                                               ; preds = %.preheader, %44
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
@@ -317,7 +316,7 @@ define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(pt
   store i16 %43, ptr %38, align 2, !tbaa !21
   %.0.copyload.i162 = load i32, ptr %41, align 1
   %.not = icmp eq i32 %.0.copyload.i162, %32
-  br i1 %.not, label %47, label %44, !prof !23
+  br i1 %.not, label %49, label %44, !prof !23
 
 44:                                               ; preds = %28
   %45 = lshr i64 %.3186288, 8
@@ -326,447 +325,448 @@ define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(pt
   br i1 %exitcond.not, label %46, label %28, !llvm.loop !24
 
 46:                                               ; preds = %44
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %26
-  %.0.copyload.i163 = load i64, ptr %gep, align 1
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 %26
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %.0.copyload.i163 = load i64, ptr %48, align 1
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond333.not = icmp eq i64 %indvars.iv.next331, 4
-  br i1 %exitcond333.not, label %.thread209, label %.preheader, !llvm.loop !27
+  br i1 %exitcond333.not, label %.thread209, label %.preheader, !llvm.loop !26
 
-47:                                               ; preds = %28
+49:                                               ; preds = %28
   %.tr = trunc i64 %29 to i8
-  %48 = shl nuw nsw i8 %.tr, 2
-  store i8 %48, ptr %.0117, align 1, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %20, i64 %29
-  %51 = getelementptr inbounds nuw i8, ptr %.0117, i64 %29
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %50 = shl nuw nsw i8 %.tr, 2
+  store i8 %50, ptr %.0117, align 1, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %51, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 %29
+  %53 = getelementptr inbounds nuw i8, ptr %.0117, i64 %29
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
 
-53:                                               ; preds = %.thread209, %19
+55:                                               ; preds = %.thread209, %19
   %.0183 = phi i64 [ %.0.copyload.i161, %19 ], [ %.0.copyload.i163, %.thread209 ]
   %.0133 = phi i32 [ 33, %19 ], [ 49, %.thread209 ]
   %.1119 = phi ptr [ %20, %19 ], [ %27, %.thread209 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.1119, i64 1
-  %55 = icmp ugt ptr %54, %11
-  br i1 %55, label %.thread255, label %.lr.ph, !prof !28
+  %56 = getelementptr inbounds nuw i8, ptr %.1119, i64 1
+  %57 = icmp ugt ptr %56, %11
+  br i1 %57, label %.thread255, label %.lr.ph, !prof !27
 
-.lr.ph:                                           ; preds = %53, %72
-  %56 = phi ptr [ %77, %72 ], [ %54, %53 ]
-  %57 = phi i32 [ %75, %72 ], [ %.0133, %53 ]
-  %.10128294 = phi ptr [ %56, %72 ], [ %.1119, %53 ]
-  %.7190293 = phi i64 [ %73, %72 ], [ %.0183, %53 ]
-  %58 = trunc i64 %.7190293 to i32
-  %59 = mul i32 %58, 506832829
-  %60 = lshr i32 %59, 16
-  %61 = and i32 %60, %7
-  %62 = zext nneg i32 %61 to i64
-  %63 = add i64 %62, %15
-  %64 = inttoptr i64 %63 to ptr
-  %65 = load i16, ptr %64, align 2, !tbaa !21
-  %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
-  %68 = ptrtoint ptr %.10128294 to i64
-  %69 = sub i64 %68, %14
-  %70 = trunc i64 %69 to i16
-  store i16 %70, ptr %64, align 2, !tbaa !21
-  %.0.copyload.i164 = load i32, ptr %67, align 1
-  %71 = icmp eq i32 %.0.copyload.i164, %58
-  br i1 %71, label %79, label %72, !prof !23
+.lr.ph:                                           ; preds = %55, %74
+  %58 = phi ptr [ %79, %74 ], [ %56, %55 ]
+  %59 = phi i32 [ %77, %74 ], [ %.0133, %55 ]
+  %.10128294 = phi ptr [ %58, %74 ], [ %.1119, %55 ]
+  %.7190293 = phi i64 [ %75, %74 ], [ %.0183, %55 ]
+  %60 = trunc i64 %.7190293 to i32
+  %61 = mul i32 %60, 506832829
+  %62 = lshr i32 %61, 16
+  %63 = and i32 %62, %7
+  %64 = zext nneg i32 %63 to i64
+  %65 = add i64 %64, %15
+  %66 = inttoptr i64 %65 to ptr
+  %67 = load i16, ptr %66, align 2, !tbaa !21
+  %68 = zext i16 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %68
+  %70 = ptrtoint ptr %.10128294 to i64
+  %71 = sub i64 %70, %14
+  %72 = trunc i64 %71 to i16
+  store i16 %72, ptr %66, align 2, !tbaa !21
+  %.0.copyload.i164 = load i32, ptr %69, align 1
+  %73 = icmp eq i32 %.0.copyload.i164, %60
+  br i1 %73, label %81, label %74, !prof !23
 
-72:                                               ; preds = %.lr.ph
-  %.0.copyload.i165 = load i32, ptr %56, align 1
-  %73 = zext i32 %.0.copyload.i165 to i64
-  %74 = lshr i32 %57, 5
-  %75 = add i32 %74, %57
-  %76 = zext nneg i32 %74 to i64
-  %77 = getelementptr inbounds nuw i8, ptr %56, i64 %76
-  %78 = icmp ugt ptr %77, %11
-  br i1 %78, label %.thread255, label %.lr.ph, !prof !29
+74:                                               ; preds = %.lr.ph
+  %.0.copyload.i165 = load i32, ptr %58, align 1
+  %75 = zext i32 %.0.copyload.i165 to i64
+  %76 = lshr i32 %59, 5
+  %77 = add i32 %76, %59
+  %78 = zext nneg i32 %76 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 %78
+  %80 = icmp ugt ptr %79, %11
+  br i1 %80, label %.thread255, label %.lr.ph, !prof !28
 
-79:                                               ; preds = %.lr.ph
-  %80 = ptrtoint ptr %.0118 to i64
-  %81 = sub i64 %68, %80
-  %82 = trunc i64 %81 to i32
-  %83 = add nsw i32 %82, -1
-  %84 = icmp slt i32 %82, 17
-  br i1 %84, label %85, label %90
+81:                                               ; preds = %.lr.ph
+  %82 = ptrtoint ptr %.0118 to i64
+  %83 = sub i64 %70, %82
+  %84 = trunc i64 %83 to i32
+  %85 = add nsw i32 %84, -1
+  %86 = icmp slt i32 %84, 17
+  br i1 %86, label %87, label %92
 
-85:                                               ; preds = %79
-  %.tr37.i = trunc i32 %83 to i8
-  %86 = shl i8 %.tr37.i, 2
-  %87 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
-  store i8 %86, ptr %.0117, align 1, !tbaa !4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %87, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
-  %sext = shl i64 %81, 32
-  %88 = ashr exact i64 %sext, 32
-  %89 = getelementptr inbounds i8, ptr %87, i64 %88
+87:                                               ; preds = %81
+  %.tr37.i = trunc i32 %85 to i8
+  %88 = shl i8 %.tr37.i, 2
+  %89 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
+  store i8 %88, ptr %.0117, align 1, !tbaa !4
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %89, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
+  %sext = shl i64 %83, 32
+  %90 = ashr exact i64 %sext, 32
+  %91 = getelementptr inbounds i8, ptr %89, i64 %90
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
 
-90:                                               ; preds = %79
-  %91 = icmp samesign ult i32 %82, 61
-  br i1 %91, label %92, label %94
+92:                                               ; preds = %81
+  %93 = icmp samesign ult i32 %84, 61
+  br i1 %93, label %94, label %96
 
-92:                                               ; preds = %90
-  %.tr.i = trunc nuw nsw i32 %83 to i8
-  %93 = shl nuw i8 %.tr.i, 2
-  br label %103
+94:                                               ; preds = %92
+  %.tr.i = trunc nuw nsw i32 %85 to i8
+  %95 = shl nuw i8 %.tr.i, 2
+  br label %105
 
-94:                                               ; preds = %90
-  %95 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %83, i1 true)
-  %96 = lshr i32 %95, 3
-  %97 = xor i32 %96, 3
-  %.tr38.i = trunc nuw nsw i32 %97 to i8
-  %98 = shl nuw nsw i8 %.tr38.i, 2
-  %99 = or disjoint i8 %98, -16
-  %100 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
-  store i32 %83, ptr %100, align 1
-  %101 = zext nneg i32 %97 to i64
-  %102 = getelementptr i8, ptr %100, i64 %101
-  br label %103
+96:                                               ; preds = %92
+  %97 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %85, i1 true)
+  %98 = lshr i32 %97, 3
+  %99 = xor i32 %98, 3
+  %.tr38.i = trunc nuw nsw i32 %99 to i8
+  %100 = shl nuw nsw i8 %.tr38.i, 2
+  %101 = or disjoint i8 %100, -16
+  %102 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
+  store i32 %85, ptr %102, align 1
+  %103 = zext nneg i32 %99 to i64
+  %104 = getelementptr i8, ptr %102, i64 %103
+  br label %105
 
-103:                                              ; preds = %94, %92
-  %.sink.i = phi i8 [ %93, %92 ], [ %99, %94 ]
-  %.pn.i = phi ptr [ %.0117, %92 ], [ %102, %94 ]
+105:                                              ; preds = %96, %94
+  %.sink.i = phi i8 [ %95, %94 ], [ %101, %96 ]
+  %.pn.i = phi ptr [ %.0117, %94 ], [ %104, %96 ]
   store i8 %.sink.i, ptr %.0117, align 1, !tbaa !4
   %.032.i = getelementptr i8, ptr %.pn.i, i64 1
-  %104 = and i64 %81, 2147483647
-  %105 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %104
-  br label %106
+  %106 = and i64 %83, 2147483647
+  %107 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %106
+  br label %108
 
-106:                                              ; preds = %106, %103
-  %.031.i = phi ptr [ %.032.i, %103 ], [ %107, %106 ]
-  %.030.i = phi ptr [ %.0118, %103 ], [ %108, %106 ]
+108:                                              ; preds = %108, %105
+  %.031.i = phi ptr [ %.032.i, %105 ], [ %109, %108 ]
+  %.030.i = phi ptr [ %.0118, %105 ], [ %110, %108 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.031.i, ptr noundef nonnull align 1 dereferenceable(16) %.030.i, i64 16, i1 false)
-  %107 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
-  %109 = icmp ult ptr %107, %105
-  br i1 %109, label %106, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !30
+  %109 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
+  %111 = icmp ult ptr %109, %107
+  br i1 %111, label %108, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !29
 
-_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %106, %85, %47
-  %.9192.ph = phi i64 [ %.7190293, %85 ], [ %.3186288, %47 ], [ %.7190293, %106 ]
-  %.pn = phi i64 [ %66, %85 ], [ %40, %47 ], [ %66, %106 ]
-  %.12130.ph = phi ptr [ %.10128294, %85 ], [ %50, %47 ], [ %.10128294, %106 ]
-  %.9.ph = phi ptr [ %89, %85 ], [ %52, %47 ], [ %105, %106 ]
+_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %108, %87, %49
+  %.9192.ph = phi i64 [ %.7190293, %87 ], [ %.3186288, %49 ], [ %.7190293, %108 ]
+  %.pn = phi i64 [ %68, %87 ], [ %40, %49 ], [ %68, %108 ]
+  %.12130.ph = phi ptr [ %.10128294, %87 ], [ %52, %49 ], [ %.10128294, %108 ]
+  %.9.ph = phi ptr [ %91, %87 ], [ %54, %49 ], [ %107, %108 ]
   %.10146.ph = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
-_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit:    ; preds = %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, %228
-  %.9192 = phi i64 [ %.11194238, %228 ], [ %.9192.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %.10146 = phi ptr [ %249, %228 ], [ %.10146.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %.12130 = phi ptr [ %227, %228 ], [ %.12130.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %.9 = phi ptr [ %.10, %228 ], [ %.9.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %110 = getelementptr inbounds nuw i8, ptr %.10146, i64 4
-  %111 = getelementptr inbounds nuw i8, ptr %.12130, i64 4
-  %.not.i = icmp ugt ptr %111, %17
-  br i1 %.not.i, label %126, label %112, !prof !23
+_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit:    ; preds = %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, %230
+  %.9192 = phi i64 [ %.11194238, %230 ], [ %.9192.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %.10146 = phi ptr [ %251, %230 ], [ %.10146.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %.12130 = phi ptr [ %229, %230 ], [ %.12130.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %.9 = phi ptr [ %.10, %230 ], [ %.9.ph, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %112 = getelementptr inbounds nuw i8, ptr %.10146, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %.12130, i64 4
+  %.not.i = icmp ugt ptr %113, %17
+  br i1 %.not.i, label %128, label %114, !prof !23
 
-112:                                              ; preds = %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
-  %.0.copyload.i.i = load i64, ptr %110, align 1
-  %.0.copyload.i62.i = load i64, ptr %111, align 1
+114:                                              ; preds = %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
+  %.0.copyload.i.i = load i64, ptr %112, align 1
+  %.0.copyload.i62.i = load i64, ptr %113, align 1
   %.not59.i = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i62.i
   br i1 %.not59.i, label %.thread.i, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread, !prof !23
 
-.thread.i:                                        ; preds = %112
-  %113 = getelementptr inbounds nuw i8, ptr %.12130, i64 12
-  br label %126
+.thread.i:                                        ; preds = %114
+  %115 = getelementptr inbounds nuw i8, ptr %.12130, i64 12
+  br label %128
 
-_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread: ; preds = %112
-  %114 = xor i64 %.0.copyload.i62.i, %.0.copyload.i.i
-  %115 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %114, i1 true)
-  %116 = lshr i64 %115, 3
-  %117 = getelementptr inbounds nuw i8, ptr %.12130, i64 8
-  %.0.copyload.i63.i = load i64, ptr %117, align 1
-  %118 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i63.i, i64 %114, i64 %.0.copyload.i62.i) #23, !srcloc !31
-  %119 = and i64 %115, 24
-  %120 = lshr i64 %118, %119
-  %121 = add nuw nsw i64 %116, 4
-  %122 = getelementptr inbounds nuw i8, ptr %.12130, i64 %121
-  %123 = ptrtoint ptr %.12130 to i64
-  %124 = ptrtoint ptr %.10146 to i64
-  %125 = sub i64 %123, %124
-  br label %172
+_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread: ; preds = %114
+  %116 = xor i64 %.0.copyload.i62.i, %.0.copyload.i.i
+  %117 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %116, i1 true)
+  %118 = lshr i64 %117, 3
+  %119 = getelementptr inbounds nuw i8, ptr %.12130, i64 8
+  %.0.copyload.i63.i = load i64, ptr %119, align 1
+  %120 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i63.i, i64 %116, i64 %.0.copyload.i62.i) #23, !srcloc !30
+  %121 = and i64 %117, 24
+  %122 = lshr i64 %120, %121
+  %123 = add nuw nsw i64 %118, 4
+  %124 = getelementptr inbounds nuw i8, ptr %.12130, i64 %123
+  %125 = ptrtoint ptr %.12130 to i64
+  %126 = ptrtoint ptr %.10146 to i64
+  %127 = sub i64 %125, %126
+  br label %174
 
-126:                                              ; preds = %.thread.i, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
+128:                                              ; preds = %.thread.i, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
   %.081.i = phi i64 [ 0, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit ], [ 8, %.thread.i ]
-  %.0.i166 = phi ptr [ %111, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit ], [ %113, %.thread.i ]
-  %127 = getelementptr inbounds nuw i8, ptr %.10146, i64 68
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %127, i32 0, i32 3, i32 1)
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i166, i64 64
-  tail call void @llvm.prefetch.p0(ptr nonnull %128, i32 0, i32 3, i32 1)
+  %.0.i166 = phi ptr [ %113, %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit ], [ %115, %.thread.i ]
+  %129 = getelementptr inbounds nuw i8, ptr %.10146, i64 68
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %129, i32 0, i32 3, i32 1)
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i166, i64 64
+  tail call void @llvm.prefetch.p0(ptr nonnull %130, i32 0, i32 3, i32 1)
   %.not6098.i = icmp ugt ptr %.0.i166, %17
-  br i1 %.not6098.i, label %.preheader.i, label %.lr.ph.i, !prof !28
+  br i1 %.not6098.i, label %.preheader.i, label %.lr.ph.i, !prof !27
 
-.preheader.i:                                     ; preds = %147, %126
-  %.283.lcssa.i = phi i64 [ %.081.i, %126 ], [ %149, %147 ]
-  %.2.lcssa.i = phi ptr [ %.0.i166, %126 ], [ %148, %147 ]
-  %129 = icmp ult ptr %.2.lcssa.i, %8
-  br i1 %129, label %.lr.ph104.preheader.i, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, !prof !32
+.preheader.i:                                     ; preds = %149, %128
+  %.283.lcssa.i = phi i64 [ %.081.i, %128 ], [ %151, %149 ]
+  %.2.lcssa.i = phi ptr [ %.0.i166, %128 ], [ %150, %149 ]
+  %131 = icmp ult ptr %.2.lcssa.i, %8
+  br i1 %131, label %.lr.ph104.preheader.i, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, !prof !31
 
 .lr.ph104.preheader.i:                            ; preds = %.preheader.i
   %.2.lcssa114.i = ptrtoint ptr %.2.lcssa.i to i64
-  %130 = add i64 %.283.lcssa.i, %16
-  %131 = sub i64 %130, %.2.lcssa114.i
+  %132 = add i64 %.283.lcssa.i, %16
+  %133 = sub i64 %132, %.2.lcssa114.i
   br label %.lr.ph104.i
 
-.lr.ph.i:                                         ; preds = %126, %147
-  %.2100.i = phi ptr [ %148, %147 ], [ %.0.i166, %126 ]
-  %.28399.i = phi i64 [ %149, %147 ], [ %.081.i, %126 ]
-  %132 = getelementptr inbounds nuw i8, ptr %110, i64 %.28399.i
-  %.0.copyload.i64.i = load i64, ptr %132, align 1
+.lr.ph.i:                                         ; preds = %128, %149
+  %.2100.i = phi ptr [ %150, %149 ], [ %.0.i166, %128 ]
+  %.28399.i = phi i64 [ %151, %149 ], [ %.081.i, %128 ]
+  %134 = getelementptr inbounds nuw i8, ptr %112, i64 %.28399.i
+  %.0.copyload.i64.i = load i64, ptr %134, align 1
   %.0.copyload.i65.i = load i64, ptr %.2100.i, align 1
-  %133 = icmp eq i64 %.0.copyload.i64.i, %.0.copyload.i65.i
-  br i1 %133, label %147, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240
+  %135 = icmp eq i64 %.0.copyload.i64.i, %.0.copyload.i65.i
+  br i1 %135, label %149, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240
 
 _ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240: ; preds = %.lr.ph.i
-  %134 = xor i64 %.0.copyload.i65.i, %.0.copyload.i64.i
-  %135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %134, i1 true)
-  %136 = lshr i64 %135, 3
-  %137 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 4
-  %.0.copyload.i66.i = load i64, ptr %137, align 1
-  %138 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i66.i, i64 %134, i64 %.0.copyload.i65.i) #23, !srcloc !33
-  %139 = and i64 %135, 24
-  %140 = lshr i64 %138, %139
-  %141 = or disjoint i64 %136, %.28399.i
-  %142 = add i64 %141, 4
-  %143 = getelementptr inbounds nuw i8, ptr %.12130, i64 %142
-  %144 = ptrtoint ptr %.12130 to i64
-  %145 = ptrtoint ptr %.10146 to i64
-  %146 = sub i64 %144, %145
-  br label %189
+  %136 = xor i64 %.0.copyload.i65.i, %.0.copyload.i64.i
+  %137 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %136, i1 true)
+  %138 = lshr i64 %137, 3
+  %139 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 4
+  %.0.copyload.i66.i = load i64, ptr %139, align 1
+  %140 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i66.i, i64 %136, i64 %.0.copyload.i65.i) #23, !srcloc !32
+  %141 = and i64 %137, 24
+  %142 = lshr i64 %140, %141
+  %143 = or disjoint i64 %138, %.28399.i
+  %144 = add i64 %143, 4
+  %145 = getelementptr inbounds nuw i8, ptr %.12130, i64 %144
+  %146 = ptrtoint ptr %.12130 to i64
+  %147 = ptrtoint ptr %.10146 to i64
+  %148 = sub i64 %146, %147
+  br label %191
 
-147:                                              ; preds = %.lr.ph.i
-  %148 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 8
-  %149 = add i64 %.28399.i, 8
-  %.not60.i = icmp ugt ptr %148, %17
-  br i1 %.not60.i, label %.preheader.i, label %.lr.ph.i, !prof !29
+149:                                              ; preds = %.lr.ph.i
+  %150 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 8
+  %151 = add i64 %.28399.i, 8
+  %.not60.i = icmp ugt ptr %150, %17
+  br i1 %.not60.i, label %.preheader.i, label %.lr.ph.i, !prof !28
 
-.lr.ph104.i:                                      ; preds = %154, %.lr.ph104.preheader.i
-  %.4103.i = phi ptr [ %155, %154 ], [ %.2.lcssa.i, %.lr.ph104.preheader.i ]
-  %.485102.i = phi i64 [ %156, %154 ], [ %.283.lcssa.i, %.lr.ph104.preheader.i ]
-  %150 = getelementptr inbounds nuw i8, ptr %110, i64 %.485102.i
-  %151 = load i8, ptr %150, align 1, !tbaa !4
-  %152 = load i8, ptr %.4103.i, align 1, !tbaa !4
-  %153 = icmp eq i8 %151, %152
-  br i1 %153, label %154, label %157
+.lr.ph104.i:                                      ; preds = %156, %.lr.ph104.preheader.i
+  %.4103.i = phi ptr [ %157, %156 ], [ %.2.lcssa.i, %.lr.ph104.preheader.i ]
+  %.485102.i = phi i64 [ %158, %156 ], [ %.283.lcssa.i, %.lr.ph104.preheader.i ]
+  %152 = getelementptr inbounds nuw i8, ptr %112, i64 %.485102.i
+  %153 = load i8, ptr %152, align 1, !tbaa !4
+  %154 = load i8, ptr %.4103.i, align 1, !tbaa !4
+  %155 = icmp eq i8 %153, %154
+  br i1 %155, label %156, label %159
 
-154:                                              ; preds = %.lr.ph104.i
-  %155 = getelementptr inbounds nuw i8, ptr %.4103.i, i64 1
-  %156 = add i64 %.485102.i, 1
-  %exitcond.not.i = icmp eq ptr %155, %8
-  br i1 %exitcond.not.i, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, label %.lr.ph104.i, !prof !29, !llvm.loop !34
+156:                                              ; preds = %.lr.ph104.i
+  %157 = getelementptr inbounds nuw i8, ptr %.4103.i, i64 1
+  %158 = add i64 %.485102.i, 1
+  %exitcond.not.i = icmp eq ptr %157, %8
+  br i1 %exitcond.not.i, label %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, label %.lr.ph104.i, !prof !28, !llvm.loop !33
 
-157:                                              ; preds = %.lr.ph104.i
+159:                                              ; preds = %.lr.ph104.i
   %.not61.i = icmp ugt ptr %.4103.i, %18
-  br i1 %.not61.i, label %159, label %158
+  br i1 %.not61.i, label %161, label %160
 
-158:                                              ; preds = %157
+160:                                              ; preds = %159
   %.0.copyload.i67.i = load i64, ptr %.4103.i, align 1
-  br label %159
+  br label %161
 
-159:                                              ; preds = %158, %157
-  %.10193 = phi i64 [ %.9192, %157 ], [ %.0.copyload.i67.i, %158 ]
-  %160 = icmp ult i64 %.485102.i, 8
-  %161 = add i64 %.485102.i, 4
-  %162 = getelementptr inbounds nuw i8, ptr %.12130, i64 %161
-  %163 = ptrtoint ptr %.12130 to i64
-  %164 = ptrtoint ptr %.10146 to i64
-  %165 = sub i64 %163, %164
-  br i1 %160, label %172, label %189
+161:                                              ; preds = %160, %159
+  %.10193 = phi i64 [ %.9192, %159 ], [ %.0.copyload.i67.i, %160 ]
+  %162 = icmp ult i64 %.485102.i, 8
+  %163 = add i64 %.485102.i, 4
+  %164 = getelementptr inbounds nuw i8, ptr %.12130, i64 %163
+  %165 = ptrtoint ptr %.12130 to i64
+  %166 = ptrtoint ptr %.10146 to i64
+  %167 = sub i64 %165, %166
+  br i1 %162, label %174, label %191
 
-_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit: ; preds = %154, %.preheader.i
-  %.485.lcssa.i = phi i64 [ %.283.lcssa.i, %.preheader.i ], [ %131, %154 ]
-  %166 = icmp ult i64 %.485.lcssa.i, 8
-  %167 = add i64 %.485.lcssa.i, 4
-  %168 = getelementptr inbounds nuw i8, ptr %.12130, i64 %167
-  %169 = ptrtoint ptr %.12130 to i64
-  %170 = ptrtoint ptr %.10146 to i64
-  %171 = sub i64 %169, %170
-  br i1 %166, label %172, label %189
+_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit: ; preds = %156, %.preheader.i
+  %.485.lcssa.i = phi i64 [ %.283.lcssa.i, %.preheader.i ], [ %133, %156 ]
+  %168 = icmp ult i64 %.485.lcssa.i, 8
+  %169 = add i64 %.485.lcssa.i, 4
+  %170 = getelementptr inbounds nuw i8, ptr %.12130, i64 %169
+  %171 = ptrtoint ptr %.12130 to i64
+  %172 = ptrtoint ptr %.10146 to i64
+  %173 = sub i64 %171, %172
+  br i1 %168, label %174, label %191
 
-172:                                              ; preds = %159, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
-  %173 = phi i64 [ %125, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %171, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %165, %159 ]
-  %174 = phi ptr [ %122, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %168, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %162, %159 ]
-  %175 = phi i64 [ %121, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %167, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %161, %159 ]
-  %.11194239 = phi i64 [ %120, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %.9192, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %159 ]
-  %176 = shl nuw nsw i64 %175, 2
-  %177 = shl i64 %173, 8
-  %178 = add nuw i64 %176, %177
-  %179 = trunc i64 %178 to i32
-  %180 = trunc i64 %173 to i32
-  %181 = lshr i32 %180, 3
-  %182 = and i32 %181, 224
-  %183 = add nsw i32 %182, -15
-  %184 = icmp ult i64 %173, 2048
-  %185 = select i1 %184, i32 %183, i32 -2
-  %186 = add i32 %185, %179
-  store i32 %186, ptr %.9, align 1
-  %187 = select i1 %184, i64 2, i64 3
-  %188 = getelementptr inbounds nuw i8, ptr %.9, i64 %187
+174:                                              ; preds = %161, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
+  %175 = phi i64 [ %127, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %173, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %167, %161 ]
+  %176 = phi ptr [ %124, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %170, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %164, %161 ]
+  %177 = phi i64 [ %123, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %169, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %163, %161 ]
+  %.11194239 = phi i64 [ %122, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %.9192, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %161 ]
+  %178 = shl nuw nsw i64 %177, 2
+  %179 = shl i64 %175, 8
+  %180 = add nuw i64 %178, %179
+  %181 = trunc i64 %180 to i32
+  %182 = trunc i64 %175 to i32
+  %183 = lshr i32 %182, 3
+  %184 = and i32 %183, 224
+  %185 = add nsw i32 %184, -15
+  %186 = icmp ult i64 %175, 2048
+  %187 = select i1 %186, i32 %185, i32 -2
+  %188 = add i32 %187, %181
+  store i32 %188, ptr %.9, align 1
+  %189 = select i1 %186, i64 2, i64 3
+  %190 = getelementptr inbounds nuw i8, ptr %.9, i64 %189
   br label %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit
 
-189:                                              ; preds = %159, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
-  %190 = phi i64 [ %146, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %171, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %165, %159 ]
-  %191 = phi ptr [ %143, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %168, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %162, %159 ]
-  %192 = phi i64 [ %142, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %167, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %161, %159 ]
-  %.11194247 = phi i64 [ %140, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %.9192, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %159 ]
-  %193 = icmp ugt i64 %192, 67
-  br i1 %193, label %.lr.ph.i170, label %._crit_edge.i167, !prof !35
+191:                                              ; preds = %161, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
+  %192 = phi i64 [ %148, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %173, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %167, %161 ]
+  %193 = phi ptr [ %145, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %170, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %164, %161 ]
+  %194 = phi i64 [ %144, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %169, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %163, %161 ]
+  %.11194247 = phi i64 [ %142, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %.9192, %_ZN6snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %161 ]
+  %195 = icmp ugt i64 %194, 67
+  br i1 %195, label %.lr.ph.i170, label %._crit_edge.i167, !prof !34
 
-.lr.ph.i170:                                      ; preds = %189
-  %.tr21.i = trunc i64 %190 to i32
-  %194 = shl i32 %.tr21.i, 8
-  %195 = or disjoint i32 %194, 254
-  br label %196
+.lr.ph.i170:                                      ; preds = %191
+  %.tr21.i = trunc i64 %192 to i32
+  %196 = shl i32 %.tr21.i, 8
+  %197 = or disjoint i32 %196, 254
+  br label %198
 
-196:                                              ; preds = %196, %.lr.ph.i170
-  %.023.i = phi i64 [ %192, %.lr.ph.i170 ], [ %198, %196 ]
-  %.01522.i = phi ptr [ %.9, %.lr.ph.i170 ], [ %197, %196 ]
-  store i32 %195, ptr %.01522.i, align 1
-  %197 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 3
-  %198 = add i64 %.023.i, -64
-  %199 = icmp ugt i64 %198, 67
-  br i1 %199, label %196, label %._crit_edge.i167, !prof !36, !llvm.loop !37
+198:                                              ; preds = %198, %.lr.ph.i170
+  %.023.i = phi i64 [ %194, %.lr.ph.i170 ], [ %200, %198 ]
+  %.01522.i = phi ptr [ %.9, %.lr.ph.i170 ], [ %199, %198 ]
+  store i32 %197, ptr %.01522.i, align 1
+  %199 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 3
+  %200 = add i64 %.023.i, -64
+  %201 = icmp ugt i64 %200, 67
+  br i1 %201, label %198, label %._crit_edge.i167, !prof !35, !llvm.loop !36
 
-._crit_edge.i167:                                 ; preds = %196, %189
-  %.015.lcssa.i = phi ptr [ %.9, %189 ], [ %197, %196 ]
-  %.0.lcssa.i = phi i64 [ %192, %189 ], [ %198, %196 ]
-  %200 = icmp samesign ugt i64 %.0.lcssa.i, 64
-  br i1 %200, label %.thread.i168, label %205
+._crit_edge.i167:                                 ; preds = %198, %191
+  %.015.lcssa.i = phi ptr [ %.9, %191 ], [ %199, %198 ]
+  %.0.lcssa.i = phi i64 [ %194, %191 ], [ %200, %198 ]
+  %202 = icmp samesign ugt i64 %.0.lcssa.i, 64
+  br i1 %202, label %.thread.i168, label %207
 
 .thread.i168:                                     ; preds = %._crit_edge.i167
-  %.tr.i169 = trunc i64 %190 to i32
-  %201 = shl i32 %.tr.i169, 8
-  %202 = or disjoint i32 %201, 238
-  store i32 %202, ptr %.015.lcssa.i, align 1
-  %203 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
-  %204 = add nsw i64 %.0.lcssa.i, -60
-  br label %207
+  %.tr.i169 = trunc i64 %192 to i32
+  %203 = shl i32 %.tr.i169, 8
+  %204 = or disjoint i32 %203, 238
+  store i32 %204, ptr %.015.lcssa.i, align 1
+  %205 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
+  %206 = add nsw i64 %.0.lcssa.i, -60
+  br label %209
 
-205:                                              ; preds = %._crit_edge.i167
-  %206 = icmp samesign ult i64 %.0.lcssa.i, 12
-  br i1 %206, label %._crit_edge26.i, label %220
+207:                                              ; preds = %._crit_edge.i167
+  %208 = icmp samesign ult i64 %.0.lcssa.i, 12
+  br i1 %208, label %._crit_edge26.i, label %222
 
-._crit_edge26.i:                                  ; preds = %205
-  %.pre.i = trunc i64 %190 to i32
-  br label %207
+._crit_edge26.i:                                  ; preds = %207
+  %.pre.i = trunc i64 %192 to i32
+  br label %209
 
-207:                                              ; preds = %._crit_edge26.i, %.thread.i168
+209:                                              ; preds = %._crit_edge26.i, %.thread.i168
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge26.i ], [ %.tr.i169, %.thread.i168 ]
-  %.120.i = phi i64 [ %.0.lcssa.i, %._crit_edge26.i ], [ %204, %.thread.i168 ]
-  %.11619.i = phi ptr [ %.015.lcssa.i, %._crit_edge26.i ], [ %203, %.thread.i168 ]
-  %208 = shl nuw nsw i64 %.120.i, 2
-  %209 = shl i64 %190, 8
-  %210 = add nuw i64 %208, %209
-  %211 = trunc i64 %210 to i32
-  %212 = lshr i32 %.pre-phi.i, 3
-  %213 = and i32 %212, 224
-  %214 = add nsw i32 %213, -15
-  %215 = icmp ult i64 %190, 2048
-  %216 = select i1 %215, i32 %214, i32 -2
-  %217 = add i32 %216, %211
-  store i32 %217, ptr %.11619.i, align 1
-  %218 = select i1 %215, i64 2, i64 3
-  %219 = getelementptr inbounds nuw i8, ptr %.11619.i, i64 %218
+  %.120.i = phi i64 [ %.0.lcssa.i, %._crit_edge26.i ], [ %206, %.thread.i168 ]
+  %.11619.i = phi ptr [ %.015.lcssa.i, %._crit_edge26.i ], [ %205, %.thread.i168 ]
+  %210 = shl nuw nsw i64 %.120.i, 2
+  %211 = shl i64 %192, 8
+  %212 = add nuw i64 %210, %211
+  %213 = trunc i64 %212 to i32
+  %214 = lshr i32 %.pre-phi.i, 3
+  %215 = and i32 %214, 224
+  %216 = add nsw i32 %215, -15
+  %217 = icmp ult i64 %192, 2048
+  %218 = select i1 %217, i32 %216, i32 -2
+  %219 = add i32 %218, %213
+  store i32 %219, ptr %.11619.i, align 1
+  %220 = select i1 %217, i64 2, i64 3
+  %221 = getelementptr inbounds nuw i8, ptr %.11619.i, i64 %220
   br label %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit
 
-220:                                              ; preds = %205
-  %221 = shl nuw nsw i64 %.0.lcssa.i, 2
-  %222 = shl i64 %190, 8
-  %223 = add i64 %222, 4294967294
-  %224 = add i64 %223, %221
-  %225 = trunc i64 %224 to i32
-  store i32 %225, ptr %.015.lcssa.i, align 1
-  %226 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
+222:                                              ; preds = %207
+  %223 = shl nuw nsw i64 %.0.lcssa.i, 2
+  %224 = shl i64 %192, 8
+  %225 = add i64 %224, 4294967294
+  %226 = add i64 %225, %223
+  %227 = trunc i64 %226 to i32
+  store i32 %227, ptr %.015.lcssa.i, align 1
+  %228 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
   br label %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit
 
-_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %220, %207, %172
-  %227 = phi ptr [ %174, %172 ], [ %191, %207 ], [ %191, %220 ]
-  %.11194238 = phi i64 [ %.11194239, %172 ], [ %.11194247, %207 ], [ %.11194247, %220 ]
-  %.10 = phi ptr [ %188, %172 ], [ %219, %207 ], [ %226, %220 ]
-  %.not160 = icmp ult ptr %227, %11
-  br i1 %.not160, label %228, label %.thread255, !prof !20
+_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %222, %209, %174
+  %229 = phi ptr [ %176, %174 ], [ %193, %209 ], [ %193, %222 ]
+  %.11194238 = phi i64 [ %.11194239, %174 ], [ %.11194247, %209 ], [ %.11194247, %222 ]
+  %.10 = phi ptr [ %190, %174 ], [ %221, %209 ], [ %228, %222 ]
+  %.not160 = icmp ult ptr %229, %11
+  br i1 %.not160, label %230, label %.thread255, !prof !20
 
-228:                                              ; preds = %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit
-  %229 = ptrtoint ptr %227 to i64
-  %230 = sub i64 %229, %14
-  %231 = trunc i64 %230 to i16
-  %232 = add i16 %231, -1
-  %233 = getelementptr inbounds i8, ptr %227, i64 -1
-  %.0.copyload.i171 = load i32, ptr %233, align 1
-  %234 = mul i32 %.0.copyload.i171, 506832829
-  %235 = lshr i32 %234, 16
-  %236 = and i32 %235, %7
-  %237 = zext nneg i32 %236 to i64
-  %238 = add i64 %237, %15
-  %239 = inttoptr i64 %238 to ptr
-  store i16 %232, ptr %239, align 2, !tbaa !21
-  %240 = trunc i64 %.11194238 to i32
-  %241 = mul i32 %240, 506832829
-  %242 = lshr i32 %241, 16
-  %243 = and i32 %242, %7
-  %244 = zext nneg i32 %243 to i64
-  %245 = add i64 %244, %15
-  %246 = inttoptr i64 %245 to ptr
-  %247 = load i16, ptr %246, align 2, !tbaa !21
-  %248 = zext i16 %247 to i64
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 %248
-  store i16 %231, ptr %246, align 2, !tbaa !21
-  %.0.copyload.i172 = load i32, ptr %249, align 1
-  %250 = icmp eq i32 %.0.copyload.i172, %240
-  br i1 %250, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit, label %251, !llvm.loop !38
+230:                                              ; preds = %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit
+  %231 = ptrtoint ptr %229 to i64
+  %232 = sub i64 %231, %14
+  %233 = trunc i64 %232 to i16
+  %234 = add i16 %233, -1
+  %235 = getelementptr inbounds i8, ptr %229, i64 -1
+  %.0.copyload.i171 = load i32, ptr %235, align 1
+  %236 = mul i32 %.0.copyload.i171, 506832829
+  %237 = lshr i32 %236, 16
+  %238 = and i32 %237, %7
+  %239 = zext nneg i32 %238 to i64
+  %240 = add i64 %239, %15
+  %241 = inttoptr i64 %240 to ptr
+  store i16 %234, ptr %241, align 2, !tbaa !21
+  %242 = trunc i64 %.11194238 to i32
+  %243 = mul i32 %242, 506832829
+  %244 = lshr i32 %243, 16
+  %245 = and i32 %244, %7
+  %246 = zext nneg i32 %245 to i64
+  %247 = add i64 %246, %15
+  %248 = inttoptr i64 %247 to ptr
+  %249 = load i16, ptr %248, align 2, !tbaa !21
+  %250 = zext i16 %249 to i64
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 %250
+  store i16 %233, ptr %248, align 2, !tbaa !21
+  %.0.copyload.i172 = load i32, ptr %251, align 1
+  %252 = icmp eq i32 %.0.copyload.i172, %242
+  br i1 %252, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit, label %253, !llvm.loop !37
 
-251:                                              ; preds = %228
-  %252 = lshr i64 %.11194238, 8
-  %253 = trunc i64 %252 to i32
-  br label %19, !llvm.loop !39
+253:                                              ; preds = %230
+  %254 = lshr i64 %.11194238, 8
+  %255 = trunc i64 %254 to i32
+  br label %19
 
-.thread255:                                       ; preds = %53, %72, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit, %5
-  %.13 = phi ptr [ %0, %5 ], [ %227, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %72 ], [ %.0118, %53 ]
-  %.11 = phi ptr [ %2, %5 ], [ %.10, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %72 ], [ %.0117, %53 ]
-  %254 = icmp ult ptr %.13, %8
-  br i1 %254, label %255, label %275
+.thread255:                                       ; preds = %55, %74, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit, %5
+  %.13 = phi ptr [ %0, %5 ], [ %229, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %74 ], [ %.0118, %55 ]
+  %.11 = phi ptr [ %2, %5 ], [ %.10, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %74 ], [ %.0117, %55 ]
+  %256 = icmp ult ptr %.13, %8
+  br i1 %256, label %257, label %277
 
-255:                                              ; preds = %.thread255
-  %256 = ptrtoint ptr %8 to i64
-  %257 = ptrtoint ptr %.13 to i64
-  %258 = sub i64 %256, %257
-  %259 = trunc i64 %258 to i32
-  %260 = add nsw i32 %259, -1
-  %261 = icmp slt i32 %259, 61
-  br i1 %261, label %262, label %264
+257:                                              ; preds = %.thread255
+  %258 = ptrtoint ptr %8 to i64
+  %259 = ptrtoint ptr %.13 to i64
+  %260 = sub i64 %258, %259
+  %261 = trunc i64 %260 to i32
+  %262 = add nsw i32 %261, -1
+  %263 = icmp slt i32 %261, 61
+  br i1 %263, label %264, label %266
 
-262:                                              ; preds = %255
-  %.tr.i176 = trunc i32 %260 to i8
-  %263 = shl i8 %.tr.i176, 2
+264:                                              ; preds = %257
+  %.tr.i176 = trunc i32 %262 to i8
+  %265 = shl i8 %.tr.i176, 2
   br label %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
 
-264:                                              ; preds = %255
-  %265 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %260, i1 true)
-  %266 = lshr i32 %265, 3
-  %267 = xor i32 %266, 3
-  %.tr16.i = trunc nuw nsw i32 %267 to i8
-  %268 = shl nuw nsw i8 %.tr16.i, 2
-  %269 = or disjoint i8 %268, -16
-  %270 = getelementptr inbounds nuw i8, ptr %.11, i64 1
-  store i32 %260, ptr %270, align 1
-  %271 = zext nneg i32 %267 to i64
-  %272 = getelementptr i8, ptr %270, i64 %271
+266:                                              ; preds = %257
+  %267 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %262, i1 true)
+  %268 = lshr i32 %267, 3
+  %269 = xor i32 %268, 3
+  %.tr16.i = trunc nuw nsw i32 %269 to i8
+  %270 = shl nuw nsw i8 %.tr16.i, 2
+  %271 = or disjoint i8 %270, -16
+  %272 = getelementptr inbounds nuw i8, ptr %.11, i64 1
+  store i32 %262, ptr %272, align 1
+  %273 = zext nneg i32 %269 to i64
+  %274 = getelementptr i8, ptr %272, i64 %273
   br label %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
 
-_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit:    ; preds = %262, %264
-  %.sink.i173 = phi i8 [ %263, %262 ], [ %269, %264 ]
-  %.pn.i174 = phi ptr [ %.11, %262 ], [ %272, %264 ]
+_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit:    ; preds = %264, %266
+  %.sink.i173 = phi i8 [ %265, %264 ], [ %271, %266 ]
+  %.pn.i174 = phi ptr [ %.11, %264 ], [ %274, %266 ]
   store i8 %.sink.i173, ptr %.11, align 1, !tbaa !4
   %.0.i175 = getelementptr i8, ptr %.pn.i174, i64 1
-  %sext262 = shl i64 %258, 32
-  %273 = ashr exact i64 %sext262, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i175, ptr readonly align 1 %.13, i64 %273, i1 false)
-  %274 = getelementptr inbounds i8, ptr %.0.i175, i64 %273
-  br label %275
+  %sext262 = shl i64 %260, 32
+  %275 = ashr exact i64 %sext262, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i175, ptr readonly align 1 %.13, i64 %275, i1 false)
+  %276 = getelementptr inbounds i8, ptr %.0.i175, i64 %275
+  br label %277
 
-275:                                              ; preds = %.thread255, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %274, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.11, %.thread255 ]
+277:                                              ; preds = %.thread255, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
+  %.0 = phi ptr [ %276, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.11, %.thread255 ]
   ret ptr %.0
 }
 
@@ -790,7 +790,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %18 = getelementptr inbounds i8, ptr %10, i64 -8
   %19 = trunc i64 %17 to i32
   %20 = icmp slt i64 %1, 17
-  br i1 %20, label %.thread355, label %.lr.ph553.lr.ph, !prof !28
+  br i1 %20, label %.thread355, label %.lr.ph553.lr.ph, !prof !27
 
 .lr.ph553.lr.ph:                                  ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -799,7 +799,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
 .loopexit.loopexit:                               ; preds = %369
   %22 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %23 = icmp ugt ptr %22, %13
-  br i1 %23, label %.thread355, label %.lr.ph553, !prof !40, !llvm.loop !41
+  br i1 %23, label %.thread355, label %.lr.ph553, !prof !38
 
 .lr.ph553:                                        ; preds = %.lr.ph553.lr.ph, %.loopexit.loopexit
   %24 = phi ptr [ %21, %.lr.ph553.lr.ph ], [ %22, %.loopexit.loopexit ]
@@ -814,7 +814,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %29 = zext nneg i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %33, i64 %29
   %31 = icmp ugt ptr %30, %13
-  br i1 %31, label %.thread355, label %32, !prof !29
+  br i1 %31, label %.thread355, label %32, !prof !28
 
 32:                                               ; preds = %.lr.ph553, %26
   %33 = phi ptr [ %24, %.lr.ph553 ], [ %30, %26 ]
@@ -878,7 +878,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %63 = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %.not.i = icmp ugt ptr %63, %18
-  br i1 %.not.i, label %.critedge28.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not.i, label %.critedge28.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %64 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -902,7 +902,7 @@ define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPK
   %74 = getelementptr inbounds nuw i8, ptr %.139.i, i64 1
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond.not.i = icmp eq ptr %74, %10
-  br i1 %exitcond.not.i, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, label %.lr.ph40.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, label %.lr.ph40.i, !llvm.loop !40
 
 .critedge2.loopexit.split.loop.exit.i:            ; preds = %.lr.ph40.i
   %75 = trunc nuw i64 %indvars.iv48.i to i32
@@ -966,7 +966,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.critedge2
   %101 = getelementptr inbounds nuw i8, ptr %.036.i223, i64 8
   %indvars.iv.next.i228 = add nuw nsw i64 %indvars.iv.i222, 8
   %.not.i229 = icmp ugt ptr %101, %18
-  br i1 %.not.i229, label %.critedge28.preheader.loopexit.i230, label %.lr.ph.i221, !llvm.loop !42
+  br i1 %.not.i229, label %.critedge28.preheader.loopexit.i230, label %.lr.ph.i221, !llvm.loop !39
 
 .critedge.i226:                                   ; preds = %.lr.ph.i221
   %102 = trunc nuw nsw i64 %indvars.iv.i222 to i32
@@ -990,7 +990,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.critedge2
   %112 = getelementptr inbounds nuw i8, ptr %.139.i238, i64 1
   %indvars.iv.next49.i241 = add nuw nsw i64 %indvars.iv48.i237, 1
   %exitcond.not.i242 = icmp eq ptr %112, %10
-  br i1 %exitcond.not.i242, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243, label %.lr.ph40.i236, !llvm.loop !43
+  br i1 %exitcond.not.i242, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243, label %.lr.ph40.i236, !llvm.loop !40
 
 .critedge2.loopexit.split.loop.exit.i239:         ; preds = %.lr.ph40.i236
   %113 = trunc nuw i64 %indvars.iv48.i237 to i32
@@ -1045,7 +1045,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243: ; preds = %.crited
   %135 = getelementptr inbounds nuw i8, ptr %.036.i248, i64 8
   %indvars.iv.next.i253 = add nuw nsw i64 %indvars.iv.i247, 8
   %.not.i254 = icmp ugt ptr %135, %18
-  br i1 %.not.i254, label %.critedge28.preheader.loopexit.i255, label %.lr.ph.i246, !llvm.loop !42
+  br i1 %.not.i254, label %.critedge28.preheader.loopexit.i255, label %.lr.ph.i246, !llvm.loop !39
 
 .critedge.i251:                                   ; preds = %.lr.ph.i246
   %136 = trunc nuw nsw i64 %indvars.iv.i247 to i32
@@ -1069,7 +1069,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243: ; preds = %.crited
   %146 = getelementptr inbounds nuw i8, ptr %.139.i263, i64 1
   %indvars.iv.next49.i266 = add nuw nsw i64 %indvars.iv48.i262, 1
   %exitcond.not.i267 = icmp eq ptr %146, %10
-  br i1 %exitcond.not.i267, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268, label %.lr.ph40.i261, !llvm.loop !43
+  br i1 %exitcond.not.i267, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268, label %.lr.ph40.i261, !llvm.loop !40
 
 .critedge2.loopexit.split.loop.exit.i264:         ; preds = %.lr.ph40.i261
   %147 = trunc nuw i64 %indvars.iv48.i262 to i32
@@ -1111,7 +1111,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
   %161 = icmp ugt ptr %154, %.0176557
   %162 = icmp ugt ptr %156, %0
   %or.cond = and i1 %161, %162
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !44
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph, %159, %.preheader
   %.6207.lcssa = phi i32 [ %.2203.ph, %.preheader ], [ %160, %159 ], [ %.6207413, %.lr.ph ]
@@ -1210,7 +1210,7 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
   %219 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %220 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
   %221 = icmp ult ptr %219, %217
-  br i1 %221, label %218, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !30
+  br i1 %221, label %218, label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !29
 
 _ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %218, %197, %.critedge
   %.3.ph = phi ptr [ %.0175558, %.critedge ], [ %201, %197 ], [ %217, %218 ]
@@ -1248,7 +1248,7 @@ _ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit:    ; preds = %_ZN6snappyL11EmitLi
 
 242:                                              ; preds = %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
   %243 = icmp ugt i32 %.7208, 67
-  br i1 %243, label %.lr.ph.i275, label %._crit_edge.i, !prof !35
+  br i1 %243, label %.lr.ph.i275, label %._crit_edge.i, !prof !34
 
 .lr.ph.i275:                                      ; preds = %242
   %.tr21.i = trunc i64 %226 to i32
@@ -1263,7 +1263,7 @@ _ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit:    ; preds = %_ZN6snappyL11EmitLi
   %247 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 3
   %248 = add i64 %.023.i, -64
   %249 = icmp ugt i64 %248, 67
-  br i1 %249, label %246, label %._crit_edge.i, !prof !36, !llvm.loop !37
+  br i1 %249, label %246, label %._crit_edge.i, !prof !35, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %246, %242
   %.015.lcssa.i = phi ptr [ %.3, %242 ], [ %247, %246 ]
@@ -1449,7 +1449,7 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %270, %257, %228
   %356 = getelementptr inbounds nuw i8, ptr %.036.i288, i64 8
   %indvars.iv.next.i293 = add nuw nsw i64 %indvars.iv.i287, 8
   %.not.i294 = icmp ugt ptr %356, %18
-  br i1 %.not.i294, label %.critedge28.preheader.loopexit.i295, label %.lr.ph.i286, !llvm.loop !42
+  br i1 %.not.i294, label %.critedge28.preheader.loopexit.i295, label %.lr.ph.i286, !llvm.loop !39
 
 .critedge.i291:                                   ; preds = %.lr.ph.i286
   %357 = trunc nuw nsw i64 %indvars.iv.i287 to i32
@@ -1473,7 +1473,7 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %270, %257, %228
   %367 = getelementptr inbounds nuw i8, ptr %.139.i303, i64 1
   %indvars.iv.next49.i306 = add nuw nsw i64 %indvars.iv48.i302, 1
   %exitcond.not.i307 = icmp eq ptr %367, %10
-  br i1 %exitcond.not.i307, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308, label %.lr.ph40.i301, !llvm.loop !43
+  br i1 %exitcond.not.i307, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308, label %.lr.ph40.i301, !llvm.loop !40
 
 .critedge2.loopexit.split.loop.exit.i304:         ; preds = %.lr.ph40.i301
   %368 = trunc nuw i64 %indvars.iv48.i302 to i32
@@ -1532,7 +1532,7 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %270, %257, %228
   %392 = getelementptr inbounds nuw i8, ptr %.036.i315, i64 8
   %indvars.iv.next.i320 = add nuw nsw i64 %indvars.iv.i314, 8
   %.not.i321 = icmp ugt ptr %392, %18
-  br i1 %.not.i321, label %.critedge28.preheader.loopexit.i322, label %.lr.ph.i313, !llvm.loop !42
+  br i1 %.not.i321, label %.critedge28.preheader.loopexit.i322, label %.lr.ph.i313, !llvm.loop !39
 
 .critedge.i318:                                   ; preds = %.lr.ph.i313
   %393 = trunc nuw nsw i64 %indvars.iv.i314 to i32
@@ -1556,7 +1556,7 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %270, %257, %228
   %403 = getelementptr inbounds nuw i8, ptr %.139.i330, i64 1
   %indvars.iv.next49.i333 = add nuw nsw i64 %indvars.iv48.i329, 1
   %exitcond.not.i334 = icmp eq ptr %403, %10
-  br i1 %exitcond.not.i334, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308, label %.lr.ph40.i328, !llvm.loop !43
+  br i1 %exitcond.not.i334, label %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308, label %.lr.ph40.i328, !llvm.loop !40
 
 .critedge2.loopexit.split.loop.exit.i331:         ; preds = %.lr.ph40.i328
   %404 = trunc nuw i64 %indvars.iv48.i329 to i32
@@ -1643,14 +1643,14 @@ define dso_local void @_ZN6snappy9MemCopy64ElPKvm(i64 noundef %0, ptr noundef re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #8 {
-  store ptr %2, ptr %0, align 8, !tbaa !45
+  store ptr %2, ptr %0, align 8, !tbaa !42
   store i64 0, ptr %1, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
-  store ptr %2, ptr %0, align 8, !tbaa !45
+  store ptr %2, ptr %0, align 8, !tbaa !42
   store i64 %3, ptr %1, align 8, !tbaa !7
   ret void
 }
@@ -1660,39 +1660,39 @@ define dso_local noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !50
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %0, align 8, !tbaa !51
+  %10 = load ptr, ptr %0, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !52
+  %12 = load i32, ptr %11, align 8, !tbaa !49
   %13 = zext i32 %12 to i64
-  %14 = load ptr, ptr %10, align 8, !tbaa !53
+  %14 = load ptr, ptr %10, align 8, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %13) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %17 = load ptr, ptr %0, align 8, !tbaa !51
-  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  %17 = load ptr, ptr %0, align 8, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %2) #24
   %22 = load i64, ptr %2, align 8, !tbaa !7
   %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %11, align 8, !tbaa !52
+  store i32 %23, ptr %11, align 8, !tbaa !49
   %24 = icmp eq i64 %22, 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = zext i1 %24 to i8
-  store i8 %26, ptr %25, align 4, !tbaa !55
+  store i8 %26, ptr %25, align 4, !tbaa !52
   br i1 %24, label %.critedge, label %27
 
 27:                                               ; preds = %9
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 %22
-  store ptr %28, ptr %6, align 8, !tbaa !50
+  store ptr %28, ptr %6, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   br label %29
 
@@ -1732,22 +1732,22 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %52 = and i64 %47, 4294967295
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %.029, i64 %52, i1 false)
-  %53 = load ptr, ptr %0, align 8, !tbaa !51
+  %53 = load ptr, ptr %0, align 8, !tbaa !48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %55 = load i32, ptr %54, align 8, !tbaa !52
+  %55 = load i32, ptr %54, align 8, !tbaa !49
   %56 = zext i32 %55 to i64
-  %57 = load ptr, ptr %53, align 8, !tbaa !53
+  %57 = load ptr, ptr %53, align 8, !tbaa !50
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %56) #24
-  store i32 0, ptr %54, align 8, !tbaa !52
+  store i32 0, ptr %54, align 8, !tbaa !49
   br label %60
 
 60:                                               ; preds = %50, %67
   %.03041 = phi i32 [ %48, %50 ], [ %73, %67 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  %61 = load ptr, ptr %0, align 8, !tbaa !51
-  %62 = load ptr, ptr %61, align 8, !tbaa !53
+  %61 = load ptr, ptr %0, align 8, !tbaa !48
+  %62 = load ptr, ptr %61, align 8, !tbaa !50
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull %3) #24
@@ -1764,20 +1764,20 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
   %72 = zext i32 %.sroa.speculated to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr align 1 %65, i64 %72, i1 false)
   %73 = add i32 %.sroa.speculated, %.03041
-  %74 = load ptr, ptr %0, align 8, !tbaa !51
-  %75 = load ptr, ptr %74, align 8, !tbaa !53
+  %74 = load ptr, ptr %0, align 8, !tbaa !48
+  %75 = load ptr, ptr %74, align 8, !tbaa !50
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74, i64 noundef %72) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   %78 = icmp ult i32 %73, %44
-  br i1 %78, label %60, label %79, !llvm.loop !56
+  br i1 %78, label %60, label %79, !llvm.loop !53
 
 79:                                               ; preds = %67
-  store ptr %51, ptr %4, align 8, !tbaa !46
+  store ptr %51, ptr %4, align 8, !tbaa !43
   %80 = zext i32 %44 to i64
   %81 = getelementptr inbounds nuw i8, ptr %51, i64 %80
-  store ptr %81, ptr %6, align 8, !tbaa !50
+  store ptr %81, ptr %6, align 8, !tbaa !47
   br label %96
 
 82:                                               ; preds = %_ZN6snappy15CalculateNeededEh.exit
@@ -1788,22 +1788,22 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %86 = and i64 %47, 7
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %.029, i64 %86, i1 false)
-  %87 = load ptr, ptr %0, align 8, !tbaa !51
+  %87 = load ptr, ptr %0, align 8, !tbaa !48
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %89 = load i32, ptr %88, align 8, !tbaa !52
+  %89 = load i32, ptr %88, align 8, !tbaa !49
   %90 = zext i32 %89 to i64
-  %91 = load ptr, ptr %87, align 8, !tbaa !53
+  %91 = load ptr, ptr %87, align 8, !tbaa !50
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(8) %87, i64 noundef %90) #24
-  store i32 0, ptr %88, align 8, !tbaa !52
-  store ptr %85, ptr %4, align 8, !tbaa !46
+  store i32 0, ptr %88, align 8, !tbaa !49
+  store ptr %85, ptr %4, align 8, !tbaa !43
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 %86
-  store ptr %94, ptr %6, align 8, !tbaa !50
+  store ptr %94, ptr %6, align 8, !tbaa !47
   br label %96
 
 95:                                               ; preds = %82
-  store ptr %.029, ptr %4, align 8, !tbaa !46
+  store ptr %.029, ptr %4, align 8, !tbaa !43
   br label %96
 
 .critedge37:                                      ; preds = %60
@@ -1828,7 +1828,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6Sour
 4:                                                ; preds = %27, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %27 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  %5 = load ptr, ptr %0, align 8, !tbaa !53
+  %5 = load ptr, ptr %0, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #24
@@ -1838,7 +1838,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6Sour
 
 11:                                               ; preds = %4
   %12 = load i8, ptr %8, align 1, !tbaa !4
-  %13 = load ptr, ptr %0, align 8, !tbaa !53
+  %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1) #24
@@ -1872,7 +1872,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6Sour
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit: ; preds = %27, %.loopexit.sink.split.i
   %.1.i = phi i1 [ %.1.ph.i, %.loopexit.sink.split.i ], [ false, %27 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !53
+  %29 = load ptr, ptr %0, align 8, !tbaa !50
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 0) #24
@@ -1889,7 +1889,7 @@ define dso_local noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr nou
 define dso_local noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #3 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca i64, align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !53
+  %6 = load ptr, ptr %0, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -1979,7 +1979,7 @@ _ZN6snappy6Varint8Encode32EPcj.exit:              ; preds = %12, %17, %26, %52, 
   %60 = ptrtoint ptr %.0.i to i64
   %61 = ptrtoint ptr %4 to i64
   %62 = sub i64 %60, %61
-  %63 = load ptr, ptr %1, align 8, !tbaa !53
+  %63 = load ptr, ptr %1, align 8, !tbaa !50
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef %62) #24
@@ -2018,7 +2018,7 @@ _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8E
   %.05583 = phi i64 [ %139, %132 ], [ %62, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ]
   %.07982 = phi i64 [ %140, %132 ], [ %9, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  %83 = load ptr, ptr %0, align 8, !tbaa !53
+  %83 = load ptr, ptr %0, align 8, !tbaa !50
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5) #24
@@ -2029,7 +2029,7 @@ _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8E
 
 88:                                               ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %86, i64 %87, i1 false)
-  %89 = load ptr, ptr %0, align 8, !tbaa !53
+  %89 = load ptr, ptr %0, align 8, !tbaa !50
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %87) #24
@@ -2037,7 +2037,7 @@ _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8E
 
 92:                                               ; preds = %88, %92
   %.05780 = phi i64 [ %87, %88 ], [ %100, %92 ]
-  %93 = load ptr, ptr %0, align 8, !tbaa !53
+  %93 = load ptr, ptr %0, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5) #24
@@ -2047,12 +2047,12 @@ _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8E
   %99 = getelementptr inbounds nuw i8, ptr %81, i64 %.05780
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr align 1 %96, i64 %.sroa.speculated, i1 false)
   %100 = add nuw nsw i64 %.sroa.speculated, %.05780
-  %101 = load ptr, ptr %0, align 8, !tbaa !53
+  %101 = load ptr, ptr %0, align 8, !tbaa !50
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.sroa.speculated) #24
   %104 = icmp samesign ult i64 %100, %.sroa.speculated73
-  br i1 %104, label %92, label %.loopexit, !llvm.loop !57
+  br i1 %104, label %92, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %92, %.lr.ph
   %.058 = phi i64 [ %.sroa.speculated73, %.lr.ph ], [ 0, %92 ]
@@ -2083,7 +2083,7 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %.loopexit
   %117 = udiv i32 %.lhs.trunc, 6
   %.zext = zext nneg i32 %117 to i64
   %118 = add nuw nsw i64 %116, %.zext
-  %119 = load ptr, ptr %1, align 8, !tbaa !53
+  %119 = load ptr, ptr %1, align 8, !tbaa !50
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8
   %122 = call noundef ptr %121(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %118, ptr noundef nonnull %82) #24
@@ -2110,19 +2110,19 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %.loopexit
   %133 = ptrtoint ptr %.0 to i64
   %134 = ptrtoint ptr %122 to i64
   %135 = sub i64 %133, %134
-  %136 = load ptr, ptr %1, align 8, !tbaa !53
+  %136 = load ptr, ptr %1, align 8, !tbaa !50
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %122, i64 noundef %135) #24
   %139 = add i64 %135, %.05583
   %140 = sub i64 %.07982, %.sroa.speculated73
-  %141 = load ptr, ptr %0, align 8, !tbaa !53
+  %141 = load ptr, ptr %0, align 8, !tbaa !50
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.058) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   %.not = icmp eq i64 %140, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %132, %_ZN6snappy8internal13WorkingMemoryC2Em.exit
   %.055.lcssa = phi i64 [ %62, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ], [ %139, %132 ]
@@ -2135,11 +2135,11 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %.loopexit
 define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPKcmPK5iovecm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %"class.snappy::ByteArraySource", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %6, align 8, !tbaa !59
+  store ptr %0, ptr %6, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %1, ptr %7, align 8, !tbaa !62
+  store i64 %1, ptr %7, align 8, !tbaa !59
   %8 = call noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6SourceEPK5iovecm(ptr noundef nonnull %5, ptr noundef %2, i64 noundef %3)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
@@ -2153,36 +2153,36 @@ define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6Sourc
   %6 = alloca %"class.snappy::SnappyIOVecWriter", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #24
   %7 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %2
-  store ptr %7, ptr %6, align 8, !tbaa !63
+  store ptr %7, ptr %6, align 8, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %8, align 8, !tbaa !66
+  store ptr %1, ptr %8, align 8, !tbaa !63
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %1, align 8, !tbaa !67
+  %10 = load ptr, ptr %1, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !69
+  %12 = load i64, ptr %11, align 8, !tbaa !66
   br label %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit
 
 _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %3, %9
   %.sink.i = phi ptr [ %10, %9 ], [ null, %3 ]
   %13 = phi i64 [ %12, %9 ], [ 0, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.sink.i, ptr %14, align 8, !tbaa !70
+  store ptr %.sink.i, ptr %14, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %13, ptr %15, align 8, !tbaa !71
+  store i64 %13, ptr %15, align 8, !tbaa !68
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 0, ptr %16, align 8, !tbaa !72
+  store i64 0, ptr %16, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 -1, ptr %17, align 8, !tbaa !73
+  store i64 -1, ptr %17, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
-  store ptr %0, ptr %5, align 8, !tbaa !51
+  store ptr %0, ptr %5, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %19, align 8, !tbaa !52
+  store i32 0, ptr %19, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i8 0, ptr %20, align 4, !tbaa !55
+  store i8 0, ptr %20, align 4, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br label %21
 
@@ -2190,7 +2190,7 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %3, %9
   %.05.i = phi i32 [ 0, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit ], [ %41, %43 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit ], [ %indvars.iv.next.i.i, %43 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  %22 = load ptr, ptr %0, align 8, !tbaa !53
+  %22 = load ptr, ptr %0, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4) #24
@@ -2200,7 +2200,7 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %3, %9
 
 28:                                               ; preds = %21
   %29 = load i8, ptr %25, align 1, !tbaa !4
-  %30 = load ptr, ptr %0, align 8, !tbaa !53
+  %30 = load ptr, ptr %0, align 8, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1) #24
@@ -2231,29 +2231,29 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; pred
 
 45:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %46 = load ptr, ptr %0, align 8, !tbaa !53
+  %46 = load ptr, ptr %0, align 8, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   %50 = zext i32 %41 to i64
-  store i64 %50, ptr %17, align 8, !tbaa !73
+  store i64 %50, ptr %17, align 8, !tbaa !70
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyIOVecWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %5, ptr noundef nonnull %6)
-  %51 = load i8, ptr %20, align 4, !tbaa !55, !range !74, !noundef !75
+  %51 = load i8, ptr %20, align 4, !tbaa !52, !range !71, !noundef !72
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %_ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit
 
 53:                                               ; preds = %45
-  %54 = load i64, ptr %16, align 8, !tbaa !72
-  %55 = load i64, ptr %17, align 8, !tbaa !73
+  %54 = load i64, ptr %16, align 8, !tbaa !69
+  %55 = load i64, ptr %17, align 8, !tbaa !70
   %56 = icmp eq i64 %54, %55
   br label %_ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit
 
 _ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit: ; preds = %43, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i, %45, %53
   %.0.i = phi i1 [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i ], [ false, %45 ], [ %56, %53 ], [ false, %43 ]
-  %57 = load ptr, ptr %5, align 8, !tbaa !51
-  %58 = load i32, ptr %19, align 8, !tbaa !52
+  %57 = load ptr, ptr %5, align 8, !tbaa !48
+  %58 = load i32, ptr %19, align 8, !tbaa !49
   %59 = zext i32 %58 to i64
-  %60 = load ptr, ptr %57, align 8, !tbaa !53
+  %60 = load ptr, ptr %57, align 8, !tbaa !50
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef %59) #24
@@ -2269,11 +2269,11 @@ declare void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 derefe
 define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca %"class.snappy::ByteArraySource", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !59
+  store ptr %0, ptr %5, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %1, ptr %6, align 8, !tbaa !62
+  store i64 %1, ptr %6, align 8, !tbaa !59
   %7 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %4, ptr noundef %2)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
@@ -2286,20 +2286,20 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(pt
   %4 = alloca %"class.snappy::SnappyDecompressor", align 8
   %5 = alloca %"class.snappy::SnappyArrayWriter", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
-  store ptr %1, ptr %5, align 8, !tbaa !76
+  store ptr %1, ptr %5, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %6, align 8, !tbaa !78
+  store ptr %1, ptr %6, align 8, !tbaa !75
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !79
+  store ptr %1, ptr %7, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %1, ptr %8, align 8, !tbaa !80
+  store ptr %1, ptr %8, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
-  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %0, ptr %4, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %10, align 8, !tbaa !52
+  store i32 0, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i8 0, ptr %11, align 4, !tbaa !55
+  store i8 0, ptr %11, align 4, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %12
 
@@ -2307,7 +2307,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(pt
   %.05.i = phi i32 [ 0, %2 ], [ %32, %34 ]
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %34 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  %13 = load ptr, ptr %0, align 8, !tbaa !53
+  %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #24
@@ -2317,7 +2317,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(pt
 
 19:                                               ; preds = %12
   %20 = load i8, ptr %16, align 1, !tbaa !4
-  %21 = load ptr, ptr %0, align 8, !tbaa !53
+  %21 = load ptr, ptr %0, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1) #24
@@ -2348,34 +2348,34 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; pred
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %37 = load ptr, ptr %0, align 8, !tbaa !53
+  %37 = load ptr, ptr %0, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   %41 = zext i32 %32 to i64
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
-  store ptr %42, ptr %7, align 8, !tbaa !79
+  store ptr %42, ptr %7, align 8, !tbaa !76
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %41, i64 63)
   %43 = sub nsw i64 0, %.sroa.speculated.i.i.i
   %44 = getelementptr inbounds i8, ptr %42, i64 %43
-  store ptr %44, ptr %8, align 8, !tbaa !80
+  store ptr %44, ptr %8, align 8, !tbaa !77
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyArrayWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef nonnull %5)
-  %45 = load i8, ptr %11, align 4, !tbaa !55, !range !74, !noundef !75
+  %45 = load i8, ptr %11, align 4, !tbaa !52, !range !71, !noundef !72
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %_ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit
 
 47:                                               ; preds = %36
-  %48 = load ptr, ptr %6, align 8, !tbaa !78
-  %49 = load ptr, ptr %7, align 8, !tbaa !79
+  %48 = load ptr, ptr %6, align 8, !tbaa !75
+  %49 = load ptr, ptr %7, align 8, !tbaa !76
   %50 = icmp eq ptr %48, %49
   br label %_ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit
 
 _ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit: ; preds = %34, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i, %36, %47
   %.0.i = phi i1 [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i ], [ false, %36 ], [ %50, %47 ], [ false, %34 ]
-  %51 = load ptr, ptr %4, align 8, !tbaa !51
-  %52 = load i32, ptr %10, align 8, !tbaa !52
+  %51 = load ptr, ptr %4, align 8, !tbaa !48
+  %52 = load i32, ptr %10, align 8, !tbaa !49
   %53 = zext i32 %52 to i64
-  %54 = load ptr, ptr %51, align 8, !tbaa !53
+  %54 = load ptr, ptr %51, align 8, !tbaa !50
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %53) #24
@@ -2457,22 +2457,22 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
   %46 = zext i32 %.0.i to i64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %46, i8 noundef signext 0) #24
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !81
+  %48 = load i64, ptr %47, align 8, !tbaa !78
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %50
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr %2, align 8, !tbaa !84
+  %51 = load ptr, ptr %2, align 8, !tbaa !81
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %45, %50
   %52 = phi ptr [ %51, %50 ], [ null, %45 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !50
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %53, align 8, !tbaa !59
+  store ptr %0, ptr %53, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %1, ptr %54, align 8, !tbaa !62
+  store i64 %1, ptr %54, align 8, !tbaa !59
   %55 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %4, ptr noundef %52)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
@@ -2488,11 +2488,11 @@ define dso_local noundef zeroext i1 @_ZN6snappy23IsValidCompressedBufferEPKcm(pt
   %3 = alloca %"class.snappy::ByteArraySource", align 8
   %4 = alloca %"class.snappy::SnappyDecompressionValidator", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %3, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !59
+  store ptr %0, ptr %5, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %1, ptr %6, align 8, !tbaa !62
+  store i64 %1, ptr %6, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %7 = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef nonnull %3, ptr noundef %4)
@@ -2507,12 +2507,12 @@ define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28
   %3 = alloca i64, align 8
   %4 = alloca %"class.snappy::SnappyDecompressor", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
-  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %0, ptr %4, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %6, align 8, !tbaa !52
+  store i32 0, ptr %6, align 8, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i8 0, ptr %7, align 4, !tbaa !55
+  store i8 0, ptr %7, align 4, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %8
 
@@ -2520,7 +2520,7 @@ define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28
   %.05 = phi i32 [ 0, %2 ], [ %28, %30 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %30 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  %9 = load ptr, ptr %0, align 8, !tbaa !53
+  %9 = load ptr, ptr %0, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #24
@@ -2530,7 +2530,7 @@ define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28
 
 15:                                               ; preds = %8
   %16 = load i8, ptr %12, align 1, !tbaa !4
-  %17 = load ptr, ptr %0, align 8, !tbaa !53
+  %17 = load ptr, ptr %0, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1) #24
@@ -2561,30 +2561,30 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8: ; preds 
 
 32:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %33 = load ptr, ptr %0, align 8, !tbaa !53
+  %33 = load ptr, ptr %0, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   %37 = zext i32 %28 to i64
-  store i64 %37, ptr %1, align 8, !tbaa !85
+  store i64 %37, ptr %1, align 8, !tbaa !82
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_28SnappyDecompressionValidatorEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef nonnull %1)
-  %38 = load i8, ptr %7, align 4, !tbaa !55, !range !74, !noundef !75
+  %38 = load i8, ptr %7, align 4, !tbaa !52, !range !71, !noundef !72
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 40:                                               ; preds = %32
-  %41 = load i64, ptr %1, align 8, !tbaa !85
+  %41 = load i64, ptr %1, align 8, !tbaa !82
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !87
+  %43 = load i64, ptr %42, align 8, !tbaa !84
   %44 = icmp eq i64 %41, %43
   br label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 _ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %30, %40, %32, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8
   %.0 = phi i1 [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8 ], [ false, %32 ], [ %44, %40 ], [ false, %30 ]
-  %45 = load ptr, ptr %4, align 8, !tbaa !51
-  %46 = load i32, ptr %6, align 8, !tbaa !52
+  %45 = load ptr, ptr %4, align 8, !tbaa !48
+  %46 = load i32, ptr %6, align 8, !tbaa !49
   %47 = zext i32 %46 to i64
-  %48 = load ptr, ptr %45, align 8, !tbaa !53
+  %48 = load ptr, ptr %45, align 8, !tbaa !50
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %47) #24
@@ -2607,17 +2607,17 @@ define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %0, i64 noun
   %5 = alloca %"class.snappy::ByteArraySource", align 8
   %6 = alloca %"class.snappy::UncheckedByteArraySink", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %7, align 8, !tbaa !59
+  store ptr %0, ptr %7, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %1, ptr %8, align 8, !tbaa !62
+  store i64 %1, ptr %8, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %9, align 8, !tbaa !88
+  store ptr %2, ptr %9, align 8, !tbaa !85
   %10 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 1)
-  %11 = load ptr, ptr %9, align 8, !tbaa !88
+  %11 = load ptr, ptr %9, align 8, !tbaa !85
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %2 to i64
   %14 = sub i64 %12, %13
@@ -2634,17 +2634,17 @@ define dso_local void @_ZN6snappy11RawCompressEPKcmPcPmNS_18CompressionOptionsE(
   %6 = alloca %"class.snappy::ByteArraySource", align 8
   %7 = alloca %"class.snappy::UncheckedByteArraySink", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %6, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %0, ptr %8, align 8, !tbaa !59
+  store ptr %0, ptr %8, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %1, ptr %9, align 8, !tbaa !62
+  store i64 %1, ptr %9, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %7, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %7, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %2, ptr %10, align 8, !tbaa !88
+  store ptr %2, ptr %10, align 8, !tbaa !85
   %11 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 %4)
-  %12 = load ptr, ptr %10, align 8, !tbaa !88
+  %12 = load ptr, ptr %10, align 8, !tbaa !85
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %2 to i64
   %15 = sub i64 %13, %14
@@ -2664,22 +2664,22 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr nounde
   %5 = alloca %"class.snappy::SnappyIOVecReader", align 8
   %6 = alloca %"class.snappy::UncheckedByteArraySink", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %5, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %7, align 8, !tbaa !91
+  store ptr %0, ptr %7, align 8, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.not.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i, label %.critedge.i.i, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %0, align 8, !tbaa !67
-  store ptr %10, ptr %8, align 8, !tbaa !93
+  %10 = load ptr, ptr %0, align 8, !tbaa !64
+  store ptr %10, ptr %8, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !69
-  store i64 %13, ptr %11, align 8, !tbaa !94
+  %13 = load i64, ptr %12, align 8, !tbaa !66
+  store i64 %13, ptr %11, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %1, ptr %14, align 8, !tbaa !95
+  store i64 %1, ptr %14, align 8, !tbaa !92
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %.preheader.i.i, label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
 
@@ -2687,15 +2687,15 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr nounde
   %16 = phi ptr [ %17, %.preheader.i.i ], [ %0, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !69
+  %19 = load i64, ptr %18, align 8, !tbaa !66
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.preheader.i.i, label %.loopexit.i.i.i, !llvm.loop !96
+  br i1 %20, label %.preheader.i.i, label %.loopexit.i.i.i, !llvm.loop !93
 
 .loopexit.i.i.i:                                  ; preds = %.preheader.i.i
-  %21 = load ptr, ptr %17, align 8, !tbaa !67
-  store ptr %17, ptr %7, align 8, !tbaa !91
-  store ptr %21, ptr %8, align 8, !tbaa !93
-  store i64 %19, ptr %11, align 8, !tbaa !94
+  %21 = load ptr, ptr %17, align 8, !tbaa !64
+  store ptr %17, ptr %7, align 8, !tbaa !88
+  store ptr %21, ptr %8, align 8, !tbaa !90
+  store i64 %19, ptr %11, align 8, !tbaa !91
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
 
 .critedge.i.i:                                    ; preds = %4
@@ -2704,11 +2704,11 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr nounde
 
 _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; preds = %9, %.loopexit.i.i.i, %.critedge.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %22, align 8, !tbaa !88
+  store ptr %2, ptr %22, align 8, !tbaa !85
   %23 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 1)
-  %24 = load ptr, ptr %22, align 8, !tbaa !88
+  %24 = load ptr, ptr %22, align 8, !tbaa !85
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %2 to i64
   %27 = sub i64 %25, %26
@@ -2725,22 +2725,22 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18Compre
   %6 = alloca %"class.snappy::SnappyIOVecReader", align 8
   %7 = alloca %"class.snappy::UncheckedByteArraySink", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %6, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %0, ptr %8, align 8, !tbaa !91
+  store ptr %0, ptr %8, align 8, !tbaa !88
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %.critedge.i, label %10
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %0, align 8, !tbaa !67
-  store ptr %11, ptr %9, align 8, !tbaa !93
+  %11 = load ptr, ptr %0, align 8, !tbaa !64
+  store ptr %11, ptr %9, align 8, !tbaa !90
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !69
-  store i64 %14, ptr %12, align 8, !tbaa !94
+  %14 = load i64, ptr %13, align 8, !tbaa !66
+  store i64 %14, ptr %12, align 8, !tbaa !91
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %1, ptr %15, align 8, !tbaa !95
+  store i64 %1, ptr %15, align 8, !tbaa !92
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %.preheader.i, label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
@@ -2748,15 +2748,15 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18Compre
   %17 = phi ptr [ %18, %.preheader.i ], [ %0, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !69
+  %20 = load i64, ptr %19, align 8, !tbaa !66
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.preheader.i, label %.loopexit.i.i, !llvm.loop !96
+  br i1 %21, label %.preheader.i, label %.loopexit.i.i, !llvm.loop !93
 
 .loopexit.i.i:                                    ; preds = %.preheader.i
-  %22 = load ptr, ptr %18, align 8, !tbaa !67
-  store ptr %18, ptr %8, align 8, !tbaa !91
-  store ptr %22, ptr %9, align 8, !tbaa !93
-  store i64 %20, ptr %12, align 8, !tbaa !94
+  %22 = load ptr, ptr %18, align 8, !tbaa !64
+  store ptr %18, ptr %8, align 8, !tbaa !88
+  store ptr %22, ptr %9, align 8, !tbaa !90
+  store i64 %20, ptr %12, align 8, !tbaa !91
   br label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
 .critedge.i:                                      ; preds = %5
@@ -2765,11 +2765,11 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18Compre
 
 _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %10, %.loopexit.i.i, %.critedge.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %7, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %7, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %2, ptr %23, align 8, !tbaa !88
+  store ptr %2, ptr %23, align 8, !tbaa !85
   %24 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 %4)
-  %25 = load ptr, ptr %23, align 8, !tbaa !88
+  %25 = load ptr, ptr %23, align 8, !tbaa !85
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %2 to i64
   %28 = sub i64 %26, %27
@@ -2799,28 +2799,28 @@ define dso_local noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_string
   %9 = add i64 %7, %8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %9, i8 noundef signext 0) #24
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !81
+  %11 = load i64, ptr %10, align 8, !tbaa !78
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %2, align 8, !tbaa !84
+  %14 = load ptr, ptr %2, align 8, !tbaa !81
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %4, %13
   %15 = phi ptr [ %14, %13 ], [ null, %4 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %16, align 8, !tbaa !59
+  store ptr %0, ptr %16, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %1, ptr %17, align 8, !tbaa !62
+  store i64 %1, ptr %17, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %15, ptr %18, align 8, !tbaa !88
+  store ptr %15, ptr %18, align 8, !tbaa !85
   %19 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 %3)
-  %20 = load ptr, ptr %18, align 8, !tbaa !88
+  %20 = load ptr, ptr %18, align 8, !tbaa !85
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %15 to i64
   %23 = sub i64 %21, %22
@@ -2828,7 +2828,7 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  %24 = load i64, ptr %10, align 8, !tbaa !81
+  %24 = load i64, ptr %10, align 8, !tbaa !78
   %25 = icmp ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
 
@@ -2837,8 +2837,8 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  store i64 %23, ptr %10, align 8, !tbaa !81
-  %27 = load ptr, ptr %2, align 8, !tbaa !84
+  store i64 %23, ptr %10, align 8, !tbaa !78
+  %27 = load ptr, ptr %2, align 8, !tbaa !81
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %23
   store i8 0, ptr %28, align 1, !tbaa !4
   ret i64 %23
@@ -2864,33 +2864,33 @@ define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1
   %9 = add i64 %7, %8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %9, i8 noundef signext 0) #24
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !81
+  %11 = load i64, ptr %10, align 8, !tbaa !78
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = load ptr, ptr %2, align 8, !tbaa !84
+  %14 = load ptr, ptr %2, align 8, !tbaa !81
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %._crit_edge, %13
   %15 = phi ptr [ %14, %13 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %5, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %5, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %16, align 8, !tbaa !91
+  store ptr %0, ptr %16, align 8, !tbaa !88
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.not.i.i = icmp eq i64 %.0.lcssa, 0
   br i1 %.not.i.i, label %.critedge.i.i, label %18
 
 18:                                               ; preds = %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !67
-  store ptr %19, ptr %17, align 8, !tbaa !93
+  %19 = load ptr, ptr %0, align 8, !tbaa !64
+  store ptr %19, ptr %17, align 8, !tbaa !90
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !69
-  store i64 %22, ptr %20, align 8, !tbaa !94
+  %22 = load i64, ptr %21, align 8, !tbaa !66
+  store i64 %22, ptr %20, align 8, !tbaa !91
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %.0.lcssa, ptr %23, align 8, !tbaa !95
+  store i64 %.0.lcssa, ptr %23, align 8, !tbaa !92
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %.preheader.i.i, label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
 
@@ -2898,15 +2898,15 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %25 = phi ptr [ %26, %.preheader.i.i ], [ %0, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !69
+  %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.preheader.i.i, label %.loopexit.i.i.i, !llvm.loop !96
+  br i1 %29, label %.preheader.i.i, label %.loopexit.i.i.i, !llvm.loop !93
 
 .loopexit.i.i.i:                                  ; preds = %.preheader.i.i
-  %30 = load ptr, ptr %26, align 8, !tbaa !67
-  store ptr %26, ptr %16, align 8, !tbaa !91
-  store ptr %30, ptr %17, align 8, !tbaa !93
-  store i64 %28, ptr %20, align 8, !tbaa !94
+  %30 = load ptr, ptr %26, align 8, !tbaa !64
+  store ptr %26, ptr %16, align 8, !tbaa !88
+  store ptr %30, ptr %17, align 8, !tbaa !90
+  store i64 %28, ptr %20, align 8, !tbaa !91
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
 
 .critedge.i.i:                                    ; preds = %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2915,11 +2915,11 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; preds = %18, %.loopexit.i.i.i, %.critedge.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %15, ptr %31, align 8, !tbaa !88
+  store ptr %15, ptr %31, align 8, !tbaa !85
   %32 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 %3)
-  %33 = load ptr, ptr %31, align 8, !tbaa !88
+  %33 = load ptr, ptr %31, align 8, !tbaa !85
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %15 to i64
   %36 = sub i64 %34, %35
@@ -2927,7 +2927,7 @@ _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
   call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #24
-  %37 = load i64, ptr %10, align 8, !tbaa !81
+  %37 = load i64, ptr %10, align 8, !tbaa !78
   %38 = icmp ugt i64 %36, %37
   br i1 %38, label %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
 
@@ -2936,8 +2936,8 @@ _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; p
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
-  store i64 %36, ptr %10, align 8, !tbaa !81
-  %40 = load ptr, ptr %2, align 8, !tbaa !84
+  store i64 %36, ptr %10, align 8, !tbaa !78
+  %40 = load ptr, ptr %2, align 8, !tbaa !81
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %36
   store i8 0, ptr %41, align 1, !tbaa !4
   ret i64 %36
@@ -2946,11 +2946,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %.016 = phi i64 [ %44, %.lr.ph ], [ 0, %4 ]
   %.01215 = phi i64 [ %45, %.lr.ph ], [ 0, %4 ]
   %42 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01215, i32 1
-  %43 = load i64, ptr %42, align 8, !tbaa !69
+  %43 = load i64, ptr %42, align 8, !tbaa !66
   %44 = add i64 %43, %.016
   %45 = add nuw i64 %.01215, 1
   %exitcond.not = icmp eq i64 %45, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2960,7 +2960,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
   %3 = alloca %"class.snappy::SnappyDecompressor", align 8
   %4 = alloca %"class.snappy::SnappyScatteredWriter", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
-  store ptr %1, ptr %4, align 8, !tbaa !98
+  store ptr %1, ptr %4, align 8, !tbaa !95
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2968,12 +2968,12 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #24
-  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %0, ptr %3, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %10, align 8, !tbaa !52
+  store i32 0, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i8 0, ptr %11, align 4, !tbaa !55
+  store i8 0, ptr %11, align 4, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %12
 
@@ -2981,7 +2981,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
   %.05.i = phi i32 [ 0, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ], [ %32, %34 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ], [ %indvars.iv.next.i.i, %34 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %13 = load ptr, ptr %0, align 8, !tbaa !53
+  %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #24
@@ -2991,7 +2991,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
 
 19:                                               ; preds = %12
   %20 = load i8, ptr %16, align 1, !tbaa !4
-  %21 = load ptr, ptr %0, align 8, !tbaa !53
+  %21 = load ptr, ptr %0, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1) #24
@@ -3022,38 +3022,38 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; pred
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
-  %37 = load ptr, ptr %0, align 8, !tbaa !53
+  %37 = load ptr, ptr %0, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   %41 = zext i32 %32 to i64
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 %41, ptr %42, align 8, !tbaa !106
+  store i64 %41, ptr %42, align 8, !tbaa !103
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull %4)
-  %43 = load ptr, ptr %5, align 8, !tbaa !114
-  %44 = load ptr, ptr %6, align 8, !tbaa !114
+  %43 = load ptr, ptr %5, align 8, !tbaa !111
+  %44 = load ptr, ptr %6, align 8, !tbaa !111
   %.not13.i.i.i.i = icmp eq ptr %43, %44
   br i1 %.not13.i.i.i.i, label %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %46 = load ptr, ptr %45, align 8, !tbaa !115
+  %46 = load ptr, ptr %45, align 8, !tbaa !112
   %47 = ptrtoint ptr %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !116
+  %49 = load ptr, ptr %48, align 8, !tbaa !113
   %50 = ptrtoint ptr %49 to i64
-  %51 = load i64, ptr %8, align 8, !tbaa !117
+  %51 = load i64, ptr %8, align 8, !tbaa !114
   %52 = add i64 %51, %50
   br label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  %.pre.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !118
-  %.pre16.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !119
+  %.pre.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !115
+  %.pre16.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !116
   %53 = icmp eq ptr %.pre16.i.i.i.i, %.pre.i.i.i.i
   br i1 %53, label %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit, label %54
 
 54:                                               ; preds = %._crit_edge.i.i.i.i
-  store ptr %.pre.i.i.i.i, ptr %6, align 8, !tbaa !119
+  store ptr %.pre.i.i.i.i, ptr %6, align 8, !tbaa !116
   br label %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -3064,32 +3064,32 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; pred
   %57 = sub i64 %52, %56
   %58 = load i64, ptr %55, align 8, !tbaa !7
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %57, i64 %58)
-  %59 = load ptr, ptr %4, align 8, !tbaa !98
-  %60 = load ptr, ptr %.sroa.010.014.i.i.i.i, align 8, !tbaa !120
-  %61 = load ptr, ptr %59, align 8, !tbaa !53
+  %59 = load ptr, ptr %4, align 8, !tbaa !95
+  %60 = load ptr, ptr %.sroa.010.014.i.i.i.i, align 8, !tbaa !117
+  %61 = load ptr, ptr %59, align 8, !tbaa !50
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef %60, i64 noundef %.sroa.speculated.i.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #24
   %64 = add i64 %.sroa.speculated.i.i.i.i, %.015.i.i.i.i
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %65, %44
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !122
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit: ; preds = %34, %36, %._crit_edge.i.i.i.i, %54, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i
-  %66 = load ptr, ptr %3, align 8, !tbaa !51
-  %67 = load i32, ptr %10, align 8, !tbaa !52
+  %66 = load ptr, ptr %3, align 8, !tbaa !48
+  %67 = load i32, ptr %10, align 8, !tbaa !49
   %68 = zext i32 %67 to i64
-  %69 = load ptr, ptr %66, align 8, !tbaa !53
+  %69 = load ptr, ptr %66, align 8, !tbaa !50
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %68) #24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #24
-  %72 = load i64, ptr %8, align 8, !tbaa !117
+  %72 = load i64, ptr %8, align 8, !tbaa !114
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %74 = load ptr, ptr %73, align 8, !tbaa !116
+  %74 = load ptr, ptr %73, align 8, !tbaa !113
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %76 = load ptr, ptr %75, align 8, !tbaa !115
-  %77 = load ptr, ptr %7, align 8, !tbaa !123
+  %76 = load ptr, ptr %75, align 8, !tbaa !112
+  %77 = load ptr, ptr %7, align 8, !tbaa !119
   %.not.i.i.i.i2 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i2, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i, label %78
 
@@ -3098,7 +3098,7 @@ _ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAlloca
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i:               ; preds = %78, %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit
-  %79 = load ptr, ptr %5, align 8, !tbaa !118
+  %79 = load ptr, ptr %5, align 8, !tbaa !115
   %.not.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i.i, label %_ZN6snappy19SnappySinkAllocatorD2Ev.exit, label %80
 
@@ -3124,12 +3124,12 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4Sin
   %7 = alloca %"class.snappy::SnappyArrayWriter", align 8
   %8 = alloca %"class.snappy::SnappyScatteredWriter", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
-  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %0, ptr %4, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 0, ptr %10, align 8, !tbaa !52
+  store i32 0, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i8 0, ptr %11, align 4, !tbaa !55
+  store i8 0, ptr %11, align 4, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %12
 
@@ -3137,7 +3137,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4Sin
   %.018 = phi i32 [ 0, %2 ], [ %32, %34 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %34 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  %13 = load ptr, ptr %0, align 8, !tbaa !53
+  %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #24
@@ -3147,7 +3147,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4Sin
 
 19:                                               ; preds = %12
   %20 = load i8, ptr %16, align 1, !tbaa !4
-  %21 = load ptr, ptr %0, align 8, !tbaa !53
+  %21 = load ptr, ptr %0, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1) #24
@@ -3181,11 +3181,11 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22: ; preds
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   %37 = zext i32 %32 to i64
-  %38 = load ptr, ptr %1, align 8, !tbaa !53
+  %38 = load ptr, ptr %1, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 1, i64 noundef %37, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %6) #24
-  %42 = load ptr, ptr %0, align 8, !tbaa !53
+  %42 = load ptr, ptr %0, align 8, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -3195,29 +3195,29 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22: ; preds
 
 _ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
-  store ptr %41, ptr %7, align 8, !tbaa !76
+  store ptr %41, ptr %7, align 8, !tbaa !73
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %41, ptr %47, align 8, !tbaa !78
+  store ptr %41, ptr %47, align 8, !tbaa !75
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 %37
-  store ptr %50, ptr %48, align 8, !tbaa !79
+  store ptr %50, ptr %48, align 8, !tbaa !76
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %37, i64 63)
   %51 = sub nsw i64 0, %.sroa.speculated.i.i
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  store ptr %52, ptr %49, align 8, !tbaa !80
+  store ptr %52, ptr %49, align 8, !tbaa !77
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyArrayWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef nonnull %7)
-  %53 = load i8, ptr %11, align 4, !tbaa !55, !range !74, !noundef !75
+  %53 = load i8, ptr %11, align 4, !tbaa !52, !range !71, !noundef !72
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %47, align 8
   %56 = load ptr, ptr %48, align 8
   %57 = icmp eq ptr %55, %56
   %58 = select i1 %54, i1 %57, i1 false
-  %59 = load ptr, ptr %7, align 8, !tbaa !76
+  %59 = load ptr, ptr %7, align 8, !tbaa !73
   %60 = ptrtoint ptr %55 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
-  %63 = load ptr, ptr %1, align 8, !tbaa !53
+  %63 = load ptr, ptr %1, align 8, !tbaa !50
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %41, i64 noundef %62) #24
@@ -3226,7 +3226,7 @@ _ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDec
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; preds = %36
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #24
-  store ptr %1, ptr %8, align 8, !tbaa !98
+  store ptr %1, ptr %8, align 8, !tbaa !95
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -3234,32 +3234,32 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %69, i8 0, i64 40, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, i8 0, i64 48, i1 false)
-  store i64 %37, ptr %70, align 8, !tbaa !106
+  store i64 %37, ptr %70, align 8, !tbaa !103
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef nonnull %8)
-  %71 = load ptr, ptr %66, align 8, !tbaa !114
-  %72 = load ptr, ptr %67, align 8, !tbaa !114
+  %71 = load ptr, ptr %66, align 8, !tbaa !111
+  %72 = load ptr, ptr %67, align 8, !tbaa !111
   %.not13.i.i.i = icmp eq ptr %71, %72
   br i1 %.not13.i.i.i, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %74 = load ptr, ptr %73, align 8, !tbaa !115
+  %74 = load ptr, ptr %73, align 8, !tbaa !112
   %75 = ptrtoint ptr %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %77 = load ptr, ptr %76, align 8, !tbaa !116
+  %77 = load ptr, ptr %76, align 8, !tbaa !113
   %78 = ptrtoint ptr %77 to i64
-  %79 = load i64, ptr %69, align 8, !tbaa !117
+  %79 = load i64, ptr %69, align 8, !tbaa !114
   %80 = add i64 %79, %78
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %.pre.i.i.i = load ptr, ptr %66, align 8, !tbaa !118
-  %.pre16.i.i.i = load ptr, ptr %67, align 8, !tbaa !119
+  %.pre.i.i.i = load ptr, ptr %66, align 8, !tbaa !115
+  %.pre16.i.i.i = load ptr, ptr %67, align 8, !tbaa !116
   %81 = icmp eq ptr %.pre16.i.i.i, %.pre.i.i.i
   br i1 %81, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i, label %82
 
 82:                                               ; preds = %._crit_edge.i.i.i
-  store ptr %.pre.i.i.i, ptr %67, align 8, !tbaa !119
+  store ptr %.pre.i.i.i, ptr %67, align 8, !tbaa !116
   br label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
@@ -3270,46 +3270,46 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; pre
   %85 = sub i64 %80, %84
   %86 = load i64, ptr %83, align 8, !tbaa !7
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %85, i64 %86)
-  %87 = load ptr, ptr %8, align 8, !tbaa !98
-  %88 = load ptr, ptr %.sroa.010.014.i.i.i, align 8, !tbaa !120
-  %89 = load ptr, ptr %87, align 8, !tbaa !53
+  %87 = load ptr, ptr %8, align 8, !tbaa !95
+  %88 = load ptr, ptr %.sroa.010.014.i.i.i, align 8, !tbaa !117
+  %89 = load ptr, ptr %87, align 8, !tbaa !50
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %88, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #24
   %92 = add i64 %.sroa.speculated.i.i.i, %.015.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %93, %72
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !122
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i: ; preds = %82, %._crit_edge.i.i.i, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit
   %94 = phi ptr [ %.pre.i.i.i, %82 ], [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %71, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ]
-  %95 = load i8, ptr %11, align 4, !tbaa !55, !range !74, !noundef !75
+  %95 = load i8, ptr %11, align 4, !tbaa !52, !range !71, !noundef !72
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %_ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 97:                                               ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i
-  %98 = load i64, ptr %69, align 8, !tbaa !117
+  %98 = load i64, ptr %69, align 8, !tbaa !114
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %100 = load ptr, ptr %99, align 8, !tbaa !116
+  %100 = load ptr, ptr %99, align 8, !tbaa !113
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %102 = load ptr, ptr %101, align 8, !tbaa !115
+  %102 = load ptr, ptr %101, align 8, !tbaa !112
   %103 = ptrtoint ptr %100 to i64
   %104 = ptrtoint ptr %102 to i64
   %105 = add i64 %98, %103
   %106 = sub i64 %105, %104
-  %107 = load i64, ptr %70, align 8, !tbaa !106
+  %107 = load i64, ptr %70, align 8, !tbaa !103
   %108 = icmp eq i64 %106, %107
   br label %_ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 _ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i, %97
   %109 = phi i1 [ false, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i ], [ %108, %97 ]
-  %110 = load ptr, ptr %68, align 8, !tbaa !123
+  %110 = load ptr, ptr %68, align 8, !tbaa !119
   %.not.i.i.i.i = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i, label %111
 
 111:                                              ; preds = %_ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_18SnappyDecompressorEPT_jj.exit
   call void @_ZdlPv(ptr noundef nonnull %110) #22
-  %.pre = load ptr, ptr %66, align 8, !tbaa !118
+  %.pre = load ptr, ptr %66, align 8, !tbaa !115
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
 
 _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i:               ; preds = %111, %_ZN6snappyL25InternalUncompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_18SnappyDecompressorEPT_jj.exit
@@ -3329,8 +3329,8 @@ _ZN6snappy19SnappySinkAllocatorD2Ev.exit:         ; preds = %113, %_ZNSt6vectorI
   %.1 = phi i1 [ %58, %_ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit ], [ %109, %_ZN6snappy19SnappySinkAllocatorD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #24
-  %.pre29 = load ptr, ptr %4, align 8, !tbaa !51
-  %.pre30 = load i32, ptr %10, align 8, !tbaa !52
+  %.pre29 = load ptr, ptr %4, align 8, !tbaa !48
+  %.pre30 = load i32, ptr %10, align 8, !tbaa !49
   %115 = zext i32 %.pre30 to i64
   br label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread
 
@@ -3338,7 +3338,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread: ; preds =
   %116 = phi i64 [ %115, %114 ], [ 0, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22 ], [ 0, %34 ]
   %117 = phi ptr [ %.pre29, %114 ], [ %0, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22 ], [ %0, %34 ]
   %.0 = phi i1 [ %.1, %114 ], [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22 ], [ false, %34 ]
-  %118 = load ptr, ptr %117, align 8, !tbaa !53
+  %118 = load ptr, ptr %117, align 8, !tbaa !50
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(8) %117, i64 noundef %116) #24
@@ -3367,24 +3367,24 @@ define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReaderD0Ev(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK6snappy17SnappyIOVecReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !95
+  %3 = load i64, ptr %2, align 8, !tbaa !92
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6snappy17SnappyIOVecReader4PeekEPm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !94
+  %4 = load i64, ptr %3, align 8, !tbaa !91
   store i64 %4, ptr %1, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !94
+  %4 = load i64, ptr %3, align 8, !tbaa !91
   %5 = icmp uge i64 %1, %4
   %6 = icmp ne i64 %1, 0
   %7 = and i1 %6, %5
@@ -3393,13 +3393,13 @@ define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr nou
   br i1 %7, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %2
-  %.pre = load i64, ptr %8, align 8, !tbaa !95
-  %.pre26 = load ptr, ptr %9, align 8, !tbaa !93
+  %.pre = load i64, ptr %8, align 8, !tbaa !92
+  %.pre26 = load ptr, ptr %9, align 8, !tbaa !90
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted = load i64, ptr %8, align 8, !tbaa !95
+  %.promoted = load i64, ptr %8, align 8, !tbaa !92
   %.promoted15 = load ptr, ptr %10, align 8
   br label %11
 
@@ -3420,20 +3420,20 @@ define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr nou
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  store i64 %19, ptr %8, align 8, !tbaa !95
+  store i64 %19, ptr %8, align 8, !tbaa !92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %23, ptr %10, align 8, !tbaa !91
+  store ptr %23, ptr %10, align 8, !tbaa !88
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !69
+  %25 = load i64, ptr %24, align 8, !tbaa !66
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %15, label %.loopexit.i, !llvm.loop !96
+  br i1 %26, label %15, label %.loopexit.i, !llvm.loop !93
 
 .loopexit.i:                                      ; preds = %22
-  %27 = load ptr, ptr %23, align 8, !tbaa !67
+  %27 = load ptr, ptr %23, align 8, !tbaa !64
   br label %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit
 
 _ZN6snappy17SnappyIOVecReader7AdvanceEv.exit:     ; preds = %21, %.loopexit.i
@@ -3443,7 +3443,7 @@ _ZN6snappy17SnappyIOVecReader7AdvanceEv.exit:     ; preds = %21, %.loopexit.i
   %31 = icmp uge i64 %14, %29
   %32 = icmp ne i64 %14, 0
   %33 = and i1 %32, %31
-  br i1 %33, label %11, label %._crit_edge, !llvm.loop !124
+  br i1 %33, label %11, label %._crit_edge, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit, %.._crit_edge_crit_edge
   %34 = phi ptr [ %.pre26, %.._crit_edge_crit_edge ], [ %28, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
@@ -3451,13 +3451,13 @@ _ZN6snappy17SnappyIOVecReader7AdvanceEv.exit:     ; preds = %21, %.loopexit.i
   %.0.lcssa = phi i64 [ %1, %.._crit_edge_crit_edge ], [ %14, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %.lcssa8 = phi i64 [ %4, %.._crit_edge_crit_edge ], [ %29, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %36 = sub i64 %.lcssa8, %.0.lcssa
-  store i64 %36, ptr %3, align 8, !tbaa !94
+  store i64 %36, ptr %3, align 8, !tbaa !91
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = sub i64 %35, %.0.lcssa
-  store i64 %38, ptr %37, align 8, !tbaa !95
+  store i64 %38, ptr %37, align 8, !tbaa !92
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 %.0.lcssa
-  store ptr %40, ptr %39, align 8, !tbaa !93
+  store ptr %40, ptr %39, align 8, !tbaa !90
   ret void
 }
 
@@ -3472,9 +3472,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
   %11 = sub i64 %9, %10
@@ -3482,9 +3482,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %12 = sub i64 0, %.sroa.speculated.i
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !125
+  store ptr %13, ptr %14, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store ptr null, ptr %3, align 8, !tbaa !126
+  store ptr null, ptr %3, align 8, !tbaa !122
   %.not = icmp ult ptr %6, %13
   br i1 %.not, label %25, label %15, !prof !20
 
@@ -3493,15 +3493,15 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   br i1 %16, label %17, label %.thread150, !prof !20
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %5, align 8, !tbaa !46
-  %19 = load ptr, ptr %7, align 8, !tbaa !50
+  %18 = load ptr, ptr %5, align 8, !tbaa !43
+  %19 = load ptr, ptr %7, align 8, !tbaa !47
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %18 to i64
   %22 = sub i64 %20, %21
   %.sroa.speculated.i126 = tail call i64 @llvm.smin.i64(i64 %22, i64 4)
   %23 = sub i64 0, %.sroa.speculated.i126
   %24 = getelementptr inbounds i8, ptr %19, i64 %23
-  store ptr %24, ptr %14, align 8, !tbaa !125
+  store ptr %24, ptr %14, align 8, !tbaa !121
   br label %25
 
 25:                                               ; preds = %17, %2
@@ -3514,272 +3514,272 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %34
+  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
 
-34:                                               ; preds = %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit, %25
-  %.0137 = phi i32 [ %27, %25 ], [ %.4140, %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit ]
-  %.1 = phi ptr [ %.0, %25 ], [ %.11, %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %36 = and i32 %.0137, 255
-  %37 = and i32 %.0137, 3
-  switch i32 %37, label %138 [
-    i32 0, label %38
-    i32 3, label %132
-  ], !prof !127
+_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit: ; preds = %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge, %25
+  %.0137 = phi i32 [ %27, %25 ], [ %.0137.be, %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge ]
+  %.1 = phi ptr [ %.0, %25 ], [ %.1.be, %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge ]
+  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %35 = and i32 %.0137, 255
+  %36 = and i32 %.0137, 3
+  switch i32 %36, label %137 [
+    i32 0, label %37
+    i32 3, label %131
+  ], !prof !123
 
-38:                                               ; preds = %34
-  %39 = lshr exact i32 %36, 2
-  %40 = add nuw nsw i32 %39, 1
-  %41 = zext nneg i32 %40 to i64
-  %42 = load ptr, ptr %7, align 8, !tbaa !50
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %35 to i64
-  %45 = sub i64 %43, %44
-  %46 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter13TryFastAppendEPKcmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %35, i64 noundef %45, i64 noundef %41, ptr noundef nonnull %3)
-  br i1 %46, label %47, label %51
+37:                                               ; preds = %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
+  %38 = lshr exact i32 %35, 2
+  %39 = add nuw nsw i32 %38, 1
+  %40 = zext nneg i32 %39 to i64
+  %41 = load ptr, ptr %7, align 8, !tbaa !47
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %34 to i64
+  %44 = sub i64 %42, %43
+  %45 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter13TryFastAppendEPKcmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %34, i64 noundef %44, i64 noundef %40, ptr noundef nonnull %3)
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %38
-  %48 = getelementptr inbounds nuw i8, ptr %35, i64 %41
-  %49 = load i8, ptr %48, align 1, !tbaa !4
-  %50 = zext i8 %49 to i32
-  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit, !llvm.loop !128
+46:                                               ; preds = %37
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %40
+  %48 = load i8, ptr %47, align 1, !tbaa !4
+  %49 = zext i8 %48 to i32
+  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-51:                                               ; preds = %38
-  %52 = icmp samesign ugt i32 %36, 236
-  br i1 %52, label %53, label %64, !prof !23
+_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128, %168, %151
+  %.0137.be = phi i32 [ %170, %168 ], [ %154, %151 ], [ %49, %46 ], [ %130, %128 ]
+  %.1.be = phi ptr [ %.15, %168 ], [ %153, %151 ], [ %47, %46 ], [ %.10, %128 ]
+  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit, !llvm.loop !124
 
-53:                                               ; preds = %51
-  %54 = add nsw i64 %41, -60
-  %.0.copyload.i = load i32, ptr %35, align 1
-  %55 = shl nsw i64 %54, 3
-  %56 = and i64 %55, 4294967288
-  %57 = shl nuw i64 4294967295, %56
-  %58 = trunc i64 %57 to i32
-  %59 = xor i32 %58, -1
-  %60 = and i32 %.0.copyload.i, %59
-  %61 = add i32 %60, 1
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %35, i64 %54
-  %.pre174 = ptrtoint ptr %63 to i64
-  br label %64
+50:                                               ; preds = %37
+  %51 = icmp samesign ugt i32 %35, 236
+  br i1 %51, label %52, label %63, !prof !23
 
-64:                                               ; preds = %53, %51
-  %.pre-phi = phi i64 [ %.pre174, %53 ], [ %44, %51 ]
-  %.099 = phi i64 [ %62, %53 ], [ %41, %51 ]
-  %.7 = phi ptr [ %63, %53 ], [ %35, %51 ]
-  %65 = load ptr, ptr %7, align 8, !tbaa !50
-  %66 = ptrtoint ptr %65 to i64
-  %67 = sub i64 %66, %.pre-phi
-  %68 = icmp ult i64 %67, %.099
-  br i1 %68, label %.lr.ph, label %._crit_edge
+52:                                               ; preds = %50
+  %53 = add nsw i64 %40, -60
+  %.0.copyload.i = load i32, ptr %34, align 1
+  %54 = shl nsw i64 %53, 3
+  %55 = and i64 %54, 4294967288
+  %56 = shl nuw i64 4294967295, %55
+  %57 = trunc i64 %56 to i32
+  %58 = xor i32 %57, -1
+  %59 = and i32 %.0.copyload.i, %58
+  %60 = add i32 %59, 1
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %34, i64 %53
+  %.pre174 = ptrtoint ptr %62 to i64
+  br label %63
 
-.lr.ph:                                           ; preds = %64, %109
-  %.8167 = phi ptr [ %106, %109 ], [ %.7, %64 ]
-  %.1100166 = phi i64 [ %110, %109 ], [ %.099, %64 ]
-  %.0101165 = phi i64 [ %107, %109 ], [ %67, %64 ]
-  %69 = load i64, ptr %28, align 8, !tbaa !72
-  %70 = add i64 %69, %.0101165
-  %71 = load i64, ptr %29, align 8, !tbaa !73
-  %72 = icmp ugt i64 %70, %71
-  br i1 %72, label %.thread150, label %73
+63:                                               ; preds = %52, %50
+  %.pre-phi = phi i64 [ %.pre174, %52 ], [ %43, %50 ]
+  %.099 = phi i64 [ %61, %52 ], [ %40, %50 ]
+  %.7 = phi ptr [ %62, %52 ], [ %34, %50 ]
+  %64 = load ptr, ptr %7, align 8, !tbaa !47
+  %65 = ptrtoint ptr %64 to i64
+  %66 = sub i64 %65, %.pre-phi
+  %67 = icmp ult i64 %66, %.099
+  br i1 %67, label %.lr.ph, label %._crit_edge
 
-73:                                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %63, %108
+  %.8167 = phi ptr [ %105, %108 ], [ %.7, %63 ]
+  %.1100166 = phi i64 [ %109, %108 ], [ %.099, %63 ]
+  %.0101165 = phi i64 [ %106, %108 ], [ %66, %63 ]
+  %68 = load i64, ptr %28, align 8, !tbaa !69
+  %69 = add i64 %68, %.0101165
+  %70 = load i64, ptr %29, align 8, !tbaa !70
+  %71 = icmp ugt i64 %69, %70
+  br i1 %71, label %.thread150, label %72
+
+72:                                               ; preds = %.lr.ph
   %.not15.i.i = icmp eq i64 %.0101165, 0
   br i1 %.not15.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %73
-  %.pre.i.i = load i64, ptr %31, align 8, !tbaa !71
-  br label %74
+.lr.ph.i.i:                                       ; preds = %72
+  %.pre.i.i = load i64, ptr %31, align 8, !tbaa !68
+  br label %73
 
-74:                                               ; preds = %85, %.lr.ph.i.i
-  %75 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %91, %85 ]
-  %.0917.i.i = phi ptr [ %.8167, %.lr.ph.i.i ], [ %94, %85 ]
-  %storemerge16.i.i = phi i64 [ %.0101165, %.lr.ph.i.i ], [ %95, %85 ]
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %77, label %._crit_edge21.i.i
+73:                                               ; preds = %84, %.lr.ph.i.i
+  %74 = phi i64 [ %.pre.i.i, %.lr.ph.i.i ], [ %90, %84 ]
+  %.0917.i.i = phi ptr [ %.8167, %.lr.ph.i.i ], [ %93, %84 ]
+  %storemerge16.i.i = phi i64 [ %.0101165, %.lr.ph.i.i ], [ %94, %84 ]
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %._crit_edge21.i.i
 
-._crit_edge21.i.i:                                ; preds = %74
-  %.pre22.i.i = load ptr, ptr %32, align 8, !tbaa !70
-  br label %85
+._crit_edge21.i.i:                                ; preds = %73
+  %.pre22.i.i = load ptr, ptr %32, align 8, !tbaa !67
+  br label %84
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %30, align 8, !tbaa !66
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load ptr, ptr %1, align 8, !tbaa !63
-  %.not11.i.i = icmp ult ptr %79, %80
-  br i1 %.not11.i.i, label %81, label %.thread150
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %30, align 8, !tbaa !63
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %1, align 8, !tbaa !60
+  %.not11.i.i = icmp ult ptr %78, %79
+  br i1 %.not11.i.i, label %80, label %.thread150
 
-81:                                               ; preds = %77
-  store ptr %79, ptr %30, align 8, !tbaa !66
-  %82 = load ptr, ptr %79, align 8, !tbaa !67
-  store ptr %82, ptr %32, align 8, !tbaa !70
-  %83 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %84 = load i64, ptr %83, align 8, !tbaa !69
-  store i64 %84, ptr %31, align 8, !tbaa !71
-  br label %85
+80:                                               ; preds = %76
+  store ptr %78, ptr %30, align 8, !tbaa !63
+  %81 = load ptr, ptr %78, align 8, !tbaa !64
+  store ptr %81, ptr %32, align 8, !tbaa !67
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %83 = load i64, ptr %82, align 8, !tbaa !66
+  store i64 %83, ptr %31, align 8, !tbaa !68
+  br label %84
 
-85:                                               ; preds = %81, %._crit_edge21.i.i
-  %86 = phi ptr [ %82, %81 ], [ %.pre22.i.i, %._crit_edge21.i.i ]
-  %87 = phi i64 [ %84, %81 ], [ %75, %._crit_edge21.i.i ]
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %87, i64 %storemerge16.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %.0917.i.i, i64 %.sroa.speculated.i.i, i1 false)
-  %88 = load ptr, ptr %32, align 8, !tbaa !70
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.sroa.speculated.i.i
-  store ptr %89, ptr %32, align 8, !tbaa !70
-  %90 = load i64, ptr %31, align 8, !tbaa !71
-  %91 = sub i64 %90, %.sroa.speculated.i.i
-  store i64 %91, ptr %31, align 8, !tbaa !71
-  %92 = load i64, ptr %28, align 8, !tbaa !72
-  %93 = add i64 %92, %.sroa.speculated.i.i
-  store i64 %93, ptr %28, align 8, !tbaa !72
-  %94 = getelementptr inbounds nuw i8, ptr %.0917.i.i, i64 %.sroa.speculated.i.i
-  %95 = sub i64 %storemerge16.i.i, %.sroa.speculated.i.i
-  %.not.i.i = icmp eq i64 %95, 0
-  br i1 %.not.i.i, label %.loopexit, label %74, !llvm.loop !129
+84:                                               ; preds = %80, %._crit_edge21.i.i
+  %85 = phi ptr [ %81, %80 ], [ %.pre22.i.i, %._crit_edge21.i.i ]
+  %86 = phi i64 [ %83, %80 ], [ %74, %._crit_edge21.i.i ]
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %86, i64 %storemerge16.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr align 1 %.0917.i.i, i64 %.sroa.speculated.i.i, i1 false)
+  %87 = load ptr, ptr %32, align 8, !tbaa !67
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.sroa.speculated.i.i
+  store ptr %88, ptr %32, align 8, !tbaa !67
+  %89 = load i64, ptr %31, align 8, !tbaa !68
+  %90 = sub i64 %89, %.sroa.speculated.i.i
+  store i64 %90, ptr %31, align 8, !tbaa !68
+  %91 = load i64, ptr %28, align 8, !tbaa !69
+  %92 = add i64 %91, %.sroa.speculated.i.i
+  store i64 %92, ptr %28, align 8, !tbaa !69
+  %93 = getelementptr inbounds nuw i8, ptr %.0917.i.i, i64 %.sroa.speculated.i.i
+  %94 = sub i64 %storemerge16.i.i, %.sroa.speculated.i.i
+  %.not.i.i = icmp eq i64 %94, 0
+  br i1 %.not.i.i, label %.loopexit, label %73, !llvm.loop !125
 
-.loopexit:                                        ; preds = %85, %73
-  %96 = load ptr, ptr %0, align 8, !tbaa !51
-  %97 = load i32, ptr %33, align 8, !tbaa !52
-  %98 = zext i32 %97 to i64
-  %99 = load ptr, ptr %96, align 8, !tbaa !53
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %101 = load ptr, ptr %100, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(8) %96, i64 noundef %98) #24
+.loopexit:                                        ; preds = %84, %72
+  %95 = load ptr, ptr %0, align 8, !tbaa !48
+  %96 = load i32, ptr %33, align 8, !tbaa !49
+  %97 = zext i32 %96 to i64
+  %98 = load ptr, ptr %95, align 8, !tbaa !50
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  %100 = load ptr, ptr %99, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable(8) %95, i64 noundef %97) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  %102 = load ptr, ptr %0, align 8, !tbaa !51
-  %103 = load ptr, ptr %102, align 8, !tbaa !53
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = call noundef ptr %105(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %4) #24
-  %107 = load i64, ptr %4, align 8, !tbaa !7
-  %108 = trunc i64 %107 to i32
-  store i32 %108, ptr %33, align 8, !tbaa !52
-  %.not119 = icmp eq i64 %107, 0
-  br i1 %.not119, label %.thread, label %109
+  %101 = load ptr, ptr %0, align 8, !tbaa !48
+  %102 = load ptr, ptr %101, align 8, !tbaa !50
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull %4) #24
+  %106 = load i64, ptr %4, align 8, !tbaa !7
+  %107 = trunc i64 %106 to i32
+  store i32 %107, ptr %33, align 8, !tbaa !49
+  %.not119 = icmp eq i64 %106, 0
+  br i1 %.not119, label %.thread, label %108
 
 .thread:                                          ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   br label %.thread150
 
-109:                                              ; preds = %.loopexit
-  %110 = sub i64 %.1100166, %.0101165
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %107
-  store ptr %111, ptr %7, align 8, !tbaa !50
-  %.sroa.speculated.i128 = call i64 @llvm.smin.i64(i64 %107, i64 4)
-  %112 = sub i64 0, %.sroa.speculated.i128
-  %113 = getelementptr inbounds i8, ptr %111, i64 %112
-  store ptr %113, ptr %14, align 8, !tbaa !125
+108:                                              ; preds = %.loopexit
+  %109 = sub i64 %.1100166, %.0101165
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 %106
+  store ptr %110, ptr %7, align 8, !tbaa !47
+  %.sroa.speculated.i128 = call i64 @llvm.smin.i64(i64 %106, i64 4)
+  %111 = sub i64 0, %.sroa.speculated.i128
+  %112 = getelementptr inbounds i8, ptr %110, i64 %111
+  store ptr %112, ptr %14, align 8, !tbaa !121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %114 = icmp ult i64 %107, %110
-  br i1 %114, label %.lr.ph, label %._crit_edge, !llvm.loop !130
+  %113 = icmp ult i64 %106, %109
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !126
 
-._crit_edge:                                      ; preds = %109, %64
-  %.1100.lcssa = phi i64 [ %.099, %64 ], [ %110, %109 ]
-  %.8.lcssa = phi ptr [ %.7, %64 ], [ %106, %109 ]
-  %115 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %.8.lcssa, i64 noundef %.1100.lcssa, ptr noundef nonnull %3)
-  br i1 %115, label %116, label %.thread150
+._crit_edge:                                      ; preds = %108, %63
+  %.1100.lcssa = phi i64 [ %.099, %63 ], [ %109, %108 ]
+  %.8.lcssa = phi ptr [ %.7, %63 ], [ %105, %108 ]
+  %114 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %.8.lcssa, i64 noundef %.1100.lcssa, ptr noundef nonnull %3)
+  br i1 %114, label %115, label %.thread150
 
-116:                                              ; preds = %._crit_edge
-  %117 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 %.1100.lcssa
-  %118 = load ptr, ptr %14, align 8, !tbaa !125
-  %.not118 = icmp ult ptr %117, %118
-  br i1 %.not118, label %129, label %119, !prof !20
+115:                                              ; preds = %._crit_edge
+  %116 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 %.1100.lcssa
+  %117 = load ptr, ptr %14, align 8, !tbaa !121
+  %.not118 = icmp ult ptr %116, %117
+  br i1 %.not118, label %128, label %118, !prof !20
 
-119:                                              ; preds = %116
-  store ptr %117, ptr %5, align 8, !tbaa !46
-  %120 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
-  br i1 %120, label %121, label %.thread150, !prof !20
+118:                                              ; preds = %115
+  store ptr %116, ptr %5, align 8, !tbaa !43
+  %119 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
+  br i1 %119, label %120, label %.thread150, !prof !20
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr %5, align 8, !tbaa !46
-  %123 = load ptr, ptr %7, align 8, !tbaa !50
-  %124 = ptrtoint ptr %123 to i64
-  %125 = ptrtoint ptr %122 to i64
-  %126 = sub i64 %124, %125
-  %.sroa.speculated.i129 = call i64 @llvm.smin.i64(i64 %126, i64 4)
-  %127 = sub i64 0, %.sroa.speculated.i129
-  %128 = getelementptr inbounds i8, ptr %123, i64 %127
-  store ptr %128, ptr %14, align 8, !tbaa !125
-  br label %129
+120:                                              ; preds = %118
+  %121 = load ptr, ptr %5, align 8, !tbaa !43
+  %122 = load ptr, ptr %7, align 8, !tbaa !47
+  %123 = ptrtoint ptr %122 to i64
+  %124 = ptrtoint ptr %121 to i64
+  %125 = sub i64 %123, %124
+  %.sroa.speculated.i129 = call i64 @llvm.smin.i64(i64 %125, i64 4)
+  %126 = sub i64 0, %.sroa.speculated.i129
+  %127 = getelementptr inbounds i8, ptr %122, i64 %126
+  store ptr %127, ptr %14, align 8, !tbaa !121
+  br label %128
 
-129:                                              ; preds = %121, %116
-  %.10 = phi ptr [ %122, %121 ], [ %117, %116 ]
-  %130 = load i8, ptr %.10, align 1, !tbaa !4
-  %131 = zext i8 %130 to i32
-  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
+128:                                              ; preds = %120, %115
+  %.10 = phi ptr [ %121, %120 ], [ %116, %115 ]
+  %129 = load i8, ptr %.10, align 1, !tbaa !4
+  %130 = zext i8 %129 to i32
+  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-132:                                              ; preds = %34
-  %.0.copyload.i130 = load i32, ptr %35, align 1
-  %133 = zext i32 %.0.copyload.i130 to i64
-  %134 = lshr i32 %36, 2
-  %135 = add nuw nsw i32 %134, 1
-  %136 = zext nneg i32 %135 to i64
-  %137 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %133, i64 noundef %136, ptr noundef nonnull %3)
-  br i1 %137, label %157, label %.thread150
+131:                                              ; preds = %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
+  %.0.copyload.i130 = load i32, ptr %34, align 1
+  %132 = zext i32 %.0.copyload.i130 to i64
+  %133 = lshr i32 %35, 2
+  %134 = add nuw nsw i32 %133, 1
+  %135 = zext nneg i32 %134 to i64
+  %136 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %132, i64 noundef %135, ptr noundef nonnull %3)
+  br i1 %136, label %156, label %.thread150
 
-138:                                              ; preds = %34
-  %139 = zext nneg i32 %36 to i64
-  %140 = getelementptr inbounds nuw [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %139
-  %141 = load i16, ptr %140, align 2, !tbaa !21
-  %142 = sext i16 %141 to i64
-  %.0.copyload.i131 = load i32, ptr %35, align 1
-  %143 = shl nuw nsw i32 %37, 3
-  %144 = shl nsw i32 -1, %143
-  %145 = xor i32 %144, -1
-  %146 = and i32 %.0.copyload.i131, %145
-  %147 = and i16 %141, 255
-  %148 = zext nneg i16 %147 to i64
-  %149 = sub nsw i64 %148, %142
-  %.tr = trunc nsw i64 %149 to i32
-  %.narrow = add nsw i32 %146, %.tr
-  %150 = zext i32 %.narrow to i64
-  %151 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %150, i64 noundef %148, ptr noundef nonnull %3)
-  br i1 %151, label %152, label %.thread150
+137:                                              ; preds = %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
+  %138 = zext nneg i32 %35 to i64
+  %139 = getelementptr inbounds nuw [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %138
+  %140 = load i16, ptr %139, align 2, !tbaa !21
+  %141 = sext i16 %140 to i64
+  %.0.copyload.i131 = load i32, ptr %34, align 1
+  %142 = shl nuw nsw i32 %36, 3
+  %143 = shl nsw i32 -1, %142
+  %144 = xor i32 %143, -1
+  %145 = and i32 %.0.copyload.i131, %144
+  %146 = and i16 %140, 255
+  %147 = zext nneg i16 %146 to i64
+  %148 = sub nsw i64 %147, %141
+  %.tr = trunc nsw i64 %148 to i32
+  %.narrow = add nsw i32 %145, %.tr
+  %149 = zext i32 %.narrow to i64
+  %150 = call noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %149, i64 noundef %147, ptr noundef nonnull %3)
+  br i1 %150, label %151, label %.thread150
 
-152:                                              ; preds = %138
-  %153 = zext nneg i32 %37 to i64
-  %154 = getelementptr inbounds nuw i8, ptr %35, i64 %153
-  %155 = lshr i32 %.0.copyload.i131, %143
-  %156 = load ptr, ptr %14, align 8, !tbaa !125
-  %.not156 = icmp ult ptr %154, %156
-  br i1 %.not156, label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit, label %.thread175, !prof !131
+151:                                              ; preds = %137
+  %152 = zext nneg i32 %36 to i64
+  %153 = getelementptr inbounds nuw i8, ptr %34, i64 %152
+  %154 = lshr i32 %.0.copyload.i131, %142
+  %155 = load ptr, ptr %14, align 8, !tbaa !121
+  %.not156 = icmp ult ptr %153, %155
+  br i1 %.not156, label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge, label %.thread175, !prof !127
 
-157:                                              ; preds = %132
-  %158 = getelementptr inbounds nuw i8, ptr %.1, i64 5
-  %.pre = load ptr, ptr %14, align 8, !tbaa !125
-  %159 = icmp ult ptr %158, %.pre
-  br i1 %159, label %169, label %.thread175, !prof !132
+156:                                              ; preds = %131
+  %157 = getelementptr inbounds nuw i8, ptr %.1, i64 5
+  %.pre = load ptr, ptr %14, align 8, !tbaa !121
+  %158 = icmp ult ptr %157, %.pre
+  br i1 %158, label %168, label %.thread175, !prof !128
 
-.thread175:                                       ; preds = %152, %157
-  %.13178 = phi ptr [ %158, %157 ], [ %154, %152 ]
-  store ptr %.13178, ptr %5, align 8, !tbaa !46
-  %160 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
-  br i1 %160, label %161, label %.thread150, !prof !20
+.thread175:                                       ; preds = %151, %156
+  %.13178 = phi ptr [ %157, %156 ], [ %153, %151 ]
+  store ptr %.13178, ptr %5, align 8, !tbaa !43
+  %159 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
+  br i1 %159, label %160, label %.thread150, !prof !20
 
-161:                                              ; preds = %.thread175
-  %162 = load ptr, ptr %5, align 8, !tbaa !46
-  %163 = load ptr, ptr %7, align 8, !tbaa !50
-  %164 = ptrtoint ptr %163 to i64
-  %165 = ptrtoint ptr %162 to i64
-  %166 = sub i64 %164, %165
-  %.sroa.speculated.i132 = call i64 @llvm.smin.i64(i64 %166, i64 4)
-  %167 = sub i64 0, %.sroa.speculated.i132
-  %168 = getelementptr inbounds i8, ptr %163, i64 %167
-  store ptr %168, ptr %14, align 8, !tbaa !125
-  br label %169
+160:                                              ; preds = %.thread175
+  %161 = load ptr, ptr %5, align 8, !tbaa !43
+  %162 = load ptr, ptr %7, align 8, !tbaa !47
+  %163 = ptrtoint ptr %162 to i64
+  %164 = ptrtoint ptr %161 to i64
+  %165 = sub i64 %163, %164
+  %.sroa.speculated.i132 = call i64 @llvm.smin.i64(i64 %165, i64 4)
+  %166 = sub i64 0, %.sroa.speculated.i132
+  %167 = getelementptr inbounds i8, ptr %162, i64 %166
+  store ptr %167, ptr %14, align 8, !tbaa !121
+  br label %168
 
-169:                                              ; preds = %161, %157
-  %.15 = phi ptr [ %162, %161 ], [ %158, %157 ]
-  %170 = load i8, ptr %.15, align 1, !tbaa !4
-  %171 = zext i8 %170 to i32
-  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
+168:                                              ; preds = %160, %156
+  %.15 = phi ptr [ %161, %160 ], [ %157, %156 ]
+  %169 = load i8, ptr %.15, align 1, !tbaa !4
+  %170 = zext i8 %169 to i32
+  br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit: ; preds = %47, %129, %169, %152
-  %.4140 = phi i32 [ %171, %169 ], [ %155, %152 ], [ %50, %47 ], [ %131, %129 ]
-  %.11 = phi ptr [ %.15, %169 ], [ %154, %152 ], [ %48, %47 ], [ %.10, %129 ]
-  br label %34, !llvm.loop !133
-
-.thread150:                                       ; preds = %132, %119, %._crit_edge, %138, %.thread175, %.lr.ph, %77, %.thread, %15
+.thread150:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread175, %.lr.ph, %76, %.thread, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret void
 }
@@ -3828,7 +3828,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcE
   %25 = load i16, ptr %24, align 2, !tbaa !21
   %26 = sext i16 %25 to i64
   %27 = lshr i64 %.196194, 2
-  %28 = tail call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.196194) #23, !srcloc !134
+  %28 = tail call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.196194) #23, !srcloc !129
   %29 = extractvalue { i64, i8 } %28, 0
   %30 = extractvalue { i64, i8 } %28, 1
   %31 = icmp ult i8 %30, 2
@@ -3847,7 +3847,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcE
   %43 = getelementptr inbounds nuw i8, ptr %.2117190, i64 2
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %27
   %45 = select i1 %39, ptr %44, ptr %42
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %38) #24, !srcloc !135
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %38) #24, !srcloc !130
   %.0.copyload.i = load i32, ptr %.2117190, align 1
   %46 = and i64 %26, 255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
@@ -3909,7 +3909,7 @@ _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %56, %62
 75:                                               ; preds = %78
   %76 = load atomic i8, ptr @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes acquire, align 8
   %77 = icmp eq i8 %76, 0
-  br i1 %77, label %82, label %89, !prof !136
+  br i1 %77, label %82, label %89, !prof !131
 
 78:                                               ; preds = %.preheader, %78
   %indvars.iv213 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next214, %78 ]
@@ -3919,7 +3919,7 @@ _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %56, %62
   store i8 %80, ptr %81, align 1, !tbaa !4
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next214, 16
-  br i1 %exitcond216.not, label %75, label %78, !llvm.loop !137
+  br i1 %exitcond216.not, label %75, label %78, !llvm.loop !132
 
 82:                                               ; preds = %75
   %83 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #24
@@ -3940,7 +3940,7 @@ _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %56, %62
   store i8 %87, ptr %88, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, label %85, !llvm.loop !138
+  br i1 %exitcond.not.i, label %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, label %85, !llvm.loop !133
 
 _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit: ; preds = %85
   %.fca.0.load.i = load i64, ptr %6, align 8
@@ -3966,7 +3966,7 @@ _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %96, ptr noundef nonnull align 1 dereferenceable(16) %97, i64 16, i1 false)
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next221, 4
-  br i1 %exitcond223.not, label %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133, label %94, !llvm.loop !139
+  br i1 %exitcond223.not, label %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133, label %94, !llvm.loop !134
 
 98:                                               ; preds = %.preheader170, %98
   %indvars.iv = phi i64 [ 0, %.preheader170 ], [ %indvars.iv.next, %98 ]
@@ -3976,7 +3976,7 @@ _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %100, ptr noundef nonnull align 1 dereferenceable(16) %101, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133, label %98, !llvm.loop !140
+  br i1 %exitcond.not, label %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133, label %98, !llvm.loop !135
 
 _ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133: ; preds = %98, %94
   %102 = add i64 %46, %57
@@ -4023,14 +4023,14 @@ _ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %1
   %.5142 = phi i64 [ 0, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %46, %109 ], [ %46, %112 ], [ %46, %115 ], [ %46, %120 ]
   %.5106141 = phi ptr [ %8, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %.2117190, %109 ], [ %.2117190, %112 ], [ %117, %115 ], [ %117, %120 ]
   %.5113140 = phi i64 [ %102, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %104, %109 ], [ %104, %112 ], [ %104, %115 ], [ %104, %120 ]
-  br i1 %23, label %22, label %123, !llvm.loop !141
+  br i1 %23, label %22, label %123, !llvm.loop !136
 
 123:                                              ; preds = %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
   %124 = icmp ult ptr %45, %16
   %125 = add i64 %.5142, %.5113140
   %126 = icmp slt i64 %125, %9
   %or.cond169 = select i1 %124, i1 %126, i1 false
-  br i1 %or.cond169, label %20, label %.thread, !llvm.loop !142
+  br i1 %or.cond169, label %20, label %.thread, !llvm.loop !137
 
 .thread.thread:                                   ; preds = %71, %_ZN6snappy9MemCopy64EPcPKvm.exit
   %127 = getelementptr inbounds i8, ptr %.2117190, i64 -1
@@ -4073,9 +4073,9 @@ _ZN6snappy9MemCopy64EPcPKvm.exit61:               ; preds = %129, %132
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter13TryFastAppendEPKcmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #15 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i64, ptr %6, align 8, !tbaa !73
+  %7 = load i64, ptr %6, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !72
+  %9 = load i64, ptr %8, align 8, !tbaa !69
   %10 = sub i64 %7, %9
   %11 = icmp ult i64 %3, 17
   %12 = icmp ugt i64 %2, 20
@@ -4086,23 +4086,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !71
+  %16 = load i64, ptr %15, align 8, !tbaa !68
   %17 = icmp ugt i64 %16, 15
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !70
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %20, ptr noundef nonnull readonly align 1 dereferenceable(16) %1, i64 16, i1 false)
-  %21 = load ptr, ptr %19, align 8, !tbaa !70
+  %21 = load ptr, ptr %19, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %3
-  store ptr %22, ptr %19, align 8, !tbaa !70
-  %23 = load i64, ptr %15, align 8, !tbaa !71
+  store ptr %22, ptr %19, align 8, !tbaa !67
+  %23 = load i64, ptr %15, align 8, !tbaa !68
   %24 = sub i64 %23, %3
-  store i64 %24, ptr %15, align 8, !tbaa !71
-  %25 = load i64, ptr %8, align 8, !tbaa !72
+  store i64 %24, ptr %15, align 8, !tbaa !68
+  %25 = load i64, ptr %8, align 8, !tbaa !69
   %26 = add i64 %25, %3
-  store i64 %26, ptr %8, align 8, !tbaa !72
+  store i64 %26, ptr %8, align 8, !tbaa !69
   br label %27
 
 27:                                               ; preds = %5, %14, %18
@@ -4113,10 +4113,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i64, ptr %5, align 8, !tbaa !72
+  %6 = load i64, ptr %5, align 8, !tbaa !69
   %7 = add i64 %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load i64, ptr %8, align 8, !tbaa !73
+  %9 = load i64, ptr %8, align 8, !tbaa !70
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %11
 
@@ -4128,7 +4128,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6
 .lr.ph.i:                                         ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre.i = load i64, ptr %13, align 8, !tbaa !71
+  %.pre.i = load i64, ptr %13, align 8, !tbaa !68
   br label %15
 
 15:                                               ; preds = %26, %.lr.ph.i
@@ -4139,23 +4139,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6
   br i1 %17, label %18, label %._crit_edge21.i
 
 ._crit_edge21.i:                                  ; preds = %15
-  %.pre22.i = load ptr, ptr %14, align 8, !tbaa !70
+  %.pre22.i = load ptr, ptr %14, align 8, !tbaa !67
   br label %26
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr %12, align 8, !tbaa !66
+  %19 = load ptr, ptr %12, align 8, !tbaa !63
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %0, align 8, !tbaa !63
+  %21 = load ptr, ptr %0, align 8, !tbaa !60
   %.not11.i = icmp ult ptr %20, %21
   br i1 %.not11.i, label %22, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
 
 22:                                               ; preds = %18
-  store ptr %20, ptr %12, align 8, !tbaa !66
-  %23 = load ptr, ptr %20, align 8, !tbaa !67
-  store ptr %23, ptr %14, align 8, !tbaa !70
+  store ptr %20, ptr %12, align 8, !tbaa !63
+  %23 = load ptr, ptr %20, align 8, !tbaa !64
+  store ptr %23, ptr %14, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !69
-  store i64 %25, ptr %13, align 8, !tbaa !71
+  %25 = load i64, ptr %24, align 8, !tbaa !66
+  store i64 %25, ptr %13, align 8, !tbaa !68
   br label %26
 
 26:                                               ; preds = %22, %._crit_edge21.i
@@ -4163,19 +4163,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6
   %28 = phi i64 [ %25, %22 ], [ %16, %._crit_edge21.i ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %28, i64 %storemerge16.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %.0917.i, i64 %.sroa.speculated.i, i1 false)
-  %29 = load ptr, ptr %14, align 8, !tbaa !70
+  %29 = load ptr, ptr %14, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.speculated.i
-  store ptr %30, ptr %14, align 8, !tbaa !70
-  %31 = load i64, ptr %13, align 8, !tbaa !71
+  store ptr %30, ptr %14, align 8, !tbaa !67
+  %31 = load i64, ptr %13, align 8, !tbaa !68
   %32 = sub i64 %31, %.sroa.speculated.i
-  store i64 %32, ptr %13, align 8, !tbaa !71
-  %33 = load i64, ptr %5, align 8, !tbaa !72
+  store i64 %32, ptr %13, align 8, !tbaa !68
+  %33 = load i64, ptr %5, align 8, !tbaa !69
   %34 = add i64 %33, %.sroa.speculated.i
-  store i64 %34, ptr %5, align 8, !tbaa !72
+  store i64 %34, ptr %5, align 8, !tbaa !69
   %35 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 %.sroa.speculated.i
   %36 = sub i64 %storemerge16.i, %.sroa.speculated.i
   %.not.i = icmp eq i64 %36, 0
-  br i1 %.not.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %15, !llvm.loop !129
+  br i1 %.not.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %15, !llvm.loop !125
 
 _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %26, %18, %11, %4
   %.0 = phi i1 [ false, %4 ], [ true, %11 ], [ false, %18 ], [ true, %26 ]
@@ -4186,24 +4186,24 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %26, %18, %11,
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat align 2 {
   %5 = add i64 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !72
+  %7 = load i64, ptr %6, align 8, !tbaa !69
   %.not = icmp ult i64 %5, %7
   br i1 %.not, label %8, label %.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i64, ptr %9, align 8, !tbaa !73
+  %10 = load i64, ptr %9, align 8, !tbaa !70
   %11 = sub i64 %10, %7
   %12 = icmp ugt i64 %2, %11
   br i1 %12, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !69
+  %16 = load i64, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !71
+  %18 = load i64, ptr %17, align 8, !tbaa !68
   %19 = sub i64 %16, %18
   br label %.lr.ph
 
@@ -4222,9 +4222,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
   %23 = sub nuw i64 %.04482, %.03384
   %24 = getelementptr inbounds i8, ptr %.03983, i64 -16
   %25 = getelementptr inbounds i8, ptr %.03983, i64 -8
-  %26 = load i64, ptr %25, align 8, !tbaa !69
+  %26 = load i64, ptr %25, align 8, !tbaa !66
   %.not50 = icmp eq i64 %23, 0
-  br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !143
+  br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !138
 
 .loopexit:                                        ; preds = %22, %20
   %.03979 = phi ptr [ %.03983, %20 ], [ %24, %22 ]
@@ -4251,14 +4251,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
   %.pre.i = phi i64 [ %.pre.i135, %.lr.ph87.split ], [ %129, %126 ]
   %.promoted86112127 = phi i64 [ %.promoted86112, %.lr.ph87.split ], [ %129, %126 ]
   %29 = getelementptr inbounds nuw i8, ptr %.140.ph107, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !69
+  %30 = load i64, ptr %29, align 8, !tbaa !66
   %31 = sub i64 %30, %.235.ph109
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.0.ph106, i64 %31)
   %.not15.i = icmp eq i64 %30, %.235.ph109
   br i1 %.not15.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split.us
-  %32 = load ptr, ptr %.140.ph107, align 8, !tbaa !67
+  %32 = load ptr, ptr %.140.ph107, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.235.ph109
   br label %34
 
@@ -4270,23 +4270,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
   br i1 %35, label %36, label %._crit_edge21.i
 
 ._crit_edge21.i:                                  ; preds = %34
-  %.pre22.i = load ptr, ptr %27, align 8, !tbaa !70
+  %.pre22.i = load ptr, ptr %27, align 8, !tbaa !67
   br label %44
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %13, align 8, !tbaa !66
+  %37 = load ptr, ptr %13, align 8, !tbaa !63
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %0, align 8, !tbaa !63
+  %39 = load ptr, ptr %0, align 8, !tbaa !60
   %.not11.i = icmp ult ptr %38, %39
   br i1 %.not11.i, label %40, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
 
 40:                                               ; preds = %36
-  store ptr %38, ptr %13, align 8, !tbaa !66
-  %41 = load ptr, ptr %38, align 8, !tbaa !67
-  store ptr %41, ptr %27, align 8, !tbaa !70
+  store ptr %38, ptr %13, align 8, !tbaa !63
+  %41 = load ptr, ptr %38, align 8, !tbaa !64
+  store ptr %41, ptr %27, align 8, !tbaa !67
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %43 = load i64, ptr %42, align 8, !tbaa !69
-  store i64 %43, ptr %17, align 8, !tbaa !71
+  %43 = load i64, ptr %42, align 8, !tbaa !66
+  store i64 %43, ptr %17, align 8, !tbaa !68
   br label %44
 
 44:                                               ; preds = %40, %._crit_edge21.i
@@ -4294,19 +4294,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
   %46 = phi i64 [ %43, %40 ], [ %.pre.i132, %._crit_edge21.i ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %storemerge16.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %.0917.i, i64 %.sroa.speculated.i, i1 false)
-  %47 = load ptr, ptr %27, align 8, !tbaa !70
+  %47 = load ptr, ptr %27, align 8, !tbaa !67
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.speculated.i
-  store ptr %48, ptr %27, align 8, !tbaa !70
-  %49 = load i64, ptr %17, align 8, !tbaa !71
+  store ptr %48, ptr %27, align 8, !tbaa !67
+  %49 = load i64, ptr %17, align 8, !tbaa !68
   %50 = sub i64 %49, %.sroa.speculated.i
-  store i64 %50, ptr %17, align 8, !tbaa !71
-  %51 = load i64, ptr %6, align 8, !tbaa !72
+  store i64 %50, ptr %17, align 8, !tbaa !68
+  %51 = load i64, ptr %6, align 8, !tbaa !69
   %52 = add i64 %51, %.sroa.speculated.i
-  store i64 %52, ptr %6, align 8, !tbaa !72
+  store i64 %52, ptr %6, align 8, !tbaa !69
   %53 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 %.sroa.speculated.i
   %54 = sub i64 %storemerge16.i, %.sroa.speculated.i
   %.not.i = icmp eq i64 %54, 0
-  br i1 %.not.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %34, !llvm.loop !129
+  br i1 %.not.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %34, !llvm.loop !125
 
 _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.split.us
   %.pre.i133 = phi i64 [ %.pre.i, %.split.us ], [ 0, %36 ], [ %50, %44 ]
@@ -4330,9 +4330,9 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
 
 .split93.us:                                      ; preds = %.lr.ph102
   %spec.select57 = tail call i64 @llvm.umin.i64(i64 %55, i64 %.0.ph106)
-  %60 = load ptr, ptr %.140.ph107, align 8, !tbaa !67
+  %60 = load ptr, ptr %.140.ph107, align 8, !tbaa !64
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.235.ph109
-  %62 = load ptr, ptr %27, align 8, !tbaa !70
+  %62 = load ptr, ptr %27, align 8, !tbaa !67
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %spec.select57
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %55
   %65 = ptrtoint ptr %62 to i64
@@ -4353,7 +4353,7 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
   %70 = getelementptr inbounds nuw i8, ptr %.15785.i, i64 %.05586.i
   %71 = shl nuw nsw i64 %.05586.i, 1
   %72 = icmp ult i64 %.05586.i, 4
-  br i1 %72, label %.lr.ph.i59, label %._crit_edge.i, !llvm.loop !144
+  br i1 %72, label %.lr.ph.i59, label %._crit_edge.i, !llvm.loop !139
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i59
   %.not67.i = icmp ult ptr %70, %63
@@ -4367,7 +4367,7 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
   %75 = getelementptr inbounds nuw i8, ptr %.057.i.i, i64 1
   store i8 %74, ptr %.057.i.i, align 1, !tbaa !4
   %exitcond.not.i.i = icmp eq ptr %75, %63
-  br i1 %exitcond.not.i.i, label %.thread69, label %.lr.ph.i.i, !llvm.loop !145
+  br i1 %exitcond.not.i.i, label %.thread69, label %.lr.ph.i.i, !llvm.loop !140
 
 76:                                               ; preds = %._crit_edge.i, %.split93.us
   %.056.i = phi ptr [ %70, %._crit_edge.i ], [ %62, %.split93.us ]
@@ -4449,7 +4449,7 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
   %106 = getelementptr inbounds nuw i8, ptr %.287.i, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %.05388.i, i64 16
   %108 = icmp ult ptr %106, %102
-  br i1 %108, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !147
+  br i1 %108, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !142
 
 109:                                              ; preds = %._crit_edge91.i
   %110 = getelementptr inbounds i8, ptr %64, i64 -8
@@ -4477,28 +4477,28 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
   %118 = getelementptr inbounds nuw i8, ptr %.057.i81.i, i64 1
   store i8 %117, ptr %.057.i81.i, align 1, !tbaa !4
   %exitcond.not.i82.i = icmp eq ptr %118, %63
-  br i1 %exitcond.not.i82.i, label %.thread69, label %.lr.ph.i79.i, !llvm.loop !145
+  br i1 %exitcond.not.i82.i, label %.thread69, label %.lr.ph.i79.i, !llvm.loop !140
 
 .thread69:                                        ; preds = %.lr.ph.i79.i, %.lr.ph.i.i, %114, %._crit_edge91.i, %97, %94, %._crit_edge.i
-  %119 = load ptr, ptr %27, align 8, !tbaa !70
+  %119 = load ptr, ptr %27, align 8, !tbaa !67
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 %spec.select57
-  store ptr %120, ptr %27, align 8, !tbaa !70
-  %121 = load i64, ptr %17, align 8, !tbaa !71
+  store ptr %120, ptr %27, align 8, !tbaa !67
+  %121 = load i64, ptr %17, align 8, !tbaa !68
   %122 = sub i64 %121, %spec.select57
-  store i64 %122, ptr %17, align 8, !tbaa !71
+  store i64 %122, ptr %17, align 8, !tbaa !68
   %123 = add i64 %spec.select57, %.235.ph109
-  %124 = load i64, ptr %6, align 8, !tbaa !72
+  %124 = load i64, ptr %6, align 8, !tbaa !69
   %125 = add i64 %124, %spec.select57
-  store i64 %125, ptr %6, align 8, !tbaa !72
+  store i64 %125, ptr %6, align 8, !tbaa !69
   br label %.outer
 
 126:                                              ; preds = %58
-  store ptr %59, ptr %13, align 8, !tbaa !66
-  %127 = load ptr, ptr %59, align 8, !tbaa !67
-  store ptr %127, ptr %27, align 8, !tbaa !70
+  store ptr %59, ptr %13, align 8, !tbaa !63
+  %127 = load ptr, ptr %59, align 8, !tbaa !64
+  store ptr %127, ptr %27, align 8, !tbaa !67
   %128 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %129 = load i64, ptr %128, align 8, !tbaa !69
-  store i64 %129, ptr %17, align 8, !tbaa !71
+  %129 = load i64, ptr %128, align 8, !tbaa !66
+  store i64 %129, ptr %17, align 8, !tbaa !68
   %.not53 = icmp eq ptr %.140.ph107, %59
   br i1 %.not53, label %.lr.ph102, label %.split.us
 
@@ -4510,7 +4510,7 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
   %.437 = phi i64 [ %spec.select56, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %123, %.thread69 ]
   %.1 = sub i64 %.0.ph106, %.sroa.speculated.pn
   %.not52 = icmp eq i64 %.1, 0
-  br i1 %.not52, label %.thread, label %.lr.ph87.split, !llvm.loop !148
+  br i1 %.not52, label %.thread, label %.lr.ph87.split, !llvm.loop !143
 
 .thread:                                          ; preds = %.outer, %58, %.loopexit, %8, %4
   %.032 = phi i1 [ false, %4 ], [ false, %8 ], [ true, %.loopexit ], [ false, %58 ], [ true, %.outer ]
@@ -4547,7 +4547,7 @@ define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPK
   %11 = getelementptr inbounds nuw i8, ptr %.15785, i64 %.05586
   %12 = shl nuw nsw i64 %.05586, 1
   %13 = icmp ult i64 %.05586, 4
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !144
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not67 = icmp ult ptr %11, %2
@@ -4565,7 +4565,7 @@ define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPK
   %18 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
   store i8 %17, ptr %.057.i, align 1, !tbaa !4
   %exitcond.not.i = icmp eq ptr %18, %2
-  br i1 %exitcond.not.i, label %_ZN6snappy12_GLOBAL__N_119IncrementalCopySlowEPKcPcS3_.exit, label %.lr.ph.i, !llvm.loop !145
+  br i1 %exitcond.not.i, label %_ZN6snappy12_GLOBAL__N_119IncrementalCopySlowEPKcPcS3_.exit, label %.lr.ph.i, !llvm.loop !140
 
 19:                                               ; preds = %._crit_edge, %4
   %.056 = phi ptr [ %11, %._crit_edge ], [ %1, %4 ]
@@ -4647,7 +4647,7 @@ define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPK
   %49 = getelementptr inbounds nuw i8, ptr %.287, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %.05388, i64 16
   %51 = icmp ult ptr %49, %45
-  br i1 %51, label %.lr.ph90, label %._crit_edge91, !llvm.loop !147
+  br i1 %51, label %.lr.ph90, label %._crit_edge91, !llvm.loop !142
 
 52:                                               ; preds = %._crit_edge91
   %53 = getelementptr inbounds i8, ptr %3, i64 -8
@@ -4675,7 +4675,7 @@ define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPK
   %61 = getelementptr inbounds nuw i8, ptr %.057.i81, i64 1
   store i8 %60, ptr %.057.i81, align 1, !tbaa !4
   %exitcond.not.i82 = icmp eq ptr %61, %2
-  br i1 %exitcond.not.i82, label %_ZN6snappy12_GLOBAL__N_119IncrementalCopySlowEPKcPcS3_.exit, label %.lr.ph.i79, !llvm.loop !145
+  br i1 %exitcond.not.i82, label %_ZN6snappy12_GLOBAL__N_119IncrementalCopySlowEPKcPcS3_.exit, label %.lr.ph.i79, !llvm.loop !140
 
 _ZN6snappy12_GLOBAL__N_119IncrementalCopySlowEPKcPcS3_.exit: ; preds = %.lr.ph.i79, %.lr.ph.i, %57, %14, %40, %37, %._crit_edge91, %._crit_edge
   ret ptr %2
@@ -4686,9 +4686,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
   %11 = sub i64 %9, %10
@@ -4696,9 +4696,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %12 = sub i64 0, %.sroa.speculated.i
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !125
+  store ptr %13, ptr %14, align 8, !tbaa !121
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !87
+  %16 = load i64, ptr %15, align 8, !tbaa !84
   %.not = icmp ult ptr %6, %13
   br i1 %.not, label %27, label %17, !prof !20
 
@@ -4707,15 +4707,15 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   br i1 %18, label %19, label %.thread196, !prof !20
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %5, align 8, !tbaa !46
-  %21 = load ptr, ptr %7, align 8, !tbaa !50
+  %20 = load ptr, ptr %5, align 8, !tbaa !43
+  %21 = load ptr, ptr %7, align 8, !tbaa !47
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %20 to i64
   %24 = sub i64 %22, %23
   %.sroa.speculated.i126 = tail call i64 @llvm.smin.i64(i64 %24, i64 4)
   %25 = sub i64 0, %.sroa.speculated.i126
   %26 = getelementptr inbounds i8, ptr %21, i64 %25
-  store ptr %26, ptr %14, align 8, !tbaa !125
+  store ptr %26, ptr %14, align 8, !tbaa !121
   br label %27
 
 27:                                               ; preds = %19, %2
@@ -4726,7 +4726,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 .loopexit:                                        ; preds = %.loopexit.backedge, %27
   %.1148 = phi i64 [ %16, %27 ], [ %.1148.be, %.loopexit.backedge ]
   %.1 = phi ptr [ %.0, %27 ], [ %.1.be, %.loopexit.backedge ]
-  %29 = load ptr, ptr %7, align 8, !tbaa !50
+  %29 = load ptr, ptr %7, align 8, !tbaa !47
   %30 = add i64 %.1148, -1
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %.1 to i64
@@ -4762,7 +4762,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %46 = load i16, ptr %45, align 2, !tbaa !21
   %47 = sext i16 %46 to i64
   %48 = lshr i64 %.192174.i, 2
-  %49 = call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.192174.i) #23, !srcloc !134
+  %49 = call { i64, i8 } asm "and $$3, ${0:k}\0A\09", "=r,={@ccz},0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.192174.i) #23, !srcloc !129
   %50 = extractvalue { i64, i8 } %49, 0
   %51 = extractvalue { i64, i8 } %49, 1
   %52 = icmp ult i8 %51, 2
@@ -4781,7 +4781,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %64 = getelementptr inbounds nuw i8, ptr %.2113171.i, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %48
   %66 = select i1 %60, ptr %65, ptr %63
-  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %59) #24, !srcloc !135
+  call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %59) #24, !srcloc !130
   %.0.copyload.i.i = load i32, ptr %.2113171.i, align 1
   %67 = and i64 %47, 255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
@@ -4809,7 +4809,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %81 = icmp slt i64 %80, 0
   %.not.i = icmp eq i64 %67, %73
   %or.cond158.i = select i1 %81, i1 true, i1 %.not.i
-  br i1 %or.cond158.i, label %.thread134.thread.i, label %.thread126.i, !prof !149
+  br i1 %or.cond158.i, label %.thread134.thread.i, label %.thread126.i, !prof !144
 
 .thread126.i:                                     ; preds = %78
   %82 = add i64 %67, %77
@@ -4829,14 +4829,14 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 89:                                               ; preds = %88, %83, %.thread126.i
   %.5133.i = phi i64 [ 0, %.thread126.i ], [ %67, %83 ], [ %67, %88 ]
   %.5109132.i = phi i64 [ %82, %.thread126.i ], [ %84, %83 ], [ %84, %88 ]
-  br i1 %44, label %43, label %90, !llvm.loop !150
+  br i1 %44, label %43, label %90, !llvm.loop !145
 
 90:                                               ; preds = %89
   %91 = icmp ult ptr %66, %37
   %92 = add i64 %.5109132.i, %.5133.i
   %93 = icmp slt i64 %92, 9223372036854775680
   %or.cond157.i = select i1 %91, i1 %93, i1 false
-  br i1 %or.cond157.i, label %41, label %.thread134.i, !llvm.loop !151
+  br i1 %or.cond157.i, label %41, label %.thread134.i, !llvm.loop !146
 
 .thread134.thread.i:                              ; preds = %78
   %94 = getelementptr inbounds i8, ptr %.2113171.i, i64 -1
@@ -4852,25 +4852,25 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   %.0111151.i = phi ptr [ %.1, %.loopexit ], [ %94, %.thread134.thread.i ], [ %95, %.thread134.i ]
   %.7.i = phi i64 [ %30, %.loopexit ], [ %77, %.thread134.thread.i ], [ %.pre-phi.i, %.thread134.i ]
   %96 = add i64 %.7.i, 1
-  %97 = load ptr, ptr %14, align 8, !tbaa !125
+  %97 = load ptr, ptr %14, align 8, !tbaa !121
   %.not116 = icmp ult ptr %.0111151.i, %97
   br i1 %.not116, label %108, label %98, !prof !20
 
 98:                                               ; preds = %_ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit
-  store ptr %.0111151.i, ptr %5, align 8, !tbaa !46
+  store ptr %.0111151.i, ptr %5, align 8, !tbaa !43
   %99 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %99, label %100, label %.thread196, !prof !20
 
 100:                                              ; preds = %98
-  %101 = load ptr, ptr %5, align 8, !tbaa !46
-  %102 = load ptr, ptr %7, align 8, !tbaa !50
+  %101 = load ptr, ptr %5, align 8, !tbaa !43
+  %102 = load ptr, ptr %7, align 8, !tbaa !47
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %101 to i64
   %105 = sub i64 %103, %104
   %.sroa.speculated.i127 = call i64 @llvm.smin.i64(i64 %105, i64 4)
   %106 = sub i64 0, %.sroa.speculated.i127
   %107 = getelementptr inbounds i8, ptr %102, i64 %106
-  store ptr %107, ptr %14, align 8, !tbaa !125
+  store ptr %107, ptr %14, align 8, !tbaa !121
   br label %108
 
 108:                                              ; preds = %100, %_ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit
@@ -4883,13 +4883,13 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   switch i32 %113, label %175 [
     i32 0, label %114
     i32 3, label %166
-  ], !prof !127
+  ], !prof !123
 
 114:                                              ; preds = %108
   %115 = lshr exact i32 %111, 2
   %116 = add nuw nsw i32 %115, 1
   %117 = zext nneg i32 %116 to i64
-  %118 = load ptr, ptr %7, align 8, !tbaa !50
+  %118 = load ptr, ptr %7, align 8, !tbaa !47
   %119 = ptrtoint ptr %118 to i64
   %120 = icmp ugt i8 %110, -20
   br i1 %120, label %121, label %132, !prof !23
@@ -4921,27 +4921,27 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   %.0101239 = phi i64 [ %150, %152 ], [ %134, %132 ]
   %.4150238 = phi i64 [ %136, %152 ], [ %96, %132 ]
   %136 = add i64 %.0101239, %.4150238
-  %137 = load i64, ptr %1, align 8, !tbaa !85
+  %137 = load i64, ptr %1, align 8, !tbaa !82
   %.not205 = icmp ugt i64 %136, %137
   br i1 %.not205, label %.thread196, label %138
 
 138:                                              ; preds = %.lr.ph
-  %139 = load ptr, ptr %0, align 8, !tbaa !51
-  %140 = load i32, ptr %28, align 8, !tbaa !52
+  %139 = load ptr, ptr %0, align 8, !tbaa !48
+  %140 = load i32, ptr %28, align 8, !tbaa !49
   %141 = zext i32 %140 to i64
-  %142 = load ptr, ptr %139, align 8, !tbaa !53
+  %142 = load ptr, ptr %139, align 8, !tbaa !50
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(8) %139, i64 noundef %141) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  %145 = load ptr, ptr %0, align 8, !tbaa !51
-  %146 = load ptr, ptr %145, align 8, !tbaa !53
+  %145 = load ptr, ptr %0, align 8, !tbaa !48
+  %146 = load ptr, ptr %145, align 8, !tbaa !50
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8
   %149 = call noundef ptr %148(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull %4) #24
   %150 = load i64, ptr %4, align 8, !tbaa !7
   %151 = trunc i64 %150 to i32
-  store i32 %151, ptr %28, align 8, !tbaa !52
+  store i32 %151, ptr %28, align 8, !tbaa !49
   %.not119 = icmp eq i64 %150, 0
   br i1 %.not119, label %.thread176, label %152
 
@@ -4952,14 +4952,14 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
 152:                                              ; preds = %138
   %153 = sub i64 %.1100240, %.0101239
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 %150
-  store ptr %154, ptr %7, align 8, !tbaa !50
+  store ptr %154, ptr %7, align 8, !tbaa !47
   %.sroa.speculated.i128 = call i64 @llvm.smin.i64(i64 %150, i64 4)
   %155 = sub i64 0, %.sroa.speculated.i128
   %156 = getelementptr inbounds i8, ptr %154, i64 %155
-  store ptr %156, ptr %14, align 8, !tbaa !125
+  store ptr %156, ptr %14, align 8, !tbaa !121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %157 = icmp ult i64 %150, %153
-  br i1 %157, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !152
+  br i1 %157, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !147
 
 ._crit_edge.loopexit:                             ; preds = %152
   %158 = getelementptr inbounds i8, ptr %154, i64 %155
@@ -4971,7 +4971,7 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   %.1100.lcssa = phi i64 [ %.099, %132 ], [ %153, %._crit_edge.loopexit ]
   %.8.lcssa = phi ptr [ %.7, %132 ], [ %149, %._crit_edge.loopexit ]
   %160 = add i64 %.1100.lcssa, %.4150.lcssa
-  %161 = load i64, ptr %1, align 8, !tbaa !85
+  %161 = load i64, ptr %1, align 8, !tbaa !82
   %.not204 = icmp ugt i64 %160, %161
   br i1 %.not204, label %.thread196, label %162
 
@@ -4981,7 +4981,7 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   br i1 %.not118, label %.loopexit.backedge, label %164, !prof !20
 
 164:                                              ; preds = %162
-  store ptr %163, ptr %5, align 8, !tbaa !46
+  store ptr %163, ptr %5, align 8, !tbaa !43
   %165 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %165, label %.loopexit.sink.split, label %.thread196, !prof !20
 
@@ -4998,7 +4998,7 @@ _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit: ; preds = %1
   %171 = add nuw nsw i32 %170, 1
   %172 = zext nneg i32 %171 to i64
   %173 = add i64 %96, %172
-  %174 = load i64, ptr %1, align 8, !tbaa !85
+  %174 = load i64, ptr %1, align 8, !tbaa !82
   %.not203 = icmp ugt i64 %173, %174
   br i1 %.not203, label %.thread196, label %194
 
@@ -5024,7 +5024,7 @@ _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit: ; preds = %1
 
 _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit135: ; preds = %175
   %189 = add i64 %96, %185
-  %190 = load i64, ptr %1, align 8, !tbaa !85
+  %190 = load i64, ptr %1, align 8, !tbaa !82
   %.not206 = icmp ugt i64 %189, %190
   br i1 %.not206, label %.thread196, label %191
 
@@ -5041,31 +5041,31 @@ _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit135: ; preds =
   br i1 %.not117, label %.loopexit.backedge, label %195, !prof !20
 
 195:                                              ; preds = %194
-  store ptr %.13, ptr %5, align 8, !tbaa !46
+  store ptr %.13, ptr %5, align 8, !tbaa !43
   %196 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %196, label %.loopexit.sink.split, label %.thread196, !prof !20
 
 .loopexit.sink.split:                             ; preds = %195, %164
   %.5151.ph = phi i64 [ %160, %164 ], [ %.6152, %195 ]
-  %197 = load ptr, ptr %5, align 8, !tbaa !46
-  %198 = load ptr, ptr %7, align 8, !tbaa !50
+  %197 = load ptr, ptr %5, align 8, !tbaa !43
+  %198 = load ptr, ptr %7, align 8, !tbaa !47
   %199 = ptrtoint ptr %198 to i64
   %200 = ptrtoint ptr %197 to i64
   %201 = sub i64 %199, %200
   %.sroa.speculated.i136 = call i64 @llvm.smin.i64(i64 %201, i64 4)
   %202 = sub i64 0, %.sroa.speculated.i136
   %203 = getelementptr inbounds i8, ptr %198, i64 %202
-  store ptr %203, ptr %14, align 8, !tbaa !125
+  store ptr %203, ptr %14, align 8, !tbaa !121
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.loopexit.sink.split, %194, %162, %191
   %.1148.be = phi i64 [ %189, %191 ], [ %160, %162 ], [ %.6152, %194 ], [ %.5151.ph, %.loopexit.sink.split ]
   %.1.be = phi ptr [ %193, %191 ], [ %163, %162 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
-  br label %.loopexit, !llvm.loop !153
+  br label %.loopexit
 
 .thread196:                                       ; preds = %._crit_edge, %164, %175, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit135, %166, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread176, %17
   %.0147 = phi i64 [ %16, %17 ], [ %136, %.thread176 ], [ %136, %.lr.ph ], [ %160, %164 ], [ %160, %._crit_edge ], [ %96, %175 ], [ %189, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit135 ], [ %96, %166 ], [ %173, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6152, %195 ], [ %96, %98 ]
-  store i64 %.0147, ptr %15, align 8, !tbaa !87
+  store i64 %.0147, ptr %15, align 8, !tbaa !84
   ret void
 }
 
@@ -5076,9 +5076,9 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyArrayWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 32 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !50
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
@@ -5086,9 +5086,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %11 = sub i64 0, %.sroa.speculated.i
   %12 = getelementptr inbounds i8, ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %12, ptr %13, align 8, !tbaa !125
+  store ptr %12, ptr %13, align 8, !tbaa !121
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !78
+  %15 = load ptr, ptr %14, align 8, !tbaa !75
   %.not = icmp ult ptr %5, %12
   br i1 %.not, label %26, label %16, !prof !20
 
@@ -5097,15 +5097,15 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   br i1 %17, label %18, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %4, align 8, !tbaa !46
-  %20 = load ptr, ptr %6, align 8, !tbaa !50
+  %19 = load ptr, ptr %4, align 8, !tbaa !43
+  %20 = load ptr, ptr %6, align 8, !tbaa !47
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %19 to i64
   %23 = sub i64 %21, %22
   %.sroa.speculated.i129 = tail call i64 @llvm.smin.i64(i64 %23, i64 4)
   %24 = sub i64 0, %.sroa.speculated.i129
   %25 = getelementptr inbounds i8, ptr %20, i64 %24
-  store ptr %25, ptr %13, align 8, !tbaa !125
+  store ptr %25, ptr %13, align 8, !tbaa !121
   br label %26
 
 26:                                               ; preds = %18, %2
@@ -5115,355 +5115,355 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %32
+  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit
 
-32:                                               ; preds = %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit, %26
-  %.0158 = phi i32 [ %28, %26 ], [ %.4162, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit ]
-  %.1149 = phi ptr [ %15, %26 ], [ %.5152, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit ]
-  %.1 = phi ptr [ %.0, %26 ], [ %.11, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit ]
-  %33 = load ptr, ptr %1, align 8, !tbaa !76
-  %.not115 = icmp eq ptr %33, null
-  br i1 %.not115, label %60, label %34
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit: ; preds = %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge, %26
+  %.0158 = phi i32 [ %28, %26 ], [ %.0158.be, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge ]
+  %.1149 = phi ptr [ %15, %26 ], [ %.1149.be, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge ]
+  %.1 = phi ptr [ %.0, %26 ], [ %.1.be, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge ]
+  %32 = load ptr, ptr %1, align 8, !tbaa !73
+  %.not115 = icmp eq ptr %32, null
+  br i1 %.not115, label %59, label %33
 
-34:                                               ; preds = %32
-  %35 = load ptr, ptr %29, align 8, !tbaa !80
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %33 to i64
-  %38 = sub i64 %36, %37
-  %39 = load ptr, ptr %6, align 8, !tbaa !50
-  %40 = ptrtoint ptr %.1149 to i64
-  %41 = sub i64 %40, %37
-  %42 = call { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcEESt4pairIPKhlES4_S4_lT_l(ptr noundef nonnull %.1, ptr noundef %39, i64 noundef %41, ptr noundef nonnull %33, i64 noundef %38)
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %44 = extractvalue { ptr, i64 } %42, 1
-  %45 = getelementptr inbounds i8, ptr %33, i64 %44
-  %46 = load ptr, ptr %13, align 8, !tbaa !125
-  %.not116 = icmp ult ptr %43, %46
-  br i1 %.not116, label %57, label %47, !prof !20
+33:                                               ; preds = %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit
+  %34 = load ptr, ptr %29, align 8, !tbaa !77
+  %35 = ptrtoint ptr %34 to i64
+  %36 = ptrtoint ptr %32 to i64
+  %37 = sub i64 %35, %36
+  %38 = load ptr, ptr %6, align 8, !tbaa !47
+  %39 = ptrtoint ptr %.1149 to i64
+  %40 = sub i64 %39, %36
+  %41 = call { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcEESt4pairIPKhlES4_S4_lT_l(ptr noundef nonnull %.1, ptr noundef %38, i64 noundef %40, ptr noundef nonnull %32, i64 noundef %37)
+  %42 = extractvalue { ptr, i64 } %41, 0
+  %43 = extractvalue { ptr, i64 } %41, 1
+  %44 = getelementptr inbounds i8, ptr %32, i64 %43
+  %45 = load ptr, ptr %13, align 8, !tbaa !121
+  %.not116 = icmp ult ptr %42, %45
+  br i1 %.not116, label %56, label %46, !prof !20
 
-47:                                               ; preds = %34
-  store ptr %43, ptr %4, align 8, !tbaa !46
-  %48 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
-  br i1 %48, label %49, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
+46:                                               ; preds = %33
+  store ptr %42, ptr %4, align 8, !tbaa !43
+  %47 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
+  br i1 %47, label %48, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %4, align 8, !tbaa !46
-  %51 = load ptr, ptr %6, align 8, !tbaa !50
-  %52 = ptrtoint ptr %51 to i64
-  %53 = ptrtoint ptr %50 to i64
-  %54 = sub i64 %52, %53
-  %.sroa.speculated.i130 = call i64 @llvm.smin.i64(i64 %54, i64 4)
-  %55 = sub i64 0, %.sroa.speculated.i130
-  %56 = getelementptr inbounds i8, ptr %51, i64 %55
-  store ptr %56, ptr %13, align 8, !tbaa !125
-  br label %57
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %4, align 8, !tbaa !43
+  %50 = load ptr, ptr %6, align 8, !tbaa !47
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %49 to i64
+  %53 = sub i64 %51, %52
+  %.sroa.speculated.i130 = call i64 @llvm.smin.i64(i64 %53, i64 4)
+  %54 = sub i64 0, %.sroa.speculated.i130
+  %55 = getelementptr inbounds i8, ptr %50, i64 %54
+  store ptr %55, ptr %13, align 8, !tbaa !121
+  br label %56
 
-57:                                               ; preds = %34, %49
-  %.3 = phi ptr [ %50, %49 ], [ %43, %34 ]
-  %58 = load i8, ptr %.3, align 1, !tbaa !4
-  %59 = zext i8 %58 to i32
-  br label %60
+56:                                               ; preds = %33, %48
+  %.3 = phi ptr [ %49, %48 ], [ %42, %33 ]
+  %57 = load i8, ptr %.3, align 1, !tbaa !4
+  %58 = zext i8 %57 to i32
+  br label %59
 
-60:                                               ; preds = %32, %57
-  %.2160.ph = phi i32 [ %59, %57 ], [ %.0158, %32 ]
-  %.2.ph = phi ptr [ %45, %57 ], [ %.1149, %32 ]
-  %.5.ph = phi ptr [ %.3, %57 ], [ %.1, %32 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 1
-  %62 = and i32 %.2160.ph, 255
-  %63 = and i32 %.2160.ph, 3
-  switch i32 %63, label %168 [
-    i32 0, label %64
-    i32 3, label %140
-  ], !prof !127
+59:                                               ; preds = %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit, %56
+  %.2160.ph = phi i32 [ %58, %56 ], [ %.0158, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit ]
+  %.2.ph = phi ptr [ %44, %56 ], [ %.1149, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit ]
+  %.5.ph = phi ptr [ %.3, %56 ], [ %.1, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit ]
+  %60 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 1
+  %61 = and i32 %.2160.ph, 255
+  %62 = and i32 %.2160.ph, 3
+  switch i32 %62, label %167 [
+    i32 0, label %63
+    i32 3, label %139
+  ], !prof !123
 
-64:                                               ; preds = %60
-  %65 = lshr exact i32 %62, 2
-  %66 = add nuw nsw i32 %65, 1
-  %67 = zext nneg i32 %66 to i64
-  %68 = load ptr, ptr %6, align 8, !tbaa !50
-  %69 = ptrtoint ptr %68 to i64
-  %70 = ptrtoint ptr %61 to i64
-  %71 = sub i64 %69, %70
-  %72 = load ptr, ptr %30, align 8, !tbaa !79
-  %73 = ptrtoint ptr %72 to i64
-  %74 = ptrtoint ptr %.2.ph to i64
-  %75 = sub i64 %73, %74
-  %76 = icmp samesign ult i32 %62, 64
-  %77 = icmp ugt i64 %71, 20
-  %or.cond.i131 = and i1 %76, %77
-  %78 = icmp ugt i64 %75, 15
-  %or.cond3.i = select i1 %or.cond.i131, i1 %78, i1 false
-  br i1 %or.cond3.i, label %79, label %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit
+63:                                               ; preds = %59
+  %64 = lshr exact i32 %61, 2
+  %65 = add nuw nsw i32 %64, 1
+  %66 = zext nneg i32 %65 to i64
+  %67 = load ptr, ptr %6, align 8, !tbaa !47
+  %68 = ptrtoint ptr %67 to i64
+  %69 = ptrtoint ptr %60 to i64
+  %70 = sub i64 %68, %69
+  %71 = load ptr, ptr %30, align 8, !tbaa !76
+  %72 = ptrtoint ptr %71 to i64
+  %73 = ptrtoint ptr %.2.ph to i64
+  %74 = sub i64 %72, %73
+  %75 = icmp samesign ult i32 %61, 64
+  %76 = icmp ugt i64 %70, 20
+  %or.cond.i131 = and i1 %75, %76
+  %77 = icmp ugt i64 %74, 15
+  %or.cond3.i = select i1 %or.cond.i131, i1 %77, i1 false
+  br i1 %or.cond3.i, label %78, label %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit
 
-79:                                               ; preds = %64
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.2.ph, ptr noundef nonnull readonly align 1 dereferenceable(16) %61, i64 16, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 %67
-  %81 = getelementptr inbounds nuw i8, ptr %61, i64 %67
-  %82 = load i8, ptr %81, align 1, !tbaa !4
-  %83 = zext i8 %82 to i32
-  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit, !llvm.loop !154
+78:                                               ; preds = %63
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.2.ph, ptr noundef nonnull readonly align 1 dereferenceable(16) %60, i64 16, i1 false)
+  %79 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 %66
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 %66
+  %81 = load i8, ptr %80, align 1, !tbaa !4
+  %82 = zext i8 %81 to i32
+  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge
 
-_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %64
-  %84 = icmp samesign ugt i32 %62, 236
-  br i1 %84, label %85, label %96, !prof !23
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge: ; preds = %78, %136, %217, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
+  %.0158.be = phi i32 [ %219, %217 ], [ %204, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %82, %78 ], [ %138, %136 ]
+  %.1149.be = phi ptr [ %.6153, %217 ], [ %180, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %79, %78 ], [ %123, %136 ]
+  %.1.be = phi ptr [ %.15, %217 ], [ %203, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %80, %78 ], [ %.10, %136 ]
+  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit, !llvm.loop !148
 
-85:                                               ; preds = %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit
-  %86 = add nsw i64 %67, -60
-  %.0.copyload.i = load i32, ptr %61, align 1
-  %87 = shl nsw i64 %86, 3
-  %88 = and i64 %87, 4294967288
-  %89 = shl nuw i64 4294967295, %88
-  %90 = trunc i64 %89 to i32
-  %91 = xor i32 %90, -1
-  %92 = and i32 %.0.copyload.i, %91
-  %93 = add i32 %92, 1
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr %61, i64 %86
-  %.pre243 = ptrtoint ptr %95 to i64
-  %.pre244 = sub i64 %69, %.pre243
-  br label %96
+_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
+  %83 = icmp samesign ugt i32 %61, 236
+  br i1 %83, label %84, label %95, !prof !23
 
-96:                                               ; preds = %85, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit
-  %.pre-phi245 = phi i64 [ %.pre244, %85 ], [ %71, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit ]
-  %.099 = phi i64 [ %94, %85 ], [ %67, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit ]
-  %.7 = phi ptr [ %95, %85 ], [ %61, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit ]
-  %97 = icmp ult i64 %.pre-phi245, %.099
-  br i1 %97, label %.lr.ph, label %._crit_edge
+84:                                               ; preds = %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit
+  %85 = add nsw i64 %66, -60
+  %.0.copyload.i = load i32, ptr %60, align 1
+  %86 = shl nsw i64 %85, 3
+  %87 = and i64 %86, 4294967288
+  %88 = shl nuw i64 4294967295, %87
+  %89 = trunc i64 %88 to i32
+  %90 = xor i32 %89, -1
+  %91 = and i32 %.0.copyload.i, %90
+  %92 = add i32 %91, 1
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %60, i64 %85
+  %.pre243 = ptrtoint ptr %94 to i64
+  %.pre244 = sub i64 %68, %.pre243
+  br label %95
 
-.lr.ph:                                           ; preds = %96, %117
-  %.8232 = phi ptr [ %114, %117 ], [ %.7, %96 ]
-  %.1100231 = phi i64 [ %118, %117 ], [ %.099, %96 ]
-  %.0101230 = phi i64 [ %115, %117 ], [ %.pre-phi245, %96 ]
-  %.4151229 = phi ptr [ %103, %117 ], [ %.2.ph, %96 ]
-  %98 = load ptr, ptr %30, align 8, !tbaa !79
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %.4151229 to i64
-  %101 = sub i64 %99, %100
-  %.not220 = icmp ult i64 %101, %.0101230
-  br i1 %.not220, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %102
+95:                                               ; preds = %84, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit
+  %.pre-phi245 = phi i64 [ %.pre244, %84 ], [ %70, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit ]
+  %.099 = phi i64 [ %93, %84 ], [ %66, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit ]
+  %.7 = phi ptr [ %94, %84 ], [ %60, %_ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit ]
+  %96 = icmp ult i64 %.pre-phi245, %.099
+  br i1 %96, label %.lr.ph, label %._crit_edge
 
-102:                                              ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %95, %116
+  %.8232 = phi ptr [ %113, %116 ], [ %.7, %95 ]
+  %.1100231 = phi i64 [ %117, %116 ], [ %.099, %95 ]
+  %.0101230 = phi i64 [ %114, %116 ], [ %.pre-phi245, %95 ]
+  %.4151229 = phi ptr [ %102, %116 ], [ %.2.ph, %95 ]
+  %97 = load ptr, ptr %30, align 8, !tbaa !76
+  %98 = ptrtoint ptr %97 to i64
+  %99 = ptrtoint ptr %.4151229 to i64
+  %100 = sub i64 %98, %99
+  %.not220 = icmp ult i64 %100, %.0101230
+  br i1 %.not220, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %101
+
+101:                                              ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4151229, ptr align 1 %.8232, i64 %.0101230, i1 false)
-  %103 = getelementptr inbounds nuw i8, ptr %.4151229, i64 %.0101230
-  %104 = load ptr, ptr %0, align 8, !tbaa !51
-  %105 = load i32, ptr %31, align 8, !tbaa !52
-  %106 = zext i32 %105 to i64
-  %107 = load ptr, ptr %104, align 8, !tbaa !53
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %104, i64 noundef %106) #24
+  %102 = getelementptr inbounds nuw i8, ptr %.4151229, i64 %.0101230
+  %103 = load ptr, ptr %0, align 8, !tbaa !48
+  %104 = load i32, ptr %31, align 8, !tbaa !49
+  %105 = zext i32 %104 to i64
+  %106 = load ptr, ptr %103, align 8, !tbaa !50
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %108 = load ptr, ptr %107, align 8
+  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef %105) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  %110 = load ptr, ptr %0, align 8, !tbaa !51
-  %111 = load ptr, ptr %110, align 8, !tbaa !53
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %113 = load ptr, ptr %112, align 8
-  %114 = call noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %3) #24
-  %115 = load i64, ptr %3, align 8, !tbaa !7
-  %116 = trunc i64 %115 to i32
-  store i32 %116, ptr %31, align 8, !tbaa !52
-  %.not119 = icmp eq i64 %115, 0
-  br i1 %.not119, label %.thread186, label %117
+  %109 = load ptr, ptr %0, align 8, !tbaa !48
+  %110 = load ptr, ptr %109, align 8, !tbaa !50
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %112 = load ptr, ptr %111, align 8
+  %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull %3) #24
+  %114 = load i64, ptr %3, align 8, !tbaa !7
+  %115 = trunc i64 %114 to i32
+  store i32 %115, ptr %31, align 8, !tbaa !49
+  %.not119 = icmp eq i64 %114, 0
+  br i1 %.not119, label %.thread186, label %116
 
-.thread186:                                       ; preds = %102
+.thread186:                                       ; preds = %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212
 
-117:                                              ; preds = %102
-  %118 = sub i64 %.1100231, %.0101230
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 %115
-  store ptr %119, ptr %6, align 8, !tbaa !50
-  %.sroa.speculated.i132 = call i64 @llvm.smin.i64(i64 %115, i64 4)
-  %120 = sub i64 0, %.sroa.speculated.i132
-  %121 = getelementptr inbounds i8, ptr %119, i64 %120
-  store ptr %121, ptr %13, align 8, !tbaa !125
+116:                                              ; preds = %101
+  %117 = sub i64 %.1100231, %.0101230
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 %114
+  store ptr %118, ptr %6, align 8, !tbaa !47
+  %.sroa.speculated.i132 = call i64 @llvm.smin.i64(i64 %114, i64 4)
+  %119 = sub i64 0, %.sroa.speculated.i132
+  %120 = getelementptr inbounds i8, ptr %118, i64 %119
+  store ptr %120, ptr %13, align 8, !tbaa !121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %122 = icmp ult i64 %115, %118
-  br i1 %122, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !155
+  %121 = icmp ult i64 %114, %117
+  br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !149
 
-._crit_edge.loopexit:                             ; preds = %117
-  %.pre = load ptr, ptr %30, align 8, !tbaa !79
+._crit_edge.loopexit:                             ; preds = %116
+  %.pre = load ptr, ptr %30, align 8, !tbaa !76
   %.pre246 = ptrtoint ptr %.pre to i64
-  %.pre248 = ptrtoint ptr %103 to i64
+  %.pre248 = ptrtoint ptr %102 to i64
   %.pre250 = sub i64 %.pre246, %.pre248
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %96
-  %.pre-phi251 = phi i64 [ %.pre250, %._crit_edge.loopexit ], [ %75, %96 ]
-  %.4151.lcssa = phi ptr [ %103, %._crit_edge.loopexit ], [ %.2.ph, %96 ]
-  %.1100.lcssa = phi i64 [ %118, %._crit_edge.loopexit ], [ %.099, %96 ]
-  %.8.lcssa = phi ptr [ %114, %._crit_edge.loopexit ], [ %.7, %96 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %95
+  %.pre-phi251 = phi i64 [ %.pre250, %._crit_edge.loopexit ], [ %74, %95 ]
+  %.4151.lcssa = phi ptr [ %102, %._crit_edge.loopexit ], [ %.2.ph, %95 ]
+  %.1100.lcssa = phi i64 [ %117, %._crit_edge.loopexit ], [ %.099, %95 ]
+  %.8.lcssa = phi ptr [ %113, %._crit_edge.loopexit ], [ %.7, %95 ]
   %.not219 = icmp ult i64 %.pre-phi251, %.1100.lcssa
-  br i1 %.not219, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %123
+  br i1 %.not219, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %122
 
-123:                                              ; preds = %._crit_edge
+122:                                              ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4151.lcssa, ptr align 1 %.8.lcssa, i64 %.1100.lcssa, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %.4151.lcssa, i64 %.1100.lcssa
-  %125 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 %.1100.lcssa
-  %126 = load ptr, ptr %13, align 8, !tbaa !125
-  %.not118 = icmp ult ptr %125, %126
-  br i1 %.not118, label %137, label %127, !prof !20
+  %123 = getelementptr inbounds nuw i8, ptr %.4151.lcssa, i64 %.1100.lcssa
+  %124 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 %.1100.lcssa
+  %125 = load ptr, ptr %13, align 8, !tbaa !121
+  %.not118 = icmp ult ptr %124, %125
+  br i1 %.not118, label %136, label %126, !prof !20
 
-127:                                              ; preds = %123
-  store ptr %125, ptr %4, align 8, !tbaa !46
-  %128 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
-  br i1 %128, label %129, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
+126:                                              ; preds = %122
+  store ptr %124, ptr %4, align 8, !tbaa !43
+  %127 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
+  br i1 %127, label %128, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr %4, align 8, !tbaa !46
-  %131 = load ptr, ptr %6, align 8, !tbaa !50
-  %132 = ptrtoint ptr %131 to i64
-  %133 = ptrtoint ptr %130 to i64
-  %134 = sub i64 %132, %133
-  %.sroa.speculated.i134 = call i64 @llvm.smin.i64(i64 %134, i64 4)
-  %135 = sub i64 0, %.sroa.speculated.i134
-  %136 = getelementptr inbounds i8, ptr %131, i64 %135
-  store ptr %136, ptr %13, align 8, !tbaa !125
-  br label %137
+128:                                              ; preds = %126
+  %129 = load ptr, ptr %4, align 8, !tbaa !43
+  %130 = load ptr, ptr %6, align 8, !tbaa !47
+  %131 = ptrtoint ptr %130 to i64
+  %132 = ptrtoint ptr %129 to i64
+  %133 = sub i64 %131, %132
+  %.sroa.speculated.i134 = call i64 @llvm.smin.i64(i64 %133, i64 4)
+  %134 = sub i64 0, %.sroa.speculated.i134
+  %135 = getelementptr inbounds i8, ptr %130, i64 %134
+  store ptr %135, ptr %13, align 8, !tbaa !121
+  br label %136
 
-137:                                              ; preds = %129, %123
-  %.10 = phi ptr [ %130, %129 ], [ %125, %123 ]
-  %138 = load i8, ptr %.10, align 1, !tbaa !4
-  %139 = zext i8 %138 to i32
-  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit
+136:                                              ; preds = %128, %122
+  %.10 = phi ptr [ %129, %128 ], [ %124, %122 ]
+  %137 = load i8, ptr %.10, align 1, !tbaa !4
+  %138 = zext i8 %137 to i32
+  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge
 
-140:                                              ; preds = %60
-  %.0.copyload.i135 = load i32, ptr %61, align 1
-  %141 = zext i32 %.0.copyload.i135 to i64
-  %142 = lshr i32 %62, 2
-  %143 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 5
-  %144 = zext nneg i32 %142 to i64
-  %145 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 %144
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 1
-  %147 = load ptr, ptr %1, align 8, !tbaa !76
-  %148 = ptrtoint ptr %.2.ph to i64
-  %149 = ptrtoint ptr %147 to i64
-  %150 = sub i64 %148, %149
-  %151 = icmp ult i64 %150, %141
-  br i1 %151, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %152, !prof !23
+139:                                              ; preds = %59
+  %.0.copyload.i135 = load i32, ptr %60, align 1
+  %140 = zext i32 %.0.copyload.i135 to i64
+  %141 = lshr i32 %61, 2
+  %142 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 5
+  %143 = zext nneg i32 %141 to i64
+  %144 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1
+  %146 = load ptr, ptr %1, align 8, !tbaa !73
+  %147 = ptrtoint ptr %.2.ph to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = icmp ult i64 %149, %140
+  br i1 %150, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %151, !prof !23
 
-152:                                              ; preds = %140
-  %153 = load ptr, ptr %29, align 8, !tbaa !80
-  %154 = icmp uge ptr %.2.ph, %153
-  %155 = icmp ule i32 %.0.copyload.i135, %142
-  %156 = or i1 %155, %154
-  br i1 %156, label %157, label %165, !prof !23
+151:                                              ; preds = %139
+  %152 = load ptr, ptr %29, align 8, !tbaa !77
+  %153 = icmp uge ptr %.2.ph, %152
+  %154 = icmp ule i32 %.0.copyload.i135, %141
+  %155 = or i1 %154, %153
+  br i1 %155, label %156, label %164, !prof !23
 
-157:                                              ; preds = %152
-  %158 = load ptr, ptr %30, align 8, !tbaa !79
-  %159 = icmp ugt ptr %146, %158
-  %160 = icmp eq i32 %.0.copyload.i135, 0
-  %or.cond.i = or i1 %160, %159
-  br i1 %or.cond.i, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %161
+156:                                              ; preds = %151
+  %157 = load ptr, ptr %30, align 8, !tbaa !76
+  %158 = icmp ugt ptr %145, %157
+  %159 = icmp eq i32 %.0.copyload.i135, 0
+  %or.cond.i = or i1 %159, %158
+  br i1 %or.cond.i, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %160
 
-161:                                              ; preds = %157
-  %162 = sub nsw i64 0, %141
-  %163 = getelementptr inbounds i8, ptr %.2.ph, i64 %162
-  %164 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %163, ptr noundef %.2.ph, ptr noundef nonnull %146, ptr noundef %158)
+160:                                              ; preds = %156
+  %161 = sub nsw i64 0, %140
+  %162 = getelementptr inbounds i8, ptr %.2.ph, i64 %161
+  %163 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %162, ptr noundef %.2.ph, ptr noundef nonnull %145, ptr noundef %157)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
 
-165:                                              ; preds = %152
-  %166 = sub nsw i64 0, %141
-  %167 = getelementptr inbounds i8, ptr %.2.ph, i64 %166
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.2.ph, ptr noundef nonnull align 1 dereferenceable(64) %167, i64 64, i1 false)
+164:                                              ; preds = %151
+  %165 = sub nsw i64 0, %140
+  %166 = getelementptr inbounds i8, ptr %.2.ph, i64 %165
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.2.ph, ptr noundef nonnull align 1 dereferenceable(64) %166, i64 64, i1 false)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
 
-168:                                              ; preds = %60
-  %169 = zext nneg i32 %62 to i64
-  %170 = getelementptr inbounds nuw [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %169
-  %171 = load i16, ptr %170, align 2, !tbaa !21
-  %172 = sext i16 %171 to i64
-  %.0.copyload.i136 = load i32, ptr %61, align 1
-  %173 = shl nuw nsw i32 %63, 3
-  %174 = shl nsw i32 -1, %173
-  %175 = xor i32 %174, -1
-  %176 = and i32 %.0.copyload.i136, %175
-  %177 = and i16 %171, 255
-  %178 = zext nneg i16 %177 to i64
-  %179 = sub nsw i64 %178, %172
-  %.tr = trunc nsw i64 %179 to i32
-  %.narrow = add nsw i32 %176, %.tr
-  %180 = zext i32 %.narrow to i64
-  %181 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 %178
-  %182 = load ptr, ptr %1, align 8, !tbaa !76
-  %183 = ptrtoint ptr %.2.ph to i64
-  %184 = ptrtoint ptr %182 to i64
-  %185 = sub i64 %183, %184
-  %186 = icmp ult i64 %185, %180
-  br i1 %186, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %187, !prof !23
+167:                                              ; preds = %59
+  %168 = zext nneg i32 %61 to i64
+  %169 = getelementptr inbounds nuw [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %168
+  %170 = load i16, ptr %169, align 2, !tbaa !21
+  %171 = sext i16 %170 to i64
+  %.0.copyload.i136 = load i32, ptr %60, align 1
+  %172 = shl nuw nsw i32 %62, 3
+  %173 = shl nsw i32 -1, %172
+  %174 = xor i32 %173, -1
+  %175 = and i32 %.0.copyload.i136, %174
+  %176 = and i16 %170, 255
+  %177 = zext nneg i16 %176 to i64
+  %178 = sub nsw i64 %177, %171
+  %.tr = trunc nsw i64 %178 to i32
+  %.narrow = add nsw i32 %175, %.tr
+  %179 = zext i32 %.narrow to i64
+  %180 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 %177
+  %181 = load ptr, ptr %1, align 8, !tbaa !73
+  %182 = ptrtoint ptr %.2.ph to i64
+  %183 = ptrtoint ptr %181 to i64
+  %184 = sub i64 %182, %183
+  %185 = icmp ult i64 %184, %179
+  br i1 %185, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %186, !prof !23
 
-187:                                              ; preds = %168
-  %188 = load ptr, ptr %29, align 8, !tbaa !80
-  %189 = icmp uge ptr %.2.ph, %188
-  %190 = icmp samesign ult i64 %180, %178
-  %191 = or i1 %190, %189
-  br i1 %191, label %192, label %200, !prof !23
+186:                                              ; preds = %167
+  %187 = load ptr, ptr %29, align 8, !tbaa !77
+  %188 = icmp uge ptr %.2.ph, %187
+  %189 = icmp samesign ult i64 %179, %177
+  %190 = or i1 %189, %188
+  br i1 %190, label %191, label %199, !prof !23
 
-192:                                              ; preds = %187
-  %193 = load ptr, ptr %30, align 8, !tbaa !79
-  %194 = icmp ugt ptr %181, %193
-  %195 = icmp eq i32 %.narrow, 0
-  %or.cond.i126 = or i1 %195, %194
-  br i1 %or.cond.i126, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %196
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %30, align 8, !tbaa !76
+  %193 = icmp ugt ptr %180, %192
+  %194 = icmp eq i32 %.narrow, 0
+  %or.cond.i126 = or i1 %194, %193
+  br i1 %or.cond.i126, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, label %195
 
-196:                                              ; preds = %192
-  %197 = sub nsw i64 0, %180
-  %198 = getelementptr inbounds i8, ptr %.2.ph, i64 %197
-  %199 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %198, ptr noundef %.2.ph, ptr noundef %181, ptr noundef %193)
+195:                                              ; preds = %191
+  %196 = sub nsw i64 0, %179
+  %197 = getelementptr inbounds i8, ptr %.2.ph, i64 %196
+  %198 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %197, ptr noundef %.2.ph, ptr noundef %180, ptr noundef %192)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
 
-200:                                              ; preds = %187
-  %201 = sub nsw i64 0, %180
-  %202 = getelementptr inbounds i8, ptr %.2.ph, i64 %201
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.2.ph, ptr noundef nonnull align 1 dereferenceable(64) %202, i64 64, i1 false)
+199:                                              ; preds = %186
+  %200 = sub nsw i64 0, %179
+  %201 = getelementptr inbounds i8, ptr %.2.ph, i64 %200
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.2.ph, ptr noundef nonnull align 1 dereferenceable(64) %201, i64 64, i1 false)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
 
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127: ; preds = %200, %196
-  %203 = zext nneg i32 %63 to i64
-  %204 = getelementptr inbounds nuw i8, ptr %61, i64 %203
-  %205 = lshr i32 %.0.copyload.i136, %173
-  %206 = load ptr, ptr %13, align 8, !tbaa !125
-  %.not221 = icmp ult ptr %204, %206
-  br i1 %.not221, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127: ; preds = %199, %195
+  %202 = zext nneg i32 %62 to i64
+  %203 = getelementptr inbounds nuw i8, ptr %60, i64 %202
+  %204 = lshr i32 %.0.copyload.i136, %172
+  %205 = load ptr, ptr %13, align 8, !tbaa !121
+  %.not221 = icmp ult ptr %203, %205
+  br i1 %.not221, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
 
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197: ; preds = %165, %161, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
-  %.6153 = phi ptr [ %181, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %146, %161 ], [ %146, %165 ]
-  %.13 = phi ptr [ %204, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %143, %161 ], [ %143, %165 ]
-  %207 = load ptr, ptr %13, align 8, !tbaa !125
-  %.not117 = icmp ult ptr %.13, %207
-  br i1 %.not117, label %218, label %208, !prof !20
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197: ; preds = %164, %160, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
+  %.6153 = phi ptr [ %180, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %145, %160 ], [ %145, %164 ]
+  %.13 = phi ptr [ %203, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %142, %160 ], [ %142, %164 ]
+  %206 = load ptr, ptr %13, align 8, !tbaa !121
+  %.not117 = icmp ult ptr %.13, %206
+  br i1 %.not117, label %217, label %207, !prof !20
 
-208:                                              ; preds = %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
-  store ptr %.13, ptr %4, align 8, !tbaa !46
-  %209 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
-  br i1 %209, label %210, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
+207:                                              ; preds = %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
+  store ptr %.13, ptr %4, align 8, !tbaa !43
+  %208 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
+  br i1 %208, label %209, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212, !prof !20
 
-210:                                              ; preds = %208
-  %211 = load ptr, ptr %4, align 8, !tbaa !46
-  %212 = load ptr, ptr %6, align 8, !tbaa !50
-  %213 = ptrtoint ptr %212 to i64
-  %214 = ptrtoint ptr %211 to i64
-  %215 = sub i64 %213, %214
-  %.sroa.speculated.i137 = call i64 @llvm.smin.i64(i64 %215, i64 4)
-  %216 = sub i64 0, %.sroa.speculated.i137
-  %217 = getelementptr inbounds i8, ptr %212, i64 %216
-  store ptr %217, ptr %13, align 8, !tbaa !125
-  br label %218
+209:                                              ; preds = %207
+  %210 = load ptr, ptr %4, align 8, !tbaa !43
+  %211 = load ptr, ptr %6, align 8, !tbaa !47
+  %212 = ptrtoint ptr %211 to i64
+  %213 = ptrtoint ptr %210 to i64
+  %214 = sub i64 %212, %213
+  %.sroa.speculated.i137 = call i64 @llvm.smin.i64(i64 %214, i64 4)
+  %215 = sub i64 0, %.sroa.speculated.i137
+  %216 = getelementptr inbounds i8, ptr %211, i64 %215
+  store ptr %216, ptr %13, align 8, !tbaa !121
+  br label %217
 
-218:                                              ; preds = %210, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
-  %.15 = phi ptr [ %211, %210 ], [ %.13, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197 ]
-  %219 = load i8, ptr %.15, align 1, !tbaa !4
-  %220 = zext i8 %219 to i32
-  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit
+217:                                              ; preds = %209, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
+  %.15 = phi ptr [ %210, %209 ], [ %.13, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197 ]
+  %218 = load i8, ptr %.15, align 1, !tbaa !4
+  %219 = zext i8 %218 to i32
+  br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge
 
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit: ; preds = %79, %137, %218, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
-  %.4162 = phi i32 [ %220, %218 ], [ %205, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %83, %79 ], [ %139, %137 ]
-  %.5152 = phi ptr [ %.6153, %218 ], [ %181, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %80, %79 ], [ %124, %137 ]
-  %.11 = phi ptr [ %.15, %218 ], [ %204, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127 ], [ %81, %79 ], [ %.10, %137 ]
-  br label %32, !llvm.loop !156
-
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212: ; preds = %._crit_edge, %127, %192, %168, %157, %140, %208, %47, %.lr.ph, %.thread186, %16
-  %.0148 = phi ptr [ %15, %16 ], [ %103, %.thread186 ], [ %.4151229, %.lr.ph ], [ %124, %127 ], [ %.4151.lcssa, %._crit_edge ], [ %.2.ph, %192 ], [ %.2.ph, %168 ], [ %.6153, %208 ], [ %.2.ph, %140 ], [ %.2.ph, %157 ], [ %45, %47 ]
-  store ptr %.0148, ptr %14, align 8, !tbaa !78
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212: ; preds = %._crit_edge, %126, %191, %167, %156, %139, %207, %46, %.lr.ph, %.thread186, %16
+  %.0148 = phi ptr [ %15, %16 ], [ %102, %.thread186 ], [ %.4151229, %.lr.ph ], [ %123, %126 ], [ %.4151.lcssa, %._crit_edge ], [ %.2.ph, %191 ], [ %.2.ph, %167 ], [ %.6153, %207 ], [ %.2.ph, %139 ], [ %.2.ph, %156 ], [ %44, %46 ]
+  store ptr %.0148, ptr %14, align 8, !tbaa !75
   ret void
 }
 
@@ -5472,9 +5472,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !46
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !50
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
   %11 = sub i64 %9, %10
@@ -5482,11 +5482,11 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %12 = sub i64 0, %.sroa.speculated.i
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !125
+  store ptr %13, ptr %14, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !116
-  store ptr %16, ptr %3, align 8, !tbaa !126
+  %16 = load ptr, ptr %15, align 8, !tbaa !113
+  store ptr %16, ptr %3, align 8, !tbaa !122
   %.not = icmp ult ptr %6, %13
   br i1 %.not, label %27, label %17, !prof !20
 
@@ -5495,15 +5495,15 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   br i1 %18, label %19, label %.thread181, !prof !20
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %5, align 8, !tbaa !46
-  %21 = load ptr, ptr %7, align 8, !tbaa !50
+  %20 = load ptr, ptr %5, align 8, !tbaa !43
+  %21 = load ptr, ptr %7, align 8, !tbaa !47
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %20 to i64
   %24 = sub i64 %22, %23
   %.sroa.speculated.i126 = tail call i64 @llvm.smin.i64(i64 %24, i64 4)
   %25 = sub i64 0, %.sroa.speculated.i126
   %26 = getelementptr inbounds i8, ptr %21, i64 %25
-  store ptr %26, ptr %14, align 8, !tbaa !125
+  store ptr %26, ptr %14, align 8, !tbaa !121
   br label %27
 
 27:                                               ; preds = %19, %2
@@ -5516,46 +5516,46 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %34
 
-34:                                               ; preds = %214, %27
-  %.0143 = phi i32 [ %29, %27 ], [ %.4146, %214 ]
-  %.1 = phi ptr [ %.0, %27 ], [ %.11, %214 ]
-  %35 = load ptr, ptr %31, align 8, !tbaa !115
+34:                                               ; preds = %.backedge, %27
+  %.0143 = phi i32 [ %29, %27 ], [ %.0143.be, %.backedge ]
+  %.1 = phi ptr [ %.0, %27 ], [ %.1.be, %.backedge ]
+  %35 = load ptr, ptr %31, align 8, !tbaa !112
   %.not115 = icmp eq ptr %35, null
   br i1 %.not115, label %63, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %30, align 8, !tbaa !157
+  %37 = load ptr, ptr %30, align 8, !tbaa !150
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %35 to i64
   %40 = sub i64 %38, %39
-  %41 = load ptr, ptr %7, align 8, !tbaa !50
-  %42 = load ptr, ptr %3, align 8, !tbaa !126
+  %41 = load ptr, ptr %7, align 8, !tbaa !47
+  %42 = load ptr, ptr %3, align 8, !tbaa !122
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %43, %39
   %45 = call { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcEESt4pairIPKhlES4_S4_lT_l(ptr noundef nonnull %.1, ptr noundef %41, i64 noundef %44, ptr noundef nonnull %35, i64 noundef %40)
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = extractvalue { ptr, i64 } %45, 1
   %48 = getelementptr inbounds i8, ptr %35, i64 %47
-  store ptr %48, ptr %3, align 8, !tbaa !126
-  %49 = load ptr, ptr %14, align 8, !tbaa !125
+  store ptr %48, ptr %3, align 8, !tbaa !122
+  %49 = load ptr, ptr %14, align 8, !tbaa !121
   %.not116 = icmp ult ptr %46, %49
   br i1 %.not116, label %60, label %50, !prof !20
 
 50:                                               ; preds = %36
-  store ptr %46, ptr %5, align 8, !tbaa !46
+  store ptr %46, ptr %5, align 8, !tbaa !43
   %51 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %51, label %52, label %.thread181, !prof !20
 
 52:                                               ; preds = %50
-  %53 = load ptr, ptr %5, align 8, !tbaa !46
-  %54 = load ptr, ptr %7, align 8, !tbaa !50
+  %53 = load ptr, ptr %5, align 8, !tbaa !43
+  %54 = load ptr, ptr %7, align 8, !tbaa !47
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %53 to i64
   %57 = sub i64 %55, %56
   %.sroa.speculated.i127 = call i64 @llvm.smin.i64(i64 %57, i64 4)
   %58 = sub i64 0, %.sroa.speculated.i127
   %59 = getelementptr inbounds i8, ptr %54, i64 %58
-  store ptr %59, ptr %14, align 8, !tbaa !125
+  store ptr %59, ptr %14, align 8, !tbaa !121
   br label %60
 
 60:                                               ; preds = %36, %52
@@ -5573,18 +5573,18 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   switch i32 %66, label %157 [
     i32 0, label %67
     i32 3, label %151
-  ], !prof !127
+  ], !prof !123
 
 67:                                               ; preds = %63
   %68 = lshr exact i32 %65, 2
   %69 = add nuw nsw i32 %68, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = load ptr, ptr %7, align 8, !tbaa !50
+  %71 = load ptr, ptr %7, align 8, !tbaa !47
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %64 to i64
   %74 = sub i64 %72, %73
-  %75 = load ptr, ptr %3, align 8, !tbaa !126
-  %76 = load ptr, ptr %32, align 8, !tbaa !158
+  %75 = load ptr, ptr %3, align 8, !tbaa !122
+  %76 = load ptr, ptr %32, align 8, !tbaa !151
   %77 = ptrtoint ptr %76 to i64
   %78 = ptrtoint ptr %75 to i64
   %79 = sub i64 %77, %78
@@ -5599,11 +5599,16 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 84:                                               ; preds = %67
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %75, ptr noundef nonnull readonly align 1 dereferenceable(16) %64, i64 16, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 %70
-  store ptr %85, ptr %3, align 8, !tbaa !126
+  store ptr %85, ptr %3, align 8, !tbaa !122
   %86 = getelementptr inbounds nuw i8, ptr %64, i64 %70
   %87 = load i8, ptr %86, align 1, !tbaa !4
   %88 = zext i8 %87 to i32
-  br label %214, !llvm.loop !159
+  br label %.backedge
+
+.backedge:                                        ; preds = %84, %148, %211, %194
+  %.0143.be = phi i32 [ %213, %211 ], [ %197, %194 ], [ %88, %84 ], [ %150, %148 ]
+  %.1.be = phi ptr [ %.15, %211 ], [ %196, %194 ], [ %86, %84 ], [ %.10, %148 ]
+  br label %34, !llvm.loop !152
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE13TryFastAppendEPKcmmPPc.exit: ; preds = %67
   %89 = icmp samesign ugt i32 %65, 236
@@ -5636,8 +5641,8 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE13TryFastAppendEPKcm
   %.8195 = phi ptr [ %122, %125 ], [ %.7, %101 ]
   %.1100194 = phi i64 [ %126, %125 ], [ %.099, %101 ]
   %.0101193 = phi i64 [ %123, %125 ], [ %.pre-phi205, %101 ]
-  %103 = load ptr, ptr %3, align 8, !tbaa !126
-  %104 = load ptr, ptr %32, align 8, !tbaa !158
+  %103 = load ptr, ptr %3, align 8, !tbaa !122
+  %104 = load ptr, ptr %32, align 8, !tbaa !151
   %105 = ptrtoint ptr %104 to i64
   %106 = ptrtoint ptr %103 to i64
   %107 = sub i64 %105, %106
@@ -5647,33 +5652,33 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE13TryFastAppendEPKcm
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread: ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %.8195, i64 %.0101193, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 %.0101193
-  store ptr %108, ptr %3, align 8, !tbaa !126
+  store ptr %108, ptr %3, align 8, !tbaa !122
   br label %111
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit: ; preds = %.lr.ph
-  store ptr %103, ptr %15, align 8, !tbaa !116
+  store ptr %103, ptr %15, align 8, !tbaa !113
   %109 = call noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %.8195, i64 noundef %.0101193)
-  %110 = load ptr, ptr %15, align 8, !tbaa !116
-  store ptr %110, ptr %3, align 8, !tbaa !126
+  %110 = load ptr, ptr %15, align 8, !tbaa !113
+  store ptr %110, ptr %3, align 8, !tbaa !122
   br i1 %109, label %111, label %.thread181
 
 111:                                              ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
-  %112 = load ptr, ptr %0, align 8, !tbaa !51
-  %113 = load i32, ptr %33, align 8, !tbaa !52
+  %112 = load ptr, ptr %0, align 8, !tbaa !48
+  %113 = load i32, ptr %33, align 8, !tbaa !49
   %114 = zext i32 %113 to i64
-  %115 = load ptr, ptr %112, align 8, !tbaa !53
+  %115 = load ptr, ptr %112, align 8, !tbaa !50
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(8) %112, i64 noundef %114) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  %118 = load ptr, ptr %0, align 8, !tbaa !51
-  %119 = load ptr, ptr %118, align 8, !tbaa !53
+  %118 = load ptr, ptr %0, align 8, !tbaa !48
+  %119 = load ptr, ptr %118, align 8, !tbaa !50
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8
   %122 = call noundef ptr %121(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull %4) #24
   %123 = load i64, ptr %4, align 8, !tbaa !7
   %124 = trunc i64 %123 to i32
-  store i32 %124, ptr %33, align 8, !tbaa !52
+  store i32 %124, ptr %33, align 8, !tbaa !49
   %.not119 = icmp eq i64 %123, 0
   br i1 %.not119, label %.thread166, label %125
 
@@ -5684,18 +5689,18 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
 125:                                              ; preds = %111
   %126 = sub i64 %.1100194, %.0101193
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 %123
-  store ptr %127, ptr %7, align 8, !tbaa !50
+  store ptr %127, ptr %7, align 8, !tbaa !47
   %.sroa.speculated.i128 = call i64 @llvm.smin.i64(i64 %123, i64 4)
   %128 = sub i64 0, %.sroa.speculated.i128
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
-  store ptr %129, ptr %14, align 8, !tbaa !125
+  store ptr %129, ptr %14, align 8, !tbaa !121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %130 = icmp ult i64 %123, %126
-  br i1 %130, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
+  br i1 %130, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !153
 
 ._crit_edge.loopexit:                             ; preds = %125
-  %.pre = load ptr, ptr %3, align 8, !tbaa !126
-  %.pre200 = load ptr, ptr %32, align 8, !tbaa !158
+  %.pre = load ptr, ptr %3, align 8, !tbaa !122
+  %.pre200 = load ptr, ptr %32, align 8, !tbaa !151
   %.pre206 = ptrtoint ptr %.pre200 to i64
   %.pre208 = ptrtoint ptr %.pre to i64
   %.pre210 = sub i64 %.pre206, %.pre208
@@ -5712,44 +5717,44 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit132.thread: ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 1 %.8.lcssa, i64 %.1100.lcssa, i1 false)
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.1100.lcssa
-  store ptr %132, ptr %3, align 8, !tbaa !126
+  store ptr %132, ptr %3, align 8, !tbaa !122
   br label %135
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit132: ; preds = %._crit_edge
-  store ptr %131, ptr %15, align 8, !tbaa !116
+  store ptr %131, ptr %15, align 8, !tbaa !113
   %133 = call noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %.8.lcssa, i64 noundef %.1100.lcssa)
-  %134 = load ptr, ptr %15, align 8, !tbaa !116
-  store ptr %134, ptr %3, align 8, !tbaa !126
+  %134 = load ptr, ptr %15, align 8, !tbaa !113
+  store ptr %134, ptr %3, align 8, !tbaa !122
   br i1 %133, label %135, label %.thread181
 
 135:                                              ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit132.thread, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit132
   %136 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 %.1100.lcssa
-  %137 = load ptr, ptr %14, align 8, !tbaa !125
+  %137 = load ptr, ptr %14, align 8, !tbaa !121
   %.not118 = icmp ult ptr %136, %137
   br i1 %.not118, label %148, label %138, !prof !20
 
 138:                                              ; preds = %135
-  store ptr %136, ptr %5, align 8, !tbaa !46
+  store ptr %136, ptr %5, align 8, !tbaa !43
   %139 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %139, label %140, label %.thread181, !prof !20
 
 140:                                              ; preds = %138
-  %141 = load ptr, ptr %5, align 8, !tbaa !46
-  %142 = load ptr, ptr %7, align 8, !tbaa !50
+  %141 = load ptr, ptr %5, align 8, !tbaa !43
+  %142 = load ptr, ptr %7, align 8, !tbaa !47
   %143 = ptrtoint ptr %142 to i64
   %144 = ptrtoint ptr %141 to i64
   %145 = sub i64 %143, %144
   %.sroa.speculated.i133 = call i64 @llvm.smin.i64(i64 %145, i64 4)
   %146 = sub i64 0, %.sroa.speculated.i133
   %147 = getelementptr inbounds i8, ptr %142, i64 %146
-  store ptr %147, ptr %14, align 8, !tbaa !125
+  store ptr %147, ptr %14, align 8, !tbaa !121
   br label %148
 
 148:                                              ; preds = %140, %135
   %.10 = phi ptr [ %141, %140 ], [ %136, %135 ]
   %149 = load i8, ptr %.10, align 1, !tbaa !4
   %150 = zext i8 %149 to i32
-  br label %214
+  br label %.backedge
 
 151:                                              ; preds = %63
   %.0.copyload.i134 = load i32, ptr %64, align 1
@@ -5776,8 +5781,8 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   %.tr = trunc nsw i64 %168 to i32
   %.narrow = add nsw i32 %165, %.tr
   %169 = zext i32 %.narrow to i64
-  %170 = load ptr, ptr %3, align 8, !tbaa !126
-  %171 = load ptr, ptr %31, align 8, !tbaa !115
+  %170 = load ptr, ptr %3, align 8, !tbaa !122
+  %171 = load ptr, ptr %31, align 8, !tbaa !112
   %172 = ptrtoint ptr %170 to i64
   %173 = ptrtoint ptr %171 to i64
   %174 = sub i64 %172, %173
@@ -5787,7 +5792,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   %or.cond.not34.i = select i1 %175, i1 true, i1 %.not.i136
   %177 = icmp samesign ult i64 %169, %167
   %or.cond32.i = or i1 %177, %or.cond.not34.i
-  br i1 %or.cond32.i, label %.critedge.i, label %188, !prof !161
+  br i1 %or.cond32.i, label %.critedge.i, label %188, !prof !154
 
 .critedge.i:                                      ; preds = %157
   %178 = icmp eq i32 %.narrow, 0
@@ -5815,71 +5820,66 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc.exit.thread171: ; preds = %188, %184
   %.sink.i.ph = phi ptr [ %180, %184 ], [ %189, %188 ]
-  store ptr %.sink.i.ph, ptr %3, align 8, !tbaa !126
+  store ptr %.sink.i.ph, ptr %3, align 8, !tbaa !122
   br label %194
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc.exit: ; preds = %179
-  store ptr %170, ptr %15, align 8, !tbaa !116
+  store ptr %170, ptr %15, align 8, !tbaa !113
   %192 = call noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE18SlowAppendFromSelfEmm(ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %169, i64 noundef %167)
-  %193 = load ptr, ptr %15, align 8, !tbaa !116
-  store ptr %193, ptr %3, align 8, !tbaa !126
+  %193 = load ptr, ptr %15, align 8, !tbaa !113
+  store ptr %193, ptr %3, align 8, !tbaa !122
   br i1 %192, label %194, label %.thread181
 
 194:                                              ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc.exit, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc.exit.thread171
   %195 = zext nneg i32 %66 to i64
   %196 = getelementptr inbounds nuw i8, ptr %64, i64 %195
   %197 = lshr i32 %.0.copyload.i135, %162
-  %198 = load ptr, ptr %14, align 8, !tbaa !125
+  %198 = load ptr, ptr %14, align 8, !tbaa !121
   %.not187 = icmp ult ptr %196, %198
-  br i1 %.not187, label %214, label %.thread, !prof !131
+  br i1 %.not187, label %.backedge, label %.thread, !prof !127
 
 199:                                              ; preds = %151
   %200 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 5
-  %.pre202 = load ptr, ptr %14, align 8, !tbaa !125
+  %.pre202 = load ptr, ptr %14, align 8, !tbaa !121
   %201 = icmp ult ptr %200, %.pre202
-  br i1 %201, label %211, label %.thread, !prof !132
+  br i1 %201, label %211, label %.thread, !prof !128
 
 .thread:                                          ; preds = %194, %199
   %.13214 = phi ptr [ %200, %199 ], [ %196, %194 ]
-  store ptr %.13214, ptr %5, align 8, !tbaa !46
+  store ptr %.13214, ptr %5, align 8, !tbaa !43
   %202 = call noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
   br i1 %202, label %203, label %.thread181, !prof !20
 
 203:                                              ; preds = %.thread
-  %204 = load ptr, ptr %5, align 8, !tbaa !46
-  %205 = load ptr, ptr %7, align 8, !tbaa !50
+  %204 = load ptr, ptr %5, align 8, !tbaa !43
+  %205 = load ptr, ptr %7, align 8, !tbaa !47
   %206 = ptrtoint ptr %205 to i64
   %207 = ptrtoint ptr %204 to i64
   %208 = sub i64 %206, %207
   %.sroa.speculated.i138 = call i64 @llvm.smin.i64(i64 %208, i64 4)
   %209 = sub i64 0, %.sroa.speculated.i138
   %210 = getelementptr inbounds i8, ptr %205, i64 %209
-  store ptr %210, ptr %14, align 8, !tbaa !125
+  store ptr %210, ptr %14, align 8, !tbaa !121
   br label %211
 
 211:                                              ; preds = %203, %199
   %.15 = phi ptr [ %204, %203 ], [ %200, %199 ]
   %212 = load i8, ptr %.15, align 1, !tbaa !4
   %213 = zext i8 %212 to i32
-  br label %214
-
-214:                                              ; preds = %84, %148, %211, %194
-  %.4146 = phi i32 [ %213, %211 ], [ %197, %194 ], [ %88, %84 ], [ %150, %148 ]
-  %.11 = phi ptr [ %.15, %211 ], [ %196, %194 ], [ %86, %84 ], [ %.10, %148 ]
-  br label %34, !llvm.loop !162
+  br label %.backedge
 
 .thread181:                                       ; preds = %151, %138, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit132, %.critedge.i, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc.exit, %.thread, %50, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit, %.thread166, %17
-  %215 = load ptr, ptr %3, align 8, !tbaa !126
-  store ptr %215, ptr %15, align 8, !tbaa !116
+  %214 = load ptr, ptr %3, align 8, !tbaa !122
+  store ptr %214, ptr %15, align 8, !tbaa !113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat align 2 {
-  %5 = load ptr, ptr %3, align 8, !tbaa !126
+  %5 = load ptr, ptr %3, align 8, !tbaa !122
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !115
+  %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -5890,7 +5890,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
   %or.cond.not34 = select i1 %11, i1 true, i1 %.not
   %14 = icmp ult i64 %1, %2
   %or.cond32 = or i1 %14, %or.cond.not34
-  br i1 %or.cond32, label %.critedge, label %30, !prof !161
+  br i1 %or.cond32, label %.critedge, label %30, !prof !154
 
 .critedge:                                        ; preds = %4
   %15 = icmp eq i64 %1, 0
@@ -5906,9 +5906,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %5, ptr %23, align 8, !tbaa !116
+  store ptr %5, ptr %23, align 8, !tbaa !113
   %24 = tail call noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE18SlowAppendFromSelfEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2)
-  %25 = load ptr, ptr %23, align 8, !tbaa !116
+  %25 = load ptr, ptr %23, align 8, !tbaa !113
   br label %.sink.split
 
 26:                                               ; preds = %16
@@ -5927,7 +5927,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
 .sink.split:                                      ; preds = %22, %26, %30
   %.sink = phi ptr [ %31, %30 ], [ %17, %26 ], [ %25, %22 ]
   %.0.ph = phi i1 [ true, %30 ], [ true, %26 ], [ %24, %22 ]
-  store ptr %.sink, ptr %3, align 8, !tbaa !126
+  store ptr %.sink, ptr %3, align 8, !tbaa !122
   br label %34
 
 34:                                               ; preds = %.sink.split, %.critedge
@@ -5938,9 +5938,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !158
+  %5 = load ptr, ptr %4, align 8, !tbaa !151
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !116
+  %7 = load ptr, ptr %6, align 8, !tbaa !113
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -5961,21 +5961,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
   %.035 = phi i64 [ %10, %.lr.ph ], [ %.sroa.speculated20, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit ]
   %.01434 = phi i64 [ %2, %.lr.ph ], [ %28, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit ]
   %.01533 = phi ptr [ %1, %.lr.ph ], [ %33, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit ]
-  %19 = load ptr, ptr %6, align 8, !tbaa !116
+  %19 = load ptr, ptr %6, align 8, !tbaa !113
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.01533, i64 %.035, i1 false)
-  %20 = load ptr, ptr %6, align 8, !tbaa !116
+  %20 = load ptr, ptr %6, align 8, !tbaa !113
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.035
-  store ptr %21, ptr %6, align 8, !tbaa !116
-  %22 = load ptr, ptr %11, align 8, !tbaa !115
+  store ptr %21, ptr %6, align 8, !tbaa !113
+  %22 = load ptr, ptr %11, align 8, !tbaa !112
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  %26 = load i64, ptr %12, align 8, !tbaa !117
+  %26 = load i64, ptr %12, align 8, !tbaa !114
   %27 = add i64 %25, %26
-  store i64 %27, ptr %12, align 8, !tbaa !117
+  store i64 %27, ptr %12, align 8, !tbaa !114
   %28 = sub nuw i64 %.01434, %.035
   %29 = add i64 %27, %28
-  %30 = load i64, ptr %13, align 8, !tbaa !106
+  %30 = load i64, ptr %13, align 8, !tbaa !103
   %31 = icmp ugt i64 %29, %30
   br i1 %31, label %.loopexit, label %32
 
@@ -5985,27 +5985,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
   %.sroa.speculated20 = tail call i64 @llvm.umin.i64(i64 %34, i64 65536)
   %35 = trunc nuw nsw i64 %.sroa.speculated20 to i32
   %36 = tail call noundef ptr @_ZN6snappy19SnappySinkAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %35)
-  store ptr %36, ptr %11, align 8, !tbaa !115
-  store ptr %36, ptr %6, align 8, !tbaa !116
+  store ptr %36, ptr %11, align 8, !tbaa !112
+  store ptr %36, ptr %6, align 8, !tbaa !113
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.sroa.speculated20
-  store ptr %37, ptr %4, align 8, !tbaa !158
+  store ptr %37, ptr %4, align 8, !tbaa !151
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %34, i64 63)
   %38 = sub nsw i64 0, %.sroa.speculated
   %39 = getelementptr inbounds i8, ptr %37, i64 %38
-  store ptr %39, ptr %14, align 8, !tbaa !157
-  %40 = load ptr, ptr %16, align 8, !tbaa !163
-  %41 = load ptr, ptr %17, align 8, !tbaa !164
+  store ptr %39, ptr %14, align 8, !tbaa !150
+  %40 = load ptr, ptr %16, align 8, !tbaa !155
+  %41 = load ptr, ptr %17, align 8, !tbaa !156
   %.not.i = icmp eq ptr %40, %41
   br i1 %.not.i, label %44, label %42
 
 42:                                               ; preds = %32
-  store ptr %36, ptr %40, align 8, !tbaa !126
+  store ptr %36, ptr %40, align 8, !tbaa !122
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %43, ptr %16, align 8, !tbaa !163
+  store ptr %43, ptr %16, align 8, !tbaa !155
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
 44:                                               ; preds = %32
-  %45 = load ptr, ptr %15, align 8, !tbaa !123
+  %45 = load ptr, ptr %15, align 8, !tbaa !119
   %46 = ptrtoint ptr %40 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
@@ -6028,7 +6028,7 @@ _ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %44
   %56 = shl nuw nsw i64 %55, 3
   %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #21
   %58 = getelementptr inbounds i8, ptr %57, i64 %48
-  store ptr %36, ptr %58, align 8, !tbaa !126
+  store ptr %36, ptr %58, align 8, !tbaa !122
   %59 = icmp sgt i64 %48, 0
   br i1 %59, label %60, label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
 
@@ -6046,18 +6046,18 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %60, %
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  store ptr %57, ptr %15, align 8, !tbaa !123
-  store ptr %61, ptr %16, align 8, !tbaa !163
+  store ptr %57, ptr %15, align 8, !tbaa !119
+  store ptr %61, ptr %16, align 8, !tbaa !155
   %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %55
-  store ptr %63, ptr %17, align 8, !tbaa !164
+  store ptr %63, ptr %17, align 8, !tbaa !156
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %42, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
   %.not38 = icmp ugt i64 %28, %.sroa.speculated20
-  br i1 %.not38, label %18, label %._crit_edge.loopexit, !llvm.loop !165
+  br i1 %.not38, label %18, label %._crit_edge.loopexit, !llvm.loop !157
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
-  %.pre = load ptr, ptr %6, align 8, !tbaa !116
+  %.pre = load ptr, ptr %6, align 8, !tbaa !113
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -6065,9 +6065,9 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %42, %_ZNSt6vectorIP
   %.015.lcssa = phi ptr [ %1, %3 ], [ %33, %._crit_edge.loopexit ]
   %.014.lcssa = phi i64 [ %2, %3 ], [ %28, %._crit_edge.loopexit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.015.lcssa, i64 %.014.lcssa, i1 false)
-  %65 = load ptr, ptr %6, align 8, !tbaa !116
+  %65 = load ptr, ptr %6, align 8, !tbaa !113
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.014.lcssa
-  store ptr %66, ptr %6, align 8, !tbaa !116
+  store ptr %66, ptr %6, align 8, !tbaa !113
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %._crit_edge
@@ -6083,22 +6083,22 @@ define linkonce_odr dso_local noundef ptr @_ZN6snappy19SnappySinkAllocator8Alloc
   %6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !119
+  %9 = load ptr, ptr %8, align 8, !tbaa !116
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !166
+  %11 = load ptr, ptr %10, align 8, !tbaa !158
   %.not.i = icmp eq ptr %9, %11
   br i1 %.not.i, label %14, label %12
 
 12:                                               ; preds = %2
-  store ptr %6, ptr %9, align 8, !tbaa !126
+  store ptr %6, ptr %9, align 8, !tbaa !122
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %13, ptr %8, align 8, !tbaa !119
+  store ptr %13, ptr %8, align 8, !tbaa !116
   br label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.exit
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %7, align 8, !tbaa !118
+  %15 = load ptr, ptr %7, align 8, !tbaa !115
   %16 = ptrtoint ptr %9 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -6121,7 +6121,7 @@ _ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPK
   %26 = shl nuw nsw i64 %25, 4
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %18
-  store ptr %6, ptr %28, align 8, !tbaa !126
+  store ptr %6, ptr %28, align 8, !tbaa !122
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %3, ptr %.sroa.6.0..sroa_idx3, align 8, !tbaa !7
   %.not10.i.i.i.i.i.i = icmp eq ptr %15, %9
@@ -6130,11 +6130,11 @@ _ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPK
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i ], [ %27, %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %15, %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !167, !alias.scope !168
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !159, !alias.scope !160
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %9
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !172
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !164
 
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %27, %_ZNKSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %30, %.lr.ph.i.i.i.i.i.i ]
@@ -6147,10 +6147,10 @@ _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S
   br label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  store ptr %27, ptr %7, align 8, !tbaa !118
-  store ptr %31, ptr %8, align 8, !tbaa !119
+  store ptr %27, ptr %7, align 8, !tbaa !115
+  store ptr %31, ptr %8, align 8, !tbaa !116
   %33 = getelementptr inbounds nuw %"struct.snappy::SnappySinkAllocator::Datablock", ptr %27, i64 %25
-  store ptr %33, ptr %10, align 8, !tbaa !166
+  store ptr %33, ptr %10, align 8, !tbaa !158
   br label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.exit: ; preds = %12, %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -6167,11 +6167,11 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE18SlowAppendFromSelfEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i64, ptr %5, align 8, !tbaa !117
+  %6 = load i64, ptr %5, align 8, !tbaa !114
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !116
+  %8 = load ptr, ptr %7, align 8, !tbaa !113
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !115
+  %10 = load ptr, ptr %9, align 8, !tbaa !112
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = add i64 %6, %11
@@ -6182,7 +6182,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load i64, ptr %17, align 8, !tbaa !106
+  %18 = load i64, ptr %17, align 8, !tbaa !103
   %19 = sub i64 %18, %14
   %20 = icmp ult i64 %19, %2
   br i1 %20, label %40, label %21
@@ -6204,14 +6204,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
   %26 = add i64 %.in, -1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
   %27 = lshr i64 %.034, 16
-  %28 = load ptr, ptr %23, align 8, !tbaa !123
+  %28 = load ptr, ptr %23, align 8, !tbaa !119
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = load ptr, ptr %29, align 8, !tbaa !126
+  %30 = load ptr, ptr %29, align 8, !tbaa !122
   %31 = and i64 %.034, 65535
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !4
   store i8 %33, ptr %4, align 1, !tbaa !4
-  %34 = load ptr, ptr %24, align 8, !tbaa !158
+  %34 = load ptr, ptr %24, align 8, !tbaa !151
   %.not.i = icmp eq ptr %34, %.02133
   br i1 %.not.i, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread
 
@@ -6221,9 +6221,9 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   br label %38
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit: ; preds = %25
-  store ptr %.02133, ptr %7, align 8, !tbaa !116
+  store ptr %.02133, ptr %7, align 8, !tbaa !113
   %36 = call noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %4, i64 noundef 1)
-  %37 = load ptr, ptr %7, align 8, !tbaa !116
+  %37 = load ptr, ptr %7, align 8, !tbaa !113
   br i1 %36, label %38, label %.thread
 
 .thread:                                          ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
@@ -6239,7 +6239,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
 
 ._crit_edge:                                      ; preds = %38, %21
   %.021.lcssa = phi ptr [ %8, %21 ], [ %storemerge.i25, %38 ]
-  store ptr %.021.lcssa, ptr %7, align 8, !tbaa !116
+  store ptr %.021.lcssa, ptr %7, align 8, !tbaa !113
   br label %40
 
 40:                                               ; preds = %._crit_edge, %.thread, %16, %3
@@ -6328,152 +6328,144 @@ attributes #25 = { noreturn nounwind }
 !21 = !{!22, !22, i64 0}
 !22 = !{!"short", !5, i64 0}
 !23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = !{!"branch_weights", i32 1, i32 127}
-!29 = !{!"branch_weights", i32 127, i32 255873}
-!30 = distinct !{!30, !25, !26}
-!31 = !{i64 129705, i64 129722, i64 129752}
-!32 = !{!"branch_weights", i32 127, i32 1}
-!33 = !{i64 130762, i64 130779, i64 130809}
-!34 = distinct !{!34, !25, !26}
-!35 = !{!"branch_weights", i32 1, i32 1999}
-!36 = !{!"branch_weights", i32 0, i32 1}
-!37 = distinct !{!37, !25, !26}
-!38 = distinct !{!38, !25, !26}
-!39 = distinct !{!39, !26}
-!40 = !{!"branch_weights", i32 127, i32 16129}
-!41 = distinct !{!41, !26}
-!42 = distinct !{!42, !25, !26}
-!43 = distinct !{!43, !25, !26}
-!44 = distinct !{!44, !25, !26}
-!45 = !{!12, !12, i64 0}
-!46 = !{!47, !11, i64 8}
-!47 = !{!"_ZTSN6snappy18SnappyDecompressorE", !48, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !19, i64 32, !49, i64 36, !5, i64 37}
-!48 = !{!"p1 _ZTSN6snappy6SourceE", !12, i64 0}
-!49 = !{!"bool", !5, i64 0}
-!50 = !{!47, !11, i64 16}
-!51 = !{!47, !48, i64 0}
-!52 = !{!47, !19, i64 32}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"vtable pointer", !6, i64 0}
-!55 = !{!47, !49, i64 36}
-!56 = distinct !{!56, !25, !26}
-!57 = distinct !{!57, !25, !26}
-!58 = distinct !{!58, !25, !26}
-!59 = !{!60, !11, i64 8}
-!60 = !{!"_ZTSN6snappy15ByteArraySourceE", !61, i64 0, !11, i64 8, !8, i64 16}
-!61 = !{!"_ZTSN6snappy6SourceE"}
-!62 = !{!60, !8, i64 16}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTSN6snappy17SnappyIOVecWriterE", !65, i64 0, !65, i64 8, !11, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
-!65 = !{!"p1 _ZTS5iovec", !12, i64 0}
-!66 = !{!64, !65, i64 8}
-!67 = !{!68, !12, i64 0}
-!68 = !{!"_ZTS5iovec", !12, i64 0, !8, i64 8}
-!69 = !{!68, !8, i64 8}
-!70 = !{!64, !11, i64 16}
-!71 = !{!64, !8, i64 24}
-!72 = !{!64, !8, i64 32}
-!73 = !{!64, !8, i64 40}
-!74 = !{i8 0, i8 2}
-!75 = !{}
-!76 = !{!77, !11, i64 0}
-!77 = !{!"_ZTSN6snappy17SnappyArrayWriterE", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!78 = !{!77, !11, i64 8}
-!79 = !{!77, !11, i64 16}
-!80 = !{!77, !11, i64 24}
-!81 = !{!82, !8, i64 8}
-!82 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !83, i64 0, !8, i64 8, !5, i64 16}
-!83 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
-!84 = !{!82, !11, i64 0}
-!85 = !{!86, !8, i64 0}
-!86 = !{!"_ZTSN6snappy28SnappyDecompressionValidatorE", !8, i64 0, !8, i64 8}
-!87 = !{!86, !8, i64 8}
-!88 = !{!89, !11, i64 8}
-!89 = !{!"_ZTSN6snappy22UncheckedByteArraySinkE", !90, i64 0, !11, i64 8}
-!90 = !{!"_ZTSN6snappy4SinkE"}
-!91 = !{!92, !65, i64 8}
-!92 = !{!"_ZTSN6snappy17SnappyIOVecReaderE", !61, i64 0, !65, i64 8, !11, i64 16, !8, i64 24, !8, i64 32}
-!93 = !{!92, !11, i64 16}
-!94 = !{!92, !8, i64 24}
-!95 = !{!92, !8, i64 32}
-!96 = distinct !{!96, !25, !26}
-!97 = distinct !{!97, !25, !26}
-!98 = !{!99, !100, i64 0}
-!99 = !{!"_ZTSN6snappy19SnappySinkAllocatorE", !100, i64 0, !101, i64 8}
-!100 = !{!"p1 _ZTSN6snappy4SinkE", !12, i64 0}
-!101 = !{!"_ZTSSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE", !102, i64 0}
-!102 = !{!"_ZTSSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE", !103, i64 0}
-!103 = !{!"_ZTSNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_Vector_implE", !104, i64 0}
-!104 = !{!"_ZTSNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_Vector_impl_dataE", !105, i64 0, !105, i64 8, !105, i64 16}
-!105 = !{!"p1 _ZTSN6snappy19SnappySinkAllocator9DatablockE", !12, i64 0}
-!106 = !{!107, !8, i64 56}
-!107 = !{!"_ZTSN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEE", !99, i64 0, !108, i64 32, !8, i64 56, !8, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96}
-!108 = !{!"_ZTSSt6vectorIPcSaIS0_EE", !109, i64 0}
-!109 = !{!"_ZTSSt12_Vector_baseIPcSaIS0_EE", !110, i64 0}
-!110 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE12_Vector_implE", !111, i64 0}
-!111 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE17_Vector_impl_dataE", !112, i64 0, !112, i64 8, !112, i64 16}
-!112 = !{!"p2 omnipotent char", !113, i64 0}
-!113 = !{!"any p2 pointer", !12, i64 0}
-!114 = !{!105, !105, i64 0}
-!115 = !{!107, !11, i64 72}
-!116 = !{!107, !11, i64 80}
-!117 = !{!107, !8, i64 64}
-!118 = !{!104, !105, i64 0}
-!119 = !{!104, !105, i64 8}
-!120 = !{!121, !11, i64 0}
-!121 = !{!"_ZTSN6snappy19SnappySinkAllocator9DatablockE", !11, i64 0, !8, i64 8}
-!122 = distinct !{!122, !26}
-!123 = !{!111, !112, i64 0}
-!124 = distinct !{!124, !25, !26}
-!125 = !{!47, !11, i64 24}
-!126 = !{!11, !11, i64 0}
-!127 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
-!128 = distinct !{!128, !25}
-!129 = distinct !{!129, !25, !26}
-!130 = distinct !{!130, !25, !26}
-!131 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!132 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!133 = distinct !{!133, !26}
-!134 = !{i64 53232, i64 53255}
-!135 = !{i64 54434}
-!136 = !{!"branch_weights", i32 1, i32 1048575}
-!137 = distinct !{!137, !25, !26}
-!138 = distinct !{!138, !25, !26}
-!139 = distinct !{!139, !25, !26}
-!140 = distinct !{!140, !25, !26}
-!141 = distinct !{!141, !25, !26}
-!142 = distinct !{!142, !25, !26}
-!143 = distinct !{!143, !25, !26}
-!144 = distinct !{!144, !25, !26}
-!145 = distinct !{!145, !25, !146, !26}
-!146 = !{!"llvm.loop.unroll.disable"}
-!147 = distinct !{!147, !25, !146, !26}
-!148 = distinct !{!148, !26}
-!149 = !{!"branch_weights", i32 4001, i32 4000000}
-!150 = distinct !{!150, !25, !26}
-!151 = distinct !{!151, !25, !26}
-!152 = distinct !{!152, !25, !26}
-!153 = distinct !{!153, !26}
-!154 = distinct !{!154, !25}
-!155 = distinct !{!155, !25, !26}
-!156 = distinct !{!156, !26}
-!157 = !{!107, !11, i64 96}
-!158 = !{!107, !11, i64 88}
-!159 = distinct !{!159, !25}
-!160 = distinct !{!160, !25, !26}
-!161 = !{!"branch_weights", i32 6003000, i32 -294967296}
-!162 = distinct !{!162, !26}
-!163 = !{!111, !112, i64 8}
-!164 = !{!111, !112, i64 16}
-!165 = distinct !{!165, !25, !26}
-!166 = !{!104, !105, i64 16}
-!167 = !{i64 0, i64 8, !126, i64 8, i64 8, !7}
-!168 = !{!169, !171}
-!169 = distinct !{!169, !170, !"_ZSt19__relocate_object_aIN6snappy19SnappySinkAllocator9DatablockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!170 = distinct !{!170, !"_ZSt19__relocate_object_aIN6snappy19SnappySinkAllocator9DatablockES2_SaIS2_EEvPT_PT0_RT1_"}
-!171 = distinct !{!171, !170, !"_ZSt19__relocate_object_aIN6snappy19SnappySinkAllocator9DatablockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!172 = distinct !{!172, !25, !26}
+!26 = distinct !{!26, !25}
+!27 = !{!"branch_weights", i32 1, i32 127}
+!28 = !{!"branch_weights", i32 127, i32 255873}
+!29 = distinct !{!29, !25}
+!30 = !{i64 129705, i64 129722, i64 129752}
+!31 = !{!"branch_weights", i32 127, i32 1}
+!32 = !{i64 130762, i64 130779, i64 130809}
+!33 = distinct !{!33, !25}
+!34 = !{!"branch_weights", i32 1, i32 1999}
+!35 = !{!"branch_weights", i32 0, i32 1}
+!36 = distinct !{!36, !25}
+!37 = distinct !{!37, !25}
+!38 = !{!"branch_weights", i32 127, i32 16129}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}
+!41 = distinct !{!41, !25}
+!42 = !{!12, !12, i64 0}
+!43 = !{!44, !11, i64 8}
+!44 = !{!"_ZTSN6snappy18SnappyDecompressorE", !45, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !19, i64 32, !46, i64 36, !5, i64 37}
+!45 = !{!"p1 _ZTSN6snappy6SourceE", !12, i64 0}
+!46 = !{!"bool", !5, i64 0}
+!47 = !{!44, !11, i64 16}
+!48 = !{!44, !45, i64 0}
+!49 = !{!44, !19, i64 32}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"vtable pointer", !6, i64 0}
+!52 = !{!44, !46, i64 36}
+!53 = distinct !{!53, !25}
+!54 = distinct !{!54, !25}
+!55 = distinct !{!55, !25}
+!56 = !{!57, !11, i64 8}
+!57 = !{!"_ZTSN6snappy15ByteArraySourceE", !58, i64 0, !11, i64 8, !8, i64 16}
+!58 = !{!"_ZTSN6snappy6SourceE"}
+!59 = !{!57, !8, i64 16}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"_ZTSN6snappy17SnappyIOVecWriterE", !62, i64 0, !62, i64 8, !11, i64 16, !8, i64 24, !8, i64 32, !8, i64 40}
+!62 = !{!"p1 _ZTS5iovec", !12, i64 0}
+!63 = !{!61, !62, i64 8}
+!64 = !{!65, !12, i64 0}
+!65 = !{!"_ZTS5iovec", !12, i64 0, !8, i64 8}
+!66 = !{!65, !8, i64 8}
+!67 = !{!61, !11, i64 16}
+!68 = !{!61, !8, i64 24}
+!69 = !{!61, !8, i64 32}
+!70 = !{!61, !8, i64 40}
+!71 = !{i8 0, i8 2}
+!72 = !{}
+!73 = !{!74, !11, i64 0}
+!74 = !{!"_ZTSN6snappy17SnappyArrayWriterE", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!75 = !{!74, !11, i64 8}
+!76 = !{!74, !11, i64 16}
+!77 = !{!74, !11, i64 24}
+!78 = !{!79, !8, i64 8}
+!79 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !80, i64 0, !8, i64 8, !5, i64 16}
+!80 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
+!81 = !{!79, !11, i64 0}
+!82 = !{!83, !8, i64 0}
+!83 = !{!"_ZTSN6snappy28SnappyDecompressionValidatorE", !8, i64 0, !8, i64 8}
+!84 = !{!83, !8, i64 8}
+!85 = !{!86, !11, i64 8}
+!86 = !{!"_ZTSN6snappy22UncheckedByteArraySinkE", !87, i64 0, !11, i64 8}
+!87 = !{!"_ZTSN6snappy4SinkE"}
+!88 = !{!89, !62, i64 8}
+!89 = !{!"_ZTSN6snappy17SnappyIOVecReaderE", !58, i64 0, !62, i64 8, !11, i64 16, !8, i64 24, !8, i64 32}
+!90 = !{!89, !11, i64 16}
+!91 = !{!89, !8, i64 24}
+!92 = !{!89, !8, i64 32}
+!93 = distinct !{!93, !25}
+!94 = distinct !{!94, !25}
+!95 = !{!96, !97, i64 0}
+!96 = !{!"_ZTSN6snappy19SnappySinkAllocatorE", !97, i64 0, !98, i64 8}
+!97 = !{!"p1 _ZTSN6snappy4SinkE", !12, i64 0}
+!98 = !{!"_ZTSSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE", !99, i64 0}
+!99 = !{!"_ZTSSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE", !100, i64 0}
+!100 = !{!"_ZTSNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE12_Vector_implE", !101, i64 0}
+!101 = !{!"_ZTSNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_Vector_impl_dataE", !102, i64 0, !102, i64 8, !102, i64 16}
+!102 = !{!"p1 _ZTSN6snappy19SnappySinkAllocator9DatablockE", !12, i64 0}
+!103 = !{!104, !8, i64 56}
+!104 = !{!"_ZTSN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEE", !96, i64 0, !105, i64 32, !8, i64 56, !8, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96}
+!105 = !{!"_ZTSSt6vectorIPcSaIS0_EE", !106, i64 0}
+!106 = !{!"_ZTSSt12_Vector_baseIPcSaIS0_EE", !107, i64 0}
+!107 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE12_Vector_implE", !108, i64 0}
+!108 = !{!"_ZTSNSt12_Vector_baseIPcSaIS0_EE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
+!109 = !{!"p2 omnipotent char", !110, i64 0}
+!110 = !{!"any p2 pointer", !12, i64 0}
+!111 = !{!102, !102, i64 0}
+!112 = !{!104, !11, i64 72}
+!113 = !{!104, !11, i64 80}
+!114 = !{!104, !8, i64 64}
+!115 = !{!101, !102, i64 0}
+!116 = !{!101, !102, i64 8}
+!117 = !{!118, !11, i64 0}
+!118 = !{!"_ZTSN6snappy19SnappySinkAllocator9DatablockE", !11, i64 0, !8, i64 8}
+!119 = !{!108, !109, i64 0}
+!120 = distinct !{!120, !25}
+!121 = !{!44, !11, i64 24}
+!122 = !{!11, !11, i64 0}
+!123 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
+!124 = distinct !{!124, !25}
+!125 = distinct !{!125, !25}
+!126 = distinct !{!126, !25}
+!127 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!128 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!129 = !{i64 53232, i64 53255}
+!130 = !{i64 54434}
+!131 = !{!"branch_weights", i32 1, i32 1048575}
+!132 = distinct !{!132, !25}
+!133 = distinct !{!133, !25}
+!134 = distinct !{!134, !25}
+!135 = distinct !{!135, !25}
+!136 = distinct !{!136, !25}
+!137 = distinct !{!137, !25}
+!138 = distinct !{!138, !25}
+!139 = distinct !{!139, !25}
+!140 = distinct !{!140, !25, !141}
+!141 = !{!"llvm.loop.unroll.disable"}
+!142 = distinct !{!142, !25, !141}
+!143 = distinct !{!143, !25}
+!144 = !{!"branch_weights", i32 4001, i32 4000000}
+!145 = distinct !{!145, !25}
+!146 = distinct !{!146, !25}
+!147 = distinct !{!147, !25}
+!148 = distinct !{!148, !25}
+!149 = distinct !{!149, !25}
+!150 = !{!104, !11, i64 96}
+!151 = !{!104, !11, i64 88}
+!152 = distinct !{!152, !25}
+!153 = distinct !{!153, !25}
+!154 = !{!"branch_weights", i32 6003000, i32 -294967296}
+!155 = !{!108, !109, i64 8}
+!156 = !{!108, !109, i64 16}
+!157 = distinct !{!157, !25}
+!158 = !{!101, !102, i64 16}
+!159 = !{i64 0, i64 8, !122, i64 8, i64 8, !7}
+!160 = !{!161, !163}
+!161 = distinct !{!161, !162, !"_ZSt19__relocate_object_aIN6snappy19SnappySinkAllocator9DatablockES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!162 = distinct !{!162, !"_ZSt19__relocate_object_aIN6snappy19SnappySinkAllocator9DatablockES2_SaIS2_EEvPT_PT0_RT1_"}
+!163 = distinct !{!163, !162, !"_ZSt19__relocate_object_aIN6snappy19SnappySinkAllocator9DatablockES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!164 = distinct !{!164, !25}

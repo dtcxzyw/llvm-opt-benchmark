@@ -133,7 +133,7 @@ nibble.exit18:                                    ; preds = %nibble.exit, %23, %
   %29 = add nuw nsw i64 %.020, 2
   %30 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
   %exitcond.not = icmp eq ptr %.01219, %scevgep
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %nibble.exit18
   %.fca.0.load.pre = load i64, ptr %2, align 8
@@ -172,7 +172,6 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

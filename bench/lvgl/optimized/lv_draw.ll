@@ -65,17 +65,17 @@ define nonnull ptr @lv_draw_create_unit(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !36
+  br label %.preheader
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
   store ptr %4, ptr %2, align 8, !tbaa !30
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !37
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
   %6 = add i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !37
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %6, ptr %7, align 8, !tbaa !38
+  store i32 %6, ptr %7, align 8, !tbaa !36
   ret ptr %2
 }
 
@@ -88,37 +88,37 @@ define nonnull ptr @lv_draw_add_task(ptr noundef %0, ptr noundef readonly captur
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !39
+  br label %.preheader
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !37
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !37
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %0, ptr %7, align 8, !tbaa !42
+  store ptr %0, ptr %7, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !37
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store volatile i32 1, ptr %10, align 8, !tbaa !47
+  store volatile i32 1, ptr %10, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.preheader23
 
 14:                                               ; preds = %4
-  store ptr %3, ptr %11, align 8, !tbaa !48
+  store ptr %3, ptr %11, align 8, !tbaa !45
   br label %17
 
 .preheader23:                                     ; preds = %4, %.preheader23
   %.0 = phi ptr [ %15, %.preheader23 ], [ %12, %4 ]
-  %15 = load ptr, ptr %.0, align 8, !tbaa !51
+  %15 = load ptr, ptr %.0, align 8, !tbaa !48
   %.not22 = icmp eq ptr %15, null
-  br i1 %.not22, label %16, label %.preheader23, !llvm.loop !52
+  br i1 %.not22, label %16, label %.preheader23, !llvm.loop !49
 
 16:                                               ; preds = %.preheader23
-  store ptr %3, ptr %.0, align 8, !tbaa !51
+  store ptr %3, ptr %.0, align 8, !tbaa !48
   br label %17
 
 17:                                               ; preds = %16, %14
@@ -131,15 +131,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %0, ptr %5, align 8, !tbaa !54
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !56, !range !57, !noundef !58
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !53, !range !54, !noundef !55
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8, !tbaa !59
+  %9 = load ptr, ptr %4, align 8, !tbaa !56
   %.not35 = icmp eq ptr %9, null
   br i1 %.not35, label %15, label %10
 
@@ -148,25 +148,25 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !56
-  %13 = load ptr, ptr %4, align 8, !tbaa !59
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !53
+  %13 = load ptr, ptr %4, align 8, !tbaa !56
   %14 = tail call i32 @lv_obj_send_event(ptr noundef %13, i32 noundef 34, ptr noundef nonnull %1) #11
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !56
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 560), align 8, !tbaa !53
   br label %15
 
 15:                                               ; preds = %12, %10, %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 113
-  store i8 100, ptr %16, align 1, !tbaa !60
+  store i8 100, ptr %16, align 1, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 0, ptr %17, align 8, !tbaa !61
-  %.03042 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !62
+  store i8 0, ptr %17, align 8, !tbaa !58
+  %.03042 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
   %.not3643 = icmp eq ptr %.03042, null
   br i1 %.not3643, label %._crit_edge.thread, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %15, %22
   %.03044 = phi ptr [ %.030, %22 ], [ %.03042, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.03044, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !63
+  %19 = load ptr, ptr %18, align 8, !tbaa !60
   %.not37 = icmp eq ptr %19, null
   br i1 %.not37, label %22, label %20
 
@@ -175,18 +175,18 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br label %22
 
 22:                                               ; preds = %20, %.lr.ph45
-  %.030 = load ptr, ptr %.03044, align 8, !tbaa !62
+  %.030 = load ptr, ptr %.03044, align 8, !tbaa !59
   %.not36 = icmp eq ptr %.030, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph45, !llvm.loop !64
+  br i1 %.not36, label %._crit_edge, label %.lr.ph45, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %22
-  %.pre = load i8, ptr %17, align 8, !tbaa !61
+  %.pre = load i8, ptr %17, align 8, !tbaa !58
   %23 = icmp eq i8 %.pre, 0
   br i1 %23, label %._crit_edge.thread, label %25
 
 ._crit_edge.thread:                               ; preds = %15, %._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store volatile i32 3, ptr %24, align 8, !tbaa !47
+  store volatile i32 3, ptr %24, align 8, !tbaa !44
   br label %lv_draw_dispatch.exit
 
 25:                                               ; preds = %._crit_edge
@@ -198,7 +198,7 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   %.0716.i = phi ptr [ %32, %31 ], [ %26, %25 ]
   %.0815.i = phi i1 [ %.1.lcssa.i, %31 ], [ false, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0716.i, i64 752
-  %.010.i = load ptr, ptr %27, align 8, !tbaa !65
+  %.010.i = load ptr, ptr %27, align 8, !tbaa !62
   %.not911.i = icmp eq ptr %.010.i, null
   br i1 %.not911.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -208,36 +208,36 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   %28 = tail call zeroext i1 @lv_draw_dispatch_layer(ptr noundef nonnull %.0716.i, ptr noundef nonnull %.013.i)
   %spec.select.i = select i1 %28, i1 true, i1 %.112.i
   %29 = getelementptr inbounds nuw i8, ptr %.013.i, i64 88
-  %.0.i = load ptr, ptr %29, align 8, !tbaa !65
+  %.0.i = load ptr, ptr %29, align 8, !tbaa !62
   %.not9.i = icmp eq ptr %.0.i, null
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !63
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph18.i
   %.1.lcssa.i = phi i1 [ %.0815.i, %.lr.ph18.i ], [ %spec.select.i, %.lr.ph.i ]
   br i1 %.1.lcssa.i, label %31, label %30
 
 30:                                               ; preds = %._crit_edge.i
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !67
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %31
 
 31:                                               ; preds = %30, %._crit_edge.i
   %32 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716.i) #11
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i, !llvm.loop !68
+  br i1 %.not.i, label %lv_draw_dispatch.exit, label %.lr.ph18.i, !llvm.loop !65
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 113
-  store i8 100, ptr %34, align 1, !tbaa !60
+  store i8 100, ptr %34, align 1, !tbaa !57
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i8 0, ptr %35, align 8, !tbaa !61
-  %.039 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !62
+  store i8 0, ptr %35, align 8, !tbaa !58
+  %.039 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
   %.not40 = icmp eq ptr %.039, null
   br i1 %.not40, label %lv_draw_dispatch.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %40
   %.041 = phi ptr [ %.0, %40 ], [ %.039, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %.041, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !63
+  %37 = load ptr, ptr %36, align 8, !tbaa !60
   %.not34 = icmp eq ptr %37, null
   br i1 %.not34, label %40, label %38
 
@@ -246,9 +246,9 @@ define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) loca
   br label %40
 
 40:                                               ; preds = %38, %.lr.ph
-  %.0 = load ptr, ptr %.041, align 8, !tbaa !62
+  %.0 = load ptr, ptr %.041, align 8, !tbaa !59
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %lv_draw_dispatch.exit, label %.lr.ph, !llvm.loop !69
+  br i1 %.not, label %lv_draw_dispatch.exit, label %.lr.ph, !llvm.loop !66
 
 lv_draw_dispatch.exit:                            ; preds = %40, %31, %33, %25, %._crit_edge.thread
   ret void
@@ -268,7 +268,7 @@ define void @lv_draw_dispatch() local_unnamed_addr #1 {
   %.0716 = phi ptr [ %7, %6 ], [ %1, %0 ]
   %.0815 = phi i1 [ %.1.lcssa, %6 ], [ false, %0 ]
   %2 = getelementptr inbounds nuw i8, ptr %.0716, i64 752
-  %.010 = load ptr, ptr %2, align 8, !tbaa !65
+  %.010 = load ptr, ptr %2, align 8, !tbaa !62
   %.not911 = icmp eq ptr %.010, null
   br i1 %.not911, label %._crit_edge, label %.lr.ph
 
@@ -278,22 +278,22 @@ define void @lv_draw_dispatch() local_unnamed_addr #1 {
   %3 = tail call zeroext i1 @lv_draw_dispatch_layer(ptr noundef nonnull %.0716, ptr noundef nonnull %.013)
   %spec.select = select i1 %3, i1 true, i1 %.112
   %4 = getelementptr inbounds nuw i8, ptr %.013, i64 88
-  %.0 = load ptr, ptr %4, align 8, !tbaa !65
+  %.0 = load ptr, ptr %4, align 8, !tbaa !62
   %.not9 = icmp eq ptr %.0, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph18
   %.1.lcssa = phi i1 [ %.0815, %.lr.ph18 ], [ %spec.select, %.lr.ph ]
   br i1 %.1.lcssa, label %6, label %5
 
 5:                                                ; preds = %._crit_edge
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !67
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %6
 
 6:                                                ; preds = %5, %._crit_edge
   %7 = tail call ptr @lv_display_get_next(ptr noundef nonnull %.0716) #11
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !68
+  br i1 %.not, label %._crit_edge19, label %.lr.ph18, !llvm.loop !65
 
 ._crit_edge19:                                    ; preds = %6, %0
   ret void
@@ -309,7 +309,7 @@ declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %4 = load ptr, ptr %3, align 8, !tbaa !45
   %.not48 = icmp eq ptr %4, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -322,47 +322,47 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
 7:                                                ; preds = %.lr.ph, %59
   %.050 = phi ptr [ null, %.lr.ph ], [ %.1, %59 ]
   %.03449 = phi ptr [ %4, %.lr.ph ], [ %8, %59 ]
-  %8 = load ptr, ptr %.03449, align 8, !tbaa !51
+  %8 = load ptr, ptr %.03449, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %.03449, i64 96
-  %10 = load volatile i32, ptr %9, align 8, !tbaa !47
+  %10 = load volatile i32, ptr %9, align 8, !tbaa !44
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %59
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %.03449, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !70
+  %14 = load i32, ptr %13, align 8, !tbaa !67
   %15 = icmp eq i32 %14, 7
   br i1 %15, label %16, label %46
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.03449, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !53
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !71
-  %21 = load ptr, ptr %20, align 8, !tbaa !78
+  %20 = load ptr, ptr %19, align 8, !tbaa !68
+  %21 = load ptr, ptr %20, align 8, !tbaa !75
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %31, label %22
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = tail call i32 @lv_area_get_height(ptr noundef nonnull %23) #11
-  %25 = load ptr, ptr %20, align 8, !tbaa !78
+  %25 = load ptr, ptr %20, align 8, !tbaa !75
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 65535
   %29 = mul nsw i32 %28, %24
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !79
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %30, i32 %29)
-  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !79
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
   tail call void @lv_draw_buf_destroy(ptr noundef %25) #11
-  store ptr null, ptr %20, align 8, !tbaa !78
+  store ptr null, ptr %20, align 8, !tbaa !75
   br label %31
 
 31:                                               ; preds = %22, %16
   br i1 %.not38.i, label %46, label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr %5, align 8, !tbaa !80
+  %33 = load ptr, ptr %5, align 8, !tbaa !77
   br label %34
 
 34:                                               ; preds = %35, %32
@@ -372,19 +372,19 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
-  %37 = load ptr, ptr %36, align 8, !tbaa !88
+  %37 = load ptr, ptr %36, align 8, !tbaa !85
   %38 = icmp eq ptr %37, %20
-  br i1 %38, label %39, label %34, !llvm.loop !89
+  br i1 %38, label %39, label %34, !llvm.loop !86
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 88
-  %42 = load ptr, ptr %41, align 8, !tbaa !88
-  store ptr %42, ptr %40, align 8, !tbaa !88
+  %42 = load ptr, ptr %41, align 8, !tbaa !85
+  store ptr %42, ptr %40, align 8, !tbaa !85
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %34, %39
-  %43 = load ptr, ptr %6, align 8, !tbaa !90
+  %43 = load ptr, ptr %6, align 8, !tbaa !87
   %.not40.i = icmp eq ptr %43, null
   br i1 %.not40.i, label %45, label %44
 
@@ -410,89 +410,89 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %54 = load ptr, ptr %53, align 8, !tbaa !91
+  %54 = load ptr, ptr %53, align 8, !tbaa !88
   tail call void @lv_free(ptr noundef %54) #11
-  store ptr null, ptr %53, align 8, !tbaa !91
+  store ptr null, ptr %53, align 8, !tbaa !88
   br label %lv_cleanup_task.exit
 
 lv_cleanup_task.exit:                             ; preds = %46, %48, %52
   %55 = getelementptr inbounds nuw i8, ptr %.03449, i64 104
-  %56 = load ptr, ptr %55, align 8, !tbaa !53
+  %56 = load ptr, ptr %55, align 8, !tbaa !50
   tail call void @lv_free(ptr noundef %56) #11
   tail call void @lv_free(ptr noundef nonnull %.03449) #11
   %.not43 = icmp eq ptr %.050, null
   br i1 %.not43, label %58, label %57
 
 57:                                               ; preds = %lv_cleanup_task.exit
-  store ptr %8, ptr %.050, align 8, !tbaa !51
+  store ptr %8, ptr %.050, align 8, !tbaa !48
   br label %59
 
 58:                                               ; preds = %lv_cleanup_task.exit
-  store ptr %8, ptr %3, align 8, !tbaa !48
+  store ptr %8, ptr %3, align 8, !tbaa !45
   br label %59
 
 59:                                               ; preds = %7, %57, %58
   %.1 = phi ptr [ %.050, %57 ], [ null, %58 ], [ %.03449, %7 ]
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !95
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %59, %2
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %61 = load ptr, ptr %60, align 8, !tbaa !96
+  %61 = load ptr, ptr %60, align 8, !tbaa !93
   %.not39 = icmp eq ptr %61, null
   br i1 %.not39, label %86, label %62
 
 62:                                               ; preds = %._crit_edge
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %64 = load i8, ptr %63, align 8, !tbaa !97, !range !57, !noundef !58
+  %64 = load i8, ptr %63, align 8, !tbaa !94, !range !54, !noundef !55
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %86
 
 66:                                               ; preds = %62
-  %67 = load ptr, ptr %3, align 8, !tbaa !48
+  %67 = load ptr, ptr %3, align 8, !tbaa !45
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %86
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 72
-  %.03551 = load ptr, ptr %70, align 8, !tbaa !98
+  %.03551 = load ptr, ptr %70, align 8, !tbaa !95
   %.not4252 = icmp eq ptr %.03551, null
   br i1 %.not4252, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %69, %.thread
   %.03553 = phi ptr [ %.035, %.thread ], [ %.03551, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %.03553, i64 8
-  %72 = load i32, ptr %71, align 8, !tbaa !70
+  %72 = load i32, ptr %71, align 8, !tbaa !67
   %73 = icmp eq i32 %72, 7
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %.lr.ph55
   %75 = getelementptr inbounds nuw i8, ptr %.03553, i64 96
-  %76 = load volatile i32, ptr %75, align 8, !tbaa !47
+  %76 = load volatile i32, ptr %75, align 8, !tbaa !44
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %.03553, i64 104
-  %80 = load ptr, ptr %79, align 8, !tbaa !53
+  %80 = load ptr, ptr %79, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !71
+  %82 = load ptr, ptr %81, align 8, !tbaa !68
   %83 = icmp eq ptr %82, %1
   br i1 %83, label %84, label %.thread
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %.03553, i64 96
-  store volatile i32 1, ptr %85, align 8, !tbaa !47
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !67
+  store volatile i32 1, ptr %85, align 8, !tbaa !44
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %.loopexit
 
 .thread:                                          ; preds = %78, %74, %.lr.ph55
-  %.035 = load ptr, ptr %.03553, align 8, !tbaa !98
+  %.035 = load ptr, ptr %.03553, align 8, !tbaa !95
   %.not42 = icmp eq ptr %.035, null
-  br i1 %.not42, label %.loopexit, label %.lr.ph55, !llvm.loop !99
+  br i1 %.not42, label %.loopexit, label %.lr.ph55, !llvm.loop !96
 
 86:                                               ; preds = %66, %62, %._crit_edge
-  %.03256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !62
+  %.03256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
   %.not4057 = icmp eq ptr %.03256, null
   br i1 %.not4057, label %.loopexit, label %.lr.ph61
 
@@ -500,13 +500,13 @@ lv_cleanup_task.exit:                             ; preds = %46, %48, %52
   %.03259 = phi ptr [ %.032, %.lr.ph61 ], [ %.03256, %86 ]
   %.13758 = phi i1 [ %spec.select, %.lr.ph61 ], [ false, %86 ]
   %87 = getelementptr inbounds nuw i8, ptr %.03259, i64 24
-  %88 = load ptr, ptr %87, align 8, !tbaa !100
+  %88 = load ptr, ptr %87, align 8, !tbaa !97
   %89 = tail call i32 %88(ptr noundef nonnull %.03259, ptr noundef nonnull %1) #11
   %.not41 = icmp ne i32 %89, -1
   %spec.select = select i1 %.not41, i1 true, i1 %.13758
-  %.032 = load ptr, ptr %.03259, align 8, !tbaa !62
+  %.032 = load ptr, ptr %.03259, align 8, !tbaa !59
   %.not40 = icmp eq ptr %.032, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph61, !llvm.loop !101
+  br i1 %.not40, label %.loopexit, label %.lr.ph61, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.thread, %.lr.ph61, %69, %86, %84
   %.036 = phi i1 [ false, %84 ], [ false, %86 ], [ false, %69 ], [ %spec.select, %.lr.ph61 ], [ false, %.thread ]
@@ -515,7 +515,7 @@ lv_cleanup_task.exit:                             ; preds = %46, %48, %52
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define void @lv_draw_dispatch_request() local_unnamed_addr #5 {
-  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !67
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   ret void
 }
 
@@ -524,28 +524,28 @@ define void @lv_draw_dispatch_wait_for_request() local_unnamed_addr #5 {
   br label %1
 
 1:                                                ; preds = %1, %0
-  %2 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !67
+  %2 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %1, label %3, !llvm.loop !102
+  br i1 %.not, label %1, label %3, !llvm.loop !99
 
 3:                                                ; preds = %1
-  store volatile i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !67
+  store volatile i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @lv_draw_get_unit_count() local_unnamed_addr #6 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !37
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.lv_area_t, align 4
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !37
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !35
   %6 = icmp ult i32 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not37 = icmp eq ptr %8, null
   br i1 %6, label %9, label %13
 
@@ -554,7 +554,7 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %12 = load volatile i32, ptr %11, align 8, !tbaa !47
+  %12 = load volatile i32, ptr %11, align 8, !tbaa !44
   %.not38 = icmp eq i32 %12, 1
   %spec.select = select i1 %.not38, ptr %8, ptr null
   br label %is_independent.exit.thread
@@ -567,34 +567,34 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
   %16 = tail call i32 @lv_display_get_horizontal_resolution(ptr noundef %15) #11
   %17 = tail call ptr @lv_refr_get_disp_refreshing() #11
   %18 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %17) #11
-  %19 = load ptr, ptr %7, align 8, !tbaa !48
+  %19 = load ptr, ptr %7, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %21 = load volatile i32, ptr %20, align 8, !tbaa !47
+  %21 = load volatile i32, ptr %20, align 8, !tbaa !44
   %.not32 = icmp eq i32 %21, 1
   br i1 %.not32, label %.thread, label %22
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !103
+  %24 = load i32, ptr %23, align 4, !tbaa !100
   %25 = icmp slt i32 %24, 1
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !104
+  %28 = load i32, ptr %27, align 4, !tbaa !101
   %29 = add nsw i32 %16, -1
   %.not33 = icmp slt i32 %28, %29
   br i1 %.not33, label %.thread, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %32 = load i32, ptr %31, align 4, !tbaa !105
+  %32 = load i32, ptr %31, align 4, !tbaa !102
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %36 = load i32, ptr %35, align 4, !tbaa !106
+  %36 = load i32, ptr %35, align 4, !tbaa !103
   %37 = add nsw i32 %18, -1
   %.not34 = icmp slt i32 %36, %37
   br i1 %.not34, label %.thread, label %is_independent.exit.thread
@@ -602,27 +602,27 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 .thread:                                          ; preds = %34, %30, %26, %22, %14, %13
   %.not35 = icmp eq ptr %1, null
   %. = select i1 %.not35, ptr %7, ptr %1
-  %.044 = load ptr, ptr %., align 8, !tbaa !98
+  %.044 = load ptr, ptr %., align 8, !tbaa !95
   %.not3645 = icmp eq ptr %.044, null
   br i1 %.not3645, label %is_independent.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %is_independent.exit
   %.046 = phi ptr [ %.0, %is_independent.exit ], [ %.044, %.thread ]
   %38 = getelementptr inbounds nuw i8, ptr %.046, i64 96
-  %39 = load volatile i32, ptr %38, align 8, !tbaa !47
+  %39 = load volatile i32, ptr %38, align 8, !tbaa !44
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %is_independent.exit
 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr inbounds nuw i8, ptr %.046, i64 112
-  %43 = load i8, ptr %42, align 8, !tbaa !61
+  %43 = load i8, ptr %42, align 8, !tbaa !58
   %44 = icmp eq i8 %43, 0
   %45 = icmp eq i8 %43, %2
   %or.cond = or i1 %44, %45
   br i1 %or.cond, label %46, label %is_independent.exit
 
 46:                                               ; preds = %41
-  %.0915.i = load ptr, ptr %7, align 8, !tbaa !98
+  %.0915.i = load ptr, ptr %7, align 8, !tbaa !95
   %47 = icmp eq ptr %.0915.i, null
   %48 = icmp eq ptr %.0915.i, %.046
   %.not1416.i = or i1 %47, %48
@@ -635,7 +635,7 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 50:                                               ; preds = %56, %.lr.ph.i
   %.0917.i = phi ptr [ %.0915.i, %.lr.ph.i ], [ %.09.i, %56 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 96
-  %52 = load volatile i32, ptr %51, align 8, !tbaa !47
+  %52 = load volatile i32, ptr %51, align 8, !tbaa !44
   %.not.i = icmp eq i32 %52, 3
   br i1 %.not.i, label %56, label %53
 
@@ -647,16 +647,16 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
   br i1 %55, label %is_independent.exit, label %56
 
 56:                                               ; preds = %53, %50
-  %.09.i = load ptr, ptr %.0917.i, align 8, !tbaa !98
+  %.09.i = load ptr, ptr %.0917.i, align 8, !tbaa !95
   %57 = icmp eq ptr %.09.i, null
   %58 = icmp eq ptr %.09.i, %.046
   %.not14.i = or i1 %57, %58
-  br i1 %.not14.i, label %is_independent.exit.thread, label %50, !llvm.loop !107
+  br i1 %.not14.i, label %is_independent.exit.thread, label %50, !llvm.loop !104
 
 is_independent.exit:                              ; preds = %53, %41, %.lr.ph
-  %.0 = load ptr, ptr %.046, align 8, !tbaa !98
+  %.0 = load ptr, ptr %.046, align 8, !tbaa !95
   %.not36 = icmp eq ptr %.0, null
-  br i1 %.not36, label %is_independent.exit.thread, label %.lr.ph, !llvm.loop !108
+  br i1 %.not36, label %is_independent.exit.thread, label %.lr.ph, !llvm.loop !105
 
 is_independent.exit.thread:                       ; preds = %is_independent.exit, %46, %56, %.thread, %34, %10, %9
   %.027 = phi ptr [ null, %9 ], [ %spec.select, %10 ], [ null, %34 ], [ null, %.thread ], [ %.046, %56 ], [ null, %is_independent.exit ], [ %.046, %46 ]
@@ -675,7 +675,7 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !51
+  %4 = load ptr, ptr %0, align 8, !tbaa !48
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -687,12 +687,12 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
   %.016 = phi ptr [ %4, %.preheader ], [ %19, %18 ]
   %.01115 = phi i32 [ 0, %.preheader ], [ %.1, %18 ]
   %8 = getelementptr inbounds nuw i8, ptr %.016, i64 96
-  %9 = load volatile i32, ptr %8, align 8, !tbaa !47
+  %9 = load volatile i32, ptr %8, align 8, !tbaa !44
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = load volatile i32, ptr %8, align 8, !tbaa !47
+  %12 = load volatile i32, ptr %8, align 8, !tbaa !44
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -705,9 +705,9 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
 
 18:                                               ; preds = %14, %11
   %.1 = phi i32 [ %.01115, %11 ], [ %spec.select, %14 ]
-  %19 = load ptr, ptr %.016, align 8, !tbaa !51
+  %19 = load ptr, ptr %.016, align 8, !tbaa !48
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !109
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !106
 
 .loopexit:                                        ; preds = %18, %3, %1
   %.012 = phi i32 [ 0, %1 ], [ 0, %3 ], [ %.1, %18 ]
@@ -722,12 +722,12 @@ define void @lv_layer_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %.preheader, label %lv_layer_reset.exit
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !110
+  br label %.preheader
 
 lv_layer_reset.exit:                              ; preds = %1
   tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 112) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 -1, ptr %2, align 4, !tbaa !111
+  store i8 -1, ptr %2, align 4, !tbaa !107
   ret void
 }
 
@@ -737,11 +737,11 @@ define void @lv_layer_reset(ptr noundef writeonly captures(address_is_null) %0) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !112
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 -1, ptr %3, align 4, !tbaa !111
+  store i8 -1, ptr %3, align 4, !tbaa !107
   ret void
 }
 
@@ -752,25 +752,25 @@ define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not, label %.preheader, label %lv_layer_init.exit.i
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !113
+  br label %.preheader
 
 lv_layer_init.exit.i:                             ; preds = %3
   tail call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 112) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i8 -1, ptr %5, align 4, !tbaa !111
+  store i8 -1, ptr %5, align 4, !tbaa !107
   %6 = tail call ptr @lv_refr_get_disp_refreshing() #11
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %0, ptr %7, align 8, !tbaa !96
+  store ptr %0, ptr %7, align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !37
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !37
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %1, ptr %11, align 8, !tbaa !114
+  store i32 %1, ptr %11, align 8, !tbaa !108
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 760
-  %13 = load ptr, ptr %12, align 8, !tbaa !115
+  %13 = load ptr, ptr %12, align 8, !tbaa !109
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %15, label %14
 
@@ -780,24 +780,24 @@ lv_layer_init.exit.i:                             ; preds = %3
 
 15:                                               ; preds = %14, %lv_layer_init.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 752
-  %17 = load ptr, ptr %16, align 8, !tbaa !80
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
   %.not25.i = icmp eq ptr %17, null
   br i1 %.not25.i, label %22, label %.preheader.i
 
 .preheader.i:                                     ; preds = %15, %.preheader.i
   %.0.i = phi ptr [ %19, %.preheader.i ], [ %17, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
   %.not26.i = icmp eq ptr %19, null
-  br i1 %.not26.i, label %20, label %.preheader.i, !llvm.loop !116
+  br i1 %.not26.i, label %20, label %.preheader.i, !llvm.loop !110
 
 20:                                               ; preds = %.preheader.i
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
-  store ptr %4, ptr %21, align 8, !tbaa !88
+  store ptr %4, ptr %21, align 8, !tbaa !85
   br label %lv_draw_layer_init.exit
 
 22:                                               ; preds = %15
-  store ptr %4, ptr %16, align 8, !tbaa !80
+  store ptr %4, ptr %16, align 8, !tbaa !77
   br label %lv_draw_layer_init.exit
 
 lv_draw_layer_init.exit:                          ; preds = %20, %22
@@ -806,8 +806,8 @@ lv_draw_layer_init.exit:                          ; preds = %20, %22
 
 23:                                               ; preds = %lv_draw_layer_init.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %25 = load i8, ptr %24, align 4, !tbaa !111
-  store i8 %25, ptr %5, align 4, !tbaa !111
+  %25 = load i8, ptr %24, align 4, !tbaa !107
+  store i8 %25, ptr %5, align 4, !tbaa !107
   br label %26
 
 26:                                               ; preds = %lv_draw_layer_init.exit, %23
@@ -820,25 +820,25 @@ define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %.not.i, label %.preheader.i, label %lv_layer_init.exit
 
 .preheader.i:                                     ; preds = %4, %.preheader.i
-  br label %.preheader.i, !llvm.loop !110
+  br label %.preheader.i
 
 lv_layer_init.exit:                               ; preds = %4
   tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 112) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 -1, ptr %5, align 4, !tbaa !111
+  store i8 -1, ptr %5, align 4, !tbaa !107
   %6 = tail call ptr @lv_refr_get_disp_refreshing() #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %7, align 8, !tbaa !96
+  store ptr %1, ptr %7, align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %2, ptr %11, align 8, !tbaa !114
+  store i32 %2, ptr %11, align 8, !tbaa !108
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 760
-  %13 = load ptr, ptr %12, align 8, !tbaa !115
+  %13 = load ptr, ptr %12, align 8, !tbaa !109
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
 
@@ -848,24 +848,24 @@ lv_layer_init.exit:                               ; preds = %4
 
 15:                                               ; preds = %14, %lv_layer_init.exit
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 752
-  %17 = load ptr, ptr %16, align 8, !tbaa !80
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
   %.not25 = icmp eq ptr %17, null
   br i1 %.not25, label %22, label %.preheader
 
 .preheader:                                       ; preds = %15, %.preheader
   %.0 = phi ptr [ %19, %.preheader ], [ %17, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !88
+  %19 = load ptr, ptr %18, align 8, !tbaa !85
   %.not26 = icmp eq ptr %19, null
-  br i1 %.not26, label %20, label %.preheader, !llvm.loop !116
+  br i1 %.not26, label %20, label %.preheader, !llvm.loop !110
 
 20:                                               ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 88
-  store ptr %0, ptr %21, align 8, !tbaa !88
+  store ptr %0, ptr %21, align 8, !tbaa !85
   br label %23
 
 22:                                               ; preds = %15
-  store ptr %0, ptr %16, align 8, !tbaa !80
+  store ptr %0, ptr %16, align 8, !tbaa !77
   br label %23
 
 23:                                               ; preds = %22, %20
@@ -874,7 +874,7 @@ lv_layer_init.exit:                               ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_layer_alloc_buf(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !78
+  %2 = load ptr, ptr %0, align 8, !tbaa !75
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %.sink.split
 
@@ -883,36 +883,36 @@ define ptr @lv_draw_layer_alloc_buf(ptr noundef %0) local_unnamed_addr #1 {
   %5 = tail call i32 @lv_area_get_width(ptr noundef nonnull %4) #11
   %6 = tail call i32 @lv_area_get_height(ptr noundef nonnull %4) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !114
+  %8 = load i32, ptr %7, align 8, !tbaa !108
   %9 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %5, i32 noundef %8) #11
-  %10 = load i32, ptr %7, align 8, !tbaa !114
+  %10 = load i32, ptr %7, align 8, !tbaa !108
   %11 = tail call ptr @lv_draw_buf_create(i32 noundef %5, i32 noundef %6, i32 noundef %10, i32 noundef 0) #11
-  store ptr %11, ptr %0, align 8, !tbaa !78
+  store ptr %11, ptr %0, align 8, !tbaa !75
   %12 = icmp eq ptr %11, null
   br i1 %12, label %25, label %13
 
 13:                                               ; preds = %3
   %14 = mul i32 %9, %6
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !79
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
   %16 = add i32 %15, %14
-  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !79
-  %17 = load i32, ptr %7, align 8, !tbaa !114
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 548), align 4, !tbaa !76
+  %17 = load i32, ptr %7, align 8, !tbaa !108
   %18 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %17) #11
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr %0, align 8, !tbaa !78
+  %20 = load ptr, ptr %0, align 8, !tbaa !75
   tail call void @lv_draw_buf_clear(ptr noundef %20, ptr noundef null) #11
   br label %21
 
 21:                                               ; preds = %19, %13
-  %22 = load ptr, ptr %0, align 8, !tbaa !78
+  %22 = load ptr, ptr %0, align 8, !tbaa !75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %21
   %.sink17 = phi ptr [ %22, %21 ], [ %2, %1 ]
   %23 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !117
+  %24 = load ptr, ptr %23, align 8, !tbaa !111
   br label %25
 
 25:                                               ; preds = %.sink.split, %3
@@ -934,7 +934,7 @@ declare void @lv_draw_buf_clear(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_layer_go_to_xy(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !78
+  %4 = load ptr, ptr %0, align 8, !tbaa !75
   %5 = tail call ptr @lv_draw_buf_goto_xy(ptr noundef %4, i32 noundef %1, i32 noundef %2) #11
   ret ptr %5
 }
@@ -944,21 +944,21 @@ declare ptr @lv_draw_buf_goto_xy(ptr noundef, i32 noundef, i32 noundef) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @lv_draw_task_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !70
+  %3 = load i32, ptr %2, align 8, !tbaa !67
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_draw_task_get_draw_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @lv_draw_task_get_area(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !37
   ret void
 }
 
@@ -1021,88 +1021,82 @@ attributes #11 = { nounwind }
 !30 = !{!31, !24, i64 0}
 !31 = !{!"_lv_draw_unit_t", !24, i64 0, !10, i64 8, !9, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48}
 !32 = !{!31, !11, i64 48}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !35}
-!37 = !{!4, !9, i64 544}
-!38 = !{!31, !9, i64 16}
-!39 = distinct !{!39, !35}
-!40 = !{i64 0, i64 4, !41, i64 4, i64 4, !41, i64 8, i64 4, !41, i64 12, i64 4, !41}
-!41 = !{!9, !9, i64 0}
-!42 = !{!43, !46, i64 80}
-!43 = !{!"_lv_draw_task_t", !44, i64 0, !9, i64 8, !45, i64 12, !45, i64 28, !45, i64 44, !45, i64 60, !46, i64 80, !24, i64 88, !9, i64 96, !11, i64 104, !6, i64 112, !6, i64 113}
-!44 = !{!"p1 _ZTS15_lv_draw_task_t", !11, i64 0}
-!45 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!46 = !{!"p1 _ZTS11_lv_layer_t", !11, i64 0}
-!47 = !{!43, !9, i64 96}
-!48 = !{!49, !44, i64 72}
-!49 = !{!"_lv_layer_t", !50, i64 0, !45, i64 8, !9, i64 24, !45, i64 28, !45, i64 44, !6, i64 60, !9, i64 64, !44, i64 72, !46, i64 80, !46, i64 88, !5, i64 96, !11, i64 104}
-!50 = !{!"p1 _ZTS14_lv_draw_buf_t", !11, i64 0}
-!51 = !{!43, !44, i64 0}
-!52 = distinct !{!52, !34, !35}
-!53 = !{!43, !11, i64 104}
-!54 = !{!55, !46, i64 24}
-!55 = !{!"", !15, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !46, i64 24, !26, i64 32, !11, i64 40}
-!56 = !{!23, !5, i64 24}
-!57 = !{i8 0, i8 2}
-!58 = !{}
-!59 = !{!55, !15, i64 0}
-!60 = !{!43, !6, i64 113}
-!61 = !{!43, !6, i64 112}
-!62 = !{!24, !24, i64 0}
-!63 = !{!31, !11, i64 32}
-!64 = distinct !{!64, !34, !35}
-!65 = !{!46, !46, i64 0}
-!66 = distinct !{!66, !34, !35}
-!67 = !{!4, !9, i64 552}
-!68 = distinct !{!68, !34, !35}
-!69 = distinct !{!69, !34, !35}
-!70 = !{!43, !9, i64 8}
-!71 = !{!72, !11, i64 48}
-!72 = !{!"_lv_draw_image_dsc_t", !55, i64 0, !11, i64 48, !73, i64 56, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !74, i64 88, !75, i64 96, !6, i64 99, !6, i64 100, !9, i64 101, !76, i64 101, !76, i64 101, !77, i64 104, !45, i64 112, !9, i64 128, !11, i64 136}
-!73 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
-!74 = !{!"", !9, i64 0, !9, i64 4}
-!75 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
-!76 = !{!"short", !6, i64 0}
-!77 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !11, i64 0}
-!78 = !{!49, !50, i64 0}
-!79 = !{!4, !9, i64 548}
-!80 = !{!81, !46, i64 752}
-!81 = !{!"_lv_display_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !50, i64 32, !50, i64 40, !50, i64 48, !11, i64 56, !11, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 88, !9, i64 89, !9, i64 92, !6, i64 96, !6, i64 608, !9, i64 640, !9, i64 644, !8, i64 648, !82, i64 672, !82, i64 712, !46, i64 752, !11, i64 760, !11, i64 768, !84, i64 776, !15, i64 784, !15, i64 792, !15, i64 800, !15, i64 808, !15, i64 816, !15, i64 824, !9, i64 832, !6, i64 836, !6, i64 836, !11, i64 840, !11, i64 848, !85, i64 856, !9, i64 888, !87, i64 896, !19, i64 904, !9, i64 912, !45, i64 916}
-!82 = !{!"_lv_draw_buf_t", !73, i64 0, !9, i64 12, !10, i64 16, !11, i64 24, !83, i64 32}
-!83 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !11, i64 0}
-!84 = !{!"p2 _ZTS9_lv_obj_t", !11, i64 0}
-!85 = !{!"", !86, i64 0, !6, i64 24, !6, i64 24}
-!86 = !{!"_lv_array_t", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !5, i64 20}
-!87 = !{!"p1 _ZTS11_lv_theme_t", !11, i64 0}
-!88 = !{!49, !46, i64 88}
-!89 = distinct !{!89, !34, !35}
-!90 = !{!81, !11, i64 768}
-!91 = !{!92, !10, i64 48}
-!92 = !{!"", !55, i64 0, !10, i64 48, !9, i64 56, !93, i64 64, !9, i64 72, !9, i64 76, !75, i64 80, !75, i64 83, !75, i64 86, !9, i64 92, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !6, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !9, i64 128, !6, i64 128, !6, i64 128, !94, i64 136}
-!93 = !{!"p1 _ZTS10_lv_font_t", !11, i64 0}
-!94 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !11, i64 0}
-!95 = distinct !{!95, !34, !35}
-!96 = !{!49, !46, i64 80}
-!97 = !{!49, !5, i64 96}
-!98 = !{!44, !44, i64 0}
-!99 = distinct !{!99, !34, !35}
-!100 = !{!31, !11, i64 24}
-!101 = distinct !{!101, !34, !35}
-!102 = distinct !{!102, !34, !35}
-!103 = !{!43, !9, i64 12}
-!104 = !{!43, !9, i64 20}
-!105 = !{!43, !9, i64 16}
-!106 = !{!43, !9, i64 24}
-!107 = distinct !{!107, !34, !35}
-!108 = distinct !{!108, !34, !35}
-!109 = distinct !{!109, !34, !35}
-!110 = distinct !{!110, !35}
-!111 = !{!49, !6, i64 60}
-!112 = distinct !{!112, !35}
-!113 = distinct !{!113, !35}
-!114 = !{!49, !9, i64 24}
-!115 = !{!81, !11, i64 760}
-!116 = distinct !{!116, !34, !35}
-!117 = !{!82, !10, i64 16}
+!35 = !{!4, !9, i64 544}
+!36 = !{!31, !9, i64 16}
+!37 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 4, !38, i64 12, i64 4, !38}
+!38 = !{!9, !9, i64 0}
+!39 = !{!40, !43, i64 80}
+!40 = !{!"_lv_draw_task_t", !41, i64 0, !9, i64 8, !42, i64 12, !42, i64 28, !42, i64 44, !42, i64 60, !43, i64 80, !24, i64 88, !9, i64 96, !11, i64 104, !6, i64 112, !6, i64 113}
+!41 = !{!"p1 _ZTS15_lv_draw_task_t", !11, i64 0}
+!42 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!43 = !{!"p1 _ZTS11_lv_layer_t", !11, i64 0}
+!44 = !{!40, !9, i64 96}
+!45 = !{!46, !41, i64 72}
+!46 = !{!"_lv_layer_t", !47, i64 0, !42, i64 8, !9, i64 24, !42, i64 28, !42, i64 44, !6, i64 60, !9, i64 64, !41, i64 72, !43, i64 80, !43, i64 88, !5, i64 96, !11, i64 104}
+!47 = !{!"p1 _ZTS14_lv_draw_buf_t", !11, i64 0}
+!48 = !{!40, !41, i64 0}
+!49 = distinct !{!49, !34}
+!50 = !{!40, !11, i64 104}
+!51 = !{!52, !43, i64 24}
+!52 = !{!"", !15, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !43, i64 24, !26, i64 32, !11, i64 40}
+!53 = !{!23, !5, i64 24}
+!54 = !{i8 0, i8 2}
+!55 = !{}
+!56 = !{!52, !15, i64 0}
+!57 = !{!40, !6, i64 113}
+!58 = !{!40, !6, i64 112}
+!59 = !{!24, !24, i64 0}
+!60 = !{!31, !11, i64 32}
+!61 = distinct !{!61, !34}
+!62 = !{!43, !43, i64 0}
+!63 = distinct !{!63, !34}
+!64 = !{!4, !9, i64 552}
+!65 = distinct !{!65, !34}
+!66 = distinct !{!66, !34}
+!67 = !{!40, !9, i64 8}
+!68 = !{!69, !11, i64 48}
+!69 = !{!"_lv_draw_image_dsc_t", !52, i64 0, !11, i64 48, !70, i64 56, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !71, i64 88, !72, i64 96, !6, i64 99, !6, i64 100, !9, i64 101, !73, i64 101, !73, i64 101, !74, i64 104, !42, i64 112, !9, i64 128, !11, i64 136}
+!70 = !{!"", !9, i64 0, !9, i64 1, !9, i64 2, !9, i64 4, !9, i64 6, !9, i64 8, !9, i64 10}
+!71 = !{!"", !9, i64 0, !9, i64 4}
+!72 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!73 = !{!"short", !6, i64 0}
+!74 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !11, i64 0}
+!75 = !{!46, !47, i64 0}
+!76 = !{!4, !9, i64 548}
+!77 = !{!78, !43, i64 752}
+!78 = !{!"_lv_display_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !47, i64 32, !47, i64 40, !47, i64 48, !11, i64 56, !11, i64 64, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 88, !9, i64 89, !9, i64 92, !6, i64 96, !6, i64 608, !9, i64 640, !9, i64 644, !8, i64 648, !79, i64 672, !79, i64 712, !43, i64 752, !11, i64 760, !11, i64 768, !81, i64 776, !15, i64 784, !15, i64 792, !15, i64 800, !15, i64 808, !15, i64 816, !15, i64 824, !9, i64 832, !6, i64 836, !6, i64 836, !11, i64 840, !11, i64 848, !82, i64 856, !9, i64 888, !84, i64 896, !19, i64 904, !9, i64 912, !42, i64 916}
+!79 = !{!"_lv_draw_buf_t", !70, i64 0, !9, i64 12, !10, i64 16, !11, i64 24, !80, i64 32}
+!80 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !11, i64 0}
+!81 = !{!"p2 _ZTS9_lv_obj_t", !11, i64 0}
+!82 = !{!"", !83, i64 0, !6, i64 24, !6, i64 24}
+!83 = !{!"_lv_array_t", !10, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !5, i64 20}
+!84 = !{!"p1 _ZTS11_lv_theme_t", !11, i64 0}
+!85 = !{!46, !43, i64 88}
+!86 = distinct !{!86, !34}
+!87 = !{!78, !11, i64 768}
+!88 = !{!89, !10, i64 48}
+!89 = !{!"", !52, i64 0, !10, i64 48, !9, i64 56, !90, i64 64, !9, i64 72, !9, i64 76, !72, i64 80, !72, i64 83, !72, i64 86, !9, i64 92, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !6, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !9, i64 128, !6, i64 128, !6, i64 128, !91, i64 136}
+!90 = !{!"p1 _ZTS10_lv_font_t", !11, i64 0}
+!91 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !11, i64 0}
+!92 = distinct !{!92, !34}
+!93 = !{!46, !43, i64 80}
+!94 = !{!46, !5, i64 96}
+!95 = !{!41, !41, i64 0}
+!96 = distinct !{!96, !34}
+!97 = !{!31, !11, i64 24}
+!98 = distinct !{!98, !34}
+!99 = distinct !{!99, !34}
+!100 = !{!40, !9, i64 12}
+!101 = !{!40, !9, i64 20}
+!102 = !{!40, !9, i64 16}
+!103 = !{!40, !9, i64 24}
+!104 = distinct !{!104, !34}
+!105 = distinct !{!105, !34}
+!106 = distinct !{!106, !34}
+!107 = !{!46, !6, i64 60}
+!108 = !{!46, !9, i64 24}
+!109 = !{!78, !11, i64 760}
+!110 = distinct !{!110, !34}
+!111 = !{!79, !10, i64 16}

@@ -394,7 +394,7 @@ ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %69, %79, %82
   %spec.store.select2 = and i64 %134, 1
   %135 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   %136 = call ptr @ossl_ht_filter(ptr noundef %135, i64 noundef 1, ptr noundef nonnull @filter_iterator, ptr noundef nonnull %7) #8
-  %137 = load i64, ptr %136, align 8, !tbaa !33
+  %137 = load i64, ptr %136, align 8, !tbaa !32
   %138 = icmp eq i64 %137, %spec.store.select2
   br i1 %138, label %140, label %139
 
@@ -444,7 +444,7 @@ declare void @ossl_ht_foreach_until(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @table_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #6 {
-  %3 = load i16, ptr %1, align 2, !tbaa !36
+  %3 = load i16, ptr %1, align 2, !tbaa !35
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %5
 
@@ -479,7 +479,7 @@ declare ptr @ossl_ht_filter(ptr noundef, i64 noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @filter_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #7 {
-  %3 = load i16, ptr %1, align 2, !tbaa !36
+  %3 = load i16, ptr %1, align 2, !tbaa !35
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %5
 
@@ -574,10 +574,9 @@ attributes #9 = { noreturn nounwind }
 !27 = !{!23, !25, i64 16}
 !28 = !{!29, !29, i64 0}
 !29 = !{!"p1 _ZTS11ht_value_st", !6, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !15, i64 0}
-!34 = !{!"ht_value_list_st", !15, i64 0, !35, i64 8}
-!35 = !{!"p2 _ZTS11ht_value_st", !6, i64 0}
-!36 = !{!25, !25, i64 0}
+!32 = !{!33, !15, i64 0}
+!33 = !{!"ht_value_list_st", !15, i64 0, !34, i64 8}
+!34 = !{!"p2 _ZTS11ht_value_st", !6, i64 0}
+!35 = !{!25, !25, i64 0}

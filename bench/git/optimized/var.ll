@@ -124,9 +124,9 @@ sub_1:                                            ; preds = %sub_0
 41:                                               ; preds = %40, %18
   %42 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !26
+  %44 = load ptr, ptr %43, align 8, !tbaa !25
   %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %list_vars.exit, label %18, !llvm.loop !27
+  br i1 %.not.i, label %list_vars.exit, label %18, !llvm.loop !26
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %45 = load ptr, ptr @the_repository, align 8, !tbaa !9
@@ -144,9 +144,9 @@ sub_1:                                            ; preds = %sub_0
 50:                                               ; preds = %.lr.ph.i14
   %51 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %.08.i, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !26
+  %53 = load ptr, ptr %52, align 8, !tbaa !25
   %.not.i15 = icmp eq ptr %53, null
-  br i1 %.not.i15, label %.loopexit, label %.lr.ph.i14, !llvm.loop !28
+  br i1 %.not.i15, label %.loopexit, label %.lr.ph.i14, !llvm.loop !27
 
 .loopexit:                                        ; preds = %50
   tail call void @usage(ptr noundef nonnull @var_usage) #11
@@ -154,7 +154,7 @@ sub_1:                                            ; preds = %sub_0
 
 get_git_var.exit:                                 ; preds = %.lr.ph.i14
   %54 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !26
+  %55 = load ptr, ptr %54, align 8, !tbaa !25
   %56 = tail call ptr %55(i32 noundef 1) #10
   %.not13 = icmp eq ptr %56, null
   br i1 %.not13, label %list_vars.exit, label %57
@@ -404,7 +404,7 @@ define internal ptr @git_config_val_global(i32 %0) #0 {
   call void @free(ptr noundef %21) #10
   call void @strbuf_trim_trailing_newline(ptr noundef nonnull %2) #10
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !29
+  %23 = load i64, ptr %22, align 8, !tbaa !28
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %26
 
@@ -508,11 +508,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !20 = !{!16, !17, i64 0}
 !21 = !{!22, !5, i64 0}
 !22 = !{!"string_list_item", !5, i64 0, !6, i64 8}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!12, !6, i64 8}
-!27 = distinct !{!27, !24, !25}
-!28 = distinct !{!28, !24, !25}
-!29 = !{!30, !18, i64 8}
-!30 = !{!"strbuf", !18, i64 0, !18, i64 8, !5, i64 16}
+!25 = !{!12, !6, i64 8}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}
+!28 = !{!29, !18, i64 8}
+!29 = !{!"strbuf", !18, i64 0, !18, i64 8, !5, i64 16}

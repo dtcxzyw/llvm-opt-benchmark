@@ -193,7 +193,7 @@ define hidden void @_ZN8AgeTable5mergeEPKS_(ptr noundef nonnull align 8 captures
   store i64 %8, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !8
 
 9:                                                ; preds = %3
   ret void
@@ -224,7 +224,7 @@ define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr nounde
 13:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.split.loop.exit18, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %.split.loop.exit18, label %.preheader, !llvm.loop !9
 
 .split.loop.exit:                                 ; preds = %.preheader
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -330,7 +330,7 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull readonly
 30:                                               ; preds = %25, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ZN8AgeTable8print_onEP12outputStream.exit, label %14, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN8AgeTable8print_onEP12outputStream.exit, label %14, !llvm.loop !10
 
 _ZN8AgeTable8print_onEP12outputStream.exit:       ; preds = %30
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #11
@@ -388,7 +388,7 @@ define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr noundef nonnull re
 21:                                               ; preds = %16, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %22, label %5, !llvm.loop !11
+  br i1 %exitcond.not, label %22, label %5, !llvm.loop !10
 
 22:                                               ; preds = %21
   ret void
@@ -610,9 +610,8 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

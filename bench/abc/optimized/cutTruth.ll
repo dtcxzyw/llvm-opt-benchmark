@@ -143,7 +143,7 @@ Cut_TruthPhase.exit:                              ; preds = %17, %19, %5
   store i32 %37, ptr %35, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit59, label %.preheader58, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit59, label %.preheader58, !llvm.loop !19
 
 .loopexit59:                                      ; preds = %.preheader58, %Cut_TruthPhase.exit
   %38 = load i32, ptr %0, align 8
@@ -208,7 +208,7 @@ Cut_TruthPhase.exit53:                            ; preds = %43, %45, %.loopexit
   store i32 %65, ptr %63, align 4, !tbaa !3
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
-  br i1 %exitcond71.not, label %.loopexit57, label %.preheader56, !llvm.loop !21
+  br i1 %exitcond71.not, label %.loopexit57, label %.preheader56, !llvm.loop !20
 
 .loopexit57:                                      ; preds = %.preheader56, %Cut_TruthPhase.exit53
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -234,7 +234,7 @@ Cut_TruthPhase.exit53:                            ; preds = %43, %45, %.loopexit
   store i32 %78, ptr %79, align 4, !tbaa !3
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count82
-  br i1 %exitcond77.not, label %.loopexit, label %.preheader54, !llvm.loop !22
+  br i1 %exitcond77.not, label %.loopexit, label %.preheader54, !llvm.loop !21
 
 .preheader:                                       ; preds = %.loopexit57, %.preheader
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.preheader ], [ 0, %.loopexit57 ]
@@ -247,7 +247,7 @@ Cut_TruthPhase.exit53:                            ; preds = %43, %45, %.loopexit
   store i32 %84, ptr %85, align 4, !tbaa !3
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count82
-  br i1 %exitcond83.not, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %exitcond83.not, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader54, %.preheader
   ret void
@@ -285,7 +285,7 @@ define void @Cut_TruthCompute(ptr noundef readonly captures(none) %0, ptr nounde
   %26 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i
   store i32 %25, ptr %26, align 4, !tbaa !3
   %27 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %27, label %.preheader85, label %Extra_TruthNot.exit, !llvm.loop !24
+  br i1 %27, label %.preheader85, label %Extra_TruthNot.exit, !llvm.loop !23
 
 .preheader84:                                     ; preds = %6, %.preheader84
   %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %.preheader84 ], [ %22, %6 ]
@@ -295,7 +295,7 @@ define void @Cut_TruthCompute(ptr noundef readonly captures(none) %0, ptr nounde
   %30 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i43
   store i32 %29, ptr %30, align 4, !tbaa !3
   %31 = icmp samesign ugt i64 %indvars.iv.i42, 1
-  br i1 %31, label %.preheader84, label %Extra_TruthNot.exit, !llvm.loop !25
+  br i1 %31, label %.preheader84, label %Extra_TruthNot.exit, !llvm.loop !24
 
 Extra_TruthNot.exit:                              ; preds = %.preheader85, %.preheader84
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -370,7 +370,7 @@ Cut_TruthPhase.exit:                              ; preds = %42, %44, %Extra_Tru
   %74 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i47
   store i32 %73, ptr %74, align 4, !tbaa !3
   %75 = icmp samesign ugt i64 %indvars.iv.i46, 1
-  br i1 %75, label %.preheader82, label %Extra_TruthNot.exit48, !llvm.loop !24
+  br i1 %75, label %.preheader82, label %Extra_TruthNot.exit48, !llvm.loop !23
 
 .preheader81:                                     ; preds = %Cut_TruthPhase.exit, %.preheader81
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i50, %.preheader81 ], [ %70, %Cut_TruthPhase.exit ]
@@ -380,7 +380,7 @@ Cut_TruthPhase.exit:                              ; preds = %42, %44, %Extra_Tru
   %78 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i50
   store i32 %77, ptr %78, align 4, !tbaa !3
   %79 = icmp samesign ugt i64 %indvars.iv.i49, 1
-  br i1 %79, label %.preheader81, label %Extra_TruthNot.exit48, !llvm.loop !25
+  br i1 %79, label %.preheader81, label %Extra_TruthNot.exit48, !llvm.loop !24
 
 Extra_TruthNot.exit48:                            ; preds = %.preheader82, %.preheader81
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -456,7 +456,7 @@ Cut_TruthPhase.exit63:                            ; preds = %90, %92, %Extra_Tru
   %123 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.next.i65
   store i32 %122, ptr %123, align 4, !tbaa !3
   %124 = icmp samesign ugt i64 %indvars.iv.i64, 1
-  br i1 %124, label %.preheader79, label %Extra_TruthNand.exit, !llvm.loop !26
+  br i1 %124, label %.preheader79, label %Extra_TruthNand.exit, !llvm.loop !25
 
 .preheader:                                       ; preds = %Cut_TruthPhase.exit63, %.preheader
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %.preheader ], [ %116, %Cut_TruthPhase.exit63 ]
@@ -469,12 +469,12 @@ Cut_TruthPhase.exit63:                            ; preds = %90, %92, %Extra_Tru
   %130 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.next.i67
   store i32 %129, ptr %130, align 4, !tbaa !3
   %131 = icmp samesign ugt i64 %indvars.iv.i66, 1
-  br i1 %131, label %.preheader, label %Extra_TruthNand.exit, !llvm.loop !27
+  br i1 %131, label %.preheader, label %Extra_TruthNand.exit, !llvm.loop !26
 
 Extra_TruthNand.exit:                             ; preds = %.preheader79, %.preheader
-  %132 = load ptr, ptr %0, align 8, !tbaa !28
+  %132 = load ptr, ptr %0, align 8, !tbaa !27
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 60
-  %134 = load i32, ptr %133, align 4, !tbaa !35
+  %134 = load i32, ptr %133, align 4, !tbaa !34
   %.not40 = icmp eq i32 %134, 0
   br i1 %.not40, label %151, label %135
 
@@ -536,23 +536,22 @@ attributes #3 = { nounwind }
 !14 = !{!"p1 omnipotent char", !9, i64 0}
 !15 = !{!5, !5, i64 0}
 !16 = !{!11, !4, i64 12}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
-!22 = distinct !{!22, !18, !19}
-!23 = distinct !{!23, !18, !19}
-!24 = distinct !{!24, !18, !19}
-!25 = distinct !{!25, !18, !19}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"Cut_ManStruct_t_", !30, i64 0, !31, i64 8, !31, i64 16, !32, i64 24, !32, i64 32, !32, i64 40, !33, i64 48, !4, i64 56, !4, i64 60, !12, i64 64, !32, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !5, i64 96, !5, i64 112, !12, i64 128, !12, i64 136, !5, i64 144, !31, i64 176, !31, i64 184, !31, i64 192, !32, i64 200, !31, i64 208, !31, i64 216, !4, i64 224, !4, i64 228, !4, i64 232, !4, i64 236, !4, i64 240, !4, i64 244, !4, i64 248, !4, i64 252, !4, i64 256, !4, i64 260, !4, i64 264, !34, i64 272, !34, i64 280, !34, i64 288, !34, i64 296, !34, i64 304, !34, i64 312}
-!30 = !{!"p1 _ZTS19Cut_ParamsStruct_t_", !9, i64 0}
-!31 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!32 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!33 = !{!"p1 _ZTS16Extra_MmFixed_t_", !9, i64 0}
-!34 = !{!"long", !5, i64 0}
-!35 = !{!36, !4, i64 60}
-!36 = !{!"Cut_ParamsStruct_t_", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !4, i64 52, !4, i64 56, !4, i64 60, !4, i64 64, !4, i64 68, !4, i64 72, !4, i64 76}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = !{!28, !29, i64 0}
+!28 = !{!"Cut_ManStruct_t_", !29, i64 0, !30, i64 8, !30, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !32, i64 48, !4, i64 56, !4, i64 60, !12, i64 64, !31, i64 72, !4, i64 80, !4, i64 84, !4, i64 88, !4, i64 92, !5, i64 96, !5, i64 112, !12, i64 128, !12, i64 136, !5, i64 144, !30, i64 176, !30, i64 184, !30, i64 192, !31, i64 200, !30, i64 208, !30, i64 216, !4, i64 224, !4, i64 228, !4, i64 232, !4, i64 236, !4, i64 240, !4, i64 244, !4, i64 248, !4, i64 252, !4, i64 256, !4, i64 260, !4, i64 264, !33, i64 272, !33, i64 280, !33, i64 288, !33, i64 296, !33, i64 304, !33, i64 312}
+!29 = !{!"p1 _ZTS19Cut_ParamsStruct_t_", !9, i64 0}
+!30 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!31 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!32 = !{!"p1 _ZTS16Extra_MmFixed_t_", !9, i64 0}
+!33 = !{!"long", !5, i64 0}
+!34 = !{!35, !4, i64 60}
+!35 = !{!"Cut_ParamsStruct_t_", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !4, i64 52, !4, i64 56, !4, i64 60, !4, i64 64, !4, i64 68, !4, i64 72, !4, i64 76}

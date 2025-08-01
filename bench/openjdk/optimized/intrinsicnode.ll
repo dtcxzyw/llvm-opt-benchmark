@@ -2114,7 +2114,7 @@ define hidden noundef i64 @_ZN14ExpandBitsNode11expand_bitsElli(i64 noundef %0, 
   %9 = ashr i64 %.01314, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.010.lcssa = phi i64 [ 0, %3 ], [ %.1, %.lr.ph ]
@@ -2204,7 +2204,7 @@ define hidden noundef ptr @_ZNK14ExpandBitsNode5ValueEP8PhaseGVN(ptr noundef non
   %63 = ashr i64 %.01314.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN14ExpandBitsNode11expand_bitsElli.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN14ExpandBitsNode11expand_bitsElli.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN14ExpandBitsNode11expand_bitsElli.exit:        ; preds = %.lr.ph.i
   br i1 %36, label %64, label %67
@@ -2337,7 +2337,6 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

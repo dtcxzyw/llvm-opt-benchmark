@@ -1028,7 +1028,7 @@ define hidden noundef double @_ZN6cvtest3ocl9TestUtils19checkRectSimilarityERKN2
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.087.0100, i64 16
   %115 = load ptr, ptr %30, align 8, !tbaa !62
   %.not96 = icmp eq ptr %114, %115
-  br i1 %.not96, label %._crit_edge103, label %107, !llvm.loop !66
+  br i1 %.not96, label %._crit_edge103, label %107, !llvm.loop !65
 
 116:                                              ; preds = %107
   %117 = landingpad { ptr, i32 }
@@ -1225,13 +1225,13 @@ define hidden void @_ZN6cvtest3ocl9TestUtils8showDiffERKN2cv11_InputArrayES5_S5_
   %27 = alloca %"class.std::__cxx11::basic_string", align 8
   %28 = alloca %"class.cv::_InputArray", align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #12
-  %29 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0), !noalias !67
+  %29 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0), !noalias !66
   %30 = icmp eq i32 %29, 65536
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !24, !noalias !67
+  %33 = load ptr, ptr %32, align 8, !tbaa !24, !noalias !66
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %33)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -1250,7 +1250,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %31, %34
 
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !24, !noalias !70
+  %39 = load ptr, ptr %38, align 8, !tbaa !24, !noalias !69
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %39)
           to label %_ZNK2cv11_InputArray6getMatEi.exit75 unwind label %145
 
@@ -1269,7 +1269,7 @@ _ZNK2cv11_InputArray6getMatEi.exit75:             ; preds = %37, %40
 
 43:                                               ; preds = %.noexc76
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !24, !noalias !73
+  %45 = load ptr, ptr %44, align 8, !tbaa !24, !noalias !72
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %45)
           to label %47 unwind label %147
 
@@ -2052,16 +2052,15 @@ attributes #14 = { noreturn }
 !60 = !{!61, !61, i64 0}
 !61 = !{!"double", !8, i64 0}
 !62 = !{!58, !58, i64 0}
-!63 = distinct !{!63, !64, !65}
+!63 = distinct !{!63, !64}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!"llvm.loop.estimated_trip_count"}
-!66 = distinct !{!66, !64, !65}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!69 = distinct !{!69, !"_ZNK2cv11_InputArray6getMatEi"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!72 = distinct !{!72, !"_ZNK2cv11_InputArray6getMatEi"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!75 = distinct !{!75, !"_ZNK2cv11_InputArray6getMatEi"}
+!65 = distinct !{!65, !64}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!68 = distinct !{!68, !"_ZNK2cv11_InputArray6getMatEi"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!71 = distinct !{!71, !"_ZNK2cv11_InputArray6getMatEi"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!74 = distinct !{!74, !"_ZNK2cv11_InputArray6getMatEi"}

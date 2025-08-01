@@ -465,7 +465,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %186 = ptrtoint ptr %184 to i64
   %187 = sub i64 %185, %186
   %188 = icmp ult i64 %182, %187
-  br i1 %188, label %.lr.ph73.i, label %._crit_edge74.i, !llvm.loop !33
+  br i1 %188, label %.lr.ph73.i, label %._crit_edge74.i, !llvm.loop !32
 
 189:                                              ; preds = %._crit_edge74.i
   %190 = load ptr, ptr %168, align 8, !tbaa !29
@@ -607,7 +607,7 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit81.i ], [ 0, %_ZL13RunBasicTestsv.exit ]
   %219 = getelementptr inbounds nuw %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  %220 = load ptr, ptr %219, align 8, !tbaa !34
+  %220 = load ptr, ptr %219, align 8, !tbaa !33
   %221 = call noundef ptr %220(ptr noundef null)
   store ptr %221, ptr %6, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
@@ -628,9 +628,9 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
 
 228:                                              ; preds = %223
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %230 = load ptr, ptr %229, align 8, !tbaa !37
+  %230 = load ptr, ptr %229, align 8, !tbaa !36
   %231 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %232 = load i64, ptr %231, align 8, !tbaa !38
+  %232 = load i64, ptr %231, align 8, !tbaa !37
   %233 = invoke ptr @BN_bin2bn(ptr noundef %230, i64 noundef %232, ptr noundef null)
           to label %234 unwind label %267
 
@@ -638,9 +638,9 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
   %235 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store ptr %233, ptr %235, align 8, !tbaa !23
   %236 = getelementptr inbounds nuw i8, ptr %219, i64 24
-  %237 = load ptr, ptr %236, align 8, !tbaa !39
+  %237 = load ptr, ptr %236, align 8, !tbaa !38
   %238 = getelementptr inbounds nuw i8, ptr %219, i64 32
-  %239 = load i64, ptr %238, align 8, !tbaa !40
+  %239 = load i64, ptr %238, align 8, !tbaa !39
   %240 = invoke ptr @BN_bin2bn(ptr noundef %237, i64 noundef %239, ptr noundef null)
           to label %241 unwind label %267
 
@@ -648,9 +648,9 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
   %242 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store ptr %240, ptr %242, align 8, !tbaa !24
   %243 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %244 = load ptr, ptr %243, align 8, !tbaa !41
+  %244 = load ptr, ptr %243, align 8, !tbaa !40
   %245 = getelementptr inbounds nuw i8, ptr %219, i64 48
-  %246 = load i64, ptr %245, align 8, !tbaa !42
+  %246 = load i64, ptr %245, align 8, !tbaa !41
   %247 = invoke ptr @BN_bin2bn(ptr noundef %244, i64 noundef %246, ptr noundef null)
           to label %248 unwind label %267
 
@@ -658,9 +658,9 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
   %249 = getelementptr inbounds nuw i8, ptr %222, i64 24
   store ptr %247, ptr %249, align 8, !tbaa !23
   %250 = getelementptr inbounds nuw i8, ptr %219, i64 56
-  %251 = load ptr, ptr %250, align 8, !tbaa !43
+  %251 = load ptr, ptr %250, align 8, !tbaa !42
   %252 = getelementptr inbounds nuw i8, ptr %219, i64 64
-  %253 = load i64, ptr %252, align 8, !tbaa !44
+  %253 = load i64, ptr %252, align 8, !tbaa !43
   %254 = invoke ptr @BN_bin2bn(ptr noundef %251, i64 noundef %253, ptr noundef null)
           to label %255 unwind label %267
 
@@ -697,7 +697,7 @@ _ZL13RunBasicTestsv.exit:                         ; preds = %214
 
 269:                                              ; preds = %260
   %270 = getelementptr inbounds nuw i8, ptr %219, i64 80
-  %271 = load i64, ptr %270, align 8, !tbaa !45
+  %271 = load i64, ptr %270, align 8, !tbaa !44
   %272 = invoke i32 @DH_size(ptr noundef nonnull %221)
           to label %273 unwind label %267
 
@@ -850,7 +850,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit77.i:           ; preds = %300, %.noexc76.i, %
 
 320:                                              ; preds = %318
   %321 = getelementptr inbounds nuw i8, ptr %219, i64 72
-  %322 = load ptr, ptr %321, align 8, !tbaa !46
+  %322 = load ptr, ptr %321, align 8, !tbaa !45
   %bcmp.i = call i32 @bcmp(ptr %.sroa.0107.1.i, ptr %322, i64 %271)
   %.not63.i = icmp eq i32 %bcmp.i, 0
   %323 = zext nneg i32 %306 to i64
@@ -908,7 +908,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit79.i:                ; preds = %329, %_ZNSt6vectorI
 _ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit81.i: ; preds = %333
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %365, label %.preheader, !llvm.loop !47
+  br i1 %exitcond.i, label %365, label %.preheader, !llvm.loop !46
 
 337:                                              ; preds = %316, %314
   %.pn.i5 = phi { ptr, i32 } [ %317, %316 ], [ %315, %314 ]
@@ -1032,7 +1032,7 @@ _ZL15RunRFC5114Testsv.exit:                       ; preds = %_ZNSt10unique_ptrI5
           to label %368 unwind label %373
 
 368:                                              ; preds = %365
-  store ptr %367, ptr %4, align 8, !tbaa !48
+  store ptr %367, ptr %4, align 8, !tbaa !47
   %.not33.i = icmp eq ptr %366, null
   %.not.i.i = icmp eq ptr %367, null
   br i1 %.not33.i, label %thread-pre-split.i20, label %369
@@ -1270,7 +1270,7 @@ switch.lookup:                                    ; preds = %3
 
 .fold.split:                                      ; preds = %3, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 42, %3 ]
-  %6 = load ptr, ptr %2, align 8, !tbaa !49
+  %6 = load ptr, ptr %2, align 8, !tbaa !48
   %7 = tail call i32 @fputc(i32 noundef %.0, ptr noundef %6)
   %8 = tail call i32 @fflush(ptr noundef %6)
   ret i32 1
@@ -1521,7 +1521,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !48
+  %2 = load ptr, ptr %0, align 8, !tbaa !47
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_.exit, label %3
 
@@ -1530,7 +1530,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0
           to label %_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !48
+  store ptr null, ptr %0, align 8, !tbaa !47
   ret void
 
 4:                                                ; preds = %3
@@ -1620,24 +1620,23 @@ attributes #24 = { cold nounwind }
 !27 = !{!26, !19, i64 16}
 !28 = !{!9, !9, i64 0}
 !29 = !{!26, !19, i64 8}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
-!34 = !{!35, !8, i64 0}
-!35 = !{!"_ZTS15RFC5114TestData", !8, i64 0, !19, i64 8, !36, i64 16, !19, i64 24, !36, i64 32, !19, i64 40, !36, i64 48, !19, i64 56, !36, i64 64, !19, i64 72, !36, i64 80}
-!36 = !{!"long", !9, i64 0}
-!37 = !{!35, !19, i64 8}
-!38 = !{!35, !36, i64 16}
-!39 = !{!35, !19, i64 24}
-!40 = !{!35, !36, i64 32}
-!41 = !{!35, !19, i64 40}
-!42 = !{!35, !36, i64 48}
-!43 = !{!35, !19, i64 56}
-!44 = !{!35, !36, i64 64}
-!45 = !{!35, !36, i64 80}
-!46 = !{!35, !19, i64 72}
-!47 = distinct !{!47, !31, !32}
-!48 = !{!17, !17, i64 0}
-!49 = !{!50, !8, i64 0}
-!50 = !{!"_ZTS11bn_gencb_st", !8, i64 0, !8, i64 8}
+!32 = distinct !{!32, !31}
+!33 = !{!34, !8, i64 0}
+!34 = !{!"_ZTS15RFC5114TestData", !8, i64 0, !19, i64 8, !35, i64 16, !19, i64 24, !35, i64 32, !19, i64 40, !35, i64 48, !19, i64 56, !35, i64 64, !19, i64 72, !35, i64 80}
+!35 = !{!"long", !9, i64 0}
+!36 = !{!34, !19, i64 8}
+!37 = !{!34, !35, i64 16}
+!38 = !{!34, !19, i64 24}
+!39 = !{!34, !35, i64 32}
+!40 = !{!34, !19, i64 40}
+!41 = !{!34, !35, i64 48}
+!42 = !{!34, !19, i64 56}
+!43 = !{!34, !35, i64 64}
+!44 = !{!34, !35, i64 80}
+!45 = !{!34, !19, i64 72}
+!46 = distinct !{!46, !31}
+!47 = !{!17, !17, i64 0}
+!48 = !{!49, !8, i64 0}
+!49 = !{!"_ZTS11bn_gencb_st", !8, i64 0, !8, i64 8}

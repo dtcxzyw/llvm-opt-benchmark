@@ -140,7 +140,7 @@ declare void @Hop_ConeUnmark_rec(ptr noundef) local_unnamed_addr #1
 define ptr @Nwk_ManStrash(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Nwk_ManGetAigNodeNum(ptr noundef %0) #6
   %3 = tail call ptr @Aig_ManStart(i32 noundef %2) #6
-  %4 = load ptr, ptr %0, align 8, !tbaa !38
+  %4 = load ptr, ptr %0, align 8, !tbaa !37
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %5
 
@@ -153,9 +153,9 @@ define ptr @Nwk_ManStrash(ptr noundef %0) local_unnamed_addr #0 {
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %5
   %10 = phi ptr [ %8, %5 ], [ null, %1 ]
-  store ptr %10, ptr %3, align 8, !tbaa !39
+  store ptr %10, ptr %3, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !50
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %.not.i58 = icmp eq ptr %12, null
   br i1 %.not.i58, label %Abc_UtilStrsav.exit59, label %13
 
@@ -169,30 +169,30 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %5
 Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit, %13
   %18 = phi ptr [ %16, %13 ], [ null, %Abc_UtilStrsav.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !51
+  store ptr %18, ptr %19, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
   %22 = tail call ptr @Tim_ManDup(ptr noundef %21, i32 noundef 1) #6
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 352
-  store ptr %22, ptr %23, align 8, !tbaa !53
+  store ptr %22, ptr %23, align 8, !tbaa !52
   tail call void @Tim_ManIncrementTravId(ptr noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = getelementptr i8, ptr %25, i64 4
-  %.val = load i32, ptr %26, align 4, !tbaa !55
+  %.val = load i32, ptr %26, align 4, !tbaa !54
   %27 = icmp sgt i32 %.val, 0
   br i1 %27, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_UtilStrsav.exit59
   %28 = getelementptr i8, ptr %25, i64 8
-  %.val51 = load ptr, ptr %28, align 8, !tbaa !57
+  %.val51 = load ptr, ptr %28, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %29
 
 29:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %30 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !58
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
 
@@ -204,12 +204,12 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
 35:                                               ; preds = %33, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %29, !llvm.loop !59
+  br i1 %exitcond.not, label %.critedge, label %29, !llvm.loop !58
 
 .critedge:                                        ; preds = %35, %Abc_UtilStrsav.exit59
   %36 = tail call ptr @Nwk_ManDfs(ptr noundef nonnull %0) #6
   %37 = getelementptr i8, ptr %36, i64 4
-  %.val5065 = load i32, ptr %37, align 4, !tbaa !55
+  %.val5065 = load i32, ptr %37, align 4, !tbaa !54
   %38 = icmp sgt i32 %.val5065, 0
   br i1 %38, label %.lr.ph68, label %.critedge2
 
@@ -221,9 +221,9 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
 41:                                               ; preds = %.lr.ph68, %108
   %indvars.iv70 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next71, %108 ]
   %.04566 = phi ptr [ null, %.lr.ph68 ], [ %.146, %108 ]
-  %.val52 = load ptr, ptr %39, align 8, !tbaa !57
+  %.val52 = load ptr, ptr %39, align 8, !tbaa !56
   %42 = getelementptr inbounds nuw ptr, ptr %.val52, i64 %indvars.iv70
-  %43 = load ptr, ptr %42, align 8, !tbaa !58
+  %43 = load ptr, ptr %42, align 8, !tbaa !57
   %44 = getelementptr i8, ptr %43, i64 32
   %.val53 = load i32, ptr %44, align 8
   %45 = and i32 %.val53, 7
@@ -235,7 +235,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
 
 46:                                               ; preds = %41
   %47 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %3) #6
-  %48 = load ptr, ptr %23, align 8, !tbaa !53
+  %48 = load ptr, ptr %23, align 8, !tbaa !52
   %49 = load i32, ptr %44, align 8
   %50 = lshr i32 %49, 7
   %51 = tail call float @Tim_ManGetCiArrival(ptr noundef %48, i32 noundef %50) #6
@@ -268,7 +268,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %72 = lshr i64 %.val56, 32
   %73 = trunc nuw i64 %72 to i32
   %74 = and i32 %73, 16777215
-  %75 = load ptr, ptr %23, align 8, !tbaa !53
+  %75 = load ptr, ptr %23, align 8, !tbaa !52
   %76 = load i32, ptr %44, align 8
   %77 = lshr i32 %76, 7
   %78 = uitofp nneg i32 %74 to float
@@ -335,14 +335,14 @@ Nwk_ManStrashNode.exit:                           ; preds = %79, %.critedge.i
   %109 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %.146, ptr %109, align 8, !tbaa !34
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %.val50 = load i32, ptr %37, align 4, !tbaa !55
+  %.val50 = load i32, ptr %37, align 4, !tbaa !54
   %110 = sext i32 %.val50 to i64
   %111 = icmp slt i64 %indvars.iv.next71, %110
-  br i1 %111, label %41, label %.critedge2, !llvm.loop !60
+  br i1 %111, label %41, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %108, %.critedge
   %112 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !57
+  %113 = load ptr, ptr %112, align 8, !tbaa !56
   %.not.i61 = icmp eq ptr %113, null
   br i1 %.not.i61, label %Vec_PtrFree.exit, label %114
 
@@ -438,29 +438,28 @@ attributes #8 = { nounwind allocsize(0) }
 !32 = !{!33, !33, i64 0}
 !33 = !{!"p1 _ZTS10Nwk_Obj_t_", !8, i64 0}
 !34 = !{!13, !8, i64 16}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!18, !19, i64 0}
-!39 = !{!40, !19, i64 0}
-!40 = !{!"Aig_Man_t_", !19, i64 0, !19, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !41, i64 48, !42, i64 56, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !5, i64 128, !9, i64 156, !43, i64 160, !9, i64 168, !44, i64 176, !9, i64 184, !45, i64 192, !9, i64 200, !9, i64 204, !9, i64 208, !44, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !43, i64 248, !43, i64 256, !9, i64 264, !46, i64 272, !47, i64 280, !9, i64 288, !8, i64 296, !8, i64 304, !9, i64 312, !9, i64 316, !9, i64 320, !43, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !8, i64 360, !44, i64 368, !44, i64 376, !20, i64 384, !47, i64 392, !47, i64 400, !48, i64 408, !20, i64 416, !49, i64 424, !20, i64 432, !9, i64 440, !47, i64 448, !45, i64 456, !47, i64 464, !47, i64 472, !9, i64 480, !29, i64 488, !29, i64 496, !29, i64 504, !20, i64 512, !20, i64 520}
-!41 = !{!"p1 _ZTS10Aig_Obj_t_", !8, i64 0}
-!42 = !{!"Aig_Obj_t_", !5, i64 0, !41, i64 8, !41, i64 16, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 28, !9, i64 31, !9, i64 32, !9, i64 36, !5, i64 40}
-!43 = !{!"p2 _ZTS10Aig_Obj_t_", !8, i64 0}
-!44 = !{!"p1 int", !8, i64 0}
-!45 = !{!"p1 _ZTS10Vec_Vec_t_", !8, i64 0}
-!46 = !{!"p1 _ZTS14Aig_MmFixed_t_", !8, i64 0}
-!47 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
-!48 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
-!49 = !{!"p1 _ZTS10Aig_Man_t_", !8, i64 0}
-!50 = !{!18, !19, i64 8}
-!51 = !{!40, !19, i64 8}
-!52 = !{!18, !22, i64 72}
-!53 = !{!40, !8, i64 352}
-!54 = !{!18, !20, i64 32}
-!55 = !{!56, !9, i64 4}
-!56 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !8, i64 8}
-!57 = !{!56, !8, i64 8}
-!58 = !{!8, !8, i64 0}
-!59 = distinct !{!59, !36, !37}
-!60 = distinct !{!60, !36, !37}
+!37 = !{!18, !19, i64 0}
+!38 = !{!39, !19, i64 0}
+!39 = !{!"Aig_Man_t_", !19, i64 0, !19, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !40, i64 48, !41, i64 56, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !5, i64 128, !9, i64 156, !42, i64 160, !9, i64 168, !43, i64 176, !9, i64 184, !44, i64 192, !9, i64 200, !9, i64 204, !9, i64 208, !43, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !42, i64 248, !42, i64 256, !9, i64 264, !45, i64 272, !46, i64 280, !9, i64 288, !8, i64 296, !8, i64 304, !9, i64 312, !9, i64 316, !9, i64 320, !42, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !8, i64 360, !43, i64 368, !43, i64 376, !20, i64 384, !46, i64 392, !46, i64 400, !47, i64 408, !20, i64 416, !48, i64 424, !20, i64 432, !9, i64 440, !46, i64 448, !44, i64 456, !46, i64 464, !46, i64 472, !9, i64 480, !29, i64 488, !29, i64 496, !29, i64 504, !20, i64 512, !20, i64 520}
+!40 = !{!"p1 _ZTS10Aig_Obj_t_", !8, i64 0}
+!41 = !{!"Aig_Obj_t_", !5, i64 0, !40, i64 8, !40, i64 16, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 24, !9, i64 28, !9, i64 31, !9, i64 32, !9, i64 36, !5, i64 40}
+!42 = !{!"p2 _ZTS10Aig_Obj_t_", !8, i64 0}
+!43 = !{!"p1 int", !8, i64 0}
+!44 = !{!"p1 _ZTS10Vec_Vec_t_", !8, i64 0}
+!45 = !{!"p1 _ZTS14Aig_MmFixed_t_", !8, i64 0}
+!46 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
+!47 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
+!48 = !{!"p1 _ZTS10Aig_Man_t_", !8, i64 0}
+!49 = !{!18, !19, i64 8}
+!50 = !{!39, !19, i64 8}
+!51 = !{!18, !22, i64 72}
+!52 = !{!39, !8, i64 352}
+!53 = !{!18, !20, i64 32}
+!54 = !{!55, !9, i64 4}
+!55 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !8, i64 8}
+!56 = !{!55, !8, i64 8}
+!57 = !{!8, !8, i64 0}
+!58 = distinct !{!58, !36}
+!59 = distinct !{!59, !36}

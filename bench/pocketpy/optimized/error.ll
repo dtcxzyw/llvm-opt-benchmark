@@ -309,7 +309,7 @@ define linkonce_odr void @_ZNSt6vectorIN4pkpy3StrESaIS1_EED2Ev(ptr noundef nonnu
   tail call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #18
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
 
 _ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -437,7 +437,7 @@ define { ptr, ptr } @_ZNK4pkpy10SourceData9_get_lineEi(ptr noundef nonnull reado
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
-  br label %16, !llvm.loop !8
+  br label %16, !llvm.loop !7
 
 .critedge:                                        ; preds = %18, %16, %16, %2
   %.sroa.3.0 = phi ptr [ null, %2 ], [ %scevgep, %18 ], [ %storemerge, %16 ], [ %storemerge, %16 ]
@@ -484,7 +484,7 @@ define { i64, ptr } @_ZNK4pkpy10SourceData8get_lineEi(ptr noundef nonnull readon
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
-  br label %16, !llvm.loop !8
+  br label %16, !llvm.loop !7
 
 _ZNK4pkpy10SourceData9_get_lineEi.exit:           ; preds = %16, %16, %18
   %.sroa.3.0.i = phi ptr [ %scevgep.i, %18 ], [ %storemerge.i, %16 ], [ %storemerge.i, %16 ]
@@ -604,7 +604,7 @@ define void @_ZNK4pkpy10SourceData8snapshotEiPKcSt17basic_string_viewIcSt11char_
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
-  br label %54, !llvm.loop !8
+  br label %54, !llvm.loop !7
 
 .loopexit:                                        ; preds = %56, %54, %54, %41
   %.sroa.3.0.i = phi ptr [ null, %41 ], [ %storemerge.i, %54 ], [ %storemerge.i, %54 ], [ %scevgep.i, %56 ]
@@ -937,13 +937,13 @@ common.resume:                                    ; preds = %26, %29, %_ZN4pkpy7
 .lr.ph:                                           ; preds = %44, %_ZN4pkpy5stackINS_13ExceptionLineESt6vectorIS1_SaIS1_EEE3popEv.exit
   %48 = phi ptr [ %103, %_ZN4pkpy5stackINS_13ExceptionLineESt6vectorIS1_SaIS1_EEE3popEv.exit ], [ %45, %44 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 -64
-  %50 = load ptr, ptr %49, align 8, !noalias !9
+  %50 = load ptr, ptr %49, align 8, !noalias !8
   %51 = getelementptr inbounds i8, ptr %48, i64 -48
-  %52 = load i32, ptr %51, align 8, !noalias !9
+  %52 = load i32, ptr %51, align 8, !noalias !8
   %53 = getelementptr inbounds i8, ptr %48, i64 -40
-  %54 = load ptr, ptr %53, align 8, !noalias !9
+  %54 = load ptr, ptr %53, align 8, !noalias !8
   %55 = getelementptr inbounds i8, ptr %48, i64 -32
-  %56 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #18, !noalias !9
+  %56 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #18, !noalias !8
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
   invoke void @_ZNK4pkpy10SourceData8snapshotEiPKcSt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %9, ptr noundef nonnull align 8 dereferenceable(120) %50, i32 noundef %52, ptr noundef %54, i64 %57, ptr %58)
@@ -1041,7 +1041,7 @@ _ZN4pkpy5stackINS_13ExceptionLineESt6vectorIS1_SaIS1_EEE3popEv.exit: ; preds = %
   %102 = load ptr, ptr %7, align 8
   %103 = load ptr, ptr %22, align 8
   %104 = icmp eq ptr %102, %103
-  br i1 %104, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %104, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 105:                                              ; preds = %60, %_ZNK4pkpy13ExceptionLine8snapshotEv.exit
   %106 = landingpad { ptr, i32 }
@@ -1083,7 +1083,7 @@ _ZN4pkpy5stackINS_13ExceptionLineESt6vectorIS1_SaIS1_EEE3popEv.exit: ; preds = %
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %.1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i8, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, label %116, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i8, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i, label %116, !llvm.loop !12
 
 _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i: ; preds = %116
   %120 = icmp eq ptr %.19.i.i.i.i.i, %114
@@ -1148,7 +1148,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
   %.1.in.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i12, i64 %.1.in.v.i.i.i.i.i15
   %.1.i.i.i.i.i17 = load ptr, ptr %.1.in.i.i.i.i.i16, align 8
   %.not.i.i.i.i.i18 = icmp eq ptr %.1.i.i.i.i.i17, null
-  br i1 %.not.i.i.i.i.i18, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i19, label %142, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i18, label %_ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i19, label %142, !llvm.loop !12
 
 _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4pairIKtS5_EEE11lower_boundERS9_.exit.i.i19: ; preds = %142
   %146 = icmp eq ptr %.19.i.i.i.i.i14, %140
@@ -1290,7 +1290,7 @@ _ZSt10_ConstructIN4pkpy13ExceptionLineEJRKS1_EEvPT_DpOT0_.exit: ; preds = %_ZNSt
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %.014, i64 64
   %.not = icmp eq ptr %23, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 25:                                               ; preds = %.body
   invoke void @__cxa_rethrow() #20
@@ -1405,7 +1405,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %35, %22, %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %.05.i, i64 64
   %.not.i = icmp eq ptr %40, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4pkpy13ExceptionLineEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4pkpy13ExceptionLineEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN4pkpy13ExceptionLineEEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i, %2
   ret void
@@ -1606,7 +1606,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -1678,7 +1678,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !16
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !15
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -1743,7 +1743,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !16
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !15
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -1895,7 +1895,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %37, %24, %.lr.ph.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %42, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4pkpy13ExceptionLineES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4pkpy13ExceptionLineES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZSt8_DestroyIPN4pkpy13ExceptionLineES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN4pkpy13ExceptionLineEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1981,16 +1981,15 @@ attributes #23 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK4pkpy13ExceptionLine8snapshotEv: argument 0"}
-!11 = distinct !{!11, !"_ZNK4pkpy13ExceptionLine8snapshotEv"}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK4pkpy13ExceptionLine8snapshotEv: argument 0"}
+!10 = distinct !{!10, !"_ZNK4pkpy13ExceptionLine8snapshotEv"}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

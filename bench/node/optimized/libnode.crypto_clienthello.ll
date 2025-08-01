@@ -498,7 +498,7 @@ sw.bb39.i:                                        ; preds = %if.end63
 
 _ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit: ; preds = %for.body.i, %if.end16.i, %if.end21.i, %if.end36.i, %if.end63, %sw.bb.i, %if.end.i, %sw.bb39.i
   %cmp36 = icmp ult i64 %add60, %avail
-  br i1 %cmp36, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp36, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit, %if.end34
   %ext_off.0.lcssa = phi i64 [ %add35, %if.end34 ], [ %add60, %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit ]
@@ -598,7 +598,6 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

@@ -1099,7 +1099,7 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
 
 .critedge80:                                      ; preds = %72, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split.split, !llvm.loop !9
+  br label %.split.split.split, !llvm.loop !8
 
 75:                                               ; preds = %4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1199,7 +1199,7 @@ define internal fastcc ptr @find_nonnullable_rels_walker(ptr noundef %0, i1 noun
   %22 = load i32, ptr %5, align 4
   %23 = sext i32 %22 to i64
   %.not112 = icmp slt i64 %indvars.iv.next179, %23
-  br i1 %.not112, label %16, label %.critedge, !llvm.loop !10
+  br i1 %.not112, label %16, label %.critedge, !llvm.loop !9
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.tr130, i64 4
@@ -1476,7 +1476,7 @@ define internal fastcc ptr @find_nonnullable_vars_walker(ptr noundef %0, i1 noun
   %26 = load i32, ptr %5, align 4
   %27 = sext i32 %26 to i64
   %.not109 = icmp slt i64 %indvars.iv.next172, %27
-  br i1 %.not109, label %20, label %.critedge, !llvm.loop !11
+  br i1 %.not109, label %20, label %.critedge, !llvm.loop !10
 
 28:                                               ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %.tr125, i64 4
@@ -1764,7 +1764,7 @@ find_forced_null_var.exit:                        ; preds = %32, %18
   %52 = load i32, ptr %43, align 4
   %53 = sext i32 %52 to i64
   %.not26 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %.not26, label %46, label %.critedge, !llvm.loop !12
+  br i1 %.not26, label %46, label %.critedge, !llvm.loop !11
 
 54:                                               ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %.tr32, i64 4
@@ -4187,7 +4187,7 @@ list_length.exit.thread.i:                        ; preds = %48
   %102 = call ptr @lappend(ptr noundef %.065.i, ptr noundef %101) #9
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count76.i
-  br i1 %exitcond77.not.i, label %reorder_function_arguments.exit, label %.lr.ph66.i, !llvm.loop !13
+  br i1 %exitcond77.not.i, label %reorder_function_arguments.exit, label %.lr.ph66.i, !llvm.loop !12
 
 reorder_function_arguments.exit:                  ; preds = %.lr.ph66.i, %.critedge50.i
   %.0.lcssa.i = phi ptr [ null, %.critedge50.i ], [ %102, %.lr.ph66.i ]
@@ -5948,13 +5948,13 @@ is_orclause.exit33:                               ; preds = %19
 
 32:                                               ; preds = %28
   store i8 1, ptr %2, align 1
-  br label %37, !llvm.loop !14
+  br label %37, !llvm.loop !13
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %35 = load i64, ptr %34, align 8
   %.not37 = icmp eq i64 %35, 0
-  br i1 %.not37, label %37, label %.thread, !llvm.loop !14
+  br i1 %.not37, label %37, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %33
   store i8 1, ptr %3, align 1
@@ -6039,13 +6039,13 @@ is_andclause.exit33:                              ; preds = %19
 
 32:                                               ; preds = %28
   store i8 1, ptr %2, align 1
-  br label %37, !llvm.loop !15
+  br label %37, !llvm.loop !14
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %35 = load i64, ptr %34, align 8
   %.not37 = icmp eq i64 %35, 0
-  br i1 %.not37, label %.thread, label %37, !llvm.loop !15
+  br i1 %.not37, label %.thread, label %37, !llvm.loop !14
 
 .thread:                                          ; preds = %33
   store i8 1, ptr %3, align 1
@@ -6442,13 +6442,12 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}

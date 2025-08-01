@@ -118,7 +118,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   tail call void @av1_alloc_restoration_struct(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %8) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %9, label %5, !llvm.loop !7
+  br i1 %exitcond.not, label %9, label %5, !llvm.loop !6
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 23800
@@ -178,7 +178,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %38 = add nuw nsw i32 %.06069, 1
   %39 = load i32, ptr %26, align 4
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %30, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %40, label %30, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %30
   %41 = shl i32 %37, 1
@@ -191,7 +191,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 25260
   %45 = load i8, ptr %44, align 4
   %46 = zext nneg i8 %45 to i32
-  %47 = getelementptr i8, ptr %0, i64 23640
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 23640
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %50
@@ -216,7 +216,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %61 = mul i32 %.059.lcssa, %60
   %62 = shl i32 %61, %46
   %.idx = shl nuw nsw i64 %indvars.iv73, 6
-  %63 = getelementptr i8, ptr %47, i64 %.idx
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %65 = load i32, ptr %64, align 4
   %.not65 = icmp ne i32 %62, %65
@@ -265,7 +265,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   store i32 %60, ptr %82, align 8
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond77.not, label %83, label %50, !llvm.loop !9
+  br i1 %exitcond77.not, label %83, label %50, !llvm.loop !8
 
 83:                                               ; preds = %81
   ret void
@@ -292,7 +292,7 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
   tail call void @av1_free_restoration_struct(ptr noundef nonnull %4) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %5, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %5, label %3, !llvm.loop !9
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 23800
@@ -318,7 +318,7 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  br i1 %exitcond22.not, label %17, label %10, !llvm.loop !11
+  br i1 %exitcond22.not, label %17, label %10, !llvm.loop !10
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 23816
@@ -363,7 +363,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   store ptr null, ptr %16, align 8
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %10
   %17 = load ptr, ptr %0, align 8
@@ -384,7 +384,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   %27 = load i32, ptr %4, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next45, %28
-  br i1 %29, label %.preheader35.us, label %.preheader, !llvm.loop !13
+  br i1 %29, label %.preheader35.us, label %.preheader, !llvm.loop !12
 
 .preheader35:                                     ; preds = %.preheader35.lr.ph, %.preheader35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %.preheader35.lr.ph ]
@@ -406,7 +406,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   %40 = load i32, ptr %4, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.preheader35, label %._crit_edge, !llvm.loop !15
+  br i1 %42, label %.preheader35, label %._crit_edge, !llvm.loop !14
 
 .preheader:                                       ; preds = %._crit_edge.us, %1
   %43 = icmp sgt i32 %3, 0
@@ -425,7 +425,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   store ptr null, ptr %46, align 8
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %45, !llvm.loop !16
+  br i1 %exitcond51.not, label %._crit_edge, label %45, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.preheader35, %45, %.preheader
   %48 = load ptr, ptr %0, align 8
@@ -471,7 +471,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 13:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !16
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
@@ -515,7 +515,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 24:                                               ; preds = %32
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge59.us, label %32, !llvm.loop !18
+  br i1 %exitcond81.not, label %._crit_edge59.us, label %32, !llvm.loop !17
 
 25:                                               ; preds = %._crit_edge59.us
   %26 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
@@ -544,7 +544,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 40:                                               ; preds = %25
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.loopexit, label %.preheader.us, !llvm.loop !19
+  br i1 %exitcond86.not, label %.loopexit, label %.preheader.us, !llvm.loop !18
 
 ._crit_edge59.us:                                 ; preds = %24
   %41 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
@@ -560,7 +560,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 47:                                               ; preds = %54
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count85
-  br i1 %exitcond76.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond76.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %47
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %47 ], [ 0, %.preheader.lr.ph ]
@@ -711,20 +711,19 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6, !14}
-!20 = distinct !{!20, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5, !13}
+!19 = distinct !{!19, !5}

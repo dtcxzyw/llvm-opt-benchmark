@@ -309,7 +309,7 @@ aginternalmapdelete.exit:                         ; preds = %28, %find_isym.exit
 .loopexit:                                        ; preds = %aginternalmapdelete.exit, %10, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %44, label %7, !llvm.loop !38
+  br i1 %exitcond.not, label %44, label %7, !llvm.loop !37
 
 44:                                               ; preds = %.loopexit
   ret void
@@ -338,7 +338,7 @@ define void @aginternalmapclose(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %8, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %closeit.exit, label %5, !llvm.loop !39
+  br i1 %exitcond.not.i, label %closeit.exit, label %5, !llvm.loop !38
 
 closeit.exit:                                     ; preds = %10
   %11 = load ptr, ptr %2, align 8, !tbaa !3
@@ -360,7 +360,7 @@ closeit.exit:                                     ; preds = %10
 18:                                               ; preds = %16, %13
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 3
-  br i1 %exitcond.not.i6, label %closeit.exit7, label %13, !llvm.loop !39
+  br i1 %exitcond.not.i6, label %closeit.exit7, label %13, !llvm.loop !38
 
 closeit.exit7:                                    ; preds = %18
   ret void
@@ -462,8 +462,7 @@ attributes #14 = { cold noreturn nounwind }
 !32 = !{!12, !12, i64 0}
 !33 = !{!18, !18, i64 0}
 !34 = !{!8, !8, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = distinct !{!39, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = distinct !{!38, !36}

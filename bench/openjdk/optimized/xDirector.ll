@@ -214,7 +214,7 @@ _ZL16make_gc_decisionv.exit:                      ; preds = %24, %29
 
 34:                                               ; preds = %_ZL16make_gc_decisionv.exit, %32, %_ZL22sample_allocation_ratev.exit
   %35 = call noundef zeroext i1 @_ZN10XMetronome13wait_for_tickEv(ptr noundef nonnull align 8 dereferenceable(129) %4) #8
-  br i1 %35, label %7, label %._crit_edge, !llvm.loop !9
+  br i1 %35, label %7, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %34, %1
   ret void
@@ -1066,7 +1066,6 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -98,7 +98,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.us-phi116.us = phi i32 [ %.3.us107.us, %._crit_edge.split.us110.us ], [ %.0120.us, %34 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !13
+  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !12
 
 .lr.ph80.split.us.us:                             ; preds = %.lr.ph80.split.us.us.preheader, %._crit_edge.split.us110.us
   %indvars.iv133 = phi i64 [ 0, %.lr.ph80.split.us.us.preheader ], [ %indvars.iv.next134, %._crit_edge.split.us110.us ]
@@ -151,7 +151,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   store float %49, ptr %gep.i.us91.us, align 4, !tbaa !8
   %indvars.iv.next.i.us92.us = add nsw i64 %indvars.iv.i.us90.us, -1
   %55 = icmp sgt i64 %indvars.iv.next.i.us92.us, %53
-  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !15
+  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !14
 
 .preheader39.i.us93.us:                           ; preds = %.lr.ph.i.us89.us, %51
   %56 = sext i32 %.15266.us87.us to i64
@@ -171,12 +171,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   store float %49, ptr %62, align 4, !tbaa !8
   %indvars.iv.next54.i.us98.us = add nuw nsw i64 %indvars.iv53.i.us97.us, 1
   %exitcond.not.i.us99.us = icmp eq i64 %indvars.iv.next54.i.us98.us, %13
-  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !16
+  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !15
 
 ..loopexit38_crit_edge.us.i.us100.us:             ; preds = %61
   %indvars.iv.next57.i.us101.us = add nsw i64 %indvars.iv56.i.us96.us, -1
   %63 = icmp sgt i64 %indvars.iv.next57.i.us101.us, %56
-  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !17
+  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !16
 
 .preheader36.i.us102.us:                          ; preds = %..loopexit38_crit_edge.us.i.us100.us, %.preheader39.i.us93.us
   %64 = sext i32 %.269.us84.us to i64
@@ -202,12 +202,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   store float %49, ptr %72, align 4, !tbaa !8
   %indvars.iv.next60.i.us.us = add nuw nsw i64 %indvars.iv59.i.us.us, 1
   %exitcond63.not.i.us.us = icmp eq i64 %indvars.iv.next60.i.us.us, %13
-  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !18
+  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !17
 
 ._crit_edge.us.us.i.us.us:                        ; preds = %71
   %indvars.iv.next65.i.us.us = add nuw nsw i64 %indvars.iv64.i.us.us, 1
   %exitcond68.not.i.us.us = icmp eq i64 %indvars.iv.next65.i.us.us, %10
-  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !19
+  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !18
 
 73:                                               ; preds = %47
   %74 = fcmp ord float %.465.us88.us, 0.000000e+00
@@ -224,17 +224,17 @@ _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELi
   %.3.us107.us = phi i32 [ %.269.us84.us, %75 ], [ %.269.us84.us, %73 ], [ %27, %.preheader36.i.us102.us ], [ %27, %..loopexit_crit_edge.us.i.loopexit.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !20
+  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !19
 
 ..loopexit_crit_edge.us.i.loopexit.us.us:         ; preds = %._crit_edge.us.us.i.us.us
   %indvars.iv.next70.i.us.us = add nsw i64 %indvars.iv69.i.us.us, -1
   %76 = icmp sgt i64 %indvars.iv.next70.i.us.us, %64
-  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us103.us, !llvm.loop !21
+  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us103.us, !llvm.loop !20
 
 ._crit_edge.split.us110.us:                       ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us103.us
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %10
-  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !22
+  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %._crit_edge81.us, %.lr.ph, %2
   ret void
@@ -316,14 +316,14 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.358.us125 = phi float [ %33, %29 ], [ %.25774.us122, %.lr.ph80.split.us128 ]
   %35 = add nuw nsw i32 %.05076.us121, 1
   %exitcond.not = icmp eq i32 %35, %8
-  br i1 %exitcond.not, label %._crit_edge81.us, label %.lr.ph80.split.us128, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge81.us, label %.lr.ph80.split.us128, !llvm.loop !22
 
 ._crit_edge81.us:                                 ; preds = %34, %._crit_edge.split.us110.us
   %.us-phi115.us = phi float [ %.5.us104.us, %._crit_edge.split.us110.us ], [ %.358.us125, %34 ]
   %.us-phi116.us = phi i32 [ %.3.us107.us, %._crit_edge.split.us110.us ], [ %.0120.us, %34 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !24
+  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !23
 
 .lr.ph80.split.us.us:                             ; preds = %.lr.ph80.split.us.us.preheader, %._crit_edge.split.us110.us
   %indvars.iv133 = phi i64 [ 0, %.lr.ph80.split.us.us.preheader ], [ %indvars.iv.next134, %._crit_edge.split.us110.us ]
@@ -376,7 +376,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   store float %49, ptr %gep.i.us91.us, align 4, !tbaa !8
   %indvars.iv.next.i.us92.us = add nsw i64 %indvars.iv.i.us90.us, -1
   %55 = icmp sgt i64 %indvars.iv.next.i.us92.us, %53
-  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !25
+  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !24
 
 .preheader39.i.us93.us:                           ; preds = %.lr.ph.i.us89.us, %51
   %56 = sext i32 %.15266.us87.us to i64
@@ -396,12 +396,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   store float %49, ptr %62, align 4, !tbaa !8
   %indvars.iv.next54.i.us98.us = add nuw nsw i64 %indvars.iv53.i.us97.us, 1
   %exitcond.not.i.us99.us = icmp eq i64 %indvars.iv.next54.i.us98.us, %13
-  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !26
+  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !25
 
 ..loopexit38_crit_edge.us.i.us100.us:             ; preds = %61
   %indvars.iv.next57.i.us101.us = add nsw i64 %indvars.iv56.i.us96.us, -1
   %63 = icmp sgt i64 %indvars.iv.next57.i.us101.us, %56
-  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !27
+  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !26
 
 .preheader36.i.us102.us:                          ; preds = %..loopexit38_crit_edge.us.i.us100.us, %.preheader39.i.us93.us
   %64 = sext i32 %.269.us84.us to i64
@@ -427,12 +427,12 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   store float %49, ptr %72, align 4, !tbaa !8
   %indvars.iv.next60.i.us.us = add nuw nsw i64 %indvars.iv59.i.us.us, 1
   %exitcond63.not.i.us.us = icmp eq i64 %indvars.iv.next60.i.us.us, %13
-  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !28
+  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !27
 
 ._crit_edge.us.us.i.us.us:                        ; preds = %71
   %indvars.iv.next65.i.us.us = add nuw nsw i64 %indvars.iv64.i.us.us, 1
   %exitcond68.not.i.us.us = icmp eq i64 %indvars.iv.next65.i.us.us, %10
-  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !29
+  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !28
 
 73:                                               ; preds = %47
   %74 = fcmp ord float %.465.us88.us, 0.000000e+00
@@ -449,17 +449,17 @@ _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELi
   %.3.us107.us = phi i32 [ %.269.us84.us, %75 ], [ %.269.us84.us, %73 ], [ %27, %.preheader36.i.us102.us ], [ %27, %..loopexit_crit_edge.us.i.loopexit.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !30
+  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !29
 
 ..loopexit_crit_edge.us.i.loopexit.us.us:         ; preds = %._crit_edge.us.us.i.us.us
   %indvars.iv.next70.i.us.us = add nsw i64 %indvars.iv69.i.us.us, -1
   %76 = icmp sgt i64 %indvars.iv.next70.i.us.us, %64
-  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us103.us, !llvm.loop !31
+  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us103.us, !llvm.loop !30
 
 ._crit_edge.split.us110.us:                       ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit.us103.us
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %10
-  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !32
+  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %._crit_edge81.us, %.lr.ph, %2
   ret void
@@ -503,7 +503,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.reass = mul i32 %factor.op.mul, %19
   %20 = sext i32 %.reass to i64
   %21 = getelementptr inbounds double, ptr %7, i64 %20
-  %22 = load double, ptr %21, align 8, !tbaa !33
+  %22 = load double, ptr %21, align 8, !tbaa !32
   br label %.lr.ph80.us
 
 .lr.ph80.us:                                      ; preds = %16, %17
@@ -534,21 +534,21 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %30 = mul nsw i32 %11, %.reass.us124
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %25, i64 %31
-  %33 = load double, ptr %32, align 8, !tbaa !33
+  %33 = load double, ptr %32, align 8, !tbaa !32
   br label %34
 
 34:                                               ; preds = %29, %.lr.ph80.split.us128
   %.358.us125 = phi double [ %33, %29 ], [ %.25774.us122, %.lr.ph80.split.us128 ]
   %35 = add nuw nsw i32 %.05076.us121, 1
   %exitcond.not = icmp eq i32 %35, %8
-  br i1 %exitcond.not, label %._crit_edge81.us, label %.lr.ph80.split.us128, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge81.us, label %.lr.ph80.split.us128, !llvm.loop !34
 
 ._crit_edge81.us:                                 ; preds = %34, %._crit_edge.split.us110.us
   %.us-phi115.us = phi double [ %.5.us104.us, %._crit_edge.split.us110.us ], [ %.358.us125, %34 ]
   %.us-phi116.us = phi i32 [ %.3.us107.us, %._crit_edge.split.us110.us ], [ %.0120.us, %34 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !36
+  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !35
 
 .lr.ph80.split.us.us:                             ; preds = %.lr.ph80.split.us.us.preheader, %._crit_edge.split.us110.us
   %indvars.iv133 = phi i64 [ 0, %.lr.ph80.split.us.us.preheader ], [ %indvars.iv.next134, %._crit_edge.split.us110.us ]
@@ -564,7 +564,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %38 = mul nsw i32 %11, %.reass.us.us
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds double, ptr %25, i64 %39
-  %41 = load double, ptr %40, align 8, !tbaa !33
+  %41 = load double, ptr %40, align 8, !tbaa !32
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph80.split.us.us, %36
@@ -585,7 +585,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
   %.15266.us87.us = phi i32 [ %.05175.us.us, %.lr.ph.us.us ], [ %.253.us105.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us ]
   %.465.us88.us = phi double [ %.358.us.us, %.lr.ph.us.us ], [ %.5.us104.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us ]
   %48 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
-  %49 = load double, ptr %48, align 8, !tbaa !33
+  %49 = load double, ptr %48, align 8, !tbaa !32
   %50 = fcmp uno double %49, 0.000000e+00
   br i1 %50, label %73, label %51
 
@@ -598,10 +598,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
 .lr.ph.i.us89.us:                                 ; preds = %51, %.lr.ph.i.us89.us
   %indvars.iv.i.us90.us = phi i64 [ %indvars.iv.next.i.us92.us, %.lr.ph.i.us89.us ], [ %52, %51 ]
   %gep.i.us91.us = getelementptr double, ptr %invariant.gep.i.us.us, i64 %indvars.iv.i.us90.us
-  store double %49, ptr %gep.i.us91.us, align 8, !tbaa !33
+  store double %49, ptr %gep.i.us91.us, align 8, !tbaa !32
   %indvars.iv.next.i.us92.us = add nsw i64 %indvars.iv.i.us90.us, -1
   %55 = icmp sgt i64 %indvars.iv.next.i.us92.us, %53
-  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !37
+  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !36
 
 .preheader39.i.us93.us:                           ; preds = %.lr.ph.i.us89.us, %51
   %56 = sext i32 %.15266.us87.us to i64
@@ -618,15 +618,15 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
 61:                                               ; preds = %61, %.preheader37.us.i.us95.us
   %indvars.iv53.i.us97.us = phi i64 [ 0, %.preheader37.us.i.us95.us ], [ %indvars.iv.next54.i.us98.us, %61 ]
   %62 = getelementptr double, ptr %60, i64 %indvars.iv53.i.us97.us
-  store double %49, ptr %62, align 8, !tbaa !33
+  store double %49, ptr %62, align 8, !tbaa !32
   %indvars.iv.next54.i.us98.us = add nuw nsw i64 %indvars.iv53.i.us97.us, 1
   %exitcond.not.i.us99.us = icmp eq i64 %indvars.iv.next54.i.us98.us, %13
-  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !38
+  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !37
 
 ..loopexit38_crit_edge.us.i.us100.us:             ; preds = %61
   %indvars.iv.next57.i.us101.us = add nsw i64 %indvars.iv56.i.us96.us, -1
   %63 = icmp sgt i64 %indvars.iv.next57.i.us101.us, %56
-  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !39
+  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !38
 
 .preheader36.i.us102.us:                          ; preds = %..loopexit38_crit_edge.us.i.us100.us, %.preheader39.i.us93.us
   %64 = sext i32 %.269.us84.us to i64
@@ -649,22 +649,22 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0E
 71:                                               ; preds = %71, %.preheader.us.us.i.us.us
   %indvars.iv59.i.us.us = phi i64 [ %indvars.iv.next60.i.us.us, %71 ], [ 0, %.preheader.us.us.i.us.us ]
   %72 = getelementptr double, ptr %70, i64 %indvars.iv59.i.us.us
-  store double %49, ptr %72, align 8, !tbaa !33
+  store double %49, ptr %72, align 8, !tbaa !32
   %indvars.iv.next60.i.us.us = add nuw nsw i64 %indvars.iv59.i.us.us, 1
   %exitcond63.not.i.us.us = icmp eq i64 %indvars.iv.next60.i.us.us, %13
-  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !40
+  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !39
 
 ._crit_edge.us.us.i.us.us:                        ; preds = %71
   %indvars.iv.next65.i.us.us = add nuw nsw i64 %indvars.iv64.i.us.us, 1
   %exitcond68.not.i.us.us = icmp eq i64 %indvars.iv.next65.i.us.us, %10
-  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !41
+  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !40
 
 73:                                               ; preds = %47
   %74 = fcmp ord double %.465.us88.us, 0.000000e+00
   br i1 %74, label %75, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us
 
 75:                                               ; preds = %73
-  store double %.465.us88.us, ptr %48, align 8, !tbaa !33
+  store double %.465.us88.us, ptr %48, align 8, !tbaa !32
   br label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us: ; preds = %..loopexit_crit_edge.us.i.loopexit.us.us, %75, %73, %.preheader36.i.us102.us
@@ -674,17 +674,17 @@ _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELi
   %.3.us107.us = phi i32 [ %.269.us84.us, %75 ], [ %.269.us84.us, %73 ], [ %27, %.preheader36.i.us102.us ], [ %27, %..loopexit_crit_edge.us.i.loopexit.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !42
+  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !41
 
 ..loopexit_crit_edge.us.i.loopexit.us.us:         ; preds = %._crit_edge.us.us.i.us.us
   %indvars.iv.next70.i.us.us = add nsw i64 %indvars.iv69.i.us.us, -1
   %76 = icmp sgt i64 %indvars.iv.next70.i.us.us, %64
-  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us, !llvm.loop !43
+  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us, !llvm.loop !42
 
 ._crit_edge.split.us110.us:                       ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %10
-  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !44
+  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %._crit_edge81.us, %.lr.ph, %2
   ret void
@@ -728,7 +728,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.reass = mul i32 %factor.op.mul, %19
   %20 = sext i32 %.reass to i64
   %21 = getelementptr inbounds double, ptr %7, i64 %20
-  %22 = load double, ptr %21, align 8, !tbaa !33
+  %22 = load double, ptr %21, align 8, !tbaa !32
   br label %.lr.ph80.us
 
 .lr.ph80.us:                                      ; preds = %16, %17
@@ -759,21 +759,21 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %30 = mul nsw i32 %11, %.reass.us124
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %25, i64 %31
-  %33 = load double, ptr %32, align 8, !tbaa !33
+  %33 = load double, ptr %32, align 8, !tbaa !32
   br label %34
 
 34:                                               ; preds = %29, %.lr.ph80.split.us128
   %.358.us125 = phi double [ %33, %29 ], [ %.25774.us122, %.lr.ph80.split.us128 ]
   %35 = add nuw nsw i32 %.05076.us121, 1
   %exitcond.not = icmp eq i32 %35, %8
-  br i1 %exitcond.not, label %._crit_edge81.us, label %.lr.ph80.split.us128, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge81.us, label %.lr.ph80.split.us128, !llvm.loop !44
 
 ._crit_edge81.us:                                 ; preds = %34, %._crit_edge.split.us110.us
   %.us-phi115.us = phi double [ %.5.us104.us, %._crit_edge.split.us110.us ], [ %.358.us125, %34 ]
   %.us-phi116.us = phi i32 [ %.3.us107.us, %._crit_edge.split.us110.us ], [ %.0120.us, %34 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count142
-  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !46
+  br i1 %exitcond143.not, label %._crit_edge, label %16, !llvm.loop !45
 
 .lr.ph80.split.us.us:                             ; preds = %.lr.ph80.split.us.us.preheader, %._crit_edge.split.us110.us
   %indvars.iv133 = phi i64 [ 0, %.lr.ph80.split.us.us.preheader ], [ %indvars.iv.next134, %._crit_edge.split.us110.us ]
@@ -789,7 +789,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %38 = mul nsw i32 %11, %.reass.us.us
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds double, ptr %25, i64 %39
-  %41 = load double, ptr %40, align 8, !tbaa !33
+  %41 = load double, ptr %40, align 8, !tbaa !32
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph80.split.us.us, %36
@@ -810,7 +810,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
   %.15266.us87.us = phi i32 [ %.05175.us.us, %.lr.ph.us.us ], [ %.253.us105.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us ]
   %.465.us88.us = phi double [ %.358.us.us, %.lr.ph.us.us ], [ %.5.us104.us, %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us ]
   %48 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
-  %49 = load double, ptr %48, align 8, !tbaa !33
+  %49 = load double, ptr %48, align 8, !tbaa !32
   %50 = fcmp uno double %49, 0.000000e+00
   br i1 %50, label %73, label %51
 
@@ -823,10 +823,10 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
 .lr.ph.i.us89.us:                                 ; preds = %51, %.lr.ph.i.us89.us
   %indvars.iv.i.us90.us = phi i64 [ %indvars.iv.next.i.us92.us, %.lr.ph.i.us89.us ], [ %52, %51 ]
   %gep.i.us91.us = getelementptr double, ptr %invariant.gep.i.us.us, i64 %indvars.iv.i.us90.us
-  store double %49, ptr %gep.i.us91.us, align 8, !tbaa !33
+  store double %49, ptr %gep.i.us91.us, align 8, !tbaa !32
   %indvars.iv.next.i.us92.us = add nsw i64 %indvars.iv.i.us90.us, -1
   %55 = icmp sgt i64 %indvars.iv.next.i.us92.us, %53
-  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !47
+  br i1 %55, label %.lr.ph.i.us89.us, label %.preheader39.i.us93.us, !llvm.loop !46
 
 .preheader39.i.us93.us:                           ; preds = %.lr.ph.i.us89.us, %51
   %56 = sext i32 %.15266.us87.us to i64
@@ -843,15 +843,15 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
 61:                                               ; preds = %61, %.preheader37.us.i.us95.us
   %indvars.iv53.i.us97.us = phi i64 [ 0, %.preheader37.us.i.us95.us ], [ %indvars.iv.next54.i.us98.us, %61 ]
   %62 = getelementptr double, ptr %60, i64 %indvars.iv53.i.us97.us
-  store double %49, ptr %62, align 8, !tbaa !33
+  store double %49, ptr %62, align 8, !tbaa !32
   %indvars.iv.next54.i.us98.us = add nuw nsw i64 %indvars.iv53.i.us97.us, 1
   %exitcond.not.i.us99.us = icmp eq i64 %indvars.iv.next54.i.us98.us, %13
-  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !48
+  br i1 %exitcond.not.i.us99.us, label %..loopexit38_crit_edge.us.i.us100.us, label %61, !llvm.loop !47
 
 ..loopexit38_crit_edge.us.i.us100.us:             ; preds = %61
   %indvars.iv.next57.i.us101.us = add nsw i64 %indvars.iv56.i.us96.us, -1
   %63 = icmp sgt i64 %indvars.iv.next57.i.us101.us, %56
-  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !49
+  br i1 %63, label %.preheader37.us.i.us95.us, label %.preheader36.i.us102.us, !llvm.loop !48
 
 .preheader36.i.us102.us:                          ; preds = %..loopexit38_crit_edge.us.i.us100.us, %.preheader39.i.us93.us
   %64 = sext i32 %.269.us84.us to i64
@@ -874,22 +874,22 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1E
 71:                                               ; preds = %71, %.preheader.us.us.i.us.us
   %indvars.iv59.i.us.us = phi i64 [ %indvars.iv.next60.i.us.us, %71 ], [ 0, %.preheader.us.us.i.us.us ]
   %72 = getelementptr double, ptr %70, i64 %indvars.iv59.i.us.us
-  store double %49, ptr %72, align 8, !tbaa !33
+  store double %49, ptr %72, align 8, !tbaa !32
   %indvars.iv.next60.i.us.us = add nuw nsw i64 %indvars.iv59.i.us.us, 1
   %exitcond63.not.i.us.us = icmp eq i64 %indvars.iv.next60.i.us.us, %13
-  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !50
+  br i1 %exitcond63.not.i.us.us, label %._crit_edge.us.us.i.us.us, label %71, !llvm.loop !49
 
 ._crit_edge.us.us.i.us.us:                        ; preds = %71
   %indvars.iv.next65.i.us.us = add nuw nsw i64 %indvars.iv64.i.us.us, 1
   %exitcond68.not.i.us.us = icmp eq i64 %indvars.iv.next65.i.us.us, %10
-  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !51
+  br i1 %exitcond68.not.i.us.us, label %..loopexit_crit_edge.us.i.loopexit.us.us, label %.preheader.us.us.i.us.us, !llvm.loop !50
 
 73:                                               ; preds = %47
   %74 = fcmp ord double %.465.us88.us, 0.000000e+00
   br i1 %74, label %75, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us
 
 75:                                               ; preds = %73
-  store double %.465.us88.us, ptr %48, align 8, !tbaa !33
+  store double %.465.us88.us, ptr %48, align 8, !tbaa !32
   br label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us: ; preds = %..loopexit_crit_edge.us.i.loopexit.us.us, %75, %73, %.preheader36.i.us102.us
@@ -899,17 +899,17 @@ _ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELi
   %.3.us107.us = phi i32 [ %.269.us84.us, %75 ], [ %.269.us84.us, %73 ], [ %27, %.preheader36.i.us102.us ], [ %27, %..loopexit_crit_edge.us.i.loopexit.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !52
+  br i1 %exitcond132.not, label %._crit_edge.split.us110.us, label %47, !llvm.loop !51
 
 ..loopexit_crit_edge.us.i.loopexit.us.us:         ; preds = %._crit_edge.us.us.i.us.us
   %indvars.iv.next70.i.us.us = add nsw i64 %indvars.iv69.i.us.us, -1
   %76 = icmp sgt i64 %indvars.iv.next70.i.us.us, %64
-  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us, !llvm.loop !53
+  br i1 %76, label %.preheader35.us.i.us.us, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us, !llvm.loop !52
 
 ._crit_edge.split.us110.us:                       ; preds = %_ZZN3igl10flood_fillIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS2_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiidE_clEiiiiiid.exit.us103.us
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %10
-  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !54
+  br i1 %exitcond137.not, label %._crit_edge81.us, label %.lr.ph80.split.us.us, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %._crit_edge81.us, %.lr.ph, %2
   ret void
@@ -976,7 +976,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %26 = add nuw nsw i32 %.05486, 1
   %27 = uitofp nneg i32 %26 to float
   %28 = fcmp ogt float %25, %27
-  br i1 %28, label %8, label %._crit_edge90, !llvm.loop !55
+  br i1 %28, label %8, label %._crit_edge90, !llvm.loop !54
 
 29:                                               ; preds = %.lr.ph81, %._crit_edge
   %.pre93 = phi float [ %.pre93.pre, %.lr.ph81 ], [ %.pre93100, %._crit_edge ]
@@ -1025,7 +1025,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %46 = add nuw nsw i32 %.05078, 1
   %47 = uitofp nneg i32 %46 to float
   %48 = fcmp ogt float %45, %47
-  br i1 %48, label %29, label %._crit_edge82.loopexit, !llvm.loop !56
+  br i1 %48, label %29, label %._crit_edge82.loopexit, !llvm.loop !55
 
 49:                                               ; preds = %.lr.ph, %_ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit
   %50 = phi float [ %.pre93, %.lr.ph ], [ %141, %_ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit ]
@@ -1082,13 +1082,13 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   store float %58, ptr %79, align 4, !tbaa !8
   %80 = add nsw i32 %69, -1
   %81 = icmp slt i32 %.04871, %80
-  br i1 %81, label %.lr.ph.i, label %.preheader39.i, !llvm.loop !57
+  br i1 %81, label %.lr.ph.i, label %.preheader39.i, !llvm.loop !56
 
 .loopexit38.i:                                    ; preds = %.lr.ph41.i, %.preheader37.i
   %82 = phi float [ %85, %.preheader37.i ], [ %103, %.lr.ph41.i ]
   %83 = add nsw i32 %86, -1
   %84 = icmp slt i32 %.15270, %83
-  br i1 %84, label %.preheader37.i, label %.preheader36.i, !llvm.loop !58
+  br i1 %84, label %.preheader37.i, label %.preheader36.i, !llvm.loop !57
 
 .preheader37.i:                                   ; preds = %.preheader37.lr.ph.i, %.loopexit38.i
   %85 = phi float [ %82, %.loopexit38.i ], [ %67, %.preheader37.lr.ph.i ]
@@ -1122,7 +1122,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %102 = uitofp nneg i32 %101 to float
   %103 = load float, ptr %0, align 4, !tbaa !8
   %104 = fcmp ogt float %103, %102
-  br i1 %104, label %.lr.ph41.i, label %.loopexit38.i, !llvm.loop !60
+  br i1 %104, label %.lr.ph41.i, label %.loopexit38.i, !llvm.loop !59
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %.preheader35.i
   %105 = phi float [ %110, %.preheader35.i ], [ %110, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
@@ -1130,7 +1130,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %107 = phi float [ %112, %.preheader35.i ], [ %111, %.preheader.lr.ph.i ], [ %120, %._crit_edge.i ]
   %108 = add nsw i32 %113, -1
   %109 = icmp slt i32 %.273, %108
-  br i1 %109, label %.preheader35.i, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit, !llvm.loop !61
+  br i1 %109, label %.preheader35.i, label %_ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit, !llvm.loop !60
 
 .preheader35.i:                                   ; preds = %.preheader35.lr.ph.i, %.loopexit.i
   %110 = phi float [ %105, %.loopexit.i ], [ %89, %.preheader35.lr.ph.i ]
@@ -1162,7 +1162,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %122 = add nuw nsw i32 %.02744.i, 1
   %123 = uitofp nneg i32 %122 to float
   %124 = fcmp ogt float %120, %123
-  br i1 %124, label %.preheader.i, label %.loopexit.i, !llvm.loop !62
+  br i1 %124, label %.preheader.i, label %.loopexit.i, !llvm.loop !61
 
 .lr.ph43.i:                                       ; preds = %.preheader.i, %.lr.ph43.i
   %125 = phi float [ %137, %.lr.ph43.i ], [ %118, %.preheader.i ]
@@ -1181,7 +1181,7 @@ define weak_odr dso_local void @_ZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1E
   %136 = uitofp nneg i32 %135 to float
   %137 = load float, ptr %0, align 4, !tbaa !8
   %138 = fcmp ogt float %137, %136
-  br i1 %138, label %.lr.ph43.i, label %._crit_edge.loopexit.i, !llvm.loop !63
+  br i1 %138, label %.lr.ph43.i, label %._crit_edge.loopexit.i, !llvm.loop !62
 
 _ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EEENKUliiiiiifE_clEiiiiiif.exit: ; preds = %.loopexit.i, %.preheader35.lr.ph.i, %.preheader36.i, %60, %62
   %.5 = phi float [ %.469, %62 ], [ %.469, %60 ], [ %58, %.preheader36.i ], [ %58, %.preheader35.lr.ph.i ], [ %58, %.loopexit.i ]
@@ -1192,7 +1192,7 @@ _ZZN3igl10flood_fillIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS2_IfLin1ELi1ELi0ELi
   %140 = uitofp nneg i32 %139 to float
   %141 = load float, ptr %0, align 4, !tbaa !8
   %142 = fcmp ogt float %141, %140
-  br i1 %142, label %49, label %._crit_edge.loopexit, !llvm.loop !64
+  br i1 %142, label %49, label %._crit_edge.loopexit, !llvm.loop !63
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1215,58 +1215,57 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12, !14}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12, !14}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12, !14}
-!22 = distinct !{!22, !11, !12, !14}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12, !14}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12, !14}
-!28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11, !12, !14}
-!30 = distinct !{!30, !11, !12}
-!31 = distinct !{!31, !11, !12, !14}
-!32 = distinct !{!32, !11, !12, !14}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"double", !6, i64 0}
-!35 = distinct !{!35, !11, !12}
-!36 = distinct !{!36, !11, !12, !14}
-!37 = distinct !{!37, !11, !12}
-!38 = distinct !{!38, !11, !12}
-!39 = distinct !{!39, !11, !12, !14}
-!40 = distinct !{!40, !11, !12}
-!41 = distinct !{!41, !11, !12, !14}
-!42 = distinct !{!42, !11, !12}
-!43 = distinct !{!43, !11, !12, !14}
-!44 = distinct !{!44, !11, !12, !14}
-!45 = distinct !{!45, !11, !12}
-!46 = distinct !{!46, !11, !12, !14}
-!47 = distinct !{!47, !11, !12}
-!48 = distinct !{!48, !11, !12}
-!49 = distinct !{!49, !11, !12, !14}
-!50 = distinct !{!50, !11, !12}
-!51 = distinct !{!51, !11, !12, !14}
-!52 = distinct !{!52, !11, !12}
-!53 = distinct !{!53, !11, !12, !14}
-!54 = distinct !{!54, !11, !12, !14}
-!55 = distinct !{!55, !11, !12}
-!56 = distinct !{!56, !11, !12}
-!57 = distinct !{!57, !11, !12}
-!58 = distinct !{!58, !11, !12, !59}
-!59 = !{!"llvm.loop.unswitch.partial.disable"}
-!60 = distinct !{!60, !11, !12}
-!61 = distinct !{!61, !11, !12, !59}
-!62 = distinct !{!62, !11, !12, !59}
-!63 = distinct !{!63, !11, !12}
-!64 = distinct !{!64, !11, !12}
+!12 = distinct !{!12, !11, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11, !13}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11, !13}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11, !13}
+!21 = distinct !{!21, !11, !13}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11, !13}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !11, !13}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11, !13}
+!29 = distinct !{!29, !11}
+!30 = distinct !{!30, !11, !13}
+!31 = distinct !{!31, !11, !13}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"double", !6, i64 0}
+!34 = distinct !{!34, !11}
+!35 = distinct !{!35, !11, !13}
+!36 = distinct !{!36, !11}
+!37 = distinct !{!37, !11}
+!38 = distinct !{!38, !11, !13}
+!39 = distinct !{!39, !11}
+!40 = distinct !{!40, !11, !13}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11, !13}
+!43 = distinct !{!43, !11, !13}
+!44 = distinct !{!44, !11}
+!45 = distinct !{!45, !11, !13}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !11, !13}
+!49 = distinct !{!49, !11}
+!50 = distinct !{!50, !11, !13}
+!51 = distinct !{!51, !11}
+!52 = distinct !{!52, !11, !13}
+!53 = distinct !{!53, !11, !13}
+!54 = distinct !{!54, !11}
+!55 = distinct !{!55, !11}
+!56 = distinct !{!56, !11}
+!57 = distinct !{!57, !11, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = distinct !{!59, !11}
+!60 = distinct !{!60, !11, !58}
+!61 = distinct !{!61, !11, !58}
+!62 = distinct !{!62, !11}
+!63 = distinct !{!63, !11}

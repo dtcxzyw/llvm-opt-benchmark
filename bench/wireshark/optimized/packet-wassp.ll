@@ -3742,7 +3742,7 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
   %316 = add i32 %.089.i, 6
   %317 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %317, %312
-  br i1 %exitcond.not.i, label %decode_mac_list_struct.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %decode_mac_list_struct.exit, label %.lr.ph.i, !llvm.loop !10
 
 decode_mac_list_struct.exit:                      ; preds = %.lr.ph.i, %307
   %318 = add i32 %.0506523, %16
@@ -3790,7 +3790,7 @@ decode_mac_list_struct.exit:                      ; preds = %.lr.ph.i, %307
   %351 = add i32 %.01213.i, 4
   %352 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i513 = icmp eq i32 %352, %344
-  br i1 %exitcond.not.i513, label %decode_rate_limit_struct.exit, label %.lr.ph.i512, !llvm.loop !12
+  br i1 %exitcond.not.i513, label %decode_rate_limit_struct.exit, label %.lr.ph.i512, !llvm.loop !11
 
 decode_rate_limit_struct.exit:                    ; preds = %.lr.ph.i512, %339
   %353 = add i32 %.0506523, %16
@@ -3813,7 +3813,7 @@ decode_rate_limit_struct.exit:                    ; preds = %.lr.ph.i512, %339
   %363 = add i32 %.089.i516, 2
   %364 = add nuw nsw i32 %.010.i515, 1
   %exitcond.not.i517 = icmp eq i32 %364, %359
-  br i1 %exitcond.not.i517, label %decode_Channel_list.exit, label %.lr.ph.i514, !llvm.loop !13
+  br i1 %exitcond.not.i517, label %decode_Channel_list.exit, label %.lr.ph.i514, !llvm.loop !12
 
 decode_Channel_list.exit:                         ; preds = %.lr.ph.i514, %354
   %365 = add i32 %.0506523, %16
@@ -3836,7 +3836,7 @@ decode_Channel_list.exit:                         ; preds = %.lr.ph.i514, %354
   %375 = add i32 %.089.i520, 4
   %376 = add nuw nsw i32 %.010.i519, 1
   %exitcond.not.i521 = icmp eq i32 %376, %371
-  br i1 %exitcond.not.i521, label %decode_ipv4_list_struct.exit, label %.lr.ph.i518, !llvm.loop !14
+  br i1 %exitcond.not.i521, label %decode_ipv4_list_struct.exit, label %.lr.ph.i518, !llvm.loop !13
 
 decode_ipv4_list_struct.exit:                     ; preds = %.lr.ph.i518, %366
   %377 = add i32 %.0506523, %16
@@ -3875,7 +3875,7 @@ decode_ipv4_list_struct.exit:                     ; preds = %.lr.ph.i518, %366
   %401 = tail call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %400, ptr noundef %1, i32 noundef %399, i32 noundef 4, i32 noundef 0)
   %402 = add i32 %.03032.i, 1
   %.not.i = icmp sgt i32 %402, %385
-  br i1 %.not.i, label %decode_mu_appl_stats_block.exit, label %.lr.ph.i522, !llvm.loop !15
+  br i1 %.not.i, label %decode_mu_appl_stats_block.exit, label %.lr.ph.i522, !llvm.loop !14
 
 decode_mu_appl_stats_block.exit:                  ; preds = %.lr.ph.i522, %378
   %403 = add i32 %.0506523, %16
@@ -3921,7 +3921,7 @@ decode_mu_appl_stats_block.exit:                  ; preds = %.lr.ph.i522, %378
   %.2 = phi i32 [ %429, %426 ], [ %.1507, %424 ]
   %431 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2)
   %432 = icmp ugt i32 %431, 3
-  br i1 %432, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %432, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %430, %5
   %.0506.lcssa = phi i32 [ %3, %5 ], [ %.2, %430 ]
@@ -4003,7 +4003,7 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
   %.1.be = phi i32 [ %53, %43 ], [ %85, %84 ], [ %192, %decode_ipv4_list_struct.exit ], [ %200, %197 ], [ %205, %201 ]
   %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1.be)
   %55 = icmp ugt i32 %54, 3
-  br i1 %55, label %33, label %.critedge, !llvm.loop !17
+  br i1 %55, label %33, label %.critedge, !llvm.loop !16
 
 56:                                               ; preds = %37
   br i1 %24, label %wassp_match_strval.exit, label %57
@@ -4147,7 +4147,7 @@ wassp_type_converter.exit:                        ; preds = %104, %110, %111, %1
   %125 = add i32 %.015, 4
   %126 = add nuw i32 %.022914, 1
   %exitcond.not = icmp eq i32 %126, %119
-  br i1 %exitcond.not, label %decode_ipv4_list_struct.exit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %decode_ipv4_list_struct.exit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %wassp_type_converter.exit
   br i1 %29, label %127, label %decode_rate_limit_struct.exit
@@ -4188,7 +4188,7 @@ wassp_type_converter.exit:                        ; preds = %104, %110, %111, %1
   %148 = add i32 %.01213.i, 4
   %149 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %149, %141
-  br i1 %exitcond.not.i, label %decode_ipv4_list_struct.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %decode_ipv4_list_struct.exit, label %.lr.ph.i, !llvm.loop !11
 
 decode_rate_limit_struct.exit:                    ; preds = %.loopexit
   br i1 %or.cond10, label %150, label %154
@@ -4226,7 +4226,7 @@ decode_rate_limit_struct.exit:                    ; preds = %.loopexit
   %161 = add i32 %.089.i, 2
   %162 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i244 = icmp eq i32 %162, %157
-  br i1 %exitcond.not.i244, label %decode_ipv4_list_struct.exit, label %.lr.ph.i243, !llvm.loop !13
+  br i1 %exitcond.not.i244, label %decode_ipv4_list_struct.exit, label %.lr.ph.i243, !llvm.loop !12
 
 decode_Channel_list.exit:                         ; preds = %153, %154
   switch i32 %4, label %decode_mac_list_struct.exit [
@@ -4272,7 +4272,7 @@ decode_Channel_list.exit:                         ; preds = %153, %154
   %179 = add i32 %.089.i247, 6
   %180 = add nuw nsw i32 %.010.i246, 1
   %exitcond.not.i248 = icmp eq i32 %180, %175
-  br i1 %exitcond.not.i248, label %decode_ipv4_list_struct.exit, label %.lr.ph.i245, !llvm.loop !11
+  br i1 %exitcond.not.i248, label %decode_ipv4_list_struct.exit, label %.lr.ph.i245, !llvm.loop !10
 
 decode_mac_list_struct.exit:                      ; preds = %decode_Channel_list.exit
   %181 = icmp eq i16 %.0231, 333
@@ -4292,7 +4292,7 @@ decode_mac_list_struct.exit:                      ; preds = %decode_Channel_list
   %187 = add i32 %.089.i251, 4
   %188 = add nuw nsw i32 %.010.i250, 1
   %exitcond.not.i252 = icmp eq i32 %188, %183
-  br i1 %exitcond.not.i252, label %decode_ipv4_list_struct.exit, label %.lr.ph.i249, !llvm.loop !14
+  br i1 %exitcond.not.i252, label %decode_ipv4_list_struct.exit, label %.lr.ph.i249, !llvm.loop !13
 
 decode_ipv4_list_struct.exit.sink.split:          ; preds = %167, %164, %128
   %.sink = phi i32 [ 8, %128 ], [ 6, %164 ], [ 6, %167 ]
@@ -4412,7 +4412,7 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %65 = add i32 %.0164171, 36
   %66 = add nuw nsw i32 %.0161172, 1
   %exitcond.not = icmp eq i32 %66, %.zext186
-  br i1 %exitcond.not, label %.loopexit170, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit170, label %.lr.ph, !llvm.loop !18
 
 .loopexit170:                                     ; preds = %.lr.ph, %4
   %67 = and i32 %.2, 1
@@ -4468,7 +4468,7 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %105 = add i32 %.1165173, 20
   %106 = add nuw nsw i32 %.1162174, 1
   %exitcond180.not = icmp eq i32 %106, %.zext184
-  br i1 %exitcond180.not, label %.loopexit169, label %.lr.ph175, !llvm.loop !20
+  br i1 %exitcond180.not, label %.loopexit169, label %.lr.ph175, !llvm.loop !19
 
 .loopexit169:                                     ; preds = %.lr.ph175, %.loopexit170
   %107 = and i32 %.2, 2
@@ -4508,7 +4508,7 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %130 = add i32 %.2166176, 16
   %131 = add nuw nsw i32 %.2163177, 1
   %exitcond182.not = icmp eq i32 %131, %.zext
-  br i1 %exitcond182.not, label %.loopexit, label %.lr.ph178, !llvm.loop !21
+  br i1 %exitcond182.not, label %.loopexit, label %.lr.ph178, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph178, %.loopexit169
   ret void
@@ -4537,17 +4537,16 @@ attributes #5 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}

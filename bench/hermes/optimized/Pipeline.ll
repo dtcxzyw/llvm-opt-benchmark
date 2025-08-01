@@ -62,7 +62,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.09, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %__begin1.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %1, %entry ]
@@ -484,16 +484,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %call.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #9, !noalias !6
+  %call.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #9, !noalias !4
   %kind.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  store i32 0, ptr %kind.i.i.i.i.i, align 8, !noalias !6
+  store i32 0, ptr %kind.i.i.i.i.i, align 8, !noalias !4
   %name2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
-  store ptr @.str.15, ptr %name2.i.i.i.i.i, align 8, !noalias !6
+  store ptr @.str.15, ptr %name2.i.i.i.i.i, align 8, !noalias !4
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
-  store i64 11, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i, align 8, !noalias !6
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes11ScopeMergerE, i64 16), ptr %call.i.i, align 8, !noalias !6
+  store i64 11, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes11ScopeMergerE, i64 16), ptr %call.i.i, align 8, !noalias !4
   %mergedMap_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mergedMap_.i.i.i, i8 0, i64 20, i1 false), !noalias !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mergedMap_.i.i.i, i8 0, i64 20, i1 false), !noalias !4
   store ptr %call.i.i, ptr %agg.tmp.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM, ptr noundef nonnull %agg.tmp.i) #8
   %3 = load ptr, ptr %agg.tmp.i, align 8
@@ -1104,8 +1104,6 @@ attributes #9 = { builtin nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZSt11make_uniqueIN6hermes11ScopeMergerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!8 = distinct !{!8, !"_ZSt11make_uniqueIN6hermes11ScopeMergerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN6hermes11ScopeMergerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN6hermes11ScopeMergerEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

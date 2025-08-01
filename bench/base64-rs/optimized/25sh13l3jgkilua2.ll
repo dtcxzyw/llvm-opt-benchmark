@@ -66,7 +66,7 @@ define noundef range(i64 0, 4) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6
   %8 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.sroa.01.09
   store i8 61, ptr %8, align 1
   %exitcond11.not = icmp eq i64 %7, %5
-  br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22e5fd453cee8def79982159f9b88e16.1) #5
@@ -121,5 +121,3 @@ attributes #5 = { noreturn }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

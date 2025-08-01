@@ -627,7 +627,7 @@ tcpcl_frame_loc_new.exit:                         ; preds = %7, %tcpcl_frame_loc
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %.sink, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 28
-  %68 = load i8, ptr %67, align 4, !range !9, !noundef !10
+  %68 = load i8, ptr %67, align 4, !range !8, !noundef !9
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %tcpcl_frame_loc_equal.exit, label %70
 
@@ -958,7 +958,7 @@ define internal range(i32 0, 9) i32 @dissect_xferext_transferlen(ptr noundef %0,
   br label %17
 
 17:                                               ; preds = %15, %6
-  %18 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %18 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %36
 
@@ -1034,7 +1034,7 @@ define internal i32 @get_message_len(ptr noundef %0, ptr noundef %1, i32 noundef
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %36
 
@@ -1061,7 +1061,7 @@ switch.lookup:                                    ; preds = %13
   %19 = getelementptr i8, ptr %.07594, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not87 = icmp eq ptr %20, null
-  br i1 %.not87, label %.critedge90, label %.lr.ph, !llvm.loop !11
+  br i1 %.not87, label %.critedge90, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %switch.lookup, %18
   %21 = phi ptr [ %20, %18 ], [ %17, %switch.lookup ]
@@ -1199,7 +1199,7 @@ define internal i32 @dissect_message(ptr noundef %0, ptr noundef %1, ptr noundef
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
-  %40 = load i8, ptr %39, align 4, !range !9, !noundef !10
+  %40 = load i8, ptr %39, align 4, !range !8, !noundef !9
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %44
 
@@ -1209,7 +1209,7 @@ define internal i32 @dissect_message(ptr noundef %0, ptr noundef %1, ptr noundef
 
 44:                                               ; preds = %42, %36
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %46 = load i8, ptr %45, align 8, !range !9, !noundef !10
+  %46 = load i8, ptr %45, align 8, !range !8, !noundef !9
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %175
 
@@ -1347,7 +1347,7 @@ define internal i32 @dissect_message(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not170, label %135, label %121
 
 121:                                              ; preds = %118
-  %122 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %122 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %124, label %140
 
@@ -1383,7 +1383,7 @@ tcpcl_frame_loc_equal.exit.thread:                ; preds = %124, %tcpcl_frame_l
 140:                                              ; preds = %121, %tcpcl_frame_loc_equal.exit.thread, %tcpcl_frame_loc_equal.exit, %135
   call fastcc void @try_negotiate(ptr noundef %10, ptr noundef %1)
   %141 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %142 = load i8, ptr %141, align 8, !range !9, !noundef !10
+  %142 = load i8, ptr %141, align 8, !range !8, !noundef !9
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %dissect_v4_msg.exit
 
@@ -1423,7 +1423,7 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %149, %1
 162:                                              ; preds = %proto_item_set_generated.exit
   %163 = load i32, ptr @hf_tcpclv4_negotiate_use_tls, align 4
   %164 = getelementptr inbounds nuw i8, ptr %66, i64 25
-  %165 = load i8, ptr %164, align 1, !range !9, !noundef !10
+  %165 = load i8, ptr %164, align 1, !range !8, !noundef !9
   %166 = zext nneg i8 %165 to i64
   %167 = call ptr @proto_tree_add_boolean(ptr noundef %53, i32 noundef %163, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %166)
   %.not.i175 = icmp eq ptr %167, null
@@ -1596,7 +1596,7 @@ tcpcl_peer_associate_transfer.exit.i:             ; preds = %239, %235, %get_cla
 proto_item_set_generated.exit.i:                  ; preds = %252, %249, %tcpcl_peer_associate_transfer.exit.i
   %256 = load i32, ptr @hf_tcpclv3_data_segment_data, align 4
   %257 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %256, ptr noundef %0, i32 noundef %207, i32 noundef %.0.i.i, i32 noundef 0)
-  %258 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %258 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %260, label %264
 
@@ -1608,7 +1608,7 @@ proto_item_set_generated.exit.i:                  ; preds = %252, %249, %tcpcl_p
   br label %264
 
 264:                                              ; preds = %260, %proto_item_set_generated.exit.i
-  %265 = load i8, ptr @tcpcl_desegment_transfer, align 1, !range !9, !noundef !10
+  %265 = load i8, ptr @tcpcl_desegment_transfer, align 1, !range !8, !noundef !9
   %266 = trunc nuw i8 %265 to i1
   br i1 %266, label %267, label %273
 
@@ -1703,7 +1703,7 @@ tcpcl_peer_associate_transfer.exit169.i:          ; preds = %301, %292, %.tcpcl_
   br label %proto_item_set_generated.exit172.i
 
 proto_item_set_generated.exit172.i:               ; preds = %314, %311, %tcpcl_peer_associate_transfer.exit169.i
-  %318 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %318 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %319 = trunc nuw i8 %318 to i1
   br i1 %319, label %320, label %dissect_v3_msg.exit
 
@@ -1812,7 +1812,7 @@ tcpcl_peer_associate_transfer.exit174.i:          ; preds = %366, %357, %.tcpcl_
   br label %proto_item_set_generated.exit177.i
 
 proto_item_set_generated.exit177.i:               ; preds = %379, %376, %tcpcl_peer_associate_transfer.exit174.i
-  %383 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %383 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %384 = trunc nuw i8 %383 to i1
   br i1 %384, label %385, label %dissect_v3_msg.exit
 
@@ -1968,7 +1968,7 @@ dissect_v3_msg.exit:                              ; preds = %178, %204, %273, %p
 
 475:                                              ; preds = %474, %473
   %476 = icmp slt i32 %470, %424
-  br i1 %476, label %.lr.ph531.i, label %._crit_edge532.i, !llvm.loop !12
+  br i1 %476, label %.lr.ph531.i, label %._crit_edge532.i, !llvm.loop !11
 
 ._crit_edge532.i:                                 ; preds = %475, %403
   %477 = add i32 %424, %427
@@ -1979,7 +1979,7 @@ dissect_v3_msg.exit:                              ; preds = %178, %204, %273, %p
   br i1 %.not488.i, label %495, label %481
 
 481:                                              ; preds = %._crit_edge532.i
-  %482 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %482 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %483 = trunc nuw i8 %482 to i1
   br i1 %483, label %484, label %tcpcl_frame_loc_compare.exit.thread.i
 
@@ -2034,7 +2034,7 @@ tcpcl_frame_loc_equal.exit.thread.i:              ; preds = %tcpcl_frame_loc_equ
   br i1 %.not484.i, label %529, label %515
 
 515:                                              ; preds = %503
-  %516 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %516 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %517 = trunc nuw i8 %516 to i1
   br i1 %517, label %518, label %535
 
@@ -2070,7 +2070,7 @@ tcpcl_frame_loc_equal.exit499.thread.i:           ; preds = %tcpcl_frame_loc_equ
   br label %535
 
 535:                                              ; preds = %529, %tcpcl_frame_loc_equal.exit499.thread.i, %tcpcl_frame_loc_equal.exit499.i, %515
-  %536 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %536 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %537 = trunc nuw i8 %536 to i1
   br i1 %537, label %538, label %tcpcl_frame_loc_compare.exit.thread.i
 
@@ -2306,7 +2306,7 @@ tcpcl_peer_associate_transfer.exit.i186:          ; preds = %646, %tcpcl_frame_l
 
 664:                                              ; preds = %663, %662
   %665 = icmp slt i32 %659, %583
-  br i1 %665, label %589, label %._crit_edge.i, !llvm.loop !13
+  br i1 %665, label %589, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %664, %582
   %666 = add i32 %583, 14
@@ -2380,7 +2380,7 @@ get_clamped_length.exit.i184:                     ; preds = %686, %684, %681
   br label %697
 
 697:                                              ; preds = %696, %.thread.i, %692, %get_clamped_length.exit.i184
-  %698 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %698 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %699 = trunc nuw i8 %698 to i1
   br i1 %699, label %700, label %701
 
@@ -2389,7 +2389,7 @@ get_clamped_length.exit.i184:                     ; preds = %686, %684, %681
   br label %701
 
 701:                                              ; preds = %700, %697
-  %702 = load i8, ptr @tcpcl_desegment_transfer, align 1, !range !9, !noundef !10
+  %702 = load i8, ptr @tcpcl_desegment_transfer, align 1, !range !8, !noundef !9
   %703 = trunc nuw i8 %702 to i1
   br i1 %703, label %704, label %710
 
@@ -2449,7 +2449,7 @@ get_clamped_length.exit.i184:                     ; preds = %686, %684, %681
   br label %730
 
 730:                                              ; preds = %729, %.thread518.i, %725, %711
-  %731 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %731 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %732 = trunc nuw i8 %731 to i1
   br i1 %732, label %733, label %tcpcl_frame_loc_compare.exit.thread.i
 
@@ -2466,7 +2466,7 @@ get_clamped_length.exit.i184:                     ; preds = %686, %684, %681
   %740 = load i32, ptr @hf_tcpclv4_xfer_id, align 4
   %741 = tail call ptr @proto_tree_add_uint64(ptr noundef %395, i32 noundef %740, ptr noundef %0, i32 noundef 2, i32 noundef 8, i64 noundef %739)
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %402, ptr noundef nonnull @.str.304, i64 noundef %739)
-  %742 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %742 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %743 = trunc nuw i8 %742 to i1
   br i1 %743, label %744, label %tcpcl_frame_loc_compare.exit.thread.i
 
@@ -2501,14 +2501,14 @@ tcpcl_frame_loc_compare.exit.thread.i:            ; preds = %756, %747, %744, %7
   %759 = call ptr @wmem_strbuf_get_str(ptr noundef %402)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %393, ptr noundef nonnull @.str.307, ptr noundef %400, ptr noundef %759)
   %760 = call ptr @wmem_strbuf_finalize(ptr noundef %402)
-  %761 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !9, !noundef !10
+  %761 = load i8, ptr @tcpcl_analyze_sequence, align 1, !range !8, !noundef !9
   %762 = trunc nuw i8 %761 to i1
   br i1 %762, label %763, label %tcpcl_frame_loc_compare.exit504.thread.thread.i
 
 763:                                              ; preds = %tcpcl_frame_loc_compare.exit.thread.i
   %764 = load ptr, ptr %37, align 8
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 28
-  %766 = load i8, ptr %765, align 4, !range !9, !noundef !10
+  %766 = load i8, ptr %765, align 4, !range !8, !noundef !9
   %767 = trunc nuw i8 %766 to i1
   br i1 %767, label %tcpcl_frame_loc_compare.exit504.thread.thread.i, label %768
 
@@ -2573,7 +2573,7 @@ tcpcl_frame_loc_compare.exit504.thread.thread.i:  ; preds = %tcpcl_frame_loc_com
 794:                                              ; preds = %792
   %795 = load ptr, ptr %10, align 8
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 40
-  %797 = load i8, ptr %796, align 8, !range !9, !noundef !10
+  %797 = load i8, ptr %796, align 8, !range !8, !noundef !9
   %798 = trunc nuw i8 %797 to i1
   br i1 %798, label %799, label %dissect_v4_msg.exit
 
@@ -2656,7 +2656,7 @@ dissect_v4_msg.exit:                              ; preds = %171, %168, %162, %1
 839:                                              ; preds = %836
   %840 = load ptr, ptr %12, align 8
   call void @col_append_str(ptr noundef %840, i32 noundef 25, ptr noundef nonnull @.str.296)
-  %841 = load i8, ptr @tcpcl_decode_bundle, align 1, !range !9, !noundef !10
+  %841 = load i8, ptr @tcpcl_decode_bundle, align 1, !range !8, !noundef !9
   %842 = trunc nuw i8 %841 to i1
   %843 = load ptr, ptr @bundle_handle, align 8
   %844 = icmp ne ptr %843, null
@@ -3029,7 +3029,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 define internal fastcc void @try_negotiate(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 8, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %44, label %7
 
@@ -3050,9 +3050,9 @@ define internal fastcc void @try_negotiate(ptr noundef nonnull readonly captures
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 41
-  %18 = load i8, ptr %17, align 1, !range !9, !noundef !10
+  %18 = load i8, ptr %17, align 1, !range !8, !noundef !9
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 41
-  %20 = load i8, ptr %19, align 1, !range !9, !noundef !10
+  %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
   %21 = and i8 %20, %18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 %21, ptr %22, align 1
@@ -3061,7 +3061,7 @@ define internal fastcc void @try_negotiate(ptr noundef nonnull readonly captures
   store i8 1, ptr %24, align 8
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 25
-  %27 = load i8, ptr %26, align 1, !range !9, !noundef !10
+  %27 = load i8, ptr %26, align 1, !range !8, !noundef !9
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %44
 
@@ -3092,7 +3092,7 @@ define internal fastcc void @try_negotiate(ptr noundef nonnull readonly captures
 44:                                               ; preds = %16, %29, %32, %11, %7, %2
   %45 = phi ptr [ %25, %16 ], [ %25, %29 ], [ %.pre, %32 ], [ %3, %11 ], [ %3, %7 ], [ %3, %2 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %47 = load i8, ptr %46, align 8, !range !9, !noundef !10
+  %47 = load i8, ptr %46, align 8, !range !8, !noundef !9
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %66, label %49
 
@@ -3622,7 +3622,7 @@ define internal fastcc void @transfer_add_ack(ptr noundef nonnull readonly captu
 62:                                               ; preds = %60, %54
   %63 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.067100)
   %.not80 = icmp eq ptr %63, null
-  br i1 %.not80, label %.loopexit, label %54, !llvm.loop !14
+  br i1 %.not80, label %.loopexit, label %54, !llvm.loop !13
 
 .loopexit:                                        ; preds = %62, %50, %.thread
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4108,12 +4108,11 @@ attributes #15 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

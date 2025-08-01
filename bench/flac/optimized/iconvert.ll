@@ -177,7 +177,7 @@ define dso_local range(i32 -2, 3) i32 @iconvert(ptr noundef %0, ptr noundef %1, 
   %76 = call i64 @iconv(ptr noundef %17, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %77 = load i64, ptr %9, align 8, !tbaa !10
   %.not137 = icmp eq i64 %77, 0
-  br i1 %.not137, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not137, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %75, %48
   %.1113.lcssa = phi ptr [ %47, %48 ], [ %.2114, %75 ]
@@ -263,7 +263,7 @@ safe_realloc_nofree_add_2op_.exit:                ; preds = %88
 
 116:                                              ; preds = %.lr.ph238
   %117 = tail call ptr @__errno_location() #11
-  %118 = load i32, ptr %117, align 4, !tbaa !14
+  %118 = load i32, ptr %117, align 4, !tbaa !12
   %119 = icmp eq i32 %118, 7
   br i1 %119, label %.backedge224, label %120
 
@@ -301,7 +301,7 @@ safe_realloc_nofree_add_2op_.exit:                ; preds = %88
 128:                                              ; preds = %127
   %129 = load i8, ptr %storemerge150, align 1, !tbaa !4
   %.not152 = icmp sgt i8 %129, -1
-  br i1 %.not152, label %.critedge, label %127, !llvm.loop !16
+  br i1 %.not152, label %.critedge, label %127, !llvm.loop !14
 
 .critedge:                                        ; preds = %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
@@ -319,7 +319,7 @@ safe_realloc_nofree_add_2op_.exit:                ; preds = %88
   %134 = call i64 @iconv(ptr noundef %.0109, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %135 = load i64, ptr %9, align 8, !tbaa !10
   %.not148 = icmp eq i64 %135, 0
-  br i1 %.not148, label %.thread, label %.lr.ph238, !llvm.loop !18
+  br i1 %.not148, label %.thread, label %.lr.ph238, !llvm.loop !16
 
 .thread:                                          ; preds = %.backedge224, %110, %.critedge.thread
   %.lcssa.sink = phi i64 [ %124, %.critedge.thread ], [ 0, %110 ], [ %133, %.backedge224 ]
@@ -365,7 +365,7 @@ safe_malloc_add_2op_.exit:                        ; preds = %.thread
 
 155:                                              ; preds = %.lr.ph244
   %156 = tail call ptr @__errno_location() #11
-  %157 = load i32, ptr %156, align 4, !tbaa !14
+  %157 = load i32, ptr %156, align 4, !tbaa !12
   %158 = icmp eq i32 %157, 7
   br i1 %158, label %.backedge, label %159
 
@@ -397,7 +397,7 @@ safe_malloc_add_2op_.exit:                        ; preds = %.thread
 163:                                              ; preds = %162
   %164 = load i8, ptr %storemerge145, align 1, !tbaa !4
   %.not147 = icmp sgt i8 %164, -1
-  br i1 %.not147, label %.critedge5, label %162, !llvm.loop !19
+  br i1 %.not147, label %.critedge5, label %162, !llvm.loop !17
 
 .critedge5:                                       ; preds = %163
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
@@ -412,7 +412,7 @@ safe_malloc_add_2op_.exit:                        ; preds = %.thread
   %spec.store.select = select i1 %or.cond3, i32 %spec.store.select242, i32 1
   %168 = load i64, ptr %9, align 8, !tbaa !10
   %.not144 = icmp eq i64 %168, 0
-  br i1 %.not144, label %.thread219, label %.lr.ph244, !llvm.loop !20
+  br i1 %.not144, label %.thread219, label %.lr.ph244, !llvm.loop !18
 
 .thread219:                                       ; preds = %.backedge, %148, %.critedge5.thread
   %spec.store.select232 = phi i32 [ %spec.store.select242, %.critedge5.thread ], [ %spec.store.select240, %148 ], [ %spec.store.select, %.backedge ]
@@ -524,12 +524,10 @@ attributes #11 = { nounwind willreturn memory(none) }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !5, i64 0}
-!16 = distinct !{!16, !17, !13}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !13}
-!19 = distinct !{!19, !17, !13}
-!20 = distinct !{!20, !17, !13}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}

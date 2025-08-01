@@ -125,7 +125,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %37
-  br i1 %47, label %66, label %38, !llvm.loop !4
+  br i1 %47, label %66, label %38
 
 48:                                               ; preds = %38
   %.not113 = icmp eq ptr %.098.ph, null
@@ -147,7 +147,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
 58:                                               ; preds = %49
   %59 = getelementptr inbounds nuw i8, ptr %.098.ph, i64 48
   %60 = load i8, ptr %59, align 8
-  br label %.outer, !llvm.loop !4
+  br label %.outer
 
 61:                                               ; preds = %48
   %.not116 = icmp eq i32 %3, 0
@@ -324,7 +324,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = icmp samesign ult i64 %indvars.iv, 2
   %168 = select i1 %.not124.not, i1 %167, i1 false
-  br i1 %168, label %152, label %.loopexit.sink.split, !llvm.loop !6
+  br i1 %168, label %152, label %.loopexit.sink.split, !llvm.loop !4
 
 .thread131:                                       ; preds = %62, %66
   %169 = load i32, ptr %5, align 8
@@ -469,6 +469,4 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = !{!"llvm.loop.mustprogress"}

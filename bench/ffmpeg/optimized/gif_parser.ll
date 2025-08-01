@@ -387,15 +387,15 @@ gif_find_frame_end.exit._crit_edge:               ; preds = %gif_find_frame_end.
   %.not23 = icmp eq i32 %148, 0
   %spec.select = select i1 %.not23, i32 10, i32 %148
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %spec.select, ptr %149, align 8, !tbaa !34
+  store i32 %spec.select, ptr %149, align 8, !tbaa !33
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %151 = load i32, ptr %150, align 8, !tbaa !20
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %151, ptr %152, align 8, !tbaa !35
+  store i32 %151, ptr %152, align 8, !tbaa !34
   %.not24 = icmp eq i32 %151, 0
   %153 = select i1 %.not24, i32 2, i32 1
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %153, ptr %154, align 8, !tbaa !36
+  store i32 %153, ptr %154, align 8, !tbaa !35
   store i32 0, ptr %150, align 8, !tbaa !20
   store ptr %146, ptr %2, align 8, !tbaa !4
   store i32 %145, ptr %3, align 4, !tbaa !9
@@ -455,9 +455,8 @@ attributes #4 = { nounwind }
 !28 = !{!17, !10, i64 80}
 !29 = !{!17, !10, i64 76}
 !30 = !{!17, !10, i64 84}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!12, !10, i64 296}
-!35 = !{!12, !10, i64 232}
-!36 = !{!12, !10, i64 40}
+!33 = !{!12, !10, i64 296}
+!34 = !{!12, !10, i64 232}
+!35 = !{!12, !10, i64 40}

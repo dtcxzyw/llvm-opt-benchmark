@@ -997,14 +997,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %269, %277
 
 .sink.split.i:                                    ; preds = %374
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 840
-  %379 = load ptr, ptr %378, align 8, !tbaa !65
+  %379 = load ptr, ptr %378, align 8, !tbaa !64
   %380 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %381 = load ptr, ptr %380, align 8, !tbaa !66
+  %381 = load ptr, ptr %380, align 8, !tbaa !65
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %383 = load ptr, ptr %382, align 8, !tbaa !21
   %.not1.i = icmp eq ptr %379, %383
   %384 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %385 = load ptr, ptr %384, align 8, !tbaa !67
+  %385 = load ptr, ptr %384, align 8, !tbaa !66
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %387 = load ptr, ptr %386, align 8, !tbaa !21
   %. = select i1 %.not1.i, ptr %387, ptr %383
@@ -1036,9 +1036,9 @@ define linkonce_odr dso_local void @_ZN31btConvexPlaneCollisionAlgorithm22getAll
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !68
+  %10 = load i32, ptr %9, align 4, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !72
+  %12 = load i32, ptr %11, align 8, !tbaa !71
   %13 = icmp eq i32 %10, %12
   br i1 %13, label %14, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
@@ -1057,7 +1057,7 @@ define linkonce_odr dso_local void @_ZN31btConvexPlaneCollisionAlgorithm22getAll
   %20 = sext i32 %16 to i64
   %21 = shl nsw i64 %20, 3
   %22 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %21, i32 noundef 16)
-  %.pre.i = load i32, ptr %9, align 4, !tbaa !68
+  %.pre.i = load i32, ptr %9, align 4, !tbaa !67
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %19, %18
@@ -1065,7 +1065,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   %.0.i.i.i = phi ptr [ %22, %19 ], [ null, %18 ]
   %24 = icmp sgt i32 %23, 0
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !73
+  %26 = load ptr, ptr %25, align 8, !tbaa !72
   br i1 %24, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
@@ -1076,11 +1076,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %27 ]
   %28 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.i.i
-  %30 = load ptr, ptr %29, align 8, !tbaa !74
-  store ptr %30, ptr %28, align 8, !tbaa !74
+  %30 = load ptr, ptr %29, align 8, !tbaa !73
+  store ptr %30, ptr %28, align 8, !tbaa !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %27, !llvm.loop !75
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %27, !llvm.loop !74
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp ne ptr %26, null
@@ -1092,34 +1092,34 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %27
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !76, !range !27, !noundef !28
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !75, !range !27, !noundef !28
   %.old6.i = trunc nuw i8 %.old5.i to i1
   br i1 %.old6.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 34:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %26)
-  %.pre2.pre.pre.i = load i32, ptr %9, align 4, !tbaa !68
+  %.pre2.pre.pre.i = load i32, ptr %9, align 4, !tbaa !67
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %34, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   %.pre2.i = phi i32 [ %23, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %34 ], [ %23, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 1, ptr %35, align 8, !tbaa !76
-  store ptr %.0.i.i.i, ptr %25, align 8, !tbaa !73
-  store i32 %16, ptr %11, align 8, !tbaa !72
-  %.pre = load ptr, ptr %3, align 8, !tbaa !74
+  store i8 1, ptr %35, align 8, !tbaa !75
+  store ptr %.0.i.i.i, ptr %25, align 8, !tbaa !72
+  store i32 %16, ptr %11, align 8, !tbaa !71
+  %.pre = load ptr, ptr %3, align 8, !tbaa !73
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %8, %14, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
   %36 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %4, %14 ], [ %4, %8 ]
   %37 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %10, %14 ], [ %10, %8 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !73
+  %39 = load ptr, ptr %38, align 8, !tbaa !72
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  store ptr %36, ptr %41, align 8, !tbaa !74
+  store ptr %36, ptr %41, align 8, !tbaa !73
   %42 = add nsw i32 %37, 1
-  store i32 %42, ptr %9, align 4, !tbaa !68
+  store i32 %42, ptr %9, align 4, !tbaa !67
   br label %43
 
 43:                                               ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %2
@@ -1227,18 +1227,17 @@ attributes #14 = { builtin nounwind }
 !59 = !{!"_ZTS20btPersistentManifold", !60, i64 0, !12, i64 8, !25, i64 840, !25, i64 848, !15, i64 856, !32, i64 860, !32, i64 864, !15, i64 868, !15, i64 872, !15, i64 876}
 !60 = !{!"_ZTS13btTypedObject", !15, i64 0}
 !61 = !{!15, !15, i64 0}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!59, !25, i64 840}
-!66 = !{!40, !23, i64 16}
-!67 = !{!40, !23, i64 24}
-!68 = !{!69, !15, i64 4}
-!69 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !70, i64 0, !15, i64 4, !15, i64 8, !71, i64 16, !13, i64 24}
-!70 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
-!71 = !{!"p2 _ZTS20btPersistentManifold", !11, i64 0}
-!72 = !{!69, !15, i64 8}
-!73 = !{!69, !71, i64 16}
-!74 = !{!14, !14, i64 0}
-!75 = distinct !{!75, !63, !64}
-!76 = !{!69, !13, i64 24}
+!64 = !{!59, !25, i64 840}
+!65 = !{!40, !23, i64 16}
+!66 = !{!40, !23, i64 24}
+!67 = !{!68, !15, i64 4}
+!68 = !{!"_ZTS20btAlignedObjectArrayIP20btPersistentManifoldE", !69, i64 0, !15, i64 4, !15, i64 8, !70, i64 16, !13, i64 24}
+!69 = !{!"_ZTS18btAlignedAllocatorIP20btPersistentManifoldLj16EE"}
+!70 = !{!"p2 _ZTS20btPersistentManifold", !11, i64 0}
+!71 = !{!68, !15, i64 8}
+!72 = !{!68, !70, i64 16}
+!73 = !{!14, !14, i64 0}
+!74 = distinct !{!74, !63}
+!75 = !{!68, !13, i64 24}

@@ -138,6 +138,5 @@ attributes #4 = { nounwind }
 !18 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
 !19 = !{!"p1 _ZTS13stack_st_void", !6, i64 0}
 !20 = !{!"p1 _ZTS9engine_st", !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}

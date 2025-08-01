@@ -373,7 +373,7 @@ define internal range(i32 -1, 1) i32 @flic_read_seek(ptr noundef readonly captur
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %13 = load ptr, ptr %12, align 8, !tbaa !68
+  %13 = load ptr, ptr %12, align 8, !tbaa !67
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %34, label %14
 
@@ -395,12 +395,12 @@ define internal range(i32 -1, 1) i32 @flic_read_seek(ptr noundef readonly captur
 
 .thread:                                          ; preds = %16, %19
   %.027 = phi i32 [ %21, %19 ], [ %17, %16 ]
-  %23 = load ptr, ptr %12, align 8, !tbaa !68
+  %23 = load ptr, ptr %12, align 8, !tbaa !67
   %24 = zext nneg i32 %.027 to i64
   %25 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %23, i64 %24
-  %26 = load i64, ptr %25, align 8, !tbaa !80
+  %26 = load i64, ptr %25, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !82
+  %28 = load i64, ptr %27, align 8, !tbaa !81
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %29, ptr %30, align 4, !tbaa !29
@@ -519,21 +519,20 @@ attributes #5 = { nounwind }
 !62 = !{!63, !63, i64 0}
 !63 = !{!"p1 _ZTS8AVStream", !7, i64 0}
 !64 = !{!35, !10, i64 32}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = !{!69, !76, i64 320}
-!69 = !{!"FFStream", !32, i64 0, !70, i64 216, !10, i64 224, !71, i64 232, !10, i64 240, !72, i64 248, !10, i64 256, !73, i64 264, !10, i64 280, !10, i64 284, !74, i64 288, !75, i64 312, !76, i64 320, !10, i64 328, !10, i64 332, !23, i64 336, !23, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !10, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !23, i64 728, !8, i64 736, !8, i64 737, !34, i64 740, !5, i64 752, !77, i64 784, !23, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !78, i64 816, !10, i64 824, !10, i64 828, !23, i64 832, !23, i64 840, !79, i64 848, !34, i64 856}
-!70 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
-!71 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!72 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
-!73 = !{!"", !71, i64 0, !10, i64 8}
-!74 = !{!"FFFrac", !23, i64 0, !23, i64 8, !23, i64 16}
-!75 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
-!76 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
-!77 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
-!78 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
-!79 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!80 = !{!81, !23, i64 0}
-!81 = !{!"AVIndexEntry", !23, i64 0, !23, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}
-!82 = !{!81, !23, i64 8}
+!67 = !{!68, !75, i64 320}
+!68 = !{!"FFStream", !32, i64 0, !69, i64 216, !10, i64 224, !70, i64 232, !10, i64 240, !71, i64 248, !10, i64 256, !72, i64 264, !10, i64 280, !10, i64 284, !73, i64 288, !74, i64 312, !75, i64 320, !10, i64 328, !10, i64 332, !23, i64 336, !23, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !10, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !23, i64 728, !8, i64 736, !8, i64 737, !34, i64 740, !5, i64 752, !76, i64 784, !23, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !77, i64 816, !10, i64 824, !10, i64 828, !23, i64 832, !23, i64 840, !78, i64 848, !34, i64 856}
+!69 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
+!70 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!71 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
+!72 = !{!"", !70, i64 0, !10, i64 8}
+!73 = !{!"FFFrac", !23, i64 0, !23, i64 8, !23, i64 16}
+!74 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
+!75 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
+!76 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
+!77 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
+!78 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!79 = !{!80, !23, i64 0}
+!80 = !{!"AVIndexEntry", !23, i64 0, !23, i64 8, !10, i64 16, !10, i64 16, !10, i64 20}
+!81 = !{!80, !23, i64 8}

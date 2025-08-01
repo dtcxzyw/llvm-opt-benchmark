@@ -692,7 +692,7 @@ define hidden void @evbuffer_decref_and_unlock_(ptr noundef %0) local_unnamed_ad
   %14 = load ptr, ptr %.032, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.032)
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -720,7 +720,7 @@ define hidden void @evbuffer_decref_and_unlock_(ptr noundef %0) local_unnamed_ad
   tail call void @event_mm_free_(ptr noundef nonnull %17) #16
   %22 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %evbuffer_remove_all_callbacks.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %evbuffer_remove_all_callbacks.exit, label %.lr.ph.i, !llvm.loop !6
 
 evbuffer_remove_all_callbacks.exit:               ; preds = %.lr.ph._crit_edge.i, %._crit_edge
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -991,7 +991,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
   %14 = add i64 %13, %.031
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %15 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %0, i64 noundef %14, i32 noundef 2)
@@ -1018,7 +1018,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
   %25 = add i64 %24, %.02333
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph34, !llvm.loop !9
+  br i1 %exitcond43.not, label %.loopexit, label %.lr.ph34, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph34, %23, %._crit_edge.thread, %._crit_edge
   %.1 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.02333, %.lr.ph34 ], [ %25, %23 ]
@@ -1062,7 +1062,7 @@ define hidden range(i32 -1, 1) i32 @evbuffer_expand_fast_(ptr noundef %0, i64 no
   %.0.i.i = phi i64 [ %17, %.preheader.i.i ], [ 1024, %13 ]
   %16 = icmp ult i64 %.0.i.i, %14
   %17 = shl nuw nsw i64 %.0.i.i, 1
-  br i1 %16, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !10
+  br i1 %16, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i
   %18 = add nsw i64 %.0.i.i, -48
@@ -1114,14 +1114,14 @@ define hidden range(i32 -1, 1) i32 @evbuffer_expand_fast_(ptr noundef %0, i64 no
 .critedge2.i.i.i:                                 ; preds = %35, %.lr.ph.i.i.i
   %39 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %35 ]
   %40 = load ptr, ptr %.05.i.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i.i)
   %.not.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i.i:              ; preds = %.lr.ph.i.i.i.i
   store ptr null, ptr %.021.i.i.i, align 8
@@ -1210,7 +1210,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
 
 76:                                               ; preds = %.thread
   %77 = icmp eq i32 %.3, %2
-  br i1 %77, label %.thread113, label %53, !llvm.loop !13
+  br i1 %77, label %.thread113, label %53, !llvm.loop !12
 
 78:                                               ; preds = %53
   %79 = icmp slt i32 %.067, %2
@@ -1230,7 +1230,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   %.0.i93 = phi i64 [ %87, %.preheader.i ], [ 1024, %83 ]
   %86 = icmp ult i64 %.0.i93, %84
   %87 = shl nuw nsw i64 %.0.i93, 1
-  br i1 %86, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %86, label %.preheader.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.preheader.i
   %88 = add nsw i64 %.0.i93, -48
@@ -1298,7 +1298,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   %115 = load ptr, ptr %.275110, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.275110)
   %.not89 = icmp eq ptr %115, null
-  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %113
   %.4.neg122 = phi i64 [ %.neg90, %113 ], [ %.4.neg121, %.lr.ph ]
@@ -1315,7 +1315,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %44, %32
   %.0.i98 = phi i64 [ %122, %.preheader.i97 ], [ 1024, %118 ]
   %121 = icmp ult i64 %.0.i98, %119
   %122 = shl nuw nsw i64 %.0.i98, 1
-  br i1 %121, label %.preheader.i97, label %.loopexit.i99, !llvm.loop !10
+  br i1 %121, label %.preheader.i97, label %.loopexit.i99, !llvm.loop !9
 
 .loopexit.i99:                                    ; preds = %.preheader.i97
   %123 = add nsw i64 %.0.i98, -48
@@ -1427,7 +1427,7 @@ define range(i32 -1, 1) i32 @evbuffer_add(ptr noundef %0, ptr noundef readonly c
   %.0.i.i = phi i64 [ %33, %.preheader.i.i ], [ 1024, %29 ]
   %32 = icmp ult i64 %.0.i.i, %30
   %33 = shl nuw nsw i64 %.0.i.i, 1
-  br i1 %32, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !10
+  br i1 %32, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i
   %34 = add nsw i64 %.0.i.i, -48
@@ -1478,14 +1478,14 @@ define range(i32 -1, 1) i32 @evbuffer_add(ptr noundef %0, ptr noundef readonly c
 .critedge2.i.i.i:                                 ; preds = %50, %.lr.ph.i.i.i
   %54 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i.i:                                   ; preds = %50, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %50 ]
   %55 = load ptr, ptr %.05.i.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i.i)
   %.not.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i.i:              ; preds = %.lr.ph.i.i.i.i
   store ptr null, ptr %.021.i.i.i, align 8
@@ -1594,7 +1594,7 @@ evbuffer_chain_insert_new.exit:                   ; preds = %47, %59
   %.0.i101 = phi i64 [ %107, %.preheader.i ], [ 1024, %103 ]
   %106 = icmp ult i64 %.0.i101, %104
   %107 = shl nuw nsw i64 %.0.i101, 1
-  br i1 %106, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %106, label %.preheader.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.preheader.i
   %108 = add nsw i64 %.0.i101, -48
@@ -1679,14 +1679,14 @@ evbuffer_chain_insert_new.exit:                   ; preds = %47, %59
 .critedge2.i.i:                                   ; preds = %146, %.lr.ph.i.i
   %150 = load ptr, ptr %.0.i.i102, align 8
   %.not.i.i103 = icmp eq ptr %150, null
-  br i1 %.not.i.i103, label %evbuffer_free_trailing_empty_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i103, label %evbuffer_free_trailing_empty_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i105:                                  ; preds = %146, %.lr.ph.i.i.i105
   %.05.i.i.i = phi ptr [ %151, %.lr.ph.i.i.i105 ], [ %.0.i.i102, %146 ]
   %151 = load ptr, ptr %.05.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i)
   %.not.i.i.i106 = icmp eq ptr %151, null
-  br i1 %.not.i.i.i106, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i105, !llvm.loop !12
+  br i1 %.not.i.i.i106, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i105, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %.lr.ph.i.i.i105
   store ptr null, ptr %.021.i.i, align 8
@@ -1887,7 +1887,7 @@ define i32 @evbuffer_reserve_space(ptr noundef %0, i64 noundef %1, ptr noundef w
   %88 = icmp samesign ult i64 %indvars.iv.next60.i, %64
   %89 = icmp ult i64 %87, %1
   %90 = select i1 %88, i1 %89, i1 false
-  br i1 %90, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i, !llvm.loop !15
+  br i1 %90, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %77
   %91 = trunc nuw nsw i64 %indvars.iv.next60.i to i32
@@ -2064,7 +2064,7 @@ define internal fastcc ptr @evbuffer_expand_singlechain(ptr noundef captures(non
   %.0.i.i = phi i64 [ %91, %.preheader.i.i ], [ 1024, %87 ]
   %90 = icmp ult i64 %.0.i.i, %88
   %91 = shl nuw nsw i64 %.0.i.i, 1
-  br i1 %90, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !10
+  br i1 %90, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i
   %92 = add nsw i64 %.0.i.i, -48
@@ -2116,14 +2116,14 @@ define internal fastcc ptr @evbuffer_expand_singlechain(ptr noundef captures(non
 .critedge2.i.i.i:                                 ; preds = %109, %.lr.ph.i.i.i
   %113 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i.i:                                   ; preds = %109, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %109 ]
   %114 = load ptr, ptr %.05.i.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i.i)
   %.not.i.i.i.i = icmp eq ptr %114, null
-  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i.i:              ; preds = %.lr.ph.i.i.i.i
   store ptr null, ptr %.021.i.i.i, align 8
@@ -2248,7 +2248,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %52 = icmp samesign ult i64 %indvars.iv.next60, %28
   %53 = icmp ult i64 %51, %1
   %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %54, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph ]
@@ -2298,7 +2298,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %80 = icmp samesign ult i64 %indvars.iv.next, %28
   %81 = icmp ult i64 %79, %1
   %82 = select i1 %80, i1 %81, i1 false
-  br i1 %82, label %.lr.ph.split, label %._crit_edge.loopexit56, !llvm.loop !17
+  br i1 %82, label %.lr.ph.split, label %._crit_edge.loopexit56, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %41
   %83 = trunc nuw nsw i64 %indvars.iv.next60 to i32
@@ -2434,7 +2434,7 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
 65:                                               ; preds = %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph102.preheader, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.lr.ph102.preheader, label %.lr.ph, !llvm.loop !17
 
 .lr.ph102.preheader:                              ; preds = %65
   %wide.trip.count107 = zext nneg i32 %2 to i64
@@ -2506,7 +2506,7 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
   %101 = load ptr, ptr %.06999, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !19
+  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph102, !llvm.loop !18
 
 .loopexit:                                        ; preds = %100, %63, %42, %45
   %.066 = phi i64 [ %44, %45 ], [ 0, %42 ], [ 0, %63 ], [ %98, %100 ]
@@ -2566,7 +2566,7 @@ define internal fastcc void @advance_last_with_data(ptr noundef captures(none) %
   %12 = phi ptr [ %.pre, %10 ], [ %6, %.lr.ph ]
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %11, %.preheader, %1
   ret void
@@ -2651,7 +2651,7 @@ define range(i32 -1, 1) i32 @evbuffer_add_buffer(ptr noundef %0, ptr noundef %1)
   %44 = load ptr, ptr %.05.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i)
   %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %evbuffer_free_all_chains.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %evbuffer_free_all_chains.exit, label %.lr.ph.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit:                    ; preds = %.lr.ph.i, %42
   %45 = load ptr, ptr %1, align 8
@@ -2694,14 +2694,14 @@ evbuffer_free_all_chains.exit:                    ; preds = %.lr.ph.i, %42
 .critedge2.i.i:                                   ; preds = %59, %.lr.ph.i.i
   %63 = load ptr, ptr %.0.i.i, align 8
   %.not.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i, label %APPEND_CHAIN.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %APPEND_CHAIN.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i:                                     ; preds = %59, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i ], [ %.0.i.i, %59 ]
   %64 = load ptr, ptr %.05.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i)
   %.not.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %.lr.ph.i.i.i
   store ptr null, ptr %.021.i.i, align 8
@@ -2843,7 +2843,7 @@ HAS_PINNED_R.exit.thread:                         ; preds = %3, %HAS_PINNED_R.ex
   %.0.i = phi i64 [ %25, %.preheader.i ], [ 1024, %21 ]
   %24 = icmp ult i64 %.0.i, %22
   %25 = shl nuw nsw i64 %.0.i, 1
-  br i1 %24, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %24, label %.preheader.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.preheader.i
   %26 = add nsw i64 %.0.i, -48
@@ -2958,7 +2958,7 @@ define range(i32 -1, 1) i32 @evbuffer_add_buffer_reference(ptr noundef %0, ptr n
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 131
   %.not66 = icmp eq i32 %34, 0
-  br i1 %.not66, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %.not66, label %.preheader, label %.loopexit, !llvm.loop !20
 
 35:                                               ; preds = %.preheader
   %36 = icmp eq i64 %24, 0
@@ -2974,7 +2974,7 @@ define range(i32 -1, 1) i32 @evbuffer_add_buffer_reference(ptr noundef %0, ptr n
   %39 = load ptr, ptr %.05.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i)
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %evbuffer_free_all_chains.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %evbuffer_free_all_chains.exit, label %.lr.ph.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit:                    ; preds = %.lr.ph.i, %37, %35
   %.039.i = load ptr, ptr %1, align 8
@@ -3100,14 +3100,14 @@ evbuffer_incref_.exit.i:                          ; preds = %67, %62, %.thread.i
 .critedge2.i.i.i:                                 ; preds = %94, %.lr.ph.i.i.i
   %98 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %98, null
-  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i.i:                                   ; preds = %94, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %99, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %94 ]
   %99 = load ptr, ptr %.05.i.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i.i)
   %.not.i.i.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i.i:              ; preds = %.lr.ph.i.i.i.i
   store ptr null, ptr %.021.i.i.i, align 8
@@ -3138,7 +3138,7 @@ evbuffer_chain_insert.exit.i:                     ; preds = %102, %91
 106:                                              ; preds = %evbuffer_chain_insert.exit.i, %46, %43
   %.0.i = load ptr, ptr %.041.i, align 8
   %.not.i72 = icmp eq ptr %.0.i, null
-  br i1 %.not.i72, label %APPEND_CHAIN_MULTICAST.exit, label %43, !llvm.loop !22
+  br i1 %.not.i72, label %APPEND_CHAIN_MULTICAST.exit, label %43, !llvm.loop !21
 
 APPEND_CHAIN_MULTICAST.exit:                      ; preds = %106, %evbuffer_free_all_chains.exit, %53
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3259,7 +3259,7 @@ define range(i32 -1, 1) i32 @evbuffer_prepend_buffer(ptr noundef %0, ptr noundef
   %43 = load ptr, ptr %.05.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i)
   %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %evbuffer_free_all_chains.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %evbuffer_free_all_chains.exit, label %.lr.ph.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit:                    ; preds = %.lr.ph.i, %42
   %44 = load ptr, ptr %1, align 8
@@ -3432,7 +3432,7 @@ HAS_PINNED_R.exit.thread:                         ; preds = %17, %HAS_PINNED_R.e
   %23 = load ptr, ptr %.05576, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05576)
   %.not65 = icmp eq ptr %23, null
-  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %HAS_PINNED_R.exit.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3496,7 +3496,7 @@ HAS_PINNED_R.exit.thread:                         ; preds = %17, %HAS_PINNED_R.e
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %52 = load i64, ptr %51, align 8
   %.not66 = icmp ult i64 %34, %52
-  br i1 %.not66, label %.loopexit, label %31, !llvm.loop !24
+  br i1 %.not66, label %.loopexit, label %31, !llvm.loop !23
 
 .loopexit:                                        ; preds = %50, %25
   %.156.lcssa78 = phi ptr [ %27, %25 ], [ %33, %50 ]
@@ -3595,7 +3595,7 @@ define i32 @evbuffer_remove(ptr noundef %0, ptr noundef writeonly captures(none)
   %27 = getelementptr inbounds nuw i8, ptr %.05071.i, i64 %20
   %28 = sub nuw i64 %.173.i, %20
   %.not61.i = icmp eq i64 %28, 0
-  br i1 %.not61.i, label %.critedge65.i, label %.preheader.i, !llvm.loop !25
+  br i1 %.not61.i, label %.critedge65.i, label %.preheader.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %.preheader.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05071.i, ptr align 1 %25, i64 %.173.i, i1 false)
@@ -3715,7 +3715,7 @@ define i64 @evbuffer_copyout_from(ptr noundef readonly captures(none) %0, ptr no
   %43 = getelementptr inbounds nuw i8, ptr %.05071, i64 %35
   %44 = sub nuw i64 %.173, %35
   %.not61 = icmp eq i64 %44, 0
-  br i1 %.not61, label %.critedge65, label %.preheader, !llvm.loop !25
+  br i1 %.not61, label %.critedge65, label %.preheader, !llvm.loop !24
 
 .critedge:                                        ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05071, ptr align 1 %41, i64 %.173, i1 false)
@@ -3782,7 +3782,7 @@ define i64 @evbuffer_copyout(ptr noundef readonly captures(none) %0, ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %.05071.i, i64 %18
   %26 = sub nuw i64 %.173.i, %18
   %.not61.i = icmp eq i64 %26, 0
-  br i1 %.not61.i, label %.critedge65.i, label %.preheader.i, !llvm.loop !25
+  br i1 %.not61.i, label %.critedge65.i, label %.preheader.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %.preheader.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05071.i, ptr align 1 %23, i64 %.173.i, i1 false)
@@ -3906,7 +3906,7 @@ define i32 @evbuffer_remove_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i64, ptr %53, align 8
   %.not117 = icmp ugt i64 %54, %47
-  br i1 %.not117, label %._crit_edge, label %43, !llvm.loop !26
+  br i1 %.not117, label %._crit_edge, label %43, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -3938,14 +3938,14 @@ define i32 @evbuffer_remove_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %
 .critedge2.i:                                     ; preds = %61, %.lr.ph.i
   %65 = load ptr, ptr %.0.i, align 8
   %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %evbuffer_free_trailing_empty_chains.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %evbuffer_free_trailing_empty_chains.exit, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
   %.05.i.i = phi ptr [ %66, %.lr.ph.i.i ], [ %.0.i, %61 ]
   %66 = load ptr, ptr %.05.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i)
   %.not.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i, label %evbuffer_free_all_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %evbuffer_free_all_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i:                  ; preds = %.lr.ph.i.i
   store ptr null, ptr %.021.i, align 8
@@ -3989,7 +3989,7 @@ evbuffer_free_trailing_empty_chains.exit:         ; preds = %.critedge2.i, %56, 
   %80 = phi ptr [ %.pre.i, %78 ], [ %74, %.lr.ph.i125 ]
   %81 = load ptr, ptr %80, align 8
   %.not14.i126 = icmp eq ptr %81, null
-  br i1 %.not14.i126, label %advance_last_with_data.exit, label %.lr.ph.i125, !llvm.loop !20
+  br i1 %.not14.i126, label %advance_last_with_data.exit, label %.lr.ph.i125, !llvm.loop !19
 
 advance_last_with_data.exit:                      ; preds = %79, %evbuffer_free_trailing_empty_chains.exit, %.preheader.i
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4128,7 +4128,7 @@ define ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %32 = sub nuw i64 %.0113167, %38
   %.0122 = load ptr, ptr %.0122168, align 8
   %.not135 = icmp eq ptr %.0122, null
-  br i1 %.not135, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not135, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %29, %31
   %.0122168 = phi ptr [ %.0122, %31 ], [ %.0122165, %29 ]
@@ -4268,7 +4268,7 @@ define ptr @evbuffer_pullup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.1110 = select i1 %98, i32 1, i32 %.0109174
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.2121171)
   %.not141 = icmp eq ptr %85, null
-  br i1 %.not141, label %.critedge149, label %.lr.ph177, !llvm.loop !28
+  br i1 %.not141, label %.critedge149, label %.lr.ph177, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph177
   %99 = getelementptr inbounds nuw i8, ptr %.2121171, i64 40
@@ -4365,7 +4365,7 @@ define internal fastcc ptr @evbuffer_chain_new_membuf(i64 noundef %0) unnamed_ad
   %.0 = phi i64 [ %7, %.preheader ], [ 1024, %3 ]
   %6 = icmp ult i64 %.0, %4
   %7 = shl nuw nsw i64 %.0, 1
-  br i1 %6, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %6, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader
   %8 = add nsw i64 %.0, -48
@@ -4588,13 +4588,13 @@ define void @evbuffer_search_eol(ptr dead_on_unwind noalias writable sret(%struc
 
 53:                                               ; preds = %44
   %.not29.i.i = icmp eq ptr %51, null
-  br i1 %.not29.i.i, label %42, label %evbuffer_find_eol_char.exit, !llvm.loop !29
+  br i1 %.not29.i.i, label %42, label %evbuffer_find_eol_char.exit, !llvm.loop !28
 
 54:                                               ; preds = %42
   %55 = add i64 %39, %30
   %.026.i = load ptr, ptr %.sroa.11.0.copyload, align 8
   %.not.i = icmp eq ptr %.026.i, null
-  br i1 %.not.i, label %evbuffer_find_eol_char.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %evbuffer_find_eol_char.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !29
 
 evbuffer_find_eol_char.exit:                      ; preds = %53, %.thread.i.i
   %.2.i.ph.i = phi ptr [ %spec.select.i, %.thread.i.i ], [ %51, %53 ]
@@ -4645,19 +4645,19 @@ evbuffer_find_eol_char.exit:                      ; preds = %53, %.thread.i.i
   %76 = load i8, ptr %.0.ptr.i, align 1
   %.0.add.i = add nuw nsw i64 %.0.idx.i, 1
   %77 = icmp eq i8 %73, %76
-  br i1 %77, label %78, label %74, !llvm.loop !31
+  br i1 %77, label %78, label %74, !llvm.loop !30
 
 78:                                               ; preds = %75
   %79 = add i64 %.14212.i, 1
   %80 = add nuw i64 %.13713.i, 1
   %exitcond17.not.i = icmp eq i64 %80, %68
-  br i1 %exitcond17.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond17.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %78, %.preheader8.i
   %.142.lcssa.i = phi i64 [ %.041.i, %.preheader8.i ], [ %71, %78 ]
   %81 = load ptr, ptr %.039.i, align 8
   %.not48.i = icmp eq ptr %81, null
-  br i1 %.not48.i, label %evbuffer_strspn.exit, label %.preheader8.i, !llvm.loop !33
+  br i1 %.not48.i, label %evbuffer_strspn.exit, label %.preheader8.i
 
 82:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
@@ -4701,7 +4701,7 @@ evbuffer_find_eol_char.exit:                      ; preds = %53, %.thread.i.i
   %103 = add i64 %91, %100
   %.027.i = load ptr, ptr %.sroa.11.0.copyload67, align 8
   %.not.i37 = icmp eq ptr %.027.i, null
-  br i1 %.not.i37, label %evbuffer_find_eol_char.exit.thread.loopexit116, label %90, !llvm.loop !34
+  br i1 %.not.i37, label %evbuffer_find_eol_char.exit.thread.loopexit116, label %90, !llvm.loop !32
 
 evbuffer_strchr.exit:                             ; preds = %90
   store ptr %.sroa.11.0.copyload67, ptr %87, align 8
@@ -4758,7 +4758,7 @@ evbuffer_strchr.exit:                             ; preds = %90
   %126 = sub nuw i64 %.04060.i.i, %124
   %127 = load ptr, ptr %.161.i.i, align 8
   %.not50.i.i = icmp eq ptr %127, null
-  br i1 %.not50.i.i, label %.critedge54.i.i, label %.lr.ph.i.i, !llvm.loop !35
+  br i1 %.not50.i.i, label %.critedge54.i.i, label %.lr.ph.i.i, !llvm.loop !33
 
 .critedge54.i.i:                                  ; preds = %125, %121
   %.040.lcssa.i.i = phi i64 [ %116, %121 ], [ %126, %125 ]
@@ -4843,7 +4843,7 @@ evbuffer_getchr.exit:                             ; preds = %evbuffer_ptr_subtra
   %157 = add i64 %145, %154
   %.027.i49 = load ptr, ptr %.02742.i44, align 8
   %.not.i50 = icmp eq ptr %.027.i49, null
-  br i1 %.not.i50, label %evbuffer_find_eol_char.exit.thread.loopexit117, label %144, !llvm.loop !34
+  br i1 %.not.i50, label %evbuffer_find_eol_char.exit.thread.loopexit117, label %144, !llvm.loop !32
 
 evbuffer_strchr.exit51:                           ; preds = %144
   store ptr %.02742.i44, ptr %141, align 8
@@ -4890,7 +4890,7 @@ evbuffer_strchr.exit51:                           ; preds = %144
   %181 = add i64 %169, %178
   %.027.i60 = load ptr, ptr %.02742.i55, align 8
   %.not.i61 = icmp eq ptr %.027.i60, null
-  br i1 %.not.i61, label %evbuffer_find_eol_char.exit.thread.loopexit118, label %168, !llvm.loop !34
+  br i1 %.not.i61, label %evbuffer_find_eol_char.exit.thread.loopexit118, label %168, !llvm.loop !32
 
 evbuffer_strchr.exit62:                           ; preds = %168
   store ptr %.02742.i55, ptr %165, align 8
@@ -5014,7 +5014,7 @@ define range(i32 -1, 1) i32 @evbuffer_prepend(ptr noundef %0, ptr noundef readon
   %.0.i.i = phi i64 [ %29, %.preheader.i.i ], [ 1024, %25 ]
   %28 = icmp ult i64 %.0.i.i, %26
   %29 = shl nuw nsw i64 %.0.i.i, 1
-  br i1 %28, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !10
+  br i1 %28, label %.preheader.i.i, label %.loopexit.i.i, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i
   %30 = add nsw i64 %.0.i.i, -48
@@ -5067,14 +5067,14 @@ define range(i32 -1, 1) i32 @evbuffer_prepend(ptr noundef %0, ptr noundef readon
 .critedge2.i.i.i:                                 ; preds = %48, %.lr.ph.i.i.i
   %52 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %evbuffer_free_trailing_empty_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i.i:                                   ; preds = %48, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %48 ]
   %53 = load ptr, ptr %.05.i.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i.i)
   %.not.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %evbuffer_free_all_chains.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i.i:              ; preds = %.lr.ph.i.i.i.i
   store ptr null, ptr %.021.i.i.i, align 8
@@ -5194,7 +5194,7 @@ evbuffer_chain_insert_new.exit:                   ; preds = %44, %57
   %.0.i86 = phi i64 [ %113, %.preheader.i ], [ 1024, %109 ]
   %112 = icmp ult i64 %.0.i86, %110
   %113 = shl nuw nsw i64 %.0.i86, 1
-  br i1 %112, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %112, label %.preheader.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.preheader.i
   %114 = add nsw i64 %.0.i86, -48
@@ -5428,7 +5428,7 @@ define noundef i32 @evbuffer_read(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %69 = icmp samesign ult i64 %indvars.iv.i, 3
   %70 = icmp ult i64 %68, %22
   %71 = select i1 %69, i1 %70, i1 false
-  br i1 %71, label %.lr.ph.split.i, label %evbuffer_read_setup_vecs_.exit, !llvm.loop !17
+  br i1 %71, label %.lr.ph.split.i, label %evbuffer_read_setup_vecs_.exit, !llvm.loop !16
 
 evbuffer_read_setup_vecs_.exit:                   ; preds = %56
   %72 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -5509,7 +5509,7 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
   %108 = load ptr, ptr %.06183, align 8
   %109 = add nuw nsw i32 %.04484, 1
   %exitcond.not = icmp eq i32 %109, %.045.i68
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %104, %.preheader, %101
   %sext = shl i64 %.148.in, 32
@@ -5661,7 +5661,7 @@ evbuffer_write_sendfile.exit:                     ; preds = %34, %34, %37
   %or.cond3.i = select i1 %55, i1 %56, i1 false
   %57 = icmp ne i64 %54, 0
   %or.cond5.i = select i1 %or.cond3.i, i1 %57, i1 false
-  br i1 %or.cond5.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !37
+  br i1 %or.cond5.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !35
 
 58:                                               ; preds = %43
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -5843,7 +5843,7 @@ define range(i32 -1, 1) i32 @evbuffer_ptr_set(ptr noundef readonly captures(none
   %31 = sub nuw i64 %27, %29
   %32 = load ptr, ptr %.161, align 8
   %.not50 = icmp eq ptr %32, null
-  br i1 %.not50, label %.critedge54, label %.lr.ph, !llvm.loop !35
+  br i1 %.not50, label %.critedge54, label %.lr.ph, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6013,7 +6013,7 @@ define void @evbuffer_search_range(ptr dead_on_unwind noalias writable sret(%str
   %70 = icmp ne i64 %69, 0
   %71 = icmp ne ptr %.035.i, null
   %72 = select i1 %70, i1 %71, i1 false
-  br i1 %72, label %.lr.ph.i, label %evbuffer_ptr_memcmp.exit, !llvm.loop !38
+  br i1 %72, label %.lr.ph.i, label %evbuffer_ptr_memcmp.exit, !llvm.loop !36
 
 evbuffer_ptr_memcmp.exit:                         ; preds = %55, %67
   br i1 %.not46, label %.thread55, label %73
@@ -6190,7 +6190,7 @@ define i32 @evbuffer_peek(ptr noundef readonly captures(none) %0, i64 noundef %1
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %61 = load ptr, ptr %.14885.us, align 8
   %.not56.us = icmp eq ptr %61, null
-  br i1 %.not56.us, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !39
+  br i1 %.not56.us, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !37
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ %48, %.lr.ph ]
@@ -6228,7 +6228,7 @@ define i32 @evbuffer_peek(ptr noundef readonly captures(none) %0, i64 noundef %1
   %76 = add i64 %75, %.187
   %77 = load ptr, ptr %.14885, align 8
   %.not56 = icmp eq ptr %77, null
-  br i1 %.not56, label %._crit_edge.loopexit108, label %.lr.ph.split.split, !llvm.loop !40
+  br i1 %.not56, label %._crit_edge.loopexit108, label %.lr.ph.split.split, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us, %51
   %.146.lcssa.ph.in = phi i64 [ %indvars.iv.next116, %51 ], [ %indvars.iv115, %.lr.ph.split.us ]
@@ -6359,7 +6359,7 @@ define range(i32 -1, -2147483648) i32 @evbuffer_add_vprintf(ptr noundef %0, ptr 
   %60 = phi ptr [ %.pre.i, %58 ], [ %54, %.lr.ph.i ]
   %61 = load ptr, ptr %60, align 8
   %.not14.i = icmp eq ptr %61, null
-  br i1 %.not14.i, label %advance_last_with_data.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not14.i, label %advance_last_with_data.exit, label %.lr.ph.i, !llvm.loop !19
 
 advance_last_with_data.exit:                      ; preds = %59, %40, %.preheader.i
   call void @evbuffer_invoke_callbacks_(ptr noundef nonnull %0)
@@ -6370,7 +6370,7 @@ advance_last_with_data.exit:                      ; preds = %59, %40, %.preheade
   %64 = zext nneg i32 %63 to i64
   %65 = call fastcc ptr @evbuffer_expand_singlechain(ptr noundef nonnull %0, i64 noundef %64)
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %66, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %62, %33, %14, %10, %advance_last_with_data.exit
   %.031 = phi i32 [ -1, %10 ], [ -1, %14 ], [ %35, %advance_last_with_data.exit ], [ -1, %33 ], [ -1, %62 ]
@@ -6493,14 +6493,14 @@ define range(i32 -1, 1) i32 @evbuffer_add_reference_with_offset(ptr noundef %0, 
 .critedge2.i.i:                                   ; preds = %38, %.lr.ph.i.i
   %42 = load ptr, ptr %.0.i.i, align 8
   %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i:                                     ; preds = %38, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i ], [ %.0.i.i, %38 ]
   %43 = load ptr, ptr %.05.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i)
   %.not.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %.lr.ph.i.i.i
   store ptr null, ptr %.021.i.i, align 8
@@ -6711,7 +6711,7 @@ define internal fastcc range(i32 -1, 1) i32 @evbuffer_file_segment_materialize(p
 36:                                               ; preds = %.lr.ph
   %37 = add nuw nsw i64 %42, %.05594
   %38 = icmp slt i64 %37, %7
-  br i1 %38, label %.lr.ph, label %.thread86, !llvm.loop !42
+  br i1 %38, label %.lr.ph, label %.thread86, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %36
   %.05594 = phi i64 [ %37, %36 ], [ 0, %.preheader ]
@@ -7064,14 +7064,14 @@ define range(i32 -1, 1) i32 @evbuffer_add_file_segment(ptr noundef %0, ptr nound
 .critedge2.i.i:                                   ; preds = %92, %.lr.ph.i.i
   %96 = load ptr, ptr %.0.i.i, align 8
   %.not.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %evbuffer_free_trailing_empty_chains.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i.i:                                     ; preds = %92, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i ], [ %.0.i.i, %92 ]
   %97 = load ptr, ptr %.05.i.i.i, align 8
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.05.i.i.i)
   %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %evbuffer_free_all_chains.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 evbuffer_free_all_chains.exit.i.i:                ; preds = %.lr.ph.i.i.i
   store ptr null, ptr %.021.i.i, align 8
@@ -7237,7 +7237,7 @@ define range(i32 -1, 1) i32 @evbuffer_setcb(ptr noundef %0, ptr noundef %1, ptr 
   tail call void @event_mm_free_(ptr noundef nonnull %13) #16
   %18 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %evbuffer_remove_all_callbacks.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %evbuffer_remove_all_callbacks.exit, label %.lr.ph.i, !llvm.loop !6
 
 evbuffer_remove_all_callbacks.exit:               ; preds = %.lr.ph._crit_edge.i, %9
   %.not22 = icmp eq ptr %1, null
@@ -7482,7 +7482,7 @@ evbuffer_remove_cb_entry.exit:                    ; preds = %._crit_edge.i, %29
 32:                                               ; preds = %.lr.ph, %14
   %.013 = load ptr, ptr %.01321, align 8
   %.not16 = icmp eq ptr %.013, null
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %32, %9, %evbuffer_remove_cb_entry.exit
   %.0 = phi i32 [ 0, %evbuffer_remove_cb_entry.exit ], [ -1, %9 ], [ -1, %32 ]
@@ -7737,44 +7737,41 @@ attributes #18 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !4, !5}
-!35 = distinct !{!35, !4, !5}
-!36 = distinct !{!36, !4, !5}
-!37 = distinct !{!37, !4, !5}
-!38 = distinct !{!38, !4, !5}
-!39 = distinct !{!39, !4, !5, !16}
-!40 = distinct !{!40, !4, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !4, !5}
-!43 = distinct !{!43, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4, !15}
+!38 = distinct !{!38, !4}
+!39 = distinct !{!39, !4}
+!40 = distinct !{!40, !4}

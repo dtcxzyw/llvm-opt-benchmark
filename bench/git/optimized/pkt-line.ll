@@ -801,7 +801,7 @@ packet_write_gently.exit:                         ; preds = %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   %14 = call i64 @xread(i32 noundef %0, ptr noundef %4, i64 noundef 65516) #16
   %15 = icmp slt i64 %14, 0
-  br i1 %15, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %15, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %packet_write_gently.exit, %.lr.ph, %2, %packet_write_gently.exit.thread
   %.0 = phi i32 [ -1, %packet_write_gently.exit.thread ], [ -2, %2 ], [ 0, %.lr.ph ], [ -2, %packet_write_gently.exit ]
@@ -837,7 +837,7 @@ define dso_local range(i32 -1, 1) i32 @write_packetized_from_buf_no_flush_count(
   %10 = sub i64 %1, %9
   %..us = call i64 @llvm.umin.i64(i64 %10, i64 65516)
   %11 = icmp eq i64 %1, %9
-  br i1 %11, label %.split22.us, label %.lr.ph30, !llvm.loop !23
+  br i1 %11, label %.split22.us, label %.lr.ph30, !llvm.loop !22
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %8
   %..us29 = phi i64 [ %..us, %8 ], [ %..us27, %.lr.ph30.preheader ]
@@ -854,7 +854,7 @@ packet_write_gently.exit.us..split22.us_crit_edge: ; preds = %.lr.ph30
   %15 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %14) #16
   call void @strbuf_release(ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
-  br label %.split22.us, !llvm.loop !23
+  br label %.split22.us, !llvm.loop !22
 
 .split:                                           ; preds = %4
   br i1 %7, label %.split22.us, label %.lr.ph.preheader
@@ -872,7 +872,7 @@ packet_write_gently.exit.us..split22.us_crit_edge: ; preds = %.lr.ph30
   %20 = sub i64 %1, %19
   %. = call i64 @llvm.umin.i64(i64 %20, i64 65516)
   %21 = icmp eq i64 %1, %19
-  br i1 %21, label %.split22.us, label %.lr.ph, !llvm.loop !25
+  br i1 %21, label %.split22.us, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %.25 = phi i64 [ %., %16 ], [ %.23, %.lr.ph.preheader ]
@@ -892,7 +892,7 @@ packet_write_gently.exit..split22_crit_edge:      ; preds = %.lr.ph
   %26 = load i32, ptr %3, align 4, !tbaa !9
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %3, align 4, !tbaa !9
-  br label %.split22.us, !llvm.loop !25
+  br label %.split22.us, !llvm.loop !24
 
 .split22.us:                                      ; preds = %16, %8, %.split, %packet_write_gently.exit..split22_crit_edge, %.split.us, %packet_write_gently.exit.us..split22.us_crit_edge
   %.us-phi = phi i32 [ -1, %packet_write_gently.exit.us..split22.us_crit_edge ], [ 0, %.split.us ], [ -1, %packet_write_gently.exit..split22_crit_edge ], [ 0, %.split ], [ 0, %8 ], [ 0, %16 ]
@@ -1222,15 +1222,15 @@ define internal fastcc range(i32 -1, 1) i32 @get_packet_data(i32 noundef %0, ptr
   br i1 %.not35, label %.thread43, label %14
 
 14:                                               ; preds = %13
-  %15 = load i64, ptr %2, align 8, !tbaa !26
+  %15 = load i64, ptr %2, align 8, !tbaa !25
   %. = tail call i64 @llvm.umin.i64(i64 %4, i64 %15)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %.pr, i64 %., i1 false)
   %16 = load ptr, ptr %1, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.
   store ptr %17, ptr %1, align 8, !tbaa !4
-  %18 = load i64, ptr %2, align 8, !tbaa !26
+  %18 = load i64, ptr %2, align 8, !tbaa !25
   %19 = sub i64 %18, %.
-  store i64 %19, ptr %2, align 8, !tbaa !26
+  store i64 %19, ptr %2, align 8, !tbaa !25
   br label %.critedge
 
 .thread43:                                        ; preds = %9, %13, %12
@@ -1441,7 +1441,7 @@ define dso_local i64 @read_packetized_to_strbuf(i32 noundef %0, ptr noundef %1, 
   %18 = load i64, ptr %5, align 8, !tbaa !15
   %19 = add i64 %18, %17
   store i64 %19, ptr %5, align 8, !tbaa !15
-  br label %9, !llvm.loop !27
+  br label %9
 
 20:                                               ; preds = %9
   %21 = icmp slt i32 %14, 0
@@ -1554,21 +1554,21 @@ declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @packet_reader_init(ptr noundef initializes((0, 104)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
-  store i32 %1, ptr %0, align 8, !tbaa !28
+  store i32 %1, ptr %0, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %6, align 8, !tbaa !31
+  store ptr %2, ptr %6, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %3, ptr %7, align 8, !tbaa !32
+  store i64 %3, ptr %7, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @packet_buffer, ptr %8, align 8, !tbaa !33
+  store ptr @packet_buffer, ptr %8, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 65520, ptr %9, align 8, !tbaa !34
+  store i32 65520, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %4, ptr %10, align 4, !tbaa !35
+  store i32 %4, ptr %10, align 4, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr @.str.18, ptr %11, align 8, !tbaa !36
+  store ptr @.str.18, ptr %11, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 112), ptr %12, align 8, !tbaa !37
+  store ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 112), ptr %12, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @strbuf_init(ptr noundef nonnull %13, i64 noundef 0) #16
   ret void
@@ -1583,14 +1583,14 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local i32 @packet_reader_read(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i32, ptr %3, align 8, !tbaa !38
+  %4 = load i32, ptr %3, align 8, !tbaa !36
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  store i32 0, ptr %3, align 8, !tbaa !38
+  store i32 0, ptr %3, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.027.pre = load i32, ptr %6, align 8, !tbaa !39
+  %.027.pre = load i32, ptr %6, align 8, !tbaa !37
   br label %49
 
 7:                                                ; preds = %1
@@ -1602,9 +1602,9 @@ define dso_local i32 @packet_reader_read(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %13 = load i32, ptr %12, align 4, !tbaa !35
+  %13 = load i32, ptr %12, align 4, !tbaa !33
   %14 = or i32 %13, 32
-  store i32 %14, ptr %12, align 4, !tbaa !35
+  store i32 %14, ptr %12, align 4, !tbaa !33
   br label %15
 
 15:                                               ; preds = %11, %7
@@ -1621,31 +1621,31 @@ define dso_local i32 @packet_reader_read(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %38, %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
-  %26 = load i32, ptr %0, align 8, !tbaa !28
-  %27 = load ptr, ptr %18, align 8, !tbaa !33
-  %28 = load i32, ptr %19, align 8, !tbaa !34
-  %29 = load i32, ptr %21, align 4, !tbaa !35
+  %26 = load i32, ptr %0, align 8, !tbaa !26
+  %27 = load ptr, ptr %18, align 8, !tbaa !31
+  %28 = load i32, ptr %19, align 8, !tbaa !32
+  %29 = load i32, ptr %21, align 4, !tbaa !33
   %30 = call i32 @packet_read_with_status(i32 noundef %26, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %27, i32 noundef %28, ptr noundef nonnull %20, i32 noundef %29)
-  store i32 %30, ptr %22, align 8, !tbaa !39
+  store i32 %30, ptr %22, align 8, !tbaa !37
   %31 = load i8, ptr %8, align 4
   %32 = and i8 %31, 1
   %.not29 = icmp eq i8 %32, 0
   br i1 %.not29, label %.loopexit, label %33
 
 33:                                               ; preds = %25
-  %34 = load ptr, ptr %23, align 8, !tbaa !36
-  %35 = load ptr, ptr %18, align 8, !tbaa !33
-  %36 = load i32, ptr %20, align 4, !tbaa !40
+  %34 = load ptr, ptr %23, align 8, !tbaa !34
+  %35 = load ptr, ptr %18, align 8, !tbaa !31
+  %36 = load i32, ptr %20, align 4, !tbaa !38
   %37 = call i32 @demultiplex_sideband(ptr noundef %34, i32 noundef %30, ptr noundef %35, i32 noundef %36, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %2) #16
   %.not30 = icmp eq i32 %37, 0
   br i1 %.not30, label %38, label %thread-pre-split
 
 38:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
-  br label %25, !llvm.loop !41
+  br label %25
 
 thread-pre-split:                                 ; preds = %33
-  %.pr = load i32, ptr %22, align 8, !tbaa !39
+  %.pr = load i32, ptr %22, align 8, !tbaa !37
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %thread-pre-split
@@ -1657,16 +1657,16 @@ thread-pre-split:                                 ; preds = %33
 41:                                               ; preds = %.loopexit
   %42 = load i8, ptr %8, align 4
   %43 = and i8 %42, 1
-  %44 = load ptr, ptr %18, align 8, !tbaa !33
+  %44 = load ptr, ptr %18, align 8, !tbaa !31
   %.idx = zext nneg i8 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %45, ptr %46, align 8, !tbaa !42
+  store ptr %45, ptr %46, align 8, !tbaa !39
   br label %49
 
 47:                                               ; preds = %.loopexit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %48, align 8, !tbaa !42
+  store ptr null, ptr %48, align 8, !tbaa !39
   br label %49
 
 49:                                               ; preds = %41, %47, %5
@@ -1677,24 +1677,24 @@ thread-pre-split:                                 ; preds = %33
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @packet_reader_peek(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i32, ptr %2, align 8, !tbaa !38
+  %3 = load i32, ptr %2, align 8, !tbaa !36
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call i32 @packet_reader_read(ptr noundef nonnull %0)
-  store i32 1, ptr %2, align 8, !tbaa !38
+  store i32 1, ptr %2, align 8, !tbaa !36
   br label %6
 
 6:                                                ; preds = %1, %4
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.0 = load i32, ptr %.0.in, align 8, !tbaa !39
+  %.0 = load i32, ptr %.0.in, align 8, !tbaa !37
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @packet_writer_init(ptr noundef captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #12 {
-  store i32 %1, ptr %0, align 4, !tbaa !43
+  store i32 %1, ptr %0, align 4, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -2
@@ -1707,7 +1707,7 @@ define dso_local void @packet_writer_write(ptr noundef readonly captures(none) %
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = load i32, ptr %0, align 4, !tbaa !43
+  %4 = load i32, ptr %0, align 4, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 1
@@ -1749,7 +1749,7 @@ define dso_local void @packet_writer_error(ptr noundef readonly captures(none) %
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = load i32, ptr %0, align 4, !tbaa !43
+  %4 = load i32, ptr %0, align 4, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 1
@@ -1788,7 +1788,7 @@ packet_write_fmt_1.exit:                          ; preds = %strbuf_setlen.exit.
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packet_writer_delim(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !43
+  %2 = load i32, ptr %0, align 4, !tbaa !40
   tail call fastcc void @packet_trace(ptr noundef nonnull @.str.2, i32 noundef 4, i32 noundef 1)
   %3 = tail call i64 @write_in_full(i32 noundef %2, ptr noundef nonnull @.str.2, i64 noundef 4) #16
   %4 = icmp slt i64 %3, 0
@@ -1805,7 +1805,7 @@ packet_delim.exit:                                ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @packet_writer_flush(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !43
+  %2 = load i32, ptr %0, align 4, !tbaa !40
   tail call fastcc void @packet_trace(ptr noundef nonnull @.str, i32 noundef 4, i32 noundef 1)
   %3 = tail call i64 @write_in_full(i32 noundef %2, ptr noundef nonnull @.str, i64 noundef 4) #16
   %4 = icmp slt i64 %3, 0
@@ -1904,29 +1904,26 @@ attributes #19 = { nounwind willreturn memory(read) }
 !16 = !{!13, !5, i64 16}
 !17 = !{!18, !10, i64 8}
 !18 = !{!"trace_key", !5, i64 0, !10, i64 8, !10, i64 12, !10, i64 12}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !20, !21}
-!26 = !{!14, !14, i64 0}
-!27 = distinct !{!27, !21}
-!28 = !{!29, !10, i64 0}
-!29 = !{!"packet_reader", !10, i64 0, !5, i64 8, !14, i64 16, !5, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !5, i64 48, !10, i64 56, !10, i64 60, !5, i64 64, !30, i64 72, !13, i64 80}
-!30 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
-!31 = !{!29, !5, i64 8}
-!32 = !{!29, !14, i64 16}
-!33 = !{!29, !5, i64 24}
-!34 = !{!29, !10, i64 32}
-!35 = !{!29, !10, i64 36}
-!36 = !{!29, !5, i64 64}
-!37 = !{!29, !30, i64 72}
-!38 = !{!29, !10, i64 56}
-!39 = !{!29, !10, i64 40}
-!40 = !{!29, !10, i64 44}
-!41 = distinct !{!41, !21}
-!42 = !{!29, !5, i64 48}
-!43 = !{!44, !10, i64 0}
-!44 = !{!"packet_writer", !10, i64 0, !10, i64 4}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !20}
+!25 = !{!14, !14, i64 0}
+!26 = !{!27, !10, i64 0}
+!27 = !{!"packet_reader", !10, i64 0, !5, i64 8, !14, i64 16, !5, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !5, i64 48, !10, i64 56, !10, i64 60, !5, i64 64, !28, i64 72, !13, i64 80}
+!28 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
+!29 = !{!27, !5, i64 8}
+!30 = !{!27, !14, i64 16}
+!31 = !{!27, !5, i64 24}
+!32 = !{!27, !10, i64 32}
+!33 = !{!27, !10, i64 36}
+!34 = !{!27, !5, i64 64}
+!35 = !{!27, !28, i64 72}
+!36 = !{!27, !10, i64 56}
+!37 = !{!27, !10, i64 40}
+!38 = !{!27, !10, i64 44}
+!39 = !{!27, !5, i64 48}
+!40 = !{!41, !10, i64 0}
+!41 = !{!"packet_writer", !10, i64 0, !10, i64 4}

@@ -550,6 +550,5 @@ attributes #17 = { noreturn nounwind }
 !84 = !{!"p1 _ZTSN4cvc58internal21RewriteProofGeneratorE", !6, i64 0}
 !85 = !{i8 0, i8 2}
 !86 = !{}
-!87 = distinct !{!87, !88, !89}
+!87 = distinct !{!87, !88}
 !88 = !{!"llvm.loop.mustprogress"}
-!89 = !{!"llvm.loop.estimated_trip_count"}

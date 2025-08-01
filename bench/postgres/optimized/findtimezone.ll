@@ -220,7 +220,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
     i8 47, label %.preheader.i.i
     i8 0, label %.loopexit.i.i
     i8 46, label %.loopexit.i.i
-  ], !llvm.loop !7
+  ]
 
 66:                                               ; preds = %.preheader.i.i
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #14
@@ -240,7 +240,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %.preheader.i.i, %..loopexit_crit_edge.i.i, %66
   %73 = phi i8 [ %.pre.i.i, %..loopexit_crit_edge.i.i ], [ %65, %66 ], [ %65, %.preheader.i.i ], [ %65, %.preheader.i.i ]
   %.not.i.i = icmp eq i8 %73, 0
-  br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 check_system_link_file.exit.i:                    ; preds = %69
   %74 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @identify_system_timezone.resultbuf, ptr noundef nonnull dereferenceable(1) %64) #13
@@ -337,7 +337,7 @@ check_system_link_file.exit.i:                    ; preds = %69
   %116 = load i64, ptr %5, align 8
   %117 = add i64 %116, 37497600
   %.not30.i = icmp sgt i64 %115, %117
-  br i1 %.not30.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !9
+  br i1 %.not30.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !7
 
 ._crit_edge54.i:                                  ; preds = %113
   %.pr.pre.i = load i8, ptr %10, align 16
@@ -624,7 +624,7 @@ zone_name_pref.exit56:                            ; preds = %zone_name_pref.exit
   %65 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not51 = icmp eq ptr %66, null
-  br i1 %.not51, label %._crit_edge, label %13, !llvm.loop !10
+  br i1 %.not51, label %._crit_edge, label %13, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %64, %.preheader
   tail call void @pgfnames_cleanup(ptr noundef nonnull %7) #13
@@ -767,7 +767,7 @@ compare_tm.exit:                                  ; preds = %49
   %69 = load i32, ptr %1, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %compare_tm.exit.thread.loopexit.split.loop.exit72, !llvm.loop !11
+  br i1 %71, label %.lr.ph, label %compare_tm.exit.thread.loopexit.split.loop.exit72, !llvm.loop !9
 
 compare_tm.exit.thread.loopexit.split.loop.exit:  ; preds = %16
   %72 = trunc nuw nsw i64 %indvars.iv to i32
@@ -867,11 +867,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

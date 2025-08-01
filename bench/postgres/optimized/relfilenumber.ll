@@ -83,7 +83,7 @@ switch.lookup:                                    ; preds = %4
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %21 = tail call zeroext i1 @reap_child(i1 noundef zeroext true) #7
-  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !7
+  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader, %11
   tail call void @end_progress_output() #7
@@ -142,7 +142,7 @@ define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) 
 22:                                               ; preds = %16
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, %42
-  br i1 %exitcond63.not, label %._crit_edge, label %16, !llvm.loop !8
+  br i1 %exitcond63.not, label %._crit_edge, label %16, !llvm.loop !7
 
 23:                                               ; preds = %16
   %24 = trunc nsw i64 %indvars.iv60 to i32
@@ -172,7 +172,7 @@ define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) 
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.7, i1 noundef zeroext %or.cond.i.us)
   %indvars.iv.next21.i.us = add nuw nsw i64 %indvars.iv20.i.us, 1
   %exitcond24.not.i.us = icmp eq i64 %indvars.iv.next21.i.us, %wide.trip.count23.i.us
-  br i1 %exitcond24.not.i.us, label %transfer_single_new_db.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !9
+  br i1 %exitcond24.not.i.us, label %transfer_single_new_db.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !8
 
 transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.us, %27, %23
   call void @pg_free(ptr noundef %25) #7
@@ -182,7 +182,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   %35 = load i32, ptr %7, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next65, %36
-  br i1 %37, label %.lr.ph38.split.us, label %._crit_edge39, !llvm.loop !11
+  br i1 %37, label %.lr.ph38.split.us, label %._crit_edge39, !llvm.loop !10
 
 .lr.ph.us:                                        ; preds = %.lr.ph38.split.us
   %38 = load ptr, ptr %1, align 8
@@ -222,7 +222,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 58:                                               ; preds = %52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %51
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph38.split, %58, %.lr.ph38.split.us, %22
   %.lcssa31 = phi ptr [ %13, %22 ], [ %13, %.lr.ph38.split.us ], [ %44, %58 ], [ %44, %.lr.ph38.split ]
@@ -268,7 +268,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 76:                                               ; preds = %75, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count23.i
-  br i1 %exitcond.not.i, label %transfer_single_new_db.exit, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %transfer_single_new_db.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 transfer_single_new_db.exit:                      ; preds = %76, %65, %61
   call void @pg_free(ptr noundef %63) #7
@@ -278,7 +278,7 @@ transfer_single_new_db.exit:                      ; preds = %76, %65, %61
   %78 = load i32, ptr %7, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next58, %79
-  br i1 %80, label %.lr.ph38.split, label %._crit_edge39, !llvm.loop !13
+  br i1 %80, label %.lr.ph38.split, label %._crit_edge39, !llvm.loop !12
 
 ._crit_edge39:                                    ; preds = %transfer_single_new_db.exit, %transfer_single_new_db.exit.us, %5
   ret void
@@ -422,7 +422,7 @@ define internal fastcc void @transfer_relfile(ptr noundef readonly captures(none
 
 69:                                               ; preds = %52, %66, %63, %60, %57, %55
   %70 = add i32 %.0, 1
-  br label %16, !llvm.loop !14
+  br label %16
 
 .loopexit:                                        ; preds = %44, %37
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #7
@@ -473,14 +473,12 @@ attributes #10 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5, !6, !10}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !9}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

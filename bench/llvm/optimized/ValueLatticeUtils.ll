@@ -200,6 +200,5 @@ attributes #2 = { nounwind }
 !24 = !{!"_ZTSN4llvm4UserE", !4, i64 0}
 !25 = !{!"p1 _ZTSN4llvm6ModuleE", !10, i64 0}
 !26 = !{!13, !11, i64 8}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}

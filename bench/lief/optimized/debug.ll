@@ -252,7 +252,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly captures(addres
   %64 = add nuw nsw i64 %.15372, 1
   %65 = and i64 %64, 15
   %exitcond79 = icmp eq i64 %65, 0
-  br i1 %exitcond79, label %._crit_edge75, label %.lr.ph74, !llvm.loop !34
+  br i1 %exitcond79, label %._crit_edge75, label %.lr.ph74, !llvm.loop !33
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %.preheader
   %.3.lcssa = phi i64 [ %52, %.preheader ], [ %63, %.lr.ph74 ]
@@ -369,9 +369,9 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly captures(addres
   %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
   %.158 = phi i64 [ 0, %.lr.ph.preheader ], [ %.2, %54 ]
   %34 = lshr i64 %indvars.iv, 3
-  %35 = load ptr, ptr %5, align 8, !tbaa !35
+  %35 = load ptr, ptr %5, align 8, !tbaa !34
   %36 = getelementptr inbounds nuw i64, ptr %35, i64 %34
-  %37 = load i64, ptr %36, align 8, !tbaa !36
+  %37 = load i64, ptr %36, align 8, !tbaa !35
   %38 = shl nuw nsw i64 %indvars.iv, 3
   %39 = and i64 %38, 56
   %40 = lshr i64 %37, %39
@@ -400,7 +400,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly captures(addres
   %.2 = phi i64 [ 0, %48 ], [ %46, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %55 = icmp sgt i64 %indvars.iv, 0
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %54
   %.not = icmp eq i64 %.2, 0
@@ -504,7 +504,7 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef readonly captures(addres
 42:                                               ; preds = %33, %31
   %.1.i = phi ptr [ %41, %33 ], [ %.0.i, %31 ]
   %43 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
-  br label %31, !llvm.loop !38
+  br label %31, !llvm.loop !37
 
 debug_print_line_by_line.exit:                    ; preds = %31
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #9
@@ -528,16 +528,16 @@ debug_print_line_by_line.exit:                    ; preds = %31
 .preheader.i:                                     ; preds = %debug_print_line_by_line.exit, %78
   %.01.i = phi i64 [ %79, %78 ], [ 0, %debug_print_line_by_line.exit ]
   %49 = getelementptr inbounds nuw [3 x %struct.mbedtls_pk_debug_item], ptr %8, i64 0, i64 %.01.i
-  %50 = load i32, ptr %49, align 8, !tbaa !39
+  %50 = load i32, ptr %49, align 8, !tbaa !38
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %debug_print_pk.exit, label %52
 
 52:                                               ; preds = %.preheader.i
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !41
+  %54 = load ptr, ptr %53, align 8, !tbaa !40
   %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 16, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, ptr noundef %54) #9
   store i8 0, ptr %24, align 1, !tbaa !29
-  %56 = load i32, ptr %49, align 8, !tbaa !39
+  %56 = load i32, ptr %49, align 8, !tbaa !38
   switch i32 %56, label %75 [
     i32 1, label %57
     i32 2, label %60
@@ -545,13 +545,13 @@ debug_print_line_by_line.exit:                    ; preds = %31
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !42
+  %59 = load ptr, ptr %58, align 8, !tbaa !41
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %59)
   br label %78
 
 60:                                               ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !42
+  %62 = load ptr, ptr %61, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #9
   %63 = load ptr, ptr %0, align 8, !tbaa !7
   %64 = icmp eq ptr %63, null
@@ -590,16 +590,16 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %71, %65, %60
 78:                                               ; preds = %75, %mbedtls_debug_print_ecp.exit.i, %57
   %79 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %79, 3
-  br i1 %exitcond.not.i, label %debug_print_pk.exit, label %.preheader.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %debug_print_pk.exit, label %.preheader.i, !llvm.loop !42
 
 debug_print_pk.exit:                              ; preds = %.preheader.i, %78, %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #9
   %80 = getelementptr inbounds nuw i8, ptr %.02332, i64 736
-  %81 = load ptr, ptr %80, align 8, !tbaa !44
+  %81 = load ptr, ptr %80, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #9
   %.not = icmp eq ptr %81, null
-  br i1 %.not, label %.loopexit, label %25, !llvm.loop !55
+  br i1 %.not, label %.loopexit, label %25, !llvm.loop !54
 
 .loopexit:                                        ; preds = %debug_print_pk.exit, %6, %14, %17
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11) #9
@@ -749,28 +749,27 @@ attributes #9 = { nounwind }
 !28 = !{!"any p2 pointer", !10, i64 0}
 !29 = !{!5, !5, i64 0}
 !30 = !{!18, !10, i64 48}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = !{!25, !26, i64 0}
-!36 = !{!15, !15, i64 0}
-!37 = distinct !{!37, !32, !33}
-!38 = distinct !{!38, !32, !33}
-!39 = !{!40, !4, i64 0}
-!40 = !{!"mbedtls_pk_debug_item", !4, i64 0, !14, i64 8, !10, i64 16}
-!41 = !{!40, !14, i64 8}
-!42 = !{!40, !10, i64 16}
-!43 = distinct !{!43, !32, !33}
-!44 = !{!45, !22, i64 736}
-!45 = !{!"mbedtls_x509_crt", !4, i64 0, !46, i64 8, !46, i64 32, !4, i64 56, !46, i64 64, !46, i64 88, !46, i64 112, !46, i64 136, !47, i64 160, !47, i64 224, !49, i64 288, !49, i64 312, !46, i64 336, !50, i64 360, !46, i64 376, !46, i64 400, !46, i64 424, !52, i64 448, !46, i64 480, !54, i64 504, !52, i64 608, !4, i64 640, !4, i64 644, !4, i64 648, !4, i64 652, !52, i64 656, !5, i64 688, !46, i64 696, !4, i64 720, !4, i64 724, !10, i64 728, !22, i64 736}
-!46 = !{!"mbedtls_asn1_buf", !4, i64 0, !15, i64 8, !14, i64 16}
-!47 = !{!"mbedtls_asn1_named_data", !46, i64 0, !46, i64 24, !48, i64 48, !5, i64 56}
-!48 = !{!"p1 _ZTS23mbedtls_asn1_named_data", !10, i64 0}
-!49 = !{!"mbedtls_x509_time", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20}
-!50 = !{!"mbedtls_pk_context", !51, i64 0, !10, i64 8}
-!51 = !{!"p1 _ZTS17mbedtls_pk_info_t", !10, i64 0}
-!52 = !{!"mbedtls_asn1_sequence", !46, i64 0, !53, i64 24}
-!53 = !{!"p1 _ZTS21mbedtls_asn1_sequence", !10, i64 0}
-!54 = !{!"mbedtls_x509_authority", !46, i64 0, !52, i64 24, !46, i64 56, !46, i64 80}
-!55 = distinct !{!55, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = !{!25, !26, i64 0}
+!35 = !{!15, !15, i64 0}
+!36 = distinct !{!36, !32}
+!37 = distinct !{!37, !32}
+!38 = !{!39, !4, i64 0}
+!39 = !{!"mbedtls_pk_debug_item", !4, i64 0, !14, i64 8, !10, i64 16}
+!40 = !{!39, !14, i64 8}
+!41 = !{!39, !10, i64 16}
+!42 = distinct !{!42, !32}
+!43 = !{!44, !22, i64 736}
+!44 = !{!"mbedtls_x509_crt", !4, i64 0, !45, i64 8, !45, i64 32, !4, i64 56, !45, i64 64, !45, i64 88, !45, i64 112, !45, i64 136, !46, i64 160, !46, i64 224, !48, i64 288, !48, i64 312, !45, i64 336, !49, i64 360, !45, i64 376, !45, i64 400, !45, i64 424, !51, i64 448, !45, i64 480, !53, i64 504, !51, i64 608, !4, i64 640, !4, i64 644, !4, i64 648, !4, i64 652, !51, i64 656, !5, i64 688, !45, i64 696, !4, i64 720, !4, i64 724, !10, i64 728, !22, i64 736}
+!45 = !{!"mbedtls_asn1_buf", !4, i64 0, !15, i64 8, !14, i64 16}
+!46 = !{!"mbedtls_asn1_named_data", !45, i64 0, !45, i64 24, !47, i64 48, !5, i64 56}
+!47 = !{!"p1 _ZTS23mbedtls_asn1_named_data", !10, i64 0}
+!48 = !{!"mbedtls_x509_time", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20}
+!49 = !{!"mbedtls_pk_context", !50, i64 0, !10, i64 8}
+!50 = !{!"p1 _ZTS17mbedtls_pk_info_t", !10, i64 0}
+!51 = !{!"mbedtls_asn1_sequence", !45, i64 0, !52, i64 24}
+!52 = !{!"p1 _ZTS21mbedtls_asn1_sequence", !10, i64 0}
+!53 = !{!"mbedtls_x509_authority", !45, i64 0, !51, i64 24, !45, i64 56, !45, i64 80}
+!54 = distinct !{!54, !32}

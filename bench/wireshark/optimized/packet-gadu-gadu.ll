@@ -634,7 +634,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %65 = tail call ptr @proto_tree_add_string(ptr noundef %.0, i32 noundef %63, ptr noundef %0, i32 noundef %58, i32 noundef %64, ptr noundef %62)
   %66 = add i32 %59, %60
   %.not48.i = icmp eq i32 %47, 0
-  br i1 %.not48.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not48.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 67:                                               ; preds = %25
   %.val231 = load ptr, ptr %5, align 8
@@ -1070,7 +1070,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i266:       ; preds = %242, %238
   %314 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %312, ptr noundef %0, i32 noundef %.01.i, i32 noundef %313, i32 noundef 42)
   %315 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %reass.sub.i, i32 noundef -1, i8 noundef zeroext 0)
   %316 = icmp sgt i32 %315, 0
-  br i1 %316, label %.lr.ph.i273, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !12
+  br i1 %316, label %.lr.ph.i273, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !11
 
 317:                                              ; preds = %25
   %318 = load ptr, ptr %5, align 8
@@ -1403,7 +1403,7 @@ dissect_gadu_gadu_send_msg.exit:                  ; preds = %proto_item_set_gene
   %467 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %465, ptr noundef %0, i32 noundef %.01.i292, i32 noundef %466, i32 noundef 42)
   %468 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %reass.sub.i293, i32 noundef -1, i8 noundef zeroext 0)
   %469 = icmp sgt i32 %468, 0
-  br i1 %469, label %.lr.ph.i291, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !13
+  br i1 %469, label %.lr.ph.i291, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !12
 
 470:                                              ; preds = %328
   %471 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @gadu_gadu_packets_type_send)
@@ -1518,7 +1518,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   store i8 %27, ptr %28, align 1
   %29 = add nuw nsw i32 %.010.i, 1
   %.not.i37 = icmp eq i64 %26, 0
-  br i1 %.not.i37, label %_tvb_memcpy_reverse.exit, label %proto_item_set_generated.exit, !llvm.loop !14
+  br i1 %.not.i37, label %_tvb_memcpy_reverse.exit, label %proto_item_set_generated.exit, !llvm.loop !13
 
 _tvb_memcpy_reverse.exit:                         ; preds = %proto_item_set_generated.exit
   %30 = load i32, ptr @hf_gadu_gadu_login_hash, align 4
@@ -1697,7 +1697,7 @@ define internal fastcc noundef i32 @dissect_gadu_gadu_notify105(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   %31 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %27)
   %32 = icmp sgt i32 %31, 1
-  br i1 %32, label %10, label %._crit_edge, !llvm.loop !15
+  br i1 %32, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %3
   %.0.lcssa = phi i32 [ 8, %3 ], [ %27, %10 ]
@@ -2110,7 +2110,7 @@ define internal fastcc range(i32 77, 80) i32 @dissect_gadu_gadu_login_hash(ptr n
   store i8 %10, ptr %11, align 1
   %12 = add nuw nsw i32 %.010.i, 1
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_tvb_memcpy_reverse.exit, label %.preheader, !llvm.loop !14
+  br i1 %.not.i, label %_tvb_memcpy_reverse.exit, label %.preheader, !llvm.loop !13
 
 _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
   %13 = load i32, ptr @hf_gadu_gadu_login_hash, align 4
@@ -2121,7 +2121,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 16:                                               ; preds = %18
   %17 = add nuw nsw i32 %.040, 1
   %exitcond42.not = icmp eq i32 %17, 64
-  br i1 %exitcond42.not, label %.loopexit, label %18, !llvm.loop !16
+  br i1 %exitcond42.not, label %.loopexit, label %18, !llvm.loop !15
 
 18:                                               ; preds = %_tvb_memcpy_reverse.exit, %16
   %.040 = phi i32 [ 4, %_tvb_memcpy_reverse.exit ], [ %17, %16 ]
@@ -2144,7 +2144,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 28:                                               ; preds = %30
   %29 = add nuw nsw i32 %.139, 1
   %exitcond.not = icmp eq i32 %29, 64
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !16
 
 30:                                               ; preds = %25, %28
   %.139 = phi i32 [ 20, %25 ], [ %29, %28 ]
@@ -2189,7 +2189,7 @@ define internal fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef 
   %13 = add i32 %.01, 5
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13)
   %15 = icmp sgt i32 %14, 4
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 8, %2 ], [ %13, %.lr.ph ]
@@ -2228,14 +2228,13 @@ attributes #5 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

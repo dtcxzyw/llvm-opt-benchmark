@@ -17966,12 +17966,12 @@ unreachable.i:                                    ; preds = %lpad.i
 
 _ZN5boost6detail12shared_countC2IN8QuantLib8Currency4DataEEEPT_.exit: ; preds = %entry
   %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !40
+  store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !39
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
-  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !42
+  store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !41
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib8Currency4DataEEE, i64 16), ptr %call.i, align 8, !tbaa !24
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %p, ptr %px_.i.i, align 8, !tbaa !43
+  store ptr %p, ptr %px_.i.i, align 8, !tbaa !42
   %5 = load ptr, ptr %pn, align 8, !tbaa !22
   store ptr %call.i, ptr %pn, align 8, !tbaa !22
   %cmp.not.i = icmp eq ptr %5, null
@@ -18050,7 +18050,7 @@ entry:
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib8Currency4DataEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %px_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %px_, align 8, !tbaa !43
+  %0 = load ptr, ptr %px_, align 8, !tbaa !42
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN5boost14checked_deleteIN8QuantLib8Currency4DataEEEvPT_.exit, label %delete.notnull.i
 
@@ -18313,11 +18313,10 @@ attributes #20 = { noreturn }
 !34 = !{!30, !31, i64 8}
 !35 = !{!6, !10, i64 24}
 !36 = !{!6, !10, i64 16}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!41, !31, i64 8}
-!41 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !31, i64 8, !31, i64 12}
-!42 = !{!41, !31, i64 12}
-!43 = !{!44, !10, i64 16}
-!44 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib8Currency4DataEEE", !41, i64 0, !10, i64 16}
+!39 = !{!40, !31, i64 8}
+!40 = !{!"_ZTSN5boost6detail15sp_counted_baseE", !31, i64 8, !31, i64 12}
+!41 = !{!40, !31, i64 12}
+!42 = !{!43, !10, i64 16}
+!43 = !{!"_ZTSN5boost6detail17sp_counted_impl_pIN8QuantLib8Currency4DataEEE", !40, i64 0, !10, i64 16}

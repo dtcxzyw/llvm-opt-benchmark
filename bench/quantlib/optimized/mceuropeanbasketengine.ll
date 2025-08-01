@@ -612,7 +612,7 @@ for.end:                                          ; preds = %invoke.cont72
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %55 = load ptr, ptr %payoff_, align 8, !tbaa !18
   %cmp.not.i60 = icmp eq ptr %55, null
-  br i1 %cmp.not.i60, label %cond.false.i, label %invoke.cont76, !prof !43
+  br i1 %cmp.not.i60, label %cond.false.i, label %invoke.cont76, !prof !42
 
 cond.false.i:                                     ; preds = %for.end
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib12BasketPayoffEEdeEv, ptr noundef nonnull @.str.13, i64 noundef 778)
@@ -845,7 +845,6 @@ attributes #21 = { builtin allocsize(0) }
 !37 = !{!"_ZTSSt11_Tuple_implILm0EJPdSt14default_deleteIA_dEEE", !38, i64 0}
 !38 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
 !39 = !{!23, !23, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!42 = !{!"branch_weights", !"expected", i32 1, i32 2000}

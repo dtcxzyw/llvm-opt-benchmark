@@ -405,7 +405,7 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   %.3 = getelementptr inbounds nuw i8, ptr %.2266, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %317, label %163, !llvm.loop !9
+  br i1 %exitcond.not, label %317, label %163, !llvm.loop !8
 
 317:                                              ; preds = %315
   ret void
@@ -421,7 +421,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

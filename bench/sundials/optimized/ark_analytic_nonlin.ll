@@ -125,7 +125,7 @@ check_flag.exit48:                                ; preds = %.lr.ph
   %57 = load double, ptr %2, align 8, !tbaa !19
   %58 = fsub double 1.000000e+01, %57
   %59 = fcmp ogt double %58, 1.000000e-15
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %59, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %41, %check_flag.exit48
   %puts39 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -169,7 +169,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = load double, ptr %8, align 8, !tbaa !19
   %10 = fneg double %9
-  %11 = tail call double @exp(double noundef %10) #7, !tbaa !24
+  %11 = tail call double @exp(double noundef %10) #7, !tbaa !22
   %12 = fmul double %5, %11
   %13 = load ptr, ptr %2, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -245,6 +245,4 @@ attributes #8 = { cold nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !7, i64 0}
 !21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!17, !17, i64 0}
+!22 = !{!17, !17, i64 0}

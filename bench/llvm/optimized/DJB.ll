@@ -38,7 +38,7 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %20 = and i1 %.023.i, %19
   %21 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 1
   %.not.i = icmp eq ptr %21, %11
-  br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph.i
 
 _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
   %.sroa.015.0.extract.trunc28 = select i1 %20, i32 %18, i32 0
@@ -57,19 +57,19 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
   %.sroa.016.023 = phi ptr [ %0, %.lr.ph ], [ %32, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  store ptr %.sroa.016.023, ptr %8, align 8, !tbaa !8
+  store ptr %.sroa.016.023, ptr %8, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  store ptr %7, ptr %9, align 8, !tbaa !11
+  store ptr %7, ptr %9, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 %.sroa.418.024
   %27 = call noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %8, ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef nonnull %22, i32 noundef 1) #4
-  %28 = load ptr, ptr %8, align 8, !tbaa !8
+  %28 = load ptr, ptr %8, align 8, !tbaa !6
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %.sroa.016.023 to i64
   %31 = sub i64 %29, %30
   %.sroa.speculated4.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.418.024, i64 %31)
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 %.sroa.speculated4.i.i.i
   %33 = sub i64 %.sroa.418.024, %.sroa.speculated4.i.i.i
-  %34 = load i32, ptr %7, align 4, !tbaa !13
+  %34 = load i32, ptr %7, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
@@ -84,13 +84,13 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
 _ZL13foldCharDwarfj.exit:                         ; preds = %25, %36
   %.0.i = phi i32 [ %37, %36 ], [ 105, %25 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %.0.i, ptr %4, align 4, !tbaa !13
+  store i32 %.0.i, ptr %4, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr %4, ptr %5, align 8, !tbaa !11
+  store ptr %4, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  store ptr %10, ptr %6, align 8, !tbaa !8
+  store ptr %10, ptr %6, align 8, !tbaa !6
   %38 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %6, ptr noundef nonnull %24, i32 noundef 0) #4
-  %39 = load ptr, ptr %6, align 8, !tbaa !8
+  %39 = load ptr, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -106,12 +106,12 @@ _ZL13foldCharDwarfj.exit:                         ; preds = %25, %36
   %43 = add i32 %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
   %.not.i13 = icmp eq ptr %44, %39
-  br i1 %.not.i13, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i12, !llvm.loop !15
+  br i1 %.not.i13, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i12
 
 _ZN4llvm7djbHashENS_9StringRefEj.exit:            ; preds = %.lr.ph.i12, %_ZL13foldCharDwarfj.exit
   %.0.lcssa.i = phi i32 [ %.0925, %_ZL13foldCharDwarfj.exit ], [ %43, %.lr.ph.i12 ]
   %45 = icmp eq i64 %33, 0
-  br i1 %45, label %._crit_edge, label %25, !llvm.loop !16
+  br i1 %45, label %._crit_edge, label %25, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
@@ -151,15 +151,12 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 int", !8, i64 0}
 !11 = !{!12, !12, i64 0}
-!12 = !{!"p1 int", !10, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !4, i64 0}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !17, !7}
-!17 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"int", !4, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

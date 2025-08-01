@@ -198,7 +198,7 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %.1252339 = phi float [ %85, %.lr.ph340 ], [ %.0251.lcssa, %.preheader ]
   %85 = fadd float %.1252339, -3.600000e+02
   %86 = fcmp ult float %85, 3.600000e+02
-  br i1 %86, label %._crit_edge341, label %.lr.ph340, !llvm.loop !34
+  br i1 %86, label %._crit_edge341, label %.lr.ph340, !llvm.loop !33
 
 ._crit_edge341:                                   ; preds = %.lr.ph340, %.preheader
   %.1252.lcssa = phi float [ %.0251.lcssa, %.preheader ], [ %85, %.lr.ph340 ]
@@ -471,13 +471,13 @@ lv_arc_set_value.exit:                            ; preds = %216
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
   call fastcc void @get_center(ptr noundef %17, ptr noundef %11, ptr noundef %12)
   %229 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %230 = load ptr, ptr %229, align 8, !tbaa !35
+  %230 = load ptr, ptr %229, align 8, !tbaa !34
   %.not279 = icmp eq ptr %230, null
   br i1 %.not279, label %234, label %231
 
 231:                                              ; preds = %227
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 56
-  %233 = load i32, ptr %232, align 8, !tbaa !36
+  %233 = load i32, ptr %232, align 8, !tbaa !35
   br label %234
 
 234:                                              ; preds = %231, %227
@@ -497,20 +497,20 @@ lv_arc_set_value.exit:                            ; preds = %216
   %245 = add nsw i32 %240, %239
   %246 = add nsw i32 %243, %239
   call void @lv_area_set(ptr noundef nonnull %13, i32 noundef %241, i32 noundef %244, i32 noundef %245, i32 noundef %246) #7
-  %247 = load ptr, ptr %228, align 8, !tbaa !44
+  %247 = load ptr, ptr %228, align 8, !tbaa !43
   %248 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %13, ptr noundef %247, i32 noundef 32767) #7
   br i1 %248, label %.critedge306, label %250
 
 .critedge306:                                     ; preds = %234
   %249 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  store i8 0, ptr %249, align 8, !tbaa !46
+  store i8 0, ptr %249, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   br label %.critedge
 
 250:                                              ; preds = %234
-  %251 = load ptr, ptr %228, align 8, !tbaa !44
+  %251 = load ptr, ptr %228, align 8, !tbaa !43
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %253 = load i32, ptr %252, align 4, !tbaa !29
   %254 = sub nsw i32 %253, %243
@@ -537,13 +537,13 @@ lv_arc_set_value.exit:                            ; preds = %216
   %.0259331 = phi float [ %268, %.lr.ph ], [ %265, %250 ]
   %268 = fadd float %.0259331, 3.600000e+02
   %269 = fcmp olt float %268, 0.000000e+00
-  br i1 %269, label %.lr.ph, label %.preheader330, !llvm.loop !47
+  br i1 %269, label %.lr.ph, label %.preheader330, !llvm.loop !46
 
 .lr.ph333:                                        ; preds = %.preheader330, %.lr.ph333
   %.1260332 = phi float [ %270, %.lr.ph333 ], [ %.0259.lcssa, %.preheader330 ]
   %270 = fadd float %.1260332, -3.600000e+02
   %271 = fcmp ult float %270, 3.600000e+02
-  br i1 %271, label %._crit_edge, label %.lr.ph333, !llvm.loop !48
+  br i1 %271, label %._crit_edge, label %.lr.ph333, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph333, %.preheader330
   %.1260.lcssa = phi float [ %.0259.lcssa, %.preheader330 ], [ %270, %.lr.ph333 ]
@@ -560,7 +560,7 @@ lv_arc_set_value.exit:                            ; preds = %216
   %280 = shl nsw i32 %.0258, 1
   %281 = add nsw i32 %280, %.sroa.0.0.extract.trunc.i319
   call void @lv_area_increase(ptr noundef nonnull %13, i32 noundef %281, i32 noundef %281) #7
-  %282 = load ptr, ptr %228, align 8, !tbaa !44
+  %282 = load ptr, ptr %228, align 8, !tbaa !43
   %283 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %13, ptr noundef %282, i32 noundef 32767) #7
   %284 = zext i1 %283 to i8
   br label %285
@@ -568,7 +568,7 @@ lv_arc_set_value.exit:                            ; preds = %216
 285:                                              ; preds = %._crit_edge, %279
   %.sink = phi i8 [ %284, %279 ], [ 0, %._crit_edge ]
   %286 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  store i8 %.sink, ptr %286, align 8, !tbaa !46
+  store i8 %.sink, ptr %286, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
@@ -629,7 +629,7 @@ lv_arc_set_value.exit:                            ; preds = %216
 320:                                              ; preds = %315
   call void @lv_draw_arc_dsc_init(ptr noundef nonnull %5) #7
   %321 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %317, ptr %321, align 8, !tbaa !49
+  store ptr %317, ptr %321, align 8, !tbaa !48
   call void @lv_obj_init_draw_arc_dsc(ptr noundef %316, i32 noundef 0, ptr noundef nonnull %5) #7
   %322 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %323 = load i64, ptr %3, align 8
@@ -641,15 +641,15 @@ lv_arc_set_value.exit:                            ; preds = %216
   %328 = sitofp i32 %327 to float
   %329 = fadd float %325, %328
   %330 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store float %329, ptr %330, align 8, !tbaa !55
+  store float %329, ptr %330, align 8, !tbaa !54
   %331 = getelementptr inbounds nuw i8, ptr %316, i64 80
   %332 = load float, ptr %331, align 8, !tbaa !18
   %333 = fadd float %332, %328
   %334 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store float %333, ptr %334, align 4, !tbaa !56
+  store float %333, ptr %334, align 4, !tbaa !55
   %335 = trunc i32 %318 to i16
   %336 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i16 %335, ptr %336, align 8, !tbaa !57
+  store i16 %335, ptr %336, align 8, !tbaa !56
   call void @lv_draw_arc(ptr noundef %317, ptr noundef nonnull %5) #7
   br label %337
 
@@ -682,7 +682,7 @@ lv_arc_set_value.exit:                            ; preds = %216
 350:                                              ; preds = %337
   call void @lv_draw_arc_dsc_init(ptr noundef nonnull %5) #7
   %351 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %317, ptr %351, align 8, !tbaa !49
+  store ptr %317, ptr %351, align 8, !tbaa !48
   call void @lv_obj_init_draw_arc_dsc(ptr noundef %316, i32 noundef 131072, ptr noundef nonnull %5) #7
   %352 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %353 = load i64, ptr %3, align 8
@@ -694,15 +694,15 @@ lv_arc_set_value.exit:                            ; preds = %216
   %358 = sitofp i32 %357 to float
   %359 = fadd float %355, %358
   %360 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store float %359, ptr %360, align 8, !tbaa !55
+  store float %359, ptr %360, align 8, !tbaa !54
   %361 = getelementptr inbounds nuw i8, ptr %316, i64 72
   %362 = load float, ptr %361, align 8, !tbaa !20
   %363 = fadd float %362, %358
   %364 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store float %363, ptr %364, align 4, !tbaa !56
+  store float %363, ptr %364, align 4, !tbaa !55
   %365 = trunc i32 %348 to i16
   %366 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i16 %365, ptr %366, align 8, !tbaa !57
+  store i16 %365, ptr %366, align 8, !tbaa !56
   call void @lv_draw_arc(ptr noundef %317, ptr noundef nonnull %5) #7
   %367 = trunc i64 %353 to i32
   %368 = lshr i64 %353, 32
@@ -717,7 +717,7 @@ lv_arc_draw.exit:                                 ; preds = %._crit_edge.i, %350
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #7
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %7) #7
   %370 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %317, ptr %370, align 8, !tbaa !58
+  store ptr %317, ptr %370, align 8, !tbaa !57
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %316, i32 noundef 196608, ptr noundef nonnull %7) #7
   call void @lv_draw_rect(ptr noundef %317, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #7
@@ -760,7 +760,7 @@ define void @lv_arc_set_start_angle(ptr noundef %0, float noundef %1) local_unna
   br i1 %.not, label %.preheader, label %9
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !61
+  br label %.preheader
 
 9:                                                ; preds = %2
   %10 = fcmp ogt float %1, 3.600000e+02
@@ -921,7 +921,7 @@ define void @lv_arc_set_end_angle(ptr noundef %0, float noundef %1) local_unname
   br i1 %.not, label %.preheader, label %9
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !62
+  br label %.preheader
 
 9:                                                ; preds = %2
   %10 = fcmp ogt float %1, 3.600000e+02
@@ -1026,7 +1026,7 @@ define void @lv_arc_set_bg_start_angle(ptr noundef %0, float noundef %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !63
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = fcmp ogt float %1, 3.600000e+02
@@ -1178,7 +1178,7 @@ define void @lv_arc_set_bg_end_angle(ptr noundef %0, float noundef %1) local_unn
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !64
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = fcmp ogt float %1, 3.600000e+02
@@ -1258,7 +1258,7 @@ define void @lv_arc_set_rotation(ptr noundef %0, i32 noundef %1) local_unnamed_a
   ret void
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !65
+  br label %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1267,7 +1267,7 @@ define void @lv_arc_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !66
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1339,7 +1339,7 @@ define void @lv_arc_set_value(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !67
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1372,7 +1372,7 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !68
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1417,7 +1417,7 @@ define void @lv_arc_set_change_rate(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !69
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1431,12 +1431,12 @@ define void @lv_arc_set_knob_offset(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !70
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = trunc i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i16 %4, ptr %5, align 8, !tbaa !71
+  store i16 %4, ptr %5, align 8, !tbaa !60
   ret void
 }
 
@@ -1446,7 +1446,7 @@ define float @lv_arc_get_angle_start(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !72
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -1460,7 +1460,7 @@ define float @lv_arc_get_angle_end(ptr noundef readonly captures(address_is_null
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !73
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1474,7 +1474,7 @@ define float @lv_arc_get_bg_angle_start(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !74
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1488,7 +1488,7 @@ define float @lv_arc_get_bg_angle_end(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !75
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1502,7 +1502,7 @@ define i32 @lv_arc_get_value(ptr noundef readonly captures(address_is_null) %0) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !76
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1516,7 +1516,7 @@ define i32 @lv_arc_get_min_value(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !77
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1530,7 +1530,7 @@ define i32 @lv_arc_get_max_value(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !78
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1544,7 +1544,7 @@ define range(i32 0, 4) i32 @lv_arc_get_mode(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !79
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1561,7 +1561,7 @@ define i32 @lv_arc_get_rotation(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !80
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1575,11 +1575,11 @@ define range(i32 -32768, 32768) i32 @lv_arc_get_knob_offset(ptr noundef readonly
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !81
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load i16, ptr %3, align 8, !tbaa !71
+  %4 = load i16, ptr %3, align 8, !tbaa !60
   %5 = sext i16 %4 to i32
   ret i32 %5
 }
@@ -1592,14 +1592,14 @@ define void @lv_arc_align_obj_to_angle(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !82
+  br label %.preheader
 
 6:                                                ; preds = %3
   %.not15 = icmp eq ptr %1, null
   br i1 %.not15, label %.preheader16, label %7
 
 .preheader16:                                     ; preds = %6, %.preheader16
-  br label %.preheader16, !llvm.loop !83
+  br label %.preheader16
 
 7:                                                ; preds = %6
   tail call void @lv_obj_update_layout(ptr noundef nonnull %0) #7
@@ -1736,12 +1736,12 @@ define internal fastcc void @get_center(ptr noundef %0, ptr noundef nonnull writ
   %26 = phi i32 [ %21, %19 ], [ %24, %22 ]
   %27 = sdiv i32 %26, 2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i32, ptr %28, align 8, !tbaa !84
+  %29 = load i32, ptr %28, align 8, !tbaa !61
   %30 = add i32 %27, %.sroa.0.0.extract.trunc.i
   %31 = add i32 %30, %29
   store i32 %31, ptr %1, align 4, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %33 = load i32, ptr %32, align 4, !tbaa !85
+  %33 = load i32, ptr %32, align 4, !tbaa !62
   %34 = add i32 %27, %.sroa.0.0.extract.trunc.i27
   %35 = add i32 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1762,14 +1762,14 @@ define void @lv_arc_rotate_obj_to_angle(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !86
+  br label %.preheader
 
 6:                                                ; preds = %3
   %.not20 = icmp eq ptr %1, null
   br i1 %.not20, label %.preheader23, label %7
 
 .preheader23:                                     ; preds = %6, %.preheader23
-  br label %.preheader23, !llvm.loop !87
+  br label %.preheader23
 
 7:                                                ; preds = %6
   tail call void @lv_obj_update_layout(ptr noundef nonnull %0) #7
@@ -1856,11 +1856,11 @@ get_angle.exit:                                   ; preds = %7, %19, %23, %43, %
   %.0.i = phi float [ %22, %19 ], [ %26, %23 ], [ %14, %7 ], [ %44, %43 ], [ %50, %49 ], [ %52, %51 ]
   %53 = fptosi float %.0.i to i32
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %55 = load i32, ptr %54, align 8, !tbaa !84
+  %55 = load i32, ptr %54, align 8, !tbaa !61
   %56 = load i32, ptr %4, align 4, !tbaa !27
   %.neg21 = sub nsw i32 %56, %55
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %58 = load i32, ptr %57, align 4, !tbaa !85
+  %58 = load i32, ptr %57, align 4, !tbaa !62
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !29
   %.neg22 = sub nsw i32 %60, %58
@@ -1914,7 +1914,7 @@ define internal fastcc noundef zeroext i1 @lv_arc_angle_within_bg_bounds(ptr nou
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !88
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1934,13 +1934,13 @@ define internal fastcc noundef zeroext i1 @lv_arc_angle_within_bg_bounds(ptr nou
   %.035 = phi float [ %12, %.lr.ph ], [ %9, %4 ]
   %12 = fadd float %.035, 3.600000e+02
   %13 = fcmp olt float %12, 0.000000e+00
-  br i1 %13, label %.lr.ph, label %.preheader34, !llvm.loop !89
+  br i1 %13, label %.lr.ph, label %.preheader34, !llvm.loop !63
 
 .lr.ph37:                                         ; preds = %.preheader34, %.lr.ph37
   %.136 = phi float [ %14, %.lr.ph37 ], [ %.0.lcssa, %.preheader34 ]
   %14 = fadd float %.136, -3.600000e+02
   %15 = fcmp ult float %14, 3.600000e+02
-  br i1 %15, label %._crit_edge, label %.lr.ph37, !llvm.loop !90
+  br i1 %15, label %._crit_edge, label %.lr.ph37, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph37, %.preheader34
   %.1.lcssa = phi float [ %.0.lcssa, %.preheader34 ], [ %14, %.lr.ph37 ]
@@ -2152,7 +2152,7 @@ lv_arc_get_knob_offset.exit:                      ; preds = %44, %42, %36, %16, 
   %48 = sub nsw i32 %1, %47
   %49 = fptosi float %.0.i to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %51 = load i16, ptr %50, align 8, !tbaa !71
+  %51 = load i16, ptr %50, align 8, !tbaa !60
   %52 = trunc i32 %49 to i16
   %53 = add i16 %51, %52
   %54 = add i16 %53, 90
@@ -2177,20 +2177,20 @@ lv_arc_get_knob_offset.exit:                      ; preds = %44, %42, %36, %16, 
   %69 = add nsw i32 %57, %.0.val
   %70 = add i32 %47, %.sroa.0.0.extract.trunc.i35
   %71 = sub i32 %69, %70
-  store i32 %71, ptr %2, align 4, !tbaa !91
+  store i32 %71, ptr %2, align 4, !tbaa !65
   %72 = add i32 %69, %47
   %73 = add i32 %72, %.sroa.0.0.extract.trunc.i36
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %73, ptr %74, align 4, !tbaa !92
+  store i32 %73, ptr %74, align 4, !tbaa !66
   %75 = add nsw i32 %60, %.4.val
   %76 = add i32 %47, %.sroa.0.0.extract.trunc.i37
   %77 = sub i32 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %77, ptr %78, align 4, !tbaa !93
+  store i32 %77, ptr %78, align 4, !tbaa !67
   %79 = add i32 %75, %47
   %80 = add i32 %79, %.sroa.0.0.extract.trunc.i38
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %80, ptr %81, align 4, !tbaa !94
+  store i32 %80, ptr %81, align 4, !tbaa !68
   ret void
 }
 
@@ -2264,67 +2264,41 @@ attributes #7 = { nounwind }
 !28 = !{!"", !14, i64 0, !14, i64 4}
 !29 = !{!28, !14, i64 4}
 !30 = !{!14, !14, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = !{!5, !11, i64 16}
-!36 = !{!37, !14, i64 56}
-!37 = !{!"_lv_obj_spec_attr_t", !38, i64 0, !39, i64 8, !40, i64 16, !28, i64 48, !14, i64 56, !14, i64 60, !15, i64 64, !15, i64 66, !15, i64 66, !15, i64 66, !15, i64 66, !15, i64 67}
-!38 = !{!"p2 _ZTS9_lv_obj_t", !7, i64 0}
-!39 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
-!40 = !{!"", !41, i64 0, !8, i64 24, !8, i64 24}
-!41 = !{!"_lv_array_t", !42, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !43, i64 20}
-!42 = !{!"p1 omnipotent char", !7, i64 0}
-!43 = !{!"_Bool", !8, i64 0}
-!44 = !{!45, !7, i64 0}
-!45 = !{!"_lv_hit_test_info_t", !7, i64 0, !43, i64 8}
-!46 = !{!45, !43, i64 8}
-!47 = distinct !{!47, !32, !33}
-!48 = distinct !{!48, !32, !33}
-!49 = !{!50, !52, i64 24}
-!50 = !{!"", !51, i64 0, !54, i64 48, !14, i64 52, !16, i64 56, !16, i64 60, !28, i64 64, !15, i64 72, !7, i64 80, !8, i64 88, !8, i64 89}
-!51 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !52, i64 24, !53, i64 32, !7, i64 40}
-!52 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!53 = !{!"long", !8, i64 0}
-!54 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!55 = !{!50, !16, i64 56}
-!56 = !{!50, !16, i64 60}
-!57 = !{!50, !15, i64 72}
-!58 = !{!59, !52, i64 24}
-!59 = !{!"", !51, i64 0, !14, i64 48, !8, i64 52, !54, i64 53, !60, i64 56, !7, i64 72, !7, i64 80, !54, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !54, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !54, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !54, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
-!60 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
-!61 = distinct !{!61, !33}
-!62 = distinct !{!62, !33}
-!63 = distinct !{!63, !33}
-!64 = distinct !{!64, !33}
-!65 = distinct !{!65, !33}
-!66 = distinct !{!66, !33}
-!67 = distinct !{!67, !33}
-!68 = distinct !{!68, !33}
-!69 = distinct !{!69, !33}
-!70 = distinct !{!70, !33}
-!71 = !{!4, !15, i64 112}
-!72 = distinct !{!72, !33}
-!73 = distinct !{!73, !33}
-!74 = distinct !{!74, !33}
-!75 = distinct !{!75, !33}
-!76 = distinct !{!76, !33}
-!77 = distinct !{!77, !33}
-!78 = distinct !{!78, !33}
-!79 = distinct !{!79, !33}
-!80 = distinct !{!80, !33}
-!81 = distinct !{!81, !33}
-!82 = distinct !{!82, !33}
-!83 = distinct !{!83, !33}
-!84 = !{!5, !14, i64 40}
-!85 = !{!5, !14, i64 44}
-!86 = distinct !{!86, !33}
-!87 = distinct !{!87, !33}
-!88 = distinct !{!88, !33}
-!89 = distinct !{!89, !32, !33}
-!90 = distinct !{!90, !32, !33}
-!91 = !{!13, !14, i64 0}
-!92 = !{!13, !14, i64 8}
-!93 = !{!13, !14, i64 4}
-!94 = !{!13, !14, i64 12}
+!33 = distinct !{!33, !32}
+!34 = !{!5, !11, i64 16}
+!35 = !{!36, !14, i64 56}
+!36 = !{!"_lv_obj_spec_attr_t", !37, i64 0, !38, i64 8, !39, i64 16, !28, i64 48, !14, i64 56, !14, i64 60, !15, i64 64, !15, i64 66, !15, i64 66, !15, i64 66, !15, i64 66, !15, i64 67}
+!37 = !{!"p2 _ZTS9_lv_obj_t", !7, i64 0}
+!38 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
+!39 = !{!"", !40, i64 0, !8, i64 24, !8, i64 24}
+!40 = !{!"_lv_array_t", !41, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !42, i64 20}
+!41 = !{!"p1 omnipotent char", !7, i64 0}
+!42 = !{!"_Bool", !8, i64 0}
+!43 = !{!44, !7, i64 0}
+!44 = !{!"_lv_hit_test_info_t", !7, i64 0, !42, i64 8}
+!45 = !{!44, !42, i64 8}
+!46 = distinct !{!46, !32}
+!47 = distinct !{!47, !32}
+!48 = !{!49, !51, i64 24}
+!49 = !{!"", !50, i64 0, !53, i64 48, !14, i64 52, !16, i64 56, !16, i64 60, !28, i64 64, !15, i64 72, !7, i64 80, !8, i64 88, !8, i64 89}
+!50 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !51, i64 24, !52, i64 32, !7, i64 40}
+!51 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!52 = !{!"long", !8, i64 0}
+!53 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!54 = !{!49, !16, i64 56}
+!55 = !{!49, !16, i64 60}
+!56 = !{!49, !15, i64 72}
+!57 = !{!58, !51, i64 24}
+!58 = !{!"", !50, i64 0, !14, i64 48, !8, i64 52, !53, i64 53, !59, i64 56, !7, i64 72, !7, i64 80, !53, i64 88, !8, i64 91, !8, i64 92, !8, i64 93, !53, i64 94, !14, i64 100, !8, i64 104, !14, i64 105, !8, i64 105, !53, i64 106, !14, i64 112, !14, i64 116, !8, i64 120, !53, i64 121, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !8, i64 140}
+!59 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!60 = !{!4, !15, i64 112}
+!61 = !{!5, !14, i64 40}
+!62 = !{!5, !14, i64 44}
+!63 = distinct !{!63, !32}
+!64 = distinct !{!64, !32}
+!65 = !{!13, !14, i64 0}
+!66 = !{!13, !14, i64 8}
+!67 = !{!13, !14, i64 4}
+!68 = !{!13, !14, i64 12}

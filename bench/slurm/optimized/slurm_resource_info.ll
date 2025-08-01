@@ -473,7 +473,7 @@ _isvalue.exit:                                    ; preds = %.preheader.i
 _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_isvalue.exit, %13, %11, %28
   %29 = phi ptr [ %storemerge, %_isvalue.exit ], [ %storemerge, %_isvalue.exit ], [ %storemerge, %13 ], [ %storemerge, %11 ], [ %.pre, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  br label %11, !llvm.loop !12
+  br label %11, !llvm.loop !11
 
 .lr.ph.preheader:                                 ; preds = %11
   %.not.i.not = icmp eq i32 %9, 0
@@ -848,7 +848,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
 233:                                              ; preds = %178, %158, %130, %110, %63, %81, %138, %202, %226, %214, %190, %93, %70, %52
   %.pr = load i32, ptr %7, align 4
   %234 = icmp eq i32 %.pr, 0
-  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %233, %230, %112, %132, %160, %180
   call void @slurm_xfree(ptr noundef nonnull %4) #14
@@ -937,7 +937,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.next
   %21 = load i8, ptr %20, align 1
   %.not71 = icmp eq i8 %21, 0
-  br i1 %.not71, label %._crit_edge, label %22, !llvm.loop !14
+  br i1 %.not71, label %._crit_edge, label %22, !llvm.loop !13
 
 22:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %19 ]
@@ -988,7 +988,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   %42 = phi i8 [ %53, %50 ], [ %41, %40 ]
   %.05096 = phi i64 [ %51, %50 ], [ 0, %40 ]
   %43 = sext i8 %42 to i32
-  %44 = call i32 %.054(i32 noundef %43) #14, !callees !15
+  %44 = call i32 %.054(i32 noundef %43) #14, !callees !14
   %.not74 = icmp eq i32 %44, 0
   br i1 %.not74, label %45, label %50
 
@@ -1005,7 +1005,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   %52 = getelementptr inbounds nuw i8, ptr %.156, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not73 = icmp eq i8 %53, 0
-  br i1 %.not73, label %.lr.ph101.preheader, label %.lr.ph98, !llvm.loop !16
+  br i1 %.not73, label %.lr.ph101.preheader, label %.lr.ph98, !llvm.loop !15
 
 .lr.ph101.preheader:                              ; preds = %50, %40
   br label %.lr.ph101
@@ -1016,7 +1016,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.83, ptr noundef nonnull %.25999, ptr noundef nonnull %.156) #14
   %54 = add nuw nsw i64 %.1100, 1
   %exitcond.not = icmp eq i64 %54, %.049
-  br i1 %exitcond.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !16
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
   %55 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.79, ptr noundef nonnull %6) #14
@@ -1166,7 +1166,7 @@ define dso_local range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr no
   store i32 %60, ptr %1, align 4
   %61 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #14
   %.not36 = icmp eq ptr %61, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %58, %13, %21, %29, %37, %45, %50, %55, %5
   %.033 = phi i32 [ 0, %5 ], [ -1, %55 ], [ -1, %50 ], [ -1, %45 ], [ -1, %37 ], [ -1, %29 ], [ -1, %21 ], [ -1, %13 ], [ 0, %58 ]
@@ -1254,7 +1254,7 @@ _isvalue.exit:                                    ; preds = %.preheader.i
 _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_isvalue.exit, %13, %11, %28
   %29 = phi ptr [ %storemerge, %_isvalue.exit ], [ %storemerge, %_isvalue.exit ], [ %storemerge, %13 ], [ %storemerge, %11 ], [ %.pre, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  br label %11, !llvm.loop !19
+  br label %11, !llvm.loop !18
 
 .lr.ph.preheader:                                 ; preds = %11
   %31 = load ptr, ptr %4, align 8
@@ -1484,7 +1484,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
 153:                                              ; preds = %146, %126, %45, %57, %79, %98, %106, %90, %68, %51
   %.pr = load i32, ptr %7, align 4
   %154 = icmp eq i32 %.pr, 0
-  br i1 %154, label %.lr.ph, label %.sink.split, !llvm.loop !20
+  br i1 %154, label %.lr.ph, label %.sink.split, !llvm.loop !19
 
 .sink.split:                                      ; preds = %153, %.lr.ph, %148, %128, %150, %36
   %.0.ph = phi i32 [ 1, %36 ], [ -1, %148 ], [ -1, %128 ], [ -1, %150 ], [ %.pr, %153 ], [ 0, %.lr.ph ]
@@ -1556,16 +1556,15 @@ attributes #17 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{ptr @isdigit, ptr @isxdigit}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{ptr @isdigit, ptr @isxdigit}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

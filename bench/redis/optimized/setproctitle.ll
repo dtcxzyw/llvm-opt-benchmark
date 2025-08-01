@@ -94,7 +94,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next100
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %.not73 = icmp eq ptr %25, null
-  br i1 %.not73, label %.critedge2._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not73, label %.critedge2._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 .critedge2._crit_edge.loopexit:                   ; preds = %.critedge2
   %26 = trunc nuw nsw i64 %indvars.iv.next100 to i32
@@ -107,7 +107,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   %.161.lcssa = phi i64 [ 8, %.critedge2.preheader ], [ %29, %.critedge2._crit_edge.loopexit ]
   %.2.lcssa = phi ptr [ %.0.lcssa, %.critedge2.preheader ], [ %.3, %.critedge2._crit_edge.loopexit ]
   %30 = tail call noalias ptr @strdup(ptr noundef nonnull %4) #14
-  store ptr %30, ptr @SPT.0, align 8, !tbaa !16
+  store ptr %30, ptr @SPT.0, align 8, !tbaa !15
   %.not74 = icmp eq ptr %30, null
   br i1 %.not74, label %spt_copyenv.exit.thread, label %31
 
@@ -154,20 +154,20 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   br i1 %.not34.i, label %52, label %45
 
 45:                                               ; preds = %.lr.ph.i
-  store i8 0, ptr %44, align 1, !tbaa !20
+  store i8 0, ptr %44, align 1, !tbaa !19
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = tail call i32 @setenv(ptr noundef nonnull %43, ptr noundef nonnull %46, i32 noundef 1) #14
   %.not35.i = icmp eq i32 %47, 0
   br i1 %.not35.i, label %.thread.i, label %48
 
 .thread.i:                                        ; preds = %45
-  store i8 61, ptr %44, align 1, !tbaa !20
+  store i8 61, ptr %44, align 1, !tbaa !19
   br label %52
 
 48:                                               ; preds = %45
   %49 = tail call ptr @__errno_location() #17
-  %50 = load i32, ptr %49, align 4, !tbaa !21
-  store i8 61, ptr %44, align 1, !tbaa !20
+  %50 = load i32, ptr %49, align 4, !tbaa !20
+  store i8 61, ptr %44, align 1, !tbaa !19
   %.not36.i = icmp eq i32 %50, 0
   br i1 %.not36.i, label %52, label %51
 
@@ -180,7 +180,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   %53 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next.i
   %54 = load ptr, ptr %53, align 8, !tbaa !10
   %.not33.i = icmp eq ptr %54, null
-  br i1 %.not33.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not33.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !21
 
 .loopexit:                                        ; preds = %52, %.preheader.i
   tail call void @free(ptr noundef nonnull %38) #14
@@ -211,18 +211,18 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
 
 60:                                               ; preds = %59, %.critedge.i
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
-  br label %55, !llvm.loop !23
+  br label %55, !llvm.loop !22
 
 spt_copyargs.exit:                                ; preds = %.critedge.thread.i
   %61 = tail call ptr @__errno_location() #17
-  %62 = load i32, ptr %61, align 4, !tbaa !21
+  %62 = load i32, ptr %61, align 4, !tbaa !20
   %.not78 = icmp eq i32 %62, 0
   br i1 %.not78, label %spt_copyargs.exit.thread, label %spt_copyenv.exit.thread
 
 spt_copyargs.exit.thread:                         ; preds = %57, %spt_copyargs.exit
-  store ptr %7, ptr @SPT.3, align 8, !tbaa !24
-  store ptr %4, ptr @SPT.1, align 8, !tbaa !25
-  store ptr %.2.lcssa, ptr @SPT.2, align 8, !tbaa !26
+  store ptr %7, ptr @SPT.3, align 8, !tbaa !23
+  store ptr %4, ptr @SPT.1, align 8, !tbaa !24
+  store ptr %.2.lcssa, ptr @SPT.2, align 8, !tbaa !25
   br label %spt_copyenv.exit.thread
 
 spt_copyenv.exit.thread:                          ; preds = %37, %51, %42, %spt_copyargs.exit, %34, %31, %.critedge2._crit_edge, %2, %spt_copyargs.exit.thread
@@ -250,7 +250,7 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
-  %4 = load ptr, ptr @SPT.1, align 8, !tbaa !25
+  %4 = load ptr, ptr @SPT.1, align 8, !tbaa !24
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %36, label %5
 
@@ -265,7 +265,7 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
   br label %11
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr @SPT.0, align 8, !tbaa !16
+  %9 = load ptr, ptr @SPT.0, align 8, !tbaa !15
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 256, ptr noundef nonnull @.str, ptr noundef %9) #14
   br label %11
 
@@ -276,8 +276,8 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
 
 13:                                               ; preds = %11
   %.b15 = load i1, ptr @SPT.4, align 8
-  %14 = load ptr, ptr @SPT.1, align 8, !tbaa !25
-  %15 = load ptr, ptr @SPT.2, align 8, !tbaa !26
+  %14 = load ptr, ptr @SPT.1, align 8, !tbaa !24
+  %15 = load ptr, ptr @SPT.2, align 8, !tbaa !25
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %14 to i64
   %18 = sub i64 %16, %17
@@ -301,12 +301,12 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
   %25 = call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 range(i64 1, 2147483648) %23, i64 %24)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 16 %2, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 %25
-  %27 = load ptr, ptr @SPT.3, align 8, !tbaa !24
+  %27 = load ptr, ptr @SPT.3, align 8, !tbaa !23
   %28 = icmp ult ptr %26, %27
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %22
-  store i8 46, ptr %27, align 1, !tbaa !20
+  store i8 46, ptr %27, align 1, !tbaa !19
   br label %36
 
 30:                                               ; preds = %22
@@ -319,8 +319,8 @@ define dso_local void @setproctitle(ptr noundef readonly captures(address_is_nul
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %32
-  store i8 32, ptr %27, align 1, !tbaa !20
-  store i8 0, ptr %33, align 1, !tbaa !20
+  store i8 32, ptr %27, align 1, !tbaa !19
+  store i8 0, ptr %33, align 1, !tbaa !19
   br label %36
 
 36:                                               ; preds = %29, %35, %32, %30, %11, %1
@@ -395,18 +395,17 @@ attributes #17 = { nounwind willreturn memory(none) }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 omnipotent char", !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!17, !11, i64 0}
-!17 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !18, i64 32, !19, i64 36}
-!18 = !{!"_Bool", !8, i64 0}
-!19 = !{!"int", !8, i64 0}
-!20 = !{!8, !8, i64 0}
-!21 = !{!19, !19, i64 0}
-!22 = distinct !{!22, !13, !14}
-!23 = distinct !{!23, !13, !14}
-!24 = !{!17, !11, i64 24}
-!25 = !{!17, !11, i64 8}
-!26 = !{!17, !11, i64 16}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !11, i64 0}
+!16 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !17, i64 32, !18, i64 36}
+!17 = !{!"_Bool", !8, i64 0}
+!18 = !{!"int", !8, i64 0}
+!19 = !{!8, !8, i64 0}
+!20 = !{!18, !18, i64 0}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !13}
+!23 = !{!16, !11, i64 24}
+!24 = !{!16, !11, i64 8}
+!25 = !{!16, !11, i64 16}

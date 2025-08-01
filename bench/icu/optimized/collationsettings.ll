@@ -378,7 +378,7 @@ define noundef i32 @_ZNK6icu_7717CollationSettings8hashCodeEv(ptr noundef nonnul
   %21 = xor i32 %20, %.19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -411,12 +411,12 @@ define void @_ZN6icu_7717CollationSettings15aliasReorderingERKNS_13CollationData
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !34
+  %15 = load i8, ptr %14, align 1, !tbaa !33
   %16 = icmp eq i8 %15, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
   %or.cond.i = select i1 %16, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, label %.preheader, !llvm.loop !35
+  br i1 %or.cond.i, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, label %.preheader, !llvm.loop !34
 
 _ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit: ; preds = %.preheader
   br i1 %16, label %61, label %29
@@ -478,7 +478,7 @@ _ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit: ; preds = %.p
 43:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !35
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %44 = trunc nuw nsw i64 %indvars.iv to i32
@@ -530,12 +530,12 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717CollationSettings25reorder
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %4 = load i8, ptr %3, align 1, !tbaa !34
+  %4 = load i8, ptr %3, align 1, !tbaa !33
   %5 = icmp eq i8 %4, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   %or.cond = select i1 %5, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %6, label %2, !llvm.loop !35
+  br i1 %or.cond, label %6, label %2, !llvm.loop !34
 
 6:                                                ; preds = %2
   %spec.select = zext i1 %5 to i8
@@ -590,7 +590,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !37
+  %27 = load i32, ptr %26, align 8, !tbaa !36
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %34
 
@@ -607,7 +607,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !39
+  %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = sext i32 %27 to i64
   %38 = getelementptr i32, ptr %36, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -4
@@ -654,10 +654,10 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %52 = add i32 %47, %51
   %53 = trunc i32 %52 to i8
   %54 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv
-  store i8 %53, ptr %54, align 1, !tbaa !34
+  store i8 %53, ptr %54, align 1, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph65
   %.150.lcssa = phi i32 [ %.04961, %.lr.ph65 ], [ %48, %.lr.ph ]
@@ -668,7 +668,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 56:                                               ; preds = %._crit_edge
   %57 = zext nneg i32 %48 to i64
   %58 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %57
-  store i8 0, ptr %58, align 1, !tbaa !34
+  store i8 0, ptr %58, align 1, !tbaa !33
   %59 = add nuw nsw i32 %48, 1
   %60 = icmp slt i32 %.04862, 0
   %61 = trunc nuw nsw i64 %indvars.iv72 to i32
@@ -680,17 +680,17 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %.1 = phi i32 [ %.04862, %._crit_edge ], [ %spec.select, %56 ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %.preheader, label %.lr.ph65, !llvm.loop !41
+  br i1 %exitcond76.not, label %.preheader, label %.lr.ph65, !llvm.loop !40
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ %45, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
   %63 = trunc nuw i64 %indvars.iv77 to i32
   %64 = trunc i64 %indvars.iv77 to i8
   %65 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv77
-  store i8 %64, ptr %65, align 1, !tbaa !34
+  store i8 %64, ptr %65, align 1, !tbaa !33
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %66 = icmp slt i32 %63, 255
-  br i1 %66, label %.lr.ph69, label %._crit_edge70, !llvm.loop !42
+  br i1 %66, label %.lr.ph69, label %._crit_edge70, !llvm.loop !41
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader
   %.048.lcssa83 = phi i32 [ %.1, %.preheader ], [ %.048.lcssa84, %.lr.ph69 ]
@@ -924,7 +924,7 @@ define noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnu
   %10 = load i32, ptr %.0, align 4, !tbaa !29
   %.not12 = icmp ult i32 %6, %10
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  br i1 %.not12, label %12, label %9, !llvm.loop !43
+  br i1 %.not12, label %12, label %9, !llvm.loop !42
 
 12:                                               ; preds = %9
   %13 = shl i32 %10, 24
@@ -1202,17 +1202,16 @@ attributes #17 = { noreturn nounwind }
 !27 = !{!7, !10, i64 76}
 !28 = !{!7, !17, i64 64}
 !29 = !{!10, !10, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
-!34 = !{!11, !11, i64 0}
-!35 = distinct !{!35, !31, !32}
-!36 = distinct !{!36, !31, !32}
-!37 = !{!38, !10, i64 8}
-!38 = !{!"_ZTSN6icu_779UVector32E", !9, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !17, i64 24}
-!39 = !{!38, !17, i64 24}
-!40 = distinct !{!40, !31, !32}
-!41 = distinct !{!41, !31, !32}
-!42 = distinct !{!42, !31, !32}
-!43 = distinct !{!43, !31, !32}
+!32 = distinct !{!32, !31}
+!33 = !{!11, !11, i64 0}
+!34 = distinct !{!34, !31}
+!35 = distinct !{!35, !31}
+!36 = !{!37, !10, i64 8}
+!37 = !{!"_ZTSN6icu_779UVector32E", !9, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !17, i64 24}
+!38 = !{!37, !17, i64 24}
+!39 = distinct !{!39, !31}
+!40 = distinct !{!40, !31}
+!41 = distinct !{!41, !31}
+!42 = distinct !{!42, !31}

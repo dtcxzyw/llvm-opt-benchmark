@@ -837,7 +837,7 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
   %.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %.02136.lcssa = phi ptr [ %27, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %.02136.lcssa, i64 9
-  %36 = load i8, ptr %35, align 1, !tbaa !45
+  %36 = load i8, ptr %35, align 1, !tbaa !44
   %37 = and i8 %36, 32
   %38 = icmp eq i8 %37, 0
   %.not = xor i1 %1, %38
@@ -910,24 +910,24 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 376
-  %18 = load i64, ptr %17, align 8, !tbaa !46
+  %18 = load i64, ptr %17, align 8, !tbaa !45
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 392
-  %20 = load ptr, ptr %19, align 8, !tbaa !47
+  %20 = load ptr, ptr %19, align 8, !tbaa !46
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %.02022 = phi i64 [ 0, %.lr.ph ], [ %25, %21 ]
   %22 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %20, i64 %.02022
-  %23 = load i64, ptr %22, align 8, !tbaa !48
+  %23 = load i64, ptr %22, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %.02022
   store i64 %23, ptr %24, align 8, !tbaa !10
   %25 = add nuw i64 %.02022, 1
   %exitcond.not = icmp eq i64 %25, %18
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %21, %16
   %26 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0) #4
@@ -954,7 +954,7 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = tail call i32 @H5AC_expunge_entry(ptr noundef %34, ptr noundef nonnull %36, i64 noundef %38, i32 noundef 0) #4
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %.preheader, !llvm.loop !52
+  br i1 %40, label %41, label %.preheader, !llvm.loop !51
 
 41:                                               ; preds = %33
   %42 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -993,8 +993,8 @@ define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr noundef writeo
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 284
-  %17 = load i32, ptr %16, align 4, !tbaa !53
-  store i32 %17, ptr %1, align 4, !tbaa !54
+  %17 = load i32, ptr %16, align 4, !tbaa !52
+  store i32 %17, ptr %1, align 4, !tbaa !53
   %18 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0) #4
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %24
@@ -1069,14 +1069,14 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = load i32, ptr %37, align 8, !tbaa !40
   %39 = icmp eq i32 %38, %1
-  br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph61, !llvm.loop !55
+  br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph61, !llvm.loop !54
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   %.02547.lcssa = phi ptr [ %32, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %.02547.lcssa, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !56
-  store i32 %41, ptr %2, align 4, !tbaa !54
+  %41 = load i32, ptr %40, align 8, !tbaa !55
+  store i32 %41, ptr %2, align 4, !tbaa !53
   br label %.loopexit
 
 .lr.ph61:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1085,7 +1085,7 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   %42 = add i32 %.0244859, 1
   %43 = zext i32 %42 to i64
   %44 = icmp ugt i64 %30, %43
-  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !55
+  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph._crit_edge
   %45 = phi i64 [ %.lcssa, %.lr.ph._crit_edge ], [ %43, %.lr.ph61 ]
@@ -1195,15 +1195,15 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 37:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #4
   %38 = getelementptr inbounds nuw i8, ptr %.073110, i64 16
-  %39 = load i32, ptr %38, align 8, !tbaa !56
+  %39 = load i32, ptr %38, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 392
-  %41 = load ptr, ptr %40, align 8, !tbaa !47
+  %41 = load ptr, ptr %40, align 8, !tbaa !46
   %42 = zext i32 %39 to i64
   %43 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !57
+  %45 = load ptr, ptr %44, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !58
+  %47 = load i64, ptr %46, align 8, !tbaa !57
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 288
   %50 = load i8, ptr %49, align 8, !tbaa !15
@@ -1211,13 +1211,13 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %51 = icmp eq i8 %.fr114, 1
   %.neg = select i1 %51, i64 0, i64 -4
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !59
+  %53 = load i64, ptr %52, align 8, !tbaa !58
   %.neg82 = sub i64 %.neg, %53
   %54 = getelementptr inbounds i8, ptr %48, i64 %.neg82
   %55 = getelementptr inbounds nuw i8, ptr %.073110, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !60
+  %56 = load ptr, ptr %55, align 8, !tbaa !59
   %57 = getelementptr inbounds nuw i8, ptr %.073110, i64 40
-  %58 = load i64, ptr %57, align 8, !tbaa !61
+  %58 = load i64, ptr %57, align 8, !tbaa !60
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %60 = icmp eq ptr %59, %54
@@ -1237,7 +1237,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 
 65:                                               ; preds = %.preheader.split.us
   %66 = getelementptr inbounds nuw i8, ptr %.066111.us, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !60
+  %67 = load ptr, ptr %66, align 8, !tbaa !59
   %68 = getelementptr inbounds i8, ptr %67, i64 -8
   %69 = icmp eq ptr %68, %59
   br i1 %69, label %.loopexit98, label %70
@@ -1247,7 +1247,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %72 = getelementptr inbounds nuw i8, ptr %.066111.us, i64 48
   %73 = zext i32 %71 to i64
   %74 = icmp ugt i64 %33, %73
-  br i1 %74, label %.preheader.split.us, label %.loopexit, !llvm.loop !62
+  br i1 %74, label %.preheader.split.us, label %.loopexit, !llvm.loop !61
 
 .preheader.split:                                 ; preds = %.preheader, %92
   %.065112 = phi i32 [ %93, %92 ], [ 0, %.preheader ]
@@ -1259,8 +1259,8 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 
 .thread:                                          ; preds = %.preheader.split
   %78 = getelementptr inbounds nuw i8, ptr %.066111, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !60
-  %80 = load i8, ptr %61, align 1, !tbaa !64
+  %79 = load ptr, ptr %78, align 8, !tbaa !59
+  %80 = load i8, ptr %61, align 1, !tbaa !63
   %81 = lshr i8 %80, 1
   %82 = and i8 %81, 2
   %83 = or disjoint i8 %82, 4
@@ -1275,7 +1275,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %.065102 = phi i32 [ %.065112.us, %65 ], [ %.065112, %.thread ]
   %88 = phi i64 [ 8, %65 ], [ %84, %.thread ]
   %89 = getelementptr inbounds nuw i8, ptr %.066105, i64 40
-  %90 = load i64, ptr %89, align 8, !tbaa !61
+  %90 = load i64, ptr %89, align 8, !tbaa !60
   %91 = add i64 %90, %88
   br label %.loopexit
 
@@ -1284,7 +1284,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %94 = getelementptr inbounds nuw i8, ptr %.066111, i64 48
   %95 = zext i32 %93 to i64
   %96 = icmp ugt i64 %33, %95
-  br i1 %96, label %.preheader.split, label %.loopexit, !llvm.loop !65
+  br i1 %96, label %.preheader.split, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %92, %70, %37, %.loopexit98
   %.071 = phi i64 [ 0, %.loopexit98 ], [ %53, %37 ], [ 0, %70 ], [ 0, %92 ]
@@ -1292,25 +1292,25 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %.068 = phi i32 [ %.065102, %.loopexit98 ], [ 0, %37 ], [ 0, %70 ], [ 0, %92 ]
   %97 = add i64 %.071, %58
   %98 = add i64 %97, %.069
-  store i32 %.074109, ptr %4, align 8, !tbaa !66
+  store i32 %.074109, ptr %4, align 8, !tbaa !65
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %1, ptr %99, align 4, !tbaa !68
+  store i32 %1, ptr %99, align 4, !tbaa !67
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %39, ptr %100, align 8, !tbaa !69
+  store i32 %39, ptr %100, align 8, !tbaa !68
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.071, ptr %101, align 8, !tbaa !70
+  store i64 %.071, ptr %101, align 8, !tbaa !69
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.069, ptr %102, align 8, !tbaa !71
+  store i64 %.069, ptr %102, align 8, !tbaa !70
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %98, ptr %103, align 8, !tbaa !72
+  store i64 %98, ptr %103, align 8, !tbaa !71
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %.068, ptr %104, align 8, !tbaa !73
+  store i32 %.068, ptr %104, align 8, !tbaa !72
   %105 = load ptr, ptr %13, align 8, !tbaa !28
   br i1 %51, label %113, label %106
 
 106:                                              ; preds = %.loopexit
   %107 = getelementptr inbounds nuw i8, ptr %27, i64 289
-  %108 = load i8, ptr %107, align 1, !tbaa !64
+  %108 = load i8, ptr %107, align 1, !tbaa !63
   %109 = lshr i8 %108, 1
   %110 = and i8 %109, 2
   %111 = or disjoint i8 %110, 4
@@ -1341,7 +1341,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %125 = getelementptr inbounds nuw i8, ptr %.073110, i64 48
   %126 = zext i32 %124 to i64
   %127 = icmp ugt i64 %33, %126
-  br i1 %127, label %.lr.ph, label %.loopexit99, !llvm.loop !74
+  br i1 %127, label %.lr.ph, label %.loopexit99, !llvm.loop !73
 
 .loopexit99:                                      ; preds = %123, %29, %122
   %.176 = phi i32 [ %.2, %122 ], [ 0, %29 ], [ 0, %123 ]
@@ -1431,36 +1431,35 @@ attributes #4 = { nounwind }
 !39 = !{!"p1 omnipotent char", !19, i64 0}
 !40 = !{!41, !14, i64 0}
 !41 = !{!"H5O_msg_class_t", !14, i64 0, !39, i64 8, !11, i64 16, !14, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!37, !5, i64 9}
-!46 = !{!16, !11, i64 376}
-!47 = !{!16, !26, i64 392}
-!48 = !{!49, !11, i64 0}
-!49 = !{!"H5O_chunk_t", !11, i64 0, !11, i64 8, !11, i64 16, !39, i64 24, !50, i64 32}
-!50 = !{!"p1 _ZTS17H5O_chunk_proxy_t", !19, i64 0}
-!51 = distinct !{!51, !43, !44}
-!52 = distinct !{!52, !43, !44}
-!53 = !{!16, !14, i64 284}
-!54 = !{!14, !14, i64 0}
-!55 = distinct !{!55, !43, !44}
-!56 = !{!37, !14, i64 16}
-!57 = !{!49, !39, i64 24}
-!58 = !{!49, !11, i64 8}
-!59 = !{!49, !11, i64 16}
-!60 = !{!37, !39, i64 32}
-!61 = !{!37, !11, i64 40}
-!62 = distinct !{!62, !43, !44, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = !{!16, !5, i64 289}
-!65 = distinct !{!65, !43, !44}
-!66 = !{!67, !14, i64 0}
-!67 = !{!"H5O_msg_alloc_info_t", !14, i64 0, !14, i64 4, !14, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !14, i64 40}
-!68 = !{!67, !14, i64 4}
-!69 = !{!67, !14, i64 8}
-!70 = !{!67, !11, i64 16}
-!71 = !{!67, !11, i64 24}
-!72 = !{!67, !11, i64 32}
-!73 = !{!67, !14, i64 40}
-!74 = distinct !{!74, !43, !44}
+!44 = !{!37, !5, i64 9}
+!45 = !{!16, !11, i64 376}
+!46 = !{!16, !26, i64 392}
+!47 = !{!48, !11, i64 0}
+!48 = !{!"H5O_chunk_t", !11, i64 0, !11, i64 8, !11, i64 16, !39, i64 24, !49, i64 32}
+!49 = !{!"p1 _ZTS17H5O_chunk_proxy_t", !19, i64 0}
+!50 = distinct !{!50, !43}
+!51 = distinct !{!51, !43}
+!52 = !{!16, !14, i64 284}
+!53 = !{!14, !14, i64 0}
+!54 = distinct !{!54, !43}
+!55 = !{!37, !14, i64 16}
+!56 = !{!48, !39, i64 24}
+!57 = !{!48, !11, i64 8}
+!58 = !{!48, !11, i64 16}
+!59 = !{!37, !39, i64 32}
+!60 = !{!37, !11, i64 40}
+!61 = distinct !{!61, !43, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = !{!16, !5, i64 289}
+!64 = distinct !{!64, !43}
+!65 = !{!66, !14, i64 0}
+!66 = !{!"H5O_msg_alloc_info_t", !14, i64 0, !14, i64 4, !14, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !14, i64 40}
+!67 = !{!66, !14, i64 4}
+!68 = !{!66, !14, i64 8}
+!69 = !{!66, !11, i64 16}
+!70 = !{!66, !11, i64 24}
+!71 = !{!66, !11, i64 32}
+!72 = !{!66, !14, i64 40}
+!73 = distinct !{!73, !43}

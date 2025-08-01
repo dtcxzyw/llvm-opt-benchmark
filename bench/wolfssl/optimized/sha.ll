@@ -120,7 +120,7 @@ AddLength.exit:                                   ; preds = %13, %18
   store i32 %40, ptr %39, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %41 = icmp samesign ult i64 %indvars.iv.i, 60
-  br i1 %41, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
+  br i1 %41, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
@@ -160,7 +160,7 @@ ByteReverseWords.exit71.loopexit.us:              ; preds = %.lr.ph26.i67.us
   %50 = add i32 %.15274.us, -64
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
   %51 = icmp ugt i32 %50, 63
-  br i1 %51, label %.lr.ph26.i67.preheader.us, label %._crit_edge, !llvm.loop !17
+  br i1 %51, label %.lr.ph26.i67.preheader.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph.i62.preheader:                             ; preds = %.lr.ph, %ByteReverseWords.exit71.loopexit72
   %.175 = phi ptr [ %55, %ByteReverseWords.exit71.loopexit72 ], [ %.050, %.lr.ph ]
@@ -176,14 +176,14 @@ ByteReverseWords.exit71.loopexit.us:              ; preds = %.lr.ph26.i67.us
   store i32 %53, ptr %52, align 1
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 4
   %54 = icmp samesign ult i64 %indvars.iv.i63, 60
-  br i1 %54, label %.lr.ph.i62, label %ByteReverseWords.exit71.loopexit72, !llvm.loop !16
+  br i1 %54, label %.lr.ph.i62, label %ByteReverseWords.exit71.loopexit72, !llvm.loop !15
 
 ByteReverseWords.exit71.loopexit72:               ; preds = %.lr.ph.i62
   %55 = getelementptr inbounds nuw i8, ptr %.175, i64 64
   %56 = add i32 %.15274, -64
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
   %57 = icmp ugt i32 %56, 63
-  br i1 %57, label %.lr.ph.i62.preheader, label %._crit_edge, !llvm.loop !19
+  br i1 %57, label %.lr.ph.i62.preheader, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %ByteReverseWords.exit71.loopexit72, %ByteReverseWords.exit71.loopexit.us, %42
   %.152.lcssa = phi i32 [ %.051, %42 ], [ %50, %ByteReverseWords.exit71.loopexit.us ], [ %56, %ByteReverseWords.exit71.loopexit72 ]
@@ -1253,7 +1253,7 @@ define range(i32 -173, 1) i32 @wc_ShaFinalRaw(ptr noundef %0, ptr noundef writeo
   store i32 %15, ptr %16, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %17 = icmp samesign ult i64 %indvars.iv.i, 16
-  br i1 %17, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
+  br i1 %17, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 16 dereferenceable(20) %3, i64 20, i1 false)
@@ -1283,7 +1283,7 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
   store i32 %10, ptr %0, align 8, !tbaa !10
   %11 = zext nneg i32 %7 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  store i8 -128, ptr %12, align 1, !tbaa !20
+  store i8 -128, ptr %12, align 1, !tbaa !19
   %13 = icmp samesign ugt i32 %7, 55
   br i1 %13, label %14, label %._crit_edge
 
@@ -1329,7 +1329,7 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
   store i32 %27, ptr %26, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %28 = icmp samesign ult i64 %indvars.iv.i, 60
-  br i1 %28, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
+  br i1 %28, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
@@ -1365,7 +1365,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
   store i32 %39, ptr %38, align 1
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 4
   %40 = icmp samesign ult i64 %indvars.iv.i51, 60
-  br i1 %40, label %.lr.ph.i50, label %ByteReverseWords.exit59, !llvm.loop !16
+  br i1 %40, label %.lr.ph.i50, label %ByteReverseWords.exit59, !llvm.loop !15
 
 ByteReverseWords.exit59:                          ; preds = %.lr.ph.i50, %.lr.ph26.i55
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1405,7 +1405,7 @@ ByteReverseWords.exit59:                          ; preds = %.lr.ph.i50, %.lr.ph
   store i32 %56, ptr %55, align 1
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 4
   %57 = icmp samesign ult i64 %indvars.iv.i63, 16
-  br i1 %57, label %.lr.ph.i62, label %ByteReverseWords.exit71, !llvm.loop !16
+  br i1 %57, label %.lr.ph.i62, label %ByteReverseWords.exit71, !llvm.loop !15
 
 ByteReverseWords.exit71:                          ; preds = %.lr.ph.i62, %.lr.ph26.i67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) %49, i64 20, i1 false)
@@ -1536,11 +1536,10 @@ attributes #8 = { nounwind }
 !10 = !{!4, !5, i64 0}
 !11 = !{!4, !5, i64 4}
 !12 = !{!4, !5, i64 8}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !14, !15}
-!20 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !14}
+!19 = !{!6, !6, i64 0}

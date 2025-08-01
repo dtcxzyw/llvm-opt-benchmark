@@ -522,7 +522,7 @@ define ptr @get_data_source_tvb_by_name(ptr noundef readonly captures(none) %0, 
   %13 = getelementptr inbounds nuw i8, ptr %.01018, i64 8
   %.010 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.010, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %12, %2, %10
   %.2 = phi ptr [ %11, %10 ], [ null, %2 ], [ null, %12 ]
@@ -731,7 +731,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @frame_delta_abs_time(ptr noundef %58, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %59)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %61 = load i8, ptr %60, align 8, !range !10, !noundef !11
+  %61 = load i8, ptr %60, align 8, !range !9, !noundef !10
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %67
 
@@ -1366,7 +1366,7 @@ define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call i32 @g_hash_table_insert(ptr noundef %15, ptr noundef %17, ptr noundef %13)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %20 = load i8, ptr %19, align 8, !range !10, !noundef !11
+  %20 = load i8, ptr %19, align 8, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %23
 
@@ -1447,7 +1447,7 @@ define void @dissector_add_for_decode_as(ptr noundef %0, ptr noundef %1) local_u
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = load i8, ptr %7, align 8, !range !10, !noundef !11
+  %8 = load i8, ptr %7, align 8, !range !9, !noundef !10
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %18, label %10
 
@@ -1549,7 +1549,7 @@ dissector_handle_get_dissector_name.exit62:       ; preds = %47, %49
   %.044.in = getelementptr inbounds nuw i8, ptr %.04476, i64 8
   %.044 = load ptr, ptr %.044.in, align 8
   %.not51 = icmp eq ptr %.044, null
-  br i1 %.not51, label %.loopexit72.loopexit, label %39, !llvm.loop !12
+  br i1 %.not51, label %.loopexit72.loopexit, label %39, !llvm.loop !11
 
 .loopexit72.loopexit:                             ; preds = %52
   %.pre = load i32, ptr %35, align 8
@@ -1636,7 +1636,7 @@ dissector_handle_get_dissector_name.exit69.thread: ; preds = %dissector_handle_g
   %.1.in = getelementptr inbounds nuw i8, ptr %.180, i64 8
   %.1 = load ptr, ptr %.1.in, align 8
   %.not52 = icmp eq ptr %.1, null
-  br i1 %.not52, label %.loopexit, label %60, !llvm.loop !13
+  br i1 %.not52, label %.loopexit, label %60, !llvm.loop !12
 
 .loopexit:                                        ; preds = %80, %dissector_handle_get_dissector_name.exit60, %dissector_handle_get_pref_suffix.exit, %.loopexit72
   %.b53 = load i1, ptr @all_tables_handles_sorted, align 1
@@ -1706,7 +1706,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captu
   %26 = inttoptr i64 %25 to ptr
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef %26, ptr noundef %23)
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %29 = load i8, ptr %28, align 8, !range !10, !noundef !11
+  %29 = load i8, ptr %28, align 8, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %dissector_add_uint.exit25.us
 
@@ -1720,7 +1720,7 @@ dissector_add_uint.exit25.us:                     ; preds = %31, %22, %._crit_ed
   %32 = load i32, ptr %1, align 4
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next42, %33
-  br i1 %34, label %.lr.ph31.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %34, label %.lr.ph31.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph.us:                                        ; preds = %.lr.ph31.split.us, %find_dissector_table.exit.i.us.us
   %.029.us.us = phi i32 [ %44, %find_dissector_table.exit.i.us.us ], [ %12, %.lr.ph31.split.us ]
@@ -1750,7 +1750,7 @@ find_dissector_table.exit.i.us.us:                ; preds = %43, %40, %37, %.lr.
   %44 = add nuw i32 %.029.us.us, 1
   %45 = load i32, ptr %13, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !16
+  br i1 %46, label %.lr.ph.us, label %._crit_edge.split.us.us, !llvm.loop !15
 
 47:                                               ; preds = %5
   %48 = load ptr, ptr @dissector_tables, align 8
@@ -1777,7 +1777,7 @@ find_dissector_table.exit.i.us.us:                ; preds = %43, %40, %37, %.lr.
 find_dissector_table.exit:                        ; preds = %47, %50, %53, %56
   %.0.i = phi ptr [ %49, %47 ], [ %55, %56 ], [ null, %53 ], [ null, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %58 = load i8, ptr %57, align 8, !range !10, !noundef !11
+  %58 = load i8, ptr %57, align 8, !range !9, !noundef !10
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %.loopexit
 
@@ -1848,7 +1848,7 @@ dissector_get_table_checked.exit:                 ; preds = %.lr.ph, %75
   %87 = inttoptr i64 %indvars.iv to ptr
   %88 = tail call i32 @g_hash_table_insert(ptr noundef %86, ptr noundef %87, ptr noundef %84)
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
-  %90 = load i8, ptr %89, align 8, !range !10, !noundef !11
+  %90 = load i8, ptr %89, align 8, !range !9, !noundef !10
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %dissector_add_uint.exit
 
@@ -1861,7 +1861,7 @@ dissector_add_uint.exit:                          ; preds = %76, %83, %92
   %93 = load i32, ptr %63, align 4
   %94 = zext i32 %93 to i64
   %95 = icmp samesign ult i64 %indvars.iv.next, %94
-  br i1 %95, label %.lr.ph, label %._crit_edge.split, !llvm.loop !17
+  br i1 %95, label %.lr.ph, label %._crit_edge.split, !llvm.loop !16
 
 ._crit_edge.split:                                ; preds = %dissector_add_uint.exit, %.lr.ph31.split
   %.lcssa = phi i32 [ %64, %.lr.ph31.split ], [ %93, %dissector_add_uint.exit ]
@@ -1891,7 +1891,7 @@ dissector_add_uint.exit:                          ; preds = %76, %83, %92
   %107 = inttoptr i64 %106 to ptr
   %108 = tail call i32 @g_hash_table_insert(ptr noundef %105, ptr noundef %107, ptr noundef %103)
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  %110 = load i8, ptr %109, align 8, !range !10, !noundef !11
+  %110 = load i8, ptr %109, align 8, !range !9, !noundef !10
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %dissector_add_uint.exit25
 
@@ -1905,7 +1905,7 @@ dissector_add_uint.exit25:                        ; preds = %._crit_edge.split, 
   %113 = load i32, ptr %1, align 4
   %114 = zext i32 %113 to i64
   %115 = icmp samesign ult i64 %indvars.iv.next39, %114
-  br i1 %115, label %.lr.ph31.split, label %.loopexit, !llvm.loop !18
+  br i1 %115, label %.lr.ph31.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %dissector_add_uint.exit25, %dissector_add_uint.exit25.us, %60, %find_dissector_table.exit, %3
   ret void
@@ -1943,7 +1943,7 @@ define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, 
   %19 = inttoptr i64 %18 to ptr
   %20 = tail call i32 @g_hash_table_insert(ptr noundef %17, ptr noundef %19, ptr noundef %15)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %22 = load i8, ptr %21, align 8, !range !10, !noundef !11
+  %22 = load i8, ptr %21, align 8, !range !9, !noundef !10
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %dissector_add_uint.exit
 
@@ -2223,7 +2223,7 @@ dissector_delete_uint.exit:                       ; preds = %find_uint_dtbl_entr
   %31 = load i32, ptr %9, align 4
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissector_delete_uint.exit, %6
   %.lcssa = phi i32 [ %10, %6 ], [ %31, %dissector_delete_uint.exit ]
@@ -2232,7 +2232,7 @@ dissector_delete_uint.exit:                       ; preds = %find_uint_dtbl_entr
   %34 = load i32, ptr %1, align 4
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next27, %35
-  br i1 %36, label %6, label %.loopexit, !llvm.loop !20
+  br i1 %36, label %6, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %3
   ret void
@@ -2761,7 +2761,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   %96 = load ptr, ptr %24, align 8
   %97 = tail call i32 @wmem_list_count(ptr noundef %96)
   %98 = icmp ugt i32 %97, %26
-  br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %92, %86, %85, %82, %79
   store ptr %21, ptr %2, align 8
@@ -2951,7 +2951,7 @@ define void @dissector_add_string(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %22 = load ptr, ptr %7, align 8
   %23 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef %.0, ptr noundef %12)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %25 = load i8, ptr %24, align 8, !range !10, !noundef !11
+  %25 = load i8, ptr %24, align 8, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %28
 
@@ -3467,7 +3467,7 @@ define void @dissector_add_custom_table_handle(ptr noundef %0, ptr noundef %1, p
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef %1, ptr noundef %7)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %13 = load i8, ptr %12, align 8, !range !10, !noundef !11
+  %13 = load i8, ptr %12, align 8, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -3523,7 +3523,7 @@ define void @dissector_add_guid(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %14 = load ptr, ptr %7, align 8
   %15 = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %1, ptr noundef %12)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %17 = load i8, ptr %16, align 8, !range !10, !noundef !11
+  %17 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %20
 
@@ -3689,7 +3689,7 @@ define hidden void @packet_all_tables_sort_handles() local_unnamed_addr #0 {
   store ptr %9, ptr %7, align 8
   %10 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i1 true, ptr @all_tables_handles_sorted, align 1
@@ -3917,7 +3917,7 @@ define void @dissector_table_allow_decode_as(ptr noundef writeonly captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define zeroext i1 @dissector_table_supports_decode_as(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -4032,7 +4032,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0.in = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %find_dissector_table.exit
   ret void
@@ -4408,7 +4408,7 @@ define void @register_dissector_table_alias(ptr noundef readnone captures(addres
   %13 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !23
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.021, align 8
@@ -4461,7 +4461,7 @@ define hidden void @deregister_dissector_table(ptr noundef %0) local_unnamed_add
   %17 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not11 = icmp eq ptr %18, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 19:                                               ; preds = %1, %._crit_edge
   ret void
@@ -4611,7 +4611,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %17
 
 17:                                               ; preds = %14, %10
-  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %18 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %77
 
@@ -4653,7 +4653,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %40
 
 40:                                               ; preds = %37, %35
-  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !10, !noundef !11
+  %41 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !9, !noundef !10
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %77
 
@@ -4664,7 +4664,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 44:                                               ; preds = %.lr.ph, %30
   %45 = add nuw i32 %.054, 1
   %exitcond.not = icmp eq i32 %45, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %44, %21
   %46 = tail call zeroext i8 @proto_check_field_name_lower(ptr noundef %3)
@@ -4880,7 +4880,7 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %44 = load i8, ptr %43, align 8, !range !10, !noundef !11
+  %44 = load i8, ptr %43, align 8, !range !9, !noundef !10
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %.loopexit.thread105, label %46
 
@@ -5003,7 +5003,7 @@ remove_last_layer.exit.us:                        ; preds = %94, %91
   %103 = load ptr, ptr %22, align 8
   %104 = tail call i32 @wmem_list_count(ptr noundef %103)
   %105 = icmp ugt i32 %104, %24
-  br i1 %105, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !27
+  br i1 %105, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
 
 .critedge:                                        ; preds = %.thread104, %remove_last_layer.exit
   %106 = load ptr, ptr %22, align 8
@@ -5033,7 +5033,7 @@ remove_last_layer.exit:                           ; preds = %.critedge, %112
   %121 = load ptr, ptr %22, align 8
   %122 = tail call i32 @wmem_list_count(ptr noundef %121)
   %123 = icmp ugt i32 %122, %24
-  br i1 %123, label %.critedge, label %.loopexit, !llvm.loop !28
+  br i1 %123, label %.critedge, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %remove_last_layer.exit.us, %remove_last_layer.exit, %.thread103
   br i1 %55, label %.thread85, label %.loopexit.thread105
@@ -5057,7 +5057,7 @@ remove_last_layer.exit:                           ; preds = %.critedge, %112
   %129 = getelementptr inbounds nuw i8, ptr %.06894, i64 8
   %.068 = load ptr, ptr %129, align 8
   %.not75.not = icmp eq ptr %.068, null
-  br i1 %.not75.not, label %.loopexit86, label %36, !llvm.loop !29
+  br i1 %.not75.not, label %.loopexit86, label %36, !llvm.loop !28
 
 .loopexit86:                                      ; preds = %.loopexit.thread105, %28, %.thread85, %125
   %.not7588 = phi i1 [ true, %.thread85 ], [ true, %125 ], [ false, %28 ], [ false, %.loopexit.thread105 ]
@@ -5637,7 +5637,7 @@ check_valid_dissector_name_or_fail.exit:          ; preds = %4, %3
   store i8 95, ptr %26, align 1
   %28 = tail call ptr @strchr(ptr noundef %27, i32 noundef 45) #25
   %.not25 = icmp eq ptr %28, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %17, %18, %14, %15
   ret ptr %8
@@ -5877,7 +5877,7 @@ define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %deregister_postdissector.exit.i, label %16, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %deregister_postdissector.exit.i, label %16, !llvm.loop !30
 
 deregister_postdissector.exit.i:                  ; preds = %29, %26, %.preheader.i.i, %5
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6009,7 +6009,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly captures(address_is
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @wmem_list_count(ptr noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i8, ptr %19, align 8, !range !10, !noundef !11
+  %20 = load i8, ptr %19, align 8, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %27
 
@@ -6070,7 +6070,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly captures(address_is
   %46 = load ptr, ptr %16, align 8
   %47 = tail call i32 @wmem_list_count(ptr noundef %46)
   %48 = icmp ugt i32 %47, %18
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %49 = load ptr, ptr @data_handle, align 8
@@ -6267,7 +6267,7 @@ dissector_dump_decodes_display.exit:              ; preds = %find_dissector_tabl
   %51 = getelementptr inbounds nuw i8, ptr %.01619, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %52, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -6358,7 +6358,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
 
 36:                                               ; preds = %34, %31
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %38 = load i8, ptr %37, align 8, !range !10, !noundef !11
+  %38 = load i8, ptr %37, align 8, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   %40 = select i1 %39, ptr @.str.5, ptr @.str.72
   %41 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.71, ptr noundef nonnull %40)
@@ -6425,7 +6425,7 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %17 = add i32 %.029, 1
   %18 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   call void @qsort(ptr noundef %8, i64 noundef %7, i64 noundef 16, ptr noundef nonnull @compare_dissector_info_names)
@@ -6441,7 +6441,7 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %23 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.44, ptr noundef %20, ptr noundef %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !34
 
 ._crit_edge33:                                    ; preds = %.lr.ph32, %._crit_edge
   call void @g_free(ptr noundef %8)
@@ -6518,7 +6518,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone captures(addres
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !35
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -6594,7 +6594,7 @@ define hidden void @deregister_postdissector(ptr noundef readnone captures(addre
 19:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !30
 
 .loopexit:                                        ; preds = %19, %.preheader, %16, %1
   ret void
@@ -6637,7 +6637,7 @@ define hidden noundef zeroext i1 @have_postdissector() local_unnamed_addr #0 {
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %10, %12, %0
   %.lcssa = phi i1 [ false, %0 ], [ false, %12 ], [ true, %10 ]
@@ -6673,7 +6673,7 @@ call_dissector_only.exit:                         ; preds = %.lr.ph
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %call_dissector_only.exit, %3
   ret void
@@ -6725,7 +6725,7 @@ define noundef zeroext i1 @postdissectors_want_hfids() local_unnamed_addr #0 {
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %17, %12, %19, %0
   %.lcssa = phi i1 [ false, %0 ], [ false, %19 ], [ true, %12 ], [ true, %17 ]
@@ -6791,7 +6791,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %25, %.preheader, %1
   ret void
@@ -7240,7 +7240,7 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load i8, ptr %12, align 8, !range !10, !noundef !11
+  %13 = load i8, ptr %12, align 8, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   %15 = select i1 %14, i32 84, i32 70
   br label %16
@@ -7253,7 +7253,7 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %22 = load i8, ptr %21, align 1, !range !10, !noundef !11
+  %22 = load i8, ptr %21, align 1, !range !9, !noundef !10
   %23 = trunc nuw i8 %22 to i1
   %24 = select i1 %23, i32 84, i32 70
   br label %25
@@ -7366,38 +7366,37 @@ attributes #31 = { allocsize(0,1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !8, !15}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8, !15}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !14}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7, !14}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}

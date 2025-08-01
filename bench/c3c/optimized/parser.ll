@@ -494,7 +494,7 @@ advance.exit95:                                   ; preds = %19
   store ptr %127, ptr %159, align 8
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %.backedge, label %.lr.ph120, !llvm.loop !10
+  br i1 %exitcond131.not, label %.backedge, label %.lr.ph120, !llvm.loop !9
 
 160:                                              ; preds = %118
   %161 = load ptr, ptr %119, align 8
@@ -564,7 +564,7 @@ advance.exit95:                                   ; preds = %19
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
   %197 = load i32, ptr %196, align 8
   %.not = icmp eq i32 %197, 189
-  br i1 %.not, label %._crit_edge, label %.lr.ph122, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph122, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.backedge, %1, %advance.exit, %advance.exit95
   ret void
@@ -644,7 +644,7 @@ advance.exit:                                     ; preds = %9
 28:                                               ; preds = %26
   %29 = call ptr @parse_top_level_statement(ptr noundef nonnull %3, ptr noundef null) #10
   %.not66 = icmp eq ptr %29, null
-  br i1 %.not66, label %26, label %30, !llvm.loop !12
+  br i1 %.not66, label %26, label %30, !llvm.loop !11
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -736,7 +736,7 @@ advance.exit:                                     ; preds = %9
   store ptr %45, ptr %74, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 75:                                               ; preds = %30
   %.not.i72 = icmp eq ptr %.061.ph, null
@@ -794,7 +794,7 @@ advance.exit:                                     ; preds = %9
 
 .loopexit:                                        ; preds = %69, %38, %41, %99
   %.2 = phi ptr [ %102, %99 ], [ %.061.ph, %41 ], [ %.061.ph, %38 ], [ %72, %69 ]
-  br label %.outer, !llvm.loop !12
+  br label %.outer, !llvm.loop !11
 
 .loopexit79:                                      ; preds = %26, %34
   %.054 = phi ptr [ null, %34 ], [ %.061.ph, %26 ]
@@ -848,7 +848,7 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
   store i8 %15, ptr %17, align 1
   %18 = call i32 @getchar()
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %14, %0
   %.029.lcssa = phi ptr [ %1, %0 ], [ %.130, %14 ]
@@ -935,11 +935,9 @@ attributes #13 = { nounwind allocsize(1) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

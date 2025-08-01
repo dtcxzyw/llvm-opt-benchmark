@@ -285,7 +285,7 @@ define dso_local i32 @uv_loop_fork(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %12, label %.loopexit, !llvm.loop !4
+  br i1 %31, label %12, label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.preheader, %5, %3, %1
   %.0 = phi i32 [ %2, %1 ], [ %4, %3 ], [ %6, %5 ], [ 0, %.preheader ], [ 0, %28 ]
@@ -430,5 +430,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

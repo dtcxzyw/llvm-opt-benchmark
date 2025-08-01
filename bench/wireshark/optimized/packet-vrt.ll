@@ -1390,7 +1390,7 @@ dissect_context_as_cif.exit.i:                    ; preds = %127
   %.1.i = phi i32 [ %149, %146 ], [ %.03044.i, %130 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %130, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader.i, label %130, !llvm.loop !10
 
 151:                                              ; preds = %dissect_context_as_cif.exit.i
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1517,7 +1517,7 @@ dissect_context.exit:                             ; preds = %176, %dissect_conte
 223:                                              ; preds = %214, %210
   %indvars.iv.next.i103 = add nsw i64 %indvars.iv.i102, -1
   %.not38.i = icmp eq i64 %indvars.iv.i102, 0
-  br i1 %.not38.i, label %dissect_trailer.exit, label %210, !llvm.loop !12
+  br i1 %.not38.i, label %dissect_trailer.exit, label %210, !llvm.loop !11
 
 dissect_trailer.exit:                             ; preds = %223, %190
   %224 = add i32 %192, 3
@@ -2120,8 +2120,7 @@ attributes #8 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

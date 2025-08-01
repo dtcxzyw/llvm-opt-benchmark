@@ -755,7 +755,7 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   br i1 %95, label %drain.exit.i, label %.backedge.i.i.backedge
 
 .backedge.i.i.backedge:                           ; preds = %93, %82
-  br label %.backedge.i.i, !llvm.loop !7
+  br label %.backedge.i.i
 
 drain.exit.i:                                     ; preds = %93, %82
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #14
@@ -889,7 +889,7 @@ drain.exit.i:                                     ; preds = %93, %82
   %153 = icmp ult ptr %150, %152
   %154 = icmp slt i32 %.157.i, %45
   %155 = select i1 %153, i1 %154, i1 false
-  br i1 %155, label %64, label %WaitEventSetWaitBlock.exit, !llvm.loop !9
+  br i1 %155, label %64, label %WaitEventSetWaitBlock.exit, !llvm.loop !7
 
 WaitEventSetWaitBlock.exit:                       ; preds = %.thread75.i, %51, %58, %60
   %.054.i = phi i32 [ 0, %51 ], [ -1, %58 ], [ 0, %60 ], [ %.157.i, %.thread75.i ]
@@ -937,7 +937,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread75.i, %51, %
 179:                                              ; preds = %167, %163
   %.352 = phi i64 [ %.251, %163 ], [ %177, %167 ]
   %180 = icmp eq i32 %164, 0
-  br i1 %180, label %26, label %.thread75, !llvm.loop !11
+  br i1 %180, label %26, label %.thread75
 
 .thread75:                                        ; preds = %167, %161, %.thread73, %179
   %.147 = phi i32 [ %164, %179 ], [ %.248, %161 ], [ 1, %.thread73 ], [ 0, %167 ]
@@ -1063,14 +1063,14 @@ FreeWaitEventSet.exit:                            ; preds = %52, %57
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetLatch(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %1
   store i32 1, ptr %0, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not6 = icmp eq i32 %5, 0
@@ -1106,7 +1106,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResetLatch(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   ret void
 }
 
@@ -1272,10 +1272,7 @@ attributes #17 = { noreturn nounwind }
 !5 = !{}
 !6 = !{i64 2150532286}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !10, !8}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !8}
-!12 = !{i64 2150521977}
-!13 = !{i64 2150522073}
-!14 = !{i64 2150522205}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{i64 2150521977}
+!10 = !{i64 2150522073}
+!11 = !{i64 2150522205}

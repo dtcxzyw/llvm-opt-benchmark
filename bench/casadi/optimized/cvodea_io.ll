@@ -702,7 +702,7 @@ define range(i32 -101, 1) i32 @CVodeGetAdjDataPointHermite(ptr noundef %0, i32 n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %17 = load i32, ptr %16, align 8, !tbaa !51
+  %17 = load i32, ptr %16, align 8, !tbaa !50
   %.not = icmp eq i32 %17, 1
   br i1 %.not, label %19, label %18
 
@@ -712,19 +712,19 @@ define range(i32 -101, 1) i32 @CVodeGetAdjDataPointHermite(ptr noundef %0, i32 n
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
   %22 = sext i32 %1 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
-  %25 = load double, ptr %24, align 8, !tbaa !55
-  store double %25, ptr %2, align 8, !tbaa !57
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %25 = load double, ptr %24, align 8, !tbaa !54
+  store double %25, ptr %2, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !58
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %.not22 = icmp eq ptr %3, null
   br i1 %.not22, label %30, label %28
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %27, align 8, !tbaa !59
+  %29 = load ptr, ptr %27, align 8, !tbaa !58
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %29, ptr noundef nonnull %3) #2
   br label %30
 
@@ -734,7 +734,7 @@ define range(i32 -101, 1) i32 @CVodeGetAdjDataPointHermite(ptr noundef %0, i32 n
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !61
+  %33 = load ptr, ptr %32, align 8, !tbaa !60
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %33, ptr noundef nonnull %4) #2
   br label %34
 
@@ -768,7 +768,7 @@ define range(i32 -101, 1) i32 @CVodeGetAdjDataPointPolynomial(ptr noundef %0, i3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %17 = load i32, ptr %16, align 8, !tbaa !51
+  %17 = load i32, ptr %16, align 8, !tbaa !50
   %.not = icmp eq i32 %17, 2
   br i1 %.not, label %19, label %18
 
@@ -778,26 +778,26 @@ define range(i32 -101, 1) i32 @CVodeGetAdjDataPointPolynomial(ptr noundef %0, i3
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %21 = load ptr, ptr %20, align 8, !tbaa !51
   %22 = sext i32 %1 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
-  %25 = load double, ptr %24, align 8, !tbaa !55
-  store double %25, ptr %2, align 8, !tbaa !57
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %25 = load double, ptr %24, align 8, !tbaa !54
+  store double %25, ptr %2, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !58
+  %27 = load ptr, ptr %26, align 8, !tbaa !57
   %.not20 = icmp eq ptr %4, null
   br i1 %.not20, label %30, label %28
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %27, align 8, !tbaa !62
+  %29 = load ptr, ptr %27, align 8, !tbaa !61
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %29, ptr noundef nonnull %4) #2
   br label %30
 
 30:                                               ; preds = %28, %19
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !64
-  store i32 %32, ptr %3, align 4, !tbaa !65
+  %32 = load i32, ptr %31, align 8, !tbaa !63
+  store i32 %32, ptr %3, align 4, !tbaa !64
   br label %33
 
 33:                                               ; preds = %30, %18, %12, %7
@@ -828,8 +828,8 @@ define range(i32 -101, 1) i32 @CVodeGetAdjCurrentCheckPoint(ptr noundef %0, ptr 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
-  store ptr %14, ptr %1, align 8, !tbaa !67
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
+  store ptr %14, ptr %1, align 8, !tbaa !66
   br label %15
 
 15:                                               ; preds = %10, %9, %4
@@ -891,23 +891,22 @@ attributes #2 = { nounwind }
 !45 = !{!34, !9, i64 40}
 !46 = !{!36, !5, i64 504}
 !47 = !{!34, !5, i64 48}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!20, !9, i64 112}
-!52 = !{!20, !23, i64 96}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS11DtpntMemRec", !8, i64 0}
-!55 = !{!56, !5, i64 0}
-!56 = !{!"DtpntMemRec", !5, i64 0, !8, i64 8}
-!57 = !{!5, !5, i64 0}
-!58 = !{!56, !8, i64 8}
-!59 = !{!60, !10, i64 0}
-!60 = !{!"HermiteDataMemRec", !10, i64 0, !10, i64 8, !13, i64 16, !13, i64 24}
-!61 = !{!60, !10, i64 8}
-!62 = !{!63, !10, i64 0}
-!63 = !{!"PolynomialDataMemRec", !10, i64 0, !13, i64 8, !9, i64 16}
-!64 = !{!63, !9, i64 16}
-!65 = !{!9, !9, i64 0}
-!66 = !{!20, !22, i64 80}
-!67 = !{!8, !8, i64 0}
+!50 = !{!20, !9, i64 112}
+!51 = !{!20, !23, i64 96}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS11DtpntMemRec", !8, i64 0}
+!54 = !{!55, !5, i64 0}
+!55 = !{!"DtpntMemRec", !5, i64 0, !8, i64 8}
+!56 = !{!5, !5, i64 0}
+!57 = !{!55, !8, i64 8}
+!58 = !{!59, !10, i64 0}
+!59 = !{!"HermiteDataMemRec", !10, i64 0, !10, i64 8, !13, i64 16, !13, i64 24}
+!60 = !{!59, !10, i64 8}
+!61 = !{!62, !10, i64 0}
+!62 = !{!"PolynomialDataMemRec", !10, i64 0, !13, i64 8, !9, i64 16}
+!63 = !{!62, !9, i64 16}
+!64 = !{!9, !9, i64 0}
+!65 = !{!20, !22, i64 80}
+!66 = !{!8, !8, i64 0}

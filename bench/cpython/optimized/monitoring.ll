@@ -186,7 +186,7 @@ Py_DECREF.exit:                                   ; preds = %10, %13, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
   %25 = load ptr, ptr %2, align 8, !tbaa !6
   %26 = getelementptr %struct._PyMonitoringState, ptr %25, i64 %indvars.iv
-  %27 = load i8, ptr %26, align 1, !tbaa !28
+  %27 = load i8, ptr %26, align 1, !tbaa !27
   %28 = zext i8 %27 to i32
   %29 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.5, i32 noundef %28) #4
   %30 = icmp eq ptr %29, null
@@ -263,7 +263,7 @@ define internal ptr @CodeLike_new(ptr noundef %0, ptr noundef %1, ptr readnone c
   br i1 %.not, label %21, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %4, align 4, !tbaa !30
+  %7 = load i32, ptr %4, align 4, !tbaa !29
   %8 = sext i32 %7 to i64
   %9 = call ptr @PyMem_Calloc(i64 noundef %8, i64 noundef 2) #4
   %10 = icmp eq ptr %9, null
@@ -271,17 +271,17 @@ define internal ptr @CodeLike_new(ptr noundef %0, ptr noundef %1, ptr readnone c
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = call ptr %13(ptr noundef %0, i64 noundef 0) #4
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %20, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 0, ptr %16, align 8, !tbaa !32
+  store i64 0, ptr %16, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %9, ptr %17, align 8, !tbaa !6
-  %18 = load i32, ptr %4, align 4, !tbaa !30
+  %18 = load i32, ptr %4, align 4, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %18, ptr %19, align 8, !tbaa !24
   br label %21
@@ -331,17 +331,17 @@ define internal ptr @fire_event_py_start(ptr readnone captures(none) %0, ptr nou
   br i1 %.not, label %40, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !33
-  %8 = load i32, ptr %4, align 4, !tbaa !30
+  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %8 = load i32, ptr %4, align 4, !tbaa !29
   %9 = getelementptr i8, ptr %7, i64 8
   %.val14.i = load ptr, ptr %9, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %14, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %6
-  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.32, ptr noundef %12) #4
   br label %40
 
@@ -368,7 +368,7 @@ setup_fire.exit:                                  ; preds = %16
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %setup_fire.exit
-  %27 = load i8, ptr %24, align 1, !tbaa !28
+  %27 = load i8, ptr %24, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %27, 0
   br i1 %.not.i13, label %PyMonitoring_FirePyStartEvent.exit.thread, label %PyMonitoring_FirePyStartEvent.exit
 
@@ -388,7 +388,7 @@ PyMonitoring_FirePyStartEvent.exit.thread:        ; preds = %26, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FirePyStartEvent.exit.thread
   call void @PyErr_Clear() #4
-  %32 = load i8, ptr %24, align 1, !tbaa !28
+  %32 = load i8, ptr %24, align 1, !tbaa !27
   %33 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %33, null
   br i1 %.not11, label %37, label %36
@@ -429,17 +429,17 @@ define internal ptr @fire_event_py_resume(ptr readnone captures(none) %0, ptr no
   br i1 %.not, label %40, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !33
-  %8 = load i32, ptr %4, align 4, !tbaa !30
+  %7 = load ptr, ptr %3, align 8, !tbaa !32
+  %8 = load i32, ptr %4, align 4, !tbaa !29
   %9 = getelementptr i8, ptr %7, i64 8
   %.val14.i = load ptr, ptr %9, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %14, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %6
-  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %10 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.32, ptr noundef %12) #4
   br label %40
 
@@ -466,7 +466,7 @@ setup_fire.exit:                                  ; preds = %16
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %setup_fire.exit
-  %27 = load i8, ptr %24, align 1, !tbaa !28
+  %27 = load i8, ptr %24, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %27, 0
   br i1 %.not.i13, label %PyMonitoring_FirePyResumeEvent.exit.thread, label %PyMonitoring_FirePyResumeEvent.exit
 
@@ -486,7 +486,7 @@ PyMonitoring_FirePyResumeEvent.exit.thread:       ; preds = %26, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FirePyResumeEvent.exit.thread
   call void @PyErr_Clear() #4
-  %32 = load i8, ptr %24, align 1, !tbaa !28
+  %32 = load i8, ptr %24, align 1, !tbaa !27
   %33 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %33, null
   br i1 %.not11, label %37, label %36
@@ -529,17 +529,17 @@ define internal ptr @fire_event_py_return(ptr readnone captures(none) %0, ptr no
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -566,12 +566,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FirePyReturnEvent.exit.thread, label %PyMonitoring_FirePyReturnEvent.exit
 
 PyMonitoring_FirePyReturnEvent.exit:              ; preds = %27
-  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %29 = load ptr, ptr %5, align 8, !tbaa !32
   %30 = call i32 @_PyMonitoring_FirePyReturnEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FirePyReturnEvent.exit.thread
@@ -587,7 +587,7 @@ PyMonitoring_FirePyReturnEvent.exit.thread:       ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FirePyReturnEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -631,17 +631,17 @@ define internal ptr @fire_event_c_return(ptr readnone captures(none) %0, ptr nou
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -668,12 +668,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FireCReturnEvent.exit.thread, label %PyMonitoring_FireCReturnEvent.exit
 
 PyMonitoring_FireCReturnEvent.exit:               ; preds = %27
-  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %29 = load ptr, ptr %5, align 8, !tbaa !32
   %30 = call i32 @_PyMonitoring_FireCReturnEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FireCReturnEvent.exit.thread
@@ -689,7 +689,7 @@ PyMonitoring_FireCReturnEvent.exit.thread:        ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireCReturnEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -733,17 +733,17 @@ define internal ptr @fire_event_py_yield(ptr readnone captures(none) %0, ptr nou
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -770,12 +770,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FirePyYieldEvent.exit.thread, label %PyMonitoring_FirePyYieldEvent.exit
 
 PyMonitoring_FirePyYieldEvent.exit:               ; preds = %27
-  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %29 = load ptr, ptr %5, align 8, !tbaa !32
   %30 = call i32 @_PyMonitoring_FirePyYieldEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FirePyYieldEvent.exit.thread
@@ -791,7 +791,7 @@ PyMonitoring_FirePyYieldEvent.exit.thread:        ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FirePyYieldEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -837,17 +837,17 @@ define internal ptr @fire_event_call(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %44, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !33
-  %10 = load i32, ptr %4, align 4, !tbaa !30
+  %9 = load ptr, ptr %3, align 8, !tbaa !32
+  %10 = load i32, ptr %4, align 4, !tbaa !29
   %11 = getelementptr i8, ptr %9, i64 8
   %.val14.i = load ptr, ptr %11, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %16, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %8
-  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !34
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.32, ptr noundef %14) #4
   br label %44
 
@@ -874,13 +874,13 @@ setup_fire.exit:                                  ; preds = %18
   br i1 %27, label %44, label %28
 
 28:                                               ; preds = %setup_fire.exit
-  %29 = load i8, ptr %26, align 1, !tbaa !28
+  %29 = load i8, ptr %26, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %29, 0
   br i1 %.not.i13, label %PyMonitoring_FireCallEvent.exit.thread, label %PyMonitoring_FireCallEvent.exit
 
 PyMonitoring_FireCallEvent.exit:                  ; preds = %28
-  %30 = load ptr, ptr %6, align 8, !tbaa !33
-  %31 = load ptr, ptr %5, align 8, !tbaa !33
+  %30 = load ptr, ptr %6, align 8, !tbaa !32
+  %31 = load ptr, ptr %5, align 8, !tbaa !32
   %32 = call i32 @_PyMonitoring_FireCallEvent(ptr noundef nonnull %26, ptr noundef nonnull %9, i32 noundef %10, ptr noundef %31, ptr noundef %30) #4
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %teardown_fire.exit.thread, label %PyMonitoring_FireCallEvent.exit.thread
@@ -896,7 +896,7 @@ PyMonitoring_FireCallEvent.exit.thread:           ; preds = %28, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireCallEvent.exit.thread
   call void @PyErr_Clear() #4
-  %36 = load i8, ptr %26, align 1, !tbaa !28
+  %36 = load i8, ptr %26, align 1, !tbaa !27
   %37 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %37, null
   br i1 %.not11, label %41, label %40
@@ -941,17 +941,17 @@ define internal ptr @fire_event_line(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -978,12 +978,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FireLineEvent.exit.thread, label %PyMonitoring_FireLineEvent.exit
 
 PyMonitoring_FireLineEvent.exit:                  ; preds = %27
-  %29 = load i32, ptr %5, align 4, !tbaa !30
+  %29 = load i32, ptr %5, align 4, !tbaa !29
   %30 = call i32 @_PyMonitoring_FireLineEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, i32 noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FireLineEvent.exit.thread
@@ -999,7 +999,7 @@ PyMonitoring_FireLineEvent.exit.thread:           ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireLineEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -1043,17 +1043,17 @@ define internal ptr @fire_event_jump(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -1080,12 +1080,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FireJumpEvent.exit.thread, label %PyMonitoring_FireJumpEvent.exit
 
 PyMonitoring_FireJumpEvent.exit:                  ; preds = %27
-  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %29 = load ptr, ptr %5, align 8, !tbaa !32
   %30 = call i32 @_PyMonitoring_FireJumpEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FireJumpEvent.exit.thread
@@ -1101,7 +1101,7 @@ PyMonitoring_FireJumpEvent.exit.thread:           ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireJumpEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -1145,17 +1145,17 @@ define internal ptr @fire_event_branch_left(ptr readnone captures(none) %0, ptr 
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -1182,12 +1182,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FireBranchLeftEvent.exit.thread, label %PyMonitoring_FireBranchLeftEvent.exit
 
 PyMonitoring_FireBranchLeftEvent.exit:            ; preds = %27
-  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %29 = load ptr, ptr %5, align 8, !tbaa !32
   %30 = call i32 @_PyMonitoring_FireBranchLeftEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FireBranchLeftEvent.exit.thread
@@ -1203,7 +1203,7 @@ PyMonitoring_FireBranchLeftEvent.exit.thread:     ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireBranchLeftEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -1247,17 +1247,17 @@ define internal ptr @fire_event_branch_right(ptr readnone captures(none) %0, ptr
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !33
-  %9 = load i32, ptr %4, align 4, !tbaa !30
+  %8 = load ptr, ptr %3, align 8, !tbaa !32
+  %9 = load i32, ptr %4, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 8
   %.val14.i = load ptr, ptr %10, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %15, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %7
-  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %11 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %13) #4
   br label %42
 
@@ -1284,12 +1284,12 @@ setup_fire.exit:                                  ; preds = %17
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %setup_fire.exit
-  %28 = load i8, ptr %25, align 1, !tbaa !28
+  %28 = load i8, ptr %25, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %28, 0
   br i1 %.not.i13, label %PyMonitoring_FireBranchRightEvent.exit.thread, label %PyMonitoring_FireBranchRightEvent.exit
 
 PyMonitoring_FireBranchRightEvent.exit:           ; preds = %27
-  %29 = load ptr, ptr %5, align 8, !tbaa !33
+  %29 = load ptr, ptr %5, align 8, !tbaa !32
   %30 = call i32 @_PyMonitoring_FireBranchRightEvent(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %29) #4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %teardown_fire.exit.thread, label %PyMonitoring_FireBranchRightEvent.exit.thread
@@ -1305,7 +1305,7 @@ PyMonitoring_FireBranchRightEvent.exit.thread:    ; preds = %27, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireBranchRightEvent.exit.thread
   call void @PyErr_Clear() #4
-  %34 = load i8, ptr %25, align 1, !tbaa !28
+  %34 = load i8, ptr %25, align 1, !tbaa !27
   %35 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %35, null
   br i1 %.not11, label %39, label %38
@@ -1349,27 +1349,27 @@ define internal ptr @fire_event_py_throw(ptr readnone captures(none) %0, ptr nou
   br i1 %.not, label %55, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %55
 
@@ -1414,19 +1414,19 @@ setup_fire.exit:                                  ; preds = %27, %_Py_NewRef.exi
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %setup_fire.exit
-  %39 = load i8, ptr %31, align 1, !tbaa !28
+  %39 = load i8, ptr %31, align 1, !tbaa !27
   %.not.i11 = icmp eq i8 %39, 0
   br i1 %.not.i11, label %PyMonitoring_FirePyThrowEvent.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %4, align 4, !tbaa !30
-  %42 = load ptr, ptr %3, align 8, !tbaa !33
+  %41 = load i32, ptr %4, align 4, !tbaa !29
+  %42 = load ptr, ptr %3, align 8, !tbaa !32
   %43 = call i32 @_PyMonitoring_FirePyThrowEvent(ptr noundef nonnull %31, ptr noundef %42, i32 noundef %41) #4
   br label %PyMonitoring_FirePyThrowEvent.exit
 
 PyMonitoring_FirePyThrowEvent.exit:               ; preds = %38, %40
   %.0.i12 = phi i32 [ %43, %40 ], [ 0, %38 ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !33
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
   %45 = call fastcc i32 @teardown_fire(i32 noundef %.0.i12, ptr noundef %31, ptr noundef %44)
   %46 = icmp eq i32 %45, -1
   %47 = call ptr @PyErr_Occurred() #4
@@ -1473,27 +1473,27 @@ define internal ptr @fire_event_raise(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not, label %55, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %55
 
@@ -1538,19 +1538,19 @@ setup_fire.exit:                                  ; preds = %27, %_Py_NewRef.exi
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %setup_fire.exit
-  %39 = load i8, ptr %31, align 1, !tbaa !28
+  %39 = load i8, ptr %31, align 1, !tbaa !27
   %.not.i11 = icmp eq i8 %39, 0
   br i1 %.not.i11, label %PyMonitoring_FireRaiseEvent.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %4, align 4, !tbaa !30
-  %42 = load ptr, ptr %3, align 8, !tbaa !33
+  %41 = load i32, ptr %4, align 4, !tbaa !29
+  %42 = load ptr, ptr %3, align 8, !tbaa !32
   %43 = call i32 @_PyMonitoring_FireRaiseEvent(ptr noundef nonnull %31, ptr noundef %42, i32 noundef %41) #4
   br label %PyMonitoring_FireRaiseEvent.exit
 
 PyMonitoring_FireRaiseEvent.exit:                 ; preds = %38, %40
   %.0.i12 = phi i32 [ %43, %40 ], [ 0, %38 ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !33
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
   %45 = call fastcc i32 @teardown_fire(i32 noundef %.0.i12, ptr noundef %31, ptr noundef %44)
   %46 = icmp eq i32 %45, -1
   %47 = call ptr @PyErr_Occurred() #4
@@ -1597,27 +1597,27 @@ define internal ptr @fire_event_c_raise(ptr readnone captures(none) %0, ptr noun
   br i1 %.not, label %55, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %55
 
@@ -1662,19 +1662,19 @@ setup_fire.exit:                                  ; preds = %27, %_Py_NewRef.exi
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %setup_fire.exit
-  %39 = load i8, ptr %31, align 1, !tbaa !28
+  %39 = load i8, ptr %31, align 1, !tbaa !27
   %.not.i11 = icmp eq i8 %39, 0
   br i1 %.not.i11, label %PyMonitoring_FireCRaiseEvent.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %4, align 4, !tbaa !30
-  %42 = load ptr, ptr %3, align 8, !tbaa !33
+  %41 = load i32, ptr %4, align 4, !tbaa !29
+  %42 = load ptr, ptr %3, align 8, !tbaa !32
   %43 = call i32 @_PyMonitoring_FireCRaiseEvent(ptr noundef nonnull %31, ptr noundef %42, i32 noundef %41) #4
   br label %PyMonitoring_FireCRaiseEvent.exit
 
 PyMonitoring_FireCRaiseEvent.exit:                ; preds = %38, %40
   %.0.i12 = phi i32 [ %43, %40 ], [ 0, %38 ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !33
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
   %45 = call fastcc i32 @teardown_fire(i32 noundef %.0.i12, ptr noundef %31, ptr noundef %44)
   %46 = icmp eq i32 %45, -1
   %47 = call ptr @PyErr_Occurred() #4
@@ -1721,27 +1721,27 @@ define internal ptr @fire_event_reraise(ptr readnone captures(none) %0, ptr noun
   br i1 %.not, label %55, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %55
 
@@ -1786,19 +1786,19 @@ setup_fire.exit:                                  ; preds = %27, %_Py_NewRef.exi
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %setup_fire.exit
-  %39 = load i8, ptr %31, align 1, !tbaa !28
+  %39 = load i8, ptr %31, align 1, !tbaa !27
   %.not.i11 = icmp eq i8 %39, 0
   br i1 %.not.i11, label %PyMonitoring_FireReraiseEvent.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %4, align 4, !tbaa !30
-  %42 = load ptr, ptr %3, align 8, !tbaa !33
+  %41 = load i32, ptr %4, align 4, !tbaa !29
+  %42 = load ptr, ptr %3, align 8, !tbaa !32
   %43 = call i32 @_PyMonitoring_FireReraiseEvent(ptr noundef nonnull %31, ptr noundef %42, i32 noundef %41) #4
   br label %PyMonitoring_FireReraiseEvent.exit
 
 PyMonitoring_FireReraiseEvent.exit:               ; preds = %38, %40
   %.0.i12 = phi i32 [ %43, %40 ], [ 0, %38 ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !33
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
   %45 = call fastcc i32 @teardown_fire(i32 noundef %.0.i12, ptr noundef %31, ptr noundef %44)
   %46 = icmp eq i32 %45, -1
   %47 = call ptr @PyErr_Occurred() #4
@@ -1845,27 +1845,27 @@ define internal ptr @fire_event_exception_handled(ptr readnone captures(none) %0
   br i1 %.not, label %55, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %55
 
@@ -1910,19 +1910,19 @@ setup_fire.exit:                                  ; preds = %27, %_Py_NewRef.exi
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %setup_fire.exit
-  %39 = load i8, ptr %31, align 1, !tbaa !28
+  %39 = load i8, ptr %31, align 1, !tbaa !27
   %.not.i11 = icmp eq i8 %39, 0
   br i1 %.not.i11, label %PyMonitoring_FireExceptionHandledEvent.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %4, align 4, !tbaa !30
-  %42 = load ptr, ptr %3, align 8, !tbaa !33
+  %41 = load i32, ptr %4, align 4, !tbaa !29
+  %42 = load ptr, ptr %3, align 8, !tbaa !32
   %43 = call i32 @_PyMonitoring_FireExceptionHandledEvent(ptr noundef nonnull %31, ptr noundef %42, i32 noundef %41) #4
   br label %PyMonitoring_FireExceptionHandledEvent.exit
 
 PyMonitoring_FireExceptionHandledEvent.exit:      ; preds = %38, %40
   %.0.i12 = phi i32 [ %43, %40 ], [ 0, %38 ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !33
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
   %45 = call fastcc i32 @teardown_fire(i32 noundef %.0.i12, ptr noundef %31, ptr noundef %44)
   %46 = icmp eq i32 %45, -1
   %47 = call ptr @PyErr_Occurred() #4
@@ -1969,27 +1969,27 @@ define internal ptr @fire_event_py_unwind(ptr readnone captures(none) %0, ptr no
   br i1 %.not, label %55, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %55
 
@@ -2034,19 +2034,19 @@ setup_fire.exit:                                  ; preds = %27, %_Py_NewRef.exi
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %setup_fire.exit
-  %39 = load i8, ptr %31, align 1, !tbaa !28
+  %39 = load i8, ptr %31, align 1, !tbaa !27
   %.not.i11 = icmp eq i8 %39, 0
   br i1 %.not.i11, label %PyMonitoring_FirePyUnwindEvent.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = load i32, ptr %4, align 4, !tbaa !30
-  %42 = load ptr, ptr %3, align 8, !tbaa !33
+  %41 = load i32, ptr %4, align 4, !tbaa !29
+  %42 = load ptr, ptr %3, align 8, !tbaa !32
   %43 = call i32 @_PyMonitoring_FirePyUnwindEvent(ptr noundef nonnull %31, ptr noundef %42, i32 noundef %41) #4
   br label %PyMonitoring_FirePyUnwindEvent.exit
 
 PyMonitoring_FirePyUnwindEvent.exit:              ; preds = %38, %40
   %.0.i12 = phi i32 [ %43, %40 ], [ 0, %38 ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !33
+  %44 = load ptr, ptr %5, align 8, !tbaa !32
   %45 = call fastcc i32 @teardown_fire(i32 noundef %.0.i12, ptr noundef %31, ptr noundef %44)
   %46 = icmp eq i32 %45, -1
   %47 = call ptr @PyErr_Occurred() #4
@@ -2093,27 +2093,27 @@ define internal ptr @fire_event_stop_iteration(ptr readnone captures(none) %0, p
   br i1 %.not, label %46, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8, !tbaa !33
+  %8 = load ptr, ptr %5, align 8, !tbaa !32
   %9 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store ptr null, ptr %5, align 8, !tbaa !33
+  store ptr null, ptr %5, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %10, %7
   %12 = phi ptr [ null, %10 ], [ %8, %7 ]
-  %13 = load ptr, ptr %3, align 8, !tbaa !33
-  %14 = load i32, ptr %4, align 4, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %14 = load i32, ptr %4, align 4, !tbaa !29
   %15 = getelementptr i8, ptr %13, i64 8
   %.val14.i = load ptr, ptr %15, align 8, !tbaa !14
   %.not.i = icmp eq ptr %.val14.i, @PyCodeLike_Type
   br i1 %.not.i, label %20, label %setup_fire.exit.thread
 
 setup_fire.exit.thread:                           ; preds = %11
-  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %16 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.32, ptr noundef %18) #4
   br label %46
 
@@ -2140,7 +2140,7 @@ setup_fire.exit:                                  ; preds = %22
   br i1 %31, label %46, label %32
 
 32:                                               ; preds = %setup_fire.exit
-  %33 = load i8, ptr %30, align 1, !tbaa !28
+  %33 = load i8, ptr %30, align 1, !tbaa !27
   %.not.i13 = icmp eq i8 %33, 0
   br i1 %.not.i13, label %PyMonitoring_FireStopIterationEvent.exit.thread, label %PyMonitoring_FireStopIterationEvent.exit
 
@@ -2160,7 +2160,7 @@ PyMonitoring_FireStopIterationEvent.exit.thread:  ; preds = %32, %PyMonitoring_F
 
 teardown_fire.exit:                               ; preds = %PyMonitoring_FireStopIterationEvent.exit.thread
   call void @PyErr_Clear() #4
-  %38 = load i8, ptr %30, align 1, !tbaa !28
+  %38 = load i8, ptr %30, align 1, !tbaa !27
   %39 = call ptr @PyErr_Occurred() #4
   %.not11 = icmp eq ptr %39, null
   br i1 %.not11, label %43, label %42
@@ -2200,7 +2200,7 @@ define internal noundef ptr @enter_scope(ptr readnone captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  store i32 0, ptr %5, align 4, !tbaa !30
+  store i32 0, ptr %5, align 4, !tbaa !29
   %7 = tail call i64 @PyTuple_Size(ptr noundef %1) #4
   %8 = add i64 %7, -1
   switch i64 %7, label %11 [
@@ -2223,26 +2223,26 @@ define internal noundef ptr @enter_scope(ptr readnone captures(none) %0, ptr nou
   br i1 %.not, label %32, label %14
 
 14:                                               ; preds = %12, %9
-  %15 = load ptr, ptr %3, align 8, !tbaa !33
+  %15 = load ptr, ptr %3, align 8, !tbaa !32
   %16 = getelementptr i8, ptr %15, i64 8
   %.val11 = load ptr, ptr %16, align 8, !tbaa !14
   %.not12 = icmp eq ptr %.val11, @PyCodeLike_Type
   br i1 %.not12, label %22, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  %18 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %.val11, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !34
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.32, ptr noundef %20) #4
   br label %32
 
 22:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #4
-  %23 = load i32, ptr %4, align 4, !tbaa !30
+  %23 = load i32, ptr %4, align 4, !tbaa !29
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %6, align 1, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %26 = load i32, ptr %5, align 4, !tbaa !30
+  %26 = load i32, ptr %5, align 4, !tbaa !29
   %27 = trunc i32 %26 to i8
   store i8 %27, ptr %25, align 1, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2304,7 +2304,7 @@ define internal fastcc range(i32 -1, 256) i32 @teardown_fire(i32 noundef %0, ptr
 
 16:                                               ; preds = %14, %9
   tail call void @PyErr_Clear() #4
-  %17 = load i8, ptr %1, align 1, !tbaa !28
+  %17 = load i8, ptr %1, align 1, !tbaa !27
   %18 = zext i8 %17 to i32
   br label %19
 
@@ -2400,13 +2400,12 @@ attributes #5 = { noreturn nounwind }
 !22 = !{!"p1 _ZTS7_object", !10, i64 0}
 !23 = !{!"short", !4, i64 0}
 !24 = !{!7, !13, i64 32}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !4, i64 0}
-!29 = !{!"_PyMonitoringState", !4, i64 0, !4, i64 1}
-!30 = !{!13, !13, i64 0}
-!31 = !{!16, !10, i64 304}
-!32 = !{!7, !12, i64 24}
-!33 = !{!22, !22, i64 0}
-!34 = !{!16, !18, i64 24}
+!27 = !{!28, !4, i64 0}
+!28 = !{!"_PyMonitoringState", !4, i64 0, !4, i64 1}
+!29 = !{!13, !13, i64 0}
+!30 = !{!16, !10, i64 304}
+!31 = !{!7, !12, i64 24}
+!32 = !{!22, !22, i64 0}
+!33 = !{!16, !18, i64 24}

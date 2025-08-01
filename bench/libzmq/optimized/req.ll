@@ -385,7 +385,7 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
 
 .preheader90:                                     ; preds = %19, %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr null, ptr %7, align 8, !tbaa !106
+  store ptr null, ptr %7, align 8, !tbaa !105
   %22 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %.thread67
@@ -397,7 +397,7 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %26 = icmp ne ptr %25, %24
   %or.cond.not.i = select i1 %.not8.i, i1 %26, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  br i1 %or.cond.not.i, label %.preheader90, label %27, !llvm.loop !107
+  br i1 %or.cond.not.i, label %.preheader90, label %27
 
 .thread67:                                        ; preds = %.preheader90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
@@ -425,14 +425,14 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %36 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %37 = and i8 %36, 1
   %.not3789 = icmp eq i8 %37, 0
-  br i1 %.not3789, label %.backedge, label %.preheader.lr.ph, !llvm.loop !108
+  br i1 %.not3789, label %.backedge, label %.preheader.lr.ph, !llvm.loop !106
 
 .preheader.lr.ph:                                 ; preds = %.preheader77
-  br label %.preheader, !llvm.loop !108
+  br label %.preheader, !llvm.loop !106
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !tbaa !106
+  store ptr null, ptr %6, align 8, !tbaa !105
   %38 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %.not.i45 = icmp eq i32 %38, 0
   br i1 %.not.i45, label %39, label %43
@@ -447,7 +447,7 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   br i1 %or.cond.not.i48, label %.preheader.backedge, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread
 
 .preheader.backedge:                              ; preds = %39, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread
-  br label %.preheader, !llvm.loop !109
+  br label %.preheader, !llvm.loop !107
 
 43:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
@@ -465,11 +465,11 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %51 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %52 = and i8 %51, 1
   %.not37 = icmp eq i8 %52, 0
-  br i1 %.not37, label %.backedge, label %.preheader.backedge, !llvm.loop !108
+  br i1 %.not37, label %.backedge, label %.preheader.backedge, !llvm.loop !106
 
 .thread:                                          ; preds = %.thread.preheader, %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !106
+  store ptr null, ptr %5, align 8, !tbaa !105
   %53 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %5)
   %.not.i50 = icmp eq i32 %53, 0
   br i1 %.not.i50, label %54, label %.thread70
@@ -481,7 +481,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %57 = icmp ne ptr %56, %55
   %or.cond.not.i53 = select i1 %.not8.i52, i1 %57, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  br i1 %or.cond.not.i53, label %.thread, label %58, !llvm.loop !107
+  br i1 %or.cond.not.i53, label %.thread, label %58
 
 .thread70:                                        ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
@@ -502,14 +502,14 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %63 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %64 = and i8 %63, 1
   %.not4188 = icmp eq i8 %64, 0
-  br i1 %.not4188, label %.backedge, label %.preheader76.lr.ph, !llvm.loop !108
+  br i1 %.not4188, label %.backedge, label %.preheader76.lr.ph, !llvm.loop !106
 
 .preheader76.lr.ph:                               ; preds = %.critedge44.preheader
-  br label %.preheader76, !llvm.loop !108
+  br label %.preheader76, !llvm.loop !106
 
 .preheader76:                                     ; preds = %.preheader76.backedge, %.preheader76.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !106
+  store ptr null, ptr %4, align 8, !tbaa !105
   %65 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not.i55 = icmp eq i32 %65, 0
   br i1 %.not.i55, label %66, label %70
@@ -524,7 +524,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   br i1 %or.cond.not.i58, label %.preheader76.backedge, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
 
 .preheader76.backedge:                            ; preds = %66, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
-  br label %.preheader76, !llvm.loop !110
+  br label %.preheader76, !llvm.loop !108
 
 70:                                               ; preds = %.preheader76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -542,7 +542,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   %78 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %79 = and i8 %78, 1
   %.not41 = icmp eq i8 %79, 0
-  br i1 %.not41, label %.backedge, label %.preheader76.backedge, !llvm.loop !108
+  br i1 %.not41, label %.backedge, label %.preheader76.backedge, !llvm.loop !106
 
 80:                                               ; preds = %61
   store i8 0, ptr %11, align 2, !tbaa !90
@@ -559,7 +559,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
 
 84:                                               ; preds = %86, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  store ptr null, ptr %3, align 8, !tbaa !106
+  store ptr null, ptr %3, align 8, !tbaa !105
   %85 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %3)
   %.not.i60 = icmp eq i32 %85, 0
   br i1 %.not.i60, label %86, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64
@@ -571,7 +571,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   %89 = icmp ne ptr %88, %87
   %or.cond.not.i63 = select i1 %.not8.i62, i1 %89, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br i1 %or.cond.not.i63, label %84, label %90, !llvm.loop !107
+  br i1 %or.cond.not.i63, label %84, label %90
 
 _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64: ; preds = %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
@@ -601,7 +601,7 @@ define noundef i32 @_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE(ptr noundef nonnu
 
 5:                                                ; preds = %7, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  store ptr null, ptr %3, align 8, !tbaa !106
+  store ptr null, ptr %3, align 8, !tbaa !105
   %6 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %0, ptr noundef %1, ptr noundef nonnull %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.thread
@@ -617,7 +617,7 @@ define noundef i32 @_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE(ptr noundef nonnu
   %10 = icmp ne ptr %9, %8
   %or.cond.not = select i1 %.not8, i1 %10, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br i1 %or.cond.not, label %5, label %.loopexit, !llvm.loop !107
+  br i1 %or.cond.not, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.thread
   ret i32 %6
@@ -745,7 +745,7 @@ define void @_ZN3zmq13req_session_tC2EPNS_11io_thread_tEbPNS_13socket_base_tERKN
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3zmq13req_session_tE, i64 344), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  store i32 0, ptr %9, align 8, !tbaa !111
+  store i32 0, ptr %9, align 8, !tbaa !109
   ret void
 }
 
@@ -806,7 +806,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  %7 = load i32, ptr %6, align 8, !tbaa !111
+  %7 = load i32, ptr %6, align 8, !tbaa !109
   switch i32 %7, label %39 [
     i32 0, label %8
     i32 1, label %21
@@ -824,7 +824,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  store i32 1, ptr %6, align 8, !tbaa !111
+  store i32 1, ptr %6, align 8, !tbaa !109
   %15 = tail call noundef i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %0, ptr noundef nonnull %1)
   br label %41
 
@@ -834,7 +834,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
   br i1 %18, label %19, label %39
 
 19:                                               ; preds = %16
-  store i32 2, ptr %6, align 8, !tbaa !111
+  store i32 2, ptr %6, align 8, !tbaa !109
   %20 = tail call noundef i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %0, ptr noundef nonnull %1)
   br label %41
 
@@ -849,7 +849,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %24
-  store i32 2, ptr %6, align 8, !tbaa !111
+  store i32 2, ptr %6, align 8, !tbaa !109
   %28 = tail call noundef i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %0, ptr noundef nonnull %1)
   br label %41
 
@@ -868,7 +868,7 @@ define noundef i32 @_ZN3zmq13req_session_t8push_msgEPNS_5msg_tE(ptr noundef nonn
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  store i32 0, ptr %6, align 8, !tbaa !111
+  store i32 0, ptr %6, align 8, !tbaa !109
   %38 = tail call noundef i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %0, ptr noundef nonnull %1)
   br label %41
 
@@ -888,7 +888,7 @@ declare noundef i32 @_ZN3zmq14session_base_t8push_msgEPNS_5msg_tE(ptr noundef no
 define void @_ZN3zmq13req_session_t5resetEv(ptr noundef nonnull align 8 dereferenceable(1632) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN3zmq14session_base_t5resetEv(ptr noundef nonnull align 8 dereferenceable(1624) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  store i32 0, ptr %2, align 8, !tbaa !111
+  store i32 0, ptr %2, align 8, !tbaa !109
   ret void
 }
 
@@ -1158,25 +1158,23 @@ attributes #13 = { cold nounwind }
 !100 = !{!101, !101, i64 0}
 !101 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
 !102 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!103 = distinct !{!103, !104, !105}
+!103 = distinct !{!103, !104}
 !104 = !{!"llvm.loop.mustprogress"}
-!105 = !{!"llvm.loop.estimated_trip_count"}
-!106 = !{!89, !89, i64 0}
-!107 = distinct !{!107, !105}
+!105 = !{!89, !89, i64 0}
+!106 = distinct !{!106, !104}
+!107 = distinct !{!107, !104}
 !108 = distinct !{!108, !104}
-!109 = distinct !{!109, !104, !105}
-!110 = distinct !{!110, !104, !105}
-!111 = !{!112, !124, i64 1624}
-!112 = !{!"_ZTSN3zmq13req_session_tE", !113, i64 0, !124, i64 1624}
-!113 = !{!"_ZTSN3zmq14session_base_tE", !10, i64 0, !114, i64 1448, !65, i64 1464, !21, i64 1472, !89, i64 1480, !89, i64 1488, !115, i64 1496, !21, i64 1544, !21, i64 1545, !120, i64 1552, !121, i64 1560, !122, i64 1568, !21, i64 1576, !123, i64 1584, !22, i64 1592}
-!114 = !{!"_ZTSN3zmq11io_object_tE", !64, i64 0, !82, i64 8}
-!115 = !{!"_ZTSSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE", !116, i64 0}
-!116 = !{!"_ZTSSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE", !117, i64 0}
-!117 = !{!"_ZTSNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE13_Rb_tree_implIS6_Lb1EEE", !118, i64 0, !35, i64 8}
-!118 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3zmq6pipe_tEEE", !119, i64 0}
-!119 = !{!"_ZTSSt4lessIPN3zmq6pipe_tEE"}
-!120 = !{!"p1 _ZTSN3zmq8i_engineE", !13, i64 0}
-!121 = !{!"p1 _ZTSN3zmq13socket_base_tE", !13, i64 0}
-!122 = !{!"p1 _ZTSN3zmq11io_thread_tE", !13, i64 0}
-!123 = !{!"p1 _ZTSN3zmq9address_tE", !13, i64 0}
-!124 = !{!"_ZTSN3zmq13req_session_tUt_E", !14, i64 0}
+!109 = !{!110, !122, i64 1624}
+!110 = !{!"_ZTSN3zmq13req_session_tE", !111, i64 0, !122, i64 1624}
+!111 = !{!"_ZTSN3zmq14session_base_tE", !10, i64 0, !112, i64 1448, !65, i64 1464, !21, i64 1472, !89, i64 1480, !89, i64 1488, !113, i64 1496, !21, i64 1544, !21, i64 1545, !118, i64 1552, !119, i64 1560, !120, i64 1568, !21, i64 1576, !121, i64 1584, !22, i64 1592}
+!112 = !{!"_ZTSN3zmq11io_object_tE", !64, i64 0, !82, i64 8}
+!113 = !{!"_ZTSSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EE", !114, i64 0}
+!114 = !{!"_ZTSSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE", !115, i64 0}
+!115 = !{!"_ZTSNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE13_Rb_tree_implIS6_Lb1EEE", !116, i64 0, !35, i64 8}
+!116 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3zmq6pipe_tEEE", !117, i64 0}
+!117 = !{!"_ZTSSt4lessIPN3zmq6pipe_tEE"}
+!118 = !{!"p1 _ZTSN3zmq8i_engineE", !13, i64 0}
+!119 = !{!"p1 _ZTSN3zmq13socket_base_tE", !13, i64 0}
+!120 = !{!"p1 _ZTSN3zmq11io_thread_tE", !13, i64 0}
+!121 = !{!"p1 _ZTSN3zmq9address_tE", !13, i64 0}
+!122 = !{!"_ZTSN3zmq13req_session_tUt_E", !14, i64 0}

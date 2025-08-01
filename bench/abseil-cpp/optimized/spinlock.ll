@@ -89,7 +89,7 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit.thread: ; preds = %1, 
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit.thread
-  %12 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !19
+  %12 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   %15 = shl i64 %14, 32
@@ -140,7 +140,7 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit10: ; preds = %25
   %.024.be = phi i32 [ %30, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit10 ], [ %26, %32 ]
   %31 = and i32 %.024.be, 1
   %.not7 = icmp eq i32 %31, 0
-  br i1 %.not7, label %.loopexit, label %19, !llvm.loop !20
+  br i1 %.not7, label %.loopexit, label %19, !llvm.loop !19
 
 32:                                               ; preds = %25
   %33 = icmp ult i32 %26, 8
@@ -156,7 +156,7 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit10: ; preds = %25
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %.loopexit27
-  %39 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !19
+  %39 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   %40 = extractvalue { i64, i64 } %39, 0
   %41 = extractvalue { i64, i64 } %39, 1
   %42 = shl i64 %41, 32
@@ -204,7 +204,7 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18: ; preds = %_ZN4absl
   %.04.i17 = phi i32 [ %35, %_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll.exit ], [ %56, %52 ]
   %57 = and i32 %.04.i17, 1
   %.not730 = icmp eq i32 %57, 0
-  br i1 %.not730, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not730, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18, %.backedge, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit
   ret void
@@ -334,8 +334,7 @@ attributes #8 = { nounwind }
 !13 = !{!"int", !9, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15 = !{!13, !13, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{i64 3007527}
-!20 = distinct !{!20, !17, !18}
+!18 = !{i64 3007527}
+!19 = distinct !{!19, !17}

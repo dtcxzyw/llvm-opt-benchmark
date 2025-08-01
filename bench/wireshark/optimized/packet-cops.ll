@@ -2014,7 +2014,7 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %412 = add nuw i32 %.0228279, 1
   %413 = call i32 @wmem_array_get_count(ptr noundef %.0)
   %414 = icmp ult i32 %412, %413
-  br i1 %414, label %392, label %.loopexit, !llvm.loop !11
+  br i1 %414, label %392, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit, %.preheader270, %362, %382
   br i1 %352, label %415, label %proto_item_set_generated.exit253
@@ -2128,13 +2128,13 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %463 = add nuw i32 %.1284, 1
   %464 = call i32 @wmem_array_get_count(ptr noundef nonnull %419)
   %465 = icmp ult i32 %463, %464
-  br i1 %465, label %435, label %proto_item_set_generated.exit253, !llvm.loop !12
+  br i1 %465, label %435, label %proto_item_set_generated.exit253, !llvm.loop !11
 
 466:                                              ; preds = %470
   %467 = add nuw i32 %.2281, 1
   %468 = call i32 @wmem_array_get_count(ptr noundef nonnull %419)
   %469 = icmp ult i32 %467, %468
-  br i1 %469, label %470, label %proto_item_set_generated.exit253, !llvm.loop !13
+  br i1 %469, label %470, label %proto_item_set_generated.exit253, !llvm.loop !12
 
 470:                                              ; preds = %.lr.ph282, %466
   %.2281 = phi i32 [ 0, %.lr.ph282 ], [ %467, %466 ]
@@ -2471,7 +2471,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %spec.select.i.i = add i32 %.03544.i.i, %94
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %90
   %.035.lcssa.i.i = phi i32 [ 0, %90 ], [ %spec.select.i.i, %.lr.ph.i.i ]
@@ -2532,7 +2532,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %.138.i.i = phi ptr [ %116, %115 ], [ %.03751.i.i, %.lr.ph54.i.i ]
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, %wide.trip.count66.i.i
-  br i1 %exitcond67.not.i.i, label %redecode_oid.exit.loopexit.i, label %.lr.ph54.i.i, !llvm.loop !15
+  br i1 %exitcond67.not.i.i, label %redecode_oid.exit.loopexit.i, label %.lr.ph54.i.i, !llvm.loop !14
 
 redecode_oid.exit.loopexit.i:                     ; preds = %117
   %.pre.i = load ptr, ptr %11, align 8
@@ -2670,7 +2670,7 @@ redecode_oid.exit.i:                              ; preds = %redecode_oid.exit.l
   %183 = getelementptr i8, ptr %.09.i.i, i64 40
   %184 = load i32, ptr %183, align 8
   %.not.i163.i = icmp eq i32 %184, -1
-  br i1 %.not.i163.i, label %cops_tag_cls2syntax.exit.i, label %171, !llvm.loop !16
+  br i1 %.not.i163.i, label %cops_tag_cls2syntax.exit.i, label %171, !llvm.loop !15
 
 cops_tag_cls2syntax.exit.i:                       ; preds = %181, %178
   %.07.in.i.i = phi ptr [ %180, %178 ], [ @hf_cops_epd_unknown, %181 ]
@@ -2691,7 +2691,7 @@ cops_tag_cls2syntax.exit.i:                       ; preds = %181, %178
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #10
   %191 = icmp ult i32 %190, %141
-  br i1 %191, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
+  br i1 %191, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %185, %154
   store ptr null, ptr %5, align 8
@@ -2787,7 +2787,7 @@ dissect_cops_pr_object_data.exit:                 ; preds = %77, %139, %140, %._
   %249 = sub nsw i32 %.06472, %.065
   %250 = add i32 %.065, %.073
   %251 = icmp sgt i32 %249, 3
-  br i1 %251, label %29, label %.loopexit, !llvm.loop !18
+  br i1 %251, label %29, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %dissect_cops_pr_object_data.exit, %8, %33
   ret void
@@ -3223,7 +3223,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
   %376 = add i32 %.070, %16
   %377 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %376)
   %378 = icmp sgt i32 %377, 4
-  br i1 %378, label %14, label %.loopexit, !llvm.loop !19
+  br i1 %378, label %14, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %375, %9, %5, %18
   ret void
@@ -4828,7 +4828,7 @@ cops_flow_spec.exit:                              ; preds = %1262, %1258, %1102,
   %1354 = add i32 %.0313, %15
   %1355 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1354)
   %1356 = icmp sgt i32 %1355, 4
-  br i1 %1356, label %13, label %.loopexit, !llvm.loop !20
+  br i1 %1356, label %13, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %cops_flow_spec.exit, %.preheader, %5, %17
   ret void
@@ -6215,16 +6215,15 @@ attributes #12 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

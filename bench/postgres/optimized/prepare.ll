@@ -146,7 +146,7 @@ define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 no
   %6 = load ptr, ptr %4, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.6, i32 noundef %0, ptr noundef %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %35
 
@@ -400,7 +400,7 @@ isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %
   %52 = getelementptr inbounds i8, ptr %34, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not69.i = icmp eq i8 %53, 0
-  br i1 %.not69.i, label %.critedge.loopexit.i, label %41, !llvm.loop !8
+  br i1 %.not69.i, label %.critedge.loopexit.i, label %41, !llvm.loop !7
 
 .critedge.loopexit.i:                             ; preds = %isvarchar.exit.thread.i, %isvarchar.exit.i
   %.054.lcssa.ph.i = phi i32 [ %.05480.i, %isvarchar.exit.i ], [ %49, %isvarchar.exit.thread.i ]
@@ -450,7 +450,7 @@ isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %
   %77 = getelementptr inbounds i8, ptr %74, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not.i = icmp eq i8 %78, 0
-  br i1 %.not.i, label %replace_variables.exit, label %.lr.ph89.i, !llvm.loop !9
+  br i1 %.not.i, label %replace_variables.exit, label %.lr.ph89.i, !llvm.loop !8
 
 replace_variables.exit:                           ; preds = %29, %73, %9, %60
   %79 = tail call ptr @ecpg_strdup(ptr noundef %2, i32 noundef %0) #12
@@ -567,7 +567,7 @@ define noundef zeroext i1 @ecpg_deallocate_all_conn(i32 noundef %0, i32 noundef 
 
 7:                                                ; preds = %5
   %8 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef %6)
-  br i1 %8, label %5, label %9, !llvm.loop !10
+  br i1 %8, label %5, label %9, !llvm.loop !9
 
 9:                                                ; preds = %5, %7
   ret i1 %.not
@@ -586,7 +586,7 @@ define noundef zeroext i1 @ECPGdeallocate_all(i32 noundef %0, i32 noundef %1, pt
 
 8:                                                ; preds = %6
   %9 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef null, ptr noundef %7)
-  br i1 %9, label %6, label %ecpg_deallocate_all_conn.exit, !llvm.loop !10
+  br i1 %9, label %6, label %ecpg_deallocate_all_conn.exit, !llvm.loop !9
 
 ecpg_deallocate_all_conn.exit:                    ; preds = %6, %8
   ret i1 %.not.i
@@ -689,7 +689,7 @@ define noundef zeroext i1 @ecpg_auto_prepare(i32 noundef %0, ptr noundef %1, i32
   %22 = or disjoint i64 %20, %21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.lhs.trunc.i.i = trunc nuw i64 %22 to i32
@@ -723,7 +723,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %36, 8
-  br i1 %exitcond.not.i, label %SearchStmtCache.exit.thread, label %HashStmt.exit.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %SearchStmtCache.exit.thread, label %HashStmt.exit.i, !llvm.loop !11
 
 37:                                               ; preds = %30
   %38 = icmp samesign ugt i32 %.012.i, 7
@@ -813,7 +813,7 @@ SearchStmtCache.exit.thread:                      ; preds = %35, %37, %5
   %77 = or disjoint i64 %75, %76
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i51, 1
   %exitcond.not.i.i54 = icmp eq i64 %indvars.iv.next.i.i53, %wide.trip.count.i.i49
-  br i1 %exitcond.not.i.i54, label %._crit_edge.loopexit.i.i55, label %.lr.ph.i.i50, !llvm.loop !11
+  br i1 %exitcond.not.i.i54, label %._crit_edge.loopexit.i.i55, label %.lr.ph.i.i50, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i55:                       ; preds = %.lr.ph.i.i50
   %.lhs.trunc.i.i56 = trunc nuw i64 %77 to i32
@@ -849,7 +849,7 @@ HashStmt.exit.i43:                                ; preds = %._crit_edge.loopexi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = add nuw nsw i32 %.03240.i, 1
   %exitcond.not.i46 = icmp eq i32 %94, 8
-  br i1 %exitcond.not.i46, label %.thread.i47, label %82, !llvm.loop !13
+  br i1 %exitcond.not.i46, label %.thread.i47, label %82, !llvm.loop !12
 
 95:                                               ; preds = %82
   %96 = trunc nsw i64 %indvars.iv to i32
@@ -1012,14 +1012,13 @@ attributes #13 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}

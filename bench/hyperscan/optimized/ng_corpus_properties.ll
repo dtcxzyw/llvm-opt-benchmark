@@ -68,7 +68,7 @@ define hidden void @_ZN16CorpusPropertiesC2Ev(ptr noundef nonnull align 8 captur
 35:                                               ; preds = %37
   %36 = add nuw nsw i64 %.0812.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp eq i64 %36, 624
-  br i1 %exitcond.i.i.i.i, label %.critedge.i.i.i.i, label %37, !llvm.loop !8
+  br i1 %exitcond.i.i.i.i, label %.critedge.i.i.i.i, label %37, !llvm.loop !7
 
 37:                                               ; preds = %35, %23
   %.0812.i.i.i.i = phi i64 [ 0, %23 ], [ %36, %35 ]
@@ -154,7 +154,7 @@ define hidden void @_ZN16CorpusProperties4seedEj(ptr noundef nonnull align 8 cap
 31:                                               ; preds = %33
   %32 = add nuw nsw i64 %.0812.i.i, 1
   %exitcond.i.i = icmp eq i64 %32, 624
-  br i1 %exitcond.i.i, label %.critedge.i.i, label %33, !llvm.loop !8
+  br i1 %exitcond.i.i, label %.critedge.i.i, label %33, !llvm.loop !7
 
 33:                                               ; preds = %31, %19
   %.0812.i.i = phi i64 [ 0, %19 ], [ %32, %31 ]
@@ -369,7 +369,7 @@ define linkonce_odr hidden void @_ZN5boost6random23mersenne_twister_engineIjLm32
   %18 = xor i32 %17, %14
   store i32 %18, ptr %4, align 4
   %exitcond.not = icmp eq i64 %6, 222
-  br i1 %exitcond.not, label %.preheader36.preheader, label %2, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader36.preheader, label %2, !llvm.loop !8
 
 .preheader36.preheader:                           ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -396,7 +396,7 @@ define linkonce_odr hidden void @_ZN5boost6random23mersenne_twister_engineIjLm32
   %34 = xor i32 %33, %30
   store i32 %34, ptr %20, align 4
   %exitcond40.not = icmp eq i64 %22, 227
-  br i1 %exitcond40.not, label %.preheader.preheader, label %.preheader36, !llvm.loop !10
+  br i1 %exitcond40.not, label %.preheader.preheader, label %.preheader36, !llvm.loop !9
 
 .preheader.preheader:                             ; preds = %.preheader36
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %0, i64 908
@@ -423,7 +423,7 @@ define linkonce_odr hidden void @_ZN5boost6random23mersenne_twister_engineIjLm32
   %50 = xor i32 %49, %46
   store i32 %50, ptr %36, align 4
   %exitcond41.not = icmp eq i64 %38, 623
-  br i1 %exitcond41.not, label %51, label %.preheader, !llvm.loop !11
+  br i1 %exitcond41.not, label %51, label %.preheader, !llvm.loop !10
 
 51:                                               ; preds = %.preheader
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2492
@@ -462,10 +462,9 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

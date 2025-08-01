@@ -362,7 +362,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr noundef readonly captu
   %69 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %61, ptr noundef %0, i32 noundef %62, i32 noundef %.lcssa53, ptr noundef %66, i32 noundef %67, ptr noundef %68)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph60, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph60, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.critedge, %8
   %70 = load i32, ptr @hf_dmx_chan_output_data_filter, align 4
@@ -525,7 +525,7 @@ define internal i32 @dissect_dmx_sip(ptr noundef %0, ptr noundef %1, ptr noundef
   %53 = add i8 %52, %.067.i
   %54 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %54, %.0
-  br i1 %exitcond.not.i, label %dmx_sip_checksum.exit, label %51, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dmx_sip_checksum.exit, label %51, !llvm.loop !9
 
 dmx_sip_checksum.exit:                            ; preds = %51
   %55 = zext i8 %53 to i32
@@ -569,7 +569,7 @@ define internal i32 @dissect_dmx_test(ptr noundef %0, ptr noundef readonly captu
 17:                                               ; preds = %.preheader
   %18 = add nuw nsw i32 %.060, 1
   %exitcond.not = icmp eq i32 %18, 512
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %8, %17
   %.060 = phi i32 [ %18, %17 ], [ 0, %8 ]
@@ -760,9 +760,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

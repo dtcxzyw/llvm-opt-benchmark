@@ -148,16 +148,16 @@ define dso_local range(i32 -11, -2147483648) i32 @clamd_connect(ptr noundef %0, 
   %.048.be.in = getelementptr inbounds nuw i8, ptr %.04869, i64 48
   %.048.be = load ptr, ptr %.048.be.in, align 8, !tbaa !27
   %.not57 = icmp eq ptr %.048.be, null
-  br i1 %.not57, label %._crit_edge72, label %.lr.ph71, !llvm.loop !28
+  br i1 %.not57, label %._crit_edge72, label %.lr.ph71
 
 .lr.ph:                                           ; preds = %.preheader, %96
   %.04767 = phi ptr [ %.047, %96 ], [ %.04765, %.preheader ]
   %66 = getelementptr inbounds nuw i8, ptr %.04767, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !30
+  %67 = load i32, ptr %66, align 4, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %.04767, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !20
   %70 = getelementptr inbounds nuw i8, ptr %.04767, i64 12
-  %71 = load i32, ptr %70, align 4, !tbaa !31
+  %71 = load i32, ptr %70, align 4, !tbaa !29
   %72 = call i32 @socket(i32 noundef %67, i32 noundef %69, i32 noundef %71) #9
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %80
@@ -174,9 +174,9 @@ define dso_local range(i32 -11, -2147483648) i32 @clamd_connect(ptr noundef %0, 
 
 80:                                               ; preds = %.lr.ph
   %81 = getelementptr inbounds nuw i8, ptr %.04767, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !32
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
   %83 = getelementptr inbounds nuw i8, ptr %.04767, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !33
+  %84 = load i32, ptr %83, align 8, !tbaa !31
   %85 = call i32 @connect(i32 noundef %72, ptr %82, i32 noundef %84) #9
   %86 = icmp eq i32 %85, -1
   br i1 %86, label %87, label %94
@@ -202,7 +202,7 @@ define dso_local range(i32 -11, -2147483648) i32 @clamd_connect(ptr noundef %0, 
   %97 = getelementptr inbounds nuw i8, ptr %.04767, i64 40
   %.047 = load ptr, ptr %97, align 8, !tbaa !26
   %.not59 = icmp eq ptr %.047, null
-  br i1 %.not59, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not59, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %96
   %.pre = load ptr, ptr %5, align 8, !tbaa !26
@@ -374,10 +374,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !25 = !{!5, !10, i64 24}
 !26 = !{!23, !23, i64 0}
 !27 = !{!5, !12, i64 48}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!21, !11, i64 4}
-!31 = !{!21, !11, i64 12}
-!32 = !{!21, !22, i64 24}
-!33 = !{!21, !11, i64 16}
-!34 = distinct !{!34, !29}
+!28 = !{!21, !11, i64 4}
+!29 = !{!21, !11, i64 12}
+!30 = !{!21, !22, i64 24}
+!31 = !{!21, !11, i64 16}

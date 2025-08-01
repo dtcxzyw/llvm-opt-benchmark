@@ -223,6 +223,5 @@ attributes #7 = { nounwind }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}

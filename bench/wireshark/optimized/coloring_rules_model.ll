@@ -1204,10 +1204,10 @@ _ZN7QStringD2Ev.exit13:                           ; preds = %_ZN7QStringD2Ev.exi
   %35 = load ptr, ptr %24, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !20
-  store ptr %14, ptr %7, align 8, !noalias !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !19
+  store ptr %14, ptr %7, align 8, !noalias !19
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %8, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !19
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %36, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE12prependChildEPS0_.exit unwind label %37
 
@@ -1817,10 +1817,10 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %_ZN7QStringD2Ev.exi
   %41 = load ptr, ptr %23, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23, !noalias !23
-  store ptr %26, ptr %5, align 8, !noalias !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23, !noalias !22
+  store ptr %26, ptr %5, align 8, !noalias !22
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23, !noalias !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23, !noalias !22
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %42, i64 noundef %indvars.iv, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit unwind label %43
 
@@ -1859,7 +1859,7 @@ _ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit: ; preds = 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = trunc nuw i64 %indvars.iv.next to i32
   %55 = icmp sgt i32 %14, %54
-  br i1 %55, label %25, label %._crit_edge, !llvm.loop !26
+  br i1 %55, label %25, label %._crit_edge, !llvm.loop !25
 
 56:                                               ; preds = %25
   %57 = landingpad { ptr, i32 }
@@ -1953,7 +1953,7 @@ define noundef zeroext i1 @_ZN18ColoringRulesModel10removeRowsEiiRK11QModelIndex
   tail call void @_ZN19ModelHelperTreeItemI16ColoringRuleItemE11removeChildEi(ptr noundef align 8 dereferenceable_or_null(40) %12, i32 noundef %1)
   %13 = add i32 %.014, 1
   %exitcond.not = icmp eq i32 %13, %7
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !26
 
 14:                                               ; preds = %4, %._crit_edge
   ret i1 %5
@@ -1968,18 +1968,18 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI16ColoringRuleItemE11removeCh
   %4 = alloca %class.QVariant, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = sext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23, !noalias !28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false), !noalias !28
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23, !noalias !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false), !noalias !27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 2, ptr %7, align 8, !noalias !28
+  store i64 2, ptr %7, align 8, !noalias !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i64, ptr %8, align 8, !noalias !31
+  %9 = load i64, ptr %8, align 8, !noalias !30
   %10 = icmp ugt i64 %9, %6
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !noalias !31
+  %13 = load ptr, ptr %12, align 8, !noalias !30
   %14 = getelementptr %class.QVariant, ptr %13, i64 %6
   br label %15
 
@@ -1996,12 +1996,12 @@ common.resume:                                    ; preds = %44, %17
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !27
   br label %common.resume
 
 _ZNK5QListI8QVariantE5valueEx.exit:               ; preds = %15
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23, !noalias !27
   %19 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %4)
           to label %20 unwind label %44
 
@@ -2130,18 +2130,18 @@ define noundef zeroext i1 @_ZN18ColoringRulesModel7copyRowEii(ptr noundef align 
   %30 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %31 = zext nneg i32 %2 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !34
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !33
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !33
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %32, align 8, !noalias !34
+  store i64 2, ptr %32, align 8, !noalias !33
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %34 = load i64, ptr %33, align 8, !noalias !37
+  %34 = load i64, ptr %33, align 8, !noalias !36
   %35 = icmp ugt i64 %34, %31
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %38 = load ptr, ptr %37, align 8, !noalias !37
+  %38 = load ptr, ptr %37, align 8, !noalias !36
   %39 = getelementptr %class.QVariant, ptr %38, i64 %31
   br label %40
 
@@ -2158,12 +2158,12 @@ common.resume:                                    ; preds = %42, %45, %59, %51
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !34
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !33
   br label %common.resume
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %40
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !34
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !33
   %44 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %7)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit unwind label %45
 
@@ -2207,10 +2207,10 @@ _ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit: ; preds = %_ZNK5QList
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = zext nneg i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !40
-  store ptr %49, ptr %4, align 8, !noalias !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !39
+  store ptr %49, ptr %4, align 8, !noalias !39
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %5, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !39
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %57, i64 noundef %58, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit unwind label %59
 
@@ -2294,18 +2294,18 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %19 = zext nneg i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23, !noalias !43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !noalias !43
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23, !noalias !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !noalias !42
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 2, ptr %20, align 8, !noalias !43
+  store i64 2, ptr %20, align 8, !noalias !42
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %22 = load i64, ptr %21, align 8, !noalias !46
+  %22 = load i64, ptr %21, align 8, !noalias !45
   %23 = icmp ugt i64 %22, %19
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %26 = load ptr, ptr %25, align 8, !noalias !46
+  %26 = load ptr, ptr %25, align 8, !noalias !45
   %27 = getelementptr %class.QVariant, ptr %26, i64 %19
   br label %28
 
@@ -2322,12 +2322,12 @@ common.resume.i:                                  ; preds = %33, %30
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %5) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !43
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !42
   br label %common.resume.i
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %28
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %5) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !43
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23, !noalias !42
   %32 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %6)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit unwind label %33
 
@@ -2471,18 +2471,18 @@ _ZeqRK8QVariantS1_.exit:                          ; preds = %29
   %39 = load i32, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %40 = sext i32 %39 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !49
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !49
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !48
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %41, align 8, !noalias !49
+  store i64 2, ptr %41, align 8, !noalias !48
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %43 = load i64, ptr %42, align 8, !noalias !52
+  %43 = load i64, ptr %42, align 8, !noalias !51
   %44 = icmp ugt i64 %43, %40
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %47 = load ptr, ptr %46, align 8, !noalias !52
+  %47 = load ptr, ptr %46, align 8, !noalias !51
   %48 = getelementptr %class.QVariant, ptr %47, i64 %40
   br label %49
 
@@ -2499,12 +2499,12 @@ common.resume:                                    ; preds = %34, %177, %51, %54
   %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !49
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !48
   br label %common.resume
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %49
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !49
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !48
   %53 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %7)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit unwind label %54
 
@@ -3183,7 +3183,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %21 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %21, %16
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !54
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %13
   %22 = load ptr, ptr %3, align 8
@@ -3245,7 +3245,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !54
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -3307,15 +3307,15 @@ define noundef ptr @_ZNK18ColoringRulesModel8mimeDataERK5QListI11QModelIndexE(pt
 44:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
   call void @_ZN10QJsonArrayC1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11)
-  %45 = load ptr, ptr %1, align 8, !noalias !56
+  %45 = load ptr, ptr %1, align 8, !noalias !55
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !noalias !56
-  %48 = load i64, ptr %39, align 8, !noalias !56
+  %47 = load ptr, ptr %46, align 8, !noalias !55
+  %48 = load i64, ptr %39, align 8, !noalias !55
   %.not.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = atomicrmw add ptr %45, i32 1 seq_cst, align 4, !noalias !56
+  %50 = atomicrmw add ptr %45, i32 1 seq_cst, align 4, !noalias !55
   br label %_ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %44, %49
@@ -3389,17 +3389,17 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
   %89 = load i32, ptr %.sroa.12.0160, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %90 = sext i32 %89 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false), !noalias !59
-  store i64 2, ptr %53, align 8, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !58
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false), !noalias !58
+  store i64 2, ptr %53, align 8, !noalias !58
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %92 = load i64, ptr %91, align 8, !noalias !62
+  %92 = load i64, ptr %91, align 8, !noalias !61
   %93 = icmp ugt i64 %92, %90
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %87
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %96 = load ptr, ptr %95, align 8, !noalias !62
+  %96 = load ptr, ptr %95, align 8, !noalias !61
   %97 = getelementptr %class.QVariant, ptr %96, i64 %90
   br label %98
 
@@ -3412,12 +3412,12 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %9) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !59
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !58
   br label %.body
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %98
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %9) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !59
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !58
   %102 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %10)
           to label %105 unwind label %103
 
@@ -4071,7 +4071,7 @@ _ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i136: ; preds = %.body
 285:                                              ; preds = %200, %83
   %286 = getelementptr i8, ptr %.sroa.12.0160, i64 24
   %.not = icmp eq ptr %286, %51
-  br i1 %.not, label %._crit_edge, label %83, !llvm.loop !65
+  br i1 %.not, label %._crit_edge, label %83, !llvm.loop !64
 
 287:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #23
@@ -5407,7 +5407,7 @@ _ZN7QStringD2Ev.exit241:                          ; preds = %406, %_ZN17QArrayDa
   store i64 %431, ptr %207, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %54, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #23, !noalias !66
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #23, !noalias !65
   invoke void @_ZNK13QJsonValueRef7toValueEv(ptr dead_on_unwind nonnull writable sret(%class.QJsonValue) align 8 %10, ptr noundef nonnull align 8 dereferenceable_or_null(16) %52)
           to label %.noexc246 unwind label %514
 
@@ -5419,12 +5419,12 @@ _ZN7QStringD2Ev.exit241:                          ; preds = %406, %_ZN17QArrayDa
   %433 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10QJsonValueD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %10) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23, !noalias !66
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23, !noalias !65
   br label %.body
 
 434:                                              ; preds = %.noexc246
   call void @_ZN10QJsonValueD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %10) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23, !noalias !66
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23, !noalias !65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #23
@@ -5449,7 +5449,7 @@ _ZN7QStringD2Ev.exit241:                          ; preds = %406, %_ZN17QArrayDa
   store i64 %442, ptr %212, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %58, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #23, !noalias !69
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #23, !noalias !68
   invoke void @_ZNK13QJsonValueRef7toValueEv(ptr dead_on_unwind nonnull writable sret(%class.QJsonValue) align 8 %8, ptr noundef nonnull align 8 dereferenceable_or_null(16) %56)
           to label %.noexc249 unwind label %520
 
@@ -5461,12 +5461,12 @@ _ZN7QStringD2Ev.exit241:                          ; preds = %406, %_ZN17QArrayDa
   %444 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10QJsonValueD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23, !noalias !69
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23, !noalias !68
   br label %.body250
 
 445:                                              ; preds = %.noexc249
   call void @_ZN10QJsonValueD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23, !noalias !69
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23, !noalias !68
   store i64 %.fca.0.load.i.i221, ptr %59, align 8
   store i48 %.sroa.26.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 8
   %446 = load ptr, ptr %213, align 8
@@ -5590,13 +5590,13 @@ _ZN7QStringD2Ev.exit280:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !72
-  store ptr %411, ptr %7, align 8, !noalias !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !71
+  store ptr %411, ptr %7, align 8, !noalias !71
   invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %60, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %476 unwind label %556
 
 476:                                              ; preds = %_ZN7QStringD2Ev.exit280
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !72
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !71
   %477 = load i64, ptr %214, align 8
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %28, i64 noundef %477, ptr noundef nonnull align 8 dereferenceable(32) %60)
           to label %_ZN5QListI8QVariantE6appendEOS0_.exit unwind label %558
@@ -5611,7 +5611,7 @@ _ZN5QListI8QVariantE6appendEOS0_.exit:            ; preds = %476
   call void @_ZN11QJsonObjectD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %37) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #23
   %479 = add i32 %.093, 1
-  br label %215, !llvm.loop !75
+  br label %215, !llvm.loop !74
 
 480:                                              ; preds = %310
   %481 = landingpad { ptr, i32 }
@@ -5993,7 +5993,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i.i.i.i: ; preds =
   %593 = sext i32 %592 to i64
   %594 = load i64, ptr %214, align 8
   %595 = icmp sgt i64 %594, %593
-  br i1 %595, label %571, label %._crit_edge, !llvm.loop !76
+  br i1 %595, label %571, label %._crit_edge, !llvm.loop !75
 
 596:                                              ; preds = %571
   %597 = landingpad { ptr, i32 }
@@ -6049,7 +6049,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i: ; preds = %.critedge148.thre
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i.i) #23
   %611 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %611, %610
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %605
   %612 = load ptr, ptr %28, align 8
@@ -6133,7 +6133,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i: ; preds = %1
   tail call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i) #23
   %10 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %4
   %11 = load ptr, ptr %0, align 8
@@ -6187,18 +6187,18 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %12
   %.0 = phi ptr [ %26, %23 ], [ %22, %_ZNK11QModelIndex7isValidEv.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %28 = sext i32 %2 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !78
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !78
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !77
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %29, align 8, !noalias !78
+  store i64 2, ptr %29, align 8, !noalias !77
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %31 = load i64, ptr %30, align 8, !noalias !81
+  %31 = load i64, ptr %30, align 8, !noalias !80
   %32 = icmp ugt i64 %31, %28
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %35 = load ptr, ptr %34, align 8, !noalias !81
+  %35 = load ptr, ptr %34, align 8, !noalias !80
   %36 = getelementptr %class.QVariant, ptr %35, i64 %28
   br label %37
 
@@ -6215,12 +6215,12 @@ common.resume.i:                                  ; preds = %42, %39
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !78
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !77
   br label %common.resume.i
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %37
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !78
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !77
   %41 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %7)
           to label %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit unwind label %42
 
@@ -6239,12 +6239,12 @@ _ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit: ; preds = %_ZNK5QList
   br i1 %.not, label %49, label %46
 
 46:                                               ; preds = %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit
-  store i32 %2, ptr %0, align 8, !alias.scope !84
-  store i32 %3, ptr %44, align 4, !alias.scope !84
+  store i32 %2, ptr %0, align 8, !alias.scope !83
+  store i32 %3, ptr %44, align 4, !alias.scope !83
   %47 = ptrtoint ptr %41 to i64
-  store i64 %47, ptr %45, align 8, !alias.scope !84
+  store i64 %47, ptr %45, align 8, !alias.scope !83
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %48, align 8, !alias.scope !84
+  store ptr %1, ptr %48, align 8, !alias.scope !83
   br label %50
 
 49:                                               ; preds = %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit
@@ -6319,10 +6319,10 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !87
-  store ptr %22, ptr %4, align 8, !noalias !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !86
+  store ptr %22, ptr %4, align 8, !noalias !86
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %5, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !87
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !86
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = icmp sgt i64 %35, 0
@@ -6346,7 +6346,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
           to label %_ZeqRK8QVariantS1_.exit.i.i.i unwind label %53
 
 _ZeqRK8QVariantS1_.exit.i.i.i:                    ; preds = %44
-  br i1 %45, label %46, label %42, !llvm.loop !90
+  br i1 %45, label %46, label %42, !llvm.loop !89
 
 46:                                               ; preds = %_ZeqRK8QVariantS1_.exit.i.i.i
   %47 = load ptr, ptr %38, align 8
@@ -6372,14 +6372,14 @@ _ZNK23QListSpecialMethodsBaseI8QVariantE7indexOfIS0_EExRKT_x.exit.i: ; preds = %
 
 _ZN19ModelHelperTreeItemI16ColoringRuleItemE3rowEv.exit: ; preds = %30, %_ZNK23QListSpecialMethodsBaseI8QVariantE7indexOfIS0_EExRKT_x.exit.i
   %.0.i = phi i32 [ %.1.i.i.i, %_ZNK23QListSpecialMethodsBaseI8QVariantE7indexOfIS0_EExRKT_x.exit.i ], [ 0, %30 ]
-  store i32 %.0.i, ptr %0, align 8, !alias.scope !91
+  store i32 %.0.i, ptr %0, align 8, !alias.scope !90
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %56, align 4, !alias.scope !91
+  store i32 0, ptr %56, align 4, !alias.scope !90
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = ptrtoint ptr %22 to i64
-  store i64 %58, ptr %57, align 8, !alias.scope !91
+  store i64 %58, ptr %57, align 8, !alias.scope !90
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %59, align 8, !alias.scope !91
+  store ptr %1, ptr %59, align 8, !alias.scope !90
   br label %62
 
 .critedge:                                        ; preds = %19, %16
@@ -6505,7 +6505,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i:         ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !54
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -6551,7 +6551,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit:   ; preds = %1
   tail call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i) #23
   %10 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit: ; preds = %.lr.ph.i.i.i.i, %4
   %11 = load ptr, ptr %0, align 8
@@ -6586,14 +6586,14 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI16ColoringRuleItemED2Ev(ptr n
   %11 = phi i64 [ %5, %.lr.ph ], [ %32, %29 ]
   %12 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23, !noalias !94
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false), !noalias !94
-  store i64 2, ptr %7, align 8, !noalias !94
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23, !noalias !93
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false), !noalias !93
+  store i64 2, ptr %7, align 8, !noalias !93
   %13 = icmp ugt i64 %11, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %8, align 8, !noalias !97
+  %15 = load ptr, ptr %8, align 8, !noalias !96
   %16 = getelementptr %class.QVariant, ptr %15, i64 %12
   br label %17
 
@@ -6606,12 +6606,12 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI16ColoringRuleItemED2Ev(ptr n
   %20 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %2) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23, !noalias !94
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23, !noalias !93
   br label %.body
 
 21:                                               ; preds = %17
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %2) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23, !noalias !94
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23, !noalias !93
   %22 = invoke noundef ptr @_ZN14VariantPointerI16ColoringRuleItemE5asPtrE8QVariant(ptr noundef nonnull %3)
           to label %23 unwind label %.loopexit
 
@@ -6632,7 +6632,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI16ColoringRuleItemED2Ev(ptr n
   %31 = sext i32 %30 to i64
   %32 = load i64, ptr %4, align 8
   %33 = icmp sgt i64 %32, %31
-  br i1 %33, label %10, label %._crit_edge, !llvm.loop !100
+  br i1 %33, label %10, label %._crit_edge, !llvm.loop !99
 
 34:                                               ; preds = %._crit_edge
   %35 = load ptr, ptr %9, align 8
@@ -6658,7 +6658,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i: ; preds = %34
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i.i) #23
   %42 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %41
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %37
   %43 = load ptr, ptr %9, align 8
@@ -6748,7 +6748,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i: ; preds = %_ZN17QArrayDataPoin
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i) #23
   %22 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %22, %21
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %20
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 32, i64 noundef 8) #23
@@ -6767,7 +6767,7 @@ _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.
   tail call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i) #23
   %27 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %27, %26
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit: ; preds = %.lr.ph.i.i.i.i, %23
   store i64 0, ptr %3, align 8
@@ -7265,7 +7265,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit33.thread: ; preds = %39, 
   %55 = add i64 %54, 1
   store i64 %55, ptr %49, align 8
   %56 = icmp ult ptr %53, %46
-  br i1 %56, label %50, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !101
+  br i1 %56, label %50, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !100
 
 57:                                               ; preds = %50
   %58 = landingpad { ptr, i32 }
@@ -7300,7 +7300,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit33.thread: ; preds = %39, 
   %71 = add i64 %70, 1
   store i64 %71, ptr %65, align 8
   %72 = icmp ult ptr %69, %62
-  br i1 %72, label %66, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !102
+  br i1 %72, label %66, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !101
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit: ; preds = %66, %.noexc, %59, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit33.thread, %36
   %73 = load ptr, ptr %0, align 8
@@ -7356,7 +7356,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i: ; preds = %87
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i) #23
   %94 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %94, %93
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %90
   %95 = load ptr, ptr %5, align 8
@@ -8796,7 +8796,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !103
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !102
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8838,7 +8838,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !104
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !103
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -8908,7 +8908,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %111, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %113 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %113, %108
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !54
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %105
   %114 = load ptr, ptr %5, align 8
@@ -9111,91 +9111,90 @@ attributes #29 = { cold noreturn }
 !14 = !{!15, !12}
 !15 = distinct !{!15, !16, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
 !16 = distinct !{!16, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
-!22 = distinct !{!22, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
-!25 = distinct !{!25, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
-!26 = distinct !{!26, !18, !19}
-!27 = distinct !{!27, !18, !19}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!30 = distinct !{!30, !"_ZNK5QListI8QVariantE5valueEx"}
-!31 = !{!32, !29}
-!32 = distinct !{!32, !33, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!33 = distinct !{!33, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!36 = distinct !{!36, !"_ZNK5QListI8QVariantE5valueEx"}
-!37 = !{!38, !35}
-!38 = distinct !{!38, !39, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!39 = distinct !{!39, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
-!42 = distinct !{!42, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!45 = distinct !{!45, !"_ZNK5QListI8QVariantE5valueEx"}
-!46 = !{!47, !44}
-!47 = distinct !{!47, !48, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!48 = distinct !{!48, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!51 = distinct !{!51, !"_ZNK5QListI8QVariantE5valueEx"}
-!52 = !{!53, !50}
-!53 = distinct !{!53, !54, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!54 = distinct !{!54, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!55 = distinct !{!55, !18, !19}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
-!58 = distinct !{!58, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!61 = distinct !{!61, !"_ZNK5QListI8QVariantE5valueEx"}
-!62 = !{!63, !60}
-!63 = distinct !{!63, !64, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!64 = distinct !{!64, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!65 = distinct !{!65, !18, !19}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNK13QJsonValueRef8toStringERK7QString: argument 0"}
-!68 = distinct !{!68, !"_ZNK13QJsonValueRef8toStringERK7QString"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK13QJsonValueRef8toStringERK7QString: argument 0"}
-!71 = distinct !{!71, !"_ZNK13QJsonValueRef8toStringERK7QString"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
-!74 = distinct !{!74, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
-!75 = distinct !{!75, !18, !19}
-!76 = distinct !{!76, !18, !19}
-!77 = distinct !{!77, !18, !19}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!80 = distinct !{!80, !"_ZNK5QListI8QVariantE5valueEx"}
-!81 = !{!82, !79}
-!82 = distinct !{!82, !83, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!83 = distinct !{!83, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!86 = distinct !{!86, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
-!89 = distinct !{!89, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
-!90 = distinct !{!90, !18, !19}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!93 = distinct !{!93, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!96 = distinct !{!96, !"_ZNK5QListI8QVariantE5valueEx"}
-!97 = !{!98, !95}
-!98 = distinct !{!98, !99, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!99 = distinct !{!99, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!100 = distinct !{!100, !18, !19}
-!101 = distinct !{!101, !18, !19}
-!102 = distinct !{!102, !18, !19}
-!103 = distinct !{!103, !18, !19}
-!104 = distinct !{!104, !18, !19}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
+!21 = distinct !{!21, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
+!24 = distinct !{!24, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!29 = distinct !{!29, !"_ZNK5QListI8QVariantE5valueEx"}
+!30 = !{!31, !28}
+!31 = distinct !{!31, !32, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!32 = distinct !{!32, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!35 = distinct !{!35, !"_ZNK5QListI8QVariantE5valueEx"}
+!36 = !{!37, !34}
+!37 = distinct !{!37, !38, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!38 = distinct !{!38, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
+!41 = distinct !{!41, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!44 = distinct !{!44, !"_ZNK5QListI8QVariantE5valueEx"}
+!45 = !{!46, !43}
+!46 = distinct !{!46, !47, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!47 = distinct !{!47, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!50 = distinct !{!50, !"_ZNK5QListI8QVariantE5valueEx"}
+!51 = !{!52, !49}
+!52 = distinct !{!52, !53, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!53 = distinct !{!53, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!54 = distinct !{!54, !18}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
+!57 = distinct !{!57, !"_ZN9QtPrivate21qMakeForeachContainerIRK5QListI11QModelIndexEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!60 = distinct !{!60, !"_ZNK5QListI8QVariantE5valueEx"}
+!61 = !{!62, !59}
+!62 = distinct !{!62, !63, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!63 = distinct !{!63, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!64 = distinct !{!64, !18}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNK13QJsonValueRef8toStringERK7QString: argument 0"}
+!67 = distinct !{!67, !"_ZNK13QJsonValueRef8toStringERK7QString"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNK13QJsonValueRef8toStringERK7QString: argument 0"}
+!70 = distinct !{!70, !"_ZNK13QJsonValueRef8toStringERK7QString"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
+!73 = distinct !{!73, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
+!74 = distinct !{!74, !18}
+!75 = distinct !{!75, !18}
+!76 = distinct !{!76, !18}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!79 = distinct !{!79, !"_ZNK5QListI8QVariantE5valueEx"}
+!80 = !{!81, !78}
+!81 = distinct !{!81, !82, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!82 = distinct !{!82, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!85 = distinct !{!85, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_: argument 0"}
+!88 = distinct !{!88, !"_ZN14VariantPointerI16ColoringRuleItemE10asQVariantEPS0_"}
+!89 = distinct !{!89, !18}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!92 = distinct !{!92, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!95 = distinct !{!95, !"_ZNK5QListI8QVariantE5valueEx"}
+!96 = !{!97, !94}
+!97 = distinct !{!97, !98, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!98 = distinct !{!98, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!99 = distinct !{!99, !18}
+!100 = distinct !{!100, !18}
+!101 = distinct !{!101, !18}
+!102 = distinct !{!102, !18}
+!103 = distinct !{!103, !18}

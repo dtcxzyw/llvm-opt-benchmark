@@ -771,7 +771,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   %.not369 = icmp eq i32 %347, 0
-  br i1 %.not369, label %348, label %.preheader, !llvm.loop !9
+  br i1 %.not369, label %348, label %.preheader, !llvm.loop !8
 
 348:                                              ; preds = %346
   %349 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -885,7 +885,7 @@ define internal noundef zeroext i1 @netmon_read(ptr noundef readonly captures(no
   switch i32 %33, label %11 [
     i32 1, label %.loopexit
     i32 0, label %.loopexit.loopexit
-  ], !llvm.loop !10
+  ]
 
 .loopexit.loopexit:                               ; preds = %27
   br label %.loopexit
@@ -1087,7 +1087,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
   %37 = add i32 %.177, 2
   %.reass = add i32 %.177, 3
   %38 = icmp ult i32 %.reass, %1
-  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %.thread, %18, %15
   %.080.lcssa.ph = phi i64 [ %.080111, %.lr.ph ], [ %.484, %.thread ], [ %.080111, %18 ], [ %.080111, %15 ]
@@ -1163,7 +1163,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr noundef readonly captures(none) 
   %73 = add i32 %.379, 2
   %.reass129 = add i32 %.379, 3
   %74 = icmp ult i32 %.reass129, %1
-  br i1 %74, label %.lr.ph121, label %.critedge10, !llvm.loop !12
+  br i1 %74, label %.lr.ph121, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %.lr.ph121, %.thread107, %54, %51, %.critedge.thread
   %75 = phi ptr [ %4, %.critedge.thread ], [ %40, %51 ], [ %40, %54 ], [ %40, %.thread107 ], [ %40, %.lr.ph121 ]
@@ -1768,7 +1768,7 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   br label %187
 
 15:                                               ; preds = %5
-  %16 = load i8, ptr %12, align 8, !range !13, !noundef !14
+  %16 = load i8, ptr %12, align 8, !range !11, !noundef !12
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %22
 
@@ -1843,7 +1843,7 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
 
 52:                                               ; preds = %45, %32
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %54 = load i8, ptr %53, align 8, !range !13, !noundef !14
+  %54 = load i8, ptr %53, align 8, !range !11, !noundef !12
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %57
 
@@ -1853,7 +1853,7 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %59 = load i8, ptr %58, align 1, !range !13, !noundef !14
+  %59 = load i8, ptr %58, align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %._crit_edge109, label %61
 
@@ -2106,7 +2106,7 @@ define internal noundef zeroext i1 @netmon_dump_finish(ptr noundef %0, ptr nound
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %20, i8 noundef 0, i64 noundef 56, i1 noundef false) #12
-  %21 = load i8, ptr %6, align 8, !range !13, !noundef !14
+  %21 = load i8, ptr %6, align 8, !range !11, !noundef !12
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %28
 
@@ -2327,12 +2327,10 @@ attributes #13 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}

@@ -365,11 +365,11 @@ declare i32 @ossl_provider_up_ref(ptr noundef) local_unnamed_addr #3
 define ptr @OSSL_DECODER_fetch(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.decoder_data_st, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
-  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %0, ptr %4, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %5, align 8, !tbaa !43
+  store ptr null, ptr %5, align 8, !tbaa !42
   %6 = call fastcc ptr @inner_ossl_decoder_fetch(ptr noundef %4, ptr noundef %1, ptr noundef %2)
-  %7 = load ptr, ptr %5, align 8, !tbaa !43
+  %7 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %dealloc_tmp_decoder_store.exit, label %8
 
@@ -387,14 +387,14 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
   %4 = alloca ptr, align 8
   %5 = alloca %struct.ossl_method_construct_method_st, align 8
   %6 = alloca ptr, align 8
-  %7 = load ptr, ptr %0, align 8, !tbaa !39
+  %7 = load ptr, ptr %0, align 8, !tbaa !38
   %8 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %7, i32 noundef 11) #8
-  %9 = load ptr, ptr %0, align 8, !tbaa !39
+  %9 = load ptr, ptr %0, align 8, !tbaa !38
   %10 = tail call ptr @ossl_namemap_stored(ptr noundef %9) #8
   %.not = icmp eq ptr %2, null
   %11 = select i1 %.not, ptr @.str.1, ptr %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !44
+  store ptr null, ptr %4, align 8, !tbaa !43
   %12 = icmp eq ptr %8, null
   %13 = icmp eq ptr %10, null
   %or.cond = select i1 %12, i1 true, i1 %13
@@ -426,20 +426,20 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_ossl_decoder_fetch.mcm, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr null, ptr %6, align 8, !tbaa !45
+  store ptr null, ptr %6, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %23, ptr %24, align 8, !tbaa !46
+  store i32 %23, ptr %24, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %25, align 8, !tbaa !47
+  store ptr %1, ptr %25, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %26, align 8, !tbaa !48
+  store ptr %11, ptr %26, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, -2
   store i8 %29, ptr %27, align 8
-  %30 = load ptr, ptr %0, align 8, !tbaa !39
+  %30 = load ptr, ptr %0, align 8, !tbaa !38
   %31 = call ptr @ossl_method_construct(ptr noundef %30, i32 noundef 21, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %0) #8
-  store ptr %31, ptr %4, align 8, !tbaa !44
+  store ptr %31, ptr %4, align 8, !tbaa !43
   %.not62 = icmp eq ptr %31, null
   br i1 %.not62, label %40, label %32
 
@@ -457,8 +457,8 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
   br i1 %.not63, label %40, label %36
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr %6, align 8, !tbaa !45
-  %38 = load ptr, ptr %4, align 8, !tbaa !44
+  %37 = load ptr, ptr %6, align 8, !tbaa !44
+  %38 = load ptr, ptr %4, align 8, !tbaa !43
   %39 = call i32 @ossl_method_store_cache_set(ptr noundef nonnull %8, ptr noundef %37, i32 noundef %.2, ptr noundef nonnull %11, ptr noundef %38, ptr noundef nonnull @up_ref_decoder, ptr noundef nonnull @free_decoder) #8
   br label %40
 
@@ -494,13 +494,13 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
   %.054 = phi ptr [ %51, %50 ], [ %1, %48 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 418, ptr noundef nonnull @__func__.inner_ossl_decoder_fetch) #8
-  %53 = load ptr, ptr %0, align 8, !tbaa !39
+  %53 = load ptr, ptr %0, align 8, !tbaa !38
   %54 = call ptr @ossl_lib_ctx_get_descriptor(ptr noundef %53) #8
   %55 = icmp eq ptr %.054, null
   %56 = select i1 %55, ptr @.str.3, ptr %.054
   %57 = select i1 %.not, ptr @.str.3, ptr %2
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef %.053, ptr noundef nonnull @.str.2, ptr noundef %54, ptr noundef nonnull %56, i32 noundef %.052, ptr noundef nonnull %57) #8
-  %.pre = load ptr, ptr %4, align 8, !tbaa !44
+  %.pre = load ptr, ptr %4, align 8, !tbaa !43
   br label %58
 
 58:                                               ; preds = %52, %44, %14
@@ -547,7 +547,7 @@ declare i32 @ossl_method_store_remove_all_provided(ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_DECODER_get0_provider(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !49
+  br i1 %.not, label %2, label %3, !prof !48
 
 2:                                                ; preds = %1
   tail call void @ERR_new() #8
@@ -567,7 +567,7 @@ define ptr @OSSL_DECODER_get0_provider(ptr noundef readonly captures(address_is_
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_DECODER_get0_properties(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !49
+  br i1 %.not, label %2, label %3, !prof !48
 
 2:                                                ; preds = %1
   tail call void @ERR_new() #8
@@ -590,7 +590,7 @@ define ptr @OSSL_DECODER_get0_properties(ptr noundef readonly captures(address_i
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_decoder_parsed_properties(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !49
+  br i1 %.not, label %2, label %3, !prof !48
 
 2:                                                ; preds = %1
   tail call void @ERR_new() #8
@@ -611,7 +611,7 @@ define ptr @ossl_decoder_parsed_properties(ptr noundef readonly captures(address
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_decoder_get_number(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !49
+  br i1 %.not, label %2, label %3, !prof !48
 
 2:                                                ; preds = %1
   tail call void @ERR_new() #8
@@ -641,7 +641,7 @@ define ptr @OSSL_DECODER_get0_description(ptr noundef readonly captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   ret ptr %5
 }
 
@@ -672,7 +672,7 @@ declare i32 @ossl_namemap_name2num(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_decoder_fast_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
-  %4 = load i32, ptr %2, align 4, !tbaa !51
+  %4 = load i32, ptr %2, align 4, !tbaa !50
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %11
 
@@ -681,13 +681,13 @@ define range(i32 0, 2) i32 @ossl_decoder_fast_is_a(ptr noundef readonly captures
   %7 = tail call ptr @ossl_provider_libctx(ptr noundef %.val) #8
   %8 = tail call ptr @ossl_namemap_stored(ptr noundef %7) #8
   %9 = tail call i32 @ossl_namemap_name2num(ptr noundef %8, ptr noundef %1) #8
-  store i32 %9, ptr %2, align 4, !tbaa !51
+  store i32 %9, ptr %2, align 4, !tbaa !50
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.thread10, label %ossl_decoder_get_number.exit
 
 11:                                               ; preds = %3
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %12, label %.thread10, !prof !52
+  br i1 %.not.i, label %12, label %.thread10, !prof !51
 
 12:                                               ; preds = %11
   tail call void @ERR_new() #8
@@ -714,14 +714,14 @@ define void @OSSL_DECODER_do_all_provided(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca %struct.do_one_data_st, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  store ptr %0, ptr %4, align 8, !tbaa !39
+  store ptr %0, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %6, align 8, !tbaa !43
+  store ptr null, ptr %6, align 8, !tbaa !42
   %7 = call fastcc ptr @inner_ossl_decoder_fetch(ptr noundef %4, ptr noundef null, ptr noundef null)
-  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %2, ptr %8, align 8, !tbaa !55
-  %9 = load ptr, ptr %6, align 8, !tbaa !43
+  store ptr %2, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %6, align 8, !tbaa !42
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
 
@@ -732,7 +732,7 @@ define void @OSSL_DECODER_do_all_provided(ptr noundef %0, ptr noundef %1, ptr no
 11:                                               ; preds = %10, %3
   %12 = call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 11) #8
   call void @ossl_method_store_do_all(ptr noundef %12, ptr noundef nonnull @do_one, ptr noundef nonnull %5) #8
-  %13 = load ptr, ptr %6, align 8, !tbaa !43
+  %13 = load ptr, ptr %6, align 8, !tbaa !42
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %dealloc_tmp_decoder_store.exit, label %14
 
@@ -750,9 +750,9 @@ declare void @ossl_method_store_do_all(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define internal void @do_one(i32 %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !53
+  %4 = load ptr, ptr %2, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   tail call void %4(ptr noundef %1, ptr noundef %6) #8
   ret void
 }
@@ -861,7 +861,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !49
+  br i1 %.not, label %3, label %4, !prof !48
 
 3:                                                ; preds = %2
   tail call void @ERR_new() #8
@@ -871,7 +871,7 @@ define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_params(ptr noundef %0, ptr noun
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
@@ -884,7 +884,7 @@ define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_params(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %8, %23
   %.01623 = phi i32 [ %.1, %23 ], [ 1, %8 ]
   %.01722 = phi i64 [ %24, %23 ], [ 0, %8 ]
-  %11 = load ptr, ptr %5, align 8, !tbaa !56
+  %11 = load ptr, ptr %5, align 8, !tbaa !55
   %12 = trunc i64 %.01722 to i32
   %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %12) #8
   %14 = tail call ptr @OSSL_DECODER_INSTANCE_get_decoder(ptr noundef %13) #8
@@ -908,7 +908,7 @@ define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_params(ptr noundef %0, ptr noun
   %.1 = phi i32 [ %spec.select, %21 ], [ %.01623, %17 ], [ %.01623, %.lr.ph ]
   %24 = add nuw i64 %.01722, 1
   %exitcond.not = icmp eq i64 %24, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
 
 .loopexit:                                        ; preds = %23, %8, %4, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %4 ], [ 1, %8 ], [ %.1, %23 ]
@@ -928,19 +928,19 @@ define void @OSSL_DECODER_CTX_free(ptr noundef %0) local_unnamed_addr #2 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !62
   tail call void %4(ptr noundef %7) #8
   br label %8
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %10 = load ptr, ptr %9, align 8, !tbaa !55
   tail call void @OPENSSL_sk_pop_free(ptr noundef %10, ptr noundef nonnull @ossl_decoder_instance_free) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %11) #8
@@ -960,14 +960,14 @@ declare i32 @ossl_method_store_cache_get(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_tmp_decoder_store(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %0, align 8, !tbaa !39
+  %6 = load ptr, ptr %0, align 8, !tbaa !38
   %7 = tail call ptr @ossl_method_store_new(ptr noundef %6) #8
-  store ptr %7, ptr %2, align 8, !tbaa !43
+  store ptr %7, ptr %2, align 8, !tbaa !42
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -981,7 +981,7 @@ define internal i32 @reserve_decoder_store(ptr noundef %0, ptr noundef readonly 
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !39
+  %5 = load ptr, ptr %1, align 8, !tbaa !38
   %6 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %5, i32 noundef 11) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -1002,7 +1002,7 @@ define internal i32 @unreserve_decoder_store(ptr noundef %0, ptr noundef readonl
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !39
+  %5 = load ptr, ptr %1, align 8, !tbaa !38
   %6 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %5, i32 noundef 11) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -1021,22 +1021,22 @@ define internal i32 @unreserve_decoder_store(ptr noundef %0, ptr noundef readonl
 define internal ptr @get_decoder_from_store(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !44
+  store ptr null, ptr %4, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !46
+  %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.thread35
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %2, align 8, !tbaa !39
+  %12 = load ptr, ptr %2, align 8, !tbaa !38
   %13 = tail call ptr @ossl_namemap_stored(ptr noundef %12) #8
-  %14 = load ptr, ptr %9, align 8, !tbaa !47
+  %14 = load ptr, ptr %9, align 8, !tbaa !46
   %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 58) #9
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
@@ -1067,7 +1067,7 @@ define internal ptr @get_decoder_from_store(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %.thread35
-  %30 = load ptr, ptr %2, align 8, !tbaa !39
+  %30 = load ptr, ptr %2, align 8, !tbaa !38
   %31 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %30, i32 noundef 11) #8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.critedge, label %33
@@ -1075,7 +1075,7 @@ define internal ptr @get_decoder_from_store(ptr noundef %0, ptr noundef %1, ptr 
 33:                                               ; preds = %29, %.thread35
   %.023 = phi ptr [ %31, %29 ], [ %0, %.thread35 ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !48
+  %35 = load ptr, ptr %34, align 8, !tbaa !47
   %36 = call i32 @ossl_method_store_fetch(ptr noundef nonnull %.023, i32 noundef %.02437, ptr noundef %35, ptr noundef %1, ptr noundef nonnull %4) #8
   %.not33 = icmp eq i32 %36, 0
   %37 = load ptr, ptr %4, align 8
@@ -1110,7 +1110,7 @@ define internal i32 @put_decoder_in_store(ptr noundef %0, ptr noundef %1, ptr no
 
 16:                                               ; preds = %10, %12, %6
   %.018 = phi i64 [ 0, %6 ], [ %11, %10 ], [ %15, %12 ]
-  %17 = load ptr, ptr %5, align 8, !tbaa !39
+  %17 = load ptr, ptr %5, align 8, !tbaa !38
   %18 = tail call ptr @ossl_namemap_stored(ptr noundef %17) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %31, label %20
@@ -1125,7 +1125,7 @@ define internal i32 @put_decoder_in_store(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %5, align 8, !tbaa !39
+  %26 = load ptr, ptr %5, align 8, !tbaa !38
   %27 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %26, i32 noundef 11) #8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %31, label %29
@@ -1144,7 +1144,7 @@ define internal i32 @put_decoder_in_store(ptr noundef %0, ptr noundef %1, ptr no
 define internal ptr @construct_decoder(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #2 {
   %4 = tail call ptr @ossl_provider_libctx(ptr noundef %1) #8
   %5 = tail call ptr @ossl_namemap_stored(ptr noundef %4) #8
-  %6 = load ptr, ptr %0, align 8, !tbaa !64
+  %6 = load ptr, ptr %0, align 8, !tbaa !63
   %7 = tail call i32 @ossl_namemap_add_names(ptr noundef %5, i32 noundef 0, ptr noundef %6, i8 noundef signext 58) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.thread, label %8
@@ -1373,32 +1373,31 @@ attributes #9 = { nounwind willreturn memory(read) }
 !33 = !{!4, !7, i64 96}
 !34 = !{!4, !7, i64 104}
 !35 = !{!4, !7, i64 112}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"decoder_data_st", !41, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !42, i64 32, !10, i64 40}
-!41 = !{!"p1 _ZTS15ossl_lib_ctx_st", !7, i64 0}
-!42 = !{!"p1 _ZTS20ossl_method_store_st", !7, i64 0}
-!43 = !{!40, !42, i64 32}
-!44 = !{!7, !7, i64 0}
-!45 = !{!6, !6, i64 0}
-!46 = !{!40, !10, i64 8}
-!47 = !{!40, !11, i64 16}
-!48 = !{!40, !11, i64 24}
-!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!50 = !{!18, !11, i64 24}
-!51 = !{!10, !10, i64 0}
-!52 = !{!"branch_weights", !"expected", i32 1475657, i32 2146007991}
-!53 = !{!54, !7, i64 0}
-!54 = !{!"do_one_data_st", !7, i64 0, !7, i64 8}
-!55 = !{!54, !7, i64 8}
-!56 = !{!57, !58, i64 24}
-!57 = !{!"ossl_decoder_ctx_st", !11, i64 0, !11, i64 8, !10, i64 16, !58, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !59, i64 56, !10, i64 104}
-!58 = !{!"p1 _ZTS30stack_st_OSSL_DECODER_INSTANCE", !7, i64 0}
-!59 = !{!"ossl_passphrase_data_st", !10, i64 0, !8, i64 8, !10, i64 24, !11, i64 32, !60, i64 40}
-!60 = !{!"long", !8, i64 0}
-!61 = distinct !{!61, !37, !38}
-!62 = !{!57, !7, i64 40}
-!63 = !{!57, !7, i64 48}
-!64 = !{!18, !11, i64 0}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"decoder_data_st", !40, i64 0, !10, i64 8, !11, i64 16, !11, i64 24, !41, i64 32, !10, i64 40}
+!40 = !{!"p1 _ZTS15ossl_lib_ctx_st", !7, i64 0}
+!41 = !{!"p1 _ZTS20ossl_method_store_st", !7, i64 0}
+!42 = !{!39, !41, i64 32}
+!43 = !{!7, !7, i64 0}
+!44 = !{!6, !6, i64 0}
+!45 = !{!39, !10, i64 8}
+!46 = !{!39, !11, i64 16}
+!47 = !{!39, !11, i64 24}
+!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!49 = !{!18, !11, i64 24}
+!50 = !{!10, !10, i64 0}
+!51 = !{!"branch_weights", !"expected", i32 1475657, i32 2146007991}
+!52 = !{!53, !7, i64 0}
+!53 = !{!"do_one_data_st", !7, i64 0, !7, i64 8}
+!54 = !{!53, !7, i64 8}
+!55 = !{!56, !57, i64 24}
+!56 = !{!"ossl_decoder_ctx_st", !11, i64 0, !11, i64 8, !10, i64 16, !57, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !58, i64 56, !10, i64 104}
+!57 = !{!"p1 _ZTS30stack_st_OSSL_DECODER_INSTANCE", !7, i64 0}
+!58 = !{!"ossl_passphrase_data_st", !10, i64 0, !8, i64 8, !10, i64 24, !11, i64 32, !59, i64 40}
+!59 = !{!"long", !8, i64 0}
+!60 = distinct !{!60, !37}
+!61 = !{!56, !7, i64 40}
+!62 = !{!56, !7, i64 48}
+!63 = !{!18, !11, i64 0}

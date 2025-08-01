@@ -134,7 +134,6 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.gep = getelementptr i8, ptr %0, i64 77
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 213
@@ -143,8 +142,8 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.critedge
-  %14 = phi ptr [ %3, %.lr.ph ], [ %103, %.critedge ]
-  %.05276 = phi ptr [ %1, %.lr.ph ], [ %102, %.critedge ]
+  %14 = phi ptr [ %3, %.lr.ph ], [ %105, %.critedge ]
+  %.05276 = phi ptr [ %1, %.lr.ph ], [ %104, %.critedge ]
   %15 = tail call i32 @ossl_param_find_pidx(ptr noundef nonnull %14) #5
   switch i32 %15, label %.critedge [
     i32 53, label %16
@@ -155,7 +154,7 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
     i32 40, label %51
     i32 37, label %54
     i32 41, label %66
-    i32 35, label %96
+    i32 35, label %98
   ]
 
 16:                                               ; preds = %13
@@ -293,39 +292,40 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 1 %89, i64 %.0.i, i1 false)
   %90 = load i64, ptr %7, align 8, !tbaa !16
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %90
-  br label %91
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 %90
+  %92 = getelementptr inbounds i8, ptr %91, i64 -8
+  br label %93
 
-91:                                               ; preds = %91, %84
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %91 ], [ 8, %84 ]
+93:                                               ; preds = %93, %84
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %93 ], [ 8, %84 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %92 = getelementptr inbounds nuw i8, ptr %gep, i64 %indvars.iv.next.i.i
-  %93 = load i8, ptr %92, align 1, !tbaa !32
-  %94 = add i8 %93, 1
-  store i8 %94, ptr %92, align 1, !tbaa !32
-  %.not.i.i = icmp eq i8 %94, 0
-  %95 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  %or.cond.i.i = and i1 %95, %.not.i.i
-  br i1 %or.cond.i.i, label %91, label %getivgen.exit, !llvm.loop !33
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv.next.i.i
+  %95 = load i8, ptr %94, align 1, !tbaa !32
+  %96 = add i8 %95, 1
+  store i8 %96, ptr %94, align 1, !tbaa !32
+  %.not.i.i = icmp eq i8 %96, 0
+  %97 = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %or.cond.i.i = and i1 %97, %.not.i.i
+  br i1 %or.cond.i.i, label %93, label %getivgen.exit, !llvm.loop !33
 
-getivgen.exit:                                    ; preds = %91
+getivgen.exit:                                    ; preds = %93
   store i32 2, ptr %8, align 8, !tbaa !20
   br label %.critedge
 
-96:                                               ; preds = %13
-  %97 = load i8, ptr %4, align 4
-  %98 = lshr i8 %97, 3
-  %99 = and i8 %98, 1
-  %100 = zext nneg i8 %99 to i32
-  %101 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %.05276, i32 noundef %100) #5
-  %.not59 = icmp eq i32 %101, 0
+98:                                               ; preds = %13
+  %99 = load i8, ptr %4, align 4
+  %100 = lshr i8 %99, 3
+  %101 = and i8 %100, 1
+  %102 = zext nneg i8 %101 to i32
+  %103 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %.05276, i32 noundef %102) #5
+  %.not59 = icmp eq i32 %103, 0
   br i1 %.not59, label %getivgen.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %getivgen.exit, %22, %13, %16, %19, %35, %33, %48, %46, %51, %64, %96
-  %102 = getelementptr inbounds nuw i8, ptr %.05276, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !24
-  %.not = icmp eq ptr %103, null
-  br i1 %.not, label %getivgen.exit.thread, label %13, !llvm.loop !36
+.critedge:                                        ; preds = %getivgen.exit, %22, %13, %16, %19, %35, %33, %48, %46, %51, %64, %98
+  %104 = getelementptr inbounds nuw i8, ptr %.05276, i64 40
+  %105 = load ptr, ptr %104, align 8, !tbaa !24
+  %.not = icmp eq ptr %105, null
+  br i1 %.not, label %getivgen.exit.thread, label %13, !llvm.loop !35
 
 getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, %51, %48, %41, %35, %28, %22, %19, %16
   %.sink91 = phi i32 [ 159, %16 ], [ 166, %19 ], [ 177, %22 ], [ 187, %28 ], [ 192, %35 ], [ 201, %41 ], [ 206, %48 ], [ 213, %51 ], [ 224, %61 ], [ 224, %58 ], [ 224, %54 ], [ 228, %64 ]
@@ -335,8 +335,8 @@ getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, 
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %getivgen.exit.thread
 
-getivgen.exit.thread:                             ; preds = %25, %38, %70, %66, %96, %.critedge, %78, %73, %getivgen.exit.thread.sink.split, %2
-  %.1 = phi i32 [ 1, %2 ], [ 0, %getivgen.exit.thread.sink.split ], [ 0, %25 ], [ 0, %38 ], [ 0, %70 ], [ 0, %66 ], [ 0, %96 ], [ 1, %.critedge ], [ 0, %78 ], [ 0, %73 ]
+getivgen.exit.thread:                             ; preds = %25, %38, %70, %66, %98, %.critedge, %78, %73, %getivgen.exit.thread.sink.split, %2
+  %.1 = phi i32 [ 1, %2 ], [ 0, %getivgen.exit.thread.sink.split ], [ 0, %25 ], [ 0, %38 ], [ 0, %70 ], [ 0, %66 ], [ 0, %98 ], [ 1, %.critedge ], [ 0, %78 ], [ 0, %73 ]
   ret i32 %.1
 }
 
@@ -404,13 +404,13 @@ ossl_param_is_empty.exit:                         ; preds = %2
   ]
 
 22:                                               ; preds = %19
-  store ptr %13, ptr %4, align 8, !tbaa !37
+  store ptr %13, ptr %4, align 8, !tbaa !36
   %23 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %.03155, ptr noundef nonnull %4, i64 noundef 16, ptr noundef nonnull %3) #5
   %.not45 = icmp eq i32 %23, 0
   br i1 %.not45, label %ossl_param_is_empty.exit.thread.sink.split, label %24
 
 24:                                               ; preds = %22
-  %25 = load i64, ptr %3, align 8, !tbaa !38
+  %25 = load i64, ptr %3, align 8, !tbaa !37
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %ossl_param_is_empty.exit.thread.sink.split, label %27
 
@@ -430,7 +430,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not42, label %ossl_param_is_empty.exit.thread.sink.split, label %33
 
 33:                                               ; preds = %31
-  %34 = load i64, ptr %3, align 8, !tbaa !38
+  %34 = load i64, ptr %3, align 8, !tbaa !37
   %35 = add i64 %34, -129
   %or.cond = icmp ult i64 %35, -128
   br i1 %or.cond, label %ossl_param_is_empty.exit.thread.sink.split, label %36
@@ -498,7 +498,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %70
 
 69:                                               ; preds = %45, %53, %65
-  store i64 0, ptr %3, align 8, !tbaa !38
+  store i64 0, ptr %3, align 8, !tbaa !37
   br label %ossl_param_is_empty.exit.thread.sink.split
 
 70:                                               ; preds = %67, %61
@@ -508,7 +508,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   store i8 %72, ptr %15, align 1, !tbaa !32
   %73 = trunc i64 %.0.i to i8
   store i8 %73, ptr %16, align 1, !tbaa !32
-  store i64 16, ptr %3, align 8, !tbaa !38
+  store i64 16, ptr %3, align 8, !tbaa !37
   store i64 16, ptr %17, align 8, !tbaa !28
   br label %127
 
@@ -613,7 +613,7 @@ setivinv.exit:                                    ; preds = %115
   %128 = getelementptr inbounds nuw i8, ptr %.03155, i64 40
   %.pr = load ptr, ptr %128, align 8, !tbaa !24
   %.not37 = icmp eq ptr %.pr, null
-  br i1 %.not37, label %ossl_param_is_empty.exit.thread, label %19, !llvm.loop !39
+  br i1 %.not37, label %ossl_param_is_empty.exit.thread, label %19, !llvm.loop !38
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %96, %86, %88, %74, %42, %33, %31, %24, %27, %22, %69
   %.sink56 = phi i32 [ 301, %69 ], [ 267, %22 ], [ 271, %27 ], [ 271, %24 ], [ 279, %31 ], [ 283, %33 ], [ 296, %42 ], [ 309, %74 ], [ 313, %88 ], [ 313, %86 ], [ 313, %96 ]
@@ -640,7 +640,7 @@ define range(i32 0, 2) i32 @ossl_gcm_stream_update(ptr noundef %0, ptr noundef %
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  store i64 0, ptr %2, align 8, !tbaa !38
+  store i64 0, ptr %2, align 8, !tbaa !37
   br label %15
 
 9:                                                ; preds = %6
@@ -789,7 +789,7 @@ getivgen.exit.i:                                  ; preds = %45, %52
   %69 = getelementptr inbounds nuw i8, ptr %.v.i, i64 %66
   %70 = load ptr, ptr %6, align 8, !tbaa !18
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !40
+  %72 = load ptr, ptr %71, align 8, !tbaa !39
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 213
   %74 = load i64, ptr %8, align 8, !tbaa !15
   %75 = tail call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %73, i64 noundef %74, ptr noundef nonnull %64, i64 noundef %66, ptr noundef nonnull %65, ptr noundef nonnull %69, i64 noundef 16) #5
@@ -888,14 +888,14 @@ gcm_tls_cipher.exit:                              ; preds = %10, %12, %16, %26, 
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %119 = load ptr, ptr %118, align 8, !tbaa !41
+  %119 = load ptr, ptr %118, align 8, !tbaa !40
   %120 = tail call i32 %119(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4) #5
   %.not52 = icmp eq i32 %120, 0
   br i1 %.not52, label %gcm_iv_generate.exit.thread, label %138
 
 121:                                              ; preds = %115
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !42
+  %123 = load ptr, ptr %122, align 8, !tbaa !41
   %124 = tail call i32 %123(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %1) #5
   %.not51 = icmp eq i32 %124, 0
   br i1 %.not51, label %gcm_iv_generate.exit.thread, label %138
@@ -914,7 +914,7 @@ gcm_tls_cipher.exit:                              ; preds = %10, %12, %16, %26, 
 
 132:                                              ; preds = %128, %125
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %134 = load ptr, ptr %133, align 8, !tbaa !43
+  %134 = load ptr, ptr %133, align 8, !tbaa !42
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 213
   %136 = tail call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %135) #5
   %.not50 = icmp eq i32 %136, 0
@@ -931,7 +931,7 @@ gcm_tls_cipher.exit:                              ; preds = %10, %12, %16, %26, 
 gcm_iv_generate.exit.thread:                      ; preds = %138, %82, %89, %106, %117, %121, %128, %132, %91, %97, %86, %gcm_tls_cipher.exit
   %storemerge = phi i64 [ %.0.i, %gcm_tls_cipher.exit ], [ 0, %86 ], [ %.1, %138 ], [ 0, %117 ], [ 0, %121 ], [ 0, %132 ], [ 0, %128 ], [ 0, %106 ], [ 0, %89 ], [ 0, %82 ], [ 0, %91 ], [ 0, %97 ]
   %.0 = phi i32 [ %.040.i, %gcm_tls_cipher.exit ], [ 0, %86 ], [ 1, %138 ], [ 0, %117 ], [ 0, %121 ], [ 0, %132 ], [ 0, %128 ], [ 0, %106 ], [ 0, %89 ], [ 0, %82 ], [ 0, %91 ], [ 0, %97 ]
-  store i64 %storemerge, ptr %2, align 8, !tbaa !38
+  store i64 %storemerge, ptr %2, align 8, !tbaa !37
   ret i32 %.0
 }
 
@@ -947,7 +947,7 @@ define range(i32 0, 2) i32 @ossl_gcm_stream_final(ptr noundef %0, ptr noundef %1
   br i1 %.not6.not, label %9, label %8
 
 8:                                                ; preds = %6
-  store i64 0, ptr %2, align 8, !tbaa !38
+  store i64 0, ptr %2, align 8, !tbaa !37
   br label %9
 
 9:                                                ; preds = %6, %4, %8
@@ -979,7 +979,7 @@ define range(i32 0, 2) i32 @ossl_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not11.not, label %14, label %13
 
 13:                                               ; preds = %11
-  store i64 %5, ptr %2, align 8, !tbaa !38
+  store i64 %5, ptr %2, align 8, !tbaa !37
   br label %14
 
 14:                                               ; preds = %11, %6, %13, %10
@@ -1039,14 +1039,13 @@ attributes #5 = { nounwind }
 !30 = !{!25, !5, i64 8}
 !31 = !{!22, !10, i64 8}
 !32 = !{!6, !6, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = !{!10, !10, i64 0}
-!38 = !{!8, !8, i64 0}
-!39 = distinct !{!39, !34, !35}
-!40 = !{!22, !10, i64 40}
-!41 = !{!22, !10, i64 16}
-!42 = !{!22, !10, i64 24}
-!43 = !{!22, !10, i64 32}
+!35 = distinct !{!35, !34}
+!36 = !{!10, !10, i64 0}
+!37 = !{!8, !8, i64 0}
+!38 = distinct !{!38, !34}
+!39 = !{!22, !10, i64 40}
+!40 = !{!22, !10, i64 16}
+!41 = !{!22, !10, i64 24}
+!42 = !{!22, !10, i64 32}

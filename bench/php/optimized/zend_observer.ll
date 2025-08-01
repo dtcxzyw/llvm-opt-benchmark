@@ -131,10 +131,10 @@ define dso_local void @zend_observer_post_startup() local_unnamed_addr #0 {
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = add i32 %.043, -1
   %.not35 = icmp eq i32 %33, 0
-  br i1 %.not35, label %._crit_edge, label %21, !llvm.loop !42
+  br i1 %.not35, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %30, %2
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8, !tbaa !44
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !34
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -192,12 +192,12 @@ define dso_local void @zend_observer_post_startup() local_unnamed_addr #0 {
 66:                                               ; preds = %.lr.ph47, %61
   %67 = getelementptr inbounds nuw i8, ptr %.03145, i64 32
   %.not39 = icmp eq ptr %67, %54
-  br i1 %.not39, label %.loopexit, label %.lr.ph47, !llvm.loop !45
+  br i1 %.not39, label %.loopexit, label %.lr.ph47
 
 .loopexit:                                        ; preds = %66, %47, %.lr.ph51
   %68 = getelementptr inbounds nuw i8, ptr %.03349, i64 32
   %.not37 = icmp eq ptr %68, %40
-  br i1 %.not37, label %.loopexit40, label %.lr.ph51, !llvm.loop !46
+  br i1 %.not37, label %.loopexit40, label %.lr.ph51
 
 .loopexit40:                                      ; preds = %.loopexit, %._crit_edge, %0
   ret void
@@ -214,7 +214,7 @@ declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @zend_observer_activate() local_unnamed_addr #3 {
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   ret void
 }
 
@@ -243,7 +243,7 @@ define dso_local void @zend_observer_add_begin_handler(ptr noundef readonly capt
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %10 = getelementptr inbounds i8, ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   br label %12
@@ -278,7 +278,7 @@ define dso_local void @zend_observer_add_begin_handler(ptr noundef readonly capt
 25:                                               ; preds = %.preheader
   %26 = load ptr, ptr %.017, align 8, !tbaa !4
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %.preheader, !llvm.loop !73
+  br i1 %27, label %28, label %.preheader
 
 28:                                               ; preds = %25
   store ptr %1, ptr %.017, align 8, !tbaa !4
@@ -302,7 +302,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noun
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %10 = getelementptr inbounds i8, ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   br label %12
@@ -367,7 +367,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noun
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds nuw i8, ptr %.02432.i, i64 8
   %.not.not.i = icmp ugt ptr %43, %22
-  br i1 %.not.not.i, label %zend_observer_remove_handler.exit.thread, label %.lr.ph.i, !llvm.loop !74
+  br i1 %.not.not.i, label %zend_observer_remove_handler.exit.thread, label %.lr.ph.i
 
 44:                                               ; preds = %40, %33
   %storemerge.i = phi ptr [ %41, %40 ], [ null, %33 ]
@@ -403,7 +403,7 @@ define dso_local void @zend_observer_add_end_handler(ptr noundef readonly captur
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %10 = getelementptr inbounds i8, ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   br label %12
@@ -461,7 +461,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_end_handler(ptr nounde
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   br label %13
@@ -526,7 +526,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_end_handler(ptr nounde
 43:                                               ; preds = %.lr.ph.i
   %44 = getelementptr inbounds nuw i8, ptr %.02432.i, i64 8
   %.not.not.i = icmp ugt ptr %44, %23
-  br i1 %.not.not.i, label %zend_observer_remove_handler.exit.thread, label %.lr.ph.i, !llvm.loop !74
+  br i1 %.not.not.i, label %zend_observer_remove_handler.exit.thread, label %.lr.ph.i
 
 45:                                               ; preds = %41, %34
   %storemerge.i = phi ptr [ %42, %41 ], [ null, %34 ]
@@ -559,7 +559,7 @@ define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr 
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = ptrtoint ptr %10 to i64
@@ -573,9 +573,9 @@ define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr 
   br label %18
 
 14:                                               ; preds = %6
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
-  %17 = load ptr, ptr %16, align 8, !tbaa !4, !nonnull !77, !noundef !77
+  %17 = load ptr, ptr %16, align 8, !tbaa !4, !nonnull !71, !noundef !71
   br label %18
 
 18:                                               ; preds = %14, %.thread.i
@@ -590,7 +590,7 @@ define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr 
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %3
   store ptr inttoptr (i64 2 to ptr), ptr %25, align 8, !tbaa !4
   store ptr inttoptr (i64 2 to ptr), ptr %26, align 8, !tbaa !4
-  %.04149.i = load ptr, ptr @zend_observers_fcall_list, align 8, !tbaa !78
+  %.04149.i = load ptr, ptr @zend_observers_fcall_list, align 8, !tbaa !72
   %.not4650.i = icmp eq ptr %.04149.i, null
   br i1 %.not4650.i, label %.preheader.i, label %.lr.ph.i
 
@@ -633,9 +633,9 @@ define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr 
 37:                                               ; preds = %35, %34
   %.240.i = phi i1 [ true, %35 ], [ %.139.i, %34 ]
   %.136.i = phi ptr [ %36, %35 ], [ %.03552.i, %34 ]
-  %.041.i = load ptr, ptr %.04154.i, align 8, !tbaa !78
+  %.041.i = load ptr, ptr %.04154.i, align 8, !tbaa !72
   %.not46.i = icmp eq ptr %.041.i, null
-  br i1 %.not46.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !79
+  br i1 %.not46.i, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph59.i:                                       ; preds = %.preheader.i, %.lr.ph59.i
   %.258.i = phi ptr [ %.2.i, %.lr.ph59.i ], [ %.256.i, %.preheader.i ]
@@ -647,7 +647,7 @@ define dso_local void @zend_observer_fcall_begin_prechecked(ptr noundef %0, ptr 
   %40 = getelementptr inbounds nuw i8, ptr %.03757.i, i64 8
   %.2.i = getelementptr inbounds i8, ptr %.258.i, i64 -8
   %41 = icmp ult ptr %40, %.2.i
-  br i1 %41, label %.lr.ph59.i, label %._crit_edge.i, !llvm.loop !80
+  br i1 %41, label %.lr.ph59.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph59.i, %.preheader.i
   br i1 %.038.lcssa.i, label %zend_observer_fcall_install.exit, label %42
@@ -668,9 +668,9 @@ zend_observer_fcall_install.exit:                 ; preds = %._crit_edge.i, %42
   br i1 %.not15, label %.preheader, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !75, !nonnull !77, !noundef !77
+  %51 = load ptr, ptr %50, align 8, !tbaa !69, !nonnull !71, !noundef !71
   %52 = load i8, ptr %51, align 8, !tbaa !34
   %.not.i18 = icmp eq i8 %52, 1
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 92
@@ -683,8 +683,8 @@ zend_observer_fcall_install.exit:                 ; preds = %._crit_edge.i, %42
   %59 = add i32 %58, %57
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds %struct._zval_struct, ptr %0, i64 %60
-  store ptr %49, ptr %61, align 8, !tbaa !81
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  store ptr %49, ptr %61, align 8, !tbaa !73
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   %62 = load ptr, ptr %1, align 8, !tbaa !4
   %63 = icmp eq ptr %62, inttoptr (i64 2 to ptr)
   br i1 %63, label %.critedge, label %.preheader
@@ -704,7 +704,7 @@ zend_observer_fcall_install.exit:                 ; preds = %._crit_edge.i, %42
 67:                                               ; preds = %64
   %68 = load ptr, ptr %66, align 8, !tbaa !4
   %.not17 = icmp eq ptr %68, null
-  br i1 %.not17, label %.critedge, label %64, !llvm.loop !82
+  br i1 %.not17, label %.critedge, label %64
 
 .critedge:                                        ; preds = %64, %67, %48, %zend_observer_fcall_install.exit
   ret void
@@ -718,7 +718,7 @@ define dso_local void @zend_observer_generator_resume(ptr noundef %0) local_unna
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -736,7 +736,7 @@ define dso_local void @zend_observer_generator_resume(ptr noundef %0) local_unna
   br i1 %.not13.i.i, label %zend_observer_fcall_has_no_observers.exit.i, label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %16 = getelementptr inbounds i8, ptr %15, i64 %12
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   br label %zend_observer_fcall_has_no_observers.exit.i
@@ -764,7 +764,7 @@ _zend_observe_fcall_begin.exit:                   ; preds = %1, %3, %zend_observ
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fcall_begin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !75, !nonnull !77, !noundef !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !69, !nonnull !71, !noundef !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !34
   %6 = and i32 %5, 16777216
@@ -792,7 +792,7 @@ define dso_local void @zend_observer_fcall_begin(ptr noundef %0) local_unnamed_a
   br i1 %.not13.i.i, label %zend_observer_fcall_has_no_observers.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %18 = getelementptr inbounds i8, ptr %17, i64 %14
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   br label %zend_observer_fcall_has_no_observers.exit.i
@@ -820,7 +820,7 @@ _zend_observe_fcall_begin.exit:                   ; preds = %28, %zend_observer_
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fcall_end_prechecked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !75, !nonnull !77, !noundef !77
+  %4 = load ptr, ptr %3, align 8, !tbaa !69, !nonnull !71, !noundef !71
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = ptrtoint ptr %6 to i64
@@ -829,7 +829,7 @@ define dso_local void @zend_observer_fcall_end_prechecked(ptr noundef %0, ptr no
   br i1 %.not.i, label %13, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   br label %13
@@ -867,10 +867,10 @@ define dso_local void @zend_observer_fcall_end_prechecked(ptr noundef %0, ptr no
 29:                                               ; preds = %26
   %30 = load ptr, ptr %28, align 8, !tbaa !4
   %.not20.i = icmp eq ptr %30, null
-  br i1 %.not20.i, label %call_end_observers.exit.loopexit, label %26, !llvm.loop !83
+  br i1 %.not20.i, label %call_end_observers.exit.loopexit, label %26
 
 call_end_observers.exit.loopexit:                 ; preds = %29, %26
-  %.pre = load ptr, ptr %3, align 8, !tbaa !75
+  %.pre = load ptr, ptr %3, align 8, !tbaa !69
   %.pre4 = load i8, ptr %.pre, align 8, !tbaa !34
   br label %call_end_observers.exit
 
@@ -888,24 +888,24 @@ call_end_observers.exit:                          ; preds = %call_end_observers.
   %39 = add i32 %38, %37
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds %struct._zval_struct, ptr %0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !81
-  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  %42 = load ptr, ptr %41, align 8, !tbaa !73
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fcall_end_all() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !84
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !74
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %call_end_observers.exit
   %.07 = phi ptr [ %42, %call_end_observers.exit ], [ %1, %0 ]
-  store ptr %.07, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !84
+  store ptr %.07, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !74
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !75, !nonnull !77, !noundef !77
+  %4 = load ptr, ptr %3, align 8, !tbaa !69, !nonnull !71, !noundef !71
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = ptrtoint ptr %6 to i64
@@ -914,7 +914,7 @@ define dso_local void @zend_observer_fcall_end_all() local_unnamed_addr #0 {
   br i1 %.not.i, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   br label %13
@@ -952,10 +952,10 @@ define dso_local void @zend_observer_fcall_end_all() local_unnamed_addr #0 {
 29:                                               ; preds = %26
   %30 = load ptr, ptr %28, align 8, !tbaa !4
   %.not20.i = icmp eq ptr %30, null
-  br i1 %.not20.i, label %call_end_observers.exit.loopexit, label %26, !llvm.loop !83
+  br i1 %.not20.i, label %call_end_observers.exit.loopexit, label %26
 
 call_end_observers.exit.loopexit:                 ; preds = %29, %26
-  %.pre = load ptr, ptr %3, align 8, !tbaa !75
+  %.pre = load ptr, ptr %3, align 8, !tbaa !69
   %.pre8 = load i8, ptr %.pre, align 8, !tbaa !34
   br label %call_end_observers.exit
 
@@ -973,12 +973,12 @@ call_end_observers.exit:                          ; preds = %call_end_observers.
   %39 = add i32 %38, %37
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds %struct._zval_struct, ptr %.07, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !81
+  %42 = load ptr, ptr %41, align 8, !tbaa !73
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %call_end_observers.exit, %0
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !84
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !74
   ret void
 }
 
@@ -986,14 +986,14 @@ call_end_observers.exit:                          ; preds = %call_end_observers.
 define dso_local void @zend_observer_function_declared_register(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !4
-  store i8 1, ptr @zend_observer_function_declared_observed, align 1, !tbaa !86
+  store i8 1, ptr @zend_observer_function_declared_observed, align 1, !tbaa !75
   call void @zend_llist_add_element(ptr noundef nonnull @zend_observer_function_declared_callbacks, ptr noundef nonnull %2) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_zend_observer_function_declared_notify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !87
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !76
   %4 = and i32 %3, 262144
   %.not = icmp ne i32 %4, 0
   %.07 = load ptr, ptr @zend_observer_function_declared_callbacks, align 8
@@ -1006,9 +1006,9 @@ define dso_local void @_zend_observer_function_declared_notify(ptr noundef %0, p
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void %6(ptr noundef %0, ptr noundef %1) #8
-  %.0 = load ptr, ptr %.09, align 8, !tbaa !78
+  %.0 = load ptr, ptr %.09, align 8, !tbaa !72
   %.not6 = icmp eq ptr %.0, null
-  br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !88
+  br i1 %.not6, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %2
   ret void
@@ -1018,14 +1018,14 @@ define dso_local void @_zend_observer_function_declared_notify(ptr noundef %0, p
 define dso_local void @zend_observer_class_linked_register(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !4
-  store i8 1, ptr @zend_observer_class_linked_observed, align 1, !tbaa !86
+  store i8 1, ptr @zend_observer_class_linked_observed, align 1, !tbaa !75
   call void @zend_llist_add_element(ptr noundef nonnull @zend_observer_class_linked_callbacks, ptr noundef nonnull %2) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_zend_observer_class_linked_notify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !87
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !76
   %4 = and i32 %3, 262144
   %.not = icmp ne i32 %4, 0
   %.07 = load ptr, ptr @zend_observer_class_linked_callbacks, align 8
@@ -1038,9 +1038,9 @@ define dso_local void @_zend_observer_class_linked_notify(ptr noundef %0, ptr no
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void %6(ptr noundef %0, ptr noundef %1) #8
-  %.0 = load ptr, ptr %.09, align 8, !tbaa !78
+  %.0 = load ptr, ptr %.09, align 8, !tbaa !72
   %.not6 = icmp eq ptr %.0, null
-  br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !89
+  br i1 %.not6, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %2
   ret void
@@ -1050,14 +1050,14 @@ define dso_local void @_zend_observer_class_linked_notify(ptr noundef %0, ptr no
 define dso_local void @zend_observer_error_register(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8, !tbaa !4
-  store i8 1, ptr @zend_observer_errors_observed, align 1, !tbaa !86
+  store i8 1, ptr @zend_observer_errors_observed, align 1, !tbaa !75
   call void @zend_llist_add_element(ptr noundef nonnull @zend_observer_error_callbacks, ptr noundef nonnull %2) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_zend_observer_error_notify(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.07 = load ptr, ptr @zend_observer_error_callbacks, align 8, !tbaa !78
+  %.07 = load ptr, ptr @zend_observer_error_callbacks, align 8, !tbaa !72
   %.not8 = icmp eq ptr %.07, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1069,9 +1069,9 @@ define dso_local void @_zend_observer_error_notify(i32 noundef %0, ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void %6(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #8
-  %.0 = load ptr, ptr %.09, align 8, !tbaa !78
+  %.0 = load ptr, ptr %.09, align 8, !tbaa !72
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1101,8 +1101,8 @@ define dso_local void @zend_observer_fiber_destroy_register(ptr noundef %0) loca
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fiber_init_notify(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %2, align 8, !tbaa !91
-  %.06 = load ptr, ptr @zend_observer_fiber_init, align 8, !tbaa !78
+  store ptr null, ptr %2, align 8, !tbaa !77
+  %.06 = load ptr, ptr @zend_observer_fiber_init, align 8, !tbaa !72
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -1111,9 +1111,9 @@ define dso_local void @zend_observer_fiber_init_notify(ptr noundef initializes((
   %3 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   tail call void %4(ptr noundef nonnull %0) #8
-  %.0 = load ptr, ptr %.08, align 8, !tbaa !78
+  %.0 = load ptr, ptr %.08, align 8, !tbaa !72
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1122,22 +1122,22 @@ define dso_local void @zend_observer_fiber_init_notify(ptr noundef initializes((
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fiber_switch_notify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 8, !tbaa !95
+  %4 = load i32, ptr %3, align 8, !tbaa !80
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %49
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !84
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !74
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   %.not6.i = icmp eq ptr %7, null
   br i1 %.not6.i, label %zend_observer_fcall_end_all.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %call_end_observers.exit.i
   %.07.i = phi ptr [ %48, %call_end_observers.exit.i ], [ %7, %6 ]
-  store ptr %.07.i, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !84
+  store ptr %.07.i, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !74
   %9 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !75, !nonnull !77, !noundef !77
+  %10 = load ptr, ptr %9, align 8, !tbaa !69, !nonnull !71, !noundef !71
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = ptrtoint ptr %12 to i64
@@ -1146,7 +1146,7 @@ define dso_local void @zend_observer_fiber_switch_notify(ptr noundef %0, ptr nou
   br i1 %.not.i.i, label %19, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !72
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !68
   %17 = getelementptr inbounds i8, ptr %16, i64 %13
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   br label %19
@@ -1184,10 +1184,10 @@ define dso_local void @zend_observer_fiber_switch_notify(ptr noundef %0, ptr nou
 35:                                               ; preds = %32
   %36 = load ptr, ptr %34, align 8, !tbaa !4
   %.not20.i.i = icmp eq ptr %36, null
-  br i1 %.not20.i.i, label %call_end_observers.exit.loopexit.i, label %32, !llvm.loop !83
+  br i1 %.not20.i.i, label %call_end_observers.exit.loopexit.i, label %32
 
 call_end_observers.exit.loopexit.i:               ; preds = %35, %32
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !75
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !69
   %.pre8.i = load i8, ptr %.pre.i, align 8, !tbaa !34
   br label %call_end_observers.exit.i
 
@@ -1205,16 +1205,16 @@ call_end_observers.exit.i:                        ; preds = %call_end_observers.
   %45 = add i32 %44, %43
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds %struct._zval_struct, ptr %.07.i, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !81
+  %48 = load ptr, ptr %47, align 8, !tbaa !73
   %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %zend_observer_fcall_end_all.exit, label %.lr.ph.i, !llvm.loop !85
+  br i1 %.not.i, label %zend_observer_fcall_end_all.exit, label %.lr.ph.i
 
 zend_observer_fcall_end_all.exit:                 ; preds = %call_end_observers.exit.i, %6
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !84
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !74
   br label %49
 
 49:                                               ; preds = %zend_observer_fcall_end_all.exit, %2
-  %.09 = load ptr, ptr @zend_observer_fiber_switch, align 8, !tbaa !78
+  %.09 = load ptr, ptr @zend_observer_fiber_switch, align 8, !tbaa !72
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1223,23 +1223,23 @@ zend_observer_fcall_end_all.exit:                 ; preds = %call_end_observers.
   %50 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !4
   tail call void %51(ptr noundef %0, ptr noundef %1) #8
-  %.0 = load ptr, ptr %.011, align 8, !tbaa !78
+  %.0 = load ptr, ptr %.011, align 8, !tbaa !72
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %52, ptr %53, align 8, !tbaa !91
+  store ptr %52, ptr %53, align 8, !tbaa !77
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %55 = load ptr, ptr %54, align 8, !tbaa !91
-  store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !47
+  %55 = load ptr, ptr %54, align 8, !tbaa !77
+  store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_observer_fiber_destroy_notify(ptr noundef %0) local_unnamed_addr #0 {
-  %.05 = load ptr, ptr @zend_observer_fiber_destroy, align 8, !tbaa !78
+  %.05 = load ptr, ptr @zend_observer_fiber_destroy, align 8, !tbaa !72
   %.not6 = icmp eq ptr %.05, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -1248,9 +1248,9 @@ define dso_local void @zend_observer_fiber_destroy_notify(ptr noundef %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   tail call void %3(ptr noundef %0) #8
-  %.0 = load ptr, ptr %.07, align 8, !tbaa !78
+  %.0 = load ptr, ptr %.07, align 8, !tbaa !72
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1310,59 +1310,42 @@ attributes #8 = { nounwind }
 !39 = !{!"p1 _ZTS23_zend_internal_arg_info", !5, i64 0}
 !40 = !{!"p1 _ZTS19_zend_property_info", !5, i64 0}
 !41 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!15, !20, i64 64}
-!45 = distinct !{!45, !43}
-!46 = distinct !{!46, !43}
-!47 = !{!48, !54, i64 536}
-!48 = !{!"_zend_executor_globals", !49, i64 0, !49, i64 16, !6, i64 32, !50, i64 288, !50, i64 296, !28, i64 304, !28, i64 360, !51, i64 416, !9, i64 424, !21, i64 428, !49, i64 432, !9, i64 448, !20, i64 456, !20, i64 464, !20, i64 472, !52, i64 480, !52, i64 488, !53, i64 496, !13, i64 504, !54, i64 512, !17, i64 520, !9, i64 528, !54, i64 536, !9, i64 544, !13, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !21, i64 572, !21, i64 573, !55, i64 574, !55, i64 575, !20, i64 576, !13, i64 584, !5, i64 592, !5, i64 600, !28, i64 608, !28, i64 664, !9, i64 720, !21, i64 724, !49, i64 728, !49, i64 744, !16, i64 760, !16, i64 784, !16, i64 808, !17, i64 832, !9, i64 840, !9, i64 844, !13, i64 848, !20, i64 856, !20, i64 864, !56, i64 872, !57, i64 880, !59, i64 904, !60, i64 960, !60, i64 968, !61, i64 976, !6, i64 984, !41, i64 1080, !21, i64 1088, !6, i64 1089, !13, i64 1096, !9, i64 1104, !9, i64 1108, !62, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !63, i64 1640, !28, i64 1672, !13, i64 1728, !64, i64 1736, !65, i64 1760, !65, i64 1768, !66, i64 1776, !13, i64 1784, !21, i64 1792, !9, i64 1796, !67, i64 1800, !18, i64 1808, !13, i64 1816, !68, i64 1824, !13, i64 1840, !13, i64 1848, !69, i64 1856, !6, i64 1936}
-!49 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
-!50 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
-!51 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
-!52 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
-!53 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
-!54 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
-!55 = !{!"zend_atomic_bool_s", !6, i64 0}
-!56 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
-!57 = !{!"_zend_objects_store", !58, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!58 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
-!59 = !{!"_zend_lazy_objects_store", !28, i64 0}
-!60 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
-!61 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
-!62 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
-!63 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !9, i64 20, !9, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!64 = !{!"", !52, i64 0, !52, i64 8, !52, i64 16}
-!65 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
-!66 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
-!67 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
-!68 = !{!"_zend_call_stack", !5, i64 0, !13, i64 8}
-!69 = !{!"_zend_strtod_state", !6, i64 0, !70, i64 64, !71, i64 72}
-!70 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
-!71 = !{!"p1 omnipotent char", !5, i64 0}
-!72 = !{!15, !5, i64 512}
-!73 = distinct !{!73, !43}
-!74 = distinct !{!74, !43}
-!75 = !{!76, !38, i64 24}
-!76 = !{!"_zend_execute_data", !61, i64 0, !54, i64 8, !52, i64 16, !38, i64 24, !49, i64 32, !54, i64 48, !20, i64 56, !5, i64 64, !20, i64 72}
-!77 = !{}
-!78 = !{!12, !12, i64 0}
-!79 = distinct !{!79, !43}
-!80 = distinct !{!80, !43}
-!81 = !{!54, !54, i64 0}
-!82 = distinct !{!82, !43}
-!83 = distinct !{!83, !43}
-!84 = !{!48, !54, i64 512}
-!85 = distinct !{!85, !43}
-!86 = !{!21, !21, i64 0}
-!87 = !{!15, !9, i64 172}
-!88 = distinct !{!88, !43}
-!89 = distinct !{!89, !43}
-!90 = distinct !{!90, !43}
-!91 = !{!92, !54, i64 48}
-!92 = !{!"_zend_fiber_context", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !93, i64 32, !9, i64 40, !54, i64 48, !6, i64 56}
-!93 = !{!"p1 _ZTS17_zend_fiber_stack", !5, i64 0}
-!94 = distinct !{!94, !43}
-!95 = !{!92, !9, i64 40}
-!96 = distinct !{!96, !43}
-!97 = distinct !{!97, !43}
+!42 = !{!15, !20, i64 64}
+!43 = !{!44, !50, i64 536}
+!44 = !{!"_zend_executor_globals", !45, i64 0, !45, i64 16, !6, i64 32, !46, i64 288, !46, i64 296, !28, i64 304, !28, i64 360, !47, i64 416, !9, i64 424, !21, i64 428, !45, i64 432, !9, i64 448, !20, i64 456, !20, i64 464, !20, i64 472, !48, i64 480, !48, i64 488, !49, i64 496, !13, i64 504, !50, i64 512, !17, i64 520, !9, i64 528, !50, i64 536, !9, i64 544, !13, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !21, i64 572, !21, i64 573, !51, i64 574, !51, i64 575, !20, i64 576, !13, i64 584, !5, i64 592, !5, i64 600, !28, i64 608, !28, i64 664, !9, i64 720, !21, i64 724, !45, i64 728, !45, i64 744, !16, i64 760, !16, i64 784, !16, i64 808, !17, i64 832, !9, i64 840, !9, i64 844, !13, i64 848, !20, i64 856, !20, i64 864, !52, i64 872, !53, i64 880, !55, i64 904, !56, i64 960, !56, i64 968, !57, i64 976, !6, i64 984, !41, i64 1080, !21, i64 1088, !6, i64 1089, !13, i64 1096, !9, i64 1104, !9, i64 1108, !58, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !59, i64 1640, !28, i64 1672, !13, i64 1728, !60, i64 1736, !61, i64 1760, !61, i64 1768, !62, i64 1776, !13, i64 1784, !21, i64 1792, !9, i64 1796, !63, i64 1800, !18, i64 1808, !13, i64 1816, !64, i64 1824, !13, i64 1840, !13, i64 1848, !65, i64 1856, !6, i64 1936}
+!45 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
+!46 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
+!47 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
+!48 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
+!49 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
+!50 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
+!51 = !{!"zend_atomic_bool_s", !6, i64 0}
+!52 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
+!53 = !{!"_zend_objects_store", !54, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!54 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
+!55 = !{!"_zend_lazy_objects_store", !28, i64 0}
+!56 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
+!57 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
+!58 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
+!59 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !9, i64 20, !9, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!60 = !{!"", !48, i64 0, !48, i64 8, !48, i64 16}
+!61 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
+!62 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
+!63 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
+!64 = !{!"_zend_call_stack", !5, i64 0, !13, i64 8}
+!65 = !{!"_zend_strtod_state", !6, i64 0, !66, i64 64, !67, i64 72}
+!66 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
+!67 = !{!"p1 omnipotent char", !5, i64 0}
+!68 = !{!15, !5, i64 512}
+!69 = !{!70, !38, i64 24}
+!70 = !{!"_zend_execute_data", !57, i64 0, !50, i64 8, !48, i64 16, !38, i64 24, !45, i64 32, !50, i64 48, !20, i64 56, !5, i64 64, !20, i64 72}
+!71 = !{}
+!72 = !{!12, !12, i64 0}
+!73 = !{!50, !50, i64 0}
+!74 = !{!44, !50, i64 512}
+!75 = !{!21, !21, i64 0}
+!76 = !{!15, !9, i64 172}
+!77 = !{!78, !50, i64 48}
+!78 = !{!"_zend_fiber_context", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !79, i64 32, !9, i64 40, !50, i64 48, !6, i64 56}
+!79 = !{!"p1 _ZTS17_zend_fiber_stack", !5, i64 0}
+!80 = !{!78, !9, i64 40}

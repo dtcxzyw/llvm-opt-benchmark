@@ -161,7 +161,7 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 .lr.ph90.us:                                      ; preds = %.lr.ph90.us.preheader, %46
   %.188.us = phi ptr [ %47, %46 ], [ %36, %.lr.ph90.us.preheader ]
   %.14487.us = phi i32 [ %48, %46 ], [ 0, %.lr.ph90.us.preheader ]
-  %37 = load float, ptr %.188.us, align 4, !tbaa !50
+  %37 = load float, ptr %.188.us, align 4, !tbaa !49
   %38 = fcmp fast olt float %37, 0.000000e+00
   br i1 %38, label %42, label %39
 
@@ -178,11 +178,11 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 
 46:                                               ; preds = %42, %39
   %storemerge.us = phi float [ %41, %39 ], [ %45, %42 ]
-  store float %storemerge.us, ptr %.188.us, align 4, !tbaa !50
+  store float %storemerge.us, ptr %.188.us, align 4, !tbaa !49
   %47 = getelementptr inbounds nuw i8, ptr %.188.us, i64 4
   %48 = add nuw nsw i32 %.14487.us, 1
   %exitcond.not = icmp eq i32 %48, %23
-  br i1 %exitcond.not, label %._crit_edge91.us, label %.lr.ph90.us, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge91.us, label %.lr.ph90.us, !llvm.loop !50
 
 .noexc:                                           ; preds = %.noexc.preheader, %._crit_edge91
   %49 = phi i32 [ %23, %.noexc.preheader ], [ %107, %._crit_edge91 ]
@@ -205,7 +205,7 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 .lr.ph:                                           ; preds = %.noexc, %.lr.ph
   %.04284 = phi ptr [ %100, %.lr.ph ], [ %55, %.noexc ]
   %.04383 = phi i32 [ %101, %.lr.ph ], [ 0, %.noexc ]
-  %63 = load <4 x float>, ptr %.04284, align 1, !tbaa !53
+  %63 = load <4 x float>, ptr %.04284, align 1, !tbaa !52
   %64 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %63)
   %65 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %63)
   %66 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %65, <4 x float> splat (float 0x40561814A0000000))
@@ -242,13 +242,13 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %97 = fmul fast <4 x float> %96, %58
   %98 = fadd fast <4 x float> %97, %64
   %99 = fmul fast <4 x float> %98, %61
-  store <4 x float> %99, ptr %.04284, align 1, !tbaa !53
+  store <4 x float> %99, ptr %.04284, align 1, !tbaa !52
   %100 = getelementptr inbounds nuw i8, ptr %.04284, i64 16
   %101 = add nuw nsw i32 %.04383, 4
   %102 = or disjoint i32 %101, 3
   %103 = load i32, ptr %5, align 4, !tbaa !17
   %104 = icmp slt i32 %102, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !54
+  br i1 %104, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load float, ptr %21, align 8, !tbaa !43
@@ -268,7 +268,7 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 .lr.ph90:                                         ; preds = %._crit_edge, %119
   %.188 = phi ptr [ %120, %119 ], [ %.042.lcssa, %._crit_edge ]
   %.14487 = phi i32 [ %121, %119 ], [ %.043.lcssa, %._crit_edge ]
-  %110 = load float, ptr %.188, align 4, !tbaa !50
+  %110 = load float, ptr %.188, align 4, !tbaa !49
   %111 = fcmp fast olt float %110, 0.000000e+00
   br i1 %111, label %112, label %116
 
@@ -285,17 +285,17 @@ define internal void @_ZNK4ncnn8SELU_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 
 119:                                              ; preds = %116, %112
   %storemerge = phi float [ %118, %116 ], [ %115, %112 ]
-  store float %storemerge, ptr %.188, align 4, !tbaa !50
+  store float %storemerge, ptr %.188, align 4, !tbaa !49
   %120 = getelementptr inbounds nuw i8, ptr %.188, i64 4
   %121 = add nuw nsw i32 %.14487, 1
   %exitcond101.not = icmp eq i32 %121, %107
-  br i1 %exitcond101.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !51
+  br i1 %exitcond101.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !50
 
 ._crit_edge91:                                    ; preds = %119, %._crit_edge
   %indvars.iv.next103 = add nsw i64 %indvars.iv102, 1
   %lftr.wideiv105 = trunc i64 %indvars.iv.next103 to i32
   %exitcond106.not = icmp eq i32 %26, %lftr.wideiv105
-  br i1 %exitcond106.not, label %._crit_edge94, label %.noexc, !llvm.loop !55
+  br i1 %exitcond106.not, label %._crit_edge94, label %.noexc, !llvm.loop !54
 
 ._crit_edge94:                                    ; preds = %._crit_edge91.us, %._crit_edge91, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -330,7 +330,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !57 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !56 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #9
@@ -410,15 +410,14 @@ attributes #12 = { builtin nounwind }
 !44 = !{!"_ZTSN4ncnn4SELUE", !24, i64 0, !45, i64 208, !45, i64 212}
 !45 = !{!"float", !7, i64 0}
 !46 = !{!44, !45, i64 212}
-!47 = distinct !{!47, !48, !49}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = !{!45, !45, i64 0}
-!51 = distinct !{!51, !52, !48}
-!52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!7, !7, i64 0}
-!54 = distinct !{!54, !52, !48}
-!55 = distinct !{!55, !48, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
-!57 = !{!58}
-!58 = !{i64 2, i64 -1, i64 -1, i1 true}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = !{!45, !45, i64 0}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.mustprogress"}
+!52 = !{!7, !7, i64 0}
+!53 = distinct !{!53, !51}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}
+!56 = !{!57}
+!57 = !{i64 2, i64 -1, i64 -1, i1 true}

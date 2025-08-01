@@ -1203,7 +1203,7 @@ define internal ptr @_sha3_shake_128_digest(ptr noundef readonly captures(none) 
   br i1 %.not, label %_sha3_shake_128_digest_impl.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !63
+  %6 = load i64, ptr %3, align 8, !tbaa !62
   %7 = icmp ugt i64 %6, 536870911
   br i1 %7, label %8, label %10
 
@@ -1252,7 +1252,7 @@ define internal ptr @_sha3_shake_128_hexdigest(ptr noundef readonly captures(non
   br i1 %.not, label %_sha3_shake_128_hexdigest_impl.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %3, align 8, !tbaa !63
+  %6 = load i64, ptr %3, align 8, !tbaa !62
   %7 = icmp ugt i64 %6, 536870911
   br i1 %7, label %8, label %10
 
@@ -1386,7 +1386,6 @@ attributes #4 = { nounwind }
 !57 = !{!54, !6, i64 0}
 !58 = !{i8 0, i8 2}
 !59 = !{}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = !{!26, !26, i64 0}
+!62 = !{!26, !26, i64 0}

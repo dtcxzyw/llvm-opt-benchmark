@@ -215,7 +215,7 @@ _ZL12mode_to_name15MallocLimitMode.exit20:        ; preds = %_Z25proper_unit_for
 38:                                               ; preds = %19, %_ZL12mode_to_name15MallocLimitMode.exit20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !8
 
 .loopexit:                                        ; preds = %38, %_ZL12mode_to_name15MallocLimitMode.exit
   ret void
@@ -425,7 +425,7 @@ _ZN12ParserHelper10match_charEc.exit31:           ; preds = %78
 82:                                               ; preds = %_ZN12ParserHelper10match_charEc.exit31.thread, %_ZN12ParserHelper10match_charEc.exit22
   %83 = phi ptr [ %81, %_ZN12ParserHelper10match_charEc.exit31.thread ], [ %77, %_ZN12ParserHelper10match_charEc.exit22 ]
   %.not41 = icmp ult ptr %83, %62
-  br i1 %.not41, label %34, label %.loopexit, !llvm.loop !10
+  br i1 %.not41, label %34, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %82, %.preheader, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit, %20, %_ZN12ParserHelper10match_charEc.exit31, %76, %59, %53, %46, %33, %_ZN12ParserHelper10match_charEc.exit, %14
   %.0 = phi i1 [ false, %14 ], [ false, %33 ], [ false, %_ZN12ParserHelper10match_charEc.exit ], [ false, %_ZN12ParserHelper10match_charEc.exit31 ], [ false, %76 ], [ false, %59 ], [ false, %53 ], [ false, %46 ], [ true, %20 ], [ true, %_ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit ], [ true, %.preheader ], [ true, %82 ]
@@ -679,8 +679,7 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

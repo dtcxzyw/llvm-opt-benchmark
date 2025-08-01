@@ -257,10 +257,10 @@ _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %16, %19, %29, %31, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define float @ImfHalfToFloat(i16 noundef zeroext %0) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !13
+  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !12
   %3 = zext i16 %0 to i64
   %4 = getelementptr inbounds nuw %union.imath_half_uif, ptr %2, i64 %3
-  %5 = load float, ptr %4, align 4, !tbaa !16
+  %5 = load float, ptr %4, align 4, !tbaa !15
   ret float %5
 }
 
@@ -270,7 +270,7 @@ define void @ImfHalfToFloatArray(i32 noundef %0, ptr noundef readonly captures(n
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !13
+  %5 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !12
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %6
 
@@ -280,15 +280,15 @@ define void @ImfHalfToFloatArray(i32 noundef %0, ptr noundef readonly captures(n
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %8 = load i16, ptr %7, align 2, !tbaa !17
+  %8 = load i16, ptr %7, align 2, !tbaa !16
   %9 = zext i16 %8 to i64
   %10 = getelementptr inbounds nuw %union.imath_half_uif, ptr %5, i64 %9
-  %11 = load float, ptr %10, align 4, !tbaa !16
+  %11 = load float, ptr %10, align 4, !tbaa !15
   %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -299,9 +299,9 @@ define noundef ptr @ImfNewHeader() local_unnamed_addr #8 personality ptr @__gxx_
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #24
-  store float 0.000000e+00, ptr %1, align 4, !tbaa !20
+  store float 0.000000e+00, ptr %1, align 4, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float 0.000000e+00, ptr %4, align 4, !tbaa !22
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !21
   invoke void @_ZN7Imf_3_46HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %2, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
           to label %5 unwind label %8
 
@@ -332,12 +332,12 @@ define noundef ptr @ImfNewHeader() local_unnamed_addr #8 personality ptr @__gxx_
 13:                                               ; preds = %10
   %.07 = extractvalue { ptr, i32 } %.pn, 0
   %14 = call ptr @__cxa_begin_catch(ptr %.07) #24
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
   %19 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %20
 
@@ -414,12 +414,12 @@ define noundef ptr @ImfCopyHeader(ptr noundef %0) local_unnamed_addr #8 personal
 11:                                               ; preds = %8
   %.07 = extractvalue { ptr, i32 } %.pn, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %.07) #24
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %18
 
@@ -436,13 +436,13 @@ declare void @_ZN7Imf_3_46HeaderC1ERKS0_(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderSetDisplayWindow(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
   %6 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store i32 %1, ptr %6, align 4, !tbaa !25
+  store i32 %1, ptr %6, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %2, ptr %7, align 4, !tbaa !28
+  store i32 %2, ptr %7, align 4, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %3, ptr %8, align 4, !tbaa !25
+  store i32 %3, ptr %8, align 4, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %4, ptr %9, align 4, !tbaa !28
+  store i32 %4, ptr %9, align 4, !tbaa !27
   ret void
 }
 
@@ -451,17 +451,17 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header13dis
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderDisplayWindow(ptr noundef nonnull %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #8 {
   %6 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %7 = load i32, ptr %6, align 4, !tbaa !25
+  %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !28
+  %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %11 = load i32, ptr %10, align 4, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !28
-  store i32 %7, ptr %1, align 4, !tbaa !29
-  store i32 %9, ptr %2, align 4, !tbaa !29
-  store i32 %11, ptr %3, align 4, !tbaa !29
-  store i32 %13, ptr %4, align 4, !tbaa !29
+  %13 = load i32, ptr %12, align 4, !tbaa !27
+  store i32 %7, ptr %1, align 4, !tbaa !28
+  store i32 %9, ptr %2, align 4, !tbaa !28
+  store i32 %11, ptr %3, align 4, !tbaa !28
+  store i32 %13, ptr %4, align 4, !tbaa !28
   ret void
 }
 
@@ -470,13 +470,13 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header13di
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderSetDataWindow(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
   %6 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store i32 %1, ptr %6, align 4, !tbaa !25
+  store i32 %1, ptr %6, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %2, ptr %7, align 4, !tbaa !28
+  store i32 %2, ptr %7, align 4, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %3, ptr %8, align 4, !tbaa !25
+  store i32 %3, ptr %8, align 4, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %4, ptr %9, align 4, !tbaa !28
+  store i32 %4, ptr %9, align 4, !tbaa !27
   ret void
 }
 
@@ -485,17 +485,17 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_46Header10dat
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderDataWindow(ptr noundef nonnull %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #8 {
   %6 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %7 = load i32, ptr %6, align 4, !tbaa !25
+  %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !28
+  %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !25
+  %11 = load i32, ptr %10, align 4, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !28
-  store i32 %7, ptr %1, align 4, !tbaa !29
-  store i32 %9, ptr %2, align 4, !tbaa !29
-  store i32 %11, ptr %3, align 4, !tbaa !29
-  store i32 %13, ptr %4, align 4, !tbaa !29
+  %13 = load i32, ptr %12, align 4, !tbaa !27
+  store i32 %7, ptr %1, align 4, !tbaa !28
+  store i32 %9, ptr %2, align 4, !tbaa !28
+  store i32 %11, ptr %3, align 4, !tbaa !28
+  store i32 %13, ptr %4, align 4, !tbaa !28
   ret void
 }
 
@@ -522,9 +522,9 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header16pix
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderSetScreenWindowCenter(ptr noundef nonnull %0, float noundef %1, float noundef %2) local_unnamed_addr #8 {
   %4 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_46Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store float %1, ptr %4, align 4, !tbaa !20
+  store float %1, ptr %4, align 4, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %2, ptr %5, align 4, !tbaa !22
+  store float %2, ptr %5, align 4, !tbaa !21
   ret void
 }
 
@@ -533,10 +533,10 @@ declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_46Header18scre
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderScreenWindowCenter(ptr noundef nonnull %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #8 {
   %4 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_46Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %5 = load float, ptr %4, align 4, !tbaa !20
+  %5 = load float, ptr %4, align 4, !tbaa !19
   %6 = fptosi float %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %8 = load float, ptr %7, align 4, !tbaa !22
+  %8 = load float, ptr %7, align 4, !tbaa !21
   %9 = fptosi float %8 to i32
   %10 = sitofp i32 %6 to float
   store float %10, ptr %1, align 4, !tbaa !8
@@ -568,7 +568,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header17scr
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderSetLineOrder(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store i32 %1, ptr %3, align 4, !tbaa !30
+  store i32 %1, ptr %3, align 4, !tbaa !29
   ret void
 }
 
@@ -577,7 +577,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header9lineO
 ; Function Attrs: mustprogress uwtable
 define i32 @ImfHeaderLineOrder(ptr noundef nonnull %0) local_unnamed_addr #8 {
   %2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %3 = load i32, ptr %2, align 4, !tbaa !30
+  %3 = load i32, ptr %2, align 4, !tbaa !29
   ret i32 %3
 }
 
@@ -586,7 +586,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header9line
 ; Function Attrs: mustprogress uwtable
 define void @ImfHeaderSetCompression(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store i32 %1, ptr %3, align 4, !tbaa !32
+  store i32 %1, ptr %3, align 4, !tbaa !31
   ret void
 }
 
@@ -595,7 +595,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_46Header11comp
 ; Function Attrs: mustprogress uwtable
 define i32 @ImfHeaderCompression(ptr noundef nonnull %0) local_unnamed_addr #8 {
   %2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %3 = load i32, ptr %2, align 4, !tbaa !32
+  %3 = load i32, ptr %2, align 4, !tbaa !31
   ret i32 %3
 }
 
@@ -605,7 +605,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_46Header11com
 define range(i32 0, 2) i32 @ImfHeaderSetIntAttribute(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.Imf_3_4::TypedAttribute", align 8
-  store i32 %2, ptr %4, align 4, !tbaa !29
+  store i32 %2, ptr %4, align 4, !tbaa !28
   %6 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %7 unwind label %14
 
@@ -676,12 +676,12 @@ define range(i32 0, 2) i32 @ImfHeaderSetIntAttribute(ptr noundef nonnull %0, ptr
 27:                                               ; preds = %.body
   %.114 = extractvalue { ptr, i32 } %.pn17.pn, 0
   %28 = call ptr @__cxa_begin_catch(ptr %.114) #24
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #24
   %33 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %32, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %44
 
@@ -715,7 +715,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetIntAttribute(ptr noundef nonnull %0, ptr
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIiEEEERT_PKc.exit: ; preds = %.noexc
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 %2, ptr %43, align 4, !tbaa !29
+  store i32 %2, ptr %43, align 4, !tbaa !28
   br label %44
 
 44:                                               ; preds = %13, %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIiEEEERT_PKc.exit, %27
@@ -768,8 +768,8 @@ define range(i32 0, 2) i32 @ImfHeaderIntAttribute(ptr noundef nonnull %0, ptr no
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIiEEEERKT_PKc.exit: ; preds = %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load i32, ptr %12, align 4, !tbaa !29
-  store i32 %13, ptr %2, align 4, !tbaa !29
+  %13 = load i32, ptr %12, align 4, !tbaa !28
+  store i32 %13, ptr %2, align 4, !tbaa !28
   br label %27
 
 14:                                               ; preds = %9, %3
@@ -787,12 +787,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIiEEEERKT_PKc.exit: ; pre
 19:                                               ; preds = %.body
   %20 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #24
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #24
   %26 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %25, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %27
 
@@ -879,12 +879,12 @@ define range(i32 0, 2) i32 @ImfHeaderSetFloatAttribute(ptr noundef nonnull %0, p
 27:                                               ; preds = %.body
   %.114 = extractvalue { ptr, i32 } %.pn17.pn, 0
   %28 = call ptr @__cxa_begin_catch(ptr %.114) #24
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #24
   %33 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %32, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %44
 
@@ -938,7 +938,7 @@ declare void @_ZN7Imf_3_414TypedAttributeIfED1Ev(ptr noundef nonnull align 8 der
 define range(i32 0, 2) i32 @ImfHeaderSetDoubleAttribute(ptr noundef nonnull %0, ptr noundef %1, double noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca %"class.Imf_3_4::TypedAttribute.3", align 8
-  store double %2, ptr %4, align 8, !tbaa !34
+  store double %2, ptr %4, align 8, !tbaa !33
   %6 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %7 unwind label %14
 
@@ -1009,12 +1009,12 @@ define range(i32 0, 2) i32 @ImfHeaderSetDoubleAttribute(ptr noundef nonnull %0, 
 27:                                               ; preds = %.body
   %.114 = extractvalue { ptr, i32 } %.pn17.pn, 0
   %28 = call ptr @__cxa_begin_catch(ptr %.114) #24
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #24
   %33 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %32, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %44
 
@@ -1048,7 +1048,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetDoubleAttribute(ptr noundef nonnull %0, 
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIdEEEERT_PKc.exit: ; preds = %.noexc
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store double %2, ptr %43, align 8, !tbaa !34
+  store double %2, ptr %43, align 8, !tbaa !33
   br label %44
 
 44:                                               ; preds = %13, %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIdEEEERT_PKc.exit, %27
@@ -1114,12 +1114,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIfEEEERKT_PKc.exit: ; pre
 19:                                               ; preds = %.body
   %20 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #24
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #24
   %26 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %25, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %27
 
@@ -1162,8 +1162,8 @@ define range(i32 0, 2) i32 @ImfHeaderDoubleAttribute(ptr noundef nonnull %0, ptr
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIdEEEERKT_PKc.exit: ; preds = %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load double, ptr %12, align 8, !tbaa !34
-  store double %13, ptr %2, align 8, !tbaa !34
+  %13 = load double, ptr %12, align 8, !tbaa !33
+  store double %13, ptr %2, align 8, !tbaa !33
   br label %27
 
 14:                                               ; preds = %9, %3
@@ -1181,12 +1181,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIdEEEERKT_PKc.exit: ; pre
 19:                                               ; preds = %.body
   %20 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #24
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #24
   %26 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %25, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %27
 
@@ -1218,7 +1218,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %0, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %13, ptr %6, align 8, !tbaa !36
+  store ptr %13, ptr %6, align 8, !tbaa !35
   %14 = icmp eq ptr %2, null
   br i1 %14, label %15, label %16
 
@@ -1232,7 +1232,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %0, 
 16:                                               ; preds = %12
   %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store i64 %17, ptr %4, align 8, !tbaa !39
+  store i64 %17, ptr %4, align 8, !tbaa !38
   %18 = icmp ugt i64 %17, 15
   br i1 %18, label %.noexc.i, label %._crit_edge.i.i
 
@@ -1241,9 +1241,9 @@ define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %0, 
           to label %.noexc24 unwind label %44
 
 .noexc24:                                         ; preds = %.noexc.i
-  store ptr %19, ptr %6, align 8, !tbaa !41
-  %20 = load i64, ptr %4, align 8, !tbaa !39
-  store i64 %20, ptr %13, align 8, !tbaa !16
+  store ptr %19, ptr %6, align 8, !tbaa !40
+  %20 = load i64, ptr %4, align 8, !tbaa !38
+  store i64 %20, ptr %13, align 8, !tbaa !15
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc24, %16
@@ -1254,8 +1254,8 @@ define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %0, 
   ]
 
 22:                                               ; preds = %._crit_edge.i.i
-  %23 = load i8, ptr %2, align 1, !tbaa !16
-  store i8 %23, ptr %21, align 1, !tbaa !16
+  %23 = load i8, ptr %2, align 1, !tbaa !15
+  store i8 %23, ptr %21, align 1, !tbaa !15
   br label %25
 
 24:                                               ; preds = %._crit_edge.i.i
@@ -1263,12 +1263,12 @@ define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %0, 
   br label %25
 
 25:                                               ; preds = %24, %22, %._crit_edge.i.i
-  %26 = load i64, ptr %4, align 8, !tbaa !39
+  %26 = load i64, ptr %4, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %26, ptr %27, align 8, !tbaa !43
-  %28 = load ptr, ptr %6, align 8, !tbaa !41
+  store i64 %26, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %6, align 8, !tbaa !40
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
-  store i8 0, ptr %29, align 1, !tbaa !16
+  store i8 0, ptr %29, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   invoke void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %30 unwind label %46
@@ -1279,18 +1279,18 @@ define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %0, 
 
 31:                                               ; preds = %30
   call void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
-  %32 = load ptr, ptr %6, align 8, !tbaa !41
+  %32 = load ptr, ptr %6, align 8, !tbaa !40
   %33 = icmp eq ptr %32, %13
   br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %31
-  %34 = load i64, ptr %27, align 8, !tbaa !43
+  %34 = load i64, ptr %27, align 8, !tbaa !42
   %35 = icmp ult i64 %34, 16
   call void @llvm.assume(i1 %35)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %31
-  %36 = load i64, ptr %13, align 8, !tbaa !16
+  %36 = load i64, ptr %13, align 8, !tbaa !15
   %37 = add i64 %36, 1
   call void @_ZdlPvm(ptr noundef %32, i64 noundef %37) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1338,18 +1338,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 50:                                               ; preds = %48, %46
   %.pn20 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
-  %51 = load ptr, ptr %6, align 8, !tbaa !41
+  %51 = load ptr, ptr %6, align 8, !tbaa !40
   %52 = icmp eq ptr %51, %13
   br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %50
-  %53 = load i64, ptr %27, align 8, !tbaa !43
+  %53 = load i64, ptr %27, align 8, !tbaa !42
   %54 = icmp ult i64 %53, 16
   call void @llvm.assume(i1 %54)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %50
-  %55 = load i64, ptr %13, align 8, !tbaa !16
+  %55 = load i64, ptr %13, align 8, !tbaa !15
   %56 = add i64 %55, 1
   call void @_ZdlPvm(ptr noundef %51, i64 noundef %56) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
@@ -1370,12 +1370,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 59:                                               ; preds = %.body
   %.116 = extractvalue { ptr, i32 } %.pn20.pn.pn, 0
   %60 = call ptr @__cxa_begin_catch(ptr %.116) #24
-  %61 = load ptr, ptr %60, align 8, !tbaa !23
+  %61 = load ptr, ptr %60, align 8, !tbaa !22
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %60) #24
   %65 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %64, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
@@ -1410,7 +1410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERT_PKc.exit: ; preds = %.noexc28
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !43
+  %77 = load i64, ptr %76, align 8, !tbaa !42
   %78 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %79 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %75, i64 noundef 0, i64 noundef %77, ptr noundef nonnull %2, i64 noundef %78)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %42
@@ -1459,8 +1459,8 @@ define range(i32 0, 2) i32 @ImfHeaderStringAttribute(ptr noundef nonnull %0, ptr
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERKT_PKc.exit: ; preds = %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
-  store ptr %13, ptr %2, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  store ptr %13, ptr %2, align 8, !tbaa !43
   br label %27
 
 14:                                               ; preds = %9, %3
@@ -1478,12 +1478,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeINSt7__cxx1112basic_strin
 19:                                               ; preds = %.body
   %20 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #24
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #24
   %26 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %25, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %27
 
@@ -1501,12 +1501,12 @@ define range(i32 0, 2) i32 @ImfHeaderSetBox2iAttribute(ptr noundef nonnull %0, p
   %8 = alloca %"class.Imf_3_4::TypedAttribute.8", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %2, ptr %7, align 4, !tbaa !25
+  store i32 %2, ptr %7, align 4, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %3, ptr %10, align 4, !tbaa !28
-  store i32 %4, ptr %9, align 4, !tbaa !25
+  store i32 %3, ptr %10, align 4, !tbaa !27
+  store i32 %4, ptr %9, align 4, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %5, ptr %11, align 4, !tbaa !28
+  store i32 %5, ptr %11, align 4, !tbaa !27
   %12 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %13 unwind label %20
 
@@ -1598,13 +1598,13 @@ define range(i32 0, 2) i32 @ImfHeaderSetBox2iAttribute(ptr noundef nonnull %0, p
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERT_PKc.exit: ; preds = %.noexc
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 %2, ptr %40, align 4, !tbaa !25
+  store i32 %2, ptr %40, align 4, !tbaa !24
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i32 %3, ptr %41, align 4, !tbaa !28
+  store i32 %3, ptr %41, align 4, !tbaa !27
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 %4, ptr %42, align 4, !tbaa !25
+  store i32 %4, ptr %42, align 4, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  store i32 %5, ptr %43, align 4, !tbaa !28
+  store i32 %5, ptr %43, align 4, !tbaa !27
   br label %44
 
 44:                                               ; preds = %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERT_PKc.exit, %19
@@ -1622,12 +1622,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2
 47:                                               ; preds = %.body
   %.118 = extractvalue { ptr, i32 } %.pn21.pn, 0
   %48 = call ptr @__cxa_begin_catch(ptr %.118) #24
-  %49 = load ptr, ptr %48, align 8, !tbaa !23
+  %49 = load ptr, ptr %48, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %48) #24
   %53 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %52, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %54
 
@@ -1675,17 +1675,17 @@ define range(i32 0, 2) i32 @ImfHeaderBox2iAttribute(ptr noundef nonnull %0, ptr 
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IiEEEEEEEERKT_PKc.exit: ; preds = %.noexc
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !45
-  store i32 %16, ptr %2, align 4, !tbaa !29
+  %16 = load i32, ptr %15, align 4, !tbaa !44
+  store i32 %16, ptr %2, align 4, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !47
-  store i32 %18, ptr %3, align 4, !tbaa !29
+  %18 = load i32, ptr %17, align 4, !tbaa !46
+  store i32 %18, ptr %3, align 4, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %20 = load i32, ptr %19, align 4, !tbaa !48
-  store i32 %20, ptr %4, align 4, !tbaa !29
+  %20 = load i32, ptr %19, align 4, !tbaa !47
+  store i32 %20, ptr %4, align 4, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !49
-  store i32 %22, ptr %5, align 4, !tbaa !29
+  %22 = load i32, ptr %21, align 4, !tbaa !48
+  store i32 %22, ptr %5, align 4, !tbaa !28
   br label %36
 
 23:                                               ; preds = %12, %6
@@ -1704,12 +1704,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec
 28:                                               ; preds = %.body
   %29 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #24
-  %31 = load ptr, ptr %30, align 8, !tbaa !23
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #24
   %35 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %34, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %36
 
@@ -1727,12 +1727,12 @@ define range(i32 0, 2) i32 @ImfHeaderSetBox2fAttribute(ptr noundef nonnull %0, p
   %8 = alloca %"class.Imf_3_4::TypedAttribute.10", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store float %2, ptr %7, align 4, !tbaa !20
+  store float %2, ptr %7, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float %3, ptr %10, align 4, !tbaa !22
-  store float %4, ptr %9, align 4, !tbaa !20
+  store float %3, ptr %10, align 4, !tbaa !21
+  store float %4, ptr %9, align 4, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store float %5, ptr %11, align 4, !tbaa !22
+  store float %5, ptr %11, align 4, !tbaa !21
   %12 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %13 unwind label %20
 
@@ -1824,13 +1824,13 @@ define range(i32 0, 2) i32 @ImfHeaderSetBox2fAttribute(ptr noundef nonnull %0, p
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IfEEEEEEEERT_PKc.exit: ; preds = %.noexc
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store float %2, ptr %40, align 4, !tbaa !20
+  store float %2, ptr %40, align 4, !tbaa !19
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store float %3, ptr %41, align 4, !tbaa !22
+  store float %3, ptr %41, align 4, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store float %4, ptr %42, align 4, !tbaa !20
+  store float %4, ptr %42, align 4, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  store float %5, ptr %43, align 4, !tbaa !22
+  store float %5, ptr %43, align 4, !tbaa !21
   br label %44
 
 44:                                               ; preds = %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IfEEEEEEEERT_PKc.exit, %19
@@ -1848,12 +1848,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2
 47:                                               ; preds = %.body
   %.118 = extractvalue { ptr, i32 } %.pn21.pn, 0
   %48 = call ptr @__cxa_begin_catch(ptr %.118) #24
-  %49 = load ptr, ptr %48, align 8, !tbaa !23
+  %49 = load ptr, ptr %48, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %48) #24
   %53 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %52, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %54
 
@@ -1901,16 +1901,16 @@ define range(i32 0, 2) i32 @ImfHeaderBox2fAttribute(ptr noundef nonnull %0, ptr 
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2IfEEEEEEEERKT_PKc.exit: ; preds = %.noexc
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load float, ptr %15, align 4, !tbaa !50
+  %16 = load float, ptr %15, align 4, !tbaa !49
   store float %16, ptr %2, align 4, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %18 = load float, ptr %17, align 4, !tbaa !52
+  %18 = load float, ptr %17, align 4, !tbaa !51
   store float %18, ptr %3, align 4, !tbaa !8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %20 = load float, ptr %19, align 4, !tbaa !53
+  %20 = load float, ptr %19, align 4, !tbaa !52
   store float %20, ptr %4, align 4, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %22 = load float, ptr %21, align 4, !tbaa !54
+  %22 = load float, ptr %21, align 4, !tbaa !53
   store float %22, ptr %5, align 4, !tbaa !8
   br label %36
 
@@ -1930,12 +1930,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec
 28:                                               ; preds = %.body
   %29 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #24
-  %31 = load ptr, ptr %30, align 8, !tbaa !23
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #24
   %35 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %34, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %36
 
@@ -1952,9 +1952,9 @@ define range(i32 0, 2) i32 @ImfHeaderSetV2iAttribute(ptr noundef nonnull %0, ptr
   %5 = alloca %"class.Imath_3_2::Vec2.0", align 4
   %6 = alloca %"class.Imf_3_4::TypedAttribute.11", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  store i32 %2, ptr %5, align 4, !tbaa !25
+  store i32 %2, ptr %5, align 4, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %3, ptr %7, align 4, !tbaa !28
+  store i32 %3, ptr %7, align 4, !tbaa !27
   %8 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %9 unwind label %16
 
@@ -2046,9 +2046,9 @@ define range(i32 0, 2) i32 @ImfHeaderSetV2iAttribute(ptr noundef nonnull %0, ptr
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IiEEEEEERT_PKc.exit: ; preds = %.noexc
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 %2, ptr %36, align 4, !tbaa !25
+  store i32 %2, ptr %36, align 4, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i32 %3, ptr %37, align 4, !tbaa !28
+  store i32 %3, ptr %37, align 4, !tbaa !27
   br label %38
 
 38:                                               ; preds = %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IiEEEEEERT_PKc.exit, %15
@@ -2066,12 +2066,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IiEEEEEER
 41:                                               ; preds = %.body
   %.116 = extractvalue { ptr, i32 } %.pn19.pn, 0
   %42 = call ptr @__cxa_begin_catch(ptr %.116) #24
-  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #24
   %47 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %46, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %48
 
@@ -2119,11 +2119,11 @@ define range(i32 0, 2) i32 @ImfHeaderV2iAttribute(ptr noundef nonnull %0, ptr no
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IiEEEEEERKT_PKc.exit: ; preds = %.noexc
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load i32, ptr %13, align 4, !tbaa !25
-  store i32 %14, ptr %2, align 4, !tbaa !29
+  %14 = load i32, ptr %13, align 4, !tbaa !24
+  store i32 %14, ptr %2, align 4, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !28
-  store i32 %16, ptr %3, align 4, !tbaa !29
+  %16 = load i32, ptr %15, align 4, !tbaa !27
+  store i32 %16, ptr %3, align 4, !tbaa !28
   br label %30
 
 17:                                               ; preds = %10, %4
@@ -2142,12 +2142,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IiEEEEEE
 22:                                               ; preds = %.body
   %23 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #24
-  %25 = load ptr, ptr %24, align 8, !tbaa !23
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %24) #24
   %29 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %28, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %30
 
@@ -2164,9 +2164,9 @@ define range(i32 0, 2) i32 @ImfHeaderSetV2fAttribute(ptr noundef nonnull %0, ptr
   %5 = alloca %"class.Imath_3_2::Vec2", align 4
   %6 = alloca %"class.Imf_3_4::TypedAttribute.12", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  store float %2, ptr %5, align 4, !tbaa !20
+  store float %2, ptr %5, align 4, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %3, ptr %7, align 4, !tbaa !22
+  store float %3, ptr %7, align 4, !tbaa !21
   %8 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %9 unwind label %16
 
@@ -2258,9 +2258,9 @@ define range(i32 0, 2) i32 @ImfHeaderSetV2fAttribute(ptr noundef nonnull %0, ptr
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERT_PKc.exit: ; preds = %.noexc
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store float %2, ptr %36, align 4, !tbaa !20
+  store float %2, ptr %36, align 4, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store float %3, ptr %37, align 4, !tbaa !22
+  store float %3, ptr %37, align 4, !tbaa !21
   br label %38
 
 38:                                               ; preds = %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERT_PKc.exit, %15
@@ -2278,12 +2278,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEER
 41:                                               ; preds = %.body
   %.116 = extractvalue { ptr, i32 } %.pn19.pn, 0
   %42 = call ptr @__cxa_begin_catch(ptr %.116) #24
-  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #24
   %47 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %46, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %48
 
@@ -2331,10 +2331,10 @@ define range(i32 0, 2) i32 @ImfHeaderV2fAttribute(ptr noundef nonnull %0, ptr no
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEERKT_PKc.exit: ; preds = %.noexc
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load float, ptr %13, align 4, !tbaa !20
+  %14 = load float, ptr %13, align 4, !tbaa !19
   store float %14, ptr %2, align 4, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %16 = load float, ptr %15, align 4, !tbaa !22
+  %16 = load float, ptr %15, align 4, !tbaa !21
   store float %16, ptr %3, align 4, !tbaa !8
   br label %30
 
@@ -2354,12 +2354,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEE
 22:                                               ; preds = %.body
   %23 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #24
-  %25 = load ptr, ptr %24, align 8, !tbaa !23
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %24) #24
   %29 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %28, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %30
 
@@ -2376,11 +2376,11 @@ define range(i32 0, 2) i32 @ImfHeaderSetV3iAttribute(ptr noundef nonnull %0, ptr
   %6 = alloca %"class.Imath_3_2::Vec3", align 4
   %7 = alloca %"class.Imf_3_4::TypedAttribute.13", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #24
-  store i32 %2, ptr %6, align 4, !tbaa !55
+  store i32 %2, ptr %6, align 4, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %3, ptr %8, align 4, !tbaa !57
+  store i32 %3, ptr %8, align 4, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %4, ptr %9, align 4, !tbaa !58
+  store i32 %4, ptr %9, align 4, !tbaa !57
   %10 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %11 unwind label %18
 
@@ -2472,11 +2472,11 @@ define range(i32 0, 2) i32 @ImfHeaderSetV3iAttribute(ptr noundef nonnull %0, ptr
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IiEEEEEERT_PKc.exit: ; preds = %.noexc
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %2, ptr %38, align 4, !tbaa !55
+  store i32 %2, ptr %38, align 4, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %3, ptr %39, align 4, !tbaa !57
+  store i32 %3, ptr %39, align 4, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %4, ptr %40, align 4, !tbaa !58
+  store i32 %4, ptr %40, align 4, !tbaa !57
   br label %41
 
 41:                                               ; preds = %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IiEEEEEERT_PKc.exit, %17
@@ -2494,12 +2494,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IiEEEEEER
 44:                                               ; preds = %.body
   %.117 = extractvalue { ptr, i32 } %.pn20.pn, 0
   %45 = call ptr @__cxa_begin_catch(ptr %.117) #24
-  %46 = load ptr, ptr %45, align 8, !tbaa !23
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #24
   %50 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %51
 
@@ -2547,14 +2547,14 @@ define range(i32 0, 2) i32 @ImfHeaderV3iAttribute(ptr noundef nonnull %0, ptr no
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IiEEEEEERKT_PKc.exit: ; preds = %.noexc
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load i32, ptr %14, align 4, !tbaa !55
-  store i32 %15, ptr %2, align 4, !tbaa !29
+  %15 = load i32, ptr %14, align 4, !tbaa !54
+  store i32 %15, ptr %2, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !57
-  store i32 %17, ptr %3, align 4, !tbaa !29
+  %17 = load i32, ptr %16, align 4, !tbaa !56
+  store i32 %17, ptr %3, align 4, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %19 = load i32, ptr %18, align 4, !tbaa !58
-  store i32 %19, ptr %4, align 4, !tbaa !29
+  %19 = load i32, ptr %18, align 4, !tbaa !57
+  store i32 %19, ptr %4, align 4, !tbaa !28
   br label %33
 
 20:                                               ; preds = %11, %5
@@ -2573,12 +2573,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IiEEEEEE
 25:                                               ; preds = %.body
   %26 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #24
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #24
   %32 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %33
 
@@ -2595,11 +2595,11 @@ define range(i32 0, 2) i32 @ImfHeaderSetV3fAttribute(ptr noundef nonnull %0, ptr
   %6 = alloca %"class.Imath_3_2::Vec3.15", align 4
   %7 = alloca %"class.Imf_3_4::TypedAttribute.16", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #24
-  store float %2, ptr %6, align 4, !tbaa !59
+  store float %2, ptr %6, align 4, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %3, ptr %8, align 4, !tbaa !61
+  store float %3, ptr %8, align 4, !tbaa !60
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store float %4, ptr %9, align 4, !tbaa !62
+  store float %4, ptr %9, align 4, !tbaa !61
   %10 = invoke ptr @_ZN7Imf_3_46Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1)
           to label %11 unwind label %18
 
@@ -2691,11 +2691,11 @@ define range(i32 0, 2) i32 @ImfHeaderSetV3fAttribute(ptr noundef nonnull %0, ptr
 
 _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IfEEEEEERT_PKc.exit: ; preds = %.noexc
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store float %2, ptr %38, align 4, !tbaa !59
+  store float %2, ptr %38, align 4, !tbaa !58
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store float %3, ptr %39, align 4, !tbaa !61
+  store float %3, ptr %39, align 4, !tbaa !60
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store float %4, ptr %40, align 4, !tbaa !62
+  store float %4, ptr %40, align 4, !tbaa !61
   br label %41
 
 41:                                               ; preds = %_ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IfEEEEEERT_PKc.exit, %17
@@ -2713,12 +2713,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IfEEEEEER
 44:                                               ; preds = %.body
   %.117 = extractvalue { ptr, i32 } %.pn20.pn, 0
   %45 = call ptr @__cxa_begin_catch(ptr %.117) #24
-  %46 = load ptr, ptr %45, align 8, !tbaa !23
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #24
   %50 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %51
 
@@ -2766,13 +2766,13 @@ define range(i32 0, 2) i32 @ImfHeaderV3fAttribute(ptr noundef nonnull %0, ptr no
 
 _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IfEEEEEERKT_PKc.exit: ; preds = %.noexc
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load float, ptr %14, align 4, !tbaa !59
+  %15 = load float, ptr %14, align 4, !tbaa !58
   store float %15, ptr %2, align 4, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %17 = load float, ptr %16, align 4, !tbaa !61
+  %17 = load float, ptr %16, align 4, !tbaa !60
   store float %17, ptr %3, align 4, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %19 = load float, ptr %18, align 4, !tbaa !62
+  %19 = load float, ptr %18, align 4, !tbaa !61
   store float %19, ptr %4, align 4, !tbaa !8
   br label %33
 
@@ -2792,12 +2792,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IfEEEEEE
 25:                                               ; preds = %.body
   %26 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %27 = tail call ptr @__cxa_begin_catch(ptr %26) #24
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #24
   %32 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %33
 
@@ -2973,12 +2973,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix33IfEEE
 71:                                               ; preds = %.body
   %.115 = extractvalue { ptr, i32 } %.pn18.pn, 0
   %72 = call ptr @__cxa_begin_catch(ptr %.115) #24
-  %73 = load ptr, ptr %72, align 8, !tbaa !23
+  %73 = load ptr, ptr %72, align 8, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(8) %72) #24
   %77 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %76, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %78
 
@@ -3078,12 +3078,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix33IfEE
 43:                                               ; preds = %.body
   %44 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #24
-  %46 = load ptr, ptr %45, align 8, !tbaa !23
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #24
   %50 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %51
 
@@ -3301,12 +3301,12 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEE
 99:                                               ; preds = %.body
   %.115 = extractvalue { ptr, i32 } %.pn18.pn, 0
   %100 = call ptr @__cxa_begin_catch(ptr %.115) #24
-  %101 = load ptr, ptr %100, align 8, !tbaa !23
+  %101 = load ptr, ptr %100, align 8, !tbaa !22
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(8) %100) #24
   %105 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %104, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   call void @__cxa_end_catch()
   br label %106
 
@@ -3434,12 +3434,12 @@ _ZNK7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEE
 64:                                               ; preds = %.body
   %65 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %66 = tail call ptr @__cxa_begin_catch(ptr %65) #24
-  %67 = load ptr, ptr %66, align 8, !tbaa !23
+  %67 = load ptr, ptr %66, align 8, !tbaa !22
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(8) %66) #24
   %71 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %70, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %72
 
@@ -3486,12 +3486,12 @@ define noundef ptr @ImfOpenOutputFile(ptr noundef %0, ptr noundef %1, i32 nounde
 15:                                               ; preds = %12
   %.09 = extractvalue { ptr, i32 } %.pn, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %.09) #24
-  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #24
   %21 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %20, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %22
 
@@ -3513,7 +3513,7 @@ define noundef i32 @ImfCloseOutputFile(ptr noundef %0) local_unnamed_addr #12 pe
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
@@ -3539,12 +3539,12 @@ define range(i32 0, 2) i32 @ImfOutputSetFrameBuffer(ptr noundef nonnull %0, ptr 
 10:                                               ; preds = %5
   %11 = extractvalue { ptr, i32 } %6, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #24
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %18
 
@@ -3574,12 +3574,12 @@ define range(i32 0, 2) i32 @ImfOutputWritePixels(ptr noundef nonnull %0, i32 nou
 8:                                                ; preds = %3
   %9 = extractvalue { ptr, i32 } %4, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #24
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   %15 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %16
 
@@ -3652,12 +3652,12 @@ define noundef ptr @ImfOpenTiledOutputFile(ptr noundef %0, ptr noundef %1, i32 n
 19:                                               ; preds = %16
   %.013 = extractvalue { ptr, i32 } %.pn, 0
   %20 = tail call ptr @__cxa_begin_catch(ptr %.013) #24
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #24
   %25 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %26
 
@@ -3677,7 +3677,7 @@ define noundef i32 @ImfCloseTiledOutputFile(ptr noundef %0) local_unnamed_addr #
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
@@ -3703,12 +3703,12 @@ define range(i32 0, 2) i32 @ImfTiledOutputSetFrameBuffer(ptr noundef nonnull %0,
 10:                                               ; preds = %5
   %11 = extractvalue { ptr, i32 } %6, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #24
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %18
 
@@ -3738,12 +3738,12 @@ define range(i32 0, 2) i32 @ImfTiledOutputWriteTile(ptr noundef nonnull %0, i32 
 11:                                               ; preds = %6
   %12 = extractvalue { ptr, i32 } %7, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #24
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
   %18 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %19
 
@@ -3773,12 +3773,12 @@ define range(i32 0, 2) i32 @ImfTiledOutputWriteTiles(ptr noundef nonnull %0, i32
 13:                                               ; preds = %8
   %14 = extractvalue { ptr, i32 } %9, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #24
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15) #24
   %20 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %21
 
@@ -3875,12 +3875,12 @@ define noundef ptr @ImfOpenInputFile(ptr noundef %0) local_unnamed_addr #8 perso
 13:                                               ; preds = %10
   %.07 = extractvalue { ptr, i32 } %.pn, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %.07) #24
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
   %19 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %20
 
@@ -3900,7 +3900,7 @@ define noundef i32 @ImfCloseInputFile(ptr noundef %0) local_unnamed_addr #12 per
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
@@ -3926,12 +3926,12 @@ define range(i32 0, 2) i32 @ImfInputSetFrameBuffer(ptr noundef nonnull %0, ptr n
 10:                                               ; preds = %5
   %11 = extractvalue { ptr, i32 } %6, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #24
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %18
 
@@ -3961,12 +3961,12 @@ define range(i32 0, 2) i32 @ImfInputReadPixels(ptr noundef nonnull %0, i32 nound
 9:                                                ; preds = %4
   %10 = extractvalue { ptr, i32 } %5, 0
   %11 = tail call ptr @__cxa_begin_catch(ptr %10) #24
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11) #24
   %16 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %15, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %17
 
@@ -4039,12 +4039,12 @@ define noundef ptr @ImfOpenTiledInputFile(ptr noundef %0) local_unnamed_addr #8 
 13:                                               ; preds = %10
   %.07 = extractvalue { ptr, i32 } %.pn, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %.07) #24
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
   %19 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %20
 
@@ -4064,7 +4064,7 @@ define noundef i32 @ImfCloseTiledInputFile(ptr noundef %0) local_unnamed_addr #1
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(56) %0) #24
@@ -4090,12 +4090,12 @@ define range(i32 0, 2) i32 @ImfTiledInputSetFrameBuffer(ptr noundef nonnull %0, 
 10:                                               ; preds = %5
   %11 = extractvalue { ptr, i32 } %6, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #24
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   %17 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %18
 
@@ -4125,12 +4125,12 @@ define range(i32 0, 2) i32 @ImfTiledInputReadTile(ptr noundef nonnull %0, i32 no
 11:                                               ; preds = %6
   %12 = extractvalue { ptr, i32 } %7, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #24
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
   %18 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %19
 
@@ -4160,12 +4160,12 @@ define range(i32 0, 2) i32 @ImfTiledInputReadTiles(ptr noundef nonnull %0, i32 n
 13:                                               ; preds = %8
   %14 = extractvalue { ptr, i32 } %9, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #24
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15) #24
   %20 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %21
 
@@ -4245,7 +4245,7 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #8 pe
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %3
-  store ptr %4, ptr %2, align 8, !tbaa !63
+  store ptr %4, ptr %2, align 8, !tbaa !62
   br label %5
 
 5:                                                ; preds = %37, %.noexc
@@ -4276,17 +4276,17 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #8 pe
   br label %37
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !13
+  %22 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw %union.imath_half_uif, ptr %22, i64 %indvars.iv.i.i
-  %24 = load float, ptr %23, align 4, !tbaa !16
+  %24 = load float, ptr %23, align 4, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 258044
-  %26 = load float, ptr %25, align 4, !tbaa !16
+  %26 = load float, ptr %25, align 4, !tbaa !15
   %27 = fcmp olt float %24, %26
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 126972
-  %30 = load float, ptr %29, align 4, !tbaa !16
+  %30 = load float, ptr %29, align 4, !tbaa !15
   %31 = fcmp ogt float %24, %30
   br i1 %31, label %32, label %34
 
@@ -4307,11 +4307,11 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #8 pe
 37:                                               ; preds = %.noexc9, %32, %17, %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 65536
-  br i1 %exitcond.not.i.i, label %_ZN7Imf_3_47RgbaLutC2IPFN9Imath_3_24halfES3_EEET_NS_12RgbaChannelsE.exit, label %5, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %_ZN7Imf_3_47RgbaLutC2IPFN9Imath_3_24halfES3_EEET_NS_12RgbaChannelsE.exit, label %5, !llvm.loop !65
 
 _ZN7Imf_3_47RgbaLutC2IPFN9Imath_3_24halfES3_EEET_NS_12RgbaChannelsE.exit: ; preds = %37
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %0, ptr %38, align 8, !tbaa !67
+  store i32 %0, ptr %38, align 8, !tbaa !66
   br label %52
 
 39:                                               ; preds = %1
@@ -4346,12 +4346,12 @@ _ZN7Imf_3_47RgbaLutC2IPFN9Imath_3_24halfES3_EEET_NS_12RgbaChannelsE.exit: ; pred
 45:                                               ; preds = %42
   %.07 = extractvalue { ptr, i32 } %.pn, 0
   %46 = tail call ptr @__cxa_begin_catch(ptr %.07) #24
-  %47 = load ptr, ptr %46, align 8, !tbaa !23
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %46) #24
   %51 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %50, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %52
 
@@ -4376,7 +4376,7 @@ define noundef ptr @ImfNewRoundNBitLut(i32 noundef %0, i32 noundef %1) local_unn
 
 _ZN7Imf_3_47RgbaLutC2INS_9roundNBitEEET_NS_12RgbaChannelsE.exit: ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !67
+  store i32 %1, ptr %5, align 8, !tbaa !66
   br label %20
 
 6:                                                ; preds = %2
@@ -4401,12 +4401,12 @@ _ZN7Imf_3_47RgbaLutC2INS_9roundNBitEEET_NS_12RgbaChannelsE.exit: ; preds = %4
 13:                                               ; preds = %10
   %.08 = extractvalue { ptr, i32 } %.pn, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %.08) #24
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
   %19 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 1023) #24
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112errorMessageE, i64 1023), align 1, !tbaa !15
   tail call void @__cxa_end_catch()
   br label %20
 
@@ -4424,7 +4424,7 @@ define void @ImfDeleteLut(ptr noundef %0) local_unnamed_addr #12 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !63
+  %4 = load ptr, ptr %0, align 8, !tbaa !62
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZN7Imf_3_47RgbaLutD2Ev.exit, label %6
 
@@ -4498,7 +4498,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 define linkonce_odr hidden void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_49roundNBitEEET_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %1, i16 %2, i16 %3, i16 %4, i16 %5, i16 %6, i16 %7) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.fr24 = freeze i32 %1
   %9 = tail call noalias noundef nonnull dereferenceable(131072) ptr @_Znam(i64 noundef 131072) #23
-  store ptr %9, ptr %0, align 8, !tbaa !63
+  store ptr %9, ptr %0, align 8, !tbaa !62
   %10 = load ptr, ptr @imath_half_to_float_table, align 8
   %11 = zext i16 %2 to i64
   %12 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %11
@@ -4527,13 +4527,13 @@ define linkonce_odr hidden void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %indvars.iv27
-  %30 = load float, ptr %29, align 4, !tbaa !16
-  %31 = load float, ptr %12, align 4, !tbaa !16
+  %30 = load float, ptr %29, align 4, !tbaa !15
+  %31 = load float, ptr %12, align 4, !tbaa !15
   %32 = fcmp olt float %30, %31
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %28
-  %34 = load float, ptr %14, align 4, !tbaa !16
+  %34 = load float, ptr %14, align 4, !tbaa !15
   %35 = fcmp ogt float %30, %34
   br i1 %35, label %37, label %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us
 
@@ -4562,7 +4562,7 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us: ; preds = %33
 45:                                               ; preds = %43, %39, %37, %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 65536
-  br i1 %exitcond30.not, label %.split23.us, label %.split.us, !llvm.loop !70
+  br i1 %exitcond30.not, label %.split23.us, label %.split.us, !llvm.loop !69
 
 .split23.us:                                      ; preds = %83, %45
   ret void
@@ -4597,13 +4597,13 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us: ; preds = %33
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %indvars.iv
-  %64 = load float, ptr %63, align 4, !tbaa !16
-  %65 = load float, ptr %12, align 4, !tbaa !16
+  %64 = load float, ptr %63, align 4, !tbaa !15
+  %65 = load float, ptr %12, align 4, !tbaa !15
   %66 = fcmp olt float %64, %65
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %62
-  %68 = load float, ptr %14, align 4, !tbaa !16
+  %68 = load float, ptr %14, align 4, !tbaa !15
   %69 = fcmp ogt float %64, %68
   br i1 %69, label %70, label %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit
 
@@ -4632,7 +4632,7 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit:   ; preds = %67
 83:                                               ; preds = %58, %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit, %70, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !72
+  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !71
 }
 
 ; Function Attrs: uwtable
@@ -4688,66 +4688,65 @@ attributes #26 = { noreturn }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS14imath_half_uif", !15, i64 0}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = !{!6, !6, i64 0}
-!17 = !{!18, !5, i64 0}
-!18 = !{!"_ZTSN9Imath_3_24halfE", !5, i64 0}
-!19 = distinct !{!19, !11, !12}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !9, i64 0, !9, i64 4}
-!22 = !{!21, !9, i64 4}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"vtable pointer", !7, i64 0}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !27, i64 0, !27, i64 4}
-!27 = !{!"int", !6, i64 0}
-!28 = !{!26, !27, i64 4}
-!29 = !{!27, !27, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"_ZTSN7Imf_3_49LineOrderE", !6, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"_ZTSN7Imf_3_411CompressionE", !6, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !38, i64 0}
-!38 = !{!"p1 omnipotent char", !15, i64 0}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"long", !6, i64 0}
-!41 = !{!42, !38, i64 0}
-!42 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !37, i64 0, !40, i64 8, !6, i64 16}
-!43 = !{!42, !40, i64 8}
-!44 = !{!38, !38, i64 0}
-!45 = !{!46, !27, i64 0}
-!46 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !26, i64 0, !26, i64 8}
-!47 = !{!46, !27, i64 4}
-!48 = !{!46, !27, i64 8}
-!49 = !{!46, !27, i64 12}
-!50 = !{!51, !9, i64 0}
-!51 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IfEEEE", !21, i64 0, !21, i64 8}
-!52 = !{!51, !9, i64 4}
-!53 = !{!51, !9, i64 8}
-!54 = !{!51, !9, i64 12}
-!55 = !{!56, !27, i64 0}
-!56 = !{!"_ZTSN9Imath_3_24Vec3IiEE", !27, i64 0, !27, i64 4, !27, i64 8}
-!57 = !{!56, !27, i64 4}
-!58 = !{!56, !27, i64 8}
-!59 = !{!60, !9, i64 0}
-!60 = !{!"_ZTSN9Imath_3_24Vec3IfEE", !9, i64 0, !9, i64 4, !9, i64 8}
-!61 = !{!60, !9, i64 4}
-!62 = !{!60, !9, i64 8}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTS12halfFunctionIN9Imath_3_24halfEE", !65, i64 0}
-!65 = !{!"p1 _ZTSN9Imath_3_24halfE", !15, i64 0}
-!66 = distinct !{!66, !11, !12}
-!67 = !{!68, !69, i64 8}
-!68 = !{!"_ZTSN7Imf_3_47RgbaLutE", !64, i64 0, !69, i64 8}
-!69 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !6, i64 0}
-!70 = distinct !{!70, !11, !12, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS14imath_half_uif", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = !{!17, !5, i64 0}
+!17 = !{!"_ZTSN9Imath_3_24halfE", !5, i64 0}
+!18 = distinct !{!18, !11}
+!19 = !{!20, !9, i64 0}
+!20 = !{!"_ZTSN9Imath_3_24Vec2IfEE", !9, i64 0, !9, i64 4}
+!21 = !{!20, !9, i64 4}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"vtable pointer", !7, i64 0}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !26, i64 0, !26, i64 4}
+!26 = !{!"int", !6, i64 0}
+!27 = !{!25, !26, i64 4}
+!28 = !{!26, !26, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"_ZTSN7Imf_3_49LineOrderE", !6, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"_ZTSN7Imf_3_411CompressionE", !6, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"double", !6, i64 0}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !37, i64 0}
+!37 = !{!"p1 omnipotent char", !14, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"long", !6, i64 0}
+!40 = !{!41, !37, i64 0}
+!41 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !36, i64 0, !39, i64 8, !6, i64 16}
+!42 = !{!41, !39, i64 8}
+!43 = !{!37, !37, i64 0}
+!44 = !{!45, !26, i64 0}
+!45 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !25, i64 0, !25, i64 8}
+!46 = !{!45, !26, i64 4}
+!47 = !{!45, !26, i64 8}
+!48 = !{!45, !26, i64 12}
+!49 = !{!50, !9, i64 0}
+!50 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IfEEEE", !20, i64 0, !20, i64 8}
+!51 = !{!50, !9, i64 4}
+!52 = !{!50, !9, i64 8}
+!53 = !{!50, !9, i64 12}
+!54 = !{!55, !26, i64 0}
+!55 = !{!"_ZTSN9Imath_3_24Vec3IiEE", !26, i64 0, !26, i64 4, !26, i64 8}
+!56 = !{!55, !26, i64 4}
+!57 = !{!55, !26, i64 8}
+!58 = !{!59, !9, i64 0}
+!59 = !{!"_ZTSN9Imath_3_24Vec3IfEE", !9, i64 0, !9, i64 4, !9, i64 8}
+!60 = !{!59, !9, i64 4}
+!61 = !{!59, !9, i64 8}
+!62 = !{!63, !64, i64 0}
+!63 = !{!"_ZTS12halfFunctionIN9Imath_3_24halfEE", !64, i64 0}
+!64 = !{!"p1 _ZTSN9Imath_3_24halfE", !14, i64 0}
+!65 = distinct !{!65, !11}
+!66 = !{!67, !68, i64 8}
+!67 = !{!"_ZTSN7Imf_3_47RgbaLutE", !63, i64 0, !68, i64 8}
+!68 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !6, i64 0}
+!69 = distinct !{!69, !11, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !11}

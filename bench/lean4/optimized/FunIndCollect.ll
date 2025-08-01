@@ -3079,7 +3079,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   br i1 %26, label %.backedge.backedge, label %lean_dec.exit36
 
 .backedge.backedge:                               ; preds = %14, %lean_dec.exit36, %31
-  br label %.backedge, !llvm.loop !16
+  br label %.backedge
 
 lean_dec.exit36:                                  ; preds = %14
   %27 = getelementptr i8, ptr %22, i64 8
@@ -3656,7 +3656,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6, !llvm.loop !18
+  br label %6
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4165,7 +4165,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %183, %178
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %193, %195, %196
   store ptr %.080, ptr %186, align 8, !tbaa !4
-  br label %3, !llvm.loop !19
+  br label %3
 }
 
 declare i64 @l_Lean_Name_hash___override(ptr noundef) local_unnamed_addr #1
@@ -4767,7 +4767,7 @@ lean_dec.exit36.i:                                ; preds = %149
   br i1 %.not42.i, label %.backedge.i.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit
 
 .backedge.i.backedge:                             ; preds = %166, %lean_dec.exit36.i, %149
-  br label %.backedge.i, !llvm.loop !16
+  br label %.backedge.i
 
 170:                                              ; preds = %lean_obj_tag.exit.i
   br i1 %.not231, label %181, label %171, !prof !15
@@ -5468,7 +5468,7 @@ lean_dec.exit36.i:                                ; preds = %99
   br i1 %.not42.i, label %lean_dec.exit378.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit
 
 lean_dec.exit378.backedge:                        ; preds = %116, %lean_dec.exit36.i, %99
-  br label %lean_dec.exit378, !llvm.loop !16
+  br label %lean_dec.exit378
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %116
   br i1 %.not.i519, label %120, label %lean_dec.exit377
@@ -5816,7 +5816,7 @@ lean_dec.exit36.i551:                             ; preds = %236
   br i1 %.not42.i556, label %lean_dec.exit360.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit559
 
 lean_dec.exit360.backedge:                        ; preds = %253, %lean_dec.exit36.i551, %236
-  br label %lean_dec.exit360, !llvm.loop !16
+  br label %lean_dec.exit360
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit559: ; preds = %lean_obj_tag.exit.i549, %253
   br i1 %.not.i543, label %257, label %lean_dec.exit359
@@ -6153,7 +6153,7 @@ lean_dec.exit36.i572:                             ; preds = %368
   br i1 %.not42.i577, label %lean_dec.exit349.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit580
 
 lean_dec.exit349.backedge:                        ; preds = %385, %lean_dec.exit36.i572, %368
-  br label %lean_dec.exit349, !llvm.loop !16
+  br label %lean_dec.exit349
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit580: ; preds = %lean_obj_tag.exit.i570, %385
   br i1 %.not.i564, label %389, label %lean_dec.exit348
@@ -6512,7 +6512,7 @@ lean_dec.exit36.i621:                             ; preds = %509
   br i1 %.not42.i626, label %lean_dec.exit331.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit629
 
 lean_dec.exit331.backedge:                        ; preds = %526, %lean_dec.exit36.i621, %509
-  br label %lean_dec.exit331, !llvm.loop !16
+  br label %lean_dec.exit331
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit629: ; preds = %lean_obj_tag.exit.i619, %526
   br i1 %.not.i613, label %530, label %lean_dec.exit330
@@ -8042,7 +8042,7 @@ lean_dec.exit36.i:                                ; preds = %14
   br i1 %.not42.i, label %.backedge.i.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit
 
 .backedge.i.backedge:                             ; preds = %31, %lean_dec.exit36.i, %14
-  br label %.backedge.i, !llvm.loop !16
+  br label %.backedge.i
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Meta_FunInd_SeenCalls_push___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %31
   %.1.i = phi i64 [ 1, %lean_obj_tag.exit.i ], [ 3, %31 ]
@@ -9115,7 +9115,7 @@ lean_dec.exit77:                                  ; preds = %62, %61, %59, %lean
 
 lean_dec.exit76.backedge:                         ; preds = %78, %82, %84, %85, %lean_alloc_ctor.exit108, %lean_alloc_ctor.exit107, %lean_alloc_ctor.exit106, %76, %74
   %.071.be = phi ptr [ %.071, %74 ], [ %.071, %76 ], [ %141, %lean_alloc_ctor.exit108 ], [ %119, %lean_alloc_ctor.exit106 ], [ %127, %lean_alloc_ctor.exit107 ], [ %.071, %85 ], [ %.071, %84 ], [ %.071, %82 ], [ %.071, %78 ]
-  br label %lean_dec.exit76, !llvm.loop !20
+  br label %lean_dec.exit76
 
 79:                                               ; preds = %78
   %80 = load i32, ptr %47, align 4, !tbaa !8
@@ -9513,9 +9513,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @l_Lean_Meta_FunInd_SeenCalls_uniques___lambda__1___boxed, ptr %42, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i16 2, ptr %43, align 8, !tbaa !21
+  store i16 2, ptr %43, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 18
-  store i16 1, ptr %44, align 2, !tbaa !21
+  store i16 1, ptr %44, align 2, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %20, ptr %45, align 8, !tbaa !4
   %46 = load ptr, ptr @l_Lean_Meta_FunInd_SeenCalls_uniques___closed__2, align 8, !tbaa !4
@@ -13603,7 +13603,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit120.backedge:                        ; preds = %226, %228, %238, %237, %235
   %.0115.be = phi ptr [ %230, %228 ], [ %232, %235 ], [ %232, %237 ], [ %232, %238 ], [ inttoptr (i64 1 to ptr), %226 ]
   %.0114.be = phi ptr [ %.1.i199212, %228 ], [ %231, %235 ], [ %231, %237 ], [ %231, %238 ], [ %.1.i199212, %226 ]
-  br label %lean_dec.exit120, !llvm.loop !23
+  br label %lean_dec.exit120
 
 228:                                              ; preds = %226
   %229 = add i64 %203, -2
@@ -22056,9 +22056,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_Meta_FunInd_Collector_main___lambda__1___boxed, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 9, ptr %23, align 8, !tbaa !21
+  store i16 9, ptr %23, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 4, ptr %24, align 2, !tbaa !21
+  store i16 4, ptr %24, align 2, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %8, ptr %25, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -22219,9 +22219,9 @@ l_Lean_Meta_FunInd_Collector_main.exit:           ; preds = %lean_inc.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_Meta_FunInd_Collector_main___lambda__1___boxed, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 9, ptr %23, align 8, !tbaa !21
+  store i16 9, ptr %23, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 4, ptr %24, align 2, !tbaa !21
+  store i16 4, ptr %24, align 2, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %8, ptr %25, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -22278,9 +22278,9 @@ l_Lean_Meta_FunInd_Collector_main.exit:           ; preds = %lean_inc.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_Meta_FunInd_Collector_main___lambda__1___boxed, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 9, ptr %23, align 8, !tbaa !21
+  store i16 9, ptr %23, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 4, ptr %24, align 2, !tbaa !21
+  store i16 4, ptr %24, align 2, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %8, ptr %25, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -22378,9 +22378,9 @@ _init_l_Lean_Meta_FunInd_instHashableCall___closed__1.exit: ; preds = %lean_dec_
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @l___private_Lean_Meta_Tactic_FunIndCollect_0__Lean_Meta_FunInd_hashCall____x40_Lean_Meta_Tactic_FunIndCollect___hyg_24____boxed, ptr %32, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i16 1, ptr %33, align 8, !tbaa !21
+  store i16 1, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store i16 0, ptr %34, align 2, !tbaa !21
+  store i16 0, ptr %34, align 2, !tbaa !16
   store ptr %28, ptr @l_Lean_Meta_FunInd_instHashableCall___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %28) #3
   %35 = load ptr, ptr @l_Lean_Meta_FunInd_instHashableCall___closed__1, align 8, !tbaa !4
@@ -22402,9 +22402,9 @@ _init_l_Lean_Meta_FunInd_instBEqCall___closed__1.exit: ; preds = %_init_l_Lean_M
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @l_Lean_Meta_FunInd_beqCall____x40_Lean_Meta_Tactic_FunIndCollect___hyg_65____boxed, ptr %40, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i16 2, ptr %41, align 8, !tbaa !21
+  store i16 2, ptr %41, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  store i16 0, ptr %42, align 2, !tbaa !21
+  store i16 0, ptr %42, align 2, !tbaa !16
   store ptr %36, ptr @l_Lean_Meta_FunInd_instBEqCall___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %36) #3
   %43 = load ptr, ptr @l_Lean_Meta_FunInd_instBEqCall___closed__1, align 8, !tbaa !4
@@ -22500,9 +22500,9 @@ _init_l_Lean_Meta_FunInd_SeenCalls_uniques___closed__2.exit: ; preds = %_init_l_
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr @l_Lean_Name_quickCmp___boxed, ptr %75, align 8, !tbaa !4
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i16 2, ptr %76, align 8, !tbaa !21
+  store i16 2, ptr %76, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 18
-  store i16 0, ptr %77, align 2, !tbaa !21
+  store i16 0, ptr %77, align 2, !tbaa !16
   store ptr %71, ptr @l_Lean_Meta_FunInd_SeenCalls_uniques___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %71) #3
   %78 = load ptr, ptr @l_Lean_levelZero, align 8, !tbaa !4
@@ -22628,11 +22628,5 @@ attributes #5 = { "function-inline-cost-multiplier"="2" }
 !13 = !{!"long", !6, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !6, i64 0}
-!23 = distinct !{!23, !17}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"short", !6, i64 0}

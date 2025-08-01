@@ -677,7 +677,7 @@ dump_append_ref.exit239:                          ; preds = %.lr.ph.i.i234, %82
 
 vm_ci_mid.exit:                                   ; preds = %105
   %121 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %122 = load i64, ptr %121, align 8, !tbaa !38
+  %122 = load i64, ptr %121, align 8, !tbaa !37
   %.not220 = icmp eq i64 %122, 0
   br i1 %.not220, label %RCLASS_SINGLETON_P.exit.thread, label %123
 
@@ -688,9 +688,9 @@ vm_ci_mid.exit:                                   ; preds = %105
 
 124:                                              ; preds = %105
   %125 = getelementptr i8, ptr %38, i64 16
-  %.val = load ptr, ptr %125, align 8, !tbaa !41
+  %.val = load ptr, ptr %125, align 8, !tbaa !40
   %126 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %127 = load i64, ptr %126, align 8, !tbaa !44
+  %127 = load i64, ptr %126, align 8, !tbaa !43
   %.not218 = icmp eq i64 %127, 0
   br i1 %.not218, label %RCLASS_SINGLETON_P.exit.thread, label %128
 
@@ -698,7 +698,7 @@ vm_ci_mid.exit:                                   ; preds = %105
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef 14)
   call fastcc void @dump_append_id(ptr noundef nonnull %1, i64 noundef %127)
   %129 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %130 = load i64, ptr %129, align 8, !tbaa !47
+  %130 = load i64, ptr %129, align 8, !tbaa !46
   %.not219 = icmp eq i64 %130, 0
   br i1 %.not219, label %RCLASS_SINGLETON_P.exit.thread, label %131
 
@@ -790,7 +790,7 @@ RB_ENCODING_GET.exit:                             ; preds = %159, %165
   %.0.i244 = phi i32 [ %166, %165 ], [ %163, %159 ]
   %167 = call ptr @rb_enc_from_index(i32 noundef %.0.i244) #12
   %168 = getelementptr i8, ptr %167, i64 8
-  %.val229 = load ptr, ptr %168, align 8, !tbaa !48
+  %.val229 = load ptr, ptr %168, align 8, !tbaa !47
   %169 = load i64, ptr %38, align 8, !tbaa !17
   %170 = trunc i64 %169 to i32
   %171 = lshr i32 %170, 22
@@ -806,7 +806,7 @@ RB_ENCODING_GET.exit246:                          ; preds = %RB_ENCODING_GET.exi
   %.0.i245 = phi i32 [ %175, %174 ], [ %172, %RB_ENCODING_GET.exit ]
   %176 = call ptr @rb_enc_from_index(i32 noundef %.0.i245) #12
   %177 = getelementptr i8, ptr %176, i64 8
-  %.val230 = load ptr, ptr %177, align 8, !tbaa !48
+  %.val230 = load ptr, ptr %177, align 8, !tbaa !47
   %178 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val230) #13
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef %.val229, i64 noundef %178)
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
@@ -871,7 +871,7 @@ default.unreachable:                              ; preds = %179
   %200 = add i64 %0, 24
   %201 = inttoptr i64 %200 to ptr
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %203 = load i64, ptr %202, align 8, !tbaa !50
+  %203 = load i64, ptr %202, align 8, !tbaa !49
   br label %RB_FL_TEST.exit253
 
 RB_FL_TEST.exit253:                               ; preds = %196, %199
@@ -888,7 +888,7 @@ RB_FL_TEST.exit253:                               ; preds = %196, %199
 207:                                              ; preds = %RB_FL_TEST.exit253
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i64 noundef 12)
   %208 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %209 = load i64, ptr %208, align 8, !tbaa !55
+  %209 = load i64, ptr %208, align 8, !tbaa !54
   call fastcc void @dump_append_ref(ptr noundef nonnull %1, i64 noundef %209)
   br label %RCLASS_SINGLETON_P.exit.thread
 
@@ -973,7 +973,7 @@ RB_FL_TEST.exit268:                               ; preds = %230, %RB_FL_TEST.ex
 238:                                              ; preds = %100
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.30, i64 noundef 20)
   %239 = getelementptr inbounds nuw i8, ptr %38, i64 148
-  %240 = load i8, ptr %239, align 4, !tbaa !57
+  %240 = load i8, ptr %239, align 4, !tbaa !56
   %241 = zext i8 %240 to i32
   call fastcc void @dump_append_d(ptr noundef nonnull %1, i32 noundef %241)
   br label %242
@@ -1014,7 +1014,7 @@ RB_FL_TEST.exit268:                               ; preds = %230, %RB_FL_TEST.ex
 256:                                              ; preds = %252
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.32, i64 noundef 21)
   %257 = inttoptr i64 %254 to ptr
-  %258 = load i64, ptr %257, align 8, !tbaa !17, !noalias !64
+  %258 = load i64, ptr %257, align 8, !tbaa !17, !noalias !63
   %259 = and i64 %258, 8192
   %.not.i.i269 = icmp eq i64 %259, 0
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 24
@@ -1043,7 +1043,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i274:              ; preds = %251, %RSTRING_PTR.e
 
 266:                                              ; preds = %100
   %267 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %268 = load i64, ptr %267, align 8, !tbaa !67
+  %268 = load i64, ptr %267, align 8, !tbaa !66
   %269 = add i64 %268, -1
   %270 = icmp ult i64 %269, 3
   br i1 %270, label %271, label %RCLASS_SINGLETON_P.exit.thread
@@ -1051,8 +1051,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i274:              ; preds = %251, %RSTRING_PTR.e
 271:                                              ; preds = %266
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.34, i64 noundef 12)
   %272 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %273 = load ptr, ptr %272, align 8, !tbaa !70
-  %274 = load ptr, ptr %273, align 8, !tbaa !71
+  %273 = load ptr, ptr %272, align 8, !tbaa !69
+  %274 = load ptr, ptr %273, align 8, !tbaa !70
   %275 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #13
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %274, i64 noundef %275)
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
@@ -1098,7 +1098,7 @@ RB_FL_TEST.exit279:                               ; preds = %100
 289:                                              ; preds = %286
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.38, i64 noundef 7)
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 16
-  %291 = load i32, ptr %290, align 8, !tbaa !74
+  %291 = load i32, ptr %290, align 8, !tbaa !73
   call fastcc void @dump_append_d(ptr noundef nonnull %1, i32 noundef %291)
   br label %RCLASS_SINGLETON_P.exit.thread
 
@@ -1122,13 +1122,13 @@ RCLASS_SINGLETON_P.exit.thread:                   ; preds = %rbimpl_RB_TYPE_P_fa
 
 296:                                              ; preds = %295
   %297 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %298 = load ptr, ptr %297, align 8, !tbaa !80
+  %298 = load ptr, ptr %297, align 8, !tbaa !79
   %.not223 = icmp eq ptr %298, null
   br i1 %.not223, label %302, label %299
 
 299:                                              ; preds = %296
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.40, i64 noundef 10)
-  %300 = load ptr, ptr %297, align 8, !tbaa !80
+  %300 = load ptr, ptr %297, align 8, !tbaa !79
   %301 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %300) #13
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %300, i64 noundef %301)
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
@@ -1136,19 +1136,19 @@ RCLASS_SINGLETON_P.exit.thread:                   ; preds = %rbimpl_RB_TYPE_P_fa
 
 302:                                              ; preds = %299, %296
   %303 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %304 = load i64, ptr %303, align 8, !tbaa !81
+  %304 = load i64, ptr %303, align 8, !tbaa !80
   %.not224 = icmp eq i64 %304, 0
   br i1 %.not224, label %307, label %305
 
 305:                                              ; preds = %302
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.41, i64 noundef 9)
-  %306 = load i64, ptr %303, align 8, !tbaa !81
+  %306 = load i64, ptr %303, align 8, !tbaa !80
   call fastcc void @dump_append_lu(ptr noundef nonnull %1, i64 noundef %306)
   br label %307
 
 307:                                              ; preds = %305, %302
   %308 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %309 = load i64, ptr %308, align 8, !tbaa !82
+  %309 = load i64, ptr %308, align 8, !tbaa !81
   %310 = and i64 %309, -5
   %.not375 = icmp eq i64 %310, 0
   br i1 %.not375, label %313, label %311
@@ -1219,9 +1219,9 @@ rb_num2ulong_inline.exit:                         ; preds = %325, %327
   %.0377 = phi i64 [ 0, %331 ], [ %342, %341 ]
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   %334 = getelementptr inbounds nuw [6 x i64], ptr %5, i64 0, i64 %.0377
-  %335 = load i64, ptr %334, align 8, !tbaa !83
+  %335 = load i64, ptr %334, align 8, !tbaa !82
   %336 = call ptr @rb_id2name(i64 noundef %335) #12
-  %337 = load i64, ptr %334, align 8, !tbaa !83
+  %337 = load i64, ptr %334, align 8, !tbaa !82
   %338 = call ptr @rb_id2name(i64 noundef %337) #12
   %339 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %338) #13
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef %336, i64 noundef %339)
@@ -1236,7 +1236,7 @@ rb_num2ulong_inline.exit:                         ; preds = %325, %327
 341:                                              ; preds = %333, %340
   %342 = add nuw i64 %.0377, 1
   %exitcond.not = icmp eq i64 %342, %330
-  br i1 %exitcond.not, label %343, label %333, !llvm.loop !84
+  br i1 %exitcond.not, label %343, label %333, !llvm.loop !83
 
 343:                                              ; preds = %341
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.49, i64 noundef 1)
@@ -1342,7 +1342,7 @@ declare ptr @objspace_lookup_allocation_info(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @buffer_append(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %37, label %4, !prof !85
+  br i1 %.not, label %37, label %4, !prof !84
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1399,7 +1399,7 @@ dump_flush.exit.i:                                ; preds = %.sink.split.i.i, %9
   br i1 %31, label %32, label %ruby_nonempty_memcpy.exit
 
 32:                                               ; preds = %dump_flush.exit.i
-  %33 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %33 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %33, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -1507,7 +1507,7 @@ dump_flush.exit.i:                                ; preds = %10
   br i1 %26, label %27, label %buffer_ensure_capa.exit
 
 27:                                               ; preds = %dump_flush.exit.i
-  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -1559,7 +1559,7 @@ define internal fastcc void @dump_append_string_content(ptr noundef %0, i64 noun
   tail call fastcc void @buffer_append(ptr noundef %0, ptr noundef nonnull @.str.86, i64 noundef 13)
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !86
+  %5 = load i64, ptr %4, align 8, !tbaa !85
   tail call fastcc void @dump_append_ld(ptr noundef %0, i64 noundef %5)
   %6 = load i64, ptr %3, align 8, !tbaa !17
   %7 = and i64 %6, 8192
@@ -1571,7 +1571,7 @@ define internal fastcc void @dump_append_string_content(ptr noundef %0, i64 noun
 
 10:                                               ; preds = %2
   %11 = tail call i64 @rb_str_capacity(i64 noundef %1) #13
-  %12 = load i64, ptr %4, align 8, !tbaa !86
+  %12 = load i64, ptr %4, align 8, !tbaa !85
   %.not = icmp eq i64 %11, %12
   br i1 %.not, label %15, label %13
 
@@ -1582,7 +1582,7 @@ define internal fastcc void @dump_append_string_content(ptr noundef %0, i64 noun
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %2, %13
-  %.pr = load i64, ptr %4, align 8, !tbaa !86
+  %.pr = load i64, ptr %4, align 8, !tbaa !85
   br label %15
 
 15:                                               ; preds = %thread-pre-split, %10
@@ -1606,7 +1606,7 @@ RB_ENCODING_GET.exit:                             ; preds = %17, %23
   %.0.i = phi i32 [ %24, %23 ], [ %21, %17 ]
   %25 = tail call ptr @rb_enc_from_index(i32 noundef %.0.i) #12
   %26 = getelementptr i8, ptr %25, i64 20
-  %.val.i = load i32, ptr %26, align 4, !tbaa !88
+  %.val.i = load i32, ptr %26, align 4, !tbaa !87
   %.not.i21 = icmp eq i32 %.val.i, 1
   br i1 %.not.i21, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
@@ -1636,14 +1636,14 @@ rb_enc_asciicompat.exit:                          ; preds = %RB_ENCODING_GET.exi
 
 RSTRING_PTR.exit:                                 ; preds = %32, %35
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %35 ], [ %34, %32 ]
-  %36 = load i64, ptr %4, align 8, !tbaa !86
+  %36 = load i64, ptr %4, align 8, !tbaa !85
   %37 = icmp slt i64 %36, 1
   br i1 %37, label %dump_string_ascii_only.exit.thread27, label %.lr.ph.i
 
 38:                                               ; preds = %.lr.ph.i
   %39 = add nuw nsw i64 %.068.i, 1
   %exitcond.not.i = icmp eq i64 %39, %36
-  br i1 %exitcond.not.i, label %dump_string_ascii_only.exit.thread27, label %.lr.ph.i, !llvm.loop !89
+  br i1 %exitcond.not.i, label %dump_string_ascii_only.exit.thread27, label %.lr.ph.i, !llvm.loop !88
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit, %38
   %.068.i = phi i64 [ %39, %38 ], [ 0, %RSTRING_PTR.exit ]
@@ -1713,7 +1713,7 @@ dump_flush.exit.i:                                ; preds = %10
   br i1 %26, label %27, label %buffer_ensure_capa.exit
 
 27:                                               ; preds = %dump_flush.exit.i
-  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -1779,7 +1779,7 @@ dump_flush.exit.i:                                ; preds = %10
   br i1 %26, label %27, label %buffer_ensure_capa.exit
 
 27:                                               ; preds = %dump_flush.exit.i
-  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -1801,7 +1801,7 @@ declare i64 @rb_mod_name(i64 noundef) local_unnamed_addr #1
 define internal fastcc void @dump_append_string_value(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   tail call fastcc void @buffer_append(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 1)
   %3 = inttoptr i64 %1 to ptr
-  %4 = load i64, ptr %3, align 8, !tbaa !17, !noalias !90
+  %4 = load i64, ptr %3, align 8, !tbaa !17, !noalias !89
   %5 = and i64 %4, 8192
   %.not.i.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1814,7 +1814,7 @@ define internal fastcc void @dump_append_string_value(ptr noundef %0, i64 nounde
 RSTRING_PTR.exit:                                 ; preds = %2, %7
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %7 ], [ %6, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !86
+  %9 = load i64, ptr %8, align 8, !tbaa !85
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -1924,7 +1924,7 @@ dump_flush.exit.i.i:                              ; preds = %36
   br i1 %49, label %50, label %buffer_ensure_capa.exit.i
 
 50:                                               ; preds = %dump_flush.exit.i.i
-  %51 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %51 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -1976,7 +1976,7 @@ dump_flush.exit.i15.i:                            ; preds = %64
   br i1 %77, label %78, label %buffer_ensure_capa.exit17.i
 
 78:                                               ; preds = %dump_flush.exit.i15.i
-  %79 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %79 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %79, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -1990,9 +1990,9 @@ buffer_ensure_capa.exit17.i:                      ; preds = %dump_flush.exit.i15
 
 dump_append_c.exit:                               ; preds = %buffer_ensure_capa.exit17.i, %buffer_ensure_capa.exit.i, %18, %19, %20, %21, %22, %23, %24, %25, %26
   %83 = add nuw nsw i64 %.018, 1
-  %84 = load i64, ptr %8, align 8, !tbaa !86
+  %84 = load i64, ptr %8, align 8, !tbaa !85
   %85 = icmp slt i64 %83, %84
-  br i1 %85, label %15, label %._crit_edge, !llvm.loop !93
+  br i1 %85, label %15, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %dump_append_c.exit, %RSTRING_PTR.exit
   tail call fastcc void @buffer_append(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 1)
@@ -2066,7 +2066,7 @@ dump_flush.exit.i:                                ; preds = %.sink.split.i.i, %1
   br i1 %34, label %35, label %buffer_ensure_capa.exit
 
 35:                                               ; preds = %dump_flush.exit.i
-  %36 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %36 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %36, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -2135,7 +2135,7 @@ dump_flush.exit.i:                                ; preds = %10
   br i1 %26, label %27, label %buffer_ensure_capa.exit
 
 27:                                               ; preds = %dump_flush.exit.i
-  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !83
+  %28 = load i64, ptr @rb_eIOError, align 8, !tbaa !82
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.55) #15
   unreachable
 
@@ -2170,7 +2170,7 @@ define internal fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0) unnamed_addr #6 {
   %12 = trunc nuw i64 %11 to i32
   %13 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !94
+  %15 = load i32, ptr %14, align 8, !tbaa !93
   br label %16
 
 16:                                               ; preds = %9, %4
@@ -2323,7 +2323,7 @@ define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %4 = alloca [20 x i8], align 16
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !97
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %.not = icmp eq ptr %7, null
   %.not21 = icmp eq ptr %0, %7
   %or.cond = or i1 %.not, %.not21
@@ -2331,7 +2331,7 @@ define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2)
 
 8:                                                ; preds = %3
   tail call fastcc void @buffer_append(ptr noundef nonnull %2, ptr noundef nonnull @.str.104, i64 noundef 3)
-  %.pre = load ptr, ptr %6, align 8, !tbaa !97
+  %.pre = load ptr, ptr %6, align 8, !tbaa !96
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -2417,7 +2417,7 @@ dump_append_ref.exit30:                           ; preds = %.lr.ph.i.i25, %27
   br label %41
 
 41:                                               ; preds = %dump_append_ref.exit30, %dump_append_ref.exit
-  store ptr %0, ptr %6, align 8, !tbaa !97
+  store ptr %0, ptr %6, align 8, !tbaa !96
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %43 = load i8, ptr %42, align 8
   %44 = or i8 %43, 1
@@ -2478,14 +2478,14 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %9
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.107, i64 noundef 23)
   call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i8, ptr %24, align 8, !tbaa !98
+  %25 = load i8, ptr %24, align 8, !tbaa !97
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %30, label %26
 
 26:                                               ; preds = %dump_append_ref.exit
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.108, i64 noundef 14)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %28 = load i32, ptr %27, align 4, !tbaa !99
+  %28 = load i32, ptr %27, align 4, !tbaa !98
   %29 = zext i32 %28 to i64
   call fastcc void @dump_append_lu(ptr noundef nonnull %1, i64 noundef %29)
   br label %30
@@ -2495,7 +2495,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %9
   %31 = call i64 @rb_shape_depth(ptr noundef nonnull %0) #12
   call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %31)
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.110, i64 noundef 15)
-  %32 = load i8, ptr %24, align 8, !tbaa !98
+  %32 = load i8, ptr %24, align 8, !tbaa !97
   switch i8 %32, label %48 [
     i8 0, label %33
     i8 1, label %34
@@ -2512,7 +2512,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i, %9
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.112, i64 noundef 6)
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.113, i64 noundef 13)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !100
+  %36 = load i64, ptr %35, align 8, !tbaa !99
   %37 = call i64 @rb_id2sym(i64 noundef %36) #12
   %38 = call i64 @rb_sym2str(i64 noundef %37) #12
   %39 = and i64 %38, -5
@@ -2608,7 +2608,7 @@ define internal noundef i32 @heap_i(ptr noundef %0, ptr noundef %1, i64 noundef 
 19:                                               ; preds = %18, %17
   %20 = add i64 %.019, %2
   %.not = icmp eq i64 %20, %5
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %19, %4
   ret i32 0
@@ -2692,70 +2692,69 @@ attributes #16 = { cold noreturn nounwind }
 !32 = !{!33, !8, i64 56}
 !33 = !{!"allocation_info", !14, i64 0, !8, i64 8, !8, i64 16, !13, i64 24, !8, i64 32, !13, i64 40, !8, i64 48, !8, i64 56}
 !34 = !{!9, !9, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!39, !8, i64 16}
-!39 = !{!"rb_callinfo", !8, i64 0, !40, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
-!40 = !{!"p1 _ZTS17rb_callinfo_kwarg", !12, i64 0}
-!41 = !{!42, !43, i64 16}
-!42 = !{!"rb_callcache", !8, i64 0, !8, i64 8, !43, i64 16, !12, i64 24, !9, i64 32}
-!43 = !{!"p1 _ZTS31rb_callable_method_entry_struct", !12, i64 0}
-!44 = !{!45, !8, i64 24}
-!45 = !{!"rb_callable_method_entry_struct", !8, i64 0, !8, i64 8, !46, i64 16, !8, i64 24, !8, i64 32}
-!46 = !{!"p1 _ZTS27rb_method_definition_struct", !12, i64 0}
-!47 = !{!42, !8, i64 8}
-!48 = !{!49, !13, i64 8}
-!49 = !{!"OnigEncodingTypeST", !12, i64 0, !13, i64 8, !14, i64 16, !14, i64 20, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !14, i64 128, !14, i64 132}
-!50 = !{!51, !8, i64 16}
-!51 = !{!"st_table", !9, i64 0, !9, i64 1, !9, i64 2, !14, i64 4, !52, i64 8, !8, i64 16, !53, i64 24, !8, i64 32, !8, i64 40, !54, i64 48}
-!52 = !{!"p1 _ZTS12st_hash_type", !12, i64 0}
-!53 = !{!"p1 long", !12, i64 0}
-!54 = !{!"p1 _ZTS14st_table_entry", !12, i64 0}
-!55 = !{!56, !8, i64 16}
-!56 = !{!"RHash", !18, i64 0, !8, i64 16}
-!57 = !{!58, !9, i64 148}
-!58 = !{!"RClass_and_rb_classext_t", !59, i64 0, !61, i64 32}
-!59 = !{!"RClass", !18, i64 0, !8, i64 16, !60, i64 24}
-!60 = !{!"p1 _ZTS11rb_id_table", !12, i64 0}
-!61 = !{!"rb_classext_struct", !53, i64 0, !60, i64 8, !60, i64 16, !60, i64 24, !60, i64 32, !8, i64 40, !53, i64 48, !62, i64 56, !62, i64 64, !62, i64 72, !8, i64 80, !8, i64 88, !9, i64 96, !8, i64 104, !14, i64 112, !9, i64 116, !63, i64 117, !63, i64 117, !8, i64 120}
-!62 = !{!"p1 _ZTS17rb_subclass_entry", !12, i64 0}
-!63 = !{!"_Bool", !9, i64 0}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"rbimpl_rstring_getmem: argument 0"}
-!66 = distinct !{!66, !"rbimpl_rstring_getmem"}
-!67 = !{!68, !8, i64 24}
-!68 = !{!"RTypedData", !18, i64 0, !69, i64 16, !8, i64 24, !12, i64 32}
-!69 = !{!"p1 _ZTS19rb_data_type_struct", !12, i64 0}
-!70 = !{!68, !69, i64 16}
-!71 = !{!72, !13, i64 0}
-!72 = !{!"rb_data_type_struct", !13, i64 0, !73, i64 8, !69, i64 48, !12, i64 56, !8, i64 64}
-!73 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !9, i64 32}
-!74 = !{!75, !14, i64 16}
-!75 = !{!"rb_io", !8, i64 0, !11, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !8, i64 32, !12, i64 40, !76, i64 48, !76, i64 68, !8, i64 88, !77, i64 96, !79, i64 128, !76, i64 136, !79, i64 160, !8, i64 168, !14, i64 176, !14, i64 180, !8, i64 184, !8, i64 192, !8, i64 200}
-!76 = !{!"rb_io_internal_buffer", !13, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
-!77 = !{!"rb_io_encoding", !78, i64 0, !78, i64 8, !14, i64 16, !8, i64 24}
-!78 = !{!"p1 _ZTS18OnigEncodingTypeST", !12, i64 0}
-!79 = !{!"p1 _ZTS10rb_econv_t", !12, i64 0}
-!80 = !{!33, !13, i64 24}
-!81 = !{!33, !8, i64 32}
-!82 = !{!33, !8, i64 48}
-!83 = !{!8, !8, i64 0}
-!84 = distinct !{!84, !36, !37}
-!85 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!86 = !{!87, !8, i64 16}
-!87 = !{!"RString", !18, i64 0, !8, i64 16, !9, i64 24}
-!88 = !{!49, !14, i64 20}
-!89 = distinct !{!89, !36, !37}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"rbimpl_rstring_getmem: argument 0"}
-!92 = distinct !{!92, !"rbimpl_rstring_getmem"}
-!93 = distinct !{!93, !36, !37}
-!94 = !{!95, !14, i64 16}
-!95 = !{!"rb_shape", !60, i64 0, !8, i64 8, !14, i64 16, !14, i64 20, !9, i64 24, !9, i64 25, !14, i64 28, !96, i64 32}
-!96 = !{!"p1 _ZTS13redblack_node", !12, i64 0}
-!97 = !{!7, !13, i64 32}
-!98 = !{!95, !9, i64 24}
-!99 = !{!95, !14, i64 28}
-!100 = !{!95, !8, i64 8}
-!101 = distinct !{!101, !36, !37}
+!37 = !{!38, !8, i64 16}
+!38 = !{!"rb_callinfo", !8, i64 0, !39, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
+!39 = !{!"p1 _ZTS17rb_callinfo_kwarg", !12, i64 0}
+!40 = !{!41, !42, i64 16}
+!41 = !{!"rb_callcache", !8, i64 0, !8, i64 8, !42, i64 16, !12, i64 24, !9, i64 32}
+!42 = !{!"p1 _ZTS31rb_callable_method_entry_struct", !12, i64 0}
+!43 = !{!44, !8, i64 24}
+!44 = !{!"rb_callable_method_entry_struct", !8, i64 0, !8, i64 8, !45, i64 16, !8, i64 24, !8, i64 32}
+!45 = !{!"p1 _ZTS27rb_method_definition_struct", !12, i64 0}
+!46 = !{!41, !8, i64 8}
+!47 = !{!48, !13, i64 8}
+!48 = !{!"OnigEncodingTypeST", !12, i64 0, !13, i64 8, !14, i64 16, !14, i64 20, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !14, i64 128, !14, i64 132}
+!49 = !{!50, !8, i64 16}
+!50 = !{!"st_table", !9, i64 0, !9, i64 1, !9, i64 2, !14, i64 4, !51, i64 8, !8, i64 16, !52, i64 24, !8, i64 32, !8, i64 40, !53, i64 48}
+!51 = !{!"p1 _ZTS12st_hash_type", !12, i64 0}
+!52 = !{!"p1 long", !12, i64 0}
+!53 = !{!"p1 _ZTS14st_table_entry", !12, i64 0}
+!54 = !{!55, !8, i64 16}
+!55 = !{!"RHash", !18, i64 0, !8, i64 16}
+!56 = !{!57, !9, i64 148}
+!57 = !{!"RClass_and_rb_classext_t", !58, i64 0, !60, i64 32}
+!58 = !{!"RClass", !18, i64 0, !8, i64 16, !59, i64 24}
+!59 = !{!"p1 _ZTS11rb_id_table", !12, i64 0}
+!60 = !{!"rb_classext_struct", !52, i64 0, !59, i64 8, !59, i64 16, !59, i64 24, !59, i64 32, !8, i64 40, !52, i64 48, !61, i64 56, !61, i64 64, !61, i64 72, !8, i64 80, !8, i64 88, !9, i64 96, !8, i64 104, !14, i64 112, !9, i64 116, !62, i64 117, !62, i64 117, !8, i64 120}
+!61 = !{!"p1 _ZTS17rb_subclass_entry", !12, i64 0}
+!62 = !{!"_Bool", !9, i64 0}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"rbimpl_rstring_getmem: argument 0"}
+!65 = distinct !{!65, !"rbimpl_rstring_getmem"}
+!66 = !{!67, !8, i64 24}
+!67 = !{!"RTypedData", !18, i64 0, !68, i64 16, !8, i64 24, !12, i64 32}
+!68 = !{!"p1 _ZTS19rb_data_type_struct", !12, i64 0}
+!69 = !{!67, !68, i64 16}
+!70 = !{!71, !13, i64 0}
+!71 = !{!"rb_data_type_struct", !13, i64 0, !72, i64 8, !68, i64 48, !12, i64 56, !8, i64 64}
+!72 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !9, i64 32}
+!73 = !{!74, !14, i64 16}
+!74 = !{!"rb_io", !8, i64 0, !11, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !8, i64 32, !12, i64 40, !75, i64 48, !75, i64 68, !8, i64 88, !76, i64 96, !78, i64 128, !75, i64 136, !78, i64 160, !8, i64 168, !14, i64 176, !14, i64 180, !8, i64 184, !8, i64 192, !8, i64 200}
+!75 = !{!"rb_io_internal_buffer", !13, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
+!76 = !{!"rb_io_encoding", !77, i64 0, !77, i64 8, !14, i64 16, !8, i64 24}
+!77 = !{!"p1 _ZTS18OnigEncodingTypeST", !12, i64 0}
+!78 = !{!"p1 _ZTS10rb_econv_t", !12, i64 0}
+!79 = !{!33, !13, i64 24}
+!80 = !{!33, !8, i64 32}
+!81 = !{!33, !8, i64 48}
+!82 = !{!8, !8, i64 0}
+!83 = distinct !{!83, !36}
+!84 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!85 = !{!86, !8, i64 16}
+!86 = !{!"RString", !18, i64 0, !8, i64 16, !9, i64 24}
+!87 = !{!48, !14, i64 20}
+!88 = distinct !{!88, !36}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"rbimpl_rstring_getmem: argument 0"}
+!91 = distinct !{!91, !"rbimpl_rstring_getmem"}
+!92 = distinct !{!92, !36}
+!93 = !{!94, !14, i64 16}
+!94 = !{!"rb_shape", !59, i64 0, !8, i64 8, !14, i64 16, !14, i64 20, !9, i64 24, !9, i64 25, !14, i64 28, !95, i64 32}
+!95 = !{!"p1 _ZTS13redblack_node", !12, i64 0}
+!96 = !{!7, !13, i64 32}
+!97 = !{!94, !9, i64 24}
+!98 = !{!94, !14, i64 28}
+!99 = !{!94, !8, i64 8}
+!100 = distinct !{!100, !36}

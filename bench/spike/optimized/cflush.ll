@@ -1277,13 +1277,13 @@ define internal void @_GLOBAL__sub_I_cflush.cc() #17 section ".text.startup" per
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN15register_cflushC1EvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %4, align 8, !tbaa !130
-  store ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN15register_cflushC1EvEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %3, align 8, !tbaa !133
+  store ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN15register_cflushC1EvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %4, align 8, !tbaa !129
+  store ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN15register_cflushC1EvEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %3, align 8, !tbaa !132
   invoke void @_Z18register_extensionPKcSt8functionIFP11extension_tvEE(ptr noundef nonnull @.str, ptr noundef nonnull %1)
           to label %5 unwind label %12
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr %3, align 8, !tbaa !133
+  %6 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %__cxx_global_var_init.2.exit, label %7
 
@@ -1301,7 +1301,7 @@ define internal void @_GLOBAL__sub_I_cflush.cc() #17 section ".text.startup" per
 12:                                               ; preds = %0
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %3, align 8, !tbaa !133
+  %14 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i1.i.i = icmp eq ptr %14, null
   br i1 %.not.i1.i.i, label %_ZNSt14_Function_baseD2Ev.exit2.i.i, label %15
 
@@ -1486,10 +1486,9 @@ attributes #24 = { noreturn nounwind }
 !124 = !{!"_ZTSNSt12_Vector_baseIPK5arg_tSaIS2_EE12_Vector_implE", !26, i64 0}
 !125 = !{!121, !111, i64 4}
 !126 = !{!27, !27, i64 0}
-!127 = distinct !{!127, !128, !129}
+!127 = distinct !{!127, !128}
 !128 = !{!"llvm.loop.mustprogress"}
-!129 = !{!"llvm.loop.estimated_trip_count"}
-!130 = !{!131, !5, i64 24}
-!131 = !{!"_ZTSSt8functionIFP11extension_tvEE", !132, i64 0, !5, i64 24}
-!132 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
-!133 = !{!132, !5, i64 16}
+!129 = !{!130, !5, i64 24}
+!130 = !{!"_ZTSSt8functionIFP11extension_tvEE", !131, i64 0, !5, i64 24}
+!131 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!132 = !{!131, !5, i64 16}

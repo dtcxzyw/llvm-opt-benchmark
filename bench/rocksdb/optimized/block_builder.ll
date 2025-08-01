@@ -398,7 +398,7 @@ _ZN7rocksdb10PutFixed32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.e
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 2
   %34 = icmp ult i64 %27, %33
-  br i1 %34, label %18, label %._crit_edge.loopexit, !llvm.loop !52
+  br i1 %34, label %18, label %._crit_edge.loopexit, !llvm.loop !51
 
 _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -456,7 +456,7 @@ define void @_ZN7rocksdb12BlockBuilder3AddERKNS_5SliceES3_PS2_(ptr noundef nonnu
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !44
-  store ptr %7, ptr %5, align 8, !tbaa !53
+  store ptr %7, ptr %5, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8, !tbaa !32
@@ -471,7 +471,7 @@ define void @_ZN7rocksdb12BlockBuilder3AddERKNS_5SliceES3_PS2_(ptr noundef nonnu
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %4
-  %17 = load ptr, ptr %1, align 8, !tbaa !53
+  %17 = load ptr, ptr %1, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !47
   %20 = load i64, ptr %9, align 8, !tbaa !32
@@ -501,9 +501,9 @@ define linkonce_odr void @_ZN7rocksdb12BlockBuilder18AddWithLastKeyImplERKNS_5Sl
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %15, align 8, !tbaa !32
   store i8 0, ptr %14, align 8, !tbaa !33
-  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !54
+  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !53
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !55
+  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !29
   %.not.i = icmp eq i64 %17, 0
@@ -534,7 +534,7 @@ define linkonce_odr void @_ZN7rocksdb12BlockBuilder18AddWithLastKeyImplERKNS_5Sl
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !47
   %30 = icmp eq i64 %29, 0
-  %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !54
+  %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !53
   br i1 %30, label %44, label %31
 
 31:                                               ; preds = %27
@@ -689,7 +689,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
 94:                                               ; preds = %.lr.ph.i
   %95 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %95, %.sroa.6.0
-  br i1 %exitcond.not.i, label %_ZNK7rocksdb5Slice17difference_offsetERKS0_.exit, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZNK7rocksdb5Slice17difference_offsetERKS0_.exit, label %.lr.ph.i, !llvm.loop !55
 
 _ZNK7rocksdb5Slice17difference_offsetERKS0_.exit: ; preds = %94, %.lr.ph.i, %86, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %.022 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ 0, %86 ], [ %.sroa.6.0, %94 ], [ %.011.i, %.lr.ph.i ]
@@ -813,7 +813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i62.invoke: ; preds = %148, %144
   %.sink = phi ptr [ %4, %144 ], [ %2, %148 ]
   %152 = phi i64 [ %146, %144 ], [ %150, %148 ]
-  %153 = load ptr, ptr %.sink, align 8, !tbaa !53
+  %153 = load ptr, ptr %.sink, align 8, !tbaa !52
   %154 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef %153, i64 noundef %152)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit61 unwind label %114
 
@@ -829,7 +829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit61: ; pred
 
 162:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
-  %163 = load ptr, ptr %1, align 8, !tbaa !53
+  %163 = load ptr, ptr %1, align 8, !tbaa !52
   %164 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !47
   %165 = add i64 %164, -8
   store ptr %163, ptr %11, align 8
@@ -954,10 +954,10 @@ define void @_ZN7rocksdb12BlockBuilder14AddWithLastKeyERKNS_5SliceES3_S3_PS2_(pt
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  %11 = load ptr, ptr %3, align 8, !tbaa !53
+  %11 = load ptr, ptr %3, align 8, !tbaa !52
   %.not = icmp eq i64 %8, 0
   %12 = select i1 %.not, i64 0, i64 %10
-  store ptr %11, ptr %6, align 8, !tbaa !53
+  store ptr %11, ptr %6, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %13, align 8, !tbaa !47
   call void @_ZN7rocksdb12BlockBuilder18AddWithLastKeyImplERKNS_5SliceES3_S3_PS2_m(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %4, i64 noundef %8)
@@ -1172,11 +1172,10 @@ attributes #16 = { builtin nounwind }
 !46 = !{}
 !47 = !{!48, !10, i64 8}
 !48 = !{!"_ZTSN7rocksdb5SliceE", !13, i64 0, !10, i64 8}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = distinct !{!52, !50, !51}
-!53 = !{!48, !13, i64 0}
-!54 = !{!13, !13, i64 0}
-!55 = !{!10, !10, i64 0}
-!56 = distinct !{!56, !50, !51}
+!51 = distinct !{!51, !50}
+!52 = !{!48, !13, i64 0}
+!53 = !{!13, !13, i64 0}
+!54 = !{!10, !10, i64 0}
+!55 = distinct !{!55, !50}

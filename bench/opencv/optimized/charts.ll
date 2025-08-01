@@ -267,15 +267,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3mcc10CChartDrawC2ERNS0_6CChartERKNS_17_InputOutputArrayE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #7 align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !37
+  %5 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !36
   %6 = icmp eq i32 %5, 65536
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !37
+  %9 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !36
   tail call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %9)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -300,7 +300,7 @@ define hidden void @_ZNK2cv3mcc10CChartDraw11drawContourENS_7Scalar_IdEE(ptr nou
   store i64 0, ptr %9, align 8
   store i32 -1023344640, ptr %3, align 8, !tbaa !14
   store ptr %7, ptr %8, align 8, !tbaa !16
-  %10 = load ptr, ptr %0, align 8, !tbaa !40
+  %10 = load ptr, ptr %0, align 8, !tbaa !39
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = load float, ptr %11, align 4, !tbaa !26
   %13 = insertelement <4 x float> poison, float %12, i64 0
@@ -333,7 +333,7 @@ define hidden void @_ZNK2cv3mcc10CChartDraw11drawContourENS_7Scalar_IdEE(ptr nou
   store i64 0, ptr %28, align 8
   store i32 -1023344640, ptr %4, align 8, !tbaa !14
   store ptr %7, ptr %27, align 8, !tbaa !16
-  %29 = load ptr, ptr %0, align 8, !tbaa !40
+  %29 = load ptr, ptr %0, align 8, !tbaa !39
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load float, ptr %31, align 4, !tbaa !26
@@ -367,7 +367,7 @@ define hidden void @_ZNK2cv3mcc10CChartDraw11drawContourENS_7Scalar_IdEE(ptr nou
   store i64 0, ptr %48, align 8
   store i32 -1023344640, ptr %5, align 8, !tbaa !14
   store ptr %7, ptr %47, align 8, !tbaa !16
-  %49 = load ptr, ptr %0, align 8, !tbaa !40
+  %49 = load ptr, ptr %0, align 8, !tbaa !39
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load float, ptr %51, align 4, !tbaa !26
@@ -401,7 +401,7 @@ define hidden void @_ZNK2cv3mcc10CChartDraw11drawContourENS_7Scalar_IdEE(ptr nou
   store i64 0, ptr %68, align 8
   store i32 -1023344640, ptr %6, align 8, !tbaa !14
   store ptr %7, ptr %67, align 8, !tbaa !16
-  %69 = load ptr, ptr %0, align 8, !tbaa !40
+  %69 = load ptr, ptr %0, align 8, !tbaa !39
   %70 = load ptr, ptr %69, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load float, ptr %71, align 4, !tbaa !26
@@ -443,7 +443,7 @@ define hidden void @_ZNK2cv3mcc10CChartDraw10drawCenterENS_7Scalar_IdEE(ptr noun
   store i64 0, ptr %6, align 8
   store i32 -1023344640, ptr %3, align 8, !tbaa !14
   store ptr %4, ptr %5, align 8, !tbaa !16
-  %7 = load ptr, ptr %0, align 8, !tbaa !40
+  %7 = load ptr, ptr %0, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load float, ptr %8, align 4, !tbaa !26
   %10 = insertelement <4 x float> poison, float %9, i64 0
@@ -556,21 +556,20 @@ attributes #20 = { builtin allocsize(0) }
 !29 = !{!4, !5, i64 8}
 !30 = !{!4, !5, i64 16}
 !31 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTSN2cv3mcc6CChartE", !6, i64 0}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!39 = distinct !{!39, !"_ZNK2cv11_InputArray6getMatEi"}
-!40 = !{!41, !36, i64 0}
-!41 = !{!"_ZTSN2cv3mcc10CChartDrawE", !36, i64 0, !42, i64 8}
-!42 = !{!"_ZTSN2cv3MatE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !43, i64 16, !43, i64 24, !43, i64 32, !43, i64 40, !44, i64 48, !45, i64 56, !46, i64 64, !48, i64 72}
-!43 = !{!"p1 omnipotent char", !6, i64 0}
-!44 = !{!"p1 _ZTSN2cv12MatAllocatorE", !6, i64 0}
-!45 = !{!"p1 _ZTSN2cv8UMatDataE", !6, i64 0}
-!46 = !{!"_ZTSN2cv7MatSizeE", !47, i64 0}
-!47 = !{!"p1 int", !6, i64 0}
-!48 = !{!"_ZTSN2cv7MatStepE", !49, i64 0, !7, i64 8}
-!49 = !{!"p1 long", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN2cv3mcc6CChartE", !6, i64 0}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!38 = distinct !{!38, !"_ZNK2cv11_InputArray6getMatEi"}
+!39 = !{!40, !35, i64 0}
+!40 = !{!"_ZTSN2cv3mcc10CChartDrawE", !35, i64 0, !41, i64 8}
+!41 = !{!"_ZTSN2cv3MatE", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !42, i64 16, !42, i64 24, !42, i64 32, !42, i64 40, !43, i64 48, !44, i64 56, !45, i64 64, !47, i64 72}
+!42 = !{!"p1 omnipotent char", !6, i64 0}
+!43 = !{!"p1 _ZTSN2cv12MatAllocatorE", !6, i64 0}
+!44 = !{!"p1 _ZTSN2cv8UMatDataE", !6, i64 0}
+!45 = !{!"_ZTSN2cv7MatSizeE", !46, i64 0}
+!46 = !{!"p1 int", !6, i64 0}
+!47 = !{!"_ZTSN2cv7MatStepE", !48, i64 0, !7, i64 8}
+!48 = !{!"p1 long", !6, i64 0}

@@ -454,10 +454,10 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   %13 = alloca [512 x i8], align 16
   %14 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !7
+  store ptr null, ptr %1, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 512, ptr %3, align 8, !tbaa !12
+  store i64 512, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
@@ -466,14 +466,14 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_hpke_noncereuse.plain, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store i64 512, ptr %10, align 8, !tbaa !12
+  store i64 512, ptr %10, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
-  store i64 512, ptr %12, align 8, !tbaa !12
+  store i64 512, ptr %12, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
-  store i64 512, ptr %14, align 8, !tbaa !12
-  %15 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 512, ptr %14, align 8, !tbaa !11
+  %15 = load ptr, ptr @testctx, align 8, !tbaa !13
   %16 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %15, ptr noundef null) #7
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
@@ -482,7 +482,7 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   br i1 %.not, label %88, label %20
 
 20:                                               ; preds = %0
-  %21 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %21 = load ptr, ptr @testctx, align 8, !tbaa !13
   %22 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 4295032864, i32 noundef 0, ptr noundef %21, ptr noundef null) #7
   %23 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1146, ptr noundef nonnull @.str.70, ptr noundef %22) #7
   %.not35 = icmp eq i32 %23, 0
@@ -505,7 +505,7 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   br i1 %.not37, label %88, label %34
 
 34:                                               ; preds = %29
-  %35 = load i64, ptr %3, align 8, !tbaa !12
+  %35 = load i64, ptr %3, align 8, !tbaa !11
   %36 = call i32 @OSSL_HPKE_encap(ptr noundef %22, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %2, i64 noundef %35, ptr noundef null, i64 noundef 0) #7
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
@@ -543,15 +543,15 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   br i1 %.not42, label %88, label %57
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %58 = load ptr, ptr @testctx, align 8, !tbaa !13
   %59 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 4295032864, i32 noundef 1, ptr noundef %58, ptr noundef null) #7
   %60 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1173, ptr noundef nonnull @.str.78, ptr noundef %59) #7
   %.not43 = icmp eq i32 %60, 0
   br i1 %.not43, label %88, label %61
 
 61:                                               ; preds = %57
-  %62 = load i64, ptr %10, align 8, !tbaa !12
-  %63 = load ptr, ptr %1, align 8, !tbaa !7
+  %62 = load i64, ptr %10, align 8, !tbaa !11
+  %63 = load ptr, ptr %1, align 8, !tbaa !6
   %64 = call i32 @OSSL_HPKE_decap(ptr noundef %59, ptr noundef nonnull %9, i64 noundef %62, ptr noundef %63, ptr noundef null, i64 noundef 0) #7
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
@@ -560,7 +560,7 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   br i1 %.not44, label %88, label %68
 
 68:                                               ; preds = %61
-  %69 = load i64, ptr %12, align 8, !tbaa !12
+  %69 = load i64, ptr %12, align 8, !tbaa !11
   %70 = call i32 @OSSL_HPKE_open(ptr noundef %59, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef null, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %69) #7
   %71 = icmp ne i32 %70, 0
   %72 = zext i1 %71 to i32
@@ -601,7 +601,7 @@ define internal range(i32 0, 2) i32 @test_hpke_export() #1 {
   %.0 = phi i32 [ 0, %84 ], [ 0, %79 ], [ 0, %74 ], [ 0, %68 ], [ 0, %61 ], [ 0, %57 ], [ 0, %55 ], [ 0, %50 ], [ 0, %45 ], [ 0, %40 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %20 ], [ 0, %0 ], [ %spec.select, %86 ]
   call void @OSSL_HPKE_CTX_free(ptr noundef %.033) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.034) #7
-  %89 = load ptr, ptr %1, align 8, !tbaa !7
+  %89 = load ptr, ptr %1, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %89) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #7
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #7
@@ -647,13 +647,13 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.0186 = phi i32 [ 1, %0 ], [ %.1.lcssa, %._crit_edge183 ]
   %.0137185 = phi i64 [ 0, %0 ], [ %164, %._crit_edge183 ]
   %21 = getelementptr inbounds nuw [4 x i32], ptr @hpke_mode_list, i64 0, i64 %.0137185
-  %22 = load i32, ptr %21, align 4, !tbaa !16
+  %22 = load i32, ptr %21, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %1) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store ptr null, ptr %5, align 8, !tbaa !7
+  store ptr null, ptr %5, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(486) %19, i8 0, i64 486, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull align 1 dereferenceable(26) @.str.85, i64 26, i1 false) #7
@@ -689,7 +689,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 33:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 80, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %4, i8 73, i64 31, i1 false)
-  store i8 0, ptr %18, align 1, !tbaa !18
+  store i8 0, ptr %18, align 1, !tbaa !17
   br label %34
 
 34:                                               ; preds = %31, %33
@@ -710,20 +710,20 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.sroa.9.0179 = phi i16 [ 1, %.lr.ph182 ], [ %.sroa.9.1.lcssa, %._crit_edge ]
   %.sroa.10.0178 = phi i16 [ 1, %.lr.ph182 ], [ %.sroa.10.1.lcssa, %._crit_edge ]
   %39 = getelementptr inbounds nuw [5 x i16], ptr @hpke_kem_list, i64 0, i64 %.0138180
-  %40 = load i16, ptr %39, align 2, !tbaa !19
+  %40 = load i16, ptr %39, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store i64 512, ptr %7, align 8, !tbaa !12
+  store i64 512, ptr %7, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store ptr null, ptr %9, align 8, !tbaa !7
+  store ptr null, ptr %9, align 8, !tbaa !6
   br i1 %or.cond3.not, label %.thread, label %41
 
 .thread:                                          ; preds = %38
-  store i64 0, ptr %7, align 8, !tbaa !12
+  store i64 0, ptr %7, align 8, !tbaa !11
   br label %.lr.ph
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %42 = load ptr, ptr @testctx, align 8, !tbaa !13
   %.sroa.10.0.insert.ext73 = zext i16 %.sroa.10.0178 to i48
   %.sroa.10.0.insert.shift74 = shl nuw i48 %.sroa.10.0.insert.ext73, 32
   %.sroa.9.0.insert.ext61 = zext i16 %.sroa.9.0179 to i48
@@ -749,7 +749,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 50:                                               ; preds = %.lr.ph, %155
   %.0139175 = phi i64 [ 0, %.lr.ph ], [ %156, %155 ]
   %51 = getelementptr inbounds nuw [3 x i16], ptr @hpke_aead_list, i64 0, i64 %.0139175
-  %52 = load i16, ptr %51, align 2, !tbaa !19
+  %52 = load i16, ptr %51, align 2, !tbaa !18
   %.sroa.9.0.insert.ext57 = zext i16 %52 to i48
   %.sroa.9.0.insert.shift58 = shl nuw nsw i48 %.sroa.9.0.insert.ext57, 16
   %.sroa.9.0.insert.insert60 = or disjoint i48 %.sroa.9.0.insert.shift58, %.sroa.0.0.insert.ext47
@@ -760,20 +760,20 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 55:                                               ; preds = %50, %150
   %.0140174 = phi i64 [ 0, %50 ], [ %151, %150 ]
   %56 = getelementptr inbounds nuw [3 x i16], ptr @hpke_aead_list, i64 0, i64 %.0140174
-  %57 = load i16, ptr %56, align 2, !tbaa !19
+  %57 = load i16, ptr %56, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store i64 512, ptr %10, align 8, !tbaa !12
+  store i64 512, ptr %10, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
-  store i64 512, ptr %12, align 8, !tbaa !12
+  store i64 512, ptr %12, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
-  store i64 512, ptr %14, align 8, !tbaa !12
+  store i64 512, ptr %14, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %15) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
-  store i64 512, ptr %16, align 8, !tbaa !12
+  store i64 512, ptr %16, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %17) #7
-  %58 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %58 = load ptr, ptr @testctx, align 8, !tbaa !13
   %.sroa.10.0.insert.ext69 = zext i16 %57 to i48
   %.sroa.10.0.insert.shift70 = shl nuw i48 %.sroa.10.0.insert.ext69, 32
   %.sroa.0.0.insert.insert49 = or disjoint i48 %.sroa.9.0.insert.insert60, %.sroa.10.0.insert.shift70
@@ -782,7 +782,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %61 = zext i1 %60 to i32
   %62 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1006, ptr noundef nonnull @.str.69, i32 noundef %61) #7
   %.not151 = icmp ne i32 %62, 0
-  %63 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %63 = load ptr, ptr @testctx, align 8, !tbaa !13
   %64 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %22, i48 %.sroa.0.0.insert.insert49, i32 noundef 0, ptr noundef %63, ptr noundef null) #7
   %65 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1010, ptr noundef nonnull @.str.70, ptr noundef %64) #7
   %.not152 = icmp ne i32 %65, 0
@@ -804,7 +804,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   br i1 %or.cond3.not, label %78, label %72
 
 72:                                               ; preds = %71
-  %73 = load ptr, ptr %9, align 8, !tbaa !7
+  %73 = load ptr, ptr %9, align 8, !tbaa !6
   %74 = call i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %64, ptr noundef %73) #7
   %75 = icmp ne i32 %74, 0
   %76 = zext i1 %75 to i32
@@ -815,28 +815,28 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 
 78:                                               ; preds = %72, %71
   %.9 = phi i32 [ %.8, %71 ], [ %spec.select168, %72 ]
-  %79 = load i64, ptr %10, align 8, !tbaa !12
+  %79 = load i64, ptr %10, align 8, !tbaa !11
   %80 = call i32 @OSSL_HPKE_encap(ptr noundef %64, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef %79, ptr noundef %.0148, i64 noundef %.0144) #7
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i32
   %83 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1027, ptr noundef nonnull @.str.89, i32 noundef %82) #7
   %.not155 = icmp eq i32 %83, 0
-  store i64 15, ptr %14, align 8, !tbaa !12
+  store i64 15, ptr %14, align 8, !tbaa !11
   %84 = call i32 @OSSL_HPKE_seal(ptr noundef %64, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %6, i64 noundef %23) #7
   %85 = icmp ne i32 %84, 0
   %86 = zext i1 %85 to i32
   %87 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1033, ptr noundef nonnull @.str.90, i32 noundef %86) #7
   %.not156 = icmp eq i32 %87, 0
-  store i64 512, ptr %14, align 8, !tbaa !12
+  store i64 512, ptr %14, align 8, !tbaa !11
   %88 = call i32 @OSSL_HPKE_seal(ptr noundef %64, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %6, i64 noundef %23) #7
   %89 = icmp ne i32 %88, 0
   %90 = zext i1 %89 to i32
   %91 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1039, ptr noundef nonnull @.str.90, i32 noundef %90) #7
   %.not157 = icmp eq i32 %91, 0
   call void @OSSL_HPKE_CTX_free(ptr noundef %64) #7
-  %92 = load i64, ptr %16, align 8, !tbaa !12
+  %92 = load i64, ptr %16, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %17, i8 0, i64 %92, i1 false)
-  %93 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %93 = load ptr, ptr @testctx, align 8, !tbaa !13
   %94 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %22, i48 %.sroa.0.0.insert.insert49, i32 noundef 1, ptr noundef %93, ptr noundef null) #7
   %95 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1046, ptr noundef nonnull @.str.91, ptr noundef %94) #7
   %.not158 = icmp eq i32 %95, 0
@@ -873,7 +873,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 
 111:                                              ; preds = %106, %105
   %.16 = phi i32 [ %.14, %105 ], [ %spec.select171, %106 ]
-  %112 = load i64, ptr %7, align 8, !tbaa !12
+  %112 = load i64, ptr %7, align 8, !tbaa !11
   %113 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %94, ptr noundef %.0143191, i64 noundef %112) #7
   %114 = icmp ne i32 %113, 0
   %115 = zext i1 %114 to i32
@@ -884,32 +884,32 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 
 117:                                              ; preds = %111, %104
   %.15 = phi i32 [ %.14, %104 ], [ %spec.select172, %111 ]
-  %118 = load i64, ptr %12, align 8, !tbaa !12
-  %119 = load ptr, ptr %5, align 8, !tbaa !7
+  %118 = load i64, ptr %12, align 8, !tbaa !11
+  %119 = load ptr, ptr %5, align 8, !tbaa !6
   %120 = call i32 @OSSL_HPKE_decap(ptr noundef %94, ptr noundef nonnull %13, i64 noundef %118, ptr noundef %119, ptr noundef %.0148, i64 noundef %.0144) #7
   %121 = icmp ne i32 %120, 0
   %122 = zext i1 %121 to i32
   %123 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1072, ptr noundef nonnull @.str.95, i32 noundef %122) #7
   %.not162 = icmp eq i32 %123, 0
-  store i64 15, ptr %16, align 8, !tbaa !12
-  %124 = load i64, ptr %14, align 8, !tbaa !12
+  store i64 15, ptr %16, align 8, !tbaa !11
+  %124 = load i64, ptr %14, align 8, !tbaa !11
   %125 = call i32 @OSSL_HPKE_open(ptr noundef %94, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %15, i64 noundef %124) #7
   %126 = icmp ne i32 %125, 0
   %127 = zext i1 %126 to i32
   %128 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1078, ptr noundef nonnull @.str.96, i32 noundef %127) #7
   %.not163 = icmp eq i32 %128, 0
-  store i64 512, ptr %16, align 8, !tbaa !12
-  %129 = load i64, ptr %14, align 8, !tbaa !12
+  store i64 512, ptr %16, align 8, !tbaa !11
+  %129 = load i64, ptr %14, align 8, !tbaa !11
   %130 = call i32 @OSSL_HPKE_open(ptr noundef %94, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %15, i64 noundef %129) #7
   %131 = icmp ne i32 %130, 0
   %132 = zext i1 %131 to i32
   %133 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1084, ptr noundef nonnull @.str.96, i32 noundef %132) #7
   %.not164 = icmp eq i32 %133, 0
   call void @OSSL_HPKE_CTX_free(ptr noundef %94) #7
-  %134 = load ptr, ptr %5, align 8, !tbaa !7
+  %134 = load ptr, ptr %5, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %134) #7
-  store ptr null, ptr %5, align 8, !tbaa !7
-  %135 = load i64, ptr %16, align 8, !tbaa !12
+  store ptr null, ptr %5, align 8, !tbaa !6
+  %135 = load i64, ptr %16, align 8, !tbaa !11
   %136 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 1090, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %17, i64 noundef %135, ptr noundef nonnull %6, i64 noundef %23) #7
   %.not165 = icmp eq i32 %136, 0
   %137 = select i1 %.not165, i1 true, i1 %.not164
@@ -924,11 +924,11 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 141:                                              ; preds = %117
   %142 = icmp eq i32 %.20, 1
   %143 = select i1 %142, ptr @.str.99, ptr @.str.100
-  %144 = load ptr, ptr %36, align 8, !tbaa !21
-  %145 = load ptr, ptr %48, align 8, !tbaa !21
-  %146 = load ptr, ptr %53, align 8, !tbaa !21
+  %144 = load ptr, ptr %36, align 8, !tbaa !20
+  %145 = load ptr, ptr %48, align 8, !tbaa !20
+  %146 = load ptr, ptr %53, align 8, !tbaa !20
   %147 = getelementptr inbounds nuw [15 x ptr], ptr @aead_str_list, i64 0, i64 %.0140174
-  %148 = load ptr, ptr %147, align 8, !tbaa !21
+  %148 = load ptr, ptr %147, align 8, !tbaa !20
   %149 = zext i16 %57 to i32
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.101, ptr noundef nonnull %143, ptr noundef %144, i32 noundef %37, ptr noundef %145, i32 noundef %49, ptr noundef %146, i32 noundef %54, ptr noundef %148, i32 noundef %149) #7
   br label %150
@@ -946,19 +946,19 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %152 = icmp eq i32 %.20, 1
   %153 = icmp samesign ult i64 %.0140174, 2
   %154 = select i1 %152, i1 %153, i1 false
-  br i1 %154, label %55, label %155, !llvm.loop !23
+  br i1 %154, label %55, label %155, !llvm.loop !22
 
 155:                                              ; preds = %150
   %156 = add nuw nsw i64 %.0139175, 1
   %157 = icmp samesign ult i64 %.0139175, 2
   %158 = select i1 %152, i1 %157, i1 false
-  br i1 %158, label %50, label %._crit_edge, !llvm.loop !24
+  br i1 %158, label %50, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %155, %41
   %.sroa.10.1.lcssa = phi i16 [ %.sroa.10.0178, %41 ], [ %57, %155 ]
   %.sroa.9.1.lcssa = phi i16 [ %.sroa.9.0179, %41 ], [ %52, %155 ]
   %.4.lcssa = phi i32 [ 0, %41 ], [ %.20, %155 ]
-  %159 = load ptr, ptr %9, align 8, !tbaa !7
+  %159 = load ptr, ptr %9, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %159) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #7
@@ -967,7 +967,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %161 = icmp eq i32 %.4.lcssa, 1
   %162 = icmp samesign ult i64 %.0138180, 4
   %163 = select i1 %161, i1 %162, i1 false
-  br i1 %163, label %38, label %._crit_edge183, !llvm.loop !25
+  br i1 %163, label %38, label %._crit_edge183, !llvm.loop !24
 
 ._crit_edge183:                                   ; preds = %._crit_edge, %34
   %.1.lcssa = phi i32 [ %.0186, %34 ], [ %.4.lcssa, %._crit_edge ]
@@ -979,7 +979,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %1) #7
   %164 = add nuw nsw i64 %.0137185, 1
   %exitcond.not = icmp eq i64 %164, 4
-  br i1 %exitcond.not, label %165, label %20, !llvm.loop !26
+  br i1 %exitcond.not, label %165, label %20, !llvm.loop !25
 
 165:                                              ; preds = %._crit_edge183
   ret i32 %.1.lcssa
@@ -999,21 +999,21 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
   %indvars.iv48 = phi i64 [ 0, %0 ], [ %indvars.iv.next49, %20 ]
   %.01940 = phi i32 [ 1, %0 ], [ %.3, %20 ]
   %4 = getelementptr inbounds nuw [15 x ptr], ptr @kem_str_list, i64 0, i64 %indvars.iv48
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   br label %.preheader34
 
 .preheader34:                                     ; preds = %.preheader35, %19
   %indvars.iv45 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next46, %19 ]
   %.138 = phi i32 [ %.01940, %.preheader35 ], [ %.3, %19 ]
   %6 = getelementptr inbounds nuw [12 x ptr], ptr @kdf_str_list, i64 0, i64 %indvars.iv45
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   br label %8
 
 8:                                                ; preds = %.preheader34, %18
   %indvars.iv = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next, %18 ]
   %.236 = phi i32 [ %.138, %.preheader34 ], [ %.3, %18 ]
   %9 = getelementptr inbounds nuw [15 x ptr], ptr @aead_str_list, i64 0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %1, i64 noundef 128, ptr noundef nonnull @.str.139, ptr noundef %5, ptr noundef %7, ptr noundef %10) #7
   %12 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
   %13 = icmp ne i32 %12, 0
@@ -1034,23 +1034,23 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
   %.3 = phi i32 [ %.236, %8 ], [ 0, %17 ], [ 0, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 15
-  br i1 %.not32, label %19, label %8, !llvm.loop !27
+  br i1 %.not32, label %19, label %8, !llvm.loop !26
 
 19:                                               ; preds = %18
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %.not31 = icmp eq i64 %indvars.iv.next46, 12
-  br i1 %.not31, label %20, label %.preheader34, !llvm.loop !28
+  br i1 %.not31, label %20, label %.preheader34, !llvm.loop !27
 
 20:                                               ; preds = %19
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %.not = icmp eq i64 %indvars.iv.next49, 15
-  br i1 %.not, label %.preheader, label %.preheader35, !llvm.loop !29
+  br i1 %.not, label %.preheader, label %.preheader35, !llvm.loop !28
 
 .preheader:                                       ; preds = %20, %30
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %30 ], [ 0, %20 ]
   %.442 = phi i32 [ %.5, %30 ], [ %.3, %20 ]
   %21 = getelementptr inbounds nuw [35 x ptr], ptr @bogus_suite_strs, i64 0, i64 %indvars.iv51
-  %22 = load ptr, ptr %21, align 8, !tbaa !21
+  %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = call i32 @OSSL_HPKE_str2suite(ptr noundef %22, ptr noundef nonnull %2) #7
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32
@@ -1071,7 +1071,7 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
   %.5 = phi i32 [ %.442, %.preheader ], [ 0, %28 ], [ 0, %27 ]
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %.not25 = icmp eq i64 %indvars.iv.next52, 35
-  br i1 %.not25, label %31, label %.preheader, !llvm.loop !30
+  br i1 %.not25, label %31, label %.preheader, !llvm.loop !29
 
 31:                                               ; preds = %30
   %32 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull @.str.145, ptr noundef nonnull %2) #7
@@ -1091,7 +1091,7 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
   %.not28 = icmp eq i32 %43, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2047) %3, i8 65, i64 2047, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 2047
-  store i8 0, ptr %44, align 1, !tbaa !18
+  store i8 0, ptr %44, align 1, !tbaa !17
   %45 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %3, ptr noundef nonnull %2) #7
   %46 = icmp ne i32 %45, 0
   %47 = zext i1 %46 to i32
@@ -1118,15 +1118,15 @@ define internal range(i32 0, 2) i32 @test_hpke_grease() #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1, i8 0, i64 6, i1 false)
-  store i64 10, ptr %3, align 8, !tbaa !12
-  %5 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 10, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr @testctx, align 8, !tbaa !13
   %6 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 266, ptr noundef %5, ptr noundef null) #7
   %7 = icmp ne i32 %6, 0
   %8 = zext i1 %7 to i32
   %9 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1276, ptr noundef nonnull @.str.181, i32 noundef %8) #7
   %.not = icmp eq i32 %9, 1
-  store i64 512, ptr %3, align 8, !tbaa !12
-  %10 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 512, ptr %3, align 8, !tbaa !11
+  %10 = load ptr, ptr @testctx, align 8, !tbaa !13
   %11 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 266, ptr noundef %10, ptr noundef null) #7
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
@@ -1198,7 +1198,7 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %6) #7
-  %7 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %7 = load ptr, ptr @testctx, align 8, !tbaa !13
   %8 = tail call i32 @OSSL_HPKE_get_grease_value(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %7, ptr noundef null) #7
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
@@ -1207,8 +1207,8 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not, label %66, label %12
 
 12:                                               ; preds = %0
-  store i64 10, ptr %5, align 8, !tbaa !12
-  %13 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 10, ptr %5, align 8, !tbaa !11
+  %13 = load ptr, ptr @testctx, align 8, !tbaa !13
   %14 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %13, ptr noundef null) #7
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
@@ -1217,8 +1217,8 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not9, label %66, label %18
 
 18:                                               ; preds = %12
-  store i64 200, ptr %5, align 8, !tbaa !12
-  %19 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 200, ptr %5, align 8, !tbaa !11
+  %19 = load ptr, ptr @testctx, align 8, !tbaa !13
   %20 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %19, ptr noundef null) #7
   %21 = icmp ne i32 %20, 0
   %22 = zext i1 %21 to i32
@@ -1227,8 +1227,8 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not10, label %66, label %24
 
 24:                                               ; preds = %18
-  store i64 200, ptr %5, align 8, !tbaa !12
-  %25 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 200, ptr %5, align 8, !tbaa !11
+  %25 = load ptr, ptr @testctx, align 8, !tbaa !13
   %26 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %25, ptr noundef null) #7
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
@@ -1237,9 +1237,9 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not11, label %66, label %30
 
 30:                                               ; preds = %24
-  store i64 200, ptr %5, align 8, !tbaa !12
-  store i16 18, ptr %2, align 2, !tbaa !31
-  %31 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 200, ptr %5, align 8, !tbaa !11
+  store i16 18, ptr %2, align 2, !tbaa !30
+  %31 = load ptr, ptr @testctx, align 8, !tbaa !13
   %32 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %31, ptr noundef null) #7
   %33 = icmp ne i32 %32, 0
   %34 = zext i1 %33 to i32
@@ -1248,8 +1248,8 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not12, label %66, label %36
 
 36:                                               ; preds = %30
-  store i64 200, ptr %5, align 8, !tbaa !12
-  %37 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 200, ptr %5, align 8, !tbaa !11
+  %37 = load ptr, ptr @testctx, align 8, !tbaa !13
   %38 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 2, ptr noundef %37, ptr noundef null) #7
   %39 = icmp ne i32 %38, 0
   %40 = zext i1 %39 to i32
@@ -1258,11 +1258,11 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not13, label %66, label %42
 
 42:                                               ; preds = %36
-  store i64 200, ptr %5, align 8, !tbaa !12
-  store i16 32, ptr %2, align 2, !tbaa !31
+  store i64 200, ptr %5, align 8, !tbaa !11
+  store i16 32, ptr %2, align 2, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i16 4660, ptr %43, align 2, !tbaa !33
-  %44 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i16 4660, ptr %43, align 2, !tbaa !32
+  %44 = load ptr, ptr @testctx, align 8, !tbaa !13
   %45 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %44, ptr noundef null) #7
   %46 = icmp ne i32 %45, 0
   %47 = zext i1 %46 to i32
@@ -1271,13 +1271,13 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not14, label %66, label %49
 
 49:                                               ; preds = %42
-  store i64 200, ptr %5, align 8, !tbaa !12
+  store i64 200, ptr %5, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %51 = load i16, ptr %50, align 2, !tbaa !33
-  store i16 %51, ptr %43, align 2, !tbaa !33
+  %51 = load i16, ptr %50, align 2, !tbaa !32
+  store i16 %51, ptr %43, align 2, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 13393, ptr %52, align 2, !tbaa !34
-  %53 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i16 13393, ptr %52, align 2, !tbaa !33
+  %53 = load ptr, ptr @testctx, align 8, !tbaa !13
   %54 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %53, ptr noundef null) #7
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -1286,12 +1286,12 @@ define internal range(i32 0, 2) i32 @test_hpke_random_suites() #1 {
   br i1 %.not15, label %66, label %58
 
 58:                                               ; preds = %49
-  store i64 200, ptr %5, align 8, !tbaa !12
+  store i64 200, ptr %5, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %60 = load i16, ptr %59, align 2, !tbaa !34
-  store i16 %60, ptr %52, align 2, !tbaa !34
-  store i16 17687, ptr %2, align 2, !tbaa !31
-  %61 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %60 = load i16, ptr %59, align 2, !tbaa !33
+  store i16 %60, ptr %52, align 2, !tbaa !33
+  store i16 17687, ptr %2, align 2, !tbaa !30
+  %61 = load ptr, ptr @testctx, align 8, !tbaa !13
   %62 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 500, ptr noundef %61, ptr noundef null) #7
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i32
@@ -1330,27 +1330,27 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   %15 = alloca [76 x i8], align 16
   %16 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !7
+  store ptr null, ptr %1, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 512, ptr %3, align 8, !tbaa !12
+  store i64 512, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_hpke_noncereuse.plain, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store i64 512, ptr %7, align 8, !tbaa !12
+  store i64 512, ptr %7, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store i64 10, ptr %8, align 8, !tbaa !12
+  store i64 10, ptr %8, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store i64 512, ptr %10, align 8, !tbaa !12
+  store i64 512, ptr %10, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
-  store i64 512, ptr %12, align 8, !tbaa !12
+  store i64 512, ptr %12, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #7
-  store i64 0, ptr %14, align 8, !tbaa !12
+  store i64 0, ptr %14, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %15) #7
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %16) #7
   tail call void @OSSL_HPKE_CTX_free(ptr noundef null) #7
@@ -1370,7 +1370,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not176, label %320, label %26
 
 26:                                               ; preds = %21
-  %27 = load i64, ptr %3, align 8, !tbaa !12
+  %27 = load i64, ptr %3, align 8, !tbaa !11
   %28 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef null, ptr noundef nonnull %2, i64 noundef %27) #7
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
@@ -1379,7 +1379,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not177, label %320, label %32
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %1, align 8, !tbaa !7
+  %33 = load ptr, ptr %1, align 8, !tbaa !6
   %34 = call i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef null, ptr noundef %33) #7
   %35 = icmp ne i32 %34, 0
   %36 = zext i1 %35 to i32
@@ -1444,7 +1444,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not185, label %320, label %73
 
 73:                                               ; preds = %68
-  %74 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %74 = load ptr, ptr @testctx, align 8, !tbaa !13
   %75 = call i32 @OSSL_HPKE_keygen(i48 12837853137837, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %74, ptr noundef nonnull @.str.194) #7
   %76 = icmp ne i32 %75, 0
   %77 = zext i1 %76 to i32
@@ -1453,7 +1453,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not186, label %320, label %79
 
 79:                                               ; preds = %73
-  %80 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %80 = load ptr, ptr @testctx, align 8, !tbaa !13
   %81 = call i32 @OSSL_HPKE_keygen(i48 12837853137837, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %80, ptr noundef null) #7
   %82 = icmp ne i32 %81, 0
   %83 = zext i1 %82 to i32
@@ -1462,7 +1462,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not187, label %320, label %85
 
 85:                                               ; preds = %79
-  %86 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %86 = load ptr, ptr @testctx, align 8, !tbaa !13
   %87 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %86, ptr noundef null) #7
   %88 = icmp ne i32 %87, 0
   %89 = zext i1 %88 to i32
@@ -1471,7 +1471,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not188, label %320, label %91
 
 91:                                               ; preds = %85
-  %92 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %92 = load ptr, ptr @testctx, align 8, !tbaa !13
   %93 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 80, ptr noundef %92, ptr noundef null) #7
   %94 = icmp ne i32 %93, 0
   %95 = zext i1 %94 to i32
@@ -1480,7 +1480,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not189, label %320, label %97
 
 97:                                               ; preds = %91
-  %98 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %98 = load ptr, ptr @testctx, align 8, !tbaa !13
   %99 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef 0, ptr noundef %98, ptr noundef null) #7
   %100 = icmp ne i32 %99, 0
   %101 = zext i1 %100 to i32
@@ -1489,7 +1489,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not190, label %320, label %103
 
 103:                                              ; preds = %97
-  %104 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %104 = load ptr, ptr @testctx, align 8, !tbaa !13
   %105 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef -1, ptr noundef %104, ptr noundef null) #7
   %106 = icmp ne i32 %105, 0
   %107 = zext i1 %106 to i32
@@ -1498,8 +1498,8 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not191, label %320, label %109
 
 109:                                              ; preds = %103
-  store i64 10, ptr %3, align 8, !tbaa !12
-  %110 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 10, ptr %3, align 8, !tbaa !11
+  %110 = load ptr, ptr @testctx, align 8, !tbaa !13
   %111 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %110, ptr noundef null) #7
   %112 = icmp ne i32 %111, 0
   %113 = zext i1 %112 to i32
@@ -1508,7 +1508,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not192, label %320, label %115
 
 115:                                              ; preds = %109
-  store i64 512, ptr %3, align 8, !tbaa !12
+  store i64 512, ptr %3, align 8, !tbaa !11
   %116 = call i32 @OSSL_HPKE_encap(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #7
   %117 = icmp ne i32 %116, 0
   %118 = zext i1 %117 to i32
@@ -1525,7 +1525,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not194, label %320, label %125
 
 125:                                              ; preds = %120
-  %126 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %126 = load ptr, ptr @testctx, align 8, !tbaa !13
   %127 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %126, ptr noundef null) #7
   %128 = icmp ne i32 %127, 0
   %129 = zext i1 %128 to i32
@@ -1534,7 +1534,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not195, label %320, label %131
 
 131:                                              ; preds = %125
-  %132 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %132 = load ptr, ptr @testctx, align 8, !tbaa !13
   %133 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 1, i48 4295032864, i32 noundef 0, ptr noundef %132, ptr noundef null) #7
   %134 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1411, ptr noundef nonnull @.str.214, ptr noundef %133) #7
   %.not196 = icmp eq i32 %134, 0
@@ -1551,7 +1551,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
 140:                                              ; preds = %135
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(75) %15, i8 65, i64 75, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 75
-  store i8 0, ptr %141, align 1, !tbaa !18
+  store i8 0, ptr %141, align 1, !tbaa !17
   %142 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %133, ptr noundef nonnull %15, ptr noundef nonnull @.str.216, i64 noundef 3) #7
   %143 = icmp ne i32 %142, 0
   %144 = zext i1 %143 to i32
@@ -1560,7 +1560,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not198, label %320, label %146
 
 146:                                              ; preds = %140
-  %147 = load i64, ptr %3, align 8, !tbaa !12
+  %147 = load i64, ptr %3, align 8, !tbaa !11
   %148 = call i32 @OSSL_HPKE_encap(ptr noundef %133, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %147, ptr noundef null, i64 noundef 0) #7
   %149 = icmp ne i32 %148, 0
   %150 = zext i1 %149 to i32
@@ -1570,21 +1570,21 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
 
 152:                                              ; preds = %146
   call void @OSSL_HPKE_CTX_free(ptr noundef %133) #7
-  %153 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %153 = load ptr, ptr @testctx, align 8, !tbaa !13
   %154 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 12837853137837, i32 noundef 0, ptr noundef %153, ptr noundef null) #7
   %155 = call i32 @test_ptr_null(ptr noundef nonnull @.str.31, i32 noundef 1431, ptr noundef nonnull @.str.218, ptr noundef %154) #7
   %.not200 = icmp eq i32 %155, 0
   br i1 %.not200, label %320, label %156
 
 156:                                              ; preds = %152
-  %157 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %157 = load ptr, ptr @testctx, align 8, !tbaa !13
   %158 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 2989, i48 4295032864, i32 noundef 0, ptr noundef %157, ptr noundef null) #7
   %159 = call i32 @test_ptr_null(ptr noundef nonnull @.str.31, i32 noundef 1436, ptr noundef nonnull @.str.219, ptr noundef %158) #7
   %.not201 = icmp eq i32 %159, 0
   br i1 %.not201, label %320, label %160
 
 160:                                              ; preds = %156
-  %161 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %161 = load ptr, ptr @testctx, align 8, !tbaa !13
   %162 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 4295032864, i32 noundef 0, ptr noundef %161, ptr noundef null) #7
   %163 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1441, ptr noundef nonnull @.str.70, ptr noundef %162) #7
   %.not202 = icmp eq i32 %163, 0
@@ -1623,7 +1623,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not206, label %320, label %184
 
 184:                                              ; preds = %179
-  %185 = load ptr, ptr %1, align 8, !tbaa !7
+  %185 = load ptr, ptr %1, align 8, !tbaa !6
   %186 = call i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %162, ptr noundef %185) #7
   %187 = icmp ne i32 %186, 0
   %188 = zext i1 %187 to i32
@@ -1688,7 +1688,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not214, label %320, label %225
 
 225:                                              ; preds = %220
-  %226 = load i64, ptr %3, align 8, !tbaa !12
+  %226 = load i64, ptr %3, align 8, !tbaa !11
   %227 = call i32 @OSSL_HPKE_encap(ptr noundef %162, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %226, ptr noundef null, i64 noundef 0) #7
   %228 = icmp ne i32 %227, 0
   %229 = zext i1 %228 to i32
@@ -1697,7 +1697,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not215, label %320, label %231
 
 231:                                              ; preds = %225
-  %232 = load i64, ptr %3, align 8, !tbaa !12
+  %232 = load i64, ptr %3, align 8, !tbaa !11
   %233 = call i32 @OSSL_HPKE_encap(ptr noundef %162, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %232, ptr noundef null, i64 noundef 0) #7
   %234 = icmp ne i32 %233, 0
   %235 = zext i1 %234 to i32
@@ -1722,15 +1722,15 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not218, label %320, label %247
 
 247:                                              ; preds = %242
-  %248 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %248 = load ptr, ptr @testctx, align 8, !tbaa !13
   %249 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 1, i48 4295032864, i32 noundef 1, ptr noundef %248, ptr noundef null) #7
   %250 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1502, ptr noundef nonnull @.str.231, ptr noundef %249) #7
   %.not219 = icmp eq i32 %250, 0
   br i1 %.not219, label %320, label %251
 
 251:                                              ; preds = %247
-  %252 = load i64, ptr %7, align 8, !tbaa !12
-  %253 = load ptr, ptr %1, align 8, !tbaa !7
+  %252 = load i64, ptr %7, align 8, !tbaa !11
+  %253 = load ptr, ptr %1, align 8, !tbaa !6
   %254 = call i32 @OSSL_HPKE_decap(ptr noundef %249, ptr noundef nonnull %5, i64 noundef %252, ptr noundef %253, ptr noundef null, i64 noundef 0) #7
   %255 = icmp ne i32 %254, 0
   %256 = zext i1 %255 to i32
@@ -1740,14 +1740,14 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
 
 258:                                              ; preds = %251
   call void @OSSL_HPKE_CTX_free(ptr noundef %249) #7
-  %259 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %259 = load ptr, ptr @testctx, align 8, !tbaa !13
   %260 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 4295032864, i32 noundef 1, ptr noundef %259, ptr noundef null) #7
   %261 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1512, ptr noundef nonnull @.str.78, ptr noundef %260) #7
   %.not221 = icmp eq i32 %261, 0
   br i1 %.not221, label %320, label %262
 
 262:                                              ; preds = %258
-  %263 = load i64, ptr %10, align 8, !tbaa !12
+  %263 = load i64, ptr %10, align 8, !tbaa !11
   %264 = call i32 @OSSL_HPKE_open(ptr noundef %260, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %263) #7
   %265 = icmp ne i32 %264, 0
   %266 = zext i1 %265 to i32
@@ -1756,8 +1756,8 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not222, label %320, label %268
 
 268:                                              ; preds = %262
-  %269 = load i64, ptr %7, align 8, !tbaa !12
-  %270 = load ptr, ptr %1, align 8, !tbaa !7
+  %269 = load i64, ptr %7, align 8, !tbaa !11
+  %270 = load ptr, ptr %1, align 8, !tbaa !6
   %271 = call i32 @OSSL_HPKE_decap(ptr noundef %260, ptr noundef nonnull %5, i64 noundef %269, ptr noundef %270, ptr noundef nonnull %16, i64 noundef -1) #7
   %272 = icmp ne i32 %271, 0
   %273 = zext i1 %272 to i32
@@ -1766,8 +1766,8 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not223, label %320, label %275
 
 275:                                              ; preds = %268
-  %276 = load i64, ptr %7, align 8, !tbaa !12
-  %277 = load ptr, ptr %1, align 8, !tbaa !7
+  %276 = load i64, ptr %7, align 8, !tbaa !11
+  %277 = load ptr, ptr %1, align 8, !tbaa !6
   %278 = call i32 @OSSL_HPKE_decap(ptr noundef %260, ptr noundef nonnull %5, i64 noundef %276, ptr noundef %277, ptr noundef null, i64 noundef 0) #7
   %279 = icmp ne i32 %278, 0
   %280 = zext i1 %279 to i32
@@ -1776,8 +1776,8 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not224, label %320, label %282
 
 282:                                              ; preds = %275
-  %283 = load i64, ptr %7, align 8, !tbaa !12
-  %284 = load ptr, ptr %1, align 8, !tbaa !7
+  %283 = load i64, ptr %7, align 8, !tbaa !11
+  %284 = load ptr, ptr %1, align 8, !tbaa !6
   %285 = call i32 @OSSL_HPKE_decap(ptr noundef %260, ptr noundef nonnull %5, i64 noundef %283, ptr noundef %284, ptr noundef null, i64 noundef 0) #7
   %286 = icmp ne i32 %285, 0
   %287 = zext i1 %286 to i32
@@ -1786,8 +1786,8 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not225, label %320, label %289
 
 289:                                              ; preds = %282
-  store i64 0, ptr %12, align 8, !tbaa !12
-  %290 = load i64, ptr %10, align 8, !tbaa !12
+  store i64 0, ptr %12, align 8, !tbaa !11
+  %290 = load i64, ptr %10, align 8, !tbaa !11
   %291 = call i32 @OSSL_HPKE_open(ptr noundef %260, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %290) #7
   %292 = icmp ne i32 %291, 0
   %293 = zext i1 %292 to i32
@@ -1796,7 +1796,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not226, label %320, label %295
 
 295:                                              ; preds = %289
-  store i64 512, ptr %12, align 8, !tbaa !12
+  store i64 512, ptr %12, align 8, !tbaa !11
   %296 = call i32 @OSSL_HPKE_CTX_set_seq(ptr noundef %260, i64 noundef -1) #7
   %297 = icmp ne i32 %296, 0
   %298 = zext i1 %297 to i32
@@ -1805,7 +1805,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not227, label %320, label %300
 
 300:                                              ; preds = %295
-  %301 = load i64, ptr %10, align 8, !tbaa !12
+  %301 = load i64, ptr %10, align 8, !tbaa !11
   %302 = call i32 @OSSL_HPKE_open(ptr noundef %260, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %301) #7
   %303 = icmp ne i32 %302, 0
   %304 = zext i1 %303 to i32
@@ -1822,7 +1822,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not229, label %320, label %311
 
 311:                                              ; preds = %306
-  %312 = load i64, ptr %10, align 8, !tbaa !12
+  %312 = load i64, ptr %10, align 8, !tbaa !11
   %313 = call i32 @OSSL_HPKE_open(ptr noundef %260, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9, i64 noundef %312) #7
   %314 = icmp ne i32 %313, 0
   %315 = zext i1 %314 to i32
@@ -1831,7 +1831,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   br i1 %.not230, label %320, label %317
 
 317:                                              ; preds = %311
-  %318 = load i64, ptr %12, align 8, !tbaa !12
+  %318 = load i64, ptr %12, align 8, !tbaa !11
   %319 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 1544, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.97, ptr noundef nonnull %4, i64 noundef 16, ptr noundef nonnull %11, i64 noundef %318) #7
   %.not231 = icmp ne i32 %319, 0
   %spec.select = zext i1 %.not231 to i32
@@ -1843,7 +1843,7 @@ define internal range(i32 0, 2) i32 @test_hpke_oddcalls() #1 {
   %.0 = phi i32 [ 0, %311 ], [ 0, %306 ], [ 0, %300 ], [ 0, %295 ], [ 0, %289 ], [ 0, %282 ], [ 0, %275 ], [ 0, %268 ], [ 0, %262 ], [ 0, %258 ], [ 0, %251 ], [ 0, %247 ], [ 0, %242 ], [ 0, %237 ], [ 0, %231 ], [ 0, %225 ], [ 0, %220 ], [ 0, %215 ], [ 0, %210 ], [ 0, %205 ], [ 0, %200 ], [ 0, %195 ], [ 0, %190 ], [ 0, %184 ], [ 0, %179 ], [ 0, %174 ], [ 0, %169 ], [ 0, %164 ], [ 0, %160 ], [ 0, %156 ], [ 0, %152 ], [ 0, %146 ], [ 0, %140 ], [ 0, %135 ], [ 0, %131 ], [ 0, %125 ], [ 0, %120 ], [ 0, %115 ], [ 0, %109 ], [ 0, %103 ], [ 0, %97 ], [ 0, %91 ], [ 0, %85 ], [ 0, %79 ], [ 0, %73 ], [ 0, %68 ], [ 0, %63 ], [ 0, %58 ], [ 0, %53 ], [ 0, %48 ], [ 0, %43 ], [ 0, %38 ], [ 0, %32 ], [ 0, %26 ], [ 0, %21 ], [ 0, %0 ], [ %spec.select, %317 ]
   call void @OSSL_HPKE_CTX_free(ptr noundef %.0174) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.0175) #7
-  %321 = load ptr, ptr %1, align 8, !tbaa !7
+  %321 = load ptr, ptr %1, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %321) #7
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %16) #7
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %15) #7
@@ -1880,27 +1880,27 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %12 = alloca [512 x i8], align 16
   %13 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !7
+  store ptr null, ptr %1, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 512, ptr %3, align 8, !tbaa !12
+  store i64 512, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !7
+  store ptr null, ptr %4, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i64 512, ptr %6, align 8, !tbaa !12
+  store i64 512, ptr %6, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_hpke_noncereuse.plain, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store i64 512, ptr %9, align 8, !tbaa !12
+  store i64 512, ptr %9, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
-  store i64 512, ptr %11, align 8, !tbaa !12
+  store i64 512, ptr %11, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
-  store i64 512, ptr %13, align 8, !tbaa !12
-  %14 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 512, ptr %13, align 8, !tbaa !11
+  %14 = load ptr, ptr @testctx, align 8, !tbaa !13
   %15 = call i32 @OSSL_HPKE_keygen(i48 4295032848, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i64 noundef 0, ptr noundef %14, ptr noundef null) #7
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i32
@@ -1909,7 +1909,7 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not, label %81, label %19
 
 19:                                               ; preds = %0
-  %20 = load ptr, ptr %4, align 8, !tbaa !7
+  %20 = load ptr, ptr %4, align 8, !tbaa !6
   %21 = call i32 @EVP_PKEY_set_utf8_string_param(ptr noundef %20, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.237) #7
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
@@ -1918,7 +1918,7 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not44, label %81, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %4, align 8, !tbaa !7
+  %26 = load ptr, ptr %4, align 8, !tbaa !6
   %27 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %26, ptr noundef nonnull @.str.67, ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %6) #7
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
@@ -1927,7 +1927,7 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not45, label %81, label %31
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %32 = load ptr, ptr @testctx, align 8, !tbaa !13
   %33 = call i32 @OSSL_HPKE_keygen(i48 4295032848, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %32, ptr noundef null) #7
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
@@ -1936,14 +1936,14 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not46, label %81, label %37
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %38 = load ptr, ptr @testctx, align 8, !tbaa !13
   %39 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 2, i48 4295032848, i32 noundef 0, ptr noundef %38, ptr noundef null) #7
   %40 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1840, ptr noundef nonnull @.str.70, ptr noundef %39) #7
   %.not47 = icmp eq i32 %40, 0
   br i1 %.not47, label %81, label %41
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr %4, align 8, !tbaa !7
+  %42 = load ptr, ptr %4, align 8, !tbaa !6
   %43 = call i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %39, ptr noundef %42) #7
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
@@ -1952,7 +1952,7 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not48, label %81, label %47
 
 47:                                               ; preds = %41
-  %48 = load i64, ptr %3, align 8, !tbaa !12
+  %48 = load i64, ptr %3, align 8, !tbaa !11
   %49 = call i32 @OSSL_HPKE_encap(ptr noundef %39, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %2, i64 noundef %48, ptr noundef null, i64 noundef 0) #7
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -1969,14 +1969,14 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not50, label %81, label %58
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %59 = load ptr, ptr @testctx, align 8, !tbaa !13
   %60 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 2, i48 4295032848, i32 noundef 1, ptr noundef %59, ptr noundef null) #7
   %61 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1853, ptr noundef nonnull @.str.78, ptr noundef %60) #7
   %.not51 = icmp eq i32 %61, 0
   br i1 %.not51, label %81, label %62
 
 62:                                               ; preds = %58
-  %63 = load i64, ptr %6, align 8, !tbaa !12
+  %63 = load i64, ptr %6, align 8, !tbaa !11
   %64 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %60, ptr noundef nonnull %5, i64 noundef %63) #7
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
@@ -1985,8 +1985,8 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not52, label %81, label %68
 
 68:                                               ; preds = %62
-  %69 = load i64, ptr %9, align 8, !tbaa !12
-  %70 = load ptr, ptr %1, align 8, !tbaa !7
+  %69 = load i64, ptr %9, align 8, !tbaa !11
+  %70 = load ptr, ptr %1, align 8, !tbaa !6
   %71 = call i32 @OSSL_HPKE_decap(ptr noundef %60, ptr noundef nonnull %8, i64 noundef %69, ptr noundef %70, ptr noundef null, i64 noundef 0) #7
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
@@ -1995,7 +1995,7 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   br i1 %.not53, label %81, label %75
 
 75:                                               ; preds = %68
-  %76 = load i64, ptr %11, align 8, !tbaa !12
+  %76 = load i64, ptr %11, align 8, !tbaa !11
   %77 = call i32 @OSSL_HPKE_open(ptr noundef %60, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10, i64 noundef %76) #7
   %78 = icmp ne i32 %77, 0
   %79 = zext i1 %78 to i32
@@ -2008,9 +2008,9 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %.043 = phi ptr [ %60, %68 ], [ %60, %62 ], [ %60, %58 ], [ null, %53 ], [ null, %47 ], [ null, %41 ], [ null, %37 ], [ null, %31 ], [ null, %25 ], [ null, %19 ], [ null, %0 ], [ %60, %75 ]
   %.042 = phi ptr [ %39, %68 ], [ %39, %62 ], [ %39, %58 ], [ %39, %53 ], [ %39, %47 ], [ %39, %41 ], [ %39, %37 ], [ null, %31 ], [ null, %25 ], [ null, %19 ], [ null, %0 ], [ %39, %75 ]
   %.0 = phi i32 [ 0, %68 ], [ 0, %62 ], [ 0, %58 ], [ 0, %53 ], [ 0, %47 ], [ 0, %41 ], [ 0, %37 ], [ 0, %31 ], [ 0, %25 ], [ 0, %19 ], [ 0, %0 ], [ %spec.select, %75 ]
-  %82 = load ptr, ptr %1, align 8, !tbaa !7
+  %82 = load ptr, ptr %1, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %82) #7
-  %83 = load ptr, ptr %4, align 8, !tbaa !7
+  %83 = load ptr, ptr %4, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %83) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.042) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.043) #7
@@ -2043,22 +2043,22 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !7
+  store ptr null, ptr %1, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 512, ptr %3, align 8, !tbaa !12
+  store i64 512, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_hpke_noncereuse.plain, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i64 512, ptr %6, align 8, !tbaa !12
+  store i64 512, ptr %6, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store i64 512, ptr %8, align 8, !tbaa !12
+  store i64 512, ptr %8, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store i64 512, ptr %10, align 8, !tbaa !12
-  %11 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store i64 512, ptr %10, align 8, !tbaa !11
+  %11 = load ptr, ptr @testctx, align 8, !tbaa !13
   %12 = call i32 @OSSL_HPKE_keygen(i48 4295032864, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef %11, ptr noundef null) #7
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
@@ -2067,7 +2067,7 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   br i1 %.not, label %79, label %16
 
 16:                                               ; preds = %0
-  %17 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %17 = load ptr, ptr @testctx, align 8, !tbaa !13
   %18 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 4295032864, i32 noundef 0, ptr noundef %17, ptr noundef null) #7
   %19 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1901, ptr noundef nonnull @.str.70, ptr noundef %18) #7
   %.not28 = icmp eq i32 %19, 0
@@ -2082,7 +2082,7 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   br i1 %.not29, label %79, label %25
 
 25:                                               ; preds = %20
-  %26 = load i64, ptr %3, align 8, !tbaa !12
+  %26 = load i64, ptr %3, align 8, !tbaa !11
   %27 = call i32 @OSSL_HPKE_encap(ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %26, ptr noundef null, i64 noundef 0) #7
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
@@ -2107,7 +2107,7 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   br i1 %.not32, label %79, label %41
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %42 = load ptr, ptr @testctx, align 8, !tbaa !13
   %43 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 0, i48 4295032864, i32 noundef 1, ptr noundef %42, ptr noundef null) #7
   %44 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1918, ptr noundef nonnull @.str.78, ptr noundef %43) #7
   %.not33 = icmp eq i32 %44, 0
@@ -2122,8 +2122,8 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   br i1 %.not34, label %79, label %50
 
 50:                                               ; preds = %45
-  %51 = load i64, ptr %6, align 8, !tbaa !12
-  %52 = load ptr, ptr %1, align 8, !tbaa !7
+  %51 = load i64, ptr %6, align 8, !tbaa !11
+  %52 = load ptr, ptr %1, align 8, !tbaa !6
   %53 = call i32 @OSSL_HPKE_decap(ptr noundef %43, ptr noundef nonnull %5, i64 noundef %51, ptr noundef %52, ptr noundef null, i64 noundef 0) #7
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
@@ -2140,7 +2140,7 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   br i1 %.not36, label %79, label %62
 
 62:                                               ; preds = %57
-  %63 = load i64, ptr %8, align 8, !tbaa !12
+  %63 = load i64, ptr %8, align 8, !tbaa !11
   %64 = call i32 @OSSL_HPKE_open(ptr noundef %43, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef %63) #7
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
@@ -2157,7 +2157,7 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   br i1 %.not38, label %79, label %73
 
 73:                                               ; preds = %68
-  %74 = load i64, ptr %8, align 8, !tbaa !12
+  %74 = load i64, ptr %8, align 8, !tbaa !11
   %75 = call i32 @OSSL_HPKE_open(ptr noundef %43, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef %74) #7
   %76 = icmp ne i32 %75, 0
   %77 = zext i1 %76 to i32
@@ -2170,7 +2170,7 @@ define internal range(i32 0, 2) i32 @test_hpke_noncereuse() #1 {
   %.027 = phi ptr [ %43, %68 ], [ %43, %62 ], [ %43, %57 ], [ %43, %50 ], [ %43, %45 ], [ %43, %41 ], [ null, %36 ], [ null, %31 ], [ null, %25 ], [ null, %20 ], [ null, %16 ], [ null, %0 ], [ %43, %73 ]
   %.026 = phi ptr [ %18, %68 ], [ %18, %62 ], [ %18, %57 ], [ %18, %50 ], [ %18, %45 ], [ %18, %41 ], [ %18, %36 ], [ %18, %31 ], [ %18, %25 ], [ %18, %20 ], [ %18, %16 ], [ null, %0 ], [ %18, %73 ]
   %.0 = phi i32 [ 0, %68 ], [ 0, %62 ], [ 0, %57 ], [ 0, %50 ], [ 0, %45 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ 0, %25 ], [ 0, %20 ], [ 0, %16 ], [ 0, %0 ], [ %spec.select, %73 ]
-  %80 = load ptr, ptr %1, align 8, !tbaa !7
+  %80 = load ptr, ptr %1, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %80) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.026) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.027) #7
@@ -2192,11 +2192,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @deflprov, align 8, !tbaa !35
+  %1 = load ptr, ptr @deflprov, align 8, !tbaa !34
   %2 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %1) #7
-  %3 = load ptr, ptr @nullprov, align 8, !tbaa !35
+  %3 = load ptr, ptr @nullprov, align 8, !tbaa !34
   %4 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %3) #7
-  %5 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %5 = load ptr, ptr @testctx, align 8, !tbaa !13
   tail call void @OSSL_LIB_CTX_free(ptr noundef %5) #7
   ret void
 }
@@ -2227,38 +2227,38 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   %19 = alloca ptr, align 8
   %20 = alloca i64, align 8
   %21 = alloca [512 x i8], align 16
-  %22 = load ptr, ptr @testctx, align 8, !tbaa !14
+  %22 = load ptr, ptr @testctx, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store i64 256, ptr %8, align 8, !tbaa !12
+  store i64 256, ptr %8, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store i64 256, ptr %9, align 8, !tbaa !12
+  store i64 256, ptr %9, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
-  store i64 256, ptr %10, align 8, !tbaa !12
+  store i64 256, ptr %10, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
-  store i64 512, ptr %12, align 8, !tbaa !12
+  store i64 512, ptr %12, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #7
-  store ptr null, ptr %13, align 8, !tbaa !7
+  store ptr null, ptr %13, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %14) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
-  store i64 512, ptr %15, align 8, !tbaa !12
+  store i64 512, ptr %15, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
-  store ptr null, ptr %16, align 8, !tbaa !7
+  store ptr null, ptr %16, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %17) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #7
-  store i64 512, ptr %18, align 8, !tbaa !12
+  store i64 512, ptr %18, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #7
-  store ptr null, ptr %19, align 8, !tbaa !7
+  store ptr null, ptr %19, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #7
-  store i64 0, ptr %20, align 8, !tbaa !12
+  store i64 0, ptr %20, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !37
+  %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !39
+  %27 = load i64, ptr %26, align 8, !tbaa !38
   %.0.copyload12 = load i48, ptr %23, align 4
   %28 = call i32 @OSSL_HPKE_keygen(i48 %.0.copyload12, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %25, i64 noundef %27, ptr noundef %22, ptr noundef nonnull @.str.62) #7
   %29 = icmp ne i32 %28, 0
@@ -2268,18 +2268,18 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not, label %.loopexit, label %32
 
 32:                                               ; preds = %4
-  %33 = load ptr, ptr %13, align 8, !tbaa !7
+  %33 = load ptr, ptr %13, align 8, !tbaa !6
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !40
+  %35 = load ptr, ptr %34, align 8, !tbaa !39
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = load i64, ptr %36, align 8, !tbaa !41
+  %37 = load i64, ptr %36, align 8, !tbaa !40
   %38 = call fastcc i32 @cmpkey(ptr noundef %33, ptr noundef %35, i64 noundef %37)
   %39 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 121, ptr noundef nonnull @.str.33, i32 noundef %38) #7
   %.not144 = icmp eq i32 %39, 0
   br i1 %.not144, label %.loopexit, label %40
 
 40:                                               ; preds = %32
-  %41 = load i32, ptr %0, align 8, !tbaa !42
+  %41 = load i32, ptr %0, align 8, !tbaa !41
   %.0.copyload10 = load i48, ptr %23, align 4
   %42 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %41, i48 %.0.copyload10, i32 noundef 0, ptr noundef %22, ptr noundef nonnull @.str.62) #7
   %43 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 125, ptr noundef nonnull @.str.34, ptr noundef %42) #7
@@ -2287,8 +2287,8 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not145, label %.loopexit, label %44
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %24, align 8, !tbaa !37
-  %46 = load i64, ptr %26, align 8, !tbaa !39
+  %45 = load ptr, ptr %24, align 8, !tbaa !36
+  %46 = load i64, ptr %26, align 8, !tbaa !38
   %47 = call i32 @OSSL_HPKE_CTX_set1_ikme(ptr noundef %42, ptr noundef %45, i64 noundef %46) #7
   %48 = icmp ne i32 %47, 0
   %49 = zext i1 %48 to i32
@@ -2297,20 +2297,20 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not146, label %.loopexit, label %51
 
 51:                                               ; preds = %44
-  %52 = load i32, ptr %0, align 8, !tbaa !42
+  %52 = load i32, ptr %0, align 8, !tbaa !41
   %53 = and i32 %52, -2
   %switch176 = icmp eq i32 %53, 2
   br i1 %switch176, label %54, label %79
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %56 = load ptr, ptr %55, align 8, !tbaa !43
+  %56 = load ptr, ptr %55, align 8, !tbaa !42
   %.not147 = icmp eq ptr %56, null
   br i1 %.not147, label %62, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %59 = load i64, ptr %58, align 8, !tbaa !44
+  %59 = load i64, ptr %58, align 8, !tbaa !43
   %60 = icmp ne i64 %59, 0
   %61 = zext i1 %60 to i32
   br label %62
@@ -2322,9 +2322,9 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not148, label %.loopexit, label %65
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr %55, align 8, !tbaa !43
+  %66 = load ptr, ptr %55, align 8, !tbaa !42
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %68 = load i64, ptr %67, align 8, !tbaa !44
+  %68 = load i64, ptr %67, align 8, !tbaa !43
   %.0.copyload8 = load i48, ptr %23, align 4
   %69 = call i32 @OSSL_HPKE_keygen(i48 %.0.copyload8, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %66, i64 noundef %68, ptr noundef %22, ptr noundef nonnull @.str.62) #7
   %70 = icmp ne i32 %69, 0
@@ -2334,7 +2334,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not149, label %.loopexit, label %73
 
 73:                                               ; preds = %65
-  %74 = load ptr, ptr %16, align 8, !tbaa !7
+  %74 = load ptr, ptr %16, align 8, !tbaa !6
   %75 = call i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %42, ptr noundef %74) #7
   %76 = icmp ne i32 %75, 0
   %77 = zext i1 %76 to i32
@@ -2344,9 +2344,9 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 79:                                               ; preds = %51, %73
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load ptr, ptr %80, align 8, !tbaa !45
+  %81 = load ptr, ptr %80, align 8, !tbaa !44
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %83 = load i64, ptr %82, align 8, !tbaa !46
+  %83 = load i64, ptr %82, align 8, !tbaa !45
   %.0.copyload6 = load i48, ptr %23, align 4
   %84 = call i32 @OSSL_HPKE_keygen(i48 %.0.copyload6, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %81, i64 noundef %83, ptr noundef %22, ptr noundef nonnull @.str.62) #7
   %85 = icmp ne i32 %84, 0
@@ -2356,18 +2356,18 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not151, label %.loopexit, label %88
 
 88:                                               ; preds = %79
-  %89 = load ptr, ptr %19, align 8, !tbaa !7
+  %89 = load ptr, ptr %19, align 8, !tbaa !6
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %91 = load ptr, ptr %90, align 8, !tbaa !47
+  %91 = load ptr, ptr %90, align 8, !tbaa !46
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %93 = load i64, ptr %92, align 8, !tbaa !48
+  %93 = load i64, ptr %92, align 8, !tbaa !47
   %94 = call fastcc i32 @cmpkey(ptr noundef %89, ptr noundef %91, i64 noundef %93)
   %95 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 144, ptr noundef nonnull @.str.40, i32 noundef %94) #7
   %.not152 = icmp eq i32 %95, 0
   br i1 %.not152, label %.loopexit, label %96
 
 96:                                               ; preds = %88
-  %97 = load i32, ptr %0, align 8, !tbaa !42
+  %97 = load i32, ptr %0, align 8, !tbaa !41
   switch i32 %97, label %109 [
     i32 1, label %98
     i32 3, label %98
@@ -2375,11 +2375,11 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 98:                                               ; preds = %96, %96
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %100 = load ptr, ptr %99, align 8, !tbaa !49
+  %100 = load ptr, ptr %99, align 8, !tbaa !48
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %102 = load ptr, ptr %101, align 8, !tbaa !50
+  %102 = load ptr, ptr %101, align 8, !tbaa !49
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %104 = load i64, ptr %103, align 8, !tbaa !51
+  %104 = load i64, ptr %103, align 8, !tbaa !50
   %105 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %42, ptr noundef %100, ptr noundef %102, i64 noundef %104) #7
   %106 = icmp ne i32 %105, 0
   %107 = zext i1 %106 to i32
@@ -2388,11 +2388,11 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not153, label %.loopexit, label %109
 
 109:                                              ; preds = %96, %98
-  %110 = load i64, ptr %18, align 8, !tbaa !12
+  %110 = load i64, ptr %18, align 8, !tbaa !11
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %112 = load ptr, ptr %111, align 8, !tbaa !52
+  %112 = load ptr, ptr %111, align 8, !tbaa !51
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %114 = load i64, ptr %113, align 8, !tbaa !53
+  %114 = load i64, ptr %113, align 8, !tbaa !52
   %115 = call i32 @OSSL_HPKE_encap(ptr noundef %42, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %17, i64 noundef %110, ptr noundef %112, i64 noundef %114) #7
   %116 = icmp ne i32 %115, 0
   %117 = zext i1 %116 to i32
@@ -2401,8 +2401,8 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not154, label %.loopexit, label %119
 
 119:                                              ; preds = %109
-  %120 = load ptr, ptr %13, align 8, !tbaa !7
-  %121 = load i64, ptr %9, align 8, !tbaa !12
+  %120 = load ptr, ptr %13, align 8, !tbaa !6
+  %121 = load i64, ptr %9, align 8, !tbaa !11
   %122 = call fastcc i32 @cmpkey(ptr noundef %120, ptr noundef nonnull %6, i64 noundef %121)
   %123 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 156, ptr noundef nonnull @.str.43, i32 noundef %122) #7
   %.not155 = icmp eq i32 %123, 0
@@ -2414,17 +2414,17 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %exitcond.not, label %153, label %124
 
 124:                                              ; preds = %.preheader183
-  store i64 256, ptr %10, align 8, !tbaa !12
+  store i64 256, ptr %10, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   %125 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %1, i64 %.0135
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !54
+  %127 = load ptr, ptr %126, align 8, !tbaa !53
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %129 = load i64, ptr %128, align 8, !tbaa !56
+  %129 = load i64, ptr %128, align 8, !tbaa !55
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !57
+  %131 = load ptr, ptr %130, align 8, !tbaa !56
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %133 = load i64, ptr %132, align 8, !tbaa !58
+  %133 = load i64, ptr %132, align 8, !tbaa !57
   %134 = call i32 @OSSL_HPKE_seal(ptr noundef %42, ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef %127, i64 noundef %129, ptr noundef %131, i64 noundef %133) #7
   %135 = icmp ne i32 %134, 0
   %136 = zext i1 %135 to i32
@@ -2433,11 +2433,11 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not171, label %.loopexit, label %138
 
 138:                                              ; preds = %124
-  %139 = load i64, ptr %10, align 8, !tbaa !12
+  %139 = load i64, ptr %10, align 8, !tbaa !11
   %140 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %141 = load ptr, ptr %140, align 8, !tbaa !59
+  %141 = load ptr, ptr %140, align 8, !tbaa !58
   %142 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  %143 = load i64, ptr %142, align 8, !tbaa !60
+  %143 = load i64, ptr %142, align 8, !tbaa !59
   %144 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 166, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull %5, i64 noundef %139, ptr noundef %141, i64 noundef %143) #7
   %.not172 = icmp eq i32 %144, 0
   br i1 %.not172, label %.loopexit, label %145
@@ -2451,13 +2451,13 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not173, label %.loopexit, label %150
 
 150:                                              ; preds = %145
-  %151 = load i64, ptr %20, align 8, !tbaa !12
+  %151 = load i64, ptr %20, align 8, !tbaa !11
   %152 = add nuw nsw i64 %.0135, 1
   %.not174 = icmp eq i64 %151, %152
-  br i1 %.not174, label %.preheader183, label %.loopexit, !llvm.loop !61
+  br i1 %.not174, label %.preheader183, label %.loopexit, !llvm.loop !60
 
 153:                                              ; preds = %.preheader183
-  %154 = load i32, ptr %0, align 8, !tbaa !42
+  %154 = load i32, ptr %0, align 8, !tbaa !41
   %.0.copyload = load i48, ptr %23, align 4
   %155 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %154, i48 %.0.copyload, i32 noundef 1, ptr noundef %22, ptr noundef nonnull @.str.62) #7
   %156 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 175, ptr noundef nonnull @.str.48, ptr noundef %155) #7
@@ -2465,7 +2465,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not156, label %.loopexit, label %157
 
 157:                                              ; preds = %153
-  %158 = load i32, ptr %0, align 8, !tbaa !42
+  %158 = load i32, ptr %0, align 8, !tbaa !41
   switch i32 %158, label %183 [
     i32 1, label %159
     i32 3, label %159
@@ -2473,19 +2473,19 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 159:                                              ; preds = %157, %157
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %161 = load ptr, ptr %160, align 8, !tbaa !49
+  %161 = load ptr, ptr %160, align 8, !tbaa !48
   %.not157 = icmp eq ptr %161, null
   br i1 %.not157, label %170, label %162
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %164 = load ptr, ptr %163, align 8, !tbaa !50
+  %164 = load ptr, ptr %163, align 8, !tbaa !49
   %.not158 = icmp eq ptr %164, null
   br i1 %.not158, label %170, label %165
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %167 = load i64, ptr %166, align 8, !tbaa !51
+  %167 = load i64, ptr %166, align 8, !tbaa !50
   %168 = icmp ne i64 %167, 0
   %169 = zext i1 %168 to i32
   br label %170
@@ -2497,11 +2497,11 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not159, label %.loopexit, label %173
 
 173:                                              ; preds = %170
-  %174 = load ptr, ptr %160, align 8, !tbaa !49
+  %174 = load ptr, ptr %160, align 8, !tbaa !48
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %176 = load ptr, ptr %175, align 8, !tbaa !50
+  %176 = load ptr, ptr %175, align 8, !tbaa !49
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %178 = load i64, ptr %177, align 8, !tbaa !51
+  %178 = load i64, ptr %177, align 8, !tbaa !50
   %179 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %155, ptr noundef %174, ptr noundef %176, i64 noundef %178) #7
   %180 = icmp ne i32 %179, 0
   %181 = zext i1 %180 to i32
@@ -2510,7 +2510,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not160, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %173
-  %.pre = load i32, ptr %0, align 8, !tbaa !42
+  %.pre = load i32, ptr %0, align 8, !tbaa !41
   br label %183
 
 183:                                              ; preds = %._crit_edge, %157
@@ -2520,7 +2520,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %switch178, label %186, label %192
 
 186:                                              ; preds = %183
-  %187 = load i64, ptr %15, align 8, !tbaa !12
+  %187 = load i64, ptr %15, align 8, !tbaa !11
   %188 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %155, ptr noundef nonnull %14, i64 noundef %187) #7
   %189 = icmp ne i32 %188, 0
   %190 = zext i1 %189 to i32
@@ -2529,10 +2529,10 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not161, label %.loopexit, label %192
 
 192:                                              ; preds = %183, %186
-  %193 = load i64, ptr %9, align 8, !tbaa !12
-  %194 = load ptr, ptr %19, align 8, !tbaa !7
-  %195 = load ptr, ptr %111, align 8, !tbaa !52
-  %196 = load i64, ptr %113, align 8, !tbaa !53
+  %193 = load i64, ptr %9, align 8, !tbaa !11
+  %194 = load ptr, ptr %19, align 8, !tbaa !6
+  %195 = load ptr, ptr %111, align 8, !tbaa !51
+  %196 = load i64, ptr %113, align 8, !tbaa !52
   %197 = call i32 @OSSL_HPKE_decap(ptr noundef %155, ptr noundef nonnull %6, i64 noundef %193, ptr noundef %194, ptr noundef %195, i64 noundef %196) #7
   %198 = icmp ne i32 %197, 0
   %199 = zext i1 %198 to i32
@@ -2550,17 +2550,17 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br label %231
 
 202:                                              ; preds = %.preheader181
-  store i64 256, ptr %8, align 8, !tbaa !12
+  store i64 256, ptr %8, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %203 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %1, i64 %.1
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
-  %205 = load ptr, ptr %204, align 8, !tbaa !54
+  %205 = load ptr, ptr %204, align 8, !tbaa !53
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 32
-  %207 = load i64, ptr %206, align 8, !tbaa !56
+  %207 = load i64, ptr %206, align 8, !tbaa !55
   %208 = getelementptr inbounds nuw i8, ptr %203, i64 40
-  %209 = load ptr, ptr %208, align 8, !tbaa !59
+  %209 = load ptr, ptr %208, align 8, !tbaa !58
   %210 = getelementptr inbounds nuw i8, ptr %203, i64 48
-  %211 = load i64, ptr %210, align 8, !tbaa !60
+  %211 = load i64, ptr %210, align 8, !tbaa !59
   %212 = call i32 @OSSL_HPKE_open(ptr noundef %155, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %205, i64 noundef %207, ptr noundef %209, i64 noundef %211) #7
   %213 = icmp ne i32 %212, 0
   %214 = zext i1 %213 to i32
@@ -2570,10 +2570,10 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 216:                                              ; preds = %202
   %217 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %218 = load ptr, ptr %217, align 8, !tbaa !57
+  %218 = load ptr, ptr %217, align 8, !tbaa !56
   %219 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  %220 = load i64, ptr %219, align 8, !tbaa !58
-  %221 = load i64, ptr %8, align 8, !tbaa !12
+  %220 = load i64, ptr %219, align 8, !tbaa !57
+  %221 = load i64, ptr %8, align 8, !tbaa !11
   %222 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 203, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef %218, i64 noundef %220, ptr noundef nonnull %7, i64 noundef %221) #7
   %.not168 = icmp eq i32 %222, 0
   br i1 %.not168, label %.loopexit, label %223
@@ -2587,22 +2587,22 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not169, label %.loopexit, label %228
 
 228:                                              ; preds = %223
-  %229 = load i64, ptr %20, align 8, !tbaa !12
+  %229 = load i64, ptr %20, align 8, !tbaa !11
   %230 = add nuw nsw i64 %.1, 1
   %.not170 = icmp eq i64 %229, %230
-  br i1 %.not170, label %.preheader181, label %.loopexit, !llvm.loop !62
+  br i1 %.not170, label %.preheader181, label %.loopexit, !llvm.loop !61
 
 231:                                              ; preds = %.preheader, %262
   %.2185 = phi i64 [ 0, %.preheader ], [ %263, %262 ]
   %232 = getelementptr inbounds nuw %struct.TEST_EXPORTDATA, ptr %3, i64 %.2185
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
-  %234 = load i64, ptr %233, align 8, !tbaa !63
+  %234 = load i64, ptr %233, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %21) #7
   %235 = icmp ugt i64 %234, 512
   br i1 %235, label %.thread, label %236
 
 236:                                              ; preds = %231
-  %237 = load ptr, ptr %232, align 8, !tbaa !65
+  %237 = load ptr, ptr %232, align 8, !tbaa !64
   %238 = call i32 @OSSL_HPKE_export(ptr noundef %42, ptr noundef nonnull %21, i64 noundef %234, ptr noundef %237, i64 noundef -1) #7
   %239 = icmp ne i32 %238, 0
   %240 = zext i1 %239 to i32
@@ -2611,9 +2611,9 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %.not163, label %.thread, label %242
 
 242:                                              ; preds = %236
-  %243 = load ptr, ptr %232, align 8, !tbaa !65
+  %243 = load ptr, ptr %232, align 8, !tbaa !64
   %244 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %245 = load i64, ptr %244, align 8, !tbaa !66
+  %245 = load i64, ptr %244, align 8, !tbaa !65
   %246 = call i32 @OSSL_HPKE_export(ptr noundef %42, ptr noundef nonnull %21, i64 noundef %234, ptr noundef %243, i64 noundef %245) #7
   %247 = icmp ne i32 %246, 0
   %248 = zext i1 %247 to i32
@@ -2623,8 +2623,8 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 250:                                              ; preds = %242
   %251 = getelementptr inbounds nuw i8, ptr %232, i64 16
-  %252 = load ptr, ptr %251, align 8, !tbaa !67
-  %253 = load i64, ptr %233, align 8, !tbaa !63
+  %252 = load ptr, ptr %251, align 8, !tbaa !66
+  %253 = load i64, ptr %233, align 8, !tbaa !62
   %254 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 228, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %21, i64 noundef %234, ptr noundef %252, i64 noundef %253) #7
   %.not165 = icmp eq i32 %254, 0
   br i1 %.not165, label %.thread, label %255
@@ -2633,7 +2633,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   br i1 %201, label %256, label %262
 
 256:                                              ; preds = %255
-  %257 = load i64, ptr %8, align 8, !tbaa !12
+  %257 = load i64, ptr %8, align 8, !tbaa !11
   %258 = call i32 @OSSL_HPKE_seal(ptr noundef %42, ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef %257) #7
   %259 = icmp ne i32 %258, 0
   %260 = zext i1 %259 to i32
@@ -2649,7 +2649,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %21) #7
   %263 = add nuw nsw i64 %.2185, 1
   %exitcond189.not = icmp eq i64 %263, 3
-  br i1 %exitcond189.not, label %.loopexit, label %231, !llvm.loop !68
+  br i1 %exitcond189.not, label %.loopexit, label %231, !llvm.loop !67
 
 .loopexit:                                        ; preds = %150, %145, %138, %124, %228, %223, %216, %202, %262, %.thread, %192, %186, %173, %170, %153, %119, %109, %98, %88, %79, %73, %65, %62, %44, %40, %32, %4
   %.0134 = phi i32 [ 0, %192 ], [ 0, %186 ], [ 0, %173 ], [ 0, %170 ], [ 0, %153 ], [ 0, %119 ], [ 0, %109 ], [ 0, %98 ], [ 0, %88 ], [ 0, %79 ], [ 0, %73 ], [ 0, %65 ], [ 0, %62 ], [ 0, %44 ], [ 0, %40 ], [ 0, %32 ], [ 0, %4 ], [ 0, %.thread ], [ 1, %262 ], [ 0, %202 ], [ 0, %216 ], [ 0, %223 ], [ 0, %228 ], [ 0, %124 ], [ 0, %138 ], [ 0, %145 ], [ 0, %150 ]
@@ -2657,11 +2657,11 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   %.0132 = phi ptr [ %42, %192 ], [ %42, %186 ], [ %42, %173 ], [ %42, %170 ], [ %42, %153 ], [ %42, %119 ], [ %42, %109 ], [ %42, %98 ], [ %42, %88 ], [ %42, %79 ], [ %42, %73 ], [ %42, %65 ], [ %42, %62 ], [ %42, %44 ], [ %42, %40 ], [ null, %32 ], [ null, %4 ], [ %42, %.thread ], [ %42, %262 ], [ %42, %202 ], [ %42, %216 ], [ %42, %223 ], [ %42, %228 ], [ %42, %124 ], [ %42, %138 ], [ %42, %145 ], [ %42, %150 ]
   call void @OSSL_HPKE_CTX_free(ptr noundef %.0132) #7
   call void @OSSL_HPKE_CTX_free(ptr noundef %.0133) #7
-  %264 = load ptr, ptr %13, align 8, !tbaa !7
+  %264 = load ptr, ptr %13, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %264) #7
-  %265 = load ptr, ptr %19, align 8, !tbaa !7
+  %265 = load ptr, ptr %19, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %265) #7
-  %266 = load ptr, ptr %16, align 8, !tbaa !7
+  %266 = load ptr, ptr %16, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %266) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #7
@@ -2692,7 +2692,7 @@ define internal fastcc range(i32 0, 2) i32 @cmpkey(ptr noundef %0, ptr noundef %
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store i64 0, ptr %5, align 8, !tbaa !12
+  store i64 0, ptr %5, align 8, !tbaa !11
   %6 = icmp ult i64 %2, 257
   %7 = zext i1 %6 to i32
   %8 = tail call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 80, ptr noundef nonnull @.str.63, i32 noundef %7) #7
@@ -2712,7 +2712,7 @@ define internal fastcc range(i32 0, 2) i32 @cmpkey(ptr noundef %0, ptr noundef %
   br i1 %.not8, label %18, label %15
 
 15:                                               ; preds = %14
-  %16 = load i64, ptr %5, align 8, !tbaa !12
+  %16 = load i64, ptr %5, align 8, !tbaa !11
   %17 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 87, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull %4, i64 noundef %16, ptr noundef nonnull %1, i64 noundef %2) #7
   %.not9 = icmp eq i32 %17, 0
   br i1 %.not9, label %19, label %18
@@ -2794,10 +2794,10 @@ define internal fastcc range(i32 0, 2) i32 @test_hpke_one_ikm_gen(i16 noundef ze
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store i64 512, ptr %7, align 8, !tbaa !12
+  store i64 512, ptr %7, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store ptr null, ptr %8, align 8, !tbaa !7
-  %9 = load ptr, ptr @testctx, align 8, !tbaa !14
+  store ptr null, ptr %8, align 8, !tbaa !6
+  %9 = load ptr, ptr @testctx, align 8, !tbaa !13
   %.sroa.0.0.insert.ext = zext nneg i16 %0 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.0.0.insert.ext, 4295032832
   %10 = call i32 @OSSL_HPKE_keygen(i48 %.sroa.0.0.insert.insert, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, i64 noundef %2, ptr noundef %9, ptr noundef null) #7
@@ -2808,15 +2808,15 @@ define internal fastcc range(i32 0, 2) i32 @test_hpke_one_ikm_gen(i16 noundef ze
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr %8, align 8, !tbaa !7
+  %15 = load ptr, ptr %8, align 8, !tbaa !6
   %16 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1745, ptr noundef nonnull @.str.188, ptr noundef %15) #7
   %.not6 = icmp eq i32 %16, 0
   br i1 %.not6, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %18) #7
-  %19 = load i64, ptr %7, align 8, !tbaa !12
+  %19 = load i64, ptr %7, align 8, !tbaa !11
   %20 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 1748, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.189, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef %19) #7
   %.not7 = icmp ne i32 %20, 0
   %. = zext i1 %.not7 to i32
@@ -2854,68 +2854,67 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !10, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !10, i64 0}
-!18 = !{!10, !10, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !10, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 omnipotent char", !9, i64 0}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = !{!32, !20, i64 0}
-!32 = !{!"", !20, i64 0, !20, i64 2, !20, i64 4}
-!33 = !{!32, !20, i64 4}
-!34 = !{!32, !20, i64 2}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}
-!37 = !{!38, !22, i64 16}
-!38 = !{!"", !17, i64 0, !32, i64 4, !22, i64 16, !13, i64 24, !22, i64 32, !13, i64 40, !22, i64 48, !13, i64 56, !22, i64 64, !13, i64 72, !22, i64 80, !13, i64 88, !22, i64 96, !13, i64 104, !22, i64 112, !13, i64 120, !22, i64 128, !13, i64 136, !22, i64 144, !13, i64 152, !22, i64 160}
-!39 = !{!38, !13, i64 24}
-!40 = !{!38, !22, i64 32}
-!41 = !{!38, !13, i64 40}
-!42 = !{!38, !17, i64 0}
-!43 = !{!38, !22, i64 128}
-!44 = !{!38, !13, i64 136}
-!45 = !{!38, !22, i64 48}
-!46 = !{!38, !13, i64 56}
-!47 = !{!38, !22, i64 64}
-!48 = !{!38, !13, i64 72}
-!49 = !{!38, !22, i64 160}
-!50 = !{!38, !22, i64 144}
-!51 = !{!38, !13, i64 152}
-!52 = !{!38, !22, i64 112}
-!53 = !{!38, !13, i64 120}
-!54 = !{!55, !22, i64 24}
-!55 = !{!"", !17, i64 0, !22, i64 8, !13, i64 16, !22, i64 24, !13, i64 32, !22, i64 40, !13, i64 48}
-!56 = !{!55, !13, i64 32}
-!57 = !{!55, !22, i64 8}
-!58 = !{!55, !13, i64 16}
-!59 = !{!55, !22, i64 40}
-!60 = !{!55, !13, i64 48}
-!61 = distinct !{!61, !5, !6}
-!62 = distinct !{!62, !5, !6}
-!63 = !{!64, !13, i64 24}
-!64 = !{!"", !22, i64 0, !13, i64 8, !22, i64 16, !13, i64 24}
-!65 = !{!64, !22, i64 0}
-!66 = !{!64, !13, i64 8}
-!67 = !{!64, !22, i64 16}
-!68 = distinct !{!68, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = !{!9, !9, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !9, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 omnipotent char", !8, i64 0}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = !{!31, !19, i64 0}
+!31 = !{!"", !19, i64 0, !19, i64 2, !19, i64 4}
+!32 = !{!31, !19, i64 4}
+!33 = !{!31, !19, i64 2}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS16ossl_provider_st", !8, i64 0}
+!36 = !{!37, !21, i64 16}
+!37 = !{!"", !16, i64 0, !31, i64 4, !21, i64 16, !12, i64 24, !21, i64 32, !12, i64 40, !21, i64 48, !12, i64 56, !21, i64 64, !12, i64 72, !21, i64 80, !12, i64 88, !21, i64 96, !12, i64 104, !21, i64 112, !12, i64 120, !21, i64 128, !12, i64 136, !21, i64 144, !12, i64 152, !21, i64 160}
+!38 = !{!37, !12, i64 24}
+!39 = !{!37, !21, i64 32}
+!40 = !{!37, !12, i64 40}
+!41 = !{!37, !16, i64 0}
+!42 = !{!37, !21, i64 128}
+!43 = !{!37, !12, i64 136}
+!44 = !{!37, !21, i64 48}
+!45 = !{!37, !12, i64 56}
+!46 = !{!37, !21, i64 64}
+!47 = !{!37, !12, i64 72}
+!48 = !{!37, !21, i64 160}
+!49 = !{!37, !21, i64 144}
+!50 = !{!37, !12, i64 152}
+!51 = !{!37, !21, i64 112}
+!52 = !{!37, !12, i64 120}
+!53 = !{!54, !21, i64 24}
+!54 = !{!"", !16, i64 0, !21, i64 8, !12, i64 16, !21, i64 24, !12, i64 32, !21, i64 40, !12, i64 48}
+!55 = !{!54, !12, i64 32}
+!56 = !{!54, !21, i64 8}
+!57 = !{!54, !12, i64 16}
+!58 = !{!54, !21, i64 40}
+!59 = !{!54, !12, i64 48}
+!60 = distinct !{!60, !5}
+!61 = distinct !{!61, !5}
+!62 = !{!63, !12, i64 24}
+!63 = !{!"", !21, i64 0, !12, i64 8, !21, i64 16, !12, i64 24}
+!64 = !{!63, !21, i64 0}
+!65 = !{!63, !12, i64 8}
+!66 = !{!63, !21, i64 16}
+!67 = distinct !{!67, !5}

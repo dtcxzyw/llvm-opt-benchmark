@@ -431,7 +431,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.1197 = phi ptr [ %.0196367, %28 ], [ %.0196367, %30 ], [ %.0196367, %32 ], [ %.0196367, %34 ], [ %37, %36 ], [ %.0196367, %38 ]
   %42 = call i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.25) #13
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %43, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41
   %44 = icmp ne ptr %.1209, null
@@ -481,7 +481,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 65:                                               ; preds = %61, %58, %55
   %.3 = phi ptr [ %.2, %58 ], [ %.2, %55 ], [ %62, %61 ]
   %.1202 = phi i32 [ 0, %58 ], [ 0, %55 ], [ 1, %61 ]
-  %66 = load i8, ptr @g_debug, align 1, !tbaa !20, !range !24, !noundef !25
+  %66 = load i8, ptr @g_debug, align 1, !tbaa !20, !range !22, !noundef !23
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %77
 
@@ -495,7 +495,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %72
 
 72:                                               ; preds = %70, %68
-  %73 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %73 = load ptr, ptr @stdout, align 8, !tbaa !24
   %74 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10037, ptr noundef %73) #13
   %.not259 = icmp eq i32 %74, 0
   br i1 %.not259, label %77, label %75
@@ -745,7 +745,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %212
 
 212:                                              ; preds = %210, %208
-  %213 = load i8, ptr @g_debug, align 1, !tbaa !20, !range !24, !noundef !25
+  %213 = load i8, ptr @g_debug, align 1, !tbaa !20, !range !22, !noundef !23
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %224
 
@@ -759,7 +759,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %219
 
 219:                                              ; preds = %217, %215
-  %220 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %220 = load ptr, ptr @stdout, align 8, !tbaa !24
   %221 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %205, i32 noundef 10037, ptr noundef %220) #13
   %.not268 = icmp eq i32 %221, 0
   br i1 %.not268, label %224, label %222
@@ -930,7 +930,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 316:                                              ; preds = %303
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
   %317 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef nonnull %12, i32 noundef 2097154, ptr noundef nonnull %10) #13
-  %318 = load i64, ptr %10, align 8, !tbaa !28
+  %318 = load i64, ptr %10, align 8, !tbaa !26
   %.off = add i64 %318, -300
   %319 = icmp ult i64 %.off, 100
   br i1 %319, label %320, label %341
@@ -1147,7 +1147,7 @@ define dso_local ptr @read_stream() local_unnamed_addr #4 {
   br i1 %.not27, label %7, label %.preheader31
 
 .preheader31:                                     ; preds = %3
-  %5 = load ptr, ptr @stdin, align 8, !tbaa !26
+  %5 = load ptr, ptr @stdin, align 8, !tbaa !24
   %6 = tail call i32 @feof(ptr noundef %5) #13
   %.not2833 = icmp eq i32 %6, 0
   br i1 %.not2833, label %.lr.ph, label %._crit_edge
@@ -1157,13 +1157,13 @@ define dso_local ptr @read_stream() local_unnamed_addr #4 {
   br label %23
 
 .loopexit:                                        ; preds = %16
-  %8 = load ptr, ptr @stdin, align 8, !tbaa !26
+  %8 = load ptr, ptr @stdin, align 8, !tbaa !24
   %9 = tail call i32 @feof(ptr noundef %8) #13
   %.not28 = icmp eq i32 %9, 0
-  br i1 %.not28, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %.not28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader31, %.loopexit
-  %10 = load ptr, ptr @stdin, align 8, !tbaa !26
+  %10 = load ptr, ptr @stdin, align 8, !tbaa !24
   %11 = call i64 @fread(ptr noundef nonnull %1, i64 noundef 1, i64 noundef 512, ptr noundef %10)
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %.preheader
@@ -1177,7 +1177,7 @@ define dso_local ptr @read_stream() local_unnamed_addr #4 {
 16:                                               ; preds = %.preheader
   %17 = add i64 %19, %.02232
   %18 = icmp ult i64 %17, %11
-  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !31
+  br i1 %18, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %16
   %.02232 = phi i64 [ %17, %16 ], [ 0, %.lr.ph ]
@@ -1300,13 +1300,9 @@ attributes #17 = { nounwind allocsize(1) }
 !19 = !{!10, !10, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"_Bool", !5, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{i8 0, i8 2}
-!25 = !{}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"long", !5, i64 0}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
+!27 = !{!"long", !5, i64 0}

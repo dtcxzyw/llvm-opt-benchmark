@@ -252,7 +252,7 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
   store ptr %48, ptr %47, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %50, ptr %51, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile ptr %47, ptr %50, align 8
   store ptr %47, ptr %49, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %46) #10
@@ -448,7 +448,7 @@ define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range
   %40 = phi i32 [ %38, %31 ], [ %15, %20 ]
   %41 = load ptr, ptr %14, align 8
   %42 = icmp eq ptr %41, @trigger_list
-  br i1 %42, label %.loopexit, label %13, !llvm.loop !10
+  br i1 %42, label %.loopexit, label %13, !llvm.loop !9
 
 .loopexit:                                        ; preds = %39, %3
   %43 = phi i32 [ %8, %3 ], [ %40, %39 ]
@@ -550,7 +550,7 @@ define dso_local void @led_trigger_set_default(ptr noundef %0) #0 align 16 {
 31:                                               ; preds = %22, %12
   %32 = load ptr, ptr %13, align 8
   %33 = icmp eq ptr %32, @trigger_list
-  br i1 %33, label %.loopexit, label %12, !llvm.loop !11
+  br i1 %33, label %.loopexit, label %12, !llvm.loop !10
 
 .loopexit:                                        ; preds = %31, %25, %5
   tail call void @up_write(ptr noundef nonnull %6) #10
@@ -608,7 +608,7 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
 26:                                               ; preds = %16, %10
   %27 = load ptr, ptr %11, align 8
   %28 = icmp eq ptr %27, @trigger_list
-  br i1 %28, label %.loopexit6, label %10, !llvm.loop !12
+  br i1 %28, label %.loopexit6, label %10, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %26, %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -673,7 +673,7 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
   tail call void @up_write(ptr noundef %39) #10
   %64 = load ptr, ptr %37, align 8
   %65 = icmp eq ptr %64, @leds_list
-  br i1 %65, label %.loopexit, label %36, !llvm.loop !13
+  br i1 %65, label %.loopexit, label %36, !llvm.loop !12
 
 .loopexit:                                        ; preds = %63, %.loopexit6
   tail call void @up_read(ptr noundef nonnull @leds_list_lock) #10
@@ -688,7 +688,7 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
 define dso_local void @led_trigger_unregister(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile ptr, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %5, label %9
 
@@ -732,7 +732,7 @@ define dso_local void @led_trigger_unregister(ptr noundef %0) #0 align 16 {
   tail call void @up_write(ptr noundef %17) #10
   %25 = load ptr, ptr %16, align 8
   %26 = icmp eq ptr %25, @leds_list
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %24, %9
   tail call void @up_read(ptr noundef nonnull @leds_list_lock) #10
@@ -750,7 +750,7 @@ define dso_local noundef range(i32 -17, 1) i32 @devm_led_trigger_register(ptr no
 
 5:                                                ; preds = %2
   store ptr %1, ptr %3, align 8
-  %6 = tail call i32 @led_trigger_register(ptr noundef %1), !range !16
+  %6 = tail call i32 @led_trigger_register(ptr noundef %1), !range !15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
 
@@ -801,7 +801,7 @@ define dso_local void @led_trigger_event(ptr noundef %0, i32 noundef %1) #0 alig
   tail call void @led_set_brightness(ptr noundef %9, i32 noundef %1) #10
   %10 = load volatile ptr, ptr %8, align 8
   %11 = icmp eq ptr %10, %5
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %4
   tail call void @__rcu_read_unlock() #10
@@ -829,7 +829,7 @@ define dso_local void @led_trigger_blink(ptr noundef %0, i64 noundef %1, i64 nou
   tail call void @led_blink_set_nosleep(ptr noundef %10, i64 noundef %1, i64 noundef %2) #10
   %11 = load volatile ptr, ptr %9, align 8
   %12 = icmp eq ptr %11, %6
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %5
   tail call void @__rcu_read_unlock() #10
@@ -863,7 +863,7 @@ define dso_local void @led_trigger_blink_oneshot(ptr noundef %0, i64 noundef %1,
   call void @led_blink_set_oneshot(ptr noundef %13, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %3) #10
   %14 = load volatile ptr, ptr %12, align 8
   %15 = icmp eq ptr %14, %9
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %8
   call void @__rcu_read_unlock() #10
@@ -884,7 +884,7 @@ define dso_local void @led_trigger_register_simple(ptr noundef %0, ptr noundef w
 
 6:                                                ; preds = %2
   store ptr %0, ptr %4, align 8
-  %7 = tail call i32 @led_trigger_register(ptr noundef nonnull %4), !range !16
+  %7 = tail call i32 @led_trigger_register(ptr noundef nonnull %4), !range !15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %13
 
@@ -924,7 +924,7 @@ define dso_local void @led_trigger_unregister_simple(ptr noundef %0) #0 align 16
 define internal i32 @led_trigger_snprintf(ptr noundef %0, i64 noundef range(i64 -4294967295, 4294967296) %1, ptr noundef %2, ...) unnamed_addr #0 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !18
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = icmp slt i64 %1, 1
   br i1 %5, label %6, label %8
@@ -1002,19 +1002,17 @@ attributes #13 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2152458743}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{i64 2148116432}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = !{i32 -17, i32 1}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = !{!"auto-init"}
+!8 = !{i64 2152458743}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{i64 2148116432}
+!14 = distinct !{!14, !6, !7}
+!15 = !{i32 -17, i32 1}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = !{!"auto-init"}
